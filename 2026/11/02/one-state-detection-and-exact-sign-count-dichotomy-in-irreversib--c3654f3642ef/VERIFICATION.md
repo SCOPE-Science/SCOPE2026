@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md` and the complete executable numerical cross-check is in `check_threecycle.py`.
+## correctness
 
-Run from the directory containing both files:
+PASS
 
-```sh
-python3 check_threecycle.py
-```
+Stationarity gives C_i(t)=π_i(P_ii(t)−π_i), with π_i positive and proportional to inverse exit rate. Subtracting the stationary projector leaves the quadratic characteristic factor λ²+σλ+q; Cayley–Hamilton applies without diagonalizability. Normalizing by π_i(1−π_i) gives initial slope −r_i with r_i=a_i+yz/(y+z). In the complex regime the normalized covariance is a decaying nonzero sinusoid, so each state has infinitely many simple alternating zeros. For real spectrum choose a maximal a; Δ=(a−b−c)²−4bc and max(b,c)>(√b−√c)² rule out the low branch, giving a≥b+c+2√(bc) and uniqueness. The two decay rates satisfy b+c<γ_−≤γ_+<a. Consequently the fastest r_i exceeds γ_+ and the other two are below γ_−. At distinct roots the slow exponential coefficient is negative only for the fastest indicator, whose bracket divided by the slow exponential decreases from 1 to a negative constant and gives the stated log crossing. The other two are positive in their hyperbolic forms. At the repeated root the affine bracket has negative slope only for the same indicator, with the stated reciprocal crossing time. The stationary two-state covariance is a positive exponential, and the one-state covariance vanishes.
 
-The script uses only the Python 3 standard library. It implements Poisson uniformization directly for the three-state transition generator, independently of the closed-form spectral solution. The observed run passed 13,747 comparisons/assertions; maximum absolute discrepancy was \(5.088\times10^{-15}\). It separately checks the two exact boundary examples and the identity of the unique negative-state indicator for positive-discriminant random cases.
+## originality
 
-The full infinite statements, including all positive rates, all lags and the double-root boundary, follow from the algebraic proof. Finite sampling, a numerical tolerance and a source search cannot establish mathematical universality or historical uniqueness. Independent mathematical validation and independent priority assessment have not been performed.
+PASS
+
+Exact autocovariance formulas for three-state chains, the binary-output spectrum of this very cycle, and the concept of simple versus oscillatory overshoot all have precedent. The supported distinct result is the simultaneous all-positive-rate zero-count theorem, specifically the explicit fastest-state selection throughout the real-spectrum regime, including its repeated-root boundary. No independent originality is assigned to the correlation formulas, the complex-mode sinusoid inference, or the general possibility of overshoot.
+
+## value
+
+PASS
+
+A sign test using only a binary sensor is different from detecting an oscillatory spectrum or building a tailored linear combination of states. This classification tells which sensor can detect negative lag covariance from the rate ordering alone, including the boundary and the nonoscillatory regime where spectrum type by itself does not identify a sensor. The examples and the two-state obstruction delimit the phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

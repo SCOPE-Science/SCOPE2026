@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Hamiltonian is specified by disjoint two-subsets and one altered edge, with no implicit normalization. The dark-state equivalence follows from contraction and spectral analysis of a finite-dimensional dissipative generator with strictly positive loss rates. The full characteristic polynomial proves the size-three lower bound at any positive edge weight and the size-five lower bound at the symmetric point. Two explicit square Krylov minors, with determinants \(-2(t-1)^3\) and \(-2\), prove the corresponding upper bounds. Exact row elimination establishes the rank-seven exceptional triple. Two separately implemented verification programs reproduce the identities; independent integer interpolation proves the variable-parameter determinant for all values rather than merely examples. The theorem does not make any uniform-in-parameter finite-time claim.
+PASS
 
-## Originality — PASS on inspected evidence, with residual priority risk
+If K has an imaginary-axis eigenvector, taking the real part of its eigenvector identity shows that the sum of strictly positive site losses on it is zero, so it is a Hamiltonian eigenvector vanishing on all sinks. Conversely all such Hamiltonian modes form a reducing subspace for K, evolving unitarily; its orthogonal complement is exponentially damped in finite dimension. The complement is the sum of the sink-visible spectral projection ranges, equivalently the Krylov space. Independently constructed H₁=J−MᵀM+I using the 5×10 point-versus-pair incidence M and MMᵀ=3I+J, yielding eigenspace dimensions 1,4,5 for 3,−2,1. The symmetric off-diagonal update has rank two, leaving at least three 1-eigenvectors; two site evaluations cannot see them all. A rank-two resolvent calculation reproduces the entire stated characteristic polynomial. Exact weighted walks and determinant expansion reproduce −2(t−1)^3 for (1,2,8) in the specified order and −2 for (0,1,2,4,5) at t=1. The triple's projected ranks at t=1 are 1,3,3, so exactly 7/10 is captured from I/10, versus 1 for nonunit t by the nonzero minor. At t=1 the 1-eigenspace demands five sinks. Fixed finite-time evolution is continuous by the matrix exponential; no uniform decay-rate assertion is used.
 
-Earlier work establishes dark-state and Krylov principles, a one-sink Petersen case, and edge-perturbation methods in complete and other graph families. The unweighted Petersen baseline is also covered through the complementary triangular-graph eigenstructure. Those are credited, not presented as original. The claim inspected for novelty is the *sharp three-versus-five minimum detector count for a one-edge-perturbed Petersen adjacency Hamiltonian, valid for all positive nonunit edge weights*, including the same universal three-set and explicit exceptional capture law. No examined primary full text or indexed record implied this weighted-site classification. Broad literature coverage is incomplete; a prior equivalent configuration-specific theorem cannot be excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest highly symmetric cubic distance-regular network exhibits a sharp and experimentally interpretable reduction in absorbing-site resources under an arbitrarily small single-bond perturbation. The exact singular cubic Krylov determinant and sharp permanent three-dimensional obstruction give structural understanding, not just an isolated numerical optimization. The jump in eventual mixed-state capture while finite-time evolution varies continuously makes the infinite-time/nonuniform-rate distinction precise.
+Best-knowledge pass for the sharp weighted Petersen statement with a fixed three-site witness on the entire positive nonunit parameter range and the associated efficiency discontinuity. The dark-space criterion and the unweighted baseline are covered. Closely matched diffusion work and the cited one-trap article have access limitations; neither is used to assert verified absence of deeper overlap.
 
-## Limits and related literature
+## value
 
-The 2021 one-sink Petersen calculation and the unweighted triangular-graph spectral-rank formula are important baselines. Caruso et al. (2009), Bassereh et al. (2015), Le et al. (2017), and Cavazzoni et al. (2022) supply mechanisms and neighboring graph examples. The studied object is specifically the adjacency-based single-edge-defect graph; Laplacian-hopping and all-graph robustness are not asserted. Indexed result summaries could not all be inspected as full texts, so definitive bibliographic priority remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural resource question is how many local sinks guarantee trapping of an arbitrary single-particle state. A lone defective edge sharply reduces that number, but an invariant eigenspace still forbids using two sinks. The same exact triple for all positive nonunit weights and its jump from 7/10 capture at symmetry to full capture separate eventual capture from finite-time behavior; this is not just a perturbed example at a single weight or a generic-rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

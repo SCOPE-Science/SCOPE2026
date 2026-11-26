@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:26:36.230273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–44",
+        "VERIFICATION.md lines 19–25",
+        "verify_orbits.py and verify_direct.py inspected as evidence",
+        "Independent exhaustive replay: python3 /workspace/review_checks/quartics.py (SymPy)"
+      ],
+      "rationale": "Independently enumerated all 32767 nonzero forms under all 168 invertible binary matrices, rather than using the supplied orbit generators. For each representative, tested the quartic and its three partials for a common zero on each of three affine charts using SymPy Gröbner bases over F2 and the weak Nullstellensatz. Including the equation itself is essential in characteristic two. Geometric smoothness is invariant under the action; in particular a smooth quartic cannot contain a line component by Bézout together with smoothness. For each smooth equation, computed tangent restrictions F(P+tQ) by binomial coefficient parity, with Q a distinct rational vector on the tangent. The initial nonzero degree is the local contact order and is unchanged by a change of tangent parameter. All eleven rows agree exactly; totals are 78 classes and 10920 equations. Mask 4418 lies in the sole (4,0) orbit of size 168 and gives the displayed polynomial. Its tangent lines at the three coordinate points and [1:1:1] have cubic leading contact terms, as claimed. Canonical embeddings identify projective equivalence with isomorphism here.",
+      "residual_risks": [
+        "The supplied verifiers share the orbit and smoothness routines; the separately written replay used a different group traversal and Gröbner implementation. Nothing here counts nonrational flexes or generalizes the bounds to extensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The normal forms cover ordinary and nonordinary smooth plane quartics over finite fields of characteristic two, grouped by 2-rank and related data. Pacini–Testa study reconstruction from inflection lines rather than a contact census, and their cited theorem requires characteristic coprime to six."
+        ],
+        "reasoning": "Complete normal forms can be used as input to a further set of tangent computations, but are not an evaluated distribution of their outputs.",
+        "searches": [
+          "Nart–Ritzenthaler arXiv:math/0312366, §1.4, Theorems 1.7–1.8, Proposition 2.1 and §§2.1–2.3",
+          "Pacini–Testa arXiv:1711.05776, §4 Theorem 4.9"
+        ]
+      },
+      "checked_sources": [
+        "Nart–Ritzenthaler arXiv:math/0312366",
+        "Pacini–Testa arXiv:1711.05776",
+        "Resultary indexed records 986597a0550f and 601a101494b8",
+        "RESULT.md lines 56–65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A rational tangent restriction with contacts 3+1 is not a rational bitangent; its existence cannot be read off solely from a count of even-contact lines. The unique three-hyperflex orbit contains no further rational points, so it accounts for one row only."
+        ],
+        "reasoning": "No reduction from the inspected published aggregate tables to the new joint flex counts was identified. Enumerating each normal form's actual rational tangent jets is additional work, not specialization of their counting formulas.",
+        "searches": [
+          "arXiv:math/0312366 Theorem 3.1 and normal-model sections",
+          "Resultary records 986597a0550f and 601a101494b8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonhyperelliptic genus-three isomorphism is equivalent to projective equivalence via the canonical plane model. Rational theta-line profiles concern bitangent-type even contact divisors; a rational ordinary flex has odd contact order three. The inflection-line reconstruction comparison in Pacini–Testa Theorem 4.9 excludes characteristic two."
+        ],
+        "reasoning": "The genus-three terminology does identify the same population, but neither ordinary Jacobians nor ordinary theta contacts are alternative names for cubic tangent contact at rational points.",
+        "searches": [
+          "arXiv:math/0312366",
+          "arXiv:1711.05776",
+          "Resultary: 2026/10/26/SCOPE-joint-rational-theta-contact-profiles-of-smooth-plane-quartics-o--601a101494b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Newton-polygon counts at q=2 are 39, 19, 10, 4, 6, totaling 78. The October 18 summary reports a unique orbit of 28 equations attaining three rational hyperflexes, precisely the rational points of that curve. The October 26 summary reports 40 profiles of rational points and rational theta-line contacts across the 78 classes."
+        ],
+        "reasoning": "The first total and the (0,3) row are covered, but the inspected evidence does not supply the other joint-flex rows or the four-ordinary-flex extremum.",
+        "searches": [
+          "arXiv:math/0312366 §3 Theorem 3.1",
+          "Resultary: 2026/10/18/SCOPE-three-rational-hyperflexes-characterize-one-projective-orbit-of--986597a0550f",
+          "Resultary: 2026/10/26/SCOPE-joint-rational-theta-contact-profiles-of-smooth-plane-quartics-o--601a101494b8"
+        ]
+      },
+      "rationale": "Credit the 78-class total and complete normal forms to Nart and Ritzenthaler and the three-hyperflex orbit to the earlier indexed Resultary result. The supported distinct finding is the eleven-stratum split by rational ordinary-flex and hyperflex counts, including the unique four-ordinary-flex orbit. The strongest inspected classification table enumerates by Newton polygon and does not calculate this tangency invariant. Its catalogue of curves allows a further exact computation, but neither that table nor the compared theta-contact descriptions mechanically supply the two contact counts.",
+      "residual_risks": [
+        "The two related Resultary entries were not read in full. An older equivalent jet calculation based on the normal forms or a geometric-flex catalogue could still exist; no global priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objects and total already known; table stratifies by Jacobian, not tangent order",
+          "evidence": "Theorem 3.1 specializes to 39+19+10+4+6=78 at q=2.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/math/0312366#S3.Thmteor1",
+          "material_read": "§3 Theorem 3.1; normal-form structure in §§1–2",
+          "method": "Accessible full-text HTML after attempted OA passage retrieval",
+          "title": "Non-hyperelliptic curves of genus three over finite fields of characteristic two",
+          "trigger": "Complete characteristic-two classification of the same objects"
+        },
+        {
+          "assessment": "Different invariant and hypotheses",
+          "evidence": "The cited reconstruction theorem assumes the characteristic is coprime to 6.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1711.05776#S4.ThmLem9",
+          "material_read": "Abstract and §4 Theorem 4.9",
+          "method": "Accessible full-text HTML",
+          "title": "Reconstructing general plane quartics from their inflection lines",
+          "trigger": "General plane-quartic flex work"
+        },
+        {
+          "assessment": "Specific partial overlap",
+          "evidence": "One 28-equation orbit with exactly three rational points, all hyperflexes.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-rational-hyperflexes-characterize-one-projective-orbit-of--986597a0550f",
+          "material_read": "Indexed description only",
+          "method": "Local Resultary search; full record unavailable",
+          "title": "Three rational hyperflexes characterize one projective orbit",
+          "trigger": "Same field, objects and hyperflex invariant"
+        },
+        {
+          "assessment": "Important neighboring calculation; exact ordinary flex counts not established by the description",
+          "evidence": "Forty profiles of rational points and rational theta contact over 78 classes.",
+          "identifier_or_url": "2026/10/26/SCOPE-joint-rational-theta-contact-profiles-of-smooth-plane-quartics-o--601a101494b8",
+          "material_read": "Indexed description only",
+          "method": "Local Resultary search; full record unavailable",
+          "title": "Joint rational theta-contact profiles of smooth plane quartics",
+          "trigger": "Same objects and nearby rational contact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding",
+        "Independent exhaustive replay",
+        "Nart–Ritzenthaler Theorem 3.1 and the earlier hyperflex-only description"
+      ],
+      "rationale": "The smallest finite field is a natural test for arithmetic inflection in characteristic two. Separating rational third- and fourth-order contacts rather than merely tallying curves or inflection lines gives a usable distribution by equation and by class, and resolves a sharp extremum with an explicit unique projective witness. The known class total is a cross-check, not the new contribution.",
+      "residual_risks": [
+        "The census has no asserted implication for larger finite fields or for all geometric Weierstrass points."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

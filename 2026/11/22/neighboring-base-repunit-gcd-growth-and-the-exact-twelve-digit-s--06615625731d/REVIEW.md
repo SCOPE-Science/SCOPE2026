@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complex-unit-circle intersection argument identifies and excludes every possible common polynomial root for every positive integer shift and length, including the \(h=2\) boundary where the translated root would be \(1\), which is not a repunit root. Dividing out the unique \(\Phi_3\) factor leaves two integral monic polynomials with nonzero resultant, proving the global bounded quotient and growth dichotomy. The length-six formula has an explicit integral Bézout identity. The twelve-digit formula has a fully specified 18-by-18 resultant determinant, complete prime-root sets, and a Hensel-digit separation for every possible common residue. The independent standard-library checker verifies the resultant, modular squares, all 455 classes, and 8,000 direct integer GCD comparisons. No finite experiment is substituted for the all-length proof.
+## correctness
 
-## Originality
-**PASS on inspected evidence, not certified priority.** Komatsu’s 2022 repunit-related shifted-geometric Frobenius results address additive coin representation, not simultaneous equal-length repunit divisibility. General theorems of Frenkel–Pelikán (2016), Bodin–Dèbes–Najib (2020), and Bodin–Dèbes (2021) already establish resultant bounds and periodicity for coprime polynomial evaluations; **these general tools are not a novelty claim**. The inspected results do not classify the unique root-of-unity shift responsible for growth across all repunit lengths and shifts or give the exact length-twelve squarefree value spectrum despite its highly nonsquarefree resultant. Ruiz (2025) proves base-change congruences but does not state the GCD spectrum in inspected Section 6. Relevant mathematical-record searches returned adjacent cyclotomic value and digit-sum results rather than a dominating implication. An unindexed exact table or equivalent repunit formulation remains a residual priority risk.
+PASS
 
-## Mathematical value
-**PASS.** Comparing repunits of the same length in neighboring bases is a natural simultaneous-divisibility question. The theorem classifies **all** integer shifts and lengths into bounded versus quadratically growing GCDs; the exceptional length condition is rigid, not a chosen computational slice. At the first two exceptional lengths the proof goes beyond the generic resultant bound to a complete local and global distribution. The twelve-digit law supplies sharp period, every attainable normalized divisor, exact frequencies and modular obstructions, useful for precise simultaneous-divisibility analysis. The main contribution is arithmetic classification rather than a generic periodicity observation.
+The roots of P_m are simple nonidentity m-th roots of unity. For a common root z of P_m(X),P_m(X+h), the two unit-modulus equations give Re z=−h/2. For h>2 this is impossible; h=2 translates the only candidate −1 to the excluded root 1. For h=1 the candidates have orders 3 and their translates have order 6, giving exactly the quadratic factor precisely when 6 divides m. After exact monic division, the residual evaluated GCD equals gcd(A(b),B(b),C) where C is the absolute nonzero resultant, giving divisibility, periodicity and the growth dichotomy. Independently expanding the original polynomials in ZZ verified the length-six bound after parity and the length-twelve resultant 1023252616422400. At length twelve there is no common root modulo 2; the listed roots modulo 5,7,13 have exactly the displayed disjoint lift digits modulo the respective squares. Hence the residual is squarefree. CRT gives the eight values and their frequencies; any period has to preserve each nonconstant prime indicator, forcing divisibility by all three primes. The independent replay also rejected all smaller cyclic shifts of the exact evaluated table.
 
-## Closest literature and limits
-The 2022 shifted-geometric Frobenius source (primary 11D07) motivates a distinct repunit divisibility invariant. The most important broader prior theorem is the 2020 polynomial-value GCD periodicity theorem; the 2016 resultant result is another strong ancestor. Neither supplies the present explicit twelve-digit local root or nonsimultaneous lift table. Explicit full spectra at lengths divisible by six greater than twelve have **not** been proved here, and literature priority is not independently verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general divisibility and periodicity theorem for coprime polynomial values is established prior work, and the finding does not claim it as new. The supported distinctions are the classification of which equal-length shifted repunit pairs have a common polynomial factor, and the exact two exceptional-length residual laws, in particular the length-twelve local square obstructions and least period. None of the inspected table comparators has these two polynomial inputs. The citation summary in RESULT.md line 99 overgroups Bodin–Dèbes (arXiv:2105.13883) with the univariate periodicity sources: its several-variable theorem concerns gcd/lcm stability and permits infinite sets. This is a literature-description correction, not a flaw in the theorem, whose periodicity proof is self-contained and also matches the separate univariate references.
+
+## value
+
+PASS
+
+Fixing the length and varying the positive base gap is a natural classification of shared divisibility across repunit bases. The unique quadratic-growth family and the two exact initial exceptional spectra give mathematically meaningful boundary data; the length-twelve example separates the coarse resultant bound from sharp simultaneous prime-power divisibility and from the true period.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

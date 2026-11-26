@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:20:07.276403Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each coarse residue profile, avoiding a witness is equivalent to satisfying all affine constraints on fine digits for exactly the five-index selections whose coarse sums are divisible by five. Independent replay with python3 /workspace/reproductions/2.py avoids the frozen Gaussian elimination: a zero-sum selection taking part of a residue class makes every fine digit in that class equal by a one-index swap; for classes never taken in part only their total digit matters. Exhaustively testing at most four field variables and accounting for the free digits recovers all 12 profiles and ranks (six each of 2 and 8) among the 286 length-ten profiles, and no solutions among the 364 length-eleven profiles. The only two coarse-zero five-subsets of the displayed obstruction each sum to 25. The frozen C++ code checks aggregate counts and ranks, not individual profiles; this does not affect the proof or independent replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun and Li et al. report the bound 3p-2, which gives 13 at p=5, not 11.",
+          "Gao–Jiang–Mu consider different selection-length quantifiers; an indexed s_1(4)=9 result treats composite modulus four."
+        ],
+        "reasoning": "Neither a weaker general bound nor an at-most-five-term existence result settles the exact-five case. These distinctions do not remove the direct indexed overlap.",
+        "searches": [
+          "DOI 10.4064/aa251115-21-1",
+          "arXiv:2610.19965",
+          "arXiv:2607.11313",
+          "Resultary: exact local zero-sum constants"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifiers and outputs (inspected, not executed)",
+        "Resultary eb4d91ef031d",
+        "DOI 10.4064/aa251115-21-1",
+        "arXiv:2606.18234",
+        "arXiv:2610.19965",
+        "arXiv:2607.11313"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun conjectures 2n+1; the earlier indexed result proves the instance n=5 by an exhaustive modulo-25 method."
+        ],
+        "reasoning": "The conjecture is not a proof; the earlier indexed bound and sharpness obstruction directly establish the headline. The alternative affine method is a reproduction and refinement of a known case rather than a first evaluation.",
+        "searches": [
+          "Resultary eb4d91ef031d, Finding and Proof",
+          "arXiv:2606.18234, Conjecture 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary eb4d91ef031d RESULT.md, Finding and Proof: s_1(5)=11 and obstruction (1,1,1,1,2,2,2,2,17,21).",
+          "Sun identifies s_1(p)=t_1(p)=s(p,1) for prime p."
+        ],
+        "reasoning": "Both s_1(5) and s_5^* quantify over sequences of units modulo five and require exactly five distinct indices with sum zero modulo five but not modulo 25. Relabeling the constant and reordering the same obstruction do not distinguish the claims.",
+        "searches": [
+          "Resultary: exact prime-five local zero-sum constant s_1(5) and s_5^*",
+          "arXiv:2606.18234, Definition and Remark 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Proof reports 3900 ten-term witness-free modulo-25 multisets and no eleven-term ones; it does not print the twelve projected profiles or their ranks."
+        ],
+        "reasoning": "Projection of those multisets modulo five is exactly the auxiliary profile set. The inspected prior statement does not explicitly give the profile-wise rank classification, so the scope of overlap for that refinement is distinguished from the headline.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-the-first-nontrivial-odd-prime-case-of-the-exact-local-zero-sum--eb4d91ef031d, RESULT.md"
+        ]
+      },
+      "rationale": "A distinct, earlier indexed finding gives the same exact constant under equivalent hypotheses and the identical obstruction up to reordering. The auxiliary rank/profile presentation does not make that headline theorem new.",
+      "residual_risks": [
+        "Originating journal body was not lawfully retrievable OA. This does not affect the decisive indexed overlap.",
+        "Prior verifier artifacts were not retrieved, so no claim is made about whether they print the auxiliary profiles or rank information."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of main result, same obstruction; profile ranks not stated in inspected text",
+          "evidence": [
+            "s_1(5)=11; same ten-term obstruction; reported 3900 ten-term obstruction multisets and no eleven-term multisets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-first-nontrivial-odd-prime-case-of-the-exact-local-zero-sum--eb4d91ef031d",
+          "material_read": "RESULT.md Finding, Proof and Relationship to prior work, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed search and local mirror",
+          "title": "The first nontrivial odd-prime case of the exact local zero-sum constant",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Abstract confirms weaker bound; no whole-paper conclusion",
+          "evidence": [
+            "The general 3p-2 bound specializes to 13."
+          ],
+          "identifier_or_url": "10.4064/aa251115-21-1",
+          "material_read": "Publisher abstract; linked full text not available OA",
+          "method": "Publisher/DOI OA lookup",
+          "title": "A new problem from zero-sum theory",
+          "trigger": "Originating constant and bound"
+        },
+        {
+          "assessment": "Equivalent formulation, conjecture but not proof in the inspected passages",
+          "evidence": [
+            "The general exact-length conjecture gives 11 when n=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.18234",
+          "material_read": "PDF p. 2 and pp. 3–4, Definition 1.3, Remark 1.3 and Conjecture 1.2",
+          "method": "OA PDF passage inspection",
+          "title": "On zero-sum problems of two new types",
+          "trigger": "Equivalent notation and purported conjecture"
+        },
+        {
+          "assessment": "Inspected results address rank-dependent bounds and other constants, not this exact value",
+          "evidence": [
+            "Rank-one prime constant and general 3p-2 bound are identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19965",
+          "material_read": "PDF abstract, introduction and statement of the paper's contributions",
+          "method": "OA PDF passage inspection",
+          "title": "Proofs and disproofs of some conjectures on zero-sum problems of new types",
+          "trigger": "Potential later proof of conjecture or dominating bound"
+        },
+        {
+          "assessment": "Different length quantifiers",
+          "evidence": [
+            "Some or at most n terms, with the exact-p constant discussed separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.11313",
+          "material_read": "PDF pp. 1–2 abstract, definitions and motivation",
+          "method": "OA PDF passage inspection",
+          "title": "Two local zero-sum problems",
+          "trigger": "Closely related definitions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An initial proof of this prime conjecture case would be a meaningful exact result. In light of the earlier exhaustive theorem and obstruction census, the remaining coarse projections and small affine ranks do not establish a separate motivated gap, downstream use or significant new mathematical conclusion. The independent certificate is useful for checking correctness, not sufficient scientific value for the original finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

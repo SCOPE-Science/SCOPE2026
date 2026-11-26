@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:41.907168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the equal-effort independent Poisson model with a fixed common phase, maximizing worst detection is exactly maximizing the minimum total mean. Center the two visits, set q=cos(Δ/2), z=2q²−1 and x=cos φ; the harmonic part divided by 2c is rqx+z(2x²−1). For 0<r<4 the branch minimized at x=−1 runs from q=0 to the unique positive junction q₀ given by rq₀=4(2q₀²−1). Its envelope is strictly convex in q, so only endpoints compete. On the vertex branch the envelope is −r²/16−z−r²/(16z), uniquely maximized at z=r/4 by AM–GM; there rq<4z strictly, so the junction has strictly smaller value. Compare the attained −r/2−r²/16 against the q=0 value −1 to get the exact crossing 4(√2−1) and only the two claimed ties. For r≥4 the vertex branch is absent since 2q²−1≤q; the competing endpoint q=1 gives 1−r<−1. Substitution gives the stated probability, and the unshifted derivative −sin φ(b+4c cos φ) gives two strict maxima for 0<r<4. The time conversion is 4.36868 hours at the crossing on a 24-hour period. VERIFICATION.md and checker.py were inspected, not run; the continuum proof, not the finite grid, establishes the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodman–Lee introduce convolution operators with trigonometric spline kernels (p. 285); that inspected formulation does not include the design optimization.",
+          "The sparse-arc record fixes Fourier support {0,1,3} and maximizes a least-eigenvalue energy for observations on two equal arcs; it reports an off-antipodal narrow-arc optimum.",
+          "Kay–Gabriel full text could not be obtained lawfully from the attempted DOI/IEEE routes; no absence-of-coverage claim is based on this."
+        ],
+        "reasoning": "A least-eigenvalue lower bound over band-limited test signals differs from minimizing the pointwise intensity over a single shared phase; its reported result does not specialize to the claim.",
+        "searches": [
+          "Goodman and Lee, Convolution operators with trigonometric spline kernels",
+          "Resultary sparse three-frequency two-arc design (519ea156f7f0)",
+          "Kay and Gabriel, DOI 10.1109/78.972479"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspected, not executed)",
+        "Resultary frozen self-match 30dfc3c89226",
+        "Resultary distinct records 24124cd6a492 and 519ea156f7f0",
+        "Goodman–Lee (1988), introduction",
+        "Kay–Gabriel (2002), bibliographic record only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the BV proof equality compares a shorter-arc distance to the semicircle through (1−s)³=1−2s, with a golden-ratio branch.",
+          "In the frozen theorem equality compares the phase-vertex minimum to the antipodal value through r²+8r−16=0."
+        ],
+        "reasoning": "The known Poisson formula produces the deterministic objective but does not optimize it. The prior BV and least-eigenvalue statements do not supply the two competing phase minima or uniqueness of the optimizing gap.",
+        "searches": [
+          "Resultary BV transition proof (24124cd6a492, offset 4750)",
+          "Resultary sparse Fourier-band design finding (519ea156f7f0)",
+          "Known Poisson zero-count formula versus full optimizer claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deterministic equivalent is max over separations of the pointwise minimum of a sum of two translates; the Poisson link is strictly monotone.",
+          "The nearest circular BV record (24124cd6a492) maximizes a translated total-variation distance obtained from a difference of kernel translates, with multiplier-ratio threshold 0.8325476691…, rather than minimizing a pointwise sum over the phase."
+        ],
+        "reasoning": "Replacing a difference and integrated absolute value by a sum and pointwise minimum is not an equivalence. Even for one convolution step and second/first amplitude ratio 0.7, that BV theorem selects the semicircle while the frozen minimax selects the shorter gap (its second/first threshold is (√2+1)/4).",
+        "searches": [
+          "Resultary: two-harmonic minimax periodic sampling, antipodal/off-antipodal switch",
+          "Resultary: two-harmonic convolution and exact maximizing arc",
+          "Primary comparison: trigonometric convolution operators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index match is the frozen record 30dfc3c89226 itself.",
+          "Two distinct related results (24124cd6a492 and 519ea156f7f0) return different exact optimizations. No independent table with these optimizer sets was located in the returned evidence."
+        ],
+        "reasoning": "The self-match does not count as independent coverage. Same-day dates alone do not establish priority or exclude material overlap, so the comparisons use the actual findings.",
+        "searches": [
+          "Resultary: exact two-harmonic minimax gap, 4(√2−1), Poisson detection and aligned unknown phase"
+        ]
+      },
+      "rationale": "The distinct claim is the exact optimizer set and sharp switch for two equal measurements against one arbitrary phase in the stated aligned two-harmonic model. The closest inspected results share non-antipodal design and switch phenomena but not the optimized functional or the exact threshold. This is not a claim of priority over Poisson zero-count reduction, harmonic identities, or basic scalar optimization.",
+      "residual_risks": [
+        "Older designs under a trigonometric polarization or robust scheduling formulation may encode the same deterministic maximization.",
+        "The Kay–Gabriel text was unavailable and breadth of independent public literature retrieval was limited; not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong geometric analogy but different functional and threshold",
+          "evidence": [
+            "Exact attained real BV seminorm of convolution powers; at Q=√((11+5√5)/2) a semicircle and one shorter arc tie."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-circular-bv-contraction-and-a-golden-ratio-jump-transition--24124cd6a492/RESULT.md",
+          "material_read": "Finding at offset 0 and proof passage near offset 4750",
+          "method": "Local frozen mirror, bounded passages",
+          "title": "Sharp circular BV contraction and a golden-ratio jump transition for two-harmonic smoothing",
+          "trigger": "Same-day two-cosine kernel, antipodal-to-shorter optimizer jump"
+        },
+        {
+          "assessment": "Related but not the common-phase intensity objective",
+          "evidence": [
+            "Fixed support {0,1,3}, two equal observation arcs, least-eigenvalue energy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-off-antipodal-optimal-design-for-a-sparse-three-frequency-fou--519ea156f7f0/RESULT.md",
+          "material_read": "Finding on Fourier support and narrow-arc optimum",
+          "method": "Local mirror, matching record passage",
+          "title": "An off-antipodal optimal design for a sparse three-frequency Fourier band",
+          "trigger": "Two-arc Fourier minimax design with off-antipodal optimum"
+        },
+        {
+          "assessment": "Context for periodic convolution, not direct evidence for or against full-text coverage of this minimax theorem",
+          "evidence": [
+            "Its introduction frames the study as a class of convolution operators with trigonometric spline kernels."
+          ],
+          "identifier_or_url": "Goodman and Lee (1988), p. 285",
+          "material_read": "Introduction, OA PDF text near offset 869",
+          "method": "Lawful OA PDF passage",
+          "title": "Convolution operators with trigonometric spline kernels",
+          "trigger": "Possible wider deterministic convolution formulation"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1109/78.972479",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful DOI and IEEE page/PDF retrieval attempted; full text unavailable",
+          "title": "Optimal invariant detection of a sinusoid with unknown parameters",
+          "trigger": "Cited adjacent detection problem with unknown parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves exactly when equal half-cycle spacing ceases to be optimal in a minimal model where both harmonics matter. The switch between two separated global designs is discontinuous and precedes the loss of the second intensity maximum; knowing the mere presence of two peaks cannot recover the optimal design. This is a meaningful model benchmark for robust timing, not a field prescription for real eDNA signals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

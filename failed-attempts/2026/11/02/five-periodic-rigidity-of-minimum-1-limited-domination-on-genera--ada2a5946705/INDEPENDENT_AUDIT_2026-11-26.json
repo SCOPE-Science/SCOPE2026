@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:39:17.386781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29",
+        "Frozen VERIFICATION.md and VERIFY.py",
+        "/workspace/branches/independent_checks.py"
+      ],
+      "rationale": "Since n>=5 gives a simple cubic graph, the local inequalities sum to 3|D|>=2n+|D|, and either full layer attains |D|=n. Equality makes every local inequality exact and is equivalent to exactly one crossing edge per vertex. In spins this gives v_i=u_i-u_{i-1}-u_{i+1} and v_{i-2}+v_{i+2}+u_i=v_i. Eliminating v leaves u_{i+3}-u_{i+2}=u_{i-2}-u_{i-3}; therefore the differences repeat after five. The sum of five consecutive differences is a constant increment for u, and summing all cyclic shifts proves it is zero. If 5 does not divide n, u must be constant; otherwise the requirement v_i=±1 excludes precisely the singleton cyclic runs in the five-letter word. A nonconstant permitted word therefore has a run of length two and one of length three, producing exactly ten nonconstant labelled words and two constant ones. Conversely these five-periodic patterns satisfy both spin equations, and the one-cross-edge condition forces equally many plus and minus vertices. This argument uses cyclic identities and remains valid at n=5,6. Independent replay `python3 /workspace/branches/independent_checks.py 2` exhausts the allowed choices of the outer layer and derives the spoke assignments directly from crossing counts for n=5..15, giving 12 exactly at 5,10,15 and 2 elsewhere. The infinite classification is algebraic; the frozen verifier was read, not run.",
+      "residual_risks": [
+        "Counts are for labelled sets, not graph-automorphism orbits. The bounded replay only checks the printed finite range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural cubic theorem characterizes equality as a bipartition into induced 2-regular subgraphs joined by a perfect matching, credited to Fakharan et al. (2021).",
+          "Karami's A_1 occurrence proof gives the layer solution for general GP(n,k)."
+        ],
+        "reasoning": "Those general results cover the minimum size and its structural interpretation. Quotient-matrix existence is not a multiplicity theorem. The exact family-wide coverage comes instead from the separate matching-cut result.",
+        "searches": [
+          "Radić et al. arXiv:2610.26259v1 on cubic equality",
+          "Radić–Tepeh arXiv:2610.01796v1 on (1,2)-domination",
+          "Karami arXiv:2606.14190v1 on generalized Petersen perfect colorings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 07ff361ad99e",
+        "arXiv:2610.26259v1",
+        "arXiv:2606.14190v1",
+        "arXiv:2610.01796v1",
+        "Alaeiyan–Karami 2016 bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same graph edges, admissible outer patterns, and forced inner assignment appear in the matching-cut theorem. That theorem uses a finite-state cycle argument rather than eliminating the signs.",
+          "The frozen set-size conclusion is already forced by matching partners across the shores once the cubic lower bound and layer existence are known."
+        ],
+        "reasoning": "The other Resultary theorem supplies the entire labelled finding, not only an instance or a weaker bound. The equal date does not decide which derivation came first; it does not remove demonstrable overlap.",
+        "searches": [
+          "07ff361ad99e, Finding and proof of all colorings",
+          "arXiv:2610.26259v1 Proposition 3 and arXiv:2606.14190v1 A_1 case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cubic equality is equivalent to the two-color quotient matrix [[2,1],[1,2]] and exactly one opposite neighbor per vertex, so it is an ordered perfect matching-cut bipartition.",
+          "07ff361ad99e directly gives all valid labelled colorings, including rotations of 11000 and 00111 repeated only when 5 divides n."
+        ],
+        "reasoning": "On the connected graph a perfect matching cut determines its two shores up to swapping: along each edge their color parity is fixed by cut membership. Each shore is a labelled minimum 1-limited set, and each such minimum set is a shore. The translations are inverse and preserve the entire classification.",
+        "searches": [
+          "Resultary perfect matching cut, GP(n,2), fixed quotient matrix, labelled cyclic period five",
+          "arXiv:2610.26259v1 Proposition 3",
+          "arXiv:2606.14190v1 matrix A_1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "07ff361ad99e states 1+5·1_{5|n} perfect matching cut edge sets and 2+10·1_{5|n} labelled colorings on exactly the assigned graphs.",
+          "The perfect-coloring quotient matrices alone list occurrences, not these counts."
+        ],
+        "reasoning": "This is an exact census and an all-n proof, not unrelated counts of matchings or Hamiltonian cycles. Even without its explicit labelled count, doubling its perfect matching-cut count gives the assignment's exact count.",
+        "searches": [
+          "Resultary semantic searches on exact GP(n,2) matching cuts and labelled optimizer counts",
+          "07ff361ad99e Finding and verification",
+          "arXiv:2606.14190v1 quotient matrices"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 07ff361ad99e, covers the complete proposed finding via a bijective reformulation: it gives precisely the same two-or-twelve labelled colorings and exactly the same five-periodic nonlayer patterns for all n>=5. The frozen finding contributes no further classification beyond that covered statement. The companion uses a finite-state proof and the frozen one a short spin elimination, so this is coverage of the theorem, not a claim of identical proofs, historical priority, or copying. The records have the same displayed date; their relative priority is unresolved. The fail is based on demonstrated equivalent coverage, not lack of access to a paper.",
+      "residual_risks": [
+        "Relative priority of the two exact results is unresolved. The 2016 paper could not be inspected independently in full, so no claim of noncoverage is made about its full contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage by distinct record; no claim of ordering.",
+          "evidence": "Count of 2+10·1_{5|n} labelled binary colorings; outer words constant or rotations of 11000 or 00111; inner labels forced.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-perfect-matching-cuts-of-generalized-petersen-graphs-with-se--07ff361ad99e/RESULT.md",
+          "material_read": "Finding, assumptions, proof and comparison sections; decisive count at offsets 0–2249 and complement identification and cyclic classification at 3950–5708.",
+          "method": "Local Resultary search followed by bounded local-mirror reads",
+          "title": "All perfect matching cuts of generalized Petersen graphs with second jump two",
+          "trigger": "Perfect matching cuts are equivalent to optimal equality-set shores"
+        },
+        {
+          "assessment": "Covers equality criterion, not the labelled census in the inspected statement.",
+          "evidence": "Cubic half-order bound; equality iff some bipartition is joined by a perfect matching, attributing the structural characterization to Fakharan et al., DOI 10.1016/j.disc.2021.112546.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26259v1",
+          "material_read": "Introduction near offset 0 and Proposition 3 near offset 14500",
+          "method": "Public preprint HTML reader",
+          "title": "Structural aspects of 1-limited domination in cubic graphs",
+          "trigger": "General exact equality characterization"
+        },
+        {
+          "assessment": "Covers occurrence and a layer construction, not the census in its theorem.",
+          "evidence": "A_1=[[2,1],[1,2]] occurs for all admissible generalized Petersen parameters; the result classifies matrices, not all realizations.",
+          "identifier_or_url": "https://arxiv.org/html/2606.14190v1",
+          "material_read": "Abstract/introduction and Section 2, offsets 0, 4159 and 6200",
+          "method": "Public preprint HTML reader",
+          "title": "Intersection Arrays of Completely Regular Codes of Covering Radius One in Generalized Petersen Graphs",
+          "trigger": "Equivalent perfect colorings in a broader graph family"
+        },
+        {
+          "assessment": "General bounds and Goldberg family application; no statement-level GP(n,2) count in the inspected passages.",
+          "evidence": "Cubic equivalence to (1,2)-domination and lower bound |V|/2.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01796v1",
+          "material_read": "Abstract and opening discussion, offset 0",
+          "method": "Public preprint HTML reader",
+          "title": "On 1-limited and (1,2)-domination in cubic graphs",
+          "trigger": "Directly related domination definition and cubic bounds"
+        },
+        {
+          "assessment": "Full scope unresolved; this access limitation does not drive the verdict.",
+          "evidence": "Karami's later introduction describes the earlier paper as supplying the GP(n,2) quotient-matrix occurrence case.",
+          "identifier_or_url": "https://doi.org/10.1007/s12044-016-0285-4",
+          "material_read": "Bibliographic identification and account in the introduction of arXiv:2606.14190v1; no original full text retrieved independently.",
+          "method": "Lawful publisher/PDF and alternate-copy attempts",
+          "title": "Perfect 2-colorings of the generalized Petersen graph",
+          "trigger": "Same graph and equivalent coloring constraint"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–26",
+        "Resultary 07ff361ad99e §Proof"
+      ],
+      "rationale": "The structural period-five family classification is worthwhile in itself, and this proof explains the period directly via a cyclic linear recurrence rather than just rechecking small graphs or restating the count. That explanatory value does not make the exact census a distinct finding relative to the matching-cut record.",
+      "residual_risks": [
+        "The result is limited to jump two and labelled equality cases. The assessment does not claim a new theorem based on the alternate proof alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

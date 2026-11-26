@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:42:16.919124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-size ODE is exactly the normalization of (3.3) and (3.4) stated in the record, with g'(0)=1, R0=1, and Jacobian rows (−1/2,1/2), (1,−1). The matching plus two s-sets realizes the claimed regular hypergraph. The square is forward invariant, and strict positivity at finite times follows, e.g., from x'≥−x and y'≥−y inside it. For V=x+y/2, 2V'=f−x−x²−(x+f)y; f≤x, and only the origin can stay on x=0, so LaSalle gives extinction. The arctangent remainder implies −KV²≤V'≤0. For z'=−a(t)z+O(V^j), a(t)≥a0>0 eventually, setting w=z/V^j gives w'=(−a−j V'/V)w+O(1), whose linear coefficient is eventually at most −a0/2 since V→0. Thus z=O(V^j), independently validating the slow-variation estimate. Subtracting the ODEs gives d'=−(3+x)d/2+(f−x)(1−x−d) for d=y−x. Apply the estimate with j=3, giving d=O(V³) and x∼2V/3. With A=−2s²/9 the cubic term of (d−Ax³)' cancels and the remaining forcing is O(x⁴); the same estimate gives d=Ax³+O(x⁴). Therefore u=1/x has u'=1+s²/(9u)+O(u⁻²), first u∼t, then u=t+O(log t). Subtracting the printed logarithm leaves an integrable derivative O(log t/t²), proving a finite intercept for every strict interior start and the difference-of-sizes limit. The submitted symbolic/finite-time checks were inspected, not executed, and are not used as asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader heterogeneous model in afbd5e688ab5 has a critical leading Perron t⁻¹ profile, not an order-log correction."
+        ],
+        "reasoning": "Specializing a t⁻¹+o(t⁻¹) result cannot recover either its log(t)/t² coefficient or the subordinate intercept. Local stability on either side of the threshold does not settle equality.",
+        "searches": [
+          "Nguyen–Porter arXiv:2601.03563v1 Theorems 3.3, 3.6",
+          "Resultary: heterogeneous critical extinction in the two-channel Nguyen–Porter model; record afbd5e688ab5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and requirements.txt",
+        "arXiv:2601.03563v1",
+        "arXiv:1910.00375v1",
+        "Resultary records afbd5e688ab5, 3dbf6638e1f1 and 647aa1fcac9f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The s-dependence enters at the cubic arctangent jet; the normalized Jacobian and even the quadratic slow law are s-independent.",
+          "The cited simplicial SIS equation has direct polyadic infection, not a second dynamic environment compartment."
+        ],
+        "reasoning": "Standard reduction and reciprocal integration are tools, not creditable as new theorems here. The precise coefficient and global selection of a slow decay with a finite intercept require the cubic projection and control along actual positive trajectories, not a threshold or eigenvalue substitution.",
+        "searches": [
+          "arXiv:2601.03563v1 (3.3)–(3.4), Theorems 3.3 and 3.6; arXiv:1910.00375v1 §4.1; mirrored two-term laws and heterogeneous Perron profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2601.03563v1 §3.2 gives the same system after substitution, but its compared threshold theorems exclude equality.",
+          "The two indexed two-term formulas 3dbf6638e1f1 and 647aa1fcac9f concern prevalence-responsive SIS and inhibitory activity feedback, respectively, not the normalized arctangent environment closure."
+        ],
+        "reasoning": "Writing the result instead as x=1/t−(s²/9)log(t)/t²−C_s/t²+o(t⁻²) does not equate it with a leading 1/t profile or coefficients from another vector field.",
+        "searches": [
+          "Resultary: critical two-channel aerosol–droplet SIS extinction, reciprocal-prevalence log correction",
+          "Web: critical SIS mean-field ODE reciprocal prevalence logarithmic correction center manifold asymptotics critical threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reproduction formula supplies the common critical value but not a coefficient table or parameter formula for logarithmic corrections; the exact coefficients in 3dbf6638e1f1 belong to a different model."
+        ],
+        "reasoning": "No finite census is asserted; the appropriate exact lookup comparison is an all-s coefficient formula for this exact specialization, not a numerical late-time table or a threshold formula.",
+        "searches": [
+          "Resultary: fixed-group-size critical reciprocal-prevalence coefficients and exact two-term laws",
+          "Nguyen–Porter §3.2 formula (3.4) and threshold Theorems 3.3, 3.6"
+        ]
+      },
+      "rationale": "The distinct content is the explicit, trajectory-wide second-order asymptotic of the printed critical system, not the model, its threshold, or the use of a cubic slow-mode reduction. The closest same-model result stops at a leading critical profile; the closest two-term laws concern different dynamical systems.",
+      "residual_risks": [
+        "The external query surfaced an SIS multiscale course-hosted PDF; retrieval timed out and no content inference is made from it.",
+        "Search was bounded and does not exclude earlier equivalent critical asymptotics; later indexed dates alone do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact system after normalization; threshold results compared do not cover equality",
+          "evidence": "Uses arctan and the sum of two linear reproduction contributions; the theorem inequalities are R0<1 and R0>1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.03563v1",
+          "material_read": "§2.2 p.5, §3.2 p.9 (3.3)–(3.4), Theorem 3.3 p.10 and Theorem 3.6 p.12",
+          "method": "OA preprint passages",
+          "title": "A disease-spread model on hypergraphs with distinct droplet and aerosol transmission modes",
+          "trigger": "Exact source model and critical scope"
+        },
+        {
+          "assessment": "Different dynamical model",
+          "evidence": "Degree-based Θ^(d−1) term models direct polyadic infection.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00375v1",
+          "material_read": "Model p.2; §4.1 Eq. (7) p.5",
+          "method": "OA preprint passages",
+          "title": "Simplicial SIS model in scale-free uniform hypergraph",
+          "trigger": "Hyperedge-dependent SIS precedent"
+        },
+        {
+          "assessment": "Broader critical leading-order result, not logarithmic-order coverage",
+          "evidence": "Gives a leading 1/t Perron profile at threshold.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-heterogeneous-critical-extinction-profiles-for-a-two-chann--afbd5e688ab5",
+          "material_read": "Finding and Proof §4",
+          "method": "Published local mirror",
+          "title": "Sharp heterogeneous critical extinction profiles for a two-channel hypergraph epidemic model",
+          "trigger": "Possible stronger result for parent model"
+        },
+        {
+          "assessment": "Parallel log asymptotic for a different ODE",
+          "evidence": "Coefficients depend on prevalence-response derivatives, e.g. K=3/2 and B=κ/3−1/4.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1",
+          "material_read": "Finding and Proof §4",
+          "method": "Published local mirror",
+          "title": "Critical adaptive SIS clearance: exact two-term law and a curvature correction",
+          "trigger": "Closest indexed two-term form"
+        },
+        {
+          "assessment": "Inhibitory SIS–activity closure, different feedback",
+          "evidence": "Log coefficient governed by relaxation-rate mismatch.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-reciprocal-time-law-and-relaxation-rate-resonance-in-in--647aa1fcac9f",
+          "material_read": "Finding and Proof §4",
+          "method": "Published local mirror",
+          "title": "An exact reciprocal-time law and relaxation-rate resonance",
+          "trigger": "Another two-variable log law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Addresses the omitted equality regime of a published deterministic closure. The first term resolving these fixed sizes is strictly beyond both linearization and leading decay, so the exact coefficient explains an actual limitation of those summaries. This is an asymptotic distinction within the specified model, not an inference guarantee for noisy observations or a stochastic epidemic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

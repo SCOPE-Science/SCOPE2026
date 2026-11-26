@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact five-stage tableau yields the rational-polynomial scalar amplification factor. Strict monotonicity of the cubic SSP factor proves its single real-positive zero. For every nonresonant blend the two distinct zeros force a negative amplification window immediately after the first; at the unique root-coincidence blend both factors change sign together, and the product increases strictly after its double zero until the unique unit-amplification crossing. This proves the complete scalar radius theorem, rather than inferring it from finite plots. A standard-library exact-rational checker independently verifies 1,000 tableau/factor comparisons and 10 additional sign configurations, with high-precision decimal root enclosures.
+## correctness
 
-**Originality — PASS with residual priority risk.** The full October 6, 2026 source, especially equation (6), section 2.4, and section 2.5, gives sampled Fourier amplification and limiter context, not the scalar negative-real-axis sign classification. A separate previous study of its same tableau already derives the SSPRK3×Crank–Nicolson factorization for complex Fourier stability; that identity is not claimed as new, and its \(\ell^2\) criterion neither asserts nonnegative scalar amplification nor implies the isolated positivity/contractivity optimizer. Earlier SSP, Crank–Nicolson, and diagonally split RK literature may contain general composition results; no direct equivalent classification was located in the accessible comparisons. A non-exhaustive search is not a proof of historical novelty.
+PASS
 
-**Value — PASS.** Tracer and reaction integrators need distinguish scalar nonnegative damping from mere \(|R|\le1\). Here the exact optimal mixing parameter lies strictly inside \([0,1]\), and its maximal safe step jumps from a limiting \(3.596\ldots\) to \(7.450\ldots\), a sharp conditioning warning for parameter tuning. The exact constants are natural invariants of the published blended RK tableau. This is deliberately limited to scalar decay; no positivity or convergence claim for the full spatial advection method is made.
+For the scalar application of Eq. (6), put z=-x, b=(1-theta)z and a=1+theta*z/2. The intermediate stages are a, a(1+b), a(1+b/2+b^2/4). Inserting them into the stiffly accurate last row gives a(1+b+b^2/2+b^3/6)/(1-theta*z/2); its denominator is strictly positive on x≥0. On s≥0 the cubic derivative is -[(s-1)^2+1]/2, so its positive zero is unique and simple. The rational factor also decreases strictly when theta>0. Until the first zero both factors are in [0,1]. At distinct zeros the first sign change immediately violates the requirement; at theta=0 or 1 the absent zero is at infinity and the same argument applies. At the unique coincidence, x=alpha+2, both factors change sign with nonzero derivative. Afterward their absolute values strictly increase, the cubic without bound and the rational factor to 1, so the product crosses 1 once. This also verifies that the other blends have a supremal limiting radius alpha+2, strictly below the attained maximum. Substituting y=alpha*x/(alpha+2) into R=1 and removing y=0 yields exactly the reported cubic. Exact rational interval checks independently confirm the stated decimal roundings.
 
-**Closest literature and limits.** te Winkel et al. (arXiv:2610.08166v1) develop the scheme and investigate sampled Fourier stability. The SSPRK3 and Crank–Nicolson factors are classical; prior analysis of the same tableau obtains the factorized complex stability function. Macdonald, Gottlieb, and Ruuth (2008) treat a broader family of diagonally split RK methods, but only bibliographic and abstract material was accessible here, so an implied older special case is a residual priority risk. General scalar positivity is not the same as matrix positivity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact positive-contractive scalar radius over all constant blends and its isolated, discontinuous maximizer. The tableau and scalar factorization are not credited as new. The strongest checked equivalent-method source uses the factorization for a different, Fourier-modulus question; the checked works do not establish the sign-coincidence extension or optimum.
+
+## value
+
+PASS
+
+The radius is a natural scalar diagnostic for the published scheme. The computation exposes a non-robust optimizer where two sign switches cancel, giving a contiguous positive-contractive range of about 7.45 versus at most about 3.60 for every other blend. The sharp, discontinuous boundary matters more than an incremental estimate or a re-evaluation of the amplification factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

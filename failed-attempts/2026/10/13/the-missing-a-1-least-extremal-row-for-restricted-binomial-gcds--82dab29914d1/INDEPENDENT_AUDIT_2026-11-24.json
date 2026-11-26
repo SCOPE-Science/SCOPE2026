@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:32.537061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legendre's formula independently proves the coefficient values: for q<p and k=(p+1)d, the p-floor contributions for N, k, N-k are q, d, q-d, and all p^j floors for j>=2 vanish. At q=p the p-floor contributions are p+1, d, p-d, giving a difference of 1, and the p^2 floors are 1, 0, 0, giving another 1. All higher floors vanish. Thus every selected value at the target is 2, no earlier admissible row reaches 2, and p=2 has no earlier admissible multiplier (the row is 6, with coefficient 20). The gcd takes the minimum and r_p(p+1)=2 for all primes. The frozen Kummer proof gives the same result. A separate Legendre-based finite replay /tmp/opencode/frozen_independent_checks.py 3 checked 60,556 selected coefficients for primes through 113; it is supplementary, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The September theorem determines all restricted-gcd valuations under p=-1 mod m, m>=3 and m|N with N>m, including exactly this boundary.",
+          "The October theorem for a>=2 does not cover a=1; its general equality-row construction gives p^3+1 here, not leastness. McTague's positive-residue criterion and Wu's prime-power hypotheses do not imply the uniform boundary."
+        ],
+        "reasoning": "The congruence p=-1 mod p+1 and the remaining hypotheses hold for the entire frozen family, including p=2. Other nearby results do not have this scope, but the stronger September theorem suffices.",
+        "searches": [
+          "arXiv:2609.37754v1, Theorem 1.1 p. 2 (text offset 4500)",
+          "arXiv:2610.01328v1 §§4, 7, 8",
+          "arXiv:1510.06696v5 Theorem Q",
+          "arXiv:2606.20940v2 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37754v1",
+        "arXiv:2610.01328v1",
+        "arXiv:1510.06696v5",
+        "arXiv:2606.20940v2",
+        "Resultary 1da8f5b9bad4 and 5bfb1fd719eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q<p the even- and odd-position digit sums of N=pq+q are both q, so none of the nonzero valuation cases apply and the gcd valuation is 0. For q=p, N=p^2+p gives (1,1), and p=m-1 gives valuation 2. The extremal value is 2, so the formula establishes leastness, not merely attainment."
+        ],
+        "reasoning": "The September theorem gives minima and by itself need not specify the valuation of every coefficient. The multiplicity result supplies the stronger target-row assertion. At smaller rows the incidental every-coefficient strengthening is the elementary no-carry case of Kummer (both digit sums are q<p).",
+        "searches": [
+          "Direct specialization of arXiv:2609.37754v1 Theorem 1.1 with m=p+1, and comparison with the frozen Finding and Remarks 8.3–8.4 of arXiv:2610.01328v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 1da8f5b9bad4 gives the same T_p(p+1)=p(p+1) for odd primes and notes p=2 as the known case.",
+          "The September theorem uses alternating digit-position sums rather than the T_p notation: on the relevant rows this gives exactly the minimum-valuation profile needed to determine T_p."
+        ],
+        "reasoning": "The earlier-day record is equivalent for the only nontrivial prime range. The digit-sum formulation also decides every relevant restricted gcd though it does not use least-row terminology.",
+        "searches": [
+          "Resultary semantic lookup on omitted a=1, T_p(p+1), and two-digit restricted binomial valuations",
+          "arXiv:2609.37754v1 Theorem 1.1 versus arXiv:2610.01328v1 Theorem 7.2 and Remarks 8.3–8.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-the-omitted-a-1-boundary-t-p-p-1-p-p-1--1da8f5b9bad4 gives the exact least row for odd primes.",
+          "2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb gives minimum 2 with multiplicity p-1 at N=p+p^2 and m=p+1, exactly the total number of selected coefficients.",
+          "McTague records the already known exceptional triple (p,m,N)=(2,3,6)."
+        ],
+        "reasoning": "The exact comparison covers more than isolated numerical agreement: the least-row formula is already indexed uniformly, and the distinct same-day record covers the coefficient claim at the target row whether or not chronological ordering within that day is known.",
+        "searches": [
+          "Configured Resultary search; local mirror records 1da8f5b9bad4 and 5bfb1fd719eb, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The central least-row claim and the full claimed gcd profile are immediate specializations of the prior minus-one theorem. A separate earlier-day indexed result states the same least-row result for odd primes and acknowledges the known p=2 case. A distinct same-day result also covers every target-row coefficient via its exact multiplicity. The explicit exclusion in the October a>=2 theorem is not a literature gap at a=1.",
+      "residual_risks": [
+        "No priority within 13 October is inferred. The broad literature search was bounded; the verified September theorem and directly inspected catalogue overlaps already decide the material coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLIES_GCD_PROFILE_AND_LEAST_ROW",
+          "evidence": [
+            "The valuation is 2 when the digit sums are (1,1) and p=m-1; outside three exceptional cases it is 0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.37754v1",
+          "material_read": "Theorem 1.1 and discussion, p. 2 (OA offset 4500)",
+          "method": "Primary OA full-text passage",
+          "title": "The minus-one valuation formula for restricted binomial gcds",
+          "trigger": "Same p=-1 mod m regime, with a broader formula"
+        },
+        {
+          "assessment": "A_1_EXCLUDED_FROM_SPECIAL_FORMULA; NOT_AN_OVERALL_LITERATURE_GAP",
+          "evidence": [
+            "The a>=2 formula uses p^(3a)+1. Remark 8.3 excludes a=1; Remark 8.4 records T_2(3)=6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01328v1",
+          "material_read": "Proposition 4.2; Theorem 4.3; Theorem 7.2; Remarks 8.3–8.4; §9",
+          "method": "Primary OA full-text passages",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Frozen novelty claim based on excluded a=1 case"
+        },
+        {
+          "assessment": "COVERS_SINGLE_INSTANCE",
+          "evidence": [
+            "The theorem assumes prime 1 modulo the restriction parameter; (p,m,N)=(2,3,6) appears as an example outside that regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06696v5",
+          "material_read": "Theorem Q, p. 1, and exceptional example",
+          "method": "Primary OA full-text passages",
+          "title": "On the greatest common divisor of binomial coefficients with multiple lower indices",
+          "trigger": "Same restricted GCD and p=2 instance"
+        },
+        {
+          "assessment": "DOES_NOT_COVER_BY_INSPECTED_THEOREMS",
+          "evidence": [
+            "The relevant prime-power conditions do not hold when m=p+1 for the valuation prime p."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.20940v2",
+          "material_read": "Definition p. 1 and Theorems 1–2 p. 2",
+          "method": "Primary OA full-text passages",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients C(mn,mk)",
+          "trigger": "Same gcd function g(m,n)"
+        },
+        {
+          "assessment": "EQUIVALENT_FOR_ODD_PRIMES",
+          "evidence": [
+            "It states the same least row for all odd primes, with p=2 already known."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-omitted-a-1-boundary-t-p-p-1-p-p-1--1da8f5b9bad4",
+          "material_read": "Finding and relationship to prior work in mirror RESULT.md",
+          "method": "Configured Resultary and local mirror",
+          "title": "The omitted a=1 boundary T_p(p+1)=p(p+1)",
+          "trigger": "Exact least-row formula"
+        },
+        {
+          "assessment": "COVERS_TARGET_MULTIPLICITY",
+          "evidence": [
+            "For N=p^1+p^2 the minimum 2 occurs p-1 times, the full selected count."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb",
+          "material_read": "Finding and p=m-1 branch in mirror RESULT.md",
+          "method": "Configured Resultary and local mirror",
+          "title": "Exact minimum-valuation multiplicities in restricted two-digit binomial rows",
+          "trigger": "Uniform target-row coefficient statement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An unknown least extremal boundary would be worthwhile, but here the result simply reads off the cases of a known general classification. The target coefficient statement is also covered by an exact multiplicity result, and the remaining smaller-row all-coefficient statement is a routine two-column no-carry observation. The short independent proof is useful exposition but leaves no distinct substantive boundary result to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

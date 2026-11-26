@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:00:31.426116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "Frozen VERIFICATION.md lines 19–25 and verify.py, inspected not executed"
+      ],
+      "rationale": "For alpha>1, the commuting finite-flip Hamiltonians converge in norm. Their Born laws factor as Bernoulli bits with probabilities sin^2(tck^(-alpha)); Hilbert-norm convergence implies total-variation convergence of the Born laws, and the independent product has finite support almost surely in the sense of finitely many occupied coordinates, since the probabilities sum. No division by a cosine is used. With N=(ct)^beta, the normalized mean is the Riemann sum of sin^2(x^(-alpha)); the oscillatory portion on (0,epsilon) is bounded by its interval length up to discretization and the tail is dominated by x^(-2alpha). Substitution v=2x^(-alpha) and integration by parts reduce the limiting integral to 2^(beta-1) times the sine transform of v^(-beta), giving the claimed gamma-cosine value for 0<beta<1. The variance identity V_t=mu_(2t)/4 fixes the factor 2^(beta-2). For centered Bernoulli variables sum of third absolute moments is at most V_t; finite Berry–Esseen passes to the countable sum by L^2 convergence at each t and continuity of the Gaussian CDF, giving O(V_t^(-1/2)). Chebyshev gives the stated concentration since V_t/mu_t^2 tends to zero.",
+      "residual_risks": [
+        "Reported finite numerical truncations are diagnostic only. The rate is an upper bound for the standardized single-time law, not a sharp rate or a process-level limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general summable-weight model supplies bounded dynamics, not power-law radial moment equivalents; finite hypercube transfer results do not address fixed infinite weights. A local hit on Hamming distance studies a finite, uniformly sampled discrete walk, not these Born bits."
+        ],
+        "reasoning": "Generic independent-sum limit results need an increasing variance, and do not determine its growth or Fano ratio. Finite and infinite results here differ both in evolution and limiting regime.",
+        "searches": [
+          "Wang arXiv:2602.23970v1, Sections 2 and 4",
+          "Wang arXiv:2212.00020v1, finite Bernoulli-functional hypercube laws",
+          "Resultary: Hamming-distance fluctuations on the hypercube and power-law random walks"
+        ]
+      },
+      "checked_sources": [
+        "Wang arXiv:2602.23970v1 and arXiv:2212.00020v1",
+        "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: same-day functional Gaussian result and November 8 Pareto-tail and two-scale Hamming results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior graph and spectral framework and standard Berry–Esseen were confirmed as inputs. The sharp Riemann-sum sine-transform evaluation and V_t=mu_(2t)/4 together supply the model-specific asymptotic variance and rate scale."
+        ],
+        "reasoning": "The proof uses classical tools; neither the finite transfer results nor the general bounded-Hamiltonian theorem states a stronger radial asymptotic from which the exact constant and fluctuation claim follow by parameter substitution.",
+        "searches": [
+          "Wang arXiv:2602.23970v1, Definition 2.1, Theorem 2.5 and Section 4 versus frozen proof sections 1–3",
+          "Wang arXiv:2212.00020v1, Theorems 3.8 and 3.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest primary model is Wang, arXiv:2602.23970v1; its Definition 2.1 and Theorem 2.5 match the coordinate-flip graph and Hamiltonian after reindexing. Its inspected distribution results concern symmetries."
+        ],
+        "reasoning": "Distance is Hamming weight of the measured subset, not physical distance or a trajectory observable. Reindexing the coordinates produces the same dynamics with correspondingly shifted weights but does not supply the radial limits.",
+        "searches": [
+          "Resultary: weighted quantum hypercube, radial Hamming law and Gaussian fluctuations",
+          "Primary literature: power-law weighted locally infinite quantum walk radial moments and CLT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Pareto constant is for a stationary reset walk on Z; the two-scale Hamming result is a finite classical hypercube correlation; the same-day functional Gaussian result is for a classical persistent walk with alpha<1."
+        ],
+        "reasoning": "These related records do not tabulate or imply the target constants or one-time Born law. A generic table of gamma integrals would cover only the integration identity, not the radial statistic or scaling limit.",
+        "searches": [
+          "Resultary: power-law transport, Fano ratio, gamma constants and Gaussian law",
+          "Resultary same-day functional Gaussian law and later Pareto-tail or hypercube-correlation records"
+        ]
+      },
+      "rationale": "The locally infinite flip Hamiltonian, finite hypercube laws, and independent-sum fluctuation principles are prior. The supported distinct claim is the power-law Hamming observable's sharp moment equivalents and limiting fluctuation law with explicit Fano ratio. No inspected stronger source or exact indexed result covered that combination.",
+      "residual_risks": [
+        "Searches are bounded; the 2018 paper's full-text comparison was unavailable, and a general oscillatory-sum theorem or an earlier equivalent model-specific calculation could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework matches; no matching power-law radial limits in inspected passages",
+          "evidence": "Norm-bounded summable-weight Hamiltonian and parity/time-reversal distribution symmetries, not long-time Hamming moments or fluctuation constants.",
+          "identifier_or_url": "https://arxiv.org/html/2602.23970v1",
+          "material_read": "Definition 2.1 and Theorem 2.5 (HTML offsets about 8257 and 14365), and Section 4 distribution and symmetry passages (offsets about 31900–43500)",
+          "method": "OA HTML passage inspection",
+          "title": "Continuous-Time Quantum Walk on Locally Infinite Graph",
+          "trigger": "Same infinite graph, arbitrary positive summable flip weights"
+        },
+        {
+          "assessment": "Finite model and transfer results, not the weighted infinite limit",
+          "evidence": "The model acts on a finite Gamma_L with finite-time distributions and perfect state transfer.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.00020",
+          "material_read": "Abstract, Definition 3.1, Theorems 3.8 and 3.16 (PDF pages 1, 9–10, 16)",
+          "method": "OA PDF passage inspection",
+          "title": "Abstract Model of Continuous-Time Quantum Walk Based on Bernoulli Functionals and Perfect State Transfer",
+          "trigger": "Prior hypercube Bernoulli dynamics and distributions"
+        },
+        {
+          "assessment": "Access risk only; not ruled out on this basis",
+          "evidence": "DOI attempt returned HTTP 403; no alternate OA copy recovered in the bounded check.",
+          "identifier_or_url": "https://doi.org/10.1155/2018/2507265",
+          "material_read": "No primary full text retrieved",
+          "method": "Bounded lawful OA resolution and alternate-copy check",
+          "title": "Quantum Walk in Terms of Quantum Bernoulli Noise and Quantum Central Limit Theorem for Quantum Bernoulli Noise",
+          "trigger": "Similar Bernoulli and quantum CLT terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–29 and 38–57",
+        "Wang arXiv:2602.23970v1, model and distribution results"
+      ],
+      "rationale": "Graph distance is a natural transport observable for this infinite weighted model, and the complete power-law scaling separates the spreading exponent, its dimensional prefactor and the asymptotic variance-to-mean ratio. Those quantities identify how spread and fluctuations depend on alpha and do not follow from existence of unitary dynamics or from the generic CLT alone. The contribution is the sharp model-specific calculation, not a new independent-sum limit theorem.",
+      "residual_risks": [
+        "Conclusions concern the empty-set initial state, exact power-law weights with alpha>1 and one-time laws only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

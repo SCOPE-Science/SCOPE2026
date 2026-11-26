@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:55:07.841535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–69",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "python3 /workspace/independent_checks.py 3: exact complex rational check of moment and log coefficients through order nine"
+      ],
+      "rationale": "For W=e^{iθ} the Poisson-kernel moments are E[W^j]=a^j for j>=0 and E[W^{-j}]=conj(a)^j. The kick multiplies W by exp((H/W-conj(H)W)/2) and the rotation factor. In the Taylor coefficients the only negative Laurent power at quadratic order is at the first moment. Subtracting M_1^m cancels the constant, linear, mixed and conjugate-square terms; the surviving coefficient is m(1-|a|²)a^{m-2}e^{imω}/8. With A=ae^{iω}, summation of just the finitely many coefficients needed through order s^m, followed by multiplication by e^{-As}, gives the log correction c s²(1-e^{-As})/(As), where c=(1-|a|²)e^{2iω}H²/8. This gives the claimed m(-1)^m factor in the exponential cumulants. The Taylor error is O(|H|³) in arbitrary complex directions for each fixed order. At a=0 use a^0=1; only the order-two coefficient survives. Its strictly positive modulus after factoring H² precludes closure for all sufficiently small nonzero kicks at each fixed interior a, including a fixed fibre with nonzero mean field. The normalizations differ by (m-1)! as stated.",
+      "residual_risks": [
+        "No simultaneous lower bound on nonvanishing for every order, no uniform threshold over frequency fibres with |a| tending to one, and no statement about integrated closure or long-time dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldobin–Dolmatova prove nontermination for physical cumulant sequences with more than one nonzero cumulant.",
+          "Later record c15da7093673 proves non-Poisson behaviour at nonzero finite amplitude and studies density regularity."
+        ],
+        "reasoning": "Neither broad absence of finite cumulant truncation nor knowing the law is non-Poisson for every nonzero kick specifies the individual quadratic coefficients. The later paper itself credits the earlier coefficient result.",
+        "searches": [
+          "arXiv:1908.00230 introduction and §II",
+          "Resultary record c15da7093673, finding offset 1593"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.22715v1, arXiv:2001.07593, arXiv:1908.00230",
+        "Resultary df3799d60a95 and c15da7093673"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The numerical closure deviation does not determine an analytic coefficient or its order.",
+          "Nontermination is compatible with different powers of H first appearing at different indices; it gives neither the universal quadratic order at 0<|a|<1 nor the explicit factorial-normalized profile."
+        ],
+        "reasoning": "The coefficient result needs the first-moment negative Laurent power, the all-order cancellations and the log conversion. It is not implied by the earlier qualitative assertions.",
+        "searches": [
+          "arXiv:2609.22715v1 §V",
+          "arXiv:1908.00230 introduction and §II",
+          "c15da7093673 prior-work offset 8128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gade–Gupta use an equivalent additive phase map and test f_m=(f_1)^m numerically but do not derive the coefficient sequence in §V.",
+          "Gong–Tönjes–Pikovsky use a homographic map, with exact wrapped-Cauchy preservation."
+        ],
+        "reasoning": "The first map agrees after phase-lag notation changes, but the compared result is only qualitative. The homographic update is not an equivalent map to second order, and it has zero moment defect on the same Poisson family.",
+        "searches": [
+          "Additive discrete sine kick, fixed-order quadratic circular cumulants and Ott–Antonsen moment defect; Resultary semantic search",
+          "arXiv:2609.22715v1 §V and arXiv:2001.07593 §II and Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "df3799d60a95, mirrored RESULT.md offset 197, is the same record, with the same two coefficients.",
+          "c15da7093673, prior-work passage at offset 8128, attributes the complete leading sequence to the Nov. 8 finding, rather than presenting earlier independent coverage."
+        ],
+        "reasoning": "The actual exact matches are the frozen theorem itself and its later acknowledged reuse; no independent earlier table was established. The noisy general search is not negative evidence.",
+        "searches": [
+          "Resultary comparison by coefficient profile and additive kick",
+          "Mathematical literature search for the fixed-order sine-kick profile"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit one-step quadratic sequence, not discovery of qualitative Ott–Antonsen failure, nontermination of circular cumulants, or a new class of Poisson-preserving maps. The later same-map Resultary record explicitly credits the frozen result for this coefficient sequence.",
+      "residual_risks": [
+        "Pass is bounded to the inspected literature and published matches; alternate unindexed perturbative derivations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative numerical failure, not the coefficient profile.",
+          "evidence": [
+            "States f_m=(f_1)^m and reports disagreement of the first and second mode predictions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22715v1",
+          "material_read": "§V pp. 5–6, text offset 34558",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Discrete-time Kuramoto model with phase lag: Linear stability analysis and onset of synchronization",
+          "trigger": "Same additive Kuramoto phase map and OA failure"
+        },
+        {
+          "assessment": "Preservation for a different update rule.",
+          "evidence": [
+            "The homographic map sends uniform phase to wrapped Cauchy; the invariance comes from the Möbius form."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.07593",
+          "material_read": "§II p. 4, offset 29921; Appendix C p. 11, offset 88649, Eq. C1",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Coupled Möbius Maps as a Tool to Model Kuramoto Phase Synchronization",
+          "trigger": "Discrete phase model with exact OA reduction"
+        },
+        {
+          "assessment": "Nontermination, not a perturbative coefficient computation.",
+          "evidence": [
+            "A physical non-OA distribution cannot have a finite cumulant series."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.00230",
+          "material_read": "Introduction and start of §II, p. 2, offset 10327",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Ott-Antonsen ansatz is the only admissible truncation of a circular cumulant series",
+          "trigger": "Plausibly general cumulant result"
+        },
+        {
+          "assessment": "Later finite-amplitude result that credits the frozen record's quadratic sequence.",
+          "evidence": [
+            "States exact nonpreservation at nonzero kick and attributes the leading circular-cumulant sequence to the earlier finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-one-step-regularity-transition-of-poisson-phase-laws-under--c15da7093673",
+          "material_read": "RESULT.md finding and prior-work passages, offsets 1593 and 8128",
+          "method": "Published record via local mirror",
+          "title": "Sharp one-step regularity transition of Poisson phase laws under a sine kick",
+          "trigger": "Same kick and Poisson input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–31 and 54–78",
+        "Gade–Gupta §V and Goldobin–Dolmatova §II for motivation and distinction"
+      ],
+      "rationale": "A natural weak-coupling question is which conditional harmonics fail the OA closure and at which order. The explicit nonzero common quadratic order and its coefficient at every fixed higher index give predictive content absent from qualitative failure or nontermination alone, and separate the uniform input's exceptional leading profile from that of nonuniform Poisson inputs.",
+      "residual_risks": [
+        "Single-step, fixed-order result; not evidence for a particular multifibre closure strategy or a long-time synchronization threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:40:05.757954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69",
+        "Frozen VERIFICATION.md and check_sunlet.py (inspected; no reliance on finite testing)",
+        "Boyd et al., arXiv:0709.0955 §3.1.1 (cycle comparison)"
+      ],
+      "rationale": "Dihedral averaging reduces the global SLEM value to the two-orbit family with p+2q≤1, not the set of all optimizers. The first Fourier block gives the lower bound 1−p−qt+sqrt(p²+q²t²) at t=1−cos(2π/n). It decreases strictly in q when p>0; p=0 has a unit eigenvalue on the nonconstant subspace. On q=(1−p)/2 the bound is strictly convex in p, with second derivative a²/(p²+a²(1−p)²)^(3/2)>0 for a=t/2. At the claimed p and q the square root is x/2 and the scalar derivative vanishes, verifying the interior minimum. The plus branches decrease with t_k, and the minus branches are bounded below by −sqrt(p²+(1−p)²) at t_k=2. The difference of squares from the claimed SLEM is x(x+2)(2−x²)/D²>0 since x²≤3/2, including the triangle boundary. The nonconstant k=0 eigenvalue (2−x²)/D is also strictly below the SLEM. Thus the lower bound is attained, and both equality conditions prove invariant uniqueness. The exact gap x²/D∼π²/n² gives the claimed factor 1/2 against the bare cycle.",
+      "residual_risks": [
+        "The phrase ‘nonsymmetric chains’ in the finding does not widen the feasible class; stochastic matrices remain symmetric and the unclassified multiplicity is for non-dihedrally-invariant competitors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 9e788ca7bde4 theorem applies to vertex- and edge-transitive regular cores. Take a degree-two cycle core with one leaf per vertex and use spectral parameter a=1−cos(2π/n)=x². It gives D=1+(1+x)², the stated edge weights, SLEM 1−x²/D and zero rim holding. The 4/5 barrier is exact for C_4=K_{2,2} only in the noncomplete cycle family, not for general n."
+        ],
+        "reasoning": "Every cycle including C_3 satisfies the broader exact theorem's core assumptions. The wheel, bare cycle, and non-sharp barrier do not give this specialization.",
+        "searches": [
+          "Resultary records 9e788ca7bde4 and 16afafb3a1dc on transitive leaf coronas",
+          "Boyd et al., arXiv:0709.0955 §§3.1.1 and 5.3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6de3873d5eaa, 9e788ca7bde4, 16afafb3a1dc, 638ad6225b9e",
+        "Boyd et al. arXiv:0709.0955 §§3.1.1 and 5.3.3",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact corona specialization gives x²/D, so x∼√2π/n and the published bare-cycle gap suffice for the half-gap limit. The priced conductance objective is a weighted Laplacian gap with a budget, not a constrained discrete-time SLEM."
+        ],
+        "reasoning": "The frozen result cannot obtain distinct content from the half-gap asymptotic or zero rim holding once the exact indexed theorem is accounted for. Same-support Laplacian optimization and generic averaging are not the reason for the failure.",
+        "searches": [
+          "9e788ca7bde4 and 6de3873d5eaa Findings",
+          "638ad6225b9e Finding",
+          "Boyd et al. arXiv:0709.0955 cycle and wheel sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6de3873d5eaa, Finding: a_n=(x+2)/(2D) denotes the rim weight and b_n=x(x+1)/D the pendant weight, swapping the frozen labels q and p. The objective, all-n domain, invariant uniqueness, rim holding and comparison agree."
+        ],
+        "reasoning": "This is equality of statements under an edge-variable rename, not just similarity between ‘sunlet’ and ‘wheel’.",
+        "searches": [
+          "Resultary: exact fastest mixing on sunlet networks and fifty-percent spectral-gap comparison",
+          "Public query: fastest mixing Markov chain corona graph pendant leaves sunlet exact optimal spectral gap SLEM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 6de3873d5eaa formula determines every n, and 16afafb3a1dc supplies the consistent n=4 case (rim 3/10, pendant 2/5, SLEM 4/5)."
+        ],
+        "reasoning": "This is not a data table claim; exact indexed formulas cover the full range. The matching n=4 case by itself would not establish full-range coverage.",
+        "searches": [
+          "Resultary exact sunlet and transitive leaf-corona formula searches"
+        ]
+      },
+      "rationale": "One distinct Resultary finding states the exact sunlet theorem, including the half-gap comparison, and a broader indexed corona theorem gives the edge probabilities, SLEM, saturated rim, and more rigidity by specialization. This is verified mathematical coverage, with later dates on the overlapping catalogue records, not a claim of historical precedence. The earlier same-graph priced conductance theorem and the published wheel theorem do not establish this overlap.",
+      "residual_risks": [
+        "Later dates on the exact overlap do not settle historical priority, derivation, or the relationship between records.",
+        "The journal version's wheel section number was not independently checked; the arXiv version uses §5.3.3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent",
+          "evidence": "Same graph, global SLEM, the same unique invariant probabilities under a label swap, zero rim holding, and asymptotic factor 1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact fastest mixing on sunlet networks and a fifty-percent spectral-gap comparison",
+          "trigger": "Direct exact match"
+        },
+        {
+          "assessment": "Covers cycle cores and gives further rigidity",
+          "evidence": "Set core degree 2, one leaf per site, and a=x². The result also forces the pendant weights and zero core holding in every optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Universal fastest mixing and pendant-edge rigidity on vertex- and edge-transitive cores",
+          "trigger": "Stronger exact family theorem"
+        },
+        {
+          "assessment": "Supplies the C_4 case but not all cycles",
+          "evidence": "Balanced complete multipartite cores attain 4/5 with prescribed weights; C_n for n≥5 is strict.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-four-fifths-fastest-mixing-barrier-for-transitive-leaf-c--16afafb3a1dc/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A sharp four-fifths fastest-mixing barrier for transitive leaf coronas",
+          "trigger": "Exact special case and broader lower bound"
+        },
+        {
+          "assessment": "Different feasible set and objective",
+          "evidence": "Maximizes the weighted-Laplacian gap under a conductance budget.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-unique-price-optimal-fastest-mixing-on-sunlet-networks--638ad6225b9e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Unique price-optimal fastest mixing on sunlet networks",
+          "trigger": "Earlier result with identical topology"
+        },
+        {
+          "assessment": "Confirms cycle comparison but does not give the sunlet formula in these passages",
+          "evidence": "Cycle gap asymptotic 2π²/n²; the wheel has one universal hub, not one separate leaf at each rim vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§3.1.1 p. 9 and §5.3.3 pp. 28–29 in arXiv PDF",
+          "method": "Primary OA paper passage inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Cycle and wheel benchmark and possible topology alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Exact and more general indexed corona results"
+      ],
+      "rationale": "The natural all-size pendant perturbation of a cycle yields a useful exact network design law: the stochastic constraint saturates precisely at the rim and the spectral gap is halved to leading order. The mathematical content is substantial as an extremal theorem, but its exact coverage precludes a new intake or a repair by parameter renaming.",
+      "residual_risks": [
+        "No unresolved distinctive remainder in the frozen claim survives the exact overlap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

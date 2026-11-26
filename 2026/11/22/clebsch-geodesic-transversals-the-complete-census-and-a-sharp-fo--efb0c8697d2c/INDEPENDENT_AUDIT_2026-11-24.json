@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:03:31.881473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–44; VERIFICATION.md; verify.py; verify_independent.cpp (inspected, not executed)",
+        "/workspace/branches/e2633210-4edc-4b25-911b-3bfc4d1630ce/independent_check.py and finite_audit.txt (independent replay and output)"
+      ],
+      "rationale": "The five generators make the Clebsch graph triangle-free of diameter two, so complementing a geodesic transversal gives an induced subgraph of maximum degree one. The maximality lemma also has a short independent proof. An edge in direction i lies in a coordinate half-cube that induces a matching. Its endpoints have disjoint open neighborhoods of size five; the other six vertices of that half-cube are precisely the vertices adjacent to neither endpoint. Any dissociation set containing that edge therefore lies in that half-cube. For independent sets, translate one point to zero; the other words correspond to pairwise-intersecting two-subsets of five coordinates. Such a family lies in a star (giving an open neighborhood with zero included) or in a triangle of pairs (giving a subset of a coordinate half-cube). The open neighborhoods are maximal since their center sees five of their points and every other outside vertex sees two. This proves the classification without using the frozen programs. Different-coordinate half-cubes intersect in four points, opposite ones in zero, and each four-subset of an open neighborhood has a common coordinate bit. Counting subsets of the maximal sets and the 160 forbidden triples yields the stated 2143 transversals. Above complementary size four the half-cube regions cannot exchange states, and at size four they join along all different-coordinate intersections; the size-five neighborhoods attach there too. Nested chains realize distances 8 and 16, matching the symmetric-difference bounds. At later budgets each new state can move to an inclusion-minimal transversal already present. A separate exhaustive enumeration reproduced the entire census, budget table, and all 45 distances.",
+      "residual_risks": [
+        "The result is for the five-regular Clebsch graph, labelled sets and addition/removal moves only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary a33753cc14ab classifies all ten eight-point induced 4K2 supports.",
+          "General dissociation extremal results give bounds, not the complete family of maximal masks or its thresholded inclusion graph."
+        ],
+        "reasoning": "The prior octahedral-carrier theorem covers the extremal supports as acknowledged; it does not classify maximal dissociation sets of smaller size. General bounds cannot provide the exact state graph.",
+        "searches": [
+          "Tu–Li–Du arXiv:2103.01402v1 and Bock–Pardey–Penso–Rautenbach arXiv:2202.09190v1: general triangle-free dissociation results",
+          "Resultary: folded-five-cube induced four-edge matchings and minimum octahedral carriers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary efb0c8697d2c (same record), a33753cc14ab, e8f33fee1009",
+        "arXiv:2101.08042v1, 2103.01402v1 and 2202.09190v1",
+        "Brouwer and distance-regular graph catalog entries for the five-regular Clebsch graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The carrier result proves the size-eight supports but does not decide which smaller sets can be extended to one of them.",
+          "Sixteen size-five maximal dissociation sets account for an additional term in the minimal polynomial and sixteen isolated budget-eleven states."
+        ],
+        "reasoning": "The maximum family and the general equivalence alone do not imply the all-size census or full budgeted component theorem. The additional maximality and intersection analysis are material.",
+        "searches": [
+          "Compare Resultary a33753cc14ab, Finding and 'All ten supports and no others', with RESULT.md sections 3–5",
+          "Compare arXiv:2101.08042v1, pp. 2 and 5, with the Clebsch classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Manuel–Brešar–Klavžar, arXiv:2101.08042v1, pp. 2 and 5, give the 3-path-cover equivalence and dissociation duality.",
+          "Resultary efb0c8697d2c is the assigned record itself; e8f33fee1009 studies closed-neighborhood triple domination and replacement, different feasibility and moves."
+        ],
+        "reasoning": "The ordinary graph independence complex does not encode the admissible induced matching edges; triple domination is not the 3-path hitting predicate. The known path-cover equivalence identifies the object but does not enumerate it or its reconfiguration.",
+        "searches": [
+          "Resultary: Clebsch graph/folded five-cube geodesic transversals and dissociation",
+          "Primary search: Clebsch graph folded 5 cube geodesic transversal reconfiguration maximal dissociation sets 2143 induced matchings three path vertex cover",
+          "Primary search: Clebsch graph independence complex folded five cube facets maximal independent sets induced matching maximal dissociation geodesic transversal token addition removal 3 path vertex cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact census hit efb0c8697d2c is the same frozen claim; the distinct carrier record has only the ten optimal supports as overlapping enumeration.",
+          "The graph descriptions identify the graph and its strongly regular parameters (16,5,0,2), not the exact transversal or budget tables."
+        ],
+        "reasoning": "Known graph data identify the object, not its exact labelled dissociation/relocation data.",
+        "searches": [
+          "Resultary exact-title and graph/invariant lookup",
+          "Primary search: Clebsch graph dissociation polynomial maximal induced subgraphs maximum degree one 3 path vertex cover enumeration independence hypergraph 2143",
+          "Clebsch graph descriptions by A. E. Brouwer and the distance-regular graph catalog"
+        ]
+      },
+      "rationale": "Credit the known ten optimal half-cubes. The supported distinct claim is the full labelled census and maximal-set classification beyond those optima, together with the exact addition/removal connectivity threshold, component sizes and optimum distances. The strongest inspected distinct records do not establish those claims.",
+      "residual_risks": [
+        "The searches cannot rule out unindexed catalogues or earlier finite enumerations under different terminology; the priority conclusion is bounded to the inspected comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage of the ten optima only",
+          "evidence": "The minimum integral homology carriers are precisely ten eight-vertex supports inducing 4K2; the assertion is not about smaller maximal dissociation sets or relocation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-ten-minimal-octahedral-carriers-generate-the-integral-homology-o--a33753cc14ab",
+          "material_read": "RESULT.md Finding and All ten supports and no others (offset 0)",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Ten minimal octahedral carriers generate the integral homology of the folded five-cube",
+          "trigger": "Same graph and all ten extremal supports"
+        },
+        {
+          "assessment": "Covers the duality, not the Clebsch theorem",
+          "evidence": "For a triangle-free graph the 3-path covers are the 3-geodesic transversals, and their complements are dissociation sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042",
+          "material_read": "PDF p. 2 at offset 6859 and p. 5 at offset 13784",
+          "method": "OA passage inspection",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Equivalent 3-path vertex-cover problem"
+        },
+        {
+          "assessment": "Different problem, not equivalent coverage",
+          "evidence": "Triple domination imposes closed-neighborhood multiplicity, and the moves use simultaneous replacement rather than a one-vertex add/delete budget.",
+          "identifier_or_url": "2026/11/22/SCOPE-triple-closed-neighborhood-domination-in-the-clebsch-graph-three--e8f33fee1009",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Triple closed-neighborhood domination in the Clebsch graph",
+          "trigger": "Same graph, finite reconfiguration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, reconfiguration proof, and limitations",
+        "Earlier folded-five-cube octahedral-carrier classification a33753cc14ab"
+      ],
+      "rationale": "For the natural shortest-path hitting problem on a standard small strongly regular graph, the exact maximal-set classification explains why feasible states split by coordinate and why a budget of eleven traps additional nonoptimal minima. The sharp threshold and two exact route lengths are useful information beyond the known optimal size/family and are not a recomputation of graph-table entries.",
+      "residual_risks": [
+        "No broader folded-cube or token-sliding theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

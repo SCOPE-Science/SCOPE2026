@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:30:57.012558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For δ=|P−1| the residues of consecutive nights step by ±δ modulo P. Reflection and a common shift give intervals with starts jδ and width w; the lifted span is <1/2<P, so no additional copies overlap. Each window sees at most one center, and disjoint nights cannot count the same event center. A phase with at least r hits belongs to an intersection of r consecutive intervals. Those intersections are translates of an interval of length ℓ=w−(r−1)δ; the union has length ℓ+(N−r)min(δ,ℓ) when ℓ>0 and measure zero otherwise, including the touching case. Divide by P for uniform phase. At δ=w/r the numerator changes from slope N−2r+1≥1 to slope −(N−r+1)(r−1); dividing by either 1+δ or 1−δ preserves the respective strict signs on the two positive branches since w<1≤r−1. Hence resonance is a strict local minimum, and the denominators r−w and r+w give the higher short-period peak and the unique global maximum. The limiting c/r follows directly by substitution. The attached checker was inspected, not executed; the interval proof supplies the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beatty–Gaudi explicitly disregard aliasing in the analytic approximation; von Braun–Kane–Ciardi vary the minimum transit count via simulations with finite transit-duration and detection criteria.",
+          "Kepler specifies a general phase fraction with at least k events and actual pipeline sampling."
+        ],
+        "reasoning": "The more general observational definitions and simulations apply to different data criteria or yield estimates per period, not this exact optimizer or alias law.",
+        "searches": [
+          "Beatty–Gaudi §2.1.2 and Appendix B",
+          "von Braun–Kane–Ciardi §§II.3, III.5",
+          "Kepler TPS KSCI-19101-002 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Local Resultary published-record search and both related Findings",
+        "Three primary astronomical papers and Kepler TPS documentation listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known phase sweeps calculate coverage for specific schedules. The two-window Resultary integrand has a single triangular overlap for two sessions; the weather calculation concerns multiplicity in three noisy sessions."
+        ],
+        "reasoning": "Neither output gives the full union of N−r+1 possible r-fold intersections or the branch point δ=w/r. Numerator symmetry alone also does not rank the peaks; exact uniform normalization by P is needed.",
+        "searches": [
+          "Beatty–Gaudi discussion of exact numerical phase routines, §2.1.2",
+          "Local three-session and two-window Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "von Braun–Ciardi §2 computes a phase fraction with an SNR criterion; Kepler TPS §2 defines a phase fraction with a minimum transit count.",
+          "The three-session weather-reliability and same-date two-window prior-slope records were read at their Findings."
+        ],
+        "reasoning": "These comparisons use the equivalent language of orbital phase coverage. The three-session record varies phase placement and reliability at fixed period; the other varies a lag integrated against a period prior. Neither gives N≥2r daily windows, the pointwise δ branches or the period optimizer; no order of priority is inferred from the same date.",
+        "searches": [
+          "Local Resultary semantic search for exact phase coverage, daily aliasing and multi-transit windows",
+          "Primary literature search on analytical daily aliases in transit window functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen result is not independent coverage. The strongest distinct indexed window records and the real-cadence Kepler product do not contain an all-parameter formula or optimizer for this idealized family."
+        ],
+        "reasoning": "A numerical window table for a particular target and data stream cannot establish the exact formula for symbolic N,r,w or its optimizer; no matching exact entry was identified.",
+        "searches": [
+          "Local Resultary retrieval of transit-window findings",
+          "Kepler TPS window-function documentation, KSCI-19101-002 §2"
+        ]
+      },
+      "rationale": "In the evidence inspected, phase-fraction window functions and mechanisms for computing them are established, but the specific short-window all-N, all-r formula together with the strict two-lobe classification and asymmetric global optimizer is distinct. A generic exact phase partition does not give a formula or determine the maximizing period without the consecutive-intersection reduction and branch analysis. This is a best-of-knowledge decision, not a priority certificate.",
+      "residual_risks": [
+        "Uninspected older astronomical literature or exact phase-coverage software may contain a closer alias calculation.",
+        "No claim of historical priority from search absence or catalog date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method, different claim",
+          "evidence": "Generates light curves across phases and counts phases exceeding an SNR threshold, rather than deriving exact point-center alias branches.",
+          "identifier_or_url": "https://arxiv.org/html/0711.4256v2",
+          "material_read": "§2, text offsets 4622–7420",
+          "method": "Bounded primary full-text passage",
+          "title": "Observational Window Functions in Planet Transit Searches",
+          "trigger": "Closest phase-sweep transit window formulation"
+        },
+        {
+          "assessment": "No coverage by the inspected approximation",
+          "evidence": "Mentions exact numerical window routines, then ignores integer- and half-integer-day aliasing in the approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.1150",
+          "material_read": "§2.1.2, especially PDF p. 5; Appendix B, PDF pp. 17–18",
+          "method": "Bounded primary full-text passages",
+          "title": "Predicting the Yields of Photometric Surveys for Transiting Extrasolar Planets",
+          "trigger": "Analytical multi-transit window approximation and aliases"
+        },
+        {
+          "assessment": "Different observable and result",
+          "evidence": "A transit is sampled if data occur during it; compares multiple minimum counts numerically with noise/detection criteria.",
+          "identifier_or_url": "https://arxiv.org/html/0907.1614v1",
+          "material_read": "§II.3 offsets 13281–16221 and §III.5 near offset 31002",
+          "method": "Bounded primary full-text passages",
+          "title": "Observational Window Functions in Planet Transit Surveys",
+          "trigger": "Multiple sampled transits in regular-cadence surveys"
+        },
+        {
+          "assessment": "Same general phase-fraction observable, not the ideal-window law",
+          "evidence": "Defines the fraction of unique orbital epochs allowing at least k transits, and describes a real-pipeline product with k≥3.",
+          "identifier_or_url": "https://exoplanetarchive.ipac.caltech.edu/docs/KSCI-19101-002.pdf",
+          "material_read": "§2, PDF p. 6",
+          "method": "Bounded primary documentation passage",
+          "title": "Kepler TPS window-function documentation",
+          "trigger": "Exact phase-coverage product or potential numerical table"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Optimizes placement of three observing sessions with independent reliability at fixed period.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-weather-reliability-threshold-for-three-transit-observat--4e69c33bc1b2",
+          "material_read": "RESULT.md, offsets 0–2868",
+          "method": "Local published-record mirror",
+          "title": "A sharp weather reliability threshold for three transit observations",
+          "trigger": "Strong related Resultary phase-coverage hit"
+        },
+        {
+          "assessment": "Distinct despite shared phase geometry",
+          "evidence": "Optimizes a two-window lag after integration against a period prior, with integrand proportional to (w−|L−P|)_+.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-prior-slope-transition-for-two-window-exoplanet-transit-cade--1fa540b3e8af",
+          "material_read": "RESULT.md, offsets 0–2913",
+          "method": "Local published-record mirror",
+          "title": "The prior slope transition for two-window exoplanet transit cadence",
+          "trigger": "Same-date related Resultary exact center coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A useful exact benchmark for the near-resonance behavior of phase-coverage calculations: it identifies when nightly redundancy is maximal at resonance, why detectability instead peaks at a small detuning, and why the two peaks differ despite symmetric raw coverage. The peak remains of order one for w=c/N at fixed r while the resonance coverage goes to zero. The application is narrowly a coverage test for ideal point events, not a claim about actual exoplanet yields.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

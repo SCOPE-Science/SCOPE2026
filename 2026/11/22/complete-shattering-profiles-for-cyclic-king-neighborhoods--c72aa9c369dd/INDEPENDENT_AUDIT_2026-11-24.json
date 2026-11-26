@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:07:24.971401Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All-one realizes a nonempty shattered support inside a translate of the nine-position box, so the 512 anchored masks are complete. Product overlap masks come from the two one-dimensional intersections with {0,1,2}; after period five the nonempty overlaps are fixed, and only the empty overlap can be acquired. The finite test found no template with all nonempty traces but missing the empty trace at the stable bases (3,6), (4,5), (5,5). Larger periods retain the base empty trace if it existed, since they retain both the nonempty overlap types and any empty overlap already possible at the base. For the distinct orbit issue, given two anchored templates, fix a point p of the first; a translating equivalence must send it to some point q of the second. Equality of the two relative-difference sets modulo the periods then decides equivalence. In every long coordinate the differences are in [−2,2], where reduction mod any period ≥5 is injective; short coordinates keep their modulus. This proves that equivalences and stabilizer orders, also tested by setting the two templates equal, do not change within a regime. It likewise transports pair/triple incidence by comparing pairs to the two-point subsets of anchored triples. The motif assertion is read as embedding the planar signed coordinate permutations, not requiring a quarter-turn automorphism of a rectangular torus. All 12 locally possible unoriented pair differences are shattered, since the verified pair count is 12mn and each difference gives a full orbit. The motifs use axial size two, diagonals of size (1,1), and mixed sizes (1,2) and (2,1) when reflected and swapped; the four unused difference classes are exactly as claimed. The archived verifier explicitly checks the total maximal-pair count, not those classes as a set; the preceding difference argument and the separate census verify the stronger claim. The independent replay, /workspace/branches/c3f5e63f-800d-48ed-af68-75bdb42cc374/independent_check.py and independent_check_notes.txt, matched all seven coefficient lists, checked 512 masks per boundary and enlargement, and matched the 588 triples and all four maximal-pair classes at 7×7 (also the pair classes at 5×5). The all-period proof combines the finite certificate with the overlap and difference arguments; finite samples alone do not prove it. The uploaded VERIFY.py was inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "810fee39077c concerns products of arbitrary cyclic intervals, with a VC dimension classification and an explicit exclusion of fixed-side-length support counts.",
+          "c8479381df1b treats all A×B with |A|=r, |B|=s. For r=s=3 in its padded range the VC dimension is 4, while the cyclic consecutive subclass here has dimension 3.",
+          "The continuous torus paper states bounds for variable boxes and discusses VC dimension 6 in dimension two."
+        ],
+        "reasoning": "Shattering is monotone upwards when the hypothesis family is enlarged, not downwards. These larger families can realize traces a fixed three-position window cannot. In particular, their exact dimensions do not give exact support polynomials, motifs or facets for the subclass.",
+        "searches": [
+          "Resultary 810fee39077c and c8479381df1b",
+          "Gillibert–Lachmann–Müllner arXiv:2004.13861, Theorem 1.1 and Remark"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58, VERIFICATION.md and VERIFY.py",
+        "Resultary 810fee39077c, c8479381df1b and 332b27986fe0",
+        "arXiv:2004.13861 and Mertens, JIS 27 journal PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary cyclic intervals and arbitrary coordinate subsets allow different one-dimensional intersections with an anchored length-three segment; the prior theorems do not give the exact resulting trace family for consecutive triples. The finite certificate here distinguishes empty and nonempty trace availability at the short boundaries and compares pair/triple inclusion in the stable range."
+        ],
+        "reasoning": "A dimension bound alone does not determine even the counts within a given dimension, much less the orbitwise facet classification. Recovering the restricted fixed-width traces requires the separate overlap analysis and finite certificate, not merely substituting width three into the inspected statements.",
+        "searches": [
+          "Resultary 810fee39077c scope and limitations, offsets 0–8735",
+          "Resultary c8479381df1b, Finding and scope, offsets 0–3666",
+          "arXiv:2004.13861 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed neighborhoods are exactly the translates of a single 3×3 cyclic window, not products of arbitrary intervals or arbitrary triples of coordinate elements.",
+          "The top thematic primary search hit, Mertens's domination-polynomial paper, defines torus via the Cartesian product and king via a strong product of paths. Its polynomial counts dominating sets."
+        ],
+        "reasoning": "A fixed 3×3 translated cyclic box formulation is equivalent. Counting dominating sets of a graph is not counting shattered supports of its neighborhood family, even when the graphs have closely related names. There is no same-object exact formula in the checked alternative formulations.",
+        "searches": [
+          "Resultary fixed-width cyclic boxes and cyclic king neighborhoods",
+          "Web query: VC shattering closed neighborhoods king graph discrete torus fixed size 3 by 3 Moore neighborhood translates shattered supports cyclic king graphs polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete cyclic-king spectrum is the frozen c72aa9c369dd result itself. The same-day fixed-cardinality Cartesian rectangle record varies the allowed factor subsets, and the same-day Shrikhande result 332b27986fe0 uses minimum dominating sets.",
+          "The Mertens tables count dominating sets by size, not shattering traces or translation orbits."
+        ],
+        "reasoning": "The same record is not independent coverage. Numerical tables for nearby graph families, even at matching side lengths, do not give the support counts in the frozen finding. The distinct same-day thematic comparisons are not rejected by date alone.",
+        "searches": [
+          "Resultary exact cyclic-king shattering polynomials, toroidal facets and Cartesian rectangles",
+          "Primary fixed-width neighborhood query; JIS Mertens paper p. 2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact support spectrum and facet structure of the cyclically translated fixed-width neighborhood family. Broader box results, including a same-day theorem for arbitrary factor subsets of fixed cardinality, do not determine these traces or their counts. The conclusion is based on the checked statements, not a claim of universal bibliographic exclusivity.",
+      "residual_risks": [
+        "The lookup is bounded and may miss work indexed under fixed-width toroidal translates or Moore neighborhoods. None of the compared sources establishes independent exact coverage; no same-day priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Arbitrary cyclic intervals and VC dimensions but not the exact restricted problem",
+          "evidence": "Scope allows unrestricted cyclic intervals, and the limitations exclude counting shattered supports and treating fixed-side-length boxes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-vc-dimensions-of-finite-cyclic-rectangles-on-two-dimension--810fee39077c/RESULT.md",
+          "material_read": "Finding, scope and limitations, offsets 0–8735",
+          "method": "Local mirror",
+          "title": "Exact VC dimensions of finite cyclic rectangles on two-dimensional tori",
+          "trigger": "Natural broader discrete torus box theorem"
+        },
+        {
+          "assessment": "Distinct broader class, not equivalent coverage",
+          "evidence": "All r-element and s-element factor subsets are allowed, not just consecutive intervals, giving dimension 4 at r=s=3 in its padded range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-shattering-of-fixed-cardinality-cartesian-rectangles--c8479381df1b/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3666",
+          "method": "Local mirror",
+          "title": "Exact shattering of fixed-cardinality Cartesian rectangles",
+          "trigger": "Fixed-side-cardinality exact shattering theorem on the same date"
+        },
+        {
+          "assessment": "Continuous variable-width boxes, not a discrete fixed-width census",
+          "evidence": "It provides asymptotic dimension bounds and discusses dimension six for a two-dimensional continuous torus.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.13861",
+          "material_read": "Theorem 1.1 and following Remark, PDF p. 2, offsets 4350–6926",
+          "method": "Original OA PDF passage",
+          "title": "Gillibert–Lachmann–Müllner, The VC-Dimension of Axis-Parallel Boxes on the Torus",
+          "trigger": "Closest cited continuous-torus box theorem"
+        },
+        {
+          "assessment": "Different invariant and different product graphs",
+          "evidence": "The torus in this paper is the Cartesian cycle product, the king graph the strong path product, and equation (1) sums over dominating vertex sets.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens2/mertens12.pdf",
+          "material_read": "Introduction and polynomial definition, pp. 1–2, offset 3080 for decisive passage",
+          "method": "OA journal PDF, literal locator and bounded offset",
+          "title": "Domination Polynomials of the Grid, the Cylinder, the Torus and the King Graph",
+          "trigger": "Primary lookup returns similar graphs and an exact polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural nearest-neighbor concept family is a strict fixed-width version of a familiar shattering problem. Its full classification accounts for the short-period trace losses and gives an all-period invariant rather than counts on a few boards. The motif and maximal-pair results show concretely why even the stable shattering complex is nonpure, a fact not captured by the VC dimension or by a general box bound. The small template is a justified finite proof cutoff and not an arbitrary sampling choice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:40:41.689971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered collision congruence is (x−y)(x+y)(x²+y²+c)≡0. The conic has p−χ_p(−1) points: for a=−c≠0, factoring v²−u² as (v−u)(v+u) gives sum_x χ_p(x²−a)=−1. The lines meet at the origin off the conic, and each meets the conic in 1+η points. Inclusion–exclusion gives U=3p−3−ε−2η, with I=3+2η double crossings and no triple points. At a simple point, prescribe the coordinate complementary to a unit partial derivative and lift the other, giving p^(k−1) solutions. At a crossing the two vanishing factors form local coordinates: the Jacobian determinants are units, up to signs 2 and 4t with t≠0. Digit-by-digit inversion gives the same residue-disc bijection modulo every p^k. The third factor is a unit and the local equation is uv≡0 with u,v≡0 mod p. The u=0 term gives p^(k−1) choices, and each valuation i=1,…,k−1 contributes (p−1)p^(k−1), so E=p^(k−1)[U+(k−1)(p−1)I]. This includes p=3 and k=1, and only the residue class character of the unit c survives. Subtraction gives the advertised first-lift sign flip; summing the two geometric terms gives the pole and the factor-of-five change, and E/p^k−1 is the variance since mean fiber size is 1. The independent replay `/workspace/branches/7426aeda-fc46-47cd-9fcb-e98c8fce40d1/record2_replay.py` directly tested all 80 unit coefficient cases at p=3,5,7 and k=1,2 (114240 ordered comparisons). Class differences were −4 at k=1 and 12,60,140 respectively at k=2. The frozen nested `artifacts/verify.py` and its self-reported run are separate, and neither finite test replaces the lifting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Xiong gives distributions over a broader class of affine lines and quartics over finite fields, including the two even quartic classes. The prime-power catalogue results treat either additive energy for the unperturbed quartic (p≥5), or the same two-variable invariant for a different map x³+cx."
+        ],
+        "reasoning": "Larger families of finite-field intersections do not handle nonfield rings. The cubic parallel is strong overlap in method and reversal, but its factorization and transverse intersection count are not those of the quartic. A general normal-crossing lift gives the contribution once U and I are found; it does not by itself compute their two distinct unit-class values for this family.",
+        "searches": [
+          "Li and Xiong DOI:10.1007/s10623-024-01488-6, Definition 1.1 and Theorem 1.8",
+          "Resultary SCOPE-exact-additive-energy-of-the-quartic-graph-over-prime-power-ring--35db6c8e1cdf",
+          "Resultary SCOPE-exact-collision-reversal-for-cubic-maps-over-odd-prime-power-rin--4719850d455d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and nested artifacts/verify.py",
+        "Resultary catalogue and four overlapping catalogue records",
+        "Seraj arXiv:2309.13070",
+        "Li–Xiong DOI:10.1007/s10623-024-01488-6",
+        "Focused prime-power/local-zeta literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-square graph-energy formula gives a reversal in a different relation for the same coefficients. The cubic analogue addresses this relation at all exponents but for a different difference polynomial. The present sign comparison is −4 plus a new positive level term from four extra crossing disks in the η=1 class."
+        ],
+        "reasoning": "There is no reduction from the checked graph energies or cubic statistics that yields U and I here; applying the common lifting principle requires identifying the actual line–conic crossing count. Same-day catalogue publication does not determine priority.",
+        "searches": [
+          "Resultary SCOPE-exact-fourth-moments-of-unit-perturbed-quartic-graphs-over-prime--327b026713c6, finding",
+          "Seraj Theorem 15; Li–Xiong Definition 1.1 and Theorem 1.8",
+          "Same-day cubic collision reversal finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent count is the solution count for the two-variable collision polynomial; its local zeta strata distinguish smooth points from two-factor crossings. Seraj uses collision analysis for the same finite-field biquadratic family, but Theorem 15 sums distinct residues rather than ordered pairs. Catalogue results for graph energy instead equate two sums of graph points."
+        ],
+        "reasoning": "Do not equate these invariants: the distinct-output sum discards fiber sizes, and graph additive energy is a four-variable relation, not horizontal equality of two outputs. The focused zeta discovery query did not locate a matching primary result; that is not negative proof.",
+        "searches": [
+          "Literature: \"x^4 + c x^2\" prime powers congruence equal values collision count x^4+cx^2 p^k local zeta",
+          "Resultary: ordered equal-value collision count second fiber moment x^4+cx^2 modulo p^k crossing lift reversal",
+          "Seraj arXiv:2309.13070v1 §§2 and Lemma 9/Theorem 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue search returns the assigned record and neighboring counts of pair-sum multiplicities or energies. Li–Xiong's v_i tabulate root counts of f(x)−bx−c across parameters (b,c), not counts over lifts mod p^k of horizontal fibers."
+        ],
+        "reasoning": "Even exact matching polynomial classes do not make these tables equivalent to E_{p,k}; summing a histogram over all slopes does not isolate horizontal statistics in general, and no k=1 table can directly furnish k≥2 contributions of singular residue disks.",
+        "searches": [
+          "Local Resultary lookup for ordered equal-value biquadratic counts and exact reversal",
+          "Li–Xiong Theorem 1.8 tables for x^4+x^2 and x^4+αx^2",
+          "Resultary SCOPE-complete-twofold-sum-multiplicity-spectrum-for-even-quartic-grap--0e6d34edb345"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit all-precision ordered equal-value count for this quartic family and the reversal driven by the coefficient-dependent number of crossing disks. Normal-crossing lifting is standard; neither a new lifting theorem nor priority for mod-p quartic analysis is claimed. The same-map additive-energy results and finite-field intersection results do not supply the prime-power second fiber moment.",
+      "residual_risks": [
+        "A known explicit zeta calculation of this normal-crossing polynomial or a source containing the same specialized count may be indexed under another description. The bounded, unproductive discovery query does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-field mechanism overlaps; invariant and precision differ",
+          "evidence": [
+            "Theorem 15 gives a modular sum over distinct outputs for primes p≥7; Lemma 9 analyzes repetitions in an auxiliary quadratic calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.13070",
+          "material_read": "Lemma 9, PDF p. 4, offset 11200; §2 and Theorem 15, p. 8, offsets 24600–28752",
+          "method": "Open primary PDF text inspection",
+          "title": "Sum of Distinct Biquadratic Residues Modulo Primes",
+          "trigger": "Same biquadratic family and collision lemmas"
+        },
+        {
+          "assessment": "Substantial finite-field distribution result, but parameters and precision do not give the claimed moment tower",
+          "evidence": [
+            "The v_i count all line parameters with i roots of f(x)−bx−c; Theorem 1.8 includes the even quartic square and nonsquare classes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-024-01488-6",
+          "material_read": "Definition 1.1 p. 1090, Theorem 1.8 pp. 1093–1094, extracted offsets 10500–23290",
+          "method": "Publisher primary PDF endpoint and bounded passage inspection",
+          "title": "Intersection distribution of degree four polynomials over finite fields",
+          "trigger": "Potential broader exact tabulation for the same quartic classes"
+        },
+        {
+          "assessment": "Same graph and related coefficient effect, distinct invariant",
+          "evidence": [
+            "Counts four graph points with equal pair sums over Z/p², not pairs with equal polynomial outputs."
+          ],
+          "identifier_or_url": "SCOPE-exact-fourth-moments-of-unit-perturbed-quartic-graphs-over-prime--327b026713c6",
+          "material_read": "RESULT.md finding from offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Exact fourth moments of unit-perturbed quartic graphs over prime-square rings",
+          "trigger": "Closest same-polynomial prime-square result including a reversal"
+        },
+        {
+          "assessment": "Both polynomial and moment differ",
+          "evidence": [
+            "Gives prime-power four-variable additive energy for the unperturbed x^4 graph at p≥5."
+          ],
+          "identifier_or_url": "SCOPE-exact-additive-energy-of-the-quartic-graph-over-prime-power-ring--35db6c8e1cdf",
+          "material_read": "RESULT.md finding from offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Exact additive energy of the quartic graph over prime-power rings",
+          "trigger": "Exact quartic prime-power recurrence"
+        },
+        {
+          "assessment": "Counts another family of fibers",
+          "evidence": [
+            "The r_a(s,v) concerns a pair-sum map on graph points over the finite field."
+          ],
+          "identifier_or_url": "SCOPE-complete-twofold-sum-multiplicity-spectrum-for-even-quartic-grap--0e6d34edb345",
+          "material_read": "RESULT.md finding from offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Complete twofold sum multiplicity spectrum for even quartic graphs",
+          "trigger": "Exact table for same polynomial class"
+        },
+        {
+          "assessment": "Distinct parameterized polynomial family; method-level overlap credited",
+          "evidence": [
+            "The all-power formula and reversal concern x³+cx, not x^4+cx²."
+          ],
+          "identifier_or_url": "SCOPE-exact-collision-reversal-for-cubic-maps-over-odd-prime-power-rin--4719850d455d",
+          "material_read": "RESULT.md finding from offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Exact collision reversal for cubic maps over odd prime-power rings",
+          "trigger": "Same invariant and qualitative effect over the same rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural low-degree family the result explains why finite-field collision ordering predicts the wrong ordering at every higher precision: additional transverse crossings contribute a growing valuation term. The explicit all-k formula, rational series and two variance slopes give usable quantitative information about unevenness of fibers, not just a numerical comparison at p² or a rephrasing of graph energy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

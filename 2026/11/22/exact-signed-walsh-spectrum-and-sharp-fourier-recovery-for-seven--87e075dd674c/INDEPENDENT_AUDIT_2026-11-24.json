@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:28:11.237829Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4; VERIFICATION.md and verify_ice7.py (inspected, not executed)",
+        "/workspace/branches/f89c5624-0c88-4d97-a6ba-69daa77fd605/independent_check.py and independent_check.out (independent exact replay; output lines 1–12)"
+      ],
+      "rationale": "The independent bounded enumeration retained exactly the orientations with outdegree two at every vertex and applied the integer Walsh transform in the stipulated ascending-edge coordinates. It reproduced all 15 signed multiplicities, rank 6336, nullity 10048, gap 4, the ±60 extremes, and exactly the two specified families among the 91 two-edge tests. Thus the condition number is 15 and the inverse norm 1/4. Complementing every reversal bit explains the 8192 odd-weight zeros; subtracting gives 1856 even-weight zeros. The cut-space argument uses differences of two Eulerian reversal words, or a translate by one fixed Eulerian word, not the assertion that the ascending-label orientation is Eulerian. The independent inverse transform of the nonzero support reproduced the full kernel histogram and its absolute numerator sum 71936, divided by 16384. A real or complex projection conjugated by any translation maps into the range and fixes it; the average therefore still projects and has no greater norm. Commutation with translations forces the unique Fourier support-indicator projection, whose counting-measure endpoint norms both equal its kernel's absolute sum (281/64).",
+      "residual_risks": [
+        "Exhaustive on this labelled graph only. Changing reference directions translates the orientation set, which can change individual multiplier signs; the check used the specified convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed odd-order family yields count 2+2L_n. The accessible Golin–Leung text describes recurrence methods and refers Eulerian recurrences to its full version. Isaev's primary passage is asymptotic under algebraic-connectivity assumptions."
+        ],
+        "reasoning": "The broader count implies 60 and the squared spectral moment by Parseval, but not the multilinear signed spectrum, its zero supports, or projection norm.",
+        "searches": [
+          "Golin–Leung WG 2004 circulant recurrence",
+          "Isaev arXiv:1110.2598",
+          "Zhang–Shen 2007 Eulerian orientation count for a class of circulants",
+          "Resultary two-winding odd cycle squares"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked results and mirror passages",
+        "Felsner, Golin–Leung and Isaev primary passages and Zhang–Shen bibliographic lead",
+        "Frozen RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-family scalar count and winding polynomial; nearby full spectra or lower-order covariances computed on different graphs."
+        ],
+        "reasoning": "Even having a general unspecialized counting algorithm and a general projection principle leaves the nonzero support undetermined, and its absolute inverse-transform sum cannot be read from the degree counts. The repeated strategy is precedent, not a demonstrated evaluation on this graph.",
+        "searches": [
+          "Resultary 3a8bfe6cd8c8, fdbca339c304, d9cbbafa7ebf",
+          "Golin–Leung WG 2004 primary text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eulerian orientations are fixed-outdegree orientations. The frozen Fourier sum evaluates a fourteen-variable orientation generator at ±1, whereas the two-winding polynomial gives only two weights uniform within jump families."
+        ],
+        "reasoning": "The latter weights encode aggregate marginals, not independent edge signs; in particular, the mixed two-edge coefficients depend on relative offset, which uniform weights do not distinguish.",
+        "searches": [
+          "Resultary search for C7² Eulerian orientation independent sign spectrum and range-projection norm",
+          "Resultary two-winding enumeration (3a8bfe6cd8c8)",
+          "Felsner, DOI 10.37236/1768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact Resultary hit is the frozen record itself. Another exact spectrum in the mirror is on C3 square-product C3 (18 edges, 148 configurations); the octahedral K2,2,2 record concerns degree-one sampling."
+        ],
+        "reasoning": "Neither is the same edge-labelled space or gives an equivalent all-sign table for C7². No independent table for this exact graph was verified.",
+        "searches": [
+          "Resultary semantic search for exact C7² signed multipliers, weight-two zeros and norm",
+          "Focused literature check on Eulerian orientations of squared circulants"
+        ]
+      },
+      "rationale": "The original scope that is supported as distinct is the evaluated independent-sign spectrum, precise weight-two cancellation supports and sharp endpoint projection norm for C7². The orientation count of 60 and aggregate winding statistics are prior and acknowledged; the abstract projection-averaging argument and finite Walsh method are also not new.",
+      "residual_risks": [
+        "The longer Golin–Leung version and Zhang–Shen full text were not inspected; related scalar enumerations may be present. An unindexed evaluation of the exact signed spectrum remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ordinary count and two-weight specialization, not the signed census",
+          "evidence": "Complete two-winding polynomial for odd n≥5; 2+2L_n gives 60 at n=7.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-winding-enumeration-of-eulerian-orientations-on-odd-cycle-sq--3a8bfe6cd8c8",
+          "material_read": "RESULT.md Finding at offset 0, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Two-winding enumeration of Eulerian orientations on odd cycle squares",
+          "trigger": "Strongest same-graph and broader odd-order overlap"
+        },
+        {
+          "assessment": "Structural orientation method, not this signed calculation",
+          "evidence": "Eulerian orientations of even-degree plane graphs are α-orientations in the lattice framework.",
+          "identifier_or_url": "https://doi.org/10.37236/1768",
+          "material_read": "PDF pp. 10–11 around text offset 29288",
+          "method": "OA primary text",
+          "title": "Lattice Structures from Planar Graphs",
+          "trigger": "Fixed-outdegree orientation formulation"
+        },
+        {
+          "assessment": "Access to conference treatment only; no exact signed table there",
+          "evidence": "Refers Eulerian recurrences to the full version and discusses parameters satisfying circulant recurrences.",
+          "identifier_or_url": "https://cse.hkust.edu.hk/~golin/pubs/golin_WG_04_new.pdf",
+          "material_read": "Conference version p. 3 around offset 8306 and p. 307 around offset 35518",
+          "method": "Author-hosted OA PDF",
+          "title": "Unhooking Circulant Graphs: A Combinatorial Method for Counting Spanning Trees and Other Parameters",
+          "trigger": "Counting Eulerian orientations of circulants"
+        },
+        {
+          "assessment": "Asymptotic ordinary enumeration, not a finite independent-sign table",
+          "evidence": "Uses a large algebraic-connectivity hypothesis.",
+          "identifier_or_url": "arXiv:1110.2598",
+          "material_read": "Page 2 around offset 4952",
+          "method": "OA primary text",
+          "title": "Asymptotic behavior of the number of Eulerian orientations of graphs",
+          "trigger": "Broader counting theorem"
+        },
+        {
+          "assessment": "Unresolved as to scope; not treated as non-covering",
+          "evidence": "Title and year available; no theorem text available from that lookup.",
+          "identifier_or_url": "https://www.researchgate.net/publication/266247805_Counting_the_Eulerian_orientations_of_one_class_of_circulant_graphs",
+          "material_read": "Bibliographic record only; full-text request returned 403",
+          "method": "Lawful public-text lookup",
+          "title": "Counting the Eulerian orientations of one class of circulant graphs",
+          "trigger": "Plausible overlap in unsigned enumeration"
+        },
+        {
+          "assessment": "Different graphs and, for the frame, a different order of statistics",
+          "evidence": "Torus has 18 edges and 148 configurations; octahedral comparison has 38 orientations and degree-one frame data.",
+          "identifier_or_url": "Resultary fdbca339c304 and d9cbbafa7ebf",
+          "material_read": "Local mirror statements",
+          "method": "Local Resultary source inspection",
+          "title": "Smallest simple periodic square-ice torus spectrum; first anisotropic degree-one quartic ice frame",
+          "trigger": "Closest evaluated Fourier analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–4; independent exact Walsh and kernel replay; odd-cycle-square winding comparison"
+      ],
+      "rationale": "This is the first odd squared cycle beyond the complete-graph C5² case in the odd-cycle-square family. The independent-edge convolution is a natural refinement of two winding counts. In particular, the low-weight census isolates an offset-specific mixed-edge correlation that a uniform winding statistic does not resolve. The full spectrum distinguishes invertible modes from cancellations, and the evaluated optimal norm gives a precise test case for recovery comparisons. The value is in these graph-specific invariants, not the prior count or reuse of the Fourier method.",
+      "residual_risks": [
+        "Finite benchmark only; no law of Fourier recovery or cancellation motifs at higher orders is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:00:59.793451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact sampled update is linear in the three-coordinate state, and independence of the next draw gives closed evolution by the mean matrix. The frozen roots 0, 1/2 and 1/(1+c) are strictly in the unit disk even when the last two coincide. The mean quadratic has α=(b+3)/(4(b+1)) and β=(b−1)²/(16(b+1)); for b>10 the three strict Schur inequalities reduce to β<1, or b<9+4√6. Independently eliminating the estimator on the alternating path gives modes r=−(b−2)/4 and s=b/[2(b+1)] and the stated first-coordinate projections (python /workspace/review_evidence/reproduce_1234.py 1). Since |s/r|<1 and the r-mode projection is nonzero, eventually the magnitude is at least |r|^n/[(b−1)(b+2)]. Squaring and multiplying by event probability 4^(−n) yields the advertised lower bound on the even subsequence; its base exceeds one for b>10. At b=14 the secondary/primary ratio is at most 105(7/45)^3<1/2 for all n≥3 and the bound is exactly as stated. The objective is a positive multiple of x². No almost-sure conclusion, all-initial-data claim or full mean-square frontier is implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SPAM's source assumes uniform gradient variance and restricts the admissible step in its convergence guarantees; the centered heterogeneous quadratics have variance proportional to x², and the chosen step is outside the cited sufficient conditions.",
+          "Ogura–Martin's lifted spectral-radius criterion and quadratic Lyapunov characterization apply as a general framework for iid switching."
+        ],
+        "reasoning": "The optimizer guarantees do not cover this parameter family, and the general characterization is not an evaluated SPAM stability theorem; it requires a separate matrix calculation and does not identify this observable, initializing state, interval, or rate lower bound.",
+        "searches": [
+          "arXiv:2405.20127v1 Algorithm 1 and pp. 4–5 assumptions and guarantees",
+          "arXiv:1409.6032 p. 3 and Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.20127v1",
+        "arXiv:1409.6032",
+        "Resultary 170ca03b5dee",
+        "Resultary 29b111de8146"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a=(b+1)/2, δ=(b−1)/2, γ=1, and p=1/2, the prior first-moment criterion (2−p)ρ²t²<(1+t)² for ρ=δ/a, t=γa reproduces the b<9+4√6 boundary on b>1.",
+          "The frozen instability uses a different calculation: an alternating two-step mode of modulus (b−2)/4, a nonzero initial projection, and path probability 4^(−n)."
+        ],
+        "reasoning": "The prior implication ends at first-moment stability. Neither that stability nor the unspecialized lifted criterion determines the existence of this projected growing mode and the stated sufficient b>10 growth bound.",
+        "searches": [
+          "Resultary 170ca03b5dee RESULT.md Finding and scope",
+          "arXiv:1409.6032 Proposition 3.4 and p-radius formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The iid switched-linear representation is exact. The general second-moment representation uses the expectation of A⊗A, rather than the tensor square of the averaged matrix.",
+          "For these losses expected objective is a fixed positive multiple of the first-coordinate second moment. Showing instability of an arbitrary lifted mode without checking the initialization and observation would not establish that fact."
+        ],
+        "reasoning": "An equivalent instability result must retain the SPAM transitions and imply growth of the observed squared iterate from the declared initial state. Generic switched instability or stability of the three-dimensional mean alone is not that result.",
+        "searches": [
+          "Resultary searches on exact SPAM expected-loss divergence and switched-system first versus second moments",
+          "arXiv:1409.6032 p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "170ca03b5dee gives the mean-only frontier, expressly excluding second moments. 29b111de8146 gives exact (137/80)^n mean-square growth with almost-sure convergence in parallel randomized Kaczmarz, a different state and iteration.''"
+        ],
+        "reasoning": "The prior SPAM frontier covers the upper bound for mean stability but not the alternating SPAM path or expected loss. A table or witness for another optimizer does not give this interval and bound for SPAM. No further distinct exact match was located in the reviewed hits.",
+        "searches": [
+          "Resultary exact two-client scalar SPAM first versus second moment, records 170ca03b5dee and 29b111de8146"
+        ]
+      },
+      "rationale": "The SPAM recursion, exact first-moment criterion and general possibility of a separation between moment stability notions are prior. The supported distinct contribution is the explicit expected-loss instability on a nonempty open interval for this same exact SPAM recursion, with both frozen-client maps and the full mean stable.",
+      "residual_risks": [
+        "An unlocated prior specialized SPAM lifted-moment or switched-matrix calculation could overlap the family. The comparisons are bounded and not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mean-stability component, not second-moment growth",
+          "evidence": [
+            "States the exact Schur condition for symmetric curvature parametrization and expressly scopes out second moments."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee",
+          "material_read": "Local-mirror RESULT.md offsets 0–3791 (Finding and scope)",
+          "method": "Resultary and local-mirror passage inspection",
+          "title": "Exact first-moment stability frontier for two-client scalar SPAM",
+          "trigger": "Same exact optimizer and client family"
+        },
+        {
+          "assessment": "Same algorithm; sufficient guarantees outside this instance's hypotheses",
+          "evidence": [
+            "Algorithm and results use Assumptions 1–2 and a stepsize restriction; Assumption 1 bounds gradient variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.20127v1",
+          "material_read": "PDF pp. 4–5, offsets 17250–24650",
+          "method": "OA primary full-text passage comparison",
+          "title": "SPAM: Stochastic Proximal Point Method with Momentum Variance Reduction for Non-convex Cross-Device Federated Learning",
+          "trigger": "Original update and most relevant convergence guarantees"
+        },
+        {
+          "assessment": "General applicable framework, not worked SPAM example or observed-coordinate instability bound",
+          "evidence": [
+            "The p=2 stability criterion uses the lifted expected transition; the proposition gives a quadratic-Lyapunov characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.6032",
+          "material_read": "PDF p. 3, offsets 15300–19019, including Proposition 3.4",
+          "method": "OA primary text and criterion comparison",
+          "title": "On the Mean Stability of a Class of Switched Linear Systems",
+          "trigger": "General result potentially covering iid moment stability via tensor lift"
+        },
+        {
+          "assessment": "Distinct algorithm and growth formula",
+          "evidence": [
+            "Its q=4 and α=19/5 witness has almost-sure exponential convergence alongside second-moment growth (137/80)^n; it does not analyze SPAM client maps."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-finite-time-absorption-and-mean-square-explosion-in-averaged-ran--29b111de8146",
+          "material_read": "Local-mirror RESULT.md offsets 0–4200",
+          "method": "Resultary and local-mirror passage comparison",
+          "title": "Finite-time absorption and mean-square explosion in averaged randomized Kaczmarz",
+          "trigger": "Indexed example with closely related stability-versus-explosion phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Frozen and full-mean stability are tempting diagnostics for a stochastic proximal algorithm. The two-client, shared-minimizer counterexample shows they fail to guarantee decreasing expected physical loss, on an open interval rather than only a tuned instance. It ties the failure to a specific rare switched product and quantitative observable growth, without claiming to falsify the source's sufficient guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

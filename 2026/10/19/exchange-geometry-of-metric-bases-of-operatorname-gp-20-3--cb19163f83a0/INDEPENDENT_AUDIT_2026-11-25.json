@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:30:01.655401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50 and VERIFICATION.md lines 21–31",
+        "Frozen check_direct.cpp lines 18–102 and check_masks.py lines 5–95",
+        "Frozen direct_output.txt and masks_output.txt (recorded, not fresh computation)",
+        "Independent reviews/evidence/gp20.py and gp20-{0,256,512,768,1024}.txt"
+      ],
+      "rationale": "Independently reproduced the complete finite classification using reviews/evidence/gp20.py (Python with NumPy/SciPy). The code builds the labelled graph using cyclic rim distances and computes its distance matrix by Floyd–Warshall. A candidate resolves exactly when its landmark mask hits the separator mask for every pair. It tests all 91,390 four-sets (none resolve) and 658,008 five-sets; any smaller resolver would extend to a resolving four-set. The 41,040 successful five-sets have outer counts 1720,13400,20520,5300,100 for r=1,...,5 and zero for r=0. To build the exchange graph independently of trial replacements, all bases containing each shared four-set are connected in a clique; every exchange edge is generated exactly once. This gives 670,930 edges and degree extremes 7,69. Independent simultaneous rotations and reflections preserve the given edges, so eccentricity and rim count are constant on each orbit. There are 12 orbits of size 20 and 1,020 of size 40. Exact unweighted shortest paths from each of the 1,032 orbit representatives reach all states. Orbit-weighted eccentricities are 6 for 40,180 states and 7 for 860. The latter consist of one orbit of size 20 and 21 of size 40 and have rim counts 360,420,80 for r=2,3,4. The designated center and periphery have eccentricities 6 and 7, and the designated witness is distance 7 from the latter. To replay run python3 /workspace/reviews/evidence/gp20.py, or give consecutive half-open orbit ranges [0,256), [256,512), [512,768), [768,1024), [1024,1032) as two integer arguments and sum the weighted profiles. The original source programs and outputs were inspected, not executed.",
+      "residual_risks": [
+        "Exact enumeration certifies only this labelled GP(20,3) vertex-metric jump graph; no result requiring full automorphism-group orbits or edge-slide moves is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao, Xiao and Zhang derive large-n dimension bounds/equalities; the text assumes sufficiently large n, for example n>=36. Its reproduction of Imran et al.'s table gives an upper bound 5 in the sufficiently-large n=2 mod 6 class.",
+          "The thesis listing does not identify its graph families, characterization, or parameters."
+        ],
+        "reasoning": "Bounds on the minimum size, even if they applied at n=20, do not enumerate the minimal sets or prove reachability or precise eccentricities. No broader exchange theorem covering these exact quantities is established in the inspected material.",
+        "searches": [
+          "arXiv:2508.12224 pp. 2–3 and 21",
+          "Imran et al., Ars Combinatoria 117 (2014), congruence bounds",
+          "Reconfigurations of Metric Bases (2026 master's thesis listing)"
+        ]
+      },
+      "checked_sources": [
+        "Imran et al., Ars Combinatoria 117, as reproduced by Gao et al.",
+        "Shao et al., DOI 10.1155/2018/4531958 (access attempted)",
+        "Gao et al., arXiv:2508.12224",
+        "Reconfigurations of Metric Bases master's thesis listing",
+        "The four identified Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dimension controls only the size of each state. Even the dihedral action alone gives orbit size constraints, not the number of winning states, their exchange neighbors or their eccentricities.",
+          "The Coxeter graph and truncated-tetrahedral graph findings concern specific other underlying graphs. In the latter record a diameter of 7 applies to its edge-slide graph, not its Johnson-isometric jump graph."
+        ],
+        "reasoning": "Neither prior metric dimension nor a different graph's exchange computation supplies the tested distances. Enumeration needs its own resolving-set and path checks; these are not consequences of substituting n=20 in an inspected formula.",
+        "searches": [
+          "arXiv:2508.12224 p. 3 and p. 21",
+          "Shao et al. doi:10.1155/2018/4531958, cited Theorem 8(ii)",
+          "2026/11/22/SCOPE-twenty-nine-symmetry-types-and-one-step-geodesic-detours-among-c--1771f0cf5c41",
+          "2026/11/22/SCOPE-exact-metric-basis-exchange-and-slide-geometry-of-the-truncated--2073aedeea3c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A token jump is exactly the stated replacement if the endpoint is still a minimum ordinary resolving set. The Möbius–Kantor record uses this same move for GP(8,3), with 320 labelled states, 1,984 edges, radius 4 and diameter 5.",
+          "The publicly listed 2026 master's thesis Reconfigurations of Metric Bases has an indicative title, but the student-research listing gives no theorem or result text."
+        ],
+        "reasoning": "Equivalent move terminology was checked; a match in the jump rule is not a graph isomorphism or a theorem for GP(20,3). Edge slides restrict allowed destinations and are not equivalent here.",
+        "searches": [
+          "Resultary metric basis exchange / landmark relocation for GP(20,3)",
+          "Literature comparison: metric-basis reconfiguration and generalized Petersen graphs",
+          "2026/11/22/SCOPE-exact-landmark-relocation-geometry-of-the-m-bius-kantor-graph--2451bb5af26f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known n=20 dimension entry is 5 according to the original's attribution to Shao et al., Theorem 8(ii); no novelty is assigned to it.",
+          "The close catalogue hits give separate exact enumerations for GP(8,3): 320 ordinary bases and 1,984 edges, or 192 weak-total minimum sets and 480 edges. The latter has radius 7 and diameter 7, matching one scalar but not even the resolving notion."
+        ],
+        "reasoning": "Exact values for another GP order or a different resolving condition are not the GP(20,3) census. The inspected comparisons did not give an exact existing table for the 41,040-state exchange graph.",
+        "searches": [
+          "Resultary focused GP(20,3) exact metric-basis exchange statistics",
+          "2026/11/22/SCOPE-three-geometric-types-and-a-uniform-seven-move-exchange-radius-f--cfe9401b705a",
+          "2026/11/22/SCOPE-exact-landmark-relocation-geometry-of-the-m-bius-kantor-graph--2451bb5af26f",
+          "Shao et al. doi:10.1155/2018/4531958"
+        ]
+      },
+      "rationale": "The distinct finding is the full one-replacement graph classification for ordinary resolving bases of GP(20,3), not the previously reported dimension 5. The closest inspected catalogue results are on different underlying graphs and, in one case, a stronger condition on the state sets. A potentially related reconfiguration thesis listing remains bibliographic only and supplies no competing result.",
+      "residual_risks": [
+        "An unchecked 2026 thesis could contain overlap; no assertion about its results is made. The original Imran and Shao passages were not independently accessible. Bounded catalogue comparison does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dimension bounds are relevant inputs, not an exchange classification; exact original threshold unchecked",
+          "evidence": "For sufficiently large n congruent to 2 mod 6, the reproduced entry is dim <=5.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-117-ars-articles/on-metric-dimension-of-generalized-petersen-graphs-pn-3/",
+          "material_read": "Publisher scan yielded no extractable passage; Imran et al. table reproduced in Gao et al. p. 2 at offset 5100",
+          "method": "Lawful publisher access and comparison via OA primary paper quoting the table",
+          "title": "On Metric Dimension of Generalized Petersen Graphs P(n,3)",
+          "trigger": "Same underlying family and congruence class"
+        },
+        {
+          "assessment": "Credit metric dimension as explicitly prior; original theorem passage not independently read",
+          "evidence": "The original expressly disclaims novelty of dim=5; independent exhaustive check here also gives 5.",
+          "identifier_or_url": "https://doi.org/10.1155/2018/4531958",
+          "material_read": "No theorem text retrieved; frozen result attributes n=20 to Theorem 8(ii); Gao et al. p. 3 discusses the small-n work",
+          "method": "DOI and publisher access attempted; triangulation via an accessible OA paper and frozen citation",
+          "title": "The Metric Dimension of Some Generalized Petersen Graphs",
+          "trigger": "Same GP(20,3) parameter and known dimension"
+        },
+        {
+          "assessment": "Large-n dimension results; no implication for the exchange findings",
+          "evidence": "Assumes sufficiently large n (e.g. >=36); conclusions concern dimension bounds and equalities by congruence class.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.12224",
+          "material_read": "pp. 2–3, especially scope at offset 7450, and p. 21 at offset 67950",
+          "method": "OA PDF passage inspection",
+          "title": "On the Metric Dimension of Generalized Petersen Graphs P(n,3)",
+          "trigger": "Potential broader GP(n,3) theorem"
+        },
+        {
+          "assessment": "Full scope unresolved; no negative or positive coverage inferred from the title",
+          "evidence": "Lists thesis title and year, and distinct undergraduate reconfiguration projects, without theorem statements.",
+          "identifier_or_url": "2026 master's thesis, exact title in public student-research directory",
+          "material_read": "Public student-research entry, offsets 0–1303; thesis full text not available from that entry",
+          "method": "Public listing inspection from literature lookup",
+          "title": "Reconfigurations of Metric Bases",
+          "trigger": "Plausibly the same token-jump topic"
+        },
+        {
+          "assessment": "Same invariant, GP(8,3) rather than GP(20,3)",
+          "evidence": "320 states, 1,984 exchange edges, radius 4 and diameter 5.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-landmark-relocation-geometry-of-the-m-bius-kantor-graph--2451bb5af26f/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Exact landmark relocation geometry of the Möbius–Kantor graph",
+          "trigger": "Closest same-family ordinary metric basis exchange result"
+        },
+        {
+          "assessment": "Different state constraint and graph order",
+          "evidence": "GP(8,3) weak-total resolving sets: 192 states, 480 edges, radius and diameter 7.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-geometric-types-and-a-uniform-seven-move-exchange-radius-f--cfe9401b705a/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Three geometric types and a uniform seven-move exchange radius",
+          "trigger": "Matching family and seven-move number"
+        },
+        {
+          "assessment": "Different underlying graph",
+          "evidence": "7,728 states, 155,904 edges, radius 4 and diameter 5 for the Coxeter graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-twenty-nine-symmetry-types-and-one-step-geodesic-detours-among-c--1771f0cf5c41/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Twenty-nine symmetry types and one-step geodesic detours among Coxeter graph metric bases",
+          "trigger": "Matching symmetry and metric-basis path invariants"
+        },
+        {
+          "assessment": "Different graph and the seven-move number refers to slides",
+          "evidence": "The jump graph there is Johnson-isometric; the slide graph has diameter seven.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-metric-basis-exchange-and-slide-geometry-of-the-truncated--2073aedeea3c/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Matching exchange terminology and diameter seven"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–24, 36, 50–58",
+        "Related GP(8,3) ordinary metric basis exchange record 2451bb5af26f",
+        "Independent complete enumeration and named distance witness"
+      ],
+      "rationale": "GP(20,3) is a motivated small parameter in the family because it has the known elevated metric dimension 5, singled out by the small-parameter dimension results rather than chosen by scanning an arbitrary range for a census. This makes it a natural test of reconfiguration of optimal landmarks. The exact data show that all minimum configurations are mutually reachable but that some require seven legal exchanges although any two five-sets can be joined by at most five unrestricted replacements. Radius, peripheral profile and orbit weights give useful exact benchmarks for structural or symmetry-reduced exchange bounds in this exceptional case, beyond recomputing dimension.",
+      "residual_risks": [
+        "The mathematical use is a benchmark for this one exceptional graph, not a proof for an infinite GP family or a claim of universal exchange connectivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

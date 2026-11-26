@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:34:55.769772Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–92; VERIFICATION.md, line 19; verify.py, lines 14–85 (inspected, not executed).",
+        "Independent bounded replay /workspace/branches/math-replay.js, section 2, using radial-slack quadrature with a square-root substitution. At h=0.003125 its probability-to-leading-term ratios were 1.000964, 1.001456, 1.001344 and 1.001071 for d=3,4,5,6 respectively."
+      ],
+      "rationale": "The norm of the vector sum bounds the separation by 120 degrees, characterizes equality, and restricts the scaled slacks to T≤3. Conditioning on U1 gives independent beta coordinate densities for x,y and z=xy+sqrt((1−x²)(1−y²))W with W a coordinate on S^(d−2); its Jacobian yields A_d and the displayed determinant exponent on the Gram domain. The cap lens has leading width s−cot(r)|z|²: at the midpoint of the two cap centers, expanding the two constraints gives |axial coordinate|≤s/2−cot(r)|z|²/2 to leading order. The compact radius neighborhood of π/3 gives uniform localization at transverse scale √s and axial scale s. Integrating the lens over axial overlap up to 3h yields the stated constant. As an independent check even at d=3, fix the proportions w_i and put t_i=(3−v)w_i. The rescaled determinant has v-derivative 3/2+O(δ_h) uniformly, and its root v0 is nonnegative and O(δ_h): at v=0 the Gram form vanishes on the all-ones vector and the leading two minors are positive. On v≥v0 the rescaled determinant is (v−v0)(3/2+O(δ_h)). Shift by v0 and dominate with a constant times (v−v0)^((d−4)/2) to get convergence of total mass including the d=3 boundary singularity. The beta integral with Jacobian T² yields the displayed normalization after δ_h∼√3 h/2; it factors into the independent Beta and Dirichlet laws. Almost-everywhere convergence of the normalized densities and their matching masses give total variation by Scheffé.",
+      "residual_risks": [
+        "The displayed Gram density is on the correlation cube (and zero outside), as given by the coordinate derivation. A determinant-only indicator would not describe support on all of R³. The proof uses only the localized correlation cube.",
+        "The quadrature is only a bounded cross-check. No dimension-uniform rate or formal certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The separation results vary the number of points, and the hard-cap abundance estimates vary dimension. Finch–Jones identifies trivariate angle and side densities for three points on S² as prior."
+        ],
+        "reasoning": "None of the inspected asymptotic hypotheses covers exactly three points at fixed dimension with the threshold tending upward to 120 degrees. A prelimit density on S² is an ingredient but evaluating this singular shrinking-region integral and deriving its conditional law are additional steps.",
+        "searches": [
+          "Cai–Fan–Jiang, Theorem 2",
+          "Brauchart et al., separation on p. 1",
+          "Jenssen–Joos–Perkins, pp. 4–6",
+          "Finch–Jones, p. 1 and reference [1]"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary statements with the three distinct closest records above",
+        "Rankin; Cai–Fan–Jiang; Brauchart et al.; Jenssen–Joos–Perkins; Finch–Jones, primary passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rankin gives the deterministic packing problem. The hard-cap identity holds before the limit. The chord-perimeter proof uses an O(√ε) neighborhood and a nonsingular Hessian with a rescaled ball; it supplies TV for that perimeter event and mark."
+        ],
+        "reasoning": "The maximum feasible angle alone does not give the volume of its shrinking neighborhood. The perimeter asymptotic and TV limit cannot be restricted mechanically to the smaller, anisotropically shrinking region defined by three individual slacks, particularly to get its leading mass. The inspected side-density precedent likewise needs a separate boundary analysis and addresses d=3 rather than all fixed d≥3.",
+        "searches": [
+          "Rankin, p. 1",
+          "Jenssen–Joos–Perkins, p. 6",
+          "Euclidean chord-perimeter record, Proof Steps 4–5, local mirror offset 4700",
+          "Finch–Jones, p. 1 and reference [1]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest distinct same-day result is the Euclidean chord-perimeter endpoint, with exponent d/2 and a Hessian-rescaled ball law. The geodesic perimeter result has a different event and a Dyson-type shape law. The 120-degree latitude-circle record uses internal angles and a different sample space.",
+          "Jenssen–Joos–Perkins p. 6 gives an equivalent probability expression as 3! times the canonical partition function at k=3, without the evaluated endpoint limit."
+        ],
+        "reasoning": "The angle monotonicity makes the event a bound on the maximum Gram off-diagonal entry, not a bound on a sum of side lengths. A perimeter bound permits deviations that a maximum-entry constraint excludes; the powers and marked laws differ. The partition-function identity aliases the event, not the asymptotic or conditional density.",
+        "searches": [
+          "Resultary: three independent uniform random points, shortest angular distance approaching 120 degrees",
+          "Resultary: conditional Gram matrix deficits, Beta Dirichlet",
+          "Literature: \"three\" \"2π/3\" random points sphere minimum angular separation probability near endpoint fixed dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact corpus hit is the frozen finding itself. The closest distinct result gives a different exact endpoint coefficient and exponent for chord perimeter. Finch–Jones points to known full side-length densities, not a tabulated value of the marked minimum-separation limit."
+        ],
+        "reasoning": "An exact value for a different statistic, or an input density from which an asymptotic must still be derived, is not an exact instance of the frozen limit.",
+        "searches": [
+          "Resultary: exactly three random points sphere minimum angle near packing endpoint",
+          "Resultary variants using pairwise Gram deficits, regular 120-degree configuration, and conditional edge slacks",
+          "Finch–Jones, p. 1 and reference [1]"
+        ]
+      },
+      "rationale": "On the inspected evidence, the fixed-three, fixed-d minimum-separation endpoint coefficient and conditional total-variation law for the dot-product slacks are distinct. The packing endpoint, exact spherical coordinate densities, and hard-cap partition-function framework are prior ingredients.",
+      "residual_risks": [
+        "Moran (1979), DOI 10.1093/biomet/66.1.158; Le (1989), DOI 10.2307/1427637; and Miles's Isotropic Random Simplices (1971), DOI 10.2307/1426176, yielded no readable decisive full text by the attempted OA routes. Finch–Jones cites a different Miles paper (Random points, sets and tessellations on the surface of a sphere). Older trivariate-density or shortest-pair papers could contain a d=3 derivation; no absence inference is made from access failures.",
+        "The external query gave no useful scientific hit; that is not evidence of novelty or publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior deterministic endpoint, not the stochastic limit",
+          "evidence": [
+            "Defines α-packing by minimum pairwise angle 2α and gives deterministic packing bounds."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S2040618500033219",
+          "material_read": "Cambridge PDF p. 1, OA offset about 2608",
+          "method": "Primary PDF passage",
+          "title": "The Closest Packing of Spherical Caps in n Dimensions",
+          "trigger": "Classical exact packing geometry"
+        },
+        {
+          "assessment": "Many-point extreme-value law, a different endpoint and limit",
+          "evidence": [
+            "At fixed p, n→∞ gives a minimum-angle law at the small-angle endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.0256",
+          "material_read": "Theorem 2 and discussion, pp. 5–6",
+          "method": "OA PDF passage and regime comparison",
+          "title": "Distributions of Angles in Random Packing on Spheres",
+          "trigger": "Minimum-angle laws for random spherical samples"
+        },
+        {
+          "assessment": "Varying-N separation, not fixed-three tight-packing tail",
+          "evidence": [
+            "Defines separation as minimum geodesic distance and describes expected-separation asymptotics with N varying."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.07470",
+          "material_read": "p. 1, OA offset about 1200",
+          "method": "OA PDF passage",
+          "title": "Random Point Sets on the Sphere—Hole Radii, Covering, and Separation",
+          "trigger": "Geodesic separation asymptotics"
+        },
+        {
+          "assessment": "Equivalent model identity, not an evaluated fixed-d endpoint limit",
+          "evidence": [
+            "Probability of a k-point code is k! times the canonical partition function. The inspected abundance estimates vary dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02702",
+          "material_read": "pp. 4–6, partition-function passage at OA offset about 16600",
+          "method": "Primary OA PDF passage and comparison at k=3",
+          "title": "On kissing numbers and spherical codes in high dimensions",
+          "trigger": "Same canonical hard-cap probability model"
+        },
+        {
+          "assessment": "A route via prior densities for d=3, not a verified endpoint claim",
+          "evidence": [
+            "Defines the primal triangle from three independent uniform points and credits known trivariate densities of angles and sides, citing Miles's spherical-surface work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.5329",
+          "material_read": "p. 1, OA offsets about 1857 and 3185; p. 31 reference [1]",
+          "method": "OA PDF passages about trivariate density precedent",
+          "title": "Random Spherical Triangles",
+          "trigger": "Same three-point random triangle on S²; possible prior exact density"
+        },
+        {
+          "assessment": "Chord-perimeter coefficient and Hessian-ball law, not individual separation constraints and deficit simplex",
+          "evidence": [
+            "Tail exponent d/2 at chord perimeter 3√3, using a positive Hessian; TV law for its normalized point in a ball."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-all-dimensional-euclidean-chord-perimeter-endpoint-law-for--12b26022fb29",
+          "material_read": "Finding at offset 0; Proof Steps 4–5, offset 4700",
+          "method": "Local-mirror primary result text, comparing observables and rescaling",
+          "title": "Sharp all-dimensional Euclidean chord-perimeter endpoint law",
+          "trigger": "Closest distinct local-index overlap; same sample, dimension and equilateral limit"
+        },
+        {
+          "assessment": "Geodesic perimeter rather than minimum separation",
+          "evidence": [
+            "Endpoint at perimeter 2π and a Dyson side-gap law with Beta transverse mark."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-dyson-circular-shape-laws-at-the-maximal-perimeter-of-random-sph--4e61cd3549f1",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Local-mirror statement comparison",
+          "title": "Dyson circular shape laws at the maximal perimeter of random spherical triangles",
+          "trigger": "Related fixed-three all-dimensional spherical endpoint"
+        },
+        {
+          "assessment": "Different sample and angle statistic",
+          "evidence": [
+            "Points are sampled on a single latitude circle and the tested angles are intrinsic triangle angles."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-the-120-degree-boundary-layer-for-random-spherical-latitude-tria--6b138f22d0d3",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Local-mirror statement comparison",
+          "title": "The 120-degree boundary layer for random spherical latitude triangles",
+          "trigger": "Matching threshold angle in local index"
+        },
+        {
+          "assessment": "The assigned finding itself, not a distinct source",
+          "evidence": [
+            "Same fixed-d coefficient and TV law for dot-product slacks."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-point-spherical-code-endpoint-and-its-beta-diric--7cf2c9011deb",
+          "material_read": "Indexed statement and frozen Finding",
+          "method": "Local search and identity comparison",
+          "title": "The sharp three-point spherical-code endpoint and its Beta–Dirichlet shape law",
+          "trigger": "Exact index match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–34, 55–92; Jenssen–Joos–Perkins, partition-function identity"
+      ],
+      "rationale": "Exactly three particles give the first triangle constraint in the canonical hard-cap probability. The packing threshold alone says nothing about how rapidly the available measure vanishes. The exact coefficient gives the near-packing normalization, while the conditional law explains how the three pairwise margins share the residual slack, including the singular two-sphere case. The per-pair inequality defines a natural observable distinct from perimeter.",
+      "residual_risks": [
+        "Applies only to exactly three independent uniform points, fixed ambient dimension d≥3, and a threshold approaching the optimal angle from below."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

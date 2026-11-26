@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python checker.py` under Python 3.9 or later. There are no third-party package dependencies. The program enumerates the named order-tuples independently of the structural normal form, directly evaluates the original per-edge quorum condition, groups qualifying tuples by number of distinct orders, and compares those integer counts with the proposed coefficient formula. It checks eight finite parameter triples, including the entire \(n=5,r=3,q=2\) search space and \(n=4,r=4,q=3\), and tests boundary counterexamples for several parameters.
+## correctness
 
-Expected terminal line: `ALL_CHECKS_OK`. The proof's unbounded quantifiers over arbitrary \(n,r,q\) are discharged by the path/cycle and occupancy arguments in `RESULT.md`; passing the finite checker cannot independently certify those assertions. No external independent audit has been performed.
+PASS
+
+Reconstructed the proof from the frozen Finding and Proof. Conflicting incoming or outgoing arcs have disjoint supporter sets and so cannot both meet 2q>r. Relative to any spanning path the only possible extra union arc is its closing arc. In the cycle case each order omits one arc, quorum bounds the omissions by c=r-q, and the union recovers the cycle, precluding multiple counting. For s occupied cut sites the positive bounded allocation exists iff s<=r<=sc; this proves both the census and the full diversity spectrum, including exclusion of diversity two. For n=1 or c=0 the cyclic coefficient vanishes. For q<=r/2 the two specified order types with multiplicities q and r-q support every used arc but give branching even after appending a common suffix. The inspected checker enumerates finite order tuples independently of the coefficient DP; it was not executed. The universal results here are proved combinatorially, not by the finite census.
+
+## originality
+
+PASS
+
+The prior cyclic-block example is an exact instance, and disagreement-budget results and arbitrary-successor finite satisfiability cover the setting. The inspected statements do not cover the strict-quorum characterization with its converse, labelled census, and exact diversity threshold as a joint result.
+
+## value
+
+PASS
+
+Quorum is a natural local agreement condition on named linear successors. The theorem turns it into a complete global classification, an exact labelled count and a sharp threshold for how many distinct orders can coexist. It explains why two distinct orders cannot occur as the only types and why this rigidity fails right at half quorum. The substantive result is the structural package, not the standard allocation identity by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

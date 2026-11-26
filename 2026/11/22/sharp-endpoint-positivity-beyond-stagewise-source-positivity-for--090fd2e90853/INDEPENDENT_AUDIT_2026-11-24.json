@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:29:56.496972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–5",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Ordinary matrix powers preserve the eigenbasis of a symmetric input, so this is exactly a scalar question on [0,1]. The scalar endpoints are fixed. For 0<x<1 let u=x² and a=1+h(1-u)>1. Substitution gives 2z_h(x)(1-u)/x=1+a²-u(1+a+a⁴-a³). The denominator minus the numerator in the resulting zero formula for u is a(a-1)²(a+1)>0, so the parametrization is reversible and covers all interior zeros at positive h. The crossing function is G(a)=a-1+(a²+1)/(a(a²-1)). Its derivative has the sign of a⁴-4a²+1 on a>1, so it has one minimum at sqrt(2+sqrt(3)). There a-1/a=sqrt(2) and (a²+1)/(a²-1)=sqrt(3), yielding G(a)=2sqrt(2)-1. Continuity from h=0 gives positivity below the first crossing and nonnegativity at it; uniqueness of the minimizing a yields the sole interior zero at equality. At fixed u the quartic coefficients in descending h have signs -,-,ambiguous,+,+, with any zero coefficient omitted. Descartes' rule and the negative leading coefficient give one positive root, with strict negativity thereafter. Applying it at the critical input proves the same witness for every h above the frontier. Independently y>=0 and y-1=(1-x)(hx(1+x)-1); the supremum of x(1+x) as x approaches 1 from below is 2, giving the universal source threshold 1/2 including equality. These arguments address all matrix dimensions without a numerical search.",
+      "residual_risks": [
+        "One step, zero linear part, ordinary matrix powers, and only a lower spectral bound. Supplied code was inspected, not executed; no frozen independent, expert or Lean certification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 explicitly requires positive semidefinite initial data and source. The Allen–Cahn IFRK results use a forward-Euler-type sufficient condition or add stabilization for unconditional maximum-bound preservation."
+        ],
+        "reasoning": "The available general results do not give an endpoint threshold for the unmodified map in a regime where a required source condition fails. Signed upper/lower maximum bounds on [-1,1] alone cannot ensure nonnegative output on [0,1].",
+        "searches": [
+          "Zhang–Lan–Jing arXiv:2606.15703v1 Theorem 3.1, p. 3",
+          "Ju–Li–Qiao–Yang arXiv:2010.12165 pp. 2–3",
+          "Li–Li–Ju–Feng arXiv:2104.09977 §4.2, p. 11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary subject and 4f9e85fe71de; filtered Heun result 3cefa0abac93 at summary level only",
+        "arXiv:2606.15703v1, 2010.12165, 2104.09977",
+        "DOI 10.1016/j.apnum.2020.11.022 and 10.1137/25M1730582 (access-level comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positivity proof uses nonnegative contributions from the source. The SSP discussion supplies sufficient restrictions, and stabilized methods alter the algorithm. None of these inspected statements supplies a root crossing or a failure witness for the unmodified scalar cubic update."
+        ],
+        "reasoning": "Inserting the prior reaction into the method gives a quartic in h but does not identify the first interior zero, prove it is global, or show that the same input fails for every supercritical h. The verified minimization and sign argument are the distinct mathematical content.",
+        "searches": [
+          "Zhang–Lan–Jing arXiv:2606.15703v1 Theorem 3.1 and its proof",
+          "Ju–Li–Qiao–Yang arXiv:2010.12165 pp. 2–3",
+          "Li–Li–Ju–Feng arXiv:2104.09977 §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting the linear part of Eq. (5) to zero recovers the method; Eq. (10) uses the cubic with nonzero linear diffusion. The graph-local record treats entrywise nonnegativity of the completed polynomial RK2 map for linear Markov generators."
+        ],
+        "reasoning": "Scalar Heun on [0,1] is exactly equivalent to the frozen PSD question through functional calculus. The entrywise linear condition, signed Allen–Cahn maximum bounds, and the nonzero-linear matrix experiment are not equivalent. The subject's own catalogue entry is not separate evidence.",
+        "searches": [
+          "Resultary: unmodified cubic Heun SSPRK2 endpoint positivity 2sqrt(2)-1",
+          "Resultary SCOPE-sharp-graph-local-positivity-horizons-and-an-ssp-equality-motif--4f9e85fe71de",
+          "Zhang–Lan–Jing arXiv:2606.15703v1, Eqs. (5) and (10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identifying constants and update surfaced the subject record. The related filtered-Heun catalogue summary instead concerns positivity and energy contractivity for a three-site linear diffusion step; its mirrored Finding was unavailable."
+        ],
+        "reasoning": "An exact catalogue check is appropriate for the threshold and its optimizer. No other verified entry gave this pair for this nonlinear map; the filtered entry is only a summary-level risk, not an inspected noncoverage verdict.",
+        "searches": [
+          "Resultary: endpoint PSD threshold 2sqrt(2)-1 and intermediate source threshold 1/2 for cubic Heun",
+          "Resultary SCOPE-a-sharp-positivity-energy-gap-for-second-order-two-sided-filtered-heun-on-a-three-site-diffusion-path--3cefa0abac93"
+        ]
+      },
+      "rationale": "The sharp completed-step threshold and fixed failure witness for the stated nonlinear PSD problem are distinct from the inspected positive-source and forward-Euler-based sufficient restrictions. The same Heun formula and cubic reaction have prior uses; the record appropriately makes no novelty claim on the method or reaction. Related SCOPE positivity results have different linear operators, conditions or algorithms. This is a bounded comparison; unavailable articles were not treated as negative evidence.",
+      "residual_risks": [
+        "The 2021 and 2026 journal papers named above were not available in full text; unindexed scalar Allen–Cahn or cubic RK step analysis remains possible.",
+        "The related filtered-Heun Finding was not available in the mirror. No same-day order or universal priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior method and reaction; different theorem hypotheses and experiment",
+          "evidence": "Eq. (5) reduces to Heun at zero linear part; the theorem assumes an SPSD source; Eq. (10) has nonzero linear diffusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+          "material_read": "v1 pp. 2–4, Eq. (5) offset 8392, Theorem 3.1 and proof offset 12308, Eq. (10) offset 18274",
+          "method": "Lawful OA full-text passages",
+          "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Closest prior matrix method and same cubic reaction"
+        },
+        {
+          "assessment": "Sufficient stagewise bounds, not the frozen sharp lower endpoint theorem",
+          "evidence": "The compared material discusses forward-Euler conditions, CFL restrictions and convex combinations.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.12165",
+          "material_read": "pp. 2–3, offsets 9413–10786",
+          "method": "Lawful OA full-text passages",
+          "title": "Maximum bound principle preserving integrating factor Runge-Kutta methods for semilinear parabolic equations",
+          "trigger": "Potential unmodified Allen–Cahn SSP restriction"
+        },
+        {
+          "assessment": "Modified method",
+          "evidence": "The unconditional result adds linear stabilization and applies to the resulting sIFRK family.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.09977",
+          "material_read": "p. 1, offset 0; §4.2 p. 11, offset 36675",
+          "method": "Lawful OA full-text passages",
+          "title": "Stabilized integrating factor Runge–Kutta method and unconditional preservation of maximum bound principle",
+          "trigger": "Potential stronger maximum-bound result"
+        },
+        {
+          "assessment": "Conceptually related; non-equivalent",
+          "evidence": "The update is a quadratic polynomial of a linear Markov generator, with a graph-dependent threshold for entrywise positivity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-graph-local-positivity-horizons-and-an-ssp-equality-motif--4f9e85fe71de/RESULT.md",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp graph-local positivity horizons and an SSP equality motif",
+          "trigger": "Independent catalogue match for sharp positivity beyond an SSP restriction"
+        },
+        {
+          "assessment": "Historical-priority risk remains",
+          "evidence": "No theorem credited or ruled out on metadata alone.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2020.11.022",
+          "material_read": "Landing-page bibliographic material only",
+          "method": "Bounded lawful OA attempt, no full text obtained",
+          "title": "Numerical analysis and applications of explicit high order maximum principle preserving integrating factor Runge-Kutta schemes for Allen-Cahn equation",
+          "trigger": "Plausible historical treatment of related step bounds"
+        },
+        {
+          "assessment": "Residual comparison risk",
+          "evidence": "No full-text claim inferred from the access failure.",
+          "identifier_or_url": "https://doi.org/10.1137/25M1730582",
+          "material_read": "Citation only; no full text obtained",
+          "method": "Lawful retrieval attempts returned HTTP 403",
+          "title": "A Class of High Order Unconditional Maximum Principle Preserving Extended IFRK Schemes for Allen-Cahn Equation",
+          "trigger": "Related extended IFRK schemes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Zhang–Lan–Jing Theorem 3.1 and cubic example",
+        "Ju–Li–Qiao–Yang forward-Euler-based restrictions"
+      ],
+      "rationale": "The calculation answers a natural sharpness question about sufficient stagewise conditions for standard second-order time stepping. The substantial separation from 1/2, the exact interior extremizer, and the fixed failure witness quantify a practical and structural distinction that a sufficient SSP bound does not capture. It is not presented as an invariant-domain or general SSP theorem.",
+      "residual_risks": [
+        "The result alone gives no repeated-step upper bound or noncommuting linear extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

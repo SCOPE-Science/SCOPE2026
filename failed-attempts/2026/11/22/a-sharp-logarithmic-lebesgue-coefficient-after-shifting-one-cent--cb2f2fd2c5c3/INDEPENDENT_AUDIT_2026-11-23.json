@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:30:33.255336Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original node polynomial is W=(x²−1)U_{n−1}; W(cos θ)=−sin θ sin(nθ), and its derivative at the nodes is n(−1)^i, doubled at the endpoints. Multiplying W by (x−y)/x yields the frozen cardinal identities; the moved cardinal is uniformly bounded since its normalizing value tends to sin(πα)/(πα)>0. For bounded angular offset t and K<=|k|<=n/4, the unchanged cardinals have common numerator |sin(πt)||1−α/t| plus O(n^−2), uniformly since sin(πt)/t removes the singularity. The denominator divided by π|k| is 1+O(1/|k|+k²/n²) after the factor n is included, and the perturbed-node weight ratio is 1+Oα(1/|k|). The resulting errors are summable with O(1) total, as are the few small-index terms (removable divided differences) and the O(1/n) far-index terms. The two harmonic tails yield the factor 2/π. When n|x|→∞ the overall replacement factor tends to 1, the finitely many nearby-index corrections vanish, and the rest are bounded by O(1/K) times the classical Lebesgue constant. This controls the global upper limit while a fixed local offset yields the lower limit. On the shift side t>=α the profile is at most 2/π; for 0<=t<α it is at most 2α, exceeded on the opposite side near zero. Opposite-side offsets u>=1 are bounded by (2/π)(1+α), and on [1/2,1] the profile decreases. For 0<u<1/2, the stationarity ratio decreases from infinity to zero: its derivative sign is that of 2sin(z)cos(z)−z(1+cos²(z))<0 at z=πu. The unique interior maximizer therefore gives the strict claimed gain. Read VERIFICATION.md and verify.py without running them; these finite diagnostics do not justify the global asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov. 17 theorem allows any k_n/n→a in (0,1), a strictly more general setting than this central grid.",
+          "Wu Theorem 3.2 uses nσ_n(log n+1) bounded by a small fixed constant; for σ_n=απ/n that quantity diverges. Wu Proposition 3.1 uses a two-node near-collision instead."
+        ],
+        "reasoning": "Wu provides context, not coverage of this asymptotic. The earlier indexed one-node result directly subsumes it.",
+        "searches": [
+          "Literature: \"When do perturbed Chebyshev–Lobatto points remain Chebyshev?\" Hao-Ning Wu single node displacement angular perturbation Lebesgue constant",
+          "Nov. 17 indexed record, Finding and Proof §§3, 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary indexed records listed above",
+        "Wu arXiv:2606.23409"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strict inequality relative to the value at half a mesh gap follows in the prior profile from the interior unique maximum; the asymptotically norming point at opposite angular offset v becomes x=sin(πv/n)."
+        ],
+        "reasoning": "Even if the central x-coordinate or the strict bound is expressed differently, both are immediate from the prior formula and optimizer. No new case in the frozen statement remains.",
+        "searches": [
+          "Nov. 17 RESULT.md, Finding and Proof §§3 and 5; arXiv:2606.23409 Theorem 3.2 and Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Nov. 17 RESULT.md, put k_n=n/2 on the even subsequence, a=1/2 and τ=α. Its shifted point cos((k_n+τ)π/n) equals −sin(απ/n), with every other point identical.",
+          "Its unique v in (0,1/2) solves π(v²+αv)cos(πv)=αsin(πv), algebraically the frozen equation for α; its logarithmic coefficient and opposite-side offset are identical."
+        ],
+        "reasoning": "Both parameter substitution and the shift sign match exactly; this is not merely a verbal resemblance.",
+        "searches": [
+          "Resultary: sharp leading Lebesgue coefficient (2/pi) max sin(pi u)(1+alpha/u) for even Chebyshev-Lobatto grid with a single central zero node shifted by fixed fraction of angular mesh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The self-hit was first. The first distinct hit was 2026/11/17/c68d83ac7ece, exactly covering the invariant. A same-day collision-law hit treats shifts tending to one, and an older erasure hit changes interpolation degree."
+        ],
+        "reasoning": "The exact match is a prior indexed statement for the same invariant, not inference from the titles. No finite table would exhaust this continuous parameter/asymptotic claim.",
+        "searches": [
+          "Resultary query above, 50 hits; inspected distinct matches and original statements"
+        ]
+      },
+      "rationale": "The indexed Nov. 17 record gives the exact formula, stationarity equation, and opposite-side norming offset for any interior node whose index proportion tends to a in (0,1). The frozen result is its central even-degree specialization, with no surviving unduplicated mathematical assertion.",
+      "residual_risks": [
+        "Targeted comparisons do not establish historical priority among all works; the direct earlier indexed coverage suffices for the scientific decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by stronger theorem",
+          "evidence": "An arbitrary interior index proportion is allowed; with k_n=n/2 and τ=α the coefficient, uniqueness equation and opposite-side norming offset match.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-logarithmic-amplification-from-one-displaced-chebyshev-lob--c68d83ac7ece",
+          "material_read": "Original RESULT.md, Finding and Proof §§3, 5",
+          "method": "Configured local mirror, bounded original passages",
+          "title": "Sharp logarithmic amplification from one displaced Chebyshev–Lobatto node",
+          "trigger": "Highest-ranked distinct result, same model and limit"
+        },
+        {
+          "assessment": "Related but not the frozen coefficient",
+          "evidence": "Small arbitrary-perturbation sufficient result and two-neighbor near-collision lower bound do not apply to the fixed-fraction one-node coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.23409",
+          "material_read": "v1 Abstract, Theorem 3.2 p. 6, Proposition 3.1 pp. 7–8",
+          "method": "Bounded OA PDF passages",
+          "title": "When do perturbed Chebyshev–Lobatto points remain Chebyshev?",
+          "trigger": "Closest cited primary literature on angular perturbations"
+        },
+        {
+          "assessment": "Different varying-shift regime",
+          "evidence": "Uses fraction 1−ε_n→1 and classifies ε_n log n, not fixed α.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-critical-inverse-logarithmic-collision-law-for-one-chebyshev-l--b64d9d4336e5",
+          "material_read": "RESULT.md Finding and cited earlier relocation record",
+          "method": "Configured local mirror passage",
+          "title": "A critical inverse-logarithmic collision law for one Chebyshev–Lobatto node",
+          "trigger": "Distinct indexed one-node relocation result"
+        },
+        {
+          "assessment": "Different grid operation and growth rate",
+          "evidence": "Deletion reduces degree and yields linear growth, not fixed-cardinality relocation.",
+          "identifier_or_url": "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local mirror passage",
+          "title": "Single-erasure boundary layers for Chebyshev–Lobatto interpolation",
+          "trigger": "Distinct indexed single-node perturbation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The one-node effect is mathematically motivated, but the frozen result only recomputes an already available exact invariant on a less general grid. It supplies no distinct boundary, analysis of a new regime, improved error term, or other independently useful conclusion. No repair is justified within the existing claimed contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

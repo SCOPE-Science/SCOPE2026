@@ -25,7 +25,7 @@ The particularly transparent Brownian-return example \(b\equiv0\) has \(h(x)=x/L
 \[
 \boxed{F(r)=1-\frac{z}{\sinh z}.}\tag{3}
 \]
-For this neutral return, the complete search time has **infinite mean for every positive** \(r\): with positive probability an interrupted search begins an unbiased return from a negative position, and its first hitting time of home has infinite expectation. Nevertheless, the eventual capture phase is almost surely well defined and has the exact finite odds in (3). Here the unique majority threshold obeys \(\sinh z_*=2z_*\), with \(z_*=2.177318984965\ldots\) and \(r_*L^2/D=4.740717962291\ldots\). For a constant homeward drift \(b=-\mu\), \(\mu>0\), the profile \(h(x)=(e^{\mu x/D}-1)/(e^{\mu L/D}-1)\) makes the majority threshold strictly increase with \(\mu\).
+For this neutral return, the complete search time has **infinite mean for every positive** \(r\): with positive probability an interrupted search begins an unbiased return from a negative position, and its first hitting time of home has infinite expectation. Nevertheless, the eventual capture phase is almost surely well defined and has the exact finite odds in (3). Here the unique majority threshold obeys \(\sinh z_*=2z_*\), with \(z_*=2.177318984965306\ldots\) and \(r_*L^2/D=4.740717962290353\ldots\). For a constant homeward drift \(b=-\mu\), \(\mu>0\), the profile \(h(x)=(e^{\mu x/D}-1)/(e^{\mu L/D}-1)\) makes the majority threshold strictly increase with \(\mu\).
 
 ## Assumptions and scope
 
@@ -69,7 +69,7 @@ Equality of all such moments for two bounded profiles forces the difference of t
 \[
 D h''(x)+b(x)h'(x)=0,\qquad h(0)=0,\quad h(L)=1.
 \]
-The derivative is strictly positive, since it is a positive constant times \(\exp[-\int_0^x b(t)/D\,dt]\). Rearranging the differential equation proves (2). This recovers the drift on the observed interval, but not other return information.
+For any interior reference point \(x_0\), the derivative is \(h'(x_0)\exp[-\int_{x_0}^x b(t)/D\,dt]\). The exponential is positive throughout the interior, so the distinct boundary values and continuity force \(h'(x_0)>0\). Rearranging the differential equation proves (2). This recovers the drift on the observed interval, but not other return information.
 
 **5. Why finitely many rate readings cannot identify even inward forces.** Fix any distinct positive rates \(r_1,\ldots,r_m\), with corresponding \(z_1,\ldots,z_m\). Use as a baseline an inward constant drift \(b=-\mu\), \(\mu>0\), giving a smooth splitting function \(H_0(y)=(e^{cy}-1)/(e^c-1)\), with \(c=\mu L/D>0\). Consider the \(m+1\)-dimensional polynomial space
 \[

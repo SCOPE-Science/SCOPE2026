@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:01.990999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distinct centered-ball counts on the open path are 4,3,3,4, with no exterior padding. A selector preserves constants, hence on the edge quotient its induced l1 norm is the maximum absolute column sum; the standard coordinate columns are the edge responses to the three path steps. Exact enumeration reconstructed from distances over all 144 masks gave individual step maxima (3/2,2,3/2), and precisely (3,0,0,3) exceeds 11/6. To rule out that mask, full-ball optimality at each endpoint forces the opposite endpoint to be at least the global mean by comparison with the three-point ball; the interior singleton choices force each interior value to be at least that mean too. All then equal the mean, even allowing ties. On a nonconstant segment this mask cannot govern an open piece, and persistent ties give identical slopes; on a constant-in-space segment the output differences have zero variation. Integrating the piecewise slopes controls the nonlinear map for every admissible pair. The exact witness has outputs (18,26,25,24) and (37/2,26,26,74/3), giving output variation 11/6 for input variation 1. The witness is nonnegative as supplied (or strictly positive on adding a common constant). Replay: python3 /workspace/checks/frozen_exact.py 3. The submitted checker was read, not executed. The theorem is for nonnegative inputs and adjacent l1 variation, not general signed absolute-value input, uncentered balls, or other graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "González-Riquelme–Kovač–Madrid, PDF p. 1, advertises a small-graph first-variation census; equation (1.1) is single-input.",
+          "González-Riquelme–Madrid's p. 1 abstract is also single-input and names the exact complete-graph and star families.",
+          "The exact pairwise Resultary complete-graph and star claims concern different ball families; the local small-cycle statement concerns periodic edges."
+        ],
+        "reasoning": "Even the broader graph censuses do not specialize to a two-input quotient. The path is neither complete, a star, nor a cycle; changing those balls or importing the infinite line does not preserve row sizes and activation conditions.",
+        "searches": [
+          "arXiv:2603.12462v1",
+          "arXiv:2005.03146v3",
+          "arXiv:1512.04112v1",
+          "doi:10.3390/math10060950",
+          "Resultary: 1a9c9a4ca51f, 63b0e3fb3ba2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1a9c9a4ca51f",
+        "Resultary 63b0e3fb3ba2",
+        "Resultary 3bd074c379a4",
+        "Resultary 26e43398e583",
+        "SCOPE-20261122-743976f5abad",
+        "SCOPE-20261122-909cfd4583c5",
+        "arXiv:2005.03146v3",
+        "arXiv:2603.12462v1",
+        "arXiv:1512.04112v1",
+        "doi:10.3390/math10060950 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact spectral P4 result permits all 144 masks for its bound; its spectral coefficient gives no information distinguishing the impossible l1-norm-2 mask from the other masks.",
+          "The single-input finite-graph inequalities are for Var(Mf) versus Var(f)."
+        ],
+        "reasoning": "The nonlinear maximal map does not permit subtraction of single-input inequalities. The sharp l1 statement requires the l1 step calculation and the endpoint/interior compatibility test, not a substitution into the checked claims.",
+        "searches": [
+          "arXiv:2005.03146v3",
+          "arXiv:2603.12462v1",
+          "SCOPE-20261122-743976f5abad",
+          "SCOPE-20261122-909cfd4583c5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local 743976f5abad statement uses adjacent l2, not l1, on exactly this path and operator.",
+          "The finite-graph paper's PDF p. 1 abstract displays the one-input operator quotient rather than the l1 distance between two maximal outputs."
+        ],
+        "reasoning": "The present statement is exactly the best constant for the induced edge-l1 distance on the quotient by constants, or the maximum active derivative edge-l1 norm. Neither one-input variation, qualitative BV continuity, nor an induced l2 norm identifies that quantity.",
+        "searches": [
+          "Resultary: centered P4 two-input BV Lipschitz edge-variation coefficient",
+          "SCOPE-20261122-743976f5abad",
+          "arXiv:2005.03146v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this assigned record itself; distinct close hits are complete graphs, stars, a two-choice envelope, cycles through six, and the P4 l2 result.",
+          "The finite-graph paper's small-graph census is expressly a census of one-input first-variation constants."
+        ],
+        "reasoning": "None of the distinct checked entries gives the edge-l1 pairwise coefficient for this open path. The comparison concerns object and quantifiers, not the mere presence of 11/6.",
+        "searches": [
+          "Resultary: exact centered P4 pairwise adjacent variation 11/6",
+          "SCOPE-20261122-867a1e664c41",
+          "arXiv:2603.12462v1"
+        ]
+      },
+      "rationale": "The checked sources support a distinct sharp two-input l1 coefficient for the centered four-site open path. The exact same assignment entry does not count as an independent match. The closest works are distinguished by graph geometry, choice of seminorm, averaging rule, or one-input quantifier, as detailed below. This is not an exhaustive priority claim.",
+      "residual_risks": [
+        "Targeted primary full-text retrieval was incomplete; some comparisons are on original displayed statements and some only catalogue summaries, not whole-source exclusions.",
+        "Unindexed equivalent centered finite-path pairs or a broader uninspected result may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The displayed exact variation program is one-input, not the sharp difference coefficient.",
+          "evidence": [
+            "p. 1 abstract displays Var_p(M_G f) ≤ C_G,p Var_p(f) and lists complete graphs and stars."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03146",
+          "material_read": "Original PDF preview p. 1 abstract and §1.1 opening; later continuity theorem not independently retrieved",
+          "method": "Open-access PDF excerpt; targeted full-text access attempted",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "Direct finite-graph variation predecessor"
+        },
+        {
+          "assessment": "The stated small-graph census is for single-input first variation, so P4 coverage in that census is not coverage of this question.",
+          "evidence": [
+            "Abstract advertises sharp 1-variation through five vertices; (1.1) compares Var(Mf) with Var(f)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.12462v1",
+          "material_read": "Original PDF preview p. 1 abstract and (1.1)",
+          "method": "Open-access PDF excerpt; later portions unavailable to targeted reader",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Graph census likely includes the four-vertex path"
+        },
+        {
+          "assessment": "Visible claims concern derivative bounds for centered and uncentered maximal functions; no finite centered four-site pairwise coefficient in the inspected portion.",
+          "evidence": [
+            "Abstract explicitly states sharp derivative bounds; opening definition (1.1) and comparison (1.2) explain the one-function variation setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.04112v1",
+          "material_read": "Original PDF preview p. 1 abstract and opening introduction",
+          "method": "Open-access arXiv preview",
+          "title": "Sharp inequalities for the variation of the discrete maximal function",
+          "trigger": "Foundational discrete variation predecessor cited by the record"
+        },
+        {
+          "assessment": "Same row selections with a different domain and range norm on the quotient; no mechanical l1 sharp-gain consequence.",
+          "evidence": [
+            "The exact coefficient is sqrt(3/2) for edge squared-sum variation; the witness and feasible norming selector differ."
+          ],
+          "identifier_or_url": "SCOPE-20261122-743976f5abad",
+          "material_read": "Local frozen RESULT.md lines 5–24 and 28–60",
+          "method": "Authoritative local record read and quotient-norm comparison",
+          "title": "Sharp two-input quadratic edge variation of centered maximal averaging on a four-vertex path",
+          "trigger": "Exact same operator and graph, potential equivalent stability norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first non-star open path is a natural place to test sharp two-input BV sensitivity beyond complete and star geometries. The difference between the true 11/6 gain and the naively allowed derivative norm 2 isolates a meaningful issue: rowwise available averages need not be jointly active. Exact attainment makes this a useful benchmark for sharper finite-graph arguments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

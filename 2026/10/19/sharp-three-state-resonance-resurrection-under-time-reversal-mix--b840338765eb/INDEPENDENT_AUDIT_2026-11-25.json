@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:32:18.773089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, normal form, sharpness and branch construction",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact replay: python /tmp/opencode/frozen_review_time_reverse.py (SymPy, literal radical matrix and symbolic p)"
+      ],
+      "rationale": "Doubly stochasticity and P²=Π make N=P−Π square zero on the two-dimensional centered plane, with rank one and representation σuvᵀ for an orthonormal pair. The centered mixture then squares to σ²p(1−p)(I−Π), and its two-by-two block gives the signed eigenvalues and all stated powers and correlations, including the nilpotent endpoints. Independently, the symmetric part S=(N+Nᵀ)/2 is traceless with row sums zero. Its three off-diagonal entries a,b,c sum to zero; its diagonal entries are a,b,c up to permutation, so 3(a²+b²+c²)=||S||_F²=σ²/2. At least one of a,b,c is ≤−σ/6: otherwise (a+σ/6,b+σ/6,c+σ/6) has strictly positive coordinates of sum σ/2 and square-sum strictly below (σ/2)², a contradiction. The skew part is σ/2 times an oriented quarter rotation on the centered plane; its three cyclic entries have magnitude σ/(2√3) (from zero row sums and its Frobenius norm). For the pair at that minimum, one ordering gives an entry of N at most −σ(1+√3)/6. This proves the sharp upper bound from nonnegativity independently of the sine argument. Exact symbolic substitution of the literal P_* confirms nonnegativity, double stochasticity, P_*²=Π, singular norm √3−1, the mixture identity and expansion of every nonempty branch. Interpolation toward Π gives strictly positive witnesses approaching the norm bound; nonattainment refers to σ, or to the mixture modulus for 0<p<1 (at p=0,1 the modulus is always zero). The branch construction preserves cellwise uniform densities, hence the asserted coarse correlations; its invariant sector is a transfer-operator sector, not a claim that pullbacks of cellwise observables remain cellwise constant. A nonzero square-zero centered operator is impossible for fewer than three states.",
+      "residual_risks": [
+        "Scope is uniform stationarity, independent choices, and the common cellwise observable correlations, not full-map spectral completeness or fine-scale deterministic decorrelation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The annealed paper gives general averaged-block spectral formulas on invariant spaces. The roots paper handles stochastic roots and a spectral region. The colloquium abstract describes mixtures with worse mixing than their parents."
+        ],
+        "reasoning": "None of those broader inspected results specializes to the entrywise nonnegativity optimization producing √3−1, or to its exact infinity of even-lag correlations under the stated constraints.",
+        "searches": [
+          "Jain–Phalempin, arXiv:2608.05649v1, Theorem 5, Remark 6, equations (30)–(31)",
+          "Higham–Lin, §3 and §5 Theorem 5.1",
+          "Bezakova–Stefankovic, Convex Combinations of Markov Chains, colloquium abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.05649v1",
+        "Higham–Lin's repository PDF",
+        "Bezakova–Stefankovic colloquium abstract",
+        "Local Resultary searches and exact adjacent findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Averaging the two centered matrices is part of the known general framework. The example and necessary spectral constraints in Higham–Lin do not bound the nilpotent rank-one coefficient in this doubly stochastic problem."
+        ],
+        "reasoning": "The mixture law itself is a short rank-one calculation and the interval branches are standard once the witness is known. The universal sharp entrywise bound and a witness hitting it require new quantitative information beyond those implications.",
+        "searches": [
+          "Jain–Phalempin equations (30)–(31)",
+          "Higham–Lin §4 Fact 4.3 and §5 Theorem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P²=Π makes P a stochastic square root of the rank-one uniform projection, equivalently a uniform projection plus a nilpotent doubly centered perturbation. The sharp mixture modulus at p=1/2 is equivalently the extremal nontrivial modulus of the additive symmetrization. Neither inspected framework states that sharp doubly stochastic constraint."
+        ],
+        "reasoning": "The root and symmetrization aliases describe the same optimization. Stochastic eigenvalue regions for P do not measure σ, because every admissible P has exactly the same two nonstationary eigenvalues, both zero.",
+        "searches": [
+          "Higham–Lin, On pth Roots of Stochastic Matrices, §§3–5",
+          "Jain–Phalempin, arXiv:2608.05649v1, Theorem 5 and equations (30)–(31)",
+          "Local Resultary search: exact two-step mixer, doubly stochastic rank-one nilpotent, transpose mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed results concern time-varying mixtures of permutation maps or cubic dispersion under random permutations. The inspected Θ₃ result is a region of eigenvalues, not a catalogue of singular values under the uniform square-root constraint."
+        ],
+        "reasoning": "No exact match was identified. Since the admissible matrix family varies continuously, a finite table of sampled matrices would not settle the extremal norm without a theorem about the whole feasible set.",
+        "searches": [
+          "Local Resultary: sharp three-state stochastic root/annealing comparison",
+          "SCOPE-sharp-annealing-and-cyclic-memory-dichotomy-for-permutation-quad--255f2b71469e",
+          "SCOPE-cubic-permutation-isotropy-and-degree-dependent-sign-reversal-in--422f28d3b25d",
+          "Higham–Lin §5, Θ₃"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the sharp three-state time-reversal optimization and its explicit realization, not on the general phenomenon of spectral changes under annealing or on the general piecewise-affine matrix realization framework.",
+      "residual_risks": [
+        "A general literature lookup was unavailable and the colloquium statement was only accessible at abstract level. The comparison does not exclude an implicit earlier doubly stochastic classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework overlap; does not give the specific extremal bound",
+          "evidence": "The invariant-space averaged block matrix generates annealed resonances.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05649v1",
+          "material_read": "Theorem 5/Remark 6, PDF p. 12, offset 38420; equations (30)–(31), pp. 20–21, offset 65300",
+          "method": "Lawful OA theorem and equation passages",
+          "title": "Annealed Ruelle–Pollicott Resonances",
+          "trigger": "General annealed resonance results with finite matrix blocks"
+        },
+        {
+          "assessment": "Relevant roots and eigenvalue conditions, not the singular-value extremum",
+          "evidence": "Θ₃ and necessary spectral root conditions do not establish the size of a centered nilpotent perturbation.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/1429/1/paper11.pdf",
+          "material_read": "§3 pp. 7–10; §4 Fact 4.3; §5 Theorem 5.1 pp. 15–16",
+          "method": "Lawful repository PDF passages, offsets 20590, 31038 and 48400",
+          "title": "On pth Roots of Stochastic Matrices",
+          "trigger": "Equivalent stochastic square-root problem and three-state exact regions"
+        },
+        {
+          "assessment": "General phenomenon confirmed at abstract level only",
+          "evidence": "Two rapidly mixing parent chains can have a convex combination that does not mix rapidly.",
+          "identifier_or_url": "https://www.cs.rit.edu/~spr/CLQABS/ib.html",
+          "material_read": "Public colloquium abstract, offset 1122; no full proof inspected",
+          "method": "Ordinary public webpage",
+          "title": "Convex Combinations of Markov Chains",
+          "trigger": "Mixtures with slower mixing than both parents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and sharpness/minimality proof",
+        "General annealed-block framework in Jain–Phalempin"
+      ],
+      "rationale": "Three is the first possible state count under the exact two-step constraint. In this minimal class the result determines both the complete result of reversal mixing on centered two-point correlations and the maximum possible nonzero eigenvalue modulus for every mixture weight, with an expanding-map witness. Sharpness matters because the general averaging framework alone cannot quantify how much memory can be created.",
+      "residual_risks": [
+        "This does not settle nonuniform stationary distributions or higher-dimensional centered spaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

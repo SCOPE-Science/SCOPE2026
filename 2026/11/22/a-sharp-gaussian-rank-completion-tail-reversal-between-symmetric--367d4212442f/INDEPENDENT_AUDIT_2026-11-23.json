@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:22:46.800667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–68",
+        "Frozen VERIFICATION.md and verification.py (inspected, not executed)",
+        "Independent exact rational check for A=diag(0,3), p=(2,1), q=(-1,2): inverted matrices have first rows (-5/6,2/3) and (1/3,-1/6), respectively, with determinants -6 and 12; both inverse products checked.",
+        "Independent numerical evaluation at C=(1), conditioning on U and cross-checking with the product density: C_i=0.747514086225152 and C_s=1.080759217623295."
+      ],
+      "rationale": "In an orthonormal kernel/range basis, the independent update has blocks XY, Xv^T, Yu, C+uv^T. Schur elimination at XY!=0 gives exactly C, hence determinant XY det(C) and the stated inverse, with upper-left block (1+v^T C^{-1}u)/(XY). Taking q=p gives the symmetric formula and determinant; the sum of the two positive-semidefinite forms is positive definite when X!=0. To check the small-ball constant without a Bessel formula, integrate the half-normal density of |X| against P(|Y|<eps/x). For eps<=x<=1, expand the half-normal density at zero and the half-normal CDF at eps/x: the main integral is (2/pi)eps log(1/eps), both Taylor errors integrate to O(eps), and the two complementary intervals contribute O(eps). The one-normal square law follows directly from the CDF. The top-left numerators are independent of the kernel Gaussians and have all positive moments. For Z=1+v^T C^{-1}u, restriction to |Z|<=sqrt(R) gives the leading factor E|Z| after expanding the small-ball function; E[|Z| |log |Z||] is finite and the discarded probability is O(R^{-2}) by a fourth-moment bound. For the symmetric numerator dominated convergence applies using the half-normal CDF bound and E sqrt(1+u^T C^{-1}u)<infinity. The remaining blocks have O(1/R) tails by conditioning on u or v and the CDF bound; triangle inequalities at thresholds (1±eta)R and then eta->0 transfer the two exact asymptotics to the full operator norm. The constants are strictly positive, and tail integration gives divergence at the two endpoints as well as the sharp open moment intervals. The exceedance ratio then follows. All arguments are at fixed A and dimension.",
+      "residual_risks": [
+        "The illustrative approximate C_i differs from the independent check by about 5.3e-10; do not treat all printed digits as accurate. The constant formula and asymptotic are unchanged.",
+        "Illustrative computations do not prove the uniform-in-threshold asymptotic; the analytic bounds do. No uniformity across the spectra of A is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sifuentes et al. treat more general corank and updates, but the checked Theorems 3–4 give deterministic bounds and §3 gives almost-sure invertibility by nullspace projection, not asymptotic equivalences for these inverse norms.",
+          "The Chen–Dongarra full text was blocked; the frozen comparison is to a different full Gaussian ensemble and is not relied on as verified text-level noncoverage."
+        ],
+        "reasoning": "A general upper bound on the inverse is insufficient for the matched prefactors or the full symmetric-versus-independent leading comparison. Broader nullspace rank completion covers the algebraic setup but not the new probabilistic conclusion in the checked material.",
+        "searches": [
+          "Sifuentes Gimbutas Greengard Randomized methods for rank-deficient linear systems arXiv 1401.3068 randomized rank completion inverse block identity conditioning bounds Gaussian rank-one",
+          "arXiv:1401.3068v1, Theorems 3–4",
+          "doi:10.1137/040616413"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 367d4212442f (record itself)",
+        "Resultary 6a0180b3e23e",
+        "arXiv:1401.3068v1",
+        "doi:10.1016/j.crma.2015.10.019",
+        "doi:10.1137/0114046 and doi:10.1137/040616413 (access blocked)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At rho=0, Nadarajah–Pogány gives K_0(|z|)/pi and hence the log small-ball law. The symmetric denominator law is elementary. Neither scalar fact concerns the top-left random Schur numerator or the rest of the inverse.",
+          "The prior block inverse provides the starting identity; isolating the norm-dominant component and making the other blocks lower order in both distributions supplies the comparison and exact prefactors. The moment boundaries then follow, rather than constituting an independent priority claim."
+        ],
+        "reasoning": "The core is a quantitative synthesis of known inputs for two ensembles, not a new inverse identity or new scalar small-ball law. The inspected bounds and distribution formulas do not state or directly compare the full-norm tails as proved here.",
+        "searches": [
+          "arXiv:1401.3068v1, eqs. (14)–(20) and §3",
+          "doi:10.1016/j.crma.2015.10.019, Theorem 2.1",
+          "doi:10.1137/0114046"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit has identifier suffix 367d4212442f, matching the assigned record, not a second theorem.",
+          "The inverse norm is the reciprocal of the least singular value; in the symmetric completion it is also the reciprocal of the smallest eigenvalue. The corresponding small-singular-value comparison is for these two coupled update structures, not a fully Gaussian random matrix.",
+          "The randomized completion paper has the shared deterministic block inverse and general conditioning estimates, not an equivalent pair of Gaussian threshold asymptotics in the checked passages."
+        ],
+        "reasoning": "Changing inverse-norm tails into least-singular-value small balls leaves the structured rank-one ensemble and the two different kernel denominators intact. No distinct source stating that equivalent fixed-matrix comparison was verified.",
+        "searches": [
+          "Resultary: Gaussian rank completion inverse norm tails fixed corank one symmetric independent rank-one updates exact logarithmic and square-root asymptotics constants moment thresholds",
+          "Resultary: Gaussian rank-one completion corank one inverse tail logarithmic over R square root tail symmetric perturbation",
+          "arXiv:1401.3068v1, Theorem 3 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct catalogue entry giving the same matrix quantities was identified. The Nyström residual comparison has a one-half moment transition but concerns an eigenvalue parameter tending to zero, not high-threshold tails of a fixed-A completion.",
+          "The classical exact product-normal density covers the denominator distribution; it is not a table or formula of the completion inverse-norm constants."
+        ],
+        "reasoning": "The actual finding is an all-fixed-spectrum asymptotic theorem, not either illustrative quadrature value. An exact scalar distribution or coincidence of a moment exponent does not give the matrix theorem.",
+        "searches": [
+          "Resultary: rank-deficient matrix Gaussian random completion inverse matrix norm tail asymptotic",
+          "Resultary 367d4212442f and 6a0180b3e23e",
+          "doi:10.1016/j.crma.2015.10.019, Theorem 2.1"
+        ]
+      },
+      "rationale": "The nonsingularity of rank completion and the block inverse are covered by randomized rank-completion work. The product-normal density is classical. The specific result here is the full-matrix inverse-norm comparison at fixed corank one, with exact range-dependent prefactors and different positive moment cutoffs. In the inspected sources the older general bounds do not give the exact dominant term for both schemes or its tail and moments. The exact catalogue hit is the frozen record itself and is not independent coverage.",
+      "residual_risks": [
+        "Focused searches and source access were limited; structured random-perturbation literature not found in the inspected material might contain an equivalent comparison.",
+        "No priority is inferred from the exact index hit for the assigned record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior block algebra and bounds; not the exact tails in these passages",
+          "evidence": [
+            "Theorem 3 gives inverse norm bound and block inverse (17); Theorem 4 gives a condition bound; §3 gives almost-sure nonsingularity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.3068v1",
+          "material_read": "Abstract; PDF Theorem 3 eqs. (14)–(19); Theorem 4 eq. (20); §3",
+          "method": "Bounded primary open PDF reading",
+          "title": "Randomized methods for rank-deficient linear systems",
+          "trigger": "Exact underlying rank-completion inverse and possible general probabilistic coverage"
+        },
+        {
+          "assessment": "Classical scalar ingredient, not a result for matrix completions",
+          "evidence": [
+            "Setting correlation to zero yields K_0(|z|)/pi, and integration near zero gives the stated log small ball."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.crma.2015.10.019",
+          "material_read": "Introduction p. 201, offset 2628; Theorem 2.1 p. 202, offset 4408",
+          "method": "Bounded primary OA text",
+          "title": "On the distribution of the product of correlated normal random variables",
+          "trigger": "Exact denominator law and dependence assumptions"
+        },
+        {
+          "assessment": "Different statistic and limiting regime",
+          "evidence": [
+            "Nyström residual when a positive eigenvalue tends to zero, not these rank completions at fixed A."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local catalogue and bounded mirror",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström",
+          "trigger": "Nearby Gaussian randomized linear algebra and half-moment transition"
+        },
+        {
+          "assessment": "No whole-document coverage conclusion",
+          "evidence": [
+            "Frozen record describes a different full Gaussian matrix ensemble."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/040616413",
+          "material_read": "Citation and ensemble description in frozen record; no accessible primary full text retrieved",
+          "method": "Lawful OA attempt returned HTTP 403",
+          "title": "Condition Numbers of Gaussian Random Matrices",
+          "trigger": "Potential stronger Gaussian conditioning estimates"
+        },
+        {
+          "assessment": "Alternative accessible primary source verifies scalar law",
+          "evidence": [
+            "Nadarajah–Pogány Theorem 2.1 independently establishes the product density needed here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0114046",
+          "material_read": "Citation only; primary full text unavailable through attempted route",
+          "method": "Lawful OA attempt returned HTTP 403",
+          "title": "The Distribution of Products of Independent Random Variables",
+          "trigger": "Classical product-distribution source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, statement, scope and limitations",
+        "arXiv:1401.3068v1, conditioning bounds as the comparison baseline"
+      ],
+      "rationale": "The theorem quantifies a design tradeoff that almost-sure rank completion misses: positive-definite symmetry makes the null-coordinate amplification substantially heavier at high thresholds. The conclusion is spectrum-independent at the exponent level while giving spectrum-dependent exact constants, and separates finite fractional moments. This is useful for comparing rare inverse amplification without conflating it with typical behavior or condition-number ordering.",
+      "residual_risks": [
+        "The argument does not prescribe a finite-threshold choice of algorithm or extend to higher corank or other laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

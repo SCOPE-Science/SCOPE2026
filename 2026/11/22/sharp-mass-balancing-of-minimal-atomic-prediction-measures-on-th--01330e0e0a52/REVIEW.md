@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer degree \(n\ge1\) and real \(0<a<1\), the proof establishes the exact optimal prediction moment constraints; parametrizes the full family of minimal-cardinality atomic designs through a finite Blaschke product; derives their positive masses from the Christoffel diagonal; and proves both extremal phase choices by strict monotonicity of the boundary argument. The quantitative minima and maxima follow from unique scalar angle equations, and their parity compatibility from the two phase identities. The asymptotics use Taylor expansion at the two antipodal endpoints. Finite diagnostics in `check.py` agree with the formulas but are not proof of the infinite theorem.
+PASS
 
-## Originality — PASS (best-knowledge, not certified historical priority)
+For the repaired claim. The frozen literal minimum of the number of distinct positive-mass atoms over all optimal probability measures was false: its own Poisson probability is optimal and nonatomic. The replacement RESULT.md in repairs/2 states explicitly that the minimum of n+1 is a support-cardinality minimum among finitely supported optimal measures, and distinguishes that from the prediction optimum over all probabilities. Recheck: z^n/R^n attains the upper bound for Poisson moments via orthogonality to a basis of the vanishing-at-R subspace, and equality in its disk integral forces circle support. A polynomial vanishing on at most n support points rules out smaller finite supports. The rational Cayley transform of the Herglotz function is inner of degree n+1, with precisely the atomic support as its level-one fiber. Its value and Taylor coefficients force the Schur transform after factoring z to be lambda*z^n; the converse yields a probability with the required moments and exactly n+1 nodes. The orthonormal family follows because weighting by |z-a|^2 cancels the Poisson density on the circle and the moments give orthogonality to the constant. The exact Laurent quadrature then gives the diagonal kernel reciprocal at the nodes. Its weight is strictly largest near 1 and smallest near -1. The increasing phase increment is odd about each reference point; relative phase u gives nearest angular distance equal to the inverse increment at min(u,2pi-u). It has a unique maximum at pi. Hence -1 and (-1)^n are the claimed phases, including n=1. Integration of the phase uses the continuous branch with real denominator 1-a cos(t)>0 and gives both angle equations. For fixed a the endpoint increments have a cubic remainder with bounded coefficient and positive linear term of size n, establishing the stated O_a(n^-4) angle errors and the mass limits. Factoring the two n=2, a=1/2 cubics gives pairs with real parts 3/4 and -1/4, respectively, and the listed exact masses. Replay: repaired RESULT.md, proof steps 1–4. The frozen NumPy diagnostic was inspected, not run; its finite checks do not certify the continuum of phases or arbitrary degree.
 
-Bos–Levenberg–Ortega-Cerdà (2020/2021) proves the prediction optimum and explicitly identifies Szegő quadrature as a source of discrete designs; this makes the existence, moment equations, and one-phase quadrature parametrization background. Charpentier–Levenberg–Wielonsky (first public 11 July 2022) studies the optimal-measure set and weak asymptotic behavior, not the maximum and minimum atom-mass phase problems. The 2014 Szegő quadrature-extension study addresses exactness/extension rather than a demonstrated sharp extremal atomic-load classification, but full document access was limited. Semantic searches of published mathematical findings uncovered comparisons on weighted Bergman radial sampling and other quadratures with different constraints. The present novelty claim is restricted to the sharp unique opposite-phase extremizers and their parity compatibility. Older paraorthogonal-quadrature weight balance results could be a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Least-support optimal prediction measures are exact designs for extrapolation of degree-bounded analytic polynomials. Their individual atomic masses govern maximum observation load and minimum sampling coverage, two natural competing design objectives. A complete all-degree classification reveals a strict incompatibility for odd support size, with closed scalar formulas and the sharp limiting Poisson density extrema. This is an intrinsic finite-design property, not a disguised restatement of the known optimal prediction variance.
+The finite-support clarification preserves the actual finite-fiber extremal problems. Credit prior prediction optimality, Szegő/paraorthogonal parameterization, and the kernel identity. The separate aligned-Blaschke result treats angular mesh gaps, not pointwise masses, and supplies different optimizing fibers for the corresponding objectives. Supported originality is the unique extreme-mass optimizers, with exact values and their parity compatibility, within the smallest-support prediction family.
 
-## Boundaries and closest work
+## value
 
-The theorem only covers optimal designs with exactly \(n+1\) atoms on the disk and a fixed exterior point. It does not compare higher-cardinality designs or arbitrary planar sets. The degree-one endpoints are included; the parameter \(a=0\) is excluded, as it destroys strict uniqueness. The classical measure and quadrature theory are credited. Historical-priority assessment is provisional, and there has been no independent audit.
+PASS
 
-Sources: https://arxiv.org/abs/2207.04662 ; https://doi.org/10.1007/s00365-020-09522-1 ; https://doi.org/10.1093/imanum/dru012
+For the finitely supported optimal designs of least support, weighting is the remaining design choice once prediction performance is fixed. Exact uniqueness for both complementary extremes and the parity obstruction distinguish when an experiment can simultaneously avoid the heaviest and lightest allocations. This is an all-degree design classification, not merely a known quadrature construction or a sampled phase comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

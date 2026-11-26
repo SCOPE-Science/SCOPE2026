@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:55.066600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit-edge opposite-corner routes retaining length a+b, each adjacent swap changes one layer by one, so it cannot cross the excluded value at a failed vertex. Each side condition is an order-convex sublattice under pointwise path minima and maxima. The nonempty intersections are intervals of the rectangular cell-ideal lattice; deleting maximal excess cells and adding minimal missing cells realizes symmetric-difference distance, and every ambient shortest path changes only disagreement cells. This proves convexity and the extremal diameter. The coordinatewise majority ideal supplies the unique median. Feasibility uses the exact interval recurrence with increments {0,1} and terminal layer {a}; empty layers stop the calculation. This works for boundary faults and when no original-length route survives. For the odd-diagonal family, independent EENN/NNEE blocks realize all signs, while the primitive signed excursions have even semilength and Catalan even-part generating function. No assertion applies to longer detours.",
+      "replay": "python3 /workspace/review_checks.py 1; independently checked actual one-vertex graph adjacency for all 1024 fault subsets of a 2-by-3 cell grid (2098 reachable ordered pairs), and the Catalan counts through k=8 by inclusion-exclusion. The frozen checks were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonsma establishes a polynomial-time planar reachability result.",
+          "The Catalan functional equation and Dyck-path count are classical."
+        ],
+        "reasoning": "The wider planar decision theorem does not classify all signatures, give extremal component counts, or count survivors. The even-return restriction requires a specific signed excursion decomposition; the general Catalan identity is an ingredient, not the unrestricted bridge count.",
+        "searches": [
+          "arXiv:1204.5613 pp. 1–2; general planar shortest-path rerouting",
+          "Flajolet–Sedgewick Analytic Combinatorics pp. 7 and 90; primitive excursions and Catalan series"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–59 and VERIFICATION.md",
+        "Resultary 03f044bfa48d and identical-package check e6bbd906c52c",
+        "arXiv:1705.09385",
+        "arXiv:1204.5613",
+        "Flajolet–Sedgewick, Analytic Combinatorics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known single-interior-fault theorem gives lattice intervals/convex fibers; simultaneous compatible side conditions then intersect, preserving graph convexity.",
+          "Unsigned Catalan paths are not the surviving balanced words; the proof derives the count using the even part of the series and separately constructs independently chosen fault signs."
+        ],
+        "reasoning": "The general metric for interior faults is a direct structural consequence of the one-fault fibers and should not carry the originality decision alone. Neither that implication nor the intact graph analysis supplies the sharp component family and its survivor count as a joint statement.",
+        "searches": [
+          "Resultary 03f044bfa48d RESULT.md offsets 0–4970",
+          "Asplund et al. Section 6 and Analytic Combinatorics Catalan equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asplund et al. Section 6 represents the intact corner routes in the adjacent-swap staircase graph.",
+          "The indexed one-fault record gives the two median components and the equivalent profile L1 metric."
+        ],
+        "reasoning": "Cell toggles, staircase swaps and profile area refer to the same metric. The single-fault equivalent neither illustrates simultaneous independent signs nor enumerates the diagonal survivors.",
+        "searches": [
+          "Resultary opposite-corner grid geodesics, median route components, faults and rerouting",
+          "arXiv:1705.09385 Section 6; cell-ideal and adjacent-swap formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed package e6bbd906c52c is excluded as distinct evidence. The strongest distinct matching package is 03f044bfa48d, whose actual statement requires one strictly interior fault.",
+          "The Catalan sequence itself is standard; the sourced Dyck-path enumeration does not state the fault-avoiding interpretation."
+        ],
+        "reasoning": "Matching sequence values are not an exact table of the same faulted objects. The one-fault package is real overlap, not evidence of priority inferred from its date.",
+        "searches": [
+          "Resultary opposite-corner grid geodesics, one or multiple vertex faults and Catalan survivors",
+          "Odd-diagonal restrictions in the signed-bridge/excursion formulation"
+        ]
+      },
+      "rationale": "The intact graph and one-interior-fault metric are established inputs; intersection of convex one-fault fibers substantially anticipates the multifault metric and decomposition. The supported distinct contribution is the full fault formulation with explicit feasibility and the sharp exponential family together with its Catalan survivor enumeration, not a new intact or single-fault metric.",
+      "residual_risks": [
+        "An older equivalent alternating-return bridge enumeration or more general directed planar path result could cover more than the searched passages. No claim of historical priority against the same-day record or the literature at large."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material special-case coverage",
+          "evidence": "One strictly interior forbidden vertex; two median components, each an interval, and profile L1 distance.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-two-median-route-components-and-exact-rerouting-diameters-after--03f044bfa48d",
+          "material_read": "RESULT.md offsets 0–2373 and 2220–4970",
+          "method": "Local indexed mirror",
+          "title": "Two median route components and exact rerouting diameters after one fault",
+          "trigger": "Exact same lattice, adjacency and metric in a restricted fault regime"
+        },
+        {
+          "assessment": "Background for the intact object",
+          "evidence": "Adjacent east/north swaps and staircase words, not the stated arbitrary vertex-fault count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.09385",
+          "material_read": "Section 6, pp. 10–12, staircase graph characterization",
+          "method": "Open-access primary text",
+          "title": "Reconfiguration graphs of shortest paths",
+          "trigger": "Intact corner-grid reconfiguration is the ambient problem"
+        },
+        {
+          "assessment": "Broader setting, different conclusion",
+          "evidence": "Polynomial-time decision for planar reconfiguration is not a convex-fiber or survivor-count theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.5613",
+          "material_read": "pp. 1–2, decision problem and planar algorithm result",
+          "method": "Open-access primary text",
+          "title": "Rerouting shortest paths in planar graphs",
+          "trigger": "Potential wider planar coverage"
+        },
+        {
+          "assessment": "Established enumeration ingredients",
+          "evidence": "Catalan functional equation and ordinary Dyck enumeration; no identification with the specific odd-diagonal avoidance in those passages.",
+          "identifier_or_url": "https://ac.cs.princeton.edu/home/AC.pdf",
+          "material_read": "pp. 7 and 90, Catalan generating function and Dyck paths",
+          "method": "Open-access original text",
+          "title": "Analytic Combinatorics",
+          "trigger": "Possible equivalent Catalan excursion enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A linear signature feasibility test and exact component geometry are useful even with exponentially many components. The same family attains the fragmentation bound and admits a closed complementary survivor count, distinguishing the number of components from the amount of remaining path space.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:43:14.994596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique reduced pole has order 7, prime to 3, which ensures a connected degree-three Artin–Schreier cover, totally ramified only at infinity. Its different exponent is 2(7+1)=16; Riemann–Hurwitz gives genus 6 and the one-branch-point Deuring–Shafarevich formula gives 3-rank zero. At the point over infinity, the orders of x and y are −3 and −7 and div(dx)=10P. Thus dx, x dx, x²dx, x³dx, y dx and xy dx are regular and have distinct orders; there are six. The separable coordinate x gives the Cartier rule retaining powers of x congruent to 2 modulo 3. Using y=y³−f, the only nonzero images are those of x²dx, y dx and xy dx: respectively dx, −(a^(1/3)x+c^(1/3))dx and −(x²+b^(1/3)x+d^(1/3))dx (the second image can vanish for special coefficients). These give first rank 3 iff a≠0, otherwise 2, second image exactly the line of dx and third image zero. The a-number is the kernel dimension; the reduced jumping locus in the marked coefficient chart is exactly the reduced irreducible hyperplane V(a), without a claim about a scheme structure in the unmarked stack.",
+      "status": "PASS",
+      "verification": "Independent replay: /workspace/branches/27c72f70-e27a-4c63-a387-003e99af3aae/independent_cartier_check.py, with independent-full-run.txt in the same directory. All 81 tuples over F3 and 6561 tuples over F9 agreed: the profiles (3,1,0)/(2,1,0) occurred 54/27 and 5832/729 times, respectively. These are corroborations at two finite fields, not all-field proof. The frozen verify_cartier.py was inspected, not executed. The symbolic computation is decisive."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coefficient-independent theorem requires 3≡1 mod 7 here, which fails. Zhou bounds genus and admissible pole orders for a=g−2, but does not specify a coefficient law. Pries–Zhu describes p-rank strata, not a-number or Cartier iterates. The indexed normal-form theorem does cover all connected genus-six characteristic-three Artin–Schreier covers of 3-rank zero."
+        ],
+        "reasoning": "The primary general results supply context or classical invariants, not the target rank jump; the broader indexed normal-form result applies because every curve of the frozen family is an Artin–Schreier cover of the stated genus and 3-rank.",
+        "searches": [
+          "Farnell–Pries arXiv:1202.4183 Theorem 1.1",
+          "Zhou arXiv:1901.08375 Proposition 2.5",
+          "Pries–Zhu DOI 10.5802/aif.2692 Theorem 1.1",
+          "Resultary d8316cc2a165 Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_cartier.py",
+        "Resultary c68e838e4553 and d8316cc2a165",
+        "Farnell–Pries arXiv:1202.4183",
+        "Zhou arXiv:1901.08375",
+        "Farnell dissertation",
+        "Pries–Zhu DOI 10.5802/aif.2692"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identical-chart theorem gives genus 6, 3-rank zero, both iterate ranks and the arbitrary-b,c,d hyperplane split; its smooth irreducible hyperplane in the chart is reduced."
+        ],
+        "reasoning": "In the identical-chart statement the frozen claim is immediate without additional calculation. Describing the 3/4 split as excluding 5 and 6 or omitting the trailing zeros does not add content. No unmarked-stack or full Ekedahl–Oort classification is asserted in the frozen result.",
+        "searches": [
+          "c68e838e4553, Finding and assumptions, offsets 0–2596",
+          "d8316cc2a165, Finding and assumptions, offsets 0–2678"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c68e838e4553 gives the exact monic degree-seven equation and Cartier profiles on the same marked chart; d8316cc2a165 gives the equivalent three-parameter normal form and ranks including the identity."
+        ],
+        "reasoning": "The first comparison needs no coordinate identification. For the second, removal of the linear term by the normal-form transformations preserves the distinction a=0: in characteristic 3 translation of x⁷ contributes no x⁵ term since binom(7,2)=21, and reduction of x⁶ or x³ does not create any x⁵ term. Scaling multiplies a by a nonzero factor. Adding the identity rank 6 does not change the comparison.",
+        "searches": [
+          "Resultary genus-six one-pole Artin–Schreier Cartier-rank jump and a-number strata",
+          "Primary query: Artin-Schreier characteristic 3 genus 6 a-number degree 7 Cartier x^5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d8316cc2a165 explicitly tabulates (6,2,1,0) for a=0 and (6,3,1,0) for a≠0. c68e838e4553 explicitly states the rows on the identical four-parameter chart. The primary PDF table checks produced no matching passage and were not exhaustive."
+        ],
+        "reasoning": "These are universal symbolic ranks, not sample counts for finite coefficient fields. They cover every row of the frozen classification.",
+        "searches": [
+          "Resultary c68e838e4553 and d8316cc2a165 exact rank strata",
+          "Literal table checks in Farnell–Pries and Zhou PDFs"
+        ]
+      },
+      "rationale": "Statement-level existing coverage is exact: Resultary c68e838e4553 treats the same marked four-parameter equation, every coefficient tuple, the same genus and 3-rank, the same full Cartier rank profile and the same a-number-four hyperplane, even adding invariance under the allowed coordinate changes. Resultary d8316cc2a165 independently displays the same rank table in a normal form for the full genus-six 3-rank-zero Artin–Schreier locus. This is a scientific coverage assessment, not a historical priority decision; the two matching catalogue paths are dated November 8, later than the frozen path, and independent public priority is not established by those labels.",
+      "residual_risks": [
+        "Priority, dependence and first public circulation of the overlapping records are not established by their paths.",
+        "Resultary 6169992bd525 also reports related strata in its search summary, but the full mirrored file was unavailable and was not needed for the decision.",
+        "The bounded academic search and inspected tables are not an exhaustive bibliography."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage, with an extra coordinate invariance statement",
+          "evidence": "The text gives the same four-parameter polynomial, both rank profiles and the smooth irreducible hyperplane a=0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-complete-cartier-rank-jump-divisor-for-one-pole-genus-six-arti--c68e838e4553/RESULT.md",
+          "material_read": "Finding, assumptions and proof opening, offsets 0–2596",
+          "method": "Local mirror source text",
+          "title": "A complete Cartier-rank jump divisor for one-pole genus-six Artin–Schreier curves",
+          "trigger": "Identical chart and invariant"
+        },
+        {
+          "assessment": "Equivalent geometric classification in a normalized presentation",
+          "evidence": "Table gives both rank quadruples, the a-number and nilpotence index; the scope derives the normal form for all zero-3-rank covers of the specified kind.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-cartier-jump-in-the-genus-six-one-pole-artin-schreier-s--d8316cc2a165/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2678",
+          "method": "Local mirror source text",
+          "title": "Complete Cartier jump in the genus-six one-pole Artin–Schreier stratum",
+          "trigger": "Exact rank table in reduced normal form"
+        },
+        {
+          "assessment": "Hypothesis fails here",
+          "evidence": "Requires p≡1 mod L, where L is the lcm of the pole orders.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.4183",
+          "material_read": "Theorem 1.1, PDF p. 2",
+          "method": "OA PDF passage",
+          "title": "Families of Artin–Schreier curves with Cartier–Manin matrix of constant rank",
+          "trigger": "General Artin–Schreier a-number formula"
+        },
+        {
+          "assessment": "Allows the target case but is not its coefficient classification",
+          "evidence": "Gives g≤7 and permits a single-pole polynomial of degree at most 8, or a specified two-pole case.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.08375",
+          "material_read": "Proposition 2.5, PDF p. 9",
+          "method": "OA PDF passage",
+          "title": "On the Existence of Curves with Prescribed a-Number",
+          "trigger": "Characteristic-three case a=g−2"
+        },
+        {
+          "assessment": "General theorem excludes the pole order; worked example has different characteristic",
+          "evidence": "The theorem assumes pole orders divide p−1; the genus-six rank-two example has p=5 and degree 4.",
+          "identifier_or_url": "https://api.mountainscholar.org/server/api/core/bitstreams/b29bf91f-4848-4aca-b33f-e67f23037554/content",
+          "material_read": "Theorem 1, printed pp. 2–3, and §2.6, printed p. 14",
+          "method": "OA repository PDF passages",
+          "title": "Artin-Schreier Curves (Farnell dissertation)",
+          "trigger": "Detailed Cartier computations with similar genus and a-number"
+        },
+        {
+          "assessment": "Covers background p-rank stratification, not Cartier jumps",
+          "evidence": "Describes components by ramification partitions and their dimensions.",
+          "identifier_or_url": "https://www.numdam.org/item/10.5802/aif.2692.pdf",
+          "material_read": "Theorem 1.1, PDF p. 3",
+          "method": "OA PDF passage",
+          "title": "The p-rank stratification of Artin–Schreier curves",
+          "trigger": "General 3-rank and ramification-stratum coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact maximal a-number locus with full Cartier iterate ranks in a natural ramification family would be a useful invariant if independently new. The entire substantive classification here is already present in the inspected comparison on exactly the same marked coefficient chart. The frozen statement adds no new stratum, invariant, computation on a larger family, or distinction within either locus.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

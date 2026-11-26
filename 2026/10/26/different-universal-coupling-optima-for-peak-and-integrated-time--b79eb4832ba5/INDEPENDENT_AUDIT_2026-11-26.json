@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:09:09.044500Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–24 and 26–71",
+        "Corrected complete repairs/2/RESULT.md",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed; 113 recorded checks)",
+        "Independent bounded root bisection and profile evaluation",
+        "arXiv:2302.07716 Eq. (44), p. 12"
+      ],
+      "rationale": "Assessed the full repaired RESULT.md. The frozen Finding at line 9 literally said the signed infinitesimal-delay slope increases strictly; the allowed T_2<T_1 makes this false, although the frozen proof correctly uses its magnitude. The repair changes that finding to the magnitude statement, states the two signed directions, and identifies the known mean-circulation comparison by equation. Indeed Delta'_u(0+)=(T_2-T_1)u/(k+u) has coupling derivative k(T_2-T_1)/(k+u)^2; its absolute value increases strictly and has no finite maximizer. The two principal coupling optima need no change. The stationary centered normal modes have positive drift rates k and k+2u; their stationary cross covariance is (T_1-T_2)/(2(k+u)). Propagating each mode and returning to particle coordinates yields the stated sign and difference of exponentials. At fixed u, the derivative in lag vanishes exactly once at log(1+2u/k)/(2u), a global maximum of the magnitude. With x=2u/k the integral is proportional to h=x/((x+1)(x+2)) and the peak to h(1+x)^(-1/x). The area derivative has sign 2-x^2. The peak log derivative has sign F=(x+2)log(1+x)-x^2, with F(0)=0, F'(0)>0, F''=x/(1+x)^2-2<0 and F tending to minus infinity. Thus there is one positive peak optimum; F(2)>0 places it strictly above sqrt(2). Independent bisection and substitution reproduced x*=2.223254940100293 and both reported magnitudes and coupling ratios. The temperature gap is a positive prefactor so cannot affect either optimizer; equal temperatures are properly excluded. Reassessment of the repaired finding finds both optima and their corrected short-time comparison valid under the stated hypotheses.",
+      "residual_risks": [
+        "No optimization result is inferred for equal temperatures, unequal stiffnesses or mobilities, nonharmonic dynamics, or nonstationary data. Numerical bisection corroborates the constants but is not the uniqueness proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crisanti–Puglisi–Villamaina discuss OU cross-correlations and nonequilibrium response. Ohga–Ito–Kolchinsky establish bounds on normalized short-time asymmetry in terms of cycle affinity. Dotsenko et al. solve the steady two-particle model and its circulation."
+        ],
+        "reasoning": "Those results supply broader covariance or nonequilibrium context and the exact short-time law, but the inspected statements do not optimize the unnormalized finite-lag maximum or the absolute lag integral with respect to spring coupling at fixed k.",
+        "searches": [
+          "arXiv:1202.0508, §3",
+          "arXiv:2303.13116, short-time cross-correlation asymmetry introduction",
+          "arXiv:2302.07716, current and circulation formulas"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and both mirrored optimum records",
+        "arXiv:2302.07716",
+        "arXiv:2208.12768",
+        "arXiv:1202.0508",
+        "arXiv:2303.13116"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classic covariance propagator yields the lag difference, and the known circulation is its initial-slope comparator. The new dimensionless peak and area profiles differ by the coupling-dependent factor (1+x)^(-1/x), yielding different optimality equations."
+        ],
+        "reasoning": "The finite-lag objectives are computable from established OU theory but are not consequences of the circulation optimum or thermodynamic short-time bounds. Obtaining the two global solutions requires eliminating the lag, carrying out the delay integration, and proving the resulting distinct maximizers; those conclusions were not found in the inspected works.",
+        "searches": [
+          "arXiv:2302.07716, Eq. (44) and mean angular velocity discussion",
+          "arXiv:1202.0508, §3",
+          "Resultary single-hump peak-lag and sampled signal-to-noise findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dotsenko et al. give mean angular momenta u(T_2-T_1)/(u+gamma) in Eq. (44), the short-time comparator with gamma=k; the different angular velocities in Eq. (46) are not that comparator.",
+          "The related spatial integral of absolute current curl is nonmonotone in coupling, but it integrates over configuration, not delay.",
+          "The earlier indexed single-hump time-arrow result determines a peak lag for two filtered probes driven by a shared OU source, not a spring coupling for separate baths."
+        ],
+        "reasoning": "The mean angular-momentum formula matches the audited short-lag magnitude, not either lag statistic. A nonmonotone spatial integral or a lag maximum at fixed model parameters optimizes a different function or variable.",
+        "searches": [
+          "Resultary: unequal-temperature two-particle OU cross-covariance coupling, largest lag asymmetry, absolute delay integral and paired universal optima",
+          "arXiv:2302.07716, Eqs. (40)–(46)",
+          "arXiv:2208.12768, Eqs. (20), (23)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest earlier item gives a golden-ratio-related peak lag for a common-source model. A later Brownian gyrator item optimizes sampling signal-to-noise; it does not tabulate or derive these coupling ratios. No joint exact match appeared in the retrieved catalogue results."
+        ],
+        "reasoning": "A coinciding dimensionless constant or a related optimum is not coverage unless both the objective and optimizing variable match. These inspected results have different objectives and are not exact records of the audited ratios.",
+        "searches": [
+          "Resultary: exact paired optimum ratios, peak and integrated lag, Brownian gyrator and OU coupling"
+        ]
+      },
+      "rationale": "The repaired finding claims novelty for the two exact coupling optimizers and their distinction, neither for stationarity and the propagator nor for monotone short-time mean circulation. The inspected exact prior circulation formula and related optimized observables do not supply the two stated finite-delay objectives' coupling optima. The sign clarification introduces no claim of further novelty.",
+      "residual_risks": [
+        "An unlocated optimization of this same lagged covariance could exist. This is a bounded statement-level comparison, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean angular-momentum comparator, not the audited lag-peak and lag-integral optimizations",
+          "evidence": [
+            "Eq. (44) gives u(T_2-T_1)/kappa with kappa=u+gamma, and Eq. (46) is a distinct mean angular velocity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.07716",
+          "material_read": "pp. 11–13, Eqs. (40)–(46) and Fig. 4 (including offset 41800)",
+          "method": "OA primary PDF passages",
+          "title": "Out-of-equilibrium dynamics of two interacting optically-trapped particles",
+          "trigger": "Same physical model and the short-time circulation comparator"
+        },
+        {
+          "assessment": "Distinct spatial curl objective",
+          "evidence": [
+            "Nonmonotonicity of spatially integrated absolute probability-current curl as coupling varies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12768",
+          "material_read": "Eq. (20), p. 9, offset 31601, and Eq. (23), p. 11, offset 36703",
+          "method": "OA primary PDF passages",
+          "title": "Cooperative dynamics in two-component out-of-equilibrium systems: Molecular spinning tops",
+          "trigger": "Related nonmonotone coupling observable"
+        },
+        {
+          "assessment": "Prior theory for nonequilibrium cross correlations, not the audited optimizers in the inspected passage",
+          "evidence": [
+            "Uses cross correlations in response and entropy production."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.0508",
+          "material_read": "§3, p. 9, offset 24493",
+          "method": "OA primary PDF passage",
+          "title": "Non-equilibrium and information: the role of cross-correlations",
+          "trigger": "Broader two-thermostat OU cross-correlation work"
+        },
+        {
+          "assessment": "Different short-time normalized observable and bound",
+          "evidence": [
+            "Cycle-affinity bounds do not give either absolute finite-delay coupling optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13116",
+          "material_read": "Opening treatment of normalized short-time asymmetry, offsets 1296 and 7770",
+          "method": "OA primary PDF passages",
+          "title": "Thermodynamic Bound on the Asymmetry of Cross-Correlations",
+          "trigger": "Broader theory of two-time asymmetry"
+        },
+        {
+          "assessment": "Unique maximizing delay rather than coupling",
+          "evidence": [
+            "Fixed-sign time-antisymmetric covariance for probes driven by a common OU signal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-single-hump-time-arrow-profile-and-a-golden-ratio-lag-for-two--27c2a84f25d6",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local Resultary search and primary mirror passage",
+          "title": "A single-hump time-arrow profile and a golden-ratio lag for two probes",
+          "trigger": "Earlier exact lag-asymmetry extremum"
+        },
+        {
+          "assessment": "Later analogue with different objective",
+          "evidence": [
+            "Fine-sampling signal-to-noise optimum, not peak or integrated covariance over lag."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sampled-turn-tails-and-a-unique-signal-to-noise-optimum-in--fb0bee8c12b6",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local Resultary search and primary mirror passage",
+          "title": "Sharp sampled-turn tails and a unique signal-to-noise optimum",
+          "trigger": "Related optimum for a two-temperature Brownian gyrator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and proof, repairs/2/RESULT.md",
+        "arXiv:2302.07716, Eq. (44)"
+      ],
+      "rationale": "Delayed asymmetry can be read either as the largest lagged signal or as signal accumulated over lags. Comparing these natural objectives in the same model shows quantitatively that changing the way lags are summarized changes the unique optimal coupling, while the magnitude of the instantaneous comparator has no finite optimum. This is useful as a benchmark for finite-delay observables; metric dependence is not captured by a stationary solution or the classic circulation formula alone. The repair preserves that contribution and removes a misleading signed statement.",
+      "residual_risks": [
+        "The result is model-specific and does not optimize measurement noise or a finite-sample estimator; no experimental effect is inferred outside the specified OU dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

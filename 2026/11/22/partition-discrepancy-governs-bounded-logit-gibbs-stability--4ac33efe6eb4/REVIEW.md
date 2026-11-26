@@ -1,19 +1,21 @@
-# Review of the bounded-logit Gibbs stability theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The norm identity in (5) uses all cube vertices, not a guessed perturbation. Each proper subset has exactly the odds interval (6), reached by two-level scores; the balanced-subset discrepancy therefore gives the exact maximum derivative norm. Convex integration gives the upper bound, interior approximations give matching two-input lower bounds even when a maximizer is on the score-diameter boundary, and the degenerate zero-budget case is separated. The integer-partition reduction uses the strict logarithmic gap in (10). The included checker passes 10,099 supplementary finite tests, which are not substituted for proof.
+PASS
 
-## Originality
+At p=G(x), DG(x)h has ith entry beta p_i(h_i−p·h). Convexity of its unhalved L1 norm gives a maximizing cube vertex h with signs + on S and − on its complement. For q=p(S) this produces 4beta q(1−q); the empty and full subsets give zero. For each proper nonempty S let A and B be its two prior sums. Its posterior odds run through [e^(−beta R) A/B,e^(beta R) A/B]: bounds follow by comparing the weighted averages of the exponentials on each side, and exactly the whole interval is realized by scores constant on each side. Minimize absolute log-odds on this interval to get (|log(A/B)|−beta R)_+. Now 4q(1−q)=sech²(log(q/(1−q))/2) and |log(A/B)|=2 artanh(|1−2A/(A+B)|), so optimization over subsets yields the stated rho(c) formula. Convex-segment integration gives the global bound, and rescaling any boundary maximizer toward a constant gives interior points at which small steps in the maximizing sign direction recover the derivative norm as a limit. This establishes a supremum of two-input quotients, not attainment by distinct inputs. At R=0 additive invariance makes the map constant. Equal weights give rho=0 or 1/n and hence the stated threshold and positive-budget limit. For binary-encoded positive integer weights a nonzero imbalance is at least 1/C of the total; its absolute log-odds is at least log((C+1)/(C−1))>2/C>1/C. With beta=1 and R=1/C this proves exact saturation iff PARTITION is positive, with polynomial-length rational parameters.
 
-**PASS with residual historical-priority risk.** Gao–Pavel's 2017 softmax Lipschitz theorem is Euclidean; Kanai et al. 2020 analyze the role of bounded logits; Nair 2025 establishes sharp matched-\(\ell^p\) bounds. Most relevant is Cohen–Fausti 2023: its finite Hilbert-to-variation comparison, especially Lemma 5.2, yields a related fixed-base local derivative bound. That prior component is acknowledged, not claimed new. In contrast, the present statement optimizes the mixed-norm coefficient over *all* positive-weight score vectors subject to a fixed diameter, identifies a weighted-partition phase boundary, and proves exact saturation NP-hard for rational instances. No inspected theorem provides that combined sharp statement or a dominating parameterization. Hidden or implicitly equivalent results cannot be ruled out.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The saturated coefficient exactly determines when limiting the score spread cannot improve worst-case local probability robustness; the odd-versus-even class threshold is a natural consequence for balanced priors. For heterogeneous priors, the governing invariant is an exact subset-balance discrepancy, and the equality decision contains PARTITION, explaining an intrinsic combinatorial obstruction to exact certification. This is a meaningful finite-dimensional sharp stability law, independent of any proposed neural-network performance claim.
+The fixed-posterior sensitivity is already supplied by the sharp fixed-center Hilbert-to-L1 calculation of Cohen–Fausti after differentiation and norm conversion. The supported addition is optimizing this local sensitivity over the positive-radius projective ball around a specified weighted prior, expressing the sharp two-input constant by prior partition discrepancy and giving its binary-input saturation hardness. The checked Hilbert source has the fixed-center finite displacement calculation, not that within-ball two-input optimization. The closest partition-hardness record concerns a different, quadratic simplex map.
 
-## Sources and limitations
+## value
 
-Relevant primary full-text materials: Gao–Pavel, arXiv:1704.00805 (Proposition 4); Kanai et al., arXiv:2010.02558 (Sections 1 and 3); Cohen–Fausti, arXiv:2309.02413 (Theorem 5.1 and Lemma 5.2); Nair, arXiv:2510.23012 (Theorem 1, Proposition 2 and Appendix A.2). The proof concerns strictly positive weights, finite dimension and a positive score-diameter budget; zero diameter is an exceptional constant-map domain. It does not assert approximation hardness or certify any preceding network. Earlier equivalent treatments of local probability sensitivity remain a possible priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This improves a global robustness constant precisely where the weighted prior prevents balancing any subset under the allowed score budget. It gives an exact dependence on the prior and radius, not just a sufficient bound or a local norm, and identifies an exact saturation decision for which a dimension-free smooth map still encodes a discrete partition problem. The odd/even uniform-prior cases are consequences of the weighted result, not its sole motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

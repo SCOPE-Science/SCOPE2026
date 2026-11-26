@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:43:39.506806Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–77",
+        "Frozen VERIFICATION.md and verify.py; inspected, not executed"
+      ],
+      "rationale": "Haar orthogonality reduces the fourth moment to the squared norm of the autocorrelation of (a,b,c). For order at least five or infinite, the two nontrivial positive-frequency correlations are b·conj(a)+c·conj(b) and c·conj(a); the negative ones are their conjugates. For order four the latter pair instead aliases to 2Re(c·conj(a)). With coefficient squared mass 1, s=|a|²+|c|² and q=|a||c|≤s/2, phase alignment and q=s/2 maximize each envelope. The remaining parabolas 1+4s−(7/2)s² and 1+4s−3s² give the claimed constants and force s=4/7 and 2/3 respectively. Phase alignment forces the geometric phase progression; real c·conj(a) in order four further forces the ratio to be a fourth root. The stated deficit is the termwise loss from these upper bounds and the completed square. At order three, the three-point discrete transform turns equality into support at exactly one point. These are fourth powers of the synthesis norms, and the equality families have the stated normalizations.",
+      "residual_risks": [
+        "The checker samples finite envelopes and witnesses only. Its phase-witness calculation uses small Gaussian-integer-valued inputs represented as Python complex numbers and a floating tolerance for the final ratio; the exact phase conclusion follows from the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5562292e7127 handles arbitrary three-character subsets of finite cyclic groups, not only progressions",
+          "b11b0dc59997 covers compact Abelian groups under the single-collision hypothesis",
+          "Later-labeled 26fe96de7ece treats all even moments and includes 15/7 at h=2 in the stable branch, but gives only strict increase for small order",
+          "The inspected Nikolskii survey passages give general estimates but no exact target finite-degree entry"
+        ],
+        "reasoning": "The first two broader statements together imply all frozen sharp norm and equality cases; the later extension is additional corroborating coverage of one branch, not evidence of earlier priority.",
+        "searches": [
+          "Resultary mirror 5562292e7127",
+          "Resultary mirror b11b0dc59997",
+          "Resultary mirror 26fe96de7ece",
+          "arXiv:2609.32072v1"
+        ]
+      },
+      "checked_sources": [
+        "5562292e7127",
+        "b11b0dc59997",
+        "26fe96de7ece",
+        "arXiv:2609.32072v1",
+        "arXiv:2503.16786"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite-order χ pushes normalized Haar to the uniform measure on its finite cyclic image",
+          "For infinite order the only unordered pair-sum collision is 0+2=1+1, satisfying b11b0dc59997",
+          "Ling et al. investigate average Gaussian-random Nikolskii factors, not this sharp worst-case constant"
+        ],
+        "reasoning": "The prior classifications recover the frozen main theorem directly. The displayed deficit is a direct expansion of the autocorrelation and square-completion losses; it does not establish a separate scientifically motivated classification or improvement.",
+        "searches": [
+          "Resultary mirror 5562292e7127",
+          "Resultary mirror b11b0dc59997",
+          "arXiv:2503.16786"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5562292e7127 states the exact Λ(4) constants to fourth power 3, 7/3, 15/7 for order-three cosets, order-four fragments, and ordinary progressions respectively; the coefficient families also match",
+          "b11b0dc59997 states 15/7 and squared magnitudes 2:3:2 with a1²·conj(a0a2)>0 in the sole pair-product collision case"
+        ],
+        "reasoning": "The frozen synthesis norm is exactly the Λ(4) norm for {1,χ,χ²}. The positive phase-product criterion and the frozen geometric phase progression are equivalent at the forced nonzero magnitudes.",
+        "searches": [
+          "Resultary mirror 5562292e7127",
+          "Resultary mirror b11b0dc59997"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Findings give the identical exact numbers, including the two torsion exceptions, and not merely an estimate or a numerical example."
+        ],
+        "reasoning": "No numerical table is needed: switching to the proper collision-type row of the catalogue classification gives the exact entries and extremizers.",
+        "searches": [
+          "Resultary exact classification 5562292e7127",
+          "Resultary exact single-collision classification b11b0dc59997"
+        ]
+      },
+      "rationale": "Earlier-labeled Resultary results already cover the constants and full extremizer families. The three-character finite-cyclic classification covers all finite-order branches, and the compact-group single-collision result covers the infinite-order branch and its equality conditions. Finite-order extension to general compact Abelian groups is just Haar pushforward through the character. This is verified statement-level coverage, not a determination of publication priority from path dates.",
+      "residual_risks": [
+        "The mirror comparisons establish content, not independent mathematical certification or public-release times.",
+        "A literature search attempt was unavailable; this is not negative evidence. The originality failure rests on inspected covering results, not access problems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all finite-order cases and equality",
+          "evidence": "3 for order-three coset, 7/3 for order-four fragment, 15/7 for ordinary progressions, with the same equality phases and magnitudes.",
+          "identifier_or_url": "5562292e7127",
+          "material_read": "Mirrored RESULT.md, offsets 431–3015",
+          "method": "Local Resultary search and mirror text",
+          "title": "Exact Λ(4) constants for every three-character subset of a cyclic group",
+          "trigger": "Exact cyclic catalogue classification"
+        },
+        {
+          "assessment": "Covers orders ≥5 and infinite",
+          "evidence": "Compact Abelian single collision λ1²=λ0λ2 gives 15/7, normalized squared magnitudes (2,3,2)/7 and aligned phase.",
+          "identifier_or_url": "b11b0dc59997",
+          "material_read": "Mirrored RESULT.md, offsets 755–3233",
+          "method": "Local Resultary search and mirror text",
+          "title": "Sharp Λ(4) constants for a single pair-product collision",
+          "trigger": "Stable collision class for compact groups"
+        },
+        {
+          "assessment": "Later-labeled broader stable-branch match",
+          "evidence": "h=2 specializes to 15/7 for q infinite or q≥5; no exact exceptional values in the inspected passages.",
+          "identifier_or_url": "26fe96de7ece",
+          "material_read": "Mirrored RESULT.md, offsets 250–2628 and 7747–8302",
+          "method": "Local Resultary search and mirror text",
+          "title": "All-even sharp norms for three consecutive characters",
+          "trigger": "Candidate broader exact theorem"
+        },
+        {
+          "assessment": "Inspected passages give different or nonsharp bounds",
+          "evidence": "The referenced bounds (22) are described as sharp only at (p,q)=(2,∞).",
+          "identifier_or_url": "arXiv:2609.32072v1",
+          "material_read": "OA HTML offsets 45000–49499 and 49175–50465",
+          "method": "Lawful OA primary text",
+          "title": "Sharp Bernstein–Nikolskii inequalities for polynomials and entire functions of exponential type",
+          "trigger": "Finite-degree Nikolskii reformulation"
+        },
+        {
+          "assessment": "Different averaging objective",
+          "evidence": "The defined expected Gaussian factor satisfies N_ave≤N_wor, rather than furnishing the latter with equality.",
+          "identifier_or_url": "arXiv:2503.16786",
+          "material_read": "OA offsets 1089–3288 and 5628–6627",
+          "method": "Lawful OA primary text",
+          "title": "Average Nikolskii factors of random trigonometric polynomials",
+          "trigger": "Possible extremal constant in the cited Nikolskii literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–77",
+        "5562292e7127",
+        "b11b0dc59997"
+      ],
+      "rationale": "The sharp Λ(4) classification itself is a worthwhile natural result, but all its sharp constants and extremizers are already supplied by the covering classifications. The frozen record adds no independently valuable gap beyond specialization and the algebraic accounting of already identified losses. The small strict gain relative to equal coefficients follows from those constants and does not rescue this contribution.",
+      "residual_risks": [
+        "No separate quantitative stability theorem beyond the direct deficit identity is asserted or evaluated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

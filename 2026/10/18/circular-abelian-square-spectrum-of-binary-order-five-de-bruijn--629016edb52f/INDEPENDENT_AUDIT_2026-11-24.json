@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:40:57.254426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67, VERIFICATION.md, spectrum.csv and verify.py (inspected as text)",
+        "Independent replay: python3 /workspace/branches/reproduce_frozen.py 12"
+      ],
+      "rationale": "The quantity counts labeled starts and admissible half-lengths, including both sides of the circular cut and the full circumference, with rotations used only to choose one representative per cycle. The local pairing and Euler-tour proofs exhaust the cycles rooted at edge 00000. An independent reproduction used last exits instead: prescribe the last outgoing edge at each nonroot vertex, retain the directed last-exit trees leading to the root, and traverse in the corresponding fixed edge orders, with root edge 00000 first. Every tour gives such a tree because last-exit times strictly increase up to the root; a walk stopping early would stop at the root by balance, and any vertex with unused exits would lead along unused last exits to that exhausted root, a contradiction. This yielded 2048 unique normalized strings with all 32 five-bit factors. Integer masks and population counts compared both halves at every start and half-length; the resulting full 71-row histogram matches the actual CSV, all eleven gaps, endpoint counts and exact moments. Each extremizer set is the full size-four reversal/complement orbit of the stated example. For arbitrary positive order h, each length-2d factor with 2d≤h occurs 2^(h-2d) times; the qualifying strings are counted by Vandermonde, and no repeat is possible for a longer string because of its h-prefix. This proves the bridge independently of the census and gives the shift 20 at order five.",
+      "residual_risks": [
+        "The frozen script compares with its hard-coded histogram rather than parsing spectrum.csv; the independent replay separately checked every actual CSV row and the endpoint examples.",
+        "The finite distribution is order-five only; the occurrence/distinct bridge is separately proved for arbitrary positive binary order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richmond–Shallit gives binomial(2d,d) binary Abelian-square strings of length 2d.",
+          "Fici–Mignosi concerns Abelian-square-rich infinite words; Kociumaka et al. gives general extremal bounds for distinct/nonequivalent squares in unconstrained words."
+        ],
+        "reasoning": "Unrestricted factor enumeration gives the common short part; richness and general extremal bounds do not count the variable longer occurrences simultaneously in every cycle.",
+        "searches": [
+          "Richmond–Shallit arXiv:0807.5028 §2",
+          "Fici–Mignosi arXiv:1506.03562 §§1–2",
+          "Kociumaka et al. arXiv:1604.02238 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Primary and catalogue passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both d≤2 slices are fixed by the short-word count and de Bruijn multiplicities; no other longer slice is fixed by that argument. The length-six finding addresses d=3. The claimed A sums d=1 through 16."
+        ],
+        "reasoning": "Neither an exact marginal for a single component nor extrema for different statistics determine the total or the joint data needed to obtain it. The A-to-distinct bridge itself follows immediately from short-string enumeration and h-prefix uniqueness and is not credited as novel.",
+        "searches": [
+          "3a32aa1283e5, RESULT.md Finding",
+          "Richmond–Shallit arXiv:0807.5028 §2",
+          "Fraenkel–Simpson–Paterson DOI 10.1007/3-540-63220-4_51 Theorems 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fraenkel–Simpson–Paterson, DOI 10.1007/3-540-63220-4_51, introduction and Theorems 1–2: weak circular squares, grouped by length and number of ones, and extremal word length for a prescribed number of inequivalent types."
+        ],
+        "reasoning": "Weak-square balance is the same local condition, but counting classes by length/composition identifies many occurrences. Extremal length for k classes neither yields the multi-length occurrence count per cycle nor the labelled cycle histogram.",
+        "searches": [
+          "Resultary: circular Abelian square occurrence counts all start positions half lengths de Bruijn cycle histogram",
+          "Web: \"On Weak Circular Squares in Binary Words\" Fraenkel Simpson Paterson 1997 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-complete-length-six-abelian-square-spectrum-of-binary-order-five--3a32aa1283e5, mirrored finding offset 300: counts distinct circular length-six Abelian-square strings X(B), with support 4–12 over the same cycles."
+        ],
+        "reasoning": "This is an exact table on the right cycle universe but at just one window length. At length six each string has a unique start, so that table covers the d=3 component but not the full statistic. Same date is neither evidence of priority nor reason to disregard the overlap.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycles circular Abelian-square occurrence histogram 71 values 2048 73 154",
+          "Resultary: circular Abelian-square spectrum of binary order-five de Bruijn cycles 71 values occurrence histogram"
+        ]
+      },
+      "rationale": "The complete finite all-occurrences census across the 2048 rotation classes is the supported distinct claim. Counting types modulo composition, counting unrestricted strings, or enumerating the exact length-six slice does not yield this histogram. No separate novelty is credited to the occurrence/distinct bridge or the standard enumeration of the cycle domain.",
+      "residual_risks": [
+        "Separate 2002 expansion and any supplementary tables were not inspected; an earlier exact census remains possible.",
+        "The searches were bounded and do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected results concern inequivalent types and extremal word length, not this count; separate expansion remains an access risk",
+          "evidence": [
+            "Equivalence keeps only total length and number of ones.",
+            "Theorem 2 characterizes the maximum length and alternating extremizers for k inequivalent weak circular squares."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/3-540-63220-4_51",
+          "material_read": "1997 abstract and introduction (offset 0), Theorems 1–2 (the latter at offsets 11804 and 14783); the 2002 expansion was not separately retrieved",
+          "method": "Publisher access timed out; read the accessible 1997 AMiner PDF copy located via exact title",
+          "title": "On Weak Circular Squares in Binary Words",
+          "trigger": "Most directly relevant circular Abelian-square paper under alternate terminology"
+        },
+        {
+          "assessment": "Same local predicate, different domain and statistic",
+          "evidence": [
+            "The binary unrestricted string count is sum_i binomial(d,i)^2 = binomial(2d,d)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.5028",
+          "material_read": "PDF p.2 §2 offset 2500",
+          "method": "OA primary passage",
+          "title": "Counting Abelian Squares",
+          "trigger": "Known exact counting formula under the same balance predicate"
+        },
+        {
+          "assessment": "Inspected material treats richness of infinite words, not order-five cycle classes",
+          "evidence": [
+            "The examples and richness questions concern Thue–Morse and Sturmian words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03562",
+          "material_read": "PDF p.2 §§1–2 offset 4884",
+          "method": "OA primary passage",
+          "title": "Words with the Maximum Number of Abelian Squares",
+          "trigger": "Potential density/occurrence analogue"
+        },
+        {
+          "assessment": "Stated bound has different statistic and unconstrained input family",
+          "evidence": [
+            "The abstract gives asymptotic extrema for distinct or nonequivalent squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.02238",
+          "material_read": "Abstract p.1 offset 1217",
+          "method": "OA bounded abstract; not a full-text exclusion",
+          "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+          "trigger": "Potential stronger general square extremal theorem"
+        },
+        {
+          "assessment": "Covers exactly one of the sixteen half-length contributions",
+          "evidence": [
+            "Its statistic is X(B) for factors of total length six, with values 4–12."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-length-six-abelian-square-spectrum-of-binary-order-five--3a32aa1283e5",
+          "material_read": "Mirrored RESULT.md finding offset 300",
+          "method": "Resultary and local mirror",
+          "title": "Complete length-six Abelian-square spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Genuine exact overlap at a specific cyclic length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and actual spectrum.csv",
+        "Independent run for orders 1–5",
+        "Length-six-only comparator 3a32aa1283e5"
+      ],
+      "rationale": "Total cyclic occurrence density is a natural statistic for universal cycles: every short factor is forced, so differences isolate how the cycles arrange the longer windows. This is a complete order-five classification across all labeled rotation classes and all admissible lengths, rather than an arbitrarily selected window or cycle. The 71-bin distribution distinguishes typical values from rare endpoint orbits and records internal gaps; none is obtained from the unrestricted string count or the known single-length component. The lower orders are small by comparison (the independent sweep has one attained total at orders 1–3 and four at order 4). The joint value resides in the full finite spectrum and sharp extrema, not in claiming a general higher-order law.",
+      "residual_risks": [
+        "No claim for higher order spectra or for type-count Abelian equivalence classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

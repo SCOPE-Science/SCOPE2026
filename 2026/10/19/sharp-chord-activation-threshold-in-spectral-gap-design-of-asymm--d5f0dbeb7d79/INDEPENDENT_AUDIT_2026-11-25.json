@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:01.456150Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof 1–3 and Assumptions and scope",
+        "VERIFICATION.md and verify.py (read, not executed)",
+        "Independent replay, independent_replay.py: B=1, (7,3) gives trace 15 and left chord cost 11/15; (8,3) gives exact transverse and quotient slopes 1/2 and 9/88 and numerical gap 0.0625064850724 at epsilon=1/10000, above 1/16"
+      ],
+      "rationale": "The proposed tree weights sum to B and the centered four-level vector f has eigenvalue ell. Grounding the larger hub yields ell singleton blocks and an irreducible right grounded star with a strictly positive ell-eigenvector. Interlacing gives lambda_2>=ell and f gives equality. The quotient ell eigenvalue is simple: the left-leaf equation forces the larger hub coordinate to vanish and the right grounded eigenvector and centering then fix the other coordinates up to scale. The centered PSD certificate ff^T+nu P has trace D and edge costs 1 for spokes and bridge, 0 for right chords and 2nu for left chords. The condition 2nu<=1 is exactly Delta<=0. Equality forces f to be a gap eigenvector, whose equations fix every individual spoke and the bridge; they use the whole budget and force all chords to be zero, even at Delta=0. In particular p=50,q=18 is an exact equality instance, with alpha=5/7 and nu=1/2. With all left chords absent the same dual bound holds for either sign of Delta. For Delta>0 the displayed budget-neutral perturbation strictly raises the left transverse modes and the simple quotient mode, with every other nonzero mode separated initially. This proves improvement and necessity of at least one left chord for every unrestricted optimizer. Existence follows from continuity on the closed budget simplex.",
+      "residual_risks": [
+        "The replay is bounded; the certificate and perturbation prove the result across the stated integer regime. No optimal value or full optimizer classification is asserted for Delta>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. §5.2 documents Fiedler's complete tree solution. The sparse support is a double star, hence a tree, but the full feasible graph contains nonhub chords.",
+          "The indexed lollipop has a two-edge tail and peripheral-clique activation at k=4; the indexed two-clique three-regime theorem has equal cliques and all k² gateway cross-edges, with a different active internal edge class.",
+          "The resistance work allocates conductance on a balanced barbell for total effective resistance; the branch-consensus work uses a discrete-time SLEM and discusses a path bridge."
+        ],
+        "reasoning": "Tree results can cover the restricted allocation but cannot exclude improvements by additional non-tree edges. Other activation results use different feasible graph families; the inspected general dual has no rank-one/four-level shape restriction that would yield the claimed cutoff automatically.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis §5.2 Trees; DOI 10.1080/03081089008817967",
+          "Resultary: unequal clique barbell spectral gap optimize arbitrary edge weights conductance budget",
+          "Ghosh–Boyd–Saberi §V and Jafarizadeh–Jamalipour arXiv:1004.5094 §VI.C"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Relationship to prior work and References",
+        "Ranked Resultary catalogue and the matched record passages",
+        "Sun–Boyd–Xiao–Diaconis FMMP, Fiedler via FMMP §5.2, Ghosh–Boyd–Saberi §V, arXiv:1004.5094 §VI.C, arXiv:1609.02233 Examples 2 and 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "FMMP gives an arbitrary-dimensional distance-capped dual and known tree solutions, not a conclusion about the dormant chord edges in this theorem.",
+          "The chord test uses a specific PSD certificate supported on a centered four-level vector and the larger leaf transverse space, and the opposite sign requires a strict feasible direction simultaneously lifting the degenerate low modes."
+        ],
+        "reasoning": "An unrestricted budgeted barbell theorem needs both global sufficiency of the saturated-edge certificate and the strict improvement/necessity argument outside its range. No inspected prior statement implies both by restriction, rescaling or duality alone.",
+        "searches": [
+          "FMMP §§4.1, 5.2",
+          "Resultary: budgeted lollipop activation and three-regime two-clique spectral-gap allocation",
+          "Balan et al. arXiv:1609.02233 Examples 2 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous-time objective is exactly the unit-cost FMMP; the normalized primal puts a linear constraint on nonnegative edge rates. Its maximum-variance unfolding dual permits centered point clouds with edge-distance constraints.",
+          "The closest indexed unequal one-bridge graph records optimize discrete-time symmetric row-stochastic progress/SLEM or tr(L_FF^(-1)) for leader placement with an imposed bridge conductance."
+        ],
+        "reasoning": "Scaling the budget or expressing the program via its dual is not a distinct result. The known equivalent SDP does not by itself identify the exact optimal support by p,q. Identical topology with a different operator or objective is not an equivalent claim.",
+        "searches": [
+          "Resultary: unequal barbell fastest mixing asymmetric conductance spectral gap",
+          "Resultary: two cliques joined by single bridge unrestricted weighted edges algebraic connectivity optimizer",
+          "Sun–Boyd–Xiao–Diaconis DOI 10.1137/S0036144504443821 §§1.2, 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed tables/formulas for lollipops and equal-clique gateway designs concern different families. The external query returned no usable paper, not evidence of absence.",
+          "Balan et al. Table 2 reports numerical rescalings of a balanced K5–K5 barbell, minimizing condition number or the spread between largest and smallest positive eigenvalues; its spectral gap heading denotes that spread, not the fixed-budget lambda_2 here."
+        ],
+        "reasoning": "The closest numerical table and exact support-transition matches do not evaluate this asymmetric barbell invariant or support condition. Ranked results are bounded.",
+        "searches": [
+          "Resultary: unequal clique barbell spectral gap optimize arbitrary edge weights conductance budget",
+          "External lookup: asymmetric barbell weighted Laplacian spectral gap conductance budget optimal edge weights two cliques bridge",
+          "Balan et al. arXiv:1609.02233 Examples 2 and 4 and Table 2"
+        ]
+      },
+      "rationale": "The unit-budget fastest-mixing-process SDP and tree-support optimization are prior. The supported distinct theorem is the precise inequality deciding whether the unrestricted asymmetric barbell can improve on its chord-free tree, including unrestricted uniqueness and necessary larger-clique chord activation. The compared exact formulations and support transitions do not imply that threshold.",
+      "residual_risks": [
+        "The Fiedler primary text was not recovered. The frozen limitations also allude to a 2024 unweighted-barbell paper without an identifiable citation. An unindexed exact specialized solution under another formulation could have been missed; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general formulation, not the claimed asymmetric support transition",
+          "evidence": [
+            "The byline includes Persi Diaconis along with Jun Sun, Stephen Boyd and Lin Xiao.",
+            "Maximize lambda_2 subject to a linear conductance constraint; dual positions may lie in R^n. §5.2 attributes the complete tree solution to Fiedler."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "PDF p. 1 byline and abstract; §1.2 offsets 6000–8934; §4.1 p. 9 offset 25608; §5.2 p. 16 offset 50248",
+          "method": "Lawful OA primary PDF passages",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exactly the primal objective and geometric dual; tree scope"
+        },
+        {
+          "assessment": "Tree coverage credited from the inspected description; exact full text remains unavailable",
+          "evidence": [
+            "Sun et al. describes a complete solution for trees. Adding nonhub chords leaves the tree class."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+          "material_read": "Bibliographic record and Sun et al. §5.2 description, no primary theorem passage obtained",
+          "method": "Lawful publisher retrieval and alternate-copy lookup",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Potential broader tree optimizer implying the restricted branch"
+        },
+        {
+          "assessment": "Not equivalent: symmetric row-stochastic discrete-time optimization",
+          "evidence": [
+            "The finding bounds progress by s c(1−c)/(1+c) and constrains near-optimal bridge probabilities near sqrt(2)−1."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-bridge-weight-rigidity-and-sharp-stability-exponents-for--aa0c607bcc28",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed full-text mirror",
+          "title": "Uniform bridge-weight rigidity and sharp stability exponents",
+          "trigger": "Closest unequal single-bridge clique-barbell topology"
+        },
+        {
+          "assessment": "Strong analogue on a clique with a two-edge tail, not the two-clique barbell",
+          "evidence": [
+            "The exact gap is B/V_k with peripheral edges deleted for k=2,3 and positive for k>=4."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-clique-edge-activation-transition-in-budgeted-lollipop-m--1c77a3a7bc2b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed full-text mirror",
+          "title": "A sharp clique-edge activation transition in budgeted lollipop mixing",
+          "trigger": "Same budgeted gap objective and an exact support transition"
+        },
+        {
+          "assessment": "Different graph and active edge class",
+          "evidence": [
+            "Equal K_n cliques linked by all k² gateway edges; nongateway internal edges vanish and gateway–gateway clique edges activate in one regime."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed full-text mirror",
+          "title": "Sharp three-regime spectral-gap allocation for two cliques with gateways",
+          "trigger": "Same budgeted gap objective on two cliques"
+        },
+        {
+          "assessment": "Different objective and balanced input",
+          "evidence": [
+            "Minimizes sum of pairwise effective resistances and discusses three optimal conductance classes for two equal cliques joined by one edge."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "PDF p. 1 abstract and §V pp. 9–10, offsets 67200 and 69500",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Budgeted barbell weight allocation"
+        },
+        {
+          "assessment": "Discrete-time SLEM with a path bridge, not unit-budget continuous-time lambda_2",
+          "evidence": [
+            "Discussion of an extended barbell connecting complete-graph networks by a path bridge."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.5094",
+          "material_read": "PDF p. 1 offset 6255 and §VI.C p. 4 offset 32646",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Fastest distributed consensus problem on branches of an arbitrary connected sensor network",
+          "trigger": "Extended barbell consensus optimization"
+        },
+        {
+          "assessment": "Uses the balanced K5–K5 barbell for numerical comparisons under different objectives",
+          "evidence": [
+            "Defines its spread as largest minus smallest positive eigenvalue and minimizes it; also minimizes condition number. The table explicitly distinguishes the two rescalings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.02233",
+          "material_read": "PDF pp. 13–15 Examples 2 and 4; Table 2; offsets 44188 and 47250–48995",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Optimization methods for frame conditioning and application to graph Laplacian scaling",
+          "trigger": "Potential same weighted-barbell objective or precomputed table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, Proof 2–3 and Limitations",
+        "FMMP §§1.2 and 4.1",
+        "Independent exact dual and feasible-direction checks"
+      ],
+      "rationale": "The barbell is a natural bottleneck network in budgeted diffusion design. The sharp boundary determines when an exact sparse design is globally optimal over unrestricted edgewise weights and when the larger clique's internal chords are indispensable. This settles a support-design and rigidity question that is not answered by giving the SDP or optimizing a preselected tree.",
+      "residual_risks": [
+        "Uniform costs and the stated asymmetric two-clique geometry matter. It is a support transition, not the full optimal design in the activated regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:26:21.322850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof (1)–(8), including the central and complementary Fourier scales and the capped-profile game",
+        "Frozen VERIFICATION.md and checker.py, inspected for finite scope; uploaded checker not run",
+        "OEIS A001383, Formula, for the shifted exact count"
+      ],
+      "rationale": "The identity makes each functional component a fixed root, its children and their leaves, so the branch-size partition gives p(m−1) types at size m. Uniformity over isomorphism classes makes adding prescribed copies a bijection, with joint survival probability U_{n−h}/U_n. Independently checked the critical local estimate: the partition Laplace exponent 2√(Am)−tm peaks at m=A/t² with width t^(−3/2), and the Hardy–Ramanujan prefactor yields weight comparable to C(t)t^(3/2) uniformly on a block of that width. In the logarithm of the characteristic function, discarding the nonpositive k≥2 real terms and summing the k=1 terms over that consecutive block gives the stated min(1,t^(−3)θ²) damping by the normalized geometric sum. The partition modular formula and derivatives give C∼nt²/A, σ²∼An/t², and a third derivative bound O(Ct^(−6)); absolute convergence gives the same bound along the vertical central arc. For |θ|≤(log n)^3/σ the cubic remainder is O((log n)^10/√n), while the complementary arc has exponentially small mass in (log n)^5. Inversion at n−h with |h|≤K log n gives the same central Gaussian mass to relative o(t_n), so U_{n−h}/U_n=e^(−ht_n)(1+o(t_n)), with t_n∼A/log n. Rounding x_i/t_n upward yields the independent rate-s_i exponential survival functions, while fixed h=bs gives the sharper deficiency asymptotic bsA/log n. For fixed quantifier rank q, cap branch leaf counts, counts of branches of each capped type, and component profile counts at q. In the q-round game each choice needs at most one new component, branch and leaf; the ancestor closure preserves all unary terms by f³=f². At least q copies of each of finitely many exact profile representatives suffice, so a finite union bound gives the first-order rate and singleton absence attains its order.",
+      "residual_risks": [
+        "The conclusion is uniform for integer shifts up to a fixed multiple of log n and for fixed sentence or component list, not for growing logical rank or a growing list. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The forest theorem includes a qualitative MSO zero–one law and an unquantified ratio limit. The weighted partition framework shown requires convergence of the weight Dirichlet series on a right half-plane."
+        ],
+        "reasoning": "The MSO language is stronger but gives no local ratio error or rate. With b_m=p(m−1), the Dirichlet-series terms do not even tend to zero at any fixed real exponent, so the inspected weighted-partition theorem is not a broader result covering this saddle.",
+        "searches": [
+          "Bell–Burris–Yeats arXiv:1004.1128, Corollary 1.2 and Theorem 5.1",
+          "Mutafchiev DOI 10.37236/693, §1 (M1)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen relationship and references",
+        "Resultary 78c3b4b45ec0 (self-hit) and 7aa757d5f1dc",
+        "Bell–Burris–Yeats arXiv:1004.1128",
+        "OEIS A001383",
+        "Mutafchiev DOI 10.37236/693"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjacent coefficient criterion determines that ratios tend to one, not their first-order deficit or behavior at shifts of order log n. Mutafchiev addresses a total number of parts in a different weight regime."
+        ],
+        "reasoning": "Deletion is routine once the ratio is known. The o(1/log n)-accurate ratio and its uniform shift window are substantive extra estimates, not a substitution into the inspected qualitative/results tables.",
+        "searches": [
+          "Bell–Burris–Yeats, §§4–5 and Corollary 1.2",
+          "OEIS A001383 formula",
+          "Mutafchiev, conditions (M1)–(M3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same frozen record is indexed as 78c3b4b45ec0; it is not distinct evidence. The distinct 7aa757d5f1dc explicitly samples labelled idempotent maps and gives (log n)^(s+1)-normalized star counts converging in probability to 1/s!."
+        ],
+        "reasoning": "Adding an extra root gives the height-three unlabelled tree formulation, but neither relabelling nor reducing height to idempotence preserves the target law.",
+        "searches": [
+          "Resultary meaning search for fixed height unlabelled unary component laws",
+          "unlabelled bounded-height forests first-order zero-one law quantitative rate component multiplicities weighted partitions exponential limit",
+          "Resultary 7aa757d5f1dc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS explicitly gives x times the submitted Euler product, with partition function exponents, and links Riordan. The annotated Riordan PDF was not readable through text extraction."
+        ],
+        "reasoning": "The enumeration is covered. A table of coefficients and the product identify the probabilistic experiment, but do not supply the quantitative shifted ratio. No new enumeration is credited.",
+        "searches": [
+          "OEIS A001383, Formula",
+          "Riordan DOI 10.1147/rd.45.0473 (OEIS-linked annotated scan)"
+        ]
+      },
+      "rationale": "The shifted Euler product and the qualitative unlabelled forest zero–one law are prior results; the frozen finding does not claim them. Compared the precise log-scale ratio consequences, sharp singleton constant and joint law with the closest actual statements. The distinct Resultary retraction finding uses labelled height-one maps and has a different normalization and deterministic limits. Compton's criterion as developed by Bell–Burris–Yeats is qualitative. The inspected Mutafchiev/Meinardus scheme does not apply to partition-number weights. No equivalent quantitative result was verified in these comparisons.",
+      "residual_risks": [
+        "Other fixed-height tree asymptotics or local limit results for fast-growing weighted partitions could imply a quantitative ratio; inspection does not adjudicate historical priority generally. The Riordan scan was not text-read; the equivalent OEIS enumeration was inspected. Koponen's cited finite-model work was not relied on to exclude quantitative coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative case covered; inspected statements give no quantitative rate",
+          "evidence": "Corollary 1.2 is equivalent to ratio convergence to one; Theorem 5.1 characterizes the law by radius one for adequate MSO forest classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1128",
+          "material_read": "Corollary 1.2, pp. 2 and Proposition 4.14 and Theorem 5.1, p. 17",
+          "method": "Open PDF at offsets 4650 and 51650",
+          "title": "Monadic Second-Order Classes of Forests with a Monadic Second-Order 0-1 Law",
+          "trigger": "General unlabelled forest zero–one result"
+        },
+        {
+          "assessment": "Different sampling measure and height",
+          "evidence": "Explicitly excludes unlabelled star forests; f²=f and deterministic count limits with (log n)^(s+1) scale.",
+          "identifier_or_url": "2026/10/26/SCOPE-polylogarithmic-star-counts-and-the-zero-one-law-for-uniform-fin--7aa757d5f1dc",
+          "material_read": "Finding and scope",
+          "method": "Exact local-mirror RESULT.md offsets 0–2051",
+          "title": "Polylogarithmic star counts and the zero–one law for uniform finite retractions",
+          "trigger": "Distinct related Resultary hit"
+        },
+        {
+          "assessment": "Counts and product already known",
+          "evidence": "G.f. x times product (1−x^k)^(−p(k−1)); links Riordan 1960.",
+          "identifier_or_url": "https://oeis.org/A001383",
+          "material_read": "Formula and references",
+          "method": "Open page, offsets 1340–2837",
+          "title": "Number of n-node rooted trees of height at most 3",
+          "trigger": "Equivalent census"
+        },
+        {
+          "assessment": "Inspected framework excludes these weights",
+          "evidence": "Requires a half-plane of Dirichlet-series convergence, contradicted by p(m−1) growth.",
+          "identifier_or_url": "https://doi.org/10.37236/693",
+          "material_read": "Section 1, (1.5), (M1)–(M3)",
+          "method": "Open journal PDF at offset 4820",
+          "title": "Limit Theorems for the Number of Parts in a Random Weighted Partition",
+          "trigger": "Potential general weighted-partition coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and proof of the component law and first-order saturation",
+        "Bell–Burris–Yeats, Corollary 1.2 and Theorem 5.1"
+      ],
+      "rationale": "The logarithmically slow obstruction is a quantitative strengthening of the known logical law, with a natural singleton event attaining the leading constant. The simultaneous exponential law specifies the low-size component fluctuations and explains the rate in the unlabelled model, rather than adding numerical evidence for a known convergence.",
+      "residual_risks": [
+        "This rate is universal only in order over fixed sentences; not every sentence attains it and nothing is established for different heights or for labelled sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

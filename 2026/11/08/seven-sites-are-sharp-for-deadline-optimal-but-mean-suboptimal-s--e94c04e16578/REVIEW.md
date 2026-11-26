@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The unique tree path in homogeneous SI transmission yields an Erlang first-passage law conditioned on the seed. Explicit coefficients \(c_j(v)\) give the full miss-probability polynomial and its mean. An exhaustive Prüfer-sequence certificate enumerates all \(1442\) labeled trees up to six vertices and tests strict coefficientwise median domination for every nonmedian. The seven-vertex broom has exact integer distance sums and an explicitly factored unique positive deadline crossing. A separately derived subset-state Markov recursion supplies 21 rational Laplace checks. The finite certificate is used only for the finite universal part of the theorem.
+PASS
 
-## Originality
+On a tree each seed-to-sentinel infection time is the sum of one independent unit exponential per unique path edge (zero at the seed). Uniform averaging gives total distance divided by n for the mean, and the miss tail e^(-t)/n times the polynomial with coefficients c_j(v)=#{u:d(u,v)>j} in the t^j/j! basis. One can check the small-order proof structurally: moving across an edge from w to m with component sizes a on w's side and b on m's side changes the total distance by a-b. A nonmedian has a neighbor on a side b>n/2; otherwise every path from it has nondecreasing total distance because forward components are nested. If n<=6 and b>a then a<=2. The difference c_j(w)-c_j(m) is the number at distance j from m on m's side minus the number at distance j from w on w's side. The side of size at most two has shell counts (1) or (1,1); the larger connected side has at least as many vertices in each such shell, with a strict inequality somewhere since b>a. Thus a nonmedian can strictly improve at every t>0. The separate finite replay also confirms median dominance for all 6212 nonmedians on 1442 labeled trees, Cayley counts (1,1,3,16,125,1296). On the given broom the distance sums are (12,11,12,15,20,17,17). Site 1 dominates each site 2–6 in every coefficient and strictly in at least one. For 0 minus 1, the replay and direct distance counts give -t+t^2/2+t^3/6, negative before its only positive root (sqrt(33)-3)/2 and positive after. Exactly 0 and 1 tie there, and their mean times are 12/7 and 11/7. The result neither covers t=0 nor asserts that this broom is the only seven-site witness.
 
-**PASS within inspected evidence, provisional.** Leskovec et al. (2007) address general outbreak placement and multicriteria performance. Bhamidi et al. (2014) study first-passage epidemic propagation in random graphs. Holme (2017) derives small-network SIR sentinel mean criteria but not fixed-deadline homogeneous SI-tree phase transitions. Brandes and Hildenbrand (2014) treat centrality-index distinctions, not the stated Erlang deadline law; its full text remained unavailable, and historical priority is a residual risk. Closest accessible results do not imply the sharp universal six-site property or the explicit seven-site transition under the stated stochastic assumptions. No absence-of-search-results claim is treated as a novelty proof.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact seven-site threshold separates immediate outbreak-detection coverage (which favors the high-degree hub) from low expected detection delay (which favors a median). The result gives a natural and sharp lower bound, a complete minimal-tree phase diagram, and a checkable demonstration of when a mean-optimal monitoring rule can fail at short deadlines, without extrapolating to empirical networks.
+The closest same-model indexed record changes the number of sentinels from one to two, and a nearby single-sentinel record changes the random process and score. Inspected literature gives the general outbreak detection problem, known first-passage ingredients, different SIR exact tables, and static centrality separations, not the sharp all-positive-deadline theorem and phase comparison stated here. The decision credits familiar ingredients and is bounded to the inspected corpus.
 
-## Limits
+## value
 
-Uniform initial source, independent unit-rate SI transmission, a single perfect monitor, and trees are essential. Larger graphs, multiple monitors, recovery, imperfect observation and heterogeneous edge hazards are outside the proved scope. All priority claims remain subject to independent examination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For defensive monitoring, minimizing the expected wait and minimizing the probability of missing a fixed deadline are different natural choices. The result identifies exactly when the two can first diverge in a transparent tree model and exhibits an exact crossover with unique optima on both sides. The finite cutoff is therefore meaningful independently of the census and without asserting empirical application to a particular outbreak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

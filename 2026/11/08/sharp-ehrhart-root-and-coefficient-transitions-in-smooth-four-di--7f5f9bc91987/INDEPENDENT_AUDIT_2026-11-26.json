@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:32:14.065081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Slicing at integer height j gives the product of a triangle lattice count and a segment lattice count. Independently summing its cubic in j against the four power sums yields the displayed quartic; the Ehrhart-series binomial transform gives the stated numerator. Exact symbolic recomputation reproduced both discriminants and all coefficients. For c≥1, h* has positive leading cubic coefficient and takes the signs negative, positive, negative, positive at −∞, −1, −1/(c+1), 0 respectively; the two finite negative-argument values are 4c²+c−2 and −(c+2)²/[2(c+1)]. This independently proves three simple negative roots. The quadratic Ehrhart factor has discriminant c²(c²−12c−12); for integer c≥13 its two roots have positive product and sum between zero and one, so each is in (0,1). For integers 1≤c≤12 it is nonreal, and c=0 reduces to (t+1)³(t+2)/2 with h*=1+7u+4u². The two ordinary coefficient crossings fall strictly in (9,10) and (11,12). The endpoint fibers establish the vertex and facet counts, and the primitive fiber directions together with the linking edge of unit height form a lattice basis at each vertex. Replay: python3 /workspace/evidence/bounded_checks.py 2, using SymPy. The packaged exact checker was inspected, not executed; the conclusions are for the stated integer family, not all smooth four-polytopes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nill's large-width real-rootedness criterion does not apply to this width-one family.",
+          "Ferroni's examined rectangular-prism Cayley construction does not cover triangular-prism fibers. Beck et al.'s real-root location restrictions do not classify exact parameter onsets in this family."
+        ],
+        "reasoning": "Being smooth, four-dimensional, or a Cayley sum does not satisfy the hypotheses of these specific sufficient criteria or turn location bounds into the simultaneous two-polynomial classification.",
+        "searches": [
+          "Resultary: Ehrhart h-star real roots negative coefficients smooth Cayley simplex product",
+          "arXiv:2608.03635v1 Theorem 1.1",
+          "arXiv:2609.10513v2 §2",
+          "arXiv:math/0402148 §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.27819, math/0402148, 2608.03635v1 and 2609.10513v2",
+        "Resultary 09f6ec741063, b19307c25ee7 and d3c25246a30b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known slice count specifies the full quartic; expanding it and taking the quadratic discriminant mechanically yields the three ordinary thresholds.",
+          "Finite differences also give the numerator coefficients; their positivity gives no positive roots but does not establish reality or simplicity. The all-parameter sign alternation on the negative axis supplies this extra conclusion without invoking a covered product or large-width case."
+        ],
+        "reasoning": "The distinction is between recomputing a polynomial from an already exact count and verifying its uniform real-rootedness, which is not a direct substitution into the inspected sufficient criteria. The value is in the resulting explicit coexistence, not in coefficient expansion alone.",
+        "searches": [
+          "Ehrhart positivity of smooth polytopes with few facets Liu Tang Tao Zhang R_{r,c} Proposition 4.1 equation (4.4)",
+          "arXiv:2610.27819 §4, Eqs. (4.4)–(4.5) and Proposition 4.4",
+          "arXiv:2608.03635v1 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Tang–Tao–Zhang's R_{r,c} with r=2 is exactly the stated seven-facet construction.",
+          "At c=0 it is a triangle times a square, covered by the indexed product-of-polygons theorem. At c>0 the triangular faces at the two height endpoints differ in size, unlike the corresponding translated faces of a Cartesian triangle factor."
+        ],
+        "reasoning": "The same family in slice-count notation is prior. The product formulation explains the endpoint c=0 but does not identify the positive-parameter polytopes with products of two polygons.",
+        "searches": [
+          "Resultary: R_{2,c} Liu Tang Tao Zhang Ehrhart family",
+          "arXiv:2610.27819 §4, Proposition 4.1 and Eq. (4.2)",
+          "Resultary b19307c25ee7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published c=12 polynomial is (259t⁴+263t³−9t²−11t+2)/2, exhibiting both negative coefficients.",
+          "Same-day 09f6ec741063 proves numerator real-rootedness for Cayley sums with tetrahedral end layers and six facets, not for the seven-facet triangular-prism layers. The later five-dimensional simplex-frustum analogue d3c25246a30b cites the target and treats different polytopes."
+        ],
+        "reasoning": "The exact published parameter example and product endpoint are credited. Neither the similar same-day result nor the later analogue is an equivalent exact-family classification. The indexed match 7f5f9bc91987 is this same record.",
+        "searches": [
+          "Resultary: smooth four dimensional seven facet twelve vertex Ehrhart coefficient root transition",
+          "Resultary: Ehrhart R_{2,c} coefficient thresholds c=10 c=12 positive roots c=13",
+          "Resultary 09f6ec741063, b19307c25ee7, d3c25246a30b",
+          "arXiv:2610.27819 Eq. (4.5)"
+        ]
+      },
+      "rationale": "Credit the prior polytope and full slice-count formula, which give the coefficient signs and ordinary root transition by routine algebra. The supported distinct claim is strict negative real-rootedness of the numerator uniformly for this positive-parameter family, yielding its coexistence with positive Ehrhart roots in a natural smooth family. Neither the identified broader theorems nor a same-day related Cayley result covers that claim. This is not a claim of priority for the family, the count, c=0 numerator real-rootedness or the published c=12 negative coefficients.",
+      "residual_risks": [
+        "A different general interlacing or width-one theorem could cover the numerator result; none of the inspected candidates does.",
+        "This is a bounded comparison, not an assertion of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction, count formula, and explicit c=12 overlap; exact cutoffs are computable from the formula",
+          "evidence": "Smoothness, r+2 dimensions, r+5 facets and 4(r+1) vertices; exact R_{2,c} power-sum formula, and published c=12 quartic with two negative coefficients.",
+          "identifier_or_url": "arXiv:2610.27819",
+          "material_read": "§4, Proposition 4.1 and Eq. (4.2), pp. 7–9; Eqs. (4.4)–(4.5) and Proposition 4.4, p. 10",
+          "method": "Open PDF passage inspection",
+          "title": "Ehrhart positivity of smooth polytopes with few facets",
+          "trigger": "Origin of this same R_{r,c} family and likely polynomial overlap"
+        },
+        {
+          "assessment": "Related constraints, not this parameter classification",
+          "evidence": "General statements restricting real roots, not existence or onset at c=13 in this family.",
+          "identifier_or_url": "arXiv:math/0402148",
+          "material_read": "§4, Proposition 4.4, p. 14",
+          "method": "Open PDF passage inspection",
+          "title": "Coefficients and Roots of Ehrhart Polynomials",
+          "trigger": "General root-location constraints could imply the claimed transition"
+        },
+        {
+          "assessment": "Sufficient conditions do not hold here",
+          "evidence": "Fixed dimension with sufficiently large lattice width; the z direction has lattice width one here.",
+          "identifier_or_url": "arXiv:2608.03635v1",
+          "material_read": "Theorem 1.1, p. 1",
+          "method": "Open PDF passage inspection",
+          "title": "Nill's large lattice-width real-rootedness theorem",
+          "trigger": "Broad negative real-rootedness criterion"
+        },
+        {
+          "assessment": "Examined construction has different fiber geometry",
+          "evidence": "Rectangular-prism rather than triangular-prism fibers.",
+          "identifier_or_url": "arXiv:2609.10513v2",
+          "material_read": "§2, p. 5",
+          "method": "Open PDF passage inspection",
+          "title": "Unimodality shenanigans in Ehrhart theory",
+          "trigger": "Cayley-fiber computation and potential broad numerator implications"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "End fibers are scaled tetrahedra, not triangular prisms.",
+          "identifier_or_url": "Resultary 09f6ec741063",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Indexed mirror statement comparison",
+          "title": "Real-rooted Ehrhart numerators of height-one tetrahedral Cayley polytopes",
+          "trigger": "Same-day four-dimensional Cayley numerator real-rootedness"
+        },
+        {
+          "assessment": "Covers c=0 only",
+          "evidence": "Products of two full-dimensional lattice polygons; the triangular end faces differ in scale for c>0.",
+          "identifier_or_url": "Resultary b19307c25ee7",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Indexed mirror statement comparison",
+          "title": "Simple negative Ehrhart numerator roots for products of lattice polygons",
+          "trigger": "A potentially dominating product theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family was introduced to test Ehrhart positivity in a small-facet smooth setting. Showing its entire numerator spectrum stays simple, real and negative despite a separate onset of positive roots of the counting polynomial gives a precise separation between two common positivity and root questions. The ordinary cutoffs alone would be a routine expansion of the known count; the uniform contrast of spectra is the useful fact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

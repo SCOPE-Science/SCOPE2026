@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,6 +20,5 @@
 ---
 
 # Verification
-The embedded reproducibility program `check_random_cyclic_perimeter.py` was run with Python and `mpmath`. It compares exact oscillatory finite sums with separately integrated Dirichlet-beta marginals for integer polygon sizes 3 through 10; checks explicit finite exact cases; validates the rational Dirichlet-power variance and covariance identities; and simulates independent iid uniform circle arguments at 3, 4, 7, and 12 vertices.
 
-The run reported `ALL_CHECKS_PASSED`. The analytic derivation in RESULT.md, including the Taylor-remainder argument, proves the universal identities and asymptotics; finite numerical checks neither prove an infinite claim nor establish historical originality. Independent audit has not been performed.
+The same companion checker compares exact oscillatory finite sums with Dirichlet-beta marginal quadratures for sizes 3 through 10, checks explicit triangle and quadrilateral values, and compares with independent iid angle samples for sizes 3, 4, 7 and 12. The frozen verification run reported `ALL_CHECKS_PASSED`. Its factorial moment tests corroborate asymptotic consistency, not a separate claim to the higher-order coefficients. The exact formula rests on the analytic integration in `RESULT.md`; finite numerical tests do not prove a universal identity or establish originality.

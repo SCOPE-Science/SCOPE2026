@@ -1,19 +1,21 @@
-# Scientific review: one-factor incidence lattices
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closure proof treats feasible matchings with residual sizes zero, two, and at least four, and treats incompatible input separately. The exhaustive distinction yields the claimed closed sets without relying on computation. The implication minimality proof uses the necessity of an exact-premise rule at each inclusion-minimal nonclosed set; its one-pass construction explicitly reaches the closure on every input. Matching enumeration yields the rank polynomial. Boolean subintervals and truncated Boolean intervals yield all Möbius values, with the top-interval sum equal to the probabilists' Hermite evaluation. The explicit lower-fiber maxima establish the stated simple-homotopy transfer using Barmak's poset fiber theorem. The input range is \(n\ge3\); \(n=2\) is not covered by the implication-minimality classification. Independent finite computations confirm all closure inputs for \(K_6\) and 138 and 2,502 Möbius intervals in the first two instances, plus structural and rule checks in \(K_8\).
+PASS
 
-## Originality — PASS, subject to priority verification
+An incident pair has no completion and closes to E. A matching with at least four free vertices can avoid any particular residual edge by using different partners, whereas two free vertices force their joining edge. This gives the closed sets and the grading, including the missing cardinality n−1 rank. From each minimal nonclosed premise any sound basis must make its first strict addition using exactly that premise, since every proper subset is closed. The proposed rules add the entire required closure in one round (infeasible inputs contain an incident pair; the only other nonclosed inputs are near-perfect matchings). Every nonminimal nonclosed input contains an incident pair whose closure E is not contained in it, so it is not a pseudo-intent. Counting gives the stated optimum and ranks. The truncated Boolean recurrence gives μ(A,M)=(-1)^(r−1)(r−1), and combining the omitted near-perfect term m(2m−1)!! with the perfect term yields the signed full matching-count sum for −He_(2m)(1), also for m=2. For the simple-homotopy claim every lower fiber has greatest element B∖A; independently, in the residual face poset a near-perfect matching may be deleted by a simplicial collapse because its link is a cone on its unique perfect extension. The two wedge examples agree with the cited matching-complex computations. Verification caveat: verify.py line 115 reinstantiates the same seeded RNG for each draw, so the reported 15,000 additional K8 draws are repetitions of one mask, not diverse coverage. This does not affect the general proof, exhaustive K6 checks as coded, or the interval checks as coded; the uploaded script was inspected, not rerun.
 
-The inspected direct-basis literature (Baixeries–Napoli, arXiv:2404.12229) studies general basis choices rather than the specific one-factor context, matching-count formulas, or Hermite incidence Möbius values. The inspected matching-complex work (Mondal–Mukherjee–Saha, arXiv:2305.02973) proves or recalls the homotopy types of ordinary complete-graph matching complexes, which are **credited**; it does not supply the positive edge-incidence closure or its minimal Horn basis. Barmak's published poset fiber theorem supplies a tool, not the concrete map and its fibers. A related complete-bipartite permutation-incidence construction has Laguerre and chessboard formulas; that statement does not cover the nonbipartite one-factor context. Searches of published mathematical records found related homotopy and matching-polytope results but no exact closure-and-basis classification. A previously unindexed equivalent under matching-hypergraph or database-dependency terminology remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete-graph one-factor family is canonical and contains factorially many models but has a uniform two-family description of all indispensable implications. The exact minimum one-pass Horn base, whole closed-set lattice, Hermite Möbius values, and simple-homotopy transfer together give logically, enumeratively, and topologically usable invariants. The nonbipartite topology is genuinely different from the chessboard counterpart; the full-family formulas cannot be obtained by a mere symbol renaming. The work does not claim a new proof of the known \(K_6\) or \(K_8\) matching-complex homotopy types.
+The matching-complex homotopy types and general simple-homotopy theorem are prior work; so are matching numbers and the Hermite identity itself. The earlier permutation-incidence lattice is a close structural analogue, not an equivalent or encompassing complete-graph incidence result. The supported contribution is the particular nonbipartite closure classification and sharp basis together with its interval invariant and topological identification, not a new general implication-basis or matching-complex theorem.
 
-## Limitations
+## value
 
-Scientific priority remains subject to external review; the finite checker is not a proof for arbitrary \(n\). Only positive incidence of edges against complete-graph perfect matchings is treated, with multi-conclusion rule counting and a prescribed empty-family intersection convention. No claim is made about arbitrary matching-covered graphs or single-conclusion minimum bases. The topological equivalence relies on the cited finite-poset fiber theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural incidence context has an exact, simultaneously minimum and one-round implication basis, with a sharp lower bound even against iterative procedures. The interval identification imports more than Euler characteristics and the Hermite formula gives every top-interval Möbius number. This adds reusable information for a different incidence structure from permutation matrices, without claiming the known topological examples or classical Hermite identity as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

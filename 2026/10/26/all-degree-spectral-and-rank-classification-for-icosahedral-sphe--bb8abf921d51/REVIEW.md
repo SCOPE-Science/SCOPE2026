@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The addition theorem fixes all normalization factors. Parity compression reduces the twelve-node Gram matrix to a six-by-six rank-one matrix (even degrees) or a symmetric Seidel matrix (odd degrees); the latter satisfies the proved identity \(C^2=5I\). A published Bernstein inequality excludes every possible late exception, and an exact rational Legendre recurrence exhausts the remaining degrees. The proof specifies all degrees \(\ell\ge0\), and the finite numerical check is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Bannai–Okuda–Tagami already give the harmonic-index design property of six icosahedral axes in degrees \(8\) and \(14\), and the spherical five-design property accounts for lower cancellations; these are credited rather than treated as new. Bilbao-Ahedo et al. numerically study ranks of cumulative harmonic bands on icosahedron grids, not the all-degree single-mode squared singular spectrum and exact interpolation threshold. Khalid–Kennedy–McEwen use different iso-latitude schemes. The fully inspected sources do not cover the surviving combined spectrum theorem. Zheng–Doerschuk's older group-harmonic article and Cohan's 1958 paper remained inaccessible as full texts; equivalent prior derivations cannot be excluded. This is a same mathematical model literature assessment, not a certified novelty claim.
+PASS
 
-## Mathematical value — PASS
-There are exactly six independent parity-compatible observations on the twelve-vertex mesh. The rank-six threshold in degree \(15\) is sharp; the exact spectral levels give optimal deterministic least-norm interpolation costs for *every* degree and asymptotic near-tightness, not merely qualitative design strengths or a selected finite census.
+With probability surface normalization, the addition theorem gives E_l E_l*=(2l+1)G_l/12. The orthonormal antipodal compression doubles the representative Gram block. The even matrix after removing (2l+1)/6 is (1-p)I+pJ; the odd matrix is I+pC where C is the sign matrix of the six equiangular axes. An exact coordinate reconstruction checked C²=5I; its zero trace forces three eigenvalues of each sign. This gives precisely the two levels and multiplicities in each parity. The independent Rodrigues coefficient test reproduces all rank exceptions through l=49. As an independent tail argument, the Laplace integral gives |P_l(t)|≤sqrt(pi/[2l(1-t²)]), so at t=1/sqrt(5) one has 5|p_l|<1 from l=50 onward (using pi<22/7). Together these establish every degree and the sharp threshold 15 without relying on numerical near-zeros. For surjective compatible data the inverse norm is 1/sqrt(lambda_min) and the usual spectral condition number is sqrt(lambda_max/lambda_min); the extreme eigenvalue ratio is its square, as specified in the proof. Both ratios tend to 1 with error O(l^(-1/2)).
 
-## Limitations
-No uniqueness of a degree-\(\ell\) harmonic signal is claimed when the domain dimension exceeds the observation rank. The result does not cover distorted icosahedra, mixed degrees, or the full-text originality risk just described.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported by comparison is the complete exact-degree spectral and rank classification on all six icosahedral axes, with full recovery from 15 and the corresponding conditioning formula. The harmonic-index design cancellations at 8 and 14 are established prior facts and are not credited as novel. The strongest inspected literature is narrower in observable or combines degrees; the strongest indexed site-set matches either change the polyhedron or remove an antipodal pair.
+
+## value
+
+PASS
+
+The exact levels give the loss of each compatible data mode at fixed degree and the precise cost of least-norm interpolation when surjective. The complete rank list separates known design cancellations from genuinely permanent recovery; the late failure at 14 despite more than enough input degrees of freedom matters to exact-degree interpolation. The highly symmetric sample set is natural and the induced evaluation map is not covered by a generic dimension count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

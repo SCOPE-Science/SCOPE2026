@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:51.496291Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The exact rational finite checks are corroboration, not proof of the population-uniform criterion, uniqueness or asymptotics. The claim is about stationary counts and local peak regions; it does not compare the heights of all local peaks or assert a mixing result. The frozen verifier was inspected, not executed.",
+      "rationale": "The positive nearest-neighbor rates give irreducibility. Multiplying the forward/backward rate ratios yields the stated stationary weights including the squared binomial, with one overall normalization. The ratio of adjacent ratios at index k is F_k(a)F_(n-k)(b); the geometric tilt r cancels. For j>=2 the positive difference between denominator and numerator of F_j is j^2-j-1+(2j+1)u, so only the two boundary inequalities can fail, and they coincide at n=2. F_1(u)=(1+u)/(4u) has cutoff 1/3; since F_(n-1)(u) tends to 1, both shape cutoffs are necessary as well as sufficient for every size. For the symmetric modes, R_0 crosses 1 exactly at u=1/(n+1), R_1>1 for n>=4, and the interior ratios strictly decrease and are paired by reflection as reciprocals. This gives the exact central peak or central plateau and the strict endpoint peaks, with the claimed equality interpretation. The symmetric log-concavity product decreases continuously from infinity to a value below 1 at u=1/3, and it exceeds 1 at the endpoint-mode threshold (R_0=1<R_1). At its unique root, write A=F_(n-1)(u_n) and u_n=A/(4-A); the uniform expansion A=1-1/n+O(n^-2) on 0<u_n<1/3 yields the claimed -4/(9n) correction. An independently coded exact replay from the generator checked 2052 rate-built laws and symmetric shape around the mode threshold through n=32.",
+      "replay_command": "python3 /workspace/branches/independent_math_checks.py 5",
+      "replay_path": "/workspace/branches/independent_math_checks.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-chain cutoff paper's likelihood-ratio result concerns P_t(k,j)/pi(j) as a function of j, not pi(j+1)/pi(j). The hypergeometric-like functions paper's abstract and introduction concern log-concavity as a function of a continuous series parameter a rather than the discrete mass index.",
+          "A focused search under Conway–Maxwell/beta-binomial and confluent hypergeometric distribution terminology did not retrieve a verified sharp general coefficient criterion for this family."
+        ],
+        "reasoning": "Unimodality of a transient likelihood ratio and parameter log-concavity of an entire special function are properties of different objects. General sufficient log-concavity of two constituent coefficient sequences would imply joint sufficiency under multiplication and reversal, but not directly the exact finite-size compensation at the two endpoints or the symmetric local-mode transition.",
+        "searches": [
+          "arXiv:2610.17775 Appendix C and pp. 53–54 likelihood ratios",
+          "arXiv:0902.3073 hypergeometric-like log-concavity",
+          "squared binomial rising factorial beta-binomial generalized hypergeometric local mass shape; discrete Kummer coefficient log-concavity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.17775 Appendix C and related passages",
+        "arXiv:1403.6222",
+        "arXiv:0902.3073",
+        "Resultary 346b4369fd3a, 932b2c0ef509, 4584b4463616, 9df91013f774"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-chain primary paper gives the input adjacent ratio; the source result derives a new second-ratio factorization and proves F_j(u)<1 uniformly for every j>=2 and u>0. The known single-binomial phase diagram does not give this strict interior regime, and the cutoff paper's comparison of P_t(k,j) to pi(j) gives no log-concavity assertion about pi."
+        ],
+        "reasoning": "Ordinary preservation of log-concavity by pointwise product would establish at most the subregion where the beta-binomial itself is already log-concave. The claimed result requires analyzing the full compensating curvature, proving necessity uniformly in n, and connecting the interior ratio monotonicity to an independent boundary-peak test. The known exact weights are credited as inputs rather than presented as part of the originality pass.",
+        "searches": [
+          "arXiv:2610.17775 Appendix C.1/C.2 and likelihood-ratio argument pp. 53–54",
+          "Resultary 346b4369fd3a proof",
+          "arXiv:1403.6222 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix C states the same squared-binomial stationary law and identifies it as the normalized pointwise product of a binomial and a beta-binomial. The Saito–Kaneko 2TK rates yield only one binomial factor.",
+          "Up to an overall constant, the same squared law is the weight f_a(k)f_b(n-k)r^k with f_u(j)=(u)_j/(j!)^2, i.e. a conditional-sum coefficient law from two confluent hypergeometric series."
+        ],
+        "reasoning": "A geometric tilt cancels in log-concavity comparisons. The extra binomial does not cancel: with one binomial, the family factor would be j(j+u)/[(j+1)(j-1+u)] and the denominator minus numerator is u-1. For example a=b=1/2 gives opposite curvature conclusions for the two laws. Thus stripping the extra factor changes the claim. No checked equivalent formulation gave that squared law's phase boundaries.",
+        "searches": [
+          "arXiv:2610.17775 Appendix C.1–C.2, equations (91)–(92)",
+          "arXiv:1403.6222 2TK/Moran rates",
+          "Resultary 346b4369fd3a",
+          "COM-beta-binomial and discrete Kummer coefficient terminology searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected shape phase diagram, 346b4369fd3a, is for the single-binomial beta-binomial; its conditions address the beta shape threshold one. Same-day records inspected on mutation–selection tails, a mass-action ODE homoclinic threshold, and reinforced urn equilibria all concern different state spaces or shapes. The indexed logistic-immigration result reports a different model and threshold in its indexed summary."
+        ],
+        "reasoning": "The relevant exact object is a table or formula for the stationary count phase regions, not an integer sequence. Numerically or verbally similar threshold records for different laws cannot establish this table. No equivalent exact table was verified in the inspected index entries.",
+        "searches": [
+          "Resultary query: exact log-concavity boundary local mode squared binomial birth death stationary weights binom(n,k)^2 (a)_k (b)_(n-k) Togashi Kaneko Xiang KhudaBukhsh threshold 1/3 and 1/(n+1)",
+          "Resultary 346b4369fd3a, 0844626cea2d, 932b2c0ef509, 4584b4463616, 9df91013f774"
+        ]
+      },
+      "rationale": "The squared-binomial law, its detailed-balance ratio, and its binomial times beta-binomial factorization were already in arXiv:2610.17775 Appendix C and are not new. The distinct checked contribution is the exact weighted-law boundary-only classification and its sharp all-size 1/3 threshold, together with the separation of the finite-size mode and log-concavity thresholds in the symmetric system. The inspected source for the same chain studies mixing, includes ordinary stationary weights, and uses unimodality for a different ratio (transient probability divided by stationary probability); it does not supply the claimed sharp inequalities. Related indexed and primary single-binomial laws change the second ratio and do not supply the same classification. The stated pass is bounded by the specific compared evidence, not proof of publication priority.",
+      "residual_risks": [
+        "A more general discrete coefficient theorem under Kummer, weighted beta-binomial, or terminating hypergeometric terminology could supply a sharper implication; none was verified in the inspected passages.",
+        "The cited SIAM eprint could not be read, so direct coverage by its Section 4 was not assessed.",
+        "The indexed and primary-material comparisons are bounded, not a claim of historical firstness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for stationary weights and adjacent ratios; inspected shape statement concerns a different likelihood ratio",
+          "evidence": "Squared birth and death factors; squared-binomial invariant law; pointwise binomial times beta-binomial factorization; unimodality of transient-to-stationary ratios.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17775",
+          "material_read": "pp. 4–5 (offsets 13193–17174), pp. 8–9 (offset 31470), p. 47 Appendix C.1–C.2 equations (91)–(92) (offsets 195060–198221), pp. 53–54 likelihood-ratio passage (226100–227671)",
+          "method": "OA PDF passage and equation inspection",
+          "title": "Cutoff profiles and boundary effects in the Togashi–Kaneko model of autocatalytic reactions with weak mutations",
+          "trigger": "Identical squared-rate count chain and potential prior shape claims"
+        },
+        {
+          "assessment": "Different law",
+          "evidence": "Rates i(N-i)/N+v(N-i) and i(N-i)/N+ui have a single population factor and hence a single binomial in the stationary weight.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.6222",
+          "material_read": "pp. 1–2, offsets 5967 and 9000",
+          "method": "OA PDF inspection and detailed-balance comparison",
+          "title": "Theoretical Analysis of Discreteness-Induced Transition in Autocatalytic Reaction Dynamics",
+          "trigger": "Prior stationary modes for two-species autocatalysis"
+        },
+        {
+          "assessment": "Related phase diagram, different weight",
+          "evidence": "Uses binom(n,k) B(k+alpha,n-k+beta)/B(alpha,beta), missing the additional binomial factor of the squared-rate law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-finite-sample-log-concavity-phase-diagram-for-beta-binomia--346b4369fd3a/RESULT.md",
+          "material_read": "Finding and proof passages at offsets 0 and 3500",
+          "method": "Resultary and local-mirror passages",
+          "title": "Sharp finite-sample log-concavity phase diagram for beta-binomial counts",
+          "trigger": "Most plausible indexed exact log-concavity phase diagram"
+        },
+        {
+          "assessment": "No equivalence in these compared findings",
+          "evidence": "Respectively treat infinite-trait mutation–selection tails, a continuous ODE homoclinic transition, and a two-urn mean-field equilibrium count.",
+          "identifier_or_url": "Resultary 932b2c0ef509; 4584b4463616; 9df91013f774",
+          "material_read": "Findings at offset 0 in each record",
+          "method": "Resultary and local-mirror passages",
+          "title": "Same-day indexed mutation, reaction and urn comparisons",
+          "trigger": "Adjacent same-day stationary and transition results"
+        },
+        {
+          "assessment": "Inspected results address parameter curvature, not the mass-index criterion",
+          "evidence": "Studies functions a -> sum f_k(a)_k x^k and analogous series involving Gamma(a+k) or 1/(a)_k.",
+          "identifier_or_url": "https://arxiv.org/pdf/0902.3073",
+          "material_read": "p. 1, abstract and opening introduction, offsets 0–2648",
+          "method": "Lawful arXiv alternate copy after the publisher link could not be read",
+          "title": "Log-convexity and log-concavity of hypergeometric-like functions",
+          "trigger": "Potential broader theorem under hypergeometric terminology"
+        },
+        {
+          "assessment": "Access limitation, no coverage inference",
+          "evidence": "No mathematical premise from this unavailable source is used in the pass.",
+          "identifier_or_url": "https://epubs.siam.org/eprint/SD2DDMET5TJ6KJXCDECC/full",
+          "material_read": "Section 4 not read; no viable lawful alternate full text identified",
+          "method": "Direct and configured VPN attempts, HTTP 403; focused alternate-copy lookup",
+          "title": "Fragility in a Togashi–Kaneko Stochastic Model with Mutations",
+          "trigger": "Related stationary shape results and cited convention comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof is elementary once the weights are known, but the result is a complete finite-size and sharp population-uniform shape classification of an independently motivated stationary law. It identifies exactly where curvature can fail (only the endpoints), gives a uniform threshold with necessity, and quantifies a centrally unimodal region that would be misclassified by equating loss of boundary peaks with onset of log-concavity. These statements give usable information for future analyses of this specific chain and do not rely on asserting value for the already known invariant weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

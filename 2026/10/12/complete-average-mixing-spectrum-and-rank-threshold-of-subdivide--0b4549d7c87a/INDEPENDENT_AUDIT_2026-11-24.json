@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:51:28.845268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Assumptions and Proof, and its VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/9f729205-b5e0-42a0-a313-4181f27ef149/record3_independent_check.py (independent replay)"
+      ],
+      "rationale": "For the zero-one adjacency of the once-subdivided K_n, the singular values of the unsigned incidence matrix B follow from BBᵀ=(n−2)I+J. The two nonzero singular-value modes split into opposite adjacency eigenvalues; the remaining projector is supported on the edge kernel of B and has rank n(n−3)/2, zero at n=3. Cesàro averaging pairs only equal adjacency eigenvalues, so the squared projectors are added, without mixing the opposite signs. In the edge block, writing x for intersection size, the standard edge projector has entry (x−4/n)/(n−2), and the kernel projector has entry δ−1/m−(x−4/n)/(n−2). Squaring gives the three edge orbit coefficients in the record. In the cross block, (B_ie−2/n)²=(1−4/n)B_ie+4/n² gives the stated coefficient h_n; on mean-zero modes the cross entry is h_n√(n−2). The constant block has original-vertex row sum 1/2 within that part, and the Schur sum is stochastic, giving its two stated eigenvalues. The triangular graph acts by n−4 on Bᵀ of the mean-zero space and by −2 on ker B. Substitution gives the stated b_n and η_n, and a_n b_n−(n−2)h_n²=(n−4)(n−3)/(2n(n−2)). Together the sectors exhaust n+m. The n=3 constant and standard sectors give rank 3; the n=4 standard block has only one nonzero eigenvalue per pair, giving rank 7 overall. All sectors are positive at n≥5. A separate exact characteristic-polynomial check at n=3,4,5 matched and gave ranks 3,7,15.",
+      "residual_risks": [
+        "Only the proof, not the finite replay, covers all n. The Hamiltonian is specific to the unweighted adjacency; the result does not extend by this audit to other walks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph blow-up statement applies to G[empty graph on m vertices], with full rank for m≥3. Its m≥2 fibres force false twins; each part of S(K_n) has distinct neighborhoods, and opposite parts have nonempty neighborhoods in disjoint parts.",
+          "S(K_n) is not regular for n≥4. The n=3 cycle C6 is not strongly regular (nonadjacent common-neighbor counts differ).",
+          "The inspected simple-spectrum rank statements in arXiv:1709.03591 do not apply to the repeated adjacency eigenvalues of this subdivision."
+        ],
+        "reasoning": "These otherwise plausible broader classes or hypotheses do not specialize to the claimed family.",
+        "searches": [
+          "Resultary semantic lookup for quantum average mixing rank/spectrum on the subdivision family; leading related records e5f910afa943 and eb4cf76e53eb",
+          "arXiv:1709.03591, rank and commutant passages pp. 1, 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e5f910afa943, eb4cf76e53eb, 6f0644ac9deb",
+        "arXiv:2206.03375",
+        "arXiv:1103.2578",
+        "arXiv:1709.03591",
+        "arXiv:2208.08971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Godsil gives the universal projector Schur-sum identity. Exact arithmetic and the commutant description are broader tools.",
+          "Silva–Posner–Portugal p. 13 describe the S(G) walk as an extension they intend to analyze."
+        ],
+        "reasoning": "The frozen result evaluates an invariant that the general formulas define. Its family-specific computation needs the edge-kernel Schur square, the three orbit entries and their action in the standard and kernel sectors; these are not a parameter substitution into any matched spectrum or threshold.",
+        "searches": [
+          "arXiv:1103.2578, Lemma 1.1",
+          "arXiv:1709.03591, pp. 1 and 8",
+          "arXiv:2208.08971, p. 4",
+          "arXiv:2206.03375, pp. 8 and 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Silva–Posner–Portugal define S(G) by removing all same-part edges; the p. 8 Johnson graph isomorphism is for T(K_n), not S(K_n).",
+          "Resultary 6f0644ac9deb concerns the actual once-subdivided graph but gives general-position counts."
+        ],
+        "reasoning": "The equivalence is to the bipartite full vertex–edge incidence graph, not the total graph, which also has internal adjacencies. No formula for the ordinary adjacency eigenvalues or for a different graph invariant constitutes the spectrum of the Cesàro mixing matrix.",
+        "searches": [
+          "Resultary semantic lookup for average-mixing spectrum of S(K_n), once-subdivided complete graph, and vertex–edge incidence graph",
+          "arXiv:2206.03375, pp. 3, 8 and 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-invariant indexed formula was returned in the checked Resultary results; the exact-object hit 6f0644ac9deb concerns different data.",
+          "The exact-arithmetic average-mixing method outputs entry data for inputs; the inspected statement is not a table or closed spectrum uniform over subdivided cliques."
+        ],
+        "reasoning": "A finite spectrum table for particular small graphs, even if available, would not supply the arbitrary-n formulas or the iff threshold. The independent three-order calculation is verification, not a priority search.",
+        "searches": [
+          "Resultary same-object spectrum and sharp quantum average mixing rank lookup",
+          "arXiv:2208.08971, p. 4 exact computation passage"
+        ]
+      },
+      "rationale": "The strongest same-observable catalogue matches concern graph blow-ups and primitive strongly regular graphs, neither containing this family. The primary exact-object source puts the subdivision walk in its future-work discussion and evaluates a distinct total graph for K_n. General projector identities and algorithms do not provide the evaluated uniform eigenvalues or the rank cutoffs without the additional incidence and Schur-orbit spectral calculation. No covering statement was established in the sources checked.",
+      "residual_risks": [
+        "The search was bounded. Equivalent implicit coverage through an unlocated design-incidence or association-scheme result remains possible. One external literature query produced no useful source and was not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph class; no false-twin fibres in S(K_n)",
+          "evidence": [
+            "G[empty graph on m vertices], full rank for m≥3."
+          ],
+          "identifier_or_url": "Resultary e5f910afa943",
+          "material_read": "Mirrored RESULT.md mathematical statement",
+          "method": "Local Resultary search and original passage via local mirror",
+          "title": "Spectral gap and exact quantum average mixing rank for graph blow-ups",
+          "trigger": "Same-observable full-spectrum and full-rank family calculation"
+        },
+        {
+          "assessment": "Family excluded by its graph assumptions",
+          "evidence": [
+            "Primitive strongly regular graphs, rather than the bipartite subdivision family."
+          ],
+          "identifier_or_url": "Resultary eb4cf76e53eb",
+          "material_read": "Indexed claim and graph-class hypothesis",
+          "method": "Local Resultary search",
+          "title": "Full rank of long-time quantum mixing on primitive strongly regular graphs",
+          "trigger": "Potentially covering full-rank theorem"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The count is of general-position sets in the graph, not quantum mixing."
+          ],
+          "identifier_or_url": "Resultary 6f0644ac9deb",
+          "material_read": "Indexed claim",
+          "method": "Local Resultary search",
+          "title": "General position polynomials of once-subdivided complete graphs",
+          "trigger": "Exact graph object under subdivision alias"
+        },
+        {
+          "assessment": "Subdivision is distinguished from the analyzed total graph",
+          "evidence": [
+            "Definition of S(G); T(K_n)≅J(n+1,2); vertex-to-edge-only S(G) walk described as future work."
+          ],
+          "identifier_or_url": "arXiv:2206.03375",
+          "material_read": "pp. 3, 8 and 13, OA offsets 9257, 27050 and 45962",
+          "method": "OA PDF source passages",
+          "title": "Walking on vertices and edges by continuous-time quantum walk",
+          "trigger": "Same graph and vertex–edge walk"
+        },
+        {
+          "assessment": "Method used, not an evaluated subdivision spectrum",
+          "evidence": [
+            "Average mixing is the sum of the entrywise squares of distinct spectral projectors."
+          ],
+          "identifier_or_url": "arXiv:1103.2578",
+          "material_read": "Lemma 1.1, p. 2, offset 4440",
+          "method": "OA PDF source passage",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "Universal average-mixing formula"
+        },
+        {
+          "assessment": "General framework; checked rank hypotheses do not yield frozen classification",
+          "evidence": [
+            "Commutant projection description and rank connections; simple-spectrum hypotheses in compared rank results."
+          ],
+          "identifier_or_url": "arXiv:1709.03591",
+          "material_read": "pp. 1, 8, offsets 901 and 15052",
+          "method": "OA PDF source passages",
+          "title": "A new perspective on the average mixing matrix",
+          "trigger": "Possible general rank implication"
+        },
+        {
+          "assessment": "General algorithm not a closed family result",
+          "evidence": [
+            "Exact average-mixing entry computation using spectral projections."
+          ],
+          "identifier_or_url": "arXiv:2208.08971",
+          "material_read": "p. 4, offset 10005",
+          "method": "OA PDF source passage",
+          "title": "Irrational quantum walks",
+          "trigger": "General exact computation of quantum averages"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "arXiv:2206.03375 pp. 3 and 13"
+      ],
+      "rationale": "An established graph construction models the natural walk that alternates between vertices and incident edges, explicitly distinguished from the total-graph walk in prior work. The exact spectrum of its long-time mixing operator is informative beyond the ordinary adjacency spectrum, and the 3,7,full rank transition distinguishes the exceptional sizes from all larger complete graphs. The invariant is motivated and the closed decomposition is usable without calculating graph-sized matrices.",
+      "residual_risks": [
+        "No general transport claim beyond this one-parameter family follows from the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

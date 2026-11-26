@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:17:39.936719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The integral in the Finding and the absolute-convergence claim in Assumptions (RESULT.md lines 8–11, 30, 35) are false on part of the stated domain. Take f=K_0=1, output point z=0, and w=x+iy. The modulus of the integrand including Gaussian weight is (π√s)^(-1) exp[-(r+t/(2s))x²-(r-t/(2s))y²]. It is integrable if and only if r>t/(2s), and diverges even at equality (e.g. s=2,t=1,β=3/4). Thus for 1-t/(2s)≤β<1 the submitted Lebesgue integral does not define the prescribed map on the kernel span, so calling that map unbounded is not correct. The critical r satisfies r_*²=t/s+(1-t/s)/H>t/s, so the compact regime and endpoint, and a nonempty supercritical interval, remain inside the convergence domain. There, the independent algebra check recovered the stated Gram coefficients, the squeezed-eigenvalue and generating-function identities, the exact trace agreement, and the endpoint normalization; the harmonic-oscillator reduction below also supplies a complete eigenbasis. For well-defined supercritical β, imaginary normalized kernels diverge in norm. CHECK.py was inspected only: it symbolically checks the threshold simplification and uses floating point for five samples plus endpoint coefficients; it does not check integrability, all-domain realization, or completeness. One could restrict the integral range or separately define a formal coherent-kernel prescription, but the latter is not the given absolutely convergent integral.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For α=(1-Q-P)/(1+Q+P), δ=(1-Q+P)/(1+Q-P), the Weyl quantization of exp(-α x²-δ ξ²) has coherent-state diagonal 1/√((1+α)(1+δ)) times exp[-2α(Re w)²/(1+α)-2δ(Im w)²/(1+δ)], by integration against the unit vacuum's translated Wigner Gaussian. Multiplying by γ=2D/√((1+Q)²-P²) matches the known diagonal exactly.",
+          "Subcritical α,δ>0 and 0<λ=√(αδ)<1. A real symplectic dilation makes the symbol exp[-λ(x²+ξ²)]; Eq. (1.2) gives eigenvalues γ/(1+λ) times [(1-λ)/(1+λ)]^n, with the oscillator's complete Hermite basis. Independently the same subcritical Gram can be matched to the unweighted canonical Gram on setting H'=1/Q and t'/s'=-P/(1-Q)∈(0,1), then s'=√(H'/(1-(t'/s')²)); only a scalar normalization differs."
+        ],
+        "reasoning": "These are exact operator comparisons, not a generic analogy with Mehler kernels. Weyl scaling covers all compact parameters. At critical Q-P=1, δ=0, α=(1-Q)/Q, and the Weyl symbol depends on x alone; by the Weyl definition it quantizes to ordinary multiplication. The scale γ becomes D/√Q=1/r. The model is therefore the elementary rank-one quadratic-form endpoint of the same known Gaussian representation; neither compactness nor endpoint requires a new spectral principle.",
+        "searches": [
+          "Dereziński–Karczmarczyk arXiv:1701.07297v2 §1 Eq. (1.2), Schrödinger/Bargmann equivalence and the semidefinite oscillator semigroup paragraph",
+          "Dong–Zhu arXiv:2509.16672v1 Theorem A and canonical Gram comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked lookup",
+        "arXiv:2610.24318v1 original HTML",
+        "arXiv:2509.16672v1",
+        "arXiv:1701.07297v2",
+        "Frozen source support files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coherent blowup above β_* in the range of definition is already Prop. 14; imaginary-axis normalized vectors at β_* have constant positive norms and tend weakly to zero, so any bounded extension is noncompact. The rank-one multiplier matching the known diagonal gives the bounded extension and its stated spectrum.",
+          "For the subcritical ratios, λ²=[(1-Q)²-P²]/[(1+Q)²-P²]; hence q=(1-λ)/(1+λ) satisfies q+q^-1=(1+Q²-P²)/Q, also obtained from the submitted h equation by putting u=1-Ph and q=Q/u. Both versions choose 0<q<1. The leading eigenvalue γ/(1+λ)=D(1-q)/√((1-Q)²-P²), equivalent to the submitted coefficient via its trace sum."
+        ],
+        "reasoning": "The known exact coherent diagonal plus the oscillator formula recovers every term of the singular spectrum. At the endpoint the same diagonal determines the Gaussian multiplication operator including norm and absence of eigenvalues. This is a direct identification and specialization, not just citation of the fact that some Gaussian operators have Hermite eigenvectors. The invalid integral range cannot furnish a new operator claim.",
+        "searches": [
+          "Prop. 14 exact first equality in (22) and Lemma 1 of arXiv:2610.24318v1; Eq. (1.2) in arXiv:1701.07297v2; normalization check against arXiv:2509.16672v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dong–Wang–Zhu arXiv:2610.24318v1 Lemma 1 already gives A_beta K_w=r^-1 K^{(s,t)}(·,w/r), on the proper integral domain, and the equality preceding (22) in Prop. 14 gives the exact norms including prefactor. At p=2 their squared normalized expression is D exp[-(1-Q-P)(Re w)²-(1-Q+P)(Im w)²].",
+          "Dereziński–Karczmarczyk arXiv:1701.07297v2 treats centered Gaussian kernels equivalently as Weyl Gaussian quantizations, with the thermal oscillator formula in Eq. (1.2)."
+        ],
+        "reasoning": "Entire/anti-entire Gram kernels are determined by their diagonal: compare the independent w^j and conjugate(w)^k Taylor coefficients. Hence the claimed kernel follows by polarization of the actual published formula, not just by knowing a candidate threshold. The general literature searches were unavailable; the relevant primary texts were obtained directly.",
+        "searches": [
+          "Resultary: Fock radial Gaussian exponential Toeplitz operator spectral transition exact singular values Bargmann Gaussian critical multiplier",
+          "Fock Toeplitz radial exponential Gaussian symbol two-parameter Dong Wang Zhu Gaussian Bargmann kernel positive operator Mehler Hilbert Schmidt spectral metaplectic endpoint",
+          "positive Gaussian operators Bargmann Fock oscillator semigroup singular positive Gaussian multiplication self adjoint classification Howe Hilgert Dereziński Gaussian Weyl quantization oscillator semigroup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary hits returned different symbol families (unimodular phases, annuli, and damped kernels); no exact paired operator model was found in those ranked hits. The pertinent exact antecedents are the analytic expressions (22), (1.2), and the canonical geometric spectrum, not a numerical table."
+        ],
+        "reasoning": "An exact finite table is inapplicable to this parametrized infinite-dimensional claim. The relevant exact-formula comparison is positive after the representation change; there is no reliance on the β=0 sample or on no corpus hit.",
+        "searches": [
+          "Resultary ranked lookup above; Dong–Wang–Zhu Proposition 14 Eq. (22); Dereziński–Karczmarczyk Eq. (1.2); Dong–Zhu Theorem A"
+        ]
+      },
+      "rationale": "In the corrected domain the exact coherent kernel action, squared-norm diagonal (hence full polarized Gram form), and blowup threshold are already encoded in Dong–Wang–Zhu, Lemma 1 and Proposition 14. The compact-spectrum calculation and the endpoint are direct applications of the standard Weyl normal form for that already known diagonal Gaussian, as shown below. The weighted operator need not itself be canonical: its compact-regime Gram operator is also a scaled unweighted canonical Gram operator after reparametrization. No separate spectral mechanism survives the comparison.",
+      "residual_risks": [
+        "The inspected antecedents need not print the final parameter-dependent squeezed root formula verbatim. The negative originality conclusion is based on the exact operator reduction described here, not a claim of literal duplicate text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the coherent action, exact diagonal, integral-domain condition and blowup; Corollary 16 alone is only the unitary parameter boundary",
+          "evidence": [
+            "Lemma 1 requires r>|t|/(2|s|); Prop. 14 uses precisely β<1-|t|/(2|s|), and its Eq. (22) before the bound gives the full anisotropic diagonal at p=2, not just an upper estimate."
+          ],
+          "identifier_or_url": "https://export.arxiv.org/html/2610.24318v1",
+          "material_read": "Original HTML §1 Theorems A–C, §2 Lemma 1 and proof, §4 Propositions 14–15 and Corollary 16 with proofs",
+          "method": "Compare the barred variables and measure in the original equations; specialize the exact diagonal at p=2 and track the prefactor",
+          "title": "Two-parameter Toeplitz-type operators between Fock spaces",
+          "trigger": "Same operator, radial exponential, sharp threshold and integral domain"
+        },
+        {
+          "assessment": "Directly subsumes the compact spectral calculation up to scalar after Gram reparametrization; not by itself a finite-parameter endpoint model",
+          "evidence": [
+            "Theorem A gives full geometric canonical singular spectra and Schatten norms. The canonical kernel action and polarization from the other primary source identify the relevant Gram coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.16672v1",
+          "material_read": "PDF extraction introduction and Theorem A, §2 Props. 1–2",
+          "method": "Compare kernels after going to Gram operators; solve for the applicable reparametrized real canonical family",
+          "title": "Canonical integral operators on the Fock space II",
+          "trigger": "Potentially dominating exact compact singular-spectrum calculation"
+        },
+        {
+          "assessment": "Covers the generic positive Gaussian oscillator calculation; the x-only endpoint is a direct consequence of Weyl quantization, not the distinct λ=1 quantum-degeneracy transition discussed in the paper",
+          "evidence": [
+            "Eq. (1.2), first regime, gives the exact thermal oscillator operator. §1 identifies centered Gaussian kernels with Gaussian Weyl operators across realizations and explicitly includes nonnegative forms in Osc+."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.07297",
+          "material_read": "v2 PDF extraction §1, Eq. (1.1)–(1.3), paragraphs on Osc++/Osc+ and Schrödinger versus Bargmann–Fock representations",
+          "method": "Match the known coherent diagonal by a translated-vacuum Gaussian integral; apply symplectic rescaling and Eq. (1.2), and take the stated endpoint directly as an x-only Weyl symbol",
+          "title": "Quantization of Gaussians",
+          "trigger": "Stronger, representation-independent spectral normal form for centered positive Gaussian operators"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operator family is well motivated, and the endpoint model would be useful to an analyst looking up this example. Once the already published exact coherent diagonal is used, however, the proposed contribution is an instance of standard Gaussian Weyl spectral formulas and a multiplication-by-symbol boundary, with a false additional convergence range. Correcting the domain recovers a useful exposition, not a surviving independently valuable unknown claim under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: four-permutation universal cycles
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim is an exact all-integer identity for each labeled alphabet of size \(n\ge5\), with cyclic rotations identified and reversal/relabeling retained as distinct. The proof identifies universal cycles with cyclic Euler tours of a regular transition digraph on injective ordered triples. The nontrivial computation is the characteristic polynomial. The rank reduction \(A=JD-R\), the \(R^3=I\) determinant identity, and the decomposition of pair functions into zero-row/column and additive components are derived explicitly. Each invariant piece has a stated dimension and scalar or two-by-two determinant; their products account for every eigenvalue. Substitution at the outdegree and the directed matrix-tree and BEST theorems finish the exact enumeration, without numerical extrapolation. Standalone integer elimination recomputes rooted arborescences for \(5\le n\le8\) and direct characteristic determinants for \(5\le n\le7\). Every test passed. The code is a finite cross-check, not a substitute for the algebraic proof.
+PASS
 
-## Originality (PASS, with residual literature risk)
+Each admissible four-word is a single arc, and cyclic tours using every arc once give exactly the claimed words modulo rotation. For the spectral calculation A=JD−R; R permutes triples in three-cycles and (xI+R)⁻¹=(x²I−xR+R²)/(x³+1). The determinant lemma gives the stated rank reduction. In the reduced pair space, DJg=r_c−g(c,b), DRJg=c_b−g(c,b), and DR²Jg=(n−2)g(b,c). Thus the row/column-zero part splits under transpose; the symmetric and skew parts have the stated dimensions from the complete graph unsigned and signed incidence ranks n and n−1, respectively. The complementary row-plus-column space splits into constants and two copies of mean-zero vectors (the row/column map on those copies has determinant n(n−2)). The constant block gives (x−d)(x²−x+1). Substituting the two mean-zero coefficient vectors gives the 2×2 matrix in the result, with determinant (x³+1)(x³+x²+dx+d²). Together these give exponent N/3−(n−1)² and account for every dimension; the rational-function calculation gives a polynomial identity including at the exceptional roots. At x=d the remaining factors are positive (d≥2), and relabeling makes every directed tree cofactor equal. The derivative coefficient is their sum. Anchoring the cyclic tour at one fixed arc removes rotational multiplicity; BEST then supplies the per-root tree cofactor times ((n−4)!)^N, without any reflection or relabeling division. Substitution at n=5 agrees with the shorthand value; at n=6 it gives the arborescence factors 2^51·3^43·5^8·7^16, and the factorial factor adds 2^120. The supplied script was inspected, not executed: its finite exact cofactor tests and sample determinant evaluations corroborate, but do not prove, the all-n spectrum.
 
-The closest full-text comparison is Chang and Xue, *Enumerations of Universal Cycles for \(k\)-Permutations* (https://arxiv.org/abs/2111.13814), first available 2021-11-27. It identifies the generic BEST/matrix-tree method and evaluates \(k=2,3\), but the inspected Sections 1–4 do not give the \(k=4\) factorization or the resulting explicit product. The present calculation supplies the missing spectrum rather than merely restating their general counting principle. OEIS A120061 (https://oeis.org/A120061) covers shorthand cycles \(k=n-1\), hence the \(n=5,k=4\) boundary but not the all-\(n\) fixed-window theorem. Chen–Ghorbani–Wong's arrangement-graph article (https://doi.org/10.37236/3711) studies a different adjacency rule, and Kitaev–Potapov–Vajnovszki (https://doi.org/10.1016/j.dam.2019.01.025) studies shortened/relative-order cycles. Searches for the exact fixed-four-permutation spectrum and product formula did not uncover an equivalent published theorem. The residual risk is that a less discoverable general spectral theorem might specialize to this case; lack of search hits is not itself a proof of novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-A 2021 study explicitly solved window lengths two and three while leaving general window length open for exact enumeration. The four-letter case is the natural next structural step, for all alphabet sizes, and its closed factorization turns an \(n(n-1)(n-2)\)-dimensional determinant into a fixed collection of small polynomial factors. In particular the first non-shorthand case \(n=6\) has an exact new candidate count, \(2^{171}3^{43}5^8 7^{16}\), while the already known \(n=5\) count serves as a separate check. The result is a complete infinite-family enumeration rather than an arbitrary numerical slice or general-method restatement.
+The distinct claim is the explicit k=4 characteristic polynomial and the resulting evaluated product for labeled alphabets of arbitrary n≥5. The same underlying digraph, the generic tree/BEST expression, existence, and the shorthand value at n=5 are already known and are not counted as new. No inspected result evaluates this spectrum or implies the product without a new spectral calculation.
 
-## Limitations and closest literature
+## value
 
-The classification concerns literal four-letter permutations over a fixed labeled alphabet and counts rotation classes. It does not apply to order-isomorphic pattern cycles, arbitrary forbidden languages, or all window sizes. The arXiv primary text, OEIS entry, and the relevant distinct-graph and shortened-cycle articles were examined at the levels described above. These comparisons support, but cannot establish, universal priority. No independent external scientific audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spectrum is computed for a canonical transition graph in the next window length beyond the known evaluated k=2,3 cases. It replaces graph-size determinants by bounded-degree factors with explicit multiplicities, resolving the natural universal-cycle count and supplying spectral information beyond that count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

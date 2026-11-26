@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:26.107357Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof of conjugation, positivity, contraction and Fredholm estimates",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt, inspected without execution",
+        "Bénichou–Grabsch arXiv:2610.18626v1, Eqs. (14)–(15)"
+      ],
+      "rationale": "Detailed balance is xp(x,y)=yp(y,x); multiplication by sqrt(x) conjugates to the symmetric Lebesgue kernel e^(-x-y) I_1(2 sqrt(xy)). Its series is a sum of positive rank-one terms e^(-x)x^(k+1/2) tensor itself, divided by k!(k+1)!. Their summed trace is the finite diagonal integral T_s, so the expansion converges in trace norm. A vector annihilated by the operator has all moments zero against e^(-x)sqrt(x); polynomial density on [0,s] gives injectivity. Thus zero is in the spectrum but is not an eigenvalue, and the positive eigenvalues accumulate only there. For ordered positive nodes, each generalized Vandermonde in the Cauchy–Binet expansion has positive sign: it cannot vanish by Descartes' rule (m monomials have at most m-1 positive roots), and its sign on the connected ordered chamber can be tested at nodes x_i=t^(i-1), t>1, where it is an ordinary positive Vandermonde in t^(k_j). The fixed consecutive-exponent term then bounds every sufficiently long partial-sum minor away from zero for the given nodes. The nonsymmetric p differs by positive row/column multipliers. In the Poisson(x)–Gamma(k+2,1) representation, row mass on (0,s) is at most the Gamma(2,1) mass q_s. Detailed balance yields the same bound for the adjoint row relative to the reversible measure, and the two-sided Schur inequality gives the norm estimate. The determinant product converges by trace summability; the spectral norm bound locates all zeros at or left of -1/q_s, with no zeros for any real physical bias. Spectral calculus and the geometric-series bound give the stated inverse and remainder estimates. The forcing is bounded on the compact interval with the stated boundary extension. Finally the large-x diagonal asymptotic 1/sqrt(4 pi x) with integrable error away from zero gives T_s=sqrt(s/pi)+O(1). The compression restricts the endpoints of one auxiliary transition, not a diffusion killed upon its first interior-time exit.",
+      "residual_risks": [
+        "The reported 186 finite checks cannot certify the infinite spectrum or all ordered minors. No auxiliary conditioning outside the specified weighted L² space, nor a microscopic current limit, is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a one-dimensional diffusion the determinant in the two ordered sets is the transition density of the ordered independent system killed at its first collision, via swapping two labels at collision. Strict interior positivity is consistent with the BESQ(4) diffusion being nondegenerate on compact subintervals of the positive half-line. Classical source retrieval did not yield the theorem passages themselves.",
+          "The same-operator catalogue comparison proves a spectral characterization of the nearest pole and gives its sharper endpoint asymptotics. The Bessel article concerning variation of argument and order tests a different kernel from I_1(2 sqrt(xy))."
+        ],
+        "reasoning": "A general diffusion theorem can cover the qualitative positivity of ordered minors, and same-operator pole laws cover much of the qualitative spectral result. Neither comparison supplies the all-s explicit Gamma(2,1) contraction norm estimate.",
+        "searches": [
+          "Karlin–McGregor diffusion total positivity, Project Euclid pjm/1103039116 and DOI 10.1016/0022-247X(60)90020-2",
+          "Resultary: sharp Bessel zero law for the SEP current-density resolvent",
+          "arXiv:2607.02778, strict total positivity of modified Bessel functions"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary catalogue, four kernel/minor/contraction/trace search angles",
+        "Bénichou–Grabsch arXiv:2610.18626v1",
+        "Distinct same-operator Resultary Bessel-zero record",
+        "Karlin–McGregor diffusion articles, retrieval limited as described",
+        "arXiv:2607.02778 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary SEP paper derives the integral equation and gives Fredholm formulas; the distinct same-operator record proves Gram positivity and strict contraction using a reversibility and absorption estimate. That estimate is order s as s goes to 0, versus order s² for q_s; the prior exact top-eigenvalue asymptotics are sharper but describe limiting regimes."
+        ],
+        "reasoning": "Qualitative Fredholm positivity, invertibility and physical negative-bias convergence follow once strict contraction and positive trace class are known. The specific all-s numerical gain requires changing to the dimension-four row distribution, comparing the Gamma components and applying the reversible norm bound. It is not obtained just by substituting in the existing 1-e^(-s) bound or in the endpoint expansions. The trace law uses the explicit Bessel diagonal rather than nearest-pole data.",
+        "searches": [
+          "arXiv:2610.18626v1, Eqs. (14)–(15), (29)–(33) and Appendix A",
+          "Resultary same-operator Bessel-zero result, Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SEP kernel in Eq. (14) is the given p after relabeling. Transposing it gives the positive-to-positive time-one Feller branching kernel. Multiplication by x is an isometry from L²(x dx) to L²(dx/x) and intertwines the two compressed operators because yp(y,x)=xp(x,y).",
+          "The original p is also the dimension-four squared-Bessel transition at time 1/2 in the standard 2x second-derivative convention."
+        ],
+        "reasoning": "These are the same operator up to reversible realization, not independent positivity or spectral discoveries. The two diffusion representations emphasize different row-mass bounds: survival from absorption for the transpose versus remaining below s for the dimension-four law.",
+        "searches": [
+          "Resultary: SEP weighted Fredholm operator; all-order Bessel minors",
+          "arXiv:2610.18626v1, Eqs. (14)–(15)",
+          "Resultary: sharp Bessel zero law for the SEP current-density resolvent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue result gives a pole characterized by the top eigenvalue, the explicit norm bound 1-e^(-s), and short- and long-time pole laws. Its small-time Gram calculation uses the leading rank-one eigenvalue, not the growing sum of eigenvalues."
+        ],
+        "reasoning": "These asymptotics and the weaker explicit bound are real coverage, not an exact table for q_s. The new bound improves that explicit contraction by s e^(-s) at every s>0 and supplies a stated error bound for the finite-s Neumann approximation.",
+        "searches": [
+          "Resultary: Poisson–Gamma contraction for SEP; Bessel trace asymptotic and physical Fredholm zeros",
+          "Resultary same-operator record, proof §§2–4"
+        ]
+      },
+      "rationale": "The SEP kernel and equation are already known, and the weighted positive trace-class realization, injectivity and qualitative pole exclusion substantially overlap a distinct same-operator record. Strict positivity of these diffusion minors fits classical one-dimensional noncollision determinant theory; it is not credited here as a general new total-positivity principle. The distinct quantitative contribution in the frozen finding is the explicit all-finite-s q_s contraction with its norm-conditioned inverse and truncation guarantees, sharpening the verified alternative elementary contraction, together with an explicit growing-trace law for this realization. Neither the stated q_s bound nor its uniform-in-bias finite-s estimates were found in the inspected strongest comparisons; no priority inference is made from catalogue dates.",
+      "residual_risks": [
+        "The classical diffusion full texts were not recovered, and no separate SEP supplement was available in the retrieval. Earlier presentations of the exact q_s estimate may exist. The positive spectrum, physical zero-free conclusion and diffusion determinant mechanism are credited as overlapping or standard, not independent priority claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the kernel, closure and determinant framework, not the stated explicit q_s bound in the inspected passages.",
+          "evidence": [
+            "Eq. (14) expresses the same Bessel transition; Eq. (15) is the same finite-time linear equation. The determinant and resolvent formulas appear in the Fredholm treatment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18626",
+          "material_read": "PDF p. 3 Eqs. (14)–(15); p. 4 Eqs. (29)–(33); Appendix A Eq. (A13), p. 7",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Exact Microscopic One-Body Reduction in the Symmetric Exclusion Process",
+          "trigger": "Exact SEP kernel and potential overlap on finite-time inversion"
+        },
+        {
+          "assessment": "Substantial same-operator overlap; includes a sharper analysis of the nearest pole, but a weaker closed-form finite-s norm bound.",
+          "evidence": [
+            "Uses the compression of the Feller branching semigroup in L²(dx/x) and 1-e^(-s) as the survival bound. The top eigenvalue is analyzed using the leading Gram term at small s and a sampled-to-continuous killing limit at large s."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-bessel-zero-law-for-the-sep-current-density-resolvent--9990b3e4a18f/RESULT.md",
+          "material_read": "Finding and Proof §§1–4, including offset 4800 on the Feller branching and Schur bound",
+          "method": "Bounded local-mirror record inspection",
+          "title": "Sharp Bessel zero law for the SEP current-density resolvent",
+          "trigger": "Strongest same-operator spectral and conditioning coverage"
+        },
+        {
+          "assessment": "The classical noncollision interpretation is relevant; no whole-document negative assertion or new general TP principle is claimed.",
+          "evidence": [],
+          "identifier_or_url": "https://projecteuclid.org/journals/pacific-journal-of-mathematics/volume-9/issue-4/Total-positivity-of-fundamental-solutions-of-parabolic-differential-equations/pjm/1103039116.full ; https://doi.org/10.1016/0022-247X(60)90020-2",
+          "material_read": "Bibliographic/landing information; precise original theorem passages not retrieved",
+          "method": "Lawful full-text retrieval attempted, including identified Euclid PDF URL",
+          "title": "Total positivity of fundamental solutions of parabolic differential equations; Classical diffusion processes and total positivity",
+          "trigger": "Classical diffusion determinant potentially covers the all-order minor claim"
+        },
+        {
+          "assessment": "Different choice of variables for the TP kernel.",
+          "evidence": [
+            "The variables are argument and order, not two spatial arguments with fixed order one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.02778",
+          "material_read": "PDF p. 1, near offset 1162",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Strict total positivity of modified Bessel functions in argument and order",
+          "trigger": "Potential all-order Bessel-minor overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, quantitative inverse, Neumann remainder and trace statements",
+        "Same-operator Resultary Bessel-zero record, explicit contraction and pole asymptotics"
+      ],
+      "rationale": "At a prescribed finite time the bound can be evaluated without eigenvalue computation and guarantees a concrete operator-norm error after truncating the physical negative-bias inverse series, including at omega=-1. The gain over the alternative 1-e^(-s) Schur bound changes the small-s contraction scale from s to s² and improves the explicit finite-s denominator even away from that asymptotic regime. The bound is not claimed sharp for large s. The growth of the entire trace is distinct from tracking only the nearest pole.",
+      "residual_risks": [
+        "No computational efficiency claim for large s, where the explicit estimate can be loose, or for large positive bias, where the negative-bias Neumann guarantee need not apply."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:32:55.546335Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete repaired RESULT.md corrects only the decimal expansion of C; its exact expression and fixation claims are unchanged. A vertex with a discordant neighbors picks one with probability a/deg, and, conditional on that pick, the closed-neighborhood expression is a/(deg+1) for either current label. Thus the hub jumps with rate equal to discordant count squared divided by d=m(m+1); each discordant leaf jumps at rate 1/2. From each nonabsorbing state a positive-probability sequence of leaf flips with no hub flip reaches consensus in the current hub label, so there is no nonsingleton recurrent class and absorption is almost sure. The harmonic equations give increments u[k+1]-u[k]=2(m-k)w[k]/d and v[k+1]-v[k]=2(k+1)w[k+1]/d. Their difference gives (d+2(k+1))w[k+1]=(d+2(m-k))w[k], including the boundaries; reversing factors gives R_m=1, so u_m=1 and v_0=0 give the stated normalization. At m=1 both seed probabilities are 1/2. The log expansion has uniform O(1/m) aggregate error, and the limiting Riemann integral is reduced by symmetry to the Gaussian integral in the claim. R_1→1 and m²/d→1 give the scaled leaf constant. The node-update voter comparison follows from the degree-weighted martingale with bounded terminal values 0 and 2m. Independent enumeration tested 1020 labeled states with m=1..8 against the original per-neighbor update rule, not the lumped generator; it checked exact harmonic residuals, boundary values and label symmetry. For the decimal, the integral is the convergent sum of a_k=2^k k!/(2k+1)! (integrate the exponential Taylor series); a_{k+1}/a_k=1/(2k+3) bounds the omitted tail. It gives C=0.4148196588637697539269..., so the original trailing ...976 is not the exact expansion. Replay: python3 /workspace/independent_checks.py 1. The frozen check was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Min–San Miguel use the discordant neighbor fraction raised to q; at q=2 this is a_i²/deg(i)². The comparison at q=2 changes the leaf/hub relative rate, not merely global time.",
+          "ccd59729e26c gives an exact first-hub-reversal distribution for this latter nonlinear rule, not eventual fixation.",
+          "The 2009 nonlinear q-voter paper was identified, but the accessible material used did not include its full theorem text (APS 403)."
+        ],
+        "reasoning": "The inspected model passage supplies a nearby q-family but not a general star absorption theorem with arbitrary relative site rates. Nonaccess to another paper is not negative evidence or the basis of this PASS.",
+        "searches": [
+          "doi:10.1038/s41598-017-13047-2",
+          "doi:10.1103/PhysRevE.80.041129",
+          "Resultary ccd59729e26c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.23131v1",
+        "doi:10.1038/s41598-017-13047-2",
+        "doi:10.1103/PhysRevE.80.041129 (full text not read)",
+        "Resultary ad1f89da5394 and ccd59729e26c",
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py; repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixation can still occur after a hub flip and subsequent flip back, with positive probability. The first-reversal product omits these paths, even if recomputed for the assigned rates.",
+          "With fixed positive acceptance ratio the earlier eventual-fixation law gives a nonzero coefficient of m^{-1}, incompatible with the stated positive m^{-2} coefficient. The ordinary degree-weighted voter comparison is a baseline, not novelty."
+        ],
+        "reasoning": "Neither same-object event rates nor a neighboring model's table imply the all-state formulas and their asymptotics. A theorem genuinely treating eventual absorption at arbitrary hub/leaf rate ratios for quadratic flips could cover this, but none was verified.",
+        "searches": [
+          "Resultary ad1f89da5394 and ccd59729e26c original Findings and Assumptions",
+          "arXiv:2607.23131v1 PDF pp. 4,6",
+          "Min–San Miguel PDF p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent generator is rate a_i²/[deg(i)(deg(i)+1)] under asynchronous clocks. Manfredi et al. use the relevant closed-neighborhood score but in synchronous updating with interior payoff weights.",
+          "Resultary ad1f89da5394 studies eventual fixation but has constant acceptance after selecting a discordant neighbor, hence hub flip rates linear in discordant count."
+        ],
+        "reasoning": "A time rescaling does not identify linear and quadratic generators, and an exact result for a synchronous interior-weight process would not by itself identify this asynchronous endpoint.",
+        "searches": [
+          "Resultary star fixation, hub advantage, context-dependent voting and nonlinear star first reversal",
+          "arXiv:2607.23131v1 Eq. (4)–(5)",
+          "nonlinear voter star eventual fixation with degree-dependent quadratic flip rates literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ad1f89da5394 supplies a full star fixation table for fixed contextual acceptance and its single-leaf law is order 1/m. ccd59729e26c supplies the exact product for no hub reversal before full takeover, with q=2 limit e^{-1/2}."
+        ],
+        "reasoning": "The closest exact tables measure, respectively, a different generator and a different event under a different generator. An exact table for the stated eventual absorption problem was not verified in the bounded search.",
+        "searches": [
+          "Resultary exact all-state fixation law and quadratic leaf-seed suppression",
+          "Resultary ad1f89da5394 and ccd59729e26c, RESULT.md Findings"
+        ]
+      },
+      "rationale": "Credit the closed-neighborhood conformity rule, nonlinear voter models, and prior star analyses. The distinct finding is eventual fixation from all initial states for this specified degree-dependent quadratic update, including the exact single-leaf m^{-2} law with a positive limiting hub probability. Neither the strongest eventual-fixation comparison nor the first-reversal comparison covers that combination. This is a bounded statement-level finding, not an absolute priority claim.",
+      "residual_risks": [
+        "A more general exact star-absorption theorem with site-dependent rates could subsume this specialization; bounded searches did not verify one.",
+        "The 2009 nonlinear q-voter full text was not accessed; no whole-document noncoverage conclusion is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared conformity score; its synchronous interior-weight experiments do not establish asynchronous absorption.",
+          "evidence": [
+            "Closed-neighborhood defector fraction combined with payoff imitation under alpha_i in (0,1); agents update synchronously."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.23131",
+          "material_read": "PDF p. 4 Eq. (4)–(5), offset 19993, and p. 6 update passage, offset 26697",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Public Goods Game on Complex Networks: the interplay between conformity and topology",
+          "trigger": "Motivating closed-neighborhood conformity rule"
+        },
+        {
+          "assessment": "Nearby q=2 rate has different degree dependence; no eventual-star fixation table in the compared passage.",
+          "evidence": [
+            "rho_i=a_i/deg(i), update factor rho_i^q."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-017-13047-2",
+          "material_read": "PDF p. 2, model and p=0 passage, offset 9800",
+          "method": "Bounded lawful OA PDF passage",
+          "title": "Fragmentation transitions in a coevolving nonlinear voter model",
+          "trigger": "Plausible broader nonlinear voter rate family"
+        },
+        {
+          "assessment": "Strong direct overlap of question, not of generator or leaf order.",
+          "evidence": [
+            "Fixed acceptance ratio r>0; positive hub limit and single-leaf asymptotic r Φ(r)/m."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-hub-advantage-and-fixation-law-for-context-dependent-votin--ad1f89da5394",
+          "material_read": "Local mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary lookup and bounded original statement",
+          "title": "Exact hub advantage and fixation law for context-dependent voting",
+          "trigger": "Same star placement and all-state eventual fixation invariant"
+        },
+        {
+          "assessment": "Counts conversions before the first hub reversal; differing rate normalization, no asserted unrestricted fixation table.",
+          "evidence": [
+            "q=2 no-reversal takeover probability is ∏_{j=1}^m(1+j/m²)^{-1}, tending to e^{-1/2}."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-first-reversal-threshold-for-a-dissenting-hub-in-nonline--ccd59729e26c",
+          "material_read": "Local mirror RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary lookup and bounded original statement",
+          "title": "A sharp first-reversal threshold for a dissenting hub in nonlinear voting",
+          "trigger": "Same graph, quadratic fractional rate special case, exact hub result"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not adjudicated as noncovering.",
+          "evidence": [
+            "Identified as relevant general nonlinear q-voter work, without a verified matching star theorem from the accessible material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.80.041129",
+          "material_read": "Search bibliographic material only; DOI full-text attempt returned HTTP 403",
+          "method": "Primary-source lookup and lawful OA attempt",
+          "title": "Nonlinear q-voter model",
+          "trigger": "Broad potentially relevant nonlinear rule literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a motivated conformity dynamic, the all-initial-state formula resolves a natural consensus invariant and identifies an order-of-magnitude difference between hub and leaf placement: the hub retains a constant chance, while leaf survival into eventual consensus is quadratically instead of linearly suppressed. Neither a first-reversal probability nor a voter-model normalization comparison would answer this eventual-fixation question. The finding is confined to the explicitly specified endpoint, not a conclusion about heterogeneous economic incentives or simultaneous updates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

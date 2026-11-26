@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** For the balanced kernel, projection of its base subgroup onto each factor and projection of the full kernel onto the top group are both surjective. A nonidentity element of \(\ker\chi\) eliminates central elements with nontrivial top coordinate by support displacement. For injective \(\chi\), a supported opposite pair eliminates them whenever \(|T|>2\). The sole remaining \(C_2\) case is cyclic of order four. Central elements with trivial top coordinate must have constant entries in \(Z(R)\); every such diagonal belongs to the kernel. The induction for tower centers uses the exact group-order growth. Nine exact finite enumerations are supplementary checks, not an infinite proof.
+## correctness
 
-**Originality (PASS, limited to the stated balanced kernel).** Damele's 2026 construction provides the ambient definitions, diagonal embeddings, and top-surjectivity, but does not state the complete multiplicative-center dichotomy. The published kernel-wreath abelianization result concerns a different invariant; it does not imply a center identification. Ordinary wreath-product center theorems do not transfer to arbitrary finite-index subgroups, as this theorem's \(C_4\) exception demonstrates. Skuratovskii–Williams concern general wreath products and commutators rather than this balanced kernel. The 2026 abelianization note was available only as a record abstract: implicit proof-level overlap cannot be excluded without its full text.
+PASS
 
-**Value (PASS).** The center is a canonical and sensitive finite-group invariant. The exact classification, unique exception and persistence under every nonexceptional iteration determine an invariant of infinite families of simple skew braces whose multiplicative group orders grow exponentially in the number of direct factors. In the explicit \(A_5\) towers, multiplicative center \(C_5\) persists while the additive groups remain centerless and grow as \(A_5^{p^m}\). This extends beyond computing the center of an ordinary wreath product.
+The product character is a homomorphism because the top is abelian and translations permute the factors; every base tuple determines exactly one top coordinate in the kernel. The balanced base projects onto each factor by using a second coordinate to cancel the character, and every top element has a lift. A central element moving the coordinates cannot fix a singleton supported in ker chi; if chi is injective and |T|>2, it cannot fix an opposite pair supported at x,y with the moved x outside {x,y}. Coordinate surjectivity then forces a central base tuple to have entries in Z(R), and top surjectivity forces them to agree. Conversely, each such diagonal is in the kernel since chi(c)^|T|=1 and it commutes with the full wreath product. In the remaining case an element with base (a,1) and top a squares to the nonidentity diagonal, hence generates the order-four kernel. Since the group order changes by |R| to |R|^|T| at each step, an exceptional step can occur only initially. The A4×C5 seeds and p=3,5 towers are as in Damele and give center C5 and order 60^(p^m). The argument is uniform, not an extrapolation from nine finite examples; the uploaded checker was inspected, not run.
 
-**Closest literature and limitations.** Main source: Damele, arXiv:2609.20401v1 (sections 3–5 inspected). Broader wreath center: Skuratovskii–Williams arXiv:1901.00061v15 (section 3 inspected), and Robinson's classical regular-wreath exercise. Related prior center-independent statement: *Kernel-wreath abelianization order and the exterior-square correction* (published abstract). The balanced-kernel center may be implicit in a broader unpublished or uninspected result. Finite examples are corroboration only. No assertions beyond finite abelian quotients and the specified kernel are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the uniform center classification with uniqueness of the exception, and hence the center invariant in the towers. Do not credit the construction, tower existence, or the exceptional identification G≅C4 in isolation: the latter is explicit in the September 18 Resultary record for the same kernel. The classification is supported by the comparisons below, not a claim of absolute priority.
+
+## value
+
+PASS
+
+An exact multiplicative-group center is useful for distinguishing the invariants of growing simple skew braces from their additive-group structure. The classification settles all allowed quotient choices at once, including uniqueness of the only possible enlargement, and reads off a persistent C5 in both natural A5 towers without enumerating their elements. The prior C4 computation alone is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

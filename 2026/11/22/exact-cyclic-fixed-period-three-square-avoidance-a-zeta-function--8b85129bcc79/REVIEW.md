@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for every positive circumference, including short cycles interpreted by periodic extension. The binary cyclic derivative has kernel dimension \(\gcd(n,3)\), with image described by independent even-parity constraints. Character projection yields the four explicit signed-transfer traces, and four exact determinant identities prove the zeta factorization as a formal power series. The standard divisor formula counts primitive necklaces; it is not inferred from a table. The separate 32-state characteristic-polynomial certificate and exhaustive tests provide independent agreement. Residual risk: transcription or implementation mistakes in the published formula; the structural derivation and independent programs substantially constrain this risk.
+## correctness
 
-## Originality — PASS, historically qualified
-A targeted comparison of fixed-length tandem-duplication primitive words, cyclic finite-type spectra, and periodic zeta functions found no matching exact statement. Leupold–Mitrana (2007) prove linear-language and code structure, not an all-period binary cyclic enumeration; Jain et al. (2016, Section III) use an unconstrained linear derivative rather than the cyclic image with \(\gcd(n,3)\) parity equations. The exact four-factor transfer decomposition and full six-factor zeta product do not follow merely by substituting a parameter into the quoted theorems. Classical transfer-matrix rationality is acknowledged as prior mathematics. The 2005 linear-duplication paper was inspected through its abstract only, and an unindexed equivalent enumerator remains possible; neither has been presented as exhaustively ruled out.
+PASS
 
-## Value — PASS
-A cyclic tandem-repeat exclusion is natural for circular sequence design and finite-type combinatorics. The exact orbit census handles all ring lengths, including nontrivial distinctions according to divisibility by three; the primitive-necklace formula removes rotation-equivalent repeats, while the tribonacci growth law quantifies the attainable family. The result is an explicit structural invariant rather than a small numerical improvement or a routine parameter substitution. No full deletion-correction theorem or biological performance claim is asserted.
+The difference y_i=x_i XOR x_(i+3) removes exactly the forbidden abcabc, including at n<6. Its image is precisely orbit-wise even parity, of codimension gcd(n,3); the orthogonality and inverse multiplicity cancel. The signed closed pair walk is uniquely indexed by each marked y even at short periods. If 3 divides n, three one-negative and three two-negative sign patterns reduce by cyclic trace to QP^2 and Q^2P; the factor 3 cancels n=3m in the zeta logarithm. Independently built 32-state overlap adjacency and evaluated det(I-zA) by exact Bareiss elimination at 33 distinct integers, proving the degree-at-most-32 denominator identity; recovered all 18 listed coefficients, and independently checked direct bitmask counts for n=1..14 (replay /workspace/branches/replay-cyclic.py). A fixed word of a rotation lifts from circumference gcd(n,rotation); this gives Burnside and least-period decomposition with the stated totient and Möbius weights. The other P roots are a complex pair of modulus rho^(-1/2), the signed and cyclotomic factors have unit reciprocal roots, the quadratic-in-z^3 factor gives reciprocals of modulus at most (1+sqrt(2))^(1/3), and the last factor gives cubes of reciprocals satisfying x^3+x^2+x-1=0, hence reciprocals of modulus at most 2^(1/3). These bounds are strictly below the simple dominant rho; proper powers contribute only O(poly(n) 2^(n/2)).
 
-## Closest literature and limits
-Leupold–Mitrana, *Uniformly bounded duplication codes* (2007), https://doi.org/10.1051/ita:2007021; Jain–Farnoud–Schwartz–Bruck, *Duplication-Correcting Codes for Data Storage in the DNA of Living Organisms* (2016), https://arxiv.org/abs/1606.00397; Leupold–Martín-Vide–Mitrana, *Uniformly bounded duplication languages* (2005), https://doi.org/10.1016/j.dam.2004.10.003 (abstract-only). The scope is exact binary half-length-three cyclic square avoidance, not longer or variable tandem squares. The priority comparison is qualified by possible unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Within inspected evidence the explicit degree-24 factorization, marked counts for just half-length three, and the resulting orbit/growth census are distinct. General zeta rationality, the linear derivative correspondence, and the stronger avoidance restriction discussed in the related same-day catalogue entry are not credits for this exact factorization.
+
+## value
+
+PASS
+
+The length-six binary exclusion is a natural fixed-length duplication constraint on periodic points. The compact factorization makes the cyclic closure contribution visible and identifies the exact asymptotic and primitive orbit census, not just a generic finite-state representation or a short list. This can be used to compare simultaneous and single-length restrictions and count periodic orbits at arbitrary periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

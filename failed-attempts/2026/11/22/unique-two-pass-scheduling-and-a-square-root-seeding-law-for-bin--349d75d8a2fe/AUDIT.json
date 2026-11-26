@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Direct finite-chain conditional entropy identity and exactly positive uniform spectral second derivative establish the claimed thermodynamic objective and unique minimizer. Geometric sum with entropy rare-wall expansion gives uniformly controlled b and b' at p proportional to sqrt(1-lambda), hence correct constants. Actual finite-chain checker enumerates distributions and masks and matches exact formulas to numerical precision.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Cong–Li Theorem 1.4 gives implicit optimal fixed-size schedule for arbitrary distributions but not evaluated for the Ising two-batch singular regime.",
+        "Lavenant–Zanella sections 4–5 study general profiles and many-stage limits; no exact symmetric Ising two-stage optimizer was identified.",
+        "Baule specifies high-N optimality and notes at very small N other schedules may outperform the geodesic."
+      ],
+      "reasoning": "A general variational characterization provides access to optimizer values after computing model-specific profiles, but does not immediately furnish the strict convexity classification, p*<1/2, or exact square-root amplitude; those require the separate positive spectral decomposition and rare-wall analysis.",
+      "searches": [
+        "arxiv:2511.04647v2 Theorem 1.4 optimal step approximation information curve",
+        "arxiv:2510.25544v2 section 5 optimal information-profile schedules",
+        "arxiv:2611.07845v1 section V and VI geodesic schedules"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.07845v1",
+      "arxiv:2511.04647v2",
+      "arxiv:2510.25544v2",
+      "published-finding corpus semantic queries listed in each named check",
+      "published-finding corpus published-claim search records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first two sources yield broad KL and conditional-information identities that imply an objective can be formed, but not the evaluated unique two-pass optimizer nor its singular constant as a stated theorem.",
+        "The large-N thermodynamic-length theorem does not apply at fixed two rounds, and Baule explicitly cautions at N small."
+      ],
+      "reasoning": "The claimed novelty concerns model-specific strict convexity and a singular weak-flip optimizer asymptotic. These are stronger explicit conclusions not implied solely by a generic closed expression without the further curvature identity and uniform asymptotic calculation.",
+      "searches": [
+        "Baule arxiv:2611.07845v1 Eqs. (22), (31), (33)–(43)",
+        "Chen–Cong–Li arxiv:2511.04647v2 Theorem 1.4",
+        "Lavenant–Zanella arxiv:2510.25544v2 Proposition 10 and section 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baule Eq.(22) exactly expresses any finite-step path KL and has model Eq.(12), but treats optimality through large-step geodesics in section V; no N=2 strict convexity or sqrt-f law found.",
+        "published-finding corpus nearest two-state mismatch hit 387a57f5bc7d concerns unequal-rate minimax mismatch entropy, with no analogous batch split."
+      ],
+      "reasoning": "Equivalent descriptions include a one-parameter optimal two-batch schedule, minimal two-pass path entropy production, and optimal Bernoulli seeding density. The derived singular law is a specialization of general information calculations but not matched as a stated prior result.",
+      "searches": [
+        "published-finding corpus: two-round Bernoulli masked parallel sampler binary Ising Markov source path entropy production error strictly convex first-round reveal fraction unique optimum sqrt rare domain wall probability",
+        "arXiv 2611.07845v1 full-text Eq. (22), (28), (31), sections IV–VI"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus record among returned top semantic hits; unrelated closest IDs listed in private envelope.",
+        "No exact two-pass Markov decoder equivalence was returned among queried published results."
+      ],
+      "reasoning": "These are real searches and comparisons, not a uniqueness proof; historical partitions are not exhaustive and unindexed sources may exist.",
+      "searches": [
+        "published-finding corpus: two-pass decoding Markov chain long correlation optimal first reveal fraction square root of flip probability inverse correlation length entropy KL",
+        "published-finding corpus: random sequential adsorption masked diffusion binary model two-step entropy production gap sum convexity optimal schedule",
+        "published-finding corpus: two-round Bernoulli masked parallel sampler binary Ising Markov source path entropy production error strictly convex first-round reveal fraction unique optimum sqrt rare domain wall probability"
+      ]
+    },
+    "rationale": "No statement of the strict convex two-pass Ising schedule optimization or the singular square-root coefficients found in inspected primary literature, directly searched published-finding corpus records, or other accessible published mathematical claims. Prior arbitrary-schedule KL and implicit numerical optimizer rightly credited. A general-theory corollary remains a priority risk.",
+    "residual_risks": [
+      "A specialist could extract the explicit strict convexity and sqrt(f) asymptotic from a previously published information-curve computation not indexed by searches.",
+      "No independent literature-priority certification; a model-specific result buried in uninspected supplements may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies base path-error framework and arbitrary-N formula, not evaluated two-pass strict convexity or rare-flip law",
+        "evidence": [
+          "Eq. (12) binary chain; Eq. (22) finite N KL; Eq. (43) geodesic high-N; statement at line 284 that geodesic can fail for very small N"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.07845v1",
+        "material_read": "relevant HTML sections I–VI and appendix C",
+        "method": "Read definitions Eqs. (1)-(5),(12),(17),(22),(28)-(43), explicit small-N caveat and numerical examples",
+        "title": "Masked diffusion as random sequential adsorption: an exactly solvable model for parallel decoding",
+        "trigger": "Same binary Markov model and finite-step path KL"
+      },
+      {
+        "assessment": "General implicit optimum for any source; no stated explicit two-pass Ising strict convexity and sqrt(f) asymptotic",
+        "evidence": [
+          "Theorem 1.4 characterizes optimal fixed-size schedules by left step approximation of information curve"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.04647v2",
+        "material_read": "HTML introduction, Theorem 1.4 and pertinent framework/proof passages",
+        "method": "Compared expected KL, information-curve optimizer and fixed-size subset schedule to Bernoulli site allocation",
+        "title": "Optimal inference schedules for masked diffusion models",
+        "trigger": "Strong general optimal fixed-batch schedule theorem"
+      },
+      {
+        "assessment": "Does not specify the two-pass Ising result; broad information profile may imply it after nontrivial specialization",
+        "evidence": [
+          "Section 5.1 says its general finite-stage optimization lacks an analytic solution without further assumptions; sections 5.2-5.3 consider many stages"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.25544v2",
+        "material_read": "HTML sections 2, 4 and 5 including Proposition 10 and scaling limits",
+        "method": "Reviewed direct factorization KL, general optimum conditions, finite stage and large-stage distinctions",
+        "title": "Error bounds and optimal schedules for masked diffusions with factorized approximations",
+        "trigger": "Broader exact schedule information-profile optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "349d75d8-a2fe-4043-bb72-d1d9faa92c56",
+  "value": {
+    "rationale": "Finite two-pass decoding is an important regime where existing many-step geodesic schedules are not rigorously optimal. The unique seeding fraction and its sharp rare-domain-wall scaling give a nontrivial controllable, quantitative design law rather than a mere restatement of prior entropy formulas.",
+    "status": "PASS"
+  }
+}

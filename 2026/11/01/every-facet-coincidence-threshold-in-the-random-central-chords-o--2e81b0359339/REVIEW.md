@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The chord is exactly \(2/\|U\|_\infty\). Inclusion–exclusion on the squared coordinates gives a finite sum of Dirichlet marginal integrals. Integrating out the unused coordinates, rescaling the shrinking simplex at each contact radius, and applying the multivariate beta integral proves the coefficient \(B_{d,k}\) for every \(d\ge2\) and \(1\le k\le d\). The remaining terms are analytic across a particular interior threshold; the nonzero coefficient therefore establishes precise differentiability. The terminal upper tail follows independently by complementing all inequalities near the equidistributed point. The special \(d=3\) formula and the 69 independently programmed numerical checks corroborate these steps. The proof, not finite checks, establishes the infinite-dimensional-index statement.
+## correctness
 
-## Originality — PASS, with specified risks
-The closest inspected primary paper, Finch (arXiv:1110.0671), calculates directional support widths, not radial central chords. Ciccariello (arXiv:1401.7950) calculates ordinary isotropic chord-length densities with random offsets, not Haar directions constrained through the center. Gaussian/Dirichlet coordinate densities and inclusion–exclusion are standard input, not presented as a new result. The contribution assessed is the explicit **complete all-dimensional singularity hierarchy**, its nonzero constants, and exact regularity classifications. Focused records searches did not identify this theorem. The abstracts of Coleman (1981) and Steinerberger (2011) are plausible overlaps, but full text was unavailable; the residual historical-priority risk is documented rather than converted to a categorical claim of novelty.
+PASS
 
-## Mathematical value — PASS
-A randomly directed central chord is a natural geometric-tomography statistic distinct from standard stationary chord sampling. The complete list of thresholds is geometrically forced by simultaneous contacts with \(k\) pairs of parallel faces. The exponent \((d+k-2)/2\) encodes the change in available tangential degrees of freedom with the contact depth, and the full CDF changes differentiability at **every** one of these thresholds. These constants are exact, nonarbitrary shape invariants useful for assessing regularity and for constructing accurate piecewise approximations. This is more than a single cube moment or routine finite enumeration. It does not purport to solve arbitrary-polytope chord distributions.
+The chord law is for the central line with Haar direction; T=1/max_i|U_i|. Normalized independent Gaussians give squared coordinates with Dirichlet parameters 1/2, and inclusion–exclusion of exceedances gives the exact CDF. For k<d the translation by a=t^(−2) and scaling by δ=1−ka gives Jacobian and remaining-mass power δ^(k+(d−k)/2−1); the fixed-simplex beta integral gives Γ((d−k)/2)/Γ((d+k)/2). Together with k^(k/2) from the limiting coordinate densities and δ∼2ε/√k, this yields precisely B_(d,k). At k=d the direct (d−1)-simplex volume gives the same formula. Earlier overlap terms and the extracted local factor are analytic across the active threshold (fixed domain, uniformly positive coordinate arguments, with an integrable fixed beta weight). Thus the nonzero right-onset term determines the claimed integer differentiability, and no other term at the threshold cancels it. The left upper-end tail is a separate complement-event simplex, of mass coordinate sum da−1, with the same limiting density and coefficient. There are no boundary atoms. The d=3 closed form checks by conditioning on one coordinate and integrating by parts. The code and VERIFICATION.md report finite simulations and quadratures, not an all-dimensional proof; these were inspected, not rerun.
 
-## Sources and limitations
-Examined: Finch (2011), arXiv:1110.0671, complete relevant section 4, pp. 6–7; Ciccariello (2014), arXiv:1401.7950, abstract, introduction and analytic setup. Compared: Coleman, DOI 10.2307/3213189, abstract only; Steinerberger, DOI 10.1007/s10474-010-0067-x, abstract only. Source access for the two older papers remains incomplete. The standard Dirichlet distribution is not claimed as a discovery.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact fixed-dimensional knot hierarchy and upper-end asymptotic for the central chord law. The maximum-coordinate alias, Gaussian normalization, individual beta tails, and basic inclusion–exclusion are standard. The inspected same-distribution maximum paper concerns growing dimension, and the closest catalogue source covers one- and two-coordinate tails as ingredients of a count covariance, not all overlap coefficients or the CDF singularities. The unavailable random-intercept papers remain explicit risks to historical priority, not negative evidence.
+
+## value
+
+PASS
+
+There is a natural geometric question at every radius where another coordinate can reach the boundary, also visible in an exact Dirichlet maximum law. The hierarchy identifies where the CDF is nonanalytic, how much differentiability survives, the signed nonzero amplitude, and where the upper tail terminates. This is more informative than the standard representation or support bounds, and is useful independently of finding elementary CDF formulas in every dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

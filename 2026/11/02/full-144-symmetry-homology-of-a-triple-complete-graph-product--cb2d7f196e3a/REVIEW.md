@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Proposition 25 of Antolín Camarena–Carnero Bravo, arXiv:2307.12401v2, gives the integral 14-sphere wedge underlying concentration. The additional proof of the 144-element graph automorphism group uses an intrinsic same-row-or-column relation reconstructed from common-neighbor counts. The signed simplicial Lefschetz formula translates each automorphism to the exactly evaluated independence polynomial of a finite orbit-incompatibility graph. The attached checker verifies all 144 graph actions and character values, decomposes the subgroup character by exact orthogonality, checks the coordinate-exchange projector traces, and separately computes all mod-two boundary ranks. No finite test is extrapolated to a family.
+## correctness
 
-**Originality — PASS on inspected evidence, not a priority certificate.** Section 4 of the primary paper proves only the nonequivariant homotopy type and is explicitly credited. An earlier categorical-product study likewise does not provide the 144-element representation. Searches for synonymous graph descriptions, 14-sphere homology modules, equal-factor exchange, and quotient invariants returned related complexes or unrelated symmetry calculations rather than a covering statement. A directly covering unindexed calculation would supersede this contribution.
+PASS
 
-**Value — PASS.** This is the smallest product in the established triple-complete-graph family with two equal nontrivial three-element coordinates. Its full automorphism extension changes the rational quotient homology: one three-dimensional invariant survives the natural index-two subgroup but disappears after factor interchange. The complete five-constituent decomposition exposes a geometrically meaningful obstruction not accessible from the previously known ordinary Betti number 14. This is a natural full-symmetry invariant rather than an arbitrary enumeration slice.
+Any two vertices in a layer share a neighbor, and all vertices have degree four, so the graph is connected with a unique bipartition up to swap. Common-neighbor counts recover the rook graph within a layer, and opposite-layer neighbor sets distinguish all nine cells. The 72 rook symmetries lift simultaneously to both layers; the layer flip commutes with them. Proposition 25 supplies reduced homology concentrated in degree 3 with dimension 14. An independent exact calculation (not execution of the supplied checker) enumerated all nonempty bitmasks on the lexicographic 18 triples, discarding masks containing any pair differing in all three coordinates. The face counts by degree were 18,117,348,504,378,192,72,18,2. For each of 144 permutations (independent coordinate permutations, optional coordinate swap, optional layer flip), keep setwise-fixed faces, give each orientation sign by inversion parity on the image list, and subtract their degree-alternating signed sum from 1. Traces at identity, layer flip, coordinate swap and their product were 14,4,-4,-2. Taking the character inner products on the no-swap subgroup confirmed exactly the seven multiplicity-one constituents, and diagonal component exchange traces -1,-2,-1 force minus flips, with the remaining pairs exchanged. Thus the only no-swap invariant line is killed by the swap. For quotient homology, pass to barycentric subdivision so simplex stabilizers fix their simplices pointwise; rational coinvariants compute quotient chains, are exact, and identify with invariants by averaging. The conclusion is about the topological quotient over Q, not its integral homology.
 
-**Limits.** Only rational representation and rational quotient homology are newly concluded. Integral quotient torsion and higher-parameter cases remain untreated. Search coverage is not an absolute novelty guarantee; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accepted distinction is the combined full automorphism action on H3, notably the separate diagonal exchange signs and the loss of the invariant line in the full quotient. The homotopy type, layer involution trace and dimensions are not distinct contributions. The broader separately permuted coordinate result, even taken without an assumption about historical priority, does not determine the exchange extensions.
+
+## value
+
+PASS
+
+This is the first symmetric case of this three-factor family in which the two non-bipartition coordinates are equal and interchangeable. The full action distinguishes two natural orbit spaces that the known nonequivariant rank and separate-coordinate invariants cannot distinguish: the one invariant class survives without exchange and disappears with it. The explicit full module makes that distinction reusable beyond the quotient Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

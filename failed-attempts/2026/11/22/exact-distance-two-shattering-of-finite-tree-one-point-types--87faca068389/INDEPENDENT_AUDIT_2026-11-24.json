@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:00:59.285719Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "The full-trace witness puts all support points at distance two. If their mutual distance is four, the unique geodesic midpoint is the only witness containing that pair, and it cannot omit a third support point. Otherwise all pairs have distance two (even parity and distance at most four), and tree path uniqueness forces a single common neighbor u. For a support in N(u), u gives the empty trace; marked neighbors give the complements of themselves and unmarked neighbors give the full trace. A vertex at depth at least two from u can only see a marked neighbor in its own branch, and realizes that singleton exactly at depth three in that branch. These exhaust possible traces. They give the exact criterion for triples, rule out any two-point trace for a centered support of size at least four, and permit counting at the unique u with no multiplicity. The center, three marked and one unmarked neighbors, and two further vertices in each of three disjoint marked branches require at least eleven vertices. The explicit eleven-vertex tree gives all eight traces, including the complementary-pair witnesses inside the support. The structural proof applies to all tree sizes; no finite run is being used in its place.",
+      "residual_risks": [
+        "No material correctness gap found. The finite checks described in the record are not a fresh replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-radius Finding gives VC dimension at most 3, attainable at r>=2, minimum order 3r+5, and necessary and sufficient equal-arm single-median conditions for a shattered triple at each radius.",
+          "The inspected model-checking theorem supplies a broad polynomial type bound, not this precise trace-shape or minimum-order theorem."
+        ],
+        "reasoning": "Setting r=2 forces h=t=j=1 where j is the branching depth used for each singleton witness. A fourth component must have a depth-one vertex and each marked neighbor must have an outward path of length two. This is exactly degree at least four and the three outward-deep neighbors; 3r+5 gives eleven.",
+        "searches": [
+          "2026/11/22/SCOPE-fixed-radius-tree-spheres-a-three-type-obstruction-and-sharp-3r--97e7c4265013",
+          "Dreier–Mählmann–Toruńczyk arXiv:2611.08143v1, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Resultary index and fixed-radius companion in the local published-record mirror",
+        "Dreier–Mählmann–Toruńczyk arXiv:2611.08143v1, Theorem 1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At radius two, the unique median is a common neighbor and every triple of outward-deep neighbors at an eligible median qualifies; no such triple can qualify at two medians."
+        ],
+        "reasoning": "Partitioning the triples by median then gives exactly binomial(e_T(u),3) at each degree-at-least-four vertex. The count needs neither a new enumeration argument nor a different hypothesis. This implication is independent of the unknown same-day ordering.",
+        "searches": [
+          "Fixed-radius tree-sphere RESULT.md, Finding conditions 1–3 and equal-distance center lemma",
+          "Frozen RESULT.md lines 10–14 and 26–38"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-radius tree-sphere RESULT.md defines exactly the same one-point Boolean trace family when r=2, with same-tree vertex witnesses and no outside-support restriction."
+        ],
+        "reasoning": "The frozen first-order formula defines this exact-distance relation in a tree. It is not closed radius two or adjacency in the ordinary square T^2, which also includes distance one. These latter aliases do not account for the overlap.",
+        "searches": [
+          "Resultary: exact-distance tree spheres and shattered triples",
+          "Primary search: exact distance two tree VC dimension shattered triples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed general formula 3r+5 includes the exact radius-two threshold. The source explicitly says it does not state a count of shattered triples for an individual tree."
+        ],
+        "reasoning": "The extremal number is already covered by the indexed stronger formula, whether or not a numerical table prints eleven. Absence of the displayed per-tree sum there does not establish distinct content.",
+        "searches": [
+          "Resultary: fixed distance tree shattering, sharp witness size and per-tree shattered triple counts",
+          "Fixed-radius tree-sphere RESULT.md, Finding and Assumptions and scope"
+        ]
+      },
+      "rationale": "Distinct originality is not established: an inspected distinct, same-day fixed-radius result contains a stronger theorem with exactly the same objects, quantifiers and witnesses. At r=2 it gives the original triple characterization, VC dimension and eleven-vertex minimum. The only additional displayed assertion, the sum counting shattered triples in a given tree, is an immediate regrouping of that characterization by the unique median. This is verified mathematical coverage, not an allegation that the other record was first; the common date does not establish chronology or dependence.",
+      "residual_risks": [
+        "No evidence settles relative publication order of the two 2026-11-22 records.",
+        "Other distance/VC primary full texts were unavailable in this check; the originality decision rests on positive coverage in the inspected fixed-radius record, not on retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematically covers the radius-two theorem and immediately implies the count; chronology unresolved",
+          "evidence": "Same finite unweighted trees and same exact-radius traces; the equal outgoing arms have 1<=h<r, the extra component reaches t=r-h, and singleton paths have length t+j departing the marked arm at depth j.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fixed-radius-tree-spheres-a-three-type-obstruction-and-sharp-3r--97e7c4265013/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3889 (Finding, scope, equal-distance center lemma) and 6400–8308 (witness size); snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local published-record mirror",
+          "title": "Fixed-radius tree spheres: a three-type obstruction and sharp 3r+5 witness size",
+          "trigger": "Distinct same-day record with a stronger exact-sphere shattering statement"
+        },
+        {
+          "assessment": "General type bound, not exact trace classification",
+          "evidence": "Polynomial bound on bounded-quantifier types on monadically dependent graph classes; the inspected statement does not specify the triple criterion and minimum order.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08143v1",
+          "material_read": "PDF p. 4, Theorem 1.2, OA text offsets 11078–12613",
+          "method": "Lawful OA text",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "General first-order type-count bounds potentially subsuming the claim"
+        },
+        {
+          "assessment": "Unavailable for primary comparison, not evidence of noncoverage",
+          "evidence": "The frozen comparison describes graph balls of varying radii, which would differ from the fixed exact-distance relation.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.05.026",
+          "material_read": "No primary full-text passage obtained; frozen citation and comparison only",
+          "method": "Lawful OA retrieval attempted",
+          "title": "VC-dimension and Erdős–Pósa property",
+          "trigger": "Related graph distance VC literature"
+        },
+        {
+          "assessment": "Unavailable in this check, not evidence of noncoverage",
+          "evidence": "The frozen comparison describes the edge formula on Johnson and Hamming graphs, not distance-two spheres of trees.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.09.017",
+          "material_read": "No primary full-text passage obtained in this check; frozen citation and comparison only",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "Related edge-formula shattering literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–14 and 30–38",
+        "Fixed-radius tree-sphere RESULT.md, Finding and median criterion"
+      ],
+      "rationale": "The shape of a shattered triple and its minimum supporting tree are worthwhile questions. As a separate finding alongside the verified fixed-radius theorem, however, their radius-two forms are parameter substitutions. The remaining binomial sum only groups qualifying triples by a unique center; it does not give a new structural, computational or enumerative consequence beyond directly tallying that criterion. There is no distinct valuable remainder established here.",
+      "residual_risks": [
+        "Failure concerns the incremental value of this specific claim, not the value of the general fixed-radius problem or the correctness of the direct radius-two proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

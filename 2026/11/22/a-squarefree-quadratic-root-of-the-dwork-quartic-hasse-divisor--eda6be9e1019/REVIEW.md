@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The explicit multinomial Hasse coefficient, Clausen and Euler quadratic transformations, degree-restricted reduction modulo \(p\), Chu–Vandermonde nonvanishing at the singular parameter boundary and regular Gauss differential-equation argument together prove the identity and all root multiplicities for every \(p\ge5\). The Picard-rank lower bound and finite-height inequality convert Hasse vanishing to supersingularity for this K3 family. All hypotheses and the excluded discriminant \(\lambda^4=1\) have been retained. The included executable independently checks the expansion, factorization and polynomial gcds for all primes through \(211\); a finite regression test is not an infinite proof.
+## correctness
 
-## Originality: PASS, with risk
-Grabowski's arXiv:2401.07945 is a direct source for the Hasse–Dwork coefficient polynomial and ordinarity, and Doran et al., DOI 10.1007/s40687-020-0203-3, is a direct source for the hypergeometric Dwork motive. Neither was found to state the complete all-prime multiplicity-two *and* reduced-root classification. The new claim does not treat their period expression, general K3 Picard rank, or classical Clausen formula as original. Semantic searches of published-finding corpus, source titles and exact factors found no dominating result, but unindexed prior computations remain an explicit priority risk.
+PASS
 
-## Mathematical value: PASS
-The global reduced support and multiplicity of a Hasse divisor are intrinsic arithmetic geometry of a natural K3 pencil. The exact geometric supersingular-parameter count for every prime, the mod-eight boundary factor, and the impossibility of higher finite K3 height give a structural refinement beyond a pointwise ordinarity test. The boundary is essential: without removing the singular quartics, extra factors would conceal the reduced scheme. No zeta-function or isomorphism-class count is asserted.
+Reconstructed the all-prime proof on the marked smooth finite coefficient base. Simultaneous vanishing of the partial derivatives implies all projective coordinates are nonzero and λ⁴=1, and at λ⁴=1 such a singular point exists (choose coordinates 1/λ,1,1,1). The coefficient extraction gives H_p=λ^(p-1) times the degree-m truncation at z=λ^(-4), m=floor((p-1)/4); from Wilson or the factorial multiplication formula the ratio in the j-th multinomial coefficient is (1/4)_j(1/2)_j(3/4)_j/(j!)³ modulo p. The chosen Clausen or Euler-transformed Gauss series terminates at k modulo p through degree m because one upper parameter is -k; denominators through that degree are invertible and the alternative squared polynomial with its possible factor 1-z has degree at most 2k+δ=m. Thus reduction of the formal identity yields the asserted polynomial identity, including λ=0 by extension. For the Gauss equation at a putative multiple root z0 outside {0,1}, the lowest nonzero Taylor term of order l≥2 would give a nonzero term of order l-2 multiplied by z0(1-z0)l(l-1), since l≤k<p. Also P(0)=1 and Vandermonde gives P(1)=(1-β)_k/k!, nonzero: the four starting representatives 3k+1,3k+2,3k+2,3k+3 and the next k-1 factors do not reach p. No leading coefficient vanishes (both parameters have no zero factor before k), so the lowest λ exponent d-4k is 0 or 1, as required at the Fermat point. The map λ↦λ^(-4) is étale off λ=0, yielding simple nonzero roots and excluding λ⁴=1. The monic polynomial has degree d, including the constant p=5 case. A smooth residue parameter lifts via an unramified characteristic-zero lift with good reduction. Rank at least 19 on the characteristic-zero pencil specializes injectively, and ρ≤22-2h excludes finite heights h≥2. Thus the Hasse vanishing locus is exactly the infinite-height locus. Read the supplied verifier but did not execute it. In a separate bounded modular replay at p=5,7,11,13,17,41,47,53,59,101,103,109,113,251,257, formed H from the multinomial, divided by the proposed boundary factor, solved top-down for a monic square root by matching the coefficient at λ^(d+j) (subtract the known higher-index products, then divide by 2), checked by squaring, and compared every predicted Gauss coefficient. The all-prime proof, not this replay, establishes squarefreeness and the height conclusion.
 
-## Limits
-This reviews the theorem as stated for the smooth finite marked coefficient parameter, not the singular compactified pencil or a moduli quotient. Inaccessible older literature and unindexed equivalences may alter historical priority; independent mathematical validation is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The coefficient Hasse test, the hypergeometric periods, the square-of-period structure after a Legendre change of variable, and the characteristic-zero Picard rank are prior. Credit is limited to the explicit monic characteristic-p square root with its boundary factor, the reduced support in the original marked coefficient coordinate including the capped-off Fermat point, and the all-prime geometric support count. No inspected source is a dominating theorem for that full divisor calculation. This is not a priority certification.
+
+## value
+
+PASS
+
+The ordinary/nonordinary test does not answer how its divisor sits in the marked K3 pencil. The explicit all-prime factorization separates the singular boundary, settles multiplicity on the smooth base and gives a reduced defining polynomial and a geometric coefficient count, including the ramified Fermat point. These are useful exact invariants for this standard pencil, independent of any unsupported claim to count isomorphism classes or describe singular fibres.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

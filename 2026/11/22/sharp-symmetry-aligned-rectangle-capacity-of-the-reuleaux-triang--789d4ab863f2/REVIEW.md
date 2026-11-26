@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Four disk inequalities are reduced by symmetry to one sharp strictly concave scalar profile. The unique root has verified constraints and four active contacts. The numerical checker is corroboration, not the proof.
+## correctness
 
-**Originality — PASS, provisional.** Compared Harrell's Reuleaux area theory, 1995 axis-aligned rectangles in polygons, modern polygon rectangle optimization, and semantic records for competing Reuleaux rectangle/core invariants. None of the inspected materials states this precise curved-body restricted capacity. Full historical priority is not certified.
+PASS
 
-**Mathematical value — PASS.** A natural symmetry-aligned packing invariant has an exact unique off-center nonsquare extremizer. It supplies a sharp lower bound for the unrestricted rectangle problem without claiming to solve that problem.
+The corrected RESULT.md proves the same exact aligned-area formula without assuming the frozen proof's false vertical extent [-h/2,h]. For a rectangle of horizontal half-side u and horizontal center s, its largest absolute abscissa is U=u+|s|. All vertical coordinates must lie in the intersection of the two exact disk intervals, whose lower endpoint is h-Q(U) because Q-P increases to 3h/2, and whose upper endpoint is -h/2+P(U). These bounds are sufficient as well as necessary. The true vertical extent is [h-1,h]. Area is bounded by 2u f(U) <= 2U f(U), with equality only at s=0 and full available height. Strict concavity gives the unique interior root; a rational bracket establishes noncentrality and unequal sides. The frozen u,v,c decimals were wrong at the stated precision; the repair gives the reproduced values without changing the exact result or the stated area. The bounded 80-digit Decimal replay used 120 bisection steps and found area 0.4197167574230241 and the four predicted contacts, with the other eight squared-distance slacks positive. No unrestricted-orientation claim is proved.
 
-Limits: orientation restriction, approximate decimals, incomplete access to certain older full texts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded evidence supports the exact aligned capacity and optimizer as a distinct result. The closest different indexed contact result is for a circular segment, not a three-disk intersection; polygonal algorithms and the classical least-area theorem do not provide this constrained optimizer. No claim of global priority or unrestricted optimality is warranted.
+
+## value
+
+PASS
+
+The symmetry class is a canonical restriction in a classical constant-width body. Its exact rectangular capacity, contact pattern and unique off-centroid nonsquare optimizer give a sharp feasible-area benchmark and separate this problem from a centered or square ansatz. This value does not depend on claiming arbitrary-orientation optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

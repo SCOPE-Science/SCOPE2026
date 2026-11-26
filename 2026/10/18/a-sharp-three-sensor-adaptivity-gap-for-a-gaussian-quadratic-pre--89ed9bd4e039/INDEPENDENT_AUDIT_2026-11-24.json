@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:10.100690Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the independent Gaussian noise specified in the Finding and the standardized observations in the assumptions, Gaussian regression yields E[X_i|Z_i]=√ρ Z_i. The variance of the posterior mean is the risk reduction. Fixed pair {1,2} gives ρ²; each pair containing 3 gives a²ρ. For adaptive policies, condition on both the first reading and any independent decision random seed. If a product coordinate is read first at z, the two remaining gains are the conditional squared-norm increments of the posterior mean, ρ²z² and a²ρ. The second label is a function of the first observation and seed, so introduces no additional state information under that conditioning. Revealing the seed cannot lower the optimal expected reduction, and deterministic thresholding attains the conditional upper bound. When coordinate 3 is first, every second choice leaves the posterior mean unchanged. This exhausts all policies. With c=a²/ρ, the optimum ratio is E[max(Z²,c)]/max(1,c), strictly above one since the χ²₁ law has positive mass on both sides of c. Below one use the derivative Pr(Z²<c); above one use −E[Z² 1{Z²>c}]/c². Gaussian tail integration gives 1+2φ(1) at c=1, a unique positive a for each σ²>0; independently evaluated the decimal. Myopic sensing buys only the linear term. This is a ratio of reductions, not of posterior risks or realized losses. Analytic replay: condition on the first reading as above, then use ∫_r^∞ z²φ(z)dz=rφ(r)+Φ̄(r) at r=√c; decimal replay in the section labelled 3 of review_evidence/finite_checks.py. No parameter sampling is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Gaussian quadratic fixed-design calculation specializes to the fixed-pair part of this theorem.",
+          "Kandasamy et al. optimize adaptive policies for a broad reward-based DOE setup; their regression examples do not supply the stated Bayes-risk threshold.",
+          "The two-step Kalman theorem compares schedules with deterministic covariance and no value-dependent decisions."
+        ],
+        "reasoning": "The first comparison covers a real subcalculation, the second supplies a general planning framework rather than this solved decision problem, and the third differs in both objective and admissible policies.",
+        "searches": [
+          "Neuberger–Alexanderian–van Bloemen Waanders arXiv:2411.07532 quadratic Gaussian goal criterion",
+          "Kandasamy et al. adaptive goal-oriented DOE, PMLR 97",
+          "SCOPE-sharp-two-step-greedy-guarantee-for-noiseless-kalman-sensor-sche--721e7e00a960"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.07532",
+        "PMLR 97:3222–3232",
+        "721e7e00a960",
+        "39df47931288",
+        "2a9bfa0f1a2d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed Gaussian criterion recovers the three fixed rewards but not the conditional max of ρ²Z² and ρa².",
+          "General sequential action/reward definitions do not determine the conditional variance increments or optimize their ratio over a and σ².",
+          "The exact Kalman rule operates on deterministic covariance and therefore cannot yield a nontrivial observation-magnitude threshold for this product goal."
+        ],
+        "reasoning": "No inspected statement eliminates the need for the observation-contingent optimization and unique global ratio maximum. The known static calculation is not claimed as new.",
+        "searches": [
+          "arXiv:2411.07532 goal-criterion discussion pp. 2–3",
+          "PMLR 97 Kandasamy et al. pp. 1–4",
+          "721e7e00a960 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadratic-goal source targets data-averaged posterior variance and handles fixed sensor designs; the criterion agrees on fixed pairs.",
+          "Kandasamy et al. distinguish sequential past-data-dependent actions from fixed batch actions under a general DOE reward."
+        ],
+        "reasoning": "The risk objective can be rewritten as explained variance without changing the theorem; a fixed design's data average cannot be exchanged with maximizing the second action after data. The broad adaptive formulation is equivalent at the framework level, not at the solved threshold or constant.",
+        "searches": [
+          "Resultary semantic searches for three-sensor adaptive-versus-fixed Gaussian quadratic prediction, zero-myopic first gain, bilinear-goal threshold and the sharp gain ratio",
+          "arXiv:2411.07532",
+          "PMLR 97:3222–3232"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest two-step indexed sensing comparator, 721e7e00a960, is a different, non-value-adaptive Kalman result.",
+          "Same-date hits 39df47931288 and 2a9bfa0f1a2d treat minimax Gaussian finite differences and cubature-filter calibration, respectively, not this design.",
+          "The broad primary search was dominated by adaptive clinical-trial results, not a useful exact comparator."
+        ],
+        "reasoning": "Inspected indexed findings rule out implication from those particular matches only; neither an unhelpful keyword result nor a search cutoff proves absence.",
+        "searches": [
+          "Resultary 50- and 100-hit semantic searches for the exact Gaussian adaptivity example and constant",
+          "Primary literature search on adaptive vs nonadaptive Gaussian quadratic-goal sensing and variance reduction"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact two-stage Gaussian policy and sharp adaptive-to-fixed ratio, not Gaussian regression, general sequential planning or fixed quadratic design. Inspected primary adaptive and fixed-design comparators and indexed sensing findings do not state or imply that distinct claim. This is a bounded assessment, not a general priority certification.",
+      "residual_risks": [
+        "Other work on sequential Bayesian OED may give a closer special case.",
+        "The broad literature query yielded poor subject specificity; priority is not exhaustive.",
+        "No novelty claimed for fixed quadratic design or generic two-stage planning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-design part, not the adaptive conclusion in inspected sections",
+          "evidence": "Data-averaged posterior-variance design in a fixed Gaussian quadratic-goal problem and greedy sensor placement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.07532",
+          "material_read": "Abstract p. 1 and quadratic goal-criterion discussion pp. 2–3, text offsets about 497, 8905 and 20083",
+          "method": "OA PDF passage and mathematical criterion comparison",
+          "title": "Goal oriented optimal design of infinite-dimensional Bayesian inverse problems using quadratic approximations",
+          "trigger": "Closest quadratic-goal posterior-variance result"
+        },
+        {
+          "assessment": "Relevant prior adaptive framework, not an exact result for this goal",
+          "evidence": "General reward and optimal history-dependent benchmark; described adaptive regression examples do not give the same observation-varying Bayes-risk gain.",
+          "identifier_or_url": "https://proceedings.mlr.press/v97/kandasamy19a/kandasamy19a.pdf",
+          "material_read": "Introduction and adaptive DOE definitions pp. 1–3; noisy regression examples p. 4; text offsets about 1243, 10086, 13211, 17700, 21400",
+          "method": "OA PDF; inspect action class, reward and examples",
+          "title": "Myopic Posterior Sampling for Adaptive Goal Oriented Design of Experiments",
+          "trigger": "Plausible earlier optimal adaptive design framework and examples"
+        },
+        {
+          "assessment": "Distinct, later-dated",
+          "evidence": "Two-state, two-time noiseless comparison with four fixed schedules and deterministic covariance; no measurement-value adaptation.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-step-greedy-guarantee-for-noiseless-kalman-sensor-sche--721e7e00a960",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local published-record mirror; compare policies and objective",
+          "title": "Sharp two-step greedy guarantee for noiseless Kalman sensor scheduling",
+          "trigger": "Strongest indexed two-step sensor/myopic gap match"
+        },
+        {
+          "assessment": "Different criterion and decision class",
+          "evidence": "Minimax finite-difference probe covariance, not contingent coordinate choice.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-alignment-threshold-for-minimax-anisotropic-gaussian-fin--39df47931288",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror; compare solved problem",
+          "title": "A sharp alignment threshold for minimax anisotropic Gaussian finite differences",
+          "trigger": "Same-date Gaussian optimization match"
+        },
+        {
+          "assessment": "Different criterion and decision class",
+          "evidence": "Cubature-filter mean squared error calibration, not a two-stage adaptivity ratio.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-spectral-calibration-boundary-for-rotated-cubature-measure--2a9bfa0f1a2d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror; compare solved problem",
+          "title": "Sharp spectral calibration boundary for rotated cubature measurement",
+          "trigger": "Same-date sensor/filter match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a natural small benchmark where Gaussian measurements alone do not make posterior uncertainty reduction nonadaptive: nonlinear prediction makes the conditional second-step gain depend on values. The optimal first experiment has strictly less immediate information about the goal than the myopic choice, yet improves the two-step Bayes risk for every allowed parameter. The pointwise policy, unique balancing condition and sharp ratio quantify that structural contrast, without suggesting a bound for general designs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

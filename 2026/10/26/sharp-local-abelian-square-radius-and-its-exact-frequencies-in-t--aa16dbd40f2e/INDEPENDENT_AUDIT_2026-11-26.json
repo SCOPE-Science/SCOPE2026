@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:25:52.604495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The arithmetic state (parity of adjacent 11 pairs, last digit) changes on appending b to (r xor (b & last),b). Relabel (0,0),(0,1),(1,1),(1,0) as 0,1,2,3 and the pair of children is exactly the specified substitution. Starting at the first pair, the even and odd start maps inductively cover all consecutive states; every generated pair occurs. For i=32j+t every 26-bit window uses at most the two adjacent 32-bit blocks, and each realized source pair yields every offset. Independent Python replay /workspace/replay_rudin_shapiro.py uses (n & (n>>1)).bit_count(), digital state-pair closure and direct comparisons of the two halves. It matched all 256 CSV rows exactly, 200 distinct factors, histogram 128,32,72,8,4,4,4,4, and the four hard templates giving exactly the two stated strings. The script checks a mathematically exhaustive cover, not extrapolation from a prefix; uploaded code was inspected, not run. The substitution is primitive with uniform letter frequencies (each letter appears in each third iterate and the incidence matrix has uniform row and column sums). Even positions give four internal pair frequencies 1/8; the odd-position map sends the eight source pairs two-to-one onto the four other pairs. The induced pair-frequency equation is a contraction with coefficient 1/2, so the common solution is 1/8 as asserted. Aligned offset occurrences have density 1/(8*32) in the unrestricted prefix limit; summing produces the stated law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit handle six listed automatic-word factor predicates; Fici et al. study distinct-factor richness. Earlier Resultary 31cd4f3a34d3 uses the exhaustive eight-pair cover."
+        ],
+        "reasoning": "The factor cover supplies inputs to a complete window enumeration, not the least equal-Parikh adjacent-root labels or natural frequencies. The six automatic predicates examined and the richness inequalities do not compute this invariant.",
+        "searches": [
+          "Rudin-Shapiro automatic predicates factor language abelian squares frequencies",
+          "Rudin-Shapiro complete factor language eight adjacent letter pairs substitution templates",
+          "Rudin-Shapiro finite factor language all length factors substitution pair closure",
+          "arXiv:1508.02074 and arXiv:1701.00948"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1508.02074",
+        "arXiv:1606.06935",
+        "arXiv:1701.00948",
+        "Resultary 31cd4f3a34d3, 8c4c2c358ba6, 14590880f149, 1d91c7e51744, 8d724f7fbd11, d3b1527f5726"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exhaustive length-32 factor cover lets one enumerate length-26 windows but still requires evaluating the shortest-root predicate. The same-day Thue–Morse 2-binomial result has bound 36 and exact frequencies for a different word and a stronger equivalence. Other records count transitions, four-term correlations, dyadic maximum exponents or circular 2-abelian cuts."
+        ],
+        "reasoning": "None of the inspected statements gives the ordinary Rudin–Shapiro local law by specialization. Unweighted distinct factor data cannot determine natural densities; the source-pair alignment and measure argument are essential. No priority conclusion from the same-day analogue.",
+        "searches": [
+          "Resultary 31cd4f3a34d3, 8c4c2c358ba6, 14590880f149, 1d91c7e51744, 8d724f7fbd11, d3b1527f5726"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lü et al. count distinct Parikh classes at a fixed length, whereas here the prefix-sum test is 2s(m)=s(2m) on consecutive halves of one window."
+        ],
+        "reasoning": "Counting classes forgets the ordered halves and starting positions. Ordinary abelian-square richness also is not a minimum-root distribution.",
+        "searches": [
+          "Rudin-Shapiro word least adjacent abelian square root length at every position exact density",
+          "Rudin-Shapiro abelian factor complexity Parikh vectors factors",
+          "Rudin-Shapiro adjacent abelian square minimal root positions frequency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact earlier table is the dyadic 2-abelian complexity census in Resultary 31cd4f3a34d3, for lengths 16 to 65536; the web lookup yielded no useful statement evidence."
+        ],
+        "reasoning": "The census gives counts of different classes per length, not the eight masses for this minimum. Neither a bounded search nor the ineffective web results establish absence.",
+        "searches": [
+          "Rudin-Shapiro abelian-square positionwise minimum root length sharp bound",
+          "Rudin-Shapiro first abelian square root length sharp bound density",
+          "websearch: \"Rudin-Shapiro\" \"abelian squares\" minimum root length at every position frequency density"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the shortest ordinary abelian-square root at each start, its sharp bound and witnesses, and especially its exact natural-density law. Prior factor-language coverage and template machinery are acknowledged rather than counted as new. Ordinary equality of Parikh counts must not be conflated with 2-abelian or 2-binomial equivalence.",
+      "residual_risks": [
+        "The supporting data/code of 31cd4f3a34d3 were not checked for incidental local labels. No exact overlap on densities was found in the inspected statements; the literature search was bounded and the web lookup ineffective."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related methodology only",
+          "evidence": "The 15-state automaton concerns lengths of closed factors, not minimum abelian-square roots.",
+          "identifier_or_url": "arXiv:1508.02074",
+          "material_read": "pp. 1 and 4, Thm 1(b)",
+          "method": "OA primary PDF",
+          "title": "Closed, Palindromic, Rich, Privileged, Trapezoidal, and Balanced Words in Automatic Sequences",
+          "trigger": "Earlier automatic computation for Rudin–Shapiro"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The number of Parikh classes of length-n factors is 2-regular.",
+          "identifier_or_url": "arXiv:1606.06935",
+          "material_read": "p. 3 definition and Theorem A",
+          "method": "OA primary PDF",
+          "title": "On the abelian complexity of the Rudin–Shapiro sequence",
+          "trigger": "Same word and Parikh data"
+        },
+        {
+          "assessment": "Different statistic; no implication from inspected result",
+          "evidence": "Distinct-square abundance; main examples Thue–Morse and Sturmian.",
+          "identifier_or_url": "arXiv:1701.00948",
+          "material_read": "pp. 1,3 definition and stated richness setting",
+          "method": "OA primary PDF",
+          "title": "Abelian-Square-Rich Words",
+          "trigger": "Same abelian-square predicate"
+        },
+        {
+          "assessment": "Material method overlap, no stated minimum distribution",
+          "evidence": "The length-32 cover could be used to examine every length-26 factor; the stated counts are 2-abelian class counts.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-finite-dyadic-2-abelian-complexity-of-rudin-shapiro-factor--31cd4f3a34d3",
+          "material_read": "RESULT.md finding and eight-source-pair construction",
+          "method": "Local mirror",
+          "title": "Exact finite dyadic 2-abelian complexity of Rudin–Shapiro factors",
+          "trigger": "Strong earlier factor coverage"
+        },
+        {
+          "assessment": "Close analogue, different sequence and equivalence",
+          "evidence": "Thue–Morse 2-binomial square radius 36, not binary Rudin–Shapiro ordinary abelian equality.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-local-2-binomial-square-radius-and-exact-frequency-law-f--8c4c2c358ba6",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "A sharp local 2-binomial square radius and exact frequency law",
+          "trigger": "Same-day local radius and frequencies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum radius is a natural local recurrence statistic of the Rudin–Shapiro word, not an arbitrary length cutoff. Sharp uniform locality and its distribution distinguish the rare starts that force long root lengths from the typical short ones. This is useful word-specific structure unavailable from factor complexity alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

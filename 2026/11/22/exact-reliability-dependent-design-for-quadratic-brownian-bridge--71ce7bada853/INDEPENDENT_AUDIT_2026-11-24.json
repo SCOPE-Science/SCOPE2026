@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:49:44.361106Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–78",
+        "VERIFICATION.md: no recorded expert attestation, independent audit or Lean check",
+        "Independent replay: python /workspace/branches/757bdc70-6b94-45de-ab55-237338ec3b22/record2_independent_check.py (exact symbolic reproduction; supplied verify.py not executed)"
+      ],
+      "rationale": "For Q equal to the integrated squared standard Brownian bridge, conditional Gaussian regression and total variance give risk equal to the prior risk 1/45 minus twice the squared Hilbert–Schmidt norm of the covariance of the conditional mean. For distinct interior knots the conditional mean is the piecewise linear interpolant; its covariance uses the two tent functions, whose Gram matrix has diagonal y/3 and (1-x)/3 and off-diagonal (y-x)/6. This independently gives the half-reliability risks 697/61740 at (3/7,4/7) and 17/1440 for repeated midpoint attempts, which supply a single exact midpoint value with probability 3/4. Endpoints and repetitions are covered by the corresponding reduced conditioning set (or zero-length bridge cells). A separate exact-symbolic reproduction checked the cell integrals, independent-erasure mixture and the global polynomial certificates. At d <= 1/4 the offset penalty is strictly positive for any nonzero offset, by the affine-in-p edge bound; for d >= 1/4 the fixed-offset spacing derivative is positive in the interior since D0 is nonnegative and convex D1 has negative endpoint slope and positive endpoint value. This excludes the large-spacing boundary by strict increase and continuity. On the centered segment the sign changes once at the positive root of (24p+16)d²+(8-6p)d-p, which is the displayed radical. The inverse p(d) is increasing and the p=0 tie and p=1 endpoint are as stated.",
+      "residual_risks": [
+        "The proof applies only to the stated scalar squared-error loss, fixed knots, exact observations and equal independent delivery probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neuberger et al. give the general quadratic-goal posterior-variance criterion, not a location optimizer for a bridge with erasures.",
+          "The consulted Foster et al. result concerns polynomial KL approximation; Tsirpitzi et al. treat a bridge misspecification term in a different regression objective."
+        ],
+        "reasoning": "The general variance identity supplies the objective, not a global minimizer for the mixture over zero, one and two delivered values.",
+        "searches": [
+          "arXiv:2411.07532, p. 5 / text offset 25100",
+          "arXiv:1904.06998, p. 5 / text offset 18300",
+          "DOI 10.1007/s00184-023-00893-6, p. 3 / text offset 8100"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 83–92",
+        "Resultary indexed statements identified above",
+        "arXiv:2411.07532",
+        "arXiv:1904.06998",
+        "DOI 10.1007/s00184-023-00893-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-delivered quadratic minimizer has d=(√41-1)/40, whereas at half reliability d=1/14 and as p tends to zero d tends to zero.",
+          "Knowing the all-delivered minimizer does not determine the minimum after a positive weight is put on the one-delivered risks. The prior general criterion and exact path-loss placement do not establish the needed off-center and large-spacing inequalities for this objective."
+        ],
+        "reasoning": "The reliability-dependent optimizer and its strict global uniqueness, which need both position and spacing control, survive the exact endpoint overlap.",
+        "searches": [
+          "2026/11/22/SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd",
+          "2026/11/22/SCOPE-exact-optimal-sampling-for-brownian-bridge-path-reconstruction-w--849744f935dc",
+          "arXiv:2411.07532"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Gaussian quadratic-functional risk is equivalently a posterior variance averaged over the independent erasure patterns; reconstructing the path uses a different objective.",
+          "The indexed path-reconstruction erasure result uses expected integrated path squared error, not scalar squared error for Q.",
+          "The primary search returned no pertinent additional statement; its irrelevance is not a negative finding."
+        ],
+        "reasoning": "Noise-free failed delivery, missing observations and erasure-pattern averaging represent the same design only if the loss conditions on the same quadratic scalar; path prediction is not equivalent.",
+        "searches": [
+          "Resultary: Brownian bridge quadratic energy optimal observation sites erasures reliability probability exact unique global",
+          "Primary literature: \"Brownian bridge\" \"quadratic energy\" \"optimal\" observation sites erasure probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact two-point quadratic-energy design gives ((21-√41)/40,(19+√41)/40), covering the fully reliable endpoint including repeats and endpoints.",
+          "No all-reliabilities exact design table was identified in the compared indexed matches; the path-reconstruction record tabulates or solves a different objective."
+        ],
+        "reasoning": "The exact p=1 formula is credited as covered; the same date does not establish the order of the records. It does not supply the continuum of optima for 0<p<1.",
+        "searches": [
+          "Resultary: Brownian bridge quadratic energy optimal observation sites erasures reliability probability exact unique global",
+          "2026/11/22/SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd, RESULT.md offsets 0 and 3942"
+        ]
+      },
+      "rationale": "The supported distinction is the exact globally unique optimal design as a function of positive common delivery probability, especially for 0<p<1, not the quadratic Gaussian risk identity or the fully reliable optimizer. The strongest distinct same-day indexed result covers exactly p=1 under the same loss and full domain. There is also an erasure result for the same process with a different loss. Combining those two statements does not optimize the erasure-weighted quadratic-energy risk. No stronger exact all-p result was established by the checked sources; this is not a historical-priority certificate.",
+      "residual_risks": [
+        "The bounded literature query was inconclusive; equivalent unretrieved all-reliability design results remain possible.",
+        "The same-day indexed endpoint equivalence does not establish chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage at p=1 only; order or priority not established",
+          "evidence": [
+            "Unique optimum over all ordered pairs for two fully reliable exact observations; same radical endpoint."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd",
+          "material_read": "RESULT.md offsets 0 and 3942",
+          "method": "Read local mirror passages",
+          "title": "Globally optimal two-point observation of Brownian-bridge quadratic energy",
+          "trigger": "Same process, loss, number of observations and plausible exact optimizer"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": [
+            "Loss is integrated pointwise reconstruction error of the path, not squared error of its integrated square."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-optimal-sampling-for-brownian-bridge-path-reconstruction-w--849744f935dc",
+          "material_read": "RESULT.md offset 0",
+          "method": "Read local mirror statement",
+          "title": "Exact optimal sampling for Brownian-bridge path reconstruction with erasures",
+          "trigger": "Same process and erasures"
+        },
+        {
+          "assessment": "Covers general risk identity, not this optimizer",
+          "evidence": [
+            "Derives the quadratic-goal posterior variance and averaged design criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.07532",
+          "material_read": "p. 5, text offset 25100",
+          "method": "Read bounded OA passage",
+          "title": "Goal oriented optimal design of infinite-dimensional Bayesian inverse problems using quadratic approximations",
+          "trigger": "General quadratic Gaussian design precursor"
+        },
+        {
+          "assessment": "Different optimization in the passage read",
+          "evidence": [
+            "Polynomial bridge approximation by weighted KL expansion, rather than site selection with erasures."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+          "material_read": "p. 5, text offset 18300",
+          "method": "Read bounded OA passage",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Cited bridge optimization work"
+        },
+        {
+          "assessment": "Different design objective",
+          "evidence": [
+            "Regression design with a Brownian-bridge misspecification term."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00184-023-00893-6",
+          "material_read": "p. 3, text offset 8100",
+          "method": "Read bounded OA passage",
+          "title": "Robust optimal designs using a model misspecification term",
+          "trigger": "Cited related bridge design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and global optimization proof"
+      ],
+      "rationale": "This resolves the natural redundancy-versus-spacing decision for two fallible exact attempts to measure a nonlinear path functional. The optimal sites do not merely interpolate two known design points: they are distinct for every p>0, separate monotonically, and are globally optimal even when coincidences and endpoints are allowed. This is useful exact information about when replication is suboptimal; the rational example is a check, not the basis for value.",
+      "residual_risks": [
+        "No conclusions for adaptive, unequal-reliability or noisy sensing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

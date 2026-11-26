@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verified limits
+# Independent mathematical audit
 
-Run `python3 checker.py` with the standard Python library; no external files or dependencies are needed. The checker evaluates the published ternary monotonicity conditions from their original quantifiers, and also evaluates the proposed row-downset and suffix-upset conditions. It independently computes the binary-modal operations on all hereditary input truth sets, and compares these to the reconstructed modal observational records. All ternary relations over one and two ordered worlds are checked, including empty and illegal relations. Legal frames are grouped by both semantic signatures and shadow signatures, and each actual fiber size is compared with its predicted Boolean-interval cardinality.
+## correctness
 
-Observed counts: \(n=1\): 2 tested, 2 legal, 2 observational classes, maximum fiber 1. \(n=2\): 256 tested, 67 legal, 45 classes, maximum fiber 8, fiber multiplicities 33 of size 1, 9 of size 2, 2 of size 4, and 1 of size 8. The implementation additionally tests 5,000 nontrivial legal three-world relations and samples the sharp class of cardinality \(2^{16}=65{,}536\). It finishes with `ALL_CHECKS_OK`.
+PASS
 
-The symbolic proof in RESULT.md is required for the claims for all \(n\ge1\). Finite samples do not prove the general claims, determine publication priority, or constitute independent validation. The entire study assumes fixed finite chain orders and standard hereditary valuations; no claim about stronger frame equivalences is tested or inferred.
+The two legality clauses are equivalent to increasing row downsets and suffix upsets. Selecting independent upper-tail thresholds a,b in the existential clause tests (a,b) in D_i; selecting a+1,b+1 in the universal clause tests the complement of (a,b) in the upset S_i, including empty tails. Heredity and induction extend depth-one agreement to all formulas; an empty existential input always gives false. The mandatory maximal and last-occurring pairs and the allowed intersection D_i∩S_i are necessary and sufficient: take downward closures row by row and use reverse induction on suffix unions. Each of the n−1 nonlast rows can contribute at most n²−1 free bits, attained by full shadows with the final row fixed to the full product and earlier rows containing the top pair. This covers n=1 (no free rows). Independent direct enumeration of n=2 using the quantified clauses reproduced the common modal/shadow partition and every fiber count, without executing checker.py.
+
+## originality
+
+PASS
+
+The verified distinct claim is the full ternary quotient and exact Boolean presentation interval with sharp maximum, not Kaminski's semantic clauses or the previously indexed count of 67 legal two-world frames. The closest unary observational-fiber result and ternary restricted subclass do not give the asserted invariant for all legal ternary relations.
+
+## value
+
+PASS
+
+Knowing which accessibility data can actually be recovered from the two operations matters for comparing presentations of the same semantics. The theorem gives explicit least and greatest frames, locates every dispensable tuple, and measures the worst-case ambiguity exactly. This is a natural structural classification, not a two-world census presented as a general contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

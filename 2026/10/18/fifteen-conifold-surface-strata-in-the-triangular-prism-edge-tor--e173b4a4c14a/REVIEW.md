@@ -1,12 +1,21 @@
-# Self-review: triangular-prism edge toric fivefold
+# Independent mathematical audit
 
-## Correctness
-PASS. The source graph has the edge-ring normality property by the odd-cycle criterion. Complete facet and face enumeration is included in the exact standalone script. The affine-difference lattice has maximal-minor gcd one; each face is tested by exact primitive normals and saturations. The singular face census establishes exactly fifteen maximal nonsmooth two-dimensional orbits. The four-ray relation at each such face is a primitive balanced relation, and every triple generates a primitive sublattice, proving the conifold transverse model. Twelve surface faces are unit triangles; three are unit parallelograms. The degree follows by addition of the degrees of equidimensional irreducible components. Risks: the finite computation requires correct execution of the included script; the claimed general field-independence uses toric, not differential, smoothness criteria.
+## correctness
 
-## Originality
-PASS (qualified). The nearest primary literature supplies the edge-ring normality criterion, a global smooth-edge-polytope classification and general face-combinatorics results. Those statements do not directly entail the particular fifteen-component singular support, mixed surface types or transverse normal-cone models without the explicit prism computation. Targeted searches for triangular-prism edge toric singular loci and for stronger global singular-face formulas did not reveal these exact claims. Risk: another computation of the triangular-prism normal fan may exist under a different name, and standard algorithms make the classification accessible in principle. Neither uniqueness nor independent discovery is certified.
+PASS
 
-## Value
-PASS. The prism is a minimal natural graph with two disjoint odd cycles joined by several edges, so it is a meaningful normal but nonsmooth test case for graph edge varieties. The complete maximal singular-orbit classification, two different types of toric surfaces, their total degree, and uniform conifold transverse type are structural data beyond a generic nonsmoothness test or a face count. The result answers a coherent singular-geometry question on this fixed naturally defined fivefold rather than an arbitrary slice. Its scope is deliberately limited to reduced support and generic local models.
+The only vertex-disjoint odd cycles possible are the two triangles, joined by matching edges, so the odd-cycle criterion applies to the projective monomial model. The vertex differences span the full rank-five lattice. An independent exact computation builds the facet system from coordinate inequalities and x(S)<=x(N(S)) for independent S: for any weight vector nonnegative on each edge, its negative t-level set is independent and its neighbors lie in the positive t-level set; integration over t proves those inequality vectors generate the dual edge cone. This gives the stated facet supports, 135 nonempty faces and orbit counts (9,24,15); all simplicial cones pass saturation and the maximal singular face list matches exactly. The twelve unimodular triangles and three unit parallelograms give the stated projective embeddings and degree 18. For each of the fifteen normal cones, the four rays span the intrinsic rank-three lattice and have sole relation (+1,+1,-1,-1). The dual cone semigroup is the set of nonnegative integral quadruples with equal sums in the two groups; choosing pairs across groups generates it, with the single 2x2 binomial relation. Splitting off the two orbit directions and completing over their function field yields the claimed generic ring in any characteristic. Smoothness and Q-factoriality fail on exactly the same cones.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported contribution is the complete singular-support, projective degree, and saturated generic-transverse classification for the triangular-prism edge toric fivefold. The odd-cycle normality input, global simplicity tests and toric computation methods are known. The structurally closest indexed records concern different polytopes and have different component counts; the bounded comparison did not establish equivalent coverage.
+
+## value
+
+PASS
+
+The triangular prism is a natural small nonbipartite graph with disjoint odd cycles and a normal edge embedding. Its complete singular support exhibits two kinds of projective surface closures with the same transverse singularity, and supplies explicit degree and local lattice data that global smoothness criteria do not predict. These are useful exact benchmarks for graph-toric singularities, not just an isolated facet count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

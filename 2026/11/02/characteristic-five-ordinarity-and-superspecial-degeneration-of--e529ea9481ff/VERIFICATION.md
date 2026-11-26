@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify_hesse_sextic.py` with a standard Python 3 interpreter. It uses only the standard library. The file is a self-contained exact checker, not a symbolic proof oracle.
+## correctness
 
-The checker (i) expands \(F_t^4\) by both multinomial coefficients and independent repeated convolution over \(\mathbb F_5[t]\), (ii) evaluates the exact Čech coefficient rule for the full ten-by-ten Frobenius matrix, (iii) matches every coefficient with the ten-entry formula from the proof, and (iv) exhaustively checks the twenty-five parameters over \(\mathbb F_{25}=\mathbb F_5[\omega]/(\omega^2-3)\), including projective singular points and ranks of several Frobenius-twisted products. The expected positive marker is `CHAR5_HESSE_SEXTIC_FULL_HASSE_10X10_F25_SMOOTHNESS_AND_STABLE_RANK_PASS`.
+PASS
 
-The universal smoothness implication is proved by solving the geometric gradient equations; it is not an inference from the twenty-five-parameter enumeration. Likewise, the stable-rank classification uses the exact monomial block decomposition, not only matrix ranks in finite fields. The elliptic quotient and ordinary complementary factor are deduced from the explicit tame covering and the compatible Frobenius-invariant cohomology splitting.
+A projective singular point has all coordinates nonzero. With their squares A,B,C and u=−2t, the gradient equations are A²=uBC, B²=uAC, C²=uAB. They imply u³=1, and (1,u⁻¹,1) gives a solution of the square equations if u³=1; Euler's identity puts its lift on the curve. Thus t³=3 is precisely the excluded locus. Bézout excludes a smooth reducible plane sextic; the genus is ten. The Frobenius formula follows by multiplying the fifth powers of the Čech fractions by F_t⁴. An independent exact multinomial calculation recovered all ten potentially nonzero entries and the other ninety zeros: enumerate nonnegative i,j,k,l summing to 4, match (6i+2l,6j+2l,6k+2l) against each Čech target exponent triple, and add 4!/(i!j!k!l!)·t^l modulo 5. The two possible source/target transpose conventions give the same symmetric matrix. The three t² lines and three 2t swaps stay bijective under every semilinear iteration if t≠0. The remaining line has coefficient t⁴−t, and all entries vanish at zero, giving the three stable ranks and the corresponding one-step coranks. The separable coordinate-square map onto the smooth Hesse cubic has generic fiber the four projective sign choices; sign changes fix just the central cohomology line as a common invariant. Its coefficient is also the cubic Hasse coefficient. The norm composed with pullback is [4], so the complementary cohomology is that of the nine-dimensional isogeny factor, ordinary at every nonzero smooth parameter. Superspeciality at zero follows from a-number equal to dimension.
 
-Limits: the verification does not establish full Newton polygons or all automorphism groups, and it does not constitute independent external audit.
+## originality
+
+PASS
+
+The distinct supported content is the characteristic-five stratification of the nonzero smooth parameters of this sextic, including the ordinary nine-dimensional complement to the Hesse elliptic quotient. The sextic model, the Fermat endpoint and the Hesse elliptic calculation are not taken as new. The exact model in Badr–Bars is stated in a range excluding five; the same-equation arithmetic record in characteristic eleven and the nearby characteristic-five pencils do not produce the asserted rank and a-number data. The articles and catalogue statements compared do not determine the Frobenius blocks of the other nine dimensions for this pencil. This is an assessment after bounded searches, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+For a known symmetric sextic, the elliptic quotient gives a natural source of nonordinarity but leaves most of the genus-ten Jacobian undetermined. Proving its complementary factor is ordinary at every nonzero smooth parameter explains why exactly three smooth nonzero coefficients produce a rank drop, why that drop is exactly one, and how those fibers differ from the superspecial Fermat degeneration. This complete exceptional-locus calculation over the algebraic closure, not just a small-field table or a restatement of the elliptic criterion, is useful for comparing arithmetic of the pencil and its quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

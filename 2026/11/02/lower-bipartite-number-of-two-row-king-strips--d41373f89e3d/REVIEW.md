@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A selected induced subgraph of the king strip is bipartite exactly when neighboring column occupancies sum to at most two. Every unselected vertex is blocked precisely by the corresponding two local saturation tests. Counting zero columns by adjacent occupied-two columns proves \(n\le s+p\), and the impossibility of exactly one singleton column strengthens this to the required three-residue lower bound. Three periodic families attain equality at every length. An independent graph-level verifier checks all vertex subsets at eight small strip lengths.
+## correctness
 
-**Originality — PASS, provisionally.** The relevant 2023 paper introduces the lower bipartite number and explicitly raises king graphs as a direction for further research; its accessible sections state no formula for height-two king strips. The complete 2002 BRICS report gives general maximal-induced-bipartite-subgraph counting bounds, and the full accessible 2020 Cao article treats general enumeration algorithms. Targeted literature and published-finding corpus searches, including the strong-product alias, found no equivalent strip formula. Full access to the 2023 publisher PDF was not possible, and global publication priority is not certified.
+PASS
 
-**Mathematical value — PASS.** This is an exact all-length solution for a natural bounded-width member of a family specifically proposed for further lower-bipartite-number investigation. It yields the complete local structural obstruction test, not merely a low-order computed number. The sharp periodic \(2/3\)-density is a benchmark for extension to wider king strips and separates inclusion-maximality from maximum-size bipartite subgraphs.
+Two adjacent columns form K4, so any adjacent occupancies summing to at least three are impossible. Conversely, with adjacent sums at most two, double columns induce isolated edges and runs of singleton columns induce paths, for any choices of rows. An empty column is blocked exactly by an adjacent double, and a singleton exactly by an adjacent singleton; unavailable end neighbors do not count. For p double, q singleton and r empty columns, r≤2p, q≠1, and n≤s+p for s=2p+q. If s≤2k then n≤3k; at s=2k+1 one has odd q≥3, so p≤k−1 and still n≤3k. This implies s≥2ceil(n/3). The three residue constructions separate all double columns by zeros and cover all zeros by adjacent doubles, with exactly ceil(n/3) doubles. They include n=1 and 2. Independent replay: python3 /workspace/branches/e7df607f-23db-41ef-8993-0e09fdb3b774/audit_lb.py --direct 8 --occupancy 12. The direct graph check compared actual maximal masks with the expanded occupancy rule for all 87,380 masks through n=8; the finite occupancy check went through n=12. Output AUDIT_OK direct_orders=8 subsets=87380 occupancy_orders=12 (audit_lb.log). The proof, not enumeration, controls all n.
 
-**Residual limitations.** The two-row theorem does not answer the higher-dimensional king-graph question; unindexed or inaccessible literature could contain the formula, and the finite verifier is corroborative rather than a proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-graph hit gives the same scalar for two-fair domination, not for maximal induced bipartite sets; the set classes fail to contain each other. The nearest inspected same-invariant work concerns other graph families or general enumeration. This supports the strip formula and occupancy test as a distinct result to the best of the available evidence, not as a certification of publication priority.
+
+## value
+
+PASS
+
+This determines the lower bipartite number for the smallest nontrivial king-strip width, including boundaries, and gives a local test for all inclusion-maximal sets. The lower bound accounts for singleton columns rather than assuming an optimal solution is an ordinary dominating construction. Both the precise minimum and the occupancy test are useful for comparing nearby strip invariants and for higher-width work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

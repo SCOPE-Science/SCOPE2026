@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:08.318432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Eqs. (1)–(10), proof steps 1–5",
+        "VERIFICATION.md and verification/check.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 2; 78 permitted parameter triples, 50-digit series recurrence, dimensions 2,3,4,8"
+      ],
+      "rationale": "With M=n−1, the dimensionless generator is w^(-1) times the divergence of x(1−x)^M times the derivative, where w=(1−x)^(M−1). Bounded regularity at zero removes the integration constant (the other local branch is logarithmic). The forward-integral inverse K is positive and m(b)=(K1)(b) is the mean by stopping the bounded mean-passage solution. Tonelli gives the full weighted mean as (1/M) times the integral of W(u)/u, where W=[1−(1−u)^M]/M. The integral evaluates to H_M/M². Therefore (Km)'/m'=J/W rises strictly to alpha=H_M/M, and (Km)/m tends to alpha since m diverges. Positivity gives K^j1<=alpha^(j−1)m. For s=theta/m with s alpha<1 the uniformly convergent regular solution solves f=1+sKf and is bounded before passage; stopping gives the reciprocal transform. The Laplace difference is R/[(1+theta)(1+theta+R)], where R starts with s²Km and has a geometrically bounded tail. Moment differentiation gives the variance deficit 2Km/m²; strict positive variance also follows directly because (Km)'/m'<m(x) before b. The mean expression gives the different logarithmic and power-law infidelity scalings. The assertions are for each fixed n and for the stated time and boundary normalization.",
+      "residual_risks": [
+        "The numerical checks are finite and do not establish the limiting theorem. No uniformity in n or theta, and no conclusion about finite-step protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact mean and divergence at initial fidelity zero and the full regular special-function solution for the parameterized killed equation are available in Tóth. His long-time tail at fixed threshold alone is insufficient.",
+          "The cited general Jacobi and generic rare-hitting papers were accessible only at landing/metadata level in this review; no substantive all-document assessment is asserted for them."
+        ],
+        "reasoning": "The decisive stronger prior is the exact analytic solution in the same model. Generic exponential approximation is not a substitute for that comparison.",
+        "searches": [
+          "Tóth arXiv:2606.11438v1 Eqs. (19)–(20), (23)–(28), Appendix (A.6)–(A.8)",
+          "D’Onofrio–Tamborrino–Lansky DOI 10.1063/1.5051494",
+          "Aldous DOI 10.1016/0304-4149(82)90016-3"
+        ]
+      },
+      "checked_sources": [
+        "Tóth arXiv:2606.11438v1 exact equations and appendix",
+        "Local Resultary search and exact-family result",
+        "D’Onofrio–Tamborrino–Lansky and Aldous (abstract/metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(a)_j(b)_j = s times the product over k=1..j−1 of [k(k+M)+s]. Dividing by (j!)² gives the coefficients of the prior regular solution.",
+          "The product is bounded above by e^(alpha s), where its logarithmic derivative at zero tends to alpha=H_M/M. The weighted-average argument in the rationale computes the exact limiting quadratic coefficient directly."
+        ],
+        "reasoning": "A finite positive-series bound and the leading coefficient both follow from the same elementary product of known coefficients without a new diffusion comparison or an asymptotic connection theorem. Reciprocation and second differentiation yield the displayed findings. This is explicit prior implication, not a failure based on inaccessible literature.",
+        "searches": [
+          "Tóth arXiv:2606.11438v1 PDF p. 13 Eq. (A.7) and regular 2F1 branch",
+          "Gauss series Pochhammer coefficients for a+b=M, ab=s, c=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tóth gives the regular solution 2F1(−rho,rho+n−1;1;F) at spectral parameter lambda=−4rho(rho+n−1).",
+          "The Laplace BVP is the identical regular equation at lambda=4s, scaled to have boundary value one at b; its starting value at zero is the reciprocal of the regular solution at b."
+        ],
+        "reasoning": "This is the exact same Jacobi family with a dimensionless time change and analytic spectral parameter, not a similarity based on names or the asymptotic tail.",
+        "searches": [
+          "Tóth arXiv:2606.11438v1, Appendix (A.5)–(A.8)",
+          "Local Resultary search for Jacobi/projective fidelity hitting Laplace transform and CV gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f gives an exact finite-dimensional transform in the same family via the threshold z/n, and an exponential limit in a different order of limits."
+        ],
+        "reasoning": "The later catalogue item overlaps the full transform; its large-n-then-large-z limit is not the fixed-n sharp expansion. It is not evidence of earlier public priority. There is no enumerated sequence to match here.",
+        "searches": [
+          "Local Resultary semantic search: projective Brownian hitting, mean-normalized exponential law, Laplace and CV"
+        ]
+      },
+      "rationale": "The signed estimate and harmonic corrections are not quoted verbatim in the inspected prior text, but are direct coefficient corollaries of the known regular hypergeometric solution for the same Brownian fidelity model, not just consequences of prior qualitative exponentiality. Tóth Appendix (A.6)–(A.8) gives the regular Gauss solution with c=1, a+b=M and ab=lambda/4. For the Laplace BVP put lambda=4s and divide the solution by its value at b; this yields exactly the reciprocal transform from zero. In its Gauss series the degree-j coefficient is s times a positive s-independent weight times the product over k=1..j−1 of [1+s/(k(k+M))]. The partial sum of the linear factors' coefficients increases to sum 1/[k(k+M)]=H_M/M by telescoping. The product is between 1 and exp(s alpha), hence at most 1/(1−s alpha) on the claimed range. Summing immediately gives the signed finite bound, including strictness from j>=2. The quadratic coefficient divided by the mean is a positive weighted average of those partial sums, with weights the coefficients of the mean series times b^j. Because the known mean diverges, the weight on each fixed finite set of j goes to zero, so the ratio tends to alpha. The same exponential majorant bounds all higher orders uniformly and gives the fixed-theta correction; the variance deficit is the second derivative of the reciprocal series. Thus all decisive quantitative parts are already mechanically extractable, even with a better finite envelope. No claim is made that the prior author explicitly printed them.",
+      "residual_risks": [
+        "The comparison establishes direct implication, not explicit prior publication of the two displayed coefficients or a historical first occurrence. The older Jacobi full-text coverage was not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean and regular Gauss solution yield the frozen estimates as coefficient corollaries.",
+          "evidence": [
+            "At zero the regular solution uses c=1 and is normalized to one; a+b=n−1 and ab=lambda/4. Equation (A.8) imposes killing for the eigenproblem. For the Laplace equation at positive s the same branch instead has unit boundary value at b after division."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.11438v1",
+          "material_read": "PDF pp. 6–7 Eqs. (19)–(20), (23)–(28); p. 13 (A.5)–(A.10), decisive passage at text offset 71500",
+          "method": "Bounded lawful OA PDF passage",
+          "title": "Isotropic random walks and Brownian diffusion on complex projective space",
+          "trigger": "Same model, initial condition and killing boundary; possible full exact solution"
+        },
+        {
+          "assessment": "Exact family overlap but different limit order and later date; not the decisive earlier implication.",
+          "evidence": [
+            "Threshold z/n is an exact reparameterization at fixed n; the stated asymptotics send n to infinity first."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-haar-scale-fidelity-hitting-strict-dimension-ordering-and-a-bess--de34a1a3a38f",
+          "material_read": "Finding, transform and large-dimension limit regime",
+          "method": "Local Resultary mirror",
+          "title": "Haar-scale fidelity hitting: strict dimension ordering and a Bessel-to-exponential clock",
+          "trigger": "Exact same finite-dimensional hitting family"
+        },
+        {
+          "assessment": "Scope of exact coverage unresolved; not relied on for FAIL.",
+          "evidence": [
+            "Frozen references identify hypergeometric transforms and moment formulas, not their complete boundary hypotheses."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.5051494",
+          "material_read": "Landing/metadata; decisive Eqs. (8)–(12) not retrieved",
+          "method": "Lawful OA and alternate-copy attempts",
+          "title": "The Jacobi diffusion process as a neuronal model",
+          "trigger": "General Jacobi first-passage formulas"
+        },
+        {
+          "assessment": "Context only; no full theorem comparison claimed.",
+          "evidence": [
+            "The subject is approximate exponential hitting, not a verified formula for this harmonic correction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(82)90016-3",
+          "material_read": "Landing and abstract only",
+          "method": "Lawful OA lookup",
+          "title": "Markov chains with almost exponential hitting times",
+          "trigger": "Generic rare-hit exponential estimates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, scope and limitations",
+        "Tóth fixed-threshold large-time tail versus the proposed fixed-dimension rare-target comparison"
+      ],
+      "rationale": "As quantitative information, a mean-normalized signed Laplace estimate and an explicit leading error at high fidelity calibrate how good an exponential approximation is; a long-time tail at fixed threshold cannot do this. The harmonic factor distinguishes dimension and the ideal diffusion application is natural. This utility does not make the coefficient corollaries original.",
+      "residual_risks": [
+        "No experimental performance guarantee, uniform metric error bound or control protocol follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The uniform matching representation has constant multiplicity \(2^n n!\); the beta order-statistic gap formulas give \(r/(2r+1)\) for an outside chord crossing a randomly distinguished member of an \(r\)-crossing and exactly \(1/3\) for an \(r\)-nesting. Classifying pair/subset overlaps as zero, one or two chord labels exhausts all possibilities. Direct substitution gives both formulas and their strict signs. Independent exhaustive enumeration through six chords gives the stated exact rational identities. The analytic proof covers all finite admissible sizes.
+## correctness
 
-**Originality — PASS (provisional priority).** Actual searches examined published-finding corpus records for higher-order chord-pattern covariances, exact crossing/nesting counts and equivalent formulations. The closest primary papers are Chen et al. (2005: distributions of *maximum* nesting/crossing size), Kasraoui–Zeng (2006: the *pairwise* crossing/nesting-count generating functions), and Acan (2015: chord intersection graphs and asymptotics). Their relevant original sections were inspected and do not supply the stated covariance contrast for counts of \(r\)-subconfigurations with \(r\ge3\). An undiscovered general cumulant or U-statistics formula might imply it; priority is not externally guaranteed.
+PASS
 
-**Mathematical value — PASS.** Higher-order crossing configurations are cliques of random chord intersection graphs whereas complete nestings are a distinguished type of independent set. The exact universal opposite-sign relation with edge count characterizes structurally different local responses of the two natural pattern families. The cancellation of all one-chord overlaps in the nesting covariance is a nontrivial invariant, and the result holds simultaneously for all \(n\) and \(r\), not one arbitrary numerical case.
+In the uniform ranked-endpoint model each matching has 2^n n! labeled realizations. A specified r-set has either exact pattern with probability p_r=1/(2r−1)!!. Conditional on the internal ranks, one outside arc crosses a rank-gap-d inside arc with probability d(2r+1−d)/binom(2r+2,2), by counting placements of its two endpoints among the 2r+1 gaps. Complete crossings have d=r. Nestings average this expression over d=1,3,…,2r−1 because label ranks are exchangeable; the sum of d(2r+1−d) is r(r+1)(2r+1)/3, giving exactly 1/3. Disjoint candidate pairs are independent. The r(n−r) pairs sharing one arc hence give covariance p_r(r−1)/(3(2r+1)) each for crossings and zero for nestings. The binom(r,2) contained pairs are forced to cross or not, giving 2p_r/3 and −p_r/3, respectively. Multiplying by binom(n,r) and simplifying yields both stated formulas, including n=r and the signs. This checks the repaired proof as well as its unchanged formulas.
 
-The result is limited to unweighted complete matchings and does not prove absence of an equivalent theorem in the unsearched literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct earlier edge–triangle record exactly covers the r=3 crossing covariance and is credited in the repaired statement. The tested precedents do not provide the all-r nesting covariance, its one-shared-arc cancellation, or the paired signs for counts of r-arc subsets. These are the supported distinctions, not a priority claim for the r=3 crossing identity or the pattern definitions.
+
+## value
+
+PASS
+
+Crossings and completely nested patterns have equal expectations of each order in a natural matching model, but behave differently as joint statistics with the basic pair crossing count. The exact signed contrast and cancellation identify which overlaps affect joint fluctuations, with a formula usable for all sizes and nesting orders. The value is not the recomputation of the earlier triangle covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

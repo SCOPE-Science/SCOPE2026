@@ -1,15 +1,21 @@
-# Scientific review: priced one- and two-bit hypercube mixing
+# Independent mathematical audit
 
-## Correctness — PASS
-The price budget counts each undirected edge once, with \(Nd/2\) one-bit and \(N\binom d2/2\) two-bit edges. The parity character gives \(4W_1/N\) and averaged singleton characters give \(4(W_1+2W_2)/(dN)\) as independently valid upper bounds on the nonzero gap for **every edgewise weighting**, so their maximum under \(W_1+tW_2=1\) is a valid global bound. Exact Walsh eigenvalues for the uniform construction attain it. Strictness of the second upper bound for \(t>2\) forces all two-bit conductances to vanish; equality in every singleton Rayleigh quotient then fixes **each** surviving edge and proves unconditional uniqueness. For \(t\le2\), singleton equality, the exact Walsh spectrum, and the character-subset inequalities give a necessary-and-sufficient polyhedral description among translation-invariant weights. All boundary cases \(d\ge3\), \(t>0\), including \(t=2\) and zero edges, are handled. An exact-rational standalone checker confirms 84 optimal designs, 10,752 full-eigenvector equations, and 1,440 irregular Rayleigh certificates. No finite computation is promoted to an infinite proof.
+## correctness
 
-## Originality — PASS, with historical risk
-The closest inspected formulations are (i) Sun–Boyd–Xiao–Diaconis's general rate-budget fastest-mixing SDP, (ii) Ghosh–Boyd's graph-algebraic-connectivity upper-bound framework, (iii) Boyd–Diaconis–Parrilo–Xiao's **discrete-time** symmetry treatment of the ordinary hypercube, (iv) Mirafzal's spectrum of the fixed-weight square hypercube, and (v) the weight-two Boolean Hamming-shell positive-definiteness/Turán optimization. Their objects overlap, but no inspected theorem implies the **priced** universal gap, its phase transition at two, and the *full* fractional spanning-tree/forest classification of translation-invariant optimizers, including path-supported optimum designs. A 1993 hypercube-walk paper by Karlin–Lindqvist–Yao was identified but could not be read in full, leaving a genuine residual priority risk. Failure to locate an indexed match is not asserted as proof of novelty; the claim is supported by the substantive objective-and-implication comparison.
+PASS
 
-## Value — PASS
-The strict threshold specifies precisely when distance-two shortcuts help for an entire natural family of graph optimization problems. Nonuniqueness below the threshold is mathematically substantive: both all-direction uniform weights and a design using only \(d+1\) displacement classes solve the same global optimization problem. The fractional spanning-tree structure is an exact classification explaining this phenomenon, not merely a parameter substitution or a finite table. No separate downstream theorem is required for this self-contained design result.
+Every nonconstant Walsh character has squared norm N on the vertex space; each sign-crossing undirected edge contributes 4w to its energy. Parity and the mean singleton quotient give the two unrestricted upper bounds 4W1/N and 4(W1+2W2)/(dN). For t<2 their crossing is the unique maximum of their minimum under W1+tW2=1, giving the asserted totals and value; for t≥2 the mean singleton bound is at most 4/(dN), strictly smaller if t>2 and W2>0. Uniform conductance c=4/[Nd(2+(d−1)t)] on both shells attains the lower-price bound because the Walsh eigenvalue of weight k is 2c k(d−k+1)≥2cd; uniform ordinary cube edges attain the high-price bound. Above t=2 equality forces every singleton to be a minimum eigenvector on the mean-zero space, giving 2 w_{x,x+e_i}=Γ at each vertex and hence edgewise uniqueness. In the invariant subclass, Walsh eigenvalues are twice the cut weights of the coordinate graph with auxiliary vertex 0, edge weights w_0i=b_i and w_ij=a_ij. Equality at singleton cuts yields b_i+Σ_j a_ij=q=Γ/2; eliminating b_i makes λ_S=2q(|S|−Σ_{ij⊂S}z_ij) for z_ij=2a_ij/q. Thus cut lower bounds give exactly the subset forest inequalities, and b_i≥0 gives degree bounds. These induced-subset inequalities also give the graphic-matroid rank inequalities for any edge subset by summing over its connected components. Parity equality fixes total z=d−1 below the threshold, giving budget Nq[2+(d−1)t]/4=1; at t=2 the budget is automatic from singleton equalities and total z need only be ≤d−1. A path on [d] gives a cycle on the augmented graph via its two endpoint edges to 0; all its d+1 classes are positive and attain the gap. Independent python3 /workspace/reproductions/2.py verifies 72 exact cut spectra and budgets, including a fractional slack forest at t=2 and prices on both sides. This tests designs and boundaries, not arbitrary-parameter optimality or a classification of nonsymmetric optimizers at t≤2.
 
-## Residual limitations
-The polyhedral classification does not purport to cover arbitrary nonsymmetric optimizers below or at the threshold. The generator is symmetric continuous-time with edgewise conductance budget; different performance metrics need different proofs. Historical comparison to the complete 1993 paper remains unresolved. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the solved price-dependent two-shell continuous-time problem and the tree/forest equality family, not the general FMMP optimization framework or the fixed unweighted square-cube spectrum. Closest indexed statements are distinguished by traceable objective, support, and optimizer comparisons. Historical risk remains for uninspected spectral/majorization work.
+
+## value
+
+PASS
+
+A single threshold settles when distance-two links help across an arbitrary-dimensional natural design family. The explicit tree/forest face gives more than the optimum value: it explains and certifies very sparse and fully dense exact solutions within the same price-normalized class. Above the threshold edgewise rigidity holds without a symmetry assumption. These distinctions are usable for design and are not just a change of parameters in the general SDP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

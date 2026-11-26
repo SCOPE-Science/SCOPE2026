@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:42:53.511330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–105; VERIFICATION.md, checker.py and requirements.txt inspected without executing the supplied checker",
+        "Huang–Li arXiv:2201.12856, Eq. (5) for comparison of definitions"
+      ],
+      "rationale": "Integration of the base Laplace profile gives I_n=a(1−(−1)^n exp(−πa))/(π(a²+n²))>0. Write A=1−(−1)^n exp(−πa) and x=(a²+n²)^{-1}. Independently differentiating axA twice and forming I_n−a I_n′+(a²/3)I_n″ gives the ratio (a² A″−a A′)/(3A)−4a³ A′ x/(3A)+8a⁴ x²/3. It is positive at odd n; n=0 is positive by integration. At nonzero even n the sharp constraint is exactly b≥L+cx_m−hx_m². The coefficient series is absolutely summable, so no infinite Fourier sign issue is lost. The expression is L+hx_*²−h(x_m−x_*)², and since x_m↓0, some 0<x_m<2x_* gives a value above L. The lattice maximum is attained at one or both bracketing indices, or at 1 if the continuous optimum lies below that index. The adjacent difference has the sign of R_m−1 for R_m=2x_*/(x_m+x_{m+1}). The log derivative of x_* is <−2/a, whereas that of x_m+x_{m+1} is >−2/a. Thus R_m decreases from ∞ to 0 in a and increases in m for fixed a. The resulting ordered adjacent crossings are unbounded since R_m→∞ at each fixed a; the signs before and after each crossing prove the asserted set of maximizers without skips. At threshold, consecutive large frequencies give a Vandermonde system forcing any null Gram weights to vanish. The missing characters obstruct uniform RKHS density; above threshold every character belongs to the RKHS. The real bracketing index is (4aQ/π−a²)^{1/2}/2 and is asymptotic to √(a/π) exp(πa/2); x_m has mesh O((aQ)^{-3/2}) there. Multiplying the squared mesh error by h=O(a⁴) gives O(aQ^{-3}), with continuous gain π²a²/(6Q²). At small a the first mode is active and the O(a²) correction to L leaves the stated linear term unchanged.",
+      "residual_risks": [
+        "The 500 finite diagnostics are the package's reported checks, not an independent replay. The admissibility proof is on the geodesic unit circle, for the matched range parameter and a nonnegative ratio; it is not a general spherical-mixture claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gneiting's circle characterization and related criteria are background Fourier positivity tests; the SPDE spectral weights are already positive and do not repair the same profile. The F-family is a separate admissible Matérn analogue, as stated in its abstract."
+        ],
+        "reasoning": "Generic Fourier nonnegativity reduces this problem to infinitely many inequalities, not their optimized solution. A different already-admissible family has no least ratio for the fixed two-component mixture here.",
+        "searches": [
+          "Circle geodesic Matérn positive definiteness with exponential admixture",
+          "Gneiting arXiv:1111.7077 sphere/circle criteria",
+          "Huang–Li arXiv:2201.12856 Eq. (5)",
+          "Alegría et al. arXiv:2101.05394, spherical F-family"
+        ]
+      },
+      "checked_sources": [
+        "Resultary identical hit 2148dc74b8aa, primary comparisons 027cc81ac50f and 969b187a914f and listing 3df14ed06eed",
+        "arXiv:2201.12856",
+        "arXiv:1111.7077",
+        "arXiv:2101.05394 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "027cc81ac50f has a common parity factor for n,n−2,n+2 which cancels in its mode ratio; here parameter derivatives retain that factor's derivative on even modes and leave odd modes positive. The Poisson result's Fourier moment sequence has geometric factors, not the differentiated resolvent."
+        ],
+        "reasoning": "Neither earlier optimization directly implies the positive least Laplace mixing ratio, the strict excess over L, or the particular monotonic crossing equation and exponential staircase. Finite-site strictness given cofinite positive support is a standard consequence, not a separate priority claim.",
+        "searches": [
+          "Resultary 027cc81ac50f proof §1",
+          "Resultary 969b187a914f Finding",
+          "Huang–Li Eq. (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target hit is the same record. Huang–Li Eq. (5) has Fourier weights (κ²+(2πk)²)^{-α}, while the present ordinary geodesic Matérn mixture has parity-dependent antipodal factors. Resultary's closest staircases concern multiplication by angular cosines, not mixing polynomials in geodesic distance."
+        ],
+        "reasoning": "The periodic SPDE construction cannot be substituted for the geodesic profile. A cosine shifts Fourier weights by integer offsets; the Matérn distance polynomial differentiates them in a. The spectra and critical ratios of the corresponding families are not equivalent.",
+        "searches": [
+          "Resultary: geodesic circle Matérn-5/2 plus Matérn-1/2/Laplace exact repair and even-mode staircase",
+          "arXiv:2201.12856, Fourier/SPDE covariance",
+          "Resultary 027cc81ac50f and 969b187a914f RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 027cc81ac50f supplies an exact rational-frequency minimum and transition polynomials, with active frequency √(5/3)a+O(1). Record 969b187a914f gives −2a_k/(a_0+a_{2k}) for Poisson mixtures with cosine modulation, with missing ±k for non-point-mass mixtures. The 3df14ed06eed listing concerns first-harmonic modulation."
+        ],
+        "reasoning": "None of these exact formulas has the same spectral coefficients or optimized variable and none gives the exponential active-mode law of this Matérn mixture.",
+        "searches": [
+          "Resultary: exact optimal circle mixture and neighboring harmonic ties",
+          "Resultary 027cc81ac50f, 3df14ed06eed, 969b187a914f"
+        ]
+      },
+      "rationale": "The earlier modulated-covariance results supply a close methodological precedent for a finite active Fourier mode and a staircase. But the repaired geodesic distance-polynomial mixture has different coefficient algebra and the sharp threshold and active modes do not follow from the prior specific families. The distinct supported content is the least ratio and unbounded no-skips even-mode classification, not the general Fourier or strict-PD methods.",
+      "residual_risks": [
+        "Older signed-mixture and geodesic covariance literature could contain an equivalent exact threshold. Only relevant passages, not exhaustive full-document exclusions, are claimed for the sources read. Historical priority is provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different construction, not a threshold for a geodesic mixture",
+          "evidence": [
+            "The circle SPDE solution has Fourier covariance weights (κ²+(2πk)²)^{-α}, α>1/2, identified with a previous circular Matérn family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12856",
+          "material_read": "Abstract and Fourier derivation around offset 12989, Eq. (5) and Remark 2.1 on p. 5",
+          "method": "OA primary PDF passage after Fourier literal lookup",
+          "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+          "trigger": "Exact meaning of the circular Matérn in the motivating literature"
+        },
+        {
+          "assessment": "Closely related optimization but different kernel, mode set, threshold and asymptotic",
+          "evidence": [
+            "K=e^{-aθ}(1+b cos(2θ)); shifting Fourier coefficients yields R_n(t); adjacent tie polynomial yields all integer n≥2, not the even-only exponentially growing sequence."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f/RESULT.md",
+          "material_read": "Finding, assumptions and first Fourier proof step, offsets 0–3241",
+          "method": "Resultary search plus local mirror passage",
+          "title": "Exact every-mode staircase for even-harmonic geodesic-exponential circle covariances",
+          "trigger": "Strongest distinct Resultary hit for exact circle spectral staircases"
+        },
+        {
+          "assessment": "Different Poisson/cosine family; same-day date neither verifies nor defeats priority",
+          "evidence": [
+            "At its threshold the notch is fixed at ±k for a nondegenerate Poisson mixture, or the support is finite for a point mass."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-a-universal-harmonic-positivity-cutoff-and-spectral-reopening-fo--969b187a914f/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2600",
+          "method": "Resultary search plus local mirror passage",
+          "title": "A universal harmonic-positivity cutoff and spectral reopening for mixtures of circle Poisson kernels",
+          "trigger": "Same-day exact indexed mixture and support-boundary problem"
+        },
+        {
+          "assessment": "Background, not an optimized parameter statement in the read passages",
+          "evidence": [
+            "Theorem 4 gives a sufficient condition via convexity and a nonnegative mean; this does not give the exact least ratio of the distance-polynomial mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "Abstract and Theorem 4 passage on circle sufficient conditions",
+          "method": "OA primary PDF passages",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "General Fourier/spherical admissibility and strictness criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md threshold, crossing and universality claims; Huang–Li Eq. (5); Resultary 027cc81ac50f comparison"
+      ],
+      "rationale": "This is a natural feasibility problem for the least rough component that repairs a standard but inadmissible covariance within a fixed matched-scale family. The high-frequency necessary bound is strictly insufficient for every a; the obstruction is a moving finite notch with no skipped even index and an exponential index law. Strict finite-site PD versus failure of universality at equality is a meaningful boundary consequence.",
+      "residual_risks": [
+        "The repair introduces a cusp and does not restore Matérn-5/2 smoothness. It is not an optimum over all circular covariance constructions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

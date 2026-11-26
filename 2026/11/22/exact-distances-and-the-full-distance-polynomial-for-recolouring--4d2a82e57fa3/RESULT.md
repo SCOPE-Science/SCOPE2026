@@ -2,7 +2,7 @@
 
 ## Finding
 
-Let \(S_n=K_{1,n}\) be the star with one center and \(n\) labelled leaves. Let \(\mathcal R_k(S_n)\) have as its vertices all proper assignments of \(k\) **named** colors to the \(n+1\) vertices, and an edge between assignments differing on exactly one vertex. For **every** pair \(n\ge2\) and \(k\ge n+1\), every distance in this graph has the following exact form.
+Let \(S_n=K_{1,n}\) be the star with one center and \(n\) labelled leaves. Let \(\mathcal R_k(S_n)\) have as its vertices all proper assignments of \(k\) **named** colors to the \(n+1\) vertices, and an edge between assignments differing on exactly one vertex. The known tree-distance law for \(k\ge n+2\) extends to the sharp star palette \(k=n+1\), for every \(n\ge2\). At that boundary it gives the complete metric and distance polynomial below; the formulas are written uniformly for \(k\ge n+1\).
 
 Write \(\alpha=(x;a_1,\ldots,a_n)\), \(\beta=(y;b_1,\ldots,b_n)\); centers have colors \(x,y\) and leaf \(i\) has colors \(a_i,b_i\). Define \(h=\#\{i:a_i\ne b_i\}\) and \(w=\#\{i:a_i=y\ \text{and}\ b_i=x\}\). Then
 
@@ -65,7 +65,8 @@ The standalone script `verify.py` uses only the Python standard library. For eve
 
 ## Relationship to prior work
 
-The coloring-reconfiguration framework and exact **diameter** of certain tree and complete-multipartite recoloring graphs are established in Cambie, Cames van Batenburg and Cranston, and in De Meyer. Cames van Batenburg's 2026 paper cites the known diameter \(n(G)+\mu(G)\) for trees at \(k\ge\Delta(G)+2\), which specializes to \(n+2\) here. This diameter equality is not claimed as new at that larger palette threshold. The contribution here is the pairwise distance rule, its **sharply smaller** palette threshold \(k=n+1\), the full ordered-pair distance distribution, self-centeredness at that threshold, and the explicit count of diametral pairs. The 2025 three-colouring tree-diameter study concerns a fixed three-colour palette and the extremal diameter among different trees, not the present all-pair formula for \(k\ge n+1\). No claim of established historical priority is made from failure to locate an equivalent formula.
+
+Cambie, Cames van Batenburg and Cranston [3, §5, Theorem 17] give the **exact pairwise metric** for trees with lists of size at least \(d(v)+2\) at each vertex: the number of differing vertices plus the matching number of the bidirected color-shift edges. On a star with a common palette \(k\ge n+2\), the bidirected edges are exactly the swaps and share the center, so their matching number is \(1\) if a swap exists and \(0\) otherwise. Their theorem thus already gives the displayed distance rule for these larger palettes, and the larger-palette enumerator and self-centeredness follow from that rule. Their hypothesis misses \(k=n+1\) at the center. De Meyer's complete-multipartite list-recoloring diameter bound [2, Theorem 1.3] also uses the larger list-size condition. The contribution here is the all-pair extension to \(k=n+1\), the exact boundary census it makes possible, and the sharpness witness at \(k=n\). The three-colouring tree-diameter study [4] addresses extremal diameters over trees at fixed palette size, not the all-order boundary metric. Historical priority for the boundary claim is not certified.
 
 ## Limitations
 

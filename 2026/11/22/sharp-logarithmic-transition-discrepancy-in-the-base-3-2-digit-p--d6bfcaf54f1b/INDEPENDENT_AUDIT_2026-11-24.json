@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:37:02.135620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated convention n=∑d_j(3/2)^j, the units digit is n mod 3 and the remaining value is 2⌊n/3⌋, proving the fixed-word parity rule including w0=0. For t_j=w_{2j}, adjacent signs in one auxiliary triple are (1,−ε_{2m},−ε_{2m+1}), which gives the three displayed branches for D(N) with additive terms 0,4, or −2/8. Iteration shrinks the argument by at least the factor 2/3 for N>0. The t-to-w block map contributes one transition of each orientation inside every triple; boundary orientation imbalance telescopes to t_N−t_0. Thus Q_ab(3N)−6N/5 equals −D(N)/20 plus the signed, bounded endpoint term, and the other two residues change the error by O(1). For the lower bound, the congruences for m0 are compatible and give m0≤3·4^k; multiplication of 5m+6 by 9/4 preserves the requisite divisibility, ensuring all k steps are integral and all m_j are multiples of 3. At 2m_j the sign is +1; the two inverse steps visit 3m_j+2 and 3(3m_j+2)/2, giving net drift +2. Consequently one of the two endpoint defects has magnitude at least k at a prefix ≤30·9^k, yielding the lower bound for both orientations for every sufficiently large X by choosing k=⌊log_9(X/30)⌋. This is maximal prefix discrepancy, not a lower bound at every prefix. Independently checked 6,000 direct signed prefixes, the two transfers at 2,000 complete-block prefixes, and 16 exact CRT witnesses. Replay: python3 /workspace/branches/frozen_math_reproductions.py 4. These are finite corroboration; the proof supplies the quantifiers. The upload was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261108-03f7bfb4e7e7 gives rational frequencies for all run patterns and mean run length 5/2 for t_n=w_{2n}. The primary papers linked by OEIS were targeted; no decisive additional primary passages were returned."
+        ],
+        "reasoning": "More limiting frequencies are not a uniformly quantitative estimate. An exact recursion in an earlier proof might facilitate the upper bound; the checked statements do not give the sharp maximum-order conclusion.",
+        "searches": [
+          "Resultary: all-order rational run statistics base 3/2",
+          "arXiv:2301.13563",
+          "arXiv:2602.21895"
+        ]
+      },
+      "checked_sources": [
+        "A357448: FORMULA and COMMENTS",
+        "SCOPE-20261108-03f7bfb4e7e7, opening RESULT.md",
+        "SCOPE-20261122-191faaace10c and SCOPE-20261012-29efb4b8c4fd, Findings",
+        "Frozen RESULT.md §§ Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A mean run length 5/2 gives total transition density 2/5 in t; the two orientations split this equally by alternation. The triple map gives (1+1/5)/3=2/5 for each orientation in w."
+        ],
+        "reasoning": "The previous work therefore implies the limiting result, not merely a similar density. It supplies no bound forcing or excluding large prefix errors; the CRT drift supplies the new lower-bound conclusion for all sufficiently large cutoff scales.",
+        "searches": [
+          "SCOPE-20261108-03f7bfb4e7e7/RESULT.md, run distribution and mean",
+          "SCOPE-20261122-191faaace10c/RESULT.md and SCOPE-20261012-29efb4b8c4fd/RESULT.md, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A357448 has the exact three recurrences for w. On the half-scaled word, unequal adjacency boundaries give the defect D, and the two oriented w-prefix discrepancies at multiples of 3 differ from −D/20 by at most 1/2."
+        ],
+        "reasoning": "Pointwise parity recurrences, signed adjacency recurrence and a sharp prefix-sum bound are different statements. The oriented forms have the same discrepancy order since their difference telescopes. No independent novelty is ascribed to a second orientation or to renaming the sequence.",
+        "searches": [
+          "OEIS:A357448 FORMULA and COMMENTS",
+          "Resultary: base-3/2 word oriented transition discrepancy, adjacency and half-scaled recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS COMMENTS > Conjectures lists μ[01]=4/10. The target is indexed and is not a second claim. SCOPE-20261122-191faaace10c treats repunit prefixes of the ternary word s_3(n) mod 3 (density 3/13); SCOPE-20261012-29efb4b8c4fd treats 01 in classical base-two Thue–Morse (density 1/3)."
+        ],
+        "reasoning": "The database sequence identity and conjectured density are credited. The other quantitative results change the word and hence do not supply an exact entry for the disputed prefix discrepancy.",
+        "searches": [
+          "OEIS A357448",
+          "Local Resultary index: base-3/2 pair counts and sharp digit-word prefix discrepancy"
+        ]
+      },
+      "rationale": "The record itself limits novelty to the sharp order of maximal prefix error. Known symbol recurrences and a previous run-statistics theorem already supply the word and the limiting oriented densities, but the verified comparisons do not establish a quantitative theorem with a matching logarithmic lower bound for this word.",
+      "residual_risks": [
+        "Targeted access to the cited rational-base primary articles did not yield inspectable decisive passages for this review; they or unindexed transducer/Toeplitz-discrepancy sources could contain a quantitative equivalent. Search misses are not exclusion evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise equivalence, frequency conjecture; no exact sharp bound identified",
+          "evidence": "a(3n)=a(3n+2)=a(2n), a(3n+1)=1−a(2n); μ[01]=4/10 in conjectures.",
+          "identifier_or_url": "https://oeis.org/A357448",
+          "material_read": "FORMULA and COMMENTS > Conjectures, references",
+          "method": "Public OEIS entry",
+          "title": "Fixed point starting with 0 of the two-block substitution",
+          "trigger": "Exact sequence identity and prior two-letter claim"
+        },
+        {
+          "assessment": "Implies the density, not the sharp prefix theorem",
+          "evidence": "Mean run length 5/2 and all-order run-pattern limits for t_n=w_{2n}.",
+          "identifier_or_url": "SCOPE-20261108-03f7bfb4e7e7",
+          "material_read": "Opening statements in RESULT.md",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-order rational run statistics and the exact five-state run-transition law for the base-3/2 Thue–Morse word",
+          "trigger": "Potential quantitative implication for the same sequence via decimation"
+        },
+        {
+          "assessment": "Different sequence and normalization",
+          "evidence": "One orientation in the base-three ternary-valued word, frequency 3/13, at repunit prefixes.",
+          "identifier_or_url": "SCOPE-20261122-191faaace10c",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact repunit-prefix bigram discrepancy in the ternary digit sum …",
+          "trigger": "Same-date quantitative digit-word match"
+        },
+        {
+          "assessment": "Analogous result for a different word",
+          "evidence": "Classical base-two Thue–Morse 01 deviations centered at N/3.",
+          "identifier_or_url": "SCOPE-20261012-29efb4b8c4fd",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp logarithmic discrepancy constants for Thue–Morse 01-occurrences",
+          "trigger": "Matching sharp discrepancy terminology"
+        },
+        {
+          "assessment": "Primary-text comparison limited; not evidence of full-text noncoverage",
+          "evidence": "The exact recurrence and conjectured density were independently accessible in OEIS; the frozen record also locates the 2023 factor conjectures.",
+          "identifier_or_url": "arXiv:2301.13563",
+          "material_read": "OA reference in OEIS; relevant article passages not returned in independent attempts",
+          "method": "Targeted OA reads and comparison to frozen source notes",
+          "title": "The Thue–Morse sequence in base 3/2",
+          "trigger": "Primary source for the word and factor questions"
+        },
+        {
+          "assessment": "Unresolved for quantitative prefix bounds; not treated as a verified exclusion",
+          "evidence": "Frozen audit describes one-symbol equidistribution and factor frequencies as a further problem; no new full-text confirmation claimed.",
+          "identifier_or_url": "arXiv:2602.21895",
+          "material_read": "Citation pointed to by OEIS (p. 9); targeted primary passages not returned",
+          "method": "Targeted OA attempts and frozen access notes",
+          "title": "Symbols frequencies in the Thue–Morse word in base 3/2 and related conjectures",
+          "trigger": "Plausible generalization covering quantitative factor discrepancies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact error order quantifies convergence for a named, studied rational-base sequence whose transition frequencies were explicitly conjectured. The lower bound rules out bounded or sublogarithmic maximal error despite near-linear predictability of both counts, and the congruence construction explains the persistent drift rather than inferring it from a table. The limiting frequency alone is not counted as the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

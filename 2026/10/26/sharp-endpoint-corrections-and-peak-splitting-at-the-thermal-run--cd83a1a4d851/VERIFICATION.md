@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility
 
-Run `python checks/verify.py` with Python 3, NumPy, and SciPy. The self-contained code checks the independently normalized Gauss–Jacobi Beta integral against a hypergeometric root equation, probes the two sides of the shape transition, verifies the critical quartic sign and peak-splitting coefficient, and checks numerical approximations for both endpoint asymptotics. Its execution on the packaged code gave 48 passing deterministic assertions. Numerical verification does not prove the global zero count or uniform asymptotic errors.
+The unchanged `checks/verify.py` (Python 3, NumPy and SciPy) implements a finite comparison of the Gauss–Jacobi Beta integral and a hypergeometric root equation, and probes curvature, mode opening and the two endpoint expansions. Its original packaged run reports 48 deterministic assertions. This is finite numerical corroboration only.
 
-The analytic proof of uniqueness uses strict total positivity of the Gaussian kernel, and the two endpoint limits use separate asymptotic analyses. Earlier literature gives the exact convolution and implicit shape-transition equation; neither is independently rederived as a novel claim. No independent external audit was performed.
+The analytical check of the global real zero bound uses exponential test functions and integration by parts with controlled endpoint terms. The nearly uniform endpoint uses a uniform Taylor bound on the lower half of the beta integral and an integrable estimate on the upper half. Neither assertion is inferred from the finite numerical checks.

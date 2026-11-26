@@ -1,90 +1,50 @@
-# Generic cusp and transverse double-branch germs of binary multiple-root loci
+# Transverse two-branch germs and depth on binary multiple-root loci
 
 ## Finding
 
-**Theorem.** Work over \(\mathbb C\). For integers \(m\ge2\) and \(d\ge m+1\), define the reduced projective multiple-root locus
-\[
-\Delta_{m,d}=\{[F]\in\mathbb P(\operatorname{Sym}^{d}\mathbb C^{2}):\text{some linear factor of }F\text{ occurs at least }m\text{ times}\}.
-\]
-At every \([F]\) with exact root partition \((m+1,1^{d-m-1})\), the completed local ring has analytic form
-\[
-\widehat{\mathcal O}_{\Delta_{m,d},[F]}
-\cong\mathbb C[[u_1,\ldots,u_{d-m},x,y]]/(y^{2}-x^{3}). \tag{1}
-\]
-Thus the generic merger of one multiplicity-\(m\) root with one simple root is **a transverse ordinary cusp**, independent of \(m\).
+Let \(m\ge 3\) and \(d\ge 2m\), and let \(\Delta_{m,d}\subset \mathbb P(\operatorname{Sym}^d\mathbb C^2)\) be the reduced locus of binary forms having a root of multiplicity at least \(m\). Let \(S\) be the stratum of forms with exactly two distinct roots of multiplicity \(m\) and \(d-2m\) other, all simple, roots. Put \(q=d-2m+2\) and \(c=m-1\).
 
-When \(d\ge 2m\), at every form with exact partition \((m,m,1^{d-2m})\), put \(q=d-2m+2\) and \(c=m-1\). Then
+At every closed point \(s\in S\), the completed local ring of \(\Delta_{m,d}\) is
 \[
-\widehat{\mathcal O}_{\Delta_{m,d},[F]}
-\cong \mathbb C[[u_1,\ldots,u_q,a_1,\ldots,a_c,b_1,\ldots,b_c]]/
-(a_i b_j:1\le i,j\le c). \tag{2}
+\mathbb C[[u_1,\ldots,u_q,a_1,\ldots,a_c,b_1,\ldots,b_c]]/
+(a_i b_j : 1\le i,j\le c).
 \]
-These are two smooth analytic branches meeting transversely along the smooth stratum with both designated multiple roots. Their local Hilbert--Samuel multiplicity is \(2\); the completed local ring has
-\[
-\dim\mathcal O_{\Delta_{m,d},[F]}=q+c=d-m+1,\qquad
-\operatorname{depth}\mathcal O_{\Delta_{m,d},[F]}=q+1=d-2m+3. \tag{3}
-\]
-For \(m=2\), the transverse crossing is a node; for \(m\ge3\) and \(d\ge2m\), the general two-multiple-root stratum is a **non-Cohen--Macaulay locus of exact depth defect \(m-2\)**. At its generic point the local ring has dimension \(m-1\) and depth \(1\), so \(\Delta_{m,d}\) fails Serre's \(S_2\) condition.
-
-## Assumptions and scope
-
-The variety is the *reduced scheme-theoretic image* of the classical multiplication morphism
-\[
-\mathbb P^1\times\mathbb P^{d-m}\longrightarrow\mathbb P^d,
-\qquad ([L],[G])\longmapsto[L^mG].
-\]
-The statements hold at all closed complex points of the indicated **exact** multiplicity partitions (including when the number of remaining simple roots is zero). An exact partition requires all displayed simple roots to be mutually distinct and disjoint from the designated multiple roots. These local equations are not assertions about deeper collision strata or about the full global singular scheme. The normalization map and the set-theoretic singular support are classical; the theorem isolates the exact formal local rings and their depth consequences.
+The stratum is the transverse intersection of the two smooth local branches. The Hilbert–Samuel multiplicity is \(2\), the local dimension is \(d-m+1\), and the depth is \(d-2m+3\). In particular the depth defect is \(m-2\) at every closed point of \(S\). At the generic point of \(\overline S\) the local ring has dimension \(m-1\) and depth \(1\); hence \(\Delta_{m,d}\) fails Serre's \(S_2\) condition.
 
 ## Proof
 
-**Analytic factorization lemma.** Let a monic polynomial \(F_0\) factor into monic pairwise coprime polynomials \(Q_1\cdots Q_r\). In a small complex-analytic neighborhood of \(F_0\), the multiplication map from the product of coefficient neighborhoods of the \(Q_i\) is a local analytic isomorphism. Indeed its differential identifies tangent coefficient vectors using the Chinese remainder theorem: a first-order product variation vanishes only when each variation is divisible by its corresponding factor, hence zero under the imposed degree bounds. The analytic inverse-function theorem applies. Equivalently, use Hensel factorization in complete local rings. In a projective chart with a nonzero leading coefficient, all forms can be taken monic after moving the finitely many roots away from infinity by a projective change of coordinates.
-
-**The cusp stratum.** At a form with one root of multiplicity exactly \(m+1\) and all other roots simple, apply the factorization lemma to separate its degree-\(m+1\) root cluster from the monic simple-root factor of degree \(d-m-1\). The latter contributes \(d-m-1\) free smooth coefficient parameters. The cluster belongs to \(\Delta_{m,m+1}\) exactly when
+Move the roots away from infinity and work in the monic coefficient chart. Near the chosen form \(Q_1 Q_2 H\), use a product of coefficient spaces with two monic degree-\(m\) factors \(Q_1,Q_2\) and a monic degree-\(d-2m\) factor \(H\). These factors are pairwise coprime at the chosen point, and \(H\) is squarefree. Restrict to that open condition. The product map to the monic degree-\(d\) space is étale there: its derivative is
 \[
-Q(z)=(z-t)^m(z-v_0).
+(\dot Q_1,\dot Q_2,\dot H)\longmapsto \dot Q_1 Q_2 H+Q_1\dot Q_2 H+Q_1Q_2\dot H,
 \]
-Set \(a=(mt+v_0)/(m+1)\) and \(v=v_0-t\); then \(t=a-v/(m+1)\) and \(v_0=a+mv/(m+1)\). Writing \(s=z-a\),
-\[
-Q(z)=\left(s+\frac{v}{m+1}\right)^m
-\left(s-\frac{mv}{m+1}\right)
-=s^{m+1}+\sum_{k=2}^{m+1}C_kv^ks^{m+1-k},
-\]
-where
-\[
-C_k=\frac{\binom m k-m\binom m{k-1}}{(m+1)^k},\quad
-C_2=-\frac{m}{2(m+1)},\quad C_3=-\frac{m(m-1)}{3(m+1)^2}.
-\]
-(The convention \(\binom m{m+1}=0\) is used.) Both displayed coefficients are nonzero for \(m\ge2\). The coefficient of \(z^m\) recovers \(a\), and the remaining coefficients recover \(v^2\) and \(v^3\). Every \(v^k\), \(k\ge2\), is a polynomial in \(v^2\) and \(v^3\). Therefore the **reduced** coefficient image is exactly \(\mathbb C[a,v^2,v^3]\cong\mathbb C[a,x,y]/(y^2-x^3)\). Adding the smooth factor proves (1). Its transverse Jacobian ideal \((x^2,y)\) has colength \(2\) in the transverse local ring, while the cusp has multiplicity \(2\).
+and reducing modulo each of the three coprime factors gives injectivity, since the variations have degrees strictly smaller than those of their factors. Domain and codomain have dimension \(d\). If \(d=2m\), omit \(H\) (it is the constant \(1\)). At a complex closed point the étale map induces an isomorphism on completed local rings.
 
-**The two-multiple-root stratum.** Suppose \(d\ge2m\) and \(F_0\) has exactly two distinct roots of multiplicity \(m\), with every other root simple. Separate two disjoint monic degree-\(m\) clusters and the remaining monic degree-\(d-2m\) factor by the factorization lemma. The latter contributes \(d-2m\) smooth parameters. In a sufficiently small neighborhood a root of multiplicity at least \(m\) must occur in one of the two clusters; the remaining factor has only simple roots. Thus the reduced image germ is the union
+In the product chart a root of multiplicity at least \(m\) occurs just when one of \(Q_1\) and \(Q_2\) is a pure \(m\)-th power. Indeed distinct factors share no roots, and the residual factor has only simple roots. In each degree-\(m\) coefficient space the pure-power curve is smooth and can be straightened by polynomial coordinates: for \((z-t)^m\) the coefficient of \(z^{m-1}\) is \(-mt\), and subtracting the corresponding pure-power values from the other coefficients leaves \(c\) normal coordinates. Write \(a_i\) for these coordinates in the first block and \(b_j\) in the second. The two curve coordinates together with the coefficients of \(H\) give \(q\) coordinates \(u\) (center them at the point when taking its completion).
+
+The pullback of the reduced locus is reduced under the étale map; set-theoretically it is the union of \(a=0\) and \(b=0\) just described. Thus its ideal is \((a)\cap (b)=(a_i b_j)\). The intersection \(a=b=0\) maps to \(S\) in this chart, with the two blocks distinguished by their order. This proves the ring formula and transversality.
+
+For the displayed complete ring \(R\) there is an exact sequence
 \[
-\{Q_1=(z-t)^m\}\times\mathbb A^{m}
-\quad\cup\quad
-\mathbb A^{m}\times\{Q_2=(z-v)^m\},
+0\longrightarrow R\longrightarrow
+\mathbb C[[u,a]]\oplus\mathbb C[[u,b]]
+\xrightarrow{\,\mathrm{res}_a-\mathrm{res}_b\,}\mathbb C[[u]]\longrightarrow 0,
 \]
-with the residual smooth parameters suppressed. The \(m\)-fold-power curve inside the affine space of monic degree-\(m\) polynomials is smooth: the coefficient of \(z^{m-1}\) equals \(-mt\) and gives a nonsingular local parameter. Analytically straighten this smooth curve in each independent coefficient block; each leaves \(c=m-1\) normal coordinates. The ideal of the union is the intersection of the two disjoint-block coordinate ideals, equal to their product \((a_i b_j)\). Its free coordinates comprise \(q=(d-2m)+2\), proving (2).
+where the map takes the difference of the two restrictions to the intersection. The two middle summands are regular of dimension \(q+c\), and the last has depth \(q\). The depth lemma gives \(\operatorname{depth}R=q+1\) since \(c\ge 2\). Both branches have dimension \(q+c\) and multiplicity one, so by multiplicity associativity the multiplicity of their union is two. Dimension, depth and multiplicity agree with those of the algebraic local ring by completion.
 
-**Depth.** Set \(A=\mathbb C[[u,a]]\), \(B=\mathbb C[[u,b]]\), and \(C=\mathbb C[[u]]\) with \(q\) variables \(u\) and \(c\) variables in either of the blocks \(a,b\). The transverse-union ring \(R\) satisfies the exact sequence
-\[
-0\longrightarrow R\longrightarrow A\oplus B\longrightarrow C\longrightarrow0,
-\]
-where the last arrow is the difference of the two restrictions obtained by setting normal variables to zero. Both \(A,B\) are regular of dimension \(q+c\), whereas \(C\) is regular of dimension \(q\). The depth lemma (or the local-cohomology long exact sequence) gives \(\operatorname{depth}R=q+1\) for \(c\ge2\); for \(c=1\) the same equality follows because \(R\) is the hypersurface \((a_1b_1)\). The dimension is \(q+c\). Because the two irreducible branches are smooth of multiplicity one and meet in a proper lower-dimensional locus, their union has local multiplicity \(2\). Localizing at the generic point of the intersection deletes the \(u\)-directions; the resulting local ring has dimension \(c\) and depth \(1\). For \(c\ge2\) it violates \(S_2\). The depth defect at a closed general point is \(c-1=m-2\), completing the proof.
-
-## Verification
-
-The accompanying exact checker `checks/verify_multiple_root_germs.py` requires SymPy, with `checks/requirements.txt` describing the dependency. It reproduces coefficient identities for \(2\le m\le12\), verifies ambient tangent-space intersection dimensions for \(2\le m\le8\) and \(2m\le d\le 2m+3\), and checks the Hilbert functions of the squarefree two-block union for \(1\le c\le7\). Run `python checks/verify_multiple_root_germs.py` in a Python environment with the declared dependency. `checks/check_output.txt` contains an actual run's output. These computations do **not** establish the unbounded claims; the analytic factorization and exact-sequence proofs above do.
+For the generic-point assertion use the same étale chart before completion. Its ordered intersection \(a=b=0\) is irreducible on the coprime, residual-squarefree open and dominates \(S\). Localize the coordinate union at the generic point of that intersection. The two regular branch local rings have dimension \(c\) and their intersection ring is the function field of the ordered stratum. The same restriction exact sequence now gives depth \(1\). The local map from \(\mathcal O_{\Delta_{m,d},\eta}\), where \(\eta\) is the generic point of \(\overline S\), to this local ring is étale with field fiber, so dimension and depth agree. Since \(c\ge 2\), this violates \(S_2\) at \(\eta\).
 
 ## Relationship to prior work
 
-Chipalkatti, *On equations defining coincident root loci* (arXiv:math/0110224, first posted 2001-10-19), §5, established the scheme-theoretic normalization framework and a combinatorial classification of the **set-theoretic** singular locus; it does not give the two completed local-ring formulas (1)--(2) or their depth calculation. Kurmann, *Some remarks about equations defining coincident root loci* (arXiv:1108.4532, first posted 2011-08-23), §2, refines the singular-support analysis through normalization fibers and tangent maps, referring qualitatively to nodal-type and cusp-like phenomena. The present statement sharpens that language to the exact ordinary cusp and transverse union of two \((m-1)\)-normal-block smooth branches, with the resulting failure of Cohen--Macaulayness and \(S_2\). The familiar discriminant case \(m=2\) is classical and is included for comparison, not claimed as new. The precise overlap risk from earlier Hilbert-function/defining-ideal literature is acknowledged in the review.
+Chipalkatti's Theorem 5.4 gives the set-theoretic singular support for coincident-root loci. Kurmann's Proposition 2.1 identifies the two normalization preimages in this exact partition, and its tangent criterion accounts for the qualitative nodal-type picture. The result here identifies the simultaneous normal-coordinate blocks and reduced union ideal, and obtains the precise closed-point and generic-point depths. Knowing the number of preimages alone does not specify the intersection or its completed local ring.
 
-## Limitations
+The ordinary discriminant case \(m=2\) and the germ at a merger to a single \((m+1)\)-fold root are not contributions here. In particular Chipalkatti's Theorem 4.1 and its proof identify the square of the diagonal ideal in the normalization of an unequal two-part coincident-root locus, giving the characteristic-zero cusp in the two-part case; separating the disjoint simple factors gives the corresponding smooth-factor version.
 
-The theorem concerns exact generic collision partitions and formal/complex-analytic neighborhoods. It does not classify deeper root collisions, every component of a nonreduced Jacobian singular scheme, global graded minimal resolutions, or all Cohen--Macaulay parameter regimes. Full-text comparison with Weyman's *On the Hilbert Functions of Multiplicity Ideals* (1993) could not be completed and remains an originality risk. The displayed singular-support criterion is established prior work. No independent external mathematical audit has been performed.
+## Scope and verification
+
+The result concerns the reduced complex locus and only the exact stratum \(S\), not deeper collisions or the full singular scheme. It proves local failure of Cohen–Macaulayness on this stratum, not an exhaustive global classification. The étale coordinate and depth arguments above are uniform. Bounded tangent-rank and monomial checks are described in `VERIFICATION.md`; they are not needed for the theorem. Exact overlap with the full 1993 multiplicity-ideal treatment below could not be checked.
 
 ## References
 
-1. J. V. Chipalkatti, *On equations defining coincident root loci*, arXiv:math/0110224 (2001), §§4--6; Journal of Algebra 267 (2003), 246--271. https://arxiv.org/abs/math/0110224
-2. S. Kurmann, *Some remarks about equations defining coincident root loci*, arXiv:1108.4532 (2011), §§1--3; Journal of Algebra 352 (2012), 223--231. https://arxiv.org/abs/1108.4532
-3. J. Weyman, *On the Hilbert functions of multiplicity ideals*, Journal of Algebra 161 (1993), 358--369. DOI:10.1006/jabr.1993.1224. Full text not reviewed.
-4. Brambilla--Staglianò, *CoincidentRootLoci*, Macaulay2 documentation, `singularLocus(CoincidentRootLocus)` (set-theoretic singular-stratum functionality).
+1. J. V. Chipalkatti, *On equations defining coincident root loci*, Journal of Algebra 267 (2003), 246–271, §§4–6; [arXiv:math/0110224](https://arxiv.org/abs/math/0110224).
+2. S. Kurmann, *Some remarks about equations defining coincident root loci*, Journal of Algebra 352 (2012), 223–231, §2; [arXiv:1108.4532](https://arxiv.org/abs/1108.4532).
+3. J. Weyman, *On the Hilbert functions of multiplicity ideals*, Journal of Algebra 161 (1993), 358–369, [DOI:10.1006/jabr.1993.1224](https://doi.org/10.1006/jabr.1993.1224).

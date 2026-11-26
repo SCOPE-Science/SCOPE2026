@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:26:51.305800Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30 and 32–76; frozen VERIFICATION.md and check_rotation3.py inspected, not executed.",
+        "Kazaniecki–Stolyarov–Wojciechowski DOI:10.2140/apde.2017.10.351, §1 p. 351, precise same-order Ornstein input.",
+        "Independent algebraic replay: factor P²−(1+r²)(1−r²+4r)², (1+r²)P′−3rP, and P−(1+r)(1+r²) on each branch. The critical root is 0.5712553850; the local peak and cusp evaluate to 2.6161789111 and 2.5485473885."
+      ],
+      "rationale": "Reflections and quarter-turns act by signed permutations of the derivative slots. Reducing to 0≤φ≤π/4, write c=cos φ, s=sin φ, r=s/c. The cubic xxy column of the chain-rule matrix is (3c²s,c(c²−2s²),s(s²−2c²),3cs²), and the xyy column has the same absolute sum. In units of c³, this sum is 3r+|1−2r²|+r(2−r²)+3r², giving the two numerators P₋=1+5r+r²−r³ and P₊=−1+5r+5r²−r³. The pure cubic maximum and first-order maximum are c+s; the second-order maximum is (1−r²+4r)/(1+r²). Squaring to compare this with the cubic mixed sum, the respective numerator differences are 2r[3r⁴+4r²+1+6r(1−2r²)] and 2r(26r²−r⁴−9), both positive for r>0 on their branch. The second-order term bounds the first. The chain rule thus gives L₃ as an upper bound. To prove equality, use the same-order Ornstein theorem on D_xxy against the other three cubic monomials. A sequence concentrates the cubic L¹ mass in D_xxy; dilation suppresses orders 0–2, and rowwise reverse triangle inequalities yield the full column sum. The norm identity is therefore on the genuine Sobolev space, not on unconstrained jets. The signs of (1+r²)P′−3rP on the two branches are those of 5−r−13r²−r³ and (1−r)(5r²+18r+5). The root is between 0.57 and 0.58; using P₋(0.58) and the denominator at 0.57 bounds its branch maximum below 8/3. The cusp at 1/√2 is a strict local minimum and 2√2 at r=1 is the strict global maximum on the reduced interval. At nonquarter angles L₃>1, and the unchanged positive zeroth-order norm of a nonzero function forces strict inequality in the complete norm estimate. At quarter-turns all slots are preserved in norm. This verifies both isometry and attainment statements.",
+      "residual_risks": [
+        "Real planar W^{3,1}, with the complete unweighted sum counting each distinct mixed derivative once. A tensor norm, different weights or omission of lower orders would be a different problem, especially for attainment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamad classifies surjective isometries of the complete real derivative-sum norm: translations, signed coordinate permutations and an overall sign. This covers the norm-preserving rotations, not the distortion away from them.",
+          "The same-order Ornstein theorem provides concentrating functions because the selected cubic monomial is not in the span of the others; it does not evaluate angular dependence.",
+          "The all-order shear theorem assumes a triangular shear. A product of shears representing a rotation gives only a norm-product upper bound without new sharpness/evaluation."
+        ],
+        "reasoning": "Credit the general theorems for what they imply. None of their inspected statements evaluates the competing cubic column sums for rotations or determines their branch changes and extrema.",
+        "searches": [
+          "Hamad arXiv:2611.09577v1 Theorem 1.1",
+          "Kazaniecki–Stolyarov–Wojciechowski DOI:10.2140/apde.2017.10.351 §1",
+          "Resultary all-order exact shear norm c0bb26d3cb4a"
+        ]
+      },
+      "checked_sources": [
+        "Kazaniecki–Stolyarov–Wojciechowski §1; Hamad arXiv:2611.09577v1 Theorem 1.1",
+        "Local published records c088c35512e6, c0bb26d3cb4a and identical match 726bd93a8dc7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Changing from quadratic to cubic changes both the matrix and the sign threshold. The coefficient c(c²−2s²) creates a cusp at tan φ=1/√2, and the positive derivative on the second cubic branch takes the maximum to the diagonal. These are not consequences of the quadratic profile.",
+          "The structural concentration argument follows from prior Ornstein theory plus scaling; the distinction being credited is evaluation of this sharp profile and its extrema, not a new non-inequality or isometry theorem."
+        ],
+        "reasoning": "A generic method for sharpness does not fix the cubic formula; a proposition giving the angular formula for a larger class would count as coverage if located. Neither the inspected narrower exact formulas nor general isometry and non-inequality statements do so.",
+        "searches": [
+          "c088c35512e6 and c0bb26d3cb4a, RESULT.md Findings (mirror offset 0)",
+          "Hamad Theorem 1.1 and Ornstein statement in the 2017 article §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order-three pullback is represented on cubic derivatives by a symmetric-power matrix in the unweighted monomial-slot convention. Its ℓ¹ column bound is sharp only after proving concentration on realizable Sobolev jets. It is not the Euclidean tensor norm, which is rotation-invariant.",
+          "The closest angular formula is the order-two norm 2|sin 2θ|+|cos 2θ|. That profile has a diagonal cusp minimum and an oblique global maximum, not the cubic angular shape."
+        ],
+        "reasoning": "Compared the pullback problem with its coefficient-matrix formulation and the closest derivative order. Rotation symmetry and different counting conventions do not identify the two claims.",
+        "searches": [
+          "Primary lookup for exact planar W^{3,1} rotation pullback distortion, derivative-sum norms and cubic jet/symmetric-power norms",
+          "Resultary rotation/jet and linear pullback comparisons c088c35512e6, c0bb26d3cb4a and 726bd93a8dc7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cubic entry 726bd93a8dc7 is the assigned record itself. The distinct exact records give a quadratic rotation profile and an all-order triangular-shear norm; neither is the table or formula for cubic rotations."
+        ],
+        "reasoning": "The exact-table check is applicable despite the continuous parameter: an indexed piecewise angular formula might cover the claim. No distinct inspected table supplies it; indexed misses do not certify priority.",
+        "searches": [
+          "Resultary exact cubic rotation and full Sobolev distortion formulae; indexed 726bd93a8dc7, c088c35512e6 and c0bb26d3cb4a"
+        ]
+      },
+      "rationale": "The originality is the explicit third-order rotational profile: two interior turning points of different types and a diagonal global maximum rather than the order-two oblique maximum. The same-order non-inequality, coordinate-isometry rigidity, and sharpness-by-concentration method are prior ingredients. No broader norm formula settling this profile was found in the bounded comparison.",
+      "residual_risks": [
+        "Bounded literature and index comparison. An unindexed general change-of-coordinates formula may subsume some or all of the profile; access failure for an individual hit is not absence evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precise cited theorem applies; supplies sharpness mechanism, not an angular profile",
+          "evidence": "If one scalar homogeneous constant-coefficient operator at that order is bounded in L¹ by the others then it is a linear combination of them. The four cubic monomials are linearly independent.",
+          "identifier_or_url": "https://doi.org/10.2140/apde.2017.10.351",
+          "material_read": "§1, printed p. 351, open PDF offset 1250",
+          "method": "Original open publisher PDF, bounded passage",
+          "title": "Anisotropic Ornstein noninequalities",
+          "trigger": "Decisive same-order L¹ theorem used to realize sharpness"
+        },
+        {
+          "assessment": "Existing ingredient, not claimed new",
+          "evidence": "The 2017 paper explicitly credits the same-order implication to Ornstein (1962).",
+          "identifier_or_url": "https://doi.org/10.1007/BF00253928",
+          "material_read": "No original full text obtained; checked explicit attribution and statement in the 2017 paper §1",
+          "method": "Lawful publisher lookup and original open restatement as described above",
+          "title": "A non-inequality for differential operators in the L¹ norm",
+          "trigger": "Original same-order non-inequality"
+        },
+        {
+          "assessment": "Covers the rigid norm-one class, not the quantitative distortion in the inspected theorem",
+          "evidence": "The theorem characterizes surjective isometries by translations, signed coordinate permutations and sign.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09577",
+          "material_read": "v1 p. 1, norm convention and Theorem 1.1, offset 1950",
+          "method": "Original open PDF, bounded passage",
+          "title": "Isometric Classification of Sobolev Spaces",
+          "trigger": "Same complete real derivative-sum norm and quantitative-isometry overlap"
+        },
+        {
+          "assessment": "Substantial lower-order predecessor, not the order-three result",
+          "evidence": "The exact quadratic profile 2|sin 2θ|+|cos 2θ| reaches √5 obliquely; the diagonals are cusp minima.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-rotation-distortion-of-the-planar-endpoint-second-jet-sobo--c088c35512e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "Sharp rotation distortion of the planar endpoint second-jet Sobolev norm",
+          "trigger": "Closest exact angular formula"
+        },
+        {
+          "assessment": "Exact triangular-shear formula not an exact rotation norm theorem",
+          "evidence": "The hypotheses are shear transformations; composing exact shear estimates does not give equality for a rotation.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-shear-distortion-and-two-endpoint-sobolev-norm-transitions--c0bb26d3cb4a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "Exact shear distortion and two endpoint-Sobolev norm transitions",
+          "trigger": "All-order formula for a class of linear pullbacks"
+        },
+        {
+          "assessment": "Relevance and full coverage not established",
+          "evidence": "HTTP 403; no scientific noncoverage inference drawn from access.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0022123682900027",
+          "material_read": "No decisive text obtained",
+          "method": "Lawful public retrieval attempt",
+          "title": "Multipliers of Sobolev spaces",
+          "trigger": "Primary lookup hit in the broader Sobolev operator comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Quadratic angular comparison c088c35512e6"
+      ],
+      "rationale": "For this natural complete endpoint derivative-sum norm, knowing the exact distortion or where it is worst can matter in using rotated coordinates; a generic equivalence bound loses that information. The fixed cubic order resolves a change from the previous natural derivative order: the worst angle becomes diagonal and an interior smooth maximum and distinct cusp minimum appear. The proof realizes the coefficient bound in the function space and rules out attainers, so the sharp result is more than a finite jet computation.",
+      "residual_risks": [
+        "No all-order angular classification, constructive extremizers, nonlinear coordinate theorem, or conclusions for rotationally invariant Sobolev norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

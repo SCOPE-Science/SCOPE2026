@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The supporting program `check_hypercube.py` runs with the Python standard library and no other dependencies. Execute `python check_hypercube.py` from the extracted package. Expected output starts with `VERIFY_OK` and reports a 16-vertex, 128-edge connected multigraph with first Betti number 113, finite-field branch profile `(4, 4, 4, 4)`, and rational torus-character multiplicities 3, 7, 11, 15 by nonzero Hamming weight.
+## correctness
 
-The program enumerates every projective point on the two-quadrics base over the single field \(\mathbb F_{17}\), not all complex points or all primes. It checks finite-field smoothness using exact Jacobian minors and independently checks the graph-character Fourier formulas by integer arithmetic. The characteristic-zero proof of geometric smoothness, the scheme-theoretic reduction, analytic ordinary nodes, and the exact generalized-Jacobian extension is fully supplied in `RESULT.md`; no finite sample is used as an infinite proof.
+PASS
 
-A second mathematical consistency check compares the nodal arithmetic genus \(16+128-16+1=129\) with hyperplane adjunction \(1+(64+3\cdot64)/2=129\). The program has no claim to independent validation, external certification, or exhaustion of the literature.
+At M=0 the square-linear relations give exactly the two base quadrics and the four quadratic pair relations. The base coordinates have no common zero. The pair equations are monic in local projective trivializations, so the cover has rank 16 over the smooth base. Away from the four branch divisors it is split and reduced, and finite local freeness excludes any nilpotents supported at branch points. The two quadratic gradients have rank two (the only possible rank-drop patterns would force two zero coordinates; none is compatible with the equations). Smooth complete-intersection adjunction gives genus one. Independently, in the chart F=1 put u=H+D, so H−D=u⁻¹ and (2iuG₀)²=u⁴+6u²+1. The four roots ±i(√2±1) have cross ratio 1/2 in a suitable ordering, giving j=1728. Each of F,H,D,G₀ has four distinct simple zeros on the quartic and their zero sets are disjoint. At any such point the other three monic equations split analytically into distinct choices, with the remaining local equation a²+h²=0 and h a base parameter. This is an ordinary node joining precisely the two sheets differing in that bit. Thus each of 32 cube adjacencies carries four nodes, and connectedness gives b₁=128−16+1=113. Normalization gives the Picard extension, with characters H₁ of the multigraph. The action on vertices is regular, and each of four node orbits in direction j induces the sign action of the branch-swapping stabilizer. The boundary image is the augmentation submodule, giving 4|S|−1 for nonempty S and no invariants. An independent exact oriented-edge permutation computation gave H₁ traces 113 at the identity, −31 at each generator and 1 otherwise, and Fourier multiplicities 0,3,7,11,15 by weight. The uploaded finite-field program was inspected, not run; its field computation alone cannot prove the complex local geometry.
+
+## originality
+
+PASS
+
+The distinct supported content is the ordinary-node gluing for this divisor and its equivariant torus characters, not the known sixteen elliptic components, their isomorphism class or the general Picard normalization sequence. The strongest inspected intersection calculation works after separating the branches on the resolution and does not present their gluing graph.
+
+## value
+
+PASS
+
+The center-zero section is a natural split hyperplane divisor of the magic-square surface. Giving its gluing directly rather than just intersections after resolution identifies the cycles lost under normalization. The equivariant calculation then determines exactly which characters occur in the torus of gluing parameters, including absence of sign-invariant torus directions. This is a concrete symmetry invariant for work with this generalized Jacobian, not just a new scalar node count or an unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

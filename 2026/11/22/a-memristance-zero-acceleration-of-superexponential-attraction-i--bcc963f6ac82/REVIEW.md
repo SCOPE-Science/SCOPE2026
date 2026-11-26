@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact four-dimensional elimination gives a third-order multiplicative recurrence with a memory-dependent coefficient. For the interior region the coefficient stays bounded away from zero, so positive Perron projection gives the rate \(\rho\). For the constructed endpoint, a monotone operator on an explicitly bounded sequence product produces an actual strictly positive four-dimensional trajectory. Its memory tail is asymptotic to its leading population term, changing the logarithmic recurrence from coefficients \((1,2)\) to \((2,2)\), and its stable complementary roots yield the constant prefactor. The standalone exact reduction and finite diagnostic checks passed. Infinite existence and asymptotics follow from the proof, not numerical experiments.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full Wang–Tong–Li–Zhang–Iu–Li (2023) source states its four-dimensional map and fixed-point line but does not provide the zero-memristance endpoint trajectory or its sharp attraction clock. An existing three-dimensional \(c=1\) mathematical result already derives the interior Perron root \(\rho\) without memory; this is explicitly excluded from the novelty claim. Its autonomous scalar reduction does not contain the memory-induced factor that yields \(\beta\) at \(w_\infty=\sqrt2\). Searches of indexed work on discrete memristors, parabolic maps, superexponential attraction, and the numerical root found no directly dominating published statement. An equivalent unindexed proof remains possible.
+PASS
 
-## Value — PASS
-At a natural zero of the model's square-charge memristance, the memory variable and population vanish together. This changes the exponent in a double-exponential law from \(\rho\approx1.6956\) to \(\beta\approx2.3593\), and makes the first multiplicative prefactor exact and parameter-only. The endpoint is actually populated by positive initial states, not just a formal asymptotic balance. This differentiates two stability mechanisms in a previously studied four-dimensional map.
+The fixed line follows from w'=w+y, and substitution gives the exact lag-two recurrence for n≥2. In the interior box y1=O(s²), y2=O(s³), and subsequent y's contract by at most ab s²<1/2 while w<1. Thus their total is less than 2s for small s, closing the bootstrap. The logarithmic forcing remains bounded uniformly over the box. The positive Perron projection of (u2,u1,u0) grows at least as a constant times log(1/s), so it dominates the bounded discounted forcing and gives a positive rho-clock. At the endpoint, the prescribed Y sequence decays at least geometrically; d_n≤2Y_n for n≥2 makes the tail operator a self-map, increasing because d_n<sqrt(2). Its zero-tail iterates converge coordinatewise with dominated sums, and the fixed recurrence propagates strict positivity from y0,y1,y2. The initialization (5) exactly produces y1,y2, with x0 and 1−z0 asymptotic to s/(b sqrt(2)), and x_n<1 ensures positivity of z. The ratio bound gives d_n/y_n→1. In logarithms, subtract the constant log(ab sqrt(2))/3; the Perron part is its growing beta-mode plus a vanishing remainder (the future discounted forcing is bounded by a constant times the supremum of the remaining errors), while the stable convolution tends to zero because both other roots have modulus sqrt(2/beta)<1. The log-majorant gives L_*>0 by the same initial Perron-projection domination. Thus the multiplicative prefactor is correct. Independent exact rational root brackets and a bounded finite-tail replay corroborate the algebra and initial conditions but not the infinite existence or asymptotics. Replay: /workspace/branches/57043f8b-fa81-48d0-a5b5-21feb86759db/own_recurrence_check.py.
 
-## Scope and limitations
-The construction fixes \(c=1\), with a positive interior open set and a separate nonempty endpoint family; it makes no global basin, uniqueness, or smooth-separatrix claim. The originating source was read in full HTML. Related published memristor maps use different equations; their available abstracts do not resolve the exact same-map comparison. Priority over inaccessible or unindexed work is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The map, the location of the fixed line, and the elementary interior clock mechanism through the parabolic subsystem are credited or directly recognizable. The realized positive boundary trajectories and the changed rate plus prefactor are the distinguishing claim.
+
+## value
+
+PASS
+
+A proven positive trajectory reaching the vanishing memory factor only in the limit answers whether the modified asymptotic clock is realized, rather than merely suggested by formal substitution. The limiting memory feeds back as an extra factor of y_n and changes both the scale and the first prefactor, isolating an explicit boundary mechanism in an existing model. No full separatrix or hardware behavior is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

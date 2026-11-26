@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The object is precisely the two explicitly defined 16-vertex graphs and the average-flow matrix of Waheed--Azam. The root path histogram is reconstructed by a finite subset recurrence, which is exhaustive by induction on visited subsets. An independent direct DFS enumeration confirms every sum without using that recurrence. Vertex transitivity makes the root count apply at every vertex. The \(16,6,2,2\) conditions give a closed-form distance spectrum; exact path ratios and nonzero trace difference complete the proof. No finite sample is extrapolated into an all-order statement.
+PASS
 
-## Originality: PASS, with residual historical risk
+Both coordinate graphs are vertex-transitive. Independent exact neighbor checks give degree six, two common neighbors per distinct pair, and local 2-regular graphs with two and zero triangles respectively, distinguishing the isomorphism types. Thus A²=4I+2J, so A has eigenvalues 6, 2, −2 of multiplicities 1, 6, 9, and D=2(J−I)−A gives 24, −4, 0 with the same multiplicities. I independently computed rooted simple paths by the reverse recurrence f(U,w)=sum of f(U minus w,j) over j adjacent to w in U minus w, with f({0},0)=1 and no other path ending at its own start. Deleting the last edge is a bijection, so this exhausts the ordered nonempty simple paths at all lengths 1–15. All 30 entries match RESULT.md, including 34452 and 34320 at the first differing length seven. (Total paths, total lengths) are (13991682,177310488) and (14029326,177724236); the exact reduced quotient difference is 24601265726/5452607446287. Vertex transitivity gives F=cI−D, yielding the stated eigenvalues; the distinct traces alone prove separation.
 
-The November 13, 2026 average-flow paper provides the definition and flow-stable spectral shift and surveys only graphs through ten vertices. The 2023 path-based GNN paper *already distinguishes* this pair at paths of length seven; that known fact and the strongly regular classification are not new. Neither inspected paper computes the all-length path totals or verifies that the **average**, rather than just a path histogram, distinguishes the pair. Related published graph-pair results concerned other invariants. The precise exact rational separation was not found in the inspected sources; older unindexed computations remain possible.
+## originality
 
-## Value: PASS
+PASS
 
-This is a sharp, fully enumerated benchmark for the first nonisomorphic pair sharing the same strongly regular parameters. It resolves a specifically motivated question for the average-flow invariant on an important distance-regular example, and establishes that the weighted path-length compression retains a distinction that adjacency and distance spectra erase. Both the exact averages and complete rooted-path census are independently reproducible and useful in future tests of this new spectrum.
+The novel claim supported here is the exact all-length weighted mean difference for this pair and the resulting average-flow spectral separation. Prior work has the scalar shift, the graph pair, and a path-multiset separation through length seven. Those do not establish that the weighted mean survives cancellation across lengths. No complete prior table or stronger covering result was established in the inspected material.
 
-## Boundaries
+## value
 
-The first seven-length path distinction was already known; only the exact all-length average and resulting new matrix spectrum are assessed. No general spectral-completeness theorem is asserted. Computational certificates are actual exhaustive proofs for the 16-vertex inputs, not for any larger graph family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rook and Shrikhande graphs are a canonical test of graph invariants: both are vertex-transitive and have identical adjacency and distance spectra. It is worthwhile to know whether the single scalar contributed by the new average-flow matrix actually distinguishes this pair after summing all lengths, since known path-based distinctions need not survive that aggregation. The exact nonzero shift is a counterexample to sameness of average-flow spectra for distance-cospectral graphs and provides a reproducible numerical benchmark. The finite count is motivated by that question, not by a randomly chosen pair or the numerical size of the gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

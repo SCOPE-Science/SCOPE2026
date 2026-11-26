@@ -1,15 +1,21 @@
-# Review of the finite-sphere launch selection theorem
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem follows from the source's exact generalized meridian-offset geometry, now with strictly positive initial kinetic energy. Its key novelty in the proof is the uniform comparison of an inner rescaled integral with the elementary \(\operatorname{arsinh}\) integral: the discrepancy is bounded by an integrable weight \(y^{(a-1)/a-1}+s^2y^{2/a-1}\). The outer travel-time integral differs from its point-particle counterpart by \(O(\sqrt{\rho/g})\); matching the two regions yields a uniform error for every \(0<\eta\le1\). Inversion of monotone hitting-time maps selects all finite and infinite waiting times. The positive normal reaction checks the chosen contact model. Reproducible numerical checks from the embedded script pass 174 assertions but are not used as substitutes for the proof. The proof is local and has fixed exponent and geometry parameters.
+PASS
 
-## Originality (PASS, with residual risk)
+Write b=bρ, s=b/ρ and use y=r/b. The energy integral has prefactor √(ρ/g). On 0<y≤1, the scaled center arclength Q is comparable to y^(1/a), Q'/Q=O(1/y), and the relative difference of the scaled height factor from Q² is O(y^((a−1)/a)+s²y^(2/a)). Subtracting the reference integrand Q'/√(η²+Q²) therefore costs O(1) uniformly even as η tends to zero; the reference integral is arsinh(Q(1)/η)=log(1/η)+O(1). Outside b the relative perturbations are O(ρ r^(-(a−1)/a)), giving integrated error O(ρ b^(-(a−1)/(2a)))=O(√(ρ/g)); the omitted point-particle integral up to b is of this same order. Applying these bounds at each positive level and inverting the increasing hitting times gives compact-time uniform convergence of the clipped paths, including T=0 and T=∞. Contact holds locally since the offset curvature is at most both κ_a and 1/ρ; these bounds give Hρ κ_q=O(r^(2/a)) and v²κ_q≤g(b/ρ)². N in the proof is the magnitude of the outward support force, despite the wording ‘inward normal reaction’.
 
-Chen and Kuo, arXiv:2611.16797v1, equations (35)–(55) and Section 7, establish the exact geometry and no-departure statement at zero initial speed, but not the new velocity-dependent matched asymptotic or branch-selection classification. Vanpoucke and Wenmackers, Chaos 31 (2021), use hyperfinite-grid priors for point dynamics rather than rigid-sphere geometry. Eyink and Bandak, arXiv:2007.01333, examine stochastic regularization of a different non-Lipschitz system. Search comparisons used equivalent formulations (logarithmic launch delay, finite-radius singular limit, waiting-time selection), broader possible regularization theorems, and direct comparison with the source's exact equations. No covering published-finding corpus item or source statement was identified. Fletcher's *Minimal Approximations and Norton's Dome* has relevant thematic overlap but its full text was inaccessible; a genuinely equivalent result implicit in older regularization literature remains a risk, rather than being excluded by search alone.
+## originality
 
-## Value (PASS)
+PASS
 
-The motivating gap is the source's strict separation between finite-radius uniqueness from exact rest and instability under perturbations. The theorem determines the exact noncommuting limit of radius and launch velocity; it distinguishes zero-delay, arbitrary finite-delay and never-departing limits, with one universal exponential cutoff independent of the dome exponent after natural normalization. This gives a structural selection mechanism for the classical nonuniqueness example, beyond a restated fixed-radius uniqueness result.
+The specific addition supported by the checked sources is the uniform two-scale first-passage estimate for positive apex speeds, and the ensuing deterministic selection of every delay by a vanishing launch. Neither offset geometry, exact-rest uniqueness at fixed radius, nor the delayed point-particle paths themselves are new here.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result reconciles fixed-radius uniqueness with point-particle nonuniqueness using an explicit physical perturbation. It distinguishes vanishing launches selecting immediate departure, arbitrary finite delays, and remaining at rest in the limit, with an error uniform over the relevant launch speeds. Exact-rest divergence alone cannot make that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

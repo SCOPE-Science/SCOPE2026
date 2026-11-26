@@ -1,15 +1,21 @@
-# Scientific review: prime-power period-alias identification
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies each exact photometric probe with a divisibility question on the unknown integer period index. Each adjacent prime-power pair \(p^{a-1}\), \(p^a\) forces its own denominator, while all such denominators are sufficient by unique factorization. The grid result is an iff statement following denominator divisibility. The positive-duration lower bound uses separation of distinct reduced rational phases by at least \(1/N^2\), and the same proposed times preserve the exact response signatures for \(\varepsilon<1/(2N^2)\). The proof treats all \(N\ge2\). Exact finite checks passed 11025 assertions, which are supplementary rather than an infinite proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Cooke et al. (2020), Hawthorn et al. (2023) and Osborn et al. (2022) study the same two-transit integer period aliases and practical follow-up campaigns. A public 2016 Mathematics Stack Exchange question directly formulates the equivalent integer-divisibility testing task and gives small examples without a general answer or proof in the inspected content. Therefore neither the arithmetic question nor its divisor-query formulation is new. The three astrophysical papers' inspected methods, conclusions and appendices do not state the combined exact nonadaptive prime-power minimum, iff regular-grid timing resolution and finite-duration robustness bound. The divisor-query formulation and its standard prime-factorization components are explicit; a stronger pre-existing result in general integer-identification theory remains a genuine priority risk. Literature comparisons are summarized with exact source references in `AUDIT.json`.
+PASS
 
-## Value — PASS
-The full family of viable \(\Delta/k\) periods is a natural observational ambiguity. The sharp minimum number of fixed probes, the smaller number for certifying the longest alias, and the exact-grid obstruction distinguish three operationally different tasks. The quantitative tolerance result prevents the theorem from depending solely on mathematically point-like events. No claim of superiority over adaptive probabilistic observing programs, or direct instrumental feasibility of an extremely fine exact grid, is made.
+At an interior exact phase a/b in lowest terms the response is 1 iff b divides k; irrational phases give no positives. For q=p^a, compare q to q/p: any probe that distinguishes them must divide q but not q/p in denominator, so that denominator must be q. Distinct q force distinct probes, and the 1/q construction reads all prime valuations, determining k. Comparing 1 to each prime forces prime denominators for the all-negative certificate, and they suffice. Grid denominators divide H, so all mandatory q are possible iff lcm(1,…,N) divides H. With a common tolerance, widened midpoint sets for q/p remain contained in those for q. A distinguishing probe must be within ε of an additional midpoint of reduced denominator q. Distinct midpoint phases mod 1 with denominators b,d≤N have circular distance at least 1/(bd): the shortest nonzero difference modulo 1 is a nonzero integral multiple of 1/(bd). Thus 2ε<1/N² still makes different q witnesses disjoint, and probing precisely at 1/q still rejects all aliases not divisible by q. The common phase 0 is not a distinguishing midpoint. This proves the statements also at N=2 and ε=0; the grid iff is not asserted for ε>0. The independent exact-Fraction replay `/workspace/branches/604c4515-7044-487c-828f-b07004adbef6/record4_independent_replay.py` checked signatures, forced denominators, certificates and circular-tolerance signatures at N=12 and 38. It obtained (Q_N,π(N),L_N)=(8,5,27720) and (19,12,5342931457063200); these are finite checks, with the quantifiers settled by the proof.
 
-## Closest literature and limits
-Sources: Mathematics Stack Exchange question 1886768 (2016-08-09); Cooke et al., arXiv:2011.05832 (2020); Osborn et al., arXiv:2203.03194 (2022); Hawthorn et al., arXiv:2310.17268 (2023). Results are confined to strictly periodic, fully unpruned, noiseless, equal-cost, nonadaptive observations; all follow-up times must be feasible, and common finite timing tolerance must be less than \(1/(2N^2)\). Independent validation has not been performed. A 2016 question already poses the arithmetic core; the priority comparison cannot exclude a mathematically equivalent older divisor-query theorem or a pre-existing astronomy formulation of the additional robust timing conclusions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equivalent integer optimization was publicly posed in 2016 and its prime-power schedule suggested in comments; the inspected discussion did not prove the exact general minimum. The physical alias family and targeted photometry are already in the astronomical literature. The distinct result supported here is the proved necessary prime-power witness structure and its timing consequences: exact-grid feasibility and preservation of the optimum in a common positive-tolerance regime. The arithmetic reformulation, small examples, and prime-power suggestion receive prior credit.
+
+## value
+
+PASS
+
+For an existing astronomical alias problem the result distinguishes the number of actual measurements from regular-grid resolution, which can be much larger even in a modest candidate range. It gives a universal lower bound and construction, distinguishes certification from full identification, and shows the count is not merely an artifact of demanding exact midpoint detections. The separation is scientifically interpretable within the stated idealization; it is not a recommended instrument cadence or a claim about noisy, pruned or adaptive campaigns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

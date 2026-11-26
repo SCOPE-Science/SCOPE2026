@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:10:04.644448Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projection of im X to V/U has dimension s and its kernel is im A+B(ker D), so rank X=r+s+δ and δ=dim((im X∩U)/X(U)) is intrinsic. If XYX=X with Y(U)⊆U then Y must lift im X∩U inside U; conversely when this intersection equals X(U), choose a section with that property and extend it by zero on complementary directions. Thus regularity means δ=0. For fixed A,D, restriction and quotient of B give a surjective linear map onto Hom(ker D,coker A) with kernel dimension ab−(a−r)(b−s). The kernel consists exactly of the sums of maps of forms AT and SD: first extend a lift on ker D into im A, then the residual vanishes on ker D and factors through D. The two triangular shears implement those shifts, and the remaining independent invertible basis changes realize all row and column operations on the quotient rectangle. This proves the unit-orbit classification and finite fiber formula over every prime power. For square nullity i the closed-form probability is bounded by q^(−i²)/P_q by factoring its product ratio into P_n/P_i, P_n/P_(n−i) and 1/P_i, where P_k=∏_(j=1)^k(1−q^(−j)). Thus convergence is in total variation; independence and the common conditional kernel give the full defect law without relative-growth restrictions. The limit regular fraction is strictly positive from a zero nullity and below one from i=j=1 with nonzero quotient map. Independent rational evaluation using P_160 and i,j≤12 gives 0.6998513223055353533 for q=2: the product omission is at most 2^(−160) and the omitted nullity terms are bounded by the summable q^(−i²)/P_q envelope. The packaged enumerator and its stored prime-field output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior three-block record computes the conditional distribution of the long block's completion rank for any fixed compatible adjacent blocks. Fulman–Goldstein give independent ordinary square-nullity inputs when applied separately to the two independent diagonals.",
+          "Van Peski arXiv:2407.19578, Eq. (1.3) and Theorem 1.2, instead treats strictly triangular entries and a logarithmic corank. Mészáros DOI 10.1017/prm.2026.10158, Theorem 1, treats lower-triangular i.i.d. entries on and below the diagonal and mod-p rank fluctuations. Neither is used to claim coverage of the block ensemble."
+        ],
+        "reasoning": "The relevant broader results for the defect are the full conditional kernel and the exact square nullity laws, rather than an analogous ordinary triangular rank law. Independence gives product convergence of the two nullities, and applying the already known kernel yields the frozen limiting mixture without another limit theorem.",
+        "searches": [
+          "Resultary ...--d1f94ed041a2 §Proof step 2",
+          "Fulman–Goldstein arXiv:1211.0504 Theorem 1.1 with m=0",
+          "Random block triangular finite-field or local-ring cokernels with limiting joint short exact sequence statistics"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ...--d1f94ed041a2",
+        "arXiv:1211.0504",
+        "Algebraic Monoids and Renner Monoids, §§2.5.1, 4",
+        "arXiv:math/0512024",
+        "arXiv:2407.19578",
+        "DOI 10.1017/prm.2026.10158"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use outer sizes (a,b) and middle size a+b in the prior square-zero record. For every frozen pair A,D take old adjacent blocks A_old=[A 0] and B_old=[0;D], so A_old B_old=0 and their ranks are r,s. Choose the old long block C=B. Deleting zero rows and columns of the resulting old matrix gives precisely the new [[A,B],[0,D]] as a rectangular map with the same rank; the old induced map is B:ker D→coker A.",
+          "Old conditional fiber counts therefore give every frozen stratum after the two independent ordinary diagonal rank counts. The limiting kernel is exactly K(i,j;t)=R_q(i,j,t)/q^(ij). For independent inputs the distance of the mixed law to (π_q⊗π_q)K is bounded by the sum of the diagonal nullity total-variation distances."
+        ],
+        "reasoning": "The old square-zero restriction is no barrier to coverage: it is satisfied by construction for every diagonal pair. The limit and regular fraction require only a fixed probability kernel applied to known input limits. This is a positive implication, not an unsupported assertion that either older paper prints the entire frozen theorem verbatim.",
+        "searches": [
+          "Prior square-zero three-block record ...--d1f94ed041a2, RESULT.md Finding and proof step 2",
+          "arXiv:1211.0504 equations (1)–(2) and Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ambient matrix monoid's Bruhat–Renner normal forms are rook matrices, as seen from the diagonal closure of each permutation coset and the Borel double-orbit decomposition. Over a finite field the same normalization is rational: repeatedly take the leftmost nonzero entry of the bottommost nonzero row, clear above by upper triangular row operations and to the right by upper triangular column operations, and recurse.",
+          "A rook in the flag monoid has no bottom-left entries, and its numbers of rooks in the top-left, bottom-right and top-right blocks are exactly r,s,δ."
+        ],
+        "reasoning": "There is no conjugacy assertion: independently permuting rows and columns within each block gives a single parabolic orbit for each allowed pattern of block rook counts. This is immediate because the rows and columns used by distinct rooks never collide. The triple's invariance under the full units follows from rank on U, rank on V/U and total rank. Thus the specialization of the normal-form framework already classifies the orbits.",
+        "searches": [
+          "Block triangular completion ranks and parabolic matrix double orbits",
+          "Parabolic double cosets P×P, rook monoid, Borel rank-control matrix",
+          "Algebraic Monoids and Renner Monoids §2.5.1 and Proposition 3(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index entry ...--48554b08d035 is the same frozen record, not independent evidence. The closest distinct Resultary record ...--d1f94ed041a2 gives the exact conditional Gaussian completion factor q^(ac−(a−i)(c−j)) R_q(a−i,c−j,h) across all prime powers and size parameters after fixing its adjacent ranks."
+        ],
+        "reasoning": "This is exact formula coverage, even without a table of joint two-block probabilities. Inserting the embedding and multiplying by the two ordinary rank counts is sufficient. The exact numerical density need not already appear as a decimal for the resulting expression to be mechanically covered.",
+        "searches": [
+          "Resultary two-block flag monoid finite Gaussian rank-defect strata, stable law and limiting regular fraction",
+          "Resultary ...--48554b08d035 and ...--d1f94ed041a2"
+        ]
+      },
+      "rationale": "The finite spectrum is mechanically covered by the prior three-block square-zero record's conditional completion count, after an explicit zero-padding embedding. The limit is the pushforward of the independent classical square-nullity limits by that same, size-independent completion kernel. The two-sided orbit description is a regrouping of ordinary rook normal forms by block positions. These determinations use specific implications from retrieved mathematical statements, not failure to access possible priority sources. The exact q=2 decimal is an evaluation, not a surviving theorem. No distinct valuable claim in the frozen record survives a repair.",
+      "residual_risks": [
+        "Full originals for Patrício–Puystjens DOI 10.1016/S0024-3795(01)00295-6, Wright DOI 10.1080/03081087.2020.1857679, and the block exact-sequence paper DOI 10.1080/03081080108818687 were not obtained from the attempted lawful routes. No whole-document claim or negative inference is made from that limitation.",
+        "The coverage verdict does not establish first historical priority for the general completion or orbit methods; it establishes the stated reductions to existing results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct conditional completion coverage by zero padding; not an assertion that the two different matrix ensembles have identical unconditional rank laws.",
+          "evidence": [
+            "Step 2 fixes A_old,B_old with product zero, proves rank=i+j+rank(π C|ker B_old), and counts each rank h over all choices of C."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2/RESULT.md",
+          "material_read": "Finding and §Proof steps 1–2, offsets 0–4728, with continuation through 5640 in the comparison",
+          "method": "Resultary and original Markdown via local mirror",
+          "title": "Rank spectra of square-zero elements in three-block parabolic radicals",
+          "trigger": "Same restriction-and-quotient completion factor in a related parabolic rank theorem"
+        },
+        {
+          "assessment": "For m=0 gives exactly π_q and total-variation convergence. This is a single-block result used twice, not itself a claim about triangular monoids.",
+          "evidence": [
+            "Theorem 1.1 controls the total-variation error of the nullity of an ordinary uniform n×(n+m) matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.0504",
+          "material_read": "PDF pp. 1–2, equations (1)–(2), offsets 0–3898; Theorem 1.1, offsets 6094–6340",
+          "method": "Original arXiv PDF bounded passages",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Known nullity laws and convergence needed in the induced-kernel limit"
+        },
+        {
+          "assessment": "Known general rook and Borel double-coset machinery; coarsening to the two flags is direct, and finite-field rationality is verified separately.",
+          "evidence": [
+            "Rook matrices have at most one 1 in each row and column; Proposition 3(5) gives the disjoint Borel double-coset decomposition indexed by Renner elements."
+          ],
+          "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/REU/REU2018notes/li-li-cao-renner-monoids.pdf",
+          "material_read": "§2.5.1, PDF p. 13 near offsets 29830–30513; §4 near offsets 53000–55194; Proposition 3, PDF p. 26, offsets 63395–65192",
+          "method": "OA chapter, literal locators and bounded original passages; independently checked finite-field eligibility by elementary elimination",
+          "title": "Algebraic Monoids and Renner Monoids",
+          "trigger": "General ambient matrix normal forms for double-unit actions"
+        },
+        {
+          "assessment": "Related older scalar criterion, not a direct substitute for the two-block regularity proof or the defect distribution.",
+          "evidence": [
+            "Proposition 3.2 relates regularity to row/column span by rows/columns with nonzero diagonal and to a subidentity Green class."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0512024",
+          "material_read": "§3, Proposition 3.2, p. 6, offsets 16960–19901; surrounding discussion of triangular operations",
+          "method": "Original arXiv PDF bounded passage",
+          "title": "Wreath product decompositions for triangular matrix semigroups",
+          "trigger": "Scalar triangular regularity and triangular row/column mechanism"
+        },
+        {
+          "assessment": "Strictly triangular scalar model, not the two-block completion kernel.",
+          "evidence": [
+            "The limit regime centers corank on the log_q n scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.19578",
+          "material_read": "Eq. (1.3), p. 3, OA offset 8903, and Theorem 1.2",
+          "method": "Original arXiv PDF passages",
+          "title": "The rank of a random triangular matrix over F_q",
+          "trigger": "Possible stronger random triangular cokernel limit"
+        },
+        {
+          "assessment": "Different random ensemble and statistics.",
+          "evidence": [
+            "I.i.d. entries on and below the scalar diagonal, not two independent dense square diagonal blocks and an inter-block map."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/prm.2026.10158",
+          "material_read": "p. 1 and Theorem 1, offsets 1100–3281",
+          "method": "OA source passages",
+          "title": "The fluctuations of the mod p rank of triangular matrices",
+          "trigger": "Possible coverage by a more general triangular cokernel fluctuation result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The defect statistic is natural and the regularity interpretation is useful, but the frozen exact census is already a prior kernel evaluation and the large-block conclusion is just its application to known independent limiting inputs. The orbit refinement is a routine block regrouping of the normal forms, not a further structural result beyond them. The computed fraction is a helpful numerical illustration but supplies no distinct mathematical gap or insight beyond those mechanical deductions; there is no nonroutine independent remainder for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

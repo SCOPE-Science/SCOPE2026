@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The two standalone files `check_direct.cpp` and `check_core.py` are included in the package. A C++17 compiler and Python 3 are sufficient. Run:
+## correctness
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic check_direct.cpp -o direct
-./direct
-python3 check_core.py
-```
+PASS
 
-The C++ checker explicitly visits all \(2^{16}=65,536\) initial sets on each six-regular graph and applies synchronous four-neighbor infection. The Python checker instead deletes all residual vertices with degree at most two in each parallel round. Both calculate the full successful-cardinality histogram, test inclusion-minimality via every one-vertex deletion, and check the exact minimal-set completion-time table. Both also enumerate all seven-vertex induced degree signatures; Python verifies the \(64\)-set affine orbit using all twelve difference-preserving linear matrices and sixteen translations.
+The synchronous threshold-four rule on either six-regular graph deletes precisely the inactive vertices of residual degree at most two. A nonempty induced minimum-degree-three subset can never peel; if peeling stalls, its nonempty residual is such a subset. Successful seeds are an up-set, so all single deletions failing is necessary and sufficient for inclusion-minimality. An independent exact reproduction enumerated all 65,536 masks on each graph, finding nonpercolation by enumerating minimum-degree-three subsets and propagating containment, and cross-checking every mask by a FIFO activation-time recurrence. Shrikhande yields (6,3):96, (6,4):336, (6,5):1152, (6,6):576, (7,3):64, total 2224; the rook graph yields (6,3):288, (6,5):576, total 864. No others occur. Exact degree-signature and seven-set comparisons reproduce both claims, including the witness activation layers. Independent adjacency-preserving permutation enumeration returns 192 Shrikhande automorphisms and the same 64-set orbit. The twelve linear maps in the frozen certificate are invertible because their images contain the generating difference set; their translations therefore give 192 distinct automorphisms, so the reproduced orbit is also their affine orbit. Degree six and common-neighbor count two give the same adjacency spectrum (6, 2, -2 with multiplicities 1, 6, 9); rook neighborhoods are two disjoint triangles, whereas Shrikhande neighborhoods are cycles of length six. Replay: python3 /workspace/reproductions/graph_census.py. Both frozen checkers were inspected, not executed.
 
-Expected key data: Shrikhande minimal sets by \((\text{size},\text{rounds})\): \((6,3):96\), \((6,4):336\), \((6,5):1152\), \((6,6):576\), \((7,3):64\); rook \((6,3):288\), \((6,5):576\). These are *complete* finite-domain enumerations, not extrapolations. The proof of the infection-to-core-peeling equivalence and of the minimality test is in `RESULT.md`. Results are not generalized to other graphs or thresholds. No independent audit has been undertaken.
+## originality
+
+PASS
+
+Best of current knowledge: pass the complete inclusion-minimal size/time separation and the exact 64-set orbit and induced-degree characterization. Neither the definition, the three-core reduction nor the rook minimum of six is new. The verified prior theorem proves the rook minimum but does not count minimal seeds or constrain their full geometry or timing. No exact prior census is established; search gaps remain.
+
+## value
+
+PASS
+
+This natural strongly regular graph pair has matching parameters and spectrum, and even matches on minimum contagious cardinality at this threshold. The upper size of an inclusion-minimal contagious set is nevertheless different; the exact completion-time census and a complete affine-orbit characterization identify precisely how. This gives a concrete invariant and a reusable benchmark for finite bootstrap or core-deletion arguments, not merely another computation of the known rook minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

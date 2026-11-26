@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The ground-field/geometric-irreducibility cases are separated. Nontrivial blocking sets, Hasse bounds, elliptic coefficient-pair enumeration, the \(E(\mathbf F_p)/3E(\mathbf F_p)\) embedding classification, and direct projective tangent incidence jointly establish the two exceptional primes. The published Asgarli–Ghioca theorem supplies every prime at least \(17\). The characteristic-seven example has a direct geometric smoothness proof and a full 57-point incidence count. Two separate exact enumeration programs and one Gröbner verifier were executed successfully. Risk: the exhaustive small-field computations have no independent external audit.
+## correctness
 
-## Originality — PASS
-The closest motivating paper (Asgarli–Ghioca, arXiv:2302.13420, Theorem 1.1) covers prime characteristics \(17\) and above for cubics, but not \(11\) and \(13\). Source Sections 1–3 and subsequent distinct 2026 line-covering results were compared by mathematical implication, rather than title. The published blocking-set bound and the known characteristic-seven witness are not claimed as new. Exact classes and embedding incidence in the two missing primes are new relative to inspected sources and available records. Residual risk: an unindexed earlier finite-field enumeration could contain the same negative results.
+PASS
 
-## Mathematical value — PASS
-The explicit result is a sharp prime-field threshold separating existence and nonexistence of tangent-filling *cubics*. This closes both missing primes in the nonexistence theorem, and explains them through a structural genus-one embedding invariant rather than an arbitrary finite parameter slice. The characteristic-seven boundary is essential motivation; no further classification in degree four is claimed.
+Coverage by rational tangents dualizes to a blocking set. For a geometrically integral cubic in p>3, its irreducible dual has degree at most six by intersecting with a general dual line and pulling back to a polar conic. It cannot be a line: concurrency of the tangents would make the quadratic directional derivative toward that point vanish identically on the cubic and hence as a polynomial, which in p>3 would make the cubic independent of one variable and geometrically reducible. Thus p+1>6 excludes a full dual line. Blokhuis gives 3(p+1)/2, while distinct smooth points have distinct tangents by Bézout. For p=11,13, Hasse forces exactly 18,21 points respectively. A geometrically integral singular cubic has at most p+2 rational points by its genus-zero normalization and unique possible singular point; a ground-field irreducible geometrically reducible cubic has no smooth rational point because its three lines are Frobenius-conjugate. The published prime-field bound covers p≥17. For the remaining smooth cubics, an origin exists by Hasse, and the short-Weierstrass classification exhausts pointed curves. Any rational degree-three embedding arises from O_E(2O+T), modulo translation by a rational point (hence modulo 3E(F_p)) and projective basis change. For T=(r,s), s≠0, Y=(y+s)/(x−r) has simple poles at T and O and is regular at −T, so 1,x,Y form a basis of L(2O+T); substitution yields the stated cubic. Independent exact finite-field computations confirmed both single scaling orbits; the listed cosets have sizes 6,6,6 and 7,7,7 and exhaust the underlying groups. The six (points, tangents, coverage) triples are (18,18,114), (18,18,112) twice; (21,21,145), (21,21,156) twice, strictly below 133 and 183. The F_7 witness covers all 57 points by twelve tangents, and the gradient argument excludes common nonzero zeros even over the algebraic closure.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim is exclusion of cubic tangent filling at both 11 and 13, completing the threshold theorem. The general bound, dual blocking-set reduction and characteristic-seven existence are prior and are not credited as new. No inspected relevant claim implies the two residual primes. This is a bounded literature assessment, not an assertion of global priority.
+
+## value
+
+PASS
+
+This resolves the sharp prime-field transition for a natural geometric covering question. The residual primes are forced by general bounds, rather than an arbitrary computational slice. Exhaustion of all degree-three embedding classes rather than just elliptic curves is the key step that makes this finite calculation a complete exclusion theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:44:37.689661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any pair of input embeddings into a minimal common supersequence must cover all positions, or an uncovered position is deletable. Thus length is at most a+b+c+d. At equality the embeddings must be disjoint and both unique (fix either embedding; the other must use the whole complement). The a-th zero and c-th one cannot coincide. If the a-th zero comes first, at least b+1 ones follow it, giving multiple embeddings of A; if the c-th one comes first, at least d+1 zeros follow it, giving multiple embeddings of B. This reduces the upper bound by one. At that length every embedding pair shares exactly one position; the letter inventory determines its symbol. For the zero-sharing branch take first a zeros and last b ones for A, first c ones and last d zeros for B, which are valid whenever the inputs embed. The shared a-th zero lies between ones c and c+1, defining a unique central gap of h≥1 zeros. With x prefix and y suffix zeros the exact feasibility conditions are x+h≥a and h+y≥d, with x+h+y=a+d−1; hence x≤a−1 and y≤d−1. These last two bounds make all ones essential: losing one of the first c forces a later c-th matched one for B, and losing one of the last b forces an earlier first matched one for A. A prefix zero is essential iff x+h=a, a suffix zero iff h+y=d, and a gap zero iff at least one of these equalities holds. For a,d≥2 both x,y must be positive: if only one is positive its tightness forces a=1 or d=1; if both are zero a gap zero is deletable. The equalities then force x=a−1,h=1,y=d−1. When a=1 or d=1 the corresponding outer zero count vanishes and summing all permitted gap lengths gives the stated hockey-stick identities, including a=d=1. Independent interleavings of the prefix and suffix yield the binomial product in the interior. Complementation and input exchange give the disjoint other inventory with H(c,d,a,b); the positive counts construct words attaining the bound. Replay: python3 /workspace/branches/frozen_math_reproductions.py 5, a separate standard-library literal enumeration, checked counts separately by inventory and excluded length L+1 for 86 tuples (1,294 longest words summed over tuples), including asymmetric boundary examples. This supports but does not replace the all-parameter proof. Uploaded code and recorded outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2603.22591v1 §5 gives a path construction and Theorem 5.4 enumerates minimal common supersequences for arbitrary pairs with O(n³) preprocessing, O(n²) space and O(n) delay. The frozen literature notes characterize the earlier work as length algorithms; the primary thesis chapter and article were not newly readable."
+        ],
+        "reasoning": "General enumeration can produce and filter every finite instance; it is not a stated binomial count or an immediate evaluation of the optimum-layer path count as four parameters vary. Even a length algorithm does not determine how many distinct words reach the maximum.",
+        "searches": [
+          "Sopp–Liyanage–Gong–Zhu arXiv:2603.22591v1, §5 graph and enumeration",
+          "Fraser thesis Chapter 6 and Fraser–Irving–Middendorf 1996 article, length/count comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, and Relationship to prior work",
+        "SCOPE-20261108-d41f14eae316, SCOPE-20261102-5df86cdf4ed9, SCOPE-20261018-10a0d52c68a3 and SCOPE-20261122-89bd9a68a8d3, mirrored passages",
+        "Sopp–Liyanage–Gong–Zhu arXiv:2603.22591v1 §5",
+        "Thesis and 1996 article access/citation evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At c=b,d=a the two terms H coincide with the identical prior binomial factors, including boundary a=1 or b=1. At a=b=c=d=m, the top layer j=m−1 in the earlier all-layer formula is exactly the claimed count. The general enumeration theorem does not evaluate these inventories for four free runs."
+        ],
+        "reasoning": "The overlap is credited as exact. The cross-equal specialization removes the freedom of two parameters and does not imply the distinct interior products and single-run boundary sums of the unrestricted count. The result passes for that full classification, not for reproducing the previously covered cases.",
+        "searches": [
+          "SCOPE-20261108-d41f14eae316 RESULT.md offsets 146 and 690",
+          "SCOPE-20261102-5df86cdf4ed9 RESULT.md offsets 155 and 489",
+          "arXiv:2603.22591v1 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation plus input exchange interchanges the zero- and one-sharing branches and transforms (a,b,c,d) to (c,d,a,b). SCOPE-20261122-89bd9a68a8d3 expressly counts shortest common supersequences of the same inputs, not all minimal words or the longest layer."
+        ],
+        "reasoning": "All shortest words are deletion-minimal, but in general shortest length is a+b+c+d−max(min(a,d),min(b,c)) since the reversed input order precludes a mixed-symbol common subsequence. Where this maximum is 1 the two problems do coincide; otherwise the shortest formula is not a relabeling of the longest-minimal formula. The two H terms are dual, not independent novelty claims.",
+        "searches": [
+          "Resultary: opposite binary runs, longest minimal common supersequence and four-parameter count",
+          "SCOPE-20261122-89bd9a68a8d3/RESULT.md, shortest-only scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unequal cross-equal record gives length 2(a+b)−1 and count 2·binomial(a+b−2,a−1)². The equal-run records give the full length spectrum 2·binomial(m+j−1,j)² at 3m+j, 0≤j<m. The distinct same-date four-run hit concerns shortest words."
+        ],
+        "reasoning": "These are exact existing indexed values/formulas, not merely approximate neighbors, and cover the specializations with c=b and d=a. The inspected spectrum does not parameterize independent c and d. The assigned record itself is not an additional match.",
+        "searches": [
+          "Resultary: exact minimal-supersequence spectra for equal or unequal opposite binary runs",
+          "SCOPE-20261108-d41f14eae316, SCOPE-20261102-5df86cdf4ed9 and SCOPE-20261018-10a0d52c68a3"
+        ]
+      },
+      "rationale": "Pass the unrestricted four-positive-run binomial count and structural split at the longest deletion-minimal layer. Prior records exactly give the counts and lengths on balanced and cross-equal subfamilies; general graph enumeration is not new. The same-date shortest-supersequence result also agrees on the slice where shortest and longest-minimal lengths coincide, but not in general. No identified earlier result establishes the full longest-layer count with independently variable run lengths.",
+      "residual_risks": [
+        "Independent retrieval of Fraser's thesis chapter and the related 1996 article did not yield readable decisive material. An older special case or an unindexed exact corollary remains possible. Search misses are not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at c=b,d=a with unequal a,b",
+          "evidence": "Longest length 2(a+b)−1 and count 2·binomial(a+b−2,a−1)² for 0^a1^b and 1^b0^a.",
+          "identifier_or_url": "SCOPE-20261108-d41f14eae316",
+          "material_read": "RESULT.md offsets 146 and 690",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact minimal-supersequence spectra for unequal opposite binary runs",
+          "trigger": "Exact closed count for closest specialized inputs"
+        },
+        {
+          "assessment": "Exact overlap for four equal run lengths",
+          "evidence": "2·binomial(m+j−1,j)² at length 3m+j for 0≤j<m; insert j=m−1.",
+          "identifier_or_url": "SCOPE-20261102-5df86cdf4ed9",
+          "material_read": "RESULT.md offsets 155 and 489; corroborating SCOPE-20261018-10a0d52c68a3 offsets 136 and 380",
+          "method": "Local Resultary mirror",
+          "title": "Complete length spectrum of minimal common supersequences for opposite binary blocks",
+          "trigger": "Specialized full spectrum including target longest layer"
+        },
+        {
+          "assessment": "Different extremum except when the two lengths coincide; no date-based precedence inferred",
+          "evidence": "Counts only length-minimizing common supersequences; explicitly allows minimal but longer words outside its scope.",
+          "identifier_or_url": "SCOPE-20261122-89bd9a68a8d3",
+          "material_read": "RESULT.md scope offsets 1930–2225",
+          "method": "Local Resultary mirror",
+          "title": "Exact shortest common-supersequence counts and all extremizers …",
+          "trigger": "Distinct same-date result with identical input family"
+        },
+        {
+          "assessment": "Broader enumeration task; no closed longest-layer formula in the inspected theorem",
+          "evidence": "O(n³) preprocessing, O(n²) space, O(n) delay for general enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+          "material_read": "§5 block/path construction and Theorem 5.4, offsets 29531 and 51000",
+          "method": "Targeted primary arXiv HTML read",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "General two-string characterization and possible stronger enumerator"
+        },
+        {
+          "assessment": "Exact primary scope unresolved",
+          "evidence": "Chapter 6 is cited in the frozen record; PDF attempt timed out, with no inspectable alternate full text from the landing page.",
+          "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+          "material_read": "Landing/citation evidence and frozen comparison only; chapter PDF not obtained",
+          "method": "Targeted lawful thesis access attempt",
+          "title": "Subsequences and Supersequences of Strings",
+          "trigger": "Historical thesis chapter on minimal-supersequence extremal lengths"
+        },
+        {
+          "assessment": "No independent confirmation or exclusion of a prior count",
+          "evidence": "Frozen RESULT.md cites the 1996 article pp. 145–153 as a longest-length algorithm, distinct from a closed count; this is not a new inspection of the article.",
+          "identifier_or_url": "https://www.academia.edu/54088366/Maximal_Common_Subsequences_and_Minimal_Common_Supersequences",
+          "material_read": "Citation and frozen access notes only; independent full-text attempt returned 403",
+          "method": "Targeted lawful access attempt",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+          "trigger": "Plausible older specialized or general extremal implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even a longest-length algorithm leaves open how many distinct input-merging outcomes realize that length. This formula classifies all four freely variable run lengths, accounts for the change of behavior when an outer run has size one, and counts words without overcounting different embeddings. Its simple geometric decomposition into forced central gaps is useful for the longest layer beyond previously counted symmetric cases; it does not assert shorter-layer or general-string closed formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:37.183826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(5) and equality cases",
+        "Frozen VERIFICATION.md, verification_certificate.json and verify_rarefaction_covariance.py (inspected, not executed)",
+        "/workspace/audit_evidence/replay.py 2; /workspace/audit_evidence/results.txt"
+      ],
+      "rationale": "Exchangeability of sample pairs gives the finite-census index as the expectation. Conditioning on absence of species i, when feasible, gives the same pair probability in the complement census. Cov(I_i,G) is the absence probability times the unconditional-minus-complement index; infeasible terms are zero without defining a conditional expectation. Cancelling the first two factors of the complement falling factorial yields (1). Expansion of the numerator into N(t-1)(N-t)+B(t-a_i), and symmetrization with weights a_i, gives exactly (2); each pair contribution is nonnegative because feasibility-thresholded w_i is nonincreasing in a_i, including at m=2. The first term is strictly positive exactly when 1<t<N and some species can be absent. In all other cases richness or both statistics are constant. Equal abundances annul the correction and attain the lower bound, including nondegenerate positive cases. Independent exact labeled-subset calculation agreed on 2,375 profile/depth pairs, with 1,891 positive and 484 zero.",
+      "residual_risks": [
+        "Exhaustion in the replay is through N=12 only. The theorem is for uniform fixed-size subsets of labeled individuals, not nonuniform or spatial sampling or the empirical with-replacement normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Rao record proves nonnegative covariance for arbitrary distances at N<=4 and m=2 (and zero at m=N), and derives its general-distance next-to-census formula for one doubleton plus singletons. Colwell and Nipperess–Matsen give hypergeometric rarefaction and presence-indicator machinery for richness/phylogenetic-diversity moments."
+        ],
+        "reasoning": "Credit the overlapping sign cases and next-to-census subfamily. Broader dissimilarity scope there is paired with narrower abundance or depth scope; the fixed-distance all-population sign is not a specialization of the theorem as a whole. Branch-indicator covariances alone do not supply a mixed richness–pair-diversity sign law.",
+        "searches": [
+          "October 18 Resultary Rao record, Finding and proof §§1–3",
+          "Nipperess–Matsen arXiv:1208.6552, pp. 6–7",
+          "Colwell et al. DOI 10.1093/jpe/rtr044, abstract and p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary findings and primary sources in source_inspections",
+        "Focused finite-population richness–Simpson literature search returned a broad richness review, not a matching theorem."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rao next-to-census formula uses a two-level richness variable in its specified family; the prior hypergeometric literature supplies absence probabilities and branch covariances, not the pair-diversity covariance decomposition. The Rao discussion explicitly distinguishes equal-distance Simpson from arbitrary nonnegative dissimilarities."
+        ],
+        "reasoning": "The absence calculation has prior ingredients, but the finite-census numerator/monotone-weight symmetrization and resulting equality criterion are additional. An iid limit cannot recover zero covariance after all species must be represented at a finite depth.",
+        "searches": [
+          "October 4 iid Finding",
+          "October 18 Rao proof offsets 3135–6908 and Relationship to prior work",
+          "Nipperess–Matsen pp. 6–7 and Colwell et al. p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 4 Resultary record gives iid finite categorical covariance 2s_2 A_n-(1+s_2)B_n and strict positivity under its nondegeneracy assumptions.",
+          "October 18 Rao record uses the same uniform subset sampling and mean dissimilarity over distinct sampled pairs; setting d_ij=1 for i!=j makes its Q_m exactly the frozen statistic."
+        ],
+        "reasoning": "The iid formulation is not equivalent: even with probabilities a_i/N, pair and absence laws differ and census saturation need not occur under iid draws. The Rao observable shares exactly the equal-distance specialization, but its covered abundance/depth ranges do not cover this universal specialization. Its negative witness uses unequal distances and is no contradiction.",
+        "searches": [
+          "Local Resultary searches for richness–Gini–Simpson covariance, rarefaction and richness–Rao covariance",
+          "Primary query: species richness, Gini-Simpson, covariance, rarefaction, sampling without replacement, finite population"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact iid formula uses powers of iid absence probabilities, not thresholded falling factorials. The Rao proof gives d(B,C)/12 at (2,1,1), m=3, and 4[2V-(r-2)U]/[(r+2)^2 r(r+1)] for the one-doubleton next-to-census case."
+        ],
+        "reasoning": "The exact-formula comparison is applicable although the claim is not a finite table. At equal distances the Rao expressions give 1/12 for the displayed small case and 4/[(r+2)^2(r+1)] for the next-to-census family. These overlaps do not give the general formula or sharp decomposition.",
+        "searches": [
+          "Local Resultary exact covariance matches for the iid and Rao formulations",
+          "Focused primary query on finite-population richness–Simpson covariance"
+        ]
+      },
+      "rationale": "The iid richness–Simpson identity is established in an indexed record, and an indexed same-day Rao statement contains finite-census special cases with broader distances. Neither gives the fixed-census all-profile, all-depth equal-distance identity, two-term lower bound and exact saturation criterion. The same-day Rao result was assessed by mathematical scope, not by assuming an order within the date.",
+      "residual_risks": [
+        "Heck–van Belle–Simberloff (1975) technical text was not accessible. Bounded searches do not rule out an older equivalent under occupancy or survey-sampling terminology. No same-day priority order is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact formula and lower bound under a different sampling law",
+          "evidence": [
+            "Independent categorical observations and strict positivity in nondegenerate cases."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Local Resultary search and local-mirror full text",
+          "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+          "trigger": "Exact iid analogue"
+        },
+        {
+          "assessment": "Exact restricted overlaps but no all-profile equal-distance law; unequal-distance reversal not a contradiction",
+          "evidence": [
+            "N<=4 sign bound, pair and full-census boundaries, next-to-census one-doubleton formula and negative unequal-distance witness."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-five-individual-reversal-of-richness-rao-covariance-unde--755f790ed3d5",
+          "material_read": "RESULT.md Finding, assumptions, proof §§1–3 (3135–6908) and prior-work/limitations passage (7400–9931)",
+          "method": "Local Resultary search and bounded local-mirror passages",
+          "title": "A sharp five-individual reversal of richness–Rao covariance under ultrametric rarefaction",
+          "trigger": "Same finite-census model and broader pairwise diversity"
+        },
+        {
+          "assessment": "Richness and its uncertainty under rarefaction, not the inspected mixed covariance law",
+          "evidence": [
+            "The individual-based estimator is discussed for a sampling-without-replacement hypergeometric model."
+          ],
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/6855.pdf",
+          "material_read": "Abstract, p. 1 offset 2907; hypergeometric estimator, p. 5 offset 38000",
+          "method": "Author-hosted OA PDF passages",
+          "title": "Models and estimators linking individual-based and sample-based rarefaction, extrapolation and comparison of assemblages",
+          "trigger": "Hypergeometric individual-based rarefaction"
+        },
+        {
+          "assessment": "Related indicator covariance machinery, distinct statistic",
+          "evidence": [
+            "Absence probabilities and covariances of branch-presence indicators; the star-tree reductions are richness mean and variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "pp. 2, 6–7, offsets 2104, 15950 and 17184",
+          "method": "Bounded OA PDF passages",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Finite-rarefaction covariance and star-tree reduction"
+        },
+        {
+          "assessment": "Independent occupancy, not the finite-census joint law",
+          "evidence": [
+            "Independent allocation and distributions of occupied-box counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0902.0879",
+          "material_read": "p. 1 abstract/introduction, offset 317",
+          "method": "Bounded OA PDF passage",
+          "title": "Univariate approximations in the infinite occupancy scheme",
+          "trigger": "Canonical occupancy formulation of richness"
+        },
+        {
+          "assessment": "Relevant kernel statistic in iid setting",
+          "evidence": [
+            "Kernel estimators built from coincident observations, no matching mixed law in inspected passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.4977",
+          "material_read": "p. 2 §1, offset 5036",
+          "method": "Bounded OA PDF passage",
+          "title": "Statistical Inference for Rényi Entropy Functionals",
+          "trigger": "Categorical pair-coincidence estimators"
+        },
+        {
+          "assessment": "Unresolved access risk, no negative inference from it",
+          "evidence": [
+            "No technical statement comparison was possible from the available material."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1934716",
+          "material_read": "Bibliographic identification only; technical text not read",
+          "method": "DOI full-text request returned 403; no identified lawful OA copy surfaced",
+          "title": "Explicit calculation of the rarefaction diversity measurement and the determination of sufficient sample size",
+          "trigger": "Early rarefaction source potentially using a different terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lower bound and strict/zero classification",
+        "October 4 iid result and October 18 unequal-distance Rao witness"
+      ],
+      "rationale": "The result gives an exact dependent-sampling law for two widely used rarefaction summaries. Its sign, attained bound and exact zero threshold give information not available from the two marginal means or an iid calculation; in particular, the loss of covariance as richness saturates is characterized for arbitrary abundance profiles. The Rao comparison shows the equal-distance scope is a real mathematical boundary, not a normalization convention.",
+      "residual_risks": [
+        "The result does not imply ecological causation, positive association for other statistics, or a sign guarantee for unequal pairwise dissimilarities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

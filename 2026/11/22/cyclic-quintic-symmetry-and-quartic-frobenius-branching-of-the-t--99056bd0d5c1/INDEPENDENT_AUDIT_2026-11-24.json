@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:20:12.631268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact published models are smooth genus-four canonical complete intersections. By the canonical action every ground-field automorphism extends uniquely to a rational projectivity preserving the unique containing quadric. Since the cubic part of the homogeneous ideal is spanned by F and linear multiples of Q, the displayed coefficient test is necessary and sufficient. I executed an independent exact enumerator, python3 /workspace/reproductions/curve_similitudes.py, not the supplied checker. It uses columns of similitudes rather than the Hermitian cosets: enumerate isotropic X,Y with B(X,Y)=lambda nonzero, normalize the first nonzero entry of X to 1, then choose Z,W in the polar orthogonal complement with Q(Z)=Q(W)=lambda and B(Z,W)=lambda B(e_z,e_w). These four column norms and all polar products specify Q(Tv)=lambda Q(v), and the nondegenerate polar form ensures invertibility. This covers every projective similitude once, in both characteristics. Exact cubic substitution and comparison modulo Q give 5 stabilizers out of 120 and 1440 projectivities respectively, equal to the five projective powers of the displayed matrices. The matrices themselves have order five; since Phi_5 is irreducible of degree four over both fields, any nontrivial such four-dimensional linear action has that separable characteristic polynomial. Riemann–Hurwitz for the prime-order tame action says 6=5(2g_0−2)+4r, forcing g_0=0 and r=4; a genus-zero curve over a finite field is P¹. The four projective eigenlines must therefore lie on the source curve, and arithmetic Frobenius permutes them transitively by ord_5(q)=4. Totally ramified fibers have distinct branch values, so there is one closed branch point of degree four. This proves only the full ground-field groups for the two marked models and their quotient behavior, not geometric automorphism groups. The uploaded script was inspected, not executed; smoothness and canonical model identification were checked against the cited original model results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maximum-gonality classification says exactly one excessive genus-four curve over F2 and one over F3. Xarles's census classifies all binary genus-four curves. The related Resultary conclusion concerns a degree-12 genus-19 curve with quotient genus three."
+        ],
+        "reasoning": "The broader isomorphism classifications establish the natural domain, not the full automorphism groups of these classes. The similar branch pattern in genus 19 is for a different source curve, target genus, and type of stabilizer; it does not specialize to either genus-four case.",
+        "searches": [
+          "arXiv:2207.14307v2, introductory explicit uniqueness and §4",
+          "arXiv:2007.07822, binary genus-four census",
+          "Resultary 7a9b0a09b964, C5 projective stabilizer and quartic branch orbit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.07054",
+        "arXiv:2010.07992",
+        "arXiv:1605.02162v2",
+        "arXiv:2207.14307v2",
+        "arXiv:2007.07822",
+        "Xarles companion census README",
+        "Resultary 7a9b0a09b964"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xarles enumerates the action of the containing-quadric stabilizer on cubics modulo Q to find class representatives, which overlaps the computational framework. The known models and gonality classification do not identify an order-five action or bound away additional rational automorphisms."
+        ],
+        "reasoning": "If the exact stabilizer order were tabulated for the actual model, C5 and the branch calculation would be routine consequences. The prior isomorphism counts do not yield that hypothesis and no exact orbit length was located; the new evaluation establishes it and tests fullness, not just presence of a cyclic subgroup.",
+        "searches": [
+          "arXiv:2007.07822, section on the nonhyperelliptic census, and companion dataset description",
+          "arXiv:2207.14307v2, introduction and Theorem 4.2",
+          "Resultary 7a9b0a09b964, original finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary and ternary papers give the two exact equations used here. Castryck–Tuitman's preprint gives a different F3 model of gonality five, which is the same ground-field isomorphism class by later uniqueness. The exact indexed duplicate is the assigned result itself."
+        ],
+        "reasoning": "The earlier equations and uniqueness, including the different F3 representative, identify the same objects but do not state their automorphisms. The old example must be included in priority comparison; it does not supply a full stabilizer or branch description in the inspected passage.",
+        "searches": [
+          "arXiv:2005.07054, Theorem 5.4; arXiv:2010.07992, Theorem 5.3 and Remark 5.4",
+          "arXiv:1605.02162v2, Remark 11",
+          "Resultary genus-four gonality-five curves, cyclic quintic quotient and quartic Frobenius branching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xarles Table 1–4 summarizes point-count distributions, and the companion README documents isomorphism representatives and extension-field point counts, not per-model stabilizer sizes or orbit lengths. The original Faber–Grantham tables give N_2(4,5)=N_3(4,5)=0. No comparably specific ternary automorphism table was identified in the bounded search."
+        ],
+        "reasoning": "Isomorphism representatives, their point counts, and aggregate counts of classes do not give the individual orbit cardinal or stabilizer. The listed binary census process could reproduce that invariant by a further exact orbit computation, but the inspected outputs do not report it.",
+        "searches": [
+          "genus 4 curves over F2 F3 complete census isomorphism classes automorphism group order",
+          "Xarles arXiv:2007.07822 §2–3 and author companion dataset README",
+          "Faber–Grantham point-count tables for binary and ternary gonality five"
+        ]
+      },
+      "rationale": "Prior work supplies the two isomorphism classes, model equations, and point-count/gonality tests, and a binary census supplies an equivalent orbit method. The additional established invariant is the full rational stabilizer of each marked model and its arithmetic branch type. No inspected prior table gives the stabilizer size or orbit length for the specific models, and the methods and lists of representatives alone do not give them without computing the relevant orbits. Riemann–Hurwitz and the Frobenius cycle are direct consequences once the group is known, not claimed as new techniques. Credit Castryck–Tuitman's earlier preprint example over F3; the frozen equations are those subsequently selected by Faber–Grantham, not the first construction of that isomorphism class.",
+      "residual_risks": [
+        "An earlier unpublished or unindexed arithmetic-automorphism table containing exact stabilizer orders or exact cubic orbit sizes for the specific models would alter priority; the binary census code's incidental outputs were not inspected.",
+        "Absence of an exact table in the bounded searches is not proof of historical novelty. No claim is made about geometric automorphism groups or extensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, gonality and pointlessness; not an automorphism calculation in the inspected result",
+          "evidence": "Gives N_2(4,5)=0, the displayed binary equations and absence of F4-points.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.07054",
+          "material_read": "Table 2 p. 2, offset 5600; Theorem 5.4 p. 9, offset 27194",
+          "method": "OA PDF bounded exact passages",
+          "title": "Binary Curves of Small Fixed Genus and Gonality with Many Rational Points",
+          "trigger": "Exact F2 curve and prior invariant table"
+        },
+        {
+          "assessment": "Same selected ternary model, existence and gonality, not stabilizer or branch type",
+          "evidence": "Theorem 5.3 supplies the equations and smoothness, geometric irreducibility and absence of F9-points. Remark 5.4 credits an earlier F3 example and explains the selection of a shorter equation.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.07992",
+          "material_read": "Table 2 p. 2, offset 6300; Theorem 5.3 and Remark 5.4 p. 9, offsets 25601 and 26306",
+          "method": "OA PDF bounded exact passages",
+          "title": "Ternary and Quaternary Curves of Small Fixed Genus and Gonality with Many Rational Points",
+          "trigger": "Exact F3 curve and earlier related model"
+        },
+        {
+          "assessment": "Earlier example of same F3 isomorphism class; no matching symmetry invariant in inspected passage",
+          "evidence": "Preprint gives an explicit (2,3) model with discriminant −1 and no F9-points. The class identification uses the later uniqueness, not a computed coordinate transformation.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.02162v2",
+          "material_read": "Lemma 10 and Remark 11, p. 15, offsets 42414 and 43800",
+          "method": "OA PDF bounded exact passages",
+          "title": "Point counting on curves using a gonality-preserving lift",
+          "trigger": "Prior F3 example represented by different equations"
+        },
+        {
+          "assessment": "Determines where the family exists and uniqueness, not its rational automorphism groups",
+          "evidence": "Explicit introduction says exactly one excessive genus-four class over each of F2 and F3 and cites the known defining equations.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.14307v2",
+          "material_read": "Theorem 1.1; introduction p. 3 around offset 10052; Theorem 4.2 p. 6 around offset 21617",
+          "method": "OA PDF bounded exact passages",
+          "title": "On the Maximum Gonality of a Curve over a Finite Field",
+          "trigger": "Complete excessive genus-four classification"
+        },
+        {
+          "assessment": "Earlier exact census and overlapping method; inspected figures give counts, not the relevant stabilizer",
+          "evidence": "Steps (1)–(8) reduce cubics by quadric-preserving projectivities and Q times linear terms, then keep a representative and extension point counts. Tables summarize these counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07822",
+          "material_read": "Nonhyperelliptic case, offsets 17150–22350; Tables 1–4 around 22900–25450",
+          "method": "OA PDF bounded exact passages",
+          "title": "A census of all genus 4 curves over the field with 2 elements",
+          "trigger": "Possible exact earlier binary stabilizer data or orbit sizes"
+        },
+        {
+          "assessment": "Documented table fields are point counts and models, not group order; separate code outputs not verified",
+          "evidence": "README specifies lists N for counts over the first four extensions, H for hyperelliptic models and C for pairs of canonical equations. It lists a Magma program separately.",
+          "identifier_or_url": "https://github.com/XavierXarles/Censusforgenus4curvesoverF2",
+          "material_read": "README, full documented data schema; raw Magma source not inspected",
+          "method": "OA public project README; raw file retrieval attempted and not usable in the OA reader",
+          "title": "Censusforgenus4curvesoverF2 companion data",
+          "trigger": "Check whether the census companion tables report exact group orders"
+        },
+        {
+          "assessment": "Same pattern in a different geometric problem",
+          "evidence": "Degree-12 genus-19 curve over F2 with full rational projective stabilizer C5, quotient genus three, and one Frobenius orbit of four branch points.",
+          "identifier_or_url": "Resultary 2026/11/02 7a9b0a09b964",
+          "material_read": "Original RESULT.md opening statement",
+          "method": "Configured local mirror statement inspection",
+          "title": "One projective class of minimal space-filling complete intersections",
+          "trigger": "Closest distinct catalog C5 and quartic branch orbit pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two curves are all genus-four cases of gonality five over finite fields, making their full arithmetic automorphism groups natural exact invariants rather than arbitrary field cutoffs. Fullness matters for identifying the actual arithmetic quotient and tells a future user that both canonical extreme cases support the same tame quintic quotient and single quartic branch place. This is not a re-count of the known census or rational point totals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

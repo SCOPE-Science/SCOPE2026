@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:50:36.964481Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordinary grid has 24 cells, 12+16+18 adjacency edges and 8+9+12 elementary squares. The first-uncovered-cell branching is exhaustive and duplicate-free, since a matching chooses exactly one branch at that cell; the floor transfer count is an additional independent count in the frozen package. Single-square replacement gives all and only the required flips. The frozen four-edge symmetric-difference test is equivalent: the difference consists of even alternating cycles, and a four-cycle in this grid is an elementary square. A separately implemented enumeration using tuples of cell pairs and explicit local replacements, followed by component search, reflection tests and all-source BFS, reproduced 1,845 vertices, 6,949 edges, components of sizes (1825,5,5,5,5) and edge counts (6933,4,4,4,4), minimum degree 1, the single reflection orbit on exceptional components, and the full eccentricity and pair-distance histograms (1,664,400 unordered pairs in the giant component). The exceptional connected trees with degrees (1,1,2,2,2) are paths with radius 2 and diameter 4; the giant radius and diameter are 10 and 16. This is exhaustive finite computation, not formal verification or a general box result.",
+      "replay_paths": [
+        "/workspace/branches/c6483d21-6bfa-4c8c-b94d-e33a9c2abed7/reproduce_box_flips.py",
+        "/workspace/branches/c6483d21-6bfa-4c8c-b94d-e33a9c2abed7/reproduction_output.json"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Milet–Saldanha's box results already establish disconnectedness for this box and explicitly count three components for 3×3×2.",
+          "Freire–Klivans–Milet–Saldanha characterize flips between refinements by flux and twist, and separately consider flips with trits."
+        ],
+        "reasoning": "A failure of connectivity supplies no component count or distance distribution. Stabilizing by refinement or adding trits changes which states and paths are allowed and does not classify ordinary unrefined flip distances.",
+        "searches": [
+          "arXiv:1404.6509, ‘3 × 3 × 2’",
+          "arXiv:1702.00798, ‘refinement’, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_box_flips.py and verification_output.txt",
+        "arXiv:1404.6509",
+        "arXiv:1912.12102",
+        "arXiv:1702.00798",
+        "arXiv:2507.22625",
+        "Local Resultary records cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generator uses the same box, while refinement and polynomial/invariant results compare other equivalence relations or certify disconnectedness.",
+          "The frozen claim gives all finite graph components including their internal path structure, no isolated vertices, and exact giant-component distances."
+        ],
+        "reasoning": "None of those statements makes component equality at fixed height equivalent to a full invariant value with known fibers, let alone determines shortest paths and eccentricities. Thus the exact finite metric is not a corollary of the inspected prior results.",
+        "searches": [
+          "arXiv:1912.12102, Lemma 9.2",
+          "arXiv:1702.00798, Theorem 1",
+          "arXiv:1404.6509, example and box connectivity discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same box occurs as a 2×3 cross-section of a height-4 cylinder in the generator construction of Lemma 9.2.",
+          "Other catalogue flip-metric records returned concern a 4D hypercube and a periodic 4×6 torus, not permutations of these three nonperiodic dimensions."
+        ],
+        "reasoning": "Cylinder language and axis permutations can describe the same finite tilings. The same-box source uses certain states in constructing a group generator and does not calculate the quotient-free fixed-height flip graph. The other catalogue objects have different adjacency graphs and state spaces.",
+        "searches": [
+          "Resultary: Flip components of the 2×3×4 domino box",
+          "Web: \"2×3×4\" domino tilings flip graph components 1845 6949 Saldanha generator",
+          "arXiv:1912.12102, §9, Lemma 9.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The survey tabulates 3×3×2 with component sizes 227,1,1 and 4×4×4 with 93 components, neither giving a row for 2×3×4 in the inspected table.",
+          "The count query found no matching graph histogram in the returned catalogue results. The two closest checked metric records have different shapes."
+        ],
+        "reasoning": "The meaningful table match would have to cover the actual connected pieces or distances of this box. Merely listing its total number of tilings, if known, would not determine them.",
+        "searches": [
+          "Resultary: 1845 6949 1825 6933 domino flip",
+          "arXiv:2507.22625, §3, ‘4 × 4 × 4’",
+          "arXiv:1404.6509, ‘3 × 3 × 2’"
+        ]
+      },
+      "rationale": "The supported distinct result is the fixed-volume component census and metric, with exceptional paths, no frozen tiling and the symmetry orbit. Neither disconnectedness, the choice of box, nor an unrefined tiling count alone is the novelty basis. The strongest checked prior passages do not supply or imply this classification.",
+      "residual_risks": [
+        "The single web query was uninformative; priority comparison rests on actual primary passages and bounded catalogue evidence, not on lack of a search hit.",
+        "An independently computed unindexed exact graph or appendix could contain equivalent data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit prior disconnectedness; different exact small-box count",
+          "evidence": "3×3×2 has 229 tilings with two singleton components in addition to its main component.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6509",
+          "material_read": "PDF p. 5, offset 12626, box example and general remark",
+          "method": "OA original PDF, literal location then passage",
+          "title": "Flip invariance for domino tilings of three-dimensional regions with two floors",
+          "trigger": "Prior ordinary flip disconnectedness for small boxes"
+        },
+        {
+          "assessment": "Same object used in a construction, not a metric census",
+          "evidence": "A tiling from the 2×3×4 box is used to build a generator with vertical dominoes elsewhere.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.12102",
+          "material_read": "§9, Lemma 9.2, p. 26, offset 66702",
+          "method": "OA original PDF, literal location then passage",
+          "title": "Domino tilings of cylinders: the domino group and connected components under flips",
+          "trigger": "Same 2×3×4 box appears explicitly"
+        },
+        {
+          "assessment": "Refined-grid equivalence does not give original adjacency",
+          "evidence": "Statement invokes flux and twist for connectivity between refinements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.00798",
+          "material_read": "Theorem 1, p. 3, offset 7416",
+          "method": "OA original PDF, literal location then passage",
+          "title": "On the connectivity of spaces of three-dimensional domino tilings",
+          "trigger": "Potential stronger characterization of connectivity"
+        },
+        {
+          "assessment": "Inspected table concerns different boxes",
+          "evidence": "3×3×2 and 4×4×4 are tabulated; the 2×3×4 row is absent from the checked table.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.22625",
+          "material_read": "§3, p. 7, offset 13666",
+          "method": "OA original PDF, literal location then passage",
+          "title": "Domino tilings beyond 2D",
+          "trigger": "Survey's exact component table for boxes"
+        },
+        {
+          "assessment": "Different graph and outcomes",
+          "evidence": "4D 2×2×2×2 matching graph with a 264-state mobile component and eight isolated states.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-square-flip-distances-and-diametral-geometry-of-four-cube--22eb72e87c33",
+          "material_read": "RESULT.md, offsets 349 and 1148",
+          "method": "Local Resultary mirror",
+          "title": "Sharp square-flip distances and diametral geometry of four-cube matchings",
+          "trigger": "Nearby catalogue exact square-flip metric"
+        },
+        {
+          "assessment": "Periodic 2D graph, not the assigned box",
+          "evidence": "3,108 tilings in 15 flux components, with 9,048 flip edges.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-winding-sector-flip-metric-of-domino-tilings-on-the-4-t--65307c7ee5da",
+          "material_read": "RESULT.md, offset 6363",
+          "method": "Local Resultary mirror",
+          "title": "Complete winding-sector flip metric of domino tilings on the 4×6 torus",
+          "trigger": "Nearby catalogue exact component/metric census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a previously motivated small nonperiodic box used in domino-group constructions. Its local dynamics distinguish global disconnectedness from the presence of immobilized tilings: every state moves, yet four entire nontrivial path components are trapped. The decomposition, reflection orbit and complete distance data supply a useful exact benchmark for studying unrefined flips on this specific box, rather than a routine recount of tilings or a claim about all boxes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

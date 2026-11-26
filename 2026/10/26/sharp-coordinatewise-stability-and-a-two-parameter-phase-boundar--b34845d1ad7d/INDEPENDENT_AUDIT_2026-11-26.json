@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:33:38.613306Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Euclidean projection reduces to minimizing the squared error over an output vector length r∈[0,t], t=||u||₂, with scalar outputs max(x_i,r). On an exterior chart with k active scalars, dr=(sum_active dx_i+v·du)/(k+1), v=u/t; the vector Jacobian block is αI+[(k+1)^−1−α]vvᵀ, α=r/t. The scalar row maximum (1+√q)/2 comes from k=1 and equal coordinate magnitudes in v. Vector absolute row sums are convex in α. At α=0 they are |v_j| times the scalar row norm, strictly below the scalar maximum for q≥2 (equality there would need both |v_j|=1 and equal magnitudes across q coordinates). At α=1 the row sum is 1+k/(k+1) times the increment a(1−a+sum_{i≠j}|v_i|), with the 1 outside the product. Equal magnitudes of the other coordinates maximize the latter at fixed a=|v_j|; k=p and α approaching one give the second sharp branch. All interior chart parameters used by the witnesses are realizable. For the global bound the finitely many switching walls have ambient measure zero: at fixed x, each wall confines t to one of finitely many specified radii. Almost every parallel translate of a segment meets those walls in a null set of segment parameters, so absolute continuity and passage to the limit give the claimed global bound. The phase refers to which row-type supremum gives the norm; in the vector-dominant regime the optimizing vector row is approached at a switch, not attained as a smooth-chart row. For q=1 both increments vanish and an identity chart attains one. For q≥2 the derivative of the H_q objective is strictly decreasing, and its zero lies between 1/2 and 1/√2; the second derivative has size comparable to √q there, giving a_q−1/√2=O(q^−1/2) and the stated phase asymptotic. Checked H_6=4/3 at a=2/3 directly, hence Λ_(2,6)=17/9; independent scalar maximization gives p_*(13)≈2.029335. Inspected the finite script without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferreira–Németh arXiv:1610.08887, Theorem 2, Eqs. (5)–(6), gives the exact Euclidean projector on the same unordered cone, including the nontrivial scalar root and clipping formula. The earlier extended-cone order papers study isotone projections onto sets such as cylinders or linear operators preserving the cone."
+        ],
+        "reasoning": "The exact projector is closer than a generic nonexpansivity bound and fully covers the frozen proof's starting projection formula. But its computation in Euclidean distance does not bound the infinity-norm gradient row sharply without analyzing and optimizing those rows. Isotonicity relative to a cone ordering is not coordinatewise maximum-norm nonexpansivity.",
+        "searches": [
+          "Ferreira Németh How to project onto extended second-order cones 70 707 718 arxiv 2016 exact projection",
+          "Németh–Zhang arXiv:1405.7835, arXiv:1503.06119 and arXiv:1608.07455",
+          "Ferreira–Gao–Németh arXiv:2102.02040, projection onto the monotone extended second-order cone"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.08887",
+        "arXiv:1405.7835",
+        "arXiv:1503.06119",
+        "arXiv:1608.07455",
+        "arXiv:1212.5438 (isotonicity/subadditivity context)",
+        "arXiv:2102.02040 (monotone projection context)",
+        "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+        "2026/11/22/SCOPE-sharp-coordinatewise-stability-of-monotone-extended-second-order--db9303fd2c8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Ferreira–Németh set r=||w||/(1+λ) in Eq. (5); dividing by 1+λ yields ||w||−r=sum_i(r−z_i)_+, exactly the audited radius equation, and Eq. (6) gives the same outputs. The ordered-cone proof gives one-coordinate and all-coordinate pooling sharpness sequences."
+        ],
+        "reasoning": "The pre-existing projector formula can be differentiated, but neither the endpoint optimization over α nor the two constrained direction/active-count extremizers and their phase boundary occur in that projector theorem. The ordered formula can recover the unordered numerical modulus with the chamber argument, but the later indexed overlap is not established as a predecessor of this finding. The frozen statement's unsourced claim of prior knowledge for p=1 is not used to assign priority.",
+        "searches": [
+          "arXiv:1610.08887 Theorem 2 at OA offset 16216",
+          "Ordered-cone RESULT.md, sharpness at mirror offset 4498"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e, RESULT.md Finding at offset 0: verifies the ordinary one-scalar Lorentz specialization.",
+          "2026/11/22/SCOPE-sharp-coordinatewise-stability-of-monotone-extended-second-order--db9303fd2c8a, Finding at offset 0 and Sharpness at 4498: same two numerical branches and H_q (called G_q), for x_1≥⋯≥x_p≥||u||₂."
+        ],
+        "reasoning": "The ordinary Lorentz result covers only p=1. The ordered cone adds constraints and has a different full projector. On sorted-input chambers its projector does agree with the unordered one, because clipping preserves a pre-existing scalar order; by permutation equivariance and local derivative integration this gives the unordered upper bound from the ordered theorem, and its sharpness witnesses can be made strictly sorted. Thus the numerical-modulus overlap is mathematically substantive. Both indexed records are later-dated than the audited one, and the ordered record's inspected statements do not give the unordered-cone phase asymptotic.",
+        "searches": [
+          "Resultary: extended Lorentz / extended second-order Euclidean cone projector, exact coordinate max-norm Lipschitz modulus and row-type transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed formula hits were the ordinary specialization and the ordered cone. The ordered result gives the same dimension-dependent expression and a concrete p=2,q=6 case; neither supplies an earlier verified source for the multi-scalar unordered result."
+        ],
+        "reasoning": "This is a dimension-dependent operator invariant rather than a numerical table entry. The matching ordered expression must be credited even though the projection problem differs, and a matching coefficient cannot by itself establish priority or cover the full phase asymptotic.",
+        "searches": [
+          "Resultary: exact sharp Lipschitz transition, (√q−1)/2 and pH_q/(p+1)",
+          "Resultary ordinary and monotone extended second-order cone Findings"
+        ]
+      },
+      "rationale": "The Euclidean projector's radius equation is established prior work, and p=1 is background rather than part of the distinct contribution. The supported distinct claim is the sharp coordinatewise optimization for the unordered extended cone with multiple scalar coordinates and its row-type phase. A later-dated ordered-cone record has the identical numerical modulus and overlapping sharpness mechanisms, with a reduction for the numerical modulus via sorting chambers. This is significant formula-level coverage, but not evidence of earlier priority for the ordered result, and it does not present the audited unordered-cone phase classification and asymptotic. The identified pre-existing projection and order-theoretic sources do not supply the sharp row optimization.",
+      "residual_risks": [
+        "An earlier result with equivalent sensitivity optimization might be indexed under second-order cone conditioning or generalized Jacobians. The historical priority of the ordinary p=1 formula is not independently settled by these comparisons. The frozen note about October 2016 is not a basis for excluding the earlier exact-projector paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for the projector representation, not the sharp max-norm row result",
+          "evidence": "The unique positive λ solves Eq. (5); r=||w||/(1+λ) turns it into the same clipping equation. The inspected theorem computes the projector, not its coordinatewise modulus.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.08887",
+          "material_read": "Theorem 2 pp. 5–6 of the PDF, Eqs. (5)–(7), OA offset 16216; located Remark 1, p. 7",
+          "method": "Compared original radius equation and projector by explicit substitution",
+          "title": "How to project onto extended second order cones",
+          "trigger": "Earlier exact projector for the same cone; potential direct quantitative implication"
+        },
+        {
+          "assessment": "Contextual, not the same quantitative claim in the inspected material",
+          "evidence": "Isotonicity of projection sets and positivity of linear maps under the cone order.",
+          "identifier_or_url": "arXiv:1405.7835; arXiv:1503.06119 (DOI 10.1007/s10957-015-0833-6); arXiv:1608.07455",
+          "material_read": "arXiv:1405.7835 abstract, OA offset 2338; arXiv:1503.06119 p. 6 at 12810; arXiv:1608.07455 p. 2 at 3045",
+          "method": "Compared projection targets, map types and ordering statements in primary text",
+          "title": "Extended Lorentz cones and mixed complementarity problems; Extended Lorentz cones and variational inequalities on cylinders; Positive operators of extended Lorentz cones",
+          "trigger": "Original extended-cone results with projection or positivity terminology"
+        },
+        {
+          "assessment": "Equivalent p=1 specialization, later indexed date, no p≥2 coverage",
+          "evidence": "Spatial-row branch for spatial dimensions 2–4, axial branch for dimensions at least 5.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Compared p=1 dimensions and the two row mechanisms",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "Exact indexed candidate for the ordinary Lorentz specialization"
+        },
+        {
+          "assessment": "Numerical-modulus overlap with a reduction; different full projector and later indexed date",
+          "evidence": "One terminal scalar pooled gives the scalar branch; pooling all scalars and taking the exterior limit gives the identical vector branch.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-coordinatewise-stability-of-monotone-extended-second-order--db9303fd2c8a",
+          "material_read": "RESULT.md Finding, mirror offset 0; Sharpness and Unique optimizer, offset 4498; limitations and references, offset 7020",
+          "method": "Compared exact H_q function, cone inclusions and ordering-preserving sharpness charts",
+          "title": "Sharp coordinatewise stability of monotone extended second-order cone projection",
+          "trigger": "Matching two-branch modulus for a related ordered cone"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinate maximum norm models simultaneous componentwise input errors, and Euclidean nonexpansivity gives only a coarse bound in that norm. The exact invariant shows when this projection can amplify such errors and which type of output is most sensitive as the two dimensions vary. The sharp phase and its √q scale provide information not available from the underlying scalar projection algorithm alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

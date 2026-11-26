@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:30:00.669330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof",
+        "Frozen VERIFICATION.md, brute_cycle.py/.out and gap_cycle.py/.out (inspected, not executed)",
+        "/workspace/branches/frozen_recheck.py, cycle()"
+      ],
+      "rationale": "Independence and domination require gaps 2 or 3, respectively bounded below and above, and a legal slide swaps an unlike adjacent gap pair. Distinct legal slides give different vertex sets. Marking a token gives n choices for the anchor and binomial(k,t) for its gap word; each unmarked placement occurs k times. Counting distinguished 3-run starts among indexed gap words by two compositions gives the degree multiplicities, with Vandermonde giving the edge count. When t=0 there are just the two immobile alternating sets. Otherwise slides disjoint from a marked token can rearrange its linear gaps by adjacent swaps. Placing gap 2 behind it and 3 ahead lets it advance; this proves connectivity. Even degree proves the Eulerian assertion and t=1 gives C_n. Position sum sends each slide to ±1 modulo n; it gives even-n bipartiteness and forbids odd returns shorter than n for odd n. In the floor schedule use integer lifts with F_(i+k)=F_i+n. With remainder k−1 a moving token has gap 2 behind and 3 ahead; other moving indices are spaced by k/gcd(n,k)≥2. Serializing the disjoint swaps gives n clockwise unit slides, with terminal positions cyclically relabeled. No shorter subreturn is possible by position sum, so the n-cycle is simple. Independent bitmask enumeration checked 15 eligible layers for 8≤n≤17, including exact odd girth via parity-double-cover BFS in all seven odd layers. Replay: python -B /workspace/branches/frozen_recheck.py 1.",
+      "residual_risks": [
+        "Finite recurrence checks do not cover every n; the constructions and enumerators establish the universal statements. The floor differences in the sum must be taken before reducing the coordinates modulo n, as indicated by the use of lifts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Claw-free reachability preserves independence, not domination.",
+          "The i-graph is only the minimum-cardinality layer.",
+          "Ambient Eulerian degree parity is not hereditary to an induced subgraph."
+        ],
+        "reasoning": "Those broader or adjacent results do not give connectivity, degrees or a short odd-cycle witness under the required intermediate domination. Even-cycle bipartiteness is hereditary and already covered.",
+        "searches": [
+          "arXiv:1403.0359, Theorem 16",
+          "arXiv:2303.08190, cycle i-graphs",
+          "arXiv:2203.16861, Props. 11, 16 and 19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a5fcb188f118",
+        "Avis–Hoang arXiv:2203.16861",
+        "Brewster–Mynhardt–Teshima arXiv:2303.08190",
+        "Bonsma–Kamiński–Wrochna arXiv:1403.0359"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full graph admits independent commuting moves, e.g. {0,4}→{1,4}→{1,5}→{0,5}→{0,4} in TS_2(C_8); the printed ordinary-girth statement cannot be used as a stronger valid substitute.",
+          "The exchange-sector comparator gives no within-layer n-cycle or odd-girth invariant."
+        ],
+        "reasoning": "A lower bound for the ambient odd girth would transfer, but an upper-bound witness must remain maximal independent. The floor schedule supplies that separate content; neither an ambient n-cycle nor the degree distribution implies it.",
+        "searches": [
+          "Avis–Hoang arXiv:2203.16861, §5.4 Prop. 19",
+          "Resultary a5fcb188f118, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary a5fcb188f118 reduces a one-vertex exchange preserving maximal independence to a slide; its a=3k−n and b=n−2k become k−t and t.",
+          "Avis–Hoang use TS_k(C_n) on all independent k-sets."
+        ],
+        "reasoning": "The exchange comparator really is equivalent for connectivity, counts, degrees and inactive maximum layer, but its date is later and it omits the parity and odd-girth conclusion; the ambient graph is not equivalent under the domination constraint.",
+        "searches": [
+          "Resultary: maximal independent set exchange sectors and exact degrees on cycles",
+          "arXiv:2203.16861"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary formulas agree under a=k−t and b=t (offsets 254–5142 and 5000–7800); indexed November 2, after the assigned October 18 record."
+        ],
+        "reasoning": "This is real overlap for graph order, size, degree distribution and connectivity, not a formula coincidence. It does not establish earlier coverage or enumerate odd girth; the minimum-layer catalog is for excluded k.",
+        "searches": [
+          "Resultary: a5fcb188f118, RESULT.md",
+          "Cycle i-graph descriptions, arXiv:2303.08190"
+        ]
+      },
+      "rationale": "Best of checked evidence, the distinct theorem is the active, maximal-only nonminimum layer result, especially the constructive n-cycle and exact odd girth together with the full degree spectrum. An exact sector/count comparator is later-dated and lacks these parity results. The ordinary token-slide graph's bipartiteness on even cycles already implies that portion by restriction; no novelty is assigned to it alone.",
+      "residual_risks": [
+        "Equivalent older treatments of constrained circular exclusion or composition graphs may exist outside the inspected evidence. The later comparator establishes overlap, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial overlap; later-dated",
+          "evidence": "Exchange=slide, a=k−t and b=t; same order, degree counts, edge counts and connectivity, not exact odd girth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-connected-maximal-independent-set-exchange-sectors-and-exact-deg--a5fcb188f118/RESULT.md",
+          "material_read": "Finding and proof, offsets 254–5142 and 5000–7800, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and local mirror passage inspection",
+          "title": "Connected maximal-independent-set exchange sectors and exact degree counts",
+          "trigger": "Same feasible sets and ostensibly broader adjacency"
+        },
+        {
+          "assessment": "Ambient analogue, partial implication only",
+          "evidence": "TS uses all independent k-sets. The proof here must certify that n clockwise moves preserve domination. The printed ordinary-girth claim has a 4-cycle counterexample in the ambient setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+          "material_read": "Definitions p. 1, Prop. 11 p. 9, Prop. 16 §5.3 p. 12 and Prop. 19 §5.4 p. 13",
+          "method": "OA PDF passage inspection",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Eulerian, parity and girth results on cycle slides"
+        },
+        {
+          "assessment": "Different cardinality scope",
+          "evidence": "i-sets are minimum independent dominating sets; the frozen range excludes them.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+          "material_read": "Definition p. 2 and cycle results pp. 8–9",
+          "method": "OA PDF passages",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Same graph and domination condition"
+        },
+        {
+          "assessment": "Does not preserve the additional constraint",
+          "evidence": "Reachability concerns equal-size independent sets, not maximal-independent intermediate sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0359",
+          "material_read": "Introduction p. 2 and Theorem 16 p. 9",
+          "method": "OA PDF passages",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Potential reachability by class inclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "Cycle i-graph and ambient token-sliding comparisons"
+      ],
+      "rationale": "The layer is the natural counterpart to minimum independent domination, keeping domination at every step rather than relaxing it for reachability. The exact histogram measures how many legal updates states have; the explicit n-cycle and sharp odd obstruction separate local mobility from the shortest odd return. These are useful layer invariants not supplied by ambient reachability or minimum-layer classifications.",
+      "residual_risks": [
+        "No ordinary girth, diameter, or general-graph extension is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,24 +1,21 @@
-# Scientific assessment — sharp one-erasure gradient frames for quadratic simplex harmonics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the complex quadratic-harmonic/trace-free symmetric-matrix isometry, probability-normalized spherical Dirichlet energy, and equal surviving-vertex weights before computing eigenvalues. The universal kernel classification uses nonorthogonality of every pair of regular-simplex vertices and the trace constraint on the complementary symmetric block. The full frame has a two-sector Gram decomposition. A deleted vertex is an exact tangent-gradient rank-\((d-1)\) projection downdate, whose overlap with the low sector is \(2/[d(d-1)]\); its two-dimensional blocks have the stated exact trace and determinant. All dimension boundaries are addressed, particularly the vanishing high-branch multiplicity at \(d=3\). Independently assembled numerical gradient Gram matrices match in dimensions \(3\) through \(9\), and symbolic trace/determinant identities match. Finite numerical checks are corroboration, not the proof of the all-dimensional statement.
+PASS
 
-## Originality — PASS (priority remains provisional)
+The fourth-moment normalization and Laplace eigenvalue 2d give Dirichlet norm squared 4||A||_F^2/(d+2), while each intrinsic gradient is 2(I-uu^T)Au. A vanishing sampled gradient forces u to be an eigenvector of the complex symmetric A; nonzero pairwise bilinear products force a common eigenvalue. The real simplex span through k<=d vertices has positive definite Gram matrix, so its complexification splits orthogonally from the complementary symmetric block. The trace condition determines the common eigenvalue, giving exactly (d-k)(d-k+1)/2 free parameters, and the full simplex is injective by restriction. For one deletion, the full-frame rescaling and rank-(d-1) downdate have coefficient (d+2)/(2d). For the normalized symmetrized tensor at the deleted vertex, the squared norm of its full evaluation vector is 2(d+1)/d^3 by simplex isotropy; dividing by the low-sector evaluation Gram level (d^2-1)/d^2 gives overlap 2/[d(d-1)]. Polarizing yields orthogonal paired planes. The trace and determinant in the resulting two-by-two block produce both radical branches; the secular polynomial is negative at L_d, the upper root is strictly below H_d, and positivity follows from the kernel calculation. Unpaired dimensions are 1 and d(d-3)/2, so the d=3 condition number uses the upper paired root rather than H_d. The determinant divided by the upper root gives lower-root asymptotic 1/d. An independent rational ambient-hyperplane matrix construction confirmed every retained-cardinality rank and the full and erased characteristic polynomials for d=3,4,5,6; this is corroboration, not the all-dimensional proof.
 
-The closest accessible published calculation, *Exact two-band Hessian and isotropic weighting for minimal spherical two-designs* (2026), proves a related full-vertex two-band regular-simplex Hessian and even contains a mathematically equivalent un-erased quadratic-gradient sector decomposition. That full-frame spectrum is explicitly excluded from the novelty claim. Its result does not determine any erased sampling operator, the principal-angle overlap, the surviving four-branch spectrum, or the complete subset nullity. The 2023 Xiao–Zhuang spherical-design Hessian construction provides broad numerical harmonic-transform formulas but neither this arbitrary-dimensional simplex erasure theorem nor its sharp constants. The 2017 Allasia–Cavoretto–De Rossi and Adcock–Sui works concern other derivative interpolation mechanisms. Relevant exact-statement, alias, dual-Hessian, and erasure queries identified no publication covering the complete new statement. This is a best-knowledge originality assessment, not a uniqueness certificate; an unindexed or implicit equivalent remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Gradient-only recovery at the minimum-size regular-simplex design is a natural exact-degree harmonic sampling problem, and losing a node is a concrete measurement-failure stress test. The theorem identifies the sharp survival threshold (one erased vertex), the nullspace dimensions after every larger erasure, all surviving singular levels, and the optimal inverse stability constants in every dimension. The result distinguishes information-theoretic injectivity from conditioning: after one erasure the sharp squared condition number is still asymptotic to \(d\). These are structural and application-relevant distinctions, not a numerical recomputation of the known intact-simplex frame.
+The intact two-level spectrum is already implied by the cited full-configuration Hessian proof and receives no novelty credit. The additional projected overlap with the deleted tangent subspace, the complete downdated spectrum and the exact subset-nullity law were not supplied by the strongest inspected matches. The verdict concerns these erasure results only and is best-of-knowledge, not a priority certificate.
 
-## Closest literature and limitations
+## value
 
-- Allasia, Cavoretto and De Rossi, arXiv:1705.01032v1, 2017-05-02: generic sphere/manifold Hermite–Birkhoff interpolation, not exact-degree simplex gradient-only erasures.
-- Adcock and Sui, arXiv:1712.06645v1, 2017-12-18: gradient-augmented sparse tensor-product approximation, not the tangential simplex frame.
-- Xiao and Zhuang, arXiv:2303.05365v1, 2023-03-09: spherical harmonic design-gradient/Hessian and framelets, predominantly the two-sphere setting; no erased-simplex classification.
-- *Exact two-band Hessian and isotropic weighting for minimal spherical two-designs*, 2026: a directly related full-node spectral calculation; it is treated as established prior coverage of the intact case, not as a source of novelty.
+PASS
 
-The claim is restricted to quadratic harmonic gradients at equally weighted surviving regular-simplex vertices. Independent mathematical audit has not been performed.
+Node loss is a natural stability question for a minimal spherical-design configuration. The exact nullity law separates injectivity after one loss from unavoidable information loss after two, and the sharp surviving constants distinguish injectivity from an inverse whose squared condition number grows like d. This is substantive additional information beyond the intact two-level spectrum, even without optimizing reweighting.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

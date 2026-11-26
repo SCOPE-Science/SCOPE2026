@@ -1,19 +1,21 @@
-# Review of the binary four-mer Greedy extremal ratio
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The stated ratio applies to all nonempty subsets of the sixteen binary length-four words, and to the worst legal tie-breaking of ordered global-maximum-overlap Greedy. The shortest-superstring recurrence is the exact maximum-weight overlap Hamiltonian-path DP. The Greedy recurrence is exact by the endpoint-overlap invariance for substring-free equal-length inputs (Chukhin et al., 2026, Lemma 2.2), and minimizes cumulative overlap across every maximizing ordered pair. The C++17 verifier exhausts all \(16959\) reversal/complement orbit representatives, representing all \(65535\) inputs. It finds the sole maximizing orbit, checks four labeled equality cases and reconstructs legal output and optimum witnesses. An independent literal-string Greedy recursion reproduces \(17\) for the extremal example; a length-eleven word and factor-window lower bound certify its optimum. Execution output is bundled.
+PASS
 
-## Originality (O) — PASS against inspected evidence
+Independently reproduced the full finite classification with an exact de Bruijn-graph BFS for OPT (state: final triple, exact mask of factors seen, followed by minimization over supermasks), and a separately written head-to-tail matching recursion for all maximizing ordered Greedy ties. To justify the compression without relying on the retrieved literature, maintain pairwise substring-free current strings and a nonincreasing maximum overlap k, initially at most 3. Upon merging X to Y at overlap k, any overlap from XY to another Z exceeding k either comes wholly from Y, contradicting maximality, or contains all of Y in Z, contradicting substring-freeness; the incoming case is symmetric. If XY newly contains Z, the occurrence must start before Y starts and end after X ends, giving a larger X-to-Z overlap. The reverse containment would put X in Z. Thus the invariants hold after every merge, including ties; once zero is reached, all remaining merges save zero. The length of each positive overlap is determined by the end words. Reversal with merge directions reversed, and complementation, preserve both problems. All 65,535 nonempty masks entered the symmetry filter (16,959 representatives); exact cross-products give the unique best representative 1343, ratio 17/11, and labeled masks 1343, 5431, 60584, 64672. Independent literal-string recursion visited 418 states for mask 1343, confirmed the stated legal length-17 output is among the worst outputs, and verified the given length-11 optimum by the factor-window lower bound.
 
-Kulikov–Savinov–Sluzhaev (2015) gives the much weaker universal \(2\) ratio for length-four inputs; its accessible 18-slide presentation was inspected. Chukhin–Kulikov–Mihajlin–Smal (2026) proves the unrestricted-alphabet length-three value \(9/5\) and supplies an endpoint lemma, not the exact binary four-mer value. A preceding limited-cardinality binary four-mer result covers input sizes through eight and shows four eight-word inputs cross the \(3/2\) threshold, but does not exclude worse ratios at sizes nine through sixteen. The complete finite census distinguishes the present claim logically from these bounds and from the weaker full-spectrum single-instance benchmark. Searches for equivalent full-binary length-four classifications and matching \(17/11\) ratio statements returned no decisive stronger coverage. Search failure is not a proof of global publication novelty. The full 2015 proceedings chapter was not accessible in this check; the available abstract and complete 18-slide presentation state an upper bound \(2\), not the sharp ratio. A hidden small-case table is residual risk.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The finite-alphabet approximation constant is natural and motivated by maximum-overlap genome/string reconstruction: a binary four-mer input is a subset of a canonical set of exactly sixteen distinguishable reads. Determining all tie outcomes across arbitrary input cardinalities is distinct from a finite eight-read example; the theorem supplies the exact worst-case guarantee and the complete equality orbit, which are not implied by the available large-alphabet or general two-approximation statements. The value is an exact natural finite boundary, not an arbitrary range of hand-picked cases.
+Pass is for the all-cardinality upper bound and absence of any other equality sets, not for the eight-word obstruction, the exhibited sharp instance, or endpoint compression by itself. Closest indexed companion claims overlap on the eight-word extremizers; no inspected statement imposes the necessary upper bound for larger input sizes. Same-day dating does not settle priority. Literature and companion-file access limits are material to the historical judgment, not to the independent census.
 
-## Scope, closest literature and residual risks
+## value
 
-The proof is computational but exhaustive, not probabilistic; its state reduction relies on the published endpoint lemma and its own state recurrences. No conclusion is made beyond binary four-mers. The closest non-implying sources are arXiv:2608.20018 and DOI:10.1007/978-3-319-19929-0_26. Residual priority risk: an unindexed equivalent table or unavailable detailed text, though none was identified that states or implies the sharp conclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Binary four-mers are a natural complete finite domain of distinct equal-length reads. The worst legal tie quantifier is an algorithmic guarantee, not a distributional observation. Settling every larger input size and isolating one exact equality orbit turns a known obstruction into a sharp guarantee for the domain. No claim is made about larger alphabets, longer words or random-tie performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

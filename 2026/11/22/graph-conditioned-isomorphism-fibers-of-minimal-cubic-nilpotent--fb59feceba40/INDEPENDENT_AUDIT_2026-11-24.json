@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:03:12.856555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–51",
+        "Frozen verify_minimal_nilpotent_graph_fibers.py (inspected, not executed)",
+        "Independent replay: python3 -B /workspace/checks/nilpotent.py"
+      ],
+      "rationale": "All products annihilate S on both sides and lie in the center, so strict cubic nilpotency and the stipulated size force S²=Z(S)={0,z}. Conversely, choose a binary product table on the remaining vertices and set all products involving 0 or z to zero. All triples vanish and associativity is automatic. Equal bits on edges and complementary bits on nonedges leave one bit per pair and one per diagonal. Every vertex has a nonneighbor and so is noncentral; any nonedge forces z to occur. Isomorphisms fix both central elements and act by Aut(H) on the tables. For a permutation, one free bit per vertex cycle and unordered-pair orbit survives unless a nonedge pair is reversed by a power, which is possible exactly at even-cycle antipodes. Within a cycle, pair orbits are indexed by cyclic distances; between cycles their number is gcd of the lengths. This gives the fixed-table count, Burnside average and exact rigidity criterion. The edgeless partition sum groups the odd cycle types. Direct enumeration of all directed arrays through order r=4 independently gives eligible graph counts 1,4,41 and agrees with the fiber counts. An independent parity-constraint count on directed-position orbits reproduces 4,12,48,296,3040 and 144,170,3280. Finally the equal labeled fibers give the conditioned random graph law, with TV exactly the probability of at least one universal vertex, bounded by the stated union bound.",
+      "residual_risks": [
+        "General r is proved by orbit analysis, not extrapolated from enumeration; no tractability guarantee for arbitrary Aut(H). Sampling is labeled and does not give a uniform law over isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The established power-group and partition-orbit formulas enumerate by semigroup order, not by a fixed commuting graph. The random-graph law record provides a broader exact labeled count for fixed square size."
+        ],
+        "reasoning": "At square size two and no universal vertices, the broader labeled formula specializes exactly. An order-aggregate count or a table probability on a fixed graph does not determine its internal quotient by Aut(H), because stabilizers need not be constant.",
+        "searches": [
+          "arXiv:1201.3529 §2.2 Thm. 2.2",
+          "arXiv:2411.00466 §§4–7",
+          "Resultary 6790380c1306, Finding and proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1505.05397",
+        "arXiv:1710.05250",
+        "arXiv:1201.3529",
+        "arXiv:2411.00466",
+        "Resultary 6790380c1306"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With b=2 and any noncomplete H, the j=1 inclusion–exclusion summand in the prior labelled graph count vanishes, giving 2^(r+binomial(r,2)) tables. No-universal-vertex conditioning ensures noncompleteness and automatic occurrence of the nonzero label, yielding the exact conditioned G(r,1/2) law. The prior orbit lemma independently identifies even-cycle antipodes as the only symmetric directed pair-orbits."
+        ],
+        "reasoning": "The labeled auxiliary conclusions are thus already implied. The evaluated fixed-table contribution under Aut(H) still needs the compatibility of signed edge/nonedge constraints with each pair-orbit; this supplies the new graph-specific Burnside sum and the criterion for all realizations to be rigid.",
+        "searches": [
+          "arXiv:2411.00466, Lem. 7.1",
+          "arXiv:1505.05397, Thm. 2.2",
+          "Resultary 6790380c1306, exact labeled formula and coverage/center proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target classifies binary labeled tables with prescribed symmetric versus complementary pairs up to permutations preserving that pattern. The construction in Giudici–Kuzma is one such table, not its whole orbit set. In the edgeless case the tables are equivalently tournaments with independently binary-colored vertices; no separate priority claim is required for this specialization."
+        ],
+        "reasoning": "An explicit realization does not count the entire prescribed-signature orbit set, and the usual full symmetric-group table action does not by itself provide the fixed-graph formula.",
+        "searches": [
+          "Resultary: graph-conditioned nilpotent semigroup commuting graph fibers and random graph law",
+          "arXiv:1505.05397 Thm. 2.2",
+          "arXiv:2411.00466 §§4, 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The order tables and formulas for all strict degree-three nilpotent semigroups use a different index from the displayed per-graph isomorphism counts. The labeled probability formula determines labeled counts but does not tabulate fibers up to isomorphism."
+        ],
+        "reasoning": "The material table match would be exact counts of the same prescribed commuting graph up to ordinary isomorphism, not aggregate counts, labeled counts, or counts of graph realizations in unrelated presentations.",
+        "searches": [
+          "arXiv:1201.3529 abstract and order enumeration, §2.2",
+          "Resultary 6790380c1306, exact probability and count formula, offsets 0–5058"
+        ]
+      },
+      "rationale": "Applies to the prescribed-graph isomorphism fiber formula and its rigidity criterion. Realization at the exact size, the general table-orbit method, and the existence of even-cycle antipodal orbit reversals are prior. The labeled fiber size and random-graph consequence are covered by specializing and conditioning the distinct exact random-graph law record 6790380c1306, and are not counted as original here. This mathematical coverage does not establish priority/order between same-day records. No compared claim resolves the arbitrary H isomorphism fiber or its graph-dependent permissible stabilizers.",
+      "residual_risks": [
+        "Existing general orbit machinery is closely related; a separate earlier signed-table or fixed-graph orbit formula could still cover the principal claim.",
+        "No priority inference from same-day dates or unreturned hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact-size realization, not enumeration of isomorphism classes",
+          "evidence": [
+            "The construction uses a two-element center and one fixed labeling order to choose products."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.05397",
+          "material_read": "Thm. 2.2 and its proof, PDF p. 4",
+          "method": "OA PDF text around offset 10300",
+          "title": "Realizability problem for commuting graphs",
+          "trigger": "Same H, same semigroup order, same center size"
+        },
+        {
+          "assessment": "Different realization class, not the minimum-order fiber count",
+          "evidence": [
+            "The monomial semigroup construction has order n²+n+1−|E|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.05250",
+          "material_read": "Prop. 3, PDF p. 2",
+          "method": "OA PDF text around offset 4300",
+          "title": "Commuting Graphs of Boundedly Generated Semigroups",
+          "trigger": "Alternate realization of graphs with no universal vertex"
+        },
+        {
+          "assessment": "Order-indexed isomorphism-class totals, not fixed-H orbit counts",
+          "evidence": [
+            "The formula counts all isomorphism classes at each order without a prescribed commuting graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.3529",
+          "material_read": "Abstract and §2.2, Thm. 2.2",
+          "method": "OA PDF text around offsets 839 and 8900",
+          "title": "The number of nilpotent semigroups of degree 3",
+          "trigger": "General enumeration of the same semigroup class"
+        },
+        {
+          "assessment": "Covers orbit machinery and antipodal lemma, not the prescribed-H constraints in the formula",
+          "evidence": [
+            "The semigroup enumeration uses the action on partial partitions; symmetric nondiagonal directed orbits arise from even-cycle antipodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.00466",
+          "material_read": "§4, §§5–6, and Lem. 7.1, PDF pp. 7–11 and 14",
+          "method": "OA PDF text around offsets 25000, 30500, 37000, 41000 and 51500",
+          "title": "Semirigidity and the enumeration of nilpotent semigroups of index three",
+          "trigger": "Orbit-action and endpoint-reversal ingredients"
+        },
+        {
+          "assessment": "Covers the labeled count and sampling implication, not the graph-conditioned isomorphism classes or rigidity",
+          "evidence": [
+            "For fixed square size b the label-coverage formula gives a count for every particular labeled graph, and the ordinary commuting graph results by deleting universal vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-random-graph-law-and-connectivity-window-for-three-nilpote--6790380c1306",
+          "material_read": "Original Finding and proof §§1–3, RESULT.md offsets 0–5058",
+          "method": "OA local Resultary mirror",
+          "title": "Exact random-graph law and connectivity window for three-nilpotent semigroups",
+          "trigger": "Material overlap for the labeled fibers and sampling claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–33",
+        "arXiv:1505.05397, Thm. 2.2",
+        "Independent parity-constraint and canonical-orbit replay"
+      ],
+      "rationale": "The central result answers the natural inverse question left by exact-size realizability: how many nonisomorphic semigroups realize a prescribed graph, and which graph symmetries can occur in stabilizers? Equal labeled fibers can give different quotient sizes (144 for C₄ versus 170 for 2K₂), illustrating actual graph-specific information rather than an order count. The result supports classification of all graphs in the minimum-center regime and a sharp rigidity decision; its value does not rely on priority for the sampling consequence.",
+      "residual_risks": [
+        "No claim for larger centers or efficient practical enumeration of huge automorphism groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic-three anti-pre-Lie identities reduce to the Jacobi identity; the Nijenhuis identity forces the derived-ideal-to-quotient map to vanish because an irreducible quadratic operator has no rational eigen-covector. The remaining matrix relation is \(C[T,C]=0\), whose nonzero rank-one solutions are excluded by an explicit image/covector argument, so the rational normal form is complete. Rank counting, automorphism conjugation, the geometric monomial ideal and Frobenius descent are then derived without extrapolating from finite tests. The full \(\mathbb F_3\) endomorphism and automorphism-orbit enumerations, together with finite split-locus tests, match the proof. **Risk:** there may be additional non-preserving geometric operators after extension; the theorem expressly restricts the geometric assertion to the preserved-ideal subscheme.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The almost-abelian bracket satisfies the anti-pre-Lie identities by Jacobi and −2=1 in characteristic three. The V×V torsion equation has t-component f∧(f∘T)=0; irreducibility excludes nonzero f over k. The remaining equation is C[T,C]=0, C=B−aI, with a,u free. If C=v⊗φ has rank one, φ(v)≠0 would make φ a rational left eigen-covector; φ(v)=0 would force φ(v)=φ(Tv)=0, despite v,Tv spanning V. Thus C is zero or invertible in the centralizer k[T]. Counting a,u,b by whether a,b are zero gives the rational rank polynomial. For full automorphisms, HT=sTH and nonzero trace force s=1; conjugation acts by u↦hu+(a−b)w. Off the diagonal one orbit per pair; on it zero and nonzero u give two, yielding the stated rank census and q³+q. On the preserving subscheme, diagonalizing T gives the squarefree ideal (xy,yz,wz). Its two off-diagonal planes meet the diagonal plane in distinct lines and each other at the origin. The free parameters increase dimensions by three. Odd Frobenius powers fix only diagonal points, and even powers give 3Q⁵−2Q⁴ by inclusion-exclusion. The zeta formula follows by summing the even-power correction to Q⁵. The upload was inspected, not executed; the split test is a model for the same distinct-eigenvalue preserving equation, not a check of the unrestricted extension-field scheme.
 
-Liu–Bai, arXiv:2207.06200, defines anti-pre-Lie algebras; Liu–Chen–Chen, arXiv:2301.06917, defines their Nijenhuis operators. These frameworks do not supply the present characteristic-three finite-field normal form, automorphism census or derived-ideal-preserving component arithmetic. Gao–Kang–Lü–Yu, arXiv:2308.12121, concerns different low-dimensional pre-Lie/associative objects. Zhikhareva, arXiv:2410.10536, studies regular semisimple real/complex Lie-Nijenhuis operators rather than the unrestricted modular case. The nearest previously recorded pre-Lie quadratic Galois-descent result already covers the same matrix equation with an additional \(u\)-constraint; its claims and geometry are explicitly excluded from the novel contribution here. The nearest Hom–Lie result has a different algebra and twist. **Risks:** nonexhaustive historical coverage and possible broader Lie-Nijenhuis classifications can affect priority; current evidence does not certify global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimal quadratic-irreducible extension is a natural test of anti-pre-Lie Nijenhuis deformations in a characteristic where a Lie bracket itself becomes anti-pre-Lie. It exhibits a nontrivial compensation law: the labeled solution locus gains two free field coordinates, yet its complete automorphism quotient has a smaller-order orbit census controlled by affine translations. Its rank polynomial and the parity-sensitive Frobenius geometry of the preserved-ideal locus are exact natural invariants, not selected examples or a table re-enumeration. The geometric limitation is essential: no false full-scheme zeta assertion is made.
+The strongest retrieved overlaps cover the same centralizer equation and descent mechanism for different products or with a twist constraint. They do not cover the unrestricted rational solutions of the characteristic-three skew algebra, the translation-orbit quotient, or its preserving subscheme with a free u fiber. The shared block equation and generic Nijenhuis identity are not credited as distinct.
 
-**Limitations and priority:** characteristic three, irreducible quadratic defining action and nonzero trace; full geometric solutions over extensions are not enumerated; independent validation remains outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is a complete rational classification for a natural irreducible almost-abelian family in the characteristic where a Lie bracket is itself anti-pre-Lie. The full conjugacy quotient distinguishes translation-equivalent and genuinely distinct maps, and the preserving-locus calculation identifies precisely how quadratic splitting adds components and points. The distinction between these arithmetic and geometric scopes matters; this is more than a reparametrization of the shared block equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

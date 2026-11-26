@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:38.694317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–80",
+        "VERIFICATION.md lines 19–23 and checker.py, inspected only",
+        "/workspace/reproductions/frozen-check-5.txt"
+      ],
+      "rationale": "A self-inverse map is exactly an automorphism of its domain of order dividing two. On a proper nonempty domain the graph of strict comparabilities is a disjoint union of alternating paths. Path reversal exchanges endpoint parities for even length and preserves them for odd length, giving the stated path types and internal automorphism counts; the two isolated-vertex parities are one poset type. An involution on a type class matches exchanged components (the isomorphism back is forced) and makes independent internal choices on fixed components, giving W. The trace counts all run-marked subsets once per mark, including periodic patterns; N/2 choices of starting position for each parity and division by the number of marks therefore give A_N. Full-domain parity-preserving rotations have just the identity and, when m is even, the half-turn as involutions, and the m parity-preserving reflections fix exactly two vertices. For corank two a deleted pair has N choices below antipodal separation and m at that separation. The per-domain weights below antipodal separation are 1 for odd d, 2 for d=2, and 4 for even d>=4. At the antipodal separation the two identical paths give 2 involutions if even paths, or 6 if odd paths (four in place and two swaps); this gives the two coefficients and agrees with the separate N=4 rank-two case. The antichain and component bounds with classical symmetric-group involution counts prove the logarithmic exponent; the rank substitution is U=Z, V=Z^2. An independent enumeration by extending each partial involution to fix all omitted vertices computed the rank spectra through N=12, confirming the total and boundary coefficients, without using cyclic runs or a transfer matrix. Replay: python3 /workspace/reproductions/frozen_checks.py 5.",
+      "residual_risks": [
+        "The cited replay checks totals and the stated boundary coefficients, not an unbounded enumeration or an asymptotic fit. The growth assertion is a logarithmic exponent with an O(N) error, not a multiplicative equivalent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-map crown theorem already counts the exact domain-multiplicity vectors, describes the full parity-preserving dihedral group and gives the m-component bound and m-vertex antichain. The exact fence formula solves the involutive automorphism problem for each of the crown's proper-domain isomorphism types."
+        ],
+        "reasoning": "The undirected path precedent alone does not cover the crown. The inspected crown and fence results together determine every proper-domain term exactly, without a new cyclic transfer or wreath-product enumeration.",
+        "searches": [
+          "Resultary crown rank polynomial and half-factorial growth, 5cf963fdeacf; fence self-inverse cycle types, 2b5b0d3783a1",
+          "arXiv:2101.12468, undirected-path partial automorphisms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5cf963fdeacf, 2b5b0d3783a1 and 8670f30aedd1",
+        "arXiv:2204.13961 and arXiv:2101.12468"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior crown boundary argument already uses the number of hole pairs at each smaller cyclic separation and explicitly identifies the equal-length odd paths and their swap at the even antipode. Reweighting that same separation list gives per-domain counts 1,2,1,4 below the antipode in the four stated cases, and W for the two identical paths gives 2 or 6 at the antipode. The earlier growth argument already proves the m-component upper bound and antichain lower construction. Restricting each permutation there to an involution gives I_m <= H_N <= 2^(N+m) I_m + N, and log I_m = (m/2) log m + O(m) follows by the standard involution sum and its exponential generating function."
+        ],
+        "reasoning": "The proper-domain polynomial, two-hole parity correction and quarter-factorial exponent are direct evaluations of the existing profile and component methods in a structure already classified, plus elementary group and Stirling estimates. The new wording or exact numbers are not proof of a missing mathematical implication.",
+        "searches": [
+          "Local Resultary mirror 5cf963fdeacf, offset 5100 onward (boundary ranks and logarithmic asymptotics)",
+          "Local Resultary mirror 2b5b0d3783a1, fixed-component and exchanged-component weights",
+          "Local Resultary mirror 8670f30aedd1, dihedral involution count on full domains"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary crown paper's rank is minimum generator count, not element domain size. The dihedral-restriction monoid omits independent partial swaps on identical components. The fence's component involution cycle index, unlike a count of all fence subsets, is an invariant of the abstract disjoint union of paths and is identical after identifying endpoint parity."
+        ],
+        "reasoning": "Neither the primacy of the crown object nor the dihedral alias is the novelty issue; the exact local cycle factors are already covered in the equivalent path-component formulation.",
+        "searches": [
+          "Resultary finite-crown self-inverse and cycle-type enumeration; prior records 5cf963fdeacf, 2b5b0d3783a1, 8670f30aedd1",
+          "arXiv:2204.13961, abstract and Theorem 2.22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown record has the exact A_N profile table formula and a different all-map corank-two statistic N^2(3N-8)/4. The fence has the exact W factor, and the dihedral restriction record gives only exponential involution growth for its smaller class. No distinct returned record printed the same full self-inverse crown table."
+        ],
+        "reasoning": "Lack of a literal duplicate table does not avoid coverage when the exact entries are recoverable by substitution from an existing profile enumerator and an existing local census.",
+        "searches": [
+          "Resultary crown partial-automorphism self-inverse rank polynomial/corank-two and quarter-factorial asymptotics; prior IDs 5cf963fdeacf, 2b5b0d3783a1, 8670f30aedd1"
+        ]
+      },
+      "rationale": "The exact stated crown polynomial need not have appeared verbatim: the earlier crown transfer result gives precisely A_N and all proper-domain path types; the earlier fence involution theorem gives precisely W for those same path types. W depends only on the disjoint union of paths and not its ambient embedding. Their product-sum therefore gives every proper-domain cycle coefficient by direct substitution. The known parity-preserving dihedral action on the full crown supplies the elementary identity/reflections/half-turn correction, and the empty term is forced. The advertised additional results do not establish a distinct claim beyond this mechanical synthesis. The earlier crown proof already partitions two-hole subsets by separation and identifies the equal-length odd-path swap at the even antipode; substituting W for the all-isomorphism weight in that partition gives the stated parity count. For growth, the earlier crown antichain and at-most-m-component bounds are exactly the bounds needed: replace m! permutations by I_m involutive permutations, count at most 2^m internal choices, and sum over the 2^N domains instead of domain-image pairs. The standard involution estimate immediately gives the quarter coefficient and the known denominator gives the ratio. This is a finding of mechanical implication from inspected prior statements, not an assertion that the exact crown polynomial or exponent was printed elsewhere.",
+      "residual_risks": [
+        "The comparison does not decide who first stated the exact numerical crown table or quarter exponent. The fail rests on explicit statement-level implication, not on an inaccessible publication or an unverified same-day overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exactly A_N, group on full domains, two-hole classification and the factorial sandwich structure",
+          "evidence": [
+            "The marked-run count yields exactly the proper nonempty profile coefficients. The boundary proof distinguishes antipodal parity and the swap of equal odd paths. The growth proof uses the parity antichain and the bound of N/2 components."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-rank-polynomial-and-half-factorial-growth-of-finite-crown-partia--5cf963fdeacf",
+          "material_read": "RESULT.md theorem and proof via offsets 0–7877 and onward; targeted boundary and asymptotic proof read from offset 5100",
+          "method": "Resultary search and local mirror",
+          "title": "Rank polynomial and half-factorial growth of finite crown partial-automorphism monoids",
+          "trigger": "Identical crown and profile transfer"
+        },
+        {
+          "assessment": "Same W on each type; its outer linear-fence profile enumerator is not the crown enumerator",
+          "evidence": [
+            "Identity/reversal on each fixed path and one choice of isomorphism for a matched component pair give the same wreath-involution polynomial as in the frozen Finding."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-cycle-type-enumeration-of-self-inverse-partial-automorphisms-of--2b5b0d3783a1",
+          "material_read": "RESULT.md theorem and proof at offsets 0–7834 and following",
+          "method": "Resultary search and local mirror",
+          "title": "Cycle-type enumeration of self-inverse partial automorphisms of finite fences",
+          "trigger": "Identical local involution weights"
+        },
+        {
+          "assessment": "Does not count all crown partial maps; supports the standard reflection/rotation calculation",
+          "evidence": [
+            "Global dihedral restrictions are not all induced-crown isomorphisms, and the restriction count 2^n+O(n2^(n/2)) has a different growth scale."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-domain-rank-involution-polynomial-of-the-dihedral-inverse-mo--8670f30aedd1",
+          "material_read": "RESULT.md definition, polynomial and asymptotic within offsets 0–7199",
+          "method": "Resultary search and local mirror",
+          "title": "The domain-rank involution polynomial of the dihedral inverse monoid",
+          "trigger": "Possible equivalent monoid and contribution from global involutions"
+        },
+        {
+          "assessment": "Studies generating-set rank, not the claimed cycle-weighted census",
+          "evidence": [
+            "Theorem 2.22 concerns the minimum size of a generating set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.13961",
+          "material_read": "PDF p. 1 abstract and p. 15 Theorem 2.22, offsets 0 and about 73000",
+          "method": "OA PDF passage inspection",
+          "title": "The rank of the inverse semigroup of all partial automorphisms on a finite crown",
+          "trigger": "Primary literature on the identical inverse monoid"
+        },
+        {
+          "assessment": "Precedent, not an equivalent oriented crown census",
+          "evidence": [
+            "The underlying object is an undirected path rather than the cyclic alternating crown."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.12468",
+          "material_read": "PDF p. 1 setup and summary",
+          "method": "OA PDF passage inspection",
+          "title": "Primary work on partial automorphisms of an undirected path",
+          "trigger": "Adjacent enumerative graph-inverse-monoid results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–63 and 72–80",
+        "Resultary 5cf963fdeacf, boundary and asymptotic arguments",
+        "Resultary 2b5b0d3783a1, local involution formula"
+      ],
+      "rationale": "Self-inverse cycle type is a natural and useful statistic, but the frozen contribution does not clear the threshold for a new exact invariant: the prior exact profile formula and local involution evaluator already yield it by direct composition. The explicit corank-two coefficient reweights a preclassified boundary case, and the claimed logarithmic precision retains exactly the elementary exponent obtained by replacing factorial permutation counts with involution counts in the prior sandwich. No separate supported, nonmechanically implied crown-specific result survives these comparisons in the frozen Finding.",
+      "residual_risks": [
+        "The formula may be a useful consolidated reference; rejecting the distinct contribution does not make the formulas false or the object uninteresting."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

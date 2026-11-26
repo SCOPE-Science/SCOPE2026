@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:06:28.687309Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and all five proof steps",
+        "Frozen VERIFICATION.md and checker.py (inspected only)",
+        "Pitman 2001, pp. 12–13, eqs. (23)–(29), one-map input",
+        "Independent /workspace/replay_constants.py and /workspace/replay_constants.log, overlap check"
+      ],
+      "rationale": "For a given periodic set of size k, its permutation contributes k!, and the complete-graph rooted forest determinant for the other vertices is k*n^(n-k-1) (one forest when k=n). This gives k*(n)_k/n^(k+1) and the telescoping tail (n)_k/n^k. Exchangeability gives independent uniform cyclic sets conditional on their sizes. The logarithm of the tail at k asymptotic to x*sqrt(n) tends to -x^2/2; the Gaussian tail bound ensures all fixed rescaled moments are uniformly integrable. For the fixed-size conditional array, selecting all distinct witnesses gives exactly (n)_L times the product of (m_i)_(d_i)/(n)_(d_i), with the claimed Poisson factorial limit. Any cross-pair collision forces one witness to demand at least three distinct memberships, giving a loss of at least n^(-1/2); there are only finitely many witness partitions for each fixed moment. A single intersection has factorial moments bounded by (m_i*m_j/n)^a, hence Hölder gives a joint exponential-moment bound when the sizes are O(sqrt(n)). This justifies Poisson moment convergence. Conditional convergence along every deterministic sequence with positive size limits and weak convergence of the size vector (or a Skorokhod coupling of the sizes) gives the claimed Rayleigh mixing for fixed q. For the empty probability, the Rayleigh double integral factors using r+s and r/(r+s), giving 1/3. Independently, summing the exact probability of disjoint sets of sizes a,b gives a*b*(n)_(a+b)/n^(a+b+2); collecting terms by a+b yields (E[K^2]-1)/(6*n), confirming 1/3 by moment convergence. Given the shared map's cyclic set, adjacent overlaps are independent with common conditional expectation K_i*E[K]/n, giving the asserted covariance, while disjoint pairs use independent maps. The mean and variance of the one-pair mixed Poisson follow from E[R]=sqrt(pi/2) and E[R^2]=2.",
+      "residual_risks": [
+        "The proof fixes q and does not estimate a rate; single-pair rational checks are not a finite-q array proof. Periodic set intersections are not common directed cycles or edges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nualart–Zhang Theorem 3.8 bounds a multivariate hypergeometric approximation for counts of distinct fixed colors in one sample; its general Theorem 2.6 bounds independent-Poisson approximation through size-biased coupling errors.",
+          "Rybarczyk–Stark use independent Bernoulli features and count unweighted induced subgraphs of an intersection graph whose vertex count grows. Resultary 278e7537a80c handles overlaps of exchangeable matchings and has a nonmixed Poisson limit in its circle model."
+        ],
+        "reasoning": "The urn model includes the one-edge conditional law and can aid successive-set comparisons after removing multiply occupied labels. It is not itself the vector of all edge counts for multiple independent fixed-size subsets. The general size-bias bound can handle that conditional vector via an additional two-set inclusion coupling and vanishing cross-pair errors. Neither application yields random Rayleigh means or the joint law across mappings without the model-specific analysis. The intersection graph result discards edge multiplicities and has different scaling.",
+        "searches": [
+          "Resultary: square-root-size random-set overlaps",
+          "Primary lookup: Poisson joint pairwise intersection sizes independent uniform fixed-size random subsets common features multivariate Poisson uniform random intersection graph edge weights asymptotic independence",
+          "Nualart–Zhang arXiv:2501.11180v1, Theorems 2.6 and 3.8",
+          "Rybarczyk–Stark arXiv:1609.01699, Introduction and Theorem 1 statement"
+        ]
+      },
+      "checked_sources": [
+        "Pitman 2001 B46h",
+        "Hansen–Jaworski arXiv:math/0603529",
+        "Nualart–Zhang arXiv:2501.11180v1",
+        "Rybarczyk–Stark arXiv:1609.01699",
+        "Resultary 7b69e39a8610, 278e7537a80c, f5e22295f401 and 8afb977a8139"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional on two sizes the pair overlap is hypergeometric, so its fixed-mean Poisson approximation is not original. The published coupling bound could be used conditionally for all pairs by forcing a uniformly chosen witness into both relevant sets; cross-pair changes must be bounded to make that argument work.",
+          "Cyclic counts fluctuate at order sqrt(n), leaving random rates and nonzero shared-map covariance. The matching analogue instead gives independent Poisson(2/9) overlaps decoupled from its Gaussian size fluctuations."
+        ],
+        "reasoning": "The independent-Poisson approximation is an ingredient and replaceable by known methods. The audited overlap law still has to establish joint conditional asymptotics for the cyclic-set model and retain the nondegenerate size mixing, then evaluate the mixed empty probability. In particular, plugging a mean size into a known Poisson approximation would produce the wrong independence and empty probability. No inspected stronger theorem directly gives the combined mapping claim.",
+        "searches": [
+          "Pitman B46h conditional cyclic points; Hansen–Jaworski arXiv:math/0603529 Theorem 1",
+          "Nualart–Zhang arXiv:2501.11180v1 §§2, 3.2",
+          "Resultary 278e7537a80c and f5e22295f401 full-text Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7b69e39a8610 is the identical assigned record in the catalogue. Pitman conditions a single mapping on its set of cyclic points, giving its classical conditional set law.",
+          "Resultary f5e22295f401 asks about preserved directed cycles of a map and a noisy dependent copy; 8afb977a8139 considers cycles in a product of independent uniform idempotents."
+        ],
+        "reasoning": "Using cyclic points instead of periodic vertices preserves the object. Replacing coincident vertices by shared directed cycles, or replacing independent maps by a dependent perturbation or composition, does not.",
+        "searches": [
+          "Resultary searches for independent mapping cyclic-set intersections, common periodic vertices and Rayleigh-mixed Poisson overlaps",
+          "Pitman B46h, equations (23)–(29)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical local hit 7b69e39a8610 contains exactly the claim under review, not an independent table.",
+          "The inspected exact laws tabulate one map's cyclic set and size, not the disjointness or pair-count vector for independent maps."
+        ],
+        "reasoning": "This is an asymptotic exact probability and joint law rather than a finite-census claim. The nearest matching exact formula and one-map data were checked; the latter are inputs and do not state the joint result or the exact limiting constant.",
+        "searches": [
+          "Local Resultary exact-hit check for common periodic vertices across independent uniform mappings and the 1/3 or 2/3 probability",
+          "Pitman B46h, eqs. (23)–(29); Hansen–Jaworski arXiv:math/0603529 Theorem 1"
+        ]
+      },
+      "rationale": "The one-map cyclic law and general Poisson approximation are classical, and the single deterministic pair is a hypergeometric special case. The checked sources do not give the random-mapping joint overlap array, its shared-map Rayleigh mixing and its exact empty probability. Strong approximation techniques can replace the proof of conditional Poisson asymptotics, with a model-specific comparison; neither the one-map distribution nor a Poisson approximation with deterministic means alone supplies the mapping array and its dependence.",
+      "residual_risks": [
+        "Hansen–Jaworski's 2010 Random Mappings with a Given Number of Cyclical Points was not readable in the attempted OA retrieval; no noncoverage inference is drawn from that. A search hit about sqrt(n)-scale cyclic states in random automata failed lawful retrieval and was not used as exclusion evidence.",
+        "Earlier equivalent overlap results under random feature or urn terminology remain possible. The same-day date of analogous records is not used as a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies one-map laws, not inspected independent-map mixing",
+          "evidence": "Exact cyclic-set and cyclic-count structure for p-mappings, giving uniform set given size for uniform p.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/s46pitman.pdf",
+          "material_read": "pp. 12–13, conditional cyclic points, equations (23)–(29), offsets 26100–30789",
+          "method": "OA PDF primary passages",
+          "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+          "trigger": "Closest one-map exact cyclic-set input"
+        },
+        {
+          "assessment": "Single-map atom and size law",
+          "evidence": "Uniform maps are a special case; Theorem 1 describes a single map's cyclic-point count.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+          "material_read": "pp. 4–6, Theorem 1, offsets 10150–17563",
+          "method": "OA PDF primary passages",
+          "title": "A new random mapping model",
+          "trigger": "Cited classical cyclic-count antecedent"
+        },
+        {
+          "assessment": "General conditional-approximation machinery and urn special case, not the random mapping array",
+          "evidence": "Wasserstein bound via size-biased couplings, applied to counts of disjoint colors in one without-replacement sample.",
+          "identifier_or_url": "https://arxiv.org/html/2501.11180v1",
+          "material_read": "Theorem 2.6 at rendered offset 17960–19509 and §3.2, Definition 3.7 and Theorem 3.8 at offsets 48500–53280",
+          "method": "OA full-text HTML passages",
+          "title": "Multivariate Poisson approximation of joint subgraph counts in random graphs via size-biased couplings",
+          "trigger": "Stronger multivariate Poisson approximation and urn analogue"
+        },
+        {
+          "assessment": "Different object and limit regime",
+          "evidence": "Independent Bernoulli object assignments; edges indicate nonempty intersections and the observable is the number of induced copies of a fixed graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.01699",
+          "material_read": "ar5iv HTML abstract and Introduction through offset 4973, Theorem 1 opening near 8202",
+          "method": "OA article passages",
+          "title": "Poisson approximation of counts of subgraphs in random intersection graphs",
+          "trigger": "Possible general random-intersection coverage"
+        },
+        {
+          "assessment": "Matchings rather than cyclic sets",
+          "evidence": "Exact conditional overlap PGF for matchings, with independent Poisson(2/9) limits separated from Gaussian size fluctuations in the circle model.",
+          "identifier_or_url": "Resultary 278e7537a80c",
+          "material_read": "RESULT.md, offsets 0–9089",
+          "method": "Local mirror full-text passages",
+          "title": "Distribution-free overlap calibration and multiscale limits",
+          "trigger": "Closest joint fixed-family overlap analogue"
+        },
+        {
+          "assessment": "Dependent maps and common directed cycles",
+          "evidence": "Studies directed cycles surviving a noise operation instead of all coincident periodic labels of independent maps.",
+          "identifier_or_url": "Resultary f5e22295f401",
+          "material_read": "RESULT.md, offsets 0–4268",
+          "method": "Local mirror full-text passage",
+          "title": "A Poisson/non-Poisson crossover for cycles preserved by noisy random mappings",
+          "trigger": "Closest mapping overlap terminology"
+        },
+        {
+          "assessment": "Composition of idempotents, not a cyclic-set intersection law",
+          "evidence": "Noncommon cycles tracked in a product of independent uniform idempotent maps.",
+          "identifier_or_url": "Resultary 8afb977a8139",
+          "material_read": "RESULT.md, offsets 0–4049",
+          "method": "Local mirror full-text passage",
+          "title": "Poisson cycle lengths and exponential periodic mass for products",
+          "trigger": "Possibly related independent-mapping result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, fixed-q joint law and covariance/empty-probability results",
+        "Pitman one-map size-law comparison",
+        "Resultary 278e7537a80c matching-overlap comparison"
+      ],
+      "rationale": "The overlap is a natural recurrence observable for independently chosen dynamics on the same labels. Each periodic set has vanishing relative size, yet common periodic vertices have limiting probability 2/3. The array resolves information lost by a one-pair Poisson heuristic: triple label coincidences vanish while overlaps sharing a map remain positively dependent because of its fluctuating cyclic-set size. This distinction and exact existence constant give useful benchmarks, not just a first-moment calculation.",
+      "residual_risks": [
+        "No claim about common trajectories, growing numbers of maps or optimal approximation rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

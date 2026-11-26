@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope of checks
+# Independent mathematical audit
 
-Run `python3 verify_geometry.py` and `python3 verify_independent.py` (Python 3 standard library). Both assert the finite totals \(24,48,18,1088,2616\), the component histogram, face-boundary rank 18, and the charge-class distribution. The first additionally checks the six full-octahedral symmetry component-orbits; the second derives the graph from exact coordinates and independently enumerates induced square cycles. The programs contain all graph data and the mathematical operations needed; no fetched inputs, third-party packages, or floating-point evidence are required.
+## correctness
 
-The proof's exhaustion criterion is recurrence on the least uncovered vertex, so each perfect matching is listed once. Every allowed face is included, and an edge in the resonance graph exists precisely when toggling all four face edges yields a second perfect matching. Thus the verified finite census is exhaustive rather than experimental sampling. The quotient-rank and two-component-per-charge checks are exact over \(\mathbb F_2\). For \(v=t>0\), the exact graph-Laplacian kernel theorem gives 69 zero-energy modes; for \(v>t>0\), the strict positivity of each active pair block leaves exactly the 14 frozen states. No eigenvalue spectrum outside zero, other flip classes, or unbounded-family assertions are verified.
+PASS
 
-Published-source comparisons establish established background, not definitive historical uniqueness. The 1,088 matching count and general medianity are not claimed as new. An unrelated fullerene manuscript could only be checked at abstract level. Independent external scientific audit has not been performed.
+An independent exact reconstruction from coordinates in Q(sqrt(2)) gives 24 vertices, 48 edges, 8 triangles and 18 induced square cycles, precisely the allowed faces. Exhaustion follows by branching on the partner of the first uncovered vertex; checking whether the toggled boundary is another matching gives exactly the allowed transitions. The reconstruction verifies 1088 matchings, 2616 unordered transitions, 69 components with counts 1,6,24,24,14 at sizes 594,16,14,2,1, and six component orbits under the 48 signed coordinate permutations. Binary reduction gives rank 18 and 35 occupied classes: the giant class is connected, and the 3,12,12,7 classes of sizes 32,28,4,2 respectively each split into two equal components. Each legal move preserves the quotient. At v=t>0, the pair blocks sum to t times the graph Laplacian, with one zero mode per component. At v>t>0, each pair block is strictly positive on its endpoints and the common kernel consists of the 14 isolated matchings. There is no claim about the remaining spectrum.
+
+## originality
+
+PASS
+
+Pass for the specific complete square-face component and charge census, especially the uniform splitting of all 34 nongiant classes. The matching count is explicitly credited to earlier work, and the RK kernel statements are consequences of the census, not new operator theory. Inspected structural theorems on surface resonance graphs and adjacent exact classifications do not determine this census.
+
+## value
+
+PASS
+
+For the natural face-only local-move model on an Archimedean solid, the exact component-by-charge census quantifies a meaningful gap: identical conserved linear charges need not permit a legal move sequence, and every smaller class in this model is a precise doublet. The sector sizes, symmetry orbits and number of frozen states are directly useful for block decomposition and exact RK zero-mode counts. The finding does not rely for significance on recomputing the known state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

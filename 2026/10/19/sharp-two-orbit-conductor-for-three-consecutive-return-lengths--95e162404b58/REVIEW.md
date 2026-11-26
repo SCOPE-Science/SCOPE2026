@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Cyclic return-length necklaces correspond bijectively to nonzero periodic binary shift orbits, with primitive necklaces accounting exactly for least periods. For every interior total excess, two explicit unequal primitive necklaces exist. Their length intervals cover all periods beyond the stated parity-dependent boundary; the single even-parity gap has two separate witnesses. Endpoint uniqueness and the exceptional \(a=2\) case are proved by block-count bounds. The exact-arithmetic verifier passed 27,550 renewal/Möbius assertions and 308 independent necklace comparisons. Finite checks supplement, but do not replace, the full proof.
+## correctness
 
-**Originality (O): PASS under inspected evidence.** Haydarov–Kadyrov–Makhmudov–Mamayusupov, arXiv:2606.17031v1 (2026), proves pressure and equilibrium-measure results for renewal \(S\)-gap systems; de Jong, arXiv:2510.10848v1, classifies *existence* of least periods; Dastjerdi–Jangjoo, arXiv:1108.3414, supplies an already-known rational zeta function that can compute individual orbit counts. The assessed new proposition is the explicit sharp universal two-orbit conductor for **three consecutive** lengths, not the zeta identity. Actual mathematical-record searches and a comparison with an earlier **two-gap** conductor did not find coverage. Residual priority risk remains from potentially equivalent historical necklace or renewal coding results; independent bibliographic audit is outstanding.
+PASS
 
-**Mathematical value (V): PASS.** The natural multiplicity threshold, unlike bare period existence, guarantees two distinct orbit-supported invariant probabilities for every sufficiently large period. The complete sharp parity law and exact endpoint are not a mere reparameterization of two-gap results.
+A smaller binary period maps ones to ones and induces a repeated cyclic return word; conversely a repeated return word gives a shorter physical period. Thus primitive necklaces, not marked words or words modulo reflection, are the correct objects. For ℓ≥3 and total excess 2≤e≤2ℓ−2, reflect the excess alphabet if needed to take e≤ℓ. At e=2, a unique 2 with all other entries zero and the word starting with two adjacent ones with all other entries zero are inequivalent primitive examples. At 3≤e≤ℓ, anchoring the unique 2 leaves e−2 ones among ℓ−1 slots, with at least two choices giving inequivalent primitive words. This verifies the interval [ℓa+2,ℓ(a+2)−2]. Consecutive intervals leave max(0,a+3−2ℓ) missing integers. For odd a=2k+1, start at ℓ=k+2: the intervals cover M+1 onward, and at M the one-excess word of length k+2 is the only primitive word, since the only shorter candidate is the constant maximum-gap word. For even a=2k≥4, start at ℓ=k+1: the one hole between the first two intervals has distinct one-exception words of lengths ℓ and ℓ+1; at M only the ℓ-letter one-excess word is possible. For a=2 the only primitive orbit at 6 is (2,4); (3,4) and (2,2,3) fill 7 before the intervals start at 8. An all-zero convention does not affect any of these periods. Independent primitive-tuple enumeration confirmed all 11 endpoints and 396 subsequent periods for 2≤a≤12; the interval proof establishes the universal claim.
 
-**Limits.** The theorem concerns precisely three consecutive return lengths, not arbitrary finite gaps or higher orbit multiplicities; no claim is made about entropy or thermodynamic uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact last period with fewer than two primitive orbits, including the parity split and a=2 exception. Known support and zeta theorems cover existence and coefficientwise enumeration respectively, but neither supplies the closed threshold; obtaining it uses a uniform multiplicity argument and a separate endpoint obstruction. No matching statement was found in the inspected evidence; this is not a priority determination.
+
+## value
+
+PASS
+
+Three consecutive return lengths are the first interval alphabet beyond the two-gap case. Two distinct primitive orbits is the first multiplicity requirement not answered by existence spectra. The exact last obstruction, its even/odd difference, and the single internal hole requiring two different return counts are useful for periodic-orbit multiplicity comparisons without coefficient-by-coefficient testing. No general embedding or arbitrary-gap theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

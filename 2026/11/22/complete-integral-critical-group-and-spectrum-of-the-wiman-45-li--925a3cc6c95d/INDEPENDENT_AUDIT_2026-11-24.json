@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:02:59.826162Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–92; VERIFICATION.md and verify_wiman.py (inspected, not executed)",
+        "Bauer et al. arXiv:1609.08648 §2.3, article pp.6–7",
+        "Independent replay: python3 /workspace/branches/7a84fac9-773e-4685-bffb-d861ce8c53fc/independent_wiman_check.py; graph_check.txt, spectrum_check.txt and smith_check.txt in that directory"
+      ],
+      "rationale": "Reduction acts on the projective dual via invertible generators, and the finite orbit is the image of the complex orbit under reduction at the specified prime. The independent reconstruction gave 45 distinct reduced lines. Every reduced pair-intersection is the specialization of its generic pair-intersection, so the classical and reduced censuses both being 201 give a bijection preserving all incidences. Ordinary points blow up to distinct transverse branches on exceptional rational components. This gives 246 rational components and 720 nodes in a connected graph with minimum degree three, hence stability and arithmetic genus 475. Exact recomputation verifies the joint eigenblocks by the annihilating polynomial, traces, and projectors. The Schur numerator uses all three point degrees on 27 line eigendirections and degrees 3 and 4 on the other 18, leaving (t−3)^75 and (t−5)^9 as the pure factors; the checked numerators give the claimed characteristic polynomial with simple zero. The matrix-tree formula yields the stated order. Local Smith reduction uses unit row/column operations with minimum valuation pivots, so over Z/p^h each pivot's residue valuation gives the exponent when less than h. Four distinct rooted cofactors yielded the same positive valuations at all six primes. The valuation totals match the independently reproduced tree order, so no other primes can occur; aligning the valuations gives all 76 nonunit factors and the stated exponent. For a regular unit-thickness semistable model the component intersection matrix is the negative graph Laplacian, and the usual degree-zero quotient gives the stated conditional Jacobian Néron component group.",
+      "residual_risks": [
+        "The complex arrangement is identified by the incidence-preserving reduction argument, not a separate coordinate computation over C. No smoothing existence or model with nonunit thickness is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauer et al. provide the reflection generators and full incidence census and study invariants of the blowup; Innamorati's computation addresses the finite quasi-configuration and blocking set, not the two graph invariants.",
+          "The matrix-tree and semistable component-group theorems identify what to compute; they do not evaluate the Wiman invariant factors."
+        ],
+        "reasoning": "The closest geometric statements supply full graph input but no integral Smith classification or joint spectral calculation. Generic group-presentation theorems are not exact evaluations for the arrangement.",
+        "searches": [
+          "Bauer et al. arXiv:1609.08648 §2.3; Innamorati Axioms 13 (2024) 321 §5",
+          "Focused primary search: Wiman 45-line arrangement full incidence graph critical group Laplacian spectrum Smith normal form"
+        ]
+      },
+      "checked_sources": [
+        "Primary and Resultary inspections above",
+        "Frozen RESULT.md lines 94–110",
+        "Classical Néron interpretation cited in the frozen record, Bosch–Lütkebohmert–Raynaud §9.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quintuple-only record explicitly excludes the full 201-point graph. It omits the Q_3 and Q_4 contributions needed for the full Schur computation.",
+          "A spectrum or tree count even of the correct graph would give the order, not the local Smith valuation multiplicities. The exact joint-block and prime-local checks are additional calculations."
+        ],
+        "reasoning": "No implication from the restricted critical group or from the raw incidence census supplies the full polynomial and torsion factors without new exact calculation. The Néron interpretation itself follows from a classical correspondence and is not part of the claimed difference.",
+        "searches": [
+          "…--47d7a865ca08, Finding, scope and Limitations",
+          "Frozen RESULT.md lines 42–88, compared with the published geometric input"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published dual finite-geometric 45-point object and its 201 incident secants encode the same incidence graph, with its bipartition swapped under projective duality.",
+          "Neither the 45-vertex line-intersection graph nor the 81-vertex quintuple-only incidence graph is this graph. The latter has 180 edges rather than 720."
+        ],
+        "reasoning": "Dual coordinates are equivalent input evidence and are credited. Their publication does not state the full integral cokernel or characteristic polynomial. A 45-vertex intersection graph forgets the exceptional vertices, and dropping 165 incident point vertices changes the Laplacian.",
+        "searches": [
+          "Resultary Wiman complete critical group, Wiman 201-point incidence spectrum, Wiman quintuple-point incidence graph",
+          "Innamorati, Axioms 13 (2024) 321, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published characteristic-19 coordinates and incidence census determine the graph input, not an invariant-factor or Laplacian-polynomial table. The exact same full-invariant entry found was the bound record itself.",
+          "The strongest distinct result tabulates invariant factors only for the 81-vertex quintuple graph, with 2-, 4-, 20-, 60-, and 1800-order factors."
+        ],
+        "reasoning": "Exact coordinate data and exact invariant data are different. The subset graph table and the assigned-record self-hit are not distinct coverage of the requested invariants.",
+        "searches": [
+          "Resultary …--925a3cc6c95d (self-hit) and …--47d7a865ca08 (distinct quintuple calculation)",
+          "Innamorati §5 dual projective table"
+        ]
+      },
+      "rationale": "The supported distinction is the complete invariant-factor group and full Laplacian polynomial for the full resolved 246-vertex boundary. The Wiman configuration and its characteristic-19 dual coordinates already exist. The related Smith calculation for the quintuple-only incidence graph solves a different graph and is expressly limited to it. The known Néron correspondence is interpretation, not an originality claim. No distinct full-graph equivalent calculation was established in the bounded review.",
+      "residual_risks": [
+        "The bounded primary and Resultary comparisons cannot exclude an unindexed equivalent full-graph computation or older integral table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered geometric input, not the matrix evaluations",
+          "evidence": "Gives R_1 through R_4, the orbit of x=0, and the 45-line, 201-point census used for comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.08648",
+          "material_read": "§2.3, pp.6–7, PDF offsets 24300–30700",
+          "method": "Primary OA paper",
+          "title": "Negative Curves on Symmetric Blowups of the Projective Plane, Resurgences, and Waldschmidt Constants",
+          "trigger": "Full complex Wiman incidence construction and same symmetric blowup"
+        },
+        {
+          "assessment": "Equivalent dual incidence data, no graph Smith or spectrum statement in the compared passages",
+          "evidence": "Lists the 45 projective points dual to the 45 lines over F_19 and counts 120 triple, 45 quadruple and 36 quintuple incidences; the result concerns a symmetric minimal blocking set.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms13050321",
+          "material_read": "§5 p.7, PDF offsets 41590–45885; conclusion of §5 located on p.15",
+          "method": "OA publisher PDF",
+          "title": "Quasi-Configurations Derived by Special Arrangements of Lines",
+          "trigger": "Characteristic-19 duality and exact input table"
+        },
+        {
+          "assessment": "Restricted graph only; no priority inference from same-day date",
+          "evidence": "Its 81 vertices and 180 edges retain only the quintuple points; it explicitly excludes the full graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-wiman-quintuple-point-incidence-g--47d7a865ca08",
+          "material_read": "Finding and scope, offsets 0–4698; limitations, offsets 3760–7092",
+          "method": "Resultary and local mirror",
+          "title": "Integral critical group of the Wiman quintuple-point incidence graph",
+          "trigger": "Same arrangement, same integral invariant, possible exact coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26 and 40–88",
+        "Independent exact graph, spectral and Smith replay",
+        "Distinct quintuple-only Finding"
+      ],
+      "rationale": "Resolving every singularity is geometrically intrinsic to the stated boundary. The resulting critical group controls a semistable Jacobian component group under the specified hypotheses, and gives invariant factors not recoverable from its order or from the better-known restricted incidence graph. The compact joint spectral decomposition clarifies the same graph's structure and yields its spanning-tree count. The precise data are useful beyond a raw computation on an arbitrary graph.",
+      "residual_risks": [
+        "The exact invariants are for one boundary; no general reflection-arrangement theorem or unconditional smoothing consequence is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

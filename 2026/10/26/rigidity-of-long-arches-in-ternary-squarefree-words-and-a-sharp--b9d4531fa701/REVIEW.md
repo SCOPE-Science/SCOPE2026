@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every complete arch has length three or four because no binary squarefree factor has length four. A four-letter arch is necessarily `abac`; examining the four possible ways to start the next four-letter arch forces `babc`. Four such successive arches create a square, so each four complete arches include a length-three arch. The remainder has length at most three, proving the global bound. The explicit eighteen-letter witness has four arches and is squarefree. The standalone verifier checks the local classification and all 1,830 squarefree ternary words of length nineteen, including all 243 target length-five subsequences. The infinity-wide conclusion follows from the proof, not these finite checks.
+## correctness
 
-**Originality — PASS, qualified.** Adamson (arXiv:2304.04583v1) and Schnoebelen–Veron (arXiv:2304.11932v1) supply general arch theory but do not analyze ternary squarefree words. Grytczuk–Kordulewski–Pawlik (Journal of Integer Sequences 24, Article 21.8.7) treats squarefree extensions, not scattered subsequence universality. The known full-adjacency-distinct ternary universality enumeration permits arbitrarily long two-letter alternating words and gives no growing lower bound in the squarefree subfamily. A literature-equivalent alternative theorem may remain unindexed. Searches and source inspections provide best-knowledge, not a guarantee of uniqueness.
+PASS
 
-**Mathematical value — PASS.** Factor avoidance constrains contiguous repetitions, whereas universality concerns scattered patterns; the theorem gives a motivated structural bridge, a strictly stronger global guaranteed subsequence density than the elementary four-position covering bound, and the first sharp forcing threshold where rigidity genuinely improves that bound (nineteen rather than twenty for five-universality). No asymptotic optimality of the coefficient is claimed.
+With the full ternary alphabet fixed, a binary squarefree factor has length at most 3, so the remainder has length at most 3 and a complete arch has length 3 or 4. A long arch must be abac. Of the six long starts for a second arch, starting with c gives cc, starting with a gives an identical block or acac, and starting with b followed by c gives cbcb. The only surviving second arch is babc. Repeating the rule gives the unique triple and forces a square for a fourth. Grouping arches in fours gives n <= 4m - floor(m/4) + 3, with m the universality index by the arch criterion; the right side is ceil(15m/4) + 3, so 15m/4 > n-4. In particular m <= 4 forces n <= 18. A separate exact enumeration confirmed the triple is squarefree, the specified length-18 witness factors as 0102 | 012 | 1012 | 0102 | 101 and lacks 22222, and each of the 1,830 length-19 squarefree words contains all 243 length-five subsequences. The supplied verifier selects a length-18 example from its census; the independent check tested the particular witness printed in the finding.
 
-**Closest literature and limitations.** General arch factorization and ranking/unranking are prior results. Ternary squarefree extension theory supplies a known ingredient. The asymptotic coefficient need not be optimal, and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known arch criterion and binary length limit are background. The reviewed distinct contribution is the forced transition and exclusion of four successive long arches for every ternary squarefree word, with its density bound and sharp five-universality threshold. The strongest inspected squarefree catalogue comparison is an exact calculation for prefixes of one particular infinite word; it does not imply the universal statement.
+
+## value
+
+PASS
+
+The forced transition connects contiguous square avoidance with scattered-subsequence richness in the smallest alphabet supporting arbitrarily long squarefree words. It gives uniform quantitative control beyond the elementary four-position argument and resolves a natural first sharp forcing cutoff, without relying on a particular morphic construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

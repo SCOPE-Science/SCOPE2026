@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of the Hardy–Volterra self-commutator theorem
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. It derives the exact monomial representation and the third-order Hermitian finite-band tail; proves a weighted Toeplitz counting lemma by finite-block freezing, section moments and min–max inequalities; and computes the strict three-frequency sign inequality. These are the infinite-dimensional proof steps, not consequences of a finite computation.
+## correctness
 
-## Reproducible diagnostics
+PASS
 
-From the directory containing `verify.py`, run `OPENBLAS_NUM_THREADS=1 python3 verify.py` with Python 3.10+ and NumPy. The completed run returned exactly:
+For row n and column n+j far from zero, T* T uses the common output level n+ℓ+j and TT* uses the two output levels n and n+j. Their denominators yield the difference −(2ℓ+j)n^{-3}+O(n^{-4}); its coefficient agrees with the (−j)-th Fourier coefficient of −2 Re(conj(B) zB′). With D_nn=(n+1)^{-3/2}, the finite-band remainder after subtracting D T(σ) D has tail norm O(N^{-4}) and deletion costs rank ≤2N, hence s_j=O(j^{-4}) for the remainder. To verify the weighted counting step put ρ=t^{-1/3}. Compression below ερ costs at most ερ+O(1) eigenvalues per sign; compression beyond Rρ has norm less than t once R³>||σ||∞. The couplings across cuts cost only bounded rank for each fixed partition. In blocks between ερ and Rρ, freezing D gives operator norm error ≤t times O(η) for fixed ε and mesh η. Normalized traces of powers of each long Toeplitz section converge to symbol moments because only boundedly many boundary rows disagree. Apply this to continuous upper and lower ramps for the signed count threshold; for fixed ramps the block averages converge by a Riemann sum as η tends to zero. Removing the ramps is justified by the null planar threshold set ±x^{-3}σ=1, even for constant σ. The limit in x integrates to (±σ)_+^{1/3}. Min–max absorbs the remainder at any fixed relative threshold because its count is O(t^{-1/4}). The negative angular mean gives a strictly positive negative-side coefficient. The combined count inverts to the stated singular-value law, Schatten cutoff and harmonic-sum limit. A strictly negative σ gives a negative tail quadratic form since the D-conjugated tail error is O(N^{-1}); a positive arc gives infinite positive inertia. For the witness the diagonal contribution to Re(conj(B)C) is 644/100, and the off-diagonal contributions at π/3 are 135/100, −275√3/100, and −198√3/100. The resulting (779−473√3)/100 is strictly negative by squaring. Every pair has strictly positive lower bound (v−u)(mv−ℓu) for that radial expression. Thus the example is not at a critical endpoint. The packaged checker was inspected, not run; neither the analytical count nor the sign test relies on reported finite spectra.
 
-```text
-VERIFICATION_OK 231
-```
+## originality
 
-The tests reconstruct several complex finite Volterra matrices and their self-commutators, compare their interior entries against the infinite formula, verify the n-cubed limits of each band and the angular Fourier convention, test exact rational/radical inequalities for the trinary example, and compare finite signed counts with the predicted angular coefficients. The finite-section truncation and threshold tolerances are reported in the source file.
+PASS
 
-The strict collective sign is certified analytically by \(3(473)^2>(779)^2\) and, for any pair of derivative-coefficient amplitudes \(u<v\) at degrees \(\ell<m\), by \((v-u)(mv-\ell u)>0\). No finite matrix test is used to infer infinitely many eigenvalues. No external independent mathematical validation has been performed.
+The supported distinction is the signed law for the adjoint self-commutator of every fixed polynomial Hardy Volterra operator, with its explicit third-order tail symbol, and the strict three-frequency witness. Credit older Volterra and Toeplitz methods, two-term Bergman inertia and the closely related cubic Hardy law for ordinary commutators. Similar third-order decay and identical Schatten exponents do not equate the operators or their signed counts.
 
-## Limits
+## value
 
-The result covers fixed finite-degree complex polynomial symbols on classical unweighted Hardy \(H^2\). The critical case \(\max\sigma_g=0\) is not an inertia classification. No optimal spectral remainder estimate, no exact individual eigenvalues, and no certification of absolute historical novelty are asserted.
+PASS
+
+Exact sign-resolved eigenvalue counts go beyond order estimates or ideal membership, and yield a computable logarithmic spectral residue. The explicit strict witness shows that checking every pair of frequencies fails to detect infinite positive inertia for a natural fixed-polynomial family. This is a structural obstruction, not an isolated numerical threshold search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:08:47.755282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a binary support of size t, the first MMS is h=ceil(t/2). With a uniformly drawn costly pair for the second agent, a deterministic first choice with q costly chores gives payoff b_q+(2-b_q)^+ (t-q)(t-q-1)/(t(t-1)), where b_q=max(1,q/h). This is strictly decreasing up to h; beyond h its successive differences times h are 1-(t-q-1)(3(t-q)-2+2(2h-t))/(t(t-1))>0. It has a unique minimum at h; averaging over seeds yields a fixed input pair, so the lower bound uses only oblivious adversaries. A pair-balanced retained r-set, r=t-h, gives an upper bound for all second supports by binning them in pairs or singletons, and zero-support agents cause no exceptional cost. Consequently the worst pair forces equality of all pair-retention probabilities and the unique minimizing size forces |S|=r. Extra zero-cost chores do not affect the lower-bound pair; the upper policy assigns them to agent one. Maximizing over support sizes uses the increasing even subsequence and the smaller following odd values, giving the frozen R_m. The affine construction has exactly 2(t-1) hyperplanes and the required probability, with rejection sampling costing O(log t) expected fair flips. The printed rank calculation is for even t only; the same proof works verbatim in matrix form for every t≥4: summing the common pair probabilities against a fixed item yields diagonal r/t (since r>1), giving eigenvalues r(t-r)/(t(t-1)) on the orthogonal complement of the all-ones vector and r²/t on its span. Full rank gives the stated support bound also for odd t. Independent exact arithmetic for t≤12 corroborated lower and upper bounds but is not needed beyond the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 covers arbitrary agent counts and takes the inventory scale to infinity for the lower bound. The two-agent Appendix B analyzes the uniform sampler then bounds the finite pair probability by 1/4. The other agent-arrival paper gives deterministic bounds; the scheduling paper has item arrivals."
+        ],
+        "reasoning": "Broader agent counts or unconstrained inventory do not subsume equality cases at a fixed finite first support. The item-arrival model has different information timing.",
+        "searches": [
+          "Li–Wang–Wu arXiv:2610.15443 Theorem 3.1, Appendix B",
+          "Li–Lin–Miao–Wu arXiv:2609.10960 pp. 3–4",
+          "Zhou–Bai–Wu arXiv:2304.13405 p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–100",
+        "Frozen checker.py and VERIFICATION.md (inspected, not executed)",
+        "arXiv:2610.15443",
+        "arXiv:2609.10960",
+        "arXiv:2304.13405",
+        "Targeted Resultary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published hard input has n times s chores and a uniformly chosen n-set costly to all later agents. At n=2 the two finite-q expressions are the same as the frozen even-t payoff. Appendix B's upper argument uses the same blocks of at most two."
+        ],
+        "reasoning": "The even-size value is a close refinement of these ingredients. Obtaining the arbitrary-support statement and all optimizers requires proving the strict finite minimum at the half split, handling odd t, and analyzing equality against every pair. The paper's unrestricted 5/4 bound alone loses this information.",
+        "searches": [
+          "arXiv:2610.15443 Theorem 3.1 proof at n=2, pp. 6–7, and Appendix B 'Binary Parameter Choices'"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper and frozen result use two-agent irrevocable assignments and expected ex-post MMS ratio with an oblivious input. The all-optimal sampler criterion is that the law of the retained set be a weighted balanced pair design on fixed-size blocks."
+        ],
+        "reasoning": "The design language is equivalent to constant second moments of retained pairs, but standard design theory alone does not make those moments a necessary and sufficient condition for minimax online allocation.",
+        "searches": [
+          "Resultary: binary online agent arrivals, fixed inventory minimax MMS, all optimal randomized allocations, pair designs",
+          "Li–Wang–Wu arXiv:2610.15443, Theorem 3.1 and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No material exact database match was returned. The closest primary bound displays the same finite pair probability, with two-agent 5/4 as the unrestricted optimum, rather than a table or characterization over all t and all samplers."
+        ],
+        "reasoning": "Credit the actual finite terms as overlap, not merely a match at the limit or in the model. No previously calculated exact all-support law or optimizer classification was verified in the comparison.",
+        "searches": [
+          "Two targeted Resultary checks for exact finite two-agent binary chore minimax and pair-design optimizer characterization",
+          "Primary Theorem 3.1 finite-inventory expressions and Appendix B binary parameter choices"
+        ]
+      },
+      "rationale": "Pass is for the full finite-support frontier together with the equality characterization of all optimal policies in the all-positive case and its sparse-sampler consequences. The closest paper has the same lower-bound family and upper pair-block argument, with exact finite hypergeometric terms that nearly give the even-size refinement. It gives the limiting optimum, not the all-sampler equality theorem or the full parity-sensitive fixed-support statement. The affine hyperplanes and the rank method themselves are standard design theory, not asserted as new combinatorics.",
+      "residual_risks": [
+        "The prior lower and upper methods are especially close in the even-inventory case. An unindexed exact refinement or an online allocation application of a weighted design could reduce the distinct contribution.",
+        "Rank and affine-block facts by themselves are not originality claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method and finite-expression overlap; inspected result does not characterize the finite equality cases",
+          "evidence": [
+            "n·s-item lower input with random n-set; hypergeometric payoff reduced to uniformly convergent functions in s; finite pair-retention upper expression before bounding by 1/4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15443",
+          "material_read": "Theorem 3.1 and proof, §3.1 (offsets 22650–24900); Appendix B, Binary Parameter Choices, p. 29 (101600–105581)",
+          "method": "Bounded OA PDF read and specialization of the finite pair-event payoff",
+          "title": "Randomized Algorithm for MMS Allocation of Chores with Online Agent Arrivals",
+          "trigger": "Same problem, claimed optimal unrestricted two-agent ratio"
+        },
+        {
+          "assessment": "Different guarantees; no finite randomized two-agent characterization in compared statements",
+          "evidence": [
+            "3-competitive bound with k≤n known types"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10960",
+          "material_read": "pp. 3–4, offsets 9350–13335 and 14450–16919",
+          "method": "Bounded OA PDF reading",
+          "title": "MMS Allocation for Chores with Online Agent Arrivals",
+          "trigger": "Same binary cost and agent-arrival timing"
+        },
+        {
+          "assessment": "Different information pattern",
+          "evidence": [
+            "Individual items arrive online rather than two agents revealing entire supports"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13405",
+          "material_read": "p. 3, offset 10350",
+          "method": "Bounded OA PDF reading",
+          "title": "Multi-agent Online Scheduling: MMS Allocations for Indivisible Items",
+          "trigger": "Potential two-agent MMS online equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite minimax law resolves the small-inventory cases hidden by the asymptotic 5/4 guarantee. The equality theorem identifies exactly how much balancing an optimum needs; the support lower bound and sparse construction provide an actionable reduction from exponentially many candidate blocks to linear support on powers of two.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

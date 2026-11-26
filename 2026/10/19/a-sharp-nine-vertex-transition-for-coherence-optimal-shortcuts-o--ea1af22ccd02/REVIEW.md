@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete first-transition theorem, not a numerical fit. On the orthogonal complement of constants, the Laplacian rank-one update yields the exact trace gain. The path incidence equation is solved by a clipped ramp, whose centered squared norm gives the explicit closed formula. Centering is then exact for each span. The comparison difference is affine in conductance. For short paths, a parity-sensitive nonnegative identity and the strict endpoint ramp-variance bound establish uniqueness. For large paths, the proposed threshold gives a factored nonnegative difference for every even span deficit, an explicit strictly positive correction for odd deficits, and a uniquely vanishing comparison at span deficit two. The unbounded-conductance failure is certified by the sign of this same comparison. Compactness and a strictly concave limiting gain prove the macroscopic span law. Exact rational inverse tests (304) and additional complete-for-tested-parameters chord comparisons (246536) corroborate the identities but are not used as infinite proofs.
+PASS
 
-## Originality — PASS, subject to residual historical risk
+Replayed the trace gain directly by series/parallel effective resistances: the drop for a vertex pair is its squared clipped-ramp separation divided by d+1/w. Summing gives the centered variance and parity penalty. The all-span affine difference is positive at zero weight and, at W_n, its factorization is strictly positive except at tail sum t=2 (the t=1 parity case is separately positive). The slope for t=2 is negative beyond W_n; n<=8 has nonnegative slopes. Thus the only critical tie is the endpoint and {1,n-2}, with W_9=7/4. Sequential convergence of normalized gain, including d/n going to zero, and the unique maximum of x/4-x²/6 give the span and both normalized trace limits at every fixed w>0.
 
-Primary literature establishes Kirchhoff-index minimization, path and graph resistance, and generic rank-one single-edge gains. Ellens et al., Section 3.6, gives specific general-graph counterexamples to the most-resistive-edge heuristic, without the fixed-weight path threshold. Summers et al., Section III and Lemma 1, gives the generic formula and optimization setting, but neither the all-span path factorization nor the nine-vertex critical size. Wang et al. studies general-network resistance improvements; Predari et al. treats heuristic/global edge-augmentation algorithms. Previously recorded studies of price-optimal *reweighted* paths and trees concern a joint budget over all conductances, which does not imply the fixed-original-weight chord location theorem. The 2017 correction associated with the general network-coherence paper is not needed: no submodularity claim enters this proof. The novelty claim is restricted to the exact path specialization, first transition, critical tie, and large-path design law. Unindexed or unpublished prior equivalents remain a residual risk; the search cannot guarantee worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The objective is a standard measure of resistance robustness and stochastic consensus dispersion. A design rule that always connects the maximally separated vertices is mathematically tempting but changes sharply at a provable size and weight; the exact parameter threshold and complete first-contact comparison are useful, not an isolated or arbitrary graph example. The asymptotic optimal chord is neither tiny nor maximal: its span tends to three-quarters of the path, quantifying a one-eighth leading-trace advantage over an endpoint link. These are interpretable, nonroutine structural answers on a canonical network family.
+The strongest located exact placement result is for the unit shortcut, and already gives the same asymptotic locations and trace at w=1, plus a stronger finite-n placement law on that slice. The weighted-cycle result is not a path augmentation result. Neither those statements nor the generic Laplacian update settles the prescribed arbitrary-w first transition and exactly two critical optimizers. This pass is for the distinct weighted path comparison, not the generic identity or a novelty claim for the w=1 subcase in isolation.
 
-## Closest literature and limitations
+## value
 
-See the references and precise implication comparisons in the main manuscript and the structured review. All prior generic single-edge trace updates are acknowledged as known. Finite experiments do not replace the all-size proof. The theorem does not classify subsequent conductance-dependent optimal spans, multiple shortcuts, or optimally reweighted original edges. Priority is not independently verified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural test of whether joining the largest-resistance pair optimizes a standard network objective: nine is the first possible counterexample size, with an exact conductance scale and the complete critical tie. The limiting geometry quantifies an appreciable one-eighth improvement in leading coherence cost versus the endpoint design. Both are usable design facts; no claim that optimizing spectral gap or multiple chords has been solved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

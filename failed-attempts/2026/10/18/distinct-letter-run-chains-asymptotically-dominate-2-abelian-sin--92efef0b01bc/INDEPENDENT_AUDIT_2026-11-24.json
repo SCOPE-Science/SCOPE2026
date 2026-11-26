@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:59:09.140617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, pp. as numbered by sections: Finding and Proof lines 5–33",
+        "arXiv:1605.03319v1 §5 and §6.1",
+        "Frozen verification.py and VERIFICATION.md, inspected without executing"
+      ],
+      "rationale": "The all-n asymptotic and concentration for fixed labeled q >= 4 are correct. First letter and bigrams give the unigram counts by adding the initial occurrence to incoming bigram counts. On a distinct-letter run chain the unique nonloop path forces every loop to be exhausted before leaving its vertex. There are q! binom(n-1,q-1) such words for n >= q. The type bound used in the proof is also valid: disjoint nonempty cyclic-root letter sets leave at most q long runs; at equality every root is a one-letter power, and the no-outside-occurrence property excludes any remaining letters outside those runs. Types with s < q contribute O_q(n^(q-2)) by the weighted one-equation count and bounded number of types, with the runless case supported at bounded lengths. Independently, for a singleton's Euler walk fix its last-exit tree to the terminal letter. Every vertex's departures other than its fixed tree exit (all departures at the terminal) must go to one common destination: otherwise permuting them gives a second trail, since a stopped incomplete walk would leave balanced unused edges whose last-exit tree leads to the already exhausted terminal vertex. After fixing this finite type, differences of free multiplicities must be circulations on a partial functional digraph, hence constant on each directed cycle and zero off the cycles; fixing total length removes one cycle parameter. The only q-cycle possibility uses all q self-loops, leaving a single path of tree exits, again the run-chain case. This is an infinite proof check, not an inference from finite enumeration.",
+      "residual_risks": [
+        "No inference on growing q or subleading coefficients; no external attestation or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 5.5 excludes any cyclic-root factor outside its run; Proposition 5.7 decomposes singletons with disjoint cyclic-root factor sets; Lemma 5.10 bounds the number of types independently of word length; equation (8) and its following paragraph give O(n^(s-1)) per s-run type."
+        ],
+        "reasoning": "The published fixed-k structure and type count apply to every labeled finite alphabet and specialize to k=2, without assuming the frozen coefficient.",
+        "searches": [
+          "arXiv:1605.03319v1 Corollary 5.5, Proposition 5.7, Remark 5.9, Lemma 5.10 and §6.1 equation (8)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1605.03319v1",
+        "Resultary 2026/10/18/SCOPE-sharp-growth-of-3-abelian-singleton-words-over-every-alphabet--2c2d65468e5c",
+        "DOI 10.1007/978-3-662-53132-7_7 (retrieval limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exactly q disjoint nonempty subsets of q letters exhaust the alphabet with single-letter roots. Such maximal types have empty connectors and each run of length at least three. Removing the requirement that runs have length at least three changes the number of chains by O_q(n^(q-2)); all shorter types cost at most the same order."
+        ],
+        "reasoning": "The prior degree count and this forced equality case give the entire dominant term with an O_q(n^(q-2)) complement. All positive-length chains are trivially singleton by the same last-exit/path principle. The distinction between an explicit formula and an immediately implied one is not a separate originality pass.",
+        "searches": [
+          "arXiv:1605.03319v1 Corollary 5.5, Proposition 5.7 and equation (8), instantiated with k=2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1605.03319v1 §6.2 describes vertex-disjoint cycles and the path through them; at de Bruijn degree one the maximal number of cycles requires only loops."
+        ],
+        "reasoning": "This is the same linear-word and overlapping-factor problem, not a superficially similar equivalence relation. Words with all q cyclic components are exactly the top-order all-letter chain family after ignoring short-run exceptions.",
+        "searches": [
+          "Resultary/SCOPE: 2-abelian singletons, alphabet-size asymptotic and distinct-letter chains",
+          "arXiv:1605.03319v1 §5 and §6.2, singleton type and de Bruijn cycle formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/18/SCOPE-sharp-growth-of-3-abelian-singleton-words-over-every-alphabet--2c2d65468e5c, RESULT.md Finding: factor length 3, not 2.",
+          "The frozen record cites exact binary and ternary formulas, neither within q>=4; the proposed repository copy was unavailable. No exact all-q table is used for the decision."
+        ],
+        "reasoning": "A different factor length does not cover this count, and formulas at q=2 and q=3 do not settle q>=4. The decisive comparison is the verified general primary text, independent of table coverage.",
+        "searches": [
+          "Resultary/SCOPE: sharp growth and explicit families of 2- and 3-abelian singleton words",
+          "Cassaigne–Karhumäki–Puzynina–Whiteland, DLT 2016, Proposition 15 as cited in frozen RESULT.md"
+        ]
+      },
+      "rationale": "The leading coefficient and concentration are not merely consistent with the prior upper bound; they follow directly from the stronger published finite-type structure and per-type counting rule. At k=2, q disjoint nonempty cyclic-root factor sets on q letters must be the q singletons. The cited exclusion of outside occurrences leaves exactly long monochromatic chains at maximal type; all other types are bounded by one lower power using the prior equation (8). Finishing with a count of permutations and positive compositions (and the elementary path argument for short runs) requires no new structural result. This is verified prior implication, not a claim that a prior paper printed the same q>=4 formula verbatim.",
+      "residual_risks": [
+        "No claim of bibliographic exhaustiveness or an earlier verbatim formula. The known implication already suffices; restricted access to the DLT paper does not determine the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by direct specialization",
+          "evidence": "The prior paper gives the disjoint run decomposition and exact fixed-type integer-solution count; the maximal type at k=2 forces the leading term and concentration.",
+          "identifier_or_url": "https://arxiv.org/html/1605.03319v1",
+          "material_read": "Corollary 5.5 at OA offset 36510; Proposition 5.7, Remark 5.9 and Lemma 5.10 at 38840; §6.1 equation (8) and §6.2 at 45400",
+          "method": "OA HTML bounded passages",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "Cited closest structure and type counting results"
+        },
+        {
+          "assessment": "Different factor length",
+          "evidence": "The growth exponent and explicit family are for k=3, not k=2.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-growth-of-3-abelian-singleton-words-over-every-alphabet--2c2d65468e5c",
+          "material_read": "Mirrored RESULT.md Finding, offsets 295–688",
+          "method": "Local published-record mirror",
+          "title": "Sharp growth of 3-abelian singleton words over every alphabet",
+          "trigger": "Closest indexed singleton growth record"
+        },
+        {
+          "assessment": "Full text not independently read; not relied on for coverage",
+          "evidence": "The claimed small-alphabet formulas, even if verified, would not give the all-q result.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-662-53132-7_7",
+          "material_read": "Proposition 15 pointer and formulas in the frozen record only; the cited lawful UTUPub copy returned 403",
+          "method": "Lawful repository retrieval attempt and recorded citation",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "Cited exact binary and ternary formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "arXiv:1605.03319v1 §§5–6, especially equation (8)"
+      ],
+      "rationale": "The run-chain interpretation is clear and useful exposition, but as an independent finding this is a routine extremal-case evaluation of an existing all-k structural and counting theorem. The familiar labeled-composition coefficient and restatement as conditional probability do not supply a new combinatorial invariant, obstruction or quantitative result beyond that immediate implication.",
+      "residual_risks": [
+        "This evaluates incremental scientific value, not usefulness as a worked example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

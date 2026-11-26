@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `VERIFY_SPARSE.py` checker uses Python's standard library and passed 12,007 exact assertions. It enumerates all binary \(N\times N\) matrices with exactly \(N+1\) entries equal to one for \(N\in\{2,3,4\}\), retains strongly connected matrices, forms characteristic determinant polynomials by permutation expansion, and compares primitive zeta denominators to the proposed parameter family. It constructs the shared-path witness graph for every admissible primitive pair through \(N=7\), checking connectivity and exact determinant polynomials. It compares the exact period counts to the totient formula for every integer \(2\le N\le150\).
+## correctness
 
-These are **finite consistency checks** only. The proof for every \(N\ge2\) is the deterministic-path graph decomposition, directed cycle determinant expansion, continuous-orbit-equivalence invariant calculation and totient pairing identity. The classical totient summatory error estimate is an established analytic-number-theory fact, not numerically certified here.
+PASS
 
-The standard-library execution command is `python3 VERIFY_SPARSE.py` from a directory containing the extracted standalone verifier. No external data files, network connection or nonstandard packages are required.
+For the repaired result, the unique branching vertex generates two first-return cycles covering all vertices, with a common deterministic suffix. Their lengths realize the stated inequalities, and making the two disjoint forward branches and common return path produces every pair; precisely the double Hamiltonian equal case would require parallel edges. Their intersection leaves only the two single-cycle determinant terms. The gcd is the period, and at z=1 the determinant −1 gives trivial Bowen–Franks group and unit, matching the full two-shift under the irreducible non-permutation classification. Writing a=du,b=dv reduces the sum condition to u+v≥floor(N/d)+1 for coprime u<v; subtracting φ(s)/2 per excluded sum gives T, with the diagonal contributing only for d<N<2d. The mixing profiles genuinely arriving are the φ(N) pairs (a,N); the losses are the φ(N)/2 unordered coprime pairs of sum N. Net change is therefore precisely φ(N)/2. No endpoint exception occurs for N≥3; d≥N gives no admissible profiles. Inspected the frozen verification notes and VERIFY_SPARSE.py; not executed. The program's small graph tests are primitive comparisons and its larger arithmetic test uses the parameter set, not exhaustive graph generation or a turnover certificate. The repaired turnover follows symbolically.
+
+## originality
+
+PASS
+
+Bounded pass for the corrected period-stratified distinct-zeta census within the exact N+1 edge family, with its exact mixing turnover. The butterfly form, two-return polynomial, and continuous-orbit-equivalence criterion are prior; this is a modest arithmetic refinement, not a new graph or orbit-equivalence classification.
+
+## value
+
+PASS
+
+The parameter slice is the smallest edge budget beyond directed cycles, not a discretionary cutoff. Period-by-period counts quantify the number of zeta-distinguished shifts within a single COE class and recover the sharp mixing census. The turnover correction also distinguishes actual profile change from the growth of the count. This is a useful exact invariant of a natural family, not a claim about classification of equal-zeta shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-Execute `python verify_dp_product.py` under Python 3 with SymPy installed. The script uses exact rational arithmetic, without floating-point comparisons, to compute distance profiles and the double-point seminorm directly from the full product distance matrix. It compares the result to the sum of norms calculated independently on the factor marginals.
+# Independent mathematical audit
 
-The exhaustive coefficient tests examine every \(\{-1,0,1\}\)-valued zero-total vector for products with sizes \((2,2)\), \((2,3)\), \((3,3)\), \((2,2,2)\), and an unequal-weight path/product case \((2,3)\). The respective test-vector counts are 19, 141, 3139, 1107, and 141. Three additional products of sizes \((3,3)\), \((2,3,2)\), and \((2,2,2,2)\) each receive 350 deterministically generated integer signed vectors. All eight instances independently compare the rank of the centered full distance matrix against the sum of the factor ranks, and construct a nonzero four-point signed rectangle in the seminorm kernel.
+## correctness
 
-Separately, the factor polytope unit-ball vertices are enumerated from subsets of active rational inequalities for \(q=2,3,4,5\). The exact counts are 2, 6, 14, 30, and the computed rational coordinate sets coincide precisely with the two-level-cut formula. The facet inequalities are justified analytically in the result, not inferred solely from numerical convex hulls.
+PASS
 
-Expected final line: `ALL EXACT PRODUCT-NORM, NULLITY, AND FACTOR-VERTEX TESTS PASSED`.
+The signed distance profile on the product is the sum of profiles of the one-coordinate marginals. Its maximum and minimum separately split because all coordinate choices coexist, so half the oscillation adds, with exactly the stated normalization. A zero-sum measure on a factor lifts along its anchored coordinate line and has zero other marginals. This proves surjectivity, identifies the kernel as the preimage of the factor kernels and gives the dimension by rank-nullity. The alternating signed rectangle proves strict degeneracy even when factors have trivial kernels. For an equilateral factor the profile is minus lambda times the signed mass. In the zero-sum hyperplane each ordered difference inequality has a point with only that inequality tight, so all are facets. At a vertex the tight pairs join maxima and minima; an intermediate coordinate would leave a free direction modulo constants. A nontrivial two-level cut is uniquely fixed by its tight equalities and zero sum. The convex hull of the embedded factor balls has exactly their embedded vertices, and its polar is the product of their polars, giving the claimed counts including q_i=2 and s=1. Independent exact check `python /workspace/checks.py 4`: a four-cycle factor (already degenerate) times a weighted equilateral triple has factor ranks 2,2 and rank 4; all 1,320 signed contrasts of type 2e_i-e_j-e_k agree. Exact raw profile-difference inequalities on a weighted 2-by-3 quotient section yield 8 vertices and 12 facets. These are corroborations, not the proof for arbitrary factors.
 
-These finite computations do not establish the universal claims by themselves. The complete argument uses separation of coordinate maxima/minima, an explicit right inverse to the marginal map, rank-nullity, and elementary polarity. No external or independent validation has been undertaken.
+## originality
+
+PASS
+
+The supported distinct claim is the normed marginal quotient for the finite sum-metric product, with its concrete Hamming geometry, not the double-point definition, the four-cycle kernel, the rank phenomenon alone, or single equilateral factor combinatorics. No available inspected theorem covers the full metric quotient claim. The conclusion is bounded by the stated comparison and access limits.
+
+## value
+
+PASS
+
+The natural distance-test norm forgets interactions on product metrics. The precise quotient separates the interactions from factor-level degeneracies and determines all remaining norm geometry, not just a rank or a small example. Hamming products give usable exact facet and vertex counts in that quotient and clarify why ordinary transportation-cost geometry is a different problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

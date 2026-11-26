@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`. The local reproducibility check is the standalone Python standard-library file `verify.py`.
+## correctness
 
-Run `python3 verify.py` in the directory containing `RESULT.md` and the script. The verified execution reported:
+PASS
 
-```
-PASS 88156 exact or controlled-tolerance assertions
-```
+For the repaired claim, let w=ux+b. The recurrence clips the second post-event storage to min(C,w); D−B=(w−C)(1−E/x) has the sign that selects the correct branch on both sides of w=C, including x=E. All four branches are convex in x, and in t the nonconstant parts consist of positive multiples of exp(−kt) and/or exp(kt), so they are also convex in t. At a positive minimum only the nonsmooth breakpoints, the domain endpoints, or D's stationary point can minimize; a positive plateau is impossible because each nonconstant branch meets any given horizontal level in finitely many points. At zero additional spill the two inequalities give exactly the stated interval, whose left endpoint is an admissible candidate. Both later pulses strictly spill at the proposed stationary point exactly under (5), and the dominating D branch then proves global optimality. The unbounded-ratio example reduces to E/(4x) throughout the feasible interval. Simultaneous rainfall at either endpoint is handled by the same clipping recurrence with unit retention over the zero gap.
 
-The independent recurrence implementation uses rational arithmetic for pulse additions, retention multipliers, storage clipping and spill. Tests compare it to the explicit convex envelope; sample midpoint inequalities and the no-extra-spill interval; compare a finite list of theoretical candidate minima to a dense numerical grid; and verify the rational parameter examples and selected cases of the unbounded equal-gap ratio family. Floating-point calculations are restricted to candidate square roots and objective-grid comparisons, with a \(10^{-11}\) numerical tolerance there. The checker uses no data files or external dependencies.
+## originality
 
-Critical proof steps that must not be inferred from code are: the exact saturation-case identity for the four-branch maximum; convexity and full enumeration of possible switching points; proof of uniqueness of every strictly positive additional-spill minimizer; precise algebraic conditions for the smooth two-overflow regime; and the exact all-integer family producing arbitrarily large ratios. These are argued symbolically in `RESULT.md`. No exhaustive historical-priority or independent external validation has been performed.
+PASS
+
+Pass the specific empty-start, fixed-order timing classification and equal-gap counterexample, not the storage recurrence, max-of-convex-functions principle, or the clock-time convexity observation as a separate contribution. Neither changing storm order at fixed gaps nor periodically optimizing a cyclic gap yields the theorem under its finite-horizon constraints. No inspected source states or entails the full classification.
+
+## value
+
+PASS
+
+The classification yields the entire no-additional-loss scheduling region and an exact timing choice even when overflow is unavoidable. In the smooth regime it identifies which side of the midpoint matters, and the positive-optimum family rules out a uniform multiplicative guarantee for equal gaps. This is a quantitative benchmark for a natural finite-store timing problem, not just a direct clipping calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:05:26.254981Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33",
+        "Frozen VERIFICATION.md lines 19–22 and verify.py lines 6–42 (inspected exact finite replay, not executed)"
+      ],
+      "rationale": "The initial rank vector is bijective by successively inserting each new label into its prescribed position in the order of earlier labels. Its product weights give the required normalization, including the forced first record. In one-line order an ascent at i-1 is exactly R_(i-1)<R_i and a descent at i is exactly R_(i+1)<=R_i. With R_i=b<i their conditional probability is b(b-1)/[(theta+i-2)(theta+i)] since neither allowed choice reaches the earlier/new record rank; with b=i it is i/(theta+i). Summing b(b-1) gives i(i-1)(i-2)/3. In the numerator after subtracting 1/3, the i-dependent terms cancel: writing u=i-1, the product is (theta+u)^3-(theta+u); three times the summed numerator minus that product is -theta(theta-1)(theta-2). This also applies at i=2, when the nonrecord term vanishes. Positivity of the denominator gives the strict signs and two positive roots. Partial fractions of the shifted triple reciprocal telescope from theta to theta+n-3 and give the claimed expectation, with a strictly positive bracket for n>=3.",
+      "residual_risks": [
+        "The proof concerns one-point marginals and their sum, not joint peak-set invariance or higher moments. The recorded permutation enumeration is finite corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouvel–Nicaud–Pivoteau publishes the full rank construction and uses two ranks for one adjacent descent. Computing a peak additionally couples two inequalities through the center rank.",
+          "Gessel–Zhuang refine peaks by cycle type of the same permutation; turning a cycle count into a left-to-right record count by a change of permutation is not an identification of the corresponding one-line peak statistic. Billey–Burdzy–Sagan counts peak sets for uniform permutations."
+        ],
+        "reasoning": "The rank law is a strong algorithmic antecedent, but its stated descent calculation is not a stronger peak enumeration. Uniform and cycle-weighted peak laws do not cover the claimed record-weighted pair of adjacent comparisons.",
+        "searches": [
+          "arXiv:2409.01692v1, independent insertion and Theorem 4",
+          "arXiv:2001.00654 §7.1 Theorem 7.1",
+          "arXiv:1209.0693 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 92b031c7d7c3, 9c70121babad and 5bf194eee4a8",
+        "arXiv:2409.01692, 1605.02905, 1209.0693, 2001.00654"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known rank law makes an efficient conditional computation possible; the record and nonrecord cases differ, and summing them before factoring produces the two exceptional positive biases.",
+          "Auger–Bouvel–Nicaud–Pivoteau introduced the ensemble earlier; inspected statistics include records, descents, first value and inversions. No directly substitutable all-bias adjacent-pattern identity was identified."
+        ],
+        "reasoning": "The proof is elementary, but neither the exact cancellation and sign nor the second equality is a parameter substitution in a cited antecedent. A verified stronger consecutive-pattern enumeration with these rates would change the assessment.",
+        "searches": [
+          "arXiv:2409.01692v1 pp. 8, 10 and latest PDF literal locates",
+          "websearch: \"record-biased permutations\" peak statistic local peaks insertion ranks; arXiv:1605.02905 pp. 1, 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is consecutive pattern 132 or 231, equivalently ascent followed by descent; knowing the marginal of one adjacent descent does not specify this joint event.",
+          "Distinct Resultary 9c70121babad gives Cov(total records, peak at j) = 1/[3(j-1)j(j+1)] at uniform bias, exactly the derivative of the peak law at theta=1; 5bf194eee4a8 covers the aggregate derivative by summing its 132 and 231 entries."
+        ],
+        "reasoning": "Differentiation with respect to log theta at theta=1 turns the expectation into this covariance. Those results are exact local-in-bias coverage, not the finite-bias formula or the nonuniform zero.",
+        "searches": [
+          "Resultary: record-biased random permutations local peak probability insertion ranks two thresholds theta 1 2 exact expectation",
+          "Resultary: record peak covariance local peak under record bias",
+          "arXiv:2409.01692 descent Theorem 4; latest PDF literal queries peak and two consecutive descents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 92b031c7d7c3 is the assigned finding itself. The distinct results inspected give uniform slopes, not finite-bias values, even when the display date matches.",
+          "Uniform peak counts cover theta=1, not the equality at theta=2 in a different law."
+        ],
+        "reasoning": "The overlap is credited as far as the uniform value and first-order response; neither is a table of peak marginals at nonuniform bias.",
+        "searches": [
+          "Resultary records 92b031c7d7c3, 9c70121babad, 5bf194eee4a8",
+          "arXiv:1209.0693 p. 1"
+        ]
+      },
+      "rationale": "Qualified to the explicit all-bias strict peak marginal, its nonuniform equality at theta=2, and the associated expectation. The known independent-rank construction and adjacent descent theorem nearly supply the computation, but the inspected sources do not give the joint adjacent comparison needed for a peak. First-order response at theta=1 is already covered separately; it is not credited here as new. The finite two-root classification is a short new enumeration from known inputs, not the introduction of the model or independent ranks.",
+      "residual_risks": [
+        "An unlocated joint consecutive-pattern or exact record-weighted peak enumeration could imply the result. Literal keyword misses and bounded searches do not rule this out. The contribution is close to the existing rank construction, and no claim of broad historical priority is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological antecedent, single-descent theorem",
+          "evidence": "Highest and other insertion ranks carry the exact probabilities used by the frozen proof; adjacent joint ascent/descent law not stated in the inspected result.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.01692",
+          "material_read": "v1 abstract p. 1, independent insertion p. 8 offset 30578, Theorem 4/proof p. 10 offsets 40142–40544; latest PDF literal locates",
+          "method": "Primary OA PDF reading and targeted locates",
+          "title": "Record-biased permutations and their permuton limit",
+          "trigger": "Identical model and method for descents"
+        },
+        {
+          "assessment": "Equal to bias derivative at uniform law only",
+          "evidence": "Its per-position covariance and summed covariance agree with the derivatives of both frozen formulas at theta=1.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-diagonal-record-peak-covariance-kernel-in-uniform-random--9c70121babad",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary lookup and mirrored primary text",
+          "title": "A three-diagonal record–peak covariance kernel in uniform random permutations",
+          "trigger": "Closest distinct same-day exact peak/record result"
+        },
+        {
+          "assessment": "Aggregate first-order overlap",
+          "evidence": "Adding the 132 and 231 record covariances gives the aggregate record/peak slope.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-finite-band-record-consecutive-pattern-covariance-law-with-sha--5bf194eee4a8",
+          "material_read": "Mirrored aggregate covariance formula for patterns 132,231",
+          "method": "Resultary lookup and mirrored primary text",
+          "title": "A finite-band record–consecutive-pattern covariance law",
+          "trigger": "Three-pattern form of the peak event"
+        },
+        {
+          "assessment": "Uniform only",
+          "evidence": "Counts permutations with a given peak set without the record weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0693",
+          "material_read": "Abstract and introduction p. 1, offset 1505",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Permutations with given peak set",
+          "trigger": "Prior exact peak enumeration"
+        },
+        {
+          "assessment": "Different refinement",
+          "evidence": "Peak and descent weights are joint with cycle counts, not with one-line records.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00654",
+          "material_read": "§7.1, Theorem 7.1 pp. 41–42, offsets 147899 and 150080",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Potential stronger joint peak generating function"
+        },
+        {
+          "assessment": "Earlier model and selected statistics",
+          "evidence": "Examines records, descents, first value and inversions in the inspected comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.02905",
+          "material_read": "Abstract and statistics on p. 6 offset 22797",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Analysis of algorithms for permutations biased by their number of records",
+          "trigger": "Earlier introduction of this law found by focused search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "arXiv:2409.01692 Theorem 4"
+      ],
+      "rationale": "A strict peak is a natural local refinement of the already studied descent statistic. Equality at the nonuniform bias theta=2 holds simultaneously at every interior position and finite size, with a sharp sign law on the three remaining open regimes. This is useful as an exact calibration and a distinction between a natural peak marginal and other local statistics under record bias; it is not inference about the complete distribution.",
+      "residual_risks": [
+        "A narrow marginal invariant obtained by a short calculation; no higher-dimensional peak or asymptotic theory follows just from the equality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

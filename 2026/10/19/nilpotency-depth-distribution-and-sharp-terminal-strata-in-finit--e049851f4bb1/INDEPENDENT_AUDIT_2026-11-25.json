@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:49:09.469625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Invertible changes of the source and target bases of P give an algebra isomorphism to the rank-r identity sandwich. In that form X^{star j}=X(PX)^{j-1}; the four blocks for j>=2 are A^j, A^{j-1}B, CA^{j-1}, CA^{j-2}B. With A^j=0, H=im A^{j-1} has dimension a and W=ker A^{j-1} has dimension r-a. On a block of size j, A^{j-2}W lands in H; on size j-1 it gives one quotient direction, and on shorter blocks it is zero. Thus B has q^{(r-a-e)b} lifts per map into the e-dimensional quotient image. Once that latter map has rank t, C kills a+t independent directions, and D is free. The usual automorphism-group factor for the Jordan module follows from the endomorphism dimension sum_i (lambda'_i)^2 and semisimple quotient product_s M_{m_s}(F_q). This proves F_j and index-by-differences; j=1 is separate. Nilpotency only tests A; the classical nilpotent count and regular-orbit dimension give the asserted total and irreducible reduced product variety, not scheme reducedness. With two excess sides, the top nonvanishing test uses only CA^{r-1}B and hence regular A; its rank-one factorization gives exactly the two independent nonvanishing factors. The one-side case uses A^{r-1}B or CA^{r-1}, including the direct X test at r=1; no excess sides reduces to the ordinary case. Blocks of each length give indices 1..r, and keeping one or both terminal vectors gives the extra indices when available. Rank zero makes all products zero. Independent replay: python3 /workspace/reproduction.py 2 exhausts ten cases over F_2, F_3 and F_4 with row/column-shifted noncanonical P where possible, computing X(PX)^{j-1} literally. It agrees at every depth and at the terminal stratum, including (q,r,b,c)=(2,3,1,1) with bins (1,575,2912,3360,1344) and (4,1,1,1) with (1,27,36). These tests do not prove the scheme or infinite-parameter claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drozd–Plakosh treat representation types for regular Munn algebras and related semigroups.",
+          "05bad72a5fd5 counts nilpotent partial bijections by rank under sandwich composition, not power-zero elements in the associated finite vector space.",
+          "The inspected Soroushmehr page states a homomorphism and character-amenability problem for l^1-Munn algebras."
+        ],
+        "reasoning": "Neither representational classification nor a count for semigroup basis elements supplies the nonlinear condition on general finite-field vectors. In particular, powers of linear combinations contain mixed products absent from the semigroup-element census.",
+        "searches": [
+          "arXiv:2202.06103",
+          "Resultary/local mirror 05bad72a5fd5",
+          "Soroushmehr 2015, Homomorphisms of l^1-Munn algebras and applications to semigroup algebras"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Resultary/local mirror 866e5ef87ff9, 05bad72a5fd5, 415af50377ac, 5c39e77ec446",
+        "arXiv:2202.06103",
+        "arXiv:2407.00892",
+        "Soroushmehr, 2015, p. 115",
+        "Fine–Herstein (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known normal forms and ordinary nilpotent enumeration give the total q^{mn-r} after projecting to the r-by-r block.",
+          "The rank-one census only tests vanishing of an outer product. For general r the nilpotent core produces a quotient image whose rank can be any t up to min(e,b)."
+        ],
+        "reasoning": "The total and product geometry are immediate classical consequences and are credited as such. Intermediate powers instead impose the coupled equation CA^{j-2}B=0 on constrained B and C; the resulting rank-weighted strata and two-sided terminal products are not consequences of a total nilpotent-matrix count or representation-type theorem.",
+        "searches": [
+          "arXiv:2407.00892 normal form and zero-product conditions",
+          "arXiv:2202.06103 normal form",
+          "Fine–Herstein classical nilpotent-matrix count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 866e5ef87ff9 has a rank-one all-ones sandwich, with zero-target square fiber q^{bc}(q^b+q^c-1) and all higher zero-target fibers q^{mn-1}.",
+          "The paper arXiv:2407.00892 records reduction by the rank of P."
+        ],
+        "reasoning": "All rank-one sandwiches are equivalent to the all-ones sandwich by changes of bases, so the later rectangular-band record really does cover the full rank-one zero-power law after taking differences. Rank is invariant under this reduction, so it gives no higher-rank fibers.",
+        "searches": [
+          "Resultary: Munn/Rees and rectangular-band power-map fibers and nilpotency depth",
+          "arXiv:2407.00892 section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "866e5ef87ff9 exactly matches the later rank-one subcase.",
+          "415af50377ac fixes a nonzero rank-one square-zero endpoint for ordinary matrix powers; 5c39e77ec446 considers fibers over fixed ordinary reductions for dual-number matrices."
+        ],
+        "reasoning": "A similar Jordan sum or fixed exponent does not make the endpoint or multiplication equivalent. The bounded catalogue comparison gives no earlier exact table for the arbitrary-rank Munn zero-power distribution; it is not exhaustive evidence of priority.",
+        "searches": [
+          "Resultary: all ranks Munn algebra nilpotency-index distributions and finite-field power fibers",
+          "Resultary/local mirror 866e5ef87ff9, 415af50377ac and 5c39e77ec446"
+        ]
+      },
+      "rationale": "Credit the sandwich normal form, ordinary nilpotent counts, and Jordan-orbit sizes as established inputs. The verified rank-one and ordinary square cases are not themselves the basis of originality. The tested strongest comparisons do not provide the arbitrary-rank zero-power strata with both excess dimensions or the general terminal law.",
+      "residual_risks": [
+        "The catalogue search is bounded, and older finite semigroup-algebra literature or an unindexed stronger counting theorem could contain an equivalent formula.",
+        "The Fine–Herstein primary full text was not verified through the available endpoints; the ordinary count is not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Normal forms and representation-type scope, not an elementwise count in the read passages.",
+          "evidence": [
+            "The problem is classification of representation types of regular Munn algebras and related semigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.06103",
+          "material_read": "Abstract and introduction, around offset 245",
+          "method": "OA HTML passage",
+          "title": "Representations of Munn algebras and related semigroups",
+          "trigger": "Same algebra with arbitrary sandwich rank"
+        },
+        {
+          "assessment": "Uses sandwich normalization and studies idempotents, commutators and product-determined properties; those statements are not depth strata.",
+          "evidence": [
+            "The matrix P can be normalized to a rank block.",
+            "Product-determined assertions characterize bilinear forms, not powers of a common element."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.00892",
+          "material_read": "Abstract around offset 470, Theorem 1.3, Lemma 1.4 and Theorem 2.2 around offset 5600",
+          "method": "OA HTML passages",
+          "title": "Zero product and zero Jordan product determined Munn algebras",
+          "trigger": "Same algebra and vanishing-product constraints"
+        },
+        {
+          "assessment": "Inspected scope is a Banach-algebra homomorphism and amenability problem, not a finite-field power census.",
+          "evidence": [
+            "The objects are l^1-Munn algebras."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972715000210",
+          "material_read": "PDF p. 115",
+          "method": "Lawful publisher PDF passage",
+          "title": "Homomorphisms of l^1-Munn algebras and applications to semigroup algebras",
+          "trigger": "Wider Munn algebra framework"
+        },
+        {
+          "assessment": "Exact subcase, subsequently dated; not coverage before the frozen record and not arbitrary rank.",
+          "evidence": [
+            "All-ones sandwich has rank 1; zero-target fibers are given for every exponent >=2."
+          ],
+          "identifier_or_url": "Resultary 866e5ef87ff9",
+          "material_read": "Local mirror RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Complete power-map fibers and the exceptional square-only cone in finite rectangular-band algebras",
+          "trigger": "Direct zero-power law for equivalent rank-one Munn multiplication"
+        },
+        {
+          "assessment": "Different domain or product; none of these statements implies the general Munn depth law.",
+          "evidence": [
+            "Partial-injection sandwich, ordinary nonzero-target roots, and dual-number lift fibers are three different problems."
+          ],
+          "identifier_or_url": "Resultary 05bad72a5fd5, 415af50377ac and 5c39e77ec446",
+          "material_read": "Local mirror RESULT.md findings, offset 0 for each",
+          "method": "Resultary search and local mirror passage",
+          "title": "Nearby sandwich and power-fiber censuses",
+          "trigger": "Possible general sandwich or Jordan-type counting machinery"
+        },
+        {
+          "assessment": "Classical q^{r^2-r} count used as a credited prior theorem; no claims about any broader theorem from the unavailable text.",
+          "evidence": [
+            "The frozen RESULT invokes only the total of ordinary nilpotent r-by-r matrices from this input."
+          ],
+          "identifier_or_url": "Fine–Herstein, Illinois J. Math. 2 (1958), 499–502",
+          "material_read": "No usable exact primary passage from the attempted endpoints",
+          "method": "Project Euclid and alternate landing-page lookup",
+          "title": "Counting nilpotent matrices",
+          "trigger": "Classical total used in the reduced locus calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Knowing the nilpotent locus does not distinguish its power-zero strata. This census identifies the Jordan sizes and quotient rank that govern every depth and explains how the two independent rectangular directions can add zero, one, or two steps to the maximal index. The explicit terminal multiplicity makes that comparison quantitative over every finite field. The value rests on the full depth law rather than on the standard total or rank normal form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

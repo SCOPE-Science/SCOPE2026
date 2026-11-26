@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:57:52.211564Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The containment inequalities follow by testing the three source vertices; their midpoint translation at s=t=0 is strict, and the three bounded images bound all four parameters. The independent translation intervals have lengths (a-W_x)_+, (b-W_y)_+, where their widths are the ranges of (0,s,-t) and (0,t,s). In the same-sign quadrants one gets (|s|+|t|,max(|s|,|t|)); the opposite sign swaps these. Independently integrated J by using w=|s|+|t| and m=max(|s|,|t|) on each symmetric half, with Jacobian 1, 0<=w<=min(A,2B) and w/2<=m<=min(w,B). Integrating (A-w)(B-m) and doubling reproduces all three pieces of J; summing 2J(a,b)+2J(b,a) reproduces (1). For a>=b the volume is ab^3-5b^4/8+(2b-a)_+^4/24. Thus the fourth derivative decreases from 1 to 0 (jump magnitude 1), with orders zero through three matching. The square is interior to the common central polynomial. Vertex verification used a fresh exact rational implementation: all 495 quartets, 208 nonsingular, 112 feasible on a/b>=1, 40 distinct feasible affine candidates across the whole parameter domain. Feasibility boundaries and feasible intersections of distinct candidates occur only at 1 or 2. Accordingly counts are 12,20,16,18 in the four stated cases, including nonsimple vertices. Interval endpoints alone should be supplemented by noncollision of affine candidates: if two feasible candidates meet in an open chamber, each of four active constraints of one has affine, nonnegative slack for the other and vanishes at the crossing, so the slack is identically zero; invertible normals force the two affine candidates to be identical. Reflection in x=y on source and target preserves orientation of the conjugated similarity and exchanges side lengths; common rescaling gives volume homogeneity four and preserves vertex counts. Replay: python3 /workspace/branches/1f07829d-39ea-4aab-af51-40fb51da1e72/geometry_check.py. The exact computation is a finite algebraic exhaustion for the entire normalized one-parameter family, not a sampled hull estimate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choi–Choi explicitly exclude parallel edges for their silhouette analysis",
+          "Chan–Hair Theorem 4 optimizes scale in the one-anchor triangle case; its separate four-contact complexity result assumes general position",
+          "Agarwal–Amenta–Sharir construct the full containment polyhedron for individual input polygons"
+        ],
+        "reasoning": "The known construction yields the family of inequalities and may compute vertices at fixed inputs, but does not give the exact volume or classify parametric degeneracies. A rectangle has pairs of parallel edges, so the cited general-position silhouette theorem is not a source for the special counts at a square and a 2:1 rectangle.",
+        "searches": [
+          "Choi–Choi arXiv:2611.08556v1 Introduction, §1.1 and Theorem 4",
+          "Chan–Hair arXiv:2403.13292v1 §1, Theorem 4",
+          "Agarwal–Amenta–Sharir DOI:10.1007/PL00009337 preprint setup and complexity result"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08556v1",
+        "DOI:10.1007/PL00009337",
+        "arXiv:2403.13292v1",
+        "Resultary ce1c89c8273b, 28f9ae0f586e, 0f26f49ae237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The record integrates the product of two distinct residual widths rather than a maximal scaling envelope",
+          "A finite active-set classification must track parameter intervals and coincident vertices; it is not a parameter substitution into a general complexity estimate"
+        ],
+        "reasoning": "An optimizer provides extremal placements, not the Lebesgue measure of all choices or full vertex multiplicities; the exact quarter-domain integration and breakpoint exhaustions require additional geometric calculations. Even an algorithm that constructs every vertex at a supplied aspect does not provide the exact complete phase law without a parameter sweep and degeneracy analysis. A fourth-order jump in another shape family is analogous but does not establish either the coefficient or ratio here.",
+        "searches": [
+          "arXiv:2611.08556v1 §1 and silhouette theorem",
+          "arXiv:2403.13292v1 §1 and Theorem 4",
+          "Resultary ce1c89c8273b, 28f9ae0f586e, 0f26f49ae237"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi–Choi arXiv:2611.08556v1 introduction defines the same transformation and the same 4D containment region",
+          "Chan–Hair arXiv:2403.13292v1 §1 distinguishes the entire feasible region from largest copy"
+        ],
+        "reasoning": "The shape law measures the full set of admissible similarity parameters in (s,t,u,v), not the optimal dilation as a function of angle, the silhouette, the projected footprint area, or a Haar-weighted measure. Those alternate formulations are not equivalent to the translation-weighted four-volume or to the total number of 4D vertices.",
+        "searches": [
+          "right isosceles triangle rectangle similarity containment polytope four dimensional volume all placements vertex counts aspect ratio Choi Agarwal",
+          "right isosceles triangle rectangle orientation preserving similarities containment polytope exact four-dimensional volume vertices (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ce1c89c8273b equilateral source in rectangles (threshold 2/sqrt(3)); 28f9ae0f586e right isosceles source in right-triangle targets (different target); 0f26f49ae237 triangle self-containment and beta law"
+        ],
+        "reasoning": "The exact title hit is the assigned record itself. The close analogues state different width/support geometries. Orientation-preserving similarities cannot convert an equilateral source to the stated isosceles right source or a triangular target to a rectangle; the self-containment result requires equal source and target. The retrieved records do not give the claimed quartet of vertex counts.",
+        "searches": [
+          "right isosceles triangle rectangle orientation preserving similarities containment polytope exact four-dimensional volume vertices (Resultary)",
+          "0f26f49ae237 sharp equilateral extremum universal beta law triangle self-containment polytopes 4D Lebesgue volume translation homothety (Resultary)"
+        ]
+      },
+      "rationale": "The four-coordinate configuration space and general construction/optimization algorithms are prior. The inspected statements do not supply this explicit aspect-dependent four-volume or exact full-polytope vertex phases, and the closest exact volume analogues use a different source or target. No broad novelty claim about the containment polytope itself; historical assessment is best of knowledge.",
+      "residual_risks": [
+        "An older differently indexed all-placements calculation for this exact triangle in rectangles is possible; one further search was unavailable and is not negative evidence.",
+        "The related exact records were inspected at index-statement level only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same polytope; new theorem there concerns decomposition of the general-position silhouette, not these exact rectangle volume and vertex phases",
+          "evidence": [
+            "Explicit assumption of no parallel edges in §1.1",
+            "Theorem 4 bounds and computes a chain/step decomposition rather than integrating the 4D set"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08556v1",
+          "material_read": "Abstract, Section 1 and Section 1.1, definition of footprint and silhouette and Theorems 1–4",
+          "method": "Open full HTML, inspected model and main theorem scope",
+          "title": "The Containment Polytope of a Triangle and a Convex Polygon",
+          "trigger": "Same geometric object and potential broad exact vertex implication"
+        },
+        {
+          "assessment": "Prior general framework and per-input construction; inspected material does not assert a rectangle volume or a complete aspect phase diagram",
+          "evidence": [
+            "Preprint abstract gives O(mn^2 log n) time to construct the space and an O(mn^2) combinatorial complexity bound",
+            "Page 2 sets out the same four-dimensional halfspaces"
+          ],
+          "identifier_or_url": "https://www.math.tau.ac.il/~michas/nina.pdf; DOI:10.1007/PL00009337",
+          "material_read": "Open preprint abstract and first two pages, including definition of the parameterization and the mn halfspaces",
+          "method": "Read lawful primary PDF text",
+          "title": "Largest Placement of One Convex Polygon Inside Another",
+          "trigger": "Earlier full configuration-polytope construction"
+        },
+        {
+          "assessment": "Concerns extremal containment and general bounds for selected contacts; not an exact count stratified by rectangle aspect or the volume",
+          "evidence": [
+            "Problem 1 concerns existence of a congruent copy or the largest similar copy",
+            "Theorem 4 addresses the 3-contact optimization case for triangle sources"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.13292; DOI:10.4230/LIPIcs.SoCG.2024.34",
+          "material_read": "Abstract, §1 setup and new results/approach, §2.3 Theorem 4",
+          "method": "Open full-text preprint HTML and conference abstract",
+          "title": "Convex Polygon Containment: Improving Quadratic to Near Linear Time",
+          "trigger": "Potential stronger placement and contact-count theorem"
+        },
+        {
+          "assessment": "Different source or target in all three indexed statements",
+          "evidence": [
+            "Equilateral triangle in rectangles; right isosceles triangle in right-triangle targets; triangle into itself"
+          ],
+          "identifier_or_url": "Resultary ce1c89c8273b, 28f9ae0f586e, 0f26f49ae237",
+          "material_read": "Published index statements, not proofs or entire documents",
+          "method": "Configured Resultary search by object and exact identifier",
+          "title": "Exact containment-volume laws for related source and target families",
+          "trigger": "Closest published exact shape laws in the configured index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-domain four-volume is a natural configuration-space invariant distinct from maximal size, and the two non-generic aspect ratios are intrinsic. The result pinpoints an exceptional square vertex collapse invisible to volume and a separate ratio-two transition visible first at derivative order four. It gives exact normalizations and a complete shape-family comparison, not a single example or an unsupported algorithmic claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

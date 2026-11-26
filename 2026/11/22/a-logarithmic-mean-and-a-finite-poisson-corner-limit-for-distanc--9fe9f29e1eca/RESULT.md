@@ -30,7 +30,7 @@ T_n\Rightarrow T_\infty<\infty\ \text{almost surely},\qquad
 \frac{T_n}{\log n}\xrightarrow{\mathbb P}0.
 \]
 
-For orientation, \(\Pr(T_\infty=0)=2/3\), agreeing with the *previously known* exact probability that a sampled interval meets every other one. With probability tending to one, the entire random intersection graph has diameter at most three, so on that event \(T_n\) counts exactly the pairs at graph distance three. All conclusions remain valid for any **common atomless endpoint law**, by a common probability-integral transform.
+For orientation, \(\Pr(T_\infty=0)=2/3\), agreeing with the *previously known* exact probability that there exists a sampled interval that meets every other one. With probability tending to one, the entire random intersection graph has diameter at most three, so on that event \(T_n\) counts exactly the pairs at graph distance three. Thus the genuine distance-three count has the same weak limit, but the displayed finite-mean formula and additive constant are for \(T_n\), not for the genuine distance-three count. All conclusions remain valid for any **common atomless endpoint law**, by a common probability-integral transform.
 
 ## Assumptions and scope
 
@@ -85,7 +85,7 @@ Indeed the finite-sample joint pair density yields the same integral with \((1-2
 \mathbb E T_\infty=4\int_0^\infty\int_0^\infty rs e^{-2rs}\,ds\,dr=\infty,
 \]
 
-because integrating in \(s\) leaves a positive multiple of \(\int_0^\infty dr/r\). For the zero event, let \(R_*\) and \(S_*\) be the smallest points of \(\mathcal L\) and \(\mathcal R\). Both have survival function \(e^{-t^2}\). Every pair \((r,s)\) has an empty spanning rectangle if and only if the minimal rectangle \((0,R_*]\times(0,S_*]\) is empty. Thus
+because integrating in \(s\) leaves a positive multiple of \(\int_0^\infty dr/r\). For the zero event, let \(R_*\) and \(S_*\) be the smallest points of \(\mathcal L\) and \(\mathcal R\). Both have survival function \(e^{-t^2}\). There exists a pair \((r,s)\) with an empty spanning rectangle if and only if the minimal rectangle \((0,R_*]\times(0,S_*]\) is empty: every pair's rectangle contains that minimum rectangle, and the minimum pair itself is present. Thus
 
 \[
 \Pr(T_\infty>0)=\mathbb E[e^{-2R_*S_*}]
@@ -94,7 +94,9 @@ because integrating in \(s\) leaves a positive multiple of \(\int_0^\infty dr/r\
 
 Therefore \(\Pr(T_\infty=0)=2/3\). Weak convergence to a finite random variable also proves \(T_n/\log n\to0\) in probability, despite the divergent mean.
 
-**6. Recovering genuine graph distances.** Let \(\delta_n=n^{-3/4}\). A union bound shows that the probability of some sampled interval having \(R_i\le\delta_n\) or \(L_i\ge1-\delta_n\) is at most \(2n\delta_n^2=o(1)\). The chance that no interval spans from a left endpoint below \(\delta_n\) to a right endpoint above \(1/2\) is \((1-\delta_n)^n=o(1)\); symmetrically there is a right-anchored interval spanning \(1/2\). On the intersection of these high-probability events, every interval wholly to the left of \(1/2\) meets the left-anchored interval, every interval wholly to the right meets the right-anchored interval, and every interval containing \(1/2\) meets both. The two anchored intervals meet each other. Every pair of vertices is consequently connected by a path of length at most three, and precisely the unbridged disjoint pairs are at distance three. This establishes the graph interpretation without assuming finite-sample connectivity.
+**6. Recovering genuine graph distances.** Let \(\delta_n=n^{-3/4}\). A union bound shows that the probability of some sampled interval having \(R_i\le\delta_n\) or \(L_i\ge1-\delta_n\) is at most \(2n\delta_n^2=o(1)\). The chance that no interval spans from a left endpoint below \(\delta_n\) to a right endpoint above \(1/2\) is \((1-\delta_n)^n=o(1)\); symmetrically there is a right-anchored interval spanning \(1/2\). On the intersection of these high-probability events, every interval wholly to the left of \(1/2\) meets the left-anchored interval, every interval wholly to the right meets the right-anchored interval, and every interval containing \(1/2\) meets both. The two anchored intervals meet each other (or are the same interval). Every pair of vertices is consequently connected by a path of length at most three, and precisely the unbridged disjoint pairs are at distance three. This establishes the graph interpretation without assuming finite-sample connectivity.
+
+The high-probability equality does not transfer the additive mean constant. Write \(D_{3,n}\) for the number of pairs at graph distance exactly three and \(N_n\) for the number of isolated intervals with \(R_i<1/n\). Each such interval gives \(n-1\) pairs in \(T_n\) but not in \(D_{3,n}\); an unordered pair can be counted at most twice. Thus \(T_n-D_{3,n}\ge(n-1)N_n/2\). Conditional on such a short right endpoint, another interval can intersect it only if its left endpoint is below \(1/n\), an event of probability at most \(2/n\). Independence of the other intervals gives \(\mathbb E N_n\ge n^{-1}(1-2/n)^{n-1}\) for \(n\ge3\). Consequently \(\liminf_{n\to\infty}\mathbb E(T_n-D_{3,n})\ge e^{-2}/2>0\).
 
 ## Verification
 
@@ -102,7 +104,7 @@ Run `python3 CHECK.py` from the same directory. This enumerates all \((2n-1)!!\)
 
 ## Relationship to prior work
 
-The classic interval graph model and the exact two-thirds probability of at least one universal interval are established background, not claimed discoveries. Diaconis–Holmes–Janson (2011) treat interval graph limits and clique-scale questions; Iliopoulos (2015) discusses maximal cliques and universal intervals and the random interval graph model. Earlier marked corner-Poisson results for the count of universal intervals resolve the *existence* of a bridging interval for the single extremal pair; they do not imply the full count of non-bridgeable pairs indexed by **all** left and right corner intervals. The new claim is the exact count mean with its constant and the complete finite-but-infinite-mean weak limit. A 1990 primary paper on random intervals could not be inspected beyond its available abstract; this remains a historical-priority limitation, not evidence of absence of coverage.
+The classic interval graph model and the exact two-thirds probability of at least one universal interval are established background, not claimed discoveries. Diaconis–Holmes–Janson (2011) treat interval graph limits and clique-scale questions; Iliopoulos (2015) discusses maximal cliques and universal intervals and the random interval graph model. The related *A randomly clipped Poisson field of universal random intervals* derives the same compact-window corner processes before clipping at the two extremal endpoints. The clipped law resolves the existence and number of bridges for the single extremal pair. The all-pair obstruction count needs the corner processes without this clipping, and control of pairs outside compact windows. The related *Two-vertex domination and diameter laws for random interval graphs* gives a stronger quantitative diameter bound; the high-probability diameter conclusion is not new. The contribution is the exact obstruction-count mean with its constant and the finite-but-infinite-mean weak limit. The 1990 primary paper remains a historical-priority limitation where its full contents were not assessed.
 
 ## Limitations
 
@@ -113,3 +115,5 @@ No quantitative total-variation convergence rate or closed-form mass function fo
 - P. Diaconis, S. Holmes and S. Janson, *Interval Graph Limits* (arXiv first posted 2011-02-14), https://arxiv.org/abs/1102.2841 .
 - D. Iliopoulos, *Random Interval Graphs* (arXiv first posted 2015-07-22), https://arxiv.org/abs/1507.06275 .
 - J. Justicz, E. R. Scheinerman and P. Winkler, *Random Intervals*, *American Mathematical Monthly* 97 (1990), DOI: https://doi.org/10.1080/00029890.1990.11995679 . The available abstract and secondary discussions, but not its complete text, were inspected.
+- *A randomly clipped Poisson field of universal random intervals*, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-randomly-clipped-poisson-field-of-universal-random-intervals--d692eb283908/RESULT.md .
+- *Two-vertex domination and diameter laws for random interval graphs*, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-vertex-domination-and-diameter-laws-for-random-interval-grap--0083d38128b4/RESULT.md .

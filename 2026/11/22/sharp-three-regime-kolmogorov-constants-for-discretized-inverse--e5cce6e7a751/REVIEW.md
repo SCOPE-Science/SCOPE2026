@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For all fixed positive shape and scale parameters, the inverse-gamma tail expansion follows from the lower incomplete-gamma integral with a remainder uniformly controlled at large arguments. Expanding the logarithm of the smooth sample-maximum CDF gives the separate \(n^{-1}\) and \(a_n^{-1}\) effects. The proof explicitly controls the two tails, verifies uniform derivative convergence, translates the continuous CDF by the exact integer-floor displacement, and optimizes the limiting envelopes. At shape one, the continuous CDF is exactly max-stable, eliminating both smooth terms. At each lattice point the displacement is precisely one, attaining the constants. The included numerical sanity checker was executed successfully but is not treated as a proof.
+PASS
 
-## Originality (O): PASS, with historical limitations
+For fixed positive α,β the incomplete-gamma integral gives the stated smooth tail expansion and linear and quadratic terms of n log F(a_n x). To check uniformity, on a_n x≥y₀ choose the survival S≤1/2 and comparable to (a_n x)^(-α). The error in replacing n log F by −x^(−α) is bounded by a constant times a_n^(-1)x^(−α−1)+n^(-1)x^(−2α), from |nS−x^(−α)| and the nS² bound for the log remainder. Both logs are bounded above by −C x^(−α). After exponentiation, scaling by n for α<1 or a_n for α>1 leaves polynomial-in-x envelopes times exp(−C x^(−α)), vanishing at both ends. The derivative formula likewise gives a uniform bound by C' x^(−α−1)exp(−C x^(−α)) plus the compact convergence. On a_n x<y₀, H_n and its derivative are exponentially small (even with polynomial n factors) by F(y₀)<1, and the Fréchet CDF and derivative have the same required negligible tails. This validates the uniform expansions. The exact floor shift is d_n/a_n with 0<d_n≤1. Integrating the uniform derivative convergence gives the uniform first-order shift, and lattice points approaching the derivative maximum attain d_n=1. Below shape one, this is smaller than 1/n and maximizing (1/2)u²e^(−u) gives 2e^(−2). At shape one the smooth parent maximum is exactly Fréchet, but the floor still contributes 4e^(−2)/β at scale n. Above one, the smooth term equals β/(α+1) times the derivative term, so the two positive errors add at d_n=1, giving exactly the stated constant. At x<0 both CDFs are zero; x=0 has probability F(1)^n and is negligible. check.py was inspected, not executed: its scan samples lattice cells and truncates the range and hence does not certify the global supremum.
 
-The 2017 full-text *Discrete Extremes* paper contains the same floor inverse-gamma model (Section 3.1), making that paper essential prior art; the author's established domain-of-attraction and threshold-exceedance results do not imply the three sharp uniform maxima constants. The 2023 PLOS ONE full text describes the discrete inverse-gamma model, analytical survival, fitting, and simulation; it does not classify the uniform normalized-max error. Shimura's earlier discretization theorem and general extreme-value convergence-rate theory cover broad first-order/rate frameworks. No retrieved exact formula or stronger theorem implies the concrete three constants, and the canonical nonlinear model correction is distinctly affected by floor rounding. The original Shimura full text and parts of early 1982 rate literature were inaccessible; the literature comparison is qualified, not a proof of priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-Normalized maxima are central to high-quantile risk prediction under discretized heavy-tailed sampling. The result identifies the correct sample-size rate and a computable sharp constant (not simply a big-O bound), distinguishes sampling error from recording-resolution effects, and reveals the surprising exact cancellation at shape one. These are natural features of the full two-parameter distribution and offer a concrete basis for assessing Fréchet approximations for discretized insurance/severity data.
+Pass for the combined sharp global floor-law classification under the specified first-order scaling, including lattice attainment and the shape-one change in the leading mechanism. Neither the floor inverse-gamma model, the first-order domain of attraction, nor the general expansion of a smooth maximum is claimed as new. The closest inspected floor inverse-gamma example addresses exceedances, and the prior continuous rate literature remains an explicit access limitation.
 
-## Scope and unproved questions
+## value
 
-The result is fixed-parameter and distributional only; it does not control parameters approaching shape one with sample size, account for estimation error, or certify historical priority against inaccessible full texts. The numerical sample is finite and not a proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp uniform constants quantify when discrete observations matter for the error in a Fréchet approximation to maxima. The classification separates an ordinary finite-sample exponent correction, an exact continuous cancellation leaving a pure lattice error, and an additive smooth-plus-lattice regime. This is an all-threshold conclusion that a tail fit or a compact pointwise expansion would not give.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

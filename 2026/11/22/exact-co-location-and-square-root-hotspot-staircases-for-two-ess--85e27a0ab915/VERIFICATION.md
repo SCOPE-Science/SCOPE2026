@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof is in RESULT.md. The separate complete `check.py` is executable with the Python standard library (`python check.py`). It evaluated **60,282** assertions: exact rational square and derivative identities; exact neighboring support-score signs for rational inputs and patch counts 2 through 5; exhaustive *finite-grid* checks of two independently allocated inputs with 2–4 sites; exact small examples; and nineteen numerical checks of the square-root tie formula.
+## correctness
 
-The finite mesh cannot establish global optimality for all continuous allocations or arbitrary numbers of sites. The global result follows instead from the displayed exact square identity, pairwise sign argument and analytic threshold comparisons. No independent external proof check, field validation, or numerical certification of infinite ranges is claimed.
+PASS
+
+The feasible simplices are compact and the objective continuous. For each site 2 phi(c)phi(q)=phi(c)^2+phi(q)^2-(phi(c)-phi(q))^2; with identical normalized budgets each square sum is bounded by the same scalar maximum. Taking equal vectors attains it, and zero loss requires c_i=q_i at every site by strict monotonicity. For g(x)=x^2/(1+x)^2, g'(x)-g'(y) has sign (x-y)[1-xy(3+x+y)]. On the smaller-dose half of a two-site transfer with sum u, the bracket 1-x(u-x)(3+u) is strictly decreasing, so any stationary point there is a strict minimum, not a maximum. Thus every positive-dose subset is uniform at a global optimum, including optima on the boundary. For k positive sites the score is T^2 k/(T+k)^2; the sign of its adjacent increment is exactly the sign of T^2-k(k+1). The increasing thresholds give the stated unique support size or adjacent two-way tie, with every subset of each winning size attainable. The single-resource contrast follows by strict concavity of phi. The frozen finite checker and notes were inspected, not executed; the proof covers arbitrary real doses and finite n.
+
+## originality
+
+PASS
+
+The contribution is the exact two-budget all-optimizer identification together with the squared-Monod support law, not generic S-shaped allocation, or the already familiar phenomenon of support-size staircases. The closest exact staircases use different objectives, and the accessible general solver does not give this exact solution. The older general allocation report remains a specific access risk.
+
+## value
+
+PASS
+
+Under the stipulated balanced complementarity model, the complete equality cases distinguish when adding a hotspot beats more concentrated supply and force both independently allocable inputs to use the same sites. Closed transition budgets and ties across all n are meaningful for a static benchmark and contrast with strict spreading for one resource. No optimization of growth over time, field recommendation, or unequal-budget extrapolation is justified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

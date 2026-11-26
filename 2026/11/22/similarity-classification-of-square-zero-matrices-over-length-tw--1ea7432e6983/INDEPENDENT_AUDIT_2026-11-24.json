@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:43:00.117949Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt"
+      ],
+      "rationale": "Independent splitting proof: for X²=0 choose columns W lifting a reduced complement to ker(A), A=X mod π, and set U=XW. The columns (U,W) are independent mod π and extend to an R-basis. Take a coordinate map λ with λU=I and λW=0. Then P=Uλ+WλX is a projection onto the span of (U,W) and XP=PX=UλX. The complementary summand is free over the local ring and has residual X=0, since im(A) is contained in the reduction of the first summand. Its restriction is therefore π times a uniquely determined residue matrix B. This proves existence without a coefficient field. For uniqueness, on ker(A) a lift changes the divided image by a vector in im(A); a change of representative by Av is lifted by X applied to a lift of v and has zero further image. The divided image is in ker(A) by X²=0 and ann(π)=πR. This gives the k-linear, conjugacy-equivariant homology map, equal to B in the splitting. Conversely any similarity of B lifts to a change of complementary basis. A different generator uπ changes the homology label by the residue of u inverse. For each r, s=n−2r, the partitions indexed by monic irreducibles count B, giving the rational-canonical Euler product by unique factorization. Summing over r multiplies it by (1−z²)^{-1}; expansion through z³ gives q, q²+q+1, and q³+q²+2q. This also handles r=0, s=0 and residue characteristic two. The recorded finite checks are not needed for the proof and were not rerun.",
+      "residual_risks": [
+        "The result counts conjugacy classes, not individual orbit sizes; no coefficient-field hypothesis or longer-ring analogue is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The archival abstract gives a framework for arbitrary matrices over the same rings. The catalogue summary of the Bockstein predecessor concerns all square-zero lifts, not the quotient."
+        ],
+        "reasoning": "Including the objects as a special case of an orbit-reduction framework is not the same as solving the constrained orbit action for every dimension.",
+        "searches": [
+          "Prasad–Singla–Spallone arXiv:1212.6157v1",
+          "Resultary:150f31c550b3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1212.6157v1 abstract and introduction opening",
+        "Resultary:6b8f1c0037a2",
+        "Resultary:150f31c550b3",
+        "Frozen RESULT.md lines 58–75"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bockstein summary reports that every secondary map occurs and gives q^{2r(n−r)} lifts per map, with image shape controlled by rank. The frozen proof explicitly removes the other lift blocks and identifies the residual action on B."
+        ],
+        "reasoning": "Equal numbers of lifts and equal Smith ranks do not imply that no additional conjugacy data survive. The extension framework may provide another derivation, but the supplied specialization still needs the elimination or contractible splitting and the residual action.",
+        "searches": [
+          "Resultary:150f31c550b3",
+          "arXiv:1212.6157v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prasad–Singla–Spallone's abstract explicitly calls this similarity an extension problem and describes explicit classes through n=4; the frozen comparison identifies the zero-square domain and characteristic-zero dual-number settings of the other two sources."
+        ],
+        "reasoning": "The differential-module formulation is equivalent to square-zero conjugacy here, but domain and characteristic-zero versions do not yield the finite mixed-characteristic classification.",
+        "searches": [
+          "arXiv:1212.6157v1",
+          "arXiv:2108.12882",
+          "arXiv:0910.0536"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue summaries give counts of labeled Smith strata and equidistributed labeled Bockstein maps; the arXiv abstract describes explicit general similarity classes for n≤4."
+        ],
+        "reasoning": "The first tables count labeled matrices, not classes; the small-matrix classification has only bounded coverage. Neither checked statement is an all-size square-zero orbit series.",
+        "searches": [
+          "Resultary:6b8f1c0037a2; 150f31c550b3",
+          "arXiv:1212.6157v1"
+        ]
+      },
+      "rationale": "Credit the length-two extension-orbit reduction, the labeled Bockstein and Smith statistics, and the standard finite-field similarity Euler product. The supported distinction is the actual all-size square-zero conjugacy quotient by residue rank and homology similarity, valid including mixed characteristic, with its resulting class series. The checked statements do not give that quotient without the extra square-zero splitting or an equivalent computation.",
+      "residual_risks": [
+        "Exact passages from some closely related papers and the mirrored catalogue records were not accessible.",
+        "An earlier explicit constrained specialization of the extension-orbit theory or a classification in differential-module terminology may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract confirms broad reduction and bounded explicit classification; later passages unavailable in this review",
+          "evidence": [
+            "Normal forms interpreted as extensions of R[t]-modules; explicit classifications and centralizers for n≤4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.6157v1",
+          "material_read": "Abstract and introduction opening, extracted lines 12–34; frozen relation at lines 58–59",
+          "method": "Lawful arXiv alternate version; targeted passage access attempted",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Same rings and conjugacy, possible stronger orbit classification"
+        },
+        {
+          "assessment": "Strong prior coverage of possible values and their labeled distribution, not a conjugacy quotient in material read",
+          "evidence": [
+            "All secondary maps occur with the same number of lifts per map; image shape is a rank statistic."
+          ],
+          "identifier_or_url": "Resultary:150f31c550b3",
+          "material_read": "Catalogue summary; frozen attribution at lines 58–59",
+          "method": "Local catalogue lookup and targeted mirror attempt",
+          "title": "Bockstein equidistribution and image-shape counts for square-zero endomorphisms over length-two chain rings",
+          "trigger": "Same homology invariant and constrained lifts"
+        },
+        {
+          "assessment": "Traces labeled Smith strata, not conjugacy",
+          "evidence": [
+            "The summary reports exact counts conditional on residue rank and Smith type."
+          ],
+          "identifier_or_url": "Resultary:6b8f1c0037a2",
+          "material_read": "Catalogue summary",
+          "method": "Local catalogue lookup and targeted mirror attempt",
+          "title": "Square-zero Smith strata are universal across length-two chain rings",
+          "trigger": "Same rings and exact counts"
+        },
+        {
+          "assessment": "Domains and algebraically closed characteristic-zero dual numbers as reported; no independent full-text conclusion",
+          "evidence": [
+            "Neither reported setting has the finite mixed-characteristic hypotheses."
+          ],
+          "identifier_or_url": "arXiv:2108.12882; arXiv:0910.0536",
+          "material_read": "Frozen prior-work description, lines 58–59",
+          "method": "Targeted OA attempts timed out",
+          "title": "Similarity for zero-square matrices; On similar matrices over the dual numbers",
+          "trigger": "Possible same-object canonical forms under alternate terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–20, 25–53, 58–62"
+      ],
+      "rationale": "This classifies all free square-zero differentials up to isomorphism over the short local rings in scope. Residue rank and Smith data can coincide while the homology maps are nonsimilar: already X=πI_2 and X=π times a size-two Jordan block at eigenvalue 1 have the same Smith data and different classes. Giving the missing complete invariant and an all-dimension orbit series uniform in ring characteristic is structurally useful.",
+      "residual_risks": [
+        "No finer classification such as centralizer sizes or applications to longer rings is required or inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

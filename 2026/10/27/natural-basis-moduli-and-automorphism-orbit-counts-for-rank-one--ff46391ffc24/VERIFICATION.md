@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
-The included `verify.py` was run with Python 3. It printed one `OK` line for each of the three forms over each of five prime fields and ended in `VERIFY_OK`. Actual group actions, not merely expected numerical values, were enumerated and checked. Every example is nondegenerate and has a one-dimensional square, and multiplication is represented by its exact bilinear form and derived generator.
 
-Over \(\mathbb F_3\), \(\mathbb F_5\), \(\mathbb F_7\), \(\mathbb F_{11}\), and \(\mathbb F_{13}\), the script checked: \(B=\operatorname{diag}(1,1),u=(1,0)\); \(B=\operatorname{diag}(1,a),u=(1,0)\) with \(a\) a nonsquare; and \(B=\operatorname{diag}(1,-1),u=(1,1)\). The latter has isotropic derived line and a transitive multiplicative automorphism group. The former two have exactly two automorphisms. The script checks each candidate matrix's multiplication action exactly modulo the prime, counts all projective orthogonal pairs, and partitions them by the automorphism group.
+# Independent mathematical audit
 
-Limitations: These are finite tests over five prime fields, whereas the proof covers every odd prime power and an arbitrary infinite field of odd characteristic. The checker is a reproducibility artifact, not an independent or exhaustive verification of the general theorem. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+In a natural basis the form B is diagonal with both entries nonzero by nondegeneracy. A basis up to separately rescaling and reordering is an unordered pair of transverse orthogonal lines; orthogonal complementation on nonisotropic lines is a fixed-point-free involution. Rescaling u rescales B, changing its determinant by a square and leaving B(u,u)=0 invariant. An automorphism has Tu=cu and B(Tx,Ty)=cB(x,y). If B(u,u)≠0 then c=1 and T is ±1 on the orthogonal line while fixing u. If B(u,u)=0, choose an isotropic v with B(u,v)=1 by subtracting B(v,v)u/2 from a suitably normalized mate. The same equations force Tv=v, and all nonzero c are allowed. There are at most two exceptional isotropic lines over an infinite field, giving infinitude; dimension one has only one basis class under scaling. Over an odd finite field the isotropic line count is 1+χ(-Δ), giving N. In the hyperbolic coordinates L_t=K(u+tv), complementation sends t to -t and the automorphism sends t to t/c, proving transitivity. For nonisotropic u, the reflection fixes the coordinate pair. Any other fixed pair must be swapped; orthogonality of u+tv and u-tv requires t²=B(u,u)/B(v,v), and such lines are nonisotropic because their norm is 2B(u,u)≠0. Two roots give one pair exactly when χ(Δ)=1. Burnside gives the claimed O and the fixed-point count, including the small fields.
+
+## originality
+
+PASS
+
+The exact Aut(E)-orbit census and its fixed-pair refinement are the supported distinct content of the joint theorem. The automorphism types are already known, the form and orthogonal-pair description use established machinery, and a distinct indexed record explicitly contains the same moduli description and N(E). Do not award separate novelty for those components. No inspected statement supplies the extra involution fixed-pair count and O(E) across both generator types. The available survey comparison supports the relevance of the finite-group example, not novelty of its algebra or automorphisms.
+
+## value
+
+PASS
+
+The equivalence by scaling and reordering is the one singled out by the survey. Computing how many of those bases remain inequivalent after intrinsic symmetry answers a further natural classification question, which knowing the group and the total number of bases does not settle. For example, a hyperbolic form over F7 gives three basis classes for either generator type, while an isotropic generator leaves one automorphism orbit and a nonisotropic one leaves two. The count distinguishes a concrete effect of the distinguished derived line, rather than tabulating illustrative prime-field examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

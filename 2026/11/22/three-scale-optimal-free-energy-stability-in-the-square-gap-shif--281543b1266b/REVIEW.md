@@ -1,19 +1,21 @@
-# Review: three-scale optimal free-energy stability in the square-gap shift
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed constant is defined as a supremum over **all** invariant probability measures, including the zero fixed-point atom. Kac--Abramov inducing plus the one-coordinate entropy inequality produces the exact maximal-entropy envelope at fixed marker density. The pressure root, strict concavity, and Bregman identity reduce the problem to a one-dimensional quotient. The local coefficient is the exact inverse curvature of this envelope. The global maximizing-density concentration is proved uniformly, and its stationary-point equation forces an intermediate \(e^{-3L/2}\) scale. The second correction follows from the two shortest returns; long returns contribute smaller-order terms. The supplied numerical verifier reproduced pressure roots, the local variance and the scaled global stationary-point calculation, but infinite conclusions rely on the written analytic bounds.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS for the corrected RESULT.md only. The frozen unrestricted attainment statement in Limitations is false. With chi(s)=V(s)/m(s)^3, the integer certificate bounds chi(0.18)>0.169, chi(s)<0.168 for all s>=0.24, and Z(0.24)>1. Since chi tends to zero at both ends, it has a global maximum at some s0<0.24; hence L0=log Z(s0)>0 is allowed. At this field -H'' has its global minimum at rho=t(s0). Its weighted average along any nontrivial density interval starting at rho exceeds that minimum, since the curvature is analytic and nonconstant (including the endpoint intervals by a strict bound on an interior subinterval). So the extended quotient has its unique maximizing density at the excluded rho, and no measure attains C_L0. The replacement confines attainment to sufficiently large L and distinguishes the extended maximum from an attaining measure. Independently, Kac–Abramov and the one-return entropy bound cover measures with a zero atom (the extra term is s times the mass of the recurrent component, at most s); the iid lift yields equality and uniqueness at the pressure root. H''=-1/(t^3 V), and Gaussian moment estimates give p_L~(pi/4)e^{-2L}, rho_L~(pi/2)e^{-2L}, and C_loc~sqrt(2pi)e^{-L}. A curvature bound for t<=L^{-2} and the binary entropy bound above that cutoff exclude all maximizing sequences away from 1/2 as L grows. H' tends to minus infinity there, excluding the endpoint itself, so the maximum is attained off rho for large L. Stationarity gives (t+rho)(L-log Z)=2(s-p_L), first s/L→1/2 and then 2s-L=o(1). The length-5 term next to length 2 yields 1/2-t~(3/4)e^{-3L/2}. The entropy expansion H(1/2-d)=(2d/3)(log(3/(4d))+1)+O(d² log(1/d)) cancels the leading density loss in the quotient and leaves e^{-3L/2}/(2L²). The repaired statement preserves every strong-field coefficient, without an all-fields attainment inference.
 
-The 2026 renewal-type effective intrinsic ergodicity theorem of Haydarov, Kadyrov, Makhmudov and Mamayusupov guarantees a square-root free-energy comparison with an unspecified potential-dependent constant; it does not optimize the constant for the marker observable or analyze strong marker penalties. The separately published square-gap theta-cubic calculation gives the maximum entropy at each fixed marker density and its near-zero expansion. That is a substantial prior ingredient, explicitly credited, but it does **not** state the present global-versus-local constant, the globally maximizing density's intermediate exponent, or the nonzero \(e^{-3L/2}/L^2\) sharp correction. The new work analyzes a global singular maximization problem across the entire entropy curve; merely repeating the known pressure and entropy equations is not asserted as novelty. Search coverage includes semantically similar terminology, generic pressure-gap estimates, and prior research ledgers. Remaining risks: unindexed optimal-constant literature and an unpublished equivalent saddle analysis.
+## originality
 
-## Value — PASS
+PASS
 
-The measured object is the *best possible coefficient* in a published quantitative uniqueness paradigm, for its simplest natural marker observable. The leading global bound differs by an exponential factor from its infinitesimal susceptibility; the maximizing densities occupy a third asymptotic scale, distinct from both the equilibrium marker density and the limiting periodic marker density. The explicit secondary term and extremizer location distinguish this calculation from a routine asymptotic of the previously known constrained entropy. This is a motivated sharp boundary of applicability, not an arbitrary parameter slice.
+For the repaired result, the distinct claim is the sharp global correction and every-maximizer drift in the strong-penalty regime of this fixed shift. The fixed-density entropy and the local susceptibility benchmark are credited as prior or derivable. The strongest inspected general deficit theorem does not give the optimal scalar constant, and the strongest same-object entropy formula does not supply the boundary optimization.
 
-## Limitations
+## value
 
-This review is internal-to-the-work scientific checking only. No independent proof certification has been performed. The theorem addresses one family of scalar observables; it neither provides a sharp all-observable Hölder constant nor proves finite-field uniqueness of the maximizing density. Historical priority is conditional on the inspected accessible sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp observable-dependent constant measures the practical loss in using an infinitesimal susceptibility to predict departures from equilibrium. All optimizing measures in the strong-field limit are exponentially near the dense periodic orbit, not near the sparse equilibrium; the first correction measures the rare length-5 defects in that orbit. This is a substantive nonlocal boundary case for quantitative uniqueness, not a recalculation of the pressure or its derivatives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

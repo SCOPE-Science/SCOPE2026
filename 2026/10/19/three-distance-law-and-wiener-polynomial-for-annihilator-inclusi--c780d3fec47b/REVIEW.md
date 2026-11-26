@@ -1,19 +1,21 @@
-# Scientific review of the finite-chain-factor distance theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction to weighted valuation profiles uses the chain-ring ideal structure and accounts explicitly for units and zero. The edge formula comes from ordered comparable pairs and same-profile multiplicities; the geodesic proof identifies exactly the opposite-corner obstruction to a common neighbor, constructs three-step paths for every connected boundary case, and treats the two-field exception separately. The calculation is algebraic for arbitrary finite chain factors, not an extrapolation of small-field data. The executable enumeration reproduces all asserted formulas for 29 integer residue rings, nine actual product rings, and six higher-residue-field valuation examples, including the finite counterexample to the published diameter-four value. Potential limitation: the theorem does not extend to rings with non-chain local factors.
+PASS
 
-## Originality — PASS with stated bibliographic risk
+The final repaired RESULT.md retains the finite principal-ideal-ring theorem and corrects the earlier blanket assertion about equivalence to the cozero-divisor complement for all finite rings. That assertion fails for F₂[x,y]/(x,y)²: the classes of x and y share annihilator (x,y) but generate incomparable ideals. In the actual theorem's chain factors a uniformizer gives ann(level j)=m^(length−j) and weights (q−1)q^(length−j−1), with top weight one. The whole-ring componentwise comparable ordered count is T, equal-profile ordered count Q. Remove UP+P−U pairs and U²+1 equal-profile pairs; internal edges were counted twice and loops once. This gives exactly E as stated. Incomparables have a common neighbor exactly when the meet survives deletion of bottom or the join survives deletion of top. Otherwise they are opposite Boolean corners. The stated three-edge support path for r≥3 and interior-level path for r=2 with a non-field factor exist; two field factors instead leave exactly two disconnected cliques. Complementary corner classes have size-product U, proving D3 and the disconnected count, and subtracting from all unordered pairs gives D2 and the Wiener formulas. The r=1 case is complete when nonempty, with zero polynomial for fewer than two vertices. My direct multiplication replay for (Z/4)² obtains 11 vertices, pair counts (30,21,4) and W=84, and explicitly checks a two-field case, a three-field case and an empty field graph. The proof, not those tests, supplies the general quantifier.
 
-Safari--Shaveisi--Nikandish (arXiv:2606.15498, §2) define this annihilator-inclusion graph and prove only a general diameter bound of four, with Example 2.1 giving diameter four for \((\mathbb Z/4\mathbb Z)^2\). Their result is strictly weaker than the proved full distance distribution and contradicts the new complete enumeration in that example. The earlier graph equivalence with the complement of the cozero-divisor graph is credited to Afkhami--Khashyarmanesh (2012), and its scalar-product graph interpretation to Nouri Jouybari--Talebi--Firouzian (2019). Baloda--Mathil--Kumar--Barapatre (arXiv:2210.01570) enumerate Wiener distances in the cozero graph itself, not in its complement; this does not imply the new distance values. Relevant indexed results on Badawi's annihilator graph concern an inequivalent edge definition. No exact complement-distance distribution or matching multiplicative formula was located in those inspected full texts or targeted search records. Unindexed work on comparability blowups remains a residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is a natural all-pairs shortest-path profile of a recently introduced ring graph, not an arbitrary parameter choice. One theorem gives exact distances and Wiener values uniformly for every finite commutative principal ideal ring, separates all exceptional connectivity cases, and sharply improves a general bound while resolving a concrete erroneous example. The exceptional distance-three coefficient has an interpretable algebraic structure, counting pairs with complementary unit/zero local supports. The computation is useful both as an exact benchmark for graph indices and as an obstruction to extending diameter-four examples inside this large ring class.
+For the final repaired scope, the surviving result is a uniform exact pair-distance census and product formula on the principal-ideal-ring class, including a concrete published-example correction. The nearest exact graph precedents supply the graph definition, complement equivalence in scope or a diameter bound, not the claimed census. The cozero-divisor and Badawi distance results concern different adjacency rules.
 
-## Limits and comparison
+## value
 
-The result is for finite principal ideal rings only; it does not assert a universal ring-graph diameter bound, exact graph-isomorphism reconstruction, or prior-publication priority. It builds directly on the known complement-of-cozero connection and the known valuation structure of chain rings. The computations are illustrative finite checks; the proof is the certificate for all finite residue orders. An independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves all shortest-path pair counts uniformly, gives a structural characterization of the farthest pairs, and explains exactly the exceptional disconnected boundary. It sharpens the relevant bound in a natural broad ring class and corrects an actual example about a small ring under its unchanged graph definition; it is not justified merely by adding a verifier. Restricting the complement equivalence to the legitimate class preserves this entire useful contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

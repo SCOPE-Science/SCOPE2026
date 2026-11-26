@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It exhaustively generates small systematic codes over \(\mathbb F_2\) and \(\mathbb F_3\). For each source generator it computes the Euclidean hull in message coordinates, changes to a basis whose first rows generate the hull, and constructs the source normal-form shortest LCD embedding by adding an identity block on the hull rows.
+# Independent mathematical audit
 
-For each example the verifier checks the hull dimension, nonsingularity of the embedded Gram matrix, rank \(\ell\) of the added-coordinate projection, and dimension \(k-\ell\) of the kernel subcode.
+## correctness
 
-Every relevant message subspace is enumerated exactly once in reduced-row-echelon form. Thus the generalized Hamming-weight hierarchies of \(C\), \(K\), and \(\widetilde C\) are computed exhaustively.
+PASS
 
-For every \(r\), the script checks the kernel-sensitive lower bound, the universal two-sided bound, the terminal identity
-\[
-d_k(\widetilde C)=d_k(C)+\ell,
-\]
-and the self-orthogonal specialization whenever applicable.
+For an appended generator [G|B] of a shortest LCD embedding, rank(B) is at least the hull dimension ell: rank(GG*)=k-ell and the rank of the Gram update BB* is at most rank(B), while the embedded Gram has rank k. Since B has ell columns, projection Q has rank ell (over the stated Euclidean/Hermitian fields). Puncturing is an isomorphism of k-dimensional codes. For any r-subcode U with t=dim Q(U), its old-coordinate image has dimension r and contains an (r-t)-subcode of K=P(ker Q). Its support is at least max(d_r(C),d_(r-t)(K)); its disjoint new support is at least t. Rank-nullity gives exactly the numerical limits on t, with d_0=0 including t=r. Lifting a minimizing r-subcode gives the upper bound; surjectivity makes all ell new coordinates contribute at r=k; for ell=k only t=r is allowed. The argument includes ell=0 and uses no finite experiment. The frozen binary/ternary verifier was inspected, not executed, and does not test all embeddings or quaternary codes.
 
-The computation is a finite stress test. The arbitrary-length theorem is proved symbolically in `RESULT.md`.
+## originality
 
-Successful replay prints `VERIFY_OK`.
+PASS
+
+The supported distinction is the generalized-support lower bound conditioned on the kernel of the new-coordinate projection, not the shortest length, structural normal form, or routine upper bound. The closest primary theorem gives the needed rank, not the kernel-conditioned generalized-weight estimate; the closest higher-support extension record treats a different code construction. No covering result was identified in the inspected sources.
+
+## value
+
+PASS
+
+The result determines when the hull forces higher-support growth under every shortest LCD repair, and the kernel term is not just notation. For example take disjoint binary generators u,v,w of weights 2,2,5, append one separate new coordinate to each of u and v and none to w. The Gram becomes the identity, ell=2, K=<w>, and for r=2 the parent weight is 4. The rank-only lower bound is 5, but both admissible t=1,2 in the kernel bound give 6, attained in the embedding by the span of the first two lifted generators. This is a strict, attained improvement at a genuine higher weight with a nonzero rank-only correction. No claim of universal sharpness is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

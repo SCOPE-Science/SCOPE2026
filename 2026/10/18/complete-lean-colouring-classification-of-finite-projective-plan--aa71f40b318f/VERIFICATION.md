@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`, Steps 1–4. It relies only on the incidence axioms of a finite projective plane; the essential reductions are that two monochromatic lines would force a globally constant forbidden colouring, no monochromatic line forces a fully injective colouring, and a unique monochromatic line forces all outside colours to be pairwise distinct and different from its colour. The converse constructions are checked on every line. The named-palette count is a sum of two disjoint falling-factorial choices.
+## correctness
 
-Run `python verify_projective_lean.py`. It reconstructs projective planes over prime fields of sizes \(2,3,5,7\), checks every incidence axiom (including unique line through every point pair and unique intersection of every line pair), and validates one optimal construction for each line. For the Fano plane, it checks all \(877\) set partitions of seven points, yielding exactly seven valid partitions with five colours and one with seven colours. These are exhaustive *for the Fano plane* up to colour renaming, not a census of all orders.
+PASS
 
-The bound comparison independently counts the incidence degree \(q+1\) versus the two-section graph's degree \(q^2+q\). The unrestricted theorem does not depend on the finite verification. No independent external audit or formal certification was performed.
+The proof works over the axioms, independently of any coordinatization. Two monochromatic lines have the same colour at the intersection. For each point outside their union, joining it to a point on the first line away from the intersection produces a line containing two points of the common colour, forcing the outside point to have that colour. With no monochromatic line, the unique line through any pair separates the colours. With one such line, any repetition off it forces a second monochromatic line, either by joining two off-line points with the same colour, or by joining an off-line point of the line colour to a point on the line. Conversely each other line meets the designated line once and is rainbow. Choosing the distinguished line and assigning colours injectively to the classes gives n(t)_(q²+1), which is the second displayed term including the empty palette; the injective type gives (t)_n. Thus the named and unnamed optimal counts and q−1 gaps follow. The incidence-degree counterexample is correct under the standard incidence meaning of vertex degree: q+1 versus q²+q in the complete two-section. The source corollary says greatest vertex degree, not literally incidence degree; its proof conflates the two, and the result does not refute the corrected two-section interpretation. The packaged finite checker was inspected, not replayed; the unrestricted incidence proof and counts were reconstructed directly.
+
+## originality
+
+PASS
+
+The supported contribution is the exact projective-plane classification and its consequences, not the lean-colouring definition or a rebuttal of a two-section degree bound. The nearest indexed result classifies affine planes; the strongest primary sources examined do not give the projective result under the same admissibility rule.
+
+## value
+
+PASS
+
+This classifies all permitted partitions in a natural class of designs, showing a growing gap in the feasible spectrum rather than merely obtaining an optimal colouring. It provides exact named-palette counts and an unbounded counterexample ratio for the incidence reading of a specific asserted general upper bound, without a Desarguesian hypothesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

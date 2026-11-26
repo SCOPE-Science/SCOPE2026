@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:05:54.127710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The replacement resolves the frozen ambiguous universal 'minimizing sequence' claim: at a fixed off-midpoint x=1/4, S and A both tend to zero, so an absolute gap tending to zero does not localize. The revised relative criterion S/A→1 includes exact minimizers and is proved. Under the positive-sign Zak convention translation multiplies by e^(-2πikω) and modulation by b shifts ω to ω-b and multiplies by e^(2πibx). Fourier Parseval in the two modulation cosets yields S=|Z(ω)|²+|Z(ω+1/2)|²=2(|E|²+|O|²), with no missing oversampling factor. Continuity makes its extreme values optimal frame bounds; all finite λ are covered for existence by the known finite-type totally positive frame theorem. The coefficient ratios make e^(-s)P_n(s) decrease, with value one at zero. The leading coefficient gives h=g(1/2)∼n!/(2n)! λ^n e^(-λ/2). On [0,1/4], separation of the nearest even translate gives S/h²→∞ uniformly. On [1/4,1/2], the next even and odd distances are at least 3/2 and 5/4; squared cross terms with principal terms of size O(λ^n e^(-λ/4)) are o(h²) uniformly. Eventual convexity of e^(-2s)P_n(s)^2, from the leading term of its second derivative times e^(2s), minimizes the two-term leading symbol at x=1/2 and gives A∼4h². Away from the midpoint the nearest-even contribution is uniformly larger by a diverging factor, proving relative localization. Near x=0 the odd channel is uniformly o(1), and g≤1 bounds the even channel; evaluating at x=0 matches the limiting upper bound 2. Division gives the stated factorial condition law. Frozen verification notes and checker were inspected rather than executed; finite grids do not establish these uniform estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fully general continuous integrable TP frame-set theorem gives the density criterion αβ<1; the present lattice satisfies it.",
+          "Kloos–Stöckler cover finite-type windows and a unique Zak zero, and give quantitative lower bounds near critical density for the first-order exponential.",
+          "Ghosh–Antony Selvan provide sufficient regions/scale existence results."
+        ],
+        "reasoning": "Frame positivity and zero locations of one Zak term are not sharp values of the sum of both terms. Sending density to criticality and concentrating a window at fixed density are distinct limits.",
+        "searches": [
+          "arXiv:2608.04992 Theorem 1.1",
+          "arXiv:1311.7359 abstract/introduction and finite-type discussion",
+          "arXiv:2304.11322 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary 400c3e36998f, 90ef1aec9db1, ea50519f80b1, 438ed46200fb and target 22834231a449",
+        "arXiv:1311.7359, 2608.04992, 2204.02917v2 and 2304.11322"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-order formula implies A∼4g(1/2)^2, B→2 and the exact midpoint at that order only.",
+          "Theorem 2.7 compares optimizing lattices for a fixed window/oversampling; it does not send λ to infinity at fixed lattice for m≥2.",
+          "The general frame-set result implies A>0, not its size; convolution does not preserve frame-bound formulas by a simple power operation because it changes both Zak channels and their fiber extrema."
+        ],
+        "reasoning": "The sharp higher-order prefactor and relative near-minimizer localization require control uniform in the two fiber coordinates. They are not implied by the inspected first-order formulas and general qualitative theorem.",
+        "searches": [
+          "400c3e36998f symmetric specialization",
+          "arXiv:2204.02917v2 §2.4 Theorem 2.7",
+          "arXiv:2608.04992 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reciprocal Fourier transform is, up to normalization, (1+2πiξ/λ)^m(1-2πiξ/λ)^m; integer Matérn here means repeated-pole two-sided exponential convolution, a finite-type totally positive window.",
+          "400c3e36998f and 90ef1aec9db1 give exact bounds on this lattice for piecewise exponentials. Equal rates give m=1, not m≥2. ea50519f80b1 treats first-order exponentials on the lattice with steps 1/2 and 1, instead of 1 and 1/2.",
+          "438ed46200fb sends the order of an integral-normalized cardinal spline to infinity; the family and asymptotic scaling differ."
+        ],
+        "reasoning": "Equal rates and higher convolution order are different operations; repeated poles yield the nonconstant polynomial and its λ power. Changing notation from Matérn to Bessel-potential or finite-type TP does not by itself change the object.",
+        "searches": [
+          "Resultary nearest exact redundancy-two Zak-fiber and conditioning matches: 400c3e36998f, 90ef1aec9db1, ea50519f80b1, 438ed46200fb",
+          "Kloos–Stöckler arXiv:1311.7359 finite-type discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "400c3e36998f gives exact A=4e^(-λ)(1-e^(-λ))²/(1+e^(-2λ))² and midpoint time at equal rates, for order one. 22834231a449 is the assigned record itself, not corroboration.",
+          "The inspected exponential window in §2.4 is √γ e^(-γ|t|), again order one with a different amplitude convention."
+        ],
+        "reasoning": "Exact formula lookup is relevant, but the available evaluated matches do not include the higher polynomially weighted family. A bounded search does not exclude exact tables for higher repeated poles.",
+        "searches": [
+          "Resultary exact Zak-fiber and frame-bound matches 400c3e36998f, 90ef1aec9db1 and 22834231a449",
+          "Faulhuber–Shafkulovska arXiv:2204.02917v2 §2.4"
+        ]
+      },
+      "rationale": "After clarifying the localization scale, the distinct claim is the sharp fixed-lattice large-λ law for each fixed higher convolution order. Frame existence, the Zak method, and the first-order equal-rate bound are credited as known. The strongest inspected exact-fiber precedents have no polynomial factor, and the strongest general window-class theorems establish existence or Zak zeros, not the extremum of the sum of two squared channels in this limit.",
+      "residual_risks": [
+        "A quantitative theorem for repeated poles under exponential-spline or totally positive terminology could cover the higher-order case; the bounded catalogue and source comparisons do not establish historical priority.",
+        "No statement is made here on finite-λ minimizing frequencies or exact fibers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first-order precursor, not higher-order coverage",
+          "evidence": [
+            "A=4e^(-λ)(1-e^(-λ))²/(1+e^(-2λ))² at equal rates and minimizing x=1/2, ω=1/4."
+          ],
+          "identifier_or_url": "400c3e36998f",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact sharp redundancy-two Gabor bounds for asymmetric two-sided exponentials",
+          "trigger": "Exact same-lattice and same limiting exponential when m=1"
+        },
+        {
+          "assessment": "Same lattice, order-one windows only",
+          "evidence": [
+            "Different positive and negative decay rates on the two half-lines, without the convolution polynomial."
+          ],
+          "identifier_or_url": "90ef1aec9db1",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp half-density Gabor frame bounds for asymmetric two-sided exponentials",
+          "trigger": "Exact sharp bounds and Zak extrema"
+        },
+        {
+          "assessment": "First-order bound on a differently oriented lattice",
+          "evidence": [
+            "Translation and modulation steps are 1/2 and 1, respectively."
+          ],
+          "identifier_or_url": "ea50519f80b1",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Gabor stability of every asymmetric two-sided exponential",
+          "trigger": "Similar family at reversed redundancy-two lattice steps"
+        },
+        {
+          "assessment": "Distinct window family and parameter; not set aside on dating grounds",
+          "evidence": [
+            "For integral-normalized cardinal B-splines with order growing, A_n∼2(8/π²)^n and upper bound tends to 1."
+          ],
+          "identifier_or_url": "438ed46200fb",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp high-order half-density Gabor conditioning for unscaled cardinal B-splines",
+          "trigger": "Same-day sharp asymptotics on a half-density lattice"
+        },
+        {
+          "assessment": "Frame-set and Zak context; quantitative limit is near-critical lattice density for first-order exponential",
+          "evidence": [
+            "Finite type and αβ<1 for the frame set; αβ→1 in the quantitative comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "Abstract p. 1, introduction pp. 3–4 and finite-type discussion p. 5",
+          "method": "OA PDF passages at offsets 700, 8050 and 14300",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Finite-type TP, Zak zero and quantitative exponential bounds"
+        },
+        {
+          "assessment": "Implies positivity of the lower bound for each finite λ, not its asymptotics",
+          "evidence": [
+            "For continuous integrable totally positive windows, frame set exactly αβ<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04992",
+          "material_read": "Theorem 1.1 p. 3, offset 7750",
+          "method": "OA PDF bounded passage",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "Stronger general class theorem"
+        },
+        {
+          "assessment": "Lattice optimization and first-order window, not present higher-order fixed-lattice limit",
+          "evidence": [
+            "The lower-bound, upper-bound and condition-number lattice optima need not coincide."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.02917v2",
+          "material_read": "§2.4, Theorem 2.7 near offset 15100",
+          "method": "OA full-text passage",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Quantitative optima for exponential windows"
+        },
+        {
+          "assessment": "Related qualitative/sufficient bounds, no sharp concentration limit in the inspected statements",
+          "evidence": [
+            "Sufficient frame conditions and review of the finite-type TP frame set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11322",
+          "material_read": "Abstract p. 1 and introduction p. 3, offsets 850 and 9000",
+          "method": "OA PDF bounded passages",
+          "title": "On Gabor frames generated by B-splines, totally positive functions, and Hermite functions",
+          "trigger": "Sufficient and scale-existence theorems for TP windows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A qualitative frame theorem misses the ill-conditioning of a narrow window at a fixed sampling density. This computes both the exponential and order-dependent polynomial deterioration, with a sharp prefactor for the specified natural normalization, and identifies the time region responsible for it. The precise relative formulation gives information at the scale of the optimal lower bound, unlike absolute closeness which becomes vacuous here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

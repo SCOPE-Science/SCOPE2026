@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:31:41.833478Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82",
+        "VERIFICATION.md",
+        "CHECK.py (inspected)",
+        "Independent normalized Cauchy inverse and Fourier reconstruction"
+      ],
+      "rationale": "On the orthonormal Gaussian Fock monomials the numerator is Σ_{n≥0}|Σ_j c_j b_j^n|² and the denominator is Σ_j |c_j|²/(1−|b_j|²). Thus the optimum is the least eigenvalue of G_{ij}=√[(1−|b_i|²)(1−|b_j|²)]/(1−conj(b_i)b_j); the first N coordinates make it positive definite. Write σ_j=∏_{k≠j}(b_j−b_k)/(1−conj(b_k)b_j), and E=diag(1/σ_j). Independently, the exact normalized Cauchy inverse is G⁻¹=E Gᵀ E*. A conjugation check: normalized Hardy functions u_j=√(1−|b_j|²)k_{b_j} have Gram Gᵀ in the conjugate-first convention; their biorthogonal functions are σ_j⁻¹ B(z) conj(z) conj(u_j(z)) on the circle, with B the finite Blaschke product of all slopes. These are analytic since B(z)/(z−b_j) is analytic, and their normalized evaluations give the identity. The boundary conjugation is anti-isometric; transposing the dual Gram gives the stated G⁻¹. At the collision, ε^(N−1)/σ_j→(1−|a|²)^(N−1)w_j and Gᵀ→11ᵀ. This yields the claimed positive rank-one inverse limit, eigenvalue coefficient and line. Alternatively, the O(ε^(N−1)) operator norm on unit minimizing coefficients forces Σ_j c_j ζ_j^m=O(ε^(N−1−m)) for m≤N−2 by the binomial identity on (b_j−a)^m. The limiting nullspace is the barycentric line by the Vandermonde interpolation identity. For regular slopes discrete Fourier modes retain the coordinates n in a single residue class, yielding eigenvalues N(1−ε²)ε^(2s)/(1−ε^(2N)), s=0,…,N−1. The smallest is s=N−1. The actual fixed interior-center hypotheses and separate center-zero identity are valid. The supplied script was inspected, not run.",
+      "residual_risks": [
+        "The coefficient is a fixed-center, fixed-N asymptotic for distinct directions; no uniform joint scaling to the unit circle or to N→∞, or conclusion for other Schatten exponents, is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schechter's 1959 paper is identified by the AMS publication record and Courant report index; the article body was not relied on for equation numbering.",
+          "The classical Cauchy determinant applies to all minors of (1−x_i y_j)⁻¹ and the adjugate gives the exact inverse for all distinct disk nodes. The algebra was checked in the relevant normalization.",
+          "Frozen RESULT.md lines 88–96 describes the fixed-symbol Fock precursor as allowing symbol-dependent constants; the initiating external full text was not newly recovered."
+        ],
+        "reasoning": "Fixed-symbol Fock bounds alone would not entail the leading constant. The older exact normalized Cauchy calculation, which is valid without a coalescence ansatz, is the stronger statement that does.",
+        "searches": [
+          "Primary lookup: Schechter 1959 On the Inversion of Certain Matrices Cauchy inverse",
+          "Resultary: fixed-symbol Schatten comparisons",
+          "arXiv:2611.19948, Theorem 1.3 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary distinct coalescence, clustered-kernel and fixed-symbol matches",
+        "Gorkin et al. arXiv:1404.3088v2 PDF p. 1 §1",
+        "Schechter 1959 publication/report index",
+        "Frozen comparison of Lin et al. and Choe–Izuchi–Koo",
+        "Exact Cauchy-minor and DFT implications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalized inverse = E Gᵀ E* and scalar limit ε^(N−1)/σ_j→(1−|a|²)^(N−1)w_j. Taking the largest eigenvalue of its rank-one limit and reciprocating gives the exact coefficient; its eigenline gives w.",
+          "Discrete Fourier residue sums give each eigenvalue of the regular polygon Gram in closed form."
+        ],
+        "reasoning": "A classical exact formula for the same Gram inverse is a dominating statement. The exact value need not have been published separately in the operator notation, and unread papers are not the basis for rejection.",
+        "searches": [
+          "Classical Cauchy double-alternant/inversion comparison",
+          "arXiv:1404.3088v2 normalized Hardy Gram",
+          "Resultary: fixed-symbol Schatten and coalescing Fock composition sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1404.3088v2 p. 1 directly defines the normalized Szegő kernels of disk nodes and their Gram matrix, using B_j with the jth zero removed.",
+          "Fock monomial coefficients identify exactly that normalized Gram (up to transpose); σ_j=B_j(b_j) is the Cauchy-inverse product."
+        ],
+        "reasoning": "The equivalent inverse matrix determines the sharp coefficient and minimizing direction, not merely the order of near-singularity.",
+        "searches": [
+          "Resultary: sharp Hilbert-Schmidt collision, barycentric weights, regular polygon",
+          "Resultary: Fock dilation normalized Hardy Szegő Gram matrix coalescing kernels smallest eigenvalue",
+          "Primary lookup: Thin sequences and the Gram matrix, Gorkin–McCarthy–Pott–Wick"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day entry b96c3b6b80d6 describes coalescing radial Fock composition sums, two-scale singular values and moment cancellation. The matching body was not obtained.",
+          "Entry 6b173840b97e concerns derivative-evaluation jet clusters rather than scalar dilation sums.",
+          "For the symmetric family, exact root-of-unity mode sums already determine the entire Gram spectrum, so a separate table of this special configuration is not needed."
+        ],
+        "reasoning": "The same-day record cannot be dismissed by date but neither its exact coverage nor its priority was established. The exact full-matrix Cauchy characterization and Fourier formula settle mechanical coverage independently of that missing body.",
+        "searches": [
+          "Resultary: exact title Two-scale singular spectra of coalescing Fock composition sums",
+          "Resultary: Fock dilation normalized Hardy Szegő Gram matrix coalescing kernels smallest eigenvalue"
+        ]
+      },
+      "rationale": "This is mechanically covered by exact classical Cauchy inversion on the very same matrix, not just analogous to earlier cluster conditioning. Fock simultaneous diagonalization gives a normalized multiplicative Cauchy matrix, and Cauchy double alternants on all minors plus the adjugate give its full inverse, equivalently G⁻¹=E Gᵀ E* above. To see coverage even without phases, det G=∏_{i<j}|(b_i−b_j)/(1−conj(b_i)b_j)|². Thus tr G⁻¹=Σ_j |σ_j|⁻² by the principal minors. The order-two principal minors of G⁻¹ are complementary determinants divided by det G, so each is O(ε^(−4N+6)), while (tr G⁻¹)² has order ε^(−4N+4). One inverse eigenvalue therefore carries the full leading trace; the exact inverse also gives its line directly, or that line follows from the vanishing Vandermonde moments. The regular-polygon identity is the elementary geometric series in each discrete Fourier residue class. There is no additional calculation beyond these standard exact implications. This fail is not a claim that a fixed-symbol Fock paper prints the collision limit, nor that the overlapping same-day catalogue record takes priority.",
+      "residual_risks": [
+        "No independently recovered full comparison with the distinct same-day b96c3b6b80d6 result, the old two-operator paper, or the complete initiating Fock paper. No ordering or literal duplication is concluded; the exact classical implication already establishes coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified same underlying object. The exact Cauchy-inverse implication is independently shown, without assigning an equation to uninspected pages.",
+          "evidence": [
+            "§1 defines the disk nodes α_j, B_j obtained by deleting the jth factor, δ_j=|B_j(α_j)|, H²-normalized kernels and their Gram G."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.3088v2",
+          "material_read": "PDF p. 1, abstract and first paragraph of §1; later inverse passage unavailable on bounded attempts",
+          "method": "Primary arXiv PDF passage; alternate author PDF and targeted text lookup attempted",
+          "title": "Thin sequences and the Gram matrix",
+          "trigger": "Same normalized Szegő Gram matrix and Blaschke products"
+        },
+        {
+          "assessment": "Do not infer a particular passage from the title; the standard algebraic identity itself proves the implication.",
+          "evidence": [
+            "All minors of the multiplicative Cauchy matrix have the double-alternant formula; conjugating by the normalizing diagonal yields the Blaschke-product inverses used above."
+          ],
+          "identifier_or_url": "Math. Comp. 13 (1959), 73–77; https://archive.org/details/oninversionofcer00sche",
+          "material_read": "AMS issue listing and report index; no decisive primary body passage retrieved",
+          "method": "Primary publication lookup and identified lawful archive attempt; direct application of double alternant and adjugate verified algebraically",
+          "title": "On the Inversion of Certain Matrices",
+          "trigger": "Classical general Cauchy-matrix inversion"
+        },
+        {
+          "assessment": "Same-day date is not order or priority evidence. Exact Gram constant, line, and polygon overlap unconfirmed.",
+          "evidence": [
+            "Summary describes coalescing radial Gaussian-Fock composition sums, two-scale singular-value limits, coefficient-moment cancellation and a three-term Schatten crossover."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-scale-singular-spectra-of-coalescing-fock-composition-sums--b96c3b6b80d6",
+          "material_read": "Indexed summary only; exact matching Finding not retrieved",
+          "method": "Resultary title and semantic searches; local-mirror passage retrieval attempted",
+          "title": "Two-scale singular spectra of coalescing Fock composition sums",
+          "trigger": "Strongest distinct catalogue overlap, same operator class and moment cancellation"
+        },
+        {
+          "assessment": "Fixed-family bounds as described are background, not the reason for classifying the coalescence law as covered.",
+          "evidence": [
+            "The frozen work distinguishes symbolic constants depending on the fixed family from a quantitative collision expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.19948",
+          "material_read": "Frozen RESULT.md lines 88–96 and reference to Theorem 1.3 and §5; external body not independently retrieved",
+          "method": "Recorded source comparison and lawful arXiv retrieval attempt",
+          "title": "Finite sums of weighted composition operators on the Fock space",
+          "trigger": "Original fixed-family Schatten comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and exact regular-polygon identity",
+        "Reconstructed normalized Cauchy inverse, Vandermonde moment line and Fourier spectrum"
+      ],
+      "rationale": "The conditioning question is naturally motivated, and the constant is correct, but the proposed narrow invariant is directly read from a stronger classical exact inverse on the same Gram matrix. The eigenline is the usual nullspace of the lower Vandermonde moments, and the symmetric check is routine Fourier summation. The present scope supplies no separate new mathematical obstruction or quantitative case not resolved by those identities.",
+      "residual_risks": [
+        "Applies to this stated Hilbert–Schmidt scalar-dilation finding, not to a non-Hilbert–Schmidt, multiscale, or moving-center problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

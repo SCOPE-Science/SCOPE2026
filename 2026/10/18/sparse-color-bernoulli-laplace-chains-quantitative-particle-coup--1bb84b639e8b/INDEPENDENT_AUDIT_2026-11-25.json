@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:39:12.616512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact comparison holds on the full finite parameter domain. After j decisions in an urn of size M, the discrepancy of selection probabilities is |jk/M-a|/(M-j) ≤ j/(M-j). Couple the whole marked-location vectors while they agree, then sum over urns and times. The stationary law is obtained by uniform placement of red labels, even for periodic swaps; applying the same sampling argument once with M=N and subset size m gives the stationary term. Projection to counts and the reverse triangle inequality give (1). The two-state recursion has signed eigenvalue ρ; the independent proxy has mean shift (x-rh)ρ^t. For finite z, the Bernoulli variances are uniformly rh(1-h)(1+o(1)). In the local limit argument the characteristic-function modulus is bounded by exp(-2σ² sin²(θ/2)) and the centered expansion at θ=w/σ is exp(-w²/2+O(|w|³/√r)); inversion gives uniform local Gaussian error o(r^-1/2), then truncation to O(√r) cells gives an ℓ¹ approximation. The equal-variance Gaussian comparison and whole-number discretization give the stated limit uniformly in x. For z=0 one can apply this at min(t,ceil(2a_N)) and contract, avoiding any use of (1) at arbitrarily late times. For infinite z and u≠h₀, the proxy means are separated by much more than √r, so midpoint Chebyshev and (1) apply; endpoint starts suffice for the worst-start lower bound. The lattice window is bounded, without replacing actual integer-time z by a continuous profile. The packaged exact-rational checker was inspected, not rerun; the proof does not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Griffin et al. permit over-swap parameters with negative ρ but require r/N→η>0 and obtain cutoff bounds.",
+          "Alameda et al. require balanced colors and urns and exchange a fraction below a half. The single-pair sparse theorem allows k≪√n but lets the marked urn capacity fraction vanish and has a different profile and time scale."
+        ],
+        "reasoning": "More general urn sizes or particle-count scaling alone do not dominate the simultaneous-swap sparse interior-capacity regime.",
+        "searches": [
+          "arXiv:2308.08676v1, Assumption 1.1 and Theorem 1.4",
+          "arXiv:2203.08647v2, Assumption 1 and Theorem 1.2",
+          "arXiv:2409.07900v1, Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–35 and 41–67; VERIFICATION.md; verify.py",
+        "Resultary local index and 32a8c083ddf1",
+        "arXiv:2308.08676v1",
+        "arXiv:2203.08647v2",
+        "arXiv:2409.07900v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compared macroscopic theorems are mixing-time/window bounds at positive color density. The fixed-time near-half profile makes a different variance and eigenvalue scaling, and has no uniform finite-t particle comparison."
+        ],
+        "reasoning": "The classical exposure coupling is not itself novel. Its iteration on tagged locations and stationary comparison supply the precise error needed over O(log r) steps, which cannot be inferred from the inspected bounds or profiles.",
+        "searches": [
+          "arXiv:2308.08676v1; arXiv:2203.08647v2; arXiv:2409.07900v1, theorem statements",
+          "Resultary: 32a8c083ddf1, profile statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olesker-Taylor–Schmid Theorem A uses rate-one single-pair exchange, and couples the number of marked balls to the smaller capacity.",
+          "The near-half Resultary record has a Gaussian absolute-eigenvalue profile, but for dense balanced urns, eigenvalue tending to zero and fixed t≥2."
+        ],
+        "reasoning": "Neither recoding turns the relevant kernels into simultaneous macroscopic swaps with a sparse count, nonvanishing eigenvalue and logarithmic time; the same mathematical Gaussian shape is genuine overlap, not equivalent coverage.",
+        "searches": [
+          "Resultary search on sparse count Bernoulli–Laplace, tagged-particle coupling and Gaussian TV",
+          "arXiv:2409.07900v1",
+          "Resultary: 32a8c083ddf1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching indexed record has formula 2Φ(√n|λ_n|^t/√2)-1+o(1) in the dense balanced near-half fixed-time regime, without the finite-time comparison (1)."
+        ],
+        "reasoning": "The indexed comparison is materially related but does not tabulate or establish the same regime or the nonasymptotic error. Its catalog date is not evidence of order or priority.",
+        "searches": [
+          "Local Resultary search for sparse/macroscopic Bernoulli–Laplace profiles",
+          "Resultary: 32a8c083ddf1, RESULT.md"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the count-chain error bound for simultaneous swaps and the logarithmic-time Gaussian TV profile for sparse colors with interior capacity and noncritical limiting |ρ|. Sampling couplings, Gaussian profiles in other urn regimes, and negative single-step eigenvalues are not new individually.",
+      "residual_risks": [
+        "Focused searches and theorem comparisons do not rule out a matching finite-time comparison in a more general tagged-particle sampling model.",
+        "The related near-half profile is not a disjoint mathematical idea; the pass is restricted to the finite error and the distinct sparse/logarithmic regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same swap rule, different color-density assumptions and conclusion",
+          "evidence": [
+            "r/N tends to a strictly positive limit; theorem gives mixing-time estimates rather than (1) or (3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.08676v1",
+          "material_read": "PDF pp. 3–4, Assumption 1.1 and Theorem 1.4",
+          "method": "OA PDF, bounded primary passages",
+          "title": "Cutoff in the Bernoulli-Laplace Model With Unequal Colors and Urn Sizes",
+          "trigger": "Closest unequal-urn macroscopic-swap cutoff"
+        },
+        {
+          "assessment": "Dense balanced mixing-time comparison",
+          "evidence": [
+            "The urns and colors each have counts n, and k/n→λ∈(0,1/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.08647v2",
+          "material_read": "§1, Assumption 1 and Theorem 1.2 (offsets 0, 8592, 9829)",
+          "method": "OA HTML, bounded primary passages",
+          "title": "Cutoff in the Bernoulli–Laplace Model with O(n) Swaps",
+          "trigger": "Balanced macroscopic swaps"
+        },
+        {
+          "assessment": "Profile comparator for a distinct chain",
+          "evidence": [
+            "Continuous-time single-pair updates, first urn capacity k_n and k_n marked balls; the sparse branch is Gumbel."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.07900v1",
+          "material_read": "Model and Theorem A (offsets 0 and 9852)",
+          "method": "OA HTML, bounded primary passages",
+          "title": "Limit Profile for the Bernoulli–Laplace Urn",
+          "trigger": "Sparse count and Gaussian/Gumbel profile theorems"
+        },
+        {
+          "assessment": "Material overlap in Gaussian formula and signed-eigenvalue insensitivity, different regimes",
+          "evidence": [
+            "Fixed t≥2, balanced dense colors, λ_n→0; no stated all-t proxy error."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-fixed-time-mixing-hierarchy-near-half-swaps-in-bernoull--32a8c083ddf1/RESULT.md",
+          "material_read": "RESULT.md, model assumptions and Gaussian fixed-time finding",
+          "method": "Local Resultary index and mirrored source (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Gaussian fixed-time mixing hierarchy near half-swaps in Bernoulli–Laplace chains",
+          "trigger": "Strongest similar published SCOPE profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count chain is natural and previously compared positive-density cutoffs do not describe it. The explicit finite-time error is useful in its own right, and the sharp lattice-aware profile locates and quantifies mixing on the minority scale log r, not log N. The sufficient sparsity condition and exclusions (including the zero limiting eigenvalue) are material and are stated, not silently extrapolated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:20.253931Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–102",
+        "Frozen VERIFICATION.md and verify_gap.py (inspected, not executed)",
+        "Primary simultaneous-reset normalization and asymptotics, arXiv:2503.14733v1, Eqs. 8, 40, 65, 68–70"
+      ],
+      "rationale": "The conditional Gaussian difference gives bounded continuous density h with finite positive h(0): the only possible divergent integrand is bounded locally by a multiple of (T1+T2)^(-1/2), integrable against the joint age density. Independently substitute v=S^2(T); its density is b(v)=(alpha/S^2)(1-v/S^2)^(alpha-1) on (0,S^2), with b(0)=r/a. The off-diagonal density is 2^(1-beta) u^(beta-1)/Gamma(beta/2) times the integral of b(v)v^(-beta/2)exp(-u^2/(4v)). For beta<2 the integral tends to the stated beta negative moment. For beta>2, split the integral near v=0 and use w=u^2/(4v); the singular integral yields Gamma(beta/2-1), and the coefficient of u is r/[a(beta-2)]. At beta=2, b(v)=r/a+O(v) near zero, and the integral on that neighborhood has leading term (2r/a)log(1/u), yielding the stated coefficient r/a of u log(1/u). This logarithm comes from a range of small variances, not just variances of order u^2. In the half-plane radial transform, the angular beta integral cancels Gamma(beta/2) in the first regime; the other regimes use the integral of cos(phi), equal to two, with cos(phi)log(1/cos(phi)) integrable. The Gamma entry has E[(2C)^2|T]=2 beta S^2(T); both protocols have zero diagonal cross moment by conditional centering, and E[S^2(T)]=2D/[beta(r+2mu)]. This gives the exact common gap moment. The shared age combines both components into a chi variable of beta+1 degrees and gives the benchmark threshold. At beta=1 the power exponents agree; it is the logarithmic enhancement that differs, as the finding's explicit asymptotic comparison says.",
+      "residual_risks": [
+        "No general-dimension, time-dependent or non-Poisson result. The broad phrasing ‘different sharp repulsion exponents for every beta≥1’ should be read with its explicit beta=1 qualification; the pure-power exponents differ only for beta>1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The independent-entry paper gives the stationary product entry law with exponential age mixtures for general matrix dimension and presents numerical eigenvalue densities; the passages inspected do not give the sharp two-site independent-gap law.",
+          "Eq. 40 in the simultaneous-reset paper does give the complete small-gap trichotomy with beta=1 and a logarithm there."
+        ],
+        "reasoning": "The known entry law is the starting distribution, not a broader spectral asymptotics theorem. The known common-clock theorem covers the benchmark exactly but does not apply under independent clocks.",
+        "searches": [
+          "Akemann–Majumdar–Päßler arXiv:2605.26945v1, stationary independent-entry model and eigenvalue discussion",
+          "Biroli–Majumdar–Schehr arXiv:2503.14733v1, Eq. 40 and Eqs. 68–70"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and relevant near-hit searches",
+        "Akemann–Majumdar–Päßler arXiv:2605.26945v1",
+        "Biroli–Majumdar–Schehr arXiv:2503.14733v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-clock paper already derives the comparator's exponent and logarithm. The entry product law already makes the moment comparison immediate when conditional means vanish.",
+          "The independent calculation requires finding the integrability boundary of the off-diagonal negative moment and proving how the singular mixture transports through the half-plane radial integral."
+        ],
+        "reasoning": "No located stronger spectral conclusion gives the independent-gap constants, borderline logarithm or distinct saturation threshold as a direct specialization of a previously evaluated gap law.",
+        "searches": [
+          "Independent product stationary law, arXiv:2605.26945v1 Eqs. 97–101",
+          "Simultaneous gap law, arXiv:2503.14733v1 Eqs. 39–40 and 68–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tridiagonal paper's variance is D(1-e^(-2mu t))/(beta mu). The Dyson paper uses sigma^2 without 1/beta in its definition but divides by beta in the two-particle kernel; after this normalization the conditional radial scale is the same.",
+          "Common-clock conditional radial law has beta+1 chi degrees, not independent ages for the two components."
+        ],
+        "reasoning": "The reset models have the same entry-scale convention after translation of notation. Shared-age and independent-entry mixtures are mathematically different and cannot be identified by rescaling the gap.",
+        "searches": [
+          "Independent matrix-entry reset small-gap repulsion beta=2 and coefficients",
+          "arXiv:2605.26945v1 Eqs. 76–77, 93, 97–101",
+          "arXiv:2503.14733v1 Eqs. 8, 65, 68–70"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct match among the top 15 per focused query. The earlier active-Dyson gap-edge result ...23039de2ab32 treats two support endpoints with positive lower endpoint, not vanishing gaps under entry resetting.",
+          "The distinct same-date result ...dfa7ae68742e describes temporal covariance and reset-waiting distributions in its indexed summary; its full local passage was not obtained."
+        ],
+        "reasoning": "Edge exponents at a positive gap boundary or a two-time covariance formula are not entries for the stationary near-zero matrix-gap law. The bounded search and unavailable passage cannot settle absolute priority.",
+        "searches": [
+          "Resultary: independent beta=2 transition",
+          "Resultary: exact independent leading coefficients",
+          "Resultary: simultaneous-reset threshold",
+          "Resultary: cross-protocol second gap moment"
+        ]
+      },
+      "rationale": "The independent-entry stationary mixture and the simultaneous-reset trichotomy are prior. The distinct increment supported here is the sharp stationary two-site independent-reset gap classification, including the beta=2 logarithm and exact leading coefficients. The common moment is elementary from the matching marginal scales and zero cross moment and does not supply independent novelty.",
+      "residual_risks": [
+        "The covariance near-hit was accessible only in indexed summary. An unindexed or broader exact asymptotic could still cover the independent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior entry density and stationary product; no independent-gap asymptotic in the inspected relevant passages",
+          "evidence": "Gives the exact Gaussian/Gamma mixing scale and independent-entry exponential-age law; discusses the difficulty of recovering eigenvalue densities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.26945",
+          "material_read": "Eqs. 76–77, 93, 97–101, pp. 15,18–20; offsets 73660, 90500, 95715–96235",
+          "method": "OA primary passage comparison",
+          "title": "A tridiagonal matrix-valued process with stochastic resetting for arbitrary Dyson index β>0",
+          "trigger": "Same independent-entry process and model parameters"
+        },
+        {
+          "assessment": "Exactly covers the attributed benchmark; not independent-clock resetting",
+          "evidence": "Eq. 40 gives the beta<1 power, beta=1 logarithm and beta>1 linear law. In the pair kernel the variance is sigma^2/beta, agreeing with the scale under review.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.14733",
+          "material_read": "Eqs. 8, 40, 65 and 68–70, pp. 5,10,14–15; offsets 24000, 55864, 86000, 91826",
+          "method": "OA primary passage comparison",
+          "title": "Resetting Dyson Brownian motion",
+          "trigger": "Strongest prior sharp two-particle gap law"
+        },
+        {
+          "assessment": "Different dynamics and different gap limit",
+          "evidence": "Run-and-tumble dynamics and gap support [a,b] with a>0; exponents at the two finite endpoints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-unequal-stationary-gap-edges-in-a-two-particle-active-dyson--23039de2ab32",
+          "material_read": "RESULT.md, opening passage at offset 0",
+          "method": "Published record via local mirror",
+          "title": "Two unequal stationary gap edges in a two-particle active Dyson model",
+          "trigger": "Closest earlier indexed gap-edge comparison"
+        },
+        {
+          "assessment": "No match identifiable from the summary; no full-text noncoverage inference",
+          "evidence": "Summary concerns stationary two-time covariance and reset-waiting laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synchronously-reset-Brownian-gas--dfa7ae68742e",
+          "material_read": "Indexed summary only; local-mirror RESULT.md unavailable",
+          "method": "Local catalogue and passage retrieval attempt",
+          "title": "Temporal spectroscopy and renewal-law identifiability in a synchronously reset Brownian gas",
+          "trigger": "Distinct same-date reset result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–36 and 110–116",
+        "arXiv:2503.14733v1 Eq. 40 and arXiv:2605.26945v1 Eqs. 97–101"
+      ],
+      "rationale": "Dimension two is the first nontrivial eigenvalue-spacing case and the one in which a known common-clock gap theorem offers a matched control. Fixed marginals and the same second moment do not fix the short-spacing law; the two thresholds and the logarithms give a quantitative distinction between resetting protocols. This is a complete sharp classification in beta and in the fixed positive reset parameters, not a selected plot or novelty claim for the moment identity.",
+      "residual_risks": [
+        "No evidence here for the corresponding threshold in larger matrices or under different reset-age distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

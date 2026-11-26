@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all simple cycles of order at least six, the allowed-gap proof derives the necessary and sufficient local repair conditions, separates the two difficult cases (distance-three and distance-two gaps), and turns the resulting two-short separation into unique blocks of lengths two and seven. Counting distinguished block origins proves the exact all-order polynomial, and a dominant-pole argument proves the stated exponential law. Direct cases cover lengths three, four and five. Brute-force subset enumeration and independent coefficient evaluation agreed for every order four through twenty-two. The intermediate sets after a defending swap need only dominate; the proof and checker deliberately do not impose post-swap independence.
+## correctness
 
-**Originality — PASS, provisional.** The foundational 2020 independent secure domination paper gives the minimum size on cycles (its Proposition 4) but does not present the full size polynomial or the two-and-seven circular-block bijection. Its abstract, definitions, Section 2 and other relevant sections were inspected in accessible full text. The 2022 independent Roman domination paper has a different three-valued constraint. Indexed mathematical-result searches for independent secure domination polynomials, cyclic gap counts, and the exact two/seven formula returned related domination and Roman-domination records but no implication proving this complete labelled census. This is a best-knowledge originality assessment, not a claim that all unindexed literature was searched.
+PASS
 
-**Value — PASS.** The census is motivated by an established fault-tolerant domination invariant whose previous cycle results concentrated on minimum size. It determines all feasible labelled deployments and their cardinalities, gives a structural local-repair obstruction, exposes the pentagon exception and proves exponential scarcity relative to ordinary independent domination. These conclusions are not consequences of knowing the minimum cardinality alone.
+Independence and domination force cyclic gaps 2 or 3. In a length-3 gap the two interior vertices have unique defenders; moving either adjacent defender toward the gap loses coverage on its other side unless the next gap on that side is short. In a length-2 gap either endpoint can defend the interior vertex exactly when its exterior gap is short. Thus neither consecutive 3s nor the pattern 3,2,3 are allowed, including the cyclic return to a lone 3. The forced 3,2,2 blocks and remaining 2s partition the gap word uniquely. For a+b blocks the count of distinguished-boundary tilings is n*binom(a+b,b); each undistinguished tiling contributes exactly a+b times even with periodic words. The small cases are correct: alternating pairs on C4, no secure pair on C5, all singletons on C3. In each unweighted census the logarithmic derivative has amplitude 1 at a simple smallest-modulus pole; equality in the triangle inequality forces phase 1 because the two allowed lengths are coprime. Thus the stated asymptotics have prefactor 1 and lambda<mu. An independent direct guard-replacement enumeration of every subset at n=4 through 20 matched the entire histogram, including P14=7z^6+2z^7 and P18=27z^8+2z^9; this is a finite cross-check only.
 
-**Residual risks and limits.** Closely related enumerations might exist under another name. The derivation assumes simple labelled cycles and ordinary single-guard defense, not post-swap independence. The infinite result relies on the mathematical proof, not the finite verification alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The minimum independent secure domination number on cycles is credited. The supported distinct claim is the exact labelled census with its canonical block characterization and comparison with the ordinary independent dominating census, not the minimum or the use of the logarithmic cycle count.
+
+## value
+
+PASS
+
+The invariant is a complete size census of a natural defense property on a basic graph family. The local obstruction and unique block decomposition describe all configurations, not just minimum witnesses, and show that secure sets form an exponentially small fraction of independent dominating sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

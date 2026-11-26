@@ -1,15 +1,21 @@
-# Review of the six-by-six queen symmetry quotient homology
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result is restricted to one exact finite cell complex: the ordinary six-by-six queen independence complex modulo all eight geometric symmetries. The group preserves barycentric flag rank, so its quotient has a regular flag-orbit CW decomposition with the alternating signed deletion differential. The complete enumerated cell vector \((337,3541,10110,11166,4620,360)\) is independently reproduced by a second implementation using Burnside counts. The primary verifier checks every differential square, every one of the \(11{,}550\) topological free-pair collapses, and \(3511\) exact integral unit-pivot chain cancellations, resulting in one zero-cell, five two-cells and six three-cells. The residual boundary matrix is twice a rank-five matrix with a determinant-one maximal minor, so its Smith invariants are precisely \((2,2,2,2,2)\). The claim is integral homology, not full homotopy type.
+## correctness
 
-## Originality
-**PASS relative to the inspected indexed evidence.** The closest exact-object source, *A Moore-space summand in the six-by-six queen-placement complex* (publicly available in the published-finding corpus 2026 archive), already establishes the unquotiented Moore summand and rational dihedral homology character. In particular, the one-dimensional invariant degree-three rational class is not new. The present calculation determines five integral degree-two torsion classes in the actual geometric quotient, an invariant not implied by that character or by the homology of the cover. The full text of the closest exact-object work was inspected, as was the 2014 square-board enumerative paper and the 2013 foundational enumerative text; none gives this integral orbit-space computation. Matching-complex, toroidal, and five-by-five queen results concern different graph or symmetry objects. Semantic index and web searches for the same parameters, aliases, and stronger orbit-space coverage did not produce a dominating result; unindexed duplication remains possible.
+PASS
 
-## Value
-**PASS.** The original six-by-six complex is the first square-board queen-placement complex known to contain integral two-torsion. Its full natural geometric symmetry quotient therefore supplies a motivated test of whether this torsion persists, disappears, or changes under nonfree finite-group quotienting. The answer is qualitatively nontrivial: one known torsion class in the unquotiented complex becomes five independent order-two classes in the quotient. This is not predictable from rational representation theory; exact integral orbit-space homology is the appropriate invariant. The result is a motivated complete calculation for the first torsion-bearing board, not a generic size increment or an arbitrary parameter slice.
+In the barycentric subdivision a chain has at most one face of each cardinality. If two points in the same closed flag simplex are in the same group orbit, the action has to fix every vertex in their support, because its size identifies it uniquely within the closed simplex. The quotient cells thus have embedded closures and are oriented by size, with the signed deletion boundary. I checked the supplied proof and independently constructed the geometric quotient chain complex using injective columns on selected rows and descending flags modulo the stabilizer of the largest face. The run /workspace/branches/check4.py counted 337,3541,10110,11166,4620,360 cells and checked every chain-square identity. Direct integer unit-pivot cancellations, without importing the supplied collapse list/matrix, left ranks (1,0,5,6) with only the degree-three differential nonzero. The entries are all even, and the halved matrix has maximal minors (1,0,0,0,1,0), so the image is exactly twice the entire degree-two chain group. This proves reduced H2=(Z/2)^5, H3=Z, and zero otherwise. The unquotiented comparison is a count of independent torsion summands, not a claim about the image of the induced homology map.
 
-## Literature and limits
-Source 1: Chaiken, Hanusa, Zaslavsky, *A q-Queens Problem. I. General Theory*, initial arXiv date 2013-03-08, https://arxiv.org/abs/1303.1879 (full available HTML examined). Source 2: same authors, *A q-Queens Problem. II. The Square Board*, initial arXiv date 2014-02-20, https://arxiv.org/abs/1402.4880 (full available HTML examined). Source 3: *A Moore-space summand in the six-by-six queen-placement complex*, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-moore-space-summand-in-the-six-by-six-queen-placement-complex--709883c6625b (full RESULT.md inspected). The method does not imply any full homotopy classification, fundamental-group calculation, or theorem for other board sizes. There has been no independent audit of this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-board sources establish the unquotiented integral homotopy type, the rational homology character and fixed-space data, not this orbit-space integral calculation. Credit the free rational rank to that prior character. The strongest exact orbit-space analogue is on a different board. The pass concerns the complete integral result, especially the five degree-two 2-torsion classes, and not the previously determined rational part.
+
+## value
+
+PASS
+
+The six-board queen complex already exhibits an integral torsion class, and the full symmetry quotient of this natural action is a motivated test of torsion under a nonfree quotient. The exact five summands reveal behavior unavailable from the rational character and distinguish the case from the smaller torsion-free quotient. The complete integral groups can be used for comparisons with fixed-space calculations or other coefficient systems without claiming a homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All signs are independent Boolean edge characters, and the spectral interpretation is exactly the unnormalized Walsh diagonalization of XOR convolution. The all-plus tree count follows from explicit unweighted Laplacian eigenvalues. For odd independent-shore size, the reduced Laplacian has mod-two corank \(m-1\), giving the claimed universal dyadic divisor. The signed one-leaf determinant vanishes for every odd core. The identity \(H(-s)=-H(s)\) for the leaf Schur contribution proves that opposite-sign leaf pairs preserve cancellation and preserve absolute value for signed degree \(1\). Distinct labelled pair choices certify the stated nullity lower bound. Explicit two-leaf and one-leaf signs attain the sharp triangular-core positive gaps and the triangle inequality establishes the maximum. The standalone finite checker passed 248,034 exact assertions; finite checks supplement rather than replace the all-size arguments. Risks: normalizations for convolution and singular-case conditioning are explicitly scoped; no assertion of full odd-order nullity or a sharp gap for cores larger than three is made.
+PASS
 
-## Originality — PASS, subject to bounded historical coverage
+Each unnormalized multiplier is the signed Kirchhoff cofactor with independent weights ±1. Independently, on vectors summing to zero within the clique and within the independent part the unweighted eigenvalues are m+n and m, respectively, of dimensions m−1 and n−1; the two constant-on-part modes have eigenvalues 0,m+n. Dividing the nonzero product by m+n verifies the tree count, odd when n is even. When n is odd, the cofactor modulo 2 has the indicated all-ones upper blocks, identity lower block and zero Schur complement, since n≡1. A mod-two corank m−1 gives determinant divisible by 2^(m−1), e.g. by Smith normal form. In the n=1 cofactor rooted at the independent vertex, the rank-one correction to diag(m+σ_i) has determinant zero at p=(m+1)/2 positive signs because p/(m+1)=(p−1)/(m−1)=1/2. In the clique-rooted cofactor each new independent vertex has odd nonzero signed degree d(s), and elimination contributes H(s)=diag(s′)−s′s′ᵀ/d(s). For opposite sign vectors the contributions cancel and their pivots multiply to −d(s)^2. The independent choices of p positive positions on the first vertex and of the first sign vector in each fixed labelled pair produce distinct characters as counted. For m=3 the even seed has Schur block [[2,−1],[−1,0]] and both leaf pivots 1; the odd seed cofactor diag(4,2,2)−J has determinant −4. Degree-one pairs preserve both moduli. Thus the lower bounds are sharp, and the character triangle inequality makes the all-positive count the exact maximum. Replay: python3 /workspace/reproduce_reviews.py 4 enumerated edge subsets via component merging and directly summed signs for all characters at m=3,n=1..4, confirming zero counts 30,0,1088,0 and least positive moduli 4,1,4,1. The all-size result uses the cofactor argument, not extrapolation.
 
-Martin–Reiner's archived paper proves degree/direction-specialized threshold-tree enumerators, whereas arbitrary independent edge signs cannot generally be realized by its factorized vertex weights. Chestnut–Fishkind gives unsigned counts, sufficient for the zero-free parity half but not for the signed cancellation converse. Klee–Stamps reviews general weighted determinant techniques and special vertex-weighted families rather than the particular arbitrary-edge-character cancellation theorem. Related complete-graph results treat the one-leaf boundary, while results on bipartite or two-core graphs have different edge support and do not settle this odd-core family. The opposite-sign twin-leaf propagation, two-parameter classification, explicit zero-mode lower bound and triangular-core sharp gap were not located in these sources. Residual risk: an unindexed signed spanning-tree polynomial or threshold-graph specialization could imply the theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The family \(K_m\vee\overline{K_n}\) is a standard threshold/split construction, and its spanning trees are an intrinsic network reliability ensemble. Determining whether its Boolean edge-incidence convolution loses information is a natural exact invariant. This theorem classifies invertibility throughout a nontrivial two-parameter family, isolates a stable arithmetic mechanism creating exponentially many blind Fourier modes, gives an all-frequency dyadic spectral barrier, and determines exact Hilbert-space recovery conditioning for the triangular-core subfamily. The all-size structural statements go beyond a parity check at one finite graph.
+This is a bounded positive assessment of the odd-core join theorem, in particular propagation beyond the complete-graph boundary, the all-n nullity lower bound and the uniform sharp triangular-core gap. Signed Kirchhoff machinery, the unsigned count and the n=1 case are covered antecedents, not independent novelty.
 
-## Closest literature and limitations
+## value
 
-See the three arXiv references in RESULT.md. Weighted Kirchhoff and Schur-complement identities are established tools, not claimed as new. Complete-graph and triangular-book spectra do not imply the two-parameter statement without the new signed twin-pair argument. The odd-order nullity bound may be strict, and the smallest nonzero multiplier remains unidentified for odd cores at least five. Historical priority is bounded rather than absolute.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Spanning-tree incidence is an intrinsic graph ensemble, and exact identifiability and restricted conditioning of its translation convolution are useful invariants. The contribution goes beyond the trivial odd-count guarantee and covered complete-graph case: it gives an all-parameter character construction of many blind modes, a uniform arithmetic obstruction, and optimal recoverable-mode stability for the first odd core. The lower bound is not advertised as the full nullity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The observed-distance process is an independently thinned homogeneous spatial Poisson process, and differentiation of its intensity yields scores \((1,(x/\sigma)^2)\) for joint log-intensity/log-scale estimation. The resulting Fisher determinant reduces exactly to the ratio of the Gaussian-moment Gram determinant and squared width-plus-overhead cost. A separate proof establishes strict decreasing elasticity by Prékopa log-concavity of the derivative's rescaled kernel, followed by integration and analytic strictness. Endpoint expansions and a monotone scalar crossing prove one and only one global optimum for every allowed cost ratio, as well as strict comparative statics and boundary limits. These are proofs for all positive widths, not finite enumeration claims. The executable checker passed 1258 diagnostic assertions. Numerical roots are approximations only.
+## correctness
 
-## Originality — PASS on inspected evidence, with explicit priority risk
-The thinned-Poisson likelihood and joint intensity/detectability estimation framework were established by Johnson, Laake, and Ver Hoef (online 2009). Their abstract and bibliography were accessible, but not their full primary text; no whole-document noncoverage claim is made for that article. Clark (2016), fully inspected, addresses abundance-estimator variance and biased strip width under an MSE objective, not the exact two-parameter determinant optimization with per-width cost. Knights et al. (2021), fully inspected in its relevant theory section, optimizes how many detected distances to measure, not truncation width. The closest indexed mathematical results concern Gaussian-plume sensor spacing or repeated occupancy surveys, neither of which implies the present half-normal marked-Poisson transect theorem. No accessible result was found that proves the unique-optimum and strict monotonicity theorem; this is not a claim of globally certified first discovery. General Prékopa marginal log-concavity is acknowledged as prior mathematical machinery.
+PASS
 
-## Value — PASS
-Optimizing a transect for simultaneous population-density and detection-scale inference is natural because the two parameters are confounded by imperfect detection; the D-criterion distinguishes information about both. The result classifies the entire continuous family of cost policies and gives a sharp minimum optimal width and strict comparative statics, rather than a numerical rule for a chosen cost. It provides a reproducible benchmark useful for comparing practical survey design heuristics, while not asserting that idealized assumptions hold in field conditions.
+With w fixed at the design point, the thinned Poisson intensity has log-derivatives (1,(x/sigma)^2). Integrating their outer product gives the stated 2-by-2 matrix; substituting the budget leaves F(a)/(a+kappa)^2. F>0 by strict Gram positivity, and differentiating the Gram determinant gives the rescaled kernel for aF'(a). For x=log a, the negative exponential term in the joint log kernel has negative diagonal Hessian entries and determinant 2 exp(4x)(1-u^2)>0 on the convex support 0<u<1. Prékopa applies first to the u-integral and then to the cumulative integral (multiply by the indicator of y<=x on the joint (y,x) space), so log F(exp x) is concave. The derivative E is nonincreasing; any failure of strict decrease would give a constant interval and by analyticity a global constant. The endpoints exclude this: F=(4/45)a^6+O(a^8) with analytic remainder, and the limiting Gaussian moments give F->pi with aF'->0. The log-objective derivative multiplied by a crosses zero exactly once, including kappa=0; increasing kappa strictly lowers the comparison term at a fixed a, shifting the root right, and no bounded root is possible as kappa tends to infinity. Independent high-precision direct moment quadrature and objective differentiation give a_0=2.483403229461727769, edge detection probability 0.0457920034599350, a_1=2.744175332913743488 and a_5=3.166331990571762460. Replay: python /workspace/branches/reproduce_frozen.py (transect section). The frozen checker and verification notes were inspected, not executed; finite diagnostics do not prove monotonicity. The proof uses exactly the complete marked Poisson likelihood, nominal scale and the stated cost law, not counts alone or density-only estimation.
 
-## Closest literature and limitations
-Johnson et al.: https://doi.org/10.1111/j.1541-0420.2009.01265.x (full text unavailable; priority risk). Clark (2016): https://doi.org/10.1371/journal.pone.0149298 (full accessible article compared). Knights et al. (2021): https://doi.org/10.1111/2041-210X.13589 (full accessible methods compared). General optimal-design and Gaussian-moment literature may contain broader results, and joint-parameter local optimality should not be confused with density-only or finite-sample optimality. The proof is analytically complete only under the listed Poisson, detection, full-distance and cost assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the distinct contribution is the exact all-kappa joint-information design, including rigorous monotonicity, global uniqueness, and its minimum-width endpoint. The observation model and log-concavity theorem are not new; the verified analogous truncation work uses a different risk. No external access limitation is treated as noncoverage.
+
+## value
+
+PASS
+
+For the standard half-normal detection model, joint scale/intensity inference has a real effort-versus-information tradeoff: extending width changes both the number and leverage of the recorded distances while using budget. The strict global law and universal zero-base-cost lower bound determine the design without a grid or a guessed effective strip width and are interpretable in nominal scale units. This is an exact local-design benchmark, not a generic field recommendation or a density-only efficiency claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

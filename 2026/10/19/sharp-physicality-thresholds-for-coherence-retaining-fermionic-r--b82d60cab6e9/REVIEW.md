@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-An admissible gauge-invariant fermionic one-particle covariance is exactly a self-adjoint positive contraction \(0\le\Gamma\le I\). Its system–environment block \(z\) obeys \(z^*z\le p(1-p)I\) because \(\Gamma-\Gamma^2\ge0\). The two Schur complements of the reset output give sufficiency of \(\eta^2\le\min\{\inf\sigma(B),1-\sup\sigma(B)\}\). Rank-one projectors with arbitrary environment unit vectors, followed by \(p\to0\) or \(p\to1\), prove necessity even at non-eigenvalue spectral edges. The statewise criterion, thermal specialization and one-mode Choi eigenvalue threshold are independently derived. The current standalone checker passed 2028 explicit spectral and channel assertions. The finite checks are supporting evidence, not an infinite-dimensional proof.
+PASS
 
-## Originality (O): PASS, with documented residual risk
+For any input positive contraction, the distinguished diagonal of Γ−Γ² gives ||z||²≤p(1−p). The two output Schur complements for 0<p<1 are B−η²z*z/p and I−B−η²z*z/(1−p). Both are positive semidefinite under the claimed bound; p=0 or 1 forces z=0. For necessity use the rank-one projection onto (√p,√(1−p)v). Taking expectations in v and sending p toward 0 or 1 recovers the respective lower and upper Rayleigh bounds, without requiring an eigenvector. Schur complementing the bath blocks instead gives the fixed-input formula when both are boundedly invertible. Decreasing thermal functional calculus gives the energy-edge formula; independent substitution at βJ=3, μ=0 gives 0.04972547794274857. In the system-first occupation basis the cross observable has a system parity factor and one bath raising/lowering operator, so the identity-on-system times the stated qubit map scales its expectation by η. The trace-preserving Choi matrix has one nontrivial block with diagonal (1−c,c) and off-diagonal η, giving the distinct local CP threshold.
 
-The exact block-reset prescription was introduced and studied for heat/coherence fixed-point behavior by Kumar–Lazarides–Ala-Nissila (2026, arXiv:2604.17152v1, Sec. II.3); that prescription is prior work. Vieira–Lazarides–Ala-Nissila (2020, arXiv:2012.04083v1, Sec. III) introduce generalized elementwise one-particle resets, without the claimed sharp physicality envelope. The March 2026 continuous-time correlation-erasing embedding (arXiv:2603.15554v1) has distinct dynamics. No same threshold, thermal spectral-edge classification or separate local Choi tier was found in the inspected relevant full texts or the checked indexed results. This does not prove exhaustive novelty: standard positive-block-matrix theory could imply the theorem as a specialized corollary, and incomplete coverage of broader Gaussian-channel classifications remains a risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-The modeled interpolation parameter is nominally allowed throughout \([0,1]\), but unconditional admissibility imposes an energy-band- and temperature-dependent ceiling; for a thermal band the ceiling can be exponentially small at low temperature. This matters for interpreting reset prescriptions intended to represent fermionic states, while avoiding any assertion that a particular published trajectory is unphysical. The result supplies exact statewise criteria, sharp rank-one witnesses and a physically important separation between covariance admissibility and local complete positivity. These questions are motivated by the source model rather than an arbitrary parameter slice.
+The reset itself and the phase-covariant qubit CP inequality are prior work. The supported distinct claim is the sharp all-input spectral covariance threshold for this reset, including non-eigenvalue bath edges, and its contrast with the prior local-channel criterion. Neither the exact model passages nor the broader reset or channel results inspected establish that uniform condition. This is a bounded best-of-knowledge conclusion.
 
-## Main qualifications
+## value
 
-This is a statement about admissible one-particle covariances for *all* inputs; it does not establish all reset dynamics are unphysical outside the threshold. A one-mode local qubit CPTP implementation is different from a general multimode fermionic Gaussian quantum channel. No independent audit or independent validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cutoff addresses a physical admissibility question in a previously proposed, explicitly parameterized reset. The thermal example shows how small a portion of its nominal parameter range can have a universal guarantee. The optimal witnesses and the distinction between statewise, uniform, and local CP conditions materially affect what can be inferred from reset calculations, even though the proof ingredients are standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact binarized 13-dimensional indicator, two independently derived integer Fourier algorithms, and explicit all-frequency assertions agree. The DP invariant is signed counts of prefixes by trailing run length; butterfly stages each compute the corresponding character tensor product. All 8192 frequencies at n=13 and all frequencies at n=1..12 were checked with complete integer arithmetic. Computed nullity 1296, rank 6896, four cubic masks, and no weight-1/2 zeros. The auxiliary general congruence is derived algebraically, not inferred from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurmaev (2010), Sections I–II: charged and spectrum-shaped individual codewords, their counts and recursion.",
+        "Rho and Vesel (2016), pp. 349-351: Q_h(111) defined, ordinary order via generalized Fibonacci recursion, graph recognition announced.",
+        "The accessible same-area archived claim 0307c9e9 (no-adjacent-nonzero words on finite abelian alphabets) concerns the forbidden block of length two with q-ary alphabets and gives a different infinite-family spectral result."
+      ],
+      "reasoning": "General enumerators or standard transfer matrices can recover support counts, and in particular elementary parity obstructions, but do not imply the position-sensitive nontrivial Fourier zeros or their degree distribution. A complete specialized weight enumerator with position-dependent signs would dominate the claim, and remains the main priority risk.",
+      "searches": [
+        "generalized Fibonacci cubes Fourier spectral Walsh indicator rank",
+        "run length limited code spectral Walsh zero coefficients avoidance 111",
+        "An Enumerative Method for Encoding Spectrum Shaped Binary Run-Length Constrained Sequences arxiv 1001.4334",
+        "On isomorphism classes generalized Fibonacci cubes 1402.6377"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1001.4334",
+      "https://dmtcs.episciences.org/en/articles/2165/download",
+      "https://doi.org/10.1016/j.ejc.2015.05.011",
+      "https://arxiv.org/abs/1402.6377",
+      "0307c9e9 (no-adjacent-nonzero words on finite abelian alphabets)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The one-variable order generating function implies the parity of the support but does not determine character sums with masks concentrated on positions 1,7,9, etc.",
+        "The third-order cube recognition theorem characterizes graph topology and size rather than the signed coordinate-sum distribution.",
+        "The prior forbidden-adjacent-nonzero work has a different substring restriction."
+      ],
+      "reasoning": "The new assertion needs both all-character cancellation counts and an exact low-degree boundary at length 13. Existing ordinary counts cannot force these: different supports of equal size can have different Walsh zero locations. No located stronger result entails the signed 13-dimensional census.",
+      "searches": [
+        "Kurmaev 2010 run-length constrained sequences exponential sums charge enumerative scheme",
+        "Rho Vesel Q_h(111) complete text Walsh Fourier",
+        "published-finding corpus binary no-adjacent nonzero words Fourier rank 0307c9e9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rho and Vesel (2016) define Q_h(111) exactly as the relevant forbidden-substring cube; its principal result is a graph recognition algorithm, not the 13-dimensional signed character census.",
+        "Kurmaev (2010) studies run-length-constrained sequences with the discrete Fourier transform of an individual coded signal; this is distinct from summing Boolean-group characters over all constrained words."
+      ],
+      "reasoning": "The support has been identified under its third-order generalized Fibonacci cube alias. No retrieved indexed statement gives the full 8192 coefficient zero census or the first degree-three nullspace boundary; the auxiliary enumerator parity law is not counted as novel.",
+      "searches": [
+        "Walsh Fourier spectrum convolution operator rank dominating sets of path graph binary hypercube zero coefficients transfer matrix",
+        "Walsh Fourier spectrum of Q_13(111) third-order Fibonacci cube nullity 1296",
+        "Fourier transform tribonacci cube parity Fourier coefficients rank",
+        "binary run-length-three avoidance 13-bit character sums vanish 1296 masks no zeros in Hamming weights 1 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 1296-nullity or 6896-rank tabulation appeared in retrieved records.",
+        "The computed 13-dimensional histogram has 4,33,93,198,280,295,223,118,42,9,1 zeros at degrees 3 to 13, obtained by direct complete integer calculations."
+      ],
+      "reasoning": "Index searches are a bounded absence check, not proof that no table exists. The exact target has been compared by values and object aliases rather than solely by a paper title.",
+      "searches": [
+        "Q_13(111) third-order Fibonacci cube exact Walsh Fourier nullity 1296 rank 6896 degree three zero 3-sparse spectrum",
+        "binary run-length-three avoidance 13-bit character sums vanish 1296 masks no zeros in Hamming weights 1 2",
+        "Walsh transform tribonacci cube parity Fourier coefficients rank"
+      ]
+    },
+    "rationale": "Bounded comparison against the precise generalized Fibonacci cube alias, prior run-length enumerators, and an accessible lower-forbidden-length spectral result found no implication of the position-sensitive n=13 cancellation census or first cubic degree threshold. Ordinary size recurrences and per-word DFT are insufficient; specialized indexed or unindexed multivariate sign enumerators remain residual priority risks.",
+    "residual_risks": [
+      "An old exact character table or complete multivariate position-dependent weight enumerator for third-order Fibonacci strings may exist outside accessible indexes.",
+      "The 2010 run-length literature is close in terminology; nonidentical notions of signal spectrum require care not to misattribute individual-signal Fourier results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Weight/charge and per-word DFT are related but not identical to the Boolean-group Walsh transform of the complete codebook; no 13-dimensional character table in the material inspected.",
+        "evidence": [
+          "Sections I-II describe d,k,r restrictions, DFT components of individual encoded words, and enumerative recurrences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1001.4334",
+        "material_read": "Full-text web rendering, Introduction and Spectrum Shaping sections including equations and definitions; targeted reading of described recurrence and scope",
+        "method": "Read original arXiv full-text HTML",
+        "title": "An Enumerative Method for Encoding Spectrum Shaped Binary Run-Length Constrained Sequences",
+        "trigger": "same constrained word model with spectral terminology"
+      },
+      {
+        "assessment": "Establishes the support alias and its classical count, but principal contribution is recognition; no matching Walsh/nullity statement in examined material.",
+        "evidence": [
+          "p. 350 defines k-th order Fibonacci words and p. 349-350 specifies linear graph recognition.",
+          "Full-document text searches for Walsh and Fourier found no match."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2165/download",
+        "material_read": "PDF pp. 349-352 including abstract, Introduction, Preliminaries and theorem context; searched indexed full document for Walsh and Fourier",
+        "method": "Read indexed PDF with page-image inspection",
+        "title": "Linear recognition of generalized Fibonacci cubes Q_h(111)",
+        "trigger": "exact same word support Q_h(111)"
+      },
+      {
+        "assessment": "Isomorphism classification and forbidden-pattern autocorrelation, not an explicit Walsh convolution spectral table.",
+        "evidence": [
+          "Main abstract discusses isomorphism classes, forbidden word autocorrelation, and string length; not the character sum at n=13."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2015.05.011",
+        "material_read": "Accessible full-text web article introduction, abstract and stated classification scope",
+        "method": "Read publisher HTML excerpt and arXiv bibliographic record",
+        "title": "On Isomorphism Classes of Generalized Fibonacci Cubes",
+        "trigger": "same generalized Fibonacci cube family with possibly stronger structural classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d99fa3fa-e561-47a5-8a4a-bbf999262ec9",
+  "value": {
+    "rationale": "Low-degree Walsh measurements are the canonical first interaction orders of binary-signal recovery. This finite boundary identifies the first singular third-order Fibonacci code for which linear and quadratic measurements miss every invisible character, while exactly 1296 of 8192 full Fourier modes are lost. The complete low-degree cutoff and exact natural nullity are nontrivial and reproducible, not mere recomputation of the generalized Fibonacci vertex count.",
+    "status": "PASS"
+  }
+}

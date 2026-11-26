@@ -1,19 +1,21 @@
-# Research assessment — two-step fat-node punctual incidence Euler series
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The underlying object is the closed two-ideal inclusion incidence on the local curve \(x^uy^v=0\) over \(\mathbb C\), with colength difference exactly two and **without** an intermediate ideal. The proof reduces compactly supported Euler characteristic to monomial-ideal fixed points, proves the exact two-box-removal count \(\binom{d}{2}+h+b\) (incomparable corners, horizontal dominoes, vertical dominoes), and partitions every allowed diagram into its rows longer than \(u\) and its bounded tail. The sole gap-crossing correction is proved by the events \(\min\alpha=1\), \(\max\beta\le u-1\). The resulting rational function applies uniformly to every \(u,v\ge1\) and is symmetric under interchanging the branches. A completely separate exact enumeration of two-diagram inclusions agrees for every \(1\le u,v\le4\), all \(0\le n\le13\), and the deletion statistic is checked for all partitions of sizes \(2\) through \(18\). The rational leading pole and remaining root-of-unity pole comparison establish the fixed-parameter coefficient asymptotic. This numerical verification is supplementary to the unrestricted proof.
+PASS
 
-## Originality — PASS, with explicit priority limitations
+At fixed colength m, every ideal contains the m-th power of the maximal ideal, so the action and its weight decomposition can be checked in a finite truncation. The punctual pair locus is a closed finite-dimensional projective incidence locus. Torus Euler localization reduces its Euler characteristic to the finite set of fixed pairs; distinct monomial weights imply these are exactly monomial ideal pairs. For the larger diagram lambda, the condition is lambda_v<=u in zero-based row indexing, and taking the smaller diagram gives inclusion in the correct direction. Two removed boxes form two original corners, a horizontal domino at a gap of at least two, or a vertical domino at a repeated part size. Those disjoint cases yield the stated unweighted statistic. For exactly r rows longer than u, split off u from each, giving a length-r alpha and a bounded beta. Conjugation identifies alpha with parts <=r and at least one part of size r, preserving corner and two-box deletion counts. The cross term is the product of corner counts, and the only changed horizontal gap is the shortest long row when min(alpha)=1 and max(beta)<=u-1 (including empty beta); the generating term is q^((u+1)r) P_(r-1) P_(u-1). This proves the entire formula, including r=0 with its stated conventions, symmetry by conjugating the original diagrams, cancellation of q^-2 and the denominator bound. At q=1 only the r=v contribution can have order u+v, with coefficient (u+v)(u+v+1)/(2u!v!); other roots of unity lose at least the j=1 factor from each side, giving the stated coefficient asymptotic. An independent implementation enumerating two successive corner deletions and deduplicating endpoints matched 576 coefficients on u,v=1..6, n=0..15, and exact symbolic substitution also verified the displayed (2,2) numerator.
 
-Luan (arXiv:2604.03111) and Huang–Jiang–Oblomkov (arXiv:2610.34676) treat Hilbert schemes of **one** ideal on a fat node. Zhao (arXiv:2606.08120) treats **one-box** nested incidence on the **smooth** plane. Ran (arXiv:math/0410037) and Lee (arXiv:0906.3097) study flags on **reduced** nodes. The previously available generator-refined one-ideal series does not determine two-box inclusions: even one-box-extension counts agree for partitions \((4)\) and \((2,2)\) on \(x^2y^2=0\), while their numbers of two-box extensions are respectively four and five. Literal and alias searches of published descriptions and mathematical records did not expose the full all-\((u,v)\) two-step Euler series. An uninspected stronger statement in Lee or older flag-Hilbert literature might imply the reduced case; historical priority therefore remains provisional. The general monomial-ideal torus fixed-point principle is classical and not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-Two-step ideal incidence measures how multiple nested punctual subschemes relate, rather than the topology of a single Hilbert scheme or the number of one-step chains. The complete rational series across two independent nonreduced branch multiplicities gives exact counts for all colengths, the first nonreduced explicit case, and a uniform asymptotic law. The distinction between counting a pair and counting intermediate chains is mathematically essential; the correction term records the interaction across the two branches of a fat node. These are natural invariants of punctual flag-type geometry rather than an arbitrary finite sample.
+The inspected records and primary sources give single-ideal invariants, different flag data, one-box nesting or smooth-surface geometry. They do not state or mechanically yield the unweighted endpoint-incidence series uniformly for all fat-node multiplicities. The qualifying distinction is the two-box deletion series with its cross-boundary correction, not Euler localization, single Hilbert schemes, or claimed priority for reduced-node special cases.
 
-## Literature and limits
+## value
 
-Inspected available HTML theorem/section material for Luan, Zhao and Huang–Jiang–Oblomkov; compared Ran's reduced-node focus from available records. Lee's complete older paper could not be inspected, and related broad flag formulas might cover special cases. Full independent validation and historical-priority determination remain unperformed. The statement is Euler-theoretic, not motivic or cohomological.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unweighted endpoint Euler characteristic answers a natural nested-incidence question not captured by the single-ideal series or full flags. The formula relates both multiplicities to one boundary correction and determines all colengths and the leading growth, rather than just enumerating small examples. It also identifies precisely what information is lost when replacing two-box endpoints by generator numbers or by intermediate chains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

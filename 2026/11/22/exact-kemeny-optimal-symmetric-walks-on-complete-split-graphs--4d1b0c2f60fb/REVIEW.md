@@ -1,19 +1,21 @@
-# Review of exact Kemeny-optimal symmetric walks on complete split graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full feasible set consists of nonnegative symmetric stochastic kernels supported on the two-class complete split graph, with all feasible loops, including edge-weight zero boundaries. Strict convexity of the Laplacian inverse trace establishes a unique unrestricted optimum and legitimizes automorphism reduction. Four spectral subspaces give the exact objective; increasing the clique edge weight at a fixed cross weight saturates the clique row constraints. The final scalar derivative is strictly negative at the feasible right endpoint for all integer clique and independent class sizes at least two. This proves the exact unique optimizer, edge-extinction threshold, boundary equalities, and sharp cross-only loss. The supplied exact-rational verifier passes 168,156 checks but is not substituted for the infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence, with residual publication-priority risks
+On the orthogonal complement of the constants the Laplacian is positive definite for a connected design; in the disconnected limit a positive eigenvalue tends to zero, so the trace of the inverse diverges. For any nonzero symmetric Laplacian variation H on that subspace the second derivative of the inverse trace is twice the trace of L^(-1/2)(L^(-1/2) H L^(-1/2))²L^(-1/2), which is strictly positive. Off-diagonal entries identify weights, so compactness with blowup at disconnection gives a unique full-space minimizer, fixed by class permutations. Clique contrasts, independent contrasts and the class contrast give eigenvalues qb+pc, pb and (p+q)b with multiplicities p-1,q-1,1. For fixed b the optimum has c=(1-qb)/(p-1); the resulting objective is A/b+(p-1)²/(p-qb), A=(q-1)/p+1/(p+q). It is strictly convex. At b=1/q for q≥p, qA≥q-1+q/(p+q)>1, so its derivative is negative. At b=1/p for p>q, the positive term of the derivative is less than q since p²-q>p(p-1), while Ap²>p(q-1)≥q. This proves endpoint optimality, including p=q. With c=0 the objective is a positive constant divided by b, so the endpoint is again optimal; subtracting the minima gives exactly the stated piecewise penalty. At fixed q the two orders are p²/q+O_q(p) and p+O_q(1), giving the ratio. The argument also allows period two and uses the specified zero-diagonal hitting-time convention.
 
-The full mathematical implication comparison distinguishes the trace objective from the complete-split fastest-mixing SLEM results (Boyd et al.; published indexed records), the directed subordinate Kemeny optimization of Kirkland, the global-budget resistance optimization of Ghosh–Boyd–Saberi, and general reversible Kemeny perturbation/completion works. None of the inspected primary full texts states the unique all-size complete-split symmetric optimizer, its exact support threshold, or its cross-only penalty. Indexed published complete-split works were accessible in title/summary only, not for whole-document exclusion. Unindexed or uninspected equivalents could alter publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result solves a natural two-parameter, globally constrained random-walk design problem, identifies the precise topology-dependent support transition, and gives an unbounded asymptotic multiplicative penalty for imposing the wrong edge support. It is an all-size structural classification rather than a small numerical improvement. The result applies only to uniform-stationary symmetric chains under rowwise stochastic constraints, not to directed chains, global conductance budgets or fastest SLEM.
+The supported distinct claim is the exact full symmetric Kemeny optimizer for all complete split sizes, including forced clique-edge deletion at q=p and the sharp deletion penalty. The closest indexed same-graph results treat the second-largest eigenvalue modulus and admit both supports at q=p. The primary Kemeny literature inspected gives directed minima, completion results, a general convex model, or different budgets/regularization. These do not provide the exact endpoint proof or penalty in the frozen feasible set. This is a best-of-knowledge conclusion, not a priority assertion.
 
-## Independence and limitations
+## value
 
-The self-review and checker do not constitute independent validation. The closest indexed graph-specific literature remains only partly accessible, and priority should be revisited before any publication claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural graph family in a fixed-stationary design problem the result gives an exact support boundary for the full feasible set, including forced loss of an entire clique at the critical size. The sharp penalty on the other side quantifies when deleting the same edges is arbitrarily costly. The explicit optimizer and penalty are useful benchmarks beyond merely applying the general formulation or computing isolated small graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:32.515714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The facet list is exact: each block is a nonnegative multiple of the triangle with vertices (1,0),(0,1),(1,1), with admissible multiplier in [max(x_a,x_b),x_a+x_b]; the displayed inequalities give a simultaneous choice with multipliers summing to one. Facet equality vertices have affine dimension 2m-1. Active choice facets form a Boolean subcube unless a blade contains both spokes. Two free bits give a square circuit; a free empty blade gives the flip circuit with its two zero normals; no free bits with the total facet active gives the total-choice circuit. In the remaining cases the active coordinate normals extend by a unit pivot for a single total/choice ray, or by the two free-blade coordinates for the two choice rays when that blade contains its base. Each displayed circuit is inclusion-minimal with saturated span: use the two choice differences and one choice ray for the square, the two free coordinate rays and a selected coordinate outside that blade for the flip, and the complementary coordinates and one selected coordinate for total-choice. Their respective ranks yield codimensions 3,3,m+1 under face-cone duality and the independent bit choices give the counts. The saturated ray relations give the degree-zero monomial rings of weights (1,1,-1,-1) and (1,1,-1,...,-1), hence the claimed Segre cones in every characteristic, times smooth torus directions. The Segre degrees are 2 and m; the height-one ray functional exists for the first two patterns but would force m=2 for the third. The simplicial cones are smooth, and every vertex lies in a displayed singular face. Inspected the finite checker and its recorded m=2,3,4 face counts without execution; the all-parameter decision rests on the symbolic argument, not finite calculations. No conclusion about nonreduced or intersection germs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohsugi–Hibi classify global simplicity/smoothness; Tran–Ziegler give a general facet criterion and an exponential-facet construction with K4 blades."
+        ],
+        "reasoning": "Neither result classifies the minimal nonsmooth cones for K3 blades. Extracting and classifying the active-ray circuits is a separate calculation, not a specialization of a tabulated classification. The broad lookup returned no diagnostic primary hit.",
+        "searches": [
+          "Ohsugi–Hibi arXiv:0804.4287 Theorem 1.8",
+          "Tran–Ziegler EJC 21(2) P2.57 Theorem 19 and Section 5",
+          "Bounded primary literature lookup on friendship/windmill edge-polytope toric singular loci"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected as text",
+        "Resultary ffdc7f1d3506, mirrored RESULT.md",
+        "Ohsugi–Hibi, arXiv:0804.4287",
+        "Tran–Ziegler, DOI 10.37236/3633"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square and flip-zero faces contain base vertices and are visible on those charts. Each total-choice face has only spokes and its open orbit is in none of the base-edge charts.",
+          "The prior record disclaims coverage of the remaining 2m spoke-edge fixed points and of the complete singular locus."
+        ],
+        "reasoning": "Credit prior exact charts, fixed-point singularity and their implications on the base-edge opens. This does not yield the total-choice family, its rank-one 2 by m transverse model and failure of Q-Gorensteinness, or the completeness assertion. General toric smoothness and facet criteria alone do not fill that gap.",
+        "searches": [
+          "Base-edge chart statement at RESULT.md offset 620 and its limitations at offset 9054; comparison with the frozen face families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue source explicitly studies the projective edge-monomial closure and provides the affine base-edge chart ideal (u_j v_j - x y w_j).",
+          "In the projected lattice, an integral point of dP has integer block multipliers between max(x_a,x_b) and x_a+x_b summing to d. In each block the multiplicities of A,B,C can then be taken as lambda-x_b, lambda-x_a, x_a+x_b-lambda. Thus the polytope has integer decomposition, and vertex differences generate the full lattice via C_i-A_i and C_i-B_i. The edge-monomial closure is the normal-fan variety."
+        ],
+        "reasoning": "The two presentations are not a novelty distinction. The prior charts concern the same object; the distinction is chart coverage and the global result.",
+        "searches": [
+          "Local Resultary, friendship-graph edge toric variety and base-edge fixed-point charts",
+          "2026/10/12/SCOPE-exponential-local-divisor-class-groups-at-base-edge-fixed-points--ffdc7f1d3506, RESULT.md offsets 620–2300"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest related catalogue statement gives base-edge multiplicity, tangent cone and divisor class group, not an all-orbit singular-component count. The recorded m=2 count is only a boundary check of the frozen theorem, which starts at m=3."
+        ],
+        "reasoning": "No checked exact table supplies the claimed all-parameter component profile. The unsourced assertion of prior m=2 coverage is not used to establish novelty.",
+        "searches": [
+          "Local Resultary catalogue, friendship/windmill edge-polytope singular components, base-edge charts and two-triangle wedge"
+        ]
+      },
+      "rationale": "The relevant prior base-edge charts concern the same variety over C and already give part of the local geometry. They do not cover the spoke-only total-choice orbits, or give the full global classification. The checked global polytope results supply general machinery, not the specific all-m singular basket, its transverse types, or its complete non-Q-factorial support.",
+      "residual_risks": [
+        "Bounded catalogue and primary searches cannot exclude an unindexed equivalent all-m face classification.",
+        "The literature source for the frozen note's claimed earlier m=2 classification was not resolved; this case is not within the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap on base-edge opens, not full coverage",
+          "evidence": "Normal Gorenstein complete-intersection base-edge chart; the source expressly excludes other fixed points and the complete singular locus.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exponential-local-divisor-class-groups-at-base-edge-fixed-points--ffdc7f1d3506/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2498; relevant normality passage and limitations around offsets 4643 and 9054",
+          "method": "Resultary catalogue discovery; local mirror passage comparison",
+          "title": "Exponential local divisor class groups at base-edge fixed points",
+          "trigger": "Same friendship graph in the projective monomial presentation"
+        },
+        {
+          "assessment": "Framework and global smoothness criterion, not a singular-orbit basket",
+          "evidence": "The theorem concerns simplicity and smoothness of the entire polytope.",
+          "identifier_or_url": "https://arxiv.org/abs/0804.4287",
+          "material_read": "Theorem 1.8, PDF p. 6 around text offset 18220",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Simple polytopes arising from finite graphs",
+          "trigger": "Potential stronger edge-polytope smoothness classification"
+        },
+        {
+          "assessment": "General facet framework and a different windmill family",
+          "evidence": "The windmill example uses K4 blades and enumerates facets, not the singular strata of this K3-blade family.",
+          "identifier_or_url": "https://doi.org/10.37236/3633",
+          "material_read": "Theorem 19 p. 11 and Section 5 pp. 11–12, offsets 30500 and 32940–35495",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Extremal edge polytopes",
+          "trigger": "Windmill family and general facet structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph is a natural repeated-triangle family with a growing facet set; global nonsmoothness or a fixed-point chart does not say where singularities occur. The classification gives exact incidence-defined components, shows non-equidimensionality, and separates the ordinary-node families from the deeper non-Q-Gorenstein Segre strata. That is useful local and global information for this family, in particular outside the already studied base-edge opens.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

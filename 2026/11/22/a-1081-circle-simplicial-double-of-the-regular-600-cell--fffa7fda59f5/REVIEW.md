@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The double-definition in arXiv:2506.10436 makes opposite edge pairs of tetrahedral facets its graph edges. Standard 600-cell coordinates are enumerated in \(\mathbb Z[\varphi]\), and the exact checker constructs all 600 exposed tetrahedra, 720 original edges and 1800 distinct double edges; all 720 double degrees equal five. Its included 719-edge parent certificate proves connectedness, independently checked against the reconstructed opposite-edge graph, and exhaustive BFS establishes girth six. The standard finite-graph spanning-tree collapse yields \(1800-720+1=1081\) integral circle summands. All proof-critical finite computations are replayable from included files.
+PASS
 
-## Originality — PASS (best-knowledge, priority risk acknowledged)
+The double has one vertex per original edge and one adjacency per pair of opposite edges in a boundary tetrahedron; no simplex of dimension at least two fits in a 3-dimensional boundary. An independent exact reconstruction at unit circumradius in Q(sqrt(5)) recovered all 600 tetrahedra by affine-rank and strict support tests, using the classical identification/count to ensure completeness. It gave 720 vertices, 1800 edges, degree 5 throughout, and one component. Removing each double edge in turn and taking the shortest alternate path gives girth 6, with a six-cycle witness. The supplied parent array was separately relabelled into this reconstruction and all 719 parent edges and root paths verified. The quotient map contracting a spanning tree is a homotopy equivalence to a wedge of 1800−720+1=1081 circles; no assertion that this quotient is literally an embedded retract is needed. The integral homology and fundamental group follow.
 
-The full motivating primary paper (Lesh–Schreiner–Wahl, arXiv:2506.10436v2) was inspected for definitions, examples and general theorems; it gives no 600-cell calculation. Existing accounts of the 600-cell graph describe the *120-vertex skeleton*, not the 720-vertex double. Closest publicly indexed research includes results on doubles of stacked 3-spheres, cyclic 4-polytopes and joins of polygon boundaries. Their structural hypotheses fail for the 600-cell and their connectivity formulas do not imply this one. Queries also used opposite-edge graph, edge-opposition, hexacosichoron and the specific vertex/edge/rank numbers. No exact matching claim was found. Some potentially relevant indexed works were accessible only by abstract/summary, so unnoticed equivalent graph descriptions remain a priority risk; search absence is not a proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-The regular 600-cell is a canonical exceptional simplicial 4-polytope, and its double is a natural graph whose connectivity is not fixed by the general double-connectivity theorem. In contrast, other regular and joined-polytope doubles can be disconnected. Knowing an exact cycle rank in this exceptional case determines the full integral homotopy and fundamental group, not just a test statistic; the complete spanning tree also gives a reusable canonical certificate for later symmetry investigations.
+Best of knowledge: the new part is the connectedness and exact classification of the opposite-edge graph, including girth, not the classical face counts or the graph-to-wedge reduction. No inspected result covers that classification.
 
-## Limitations
+## value
 
-The theorem classifies one finite canonical complex, not all simplicial polytopes. The code checks all incidences exactly but independent proof review is absent. Unindexed equivalent descriptions may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical regular 3-sphere triangulation the general doubling theorem leaves even connectedness open. Resolving it and giving the exact wedge rank and a shortest-cycle invariant supplies concrete data for comparison with doubles of other 3-spheres.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

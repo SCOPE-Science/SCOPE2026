@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:26.688321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently recomputed the distances by breadth-first search from every vertex of the explicit Cartesian-product graph, not by the supplied formula. A triple is excluded exactly when twice the maximum of its three distances equals their sum: concatenating geodesics for the two shorter distances then gives a shortest path containing the third vertex. Enumerating increasing faces by adding one vertex and testing all newly introduced triples is exhaustive by heredity. No face of size ≥5 survives. From the signed chain matrices I recomputed Smith forms over ℤ using SymPy 1.14.0; all nonzero factors have absolute value one. Thus im ∂_(i+1) is saturated in C_i, and H_i embeds into a free cokernel, so it is free. The complete 1-skeleton is connected. For n=3..8, the boundary ranks (r1,r2,r3) are (5,7,0),(7,6,2),(9,31,10),(11,31,18),(13,71,56),(15,73,72). The dimensions then give reduced Betti triples (3,1,0),(15,0,0),(5,9,0),(24,3,0),(7,27,0),(32,15,4), with no unlisted reduced homology. In particular H̃3 first occurs at n=8 with rank 76−72=4. Replay: python3 /workspace/review_evidence/ladder_homology.py; results in ladder_homology.log in that directory. I inspected the supplied proof and unit-pivot implementation without running the supplied code. Verification is for n=3..8 only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cartesian-product theorem already determines the general-position number 3 at n=3 and 4 at n≥4. The open-ladder result computes integral homology for all n≥2 on P_n × K2. Published stronger homotopy results on circular ladders concern independence or perfect-matching complexes."
+        ],
+        "reasoning": "The known cylinder family theorem fixes dimension and hence vanishing above degree 3, not the rank in degree 3 once tetrahedra occur. Adding cyclic edges to an open ladder changes metric betweenness; the all-order open-ladder or other-complex theorems do not specialize to this homology.",
+        "searches": [
+          "arXiv:1907.04535v4 Theorem 3.2",
+          "arXiv:2608.30601v2",
+          "Resultary: 5fa650315627, 4fc5f7521449"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.04535v4",
+        "doi:10.1007/s00025-024-02133-3",
+        "arXiv:2608.30601v2",
+        "Resultary: 5fa650315627, 4fc5f7521449, 4d5dde862e76",
+        "Resultary: 94724b3e2a1c (index description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published gp value is already 4 from n=4, but the verified H̃3 remains zero for n=4,5,6,7. Face counts would determine Euler characteristic but not ranks of both ∂2 and ∂3 or torsion. The three-cut theorem gives a sphere-wedge for a different forbidden-triple system."
+        ],
+        "reasoning": "Credit the known dimension calculation, which determines where H̃3 could possibly occur, but not where it first does occur. Neither those counts nor the inspected dual result yield the Smith-form census by specialization.",
+        "searches": [
+          "arXiv:1907.04535v4",
+          "DOI 10.1007/s00025-024-02133-3",
+          "Resultary: 4fc5f7521449, 4d5dde862e76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the independence complex of the forbidden geodesic-triple hypergraph, not the graph independence complex. The Resultary three-cut record uses complements of disconnected induced triples; its dual instead avoids disconnected triples."
+        ],
+        "reasoning": "The three consecutive vertices of a layer for n≥5 form a connected induced path and a forbidden geodesic triple, so the two triple rules differ on the same graph. Matching complexes use edges, not the target vertex sets. The inspected cut dual on C4 × Cn additionally uses a different graph. No equivalence is supplied by these formulations.",
+        "searches": [
+          "Circular ladders / prisms / Cartesian cylinders P2 × Cn; general-position, 3-cut and dual formulations",
+          "Resultary: 4fc5f7521449, 4d5dde862e76",
+          "arXiv:2608.30601v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected polynomial sections cover C_n and rectangular path products. The exact open-ladder table/formulas are for P_n × K2. A same-day record indexed for ordinary cycle H̃2 and dihedral action was identified, but its RESULT.md was not available in the local mirror; only its index description was available."
+        ],
+        "reasoning": "The known tabulations are on different families or measure face cardinalities, not signed boundary ranks and integral invariant factors. No inspected exact same-object table supplies the six homology groups.",
+        "searches": [
+          "DOI 10.1007/s00025-024-02133-3, general-position polynomials for cycles and grids",
+          "Resultary: 5fa650315627, 94724b3e2a1c"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the exact integral homology of these geodesic general-position complexes and the first H̃3 threshold, not for the underlying forbidden-triple construction, the general-position number, or the topology of other complexes on these graphs.",
+      "residual_risks": [
+        "A finite homology table under a different name or in non-indexed materials is not excluded.",
+        "The local source passage for the indexed ordinary-cycle H̃2 record was unavailable; the index description alone was not used to rule out broader coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior overlap on dimension, not integral homology",
+          "evidence": "gp(P_r × C_s) is 3 when r=2,s=3 and 4 when r=2,s≥4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.04535v4",
+          "material_read": "Theorem 3.2, p. 7, offset 21700",
+          "method": "OA PDF passage",
+          "title": "On general position sets in Cartesian products",
+          "trigger": "Same cylinder graph family"
+        },
+        {
+          "assessment": "Prior counting invariant but no homology result for the circular ladder in the inspected sections",
+          "evidence": "The coefficient of x^j is the number of general-position sets of size j, with expressions for cycles and path products.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "Definition pp. 1–2 and cycle/grid sections pp. 3, 6–7; offsets 350, 5600, 16400",
+          "method": "OA article passage reading",
+          "title": "General Position Polynomials",
+          "trigger": "Possible exact census of general-position sets"
+        },
+        {
+          "assessment": "Same invariant, open rather than cyclic ladder",
+          "evidence": "All-order torsion-free H1 and H2 formulas for P_n × K2, n≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-integral-homology-of-general-position-complexes-of-ladder-graphs--5fa650315627/RESULT.md",
+          "material_read": "Finding/Assumptions, offset 0",
+          "method": "Local Resultary mirror passage reading",
+          "title": "Integral homology of general-position complexes of ladder graphs",
+          "trigger": "Closest Resultary homology analogue"
+        },
+        {
+          "assessment": "Different complexes",
+          "evidence": "The independence condition forbids adjacent pairs, and the perfect-matching construction has a different ground set; neither is geodesic betweenness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30601v2",
+          "material_read": "Abstract and definitions pp. 1–2, offsets 1020 and 3350",
+          "method": "OA PDF passage reading",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same graphs and stronger topological classifications"
+        },
+        {
+          "assessment": "Different triple rule",
+          "evidence": "Uses complements of disconnected induced triples, not complements of triples on shortest paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sphere-wedge-topology-of-three-cut-complexes-of-circular-ladders--4fc5f7521449/RESULT.md",
+          "material_read": "Finding/Assumptions, offset 0",
+          "method": "Local Resultary mirror passage reading",
+          "title": "Sphere-wedge topology of three-cut complexes of circular ladders",
+          "trigger": "Same graph and triple rule, possible duality"
+        },
+        {
+          "assessment": "Different graph and dual construction",
+          "evidence": "Concerns ordinary three-cut complexes of C4 × C_n and their Alexander duals, with circles and two-spheres in the dual.",
+          "identifier_or_url": "Resultary: 4d5dde862e76",
+          "material_read": "Finding/Assumptions, offset 0",
+          "method": "Local Resultary mirror passage reading",
+          "title": "A signed integral sphere lattice at the four-cycle boundary of three-cut duals",
+          "trigger": "Alexander-dual reduction comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this canonical family of known general-position dimension, the first top-dimensional cycle is not where tetrahedra first exist. The sharp onset and torsion-free full profiles distinguish that phenomenon from the already-known extremal size, and give exact tests for any proposed cyclic-ladder homotopy or chain model. The finite end point is dictated by the first occurrence, not an arbitrary truncation. No homotopy-type classification or result beyond the cutoff is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

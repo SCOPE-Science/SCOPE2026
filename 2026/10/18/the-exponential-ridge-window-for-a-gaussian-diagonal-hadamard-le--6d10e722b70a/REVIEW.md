@@ -1,26 +1,21 @@
-# Scientific review: exponential ridge window in Gaussian-diagonal Hadamard regression
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For an explicit orthogonal one-column design and residual, direct multiplication of the unnormalized Hadamard columns establishes the scalar formula for the sketched ridge estimator with the specified penalty normalization. Conditional Gaussian polar coordinates determine the entire absolute-error distribution. The binomial and hypergeometric laws give the exact incidence of the singular row-sign sector; it is Cauchy for the unregularized estimator. The fixed-size ridge asymptotic follows from a one-dimensional Gaussian integral with an explicitly evaluated leading singularity. The simultaneous regularization transition follows by separating this sector from uniformly integrable nonsingular events and applying Hoeffding concentration. The proof handles the sampling-without-replacement boundary \(m=N/2\), \(m=1\), both extreme signs and all positive ridge strengths. The program `VERIFY.py` passed 2,292 finite checks of the key reductions, finite mixture laws, angular probabilities, and ridge coefficient. Those computations corroborate, rather than replace, the proof.
+PASS
 
-## Originality (PASS, bibliographic uncertainty remains)
+Independent analytic reconstruction. Orthogonality makes the two row-sign classes equally large and x*=0. The scalar normal equation gives (g²−h²)/(g²+h²+2ρgh+η), with an almost surely positive denominator even in the two rank-one sign classes. For |ρ|<1 and below the support endpoint, the upper tail of cos φ/(1+ρ sin φ) is the angular fraction on which cos φ−tρ sin φ>t, namely arccos(t/√(1+ρ²t²))/π. Symmetry, followed by differentiation, gives the stated absolute CDF and signed density. Orthogonal sums/differences give a standard Cauchy at |ρ|=1. Counting fair signs or the two size-N/2 populations gives all the weights, including the exact without-replacement cutoff; the largest nonextreme |ρ| is at most 1−2/m for m≥2, proving the stated support and tail separation. At the extremes the ridge squared risk is Q(η)=E[U²/(U²+η/2)²]. Scaling U=√(η/2)t gives √η Q(η)→√π/2, because the remaining integral of t²/(1+t²)² is π/2. The Gaussian-exponential error in the scaled integral is O(√η) by splitting at η^(-1/2), so the unscaled error is O(1). Away from extremes ridge only decreases squared magnitude. On |R_m|≤1/2 that magnitude is bounded by 4/3, while the nonextreme complement has contribution bounded by B_m² times the exponentially small fair-sign concentration tail. In the prefix coupling R_m→0 and η_m→0 give the arcsine variable of squared mean 1/2. Adding the exact extreme mass times Q(η_m) gives the arbitrary-sequence expansion and all three regimes, with errors governed by m and η_m, not their relative speed. The supplied script was inspected, not executed; the analytic verification does not rely on its numerical tests.
 
-The nearest and indispensable antecedent is Song and Zhang (2026), Section 3, equation (3), which already supplies the unregularized two-Gaussian ratio and a high-probability counterexample to Gaussian diagonal placement. That ratio is not represented here as a new discovery. The newly assessed mathematical content concerns adding a precisely normalized ridge term, computing the resulting singular-sector square-risk coefficient, proving the simultaneous critical regularization scale \(4^{-m}\), and classifying existence of all positive moments under without-replacement row selection. The antecedent's fixed-penalty-free high-probability statement does not assert or establish these regularized risk and sampling-design results. Earlier \(\ell_\infty\)-regression work by Price–Song–Woodruff (2017) and Song–Ye–Yin–Zhang (2023) concerns different sketches and high-probability bounds. Generic sketched-pseudoinverse results provide neither the rare-event decomposition nor this fixed-Hadamard, many-with-replacement-rows limit.
+## originality
 
-Searches comparing the exact estimator, its Gaussian ratio, moment thresholds, ridge regularization, possible equivalent generalized arcsine formulations, and broader sketched-regression theory did not identify a complete prior theorem. Absence from indexed literature is not a proof of priority. Residual risks include unindexed numerical-analysis notes and possible implicit calculations in discussions of singular sample covariances.
+PASS
 
-## Value (PASS)
+The Gaussian/Hadamard ratio and its basic high-probability counterexample are prior work. A later distinct indexed record also gives the with-replacement unregularized law and exact rare-Cauchy tail. Credit here is for the exact regularized risk law, sharp simultaneous ridge constant and sampling-without-replacement classification, not for those shared ingredients. No inspected statement covers that substantive extension. The frozen source's reference to Section 3 of Song–Zhang is imprecise: the PDF locator is §2.2.3, Eq. (3).
 
-The mean-square error of a randomized regression approximation is a natural design criterion distinct from its high-probability accuracy. In this concrete model, a rare event of probability \(2^{1-m}\) causes infinite unregularized mean-square risk no matter how large the sample count, and introducing a vanishing ridge term gives a sharp transition at \(4^{-m}\) with an explicit finite critical constant. The replacement-versus-without-replacement cutoff identifies precisely when the catastrophic event becomes combinatorially impossible. This supplies a reproducible stress test for implementation choices in structured randomized regression, not a routine renaming of a bound.
+## value
 
-## Nearest sources and limits
+PASS
 
-- Song and Zhang, arXiv:2608.26552v1, especially Section 3 and its exact unregularized Gaussian ratio; the basis for the model but not the ridge-window theorem.
-- Price, Song and Woodruff, arXiv:1705.10723, especially Sections 1 and 3; high-probability directionwise guarantees for signed SRHT.
-- Song, Ye, Yin and Zhang, arXiv:2302.00248v1; coordinatewise fast regression and OCE arguments.
-- *Asymptotics of the Sketched Pseudoinverse*, DOI:10.1137/22M1530264; generic implicit-ridge background rather than the present singular-row sampling law.
+The example is motivated by a specific proposed Gaussian substitution. The exact result explains why the visible typical behavior is not evidence of finite squared risk and gives the regularization scale and constant that balance rare singular sketches against the ordinary sector. It also shows exactly when changing the sampling design removes the pathology, rather than just bounding its probability. These facts are useful for evaluating this sketch on its motivating obstruction even without a general regression theorem.
 
-This finding applies only to the explicit one-parameter real regression instance, the stated Gaussian diagonal placement, the stated row-sampling schemes, and exact arithmetic. It is not a conclusion about the new balanced Gaussian-pooling scheme or about arbitrary datasets. Possible unindexed equivalent results remain a bibliographic risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

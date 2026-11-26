@@ -1,19 +1,21 @@
-# Review of exact endpoint Hodge norms on circular ladders
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two-mode Laplacian decomposition gives the cyclic Green kernel solving \((L_n+2I)h=2\delta_0\). The rim-source and rung-source currents are reconstructed explicitly; their absolute sums yield the four edge-orbit norms. The complementary-column identity determines the cycle norm. The orbit comparisons are certified by exact small-parameter fractions and uniform rational bounds for every larger parameter. The logarithmic term follows from the geometrically decaying kernel and a threshold-set count, not from numerical fitting. As a finite independent consistency test, direct exact-rational incidence/Laplacian inversions agree with all predicted projection columns for \(3\le n\le18\).
+PASS
 
-## Originality
+The positive periodic kernel solves (L_cycle+2I)h=2δ_0, sums to one, and has total variation 2(a−b). A rung source is antisymmetric. At a rim source the two layer gradients split into A_i and D_i, with A_i=δ_i0−1/n and D_i=δ_i0−h_i. The two absolute rail drops add to max(|A_i|,|D_i|); a>1/n and the rung variation give precisely q_R. The two diagonal corrections give both c columns. Graph automorphisms leave only two orbits and symmetry equates the endpoints. A separate exact calculation checks all n=3,…,11 orbit-difference fractions. For n≥12 there are n−5 sites at distance at least three, with total mass <61/1000; summing (1/n−h_i)_+≥1/n−h_i there gives the bound used in both strict inequalities. The cut-minus-cycle rim difference is 1−1/n−a, strictly positive for n≥5 by decreasing a and a_5=11/19; n=3,4 were separately checked. Uniform geometric upper and lower bounds in cyclic distance give 2 log(n)/log(1/ρ)+O(1) non-source sites above threshold and O(1/n) mass outside them. Thus substituting the positive-part sum gives precisely both stated limits and their common logarithmic deficit.
 
-PASS, subject to stated residual bibliographic uncertainty. The 2023 study of graph cycle-space projections by Dilworth, Kutzarova and Ostrovskii covers general invariant-projection methods, discrete tori with two nondegenerate cyclic factors, and Hamming graphs, but supplies no circular-ladder all-size endpoint-norm classification in the consulted relevant sections. Their Hamming-cube result already covers the square prism at \(n=4\), which is explicitly credited as an existing special case. Cinkir's 2017 prism-graph paper explicitly studies effective resistances and the Kirchhoff index: the electrical kernel is prior methodological material, not a new claim here. The new mathematical step is the exact absolute-current summation, all-size two-orbit extremizer classification, and sharp logarithmic endpoint-norm correction. Cinkir's full text was inaccessible; the possibility of equivalent results in its uninspected sections or less-indexed literature remains a real risk. A 2023 generalized-prism spectral study was inspected at the abstract/metadata level and not treated as a full-text noncoverage certificate.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The norm of a canonical Banach-space projection depends on absolute transfer-current columns rather than just resistance diagonals or spectral eigenvalues. The circular ladder is the natural two-layer periodic counterpart of the extensively studied open ladder. The formulas classify two distinct edge orbits at every size, locate an exact tie at the cube, prove strict cut dominance, and quantify the unexpectedly slow logarithmic approach to limiting projection norms despite exponential Green-kernel decay. This is an infinite-family structural result, not an isolated computation.
+There is substantial equivalent coverage of components: Azimi–Farrokhi give the exact incidence-pseudoinverse data, the cube norms are known, and the same-day clique-cylinder derivation specializes to the four prism column-sum formulas and the coefficient of the logarithmic rim deficit. I do not count those as distinct facts. The distinct claim supported by the full finding is the finite prism norm classification by competing orbits: the broader record does not prove a rim-winner theorem at m=2, and its lower-bound proof of the two comparisons does not specialize. The all-size rim-versus-rung inequalities, their different triangular-prism winners, and strict finite cut–cycle ordering are not a statement or direct substitution of those sources. No discovery chronology is inferred from the same-day dates.
 
-## Remaining limitations
+## value
 
-The theorem is restricted to unweighted circular ladders and canonical orthogonal projections; it does not give optimal projection constants among all projections. The complete 2017 prism-resistance article was unavailable for a definitive implication check. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prism is the simplest periodic two-layer network. Different winning edge types for the two complements at n=3, a precise tie at n=4, and strict rim maxima thereafter give a usable finite-size classification beyond known current entries or eventual asymptotics. Showing that the classification persists at every n≥5 requires comparison of the positive-part threshold and diagonal penalties, not merely naming the cut matrix or evaluating a resistance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Directly substitute the nonzero column pseudoinverse into the trace. Conditional Gaussian orthogonal decomposition gives a shifted \(Z/\sqrt{\chi_s^2}\) law with exact angular location and scale. The Gaussian denominator's near-zero density yields the precise moment threshold and signed tails. The angular integrals and total-variance decomposition give the finite mean/variance and strictly positive variance floor; beta integration gives the anisotropic tail limit. The packaged verifier checks key equalities on actual computations. No finite numerical experiment is used to infer an infinite-moment theorem.
+## correctness
 
-**Originality — PASS (provisional).** The original generalized Nyström formulation and stabilization are established by Nakatsukasa (arXiv:2009.11392v1); oversampled moment bounds for the matrix approximation are established by Lam, Ceruti and Kressner (arXiv:2409.06384v1). Neither inspected source states the precise one-right-column *trace* distribution, the one-/two-/three-left-row moment transitions, the exact finite variance, or the sharp logarithmic spectral-anisotropy tail constants. The conditional Student-ratio identity is classical, but the combined trace-specific phase and residual variance floor are not implied by the stated bounds. Other preexisting oblique-projection or Gaussian-ratio formulations remain an originality risk; negative search results alone do not settle novelty.
+PASS
 
-**Value — PASS.** A mathematically natural design parameter—the number of independent left sketches—changes integrability qualitatively at two separate sharp thresholds, while additional left probes cannot remove variance induced by the right sketch. Exact signed-tail coefficients exhibit a nontrivial logarithmic critical case at one left row as the input approaches rank one. This gives a precise boundary for interpreting sketch-based trace quantities, independent of implementation rounding errors.
+For v=Ag and w=A²g the trace is the scalar regression slope of Ψᵀw on Ψᵀv through the origin. Orthogonal regression conditional on g gives the stated independent normal/chi-square ratio, with location vᵀw/||v||² and scale |det(v,w)|/||v||². Scale is positive almost surely and bounded, so location cannot remove the positive-moment divergence at p≥s. If Q=ε²Y²/(X²+ε²Y²), half-Cauchy integration gives E Q=ε/(1+ε); differentiation gives E Q(1−Q)=(ε/2)d(E Q)/dε. This recovers E Q², Var(μ)=E τ² and, with E W_s⁻¹=1/(s−2), the stated moments and strictly positive variance limit. Integrating the chi CDF at zero against Z_+ gives k_s, with a uniform power bound yielding the two bounded-mixture tail limits. For the anisotropy limit, the exact rescaled half-Cauchy integral is E τ^s/ε=(2/π)(1−ε)^s∫₀^∞ u^s/[(1+u²)^s(1+ε²u²)] du, using u=|X/Y|/ε. This supplies integrable domination and the beta constant for s>1; for s=1 partial fractions give 2ε log(1/ε)/[π(1+ε)] for E τ. The normalization in the Student ratio is 1/√s relative to standard Student-t.
 
-**Scope.** Rank-one, real, exact two-by-two sketches, diagonal spectrum \((1,\varepsilon)\) with \(0<\varepsilon<1\), trace (not full spectral error); no guarantees for complete integrators or stabilized implementations. Closest literature: Nakatsukasa arXiv:2009.11392v1 §2; Lam–Ceruti–Kressner arXiv:2409.06384v1 §2.3. Residual originality risk: older Gaussian regression-ratio equivalences.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized Nyström formula and the conditional Gaussian regression ratio are established ingredients. The supported distinct result is their trace-specific angular mixture analysis, in particular the exact signed-tail scale transition and residual right-sketch variance. No matching or dominating statement was identified in the bounded comparisons.
+
+## value
+
+PASS
+
+A minimal positive-definite model isolates left-sketch noise from right-sketch variation. The thresholds distinguish an undefined absolute mean, finite mean without variance and finite variance; the positive variance floor shows why left oversampling alone cannot stabilize all fluctuations. The sharp anisotropic scale identifies an additional borderline regime that bounded-moment estimates do not show.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:49:38.797922Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof 1–7",
+        "VERIFICATION.md, square_root_partition_checker.py and square_root_partition_verification.txt (read only)",
+        "Replay: python3 -B /workspace/review_evidence/constant_root_exact.py"
+      ],
+      "rationale": "Every square root fixes u and its nonroot vertices have depth one or two. Its induced map has the same depth bound with root block 0. For a prescribed admissible map, the k chosen nonroot direct preimages in C_0 are the only targets for remaining points of C_0 and for points mapping into C_0 but not directly to u. In each nonroot first-layer block, the h direct preimages of u are precisely the allowable destinations of all its incoming second-layer blocks; this gives the factor h^N_j with no duplication. Mapping whole first-layer blocks to u shows every admissible map occurs. Splitting by the first-layer indices gives the claimed support count, and the two-block factor follows by the binomial theorem. The uniqueness cases and all their complements follow from existence or impossibility of a block-preserving chain of length two on distinct vertices. An independent exact depth-color enumeration agreed fiber by fiber on ten profiles, including the seven-point four-block profile (2,1,2,2), with 10 fibers and 117 roots.",
+      "residual_risks": [
+        "The finite enumeration is corroboration; the argument for every finite partition is the counting bijection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed recurrence holds for arbitrary prescribed block characters, unequal sizes and all heights. Higgins treats full transformations, while the two partition-monoid papers concern generation or idempotents."
+        ],
+        "reasoning": "The broader height enumeration applies to exactly the same labeled and partition-preserving setting; the other primary sources establish background, not the decisive implication.",
+        "searches": [
+          "Power-stabilization record 19e836b5c0a7",
+          "Snowden–Howie DOI 10.1017/S0017089500004912",
+          "Higgins DOI 10.4153/CMB-1986-053-2",
+          "arXiv:1404.1598v1 and arXiv:1504.02520v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary records 19e836b5c0a7 and 2f21d1369b49",
+        "Snowden–Howie (1982)",
+        "Higgins (1986)",
+        "Araújo–Bentz–Mitchell–Schneider arXiv:1404.1598v1",
+        "Dolinka–East–Mitchell arXiv:1504.02520v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an admissible e only block 0 is fixed. The indexed forest EGF is exp(T_0^[2]); its single-tree part is T_0^[2]. The labeled coefficient multiplied by the block factorials and divided by n_0 gives the number with the specified root u by label symmetry.",
+          "Write F={j>0:e(j)=0}. The recurrence gives T_0^[2]=x_0 exp(x_0 exp(x_0+sum_{j in F}x_j) + sum_{j in F}x_j exp(sum_{i:e(i)=j}x_i)). Expanding the exponential terms indexed by k and h_j and taking the labeled coefficient gives precisely the displayed k and h_j sums, including h_j^N_j. Inadmissible e cannot carry a height-two tree with root in block 0."
+        ],
+        "reasoning": "This is a direct specialization and expansion of the earlier-comparison result, not reliance on a title or on the statement that the earlier enumeration happens to include some of the same maps. The support count, two-block reduction and uniqueness statement are elementary consequences.",
+        "searches": [
+          "19e836b5c0a7/RESULT.md, EGF at offset 1630 and rooted-tree proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Power-stabilization record 19e836b5c0a7, rooted-forest criterion and EGF: f^3=f^2 is the height-at-most-two forest condition."
+        ],
+        "reasoning": "The specified endpoint f^2=c_u selects a one-component forest rooted at u. A component of the fixed block type is already an explicit constituent of the published EGF.",
+        "searches": [
+          "Resultary: square roots of a constant transformation in partition-preserving transformation monoids, fiber counts by prescribed induced block map for unequal finite blocks",
+          "Resultary: Character-conditioned power stabilization in finite partition-preserving transformation monoids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The weighted matching census includes constant targets in the full monoid, hence the one-block case. The power-stabilization EGF gives every requested exact fiber in the general case."
+        ],
+        "reasoning": "This is an exact symbolic enumeration, not a table search alone. The relevant exact count is extractable from the broader indexed recurrence without a new counting theorem.",
+        "searches": [
+          "Resultary: square roots of a constant transformation in partition-preserving transformation monoids, fiber counts by prescribed induced block map for unequal finite blocks",
+          "Weighted matching census record 2f21d1369b49"
+        ]
+      },
+      "rationale": "The strongest distinct indexed result gives a multitype EGF for height-bounded forests with a prescribed block character. Its one-component term at height two gives precisely the claimed fiber, not just a loose superset. This is demonstrable coverage, without inferring historical priority from a shared index date.",
+      "residual_risks": [
+        "Broader literature search was unavailable; the attribution of a full-monoid constant-target special case to Kozyra (2018) was not checked in primary full text. Neither limitation affects the explicit indexed implication. Relative historical priority of the two same-day records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claimed fiber as a special case",
+          "evidence": [
+            "T_j^[h+1]=x_j exp(sum_{i:e(i)=j} T_i^[h]); G is the exponential of the sum over fixed block types. The proof identifies each T_j as a single rooted component."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-character-conditioned-power-stabilization-in-finite-partition-pr--19e836b5c0a7/RESULT.md",
+          "material_read": "Finding and coefficient extraction at offset 1630; rooted-forest criterion and EGF proof passages",
+          "method": "Bounded original indexed text inspection and symbolic coefficient extraction",
+          "title": "Character-conditioned power stabilization in finite partition-preserving transformation monoids",
+          "trigger": "Strongest indexed overlap, same prescribed block character"
+        },
+        {
+          "assessment": "Covers the full-monoid specialization",
+          "evidence": [
+            "Enumerates roots over arbitrary idempotents in the full monoid, including rank-one constants; it does not impose a partition character."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-weighted-matching-census-of-square-roots-of-arbitrary-idempotent--2f21d1369b49",
+          "material_read": "Indexed RESULT.md finding at offset 0",
+          "method": "Bounded original indexed text inspection",
+          "title": "Weighted matching census of square roots of arbitrary idempotents",
+          "trigger": "Exact square-root counting overlap"
+        },
+        {
+          "assessment": "Background on root existence, not the claimed prescribed-block enumeration",
+          "evidence": [
+            "Notes a constant map is a square root of itself."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500004912",
+          "material_read": "Opening and §3, journal p. 140",
+          "method": "Lawful original PDF passages",
+          "title": "Square Roots in Finite Full Transformation Semigroups",
+          "trigger": "Same square-root problem without partition constraints"
+        },
+        {
+          "assessment": "Full-monoid construction; not the decisive prescribed-character coverage",
+          "evidence": [
+            "Pairs functional-graph components and treats trees; counting discussion concerns square images."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1986-053-2",
+          "material_read": "Theorem, journal p. 350, and counting discussion p. 351",
+          "method": "Lawful original PDF passages",
+          "title": "A Method for Constructing Square Roots in Finite Full Transformation Semigroups",
+          "trigger": "All-root functional-graph construction"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Determines generating rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.1598v1",
+          "material_read": "Opening and Theorem 1.1",
+          "method": "Lawful original text inspection",
+          "title": "The rank of the semigroup of transformations stabilising a partition of a finite set",
+          "trigger": "Same arbitrary-partition monoid"
+        },
+        {
+          "assessment": "Different enumeration",
+          "evidence": [
+            "Enumerates idempotents and addresses idempotent generation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02520v1",
+          "material_read": "Abstract and introduction",
+          "method": "Lawful original text inspection",
+          "title": "Idempotent rank in the endomorphism monoid of a non-uniform partition",
+          "trigger": "Enumeration for the same non-uniform monoid"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "19e836b5c0a7/RESULT.md, EGF and its rooted-component interpretation"
+      ],
+      "rationale": "The prescribed fiber is a natural combinatorial invariant, but the claimed advance is a routine coefficient extraction from an existing generating function that already tracks exactly the requisite character and individual tree components. The support and uniqueness corollaries do not supply a separate substantive result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

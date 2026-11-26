@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:30:57.605470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact block loss difference is half the squared head Gram residual plus ||YZ^T||_F^2-||Z||_F^2+||ZZ^T||_F^2/2. The gradient vanishes at each collapsed orientation, and k+1 columns suffice for exact fit by disjoint supports. If the minimum head entry is strictly above 1/sqrt(m), it remains so in a neighborhood; nonnegative rows z give ||Yz^T||_2^2 >= m(min Y_ij)^2||z||_2^2. This proves local optimality for all feasible perturbations there, with nonstrictness from nearby positive unit orientations. Below threshold, inserting one entry t in a minimizing column of one tail row gives a negative quadratic coefficient and a positive t^4/2; head scaling also supplies an increasing direction. At equality the displayed Hessian coefficient is nonnegative on the full tangent cone (head arbitrary, tail nonnegative, gradient zero). Reducing the minimizing squared orientation coordinate by t^2/m and transferring that mass to another coordinate keeps the head Gram fixed; the same tail insertion now gives exactly -t^4/2 at distance t+O(t^3). The critical construction needs r>=2; the stronger r>=k+1 hypothesis ensures zero global loss. The balanced vector uniquely maximizes the minimum coordinate, so a local minimum in this family exists exactly for m>r. The source's exact-rational checks are finite; its script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hayashi et al. study algorithms and sampling guarantees in the inspected introduction, not a theorem classifying these stationary factors. Josz and Lai's inspected Theorem 1 uses a rank-one nonsmooth absolute-value loss, whereas the frozen loss is quadratic in the Gram residual and the factor has at least two columns."
+        ],
+        "reasoning": "Neither inspected statement is a stronger theorem whose assumptions and conclusion subsume the orientation threshold for the frozen model.",
+        "searches": [
+          "arXiv:2402.08134, Randomized Algorithms for Symmetric Nonnegative Matrix Factorization",
+          "arXiv:2410.17487, Nonsmooth Rank-One Symmetric Matrix Factorization Landscape"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Zhang, DOI 10.1007/s11590-026-02290-0",
+        "arXiv:2402.08134",
+        "arXiv:2410.17487",
+        "Resultary same-date randomized orthogonalization record above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The balanced sufficient bound is a special case of the frozen entrywise bound. Negative curvature at an imbalanced orientation uses a specific column with m a_j^2<1; the compensated change at equality instead gives descent with nonnegative Hessian on the feasible cone."
+        ],
+        "reasoning": "A similar positive-phase proof is available by adapting the balanced estimate. This does not give the necessary direction, the classification of states with identical Gram and gradient, or the critical quartic descent from the statements inspected.",
+        "searches": [
+          "DOI 10.1007/s11590-026-02290-0, Theorem 4 and Lemma 12, including the local lower-bound proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Take r_star=k+1 in Zhang's block example; the target then agrees exactly, but the top factor is fixed at the balanced vector.",
+          "Orthogonal rotation of factor columns preserves Gram but need not preserve the nonnegative feasible neighborhood, in particular the tangent cone at the zero rows."
+        ],
+        "reasoning": "An algebraic equivalence of fitted matrices under rotation does not make the constrained local optimization problems equivalent. The balanced assertion cannot classify the entire fiber.",
+        "searches": [
+          "Zhang, DOI 10.1007/s11590-026-02290-0, Theorem 4 and Lemma 12",
+          "Resultary semantic search for nonnegative Gram factorization, orientation-dependent spurious local minima and critical threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-date indexed orthogonalization record treats a 3x3 SPD inverse-trace potential, not this optimization problem. The exact model example in the inspected published Lemma 12 tests the balanced point, where h=m/r."
+        ],
+        "reasoning": "The exact overlapping example is credited; the checked sources did not furnish a table, classification or equivalent indexed claim for all three orientation regimes.",
+        "searches": [
+          "Resultary semantic search for collapsed Gram factors and local-minimum orientation thresholds",
+          "Resultary: SCOPE-sharp-one-step-excursions-in-three-vector-randomized-orthogonali--4916aa7e5711",
+          "Zhang, published Lemma 12"
+        ]
+      },
+      "rationale": "Credit Zhang for the same target and balanced spurious minimum, as the frozen original does. The supported distinct claim is the sharp classification over the whole positive unit orientation family, including opposite local behavior at an identical Gram matrix and the second-order stationary but quartically descending boundary.",
+      "residual_risks": [
+        "Targeted comparison, not exhaustion of published or unindexed landscape analyses; another paper might derive an equivalent arbitrary-orientation or threshold theorem.",
+        "The estimate in the positive regime is closely related to the proof in Zhang; no novelty is claimed for the underlying block construction or the balanced case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the balanced positive phase only",
+          "evidence": "Lemma 12 proves local minimality of the balanced collapsed factor for m>r. It does not state an arbitrary-orientation result or classify the h=1 case.",
+          "identifier_or_url": "https://doi.org/10.1007/s11590-026-02290-0",
+          "material_read": "Published PDF pp. 6 and 15, Theorem 4 and Lemma 12 (offsets 14247 and 42351–47342)",
+          "method": "Lawful OA PDF text, theorem and proof passages",
+          "title": "Nonnegative Low-rank Matrix Recovery Can Have Spurious Local Minima",
+          "trigger": "Same target, objective and balanced collapsed stationary point"
+        },
+        {
+          "assessment": "Algorithmic context; no coverage in inspected statements",
+          "evidence": "The abstract gives algorithmic, sampling and experimental contributions; keyword misses do not establish what the full paper omits.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.08134",
+          "material_read": "p. 1 and targeted local-minimum term lookup",
+          "method": "Lawful OA PDF text",
+          "title": "Randomized Algorithms for Symmetric Nonnegative Matrix Factorization",
+          "trigger": "Exact general SymNMF setting"
+        },
+        {
+          "assessment": "Different loss and rank",
+          "evidence": "The theorem addresses second-order stationarity for the absolute-value rank-one loss.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.17487",
+          "material_read": "Theorem 1 and objective definition",
+          "method": "Lawful OA PDF text",
+          "title": "Nonsmooth Rank-One Symmetric Matrix Factorization Landscape",
+          "trigger": "Second-order landscape statement"
+        },
+        {
+          "assessment": "Different invariant and question",
+          "evidence": "The 4/3 result bounds a one-step excursion of an inverse-trace potential for a 3x3 SPD matrix.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-one-step-excursions-in-three-vector-randomized-orthogonali--4916aa7e5711",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local source text",
+          "title": "Sharp one-step excursions in three-vector randomized orthogonalization",
+          "trigger": "Closest same-date indexed search hit inspected"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example isolates a genuine ambiguity in judging constrained factor landscapes from fitted Gram matrices or first derivatives alone. A sharp threshold on the full positive orientation fiber and explicit fourth-order descent at a second-order stationary point convey more than another isolated spurious minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

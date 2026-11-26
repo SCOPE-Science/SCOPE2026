@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:15:57.992125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A maximal independent set has endpoint omissions in {0,1} and internal omission runs in {1,2}; the binomial count and marked generating function follow by choosing optional omissions. The recurrences for total count F and total size A apply from n=5. The bound F_j<=3F_{j-1}/2 is valid from j=3: check j=3,4,5, then the two previous ratios give F_j<=5F_{j-3}/2 and F_{j-1}>=5F_{j-3}/3. Therefore the size recurrence has at least 2/5 weight on the three-step term and propagates A_n/F_n<=(5n+6)/12 from n=2,3,4. Conditioning on the first inspected vertex gives the greedy mean recurrence and the stated exponential generating numerator over 2(1-x)^2 in its ordinary generating function. Extending the coefficient sum to infinity gives L_n as stated; the n+1 term is zero and from n+2 onward the magnitudes decrease, giving error at most 2^(n+1)/(n+2)!. The partial series for e^2 gives 2327/315, so the lower gap above the flat upper bound for n>=13 exceeds (437n-5670)/27924, greater than the tail error. The exact finite differences through 12 were independently reproduced, including the zeros at 1,2,4 and positives elsewhere; independent permutation enumeration through 8 corroborated the greedy recurrence. Replay files are /workspace/branches/e1fc8654-973b-4293-a3b8-decb64651659/independent_check.py and independent_check.txt. Frozen check.py was inspected, not executed. Finally 1-x^2-x^3 has only its real simple root rho on the smallest-modulus circle, by equality in the triangle inequality and coprime exponents. With local factor rho^2(2+3rho)(1-x/rho), the simple/double pole coefficient ratio yields the stated flat slope and bounded remainder. Subtracting the greedy slope gives delta about 0.0208367697190 and the uniform linear lower bound also implies positivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 establishes static <=st sequential on every finite path; its proof inserts an auxiliary law ordered between them.",
+          "The cited RSA literature gives the individual kinetic path density. Edwards ensemble work explains equiprobable jammed configurations, but that context alone does not imply the finite ordering."
+        ],
+        "reasoning": "Stochastic dominance on the identical models implies the claimed weak mean ordering without extrapolating from limiting densities. The decisive coverage is the exact all-path theorem, not analogy to Edwards ensembles.",
+        "searches": [
+          "Stochastic Dominance in Discrete Parking Processes on Graphs, arXiv:2611.14718v1 Theorem 3.1 and Proposition 3.2",
+          "Brightwell–Janson–Luczak arXiv:1510.05560",
+          "Krivelevich et al. arXiv:1907.07216",
+          "Edwards Statistical Mechanics for Jammed Granular Matter, DOI 10.1103/RevModPhys.90.015006"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2611.14718v1, model, theorem and strict likelihood-ratio proof passages",
+        "Individual kinetic density and Edwards context sources",
+        "The two identified Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof explicitly concludes that r_n(k)=P(aux=k)/P(static=k) is strictly increasing on the size support for all n, with seq dominating aux. The size support is the full integer interval from ceil(n/3) to floor((n+1)/2), a singleton exactly for n=1,2,4."
+        ],
+        "reasoning": "On a nonsingleton support the covariance under the static law of size with the strictly increasing r_n is positive, so E aux > E static, and E seq >= E aux. For the singleton sizes both laws are deterministic in size. Thus even the exact equality refinement follows from the earlier proof without the frozen global analytic comparison. The linear coefficient subtracts the elementary flat generating-function density from the standard greedy density.",
+        "searches": [
+          "arXiv:2611.14718v1 §§3.1–3.2 and proof of Theorem 3.1, PDF p. 9, OA offset 35430",
+          "Flat-support endpoints from the maximal-set gap parametrization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior paper selects sequentially from available vertices and assigns each maximal independent set static probability 1/|M(G)|. In the greedy random-permutation rule, conditionally on previous selections and deletions, the induced permutation on currently available vertices is uniform."
+        ],
+        "reasoning": "The next selected vertex is uniformly distributed among currently available vertices in either description. Thus the laws agree, not merely their densities; 'static' is uniform on maximal sets, not arbitrary or maximum independent sets.",
+        "searches": [
+          "Discrete parking: sequential/static path sampling versus random-order greedy/uniform maximal independent set",
+          "Higuita-Diaz–López–Roldán-Correa arXiv:2611.14718v1 §2.1",
+          "One-dimensional RSA and Edwards flat jammed ensembles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day local-reversal result proves sitewise inequalities for n>=14 and explicitly treats total-count path dominance as known. The subcubic census gives likelihood-ratio dominance for connected subcubic graphs through order 10 and cites the same all-path preprint."
+        ],
+        "reasoning": "The sitewise result is not an exact-size mean classification and the finite census cannot settle all n. Both are relevant overlaps; their dates are not the basis of the adverse decision.",
+        "searches": [
+          "Resultary: sequential/static discrete parking likelihood ratio and path occupancy",
+          "ea807a955df3",
+          "735eb3ff5569"
+        ]
+      },
+      "rationale": "A closely preceding primary theorem on the identical path laws proves stronger all-size stochastic dominance. Its strict auxiliary likelihood-ratio comparison, together with the elementary support calculation, also implies the advertised exact equality set. The residual extensive gap is a direct difference of individual density formulas, not a new independent comparison theorem.",
+      "residual_risks": [
+        "Publication priority before the inspected dominance preprint was not resolved. The prior preprint's separate finite certificate was not independently audited; the frozen result's own proof and bounded arithmetic were checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage, including strictness by implication",
+          "evidence": "Theorem orders the identical size laws. Proof establishes strict likelihood-ratio increase for auxiliary over static and Proposition 3.2 provides domination of auxiliary by sequential. The prior finite certificate was not independently rerun.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14718v1",
+          "material_read": "§2.1 p. 2, Theorem 3.1 p. 4, likelihood-ratio setup §3.2 p. 5, and proof p. 9 (bounded excerpt from OA offset 35430)",
+          "method": "Targeted OA PDF passages and statement comparison",
+          "title": "Stochastic Dominance in Discrete Parking Processes on Graphs",
+          "trigger": "Identical path laws and stronger total-count conclusion"
+        },
+        {
+          "assessment": "Covers the kinetic asymptotic constant, not the finite comparison",
+          "evidence": "States Flory's one-dimensional limiting density (1-e^-2)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.05560",
+          "material_read": "PDF p. 3, offset about 9850",
+          "method": "Targeted OA passage",
+          "title": "The greedy independent set in a random graph with given degrees",
+          "trigger": "Greedy path/RSA density antecedent"
+        },
+        {
+          "assessment": "Same kinetic limit; not the finite flat comparison",
+          "evidence": "Asymptotic ratio on paths is (1-e^-2)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "PDF p. 2, OA offset 6021",
+          "method": "Targeted OA passage",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Greedy asymptotic on paths"
+        },
+        {
+          "assessment": "Ensemble context only",
+          "evidence": "Equiprobability assumption for jammed microstates, not the two laws on finite paths.",
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.90.015006",
+          "material_read": "p. 4, OA offset 18409",
+          "method": "Targeted OA passage",
+          "title": "Edwards Statistical Mechanics for Jammed Granular Matter",
+          "trigger": "Physical terminology for uniform jammed states"
+        },
+        {
+          "assessment": "Sitewise comparison, with total-count dominance acknowledged",
+          "evidence": "Sign pattern on sites for n>=14 rather than the size equality classification.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-site-local-reversal-between-sequential-and-static-par--ea807a955df3",
+          "material_read": "RESULT.md at offset 0",
+          "method": "Local catalogue and mirrored source",
+          "title": "Sharp four-site local reversal between sequential and static parking",
+          "trigger": "Distinct same-day result on the same path laws"
+        },
+        {
+          "assessment": "Relevant small-path overlap, but finite and broader in graph types",
+          "evidence": "Exact census through order 10 and reference to arXiv:2611.14718v1.",
+          "identifier_or_url": "2026/11/22/SCOPE-likelihood-ratio-domination-through-ten-vertices-in-subcubic-par--735eb3ff5569",
+          "material_read": "RESULT.md at offset 0 and relationship section around 5652",
+          "method": "Local catalogue and mirrored source",
+          "title": "Likelihood-ratio domination through ten vertices in subcubic parking",
+          "trigger": "Distinct same-day finite exact comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite comparison is a natural question and the frozen record provides a short independent proof of the mean statement. But as a claimed new scientific result it is strictly weaker than the existing all-path distributional comparison, with its equality set already implied by the prior argument. The elementary density difference and finite base values do not isolate a substantially new question or strengthen that comparison; no distinct valuable repaired claim is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved for every positive integer sample size under an i.i.d. fully specified continuous null. The canonical centered kernel identity is reconstructed from the published statistic, and the cube expansion is reduced to five enumerated connected index configurations. Five exact rational polynomial integrations yield the cubic moment. The exact variance provides the skewness normalization; the displayed derivative polynomial and explicit two-versus-three comparison establish the global discrete maximum. The standalone rational polynomial checker reproduced each contraction and the all-size algebra, with 150 illustrative finite-index checks; the proof of the infinite monotonicity assertion is analytic, not enumerative. A Monte Carlo cross-check agreed within sampling error.
+PASS
 
-## Originality — PASS, with limitations
+The integrated feature kernel is as stated and canonical because E[H_t(U)]=0; its mean diagonal is ∫u(2u−1)²du−1/30=2/15. In the cube of the centered kernel expansion, a lone diagonal at an independent vertex vanishes by centering, and an unmarked vertex appearing in only one pair term vanishes by conditional degeneracy. The surviving triple diagonal, two diagonals on a pair, diagonal with doubled pair, tripled pair, and triangle have coefficients n, 12 binom(n,2), 24 binom(n,2), 8 binom(n,2), and 48 binom(n,3). Independent exact-rational integration reproduces the five contractions 86677/13513500, 15931/11583000, 280583/121621500, 225809/162162000, and 502883/324324000 in order; the two variance contractions are 169/8100 and 109/8100. Coefficient comparison after expanding the binomial counts gives the stated all-size cumulant, not just agreement at sampled sizes. Substitution and differentiation give γ′(x) with sign opposite to P(x)=149806549x²−355004333x+20427855, where P(3)=303673797, P′(3)=543834961 and P″=299613098. Skewness is positive at every integer n≥1; exact squared comparisons give γ₂>γ₁, and γ₂²−γ₃²=14038148030846784406/158775012314273730375>0. Therefore the sequence decreases strictly from n=2, has its unique integer maximum there, and stays above its limit for every n≥2. The asymptotic limit and the reported small-sample figures are consistent with the formulas.
 
-The 13 August 2021 preprint of Ebner–Liebenberg–Visagie, especially its statistic definition and Section 2, gives the first four **limit** cumulants, not the sample-size-dependent third cumulant. The final large-sample coefficient here matches their \(502883/40540500\), but a limit does not imply its \(1/n\) and \(1/n^2\) corrections. A known second-order calculation for the same statistic gives the variance and covariances with classical tests, but not cubic contractions or the unique two-sample maximum. Queries of mathematical findings using source identity, moments, equivalent kernel language, finite-sample skewness, and exact rational coefficients did not locate the precise result; this is evidence from bounded searches, not a proof of uniqueness. The complete open-access original preprint was consulted in its definition, asymptotic-calibration and finite-quantile sections. Full text of the 2022 journal revision was not inspected; older general cumulant expansions remain a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The paper explicitly fits a Pearson-system law using only **limiting** cumulants and reports finite-sample critical values. Thus the exact third cumulant supplies a relevant, previously unspecified finite-sample shape correction. The sample-size-two maximizer and strict decrease quantify how the shape correction behaves across all samples, beyond an isolated unmotivated moment evaluation. Even at ten observations the exact skewness exceeds its asymptotic value by about 6.19%, which makes the correction interpretable for small-sample calibration research. This does not prove that substituting the third cumulant alone improves a critical-value approximation; fourth-order and approximation studies remain open.
+The primary paper's cumulant of identical constant value belongs to its limiting law, while the closest distinct catalogue finding supplies exact variance and mixed second-order dependence of the same statistic. Neither statement supplies the two finite-size corrections, the diagonal and repeated-pair cubic contractions or the exact integer maximum. Generic canonical-kernel counting is a method, not the evaluated contractions. The pass is limited to the finite-n third cumulant and skewness conclusion, not the statistic, its variance, or its limiting cumulant.
 
-## Literature and boundary
+## value
 
-Primary: Ebner, Liebenberg and Visagie (2021), arXiv:2108.06391v1, and the 2022 *Statistics* article DOI 10.1080/02331888.2022.2133121. The computed finite variance is acknowledged as known; it is used solely to normalize the new cubic moment. No composite-null or distributional tail-error assertion is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A published limiting-cumulant approximation motivates measuring the exact small-sample departure for this specific statistic. The evaluated cubic contractions and size-two maximum show a nonmonotone initial change and a strictly one-sided approach thereafter, with skewness still about 6.19% above its limiting value at n=10. This is a useful finite-sample description that cannot be read from the known variance and limiting third cumulant. It does not infer exact critical values or calibration improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

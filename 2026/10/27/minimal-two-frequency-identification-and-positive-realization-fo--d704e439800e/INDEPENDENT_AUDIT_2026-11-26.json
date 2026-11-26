@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:38:03.826991Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive ODE has negative homogeneous trace and positive determinant, so the calibrated limiting complex response is well defined. Eliminating the deep layer gives impedance Z(s)=λ+Cs+γτs/(1+τs), with τ=C_D/γ. Independently, write (1+τs)Z(s)=P_0+P_1s+P_2s². At the two positive frequencies the imaginary equations divided by frequency read J_j+τR_j=P_1, giving τ=b/a, while the real equations read R_j−ω_j²τJ_j=P_0−ω_j²P_2; these uniquely determine λ=P_0 and C=P_2/τ. The forward differences give a=γτ²(ω₂²−ω₁²)/[(1+ω₁²τ²)(1+ω₂²τ²)], so a,b>0 are necessary and ensure positive τ,γ,C_D in the reconstruction. The two remaining inequalities are exactly C>0 and λ>0; together these conditions reproduce all four real equations and hence the original nonzero phasors. For example, ω=(1,2), Z=(1+i,2) has a=b=1 yet reconstructs C=λ=−2/3, demonstrating the need for the last tests. At one tone fixing R,J permits freely varying τ,γ near any positive solution and reconstructing C,λ continuously; fixing DC determines λ and then γ from τ, leaving one local degree of freedom. The stated perturbation inequality follows from |Δa|≤2ε_R and |Δb|≤2ε_J and needs no assumption about raw-temperature errors; even when the ratio is positive, C and λ still need checking. The rational witness in RESULT.md line 82 is exact and its two inverse phasors agree with direct substitution. Frozen verify.py is a supplementary finite replay (inspected, not executed); the witness is checked there in floating point despite being specified rationally, and the final commented negative-data case actually rechecks a positive case. Neither limitation undermines the algebraic certificate or the independent negative example above. The proof is only for this constant positive model with known forcing magnitude and phase, two distinct positive frequencies, and finite nonzero complex response ratios.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Soldatenko–Colman equation (4) gives the equivalent two-box frequency-domain transfer and nearby local sensitivities.",
+          "Bortner–Sullivant's theorem treats local structural identifiability of series-parallel LCR systems through constitutive equations, for full input-output behaviour.",
+          "The 2011 and 2013 cited publisher texts could not be retrieved for independent passage comparison."
+        ],
+        "reasoning": "Full-model transfer and full-input-output structural criteria establish substantial prior coverage of the modelling and identifiability context. They do not by themselves certify four strict inequalities from two sampled values or the persistence of the continuum at one tone plus DC.",
+        "searches": [
+          "Soldatenko–Colman DOI 10.16993/tellusa.40 p. 4 equation (4)",
+          "Bortner–Sullivant arXiv:2107.06271 Theorem 1.1",
+          "MacMynowski–Shin–Caldeira DOI 10.1029/2011GL048623; Geoffroy et al. DOI 10.1175/JCLI-D-12-00195.1"
+        ]
+      },
+      "checked_sources": [
+        "Soldatenko–Colman (2022), equation (4) and sensitivities",
+        "Bortner–Sullivant (2021), Theorem 1.1",
+        "Local Resultary index and later related result d36483031f65",
+        "MacMynowski et al. (2011) and Geoffroy et al. (2013), retrieval attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known transfer gives Z directly after inversion, and the degree argument gives at most one rational function. Data can still yield an admissible pole and positive exchange while producing nonpositive C and λ (e.g. the impedance pair given in correctness).",
+          "The phase-only record holds all parameters but exchange fixed, so its one-frequency disambiguation with magnitude does not identify four unknowns."
+        ],
+        "reasoning": "The exact two-sample strictly positive image is the claim to compare, not the model equation or a generic parameter count. The actual implications of the nearest inspectable sources stop short of a direct positive-realization theorem for these observations.",
+        "searches": [
+          "Soldatenko–Colman equation (4) and sensitivities, PDF offset 23545",
+          "Bortner–Sullivant Theorem 1.1, PDF offset 5645",
+          "Resultary d36483031f65, mirrored RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The thermal impedance is the electrical admittance of a shunt conductance λ, shunt capacitor C, and one series-RC branch with R_b=1/γ and C_b=C_D. The terminology differs but the formulas match exactly.",
+          "Z(s) is real rational of numerator degree at most two and denominator degree at most one. Two distinct positive frequency samples yield four distinct conjugate nodes; cross-multiplication of two candidate interpolants gives a polynomial of degree at most three vanishing at those four nodes."
+        ],
+        "reasoning": "Function-level uniqueness in the positive model is an immediate consequence of standard rational interpolation, since a positive exchange branch cannot cancel its pole. Neither function-level uniqueness nor existence of an arbitrary real-rational fit is a test for strict positive parameters in terms of the complex data.",
+        "searches": [
+          "Local Resultary and literature: two-layer/two-box complex response, two frequencies, positive realization; one-relaxation passive RC admittance and discrete interpolation",
+          "arXiv:2107.06271 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed match inspected: 2026/11/2/SCOPE-a-sharp-phase-only-identifiability-window-for-a-coupled-two-laye--d36483031f65 fixes both capacities and feedback, varies exchange only, and finds a one-frequency phase ambiguity which magnitude resolves."
+        ],
+        "reasoning": "This is an analytic identifiability class, not a numerical table lookup; the exact-catalogue check therefore targets theorem/formula matches. The matched entry has different unknowns and data (one phase instead of two complex samples), so it neither subsumes nor contradicts this feasibility theorem. No exact match emerged in the bounded catalogue results.",
+        "searches": [
+          "Local Resultary: two phasors two-layer energy balance model positive reconstruction; one-relaxation two-frequency impedance; two-box harmonic identifiability"
+        ]
+      },
+      "rationale": "The transfer model, its analog passive network and the rational-interpolation uniqueness principle are prior or standard and are not credited as new. The supported distinct result is the explicit strict feasibility test directly in two calibrated phasors, with closed reconstruction, one-tone-plus-DC sharpness throughout the positive region, and the stated contrast-based bound. No inspected statement covers that package or the explicit feasible data set. This is a bounded comparison, particularly because two historical papers were not fully accessible.",
+      "residual_risks": [
+        "The 2011 frequency-fit and 2013 model-calibration full texts could not be inspected, so exact coverage there was not ruled out.",
+        "Older passive-network identification or rational-interpolation literature could state an equivalent admissibility test in other coordinates; the bounded search did not identify one. No universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transfer-function precedent; inspected passages do not give two-point data-cone membership",
+          "evidence": [
+            "Equation (4) gives the frequency-domain transfer for the coupled boxes and nearby expressions differentiate it with respect to model parameters."
+          ],
+          "identifier_or_url": "https://doi.org/10.16993/tellusa.40",
+          "material_read": "PDF p. 4, equation (4) and nearby sensitivity passages (offset 23545)",
+          "method": "Bounded primary PDF passage comparison",
+          "title": "Power Spectrum Sensitivity Analysis of the Global Mean Surface Temperature Fluctuations Simulated in a Two-Box Stochastic Energy Balance Model",
+          "trigger": "Same energy-balance transfer and frequency-domain analysis"
+        },
+        {
+          "assessment": "Full-input-output local identifiability is not the discrete sample problem",
+          "evidence": [
+            "The criterion refers to coefficients of the constitutive differential equation, not arbitrary two-frequency pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.06271",
+          "material_read": "Theorem 1.1, PDF p. 2, offset 5645",
+          "method": "Bounded primary PDF passage comparison",
+          "title": "Structural Identifiability of Series-Parallel LCR Systems",
+          "trigger": "General network structural identifiability and equivalent RC realization"
+        },
+        {
+          "assessment": "Unresolved access risk; not negative evidence",
+          "evidence": [
+            "The exact two-phasor implication could not be compared from this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2011GL048623",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Publisher and lawful DOI recovery attempted",
+          "title": "The frequency response of temperature and precipitation in a climate model",
+          "trigger": "Earlier two-box frequency fitting is plausible exact overlap"
+        },
+        {
+          "assessment": "Unresolved access risk; not negative evidence",
+          "evidence": [
+            "No conclusion about this paper's entire calibration treatment is drawn."
+          ],
+          "identifier_or_url": "https://doi.org/10.1175/JCLI-D-12-00195.1",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Publisher access attempted; no identified readable primary passage available",
+          "title": "Transient Climate Response in a Two-Layer Energy-Balance Model. Part I: Analytical Solution and Parameter Calibration Using CMIP5 AOGCM Experiments",
+          "trigger": "Earlier calibration and modal solutions for this model"
+        },
+        {
+          "assessment": "Different unknowns, data and conclusion",
+          "evidence": [
+            "Only exchange varies with both capacities and feedback fixed. The result analyzes phase at one frequency, not positive realization in four unknowns."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-phase-only-identifiability-window-for-a-coupled-two-laye--d36483031f65",
+          "material_read": "Mirrored RESULT.md statement of phase-only ambiguity and magnitude disambiguation",
+          "method": "Local Resultary lookup and bounded statement comparison",
+          "title": "A sharp phase-only identifiability window for a coupled two-layer model",
+          "trigger": "Closest catalogue match on harmonic identifiability for the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the minimum number of measured harmonics, the strict inequalities decide whether the data have a positive fit at all, rather than merely fitting a rational function or estimating four parameters from four numbers. This yields a test directly in calibrated observations, states why even an equilibrium measurement cannot replace a second tone, and identifies the contrast controlling noise amplification of τ. It is practically interpretable within the model; it does not assert robustness to model error, noisy uncalibrated observations, or validity for the real climate system.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

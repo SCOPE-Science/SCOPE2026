@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete mathematical proof is in `RESULT.md`. Its critical independently reconstructed steps are: (i) the rotating-frame vector field and exact symmetric Jacobian; (ii) the rank-two positive and rank-\(M\) negative decompositions for noncollinear polygons; (iii) the surjectivity needed to obtain both extremal indices and the \(M-2\)-dimensional smooth kernel; and (iv) the collinear longitudinal/transverse splitting with the rank-one Sylvester inertia test, including \(\tau=1\).
+## correctness
 
-The accompanying `verify.py` is standalone Python 3 standard-library code. Its exact-rational congruence elimination tests signatures, while direct polynomial vector-field differences independently check the Jacobian entries, including the analytically determined cubic finite-difference error. It also checks that all generated examples are balanced equilibria. Actual execution: `python3 verify.py` produced `VERIFY_OK: exact rational polynomial/Jacobian/inertia/closure assertions = 3504`.
+PASS
 
-Finite example tests do not prove the theorem for unbounded \(M\), arbitrary positive real parameters, or every polygon shape; the proof does. The theorem is restricted to all-active, purely dissipative coupling. Independent scientific validation has not been performed.
+The complete-graph coupling is c times the sum minus Mc times the local coordinate. After rotation and use of the equilibrium radii, the quadratic form is c|Tv|²−2κ|Uv|², with Tv=Σv_j and (Uv)_j=w_j·v_j. When the polygon is noncollinear, U is onto and T maps ker U onto the plane, so (T,U) is onto. In a basis lifting its image and completing with its kernel, the form is congruent to diag(cI₂,−2κI_M,0_{M−2}). The derivative of polygon closure on the fixed-radius product has rank two because the rotated w_j span the plane. Thus the kernel is the tangent space of the equilibrium manifold. Continuity and the separated nonzero spectrum give local normal hyperbolicity, not a uniform bound up to the collinear set. At collinearity signs of the w_j drop out: the transverse block is c11ᵀ, and the longitudinal block is −2D+c11ᵀ with D=diag(β_j−Mc)>0. Congruence by D^(−1/2) gives M−1 negative directions and the sign of 2(τ−1) for the last longitudinal direction. The transverse block adds one positive and M−1 zeros, so the critical equality and both strict inequalities give exactly the displayed cases; each is unstable. I read the rational checker but did not run it; the argument is exact for arbitrary permitted lengths.
+
+## originality
+
+PASS
+
+The rotating-frame gradient system and closed-polygon zero-mean family, with its generic dimension, are prior work. In the primary passages inspected, I found no prior determination of all the indices for arbitrary all-active fixed-length shapes under positive real coupling, or of the exact singular collinear threshold. Two later catalogue records cover the same theorem, one as a special case of a wider classification. Their later dates do not support earlier priority; the overlap is substantive and does not make these three different mathematical results on the common regime.
+
+## value
+
+PASS
+
+The result replaces shape-by-shape stability analysis in the real-coupled regime by complete indices for every allowed size and heterogeneity. The two normally expanding directions at regular polygons and the sharp loss or gain of one longitudinal direction at collinearity separate degeneracies that the common-phase neutral mode alone would not reveal. This is a useful exact benchmark for these equilibria, without implying a nonlinear bifurcation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

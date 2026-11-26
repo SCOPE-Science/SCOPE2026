@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:41:50.318701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49",
+        "Frozen VERIFICATION.md, lines 19–25 and check.py, lines 1–50",
+        "Mori, Olsen and Krishnamurthy, arXiv:2211.15372, Eqs. (4), (8)–(10)"
+      ],
+      "rationale": "The Poisson age has rate r and is independent of the previous reset location. Free-displacement characteristic function r/(r+Dk²) gives an independent unit Laplace Z times sqrt(D/r); the pre-jump marginal is stationary because the clock intensity is constant. Forward and reversed Brownian segments have symmetric free kernels; the stationary endpoint log-density ratio has mean zero, and the ratio per jump x→y is p_R(y)/p_R(x). Endpoint integrability follows from the stationary convolution: it is bounded above and bounded below by a positive constant times exp(-|x|sqrt(r/D)) by restricting the reset integral to a bounded interval, and has finite first moment. Thus the rate is r[E h(Y+TZ)−E h(Y)], T=sqrt(D/(r sigma²)). For T≥1, |h(Y+TZ)|/T^p is bounded by a constant times 1+|Y|^p+|Z|^p and converges almost surely to c|Z|^p. The Laplace moment Gamma(p+1) gives the stated coefficient, and the bounded-in-T subtraction E h(Y) is lower order for p>0. For the even powers, the gamma moment ratio enforces variance one. Binomial expansion, E Z^(2j)=(2j)!, and vanishing odd Laplace moments give all coefficients with the stated powers of D/sigma² and r. Gaussian c_1=1/2 gives D/sigma²; for m≥2 the positive j≥2 coefficients imply strict decrease, and j=m determines the leading divergence. The quartic terms follow from E Y²=1.",
+      "residual_risks": [
+        "The recorded quadrature and author checker were not replayed; the all-rate and rare-rate claims were checked analytically.",
+        "The rate is stationary trajectory irreversibility, not resetting-actuator work or an assertion about finite-duration protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mori et al. give the general observable. Bressloff develops stochastic entropy calculus for jump-diffusions including resetting and switching potentials.",
+          "The finite-time resetting paper's indexed description concerns work in finite-duration protocols; its full text was unavailable in the attempted lawful routes."
+        ],
+        "reasoning": "The general frameworks provide starting identities, but the read statements do not supply a small-rate theorem under a log-density tail condition or an all-even-power solution. Finite protocol work is a different observable; no whole-paper claim is made about the inaccessible source.",
+        "searches": [
+          "Primary literature: entropy production rare resets with stretched-/super-Gaussian reset-location density",
+          "Mori et al., Sec. II; Bressloff, introduction, pp. 2, 4; DOI 10.1103/PhysRevResearch.6.033343"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification notes",
+        "arXiv:2211.15372",
+        "DOI 10.1088/1751-8121/ad8495",
+        "DOI 10.1103/PhysRevResearch.6.033343 (indexed description only)",
+        "Resultary f0dd59fc40a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the potential to zero in the prior functional supplies the exact expectation difference for arbitrary reset densities. The earlier Gaussian branch and exponential example are covered.",
+          "The general theorem needs control after scaling the log density of a wide Laplace convolution; exact even-power monotonicity needs each positive coefficient and its rate power."
+        ],
+        "reasoning": "The new statements are consequences of the prior functional with additional tail-limit and polynomial arguments, not specializations of an inspected stronger asymptotic or all-rate monotonicity theorem.",
+        "searches": [
+          "arXiv:2211.15372, Sec. II and Sec. IV B, compared with frozen RESULT.md lines 18–26 and 35–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known functional is the reset-density log-ratio, equivalently the difference of reset and Laplace-smoothed reset cross-entropies with respect to the reset density.",
+          "The same-day exact search match f0dd59fc40a6 is the assigned record."
+        ],
+        "reasoning": "Changing notation to log density under Laplace smoothing does not create originality in the functional; the theorem concerns its nonuniform rare-rate limit, controlled by the tail rather than a moment of order two.",
+        "searches": [
+          "Resultary: weak/rare stochastic resetting, stretched-exponential reset law, path-reversal entropy rate",
+          "arXiv:2211.15372, Eqs. (4), (8)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit f0dd59fc40a6 matches the frozen Finding in the local mirror; other leading hits treated different resetting observables.",
+          "The primary paper works out exponential and Gaussian examples, including a Gaussian mean at unit parameters."
+        ],
+        "reasoning": "The self-match provides no independent evidence. Neither the examples nor the inspected catalogue evidence gives an exact rate across all standardized powers 2m or the general rare-rate classification.",
+        "searches": [
+          "Resultary: tail-dependent rare-reset entropy scaling and exact quartic/even-power resetting rates",
+          "arXiv:2211.15372, Sec. IV B, Eqs. (53)–(56)"
+        ]
+      },
+      "rationale": "Supported distinct content is the rare-rate tail-index classification, with its coefficient and finite-variance super-Gaussian divergence, plus the all-even-power finite-rate polynomial and monotonicity. The stationary convolution, general path-reversal entropy functional, and already treated Gaussian and exponential cases are not credited as new.",
+      "residual_risks": [
+        "A matching limit might have been drawn from the known functional elsewhere; bounded comparisons do not certify priority.",
+        "The full text of the identified finite-time-resetting paper could not be inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the functional and specific examples, not the asserted general tail asymptotic in the passages read.",
+          "evidence": "Zero potential removes the medium term and leaves the reset-density log-ratio; Gaussian example evaluated at unit parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+          "material_read": "Eq. (4); Sec. II, p. 4, Eqs. (8)–(10); Sec. IV B, p. 13, Eqs. (53)–(56)",
+          "method": "OA primary PDF passages",
+          "title": "Entropy production of resetting processes",
+          "trigger": "Same path-reversal observable and reset process"
+        },
+        {
+          "assessment": "Broader methodology; no matching asymptotic or even-power theorem in the material read.",
+          "evidence": "Discusses sample-path entropy and random-position resetting, cites Mori et al., and develops an Itô jump-diffusion framework.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ad8495",
+          "material_read": "Introduction, pp. 2 and 4",
+          "method": "OA publisher PDF passages",
+          "title": "Generalized Itô’s lemma and the stochastic thermodynamics of diffusion with resetting",
+          "trigger": "General resetting entropy framework"
+        },
+        {
+          "assessment": "Description concerns finite-time protocol work; precise full-text overlap was not assessed.",
+          "evidence": "Indexed scope: finite-time reset protocols and their work costs.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.6.033343",
+          "material_read": "Indexed description only; OA full-text access returned HTTP 403",
+          "method": "Primary literature search and attempted lawful OA retrieval",
+          "title": "Thermodynamic cost of finite-time stochastic resetting",
+          "trigger": "Potential overlap in rare-reset dissipation"
+        },
+        {
+          "assessment": "Identical record, not prior coverage evidence.",
+          "evidence": "Same tail threshold and exact even-power polynomial.",
+          "identifier_or_url": "2026/11/22/SCOPE-reset-tail-universality-and-the-rare-reset-dissipation-paradox--f0dd59fc40a6",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror text",
+          "title": "Reset-tail universality and the rare-reset dissipation paradox",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 43–49"
+      ],
+      "rationale": "At fixed reset variance the rate can vanish, stay finite and nonzero, or diverge under the same rare-reset limit. This distinguishes models indistinguishable by variance and explains why low event frequency need not make the process close to reversible by this measure. The quartic law gives a smooth, normalized, explicit witness, and the even-power formula resolves the finite-rate direction of change rather than merely exhibiting sampled growth.",
+      "residual_risks": [
+        "No design conclusion about physical dissipation or arbitrary non-even finite-rate monotonicity follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:28:21.591572Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–31, 37–85",
+        "VERIFICATION.md:19–35",
+        "verify.cpp:8–49; exhaustive_results.txt:1–7; check_formula.py:9–59 (inspected)",
+        "/workspace/replay/triangular_open_neighborhood.py and /workspace/replay/triangular_open_neighborhood.txt (fresh replay, Python 3, n=4..10)"
+      ],
+      "rationale": "On the complete graph's edge set, total domination means at most one isolated ground vertex and no component K2: an unselected pair only needs a selected edge at either endpoint, while a selected pair needs a different incident edge. For t covered vertices, c nontrivial components and m selected edges, c <= floor(t/3) and m >= t-c. At the claimed optimum with n=3k, zero isolates forces k trees of size three; one isolate forces k-1 trees with surplus two vertices above size three. The surplus is either two in one component or one in each of two. For residues 1 and 2, no-isolate graphs exceed the bound, and with one isolate the forced surplus is zero and one, respectively. These forests attain the bound, including n=4,5,6 and the first two-four-vertex case n=9. Dividing by component-order factorials and permutations of equal-size components and multiplying by the Prüfer counts 3, 16 and 125 gives the displayed coefficients, and the isolation proportion is the ratio of the all-P3 profile to the total. A fresh exhaustive open-neighborhood union replay at the proved minimum reproduced all seven totals and all profiles for n=4..10, checking foresthood for each accepted set; it is supplemental to the general argument.",
+      "residual_risks": [
+        "No formal proof or external attestation; the replay at fixed minimum does not establish the minimum or the all-n classification independently of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 Finding treats all inclusion-minimal sets and explicitly gives the minimum-size counts by residue.",
+          "The October 26 Finding gives an all-size enumerator for inclusion-minimal sets."
+        ],
+        "reasoning": "Every minimum set is inclusion-minimal. Once the minimum size is fixed, the inclusion-minimal enumeration restricts directly to the census; October 13 already does the restriction explicitly.",
+        "searches": [
+          "Resultary 2026/10/13, ae66bf400166",
+          "Resultary 2026/10/26, 71bde44b01fe"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 089ab809679e, ae66bf400166, 71bde44b01fe, and 03eed4233213 (later exact match)",
+        "arXiv:2610.04675v1, Thm. 14",
+        "arXiv:1910.02431v2, abstract/introduction",
+        "ScienceDirect PII S0304397514005933 (access unresolved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 14 gives the minimum by a lower bound and construction, not the full equality classification.",
+          "The October 12 profiles and counts already yield the isolation proportion by taking the all-P3 count divided by the full total for n=3k; its denominator grows cubically."
+        ],
+        "reasoning": "While the literature theorem does not itself state the census, the exact earlier indexed result covers all substantive conclusions, including the immediate isolation corollary.",
+        "searches": [
+          "Cornet–Dravec–Torres, arXiv:2610.04675v1, Theorem 14",
+          "Resultary 2026/10/12, 089ab809679e, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J(n,2)=L(K_n); a total dominating set corresponds bijectively to a total edge dominating set under the identity on labelled ground pairs.",
+          "Resultary 2026/10/12, 089ab809679e, Finding: same P3/four-/five-vertex-tree profiles with and without the isolated vertex."
+        ],
+        "reasoning": "The line-graph reformulation preserves minimal size, the underlying component structure and labelled multiplicities. The indexed statement covers the exact object, not just an analogous graph family.",
+        "searches": [
+          "Resultary: triangular-graph minimum total domination and complete-graph total edge domination census",
+          "arXiv:1910.02431v2, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both findings contain the equivalent exact labelled formulas in every residue class, not just a few matching finite sample counts."
+        ],
+        "reasoning": "The two pre-record catalogue results provide exact family-level coverage. The additional matching November 1 result is later by path date and unnecessary to this decision.",
+        "searches": [
+          "Resultary 2026/10/12, 089ab809679e, mirrored RESULT.md",
+          "Resultary 2026/10/13, ae66bf400166, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed 2026/10/12 record gives the same minimum configurations and algebraically identical labelled census for all three residues; the 2026/10/13 record also gives the minimum counts within a broader classification. This is verified equivalent coverage, not an inference from a shared title, index date alone, or the known domination number. The no-isolation asymptotic is an immediate ratio of those same counts, not a surviving distinct result.",
+      "residual_risks": [
+        "Exact mirror publication timestamps were not independently verified; the comparison establishes substantive duplicate content in distinct indexed records. The 2014 edge-domination article remained inaccessible, so external historical priority is not assessed conclusively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage",
+          "evidence": "Same minimum, same three residue-class counts and same five component profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e/RESULT.md",
+          "material_read": "Finding and Proof from offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirrored result reader",
+          "title": "All minimum total dominating sets of triangular graphs",
+          "trigger": "Exact indexed classification and labelled census"
+        },
+        {
+          "assessment": "Broader classification with explicit equivalent minimum census",
+          "evidence": "Exact counts a_n in all three residues and an inclusion-minimal enumerator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-minimal-total-dominating-sets-of-triangular-graphs-are-forests-o--ae66bf400166/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored result reader",
+          "title": "Minimal total dominating sets of triangular graphs are forests",
+          "trigger": "Potential stronger enumeration on the same graph family"
+        },
+        {
+          "assessment": "Enumerative coverage by restriction",
+          "evidence": "All-size EGF for the inclusion-minimal sets and the known minimum-size identity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimal-total-domination-in-triangular-graphs-short-legged-spide--71bde44b01fe/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored result reader",
+          "title": "Minimal total domination in triangular graphs: short-legged spiders",
+          "trigger": "Same-family all-size results"
+        },
+        {
+          "assessment": "Known minimum; the inspected passage does not enumerate minimizers",
+          "evidence": "Incidence lower bound and an attaining construction for ceil(2(n-1)/3).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.04675v1",
+          "material_read": "Theorem 14 and proof, pp. 11–12, PDF offset 38519",
+          "method": "Bounded OA full-text inspection",
+          "title": "Domination and Total Domination in Johnson graphs",
+          "trigger": "Same graph family and minimization"
+        },
+        {
+          "assessment": "Equivalent formulation; studied results in that passage concern complexity and trees, not the labelled clique census",
+          "evidence": "Definition of total edge domination; a literal complete-graph query gave no match, which does not establish absence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.02431v2",
+          "material_read": "Abstract and introduction, p. 1, offset 535",
+          "method": "Bounded OA full-text inspection",
+          "title": "The complexity of total edge domination and some related results on trees",
+          "trigger": "Equivalent edge-domination terminology"
+        },
+        {
+          "assessment": "Unresolved external coverage; not used for the FAIL",
+          "evidence": "HTTP 403 on both attempts.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0304397514005933",
+          "material_read": "Search citation only; no full text",
+          "method": "Attempted lawful OA retrieval via both configured routes",
+          "title": "On the algorithmic complexity of edge total domination",
+          "trigger": "Literature hit under the equivalent edge terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–31 and 87–93",
+        "Resultary 089ab809679e and ae66bf400166, Findings"
+      ],
+      "rationale": "Classifying all optimum configurations of a natural graph family is a worthwhile goal, and the proof is readable. As a distinct scientific contribution, however, the frozen claim recomputes the already indexed exact classification and labelled counts. The isolation statement is a direct consequence of those counts and no independent new structural or enumerative remainder is supplied.",
+      "residual_risks": [
+        "This does not dispute pedagogical or reproducibility value, or assert historical priority beyond the established overlap."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

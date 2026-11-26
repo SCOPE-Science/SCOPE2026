@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every finite reversible irreducible generator, the killed operator is strictly positive and self-adjoint. The equilibrium survival is a positive mixture of exponentials. Strict convexity of its log is equivalent to nonconstant killing rates. Conditional redraw independence and Jensen then prove the unique finite-budget optimizer, strict benefit of each additional segment, and the sharp constant-killing boundary. A self-adjoint matrix-moment calculation explicitly supplies the spatial variance and the Dirichlet form in the asymptotic coefficients. The standalone finite-matrix checker passed 111 comparisons, including nonuniform stationary weights; the general claim rests on the written proof.
+PASS
 
-## Originality: PASS within inspected evidence
+The killed operator H=K-Q is self-adjoint in L²(π), strictly positive by irreducibility and nonzero killing. Equilibrium survival is the Laplace transform of the spectral law of H at the unit vector 1. The tilted log curvature is the eigenvalue variance; equality occurs exactly if H1=k is a multiple of 1. A successful live redraw regenerates the starting law, hence survival is the product and strict Jensen gives the unique equal spacing for nonconstant k (q=1 has only one schedule). Splitting any positive segment strictly improves survival; spectral Jensen gives the strict lower bound exp(-t k̄). The first derivative gives its infinite-budget limit. Self-adjointness gives spectral moments k̄, Eπ[k²] and Eπ[k³]+<k,-Qk>π; the centered log cumulants give the stated coefficient including the factor 1/6 and negative sign. The fourth-order segment Taylor error is O(q^-3) after multiplying by q at fixed t,Q,k. Constant killing makes every inequality an equality and all schedules equivalent. The three-site path has variance 8/3, zero centered third moment, energy 8r/3. Independent replay `cd /workspace && python audit_checks/check_frozen.py 2` computes exact formal log coefficients in three rational networks and high-precision survival from their matrix exponentials, including nonuniform π with nonzero skewness and a constant killing case. The proof, not the finite checks, supplies the general quantifiers.
 
-The 2004 finite-restart equi-hazard principle and the 2016 Lorenz deadline paper are important direct prior-work precedents for the schedule-stationarity part, and the generic renewal identities of Eule–Metzger and Pal–Reuveni are explicitly credited. The present main distinction is the graph-specific full reversible class and its exact high-budget correction: the first term is killing variance, and the first generator-dependent term is the Dirichlet energy. No inspected source states this combined capture asymptotic or its strict graph-wide boundary. The 2004 article was not available in full text, and historical mathematical-reliability literature may contain equivalent formulations; the conclusion is not a claim of an exhaustive novelty census.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Absorption by spatially distributed traps and finite opportunities for re-equilibration form a natural resource-constrained transport problem. The theorem proves global optimality for every reversible finite network, explains why adding an equilibrium redraw always helps under heterogeneous killing, and identifies exactly when the network topology affects the approach to infinitely frequent re-equilibration. The three-vertex example shows two generators with the same stationary local absorption statistics but different first graph-dependent corrections. This is a structural, parameter-sensitive prediction rather than a bare finite-size enumeration.
+Best-knowledge pass for the explicit cubic Dirichlet-energy correction and its placement in the strict finite-budget equilibrium-redraw result. Restart factorization, generic equi-hazard stationarity and log-convexity of the spectral mixture are familiar mechanisms, not claims of priority. No examined result supplied the stated network coefficient.
 
-## Closest literature and limits
+## value
 
-Pal–Reuveni (arXiv:1607.06048) concerns generic optimal mean completion under reset. Lorenz (doi:10.1371/journal.pone.0164605) and the earlier van Moorsel–Wolter work cover finite-deadline restart conditions; Eule–Metzger (arXiv:1510.07876) covers broader renewal equations. The genuinely new component asserted here is the spatial generator coefficient and its paired strict finite-budget classification, not generic restart renewal. The restriction to independent equilibrium redraws, reversibility, fixed deadlines and zero-cost resets is essential. Full bibliographic completeness and independent validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical zero-cost stationary redraw protocol, the theorem separates the first penalty (equilibrium killing heterogeneity) from the first graph-dependent correction (transport energy). The three-site example distinguishes networks with identical equilibrium hazard statistics. The strict finite-budget statement and constant-rate degeneracy make the asymptotic quantitatively interpretable rather than a generic renewal expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

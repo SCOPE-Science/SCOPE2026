@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every assertion is reduced to \(\Delta_iH=2s_i[J(s_{i-1}+s_{i+1})-K(s_{i-2}+s_{i+2})+h]\) with strict positivity at each site. Domain boundaries give all four parameter regimes and prove completeness, including equality thresholds. Marked cyclic dimers give the exact count; Perron–Frobenius gives entropy and a fugacity derivative gives the asymptotic down-spin density. Full-Hamiltonian enumeration independently passes 330 small-ring parameter tests; it is corroboration and not the proof.
+## correctness
 
-**Originality — PASS, within documented literature limits.** Redner–Krapivsky (1998) and Grynberg (2014) establish zero-field competing-interaction dynamics; their domain-wall sector descriptions are not the static positive-field strict-absorption law. Pini–Rettori (2007) investigate a weak oscillatory field in finite-temperature linear response, rather than absorbing states in a static field. De Smedt–Godrèche–Luck (2002) enumerate blocked states in distinct kinetically constrained chains. Targeted published-result searches and inspected full-text sections revealed no direct or stronger formula. The enumeration automaton and general asymptotic methods are preexisting tools; novelty is attributed only to the complete model-specific classification and its field-induced entropy transition. Unindexed earlier field-specific work could overlap, so priority is not independently established.
+PASS
 
-**Value — PASS.** The theorem characterizes a physically meaningful freezing singularity: strictly neutral flips prevent extensive absorption at zero field, while an arbitrarily weak positive field pins a finite-density family of two-spin domains. It gives exact finite-chain data, coupling-independent plateau entropy throughout an open parameter region, sharp field endpoints and magnetization information relevant to studying metastable kinetic trajectories.
+Flips obey Delta_i H=2 s_i F_i with the displayed nearest- and next-nearest-neighbor field. For h<2K, singleton spins strictly lower the energy on flipping, using K<J/2. At the first down spin of a nonsingleton domain, the left two sites are up, so F_i=h-2K for a down dimer and F_i=h otherwise. Thus all down domains must be dimers. An up boundary in that configuration has field h+2K for an up dimer and h otherwise; up interiors are stable. This gives precisely the stated mixed states below 2K, including the period-four restriction at h=0. At h>=2K neither a singleton down spin nor a nonsingleton down boundary is stable, so only the uniform possibilities remain. The all-minus threshold is strict at 2(J-K); the stipulated neutral flips are decisive at both boundaries. Independently checked 192 rational-field direct-energy comparisons for lengths 5–12, three coupling choices, and both threshold equalities, with trace tests. Marking a down-dimer start reduces the count to weak compositions of N-4k into k gaps and gives the N/k multiplier. The trace counts labeled mixed words uniquely and one all-plus loop, with the all-minus contribution added separately. The characteristic polynomial is lambda^4-lambda^3-z^2, and the primitive Perron root gives the entropy and fugacity derivative. The logarithmic generating function near z=1 also gives concentration at the stated limiting density by Chernoff bounds. The displayed decimal approximations are off by roughly 10^(-13); the defining equations are correct. Higher-precision values are lambda≈1.3802775690976141, log(lambda)≈0.3222846159710301, rho≈0.3016746809203983.
 
-**Limitations.** The result concerns strict absorbing configurations on periodic chains with \(N\ge5\), \(0<K<J/2\), and uniform \(h\ge0\) under zero-temperature flips that allow neutral changes. It does not assert equilibrium thermodynamics, finite-temperature trapping, or probabilities of reaching the counted configurations. Prior literature may contain unindexed equivalent statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same zero-field Hamiltonian has an earlier weak-blocking classification, but its diagnostic allows Delta_i H=0 and its entropy branch differs. The inspected predecessors do not yield the static-field strict phase diagram or the asymmetric dimer-and-gap count. Familiar local-energy, transfer-matrix and blocked-state enumeration tools are not attributed as new.
+
+## value
+
+PASS
+
+For the specified zero-temperature rule, an arbitrarily small uniform field changes a bounded set of strictly absorbing configurations into an exponentially large set. The sharp endpoints and exact weighted enumeration explain which domain boundaries cause the change and quantify its entropy and magnetization without assuming kinetic or equilibrium selection. These are structural statements about a natural model, not a small-volume census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

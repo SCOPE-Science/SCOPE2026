@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:05:00.882578Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A complete shattered depth-d binary tree requires 2^d different ideals, and the exact dimension of a nonsingleton version space is the maximum, over nonconstant queries, of one plus the smaller branch dimension. An independent census recursively formed all multisets of child shapes totaling n−1 vertices, enumerated ancestor-closed masks, and applied this recurrence. It matched the rooted shape counts 1,1,2,4,9,20; precisely ((()())(())) and ((())(())()) have entropy floor 4 but dimension 3, with 16 and 19 ideals. Replay: python /workspace/branches/594d4e60-96db-41a6-b1d4-9f4615c8acf3/independent_census.py; captured output independent_census_output.txt in the same directory. A fork has dimension 2 (include its root and freely label two leaves), and a two-vertex chain dimension 1. Root-present subfamilies of both exceptions have dimension 3 by product additivity. At size 16 no legal first query splits 8:8; at size 19 the only query with at least 8 concepts on both sides is the standalone leaf, whose positive branch is a dimension-2 product of two chains. Additivity follows by concatenating optimal trees for the lower bound and using the branch with smaller factor dimension in a first query for the upper bound. For R_s the root-present product has dimension 3s and 16^s elements; only the empty ideal omits the root, giving count 1+16^s and entropy exactly 4s for s≥1. Adding one concept raises dimension by at most one, since at the first query one branch does not contain it. Thus the connected family has the stated interval and diverging deficit, not an asserted exact dimension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directed-cut model includes the rooted cases, and its inspected online bounds are parameterized by directed path covers, rather than a comparison with exact ideal counts through six vertices.",
+          "Manurangsi–Rubinstein analyze general dimension-computation complexity; Walker treats leaf sets of a query tree; Thiessen–Gärtner use geodesic convexity and cut/shortest-path properties, not precisely the ancestor-closed class."
+        ],
+        "reasoning": "Generic mistake or complexity bounds do not classify equality against log2 of the number of ideals. The substantially relevant general directed-cut class must be distinguished from its quantitative path-cover bounds, which do not supply both anomalous shapes or exclude every smaller one.",
+        "searches": [
+          "Gärtner–Garriga §§2.3 and 3, online bounds",
+          "arXiv:1705.09517 explicit-matrix complexity; arXiv:2203.12211 tree dimension definitions; Thiessen–Gärtner ECML PKDD 2022 graph convexity"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/978-3-540-74958-5_17",
+        "arXiv:1705.09517",
+        "arXiv:2203.12211",
+        "Thiessen–Gärtner ECML PKDD 2022",
+        "Resultary e81fb3128ebc and 1c2ce94b6b24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arm-family theorem implies the 19-ideal exception, not the 16-ideal one. By the elementary product and common-minimum argument, the 19-ideal exception also suffices for qualitative existence of an unbounded connected deficit using a different family: 1+19^s ideals versus dimension at most 3s+1.",
+          "The finite enumeration, exact first-query obstruction at 16, and specific parameters of the family built from that exceptional tree are not outcomes of the inspected general online bounds or perfect-binary theorem."
+        ],
+        "reasoning": "Concept count, product additivity and adjoining a bottom vertex are mechanisms, not an exact classification of which small rooted inputs have a deficit. The distinct claim is the new complete boundary classification and its specified use, not the reused example or the unboundedness mechanism in isolation.",
+        "searches": [
+          "Directed Cuts §3 versus exact cardinality-and-dimension comparison",
+          "Resultary e81fb3128ebc, proof §3; 1c2ce94b6b24 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "As defined in directed cuts §2.2, y(v) implies y(u) for every edge u→v; on a tree oriented away from the root this is precisely ideal membership.",
+          "Resultary e81fb3128ebc gives exactly 1+3^t 2^s ideals and dimension t+s for t two-edge arms plus s single-edge leaves, s≥1. The choice t=2,s=1 gives the frozen 19-ideal exception exactly."
+        ],
+        "reasoning": "Directed cuts are an equivalent formulation of this concept family after orienting the edges, not merely a similar graph problem. The indexed theorem really does cover the second example even without printing its parenthesis code. It does not include a fork child, hence not the 16-ideal exception or the complete cutoff.",
+        "searches": [
+          "Gärtner–Garriga, The Cost of Learning Directed Cuts, §§2.2–3",
+          "Resultary comparison for rooted-tree ideal classes, including rooted two-edge arms and online shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e81fb3128ebc implies exactly the 19-ideal census row, but restricts the child components to chains and leaves.",
+          "1c2ce94b6b24 gives a gap for a perfect binary ancestor tree on 15 vertices (677 ideals, dimension 8, entropy floor 9); its family cannot exhaust arbitrary rooted six-vertex trees."
+        ],
+        "reasoning": "Neither exact result covers the fork-plus-chain exception or the no-other-exceptions census. The shared second exception is explicitly credited; date alone does not establish precedence.",
+        "searches": [
+          "Resultary catalogue comparison for rooted ideals, entropy floor vs Littlestone dimension, six vertices, 16 and 19 concepts",
+          "Resultary e81fb3128ebc and 1c2ce94b6b24, mirrored Findings"
+        ]
+      },
+      "rationale": "The accepted distinct content is the sharp census (including completeness at orders up to five and no other exceptions at six), the 16-ideal obstruction, and its specific connected product family. One of the two examples is already a specialization of a distinct same-day indexed theorem and is not credited as distinct on its own. Neither the inspected general directed-cut bounds nor the related exact families give the entire classification.",
+      "residual_risks": [
+        "Priority of the shared 19-ideal case is not established by the common date.",
+        "Bounded source review does not rule out an unindexed classification or a more general exact directed-poset theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model under a change of formulation, not the exact census in the inspected online bounds",
+          "evidence": "Edge monotonicity y(v)⇒y(u) and path-cover-based learning analysis.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-74958-5_17",
+          "material_read": "§2.2 p.154; §§2.3,3 pp.155–157, PDF offsets approximately 5800,9400,14200",
+          "method": "Lawfully accessible full-text PDF passages",
+          "title": "The Cost of Learning Directed Cuts",
+          "trigger": "Earlier equivalent concept class on rooted out-trees"
+        },
+        {
+          "assessment": "Exact partial coverage of the 19-ideal case, priority unresolved",
+          "evidence": "1+3^t 2^s and dimension t+s for s≥1; t=2,s=1 gives the same two-chain-and-leaf rooted tree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-leaf-erases-the-online-shattering-excess-of-rooted-two-edge-ar--e81fb3128ebc",
+          "material_read": "Mirrored RESULT.md Finding and proof §3, offsets 0 and about 3900",
+          "method": "Catalogue search and local-mirror text",
+          "title": "A leaf erases the online-shattering excess of rooted two-edge arms",
+          "trigger": "Exact dimensions for a rooted family containing a candidate exception"
+        },
+        {
+          "assessment": "Different subfamily and cutoff",
+          "evidence": "A 15-vertex perfect binary tree with 677 ideals, dimension 8 and entropy floor 9 is not either six-vertex shape.",
+          "identifier_or_url": "Resultary 1c2ce94b6b24",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Catalogue search and local-mirror text",
+          "title": "First entropy versus Littlestone gap for perfect binary ancestor ideals",
+          "trigger": "Another exact cutoff in the same general ideal model"
+        },
+        {
+          "assessment": "General complexity background, not exact values in the material read",
+          "evidence": "Input is an explicit concept matrix, not a rooted-tree classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09517",
+          "material_read": "p.1, offset about 1990",
+          "method": "Primary OA PDF passage",
+          "title": "Inapproximability of VC Dimension and Littlestone’s Dimension",
+          "trigger": "Finite explicit concept-class dimension"
+        },
+        {
+          "assessment": "Different use of rooted binary trees in inspected statements",
+          "evidence": "Dimension of leaf subsets of a binary query tree, not ideal membership in a rooted ancestry poset.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "pp.1–3, offsets about 520 and 8776",
+          "method": "Primary OA PDF passages",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Tree dimension and Littlestone shattering"
+        },
+        {
+          "assessment": "Nearby model, not exact rooted ideal census in the material read",
+          "evidence": "Graph-geodesic convexity and halfspaces are not arbitrary ancestor-closed memberships.",
+          "identifier_or_url": "https://ecmlpkdd-storage.s3.eu-central-1.amazonaws.com/preprints/2022/lncs13716/lncs13716354.pdf",
+          "material_read": "p.1, offset 0",
+          "method": "Primary conference PDF passage",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Online graph concept classes and structural bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp first failure of the cardinality-based mistake bound on a natural closure family identifies two different obstructions, one purely at the first-query count level and one requiring actual branch dimension. Exhaustive exclusion of smaller or additional same-order shapes turns isolated witnesses into a useful boundary classification. The explicit connected family quantifies repeated deficit without purporting to give an exact dimension or claiming qualitative unboundedness independently of already covered examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

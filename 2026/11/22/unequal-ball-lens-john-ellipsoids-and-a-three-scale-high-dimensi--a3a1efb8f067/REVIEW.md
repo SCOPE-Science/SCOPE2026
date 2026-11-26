@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Containment follows from exact concave-quadratic maxima over every unit ellipsoid direction, not a grid. The two contact orbit weights have vanishing mean and covariance \(I_m/m\), giving an unrestricted John optimality and uniqueness certificate. The threshold is derived by the tip stationary condition; the two-latitude root is unique by the strict uniqueness of the maximizing ellipsoid. The critical \(m^{-1/4}\) limit follows from bracketing the exact squared-contact equation. 320 finite checker examples corroborate the computations but do not establish infinite-dimensional quantifiers.
+## correctness
 
-**Originality — PASS, provisional.** Explicitly excluded from new priority are the equal-radius all-dimensional John-lens result, the accessible three-dimensional unequal-radius formula, and the unequal-ball *convex hull* Löwner formula. Their logical domains do not imply the joint m≥4 classification and high-dimensional three-scale contact asymptotics. General theory from Güler and Gürtuna and Ball provides methods, not the stated classification. Searches and fully read primary sources are documented in AUDIT.json. Historical priority remains an evidence-based assessment and an unindexed equivalent may exist.
+PASS
 
-**Value — PASS.** A complete sharp contact screening classification of a canonical rotational body in every higher dimension is a natural extremal geometry invariant. The contact latitude has three distinct natural scaling exponents, with an unexpected critical quarter-power; it identifies which ball constraint governs high-dimensional optimal containment.
+Reconstructed RESULT.md, Proof steps 1–5. In normalized axial coordinate t the squared distance to each ball center is a strictly concave quadratic. Its maximum, clipped to [-1,1], verifies each containment separately. Two actual boundary latitudes with product −1/m admit positive masses of mean zero and axial variance 1/m; transverse sign and coordinate symmetry give full covariance I/m. John's theorem therefore certifies the unrestricted optimum. For the tip branch the increasing equation in a has lower-end value <r², and the strictly decreasing validity margin R−a−mv has limiting signs given by R−r and R−mr at the overlap endpoints. Its zero, when internal, is L_c. For two latitudes the squared radii factor as (a+H)(a+Hu²) and (a+H)(a+H/(m²u²)). The continuous L(u) has endpoint values R+r and L_c; John's uniqueness forces injectivity and matches the prescriptions at u=1. With y=u² and A=g²−1, independently simplifying the scalar equation gives the rational expression in Step 5. Brackets at fixed y, y=x/m, and y=β/√m give respectively A²/(A+y), A(x+1)/(x−1), and λ²/A=1+(2/β−β/A)/√m+O(m⁻¹). This gives the three limits including the constant (2A)^(1/4). The phrase 'the smaller ball is contained' in Step 3 has its object reversed; the preceding maximum calculation proves ellipsoid-in-ball containment, as required. VERIFICATION.md and verify.py supply recorded floating-point diagnostics, not premises of this proof; the scripts were inspected, not executed.
 
-**Limitations.** Only two strictly unequal balls, strict proper overlap, fixed radius ratio and fixed scaled separation; independent validation is absent. The three-dimensional case is prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the unequal-radius inner problem in dimensions at least four, especially the fixed-radius-ratio contact-scale transition. The contact-moment method, three-dimensional unequal case and symmetric cases are not credited as new. Same-day publication order is unresolved and unnecessary to distinguish the dimensions. No inspected comparison covers the claimed higher-dimensional result; this is a bounded assessment, not proof of priority.
+
+## value
+
+PASS
+
+The result determines the unrestricted maximum-volume ellipse analogue for a natural asymmetric convex body and locates a sharp change in the actual supporting contacts. The separation-dependent m^(-1/4) critical law between the order-one and m^(-1/2) regimes supplies information not provided by a generic optimizer or by the known contact identity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns independent longitude-uniform samples on a fixed spherical small circle with shortest-geodesic edges. The derivation uses exact tangent-vector dot products, the anchored cyclic half-gap density, a bijection with a positive probability simplex with explicitly differentiated Jacobian, and inclusion-exclusion of all failed angle inequalities. At the two critical parameters the proof checks which intersections are present. All integration domains and strict inequalities are specified, and the constants at both quadratic transitions follow from the local density and area of the remaining simplex regions. `check.py` independently evaluates the integration and compares directly computed intrinsic angle events with the theoretical probability; its finite experiments are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+On the repaired finding, anchor one labeled point and order the other two: the uniform longitudes give joint half-gap density 2/pi². Using the tangent dot products, with X dot Y=1-2(1-k)sin²(a) and the two cyclic analogues, reduces the angle inequalities to the three cotangent products <k. These products sum to one. A nonpositive cotangent leaves exactly the other product potentially positive, and that product is at least one, so such a shape is never acute and cannot have two nonacute angles for k>0. On the positive simplex the inverse cotangents in the proof are positive with pair sum one and reproduce the unique angles with sum pi. In variables A=cot(a), B=cot(b), C=(1-AB)/(A+B), the determinant for (u,v)=(AB,BC) relative to (A,B) is 2ABC/(A+B); multiplying by (1+A²)(1+B²) and using AB+BC+CA=1 gives 2(1-u)(1-v)(1-s), establishing the claimed density. Integration over the levels gives the marginal and Q by w=(1-u)/(1+u); the inner overlap integral uses 1/((1-v)(u+v)) and yields exactly the logarithm stated. Differentiating Phi/2 gives log(u)/(1-u²) and differentiating H_k gives log(u+k)/(1-u²), so the given antiderivative and real arguments are valid. A pair of coordinates cannot both be >=1/2 because the third is positive, while for k<1/2 choosing u,v>k with u+v<1 gives positive mass. Triple failure is impossible for k>1/3, exactly the range where inclusion–exclusion is used. The quadratic central and edge triangles have coordinate areas (9/2)(k-1/3)² and (1-2k)²/2, with densities 27/(8pi²) and 4/pi² at the limiting points. Their analytic local expansions give continuous first derivatives and distinct second derivatives at the two transitions. The small-R series follows from w=R²/2+R⁴/12+O(R⁶) and the odd dilogarithm difference. Independent bounded replay: python3 /workspace/reproductions/frozen_checks.py spherical (mpmath) checks strict two-failure witnesses with direct 3D tangent products and gives P(pi/4)=0.0447497197384097058662068 by tail quadrature. It supplies examples and a numerical value only; the proof covers the continuum. Frozen verification code and notes were inspected, not executed.
 
-The closest inspected complete primary source is Akopyan–Edelsbrunner–Nikitenko (arXiv:2007.07783, pp. 4–5 and §4.1). Its Euclidean triangles built from sphere-uniform vertices and its conditionally sampled circumcircle are not the independent uniform points on a fixed small circle joined by spherical *geodesics*. The cap-surface sampling in Le (1989) differs as a sampling measure. The Maeda (2008) and Maehara–Martini (2024) works have only abstracts or previews available, so their full results are unresolved priority risks; no assertion of whole-document noncoverage is made. Related arithmetical or combinatorial findings concern different underlying random objects. The earlier fixed-radius hyperbolic-circle law follows a different curvature geometry and its first branch cannot imply the spherical overlap correction or extinction threshold. The reviewed statement is the full piecewise probability law and its two sharp geometric transitions, not merely a formal curvature substitution.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The law classifies all possible radii for a natural spherical geometric sampling problem, including an exact probability beyond the reach of a single-obtuse-angle subtraction. It exhibits two distinct critical phenomena: simultaneous nonacute angles become possible at one radius, and acuteness becomes impossible at a sharp larger radius. The explicitly computable dilogarithm correction, monotonicity, and quadratic onset give structural information of intrinsic geometric interest beyond a routine probability evaluation.
+For the repaired finding only: the same exact probability function, sharp vanishing threshold, monotonicity, and leading k=1/3 onset are credited to overlapping work without inferring priority from catalog order. The supported distinct result is the piecewise dilogarithmic evaluation via the positive cotangent simplex and the sharp analysis of the at-least-two-nonacute event and higher expansion terms. These are not supplied by the overlapping arccosine integral. The k=1/2 location is visible in the other integral's endpoint, so that location alone does not count as a distinct contribution.
 
-## Remaining limitations
+## value
 
-The result applies only to fixed-radius geodesic circles of radius strictly between zero and a hemisphere, boundary-arclength sampling, and intrinsic angles. The complete texts of some broader surveys and older shape-density studies were unavailable, leaving provisional historical priority. The computational tests do not independently certify the mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired contribution gives a computable explicit evaluation of a natural geometric probability and a structural decomposition into nonacute-angle counts, with a strict transition and its sharp quadratic coefficient at the first overlap. The small-radius fourth-order term and second-derivative jump sharpen meaningful boundary behavior, independently of the already covered leading deficit and zero threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

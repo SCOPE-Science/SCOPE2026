@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:11:17.358437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the normalized equations for the star with loops at 0,1,2 against source §5. For z1>z2, r=(1+z1)/(1+z2)>1 and z1=r^k z2 give z2=(r−1)/[r(r^(k−1)−1)]; r=e^(2s) gives the two recorded hyperbolic formulas reversibly. Substitution gives c_k; the sum of nonloop coordinates is (Λ−2λ)/S^k, proving the total-activity formula and the strict positivity criterion S>m. Conversely for any positive summable activities with this total the reconstructed law solves every coordinate. At s=0, m=(k+1)/(k−1), c=c_*, and an admissible local merger requires λ>λ₀ as used in the orientation statement. For the independent expansion use m=sinh((k+1)s)/sinh((k−1)s) and a=c_k/c_*. Then (Λ−2λ)/(λ/c_*)=S_*a^(−1−1/k)−ma^(−1). The log-sinh Taylor series gives the recorded quadratic term, vanishing at S_*=k(3k+1)/[3(k−1)^2], and the quartic there divided by λ_*/c_* is −k(k+1)(37k²+110k+37)/[1080(k−1)]. The symbolic replay `python3 /workspace/branches/independent-checks.py 1` confirms these identities with symbolic k, not finite extrapolation. This root yields λ_*>λ₀. For λ>λ_* the curve first rises; since S grows like e^(2(k−1)s/k) and m like e^(2s), a first zero of S−m exists and the continuous extension there equals 2λ<Λ_c. The maximum is interior, and every level strictly between Λ_c and that maximum has a crossing on each side. They yield two unequal oriented laws and both reversals. The symmetric self-consistency residual tends to +∞ at z→0 and −∞ at z→∞ since S(z)=λ^(1/k)(1+z)z^(−1/k)=o(z) at infinity. All five laws are in ℓ¹, hence ℓ^((k+1)/k), so the source's normalizability and injectivity for normalized laws give five distinct measures. The checker and frozen record of verification were inspected, not executed. The result is local in the threshold and a lower bound in count, not a global uniqueness, stability, or extremality claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest direct source gives equations for general k but analyzes the multiplicity theorem only at k=2. Rozikov–Haydarov forbid adjacency of any two nonzero spins. Other indexed results concern an uncountable-spin onset and a soft-core Widom–Rowlinson phase count."
+        ],
+        "reasoning": "Neither the loopless scalar recursion nor results for the other local states or interactions specialize to this graph's two independently self-compatible nonzero states. No inspected stronger general theorem yields the stated all-order sign change or coexistence.",
+        "searches": [
+          "Literature query: exact Khakimov–Makhammadaliev title with three loops, 49/9 and parity",
+          "Rozikov–Haydarov arXiv:2206.06333v1, recursion (2.7) and §4",
+          "Resultary comparisons 59ef7f58eb69 and af20994efb87"
+        ]
+      },
+      "checked_sources": [
+        "Khakimov–Makhammadaliev arXiv:2310.12602v1 §§2 and 5",
+        "Rozikov–Haydarov arXiv:2206.06333v1",
+        "Resultary/SCOPE three distinct comparator Findings listed above",
+        "arXiv:1803.02867v1 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly passes from general equations to the binary order for the solved case. Its binary theorem gives exactly five on an interval above the already known threshold; the new proof gives at least five at arbitrary order."
+        ],
+        "reasoning": "The general equations provide the starting point, not a prior theorem on their solution branch. Reversible parametrization, the orientation expansion, and the positivity-endpoint argument are needed to reach the general statement. The k=2 specialization is credited to prior work, not counted as evidence of novelty.",
+        "searches": [
+          "Read arXiv:2310.12602v1, general-k Eqs. (5.1)–(5.2) versus Proposition 2 and Theorem 2",
+          "Inspect closest same-day and periodic Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source has universal adjacency to state 0 plus the two nonzero self-loops; the two distinguished coordinates share the scalar S. The frozen parity comparison instead concerns a parity activity total and a different adjacency. The verified Resultary reciprocal-variable analogue e9b9bad08e1d concerns a four-state generalized-key two-periodic law."
+        ],
+        "reasoning": "Compared at the graph and self-consistency level: changing r to a reciprocal, changing normalization, or relabeling loops preserves the current star and common sum. The parity and generalized-key problems do not share both that compatibility graph and that control variable, so the formal similarity of their reciprocal branches does not establish equivalent coverage.",
+        "searches": [
+          "Resultary: all-order tricritical threshold three-loop countable hard-core",
+          "Resultary: same-period countable-state hard-core operator parity adjacency pattern",
+          "Khakimov–Makhammadaliev §5, Fig. 3 and Eqs. (5.1)–(5.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper gives the exact binary threshold and interval; evaluating the frozen merger at k=2 gives its lower end 8λ^(3/2)−10λ. No table of all k or matching quartic coefficient surfaced in the bounded catalogue checks."
+        ],
+        "reasoning": "Binary tabulated formulas are existing coverage, but neither their single k=2 value nor a different-model asymptotic amplitude determines the all-order coefficient. The direct formal comparison uses the formula, not exact-title matching.",
+        "searches": [
+          "Resultary: tricritical negative quartic in a hard-core tree model",
+          "Khakimov–Makhammadaliev §5, Proposition 2 and Theorem 2, exact constants"
+        ]
+      },
+      "rationale": "The same-model paper already has the general equations, the binary value 49/9, and an exact binary five-measure interval; these are not new. The supported extension is the all-order local threshold with signed quartic and a proved coexistence interval for general k. Leading distinct comparators concern different graphs, control variables or classes of laws, not an equivalent all-order theorem for this graph.",
+      "residual_risks": [
+        "Bounded searches cannot exclude a weakly indexed equivalent all-order derivation in another normalization. No distinct parity result matching both graph and activity equation surfaced; the exact frozen record itself is not counted as a separate overlap. The accessible arXiv version, not the failed Springer retrieval, supplied the exact same-model comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct binary coverage and general recursion, not the general-order solved threshold or quartic",
+          "evidence": "Normalizable boundary-law correspondence and ℓ^((k+1)/k) sufficient condition; exact five for k=2, λ>49/9 and Λ₁<Λ<Λ₂; general k left unsolved in that analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12602v1 (published DOI 10.1134/S1995080224604508)",
+          "material_read": "§2, Definition 2, (2.4) and Remark 1 (pp. 3–4, HTML offset 12172); §5 Fig. 3 and Eqs. (5.1)–(5.2) (PDF pp. 8–9 near 33774); Proposition 2 and Theorem 2 (HTML near 62234)",
+          "method": "Lawful arXiv v1 after Springer reading route failed; bounded PDF/HTML passage inspection",
+          "title": "Translation-Invariant Gibbs Measures for the Hard Core Model with a Countable Set of Spin Values",
+          "trigger": "Identical compatibility graph, equations and binary five-law theorem"
+        },
+        {
+          "assessment": "Graph and conclusion differ",
+          "evidence": "All nonzero-to-nonzero entries are zero, removing both nonzero loops used here. The scalar recursion and period-two result thus do not apply to the three-loop model.",
+          "identifier_or_url": "arXiv:2206.06333v1",
+          "material_read": "PDF p. 4, recursion (2.7) near 11084; abstract and §4, PDF p. 6 near 17861",
+          "method": "OA PDF passage inspection",
+          "title": "A HC model with countable set of spin values: uncountable set of Gibbs measures",
+          "trigger": "Countable hard-core model and potential normalization/periodic equivalence"
+        },
+        {
+          "assessment": "No equivalent claim; comparisons not excluded by date",
+          "evidence": "Uncountable-spin θ square-root onset; soft-core Widom–Rowlinson one-to-three count; finite four-state generalized-key two-periodic reversal, respectively.",
+          "identifier_or_url": "Resultary/SCOPE: 59ef7f58eb69, af20994efb87, e9b9bad08e1d; primary uncountable-spin comparator arXiv:1803.02867v1",
+          "material_read": "Local RESULT.md Findings at offset 0; uncountable-spin primary PDF p. 1",
+          "method": "Local catalogue passage inspection and bounded OA source read",
+          "title": "Closest indexed bifurcation and phase-count comparisons",
+          "trigger": "Distinct threshold, coexistence, and reciprocal-variable results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The binary constant is explained by an explicit all-order sign change, including the actual direction at its degenerate setting. The same curve then yields a concrete coexistence conclusion for every tree order, beyond presenting a normal form or a few finite examples. The threshold concerns local branch orientation, not thermodynamic dominance, and the interval does not imply an exact global count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

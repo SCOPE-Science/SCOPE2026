@@ -1,26 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim assessed.** Every labeled maximum four-list code in the ternary unordered-multiset channel with two survivors and source length \(n\ge4\) is one of the two explicitly enumerated families in RESULT.md, and the total number of optimal codebooks is \(12n-36\). The maximum cardinality \(11\) is background, not an originality claim.
+## correctness
 
-## Correctness (C): PASS
+PASS
 
-For any eleven-codeword family, the total monochromatic parent incidence is at most twelve, while at least \(22-T\) where \(T\) counts one-heavy messages, forcing \(T\ge10\). If \(T=11\), only deleting a three-symbol-support one-heavy word can repair all three initially overloaded mixed received outputs. If \(T=10\), both monos for the two-heavy word are saturated; the two removals must have different heavy labels. Exact inspection of the three mixed outputs forces the three edge alternatives and unique interior alternative. No other word has zero or three heavy coordinates in an optimal code. Each surviving case satisfies all six loads by direct counting. Disjointness and counting give \(3+3(3(n-3)+n-4)=12n-36\). All bounds and quantifiers hold for every integer \(n\ge4\), including empty interior ranges. Source code in checks/brute.py and checks/structural.py independently enumerates 12 and 24 optimal codes at n=4,5 and the full constrained candidate census for n=4..40; their outputs are packaged.
+The three monochromatic output loads sum to at most 12, and every length-n word for n≥4 contributes at least once. Size 12 would require exactly the twelve one-heavy vectors U, which overload every mixed pair. In a size-11 code at least ten vectors must be one-heavy. With eleven, the omitted vector must hit all three mixed pairs, so is a B_i. With ten, the remaining word has two heavy labels i,j and monochromatic saturation forces exactly one omission at each. Both omissions must hit ij; they therefore lie in {A_i^j,B_i}×{A_j^i,B_j}. When the third coordinate is zero, one omitted B suffices to repair both remaining mixed loads and is necessary. When it is one, both B's must be removed. Every such choice meets all six loads. These families are disjoint and the added word and missing members are determined by the codebook, so the labeled count is 3+3[3(n−3)+(n−4)]=12n−36, with zero interior choices at n=4. Separately, /workspace/reproduction/check_5.py uses exact load-vector dynamic programming over the full simplex, making no one-heavy restriction; it confirms capacity 11 and counts 12 through 108 in increments of 12 for n=4–12 (check_5.out). The all-length proof is by incidences, not extrapolation.
 
-## Originality (O): PASS against accessible primary and indexed evidence
+## originality
 
-The known high-list result explicitly reports the four-list size eleven as already established; the claimed novelty excludes this size. That result proves the higher-list cardinalities (L at least five) and rigidity only for even L at least six, and contains no codebook classification for four-list equality cases. The general low-list result requires L no greater than the survivor size two. The January 2026 primary paper and March follow-up address principally unique decoding, constructions and deletion-ball geometry; neither gives the four-list codebook census. published-finding corpus semantic queries, specific parameter and alias queries, connected public-result full text, and public web searches found no implication that already yields the two-family classification or the exact count. This is evidence-based priority, not a proof of global novelty; an unindexed optimizer census is the main residual risk.
+PASS
 
-## Value (V): PASS
+The capacity eleven is prior background, explicitly not claimed as new. The supported distinct claim is the full two-family characterization and labeled optimizer count at L=4 for every n≥4. Available primary passages and the strongest catalogue comparisons do not establish this equality census. The earlier capacity source cited indirectly remains unidentified.
 
-For a natural worst-case multiset deletion channel, codebook *capacity* alone leaves the number and structure of extremizers unresolved. The complete optimizer classification describes the equality topology of the three monochromatic and three mixed received-pair loads, exhibits a sharp difference between one-heavy-only and one-replacement optima, and counts all labeled optimal codes at every block length. It can be used to sample or compare extremal decoder designs and quantifies optimal-design diversity. The classification is not an arbitrary tiny computation: it is an infinite all-length exact structural result, and the prior even-list rigidity does not extend verbatim to four-list equality.
+## value
 
-## Closest sources and limitations
+PASS
 
-- A. Kreindel, I. Barouch Essayag and A. L. Zabokritskiy, *Multiset Deletion Codes: Cyclic Syndrome Constructions, Bounds, and Exact Results*, arXiv:2601.05636, first public 9 January 2026. This determines unique-decoding cases, not four-list optimizer counts.
-- Same authors, *Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes*, arXiv:2603.18322, first public 18 March 2026. Primarily unique decoding and shadow geometry.
-- *High-list saturation for ternary two-symbol multiset deletion codes*, public scientific RESULT.md in published-finding corpus/2026. Known four-list cardinality is expressly acknowledged; results for L at least five do not imply the asserted four-list classification.
-- *Sharp list-capacity plateau for high-deletion multiset channels*, public scientific RESULT.md in published-finding corpus/2026. Requires list allowance at most survivor size (two), not the present four-list case.
+At the natural small list allowance just below the higher-list regime, the exact equality structures show why an extremizer need not have the large-list one-heavy saturation pattern. The distinction between deleting one one-heavy vector and adding a two-heavy vector after two forced omissions determines all optimal codebooks, their finite-length boundary and their exact multiplicity. This is useful structural information beyond an already known capacity.
 
-The theorem counts distinct subsets of labeled-alphabet multiset vectors; no orbit count under alphabet permutations is asserted. Finite checkers are supplementary and do not independently establish infinite correctness. Published equivalent work not indexed or accessible remains possible.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

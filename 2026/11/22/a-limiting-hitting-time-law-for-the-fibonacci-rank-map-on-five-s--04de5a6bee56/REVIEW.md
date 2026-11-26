@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The result fixes \(z(1)=1\), the exact rank-map definition, the five-smooth support, the nonnegative integer exponents and boundary values. The prime-power rank rules and the lcm identity are published in FitzGibbons–Miller–Verga (2023, Lemmas 2.2–2.3). The exponent recurrence explicitly retains \(5^c\), and its invariant quadrant and exceptional boundary trajectories yield the exact fixed-point first-hitting time. The probability theorem uses an orthant-simplex count with \(O(L^2)\) error, two strips of bounded exponent width, exact inclusion–exclusion and division by a \(\Theta(L^3)\) denominator; the mean follows by uniform integration over bounded support. Independent direct modular-rank computations in the package agree on 192 cases. The computations are corroboration, not an infinite certificate.
+PASS
 
-## Originality
+The prime-power ranks and lcm rule give (a',b',c')=(max(u(a),2·1_{b>0}), max(1_{a>0},b−1,0),c), with u=(0,0,1,1,2,3,…) and u(a)=a−2 for a≥3. Lemmas 2.2–2.3 supply the nontrivial 2/3-ranks and the lcm; the 5-rank is also obtained from Lemma 2.9 using z(5)=5 and F_5=5, while z(1),z(2),z(4) follow from initial Fibonacci numbers. In the invariant a≥2,b≥1 quadrant the deficits from (2,1) decrease by (2,1) truncated at 0, so the time is the maximum of the two integer clocks. For a=1,b≥1 the first step goes to (2,max(b−1,1)); a=0,b≥2 goes to (2,b−1). For a≥4,b=0 the first step goes to (a−2,1). The exceptional chain (1,0)→(0,1)→(2,0)→(1,1)→(2,1) also handles these boundary times and (3,0) goes to (1,1). The origin is fixed. Hence the record's exact formula and a uniform absolute difference at most 4 from max(a/2,b) follow. With L=log X the unit cubes based at eligible integer exponents contain the budget-L simplex and fit in the budget-(L+log 30) simplex. Inclusion–exclusion shifts the first two coordinates by floor(2tL)+1 and floor(tL)+1; rounding costs O((L+1)^2) uniformly after positive-part truncation. Replacing the continuous clocks by H affects only fixed-width strips with O((L+1)^2) points. Division by the Θ(L³) denominator gives the stated uniform CDF error. The limit is the maximum of two scaled coordinates of a uniform simplex point. Since A>B, it has support [0,1/B] with mass in every interior open interval. Bounded support uniformly for large L allows integration of the error, and each cubic tail integrates to 1/(4q). Independent modular recurrence replay checked 216 triples (0≤a≤8, 0≤b≤5, 0≤c≤3), including arrival and first-hit times, and exponent iteration 63,001 pairs with a,b≤250. Exact-cutoff sampling at 10^6, 10^12, 10^24 and 10^36 corroborates the distribution; it cannot establish the stated error rate. Replay: /workspace/branches/0f4c8041-0546-4e2b-8ce5-ff57aaddd7e4/independent_check.py. Supplied code was inspected, not run.
 
-PASS on the inspected material, with residual priority risk. FitzGibbons–Miller–Verga (arXiv:2309.14501) supplies the crucial raw ranks and a pure-two-power hitting-time lemma, but its theorem is about existence of arbitrary stopping orders, reachability of fixed points and general convergence. It does not give either a full two-variable exact hitting-time classification or a distribution when sampling five-smooth integers below a height cutoff. Luca–Tron (2014) counts self-Fibonacci divisors, a different event; Trojovská (2020) excludes nontrivial periodic points and tabulates orbit lengths through \(50{,}000\) over all integers, a finite and differently sampled distribution. Comparisons were made at the level of logical implication rather than title. The limit law additionally needs a new sampling model and a lattice-simplex calculation, not merely a verbal restatement of source lemmas. The later journal abstract and unindexed earlier literature cannot exclude every alternative derivation.
+## originality
 
-## Value
+PASS
 
-PASS. The natural invariant terminal domain of the rank map is the five-smooth integers, and the 2023 work makes its finite-time dynamics central. The limit theorem quantifies their previously unclassified typical first-passage time: nondegenerate piecewise-cubic fluctuations at scale \(\log X\), a compact sharp support, a uniform \(O(1/\log X)\) discrepancy, and an explicit nontrivial mean coefficient. The exact exponent boundaries explain why the statistics follow and supply a usable exact formula for each five-smooth input. This solves a distributional question rather than reporting isolated small cases or a routine reformulation of fixed-point existence.
+The rank identities, fixed-point set, and the exact pure-two-power hitting times (also lifted to 2^a5^c by the prior iterated lcm result) are not novelty. The main addition is the smooth-height sampling theorem with an explicit uniform quantitative CDF and mean, using the complete mixed-exponent dynamics. No statement in the inspected work covers that law.
 
-## Closest literature and limits
+## value
 
-First public scientific anchor: *Dynamics of the Fibonacci Order of Appearance Map*, 2023-09-25, https://arxiv.org/abs/2309.14501. Supporting earlier works: https://arxiv.org/abs/1410.2489 and https://doi.org/10.3390/math8050773. The final journal version at https://doi.org/10.1080/00150517.2025.2515497 was available at abstract/metadata level; the full 2023 preprint was checked. No general-integer random sampling assertion is made. Earlier independent derivations or unindexed special-function statistics remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Five-smooth inputs give an invariant domain containing all the fixed points, not a cutoff selected after computation. The theorem supplies typical first-passage behavior, an explicit compactly supported fluctuation law, and an O(1) error for the mean time on that domain. Those results go beyond confirming eventual convergence or giving sample trajectories. No assertion for uniform unrestricted integers is warranted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:59.273279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–32",
+        "VERIFICATION.md lines 3–14 and 18–22",
+        "verify.py lines 22–59 and 83–177",
+        "verification_output.txt lines 1–14"
+      ],
+      "rationale": "For a nonempty simple k-regular graph as in the finding (the bipartite case expressly has c≥1), full-degree domination is exactly vertex-cover status. A maximum partition has no dominating size-k block: splitting it preserves all other partnerships and creates a new partner pair, since a subset of size <k cannot dominate. Each remaining block misses an edge and each of its partners hits one of the edge's two endpoints, bounding its partner degree by two. The partner graph has no isolated vertices; for at least four blocks, a path or cycle on at least four vertices or two nontrivial components furnish disjoint partner pairs. Their two disjoint covers cannot leave a vertex outside both (k>0), and as they are complementary covers they are independent. Thus at most four blocks occur, and four requires bipartiteness. An edge and the two endpoints split off as singletons give three blocks, and splitting both regular bipartition sides gives four, since each omitted vertex has all k neighbors across the bipartition. Each of the 2^(c−1) unordered bipartitions has balanced sides of size m, with 2^(m−1)−1 splits per side. Two distinct successful pairings of the blocks force edges only between opposite blocks A–D and B–C after relabeling, so both pairs of opposite blocks consist of unions of whole components. A third pairing would forbid every edge. The duplicate partitions are in bijection with the 2^(c−1)−1 nontrivial unordered component-group splits and the 2^(c−2) choices of independent unordered bipartitions of those groups. This proves the correction and includes the connected and smallest k=2 cases. A separate bounded reproduction used restricted-growth labels for all 115,975 set partitions of C4 disjoint union C6 and checked the original neighbor rule and partner clause directly, with 449 four-block partitions and none larger, as predicted. The frozen code and transcript were read, not executed; its direct checker filters block counts to 3 and 4, so its recorded maxima rely on the analytic ceiling. The frozen larger disconnected check uses the proven orientation parametrization, not a separate proof of exhaustiveness.",
+      "residual_risks": [
+        "The theorem is for nonempty graphs (the stated c≥1); a convention admitting the null graph vacuously as k-regular does not extend the theorem to it. The count is on the fixed vertex set, not up to automorphism, and does not enumerate the optimal three-block partitions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jafari et al. and Kaneshiro bound regular full-degree C_k between 3 and 4. Brešar–Henning–Samadi give a general partner bound and exact 3-or-4 criterion on cubic graphs."
+        ],
+        "reasoning": "These results supply the allowable block numbers and useful structural constraints, but the bound/classifier does not determine the number of partitions realizing four, even in the cubic case.",
+        "searches": [
+          "arXiv:2407.09332 Corollary 2",
+          "arXiv:2507.18306v1 Lemma 2.3 and Theorem 4.2",
+          "arXiv:2608.05403 Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "The OA and local Resultary passages listed in source_inspections",
+        "Frozen RESULT.md lines 28–38"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The partner bound helps force a partition into two complementary covers, and the connected enumeration then reduces to independent splits. For disconnected graphs, different component orientations can produce the same set partition. The successful alternative pairings require the opposite-block component groups, and the third pairing is impossible."
+        ],
+        "reasoning": "The cubic paper's criterion does not encode this counting equivalence or the exact duplicate term. The known constraints plus a component-group bijection give the enumeration; neither a parameter substitution nor re-evaluation of an existing table gives the stated correction.",
+        "searches": [
+          "arXiv:2507.18306v1 Lemma 2.3 and Theorem 4.2",
+          "arXiv:2608.05403 Theorem 3.7",
+          "RESULT.md lines 28–32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full-degree outside domination translates to vertex-cover status; two complementary covers translate to one graph bipartition. The published cubic classification has the same numerical dichotomy but no multiplicity. Related crown-graph counts use the total-domination requirement."
+        ],
+        "reasoning": "Counting bipartitions and their two splits without quotienting alternative pairings is not equivalent to counting distinct coalition partitions. Total domination constrains vertices inside the set and is not interchangeable with outside domination.",
+        "searches": [
+          "Resultary local lookups for full-degree k-coalition count, four-block optimal regular bipartite coalition partition, and related total-coalition counts",
+          "arXiv:2507.18306v1 Lemma 2.3 and Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day crown finding counts optimal total-coalition partitions, with a different formula. The other exact profile gives counts on K_{s,t} for s=3,4,5 and t≥s+1, so its graphs are not regular."
+        ],
+        "reasoning": "The two closest catalogue formulas are exact enumerations, but neither has the model parameters and domination rule needed to cover this F4 formula. No matching exact table or formula was identified in the bounded results.",
+        "searches": [
+          "Local Resultary exact-enumeration comparison for regular bipartite graphs",
+          "2026/10/26/SCOPE-total-coalition-partitions-of-crown-graphs-a-four-vertex-deficit--a4c08ede6de7",
+          "2026/11/2/SCOPE-exact-optimal-2-coalition-partition-profiles-of-narrow-complete--d287aaa2f1e0"
+        ]
+      },
+      "rationale": "The assessed distinct result is the exact enumeration of all unlabeled optimal four-block partitions across connected and disconnected regular bipartite graphs, especially the component correction. The existing scalar bounds and exact cubic classification are credited. The known scalar or partner-degree results and the nearby enumerative findings do not count the critical multiplicities in this model.",
+      "residual_risks": [
+        "Bounded statement-level comparison; there may be an unlocated equivalent partition count. The date of a catalogue entry alone is not evidence of priority or coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar general bound",
+          "evidence": "G k-regular implies 3≤C_k(G)≤4 in the stated scope.",
+          "identifier_or_url": "https://arxiv.org/html/2407.09332",
+          "material_read": "Corollary 2, HTML offset 20041",
+          "method": "OA primary passage",
+          "title": "k-Coalitions in Graphs",
+          "trigger": "Original full-degree k-coalition framework"
+        },
+        {
+          "assessment": "Prior partner bound and scalar cubic classification",
+          "evidence": "The partner bound specializes to two; the cubic theorem obtains four iff bipartite and three otherwise, without an exact four-partition count in that statement.",
+          "identifier_or_url": "https://arxiv.org/html/2507.18306v1",
+          "material_read": "Lemma 2.3 at offset 13453 and Theorem 4.2 at offset 57591",
+          "method": "OA primary passages",
+          "title": "On k-coalition in graphs: bounds and exact values",
+          "trigger": "Exact same-model cubic result"
+        },
+        {
+          "assessment": "General scalar bound, citing prior work",
+          "evidence": "The result stated there is the 3-to-4 bound rather than an enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/2608.05403",
+          "material_read": "Theorem 3.7 at offset 13563",
+          "method": "OA primary passage",
+          "title": "On k-coalition partitions of graphs",
+          "trigger": "General regular-graph theorem"
+        },
+        {
+          "assessment": "Different total-domination model",
+          "evidence": "The total model also requires the vertices of the dominating set to be dominated.",
+          "identifier_or_url": "https://arxiv.org/html/2502.07310v3",
+          "material_read": "Abstract at offset 1505 and §2 at offset 7043",
+          "method": "OA primary passages",
+          "title": "Total k-coalitions in graphs",
+          "trigger": "Nearby exact results for cubic and 4-regular graphs"
+        },
+        {
+          "assessment": "Different coalition condition",
+          "evidence": "Its crown-graph count is (n(n−1)(n−2)/2)² for n≥5 in the total-coalition model.",
+          "identifier_or_url": "2026/10/26/SCOPE-total-coalition-partitions-of-crown-graphs-a-four-vertex-deficit--a4c08ede6de7",
+          "material_read": "Finding and model definitions",
+          "method": "Local Resultary mirror",
+          "title": "Total coalition partitions of crown graphs",
+          "trigger": "Same-day exact enumeration on a connected regular bipartite family"
+        },
+        {
+          "assessment": "Disjoint parameter regime",
+          "evidence": "Treats K_{s,t} for s=3,4,5 and t≥s+1, never a regular graph.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-optimal-2-coalition-partition-profiles-of-narrow-complete--d287aaa2f1e0",
+          "material_read": "Finding with graph parameters and counts",
+          "method": "Local Resultary mirror",
+          "title": "Exact optimal 2-coalition partition profiles of narrow complete bipartite graphs",
+          "trigger": "Exact count under the outside-domination notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Steps 4–5",
+        "Jafari et al. Corollary 2",
+        "Brešar–Henning–Samadi Theorem 4.2"
+      ],
+      "rationale": "Once the motivating regular-graph coalition bounds are known, asking how many partitions attain the maximum is natural. The count shows precisely how disconnectedness, but not component shape, changes an unlabeled enumeration. It requires a genuine double-count correction and yields a concise invariant applicable even where explicit partition enumeration is infeasible. The value credited is the complete four-block enumeration, not simply recovering a known cubic number or treating the connected split count in isolation.",
+      "residual_risks": [
+        "No analogous invariant or count is established for irregular graphs, optimal three-block partitions, or graph-automorphism orbits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

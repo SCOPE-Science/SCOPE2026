@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For an odd-order plane, each row of the incidence matrix has even parity and the projective-plane pair-count identity reduces to \(BB^{\mathsf T}=I+J\) over \(\mathbb F_2\). Hence the pristine incidence rank is \(n-1\). Solving the faulted kernel via \(x=B^{\mathsf T}Uz+c\mathbf1\) is a bijection with the nullspace of the explicit \((k+1)\)-dimensional block matrix \(K_F\), proving the theorem for every matching and every odd-order projective plane. Induced matching and conic-tangent cases are derived without numerical extrapolation. A standalone exact-arithmetic checker agreed in 5,814 prime-order finite cases; no computation is used as an all-orders proof.
+PASS
 
-## Originality — PASS on accessible evidence, with residual risk
+Reconstructed the computation in RESULT.md lines 31–53. In graph-state basis amplitudes, tracing the line register gives cancellation unless B_fault transposed annihilates the difference of the two point labels; the reduced density then has identical rank-one blocks indexed by the corresponding cosets, giving rank 2^rank(B_fault) and flat nonzero eigenvalues. Odd q gives BB^T=I+J and B1=B^T1=0 in F₂, with n odd, so B has corank one. For the matching update, z=V^Tx forces even parity by the left kernel. Every preimage of Uz is B^TUz+c1; asking it to have V^Tx=z gives exactly the bordered equations. The maps in both directions are inverse, including k=0. When D=0 and k≥1 the border imposes c=0 and one parity constraint, so the loss relative to pristine is k−2. With two flags one cross-incidence instead gives determinant 1 for K_F, while two cross-incidences violate uniqueness of the common line. For Desarguesian odd q the stated finite point/tangent dot product is (s−t)^2 and neither type of finite/infinite cross-incidence occurs; this works over all the specified fields. Read VERIFY.py, VERIFICATION.md and the supplied finite check output without executing the script. Those prime-order tests are not the basis for the general result.
 
-The foundational graph-state cut-rank theorem of Hein, Eisert and Briegel is credited, not repackaged. Full accessible comparison with Cautrès and coauthors' projective-plane resource construction finds vertex-minor/pairability rather than missing-gate entropy. Full examination of the published even-order matching theorem finds its explicit even-order scope, so it cannot entail the odd-order parity reversal. The published ternary-plane induced-matching census describes incidence patterns but not their quantum entanglement. published-finding corpus searches and accessible prior ledger claims were compared for equivalent reduced rank identities and implications. Residual historical priority risk: an equivalent finite-geometry binary matrix identity may have appeared under coding-theory terminology; searched coverage is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The previously established cut-rank rule alone does not supply the all-matching \((k+1)\)-matrix law for odd-order projective incidence graphs. This complete, natural classification gives a striking nonmonotonic response: one missing gate improves entanglement maximally, while multiple mutually noncrossing omissions decrease it. The conic construction produces an unbounded explicit loss and exposes a sharp contrast with published even-order behavior. Its assumptions and limits are explicit; no device-level advantage is implied.
+On available evidence, the distinct result is the exact odd-plane cross-incidence criterion for every matching, with the sign reversal under repeated induced omissions and its conic realization. The GF(2) entropy law, low-rank compression technique, ordinary projective-plane incidence identities, and conic tangents are not novel ingredients.
 
-## Scope and risks
+## value
 
-The work applies to ideal pure qubit graph states, matching omissions, and the full point-versus-line bipartition. The arbitrary-plane theorem needs odd order; the explicit conic construction assumes a Desarguesian plane. Direct computational checks cover four prime orders, not all prime-power/non-Desarguesian planes. Historical priority needs independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ideal missing gates are a natural graph-state perturbation. The same parity law handles arbitrary matching sizes rather than a sampled small case, and separates first-omission gains from cumulative losses based on the geometry of the missing flags. The q+1 tangent realization makes the reversal an unbounded family rather than a tiny rank check. This is mathematical value for the specified pure-state cut only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

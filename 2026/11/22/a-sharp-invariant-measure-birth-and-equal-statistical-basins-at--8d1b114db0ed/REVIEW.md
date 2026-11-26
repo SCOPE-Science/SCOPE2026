@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact source map at \(a=b=1/2\), \(d=2\) yields the return \(G_c(x)=16cx^2(1-x)^2\) for positive left inputs, with the exceptional value \(F_c^2(0)=1\) explicitly tracked. Monotonicity, the strict maximum \(\max G_c(x)/x=64c/27\), the exact critical factorization and the right-branch inverse establish every basin and all genuine cycles. Dominated convergence of continuous-test-function time averages, coupled with the explicit non-invariance of \(\nu\), proves the complete invariant-measure statement without assuming continuity of the discontinuous original map. The cubic-root and spectral assertions are not invoked. Exact polynomial and quadratic-field identities passed in `check.py`; all continuum steps have proofs in `RESULT.md`.
+PASS
 
-## Originality
+On the positive left half, the return is G(x)=16cx^2(1-x)^2, strictly increasing as a function on the half interval. The ratio G(x)/x peaks at 64c/27 and at 1/2 equals 2c. Thus the sign regions and monotone, no-overshoot returns give the 0/1/2 positive fixed-point census and the precise phase limits. The only genuine cycles of F have period two. At 0, the polynomial is an extension, not the true return: 0->1/2->1->c. This attaches 0 to the periodic basin at and above threshold and to the ghost below. The right separator is L(r)=1/2+sqrt(r/(4c)), giving ghost length r+sqrt(r/(4c)); its two terms decrease strictly with c above the fold. Direct exact substitution gives 7/9 and 1/2 at the two marked parameters. Empirical limits are the phase averages; applying bounded convergence to continuous test functions against any invariant measure makes it a mixture of those limits with basin-mass weights. Since only the ghost limit changes under pushforward, its coefficient must vanish. This proves the invariant-probability census without using continuity of F at the border. Independently, x(1-x)^2=4/27-h^2+h^3 for h=x-1/3. Expansion of 1/(16c) gives the 16/27 fold coefficient, and at the fold h_next=h-(9/4)h^2+O(h^3) on the attracting side so n*h_n->4/9. For positive left ghost returns, y_n=16c*x_n satisfies y_next=y_n^2(1-x_n)^2. The positive increments of -2^(-n)log y_n are -2^(-n)log(1-x_n); the weighted tail times 2^n tends to zero, proving the stated doubly exponential equivalent. The even-phase rate in part (iii) uses positive left ghost starts, as given by its basin formula. If extending the rate to the subcritical start x=0, reindex at F^3(0)=c: the original even iterates then tend to 1/2, not to 0. This phase exception does not affect the all-orbit empirical claim. Independent exact identities are replayable with python /workspace/branches/independent-algebra.py (item 3); continuum claims follow from the orbit argument.
 
-PASS within inspected evidence. The originating article [1] proves fixed-point absence and presents numerical dynamical scans, not the stated invariant-probability threshold, exact basin masses and ghost/physical coexistence. The published contraction-edge result [6] applies only to \(c<1/8\) on this slice; the strict-alternation cycle results [5] assume \(a>b\), excluding this discontinuous border. Therefore neither entails the parameter transition at \(27/64\), the immediate \(2/9\) stationary physical basin, or the exact half/half split at \(c=1/2\). Kryzhevich [2] and Catsigeras et al. [3] establish general non-invariant-limit/ghost mechanisms and appropriately limit novelty claims. The 2024 follow-up [4] was only available through its abstract and metadata, with its accepted manuscript inaccessible; related priority risk remains.
+## originality
 
-## Value
+PASS
 
-PASS. The source construction is motivated by avoiding equilibria in supposedly chaotic maps. A complete natural border slice instead exhibits three sharply separated invariant-measure phases and two incompatible observable-statistical outcomes. The exact \(2/9\) onset and symmetric \(1/2\) ghost-basin mass quantify a discontinuous failure of the usual continuous-map implication from empirical limits to stationary probabilities. The classification covers the entire maximal strict-alternation range of this quadratic border slice, rather than an arbitrarily tuned finite example.
+Fixed-point absence, non-invariant limit phenomena, and low-c border nonexistence are known. The strict-alternation fold even has this numerical threshold as a boundary limit. What survives is the true discontinuous-border orbit and invariant-measure classification across the sharp threshold, with positive critical basin and exact supercritical empirical partition including the equal endpoint split.
 
-## Relationship to closest literature and limitations
+## value
 
-The existence of ghost limits and missing invariant measures in discontinuous systems is known. The new result concerns a specific sharp parameter-dependent phenomenon and exact physical basin geometry, not a general new theory of discontinuous dynamics. The detailed bounds, comparison identifiers, and source-access risks appear in `AUDIT.json`. The theorem is exact-real and limited to \(0<c\le1/2\); no cryptographic implication or independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quadratic symmetric border is a natural part of the motivating family: the apparent return fixed point at zero is not an actual one. The full alternation-range classification shows exactly when true invariant probabilities first appear despite universal time-average convergence and quantifies how much initial mass selects the non-invariant limit. The 2/9 physical birth and the half-basin endpoint give real structural information beyond a known ghost example or a generic saddle-node. No claim is made beyond the stated border slice or about finite-precision behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

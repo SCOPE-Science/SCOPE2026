@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:37:29.139446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reduction by nb=(n+1)a and nc=(n+1)b gives a nonnegative normal form; reducing first modulo n and then dividing after removal of jc determines the two bounded digits. For residue un+j, its quotient threshold is u−j+(n+1)ceil((2j−u)/n). Within a row of residues it decreases by one except for jumps of size n at j=floor(u/2)+1 and, precisely when u≤n−3, j=floor((n+u)/2)+1. At the boundary from u to u+1 the preceding threshold is at least u+2 and the next is u+1; multiples of a cannot start a gap block. Each positive jump supplies exactly n consecutive lifts giving the two disjoint progression families. The maximum and sum of the rectangle give the stated Frobenius number and genus. The coefficient of (1−z) times the membership generating function is a successive indicator difference, so each maximal gap block contributes exactly two changes, plus the constant coefficient counted separately. For n=2 there are four starts 1,5,7,11 and support nine. The separately authored reachability check /workspace/branches/2f35973e-7263-48b0-be6d-395a6258d6ef/independent_gap_check.py matched starts, genus, conductor and support for n=2..40; log independent_gap_check_chunks.txt. The frozen checker was inspected, not executed. The residue argument, not the finite test, proves the quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shor–Sim and Pascadi include the target with geometric length three and bases n,n+1. Shor–Sim give the Apéry rectangle and genus in the retrieved PDF's Propositions 2.4 and 2.3; Pascadi's Corollary 3.1 supplies gap-set and Hilbert-series formulas."
+        ],
+        "reasoning": "The earlier rectangle and Hilbert series subsume basic invariants. The closed form for the run starts concerns order across residues, not the set of congruence classes or equidistribution of all gaps. Neither inspected general theorem gives the threshold differences in ordinary consecutive residue order.",
+        "searches": [
+          "arXiv:2503.10826 §2.1",
+          "arXiv:1712.02522 Example 3.1, Theorem 3.1, Corollary 3.1",
+          "arXiv:2306.03459 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_gap_starts.py",
+        "arXiv:2503.10826",
+        "arXiv:1712.02522",
+        "arXiv:2306.03459",
+        "Resultary records identified in the four checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gap-set formula expands finitely by residue; the Hilbert series can be multiplied by (1−z), which encodes the sign changes without an evaluated support size."
+        ],
+        "reasoning": "Computing the indicator difference or enumerating from the series would recover the output instance by instance, but is not a closed progression classification. The new step is locating the positive jumps and their lift intervals, especially the second jump's cutoff and the exclusion of inter-row jumps. Once the starts are known, the support size is their immediate consequence, not a separate advance.",
+        "searches": [
+          "Pascadi arXiv:1712.02522 §3 Example 3.1 and Corollary 3.1, offsets 26166 and 41028",
+          "Shor–Sim arXiv:2503.10826 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct exact-start record 2026/11/22/SCOPE-exact-gap-block-starts-and-the-sharp-long-desert-spectrum-for-co--adf68b5e865c concerns <T_n,T_{n+1},T_{n+2}>. Record 2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae concerns a two-generator family."
+        ],
+        "reasoning": "A gap start is exactly a negative coefficient of the semigroup polynomial, so exact adjacency or exact signed coefficient supports would cover the finding. These two actual classifications involve other generators; neither can produce the claimed progression support by specialization.",
+        "searches": [
+          "Resultary: exact gap-block starts for numerical semigroup <n^2,n(n+1),(n+1)^2>, 2n(n-1) blocks, polynomial support 4n(n-1)+1",
+          "Resultary: geometric numerical semigroups gap block starts consecutive gap runs Hilbert series Apéry set Frobenius genus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the audited record itself. The external query gave no matches; this is not evidence that no matching source exists."
+        ],
+        "reasoning": "The inspected related listings classify a different-family run invariant or known structural data, not the exact contiguous-gap count for these adjacent bases.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-exact-gap-block-starts-and-semigroup-polynomial-sparsity-for-thr--b6421fdf05b3",
+          "External query: \"geometric numerical semigroup\" \"gap block\" starts consecutive gaps <n^2,n(n+1),(n+1)^2> Apéry genus Frobenius Hilbert series"
+        ]
+      },
+      "rationale": "Pass is for the explicit progressions of ordinary maximal-gap starts and their exact sparsity consequence. The geometric family, Apéry rectangle, Frobenius number, genus and general Hilbert-series formula are prior results. The strongest publications include this very family and encode its gap set, but the inspected formulas do not supply the specialization's adjacent-residue jump analysis or a stronger spacing result from which its output follows immediately.",
+      "residual_risks": [
+        "No full text from the cited Ong–Ponomarenko link. A ready adjacency specialization of general Hilbert-series methods or an unindexed catalogue remains possible.",
+        "Same-day classifications were inspected for content, not treated as ordered by date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Apéry and genus inputs are covered; equidistribution is not block adjacency",
+          "evidence": "Propositions 2.3 and 2.4 in the retrieved version give genus and Apéry data; the frozen bibliography's proposition numbering differs from this version.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.10826",
+          "material_read": "§2.1, PDF pp. 5–6, offsets 13457 and 15000",
+          "method": "OA primary text",
+          "title": "Equidistribution Conditions for Gaps of Geometric Numerical Semigroups",
+          "trigger": "Exact specialization of a broader geometric family"
+        },
+        {
+          "assessment": "Strong known encoding, not the evaluated signed support in the compared passages",
+          "evidence": "Example 3.1 includes geometric generators; Corollary 3.1 gives a general Hilbert series and the corresponding gap set, not adjacency jumps.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.02522",
+          "material_read": "Example 3.1 p. 6 (offset 26166); Theorem 3.1 p. 9 (36038); Corollary 3.1 p. 10 (41028)",
+          "method": "OA primary text",
+          "title": "A Graphical Approach to Finding the Frobenius Number, Genus and Hilbert Series of a Numerical Semigroup",
+          "trigger": "Earlier Hilbert-series treatment of precisely the same family"
+        },
+        {
+          "assessment": "Other family",
+          "evidence": "Uses consecutive triangular numbers, not adjacent squares with their product.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-gap-block-starts-and-the-sharp-long-desert-spectrum-for-co--adf68b5e865c",
+          "material_read": "Finding, complete-start formula and parity count",
+          "method": "Resultary local mirror",
+          "title": "Exact gap-block starts and the sharp long desert spectrum for consecutive triangular numbers",
+          "trigger": "Distinct same-day classification of every start"
+        },
+        {
+          "assessment": "Two-generator family does not subsume the claim",
+          "evidence": "Frequencies are for <dt+1,d(t+1)+1>, not for the geometric triple.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact run-length frequencies for binary semigroups with a=dt+1 and b=a+d",
+          "trigger": "Prior complete block-length and coefficient-spacing frequencies"
+        },
+        {
+          "assessment": "Not used as evidence of either coverage or absence",
+          "evidence": "The frozen work credits a prior Frobenius calculation; this link did not allow checking for stronger adjacency content.",
+          "identifier_or_url": "https://www.academia.edu/66791211/The_Frobenius_Number_of_Geometric_Sequences",
+          "material_read": "No theorem text retrieved; linked page gave HTTP 403",
+          "method": "Bounded OA direct and webpage-mode attempts",
+          "title": "The Frobenius Number of Geometric Sequences",
+          "trigger": "Potential exact-family geometric calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural short geometric semigroup family. The progression description identifies all negative coefficients and counts all maximal holes without expanding a cubic-degree polynomial. It gives an exact adjacency invariant with quadratic support rather than duplicating the known genus or Frobenius number.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

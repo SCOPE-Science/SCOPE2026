@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:16:25.140244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Huang–Jenkinson–Xu–Zhang's bound S_n≤nα+1 applies to the same lexicographic shift. For a q-periodic point, taking n=Nq and then N→∞ bounds its q-block count by floor(qα). For r=floor(qα)/q, the upper mechanical repetition has q-block count qr, and any shifted prefix of length k has at most ceil(kr)≤ceil(kα) ones by the ceiling difference. At a first lexicographic exceedance the prefix count would instead be greater, so every shift is admissible. For rigidity, the needed fixed-content cyclic comparison can also be derived directly: for a word of weight p rotate after a minimum of the periodic cumulative deviation S(j)=number of ones in the first j digits−jp/q. All resulting prefix counts are at least ceil(kp/q), making that rotation lexicographically at least U(p,q); equality of the q-word means that the original word is a rotation of U. In the strict lower approximation window the ceilings at k=1,…,q−1 are unchanged because their next integer is at distance at least 1/q and k(α−p/q)<1/q. A strictly greater equal-weight rotation must differ before the last symbol, so it exceeds the irrational cap, a contradiction. Coprimality gives least period q and q distinct rotations; the infinitely many lower convergents eventually satisfy all hypotheses. For q=1 or p=0, the all-period optimum is the zero fixed point. The frozen bounded verifier was inspected, not executed; its finite prefix tests are not used as an infinite admissibility certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 14 orders Lyndon words of a fixed Parikh vector, with the primitive lower Christoffel word greatest. Complement and rotation convert this to the required minimum of greatest rotations. Sidorov's theorem optimizes a product of cyclic binary numerals on balanced words."
+        ],
+        "reasoning": "This covers the fixed-content order lemma wholesale, not the position of the irrational shift's admissibility cap relative to all rotations. The cyclic product theorem concerns a different objective.",
+        "searches": [
+          "De Luca–Fici, arXiv:2211.09417, Proposition 14 and reference 6 (Borel–Laubie)",
+          "Sidorov, arXiv:1108.3639, §2 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.03619v1, arXiv:2211.09417, arXiv:1108.3639",
+        "Resultary records 451ebc0e8963, 1c6414cc9fe2, 29ae61e0b919 and 77e81b433b53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The universal upper bound at fixed q is an immediate consequence of (4.4). Proposition 14 gives the lexicographically minimal maximal rotation but imposes no α-dependent constraint. The lower-convergent approximation bound is classical."
+        ],
+        "reasoning": "The global bound alone does not produce an admissible repetition for each q. The fixed-content extremality alone does not exclude nonminimal maximal rotations under a larger irrational cap: the equality of the first q−1 ceiling differences and the equal-weight first-mismatch argument are needed. This is a short synthesis, not an independent new Christoffel-order theorem.",
+        "searches": [
+          "arXiv:2610.03619v1, Lemma 4.5 (4.3) and Proposition 4.6 (4.4)",
+          "arXiv:2211.09417, Proposition 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper has the identical shift and objective. Its Lemma 4.5 gives first-return loops at the lengths n with a_(n−1)=1 and |R_n|_1=floor(nα). Resultary's October 11 record 451ebc0e8963 treats the same shift and digit potential, but its finding concerns the maximizing invariant probability and inverse-temperature pressure."
+        ],
+        "reasoning": "Restriction to Fix(σ^q) differs from optimizing over all invariant measures, and selected return-loop lengths are not an all-q construction even though the count on those loops agrees. The consulted pressure result does not fix q.",
+        "searches": [
+          "Resultary: Sturmian beta-shift finite-period digit maximum, rational upper mechanical word and Christoffel orbit",
+          "arXiv:2610.03619v1, §1.2–1.3 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed finding 451ebc0e8963 determines pressure, not a period-indexed table. Other indexed matches 1c6414cc9fe2, 29ae61e0b919 and 77e81b433b53 classify pattern complexity, two-shift pseudoperiods and factor classes, respectively. The primary graph presentation describes all first returns and tabulates their count by length where the edge returning to zero exists."
+        ],
+        "reasoning": "The table analogue is the prior first-return formula; it supplies optimizing examples on a subset of lengths but neither tabulates all periodic optimizers nor determines the orbit multiplicity without further analysis. A general periodic-word enumeration is not an exact table of this irrational-parameter optimization.",
+        "searches": [
+          "Resultary: finite-period Sturmian optimization and Christoffel word/necklace classifications",
+          "arXiv:2610.03619v1, Lemmas 4.3–4.5"
+        ]
+      },
+      "rationale": "The prior discrepancy bound, the existence and defect of selected return loops, and fixed-content Christoffel order are already known. Credit the all-q optimizing construction together with the exact dynamical rigidity criterion, not those ingredients. The strongest inspected same-system work does not supply both the optimizing orbit at arbitrary lengths and exclusion of every competing maximizing orbit in the lower-rational window.",
+      "residual_risks": [
+        "Bounded, statement-level searches do not rule out the same finite-period consequence in other literature on lexicographic beta-shifts or rational kneading words.",
+        "The window is sufficient, not proved necessary; no multiplicity classification is credited outside it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers upper bound and selected-length attainment, not the full conjunction",
+          "evidence": "Equations (4.3) and (4.4) give |R_n|_1=floor(nα) on selected first-return lengths and S_n≤nα+1 throughout the shift.",
+          "identifier_or_url": "https://arxiv.org/html/2610.03619v1",
+          "material_read": "§1.2–1.3 (offsets 9833, 12777, 14138); §4 (offset 65400 onward), Lemmas 4.4–4.5 and Proposition 4.6",
+          "method": "Original OA HTML passages",
+          "title": "Sturmian beta-shifts do not have typical periodic optimization",
+          "trigger": "Identical shift, digit observable and return-loop competitors"
+        },
+        {
+          "assessment": "Supplies the classical extremality lemma only",
+          "evidence": "The primitive Christoffel word is greatest among Lyndon words of its fixed Parikh vector.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.09417",
+          "material_read": "Proposition 14, PDF p. 6 (offset 17121); bibliography reference 6, p. 15",
+          "method": "OA paper text at the decisive passages",
+          "title": "Some Results on Digital Segments and Balanced Words",
+          "trigger": "Fixed-content extremal statement underlying uniqueness"
+        },
+        {
+          "assessment": "Different optimization",
+          "evidence": "The extremized quantity is a product of cyclic binary expansions; this is not admissibility below the irrational lexicographic cap.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.3639",
+          "material_read": "§2 Theorem 2, printed p. 241",
+          "method": "OA paper passage",
+          "title": "Optimizing Properties of Balanced Words",
+          "trigger": "Similar extremal orbit at fixed coprime content"
+        },
+        {
+          "assessment": "Same object and potential, different constraint and conclusion",
+          "evidence": "The finding is about the unrestricted maximizing probability and inverse-temperature asymptotics, including estimates under bounded type.",
+          "identifier_or_url": "2026/10/11/SCOPE-inverse-temperature-pressure-law-for-the-digit-potential-on-boun--451ebc0e8963/RESULT.md",
+          "material_read": "Finding on the maximizing probability and pressure equation",
+          "method": "Resultary index and local-mirror passage",
+          "title": "Inverse-temperature pressure law for the digit potential on bounded-type Sturmian beta-shifts",
+          "trigger": "Strongest semantically matched catalog record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-period optimization for the same observable studied in global ergodic optimization is a natural constraint. The answer gives the exact unavoidable deficit at every q and constructs an attaining orbit even at lengths not supplied by the known first-return calculation. The rigidity theorem identifies when approximation by a short rational word forces uniqueness, and gives infinitely many such periods for each slope. That is a useful dynamical conclusion beyond the classical cyclic ordering or the known limiting optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

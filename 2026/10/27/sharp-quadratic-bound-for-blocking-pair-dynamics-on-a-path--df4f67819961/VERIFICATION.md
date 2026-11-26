@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof establishes convergence for every \(n\ge2\), preference profile, initial matching, and legal history by a single bounded increasing integer potential. The key recurrence uses unique paths in the auxiliary line; the key counting injection maps each nontrivial reachable ordered selected pair \((s,t)\) to a distinct unreachable pair \((u,s)\) with \(u\notin S\).
+## correctness
 
-A separate exact-integer program, `verify.py`, was executed with Python's standard library. It independently enumerates all matching states and both strict neighbor orders at every interior vertex, checks each legal one-edge blocking move, checks the matching potential bound, and calculates the longest sequence in the directed state graph.
+PASS
 
-Observed results (\(n\), profiles, matchings, maximum moves):
+For fixed strict preferences, orient the line of acceptable edges toward the locally preferred edge. At j the directed ancestor sets of incoming neighbors are disjoint, so its ancestor weight is 1 plus the sum of all incoming weights. A blocking move adds j and removes only incoming occupied neighbors, increasing the sum of matching weights by at least 1. For a matching S of size k, every nontrivial directed path s to t with both ends in S yields an unoccupied predecessor u of t and a nonreachable pair (u,s); the path toward t precludes reaching s from u. The pair determines s, and the side of u relative to s determines its outward neighbor t, so this charging is injective. Consequently the potential is at most k+k(n-1-k)=k(n-k) and hence at most floor(n²/4). For the all-left preferences, sweeping a newly formed edge leftward on the free suffix and parking it consumes n-2q-1 moves in phase q without disturbing parked edges, including the endpoint/single-move phases; the total is floor(n²/4). This covers arbitrary starts and move choices and proves termination at stability. Independent bounded enumeration for n=2..8 reproduced maxima 1,2,4,6,9,12,16 for arbitrary starts and for empty starts, including the all-left witness. Replay: enumerate 2^(n-2) neighbor-order bit strings and all nonconsecutive chosen edge subsets, draw each legal edge-insertion arc by comparing current partners at both endpoints, then take the longest directed path in each acyclic graph. The source package's verify.py specifies a separate finite replay for n=2..11 and witness sizes 2..80; it was inspected, not executed. The general bound rests on the proof, not on enumeration.
 
-```
-(2,1,2,1)
-(3,2,3,2)
-(4,4,5,4)
-(5,8,8,6)
-(6,16,13,9)
-(7,32,21,12)
-(8,64,34,16)
-(9,128,55,20)
-(10,256,89,25)
-(11,512,144,30)
-```
+## originality
 
-Every number of moves equals \(\lfloor n^2/4\rfloor\), every legal transition increases the tested potential, and every enumerated potential satisfies the claimed ceiling. The all-left sharp construction's legality and length were also verified for every integer \(2\le n\le80\). The program ended with `ALL CHECKS PASSED`.
+PASS
 
-These finite tests do not prove the universal claim; that follows only from the stated directed-reachability potential argument and matching injection. The checks do not concern graph topologies other than paths, preferences with ties, or simultaneous moves. No independent audit has been performed.
+The supported distinction is the exact total number of arbitrary legal moves in the worst case on a path, with an empty-start witness. The inspected comparisons do not establish this threshold. Neither the line-graph encoding nor forest convergence is claimed as new.
+
+## value
+
+PASS
+
+For a natural graph restriction and a canonical local update, the total worst-case number of moves controls every implementation or adversarial schedule, unlike existence of a short path. The cubic-to-sharp-quadratic distinction and the extremizer from empty are meaningful; the charge on nonreachable pairs makes the exact path bound more than a convergence restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

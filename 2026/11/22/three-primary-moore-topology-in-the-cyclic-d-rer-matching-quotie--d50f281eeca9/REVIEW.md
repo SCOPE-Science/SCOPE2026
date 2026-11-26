@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All graph, group, chain and CW definitions are explicit. The complete regenerated quotient contains 27,703 barycentric flag orbits. Every one of 12,488 free-face collapses is checked against contemporaneous incidences, leaving a three-dimensional CW complex. Exact signed integer cancellation of 1,360 unit pivots yields a single threefold differential and four free third-homology classes. The separate two-skeleton presentation has 580 generators and admits 580 recorded Tietze eliminations; it establishes trivial fundamental group. Hurewicz, the Whitehead exact sequence and the homology Whitehead theorem justify the stated Moore-plus-spheres homotopy type. Risks: numerical cell labels depend on deterministic ordering; the verifier fixes that order and regenerates it. No unproved generalization is asserted.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The exact Dürer published work in Reference 3 gives the original wedge and full dihedral rational character, but not the integral rotation quotient. Reference 4 concerns original-complex cycle supports and primitive lattices, not quotient homology. The full dihedral quotient and the index-two cyclic quotient are not interchangeable: the earlier rational character only yields dimension four of the cyclic rational invariant space; it cannot determine the \(\mathbb Z/3\mathbb Z\) term or quotient \(\pi_1\). The 2004 matching-complex paper concerns complete graphs, while the forest and outerplanar theorems do not cover this graph. No indexed search identified an implication of this exact torsion formula. Risk: inaccessible or unindexed equivalent work cannot be ruled out.
+PASS
 
-## Value — PASS
-The cyclic subgroup is the canonical orientation-preserving half of the complete dihedral symmetry of a classical polyhedral graph; the full-versus-rotation distinction is motivated before computation. A genuinely new integral Moore summand appears in degree two despite the original complex being a free sphere wedge and despite the rational quotient having homology only in degree three. This supplies a complete natural integral homotopy type, rather than just Betti ranks or a small table entry.
+Flags in the barycentric subdivision have distinct vertex ranks. Rotation preserves ranks, so each simplex embeds in the quotient on its closure; two different face deletions cannot be identified because they omit different ranks. This yields a regular CW model with oriented boundaries by alternating deletion, retaining distinct flag orbits even when their vertex orbits agree. I independently reconstructed it without using the supplied verifier or its certificate. Fixed-flag counts for the six rotations are (166087,1,7,115,7,1), and both enumeration and Burnside counting give 27,703 cells with the frozen dimension counts. An independently chosen sequence of free pairs left (115,992,2029,1155) cells through dimension three. A spanning-tree presentation with 878 generators was reduced to the empty presentation by one-occurrence substitutions on the ordered triangle words. Separately, exact integral unit pivots left C0=Z, C2=Z, C3=Z⁵ and a one-row top differential with nonzero entries −3 and 3, hence Smith factor 3 and kernel Z⁴. The result has a 3-dimensional CW model, not a claim that the original orbit-space cellulation is 3-dimensional. By Hurewicz a π2 generator extends over the degree-three Moore space; the Whitehead exact sequence makes π3→H3 surjective, so four sphere maps realize an integral basis. The resulting wedge map is an integral homology equivalence of simply connected CW complexes and hence a homotopy equivalence.
 
-## Limits
-Independent audit has not been performed. The homotopy type is not claimed as a simple collapse or homeomorphism. The exhaustive finite certificate proves only the specified graph and action. Public-priority comparisons remain subject to inaccessible equivalent results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest claims cover the unquotiented Dürer matching complex and the ordinary full-dihedral quotient. The rational rank four follows from the known rotation character; the integral 3-torsion and cyclic orbit-space homotopy type do not. No exact published result for this cyclic quotient was identified in the inspected sources.
+
+## value
+
+PASS
+
+The Dürer graph has a natural nonfree cyclic action and an already-studied matching complex. Determining the integral homotopy of the ordinary quotient gives a concrete benchmark: the covering complex is a sphere wedge, the rational character predicts the cyclic rank, yet the cyclic quotient carries integral 3-torsion absent from the further dihedral quotient. This is a meaningful exact invariant not obtained by character averaging, and gives a case where the orbit-space topology matters independently of the covering homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

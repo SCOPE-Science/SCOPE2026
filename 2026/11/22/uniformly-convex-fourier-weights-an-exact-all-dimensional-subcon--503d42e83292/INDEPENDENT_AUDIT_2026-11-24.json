@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:55:39.715436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–24 and 26–77 (analytic reconstruction)",
+        "Frozen VERIFICATION.md and CHECKER.py, lines 1–28 (inspection only)"
+      ],
+      "rationale": "For fixed d≥2, 2≤q<∞, a>0 and p≥0, take a unit dual functional u with unit norming point v. For a unit x, putting δ=1−u·x in Clarkson gives ||x−v||_q^q/2^q ≤ 1−(1−δ/2)^q ≤ qδ/2. Scaling by r=||k||_q and comparing norms yields the claimed lower bound c r^(1−q)dist₂(k,R₊v)^q. In a shell L≤r<2L the ray tube of radius W intersects a Euclidean ball of radius O(L); the unit cubes centered at the lattice points fit in the thickened tube of length O(L+W+1), giving O((L+W+1)(W+1)^(d−1)) uniformly in direction. With W₀=L^(1−1/q), the innermost tube counts O(L^p_c) and successive annuli are exponentially damped in (W/W₀)^q. This gives uniform summability of the tilted polynomial weight for p>p_c. For n≠0 use its norming functional to minorize the triangle defect by either endpoint's tilt defect; the triangle inequality and (A+B)^p≤2^(p−1)(A^p+B^p) bound the polynomial quotient by the two endpoint weights. The n=0 sum converges directly. Axially, for s>0 the transverse defect is comparable to min(||z||_q^q/s^(q−1),||z||_q), by the mean-value theorem for ||z||_q≤s and rescaling by ||z||_q otherwise; at s=0 it is exactly ||z||_q. Its exponential sum is O((1+s)^α) by lattice balls and annuli, α=(d−1)(1−1/q). For 0≤m≤N/2 this leaves O((1+m)^(α−p)) per layer; beyond [0,N] the additional 2·dist(m,[0,N]) and polynomial quotient ≤1 yield O(1) total. Boxes of transverse radius proportional to m^(1−1/q) give the matching lower sums for 1≤m≤N/4 at criticality, or m comparable to N on a central interval below criticality. Finally, on m≤N/2 the summands converge pointwise to the axial tilt (since ||Ne₁−k||_q−(N−k₁) tends to zero) and are dominated by 2^p times that summable tilt. The reflected half gives the other copy, and a possible midpoint layer tends to zero by domination. This proves the claimed orders, necessity and exact limit.",
+      "residual_risks": [
+        "The NumPy checker compares finite truncated sums, not the uniform angular estimate, exact limit, or sharp asymptotic constants; correctness rests on the analytic bounds and convergence argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das–Giannakis assume the convolution inequality and derive the Hilbert-algebra property in Theorem 4. The closest indexed results evaluate the planar quartic and cubical cases, rather than a class containing all the stated finite q."
+        ],
+        "reasoning": "The algebra implication does not decide its input hypothesis. Neither the endpoint q=∞ nor d=2,q=4 controls arbitrary finite q and d, even though each illustrates a geometric mechanism also relevant here.",
+        "searches": [
+          "Das–Giannakis, arXiv:1912.11664, definition of subconvolutivity and Theorem 4",
+          "Resultary: convex-norm convolution criteria and all-dimensional spectral weight thresholds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.11664 and arXiv:2109.06336, passages specified above",
+        "Resultary Finding IDs 82f7420b66c4 and 7d443dcb5931"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the Euclidean case, on each unit cube centered at k both continuous factors at x and n−x are comparable to their lattice-center values with constants independent of n and k. This transfers boundedness above the continuous threshold and unboundedness below or at it (the paper's axial lower bound integrates s^((d−1)/2−β) from fixed r to n).",
+          "The indexed endpoint and special case supply no direction-uniform estimate for the other anisotropic finite-q norms."
+        ],
+        "reasoning": "Credit the Euclidean threshold even though not worded as a lattice statement. Cube comparison is only up to constants and does not preserve an exact limiting coefficient. For general finite q the Clarkson-derived, direction-uniform tube estimate and matching axial boxes are additional arguments, not a norm-equivalence substitution in exponential weights.",
+        "searches": [
+          "Kaleta–Ponikowski Proposition 3.5 and lower/upper bound passages of Lemma 3.6",
+          "Original Finding passages of Resultary 82f7420b66c4 and 7d443dcb5931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaleta–Ponikowski Proposition 3.5 and Lemma 3.6 give the Euclidean continuous threshold β>(d+1)/2 with the truncated convolution estimates; their class uses comparison to a Euclidean radial profile."
+        ],
+        "reasoning": "Their formulation is substantively related, not just similarly named. The exponential decay e^(−a||x||_q) at q≠2 has different radial rates in different directions and is not comparable to one Euclidean radial profile, so the Euclidean theorem cannot encode the full anisotropic statement. Continuous tilted integrals are not exact discrete tilted sums.",
+        "searches": [
+          "Resultary: finite-q lattice subconvolution, directional axial asymptotics and tilted-sum limit",
+          "Kaleta–Ponikowski, arXiv:2109.06336, almost-radial profiles and directional convolution equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "82f7420b66c4 gives the d=2,q=4 threshold p>7/4, a subcritical lower bound and an exact critical logarithmic coefficient. 7d443dcb5931 gives p>d at q=∞, a subcritical leading constant and the critical law 2^d log N+O(1). The assigned record also matches itself."
+        ],
+        "reasoning": "The precise 7/4 threshold is covered in that one slice and its critical coefficient is sharper there. The flat-facet result covers a norm outside the finite-q scope. Neither distinct entry gives the full family nor the claimed supercritical axial limit.",
+        "searches": [
+          "Resultary: sharp quartic spectral subconvolution threshold; flat facet cubical lattice threshold; exact supercritical axial tilted lattice limit"
+        ]
+      },
+      "rationale": "The Euclidean critical threshold is derivable from prior continuous results by unit-cube comparison; the planar quartic threshold overlaps exactly with an indexed special-case finding, and the cubical endpoint has a separate result. The supported distinct contribution is the uniform lattice criterion for the full finite-q, all-dimensional family, with both axial orders across that family and an exact anisotropic supercritical lattice limit. No priority is inferred from same-day dates.",
+      "residual_risks": [
+        "A broader anisotropic convolution-equivalence theorem outside the inspected literature could overlap. The same-day index dates do not settle historical ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior motivation and sufficient algebra theorem; no evaluation of this weight family in the inspected theorem",
+          "evidence": "Theorem 4 uses the subconvolutive weight as a hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.11664",
+          "material_read": "p. 2, definition (OA offset 4610); p. 8, Theorem 4 (offset 25527)",
+          "method": "OA full-text passage inspection",
+          "title": "On Harmonic Hilbert Spaces on Compact Abelian Groups",
+          "trigger": "General Fourier Hilbert-space algebra framework"
+        },
+        {
+          "assessment": "Substantive Euclidean special-case coverage, not a discrete anisotropic classification",
+          "evidence": "β>(d+1)/2 characterizes directional equivalence for the profile e^(−mr)(1∨r)^−β; the proof supplies uniform supercritical truncated bounds and divergent axial lower bounds otherwise.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.06336",
+          "material_read": "Almost-radial definition, p. 3; example pp. 13–15, Prop. 3.5 and Lemma 3.6 (especially offsets 58050 and 63034)",
+          "method": "OA full-text passage inspection",
+          "title": "On directional convolution equivalent densities",
+          "trigger": "Closest continuous exponential-polynomial theorem and possible stronger implication"
+        },
+        {
+          "assessment": "Direct overlap for the planar quartic threshold",
+          "evidence": "p>7/4 and a sharper critical logarithmic coefficient; no full-family result in the Finding.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quartic-spectral-subconvolution-threshold-and-its-critical--82f7420b66c4",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp quartic spectral subconvolution threshold and its critical asymptotics",
+          "trigger": "Exact finite-q slice"
+        },
+        {
+          "assessment": "Complementary endpoint, excluded by q<∞",
+          "evidence": "p>d and critical axial asymptotic 2^d log N+O(1); transverse geometry is flat rather than uniformly convex.",
+          "identifier_or_url": "2026/11/22/SCOPE-flat-facet-subconvolution-a-dimension-sharp-lattice-threshold-an--7d443dcb5931",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Flat-facet subconvolution: a dimension-sharp lattice threshold and asymptotics",
+          "trigger": "All-dimensional cubical endpoint and exact axial constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–24, 42–77 and 82–86",
+        "Das–Giannakis, Theorem 4",
+        "Resultary planar quartic and cubical comparisons"
+      ],
+      "rationale": "This turns a useful Fourier Hilbert-algebra hypothesis into an exact test across a natural anisotropic family. It identifies the axes as witnesses to failure of the uniform estimate, resolves the borderline logarithm, and gives an exact supercritical normalization beyond the threshold decision. The argument explains why norm equivalence does not preserve the exponent and why the transverse geometry matters.",
+      "residual_risks": [
+        "No necessity claim for all possible algebra proofs, no sharp global constant or critical leading coefficient, and no uniformity in q tending to infinity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

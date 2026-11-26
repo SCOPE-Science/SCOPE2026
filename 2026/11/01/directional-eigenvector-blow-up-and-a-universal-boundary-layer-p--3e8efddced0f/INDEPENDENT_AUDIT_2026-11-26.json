@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:10:18.434925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence fixes the eigenline. The proof writes its product only near the boundary; for existence on the whole radial path, the roots start inside at r=0 and cannot hit the unit circle there: on |u|=1, u+ρ/u parameterizes the boundary of the ellipse (an invertible real-linear image), whereas r(e^(−iθ)+ρe^(iθ)) is interior for r<1. Thus the ODE denominator is zero-free on the closed disk, including at interior repeated roots. Near r=1 the separated root gives 1−|u|∼κθ(1−r) and the singular exponent tends to γθ with an O(1−r) error. An independent normalization check: Fourier Plancherel in Y on the Laplace representation of (1+X+iY)^(−γ), followed by integration in X>0, gives integral πΓ(2s)/(2^(2s)|Γ(γ)|²) for the squared modulus. The rescaled disk exhausts the half-plane pointwise, the second factor tends to its boundary value, and the common integrable majorant in RESULT.md lines 118–134 justifies the mass limit and coefficient, uniformly in angle for the norm law. At c=0 the exact norm is (1−r²)^−1 and C=1/2, including the area normalization. Read VERIFICATION.md and check_boundary.py as evidence; did not execute the supplied script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abad establishes the interior point-spectrum setting and treats dynamics under sense reversal; Cui et al. describe kernels and spectral properties of broader harmonic polynomial families in the inspected abstract."
+        ],
+        "reasoning": "These premises explain which eigenlines exist and how to represent them, not the limiting spatial mass of the normalized functions or the uniform boundary coefficient.",
+        "searches": [
+          "Abad arXiv:2609.22017v1, Proposition 3.2 and Theorem 3.6",
+          "Cui–Lu–Yang–Zu arXiv:2512.16952, p. 1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_boundary.py",
+        "Abad arXiv:2609.22017v1",
+        "Resultary e6b835417cd5",
+        "DLMF 15.4.23",
+        "Cui–Lu–Yang–Zu arXiv:2512.16952 (scope passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abad's ODE and the classical Gamma law are ingredients, and the c=0 case is just the ordinary Bergman kernel."
+        ],
+        "reasoning": "The new quantitative claim couples the motion and phase of one root with an angle-dependent complex exponent and the other factor, then proves normalized convergence on expanding domains. This is a further boundary calculation, not a spectral classification restated or a fixed-parameter Gamma evaluation.",
+        "searches": [
+          "Abad arXiv:2609.22017v1, Lemma 2.4, Theorem 2.5 and Proposition 3.2",
+          "DLMF Eq. 15.4.23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abad's integral formula yields the very same product by partial fractions.",
+          "e6b835417cd5 has norm blow-up for a normalized harmonic-Bergman eigenvector at isolated-island endpoints."
+        ],
+        "reasoning": "The indexed island concerns a quadratic analytic symbol compressed to harmonic Bergman space, not a continuum of point eigenvalues for an affine harmonic symbol on analytic Bergman space; its two scalar endpoints do not reproduce the angle-dependent density.",
+        "searches": [
+          "Resultary comparison of analytic Bergman eigenvector norm blow-up and boundary concentration, including e6b835417cd5",
+          "Abad arXiv:2609.22017v1, Lemma 2.4 and Theorem 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact singular-factor squared norm is ₂F₁(g,conj(g);2;|u|²); DLMF 15.4.23 gives its Gamma ratio at |u|²→1.",
+          "The indexed island has an exact norm formula for a different operator and eigenvector."
+        ],
+        "reasoning": "The tabulated special-function asymptotic covers the model singular factor only, not radial motion in the Toeplitz ellipse, the nonsingular factor's weight, or the two-dimensional push-forward law.",
+        "searches": [
+          "DLMF §15.4(ii), Eq. 15.4.23",
+          "Resultary e6b835417cd5, Finding"
+        ]
+      },
+      "rationale": "The affine-symbol eigenline and the ODE are known, as is the isolated singular-factor norm asymptotic. The supported distinct claim is the sharp angular law for the actual normalized eigenvectors and their complex half-plane mass profile, not the spectrum, eigenvector formula, or hypercyclicity.",
+      "residual_risks": [
+        "An unlocated exact elliptic-eigenvector asymptotic or a more general quantitative kernel-localization theorem could reduce the distinct portion. No priority certification is claimed; the ODE and basic special-function singularity are explicitly not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula and spectral setting covered, quantitative boundary laws not stated in the relevant results",
+          "evidence": "Normalized integral eigenfunction and interior point spectrum; dynamical criterion concerns ellipse intersections, not normalized eigenvector mass.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.22017",
+          "material_read": "pp. 4–5 Lemma 2.4/Theorem 2.5; p. 7 Proposition 3.2; p. 8 essential spectrum; pp. 10–11 Theorem 3.6",
+          "method": "Open primary PDF passages",
+          "title": "On the dynamics of Toeplitz operators over Bergman spaces",
+          "trigger": "Same normalized eigenfunction and sense-reversing symbol"
+        },
+        {
+          "assessment": "Different Hilbert space, symbol and spectral regime",
+          "evidence": "Logarithmic and power blow-up at opposite endpoints of an isolated-eigenvalue window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-separation-and-asymmetric-boundary-layers-of-quadratic-har--e6b835417cd5/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3200",
+          "method": "Local mirrored full-text passage",
+          "title": "Sharp separation and asymmetric boundary layers of quadratic harmonic-Bergman Toeplitz spectral islands",
+          "trigger": "Nearest indexed norm-growth and boundary-layer result"
+        },
+        {
+          "assessment": "Exact model norm asymptotic covered",
+          "evidence": "Ratio at z→1− when Re(c−a−b)<0; set c=2, a=g, b=conj(g).",
+          "identifier_or_url": "https://dlmf.nist.gov/15.4.E23",
+          "material_read": "§15.4(ii), Eq. 15.4.23",
+          "method": "Open reference text",
+          "title": "DLMF, Hypergeometric Function: Special Cases",
+          "trigger": "Exact Gamma constant for the singular factor"
+        },
+        {
+          "assessment": "Structural antecedent; no whole-paper noncoverage inference from the abstract",
+          "evidence": "Integral forms, recurrence methods and spectral characterization are described.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.16952",
+          "material_read": "p. 1 abstract (bounded scope comparison)",
+          "method": "Open primary PDF passage",
+          "title": "Spectral properties of Toeplitz operators with harmonic function symbols on the Bergman space",
+          "trigger": "Broader harmonic polynomial family and kernels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a fixed natural normalization the eigenvectors approaching different points of the same spectral ellipse can diverge at genuinely different powers. The sharp range recovers the coefficient contrast, and the normalized profile describes the direction-dependent mass lost at the boundary. The result makes no claim that this implies a hypercyclicity or resolvent theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

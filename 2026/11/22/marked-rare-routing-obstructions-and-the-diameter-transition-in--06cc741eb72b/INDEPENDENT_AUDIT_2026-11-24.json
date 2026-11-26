@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:34.588686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the statement in RESULT.md, lines 5–34 and 42–63. The absence of a left-to-left 2-path is exactly row inclusion. One obstructed row pair has three equiprobable coordinate types 00, 01, 11; this gives the stated means, common variance 2/9 and covariance 1/9, so the conditional multivariate CLT has correlation 1/2. Two distinct obstructions on three rows give five allowed patterns out of eight for a fork and four for a chain; two reversed obstructions permit two of four patterns. Disjoint row pairs are independent. For a direct check of the marked argument, independently retain each obstruction with probability 1−exp(−f) at its mark. The conditional probability of retaining none is the Laplace functional. Scalar dependency-graph Poisson approximation applies to the retained indicators, with errors bounded by O(m³(3/4)^{2n} + m³(5/8)^n + m²(1/2)^n); the three terms vanish under the given scaling. The conditional CLT times the ordered location-grid limit gives the limiting retained mean. The conditional mark laws are tight and expected mass is bounded, giving weak convergence of finite point measures, not just local convergence. The overlap expectation also tends to zero. For the diameter reduction, condition on the row of a fixed left vertex and choose an available witness right neighbor different from the queried right vertex. Each of the other m−1 independent rows offers a 3-path with probability 1/4. A union bound with the missing-neighbor and failed right-to-right 2-path events gives exactly the stated three error terms. On the complement every left pair can route in at most four steps; bipartite parity makes an obstructed pair require four, while in the absence of obstructions the diameter is exactly three (one direction of each cross edge is absent). This also covers the allowed infinite-distance convention. VERIFICATION.md and check.py were inspected, not executed. The stated 79,561 assertions are source-reported finite checks, not independent reproduction or asymptotic evidence; the pass rests on the proof check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct same-date continuous coordinatewise-comparison record has a marked Poisson matching and the same endpoint Gaussian correlation 1/2, but its hypotheses are iid continuous uniform points and it lacks label-position and routing conclusions.",
+          "Stark's more general retention theory gives count results, not this joint degree/location and directed-distance statement.",
+          "Choi et al. bound the diameter of a derived undirected competition graph, not the diameter of the orientation."
+        ],
+        "reasoning": "Thresholding continuous coordinates into bits does not preserve the comparison event in both directions: bit inclusions can hold when continuous comparisons fail. The probabilities driving the sparse window also differ. The continuous result is strong structural overlap, not a dominating theorem for this object.",
+        "searches": [
+          "Resultary: marked coordinatewise comparisons and Gaussian endpoint degrees",
+          "Stark, Theorem 1 and the general-retention Poisson criterion",
+          "Choi et al., arXiv:1611.01901, Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Stark 2004 R59",
+        "Resultary 307cb7e06ed6 and cd69f9872e0a",
+        "Moon–Moser (1962)",
+        "Choi et al. arXiv:1611.01901",
+        "Bollobás–Frank–Karoński bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stark plus the three allowed Bernoulli outcomes gives the unmarked approximation and identifies the one-obstruction Gaussian limit by a routine CLT.",
+          "Neither those marginal facts nor continuous comparison convergence supplies the joint marks in the Bernoulli experiment or the finite directed routing implication."
+        ],
+        "reasoning": "The proof requires marking under overlapping row dependence and a separate constructive routing argument; neither issue is settled by the prior count marginal or by results on undirected derived graphs or cycle counts.",
+        "searches": [
+          "Stark, Theorem 1",
+          "Resultary mirrored continuous comparison finding and its finite-partition Poisson estimate",
+          "Choi et al., Theorem 9",
+          "Moon–Moser and Bollobás–Frank–Karoński 4-cycle studies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stark defines precisely the ordered inclusion count W; an unordered comparable-pair convention differs only by equality ties, whose expected number vanishes at the scale here.",
+          "SCOPE-second-order-rare-obstruction-law-for-kings-in-random-tournament--cd69f9872e0a counts failed ordered 2-paths with related local probabilities in a nonbipartite tournament."
+        ],
+        "reasoning": "Equating left 2-path failures with inclusions identifies the count as prior, but the nonbipartite model has neither deterministic bipartite parity nor the independent opposite-part witnesses required for the present diameter formula.",
+        "searches": [
+          "Resultary: ordered Bernoulli subset comparisons and degree marks",
+          "Stark, DOI 10.37236/1812, pp. 1–4",
+          "Resultary: failed two-step reachability and rare routing obstructions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directed routing query returned the assigned record itself as the closest result, not a second source for the bound.",
+          "Moon–Moser gives exact cycle-count calculations, not directed-distance or degree-mark data."
+        ],
+        "reasoning": "The claim is a uniform analytic inequality and a scaling limit, not an evaluated fixed-size invariant. The closest formula source inspected tabulates a different statistic; a finite biclique enumeration cannot establish this general bound or law.",
+        "searches": [
+          "Resultary: bipartite tournament diameter and quantitative routing bound",
+          "Moon–Moser, DOI 10.4153/CMB-1962-002-0, printed pp. 5 and 7"
+        ]
+      },
+      "rationale": "The ordered inclusion-count Poisson limit is already covered by Stark. The supported distinct result is the Bernoulli row-degree and ordered location process jointly with the directed 3-versus-4 diameter reduction and its explicit finite error. The strongest distinct indexed overlap proves a closely related Gaussian-marked matching for continuous coordinatewise comparisons, with the same endpoint correlation, but it does not imply the Bernoulli theorem or the routing result. No priority order is inferred from the matching publication date.",
+      "residual_risks": [
+        "Full text of Bollobás–Frank–Karoński was not lawfully retrieved; the title alone cannot exclude an ancillary diameter result.",
+        "The continuous coordinatewise comparison theorem is a close same-date analogue; shared Gaussian correlation and local Poisson method do not establish equivalence or chronological priority.",
+        "The best-of-knowledge assessment does not exclude an unlocated general marked comparison theorem or an earlier routing calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of unmarked marginal",
+          "evidence": "Defines ordered W and bounds the subset count against a Poisson law; equality correction for the unordered count is negligible here.",
+          "identifier_or_url": "https://doi.org/10.37236/1812",
+          "material_read": "OA journal PDF pp. 1–4: W and X definitions, expectation, Theorem 1 and criterion",
+          "method": "Lawful OA journal PDF; statement and definitions",
+          "title": "Convergence in distribution for subset counts between random sets",
+          "trigger": "Exact Bernoulli subset-count formulation and potentially stronger retention result"
+        },
+        {
+          "assessment": "Strong structural overlap, no equivalent coverage established",
+          "evidence": "Continuous uniform coordinates, Gaussian sum and gap, correlation 1/2 and matching property; no discrete Bernoulli inclusion, normalized vertex-position marks or diameter reduction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-independent-gaussian-center-and-gap-marks-of-rare-coordinatewise--307cb7e06ed6",
+          "material_read": "Mirrored RESULT.md opening statement and finite-partition approximation, offsets 0–4890 and 2520",
+          "method": "Local Resultary search and source mirror",
+          "title": "Independent Gaussian center and gap marks of rare coordinatewise comparisons",
+          "trigger": "Same Gaussian endpoint correlation and rare-comparison marked process"
+        },
+        {
+          "assessment": "Analogous obstructions in a different graph model",
+          "evidence": "Unbalanced bipartite distances and the marked limit are not the stated 2-path failure expansion and clustering result for ordinary tournaments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-second-order-rare-obstruction-law-for-kings-in-random-tournament--cd69f9872e0a",
+          "material_read": "Mirrored RESULT.md opening finding",
+          "method": "Local Resultary search and source mirror",
+          "title": "Second-order rare obstruction law for kings in random tournaments",
+          "trigger": "Equivalent-looking ordered blocked-distance event"
+        },
+        {
+          "assessment": "Different statistic in inspected material",
+          "evidence": "C(m,n) counts directed 4-cycles; the passages address its distribution, expectation and normal asymptotics, not directed diameter.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1962-002-0",
+          "material_read": "Original paper opening specification, printed p. 5, and cycle expectation passage, p. 7",
+          "method": "OA primary PDF, targeted passages",
+          "title": "On the distribution of 4-cycles in random bipartite tournaments",
+          "trigger": "Same independent fair bipartite orientation model"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "Title concerns 4-cycles; no claim is made about unread sections.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190070207",
+          "material_read": "Bibliographic title only; DOI and publisher full-text attempts returned HTTP 403",
+          "method": "Lawful public retrieval attempts",
+          "title": "On 4-cycles in random bipartite tournaments",
+          "trigger": "Same random bipartite orientation model"
+        },
+        {
+          "assessment": "Different graph and distance",
+          "evidence": "Diameter at most three refers to the nontrivial component of the derived undirected competition graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.01901",
+          "material_read": "Abstract and Theorem 9, PDF pp. 1 and 6",
+          "method": "OA primary PDF, passage inspection",
+          "title": "On (1,2)-step competition graphs of bipartite tournaments",
+          "trigger": "Bipartite tournament diameter terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph diameter is a global maximum over directed routes. The explicit reduction to a sparse family of disjoint anomalous pairs and the joint degree law identify where the transition comes from, distinguish typical outdegrees from the troublesome one-third/two-thirds profiles, and quantify when other routing failures can be ignored. This is more than reusing a prior count threshold or rephrasing a covariance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

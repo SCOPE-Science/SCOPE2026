@@ -1,23 +1,21 @@
-# Scientific review: sharp two-phase Markov–Bernstein constant for damped conjugate modes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is a complete all-parameter theorem for real two-mode damped oscillations, plus equality of the real and complex-span constants. Translation invariance reduces the derivative norm to initial velocity; real-phase parametrization is exhaustive; the first damped critical point and time-zero endpoint exhaust the possible supremum contacts. The strictly decreasing function \(e^{ru}(\cos u-r\sin u)\) gives exactly one denominator-switching point. Its two branch objectives are respectively single-peaked and strictly decreasing, establishing uniqueness of the optimal phase. The transition equation is strictly increasing in damping ratio. Explicit normalized extremizers attain the constant in both regimes. Implicit differentiation proves the claimed curvature jump; the large-damping limit follows from a unique limiting transcendental root.
+PASS
 
-The standalone `check.py`, run from the same extracted package, passed 174,116 phase/trajectory probes, 58 parameter configurations, and five separate coefficient-phase optimizations, including critical and asymptotic tests. These finite checks are supplementary and are not offered as proof of the continuous maximization.
+Pass applies to the corrected package. The frozen uniqueness assertion is false below r_*: right-translation contractivity equates the sharp constants for the initial derivative and the full derivative norm, not their extremizer sets. In unit frequency let F(x)=g_r(u_*−x) be the canonical norm-one initial-derivative extremizer. When r<r_*, g_r(u_*) is strictly between −1 and 1, so F(x−d) for small d>0 keeps sup norm one and has derivative C(r) at d, but is not proportional to F. For example at r=0.1 the directly evaluated F(0) is about −0.23519 and F(−0.1) about −0.35376. The replacement gives a complete analytic classification: an extremizer's derivative attains its supremum at some d≥0 by continuity and decay; its right translate must have norm one and is the unique initial extremizer up to sign. Extending the formula back to −d is admissible if and only if d≤u_c−u_* because g_r decreases through −1 at u_c. This also determines the norm contacts, including the two-contact maximal shift below the switch. The other claims survive: phase reduction gives a stationary-envelope branch increasing then decreasing with maximum at u_1, and a decreasing endpoint-envelope branch after u_c. Their selection yields the stated constant and unique switch. Complexification follows by phase rotation and real part at each derivative evaluation. At the crossing W_u=0, u_c'=−R^(−2)−u_*/W, and the second-derivative gap is W_uu(u_c'−u_1')²<0. For large r the equation in x=ru_c converges uniformly on [1,2] with strict endpoint brackets to the Lambert equation, yielding the asserted ratio. The uploaded finite checker tests the canonical witness, not all extremizers, and was not executed.
 
-## Originality — PASS, with priority limits
+## originality
 
-The closest identified literature is V. Yu. Protasov (arXiv:2209.12250, first submission 2022-09-25), which formulates and studies general exponential-polynomial Markov–Bernstein constants, proves results for real exponent systems, and reduces complex cases to convex extremal problems. It does not evaluate the one-pair underdamped two-mode constant, determine the unique active-contact threshold, or state the \(C^1\)-but-not-\(C^2\) phase boundary. V. Yu. Protasov and R. Kamalov (arXiv:2403.16330, first submission 2024-03-24) develop constrained approximation methods and report a numerical complex-exponential example with *three* modes, rather than the analytic two-mode formula. The Borwein–Erdélyi exponential-sum comparison concerns different, real exponent configurations. Database comparisons found related damped-oscillator sampling and approximation records but not a statement implying the proposed constant or threshold. Theoretical methods for constrained approximation do not themselves tabulate this closed scalar classification.
+PASS
 
-The absence of a matching search hit is not a uniqueness proof. An older exact two-dimensional complex-exponent computation, possibly in the dynamical-systems or Chebyshev approximation literature, remains a priority risk. The 1996 exponential-sum source was assessed through available bibliographic/abstract excerpts, not a complete readable paper.
+The distinct repaired claim is an exact two-mode norm evaluation with a contact switch, differentiability loss, and the actual real equality family. General exponential-polynomial Markov–Bernstein setup and initial-evaluation reduction are not claimed as new. Available comparisons support this narrow distinction, with explicit residual risk for older oscillator results stated in initial-velocity terms.
 
-## Value — PASS
+## value
 
-The object is the minimal underdamped real ODE solution space, where the derivative inequality is exactly the largest allowable initial velocity of a trajectory uniformly confined to a scalar amplitude bound. The theorem identifies a genuine geometric switch between a single interior active constraint and endpoint/interior equioscillation. This switch produces a precisely determined threshold and a second-order regularity defect in the sharp constant, not a mere numerical constant for an arbitrary parameter slice. The repeated-real-root strong-damping limit connects the oscillatory and Laguerre-type Markov problems. These quantitative features make the exact answer useful as a benchmark for constrained approximation and linear-ODE bounds.
+PASS
 
-## Scope and limitations
+One conjugate pair is the minimal damped oscillatory system, and the exact first-derivative norm quantifies the largest derivative compatible with a fixed amplitude bound throughout the half-line. The contact transition, its nonzero curvature jump and the collapse of the nontrivial translated equality family distinguish two actual regimes. The equality repair preserves and strengthens that useful classification rather than simply removing a failed assertion.
 
-No general comparison theorem for arbitrary nonreal spectra is proved. Higher derivatives, multiple conjugate pairs, and different exponential decay rates remain outside this result. All parameter-wide statements rely on the analytic proof, not the numerical checker. Historical priority and independent mathematical review remain open.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

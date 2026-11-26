@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Both inverse branches are explicit and sum to one, so the claimed density passes a direct transfer-operator identity and is normalized. The return event has a unique inverse-image threshold on the increasing left branch; changing variables through the other inverse branch gives an exact antiderivative for every integer time. The scalar recurrence telescopes to the claimed mean, while its inverse increments establish the asymptotic constants and the sharp moment cutoff. Endpoints are null under the specified conditional density. The accompanying verifier independently checks finite exact cases; it does not constitute the infinite proof.
+PASS
 
-## Originality
+Solving F(x)=y gives branches u(y)=y−y²/2 and 1−u(y), with absolute inverse derivative 1−y. The densities of the two preimages sum to 2, so the invariant density is 2(1−y), normalized on [0,1], and J has mass 1/4. Independently describe the sets directly in starting coordinates: for n≥1 the first n images miss J exactly when F(x)<u^(n−1)(1/2). On the decreasing right-hand branch this means x>1−u^n(1/2). Integrating the conditional density on this interval gives 4a_n², also valid at n=0. For example the first tail is 9/16; at x=1 the return is infinite, but that singleton has zero mass. The recurrence decreases to zero, and tail subtraction gives 4a_(n−1)^3−a_(n−1)^4. The identity a_n²=2(a_n−a_(n+1)) telescopes the mean to four; the reciprocal increments tend to 1/2, giving n a_n→2 and constants 16 and 32. The point-mass comparison with n^−3 gives the strict s<2 moment range, including the endpoint divergence and the trivial s=0 case.
 
-**PASS on the evidence examined.** The motivating paper treats the same cusp equation only within its uniformly expanding parameter range, excluding the parabolic boundary; it studies Sobolev transfer-operator estimates rather than return-time distributions. Related intermittent-map work treats broader qualitative/quantitative tails but does not give this specific all-index formula, density and moment law. Searches compared the map, inverse branches, invariant density, first-return distributions and equivalent renewal/tail formulations, as well as stronger intermittent-map results. A general theorem for tails alone would not imply the exact all-time recurrence without additional model-specific input. Residual risk: hidden older equivalent parametrization and unavailable full text of a related 2026 cusp random-systems preprint.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The newly explicit return law isolates the statistical effect of losing uniform expansion at a natural endpoint of a current cusp family. It provides the full finite-time distribution, the exact constant in the asymptotic tail, a nontrivial finite-mean/infinite-variance split, and the complete moment phase boundary. The canonical half-interval is the branch return domain, not an arbitrary numerical slice; its law is a natural input to renewal and inducing calculations.
+Credit the source family, standard inducing estimates and recurrence analysis as prior methods. The verified distinct claim is the full measure-specific positive-integer return law at the neutral endpoint, with its exact normalization and tail factors. The strongest inspected family results exclude this endpoint, and the closest broad inducing theorem has structurally incompatible branch hypotheses. No priority claim is made for the normalized cusp map itself, its elementary invariant-density calculation in isolation, or the general phenomenon of polynomial return tails.
 
-## Closest literature and limits
+## value
 
-Oltiboev--Vafoyev, arXiv:2610.23180, Section 3, gives the family but imposes \(1<\vartheta<2\); Coates--Luzzatto--Muhammad, arXiv:2209.12725, treats induced maps and asymptotic tails in a broader intermittency setting with different structural hypotheses. The claim is about one precise map and one chosen invariant measure. No independent priority or scientific certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the neutral continuation of a specified expanding cusp family, and the natural complementary half-interval isolates excursions through the neutral branch. The exact first-return distribution gives finite-time probabilities and a concrete normalized renewal-law input; the critical moment and constants show what changes at the boundary. The interest is not merely substitution of θ=0 or a familiar tail exponent: it is the all-index conditional law with exact measures of the return cylinders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:39:40.398023Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4; VERIFICATION.md and checker.py (inspection only)",
+        "/workspace/reproductions/confluence.py and confluence.log (fresh exact enumeration)"
+      ],
+      "rationale": "For a strict comparison of sources m<t, an upper target must occur in both rows, whereas a lower target is witnessed by any upper target in row t or, if that row has no upper targets, only by itself. This gives precisely the two intersection restrictions; reflexive source comparisons impose nothing. For zero empty upper parts, the column sum is H^b without the nonempty-row condition, and the empty-row completions have no all-one columns: subtract B^b-(B-1)^b. For z>0 empty upper parts, each lower target gives 2^z-1 ordinary patterns and one all-present pattern with 2^a lower-source completions, accounting for every term of the exact formula. In the proposal law the factor 2^a on each all-one column cancels its 2^a equally likely lower-source completions, so conditioning on confluence is exactly uniform. One upper row is empty with probability (2^{b-1}/H)^b, independently across columns, giving the claimed bound by a union over rows, not by assuming row independence. Dividing by 2^{(a+b)^2} gives 2^{-ab}(1+2^{a-b}-2^{-b})^b for the relaxation; replacing the base by 1+2^{a-b} costs relative error at most b2^{-b}, uniformly in a, and gives all stated regimes. The audit's separate up-set evaluation checked every relation for all six positive (a,b) with a+b<=4, including 185 versus 281 and 11,401 at (2,2).",
+      "residual_risks": [
+        "The finite enumeration checks small cases only. The all-parameter census, sampler and uniform limit use the symbolic derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-parameter census admits distinct domain and codomain two-level orders but simultaneously requires downward and forward confluence. The shallow calculus result gives an EXPSPACE upper bound."
+        ],
+        "reasoning": "Identifying the carriers in the broader two-order parameter space still counts only relations satisfying both conditions. Enlarging the parameter space while restricting the admissible relations does not dominate the one-direction count.",
+        "searches": [
+          "Resultary: SCOPE-exact-four-parameter-census-of-two-sided-confluent-relations-bet--6bd1e200ca4a",
+          "arXiv:2606.31877 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially Finding, scope and prior-work statements",
+        "Resultary rooted fork 65daaa8ffd55; chain 75c9508e987d; two-sided census 6bd1e200ca4a",
+        "arXiv:2309.06309; arXiv:2503.18714; arXiv:2606.31877"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior results examined give a semantics/proof-theory framework, decidability/complexity bounds, or a count for a different class or slice. The new weighted-column law controls empty upper parts across all b maximal sources."
+        ],
+        "reasoning": "The underlying semantic definition does not itself give the counted completions, nor do the earlier counts or decision bounds yield a uniform error bound and exact sampler on the full class.",
+        "searches": [
+          "arXiv:2309.06309 §1; arXiv:2503.18714 pp. 1–2; arXiv:2606.31877 pp. 407–408",
+          "Indexed rooted fork, chain and two-sided census Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The FIK forward refinement condition in the papers is the same implication on R, but their relevant results concern semantics, proof theory or decidability. The indexed fork imposes that implication alone on the same labelled carrier only when a=1."
+        ],
+        "reasoning": "Interpret the two levels as ordered antichains and the implication as forward simulation, without extra relation axioms. Swapping a and b is not a symmetry of the census, as the exact (1,2) and (2,1) counts illustrate.",
+        "searches": [
+          "Resultary: forward confluence, FIK, two-level posets, rooted forks and chains",
+          "arXiv:2309.06309 §1; arXiv:2503.18714 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fork Finding includes F_2=185, the a=1 slice. The chain record gives a Gaussian-binomial chain enumeration, and the four-parameter record counts the stricter two-sided class."
+        ],
+        "reasoning": "None of those exact records supplies the one-direction two-parameter census beyond the credited special cases. P_{1,1} is the only total chain in the displayed domain.",
+        "searches": [
+          "Resultary: SCOPE-exact-fork-frame-confluence-counts-and-exponential-separation-of--65daaa8ffd55",
+          "Resultary: SCOPE-gaussian-binomial-census-of-fik-relations-on-finite-chains--75c9508e987d",
+          "Resultary: two-sided four-parameter census 6bd1e200ca4a"
+        ]
+      },
+      "rationale": "Credit the rooted-fork specialization and established FIK semantics. The strongest indexed overlaps, including a same-day two-sided census, do not give the unrestricted one-direction count with both sizes free or its sampling and uniform error analysis. This is a bounded statement-level finding, not a priority certification.",
+      "residual_risks": [
+        "An unindexed equivalent enumeration under relational simulation or ordered-powerset terminology remains possible.",
+        "The indexed chain Finding was inspected; no claim is made about the whole text of the chain census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a=1 only",
+          "evidence": "One root with k incomparable labelled leaves; exact F_2=185.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-fork-frame-confluence-counts-and-exponential-separation-of--65daaa8ffd55/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Indexed local mirror, bounded statement read",
+          "title": "Exact fork-frame confluence counts and exponential separation of FIK from IK",
+          "trigger": "Same labelled relation count for one lower point"
+        },
+        {
+          "assessment": "Different carrier except at (1,1)",
+          "evidence": "Gaussian-binomial count on a total chain, not two branching antichains.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-gaussian-binomial-census-of-fik-relations-on-finite-chains--75c9508e987d/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Indexed local mirror, bounded statement read",
+          "title": "Gaussian-binomial census of FIK relations on finite chains",
+          "trigger": "Same implication and exact census on other orders"
+        },
+        {
+          "assessment": "Different class despite overlapping parameters",
+          "evidence": "Requires both downward and forward confluence between the two orders.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-four-parameter-census-of-two-sided-confluent-relations-bet--6bd1e200ca4a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror, bounded statement read",
+          "title": "Exact four-parameter census of two-sided confluent relations between two-level orders",
+          "trigger": "Same-day indexed count on overlapping two-level carriers"
+        },
+        {
+          "assessment": "Semantics and calculus, not a census in the material read",
+          "evidence": "Forward confluence is the semantic condition for FIK.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.06309",
+          "material_read": "§1, pp. 2–3, OA offset 6200",
+          "method": "OA bounded original passage",
+          "title": "A Natural Intuitionistic Modal Logic: Axiomatization and Bi-nested Calculus",
+          "trigger": "Original FIK definition"
+        },
+        {
+          "assessment": "Relevant definition, distinct theorem",
+          "evidence": "Uses the forward-confluence condition to study decidability.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.18714",
+          "material_read": "Introduction, pp. 1–2, OA offset 0",
+          "method": "Primary search and OA PDF passage",
+          "title": "Intuitionistic modal logics: new and simpler decidability proofs for FIK and LIK",
+          "trigger": "Focused primary literature search; forward confluence"
+        },
+        {
+          "assessment": "Different result",
+          "evidence": "Shallow calculus and EXPSPACE upper bound, not a count on a fixed two-level order.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31877",
+          "material_read": "Abstract and introduction, pp. 407–408, OA offset 0",
+          "method": "OA bounded original passage",
+          "title": "Taming Complexity in Intuitionistic Modal Logic: The Case of FIK and Its Shallow Calculus",
+          "trigger": "Recent FIK result, cited in frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the weighted relaxation",
+        "Indexed fork and chain Findings (scope comparison)"
+      ],
+      "rationale": "Complete two-level orders are a natural branching family beyond chains and rooted forks. The census retains the asymmetry of the two levels and distinguishes the balanced and strongly unbalanced rarity regimes. The same structure gives exact uniform sampling with at most two proposals in expectation, an independently useful way to generate valid frames without the rarity cost of rejecting from all relations.",
+      "residual_risks": [
+        "No claim for arbitrary height-two orders, unlabelled frames, or larger classes of models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

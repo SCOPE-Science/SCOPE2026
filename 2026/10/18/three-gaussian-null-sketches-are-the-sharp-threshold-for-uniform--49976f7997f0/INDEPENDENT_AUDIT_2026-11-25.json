@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:35:03.838141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An (n-1)-row real Gaussian matrix has full row rank almost surely; orthogonal invariance makes its kernel a uniform unoriented line. For a spherical unit representative u, the last squared coordinate is T=Z_n^2/(Z_1^2+...+Z_n^2), the ratio of independent chi-square components with degrees 1 and n-1 in numerator and complement. Pulling the line back by diagonal A and normalizing gives the residual ratio 1/[T+kappa^(-2)(1-T)]. For kappa>1 this decreases in T, so exact residual selection replaces T by W=max_j T_j and F_W=F_n^K. The residuals increase pointwise in kappa to 1/W. The density near zero is asymptotic to (K/2)(2/B_n)^K t^(K/2-1); the integral of t^(-q) against it is finite exactly when K>2q, with logarithmic divergence at equality. Monotone convergence handles the supremum; domination by W^(-q) also proves uniform integrability when the bound holds. For the first two means put e=kappa^(-2) and split at fixed small delta, with bounded contribution from [delta,1]. For K=1 the rescaling t=e*z and the leading beta density give e^(-1/2)B_n^(-1) times the integral of z^(-1/2)/(1+z), which is pi. For K=2 the density tends to 4/B_n^2 and the integrated leading kernel is log(1/e)+O_delta(1), yielding 8/B_n^2 times log kappa. The kernel slope 1-e is uniformly bounded away from zero near the limit and goes to 1; splitting lets the density errors tend to zero, also when n=2 and the other endpoint density is unbounded. For n=3 the square root of T is uniform, giving an integral with weight K u^(K-1), hence K/(K-2) in the limit and the three displayed finite-kappa arctan/log formulas by integration of u^(K-1)/(1+(kappa^2-1)u^2). The off-axis to axial norm ratio is kappa^(-1) times the corresponding ratio for u, so the angle converges under the common-sketch coupling, and does not control these scaled residual moments. For tall A, right singular coordinates and Gaussian multiplication by the thin left isometry give the same independent standard sketches. The uploaded verification and script were inspected, not executed; their finite checks and Monte Carlo are supporting evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former assumes s>=n and a full-rank sketch restriction; the latter uses a subspace embedding with invertible sketch-derived preconditioning.",
+          "A distinct same-date Resultary record 2026/10/18/...672f7b4a2f0b gives mean sin^2 angle eps^2/(1+eps^2) from one three-row sketch of a two-mode matrix; this implies a normalized mean residual 2/(1+eps^2) with eps=b/a."
+        ],
+        "reasoning": "The one three-row sketch supplies a different condition-uniform option in two dimensions; it neither dominates the exact replication model by assumption nor refutes its necessity statement. Full-rank sketches do not extract a sketched null line like the n-1-row trials, and their algorithmic guarantees do not imply this best-of-K law. No priority order is inferred from the same catalogue date.",
+        "searches": [
+          "Resultary: Gaussian randomized approximate nullspace sketch-and-solve Park Nakatsukasa Theorem 2.3 3.1",
+          "Web: \"one-row-short\" Gaussian sketch null vector best-of-K residual beta order statistic singular value randomized nullspace",
+          "Park–Nakatsukasa Theorems 2.3 and 3.1; Epperly–Park–Nakatsukasa arXiv:2602.16797 Definition 1 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.5697, arXiv:2602.16797 and arXiv:0909.4061",
+        "DOI 10.1007/s10543-023-00979-7",
+        "Resultary 2026/11/8/...f67f8a256b4c and 2026/10/18/...672f7b4a2f0b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the rank n-1, zero-oversampling case Witten–Candès Eq. (2.3) yields limiting norm sqrt(1+||X_1 Sigma^(-1)||^2) for the same high-contrast diagonal family. Their finite-contrast Gaussian column-space formula also supplies a one-trial starting point, but the theorem gives a stochastic upper envelope and a tight limit, not sharp finite-contrast rates under independent minimum selection.",
+          "Halko–Martinsson–Tropp's Frobenius-error bound assumes undersized target rank with additional oversampling (p>=2 in Theorem 10.5) and is not a selected-candidate law."
+        ],
+        "reasoning": "For one trial the rank-one range-finder duality means the Gaussian representation is prior, and the spherical-coordinate calculation is elementary. Evaluating the concentration of its dangerous near-zero beta coordinate after independent minimum selection gives a power K/2, not the behavior of a single enlarged embedding; taking the high-contrast limit alone does not determine the divergent finite-contrast regularization rates. No inspected earlier theorem states or automatically supplies those best-of-trials rates and classification as a restriction of a stronger selection theorem.",
+        "searches": [
+          "Witten–Candès arXiv:1308.5697, pp. 2–3 and 11–12, Theorem 1.2 and Eq. (2.3), OA offsets 5500–7598,8100–10641,39400–45061",
+          "Halko–Martinsson–Tropp arXiv:0909.4061 Theorem 10.5",
+          "Resultary: maximum of beta(1/2,(n-1)/2) variables inverse moments sharp K threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For square symmetric A, if Q spans range(A G^T), its orthogonal complement is precisely ker(G A); (I-QQ^T)A=v v^T A and its norm is ||Av||. Thus the earlier range-finder theorem genuinely applies to a trial, with rank target n-1 and oversampling zero.",
+          "The later Resultary 2026/11/8/...f67f8a256b4c one-column, no-power excess error equals R_(kappa,1)-1: with U~chi-square(1), V~chi-square(n-1), T=U/(U+V), both equal (kappa^2-1)V/(V+kappa^2 U)."
+        ],
+        "reasoning": "These are exact single-sketch correspondences, not merely similar titles. The later one-spike family moves from one to several columns of a single range finder, whereas the selected sketch here takes the minimum across independent codimension-one residuals. Its one-trial law permits a short order-statistic derivation, but its several-column theorem is not equivalent to the selection result.",
+        "searches": [
+          "Resultary: exact best-of-K Gaussian one-row-short null sketches residual beta order statistic singular vector",
+          "Resultary: real Gaussian nullspace sketch one-dimensional kernel singular values a,...,a,b exact residual law",
+          "Witten–Candès arXiv:1308.5697, Algorithm 1 and §2.3, Eq. (2.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest explicit risk-law and row-transition findings are the two cited Resultary results; neither provides an exact table/formula for the selected residual quantities.",
+          "The inspected Witten–Candès p. 2 example is a single-trial divergent expected norm, not the one- and two-trial rates of the squared residual."
+        ],
+        "reasoning": "The relevant exact comparison is a distribution or moment formula, not a combinatorial database. No exact selected-moment table or formula was identified in these bounded queries; the primary and indexed single-sketch matches are positively recorded.",
+        "searches": [
+          "Resultary: sup kappa E R_{kappa,K} = K/(K-2) Gaussian null sketches",
+          "Resultary: K>2q inverse moments max beta coordinates one-row-short Gaussian sketches",
+          "Resultary: three trials sharp threshold Gaussian sketched smallest singular vector expected residual"
+        ]
+      },
+      "rationale": "Credit is for the selected best-of-independent-one-row-short ensemble, in particular the sharp replication threshold and its finite-contrast rates and constants, not for single-trial spherical invariance, beta/order-statistic facts, or a new range-finder error model. The nearest early primary result covers an equivalent single trial via the codimension-one Gaussian range finder, including its limiting Gaussian representation and a single-trial obstruction. The exact later one-spike law is another direct single-trial overlap. Neither inspected result gives a best-of-independent selection theorem: varying the number of columns or rows in one sketch is not that operation. Following the actual reductions distinguishes the comparatively narrow new result from classical ingredients and known single-sketch effects.",
+      "residual_risks": [
+        "Straightforward order-statistic evaluation from a known residual law makes an earlier implicit selection analysis plausible; the bounded literature and catalogue comparison does not certify priority.",
+        "The conclusion does not claim novelty for the exact single-trial model or the fact that unoversampled Gaussian range finding can have unbounded relative expected error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Meaningful mathematical coverage of the single-trial model and limit; not a best-of-independent theorem",
+          "evidence": [
+            "diag(t,1), one-column norm divergence example; exact limiting residual in Eq. (2.3) on M(t); p=0 appears in discussion of square Sigma."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.5697",
+          "material_read": "OA PDF p. 2 example, p. 3 Theorem 1.2 and Corollary 1.3, §2.3 pp. 11–12 Eq. (2.3) and its finite-contrast column-space construction",
+          "method": "Identified lawful arXiv copy, opened bounded primary passages",
+          "title": "Randomized algorithms for low-rank matrix factorizations: sharp performance bounds",
+          "trigger": "Gaussian range-finder residual, strong-contrast obstruction and potentially equivalent codimension-one case"
+        },
+        {
+          "assessment": "Related problem, full-rank embedding dimension instead of rank-deficient independent trials",
+          "evidence": [
+            "m>=s>=n in Theorem 2.3; Gaussian remark takes s=4n; Theorem 3.1 retains the full-rank restriction."
+          ],
+          "identifier_or_url": "DOI 10.1007/s10543-023-00979-7",
+          "material_read": "§2 Theorem 2.3 and its Gaussian remark, p. 6 offset 16024; §3 Theorem 3.1 offset 25762",
+          "method": "OA PDF primary passages",
+          "title": "A fast randomized algorithm for computing an approximate null space",
+          "trigger": "Earlier sketch-and-solve for approximate null vectors"
+        },
+        {
+          "assessment": "Different embedding and preconditioned iterative scheme",
+          "evidence": [
+            "Its subspace embedding, preconditioner and initialization require full rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.16797",
+          "material_read": "Definition 1, Theorem 2 and Facts 5–6, offsets 12217, 13199, 41553",
+          "method": "OA HTML primary passages",
+          "title": "Fast, high-accuracy, randomized nullspace computations for tall matrices",
+          "trigger": "Recent Gaussian-sketch minimum singular vectors"
+        },
+        {
+          "assessment": "Expected Frobenius bound, not this exact selection law",
+          "evidence": [
+            "Oversampling condition p>=2 disallows identifying this bound with the zero-oversampling trial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+          "material_read": "Theorem 10.5, pp. 56–57",
+          "method": "OA PDF passage",
+          "title": "Finding structure with randomness: probabilistic algorithms for constructing approximate matrix decompositions",
+          "trigger": "General Gaussian range-finder expected residual theorem"
+        },
+        {
+          "assessment": "One-trial equivalence, but different parameter for higher sketch sizes; later catalogue date",
+          "evidence": [
+            "One-column chi-square formula; subsequent linear/log/bounded transition varies the number of range-finder columns."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-regime-gaussian-sketch-risk-law-for-one-spike-matrices--f67f8a256b4c/RESULT.md",
+          "material_read": "Finding/proof offsets 0–5713; prior comparison around offset 7062",
+          "method": "Resultary local mirror",
+          "title": "A three-regime Gaussian sketch risk law for one-spike matrices",
+          "trigger": "Exact same one-trial residual distribution after reduction"
+        },
+        {
+          "assessment": "Different selection procedure and model dimension; relevant simultaneous record, not a priority inference",
+          "evidence": [
+            "Two-dimensional two-mode model; one overdetermined three-row sketch and no best-of-K selection."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-two-to-three-row-mean-angle-transition-in-gaussian-sketched-nu--672f7b4a2f0b/RESULT.md",
+          "material_read": "Finding/proof offsets 0–5210",
+          "method": "Resultary local mirror",
+          "title": "A two-to-three-row mean-angle transition in Gaussian-sketched null vectors",
+          "trigger": "A competing condition-uniform Gaussian-sketch guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The replication threshold is a concrete boundary for a plausible exact-arithmetic sketch rule: in the same spectrum and fixed dimension, two repetitions can still have a divergent expected relative squared residual even as every candidate approaches the correct direction, while three guarantee a uniform bound. The distinct rare-event rates and exact dimension-three quality floor quantify that issue, not just convergence of angle. This is not a claim of superiority over a single larger sketch, arbitrary spectra, or reduced wall-clock time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:12:23.377455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md definitions and proof",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt",
+        "Independent replay: /workspace/reviews/evidence/theta_replay.py"
+      ],
+      "rationale": "The two degree-three terminals are intrinsic and the isomorphism type is their unordered triple of arm lengths. Three lengths ≥2 summing to 8 yield exactly the stated two subdivisions. Independent replay (python3 /workspace/reviews/evidence/theta_replay.py) exhausts all three choices per undirected edge: omit, orient forward, orient backward. It uses union-find to recognize forests and verifies the directed degree bounds. Once opposite arcs are prohibited, any undirected cycle in such a degree-constrained selection necessarily has coherent orientation, so this independently enumerates exactly the multipath faces. In order Θ224, Θ233 the f-vectors are (16,90,220,238,104,12) and (16,90,220,240,108,12). The listed pivots give 334 and 336 matches; a topological sort checks every nonempty Hasse vertex and cover, leaving critical counts (1,0,1,6,4) and (1,0,1,6,6). Integer column elimination with unit pivots on full oriented simplex boundaries gave ranks (15,75,145,88,12) and (15,75,145,90,12); each pivot can be split off as an integral unit block, and the residual zero block contributes no torsion. The boundary signs are the standard alternating signs, with the two orders of deleting each pair cancelling. The resulting H₂=0 forces the degree vector of the six 3-cell attachments to the Morse 2-sphere to be primitive. A GL₆(Z) basis change is realized by a homotopy equivalence of the attaching wedge of 2-spheres, so its homotopy cofiber gives a wedge of five 3-spheres as 3-skeleton. Rank H₃=5 forces d₄=0, and H₃ of this skeleton equals its π₃ by Hurewicz. Thus all 4-cell maps are null and the computed types are integral homotopy types, not just homology ranks. Frozen code was inspected, not executed.",
+      "residual_risks": [
+        "Exhaustion concerns exactly the two specified graphs; no all-arm-length inference.",
+        "No formal proof assistant check is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The connectivity and homology results of Caputi–Collari–Smith are for single bidirected polygons; a theta shares the terminals of multiple cycles.",
+          "The general dynamical-module theorem has a cycle condition: every bidirected arc belongs to a two-cycle, and incident arcs at the shared terminals do not produce the needed separate modules. The generalized T-operation suspension hypothesis of indegree or outdegree zero at the relevant vertex is absent here.",
+          "The catalogue complete-bipartite multipath calculation 027fb88d517d covers unsubdivided Θ222 via K2,3, not either of the seven-vertex subdivisions."
+        ],
+        "reasoning": "Neither a cycle formula nor these general splitting tools give a reduction that computes the two arc-set complexes under review.",
+        "searches": [
+          "arXiv:2601.05670v1, Prop. 2.3 and Thms. 2.8, 2.10",
+          "arXiv:2208.04656, Thm. 4.11 and introduction",
+          "Resultary: theta, bidirected polygon and complete-bipartite multipath theorems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.05670v1",
+        "arXiv:2208.04656",
+        "Resultary d778f046de06, dcb824ea52f8, 500c0c0501a0, f46cbcd26419, 027fb88d517d and a53ddeac743d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subdividing a bidirected edge introduces a vertex with positive indegree and outdegree; the inspected suspension statement cannot be substituted there to propagate the six-vertex wedge.",
+          "The two-case distinction concerns integral H₄ together with homotopy, and cannot be read from cycle rank and degree multiset; both are identical for the two underlying graphs."
+        ],
+        "reasoning": "The verified finite Morse and integral incidence computation supplies data not mechanically given by the closest source theorems or records.",
+        "searches": [
+          "arXiv:2601.05670v1, pp. 5–6, subdivision/suspension T-operations",
+          "arXiv:2208.04656, pp. 8–10, dynamical modules",
+          "Resultary dcb824ea52f8 and 027fb88d517d, statements on smaller theta cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural comparison object is the simplicial complex of arc sets with in/out degrees ≤1 and no directed cycles; it is not the ordinary matching complex or an induced forest complex.",
+          "Resultary 500c0c0501a0 computes induced forests on vertices of subdivided multi-theta graphs (at m=3,N=7 a wedge of two S⁴). Resultary f46cbcd26419 has a periodic two-independence result covering Θ224 as a graph, but also uses vertex subsets."
+        ],
+        "reasoning": "Agreement on the underlying graph does not identify the ground set, face rule, or homotopy type. Same-day date conveys no priority; these are materially distinct statements.",
+        "searches": [
+          "Resultary: multipath complex for bidirected theta (2,2,4), (2,3,3); subdivisions of K2,3 and constrained forest complexes",
+          "arXiv:2208.04656 and arXiv:2601.05670v1, multipath definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit d778f046de06 is the same frozen record. The nearest different earlier multipath calculation is dcb824ea52f8, yielding five S² and six S³ for Θ223.",
+          "The cycle-family calculations and catalogue a53ddeac743d cover a unicyclic family, not the homotopy type census of bidirected theta subdivisions."
+        ],
+        "reasoning": "Neither of the two exact finite invariants occurs in the inspected different records. The smaller theta does not determine the results by relabeling or a sphere-degree shift.",
+        "searches": [
+          "Resultary: bidirected seven-vertex theta and exact wedge or integral Betti numbers; direct mirror comparison of d778f046de06 and dcb824ea52f8",
+          "arXiv:2601.05670v1, family and homology formulas"
+        ]
+      },
+      "rationale": "The strongest overlap is earlier computation of the same arc-set complex for a smaller theta and results on single bidirected polygons. Neither computes either target case or supplies a theorem implying the two values. Some same-day records cover the same underlying graphs, but they take vertex subsets instead of arc subsets and have different face rules. Priority is limited to the inspected sources and catalogue.",
+      "residual_risks": [
+        "The general published-literature lookup was unavailable; the relevant named primary papers and catalogue comparisons were examined directly. Unavailability is not a negative search result.",
+        "An unindexed theta theorem or full small-digraph census specifying this same invariant could change the priority judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of paths/polygons; not these theta cases by the inspected classification or suspension condition.",
+          "evidence": [
+            "Thm. 2.8 gives connectivity of BP_n and Thm. 2.10 its homology.",
+            "The stated generalized T-operation uses a vertex of indegree or outdegree zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05670v1",
+          "material_read": "PDF pp. 1–2 and p. 8, offsets 3561–8656 and 35143; Prop. 2.3 pp. 5–6 offsets 21615–24174",
+          "method": "Lawful OA PDF relevant passages",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Same bidirected multipath definition and possible general subdivision inference"
+        },
+        {
+          "assessment": "Definitions and general machinery; no reduction to disjoint modules for these bidirected cases was identified from the inspected theorem.",
+          "evidence": [
+            "The family computations described include paths, polygons, grids and tournaments.",
+            "The theorem splits over dynamical modules; the shared terminal incidences and two-cycles matter for its application."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "Introduction, PDF p. 1 offset 0; Thm. 4.11 and module material pp. 8–10 offsets 40000–46693",
+          "method": "Lawful OA PDF relevant passages",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Foundational general decomposition potentially reducing theta cases"
+        },
+        {
+          "assessment": "Genuine family precedent, but Θ223 only.",
+          "evidence": [
+            "Wedge of five S² and six S³ for six underlying vertices, not Θ224 or Θ233."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, dcb824ea52f8",
+          "material_read": "Mirrored RESULT.md, finding and scope at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "The bidirected uneven-theta multipath complex is a mixed-dimensional sphere wedge",
+          "trigger": "Same invariant and nearest smaller theta case"
+        },
+        {
+          "assessment": "Different vertex-subset complexes, not the directed multipath complex.",
+          "evidence": [
+            "The induced-forest formula applies to 3 arms and 7 vertices but gives two S⁴ for that different complex.",
+            "The two-independence statement includes Θ224 as an underlying graph only."
+          ],
+          "identifier_or_url": "Resultary 500c0c0501a0 and f46cbcd26419",
+          "material_read": "Indexed statements on subdivided multitheta induced forests and periodic two-independence types",
+          "method": "Configured Resultary statement comparison",
+          "title": "Induced-forest and two-independence complexes on theta graphs",
+          "trigger": "Broader same-graph or same-parameter catalogue results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, hypotheses and homotopy theorem",
+        "Independent exhaustive replay",
+        "Resultary dcb824ea52f8 (six-vertex comparison)"
+      ],
+      "rationale": "Seven vertices are the first order with more than one subdivided K2,3 arm pattern. This is the complete comparison at that natural cutoff, and the rank-four homology distinction isolates an effect of arm distribution after fixing order, size, degree multiset and cycle rank. The explicit homotopy types are useful concrete benchmarks for prospective subdivision rules; a Betti-number distinction was not assumed to imply the wedge structures.",
+      "residual_risks": [
+        "Magnitude of the contribution is the first nontrivial finite comparison, not a general all-theta theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

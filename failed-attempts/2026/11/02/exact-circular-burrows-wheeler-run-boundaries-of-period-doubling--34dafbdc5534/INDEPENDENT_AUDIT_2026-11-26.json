@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:54:12.392276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With no endmarker and no merging of first and last runs, the statement is correct. The odd number of ones rules out every nontrivial power of a word of length 2^k. The length-three parity test forces a bispecial factor of length at least three to start and end at even positions and hence to have form μ(v)0. Occurrences and both extensions correspond to those of v, with extension letters complemented. For a right-special factor the only adjacent pair with that LCP straddles the 0/1 extension cut; the substitution reverses the order across that cut and complements the predecessor letters, preserving whether they disagree. At rank two only the cut at 00 is active; thereafter the elementary cuts at 00 and 0 are active while the empty cut is inactive. Transport gives the stated distinct A and B families, excluding B_(k−1), and hence 2k−2 runs. A separate valuation-of-position construction and rotation sort at ranks 2–11 reproduced all boundary LCP sets and counts (python -I /workspace/branches/independent_checks.py 5); this is finite corroboration only. Frozen VERIFICATION.md and checker.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0c35eb394ad7 supplies the complete transform and ordered partition of rotations, with image orientation and preceding letters. Frosini et al. provide broad logarithmic results and a general bispecial/run mechanism. Currie et al. Theorem 6 concerns infinite lexicographic extremals."
+        ],
+        "reasoning": "The logarithmic asymptotic and infinite extremals do not determine this exact finite invariant. The stronger same-object rotation decomposition in Resultary does.",
+        "searches": [
+          "Resultary 0c35eb394ad7, Proof §§2–4",
+          "arXiv:2202.02609, pp. 3, 7–8",
+          "arXiv:1301.4972, §6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c35eb394ad7",
+        "Resultary a4a9fd29ab8d",
+        "arXiv:2202.02609",
+        "arXiv:1301.4972",
+        "10.1007/978-3-030-25005-8_32 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older proof classes in sorted order have common prefixes 0001, 0010, 01, 1, and predecessor blocks 1^o, 0^o, reverse-complement(T_old), 0^z. The old zero-start segment T starts with 1 and ends with 0 at ranks at least two. The C class is exactly the source-zero even-start images in reverse order."
+        ],
+        "reasoning": "Reading the fixed interfaces and transporting old adjacent LCPs through C yields exactly the target recursive set, including its exceptional rank-two base. The innovation is not rescued by the absence of an explicit LCP heading in the prior paper.",
+        "searches": [
+          "0c35eb394ad7, RESULT.md offset 2350 through Proof §4",
+          "a4a9fd29ab8d, RESULT.md offset 600 onward, Lexicographic four-block lemma and Iteration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "18 October Resultary record 0c35eb394ad7, Complete transform theorem and Assumptions and scope, offset 776: same substitution, complete dyadic iterates, lexicographic rotations, no endmarker and linear runs."
+        ],
+        "reasoning": "Cyclic and circular are equivalent in these two records; neither switches to a sentinel convention, suffix sorting, or cyclically merged runs. The older formula is identical even at k=2.",
+        "searches": [
+          "Resultary: period doubling, cyclic BWT, dyadic substitution iterates",
+          "arXiv:2202.02609, circular BWT and bispecial factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed RESULT.md files give the complete circular transform recursively and the exact formula 2k−2, not just observed run-count values."
+        ],
+        "reasoning": "The exact indexed results are stronger than a table. The 18 October record alone establishes prior run-count coverage; same-day indexing does not establish order.",
+        "searches": [
+          "Resultary exact cyclic transform records 0c35eb394ad7 and a4a9fd29ab8d"
+        ]
+      },
+      "rationale": "The distinct 18 October Resultary record already states 2k−2 for the identical circular sentinel-free transform and gives the full transform. Its ordered four-class rotation lemma also mechanically yields the extra LCP family, not merely by invertibility or finite enumeration. In that lemma classes A and B have constant predecessor symbols 1 and 0, and prefixes 0001 and 0010, so their sole boundary is labeled 00. B and C meet at LCP 0 and their predecessors differ exactly from rank three onward: C begins with the complement of the last symbol of the old zero-start segment, which ends in 0 from rank two. C ends with 0 and D begins with 0, so their interface is inactive. Within C the even-start rotations are the reverse-ordered block images of the old zero-start rotations, with complemented predecessors. An old pair with LCP v has image LCP μ(v)0 because the first blocks that differ still share their leading 0. Every old boundary is in the zero-start segment, since its last symbol and the whole one-start segment are 0. Thus the prior proof gives exactly the base {00} and recursion {00,0} union {μ(v)0 : v is an old boundary LCP}; iterating is exactly the frozen list. The same-day distinct record confirms the four-block coverage but its relative timing is not used.",
+      "residual_risks": [
+        "The Brlek et al. manuscript was unavailable through the attempted lawful routes. Earlier coverage may exist elsewhere; the explicit Resultary implication already decides this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the count expressly and the boundary LCP classification by direct implication",
+          "evidence": "Four consecutive classes with displayed common prefix bits; BWT blocks 1^o, 0^o, reverse-complement(T_old), 0^z; proof of run recurrence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7/RESULT.md",
+          "material_read": "Theorem and scope around offset 776; proof §§2–4 at offsets 2350–4999",
+          "method": "Resultary search; paged local mirror",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period-doubling words",
+          "trigger": "Same object and exact count"
+        },
+        {
+          "assessment": "Same count and same-object four-block description; no order inferred from the date",
+          "evidence": "No endmarker; complete transform decomposition and 2k−2 runs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-cyclic-burrows-wheeler-recursion-for-period-doubling-wo--a4a9fd29ab8d/RESULT.md",
+          "material_read": "Assumptions, Lexicographic four-block lemma and Iteration around offset 600 onward",
+          "method": "Resultary search; paged local mirror",
+          "title": "An exact cyclic Burrows–Wheeler recursion for period-doubling words",
+          "trigger": "Distinct exact same-day match"
+        },
+        {
+          "assessment": "General context rather than the decisive exact prior coverage",
+          "evidence": "Logarithmic run theorems and circular-bispecial/run relation.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+          "material_read": "PDF p. 3 and pp. 7–8, including Lemma 13",
+          "method": "OA original PDF",
+          "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+          "trigger": "General morphic BWT run theorems"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Extremal infinite words rather than adjacent finite rotations.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.4972",
+          "material_read": "§6, PDF p. 9, Theorem 6",
+          "method": "OA original PDF",
+          "title": "Extremal words in morphic subshifts",
+          "trigger": "Same substitution and extremal lex order"
+        },
+        {
+          "assessment": "No finding about the inaccessible text; not needed for decision",
+          "evidence": "The cited manuscript endpoint returned HTTP 403.",
+          "identifier_or_url": "10.1007/978-3-030-25005-8_32",
+          "material_read": "Cited institutional PDF could not be read",
+          "method": "Lawful institutional PDF tried through both configured routes",
+          "title": "Burrows–Wheeler transform of words defined by morphisms",
+          "trigger": "Plausible earlier study of the same kind of transform"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Run counts and lexicographic labels are motivated invariants, and the proof is a useful exposition. As a new finding, however, the count is already known and the extra labels follow directly from the existing sorted-rotation proof. The frozen claim supplies no independently useful unknown remainder; reorganizing the proof around bispecial factors is not a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

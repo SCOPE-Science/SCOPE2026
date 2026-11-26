@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-factor identity is exact for the infinite fixed point because every finite factor lies in two neighboring level-\(k\) substitution blocks. The ten-pair adjacency closure, the length-15 and length-29 phase certificates and short overlap exclusion feed rigorous descending-period arguments; they prove overlap-freeness of the four-state word and exclude long cubes from its binary image. The exhaustive length-85 factor table settles every remaining period. The supplied checker produced all advertised counts and fifth-power witness. The proof covers all positions and periods, not merely a finite prefix.
+## correctness
 
-**Originality — PASS under examined evidence.** Campbell and Cloitre's paper gives this uniform morphism and its factor complexity, but inspection of the main construction and factor-complexity discussion found no exact critical exponent or cube-period classification. Schaeffer and Shallit's general computability result does not give the numerical answer. Searches for the word, its morphism, cube periods, overlaps and equivalent critical-exponent formulations found no covering published result or matching accessible research record. Risk: indexing gaps or differently named prior word-repetition results.
+PASS
 
-**Value — PASS.** Exact critical exponent is a canonical structural statistic of infinite automatic words. The sharp value, exceptional periods, and desubstitution mechanism supply a nonroutine power-avoidance characterization of a recently introduced word whose published study concentrated on automaticity and factor complexity.
+The displayed morphism is prolongable on 0, reaches all letters, and creates exactly the adjacent pairs obtained by closing the internal pairs under image boundaries. Every length-L factor fits inside two image blocks of length 4^k≥L, and every such image of an occurring adjacent pair appears at an aligned boundary. Thus the exact enumeration and its residues modulo 4 describe the infinite language. Independently reproduced: 10 adjacent pairs, 100 state factors of length 15 and 186 binary factors of length 29 with unique phases, 1,301 factor checks excluding state overlaps for p=1..13, and 592 binary length-85 factors giving maxima (2,10,6,10,10,26,14,18,17,18,18,26,20,36). For a hypothetical state overlap of smallest period p≥14, equal length-15 windows at offsets 0,p force p=4q. Comparing first letters of images for the next q aligned blocks and, if the first image is partial, its last letter, produces a state overlap of period q; both the first-letter and last-letter maps are injective. In a binary cube with p≥15, 29-symbol windows fit at offsets 0,p and similarly give p=4q≥16. The four coded images are distinct. The complete aligned blocks therefore give period q on 3q state symbols if the first block is complete, or 3q−1 if it is partial; both lengths are at least 2q+1. This contradicts overlap-freeness. The length-85 census then captures all shorter periodic factors (extend right to length 85), and no periodic factor of length at least 85 for p≤14 can escape because its initial 85 letters would contradict the listed maxima. Only p=2,6 reach 3p, and their maximal lengths are 10 and 26. Exponent uses least period: any factor exceeding exponent 5 would contain a cube of its least period, impossible by those maxima. The alternating factor at index 2 has least period 2 and length 10.
 
-Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The word, coding and study of its factor complexity are known; general computability of its critical exponent is also known. The supported distinct result is the specific exponent and complete list of cube periods with exact maximal lengths. No equivalent statement was found in the inspected work and ranked catalogue results.
+
+## value
+
+PASS
+
+M1 is a specific word introduced independently in the study of meta-automatic recurrences, and critical exponent is a canonical measure of repetition for such words. The exact answer and short list of allowable cube periods settle more than whether repetitions exist: they distinguish the repeated patterns left by a noninjective coding from the overlap-free state sequence. This gives a concrete, reusable exact repetition profile for comparison with other automatic words and a human-checkable reason no large periods survive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

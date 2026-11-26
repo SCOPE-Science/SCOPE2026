@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:17:14.534976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions, and proof; VERIFICATION.md and check_moments.py (inspection)",
+        "Independent ordered-time derivation and review_checks.py ordinal 3"
+      ],
+      "rationale": "For either process its stationary law is a centered conditional Gaussian with variance 2D∫exp(2ξ(u))du, by the backward stochastic convolution and stationary independent increments of the logarithm ξ of the homogeneous multiplier. The Lyapunov exponents γ+(λ/s)log(1−s) and γ−λ−λs/2 are strictly negative; the integrals are almost surely finite and the decaying homogeneous solution gives uniqueness. Splitting the integral into unit intervals gives the p/2-th moments of the (unscaled) block integrals as C_p exp(nφ(p)), with 0<C_p<∞ (bounded upward on the first Poisson block, and Brownian suprema have all finite exponential moments). Summability or Minkowski proves finiteness at φ<0, a single later block proves divergence at φ>0, and at φ=0 finite total moment would force the block moment to tend to zero by dominated convergence, contradicting C_p>0. The stated φ_P and φ_G have a unique positive root. The variance is finite exactly when s<2(1−β) and is identical in both models there. Independently of the generator calculation, sorting m integration times for the m-th moment of the variance integral, Tonelli and independent ξ increments give m! times the product of integrals ∫exp(uφ(2j))du for 1≤j≤m. Normal Gaussian moments give the same even-moment ratio ∏ A_j^G/A_j^P with A_j=−φ(2j). The j=1 denominators coincide polynomially; for j≥2 the signed cubic binomial remainder makes A_j^P>A_j^G. For ms→0 all denominators are positive eventually, A_j^G=2j(λ−γ)(1+O(js)), and A_j^P−A_j^G=λ choose(2j,3)s²(1+O(js)) uniformly for j≥2. The log quadratic error sums to O(m⁵s⁴), and the Taylor/denominator error to O(m⁴s³). The exact sum of choose(2j,3)/(2j) is (4m³−3m²−m)/18. These imply the sharp coefficient, all three regimes and the fixed-order O(s²) relative agreement. For the frontier, set z_s=−κ_P log(1−s) and h_s=−log(1−s)/s; monotonic inversion of (1−e^(−z))/z gives z_s→z_β. The strict gap follows from z²−2z+2(1−e^(−z))>0 (positive derivative for z>0), and strict interior of the limiting window gives the stated mismatch for all sufficiently small s. My independent bounded replay `python3 /workspace/review_checks.py 3` recovered the exact 32/47 fourth-moment ratio and -log R/(m³s²)≈0.498856 at s=10⁻³ and 0.455382 at s=10⁻⁵ for β=1/2, approaching 4/9. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "No uniformity as β→1, stationary tail prefactor, finite-time sampling claim, or assertion beyond the stated finite-moment domains."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beare–Toda uses a positive root for a general Markov multiplicative Pareto exponent; Zanette–Manrubia resets to a fixed state, not a partial contraction with additive Brownian noise.",
+          "SCOPE-20261102-efe3b78806cd compares jump and diffusion rare-position rate functions with no linear growth; SCOPE-20261018-4da625e6e09e gives a common-clock Brownian gas rare-excursion LDP without drift."
+        ],
+        "reasoning": "Generic positive-root machinery or large deviations can organize the existence/tail problem. They do not give the relative moments inside the finite regime for these two stationary laws; a rate function in another parameter regime does not fix the joint amplitude and coefficient here.",
+        "searches": [
+          "Resultary: different critical moment-order constants exact weak reset diffusion approximation",
+          "Resultary: Brownian partial resetting stationary large deviations diffusion approximation exact law high moments",
+          "OA: Beare–Toda DOI:10.3982/ECTA17984/arXiv:1712.01431v5 Theorem 1 and Zanette–Manrubia arXiv:2105.11679 §IV"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.21635v1; arXiv:2406.08387; arXiv:2205.03363; arXiv:1712.01431v5; arXiv:2105.11679",
+        "SCOPE-20261026-612587350f45; SCOPE-20261102-efe3b78806cd; SCOPE-20261018-4da625e6e09e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest same-pair catalogue proof gives the tail roots and low-order comparisons. Neither these values nor the Gaussian density alone constrain the signed relative error at m growing inside the common finite domain.",
+          "The defining dynamics do permit the recurrence or the ordered-time formula; the cubic accumulation requires uniform signed remainder control and summation, not a fixed-moment substitution."
+        ],
+        "reasoning": "Tail roots establish existence but not values; a pointwise fixed-m bound cannot be interchanged with m→∞. The coefficient and critical s^(-2/3) scale require the joint-limit argument and are the surviving distinct scientific content.",
+        "searches": [
+          "Compare same-model Galla Linear example and SCOPE-20261026-612587350f45 moment/tail proof against RESULT.md growing-order quantifier",
+          "Resultary: common Poisson clock Brownian gas frequent weak resetting exact stationary tail diffusion approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Galla arXiv:2602.21635v1 Eqs. (3)–(5) and Linear example give the weak-reset Gaussian closure and its stationary density for positive linear growth.",
+          "Biroli et al. arXiv:2406.08387 §II Eqs. (8), (17)–(18) solve exact multiplicative partial resetting of free Brownian motion, without positive linear growth.",
+          "Tal-Friedman et al. arXiv:2205.03363 Eq. (15) locate excerpt uses constant drift V, not γx."
+        ],
+        "reasoning": "The Gaussian stationary density is an equivalent description for only one side. Setting constant drift or zero growth does not give the asserted fixed 0<γ/λ<1 exact-jump comparison; the positive drift leading to a finite critical order is material.",
+        "searches": [
+          "Resultary: Poisson weak resetting diffusion approximation moment crossover high even moments",
+          "Resultary: Galla frequent weak resetting exact reset stationary moments Poisson versus diffusion",
+          "Primary literature: \"frequent weak resetting\" Poisson diffusion approximation high moments moment crossover exact reset Galla"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261026-612587350f45, same jump/diffusion pair; Finding and proof give identical finite variance, exact tail-root equations and the strict scaled root separation p_s/q_s→z_β/[2(1−β)]>1, and a fourth-moment-loss wedge."
+        ],
+        "reasoning": "Those equations and comparison are exact coverage of the existence frontier, not a loose keyword match. The fixed fourth-moment results and cutoff ratios do not give the all-growing-order log asymptotic. Catalogue dates identify records and are not used to resolve priority.",
+        "searches": [
+          "Resultary: moment-order crossover s^-2/3 multiplicative resetting",
+          "Resultary: s^-2/3 growing-order relative moments exact Poisson reset Gaussian diffusion",
+          "Resultary: identical stationary variance high-order moment crossover partial resetting"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp uniformly growing-order log ratio (fixed β, m→∞ and ms→0) and the relative-error crossover it gives well before the existence cutoffs. The same-variance and strict limiting existence-gap components are exactly covered in a related catalogue record; neither, nor a generator or generic tail criterion, is relied on for distinctness.",
+      "residual_risks": [
+        "Bounded comparisons do not exclude a theorem on relative moments of a class of Lévy-driven exponential functionals that explicitly or by a nontrivial reduction covers this scaling. Full passage-level assessment was limited for arXiv:2205.03363."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gaussian law and model antecedent, not exact-jump relative moment comparison in the inspected passages",
+          "evidence": [
+            "The linear example proceeds with the approximate SDE and gives its stationary density in Eq. (5)."
+          ],
+          "identifier_or_url": "arXiv:2602.21635v1",
+          "material_read": "main text Eqs. (3)–(5), Linear example, offsets 7300–11789",
+          "method": "OA full-text passage inspection",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "same motivating frequent/weak pair and positive linear-growth example"
+        },
+        {
+          "assessment": "excludes positive linear growth in the matched model",
+          "evidence": [
+            "Free Brownian evolution with x→ax and exponential far tails; not the positive-growth pair."
+          ],
+          "identifier_or_url": "arXiv:2406.08387; DOI:10.1103/PhysRevE.110.044142",
+          "material_read": "§II, Eqs. (8), (17)–(18), offsets 12000–20999",
+          "method": "OA full-text passage inspection",
+          "title": "Resetting by rescaling: Exact results for a diffusing particle in one dimension",
+          "trigger": "exact multiplicative jump process stationary law"
+        },
+        {
+          "assessment": "checked passage has constant drift; no whole-paper exclusion claimed",
+          "evidence": [
+            "The drift term V is constant in the located passage."
+          ],
+          "identifier_or_url": "arXiv:2205.03363",
+          "material_read": "Eq. (15) locate excerpt at offset 19291; attempts to open corresponding offset timed out",
+          "method": "OA locate only for this equation",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "drift-diffusion partial resetting and possible alias"
+        },
+        {
+          "assessment": "tail exponent machinery, not moment ratio",
+          "evidence": [
+            "The positive root determines a stationary Pareto exponent."
+          ],
+          "identifier_or_url": "arXiv:1712.01431v5; DOI:10.3982/ECTA17984",
+          "material_read": "Theorem 1 discussion, p. 2 offset 5100",
+          "method": "OA PDF passage inspection",
+          "title": "Determination of Pareto Exponents in Economic Models Driven by Markov Multiplicative Processes",
+          "trigger": "general positive-root exponent formulation"
+        },
+        {
+          "assessment": "exact cutoff/variance coverage, not growing-order exact-ratio asymptotic",
+          "evidence": [
+            "Identical root equations and strict scaled separation, along with the low-order and wedge comparisons."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "material_read": "RESULT.md Finding, assumptions and proof, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "local Resultary mirror",
+          "title": "Exact moment-loss wedge and Pareto-exponent reversal under frequent weak resetting",
+          "trigger": "same reset and growth parameters, same variance and frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md crossover and later existence-window comparison",
+        "Galla arXiv:2602.21635v1 weak-reset diffusion approximation"
+      ],
+      "rationale": "A second-order closure can exactly match variance while giving order-one relative errors at degrees parametrically smaller than either moment-existence cutoff. The jointly valid constant and breakdown scale quantify where matching low moments ceases to be informative, not just where a tail cutoff is different. This is a useful test of the approximation for linear growth with frequent weak contractions, without extrapolation to a general resetting model.",
+      "residual_risks": [
+        "Not a finite-sample moment-estimation guarantee or a general approximation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

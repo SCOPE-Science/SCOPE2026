@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:29:48.094283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sum of incidence segments is the image of a cube, so is exactly the convex hull of its endpoint-selection degree vectors. The support-function widths add; division by binom(n,k)*sqrt(k) gives the absolute averages of unit Gaussian sums. For two k-sets, correlation is J/k with the stated hypergeometric overlap; direct absolute-normal covariance gives C and hence the exact second moment formula. In Gaussian L^2 the degree-two coefficient of |z|-mu is E[|Z|(Z^2-1)]/2=mu/2. The residual has only even degrees at least four, so its averaged squared norm is at most (1-2/pi) E[(J/k)^4]. Counting ordered marked overlap labels gives E[(J)_r]=(k)_r^2/(n)_r; the four fourth-moment terms yield O(1/(nk^2)+1/n^2+k^2/n^3+k^4/n^4), little-o of 1/n+k^2/n^2 for growing sublinear k. Expansion of subset squares gives inclusion weights k/n on diagonals and k(k-1)/(n(n-1)) on off-diagonals before division by k. In particular the averaged degree-two term equals (n-k)/(n-1)*(Q_{n-1}-(n-1))/n + (k/n)*(X_n^2-1), where Q and the standard normal X_n are exactly independent by orthogonal Gaussian decomposition. The chi-square CLT and the residual bound now give both scalings and constants; the third cumulant proves nonnormality for positive finite c. For proportional rank, conditioning on X_n yields exactly f_{k/n}(X_n). Its variance is C(k/n) by sharing X_n across two conditional copies, and Var(H) minus that variance tends to zero because J/k concentrates at k/n. Thus the limit is a random conditional folded-normal mean, not a folded-normal draw, with f_1(X)=|X|. Finally fixed k uses the first Hoeffding projection, variance C(1/k)>0 by sharing one coordinate, giving k^2 C(1/k) including k=1. Gaussian directions are not rescaled to the sphere. The supplied finite rational and sampling checker was inspected, not executed; the limit proof does not rely on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song–Chen–Kato explicitly cover the complete deterministic-kernel case in Corollary 2.2, but the target is the Gaussian law of the first projection and the sufficient bound involves r^2 D_n^2 log^q*(dn)/(sigma_g^2 n) to the power 1/6. Here sigma_g^2=C(1/k) asymptotic to 1/(pi k^2), so this sufficient bound with nonvanishing kernel scale does not tend to zero at critical rank.",
+          "Huang et al. study degree-two kernels with dimension growing, not complete variable-order Gaussian subset kernels. The all-hyperedge degree zonotope is broader geometrically but its integer-point theorems are not width limit theorems."
+        ],
+        "reasoning": "A general Gaussian approximation may be applicable sufficiently far inside a Gaussian regime. It does not cover the critical mixed law or the centered chi-square supercritical regime. Broadening the generator list in a lattice-point study does not broaden the stochastic assertion here.",
+        "searches": [
+          "Approximating high-dimensional infinite-order U-statistics Song Chen Kato theorem growing kernel order complete U statistic Gaussian nonnormal; arXiv:1901.01163v3, Theorem 2.1 and Corollary 2.2",
+          "arXiv:2302.05686, abstract and §1",
+          "arXiv:2305.06732v1, §2"
+        ]
+      },
+      "checked_sources": [
+        "Liu, arXiv:1201.5989",
+        "Bach–Eisenbrand–Pinchasi, arXiv:2305.06732v1",
+        "Huang–Liu–Duncan–Gandy, arXiv:2302.05686",
+        "Song–Chen–Kato, arXiv:1901.01163v3",
+        "Resultary local index and mirrored broom, hypergraphic hub and rank-truncated cube records",
+        "Frozen RESULT.md, VERIFICATION.md and check_uniform_width.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact covariance is a standard moment summed against a hypergeometric overlap, and fixed-rank normality has a standard first-projection proof. A vanishing first-projection approximation error would instead force Gaussianity and cannot yield this critical mixture.",
+          "The new scale argument uses the suppression of the degree-at-least-four Hermite terms and identifies two competing components of the second Gaussian chaos, one with many orthogonal degrees of freedom and one from the common sample mean."
+        ],
+        "reasoning": "Standard support sums, Gaussian moments, and Hoeffding theory account for important components of the proof but do not specialize directly to the critical result. The broom and truncated-cube limit laws neither use complete k-set incidence segments nor control their overlap remainders. The synthesis across ranks, not the elementary mean or the standalone fixed-k CLT, is the supported novelty.",
+        "searches": [
+          "arXiv:1901.01163v3 Corollary 2.2; arXiv:1201.5989 §2",
+          "Resultary mirror SCOPE-a-sharp-branching-crossover-for-random-widths-of-broom-graphical--967cda6767a7 and SCOPE-a-critical-rank-gaussian-chi-square-width-defect-law-for-uniform--ad7444cde6e9, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu's D_n(k) is exactly the incidence-segment sum. Its Gaussian width normalized as in RESULT is also the complete increasing-order U-statistic of absolute normalized Gaussian subset sums.",
+          "The indexed hypergraphic result is about fixed-rank Minkowski sums of coordinate simplices and spherical directions, not incidence segments and this fluctuating rank."
+        ],
+        "reasoning": "The body alias is an exact prior equivalence and gets no novelty credit. The U-statistic formulation exposes the relevant wider probability literature. Coordinate simplex width is a maximum minus a minimum on a set, whereas segment width is an absolute sum; the analogous indexed statistic is not an equivalent expression for H.",
+        "searches": [
+          "Resultary local index: Gaussian widths of complete uniform hypergraphs and degree zonotopes; SCOPE-a-hub-induced-non-gaussian-width-law-for-uniform-hypergraphic-po--16cbf190cb19",
+          "arXiv:1201.5989, §2; arXiv:1901.01163v3, Introduction and Corollary 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed broom has a critical Gaussian plus centered conditional-mean term for spherical widths; the truncated-cube record gives a chi-square defect near rank n/2 independent of a Gaussian cube fluctuation; the cited hypergraphic index match concerns coordinate simplices.",
+          "The finite covariance C is a standard bivariate Gaussian moment, whereas the overlap weighting and growth laws concern the incidence-segment problem."
+        ],
+        "reasoning": "An exact tabulation is not expected for an asymptotic growing-rank limit; the natural exact-law catalogue comparison is the set of related width formulas. No checked exact formula concerns this same limit and object. The self-match for the frozen record is not evidence of prior coverage.",
+        "searches": [
+          "Resultary local index: SCOPE-a-sharp-branching-crossover-for-random-widths-of-broom-graphical--967cda6767a7; SCOPE-a-critical-rank-gaussian-chi-square-width-defect-law-for-uniform--ad7444cde6e9; SCOPE-a-hub-induced-non-gaussian-width-law-for-uniform-hypergraphic-po--16cbf190cb19"
+        ]
+      },
+      "rationale": "Liu's rank-k degree-sequence zonotope is exactly the same body, and the Gaussian absolute covariance and fixed-order CLT are classical. The distinct finding is the variable-rank stochastic width law, especially the independent Gaussian plus centered chi-square at k on the order of sqrt(n), with the supercritical and proportional-rank reductions. The strongest indexed analogues mix Gaussian and non-Gaussian effects in different geometries and use different generators, growth regimes or direction normalizations. The inspected growing-order U-statistic Gaussian approximation gives a quantitative first-projection regime, not the mixed limit. No exact or stronger statement covering this crossover was found in the checked material.",
+      "residual_risks": [
+        "The frozen record gives no identifier for the unnamed similar hypergraphic-width result; the focused lookup did not establish its identity, so its possible coverage remains unresolved and provides neither positive nor negative evidence. Hoeffding's original 1948 paper was accessible only as a landing page in the bounded attempt; the fixed-order projection CLT used here is standard.",
+        "An unindexed equivalent for complete Gaussian subset-sum statistics or a different wider chaos theorem remains possible. The conclusion is specific to unnormalized Gaussian directions and uniform-rank complete incidence generators, not arbitrary hypergraphs or spherical directions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly the same zonotope; lattice realizability not Gaussian width laws",
+          "evidence": [
+            "D_n(k) is the sum over distinct k-subsets with coefficients in [0,1]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.5989",
+          "material_read": "§2, primary HTML offsets 0–4961",
+          "method": "Public arXiv primary text passages",
+          "title": "Nonconvexity of the set of hypergraph degree sequences",
+          "trigger": "Same rank-k degree-sequence body"
+        },
+        {
+          "assessment": "All-hyperedge model and integer-point questions, not the growing-rank width limit",
+          "evidence": [
+            "The generators are all nonzero binary vectors rather than a single rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.06732v1",
+          "material_read": "§2, offsets 4454–8953",
+          "method": "Public arXiv primary HTML passages",
+          "title": "Integer points in the degree-sequence polytope",
+          "trigger": "Broader hypergraph degree-sequence zonotope"
+        },
+        {
+          "assessment": "Covers complete deterministic kernels in a first-projection Gaussian approximation, not the critical mixture here",
+          "evidence": [
+            "Corollary 2.2 bounds distance to rY_A with Y_A normal with covariance of the first projection; it divides by the squared standard deviation of that projection inside the error bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.01163v3",
+          "material_read": "Introduction pp. 1–3 (offsets 2160, 9858); Theorem 2.1 and Corollary 2.2 pp. 7–8 (offset 24857)",
+          "method": "Focused title search then public arXiv official-version preprint PDF, read original theorem and corollary from bounded passages",
+          "title": "Approximating high-dimensional infinite-order U-statistics: Statistical and computational guarantees",
+          "trigger": "Plausible wider theorem for deterministic kernels of growing order"
+        },
+        {
+          "assessment": "A different degree-two, growing-data-dimension setting",
+          "evidence": [
+            "The paper studies degree-two U-statistics; it points separately to the infinite-order literature."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.05686",
+          "material_read": "Abstract and §1, offsets 27–4931; reference to Song et al. around offset 70320",
+          "method": "Public arXiv primary-text passages",
+          "title": "A High-dimensional Convergence Theorem for U-statistics with Applications to Kernel-based Testing",
+          "trigger": "Cited nonstandard U-statistic convergence comparison"
+        },
+        {
+          "assessment": "Close pattern, different stochastic observable and nonnormal contribution",
+          "evidence": [
+            "Spherical width of the broom graph mixes a Gaussian with a centered folded-normal conditional mean when branching is critical."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-branching-crossover-for-random-widths-of-broom-graphical--967cda6767a7/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and bounded mirrored RESULT read",
+          "title": "A sharp branching crossover for random widths of broom graphical zonotopes",
+          "trigger": "Closest indexed sqrt(n) fluctuation crossover for widths"
+        },
+        {
+          "assessment": "Fixed-rank sums of coordinate simplices in Haar directions, not the same statistic",
+          "evidence": [
+            "The complete-plus-hub construction sums simplices and holds k fixed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-hub-induced-non-gaussian-width-law-for-uniform-hypergraphic-po--16cbf190cb19/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and bounded mirrored RESULT read",
+          "title": "A hub-induced non-Gaussian width law for uniform hypergraphic polytopes",
+          "trigger": "Closest indexed hypergraphic width object by title"
+        },
+        {
+          "assessment": "A width defect for another geometry near a different critical rank",
+          "evidence": [
+            "Near rank n/2 a rank-truncated cube has a chi-square width defect independent of the cube Gaussian fluctuation; this is not an absolute subset-sum average."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-critical-rank-gaussian-chi-square-width-defect-law-for-uniform--ad7444cde6e9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary search and bounded mirrored RESULT read",
+          "title": "A critical-rank Gaussian–chi-square width-defect law for uniform matroid polytopes",
+          "trigger": "Indexed independent Gaussian and chi-square width phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known, natural family of polytopes provides a quantitative example where a width's second Gaussian chaos undergoes a change in the source of its fluctuations as hyperedge rank grows. The critical law identifies how an independent sample-energy Gaussian and a one-dimensional centered chi-square coexist; neither the one-coordinate mean, the fixed-rank CLT nor a variance estimate reveals that distribution. The proportional-rank conditional law is an additional exact explanation of nonconcentration for these polytopes. The value is the new rank-scale description, not a redefinition of the body or a general inference theorem for arbitrary kernels.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

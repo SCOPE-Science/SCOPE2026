@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The proof's key exact computations are the displayed inverse of the one-coordinate compatibility matrix \(T\), the three integer zero pairings with the exceptional row vector, and the resulting exact identity \(HD^{-1}H^{\mathsf T}=0\). These imply the full all-size integer congruence; no uncomputed enumeration or external certificate is used to establish the infinite statement.
+# Independent mathematical audit
 
-From the directory containing this file, run `python VERIFY.py` using Python 3 standard library. The checker reconstructs finite metric types without relying on the theoretical classification, computes all unit-compatibility entries for parameter sizes one through four, checks the tensor and exceptional block identities and Schur cancellation with exact integers, and calculates ranks over three prime fields. Expected last line: `VERIFY_OK`.
+## correctness
 
-The finite examples are not an exhaustive test of all parameter sizes; the universal proof in `RESULT.md` supplies that step. The code does not verify research priority or any broader claim involving nonequilateral bases or different mutual distances.
+PASS
+
+The triangle inequalities over the named equilateral distance-four base classify the nonalgebraic vectors as the core {2,3,4}^n and n exceptional classes with a unique 1 and all remaining coordinates in {3,4}. Extending the base by two distinct points at distance 1 imposes exactly the coordinate differences ≤1; sums ≥1 are automatic, so the diagonal is included. The core D=T tensor-powered n times is unimodular (det T=−1), and off-core cross-class entries vanish. The mixed rows are tensors with one factor e=(1,0,0) and other factors r3=(1,1,1), r4=(0,1,1). The row eT⁻¹=(0,1,−1) pairs to zero with all three, so every entry of HD⁻¹Hᵀ vanishes integrally. The displayed determinant-one upper block change thus gives the claimed congruence, not just equivalence over a field. Each Jq contributes exactly one unit Smith factor and one positive eigenvalue. T has two positive and one negative eigenvalue, and the tensor sign difference is (2−1)^n=1. The principal selection has Schur complement I_n and determinant (−1)^(n·3^(n−1))=(−1)^n. At n=1 the four types yield T⊕[1], consistent with rank 4, inertia (3,1,0) and no zeros.
+
+## originality
+
+PASS
+
+The entry criterion and an aggregate unit-pair count are covered and not credited as new. The supported distinct claim is the explicit integral congruence and its arithmetic and inertia consequences. Neither Sauer’s possible-distance theorem nor the nearest compared metric or ultrametric calculations provides that congruence or the integral Schur cancellation for this matrix.
+
+## value
+
+PASS
+
+For a natural metric extension question on a named homogeneous space the theorem explains why an exponentially sized compatibility matrix has no finite cokernel torsion in any size, via an integral orthogonality rather than enumerated ranks. It also gives the exact real signature and a full-rank principal unimodular witness. These determine distinct arithmetic and real invariants not supplied by type-count data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

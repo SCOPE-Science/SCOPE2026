@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:13:49.881131Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing the uploaded verifier",
+        "Kabluchko–Vysotsky–Zaporozhets arXiv:1510.04073, Eq. (6)",
+        "Independent spacing proof and alternate derivation from the semicircle minimum tail"
+      ],
+      "rationale": "Anchor the cyclic gap list at a specified sampled point, not at the first point after a fixed coordinate cut. Conditional on its angle the other n-1 rotated angles are independent uniform, so their order-statistic spacings are Dirichlet(1,...,1). This anchoring leaves the cyclic statistic unchanged. Outside the half-circle tie null set, original containment means every gap is <1/2, and deleting a vertex merges its two adjacent gaps. Pivotality therefore requires the merged pair to sum to >1/2. Two disjoint pairs cannot both do this, and any three edges of a cycle of length n>=4 include a disjoint pair. The Beta(2,n-2) tail of an adjacent sum at 1/2 is n/2^(n-1); removing the two disjoint cases with an individual long gap gives per-gap-edge probability (n-2)/2^(n-1). In an adjacent joint event with common gap x<1/2, subtract 1/2-x from each neighboring gap; the residual simplex has total x, so the original neighbors are automatically <1/2 and the remaining gaps are at most x. The joint probability is (n-1) integral_0^(1/2) x^(n-2) dx=2^(-(n-1)). The n joint events are disjoint and exhaust K=2; the expectation and normalization then give K=1 and K=0. Wendel noncontainment is n/2^(n-1), and must be subtracted from K=0 before conditioning on containment. This gives conditional robustness zero at n=4 and 1/11 at n=5. Positive radial scaling does not change any of the containment predicates. The prior-law derivation in the originality assessment independently reproduces the probability algebra.",
+      "residual_risks": [
+        "The formula is an almost-sure statement under the specified continuous directions; it does not classify tied, antipodal or degenerate configurations. Unconditional K=0 includes initially failing samples and is not the same event as robustness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hodges's exact law applies to the entire minimum-semicircle statistic; it covers the relevant cutoffs 0 and 1. The Resultary marked arc-center result eb09f8addbe7 at full arc length recovers only the scalar containment probability. The same-day simplicial-depth entry c1bb34e0d615 describes a different asymptotic quantity in the catalogue; its original mirror file was unavailable. Lu's exact official thesis abstract identifies generic overlapping spacing methods for scan statistics and multiple coverage, but no formula from the inaccessible thesis is needed here."
+        ],
+        "reasoning": "The relevant broader theorem is the finite semicircle-scan tail under circular uniformity, rather than ordinary Wendel alone or an asymptotic coverage law. The older exact statistic yields the cutoffs at every n of interest, and subsumes the two-containment-threshold quantities used in the focal result.",
+        "searches": [
+          "Resultary: random uniform circle points maximum number in any semicircle exact distribution semicircle occupancy scan statistic origin Tukey depth",
+          "Primary search: Wendel theorem tolerance removal random convex hull probability points circle separability one error exact two dimensions",
+          "Primary search: equal random arcs circle multiple coverage probability exact semicircle two fold coverage Stevens Siegel",
+          "Primary search: \"multiple coverage\" circle random arcs \"Holst\" probability k spacings Huffer",
+          "Primary search: Ajne 1968 A simple test for uniformity of a circular distribution exact formula P N m binomial Hodges tail test equation pdf"
+        ]
+      },
+      "checked_sources": [
+        "Three local Resultary searches and available corresponding passages",
+        "Targeted primary search including Hodges–Ajne exact-law formulations",
+        "arXiv:1804.00286 §2.3; CircStat exact expression; MetricGate stated cumulative law",
+        "arXiv:1510.04073 Eq. (6) and independent mathematical implication"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hodges tail gives Pr(K>0)=Pr(T=1)=n(n-3)/2^(n-1). For a distinguished omission, noncontainment of the full sample implies noncontainment of the reduced sample; therefore its pivotality probability is the difference of the Wendel noncontainment probabilities for n-1 and n, equal to (n-2)/2^(n-1). Summation gives E[K]=n(n-2)/2^(n-1). The sole support observation needed is that three merged adjacent-gap pairs on a cycle of length at least four contain disjoint pairs, so they cannot simultaneously exceed 1/2."
+        ],
+        "reasoning": "For K supported on {0,1,2}, Pr(K=2)=E[K]-Pr(K>0)=n/2^(n-1); Pr(K=1)=Pr(K>0)-Pr(K=2)=n(n-4)/2^(n-1); the complement gives Pr(K=0). Conditional robustness is Pr(T>=2)/Pr(T>=1), likewise an immediate consequence. No computation of marked joint spacings or extra prior label-multiplicity law is needed. The elementary support observation does not leave a distinct substantive exact spectrum.",
+        "searches": [
+          "Hodges exact finite-sample tail as stated in CircStat circ_otest.m and MetricGate Hodges–Ajne method",
+          "arXiv:1510.04073, Eq. (6)",
+          "Frozen RESULT.md cyclic gap description, lines 28–34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 2.3 of arXiv:1804.00286 defines the half-circle count scan and attributes its exact finite-sample distribution to Hodges (1955). The documented Hodges–Ajne statistic T is the minimum semicircle count. With no antipodal or coincident directions, one can choose the diameter off the sample; then T equals n minus the maximum semicircle count, and equals planar Tukey depth at zero."
+        ],
+        "reasoning": "Containment fails exactly at T=0. Deletion can make containment fail iff some separating half-circle contains all but at most one point, i.e. T<=1. Thus robustness is exactly T>=2, and K>0 exactly T=1; the definition sets K=0 on T=0. Counting triangles (simplicial depth) alone is not equivalent, whereas the semicircle scan is the exact statistic for the robustness part.",
+        "searches": [
+          "Resultary: origin in convex hull random points on circle deletion pivotal count Tukey depth 2 semicircle coverage multiplicity exact distribution",
+          "Resultary: maximum number of sampled directions in a semicircle and number of semicircles covering fixed origin Tukey halfspace depth planar circle",
+          "Primary search: Hodges Ajne minimum number of points semicircle exact finite sample formula n-2m Hodges bivariate sign test pdf",
+          "arXiv:1804.00286, literal Hodges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original publicly readable CircStat implementation (comment dated 2009), offsets 1300–2955, identifies m as the minimum half-circle count and explicitly attributes the exact expression 2^(1-n)*(n-2*m)*nchoosek(n,m) to Hodges (1955). The mathematical documentation at MetricGate, offsets 2050–3636, gives the same expression as Pr(T<=m). These are independent of the frozen item; their choice to use an asymptotic approximation for larger n is an implementation choice. The review article corroborates the provenance of the finite-sample distribution."
+        ],
+        "reasoning": "At m=0 this recovers Wendel's n/2^(n-1), and at m=1 it gives n(n-2)/2^(n-1), exactly the failure-of-robustness tail. Thus the old exact law contains all relevant threshold values without requiring a separately indexed table labeled 'pivotal vertices'.",
+        "searches": [
+          "Primary search: Hodges Ajne minimum number of points semicircle exact finite sample formula n-2m Hodges bivariate sign test pdf",
+          "CircStat circ_otest.m: literal nchoosek",
+          "MetricGate Hodges–Ajne documentation: literal binom",
+          "Resultary: random uniform circle points maximum number in any semicircle exact distribution semicircle occupancy scan statistic origin Tukey depth"
+        ]
+      },
+      "rationale": "The mathematical law is correct but is covered by the classical Hodges–Ajne exact semicircle tail together with an elementary first-moment and support calculation. In particular the robustness probability is a direct substitution, and the entire three-mass pivotal spectrum follows, not just one of its entries. This is demonstrated prior implication, not rejection for unavailable papers or an assertion that Hodges used the same pivotal-count wording.",
+      "residual_risks": [
+        "The original Hodges and Ajne full texts were not read; the exact prior law and its attribution are supported by the inspected sources named above. The inaccessible same-day simplicial-depth result may add related coverage but is not the reason for failure. This review shows implication and does not claim to locate the first use of the pivotal terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original passage unavailable, but strong independent evidence of coverage",
+          "evidence": "arXiv:1804.00286 explicitly attributes the exact finite-sample law to Hodges; CircStat attributes and states the exact formula. No claim to have read the original proof.",
+          "identifier_or_url": "DOI:10.1214/aoms/1177728498; JSTOR 2236480",
+          "material_read": "Original 1955 full text not retrieved after Project Euclid article, PDF and old download route and JSTOR PDF attempts",
+          "method": "Lawful OA direct and alternate attempts; exact law compared through the stated review/implementation/documentation",
+          "title": "A Bivariate Sign Test",
+          "trigger": "Original exact law for the minimum semicircle count"
+        },
+        {
+          "assessment": "Named original full-text access risk; no negative inference",
+          "evidence": "The review relates the test to Hodges's bivariate sign statistic and distinguishes it from Ajne's integrated-square statistic.",
+          "identifier_or_url": "DOI:10.1093/biomet/55.2.343; JSTOR 2334875",
+          "material_read": "Original full text not retrieved from OUP/JSTOR; the available comparison is the mathematical review §2.3",
+          "method": "Lawful OA alternate attempts and published review",
+          "title": "A simple test for uniformity of a circular distribution",
+          "trigger": "Exact maximum-semicircle formulation in directly matching sample model"
+        },
+        {
+          "assessment": "Confirms equivalence of statistic and older finite-sample coverage",
+          "evidence": "Defines the open-half-circle count, scans all orientations, and states that its supremum statistic has the exact finite-sample distribution of Hodges (1955).",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.00286",
+          "material_read": "PDF §2.3 pp. 3–4, offset 13295 onward",
+          "method": "Lawful OA PDF located by Hodges and opened by offset",
+          "title": "An overview of uniformity tests on the hypersphere",
+          "trigger": "Exact provenance and definition of the Hodges–Ajne semicircle statistic"
+        },
+        {
+          "assessment": "Decisive explicit exact expression with Hodges attribution",
+          "evidence": "m is the minimum number of samples in one half; the exact branch comments state pval=2^(1-n)*(n-2*m)*nchoosek(n,m).",
+          "identifier_or_url": "https://github.com/circstat/circstat-matlab/blob/master/circ_otest.m",
+          "material_read": "Offsets 1300–2955, statistic/attribution comments and exact p-value branch",
+          "method": "Lawful public website passage read; code inspected, not executed",
+          "title": "CircStat omnibus circular-uniformity test",
+          "trigger": "Explicit historical formula for the matched exact statistic"
+        },
+        {
+          "assessment": "Corroborates the cumulative probability used in the implication",
+          "evidence": "Defines the minimum open semicircle count and states the uniform null tail Pr(T<=m)=2(n-2m) binom(n,m)/2^n.",
+          "identifier_or_url": "https://metricgate.com/docs/hodges-ajne-test/",
+          "material_read": "Methodology at offsets 2050–3636",
+          "method": "Lawful public website passage read",
+          "title": "Hodges–Ajne Test for Circular Uniformity",
+          "trigger": "Tail direction and same exact formula stated mathematically"
+        },
+        {
+          "assessment": "Exact per-omission ingredient",
+          "evidence": "In dimension two the noncontainment probability is n/2^(n-1); continuous positive random radii transfer it to the same directions without altering containment.",
+          "identifier_or_url": "arXiv:1510.04073",
+          "material_read": "PDF p. 5, Eq. (6), and p. 1 near offset 2964",
+          "method": "Lawful OA PDF inspection",
+          "title": "Convex hulls of random walks, hyperplane arrangements, and Weyl chambers",
+          "trigger": "Wendel probability used in expectation calculation"
+        },
+        {
+          "assessment": "Scalar containment in the first, different stated statistic and unresolved full-text comparison in the second",
+          "evidence": "The accessible arc result yields Wendel at full-circle length. The depth summary concerns asymptotic fluctuations of empirical simplicial depth, not the exact pivotal distribution.",
+          "identifier_or_url": "Resultary eb09f8addbe7 and c1bb34e0d615",
+          "material_read": "eb09f8addbe7 Finding, mirror offset 0; c1bb34e0d615 catalogue summary only, its mirror RESULT.md was unavailable",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "A marked supersemicircle transition for random convex hull center containment; A noncentral-to-Gaussian transition in simplicial depth",
+          "trigger": "Closest center-containment and same-day depth records"
+        },
+        {
+          "assessment": "Broader framework; not required for the decisive coverage finding",
+          "evidence": "Abstract describes algorithms for overlapping consecutive-spacing probabilities applied to circular scan distributions and multiple coverage.",
+          "identifier_or_url": "10.6846/TKU.2014.00681; https://etds.lib.tku.edu.tw/ETDS/Home/Detail/U0002-1807201420340700",
+          "material_read": "Official English abstract and contents, offset 0 onward; thesis body not read",
+          "method": "Lawful university repository passage",
+          "title": "The Distribution of the Extremes of Sums of Consecutive Spacings on a Circle",
+          "trigger": "Plausible general exact circular scan and coverage framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Hodges–Ajne exact minimum semicircle tail and Wendel noncontainment law",
+        "Explicit implication in the originality assessment"
+      ],
+      "rationale": "Deletion resilience of a random hull is a natural question, and distinguishing one from two pivotal vertices is interpretable. But for this frozen setting the robustness part just changes the threshold in a classical exact scan statistic, and the remaining masses follow from a first-moment subtraction and an elementary cycle observation. The standalone support observation does not establish a genuinely distinct valuable remainder for repair under the exact-invariant standard.",
+      "residual_risks": [
+        "This judgment is confined to the frozen single-deletion planar uniform-direction theorem, not possible joint laws for marked pivotal positions or beyond-single-deletion settings."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

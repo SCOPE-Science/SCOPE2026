@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes convexity of the spectral-width objective for arbitrary independent edge weights, reduces to the symmetric two-parameter problem without assuming a symmetric optimum a priori, determines the exact full spectrum, and minimizes a strictly convex rational quadratic. A separate eigenvector equality argument forces the symmetry of **every** optimum and proves uniqueness, including the disconnected case. Symbolic identity checks, rational special cases and direct full-matrix numerical comparisons were replayed from `verify.py`. The finite tests do not stand in for the analytic proof.
+## correctness
 
-## Originality — PASS (qualified)
-The quantitative double-star optimizer and the sharp \(m=3\) bridge deletion were compared against the full available TU Chemnitz preprint on general Laplacian spectral-width design, its existing disconnected-optimum examples, and the earlier unweighted double-star Laplacian-spread analysis. The former already proves that disconnection can be optimal on other graphs; the latter uses fixed unit edge weights. Neither inspected result gives the exact all-integer balanced-double-star weights or the global uniqueness statement with unrestricted edge conductances. Relevant semantic research searches and indexed web searches found no matching statement; this does not eliminate unindexed or differently phrased priority.
+PASS
 
-## Value — PASS
-The objective is a published convex network-design criterion used to narrow the interval between the extreme nontrivial Laplacian eigenvalues. The double-star family isolates a single bottleneck between two identical communities. The explicit transition from a small but positive bridge at two leaves per hub to a uniquely disconnected optimum at three leaves per hub is a sharp structural warning: minimizing width need not preserve a network's communication link. An all-size classification and every-optimizer rigidity are nontrivial beyond evaluating the spectrum of a fixed tree.
+On the fixed subspace orthogonal to the all-ones vector, lambda2 is the minimum Rayleigh quotient even when weights disconnect the support. Hence W is convex, and averaging over leaf permutations and the hub exchange preserves b and cannot increase W. In the averaged matrix, the leaf-difference eigenvalue is a (absent for m=1), the symmetric sector contributes 0 and (m+1)a, and the antisymmetric sector has polynomial x²-((m+1)a+2b)x+2ab. For a,b>0, its signs at 0, a and (m+1)a put its roots strictly outside the other nonzero eigenvalues, and continuity covers a=0 or b=0. Substituting b=1-2ma gives W²=4-(12m+4)a+(9m²+10m+1)a². Its unconstrained stationary point has positive b for m=1,2 only; otherwise the interval minimum is at b=0. The values are (a,b,W²)=(2/5,1/5,4/5), (14/57,1/57,32/57), and (1/(2m),0,(m+1)²/(4m²)), respectively. For an arbitrary minimizer at m>=3, its bridge equals the averaged bridge and is zero. The Rayleigh lower bound (m+1)S_j/m for star j forces half the budget on each; equality makes the test vector (m,-1,...,-1) a top eigenvector and the leaf equations force uniform weights. For m=1,2, equality in the width average forces equality in the separate top-eigenvalue bound. The top vector of the averaged matrix has the same squared edge differences within each pendant orbit; its Rayleigh value in the unaveraged matrix is therefore the same and maximal. Its leaf equations force uniform weights as the leaf-hub difference is nonzero. This verifies uniqueness without assuming symmetry. Positive allocations approximate the boundary optimum, but no such allocation attains it for m>=3. The archived checker is diagnostic, not the proof; it was inspected, not run.
 
-## Closest literature and limitations
-Göring, Helmberg and Reiss (TU Chemnitz Preprint 2011-4, especially Example 27) supply the general criterion and known disconnection phenomenon. Fan et al. (DMTCS 2008) supply the unweighted-tree comparison and double-star spectral polynomial. Boyd (EMS 2007) supplies the earlier convex eigenvalue-allocation framework. The result covers only balanced double stars and unit total conductance with zero edges permitted. The strictly-positive-budget problem does not attain the minimum in the disconnected regime; bibliographic priority remains subject to more exhaustive external examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work explicitly gives the general width-design problem and disconnected optimal supports. The verified distinct statement is the exact all-size optimizer, first bridge-deletion threshold, and uniqueness for unconstrained individual edge allocations on the balanced double star. This is not a claim to the objective, convexity method, or first example of disconnection.
+
+## value
+
+PASS
+
+Minimizing spectral width is a natural network-design criterion. On this family, the answer determines the exact first size at which that criterion sacrifices the sole link between communities, and proves that deleting it is necessary rather than one symmetric choice. The closed form supplies a benchmark and distinguishes when a positive-connectivity requirement changes attainment. It does not generalize the cutoff to other graph families or claim that optimal support disconnection was previously unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

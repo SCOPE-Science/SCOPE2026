@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:55:37.372444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m=F_a, the published Apéry representative mβ(r)+r gives the gap test β(r)>q at qm+r. The multiples of m separate the rows, so the runs in each thresholded word really are maximal in the semigroup. The Zeckendorf split B_a=B_(a−1) concatenated with (1+B_(a−2)) follows by using F_(a−1) and then a remainder strictly below F_(a−2). At each q≥1 the first entry of the second piece is a separator; its q=1 tail contributes exactly one block of length F_(a−2)−1 and its higher levels give the noninitial blocks from B_(a−2). The first piece contributes those from B_(a−1). The empty noninitial multisets at a=3,4 and this recurrence give the stated Fibonacci multiplicities, including a=5; q=0 contributes the unique initial block. Summation gives F_(a−2) blocks. An independent coin-change replay for a=10 scanned 1 through 275 and recovered the complete displayed spectrum; it is a finite cross-check only. The frozen verifier was inspected, not executed.",
+      "replay": "/workspace/branches/d49b65bc-e149-476c-b628-1717452dda4f/replay_a10.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The shifted r-Fibonacci study's abstract and introduction identify Apéry, Frobenius/genus, Wilf and type questions, separating out the ordinary Fibonacci case; Theorem 4.6 of the ordinary case gives Apéry representatives."
+        ],
+        "reasoning": "The inspected broader results do not state or supply a general formula for maximal consecutive gap-length frequencies that specializes to the Finding.",
+        "searches": [
+          "DOI:10.1007/s40065-025-00513-3",
+          "arXiv:2210.00816"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.00816",
+        "Resultary:cb7605e44e01",
+        "Resultary:3a32d9f79cbe",
+        "DOI:10.1007/s40065-025-00513-3",
+        "arXiv:2305.14967"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apéry gives the threshold bit at any fixed index; the isolated-gap result counts maximal singleton runs but not higher-length runs."
+        ],
+        "reasoning": "Computability from membership for each a is not an existing uniform histogram. The all-level concatenation and separation, including the new length at level one, are the additional steps needed to prove the law.",
+        "searches": [
+          "arXiv:2210.00816, Theorem 4.6",
+          "Resultary isolated-gap record cb7605e44e01, Finding and enumeration proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The perfect-semigroup paper's introduction treats isolated gaps; the same-family pseudo-Frobenius record counts a different invariant defined by addition of semigroup elements."
+        ],
+        "reasoning": "A block is an entire maximal consecutive interval, not an isolated gap only, nor a pseudo-Frobenius gap. Those classifications do not give its length frequencies.",
+        "searches": [
+          "Resultary semantic lookup for shifted-Fibonacci gap blocks and run spectra",
+          "arXiv:2305.14967",
+          "Resultary: 2026/10/18/SCOPE-pseudo-frobenius-spectrum-and-padovan-type-of-shifted-fibonacci--3a32d9f79cbe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Besides the assigned record itself, the strongest matching indexed statement is the isolated-gap Finding: F_(a−4) such gaps with a description of their locations. Other run-spectrum matches concern different semigroups."
+        ],
+        "reasoning": "This exact count agrees with the j=3 entry only. No distinct full-spectrum table or closed formula for this family was identified in the bounded comparison.",
+        "searches": [
+          "Resultary semantic lookup for the same semigroup and its full run spectrum",
+          "Resultary: 2026/11/2/SCOPE-isolated-gaps-in-fibonacci-shifted-numerical-semigroups--cb7605e44e01"
+        ]
+      },
+      "rationale": "The supported distinct result is the full uniform maximal-gap-length histogram, not the Apéry theorem, known genus or isolated-gap count. The closest same-family record gives exactly the length-one component. The inspected prior inputs do not give the run recurrence or an equivalent all-length count; the uniform distribution uses the separating threshold boundary and a run-multiset recurrence, not just a fixed-parameter Apéry enumeration.",
+      "residual_risks": [
+        "Bounded literature and index checks do not rule out an unindexed equivalent full-spectrum formula; no claim of global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of Apéry input; no run-frequency theorem in the decisive passages",
+          "evidence": "Theorem 4.6 gives w(r)=F_aβ(r)+r for 0≤r<F_a.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.00816",
+          "material_read": "§3 p. 3; §4 Theorem 4.6 p. 6, extracted offsets 7975 and 16670",
+          "method": "Open paper text, bounded passages",
+          "title": "The extended Frobenius problem for Fibonacci sequences incremented by a Fibonacci number",
+          "trigger": "Same semigroup and possible source of the full distribution"
+        },
+        {
+          "assessment": "Covers the length-one component only",
+          "evidence": "It counts F_(a−4) isolated gaps and locates them by Zeckendorf residues involving indices 2 and 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-isolated-gaps-in-fibonacci-shifted-numerical-semigroups--cb7605e44e01",
+          "material_read": "Finding and enumeration proof, offsets 0 and 3471",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Isolated gaps in Fibonacci-shifted numerical semigroups",
+          "trigger": "Strongest exact same-family overlap"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classifies pseudo-Frobenius gaps and type, not maximal consecutive runs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-pseudo-frobenius-spectrum-and-padovan-type-of-shifted-fibonacci--3a32d9f79cbe",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Pseudo-Frobenius spectrum and Padovan type of shifted-Fibonacci numerical semigroups",
+          "trigger": "Same semigroup and plausible alternative spectrum"
+        },
+        {
+          "assessment": "Broader family but no inspected run-spectrum result",
+          "evidence": "Takes r≥2 in §2, points to earlier r=1 work, and lists Apéry, Frobenius, genus, Wilf and pseudo-Frobenius/type results.",
+          "identifier_or_url": "https://doi.org/10.1007/s40065-025-00513-3",
+          "material_read": "Abstract p. 233, introduction pp. 234–235 (offset 7400), §2 regime",
+          "method": "Open paper text, bounded passages",
+          "title": "The extended Frobenius problem for r-Fibonacci sequences shifted by r-Fibonacci numbers",
+          "trigger": "Possible dominating recurrence family"
+        },
+        {
+          "assessment": "General isolated-gap framework; not a match in inspected passages",
+          "evidence": "Studies perfect semigroups and algorithms under the isolated-gap definition, not the full shifted-Fibonacci histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.14967",
+          "material_read": "Abstract p. 1 and introduction p. 2 (offset 6300)",
+          "method": "Open paper text, bounded passages",
+          "title": "The covariety of perfect numerical semigroups with fixed Frobenius number",
+          "trigger": "Potential general isolated-gap or consecutive-gap enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal gap blocks refine the established genus and isolated-gap invariants of a previously studied numerical-semigroup family. A uniform complete distribution tells which lengths occur and their frequencies, including the skipped penultimate Fibonacci length, without enumerating the semigroup. The threshold-word recurrence explains those facts and provides a reproducible structural reason for the Fibonacci frequencies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

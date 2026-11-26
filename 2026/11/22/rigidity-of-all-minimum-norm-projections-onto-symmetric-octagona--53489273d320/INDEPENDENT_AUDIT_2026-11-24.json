@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:36:05.431049Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–92; VERIFICATION.md; verify_octagonal.py, inspected not executed",
+        "Independent replay: python3 -B /workspace/review_reproduction.py octagon; exact input determinant, six rational norm-and-saturation tests including both endpoints, and exact support block determinants. The determinant factorization and proof establish the continuum statement; the rational checks alone do not."
+      ],
+      "rationale": "The max of |x+y| and |x−y| is |x|+|y| over the reals, so Jβ is an isometry. Extending its four coordinate functionals by Hahn–Banach gives a contraction into the canonical cube space for any isometric superspace, so the best canonical retraction realizes the absolute constant. The two sign flips and the swap act by signed permutations of the four input coordinates. Their intertwining relations force the equivariant rows (a,0,b,b) and (0,a,b,−b), with a+2βb=1. The norm is the maximum of the l1 norms of the four support rows after composition, namely |a|+2|b| and 2β(|a|+|b|). The displayed convex combination of these branches is β/q times |a|+2β|b|, so the optimum is at least β/q, and the proposed coefficients attain it. In the interior the convex weights are strictly positive and equality forces both branches equal and a,b nonnegative; their solution is unique. At β=1/2 the first branch is at least 1+|b|; at β=1 the second is at least 1+|a|, giving the unique endpoint coefficient pairs. Averaging all conjugates of any optimal retraction therefore gives the same symmetric optimum. For each displayed norming pair, every conjugate evaluation is bounded by the optimum and their average attains the bound, so the original map also saturates the pair. At each of four input sign vectors the two target supports are independent, with determinant magnitude β, and the four sign vectors span R⁴ with determinant magnitude 8. Hence the total eight-equation determinant has magnitude 64β⁴; this pins down the unrestricted map also at both endpoints. Differentiation gives the stated maximum and endpoint behavior.",
+      "residual_risks": [
+        "Real scalars and uniqueness in the specified four-coordinate superspace only. No claim of uniqueness in every isometric embedding or over complex scalars follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kobos–Lewicki Theorem 5.6 explicitly assumes the minimal projection onto the real-generated subspace of the complex polytope setting is unique; it then concludes 2-strong uniqueness. Theorem 5.3 concerns a two-dimensional subspace of a three-dimensional complex space, extending Odyniec's real three-dimensional result.",
+          "Kobos's abstract concerns characterization of norm-one spaces and stability, not all retractions for this octagonal family. The pertinent Franchetti–Votruba article was not obtained."
+        ],
+        "reasoning": "The conditional real-generated theorem does not establish uniqueness, and an ambient dimension-three theorem does not reach this fixed real dimension-four embedding. A parameterized norm-one characterization is not an optimizer classification and does not cover the strict interior.",
+        "searches": [
+          "Kobos–Lewicki, arXiv:2504.03542, Theorems 1.1, 5.3 and 5.6 and Section 5 introduction",
+          "Kobos, arXiv:2611.19902v1",
+          "Franchetti–Votruba (1976), Perimeter, Macphail number and projection constant in Minkowski planes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof and prior-work scope; exact local Resultary Finding and comparison passages; primary OA and bounded retrieval attempts detailed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For these symmetric planes, writing r=1/β−1 gives four axis-parallel sides of norm length 2r and four diagonal sides of norm length 2β(1−r), so the self-length is 8(2β²−2β+1)/β, also at the degeneracies by the zero-length sides. The known self-length identity p(X)=8/λ(X) yields the entire numerical profile.",
+          "Theorem 5.6 strengthens already unique minimal projections in a complex polytope setting. The frozen proof instead proves uniqueness from independent norming equalities for the optimizer face."
+        ],
+        "reasoning": "The perimeter argument determines the optimum objective but not the set of minimizing operators. The general strong-uniqueness statement and the symmetric profile do not remove the need to prove that the unrestricted optimal face has only one point for this family.",
+        "searches": [
+          "Chalmers–Franchetti–Giaquinta DOI 10.1017/S0004972700016762, p. 102 equation (1)",
+          "Kobos–Lewicki 2504.03542, Theorem 5.6, p. 37",
+          "Frozen RESULT.md lines 60–79, 98–112"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-coordinate RESULT.md Finding proves strong uniqueness for one fixed real plane in ℓ∞⁵, with projection norm 845/659 and modulus 1508/493257.",
+          "The four-coordinate indexed summary states uniqueness among coordinate-swap-equivariant maps in the interior, not among unrestricted minimizers; full local RESULT.md was unavailable."
+        ],
+        "reasoning": "Canonical projection P and retraction R are equivalent by P=JβR. In that formulation the five-coordinate plane is a different range and source dimension, and equivariant uniqueness is insufficient: averaging several different optimum maps could give a single symmetric optimum. The saturation argument imposes conditions on every optimum separately.",
+        "searches": [
+          "Resultary symmetric four-coordinate projection constants and unrestricted or strong minimum-projection uniqueness searches",
+          "2026/11/8/SCOPE-exact-strong-uniqueness-modulus-for-a-five-coordinate-projection--6e2aaefe28ae",
+          "2026/10/26/SCOPE-sharp-projection-constants-for-a-symmetric-four-coordinate-defor--5cb469d0202c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact octagonal record hit is the frozen record itself. The related indexed profile ...--5cb469d0202c states equivariant uniqueness only, and the distinct full uniqueness hit ...--6e2aaefe28ae is for a fixed five-coordinate plane.",
+          "The frozen comparison credits Chalmers–Shekhtman with the regular polyhedral case; the full article was not retrieved."
+        ],
+        "reasoning": "An exact norm or formula for the regular member is not evidence for a complete minimum-set classification. A uniqueness theorem for regular polygons could overlap the single regular member but regularity alone does not cover the continuous deformation.",
+        "searches": [
+          "Resultary octagonal and four-coordinate projections, exact parameter profile and full uniqueness searches",
+          "2026/11/22/SCOPE-rigidity-of-all-minimum-norm-projections-onto-symmetric-octagona--53489273d320",
+          "Chalmers–Shekhtman DOI 10.1090/S0002-9939-1985-0806085-4"
+        ]
+      },
+      "rationale": "The supported distinct claim is uniqueness among all real optimal retractions for this whole continuously deformed octagonal family in its specified canonical superspace. The numerical profile, regular value and its extremal parameter are not credited as new. The closest inspected uniqueness results either concern a different plane and ambient dimension or require uniqueness as a hypothesis. Older plausible sources were not fully accessible and remain explicitly unresolved.",
+      "residual_risks": [
+        "Franchetti–Votruba (1976) could contain broader planar optimizer rigidity; Chalmers–Shekhtman could include same-ambient uniqueness for the single regular member. The incomplete four-coordinate indexed source is not excluded beyond its available summary. The PASS is a best-of-knowledge judgment for unrestricted uniqueness over the family, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior numerical-profile framework; no uniqueness conclusion follows from the identity",
+          "evidence": [
+            "The printed discussion limits the identity to spaces with enough symmetries. Frozen RESULT.md line 100 gives p(X)=8/λ(X); applying it to the perimeter gives β/q."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700016762",
+          "material_read": "Printed p. 102, discussion around equation (1); frozen transcription of the equation",
+          "method": "OA PDF text at offset about 3900; equation display omitted by extraction",
+          "title": "On the self-length of two-dimensional Banach spaces",
+          "trigger": "Direct numerical-profile implication for planes with enough symmetries"
+        },
+        {
+          "assessment": "Real-generated result already assumes uniqueness in a complex space; three-dimensional result has a smaller ambient dimension",
+          "evidence": [
+            "Theorem 5.6: suppose Y is a real subspace for which a minimal projection P is unique; then P is real and 2-strongly unique.",
+            "Theorem 5.3 is described as extending Odyniec's three-dimensional ambient result to the complex case when the subspace is not 1-complemented."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.03542",
+          "material_read": "Abstract, introduction to Section 5's results pp. 5–6, exact Theorem 5.6 p. 37 and opening of its proof; Section 4 introduction",
+          "method": "OA primary PDF text around offsets 17420 and 123487",
+          "title": "2-Strong Uniqueness of a Best Approximation and of Minimal Projections in Complex Polytope Norms and Their Duals",
+          "trigger": "Potentially broader theorem for real-generated subspaces and minimal projections"
+        },
+        {
+          "assessment": "Genuine uniqueness result for a different fixed plane in ℓ∞⁵",
+          "evidence": [
+            "Norm 845/659 and sharp strong-uniqueness modulus 1508/493257 for the stated single plane."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-strong-uniqueness-modulus-for-a-five-coordinate-projection--6e2aaefe28ae",
+          "material_read": "Finding and prior-work distinction; references",
+          "method": "Local-mirror RESULT.md offsets 0, 760 and about 6800",
+          "title": "Exact strong uniqueness modulus for a five-coordinate projection",
+          "trigger": "Strongest distinct indexed unrestricted uniqueness result"
+        },
+        {
+          "assessment": "The available statement covers interior equivariant uniqueness only; whole-document coverage unresolved",
+          "evidence": [
+            "The summary specifies uniqueness among coordinate-swap-equivariant minimizers."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-projection-constants-for-a-symmetric-four-coordinate-defor--5cb469d0202c",
+          "material_read": "Indexed summary only; local RESULT.md lookup could not retrieve the text",
+          "method": "Resultary summary and local-mirror attempt",
+          "title": "Sharp projection constants for a symmetric four-coordinate deformation",
+          "trigger": "Closest indexed deformation setting"
+        },
+        {
+          "assessment": "Unresolved prior coverage, not excluded",
+          "evidence": [
+            "The frozen record explicitly flags possible broader optimizer-rigidity content."
+          ],
+          "identifier_or_url": "Boll. Un. Mat. Ital. B (5) 13 (1976), 560–573",
+          "material_read": "Frozen citation and caveat only; primary article not retrieved",
+          "method": "Identified BUMI archive attempt failed on certificate; frozen RESULT.md lines 104 and 112",
+          "title": "Perimeter, Macphail number and projection constant in Minkowski planes",
+          "trigger": "Plausible older planar theorem bearing on unrestricted uniqueness"
+        },
+        {
+          "assessment": "Regular numerical value credited; whether the paper also proves canonical uniqueness for regular polygons remains unverified",
+          "evidence": [
+            "Frozen RESULT.md line 100 distinguishes the known regular value and exact interpolation from unrestricted uniqueness."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1985-0806085-4",
+          "material_read": "Frozen comparison and bibliographic citation only; primary text not retrieved",
+          "method": "DOI and AMS attempts returned HTTP 403",
+          "title": "Minimal projections and absolute projection constants for regular polyhedral spaces",
+          "trigger": "Same object at the regular octagon and possible uniqueness result there"
+        },
+        {
+          "assessment": "Adjacent endpoint information, not a claimed whole-document exclusion",
+          "evidence": [
+            "The advertised conclusions concern the norm-one characterization and a stability estimate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.19902",
+          "material_read": "Abstract p. 1",
+          "method": "Primary arXiv abstract",
+          "title": "A simple proof of the characterization of ℓ∞ⁿ by norm-one projections and a stability estimate",
+          "trigger": "Norm-one endpoint characterization and nearby stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Steps 4–5; self-length relation and related indexed uniqueness passages above"
+      ],
+      "rationale": "Determining the full optimizer set for a continuous, natural family of planar retraction problems is structurally stronger than a classical norm calculation or a symmetric candidate. It rules out every symmetry-breaking optimum and shows the optimizer remains unique at both square endpoints despite degeneracy of the norm description. The full rank certificate explains that rigidity in the canonical embedding.",
+      "residual_risks": [
+        "No separate scientific credit is given for the numerical profile or its maximum, and no sharp strong-uniqueness modulus is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

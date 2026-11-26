@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The lower bound uses \(t\) pairwise-disjoint difference sets \(A-A\) and \(z_i-A\). Each has at least \(M\) elements, because every cross-part difference must be an edge while every nonzero within-part difference must be a nonedge. The cyclic upper construction has \(t\) cosets of size \(M\). For optimal hosts equality forces \(|A-A|=M\), hence \(A\) is a subgroup coset, all nonidentity intra-coset differences are excluded and all inter-coset differences included. The proof explicitly covers positive part sizes, all \(t\ge2\), and noncyclic groups. The finite verifier is supplementary, not an infinite proof.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** The September 2026 initiating paper's Remark 12 states precisely the \(tM\) upper construction but leaves unbalanced multipartite minima open. A separately published proof of \(\eta(K_{1,1,n})=3n\) is covered and is credited, not recast as new. Its three-set method does not state the arbitrary-part count and arbitrary sizes theorem or equality rigidity. The 2012 complete-multipartite representation-number paper fixes the host to a unitary cyclic Cayley graph, so its lower bounds are for a different constrained problem. Targeted exact-formula, coset, rigidity and all-part-size searches uncovered no statement implying the new claim. This is evidence of noncoverage in inspected texts, not absolute novelty certification.
+PASS
 
-## Value
-**PASS.** This closes an explicitly identified complete-multipartite minimum-order problem in its full natural parameter range, upgrading an earlier universal upper construction to an exact classification. It also identifies an unexpectedly rigid optimal ambient graph even though arbitrary abelian groups and arbitrary connection sets are allowed. The constructive cyclic optimum and forced subgroup quotient can be reused in induced Cayley embedding problems.
+For a largest embedded part A and one representative z_i in each other part, A-A contains no connection value, while z_i-A consists entirely of connection values. A collision between z_i-A and z_j-A would give the edge difference z_i-z_j as a nonzero element of A-A by commutativity. The disjoint sets thus have total size |A-A|+(t-1)M>=tM. The cyclic host with an index-t subgroup of order M attains the bound. At equality, |A-A|=M and every translate A-a for a in A must equal H=A-A. Fixing a_0 gives A=a_0+H and H-h=H for all h in H, hence H is a subgroup. The disjoint translates and H exhaust the host, forcing S to equal their union outside H. Cross-part edges and within-part nonedges then force the parts into different cosets, and each part of size M fills its coset. For M=1 the proof gives H={0} and the clique host; multiple largest parts do not change the argument.
 
-## Limitations and comparison
-The exact formula does not address arbitrary graphs or isometric embeddings. The one-family \(K_{1,1,n}\) theorem and the previously established bipartite case are antecedents; only their comprehensive extension and the optimal-host characterization are assessed as new. Absolute priority remains uncertain because differently phrased or uncatalogued covering statements may exist. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bipartite and balanced size formulas, arbitrary-part upper bound and indexed K_{1,1,n} exact subfamily are covered. The lower bound on order alone is also a clique–coclique bound in a vertex-transitive host. The supported distinct content is the forced connection set and coset occupancy in every optimal abelian host, uniformly for arbitrary part sizes, together with the resulting sharp construction. The inspected comparisons do not supply that rigidity; the proof upgrades a packing-size argument by putting all differences of a largest part into its distinguished packing cell.
+
+## value
+
+PASS
+
+The equality case is a structural answer for a natural family in the exact minimization problem: it classifies the host graph and its embedding geometry for all optimal abelian group types, including unbalanced tuples. This is stronger than supplying an optimal cyclic example or reproducing the known order for a special family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

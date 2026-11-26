@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:14:41.729887Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonality gives r_k=z−ae_k, g_k=−λe_k and α_k^R=(1+q/e_k²)/λ. The warm step gives −q/e₀; every delayed step multiplies a nonzero e_k by −q/e_{k−1}², so every denominator is nonzero and signs alternate. For the normalized log amplitude u_k this is u₁=−u₀, u_{k+1}=u_k−2u_{k−1}; the displayed oscillatory solution has the correct initial data. The characteristic-root angle is irrational modulo π because 2cosθ=1/√2 is not an algebraic integer (its rational norm is −1/2). Both signs of the nonzero wave are attained bounded away from zero on recurrent open arcs; its amplitude grows as (√2)^k, proving both subsequential limits and the corresponding residual-norm claim. At balance the absolute error stays √q and signs alternate. The nontrivial first residual difference lies in span(a), so RD takes the exact scalar normal-equation step. At consistency the warm step alone suffices if terminated there; this does not assert that the literal quotient is subsequently defined. Read VERIFICATION.md and verify.py as text; the analytic argument proves the infinite claim, not the recorded finite rational tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The consistent canonical example assumes two distinct positive singular values; its extra zero row has zero residual. Its component factors in Eq. (22) are rational in σ₁², σ₂² and ε_{k−1}; Eqs. (25)–(27) give the exact ε dynamics and Lemmas 3.2–3.4 give the irrational angle and recurrent phases."
+        ],
+        "reasoning": "Xu's total-residual decay uses the low-mode factor strictly below one and does not extend to inconsistency. However, setting σ₂²=0 in the exact component identities is nonsingular for every finite ε>0, makes that factor exactly one, and leaves the same ratio theorem in force. This is decisive broader formula-level coverage.",
+        "searches": [
+          "Xu arXiv:2611.02743v1 §3.2, Eqs. (14), (18)–(27), Lemmas 3.2–3.4, Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Xu arXiv:2611.02743v1",
+        "Local Resultary 80f835ec743a, 7761fe4ad60a, 1806d3485327, e4d106d38983, df4e091a200b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use orthonormal residual components f=−√λ e and h=||z||. For λ=σ₁² and δ=σ₂² the published low-mode factor is (λ−δ)ε/(λε+δ) and the high-mode factor is (δ−λ)/(λε+δ). At δ=0 they are 1 and −1/ε. For any fixed finite index, the same specialization follows by taking δ↓0 in consistent two-mode examples with fixed initial nonzero residual components: the denominators stay nonzero at the endpoint by induction, and the published ratio evolution does not depend on δ. No exchange of the δ limit and infinite iteration is needed.",
+          "The same factors using the current residual for the warm step give ε₁=1/ε₀. At ε₀=1, the high factor is always −1. Else Eq. (27) plus the prior dense-angle lemma (applied also to the cosine's negative) supplies liminf ε=0 and limsup ε=∞. With h fixed these are exactly the claimed absolute-error limits. For RD the step quotient on span(a) is identically 1/λ, and e₁−e₀=−(q+e₀²)/e₀≠0."
+        ],
+        "reasoning": "The key zero-mode observation is identifying a constant denominator component of a known ratio, not a new dynamical result. Together with immediate rank-one RD termination, it implies the full frozen dichotomy including its discontinuity under arbitrarily small nonzero inconsistency.",
+        "searches": [
+          "Direct specialization of Xu Eq. (22) followed by Eqs. (25)–(27) and Lemmas 3.2–3.4; check of RD Eq. (14) against the warm step"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier BB1 record treats the same pure-DR two-positive-eigenvalue log recurrence; the earlier inconsistent scalar record gives the undelayed unit-step all-start cycle e_{k+1}=−q/e_k.",
+          "Xu's ε is the squared ratio of the two residual components. At the inconsistent endpoint it is e_k²/q, and Xu's log ratio is exactly twice the frozen normalized log amplitude."
+        ],
+        "reasoning": "The undelayed method by itself supplies only the common warm map, not generic lagged excursions. The positive-mode ratio in Xu, unlike the total residual convergence theorem, identifies the exact same dimensionless dynamical system, with no dependence on the second eigenvalue.",
+        "searches": [
+          "Local Resultary semantic search: delayed residual, two-mode log ratio, inconsistent null residual, BB1 and RD",
+          "Resultary 80f835ec743a and 7761fe4ad60a",
+          "Xu arXiv:2611.02743v1 Eqs. (18)–(27)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1806d3485327 shares the warm start and DR/RD formulas and proves consistent two-mode two-update residual amplification. The two distinct indexed RD all-start doubly-exponential records e4d106d38983 and df4e091a200b both use two positive spectral levels, with the latter quantifying an amplitude gap."
+        ],
+        "reasoning": "These exact entries have different hypotheses or spectral observables and are not literal duplicates of this endpoint. The theorem is not a numerical-table claim, and lack of a literal exact indexed entry does not overcome the formula-level implication. Same-day dates supply no precedence.",
+        "searches": [
+          "Local Resultary exact DR/RD identity and same-day comparison, IDs 1806d3485327, e4d106d38983, df4e091a200b"
+        ]
+      },
+      "rationale": "The stated inconsistent example is correct and is not a special case of Xu's positive-mode convergence theorem. Nonetheless the entire delayed dynamical dichotomy is already mechanically implied by the prior component identities and exact, spectrum-independent ratio theorem, by a regular zero-mode specialization; RD termination is already a scalar consequence of the published RD formula. No distinct scientific remainder was established. This is a finding of mathematical implication, not a claim that Xu literally stated the inconsistent theorem or proved convergence there.",
+      "residual_risks": [
+        "A literal earlier statement of the inconsistent theorem was not found in the bounded comparison. The rejection rests on the demonstrated implication from checked formulas, not any hypothetical source or same-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The theorem's stated hypothesis excludes inconsistency; the exact component formulas and ratio law nevertheless give it at the regular zero-mode endpoint",
+          "evidence": "Eq. (22) gives both factors; Eq. (25) is ε_{k+1}=ε_k/ε_{k−1}² independently of the spectrum; the adjacent lemmas already give the density argument.",
+          "identifier_or_url": "https://arxiv.org/html/2611.02743v1",
+          "material_read": "§3.2 Eqs. (14), (18)–(27), Lemmas 3.2–3.4 and Theorem 3.5; original PDF pp. 4–7 and HTML at offsets 22700–26977",
+          "method": "Primary OA PDF and HTML passage reading",
+          "title": "Two-point residual step size gradient methods for linear systems",
+          "trigger": "Exact same step formulas, amplitudes and angle; potential zero-mode implication"
+        },
+        {
+          "assessment": "Matches log-periodic relative dynamics for matched BB1; different positive spectrum and absolute behavior",
+          "evidence": "Doubly-exponential gradient profile off balance and geometric contraction at balance for a two-positive-mode strictly convex quadratic.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+          "material_read": "RESULT.md offsets 0–4776",
+          "method": "Local Resultary mirror",
+          "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+          "trigger": "Closely matching delayed recurrence"
+        },
+        {
+          "assessment": "Same inconsistent setting and warm map, but undelayed algorithm",
+          "evidence": "With unit relaxation the undelayed map is e_{k+1}=−q/e_k and has a two-cycle from every nonoptimal scalar start.",
+          "identifier_or_url": "2026/11/8/SCOPE-relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a",
+          "material_read": "RESULT.md offsets 0–3834",
+          "method": "Local Resultary mirror",
+          "title": "Relaxation bifurcation and false two-cycles of residual surrogate-hyperplane projection",
+          "trigger": "Strongest indexed inconsistent scalar comparison"
+        },
+        {
+          "assessment": "Substantial same-rule or ratio overlap; no inconsistent endpoint stated",
+          "evidence": "Two-update amplification for consistent DR/RD, and two separate consistent RD double-log/doubly-exponential conclusions with two positive levels.",
+          "identifier_or_url": "2026/11/22 IDs 1806d3485327, e4d106d38983, df4e091a200b",
+          "material_read": "Respectively RESULT.md offsets 0–3991, 0–4113 and 6600–8470, and 0–4132 and 6650–8956",
+          "method": "Local Resultary mirror",
+          "title": "Same-day Resultary DR/RD comparisons",
+          "trigger": "Distinct indexed DR/RD formula and all-start rate matches"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The example is a useful caution about naively applying a consistent-system algorithm to inconsistent data. As a stand-alone new finding, however, the proposed scalar classification is a routine endpoint substitution in the existing exact ratio law, combined with a one-dimensional secant quotient; no distinct mathematical boundary beyond what those formulas already determine is established. The failure does not suggest the frozen formulas or the warning are false.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

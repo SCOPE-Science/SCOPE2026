@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:35:53.589704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 68–108: merging unspecified Dirichlet coordinates gives u,v_r,w_r; the same-color indicator product vanishes, so the cross moment is m(m−1)w_r. After division by positive factors the sign compares R with m/(m−1). In k=n−r, the factor (a)_k/(b)_k decreases strictly since a=(m−2)α<b=(m−1)α. At r=1, increasing n from 1 multiplies R by 1−α(α+1)/[(b+n)(b+n−1)]<1; at r=n the product starts with m/(m−1) and has further factors greater than one. At α=1 the two marginal ratios give the exact sign of m(r−1)−2(n−1). Independent replay: start with probability 1 on the all-zero count vector, and at step t add color i with weight (α+N_i)/(mα+t); sum the three moments over the final state probabilities. Exact rational replay agrees with the formula and signs in all 420 cases m=3,4,5; n=2,…,8; α=1/2,1,3/2,2; 1≤r≤n, including the exact zero at (3,4,3,1). The reviewed frozen checker is finite, and its numeric checks do not prove asymptotic convergence. Lines 110–133: gamma ratios give R→B/(1−x)^α for r/n→x<1, so test points strictly bracketing the continuous crossing bound the discrete first nonnegative index. Log-convexity puts B in (0,1); Stirling gives (6). For fixed n the iid limit of R never equals m/(m−1): the equality would give (m/(m−1))^(n−1)=((m−1)/(m−2))^(n−r), impossible by taking the valuation of a prime dividing m−1. Thus the discrete index stabilizes as α→∞ at fixed n. Solving the iid logarithmic inequality yields (7). The m=3 fractions already disprove commutation; in fact the fixed-α-first limit is smaller for every m≥3. To verify the strict comparison, put x=1/(m−1), S=atanh(x), T=−log(1−x²)/2. The negative logarithm of the ratio subtracted from 1 in (6) is 2(S−T/x), while that for (7) is 2 atanh(T/S). Put U=S/x and W=T/x². The coefficient of x^(2j) in W(U+1)−U² is (1−B_j)/(2j+2), where B_j=∑_{i=0}^j 1/[(2i+1)(2i+2)]+H_(2j+2)/(2j+3) and H_k is the harmonic number. This follows by multiplying the logarithmic series and splitting the two reciprocal factors. B_0=1 and B_(j+1)−B_j=(3−2H_k)/[(k+1)(k+3)]≤0 for k=2j+2, so T/S≥S−T/x; strict atanh(T/S)>T/S gives the comparison. Neither limit covers a general joint α,n scaling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huillet–Martínez give the joint occupancy law including A(0) and the symmetric-Dirichlet sample law.",
+          "70169af507aa allows arbitrary positive concentrations for the labeled events, but excludes aggregate counts in its scope."
+        ],
+        "reasoning": "A broader sampling law generates the raw covariance, and broader concentration assumptions do not compensate for a different statistic and crossing parameter. Neither inspected result supplies the aggregate structural and limiting conclusions.",
+        "searches": [
+          "Huillet–Martínez arXiv:1307.3000 §§2.5, 3",
+          "Resultary 70169af507aa Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected only)",
+        "arXiv:1307.3000",
+        "Resultary 93dddb2be813, 70169af507aa, 08d9ba9adb10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Dirichlet law and joint occupancy frequencies algebraically give aggregate raw moments. The prior iid threshold matches (7). Neither the two-event sample-size crossing nor the iid result proves a sign switch in frequency at finite concentration."
+        ],
+        "reasoning": "Going from the law to the claimed classification uses the ratio's monotonicity and endpoint inequalities, and the gamma-ratio and Stirling limits are additional analysis at fixed concentration. The reviewed difference of limit orders is not a moment identity in a renamed variable.",
+        "searches": [
+          "arXiv:1307.3000 eq. 21, Proposition 5 and eqs. 36–39",
+          "Resultary 93dddb2be813 threshold",
+          "Resultary 70169af507aa proof and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Replacing occupied richness K by m−K reverses the covariance sign in 93dddb2be813 and matches the iid fractional threshold.",
+          "70169af507aa crosses in n for labeled events at fixed r; 08d9ba9adb10 crosses in α for singleton versus doubleton counts."
+        ],
+        "reasoning": "The richness/empty alias is exact only within the same sampling law. The labeled covariance w_r−u v_r and the aggregate covariance compare w_r/(u v_r) to different constants, 1 and m/(m−1), respectively; neither exchanging n and r nor naming the same urn recovers the present claim.",
+        "searches": [
+          "Resultary 93dddb2be813",
+          "Resultary 70169af507aa",
+          "Resultary 08d9ba9adb10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The iid record gives no zero covariance; the reinforced labeled record has a unit-concentration crossing in sample size, not the aggregate zero locus. Huillet–Martínez index occupancy profiles themselves, not their aggregate covariance zeros."
+        ],
+        "reasoning": "The meaningful exact lookup is for a closed zero criterion under equivalent occupancy notation. A finite table of profiles or zero examples cannot establish the infinite integer locus, much less the two limit orders. No exact matching zero-locus statement was found in the compared records.",
+        "searches": [
+          "Resultary 93dddb2be813 and 70169af507aa (exact crossing statements)",
+          "Huillet–Martínez arXiv:1307.3000 §2.5"
+        ]
+      },
+      "rationale": "The covered pieces are the raw Dirichlet-multinomial occupancy law and moments and the iid counterpart, including the iid limiting fraction. The closest indexed reinforced result varies sample size at fixed exact frequency for two labeled indicators, not frequency at fixed sample size for the aggregate counts. The supported distinct contribution is the finite-concentration aggregate sign/equality classification and the critical-fraction and limit-order comparison, not the distribution or a raw moment formula alone.",
+      "residual_risks": [
+        "Earlier conditioned negative-binomial urn work might contain an equivalent finite-concentration sign condition. The primary text inspection was targeted, not an exhaustive historical priority search.",
+        "The labeled-event reinforced crossing is closely related at the level of joint probabilities, but the compared statement does not identify the aggregate crossing or the two limit orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies empty-count joint law as well as positive-frequency moments, but no aggregate crossing or limit-order classification in the inspected passages",
+          "evidence": [
+            "A(0) is explicitly the number of empty boxes and appears in the joint occupancy law; the symmetric-Dirichlet integrated law is Dirichlet–multinomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.3000",
+          "material_read": "PDF §2.5 pp. 14–16, eq. 21 and Proposition 5 (offsets 54200–61161); §3 pp. 19–22, eqs. 36–39 (offsets 71500–82877)",
+          "method": "Lawfully accessible primary PDF, targeted passages",
+          "title": "Occupancy distributions arising in sampling from Gibbs-Poisson abundance models",
+          "trigger": "Joint occupancy-frequency moments under the same law"
+        },
+        {
+          "assessment": "Covers (7) after taking the empty/richness complement; not finite concentration",
+          "evidence": [
+            "Independent-uniform richness versus exact frequency has a strict one-switch law with no exact zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Finding, independent-uniform sign law and threshold fraction",
+          "method": "Local indexed Resultary record",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Exact dual of the iid version"
+        },
+        {
+          "assessment": "Materially related but different covariance and varying parameter",
+          "evidence": [
+            "The two-event covariance is crossed in sample size at fixed r, including an exact unit-concentration crossing; aggregate counts are expressly outside scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa",
+          "material_read": "Finding, scope and limitations for the two labeled events",
+          "method": "Local indexed Resultary record",
+          "title": "A universal one-crossing law for missing and rare categories",
+          "trigger": "Same reinforced occupancy family and a one-crossing claim"
+        },
+        {
+          "assessment": "Different statistics and varying parameter; same date does not decide priority",
+          "evidence": [
+            "The covariance is between frequencies one and two, and the varying parameter is the concentration."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-unique-concentration-driven-singleton-doubleton-covariance-rev--08d9ba9adb10",
+          "material_read": "Finding on the changing concentration and the singleton–doubleton pair",
+          "method": "Local indexed Resultary record",
+          "title": "A unique concentration-driven singleton–doubleton covariance reversal",
+          "trigger": "Same dated catalogue entry and urn family with a covariance sign reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof classifies a natural dependence measure across all frequencies, including exact cancellation at a natural parameter value where the iid analogue has none. The critical fraction and the strict limit-order difference show when an apparently natural iid approximation changes a qualitative dependence boundary, independently of the raw covariance computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

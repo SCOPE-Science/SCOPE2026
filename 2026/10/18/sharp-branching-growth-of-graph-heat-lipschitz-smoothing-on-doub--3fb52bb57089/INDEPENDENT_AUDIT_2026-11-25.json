@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:51:53.416487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent full-vertex Laplacian Taylor-action check at (m,t) in {2,3,5} × {0,0.3,1.2}, comparing the bridge mass, signs and pendant upper bound"
+      ],
+      "rationale": "With counting measure, symmetry and sup-norm duality give the edge norm as the l1 mass of H(t)(delta_u-delta_v). The antisymmetric hub/leaf generator has entries (-(m+2),m;1,-1); it preserves left-half nonnegativity. The left-half mass has initial value 1 and derivative -2, yielding the two positive bridge coefficients and sign-input extremizer (at t=0 the zero leaf components pose no issue). The pendant mass splits into leaf differences of rate 1, the symmetric hub/leaf contrast of rate m+1, and two antisymmetric modes. Checking their leaf coefficients using a'=h-a gives the two stated remainder amplitudes, at most 2/m and 3, respectively. With lambda_- of order 1/m and lambda_+ of order m, the weighted pendant supremum is uniformly bounded. For the bridge, after writing y=lambda_- t, the fast weighted exponential is uniformly negligible relative to the slow prefactor, by max_y sqrt(y)exp(-r y)=1/sqrt(2er). The slow profile sqrt(y)exp(-y) has a unique maximum at y=1/2 and vanishes at both ends, so every maximizing time has lambda_- t→1/2. Since m lambda_-→2 and c_-→1, the rescaled optimum tends to e^(-1/2) and t/m→1/4. Finite positive maximizing times exist by continuity and the endpoint decay of edge masses; the pendant bound yields strict bridge superiority at all sufficiently large optimizing m.",
+      "residual_risks": [
+        "The nine bounded checks are only corroboration. No first integer threshold for bridge dominance or finite-m uniqueness of the maximizing time is established or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauer et al. and Horn treat positive solutions under curvature conditions; Münch–Wojciechowski's semigroup formulation controls Lip(H_t f) in terms of Lip(f). De Ponti–Stefani Eq. (3.1) defines the actual optimal bounded-input smoothing profile but the inspected definition/theory does not specialize to the claimed exact bistar profile."
+        ],
+        "reasoning": "A definition of the optimized quantity or an inequality in another topology does not determine the exact L-infinity operator value.",
+        "searches": [
+          "Resultary: optimal L infinity to Lipschitz smoothing function sharp graph heat norm over time",
+          "Bauer et al. arXiv:1306.2561 Thm. 4.3; Horn author PDF Thm. 5; Münch–Wojciechowski arXiv:1712.00875 Thm. 3.8; De Ponti–Stefani arXiv:2403.00620 Def. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work section",
+        "Resultary 630448cd1a9f, 75ca1a290ab2, 90f889565d65, 86f601cc5033",
+        "The four primary literature sources in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact same-graph Lip-to-Lip peak tends to 3 at time of order log(m)/m (630448cd1a9f); the present weighted peak grows as sqrt(m) at time of order m. The small antisymmetric eigenvalue alone gives the slow decay rate, but not its signed mass coefficient or strict comparison with the pendant optimum."
+        ],
+        "reasoning": "None of these statements mechanically yields the bridge extremizer, edge competition, or sharp optimized bounded-input value.",
+        "searches": [
+          "Mirrored RESULT.md 630448cd1a9f, 75ca1a290ab2 and 90f889565d65",
+          "De Ponti–Stefani §3, Münch–Wojciechowski Thm. 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct sup-norm duality identifies the signed heat-row difference's l1 norm (twice the probability TV distance) with the bounded-input edge norm. Resultary 86f601cc5033 bounds a TV-to-TV heat norm on complete bipartite graphs, not this TV distance between two starting vertices; 630448cd1a9f and 75ca1a290ab2 optimize Lipschitz-input differences on the same family."
+        ],
+        "reasoning": "TV mass, TV-to-TV seminorms, and Lip-to-Lip tests are not interchangeable; even on the same symmetric bistar the last input class has a different sharp scale and timescale.",
+        "searches": [
+          "Resultary: symmetric double star graph combinatorial Laplacian heat semigroup signed bridge heat mass total variation",
+          "Resultary: graph heat semigroup exact total variation distance between heat kernel rows adjacent vertices double star",
+          "Web: \"double star\" graph heat semigroup Lipschitz norm bounded input edge gradient total variation heat kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspections: 630448cd1a9f and 75ca1a290ab2 (same graph, different input norm); 90f889565d65 (same output and input norms, complete bipartite graph family, includes unnormalized case). No same invariant exact table encountered."
+        ],
+        "reasoning": "A complete bipartite graph has diameter at most two, so the same-day complete bipartite result does not subsume this diameter-three family; the shared date does not establish priority.",
+        "searches": [
+          "Resultary: balanced double star graph exact heat semigroup Lipschitz norm bridge edge all time two exponentials",
+          "Resultary: double star tree graph heat kernel edge gradient exact norm two-rate coefficients pendant edges"
+        ]
+      },
+      "rationale": "Best of current evidence: the sharp degree growth, limiting time and exact bridge coefficient are distinct from known Lipschitz-input amplification for the same family and bounded-input smoothing for a different family. Neither general gradient estimates nor a spectral gap identify the competing edge norms.",
+      "residual_risks": [
+        "Bounded searches cannot rule out same-family total-variation or lumped-chain calculations indexed under different terminology. No claim of certified historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different input norm",
+          "evidence": [
+            "Central-edge Lip-to-Lip formula, with first record's peak tending to 3 at time asymptotic to 2 log(d)/d; not the signed heat-row l1 norm."
+          ],
+          "identifier_or_url": "Resultary 630448cd1a9f and 75ca1a290ab2",
+          "material_read": "First RESULT.md Finding, offsets 389 and 1238; second RESULT.md Finding, offset 423",
+          "method": "Local catalogue search and mirrored full-record passage inspection",
+          "title": "Sharp transient Lipschitz amplification on balanced double stars; Sharp heat-gradient amplification on balanced double stars",
+          "trigger": "Strongest same-object exact-norm hits"
+        },
+        {
+          "assessment": "Same objective in a different family",
+          "evidence": [
+            "Exact L-infinity-to-Lipschitz coefficient on K_{a,b} with a degree-normalization parameter."
+          ],
+          "identifier_or_url": "Resultary 90f889565d65",
+          "material_read": "RESULT.md Finding, offset 91",
+          "method": "Local mirrored record",
+          "title": "Degree normalization reverses sharp heat-gradient ordering on complete bipartite graphs",
+          "trigger": "Same-day exact bounded-input objective"
+        },
+        {
+          "assessment": "Provides framework, not this sharp calculation",
+          "evidence": [
+            "The optimal profile is sup of Lip(H_t f) over sup-norm-one inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00620",
+          "material_read": "Definition 3.1 and Eq. (3.1), p. 9, offset 30254",
+          "method": "Lawful public PDF passage inspection",
+          "title": "Properties of Lipschitz smoothing heat semigroups",
+          "trigger": "Broad optimal endpoint norm framework"
+        },
+        {
+          "assessment": "Lip-to-Lip contraction",
+          "evidence": [
+            "Gradient sup norm controlled by exp(-Kt) times initial gradient sup norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.00875",
+          "material_read": "Theorem 3.8, p. 19, offset 63848",
+          "method": "Lawful public PDF passage inspection",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Potential graph semigroup implication"
+        },
+        {
+          "assessment": "Positive-solution estimates, not exact signed-input endpoint coefficients",
+          "evidence": [
+            "First uses CDE(n,0); second controls Gamma(sqrt(u))/u with 1/t and curvature/log terms under CDE(infinity,-K)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.2561 ; https://cs.du.edu/~paulhorn/pap/hg.pdf",
+          "material_read": "First Theorem 4.3, p. 9, offset 26993; second Theorem 5, p. 7, offset 22000",
+          "method": "Lawful public primary PDF passages",
+          "title": "Li-Yau inequality on graphs; A Spacial Gradient Estimate for Solutions to the Heat Equation on Graphs",
+          "trigger": "Curvature-dependent graph gradient estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of bridge and pendant bounds",
+        "Same-family Lip-to-Lip comparator 630448cd1a9f"
+      ],
+      "rationale": "The family gives a quantitative sharp obstruction to degree-independent t^(-1/2) smoothing even among diameter-three unit-edge trees with the counting-measure Laplacian. The exact bridge law and the proof that the bridge alone controls the large-m optimum distinguish slow bottleneck dynamics from faster local leaf dynamics, information not supplied by a generic spectral-gap estimate.",
+      "residual_risks": [
+        "The argument concerns symmetric bistars and this normalization only; it does not assert a classification of all trees or a degree-normalized analogue."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

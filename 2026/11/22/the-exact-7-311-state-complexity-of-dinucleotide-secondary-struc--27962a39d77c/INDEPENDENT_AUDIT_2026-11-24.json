@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:38:50.557587Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a prefix of length r, a newly appended factor occupies r,r+1; precisely the earlier factors ending at most at r-1 are disjoint from it. This gives the frozen recognizer invariant and induction from the empty state, including adjacency, the absent most-recent factor in a one-letter word, and absorption under every continuation after rejection. An independent set-based traversal in /workspace/branches/check_language.py exhausts that state presentation and finds 22,986 reachable states including the sink. It uses full Boolean suffix-evaluation vectors, not the submitted minimizer, to obtain exactly 2,17,2715,6807,7295,7311,7311. Suffix equivalence refines monotonically, and equality at depths five and six is a fixed point of right-congruence refinement, so the resulting classes distinguish all unequal right languages, all attained by prefixes. The strict increase from four to five also witnesses the necessity of length five for some pair. All but the single sink class accept the empty continuation; 4096<7311<=8192 proves the 13-bit state-encoding statement. The same replay checks the literal relation on 349,525 words through length nine, a semantics check rather than the all-length argument. It also tests a second, immediate-update presentation (9,458 reachable states) with the same suffix counts: two distinct overlapping factors cannot be mates because their shared letter would have to be fixed by the involution. Thus 22,986 correctly refers to the particular frozen pre-minimization recognizer, not an invariant of all presentations. The audit concerns only this abstract finite-language claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu et al. compute capacity using selected generating sets and overlap adjacency, with symmetry reducing the study of those sets.",
+          "Zhang–Wu define a minimum-loop-distance variant, with formal Definition 2 imposing m>2.",
+          "5d8935eaf221 indexed summary counts words avoiding a single prescribed one-letter separation pattern of two mates, rather than all their disjoint placements."
+        ],
+        "reasoning": "An asymptotic rate does not encode every distinct right language. A prescribed separation rules out fewer configurations than all disjoint placements, and a length restriction or loop condition alters the language. Neither gives the claimed state count.",
+        "searches": [
+          "arXiv:2304.11403, §§IV–V",
+          "doi:10.1016/j.csbj.2023.11.035; PMC10749251 §§1–2",
+          "Resultary:5d8935eaf221"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13714",
+        "arXiv:2304.11403",
+        "PMC10749251",
+        "Resultary:5d8935eaf221",
+        "Resultary:27962a39d77c (identical frozen record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The restricted overlap graph requires every contiguous length-two factor to lie in its selected set. A two-letter word is always valid under the exact disjoint-factor rule, even when its factor is not in that selected set, so this is a proper subset.",
+          "The one-letter-separation catalogue constraint does not detect adjacent disjoint pairs (e.g. two consecutive copies of a self-mate factor), which the frozen language rejects.",
+          "Ordinary DFA minimization gives an inference from a stable computed partition, not a numerical partition without constructing and exhausting the reachable graph."
+        ],
+        "reasoning": "The prior semantic definition and Myhill–Nerode theory yield an approach but not the count or suffix depth; the finite exhaustion is an essential evaluated step, and the actual partial graphs and fixed-gap enumerator have different acceptance predicates.",
+        "searches": [
+          "arXiv:2304.11403, §V, definition of C_n(S) and example",
+          "arXiv:2302.13714, p. 2",
+          "Resultary:5d8935eaf221"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nguyen et al. define nonoverlapping reverse-complement avoidance for lengths at least m; at m=2 any longer disjoint paired factors contain aligned disjoint length-two mates, so the restrictions agree.",
+          "Chu, Wang and Zhang allow adjacent nonoverlapping factors and explicitly list four self-mate factors and six two-element reverse-complement orbits.",
+          "Reversing temporal order does not alter the relation since the reversal-involution squares to the identity. Relabeling the two swapped letter pairs preserves the language up to isomorphism, not the count of indexed generating sets as a count of residual languages."
+        ],
+        "reasoning": "Those are equivalent definitions and structural symmetries of the known language. They do not already evaluate the number of distinct continuation predicates.",
+        "searches": [
+          "arXiv:2302.13714, p. 2",
+          "arXiv:2304.11403, §II and §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact 7311 and five-symbol hit is 27962a39d77c, the assigned record, not a distinct match.",
+          "Chu et al. give a six-vertex adjacency table for a single selected six-factor set. Their reported 64 generating sets and 8 symmetry classes are parameters of a different enumeration."
+        ],
+        "reasoning": "The six vertices merely track factors permitted in one restricted sublanguage; they are not residual-language classes of the full language. No distinct matching exact table was identified in the inspected results; the restricted search does not prove absence.",
+        "searches": [
+          "Resultary complete DFA state count 7311 and suffix refinement for two-letter reversed-involution avoidance",
+          "arXiv:2304.11403, §V, PDF p. 4"
+        ]
+      },
+      "rationale": "The language, its complement orbits, capacity questions and general DFA tools are known. The distinct supported claim is exact Myhill–Nerode complexity and stabilization depth for the entire language. Inspected primary passages give no matching minimization or result that supplies those numbers by substitution, and the exact-count catalogue hit is the assigned record itself. This is a bounded comparison.",
+      "residual_risks": [
+        "A separate exact count under an older or unindexed forbidden-factor language description could exist.",
+        "The full text of the same-date fixed-gap catalogue record was not retrieved; assessment is limited to its indexed claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent threshold-two language, not a minimization claim in passage read",
+          "evidence": [
+            "Forbidden nonoverlapping reverse-complement pairs of length k>=m; at m=2 longer pairs contain the length-two obstruction."
+          ],
+          "identifier_or_url": "arXiv:2302.13714",
+          "material_read": "PDF p. 2, definitions of nonoverlap and m-SSA",
+          "method": "Open PDF text extraction",
+          "title": "On the Design of Codes for DNA Computing: Secondary Structure Avoidance Codes",
+          "trigger": "Potentially identical language threshold"
+        },
+        {
+          "assessment": "Same avoidance predicate; graph for C_n(S) is not the full recognizer",
+          "evidence": [
+            "Four fixed factors and six orbits of size two; 64 generating-set choices, 8 symmetry classes; six-vertex digraph for one set."
+          ],
+          "identifier_or_url": "arXiv:2304.11403",
+          "material_read": "PDF pp. 1–4, abstract, §§II, IV and V",
+          "method": "Open PDF text extraction",
+          "title": "Improved constructions of secondary structure avoidance codes for DNA sequences",
+          "trigger": "Small published graph and symmetry table for the same factor order"
+        },
+        {
+          "assessment": "Different additional loop assumptions and formal length regime",
+          "evidence": [
+            "Minimum-loop-distance variant; formal Definition 2 uses m>2."
+          ],
+          "identifier_or_url": "PMC10749251; doi:10.1016/j.csbj.2023.11.035",
+          "material_read": "§§1–2, paragraphs pr0060, pr0120–pr0130, definitions pr0150 and pr0170",
+          "method": "Open PMC article passages",
+          "title": "On secondary structure avoidance of codes for DNA storage",
+          "trigger": "Possible disjoint-factor or loop-length equivalence"
+        },
+        {
+          "assessment": "Comparison applies to indexed one-base-loop statement, not entire unseen document",
+          "evidence": [
+            "The enumerator requires exactly one intervening symbol in the local obstruction; adjacent and broadly separated disjoint occurrences are not covered by that template."
+          ],
+          "identifier_or_url": "Resultary:5d8935eaf221",
+          "material_read": "Indexed statement; full mirror passage unavailable",
+          "method": "Local Resultary search; comparison of forbidden configurations",
+          "title": "A uniform rational enumerator for one-base-loop complementary stems",
+          "trigger": "Same-day catalogue match for a reflected length-two obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first threshold beyond single-letter pairs in a known four-symbol nonoverlap constraint. The full residual-language invariant determines the exact cost of deterministic online recognition rather than the growth rate of a convenient subfamily. The useful finite cutoffs are a 13-bit state-encoding requirement and an exact five-letter bound on separating distinct states, supporting future state-level analyses of the formal language. This is not a claim about molecular structure, sequence engineering, or any physical assay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:44.512554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–105",
+        "Frozen verification package",
+        "repairs/5/RESULT.md",
+        "repairs/5/verify.py (ASYMMETRIC_FLOQUET_CHECK_OK)"
+      ],
+      "rationale": "The frozen result is mathematically correct, including the boundaries: on a primitive two-cycle the other coordinates are forced by its two successive y-values, and normalized scalar equations give U²+UV+V²=B−1 and, off the symmetric branch, U²−UV+V²=B+1. This excludes B≤1, gives the symmetric pair for B>1, and gives two asymmetric pairs only for B>2; at B=2 the candidate asymmetry collapses. The symmetric polynomial follows from the trace, principal minors and determinant of the full return, or squaring the conjugate-one-step spectrum. For d=B−1 strict cubic Schur conditions give 4d²<1 and the sign of −(4d²−2d+1)(4d²+2d−1), with the other two conditions positive on 0<d<1/2. At the cutoff the stated real factor and nonreal unit pair follow; no nonlinear endpoint attraction was established. In the repaired claim the affine normalization G(X,U,Z)=(U²,UZ,X−B) gives the return derivative directly; UV=−1 and U²+V²=B reduce its trace, principal-minor sum and determinant to 1, 2(B²−2), 4. The resulting P_B is strictly increasing for real λ and changes sign between 0 and 1. Its nonreal pair has modulus 2/√ρ>2 by the product of roots. The invertible return therefore has the stated local stable and unstable dimensions. Independently computed exact states and characteristic polynomials at B=3 corroborate this result. The new companion verifier was executed successfully, including both signs at B=3 and a symbolic check under V=−1/U; the frozen script was not executed.",
+      "residual_risks": [
+        "The stable and unstable manifolds asserted are local to the return, not a description of global convergence. The finite exact check is supplementary to the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. give the map, fixed-point derivative calculations and numerical bifurcation/Lyapunov studies. The inspected article passages do not compute the asymmetric return spectrum.",
+          "Record de1f76d39e95 treats a generalized Hénon diffeomorphism with constant nonzero determinant; record 221732beba43 treats an axial quadratic family whose asymmetric return has a real expanding eigenvalue; record 9d694fa2e0cd treats a different map with constant nonzero determinant and triangular shift couplings."
+        ],
+        "reasoning": "Those families give nearby exact invariants but neither their defining maps and assumptions nor their asymmetric spectra dominate this calculation. The repaired map's normalized derivative determinant is 2U² and can vanish, unlike the stated diffeomorphism settings.",
+        "searches": [
+          "Wang et al., DOI 10.3390/sym15101879 §§2.1, 3.1",
+          "Resultary Floquet rigidity, exact saddle index and asymmetric axial quadratic maps"
+        ]
+      },
+      "checked_sources": [
+        "Resultary suffixes 37fa6309f5c1, de1f76d39e95, 221732beba43 and 9d694fa2e0cd",
+        "DOI:10.3390/sym15101879",
+        "ScienceDirect PII 0270025583900301"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior asymmetry calculation uses only UV=−1 to give the product of the three eigenvalues. In contrast, the repaired proof evaluates the mixed coefficient 2(B²−2) from the full return's principal minors and locates the roots uniformly. The earlier symmetric spectrum makes the frozen symmetric polynomial recoverable by squaring, but that does not transfer to off-symmetric cycles."
+        ],
+        "reasoning": "The asymmetric determinant does not identify any stable multiplier, exclude a real expansion or a repeller, or give hyperbolicity. Exact local invariant dimensions require the missing coefficient and root analysis. The shorter theorem establishes these, rather than restating nonsink or the earlier census.",
+        "searches": [
+          "37fa6309f5c1/RESULT.md, local-mirror offset 4150 through 8582 (especially §4)",
+          "Publisher PDF 10.3390/sym15101879, §§2.1 and 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older census uses t=−B and κ=abc, exactly the same map and orbit-creation boundaries. The repaired affine normalization does not change the derivative spectrum of the return.",
+          "The scalar odd cubic agrees with the two-cycle equations but has asymmetric return derivative 9−2B², predicting scalar attraction just above B=2, unlike the actual three-dimensional return."
+        ],
+        "reasoning": "The older count and symmetric cutoff are genuinely equivalent, not new after renaming. The scalar cycle reduction (also expressible using a delayed scalar recurrence for the original map) is not a one-dimensional conjugacy of the three-dimensional return. Thus even an exact scalar cycle spectrum would not be the repaired invariant.",
+        "searches": [
+          "Resultary: asymmetric primitive two cycles Wang Tong three dimensional parabolic chaotic map Floquet multiplier spectrum hyperbolic saddle one real stable complex expanding pair determinant four lambda^3-lambda^2+2(B^2-2)lambda-4",
+          "Resultary record 37fa6309f5c1 under t=b(1−c) and κ=abc",
+          "DOI 10.3390/sym15101879 Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-a-golden-ratio-sink-boundary-and-complete-primitive-two-cycle-ce--37fa6309f5c1 gives the same 0/1/3 real cycle table and the same symmetric sink boundary. It also gives the asymmetric determinant 4 and the consequent nonsink conclusion.",
+          "The decisive §4 stops at some multiplier of modulus at least 4^(1/3). Section 3 computes a conjugate-one-step cubic for the symmetric orbit only."
+        ],
+        "reasoning": "The earlier same-map overlap is exact on the principal scope of the frozen submission. It is not an exact table of the narrower asymmetric spectra. The repaired finding preserves only that remainder; the nearby table hits do not match its return.",
+        "searches": [
+          "Resultary: asymmetric primitive two cycles Wang Tong three dimensional parabolic chaotic map Floquet multiplier spectrum hyperbolic saddle one real stable complex expanding pair determinant four lambda^3-lambda^2+2(B^2-2)lambda-4",
+          "Resultary record 37fa6309f5c1, Finding and Proof §§2–4"
+        ]
+      },
+      "rationale": "PASS applies to the repaired claim only. The frozen headline census and symmetric cutoff directly duplicate an earlier catalogue result on the identical real map; those assertions, together with the already proven asymmetric nonsink conclusion, are excluded from the repaired claim of advance. The surviving asymmetric characteristic polynomial and the real/complex multiplicity and modulus information distinguish a definite hyperbolic saddle type from that earlier determinant obstruction. The near-equivalent and stronger claims checked below do not give that asymmetric classification.",
+      "residual_risks": [
+        "The relevant literature beyond the inspected original-map sections and catalogue records is not exhaustive. The generic cubic-map full text and the separate two-dimensional parabolic-map paper DOI 10.7498/aps.60.010504 were unavailable; neither is used as negative priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original census and cutoff, but not repaired asymmetric spectral classification",
+          "evidence": "Same cycle equations, same symmetric threshold and spectrum via the symmetry derivative, and determinant 4 for asymmetric cycles without their other characteristic coefficients or root classification.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-golden-ratio-sink-boundary-and-complete-primitive-two-cycle-ce--37fa6309f5c1",
+          "material_read": "Local-mirror RESULT.md Finding; proof of count and §§3–4 on Floquet spectrum and asymmetric determinant, offsets 0–3571 and excerpt 4150–8582",
+          "method": "Resultary search followed by bounded local-mirror excerpt inspection",
+          "title": "A golden-ratio sink boundary and complete primitive two-cycle census for a three-dimensional parabolic map",
+          "trigger": "Direct exact overlap on the same map and headline conclusions"
+        },
+        {
+          "assessment": "Exact map, fixed-point and numerical studies in inspected passages",
+          "evidence": "Fixed-state Jacobians are one-step results; the bifurcation diagrams are numerical. These passages do not give asymmetric two-step multipliers.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15101879",
+          "material_read": "Publisher PDF §2.1 Eq. (3) and Eqs. (4), (6)–(7), pp. 2–3; §3.1 pp. 7–8",
+          "method": "Bounded publisher PDF inspection, text offsets 10000–17048 and 57500–71127",
+          "title": "A Novel Four-Dimensional Memristive Hyperchaotic Map Based on a Three-Dimensional Parabolic Chaotic Map with a Discrete Memristor",
+          "trigger": "Primary article with exact base map"
+        },
+        {
+          "assessment": "Different polynomial diffeomorphism",
+          "evidence": "F=(a−y²−bz,x,y) has constant determinant −b and a single orbit with an index change, unlike the reflection-related orbits here.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-saddle-index-transition-of-the-unique-two-cycle-in-a-three--de1f76d39e95",
+          "material_read": "RESULT.md Finding and Assumptions at opening offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Exact saddle-index transition of the unique two-cycle in a three-dimensional Hénon map",
+          "trigger": "Nearest saddle-type catalogue hit"
+        },
+        {
+          "assessment": "Different family and unstable multipliers",
+          "evidence": "The given map has a positive linear damping parameter and a real expanding asymmetric multiplier; the present return has only a nonreal expanding pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-two-cycle-census-and-a-one-third-damping-crossover-in-a--221732beba43",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Complete two-cycle census and a one-third damping crossover in axial quadratic maps",
+          "trigger": "Similar census and paired asymmetric cycles"
+        },
+        {
+          "assessment": "Different polynomial couplings; no implication for the repaired map",
+          "evidence": "Its quadratic term enters the first coordinate and the other two coordinates are linear affine shifts; the map has constant nonzero determinant under its assumptions.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-parameter-floquet-rigidity-and-a-sharp-two-cycle-sink-window--9d694fa2e0cd",
+          "material_read": "RESULT.md Finding and beginning of assumptions at offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Two-parameter Floquet rigidity and a sharp two-cycle sink window in a three-dimensional quadratic map",
+          "trigger": "Broad-looking explicit cubic for full return spectrum"
+        },
+        {
+          "assessment": "Exact scalar scope unresolved; not used to decide three-dimensional spectrum",
+          "evidence": "A scalar derivative calculation would not be the full return derivative, regardless of overlap on the scalar periodic equations.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0270025583900301",
+          "material_read": "Title and bibliographic record only; full text returned 403",
+          "method": "Bounded primary literature lookup and lawful retrieval attempt",
+          "title": "Chaos in the cubic mapping",
+          "trigger": "Possible prior scalar two-cycle result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md",
+        "Resultary record suffix 37fa6309f5c1 §4",
+        "DOI:10.3390/sym15101879 §§2.1 and 3.1"
+      ],
+      "rationale": "The repaired claim gives the local phase-space type of both known asymmetric cycles throughout their entire existence region. An expanding multiplier guaranteed by a determinant does not distinguish a repeller from a saddle or real expansion from a two-dimensional oscillatory instability. The exact polynomial, uniform modulus gap and stable dimension give useful information for local invariant-manifold or bifurcation studies of the original map. This judgment does not add value credit for the already-known census, symmetric sink window or asymmetric nonsink obstruction.",
+      "residual_risks": [
+        "No classification of global invariant sets, higher periods, or nonlinear bifurcations is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

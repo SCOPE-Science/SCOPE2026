@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:06:05.345310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–117",
+        "Frozen VERIFICATION.md lines 19–23 and checker.py (inspected, not executed)",
+        "Gould–Grau–Johnson arXiv:2307.11596v1, Proposition 4.2",
+        "/workspace/review-evidence/bounded-checks.js"
+      ],
+      "rationale": "GGJ Proposition 4.2 supplies m=3+r₃+r₂ for semigroup endomorphisms and n≥5. In each e-fiber the image point of e is a distinguished t-fixed point, and et=te=e preserves the fibers; t³=t limits components to height-one stars and leaf-decorated two-cycles. A size-j two-cycle has ⌊j/2⌋ unordered leaf-split types. Multisets first within and then across fibers give G−G₀ after omitting pairs with t²=t, and rank-two orbits lie in G₀. Analytically, Σj exp(−jx)=(2 sinh(x/2))^(−2)≤x^(−2); summing the log Q expansion gives c/t² with c=ζ(3)/2. The multiset logarithm is at most 2t^(−2)exp(ζ(2)/t+c/t²). At t=√((c+ε)/log n) this is o(n/√log n), yielding the stated Cauchy upper constant. Line 78 writes an equality where only an upper bound has been proved; replacing it by ≤ gives the needed conclusion with no change in the theorem. Taking t=2ζ(2)/log n instead for G₀ yields the stated rank-two bound. For L=⌊6√log n⌋ the number M of available types lies between L²/3 and L(L+1). The binomial pigeonhole bound gives T≥n³ at one common size s, since 12 log 2>3 and the denominator is polylogarithmic. The tighter upper bound s≤1+L²(L+1) in particular implies s≤648(log n)^(3/2) eventually. Padding by one smaller fiber preserves injectivity for each large integer n. The multiset lower bound gives log r₃≥n/(648√log n), dominating log(1+r₂) and proving m/r₃→1. Independent truncated product multiplication reproduces m(5), m(10), m(20), m(40)=35, 2880, 10998182, 30328785627967; replay with node /workspace/review-evidence/bounded-checks.js. This is a finite series check, not an independent generator classification or asymptotic proof.",
+      "residual_risks": [
+        "No sharp leading constant or classification of all minimum generating sets is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GGJ asks for asymptotic growth of m(n). Krattenthaler–Müller treat labeled commuting idempotent solutions of equations in H wreath T_n."
+        ],
+        "reasoning": "The idempotent requirement excludes the two-cycle type that drives the rank-three asymptotic; labeled solutions are moreover not simultaneous relabeling orbits. Those asymptotics are not a dominating case.",
+        "searches": [
+          "arXiv:2307.11596v1 §8",
+          "arXiv:math/0303028, commuting idempotent equations and asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–39 and 119–136",
+        "Resultary record 05f93685b217",
+        "arXiv:2307.11596v1",
+        "arXiv:math/0303028"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact result provides the analytic input and plane-partition rank-two count but no bound of the claimed scale for the second multiset transform.",
+          "The frozen lower argument requires exponentially many distinguishable size-equal types and exact-size padding, rather than only a lower bound along some degrees."
+        ],
+        "reasoning": "Rank-two growth from plane partitions is not the main novelty; rank-three lower growth uniformly over n and the outer product upper bound are what permit both conclusions. No inspected source gives these conclusions as a direct parameter specialization.",
+        "searches": [
+          "Resultary record 05f93685b217, exact multiset and partition formulas",
+          "GGJ Proposition 4.2 and §8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier exact record uses F₀=A M(A) and F₁=A M(A+B); the older right-action orbits are simultaneous relabeling classes of permissible pairs."
+        ],
+        "reasoning": "Using M(A)=P and M(B)=Q identifies both series exactly with the frozen ones. Identity-preserving endomorphisms and generators of the underlying transformation monoid itself are different invariants.",
+        "searches": [
+          "Resultary: plane partitions and exact generator ranks for endomorphism monoids of full transformation semigroups",
+          "arXiv:2307.11596v1, Proposition 4.2 and §8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact m=3+r₃+r₂ and r₂=pp(n)−p(n), with r₃=[zⁿ](M(APQ)−M(AP))."
+        ],
+        "reasoning": "This is full exact finite coverage, not just matching samples. The frozen record excludes exact enumeration and table reproduction from its claimed contribution.",
+        "searches": [
+          "Resultary 2026/10/25: SCOPE-plane-partitions-and-exact-generator-ranks-for-endomorphism-mono--05f93685b217, RESULT.md offsets 0–2999 and 5000–7829"
+        ]
+      },
+      "rationale": "The prior Resultary enumeration covers the exact Euler products and finite generator counts, and GGJ supplies the structural rank formula. Neither is passed as new. The supported distinct claim is the two-sided logarithmic growth scale (including the explicit bounds) and rank-three dominance. These follow here from uniform coefficient estimates and the large equal-size fiber construction, not from a reindexing or finite recomputation of the older formula.",
+      "residual_risks": [
+        "An unlocated theorem for asymptotics of a multiset transform with rapidly growing component multiplicities might subsume the scale. Exact prior series alone are not such a theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact enumeration covered; distinct asymptotic claim",
+          "evidence": "F₀=A M(A), F₁=A M(A+B), r₂=pp(n)−p(n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-plane-partitions-and-exact-generator-ranks-for-endomorphism-mono--05f93685b217/RESULT.md",
+          "material_read": "RESULT.md offsets 0–2999 and 5000–7829",
+          "method": "Local Resultary mirror",
+          "title": "Plane partitions and exact generator ranks for endomorphism monoids",
+          "trigger": "Same minimal generating-set invariant and rank-three decomposition"
+        },
+        {
+          "assessment": "Supplies rank formula and poses rather than answers growth question",
+          "evidence": "Three fixed generators plus the rank-three and essential rank-two orbit counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.11596v1",
+          "material_read": "Proposition 4.2 p. 16 offset 53150; §8 p. 34 offset 110900",
+          "method": "OA full-text passages",
+          "title": "The structure of End(T_n)",
+          "trigger": "The actual structural input and stated growth question"
+        },
+        {
+          "assessment": "Different object and labeling convention",
+          "evidence": "Both transformations are idempotent and counted as labeled solutions.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0303028",
+          "material_read": "pp. 3–4, offset 7900",
+          "method": "OA full-text passage",
+          "title": "Equations in finite semigroups: Explicit enumeration and asymptotics of solution numbers",
+          "trigger": "Closely related transformation-semigroup enumeration with asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gould–Grau–Johnson §8",
+        "Frozen RESULT.md lines 5–15 and 88–117"
+      ],
+      "rationale": "The result answers the order-of-growth part of an explicit question about a natural semigroup invariant. It separates that growth from both plane-partition scale and ordinary exponential scale and quantifies which generator orbits matter asymptotically; neither is visible from a finite list of exact values.",
+      "residual_risks": [
+        "Does not settle existence or the value of a sharp normalized constant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

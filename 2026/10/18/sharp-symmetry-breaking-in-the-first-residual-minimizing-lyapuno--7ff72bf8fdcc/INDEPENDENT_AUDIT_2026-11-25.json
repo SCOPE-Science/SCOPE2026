@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:39:15.872907Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-step residual is ww^T with w=(H-pI)(H+pI)^(-1)u, so its Frobenius norm is ||w||^2, not ||w||^4. Orthogonality and equal forcing masses give the sum of two squared Cayley factors, independent of eigenspace multiplicities. On writing x=c^2 in (0,1), z=(p-g)/(p+g) in (-1,1), the derivative with respect to z of the objective divided by sigma^2 is 4z(1-x)[1-3x+x(3-x)z^2]/(1-x z^2)^3. As a function of z^2 it increases from zero coordinate when x<=1/3 (the derivative vanishes at the endpoint only at equality); above this it first decreases and then increases, with its unique turning point at (3x-1)/(x(3-x)) strictly in (0,1) since x^2<1. This gives precisely the two shifts with product ab and a strict local maximum at g. The critical x is equivalent to kappa=(2+sqrt(3))^2. Substitution gives the stated minimum; differentiating 8x^2/(6x-x^2-1) gives a positive derivative for x>1/3, and the limit 2 at x=1 is unattained. The worst-factor minimax solution instead balances the opposite signed spectral factors for a<=p<=b; no shift outside that interval improves it. In the independent bounded check (`python3 /workspace/branches/independent_checks.py 4`, SymPy), differentiating the two Cayley terms symbolically reproduced the full derivative, the kappa=49 witness 527/576, and the critical quartic coefficient 16/27. The proof, not any finite shift grid, establishes the global classification. Scope: real first shift, zero starting approximation, SPD two-mode operator and balanced rank-one forcing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kürschner discusses generic nonconvexity and multiple minima but pursues local numerical minimizers. Schulze–Saak develops ADI-like methods and low-rank residual representations for arbitrary low-rank initial values; the inspected framework passages do not classify balanced spectra."
+        ],
+        "reasoning": "General methods and existence of nonconvex cases neither give the location of critical shifts nor imply that exactly two are global above the specific threshold.",
+        "searches": [
+          "arXiv:1811.05500 §3 pp. 5–6",
+          "arXiv:2406.13477",
+          "ETNA 43, 142–162, self-generating ADI shifts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.05500",
+        "arXiv:2406.13477",
+        "ETNA 43, 142–162 (limited access)",
+        "Resultary records 271f3088a05a and 262eff8ea0eb (summaries for discrimination)",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (7) is the worst spectral-factor criterion (forcing-independent); equations (9)–(11) pose residual minimization, without explicit global branch counts in the inspected treatment."
+        ],
+        "reasoning": "The former retains the geometric mean even where the latter has a strict local maximum there. Deriving and classifying the sign of the actual residual derivative across the parameter range, and proving the sharp loss, are the additional mathematical content.",
+        "searches": [
+          "arXiv:1811.05500 eq. (7) and eqs. (9)–(11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kürschner's equations (4)–(5), (9)–(11), with A=-H, B=u and alpha=-p, minimize the norm of the first residual factor; for rank one, squaring it gives the actual residual Frobenius norm."
+        ],
+        "reasoning": "The equivalent two-point least-squares objective is already known as a special instance. The solved parameter-dependent minimizer branches and loss are not equivalent merely to posing that minimization.",
+        "searches": [
+          "arXiv:1811.05500 §§2–3",
+          "Resultary: first real Lyapunov ADI residual shift, balanced two-mode Cayley bifurcation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest credible indexed results: SCOPE-20261025-271f3088a05a, linear-width positive factors for relaxed GADI iterates, and SCOPE-20261025-262eff8ea0eb, rate-optimal shift for VBP stationary iteration."
+        ],
+        "reasoning": "The first treats ranks of factors and the second a different iteration and rate objective. The claim is a continuum optimization law; matching a finite numerical pole or a similarly named shift optimization would not cover it. No exact indexed table or formula for these branches surfaced in the checked corpus.",
+        "searches": [
+          "Resultary: balanced two-point Lyapunov ADI residual minimization and sharp shift threshold"
+        ]
+      },
+      "rationale": "The residual factor and general data-dependent objective, including the possibility of multiple local minima, are established. The distinct claim supported here is the explicit balanced two-mode global bifurcation, reciprocal minimizers and sharp first-step loss; the strongest examined formulation poses the objective but does not solve that special case. No claim of bibliographic priority beyond these comparisons.",
+      "residual_risks": [
+        "Earlier or unindexed exact analysis of the balanced two-mode rational problem could overlap.",
+        "The earlier ETNA paper was not independently read at all relevant passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact objective specializes; threshold and sharp comparison not found in the inspected treatment",
+          "evidence": "Rank-one residual norm factorization and Cayley iteration; general local numerical approach to a nonconvex minimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.05500",
+          "material_read": "Sections 2–3, equations (4)–(5), (7), (9)–(11); section 3 PDF pp. 5–6",
+          "method": "OA primary full-text passages",
+          "title": "Residual minimizing shift parameters for the low-rank ADI iteration",
+          "trigger": "Closest exact objective and possible global solutions"
+        },
+        {
+          "assessment": "Framework overlap, no solved two-mode classification in inspected passages",
+          "evidence": "Low-rank residual representations and treatment of arbitrary low-rank initial values.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.13477",
+          "material_read": "PDF pp. 1–2 and 6",
+          "method": "OA primary full-text passages",
+          "title": "A unifying framework for ADI-like methods for linear matrix equations and beneficial consequences",
+          "trigger": "Motivating broader ADI framework"
+        },
+        {
+          "assessment": "Earlier general residual-minimization approach is credited; no whole-document judgment",
+          "evidence": "Kürschner attributes the residual-aware selection approach to this paper; direct retrieval was limited.",
+          "identifier_or_url": "https://etna.ricam.oeaw.ac.at/vol.43.2014-2015/pp142-162.dir/pp142-162.pdf",
+          "material_read": "Bibliographic entry and discussion in Kürschner pp. 5 and 17; direct relevant primary passage not recovered",
+          "method": "OA targeted retrieval attempt and identified citation",
+          "title": "Self-generating and efficient shift parameters in ADI methods for large Lyapunov and Sylvester equations",
+          "trigger": "Earliest cited residual-aware solver shift approach"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact case uses a standard physically realizable rank-one forcing model, rather than an arbitrary matrix entry. A practitioner choosing between spectral minimax and residual-aware shifts needs to know that the minimax shift can be a strict local maximum, with a nearly twofold penalty in the norm being optimized. The threshold, explicit replacement shifts and worst-case limit give a useful analytic benchmark, without implying anything about later iterations or unbalanced data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:34:43.467232Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; verify_symbolic.py and verify_numeric.py (inspected, not executed)",
+        "/workspace/review_checks.py: python3 review_checks.py 5; independently constructed bright matrix in marked-leaf sum/difference basis and checked quartic, rank minor, fold and EP3 identities"
+      ],
+      "rationale": "Neutral antisymmetric modes split off as a zero direct summand; in the bright block the independently computed quartic is (x²-k)(x²+gamma²-t²)-2x(x+t). A multiple nonreal root would make it a squared real quadratic, contradicting the absent cubic and nonzero linear coefficients. A multiple root at zero is excluded by P'(0)=-2t, and elimination at a positive root would force t<0. Negative repeated roots -u give the stated T_k,G_k. T_k' has just the two stated critical points, with 0<y_k<k and strict decrease between them, so the coupling interval is nonempty and contains exactly three crossings. Their gains are distinct since two negative double roots contradict the zero cubic coefficient; gamma>0, u²!=k and t!=4u³ give transverse double roots. To justify alternation, including the step not explicit in the frozen proof, P(sqrt(k))=-2k-2t sqrt(k)<0 and both tails are positive: there are always at least two real roots, so the phases must alternate 4,2,4,2 starting at the simple Hermitian spectrum. At gamma=t the simple bright zero can coincide only semisimply with dark modes (direct sum). At t=4y_k^(3/2) the quartic factors as (x+sqrt(y_k))³(x-3sqrt(y_k)); G_k(sqrt(y_k))>0, and the indicated rank-three minor is nonzero there and at every positive-gain collision. Each such multiple root therefore has one Jordan block of the claimed size.",
+      "residual_risks": [
+        "This is an exact spectral classification in the given open coupling interval and at a tuned EP3, not a diagram of every coupling. Real eigenvalues at a defective point do not ensure bounded time evolution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected oligomer results give open/closed trimers but not the extra collective mode. Resultary a67607eb9317 has ring EP3s at zero energy; f56ae485b18f uses a tunable terminal-loss chain, not a balanced closure."
+        ],
+        "reasoning": "The frozen bright block is equivalent to a four-mode triangle with one neutral link of strength sqrt(k), so a classification of that weighted motif could cover all sizes. None of the examined graph families yields its fold thresholds and nonzero EP3 under the required specialization.",
+        "searches": [
+          "Duanmu et al. arXiv:1210.3871v1, open trimer; Downing–Saroka DOI 10.1038/s42005-021-00757-3, trimer and long-range coupling",
+          "Local Resultary comparisons for ring and high-order EP models"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and cited mirrored findings",
+        "arXiv:1210.3871v1",
+        "DOI 10.1038/s42005-021-00757-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known trimer reentrance and the unlinked star's behavior do not determine the two turns of T_k(u) with t>0. The EP3 conditions add an equation to the quartic repeated-root conditions and require a rank check."
+        ],
+        "reasoning": "A quartic discriminant or generic EP3 framework alone is not a statement of a three-positive-gain interval, alternating root counts and a nonzero-energy defective triple at a tunable real closing link.",
+        "searches": [
+          "Downing–Saroka pp. 5–6; mirrored 1f6988f50fe3 and d33a4e73cab6 RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Downing–Saroka's closed trimer varies nearest-neighbor coupling at fixed gain and long-range link. Resultary 1f6988f50fe3 uses a neutral spoke on an unlinked gain/loss trimer. Record d33a4e73cab6 has the gain-scan reentrance on a four-site path."
+        ],
+        "reasoning": "Normalizing the trimer's variable nearest coupling to unity would vary both the normalized gain and the closing link, and cannot add the collective neutral mode. The unlinked star is the boundary t=0 where the quartic lacks its odd term. The balanced-end path has an even characteristic polynomial, unlike this quartic with its triangle term -2tx; matching counts do not give an equivalence.",
+        "searches": [
+          "PT trimer long-range closure and ring-like coupling: Downing–Saroka pp. 5–6",
+          "Local Resultary for three gain thresholds/recovery and neutral-spoke balanced PT stars"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored RESULT.md openings confirm the key model differences for 1f6988f50fe3, d33a4e73cab6, a67607eb9317 and f56ae485b18f. The closest same-day unlinked model makes the spectrum nonreal for every gamma>0 with a nonzero passive spoke, rather than three positive collisions."
+        ],
+        "reasoning": "Neither shared date nor similar spectral vocabulary determines priority or coverage. No distinct checked record gave the exact positive-link interval or the nonzero-energy EP3 formula for this motif.",
+        "searches": [
+          "Local Resultary: neutral-spoke exceptions, fixed-gain recovery windows, ring and terminal-loss exceptional points"
+        ]
+      },
+      "rationale": "Reentrant PT symmetry, three gain thresholds on other graphs, and EP3 constructions are known. The distinct supported claim is the exact all-size fixed-link gain sweep and nonzero-energy EP3 for a balanced triangle with identical neutral pendant leaves at its hub.",
+      "residual_risks": [
+        "The comparisons are bounded and do not establish chronological priority. An uninspected exact four-mode triangle-plus-pendant phase diagram could imply the all-size law via the bright reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior triangle reentrance and open trimer EP3, no pendant-star gain-sweep classification in inspected sections",
+          "evidence": "Nearest-neighbor coupling is scanned at fixed gain and long-range link; adding the long-range term reduces the open-trimer EP3 to EP2 in the discussed regime.",
+          "identifier_or_url": "https://doi.org/10.1038/s42005-021-00757-3",
+          "material_read": "pp. 5–6, Trimer chain: long-range coupling, OA offsets 33750–42494",
+          "method": "OA primary text, targeted pages",
+          "title": "Exceptional points in oligomer chains",
+          "trigger": "Closest published closed-triangle reentrance and EP3"
+        },
+        {
+          "assessment": "Open dimer/trimer, not the closed neutral-pendant motif",
+          "evidence": "The three-waveguide example has a neutral center and no gain-to-loss closing link.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.3871v1",
+          "material_read": "p. 1 and p. 5 open-trimer model, OA offsets 0 and 24700",
+          "method": "OA primary text, targeted pages",
+          "title": "Linear and Nonlinear PT-symmetric Oligomers: A Dynamical Systems Analysis",
+          "trigger": "Standard balanced PT oligomer construction"
+        },
+        {
+          "assessment": "Distinct t=0 case, not equivalent regardless of date",
+          "evidence": "With a neutral spoke and no closing link, every positive gain gives a nonreal spectrum and there are no finite exceptional points.",
+          "identifier_or_url": "Resultary 1f6988f50fe3, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local index and mirror",
+          "title": "A neutral spoke abolishes the real-spectrum threshold of a gain–loss trimer",
+          "trigger": "Closest same-day graph overlap"
+        },
+        {
+          "assessment": "Analogous spectral phenomena; different matrix invariants and hypotheses",
+          "evidence": "Respectively: four-mode path with balanced ends and three transitions; even ring with zero-energy EP3s; chain with single terminal loss and higher-order EP tuning.",
+          "identifier_or_url": "Resultary d33a4e73cab6, a67607eb9317, f56ae485b18f",
+          "material_read": "Mirrored RESULT.md Finding passages, offset 0",
+          "method": "Local index and mirror",
+          "title": "Four-waveguide gain recovery, antipodal gain–loss rings and terminal-loss chains",
+          "trigger": "Same inversion pattern or EP order on alternate graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "Resultary 1f6988f50fe3, unlinked counterpart"
+      ],
+      "rationale": "A single closing link changes the spectral behavior of a previously unlinked balanced star. The exact open interval guarantees a second real window despite prior symmetry breaking, and the nonzero-energy Jordan block gives a sharply tunable and analytically checkable higher-order degeneracy. The bright reduction exhibits how spectator modes can affect the active spectrum without changing the dark zero eigenvalues.",
+      "residual_risks": [
+        "An exact finite-dimensional benchmark, not evidence of implementation robustness or a statement for open-system Lindblad dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

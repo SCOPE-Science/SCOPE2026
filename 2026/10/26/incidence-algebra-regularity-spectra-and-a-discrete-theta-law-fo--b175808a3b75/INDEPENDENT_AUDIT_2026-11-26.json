@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:27.411835Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–86",
+        "VERIFICATION.md, check_incidence.py, incidence_output.txt, check.py and check_output.txt"
+      ],
+      "rationale": "In the incidence algebra, inversion on the nonzero diagonal block B preserves comparable-pair support (diagonal inverse and finite nilpotent expansion). Each elimination coefficient DB⁻¹ or B⁻¹C is supported by a comparable chain, so both eliminating matrices are units in the original algebra. The residual S=E−DB⁻¹C is supported on strict Z-to-Z comparable pairs; a regular such residual satisfies S=S(YS)^h for all h and hence vanishes by radical nilpotence. Conversely, on the reduced matrix diag(B,0), diag(B⁻¹,I) is an invertible witness and transports back. This includes empty blocks. DB⁻¹C has zero diagonal and no forbidden positions, so each strict Z-to-Z entry is uniquely prescribed, with no additional constraints. In the square-zero algebra, a Z-to-Z entry of axa is zero; with all those entries zero, matching the diagonal inverses, assigning diagonal 1 on Z, and cancelling the off-diagonal terms between two nonzero diagonal sites gives the stated unit witness. The count and the uniform chain probabilities follow by multiplying unconstrained coordinates and summing over Z. For the limit the weight ratio factors into q^(κ−k) times F(k)=(n−k)(κ+1)/[(n−κ)(k+1)]. F decreases through 1 at κ. In each outward telescoping product from m, every residual factor is at most 1 except the single factor F(m)=1+O(1/m) on the positive side. Thus exact weights have a phase-uniform Gaussian tail bound, including zero weights off their support. For |t|≤m/2 the sum of log residuals is O((t²+|t|)/m) by the denominator bounds there; multiplying by the theta envelope and absorbing exp(O(t²/m)) in the discrete Gaussian gives summable O(1/m) total error. The complement has exponentially small tails. The denominator is at least the t=0 term, so both the normalized TV estimate and the relative normalization follow. Taking logs in the center equation gives m∼log_q n and the claimed expansion; the inverse center has increments tending to zero and diverges, so all interior phases occur as subsequential limits, with distinct adjacent weight ratios. Inspected frozen scripts and recorded output, not rerun: incidence witnesses are checked by direct finite linear algebra, square-zero witness brute force is limited to 99 elements, and the theta checks are finite numerical diagnostics. The square-zero script uses some nonunit witnesses, so the universal unit assertion is established by the proof, not those tests.",
+      "residual_risks": [
+        "The error is phase-uniform at fixed q only; neither finite tests nor this proof establish a growing-field regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khripchenko–Novikov give a stronger unit–diagonal idempotent–unit factorization with the same support for regular elements in finitary incidence algebras.",
+          "Gould–Johnson–Naz address regularity/abundance of the whole triangular monoid, not stratum enumeration."
+        ],
+        "reasoning": "Unit regularity and the structural reduction in the incidence algebra are covered. A stratum count from that characterization still requires an orbit calculation or equivalent elimination, and does not furnish the chain asymptotics.",
+        "searches": [
+          "arXiv:0803.0069, Theorem 4",
+          "arXiv:1907.12518v1, upper triangular",
+          "arXiv:2009.04243v1, first-page statement"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 6c54ef06a12b and 1d526caad99e",
+        "arXiv:0803.0069, 1907.12518, 2009.04243",
+        "OEIS A079491",
+        "Wilf §5.6 retrieval lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If a=βεγ with ε diagonal idempotent, γ⁻¹β⁻¹ is immediately an invertible witness, so this part is a direct corollary.",
+          "A079491's sum gives the binary chain weights but does not itself establish a uniform Gaussian envelope for the unnormalized lattice weights or the O(1/log n) approximation.",
+          "The Wilf modal-bound passage could not be retrieved from the tested copies."
+        ],
+        "reasoning": "Separate structural and finite-formula antecedents from the actual comparison of support laws and the phase-resolved asymptotic theorem.",
+        "searches": [
+          "Khripchenko–Novikov Theorem 4 versus RESULT.md lines 45–62",
+          "OEIS A079491 and Wilf §5.6 lead versus lines 66–86"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 6c54ef06a12b counts every zero-diagonal stratum for height-at-most-two posets, where the comparability-graph induced edge count equals e_P(Z); this is exact overlap, not merely agreement of totals.",
+          "Record 1d526caad99e gives a theta law for eigenspace multiplicities of commuting triangular idempotent tuples, with a different law and centering.",
+          "arXiv:2009.04243v1 concerns the different equation g^(k+1)=g."
+        ],
+        "reasoning": "The shared low-height subclass already has square-zero radical. The all-height extension must account for strict products, and the theta law here is for the logarithmic zero count under regular sampling, not eigenspace multiplicities in idempotent tuples.",
+        "searches": [
+          "Resultary: finite-field incidence algebra von Neumann regular elements prescribed zero diagonal support exact count chain discrete theta phase-dependent local limit",
+          "Web: finite-field upper triangular matrices von Neumann regular elements diagonal zero set count discrete theta local limit phase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A079491 matches the binary chain normalizer after the exact power-of-two scaling; it is explicit coverage of the unrefined count.",
+          "6c54ef06a12b supplies support summands throughout the low-height subclass."
+        ],
+        "reasoning": "The binary identity is not new; the sequence definition does not state an error-controlled phase law, or a comparison of different radical products for arbitrary finite posets.",
+        "searches": [
+          "OEIS A079491, definition and independent-set sum",
+          "Resultary records 6c54ef06a12b and 1d526caad99e"
+        ]
+      },
+      "rationale": "Credit the known incidence-algebra factorization and unit regularity, the exact height-at-most-two stratum formula in a distinct indexed record, and the binary summed chain count. The supported distinct contribution is the paired-algebra all-poset law and, most substantially, the fixed-field phase-dependent chain law in TV with a sharp relative normalization. No inspected source supplies this last claim; this is not a priority ruling on the overlap.",
+      "residual_risks": [
+        "The low-height match is exact and its same-day date does not establish order.",
+        "A prior fuller asymptotic analysis of the weighted independent-set sum could overlap; Wilf §5.6 could not be checked directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers incidence unit regularity, not the stated numerical/asymptotic theorem",
+          "evidence": [
+            "Factorization with diagonal idempotent of the same zero set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0803.0069",
+          "material_read": "Theorem 4, PDF p. 5, offsets about 9450–11186",
+          "method": "OA literal theorem lookup and bounded passage",
+          "title": "Finitary incidence algebras",
+          "trigger": "Direct stronger structural theorem"
+        },
+        {
+          "assessment": "Exact support-stratum overlap for height at most two; date does not identify priority",
+          "evidence": [
+            "T is explicitly the diagonal zero set and each contribution is (q−1)^(n−|T|)q^(m−e_G(T))."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-regular-element-profiles-separate-the-smallest-tree-shaped-incid--6c54ef06a12b",
+          "material_read": "Finding and stratum-count proof from offset 2600",
+          "method": "Local Resultary search and mirror",
+          "title": "Regular-element profiles separate the smallest tree-shaped incidence algebras",
+          "trigger": "Strongest matching indexed claim"
+        },
+        {
+          "assessment": "Distinct statistic and centering",
+          "evidence": [
+            "Joint eigenspace multiplicities with residue-class centering."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-discrete-theta-spectrum-law-for-commuting-triangular-idempotents--1d526caad99e",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local mirror",
+          "title": "Discrete theta spectrum law for commuting triangular idempotents",
+          "trigger": "Nearest indexed theta claim"
+        },
+        {
+          "assessment": "Whole-monoid result does not count individually regular elements",
+          "evidence": [
+            "Field-case abundance despite failure of regularity of the entire triangular monoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.12518",
+          "material_read": "v1 PDF p. 2, offsets 6279–7692",
+          "method": "OA query upper triangular",
+          "title": "Matrix semigroups over semirings",
+          "trigger": "Triangular regularity literature"
+        },
+        {
+          "assessment": "Different equation in inspected passages; not a whole-paper conclusion",
+          "evidence": [
+            "Counts potent elements, defined by a single-element power equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.04243",
+          "material_read": "v1 abstract and opening, offset 0",
+          "method": "Primary web lookup and bounded OA passage",
+          "title": "(k+1)-potent matrices in triangular matrix groups and incidence algebras of finite posets",
+          "trigger": "Closely matching objects and enumeration terminology"
+        },
+        {
+          "assessment": "Exact binary total overlap after scaling",
+          "evidence": [
+            "Binomial sum weighted by 2^(−k(k−1)/2)."
+          ],
+          "identifier_or_url": "https://oeis.org/A079491",
+          "material_read": "Definition and independent-set interpretation",
+          "method": "Public page opening",
+          "title": "OEIS A079491",
+          "trigger": "Exact unrefined binary count"
+        },
+        {
+          "assessment": "Unresolved beyond the frozen attribution; not negative evidence",
+          "evidence": [
+            "Frozen reference credits the independent-set sum and modal bounds."
+          ],
+          "identifier_or_url": "Herbert S. Wilf, §5.6",
+          "material_read": "No decisive primary passage retrieved",
+          "method": "Lawful linked HTML/PDF and alternate host attempts",
+          "title": "Algorithms and Complexity",
+          "trigger": "Possible earlier analysis of the modal binomial sum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact law and fixed-field asymptotics",
+        "OEIS A079491 as baseline"
+      ],
+      "rationale": "Support-stratum equivalence identifies an invariant that survives changing the radical products, even for chains whose radical nilpotency lengths differ. The quantitative local law then explains why a logarithmically increasing zero count is not accompanied by Gaussian broadening and why a phase-dependent factor remains in the rare-event regularity probability. The combination supplies both a structural comparison and a precise probabilistic consequence, rather than merely recounting binary triangular matrices.",
+      "residual_risks": [
+        "Significance is limited to the specified element-level statistic and does not imply equivalent algebra structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

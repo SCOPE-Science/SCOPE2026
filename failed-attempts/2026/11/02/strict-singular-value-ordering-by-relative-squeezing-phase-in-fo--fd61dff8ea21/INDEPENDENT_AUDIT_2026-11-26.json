@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:20:21.434651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reviewed RESULT.md lines 5–117 and the verification notes and supplied matrix checker by inspection. Each factor is Hilbert–Schmidt by the monomial generating sum and the subcritical Gaussian integral. The reproducing kernel of T is exp(tz²+conj(s) w̄²+r²zw̄); the second Gaussian integral gives Q=TT* with a=t+bs, b=r⁴/σ and c=σ^(-1/2). The bound 2|a|+b<1 gives p>2b and b<d≤1, including the possible cancellation a=0. For the spectral lemma the kernel is positive trace class also directly as cVV*, with Vf(z)=exp(az²)f(√b z). The larger root gives h=ad/(d−b²), |h|<1/2; applying the kernel to the stated entire generating family rescales its generating variable by b/d. The nonzero coefficients are eigenvectors of distinct eigenvalues, and equality of the diagonal trace and their geometric sum excludes any residual positive eigenvalue. Square roots and geometric summation give the claimed singular values and Schatten formulas. At fixed positive magnitudes, |a|² grows strictly with the phase cosine, d decreases strictly, and all singular values therefore grow strictly. Independently, a 48×48 monomial-basis computation at r=0.4, t=0.07 exp(0.47i), s=0.05 exp(−0.83i) agreed for the first four singular values (1.00754410097,0.16364855562,0.02658032510,0.00431726195), with max discrepancy about 2.2×10^−16; aligned and antialigned phases bracket those four values. The uploaded checker was not executed and finite agreement does not establish the spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weedbrook et al. Eqs. (48)–(49) unitarily identify a Gaussian state with thermal factors indexed by its symplectic eigenvalues, and cite earlier Gaussian-state work. Olivares-style phase-space convention with vacuum variance 1/2: arXiv:2102.05748 Eqs. (126)–(128) gives geometric number-state weights with ratio N/(1+N).",
+          "Sang–Zhao includes this Gaussian kernel and its Theorem 5.2 gives all Schatten memberships and a geometric bound, not the exact sequence in the inspected passage. Howe's PDF was not accessible by the attempted route."
+        ],
+        "reasoning": "For one mode the thermal decomposition gives the whole normalized spectrum from one symplectic eigenvalue ν, with mean number N=ν−1/2 when [x,p]=i. The normalized positive Q lies in its domain because the Husimi density is Gaussian and 2|a|+b<1. The claim is not merely a sharpening of a Schatten bound in isolation.",
+        "searches": [
+          "arXiv:1110.3234 §II.C.1, thermal decomposition",
+          "arXiv:2102.05748 §VI.A.3, thermal state",
+          "arXiv:2610.28279 Theorems 1.2 and 5.2",
+          "Howe, The oscillator semigroup, AMS proceedings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_spectrum.py",
+        "arXiv:1110.3234",
+        "arXiv:2102.05748",
+        "arXiv:2610.28279v1",
+        "arXiv:2509.16672",
+        "Howe 1988 (access limitation)",
+        "Resultary records 6189441e1ef3 and e4614d0582ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write A=(1−b)²−4|a|²>0 and B=(1+b)²−4|a|²=A+4b. Rotate z so a is real and nonnegative. For x=√2 Re z, p=√2 Im z the Husimi covariance is diag(1/(1−b−2|a|),1/(1−b+2|a|)); the Weyl covariance subtracts I/2 (the vacuum Gaussian in the Husimi convolution). Thus ν=√(B/A)/2. The elementary Gaussian trace is c/√A. The known thermal weights (1−q)q^n with q=(ν−1/2)/(ν+1/2) now give λ_n(Q)=2c/(√B+√A) · ((√B−√A)/(√B+√A))^n.",
+          "Here d=(√B+√A)²/4 and q=b/d, so the formula is identically the frozen squared singular-value sequence. At fixed b,c, phase alignment increases |a|², decreasing A and B and shrinking √B+√A. Both the prefactor and q=4b/(√B+√A)² increase strictly, with positive prefactor and b. This proves the very same all-index ordering, including the extrema and the norm consequences, directly from the prior spectrum."
+        ],
+        "reasoning": "This is a substitution into an applicable prior stronger theorem and monotonicity of two explicit positive factors. It covers the strict phase statement as well as the geometric spectrum. An elementary generating-function proof changes the proof presentation but does not preserve a distinct scientific finding on narrowing to phase order.",
+        "searches": [
+          "arXiv:1110.3234 Eqs. (48)–(49)",
+          "arXiv:2102.05748 Eqs. (127)–(128)",
+          "Frozen RESULT.md lines 51–73 for the Gram parameters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized positive Gram operator Q/Tr Q has Gaussian Husimi density: its coherent-state diagonal is proportional to exp(2 Re(a z²)−(1−b)|z|²). This identifies a single-mode Gaussian state: the Fourier transform of the Husimi density equals the Weyl characteristic function times the vacuum Gaussian.",
+          "Dong–Zhu's kernel coincides up to scalar r with this T when s=−t, using S=r^(−2), τ=2t/r². That identification alone only covers the equal-magnitude opposite-phase slice."
+        ],
+        "reasoning": "A Bargmann–Fock Gram kernel need not be written in the restricted canonical Fock form to apply the general Gaussian state result. Once normalized, its Gaussian state spectrum is exactly the squared singular spectrum of T divided by its trace. The coherent-state diagonal identification is valid for every a,b from the frozen hypotheses, not just a phase slice.",
+        "searches": [
+          "Gaussian integral operator singular values Bargmann Fock Gaussian operator positive kernel thermal Williamson gaussian state purity spectrum one mode density matrix geometric spectrum",
+          "arXiv:1110.3234 §II.C.1 Eqs. (48)–(49)",
+          "arXiv:2102.05748 §VI.A.3 Eqs. (126)–(128)",
+          "arXiv:2509.16672 Theorem A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror record 6189441e1ef3 gives geometric spectra and order reversal for affine composition cross-products with linear translations. Record e4614d0582ad concerns a radially diagonal damped operator and a critical power-law singular tail. Neither gives this exact quadratic-phase comparison catalogue entry."
+        ],
+        "reasoning": "Neither near match represents the same operator family or phase parameter. The verified covering result is a general theorem in the primary literature, not an exact duplicate among the inspected catalogue entries.",
+        "searches": [
+          "Configured Resultary lookup for relative squeezing phase, Gaussian Fock cross-products and exact singular spectra"
+        ]
+      },
+      "rationale": "The full spectrum and its strict ordering are covered by the known thermal normal form for a Gaussian density operator plus a direct one-mode covariance substitution. This is stronger coverage than a geometric upper bound or the restricted canonical Fock SVD; it does not require anyone to have previously used the submitted notation or stated its relative-phase comparison verbatim. The explicit implication below covers all independent phases and all indices. No distinct surviving scientific claim was established for repair.",
+      "residual_risks": [
+        "Exact first publication of a formula in the submitted Bargmann notation was not determined.",
+        "Howe's exact treatment could provide a more direct ancestor, but failure rests on the inspected normal form and its explicit implication rather than inaccessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior general normal form; applies after the coherent-state diagonal substitution",
+          "evidence": [
+            "Any Gaussian state is unitarily equivalent to a product of one-mode thermal states with mean occupation numbers determined by the symplectic eigenvalues; vacuum-variance convention differs by factor two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3234",
+          "material_read": "p. 9, §II.C.1 Eqs. (48)–(49), text offset 66590",
+          "method": "Bounded OA PDF passage",
+          "title": "Gaussian Quantum Information",
+          "trigger": "Williamson thermal spectral coverage for normalized positive Gram kernel"
+        },
+        {
+          "assessment": "Exact geometric weights used in the implication, not a singular-value bound",
+          "evidence": [
+            "Fock probabilities (1+N)^(-1)[N/(1+N)]^n; covariance N+1/2 in both quadratures."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.05748",
+          "material_read": "pp. 8–9, §VI.A.3 Eqs. (126)–(128), text offset 57630",
+          "method": "Bounded OA PDF passage",
+          "title": "Gaussian states and operations – a quick reference",
+          "trigger": "Exact thermal eigenvalues and convention"
+        },
+        {
+          "assessment": "Subsumes compactness/membership but inspected theorem not an exact SVD",
+          "evidence": [
+            "Set (α,β,γ,η,δ)=(t,conj(s),r²,0,0); subcritical bounds imply its compactness inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.28279v1",
+          "material_read": "Theorem 1.2 pp. 2–3 and Theorem 5.2 p. 19, offsets 7600 and 78600",
+          "method": "Bounded OA PDF passages",
+          "title": "Boundedness and Compactness of Gaussian Integral Operators between Fock Spaces",
+          "trigger": "Same full Gaussian kernel family and Schatten claims"
+        },
+        {
+          "assessment": "Directly covers a restricted squeeze slice, not independent phases",
+          "evidence": [
+            "Quadratic coefficients tied by the canonical parameter with opposite conjugate signs; s=−t slice is proportional to the canonical kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.16672",
+          "material_read": "Theorem A, pp. 2–3, offset 6800",
+          "method": "Bounded OA PDF passage",
+          "title": "Canonical integral operators on the Fock space II",
+          "trigger": "Earlier exact geometric singular spectrum in Fock space"
+        },
+        {
+          "assessment": "No full-text judgment; not the basis for failure",
+          "evidence": [
+            "Earlier Gaussian-operator setting, exact statement not independently inspected."
+          ],
+          "identifier_or_url": "Howe, Proc. Sympos. Pure Math. 48 (1988), pp. 61–132",
+          "material_read": "Bibliographic identification only; attempted AMS PDF returned HTTP 403",
+          "method": "Lawful OA attempt",
+          "title": "The oscillator semigroup",
+          "trigger": "Potential earlier oscillator-semigroup equivalent"
+        },
+        {
+          "assessment": "Neither equivalent to the frozen two-quadratic product",
+          "evidence": [
+            "Affine translation reversal versus radial polynomial damping, respectively."
+          ],
+          "identifier_or_url": "Resultary records 6189441e1ef3 and e4614d0582ad",
+          "material_read": "Each RESULT.md Finding and scope in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local indexed mirror",
+          "title": "Exact two-order singular spectra and displacement reversal for affine operators; Oscillatory stabilization and the sharp Schatten cusp",
+          "trigger": "Strong indexed spectrum/phase analogues"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operator family and phase optimization are naturally motivated and the formula is a convenient specialization, but the claimed exact invariant and monotone order are mechanically recovered from the known Gaussian thermal spectrum. The elementary proof and numerical agreement do not establish a separate novel, useful boundary, ordering mechanism, or invariant that could be retained on repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

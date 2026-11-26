@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:10:37.110757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–44",
+        "Frozen VERIFICATION.md, expected_checks.txt, verify_permutations.py and verify_cube_paths.py (read as evidence)",
+        "Independent replay: python3 /workspace/branches/cd3a1438-e3d9-414a-92cd-182082bb803d/check_faulted_chains.py (Q3/Q4 outputs check_Q3.txt and check_Q4.txt in the same directory)",
+        "Asplund et al. Proposition 27 for the standard chain correspondence"
+      ],
+      "rationale": "A length-n antipodal path adds each coordinate once, and changing one internal vertex exchanges the two coordinates on either side of that vertex. The computational Q4 base was independently reproduced directly in cube-path coordinates for all 106 fault sets of size 0–2, including the ten tabulated pair types; every allowed graph is nonempty and connected. In the induction, any first letter not itself forbidden leaves nonempty proper suffix faults only from the original sets containing that letter; induction gives a nonempty connected fiber. A proposed bridge uses the same suffix after (s,t) and (t,s); its two singleton sets and common doubleton are allowed. Each further forbidden set can exclude at most a 1/(n-2) proportion of suffixes, since its residual size lies between 1 and n-3. Thus two faults cannot block the bridge for n>=5. The fiber graph has at least n-2 vertices and loses fewer edges than its minimum complete-graph cut, so the connected fibers join into one component. In Q3 the only two remaining paths after forbidding {0} and {1,2} differ in both internal vertices; the independent enumeration confirmed exactly this obstruction.",
+      "residual_risks": [
+        "The finite computation certifies the base and the stated sharpness example, not the all-dimensional result. No uploaded executable was run; the wider reported checks were not independently repeated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gajjar et al. §5.4 give the adjacent exchange and Kendall tau distance in the unfailed cube. A search hit on faulty folded hypercubes concerned cycles, not connectivity of the antipodal shortest-path state graph."
+        ],
+        "reasoning": "Fault tolerance of a routing graph or persistence of a cube path is weaker than connectivity under exchanges through only valid shortest paths. Fault-free minimum distances also do not ensure that sorting trajectories avoid the forbidden vertices.",
+        "searches": [
+          "Gajjar–Jha–Kumar–Lahiri, DOI 10.1007/s00453-024-01263-y; arXiv:2112.07499",
+          "Primary literature search on faulty hypercubes, prefix-avoiding permutations and shortest-path reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 46–55",
+        "Resultary same-record and distinct one-fault entries",
+        "Asplund et al. Prop. 27",
+        "Gajjar et al. §5.4",
+        "Focused faulty-hypercube primary literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fault-free paths admit adjacent-transposition sorting. The separate threshold result quantifies over only one failed vertex, while this result requires the same reroutes to survive two arbitrary prefix restrictions."
+        ],
+        "reasoning": "Intersections of two connected induced subgraphs can be disconnected; the Q3 example witnesses precisely the obstruction in this problem. Neither one-vertex result nor the full-graph minimization theorem provides the two-fault fiber bridges or the sharp cutoff.",
+        "searches": [
+          "Asplund et al. Prop. 27",
+          "Gajjar et al. journal Obs. 2 and Thm. 5",
+          "Resultary SCOPE-sharp-geodesic-loss-threshold-for-shortest-path-rerouting-in-a-s--f6361fb0e267 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 27 identifies the fault-free shortest-path graph with the adjacent-transposition Cayley graph on permutations.",
+          "A forbidden cube vertex removes precisely the permutations having that set as an initial segment; in the Boolean lattice these are exactly the maximal chains through the forbidden element."
+        ],
+        "reasoning": "These formulations coincide, but fault-free connectivity of the full Cayley graph cannot establish connectivity of the induced graph after two whole prefix families are deleted.",
+        "searches": [
+          "Local Resultary antipodal hypercube geodesic rerouting and forbidden-prefix permutahedron connectivity",
+          "Asplund et al. arXiv:1705.09385 Proposition 27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-two-vertex-fault-tolerance-of-antipodal-hypercube-geodesic-rerou--de11f17d6b33 is the identical frozen entry.",
+          "SCOPE-sharp-geodesic-loss-threshold-for-shortest-path-rerouting-in-a-s--f6361fb0e267 is a distinct same-day entry with one-fault connectivity, state/edge counts and distance comparisons."
+        ],
+        "reasoning": "The identical record is not independent evidence of priority, and no date ordering is assigned to the same-day comparison. The Q4 table is the base certificate, not the contribution for which originality is asserted.",
+        "searches": [
+          "Local Resultary two-vertex fault tolerance and short geodesic rerouting thresholds"
+        ]
+      },
+      "rationale": "The known fault-free permutahedral representation and the one-fault result are not claimed as novel. The inspected sources do not cover connectivity after two arbitrary internal faults, for which the missing bridges must be controlled simultaneously and Q3 has a genuine counterexample.",
+      "residual_risks": [
+        "Equivalent face-deletion or chamber-connectivity results elsewhere are still possible; the bounded comparison is not an exhaustive priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage only of the fault-free correspondence",
+          "evidence": [
+            "Diametric cube shortest-path graph is the adjacent-transposition Cayley graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.09385",
+          "material_read": "Proposition 27, p. 14, OA text around offset 50111",
+          "method": "OA preprint",
+          "title": "Reconfiguration graphs of shortest paths",
+          "trigger": "Equivalent permutahedral model"
+        },
+        {
+          "assessment": "Fault-free distance theorem, not induced connectivity under failures",
+          "evidence": [
+            "Adjacent transpositions implement reroutes and their optimal number is Kendall tau distance."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-024-01263-y",
+          "material_read": "Journal §5.4, p. 3328, Observation 2, Theorem 5; preprint counterparts Observation 22/Theorem 23",
+          "method": "OA journal and arXiv passages",
+          "title": "Reconfiguring Shortest Paths in Graphs",
+          "trigger": "Prior hypercube rerouting theorem"
+        },
+        {
+          "assessment": "Distinct same-day single-fault result, no two-fault implication",
+          "evidence": [
+            "One failed vertex; constrained-distance criterion and counts."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-geodesic-loss-threshold-for-shortest-path-rerouting-in-a-s--f6361fb0e267",
+          "material_read": "Finding: failure count, connectivity and state/edge counts",
+          "method": "Local Resultary mirror",
+          "title": "A sharp geodesic-loss threshold for shortest-path rerouting",
+          "trigger": "Closest catalogue failure model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–11 and 29–41",
+        "Independent Q3/Q4 base and sharpness check"
+      ],
+      "rationale": "The result guarantees that all currently feasible shortest antipodal routes can be transformed into one another without sacrificing optimal length or traversing either fault. This is stronger than existence of one survivor and is not inherited from fault-free sorting. A small counterexample identifies the exact minimum dimension for the guarantee.",
+      "residual_risks": [
+        "No bound on reconfiguration distance, wider fault threshold, or arbitrary endpoint pair is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

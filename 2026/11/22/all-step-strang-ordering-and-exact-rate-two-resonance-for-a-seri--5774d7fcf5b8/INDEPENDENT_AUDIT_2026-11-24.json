@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:23:03.915802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one exact-subflow step with row probabilities and a,b>0, both Strang products and the unsplit chain agree in the rows for starts in 1 and 2 and have the same state-0 survival e^(-ah) from 0. Thus the TV error for an initial distribution p is p_0 times the absolute signed error in the terminal probability from 0. Multiplication gives T_A=(1-r)(1-s^2), T_B=(1-r^2)(1-s), with r=e^(-ah/2), s=e^(-bh/2); their difference (1-r)(1-s)(s-r) has the sign of a-b. The unsplit T is the convolution CDF of the two waits. In the comparison with (T_A+T_B)/2, the same-side half-squares cancel; in each cross half-square reflection (u,v) to (h-v,h-u) pairs the positive triangle with the negative triangle. Both coordinates increase from the positive to its negative partner, and the strictly decreasing exponential densities give strict net positivity at every h>0. The larger approximation is therefore closer in absolute error even if it overshoots. Subtracting the convolution CDF gives T_A-T = bh exp(-(a+b)h/2) times the difference sinhc((a-b)h/2)-sinhc(bh/2), with the swapped formula for T_B-T. Evenness and strict increase of sinhc with its nonnegative argument give sign(a-2b) and sign(b-2a), including the equal-rate continuous case. The zeros give full matrix exactness, not just one statistic, since the remaining rows and survival entry already agree. At h=0 both are trivially exact; at a=b, h>0 the errors are equal and nonzero. The large-step equivalents for a>2b follow by retaining the e^(-bh) term in T_A-T and the e^(-bh/2) term in T_B-T. A signed terminal-probability bias for an arbitrary initial row scales by p_0 and is zero when p_0=0. Inspected the supplied high-precision verifier, not executed: its 3937 cases include 12 resonance cases and are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct rank-one theorem assumes real orthogonal projectors and compares Frobenius errors; its example is a reversible heat path. Engblom treats strong pathwise convergence. Mitra et al. compare reaction/diffusion orientations for reversible kinetics, including a low-diffusion advantage in a particular state probability."
+        ],
+        "reasoning": "The serial generators satisfy BA=0 but AB is nonzero, so they cannot both be self-adjoint in any common positive inner product (which would make AB the adjoint of BA). The stronger-looking symmetric dissipation theorem therefore does not apply by change of basis. Neither the strong pathwise analysis nor the reversible model comparison specializes to the stated one-step all-rate TV result.",
+        "searches": [
+          "Resultary 6e743ec86209, faster-outside Strang ordering for two rank-one dissipative generators",
+          "Engblom arXiv:1412.6292; Mitra–Diddens–Heuer DOI 10.1007/s10910-026-01780-x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6e743ec86209, 9b0eeef7eade and self-match 5774d7fcf5b8",
+        "arXiv:1501.02506v2",
+        "arXiv:1412.6292",
+        "DOI 10.1007/s10910-026-01780-x",
+        "DOI 10.1002/pamm.201800026 (attempted, unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant commutator route can give closed error formulas and the 2:1 resonance, but the cited paper does not state the chain's midpoint inequality or finite-step TV ordering. The identified prior Strang comparison uses reversible association-dissociation plus diffusion and reports a regime-specific ordering on its own observable."
+        ],
+        "reasoning": "The substantive all-step ordering uses the strict placement of the convolution probability above the midpoint of the two split values, an inequality supplied by the decreasing-density reflection. The signed thresholds follow from the global monotonicity of sinhc, rather than from the cubic coefficient alone. The inaccessible stiff-splitting paper was not used to infer absence or coverage.",
+        "searches": [
+          "Van–Brunt–Visser arXiv:1501.02506v2, p. 2, eqs. (12)–(14)",
+          "Mitra–Diddens–Heuer Sections 2.1, 2.2 and 3.1",
+          "Lukassen–Kiehl DOI 10.1002/pamm.201800026 (retrieval attempt)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For serial generators C=[A,B] is rank one with [A,C]=-aC and [B,C]=bC; the nested commutators are all in the span of C. The worst-state TV norm of the only affected row is exactly the absolute terminal-probability error.",
+          "The special closed BCH formula applies at the level of an invariant commutator direction (allowing a commuting central summand), independent of whether the matrices describe reactions."
+        ],
+        "reasoning": "The one-dimensional commutator reduction is classical. For example the right logarithmic derivative of the A-outer product is A+B plus C times (1-exp(-ah/2))/a - exp(-ah/2)(exp(bh)-1)/(2b), which cancels at a=2b. Thus credit the exactness mechanism under a different formulation; local BCH order alone does not state the strict finite-step TV comparison of the two orientations.",
+        "searches": [
+          "Resultary: serial Markov chain, fastest outside Strang, fixed 2:1 exactness, worst-state total variation",
+          "Van–Brunt–Visser, arXiv:1501.02506v2, closed BCH formula and Section III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5774d7fcf5b8 matches the frozen record's identifier and exact finding; it is a mirror match, not counted as a second result. The distinct same-day 6e743ec86209 is a parameterized ordering in the symmetric setting, and November 8 record 9b0eeef7eade gives exact positive three-factor compositions with step-dependent allocations for two-state generators."
+        ],
+        "reasoning": "The rule's same-day statement is important content overlap but not equivalent coverage; no chronological order was inferred. Variable allocations or exact two-state flows are not a census of fixed Strang zeros for this three-state chain.",
+        "searches": [
+          "Resultary: Strang rank-one ordering, exact positive three-factor Markov splits and serial rate-two resonance"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the joint all-positive-step worst-initial-state TV ordering, strict midpoint bound and signed threshold classification for the irreversible serial chain. The fast-outside rule in a different splitting setting and the invariant-commutator mechanism for exactness are antecedents, not independent novelty claims here. No retrieved distinct result covers the whole serial-chain comparison.",
+      "residual_risks": [
+        "The unavailable 2018 stiff-splitting paper could contain a direct comparison or exact case; it was not excluded by a keyword or access failure.",
+        "A related non-indexed serial-chain theorem or an alternative published inequality proof is not ruled out; historical priority is not established by the targeted checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same decision rule but different hypotheses and metric; not an implication for this chain",
+          "evidence": [
+            "The exact squared-error difference assumes orthogonal projectors and is for Frobenius error; reversible three-site heat path is the example."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-faster-outside-strang-ordering-for-two-rank-one-dissipative-gene--6e743ec86209/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof, offset 0",
+          "method": "Resultary lookup and original local mirror",
+          "title": "Faster-outside Strang ordering for two rank-one dissipative generators",
+          "trigger": "Distinct same-day all-step faster-outside theorem"
+        },
+        {
+          "assessment": "Established general commutator simplification; not a serial-chain TV theorem",
+          "evidence": [
+            "The closed commutator form reduces the logarithm to X+Y plus a scalar times [X,Y]; nested-commutator actions collapse onto that direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.02506",
+          "material_read": "Abstract on p. 1, Section III on p. 2 near eqs. (12)–(14), offsets 446 and 9240",
+          "method": "OA original PDF",
+          "title": "Special-case closed form of the Baker–Campbell–Hausdorff formula",
+          "trigger": "Possible general implication of the exact resonance"
+        },
+        {
+          "assessment": "Real two-order comparison, different kinetic regime and error",
+          "evidence": [
+            "Both D–R–D and R–D–R are defined, with reversible association/dissociation plus diffusion; low-diffusion R–D–R advantage is reported for a particular state probability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10910-026-01780-x",
+          "material_read": "Sections 2.1, 2.2 and 3.1, pp. 5, 6, 9, offsets 11153, 12517, 22156",
+          "method": "OA primary text",
+          "title": "Improving operator splitting and effective reaction probability for a reactive-step based molecular dynamics workflow",
+          "trigger": "Direct comparison of reversed Strang orientations"
+        },
+        {
+          "assessment": "Pathwise convergence analysis; inspected passages not a finite-step comparison of the two orientations",
+          "evidence": [
+            "Treats split jump kinetics and Strang versus first-order splitting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6292",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets 1122 and 6200",
+          "method": "OA original PDF",
+          "title": "Strong convergence for split-step methods in stochastic jump kinetics",
+          "trigger": "Stochastic jump generator splitting antecedent"
+        },
+        {
+          "assessment": "Different dimensional case and step-dependent allocation",
+          "evidence": [
+            "In its noncommuting two-state setting the positive exact split varies with the step size; a fixed Strang allocation need not be exact."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-positive-three-factor-split-for-two-state-markov-genera--9b0eeef7eade/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "An exact positive three-factor split for two-state Markov generators",
+          "trigger": "Exact short positive Markov splitting antecedent"
+        },
+        {
+          "assessment": "Not assessed for scientific coverage",
+          "evidence": [
+            "No inspected scientific passage from this paper; possible related order or resonance result remains a risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/pamm.201800026",
+          "material_read": "Bibliographic identification only; direct and alternate retrieval attempts returned 403",
+          "method": "Bounded lawful OA attempts including alternative publisher abstract route",
+          "title": "Operator splitting for stiff chemical reaction systems",
+          "trigger": "Potential closely related finite-rate reaction-splitting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This minimal irreversible cascade isolates a genuine practical choice between two symmetric schemes with identical substep budgets. The preferred order is uniform over the whole timestep range, which is not a conclusion of a local-order calculation; the bias thresholds and exact cancellation locate a sharp exception to the generic splitting error. The result gives a benchmark for checking kinetics splittings without claiming an ordering on arbitrary reaction graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:53:09.138819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen VERIFICATION.md and verify.py inspected without execution",
+        "Independent rational collocation/inversion for n=2..4 and cardinal matrices m=2..6"
+      ],
+      "rationale": "The Cox–de Boor stencil has identity endpoint rows, first and last interior diagonals 5/8, and pure interior diagonals 3/4. In particular the n=2 middle equations persist with no pure interior rows. Checkerboard conjugation gives a positive diagonal minus a nonnegative matrix with strictly subunit row sums after diagonal scaling, so the inverse is nonnegative by the Neumann series and its row sums give the absolute inverse row sums. Endpoint values are 1. Subtracting 2 from the other row sums leaves the homogeneous recurrence with roots q and q^(-1), and the reflected boundary equations give multiplier (sqrt(2)-1)/(1-q^n) on q^(j-1)+q^(n-j). Symmetry and strict convexity give only j=1,n as maxima; alternating data attain all row sums in modulus and work over either field. The correction is positive and strictly decreasing, and the n=2 equations give 5/2. For the cardinal comparison, the checkerboard row-sum equations have ghost values z_0=z_(m+1)=0 and solution z_j=2-2(q^j+q^(m+1-j))/(1+q^(m+1)); hence strict inequality at finite m and convergence in the middle. Independent exact rational Cox–de Boor and Gauss–Jordan checks at n=2,3,4 yielded maxima 5/2, 17/7, 29/12, with the correct positions and alternating witness.",
+      "residual_risks": [
+        "The bounded check is corroboration, not the general proof. The result is a coefficient norm, not a Lebesgue constant for interpolation as a function."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible cardinal paper treats equidistant simple knots, giving Toeplitz Eq. (7), including the degree-two tridiagonal case. Marsden's knot-average quadratic interpolation is an especially plausible broader source, but DOI and publisher retrieval did not produce primary text. The referenced de Boor publisher text also was not accessible."
+        ],
+        "reasoning": "The simple-knot formula omits the changed diagonal and boundary coupling. No assertion of noncoverage is made for inaccessible sources.",
+        "searches": [
+          "Marsden JAT 38 (1983) 201–208, DOI:10.1016/0021-9045(83)90128-4",
+          "de Boor JAT 14 (1975) 191–203, DOI:10.1016/0021-9045(75)90055-6",
+          "Novaković–Singer–Singer arXiv:1004.4014 §§1,3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Relationship to prior work and References",
+        "Resultary f178bad0bccb, 90f86b115858, 9e2adc916a5b, 448008040630",
+        "Novaković–Singer–Singer arXiv:1004.4014",
+        "Nagler–Cerejeiras–Forster arXiv:1402.2403",
+        "Bibliographic and access checks for Marsden 1983 and de Boor 1975"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cardinal Eq. (7) leads to the stated comparison benchmark but lacks the clamped boundary equations. The known matching spectral context yields no formula for the solved inhomogeneous checkerboard row-sum problem. General bounds and eigenvalues do not specify the uniquely maximizing rows, sharp witness, or geometric finite-length correction."
+        ],
+        "reasoning": "The benchmark is classical context; the excess and exact localization rely on the modified end equations, not a parameter substitution in the inspected cardinal numbers.",
+        "searches": [
+          "Resultary f178bad0bccb RESULT.md",
+          "Novaković–Singer–Singer arXiv:1004.4014 §3 Eq. (7)",
+          "Nagler–Cerejeiras–Forster arXiv:1402.2403 p. 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The collocation matrix is nonnegative and stochastic, so its infinity condition number equals the inverse infinity norm. The cardinal reference explicitly discusses the inverse bound in the de Boor context but specializes to simple knots and its spectral norm. The later Schoenberg–Greville spectrum uses the same stencil, but a spectral/iteration-rate claim is not a coefficient recovery norm."
+        ],
+        "reasoning": "A Lebesgue constant tests the reconstructed function, while this norm tests control coefficients; neither that constant nor the spectral condition number is the maximum of the absolute inverse row sums.",
+        "searches": [
+          "Resultary: quadratic Greville interpolation clamped uniform knots inverse infinity norm boundary",
+          "Resultary: Marsden 1983 quadratic spline interpolation knot averages endpoint repeated knots coefficient recovery inverse matrix stability",
+          "arXiv:1004.4014 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest actual same-stencil record f178bad0bccb is dated November 22 and gives cosine eigenvalues and an iteration rate. Same-day 90f86b115858 is quadratic least squares on equally spaced points, not Greville interpolation. No matching inverse row-sum formula appeared in the inspected ranked outputs."
+        ],
+        "reasoning": "The first hit identifies the same matrix family but a different invariant; the second uses a different projection and sampling map. Ranked retrieval is not a census.",
+        "searches": [
+          "Resultary: clamped uniform quadratic Greville collocation matrix inverse infinity norm boundary row sum exact formula",
+          "Resultary: Marsden 1983 knot averages quadratic interpolation explicit inverse formula boundary norm"
+        ]
+      },
+      "rationale": "Best of current knowledge: exact coefficient recovery, its maximizing positions and the finite boundary correction are distinct from the strongest actual statement matches. The cardinal reference and the later same-stencil spectral result are not equivalent inverse max-row-sum statements. The Marsden risk remains explicitly unresolved.",
+      "residual_risks": [
+        "Marsden's article and the referenced de Boor publisher text were not available for primary comparison. An older equivalent clamped coefficient calculation cannot be excluded, especially under different norm terminology. No historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cardinal benchmark and conditioning background, not the clamped norm",
+          "evidence": [
+            "The setup is restricted to equidistant simple knots, Toeplitz; spectral analysis does not state the modified boundary row sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.4014",
+          "material_read": "§1 p. 2 (offset 4300); §3 pp. 4–5 Eq. (7) (offset 12600)",
+          "method": "Lawful arXiv PDF passage inspection",
+          "title": "Estimates for the Spectral Condition Number of Cardinal B-Spline Collocation Matrices",
+          "trigger": "Closest lawful primary text for exact quadratic Greville collocation and conditioning"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence against prior coverage",
+          "evidence": [
+            "The title covers quadratic interpolation at knot averages; it does not identify the exact coefficient norm or finite-length formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(83)90128-4",
+          "material_read": "Bibliographic identity and title; no primary mathematical passage accessible in this review",
+          "method": "Bounded DOI/publisher page and PDF retrieval attempts; publisher HTTP 403 and DOI redirect without full text",
+          "title": "Linear and quadratic spline interpolation at knot averages",
+          "trigger": "Most plausible older source for equivalent quadratic noncardinal estimates or boundary formulas"
+        },
+        {
+          "assessment": "Same clamped setup, different theorem; later date",
+          "evidence": [
+            "Cosine eigenvalue law and iteration rate, not the sharp coefficient inverse infinity norm."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cosine-spectrum-and-sharp-iteration-rate-of-quadratic-unif--f178bad0bccb",
+          "material_read": "Mirrored RESULT.md setup/stencil near offset 0 and derivation near offset 3536",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Exact cosine spectrum and sharp iteration rate of quadratic uniform clamped Schoenberg–Greville operators",
+          "trigger": "Strongest matching local Resultary result"
+        },
+        {
+          "assessment": "Spectral background, not an inverse norm statement",
+          "evidence": [
+            "The relevant passage discusses a spectral conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2403",
+          "material_read": "p. 11 offset 28600",
+          "method": "Lawful arXiv PDF passage inspection",
+          "title": "Lower bounds for the approximation with variation-diminishing splines",
+          "trigger": "Closely related Schoenberg operator literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of row sums, localization and cardinal comparison",
+        "Cardinal baseline arXiv:1004.4014 §3"
+      ],
+      "rationale": "The coefficient max norm is the worst amplification of bounded sampling error into control coefficients. The exact formula distinguishes the persistent clamped excess sqrt(2)-1 over the cardinal limit, identifies the two coefficients responsible, and gives the sharp bound 5/2 including the minimal mesh. This is a natural finite-size stability benchmark for the standard clamped discretization, not an arbitrary slice or just a bound from diagonal dominance.",
+      "residual_risks": [
+        "No claimed transfer to higher degree, nonuniform knots, or stability of the reconstructed function in its continuous sup norm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:30:15.273741Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79 and bound VERIFICATION.md, verification_output.txt, verify.py, verify.cpp; supplied code inspected, not executed.",
+        "Independent exhaustive finite trace and rational augmented-chain check: /workspace/branches/52eb972e-f929-400f-a762-0cb448bd59d0/independent_check.py and independent_check_output.txt. For (k,L,p)=(3,2,1) it finds face counts (1,6,12,0) and reduced Betti number 7 in degree 1; it tests the empty-face-only case as well."
+      ],
+      "rationale": "Represent each ideal by its chain prefix lengths in {0,...,L}, with sum of prescribed parity. Two queries in a chain forbid the nonmonotone trace; an unused chain supplies either parity via lengths 0 and 1. For a full transversal the response intervals are [0,j-1] and [j,L]. An interior height gives both parities for either response. At endpoint heights only the all-singleton choice can fail, and its total length is L times the number of top queries. This gives precisely the deleted facets, polynomial, and VC dimension. The undeleted join X has a free top reduced group of rank (L-1)^k and no other reduced groups. For L>=3, use an interior reference vertex in each chain: the join of differences of the missing facet's vertices with the reference vertices is a cycle evaluating to a signed unit on that relative facet and zero on every other omitted facet. Thus the top-to-relative map is onto over Z and its kernel is free of the displayed rank; no hidden lower group or torsion remains. For L=2 the join is the cross-polytope boundary. Deleting all its facets at odd parity leaves the old top boundary image as the new highest reduced homology, free of rank 2^k-1, with lower groups unchanged. The augmented calculation also gives H̃_{-1}=Z for k=1,L=2,p=1, and the vertex case for k=1,L>=3 agrees with the formula.",
+      "residual_risks": [
+        "The finite rational-rank checks do not check torsion. Freeness and the dimension range are justified by the integral chain argument. No general homotopy-type assertion is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campo–Erné treats counting downsets and extensions; Early treats rank-unimodality of ideals in Cartesian products of chains; Ghazi et al. treat Littlestone/threshold closure under aggregation.",
+          "The fence Finding concerns extremal shattered supports and top integral homology on a height-two zigzag, not the complete disjoint-chain complex."
+        ],
+        "reasoning": "Counting whole ideals, or proving rank and closure results for a different class or invariant, does not fix every Boolean trace or the homology of their shattered-support complex. The examined broader rigid-trace lemma stops before that computation.",
+        "searches": [
+          "Campo–Erné arXiv:1802.01419, Abstract and p. 1",
+          "Early, Order ideals in a product of chains, pp. 478–479",
+          "Ghazi et al. PMLR 132, p. 1",
+          "Resultary same-day parity-filtered fence ideals, independent sets, and binary-tree frontiers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5128d782fbe4 (self), f1afe408d239, and same-day findings on parity-filtered binary-tree frontiers, independent sets, and parity-restricted cuts",
+        "Campo–Erné arXiv:1802.01419; Early AJC 73(3) pp. 478–485; Ghazi et al. PMLR 132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fence criterion specializes to the rigid trace obstruction, but the fence homology computation is for a height-two zigzag.",
+          "In the disjoint-chain complex, independence of deleted facet coordinates uses an interior reference vertex per chain when L>=3; for L=2 those reference vertices do not exist and the skeleton behaves differently."
+        ],
+        "reasoning": "The exact integral ranks and exceptional lower-degree homology do not follow by a parameter substitution in the inspected fence or order-ideal counting results. The common parity argument is not counted as an independent contribution.",
+        "searches": [
+          "Resultary f1afe408d239, Finding and Proof §§1–3",
+          "Early pp. 478–479; Campo–Erné Abstract and p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fence record f1afe408d239, Proof §1, has a general rigid-trace criterion for antichain supports. Here its endpoint instantiation has a unique rigid response for each full endpoint transversal.",
+          "Equivalently the topology is that of a join of discrete sets with exactly the wrong-parity endpoint facets deleted, not that of ideals in the Cartesian product of chains."
+        ],
+        "reasoning": "The general criterion helps determine feasibility but does not compute the relative top-chain map or the change of homological degree at L=2. Only the resulting exact family computation is credited.",
+        "searches": [
+          "Resultary: endpoint transversals with rigid parity; parity-restricted order ideals and shattering complexes; parity-filtered fence ideals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 5128d782fbe4 is the assigned record, not independent evidence. The distinct fence, independent-set, frontier, and even-shore cut findings examined have different underlying concepts or queries."
+        ],
+        "reasoning": "No different inspected catalogue finding or table determines the given all-(k,L,p) invariant. The target's own finite checks do not constitute an independently prior table.",
+        "searches": [
+          "Resultary exact endpoint-transversal face-polynomial and integral-homology wording; parity-filtered ideal-shattering variants"
+        ]
+      },
+      "rationale": "The distinct same-day fence-ideal record supplies a general rigid-trace parity criterion, which is credited as overlapping the shattering mechanism. The claim assessed as distinct is the complete disjoint-equal-chain face polynomial and integral topology, including the length-two transition; the inspected fence result has a different poset and does not determine that answer. The decision does not assert same-day precedence or invention of ideal enumeration, the general rigid-trace test, or join homology.",
+      "residual_risks": [
+        "Same-day priority is undetermined. An equivalent earlier calculation under another join or set-system formulation is not ruled out by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in method, different topological computation",
+          "evidence": "A general rigid-trace antichain criterion appears in Proof §1; the topological statement concerns the height-two zigzag fence.",
+          "identifier_or_url": "Resultary f1afe408d239",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1–3, offsets 0–5004",
+          "method": "Bounded local-mirror passage reading",
+          "title": "Parity-filtered fence ideals",
+          "trigger": "Closest distinct same-day overlap in ideals, parity, shattering and homology"
+        },
+        {
+          "assessment": "Background for counting rather than support topology",
+          "evidence": "The inspected statements address numbers of downsets and numbers of poset extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.01419",
+          "material_read": "Abstract and p. 1, offsets 785–5274",
+          "method": "Open-access PDF passage reading",
+          "title": "Exponential functions of finite posets and the number of extensions with a fixed set of minimal points",
+          "trigger": "Broad downset-enumeration comparison"
+        },
+        {
+          "assessment": "Different poset construction and invariant",
+          "evidence": "The objects are order ideals in a Cartesian product, and the inspected result concerns rank-unimodality.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p478.pdf",
+          "material_read": "pp. 478–479, offsets 0–2896",
+          "method": "Open-access journal PDF passage reading",
+          "title": "Order ideals in a product of chains",
+          "trigger": "Potential equivalent chain-family formulation"
+        },
+        {
+          "assessment": "Different dimensions and conclusion",
+          "evidence": "The scope is closure bounds under aggregation, not face counts or integral homology of shattered supports.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "material_read": "p. 1, offsets 0–3153",
+          "method": "Open-access paper passage reading",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "General learning-theoretic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–46, 62–79"
+      ],
+      "rationale": "A global parity constraint in a basic membership concept class leaves the VC dimension unchanged at even L>=4 while changing the top Betti number by exactly 2^k; at L=2 the homology instead shifts by a full degree. Computing the integral groups as well as the face counts makes this an explicit structural comparison beyond a VC bound or a set count.",
+      "residual_risks": [
+        "Scope is disjoint equal-length chains and parity modulo two; no arbitrary-poset or online-learning claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

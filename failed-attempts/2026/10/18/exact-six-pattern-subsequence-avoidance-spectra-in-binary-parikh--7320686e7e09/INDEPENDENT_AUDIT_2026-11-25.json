@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:56:38.457051Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–68; VERIFICATION.md lines 19–23; inspected checker.py and checks.txt",
+        "Independent replay: python3 /workspace/branches/independent_frozen_math.py 1; output /workspace/branches/independent_frozen_math.out"
+      ],
+      "rationale": "Encode each word by the weakly decreasing list of counts of b to the right of each successive a. Its area is K, and all lists in the A-by-B rectangle occur exactly once. The pattern abab occurs exactly when there are two distinct positive entries, so avoidance corresponds to a single rectangular block of positive entries and gives the divisor count, with the empty list of positive entries at K=0. For A>=2, aabb occurs exactly when the second entry is at least 2; otherwise a positive first entry t has r further ones followed by zeros, giving K=t+r, including the r=0 case and the all-zero case. This enumeration also works for A=1. For abba, avoidance is exactly that the largest and smallest entries differ by at most one; quotient and remainder of K by A specify the unique such list. Reversal and letter exchange yield all remaining cases. The zero-letter cases have a unique word and the partition-area generating function gives the Gaussian denominator. Explicit independent enumeration using all position quadruples agreed in 6552 cells for A+B<=12; this corroborates rather than replaces the general proof.",
+      "residual_risks": [
+        "Scope is scattered patterns in finite linear binary words with two letters of each type in the forbidden pattern; no inference about arbitrary patterns."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fazekas–Huang–Mercaş Theorem 5.1 gives the general abab-avoider four-run description and C=dq; Lemmas 5.2–5.3 cover generic avoidance templates and bounded-parameter procedures. Golafshan gives the Gaussian coefficient and Richomme gives the partition structure."
+        ],
+        "reasoning": "The prior four-run characterization immediately implies the divisor case and its reversal. The general approximation/partition statements inspected do not on their own compute the additive-window pair; the exact catalogue match does.",
+        "searches": [
+          "Fazekas–Huang–Mercaş DOI:10.4204/EPTCS.451.10/arXiv:2610.06717, §5 queries abab, aabb and additive approximation",
+          "Golafshan arXiv:2606.23426v1 Corollary 5; Richomme arXiv:2510.07159v1 Theorem 4.19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11",
+        "Fazekas–Huang–Mercaş arXiv:2610.06717",
+        "Golafshan arXiv:2606.23426v1",
+        "Richomme arXiv:2510.07159v1",
+        "Frozen attribution to Atanasiu"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For C>0 each feasible factor pair (d,q) from the 2026 primary text specifies a unique abab-avoiding word and conversely; reversal gives baba. The later complete table yields every remaining frozen numerator directly, while its containment expression is one minus the frozen avoidance probability."
+        ],
+        "reasoning": "Counting the antecedent witnesses is all that is required for the prior divisor implication. For today's full coverage no additional mathematical work at all is required beyond the explicit relabelling and coefficient comparison.",
+        "searches": [
+          "Fazekas–Huang–Mercaş Theorem 5.1, proof, printed p. 148",
+          "Resultary e75590ea1e11, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct catalogue result uses 0=a and 1=b, c(w)=number of 01 pairs, and its U, D, T polynomials count exactly by the frozen K. Coefficient extraction from U gives 1; D gives the bounded divisor count; T gives G by writing its second sum as i'=B-1-i and j=r+1. Reflection gives K mapped to AB-K."
+        ],
+        "reasoning": "The change of alphabet and coefficient extraction are an exact equivalence on all six patterns, including empty-letter boundaries, not merely agreement at a few compositions.",
+        "searches": [
+          "Resultary: balanced length-four scattered pattern avoidance counts per binary Parikh matrix class fixed ab pairs abab baba aabb bbaa abba baab",
+          "Mirrored Resultary finding, 2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue statement prints the exact six generating polynomials, U/D/T coefficient formulas, positive Gaussian denominator and containment probability. It also includes additional exact thresholds and first moments not claimed in the frozen Finding."
+        ],
+        "reasoning": "This is exact coverage by a distinct record, stronger in downstream consequences. The dates alone are not evidence for priority or provenance.",
+        "searches": [
+          "Resultary: balanced length-four scattered pattern avoidance counts per binary Parikh matrix class fixed ab pairs abab baba aabb bbaa abba baab",
+          "2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11/RESULT.md, finding and scope"
+        ]
+      },
+      "rationale": "The full frozen claim is mathematically covered by a distinct published catalogue entry, not simply a similar title or a partial precedent. Its six generating polynomials give the exact six counts and the same conditional probabilities for every class. The matching entry is dated November 8, after the October 18 date on the frozen source path. This is a finding of current equivalent coverage, not a finding that the November entry predates the frozen work, that it is the source of the frozen work, or that the October work lacked historical priority. Independently, a pre-existing primary paper gives the abab normal form that directly implies the divisor pair of the table.",
+      "residual_risks": [
+        "Priority/provenance between the two dated records was not established. The Atanasiu text remained inaccessible. The wider web query was unavailable; none of these limitations is used as evidence for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact whole-claim coverage, with no conclusion about historical priority",
+          "evidence": "U, D, T and their reflections give the same six numerators; 1 minus its containment probability gives the same avoidance formula.",
+          "identifier_or_url": "2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11",
+          "material_read": "RESULT.md Finding and assumptions at offsets 0–3947, proof around 3500–8000 and prior-work discussion at 7245–9349",
+          "method": "Published-record local mirror",
+          "title": "Inversion-refined avoidance spectra for all balanced four-letter scattered patterns",
+          "trigger": "Matching all-parameter classification for all six balanced patterns"
+        },
+        {
+          "assessment": "Direct prior coverage of the divisor pair, not in itself a six-pattern table",
+          "evidence": "Avoider iff of shape b^(B-q) a^d b^q a^(A-d), with C=dq; the later lemmas address approximate probabilities and template bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06717 (DOI:10.4204/EPTCS.451.10)",
+          "material_read": "§5, Theorem 5.1 and proof at printed p. 148; Lemmas 5.2–5.3, pp. 149–150",
+          "method": "Lawful alternate primary arXiv PDF; DOI landing route unavailable",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same binary classes and scattered pattern abab"
+        },
+        {
+          "assessment": "Denominator and class background",
+          "evidence": "Gives a representative, Gaussian-binomial coefficient class size and class-size distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.23426v1",
+          "material_read": "Theorem 2, p. 9; §5.2, Corollaries 5 and 6, p. 14",
+          "method": "Open-access primary PDF",
+          "title": "Binary binomial equivalence via hyperplane arrangements",
+          "trigger": "Same class cardinality and representatives"
+        },
+        {
+          "assessment": "Class-structure framework, not the pattern-resolved table in the passages examined",
+          "evidence": "Partition-lattice interpretation of binary 2-binomial classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159v1 (DOI:10.1016/j.tcs.2025.115732)",
+          "material_read": "Abstract and Theorem 4.19, p. 22",
+          "method": "Lawful alternate primary arXiv PDF via DOI lookup",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Partition and binary 2-binomial reformulation"
+        },
+        {
+          "assessment": "Reported prior normal form for abba, with baab by symmetry; do not infer full-text exclusion",
+          "evidence": "The frozen source credits the abba form; availability was not needed to decide the separately verified exact match.",
+          "identifier_or_url": "https://paperzz.com/doc/8039966/january-26--2007-8-31-wspc-instruction-file-amiabile",
+          "material_read": "Frozen RESULT.md lines 59–66 and 80; external theorem not read",
+          "method": "Identified lawful mirror returned HTTP 403",
+          "title": "Binary Amiable Words",
+          "trigger": "Frozen source credits Theorem 5 and its canonical representative construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38",
+        "Resultary e75590ea1e11, full Finding"
+      ],
+      "rationale": "The six-pattern comparison is a natural, useful exact classification in isolation, but this frozen deliverable adds no distinct scientific result to the exact table already available. Its class regimes, boundary cases and conditional probabilities follow by direct relabelling or complementation, and the available matched entry also goes beyond it with first moments and forcing thresholds. No new remainder of the frozen Finding survives the overlap for present acceptance; this does not deny value to establishing the classification originally.",
+      "residual_risks": [
+        "This is a judgment about incremental scientific content as reviewed, not an attribution of priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:10:47.894472Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 33–77. The unit-square Zak transform is unitary, and each coset gives the ordinary integer-index two-dimensional Fourier coefficient identity for the product with its shifted Zak window. Parseval therefore sums the squared moduli of the shifted Zak windows pointwise; continuity on the torus makes the actual extrema the sharp bounds. For u={x−j/m}, the squared hat Zak modulus is 1−2(1−cos(2πν))u(1−u), so the common maximum is 1 per window at ν=0, and ν=1/2 realizes the minimum for each x. The latter equals four times the sum of squared circle distances from x−1/2. For a lifted center v, choose nearest representatives in [v−m/2,v+m/2], which form a cyclic cut up to common translation, including at ties. Their sum of squared deviations is at least the least cut variance. In the reverse direction, use the mean of any minimizing cut; nearest-representative distances can only decrease from its cut distances. Thus both inequalities give the exact finite formula. For sorted distinct integer lifts, each pair separation is at least its index separation; summing squares gives the bound k(k²−1)/12 for the cut variance, with equality for k≥2 exactly when every consecutive gap is one. This gives the stated mask classification, count, and ratio. The k=1 bound is zero, and for k=m there is only one mask. The inspected source checker reports finite corroboration (2,035 exact mask cases and 1,300 numerical symbol cases), not an all-size proof; it was not executed in this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasannasab–Lemvig cover the full regular grid a=1/m, b=1 for frame membership; Stangl–Frederick's stated range b≥3/2 does not include it.",
+          "Hardin–Kendall–Saff maximize a minimum for nonincreasing convex circle potentials, opposite to minimizing here over fixed-grid subsets for increasing squared distance.",
+          "The later multiwindow record allows arbitrary real shifts and optimizes in the opposite best-shift direction with equally-spaced extremizers."
+        ],
+        "reasoning": "Regular-lattice membership is not exact spectral control of all nonuniform retained masks. The broader later continuous formula covers the variational part, not the fixed-grid adversarial optimization or its equality classification.",
+        "searches": [
+          "arXiv:2609.13116v1, §7, Theorems 7.1–7.2",
+          "arXiv:2609.00481, Theorem 3",
+          "arXiv:1208.5261, Corollary 2",
+          "Resultary: multiwindow hat-spline cubic-gap record, 2026/11/22"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Four primary arXiv works and three Resultary records above",
+        "Resultary c8f151d17e5c (half-density bound) and 9587a4647148 (lower-bound onset), Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-character harmonic-frame theorem identifies consecutive phase classes via a finite Fourier phasor sum; this is not the hat Zak squared-distance potential.",
+          "Intrinsic means already yield the unwrapped candidate computation for a given circular sample; the qualitative hat frame set and this computation address different steps."
+        ],
+        "reasoning": "The spacing inequality and circular unwraps are standard; their use requires first identifying the masked hat's sharp symbol with intrinsic variance, then solving the grid-constrained worst-mask problem. No earlier compared statement supplies that combined sharp bound and all masks.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+          "arXiv:1108.2141, §3.2",
+          "arXiv:2609.13116v1, §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hotz–Huckemann's intrinsic sample variance is the same circle objective up to units and multiplying by sample size. Their proof uses precisely the cyclic unwraps and their ordinary means as candidates, with an antipodal cell check.",
+          "The November 22 record gives B=r and A=4 min_x Σ_j d_T(x,s_j+1/2)², so its continuous formula agrees exactly after recentering, and it also recovers the full-grid specialization."
+        ],
+        "reasoning": "The cyclic-unwrapping method is not novel in circular statistics. The continuous formula has demonstrable exact coverage in a later listed record; this comparison does not establish first discovery. Neither comparison gives the sharp fixed-cardinality adversarial integer-grid Gabor value and all equality masks.",
+        "searches": [
+          "arXiv:1108.2141, §3.2, Corollary 3.6 and (4)–(6)",
+          "Resultary: 2026/11/22/SCOPE-an-exact-positive-cubic-gap-defect-for-multiwindow-hat-spline-ga--2b8a9154bdc7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day exact bounds concern a=1, b=m/(m+1), not b=1 with whole-coset deletion. The half-density exact bounds use 3/2≤b≤7/4.",
+          "The frozen 2,035-case rational check is corroboration of the current formula, not an independent prior table."
+        ],
+        "reasoning": "The directly relevant tabulation issue is whether exact mask spectra and extremizers are already enumerated. The exact catalogue matches cover different lattice families, not the masked class or fixed-k minima; finite mask tables in any event do not establish the whole infinite family.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-exact-gabor-frame-bounds-for-the-triangular-spline-at-the-ration--28776a6c4316",
+          "Resultary: half-density hat-spline bound, 2026/10/11, c8f151d17e5c",
+          "Frozen VERIFICATION.md and checker.py"
+        ]
+      },
+      "rationale": "The general circle intrinsic-mean calculation and the full-grid frame property are existing mathematics. A later dated catalogue record also gives exactly the same continuous sharp-bound formula for arbitrary real shifts. The distinct contribution supported here is the explicit sharp arithmetic bound after each grid-coset erasure and the exact adversarial bound and all equality masks for every retained cardinality. No inspected earlier result gives the same masked Gabor optimization or implies it as a stated stronger result.",
+      "residual_risks": [
+        "Atindehou–Frederick–Kouagou–Okoudjou, On the frame set of the second-order B-spline, ACHA 62 (2023) 237–250, was identified in the frame-set bibliography but not inspected in full. An earlier equivalent application in frame or circle-variance literature remains possible; an irrelevant search return is not negative evidence.",
+        "Catalogue dates identify the inspected records, not historical priority or discovery order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers circular candidate algorithm, not Gabor or worst grid-mask optimization",
+          "evidence": "Partial unwraps X_j+2π or X_j−2π, with candidate centers at unwrapped sample arithmetic means.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2141",
+          "material_read": "§3.2, Corollaries 3.5–3.6 and (4)–(6), PDF pp. 6–7, OA offset near 18160",
+          "method": "OA PDF passages",
+          "title": "Intrinsic Means on the Circle: Uniqueness, Locus and Asymptotics",
+          "trigger": "Equivalent squared geodesic distance minimization"
+        },
+        {
+          "assessment": "Full-grid membership covered, no sharp masked bound",
+          "evidence": "Integer oversampling criterion includes the unmasked a=1/m,b=1 case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13116",
+          "material_read": "§7, Theorems 7.1–7.2, PDF p. 15 around OA offset 52350",
+          "method": "OA PDF passage",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Same hat and full-grid b=1 lattice"
+        },
+        {
+          "assessment": "Different modulation range and qualitative theorem",
+          "evidence": "Theorem specifies b≥3/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00481",
+          "material_read": "Theorem 3, PDF p. 2 around OA offset 7300",
+          "method": "OA PDF passage",
+          "title": "The frameset of the second-order B-Spline along ab=1/q",
+          "trigger": "Regular hat frame coverage"
+        },
+        {
+          "assessment": "Different monotonicity and direction of optimization",
+          "evidence": "Equally spaced points maximize the minimum of a nonincreasing convex potential.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.5261",
+          "material_read": "Abstract and Corollary 2, PDF pp. 1–2, OA offsets 0 and 5400",
+          "method": "OA PDF passages",
+          "title": "Polarization optimality of equally spaced points on the circle for discrete potentials",
+          "trigger": "Potential claim concerning exact placement extremizers"
+        },
+        {
+          "assessment": "Exact continuous overlap in a later listed record, different discrete extremum",
+          "evidence": "Arbitrary real shifts, B=r and the same squared-circle-distance minimum; equally spaced shifts maximize the lower bound.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-positive-cubic-gap-defect-for-multiwindow-hat-spline-ga--2b8a9154bdc7",
+          "material_read": "RESULT.md Finding, Assumptions and Proof",
+          "method": "Resultary search and local mirror passages",
+          "title": "An exact positive cubic gap defect for multiwindow hat-spline Gabor systems",
+          "trigger": "Strongest exact overlap with the same translated-hat systems"
+        },
+        {
+          "assessment": "Different lattice",
+          "evidence": "a=1, b=m/(m+1); A_m=2(m²−1)/m³ and B_m=(m+1)/m.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gabor-frame-bounds-for-the-triangular-spline-at-the-ration--28776a6c4316",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact Gabor frame bounds for the triangular spline at the rational lattice",
+          "trigger": "Distinct same-day exact-bound result"
+        },
+        {
+          "assessment": "Analogy, not equivalent",
+          "evidence": "Finite two-row harmonic frame with circular complex phase sums.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+          "trigger": "Consecutive extremizers for a nearby spectral-erasure problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A user of the periodically thinned Gabor system needs a quantitative lower frame margin, not just frame membership for the unthinned grid. The arithmetic formula gives that exact margin for every surviving pattern, and the adversarial extremum identifies which losses most damage conditioning at fixed retained cardinality. This remains useful beyond the elementary spacing inequality and the already known general circular minimization method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

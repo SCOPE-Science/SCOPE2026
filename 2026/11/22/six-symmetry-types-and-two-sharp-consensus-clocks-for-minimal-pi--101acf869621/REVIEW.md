@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coordinatewise monotonicity argument reduces universal forcing to one least compatible initial configuration per pinned set; for cubic graphs its inactive complement follows simultaneous leaf-stripping. The cubic edge identity excludes every seed set of size at most three. Independent complete exact checks over all 495 quadruples verify 144 successful four-sets, and 48 verified graph automorphisms partition those into six orbits of sizes 12, 12, 24, 24, 24, 48. Their directly computed leaf-stripping depths give 72 optimal sets forcing in three rounds and 72 in four. Independently built graph dynamics checks all 36,864 compatible configurations for the optimal sets. The finite enumeration is exhaustive and wholly reproducible; no randomized certification is claimed.
+## correctness
 
-## Originality — PASS (historical-priority qualified)
-The closest general dynamic-monopoly literature provides bounds and a generalized-degeneracy duality, without the Franklin-specific six-orbit and timing table. The inspected Heawood minimum-feedback-set classification is a different graph and does not determine these numbers; previously recorded unpinned Franklin majority dynamics has no permanently pinned seed variable. The identification with feedback vertex sets and the cubic edge-count argument are credited standard reductions, not novel assertions. Targeted searches for exact 144-four-set Franklin classifications returned none. Residual risk: unindexed historical Franklin feedback-vertex-set tabulations and the partially accessible 2012 article.
+PASS
 
-## Value — PASS
-This is a natural complete optimal-intervention classification on a canonical vertex-transitive cubic bipartite graph, with exact counts of all minimum guaranteed-consensus placements, six symmetry types, and two distinct sharp worst-case synchronization clocks. The finite invariant is meaningful for threshold-seed placement and tests a network where degree and vertex transitivity alone do not determine placement quality. It extends beyond computing a single minimum number: it resolves all optimal labelled choices and their causal timing, while not claiming a general graph theorem as new.
+The all-unpinned-zero start is the coordinatewise least compatible state, and its orbit is increasing under the monotone pinned update. Its zeros peel by simultaneous deletion of degree-at-most-one vertices: a cycle must survive, while a finite forest peels completely. The edge count 18−3k+e(S) exceeds the forest bound 11−k for k≤3. At k=4 a forest complement has two components when e(S)=0 and one when e(S)=1. A fresh enumeration used connected-component edge counts and tree diameters (a tree of edge diameter D strips in floor(D/2)+1 rounds). Independently, each part-preserving automorphism is determined by its even-vertex permutation, since odd vertices have distinct neighborhoods. Exhaustion over the six even vertices, and composition with the verified part swap v↦1−v, give all 48 automorphisms. The independent six orbit tuples match the table, including representatives, sizes, clocks and induced pin edges. It also agrees with all 144 CSV rows and direct majority updates on all 36,864 compatible starts; for each set the least start reaches consensus at its stated deadline, not sooner.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
+PASS
+
+The distinct supported contribution is the joint labeled, symmetry and sharp-time census for minimum-cardinality permanently pinned sets on Franklin. The threshold/forest equivalence and cubic lower bound are credited reductions, not new. The exact Franklin forcing clocks were not implied by the unpinned dynamics, by bounds on the minimum seed size, or by exact results for other graphs.
+
+## value
+
+PASS
+
+A standard small cubic bipartite graph is a natural test for whether equally economical consensus interventions are equally fast. The complete orbit census and two sharp timing classes answer that question in a form useful for comparing placement geometry or benchmarking synchronous threshold dynamics. Neither the optimum size alone nor vertex symmetry gives the timing partition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

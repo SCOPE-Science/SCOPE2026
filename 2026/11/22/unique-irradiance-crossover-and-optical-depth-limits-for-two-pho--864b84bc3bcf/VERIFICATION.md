@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The accompanying `verify.py` is standalone Python 3 code using the standard library. Invoke `python3 verify.py`. The recorded execution returned `PASS: 7,839 deterministic assertions`; it verified the two **exact rational** opposite-sign witnesses, the analytic-vs-separate-integrals identity on 600 reproducibly sampled parameter triples, signs on each side of each computed crossover, increasing integrated ratios, and convergence trends toward the thin- and thick-layer scalar limits.
+## correctness
 
-The complete real-parameter theorem is supported by the symbolic derivation and quantifier-level arguments in `RESULT.md`, not by finite sampling. In particular, the checker does not formally certify infinitude, originality, physiological accuracy, or independent review. The full text of one historical multispecies-canopy paper was unavailable; historical priority is provisional. The review is a self-review only, with independent audit not performed.
+PASS
+
+For fixed a>b>0 and q in (0,1), substituting t=s exp(-z) gives lower minus upper mass of g(t)=exp(-bt)-exp(-at). Its log-elasticity E(t)=-bt+(a-b)t/(exp((a-b)t)-1) strictly decreases on t>0. Differentiating the log lower/upper mass ratio with respect to log s gives the difference of two positive-weight means of E on ordered intervals; the difference is strictly positive, since the shared endpoint has measure zero. At s down to 0 the ratio tends to q^2; at infinity it is asymptotic to exp(b(q-q^2)s), by direct integration of the leading exponential. This establishes one crossing with the stated orientation for every allowed triple. For small L the gap divided by L^2 tends at each fixed s to -s g(s)(1+E(s)), changing sign at the unique mode of s g(s). In the thick limit the substitution y=qs gives the difference from the two half-line masses at y, with a unique median. In each case opposite signs at fixed bracketing values force convergence of the unique roots. The integrated formulas and signed rational witnesses agree; independent bisection gives s_c=2.802054039187418 and productivities 0.2077660717709528 and 0.1130205774372200 in the frozen example. Replay: /workspace/reproductions/frozen-review-checks.js, record 4, Node.js; this is bounded numerical corroboration, not the proof. The packaged verifier was inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinction is the exact two-permutation, all-contrast crossover plus both optical-depth limits under an order-independent field. The read Resultary comparisons have different controls, and the credible older canopy paper remains an explicit priority risk rather than verified prior coverage. This is a best-of-knowledge judgment on the model theorem, not priority for Steele kinetics, log-concavity, or canopy positioning generally.
+
+## value
+
+PASS
+
+Equal optical-depth treatments isolate differential inhibition from differential shading. Even pointwise productivity domination does not tell which ordering is preferable; the unique crossover and its mode-versus-median endpoint laws give exact guidance for this natural two-stratum benchmark across all inhibition contrasts, not just numerical examples. This is a model-level result, not an agronomic recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

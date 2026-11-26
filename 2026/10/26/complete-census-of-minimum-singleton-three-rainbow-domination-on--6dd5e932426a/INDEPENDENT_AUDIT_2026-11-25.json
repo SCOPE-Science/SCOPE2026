@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:46.946607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At weight n+2 the zeros are an independent set, with exactly one per rung outside the two completely colored rungs. For a run, the two end-neighbor colors and the run's positive colors in between form a sequence whose sliding triples must have all three colors, so the first two distinct labels force the rest by period three. Its endpoint matrix is 2I if the run length is 2 mod 3, J−I otherwise. For adjacent holes there are 108 colorings per unordered pair, including n=3. With nonadjacent holes the zero-row difference between the two run ends changes parity by n−4. Thus for odd n one hole shares its constrained vertex and one does not, giving 144 colorings per pair; summing gives 108n+144(C(n,2)−n)=36n(2n−3). For 6|n, two orientations have both endpoints shared, two neither. For the shared case the count before free colors is tr(R_p R_q), correctly using symmetry to reverse one run. The directed-distance counts are 288,180,180 for the three residues of d mod 3, each occurring n/3−1 times, and the directed sum must be halved even for opposite holes. Adding adjacent holes gives 108n(n−2). This proves the replacement without assuming the minimum theorem. The same kernel gives the frozen rest of the table: no holes require both cyclic periods two and three; one hole shares the endpoint iff n is even; for the remaining even two-hole cases the trace values reduce to 6 and 0, with 180 at one distance residue and 72 at the other two. No falsity is alleged for those removed branches.",
+      "replay": "/workspace/review-evidence/prism2.py and prism2.txt: exact independent cyclic transfer trace for every n=3,…,36. Pair states (a,b) of columns transition to (b,c) if all zero conditions in b hold according to the prism adjacency; the degree of the transition records whether b is fully colored. No rung may have two zeros. A rooted closed path of length n is one labeled assignment, not a quotient by a cyclic shift. The coefficients through degree 2 agree with the full frozen table; the proof, not this finite check, establishes the repaired all-n claim. The frozen verifier and saved output were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Žerovnik gives cylinder lower/upper bounds, constructions and exact weights, including γ̃_r3(P_2 □ C_6)=6 in Lemma 4; §§5–6 distinguish general bounds and exact weights for subfamilies. Allagan et al. enumerate labeled minimum ordinary dominating vertex sets of the same prisms."
+        ],
+        "reasoning": "The cylinder result addresses weights and exhibits assignments, not the count of weight-(n+2) assignments in the two nonoptimal classes. Ordinary dominating sets neither carry three named colors nor impose three distinct positive labels around each zero.",
+        "searches": [
+          "Žerovnik DOI 10.3390/math14162917, p. 9 Lemma 4, p. 10 Proposition 4 and p. 12 Conclusions",
+          "Allagan et al. arXiv:2601.03488 / DOI 10.1155/ijmm/1411005, p. 3 definition and formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6a2d2531557b",
+        "Lange arXiv:2610.06906v1",
+        "Žerovnik 10.3390/math14162917",
+        "Allagan et al. arXiv:2601.03488 / 10.1155/ijmm/1411005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 19 proves the minimum weights n, n+1, n+2 in the corresponding classes. The indexed coefficient c_2 is used where it is a minimum; the matching c_0 and c_1 are lower-degree coefficients. The cylinder constructions bound the optimal weight."
+        ],
+        "reasoning": "Knowing lower coefficients or an optimal assignment construction does not fix this higher coefficient. Its enumeration additionally requires counting all placements of two fully colored rungs and resolving how the run-end color constraints interact under both orientation and separation; the inspected period/weight theorems do not enumerate those data.",
+        "searches": [
+          "Lange Theorem 19 arXiv:2610.06906v1 pp. 13–14; Resultary 6a2d2531557b coefficient passage; Žerovnik Lemma 4 and Conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lange's singleton convention matches this labeling, and relabeling the factors identifies the two-row cylinder with the prism. The indexed Finding gives exactly the named-color labeled minimum counts 12,12n,18n(3n−5),18n(3n−1) in the same classes."
+        ],
+        "reasoning": "Checking the same graph by cylinder notation does not change the model. The minimum in the two repaired regimes is n or n+1, so the indexed optimum census is not the repaired weight-(n+2) census.",
+        "searches": [
+          "Resultary: exact labeled singleton three-rainbow prism census at weights n,n+1,n+2; 6a2d2531557b",
+          "Singleton 3-rainbow domination of two-row cylinders P_2 □ C_n; Lange arXiv:2610.06906v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed table matches all four minimum branches and, in the inspected coefficient passage, c_0,c_1 and c_2 for n≡2,4 mod 6. No entry in those passages gives c_2 for odd n or 6|n. The other exact prism table treats ordinary domination, with for example 4 for n≡0 mod 4."
+        ],
+        "reasoning": "Exact coverage of the overlap has been removed from the new finding. The missing entries constitute all remaining cases of one weight coefficient, not additional samples of a known minimum count.",
+        "searches": [
+          "Resultary 6a2d2531557b, RESULT.md Findings and coefficient discussion, offsets 0 and 4400",
+          "Allagan et al. prism congruence-case enumeration, p. 3"
+        ]
+      },
+      "rationale": "The earlier same-model minimum-weight theorem and the distinct indexed census have substantial coverage of the frozen claim. Neither determines the two repaired branches where weight n+2 is nonoptimal. The full cylinder paper was recovered via the open static PDF, and its relevant theorems are bounds/exact weights, not the claimed counts. The repair claims only the nonminimum weight-(n+2) cases, not either minimum invariant or priority.",
+      "residual_risks": [
+        "The comparison is bounded to the relevant statements and inspected sources, not an exhaustive priority review. Relative dates of indexed records are not used to decide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on frozen minima and lower coefficients; does not cover the repaired two nonminimum branches in the inspected census",
+          "evidence": [
+            "Matching four minimum counts and c_2 in the even classes not divisible by 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-optimal-singleton-three-rainbow-domination-multiplicities--6a2d2531557b/RESULT.md",
+          "material_read": "Finding at offset 0, c_0,c_1,c_2 coefficient passage at offset 4400",
+          "method": "Local RESULT mirror",
+          "title": "Exact optimal singleton three-rainbow domination multiplicities",
+          "trigger": "Direct same-parameter minimum-census match"
+        },
+        {
+          "assessment": "Covers minimum weights, not the repaired counts",
+          "evidence": [
+            "For k=3, gives n for 6|n, n+1 for odd n, and n+2 for even n coprime to 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06906v1",
+          "material_read": "Singleton definition pp. 1–2, Theorem 19 pp. 13–14 from offset 54900",
+          "method": "OA arXiv PDF",
+          "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+          "trigger": "Exact same-model prism theorem"
+        },
+        {
+          "assessment": "Closest passages give bounds and exact weights, not multiplicity formulas at weight n+2",
+          "evidence": [
+            "Lemma 4 gives optimum 6 for P_2 □ C_6 using displayed assignments; Proposition 4 extends exact weight for circumference 6; conclusions describe constructions and families of exact weights."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-14-02917/article_deploy/mathematics-14-02917.pdf",
+          "material_read": "pp. 9–10, Lemma 4 and Propositions 3–4, offsets 46700–50293; p. 12 Conclusions, offsets 59000–61896",
+          "method": "Lawful open publisher static PDF after DOI-page limitation",
+          "title": "On Singleton 3-Rainbow Domination of Cylindrical Graphs",
+          "trigger": "Direct earlier same-model two-row cylinder coverage risk"
+        },
+        {
+          "assessment": "Counts ordinary dominating sets, not rainbow assignments",
+          "evidence": [
+            "Defines ζ(G_n) as the number of ordinary minimum dominating sets, counting distinct labeled vertex subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.03488",
+          "material_read": "p. 3 definition at offsets 7600–8174 and formula near offset 10000",
+          "method": "OA submitted version PDF",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Exact labeled census on the very same graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two nonminimum branches finish a natural low-weight coefficient across all circumferences, after accounting for the complementary classes where the optimum census already supplies it. These are exhaustive symbolic counts for infinite classes, not an arbitrary set of extra examples, and the contrast between odd (one shared hole) and even (two or none) explains the differing multiplicities. A researcher using low-weight terms of the labeling polynomial cannot substitute the optimum count for these branches.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:33.249962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed simple cubic graph n>=7, cut-edge counts squeeze |outside|<=e<=|inside|; both monochromatic rings attain n, and equality is precisely one opposite neighbor at every vertex. Eliminating the inner signs gives the Laurent operator whose cleared polynomial is (E-1)(E^5-1)(E^2+1). The cyclic shift is diagonalizable, so the outer word is a sum of four- and five-periodic words. On the Z/4 x Z/5 grid, distinct rows differ by a nonzero fixed number; with entries ±1 the difference is ±2, forcing both rows constant and the five-periodic term constant. Thus no mixed word survives. The inner sign formula forbids singleton outer runs; it leaves only ++-- with zero alternating Fourier coefficient in period four, and ++--- and its complement in period five, besides constants. All these solve the recurrence and give actual signs. Their fundamental periods and the unique inner word yield the claimed labelled counts even at multiples of 20. Inspected the supplied script and notes without execution; the reported finite census and graph checks are corroboration, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cubic equality criterion gives existence of a perfect matching cut, not a family census.",
+          "The 2022 paper enumerates admissible matrices and puts A1 in the 2016 work; its stated results do not enumerate all A1 realizations."
+        ],
+        "reasoning": "General equality and matrix existence explain the reduction; neither inspected statement is the decisive duplicate.",
+        "searches": [
+          "arXiv:2610.26259 cubic equality characterization",
+          "Alaeiyan–Karami 2016 DOI 10.1007/s12044-016-0285-4",
+          "Karami 2022 Theorems 3.3–3.5 and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "71466def2f69",
+        "arXiv:2009.07120v2",
+        "DOI:10.1007/s12044-016-0285-4 (access attempt)",
+        "arXiv:2610.26259",
+        "9b7add157468",
+        "16238d2bd17b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spoke cut gives the two constant words; the nonspoke period-four and period-five families are the same words upon shifts and complementation.",
+          "Other retrieved edge domination and induced matching results count different objects."
+        ],
+        "reasoning": "The exact matching-cut classification transfers bijectively, not just numerically. There is no new labelled configuration, including when both periods divide n.",
+        "searches": [
+          "71466def2f69 Finding and Proof—Counting",
+          "Resultary IDs 9b7add157468 and 16238d2bd17b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At equality every vertex has exactly one neighbor across, so a labelled minimizer is an ordered shore assignment of a perfect matching cut.",
+          "71466def2f69 gives precisely the same spoke and period-four/five assignments modulo exchanging shores."
+        ],
+        "reasoning": "For this connected graph each unordered cut has two possible shores (the color choices are determined up to simultaneous reversal), and the catalogue also gives the ordered count directly.",
+        "searches": [
+          "Resultary: perfect matching cuts of P(n,3) and two nonspoke resonance periods",
+          "Karami arXiv:2009.07120v2, A1",
+          "Radić–Radić–Tepeh arXiv:2610.26259"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "71466def2f69 Finding counts 1+2[4|n]+5[5|n] cut edge sets; Proof—Counting counts ordered shores with cycles of lengths 1,1,4,5,5.",
+          "Karami Table 1 records matrix existence, not multiplicities."
+        ],
+        "reasoning": "The exact configuration census is in the distinct catalogue entry and was checked at statement and proof level.",
+        "searches": [
+          "2026/11/2/SCOPE-perfect-matching-cuts-of-p-n-3-two-nonspoke-resonance-periods--71466def2f69",
+          "Karami 2022 Table 1"
+        ]
+      },
+      "rationale": "Distinct indexed record 71466def2f69 gives the exact full classification in the equivalent perfect-matching-cut formulation. Its proof explicitly counts ordered shores by 2+4[4|n]+10[5|n]. This is established duplicate coverage of the mathematical classification, not a priority inference from the shared date. Karami's matrix-existence result does not by itself enumerate configurations.",
+      "residual_risks": [
+        "Priority order between the two November 2 catalogue records is not established.",
+        "The 2016 full configuration-level coverage remains uninspected; the failure rests on the verified catalogue equivalence, not the access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete classification",
+          "evidence": "One spoke cut, two period-four cuts, five period-five cuts under the stated divisibility conditions; explicitly doubles to ordered shore counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-perfect-matching-cuts-of-p-n-3-two-nonspoke-resonance-periods--71466def2f69",
+          "material_read": "Finding at offset 0; Proof—Counting around offset 3300",
+          "method": "Local-mirror RESULT.md",
+          "title": "Perfect matching cuts of P(n,3): two nonspoke resonance periods",
+          "trigger": "Exact modular cut families and count"
+        },
+        {
+          "assessment": "Inspected stated census is of matrices, not the A1 configuration count",
+          "evidence": "A1=(2,1;1,2) is assigned to the earlier paper; theorems analyze existence for A2–A5.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.07120v2",
+          "material_read": "Abstract; pp. 2–5, Remark 2.3, A1 discussion, Theorems 3.3–3.5 and Table 1",
+          "method": "OA full-text passages",
+          "title": "Perfect 2-colorings of the generalized Petersen graph GP(n,3)",
+          "trigger": "Same graph and parameter matrix"
+        },
+        {
+          "assessment": "Configuration-level contents unestablished",
+          "evidence": "No accessible full text obtained in this check, so no conclusion about its full coverage.",
+          "identifier_or_url": "https://doi.org/10.1007/s12044-016-0285-4",
+          "material_read": "No full text read; matrix-scope description read in Karami 2022",
+          "method": "Bounded DOI and repository OA attempt",
+          "title": "Perfect 2-colorings of the generalized Petersen graph",
+          "trigger": "2016 source cited for A1"
+        },
+        {
+          "assessment": "General reduction, not the labelled census",
+          "evidence": "Restates the cubic equality characterization by perfect matching cuts.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26259",
+          "material_read": "p. 5 around offset 15250",
+          "method": "OA full-text passage",
+          "title": "Structural aspects of 1-limited domination in cubic graphs",
+          "trigger": "Graph-theoretic equality reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete configuration census on this family would be useful if distinct. Here the full census and both nonspoke patterns are already in a distinct indexed matching-cut record. A different Fourier proof does not leave a new invariant or an additional claim in the frozen Finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

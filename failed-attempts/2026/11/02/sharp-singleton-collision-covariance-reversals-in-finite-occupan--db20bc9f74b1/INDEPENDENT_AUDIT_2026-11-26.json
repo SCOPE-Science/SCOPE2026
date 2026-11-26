@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:23:05.583830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By exchangeability it suffices to pair each singleton indicator with the match indicator for observations 1 and 2. The singleton can coexist with that match only when the matched category is different and there is exactly one occurrence of the singleton category in the other n−2 draws. This gives the joint expectation in (5), and subtracting the product of expectations gives (1). At n=2, the singleton count is twice the no-match indicator. Uniform substitution gives the sign of n−2m including zero; for two categories and n>=3 the conditional pair count on a singleton is exactly C(n−1,2), giving the binary factor and its roots. The diagrams are scoped to the uniform and two-category models respectively. Independent exact multinomial occupation-vector enumeration in `python3 /workspace/branches/independent_replay.py 3` matched the formulas in 96 cases. Frozen `artifacts/verify.py` exists and was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-9485777d7c83 proves the general score identity at all positive finite categorical laws, not just for convex scores; the restriction to convex scores is for its separate association theorem.",
+          "Mao–Xue's exact moments concern finite-population subset allocation. Barbour–Gnedin's inspected abstract concerns joint asymptotics for frequency counts; Ben-Hamou et al. give singleton/missing-mass formulas; Källberg et al. study coincidence U-statistics and asymptotic inference. None of those limited passages is needed to establish the decisive prior coverage."
+        ],
+        "reasoning": "The exact all-score statement actually covers the input score and full parameter domain; there is no need to extrapolate a convexity theorem or an asymptotic approximation.",
+        "searches": [
+          "SCOPE-9485777d7c83 exact identity (1) for all scores, and uniform frequency theorem for all r",
+          "arXiv:2608.23998v1 mixed factorial moments; arXiv:0809.4387 frequency counts; arXiv:1412.8652 Good–Turing; arXiv:1103.4977 coincidence estimators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and artifacts/verify.py (read only); earlier Resultary SCOPE-9485777d7c83 and SCOPE-e84114bd4ba0; same-day SCOPE-6882bffd0f38, SCOPE-57a00506bf7c and SCOPE-c6ffbeff2d78; arXiv:2608.23998v1, 0809.4387, 1412.8652, 1103.4977"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For B~Bin(n−2,p), the prior identity uses G=P(B=0)−P(B=1) and J=P(B=1)−2P(B=0); for n>=3 these are (1−p)^(n−3)[1−(n−1)p] and (1−p)^(n−3)(np−2). Substitution and summation simplify to frozen (1). At n=2 the prior identity has G=1 and J=−2, giving −2s₂(1−s₂).",
+          "In frozen (1), for the two-category law (p,q) the bracket for p is q²[(n−2)−ns₂]=2q²(npq−1), and the other bracket is symmetric. This gives (3) and the two roots by solving npq=1."
+        ],
+        "reasoning": "The binary threshold may not be spelled out in the earlier record, but it is mechanically implied: the very same statistic, then direct substitution and the quadratic formula, without a new argument or obstruction.",
+        "searches": [
+          "SCOPE-9485777d7c83 exact score identity (1) specialized to the singleton indicator",
+          "Frozen (1)–(3), including n=2 and binary p endpoints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In SCOPE-9485777d7c83, T is Q_n and F_1 is S_n; W_f=F_1 for f(k)=1{k=1}. It explicitly gives C(n,2)(n−2m)(1−1/m)^(n−2)/m² for the uniform covariance.",
+          "Absorbing one factor of (1−1/m) gives exactly frozen (2) for n>=3; it also gives the n=2 uniform case."
+        ],
+        "reasoning": "This is equality of the random variables and the mathematical statement, not a comparison of keywords or adjacent estimators.",
+        "searches": [
+          "Resultary meaning search for singleton counts, occupancy frequencies, and quadratic pair collision/Simpson concentration covariance",
+          "Resultary 2026/10/18 SCOPE-9485777d7c83, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-9485777d7c83 tabulates the uniform frequency law for every r and expressly states zero iff n=2m for r=1.",
+          "The other indexed comparisons concern total richness rather than singletons, the uniform weak-composition law, block counts conditional on richness, or parity rather than pair collisions."
+        ],
+        "reasoning": "The exact all-parameter indexed formula is stronger evidence than a finite number table; the other exact boundaries do not use the same statistic and model.",
+        "searches": [
+          "Resultary SCOPE-9485777d7c83, uniform theorem and r=1 proof",
+          "Resultary SCOPE-e84114bd4ba0; same-day SCOPE-6882bffd0f38, SCOPE-57a00506bf7c, SCOPE-c6ffbeff2d78"
+        ]
+      },
+      "rationale": "Earlier indexed result SCOPE-9485777d7c83 uses exactly the same iid occupancy model and unordered pair count. It states the entire uniform singleton reversal (including the exact formula and equality case) and gives an identity for every occupancy score from which the nonuniform and binary formulas follow by direct substitution. The familiar neighboring literature is less decisive than this actual prior coverage.",
+      "residual_risks": [
+        "External publication priority is not settled and not needed for this decision. The earlier indexed record both states the uniform law and yields the other formulas algebraically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact coverage and mechanical implication",
+          "evidence": "The complete uniform frequency theorem explicitly singles out r=1 with sign sgn(n−2m). The proof gives the identity for every real occupancy score at all positive finite p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-convex-collision-association-and-two-threshold-frequency-depende--9485777d7c83/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof including identity (1) and the r=1 reduction (local-mirror offset 0–5458)",
+          "method": "Resultary search and direct read of matched local-mirror statement",
+          "title": "Convex collision association and two-threshold frequency dependence in multinomial occupancy",
+          "trigger": "Exact broader covariance theorem and singleton threshold"
+        },
+        {
+          "assessment": "Related but different first statistic",
+          "evidence": "Richness counts all nonempty cells, not just singleton cells.",
+          "identifier_or_url": "2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "material_read": "Finding",
+          "method": "Local mirror after Resultary search",
+          "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+          "trigger": "Adjacent indexed exact collision covariance"
+        },
+        {
+          "assessment": "Compared model only",
+          "evidence": "Allocation by finite-population subsets, rather than iid categorical samples.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.23998v1",
+          "material_read": "Abstract pp. 1–2",
+          "method": "Public text passage",
+          "title": "Mao and Xue, exact mixed factorial moments for occupancy counts",
+          "trigger": "Possible exact general occupancy coverage"
+        },
+        {
+          "assessment": "Asymptotic objective in inspected material",
+          "evidence": "Joint normal approximation for small-count statistics in an infinite-box scheme.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "Abstract p. 1",
+          "method": "Public text passage",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Possible exact frequency-count overlap"
+        },
+        {
+          "assessment": "Singleton-estimator background",
+          "evidence": "Defines the singleton count and relates it to the missing-mass estimator.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.8652",
+          "material_read": "p. 3, occupancy expectations and missing-mass identity",
+          "method": "Public PDF passages",
+          "title": "Concentration inequalities in the infinite urn scheme for occupancy counts and the missing mass, with applications",
+          "trigger": "Good–Turing singleton estimators"
+        },
+        {
+          "assessment": "Pair estimator background",
+          "evidence": "Inference and asymptotic normality for coincidence-based generalized U-statistics.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.4977",
+          "material_read": "Abstract p. 1",
+          "method": "Public text passage",
+          "title": "Statistical inference for Rényi entropy functionals",
+          "trigger": "Unbiased coincidence statistic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The covariance question is natural and an accessible derivation is useful exposition. But the precise uniform reversal is already an explicit indexed case. The remaining displayed formulas and roots amount to immediate evaluation of its stronger all-score identity in the same model, not an independently useful unresolved boundary. No distinct surviving claim is established that would support a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

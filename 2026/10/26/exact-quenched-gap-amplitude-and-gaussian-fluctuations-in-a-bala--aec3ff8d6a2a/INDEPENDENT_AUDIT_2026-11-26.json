@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:30.656086Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75 and VERIFICATION.md lines 19–23; verify_gap.py lines 12–52 inspected, not executed.",
+        "Independent finite check at N=4 compared the least singular value against 1/(N sqrt(rho(K^(-1)W/N^2))) to about 10^(-15). Replay method: form the lower bidiagonal matrix and the independent symmetric matrix with entries sqrt(w_i w_j) min(i,j)/N^2; compare the smallest singular value with the transformed top eigenvalue. For J_i=1 the closed finite answer 2 sin(pi/(4N+2)) also checks the boundary and factor of two."
+      ],
+      "rationale": "The conclusion is for the least singular value (one-fermion energy at the stated Hamiltonian normalization), not a parity-constrained gap. Factoring M=(I+S)diag(h) and setting z_i=(-1)^i h_i v_i gives the pinned-left/free-right string quotient with exact mass w_N=1 and w_i=J_i^(-2) otherwise. Its stiffness is a squared first difference, whose inverse is min(i,j). Scaling gives the Green operator with atomic mass on j/N. The Lipschitz-operator bound follows by integrating against the cumulative mass discrepancy: both min(x,y)f(y) and 1_{y>x}f(y) have uniformly bounded variation in y for ||f||_Lip<=1, controlling the supremum and the a.e. derivative. The discrepancy is at most the maximum absolute centered partial sum divided by N plus O(1/N); the strong law and Kolmogorov maximal inequality give a.s. convergence and O_P(N^-1/2), respectively. The limiting map has a bounded image in C^{1,1}, so is compact in Lip. With k=pi/2 the top simple isolated eigenvalue is m/k^2, with right sine mode u and left functional 2 integral(u f); spectral separation and norm convergence identify the nearby eigenvalue with the top finite-matrix eigenvalue. The simple-eigenvalue expansion has a quadratic remainder. Its linear term is the empirical sum of centered masses with coefficient 2 sin^2(kj/N)/(k^2 N), up to O(1/N) from quadrature and the endpoint. The bounded weighted triangular-array CLT uses integral sin^4=3/8; the map rho -> rho^(-1/2) gives variance 3 pi^2 s^2/(32 m^3). For s^2=0 the centered sum vanishes and the remainder at sqrt(N) scale goes to zero. No extrapolation to heavy tails, other balance profiles or parity-constrained excitations is made.",
+      "residual_risks": [
+        "The finite checks are normalization and matrix-identity checks, not evidence of convergence in law on their own. The theorem uses bounded iid masses and one shared infinite sequence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bal's spectral corrector argument requires a Gaussian first-variation limit for its random operator; the discrete measure with an endpoint atom and the weighted iid CLT are not supplied there.",
+          "Juhász's bounds address broader profiles but do not squeeze to the asserted constant or yield its centered fluctuations."
+        ],
+        "reasoning": "General perturbation machinery is prior, but the inspected hypotheses do not directly include the chain-specific reduction, norm estimate and variance as an evaluated specialization.",
+        "searches": [
+          "Bal, arXiv:0710.0363 Sec. 4",
+          "Juhász, arXiv:2206.11575 Sec. V.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked search",
+        "arXiv:2206.11575",
+        "arXiv:2309.12827",
+        "arXiv:2007.07439",
+        "arXiv:0710.0363",
+        "Frozen RESULT.md proof and prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exponent z=1 does not imply an a.s. amplitude. A spectral Gaussian-corrector principle needs the projection of the actual mass perturbation, giving the sin^2 weight, sin^4 integral, and endpoint error bound."
+        ],
+        "reasoning": "Extracting the two constants and bounding the remainder is a model-specific calculation not inferred from the prior exponent or an unverified applicability of a general CLT.",
+        "searches": [
+          "arXiv:2206.11575 Eq. (34) and Sec. V.2",
+          "arXiv:0710.0363 pp. 29–30",
+          "Frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Juhász Eq. (34) at s=0 is precisely this endpoint convention; Eq. (6) gives the excitation normalization. The inspected V.2 discussion gives bounds and exponents rather than a mass-weighted sharp limit; its control-parameter CLT is on a different statistic.",
+          "Juhász–Roósz discuss the same balance in defect/dynamical scaling; Shirai–Tanaka address correlated-disorder exponent bounds."
+        ],
+        "reasoning": "Compared the singular-value, fermionic and random-string formulations, not just the spin-chain name; no equivalent exact amplitude-plus-CLT statement was found.",
+        "searches": [
+          "Targeted balanced Ising gap literature lookup (arXiv:2206.11575 and arXiv:2309.12827)",
+          "arXiv:2007.07439"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest title-level amplitude analogue reported was 2026/10/13/SCOPE-exact-square-root-amplitude-at-the-uncountable-spin-cayley-tree--59ef7f58eb69; it concerns a Cayley-tree order-parameter bifurcation, not a random-chain spectral gap."
+        ],
+        "reasoning": "The targets here are analytic asymptotic constants for a distribution family, not a finite lookup table. No materially matching indexed finding was identified within this search.",
+        "searches": [
+          "Resultary ranked lookup for balanced-chain gap amplitude and fluctuation (50 results)"
+        ]
+      },
+      "rationale": "The balanced chain and gap exponent are prior. On the inspected evidence the distinct result is the almost-sure sharp one-fermion gap amplitude and its explicit Gaussian fluctuation variance for that bounded iid chain. No prior statement or applicable stronger result giving this pair was established; this is a bounded priority judgment.",
+      "residual_risks": [
+        "A more directly applicable random-mass string or one-dimensional homogenization theorem under a different formulation may exist. The inspected passages and bounded searches do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and exponent; no sharp gap amplitude or gap CLT in the inspected statements",
+          "evidence": "The s=0 fields equal the corresponding bonds with h_N=1; positive energies are the positive branch of the paired spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.11575",
+          "material_read": "Eq. (6), p. 2; Eq. (34), p. 5; Sec. V.2 bounds/scaling, p. 6",
+          "method": "OA passage reads at offsets 14513, 38500 and 43872",
+          "title": "Exact bounds on the energy gap of transverse-field Ising chains by mapping to random walks",
+          "trigger": "Identical s=0 balance and gap definition"
+        },
+        {
+          "assessment": "Related model, different target",
+          "evidence": "Regular-distribution z=1 behavior and driving/defect scaling do not state the one-particle gap constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12827",
+          "material_read": "Open-chain balance and scaling, PDF pp. 2–3",
+          "method": "OA passage reads, offsets 9982–17941",
+          "title": "Reducing defect production in random transverse-field Ising chains by inhomogeneous driving fields",
+          "trigger": "Balanced-disorder dynamics"
+        },
+        {
+          "assessment": "Exponent comparison only on inspected evidence",
+          "evidence": "States bounds for dynamical critical exponents under correlated field-coupling disorder, not the stated bounded iid amplitude and law.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07439",
+          "material_read": "PDF p. 1, stated scope and correlated-disorder description",
+          "method": "OA passage at offset 1136",
+          "title": "Exact bounds for dynamical critical exponents of transverse-field Ising chains with a correlated disorder",
+          "trigger": "Possible stronger correlated-balance gap result"
+        },
+        {
+          "assessment": "Related general method; stochastic and operator hypotheses are not the delivered discrete theorem",
+          "evidence": "First variation yields eigenvalue fluctuations given a Gaussian operator projection limit. It does not provide the atom-weighted mixed-boundary projection here.",
+          "identifier_or_url": "https://arxiv.org/abs/0710.0363",
+          "material_read": "PDF p. 3, pp. 29–30, especially spectral first variation",
+          "method": "OA passage reads at offsets 10952, 96516 and 100715",
+          "title": "Central limits and homogenization in random media",
+          "trigger": "General eigenvalue fluctuation result might imply the chain law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof Steps 1–4",
+        "Juhász Sec. V.2 exponent discussion"
+      ],
+      "rationale": "The exact normalization and fluctuations are intrinsic gap statistics of an independently motivated balanced critical chain. They distinguish self-averaging of the leading prefactor from nonzero disorder corrections and give constants useful for comparing finite-chain data with asymptotics; neither is a restatement of z=1 or of a finite simulation.",
+      "residual_risks": [
+        "Use is limited to the stated one-fermion gap; the record proves neither parity-restricted dynamics nor finite-size rate bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

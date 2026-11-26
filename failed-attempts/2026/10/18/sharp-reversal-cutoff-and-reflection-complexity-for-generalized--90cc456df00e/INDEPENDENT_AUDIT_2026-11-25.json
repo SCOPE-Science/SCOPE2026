@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:24.016366Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the argument in RESULT.md lines 19–53. Digit-sum parity gives the containing families (1,d,1), (0,1,d), (d,1,0) for length-four differences. Reversing a factor reverses and negates its differences. The image of the first family has both outer entries −1 and misses all three families; the other images have middle entry −1 and at least one outer entry 0 and also miss all three. This uses only 1≠−1 mod ell (and −1≠0), so applies at ell=3 and 4 as well as all larger moduli. At any greater length a putative reversal would give a forbidden length-four pair. For length three both a difference pair and its negated reversal must contain 1; only (1,−1) and (−1,1) satisfy both, giving palindromes. The disjoint binary blocks in m=2^(k+1)(2^r−1)+2^k−1 give s_2(m)=r+k and s_2(m+1)=r+1, including k=0 or r=0, so arbitrary ordered pairs are realized using the stated congruences. Applying the even/odd rules to all pairs gives the two families of ell² triples whose intersection has ell, and exactly 2ell length-three palindromes. The two-letter reversal orbits give ell(ell+1)/2; the one-letter and empty counts follow. The proof establishes the infinite claims; an independent prefix check for moduli 3,4,5 and first 4096 terms merely corroborates the short counts. VERIFICATION.md and verify.py were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f12270a0ea48 treats s_b mod m and for gcd(b−1,m) in {1,2} states no reversible factors at h≥4, every reversible length-three factor is palindromic and there are exactly 2m.",
+          "Fleischer–Shallit provide a general regular-language framework for avoiding reversed factors; the inspected statements do not classify this infinite family.",
+          "Dvořáková–Pelantová's extension in §6 concerns G-complexity including complement on a binary alphabet."
+        ],
+        "reasoning": "The all-base result applies directly with b=2; no new hypothesis or proof is needed. The general literature references explain the surrounding theory, not the decisive coverage.",
+        "searches": [
+          "Resultary f12270a0ea48, Finding, assumptions and Proof §1",
+          "arXiv:1911.11704 §§1–2",
+          "arXiv:2511.12358, abstract and §6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary f12270a0ea48",
+        "Local Resultary 4c1615f0a563",
+        "arXiv:2406.09302",
+        "arXiv:1104.2476",
+        "arXiv:1911.11704",
+        "arXiv:2511.12358"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b=2 implies gcd(b−1,m)=1, so the broader theorem already yields the exact length-four cutoff, length-three reversal classification and r=rho for all n≥3.",
+          "The same binary word's exact r(3)=rho(3)=2m²−m appears in the second indexed finding."
+        ],
+        "reasoning": "The characterization of allowed length-three differences also follows: parity ensures that one is 1, there are exactly 2m²−m candidate triples, and the covered factor count equals that number. Thus neither the structural short-language statement nor any exact count is left for a repair.",
+        "searches": [
+          "Resultary f12270a0ea48, gcd trichotomy and two-letter language",
+          "Resultary 4c1615f0a563, stated theorem and initial values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4c1615f0a563, Finding and scope: the same s_2(j) mod m word, m≥3, and ordinary reversal of contiguous present factors.",
+          "Starosta's antimorphisms reflect and map each symbol k to x−k; they are not plain reversal on this alphabet.",
+          "Question 62 reports the identity for m=3 and an apparent extension for m>4, not an asserted theorem covering all m≥4."
+        ],
+        "reasoning": "The two Resultary word definitions are identical after m=ell. In contrast, the published symmetry with a simultaneous symbol permutation is not an equivalent ordinary-reversal result.",
+        "searches": [
+          "Local Resultary: binary digit-sum residue words, ordinary reversal, length-four cutoff",
+          "arXiv:2406.09302, §9 Question 62",
+          "arXiv:1104.2476, Propositions 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4c1615f0a563 explicitly gives r(3)=2m²−m and exactly 2m length-three palindromes for this word.",
+          "f12270a0ea48 gives r(0)=1, r(1)=m and rho(2)=m²/g with r(2)=m(m+1)/2 at g=1."
+        ],
+        "reasoning": "The indexed exact formulas are for the same quantities under the same reversal convention. The original count of all ordered pairs follows also from rho(2)=m². The empty-factor count adds no independent invariant.",
+        "searches": [
+          "Resultary 4c1615f0a563, Finding",
+          "Resultary f12270a0ea48, Finding and exact two-letter language"
+        ]
+      },
+      "rationale": "There is exact coverage in the available index. Resultary f12270a0ea48 treats arbitrary base b and states the sharp cutoff, length-three palindrome classification and reflection identity in its gcd(b−1,m)=1 or 2 branch. At b=2 the gcd equals 1 for every modulus. Resultary 4c1615f0a563 explicitly treats the identical binary-base word, including the exact length-three count. No theorem here survives those comparisons as a distinct finding. This is a statement-coverage conclusion, not a determination of publication priority. Allouche et al.'s Question 62 is an open question with an observed pattern, not a formal all-moduli conjecture.",
+      "residual_risks": [
+        "The indexed coverage is exact, irrespective of priority. The dates on catalogue paths do not establish which proof came first.",
+        "The external literature comparison is bounded to the inspected statements; claims of exhaustive historical coverage are not made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage at base two",
+          "evidence": [
+            "The g∈{1,2} branch gives cutoff 4 and all the reversal and palindrome statements, plus the short length-two values at g=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-arithmetic-sharp-cutoffs-for-reflected-factors-of-generalized-th--f12270a0ea48/RESULT.md",
+          "material_read": "Finding, assumptions, and beginning of Proof §1 (mirror offset 0–3631)",
+          "method": "Local Resultary search and bounded local mirror read",
+          "title": "Arithmetic sharp cutoffs for reflected factors of generalized Thue–Morse words",
+          "trigger": "Potential stronger theorem for arbitrary base"
+        },
+        {
+          "assessment": "Same mathematical finding, including explicit r(3)",
+          "evidence": [
+            "The word uses s_2(j), every m≥3, and unmodified reversal; the displayed theorem states cutoff 4, r=rho from 3, and r(3)=2m²−m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-reversal-freeness-at-length-four-for-every-nonbinary-digit-sum-r--4c1615f0a563/RESULT.md",
+          "material_read": "Finding and relevant scope, mirror offset 0–1540",
+          "method": "Local Resultary search and bounded local mirror read",
+          "title": "Reversal-freeness at length four for every nonbinary digit-sum residue word",
+          "trigger": "Exact binary-base language and short counts"
+        },
+        {
+          "assessment": "Prior modulus-three identity and observation for m>4, not a proof of the whole result",
+          "evidence": [
+            "Asks how to generalize Theorem 56, reports identity at modulus three and says a similar property appears for m>4; m=4 is not included there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
+          "material_read": "§9 Question 62, p. 31",
+          "method": "Targeted OA preprint passage",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Original further-directions question"
+        },
+        {
+          "assessment": "Group of operations differs; uniqueness within it does not supply ordinary reversal",
+          "evidence": [
+            "Antimorphism on letters is x−k; morphisms act as translations. For m≥3 the order-reversing group elements do not act identically on all letters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.2476",
+          "material_read": "Proposition 1 p. 2 and §3 Proposition 2 p. 4",
+          "method": "Targeted OA preprint passages",
+          "title": "Generalized Thue–Morse words and palindromic richness",
+          "trigger": "Potential coverage through dihedral closure and factor interpretations"
+        },
+        {
+          "assessment": "General finite-word framework, no direct cutoff classification in the inspected passages",
+          "evidence": [
+            "Defines the relevant avoidance property and proves regularity of the corresponding language of finite words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.11704",
+          "material_read": "§§1–2, pp. 1–2",
+          "method": "Targeted OA preprint passages",
+          "title": "Words Avoiding Reversed Factors, Revisited",
+          "trigger": "General reversed-factor avoidance theory"
+        },
+        {
+          "assessment": "The inspected extension concerns a different group and alphabet",
+          "evidence": [
+            "The highlighted extension uses Id, R, E and ER on a binary alphabet with E the complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.12358",
+          "material_read": "Abstract p. 1 and §6 p. 11",
+          "method": "Targeted OA preprint passages",
+          "title": "Reflection on the Reflection Complexity",
+          "trigger": "Possible subsequent answer to Question 62"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cutoff is mathematically natural and answers a real question about plain reversal, but this record repeats a covered special case with short counts already available. The alternate elementary derivation does not establish a stronger useful conclusion or technique on the evidence provided. No scientifically substantial distinct remainder is identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

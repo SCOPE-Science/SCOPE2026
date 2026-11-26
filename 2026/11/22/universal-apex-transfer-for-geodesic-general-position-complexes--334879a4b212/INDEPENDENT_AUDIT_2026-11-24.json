@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:34.221605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph has diameter two, and a forbidden triple is exactly a length-two path with nonadjacent endpoints, taking the path segment between the outermost selected vertices if needed. For triples entirely off the apex the two selected edges must be in one part, and triangle-freeness makes degree at least two in that part exactly the obstruction. Thus deletion of the apex is the join A of the D₂ factors. With the apex present, selected rim vertices must be mutually adjacent and therefore consist of at most one rim edge or a singleton; the link B is precisely the disjoint union of the original rim graphs as one-dimensional complexes. Every D₂ has the full 1-skeleton (a singleton is allowed), so the join of at least two factors is simply connected. The inclusion of each one-dimensional connected component of B is nullhomotopic by contracting a spanning tree and then its cycle loops in A; all component homotopies can end at one point of A. The simplicial inclusion is a cofibration and adding the apex cone is its mapping cone. Replacing the attachment by that constant gives A wedge the unreduced suspension of B. After collapsing a spanning tree in each rim component, the suspension has two poles, one connecting edge per component, and one 2-cell per original loop attached along its corresponding edge and back. Contracting one connecting edge and nullhomotoping those 2-cell maps gives exactly m-1 circles and the sum of the cycle ranks in 2-spheres, without changing the integral homotopy claim to merely a homology claim. D₂(C₄) is K₄ as a graph, hence a wedge of three circles. Reduced suspension of the smash product describes each join up to homotopy, giving 3^m spheres of dimension 2m-1. As an exact small boundary check, two singleton parts give the three-vertex path with GP complex the boundary of a triangle, in agreement with a contractible join and a single circle. The code verify_wheel_bouquets.py uses disjoint rims despite its name; it was inspected, not executed. The source's reported finite checks test faces and mod-two Betti numbers; the m=1 case checks the faces but has no predicted Betti vector in the script. The integral classification is justified by the proof, not by those checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-join proposition covers broader graph inputs at the face/counting level. Rather gives set structure and counts for complete multipartite graphs. Higher independence complex work gives cycle-factor homotopy, including the square."
+        ],
+        "reasoning": "These broader results concern individual factors or set structure, not the homotopy of the geodesic complex after coning its disconnected link. Clique counting theorems are not homotopy decompositions; the apex graph with multiple disjoint square rims is not complete multipartite.",
+        "searches": [
+          "doi:10.1007/s00025-024-02133-3, §3",
+          "arXiv:2603.06930v3, Theorems 3.1 and 3.4",
+          "arXiv:2001.05448, Theorem 4.6"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s00025-024-02133-3",
+        "arXiv:2603.06930v3",
+        "arXiv:2001.05448",
+        "Resultary: 334879a4b212 (identical finding), a4d11c899702, ad8df2be6d7f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying Proposition 3.3 supplies the exact simplicial faces, and the known square dissociation complex plus the smash formula supplies the 3^m high-dimensional spheres of the deletion join.",
+          "No compared statement supplies the effect of the apex attachment over a union of multiple connected rim graphs."
+        ],
+        "reasoning": "Credit the deletion and its square-join computation as covered or mechanical. The full conclusion still requires studying the inclusion of the whole rim link, showing it is null rather than presuming that coning it preserves the join summand, and determining the unreduced suspension of a disconnected graph. The existing single-wheel classification does not mechanically produce that transfer.",
+        "searches": [
+          "doi:10.1007/s00025-024-02133-3, Proposition 3.3",
+          "arXiv:2001.05448, Theorem 4.6",
+          "Resultary: a4d11c899702 and ad8df2be6d7f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D₂ is exactly Ind₂: maximum degree at most one is equivalent to every connected component of the selected induced subgraph having at most two vertices.",
+          "The join rule, specialized to one universal vertex and a triangle-free rim union, yields the exact face decomposition, with counting polynomial x C(F)+C_i(F) in the cited notation."
+        ],
+        "reasoning": "The face description is covered under the clique/induced-disjoint-union-of-cliques formulation. The remaining mathematical claim is the geometric cofiber split and its contribution from the disconnected apex link, not a new wording of the join counts.",
+        "searches": [
+          "Resultary: universal-apex geodesic general-position complex / 334879a4b212",
+          "doi:10.1007/s00025-024-02133-3, Proposition 3.3",
+          "arXiv:2001.05448, Definitions 3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned finding itself. Two distinct same-day nearby entries classify the single-wheel complex (two circles for C₄, real projective plane for C₅, and a sphere plus the dissociation factor up to homotopy for longer rims). The known cycle theorem gives D₂(C₄) as three circles."
+        ],
+        "reasoning": "The tabulated single-wheel cases do not apply to m≥2: they have one connected link and lack the added-circle term, and the single-factor deletion need not be simply connected. The all-square family is an exact infinite classification, not an exhaustive finite table.",
+        "searches": [
+          "Resultary: 334879a4b212",
+          "Resultary: a4d11c899702 and ad8df2be6d7f",
+          "arXiv:2001.05448, Theorem 4.6 (cycle C₄)"
+        ]
+      },
+      "rationale": "Qualified pass specifically for the multicomponent universal-apex homotopy transfer and the resulting full all-square classification. Credit the graph-join face decomposition to the prior graph-join characterization and the square-factor classification to established higher independence complex topology. Neither the graph-join polynomial nor the cycle-factor theorem gives the topology of attaching the apex cone; the decisive use of the simply connected deletion and graph-dimensional link identifies its actual contribution. The separate single-wheel catalogue classifications were compared by statement, with no inferred priority from same-day dates.",
+      "residual_risks": [
+        "The broad primary search wave was deferred. This qualified pass rests on the substantive primary-passage and catalogue evidence, not on a claim of an exhaustive priority search.",
+        "An uninspected general cofiber theorem already applied to this family could subsume the transfer; no chronological conclusion is drawn about the same-day wheel records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers face characterization after specialization, not geometric attachment and splitting.",
+          "evidence": "Cross-part general-position choices are governed by clique conditions and single-part choices by induced unions of cliques; the proposition gives a counting polynomial.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "§3, p. 6, Proposition 3.3 (PDF text offset 15100)",
+          "method": "Lawful open primary PDF passage.",
+          "title": "General Position Polynomials",
+          "trigger": "General graph-join statement plausibly implies the combinatorial structure."
+        },
+        {
+          "assessment": "Different family/observable; no matching homotopy theorem in the inspected statements.",
+          "evidence": "Characterizes and counts sets in complete multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2603.06930v3",
+          "material_read": "Theorems 3.1 and 3.4 (offsets 15385 and 22116)",
+          "method": "Lawful open primary text passages.",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Later general-position classifications of graph families."
+        },
+        {
+          "assessment": "Covers D₂(C₄) and hence its standard join computation, not the transfer.",
+          "evidence": "Ind₂ allows induced components of size at most two; the cycle theorem specializes to three circles for C₄.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Definitions 3.1–3.2 and Theorem 4.6 (offsets 14812 and 36150)",
+          "method": "Lawful open primary text passages.",
+          "title": "Higher Independence Complexes of Graphs and Their Homotopy Types",
+          "trigger": "Equivalent dissociation-factor formulation and known cycle topology."
+        },
+        {
+          "assessment": "Same-day single-component comparison only.",
+          "evidence": "Distinguishes C₄, C₅ and Cₙ with n≥6; does not cover disjoint rims before adjoining the apex.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-wheel-general-position-complex-is-a-projective-plane-at-five--a4d11c899702",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published mirror passage.",
+          "title": "The wheel general-position complex is a projective plane at five",
+          "trigger": "Exact geodesic-complex topology on universal apex plus cycle."
+        },
+        {
+          "assessment": "Same-day single-component comparison, not multicomponent coverage.",
+          "evidence": "Single-cycle classification with periodic sphere cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-projective-plane-exception-in-wheel-general-position-complex--ad8df2be6d7f",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published mirror passage.",
+          "title": "The projective-plane exception in wheel general-position complexes",
+          "trigger": "Another exact catalogue claim in the wheel geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The transfer gives actual homotopy information for a natural graph operation and retains any higher topology of the joint dissociation factor, rather than mistaking face counts or field Betti ranks for homotopy. It separately identifies the free fundamental group of rank m-1 and the two-sphere contributions from rim cycles; even with no cycles, multiple rims create circles. The square example illustrates exponential multiplicity in a third degree. The proof uses standard topology economically, but the value is the structural description of the cone attachment over arbitrary allowed factors, not the routine calculation of the square deletion join alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

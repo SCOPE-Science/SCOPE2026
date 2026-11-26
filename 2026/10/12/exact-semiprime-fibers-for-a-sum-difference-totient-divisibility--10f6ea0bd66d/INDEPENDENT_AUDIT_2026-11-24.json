@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:30.278697Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Ω(n)=2 the only possibilities are p² and p<q. For the square, multiplying 2p²+1 by two reduces it to 3 modulo 2p+1≥5. For a distinct pair the quotient is (pq+1)/(p+q), and the remainder test gives p+q | p²−1; p=2 cannot satisfy it. Divisors d>2p generate exactly the prime companions q=d−p. The quotient on a solution is strictly between 1 and p since (p−1)(q−1)>0 and p²>1. Multiplying out gives (p−k)(q−k)=k²−1, and expanding the positive factor-pair construction proves its converse; p<q and the quotient force uniqueness. An independent bounded Python check (/tmp/opencode/frozen_audit_small.py) computed σ by divisor accumulation and φ from the divisor recurrence, and compared both generators against the literal divisibility for all 23,378 semiprimes up to 100,000. There were 158 hits, with the stated first ten. The frozen verify.py was inspected, not executed. It checks the fiber identity on hits, not as a separately generated predicate on every pair as the verification prose suggests. Neither finite check establishes the unbounded claim; the algebra does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A061367 concerns all composites, including 357=3·7·17, with an arithmetic membership test rather than an all-semiprime structural condition. The De Koninck–Luca landing metadata concerns composition of the functions; full text was not retrieved."
+        ],
+        "reasoning": "A broad definition or test on all composites does not give a finite generator at fixed p or k. No broader structural statement covering the layer was established.",
+        "searches": [
+          "OEIS A061367 and its component-function links A051612, A065387",
+          "DOI:10.4064/cm108-1-4"
+        ]
+      },
+      "checked_sources": [
+        "OEIS:A061367",
+        "OEIS:A051612",
+        "OEIS:A065387",
+        "Resultary:e44eeaa438c7",
+        "Kurzweg, Relation Between S and f(N) for Semi-Primes N=pq",
+        "DOI:10.4064/cm108-1-4 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest exact-object entry evaluates the original divisibility. Its component entry gives one side of the quotient, not which primes make the quotient integral. The neighboring Resultary classification has a different divisibility and different allowed pairs."
+        ],
+        "reasoning": "The two-sided classification, square exclusion and factor-pair exhaustion are not corollaries of a located stronger solution theorem. The algebra is elementary and may have been observed independently.",
+        "searches": [
+          "OEIS A061367, A051612, A065387, Formula/Program sections",
+          "Resultary e44eeaa438c7, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kurzweg, p. 1, uses f(pq)=(p+q)/(pq) for semiprime factorization but does not impose the divisibility. The closest distinct catalogue record e44eeaa438c7 gives q=p²−p−1 for σ(n)|nφ(n), not p+q | p²−1."
+        ],
+        "reasoning": "Shared use of p+q, or coincident terms such as 143, does not identify the divisibility or the k-fibers. For example 6 is a solution of the catalogue neighbor, but not of the frozen problem; 35 is in the frozen layer, but does not satisfy the neighbor's criterion.",
+        "searches": [
+          "\"σ(n) − φ(n)\" \"σ(n) + φ(n)\" semiprime p+q",
+          "Resultary: two-factor divisor-sum/totient divisibility; fixed-prime and fixed-quotient parametrizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A061367 is the exact sequence, with terms, direct code and a linked 10,000-term table. All ten displayed integers were already listed. A051612 tabulates σ−φ; A065387 records σ+φ=2(n+1) for squarefree semiprimes."
+        ],
+        "reasoning": "Credit the exact sequence and terms and the component identity as prior coverage; the actual unbounded structural formulas are not supplied by those entries.",
+        "searches": [
+          "https://oeis.org/A061367",
+          "https://oeis.org/A051612",
+          "https://oeis.org/A065387"
+        ]
+      },
+      "rationale": "The exact underlying sequence and the tabulated terms are public. The supported distinct content is the complete multiplicity-two criterion and the two finite parametrizations, not the initial integer list or either component function. No inspected source supplies that structural classification; this is a bounded assessment.",
+      "residual_risks": [
+        "An old short note or discussion may already contain an equivalent elementary observation.",
+        "The De Koninck–Luca paper was not compared beyond metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_OBJECT_AND_TERMS_NOT_STRUCTURAL_CLASSIFICATION",
+          "evidence": "Defining divisibility and initial terms up to and beyond 377; computation tests membership directly.",
+          "identifier_or_url": "https://oeis.org/A061367",
+          "material_read": "Entry definition, data, formula and code, beginning at offset 0",
+          "method": "Public entry inspection",
+          "title": "Composite integers with σ(n)−φ(n) dividing σ(n)+φ(n)",
+          "trigger": "Exact same sequence"
+        },
+        {
+          "assessment": "PARTIAL_COMPONENT_IDENTITY",
+          "evidence": "A065387 has the squarefree-semiprime form 2(n+1), but not a quotient integrality criterion.",
+          "identifier_or_url": "OEIS:A051612; OEIS:A065387",
+          "material_read": "Definitions and Formula at offset 0",
+          "method": "Public entry inspection",
+          "title": "Component functions σ−φ and σ+φ",
+          "trigger": "Possible semiprime arithmetic formula"
+        },
+        {
+          "assessment": "DIFFERENT_DIVISIBILITY",
+          "evidence": "σ(n)|nφ(n); the two-factor solutions are 6 and certain products q=p²−p−1, not the claim here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-complete-two-factor-classification-for-a-divisor-sum-totient-div--e44eeaa438c7/RESULT.md",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Local Resultary and source mirror",
+          "title": "Complete two-factor classification for a divisor-sum–totient divisibility",
+          "trigger": "Closest distinct local catalogue result"
+        },
+        {
+          "assessment": "INSPECTED_PASSAGE_CONCERNS_DIFFERENT_PROBLEM",
+          "evidence": "Discusses using S to factor pq, with f(pq)=(p+q)/(pq), not the sum–difference condition.",
+          "identifier_or_url": "https://web.mae.ufl.edu/uhk/S-f-N.pdf",
+          "material_read": "Opening comparison and example on p. 1",
+          "method": "Bounded open PDF passage",
+          "title": "Relation Between S and f(N) for Semi-Primes N=pq",
+          "trigger": "Literature hit on p+q and semiprimes"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_CHECKED",
+          "evidence": "The title identifies a composition problem; no statement-level exclusion is inferred from it.",
+          "identifier_or_url": "https://doi.org/10.4064/cm108-1-4",
+          "material_read": "Title/DOI metadata only",
+          "method": "Metadata and unsuccessful lawful OA retrieval",
+          "title": "On the composition of the Euler function and the sum of divisors function",
+          "trigger": "Cited contextual paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first composite multiplicity layer of an established arithmetic sequence. The new information is not that a finite list can be tested: at fixed p or fixed k one can generate all eligible candidates from a finite divisor set without a search over unbounded prime companions or all composites. The proof is elementary, but the two complete search directions and exact image and uniqueness statements determine a natural layer rather than an arbitrary slice. No infinitude or result on Ω(n)≥3 follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

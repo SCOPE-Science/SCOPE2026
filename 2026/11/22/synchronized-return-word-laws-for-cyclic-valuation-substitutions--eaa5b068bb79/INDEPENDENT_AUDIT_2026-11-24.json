@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:09:00.636149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer base, divisibility by powers gives ν_b(b^r t)=r+ν_b(t), so the ordered occurrences of r are the scaled ordered zero-residue set S. Its omissions are isolated multiples of b. Between adjacent multiples of b^r, for a nonzero offset i<b^r, dividing by b^ν_b(i) leaves a nonmultiple of b even after adding the larger multiple. Thus the common interval interior is exactly B_r for composite as well as prime b. A short gap has return rB_r; a long gap has an omitted residue s giving central symbol (r+s) mod q and the two copies of B_r. A site b^s is a witness for each long label s≥1, and b^q and its adjacent integers in S witness short gaps, including b=2. The labels are invariant under scaling. The first b−1 sites in each consecutive base block are in S; the last site has residue 1+u_j mod q. Hence each block contributes b−2 internal short gaps and either one long gap or two short gaps including its outgoing boundary, giving termwise h(u), from the first return onward. Exact valuation strata have densities (b−1)b^(−h−1); contributions beyond level H lie among multiples of b^H, justifying the sum over residue classes. The starting-position density of r is d_r=b^(−r)d_0. The bijection between omitted sites of residue s and long returns of type s gives limiting frequencies d_s/d_0=b^(−s) in the ordered returns (endpoint discrepancies are bounded); the rest is the positive short frequency. The average length is b^r times one plus the long mass, giving 1/d_r. An independently written divisibility-sieve check tested 12 pairs b∈{2,3,4,6}, q=2,3,4: for all 36 letter systems it observed every predicted type, no other type, and agreement with the coded prefix; exact rational reciprocal-density arithmetic was also checked. Replay: python3 -B /workspace/repro/4.py; /workspace/repro/4.log. This corroborates the proof but does not establish the infinite limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "70d4e934b1e1, Finding, gives normalized gap equality for both unbordered factors at every length n≥2, arbitrary b≥3, q=2, and identifies the common normalized sequence as the ordered gaps of its zero positions. The limit proportions are 1−1/b and 1/b.",
+          "Durand's finiteness criterion for derived sequences and the 2026 general substitution return-word framework do not state these explicit label sequences or probabilities."
+        ],
+        "reasoning": "The earlier binary result is broader in factor lengths and covers the exact binary zero-position gap sequence as its comparison sequence. At q=2 each length selects a unique return type; this gives substantial exact overlap. It does not distinguish the different long types at q>2. General primitive substitution theory does not evaluate them.",
+        "searches": [
+          "Resultary: Affine occurrence laws and universal return gaps (70d4e934b1e1)",
+          "Durand arXiv:0807.3322, §§1–2 and Theorem 5",
+          "Espinoza–Popoli–Stipulanti arXiv:2602.03746v1, return-word and substitution coding passages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1606.05150",
+        "arXiv:1211.1301v1",
+        "arXiv:0807.3322",
+        "arXiv:2602.03746v1",
+        "Resultary:70d4e934b1e1",
+        "Resultary:86b62049d181"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary Θ_1 theorem, its identification of first and second return types, and letter frequencies give the classical case: the return words for a are ab and a, for b are baaa and ba (first seen in that order), and the long fraction is (2/3)/(2/3+2·1/3)=1/2.",
+          "For q=2 and b≥3 the prior ordered zero-site gap sequence has exactly the same normalized short/long ratios; the new distinctions involve the intervening residues for q>2.",
+          "Given the phase model for b=2, adjoining the terminal r to a candidate return word makes the occurrence a completed-return event, allowing computation of each such marginal from the phase weights."
+        ],
+        "reasoning": "Do not credit the classical binary result, the known binary gap law or the base-two frequency method as new. The joint claim of an explicit full return alphabet with q−1 long labels, common ordered transduction, and explicit type law at arbitrary base and modulus is not an evaluated specialization of those results.",
+        "searches": [
+          "Huang–Wen §§2,4, in particular Theorem 4.1",
+          "Resultary:70d4e934b1e1 Finding/Assumptions",
+          "Resultary:86b62049d181 §§1–3 of Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goč–Mousavi–Shallit identify ν_b(t) mod 2 with the fixed point of 0↦0^(b−1)1, 1↦0^b for arbitrary b.",
+          "Huang–Wen use a=0, b=1 in the classical period-doubling word. Both single letters have type-1 envelopes: E_(1,1)=a and E_(1,2)=aba contains b, while E_(2,1)=aa does not. Their Θ_1 coding is a↦a, b↦bb; relabel its outputs a as long (1) and b as short (0) to get exactly h(0)=1, h(1)=00. Theorem 4.1 gives that coding for the two letters."
+        ],
+        "reasoning": "These substitutions, valuations, and binary return codes are genuinely equivalent where the parameters agree. The single-letter binary base-two coding in particular is covered, not just related; neither source has a general cyclic alphabet and arbitrary base together.",
+        "searches": [
+          "Resultary: cyclic valuation, generalized period doubling, normalized return gaps, induced sequences and single-letter returns",
+          "Goč–Mousavi–Shallit arXiv:1211.1301v1 §5, Theorems 5.3–5.4",
+          "Huang–Wen arXiv:1606.05150 Definitions 2.1–2.2 and Theorems 2.3, 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "86b62049d181 gives exact multiplicities of every factor frequency for ν_2(t) mod q, and its proof constructs the finite labeled weighted phase templates.",
+          "70d4e934b1e1 gives a binary gap distribution, not a table of all q types at every b."
+        ],
+        "reasoning": "For base two the phase data can evaluate the frequency of a specific completed factor Rr and hence its per-return probability by dividing by the density of r. The published multiplicity table by itself does not label factors or present the termwise return coding. This is material same-word overlap, and same-day dating is not a priority ordering. No inspected exact table covers the combined arbitrary-base and arbitrary-modulus result.",
+        "searches": [
+          "Resultary: exact all-length factor-frequency spectra of generalized period-doubling words (86b62049d181)",
+          "Resultary: universal return gaps and generalized period-doubling frequency tables"
+        ]
+      },
+      "rationale": "There is exact classical binary overlap and covered arbitrary-base binary gap behavior; neither is the distinct all-b, all-q contribution. The supported contribution is the uniform single-letter full return-word formula, common termwise coded sequence and limiting type law for the general cyclic alphabet and integer base. A same-day all-length binary-base frequency result supplies phase data for return frequencies in that base but not an explicit ordered return system for general b. Priority beyond the inspected sources is unresolved.",
+      "residual_risks": [
+        "A higher-alphabet return law may be indexed under other arithmetic substitution or inducing terminology.",
+        "Same-day overlap with the exact factor-frequency record is not used to infer a date order; bibliography search was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact base-two binary overlap after relabeling",
+          "evidence": "Θ_1=τ_1(D), τ_1(a)=a and τ_1(b)=bb, for type-1 envelopes; both single letters are of that type, hence the short-long coding is exactly the claimed h.",
+          "identifier_or_url": "https://arxiv.org/html/1606.05150",
+          "material_read": "Introduction offsets 3900–6991, §§2 and 4, especially Definitions 2.1–2.2 and Theorems 2.3 and 4.1 around offsets 6940–10013 and 57390",
+          "method": "Open-access full-text passages",
+          "title": "Envelope Words and Return Words Sequences in the Period-doubling Sequence",
+          "trigger": "Direct earlier exact return sequences in the classical boundary case"
+        },
+        {
+          "assessment": "Covers the arbitrary-base binary word, not the all-q return law",
+          "evidence": "p_b(i)=ν_b(i+1) mod 2 is the fixed point of 0↦0^(b−1)1, 1↦0^b; also classifies unbordered factors.",
+          "identifier_or_url": "https://arxiv.org/html/1211.1301v1",
+          "material_read": "§5, Theorems 5.3 and 5.4, offsets 23500–26099",
+          "method": "Open-access full-text passage",
+          "title": "On the number of unbordered factors",
+          "trigger": "Equivalent arbitrary-base generalized period-doubling formulation"
+        },
+        {
+          "assessment": "Substantial arbitrary-base binary gap overlap, without long subtypes",
+          "evidence": "For b≥3, q=2 and n≥2, affine occurrence sets are scaled translates of the zeros, normalized gaps are their ordered gap sequence, and limiting short/long fractions are 1−1/b and 1/b.",
+          "identifier_or_url": "Resultary:70d4e934b1e1",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–3028",
+          "method": "Local mirror",
+          "title": "Affine occurrence laws and universal return gaps for unbordered factors of generalized period-doubling words",
+          "trigger": "Closest earlier normalized gap and frequency formula"
+        },
+        {
+          "assessment": "Weighted factor templates do not identify the arbitrary-base ordered induced sequence",
+          "evidence": "Counts factor-frequency multiplicities, with a phase model yielding the absolute position frequency of any given finite factor at b=2.",
+          "identifier_or_url": "Resultary:86b62049d181",
+          "material_read": "RESULT.md Finding, assumptions and first three proof steps, offsets 0–6009",
+          "method": "Local mirror",
+          "title": "Exact all-length factor-frequency spectra of generalized period-doubling words",
+          "trigger": "Exact same valuation words at b=2, possible prior frequency implication"
+        },
+        {
+          "assessment": "General framework, not closed return evaluation",
+          "evidence": "Defines return-word coding and characterizes primitive substitutive sequences by finiteness of their derived sequences.",
+          "identifier_or_url": "https://arxiv.org/html/0807.3322",
+          "material_read": "§§1–2 and Theorem 5, offsets 2100–4281 and 9400–11594",
+          "method": "Open-access full-text passages",
+          "title": "A characterization of substitutive sequences using return words",
+          "trigger": "General derived sequence theorem potentially dominating the claim"
+        },
+        {
+          "assessment": "General return-word framework, not the inspected cyclic-valuation formula",
+          "evidence": "Uses return-word definitions and generic substitution coding for factor-balance and complexity applications.",
+          "identifier_or_url": "https://arxiv.org/html/2602.03746v1",
+          "material_read": "Return-word definition and generic substitution coding, offsets 21800–24400 and 111800–114377",
+          "method": "Open-access full-text passages",
+          "title": "Factor-balancedness, linear recurrence, and factor complexity",
+          "trigger": "Substitution return-word decomposition used to derive explicit laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A return-word system is a canonical induced symbolic system, and a full q-letter return classification with a common coded order across all distinguished letters is stronger than a length or frequency count. The long-label refinements, the explicit code and its measure data give a portable exact invariant for this natural substitution family. The contribution is a concise arithmetic classification, not a new general return-word theory or a claim about arbitrary factors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

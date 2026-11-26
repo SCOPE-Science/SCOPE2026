@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:37.422288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–111, VERIFICATION.md lines 19–23 and verify.py lines 5–83 (frozen script inspected only)",
+        "Independent replay: python /tmp/opencode/frozen_math_replay.py 5",
+        "Repaired RESULT.md, Proof; replay: python /workspace/repairs/5/verify.py (48 exact cases)",
+        "arXiv:1512.01221 Appendix C, Eqs. (C5)–(C6)"
+      ],
+      "rationale": "In the repair, harmonicity forces the flux c_j[1+χ(j+1)−χ(j)] to be constant, which must equal n/R, and the invariant residue measure is uniform. The spectral gap at zero gives an analytic scaled cumulant generating function for unwrapped displacement at any fixed start. The two winding terms put nk in the cosh. The rooted tree coefficient is nCR with C=product of conductances, and the ratio of quadratic to linear coefficients of P(z) is the inverse-eigenvalue sum T. Fourth-order expansion therefore gives κ4/κ2=n²−12nT/R=n²−12K/R, with K the sum of two-point effective resistances. For each oriented distance d the arc resistance is (R/n)[d+χ(i+d)−χ(i)]; translating i cancels the linear term, and summing the squared differences over ordered pairs gives 2n² Varπ(χ). The homogeneous term is R(n²−1)/12. Hence K has exact deficit R Varπ(χ), and κ4/κ2−1=12 Varπ(χ). The vanishing case is exactly constant χ, equivalently uniform rates. I independently checked the frozen winding and forest coefficients by exact determinant interpolation and its energy algebra, then ran the newly written repaired verifier: 48 exact full-generator cumulant, harmonic-coordinate, and effective-resistance comparisons passed.",
+      "residual_risks": [
+        "Assumes finite positive symmetric bonds, integer period n≥3, unit lattice steps and unwrapped displacement. Finite tests do not replace the analytic proof or assert anything about finite-time kurtosis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At equilibrium, Eq. (53) bounds λ(z) between 2Dn²[cosh(z/n)−1] and 2D[cosh(z)−1], with equal second-order coefficients. The implied winding ratio is between 1/n² and 1. Appendix C gives the inverse-polynomial winding formula for general unicyclic networks.",
+          "Ptaszyński explicitly treats higher normalized winding cumulants in more general unicyclic cases, deriving bounds for special unidirectional families and testing bidirectional extensions numerically. Wachtel–Vollmer–Altaner compute general cumulants implicitly from the tilted characteristic polynomial. None of these inspected formulas states the all-profile corrector-variance deficit.",
+          "The closest historical disordered-transport fourth-order paper and the surfaced periodic two-phase Burnett paper did not provide accessible full body text for comparison."
+        ],
+        "reasoning": "The upper/lower envelope is actually covered, not merely analogous. Implicit or bounding formulas in a broader class do not by themselves evaluate the specific resistance-profile dependence in centered harmonic coordinates.",
+        "searches": [
+          "arXiv:1512.01221 §V.A Eq. (53) and Appendix C",
+          "arXiv:2204.08421 Eqs. (21)–(25), §III.E",
+          "arXiv:1407.2065 characteristic polynomial and implicit-function construction",
+          "Hernández-García et al. DOI:10.1103/PhysRevB.42.10653; Koza 1999 J. Phys. A 32, 7637; web Burnett/corrector lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1512.01221, 2204.08421, 1407.2065, 2305.09759 and 0906.3343",
+        "DOI:10.15559/20-VMSTA169; DOI:10.1007/BF01019492 and DOI:10.1103/PhysRevB.42.10653 (inaccessible full texts)",
+        "Resultary 962eb926e664, focused catalogue queries for original and narrowed claims",
+        "Targeted Koza, unicyclic winding and periodic Burnett/corrector literature lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fourth-order Taylor comparison in Eq. (53) at matching second-order coefficient gives the frozen enclosing ratio immediately; no novelty is assigned to the envelope or generic determinant expansion.",
+          "Combining the winding determinant with the spectral trace relation yields n²−12K/R. The remaining equality requires expressing K’s profile deficit as a sum of squared differences of a mean-zero harmonic coordinate; the cross term cancels separately for each oriented distance and the squared terms sum to the exact variance.",
+          "The matched weighted-ring record's K formula implies the complete fixed-two-defect spacing dependence after the spectral relation; the n=3 case has one distance only. Period-two higher cumulants exemplify, but do not establish, the arbitrary-period variance identity."
+        ],
+        "reasoning": "An exact same-profile spectral formula is identified and credited as method overlap, and strong envelope and spacing implications are removed. The added structural equality with the harmonic-coordinate variance supplies a positive profile statistic rather than only an implicit answer or a restatement of the bounds.",
+        "searches": [
+          "arXiv:1512.01221 Eqs. (53), (C5)–(C6)",
+          "Resultary 962eb926e664, Finding and Proof §1 (edge-pair expansion)",
+          "arXiv:2305.09759 §§II, III.A and Eq. (16)",
+          "arXiv:1407.2065, cumulants by implicit differentiation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Winding times n differs from the displacement only by a bounded residue term (equivalently a tilt gauge transform); thus normalized winding fourth-to-second rates multiply by n² for lattice displacement.",
+          "On the residue cycle K=B/R=n times the Kemeny hitting time. The surviving identity is equivalently the exact homogeneous-to-profile deficit K_hom−K=R Varπ(χ), not merely K≤K_hom, K=B/R or a bipartite special case."
+        ],
+        "reasoning": "Working with winding cumulants, the centered cumulative resistance, the harmonic coordinate, or a Kirchhoff deficit tests the same mathematical content. The exact sum-of-squares identification after averaging the arc-resistance cross term is more than substituting one convention into an existing cumulant bound.",
+        "searches": [
+          "Web: periodic diffusion fourth cumulant \"corrector\" variance periodic random conductance unicyclic resistance harmonic coordinate Burnett exact fourth-order coefficient",
+          "Web: periodic random walk zero bias fourth displacement cumulant resistance Kirchhoff index Koza Burnett coefficient unicyclic exact fourth derivative current cumulant bounds symmetric bond disorder Hernandez Garcia",
+          "Resultary: unwrapped single-particle symmetric periodic bond walk fourth cumulant excess exactly twelve times stationary variance of the discrete harmonic-coordinate corrector centered cumulative resistance primitive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published weighted-ring record proves the exact arbitrary-weight edge-pair expression for K, and for two defects with fixed total R obtains placement dependence via d(n−d), the same shape with reversed order for the cumulant. It does not express the arbitrary-profile deficit via the corrector variance.",
+          "The explicit zero-bias fourth-cumulant entry in Gerry–Segal is period two. The earlier period-two transform in Beghin–Macci–Martinucci can also be differentiated. No inspected table identifies the all-period exact variance formula."
+        ],
+        "reasoning": "The closest indexed weighted-cycle record is a real same-instance overlap, not excluded by its different title or observable. It disqualifies treating the arrangement calculation as a separate distinct advance here; it does not tabulate the repaired variance equality.",
+        "searches": [
+          "Resultary focused fourth cumulant, periodic walk, resistance and barrier ordering lookup",
+          "Resultary repair-specific harmonic-coordinate variance lookup",
+          "Resultary 2026/11/22/962eb926e664 (weighted-ring spacing laws)",
+          "arXiv:2305.09759 Eq. (16); DOI:10.15559/20-VMSTA169 alternating-rate transform"
+        ]
+      },
+      "rationale": "The revised claim is the exact excess identity in terms of the stationary variance of the harmonic-coordinate corrector for arbitrary period and contrast. The strongest literature directly covers the frozen interval and winding determinant; a strongly matching indexed placement theorem has the same arrangement-dependent weighted sum. Those pieces are attributed and no longer claimed. The remaining equality evaluates the exact arbitrary-profile deficit, which the SCGF inequalities do not fix and the available winding, Kemeny and spacing formulas do not identify as the variance of the mean-zero harmonic coordinate.",
+      "residual_risks": [
+        "The 1990 Hernández-García paper, the surfaced two-phase periodic Burnett paper, and Koza's original full article were not available for direct comparison. An older periodic homogenization identity may be equivalent; this is not a guarantee of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior implication for original bounds and direct antecedent for working determinant; not the corrector formula",
+          "evidence": "The equilibrium hyperbolic-cosine envelopes give equal terms at order 2 and the prior enclosing fourth-order inequalities; only the two full-cycle permutations generate tilt dependence in C5 and C6.",
+          "identifier_or_url": "arXiv:1512.01221; DOI:10.1103/PhysRevE.93.052145",
+          "material_read": "§V.A, PDF pp. 7–8, Eq. (53) around offset 49700; Appendix C, PDF pp. 15–16, Eqs. (C2)–(C6), offsets 105620 and 112400",
+          "method": "OA primary PDF passages from the DOI-linked arXiv version",
+          "title": "Universal bounds on current fluctuations",
+          "trigger": "Stronger exact equilibrium unicyclic bounds and characteristic relation"
+        },
+        {
+          "assessment": "Equivalent placement calculation connected by K=B/R; not evidence of historical priority over the frozen result and not the corrected variance calculation",
+          "evidence": "Uses the edge-pair kernel d(n−d) and at fixed total resistance has all k-defect extrema. For k=2 supplies the same arrangement expression once converted to κ4/κ2=n²−12K/R.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-defect-spacing-laws-for-continuous-time-diffusion-on-weigh--962eb926e664/RESULT.md",
+          "material_read": "Finding, scope and proof §§1–4, offsets 0–6253",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp defect-spacing laws for continuous-time diffusion on weighted rings",
+          "trigger": "Exact same bond-profile geometry and plausible equivalent spacing law"
+        },
+        {
+          "assessment": "Exact observable up to winding scaling, different results",
+          "evidence": "Uses a single oriented bond cut to count winding; gives upper value 1 in unidirectional slow-link analysis and numerical bidirectional comparisons, not an arbitrary-profile stationary corrector identity.",
+          "identifier_or_url": "arXiv:2204.08421",
+          "material_read": "PDF pp. 3 and 7–9, Eqs. (21)–(25), (73)–(77), and §III.E.2, offsets 22170 and 49900–60560",
+          "method": "OA primary PDF passages",
+          "title": "Bounds on skewness and kurtosis of steady state currents",
+          "trigger": "Published fourth-to-second winding cumulant in unicyclic networks"
+        },
+        {
+          "assessment": "Prior framework, not a formula for the residue harmonic-corrector variance",
+          "evidence": "Obtains cumulants from partial derivatives of the characteristic equation via its simple root; not a profile-explicit evaluation of that root's fourth derivative.",
+          "identifier_or_url": "arXiv:1407.2065; DOI:10.1103/PhysRevE.92.042132",
+          "material_read": "PDF pp. 2 and 4, implicit cumulants and characteristic-polynomial discussion around offsets 11094 and 25764–28190",
+          "method": "OA primary PDF passages from DOI-linked arXiv version",
+          "title": "Fluctuating currents in stochastic thermodynamics. I. Gauge invariance of asymptotic statistics",
+          "trigger": "General cumulant computation and equivalence of counting gauges"
+        },
+        {
+          "assessment": "Same class for two alternating bonds, not arbitrary n≥3",
+          "evidence": "At zero bias the ratio is 1+3[(γA−γB)/(γA+γB)]² for the period-two case; its structure sensitivity is prior insight.",
+          "identifier_or_url": "arXiv:2305.09759",
+          "material_read": "Model pp. 2–3 and Sec. III.A p. 4; Eq. (16) p. 6, offset 38969",
+          "method": "OA primary PDF passages",
+          "title": "Random walks on modular chains: Detecting structure through statistics",
+          "trigger": "Closest cited zero-bias analytic fourth cumulant"
+        },
+        {
+          "assessment": "Prior exact period-two transform; no arbitrary-period match",
+          "evidence": "Symmetric bonds occur in its directional-rate model and the transform can yield the period-two rate by differentiation.",
+          "identifier_or_url": "DOI:10.15559/20-VMSTA169",
+          "material_read": "Eq. (1), PDF p. 65; transform and derivative lemma pp. 68–70",
+          "method": "OA journal PDF passages",
+          "title": "Random time-changes and asymptotic results for a class of continuous-time Markov chains on integers with alternating rates",
+          "trigger": "Earlier explicit lattice transform for alternating rates"
+        },
+        {
+          "assessment": "Specific unresolved priority risk for revised formula",
+          "evidence": "The disordered-media subject is relevant to Burnett coefficients; it does not establish what exact periodic specializations the full paper derives.",
+          "identifier_or_url": "DOI:10.1103/PhysRevB.42.10653",
+          "material_read": "Bibliographic/abstract comparison only; full text inaccessible",
+          "method": "Lawful publisher/OA retrieval attempt and bounded abstract comparison",
+          "title": "Transport properties for random walks in disordered one-dimensional media",
+          "trigger": "Possible earlier fourth-order transport expression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Exact variance deficit",
+        "Comparison with arXiv:1512.01221 Eq. (53) and Resultary weighted-ring placement law 962eb926e664"
+      ],
+      "rationale": "At fixed total resistance the diffusivity is already known and identical for all profiles. The precise excess at fourth order answers what the envelope cannot: how strongly an arbitrary profile differs from homogeneous transport, using only its spatial corrector variance and no tilted eigenvalue computation. The equality exposes the quadratic dependence and spatial accumulation of resistance fluctuations for any contrast; this is the structurally useful contribution, independently of the already known bounds or the two-barrier example.",
+      "residual_risks": [
+        "One-dimensional symmetric bond model only; no broader homogenization theorem or fixed-inventory optimization is now claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

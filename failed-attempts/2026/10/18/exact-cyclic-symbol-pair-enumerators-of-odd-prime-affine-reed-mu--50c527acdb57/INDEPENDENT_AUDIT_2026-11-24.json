@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:20:56.497626Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a carry starting at digit i the change in f is its suffix sum S_i. For first nonzero coefficient at r, any carry with i>r has a freely varying digit x_r; exactly a 1/p fraction start at zero if S_i=0, and none qualify otherwise. At the remaining carry positions, all digits after r are terminal and the start values of x_r run once per earlier-digit choice through the p residues, including the terminal value at the cyclic higher carry. Since all earlier coefficients vanish, this gives p^(r-1) zero pairs if S_r=0, independent of the intercept. Suffix sums are independent coordinates subject to S_r!=S_(r+1); counting their allowed zero/nonzero configurations gives the factored polynomial. With H_m the nonconstant-word polynomial divided by p(p-1), H_1=1 and H_m=(p-1+u^((p-1)p^(m-2)))H_(m-1)+u^(p^(m-2)). This verifies the disjoint supports, maximal proper exponent with normalized coefficient 1, and constant coefficient (p-1)^(m-1). Adding constants gives all stated counts and weights. Independent exact check `python /workspace/checks.py 2` recovers the complete distributions from direct cyclic endpoint histograms for (p,m)=(3,2),(3,3),(3,4),(5,2),(5,3),(7,2). The proof covers arbitrary odd prime and dimension; those finite tests do not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan–Ling–Liu's exact b-distance specializes at r=1, t=0, s=1, b=2 to p^m-p^(m-1)+1. Ma–Luo's simplex and variant simplex pair spectra are for different codes and orderings; Liu–Pan's examples are simplex and special Hamming codes; Miezaki–Munemasa count binary Jacobi/harmonic invariants. Resultary d2462d483145 gives exact distributions for every cyclic b from 1 to p^m."
+        ],
+        "reasoning": "The prior distance theorem covers the minimum, not its multiplicity. The simplex, generalized-weight, and binary enumerator results do not identify the audited distribution. The separate indexed all-window result does cover the same distribution as a special case.",
+        "searches": [
+          "arXiv:2309.08920 Theorem 4.6",
+          "arXiv:1911.02184 Theorems 2–3",
+          "arXiv:2103.16299 §4",
+          "arXiv:2303.16349 Theorem 1.1",
+          "Resultary d2462d483145 all-window formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d2462d483145",
+        "arXiv:2309.08920",
+        "arXiv:1911.02184",
+        "arXiv:2103.16299",
+        "arXiv:2303.16349",
+        "arXiv:2109.13764 (cyclic b-symbol framework)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its zero-run formula for b=2 gives exponent M when the fastest active digit index j=0, and exponent p^(m-j-1)(p^j-1)+M for j>=1. The generating polynomials F_s of M are explicit; F_0=1 and F_1=p-1+u."
+        ],
+        "reasoning": "Writing H_m for its normalized nonconstant zero-pair polynomial gives H_m=F_(m-1)+sum_{s=0}^{m-2} u^(p^(m-1)-p^s)F_s=F_(m-1)+u^((p-1)p^(m-2))H_(m-1). The product rule F_(m-1)/F_(m-2)=p-1+u^((p-1)p^(m-3)) for m>=3 shows F_(m-1)-(p-1)H_(m-1)=u^((p-1)p^(m-3))(F_(m-2)-(p-1)H_(m-2)); at m=2 the difference is u. Thus the difference is u^(p^(m-2)), yielding the frozen recurrence. Support, minimum and extremal multiplicities follow directly; they are not an unexplained gap between a general algorithm and the audited formula.",
+        "searches": [
+          "Resultary d2462d483145, local mirrored RESULT.md Finding and Proof §§1–3, offsets 0–5842"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All three use lexicographic prime-field evaluation order in the relevant case. Reversing the digit names changes neither the radix order nor the affine word set. Number of all-zero cyclic length-two windows is the complement of pair weight."
+        ],
+        "reasoning": "The indexed enumerators count the same codewords in the same order. Converting its W for b=2 into Q uses exactly Q(u)=u^(p^m)W(u^-1), not an assumption of invariance under arbitrary coordinate permutations.",
+        "searches": [
+          "Local Resultary search: first-order Reed–Muller over odd prime, cyclic symbol-pair and b-symbol lexicographic multiplicities",
+          "arXiv:2309.08920 §4",
+          "SCOPE-a-digit-carry-complete-b-symbol-weight-spectrum-for-odd-prime-fi--d2462d483145, Assumptions and Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The different indexed record explicitly lists the identical p=3,m=3,b=2 example (coefficients 1,6,6,12,6,12,12,26 at weights 0,19,20,21,24,25,26,27). Its displayed formula yields the all-parameter weight multiplicities."
+        ],
+        "reasoning": "The finite numerical overlap illustrates the parameter match; the all-window polynomial and ordering, not coincidence in one example, are the evidence of exact coverage.",
+        "searches": [
+          "Resultary digit-carry complete b-symbol weight spectrum for odd-prime first-order Reed–Muller codes; record d2462d483145, Finding"
+        ]
+      },
+      "rationale": "The minimum distance already follows from Pan–Ling–Liu (2023), Theorem 4.6. A distinct indexed theorem on the same digit-ordered code determines the complete distribution for all cyclic window widths; its b=2 specialization gives every claimed multiplicity and even reduces algebraically to the frozen recurrence. This material coverage is not a priority finding against the frozen Oct. 18 date-key; the indexed all-width record has a Nov. 8 date-key and no derivation relationship is asserted.",
+      "residual_risks": [
+        "A full older odd-prime lexicographic multiplicity classification was not established in the bounded literature comparison; the earlier minimum distance and distinct indexed full coverage are established.",
+        "The relationship of the two indexed results and any priority claim remain unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers distribution and its consequences by direct specialization; not a priority conclusion",
+          "evidence": "Defines Z_b from zero runs of lengths p^j and 2p^j, and enumerates all join multiplicities by F_s; gives same ternary example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-digit-carry-complete-b-symbol-weight-spectrum-for-odd-prime-fi--d2462d483145/RESULT.md",
+          "material_read": "Finding, digit-order definition, Proof §§1–3; mirror offsets 0–5842",
+          "method": "Bounded local mirror passage inspection",
+          "title": "A digit-carry complete b-symbol weight spectrum for odd-prime first-order Reed–Muller codes",
+          "trigger": "Strong distinct indexed claim for same code, order and all cyclic window widths"
+        },
+        {
+          "assessment": "Exact earlier minimum distance, not the spectrum or multiplicity",
+          "evidence": "Theorem 4.6 gives min((q-s)q^(m-t-1)+b-1,q^m) at r=t(q-1)+s.",
+          "identifier_or_url": "arXiv:2309.08920",
+          "material_read": "Cyclic support definition p. 4, prime-field ordering §4 p. 11, Theorem 4.6 p. 14 (offsets 10300, 28000, 35400)",
+          "method": "OA PDF passage inspection",
+          "title": "New bounds for b-Symbol Distances of Matrix Product Codes",
+          "trigger": "Exact b-distance for the same generalized Reed–Muller family"
+        },
+        {
+          "assessment": "Different code and cyclic ordering",
+          "evidence": "Theorem 2 concerns a length q-1 cyclic simplex code; Theorem 3 concerns a variant; reordering can change pair weight.",
+          "identifier_or_url": "arXiv:1911.02184",
+          "material_read": "Theorems 2 and 3, pp. 10, 12; coordinate-order warning p. 13",
+          "method": "OA PDF passage inspection",
+          "title": "Symbol-pair Weight Distributions of Some Linear Codes",
+          "trigger": "Closest published pair-weight enumerators"
+        },
+        {
+          "assessment": "The inspected scope does not give the audited enumerator",
+          "evidence": "Generalized weight matrices for simplex and two special Hamming codes.",
+          "identifier_or_url": "arXiv:2103.16299",
+          "material_read": "Overview p. 3 near offset 8000 describing §4 cases",
+          "method": "OA PDF passage inspection",
+          "title": "Generalized b-symbol weights of Linear Codes and b-symbol MDS Codes",
+          "trigger": "General b-symbol framework as possible broader coverage"
+        },
+        {
+          "assessment": "Binary Hamming/support invariant, not cyclic pair weights",
+          "evidence": "The worked RM(1,m) setting is binary and Theorem 1.1 computes Jacobi polynomials.",
+          "identifier_or_url": "arXiv:2303.16349",
+          "material_read": "Abstract, introduction and Theorem 1.1, pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Jacobi polynomials and harmonic weight enumerators of the first-order Reed–Muller codes and the extended Hamming codes",
+          "trigger": "Same Reed–Muller order but possible enumerator overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The lexicographic cyclic multiplicity question is well-motivated, but this claim supplies no independently needed exact invariant beyond the indexed wider-window classification. The attractive factorization simplifies its presentation at b=2, but it reduces by elementary polynomial algebra to that classification and no separate mathematical gain is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

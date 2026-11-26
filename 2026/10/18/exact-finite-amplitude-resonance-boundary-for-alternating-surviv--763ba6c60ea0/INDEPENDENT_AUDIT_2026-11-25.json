@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:42.221845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding lines 5–22, assumptions lines 24–26, proof lines 28–64",
+        "Frozen VERIFICATION.md, lines 19–31, and verify.py, inspected without running",
+        "Reassessed complete replacements /workspace/repairs/4/RESULT.md and /workspace/repairs/4/VERIFICATION.md; original verifier remains applicable to its stated finite checks"
+      ],
+      "rationale": "This assesses the repaired claim. The frozen threshold paragraph overstates accessibility: for fixed R and h, its stated full persistence interval omits the cap δ≤R−h. For example R=6 and h=5 allow δ≤1, so the algebraic threshold √8 cannot be reached even though it is below the extinction amplitude. The repaired files retain the exact sign identity and give the actual feasible set and both threshold endpoints. To check the dynamics, write ρ=v/u. The two orbit equations imply ρ²−(a−b)ρ−1=0, with sole positive root r=Q+d. Substitution gives u²=(h−Q)/r and v²=r(h−Q), both positive precisely for ab>1, and verifies the original equations. In log abundance each season has derivative −tanh z; the positive two-step fixed point traps every starting point in the compact log interval of its initial distance from that point. On this interval the composition has derivative uniformly below one in modulus, so phase-wise convergence and the arithmetic time average follow. For ab≤1 the two-step ratio is strictly below one at every positive state; any positive limiting even state would, by continuity, give a limiting ratio strictly below one, impossible. This includes ab=1. At the positive orbit uv=h−Q, u²+v²=2Q(h−Q), giving the squared-arithmetic-mean identity after subtracting h−1. For unequal seasons and h>3 its zero occurs at δ_c=sqrt((h−2)²−1), strictly below the extinction amplitude. Since a,b=h±δ must be in (0,R], the tie is accessible iff R−h≥δ_c and both signs occur iff R−h>δ_c. At equality only the tied endpoint is added; for R=h there is no contrast. With h≤3 and persistence the sign is strictly negative for unequal seasons. The two R=10 examples straddle the threshold and their exact radical comparisons have the asserted signs.",
+      "residual_risks": [
+        "The finite decimal trajectories are not proof and were not rerun. The fixed-R cap and the equality case are checked analytically. No formal certification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signature theorem applies for sufficiently small periodic perturbations near carrying capacity, despite its broader model class.",
+          "The 2005 periodic-survival model uses f(t,x)+g_t x, an additive survivor term.",
+          "Resultary 635af1ce5992 compares the ordering of seasonal compositions of common-carrying-capacity maps and finite schedules."
+        ],
+        "reasoning": "A broader local perturbation theorem or ordering theorem does not establish the exact squared-mean contrast or the persistent feasible amplitude reversal.",
+        "searches": [
+          "Franke–Yakubu 2006, Theorem 4 and Smith §5.5",
+          "Franke–Yakubu 2005, equations (2), (7), Theorem 8 and §5",
+          "Resultary 635af1ce5992"
+        ]
+      },
+      "checked_sources": [
+        "Franke and Yakubu 2006 and 2005 primary PDFs",
+        "Resultary 635af1ce5992, 29bce28ebae9 and 52cd092e2563",
+        "Repaired RESULT.md, Finding, scope and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local signature cannot distinguish the reversal at h=5 between δ=2 and δ=3, both feasible at R=10, or the lack of accessibility under R=6.",
+          "A result about survivors added to a recruitment term does not imply the simultaneous exact two-cycle and mean identities for multiplicative survival."
+        ],
+        "reasoning": "The repaired claim requires solving the nonlinear cycle, choosing the constant-mean-survival benchmark, and checking that the formal zero lies within the feasible survival range. The inspected stronger-looking models do not supply those conclusions by specialization.",
+        "searches": [
+          "doi:10.1007/s11538-006-9086-8, Theorem 4 and Smith §5.5/Table 2",
+          "doi:10.1080/10236190500386275, §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith Model V is x_{t+1}=x_t k_t²r_t/[k_t²+(r_t−1)x_t²]. With k_t²=r_t−1 and r_t>1 this exactly gives the seasonal map here.",
+          "At h>3 and δ=δ_c<h−2 the smaller multiplier is above two; the entire crossover point is therefore in that formal Smith subfamily. Its published local benchmark uses mean seasonal carrying capacity, not the equilibrium for mean survival.",
+          "The Hassell example in §5.4 has denominator (1+x)^(r_t), not 1+x²."
+        ],
+        "reasoning": "Compare the truly equivalent map where possible; benchmark and finite-amplitude conclusion, not the equation's name, distinguish the repaired claim.",
+        "searches": [
+          "Period-two nonlinear resonance, multiplicative survival, quadratic Bellows/Smith and Hassell models",
+          "doi:10.1007/s11538-006-9086-8, §§5.4–5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest checked indexed claim 635af1ce5992 is seasonal sorting, not a cycle-mean threshold. The same-day 29bce28ebae9 is an autonomous two-patch Beverton–Holt/density-dependent-dispersal cusp. 52cd092e2563 instead concerns multiseason two-species stochastic maps and a cusp."
+        ],
+        "reasoning": "Neither the compared exact boundaries nor their parameter domains encode the finite survival-amplitude criterion. This is a scoped catalogue comparison, not an absence proof.",
+        "searches": [
+          "Local Resultary exact title, alternating-survival resonance, period-two quadratic and Hassell families"
+        ]
+      },
+      "rationale": "The assessed distinct claim is the exact feasible finite-contrast boundary for mean survival held fixed, with the square-of-mean identity and global persistent/critical dynamics for this quadratic map. Franke and Yakubu's Smith family does contain the map on the part with both seasonal multipliers above one, including the crossover, so a different model name is not evidence of novelty. Their inspected result gives a local small-forcing criterion and a different benchmark; no inspected result gives this finite boundary, accessibility, and mean identity.",
+      "residual_risks": [
+        "Limited search of older nonlinear periodic-map literature; the exact Smith reparameterization is material, so a not-inspected finite-amplitude treatment remains possible. No publication-priority conclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subfamily is the same map near the crossover; inspected result is local and uses a different benchmark.",
+          "evidence": [
+            "Period-two perturbations are sufficiently small in the theorem. Smith denominator is k_t²+(r_t−1)x_t²; choosing k_t²=r_t−1 recovers the quadratic denominator."
+          ],
+          "identifier_or_url": "https://franke.math.ncsu.edu/Research/sigrevc.pdf (doi:10.1007/s11538-006-9086-8)",
+          "material_read": "Theorem 4 and discussion, PDF pp. 5–7, OA offset near 13500; §§5.4–5.5, PDF pp. 15–17, offsets around 35900 and 38200",
+          "method": "Author-posted OA primary PDF inspection",
+          "title": "Signature Function for Predicting Resonant and Attenuant Population 2-cycles",
+          "trigger": "Potential direct small- and finite-amplitude resonance coverage; Smith formulation"
+        },
+        {
+          "assessment": "Global/frequency results for an additive-survival model do not give this crossover.",
+          "evidence": [
+            "The update is f(t,x)+g_t x."
+          ],
+          "identifier_or_url": "https://franke.math.ncsu.edu/Research/SurvivalFinal05.pdf (doi:10.1080/10236190500386275)",
+          "material_read": "Equations (2) and (7), pp. 1170–71, OA offset around 2800; Theorem 8 and §5, pp. 1175–76, offset around 16000",
+          "method": "Author-posted OA primary PDF inspection",
+          "title": "Population models with periodic recruitment functions and survival rates",
+          "trigger": "Potential exact periodic-survival resonance and global attraction"
+        },
+        {
+          "assessment": "Different observable and hypothesis.",
+          "evidence": [
+            "Uses H_a(x)=x[(1+aK)/(1+ax)]^p; compares compositions/schedules, not the persistent arithmetic mean against a constant coefficient."
+          ],
+          "identifier_or_url": "Resultary 635af1ce5992",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp seasonal sorting boundary and three-season reversal for common-carrying-capacity maps",
+          "trigger": "Related exact seasonal Hassell-family boundaries"
+        },
+        {
+          "assessment": "Autonomous spatial model, not seasonal forcing.",
+          "evidence": [
+            "Two-patch Beverton–Holt recruitment with density-dependent dispersal and multiple equilibria."
+          ],
+          "identifier_or_url": "Resultary 29bce28ebae9",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp cusp for dual persistent carrying capacities under density-dependent dispersal",
+          "trigger": "Possible same-date density-dependent persistence-boundary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, fixed-mean clause and exact examples",
+        "Franke–Yakubu 2006 small-amplitude comparison"
+      ],
+      "rationale": "The finite-amplitude result supplies a motivated boundary for when changing contrast while keeping arithmetic survival fixed can reverse a population-mean comparison. It separates local enhancement, feasibility of reaching the tie, suppression and extinction, with a globally reached census mean rather than a possibly unstable orbit. The survival cap adds a meaningful difference between an algebraic zero and an attainable contrast.",
+      "residual_risks": [
+        "The result is for a deterministic two-season quadratic model and is not a general harvesting policy, profit, or conservation result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

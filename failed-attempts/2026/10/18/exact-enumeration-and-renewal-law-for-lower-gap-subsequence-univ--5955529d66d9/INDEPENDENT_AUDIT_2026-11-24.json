@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:23.871462Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 1–6",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Independent literal-index replay: python3 /tmp/opencode/frozen_math_replay.py, gaps(). Counts one below, at, and one above the minimum are [0,128,640] for (q,g,k)=(2,2,3) and [0,324,2916] for (3,2,2)."
+      ],
+      "rationale": "For the shortest full-alphabet prefix ending at r, its last letter has no earlier occurrence. Patterns beginning with that letter force their remaining positions into the suffix starting at r+g+1; conversely every first letter can be chosen at or before r and joined to a suffix embedding. Iteration, with no spacer after the kth required arch, proves the unique decomposition, including words with more than k arches. It makes spacer deletion and insertion mutually inverse with q^(g(k-1)) choices. Enumerating successive first arrivals gives arch series A_q. Multiplication gives the cumulative series; subtracting consecutive cumulative series yields the exact-index law, including the empty word. The coefficient one above minimum is obtained by extending exactly one arch or the arbitrary tail by one letter. On an i.i.d. uniform source, stopping at each arch and skipping a deterministic g letters leaves fresh i.i.d. input. Thus completion times are sums of independent coupon-collector lengths plus g(k-1), and inverse strong law gives the stated limit. The limit is for the length guaranteed for all patterns, not the achievable length of a single favored pattern.",
+      "residual_risks": [
+        "The three-length literal checks corroborate but do not prove the formulas. The infinite calculation requires uniform i.i.d. source letters and no upper gap bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Day et al. allow gap lengths L^- to L^+=infinity and thus include the model in a much larger decision-problem framework, without the frozen enumeration in the inspected passages.",
+          "The indexed classification explicitly allows every q>=2 and s>=1 and gives the full exact-index distribution and shortest hosts."
+        ],
+        "reasoning": "A general definition or decision algorithm alone would not give exact enumeration. The indexed classification covers the whole claimed positive-gap domain directly, and also includes the zero-gap boundary.",
+        "searches": [
+          "Day–Kosche–Manea–Schmid arXiv:2206.13896, gap definitions and universality problem",
+          "Resultary 31909ca10882, Finding and proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-spectrum record 31909ca10882, and related records e77c4e8d9f37 and 967f04fec949",
+        "Day et al. arXiv:2206.13896",
+        "Barker et al. arXiv:2003.04629",
+        "Adamson arXiv:2304.04583",
+        "Targeted primary-literature search on minimum-gap universality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set B=(qz)^g. An incomplete alphabet word has generating function I_q=(1-F_q)/(1-qz); the indexed tail factor is then T=(1-F_q B)/(1-qz). Substituting gives the exact bivariate formula, and summing over indices m>=k yields F_q^k B^(k-1)/(1-qz).",
+          "The indexed unique decomposition gives the same deletion/insertion of k-1 spacers after the first k arches. Expanding its cumulative series gives the one-extra-position count. On independent input the identical decomposition gives independent coupon-collector blocks, so adding a fixed spacer to each block yields the stated renewal rate by the ordinary strong law."
+        ],
+        "reasoning": "Neither the ordinary arch theorem nor the edit-radius result alone states the positive-gap structure, but the matching indexed theorem does; the remaining refinements are mechanical consequences and do not supply a distinct claim.",
+        "searches": [
+          "Resultary 31909ca10882, exact-index generation and unique decomposition",
+          "Barker et al. arXiv:2003.04629, ordinary arch characterization",
+          "Resultary 967f04fec949, full-support insertion radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The other record's selected indices differ by at least s, so its s=g+1 is exactly g unselected intervening positions. Both have no upper bound, quantify over every pattern from the whole alphabet, and treat linear indexed words and the empty pattern alike."
+        ],
+        "reasoning": "The two universality indices agree word by word rather than just in distribution.",
+        "searches": [
+          "Resultary semantic lookup for lower-bounded gap, greedy spaced archives/arches, and all-alphabet universal subsequence counting",
+          "Resultary 31909ca10882 RESULT.md, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary index record e77c4e8d9f37 is for zero gaps, and Adamson's counts are ordinary all-alphabet counts.",
+          "The exact all-alphabet indexed spectrum 31909ca10882 gives I_q+uF_q T/(1-u(qz)^(s-1)F_q) and the minimum count (q!)^k q^((s-1)(k-1))."
+        ],
+        "reasoning": "There is a symbolic match in the same parameters, stronger than any agreement of finite coefficient tables.",
+        "searches": [
+          "Resultary exact subsequence index enumeration, e77c4e8d9f37 and 31909ca10882",
+          "Adamson arXiv:2304.04583, ordinary ranking and counts"
+        ]
+      },
+      "rationale": "A distinct indexed theorem gives the same positive-minimum-spacing arch classification and full exact-index law for the same alphabet and all parameters. The additional bijection, one-extra-position count, and renewal limit follow directly from its proof and formula. Its catalogue date is later than the frozen source date; this establishes coverage, not priority or dependence.",
+      "residual_risks": [
+        "The comparison does not assign historical priority or establish any dependency between the two records.",
+        "The literature query is bounded; the FAIL does not rely on any search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire deterministic structure and enumeration",
+          "evidence": "States the two-variable distribution and unique minimal-arch/spacer decomposition, with no upper gap bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-uniformly-spaced-subsequence-universality-exact-spectra-and-shor--31909ca10882/RESULT.md",
+          "material_read": "Finding, assumptions, and proof §§1–4; offsets 0–5735",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniformly spaced subsequence universality: exact spectra and shortest hosts",
+          "trigger": "Strong exact-spectrum match under selected-index spacing"
+        },
+        {
+          "assessment": "General model and decision problem, not an exact enumeration in these passages",
+          "evidence": "L^+ may be infinite, so the frozen model is included in their setup.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13896",
+          "material_read": "pp.1,3, offsets 1481 and 13332–15884",
+          "method": "Open-access primary passages",
+          "title": "Subsequences With Gap Constraints: Complexity Bounds for Matching and Analysis Problems",
+          "trigger": "Same gap-constrained universality framework"
+        },
+        {
+          "assessment": "Ordinary universality only in the relevant comparison",
+          "evidence": "The number of ordinary arches equals the ordinary universality index.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "p.5, offset 16908",
+          "method": "Open-access primary passage",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Greedy arch premise"
+        },
+        {
+          "assessment": "Covers ordinary counting rather than positive minimum gaps",
+          "evidence": "Definition uses unconstrained strictly increasing selected positions; counts/ranks are for this language.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "pp.1,4,6, offsets 883, 14259, 25324",
+          "method": "Open-access primary passages",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Ordinary all-alphabet counts"
+        },
+        {
+          "assessment": "Zero-gap binary specialization",
+          "evidence": "Complete distribution is for ordinary binary subsequences.",
+          "identifier_or_url": "e77c4e8d9f37",
+          "material_read": "RESULT.md Finding, offset 57",
+          "method": "Local mirror passage",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Related indexed exact distribution"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "The parameter is edit distance by insertion, not a constraint on selected-index spacing.",
+          "identifier_or_url": "967f04fec949",
+          "material_read": "RESULT.md Finding, offset 69",
+          "method": "Local mirror passage",
+          "title": "Exact full-support insertion radius of subsequence universality",
+          "trigger": "Related indexed extremal universality invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, entire Finding and Step 6",
+        "Resultary 31909ca10882, full exact spectrum and decomposition"
+      ],
+      "rationale": "The fixed-gap tractability and exact index law would be useful as mathematical content, but the matching record already gives its complete structural route. The remaining refinements are direct consequences of that route and do not establish a separate worthwhile invariant or mechanism. No distinct repair is supported.",
+      "residual_risks": [
+        "This is a judgment about incremental contribution under verified coverage, not a claim that the constrained language is uninteresting."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

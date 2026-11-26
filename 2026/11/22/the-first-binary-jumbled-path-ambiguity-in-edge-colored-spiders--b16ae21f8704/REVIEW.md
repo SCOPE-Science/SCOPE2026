@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is explicitly a finite statement about all edge-colored spiders with 3–9 edges and known topology. Integer partitions enumerate every spider shape; multisets of arm words enumerate every isomorphism class without symbol interchange. The formula that decomposes paths into internal arm factors and two-arm prefix concatenations is complete and disjoint. An independent vertex-pair graph traversal verifies the observation in every canonical case. The reproducible checker matches each row of the complete table and all four explicit exceptional colorings, checks the equal-arm automorphism orbit formula, and verifies that the two unordered pairs exhaust every non-singleton fiber. This is exhaustive finite enumeration, not inference from random trials.
+PASS
 
-## Originality — PASS (qualified)
+The unique center is fixed under any automorphism. Its arms may only be permuted within length classes, and distance from the center fixes the position of each edge along an arm. The named colors are not exchanged. Independently enumerated interval cuts of m edges, keeping nondecreasing positive arm lengths with at least three parts. For each shape, enumerated all 2^m labeled edge masks, computed the unordered endpoint-pair path as XOR of the two center-route masks, and tallied (path length, number of ones) using bit counts. This gives exactly the two-component Parikh data, with multiplicity and no empty paths. Canonicalization by sorting arm words within equally long arms was cross-checked by the product of multiset counts. For edge counts 3…9 the row tuples (shapes, coloring classes, topology-scoped profiles, non-singleton fibers) are (1,4,4,0), (2,17,17,0), (4,66,66,0), (7,221,221,0), (11,688,688,0), (17,2034,2034,0), (25,5788,5786,2). The only ambiguous shape has distinct lengths (2,3,4), so all 512 of its labeled colorings are distinct modulo tree automorphism; its two exact doubletons match lines 10–11 and are swapped by complement. The direct profile in lines 52–56 matches the calculation with 45 endpoint pairs. No inference is made for topology-blind readout or larger spiders. Replay: python3 /workspace/branches/check_2.py and check_2.out beside it. Frozen spider_verify.py and VERIFICATION.md were inspected, not executed.
 
-The 2016 CPM paper defines and studies this observation and gives the polynomial path recurrence and nonreconstructible examples; these are credited and are not original contributions. Bartha's 2021 thesis Table 3.5 already provides aggregate numbers of confusable binary-colored trees up to 12 vertices. Its displayed summary does not isolate the first binary spider ambiguity by edge count or give the complete exact (2,3,4) fiber classification. A recent paper on vertex-labeled connected-subgraph composition models a distinct readout. The checked research index did not reveal a directly equivalent theorem. Search absence does not prove novelty; unpublished or unindexed detailed source data, especially behind the thesis's aggregate table, remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Small unjumble (recovering edge colors when the tree topology is known) is an explicit motivated inverse problem. Spiders are the minimal branching family beyond paths, and named binary labels are the smallest nontrivial alphabet. The sharp first-failure order, unique obstructing shape, complete collision structure and complement pairing give a useful exact boundary and minimal fixtures for inverse algorithms. This is a natural full cutoff/classification, not an arbitrary isolated computation. No claim is made of an infinite structural classification.
+The prior path-Parikh inverse problem and its polynomial method are established. The supported distinct claim is the sharp first known-topology binary spider failure plus the exhaustive topology/fiber classification. The closest aggregate census has the right invariant and includes trees of the relevant order; its available description does not localize the ambiguity. Priority remains qualified, in particular because the decisive thesis passages and possible underlying data were unavailable in this review.
 
-## Sources and limitations
+## value
 
-See `RESULT.md` references and `AUDIT.json` for exact implication comparisons. The proof requires the supplied finite verifier; the independent audit status is unperformed. The selected MSC2020 is graph theory in computer science (68R10), reflecting the tree-reconstruction problem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Spiders are the simplest singly branching extension of paths, and fixed binary colors are the minimal nontrivial observation alphabet. The exact onset, unique obstructing shape and complete complement-paired fibers give minimal test instances and a finite identifiability boundary for the established small-unjumble problem, rather than another aggregate total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

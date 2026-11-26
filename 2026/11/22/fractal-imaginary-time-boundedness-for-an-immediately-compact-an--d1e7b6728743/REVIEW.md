@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generator blocks are explicit exponentials forming a semigroup. The real-time uniform block bound \(n^\gamma/(e n!)\) yields the \(C_0\) property, sectorial bounded analyticity and immediate compactness. At imaginary time the upper-right block has norm \(n^\gamma|1-e^{-2\pi i n!\alpha}|\), giving an exact boundedness equivalence. The factorial digit argument proves both Hausdorff bounds, the critical uncountability, and rational rigidity above the threshold. Direct multiplication and finite digit checks ran successfully from the packaged checker. The infinite-dimensional assertions follow from the proof rather than finite tests.
+## correctness
 
-## Originality — PASS (literature qualified)
-Perelmuter (arXiv:2611.15455v1, posted 11 November 2026, primary 47D06), in its inspected primary PDF, studies imaginary-time isometric covariance, periodic geometry, and examples including Ornstein–Uhlenbeck and a hypoelliptic Laplacian. Those mechanisms do not supply the explicitly classified dense nonclosed boundary group or its fractal dimension for an immediately compact Hilbert semigroup. A related published two-rate Ornstein–Uhlenbeck calculation has a different discrete-versus-trivial period group and continuous vertical-density law, neither implying the present factorial boundary classification. A published result on superlacunary diagonal semigroups addresses initial short-time norm jumps rather than imaginary boundary boundedness. Airey–Mance (2016) treat Cantor-series digit dimensions; the arithmetic sublemma is therefore credited, not asserted as a new independent contribution. Searches of published mathematical records and the accessible claim ledgers revealed no covering operator-semigroup claim. An unindexed equivalent remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The natural question of which points on the imaginary axis support bounded continuation of an analytic semigroup is motivated directly by recent complex-time semigroup theory. The construction gives a sharp, complete, parameterized classification: despite immediate compactness and strictly negative real point spectra, the boundary boundedness group can be countable dense, uncountable of dimension zero, or uncountable of any specified dimension between zero and one. This is a structural boundary phenomenon, not a routine improvement of a constant or an arbitrary finite slice.
+The triangular blocks are individually entire semigroups. For |arg z|≤θ<π/2 the off-diagonal is bounded by n^γ/(e n! cos θ), while both diagonals are at most one in modulus. This gives strong continuity by density at zero; truncations converge in norm locally on the open right half-plane and at every positive real time, proving holomorphy and immediate compactness. The generator is the diagonal block operator on its maximal graph domain, with finite supports a core by truncation. Away from its listed eigenvalues its block inverses have diagonal entries O(1/(n!)²) and upper-right entries O(n^γ/(n!)³), excluding additional spectrum. For Re z<0 the first diagonal diverges; on the imaginary axis the supremum of the off-diagonal moduli is finite exactly under the factorial-distance criterion, by the two-sided sine bound. The right half-plane is the interior of the boundedness set and no extension through an axis point can agree with the blocks on an open neighborhood. For γ>1 the integer error in the nearest-integer recurrence eventually vanishes; the remaining signed error must vanish since it would otherwise grow by factorial factors. For γ≤1 use the canonical factorial expansion with a tail strictly less than the maximal tail (take terminating digits at ambiguous endpoints). In a fixed bound class, digit counts are O_C(1+n^(1−γ)); covers at size 1/N! give the stated upper bounds. For γ<1, restricting digits to 0 through floor(j^(1−γ)/4) keeps the points in the group; equal-weight cylinder mass is exp(−(1−γ)N log N+O(N)). An interval between the two successive factorial scales has positive-mass intersection with at most two level-N cylinders, giving a Frostman bound for each s<1−γ. Binary factorial digits give uncountably many points at γ=1. Multiplication by n! modulo 1 preserves Lebesgue measure, so the fixed bound classes are null; the subgroup property, rational density and exact group of translations follow directly. Bounded analyticity is sectorial (proper subsectors), not a uniform bound on the full half-plane. Finite diagnostics were inspected but not run; the proof, not those diagnostics, establishes the infinite statements.
 
-## Limitations and closest literature
-No claim is made for normal generators, positive semigroups, or universal realizability of arbitrary subgroups. The relevant primary semigroup paper has been inspected in full via its accessible PDF text; the older Cantor-series study was available here as its bibliographic abstract rather than an inspected complete proof. Source dates refer to first preprint posting, not later typeset versions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the immediately compact bounded analytic semigroup realization of the exact factorial boundary group, including tunable positive Hausdorff dimension and no holomorphy across the imaginary axis. The individual digit-count techniques and general semigroup periodicity are not new. No equivalent or dominating operator result was found in the inspected statements; this is not a historical priority certification.
+
+## value
+
+PASS
+
+The example separates boundedness at individual imaginary times from any analytic extension there even under immediate compactness and strictly negative real generator spectrum. The exact dense proper subgroup and continuously tunable dimension give a quantitative structural witness, not just isolated bounded times or a parameter substitution in the compared periodic examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

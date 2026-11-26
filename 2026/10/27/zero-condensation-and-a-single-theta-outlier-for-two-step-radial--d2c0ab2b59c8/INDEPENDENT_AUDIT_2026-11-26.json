@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:22.299445Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating u^n against the weight in u=|z|² gives (1+τq^(n−N))/(n+1); reciprocal monomial norms give the stated kernel. For the shifted and normalized series on r0≤|s|≤r1 with q<r0≤r1<1, write ρ=q/r0. The absolute difference from the bilateral limit is bounded by [r1/(1−r1)²+τ^(−1)ρ/(1−ρ)²]/(N+1)+τ^(−1)ρ^(N+1)/(1−ρ), from the index correction and omitted negative tail. The DLMF summation with a=−τ,b=−τq gives the stated product, including the constant (the factor 1+τ is canceled when changing (−τq;q)∞ to (−τ;q)∞). All reciprocal-s factors have zero winding on these circles since the zero of each such factor lies at modulus at most q and its pole is at zero. Among forward factors only 1+τs can contribute, with simple zero at −1/τ. Uniform convergence and homotopy on each fixed circle preserve winding off this zero; multiplication by s^N restores the N term for the argument principle. On a small disk about −1/τ Rouché gives one zero counted with multiplicity, and smaller such disks give convergence. The normalized kernel on compact subsets of |s|<q tends uniformly to q^(−1)(1−s/q)^(−2), excluding inner zeros and proving the stated radial condensation. No moving-radius, angular uniformity or whole-disk count is inferred. The frozen code and 69-check output were inspected, not executed. Its sampled winding is numerical only; the moment-inversion assertions reuse the same expression and are an algebraic consistency check, not independent integration. The analytic checks above do not depend on either safeguard.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perälä constructs radial disk weights with prescribed finite numbers of zeros. Zeytuncu supplies radial zero existence, including a specific step example. Boudreaux's radial infinite-zero construction in the compared passage concerns the plane."
+        ],
+        "reasoning": "Prescribed existence in a broader class does not count zeros for a specific family with a fixed radial interface or control the location of a simple outlier.",
+        "searches": [
+          "arXiv:1703.05976, Theorem 3.3",
+          "arXiv:1802.01099, abstract and §3",
+          "Zeytuncu arXiv:1009.2806"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof steps 1–5, VERIFICATION.md, check.py and verification_output.txt",
+        "arXiv:1009.2806, arXiv:1703.05976, arXiv:1802.01099",
+        "Resultary fe97a681840e and ec4368ab0a4e, RESULT.md passages",
+        "DLMF Eq. 17.8.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bilateral product is a direct specialization of classical Ramanujan summation and is not original.",
+          "The integer exponent result has no interior outlier. In the concentration result's notation ρ²=q and κ=τq^(−N), so the mass is unbounded while the support radius stays fixed, outside the compared theorem's hypotheses."
+        ],
+        "reasoning": "The classical product must still be connected to the unilateral derivative-weighted kernels by two different locally uniform scaling limits and a winding computation. Neither the integer phase nor the bounded-mass perturbation can supply that exact disk count for this regime.",
+        "searches": [
+          "DLMF §17.8(ii), Eq. 17.8.2",
+          "Resultary fe97a681840e, Finding and bilateral limit",
+          "Resultary ec4368ab0a4e, Finding and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound family has step height q^(−(N+1+δ)) with δ=log(τ)/log(1/q) in (0,1). Zeytuncu's Theorem 1.5 proof already uses a two-level radial step, 18 for |z|≤1/4 and 1 outside.",
+          "The close Resultary bulk record uses an integer exponent, equivalent at τ=1 with m=N+1, not for the claimed τ interval at a fixed jump radius."
+        ],
+        "reasoning": "Changing step notation or scalar product coordinate gives neither novelty nor coverage by itself. The jump fixes the base q; matching the heights by an integer specialization at that same q is impossible for 0<δ<1.",
+        "searches": [
+          "Resultary: two-step radial Bergman weights, theta outlier, exact bulk zero counts",
+          "arXiv:1009.2806, Theorem 1.5 and its proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record fe97a681840e gives m−1 zeros at every fixed a<r<1 for integer m and angular equidistribution there. Indexed record ec4368ab0a4e treats the first simple negative zero and the bounded added-mass threshold at small support."
+        ],
+        "reasoning": "No tabulated finite case can establish the eventual all-N law at arbitrary fixed real q,τ,r; the exact indexed statements were compared instead. Neither supplies N+1 in the exterior portion of the claimed radius range at fixed q and τ>1. This conclusion uses their actual hypotheses, not dates.",
+        "searches": [
+          "Resultary: circle condensation and exact bulk zero counts for two-step Bergman weights",
+          "Resultary: first Lu Qi-Keng zero for concentrated radial mass"
+        ]
+      },
+      "rationale": "To the best of the inspected evidence the distinct claim is the exact radius-dependent jump and movable, isolated zero at fixed q with a nonintegral exponent offset. There is direct prior work on the weight class, existence and prescribed numbers of zeros, and a close indexed bulk-condensation theorem on the integer phase, but none of the compared statements covers this phase or implies its outlier law.",
+      "residual_risks": [
+        "The comparison is bounded; exact-count theorems for other growing two-step regimes or under a different special-function name could have escaped the search.",
+        "The cited primary passages do not establish historical priority; the close integer-phase result also prevents claiming novelty for bulk condensation without the phase and outlier qualification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative prior, not the shifting count",
+          "evidence": "Radial step 18 inside radius 1/4 and 1 outside, with a Rouché proof of existence.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.2806",
+          "material_read": "Theorem 1.5 p. 2; proof and remark pp. 3–4, OA offsets around 6300 and 8000",
+          "method": "Bounded OA PDF passages",
+          "title": "Weighted Bergman Projections and Kernels: Lp Regularity and Zeros",
+          "trigger": "Same step weight shape and kernel zeros"
+        },
+        {
+          "assessment": "Different construction",
+          "evidence": "Realizes prescribed finite counts; does not specify the frozen family or its radial limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.05976",
+          "material_read": "Abstract and Theorem 3.3 p. 7, offset about 17100",
+          "method": "Bounded OA PDF passages",
+          "title": "Vanishing Bergman kernels on the disk",
+          "trigger": "Exact counts in radial disk weights"
+        },
+        {
+          "assessment": "Different domain in inspected radial infinite-zero result",
+          "evidence": "The relevant radial construction is on the plane.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.01099",
+          "material_read": "Abstract and §3 pp. 4–5, offset about 13900",
+          "method": "Bounded OA PDF passages",
+          "title": "Equivalent Bergman Spaces With Inequivalent Weights",
+          "trigger": "Large zero populations under radial weights"
+        },
+        {
+          "assessment": "Adjacent integer phase, stronger angular statement there; no fractional-phase coverage",
+          "evidence": "Weight 1+a^(−m) indicator with integer m, m−1 count for every fixed a<r<1, equidistribution on |s|=a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-circle-condensation-and-exact-bulk-zero-counts-for-two-step-berg--fe97a681840e/RESULT.md",
+          "material_read": "Finding, assumptions and scaling (offset 0); proof of limiting winding (about 3200)",
+          "method": "Bounded local mirror passages, match the exponents at fixed radius",
+          "title": "Circle condensation and exact bulk zero counts for two-step Bergman weights",
+          "trigger": "Closest match in exact counts and condensation"
+        },
+        {
+          "assessment": "Different limiting regime, irrespective of same-day dating",
+          "evidence": "The result assumes sufficiently small support for bounded mass κ; the frozen problem fixes support and sends κ to infinity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-universal-moment-law-for-the-first-lu-qi-keng-zero-created-by-co--ec4368ab0a4e/RESULT.md",
+          "material_read": "Finding offset 0; related work and limitations around 8100 and 9300",
+          "method": "Bounded local mirror passages; compare exact mass parameters",
+          "title": "Universal moment law for the first Lu Qi-Keng zero created by concentrated radial mass",
+          "trigger": "Similar negative real zero in two-step weights"
+        },
+        {
+          "assessment": "Exact prior for the identity only",
+          "evidence": "With a=−τ,b=−τq,z=s, |b/a|=q; the resulting product has the frozen zero factor 1+τs.",
+          "identifier_or_url": "https://dlmf.nist.gov/17.8.E2",
+          "material_read": "§17.8(ii), equation 17.8.2 and convergence annulus",
+          "method": "OA equation and explicit specialization",
+          "title": "NIST DLMF: Ramanujan's Bilateral Summation",
+          "trigger": "Exact limiting product identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two levels give a minimal radial perturbation for testing zero geometry. At a fixed interface the phase moves one simple negative zero through the whole open radial gap (q,1) while the N bulk zeros remain near the interface. Recovering an eventually exact count on both sides, not just existence or normalized density, separates these two mechanisms and gives a useful explicit benchmark for weighted-kernel asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

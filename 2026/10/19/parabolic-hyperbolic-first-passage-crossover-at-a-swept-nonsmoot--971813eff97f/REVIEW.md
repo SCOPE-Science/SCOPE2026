@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The left tracking formula is an exact solution until the switching ceiling \(n_0=\lceil(1-a)^{-1}\rceil\). The right orbit has an exact weighted-geometric expression, including the neutral limit. Uniform Riemann-sum convergence on the time scale \(n\sqrt{\varepsilon}\) and the strict monotonicity of \(H_\kappa\) prove first-passage convergence, with an \(O(1)\) index remainder at exact critical scaling. In the near-neutral hyperbolic regime, comparing trial indices with \((1+\delta)^n/(L\delta^2/\varepsilon)\to e^{\pm\eta}\) gives the asserted little-o normalized logarithm. Separately implemented recurrence calculations and exact-rational checks pass. Numerical tests do not establish the infinite asymptotic claim.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+With q=1−a the tracking formula first becomes nonnegative at n0=ceil(1/q), including the case of equality, and any bounded difference from the negative-time frozen branch eliminates the homogeneous term proportional to a^n. The continuation satisfies v[n+1]=b v[n]+n, b=1+δ, and is strictly increasing. Direct summation gives v[n]=(b^n−1−nδ)/δ²+c(b)b^n for δ>0 with c bounded at b=1; the neutral sum is n(n−1)/2. At h=√ε and δ/h→κ the convolution is uniformly a Riemann sum on compact rescaled time intervals; for δ=κh exactly, the kernel and grid errors are O(h). The derivative of Hκ at the threshold is strictly positive, so discrete bracketing gives the claimed limit and O(1) iteration error. Hκ increases strictly in κ for positive t and depends continuously on κ including at zero. For R=Lδ²/ε→∞, integers with n log b=log R±η+O(log b) have nδ=O(log R), and x[n]/L→exp(±η); rounding is negligible precisely because δ→0. This proves the additive-log limit without replacing log(1+δ) by δ.
 
-The most direct paper, Simpson (arXiv:2406.04587, sections 3 and 8), establishes global forward divergence for frozen nonsmooth folds under nondegeneracy; it supplies no nonautonomous sweep time and excludes a singular unit right multiplier. Budd and Kuske (arXiv:2305.09902, Lemma A and section 2) obtain logarithmic drift delay for a continuous-time absolute-value flow with fixed slopes, but not the stated joint discrete multiplier–sweep function. Chu, Lin and Tsai (arXiv:2311.07242, Theorems 1-2) examine discrete *quadratic smooth* saddle-node passage with a different scaling. The available abstract of Kiers (arXiv:1907.11601) is qualitative; its full text was not accessible. Searches of equivalent titles, mathematical statements, border-collision aliases and related indexed records disclosed no dominating claim, but do not establish uniqueness. Implicit coverage through another normal form remains the main priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The right multiplier approaching one is the natural breakdown boundary of the frozen border equilibrium, and it changes the physical number of steps needed to reach a fixed post-fold threshold. A complete two-parameter crossover \(\delta/\sqrt{\varepsilon}\) and an exact near-neutral logarithmic balance are motivated dynamical quantities rather than numerical enumeration or a rephrased static bifurcation. The result remains deliberately limited to the stated affine scalar model, without claims of nonlinear perturbation robustness.
+The closest prior swept nonsmooth example is continuous time with fixed unstable rate; the closest discrete nonsmooth theorem is frozen-parameter divergence. Neither supplies the jointly scaled discrete passage law. The positive finding supported here is the finite-κ crossover with its iteration error and the near-neutral additive-log law, not logarithmic fold delay itself.
 
-## Limitations
+## value
 
-The theorem treats only one explicitly chosen negative-time tracking history, fixed left contraction and positive observation level. An inaccessible general discrete tipping paper and nonexhaustive older-literature coverage leave documented originality uncertainty; independent assessment is still necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a quantitative benchmark at a motivated loss-of-hyperbolicity boundary of a swept border collision. It separates the neutral square-root time scale from the exponential-growth regime, locates the crossover, and retains the exact discrete multiplier in the additive-log law where a continuous-rate replacement can lose precision. It is a useful exact model result, not a universal tipping claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

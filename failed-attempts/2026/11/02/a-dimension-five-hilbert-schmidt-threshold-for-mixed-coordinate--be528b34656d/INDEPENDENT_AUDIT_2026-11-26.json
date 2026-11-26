@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:03.482962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated bounded coordinate operators have the required monomial action. Each order of composition has a unique term per output shift (p,q); subtraction gives the displayed (p−q) numerator and the first shift on constants gives 1/4. Orthogonality of distinct output monomials for each input suffices for the squared Hilbert–Schmidt energy. The generating function for the input-shell weight sum is p!q!(1−t)^(−d−p−q) divided coefficientwise by (n+1)_(p+q), giving the factorial expression. For s=p+q, each shell summand is bounded by s^2 (n+s+1)^(d−5)/[(n+1)^2(s+1)^(d−1) binom(s,p)]. For d≤5 this yields an O((n+1)^−2) shell bound by summing over shifts. For d≥5, n+s+1≤(n+1)(s+1) gives, after the claimed rescaling, the summable bound s^2/[(s+1)^4 binom(s,p)], since the inverse-binomial sum over each positive s is at most three. The fixed-shift limit gives the claimed factorial constant by dominated convergence; the shifts (1,0),(0,1) make it positive. Summation gives the logarithmic/power laws and the two-sided cutoff. The finite checker was inspected, not executed; no finite extrapolation is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pilla supplies the bounded tuple and notes its noncommutation; the companion abstract describes norms and Rhaly generalizations. Arveson's cited multiplier framework addresses different operators; the full text was not verified here. The earlier Resultary gives the all-dimension exact commutator series and bounds."
+        ],
+        "reasoning": "The verified coverage comes from the earlier Resultary's same-operator theorem, not an assumption that general coordinate-multiplier bounds apply or that the unread texts lack such coverage.",
+        "searches": [
+          "Pilla arXiv:2606.24710 Definition 2.3 and spectral section",
+          "Pilla arXiv:2606.25885v1 abstract",
+          "Resultary e2799a87c22d Steps 2–5",
+          "Arveson Acta Math. 181 (1998), DOI and Project Euclid access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e2799a87c22d and 10d1d256d9b0",
+        "Pilla arXiv:2606.24710 and arXiv:2606.25885",
+        "Arveson (1998), DOI and Project Euclid routes, full text not obtained"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Step 5 uses (m+p+1)(m+q+1)≥(m+1)(m+r+1), |p−q|≤r, the inverse-binomial sum ≤3 and each norm-ratio factor ≤(m+r+1)/(r+1). With m+r+1≤(m+1)(r+1) this gives exactly the rescaled summable majorant r^2/[(r+1)^4 binom(r,p)] for d≥5. The prior exact factorial product gives the fixed-shift limit simply by retaining its leading power of m."
+        ],
+        "reasoning": "Taking dominated convergence in the already explicit series gives the claimed constant, and summing the resulting powers gives the logarithmic and power asymptotics. This is direct coverage by implication even though the normalization limit is not written out in the prior finding.",
+        "searches": [
+          "Resultary e2799a87c22d, Proof Steps 2–5, local mirror offsets 2120–4770"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior cutoff is exactly 2≤d≤5 for K_ij=C_iC_j−C_jC_i on the same space. Its product ratio, with r=k+l, is p!q!(m+d+r−1)!/[(d+r−1)!(m+r)!] upon renaming k,l as p,q; the shift denominator and numerator are identical."
+        ],
+        "reasoning": "The factorial and product presentations define the same shell summands and the same operators, not just an analogous dimension threshold.",
+        "searches": [
+          "Local Resultary: mixed coordinate Cesàro commutator Drury–Arveson Hilbert–Schmidt cutoff",
+          "Resultary e2799a87c22d, Finding and Proof Steps 2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed cutoff and the full shell-energy series occur in e2799a87c22d. The November 8 entry 10d1d256d9b0 repeats the commutator cutoff and treats mixed products; it is later than the frozen record and is corroborative, not relied on for priority."
+        ],
+        "reasoning": "An analytic dimension threshold rather than a finite table is at issue; the directly matching indexed theorem already determines the exact discrete invariant.",
+        "searches": [
+          "Local Resultary exact cutoff and shell asymptotic for mixed coordinate Cesàro commutators",
+          "Resultary e2799a87c22d, Finding and exact degree-summed normalization",
+          "Resultary 10d1d256d9b0, Finding"
+        ]
+      },
+      "rationale": "The October 18 Resultary publication already proves the identical cutoff for the identical mixed nonadjoint commutator, including nonzero action, the full exact degree-summed coefficient formula and the upper inequalities. The frozen record gives an explicit shell limit not stated in the inspected passages, but it follows directly from that formula and those same inequalities, so it does not rescue the frozen claim from prior coverage.",
+      "residual_risks": [
+        "Additional or earlier coverage could occur in uninspected text, notably the companion Pilla paper or general operator literature; the negative decision rests on verified Resultary coverage, not these access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact cutoff and series covered; shell asymptotic covered by direct implication",
+          "evidence": "Steps 2 and 3 give the same shift and degree-summed norm ratio; Step 4 gives dimension-six divergence and Step 5 gives the inequalities yielding uniform summable domination.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-dimension-five-hilbert-schmidt-cutoff-for-drury-arveson-ces-ro--e2799a87c22d",
+          "material_read": "RESULT.md, Finding; Proof Steps 2–5, offsets 2120 and 4550 onward",
+          "method": "Local Resultary mirror, exact formula and proof comparison",
+          "title": "A dimension-five Hilbert–Schmidt cutoff for Drury–Arveson Cesàro commutators",
+          "trigger": "Earlier theorem matches both the operator and dimension cutoff"
+        },
+        {
+          "assessment": "Same operator and earlier noncommutativity, not the threshold in these passages",
+          "evidence": "The monomial shift denominator uses total degree; the passage about the Taylor spectrum identifies the tuple as noncommuting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.24710",
+          "material_read": "Definition 2.3, p. 5, offset 14301; discussion p. 9, offset 28371",
+          "method": "Targeted primary PDF text",
+          "title": "Cesàro-Type Operators Acting on the Drury-Arveson Space",
+          "trigger": "Primary definition and earlier noncommutativity"
+        },
+        {
+          "assessment": "Norms and Rhaly extensions in the inspected passage; no document-wide conclusion",
+          "evidence": "The abstract announces norm determination and the multivariable Rhaly generalization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.25885",
+          "material_read": "p. 1, abstract, offset 29",
+          "method": "Targeted primary PDF text",
+          "title": "Rhaly-Type Operators in Several Complex Variables",
+          "trigger": "Companion treatment of the same Cesàro-type operators"
+        },
+        {
+          "assessment": "Corroborating but later",
+          "evidence": "Repeats the commutator cutoff and separately gives compactness and a different Hilbert–Schmidt cutoff for mixed products.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-compact-mixed-ces-ro-products-and-sharp-hilbert-schmidt-dimensio--10d1d256d9b0",
+          "material_read": "RESULT.md, Finding and degree-summed formulas, offsets 0–3144",
+          "method": "Local Resultary mirror",
+          "title": "Compact mixed Cesàro products and sharp Hilbert–Schmidt dimensions",
+          "trigger": "Same commutator and mixed products"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp commutator cutoff and its divergence rate are meaningful quantities, but the cutoff and exact shell-energy series are known for these operators. The proposed quantitative refinement is obtained by taking the leading coefficient of that series using the already available summable comparison and summing powers; there is no surviving nonmechanical exact claim here requiring a repaired record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

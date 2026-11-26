@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact inclusion-exclusion identity reduces every weight-at-most-three Walsh multiplier to eight or fewer explicit integer sums. The independent direct signed-incidence parity method checks the same complete 4,525-frequency width-ten domain; both agree on zero counts \(0,0,30\), all character values, and the fifteen half-turn orbit representatives. Identical complete tests establish weight-one/two counts at widths two, six and fourteen. The odd-width central-cell argument and odd-total cardinality argument close the claim that width ten is the first cubic-only case. No finite test is used as an infinite theorem.
+## correctness
 
-**Originality — PASS under bounded comparison.** The primary plane-partition sources establish enumeration and asymptotics, Dhand establishes rank-unimodality and Ferrers complement duality, and de Wolf supplies general Boolean Fourier methods. Full available texts of the closest published two-row Young-diagram results and the \(2\times3\times4\) boxed-plane-partition spectrum were compared. None states or implies the width-ten \(3\times10\) cellwise sparse cancellation census or its thirty triples. Differences were checked at object/coordinate/support level, not title similarity. The residual risk is an unindexed equivalent signed enumerator or specialized earlier table.
+PASS
 
-**Value — PASS.** Sparse Walsh cancellation measures the first local Fourier blind spots of a natural Young-lattice incidence signal. The three-row family first exhibits cubic-only cancellation at the nontrivial width ten, with all thirty offending triples determined, and returns to quadratic cancellation at width fourteen. This is a concrete nonmonotone boundary distinguishing the first three singular widths and complements established two-row behavior; the finite result does not purport to solve general spectrum questions.
+A character is multiplied by the signed kernel sum under counting convolution. Conditioning on the middle row length b gives the product of the independent numbers of top and bottom lengths subject to b; expanding the product of selected factors (1−2·incidence) gives the stated formula. For independent replay run python3 /workspace/reviews/replay-4.py; it encodes shapes using three separator positions and sums parity directly over the complete shape list, rather than invoking the packaged checker. Widths 2,6,10,14 give zero-count tuples (0,2),(0,3),(0,0,30),(0,2). All 4525 tested supports at width 10 were covered, with the exact published row-pair minimum magnitudes 4,2,4,10,2,4. The computed zero triples equal the actual 15 listed supports and their disjoint set of half-turns; the width-2/6 pair witnesses and both width-14 pairs also agree. Complement followed by rotation induces W(ρS)=(−1)^|S| W(S); ρ has no fixed cells at width 10, so an odd support cannot be fixed. At odd widths the central cell is toggled under the diagram bijection, proving a singleton zero, and 4|n makes the shape count binomial(n+3,3) odd by Lucas, ruling out all zeros. This leaves only widths 2 and 6 to check before 10. The proof does not claim full nullity or a general law for larger widths. The phrase 'first three singular widths' in the supporting self-review should be read as referring to the 2 mod 4 subsequence; odd widths already have singleton zeros in the actual theorem.
 
-Closest literature: Cohn–Larsen–Propp (1998), Ciucu (1998), Dhand (2013), de Wolf (2008), and the inspected published two-row and boxed-partition Fourier results listed in the main references. Access and indexing limitations affect historical priority only; no independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge credit for the first cubic-only width and exact support census, not for the general Boolean Fourier identity, rank parity, complement duality, or inclusion–exclusion method.
+
+## value
+
+PASS
+
+Minimum support is the first order at which the Young-diagram incidence kernel annihilates a Boolean interaction. At width 10 the complete quadratic test misses real cubic blind characters; the return to a pair zero at width 14 disproves monotone growth across the first four widths in this congruence class. Locating the first such width and identifying every offending interaction is a useful exact benchmark on a standard shape family, even without a general-width spectrum or full nullity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

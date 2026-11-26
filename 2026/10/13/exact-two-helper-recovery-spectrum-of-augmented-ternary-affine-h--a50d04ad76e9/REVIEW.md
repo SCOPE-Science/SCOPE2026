@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the precisely stated ternary generator matrix and every \(n\ge3\), projective-line collinearity and last-coordinate constraints exhaust all minimal two-helper pairs. The horizontal affine-line count, the directional systematic counts, and the one proportional duplicate are handled separately. Every pair class agrees with independently exhaustive column-span enumeration for \(n=3,4,5\), respectively \(234\), \(1329\), and \(8814\) total target–pair incidences; these finite checks support but do not establish the universal theorem. All-dimensional proof is in `RESULT.md`.
+## correctness
 
-**Originality — PASS, with residual risk.** Mondal–Lee [1] explicitly establish the code construction, parameters and ordinary weights in Theorem 4.12; their full text, related theorem statements, and conclusion do not supply the targetwise minimal repair-pair counts or dual three-circuit total. Haymaker–Malmskog–Matthews [2] already describe line-based Reed–Muller locality and availability, and Grezet–Hollanti [3] determine hierarchical locality parameters of punctured simplex codes. These prior results justify the geometric technique but apply to different column configurations and do not explicitly yield the effects of the restricted first coordinate, appended identity block, and unique repeated affine point. An earlier generic line-incidence theorem might imply these formulas through an unobserved specialization; no absolute novelty guarantee is claimed.
+PASS
 
-**Value — PASS.** The exact coordinatewise recovery spectrum distinguishes the two locality-one symbols and the abundance of two-helper alternatives for each other coordinate class. The summed dual three-circuit number is a consistency consequence also recoverable from the original ordinary weight enumerator via MacWilliams and is not separately original. Ordinary Hamming-weight enumerators and minimum distance cannot reveal this target-resolved repair information. The result is a natural structural invariant of an emerging code construction, rather than an arbitrary numerical truncation. It does not assert pairwise-disjoint availability.
+For the stated generator, recovery is equivalent to membership in the helper span by the inclusion of kernels of the corresponding linear functionals. For an affine target, two evaluation helpers must complete a horizontal ternary line, giving (3^m−1)/2; an evaluation and an axis column give 2m+1. Replacing the origin by its systematic copy contributes one more pair exactly for z=0 and y≠0. Two systematic helpers contribute precisely at a nonzero allowed axis displacement. Neither origin position can use the other in a minimal pair. For an axis target two affine helpers differ along that axis: this gives 2·3^m for an unrestricted axis or 3^m for the restricted axis. Admitting the additional origin position adds two or one, respectively. Pure axis pairs and mixed axis/affine pairs cannot yield a different point at infinity. These cases exhaust the last-coordinate and direction possibilities. Only the origin has a projective duplicate. Three distinct projective classes yielding a repair pair form a 3-circuit, with three incidences and two nonzero ternary relations; a triple containing the duplicate positions and a third class cannot have a full-support relation. The summed incidence count is (2·3^m+1)B_m+(2m+2)3^m+4m+1. Independent replay `python3 /tmp/opencode/frozen-independent-checks.py recovery` tested full-support dependencies on position triples, agreeing on every position at m=2,3,4, with 78,443,2938 supports. The replay is finite; the case split supplies the universal proof.
 
-**Residual limits.** The proof is limited to the specified \(\mathbb F_3\) family. Independent audit and complete global literature exclusion are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact positionwise minimal-pair spectrum for this systematic half-affine configuration. The underlying code, line-repair principle, and aggregate dual coefficient are not independently new. The closest distinct catalogue record counts the same kind of pairs for a different generator; its three-class enumeration does not determine this seven-row classification.
+
+## value
+
+PASS
+
+The number of alternative minimal two-helper pairs at a specified position is a natural local repair invariant of this existing code. The exact spectrum distinguishes axes, affine positions and the duplicated origin, information unavailable from the aggregate dual coefficient or minimum locality alone. It does not claim disjoint repair availability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

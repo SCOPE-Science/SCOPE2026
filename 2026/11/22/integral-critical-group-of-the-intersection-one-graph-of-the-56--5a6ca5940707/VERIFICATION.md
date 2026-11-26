@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limitations
 
-Run `python3 verify.py` with Python 3 and no third-party dependencies. The implementation reconstructs all 56 exceptional divisor classes, their pairwise intersections, the complete distance-two relation to the ordinary Gosset graph, and the Geiser pairing. It asserts the full Gram-matrix identity and computes the reduced Laplacian determinant by exact fraction-free elimination. It then computes the full Smith valuation spectra modulo \(2^{12}\), \(3^{10}\), and \(7^8\), independently for deleted vertices 0, 17, and 55, and checks that these agree.
+# Independent mathematical audit
 
-The factorization of the determinant follows separately from the Laplacian spectrum and the matrix-tree theorem, so the program verifies both the integral invariant factors and the required determinant consistency. Every modular pivot valuation is below the modulus precision and the sum of valuations equals the exact determinant valuation, ruling out unaccounted higher exponents. The program checks all 56 geometric vertices, not a random sample.
+## correctness
 
-Expected completion marker: `DEGREE_TWO_DEL_PEZZO_INTERSECTION_ONE_CRITICAL_GROUP_VERIFIED_OK`.
+PASS
 
-Scope: characteristic-zero smooth degree-two del Pezzo surfaces, and the unweighted graph of intersection-one exceptional curves only. The code is an exact verification of a finite universally shared graph; it is not an external proof of historical priority or an independent mathematical audit.
+The seven-point blowup classification gives the four complete curve families. I used an alternative signed-pair model: assign E_i to +{i,8}, H−E_i−E_j to −{i,j}, and each Geiser mate the opposite sign on its pair. For signed pairs (s,A),(t,B), checking the Picard pairing gives intersection (1−st(2|A∩B|−1))/2; the remaining two curve families are the Geiser complements. I constructed the 56-vertex graph using this formula and checked it equals the distance-two relation for intersection-zero adjacency. It has 756 edges and degree 27. The exact characteristic polynomial gives eigenvalues 0(1), 24(21), 28(27), 36(7) for the Laplacian, so it is connected and has 2^128·3^35·7^26 spanning trees, confirmed by integer cofactor determinant. Exact integer Smith form yields 1(8), 2(14), 4(7), 28(5), 336(14), 3024, 6048(6), with parenthesized multiplicities. In particular the exponent is 6048. The classification and pairing model apply to every surface in the stated smooth characteristic-zero scope.
+
+## originality
+
+PASS
+
+The geometric construction and distinction between distance relations are classical. The strongest independently inspected arithmetic match computes a different, intersection-weighted graph. No checked source establishes the full integral group for the specific intersection-one graph, and none is excluded on title or date alone.
+
+## value
+
+PASS
+
+The intersection-one relation and its integral divisor quotient are canonical for all surfaces in scope. The 2-, 3- and 7-primary multiplicities refine the distance graph's spectrum and tree count and are a concrete comparison invariant for chip-firing on exceptional-curve graphs. This is neither the ordinary Gosset graph nor an arbitrary subset of exceptional curves, and the full Smith group is not supplied by the geometric distance counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

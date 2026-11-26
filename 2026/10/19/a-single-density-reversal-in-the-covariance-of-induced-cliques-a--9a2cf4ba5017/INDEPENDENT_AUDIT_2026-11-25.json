@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:46:07.038624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–52",
+        "VERIFICATION.md:19–23",
+        "verify.py:7–78"
+      ],
+      "rationale": "Independently checked the ordered-pair calculation. Given a clique on T with |S∩T|=s, the sole missing edge of the near-clique on S must be one of a−b_s unshared edges, where a=binom(r,2) and b_s=binom(s,2). This also makes the joint indicator zero at s=r; s≤1 cancels by edge independence. Dividing the covariance by binom(n,r)(1−p)p^(2a−1) gives a decreasing sum of positive multiples of p^(−b_s) minus a constant, with the s=r−1 term strictly positive in its coefficient for every n≥r+1. Its limits at zero and one have opposite signs. At p0=(a−1)/a, Bernoulli's inequality makes every overlap contribution nonpositive and the identical-set contribution strictly negative. Only the last two overlaps occur at n=r+1, yielding p^binom(r−1,2)=2/(r+1). For r=3 the only off-diagonal term has A_2=3(n−3), giving 2(n−3)/(3n−8); at n=r the counts cannot co-occur. For large n with r fixed, A_3/A_2=(r−2)^2/[3(n−2r+3)] and the other ratios are O_r(n^−2). The s=2 term after dividing out A_2 has slope −(a−1)p0^(a−2) at its zero; the s=3 term there is −(3a−1)p0^(a−3)/a². These give the stated signed correction with an O_r(n^−2) remainder by Taylor expansion on a fixed neighborhood. Inspected the frozen verifier; its exact graph census at selected small n and numerical root checks are corroboration, not the proof. No frozen code was executed.",
+      "residual_risks": [
+        "The expansion is fixed-r only; the sign result uses independent edges and induced motif counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later universal clique/pattern sign-switch record (2026-10-26), Finding and assumptions: arbitrary nonempty noncomplete H with n≥|V(H)|+r−2, including a first-order correction."
+        ],
+        "reasoning": "Setting H=K_r−e gives the same crossing and correction for n≥2r−2; 1/(n−r) and 1/n have the same first-order coefficient. The broader pattern theorem is later and leaves smaller n uncovered for r≥4.",
+        "searches": [
+          "Resultary: overlap formulas and fixed-r threshold/asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "Earlier 2026-10-13 and later 2026-10-26 Resultary Findings",
+        "Picard et al. author slides",
+        "arXiv:1509.07754",
+        "arXiv:1602.01130",
+        "Janson and Fretter et al. DOI access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Picard author slides pp. 8–9 use overlap for self-moments. The score identity Cov(F,M)=p(1−p)(d/dp)E[F] involves total edge count M, not clique count Y_r."
+        ],
+        "reasoning": "A general mixed-moment method could recover the pair decomposition; the checked moment and derivative results do not give the all-size strict crossing, endpoint value, and correction. Using F=XY in the score identity differentiates a product mean and does not directly give Cov(X,Y).",
+        "searches": [
+          "Resultary: graph-count covariance and edge-derivative terminology",
+          "Primary literature: author motif-moment slides and cited graph-count papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier triangle/open-triad record (2026-10-13), Finding: exact same G(n,p) formula and zero at r=3 despite its fixed-edge title."
+        ],
+        "reasoning": "An induced open triad is exactly K_3−e counted per triple, so the entire r=3 statement is old. That source does not address r>3.",
+        "searches": [
+          "Resultary: exact one-edge-defect motif, including triangle/open-triad terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact special case supplies the r=3 threshold; the later universal record supplies a range-restricted general formula."
+        ],
+        "reasoning": "An enumeration table of motifs cannot itself settle an identity and uniqueness for every n,r and continuous p. Exact indexed formulas, not merely tabulated small cases, were compared. No matching earlier all-r formula with the threshold conclusions was verified.",
+        "searches": [
+          "Resultary: exact K_r−e/K_r covariance and fixed-r threshold"
+        ]
+      },
+      "rationale": "Pass applies to the general r≥3 theorem with its finite-size endpoint and fixed-r correction, not to the overlap technique or the exact r=3 case, which was stated in an earlier record. A later more general pattern theorem subsumes the threshold and correction when n≥2r−2, without establishing earlier coverage or the full small-n range.",
+      "residual_risks": [
+        "External targeted search was unavailable; no negative inference was drawn.",
+        "Full Picard, Janson and Fretter articles were not obtained; implicit joint-moment coverage remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier special-case coverage",
+          "evidence": "The independent-edge comparison gives 3 binom(n,3)p^4(1−p)[2(n−3)−(3n−8)p] and the same threshold for n≥4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-strictly-negative-triangle-open-triad-covariance-under-a-fixed-e--549b3a6afdfa/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Strictly negative triangle–open-triad covariance under a fixed edge count",
+          "trigger": "Identical motif pair at r=3"
+        },
+        {
+          "assessment": "Later generalization, with stronger size assumption",
+          "evidence": "Specializing the three-vertex clique count to binom(r,3)−(r−2) reproduces the coefficient; size assumption is n≥2r−2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-single-covariance-sign-switch-between-clique-counts--61053463d85d/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror passage",
+          "title": "A universal single covariance sign switch between clique counts and induced graph patterns",
+          "trigger": "Broader induced-pattern theorem"
+        },
+        {
+          "assessment": "Related method, journal full text unavailable",
+          "evidence": "Slides classify pairs of occurrences for a single motif's squared count; no cross-density threshold in these passages.",
+          "identifier_or_url": "https://franckpicard.github.io/assets/pdf/presentations/netmotifs.pdf; doi:10.1089/cmb.2007.0137",
+          "material_read": "Slides pp. 8–9, offsets 5853 and 8838; journal landing material only",
+          "method": "Lawful author PDF and DOI lookup",
+          "title": "Assessing the Exceptionality of Network Motifs (author presentation and journal record)",
+          "trigger": "Induced motif moments by overlap"
+        },
+        {
+          "assessment": "Different observable and conclusion",
+          "evidence": "Poisson approximation for counts of copies of a fixed graph, not the zero of the mixed induced covariance.",
+          "identifier_or_url": "arXiv:1509.07754",
+          "material_read": "PDF pp. 1–2",
+          "method": "Open preprint",
+          "title": "Poisson approximation of subgraph counts in stochastic block models and a graphon model",
+          "trigger": "Subgraph count overlap statistics"
+        },
+        {
+          "assessment": "Application context only in passage inspected",
+          "evidence": "Uses graphlet vectors for detection rather than an exact clique/near-clique sign theorem.",
+          "identifier_or_url": "arXiv:1602.01130",
+          "material_read": "PDF p. 1",
+          "method": "Open preprint",
+          "title": "GraphPrints: Towards a Graph Analytic Method for Network Anomaly Detection",
+          "trigger": "Induced graphlet statistics"
+        },
+        {
+          "assessment": "Unresolved implicit coverage risk",
+          "evidence": "No full text obtained; not used as negative evidence.",
+          "identifier_or_url": "doi:10.1002/rsa.3240010103",
+          "material_read": "DOI access check; full text not read",
+          "method": "Lawful lookup",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Possible joint graph-count formulas"
+        },
+        {
+          "assessment": "Unresolved implicit coverage risk",
+          "evidence": "No full text obtained; not used as negative evidence.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.85.056119",
+          "material_read": "DOI access check; full text not read",
+          "method": "Lawful lookup",
+          "title": "Subgraph fluctuations in random graphs",
+          "trigger": "Possible joint fluctuation formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–18,23–52"
+      ],
+      "rationale": "The covariance between a complete motif and its nearest induced defect is relevant when interpreting co-fluctuation of motif counts. The theorem distinguishes exclusion on the same set from positive correlation through shared present edges and proves exactly one reversal for every nontrivial graph order, including orders where small-overlap asymptotics are inapplicable. The finite endpoint and displacement of the threshold quantify this competition beyond the standard overlap bookkeeping.",
+      "residual_risks": [
+        "No claim about other induced pairs, fixed-edge ensembles, or growing r."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

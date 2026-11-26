@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:44.341460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked RESULT.md:4–27 and 29–61 on the full stated parameter range. Squaring the positive binomial series gives coefficients d_j>0 with d_0=m², so s^(2−r)K''(s) is a constant term m²r(r−1) plus a strictly increasing positive series. The wet-end leading curvature is 2m^(1−m)(1−m)(1−s)^(m−2); it dominates the derivatives of the square correction and the smooth prefactor. This proves strict convexity for r≥1 and exactly one concave-to-convex inflection for 0<r<1. The triangular integral for 2J is valid at a=h or 1−h: at the dry end T_h K'' is O(s^(r−1)), and at the wet end it is O((1−s)^(m−1)); corresponding boundary terms T_h K' vanish. For a_1<a_2 the ratio of the second translate to the first is strictly increasing on their common positive support by strict log-concavity; the earlier-only and later-only supports are ordered the same way. Whenever both means have both signs of curvature in their integration windows, the windows share an open neighborhood of s_*. The determinant is strictly positive on a product of intervals straddling s_* in that overlap, so the integrated determinant P(a_2)N(a_1)−P(a_1)N(a_2) is strictly positive. Windows lying on a single side have that strict sign. This verifies uniqueness, direction, and the mutual exclusivity of all endpoint tests, even when one test is zero. For small h the endpoint windows lie on opposite sides, ensuring an interior zero; any such zero has a window straddling s_*, giving |a_h−s_*|<h directly, without needing a compactness assumption at the endpoints. Direct scalar evaluation and bisection reproduce the illustrative left/right values −0.0224062230 and 0.2145644773, root 0.3209402594744, and positive left endpoint 0.00250377766 at larger contrast. VERIFICATION.md and checker.py were inspected, not executed; the 9,768 parameter-grid assertions are recorded diagnostics only. This is an exact result for equal-weight constitutive averages, not effective flow.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reviewed record explicitly credits Fuentes et al. and de Jong van Lier et al. for the prior global nonnegative-curvature boundary; Fuentes was available only at abstract level. The Wageningen abstract of de Jong van Lier et al. discusses matric flux potential and the shape of a transpiration reduction function as related to hydraulic diffusivity. The precise older curvature statements were not independently obtained in full text.",
+          "The general variation-diminishing principle for positive kernels is prior; in this review the strictly ordered triangular smoothing step follows directly by a two-by-two determinant, not by claiming a new general sign theorem."
+        ],
+        "reasoning": "Global convexity already gives the positive-gap branch by Jensen. Its threshold alone does not count curvature sign changes below it. General sign variation would apply once the one-change hypothesis for this K was known; it does not supply that model-specific premise. No stronger model-specific theorem was verified in the retrieved material, but the inaccessible originals cannot be ruled out.",
+        "searches": [
+          "Fuentes Haverkamp Parlange Parameter constraints on closed-form soilwater relationships full PDF institutional repository hydraulic conductivity inflection van Genuchten",
+          "DOI:10.1016/0022-1694(92)90032-Q",
+          "DOI:10.1029/2008WR006938",
+          "DOI:10.1080/01621459.1981.10477730",
+          "DOI:10.1016/j.jmaa.2015.03.002"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-d4063f7964bc (the reviewed claim itself)",
+        "SCOPE-20261122-c953416f86af",
+        "DOI:10.1016/0022-1694(92)90032-Q (abstract level)",
+        "DOI:10.1029/2008WR006938 (Wageningen abstract)",
+        "DOI:10.1080/01621459.1981.10477730 (bibliographic level)",
+        "DOI:10.1016/j.jmaa.2015.03.002 (bibliographic level)",
+        "DOI:10.2136/vzj2002.2610 (index and citation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r≥1, the credited convexity criterion accounts for Jensen positivity, with strictness here following from strictly positive interior curvature. The finite-amplitude criterion for 0<r<1 uses the strict increase of the normalized K'' and a strict shift comparison for a triangular moving kernel, including cases with a zero at a feasible boundary."
+        ],
+        "reasoning": "The particular all-amplitude sign classification is a consequence of the model-specific single curvature transition combined with a known type of smoothing argument. A verified prior unique-inflection theorem covering this range would materially weaken the novelty case; the older convexity boundary alone and the inspected same-day salinity statement do not imply the missing premise. The review therefore credits only the distinct model-specific result supported so far.",
+        "searches": [
+          "DOI:10.1016/0022-1694(92)90032-Q",
+          "DOI:10.1029/2008WR006938 Wageningen abstract",
+          "DOI:10.1080/01621459.1981.10477730",
+          "SCOPE-20261122-c953416f86af Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day salinity record's Finding gives one-crossing aggregation bias for a sigmoidal crop-salinity response, including a threshold for two equal-area classes at p=3.",
+          "The reviewed gap is an arithmetic average of local conductivities at two saturations with the same fixed parameters. Zhu–Mohanty's indexed subject is spatial averaging of hydraulic parameters and flow; original full text was not obtained."
+        ],
+        "reasoning": "A two-point bias crossing is a meaningful analogy, but the salinity response is not the conductivity function in the frozen record, and the checked threshold does not identify the VGM curvature change or its endpoint tests. Averaging fitted parameters, or inferring effective conductivity from flow, is not applying a fixed constitutive curve to two saturation levels.",
+        "searches": [
+          "Resultary: van Genuchten conductivity one reversal endpoint tests finite amplitude mean saturation",
+          "Resultary: SCOPE-20261122-c953416f86af",
+          "DOI:10.2136/vzj2002.2610"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact target hit is SCOPE-20261122-d4063f7964bc, the same frozen record itself. The distinct salinity Finding gives an exact p=3 threshold for another response; the other targeted index checks did not supply a distinct VGM finite-contrast table or theorem."
+        ],
+        "reasoning": "The exact VGM criterion is two conductivity evaluations at each endpoint (using normalization at 0 and 1), not a calibration table. A threshold for another response does not give these endpoint signs or equality cases. A nonexhaustive index search is not evidence of global priority.",
+        "searches": [
+          "Resultary: van Genuchten conductivity one reversal endpoint tests finite amplitude mean saturation",
+          "Resultary: Fuentes Haverkamp Parlange curvature constraint",
+          "Resultary: Brown Johnstone MacGibbon triangular kernel variation diminishing",
+          "Resultary: SCOPE-20261122-c953416f86af"
+        ]
+      },
+      "rationale": "Qualified to the model-specific unique inflection in the nonconvex regime and resulting sharp finite-amplitude endpoint classification. The VGM constitutive relation, global convexity parameter threshold, and general triangular-kernel sign-variation method are credited as antecedents. The strongest unresolved historical risk is that the older constitutive literature contains a stronger all-parameter curvature theorem than was established by this check.",
+      "residual_risks": [
+        "Full Fuentes et al. and relevant original passages in de Jong van Lier et al. could not be inspected in this independent check; an older stronger curvature result or equivalent mixing law remains possible.",
+        "The full general total-positivity references were not obtained, although the relevant smoothing step was checked directly and is not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credited antecedent for the parameter boundary; broader coverage unverified",
+          "evidence": [
+            "Frozen RESULT.md:72–76 identifies the convexity threshold as prior and flags possible stronger older coverage; lawful attempts did not retrieve the full original"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-1694(92)90032-Q",
+          "material_read": "Accessible publication metadata and abstract, not full theorem text",
+          "method": "OA DOI and publisher attempts plus targeted identified-copy search",
+          "title": "Parameter constraints on closed-form soilwater relationships",
+          "trigger": "Older model-specific curvature theory could imply the finite-amplitude law"
+        },
+        {
+          "assessment": "The abstract discusses a different reduction observable; no whole-paper claim about K'' or older coverage was inferred",
+          "evidence": [
+            "Abstract relates convex/concave transpiration reduction curves to dD/dθ; DOI 10.1029/2008WR006938"
+          ],
+          "identifier_or_url": "https://research.wur.nl/en/publications/modeling-of-transpiration-reduction-in-van-genuchten-mualem-type-/",
+          "material_read": "Wageningen repository abstract, offset 960–2702; publisher PDF and identified alternate copies unavailable",
+          "method": "Institutional abstract and lawful OA of named paper attempted",
+          "title": "Modeling of transpiration reduction in van Genuchten–Mualem type soils",
+          "trigger": "Close VGM study cited for older curvature conditions"
+        },
+        {
+          "assessment": "General variation diminution credited; no claim asserted about whole-document model-specific coverage",
+          "evidence": [
+            "Frozen RESULT.md:72–84 explicitly excludes the general principle from the novelty claim"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1981.10477730",
+          "material_read": "Citation and publication information; primary theorem passage not retrieved",
+          "method": "Targeted index search and OA DOI/publisher attempt",
+          "title": "Variation Diminishing Transformations: A Direct Approach to Total Positivity and its Statistical Applications",
+          "trigger": "General sign-change theory behind the triangular translate argument"
+        },
+        {
+          "assessment": "General method antecedent; no full-text coverage verdict",
+          "evidence": [
+            "Cited as an application of the general sign-variation method, not VGM-specific evidence"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2015.03.002",
+          "material_read": "Citation and publication information; full text not retrieved",
+          "method": "OA DOI/publisher attempt",
+          "title": "Applications of total positivity theory to 1D prescribed curvature problems",
+          "trigger": "Possible broader total-positivity implication"
+        },
+        {
+          "assessment": "Related sign law for a different constitutive response, with no established implication in either direction",
+          "evidence": [
+            "Sigmoidal crop-salinity response; exact p=3 threshold for two equal-area classes and contrast bounds"
+          ],
+          "identifier_or_url": "SCOPE-20261122-c953416f86af",
+          "material_read": "Local mirror RESULT.md Finding at offset 0",
+          "method": "Published result via local mirror, statement comparison",
+          "title": "Sharp salinity aggregation bias reversal for a sigmoidal crop response",
+          "trigger": "Closest distinct same-day two-saturation-class analogue"
+        },
+        {
+          "assessment": "Indexed quantity is hydraulic parameter averaging for flow, not evidence of exact constitutive midpoint coverage",
+          "evidence": [
+            "Title explicitly concerns averaging of van Genuchten hydraulic parameters"
+          ],
+          "identifier_or_url": "https://doi.org/10.2136/vzj2002.2610",
+          "material_read": "Indexed title and frozen literature comparison only; Wiley and DOI full text unavailable",
+          "method": "Publication information and attempted OA retrieval",
+          "title": "Spatial Averaging of van Genuchten Hydraulic Parameters for Steady-State Flow in Heterogeneous Soils",
+          "trigger": "Plausibly related averaging problem in the same hydraulic family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a fixed nonlinear hydraulic relation, this test decides the direction of exact two-class averaging bias at any feasible contrast by endpoint evaluations, without scanning mean saturation. Its single-reversal direction, equality cases, and link to the unique curvature change go beyond small-contrast Taylor reasoning; the larger-contrast example shows why the finite contrast is consequential. The value is constitutive and mathematical, not a prediction of effective conductivity or a claim that very negative exponents fit physical soils.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

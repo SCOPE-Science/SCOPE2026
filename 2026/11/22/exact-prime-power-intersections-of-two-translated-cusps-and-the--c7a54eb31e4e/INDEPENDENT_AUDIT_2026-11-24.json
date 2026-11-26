@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:23:50.079163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminating x gives F=(y+1)^2(9y^2+4y+4). For p>=5 the double root is disjoint from the simple quadratic branches, whose discriminant is -2 times a square. At 3, u=y+1 gives v_3(F)=2v_3(u)+v_3(u-alpha) with v_3(alpha)=2; the two balls separate for k>=7, with counts 81 and 3^(k-max(3,ceil((k-2)/2))). At 2 and k>=2 the two x-candidates have equal squares; divisibility of F by 2^(k+2) is therefore the correct test. Even y contributes only at k=2,3, and odd y must satisfy v_2(y+1)>=ceil((k+2)/2); k=1 was checked directly. Coprimality and the positive-box hypothesis match Kabluchko–Marynych Theorem 3.1. Independently, for M<p<=N the large-prime tail is bounded by a constant times sum_{p>M}p^(-2), and for p>N each fixed y has O(1) prime divisors of F(y) above N, each allowing at most one x in the box. CRT and these tail bounds justify the independent local law. Tail summation gives the fixed-prime cutoff 3/2 from R_{p,k} comparable to p^(k/2); globally the k=1 term alone diverges at t=1, and the summed higher levels are bounded by a constant times sum_p p^(2t-3) for 0<=t<1. Independent finite replay testing both original congruences agreed at 2^1–2^16 and 3^1–3^11, with direct square enumeration at 2^1–2^8 and 3^1–3^5; in particular R_{2,8}=16 and R_{3,7}=162. The frozen numerical density is a truncated product, not a certified decimal for the limiting probability. No finite-box moment convergence is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Marynych cover convergence for coprime integer polynomials on exactly this sampling domain",
+          "Bodin–Dèbes give the Euler-product density in terms of mod-p counts"
+        ],
+        "reasoning": "These broader results take local arithmetic as input; neither of the inspected statements evaluates the pair's all-precision roots.",
+        "searches": [
+          "arXiv:2311.05369v1, Theorem 3.1",
+          "arXiv:2105.13883v3, Theorems 1.1 and 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_counts.py",
+        "arXiv:2311.05369v1",
+        "arXiv:2105.13883v3",
+        "Resultary c7a54eb31e4e (bound item) and cef2dd3e9b66 (distinct analogue)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general results determine law or coprimality density from local probabilities, not the exceptional precision-dependent formulas",
+          "The Gaussian result's matching global threshold is for different polynomial inputs"
+        ],
+        "reasoning": "The moment tests are standard once the local spectrum is known; the distinctive comparison for this law requires the unprovided uniform p^k counts and their fixed-prime growth.",
+        "searches": [
+          "arXiv:2311.05369v1, Theorem 3.1 and local representation",
+          "arXiv:2105.13883v3, Theorem 1.5",
+          "Resultary cef2dd3e9b66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c7a54eb31e4e is the identical frozen item",
+          "Resultary cef2dd3e9b66 is for a Gaussian norm, x^2+y^2 and its translate"
+        ],
+        "reasoning": "Elimination here gives a double linear factor times the -128-discriminant quadratic. The Gaussian pair is distinct and its indexed law and global threshold do not give this eliminated factor or the cusp's local counts.",
+        "searches": [
+          "Resultary catalogue: translated cusp prime-power intersections and limiting GCD",
+          "Focused public searches for simultaneous roots of the exact translated cusp pair / limiting GCD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c7a54eb31e4e duplicates the bound item; the strongest distinct result, cef2dd3e9b66, has norm rather than cusp inputs"
+        ],
+        "reasoning": "The identical entry is not independent evidence. The distinct indexed summary gives neither ramified branch for the exact pair.",
+        "searches": [
+          "Resultary: exact translated-cusp spectrum, binary and ternary branches, moment cutoffs"
+        ]
+      },
+      "rationale": "The supported increment is the explicit pair-specific prime-power spectrum, especially the exceptional binary and ternary branches, and the resulting exact local and global moment comparison for this law. General GCD convergence and the prime-level Euler product method are existing results, not part of that increment.",
+      "residual_risks": [
+        "The distinct Gaussian result could not be compared beyond its indexed scope. Focused searches do not exclude an older equivalent local-intersection or local-zeta calculation. No priority inference is drawn from matching publication dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers convergence and prime-adic representation under the satisfied coprimality conditions, not the evaluated cusp spectrum",
+          "evidence": [
+            "Positive uniform integer box; at least two nonzero integer polynomials with no common nonconstant factor; integer-valued distributional limit"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.05369v1",
+          "material_read": "Abstract and Section 3, Theorem 3.1 (HTML offset 21134)",
+          "method": "Lawful OA original HTML",
+          "title": "Divisibility properties of polynomial expressions of random integers",
+          "trigger": "Supplies convergence in the frozen proof and may encompass the law"
+        },
+        {
+          "assessment": "Covers gcd/lcm stability and the mod-p Euler-product rule, not the claimed precision-dependent evaluation",
+          "evidence": [
+            "Theorem 1.5 uses the mod-p common-zero counts c_p"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2105.13883v3",
+          "material_read": "Theorems 1.1 and 1.5 at offsets 6415 and 12776, and family scope pointer at 15308",
+          "method": "Lawful OA original HTML",
+          "title": "Coprime values of polynomials in several variables",
+          "trigger": "Potential broader density and gcd theorem"
+        },
+        {
+          "assessment": "Useful analogue; not the same polynomials or a stated inclusion of their local formulas",
+          "evidence": [
+            "Quadratic Gaussian norm and its diagonal translate versus cubic cusp and its translate"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-full-gaussian-diagonal-norm-gcd-law-with-an-infinite-limiting--cef2dd3e9b66",
+          "material_read": "Indexed result statement/summary; full local mirror unavailable",
+          "method": "Local Resultary search and attempted local mirror inspection",
+          "title": "A full Gaussian diagonal norm GCD law with an infinite limiting mean",
+          "trigger": "Closest distinct catalogue result, including global cutoff 1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The intersection of two fixed translated singular curves is a natural exact local invariant. The formula resolves both small-prime mechanisms across all precisions and determines the full limiting GCD law rather than just its probability at one. The distinct local and global moment thresholds give a concrete use for the all-power information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

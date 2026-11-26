@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:15:36.966709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant −2 is nonzero modulo 3. Under the edge labeling, each open neighborhood is the rectangle obtained by deleting the corresponding left and right endpoint, giving all nine rectangles. A skew force may originate at either color, so it is exactly completion of one such rectangle. Each completion preserves the connected components of the selected-edge subgraph. Conversely, a missing edge in graphic closure closes a simple selected path of length three or five. For length five the resulting six-cycle has a chord joining opposite shores and cutting it into two four-cycles; complete the one avoiding the missing edge first, then the other. A completed closure is therefore independent of force order and is exactly graphic closure. A spanning set must connect all six vertices and the size-five ones are trees; the reduced Laplacian gives 3^4=81. A separate exact replay agreed on all 512 subsets and found 81, 78, 36, 9 and 1 spanning sets at sizes 5–9, respectively. This establishes no classification of other realizations or orders. The bundled checker uses int.bit_count(), so use Python 3.10+ if replaying that checker; it was read, not executed here.",
+      "replay_paths": [
+        "branches/fa75a0e0-8f01-4c46-b06a-173cf31f655a/rook_closure_check.py",
+        "branches/fa75a0e0-8f01-4c46-b06a-173cf31f655a/rook_closure_check.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.7 of Hall et al. reduces multiplicities but retains single loops. Their Proposition 2.10 assumes each circuit occurs as a neighborhood, which the six-edge circuits cannot do in this four-regular graph. Theorem 4.9 classifies realizability when loops are allowed.",
+          "Cooper–Fickes Proposition 3.16 is about complete bipartite graphs themselves, not the line graph on their edges."
+        ],
+        "reasoning": "Those statements do not supply a loopless witness or the four-cycle generation of all dependencies required for the candidate witness.",
+        "searches": [
+          "Hall–Pfeil–Taylor arXiv:2611.15741 Propositions 2.7, 2.10, 4.6 and Theorem 4.9",
+          "Cooper–Fickes arXiv:2303.17419 Proposition 3.16"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15741",
+        "arXiv:2303.17419",
+        "arXiv:1404.1618",
+        "Resultary indexed rook and skew forcing records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Removing the six loops from Figure 12 leaves vertices of degree three. Their three-element open neighborhoods allow forcing from two starting vertices, forbidden in the graphic matroid of girth four. Thus the simple witness is not obtained by deleting the loops of the known witness."
+        ],
+        "reasoning": "The rectangle assignment must instead realize all nine four-cycle rules symmetrically, and the chord argument must show those rules recover the six-cycle dependencies. Neither assertion is implicit in SZF-completeness of the bipartite graph itself.",
+        "searches": [
+          "Hall–Pfeil–Taylor Proposition 4.6 and Figure 12 versus cycle closure via neighborhoods",
+          "Cooper–Fickes Proposition 3.16: SZF-complete Km,n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hall–Pfeil–Taylor use exactly the same skew closure, allowing loops in the realizing graph. The right-hand drawing of Figure 12 contains six loops, whereas the graph here is the loopless line graph L(K3,3), checked under a nontrivial vertex-to-edge labeling."
+        ],
+        "reasoning": "Equality of the matroids produced by the two constructions does not imply equality of the realizing graphs or admit relabeling one into the other. Ordinary zero forcing or rook matroids from Ferrers placements are different notions.",
+        "searches": [
+          "Resultary: skew zero forcing loopless rook graph K3 square K3 graphic cycle matroid K3,3 rectangles 4 cycles realization",
+          "Literature: skew zero forcing rook 3 3 Cartesian K3 cycle matroid K3,3 loopless skew forcing realization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact primary witness can be compared at the level of incidence: Figure 12 has fifteen nonloop edges and six loops. The rook witness has eighteen nonloop edges and no loops.",
+          "DeAlba gives forcing numbers for paths, cycles and some Cartesian products including square grids and complete-graph-by-path products, not an all-subset closure table for K3 square K3."
+        ],
+        "reasoning": "An exact count of minimum forces, even if known, would not identify the family of all graphic closure implications. The count 81 is just the classical spanning-tree count after proving the identification.",
+        "searches": [
+          "Hall–Pfeil–Taylor Figure 12, right-hand graph",
+          "DeAlba arXiv:1404.1618 Observation 6.4 and Theorem 3.3",
+          "Resultary rook/graph-matroid query"
+        ]
+      },
+      "rationale": "The prior existence claim for a realization with loops is not the claim of a simple loopless realization. The audited graph and its open-neighborhood assignment are genuinely different; classical spanning-tree enumeration is not a separate originality claim.",
+      "residual_risks": [
+        "Searches cannot exclude another unindexed loopless realization, or an earlier equivalent rectangle assignment under other labels. The audit does not establish priority or uniqueness of the simple witness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers realization with loops, not the rook realization",
+          "evidence": "The diagram has six self-incidences and fifteen nonloop adjacencies; the general reduction allows single loops and the sufficient circuit-neighborhood test is not applicable to this rook graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15741",
+          "material_read": "Skew rule and loop convention, Propositions 2.7 and 2.10, Proposition 4.6, Theorem 4.9, and Figure 12",
+          "method": "OA PDF text plus inspection of the right-hand Figure 12 geometry in the arXiv HTML figure",
+          "title": "Skew Zero Forcing Matroids",
+          "trigger": "Explicit realization of the identical target matroid"
+        },
+        {
+          "assessment": "Different ground set and graph, no implication of claimed closure equality",
+          "evidence": "Its proof partitions an SZF-closed set into its intersections with the two vertex shores of Km,n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.17419",
+          "material_read": "Introduction clauses on SZF completeness and Proposition 3.16 with its initial proof",
+          "method": "OA PDF text",
+          "title": "Zero loci of nullvectors and skew zero forcing in graphs and hypergraphs",
+          "trigger": "Bipartite SZF-completeness and matroidal closure as potential coverage"
+        },
+        {
+          "assessment": "Cardinality results in distinct cases; does not identify the rook closure",
+          "evidence": "The theorem classifies Z⁻=|V|−2; product entries concern Ps square Ps and Ks square Pt, among others.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.1618",
+          "material_read": "Theorem 3.3 and Observation 6.4 product entries",
+          "method": "OA PDF text",
+          "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+          "trigger": "Older exact forcing numbers, including graph products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The initiating realizability result explicitly permits loops, which change the skew color rule. The candidate resolves that modeling restriction on a natural boundary example by giving a familiar vertex-transitive simple graph and proving all-set closure equivalence, not just a minimum cardinality. Rectangle completion explains how length-six dependencies arise from degree-four neighborhoods. This is useful independently of larger-grid classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

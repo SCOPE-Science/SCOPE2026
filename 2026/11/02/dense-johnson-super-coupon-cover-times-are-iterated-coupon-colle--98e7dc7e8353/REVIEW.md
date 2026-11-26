@@ -1,19 +1,21 @@
-# Review of dense Johnson super-coupon coverage
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem specifies the pre-update exchange kernel and initial observation at time zero. The omitted-set transversal condition is equivalent to coverage of every target \(s\)-subset. In a fresh-label slot construction, each label occupies a single interval, and greedy interval covering identifies the minimum transversal size with completed independent coupon-collection epochs. Mapping ideal labels onto actual labels makes the actual process no faster; a first-recurrence union bound gives the stated total-variation estimate. A uniform finite-block success event bounds the mean residual time for fixed \(k,s\), giving the claimed expected-value rate. The growing-\(k\) statement uses only the verified coupling bound and the classical coupon-collector Gumbel theorem. A standalone exact-combinatorial and randomized diagnostic checker replays successfully; diagnostics are not substitutes for these infinite proofs.
+PASS
 
-## Originality (O): PASS (qualified)
+The omitted-set history is hit by precisely the uncollected target sets: a transversal of size at most s can be padded to size s. With a fresh label on each slot replacement, transversals are interval covers. The minimum interval cover greedily uses the interval ending farthest right at the first uncovered time (any first interval in an optimum can be exchanged for it). At an epoch boundary the k current intervals end just before the next uses of their respective slots, so the farthest endpoint is just before the next complete coupon epoch. The next interval is selected at this boundary, not necessarily born there. The ideal completion time is exactly the end of epoch s and the iid slot word regenerates there. Mapping formal labels to finite labels only identifies labels, which cannot increase the transversal number. Condition on the whole slot word and use independent draw randomizers for labels: given no earlier recurrence, update j has at most j-1 previously seen eligible labels out of n-k. The slot indices need not be independent of the realized label identities. The conditional union bound up to the slot-measurable T* gives the stated error, and injectivity through T* implies equality. The geometric decomposition gives the PGF, E T*=skHk and Var(T*)=s(k^2 Hk^(2)-kHk), verifying the second factorial moment. For fixed k,s and n-k>=2sk, each fresh prescribed sk-step block succeeds conditionally with probability at least (2k)^(-sk), uniformly over histories. This bounds the expected residual time on the discrepancy event at T* and yields the O(1/n) mean error rather than inferring it from TV convergence alone. For growing k the stated hypothesis makes the coupling error o(1), and independent collector limits give the s-fold Gumbel sum.
 
-Athreya, Mukherjee and Mukherjee's 2023 preprint and 2025 full published article define the same temporally dependent Johnson-swap super-coupon process and develop fixed-parameter results and a conjecture. The inspected introduction, theorem statements and Markovian proof sections do not provide the near-census \(n-r=k\) limit or its independent-epoch factorization. The fixed-parameter formulations in the source keep \(r\) independent of \(n\) and therefore do not imply a constant-order dense-complement limit or a sum-of-Gumbels law. Standard coupon-collector results provide the epoch distribution once the new interval-transversal reduction is established, but not that reduction itself. Historical priority remains qualified: some earlier subset-coverage and interval-stabbing literature could contain an equivalent probabilistic formulation not identified in the reviewed material.
+## originality
 
-## Value (V): PASS
+PASS
 
-The near-census regime of the published temporally dependent super-coupon model has qualitatively different cover-time behavior: \(skH_k\) updates at fixed complement size instead of a growing fixed-\(r\) timescale, an explicit quantitative coupling, and a multi-Gumbel growing-complement transition. The interval formulation explains the mechanism and is structurally useful for high-density sampling, rather than merely evaluating a small special case.
+Prior work establishes the Markovian model and direct special-case dense laws. The supported addition is a general interval-cover mechanism for arbitrary positive k,s, the corresponding refinement of the coupling with a mean bound, and the growing-omission regime's independent-epoch limit, not newness of the underlying walk or of the special cases.
 
-## Limits and closest literature
+## value
 
-The fixed-parameter Markovian conjecture is neither proved nor contradicted. A growing-complement expected-time limit is not claimed. The main source is S. Athreya, S. Mukherjee and S. S. Mukherjee, arXiv:2304.01145, doi:10.1007/s10959-025-01417-w. The older coupon-subset literature concerns related but not evidently identical temporal dynamics; complete historical priority is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The near-census regime is a natural opposite end of the Markovian super-coupon model. The epoch identity explains why the limiting law differs from the standard single-Gumbel law for s>=2 and why changing the goal size changes the number of independent epochs. It also gives the explicit finite error control and mean estimate, rather than only an asymptotic law or an isolated low-parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:00:50.916362Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–102; VERIFICATION.md; CHECK.py read but not executed",
+        "Replay: python3 /workspace/branches/reproductions/record_2_paley.py (standard library; finite integer boundary only)."
+      ],
+      "rationale": "Each translation gives a modulation ONB, hence the full frame is p-tight and the least retained eigenvalue is p minus the largest deleted Gram eigenvalue. For a unit Rayleigh vector, the off-diagonal bound uses (sum |z_i|)^2−1 <= 4. Equality first forces all five moduli equal and nonzero, then all pair magnitudes equal to p^−1/2 and all phases align after diagonal rephasing. For distinct slopes, completing the square gives normalized Gauss phases epsilon_p chi(u_j−u_i) times omega to the power −(v_j−v_i)^2/[4(u_j−u_i)]. The cyclic exponent on three points is governed by d_1 d_2 (s_1−s_2)^2/(d_1+d_2), so it vanishes exactly for collinear triples. For p=3 mod 4 a phase ±i cannot be a p-th root; for p=1 mod 4 the alignment condition is exactly collinearity and positive triple signs. Fixing one slope gauge proves the equivalence to at most two disjoint cliques. Independent exact enumeration fixed one slope to 0 by translation, built square residues directly, and constrained the other six edge signs by their four signs at the anchor. It found no solution at 5,13,17 and witnesses at all nine eligible primes 29 through 101 (e.g. a distinct p=29 witness 0,1,3,5,6). For p>=109 a Paley triangle exists via its adjacent-pair intersection number; expanding three common-nonneighbor indicators gives (p−3−tau)/8. Points in the triangle contribute zero and the pair character sums each equal −1. Hasse gives |tau|<=2 sqrt(p) and the Paley least adjacency eigenvalue gives the Hoffman bound alpha<=sqrt(p). Since p−3>10 sqrt(p), the common nonneighbors contain an edge, giving the required K3 plus K2 graph. Finally rank <=5 and p>=29 leave the largest surviving frame eigenvalue equal to p, with condition number given by the square root of the eigenvalue ratio as stated.",
+      "residual_risks": [
+        "The infinite guarantee is analytic, not a search extrapolation. The exact least frame bound when the coherence limit is not attained is not determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General numerical Gabor guarantees do not characterize exact equality. Paley triple intersection and Hasse estimates are prior ingredients; even induced subgraph results do not give the needed fixed switching class and exact threshold."
+        ],
+        "reasoning": "A common neighbor or nonneighbor of a triple alone is not the adjacent pair of common nonneighbors, and general frame guarantees do not imply the arithmetic attainability claim.",
+        "searches": [
+          "Salanevich–Strachan arXiv:2509.01325, Theorem 1.5 and Table 1",
+          "Brouwer–Martin arXiv:2109.03654, Proposition 0.1 and Corollary 0.2",
+          "arXiv:2512.19312, Theorems 1.3–1.4 on even induced subgraphs"
+        ]
+      },
+      "checked_sources": [
+        "Primary and catalogue passages above; Resultary four-column and skew-conference five/six-column Findings at IDs 28714709e48e, 86724d774ebb, 2d74c4506308"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-erasure theorem supplies the mod-4 phase setting for three translations. The same-date six-erasure record is an order-20 skew-Paley conference frame and concerns transitive tournaments. The general switching condition specifies what a saturated Gram matrix looks like, not which five masks realize it."
+        ],
+        "reasoning": "A realizable coherent triple need not extend to five; simultaneous sign constraints and the small-prime exclusions are essential additional information.",
+        "searches": [
+          "Local Resultary Alltop three-erasure theorem ede488cf192e and six-erasure skew-Paley result 2d74c4506308",
+          "Inspect Salanevich–Strachan and Hoffman–Solazzo statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General Seidel switching equality is already known. Resultary 28714709e48e counts Paley types for four columns, and 86724d774ebb classifies five columns for skew-conference frames rather than the symmetric Paley setting. The new threshold requires a positive-sign five-set and the specific Alltop chirp phase constraints."
+        ],
+        "reasoning": "Neither a four-column marginal nor a five-column skew spectrum yields the required symmetric five-sign existence or the collinearity requirement.",
+        "searches": [
+          "Paley five-vertex all-positive triple signs, switching class of the empty or complete graph",
+          "Hoffman–Solazzo arXiv:1107.2267v1, Corollary 3.9",
+          "Resultary search for Paley sign censuses and Alltop erasures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the exact catalogue self-match. Prior Resultary 2609aa4a0c87 lists the 205 maximum Paley-41 cliques and gives the very same witness {0,1,2,10,33}. Table 1 gives a dimension-5 numerical condition number 1.451066 for five erasures, not the exact arithmetic classification."
+        ],
+        "reasoning": "The Paley-41 clique does imply that slope witness and hence contributes one existence case given the chirp reduction; neither exact finite-instance source covers the threshold or all-prime claims.",
+        "searches": [
+          "Local Resultary for exact Paley cliques and erasure census",
+          "arXiv:2509.01325 Table 1, dimension 5 and 20 percent erasures"
+        ]
+      },
+      "rationale": "The general five-column coherence inequality and the phase switching criterion are not new. The all-prime threshold and Alltop-specific complete equality characterization are distinct from the inspected strongest comparisons. An earlier Paley-41 record actually provides the identical five-slope witness at that prime; this is credited as prior finite-instance coverage, not as evidence against the threshold as a whole.",
+      "residual_risks": [
+        "A less well-indexed exact five-vertex Paley switching census might give more of the graph-side threshold; none was identified in the inspected evidence. This is not an exhaustive historical-priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General guarantees and overlapping five-erasure computation but not the threshold",
+          "evidence": "Table 1 dimension 5, 20 retained of 25, worst condition number 1.451066.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.01325",
+          "material_read": "Theorem 1.5 PDF p. 4 offset 14577 and Table 1 p. 29 offset 107919",
+          "method": "OA paper passages",
+          "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+          "trigger": "Same Alltop frames, erasure problem and numerical examples"
+        },
+        {
+          "assessment": "Switching criterion already established in general ETF theory",
+          "evidence": "Equality iff the principal Seidel submatrix is switching-equivalent to J_m−I_m.",
+          "identifier_or_url": "https://arxiv.org/html/1107.2267v1",
+          "material_read": "Corollary 3.9, HTML offset 13550",
+          "method": "OA paper passage",
+          "title": "Complex Equiangular Tight Frames and Erasures",
+          "trigger": "General saturation criterion"
+        },
+        {
+          "assessment": "Prior elliptic character-sum method; no five-point threshold in the inspected results",
+          "evidence": "Every triple has a common neighbor for q>25.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.03654",
+          "material_read": "Proposition 0.1 and Corollary 0.2, PDF pp. 1–2 offset 591",
+          "method": "OA paper passages",
+          "title": "Triple intersection numbers for the Paley graphs",
+          "trigger": "Large-prime Paley induced subgraph ingredient"
+        },
+        {
+          "assessment": "Three erasures, not five",
+          "evidence": "Sharp three-erasure bounds and the mod-4 phase distinction.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-three-erasure-stability-of-alltop-gabor-frames--ede488cf192e",
+          "material_read": "RESULT.md offsets 0 and 4600",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-erasure stability of Alltop Gabor frames",
+          "trigger": "Same family and exact erasure phases"
+        },
+        {
+          "assessment": "Covers the p=41 graph witness; not the Alltop threshold",
+          "evidence": "Reference five-clique {0,1,2,10,33} is exactly the frozen p=41 witness.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-point-mobility-and-a-cayley-geometry-for-the-maximum-cliques--2609aa4a0c87",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-point mobility and a Cayley geometry for the maximum cliques of the Paley graph of order 41",
+          "trigger": "Exact overlap at one witness prime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; Salanevich–Strachan Theorem 1.5 and Table 1; exact finite boundary replay"
+      ],
+      "rationale": "The sharpness question is meaningful for deterministic robust frames: it specifies exactly when the readily usable coherence guarantee is the true worst-case guarantee. The arithmetic cutoff, complete collinearity/sign description and exact optimum condition number in the saturating regime replace numerical case checks with an all-prime mechanism.",
+      "residual_risks": [
+        "This does not count the masks, derive the strict-case optima or address nonlinear recovery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

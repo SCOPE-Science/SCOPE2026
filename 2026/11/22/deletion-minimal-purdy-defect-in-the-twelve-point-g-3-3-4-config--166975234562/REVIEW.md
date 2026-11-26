@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified twelve points the line-count formula follows from the four coordinate-support lines and the absence of additional collinear triples. The plane-count formula follows from the four face planes, twelve opposite line–point planes and twenty-seven balanced quadruple planes, classified by the determinant condition \(a+d\equiv b+c\pmod3\). Independent exact determinants reproduce all \(58\) lines and \(43\) planes. The executable certificate cross-checks two complete calculations for all \(4096\) subsets, proving that there are exactly five negative masks. The four proper negative subsets are coplanar. Their counts and the full-set count follow exactly. This is a finite exhaustive theorem with a transparent exhaustive range, not an inference from sampled data.
+PASS
 
-## Originality — PASS (qualified)
+A triple using three distinct support lines is independent by leaf elimination on the three-edge tree in K₂,₂; a triple using two points on a support line and one off it is independent as well. Thus the only three-point lines are the four support lines. A plane with linear coefficients x_i contains an exponent a on ij iff x_i=ζ^a x_j. If it contains a support line, the two associated coefficients vanish. Then either a third coefficient vanishes, giving a coordinate-face plane with two adjacent support lines, or the two opposite coefficients are nonzero and can contribute at most one point on the opposite line. If there is no whole support line, three contained points on three distinct sides force nonzero coefficients and the balanced fourth exponent by the cycle equation. This establishes the plane classification and why a balanced quadruple is spanned by any three members. Independently reproduced all 4096 subsets by constructing distinct spans via canonical RREF over Q(ζ), rather than using the supplied incidence formulas or determinant checker. The exact negative masks are 63, 455, 3640, 4032, 4095. Opposite support lines span the four-dimensional ambient vector space, so the full negative configuration has rank four; the other four are adjacent whole support-line pairs, each of rank three. The profiles are exactly (12,58,43,−1) and (6,11,1,−2), and the independently logged profile for all twelve single deletions is (11,49,42,6).
 
-Michałek–Pokora calculate the full twelve-point counterexample and explain the flat incidence. Ashfaque handles entire root-of-unity configurations indexed by \(m\) and identifies which full configurations violate Purdy's inequality. Neither inspected full text determines the restrictions of the \(m=3\) configuration, their five-case negative spectrum or its essential deletion minimality. Semantic research-record searches for deletion/minimality, alternative flat counts, reflection-arrangement restrictions and Purdy counterexamples returned no dominating result. Priority among unindexed or unpublished calculations cannot be certified.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp question of whether a recently constructed essential counterexample survives removal of any hyperplane is a natural structural refinement of the Purdy counterexample, directly relevant to isolating primitive obstructions to the proposed inequality. The full restriction classification is more informative than a single deletion check: it detects precisely four negative but nonessential six-point exceptions and proves there is no hidden essential proper counterexample. The result is specific rather than a universal forbidden-minor theorem, and this scope is explicit.
+The full twelve-point Purdy counterexample and its flat incidence data are prior. The supported addition is precisely the restriction-level negative-defect classification, including the distinction between rank-three exceptions and deletion-minimality among essential subarrangements. Exact prior coverage was not established by the inspected same-arrangement sources or catalogue data.
 
-## Closest literature and limitations
+## value
 
-The cited July 2026 primary paper establishes the twelve-point full-support negative example. The July 2026 companion paper establishes full-support formulas for arbitrary \(m\). Both were inspected in their accessible full text. Generalizing their formulas for the full set is not claimed as new. The new result addresses proper subsets of the fixed \(m=3\) set. The calculation is exact and reproducible; no global minimum-number-of-hyperplanes claim is made. Remaining risk: unindexed prior subset classifications and absence of independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural way to investigate a counterexample to the refined Purdy inequality is to ask if its failure is inherited by a smaller essential arrangement. The exact answer here is no, even under arbitrary multiple deletion; all proper negative subsets are classified and excluded by essentiality. This isolates a minimal failure within the historical example and avoids mistaking the four small planar negatives for smaller rank-four counterexamples. The natural inclusion classification is more useful than rediscovering the known full defect or checking a single deletion in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:55:10.783671Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a distinguished chord, isolation requires even open-arc sizes 2r and 2s, s=n-1-r, and separate uniform matchings. Its event has probability w and reduces the crossing mean by (n-1+rs)/3. Summing the indicators by rotational symmetry (two endpoints per chord) contributes a factor n. The terms r=0,n-1 are precisely simple chords and removing them gives Z, including the empty sum at n=2. The two r=1 or s=1 terms for n>=4 have total covariance -2n/[3(2n-1)]; the ratio (2r+1)/(2s-1) gives geometric decay from r=2 to floor((n-1)/4) and a negligible middle after polynomial weighting. Hence the asserted sparse-isolate mean, limiting covariance contribution, and total constant follow. Independent bitmask enumeration reproduced the exact Z mean and three covariances on all 146598 matchings at n=2..7 (python3 /workspace/branches/reproduce_reviews.py 4). This is bounded, not the proof of the general law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Courtiel–Yeats–Zeilberger mark top chords, not isolated chords; Acan proves monolithic structure with high probability and a simple-chord Poisson limit."
+        ],
+        "reasoning": "These nearby results alone do not furnish the covariance; the exact overlap is established separately.",
+        "searches": [
+          "arXiv:1611.04611, Section 6.2 Theorem 50",
+          "arXiv:1501.01489, Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/12/...--0f60fb4dde2a and 2026/10/18/...--11c68f2d68b4 (earlier exact simple-chord law)",
+        "arXiv:1501.01489",
+        "arXiv:1611.04611",
+        "arXiv:2104.01134",
+        "Flajolet–Noy RR-3914 abstract and introduction",
+        "OEIS A322456"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof gives E I=n sum w and the earlier Finding gives the two exact covariances and the -1/3 nonsimple contribution. Paguyo's inspected results concern marginals."
+        ],
+        "reasoning": "Deleting r=0,n-1 from E I and subtracting the simple covariance reproduces the frozen Z laws; the same earlier Finding already gives -n/3-1/6+O(1/n).",
+        "searches": [
+          "2026/10/12/...--0f60fb4dde2a, Finding and Proof at mirror offsets 275–3791",
+          "arXiv:2104.01134, Theorems 1.1–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Finding, offsets 275–1400: same X and S; their I is Y and I-S is Z."
+        ],
+        "reasoning": "The degree-zero and endpoint-consecutive definitions coincide, including nesting and wrap-around; relabeling the endpoints changes no probabilities.",
+        "searches": [
+          "Resultary: crossing covariance rare isolated chords; record 2026/10/12/...--0f60fb4dde2a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/12/...--0f60fb4dde2a gives the all-n law; A322456 tabulates Touchard-type crossing counts, not mixed covariances."
+        ],
+        "reasoning": "The all-n catalogue theorem dominates any finite numerical match.",
+        "searches": [
+          "Resultary crossing-isolation results",
+          "OEIS A322456"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary statement on the same random matching model explicitly contains the exact total- and simple-isolate covariances, the signs, and both constant-order asymptotics. The exact nonsimple covariance and mean differ only by removing the two simple-chord terms; no distinct remainder was identified.",
+      "residual_risks": [
+        "The catalogue comparison establishes statement coverage, not authorship or the work's origin; older independent routes to the identity were not exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen claim explicitly or by subtraction",
+          "evidence": "Cov(I,X) has the same double-factorial weights and factor n-1+rs; Cov(S,X) is identical; asymptotic constants -1/3 and -1/6 are explicit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "material_read": "Finding, assumptions, proof steps 1–3, offsets 275–3791",
+          "method": "Resultary match; local mirror passage",
+          "title": "Isolated chords impose an exact crossing-count penalty with a nonvanishing correction",
+          "trigger": "Same exact statistic and asymptotic"
+        },
+        {
+          "assessment": "Different marked statistic in the inspected theorem",
+          "evidence": "Top chords, crossings and chord count, not degree-zero vertices.",
+          "identifier_or_url": "arXiv:1611.04611",
+          "material_read": "Section 6.2, Theorem 50, PDF p.55",
+          "method": "OA PDF passage",
+          "title": "Connected chord diagrams and bridgeless maps",
+          "trigger": "Joint crossing generating functions"
+        },
+        {
+          "assessment": "Marginal/asymptotic context",
+          "evidence": "Monolithic with high probability and Poisson simple-chord count.",
+          "identifier_or_url": "arXiv:1501.01489",
+          "material_read": "Abstract and Theorem 3.2, PDF p.7",
+          "method": "OA PDF passages",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Rare nonsimple isolates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The covariance of a vanishingly rare part of a statistic need not vanish. The exact split and the nonzero correction quantify this for a natural random diagram model; this is mathematical value of the law, not value as a new contribution in the present record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

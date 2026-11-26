@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:15.881917Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "Frozen VERIFICATION.md and check.py"
+      ],
+      "rationale": "For ordered deviations u>v>=0 write the map as (A/B,|C|/D) with C=2v-u-uv. Both cross-product comparisons are positive, so the ordering persists even across the switching boundary. The larger coordinate decreases strictly within two steps away from the origin (including on the positive diagonal), which by compactness below the initial maximum implies collapse to zero. In the passive branch, C at the image is -2v(1-u)(3-u-v-uv)/(BD), so the exact wedge is invariant. If an orbit stayed in the active branch, after reaching u<=1/4 its relative separation (u-v)/u would grow by at least 39/32 every step, a contradiction. Substitution in the two-step map gives the relative factor 3/4+O(u) on each nonzero coordinate. Eventual geometric decay makes these relative errors summable, so the renormalized larger coordinate has a strictly positive limit, and the smaller has a limit (possibly zero). The one-step expansion on the wedge gives the stated odd amplitude; both parity maxima have positive leading coefficients. The diagonal's reciprocal recurrence gives the closed form, and the origin is fixed. This checks the continuous maxima map, not position-labelled tie-breaking. The supplied exact-rational check.py was inspected, not executed; replay is python3 check.py in the source package. Its finite checks are corroboration, not certification.",
+      "residual_risks": [
+        "No statement for other resource values, the boundary at coordinate 1, or arbitrary choices for ties in the full system."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct record allows every ordered asymmetric initial point, gives invariance and finite entry, and adds the even-phase term of order (3/4)^(2k).",
+          "Simpson gives a perturbative exponential stability criterion rather than this sharp phase law."
+        ],
+        "reasoning": "The stronger result on the very same model covers the frozen theorem; the broader switched-map criterion alone does not give the necessary phase limits.",
+        "searches": [
+          "Resultary 8b71d315903b, equations (1)–(6)",
+          "Simpson arXiv:1612.02932, §3, Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8b71d315903b",
+        "arXiv:2611.13318",
+        "arXiv:1612.02932"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Satur's qualitative convergence and linearized 3/4 ratio need nonlinear error control. The distinct record provides the nonlinear theorem and an exact diagonal log-odds update a'=a-log((1+exp(a))/2)."
+        ],
+        "reasoning": "Transforming the exact update back gives u'=u/(2+u); solving the affine reciprocal recurrence is elementary. Thus neither the stronger asymmetric theorem nor the prior exact diagonal recurrence leaves an independently substantial remainder.",
+        "searches": [
+          "Satur Theorem 2 and §5.2",
+          "Resultary 8b71d315903b, equations (1)–(6) and Diagonal paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record's equations (1)–(3) give the two vectors and ratio on the identical maxima map. Its log-odds variables satisfy u=tanh(a/2), v=tanh(b/2). Its b<=log((1+exp(a))/2) is equivalent to 2v-u-uv<=0."
+        ],
+        "reasoning": "The coordinate transformation preserves both the first entrance time and ordering, and the leading normalized vectors in deviation coordinates are one half of the log-odds vectors. Neither the invariant set nor the amplitude theorem changes.",
+        "searches": [
+          "Local Resultary: nonlinear critical collapse, invariant cone and parity amplitudes; 8b71d315903b",
+          "Satur arXiv:2611.13318, §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Satur reports the value 3/4 from numerics and a leading-order map. The local record states it as an exact limit with a proof."
+        ],
+        "reasoning": "A finite table cannot settle this universal asymptotic statement. The exact constant was checked at the level of the conjecture and the stronger theorem, rather than inferred from a numerical match.",
+        "searches": [
+          "Local Resultary 8b71d315903b",
+          "Satur arXiv:2611.13318, §5.2, pp. 36–38"
+        ]
+      },
+      "rationale": "A distinct Resultary record proves the same invariant wedge under an exact coordinate conjugacy, finite entry for every asymmetric orbit, both leading vectors and the sharp 3/4 ratio. It also gives a quadratic correction. The diagonal closed form just solves the exact scalar recurrence already in that source. The frozen theorem is sound but is covered; the alternate rational formulas do not isolate a substantive distinct claim. This is statement-level overlap, not an adjudication of priority.",
+      "residual_risks": [
+        "The compared statements are sufficient to establish coverage without assumptions about chronological priority or an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS; stronger on the asymmetric orbits",
+          "evidence": [
+            "Equations (1)–(3) and (5)–(6), invariant region b<=log((1+exp(a))/2), exact diagonal recursion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-nonlinear-critical-collapse-amplitudes-and-a-quadratic-phase-law--8b71d315903b/RESULT.md",
+          "material_read": "Finding; scope; proof of invariance and finite entry at offsets 470–3857; diagonal proof paragraph",
+          "method": "Local mirror, statement and proof excerpts",
+          "title": "Nonlinear critical-collapse amplitudes and a quadratic phase law in two-player maxima dynamics",
+          "trigger": "Same map, branch and asymptotic rates"
+        },
+        {
+          "assessment": "Qualitative convergence and conjectured sharp rate, not the nonlinear proof in the inspected passage",
+          "evidence": [
+            "Theorem 2 gives convergence; §5.2 identifies the need to control second-order terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13318",
+          "material_read": "§5.2, pp. 36–38, around extracted offsets 131500–138460",
+          "method": "Lawful OA PDF passages",
+          "title": "From oscillations to symmetry breaking in a two-dimensional piecewise-smooth dynamical system",
+          "trigger": "Original map and rate"
+        },
+        {
+          "assessment": "No sharp phase limit follows from the inspected criterion alone",
+          "evidence": [
+            "Criterion concerns exponential stability under small-o perturbations of a continuous linearly homogeneous map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.02932",
+          "material_read": "§3, Theorem 3.3, pp. 5–6, around extracted offsets 15962–20901",
+          "method": "Lawful OA PDF passages",
+          "title": "The stability of fixed points on switching manifolds of piecewise-smooth continuous maps",
+          "trigger": "Potential general stability theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Satur §5.2",
+        "Resultary 8b71d315903b"
+      ],
+      "rationale": "As a mathematical result, the exact wedge and positive parity amplitudes explain why the critical convergence rate of a nonsmooth orbit differs on and off the diagonal; this is stronger than a numerical rate or a stability bound. This does not confer incremental value on merely changing coordinates in the covered theorem, and no repair is proposed.",
+      "residual_risks": [
+        "The rational formulas do not change the scope or yield a separate demonstrated application."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

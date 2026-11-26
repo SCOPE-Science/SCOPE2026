@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:28.359253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed a=r−1 and c, the probability of a degree-j line is asymptotic to e^{−c}(log N)^{j−a}/(N j!). Thus smaller degrees disappear and, by independent lines on each separate side, degree r appears on each side with high probability. For the mixed factorial moments, conditioning on the crossings of s fixed rows and t fixed columns leaves disjoint sites. A crossing pattern with h>0 occupied cells costs O(p^h) relative to an empty pattern; losing v entries from any line's residual degree target costs O((log N)^{−v}) or makes that event impossible. The total loss exponent over the lines is 2h. This proves the stated independent Poisson limit, including a=0 where nonempty crossing patterns are impossible. Conditional on a specific cell being occupied, its two residual counts are independent and each has probability O(log N/N) of being at most r; the expected number of such doubly low occupied cells is O((log N)^3/N). On their absence, if the respective minimum degrees are at least r and r−1, all unoccupied cells meet the odd bound, and any occupied violation would force both endpoint degrees at most r+1. If both minima are at least r, the analogous calculation yields the even bound. Conversely the two degree-(r−1) lines intersect to disprove odd domination, and any degree-(r−1) line intersects a degree-r line on the other side to disprove even domination. Therefore the limit has the stated OR/AND and joint mass vector, with gap 2z(1−z), z=e^{−lambda}, maximized at z=1/2. Uniform-permutation coupling at c±epsilon sandwiches monotone success, and continuity gives the fixed-budget and hitting-time limits. If the fixed-budget assertion is read to include the Poisson counts and high-probability reduction as well, the same estimates apply directly: on M=O(N) prescribed sites in finitely many lines with h=O(1) prescribed hits, the fixed-budget probability of the pattern is (m)_h/(N²)_h times the product over i=0,…,M−h−1 of [1−(m−h)/(N²−h−i)], uniformly asymptotic to p^h(1−p)^{M−h} at p=m/N². This gives the same mixed moments, rarity bounds and first/second moments for degree r. The proof requires fixed r. Separately the bitboard replay /workspace/evidence/2.py exhausts all subsets of orders 2,3,4 and checks the open-neighbor identity and both deterministic implications wherever the high-probability hypotheses hold. /workspace/evidence/2.out gives counts; these finite checks do not establish the limiting laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McKay–Skerman obtain broader joint degree-sequence approximations for several bipartite ensembles under x(1−x)=Omega(1/log n). Here p(1−p)log N goes to zero.",
+          "Carballosa–Wisby and Kazemi–Pahlavsay–Stones derive deterministic total-domination bounds or formulas on the same class of product graphs, not the random placement law."
+        ],
+        "reasoning": "The closest broader probabilistic theorem checked is in a different density regime; minima over placements also do not identify the distribution under these random placements.",
+        "searches": [
+          "arXiv:1302.2446 abstract, theorem and density definition",
+          "arXiv:2001.07850 abstract",
+          "arXiv:1509.08208 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.08104",
+        "arXiv:2001.07850",
+        "arXiv:1509.08208",
+        "arXiv:1302.2446",
+        "Resultary 5196d7d19cef",
+        "Resultary fa66bee654d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The power-domination predicate is X≤1 or Y≤1; here the respective total-domination predicates are X=0 or Y=0 and X=Y=0, holding with high probability after the different correction estimates.",
+          "The deterministic rook condition supplies the starting exact inequality, but not its high-probability simplification at any fixed r or the Poisson mixing. The inspected joint degree-sequence bounds exclude the target density."
+        ],
+        "reasoning": "The existing empty-line joint law can be inserted at r=1 once the new total-domination reduction is shown; at general fixed r both rare nonempty low-degree lines and occupied cells enter. Shared-window paired outcomes are not the same as the previous power-domination law.",
+        "searches": [
+          "Resultary 5196d7d19cef, offsets 0 and 1298",
+          "arXiv:1807.08104 p. 3",
+          "arXiv:1302.2446 pp. 9–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rook graph is the line graph of K_{N,N}; selecting cells gives G_{N,N,p}. Row and column occupancies are the two independent-within-shore but cross-shore dependent degree sequences.",
+          "Pahlavsay et al. provide the exact degree-sum minus twice occupancy identity. A minimum-degree law for both shores would capture the AND limiting event only after the selected-edge correction, not the OR event or the joint counts."
+        ],
+        "reasoning": "The incidence reformulation makes an equivalent stronger bipartite theorem a genuine overlap candidate. A joint degree theorem in this window would cover the Poisson ingredient, while the pertinent event also requires controlling selected edges with two low-degree endpoints.",
+        "searches": [
+          "Sparse bipartite two-shore degree deficiency, minimum-degree window and hitting times",
+          "Pahlavsay–Palezzato–Torielli arXiv:1807.08104 p. 3",
+          "McKay–Skerman arXiv:1302.2446 pp. 9–10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5196d7d19cef proves a two-axis joint empty-line Poisson law near a square and fixed-budget transfer; the square is the r=1 empty-line count specialization. Its power domination predicate uses at most one empty line on either side.",
+          "fa66bee654d9 treats degree-one covariance in a fixed-edge bipartite model at bounded average degree, with a window k=2n+O(sqrt n), not the sparse logarithmic-mean degree-deficiency window here."
+        ],
+        "reasoning": "There is a real direct overlap in the empty-line Poisson building block, but neither catalogue statement yields the paired total-domination outcomes. No exact paired-law entry was identified in the bounded search.",
+        "searches": [
+          "Resultary random rook-board Poisson placements and total/power domination",
+          "Resultary 5196d7d19cef and fa66bee654d9 Findings"
+        ]
+      },
+      "rationale": "The deterministic rook occupancy identity and the r=1 joint empty-line Poisson ingredient are covered and not credited as distinct. The scoped contribution is the joint odd/even total-domination reduction and accompanying fixed-r shared-window law for this Bernoulli and fixed-budget problem. The closest published degree-sequence approximation inspected does not apply at this density. The closest indexed Poisson result concerns power domination and has a differently defined event.",
+      "residual_risks": [
+        "Equivalent sparse bipartite incidence or hitting-time statements may use different vocabulary and remain unlocated; bounded lookup does not establish priority.",
+        "The DOI copy of Henning–Kazemi (2010), 10.1016/j.dam.2010.01.009, was inaccessible (HTTP 403); no conclusion about its full text is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact occupancy identity precedent, not random law",
+          "evidence": [
+            "kappa(i,j)=r(i)+c(j)−2s_ij, and total domination iff kappa(i,j)≥k at every cell."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.08104",
+          "material_read": "PDF pp. 1, 3, offsets 0 and 5851; abstract and matrix identity",
+          "method": "OA PDF primary passage inspection",
+          "title": "3-Tuple Total Domination Number of Rook’s Graphs",
+          "trigger": "Same rook graph and total-domination occupancy predicate"
+        },
+        {
+          "assessment": "Deterministic extremal problem",
+          "evidence": [
+            "Studies minimum cardinalities of total k-dominating sets and associated asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.07850",
+          "material_read": "PDF v4 p. 1, offset 700",
+          "method": "OA PDF scope passage inspection",
+          "title": "Total k-domination in Cartesian product of complete graphs",
+          "trigger": "Same deterministic graph family and total domination parameter"
+        },
+        {
+          "assessment": "Deterministic parameter formula",
+          "evidence": [
+            "Gives bounds for Cartesian products and a formula for the total 2-domination number on K_n square K_m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.08208",
+          "material_read": "PDF v2 p. 1 abstract",
+          "method": "OA PDF scope passage inspection",
+          "title": "Cartesian product graphs and k-tuple total domination",
+          "trigger": "Known small-k rook specialization"
+        },
+        {
+          "assessment": "Relevant joint approximation outside target sparse regime",
+          "evidence": [
+            "The binomial approximation requires x(1−x)=Omega(1/log n), which fails when p is of order log N/N."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.2446",
+          "material_read": "PDF v3 pp. 1, 9–10, offsets 991, 28010, 29915; abstract, theorem and density hypothesis",
+          "method": "OA PDF comparison of hypotheses",
+          "title": "Degree sequences of random digraphs and bipartite graphs",
+          "trigger": "Possible stronger joint two-shore approximation"
+        },
+        {
+          "assessment": "Exact empty-line overlap and related method, different domination",
+          "evidence": [
+            "Power domination occurs iff there are at most one empty row or at most one empty column; counts converge to independent Poisson variables in the near-square window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-near-square-poisson-crossover-for-random-power-domination-of-r--5196d7d19cef",
+          "material_read": "RESULT.md Finding and setup, offsets 0 and 1298; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror statement comparison",
+          "title": "A near-square Poisson crossover for random power domination of rook graphs",
+          "trigger": "Same selection model and two Poisson occupancy axes"
+        },
+        {
+          "assessment": "Different density and conclusion",
+          "evidence": [
+            "Uniform k-edge sampling with k/n tending to a constant; critical covariance window k=2n+O(sqrt n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-narrow-positive-covariance-window-for-degree-one-counts-on-the--fa66bee654d9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local-mirror scope comparison",
+          "title": "A narrow positive-covariance window for degree-one counts on the two sides of sparse bipartite graphs",
+          "trigger": "Same degree count variables at r=2 in a related bipartite model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single critical window conceals two different reliability mechanisms despite the consecutive requirements: one needs a clean side, the other two. Resolving those events jointly, with a nonvanishing worst gap of one half, answers a natural random-placement question missed by deterministic minimum-cardinality theory. The occupied-edge estimate says precisely when it is valid to replace open-neighbor constraints by low-line statistics, and fixed-budget and hitting-time forms are mathematically useful. The result is not credited for the routine transfer alone and does not purport to be uniform in r.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

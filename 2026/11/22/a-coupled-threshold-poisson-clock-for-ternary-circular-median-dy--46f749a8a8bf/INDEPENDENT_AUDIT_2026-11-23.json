@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:52:30.973942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each cut, thresholding the median is majority, and the two cuts reconstruct exactly the ternary state. For binary walls d_i and activity a_i=d_(i−1)d_i, the cited wall update implies a'_i=a_(i−1)a_i a_(i+1): both adjacent new walls can be one only if the four old consecutive walls are one. Thus ordinary active runs lose their two ends at each step, and cease after ceil(r/2) steps. An all-active threshold is an even checkerboard and already periodic; the wall update cannot create a wall where there was none, so no other trajectory enters a checkerboard. The maximum is attained by taking one zero wall on an odd ring or two adjacent zero walls on an even ring, with all other walls one; parity of the number of walls makes each example realizable, and the active-run upper bound gives the asserted floor. The max of the two binary clocks is exact; inclusion–exclusion on their checkerboards (intersection the two 0/2 alternations) gives the basin. For L=2t+3=2s+1 the bad event is precisely a length-L alternating block following its first bit repeated; for a full checkerboard there is no such start. Cyclic reading remains valid for L≥n by wall-run length. The trace counts indexed words, not necklaces; given a labelled word the cyclic history at each location is forced, also for n<L. In the rare window the start probability is (5/9)(2/9)^s at each cut. Same-cut starts a positive distance <L apart are incompatible; a sole overlap at the precursor/end is bounded by a constant times (2/9)^(2s). For mixed cuts sharing L−d alternating sites, at least two shared sites force the shared word to alternate 0/2. The common portion costs O(3^{−(L−d)}), with the one-site case absorbed by a uniform factor, and each extension costs O((2/9)^(d/2)); ignoring precursor constraints only enlarges the upper bound. A geometric sum with ratio 2/3 gives O(n3^(−L)); the disjoint-window dependencies vanish and the local-dependence Poisson error tends to zero. The one-cut variance bound and the union upper tail are summable around floor(log_(9/2)n), proving the mean estimate and tightness. The supplied verification script's stale comment about excluding checkerboards is contrary to its actual edge test and trace assertion: checkerboards are included when all cuts have settled or are periodic. Independently replayed /workspace/reviews/evidence/4-ring-check.py: first-repeat periods and transients for all 29,511 words on n=3–9, and sparse adjacency powers at t=0,1,2 for n=3–7, including histories longer than the ring. All basin, sharp-time and trace checks passed; none is used as the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tosic–Agha explicitly restrict to Boolean states and study parallel vs sequential cycle configurations in §3.",
+          "Fitch et al.'s accessible abstract describes arbitrary-level root enumeration and convergence/pass analysis; the frozen citations report binary pass counts. The publisher interface and reproduced PDF attempt did not provide a complete readable primary copy to this review.",
+          "Moore's prediction-complexity theorem is for dimensions ≥3 and two local states."
+        ],
+        "reasoning": "Fixed-root enumeration and binary settling can cover deterministic pieces, but neither supplies the joint iid ternary extreme law or establishes that two biased nested cuts have asymptotically disjoint extreme starts. An inaccessible historical multilevel theorem has not been ruled out.",
+        "searches": [
+          "Fitch–Coyle–Gallagher DOI 10.1109/TASSP.1985.1164543; IEEE abstract and lawful reproduced PDF attempt",
+          "Tosic–Agha 2004, §3",
+          "Moore arXiv:cond-mat/9701118v1, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Tosic–Agha author-hosted PDF",
+        "Fitch–Coyle–Gallagher indexed abstract for DOI 10.1109/TASSP.1985.1164543",
+        "Moore arXiv:cond-mat/9701118v1",
+        "Resultary ranked records d0c0e063c265 and 387c46a61238",
+        "Frozen record package for provenance only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing binary deterministic clocks do imply the ternary upper bound via thresholding, and embedding binary words gives sharpness. That is not the main novelty.",
+          "Even biased binary marginal limiting laws would give only the marginal rare-start counts; from marginals alone, the union's zero probability cannot be concluded. The new mixed-cut overlap estimate excludes a nonvanishing clustering contribution.",
+          "The checkerboard basin uses the shared alphabet and subtracts the two alternating 0/2 words; it is not a binary basin relabeling."
+        ],
+        "reasoning": "Early Boolean or root-counting results cover tools and some conclusions, but the inspected statements do not dominate the nested-cut Poisson law. The limiting constant happens to be the sum of marginal intensities; proving why the coupling does not alter it is substantive.",
+        "searches": [
+          "Resultary binary first-periodic-entry record d0c0e063c265",
+          "Resultary binary stabilization census 387c46a61238",
+          "Tosic–Agha §3 and Fitch–Coyle–Gallagher indexed abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent finite clock uses two nested threshold Rule 232 edge-run maxima. The earlier binary first-periodic-entry Resultary record d0c0e063c265 has one threshold, the checkerboard exception and a Poisson critical window under uniform binary input.",
+          "A categorical plurality rule retaining the incumbent on ties is inequivalent: a ternary triple with center 2 and neighbors 0 and 1 updates to 1 under the median but retains 2 under that tie rule."
+        ],
+        "reasoning": "Threshold conjugacy makes binary deterministic ingredients available, but the two coupled threshold clocks are not independent processes or identical to a categorical majority clock. The maximal rare-start law must be shown for their union.",
+        "searches": [
+          "Resultary: ternary cyclic median coupled threshold rule 232 Poisson longest alternating block first periodic entry",
+          "Web: Fitch Coyle Gallagher root properties convergence rates median filters ternary cyclic largest alternating run random poisson binary threshold decomposition median filter convergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the frozen record. The indexed d0c0e063c265 and 387c46a61238 records have exact finite transfer laws for cyclic binary majority only.",
+          "The historical root-space abstract advertises counts of roots, which is not the basin census for periodic inputs with nontrivial transients."
+        ],
+        "reasoning": "The exact ternary inclusion–exclusion basin counts preimages, not only periodic roots; the ternary trace excludes two projected forbidden patterns simultaneously. The binary trace alone does not count their jointly admissible ternary words.",
+        "searches": [
+          "Resultary: ternary cyclic median coupled threshold rule 232 Poisson longest alternating block first periodic entry",
+          "Fitch–Coyle–Gallagher DOI 10.1109/TASSP.1985.1164543"
+        ]
+      },
+      "rationale": "Qualified to the ordered ternary clock and basin. The binary periodicity/erosion mechanism, single-layer transfer and the existence of a binary Poisson window are precedents. The work needed for the ternary extreme law is not merely summing two binary means: correlations could change the limit, and the simultaneous 0/2 overlap suppression resolves that comparison.",
+      "residual_risks": [
+        "Complete primary 1985 median-filter text was not independently accessible, and other work using stack-filter terminology may have relevant multilevel pass laws. This is not negative coverage evidence.",
+        "Closest exact binary records were compared from the indexed statements, not full proofs. Existing binary clock/Poisson results are explicitly excluded from the originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precedent for Boolean dynamics, not a ternary random-clock assertion in the inspected text",
+          "evidence": [
+            "End of §2 limits the state space to Boolean and uses a ring for finite examples.",
+            "Lemmas 1–2 discuss existence of cycles for parallel majority and nonexistence for sequential threshold maps."
+          ],
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "Author-hosted PDF text: definitions, explicit Boolean scope, and opening of §3 and its first periodicity lemmas",
+          "method": "Compared state space, synchrony assumptions and periodicity statements",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Classical cyclic majority and period-two classification"
+        },
+        {
+          "assessment": "Classical root-counting overlap, with residual unresolved historical coverage of ternary pass statistics",
+          "evidence": [
+            "Accessible abstract describes arbitrary finite-level root spaces of iterated median filtering, but does not state the cyclic coupled-cut Poisson law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TASSP.1985.1164543",
+          "material_read": "Search-indexed abstract and bibliographic record; IEEE interface and linked reproduced PDF did not yield complete readable text",
+          "method": "Compared accessible abstract to the claimed invariant; no statement inferred about unread portions",
+          "title": "Root properties and convergence rates of median filters",
+          "trigger": "Plausible predecessor for ordered multilevel convergence/pass counts"
+        },
+        {
+          "assessment": "Different question: complexity of predicting binary dynamics, not a three-level ring entrance-time law",
+          "evidence": [
+            "Theorems 1–2 concern P-completeness for d≥3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9701118",
+          "material_read": "Primary abstract, introduction and §§2–3, including Theorems 1–2",
+          "method": "Compared rule alphabet, dimension, and theorem quantifiers",
+          "title": "Majority-Vote Cellular Automata, Ising Dynamics, and P-Completeness",
+          "trigger": "Foundational threshold-rule citation"
+        },
+        {
+          "assessment": "Direct binary clock/Poisson precedent but not an indexed ternary overlap result",
+          "evidence": [
+            "Summary gives the single binary longest-run law and mean scale log_2(n)/2 for uniform binary initial conditions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265",
+          "material_read": "Resultary indexed summary; raw full record did not retrieve",
+          "method": "Claim-scope comparison of the indexed statement",
+          "title": "Exact first-periodic-entry law and Poisson extremes for majority-three rings",
+          "trigger": "Closest indexed transfer and Poisson claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordered uniform three-level ring is the minimal setting where two threshold clocks are coupled and censoring oscillators matters. The finite trace, exact oscillator basin and sharp lattice window distinguish several natural notions of filter stopping; in particular the overlap control makes the useful global-time constant rigorous. The mean estimate is for first periodic entry, not time to a fixed point or a claim of a continuous limiting law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

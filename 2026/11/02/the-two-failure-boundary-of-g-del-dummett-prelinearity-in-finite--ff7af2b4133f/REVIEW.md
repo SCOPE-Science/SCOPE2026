@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The exact witness characterization follows from the finite downset implication formula; swapping ordered pairs proves all nonzero counts are at least two. For exactly two failures, singleton cross-families of separating ideals force the ordinal sum, while two independent further-witness arguments force the lower chain and upper forest. Conversely, the normal form has exactly one unordered failing pair. Counting downsets yields the sharp unique maximum. The executable independently checks all 5,231 increasing-label finite posets through six points and explicit larger extremal instances. The finite tests do not certify the all-size implication, which is proved in RESULT.md.
+## correctness
 
-## Originality
-The relevant previously published quantitative Heyting-algebra work studies satisfiability degrees, and the established Gödel–Dummett literature gives the zero-failure forest criterion. Earlier exact formulas for layered/weak-order frames already cover the special extremal example and are not claimed new. A stronger arbitrary-poset two-failure classification implying the structural rigidity theorem was not identified among the actual checked literature and research records. This is a statement-implication comparison, not proof of historical uniqueness; alternate terminology and unindexed literature remain material uncertainty.
+PASS
 
-## Mathematical value
-The result classifies the entire smallest nontrivial failure stratum of an important intermediate-logical identity, extending the familiar zero-defect Gödel forest criterion to a full positive-defect normal form. The classification covers broad non-weak-order forests and gives a sharp unique extremal size for every possible number of join-irreducibles. This is a structural boundary result rather than a recomputation of the known layered-antichain probability formula.
+From the downset formula for implication, a failure requires a principal downset containing both a point u in I\J and a point v in J\I; these points must be incomparable and have a common upper bound. Symmetry and the valid diagonal force failures to occur in pairs of orientations. Fix witnesses to the unique unordered failure. The separating ideals containing u but not v form exactly the interval [down(u), P\up(v)], and the reversed interval is [down(v), P\up(u)]. Every cross pair fails, so both intervals must be singletons. Thus every point other than u and v is strictly below both or strictly above both, by intersecting the two resulting partitions. Any incomparable lower points would give another failing pair of principal ideals with upper bound u. Any incomparable upper points sharing an upper bound would give another pair of principal ideals, now containing both u and v. The upper part is nonempty by the original witness and is a forest in the stated downset convention. Conversely, all comparable pairs pass; differences of two upper-type ideals lie wholly in the forest and cannot witness failure. The sole exceptional unordered pair consists of the two ideals containing exactly one of u and v. The ideal counts are k proper lower-chain ideals, three middle ideals, and |J(F)| upper-type ideals. With m=|F|>=1, k+2^m<2^(m+k) for k>=1 since 2^m(2^k-1)>k; for k=0 equality requires every subset of F to be an ideal, so F is the antichain. This proves the normalized degree and the unique equality case for every n>=3 without extrapolating the frozen finite enumeration.
 
-## Limits
-Only finite Heyting algebras, uniform ordered valuation pairs, and the exact minimal nonzero failure class are covered. No independent scientific audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The zero-defect forest correspondence, the general satisfiability-degree framework, and the weak-order extremizer's exact count are established coverage. The nonredundant claim is the exhaustive arbitrary finite-poset rigidity at exactly two ordered failures, together with the upper bound and uniqueness in that whole class. No inspected general theorem implies this classification.
+
+## value
+
+PASS
+
+A standard theorem identifies the zero-failure boundary of a central Heyting identity. This result resolves its first positive boundary for arbitrary finite algebras: one local witness forces a single branching pair with a chain below it and a forest above it. The general rigidity adds information not conveyed by the previously counted extremizer, and it explains precisely where the upper size bound can be attained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first characterizes absent length-\(k+1\) subsequences for cuts after a one by partitioning into \(k\) arches. Cuts in a double-zero gap are handled through the alternating \((01)^k0\) subsequence and a greedy bound. Reversal supplies the corresponding cuts before ones. Counting terminal runs proves completeness, and the Fibonacci substitution plus coprime symbol counts proves the distinct-rotation specialization. The package's independent direct-enumeration and dynamic-programming verifier passes; finite checks supplement, not replace, the unrestricted proof.
+## correctness
 
-**Originality — PASS against inspected evidence.** The general 2021 arch-factorization treatment and the 2022 near-universality study provide algorithmic tools to count missing scattered subsequences for *individual linear words*. Full text relevant to their descriptions and counting propositions was inspected. Neither describes a cyclic gap-run multiplicity histogram or its Fibonacci specialization. The 2013 Fibonacci balance paper concerns another invariant. Mathematical-record searches and available historical claim comparisons revealed no dominating or equivalent theorem; a possible unindexed earlier result remains a risk. Application of prior general algorithms to each word is acknowledged rather than misrepresented as novel.
+PASS
 
-**Value — PASS.** The result classifies all cuts of an unbounded natural family of binary necklaces by their exact near-universality defect. Its unexpected dependence on the gap-run length multiset, not the order, yields a structural quotient and a closed Fibonacci law for all substitution levels. It is more than a fixed-size data table.
+A cut just after a one partitions the word into k mixed blocks, so it is k-universal. Every length-(k+1) target with an adjacent 01 embeds by taking that pair in one block and one symbol in each remaining block. For a nonincreasing target 1^a0^(k+1−a), an embedding must double up on zeros in a long block after a blocks used for ones. Conversely, a long block of index at least a+1 makes this possible by using the first a blocks for the ones. Thus if h is the last long-block index, exactly the a from h to k+1 are absent. Reversal handles cuts immediately before ones. At a split long gap the alternating subsequence (01)^k0 has k mixed blocks and contains every length-(k+1) target except the all-ones word: greedy starts at index 1 or 2 and each change saves one position compared to a repeat. The terminal streak lengths contributed by each short-gap run of length r are 1 through r, once each on each side; zero streaks occur once per long gap on each side. This gives the claimed full histogram even for periodic words. For the Fibonacci images the cyclic source avoids 11 and 000, giving gaps 1 or 2 with no two short gaps adjacent. Letter counts determine both gap counts and are coprime, so indexed cuts there are distinct rotations.
 
-**Scientific limitations.** The cyclic gap alphabet is restricted to one or two zeros and must include a long gap. The generic histogram counts indexed cuts even in periodic words; only the Fibonacci specialization counts distinct rotations. No full bibliographic uniqueness guarantee or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim supported by the comparison is the complete indexed-cut law for arbitrary runs of short gaps, not an exclusive claim on the three-point law or the Fibonacci specialization. Two materially overlapping indexed records cover the no-adjacent-short-gap case; one gives the same Fibonacci histogram exactly. Neither supplies the arbitrary-run histogram. The inspected linear-word algorithms permit a per-cut calculation but do not state the cyclic aggregation.
+
+## value
+
+PASS
+
+For one necklace the least absent length does not distinguish any cuts; the number of witnesses at that length does. The complete invariant identifies why large multiplicities arise and shows that the order of the short-gap runs is immaterial, avoiding a per-rotation enumeration even for periodic words. The Fibonacci case is an illustrative specialization, not the main value beyond the exact subcase overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:56:50.726673Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before the first hub activation, each activated leaf displays its fixed bit, independently of the clock history. The signed neighbor margin for the hub's first declaration can only increase once leaves copy that declaration; a remaining tie is broken by the same private bit, so the hub is locked. All leaves eventually update. Conditional on hub time T, the number K of distinct observed leaves is binomial at parameter U=1-exp(-mu T); U has density rho(1-u)^(rho-1). Integrating gives the claimed beta-binomial weights, including uniform K for rho=1. Conditional erroneous consensus is a strict binomial left tail plus the stated tie term. Appending one private vote to an even sample gives e_{2j}=e_{2j+1}=b_j, including j=0. For fixed k, m times its weight tends to rho; the adjacent-weight products are uniformly bounded on k<=m/2, and the conditional tails admit a fixed-bias exponential bound. The contribution above m/2 remains negligible after multiplication by m. The negative odd sites of the biased +/-1 walk have expected visit numbers (q/p)^r/(p-q), with q=1-p: the probability of ever hitting -r is (q/p)^r and the one-step escape probability upon a visit is p-q. Summing the odd-site series and using the even/odd pairing gives the factor 2rho p(1-p)/(2p-1)^2. For p_m=1/2+alpha/sqrt(m), condition on U and couple the Bernoulli observation indicators to get K/m→U; at U>0, triangular-array binomial normal approximation gives the stated limit for both tie and strict-majority cutoffs, and bounded convergence applies. The equal-rate formula follows by u=y^2 and integration by parts and extends at alpha=0 via the integral. For large alpha, split at u=1/2 to bound the possibly singular beta-endpoint contribution exponentially, and use v=4alpha^2u on the other part and the integral of Phi(-sqrt(v)) equal to 1/2. The drop b_j-b_{j+1}=(p-q) binom(2j+1,j)(pq)^(j+1) follows by adding two votes. For m>=2 the probability of K>=2 decreases strictly with the hub rate, giving strictness for interior p; m=1 has identical e_0,e_1. The finite formula also covers p=1/2 and p=1, outside the strictness assertion. VERIFICATION.md and verify_star.py describe finite checks only; the audit does not rely on a rerun of that script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bahrani et al., intro p. 2: results on preferential-attachment and balanced trees; discussion does not give a star error law.",
+          "Mohan–Prałat, §1 p. 2: initially unannounced private-signal model, citing star correctness as context for random graphs.",
+          "Amir et al., Prop. 3.6: a nonmonotone finite-time marginal on K_{3,m} via specified updates."
+        ],
+        "reasoning": "These results address qualitative learning on different graph families or finite-time behavior under deliberately chosen updates, not a sharp terminal-error theorem that specializes to both clock rates and weak signals on a star.",
+        "searches": [
+          "Bahrani et al. arXiv:1907.05823",
+          "Mohan–Prałat arXiv:2309.04691",
+          "Amir–Baldasso–Beilin arXiv:1911.08613"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_star.py",
+        "arXiv:1408.5192",
+        "arXiv:1907.05823",
+        "arXiv:2309.04691",
+        "arXiv:1911.08613",
+        "Resultary f630b7983010",
+        "Resultary e0c4accf2d92 (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feldman supplies the mechanism reducing consensus to the first hub vote; its logarithmic threshold yields an O(log m/m)-type upper bound at fixed bias.",
+          "The close hypergeometric record has a fully initialized state and does not produce a beta-distributed reveal fraction."
+        ],
+        "reasoning": "Holding rho fixed and summing the conditional errors requires a sharp weighted tail calculation, including the odd-site visit sum for the constant. A fixed-bias upper bound also gives no weak-bias CLT mixture. Thus neither the concrete prior estimate nor the initialized race accounts for the entire quantitative contribution; the ingredients individually are not novel.",
+        "searches": [
+          "Feldman et al. arXiv:1408.5192, Claim 1 and star estimate",
+          "Resultary f630b7983010, Finding, assumptions and main proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feldman et al., PDF p. 7, Claim 1: all vertices ultimately announce the hub's first bit. The following star example uses a Chernoff bound with a logarithmic observation threshold and gets a high-probability bound, not a sharp coefficient."
+        ],
+        "reasoning": "Uniform update order is precisely the sequence of events with equal-rate clocks, so locking and the fixed-bias qualitative claim are covered at rho=1. The exact finite expectation is an elementary refinement once the locking lemma is known; the prior star statement/bound does not give the quantified unequal-rate or crossover laws.",
+        "searches": [
+          "Feldman–Immorlica–Lucier–Weinberg, arXiv:1408.5192, §3 Star Graphs",
+          "Primary literature lookup for asynchronous private-signal majority on stars with unequal rates and sharp error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected f630b7983010 Finding and assumptions include K_{1,m} when m is odd, but with visible initial opinions, equal rates, and an exact hypergeometric race.",
+          "The indexed e0c4accf2d92 summary reports stationary noisy-voter reconstruction on a star in a high-reset-noise regime, with a beta-mixed Gaussian crossover; the local full record was unavailable.",
+          "Both neighboring records share the frozen record's date, which does not order priority."
+        ],
+        "reasoning": "If all leaf opinions are public initially, there is no random sample of revealed private signals at the first hub update as in the reviewed claim. The second hit has thematic star/Beta/CLT overlap, but the available summary identifies reconstruction from a stationary snapshot, rather than eventual wrong consensus in a silent-to-absorbing process. No equivalent indexed exact law was established.",
+        "searches": [
+          "Resultary consensus star / majority race / Gaussian limit search",
+          "Resultary f630b7983010 (hypergeometric consensus/Gaussian majority race)",
+          "Resultary e0c4accf2d92 (arcsine–Gaussian majority reconstruction)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the quantitative characterization of wrong terminal consensus in the initially silent model: exact unequal-rate probability, sharp fixed-signal constant, and critical beta/Gaussian profile. Credit the first-announcement mechanism, qualitative correct consensus on stars at equal rates, and classical probability ingredients as prior.",
+      "residual_risks": [
+        "Could not verify the full text of the stationary-reconstruction record; comparison is limited to its indexed description.",
+        "The keyword search did not establish additional relevant matches and is not negative evidence of prior work; classical binomial/random-walk identities are not claimed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the locking mechanism and qualitative asymptotic, not the full quantitative claim",
+          "evidence": [
+            "Claim 1 identifies consensus with the first hub declaration; the following Chernoff argument uses a logarithmic threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.5192",
+          "material_read": "§3 Star Graphs, PDF p. 7, text offsets 28200–34165",
+          "method": "OA full-text passage inspection",
+          "title": "Reaching Consensus via non-Bayesian Asynchronous Learning in Social Networks",
+          "trigger": "Same process and graph at equal update rates"
+        },
+        {
+          "assessment": "Related dynamics, different tree settings",
+          "evidence": [
+            "Discusses preferential-attachment and balanced trees; no sharp rate-dependent star law in the inspected discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.05823",
+          "material_read": "Introduction, PDF p. 2, offsets 7900–12822",
+          "method": "OA full-text passage inspection",
+          "title": "Asynchronous Majority Dynamics in Preferential Attachment Trees",
+          "trigger": "Possible broader asynchronous learning theorem"
+        },
+        {
+          "assessment": "Uses the prior qualitative star conclusion as context",
+          "evidence": [
+            "Initially unannounced private signals; main setting is binomial random graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04691",
+          "material_read": "§1, PDF p. 2, offsets 6100–10596",
+          "method": "OA full-text passage inspection",
+          "title": "Asynchronous Majority Dynamics on Binomial Random Graphs",
+          "trigger": "Same private-signal updating rule and cited star benchmark"
+        },
+        {
+          "assessment": "Does not evaluate the same model or limit",
+          "evidence": [
+            "Uses K_{3,m} and a specified sequence to produce nonmonotonicity of a finite-time marginal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.08613",
+          "material_read": "Prop. 3.6, PDF pp. 11–12, offsets 29470–33742",
+          "method": "OA full-text passage inspection",
+          "title": "Majority dynamics and the emergence of consensus",
+          "trigger": "A related explicit bipartite calculation"
+        },
+        {
+          "assessment": "Different initial data, hence no coverage of the reviewed mechanism on stars",
+          "evidence": [
+            "Starts fully public with rate-one updates; exact law is a hypergeometric absorption race, not a mixed finite sample of revealed signals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-hypergeometric-consensus-law-and-gaussian-majority-race-on--f630b7983010",
+          "material_read": "RESULT.md, offsets 0–5802 and 9750–13291",
+          "method": "Local Resultary mirror full-text passages",
+          "title": "Exact hypergeometric consensus law and Gaussian majority race on odd complete bipartite graphs",
+          "trigger": "Strongest inspected indexed overlap: star subcase and Gaussian consensus window"
+        },
+        {
+          "assessment": "Reported stationary reconstruction comparison is distinct; detailed coverage unresolved",
+          "evidence": [
+            "Index describes estimation of the hub by leaf majority in a stationary noisy-voter star, not terminal-error learning."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-arcsine-gaussian-majority-reconstruction-crossover-for-high-n--e0c4accf2d92",
+          "material_read": "Semantic index description; full mirror path absent",
+          "method": "Resultary index and local full-text retrieval attempt",
+          "title": "An arcsine–Gaussian majority reconstruction crossover for high reset noise",
+          "trigger": "Star with a Beta-mixed Gaussian profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The star is a benchmark for the role of unequal centrality and update timing in social learning. The exact terminal risk identifies the penalty from a fast hub; the leading constant removes a logarithmic gap in the benchmark, and the weak-signal law describes when even growing populations no longer drive error to zero. Together the two regimes give more than a routine restatement of the first-vote mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

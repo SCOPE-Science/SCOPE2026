@@ -1,15 +1,21 @@
-# Scientific review: closed-neighborhood \(\mathrm{KG}(7,2)\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the 21 vertices of \(\mathrm{KG}(7,2)\), with closed-neighborhood facets indexed by all 21 ground pairs. The independent enumeration over all \(2^{21}-1\) possible nonempty faces and the facet-expansion enumeration agree. The stagewise lexicographic matching has 18,633 verified pairs, a single critical zero-cell, and 260 critical three-cells. A complete topological sort of all 218,673 oriented face-incidences verifies acyclicity. Forman's theorem yields the wedge of 260 three-spheres integrally, not merely the correct Betti numbers. The original simplicial boundary matrices independently have mod-two reduced Betti number 260 in degree three, corroborating the integral Morse classification. Two different exact methods give the same 15-class \(S_7\) character; irreducible characters are orthonormal and exact inner products give the claimed Specht multiplicities.
+## correctness
 
-## Originality — PASS, with residual risk
-Matsushita's full-text framework [1] does not compute the stated Kneser graph; its canonical double-cover suspension theorem does not give the relevant higher independence-complex type without a separate calculation. Nilakantan–Singh's full available text [2] calculates **open** Kneser neighborhoods: the seven-point case has 29 three-spheres, not the claimed closed-neighborhood 260. The published six-point **closed**-neighborhood record [3], inspected in its full result statement, gives 64 two-spheres and a multiplicity-free character, but has no seven-point implication. The six-point open-neighborhood character [4] is likewise a different complex. The categorical-product theorem [5] handles other product factors. Actual indexed and phrase searches produced no covering seven-point statement. Full-text coverage is necessarily limited to accessible sources, and equivalent unindexed work remains possible.
+PASS
 
-## Mathematical value — PASS
-The 21-vertex Kneser graph is the first natural next case beyond an existing six-point closed-neighborhood computation. Its exact homotopy type and full symmetry representation reveal a qualitative transition: two different Specht irreducibles acquire multiplicity two, so the six-point multiplicity-free phenomenon does not persist to seven points. The 260-sphere homotopy classification also differs dramatically from the already known 29-sphere open-neighborhood result for the *same graph*. The invariant is canonical and directly usable as a benchmark for graph Čech theory and symmetric-chain algorithms; its value is not based merely on software correctness or an arbitrary parameter choice.
+The ground vertices are the 21 unordered pairs, and a facet contains its center pair as well as the ten pairs disjoint from it. Independent enumeration agreed with the containment predicate on all 2,097,151 nonempty masks, producing 37,527 faces. The independent replay found 18,633 disjoint matches and sorted the entire directed Hasse graph (218,673 arrows), leaving one critical vertex and 260 critical 3-cells. The resulting CW model is a wedge of 260 three-spheres, regardless of the auxiliary mod-two check. For a permutation g the trace on H3 is 1-L(g). A nonempty invariant face consisting of r vertex cycles contributes (-1)^(r+1) to L, so it contributes (-1)^r to 1-L, where the empty face supplies +1. This clarifies the convention in the orbit-sum paragraph. The two independent trace formulas agree in all 15 classes. Exact irreducible character inner products reproduce all nine listed Specht types, with multiplicity two precisely for (4,2,1) and (3,2,1,1); their dimensions sum to 260. Rational Specht modules realize the absolutely irreducible characters, so this determines the rational module. The computation does not infer an equivariant CW model or integral Specht splitting.
 
-## Limitations and closest sources
-The result is a complete classification for this one graph but does not prove an infinite-family formula, an integral lattice decomposition, or an equivariant homotopy equivalence. Comparison risks include unindexed equivalent computations and indirect consequences of unknown larger product-complex theorems; no identified inspected source actually supplies them. Sources: [1] Matsushita arXiv:2511.12608, [2] Nilakantan–Singh arXiv:1802.05848, [3] published six-point closed-neighborhood record a413c6a778e4, [4] published open-neighborhood record 6890383e239b, [5] Antolín Camarena–Carnero Bravo arXiv:2307.12401. Exact computations and graph definitions appear in RESULT.md and verify.py.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest statement-level matches are the open-neighborhood S7 calculation on the same graph and the closed-neighborhood S6 calculation on the preceding graph. Neither is an equivalent formulation or a covering theorem for the closed 7-point complex. No distinct exact covering result was established in the inspected material.
+
+## value
+
+PASS
+
+This is a complete homotopy and symmetry calculation for a canonical distance-based complex on the next pair-Kneser graph after the known six-point case. The substantial difference from the open calculation and the appearance of two genuine repeated Specht types explain why the exact closed invariant matters. It gives a useful benchmark for a general formula or a persistence computation, without claiming either.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The target set consists of exactly sixteen explicitly defined words. The suffix-prefix tour reduction proves the covering lower bound, and any tour can be spelled as a valid circular cover. Two independently written exact dynamic programs agree on optimum length 44 and 5,472 optimal tours. Complete enumeration, factor scanning, and injectivity of the unique-palindrome positions identify 5,472 distinct circles. Exhaustive permutation/reversal actions partition them into 124 classes, and the 124-representative artifact is checked for exact equality. The proof is finite and does not extrapolate to other sizes.
+PASS
 
-## Originality — PASS, qualified
+The 16 distinct selected starts occur in a cyclic order. Each positive gap is at least the least compatible shift (2 for a nonconstant reversed ordered pair, 3 for equal outer letter, 4 otherwise). Conversely a cyclic target tour can be laid out at its least shifts: adjacent windows match on each overlap, and nonadjacent starts are separated by at least four positions in either cyclic direction when they are nonadjacent on both sides. Thus all windows are compatible, including closing the cycle. At minimum cost every selected gap attains its bound, so every optimum is recovered by a minimizing tour. The exact subset recurrence anchors at 0000, goes to an unvisited target, and charges the final return to 0000. An independently written exact checker at /workspace/branches/0c226ade-1e89-49d6-b73e-b5ca8fee2efc/independent_census.py (result_q4.txt in the same directory) found minimum 44 and visited every optimal successor, giving 5472 tours. It scanned all cyclic windows, verified each required factor occurs once in each expansion, and recovered the generating order from each circle, yielding 5472 distinct rotation classes without dividing by reversal. Applying the 24 global permutations and reversal, with renormalization by the unique 0000, gave 124 orbits (105 of size 48, 17 of size 24, 2 of size 12) and exactly matched all representative/orbit-size pairs in the frozen CSV. This is exhaustive at q=4 only.
 
-The 2012 pseudo de Bruijn work supplies odd-alphabet Euler-tour enumerations and an even-alphabet impossibility, but does not count shortest even-alphabet palindromic four-mer covers. The 2015 superstring-with-reversals paper addresses general greedy approximation, not exact equality cases. Closest published comparison results address reverse-complement four-mers, ordinary palindromic five-mers, or tandem squares, and do not dominate the present equality census. Searches for the specific count 5,472, exact four-letter ordinary palindromic cover enumerations and Euler-tour equivalents returned no covering result. The general shortest length is not asserted as an independent contribution. Older unindexed equivalent classifications remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-A complete census of all shortest test sequences for sixteen natural palindromic motifs is a meaningful optimum-classification problem. The first genuinely multiletter even-alphabet case has a parity obstruction in the associated Euler-tour geometry. An exact count, a full 124-class symmetry classification, and portable certificates provide concrete reusable design data beyond merely constructing a minimum-length example. This is not a routine perturbation of an existing exact count for this same equality family.
+The supported distinct contribution is the exact census of all shortest labeled circles, uniqueness of each required occurrence in every optimum, and the full symmetry quotient. The minimum 44 is demonstrably covered by a distinct same-day general formula, and receives no separate originality credit. No intra-day order is established. The closely related general record and its verifier do not enumerate the optimizers; the present frozen finding is a census rather than a minimum-only claim.
 
-## Scope and limits
+## value
 
-Self-review only, with independent mathematical audit outstanding. No theorem beyond the stated finite case is asserted; literature priority is qualified. Files checked: `RESULT.md`, `verify_dp.cpp`, `verify_enumeration.py`, and `representatives.csv`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quaternary case is the first even alphabet beyond the binary case and exhibits a nontrivial parity obstruction and nonuniform symmetry stabilizers. An equality census for this natural cyclic cover problem answers more than a rerun of its known minimum: it proves unique target occurrences in every shortest host, distinguishes true labeled multiplicity from symmetries, and makes all symmetry representatives available for further structural comparisons. Neither the minimum nor one optimal construction resolves those questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

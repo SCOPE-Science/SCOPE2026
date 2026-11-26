@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exact fixed-point reduction and monotonicity give the complete one/three global equilibrium count for small detuning. The factorized critical characteristic polynomial has a simple unit eigenvalue and a strictly Schur-stable quadratic; the exact coboundary \(W(F)-W=\sin z-z\) yields the cubic center coefficient \(-1/[6(2+r+s)]\). Standard finite-dimensional center-manifold and strong-stable-foliation theorems establish local convergence and the algebraic constant outside a two-dimensional fast leaf. A direct characteristic expansion establishes the two stable newborn branches. The accompanying checker independently tests identities and finite numerical diagnostics but is not a proof of quantified asymptotics.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** Mammeri (2017) establishes boundedness and linear stability for a fixed-amplitude predecessor. Rajagopal et al. (2023) include the present equations as a zero-offset, zero-self-feedback subfamily but study numerical parameter transitions; Almatroud et al. (2024) directly treat the same map and give linear fixed-point analysis and simulations, not the present nonlinear critical clock. The closest accessible mathematical-index items concern different sine flows, Huygens oscillators, or circle maps. An earlier accessible same-family claim requires unit self-feedback and a drifting conserved combination, and cannot imply the zero-feedback cubic drift. Searches and inspections do not prove priority; unindexed equivalent work remains possible.
+PASS
 
-## Value
-**PASS.** A quantified nonlinear transition at a natural local stability boundary separates exponential attraction, parameter-independent square-root birth of two sinks, and generic \(n^{-1/2}\) relaxation with an explicit delay-dependent coefficient. The exceptional strong-stable sheet explains initial-condition dependence that linear stability tests and numerical bifurcation diagrams miss. This is a structurally motivated local classification, not a routine isolated parameter substitution or a claim about global chaos.
+Every equilibrium solves z=(1+ε)sin z and has x=y=sin z. With 0<1+ε<π, every root is in (−π,π), and sine divided by its argument strictly decreases from 1 to 0 on (0,π). This proves the global one/three count and Taylor expansion z_±²=6ε+O(ε²). At ε=0 the characteristic polynomial factors as (λ−1)(λ²+(1+s)λ+r); the quadratic Schur conditions are 1−r>0, r−s>0 and 2+r+s>0. The unit root is simple, with q=(1,1,1) and normalized left functional W/D. Direct substitution gives W∘F−W=sin z−z. The center graph has z=u+O(u³) in u=W/D: the quadratic jet vanishes by invariance, since the map has no quadratic term and the stable block has no unit eigenvalue. Thus u' = u−u³/(6D)+O(u⁵). Small nonzero center points keep their sign and tend to zero; differences of 1/u² tend to 1/(3D), yielding n u_n²→3D by averaging. The map is a smooth local diffeomorphism (det DF=r cos z near zero), and the strict spectral gap with the two Schur-stable directions allows the local strong-stable tracking theorem. The small center interval is forward trapping, so a sufficiently small stable-fiber neighborhood tracks it exponentially, including the two-dimensional fiber over zero. All other fibers track nonzero center iterates; the tracking error is negligible against n^(−1/2), giving all three sign and square-limit claims. The origin multiplier derivative in ε is 1/D. For a branch equilibrium, P(1)=1−(1+ε)cos z=2ε+O(ε²) and ∂_λP=D+O(ε), yielding the −2/D slope. Continuity retains both stable multipliers on each branch. The example gives D=11/4 and n z_n²→33/4 (and the same for x,y).
 
-## Limitations
-The result is local except for the fixed-point count, and is not asserted uniformly up to the boundary of the wedge. Literature-priority risks remain; numerical diagnostics are not infinite proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact family and scalar fixed-point reduction to earlier work. The matched catalogue record covers the full fixed-point census, and the same scalar equation gives the elementary branch-size expansion. Neither that coverage, the primary sources' linear analysis, nor the related leafwise pitchfork supplies the normalized critical cubic drift or the quantified three-coordinate critical decay off a strong-stable surface. The pass is for this distinct nonlinear result in the fixed wedge, not for the equilibrium count taken alone.
+
+## value
+
+PASS
+
+The unit-multiplier boundary of a previously studied recurrence leaves linear stability inconclusive. The critical coefficient and exceptional surface distinguish exponential relaxation from a sharp, parameter-dependent n^(−1/2) decay in the same system. This supplies a useful nonlinear classification at a natural boundary beyond the known equilibrium census or purely numerical bifurcation plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

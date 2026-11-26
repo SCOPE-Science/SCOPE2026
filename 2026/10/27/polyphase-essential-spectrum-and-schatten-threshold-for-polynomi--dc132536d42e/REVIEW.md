@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact normalized monomial formula produces a finite-band operator with power-law coefficients; this gives the unbounded and compact regimes. At criticality the matrix differs compactly from a finite polyphase Hardy multiplier. The adjoint product is a compact perturbation of the positive Toeplitz operator with the squared polyphase modulus as symbol. Boundary-kernel Weyl sequences, Calkin spectral invariance, and a finite kernel prove the exact positive essential spectrum, essential norm, and closed-range criterion. Separated-input columns supply the matching compact-region singular-value lower bound, including the Schatten quasi-range.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Sun–Liu's Theorem 9.2 gives exact weighted-Dirichlet formulas for monomial multipliers under linear symbols and their broader paper contains abstract Schatten criteria. Pau–Pérez establishes qualitative closed-range criteria for unweighted composition, and Barik–Sen–Paul supplies general quantitative estimates rather than the current explicit nonlinear-polyphase essential spectrum. This result is not proposed as a discovery of the basic exponent threshold in isolation. Direct comparison identified no implication-equivalent complete critical-spectrum classification, but an equivalent classical block-Toeplitz reformulation remains possible.
+PASS
 
-**Mathematical value — PASS.** The spectral band and common-circle-zero condition distinguish polynomial multipliers having identical coefficient moduli but different exponent residues. This answers a natural sharp boundary question that boundedness and compactness criteria cannot settle. The complete nonlinear-symbol phase trichotomy and quasi-Schatten rate accompany this structural invariant, rather than being presented as separately incremental results.
+On normalized source monomial e_{ℓ+n}, differentiating gives (ℓ+n)!/ℓ!, and converting the output coefficient at qℓ+j to the normalized target basis gives the factors (ℓ+n+1)^{(β₁−1)/2}(qℓ+j+1)^{(1−β₂)/2}. Each fixed nonzero band is asymptotic to p_j c_q ℓ^{−Δ/2}; output indices are distinct within a column, giving unboundedness when Δ<0. A finite sum of bounded bands gives boundedness for Δ≥0. At Δ=0 each residue block is a Hardy shift band weighted by a convergent diagonal, so discarding the finite differentiation kernel gives the column of analytic multipliers modulo compact operators. The Gram model is the scalar Toeplitz compression of H. Its quadratic form places the spectrum in [min H,max H]; normalized Szegő kernels are weakly null and give a Weyl sequence at each attained value by continuity and kernel concentration. Thus the Fredholm essential spectrum is the full scaled interval and the essential norm is c_q sqrt(max H) by the essential C*-identity (equivalently using an off-diagonal block on the source-target direct sum). The only kernel is the first n source monomials, by polynomial density, continuity of holomorphic evaluations and injectivity of multiplication/composition after differentiation. Hence zero in the essential spectrum contradicts closed range, while a positive lower edge gives Fredholm Gram and closed range. At Δ>0 finite-column truncation bounds s_N above and qL>deg P provides disjoint supports for columns ℓ=Lm and the min–max lower bound. The p-series endpoint diverges, including for quasi-norm Schatten parameters below 1. The verifier was inspected, not executed. An independent exact Gaussian-integer coefficient calculation (python3 reproductions/frozen_math_checks.py, polyphase) checked 300 complex Gram comparisons; this is not spectral evidence for the infinite theorem. The original checker uses real coefficients in its Fourier comparisons, so its exponent-sign comment does not test the complex orientation; the analytic Toeplitz form is unaffected.
 
-**Closest literature and limitations.** Sun–Liu (2026), Barik–Sen–Paul (2026), Pau–Pérez (2013), and Stević–Jiang (2026) were compared at theorem/assumption level. Standard Toeplitz machinery is used, not newly claimed. The assertions concern only polynomial multipliers and integer powers, and the compact singular-value result gives comparison rather than a limit constant. Priority is not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the explicit critical essential Gram interval and common-root boundary for the stated nonlinear power, arbitrary polynomial multiplier and coefficient-index differentiation family, combined with the all-region classification. Neither standard Toeplitz tools nor the known monomial index-counting cutoff are credited as new. A later catalogue record has substantial overlap in the exact limiting model but concerns a different operator; earlier priority beyond the inspected statements is not established.
+
+## value
+
+PASS
+
+The result classifies a natural operator family's critical positive spectrum, not merely scalar boundedness. The P=1+z and P=1+z² example at q=2 distinguishes closed range for identical coefficient magnitudes and shows why the exact residue grouping matters. That structural diagnostic and the compact-side endpoint are useful beyond an isolated norm calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

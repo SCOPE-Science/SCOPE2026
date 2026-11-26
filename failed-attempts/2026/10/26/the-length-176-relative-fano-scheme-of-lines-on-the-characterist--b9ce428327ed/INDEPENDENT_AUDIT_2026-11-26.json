@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:26:12.952201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:22–70; independent coefficient, chart and local-ring reconstruction",
+        "VERIFICATION.md:19–23 and verify.py:29–101 inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_replay.py 3; fixed F9 chart gave 32 coordinate plus 64 exceptional lines, verified the 64 dual-number solutions and nonzero obstruction derivatives, excluded all eight nonzero F9 parameters in that chart and counted the nodal solutions."
+      ],
+      "rationale": "The relative scheme and nodal-fiber claims check. In a pivot chart (s,t,as+ct,bs+dt), the only s²t² term is λ(ad+bc). The sentence at RESULT.md:35 saying that binom(4,3) vanishes mod 3 is a local exposition error: it is 1 mod 3, and the displayed equations, all subsequent calculations, and the claim use the correct surviving mixed terms. For λ≠0, a zero chart entry forces an impossible zero pivot-row norm. Otherwise c=ζa, d=−ζb and the s³t and st³ equations imply 2λζ²ab=0. At λ=0 the zero-entry lines are the 3·4² coordinate-pair lines; in the nonzero case the two mixed equations force c/a=−d/b and a⁴=b⁴=(c/a)⁴=1. All six pivot minors are nonzero for the latter type, so the fixed X,Y chart counts all 64 of them. The four nonmiddle equations have invertible Jacobian at each line. Thus the completed ring is k[[λ]]/(λh(λ)), h=ad+bc. The coordinate-pair lines have h(0)≠0; the others have h(0)=0 and h′(0)=(αβ)²≠0. This gives 48 simple and 64 double relative points, 112 reduced central points and length 176. The absence of any other geometric points and finite type give a finite scheme supported on the central fiber. The gradient at λ≠0 forces nonzero coordinates with equal fourth powers; normalization gives 16 solutions exactly at λ⁴=1, and the off-diagonal quadratic form has nonzero determinant there.",
+      "residual_risks": [
+        "Bounded F9 calculations alone do not exclude geometric lines over extensions; that conclusion uses the symbolic argument in any pivot chart."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rams–Schütt Thm. 1.2 and Ex. 2.1 and Veniani Thm. 1.1 establish the central counting/classification context for smooth characteristic-three quartics. The inspected Bini–Garbagnati work treats a complex pencil."
+        ],
+        "reasoning": "A set-count bound does not determine a relative deformation ring or include singular fibers; the complex pencil does not settle the special-characteristic local multiplicities. The separate Resultary record does cover them.",
+        "searches": [
+          "Rams–Schütt arXiv:1409.7485; Veniani arXiv:1608.04209; Bini–Garbagnati arXiv:1207.7175"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror 68d0b4284551",
+        "arXiv:1409.7485",
+        "arXiv:1608.04209",
+        "arXiv:1207.7175"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published matching text excludes lines at every nonzero parameter including nodal fibers, identifies exactly λ⁴=1 as the 16-node case, and gives the same simple/double decomposition over the parameter line."
+        ],
+        "reasoning": "The full finding follows directly from the equivalent indexed statement, whereas the older 112-line theorem accounts only for the central line count. The record dates do not determine priority.",
+        "searches": [
+          "68d0b4284551, Finding and §§1–4; Rams–Schütt Theorem 1.2 and Example 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Finding and §§1–4: 112 central supports with 48 length-one and 64 length-two local rings."
+        ],
+        "reasoning": "In both statements the central parameter generates the length-two component's maximal ideal; the statement is scheme-theoretic over the pencil, not merely a support count.",
+        "searches": [
+          "Local Resultary search for characteristic-three Dwork pencil, length 176, relative Fano line scheme and first-order obstructions; matching record 68d0b4284551"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published record explicitly has the same numbers 48, 64, 112 and 176 with the same hypotheses and assignments, together with the nodal parameters and count."
+        ],
+        "reasoning": "The match is on an entire invariant and its structure, not a coincidence in a numerical entry.",
+        "searches": [
+          "Local Resultary search and full statement comparison of 68d0b4284551"
+        ]
+      },
+      "rationale": "A separate published Resultary record states the entire same relative scheme and both geometric consequences, not just the known central count. This establishes equivalent indexed coverage, not priority or derivation in either direction. No distinct scientific remainder is supported by the submitted claim.",
+      "residual_risks": [
+        "Priority and the relationship between the October and November records are undetermined.",
+        "The Eklund primary text was not assessed; it cannot overturn the demonstrated equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "48 copies of k and 64 copies of dual numbers over the same base parameter, no lines elsewhere, and the same 16-node condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-length-176-relative-fano-scheme-of-the-characteristic-three--68d0b4284551",
+          "material_read": "Mirrored RESULT.md Finding and §§1–4, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, statement and proof-section comparison",
+          "title": "The length-176 relative Fano scheme of the characteristic-three Dwork pencil",
+          "trigger": "Exact-looking indexed result for the same pencil and infinitesimal numbers"
+        },
+        {
+          "assessment": "Central geometric count covered",
+          "evidence": "At most 112 lines on a smooth quartic, attained by Fermat; this does not determine relative local rings.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.7485",
+          "material_read": "p. 1 Theorem 1.2 and p. 2 Example 2.1",
+          "method": "OA primary text",
+          "title": "112 lines on smooth quartic surfaces (characteristic 3)",
+          "trigger": "Source of the central Fermat count"
+        },
+        {
+          "assessment": "Central count and characterization, not the infinitesimal claim",
+          "evidence": "The theorem recognizes Fermat by its line count; the counted quantity is the number of lines on an individual surface.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.04209",
+          "material_read": "p. 2 Theorem 1.1 and notation",
+          "method": "OA primary text",
+          "title": "Lines on K3 quartic surfaces in characteristic 3",
+          "trigger": "Broader line-count results in the exact characteristic"
+        },
+        {
+          "assessment": "Inspected results concern the complex pencil",
+          "evidence": "The complex Fermat count discussed is 48, not the relative characteristic-three length.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.7175",
+          "material_read": "p. 1 scope, p. 34 Fermat lines passage",
+          "method": "OA primary text",
+          "title": "Quotients of the Dwork Pencil",
+          "trigger": "Same family; possible general-parameter or nodal geometry coverage"
+        },
+        {
+          "assessment": "Not assessed, not evidence of noncoverage",
+          "evidence": "The access gap does not affect the decisive indexed comparison.",
+          "identifier_or_url": "Daniel Eklund, 2018 (cited by title in the frozen record)",
+          "material_read": "No primary passage retrieved from the supplied generic search link",
+          "method": "Literature lookup and attempted listed access",
+          "title": "Curves on Heisenberg invariant quartic surfaces",
+          "trigger": "Possible overlap from quartic-family line-locus methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:9–19, 50–70",
+        "Rams–Schütt, Theorem 1.2 and Example 2.1",
+        "Resultary record 68d0b4284551"
+      ],
+      "rationale": "The underlying scheme computation is substantive: it determines whether each embedded line deforms over the specified pencil and separates support from scheme length. Neither a line census nor the mere existence of special nodal fibers answers that geometric question. This value is not a new contribution from the frozen record because the whole result is already covered in the separate indexed finding.",
+      "residual_risks": [
+        "No implications for embedded lines on other models or lines on resolutions were established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

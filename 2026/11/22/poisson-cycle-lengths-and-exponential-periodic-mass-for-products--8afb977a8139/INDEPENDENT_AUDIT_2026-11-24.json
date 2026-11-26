@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:57:27.548382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 3–69 and VERIFICATION.md; nested verification/check_cycles.py located at the exact named path and inspected, not executed",
+        "/workspace/repairs/5/RESULT.md, especially Proof sections 2–4",
+        "Independent n=2 boundary calculation and factorial-moment generating-function check"
+      ],
+      "rationale": "For the repaired proof: a periodic vertex is in the F-root set; any noncommon cycle alternates through distinct vertices in the two exclusive root sets, because hitting a common root is absorbing and duplicate intermediates would duplicate successors. Slot ordering, cyclic rotation and independent prescribed-edge probabilities give the exact mixed factorial moments, including empty exclusive sets and length one. At n=2 the disjoint singleton-root stratum consists of two opposite ordered pairs of constant maps, each with exactly one noncommon fixed point, as the formula gives. The frozen root-ratio error O(log log n) was not valid for all k merely asymptotic to c n/log n; the repair applies it at rounded fixed thresholds, which are all monotonicity and geometric tail bounds need. Hypergeometric concentration gives h/K and h/L both asymptotic to 1/log n and exclusive sizes of order n/log n; thus −log(ab/(KL)) log n tends to 2. The falling-factorial correction is uniformly negligible for total lengths O(log n). Conditional moments for finite windows are bounded by products of harmonic sums on those windows, so averaging preserves convergence of the joint factorial moments. The repaired tail estimate fixes 0<η<2 to get genuine exponential decay at infinity. Near zero the first moment of the scaled mass is bounded by the window width plus 1/log n. These controls justify both the maximum formula and the total-mass limit, whose Poisson integral is finite and has Laplace transform 2/(2+s). As a separate check of the mass normalization, expanding z^S in factorial moments gives the coefficient generating factor exp(sum_r (z^r−1)x^r/r)=(1−x)/(1−zx). Consequently the exact conditional tail at integer j≥1 is (a)_j(b)_j/(KL)^j, also giving exp(−2t) at j∼t log n.",
+      "residual_risks": [
+        "The n=2 computation is a finite boundary check, not an independent exhaustive run of the supplied verifier. The asymptotic assertions are justified by the proof, not the historical checker outputs. The point-measure limit is vague and excludes zero and the common fixed points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hansen–Jaworski's available description concerns independent uniform images on opposite shores and normalized connected-component sizes; full paper not accessed. Kammoun–Maïda cover short cycles of products of invariant random permutations under hypotheses. Lugo computes different cycle laws for involution products."
+        ],
+        "reasoning": "The unrestricted alternating model on disjoint shores lacks the loss factor (1−h/K)(1−h/L); with h=0 its finite slot-count argument is analogous, but the exponential cutoff at log n does not follow. Fixed-length Poisson convergence cannot establish the moving windows or tightness of the largest cycle. The unrestricted component law is not a dominating parameter case for this result.",
+        "searches": [
+          "Web: Hansen Jaworski \"Large components of bipartite random mappings\" alternating cycles cycle counts open pdf absorbing random maps cyclic points",
+          "Resultary: bipartite random mappings alternating cycles common roots kill map",
+          "arXiv:0911.3604; arXiv:1910.04031"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md, Relationship to prior work; Resultary 594d94b6f31b and 7b69e39a8610",
+        "Hansen–Jaworski 2000 indexed synopsis only; Brown–Higgins 1988; Dalal–Schmutz 2002; arXiv:0911.3604 and 1910.04031"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The numerical short-cycle law agrees with uniform permutations. The Poisson cycle model with means q^r/r has geometric total-size tail q^j by the ordinary series for −log(1−qz). The retraction formula introduces the falling-factorial correction and random q=ab/(KL)."
+        ],
+        "reasoning": "Once the finite retraction law and overlap concentration are proved, the conditional cycle weights tend to the familiar tilted Poisson weights, and its exponential mass limit is a consequence rather than a separate universality claim. The permutation and unrestricted bipartite comparisons do not justify the reduction by themselves: the alternating killed edges, independent conditional selection and hazard asymptotic require proof for idempotents. No distinct new claim is assigned to a familiar limiting law without that reduction.",
+        "searches": [
+          "Kammoun–Maïda arXiv:1910.04031, pp. 1–2; Lugo arXiv:0911.3604, Theorem 5.1 and §6; Hansen–Jaworski 2000; Resultary 594d94b6f31b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditionally on the roots, the exclusive shores are a two-color mapping with killing probabilities h/L and h/K per respective step, and otherwise uniform choices on the opposite exclusive shore. The closest local matched product-of-involutions record gives a marked limit for alternating-path extremes."
+        ],
+        "reasoning": "Both descriptions involve alternating components. In the involution product both layers are permutations and alternating paths produce extreme product cycles on a different scale; they do not implement the independent choices and common-root absorption of retractions. The conditional identity agrees with the independent killed model after specifying the two killing fractions; the model-specific feature is how those fractions are generated and concentrate.",
+        "searches": [
+          "Resultary: product of two independent uniform idempotent functions retractions cycles periodic points",
+          "Resultary: alternating cycle lengths killed two-color random mapping conditional factorial moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top entry is the assigned record. Distinct 594d94b6f31b covers products of involutive permutations; distinct 7b69e39a8610 describes overlap of periodic sets of unrestricted random mappings in its indexed statement."
+        ],
+        "reasoning": "Neither the same record nor unrelated periodic-vertex overlaps establish independent coverage. No matching exact conditional moment table or logarithmic cycle process for products of two uniform retractions was identified in the comparison.",
+        "searches": [
+          "Resultary: product of two independent uniform idempotent functions retractions cycles periodic points",
+          "Resultary: alternating cycle lengths killed two-color random mapping conditional factorial moments",
+          "Resultary: bipartite random mappings alternating cycles common roots kill map"
+        ]
+      },
+      "rationale": "The repair preserves the model-specific cycle law. Its supported distinct part is the alternating factorial-moment identity for uniform labelled retractions and the resulting overlap-determined logarithmic spectrum and mass. The classical labelled retraction count, independent short-cycle Poisson laws from permutations, and Poisson-process transformation to a rate-two exponential are not stand-alone novelty claims. The closest retrieved results on bipartite components and on permutation products concern other models or scales; no identified statement gives the same root-intersection mechanism and moving cycle law. This judgment is bounded by the full-text access risk stated below.",
+      "residual_risks": [
+        "Hansen–Jaworski full text could not be verified by lawful retrieval; a broader published theorem for killed bipartite mappings or compositions with exchangeable roots could cover more than the available statements. This is not a negative finding about unavailable material. The comparison does not determine historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement is about unrestricted opposite-shore choices and normalized connected components; no whole-paper noncoverage inference",
+          "evidence": "The indexed statement has independent images between disjoint shores V1,V2 and a Poisson–Dirichlet component size result, not absorbing common roots.",
+          "identifier_or_url": "https://doi.org/10.1002/1098-2418(200010/12)17:3/4%3C317::AID-RSA7%3E3.0.CO;2-7",
+          "material_read": "Available indexed synopsis and initial model description only; publisher DOI and PDF routes returned 403, indexed open-copy lead returned 202",
+          "method": "OA retrieval attempts and primary literature search; no full text obtained",
+          "title": "Large components of bipartite random mappings",
+          "trigger": "Closest cited alternating random-mapping model"
+        },
+        {
+          "assessment": "Unrestricted functions and a different stopping observable",
+          "evidence": "Studies successive unrestricted uniform functions and the time until composition becomes constant.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r26/pdf",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF opening passage",
+          "title": "Compositions of random functions on a finite set",
+          "trigger": "Unrestricted composition and cycle comparison"
+        },
+        {
+          "assessment": "Different sampling and dynamics",
+          "evidence": "Uses an unrestricted random transformation and its own iterates, not two uniformly sampled retractions.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500007230",
+          "material_read": "p. 1, offset 0",
+          "method": "OA publisher PDF opening passage",
+          "title": "Finite full transformation semigroups as collections of random functions",
+          "trigger": "Unrestricted transformation model"
+        },
+        {
+          "assessment": "Different cycle law and permutation model",
+          "evidence": "The theorem's limit A_k+2B_k with Poisson means 1 and 1/(2k) arises from involution superpositions; the later partial-matchings section fixes numbers of permutation fixed points.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.3604",
+          "material_read": "Theorem 5.1 p. 7 and §6 p. 8, offsets 27674 and 31488",
+          "method": "OA PDF theorem and section passages",
+          "title": "The cycle structure of compositions of random involutions",
+          "trigger": "Alternating-component mechanism in a product"
+        },
+        {
+          "assessment": "Numerical short-cycle overlap, not a theorem on idempotent compositions",
+          "evidence": "Gives conditions for fixed short-cycle limits of permutation products, including relevant Ewens cases; neither describes absorption nor a moving log-n window here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.04031",
+          "material_read": "pp. 1–2, offsets 724 and 6002",
+          "method": "OA PDF theorem-context passages",
+          "title": "A product of invariant random permutations has the same small cycle structure as uniform",
+          "trigger": "Independent Poisson short cycles as potential overlap"
+        },
+        {
+          "assessment": "Different scale and source of extreme cycles; date does not imply precedence",
+          "evidence": "Uses alternating-path extremes for involutions on a square-root scale and says alternating graph cycles are negligible at that extreme scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-marked-gumbel-extremes-for-products-of-two-uniform-involutions--594d94b6f31b/RESULT.md",
+          "material_read": "Finding and alternating-component passages at offsets 0, 2150, and 5098",
+          "method": "Local mirror passages",
+          "title": "Marked Gumbel extremes for products of two uniform involutions",
+          "trigger": "Closest distinct accessible same-day alternating product result"
+        },
+        {
+          "assessment": "Available statement is on a different statistic; full-text coverage unresolved",
+          "evidence": "Concerns common periodic vertices of independent unrestricted maps, rather than cycles of the product of retractions.",
+          "identifier_or_url": "Resultary 7b69e39a8610",
+          "material_read": "Indexed statement only; specific local mirror file not available",
+          "method": "Local Resultary search and mirror lookup",
+          "title": "A Rayleigh-mixed Poisson overlap law for periodic vertices of independent random mappings",
+          "trigger": "Root/periodic overlap comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/5/RESULT.md, Finding and Proof 1–4; frozen RESULT.md 3–25; permutation and unrestricted bipartite comparisons"
+      ],
+      "rationale": "Products of idempotents are a natural model where periodic behavior need not be idempotent. The result separates out the common fixed points, identifies the scale and law of genuinely new cycles, and connects the cutoff rate to the random overlap of the two root sets. The exact conditional law supplies a finite bridge explaining why fixed short-cycle counts can look permutation-like while total additional periodic mass only grows logarithmically. The value is this structural explanation and the moving cycle spectrum, not the repeated marginal Poisson means or the elementary Laplace integral alone.",
+      "residual_risks": [
+        "The analysis says nothing about transient branch distributions, and deliberately separates common-root mass from the new cycle mass."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

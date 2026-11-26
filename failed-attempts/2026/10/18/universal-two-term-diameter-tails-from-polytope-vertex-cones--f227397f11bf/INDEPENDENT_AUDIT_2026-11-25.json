@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:06.158555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–67 and 69–90",
+        "Frozen VERIFICATION.md, line 19",
+        "Frozen verify_tail.py, lines 6–42 (read only)"
+      ],
+      "rationale": "Strict convexity of squared distance in each coordinate forces every maximizing pair to consist of vertices. Compactness gives a deficit away from fixed disjoint pair neighborhoods. At each ordered pair the positive inward projections give s >= c(|u|+|v|), hence |w| <= C s. In the local cone neighborhoods the exact deficit is (2Ds-s^2-|w|^2)/(D+distance) >= s/2 for sufficiently small s. Thus the scaled tail is bounded uniformly in epsilon and the finite polytope truncations are irrelevant. The local radial threshold near t=1 on the compact level S=1 is 1+epsilon H/(2D)+O_K(epsilon^2); the radial inequality is decreasing on the entire bounded range for small epsilon. The quadratic may have a distant second root, so uniqueness is local, not global in t. Radial integration and degree-two homogeneity give the factor (2d+2)/(2D) multiplying the integral of H over S<=1. Beta integration of measures with cumulative moments A t^d, M t^(d+1), Q t^(d+2) gives both Gamma ratios and the negative transverse cross term. Reversing the ordered pair leaves the integral unchanged. Each A is positive and H is nonzero off a proper linear subspace in dimension at least two, giving strict positivity. As an independent check, cube coordinate deficits have density 2x on [0,1]; setting x_i=epsilon sqrt(d) t u_i with simplex angles u gives Dirichlet(2,...,2) and the first two coefficients in ratio d(d-1)/(sqrt(d)(2d+1)), with C0=2^d d^d/(2d)!. This matches the cone formulas and in d=2 gives 2/3 and 4/(15sqrt(2)).",
+      "residual_risks": [
+        "The remainder is for a fixed full-dimensional polytope. None of the coefficient checks treats smooth bodies, non-Euclidean distance, or growing samples. The rectangular numeric verifier was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The second catalogue record contains a two-term cone-moment law for d>=3 and additional orthotope rigidity. The planar sources provide full planar distribution methods. Wang's Eq. (1.3) integrates the difference-vector covariogram density to give the distance law."
+        ],
+        "reasoning": "A complete planar law covers planar coefficients in principle but not the claimed all-dimensional expression. A general covariogram representation by itself does not evaluate the near-diameter shell asymptotics. The catalogue all-dimension formula is what settles full coverage.",
+        "searches": [
+          "Resultary 7090df41a766, near-diameter distance",
+          "Tong–Pan arXiv:1602.03407 and Pure et al. arXiv:1903.07757, full planar polygon distance laws",
+          "Wang arXiv:2610.01916v1, distance/covariogram relation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary adbe904d7db5 and 7090df41a766",
+        "Tong–Pan arXiv:1602.03407",
+        "Pure et al. arXiv:1903.07757",
+        "Wang arXiv:2610.01916v1",
+        "Mayer–Molchanov arXiv:math/0605289"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mayer–Molchanov discuss the maximal interpoint distance of a growing sample in the smooth ball, not an explicit second coefficient for two points in a polytope. The catalogue instead treats exactly the fixed-pair quantity and gives the same explicit correction."
+        ],
+        "reasoning": "Neither the many-point extreme law nor the covariogram identity alone is a direct implication of the requested second moment formula in reverse. In contrast, rewriting the catalogue simplex integrals as full cone moments involves only triangulation additivity and integration of degree-two monomials; it does not change any coefficient or hypothesis.",
+        "searches": [
+          "Mayer–Molchanov arXiv:math/0605289, Theorem 1.1",
+          "Wang arXiv:2610.01916v1, Eqs. (1.2)–(1.3)",
+          "Resultary adbe904d7db5, Finding and Eqs. (1) and (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue formula applies to all full-dimensional convex polytopes for d>=2, counts ordered diametral pairs, and uses each pair of simplicial cone pieces with Jacobian J and transverse coefficient Q."
+        ],
+        "reasoning": "In that piece's 2d nonnegative coordinates with sum <=1, the zeroth integral is J/(2d)! and the transverse-square integral is JQ/(2d+2)!, since diagonal and cross monomial integrals have numerators 2 and 1. Multiplying the latter by (d+1)/D gives JQ/[2D(2d+1)!]. Summing over pieces and orders gives exactly the frozen formula, without additional restrictions.",
+        "searches": [
+          "Resultary: two-term near-diameter pair-distance laws for polytopes, cone moments and simplicial pieces",
+          "Resultary adbe904d7db5, Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "adbe904d7db5 Eq. (7) gives exact coefficients on the entire family, and Eq. (2) separately specializes to orthotopes."
+        ],
+        "reasoning": "An indexed identity with the same full domain is stronger evidence than a square table entry. For a unit square, the orthotope law has leading term 2/3 and ratio of next to leading coefficient 2/(5sqrt(2)), reproducing the benchmark. No claim of novelty is assigned to that special case.",
+        "searches": [
+          "Resultary adbe904d7db5 and 7090df41a766, exact polytopal endpoint coefficients and orthotope witnesses"
+        ]
+      },
+      "rationale": "The full frozen law has demonstrable equivalent catalogue coverage for d>=2, including both coefficients, their signs, the error order and nonunique longest segments. The invariant cone-moment packaging eliminates explicit triangulation from the notation but is the sum of the same simplex-piece integrals and yields no distinct theorem. This is a determination of coverage in the inspected catalogue, not a claim that its later-dated entry has historical priority over the frozen text.",
+      "residual_risks": [
+        "The catalogue path dates are later than the frozen path date. Their relationship, derivation history and public-release priority were not established; equivalent catalogue coverage was. The Lellouche–Souris full text and Ohanyan–Khalatyan (2022) were not inspected, so no statement excluding further coverage there is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS by equivalent integration of the same coefficient",
+          "evidence": "Both positive coefficients for all d>=2, summed over ordered pairs and simplicial pieces; no uniqueness or simplicity restriction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-two-term-diameter-tail-expansion-for-uniform-point-pairs-in-conv--adbe904d7db5/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, offsets 0–6314; Eqs. (1), (2), (4)–(7)",
+          "method": "Resultary index and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-term diameter-tail expansion for uniform point pairs in convex polytopes",
+          "trigger": "Exact object, exponent, error and second coefficient"
+        },
+        {
+          "assessment": "Overlaps in d>=3 with additional orthotope result; different scope than the decisive d>=2 entry",
+          "evidence": "Positive two-term local cone-moment coefficients with orthotope rigidity and planar coverage discussion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-universal-two-term-near-diameter-distance-law-for-convex-polyt--7090df41a766/RESULT.md",
+          "material_read": "Finding/Proof offsets 0–6315, and relationship discussion offsets 9102–11523",
+          "method": "Resultary index and local mirror",
+          "title": "A universal two-term near-diameter distance law for convex polytopes",
+          "trigger": "Second exact-looking cone-moment match"
+        },
+        {
+          "assessment": "Relevant whole planar law; no all-dimensional formula established by the inspected passage",
+          "evidence": "Arbitrary polygon distance distributions via decomposition and recursion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.03407",
+          "material_read": "Abstract and opening page, offset 0",
+          "method": "OA primary PDF",
+          "title": "Random Distances Associated with Arbitrary Polygons: An Algorithmic Approach between Two Random Points",
+          "trigger": "Full planar distance law potentially includes the benchmark tails"
+        },
+        {
+          "assessment": "Planar coverage, not evidence for the stated all-dimensional coefficient",
+          "evidence": "Polar-decomposition framework for planar polygon PDFs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07757",
+          "material_read": "Abstract and opening page, offset 0",
+          "method": "OA primary PDF",
+          "title": "Distance Distribution Between Two Random Nodes in Arbitrary Polygons",
+          "trigger": "Another full planar distance method"
+        },
+        {
+          "assessment": "Identifies the equivalent observable; inspected equations do not evaluate the coefficients",
+          "evidence": "The difference vector has density V^-2 |K intersect (K+z)|, yielding the radial CDF.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01916",
+          "material_read": "p. 2, Eqs. (1.2)–(1.3), text offset about 5500",
+          "method": "OA primary PDF",
+          "title": "Wang, covariogram and distance distribution",
+          "trigger": "Equivalent expression as a covariogram shell integral"
+        },
+        {
+          "assessment": "Different random variable and body",
+          "evidence": "Maximum over a growing sample in the Euclidean unit ball, with n^(4/(d+3)) scaling.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605289",
+          "material_read": "p. 1 abstract and p. 3 Theorem 1.1",
+          "method": "OA primary PDF",
+          "title": "A limit theorem for the maximal interpoint distance of a random sample in the unit ball",
+          "trigger": "Established asymptotics near the diameter"
+        },
+        {
+          "assessment": "Unassessed source, not negative evidence",
+          "evidence": "None used for the decision.",
+          "identifier_or_url": "https://doi.org/10.3390/stats3010001",
+          "material_read": "Landing page only; no scientific passage confirmed",
+          "method": "Lawful publisher/OA attempt; full text unavailable in the attempt",
+          "title": "Lellouche–Souris, compact-set distance distribution paper",
+          "trigger": "Potential broader distance-law match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–25 and 57–67",
+        "Catalogue adbe904d7db5, Eqs. (1)–(7)"
+      ],
+      "rationale": "The general fixed-pair asymptotic quantifies a natural geometric probability problem. The second positive coefficient detects transverse displacements not captured by just the first cap volumes, and summing across all maximizers makes the result useful even when longest segments are not unique. This is structural mathematical value; the audit does not credit the equivalent rewrite as a new contribution.",
+      "residual_risks": [
+        "No distinct valuable repair to the covered statement was established. The planar benchmarks alone are not a separate contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

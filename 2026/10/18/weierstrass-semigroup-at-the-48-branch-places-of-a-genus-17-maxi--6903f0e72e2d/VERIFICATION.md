@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact verification procedure
+# Independent mathematical audit
 
-The artifact `verify_semigroup.py` requires Python 3 and no third-party packages. In a folder containing both it and `CERTIFICATE.json`, execute:
+## correctness
 
-`python3 verify_semigroup.py CERTIFICATE.json`
+PASS
 
-**Recorded result:** `VERIFY_OK`.
+From the quartic equation, t=y+x^6/y and u=y-x^6/y satisfy the stated identities, and y=(t+u)/2. The simple zeros in the four cubic blocks show by valuation parity that the three quadratic classes CD, AB, AC are independent, also geometrically. The degree-eight cover is tamely ramified with index two at each of twelve finite roots, and unramified at infinity (even degrees), so Riemann–Hurwitz gives genus 17. The seven pullback spaces have distinct sign characters; within a space the displayed powers of x+1 are independent. Their dimensions 2,2,2,5,2,2,2 show that they exhaust canonical differentials. At x=-1 the four characters containing a simple zero in their squared representative contribute even vanishing orders: dx/u has order zero there. The other three contribute odd orders: dx/t has order one. Each ratio after removing common factors is a unit; square-root signs and constant normalization only scale individual rows. The independently recomputed even and odd jet matrices have full row ranks 11 and 6 with pivot columns [0,1,2,3,4,6,7,8,9,12,13] and [0,1,2,3,6,7], respectively, and pivot-minor determinants 1 and 4. Left-to-right pivots give the full filtration, and the two parities cannot cancel. Thus orders 0,1,2,3,4,5,6,7,8,12,13,14,15,16,18,24,26 give the displayed gaps upon adding one. The generators agree with the complement below 28, including the necessary indecomposable 18 and 26; the ten consecutive integers 28 through 37 all lie in the generated monoid, so addition of 10 covers the rest. The subgroup transitivity used is Lemma 4.4 of the defining paper, independent of its later Lemma 4.7. Lemma 4.7's prose reverses the condition on equality at 18P, but Appendix A explicitly tests dimension 5 at x(P)^12=1 and 4 otherwise and says the checks returned true. The frozen dimension 5 on the branch orbit is confirmed by the independently reconstructed gaps and is consistent with the appendix; it does not rely on the prose of Lemma 4.7.
 
-The checker recomputes the coefficient matrices directly from the seven character-square polynomials over \(\mathbb F_{11}[\alpha]/(\alpha^2+1)\); checks the decomposition \(ABCD=1-x^{12}\), the ramified/unramified local normalization at \(x=-1\), square-root coefficient identities, and all twelve branch values in \(\mathbb F_{121}\). It checks transitivity of the two published rational transformations on the branch values (their lifts to the curve are proved in the cited originating paper). It then performs elimination on the \(11\times14\) even and \(6\times8\) odd matrices and compares every coefficient and pivot against the certificate. All \(17\) canonical orders, the seventeen gaps, the five minimal semigroup generators, the conductor, and \(\ell(18P)=5\) are checked exactly.
+## originality
 
-**Proof boundary:** The executable check is finite and conclusive for these coefficient matrices because the proof independently establishes that the character differentials form the *entire* \(17\)-dimensional canonical space. The code does not test arbitrary curves, prove the originating maximality theorem, or replace the theorem establishing the lifts of the displayed base transformations. It does not constitute an independent audit.
+PASS
+
+The curve, subgroup orbit, and dimension at 18P are previously documented; the relevant contribution is the complete local canonical filtration and thus the exact semigroup on that natural orbit. Neither the defining paper nor the related exact orbit-spectrum record provided that semigroup in the inspected passages. The checked exact semigroup tables concern other curves. Appendix A establishes prior coverage of the single dimension at 18P despite the inverted statement in Lemma 4.7.
+
+## value
+
+PASS
+
+The places are the canonical ramification orbit of a specific maximal curve already singled out in an automorphism proof, not an arbitrary point sample. Their complete semigroup supplies all one-point divisor dimensions on that orbit and is substantially more informative than the previously computed single dimension, for example when choosing divisors on this curve. It requires the precise finite-field canonical filtration rather than a literature-table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

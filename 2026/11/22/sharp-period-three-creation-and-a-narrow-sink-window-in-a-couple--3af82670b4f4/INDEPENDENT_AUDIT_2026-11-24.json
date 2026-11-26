@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:49:31.566060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (the source script was inspected, not executed)",
+        "Independent replay: python3 -B /workspace/bounded_review_checks.py cycle; exact reconstruction quotient −1, Floquet remainders zero, s_c≈24.001275394013586189"
+      ],
+      "rationale": "Put v=3y/2, c=3b/2, t=x(1−x), and z=c²t. The two third-iterate residuals f=X−x and g=V−v satisfy g−f=ct[c(1−2x)−z−1]−2(1+z)v. If z=−1 their common zero would force x=1/2, impossible. Substitution of the unique v annihilating g−f gives f=−ct H_s(z)/(4(1+z)²) with H_s(z)=z³−(s+3)(z+2), so reconstruction is exact and t=0 gives only the two fixed points. The discriminant is 4(s+3)²(s−24); H_s(0)<0 and H_s(s/4)=(s−24)(s+4)²/64. Below threshold the sole real root is above s/4. At threshold the roots 6 and −3 (the latter double) give exactly three distinct nonfixed points. Above threshold the two negative roots are admissible and the positive root lies below s/4, so there are six nonfixed points. Their primitive period divides three and is not one. Direct multiplication of the step Jacobians gives τ=1−c Σ(2x_j−1) and Δ=c³∏(2x_j−1); independent exact polynomial reductions verify (τ−1)²=s−24 and Δ=(s+4)(τ−1). The six x-values pair under x→1−x and sum to 3, so the two return traces sum to 2; this proves both signs occur without assuming that reflection conjugates the dynamics. The negative branch has its characteristic polynomial negative at 1 and hence a real multiplier >1. The positive branch meets the first two strict Schur inequalities, and the third is equivalent to (s+4)√(s−24)<1. That quantity increases strictly; at equality Δ=1 and 0<τ<2 give a unit complex pair, and afterward Δ>1 gives instability. At s=24 the multipliers are 1 and 0.",
+      "residual_risks": [
+        "Endpoint statements concern linear multipliers; the upper unit-circle pair alone does not establish the nonlinear bifurcation or local attraction at the endpoint.",
+        "Only a=1, b>0, the full real plane and primitive period three are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Zhong study the larger (a,b) family, fixed-point bifurcations and a period-two theorem; neither of the indexed three-dimensional families varies the planar drift coefficient.",
+          "A general quadratic iterate count gives an algebraic bound but not the real census at and around the discriminant or the signs of the return eigenvalue inequalities."
+        ],
+        "reasoning": "No inspected broader theorem covers both the real primitive count and Floquet classification for the specified planar map.",
+        "searches": [
+          "Liu–Zhong (2024), pp. 2–3 and Theorem 5",
+          "Resultary 16224d864e1d and c45561b710b5, Finding and orbit reduction"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Zhong DOI 10.3390/math12152423, retrieved primary passages",
+        "Local Resultary index and exact assigned match 3af82670b4f4",
+        "Actual mirrored records 16224d864e1d and c45561b710b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period-two theorem uses a different iterate. For the indexed maps the three-cycle equations collapse to u↦A−u² by scaling. Here the linear difference g−f and the reconstruction identity lead instead to H_s(z), and Schur conditions require the separate trace and determinant identities."
+        ],
+        "reasoning": "Neither direct specialization of a stated theorem nor reuse of the scalar quadratic dynatomic table establishes the real-domain restriction z≤s/4 and the return-spectrum window here.",
+        "searches": [
+          "Liu–Zhong Theorem 5; Resultary 16224d864e1d and c45561b710b5, proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is exactly Liu–Zhong at a=1, and is equivalently the lag recurrence x_{j+2}=x_{j+1}+c x_j(1−x_j). In centered lag coordinates it is (U,V)↦(U+(s−V²)/2,U), with state-dependent Jacobian determinant V.",
+          "The two nearest distinct indexed maps are (x,y,z)↦(a−y²±bz,x,y), with three coordinates and constant Jacobian determinant ±b."
+        ],
+        "reasoning": "The lag rewriting is an invertible affine change of coordinates, not a new family; the two indexed three-dimensional maps are not affine conjugates of this planar section. In their cyclic equations a delay term is identified with the next coordinate, whereas the planar cyclic equation retains the difference of two distinct phases.",
+        "searches": [
+          "Resultary: exact primitive three-cycle creation and sink window for a delayed quadratic or generalized Hénon map",
+          "Liu–Zhong DOI 10.3390/math12152423, model equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed same-map match is the assigned record itself, 3af82670b4f4.",
+          "The distinct matches give creation at scaled parameter 7/4 and three return multipliers. The orientation-reversing record even has a separate −1 crossing before sink onset, unlike immediate Schur stability on the target plus branch."
+        ],
+        "reasoning": "The near matches are not a table of this map's thresholds or spectra, even though the number of cycles is qualitatively similar.",
+        "searches": [
+          "Resultary: exact three-cycle census, sink window and generalized Hénon variants",
+          "Liu–Zhong open text: model and period-two statements"
+        ]
+      },
+      "rationale": "The same two-parameter map is published, but the inspected original statements cover fixed-point and period-two behavior, not this census or its Floquet window. The nearest distinct indexed creation-and-sink formulas are for genuinely different three-dimensional maps whose three-cycles reduce to a scalar quadratic iteration.",
+      "residual_risks": [
+        "No separate primary result for the centered scalar lag recurrence was verified; literature under another naming convention may remain.",
+        "The comparison establishes distinctness from the inspected passages rather than exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known family and different-period results; no matching primitive-three result established in inspected passages",
+          "evidence": [
+            "Map (ax+3y/2,b(x−x²)); Theorem 5 concerns period two."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12152423",
+          "material_read": "Open PDF pp. 2–3: introduction, map and fixed-point Jacobian; p. 8: Theorem 5",
+          "method": "Lawful open primary text, literal search and bounded excerpts",
+          "title": "Research on Stability and Bifurcation for Two-Dimensional Two-Parameter Squared Discrete Dynamical Systems",
+          "trigger": "Same quadratic map in a broader parameter family"
+        },
+        {
+          "assessment": "Different dimension, dynamics and Floquet polynomial",
+          "evidence": [
+            "Map T=(a−y²+bz,x,y); with k=1−b its period-three equations reduce to f_A(u)=A−u², and its upper boundary has a third multiplier b³."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-prime-three-census-and-the-sharp-attracting-tongue-of-a-th--16224d864e1d/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–2 start; mirror offset 0–3393",
+          "method": "Local index and actual mirrored result",
+          "title": "Exact prime-three census and the sharp attracting tongue of a three-dimensional generalized Hénon map",
+          "trigger": "Closest indexed 0/1/2 cycle count and sink window"
+        },
+        {
+          "assessment": "Different map and stability onset, independently of catalogue date",
+          "evidence": [
+            "Map F=(a−y²−bz,x,y) with constant determinant −b; scalar quadratic orbit reduction and a separate −1 crossing before a sink occurs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-orientation-reversing-three-cycle-sink-window-with-quadratic--c45561b710b5/RESULT.md",
+          "material_read": "Finding, assumptions and proofs §§1–2 start; mirror offset 0–3177",
+          "method": "Local index and actual mirrored result",
+          "title": "An orientation-reversing three-cycle sink window with quadratic onset and cubic collapse",
+          "trigger": "Closest indexed same-day exact window with a unit-pair loss of stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact orbit and Floquet classification",
+        "Liu–Zhong, source map and results for periods one and two"
+      ],
+      "rationale": "Unit self-coupling is the no-decay drift in the published family: increments telescope around a cycle and the cyclic sum of the quadratic feedback vanishes. On this structurally distinguished section, the count is exhaustive and it resolves the difference between mere creation of a real cycle and its very short interval of Schur stability. The exact multipliers and boundaries are usable benchmarks in this family, not numerical examples or a generic bifurcation claim.",
+      "residual_risks": [
+        "The value is a classification on the unit-drift section, not a phase diagram for the whole two-parameter family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

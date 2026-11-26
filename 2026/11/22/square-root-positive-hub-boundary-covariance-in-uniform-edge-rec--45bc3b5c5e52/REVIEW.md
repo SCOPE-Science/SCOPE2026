@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The growth rule, initial condition, sample space, and quantifiers were reconstructed explicitly. At size four the degree-two vertices are nonadjacent, and this property persists. Correct conditional increments require distinguishing degree-two neighbors of the primordial vertex from the case in which the primordial vertex itself is degree two. The mixed increment identity \(\mathbb E[I_N(1-C_N)\mid\mathcal F_N]=(D_N-K_N-2J_N)/(2N-3)\) closes the covariance recursion with independently derived marginal and auxiliary means. Exact path enumeration through eight vertices agrees with the claimed formula. Positivity follows from an explicit positive quadratic bound; the square-root constant follows from a convergent convex averaging recurrence, not finite data. The checker supplies independent finite evidence but is not substituted for proof.
+## correctness
 
-## Originality — PASS with historical-priority risk
-Krapivsky and Lucas [1] give the HSC(2) primordial-degree and degree-two-count marginal laws, including the separate variances. Their relevant Appendix C was read and compared at the level of equations and implications; it does not provide the cross covariance. Hartle and Krapivsky [2] analyze a degree-proportional random **tree** and its leafdegree fields, not this edge-grown two-complex. Janson [3] and Cooper–Uehara [4] address different random-tree and clique-selection mechanisms; their abstracts alone do not resolve complete coverage, so that limitation remains. A related published mathematical record shows a square-root hub–leaf covariance in another tree model; the analogous exponent is acknowledged and not claimed as a novel phenomenon in all attachment models. Searches for this model’s exact joint law identified no direct implication in examined sources. Unindexed equivalences remain possible.
+PASS
 
-## Value — PASS
-The motivating HSC(2) model exhibits a persistent hub and an extensive population of minimally connected vertices. Their dependence is a natural missing joint statistic: separate marginal means and variances cannot determine whether hub growth creates or suppresses the minimally connected periphery. The result establishes the unexpected coexistence of strictly positive, diverging covariance and vanishing correlation, with a sharp coefficient and a finite-size recurrence. The auxiliary-neighbor closure and the exceptional degree-two root distinguish it from re-labeling a standard tree covariance formula.
+After the first attachment, degree-two vertices are nonadjacent; an attachment promotes any such endpoint and creates one new degree-two vertex. With M=2N−3, incidence probabilities for the root, a degree-two vertex and a degree-two root neighbor are D/M, 2L/M and 2K/M. For a root incident edge to have a degree-two endpoint, it either joins a degree-two root neighbor, or the root itself has degree two, accounting for K+2J rather than K. The root stays of degree two with probability 1−2/M at each step while J=1; starting at P(J_4=1)=1/3 gives E J_N=1/(2N−5). At N=4, the root has degree three and two degree-two neighbors in two of three histories, and degree two and no such neighbors otherwise; L_4=2 deterministically. The linear recurrences for μ, ℓ and k give the displayed closed forms by substitution and that base. Expand Cov(D+I,L+1−C). Conditional expectations give Cov(D,1−C)=−2c/M and Cov(I,L)=c/M, so together with Cov(D,L) these terms give (1−1/M)c. The remaining term is Cov(I,1−C)=2μℓ/M²−(k+2EJ)/M; substitution gives the exact forcing. The lower polynomial 16N²−124N+258 is positive and increasing on integers N≥4. Dividing the recurrence by μ_(N+1) produces a convex update toward a target tending to 1/12 with divergent total update weight, giving c_N/√N→√π/12. The marginal scales also follow directly: E[D_N(D_N+1)]=2M by a telescoping recurrence, so Var(D_N)∼(4−π)N; total conditional variance for L gives v_(N+1)=(1−4/M)v_N+2ℓ/M−4ℓ²/M². Since ℓ/M→1/4, averaging for v_N/N has step weight asymptotic to 3/N and target 1/12. These yield the stated correlation constant. Fresh exact enumeration of all labelled histories (extend each history along each current edge, with equal weight at fixed N) through N=8 gave covariances 0, 2/75, 46/735, 94/945, 1030/7623 at N=4–8, matching the recurrence. The frozen checker was not run.
 
-## Scope and residual limitations
-Only the stated homogeneous uniform-edge model and one fixed primordial vertex are covered. The proof does not establish a multivariate Gaussian law or a conditional coupling theorem. The exact-rational checker runs a finite exhaustive census through eight vertices, not an exhaustive census at arbitrary size; independent scholarly assessment and fuller examination of the older tree literature remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment is the exact mixed covariance, its sign and its leading constant in the fixed HSC(2) growth process. The model and marginals are credited. A close analogous covariance in a preferential-attachment tree is acknowledged; neither that indexed theorem nor the available descriptions of the same-model literature give this mixed statistic. Full-text access limitations remain.
+
+## value
+
+PASS
+
+Measuring the oldest vertex jointly with the global degree-two boundary answers a natural dependence question that both marginals leave open. The exact finite positive sign and the growing covariance with decaying correlation distinguish absolute dependence scale from normalized dependence. The special mixed-incidence correction also has structural content; omission changes finite covariances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

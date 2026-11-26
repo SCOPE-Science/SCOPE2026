@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:33:44.531503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61",
+        "Frozen VERIFICATION.md and artifacts/verify.py, inspected, not executed",
+        "Independent Python 3 replay: python3 /workspace/audit_evidence/ladder_boundary.py; verified reverse-order matchings on 124/136/133 nonempty faces with 368/414/404 cover arrows, one critical vertex and 3/3/2 critical triangles, six rim pairs and four chord pairs leaving 1357"
+      ],
+      "rationale": "The total complex is the Alexander dual of B(G)={S: alpha(G[S])<=2}. In a spanning tree, a leaf is dominated by its neighbor in B(T): an independent triple created by adding the neighbor would have existed with the leaf instead. Iteration gives contractibility. The shared complete 1-skeleton gives simple connectivity for B(G). Each new relative triangle [a,b,c] contains a non-tree edge ab; walking from c along the tree path to the first tree-neighbor of either endpoint gives relative tetrahedron boundaries with opposite successive triangle terms. The walking steps do not hit a or b and their tree edges are disjoint from ab. Hence relative H2 is zero and B(G) is 2-connected. For m>=5, an odd 3- or 5-cycle with an odd number of chords would require at least m rim steps, and an even number of chords leaves an odd rim displacement; neither can close. A triangle-free graph on five vertices with no independent triple has degrees at most two because neighbors are independent; every degree is at least two since any three nonneighbors contain a nonadjacent pair which would form an independent triple with the vertex. The graph would be a 5-cycle, so B has dimension at most three. A permitted four-set contains disjoint edges, and double counting such pairs is exactly the square count. Ladder squares use two antipodal chords and opposite parallel rim edges, giving m squares; the edge faults lose one or two respectively. The Euler rank change is -1-m+k for loss of k squares, giving the stated ranks from the intact rank 1+binom(m+1,2), also obtained from the same counts. Integral Alexander duality and the complete 2-skeleton of the cut complexes give the claimed wedges by Hurewicz and Whitehead. The complete 2-skeleton follows by greedily finding an independent triple in at least nine surviving subcubic vertices, or in the larger remaining color class for M10. The induced map is dual to the saturation of the smaller degree-three cycle kernel in the larger one: the smaller kernel is cut out by zeroing the missing tetrahedron coordinates. H2(B)=0 ensures the passage to integral H^3; naturality gives the asserted surjection with free primitive kernel. At m=4 an independent exact certificate verifies the entire nonempty Hasse orientation for all three complexes and the relative free faces. The surviving chord tetrahedron has its entire boundary in the intact complex; the exact sequence and the wedge ranks give the primitive rank-one kernel. No m>=5 formula was extrapolated to m=4.",
+      "residual_risks": [
+        "The finite replay certifies the m=4 case, not the structural all-order argument. The frozen verifier prints its m=4 bounded-independence face formula rather than cross-checking that row; no m=4 conclusion depends on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnero Bravo pp. 2–3 and §3 provide the general framework, not the fault-specific counts.",
+          "Agarwal–Basak §6 Problem 26 lists total cut complexes of Möbius ladders as a direction for study.",
+          "The indexed high-girth total-three-cut theorem requires absence of squares, while these ladders and their faults retain squares."
+        ],
+        "reasoning": "Neither the general duality framework nor the more specialized high-girth formula subsumes the two fault cases; the latter misses exactly the square sensitivity that separates them.",
+        "searches": [
+          "arXiv:2602.21427v3",
+          "arXiv:2209.13503v2",
+          "arXiv:2608.30601v2",
+          "Resultary 9341d892cb0d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 43048a124c95",
+        "Resultary 7df6214f631f",
+        "Resultary 74e8b58d248f",
+        "Resultary 34b1da5c629c",
+        "Resultary 9341d892cb0d",
+        "arXiv:2209.13503v2",
+        "arXiv:2602.21427v3",
+        "arXiv:2608.30601v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact theorem gives rank 1+binom(m+1,2) but no information about the induced map for a fault.",
+          "The intact Wagner proof gives a sphere wedge, not collapses relative to that complex; natural duality alone does not establish surjectivity or saturation."
+        ],
+        "reasoning": "The smaller homotopy ranks require computing square losses; the map requires integral top-cycle support and the Wagner conclusion requires actual relative free-face certificates. Neither is an automatic implication of the intact types.",
+        "searches": [
+          "Resultary 43048a124c95",
+          "Resultary 7df6214f631f",
+          "arXiv:2602.21427v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer et al. distinguish total from ordinary cut complexes; Carnero Bravo identifies the correct bounded-independence Alexander dual.",
+          "The indexed ordinary-three-cut ladder theorem and single-rim-fault independence-complex theorem describe different simplicial complexes."
+        ],
+        "reasoning": "Viewed either as independent-triple-complement facets or as the Alexander dual of B(G-e), neither ordinary cut nor ordinary independence computes this particular fault invariant or its inclusion.",
+        "searches": [
+          "Resultary 43048a124c95",
+          "Resultary 74e8b58d248f",
+          "Resultary 34b1da5c629c",
+          "arXiv:2602.21427v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The intact ladder record lists ranks 16,22,29 at m=5,6,7. The fault ranks there are 11,16,22 and 12,17,23 respectively.",
+          "The Wagner catalogue record gives the intact face data and rank three, not the two fault values or collapses."
+        ],
+        "reasoning": "The exact records are calibrated baselines, not an edge-orbit fault table. Matching isolated numerical values at different parameters do not establish coverage.",
+        "searches": [
+          "Resultary 43048a124c95",
+          "Resultary 7df6214f631f",
+          "Resultary 34b1da5c629c"
+        ]
+      },
+      "rationale": "The intact ladder and Wagner graph results are prior coverage of the undeleted baselines. The supported distinct content is the two single-edge fault homotopy types and their natural integral maps, with the exceptional relative collapses. The closest graph-fault precedent computes a different complex. This is a scoped best-knowledge judgment, not a priority guarantee.",
+      "residual_risks": [
+        "Direct primary-text comparisons and catalogue searches were available; supplementary broad web search was not completed. An unindexed equivalent fault calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers intact ladders only",
+          "evidence": [
+            "Rank 1+binom(m+1,2) in dimension 2m-6 for m>=5; illustrative table."
+          ],
+          "identifier_or_url": "Resultary 43048a124c95",
+          "material_read": "RESULT.md Finding and Proof §§2–3, offsets 0 and 5319",
+          "method": "Local mirror",
+          "title": "Uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes",
+          "trigger": "Same ladder and cut parameter"
+        },
+        {
+          "assessment": "Covers intact Wagner graph only",
+          "evidence": [
+            "Three 2-spheres, no edge-fault relative geometry."
+          ],
+          "identifier_or_url": "Resultary 7df6214f631f",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 2089",
+          "method": "Local mirror",
+          "title": "The total 3-cut complex of the Wagner graph is a wedge of three 2-spheres",
+          "trigger": "Exact eight-vertex baseline"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": [
+            "Ordinary three-cut ranks; explicitly no total-cut claim."
+          ],
+          "identifier_or_url": "Resultary 74e8b58d248f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Ordinary three-cut complexes of Möbius ladders are sphere wedges",
+          "trigger": "Possible cut-complex alias"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": [
+            "The object is Ind(M_{2n}-e), not a total three-cut complex."
+          ],
+          "identifier_or_url": "Resultary 34b1da5c629c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Integral homology of Möbius ladders after one rim edge deletion",
+          "trigger": "Same rim fault"
+        },
+        {
+          "assessment": "Girth restriction excludes the ladders",
+          "evidence": [
+            "The theorem excludes 4-cycles."
+          ],
+          "identifier_or_url": "Resultary 9341d892cb0d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Cycle-rank homology of total three-cut complexes of high-girth graphs",
+          "trigger": "Potential dominating structural formula"
+        },
+        {
+          "assessment": "Framework, not the specialized fault claims",
+          "evidence": [
+            "Dual filtrations and general results for graph classes."
+          ],
+          "identifier_or_url": "arXiv:2602.21427v3",
+          "material_read": "pp. 2–3 and §3 p. 9, offsets 4517 and 26393",
+          "method": "Open primary text",
+          "title": "Total cut complexes and their duals",
+          "trigger": "General bounded-independence duality"
+        },
+        {
+          "assessment": "Defines the object without supplying this fault calculation in the inspected passage",
+          "evidence": [
+            "Defines total k-cut via independent complements separately from ordinary k-cut."
+          ],
+          "identifier_or_url": "arXiv:2209.13503v2",
+          "material_read": "p. 3, offset 5719",
+          "method": "Open primary text",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Foundational object and possible equivalent formulation"
+        },
+        {
+          "assessment": "Motivation, not coverage",
+          "evidence": [
+            "Explicitly proposes Möbius-ladder total cuts as a direction to study."
+          ],
+          "identifier_or_url": "arXiv:2608.30601v2",
+          "material_read": "§6 Problem 26, p. 17, offset 63144",
+          "method": "Open primary text",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same ladder and possible discussion of total cuts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§3–6",
+        "Agarwal–Basak, arXiv:2608.30601v2, Problem 26",
+        "Independent eight-vertex collapse certificate"
+      ],
+      "rationale": "A single edge deletion is a natural local perturbation of the symmetric ladder. The two edge classes have the same post-deletion degree multiset but different square loss, and thus different homotopy and primitive integral information. The exceptional small-order relative collapse is genuine and quantitatively explains why neither general fault formula applies there.",
+      "residual_risks": [
+        "Only single-edge faults in total three-cut complexes are assessed; nothing here implies a multi-fault or equivariant classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

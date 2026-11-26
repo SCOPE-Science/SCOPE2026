@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:12:50.144228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–29",
+        "Frozen VERIFICATION.md and checker.py, read only",
+        "Independent collapse replay: python3 /workspace/branches/independent_cycle_collapse.py",
+        "Independent pivot replay: /workspace/branches/1bbae4bb-51b9-4eca-a52f-cbf781aba04b/independent_check.py and reproduction.log"
+      ],
+      "rationale": "Rotation reduces every graph-vertex deletion to that of residue 0. The nonempty faces are all nonempty subsets of the remaining open graph neighborhoods. Reconstructing them and testing the pivot certificate independently reproduces 46 and 58 faces, 22 and 27 disjoint pairs, and verifies acyclicity on the entire directed Hasse diagram. Critical faces are {1}, {2,3} for n=8 and {1}, {2,3}, {2,6}, {4,8} for n=9, so Forman's theorem gives a single vertex with one or three loops. A different independent check uses elementary simplicial collapses: always remove the lexicographically least pair consisting of an edge or triangle and its unique proper coface, of dimension one higher. Face vectors are (7,20,16,3) and (8,26,20,4); after 16 and 20 collapses the remaining complexes are connected graphs on 7 and 8 vertices with 7 and 10 edges, respectively. Contracting a spanning tree then gives the claimed integral homotopy types. Both checks are exact and bounded to the specified orders. The uploaded checker was read, not executed.",
+      "residual_risks": [
+        "Nothing about n outside {8,9}, the induced simplicial deletion, or inclusion-induced maps is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shukla's intact C_n(1,2) cases include a garland of 2-spheres at n=8 and the torus at n=9. The latter follows from the connected orientable surface collapse with face counts (9,27,18).",
+          "The punctured graphs retain degree-four vertices but are not 4-regular. The cited intact 4-regular classification, and the part for graphs with maximum degree at most three, therefore do not directly apply."
+        ],
+        "reasoning": "The intact types establish the relevance of the two orders, not the types with a witness and a graph vertex removed. No dominating graph-deletion result was identified in the actual passages compared.",
+        "searches": [
+          "Shukla arXiv:1802.04526v2, Theorems 2.5, 4.3, 4.4",
+          "Primary literature search for vertex-deleted square-cycle open neighborhood complexes; inspected cited arXiv original"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–12 and 31–38",
+        "Shukla's original classification and proof passages",
+        "Resultary self hit and distinct single-edge record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge result addresses graphs retaining all n graph vertices, including both endpoints, and all original neighborhood witnesses except for modifications at the endpoints. Vertex deletion loses a witness entirely and changes the neighborhoods of each of its four neighbors. The n≥9 theorem has no n=8 conclusion."
+        ],
+        "reasoning": "Removing a vertex after an edge operation does not preserve the homotopy type as a general property of neighborhood complexes. Even when the answer agrees at n=9, the same-day edge classification neither asserts nor gives a mechanical inference of the actual vertex-deleted types; date alone settles no question of ordering.",
+        "searches": [
+          "Shukla Theorems 2.5(B)–(C), 4.3–4.4",
+          "Resultary same-day single-edge puncture result, mirrored RESULT.md finding and proof passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The intact 4-regular circulant C_n(1,2) is exactly the squared cycle. After graph deletion, only the surviving graph vertices may either appear in a face or witness it. In particular {1,2,n−2,n−1}, the open neighborhood of 0, survives as a face of the induced simplicial deletion but has no witness in the rebuilt complex at n=8 or 9."
+        ],
+        "reasoning": "A candidate witness for that face must be a surviving neighbor of 1. Of 2, 3 and n−1, only 3 is outside the face, and 3 is not adjacent to n−1. Thus a simplicial deletion theorem would not automatically give the graph-deletion claim. The equivalent finite graph-rank formulation through collapses verifies the homotopy type, not prior coverage by a Betti number alone.",
+        "searches": [
+          "Resultary: vertex-deleted or punctured squared cycles, C_n(1,2), and open Lovász neighborhood complex",
+          "Shukla, arXiv:1802.04526v2, Theorem 2.5 and conventions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical returned record is the source under review. The strongest distinct indexed hit, suffix beddc9ace2db, gives a three-circle wedge for every single edge deletion at orders n≥9. Shukla's classified small orders 8 and 9 are intact cases."
+        ],
+        "reasoning": "An exact homotopy type lookup is relevant for these small finite graphs. The retrieved exact statements have different graph inputs (edge-deleted and intact); a homotopy type match at order nine by itself is not an exact lookup for the vertex-deleted graph. No separate exact entry for both vertex-deleted cases was established.",
+        "searches": [
+          "Resultary exact vertex-fault/puncture and squared-cycle graph-deletion comparison",
+          "Shukla, intact-circulant case classification Theorem 2.5"
+        ]
+      },
+      "rationale": "The supported precise claim is the homotopy type after deleting a graph vertex, and then rebuilding the open neighborhood complex, at the two specified orders. The closest intact classification and the same-day edge-deletion theorem give actual nearby statements but neither covers this graph operation or implies both types. The judgment is limited to the comparisons made, not a guarantee of historical priority.",
+      "residual_risks": [
+        "The Resultary search is not exhaustive of unpublished or externally indexed small-graph computations; no historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the intact boundary but not the vertex-punctured graph inputs",
+          "evidence": "A garland-of-spheres case applies at n=8 and an orientable surface case at n=9; the latter has face counts n,3n,2n in the surface proof and is connected here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04526v2",
+          "material_read": "Theorem 2.5(B)–(C), PDF p. 3 around offset 7540; Theorem 4.3 p. 12 around offset 42000; Theorem 4.4 pp. 13–14 offsets around 44800 and 49714",
+          "method": "Lawful arXiv PDF, bounded statement and proof passages; bibliographic search landing page not used as evidence",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Closest primary theorem for the same intact squared-cycle family and boundary"
+        },
+        {
+          "assessment": "Distinct operation and domain; no evidence of equivalent theorem or implication",
+          "evidence": "Any single edge deletion, for every n≥9, yields the three-circle wedge; this does not delete a graph vertex and includes no exceptional n=8 classification.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-edge-punctures-the-squared-cycle-neighborhood-torus-twi--beddc9ace2db",
+          "material_read": "Mirrored RESULT.md, finding and near-proof passages, offsets 87, 1206, 1435, 3339",
+          "method": "Resultary index then bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A single edge punctures the squared-cycle neighborhood torus twice",
+          "trigger": "Strongest distinct same-day indexed overlap, same graph family and same output at n=9"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen motivation and scope",
+        "Shukla's intact boundary",
+        "Independent exact collapse certificates",
+        "Adjacent single-edge comparison"
+      ],
+      "rationale": "These are not arbitrary tiny graph orders: they are the adjacent exceptional and first stable toroidal orders of the canonical intact family. Determining the exact integral homotopy response to one graph vertex loss on the two sides specifies a basic local robustness invariant that the intact and edge-fault results cannot supply. The distinct ranks, together with all higher cells collapsed, give a useful comparison for future deletion arguments without claiming a general vertex-fault theorem or any maps.",
+      "residual_risks": [
+        "Modest finite contribution; the result is not a stable-range theorem or an inclusion analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

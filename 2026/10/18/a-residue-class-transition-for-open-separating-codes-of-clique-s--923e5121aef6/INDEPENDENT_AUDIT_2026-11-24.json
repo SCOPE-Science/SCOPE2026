@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:14:02.879420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62; VERIFICATION.md, verify.py, and verification_output.txt (inspected, no source scripts executed)",
+        "Repaired RESULT.md, Finding, exact bijection, edge-forest proof and n=3 boundary case"
+      ],
+      "rationale": "The neighborhood signatures on opposite shores lie in disjoint alphabets. Omitting two originals i,j while selecting k makes e_ik and e_jk collide; selecting no originals also fails. With at most one original omitted, subdivision signatures are distinct and nonempty. For originals, duplicate signatures occur exactly at two isolates or across an isolated chosen edge. A single isolate y is allowed only for OD and must itself be selected for closed domination. Removing y and its incident subdivision vertices therefore leaves exactly an OTD-code on the smaller clique subdivision, and conversely the lift introduces a unique empty signature without making any other signatures collide. There are n choices of y and the weight gains one power of z, giving nz P_OTD(H_{n-1};z) for n>=4, equivalently nz^(n-1)(z+n-1)W_{n-1}. Inclusion-exclusion over disjoint forced singleton and edge components gives W_s. For s>=3 the fewest edges form a forest of floor(s/3) components of size at least three, giving d_s=s-floor(s/3); Cayley's formula and partitioning the labels give B_s. In the non-total branch the minimum is n-1+d_{n-1}, attained by n(n-1)B_{n-1} codes. The total branch attains n-1+d_n in nB_n ways. Their comparison yields the gap and optimizer formulas. The frozen proof's generic edge minimum does not apply at s=2 (no eligible graph); the repair isolates n=3, where the non-total branch is absent, W_2=B_2=0, and there are nine size-four codes in both families. The original stated formulas were still correct in this case. No finite testing is used as a proof of the unbounded claim.",
+      "residual_risks": [
+        "The lift relies on using all edges of a clique and distinguishing closed domination from nonempty open signatures. It need not extend to general subdivisions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chakraborty–Wagler prove gamma_OTD-1<=gamma_OD<=gamma_OTD for the relevant class; their clique example concerns the unsubdivided clique or disjoint unions of those cliques.",
+          "arXiv:2407.09692v2 gives general degree bounds and a subdivided-star analysis for identifying open codes, not this exact clique-incidence classification. A bounded term check in arXiv:2412.17469v1 did not establish any precise overlapping result."
+        ],
+        "reasoning": "The general bound limits the gap to two possible values, but does not determine which holds in any congruence class of clique orders. Subdivided stars and cliques do not give the selected-edge partition mechanisms of the all-edge clique subdivision. Ordinary total domination on a central clique would not impose signature separation.",
+        "searches": [
+          "arXiv:2402.03015, Theorem 3(b), §4.2",
+          "arXiv:2407.09692v2, Theorem 1, Proposition 4; arXiv:2412.17469v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 078f1db52295",
+        "arXiv:2402.03015, arXiv:2407.09692v2; bounded keyword check in arXiv:2412.17469v1",
+        "Repaired RESULT.md, explicit credit and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-family OTD iff criterion excludes even one isolate, and the general one-unit inequality does not determine its feasibility or enumeration on the larger clique subdivision.",
+          "The repaired proof establishes a bijection for the missing family, deleting or adding the unique selected original with empty signature and checking all newly introduced subdivision-vertex signatures."
+        ],
+        "reasoning": "After the new structural reduction, the old polynomial can be evaluated at n-1 to count the new branch. The value does not lie in substituting n-1 into known counts alone: the reduction must characterize and exhaust precisely the larger graph's non-total OD-codes, and the n=3 exception must be handled before comparing minima.",
+        "searches": [
+          "Resultary 078f1db52295, its classification iff; arXiv:2402.03015 Theorem 3(b)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The foundational paper distinguishes OD from OTD, and equates OTD with open-neighborhood locating domination (OLD). The record 078f1db52295 calls precisely this latter notion an identifying open code, using the same graph S(K_n).",
+          "Under the conventional central-graph construction of a clique there are no original nonedge pairs to add, so that special case is also S(K_n); this alias does not identify central graphs of arbitrary graphs with full subdivisions."
+        ],
+        "reasoning": "Identifying open code, OTD and OLD all require nonempty distinct open signatures. OD permits one empty signature belonging to a selected vertex. This is an exact equivalence for the total subfamily and a real extra branch for OD, not a renaming.",
+        "searches": [
+          "Resultary: open-separating and open locating dominating codes on once-subdivided cliques, complete-graph incidence graphs and central graphs of complete graphs",
+          "Chakraborty–Wagler, arXiv:2402.03015, p. 2; Resultary 078f1db52295, definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "078f1db52295 gives (nz^(n-1)+z^n)A_n(z), where A_n is W_n with exactly the same inclusion-exclusion formula. It also gives the minimum n-1+ceil(2n/3) and nT_n labeled optimizers obtained with floor(n/3) tree components of size at least three.",
+          "T_n=B_n, since with only zero, one or two excess vertices above the three-per-component lower bound, these forests use only sizes three, four and five."
+        ],
+        "reasoning": "This is exact OTD coverage, including the count behind both presentations of the forest formula; the overlap cannot be dismissed by its same-day date. The compared finding has no empty-signature branch and so contains no OD increment or optimum comparison.",
+        "searches": [
+          "Resultary 078f1db52295, RESULT.md Finding and scope, offsets 0–3921",
+          "Resultary search for OD/OTD census and minimum forest counts for S(K_n)"
+        ]
+      },
+      "rationale": "The frozen OTD census and its minimum-forest count are directly covered in a distinct same-day Resultary finding; order or priority cannot be inferred from the shared date. The repair credits those quantities as background and advances only the one-isolate extension, the resulting OD polynomial increment, and the exact optimum gap and OD multiplicities. The inspected general inequality and OTD census do not supply the lift to OD on the larger clique subdivision.",
+      "residual_risks": [
+        "A broader related dissertation noted in the frozen record was unavailable for full-text comparison. The cited ordinary total-domination result for central cliques was not retrieved in primary full text. Neither access limitation is evidence against coverage or a verdict.",
+        "The searches are not exhaustive and do not establish absolute priority for the non-total lift."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct OTD coverage; excludes the non-total OD family; same date gives no priority ordering",
+          "evidence": "The theorem requires every N(w) intersect C to be nonempty, derives (nz^(n-1)+z^n)A_n(z) and gives nT_n minimum total codes with the same tree-component criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-all-identifying-open-codes-of-subdivided-complete-graphs--078f1db52295/RESULT.md",
+          "material_read": "RESULT.md Finding and scope; local mirror offsets 0–3921",
+          "method": "Resultary search and exact local-mirror passage inspection",
+          "title": "All identifying open codes of subdivided complete graphs",
+          "trigger": "Same clique subdivision, complete enumerator, restricted forests"
+        },
+        {
+          "assessment": "Prior definitions and universal gap bound, but inspected clique result uses ordinary cliques, not S(K_n)",
+          "evidence": "Theorem 3(b) bounds the difference by one and the clique-family section studies cliques and their disjoint union.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.03015",
+          "material_read": "p. 2 (offsets 7300, 9000), Theorem 3(b) p. 5 (offset 20250), §4.2 p. 14 (offset 55100)",
+          "method": "OA PDF passage inspection",
+          "title": "On open-separating dominating codes in graphs",
+          "trigger": "Foundational OD/OTD definitions and sharp gap bound"
+        },
+        {
+          "assessment": "General bounds and a different subdivision family in the inspected passages",
+          "evidence": "The degree result does not specify clique subdivision code-counting coefficients, and subdivided stars are not complete-graph subdivisions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.09692v2",
+          "material_read": "Theorem 1 p. 4, Proposition 4 p. 6",
+          "method": "OA PDF passage inspection",
+          "title": "Primary comparison on identifying-open codes and subdivided stars",
+          "trigger": "Same total-code notion and another subdivided graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, exact non-total bijection and minimum comparison",
+        "Resultary 078f1db52295; arXiv:2402.03015 Theorem 3(b)"
+      ],
+      "rationale": "The weaker code notion is genuinely different despite a general one-unit bound. The bijection identifies the entire extra population and expresses its distribution by an exact smaller-graph transfer. The resulting residue test determines when closed domination permits better optima, and the optimizer multiplicities explain the two coexisting mechanisms when the minima tie. This is a useful census of a natural infinite family, not a recomputation of the known OTD branch.",
+      "residual_risks": [
+        "The result addresses labeled codes only, not automorphism classes, and adopts the stated OD/OTD definitions rather than other notions of identifying code."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

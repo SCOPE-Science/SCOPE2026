@@ -1,88 +1,101 @@
-"""Exact rational checks for fixed-strategy vertex-clock edge-environment dynamics.
-
-Run: python check.py
-Only Python standard library is needed.
-"""
+"""Exact checks for lag-one reconstruction under vertex-clock updates."""
+from collections import Counter
 from fractions import Fraction as F
-from itertools import combinations
+from itertools import combinations, product
+from math import prod
 
 
-def stationary_model(edges, n, p, q, omega):
-    ecount = len(edges)
-    assert 0 < p < 1 and 0 < q < 1 and 0 < omega < 1
-    assert all(0 <= a < n and 0 <= b < n and a != b for a, b in edges)
-    incident = [tuple(i for i, (a, b) in enumerate(edges) if v in (a, b))
-                for v in range(n)]
-    size = 1 << ecount
-    prob = [[F(0) for _ in range(size)] for _ in range(size)]
-    for state in range(size):
-        prob[state][state] += 1 - omega
-        for v in range(n):
-            outs = [(state, F(1))]
-            for e in incident[v]:
-                nxt = []
-                orig = (state >> e) & 1
-                flip = q if orig else p
-                for target, mass in outs:
-                    nxt.append((target, mass * (1 - flip)))
-                    nxt.append((target ^ (1 << e), mass * flip))
-                outs = nxt
-            for target, mass in outs:
-                prob[state][target] += omega * mass / n
-    assert all(sum(row) == 1 for row in prob)
-    pi = p / (p + q)
-    invariant = [pi ** s.bit_count() * (1 - pi) ** (ecount - s.bit_count())
-                 for s in range(size)]
-    assert sum(invariant) == 1
-    for target in range(size):
-        assert sum(invariant[s] * prob[s][target] for s in range(size)) == invariant[target]
-    r = 1 - p - q
-    result = {}
-    for mask in range(1, size):
-        signature = []
-        for state in range(size):
-            x = F(1)
-            for e in range(ecount):
-                if mask & (1 << e):
-                    x *= ((state >> e) & 1) - pi
-            signature.append(x)
-        value = (1 - omega) + omega * sum(
-            r ** sum(bool(mask & (1 << e)) for e in incident[v])
-            for v in range(n)) / n
-        for s in range(size):
-            assert sum(prob[s][t] * signature[t] for t in range(size)) == value * signature[s], (s, mask)
-        norm = (pi * (1 - pi)) ** mask.bit_count()
-        assert sum(invariant[s] * signature[s] ** 2 for s in range(size)) == norm
-        result[mask] = value
-    return result
+def observed_stars(edges, n):
+    return Counter(frozenset(i for i, edge in enumerate(edges) if v in edge)
+                   for v in range(n))
 
 
-def run():
-    p, q, omega = F(1, 2), F(1, 4), F(2, 3)
-    a = [(0,1),(0,2),(0,3),(4,5),(5,6),(6,4)]  # claw then triangle
-    b = [(0,1),(1,2),(2,0),(3,4),(3,5),(3,6)]  # triangle then claw
-    la = stationary_model(a, 7, p, q, omega)
-    lb = stationary_model(b, 7, p, q, omega)
-    for order in (1,2):
-        for inds in combinations(range(6), order):
-            mask = sum(1 << i for i in inds)
-            assert la[mask] == lb[mask]
-    triple = (1 << 0) | (1 << 1) | (1 << 2)
+def reconstruct(m, n, get_stat, r, omega):
+    # Use inclusion-exclusion on lag-one statistics to count common endpoints.
+    def hits(S):
+        return n / (omega * (r-1)**len(S)) * sum(
+            (-1)**(len(S)-a) * (get_stat(T)-1)
+            for a in range(len(S)+1) for T in combinations(S,a))
+
+    neighbors = [set() for _ in range(m)]
+    for i,j in combinations(range(m),2):
+        if hits((i,j)):
+            neighbors[i].add(j)
+            neighbors[j].add(i)
+    stars = set()
+    for i, adj in enumerate(neighbors):
+        for j in adj:
+            stars.add(frozenset({i,j} | {k for k in adj-{j} if hits((i,j,k))}))
+    answer = Counter(stars)
+    for i in range(m):
+        missing = 2 - sum(i in S for S in stars)
+        assert 0 <= missing <= 2
+        if missing:
+            answer[frozenset({i})] = missing
+    return answer
+
+
+def projected_kernel(edges,n,S,p,q,omega):
+    states = tuple(product((0,1), repeat=len(S)))
+    K = ((1-p,p),(q,1-q))
+    return tuple(tuple((1-omega)*(a==b) + omega/n * sum(
+        prod(K[x][y] if v in edges[j] else x==y for j,x,y in zip(S,a,b))
+        for v in range(n)) for b in states) for a in states)
+
+
+def from_kernel(kernel,k,p,q):
+    states = tuple(product((0,1), repeat=k))
+    pi = p/(p+q)
+    masses = [prod(pi if x else 1-pi for x in a) for a in states]
+    h = [prod(x-pi for x in a) for a in states]
+    assert all(sum(row)==1 for row in kernel)
+    assert all(sum(masses[i]*kernel[i][j] for i in range(len(states)))==masses[j]
+               for j in range(len(states)))
+    return sum(masses[i]*kernel[i][j]*h[i]*h[j]
+               for i,j in product(range(len(states)),repeat=2))/(pi*(1-pi))**k
+
+
+def formula(edges,n,S,r,omega):
+    return 1-omega+omega/n*sum(r**sum(v in edges[i] for i in S) for v in range(n))
+
+
+def check_witness(a,b,n,gap):
+    p,q,omega = F(1,2),F(1,4),F(2,3)
     r = 1-p-q
-    expected = omega * (1-r)**3 / 7
-    assert la[triple] == F(155,224)
-    assert lb[triple] == F(41,56)
-    assert lb[triple] - la[triple] == expected == F(9,224)
-    assert la[1] == F(6,7)
-    assert la[3] == F(43,56)  # adjacent pair
-    assert la[(1<<0) | (1<<3)] == F(5,7)  # disjoint pair
-    assert la[3] - la[(1<<0) | (1<<3)] == omega*(1-r)**2 / 7
-    assert all(x == y for mask,x in la.items() for y in [lb[mask]] if mask.bit_count()<=2)
-    print('PASS: exact 64-state matrices, invariant laws, all 63 eigenrelations on each graph')
-    print('PASS: all order-one and order-two stationary-lag signatures match')
-    print('PASS: third-order claw/triangle separation is', expected)
-    print('Parameters p=1/2 q=1/4 omega=2/3 N=7; no isolated vertices.')
+    aa,bb = {},{}
+    for k in range(4):
+        for S in combinations(range(len(a)),k):
+            ka,kb = [projected_kernel(e,n,S,p,q,omega) for e in (a,b)]
+            if k<=2:
+                assert ka==kb
+            aa[S],bb[S] = (from_kernel(kernel,k,p,q) for kernel in (ka,kb))
+            assert aa[S]==formula(a,n,S,r,omega) and bb[S]==formula(b,n,S,r,omega)
+    assert bb[(0,1,2)]-aa[(0,1,2)] == gap
+    assert observed_stars(a,n) != observed_stars(b,n)
+    for edges, values in [(a,aa),(b,bb)]:
+        assert reconstruct(len(edges),n,lambda S: values[tuple(sorted(S))],r,omega) == observed_stars(edges,n)
+    print(f'N={n}: labelled order-two kernels coincide; the order-three gap is {gap}')
+
+
+def main():
+    check_witness([(0,1),(0,2),(0,3),(2,3),(1,3),(1,2)],
+                  [(2,3),(1,3),(1,2),(0,1),(0,2),(0,3)],4,F(9,128))
+    check_witness([(0,1),(0,2),(0,3),(4,5),(5,6),(6,4)],
+                  [(0,1),(1,2),(2,0),(3,4),(3,5),(3,6)],7,F(9,224))
+    count = 0
+    for n in range(2,6):
+        pairs = list(combinations(range(n),2))
+        for choice in product((0,1),repeat=len(pairs)):
+            edges = [e for e, present in zip(pairs,choice) if present]
+            truth = observed_stars(edges,n)
+            if frozenset() in truth:
+                continue
+            r,omega = F(-1,5),F(3,5)
+            f = lambda S: formula(edges,n,S,r,omega)
+            assert reconstruct(len(edges),n,f,r,omega)==truth
+            count += 1
+    print(f'PASS: {count} additional simple graphs on at most five vertices without isolates')
 
 
 if __name__ == '__main__':
-    run()
+    main()

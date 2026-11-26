@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:11:42.480302Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each bond of the simple prism line graph belongs to just one base-vertex triangle, valid also for n=3. A triangle costs -J for not-all-equal edge spins and 3J otherwise. Opposite signs on the rungs and rails attain the lower bound everywhere, so the full ground-state set is exactly the NAE assignments at energy -2nJ. Conditioning on two incoming and two outgoing rail spins and summing the allowed rung spin gives the displayed entries with weight z^(outgoing rail sum+rung). Closing with a trace counts labeled assignments with every spin weighted once. Rail exchange splits off a one-dimensional eigenvalue -(z+z^-1); the complementary three-dimensional block has the stated cubic. At z=1 its roots are -1 and (5±sqrt(17))/2. At fixed n, fluctuation–dissipation and the finite positive excitation gap reduce T chi_n to the ground-state variance of M divided by 3n, exactly the second log-fugacity derivative shown. Near zero log fugacity the four eigenvalues admit analytic branches on a complex disk (they are simple at 0), with the ratios of the three subleading eigenvalues to L_+'s branch uniformly smaller than one in modulus on a sufficiently small disk. Thus n^-1 log trace differs from log of the leading branch by an analytic exponentially small correction, whose derivatives at zero tend to zero by Cauchy's estimate. Implicit differentiation of the cubic gives zero first derivative and the stated radical second derivative divided by 3; this justifies the stated order of limits only. Independent replay: python3 /workspace/checks/frozen_replay.py 5; weights constructed from the constraints, exact cubic and radical, and separate bit-enumerated NAE counts 86, 450, 1942 at n=3,4,5 with sum M^2 of 150,1152,5990 and exact weighted checks at z=2. The radical evaluates to 0.20787388005845981757.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Varma's saturation-field construction and trace technique apply to ladders and two-dimensional kagome. Four transfer states also occur there, but the ensemble and access to configurations differ.",
+          "The indexed Petersen line-graph polynomial is for a fixed 15-spin instance; the antiprism result concerns a different 2n-spin graph and has a parity-split response.",
+          "APS requests for the two cited perpendicular susceptibility comparisons returned 403; their titles alone do not decide implication."
+        ],
+        "reasoning": "The checked available results provide transfer-method and observable precedent, but no broader exact formula with hypotheses that specialize to the present NAE ground-state weights and ordered zero-field limit.",
+        "searches": [
+          "Varma arXiv:1305.4606, Hamiltonian and L3 construction, pp. 2–4",
+          "Resultary --321a70bb4c2c and --c5ec0ef832ca",
+          "Barry–Khatun DOI 10.1103/PhysRevB.35.8601; Muttalib–Khatun–Barry DOI 10.1103/PhysRevB.96.184411"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.4606",
+        "Resultary --9b2f4d810363, --c4fb511b080a, --321a70bb4c2c, --c5ec0ef832ca",
+        "DOI 10.1103/PhysRevB.35.8601 and DOI 10.1103/PhysRevB.96.184411 (access attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-graph ice shares the maximal eigenvalue at unit weight but not the variable that perturbs that eigenvalue. Other magnetic Curie results are for different graph families or a fixed size."
+        ],
+        "reasoning": "The physical Curie coefficient is the second derivative of the leading eigenvalue's log with respect to magnetic fugacity; an unweighted leading eigenvalue, a different fugacity or another graph's magnetic fluctuations do not specify it.",
+        "searches": [
+          "Varma pp. 2–4 and Table II",
+          "Resultary --9b2f4d810363 Finding, Proof and Verification",
+          "Resultary --321a70bb4c2c and --c5ec0ef832ca Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph ice record orients the 6n line-graph interaction edges, requires two arrows in and out, and weights directed triangles. The Ising record assigns 3n edge spins in the base graph, imposes vertex NAE and weights their sum.",
+          "For n=3 the ice count is 154 while the Ising count is 86. The Tait-coloring record counts proper three-edge-colorings of the cubic base with formula 2^n+3+5(-1)^n."
+        ],
+        "reasoning": "A shared graph, motif and entropy base do not imply equivalence of the ensembles or fugacities; unequal unweighted totals rule out identity even before fugacity differentiation. The Tait-coloring constraint also does not match two-valued NAE spins.",
+        "searches": [
+          "Resultary prism line graph Ising, ice, NAE and Curie comparisons; --9b2f4d810363 and --c4fb511b080a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Varma's L3 row gives x_n=3x_(n-1)-x_(n-2), entropy log((3+sqrt(5))/2)/3, with a separate kagome entry.",
+          "The same-graph ice record has the very same factor (5+sqrt(17))/2 in the entropy and different n=3 counts; its table weights triangle cycles, not uniform-field magnetization."
+        ],
+        "reasoning": "The growth constant is already present in an inspected distinct ensemble, but no inspected table gives the target magnetic weights or Curie constant. Same-day dates cannot justify priority claims.",
+        "searches": [
+          "Varma Table II, p. 6 (arXiv:1305.4606 PDF offset 35000)",
+          "Resultary --9b2f4d810363 ice enumeration and --c4fb511b080a Tait counts"
+        ]
+      },
+      "rationale": "The supported distinct claim is the spin-magnetization Laurent polynomial and resulting ordered longitudinal Curie limit for the specified classical zero-field prism-line ensemble. Do not assign originality to the transfer method or to the shared entropy growth base. The retrieved same-day ice record establishes overlap in that base but not chronology.",
+      "residual_risks": [
+        "The same-day ice comparison does not establish the chronology suggested in the source's discussion. The perpendicular susceptibility full texts were not inspected and an unindexed magnetically weighted NAE or finite-width tube analysis remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match of graph and growth base but not weights or finite counts",
+          "evidence": [
+            "Ice states obey two-in, two-out; weight marks directed triangles, and the prism count is 154 at n=3."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 --9b2f4d810363",
+          "material_read": "Finding, local triangle weights in proof and Verification n=3 comparison",
+          "method": "Local mirror, bounded RESULT.md passages",
+          "title": "Exact chirality-weighted ice partition functions and a seam twist",
+          "trigger": "Same line graph, weighted polynomial and entropy"
+        },
+        {
+          "assessment": "Saturation-field states and ladder/kagome geometry, not prism-line zero-field weights",
+          "evidence": [
+            "The L3 entropy uses (3+sqrt(5))/2 rather than the prism root, and the displayed trace counts a different ensemble."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.4606",
+          "material_read": "pp. 2–4 Hamiltonian, L3 and trace (offsets 10000, 14450, 22850); Table II p. 6 (offset 35000)",
+          "method": "Bounded OA PDF passages",
+          "title": "Saturation field entropies of antiferromagnetic Ising models: Ladders and the kagome lattice",
+          "trigger": "Published four-state transfer and Ising ladder tables"
+        },
+        {
+          "assessment": "Different constraints or graph",
+          "evidence": [
+            "The first is periodic dynamics represented by proper edge-colorings; the second a fixed Petersen line graph; the third a parity-split response on the antiprism."
+          ],
+          "identifier_or_url": "Resultary --c4fb511b080a, --321a70bb4c2c, --c5ec0ef832ca",
+          "material_read": "Indexed Finding passages, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Tait colourings, Petersen-line magnetization, and antiprism Curie response",
+          "trigger": "Exact cubic prism count or exact ground-state magnetization/Curie analogues"
+        },
+        {
+          "assessment": "Full-text implication unresolved, not negative evidence",
+          "evidence": [
+            "HTTP 403 on publisher retrieval; cited titles identify perpendicular susceptibility and other lattice settings but do not establish coverage or exclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.35.8601 and https://doi.org/10.1103/PhysRevB.96.184411",
+          "material_read": "Bibliographic titles only; APS abstract/PDF attempts denied",
+          "method": "Lawful APS access attempt",
+          "title": "Perpendicular susceptibility of kagomé/decorated kagomé and of two-dimensional Ising antiferromagnets",
+          "trigger": "Susceptibility analogues cited by the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete magnetization weights of a natural frustrated cubic line-graph family give exact finite-circumference responses and higher moments, not just unweighted degeneracy. The nontrivial limiting longitudinal Curie coefficient is independent information from the residual entropy and useful as a finite-width benchmark with a specified order of limits. It makes no assertion about quantum transverse response, other couplings or the reverse order of limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

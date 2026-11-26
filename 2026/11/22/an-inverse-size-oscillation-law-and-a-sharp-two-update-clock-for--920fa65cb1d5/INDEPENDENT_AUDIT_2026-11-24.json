@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:00:02.270217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both endpoints see exactly the totals outside their partner pair. A global lead of at least two gives consensus in one update. For two strictly tied leaders the monochromatic leader pairs flip, mixed leader–third pairs collapse to the other leader, and AB and CC retain their types. Initial tie plus equality of the two leader–third pair counts forces equality of the monochromatic leader-pair counts; the reduced output is a two-cycle exactly when there is a pair to flip. Otherwise an unequal count of leader–third pairs creates a margin of at least two. With a triple tie, each mixed pair becomes the third opinion and monochromatic pairs stay; thereafter the complete-graph update on the pairs is determined by which pair totals tie at the top. For a unique lead by one with unique runner-up, the displayed new margin and the odd parity of v−w leave only v=1,c=u=w=0 (immediate oscillation) and w=1,c=u=v=0 (one-step predecessor) outside the consensus cases. With tied runners-up the new lead is at least r−1 for r≥3; r=1 gives the 24 exceptional fixed states of AB+AC type. The mutually exclusive input sectors and labeled multiplicity give the census; the stated witnesses require two updates when m≥3, while the maximum at m=2 is one. In the dominant sector, the projected increment support includes 0 and both signed basis directions and the covariance determinant is 8/81. The joint lattice local limit on its maximal lattice, summed along the fiber at first two coordinates zero and normalized by the projected local limit, gives a conditional centered normal with variance 1; hence the strict third-place event contributes 1/2. The other sectors are exponentially small and O(m⁻³ᐟ²), respectively. The constant is therefore (3/2)·9/(4π√2). Separate bounded direct-neighborhood checks at m=2–5 and weighted profile checks at m=2–12 matched the formulas and cutoff; the uploaded scripts and reported output were inspected, not executed. The analytical argument establishes the infinite-size claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 6.6 gives period at most two on a weighted graph with no ties.",
+          "The Goles–Olivos abstract treats a symmetric family of binary threshold functions on {0,1}^n."
+        ],
+        "reasoning": "Ties are essential here, including when neither tied leader is the current opinion. Neither accessible statement gives a uniform two-update cutoff, the state census, or an oscillation basin probability.",
+        "searches": [
+          "Mossel–Neeman–Tamuz, arXiv:1207.0893v1 §6.2, Proposition 6.6",
+          "Goles–Olivos, DOI 10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_labelled.py, verify_profiles.py and verification_output.txt",
+        "Mossel–Neeman–Tamuz arXiv:1207.0893v1",
+        "Goles–Olivos institutional abstract, DOI 10.1016/0012-365X(80)90121-1",
+        "Resultary e054374efd08, b65add71b337, 22667145579d, 9090c4dd259d and 1492223696ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary graph-specific law has F³=F at u=0; the general no-ties plurality law only gives eventual period division by two. The excitation law has period three for nonzero periodic orbits when m≥3."
+        ],
+        "reasoning": "The binary model covers only the invariant two-color subspaces, not all ternary initial configurations. The dominant two-equality lattice sector and the rare ternary predecessor sectors require an actual case analysis and cannot be inferred from a general recurrent-period bound or another automaton's census.",
+        "searches": [
+          "Resultary e054374efd08 and 22667145579d, exact binary formulas and update identities",
+          "Mossel–Neeman–Tamuz Proposition 6.6",
+          "Resultary b65add71b337, stated period transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary matching-deletion theorem includes the same graph at u=0, but only two colors. In the three-state Greenberg–Hastings record the interaction rule is excitation and the recurrent periods differ."
+        ],
+        "reasoning": "Identical graph names (cocktail-party graph, or complete multipartite graph with pairs as parts) do not make these update maps equivalent. A ternary tie may keep a strictly losing incumbent; this has no binary-only analogue.",
+        "searches": [
+          "Resultary e054374efd08 and 22667145579d: strict majority on matching-deleted cliques",
+          "Resultary b65add71b337: three-state excitation on cocktail-party graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Petersen record enumerates two fixed ten-vertex graphs; the cycle-complement record treats a specified fixed-state histogram sector. The same-graph tables describe binary majority or three-state excitation."
+        ],
+        "reasoning": "These are substantive finite or graph-specific comparisons but none tabulates the same ternary tie rule on the full family with matching-pair parts. Coincidental parameters or shared state labels do not transfer counts.",
+        "searches": [
+          "Resultary 9090c4dd259d: ternary plurality on generalized Petersen graphs",
+          "Resultary 1492223696ea: ternary fixed states on cycle complements",
+          "Resultary e054374efd08 and b65add71b337: exact censuses on matching-deleted cliques"
+        ]
+      },
+      "rationale": "The strongest comparisons share the graph family, the three-opinion tie rule, or the general period-two conclusion, but not the hypotheses and conclusions needed for the sharp clock and basin census. No inspected theorem implies the count or its inverse-size probability.",
+      "residual_risks": [
+        "The Goles–Olivos comparison is limited to its accessible abstract and metadata. The inspected literature and index are not exhaustive; unpublished, unindexed or unavailable treatments of related ternary threshold variants may exist. Same-day indexing does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No-ties hypotheses exclude the reviewed rule",
+          "evidence": "On a weighted graph with no ties, iterated plurality dynamics converge to a cycle of length at most two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.0893v1",
+          "material_read": "Section 6.2, Proposition 6.6, p. 18 (offset about 62100)",
+          "method": "Open preprint theorem passage",
+          "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+          "trigger": "General plurality period-two theorem"
+        },
+        {
+          "assessment": "Accessible claim is binary; limitations of full-text comparison remain",
+          "evidence": "A symmetric family of threshold functions on a binary cube yields a fixed point or a cycle of length two.",
+          "identifier_or_url": "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+          "material_read": "Institutional abstract and bibliographic data; publisher text not accessible",
+          "method": "Lawful institutional page; publisher retrieval unsuccessful",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Classical general period-two result"
+        },
+        {
+          "assessment": "Same graphs at u=0, different opinion space and transition law",
+          "evidence": "Binary tie-retaining majority with incomplete matching; exact binary counts and F³=F for even u.",
+          "identifier_or_url": "Resultary e054374efd08",
+          "material_read": "Finding, Assumptions and scope, and pertinent proof",
+          "method": "Indexed local mirror",
+          "title": "Parity-gated majority oscillations on matching-deleted complete graphs",
+          "trigger": "Exact same graph subfamily with majority dynamics"
+        },
+        {
+          "assessment": "Different automaton",
+          "evidence": "Greenberg–Hastings excitation; nonzero periodic orbits have period three at m≥3, with period-four exceptions at m=2.",
+          "identifier_or_url": "Resultary b65add71b337",
+          "material_read": "Finding, Assumptions and scope, and pertinent proof",
+          "method": "Indexed local mirror",
+          "title": "Three-state excitation on cocktail-party graphs: a sharp period transition and exact orbit count",
+          "trigger": "Same graph and number of states, exact orbits"
+        },
+        {
+          "assessment": "Binary, not ternary",
+          "evidence": "At k=m the graphs agree; balanced states are immediately periodic with period dividing two under the binary rule.",
+          "identifier_or_url": "Resultary 22667145579d",
+          "material_read": "Finding and pertinent proof",
+          "method": "Indexed local mirror",
+          "title": "Flip activity interpolation for strict majority on cliques with a deleted matching",
+          "trigger": "Same-day exact dynamics at full matching deletion"
+        },
+        {
+          "assessment": "Different fixed graph instances",
+          "evidence": "Counts orbits and basins on GP(5,1) and GP(5,2), not the matching-deleted family.",
+          "identifier_or_url": "Resultary 9090c4dd259d",
+          "material_read": "Finding and assumptions",
+          "method": "Indexed local mirror",
+          "title": "Ternary plurality separates two binary-indistinguishable generalized Petersen graphs",
+          "trigger": "Same-day identical incumbent-tie convention and basin counts"
+        },
+        {
+          "assessment": "Cycle complements and restricted fixed states",
+          "evidence": "Counts a fixed-state histogram sector, not periodic entry or full basin counts on matching complements.",
+          "identifier_or_url": "Resultary 1492223696ea",
+          "material_read": "Finding and scope",
+          "method": "Indexed local mirror",
+          "title": "Hard-core minority defects and exponential tie-sector entropy in ternary plurality",
+          "trigger": "Same-day identical tie rule in a dense graph complement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-size classification addresses a natural dense graph family where exact ties survive. The sharp first-entry bound distinguishes transient length from least period, and the exact basin census explains why recurrent oscillation has inverse-size probability despite exponentially many primitive two-cycles. Neither fact is a generic period-two corollary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

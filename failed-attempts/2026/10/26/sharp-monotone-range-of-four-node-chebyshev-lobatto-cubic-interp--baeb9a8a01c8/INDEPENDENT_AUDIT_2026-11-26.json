@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:24:13.793255Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–55",
+        "Frozen VERIFICATION.md and verify.py lines 4–31 (inspected, not executed; the supplied replay requires SymPy)"
+      ],
+      "rationale": "At any x, the data-increment representation is a convex combination of the two constant vertices and three steps. For the Lobatto grid, the terminal step (x+1)(4x²−1)/6 has minimum −(10+7√7)/162 at x=(√7−2)/6; its other critical point has positive value and its maximum is 1. The middle-step defect is 7√21/54−1/2, strictly smaller. Unique minimization over vertices and x gives the unique lower data/location pair, and reflection with complementation gives the upper pair. Mixing either step with any strictly increasing admissible vector proves approachability. For the uniform grid the terminal step is (9/16)u(u²−4/9), u=x+1/3, with undershoot √3/27; the middle step is 1/2+[(13/9)x−x³]/(8/9), with minimum at −√39/9 and larger defect 13√39/108−1/2. Independent cardinal evaluation and derivative-root enumeration corroborated both grids. The exact argument, not floating-point comparisons, establishes strictness and uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7f9a4d5c7ee7 gives Δ(a)=max{E(a),H(a)} for the symmetric family, then explicitly states Δ(1/2)=(10+7√7)/162 and Δ(1/3)=13√39/108−1/2."
+        ],
+        "reasoning": "Both node sets are named evaluations of a strictly broader theorem, and the strict comparison follows from those exact values.",
+        "searches": [
+          "Local Resultary: symmetric four-node global monotone range; 7f9a4d5c7ee7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7f9a4d5c7ee7 and 1fad48a6c445",
+        "Berrut–Trefethen (2004), DOI 10.1137/S0036144502417715",
+        "Fritsch–Carlson (1980), access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general proof establishes the same five vertices, unique terminal-step minimum at (√(1+3a²)−1)/3, reflected first step, and exact middle-step defect. E(1/2)>H(1/2), so only that vertex can minimize and reflection gives the unique upper witness.",
+          "Berrut–Trefethen discuss the unrestricted Lebesgue operator norm, not this monotone cone."
+        ],
+        "reasoning": "Uniqueness and strict-data approximation are immediate consequences of the stronger record's displayed proof, even though its Finding does not separately phrase them at a=1/2. Classical background alone was not the basis for the rejection.",
+        "searches": [
+          "7f9a4d5c7ee7 proof, local mirror offset 2374",
+          "Berrut–Trefethen barycentric interpolation, pages 1 and 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7f9a4d5c7ee7, Finding (offset 0): defect Δ(a) over [-1,1] and all bounded nondecreasing data on {-1,-a,a,1}. Its lower and upper envelope are precisely the range formulation in the frozen claim."
+        ],
+        "reasoning": "A global undershoot and overshoot under reflection/complementation are the two sides of this same defect; neither is a different interpolation rule or norm.",
+        "searches": [
+          "Local Resultary: four-node Chebyshev–Lobatto cubic monotone data sharp range defect",
+          "Literature query: four-node Chebyshev-Lobatto cubic Lagrange monotone data sharp range overshoot interpolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7f9a4d5c7ee7 explicitly lists the two constants in the Finding, not just under a similar title. 1fad48a6c445 lists √3/27 only on the uniform central cell (Finding offset 0; scope offset 2102)."
+        ],
+        "reasoning": "The first record supplies exact coverage; the October 4 central-cell result does not supply either global defect by itself.",
+        "searches": [
+          "Local Resultary resolved 7f9a4d5c7ee7 and 1fad48a6c445; read via pinned local mirror"
+        ]
+      },
+      "rationale": "A distinct indexed symmetric four-node record explicitly gives both exact constants on the same full interval and data simplex. Its general proof also implies the unique Lobatto extremizers. Coverage is demonstrated; same-day publication labels do not establish relative priority.",
+      "residual_risks": [
+        "Relative priority of the same-day distinct records is undetermined.",
+        "Search and public full-text access were bounded; no historical absence claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both constants and implies equality cases",
+          "evidence": "Δ(1/2), Δ(1/3), and r_a=(√(1+3a²)−1)/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7/RESULT.md",
+          "material_read": "Finding (offset 0); step and critical-point proof (offset 2374)",
+          "method": "Local mirror bounded passage read",
+          "title": "Optimal symmetric four-node cubic interpolation for monotone range",
+          "trigger": "Same interpolation and wider symmetric grid"
+        },
+        {
+          "assessment": "Central cell only",
+          "evidence": "√3/27 is not the global uniform-grid defect.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445",
+          "material_read": "Finding offset 0, scope offset 2102",
+          "method": "Local mirror bounded passage read",
+          "title": "Sharp monotone range defect of uniform four-point cubic Lagrange interpolation",
+          "trigger": "Directly cited uniform-grid neighbor"
+        },
+        {
+          "assessment": "Classical background, not this restricted envelope",
+          "evidence": "Page 11 uses the norm over continuous input functions and absolute cardinal sums.",
+          "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/barycentric.pdf",
+          "material_read": "Pages 1 and 11, PDF text offsets 1883 and 35519",
+          "method": "OA PDF passages",
+          "title": "Barycentric Lagrange Interpolation",
+          "trigger": "Boundary-clustered node choice and range-related norms"
+        },
+        {
+          "assessment": "Limited to the cited comparison; not used to rule out uninspected material",
+          "evidence": "Cited setting is piecewise Hermite, unlike the unmodified global Lagrange cubic.",
+          "identifier_or_url": "https://doi.org/10.1137/0717021",
+          "material_read": "No primary full text retrieved; characterization in frozen RESULT.md line 61 and the symmetric-grid record's prior-work section",
+          "method": "DOI retrieval blocked (403); no lawful alternate located",
+          "title": "Monotone Piecewise Cubic Interpolation",
+          "trigger": "Related monotonicity literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The monotone-data envelope is a meaningful shape diagnostic, but this submission supplies no independently useful unknown exact fact beyond the broader symmetric-grid result: the comparison is listed there, and the remaining witness and limit details are direct specializations of its proof. A useful underlying question does not make a covered specialization a separate contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

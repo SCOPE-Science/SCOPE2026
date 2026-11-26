@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:58:47.943924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–75",
+        "VERIFICATION.md, check.py and check_output.txt (package evidence, not an independent script execution)",
+        "Independent shadow replay: python3 /workspace/audit-evidence/2/shadow_reproduction.py"
+      ],
+      "rationale": "The eight monomials come from cubics vanishing at the two specified fixed points. The torus grid ideal and the coordinate-degree bounds give injectivity and the footprint bound from distinct leading terms. Since E is a lower set, the product-of-linear-factors witnesses realize every candidate shadow exactly. An independent exact inclusion–exclusion calculation checked all 255 candidates coefficientwise after t=s+4 and found attainment in every dimension. There is also a direct finite reduction: a leading set can be replaced by an upper filter of E of the same size within its shadow. For such a filter its complement J in E has size 8−r; the complement of the full shadow has size |J|+(t−3)B(J), where B counts cells of J on the right and top edges of the 3×3 box, excluding (2,2). Maximizing B for these sizes gives 3,2,2,1,1,0,0,0 (one through four boundary cells require minimum ideal sizes 3,5,7,8). For equality geometry, when no four of five points are collinear, each point is separated by a product of two lines avoiding it: the other four can be paired across their direction classes, none of which exceeds size two. The four-point analogue also holds. Four collinear points on a non-axis line are independent on V because a cubic restriction extends the quadratic restriction space, and a point off that line increases rank. Thus a rank-three set of size t must be a full axis fiber. A rank-four set of size t+1 must contain four points on an axis fiber, since any other line holds at most t torus points and a further point would raise the rank. Dividing sections vanishing there by the fiber equation leaves a residual space containing 1,x,y, so any two off-fiber points impose two independent additional conditions. This gives exactly the claimed extremal sets, unique annihilators at the prescribed dimensions, and the counts 2t²(t−1) and 2t. The inequalities use t≥4, including q=5, without characteristic exceptions.",
+      "residual_risks": [
+        "The independent computation checks the shadow certificate, not the geometry of every subcode. The geometry is supplied by interpolation. The F_5/F_7 flat census is recorded package evidence, not independently rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beelen–Datta optimize in full total-degree Cartesian spaces. Camps–López–Matthews–Sarmiento cover decreasing monomial-Cartesian codes, but their cited theorem gives ordinary minimum distance.",
+          "Little–Schenck give ordinary minimum-distance bounds for toric surface codes. The nine-term F_1 record gives a hierarchy and maximum-zero values, not a classification for the present eight terms."
+        ],
+        "reasoning": "The eight-term polygon omits two pure cubics, so the full degree-three Cartesian answer is not the exact pentagon answer. General footprint and construction methods transfer, but the equality classification requires information about ranks and points specific to this polynomial space.",
+        "searches": [
+          "arXiv:1706.02114, Theorems 4.6 and 5.4",
+          "arXiv:2002.00325v1, Definition 3.1 and Theorem 3.9",
+          "arXiv:math/0507598v2, Proposition 2.3 and Theorem 1.2",
+          "Resultary degree-eight code dbc805b91369"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ed96737f3ac9, 86be39341a03, 176731ff73b1, 5a27853159ed and dbc805b91369",
+        "arXiv:1706.02114, 2002.00325v1, cs/0506102v2 and math/0507598v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After translating its exponents by (1,1), the degree-six hexagon is E without (0,0). Intersection with that codimension-one subcode gives z_r(E)≤z_(r−1)(hexagon) for r≥2, so its shifted bounds at r=4–8 and simple witnesses imply the numerical tail. This is genuine coverage, regardless of date ordering.",
+          "Degree-six Proof §§2–4 bound the coprime case by six, treat the primitive-segment and triangle cases, and exhibit sharp fibers. Thus when the desired zero count exceeds six, its argument forces an optimizing intersection subcode to have a segment-factor fiber, allowing also a diagonal direction. The q=5 argument just checks bounds on ranks; for the four-section hexagon bound at q=7 the coprime bound equals t."
+        ],
+        "reasoning": "The numerical agreement is not just analogy. Nonetheless the overlapping bound and segment argument do not automatically give the target classification: one must exclude the diagonal direction in the enlarged space, handle the small-field cases not forced by the coprime bound, and prove that these are all sets with unique annihilators in the two required dimensions. The frozen proof does this uniformly by quadratic and cubic interpolation. The earlier scroll and full Cartesian results do not remove those steps.",
+        "searches": [
+          "Degree-six Resultary ed96737f3ac9, Finding and Proof §§2–4 (offset 3760 onward)",
+          "Beelen–Datta arXiv:1706.02114, Theorems 4.6 and 5.4",
+          "Resultary scroll comparisons 5a27853159ed and 176731ff73b1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The torus evaluation code is a decreasing monomial-Cartesian code with exponent set [0,2]² minus (2,2). Little–Schwarz give monomial evaluation and lattice-equivalence machinery.",
+          "The degree-six record ed96737f3ac9 is on a seven-character hexagon. The cubic- and quartic-scroll records 5a27853159ed and 176731ff73b1 have closely analogous fiber and fiber-plus-point optima, but different dimensions and scroll ruling structure."
+        ],
+        "reasoning": "The annihilator rephrasing of the code question as a torus linear-section problem preserves the exact exponent system and ambient dimension. The hexagon differs by one exponent even after translation; the scroll statements are for different point configurations, not equivalent formulations of the pentagon classification.",
+        "searches": [
+          "Local Resultary comparisons: degree-seven anticanonical torus GHWs, low-dimensional torus linear sections and all fiber extremizers",
+          "arXiv:cs/0506102v2 and arXiv:2002.00325v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Degree-six ed96737f3ac9 states z_3=t+1 and z_4=t, and gives fiber-plus-point and fiber witnesses; 86be39341a03 treats the second weight of that hexagon. The quartic-scroll record also gives t+1 and t at dimensions 3 and 4. The cubic-scroll record describes counts for one ruling family.",
+          "The frozen bibliography describes the Boguslavskii tables as complete-surface codes, with degree-seven length q²+3q+1, versus the present (q−1)²; this table scope was not confirmed by a successful primary text read."
+        ],
+        "reasoning": "Identical numbers at shifted dimensions do not by themselves give exact geometric coverage or multiplicities for this set of evaluations. In particular, maxima on the whole complete surface would not automatically classify equality after puncturing to the torus. No exact table establishing those multiplicities was recovered; the inaccessible tables provide no negative evidence.",
+        "searches": [
+          "MathNet ppi392, Boguslavskii, Tables 1–3 as cited; attempted primary-text and full-text endpoint reads",
+          "Resultary mirrored exact tables and Findings ed96737f3ac9, 86be39341a03, 176731ff73b1, 5a27853159ed and dbc805b91369"
+        ]
+      },
+      "rationale": "The supported distinction, also the originality the Finding itself asserts, is the uniform all-extremizer classification and exact multiplicities for this eight-monomial degree-seven torus code. The shifted high-weight tail has real coverage by the same-day degree-six comparison: its monomial space embeds with codimension one and supplies the same numerical upper bounds on common zeros for dimensions 4–8. The analogous degree-six fiber cases also constrain part of the large-field geometry. Neither that work nor the scroll or Cartesian comparisons establishes the exact two-axis classification and multiplicities, including the small fields. This is a bounded scientific verdict, not historical priority.",
+      "residual_risks": [
+        "Boguslavskii's MathNet ppi392 Tables 1–3 were not readable on attempted lawful routes; exact primary table scope and inaccessible or unindexed torus-specific statements remain risks. No relative priority inferred from same-day index dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive shifted numerical coverage and partial geometric implication; not the all-field extremal classification for the larger code",
+          "evidence": "The higher weights match the shifted tail, common zeros of a coprime system are bounded by six, primitive segment factors give fibers, and the q=5 proof checks upper bounds. Sharpness is supplied by examples.",
+          "identifier_or_url": "2026/11/22/SCOPE-higher-generalized-weights-of-the-degree-six-toric-del-pezzo-ant--ed96737f3ac9/RESULT.md",
+          "material_read": "Finding and exponent set at offset 0, Proof §§2–4 at offsets 3760–6895, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror statement/passage reads",
+          "title": "Higher generalized weights of the degree-six toric del Pezzo anticanonical code",
+          "trigger": "Closest same-day toric anticanonical result with the identical shifted optimal zero counts"
+        },
+        {
+          "assessment": "Full total-degree spaces, different exponent support",
+          "evidence": "Maximal common-zero counts for independent polynomials in the full bounded-degree evaluation space and the resulting affine-Cartesian weight formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.02114",
+          "material_read": "Theorem 4.6 (PDF p. 8, offset 28500) and Theorem 5.4 (PDF p. 9, offset 31800)",
+          "method": "Lawful OA PDF passages",
+          "title": "Generalized Hamming weights of affine Cartesian codes",
+          "trigger": "Plausible encompassing generalized-weight theorem"
+        },
+        {
+          "assessment": "Same code class; no higher equality cases in the inspected theorem",
+          "evidence": "Defines decreasing monomial-Cartesian evaluation and determines length, dimension and minimum distance.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.00325v1",
+          "material_read": "Definition 3.1 (PDF p. 9, offset 30300) and Theorem 3.9 (p. 12, offset 41000)",
+          "method": "Lawful OA PDF passages",
+          "title": "Polar decreasing monomial-Cartesian codes",
+          "trigger": "Exact inclusion in a more general code class"
+        },
+        {
+          "assessment": "Table scope unconfirmed firsthand, not used to exclude overlap",
+          "evidence": "RESULT.md cites Tables 1–3 for complete-surface evaluations and distinguishes their length from torus length; no conclusion is drawn from retrieval failure.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/ppi392",
+          "material_read": "Bibliographic identification and frozen record's attribution; no primary table passage recovered",
+          "method": "Lawful OA attempts on MathNet record and full-text endpoint, and page fetch; timed out",
+          "title": "Sections of the Del Pezzo Surfaces and Generalized Weights",
+          "trigger": "Directly plausible prior tables for a degree-seven del Pezzo code"
+        },
+        {
+          "assessment": "Pattern overlap, not the same code or the two-axis classification",
+          "evidence": "Fiber-plus-point and fiber extremizers for the indicated smaller scroll codes.",
+          "identifier_or_url": "Resultary 176731ff73b1 and 5a27853159ed",
+          "material_read": "Quartic Finding and proof at offsets 0, 2450, 5650; cubic Finding and proof at offsets 0 and 6200",
+          "method": "Local Resultary and mirror passage reads",
+          "title": "Finite torus linear-section profile of the quartic rational normal scroll; Optimal higher-support linear sections of the cubic scroll torus",
+          "trigger": "Closest indexed linear-section equality-pattern analogues"
+        },
+        {
+          "assessment": "Weight hierarchy for another code; bounds do not give the asserted equality geometry",
+          "evidence": "The F_1 case gives M_4=t+2 and M_5=t+1, not the pentagon's t+1 and t.",
+          "identifier_or_url": "Resultary dbc805b91369",
+          "material_read": "Finding, assumptions, and footprint table, offset 0 onward",
+          "method": "Local Resultary and mirror statement read",
+          "title": "The complete generalized-weight hierarchy of the anticanonical torus code on the degree-eight del Pezzo surface",
+          "trigger": "Larger neighboring anticanonical space"
+        },
+        {
+          "assessment": "Evaluation and equivalence framework and d_1 bounds, not the high-dimensional extremizers",
+          "evidence": "Monomial evaluations on the torus and lattice equivalences; Minkowski-sum minimum-distance techniques.",
+          "identifier_or_url": "arXiv:cs/0506102v2; arXiv:math/0507598v2",
+          "material_read": "First PDF p. 1 (offset 1250); second PDF pp. 2–3 (offset 5600), Proposition 2.3 and Theorem 1.2",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On m-Dimensional Toric Codes; Toric Surface Codes and Minkowski Sums",
+          "trigger": "Foundational toric-code and minimum-distance overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–4",
+        "Resultary ed96737f3ac9 and 5a27853159ed",
+        "arXiv:1706.02114"
+      ],
+      "rationale": "The dense-torus sections of the anticanonical embedding have a natural incidence and coding interpretation. Bounds on common zeros alone cannot tell a researcher which maximal 3-spaces or 2-planes occur, how many there are, or that only the two axis fiber families occur in the equality cases. The uniform low-rank argument answers that precise geometric question over all fields in scope, including the smallest ones; the shifted numerical hierarchy is supporting data, not the source of the value verdict.",
+      "residual_risks": [
+        "Only dimensions four and five are classified, and only on rational dense-torus points. No statement about all rational projective surface points or full support enumerators follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

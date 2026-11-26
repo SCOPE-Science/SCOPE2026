@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:49:38.734817Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3-57; VERIFICATION.md; artifacts/verify.py and artifacts/verification_output.txt (read only)",
+        "Independent unmatched-residue argument and finite difference in this review"
+      ],
+      "rationale": "Independent product argument: put A=p^a and m=q-1, so 1<=m<A. The numerator factors of binom(q(A-1),A-1) are mA+j for j=1-m through A-1-m; the denominator factors are 1 through A-1. Their residues mod A cover 0 through A-1 except A-m, each once. A nonzero residue d in this range has valuation <a, so the matching factor has its same valuation and the same unit modulo p after dividing out the p-power. Cancel all such matched factors. The unmatched numerator is mA, the unmatched denominator A-m. Since v_p(A-m)=v_p(m)<a, their valuation difference is a, and the respective normalized units reduce to opposite elements modulo p. The unit ratio is -1, including p=2 and the endpoint cases. The frozen Legendre and Wilson calculation correctly reaches the same result. The gcd is exactly A: the congruence gives divisibility by A, and the order-A finite difference of the degree-(A-1) polynomial f(q)=binom(q(A-1),A-1), with f(0)=0 and f(1)=1, makes the gcd over q=2,...,A divide A. The wording about sharpness is read as the sharp divisibility threshold, not a universal claim about the next digit.",
+      "residual_risks": [
+        "The recorded 825-case run was not replayed and is corroborative only. No higher precision, q>A, or non-prime-power statement is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 9 is a prime-divisibility criterion for the gcd. The indexed factorization gives D(A-1)=A for A>=3 and its lower-bound proof gives v_p of every term at least a when b=1. Granville’s general higher-power formula extends Anton’s identity."
+        ],
+        "reasoning": "Gcd divisibility, a lower bound for the individual valuations and the existence of a minimum witness do not determine the normalized residues for all multipliers. The generic digit formula still depends on all digits and needs a family-specific argument to collapse.",
+        "searches": [
+          "arXiv:2606.22997v1, Theorem 1 and Lemma 9",
+          "Granville, Binomial coefficients modulo prime powers, Introduction and Theorem 1",
+          "Resultary exact progression-gcd factorization, db4eebf1aab7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.22997v1; arXiv:1409.3820; Granville's OA author text; OEIS A080170; Resultary db4eebf1aab7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Anton already gives precisely the general identity used in lines 31-39 of the frozen proof. A genuinely additional evaluation is that the normalized ratio at every multiplier simplifies to the same constant: match A-2 factors by their residue and compare the remaining units m and A-m. Indexing a progression by its gcd does not encode this cancellation."
+        ],
+        "reasoning": "There is substantial classical tool overlap, but the universal constant is not reported as a specialization without the residue-block argument. The accepted content is only the evaluated uniform residue, not the digit machinery or gcd.",
+        "searches": [
+          "arXiv:1409.3820 p. 5 eq. (4); arXiv:2606.22997v1 Lemma 9; db4eebf1aab7 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anton’s congruence identifies the normalized unit with a signed base-p digit-factorial ratio. In the equivalent consecutive-product proof it is the unmatched unit after matching every nonzero residue except A-(q-1)."
+        ],
+        "reasoning": "The formula for units is known. The uniform evaluated value requires exploiting how the omitted residue and the zero-residue factor depend on the same multiplier, or proving the equivalent two-block complement cancellation.",
+        "searches": [
+          "Resultary: prime-power binomial progression, normalized leading units, and exact gcd valuations",
+          "Normalized unit modulo p and lower index p^a-1; arXiv:1409.3820 eq. (4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A080170 indexes lower arguments k for which the gcd of the progression is 1. The indexed exact factorization determines that gcd even when it is not 1, with an explicit minimizing multiplier."
+        ],
+        "reasoning": "These are exact records of an aggregate invariant. Neither stores or evaluates the term-by-term leading units across the prime-power progression.",
+        "searches": [
+          "OEIS A080170, definition and linked claim",
+          "Resultary 2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7"
+        ]
+      },
+      "rationale": "Credit the known exact progression gcd and the classical general unit formula. The distinct content is the uniform evaluation of the leading normalized unit at -1 for the entire interval, not the generic availability of an algorithm for an individual binomial coefficient. The sources inspected do not give this family simplification or a theorem directly asserting it.",
+      "residual_risks": [
+        "Classical or unindexed specializations of the normalized congruence are not excluded. The Rochester PDF copy had garbled extracted text; the readable author HTML and survey were used instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers divisibility and the gcd-one criterion, not the units",
+          "evidence": [
+            "Lemma 9: for n=p^ab and p not dividing b, p divides the progression gcd iff b<=p^a."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22997v1",
+          "material_read": "Theorem 1 (p. 2), Lemma 9 and proof setup (pp. 7-8)",
+          "method": "OA full-text PDF",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "The exact same binomial progression"
+        },
+        {
+          "assessment": "Covers the full gcd and an individual lower bound, not the constant unit",
+          "evidence": [
+            "v_p(D(k))=max(0,a-floor(log_p b)) for k+1=p^ab; the proof obtains at least a carries for every q when b=1."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+          "material_read": "RESULT.md Finding and the proof's universal carry lower bound, offsets 0-3126",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Exact prime-power factorization of the binomial progression gcd",
+          "trigger": "Exact valuation on the same progression"
+        },
+        {
+          "assessment": "Confirms the general formula used, but gives no constant evaluation on the assigned progression in these passages",
+          "evidence": [
+            "Eq. (4) is Anton's signed digit-factorial quotient at the exact valuation; Remark 1 cites Granville's higher-precision formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.3820",
+          "material_read": "p. 5 eq. (4) and Remark 1; p. 13 discussion of Granville's extension",
+          "method": "OA PDF",
+          "title": "Lucas' theorem: its generalizations, extensions and applications",
+          "trigger": "Classical exact formulas for normalized residue"
+        },
+        {
+          "assessment": "General residue computation, not a stated uniform progression evaluation",
+          "evidence": [
+            "The q=1 precision case of Theorem 1 is the normalized residue mod p; q here denotes precision, not the frozen multiplier."
+          ],
+          "identifier_or_url": "https://www.cecm.sfu.ca/organics/papers/granville/paper/binomial/html/node2.html",
+          "material_read": "Introduction, discussion of Anton–Stickelberger–Hensel and Theorem 1; formula cross-referenced in arXiv:1409.3820",
+          "method": "Author text in OA HTML; corroborating displayed formula from the OA survey",
+          "title": "Arithmetic Properties of Binomial Coefficients I: Binomial Coefficients modulo prime powers",
+          "trigger": "Broader exact p-power residue theorem"
+        },
+        {
+          "assessment": "Gcd-one indices only",
+          "evidence": [
+            "Definition uses gcd(C(2k,k),...,C((k+1)k,k))=1."
+          ],
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "Definition, comments and links",
+          "method": "OA database page",
+          "title": "OEIS A080170",
+          "trigger": "Exact database index for the progression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; OEIS A080170; Resultary db4eebf1aab7; arXiv:1409.3820 eq. (4)"
+      ],
+      "rationale": "The prime-power endpoint is a natural high-divisibility family of an established progression-gcd problem. A term-by-term unit is needed to determine the first nonzero digit rather than the minimum valuation, and the unexpected constancy gives simultaneous residue information for arbitrary linear combinations of the progression. Its proof is a uniform arithmetic cancellation, not a table or a finite search for an isolated value.",
+      "residual_risks": [
+        "No priority is claimed for the general binomial unit formula, the gcd result, or higher precision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

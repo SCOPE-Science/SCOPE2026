@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:08:06.742450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66; VERIFICATION.md; CHECK.py, inspected but not executed",
+        "Independent replay: python /workspace/branches/independent_finite_checks.py 3. It compared every target at 20 levels across (p,s)=(3,1),(3,2),(5,1),(7,2), using Euler's criterion and valuation to predict square fibers rather than enumerating square parameters. The deepest support counts were respectively 31, 31, 261 and 22."
+      ],
+      "rationale": "For d=2p^s, v_p(binomial(d,j)) is at least s-v_p(j). On x=a+pu the linear term divided by p^(s+1) reduces to 2(2a+1)u; j-v_p(j)≥2 for every j≥2, including at p=3. For a≠−1/2 the normalized polynomial is a unit linear map plus p times an integral polynomial, hence a surjective isometry by contraction. Reflection x↦−1−x identifies the two branches in each regular pair, and the reduction 2(x+1/2)^2+1/2 separates all different pairs from each other and the critical class. In the central coordinate x=−1/2+pu, only even powers occur, the quadratic coefficient is exactly A p^(s+2), and the higher coefficients have an extra p after factoring that term. For U integral, the square root g of 1+pU congruent to 1 satisfies (g(u)−g(v))/p=(U(u)−U(v))/(g(u)+g(v)), so u↦ug(u) is identity plus p times a 1-Lipschitz map and is a bijective isometry. At k≤s+1 each pair of classes has 2p^(k−1) inputs and the central class p^(k−1); above that, regular outputs have 2p^s inputs and each central root modulo p^(k−s−2) lifts p^(s+1) times, including at k=s+2. Square-shell counts give Q_p and square-shell measure p/(2(p+1)); the regular and scaled-square measures add to the claimed p^(1−s)/(2(p+1)).",
+      "residual_risks": [
+        "The independent computation is finite corroboration; all p,s,k in scope follow from the coefficient bounds and isometries. No claim for p=2 or arbitrary exponents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arias–Borja–Anaya count residues for unrestricted sums, including x^6+y^6. Although degree six intersects the (3,1) case, x and y are independent. Ding–Zieve work over finite fields."
+        ],
+        "reasoning": "Cardinality on the full plane does not determine cardinality or fibers on y=x+1. Merely working over an odd prime field does not supply the required exact branch isometries over prime powers.",
+        "searches": [
+          "Arias–Borja–Anaya, Journal of Integer Sequences 26, 23.8.1, Propositions 26 and 28",
+          "Ding–Zieve, arXiv:2309.14979v1, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and neighboring entries; strongest distinct statements inspected in the local mirror",
+        "Arias–Borja–Anaya, Article 23.8.1, Propositions 26 and 28",
+        "Ding–Zieve, arXiv:2309.14979v1, Theorem 1.1",
+        "Focused primary query on consecutive powers and p-adic prime-power fibers returned no additional usable comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ternary result also has one regular ball and a scaled square branch, but with a different expansion and output depths. The general finite-field and unrestricted-counting statements do not give a normalized Taylor expansion for the consecutive line."
+        ],
+        "reasoning": "Local Hensel machinery explains why the integral normalized models give bijective coordinates once proved. It does not by itself establish that all regular classes and the whole singular class have these specific scalings and disjoint output sets, especially at p=3 and arbitrary s.",
+        "searches": [
+          "Ternary fourth-power exact result, Finding",
+          "Arias–Borja–Anaya, Propositions 26 and 28",
+          "Ding–Zieve, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The self-entry duplicates the assigned record and is not independent prior evidence. The centered description f(−1/2+u) is an even polynomial in u, whose immediate symmetry is u↦−u. Ding–Zieve study finite-field sums on quadratic-character classes and quartic value sums."
+        ],
+        "reasoning": "Neither centering nor replacing consecutive powers by the sum of powers of consecutive squares identifies these exact all-depth fibers with the finite-field sums; the depth losses s+1 and s+2 are not encoded by that reduction.",
+        "searches": [
+          "Resultary: consecutive even prime-power power-sum image and fibers",
+          "Primary search: x^n+(x+1)^n p-adic prime-power fibers",
+          "Ding–Zieve, arXiv:2309.14979v1, abstract and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Besides the self-entry, the strongest exact neighboring Resultary profile is for x^4+(x+1)^4 at p=3 and has measure 25/72. The seven-adic record actually treats the polynomial interpolating the prefix sum of fourth powers, not the consecutive pair map."
+        ],
+        "reasoning": "The ternary exponent four is not 2·3^s for s≥1; the seven-adic object is also different. Neither exact indexed profile supplies a member of the frozen family, regardless of publication order.",
+        "searches": [
+          "Resultary exact-family and related-image search",
+          "2026/11/22/SCOPE-exact-ternary-image-and-fibers-of-two-consecutive-fourth-powers--b9f75246cb36",
+          "2026/11/22/SCOPE-complete-seven-adic-image-and-fibers-of-consecutive-fourth-power--28273bb8be35"
+        ]
+      },
+      "rationale": "The inspected comparisons cover unrestricted sums, finite-field value questions, or different explicitly classified p-adic polynomials. The distinct supported content is the full branch and fiber classification for the consecutive line at the ramified exponents 2p^s, uniformly over every odd prime and depth. Hensel and square counting are standard, not credited as new. This is a best-of-current-evidence judgment, not a proof of priority.",
+      "residual_risks": [
+        "An unindexed treatment of the same ramified family or a stronger general classification remains possible; a search with no useful new hit is not negative proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, not coverage",
+          "evidence": "Degree four at p=3; one ball and one translated square image, full fibers and measure 25/72.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-image-and-fibers-of-two-consecutive-fourth-powers--b9f75246cb36",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact ternary image and fibers of two consecutive fourth powers",
+          "trigger": "Exact consecutive input and closest singular branch structure"
+        },
+        {
+          "assessment": "Different map",
+          "evidence": "The variable is the endpoint of a prefix sum of fourth powers, not the first member of a pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-seven-adic-image-and-fibers-of-consecutive-fourth-power--28273bb8be35",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Complete seven-adic image and fibers of consecutive fourth-power sums",
+          "trigger": "Title plausibly describes an exact consecutive-input profile"
+        },
+        {
+          "assessment": "No implication for restricted-line fibers from these propositions",
+          "evidence": "The propositions count unrestricted representations by sums of sixth powers, with two independent variables.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "Abstract/introduction and Propositions 26 and 28, PDF p. 13, offset 33700",
+          "method": "OA full-text passages",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Prime-power value-set theorem with overlapping degrees"
+        },
+        {
+          "assessment": "Related finite-field problem, not a prime-power fiber theorem",
+          "evidence": "It studies finite-field sums grouped by quadratic-character classes and distinct value sums of quartics.",
+          "identifier_or_url": "https://arxiv.org/html/2309.14979v1",
+          "material_read": "Abstract, introduction, Theorem 1.1 at offset 0",
+          "method": "OA HTML passages",
+          "title": "On sums of powers of consecutive squares over finite fields, and sums of distinct values of polynomials",
+          "trigger": "Consecutive-input polynomial value language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and branch proof; unrestricted sums in Arias–Borja–Anaya, Propositions 26 and 28; the distinct ternary fourth-power profile"
+      ],
+      "rationale": "Restricting a modular representation problem to consecutive inputs removes the usual independent-variable sumset structure. The exact two lifting depths identify which targets remain attainable, give their full multiplicities (not just image size modulo p), and quantify how the critical branch contributes to the measure. Uniformity in the ramified exponent and at p=3 makes the classification useful beyond a worked finite example.",
+      "residual_risks": [
+        "The classification is specific to d=2p^s and does not count ordinary integer solutions in bounded intervals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

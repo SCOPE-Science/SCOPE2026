@@ -1,14 +1,21 @@
-# Review of the sharp-bound equality classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the published sharp bound for three generators and independently establishes the key covering lemma \(\lceil c/2\rceil\{0,a,b\}=\mathbb Z/c\mathbb Z\) by Kneser's inequality and the quotient Cayley-graph diameter. Apéry residues then force \(b=a+1\) at equality. The remaining cases are exhausted algebraically by the exact two-consecutive-coins interval criterion, with separate odd/even boundary arguments. The only even exceptions are shown to attain equality, not merely to be candidates. All hypotheses, \(c\ge3\), and \(F=-1\) conventions are explicit. Exact Dijkstra checks of 235258 triples and integer-interval checks through \(k=2000\) corroborate the complete proof. No finite census is used to infer the infinite claim.
+## correctness
 
-## Originality — PASS (qualified historical priority)
-Full-text comparison with Chen–Hu–Mao–Zhang, arXiv:2610.32219v1, confirms their upper bound and existence family without an all-triples equality classification. Full-text comparison with Aguiló–Miralles, DOI:10.46298/dmtcs.3462, reveals a distinct fixed-largest-generator extremal objective: it does not cover the equality cases for the newly sharpened bound. Kneser's inequality and two-coin theory are classical ingredients rather than claimed discoveries. Actual Mathematical record searches of aliases, exact family, equality, and sumset-covering formulations and comparison with recoverable previous claims found no logically dominating result. The absence of a matching indexed record is not proof of global priority; unindexed or differently formulated literature remains a residual risk.
+PASS
 
-## Value — PASS
-The 2026 paper leaves a natural rigidity question after proving sharpness: can any other triples attain its two-largest-generator bound? The classification answers this for every three-generator tuple, including the parity obstruction and both exceptional families, not merely a few computed examples. It shows that attaining the sharp inequality forces *both* consecutive smaller generators and a rigid even largest generator, providing an exact structural boundary to the published theorem. This is a complete motivated extremizer classification rather than a routine parameter substitution.
+Kneser's inequality forces k{0,a,b} to fill Z/cZ if the stabilizer is trivial; if it is nontrivial, the generating set reaches every vertex in the quotient in at most c/|H|-1 steps and periodicity lifts this to the same conclusion. The Apéry minimum in an equality residue is kb-1; its at-most-k-coin representative is at least kb-1, at most kb, and congruent to kb-1, forcing that exact coin value. The deficit identity then forces one copy of a, k-1 of b and b=a+1. For 2≤a<k the proposed gap is at least a(a-1) for either parity and thus is already in <a,a+1> (its quotient on division by a is at least its remainder). For odd c, the remaining a≥k give quotient k-1 and remainder a-k≤k-3; for even c, a≥k+1 gives quotient k-1 and remainder a-k-1≤k-3. The case a=1 gives equality exactly at b=2 and even c by the stated F=-1 convention. For a=k and c=2k, the candidate k²-k-1 is a gap modulo k: at least k-1 copies of k+1 would be needed and already exceed the candidate. The sharp upper bound makes that gap maximal. Independently, `python3 /workspace/branches/independent_math_replay.py 5` verified 14,665 triples through c=48 by direct integer reachability, finding 46 equalities and certifying the upper tail with c consecutive representable values per triple. This is finite corroboration only.
 
-The theorem does not extend to more than three generators, or provide a new general upper bound; priority is limited to the inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bound and nonunit equality family are prior. The distinct assertion is the complete equality locus, including the necessity of consecutive smaller generators and the exclusion of odd c. Neither the sharpness construction nor the older fixed-largest-generator extremal theorem supplies those restrictions.
+
+## value
+
+PASS
+
+A sharp general inequality with a known attaining family leaves a natural inverse question. The classification shows that no odd largest generator attains the bound and that with even largest generator there is exactly one nonunit triple, beyond the elementary generator-one convention case. This is structural information about sharpness rather than another construction or tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The statement defines the Dobrushin coefficient on the *effective* continuous state space and classifies exactly its least strictly contracting iterate. The kernel given by Aurzada and Worf is an upper-tail conditional for negative expanding coupling. The elementary identity for total variation of two nested upper-tail conditionals yields the exact one-step coefficient. The two-step minorization follows by hitting the explicit top plateau of the eigenfunction and then refreshing from one common law. The positive-coupling nonuniformity is proved by the inherited support inequality along every path and the absence of a stationary atom at zero. The unconditioned nonnegative-support regime is immediate. The upper bound on the eigenfunction is independently traced to the positive derivative and plateau in the source. These ingredients establish all hypotheses, boundaries and quantifiers. A packaged exact-rational verifier tests 635 finite statements but does not prove infinite claims.
+## correctness
 
-## Originality (PASS, with residual risk)
-The original expanding-regime paper provides the kernel and invariant density, neither of which is presented here as new. Its main statements and relevant proof/discussion were inspected: no least contracting iterate, Dobrushin phase boundary or uniform mixing estimate was found. The earlier uniform non-expanding companion concerns a disjoint coupling regime. A companion with Laplace innovations has different support. Searches of mathematical records, including a closest related result at the boundary coupling, did not identify coverage of the exact expanding-regime mixing-index trichotomy. Standard Doeblin and Dobrushin implications are acknowledged as prior mathematics. Because this result is derived from an explicit previously known kernel, an overlooked short consequence or more general theorem remains a real priority risk; a negative search is not uniqueness proof.
+PASS
 
-## Value (PASS)
-The index is a natural exact dynamical invariant: the smallest observation lag at which total variation contracts uniformly over all initial states. The classification distinguishes no uniform mixing at any finite lag from one-step and two-step contraction, with a sharp threshold at the support parameter \(a=1/|\theta|\). The two-step regime is especially nontrivial because its one-step Dobrushin coefficient equals one, yet a parameter-only geometric mixing rate still follows. This is useful for rigorous sample-spacing and initialization bounds for the conditioned dynamics. Neither the existence of the kernel nor a generic textbook contraction theorem alone supplies the model-specific phase boundary.
+Aurzada–Worf's kernel is an upper-tail truncation of the law with density h/H in the negative-coupling cases. For thresholds t≤s the common mass of the two normalized tails is the smaller tail's original mass divided by the larger tail's original mass. The least overlap compares an untruncated row with the highest attainable or limiting threshold. For 0<a<1/c, the left endpoint −a is included, the highest threshold is ca, and h is identically one above it. This gives the exact coefficient. For a≥1/c the endpoint −1/c is excluded and the limiting threshold is 1, so the supremum is 1. Every row has probability at least μ([1/c²,1]) of entering that upper interval, on which the following row is μ. This yields the stated two-step minorization, and h≤1 from the sourced derivative and plateau gives q₂≥1−1/c. Applying contraction to the sourced invariant law proves uniqueness and the uniform bounds. For θ>1 a legal k-step path has Xₖ>θᵏx; near zero the resulting support tail has stationary probability tending to zero, so uniform TV distance tends to 1 along those starting states at each fixed lag. Averaging against stationarity bounds that supremum by δ(Qᵏ), forcing equality. The source's vacuous negative-coupling case is an independent refresh, including a=0 up to a null endpoint. Writing the low-a interval open in the tail integral does not remove the defined row at −a; the attained extremum uses the closed state space specified in the finding.
 
-## Closest literature and limitations
-Aurzada–Worf (arXiv:2611.16041v1) proves the transition and invariant law; arXiv:2606.01832 concerns non-expanding coupling; arXiv:2609.08794 concerns Laplace innovations. General Doeblin minorization theory is classical, and the claimed novelty is limited to the exact model-specific index and quantitative regimes. The rate bounds are not optimal rates and no independent scientific validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the model-specific nontrivial strict-contraction phase diagram, exact low-a one-step coefficient, and two-step quantitative bound. The kernel, eigenfunctions, stationary law, underlying parameter regimes, and vacuous refresh case are prior coverage. Neither the inspected kernel source nor the closest indexed spectral result states or supplies a stronger contraction classification.
+
+## value
+
+PASS
+
+The minimum strict lag answers a natural all-start mixing question not answered by the existence of the limiting stationary process. The boundary changes the actual sampling interval needed for a uniform contraction argument, and the positive-coupling case shows why weighted spectral relaxation cannot substitute for an all-start TV guarantee. The nontrivial conclusions require distinct support and two-step overlap arguments, rather than merely restating the kernel or refreshing case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

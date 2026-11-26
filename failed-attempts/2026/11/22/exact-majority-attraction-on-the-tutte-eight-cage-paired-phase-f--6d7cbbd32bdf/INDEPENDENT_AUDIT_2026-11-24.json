@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:23:44.225129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, paired-fiber proof and entrance witness",
+        "Frozen check_primary.py, check_scalar.py, VERIFICATION.md and machine-readable outputs (inspected; authored code not run)",
+        "/workspace/independent-evidence/4.py and 4.log (independent replay)"
+      ],
+      "rationale": "I independently built synthemes by testing triples of disjoint duads and computed each local majority bit by marking all supersets of a winning neighbor pair. Reverse traversal on the alternating single-shore state space (65536 states total) visits every state from the exact two-cycles. A full configuration first becomes recurrent when both independent coordinate histories have reached these cycles, so the entrance time is the maximum of the two coordinate entrance times. A recurrent full state has two phase labels and the update swaps them. For phase labels U,W, the ordered basin has product a_U b_W, and a two-cycle with unequal labels adds its two disjoint ordered basins. The independent replay matches all nine paired types, both complete histograms, both orbit counts, total mass 2^30 and the whole entry census. The mask trajectory (106,0) → (0,1544) → (72,0) → (0,1024) → (0,0) → (0,0) verifies sharpness. In particular 240 fixed basins have size 836 and exactly one two-cycle basin has size 38579328. The scope is labelled synchronous strict majority on this single graph.",
+      "residual_risks": [
+        "No claim for other cages or dynamics. Reproducibility does not establish priority."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuhlman et al. Theorem 3.1 gives eventual period at most two for the symmetric synchronous system. Adam et al. treat bipartite expansions and bounds. Heawood 8cd2964a9d93 is a graph-distinct exact precursor with 58 phase labels and balanced weights 1 or 36."
+        ],
+        "reasoning": "None of these general results or the Heawood instance forces the particular Tutte–Coxeter counts. The failure instead comes from the earlier exact same-case computation and its stronger entry-time information.",
+        "searches": [
+          "Resultary: Tutte-Coxeter majority threshold-network reductions period two Heawood exact attraction basin comparison",
+          "arXiv:1108.2974 Theorem 3.1",
+          "arXiv:1211.0654v2 pp. 3, 18–19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "937ad301f17d (RESULT, verification and both checker passages)",
+        "8cd2964a9d93",
+        "arXiv:1108.2974",
+        "arXiv:1211.0654",
+        "Goles–Olivos DOI landing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t=4 replace the earlier code's final weighted sum by a frequency count of (accA[u],accB[L[u]]) over the same fixed set A to get all nine paired types. The older formula uses the products accA[u]·accB[L[u]] for the fixed basins. Independence of the two initial coordinates and its explicit phase swap give a_U b_W + a_W b_U for the basin of the unordered pair U,W."
+        ],
+        "reasoning": "Grouping existing per-label results, multiplying sizes and adding the two orientations needs no new dynamical enumeration or structural lemma. This establishes mechanical implication of both new histograms and their derived examples, without asserting that they were printed in the earlier report.",
+        "searches": [
+          "937ad301f17d RESULT.md offsets 3630–5387 and 5600–8204",
+          "937ad301f17d check_duad_syntheme.py offsets 2080–3036 and 4740–5423",
+          "937ad301f17d check_vertex_dynamics.py Counter passages at offsets 3787 and 3862"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "937ad301f17d RESULT.md offsets 3630–5387 gives the same duad–syntheme shore projections and (A,Φ(C))→(C,Φ(A)); offsets 5600–8204 define X_t(s),Y_t(s) under these same projections. At t=4 every state meets the entrance cutoff, so the two counters are exactly the assigned result's ordered (a_s,b_s) for the same label."
+        ],
+        "reasoning": "Renaming G,J to P,Q changes nothing. Both prior per-label counters use the same matching Φ(s); this is equality of corresponding pairs, not just equality of marginal shore distributions.",
+        "searches": [
+          "Resultary: Tutte-Coxeter paired shore-fiber types (22,38) (38,22) synchronous majority",
+          "Resultary: Tutte-Coxeter labelled majority attraction basin spectrum fixed points two-cycles exact",
+          "External literature: Tutte-Coxeter synchronous majority exact basin paired phase fibers four-step entry census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding gives 2386 fixed points, 2845305 primitive two-cycles, F^6=F^4, F^5≠F^3, and a two-column census whose row sums are exactly 5692996, 276815868, 352934400, 180687360, 257611200. Its check_duad_syntheme.py offsets 2080–3036 calculates accA and accB for every phase before evaluating the paired products; check_vertex_dynamics.py has the analogous computation. The specific nine-row table is not explicitly printed in the inspected prior outputs."
+        ],
+        "reasoning": "Explicit prior coverage of the clock and entry counts is decisive. For the additional table there is stronger evidence than lack of a duplicate printed table: the exact finite generating counters and alignment are already in the public certificate.",
+        "searches": [
+          "Resultary: Tutte-Coxeter majority four-step periodic entry census exact table first entry t",
+          "937ad301f17d RESULT.md Finding and check_duad_syntheme.py terminal counters and terminal prints"
+        ]
+      },
+      "rationale": "The distinct earlier record 937ad301f17d already gives the same graph, update, sharp identity, phase swap, orbit counts and the stronger period-resolved entrance census. It also explicitly defines and its published code computes the same paired terminal fiber counts per phase label. The later nine-type histogram and full basin spectrum are mechanical summaries of those counters, not a new graph-specific calculation beyond the prior exact data and phase rule. This failure is based on demonstrated coverage and implication, not absence of literature or similarity of titles.",
+      "residual_risks": [
+        "The earlier record does not have to display the later grouped table for the implication to hold. Full Goles–Olivos text was not inspected; this does not affect the exact earlier-record comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit overlap and mechanical implication of later summaries",
+          "evidence": "Previous report states the same orbit counts and stronger entry census and computes X_4,Y_4 with label alignment Φ, using the exact counters as paired factors in code.",
+          "identifier_or_url": "937ad301f17d",
+          "material_read": "RESULT.md Finding offsets 261–2384; proof offsets 3630–5387, 5600–8204; VERIFICATION.md offsets 0–2052; check_duad_syntheme.py offsets 2080–3036 and 4740–5423; check_vertex_dynamics.py Counter snippets around offsets 3787 and 3862",
+          "method": "Published result and source code via local mirror; inspection only, not execution",
+          "title": "Tutte–Coxeter majority dynamics: eighteen graph types and a four-update clock",
+          "trigger": "Exact same graph, update and clock; possible terminal-fiber coverage"
+        },
+        {
+          "assessment": "Method precedent, different graph",
+          "evidence": "58 phase labels, 1653 two-cycles and balanced phase weights 1 or 36; entry cutoff two.",
+          "identifier_or_url": "8cd2964a9d93",
+          "material_read": "RESULT.md Finding offsets 341–2758, proof offsets 5165–6665",
+          "method": "Published result via local mirror",
+          "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+          "trigger": "Bipartite incidence-graph basin method"
+        },
+        {
+          "assessment": "General period coverage only",
+          "evidence": "Eventually F^{s+2}(x)=F^s(x); no exact clock or basins on the graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+          "material_read": "Abstract, Theorem 3.1 p. 5 offset 14339; Appendix A p. 15 offset 50119",
+          "method": "OA PDF passages",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "General symmetric synchronous convergence"
+        },
+        {
+          "assessment": "Expansions and general time bound, not the exact spectrum",
+          "evidence": "Bipartite/symmetric expansions and eventual period bound do not fix graph-specific fibers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0654",
+          "material_read": "p. 3 offset 7731; pp. 18–19 offset 59277",
+          "method": "OA PDF passages",
+          "title": "On Threshold Models over Finite Networks",
+          "trigger": "General reductions for bipartite majority"
+        },
+        {
+          "assessment": "Full text not obtained; not used to establish detailed coverage",
+          "evidence": "The accessible comparison locates the classical eventual-period result, not an exact cage-specific census.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Landing/abstract only; see separate Kuhlman Appendix A",
+          "method": "Publisher DOI lookup",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Classical period result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "937ad301f17d RESULT.md terminal projections and phase swap",
+        "937ad301f17d check_duad_syntheme.py per-label counters"
+      ],
+      "rationale": "The cage and its synchronous majority basin invariant are naturally motivated. Nevertheless, once the previous exact phase counts and alignment are used, the incremental claim here is a routine regrouping of already computed numbers. The mismatches (22,38) and (38,22), and the largest basin, are obtained by inspecting and sorting those same counters. They are useful summaries, but no independently valuable unknown mathematical remainder is established under this standard.",
+      "residual_risks": [
+        "The judgement is about incremental scientific value, not correctness of the table or value of the invariant in isolation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

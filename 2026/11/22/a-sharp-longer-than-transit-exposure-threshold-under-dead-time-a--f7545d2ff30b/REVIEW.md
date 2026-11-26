@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact expected depth Fisher information follows from a phase-average tiling identity and direct squared-overlap integration for two intervals. Its two branches have continuously matching first derivatives, and the derivative-numerator polynomials each decrease strictly in their domains. Their shared value at a full-transit exposure gives the sharp threshold, global uniqueness, and equality case. Implicit differentiation verifies monotonicity in overhead and noise floor; explicit limiting root analysis verifies asymptotic scales. The extracted standalone numerical and symbolic checker passed 2283 supplementary tests. The rigorous conclusion is model-conditional and does not rely on finite sampling for universal quantifiers.
+PASS
 
-## Originality — PASS on inspected evidence
+Conditional on the lattice phase, independent Gaussian measurements with known variance contribute q_E^2/(v/E+w) each for the sole depth parameter. Integrating over phase and tiling the line divides the convolution energy by E+H; the finite-support overlap has a plateau of height min(E,L)/E and two linear ramps of width min(E,L), giving the two frozen pieces with the advertised normalization L/v. Direct differentiation gives sign numerators P_1=3h−2hx−(1+3r+hr)x² and P_2=h+2x−3x²+r(2hx−3hx²+3x²−6x³), each strictly decreasing on its own interval. Both give Q=h(1−r)−(1+3r) at x=1; P_1 starts positive and P_2 tends to minus infinity, allowing exactly one global optimum, including at Q=0. With J=F(x)/[(x+h)(1+rx)], the logarithmic derivative equals F'/F−1/(x+h)−r/(1+rx), strictly increasing in h and strictly decreasing in r pointwise. This proves strict comparative statics across the branch join as well as within branches. Rationalizing the positive quadratic root gives the short-branch formula and the small-h behavior. For r>=1 the optimizer stays at most one; for 0<r<1 eventually it is on the longer branch, bounded above by the positive root of 1+2rx−3rx² because P_2=0 requires that expression positive. Dividing the stationarity equations by h now gives the claimed limiting roots, including the limit one at r=1. At r=0 the long branch is an exact quadratic and grows like sqrt(h/3). These claims concern conditional-on-known-phase depth information averaged over designs, not Fisher information in an observation model marginalizing unknown timing. Read VERIFICATION.md and CHECKER.py without executing the uploaded code.
 
-The most relevant antecedents establish the information-analysis framework, finite integration effects, and readout-overhead motivation: Price and Rogers (2014) §6–7, Kipping (2023) §4, and Hernandez Camero et al. (2023) §2–5. They overlap in ingredients, but the inspected passages do not state the complete unique optimum, the exact longer-than-event threshold, the strict monotone parameter dependencies or the high-overhead floor/no-floor distinction for the explicit model. Searches of a public mathematical research index found nearby exoplanet observation-window optimization, but not this same depth-information objective. A residual priority risk is that a general earlier information formula can be specialized and optimized; absolute literature completeness is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The natural observational decision is whether exposure duration should be shorter than a transient astronomical event, in competition with readout dead time, photon noise and irreducible per-frame noise. The result answers that decision with an explicit exact boundary, and shows that adding any independent floor caps the preferred exposure at large overhead. These are interpretable phase distinctions, not a numerical exercise on arbitrary parameters. The theorem is a tractable benchmark, not an instrument-specific recommendation: real transit morphology and temporally correlated noise are excluded.
+The box overlap and the entire r=0 boundary case already have exact coverage in equivalent variables. The distinct supported contribution is the joint effect of positive dead time and a positive independent per-exposure flux-variance floor: the two-parameter classification, disappearance of the long-exposure regime for r>=1, and finite saturation as dead time increases. The checked prior passages do not supply this extension. No priority inference is based on same-day dates or differing instrumentation terminology.
 
-## Limitations and external validation
+## value
 
-The event is rectangular, baseline and transit timing are known, and independent Gaussian measurement errors have the stipulated exposure-dependent variance. Observational utility outside that setup requires a physical noise model. Prior general formulas are close enough that first explicit derivation versus first implicit availability remains a historical-priority uncertainty. No independent external scientific audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive independent variance term changes the exposure decision qualitatively: it can preclude exposures longer than the event at every dead time, and it bounds the optimal exposure as overhead grows. The exact classification resolves feasibility and equality, gives unique implementable optimizers, and separates two competing effects in a natural ideal model. This is useful as a baseline, not a prescription for correlated noise, imperfect ephemerides, or limb-darkened joint transit fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -10,7 +10,7 @@
 
 ## Value
 
-**PASS.** Exact independence of Gaussian evaluations is the natural zero-correlation endpoint of a sampling problem; on a multiply connected domain its meaningful separation must use the intrinsic complete hyperbolic metric. The theorem answers the sharp optimization over all pairs and all positive weights, shows which positive weights prohibit independent samples altogether, identifies the uniquely maximizing geometric configuration for best separation, relates the sharp minimal gap to the systolic core length, and determines the singular weight asymptotics. These yield a complete weight phase diagram of a mathematically natural invariant and are not implied quantitatively by a bare zero-location formula. The result does not claim mixing estimates for nonzero correlations or independent zero processes; those are separate problems.
+**PASS.** Exact independence of Gaussian evaluations is the natural zero-correlation endpoint of a sampling problem; on a multiply connected domain its meaningful separation must use the intrinsic complete hyperbolic metric. The theorem answers the sharp optimization over all pairs and all positive weights, shows which positive weights prohibit independent samples altogether, identifies the unique minimizing orbit of pairs, relates the sharp minimal gap to the systolic core length, and determines the singular weight asymptotics. These yield a complete weight phase diagram of a mathematically natural invariant and are not implied quantitatively by a bare zero-location formula. The result does not claim mixing estimates for nonzero correlations or independent zero processes; those are separate problems.
 
 ## Closest literature and limitations
 

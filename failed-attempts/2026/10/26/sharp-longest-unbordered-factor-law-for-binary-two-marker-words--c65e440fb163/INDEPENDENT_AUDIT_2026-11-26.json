@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:57.701160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3 of Proof, VERIFICATION.md, verify.py (inspected only)",
+        "Independent replay: /workspace/review_evidence/frozen_review_replay.py, section 2; 969 direct word/factor enumerations, exact identities for F(z,1) and its t-derivative, and integral of the limiting CDF"
+      ],
+      "rationale": "Verified all zero-gap and tie cases. A factor with one marker is unbordered exactly when the marker is at an endpoint. For a candidate with both markers and unequal endpoint letters, 0^i 1 0^b 1 has a border exactly when i<=b; the other case is its reversal. This proves the maximum in both regimes. Summing over b and the maximum and minimum of the outer gaps gives the two rational terms. The uniform compositions converge by Riemann sums to the uniform simplex; the case boundary has measure zero. Inclusion–exclusion for the largest gap and the translated polygon of area (1-3s)^2/6 give the stated CDF; integrating its complement gives 20/27. The CDF clauses on either side of 1/2 are the same quadratic.",
+      "residual_risks": [
+        "The finite replay corroborates rather than proves the universal and asymptotic results. The tail density 2 is unconditional; conditional on the tail it is 3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-6ea7af977336 gives the same extremal length together with the exact number of maximizing intervals, and joint limiting CDFs for length and multiplicity.",
+          "The primary literature passages inspected treat general random strings or run-length-based algorithmics; they did not yield this fixed-weight spectrum."
+        ],
+        "reasoning": "The direct joint classification strictly extends the frozen statistic; summing its CDFs over multiplicities recovers the complete marginal, including the mean.",
+        "searches": [
+          "Resultary SCOPE-6ea7af977336, Finding, offset 0",
+          "arXiv:1504.07406v1, p. 1",
+          "arXiv:2507.16285, abstract and Lemma 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(6)",
+        "Resultary SCOPE-823f52624582 and SCOPE-6ea7af977336",
+        "arXiv:1504.07406v1",
+        "arXiv:2507.16285"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The border limit is continuous with mean 7/27; in the joint unbordered-length/multiplicity record the same marginal mean 20/27 is stated."
+        ],
+        "reasoning": "The continuous limit reflects to F_U(x)=1-F_L(1-x), with mean 1-7/27; no distinct asymptotic calculation is needed once the equivalent spectrum is available. The named external literature inspections did not establish earlier priority.",
+        "searches": [
+          "Exact two-one longest-unbordered-factor literature lookup",
+          "SCOPE-823f52624582 limit law and SCOPE-6ea7af977336 marginal and joint laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-823f52624582 gives L=a+c+1 for b>=max(a,c) and L=min(a,c) otherwise for the same gaps, as well as its exact spectrum and limit."
+        ],
+        "reasoning": "n-L equals b+1 and b+max(a,c)+2 in exactly the two original cases. This equivalence is family-specific and does not assume a universal border/unbordered-factor identity.",
+        "searches": [
+          "Resultary search on exact longest unbordered factors for two-marker/weight-two binary words and their distributions",
+          "Resultary SCOPE-823f52624582, Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparison explicitly counts every exact border length for each n and gives its rational enumerator by total zero gap m=n-2."
+        ],
+        "reasoning": "This is exact all-size coverage, not a coincident sequence prefix: the frozen count at length u is N_n(n-u), and its GF is (zt)^2 H(zt,t^{-1}) in the comparison's notation. Differentiation yields the frozen first-moment series.",
+        "searches": [
+          "Resultary SCOPE-823f52624582, exact finite spectrum N_n(t) and H(z,u), Finding offset 0"
+        ]
+      },
+      "rationale": "Distinct indexed records give demonstrably equivalent or stronger mathematical coverage of the entire frozen finding, not just a similar title or topic. The exact longest-border formula for the same family makes U=n-L word by word, so the finite distribution, rational series, first moment, and limiting distribution and mean are recoverable by reflection/reindexing. A second record directly gives the same U formula and a joint limiting law with maximizing multiplicity. This is a decision on distinct content relative to the checked corpus, not an allegation of earlier priority: both comparison entries are dated after the frozen record, and no derivation or precedence between their proofs is inferred.",
+      "residual_risks": [
+        "The later catalogue dates establish no earlier priority, independence, or direction of derivation. The focused external search was not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage by reflection",
+          "evidence": "L=a+c+1 or min(a,c); N_n(t) and H(z,u) are exact, with E[L/n] tending to 7/27.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-border-spectrum-and-limit-law-for-two-marker-binary-word--823f52624582/RESULT.md",
+          "material_read": "Finding, offset 0, including formula, complete counts, GF and density",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp border spectrum and limit law for two-marker binary words",
+          "trigger": "Same fixed-weight family and dual statistic"
+        },
+        {
+          "assessment": "Direct and stronger coverage",
+          "evidence": "(L(W),Q(W)) specifies the same length in both gap regimes (including 11) and the joint limit gives the marginal after summation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-multiplicities-of-longest-unbordered-factors-in-two-marker--6ea7af977336/RESULT.md",
+          "material_read": "Finding and proof passages, offsets 0 and 5200",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact multiplicities of longest unbordered factors in two-marker binary words",
+          "trigger": "Identical extremal statistic plus multiplicity"
+        },
+        {
+          "assessment": "General background, no fixed-weight implication demonstrated",
+          "evidence": "General maximal-factor bounds and algorithm; the abstract's expectation bound is for alphabet size at least five.",
+          "identifier_or_url": "arXiv:1504.07406v1",
+          "material_read": "Abstract/introduction at p. 1, offset 850",
+          "method": "OA full-text passage",
+          "title": "On Maximal Unbordered Factors",
+          "trigger": "Original literature on the same statistic"
+        },
+        {
+          "assessment": "Computational framework, not an enumerated fixed-weight law in inspected passages",
+          "evidence": "Longest unbordered factors end at run boundaries; computing each instance is different from supplying the exact length distribution.",
+          "identifier_or_url": "arXiv:2507.16285",
+          "material_read": "Abstract and Lemma 3, offsets 7460 and 13800",
+          "method": "OA full-text passages",
+          "title": "Algorithms for Computing Longest Unbordered Factors on Run-Length Encoded Strings",
+          "trigger": "Short run encodings of the same words"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(6)",
+        "SCOPE-823f52624582 exact spectrum",
+        "SCOPE-6ea7af977336 joint classification"
+      ],
+      "rationale": "The sparse-source statistic and its nondegenerate limiting distribution are natural and informative. But as a separate exact-invariant contribution to the checked corpus, the frozen findings reproduce a complete already-covered spectrum by the reindexing t=n-u, or the marginal of a stronger law. No independent exact invariant or extension survives this comparison. This is not an objection to the mathematics, the historical interest of the proof, or the size of the family.",
+      "residual_risks": [
+        "This verdict assesses distinct value under current documented coverage, not historical contribution or publication priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

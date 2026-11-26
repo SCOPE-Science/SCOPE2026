@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Every step is proved for arbitrary odd prime power q. The induced μ_h permutation forces r odd and B^D=1; a Frobenius sign argument forces B∈F_q; even-sized cosets cancel block and power signs, and the paired μ_h roots make the remaining coefficient contribution χ_q(B²)=1. Exact direct finite-field tests for q=3,5,7,11,9 cover 16,064 parameter evaluations and all 2,132 permutations agree. Computation is corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bors–Wang arXiv:2103.00664 offers general cyclotomic/wreath structural machinery, not this specific parity reduction",
+        "Tang–Fan Corollary 1.4 classifies gcd-two index permutations but not their signatures; Lemma 2.2 proves square-coefficient information"
+      ],
+      "reasoning": "The general block permutation sign factorization is prior standard machinery and is not claimed as new. Its specialization to a uniform coefficient-independent parity for all permitted d uses the additional induced μ_h product identity and the doubled factor B²; that specific conclusion is not present in the inspected broader sources. Hidden implicit coverage remains a risk.",
+      "searches": [
+        "published-finding corpus: Zolotarev lemma sign cycles cyclotomic mapping permutation polynomial cosets product of coefficients norm subfield",
+        "Web: parity sign generalized cyclotomic mappings finite fields coefficient product character permutation 2022",
+        "arxiv:2103.00664 Bors–Wang full text (coset/wreath framework)",
+        "Tang–Fan arxiv:2611.14162v1 full HTML §1,§2,§6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.14162v1",
+      "https://arxiv.org/abs/2103.00664",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-a-universal-sign-bias-for-classified-finite-field-permutation-bi--2c4a64ac82f2/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/18/SCOPE-coprime-index-permutation-binomial-collisions--249fad2fb294/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 index-one full result sign δ_{Q,r}χ_q(Norm(a)-(-1)^e), varying with a",
+        "2026 coprime-index collision theorem explicitly assumes gcd(d,(q^e-1)/(q-1))=1; current theorem assumes gcd(d,q+1)=2",
+        "Tang–Fan Corollary 1.4 classifies whether F is bijective, not sign; Lemma 2.2 supplies an essential non-novel input"
+      ],
+      "reasoning": "The new theorem is not a restatement of the necessary and sufficient existence conditions: it fixes a global invariant after bijectivity. The prior sign formula is for a disjoint gcd-one index class and is character-dependent rather than constant. The prior collision count covers neither the gcd-two index nor parity. The proof honestly uses prior cyclotomic sign machinery but adds a complete class-specific evaluation.",
+      "searches": [
+        "published-finding corpus: universal sign bias for classified finite field permutation binomials",
+        "published-finding corpus: sign parity of permutation binomial X^r(X^{2(q-1)}+a) on F_{q^2} is (-1)^((r-1)/2) independent of coefficient",
+        "GitHub published-finding corpus full RESULT.md: SCOPE-a-universal-sign-bias-for-classified-finite-field-permutation-bi--2c4a64ac82f2",
+        "GitHub published-finding corpus full RESULT.md: SCOPE-coprime-index-permutation-binomial-collisions--249fad2fb294"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang–Fan arXiv:2611.14162v1 §1,§2,§6 (full HTML): existence and coefficient-square constraints, no sign conclusion",
+        "published-finding corpus closest sign result: 2026/10/12/SCOPE-a-universal-sign-bias-for-classified-finite-field-permutation-bi--2c4a64ac82f2, full RESULT.md: different d=1 index and character-dependent coefficient signs"
+      ],
+      "reasoning": "Exact sign, parity, coefficient-independent parity, cyclotomic sign character, and index-two binomial forms were compared as synonymous formulations. The index-one sign formula has a different coefficient dependence and cannot imply the asserted uniform index-two formula merely by parameter substitution.",
+      "searches": [
+        "published-finding corpus: sign parity of permutation binomial X^r(X^{2(q-1)}+a) on F_{q^2} is (-1)^((r-1)/2) independent of coefficient",
+        "published-finding corpus: sign of permutation X^r (X^{d(q-1)}+a) with gcd(d,q+1)=2 is same for all admissible a",
+        "Web: permutation binomial Fq2 parity sign index two exponent 2(q-1) sign permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tang–Fan Table 1 classifies admissibility coefficient cases by q and residue parameters; it does not tabulate permutation sign",
+        "Published index-one result gives exact coefficient even/odd counts but no index-two sign table"
+      ],
+      "reasoning": "The full explicit admissibility table and the nearest existing parity count table were inspected. Neither is a table of signs for index-two quadratic-extension binomials. Absence of an indexed table is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: permutation binomial X^r (X^{2(q-1)}+a) complete classification finite fields",
+        "published-finding corpus: universal sign bias for classified finite field permutation binomials",
+        "Tang–Fan arxiv:2611.14162v1 Table 1 and Corollary 1.4 full text"
+      ]
+    },
+    "rationale": "Tang–Fan supplies the 2026 permutation criterion and a square-coefficient lemma; Bors–Wang covers general cyclotomic decomposition, and the indexed closest parity theorem concerns index one and coefficient-dependent characters. The exact parity (-1)^((r-1)/2) for every admissible coefficient in every quadratic index-two case is not stated or directly implied by their published statements. Specialized implication from broader methods remains a genuine residual risk.",
+    "residual_risks": [
+      "Unindexed or differently named cyclotomic sign generalizations may contain an equivalent specialization.",
+      "The proof deliberately uses already known permutation-existence and cyclotomic-coset methodology; independent novelty judgment has not occurred.",
+      "Bors–Wang general source was examined in relevant sections and globally keyword-scanned, not read line by line in all 60 pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact permutation criterion and square-coefficient lemma; does not state a sign or even/odd classification",
+        "evidence": "Theorem 1.3 and Corollary 1.4 pp/sections 1,6; Lemma 2.2 in §2; arXiv v1 submitted 2026-11-10",
+        "identifier_or_url": "https://arxiv.org/html/2611.14162v1",
+        "material_read": "Full HTML including abstract, Theorems 1.1–1.3, Corollary 1.4, Lemmas 2.1–2.2, §§3–6 and references",
+        "method": "Primary source HTML reading and targeted section/keyword comparison",
+        "title": "A complete classification of permutation binomials of the form X^r(X^{2(q-1)}+a) over finite fields",
+        "trigger": "Exactly the same binomial family, quadratic extensions and general gcd-two index"
+      },
+      {
+        "assessment": "Generic coset method covers proof technique but does not provide the specialized coefficient-independent sign assertion",
+        "evidence": "Bors–Wang 2021 preprint; 2022 published version, general index-d cyclotomic mapping and wreath-product formalism",
+        "identifier_or_url": "https://arxiv.org/abs/2103.00664",
+        "material_read": "Targeted sections of full open-access paper: introductory definitions/main theorem, cycle-structure framework and application sections; targeted full-HTML searches for sign, signature, parity and even/odd permutations. Not all 60 pages read sequentially.",
+        "method": "Open-access PDF introduction inspected visually and textually; full HTML targeted section reading and keyword comparisons",
+        "title": "Generalized cyclotomic mappings: Switching between polynomial, cyclotomic, and wreath product form",
+        "trigger": "General structural framework could imply a sign formula"
+      },
+      {
+        "assessment": "Index-one sign formula depends on norm coefficient, distinct from index-two coefficient-independent formula",
+        "evidence": "Formula δ_{Q,r} χ_q(Norm(a)-(-1)^e) for X^r(X^{q-1}+a) with e≥2",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-a-universal-sign-bias-for-classified-finite-field-permutation-bi--2c4a64ac82f2/RESULT.md",
+        "material_read": "Complete RESULT.md including hypotheses, sign theorem, proof and limits",
+        "method": "Read complete public repository file",
+        "title": "A universal sign bias for classified finite-field permutation binomials",
+        "trigger": "Highest-significance published parity overlap"
+      },
+      {
+        "assessment": "Requires gcd(d,q+1)=1 in e=2, treats function equality rather than sign, and does not contain current theorem",
+        "evidence": "Theorem counts distinct permutation functions for coprime index values, not index-two parity",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/18/SCOPE-coprime-index-permutation-binomial-collisions--249fad2fb294/RESULT.md",
+        "material_read": "Complete RESULT.md, including theorem, proof and discussion",
+        "method": "Read complete public repository file",
+        "title": "Collision rigidity and exact enumeration for coprime-index permutation binomials",
+        "trigger": "General exponent-index and function equivalence results may cover or imply claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "758682ca-98a9-4074-93ef-c1e763052f67",
+  "value": {
+    "rationale": "An exact permutation-sign invariant across all admissible nonzero coefficients and all gcd-two index parameters for odd quadratic finite-field extensions provides a natural structural parity classification beyond the existence theorem. It detects a sharp r mod 4 switch and an unexpectedly complete cancellation of coefficient effects, contrasting with the adjacent index-one case where the sign varies with norms. It does not claim arbitrary-index or cycle-type classification.",
+    "status": "PASS"
+  }
+}

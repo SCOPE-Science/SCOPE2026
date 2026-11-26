@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:19:18.914812Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the smooth complex cubic d-fold the normal sequence gives the top Chern coefficient of (1+H)^(d+2)/(1+3H), integrated with degree 3. Expanding, or using the coefficient recurrence T_(d+1)=−2T_d+d+2 with T_0=1, gives X=χ(Y_d)=((−2)^(d+2)+3d+5)/3. The precise smooth specialization of Galkin–Shinder Corollary 5.2(1) gives χ(F_d)=X(X−3)/2. X is odd for even d and even for odd d. After multiplying the even factor by 3, its linear term is respectively 3d−4 or 3d+5, strictly between 0 and 2^(d+2) (check d=2 and d=3 and increase d by two). Hence its valuation is smaller than d+2 and is unchanged by adding the signed power of two. The factor 1/2 subtracts one. Inverting 3 modulo 2^(t+2) gives one class of the required parity on each branch, including classes 2 and 3 modulo 4 at t=0. The independent replay `python3 /workspace/checks/finite.py 5` uses the Chern recurrence, verifies the sample values and checks the valuation through d=5000; the valuation argument, not this range, establishes the infinite claim. The frozen checker compares a direct Chern sum only through d=200 and tests valuations through d=5000, as clarified in VERIFICATION.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 is the cubic/Fano relation for reduced cubics. Corollary 5.2(1) explicitly includes the correction +χ(Sing(Y)) in the Fano Euler formula."
+        ],
+        "reasoning": "The broader relation contains the claimed Euler formula outright by setting the singular locus empty; determining divisibility in the smooth family requires only the numerical extraction described below.",
+        "searches": [
+          "Galkin–Shinder, arXiv:1405.5154, §2.2 and §§5.1–5.2"
+        ]
+      },
+      "checked_sources": [
+        "Galkin–Shinder, arXiv:1405.5154",
+        "Resultary complete-quadrics valuation finding",
+        "Frozen result, verification notes, and source checker (inspected only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With X=χ(Y_d), the prior formula in the smooth case is 2χ(F_d)=X(X−3). Normal-sequence Gauss–Bonnet gives 3X=(−2)^(d+2)+3d+5."
+        ],
+        "reasoning": "The sole even factor multiplied by 3 is (−2)^(d+2)+L with L=3d−4 or 3d+5. The elementary bound 0<L<2^(d+2) makes v₂(L) decisive. Parity and the two residue classes are then the definition of exact valuation modulo powers of 2. This directly recovers the entire proposed refinement, not merely a few dimensions.",
+        "searches": [
+          "Galkin–Shinder, arXiv:1405.5154, Corollary 5.2(1)",
+          "Smooth hypersurface normal sequence and Gauss–Bonnet"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 5.2(1) treats the topological Euler characteristic of the same Fano scheme. The closest catalogue hit, 2026/10/12/SCOPE-exact-dyadic-valuation-of-complete-quadrics-euler-characteristics--145cc141a4ad, treats complete quadrics and a different valuation involving the binary digit sum."
+        ],
+        "reasoning": "Rephrasing the present claim as parity or exact divisibility of the Fano Euler number does not identify it with the complete-quadrics record. In the cubic case all of these rephrasings come from the same prior exact integer formula.",
+        "searches": [
+          "Resultary: cubic Fano Euler characteristic, parity and dyadic valuation",
+          "Galkin–Shinder, arXiv:1405.5154, §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 5.3 identifies the classical count of 27 lines for the cubic surface, giving χ(F_2)=27 in the exact sequence at issue."
+        ],
+        "reasoning": "The cited classical tabulation already contains the first case. A table of a surface example does not by itself contain the arbitrary-dimensional formula.",
+        "searches": [
+          "Resultary: cubic Fano dyadic valuation",
+          "Galkin–Shinder, §5.2, Example 5.3 and its citation to Dolgachev, Table 9.1"
+        ]
+      },
+      "rationale": "The valuation expression was not found verbatim. It is a mechanical arithmetic specialization of the prior exact Euler formula and the standard hypersurface Euler formula: split the two factors of X(X−3) by parity, discard the odd one and the higher-valuation term in the even one, then invert 3 for residue classes. No new geometric or number-theoretic input is needed. This is coverage by direct implication, not evidence that the same congruences appeared in print.",
+      "residual_risks": [
+        "No global claim about first appearance of the valuation wording. The classical table was checked through the primary paper’s explicit example and citation, not by inspecting the book itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger Euler formula; full valuation theorem follows by routine extraction for the smooth stratum",
+          "evidence": [
+            "Corollary 5.2(1): χ(F(Y))=χ(Y)(χ(Y)−3)/2+χ(Sing(Y)).",
+            "Example 5.3: 27 lines on a smooth cubic surface."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5154",
+          "material_read": "§2.2 p. 7 Eq. (2.6); §§5.1–5.2 pp. 16–18, Theorem 5.1, Corollary 5.2(1), Example 5.3",
+          "method": "Bounded OA PDF passages, including Corollary 5.2 at text offset 45988",
+          "title": "The Fano variety of lines and rationality problem for a cubic hypersurface",
+          "trigger": "Primary source on precisely this Fano Euler characteristic"
+        },
+        {
+          "assessment": "Different object and arithmetic; not the reason for the failure",
+          "evidence": [
+            "The complete-quadrics formula involves the binary digit sum and a valuation of n+1, not the cubic Fano Euler number."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-dyadic-valuation-of-complete-quadrics-euler-characteristics--145cc141a4ad",
+          "material_read": "Indexed finding",
+          "method": "Resultary/local catalogue comparison",
+          "title": "Exact dyadic valuation of complete quadrics Euler characteristics",
+          "trigger": "Closest valuation hit in the catalogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The smooth cubic Fano Euler number is a natural invariant and the residue statement is correct, but it recasts an already explicit invariant by standard parity, unequal valuations, and a linear congruence. The record supplies no independently needed dyadic obstruction or further structural information beyond that mechanically obtained arithmetic; it does not meet the requirement for a distinct worthwhile exact fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

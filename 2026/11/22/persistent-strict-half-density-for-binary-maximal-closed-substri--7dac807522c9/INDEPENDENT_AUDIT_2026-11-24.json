@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:59:23.292066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: definition and proof at lines 13–52, including the full border and context table",
+        "verify.py and verification-output.txt inspected; the frozen output reports 57 parameter instances and 1211 candidate interval tests, not an independent rerun"
+      ],
+      "rationale": "The extension lemma is valid with overlapping border occurrences allowed. A suffix border of the extended word of length at most b, where b is the old longest-border length, would also occur at the start of the second copy of the old longest border, giving a third occurrence. Any longer new border, with its last letter deleted, would be an old border, so only length b+1 can witness closedness. Matching the context letter extends both old copies without creating a third. Reversal gives the left test. In the proposed word the interior block occupies positions a+2 through a+8. The two long zero blocks flank it; for the indexed row their clipped portions both have length a+2−j≥2 and the interior zeros are singletons, giving exactly two border occurrences. The other proposed borders each occur exactly twice by the displayed run positions; in particular the long 1-zero border selects the first and last long zero runs, whose lengths are at least two even in the exceptional case. In all rows the available context letters differ on each compared side. The endpoints straddle the prescribed cut and are distinct. The indexed row contributes a−2, including zero for (2,1), and seven fixed intervals give a+5=floor(n/2)+1. The parameters cover every n≥13; the proof neither needs nor establishes an upper bound on F₂(n).",
+      "residual_risks": [
+        "The finite output only tests the witness and a finite subset of cut enumerations; the proof is the evidence for the infinite bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 14 places the cut before the unique b in a^m b a^m or a^m b a^{m+1}, with m=floor((n−1)/2) nested occurrences. The general crossing upper bound 3(n−1) does not give a stronger lower bound. General enumeration work concerns the occurrences of a supplied word."
+        ],
+        "reasoning": "These results do not yield the larger lower bound on either parity; the odd/even gains over that lower construction are one/two. This is not a comparison against a proved extremal optimum.",
+        "searches": [
+          "Faro–Marino–Pavone §7 Proposition 14 and Theorem 12",
+          "Umezaki et al., longest-border/valid-pair and run-length enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and fd25863004b2",
+        "arXiv:2611.11552v1",
+        "arXiv:2607.02838v2",
+        "arXiv:2610.38114v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The census describes a finite initial boundary, not an asymptotic constant or a published half-length conjecture. The previously stated nested-interval construction is bounded below by floor((n−1)/2)."
+        ],
+        "reasoning": "The exact seed and knowledge that a witness exists at n=14 do not imply that elongating the two zero runs preserves the old maximal occurrences and supplies additional ones. Both require checking for lost maximality or a third border occurrence; the parameterized context proof does this, and handles odd lengths including n=13.",
+        "searches": [
+          "Resultary fd25863004b2 Finding and Limitations",
+          "arXiv:2611.11552v1 §7, explicit witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sources count positional occurrences, not word types, and the maximality condition is no closed one-character extension on either available side. The run-length paper represents the same occurrences by valid pairs and longest borders."
+        ],
+        "reasoning": "One-based versus zero-based indexing and omission of irrelevant singleton cases do not change the comparison. The known valid-pair framework makes the proof natural but does not supply its all-length family.",
+        "searches": [
+          "Primary literature lookup: binary maximal closed substring occurrences crossing a cut",
+          "arXiv:2611.11552v1 Definition 1; arXiv:2607.02838v2 Definition 1 and Lemma 1; arXiv:2610.38114v1 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day record enumerates the exact spectrum through n=14, with F₂(14)=8 and four extremizing word/cut pairs at that length. Its table includes 11000101110100 with cut after character 6, and the explicit intervals for the reversed word at cut 8 reverse to the present eight intervals."
+        ],
+        "reasoning": "This is genuine exact finite coverage, not a mere title match. The cited exact table stops at n=14; it cannot certify the infinitely quantified statement, and the frozen finding excludes novelty for the n=14 instance.",
+        "searches": [
+          "Resultary: binary maximal closed substring/cut super-half spectrum and witnesses; local mirror fd25863004b2"
+        ]
+      },
+      "rationale": "The separately indexed finite census contains exactly the n=14 word/cut and, by reversal, its intervals. No priority is inferred from the same date and that witness is not separately new. The supported distinct claim is the two-parity all-length extension n≥13, including its explicit construction and proof, not that finite witness, the singleton convention, or the border-extension method.",
+      "residual_risks": [
+        "Bounded comparisons do not exclude another all-length construction or determine same-day priority for the shared finite witness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Compatible definitions, weaker explicit lower construction",
+          "evidence": [
+            "Single-letter/unique-border closedness and left/right one-character tests with the boundary convention.",
+            "Nested intervals in a^m b a^{m+ε}, cut before b, give floor((n−1)/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.11552v1",
+          "material_read": "PDF p. 3 Definition 1 and p. 13 §7 Proposition 14, OA offsets around 10133 and 46091",
+          "method": "Primary PDF passages via OA",
+          "title": "Internal Queries for Maximal Closed Substrings",
+          "trigger": "Closest primary all-length lower construction and same definitions"
+        },
+        {
+          "assessment": "Exact finite overlap; no all-length claim or inferred same-day ordering",
+          "evidence": [
+            "F₂(14)=8 with 11000101110100 at cut 6, exactly the a=3, ε=0 witness.",
+            "The ceil(n/2) threshold is described as a benchmark and not a published conjecture; the result is a finite certificate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-first-super-half-cut-density-of-maximal-closed-substrings-in--fd25863004b2/RESULT.md",
+          "material_read": "Finding table, exhibited length-14 witness intervals, and Limitations (latter at about offset 6005)",
+          "method": "Local mirror, statement and witness comparison including reversal",
+          "title": "The first super-half cut density of maximal closed substrings in binary words",
+          "trigger": "Exact finite witness and table overlap"
+        },
+        {
+          "assessment": "General characterization, no witness overlap established",
+          "evidence": [
+            "Tests closedness and maximality using the occurrence and context of the longest border."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.02838v2",
+          "material_read": "PDF p. 3 around OA offset 8140",
+          "method": "Primary PDF definitions/characterization",
+          "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+          "trigger": "Potential equivalent formulation via runs and valid pairs"
+        },
+        {
+          "assessment": "Equivalent occurrence definition; not an extremal formula in the inspected material",
+          "evidence": [
+            "Counts occurrences via endpoint pairs, with one-character extension comparisons."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.38114v1",
+          "material_read": "PDF pp. 1–2, OA offset around 8330",
+          "method": "Primary PDF passages",
+          "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+          "trigger": "Compatible occurrence notion and potential more general coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: all-length construction and stated limitations",
+        "Faro et al. Proposition 14; Resultary fd25863004b2 exact finite boundary"
+      ],
+      "rationale": "The additive improvement matters here because the inequality crosses the exact half benchmark at every n≥13 and even the rounded-up benchmark at every even length from 14. The result explains how the same fixed run pattern maintains the phenomenon as the length grows, rather than merely giving another isolated optimum or extrapolating a census. It provides a reusable explicit test family for cut-query analyses. It does not claim a better asymptotic density coefficient or refute a published conjecture.",
+      "residual_risks": [
+        "The true extremal growth rate and exact larger-length maxima remain outside the finding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:10.516017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–76",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)",
+        "/workspace/audit_replays/frozen_math.py 3"
+      ],
+      "rationale": "A rooted length-n trace walk determines exactly one labeling of the labeled prism: at each step the middle column is checked against its rung and the two neighboring columns and contributes its weight once. This works at n=3 as well, where the two rail neighbors are still distinct. The tabulated potential telescopes and makes every weight after subtracting n nonnegative. The constant coefficient uses only B0; the linear coefficient uses exactly one B1, with its n possible positions related by cyclic trace. Independently regenerated all 601 admissible triples, with reduced exponent counts 104,299,144,54 at exponents 0,1,2,3. Exact sparse path counting established B0^3=B0^7 entry by entry, traces (0,4,0,0) and marked traces (5,6,4,2,4); multiplication by further powers proves the eventual period. A separate count chooses the set S of 2-labels, forces each vertex outside its closed neighborhood to be 1, and chooses additional 1s freely in the closed neighborhood minus S. This gave the two stated coefficients and no smaller weights for n=3 through 10, including (0,15) at n=3. Replay: python3 -I -B /workspace/audit_replays/frozen_math.py 3.",
+      "residual_risks": [
+        "The source says four output lines in one place, while its code and verification record show five; this is a documentation discrepancy only. The two low-weight traces, not the small-n regression, prove the all-order claim. No classification modulo automorphisms is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general polynomial is known, and the cycle recurrence concerns C_n, not C_n square K2.",
+          "The prism dominion theorem counts ordinary minimum dominating subsets; at n=6 it gives 51 rather than the Roman minimum count 12. The same-day total-domination index entry also counts subsets, with a different neighborhood condition."
+        ],
+        "reasoning": "Neither a recurrence for a single rail nor an ordinary- or total-domination polynomial for the two-rail graph has the same label space and weight. General transfer machinery does not itself produce the period and initial marked traces.",
+        "searches": [
+          "Deepak et al., On the Roman Domination Polynomial of Graphs (2021)",
+          "Deepak et al., Roman Domination Polynomial of Cycles (2021), Theorem 2.3",
+          "Allagan arXiv:2601.03488v1, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index, four distinct entries described above",
+        "DOI 10.37236/2595",
+        "Roman polynomial and cycle papers by Deepak et al.",
+        "2023 small-order atlas",
+        "arXiv:2601.03488v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established Roman domination number is n for 4|n and n+1 otherwise; the earlier figure supplies constructions, not a complete census.",
+          "At weight n, a perfect code has alternating occupied columns and alternating rails on successive centers, giving four when 4|n. At n+1, even at the ordinary minimum Roman weight, standard functions can have 1s or shared 2-response as the P_6 witness shows."
+        ],
+        "reasoning": "Minimum-weight and associated existence claims do not imply the number of minimizers, and say nothing about the next layer when 4|n. The independently verified marked-trace period supplies a distinct complete count rather than summing a known classification in the inspected evidence.",
+        "searches": [
+          "Pavlič–Žerovnik 2012, §5.3/Fig. 13 and §6",
+          "Allagan arXiv:2601.03488v1, Theorem 3.1",
+          "Resultary minimum independent domination and unique-response Roman circular-ladder summaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At weight n, if s is the number of labels 1 and k the number of labels 2, 2n<=4k+s=2n-s forces s=0 and disjoint closed neighborhoods of 2-labels. Thus this layer is exactly efficient domination.",
+          "At weight n+1 the unique-response rule is not equivalent to standard Roman domination: on P_6 the two rails 202000 and 010020 give a valid minimum-weight Roman labeling, with the top vertex in column 1 (zero-based) adjacent to both nearby 2s. An exact independent count at n=6 gives 12 standard labelings at weight 7 and none in which every 0 has exactly one 2-neighbor."
+        ],
+        "reasoning": "The perfect-code reduction explains the corresponding weight-n overlap. It cannot enumerate the leading defect layer at n+1, which allows overlap at zeros and may contain label 1. The unique-response and two-packing restrictions are therefore not a latent restatement of the full coefficient.",
+        "searches": [
+          "Resultary standard Roman prism coefficient, cycle-prism total domination, circular ladder unique-response Roman and two-packing",
+          "Pavlič–Žerovnik DOI 10.37236/2595, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The atlas states coverage through six vertices, which includes the triangular prism; its exact row was not identified, so no number from it is quoted.",
+          "Distinct indexed results concern independent Roman functions on cycles, total dominating subsets on prisms, minimum independent dominating sets on circular ladders, or unique-response Roman functions and two-packings. No matching standard all-order weight n+1 census was found."
+        ],
+        "reasoning": "A small-order table can cover the n=3 exception, but cannot encode an unrestricted modulus-four coefficient law. The matching count of four independent minima when 4 divides n concerns the efficient-domination layer, not the standard n+1 layer.",
+        "searches": [
+          "2023 Atlas of Roman Domination Polynomials of Graphs of Order at Most Six, pp. 87–88",
+          "Resultary same-day independent Roman cycle and total-domination prism enumerators; later independent domination and unique-response Roman circular ladders"
+        ]
+      },
+      "rationale": "The supported distinction is the unrestricted standard-Roman count at n+1 for labeled prisms, including the next-to-minimal layer when 4 divides n. The minimum weight is known; the weight-n coefficient reduces to efficient domination, and the small triangular-prism instance falls within an existing atlas's stated coverage. No independent novelty is attributed to those overlaps. Closest same-day indexed records count different graph classes or domination objects; the later unique-response restriction omits genuine labelings of the layer at issue.",
+      "residual_risks": [
+        "A separately formulated all-order efficient-domination census may already cover the weight-n layer. The atlas's exact triangular-prism row and the unavailable closely related indexed full texts were not inspected. These access limits do not demonstrate absence of overlap or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimum weight, constructions and Roman-graph classification; inspected passages not a low-layer census",
+          "evidence": "The threshold is n for 4|n and n+1 otherwise; classification of Roman graphs concerns existence of a minimum with no 1-labels.",
+          "identifier_or_url": "https://doi.org/10.37236/2595",
+          "material_read": "§5.3 and Fig. 13, pp. 12–13, OA offset 32340; §6 pp. 13–14 offsets 35759 and 36257",
+          "method": "Targeted OA primary PDF text",
+          "title": "Roman Domination Number of the Cartesian Products of Paths and Cycles",
+          "trigger": "Known Roman domination threshold for the identical graph family"
+        },
+        {
+          "assessment": "Same definition, but not a prism theorem in the inspected example",
+          "evidence": "The worked C4 example is a cycle, not a Cartesian prism.",
+          "identifier_or_url": "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+          "material_read": "pp. 357–358, OA offset 5000",
+          "method": "Targeted OA primary PDF text",
+          "title": "On the Roman Domination Polynomial of Graphs",
+          "trigger": "Introduces the same polynomial"
+        },
+        {
+          "assessment": "Cycle-only recurrence and tables",
+          "evidence": "The recurrence is stated for R(C_n,x) and lacks the rungs of C_n square K2.",
+          "identifier_or_url": "Deepak et al. (2021), §2, Theorem 2.3",
+          "material_read": "§2, Theorem 2.3, printed pp. 88–89, OA offset 6000",
+          "method": "Targeted OA primary PDF text",
+          "title": "Roman Domination Polynomial of Cycles",
+          "trigger": "Exact recurrence for a related cyclic graph family"
+        },
+        {
+          "assessment": "Finite scope includes the triangular prism; cannot imply all-order enumeration",
+          "evidence": "Atlas advertises all connected graphs up to order six.",
+          "identifier_or_url": "2023 Atlas, printed pp. 87–88",
+          "material_read": "Scope statement, pp. 87–88, OA offset 0; unlabeled prism row not identified",
+          "method": "Targeted OA primary PDF text",
+          "title": "Atlas of Roman Domination Polynomials of Graphs of Order at Most Six",
+          "trigger": "Potential exact finite triangular-prism table entry"
+        },
+        {
+          "assessment": "Different counted object: minimum ordinary dominating subsets",
+          "evidence": "The theorem gives 51 at n=6, not 12 Roman functions at their minimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.03488v1",
+          "material_read": "Opening and Theorem 3.1 p. 3, OA offsets 0 and 7600",
+          "method": "Targeted OA primary PDF text",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Exact enumerations on the same graph family"
+        },
+        {
+          "assessment": "Different graph or conditions in available statements; no claim about unseen full text",
+          "evidence": "The first specifies independent Roman functions on cycles; the second total dominating sets of cycle prisms.",
+          "identifier_or_url": "2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498 and 2026/10/13/SCOPE-parity-twisted-cycle-domination-enumerates-all-total-dominating-sets-of-cycle-prisms--c74f62af476e",
+          "material_read": "Resultary catalogue summaries; total-domination RESULT.md mirror unavailable",
+          "method": "Resultary local index and identified local-mirror attempt",
+          "title": "Independent Roman weight enumerator of cycles; Parity-twisted cycle domination enumerates all total dominating sets of cycle prisms",
+          "trigger": "Distinct same-day Roman/graph-family hits"
+        },
+        {
+          "assessment": "Possible low-layer overlap and restricted-rule overlap, not full n+1 coverage on available evidence",
+          "evidence": "Four independent minima for multiples of four and a two-packing/unique-response Roman result are reported; the explicit P_6 witness separates ordinary and unique-response Roman counting.",
+          "identifier_or_url": "2026/10/26/SCOPE-minimum-independent-domination-reconfiguration-on-circular-ladders--5713d863fdac and 2026/11/2/SCOPE-exact-two-packing-profiles-and-unique-response-roman-weights-on-circular-ladders--29b9b4b6ef11",
+          "material_read": "Resultary catalogue summaries; both RESULT.md mirrors unavailable",
+          "method": "Resultary local index and identified local-mirror attempts",
+          "title": "Minimum independent domination reconfiguration on circular ladders; Exact two-packing profiles and unique-response Roman weights on circular ladders",
+          "trigger": "Same graph, closely related exact counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–74",
+        "Pavlič–Žerovnik §5.3",
+        "Allagan Theorem 3.1",
+        "Independent transfer and neighborhood replay"
+      ],
+      "rationale": "A minimum weight alone cannot tell how many optimal labelings exist; the leading and first-excess coefficients of the natural Roman polynomial encode that multiplicity and the first defect layer. In this canonical periodic graph family the count changes residue class and rule, is exact for unbounded n, includes label 1, and has a nontrivial matrix-period certificate. The supported contribution is the all-order n+1 enumeration rather than the known weight threshold, the perfect-code coefficient alone, or the isolated six-vertex exception.",
+      "residual_risks": [
+        "The result is not a simplified all-weight polynomial or an orbit enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete intensity signature is the finite Laurent autocorrelation-coefficient vector; the two involutions preserve it. Each of the \(2^{2n}\) arrays for each width \(1\le n\le8\) is mapped to the lexicographically smallest representative of its four-element symmetry orbit, giving an exact finite partition. Two separately implemented integer correlation calculations agree on every retained representative. Exact grouping establishes all fiber sizes; independent Laurent multiplication verifies every width-six double fiber. The explicit example also has a direct polynomial factorization. No implication for larger widths is made. The companion `CHECK.py` is a replayable, exhaustive finite certificate rather than a probabilistic test.
+## correctness
 
-## Originality
-**PASS relative to inspected literature.** The closest general descriptions of multidimensional Fourier ambiguity and polynomial-factor reversal already cover the *construction mechanism*, and that is expressly not claimed as new. Their statements do not give the exact \(2\times n\) binary fiber distribution through width eight, nor the first ambiguous width and the return to uniqueness at seven. The one-dimensional binary equivocal-length census by Katz, Rahman, and Ward has distinct objects and cannot imply the two-row counts. A square-array scalar fourth-moment optimization census compares a different invariant. Targeted searches for two-row binary homometry and equivalently formulated rectangular phase retrieval did not identify a stronger covering classification. Residual risk: a prior specialist table may exist under an unlocated synonym, and independent priority review is needed.
+PASS
 
-## Value
-**PASS.** The family \(2\times n\) is the narrowest nontrivial full-support rectangular imaging aperture, and full Fourier intensity is the fundamental noiseless phase-retrieval invariant. Determining its first genuine ambiguity and every fiber up through the next two widths is a natural finite classification, not an arbitrary parameter perturbation. Reentrant uniqueness at width seven is a substantive boundary phenomenon, while the precise double-fiber counts provide complete reconstruction benchmarks. The result does not assert general asymptotics or a new factor-flipping principle.
+The full torus intensity is a finite Laurent polynomial with the aperiodic autocorrelations as coefficients; orthogonality gives the converse from equality everywhere. Central reversal inverts both lags, and global sign cancels in every product. The action on arrays is the four-element action used in the census, allowing stabilizers. Burnside independently gives (4^n+2*2^n)/4 orbits: reversal and sign-times-reversal each pair the 2n cells into n pairs and global sign fixes none. A separate exact enumeration grouped full correlation vectors from one representative per orbit. For widths 1 through 8 the singleton counts were 2, 6, 20, 72, 272, 1048, 4160, 16488; the only double counts were 4 at width 6 and 12 at width 8, with no larger fibers. At width 6 all eight ambiguous representatives have neither identical nor opposite rows. Expanding F H and -F* H, with F=z^4+z^2-1 and H=(1+z)+w(z-1), gives the displayed pair; the reversal of F preserves its circle modulus. The two orbit representatives differ. This is exhaustive only through width 8. The frozen documentation's Python 3.8 minimum is inaccurate (int.bit_count needs 3.10), not a mathematical defect.
 
-## Scope and evidence
-The displayed pair has a direct reciprocal-factor equality certificate. The full classification relies on an exact integer exhaustive checker in the package, with every orbit representative reached, signature independently cross-calculated, and all counts asserted. Some possible earlier specialist tabulations remain an originality risk; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp two-row binary threshold and exact small-width fibers under the stated quotient. Neither the generic ambiguity mechanism nor one-dimensional uniqueness is new here. The identical indexed record is not a distinct antecedent; the distinct square-mask record agrees numerically at sixteen cells but classifies a different support. No transfer of its classifications to the two-row rectangle is established.
+
+## value
+
+PASS
+
+The two-row sign model is a minimal genuinely multidimensional full-support phase-retrieval setting. The sharp first nonseparable ambiguity supplies benchmark witnesses, while the return to uniqueness at width seven gives an exact obstruction to treating ambiguity as monotonic in width under this support constraint. Counting all fibers distinguishes rare genuine failures from generic ambiguity constructions and is useful for checking proposed uniqueness criteria. No scaling inference beyond width eight is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

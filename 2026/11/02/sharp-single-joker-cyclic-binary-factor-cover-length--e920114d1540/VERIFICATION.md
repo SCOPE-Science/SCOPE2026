@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Computational checks and limits
+# Independent mathematical audit
 
-Run `python3 one_joker_cover_verifier.py` with Python 3 using only the standard library. The program constructs the retained-edge Euler trail and checks the completed cyclic word by independently scanning all its cyclic windows and both joker substitutions. It prints:
+## correctness
 
-```
-k=1 length=1 distinct=2 excess=0
-k=2 length=3 distinct=4 excess=1
-k=3 length=6 distinct=8 excess=1
-k=4 length=13 distinct=16 excess=1
-k=5 length=28 distinct=32 excess=1
-k=6 length=59 distinct=64 excess=1
-k=7 length=122 distinct=128 excess=1
-k=8 length=249 distinct=256 excess=1
-k=9 length=504 distinct=512 excess=1
-k=10 length=1015 distinct=1024 excess=1
-k=11 length=2038 distinct=2048 excess=1
-k=12 length=4085 distinct=4096 excess=1
-VERIFY_OK k=1..12, checked_window_positions=8123, short_host_exhaustion=4118
-```
+PASS
 
-Additional direct structural tests at orders 4–14 checked all removed edges ending in one, all append-one paths from nonexceptional vertices, and all four retained edges joining exceptional vertices. These tests corroborate the connectivity lemma. The proof in `RESULT.md` verifies the graph-theoretic construction for all orders without assuming any finite search implies an infinite theorem. The external literature comparison is not a substitute for an independent scientific audit.
+Exactly k windows contain the joker, so the resolved occurrence count is N+k. At counting equality for k>=3, the two resolved walks U→V and the nonempty ordinary V→U walk would partition the de Bruijn edges. Balance forces U=V, where the two resolutions already use both possible outgoing edges, precluding the ordinary walk. For k=2 the two length-2 hosts each miss a constant pair; the stated k=1,2,3 witnesses give the upper bounds. For k>=4 inspect the one-positions of U b V, indexed from zero: k−2 and 2k−3, plus k−1 for b=1. With b=0 the first and last windows coincide, the intervening single-one windows have distinct positions, and one window has two extreme ones. With b=1 the adjacent pair moves through distinct offsets, the unique triple is distinct, and the final two-one window has distance k−2. These patterns prove that the resolved walks delete exactly 2k−1 distinct edges, with the sole duplicate U0:U→V. Hence the complement has imbalance +1 at V and −1 at U. Only the three displayed deletions can block append-one; after two steps the edges end in at least three ones, while a second-step block requires the unique deleted edge ending in 11. The four explicit retained edges attach all exceptions to the append-one component. Euler's criterion therefore yields the complementary trail, and writing its bits between the joker's following V and preceding U gives a cyclic host with exactly the required windows and length. Multiplicity then follows by counting for every optimum. `python3 /workspace/branches/independent_replay.py 2` independently exhausted the counting-bound hosts for k=2–4 and checked the deleted edge multiplicities, balances, and weak connectivity for k=4–12; these checks do not replace the all-order proof.
+
+## originality
+
+PASS
+
+The lower-bound obstruction follows already from known k-periodicity for exact-once partial cycles. The credited distinction is an explicit all-order attainment with one unavoidable repeated resolution under the single-total-joker cyclic constraint. The available exact-once and repeating-template results do not yield that attainment.
+
+## value
+
+PASS
+
+Allowing repetitions opens a natural next question beyond nonexistence of exact-once cyclic partial words. The result answers it for the basic binary single-joker case: exactly one extra resolution is both necessary and sufficient at every nontrivial order. The constructive retained-edge trail certifies that this small additive gap is achievable rather than a counting artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

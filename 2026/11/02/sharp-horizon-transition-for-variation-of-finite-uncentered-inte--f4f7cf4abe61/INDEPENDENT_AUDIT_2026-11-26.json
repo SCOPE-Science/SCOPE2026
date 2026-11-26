@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:46:26.240206Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a signed input use g=U_R|f| and V(|f|)≤V(f). In the nonnegative proof, an interval witnessing a local-maximum plateau height H cannot leave the plateau: the same admissible interval would give its outside neighboring vertex a value at least H. Inside, every input entry is at most H, so a witnessing average of H supplies a contact point p with f(p)=g(p)=H. Removing flat segments at the ends and decomposing the remaining changes into adjacent peak/valley monotone segments charges disjoint input edges, with each vertical drop at most V(f;[p,v]) by g(v)≥f(v). For R=n the interval joining p and v is itself admissible at v; with d=|p−v| and m its minimum input value, the drop is at most d(H−m)/(d+1)≤(n−1)V(f;[p,v])/n. This also covers boundary peaks and n=2; constant outputs require no charging. The endpoint indicator has output 1/i for i≤R and zero later, so its telescoping variation gives equality for both regimes. Independently tested 38,233 signed integer profile/horizon pairs and 27 endpoint witnesses (lengths 2–7, integer-LCM scaling, no tolerance); replay node /workspace/review-evidence/4.js. The tests supplement RESULT.md lines 24–57, not a universal proof. Frozen verifier read but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldaz–Pérez Lázaro use a continuous length cap and give coefficient 1, not the improved finite discrete bound.",
+          "Resultary e07aeee621fe uses nonuniform masses and a two-input edge-Lipschitz-seminorm gain; f16ed8a16962 uses the same full uncentered interval family but measures V(Mf−Mg)/V(f−g), with linear-size bounds."
+        ],
+        "reasoning": "A general nonincrease mechanism proves the weaker coefficient 1, not the strict full-path contraction. A difference-seminorm amplification bound is not a stronger sharp theorem for a single input; setting the second input to zero in those estimates does not give 1−1/n.",
+        "searches": [
+          "Aldaz–Pérez Lázaro arXiv:math/0601044, Theorem 2.5",
+          "Resultary e07aeee621fe and f16ed8a16962",
+          "Primary literature: discrete uncentered maximal total variation finite path with horizon cutoff"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary e07aeee621fe, f16ed8a16962 and 0238b85542de",
+        "arXiv:1005.3030, arXiv:math/0601044, arXiv:2603.12462"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known contraction proofs charge contact peaks to input variation and yield the benchmark 1. At R=n the decisive extra estimate uses the interval joining a contact peak to its valley, which can be nearly as long as the entire finite domain.",
+          "The sharp endpoint Dirac profile has a zero final value only when R<n. The earlier infinite-domain delta does not establish the positive last value as the sharp obstruction for every input on a finite domain."
+        ],
+        "reasoning": "The known mechanism makes the proof economical. Neither its bound nor the centered conjecture implies the new finite improvement: the full connecting average and length-dependent coefficient are the additional argument.",
+        "searches": [
+          "Bober et al. Theorem 1 and the sharp delta example",
+          "Aldaz–Pérez Lázaro Theorem 2.5",
+          "arXiv:2603.12462 introduction and Conjecture 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bober et al. prove sharp 1 on the discrete whole line. González-Riquelme et al. define centered graph balls, and Conjecture 5 gives the same number 1−1/n for that centered problem.",
+          "The maximum here uses every containing interval, which is not the same as taking balls centered at the evaluation vertex. There is also no zero padding or extension to the infinite line in the variation denominator."
+        ],
+        "reasoning": "The uncentering and finite-domain conventions are material. Rewriting variation as the sum of edge differences leaves those conventions unchanged; neither infinite-line nor centered-graph formulations are equivalent.",
+        "searches": [
+          "Resultary: finite uncentered interval maximal variation, one-input BV, finite path sharp contraction",
+          "Bober–Carneiro–Hughes–Pierce arXiv:1005.3030, Theorem 1",
+          "González-Riquelme–Kovač–Madrid arXiv:2603.12462, Conjecture 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby finite-path numerical checks in the graph paper concern the centered coefficient for small n. Resultary 0238b85542de gives the centered coefficient for valley-shaped inputs only.",
+          "Other inspected exact or bounded catalogue quantities involve two-input differences, with different definitions."
+        ],
+        "reasoning": "The numerical printout and centered expression are not exact invariant entries for this one-input uncentered horizon. No matching exact catalogue passage was located in the bounded search; historical absence is not inferred.",
+        "searches": [
+          "Resultary indexed finite-path sharp-variation records, including 0238b85542de",
+          "arXiv:2603.12462 HTML, Conjecture 5 and preceding numerical evidence"
+        ]
+      },
+      "rationale": "The supported distinct finding is the finite sharp horizon transition, specifically the strict full-horizon factor and its sharp discontinuity at admitting the longest interval. The peak-contact argument and nonincrease alone have antecedents; the comparison does not credit those as distinct stand-alone results. The strongest inspected apparent identical constant is for a centered operator, or for other input seminorms, not for this one-input interval operator.",
+      "residual_risks": [
+        "An earlier equivalently normalized finite uncentered BV theorem may be described as a bounded-interval, graph-path or interval-family result not found by the bounded searches.",
+        "The comparison with centered paths is only a distinction, not an implication for the centered conjecture. No formal verification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Whole-line bound only",
+          "evidence": "For f:Z→R of bounded variation, Var(Mf)≤Var(f), and 1 is best possible on Z.",
+          "identifier_or_url": "arXiv:1005.3030",
+          "material_read": "Theorem 1, PDF p. 4, text offset 10935, and sharpness setting",
+          "method": "Primary OA passage inspection",
+          "title": "On a discrete version of Tanaka’s theorem for maximal functions",
+          "trigger": "Exact discrete uncentered BV benchmark"
+        },
+        {
+          "assessment": "Continuous horizon analogue",
+          "evidence": "Intervals J obey λ(J)≤R for the local maximal operator; theorem states V(M_R f)≤V(f).",
+          "identifier_or_url": "arXiv:math/0601044",
+          "material_read": "Definition p. 3 (offset 10253) and Theorem 2.5 p. 4 (offset 11411)",
+          "method": "Primary OA passage inspection",
+          "title": "Functions of bounded variation, the derivative of the one dimensional maximal function, and applications to inequalities",
+          "trigger": "Earlier length-truncated uncentered operator"
+        },
+        {
+          "assessment": "Different operator and conjectural statement",
+          "evidence": "The averaging balls are centered at the evaluation vertex; Conjecture 5 is C(P_n)=1−1/n for n≥3.",
+          "identifier_or_url": "https://arxiv.org/html/2603.12462v1",
+          "material_read": "Introduction/operator definition and Conjecture 5 at offset 11135",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Identical apparent sharp constant on finite paths"
+        },
+        {
+          "assessment": "Distinct nonuniform mass and two-input invariant",
+          "evidence": "The endpoint mass concentration limit is (n−1)max(a,b)/(a+b) for an edge-Lipschitz amplification.",
+          "identifier_or_url": "Resultary e07aeee621fe",
+          "material_read": "Mirrored RESULT.md finding and definition, offset 0",
+          "method": "Local catalogue and statement reading",
+          "title": "Endpoint mass concentration and sharp Lipschitz amplification",
+          "trigger": "Same-day weighted uncentered interval operator"
+        },
+        {
+          "assessment": "Different two-input invariant",
+          "evidence": "Upper bound n−1 and a linear lower bound concern the variation of M f−M g relative to f−g.",
+          "identifier_or_url": "Resultary f16ed8a16962",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local catalogue and statement reading",
+          "title": "Linear-size two-input variation instability of discrete uncentered interval maxima",
+          "trigger": "Same full interval family and finite unweighted path"
+        },
+        {
+          "assessment": "Centered operator and valley restrictions",
+          "evidence": "The finite coefficient is proved for valley-shaped data under centered graph-ball averaging.",
+          "identifier_or_url": "Resultary 0238b85542de",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local catalogue and statement reading",
+          "title": "Sharp centered maximal variation for valley profiles on finite paths",
+          "trigger": "Exact 1−1/n value in related catalogue work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp cutoff for a natural finite smoothing operator, rather than an isolated numerical gain. It quantifies precisely when the standard nonincrease becomes strict, and shows that dropping just the one longest interval removes the strict improvement. The local estimate explains the role of full access and the same input attains both regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

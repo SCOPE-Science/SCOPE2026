@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:15:40.932910Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After conditioning on e, all residual perfect matchings are uniform. For given t, choosing t vertices from each arc and bijecting them, then matching each even-sized residual arc, gives every feasible class and excludes all other degrees. Conditional arc-label symmetry applies to the four pair types in RESULT.md lines 27–42: two internal chords on one arc have one alternating pattern out of three pairings; an internal and bridge chord alternate iff the bridge endpoint is the middle of three exchangeable positions; two bridges have one alternating bijection out of two; internal chords on opposite arcs cannot alternate. With p=(a−t)/2 and q=(b−t)/2, this yields E[Y|D=t]=(p(p−1)+q(q−1))/6+t(p+q)/3+t(t−1)/4. The quadratic terms cancel and the linear coefficient is (a+b−1)/12=(2n−3)/12. Adding t correctly shifts the slope for K. This includes deterministic D. Counting one bridge or an ordered pair of disjoint bridges gives the factorial moments in lines 44–52 and their stated variance; the covariance then follows by conditional expectation. VERIFICATION.md and verify.py were inspected, not executed. The recorded exhaustive enumeration concerns n=3,…,7 only; the pair argument is all-size.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy describe the global crossing enumerator and global moments, with no marked degree in the inspected passages.",
+          "The joint simple-chord/crossings catalogue description counts simple chords; the deletion law singles out a marked simple chord. Neither description supplies the specified fixed-arc chord at all feasible positive degrees."
+        ],
+        "reasoning": "Even joint counting with the number of degree-zero chords has a different conditioning variable. The marked simple-chord law gives at most special degree-zero overlap.",
+        "searches": [
+          "Flajolet–Noy RR-3914 Touchard crossing enumerator",
+          "Resultary simple chords and total crossings: 66eb34aa2633; marked simple-chord Palm law: 6cd88475e150"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Acan arXiv:1501.01489 §2",
+        "Flajolet–Noy RR-3914 introduction",
+        "Resultary 66eb34aa2633 and 6cd88475e150 catalogue descriptions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected sources determine degree moments, unconditional crossing enumeration, or special degree-zero information, not the pointwise fixed-span conditional means."
+        ],
+        "reasoning": "Unconditional moments are averages over classes, and even a mixed covariance is only one weighted constraint; none creates the class-by-class pair probability calculation or forces its exact affine cancellation. A genuinely stronger marked joint generating function could imply it, but none was identified among the checked evidence.",
+        "searches": [
+          "Acan arXiv:1501.01489 degree moments",
+          "Flajolet–Noy RR-3914 crossing moments",
+          "Resultary marked simple-chord deletion law 6cd88475e150"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan uses an internal-chord variable X_k with D=k−2X_k at a fixed shorter-arc size k; the inspected passage studies its marginal moments and law.",
+          "Full and residual crossing means are deterministically related by K=Y+D, but the inspected global enumeration does not condition on either D or X_k."
+        ],
+        "reasoning": "Reparametrizing by X_k or adding the marked crossings changes variables but does not supply the missing joint statistic.",
+        "searches": [
+          "Resultary: marked chord conditional crossing regression and degree/crossing joint enumeration",
+          "Acan arXiv:1501.01489 §2",
+          "Flajolet–Noy RR-3914 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact returned pointwise regression is the identical frozen record, not a separate antecedent. The closest distinct indexed descriptions concern simple chords and crossings."
+        ],
+        "reasoning": "A catalogue hit on the same record is not prior coverage; available finite enumeration is corroboration, not an exact prior table for all degrees and sizes.",
+        "searches": [
+          "Resultary: specified chord and degree versus global or residual crossing count",
+          "Resultary SCOPE-universal-conditional-crossing-regression-for-a-marked-random-ch--7c3b3c68ffff; 66eb34aa2633; 6cd88475e150"
+        ]
+      },
+      "rationale": "Relative to the checked evidence, the distinct result is the exact pointwise residual-crossing mean conditional on the specified chord and on every feasible degree, including its arc-independent slope. Neither separately known degree and global crossing moments nor the closest simple-chord enumerations give this general conditional first moment. This is not an absolute priority claim.",
+      "residual_risks": [
+        "Flajolet–Noy section body, Paguyo arXiv:2104.01134, and the closest joint-enumeration index result's full text were not obtained in bounded retrieval. The review makes no assertion of whole-document noncoverage.",
+        "A more general marked joint enumerator or transfer-matrix treatment could entail the exact mean; no such implication was established from inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of the degree law and moments",
+          "evidence": "D=k−2X_k where X_k counts internal chords in the shorter arc; inspected discussion does not give the residual crossings conditional on D.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "§2 PDF p. 4, offset 12252",
+          "method": "OA primary-text inspection",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same uniform matching and degree conditioned on marked span"
+        },
+        {
+          "assessment": "Passages cover global count; no conclusion about unread sections",
+          "evidence": "Describes Touchard's global crossing enumerator and overall crossing-count moments.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Introduction PDF pp. 5–6, offsets 3633 and 4799–5118; section body not retrieved",
+          "method": "OA primary-text inspection",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Potential stronger joint enumeration of crossings"
+        },
+        {
+          "assessment": "Different statistic in the available description; unresolved beyond it",
+          "evidence": "Joint polynomial marks the number of simple chords and the total crossings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-bivariate-touchard-riordan-law-for-simple-chords-and-crossings--66eb34aa2633",
+          "material_read": "Resultary catalogue summary; local-mirror text not retrieved",
+          "method": "Configured Resultary lookup",
+          "title": "A bivariate Touchard–Riordan law for simple chords and crossings",
+          "trigger": "Closest joint-enumeration index hit"
+        },
+        {
+          "assessment": "Special degree class in available description",
+          "evidence": "Deletion law assumes a marked simple chord, not arbitrary positive marked degree.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-marked-simple-chord-gives-an-exact-crossing-palm-law--6cd88475e150",
+          "material_read": "Resultary catalogue description",
+          "method": "Configured Resultary lookup",
+          "title": "A marked simple chord gives an exact crossing Palm law",
+          "trigger": "Closest marked-chord index hit apart from assigned record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This relates a natural local statistic of the random intersection graph (degree at a marked chord) to its residual global edge count. Changing the marked span changes the degree distribution and intercept but not the conditional slope. The exact all-feasible-degree statement is stronger than covariance, and the cancellation of the quadratic term across chord classes resolves a concrete finite and all-size prediction problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

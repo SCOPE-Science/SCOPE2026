@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact defining graph is hub \(h\), rim \(C_n\), and one private leaf per rim vertex. Two independently written ordinary Python checkers are included: `verify_direct.py` and `verify_symbolic.py`. Run `python verify_direct.py` and `python verify_symbolic.py` from this directory using Python 3 and SymPy for the symbolic checker. The saved terminal outputs `direct.log` and `symbolic.log` are embedded alongside the scripts.
+# Independent mathematical audit
 
-The direct checker uses an explicit per-vertex neighbor list and exhaustively visits \(699008\) labelled configurations at lengths \(3\le n\le9\) for each update rule. It agrees with a separately encoded cyclic-word test at all seven lengths. The symbolic checker calculates characteristic polynomials of the weighted four-state matrices and exact rational saddle derivatives; it matches trace coefficients to independent run-composition formulas at all lengths \(3\le n\le54\). It also prints finite-length ratios to the asserted asymptotics for \(n\in\{50,51,100,101,200,201\}\). No timeout was interpreted as a mathematical exclusion.
+## correctness
 
-The complete infinite-length correctness depends on the written local-reduction proof and elementary run counts, followed by primitive-matrix spectral theory and a Fourier local central limit argument. Finite tests and numerical ratios alone cannot certify these limits. One older methodological report was available only as an abstract and cover; it is an originality limitation, not evidence of an equivalence. Independent scientific audit has not been performed.
+PASS
+
+With the hub fixed, a degree-one leaf copies its parent for majority and opposes it for minority. The two rim encodings in the finding then give cyclic exclusion of 010 and 111, respectively, with the common at-most-half restriction exactly from hub stability; this holds for n=3 and on hub ties at even n. Marking a zero in minority counts each word z times and marking a one-run start in majority counts it r times, giving the two sums for labelled words, without a rotation quotient. The weighted pair-state traces enumerate exactly these words before the hub weight cutoff. For minority the logarithmic mean density at y=1 is (τ+2)/(τ²+2τ+3)<1/2; a small positive weight tilt exponentially bounds the removed tail, while τ is simple dominant in the unrestricted trace. For majority the displayed cubic at y0=3/4 has Perron root 3/2; implicit differentiation gives L'=1, L''=2/9 and log-scale variance 1/3. The loops 00 and 11 force any equality of twisted spectral radii to have both global phase 1 and exp(iθ)=1, by irreducibility and triangle equality. Thus the trace integral off a neighborhood of 0 is exponentially small; the centered eigenvalue near zero has Gaussian decay with variance 1/3. This proves the local limit for deviations O(log n) and an O(n^-1/2) coefficient bound after exponential untilting uniform in k. Summing from floor(n/2) down contributes y0^((n mod 2)/2)/(1−y0), and the two hub colors give the stated factor 8. Dividing logs by 2n+1 gives the stated distinct entropies. Independent full-state sign-margin computation at n=3–7 reproduced both counts; parity-normalized exact majority counts at n=800,801 were about 0.96233 and 0.95659 (private replay: python3 /workspace/branches/independent_checks.py, helm_check). These are finite diagnostics; uploaded programs were read, not executed.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact two-rule helm counts and especially the sharply different majority/minority asymptotics including the majority parity factor. The cyclic-word method is classical, but the closest inspected results do not impose the same local and hub constraints together. A named older report and scanned ring paper could not be inspected at the decisive passage level.
+
+## value
+
+PASS
+
+The helm's hub turns a local fixed-state rule into a global density filter on a natural graph family. This filter is exponentially negligible for one rule but changes both the exponential growth and the polynomial/parity scale for the other. Exact counts and the sharp constants quantify a structural difference not captured by the bare existence of exponentially many equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

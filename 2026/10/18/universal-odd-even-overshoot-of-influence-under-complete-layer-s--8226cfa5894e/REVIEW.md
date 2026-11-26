@@ -1,19 +1,21 @@
-# Review: universal odd–even overshoot of influence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete-graph averaging projector \(P\) obeys \(A^k=P+t_k(I-P)\), forcing the exact switched kernel \(C_k=(1-t_k)P+t_kB\). The minimum support degree of two supplies positivity at the only delicate value \(k=1\). Detailed balance makes the second layer self-adjoint in its degree-stationary weighted Hilbert space. The stationary resolvent, orthogonal-eigenmode chi-square identity, strict derivative sign, and inverse-degree consensus witness establish all strict comparisons, including endpoint and parity limits. The quotient spectrum gives the exact non-Perron eigenvalues and the zero diagonal of \(B\) gives the strict rate inequality outside \(B=A\). Exact rational tests on 48 period/graph configurations passed; these cannot replace the spectral proof.
+PASS
 
-## Originality — PASS (best-knowledge, with access risk)
+With P=1u, A^k=P+t(I−P), t=(−1/(n−1))^k, and BP=P, so C_k=(1−t)P+tB. For k odd the worst possible entry is bounded below by (1−t)/n+t; this is positive for k≥3, and at k=1 strictness follows from B_ij<1 (at least two neighbors). Even k is a strictly positive mixture. Stationarity gives ν=(1−t)u(I−tB)⁻¹. Reversibility transfers this resolvent to the density h=u/π in L²(π). Each nonconstant mode of h is scaled by f_λ(t)=(1−t)/(1−tλ)>0, strictly decreasing because λ<1. Thus χ² is a sum of squared coefficients times f_λ², and the inverse-degree opinion is ηh, giving a sum of the same squares times f_λ after subtracting c_B=η. The imbalance vanishes exactly for equal weighted degrees, so both chains have the stated strictness, parity, and limits. On the quotient by constants the kernel acts as tB, giving exactly the non-Perron eigenvalues. Looplessness gives their B-eigenvalue sum −1, so ρ₂(B)≥1/(n−1). Equality would make all those eigenvalues −1/(n−1); reversibility and the zero diagonal then force π=u and B=A. Hence (n−1)ρ₂(B)>1 in the irregular case and its power 1/(k+1) strictly decreases, giving the per-step result.
 
-The motivating paper by Shiu and Naghizadeh gives an explicit three-agent, one-step example of noninterpolating stationary influence and general upper bounds on switching convergence. Its fully inspected 2026 HTML does not state the universal strict odd/even influence-disparity chains or their canonical bounded-opinion realization at every odd period; its large-period result gives only a magnitude bound. The first, September 2025 conference paper supplies the same switching framework but its full text could not be inspected, so historical priority there is a residual risk. Related time-varying Friedkin–Johnsen and stochastic-product literature concerns different equations or broader rate inequalities; general signed-resolvent results could still contain an equivalent formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The main point is not that a particular three-agent example overshoots, which was already observed, but that **every irregular connected admissible undirected network does so in a natural intrinsic chi-square influence measure for every odd switch length**, whereas every even length lies strictly on the other side of the complete-layer baseline. The inverse-degree opinion profile translates that distributional property into an observable consensus value; exact spectral mixing establishes simultaneous acceleration with longer complete-layer runs. It explains the mechanism and gives a sharp irregularity boundary.
+The general switching model, existence under primitivity, and possibility of noninterpolation in one example are documented prior results. Pass is for the uniform strict χ² parity interlacing, its specified inverse-degree consensus witness, and exact complete-layer spectral comparison. The closest catalog hit has real overlap in alternating consensus, but its available summary does not establish coverage of this combined theorem, and an inaccessible full text cannot establish or rule out further overlap.
 
-## Scope and limitations
+## value
 
-The result is specific to loopless complete first-layer averaging, reversible connected nonbipartite second layers with at least two neighbors per node, deterministic synchronized updates, and an inverse-degree consensus witness. Earlier work's model, numerical example and general convergence statements are credited. An inaccessible earlier proceedings full text and possible general Markov-resolvent formulations remain the main originality limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise parity obstruction for every irregular supported network turns a one-off noninterpolation phenomenon into a sharp structural law with an exact regularity boundary. The bounded inverse-degree witness turns a distributional comparison into an observable consensus, while the exact contraction factor distinguishes influence bias from the speed of convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

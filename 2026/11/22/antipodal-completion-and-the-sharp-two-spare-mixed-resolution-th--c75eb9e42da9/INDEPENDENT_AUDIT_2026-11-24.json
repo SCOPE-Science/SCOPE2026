@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:07.387830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The witnesses compare all 42 vertices and edges, with each edge response the smaller of its endpoint distances; hitting all 861 pair masks is equivalent to mixed resolution. Reviewed both frozen checkers without executing them. An independent replay (python3 /workspace/branches/fcf5a2af-46e4-4967-9339-4f9bce4c6787/check_icosahedral_mixed.py) enumerated all 4,096 subsets, reproducing the histogram (20,240,405,220,66,12,1) for sizes 6–12, equality of the size-six family with the 20 unions of three axes, minimal counts 20 and 120, and toggle component orders at budgets 6,7,8. Checking single deletions suffices for inclusion-minimality by monotonicity. At budget seven each of the 20 optima has six supersets of size seven and shares none with any other optimum, leaving 120 isolates; at budget eight a Johnson-graph exchange is realized by two adds then two deletes, and the independent traverse connects all 665 states. The same replay found precisely 160 ordinary orientated three-axis resolving triples; two landmarks cannot resolve since outside their axes at least eight vertices have only the four signatures in {1,2}². The induced-shape/complement clause was checked separately: pairs of axes induce a matching. Orient one axis at a pole and choose the neighbor of that pole on each remaining axis. These five representatives form a pentagon; between any two of those axes the matching preserves the chosen orientation exactly for consecutive members of the pentagon. Among triples containing the pole's axis, five have a positive matching-sign product (two triangles), and five have a negative product (a six-cycle). Their complementary triples in the pentagon have respectively two and one positive edges, so the product and shape switch. Thus there are ten of each. Here complementation means vertex-set complement (the three other axes), as defined in the proof, not applying the antipodal map to a set.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational source describes general family/girth results; the equality classes checked in arXiv:2608.17944 are specified cactus and balanced theta graphs. The complete-prism statement treats K_n Cartesian K_2, n≥5."
+        ],
+        "reasoning": "These do not classify mixed resolving sets for the multiply triangulated antipodal icosahedron. Even a scalar bound or exact scalar would not give the mixed basis family, polynomials and toggle threshold by itself.",
+        "searches": [
+          "arXiv:2007.05808, mixed metric lower bounds and selected graphs",
+          "arXiv:1611.04292v1, abstract/introduction",
+          "arXiv:2608.17944, equality classes at offset 0",
+          "Resultary complete prisms mixed-basis theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–68, VERIFICATION.md and both independent frozen checkers",
+        "Resultary same-graph and neighboring comparators, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2007.05808, 1611.04292 and 2608.17944, cited passages; metadata for DOI 10.1038/s41598-025-24939-z"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary bases choose one endpoint on each of three axes; their slide edges are not mixed addition/deletion. For an example of the extra constraint, the ordinary basis {0,2,3} does not distinguish vertex 0 from edge 0–4: the response at each of 0,2,3 is the same for both. The dodecahedron result instead asks for equal distances to pairs."
+        ],
+        "reasoning": "Ordinary separation is not mixed separation. The fact that completed triples all separate mixed elements, and that no other minimum sets do, requires new witnesses; the Johnson move argument gives optimum connectivity but not the 665-state connectivity without the additional mixed census.",
+        "searches": [
+          "Resultary ordinary antipodal matroid bases on the icosahedron, Finding 1 and proof Step 2",
+          "Resultary dodecahedral antipodal distance equalizers, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary metric bases distinguish vertices; edge-metric bases distinguish edges; mixed bases distinguish both and also vertex–edge pairs. The recorded completion theorem involves all three comparison types."
+        ],
+        "reasoning": "Using the same antipodal axes does not identify these feasibility predicates or match the reconfiguration moves; the distance-equalizer formulation on the dodecahedron also has a different sense of witnessing.",
+        "searches": [
+          "Resultary: icosahedron antipodal axes, mixed resolving sets, mixed generators and landmark reconfiguration",
+          "arXiv:1611.04292v1, opening definition of mixed generators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 8–9 list twelve selected graphs, none the icosahedral graph. The Scientific Reports result is described by indexed metadata as treating Möbius graphs and benzenoid hydrocarbons, including a 30-BH-graph computation; original full text retrieval failed."
+        ],
+        "reasoning": "The inspected benchmark table gives no exact value here and is not a comprehensive table of solids. The inaccessible Scientific Reports full text is not used as negative evidence.",
+        "searches": [
+          "Resultary same-graph ordinary and mixed results",
+          "arXiv:2007.05808 pp. 16–17, Tables 8–9",
+          "Targeted web lookup for exact icosahedral mixed metric values and solid graph tables; follow-up lookup of DOI 10.1038/s41598-025-24939-z"
+        ]
+      },
+      "rationale": "The ordinary three-axis resolving bases and their slide reconfiguration are credited to the same-graph comparison. The inspected results do not give mixed resolving on 42 elements, the antipodal completion equality, its full polynomial or the sharp mixed add/delete budget.",
+      "residual_risks": [
+        "The Scientific Reports exact table could not be read in full. Other unindexed Platonic-solid mixed metric computations may overlap, especially on the scalar dimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary-basis ingredient, not mixed coverage",
+          "evidence": "160 ordinary bases, each choosing one endpoint on three axes; token slide results only on ordinary optima.",
+          "identifier_or_url": "2026/11/8/SCOPE-antipodal-matroid-bases-and-one-slide-transport-detours-on-the-i--afe70695ac53",
+          "material_read": "RESULT.md Finding 1 and proof Step 2, offsets 0–5095",
+          "method": "Resultary local mirror",
+          "title": "Antipodal matroid bases and one-slide transport detours on the icosahedron",
+          "trigger": "Exact same graph, bases, and mobility"
+        },
+        {
+          "assessment": "Relevant benchmarks, no icosahedral row",
+          "evidence": "Illustrative set of twelve standard graphs with mixed numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.05808",
+          "material_read": "pp. 16–17, Tables 8–9 and accompanying discussion, offsets 42106–48087",
+          "method": "OA PDF text",
+          "title": "Some new general lower bounds for mixed metric dimension of graphs",
+          "trigger": "Potential exact mixed metric table"
+        },
+        {
+          "assessment": "General context, no equivalent claim in inspected passages",
+          "evidence": "Distinguishes vertices and edges and outlines broader family and girth results; does not give the audited mixed census in the passages read.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04292v1",
+          "material_read": "Abstract/introduction, offsets 0–5447",
+          "method": "OA PDF text",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Foundational mixed-generator formulations"
+        },
+        {
+          "assessment": "Different graph and predicate",
+          "evidence": "Every equalizer set hits all ten dodecahedral axes; polynomial (2z+z²)^10.",
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-transversals-and-the-complete-distance-equalizer-struc--102ef659f4a1",
+          "material_read": "RESULT.md Finding, offsets 0–2874",
+          "method": "Resultary local mirror",
+          "title": "Antipodal transversals and the complete distance-equalizer structure of the dodecahedron",
+          "trigger": "Neighboring antipodal solid and exact polynomial"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The theorem is for K_n Cartesian K_2, n≥5.",
+          "identifier_or_url": "2026/10/4/SCOPE-mixed-metric-bases-of-complete-prisms--2c5387cbdbd0",
+          "material_read": "Scope and finding",
+          "method": "Resultary local mirror",
+          "title": "Mixed metric bases of complete prisms",
+          "trigger": "Mixed bases with antipodal-looking pair structure"
+        },
+        {
+          "assessment": "Access limitation; indexed scope appears different",
+          "evidence": "Provider reported publisher document over 20 MiB and PubMed access did not yield full text. Search metadata describes Möbius types and benzenoid hydrocarbons, not a solid census.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-025-24939-z",
+          "material_read": "Indexed metadata only; no original full text",
+          "method": "Publisher OA direct/VPN, PubMed and indexed alternate records",
+          "title": "Metric, edge-metric, mixed-metric, and fault-tolerant metric dimensions of geometric networks with potential applications",
+          "trigger": "An exact modern graph benchmark study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The icosahedron is a canonical small test of the difference between ordinary and mixed landmark resolution. The all-minima antipodal rule, exact subset and minimality polynomials, and a sharp augmentation budget are linked by the geometry and monotone feasible family. In particular the many seven-landmark dead ends and their merger at budget eight do not follow from the scalar dimension, making the census useful for assessing stronger resolution and feasible-set mobility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:18.698387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact-length walks reach precisely the positions at compatible parity and distance at most t. The two target-parity distance-to-support maxima differ by one because distance changes by at most one across an edge and has opposite parities on the two classes. First saturation is therefore R−1; full and empty target classes stay full and empty while the classes swap. This yields the four recurrent states and the maximum of the two support clocks. An antipodal singleton is the only way to have R=d; a nonsingleton with R=d−1 lies in a Hamming-1 star. Each qualifying pair lies in two stars and a larger support lies in just one, giving U and both max-clock counts. A fresh cycle census on all 256 d=3 states gave (4,140,112); exhaustive parity censuses gave (N,U)=(4,10),(8,64),(16,336) for d=3,4,5. For the random claim, ordered k-tuples with an overlapping neighborhood number O_k(2^{d(k−1)}d²), and the union of their neighborhoods loses at most 2 binom(k,2) from kd. Their contribution is o(1); the disjoint tuples give the Poisson factorial moments. At two steps each predecessor set has size 1+binom(d,2); a union bound suffices. Empty seed parity classes and initial periodicity are negligible. For fixed p below or above 1/2, the second-moment or first-moment bound respectively gives the stated law. Inspected the three frozen checkers without executing them.",
+      "replay": "Frozen RESULT.md. Independent private replay: fresh_terminal_census.py and fresh_terminal_census_run.txt (direct cycle simulation on full d=3 and exhaustive single-parity supports at d=3,4,5). The global counts at d=4,5 are derived by pairing parity histograms, not full-state enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cube is strongly connected as a bidirected graph with loop number two; the general conjunctive/disjunctive cycle theory accounts for the two fixed points and the period-two orbit.",
+          "If F is nearest-neighbor OR and G is exact-distance-two OR, F² is closed distance-two OR. The older result proves that G^t for t≥2 is OR over even distances ≤2t. Hence F^(2t)=G^t for those t on the same states, and the sets of periodic states of F and fixed states of G agree."
+        ],
+        "reasoning": "General walk theory gives recurrence but not exact counts. The specialized earlier walk theorem does apply through taking even iterates; a difference in the one-step maps does not rule out implication.",
+        "searches": [
+          "arXiv:0805.0275 §§2–3, especially Theorem 3.8",
+          "Halved Boolean cubes public result, exact walk-length reachability and last missing vertex criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary halved-cube and NOR findings (decisive passages inspected)",
+        "arXiv:0805.0275",
+        "Weber DOI access attempt, no full text",
+        "Primary topical total-domination literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For T=floor(d/2), d≥6, the G last shell consists of states not fixed at G^(T−1), equivalently τ_F>2(T−1), since T−1≥2. For even d this is τ_F=d−1; for odd d it is the union of τ_F=d−2 and τ_F=d−1, so subtract the singleton count 2NH−N². For the even penultimate shell the same Hamming-star count from the older odd-d proof applies verbatim, with only the time label changed. The small d=3–5 instances extend this elementary calculation.",
+          "The NOR TV result transfers the first-step limit directly; the two-step OR failure bound 2^d(1−p)^(1+binom(d,2)) makes the remaining typical-time assertion immediate. The fixed-density laws use first and second moments of the same published defect field."
+        ],
+        "reasoning": "Different complete dynamics do not rescue these exact observables and calculations. No substantial independently valuable remainder was identified; archival priority against Weber is unresolved but not needed for the exact-overlap finding.",
+        "searches": [
+          "Halved-cube result, formulas T_d, A_d, E_d and exact-walk claim",
+          "NOR result, TV bound on the first-image count",
+          "Weber (1987), DOI 10.1002/mana.19871310105"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the same cube and with the same initial support, the one-step NOR support is the complement of the one-step OR support at every d and p. The NOR count is literally the number of zero sites in the OR first image; the NOR result establishes a quantitative Poisson approximation in total variation for it.",
+          "One-step OR all-one consensus is equivalently total domination by the initial set, or zero first-image defects; it is exactly the empty first-NOR-image event."
+        ],
+        "reasoning": "This is equality of observables, not loose similarity of NOR and OR attractors. The quantitative NOR first-image result gives the one-step OR Gumbel profile directly.",
+        "searches": [
+          "Resultary: Boolean hypercube synchronous disjunction OR dynamics transient first entry Hamming covering radius terminal shells Bernoulli threshold total domination",
+          "NOR record, Exact random first-image law and Quantitative Poisson and independent-location estimates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact formula is 2A_dH−A_d² with A_d=N for even d and A_d=N+U for odd d. Its odd-dimensional proof enumerates the same Hamming-1 stars, counts distance-two pairs via their two common centers and larger subsets once; removing the N singletons gives U. The star count itself does not depend on the parity of d.",
+          "The primary topical search yielded work on deterministic domination numbers, not a usable theorem about random total domination. The decisive stochastic match was the exact NOR defect observable, not a matching table of domination numbers."
+        ],
+        "reasoning": "For even d≥6 the exact older table is the ultimate F shell; for odd d≥7 it counts the union of the last two F shells. The prior proof covers the main obstruction count even where the split is not given as a table.",
+        "searches": [
+          "Resultary search on disjunctive hypercube transients and terminal shells",
+          "Exact maximal-transient census for disjunctive dynamics on halved Boolean cubes, Finding and Last missing vertex criterion",
+          "Primary literature: hypercube total domination random subset p=1/2 Poisson uncovered vertices Gumbel Boolean disjunctive network transient covering radius exact census shell"
+        ]
+      },
+      "rationale": "Different one-step dynamics do not establish independence from the exact prior results. An iterate reduction and the prior Hamming-star census cover the main deterministic calculation. A first-image complement gives exact overlap with a stronger public same-date result for the stochastic centerpiece. The remaining steps to separate shells or obtain the two-update law are direct parity, subtraction and a predecessor union bound. No strict publication order is asserted within the common date.",
+      "residual_risks": [
+        "The exact same-date stochastic overlap does not establish priority between those records or copying.",
+        "The prior halved-cube theorem does not literally tabulate both distance-one shells for all d; its exact event reductions and transferable counting proof are distinguished above. Older stochastic priority against Weber remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial deterministic coverage by direct reduction and the star-count proof",
+          "evidence": "G^t reaches even distances ≤2t at t≥2. A_d=N or N+U, with the same correction for pairs shared by two stars.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-maximal-transient-census-for-disjunctive-dynamics-on-halve--52e59b4571bb/RESULT.md",
+          "material_read": "Finding, model, walk reachability, fixed cutoff, last missing vertex and both-component counts",
+          "method": "Compared map powers and equality of threshold events, then matched antipodal support counts",
+          "title": "Exact maximal-transient census for disjunctive dynamics on halved Boolean cubes",
+          "trigger": "Exact late shell counts on the same parity supports; possible iterate reduction"
+        },
+        {
+          "assessment": "Stronger public same-date overlap of the stochastic first-image claim; no within-day order established",
+          "evidence": "The NOR output is the complement of the neighborhood union; the TV error for its count compared with Poisson of mean 2^d(1−p)^d is bounded by 2(b_1+b_2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-poisson-attractor-selection-and-a-sharp-density-window-for-nor-d--505355558b26/RESULT.md",
+          "material_read": "Finding, model, exact random first-image law and quantitative Poisson/independent-location estimates",
+          "method": "Identified the exact coordinate-level map complement with same initialization",
+          "title": "Poisson attractor selection and a sharp density window for NOR dynamics on Boolean cubes",
+          "trigger": "Complement of the first-image indicator field"
+        },
+        {
+          "assessment": "Covers recurrent orbit structure; not the quantitative stochastic law",
+          "evidence": "The strongly connected cycle classification depends only on loop number.",
+          "identifier_or_url": "https://arxiv.org/pdf/0805.0275",
+          "material_read": "Introduction, graph-loop and height discussion in §2, and §3 around Theorem 3.8",
+          "method": "Specialized to loop number two; used complementation for disjunction",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "General graph-walk heights and cyclic-class structure"
+        },
+        {
+          "assessment": "Unresolved; no whole-text noncoverage claim",
+          "evidence": "A retained isolated vertex normally requires its own retention, which the defect event here does not; that distinction alone is not a proof of nonimplication.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.19871310105",
+          "material_read": "No primary full text obtained; frozen record describes the abstract as concerning randomly thinned cubes",
+          "method": "Exact DOI OA retrieval attempt; compared isolation and open-neighborhood vacancy as events",
+          "title": "Poisson Convergence in the n-Cube",
+          "trigger": "Possible older empty-neighborhood or isolated-site equivalent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Typical versus worst-case dynamics is a useful question and the combined record is a convenient exposition. As a distinct result the shell formulas reuse previously enumerated terminal obstructions, and the critical law uses an identical previously analyzed public observable. Relabeling, subtracting cumulative counts and a two-step union bound leave no substantive independently useful unknown invariant or boundary in this package.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:15.907525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frequency Plancherel with dω/(2π) gives the stated normalized Gaussian–quadratic multiplier. The even decaying analytic multiplier reaches a maximum but no nonzero L² function is supported on its maximizing set. For t>0 its derivative is 2 exp(−a²−t²) sinh(2at) times (h_a(t)−a²−γ), divided by √π(γ+1/2). The partial fraction series makes h'_a(t)/(2t) strictly decreasing from 4a²/3−1 to −1. For a≥√3/2 the bound h_a−a²<1/4 follows for u=2at≤3/2 from u coth u<1+u²/3 and monotonicity of s+u²/(4s) on s≥3/4, and for u≥3/2 from AM–GM and 2u/(exp(2u)−1)<1/4. This settles the centered regimes. For γ<1/4 and a≥a_c the hump maximizer satisfies u/(2a²)=coth u−u csch²u<1, so the envelope decreases strictly; u tends to infinity as a tends to infinity since (coth u−u csch²u)/u has a positive limit at zero and is positive on bounded intervals. The envelope is bounded above by 2u/(exp(2u)−1) and below by its positive test value at u=2a²; it tends to zero. The resulting unique fold has lower off-center height than center height, whereas at a_c the off-center height is higher. The difference decreases strictly on the intervening outer branch, by stationarity and strict decrease of the density beyond a_c. This gives one equal-height crossing and a strictly larger right norm slope; no inner stationary point can tie the center. The quadratic and quartic h_a coefficients give the two onsets, and the explicit sinh factor gives the order-six positive critical deficit. Checked the supplied verification description and code by inspection; independent Simpson quadrature and bisection gave a*=0.95234115163 and t*=0.82899868124 for γ=1/8, and displacement-to-prediction ratios 0.999941 and 0.999995 for γ=1/4 and γ=0.4 near the continuous transitions. The numerical checks are ancillary to the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polyanalytic Toeplitz theory supplies operator correspondences. The STFT Faber–Krahn theorem concerns a Gaussian window and sets of fixed finite measure. The disk record compares adjacent Hermite eigenvalues for mixed windows on a bounded disk."
+        ],
+        "reasoning": "General operator reduction does not calculate this multiplier's maximizing centers; neither finite-measure shape optimization nor disk eigenvalue comparison covers the infinite strip.",
+        "searches": [
+          "arXiv:1905.07741, Introduction",
+          "arXiv:2106.03423, Theorem 1.1",
+          "2026/11/16/SCOPE-exact-finite-inversion-census-for-two-hermite-disk-localization--cdf01c361d5b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Original source passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pure strip establishes an off-center/center tie after a=1 at w=0. The pure Gaussian two-band work gives its own critical merger for a different geometric parameter. Neither gives control of a positive mixed-weight outer branch or the threshold at γ=1/4."
+        ],
+        "reasoning": "Linearity of the mixed multiplier does not imply linearity of the maximum or the maximizing location. Determining the nonzero-weight fold, crossing, and fourth-root boundary needs additional global and local analysis.",
+        "searches": [
+          "Pure first-Hermite strip, Finding and Proof §§1–3",
+          "Two-Hermite disk inversion census, Finding",
+          "2026/11/2/SCOPE-a-quartic-spectral-edge-transition-for-gaussian-localization-on--a6d6bb0099b4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strip problem is equivalently maximization, over interval centers, of the integral of (γ+u²)e^(−u²) over a fixed-length interval. The inspected Gaussian-location-mixture record instead optimizes translation of a Hermite projection; the vacuum–Hermite spectrogram record uses a coherent signal and has interference terms."
+        ],
+        "reasoning": "Similar symmetry breaking does not identify either observable with this positive density's interval-mass maximum. The exact-title index hit is the frozen record itself.",
+        "searches": [
+          "Resultary: mixed Gaussian/first-Hermite strip localization and moving-center Gaussian-mixture comparisons",
+          "2026/11/2/SCOPE-global-translation-makes-the-first-hermite-enrichment-redundant--ef5617ae91e1",
+          "2026/11/8/SCOPE-two-sharp-transitions-in-vacuum-hermite-gaussian-spectrogram-lan--11f675377dc1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed pure-strip record gives the numerical crossing a≈1.07766 at w=0; the two-channel disk census tabulates different discrete spectral comparisons. No matching mixed-strip phase classification appeared in the inspected results except the assigned record itself."
+        ],
+        "reasoning": "The invariant is a classification over a continuum of pairs (a,w), not a discrete sequence searchable by its example decimals; the applicable indexed exact-result comparison is to strip threshold statements.",
+        "searches": [
+          "Resultary: first-Hermite strip and mixed two-Hermite localization",
+          "2026/11/2/SCOPE-two-stage-symmetry-breaking-and-sixfold-spectral-fibers-in-first--9ad7b3df9d6d"
+        ]
+      },
+      "rationale": "The supported distinction is the global phase classification for the incoherent mixture on the frequency-unbounded strip, including the exact weight separating discontinuous and continuous transitions. The same strip with a pure first-Hermite window already has a first-order transition, and the same pair of channels on a disk already has an eigenvalue inversion law. Neither inspected result covers the retained weight-dependent strip classification.",
+      "residual_risks": [
+        "The comparison is bounded, not a priority certificate. An unindexed fixed-length interval-mass theorem for this Gaussian-polynomial density could bear on coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the pure h1 endpoint only",
+          "evidence": "Center becomes locally maximal at a=1, then ties the outer pair at a unique later width near 1.07766.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-stage-symmetry-breaking-and-sixfold-spectral-fibers-in-first--9ad7b3df9d6d",
+          "material_read": "RESULT.md, Finding, Assumptions, Proof §§1–3",
+          "method": "Resultary and local source mirror",
+          "title": "Two-stage symmetry breaking and sixfold spectral fibers in first-Hermite strip localization",
+          "trigger": "Same strip and adjacent endpoint"
+        },
+        {
+          "assessment": "Different region and spectral observable",
+          "evidence": "Adjacency inversions in Hermite-index ordering for a disk, not the maximizing locations of a strip multiplier.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-finite-inversion-census-for-two-hermite-disk-localization--cdf01c361d5b",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Resultary and local source mirror",
+          "title": "Exact finite inversion census for two-Hermite disk localization",
+          "trigger": "Same mixed windows"
+        },
+        {
+          "assessment": "Different translation objective",
+          "evidence": "Optimizes a Hermite projection of a Gaussian location mixture; the equal-mixture threshold is a separation of √2.",
+          "identifier_or_url": "2026/11/2/SCOPE-global-translation-makes-the-first-hermite-enrichment-redundant--ef5617ae91e1",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Resultary and local source mirror",
+          "title": "Global translation makes the first Hermite enrichment redundant",
+          "trigger": "Possible moving-center reformulation"
+        },
+        {
+          "assessment": "Coherent signal rather than incoherent window energies",
+          "evidence": "A fold and later global tie concern a coherent signal h0+b h_m.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-sharp-transitions-in-vacuum-hermite-gaussian-spectrogram-lan--11f675377dc1",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and local source mirror",
+          "title": "Two sharp transitions in vacuum–Hermite Gaussian spectrogram landscapes",
+          "trigger": "Two critical widths or levels with competing maxima"
+        },
+        {
+          "assessment": "Different window and region",
+          "evidence": "Pure Gaussian on a two-band geometry yields a quartic critical merger and square-root splitting.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-quartic-spectral-edge-transition-for-gaussian-localization-on--a6d6bb0099b4",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and local source mirror",
+          "title": "A quartic spectral-edge transition for Gaussian localization on two time bands",
+          "trigger": "Possible broader Gaussian critical-merger theorem"
+        },
+        {
+          "assessment": "Provides operator framework, not evidence of the phase law",
+          "evidence": "Identifies localization operators with Toeplitz operators under Bargmann transform and lifts the theory to polyanalytic spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.07741",
+          "material_read": "Introduction, extracted offset 1860 onward",
+          "method": "Lawful OA original PDF",
+          "title": "Polyanalytic Toeplitz Operators: Isomorphisms, Symbolic Calculus and Approximation of Weyl Operators",
+          "trigger": "Broader Hermite-window quantization theory"
+        },
+        {
+          "assessment": "Finite-measure shape optimization for a Gaussian, not this strip,”",
+          "evidence": "Among regions of prescribed nonzero finite measure the optimum occurs at balls, with translated/modulated Gaussian extremizers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.03423",
+          "material_read": "Theorem 1.1 and equality statement, pp. 2–3",
+          "method": "Lawful OA original PDF",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Possible stronger STFT norm bound with equality cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimizer map and norm corner resolve how including a Gaussian channel changes concentration in a natural time marginal. The exact tricritical weight and fourth-root law distinguish global and local transitions; they are not a restatement of Plancherel or of the pure endpoint. The scope excludes finite frequency cutoffs and coherent windows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

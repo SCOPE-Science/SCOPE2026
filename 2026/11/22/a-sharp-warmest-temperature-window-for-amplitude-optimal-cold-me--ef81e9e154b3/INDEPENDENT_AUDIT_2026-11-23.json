@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:31:54.860821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With δ=L−μ and W=U−L, the objective is zero for A≤δ. For δ<A<δ+W the active half-arc ends at t=arccos(δ/A), and the boundary term in the derivative vanishes. Integrating cos s and cos² s gives πJ′/c=(W+δ)sin t−At, using A cos t=δ. For δ>0 its sign changes once: t/(sin t cos t) increases from 1 to infinity because sin(2t)−2t cos(2t) has positive derivative in the interval. At A=δ+W, J′ from below is cA(sin t−t)/π<0, so the root is before upper clipping. Once A≥δ+W, substituting u=A cos s−δ gives the fixed-support arcsine integral, strictly decreasing in A by pointwise comparison on 0<u<W, including at the integrable cutoff. Thus the root is the unique global maximum; for δ=0 the derivative directly gives A*=2W/π. Substitution of stationarity gives F(t)=sin t(1−cos t)/(t−sin t cos t). Differentiating gives the sign of H(t)=(1+2 cos t)t−(2+cos t)sin t; H(0)=0 and H′=2 sin t(sin t−t)<0. The endpoint expansions of F are 3/4 at zero (leading numerator t³/2, denominator 2t³/3) and 2/π at π/2. The stationarity equation maps these endpoints to the large cold offset and vanishing cold offset, respectively, establishing the strict bounds and sharpness. The statement is for half-amplitude and precisely the zero-clipped instantaneous parabola. Replay the analytic argument in RESULT.md lines 28–62. VERIFICATION.md and check.py were inspected, not executed; numerical objective comparisons alone would not suffice for uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Estay et al. approximate the change from a change in variance by half the curvature at the mean times the variance difference. The performance class discussed there can be negative outside thermal limits. The same-day model gives the untruncated Jensen expression m(1−m)−A²/2 to contrast with the clipped problem."
+        ],
+        "reasoning": "Local small-variance theory about the mean cannot cross the cold zero plateau, so it does not imply a global maximum or exclude upper clipping at the optimizer. An untruncated concavity bound likewise has different hypotheses. Martin–Huey full text was not retrieved independently.",
+        "searches": [
+          "Estay–Lima–Bozinovic thermal variability, Eq. (4)",
+          "Martin–Huey Jensen thermal preferences",
+          "Resultary thermal variability and Jensen search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3c04aa3721e7",
+        "Estay–Lima–Bozinovic Oikos (2014), pp. 132–134",
+        "Baskerville–Emin indexed abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The interior-mean record uses a closely related moving-boundary derivative and arcsine integral; its global classification has qualitatively different stationary-point structure. Estay's curvature check predicts local effects, not the global clipping-dependent optimizer."
+        ],
+        "reasoning": "Sharing an integration method does not encode the exterior-mean positive-root condition, its pre-hot-cutoff location, or the two sharp endpoint bounds from the monotonicity of F. The same-day comparison is genuine related work, without an assumption of publication order.",
+        "searches": [
+          "Resultary 3c04aa3721e7, proof and relationship to prior work",
+          "Estay et al., pp. 132–134 and Eq. (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day distinction is substantial: 3c04aa3721e7 assumes 0<m<1 for the normalized mean, and finds a discontinuous switch and a fold. The present mean is m≤0. That record's prior-work paragraph mentions an exterior-mean result but gives no independent source identifier for it."
+        ],
+        "reasoning": "Normalizing to T(1−T) indeed makes the response and cycle the same. The two theorems have disjoint mean hypotheses, and the interior result does not yield the cold-mean bound by continuity, including even its strict exterior inequalities. The unidentified exterior-mean pointer is an unresolved priority risk, not proof of a distinct matching prior theorem.",
+        "searches": [
+          "Resultary semantic search for clipped quadratic arcsine averages, cold mean and sinusoidal amplitude optimization",
+          "Resultary 3c04aa3721e7, same normalized parabola"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Baskerville–Emin indexed abstract describes a sine approximation and temperature thresholds. The nearest distinct indexed thermal theorem gives numeric switching/fold means for the interior regime, not the two sharp warmest-position constants. No directly applicable exact result for the optimum appeared in these inspected materials."
+        ],
+        "reasoning": "An integration formula or table for thresholded temperatures at prescribed amplitude would not give the extremal constants without addressing optimization. The two numbers here are bounds for a continuous family of unique optima, not threshold-tabulated rates. The full text of the degree-day comparators was inaccessible in the bounded check.",
+        "searches": [
+          "Resultary semantic search for warmest-temperature bounds 2/π and 3/4 and sine degree-day methods",
+          "Baskerville–Emin heat accumulation from maximum and minimum temperatures",
+          "Allen modified sine-wave degree days"
+        ]
+      },
+      "rationale": "The distinct claim supported here is the global classification at and below the lower viable mean and the sharp normalized maximum-temperature bounds. The sinusoidal average, truncated rate methodology, and use of a quadratic response are not credited as new.",
+      "residual_risks": [
+        "A specialized result on optimizing a clipped quadratic convolved with an arcsine kernel could cover the theorem. The unnamed exterior-mean result mentioned by the same-day record has not been established to be a distinct earlier publication.",
+        "Full-text degree-day comparators and Martin–Huey were not independently available in the bounded review; those retrieval limits are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model overlap; different mean domain and optimization theorem",
+          "evidence": "Interior means 0<m<1 have a positive-amplitude/zero-amplitude global switch and a local fold. The relationship section contrasts this with an exterior-mean optimum result, without identifying a distinct source for that result.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-discontinuous-fluctuation-optimum-for-bounded-quadratic-therma--3c04aa3721e7",
+          "material_read": "RESULT.md offsets 0–3883, Relationship to prior work at offset about 6542",
+          "method": "Local publication mirror",
+          "title": "A discontinuous fluctuation optimum for bounded quadratic thermal performance",
+          "trigger": "Same normalized response, forcing and amplitude objective"
+        },
+        {
+          "assessment": "Small-variance approximation, not a global clipped quadratic optimum",
+          "evidence": "Eq. (4) gives ΔR ≈ (1/2) f″(mean) times the variance change; the discussed response can be negative beyond viable temperatures.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1600-0706.2013.00607.x",
+          "material_read": "Open PDF pp. 132–134, Eq. (4) at about offset 35000",
+          "method": "Open-access original article PDF",
+          "title": "The role of temperature variability on insect performance and population dynamics in a warming world",
+          "trigger": "Broader variance-dependent thermal performance theorem"
+        },
+        {
+          "assessment": "Related averaging; no whole-text conclusion",
+          "evidence": "Abstract describes sine-based heat accumulation from extrema; full-text request encountered a client challenge.",
+          "identifier_or_url": "https://www.jstor.org/stable/1933912",
+          "material_read": "Indexed abstract only",
+          "method": "Bibliographic index and bounded open-access retrieval attempt",
+          "title": "Rapid Estimation of Heat Accumulation from Maximum and Minimum Temperatures",
+          "trigger": "Classical sine averaging with temperature thresholds"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "HTTP 403 on attempted access.",
+          "identifier_or_url": "https://doi.org/10.1093/ee/5.3.388",
+          "material_read": "Citation, no original article passage retrieved",
+          "method": "Open-access retrieval attempt",
+          "title": "A Modified Sine Wave Method for Calculating Degree Days",
+          "trigger": "Exact degree-day and threshold comparison"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "HTTP 403 on attempted access.",
+          "identifier_or_url": "https://doi.org/10.1086/527502",
+          "material_read": "Citation, no original article passage retrieved",
+          "method": "Open-access retrieval attempt",
+          "title": "Why ‘Suboptimal’ Is Optimal: Jensen’s Inequality and Ectotherm Thermal Preferences",
+          "trigger": "Thermal optimization under temperature fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete benchmark across all subthreshold means. It resolves both whether the optimizer overshoots the thermal window and where its hottest instant must be; the sharp fraction stays bounded away from both endpoints and follows from the whole parameter family, not a few fitted amplitudes. This has mathematical use for comparison with other waveforms or response laws, without claiming organismal applicability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:39:04.219584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–46; VERIFICATION.md and check_discrete_coring.py inspected, not executed",
+        "Independent reproduction: python3 /workspace/reproductions/01_03.py, record 3 output. Integrated the sine term explicitly rather than using the supplied quadrature; for u=1/2, ε=.001 and common period log 2, V_3−V_1≈0.000241175346089 while V_1=V_2=V_4."
+      ],
+      "rationale": "At every common absolute height 2u the washer integrand is s²(q(t/s)−q(u/s)). Equality of complete volume functions is exactly the equation ∫₀ᵘ H_s(t)dt=uH_s(u) for H_s=q−s²q(·/s). Continuity makes the left hand side C¹, so dividing by u>0 legitimates differentiating H_s and yields H_s'=0. The constant from u=0 gives the multiplicative equation, including the t=1 limit. Changing variables gives exact log-periodicity on y≥0. Extending a continuous periodic function to the real line preserves each other positive period (shift any pair sufficiently far right by the first period); the dense additive subgroup for two irrationally related periods forces constancy. The tip condition then fixes the spheroid coefficient. For commensurate scales the sine perturbation has exactly the required common period and q''≤−2+ε hypot(2−ω²,3ω)<0; q'(0)=0 and q(1)=0 give strict decrease and positivity inside. The square-root profile is strictly concave, and its even extension gives a strictly convex solid by the norm triangle inequality. Bounded second derivatives through the equator give C¹,¹ there; smooth inversion of q at the tip, as a function of squared radial distance, gives smooth tip charts. With a second-order Taylor expansion a single period forces the linear coefficient to vanish and gives a limiting value at infinity, so that period already forces constancy.",
+      "residual_risks": [
+        "No assertion for one isolated height, finitely many sampled heights at a scale, noisy equality, noncoaxial bores, or nonmonotone profiles. The numerical example is a diagnostic; the analytic argument establishes exact equality at all heights for the commensurate pair."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible abstract identifies a coring characterization among surfaces of revolution; the frozen source reports that its symmetry case compares the entire continuous family of dilations.",
+          "The distinct visibility result already assumes a spherical ring and recovers parameters using volume and viewing data."
+        ],
+        "reasoning": "An all-scales premise, as reported, is stronger rather than weaker than two prescribed tests and hence does not dominate the two-test statement. An assumption that the solid is spherical cannot prove arbitrary-profile scale-test rigidity. The paper's inaccessible full text leaves other possible coverage unresolved.",
+        "searches": [
+          "Coll and Dodd, DOI 10.4169/002557010X494832, publisher abstract; frozen RESULT.md lines 28 and 51–55 for the credited comparison",
+          "Resultary be86cd9e30fa, RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "Coll–Dodd DOI 10.4169/002557010X494832 (abstract and separately labelled frozen account)",
+        "Resultary a28461eaf851 (same finding) and be86cd9e30fa (distinct)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-scale washer equation and the generic dense-period argument are existing tools. The finite-test classification uses them on arbitrary fixed scale sets and gives a commensurate periodic perturbation with a global strict curvature bound and a separate one-scale Taylor criterion."
+        ],
+        "reasoning": "Under the reported all-scale result there is no supplied argument replacing all tests by a commensurability criterion. The new claim is not that bounded smoothness of the meridian automatically gives Taylor regularity; admissibility, strict convexity and tip regularity of the false positives require verification for the coring problem.",
+        "searches": [
+          "DOI 10.4169/002557010X494832, accessible abstract and frozen source's explicit comparison",
+          "Coll–Dodd full-text access attempted via publisher, Academia transcription and ResearchGate alternate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical question concerns coring like a sphere or invariance through all dilations. The same frozen record was found in Resultary; the strongest distinct topical record be86cd9e30fa concerns a spherical ring's hole visibility and reconstruction.",
+          "The frozen text expressly credits Coll–Dodd for the washer calculation yielding the fixed-scale functional equation."
+        ],
+        "reasoning": "Sharing the washer identity and its standard log-periodic reformulation is overlap, not a novelty claim for those steps. Projection data for a spherical ring are not equivalent to classifying profiles that pass a prescribed pair of scale tests.",
+        "searches": [
+          "Resultary semantic lookup for discrete-scale napkin-ring/coring rigidity",
+          "Primary literature query for Coll–Dodd coring and discrete dilation criteria; DOI 10.4169/002557010X494832"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed discrete-scale statement belongs to the assigned record itself. The same-day distinct hit concerns projected hole area and recovery of spherical ring parameters, not whether the prescribed scales have common logarithmic periods."
+        ],
+        "reasoning": "An indexed identical copy of the assigned finding is not independent prior coverage. The arithmetic criterion is a functional theorem rather than a previously tabulated value; the distinct indexed theorem cannot supply its examples or criterion.",
+        "searches": [
+          "Resultary exact and semantic object lookup; assigned a28461eaf851 and distinct be86cd9e30fa, local mirror RESULT.md offset 0 for each"
+        ]
+      },
+      "rationale": "The washer reduction and all-dilation spheroid conclusion belong to prior work as credited in the frozen record. On the evidence inspected, the supported distinct claim is the finite-scale arithmetic and regularity criterion, including the strictly convex C¹,¹ examples that pass commensurate tests. The general log-periodic functional equation is not itself new.",
+      "residual_risks": [
+        "The strongest prior paper's full text was not independently accessible after publisher and identified alternate attempts. The discrete arithmetic criterion is close to standard log-periodicity arguments and earlier equivalent geometric refinements may exist; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified topical overlap and credited washer reduction; precise further coverage of inaccessible text is unresolved",
+          "evidence": "The accessible abstract frames characterization among surfaces of revolution; the frozen attribution specifically states the prior all-dilations hypothesis, and credits the algebraic reduction.",
+          "identifier_or_url": "https://doi.org/10.4169/002557010X494832",
+          "material_read": "Publisher abstract returned by literature search; frozen RESULT.md lines 28 and 51–55 read separately as a secondary account",
+          "method": "Lawful publisher, Academia transcription and ResearchGate routes tried; no primary full text retrieved",
+          "title": "Which Surfaces of Revolution Core Like a Sphere?",
+          "trigger": "Same coring problem and plausible stronger or discrete theorem"
+        },
+        {
+          "assessment": "Distinct theorem, regardless of same-day dating",
+          "evidence": "It relates a projected hole to viewing angle and uses visible-hole probability with ring volume to reconstruct a spherical ring; it does not compare arbitrary profiles across dilations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-visibility-and-hole-area-law-for-the-classical-spherical--be86cd9e30fa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-finding mirror",
+          "title": "A sharp visibility and hole area law for the classical spherical napkin ring",
+          "trigger": "Strongest distinct indexed napkin-ring match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§2–4; credited Coll–Dodd all-dilation background"
+      ],
+      "rationale": "This replaces an all-scales idealization by two explicit scale functions (e.g. 2 and 3) and explains exactly when an alternative pair can fail. Strictly convex false positives with a C¹,¹ boundary show the obstruction is not a loss of convexity or an obvious nonsmooth shape. The one-scale Taylor boundary separately identifies how regularity can replace the second test.",
+      "residual_risks": [
+        "Each test remains an entire volume function, not a finite set of measurements. The result supplies no noisy-data stability bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

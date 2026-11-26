@@ -1,19 +1,21 @@
-# Scientific review: sharp two-round radiality and third-round branching defect
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is an independently rerandomized, simultaneous, per-missing-pair closure process, exactly the constant-probability model used in the motivating local-convergence paper. The finite-tree proof exhausts all possible common neighbors for original geodesic distances one to four after the first closure. The third-round comparison is made under an explicit common-coin coupling, with the two baseline path chords independently absent across both of the first two rounds. Their joint absence and the extra-leaf witness produce the exact factor \(p^4(2-p)(1-p)^4\). A second derivation gives the path probability; a same-order five-vertex path with its pendant leaf at the opposite endpoint has the same law, so the comparison uses equal-sized trees. The random-graph corollary is confined to fixed \(c>0\) and uses the published two-round local-convergence theorem plus bounded fixed-radius moments. The standalone checker verifies the exact polynomial identity, 1,356 finite tree/pair instances, and total probability normalization.
+PASS
 
-## Originality — PASS (self-review, residual priority risk)
+After one round an edge can only span original distance at most two. On a tree, at distance 2 the same initial witness guarantees both offers; at distance 3 exactly two independent first-round chords can make the pair eligible; at distance 4 exactly the midpoint can serve and both of its first-round chords are required. These cases give weights 1, 2p-p^2, 2p^2-p^3, p^3 and 0 beyond 4. In the two five-vertex trees, presample common pair coins. Unless both ac and bd fail twice, the third-round eligibility for absent ad is already guaranteed in both trees. On the joint failure event, of probability (1-p)^4, path x has no edge to d after round two, while branch x can serve precisely when ax succeeds by round two and the xc first-round and xd second-round coins succeed. The probabilities multiply and a further p is needed for ad. The exact path probability and difference (including 3/512 at p=1/2) were independently reconstructed by counting histories by successful/failed offer counts. Minimality follows since distances 1 and 2 are radial in every round and the only larger distance on at most four tree vertices is 3 on P4. For the sparse limit, the marked, induced original radius-four ball suffices for root degree after two rounds. Around one or two random distinct roots these fixed-radius neighborhoods converge to one or two independent PGW(c) trees, with fresh pair marks; for two roots this follows by truncating explorations to bounded size before taking n large. Truncation gives vanishing variance for the empirical mean of bounded degree observables. Breadth-first domination by four generations of Bin(n,c/n) offspring bounds the second moment of the original ball size uniformly, allowing removal of truncation. The expected depth-d population is c^d, giving the polynomial for 2|E|/n, the mean degree, not the unscaled edge fraction.
 
-The reviewed 2026 primary article proves local convergence for fixed repetitions but supplies explicit statistics for single-round clustering, not the two-versus-three-round distance universality threshold, the exact branch defect, or the stated two-round degree polynomial. The 2023/2024 solvable static-closure article and the 2026 clustering-spectrum article likewise study one round. Direct web and mathematical-record searches for both the radial kernel and iterated branch effect did not identify a covering claim. This is a statement-and-implication comparison, not a novelty inference from missing keyword hits. A possible unlocated exact analysis of repeated stochastic closure remains an uncertainty.
+## originality
 
-## Value — PASS
+PASS
 
-Repeated triadic closure is an explicitly motivated modeling extension because one closure round underestimates higher-order motifs in observed networks. The finding separates a tractable finite-depth regime (a distance-only pair kernel and computable macroscopic edge density) from the first regime where degree/branch topology genuinely affects an individual edge's probability. The exact positive five-vertex branch defect is a sharp qualitative boundary, not merely a small numerical improvement. It gives a precise warning against treating iterative closure as a fixed distance-only edge-retention model beyond two rounds.
+The model and local-limit transfer are prior. The retrieved comparisons do not cover the evaluated two-round radial kernel, the minimal exact third-round defect, or the polynomial value of the limiting mean degree. Credit the local-convergence mechanism separately from the new computation.
 
-## Closest literature and limits
+## value
 
-Talukdar (2026), arXiv:2610.39535v1, sections 1, 4, 5, and 7; Cirigliano et al. (2023/2024), arXiv:2311.05312v2, especially its model definition and the one-round degree/motif formulae; Cirigliano, Baxter and Timár (2026), doi:10.3390/complexities2020013, sections 1 and 5. The 2026 general local-convergence result is a necessary imported input for the random-graph corollary and is not repackaged as a new theorem. There is no general third-round classification, nor a claim that the finite checker proves an infinite asymptotic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact radial law explains when backbone distances alone suffice, while the minimal third-round example identifies exactly when this reduction fails and why branching matters. The evaluated two-round limit supplies a macroscopic benchmark not furnished by distributional local convergence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

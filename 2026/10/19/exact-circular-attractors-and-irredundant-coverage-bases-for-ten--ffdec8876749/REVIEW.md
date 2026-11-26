@@ -1,11 +1,21 @@
-# Scientific review: paperfolding circular attractors and essential coverages
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite claim is restricted to exactly ten explicit word lengths. A literal exhaustive checker constructs all cyclic factors and their entire occurrence-coverage masks. The upper witnesses intersect every mask. Exact positive rational dual weights satisfy the per-position capacity inequalities and have sums whose ceilings match each upper witness. The inclusion-minimal-mask enumeration proves the irredundant-basis counts; the elementary finite-poset argument proves the irredundancy statement. At length \(1024\), the lower bound is \(51/8\), proving a minimum of at least seven. The extracted computation was executed and completed with no failed checks. This is a complete finite proof, not an inference for uncomputed lengths.
+## correctness
 
-**Originality — PASS within examined records.** Romana (2023) supplies the general circular-attractor framework and checking algorithms, but no paperfolding dyadic classification. Faro–Marino–Pavone (2026) compute canonical coverages for ordinary Thue–Morse words; their word family and occurrence model differ. A pre-existing paperfolding dyadic-prefix calculation gives *ordinary* attractor minima, numerically equal to several of the present minima, but does not assert the circular factor-cover antichains or circular optima; at length \(8\), the ordinary minimum \(2\) even differs from the circular minimum \(3\). Full accessible texts and directly relevant claim statements were compared, not only their titles. The remaining risk is an equivalent unindexed or previously unavailable paperfolding circular computation.
+PASS
 
-**Value — PASS.** Dyadic prefixes are the natural multiscale instances of the regular paperfolding automatic word. The result establishes the first ten complete finite circular-attractor minima and their canonical irredundant constraint sizes; notably, it compresses \(868{,}847\) factor tests to \(55\) irredundant ones at the largest stage and proves a sharp seven-position threshold with just \(21\) rationally weighted factors. These canonical constraints determine *every* circular attractor of each finite word, not only the reported optima. The finite-scale nature and lack of a general recurrence remain explicit limitations.
+Reconstructed exact factor equality at each length by extending the previous length's equivalence class by one bit, grouped all cyclic starts, and expanded occurrence masks with rotations. Independently reproduced both ten-entry profiles and all ten factor counts and checked the displayed witnesses and every position's dual load from the raw JSON (python3 /workspace/reproduce_reviews.py 4). Each dual mass is strictly above gamma-1 and each position has load at most 1; summing over an attractor therefore supplies the integer lower bound. At 1024 the independent result is 868847 factors, 55 minimal coverages and minimum 7, with 21 distinct weighted factors of total 51/8 and maximum positional load 1. For any minimal coverage M, its complement hits every other distinct coverage (none is contained in M), so every equivalent subfamily must retain M. All nonminimal coverages follow from a minimal one. This verifies uniqueness for subfamilies of distinct coverages, not uniqueness of optimum position sets. The result stops at 1024.
 
-Closest literature: Romana (2023), *Algorithmic View on Circular String Attractors*; Faro, Marino, Pavone (2026), *Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words*; Banbara et al. (2026), *The Smallest String Attractors of Fibonacci and Period-Doubling Words*; Schaeffer–Shallit (2020), *String Attractors for Automatic Sequences*. A separately accessible numerical note on *ordinary* paperfolding attractors gives several matching cardinalities but not the present circular constraints. Independent evaluation remains necessary before treating originality as historically definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked evidence supports the specific ten-stage circular census and certified coverage bases, not novelty for the attractor definition, the inclusion-minimal test or general certification. The closest ordinary table demonstrably differs at n=8, and the related cyclic-complexity result counts a different object.
+
+## value
+
+PASS
+
+This is a contiguous census of natural dyadic stages of a canonical automatic word. It records the exact optimization invariant and the size of the equivalent canonical constraint system, with portable upper witnesses and very small, integral-dual lower certificates. The circular and ordinary minima already differ at n=8, and at n=1024 reducing 868847 factors to 55 constraints gives substantive exact benchmark data for circular-attractor algorithms without extrapolating.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

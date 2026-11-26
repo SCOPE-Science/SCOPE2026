@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:53:31.647038Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Frozen VERIFICATION.md and verify_theta.py (inspected, not executed)",
+        "Independent checks of the conflict sets, forced colors, and every length case"
+      ],
+      "rationale": "For ℓ=2, any two edges in K_{2,k} share an endpoint or have adjacent endpoints, so the conflict graph is complete. For distinct branches at ℓ≥3, cross-conflicts are exactly (1,1), (1,2), (2,1) and their terminal reversals. At ℓ=3 the left-position neighbor sets are {1,2}, {1,3}, {2,3}; for ℓ≥4 the first- and last-terminal patterns have disjoint position sets. Both cases have maximum degree two and no K_{2,2}. Same-branch conflicts are precisely position differences one or two, since there is no extra edge between vertices of that branch. So a within-branch clique has at most three edges and a cross-branch clique has at most one branch with two edges, all others at most one. The first terminal star plus any one second edge attains k+1. At ℓ=4 a (k+1)-palette forces all second edges to one omitted color and all third edges to another. They must differ, but then the third-edge color appears at the first edge of some branch and conflicts with the third edge of that same branch. The explicit (k+2)-color pattern avoids that obstruction. At ℓ=3 the cyclic shift of the first colors on the last edges avoids the same-branch first/last conflict; the middle uses the spare color. At ℓ=5, the last-edge palette omits 1 (the fourth-edge color) and the first-edge palette omits k+1 (the second-edge color); the choices of c_i separate all same-branch pairs at distances ≤2, including i=1 and i=2. At ℓ≥6 the two copies of k+1 are separated by at least three positions, and the interior period-three sequence can avoid i at both contact positions by choice of phase. Those are the only positions of the interior within distance two of a terminal edge. Thus the prescriptions meet every same- and cross-branch constraint, and the comparison with the clique bound proves the claimed gap.",
+      "residual_risks": [
+        "The recorded finite tests are not used as an exhaustive proof. The theorem does not include unequal branches or the k=2 cycles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The minor-free bound is 3Δ for the full edge set. The sparse subcubic planar large-girth bound reported in DeOrsey et al. is 5, not the claimed 4. Chang–Duh's equality results require σ≥Δ+2, whereas σ=k+1=Δ+1 for this family. Their corresponding weakened bounds allow σ+1 even when the extra girth or sparsity hypotheses hold."
+        ],
+        "reasoning": "The strongest inspected general shape of an equality theorem does not apply; the weaker bounds cannot resolve either exact sharpness or the failure of sharpness only at ℓ=4. The exact hypotheses of the inaccessible 2014 subdivision results are not inferred from bibliographic summaries.",
+        "searches": [
+          "arXiv:1905.06031 §6, induced line-graph-square bound on K_4-minor-free multigraphs",
+          "arXiv:1508.03515, sparse subcubic/subquartic strong edge coloring",
+          "arXiv:1508.03052, Theorems 11, 20, 22, 25 and 26",
+          "Naprasit–Nakprasit DOI 10.1016/j.disc.2013.11.005, publisher and lawful alternative lookups"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c303e1622d47, 06007ca808cb (summary only for the latter), 4b64a4175adc, 7b2f1a1b16bb",
+        "arXiv:1905.06031, arXiv:1508.03515, arXiv:1508.03052, arXiv:1505.04908v3",
+        "Subdivision DOI 10.1016/j.disc.2013.11.005 and incidence correction DOI 10.1016/j.disc.2007.11.030 (access attempts, not full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint-degree bound σ applies to cliques of incident edges, but does not rule out larger cliques; the cross-branch argument supplies that upper bound. Equality χ′_s=σ in large-girth sources does not follow with σ=Δ+1. Computing χ(Θ^2) changes the adjacency problem; using incidence coloring for even lengths preserves the chromatic question but does not automatically answer those of odd length or the joint clique question."
+        ],
+        "reasoning": "Do not credit the easy cases, familiar lower bound or incidence translation as new. Even allowing classical coverage of the length-four index, the stated across-length distinction and upper bounds and the exact comparison invariant are not consequences of the actual compared results.",
+        "searches": [
+          "arXiv:1508.03052 Theorems 11/20 and 22/26 vs σ=k+1",
+          "arXiv:1505.04908v3 pp. 1–2 and Shiu–Sun DOI 10.1016/j.disc.2007.11.030 for possible classical coverage at ℓ=4",
+          "c303e1622d47 Finding vs the frozen conflict graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strong index equals χ(L(Θ)^2), not χ(Θ^2). For even ℓ≥4, Θ_{k,ℓ} is the full one-subdivision of Θ_{k,ℓ/2}, so its strong index is the latter graph's incidence chromatic number. In particular, ℓ=4 corresponds to incidence coloring of K_{2,k}. arXiv:1505.04908v3 states the subdivision equivalence and discusses the related balanced complete bipartite case."
+        ],
+        "reasoning": "The incidence reduction is exact for the even-length chromatic index and makes incidence literature a real source of possible individual-case overlap. It is not an enumeration of strong edge-conflict cliques or of the full family. Vertex-square theta coloring and strong-odd coloring of the same subdivision are different parameters.",
+        "searches": [
+          "Resultary: strong chromatic index uniform theta multigraph, subdivided parallel edges, line-graph squares, incidence coloring",
+          "Brualdi–Massey and complete bipartite incidence coloring; Gregor–Lužar–Soták arXiv:1505.04908v3 pp. 1–2, 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c303e1622d47 is an exact three-path theta classification for χ(Θ^2), not χ(L(Θ)^2). 06007ca808cb concerns strong-odd vertex coloring of a subdivision family including Θ_{k,4}; the available index summary does not give an edge coloring result. The same-day records inspected concern a Heawood-graph trade and K_{1,r} square C_6, respectively."
+        ],
+        "reasoning": "Exact computations for different invariants or graph families do not give the joint formula. No exact catalogue or table match for the joint edge invariants was identified by these bounded searches.",
+        "searches": [
+          "Resultary: theta strong chromatic index and edge-conflict clique census; c303e1622d47, 06007ca808cb",
+          "Resultary same-day strong edge coloring records 4b64a4175adc and 7b2f1a1b16bb"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint exact classification of the edge-conflict clique number and chromatic index across all branch counts and common lengths, including sharpness away from the exceptional length. No independent novelty is assigned to the K_{2,k} case, the terminal-star bound, or to the length-four index in isolation: that index is an incidence-coloring parameter of K_{2,k} with plausible classical prior coverage. The inspected planar and minor-free results do not imply the full joint classification, and the closest exact theta catalogue hit concerns vertex-square rather than line-graph-square coloring.",
+      "residual_risks": [
+        "Unlocated incidence-coloring results may cover individual even lengths, including the length-four index. The 2014 subdivision full text was inaccessible and could contain more exact cases than its available bibliographic coverage suggests. This is a bounded joint-theorem judgment, not an earliest-priority certification or a claim of novelty for every constituent case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Vertex-square invariant on three paths, not the square of the line graph of the given k-branch theta",
+          "evidence": [
+            "It classifies χ(Θ(a,b,c)^2) with possible values 4, 5, 6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror and parameter comparison",
+          "title": "Exact two-distance chromatic number of three-path theta graphs",
+          "trigger": "Exact color classification on theta graphs"
+        },
+        {
+          "assessment": "Covers the family in a broad upper bound, not its exact values",
+          "evidence": [
+            "The induced subgraph of L(G)^2 on A⊆E(G) is 3Δ_A-colorable for K_4-minor-free multigraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.06031",
+          "material_read": "§6, p. 17, OA offset 55366",
+          "method": "Targeted primary-text inspection",
+          "title": "Strong chromatic index and Hadwiger number",
+          "trigger": "General series-parallel/minor-free bound"
+        },
+        {
+          "assessment": "Inspected subcubic large-girth theorem is weaker; the report's more specific theta-case comparison was not independently confirmed",
+          "evidence": [
+            "A bound of 5 for subcubic planar girth at least 30 is not exact for Θ_{3,ℓ} at ℓ≥15."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.03515",
+          "material_read": "PDF pp. 1–2, offsets 1377 and 6306",
+          "method": "Targeted primary-text inspection",
+          "title": "On the Strong Chromatic Index of Sparse Graphs",
+          "trigger": "Proposed overlap with sparse and three-branch cases"
+        },
+        {
+          "assessment": "Equality results exclude σ=Δ+1; weaker large-girth/sparsity results do not decide this family",
+          "evidence": [
+            "Theorem 11 states equality with σ≥Δ+2 and large girth. Theorem 22 without this constraint gives lower and upper bounds σ and σ+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03052",
+          "material_read": "Theorems 11, 20, 22, 25 and 26, PDF offsets 9050, 34325, 35010, 37926",
+          "method": "Primary theorem hypotheses and inequality comparison",
+          "title": "On the precise value of the strong chromatic index of a planar graph with a large girth",
+          "trigger": "General exact result with endpoint degree-sum parameter"
+        },
+        {
+          "assessment": "Exact equivalence for ℓ even; points to earlier incidence results for complete bipartite graphs without giving an all-theta result in those passages",
+          "evidence": [
+            "Full subdivision converts incidence coloring exactly to strong edge coloring; the discussion gives the Δ+2 incidence example for balanced complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.04908v3",
+          "material_read": "PDF pp. 1–2 around offsets 3040 and 4783; p. 4, offset 11925",
+          "method": "Primary definition and claim comparison",
+          "title": "On incidence coloring of Cartesian products of graphs",
+          "trigger": "Incidence coloring on the underlying graph of an even-branch-length subdivision"
+        },
+        {
+          "assessment": "Plausible partial case coverage not used to certify full novelty or full overlap",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2007.11.030",
+          "material_read": "Bibliographic search and citation in arXiv:1505.04908v3; identified alternate copy returned 403; no full text read",
+          "method": "Targeted lookup and alternate-copy attempt",
+          "title": "Invalid proofs on incidence coloring",
+          "trigger": "Classical complete bipartite incidence result and correction; potentially exact at ℓ=4"
+        },
+        {
+          "assessment": "Precise scope not independently confirmed; retained as access risk",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2013.11.005",
+          "material_read": "Bibliographic result only; publisher/DOI access returned 403 and no accessible alternate was identified in the bounded search",
+          "method": "Targeted publisher and lawful alternate-copy lookup",
+          "title": "The strong chromatic index of graphs and subdivisions",
+          "trigger": "Directly relevant subdivision family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and constructive proof",
+        "arXiv:1905.06031 §6 and arXiv:1508.03052 Theorems 11, 20 and 22 for comparison"
+      ],
+      "rationale": "The uniform theta family gives a natural test of how two high-degree terminals joined by equal-length paths constrain strong colorings beyond their local clique bound. The exact comparison for all lengths and widths identifies when the clique obstruction is complete, and isolates the length-four obstruction rather than relying on a broad series-parallel upper bound. The explicit constructions give useful sharp palettes, including small difficult lengths as well as the unbounded regime. This value is in the full classification, not the trivial complete-bipartite case or a claim that the length-four incidence index is separately new.",
+      "residual_risks": [
+        "The result does not extend as stated to unequal lengths, strong list edge coloring, or unrestricted series-parallel graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the stated integrable discrete IFR class, the upper-tail geometric majorant and lower-tail geometric minorant follow directly from nonincreasing survival ratios. The one-parameter mean envelope is valid for finite or infinite support. Its sharp bound is established by an elementary interval decomposition, the exact endpoint expression, and a monotone real-variable function. The equality distribution is explicitly normalized and its mean and IFR property are checked. The finite exact-rational witness separately checks the failure of extrapolated three-point sharpness.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating 2026 article proves the local-ratio bound only for ratios at most one half, whereas the present result solves the sharp ratio-one instance. Its weaker quarter bound is not the exact result, and the three-point formula is disproved at ratio one. The 2024 log-concave-probability-mass results impose a different, stronger hypothesis not satisfied by the present extremizer. Related hazard-rate literature and mathematical-record searches did not identify a directly covering statement. A 1965 reliability report was not available in full text, so equivalent historical coverage remains a risk.
+PASS
 
-## Value — PASS
-The local mass ratio is a natural parameter in the recently established discrete-IFR lower-tail theorem. The exact endpoint value improves the usable universal guarantee, identifies the unique extremal distribution and its hazard jump, and exhibits a concrete obstruction to naive continuation of the earlier sharp formula. This is a structural optimization over all discrete IFR distributions, not a finite table observation.
+Translate m to zero. If s=S_1 and t=S_0/s, positive adjacent masses with p_1≥p_0 give 1<t≤2 and S_2/S_1≤2−t. The nonincreasing positive survival ratios bound the right mean contribution by s/(t−1) and the left contribution from below by Σ_{j≥1}(1−st^j)_+, using both integrable tail-sum identities. Their difference F_s(t) is strictly increasing in s. At s*=a², (1+s*)(1/a−1)=1. On [1/a,2], F_{s*} decreases strictly before t=2 and is zero at 1/a. On each remaining open interval with d active terms, multiplying the derivative by (t−1)² gives s*t^d[d(t−1)−1], so there is no interior maximum. At t_d=(s*)^(−1/d), F is 1/(t_d−1)−(d−1+s*); the function (y−1+s*)(exp(L/y)−1), L=−log s*, is strictly increasing on y≥2 since 1−exp(−v)>v−v²/2 for v>0 and L<2(1−s*). It is one at y=2, exhausting all t>1 including t=2 and ruling out any other equality. At equality S_{−1}=1, every right survival meets its geometric majorant, p_1=p_0, and the mean is zero. The resulting survivals have ratios a,a,b,b,… with 0<b<a, sum to a finite signed mean, and attain the bound. Separate exact rational arithmetic verifies the five-point IFR counterexample, with mean zero and tail 16/49. Bounded checks: `python3 /workspace/independent_reproduction.py 2` independently recovered a=0.5698402909980532659…, a²=0.3247179572447460260…, b=0.2451223337533072399…; it does not prove the continuum optimization. The frozen `verification/check.py` was inspected, not run.
 
-## Limits
-The full sharp ratio-parameter curve is not claimed. The conclusion is not a continuous IFR bound or a PMF-log-concavity theorem. All verification is analytic or self-review; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp ratio-one IFR inequality and unique equality law, not a new general mean-tail theorem. The closest same-event theorem gives only 1/4 by applicable specialization. No equivalent result was identified in inspected sources; priority is qualified.
+
+## value
+
+PASS
+
+Equal or increasing adjacent masses are a natural endpoint condition of the existing discrete IFR problem. The theorem raises the directly available quarter bound, supplies the actual sharp extremizer in the larger survival-log-concave class, and shows by a small exact witness why the prior three-point mechanism does not extend. Its precision is useful for anyone trying to classify the full ratio curve; it does not claim to solve that curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

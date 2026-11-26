@@ -1,15 +1,21 @@
-# Scientific review: sharp power stop-loss transition for unit Shiha laws
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes positive \(\omega\), orders two strictly positive \(\eta\)-parameters, and allows every positive power \(r\). The density and CDF follow from the published formula. Strict concavity of the one-crossing function gives exactly one interior crossing; exact integration gives the power-moment gap with sign change only at \(2\omega\). Stop-loss differentiation and endpoint signs prove the complete phase diagram, including uniqueness and parameter invariance of the deductible reversal. The critical-power mean, convex ordering, and exact variance envelope follow algebraically. The standalone checker passed 1,850 finite tests; the infinite-parameter statements rest on the displayed proof, not computation.
+## correctness
 
-## Originality — PASS, with residual risk
-The relevant sections and references of arXiv:2602.04400v1 and its original-lifetime antecedent arXiv:2602.02875v1 were examined. Both provide formulas; the unit paper itself (including its later journal version) already observes a qualitative quantile reversal near rank \(0.57\), while its earlier lifetime antecedent notes a similar reversal near rank \(0.43\). Neither inspected result establishes the complete powered stop-loss/convex-order classification, the exact universal deductible reversal, or the critical-power variance envelope as an ordering theorem. Classical stochastic-order equivalences are used as established results. Searches of mathematical research records and the literature found no stronger result covering this precise comparison, but coverage cannot be ruled out for unindexed results or material not fully accessible. The source formulas, the prior qualitative unit and lifetime quantile reversals, and general stop-loss theory are not claimed as novel.
+PASS
 
-## Value — PASS
-This is an exact all-parameters classification for a model proposed for reliability and unit-valued risk data. It states which power transformations guarantee uniformly lower excess-loss premiums at all deductibles, and proves that weaker powers cause a unique deductible-dependent preference reversal rather than simply a change in a single moment. The boundary yields a natural, entire mean-preserving contraction family; its universal variance envelope quantifies dispersion reduction. These are motivated structural decisions, not merely a parameter substitution or an isolated numerical gain.
+For fixed positive omega and 0<eta1<eta2, the transformed CDF difference is a strictly positive scalar times u*g(u), g(u)=u(3-4 log u)-3. The derivative changes sign once before 1, and g is negative at 0+, positive at its interior maximum and zero at 1. This gives exactly one interior zero and H_q(u*)=u*. Integrating the density using the elementary log moment gives the moment gap k*z*(2-z)/[(1+z)(2+z)^2], z=s/omega. The stop-loss difference B is minus the integral of the powered CDF difference over [d,1]; its derivative is negative before the powered pivot and positive after it. B at the pivot is strictly negative, B(1)=0, and B(0) has the sign of 2*omega-r. This proves the stated strict interior comparisons, incomparability and unique subcritical root; the multiplicative factor k cancels from the root condition. Differentiating the proposed primitive verifies the log term and J(1)=0. Below 0 the stop-loss gap equals the mean difference; at and above 1 it vanishes. At r=2*omega the means are 1/3 and the variance (4+10q)/[45(1+3q)] decreases strictly over q>0, with the stated unattained limits and ratio. The independent bounded replay `python3 /workspace/review_replay.py 4` gives pivot 0.5768340041423086893096 and illustrative deductible 0.3150375457349501766499. The frozen checker was inspected, not executed; neither checker proves the all-parameter theorem.
 
-## Scope and uncertainty
-No order statement is made when both shape parameters vary. Neither a published priority search nor finite numerical diagnostics establishes independent validation or universal novelty. Inference and real-data performance were not re-evaluated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The density, moments and qualitative quantile reversal are prior; classic one-crossing and integrated-tail principles are prior machinery. The supported distinct result is the full all-power stop-loss classification for the stated law, including the pair-independent positive deductible exactly in the subcritical regime and the mean-preserving order at the boundary. Available comparable statements do not establish that classification. This is not an absolute priority finding.
+
+## value
+
+PASS
+
+An excess-loss premium depends on the whole upper tail, so a mean or a quantile table alone is not sufficient. The theorem tells when changing eta decreases premiums uniformly across deductibles, and when this fails, locates the unique preference reversal independently of the eta pair. The exact mean-preserving critical family is useful for comparing dispersion at matched means. This concerns fixed omega and model-based premiums, not real-data calibration or inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

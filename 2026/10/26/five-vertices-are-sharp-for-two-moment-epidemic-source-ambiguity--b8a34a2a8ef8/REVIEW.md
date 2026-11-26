@@ -1,9 +1,21 @@
-# Scientific review of the sharp five-vertex two-moment ambiguity
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives exact arm-tail expectations and variances and separates the two distinct source reflection orbits. For orders three and four, exact algebra shows that equal-mean candidates have unequal variance. For every larger order, the equal-mean variance difference is negative in its small-transmissibility expansion and positive near certainty; the decisive high-end comparison is an explicit strict positive ratio inequality. Continuity yields an interior, distinct-parameter collision. The finite exact checker was run from the included file and its output compared with its included certificate. The all-order assertion is established by the proof, not by extrapolation of the checked finite sizes.
+## correctness
 
-**Originality — PASS under present evidence.** The 2006 Kenah–Robins work treats epidemic-percolation representation and correlated transmission, the 2010 Karrer–Newman work treats forward message-passing and outbreak laws, the 2009 Shah–Zaman work infers source using infected-node identities in SI spreading, and the 2023 Kiss–Simon analysis concerns epidemic mean-field parameter identification via growth rates and final sizes. None of the inspected claims gives the sharp path-order-five obstruction to simultaneous source/transmissibility identification from two exact *total-size* moments. A related earlier tree result on equality of entire common-parameter mean curves is not a covering implication. Residual risk: a result stated in language of truncated-geometric moment curves or inverse bond percolation might have escaped search; no independent bibliographic confirmation has been performed.
+PASS
 
-**Mathematical value — PASS.** An inference task with exact replicated-outbreak aggregates has a sharp change from identifiable source orbit through four individuals to unavoidable discrete ambiguity on all longer paths, even with noiseless population moments. The proof identifies how the obstruction arises from a reversal between low-transmission and near-certain-transmission variance comparisons at fixed expected size. The result sharply distinguishes two moments, a known transmissibility, and the entire size law, and may guide which additional statistics are necessary in sparse outbreak surveillance. It is not proposed as a claim about all epidemic models or empirical tracing performance.
+The two independent arm lengths have tails p^j, with mean and second moment obtained by summing p^j and (2j-1)p^j respectively, as claimed. The expected size is strictly increasing in p; moving one step centerward changes it by p^k-p^{n-k}>0 before the center, so equality for known p identifies the reflection orbit. The full law identifies p from its all-open atom. For n=3 and 4 an independent component-interval reconstruction with exact probabilities p^(internal edges)(1-p)^(boundary edges) and factorial moments reproduced both equal-mean variance identities by polynomial remainders. The n=3 identity is strictly positive; at n=4 equal means force q<p and 1+2p>1+p+p², giving strict positivity. At n>=5 match means uniquely with q(p)<p for arms (1,m) and (2,m-1), m=n-2, since the latter mean at the same p exceeds the former by p²-p^m. The small-p expansions give q=p-p²/2+O(p³) and variance gap -2p²+O(p³). Near p=1, a single failed edge truncates one arm by a loss j, with each j on that arm available once to first order, yielding A=sum j in the mean deficit and B=sum j² in the variance. At equal mean near n the gap sign is that of B1/A1-B2/A2, strictly positive because A1-A2=m-2 and B1-B2=(m+2)(m-2), while B2/A2<=m-1<m+2. Continuity gives a nontrivial collision, and sources 2 and 3 are not reflections for n>=5. Independent exact elimination using the interval moments reproduced 4p²(p-1)P(p), exact endpoint signs of the rational bracket, and the reported p, q and mean. Positivity of P' on (0,1) and the existence proof remove ambiguous and extraneous resultant roots.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct supported finding is the sharp order-five boundary for unequal-parameter, two-population-moment ambiguity of the source orbit, plus persistence for sources 2 and 3 at all larger orders. The strongest inspected same-model overlap is a later same-parameter variance crossover; known forward laws, fixed-parameter comparisons and mean-field identification do not cover this inverse claim.
+
+## value
+
+PASS
+
+Even with a known path and exact population moments, estimating a source orbit with unknown edge retention has a sharp loss of structural identifiability. The mechanism is the sign reversal of the variance contrast after equalizing the means, not sampling noise. The comparison to known retention and the full size law specifies exactly which observation loss is responsible in this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

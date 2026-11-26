@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:48:32.788695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each image line L=F_q u, the matrices in the cone with image contained in L are the maps uv^T with v^T u=0. Their exact character sum is q^(n−1) if A stabilizes L and zero otherwise, since a nonzero restricted F_q-linear functional is surjective and ψ is nontrivial. Each nonzero cone point belongs to a unique such subspace, and zero belongs to all (q^n−1)/(q−1) of them. Correcting for zero proves q^(n−1)E(A)−sum_(j=1)^(n−1) q^j, including every prime-power order and dimension n≥3. At A=0 this agrees with the stated cardinality. Unitary Fourier diagonalization in counting ℓ² gives the absolute multipliers as singular values, with the largest attained at zero and all nonzero by the mod-q² residue. Write B=sum_(j=1)^(n−2)q^j; the multiplier is q^(n−1)(E−1)−B. For q≥3 the closest integer is E=1 (one Jordan block already realizes it). For q=2, E=2 realizes 2 using blocks of sizes n−1 and 1 with distinct eigenvalues; when n=3, E=1 also gives modulus 2, with no claim of uniqueness. In size three the irreducible cubic, quadratic-plus-linear and six split Jordan types exhaust the matrices. The potentially subtle same-eigenvalue (2,1) type has commuting matrices [[a,b,c],[0,a,0],[0,d,e]], with determinant a²e, yielding the stated unit-centralizer order q³(q−1)²; other centralizers are products of field units, units of a truncated polynomial ring, GL₂ and/or scalar units as appropriate. Multiplying each orbit size by its eigenvalue/polynomial choices gives the table; combine equal absolute values when reading singular multiplicities. `python3 /workspace/independent_checks.py 3` directly summed residues on the cone at all q^9 frequencies for q=2,3, confirming the signed tables. The supplied checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brouwer et al. §7 defines H_q(d,e) by rank-one differences of matrices, cites Delsarte Theorem A2 and explicitly gives the rank-i character-level eigenvalue (q^(d+e−i)−q^d−q^e+1)/(q−1). The Letellier Chapter 7 description is about the more general orbital-Fourier reduction to Green functions; the full chapter was not obtained."
+        ],
+        "reasoning": "The published square case d=e=n already gives B(A)=(q^(2n−rank A)−2q^n+1)/(q−1) for the rank-one indicator, with the trace pairing equivalent to the entrywise pairing by transposition. Its values at scalar translates are exactly the inputs to the restriction. No unverified specialization of the Green-function theory is needed for the rejection.",
+        "searches": [
+          "Delsarte, Bilinear forms over a finite field, DOI:10.1016/0097-3165(78)90015-8, Theorem A2 via its published restatement",
+          "Brouwer–Cioabă–Ihringer–McGinnis, The smallest eigenvalues of Hamming graphs, Johnson graphs and other distance-regular graphs with classical parameters, §7 PDF p.26",
+          "Letellier, DOI:10.1007/978-3-540-31561-2_7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, nilpotent_spectrum_checker.py and accompanying metadata and self-audit",
+        "Brouwer–Cioabă–Ihringer–McGinnis §7 primary PDF, restating Delsarte A2",
+        "SageMath class-type documentation",
+        "Letellier chapter description and RIMS abstract-level overview",
+        "Resultary f9373f28c5a8, d56257c1b7cd and 5e394125bac8 catalogue statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The averaging identity is 1+q^(-1) sum_(c∈F_q) B(A+cI), where B is the prior rank-one multiplier. Substituting its published value and using sum_c(q^(dim ker(A+cI))−1)=(q−1)E(A) gives exactly q^(n−1)E(A)−sum_(j=1)^(n−1)q^j.",
+          "The modulus minimum is the distance from an integer offset to a q^(n−1)-spaced lattice, attained by one full Jordan block or by two blocks with distinct field eigenvalues. No further distributional bound is needed."
+        ],
+        "reasoning": "This derives the entire main formula, not just a necessary condition or shared method. Nonvanishing, the minima, and the small census follow by routine algebra and standard type counts. The proof in the frozen record is valid and self-contained, but a different proof of this consequence does not make the stated invariant new under the audit standard.",
+        "searches": [
+          "Brouwer et al. §7 rank-one graph formula; comparison by scalar identity shifts",
+          "SageMath similarity_class_type, class_card and number_of_matrices",
+          "Letellier publisher chapter 7 and public RIMS proceedings overview"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In rank one, X²=tr(X)X, so the domain is exactly the trace-zero slice of all rank-one matrices, together with zero. The retrieved Veronese entry treats symmetric matrices over odd fields, and the idempotent entry treats a different trace constraint. The exact target catalogue entry is not distinct prior evidence."
+        ],
+        "reasoning": "The target is not the symmetric-space or idempotent graph. The trace-zero-slice equivalence is the decisive comparison: additive orthogonality of the scalar trace turns the restricted transform into an average of the already evaluated full rank-one transform.",
+        "searches": [
+          "Resultary: rank-one trace-zero, rank-one square-zero, minimal nilpotent orbit, eigenline count and convolution singular values",
+          "2026/11/8/SCOPE-complete-fourier-spectrum-of-the-isotropic-veronese-cayley-graph--f9373f28c5a8",
+          "2026/11/8/SCOPE-fourier-spectral-law-of-rank-one-idempotent-convolution-on-matri--d56257c1b7cd",
+          "Brouwer–Cioabă–Ihringer–McGinnis, §7, following Delsarte Theorem A2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SageMath's similarity-class-type reference documents formal-in-q enumeration by primary degrees/partitions and the available counts by number_of_classes, centralizer_group_card and number_of_matrices. It does not label that output by nilpotent-cone Fourier spectra. The closest distinct catalogue spectra concern different matrix spaces or constraints."
+        ],
+        "reasoning": "The table is a direct reindexing of existing finite-field class-count data: for each primary factor of degree one with partition of length h, add (q^h−1)/(q−1) to E, then relabel by the multiplier. For example, the Jordan (2,1) at the same eigenvalue has h=2 and produces E=q+1; irreducible cubic has no degree-one factor and gives E=0. This uses no new enumeration beyond routine grouping, whether or not an earlier literal Fourier table exists.",
+        "searches": [
+          "Resultary: exact M₃ Fourier multiplicities grouped by number of rational eigenlines",
+          "SageMath reference: Similarity class types of matrices with entries in a finite field",
+          "Primary search: 3×3 finite-field similarity classes, centralizer types and Jordan eigenvalue distributions"
+        ]
+      },
+      "rationale": "The central eigenline formula is mechanically implied by the published rank-one bilinear-forms spectrum via a single scalar-shift average. The nonvanishing and sharp norm follow by integer spacing and immediate Jordan witnesses. The size-three table regroups standard similarity types and orbit sizes under the same formula. I found no evidence that an earlier source literally printed the final seven rows in this notation; the rejection rests on affirmative prior implication, not on Letellier access or an empty search.",
+      "residual_risks": [
+        "The full Letellier chapter and the original Delsarte paper were not independently obtained. The exact rank-one formula was inspected in the later primary restatement; the explicit reduction does not depend on inaccessible content.",
+        "It is not established which source, if any, first printed the least singular value or grouped the eight standard size-three types into these seven Fourier rows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader coverage by mechanical specialization",
+          "evidence": [
+            "Rank-one adjacency on d×e matrices; Delsarte Theorem A2; θ_i=(q^(d+e−i)−q^d−q^e+1)/(q−1)."
+          ],
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.udel.edu/dist/d/5653/files/2017/02/proof_yjctb3143-seywvx.pdf",
+          "material_read": "PDF p.26 §7, bounded offset 194200–198346, including graph definition and eigenmatrix",
+          "method": "Primary PDF passage inspection; direct substitution and trace-hyperplane averaging",
+          "title": "The smallest eigenvalues of Hamming graphs, Johnson graphs and other distance-regular graphs with classical parameters",
+          "trigger": "Exact Fourier spectrum of the unsliced rank-one Cayley graph"
+        },
+        {
+          "assessment": "General computable orbit-count data; not a literal Fourier table",
+          "evidence": [
+            "Can compute centralizer cardinality, numbers of classes and total numbers of matrices of each similarity class type over formal q."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/similarity_class_type.html",
+          "material_read": "Documentation offsets 2340–4233, description and example of class-size/count data",
+          "method": "Bounded website passage inspection and mathematical reindexing by degree-one partitions",
+          "title": "Similarity class types of matrices with entries in a finite field",
+          "trigger": "Exact finite-field counts by canonical type"
+        },
+        {
+          "assessment": "Historical coverage by this source is unresolved; not required for the implication from rank-one adjacency",
+          "evidence": [
+            "Chapter description reduces adjoint-orbit Fourier transforms to generalized Green functions."
+          ],
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-540-31561-2_7",
+          "material_read": "Publisher chapter description and RIMS abstract-level overview; no decisive full chapter passage obtained",
+          "method": "Lawful direct and alternate public-source attempts",
+          "title": "Fourier Transforms of Invariant Functions on Finite Reductive Lie Algebras, Chapter 7",
+          "trigger": "Direct historical adjoint-orbit-indicator coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cone and spectral invariant are natural, and the self-contained derivation can be useful exposition. As an exact new mathematical contribution, however, the frozen finding evaluates a one-step character restriction of a known spectrum, takes its elementary spaced-integer minimum, and recodes known class counts for n=3. No further structural statement or independently substantive surviving invariant was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

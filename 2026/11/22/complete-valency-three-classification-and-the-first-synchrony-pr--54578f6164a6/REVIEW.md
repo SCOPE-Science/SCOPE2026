@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The spectral reduction uses integer characteristic coefficients and Newton identities; nonnegativity and diagonal trace give \(\omega^2\in\{1,2,3\}\). The standalone exhaustive enumeration visits each of the \(20^4\) admissible labeled matrices exactly once, checks connectivity and the determinant/power-sum conditions, reduces under all 24 simultaneous label permutations, and tests the 13 possible nontrivial balanced partitions. It produced the three class counts \(65,36,8\) and the nontrivial-synchrony distribution \((0,47,18),(1,27,8),(2,5,1)\). Independent principal-minor and Burnside checks passed. The 109 output matrices had the claimed exact characteristic polynomials under a separate symbolic check. No finite sampling is promoted into an infinite claim: this is a finite complete classification.
+## correctness
 
-## Originality
-PASS within accessible prior literature. The initiating 2026 preprint fully develops the general problem and gives all nine valency-two four-cell cases, but not a valency-three catalogue or the existence and number of odd-valency-three synchrony-primitive classes. Its arbitrary-even-valency construction and general four-lattice possibility theorem do not imply these counts. A related enumeration at five cells and valency two is dimensionally distinct and cannot imply this four-cell three-input statement. Searches for the precise valency-three classification, odd-valency primitive examples, spectral variants and higher-valency coverage did not locate a stronger source. This is qualified priority evidence, not proof that no historical catalogue exists.
+PASS
 
-## Mathematical value
-PASS. This identifies the first odd input valency realizing the no-proper-synchrony scenario at the minimal possible four-cell network size; the transition from nine classes at input valency two to 109 at three has an exact frequency-resolved and synchrony-resolved explanation. The full finite census and canonical representatives are natural inputs for bifurcation and normal-form comparisons, rather than a one-off arbitrary graph invariant. No further nonlinear conclusion is claimed.
+For row sum k, the constants are an invariant line with eigenvalue k. In quotient coordinates x_i−x_3, the quotient matrix is D_ij=A_ij−A_3j for i,j<3. Trace zero, determinant zero, and positive sum q of the principal 2-minors give exactly the quotient polynomial t(t²+q); the resulting four eigenvalues are simple. The frozen analytic bound q≤3 at k=3 follows from tr(A²)≥Σ A_ii²≥3. I independently enumerated all row choices at k=1,2,3 using the quotient predicate and weak connectivity. Simultaneous conjugacy and balanced-block testing over all 13 proper partitions reproduced labeled counts 1560/840/176, orbit counts 65/36/8, synchrony counts (0,47,18)/(1,27,8)/(2,5,1), all 109 frozen CSV entries, and the three displayed representatives. Equal incoming multiplicities give equal multisets and hence equal derivatives on the polydiagonal; unequal multiplicities can be detected by a smooth input-symmetric sum of interpolating functions. The k=1 replay had no cases; k=2 had 216 labeled cases in nine classes, five with one proper partition and four with two. Valency zero cannot have the imaginary pair. Thus three is minimal independently of the cited lower-valency results.
 
-## Closest literature and remaining limitations
-M. Aguiar, A. Dias and F. Mokhtari, *Zero-Hopf networks*, arXiv:2611.15221v1 (2026), especially Sections 3–5 and Theorems 10, 12, 19 and 20. A priori earlier coupled-cell tables remain a historical-priority risk. Results are limited to nonnegative-integer adjacency matrices with four cells and input valency three. All reported tests are same-model or mechanical checks, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct advance is the complete valency-three spectral and synchrony census and the primitive representatives, which settle the minimum when combined with the already known lower-valency exclusions. The leading primary source supplies those exclusions, not the decisive upper bound or the census. No independent equivalent table was established in the checked sources.
+
+## value
+
+PASS
+
+This is the full census at the first valency where the known four-cell spectral mechanism is not constrained by a proper robust synchrony space. Exact representatives and the joint distribution by frequency and synchrony make the result useful for choosing and comparing networks in subsequent bifurcation studies; the cutoff is determined by the onset, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

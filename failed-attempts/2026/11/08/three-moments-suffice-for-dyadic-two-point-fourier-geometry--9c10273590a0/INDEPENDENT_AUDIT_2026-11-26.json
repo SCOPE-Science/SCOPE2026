@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:00:21.195043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85",
+        "VERIFICATION.md and check_moment_curve.py (inspected, not executed)",
+        "/workspace/reproductions/frozen_checks.py, dyadic()"
+      ],
+      "rationale": "At fixed s=u+v the pair product w controls p₂=s²−2w and p₃=s³−3sw. For odd s the cubic fixes w in R; an even w gives two simple roots modulo 2 which lift uniquely, while an odd w gives none. For even s the quadratic fixes w modulo Q=N/2 and that is sufficient for the cubic; (u−s/2)²≡(s/2)²−w mod Q has two R lifts per root and is independent of the chosen half. A square of valuation 2j<m has an odd square factor mod 2^(m−2j); the odd squaring kernel has sizes 1,2,4 in exponents 1,2,≥3, as follows by factoring x²−1 and noting that consecutive even numbers x−1,x+1 have one valuation exactly 1 for odd x. There are 2^j lifts per odd root and 2^floor(m/2) roots at zero. Summing the resulting strata gives the two closed image sizes. For the energy, an odd s contributes 2N and an even s contributes 2(k−1)N: at k≥3 the latter is 32 times the zero-product count modulo 2^(k−3), including modulus 1, and for k=2 both factors must be even, giving 2N directly. This sums to kN², with normalized Fourier orthogonality giving exactly that number. The recurrence for pⱼ preserves the even-s invariance under changing w by Q because every pⱼ is even. The two pairs (0,1) and (Q,1−Q) agree through degree two and split by Q at degree three, including k=2. The independent script compares the whole predicted support and multiplicities to unordered enumeration weighted to count ordered inputs, checks the valuation histogram and aggregates for k=2 through 10 and higher moments through degree 9 for k≤8. Replay: python3 /workspace/reproductions/frozen_checks.py 1. The universal statements rely on the proof, not the finite run.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7fe52001e4e6 states the formula at every modulus, including J₂,₃(2^k)=k2^(2k) for k≥2; it gives closure for all higher powers and least initial threshold three exactly when 4 divides N.",
+          "Hickman–Wright's relevant restriction theorem assumes p>n; Mockenhaupt–Tao use finite fields of characteristic greater than two."
+        ],
+        "reasoning": "The all-moduli theorem directly specializes to the energy and stabilization, including minimality. The much broader restriction contexts alone do not imply the dyadic formulas. The thesis's detailed §4.6 was not available for a separate statement-level exclusion.",
+        "searches": [
+          "Resultary 7fe52001e4e6 Finding and Proof §§1–5",
+          "Hickman–Wright Theorem 7.1 and the composite-modulus discussion",
+          "Mockenhaupt–Tao, arXiv:math/0204234 introductory hypotheses",
+          "Hickman 2015 thesis, Chapter 4 §4.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7fe52001e4e6 and 6f0699e1421a",
+        "Hickman–Wright arXiv:1801.03176 §7.1",
+        "Mockenhaupt–Tao arXiv:math/0204234 p. 1",
+        "Hickman thesis introduction and access attempt for §4.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparison proof has Δ equal to the product difference and collisions iff 2Δ=3sΔ=0. Thus for odd s the fiber has fixed product modulo N; for even s it has fixed product modulo Q, irrespective of the second lift modulo N.",
+          "At odd s, p₃ recovers w and the roots of u(s−u)=w lift from 0,1 exactly when w is even. At even s, p₂ recovers w mod Q and the compatible t₃ is fixed; for 2h=s, u(s−u)=h²−(u−h)²."
+        ],
+        "reasoning": "This gives the frozen pointwise classification from the existing proof by solving the fixed-product quadratic. For each even s, distinct attainable products modulo Q are in bijection with distinct squares; every root mod Q contributes two ordered pairs mod N. The standard dyadic unit-square index and valuation stratification therefore mechanically give Uℓ, Rℓ and all strata, and a geometric series gives the two support formulas. No new collision condition remains to be discovered.",
+        "searches": [
+          "Resultary 7fe52001e4e6 Proof §§1–2 and 4–5, RESULT.md offsets 0–4034 and 4034 onward",
+          "Frozen RESULT.md pointwise law and square-root strata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact quantity J₂,₃(N) in 7fe52001e4e6 counts ordered equal-first-three-power-sum quadruples, and the record explicitly identifies it as the energy of the cubic moment curve.",
+          "Normalized Fourier orthogonality identifies the constant-input fourth power average with that same ordered quadruple count."
+        ],
+        "reasoning": "There is no differing normalization, coefficient vector, or unlabeled-pair quotient: the energy and Fourier invariant are identical to J₂,₃ at N=2^k.",
+        "searches": [
+          "Resultary: modular cubic moment curve, dyadic fourth Fourier moment, and power-sum closure",
+          "Resultary 7fe52001e4e6, Finding and scope",
+          "Hickman–Wright, arXiv:1801.03176 §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7fe52001e4e6 is a distinct indexed record with the identical dyadic energy formula and closure/minimality, and is dated the same day as the frozen record.",
+          "6f0699e1421a studies the graph (x,x³) in two coordinates; its formula is not a match for the support of (x,x²,x³) in three coordinates."
+        ],
+        "reasoning": "There is exact catalogue coverage of two main assertions but no located independent table printing the entire three-coordinate dyadic histogram. Same-day dates do not establish relative chronology. The implication from the existing collision proof, rather than an alleged exact histogram hit, is assessed separately.",
+        "searches": [
+          "Resultary: dyadic cubic curve, full two-sum support, moment stabilization and exact energy"
+        ]
+      },
+      "rationale": "A distinct indexed record establishes exactly the same three-moment closure, least initial degree and dyadic energy in an all-moduli theorem. Its proof also classifies when all pairs with a given sum collide, by product equality in R for odd sums and modulo N/2 for even sums. The frozen pointwise refinements are not printed in that record, but follow from that collision classification by the quadratic with given sum and product: for odd s ordinary simple lifting gives two roots; for even s completing the square gives the ordinary dyadic square-root fibers. Counting the standard valuation strata then gives the parity-dependent support. This is a judgment about demonstrable coverage and routine implications, not which same-day entry was first.",
+      "residual_risks": [
+        "Relative ordering of same-day records is unresolved; no historical firstness is assigned.",
+        "Detailed thesis section not checked; this does not affect the identified exact overlap and mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact overlap and direct implication for the refinements; no within-day ordering established",
+          "evidence": "Exact statement at all N; collision criterion 2Δ=3sΔ=0; separate dyadic counting and 4|N minimality example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-three-moment-closure-and-exact-energy-of-the-modular-c--7fe52001e4e6/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§1–4 at offsets 0–4034; sharp threshold Proof §5 at offset 4034",
+          "method": "Resultary lookup and paged local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal three-moment closure and exact energy of the modular cubic curve",
+          "trigger": "Exact collision energy and closure for the same curve and broader moduli"
+        },
+        {
+          "assessment": "Different sampling surface, not exact table coverage",
+          "evidence": "Its map is x↦(x,x³), omitting the quadratic coordinate.",
+          "identifier_or_url": "Resultary 2026/11/8, 6f0699e1421a",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Resultary and local full-text mirror",
+          "title": "Dyadic cubic curve: exact fourth Fourier moments and two-sum support",
+          "trigger": "Nearby dyadic energy and exact support title"
+        },
+        {
+          "assessment": "Relevant background; theorem's p>n excludes this dyadic cubic case",
+          "evidence": "Prime-power restriction estimates under p>n; general-modulus discussion does not print this ordered fiber law.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.03176",
+          "material_read": "§7.1 Theorem 7.1 PDF p. 39, offset 139442; general-N discussion PDF p. 40, offset 141697",
+          "method": "Lawful OA full-text passages",
+          "title": "The Fourier Restriction and Kakeya Problems over Rings of Integers Modulo N",
+          "trigger": "Same ring framework, prime-power moment-curve restriction theorem"
+        },
+        {
+          "assessment": "Characteristic restriction and field setting exclude the frozen ring setting",
+          "evidence": "The setting is finite fields of characteristic greater than two.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0204234",
+          "material_read": "PDF p. 1, offset 1315",
+          "method": "Lawful OA full-text passage",
+          "title": "Restriction and Kakeya phenomena for finite fields",
+          "trigger": "Foundational finite-field restriction reference"
+        },
+        {
+          "assessment": "Unresolved exact scope of detailed section; not used as negative evidence",
+          "evidence": "Introduction confirms Chapter 4 treats prime-power moment curves.",
+          "identifier_or_url": "https://era.ed.ac.uk/items/29ea5d40-6678-4834-8ac0-2f2278ae7ffd",
+          "material_read": "PDF introduction p. vi, offset 7113; detailed §4.6 unavailable in this check",
+          "method": "Lawful OA passage and bounded attempts to locate §4.6",
+          "title": "Topics in affine and discrete harmonic analysis",
+          "trigger": "Thesis with dedicated prime-power moment-curve restriction section"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 7fe52001e4e6 Finding and product-difference criterion"
+      ],
+      "rationale": "The full distribution is a meaningful invariant of a natural Fourier surface, and the frozen account is a usable explicit calculation. As a contribution beyond the distinct all-moduli energy and closure analysis, however, it only converts the known sum/product collision classes to standard dyadic square-root counts and sums them. It does not supply an independently unknown arithmetic phenomenon or a result about weighted extension beyond that mechanical specialization.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

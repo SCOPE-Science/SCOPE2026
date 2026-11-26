@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:08:32.013515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With s colored vertices and largest occupied size a, every color class has at least ceil((s-a+1)/2) members. For a>=2 and s>=a+2 the identity (a+1)(s-a+1)-2s=(a-1)(s-a-1)>0 gives at most a classes. If s=a the support is edgeless; if s=a+1 its star center forbids all-singleton color classes; if a=1 the support is complete and allows at most two classes. Since M>=3, an optimum hence occupies an entire largest part A. Writing t for the colored outsiders yields t(M-2)<=M, with the integer bound excluding t=2 for M>=3. A sole outsider sees all M vertices and at most one partner, so t=1 is feasible only with M=3 and a shared color; each triple vertex then meets quorum because its colored closed neighborhood has size two. For M=3,t=3 every class is a pair, and quorum at A forces pairs to cross into the outside set. Each outsider already has a colored closed neighborhood of size four from itself and A, so any adjacency to a second outsider would violate quorum. The outsiders are one full second triple and the matched-pair condition suffices. The pure-part construction always works. Counting disjoint families gives p, 3p(N-3), and 6 binom(p,2), with the two full parts unordered. The free naming action multiplies by M! because all classes occur. The frozen checker was inspected, not run: it is finite and filters for exactly M colors, so it does not itself exclude larger palettes; the proof gives the unrestricted bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary af6c16deccf9 proves every class meets a chosen largest occupied part P, for every feasible coloring with q>=3, not just optima.",
+          "Hedetniemi et al. Prop. 17 concerns ordinary quorum coloring of all vertices in complete bipartite graphs. The inspected Sahbi–Belkina–Bennadji results concern trees such as paths and caterpillars."
+        ],
+        "reasoning": "The host families and full-support invariant in the latter comparisons do not settle the target. The Resultary statement applies on the identical hosts and includes all nonoptimal colorings with q>=3; for q=M it already forces one representative of every color in a complete size-M part.",
+        "searches": [
+          "Resultary af6c16deccf9 maximum occupied part proof",
+          "arXiv:2609.39619v1 sub-quorum number on caterpillars",
+          "Hedetniemi et al. EI2012-20 Prop. 17"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.25128v4",
+        "Resultary:af6c16deccf9",
+        "arXiv:2609.39619v1",
+        "EI2012-20",
+        "Resultary:3bb37bc72f87",
+        "Resultary:b5200634b0db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary proof fixes P as one largest occupied part and concludes every color class meets that same P. It explicitly gives |C outside P|>=ceil((t-1)/2) for each class that meets P, with t the number of colored outsiders.",
+          "The Ma–Sahbi–Zhang bound concerns maximum palette size; the stronger all-classes intersection statement in the Resultary comparator is decisive."
+        ],
+        "reasoning": "Setting q=M forces |P|=M and one vertex per color there. Summing the source's per-class bound gives t>=M ceil((t-1)/2). For M>=4 this leaves t=0 or 1; when M=3 exactly t=0,1,3 can remain. At t=1 the outsider needs its same-color pair and its neighborhood size is M+1, excluding M>=4. At t=3, each color has one outsider and an outsider quorum of two tolerates no adjacent outsider. This is exactly the three-family statement, followed by choosing a part, an outsider and color, or a bijection of two triples. No additional nonlocal obstruction or counting theorem is needed.",
+        "searches": [
+          "Resultary af6c16deccf9 RESULT.md offsets 900–3088, proof for q>=3",
+          "arXiv:2609.25128v4 Theorem 6.4 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma–Sahbi–Zhang's definition restricts the closed-neighborhood condition to the colored support, equivalently ordinary quorum coloring on the induced subgraph.",
+          "Both Theorem 6.4 and Resultary af6c16deccf9 give the scalar maximum max{2,M}."
+        ],
+        "reasoning": "Sub-quorum here is not a proper coloring and not a full-support quorum number. The equivalence is on the same partial-support coloring problem; forgetting names does not affect feasible supports or the maximum, and acts freely once every color is used.",
+        "searches": [
+          "arXiv:2609.25128v4 Definition 2.2 Eq. (1), Lemma 2.3 and Theorem 6.4",
+          "Resultary: sub-quorum coloring number of complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-date Resultary 3bb37bc72f87 enumerates reduced optimum colorings on circular ladders with singleton/pair classes, while b5200634b0db enumerates full-vertex colorings with threshold-graph color classes.",
+          "Resultary af6c16deccf9 does not print U and T as enumerators in the inspected finding/proof."
+        ],
+        "reasoning": "The two near enumerators differ in host or class predicate. No separate exact-table match is needed: this is a parametric count whose values and constructive families follow directly from the stronger same-problem structural proof.",
+        "searches": [
+          "Resultary: optimal sub-quorum coloring enumerator",
+          "Resultary: exact threshold class coloring enumerators for complete multipartite graphs"
+        ]
+      },
+      "rationale": "The scalar maximum is prior, and a distinct published Resultary proof already establishes the stronger structural statement that each color meets a chosen largest occupied part when there are at least three colors. Its local inequality yields all proposed configurations and counts by immediate equality and outsider-neighborhood tests. The exact rounded enumeration need not be printed verbatim to be covered. This finding is stronger than a title match or a priority inference from date labels.",
+      "residual_risks": [
+        "A broader primary query produced no additional decisive passage; that is not a negative finding. The decision rests on affirmative structural coverage, not on dates or search completeness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior scalar value, not the displayed optimizer count",
+          "evidence": "Coloring of the support gives max{2,M} on complete multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25128v4",
+          "material_read": "Def. 2.2 Eq. (1) and Lemma 2.3 pp. 2–3, offsets 8812–10193; Thm. 6.4 p. 10 offset 35157",
+          "method": "OA original PDF passages",
+          "title": "Sub-quorum colorings of graphs",
+          "trigger": "Identical object and scalar maximum on the same hosts"
+        },
+        {
+          "assessment": "Direct structural implication of the frozen classification and count",
+          "evidence": "For q>=3, every class meets the same chosen largest occupied part, and its outside membership is at least ceil((t-1)/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sub-quorum-coloring-number-of-complete-multipartite-graphs--af6c16deccf9/RESULT.md",
+          "material_read": "Finding and proof offsets 0–3250; decisive section independently inspected at offsets 900–3088",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sub-quorum coloring number of complete multipartite graphs",
+          "trigger": "Same scalar problem, possible structural coverage in proof"
+        },
+        {
+          "assessment": "Related tree results in inspected sections",
+          "evidence": "Results address paths, stars, double stars and caterpillars.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.39619v1",
+          "material_read": "Introduction p. 1 offsets 0–3349 and located results p. 6 offset 14519",
+          "method": "OA original PDF passages",
+          "title": "Sahbi–Belkina–Bennadji sub-quorum coloring study",
+          "trigger": "Exact sub-quorum classifications in a related host family"
+        },
+        {
+          "assessment": "Full-support comparator",
+          "evidence": "Partitions the entire vertex set, with Prop. 17 giving the ordinary quorum number on complete bipartite graphs.",
+          "identifier_or_url": "https://repub.eur.nl/pub/37620/EI2012-20.pdf",
+          "material_read": "Definition p. 1 offset 784; Prop. 17 p. 7 offset 16853",
+          "method": "OA original report passages",
+          "title": "Quorum Colorings of Graphs",
+          "trigger": "Foundational quorum invariant and related complete bipartite theorem"
+        },
+        {
+          "assessment": "Different host and restricted classes",
+          "evidence": "Circular ladder C_n square K_2, reduced colorings of singleton and pair type.",
+          "identifier_or_url": "Resultary:3bb37bc72f87",
+          "material_read": "Finding offsets 0–1550",
+          "method": "Published local mirror",
+          "title": "Exact reduced optimal sub-quorum coloring enumerator of circular ladders",
+          "trigger": "Same-date exact optimal sub-quorum enumerator"
+        },
+        {
+          "assessment": "Same host, different coloring predicate",
+          "evidence": "Full-vertex colorings whose individual classes induce threshold graphs.",
+          "identifier_or_url": "Resultary:b5200634b0db",
+          "material_read": "Finding offsets 0–1896",
+          "method": "Published local mirror",
+          "title": "Exact threshold-class coloring enumerators for complete multipartite graphs",
+          "trigger": "Same-date multipartite exact class enumerator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimum solution space and its sharp size-three behavior are natural questions. In this record the surviving increment over the inspected same-problem structure consists of immediate small outsider cases and elementary multiplicity arithmetic; no independent enumeration obstacle or new meaningful structural invariant is resolved. The record does not address small-maximum regimes, symmetry classes, suboptimal palettes, or different hosts, so there is no valuable distinct remainder here to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

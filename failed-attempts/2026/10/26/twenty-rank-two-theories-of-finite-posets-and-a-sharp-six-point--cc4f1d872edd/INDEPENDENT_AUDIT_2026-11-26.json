@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:19.748568Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–56, VERIFICATION.md, verify.py, witnesses.json and verification_output.txt",
+        "Independent enumeration: /workspace/branches/3b0460ec-28bf-439e-a7b1-40c061e8469d/own_forward_order_enum.py and own_enum_full.log"
+      ],
+      "rationale": "In the two-move game, after matching points of the same mask, the second move can be matched by equality, below, above or incomparability as appropriate. Conversely, each mask's realization is expressible at rank two. For orders of size at least two, an isolated point makes all other points have an incomparable point, yielding exactly three possible mask sets by whether any comparable or interior points occur. Without isolates, exactly one maximal mask and one minimal mask occur: a unique extremum is comparable to every point, and otherwise the same-side extrema witness incomparability. Then the two interior masks are independently optional as an upper bound, giving at most 16 further spectra. Including the singleton bounds the nonempty family by 20. An independent enumeration of all 33,867 forward seeds through six points, taking transitive closure, matched all 20 codes and their minimum sizes, with first appearances (1,2,4,7,5,1). A linear extension ensures exhaustiveness through six, while the structural bound ensures there is no additional spectrum at larger orders. Code 232 requires two minima, two maxima and two distinct interior points, proving the lower bound six directly. The empty structure, if allowed, is detected by the negation of the rank-one nonemptiness sentence.",
+      "residual_risks": [
+        "The finite replay determines the minimum orders through six, not the universal bound without the symbolic spectrum argument. The theorem is about representatives, not about taking induced suborders of arbitrary inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mwesigye–Truss Theorem 1.1 uses sets of colored point characters for equivalence of finite colored linear orders; the point character records initial and final segments. Fagin et al. Theorem 1.1 states the ordinary game versus quantifier-rank characterization, distinct from total quantifier occurrences."
+        ],
+        "reasoning": "The linear-order result concerns a restricted order class without incomparability, and the game theorem gives a method rather than the census. The earlier exact catalogue statement, not these methodological results, supplies full coverage.",
+        "searches": [
+          "Mwesigye–Truss arXiv:1705.04632 and DOI 10.1007/s11083-018-9458-3",
+          "Fagin–Lenchner–Regan–Vyas arXiv:2104.14709"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary hit 10402d68dcdf",
+        "Mwesigye–Truss arXiv:1705.04632",
+        "Fagin et al. arXiv:2104.14709"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier indexed theorem covers the entire nonempty statement, not only a subclass. Allowing the empty order adds precisely the one class detected by a rank-one sentence."
+        ],
+        "reasoning": "The only scope extension mentioned is a direct corollary of the covered classification. The mathematical correctness of the independent proof and computation does not provide distinct novelty.",
+        "searches": [
+          "Indexed theorem and table in 10402d68dcdf",
+          "Mwesigye–Truss Theorem 1.1; Fagin et al. Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier score for a point is k=4L+2U+I; the reviewed score is j=L+2U+4I, the three-bit reversal of k. These determine corresponding spectrum codes by replacing each set bit in position k by a set bit at j."
+        ],
+        "reasoning": "The earlier proof's use of incomparability graphs does not change its pure strict-order language. The two point-profile encodings encode exactly the same properties; duality would simply exchange L and U.",
+        "searches": [
+          "Local Resultary search for pure rank-two finite strict posets and representative spectra",
+          "2026/10/18/SCOPE-twenty-rank-two-first-order-theories-of-finite-nonempty-partial--10402d68dcdf/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-18 record has the same 20 nonempty theories, complete profile-set table and sharp maximum six, with the same least-size distribution 1,2,4,7,5,1."
+        ],
+        "reasoning": "The profile translation matches the two tables at the level of the mathematical invariant and least order, beyond a coincidence of aggregate counts.",
+        "searches": [
+          "Local Resultary/SCOPE record 10402d68dcdf, exact theorem and least-size table"
+        ]
+      },
+      "rationale": "An earlier indexed record states the same classification, sharp universal representative size and all 20 least sizes for precisely the same vocabulary and class of orders. Its change of bit convention is a bijective re-encoding, not a different invariant.",
+      "residual_risks": [
+        "The exact catalogue overlap suffices for failure of distinctness. No claim is made that this earlier index entry establishes the earliest historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier equivalent coverage",
+          "evidence": [
+            "Same logical convention, same order class, same sharp bound, same spectra up to bit reversal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-twenty-rank-two-first-order-theories-of-finite-nonempty-partial--10402d68dcdf",
+          "material_read": "RESULT.md theorem, point-profile definition and complete least-order table",
+          "method": "Local Resultary mirror",
+          "title": "Twenty rank-two first-order theories of finite nonempty partial orders",
+          "trigger": "Direct exact catalogue hit"
+        },
+        {
+          "assessment": "Related technique, restricted to linear orders",
+          "evidence": [
+            "Theorem 1.1 characterizes rank n+1 equivalence by sets of realized n-characters for each color, with characters based on initial and final segments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.04632",
+          "material_read": "PDF p. 1 abstract and scope; p. 2 character definition and Theorem 1.1, OA offsets 5400 onward",
+          "method": "Lawful OA primary version via DOI lookup",
+          "title": "On Optimal Representatives of Finite Coloured Linear Orders",
+          "trigger": "Possible prior character-based low-rank classification"
+        },
+        {
+          "assessment": "Ordinary game equivalence supplies methodology, not a poset classification",
+          "evidence": [
+            "Theorem 1.1 relates the ordinary r-round game to a distinguishing sentence of rank at most r; multi-structural games instead measure total quantifier count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.14709",
+          "material_read": "PDF p. 1 abstract, p. 2 Theorem 1.1 (OA offsets 1074 and 5053)",
+          "method": "Lawful OA primary preprint",
+          "title": "Multi-Structural Games and Number of Quantifiers",
+          "trigger": "Check distinction of rank versus quantifier count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and exact earlier record 10402d68dcdf"
+      ],
+      "rationale": "The complete rank-two census and six-point extremum would be useful for this natural family if distinct, but the earlier indexed table already gives the exact information. Recomputing it and adding the empty-order observation do not provide a new substantive result.",
+      "residual_risks": [
+        "This is a contribution judgment; it does not question the validity of the theorem or the utility of the earlier table."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

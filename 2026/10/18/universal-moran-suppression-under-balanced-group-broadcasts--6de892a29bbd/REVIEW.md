@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hypothesis is a finite connected positively weighted hypergraph with common incident-weight sum, fixed mutant fitness \(r>0\), and global fitness-weighted parent selection followed by whole-edge broadcast. The exact edgewise drift of \(r^{-M_t}\) is nonnegative at every state and strictly positive on mixed edges of size at least three. A finite positive-probability expansion path reaches such an edge from every nonconsensus configuration. Almost-sure finite-time absorption, optional stopping, the exact difference identity and neutral count martingale justify each parameter inequality. The separately executable exact-rational chain solver checked 330 finite state/parameter cases and 294 local defect instances. Those checks support, but do not replace, the general proof.
+## correctness
 
-**Originality — PASS (qualified).** The closest source, Liu–Masuda 2023, defines the same broadcast process but calculates/numerically compares selected triple-system examples rather than proving a structural all-weight, all-rank and all-initial-state theorem. Liu–Masuda 2024 proves an exponential-submartingale comparison for a two-layer, one-replica-at-a-time process: its model does not encompass broadcast updates to all vertices of a hyperedge. Wang et al. 2024 concerns payoff-based weak-selection public-goods games and different replacement rules. The nonnegative edge-defect formula supplies the missing implication for incident-weight-balanced broadcast systems. Residual priority risk is that an unindexed paper might contain an equivalent generalized group-reproduction comparison; the method itself is not claimed as novel.
+PASS
 
-**Value — PASS.** A central empirical observation in the motivating hypergraph fixation paper receives a rigorous all-population-size and all-fitness explanation throughout a natural infinite class containing complete and cyclic uniform hypergraphs, nonuniform hyperedges and positive weighted groups. The exact defect identity explains when and why simultaneous group replacement suppresses selection and identifies the sharp pairwise equality boundary. It is a structural fixation result, not a recalculation of a known table or a narrow numerical instance.
+For a mixed edge with a mutants and b residents the two count increments are +b and −a, with edge-parent probabilities ar w_e/(dW) and b w_e/(dW), W=rM+N−M. This gives exactly the displayed defect for Y=r^(−M). The geometric-series factorization has the sign of r−1 inside the bracket, strictly so when ab>0 and a+b>=3; unmixed and pair edges contribute zero. Connectivity gives a positive-probability monotone route to consensus from every mixed state. Finiteness makes the block absorption probability uniformly positive, so the accumulated bounded drift is integrable. At consensus E[Y]=1−rho*(1−r^(−N)), which yields exactly the stated sign and denominator on both sides of r=1. For strictness fix a large edge. If it is monochromatic, expand the opposite type along crossing edges until a large edge is already mixed or until a size-two step puts the opposite type inside the chosen edge, which then remains mixed. That finite path has positive probability and reaches a positive drift before consensus. At r=1 use the martingale M, not the constant Y; all-pair edges give exact equality. Independent exact finite-state calculations verify the accumulated defect and comparisons in one weighted mixed-rank example and a weighted pair-only control at r=1/2,1,2.
 
-The conclusion does not extend to unbalanced incidence weights, majority-gated updating or payoff-dependent fitness; exact general-hypergraph fixation values and independent priority checking remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The broadcast update, Moran benchmark, and suppression in selected unweighted examples are prior. An exact local-mirror match also covers the unweighted incidence-regular all-large-edge subclass with the same exponential drift proof, so do not credit that subclass or the method alone. The principal distinct contribution is the weighted-balanced all-initial-set result with pair edges allowed, the strict characterization when higher-order edges exist even if they are initially monochromatic, and the explicit cumulative defect in this scope.
+
+## value
+
+PASS
+
+The theorem identifies when topology preserves the Moran benchmark and when larger broadcasts strictly suppress selection. It upgrades selected or averaged examples to a pointwise structural rule, even for configurations with no local strict drift at the first step. The exact nonnegative cumulative defect explains how mixed higher-order events, not just a degree count or placement average, produce the fixation gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

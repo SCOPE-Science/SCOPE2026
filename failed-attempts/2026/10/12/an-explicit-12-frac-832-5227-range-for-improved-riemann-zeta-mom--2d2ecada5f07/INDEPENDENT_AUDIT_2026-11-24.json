@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:34:44.817504Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 2–108 (statement and proof)",
+        "de Faveri–Pandey arXiv:2610.01035v1 pp. 1, 15 and 18, Theorem 9.1 and proof of Theorem 10.1",
+        "Independent exact rational derivation of the four endpoints and crossing; uploaded verifier was not executed",
+        "Frozen VERIFICATION.md and verification_output.txt: expected output, not an independent replay"
+      ],
+      "rationale": "The formal bound and strict comparison in the Finding follow from the published level-set bounds. On [T,2T], a maximal one-spaced subset covers the associated level set by intervals of bounded length. Dyadic summation bounds its contribution by V^k N(T,V) up to T^ε, with the region |ζ|<1 costing O(T). The Bourgain cutoff can be raised by an arbitrarily small ε-loss: above T^(13/84) use monotonicity of N and the bound at that endpoint. Direct rational checks put the maximum at σ₂=58907/445121: the two active affine branches agree there and both give 2−520/445121+σ₂(k−12); the classical endpoint at σ₁ and the first high-value term at σ₃ are strictly lower on the claimed interval. Subtraction from 2+(k−12)/8 gives δ(k), with zero exactly at k*=12+832/5227. Dyadic summation in T then gives M_k(T) as stated. The comparison beyond k=12 is against the affine continuation of the classical interpolation line; the primary paper does not establish that line as a classical bound for k>12.",
+      "residual_risks": [
+        "Fixed k with an arbitrary ε-loss; no strict saving against that comparison line at the endpoint. The classical interpolation argument supports the line only through k=12."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9.1 supplies the level count family, with r=6 giving the middle bound; the proof of Theorem 10.1 gives the high-value bound and cutoff. At σ₂ the other integer r values give no lower level-count exponent, and the additional Theorem 1.3 bound ends at σ=5/38<σ₂."
+        ],
+        "reasoning": "The original distribution bounds are stronger than the moment corollary; the direct implication uses their r=6 case and the same high-value bound, rather than alleging unverified domination by some other bound.",
+        "searches": [
+          "Resultary for post-twelfth-moment and level-set-envelope formulations",
+          "arXiv:2610.01035v1 Theorems 1.3, 9.1, 10.1 and proof of Theorem 10.1"
+        ]
+      },
+      "checked_sources": [
+        "de Faveri–Pandey arXiv:2610.01035v1 pp. 1, 15, 18",
+        "Resultary exact-constant, affine-exponent, explicit-ν, and level-set-envelope queries",
+        "Focused public exact-constant lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source already states improved bounds beyond 12 and proves all level-set bounds needed here. Multiplying its bounds at V=T^σ by V^k gives the original affine exponents in σ with (k−12)σ added. The dominance inequalities keep its original maximum location σ₂ for the entire claimed range."
+        ],
+        "reasoning": "The explicit range is obtained by solving 520/445121=(σ₂−1/8)(k−12) after the same published level-set maximization. This is a mechanical corollary of the stronger published estimates and method, even though the published authors did not report the number.",
+        "searches": [
+          "arXiv:2610.01035v1 p. 1, statement about an unoptimized positive ν; pp. 15 and 18, input exponents and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No materially overlapping catalogue record appeared in the ranked returns; the focused public exact-constant query did not locate a separate source. De Faveri–Pandey p. 18 gives the very level-set exponents and crossover that produce this line."
+        ],
+        "reasoning": "Equivalent coverage is evidenced by the exponent envelope at the same crossover, not by requiring the quotient 832/5227 to occur verbatim.",
+        "searches": [
+          "Resultary exact rational constants 832/5227 and 445121, and exact affine exponent 2−520/445121+(58907/445121)(k−12)",
+          "Public search: exact 832/5227 and 445121 with zeta moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source gives 520/445121 in the twelfth moment and 58907/445121 as the controlling breakpoint, but not 832/5227 as an interval length. No exact separate entry was located."
+        ],
+        "reasoning": "There is no external finite invariant table involved; the decisive exact numerical comparison is with the source's own two constants, which fix the crossing quotiented by σ₂−1/8.",
+        "searches": [
+          "Resultary exact constants and explicit ν tied to arXiv:2610.01035",
+          "arXiv:2610.01035v1 p. 1 and p. 18, explicit moment and level-set constants"
+        ]
+      },
+      "rationale": "The exact number 832/5227 is not stated in the strongest identified source, but the result is a direct corollary of its stronger, published level-set theorem and the very same three-regime moment argument. De Faveri–Pandey already explicitly identify the extension beyond 12. All four affine functions for fixed k are obtained from their exact displayed exponents by replacing the weight V^12 with V^k; the same two bounds are still active at their already identified crossover, and a single affine equality gives the stated ν. No new large-value bound, different regime, or additional mathematical ingredient supplies the extension. The negative originality decision rests on that verified implication, not on an exact-phrase match or an unsuccessful search.",
+      "residual_risks": [
+        "No exhaustive claim about other current moment estimates or separate occurrences of the constant; the direct implication from this exact source suffices for the finding as stated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage; the exact interval length is not printed",
+          "evidence": [
+            "The classical interpolation exponent is asserted for 4≤k≤12. The introduction explicitly notes some unoptimized ν>0. The proof supplies σ₂=58907/445121 and the two competing affine level bounds there, giving the twelfth-moment exponent 2−520/445121."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01035v1",
+          "material_read": "p. 1 offsets 2450 and 4450; p. 15 offset 65700 (Theorem 9.1); p. 18 offset 78500 (proof of Theorem 10.1, including level bounds and crossover)",
+          "method": "Bounded OA PDF passage reads, with direct rational check of implication",
+          "title": "The sixth moment of the Riemann zeta function",
+          "trigger": "Same twelfth-moment gain, existing beyond-twelve assertion, and all the proposed input level estimates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 66–108 and 119–129",
+        "de Faveri–Pandey arXiv:2610.01035v1 pp. 1 and 18"
+      ],
+      "rationale": "The endpoint arithmetic is useful exposition of the published proof, but the finding adds only the routine crossing against the affine continuation of a comparison line. That line is not itself a classical bound established by interpolation for k>12, and the crossing is neither a limit of the method nor a barrier for moment bounds. The stated range does not capture a new analytic constraint or a separately useful exact invariant beyond the existing envelope.",
+      "residual_risks": [
+        "The sound numerical consequence could serve as an explanatory calculation; no claim is made that all possible refinements of these estimates are routine or valueless."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

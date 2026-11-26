@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:26:35.856822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–25",
+        "VERIFICATION.md, lines 19–23",
+        "verification/cyclic_patterns_check.py"
+      ],
+      "rationale": "Expand y^c by marking an arbitrary subset with weight t per mark. For either pattern compare suffix and prefix standardizations: shifts 1 and 2 disagree, and shifts 3 and 4 agree. At shift 4 the old maximum is shared as the next minimum and the four new values lie above it. At shift 3 in 12435 the second shared value is the old maximum and all three new letters are larger; in 13245 the two shared positions contain the top two of the latest occurrence. They are the top two of the whole chain inductively (true initially, preserved by either extension). The new rank-2 letter inserts between them, and ranks 4 and 5 append above them. This gives exactly one total order per compatible chain signature. The last value strictly increases along each overlapping gap, excluding a fully closed marked chain. A sole mark has a gap n≥5 back to itself. Cutting at every gap ≥5 gives disjoint chains, possibly touching at gap 5, and singleton uncovered positions, each in a canonical atom. For length n and k atoms, distinguish one of the k atom boundaries in an indexed configuration. This gives a linear ordered tuple of k atoms starting there and a choice of its starting index among n options; conversely these data give the distinguished boundary in the indexed configuration. Therefore the contribution of A^k is multiplied by n/k, even for rotationally periodic words. The singleton-only configurations handle the empty marking and n<5; for a<5 the expression reduces to ze_1/(1−ze_1). Substitution t=y−1 restores ordinary occurrence weights, and coefficient symmetry gives content-permutation stability.",
+      "residual_risks": [
+        "Frozen replay path is python3 verification/cyclic_patterns_check.py; its 447,720 word instances and 126 finite chain cases are recorded corroboration, not an all-length proof. The code was inspected, not independently executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li's public abstract describes a total-order chain cluster characterization and linear multiset refinements. Elizalde–Sagan prove C_σ=1+ln P_σ when σ starts with 1, with distinct entries."
+        ],
+        "reasoning": "Both pattern identifiers satisfy the latter pattern condition, so the squarefree cyclic specialization is covered. The theorem's object hypothesis excludes repeated values. The inspected linear characterization does not address closed marked chains around a cycle or indexing of periodic words.",
+        "searches": [
+          "Resultary: circular-to-linear methods, chain-cluster stability",
+          "https://crabresearch.com/research/stable-chain-patterns",
+          "arXiv:2107.04717v1, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.13566v2",
+        "DOI 10.5281/zenodo.22568329 public abstract",
+        "arXiv:2107.04717v1",
+        "Resultary record e48724d9fc31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two relevant primary results split the necessary features: repeated-letter linear cluster constraints versus distinct-entry circular enumeration. Li's abstract explicitly includes 12435 among its linear examples."
+        ],
+        "reasoning": "Linear cluster weights can be reused, but they are not alone enough: one has to exclude a marked configuration wrapping as a single unsplittable chain and count indexed atom cycles with stabilizers correctly. The distinct-entry logarithmic identity cannot specify coefficients containing powers x_i^b for b>1 by specialization; identifying distinct labels may change whether a window meets the strict distinctness rule. The comparison does not rule out an uninspected general cyclic-cluster theorem.",
+        "searches": [
+          "Li's public abstract, DOI 10.5281/zenodo.22568329",
+          "arXiv:2107.04717v1, Theorem 1",
+          "arXiv:2602.13566v2, pp. 17–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Fang–Kitaev analyze linear multiset permutations. Elizalde–Sagan use circular permutations of distinct entries modulo rotation. Reverse-complement takes 12435 to 13245 but reverses content coordinates."
+        ],
+        "reasoning": "Reverse-complement alone gives equality across reversed contents, not equality within each content, and passage from linear to cyclic changes the positions where occurrences are tested. Indexed and unindexed distinct-entry counts can be converted by a factor of n; with repeats and nontrivial stabilizers this is not an equivalent enumeration.",
+        "searches": [
+          "Resultary: cyclic multiset clusters, patterns 12435 and 13245, circular-to-linear pattern counts, chain-cluster stability",
+          "arXiv:2602.13566v2, pp. 3, 17–18",
+          "arXiv:2107.04717v1, pp. 1–2 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed cyclic spectrum hit concerns avoidance of nondecreasing triples and necklace counts, not the occurrence distribution of the two five-letter order patterns at all letter multiplicities."
+        ],
+        "reasoning": "An avoidance spectrum for different local comparisons and a different rotation convention does not supply even the avoidance coefficients of the asserted symmetric series. The audited identity is a formal all-content series, not a standalone finite numerical entry.",
+        "searches": [
+          "Resultary: cyclic multiset clusters and pattern names 12435 and 13245",
+          "Resultary record e48724d9fc31"
+        ]
+      },
+      "rationale": "The supported distinction is the full indexed cyclic occurrence enumerator resolved by arbitrary repeated-letter content for these two patterns. Linear chain-cluster stability and the logarithmic relation on distinct-entry circular permutations are not new here. No inspected statement covers the arbitrary-content indexed cyclic claim.",
+      "residual_risks": [
+        "Li's full manuscript was inaccessible; general implicit cyclic coverage there or in older cyclic cluster literature is not ruled out.",
+        "A primary-literature search attempt was unavailable; this is not negative evidence. Verdict reflects the actual comparisons, not exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear multiset wording and conjecture; no indexed cyclic formula in the inspected passages",
+          "evidence": [
+            "Focus on classical and consecutive patterns with distinct letters; conjecture about stable consecutive patterns on linear multiset permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.13566v2",
+          "material_read": "PDF pp. 3, 17–18, offsets 8000 and 64500",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Stable patterns on permutations of multisets",
+          "trigger": "Closest multiset-stability problem"
+        },
+        {
+          "assessment": "Direct linear overlap; cyclic coverage unresolved for the full manuscript",
+          "evidence": [
+            "Abstract asserts a linear chain criterion and exact-position refinements, including a nonmonotone example 12435."
+          ],
+          "identifier_or_url": "https://crabresearch.com/research/stable-chain-patterns",
+          "material_read": "Public abstract, offset 0; full-text attempt at DOI 10.5281/zenodo.22568329 did not yield the manuscript",
+          "method": "Public webpage and lawful DOI access attempt",
+          "title": "Stable Consecutive Patterns and Chain Clusters",
+          "trigger": "Exact pattern 12435 and total-order cluster ingredient"
+        },
+        {
+          "assessment": "Covers the distinct-entry setting; not a repeated-letter indexed statement",
+          "evidence": [
+            "Circular permutations use each entry once, modulo rotation. Theorem 1 gives C_σ=1+ln P_σ for patterns starting at 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.04717v1",
+          "material_read": "PDF pp. 1–2 and p. 4 Theorem 1, offsets 0 and 9500",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Consecutive patterns in circular permutations",
+          "trigger": "Potentially dominating circular-to-linear logarithmic theorem"
+        },
+        {
+          "assessment": "Near hit only; the compared statistic and patterns differ",
+          "evidence": [
+            "The indexed result targets cyclic nondecreasing triples and necklace counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-avoidance-and-necklace-spectrum-for-nondecreasing-t--e48724d9fc31",
+          "material_read": "Indexed Resultary result description",
+          "method": "Local Resultary search",
+          "title": "Exact cyclic avoidance and necklace spectrum for nondecreasing triples",
+          "trigger": "Closest indexed cyclic multiset spectrum hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and proof",
+        "Elizalde–Sagan, Theorem 1",
+        "Li, public abstract"
+      ],
+      "rationale": "The result resolves all counts by multiplicities and number of occurrences, including wraparound, for explicit nonmonotone patterns. The total-order property makes each connected contribution a single elementary symmetric function rather than a general order enumerator, and the proof isolates exactly the additional condition needed to use cyclic atoms. This yields useful exact distribution and stability information in a domain not handled by distinct-entry circular enumeration.",
+      "residual_risks": [
+        "No necklace formula or general all-pattern cyclic stability classification is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

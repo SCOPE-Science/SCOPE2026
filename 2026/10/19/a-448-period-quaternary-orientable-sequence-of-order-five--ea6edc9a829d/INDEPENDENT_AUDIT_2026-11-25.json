@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:12:00.390749Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, displayed word and definition",
+        "witness.txt, verification_output.txt, VERIFICATION.md and verify.py (inspected)",
+        "/workspace/checks/5_witness_check.py (independent execution)",
+        "Mitchell–Wild arXiv:2507.02526 Table 1 and arXiv:2603.18646 Table 4"
+      ],
+      "rationale": "An independent checker confirmed seven displayed blocks of 64 symbols, exact agreement with witness.txt, length 448, and the specified alphabet. Starting with the final four digits followed by all digits, a rolling 10-bit base-four register enumerates exactly one circular length-five factor per ending position, including wraparound. Each code was distinct from its reversal, and neither it nor its reversal was in the set of earlier codes. All 448 checks passed; each symbol occurs 112 times. The ASCII word without separators or newline has SHA-256 65a91ebd11f35aedfe544863a9aa615fa0a98274260626ee9259fdf40ae71117, matching the recorded digest. A smaller period would repeat a five-factor, so 448 is the least period. Replay with python3 /workspace/checks/5_witness_check.py; this uses only the standard library and the frozen witness and displayed blocks, not the uploaded checker. The published upper bound is independently sourced: Mitchell–Wild arXiv:2507.02526 Table 1 tabulates Theorem 2.22 and gives 452 at n=5,k=4; arXiv:2603.18646 Table 4 confirms the same bound. The combination gives 448<=lambda(5,4)<=452, not an exact maximum.",
+      "residual_risks": [
+        "The exhaustive computation is over factors of one explicit word, not over all candidate words. Periods 449–452 are not excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Specializing the latest cited construction gives 4×101=404; the earlier Mitchell–Wild construction yields 372, and Gabrić–Sawada tabulate 360 under their construction."
+        ],
+        "reasoning": "The broad construction guarantees must be evaluated at this small parameter. Asymptotic performance and the inspected exact instantiations do not imply existence of a 448-period word here.",
+        "searches": [
+          "Mitchell–Wild arXiv:2603.18646 Example 2.7 and §6",
+          "Mitchell–Wild arXiv:2507.02526 Tables 6–7",
+          "Gabrić–Sawada arXiv:2407.07029 Theorem 11 and Table 2"
+        ]
+      },
+      "checked_sources": [
+        "Mitchell–Wild arXiv:2603.18646",
+        "Mitchell–Wild arXiv:2507.02526",
+        "Gabrić–Sawada arXiv:2407.07029",
+        "Resultary 341177c7af0a, c2f06fe02eed, db4210f2a8a3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact same-parameter prior constructions are 360, 372 and 404. The bound 452 restricts possible solutions without supplying one."
+        ],
+        "reasoning": "No shorter construction can be treated as implying extension of an orientable cycle; arbitrary extension can create repeated or reversed windows. The new explicit certificate supplies the missing existential step and achieves a lower bound not given by those constructions.",
+        "searches": [
+          "arXiv:2603.18646 Table 4 and Example 2.7",
+          "arXiv:2507.02526 construction tables and Theorem 2.22 upper-bound table",
+          "arXiv:2407.07029 Theorem 11 and Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OS_4(5) row-column entry uses the same orientability constraint, equivalently a cyclic walk in the order-four de Bruijn graph with no palindromic edge or repeated reversal class. The indexed 106-symbol constructions and capacities use order four; the exact order-five result uses three symbols."
+        ],
+        "reasoning": "Matching vocabulary or one parameter is not enough. An order-four cycle avoids repeats in length four and has a much smaller period; the ternary order-five theorem is about a smaller alphabet. Neither gives a length-448 walk at the claimed parameters.",
+        "searches": [
+          "Resultary: quaternary order-five orientable cyclic sequence of period 448; lambda(5,4), 448, 404, 452",
+          "Mitchell–Wild arXiv:2603.18646, OS_k(n), Table 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 gives 404 with 452 in brackets at this exact parameter; §6 traces 404 to Example 2.7 and leaves larger optimal periods open. Earlier Table 1 also gives 452. The closest inspected index records are 341177c7af0a and c2f06fe02eed (order four, alphabet four) and db4210f2a8a3 (order five, alphabet three)."
+        ],
+        "reasoning": "The exact-parameter table is real prior coverage of the published benchmark and upper bound, not of the 448 existence statement. The matched index entries do not tabulate a bound for the required pair.",
+        "searches": [
+          "Mitchell–Wild arXiv:2603.18646 Table 4, n=5, k=4",
+          "Mitchell–Wild arXiv:2507.02526 Table 1",
+          "Resultary: order-five reversal-unique quaternary cycles and exact capacities"
+        ]
+      },
+      "rationale": "The strongest inspected publication for the same alphabet size and order constructs 404 and gives an upper bound of 452. Earlier constructions at these parameters give 372 and 360. Neither those lower bounds nor the upper bound imply a period-448 witness or a dominating lower bound. The strongest indexed nearby results change the alphabet or factor order. The verified improvement is 44 over the documented 404, with priority qualified by the search scope.",
+      "residual_risks": [
+        "A construction not retrieved, particularly an unindexed word or small-parameter search, could affect historical priority. The exact maximum remains unsettled by the reviewed findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same exact parameter; prior observed construction gives 404 and upper bound is 452, not a dominating lower bound",
+          "evidence": [
+            "Example 2.7 gives 4×101=404 for OS_4(5)",
+            "Table 4 row n=5, column k=4 is 404 (452); §6 discusses the open search"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.18646",
+          "material_read": "Primary PDF Example 2.7 p. 11, Table 4 p. 30, and §6 discussion pp. 30–31",
+          "method": "Targeted open-access PDF inspection of construction, table and explanatory discussion",
+          "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+          "trigger": "Most recent cited same-parameter construction and actual benchmark table"
+        },
+        {
+          "assessment": "Earlier same-parameter construction is 372; the 452 upper bound applies to the frozen definition",
+          "evidence": [
+            "Table 1 tabulates Theorem 2.22; row n=5, k=4 has upper bound 452",
+            "Tables 6–7 give construction period 372 and comparison bound 452"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.02526",
+          "material_read": "Primary PDF §2.8, Table 1 p. 15, and Tables 6–7 pp. 28–29",
+          "method": "Targeted open-access PDF inspection, checking the cited theorem-to-table relationship and parameter substitution",
+          "title": "New orientable sequences",
+          "trigger": "Earlier construction and primary source of the 452 upper bound"
+        },
+        {
+          "assessment": "The inspected construction yields no dominating bound at the assigned pair",
+          "evidence": [
+            "Table 2 gives 360 for n=5,k=4 as a construction lower bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.07029",
+          "material_read": "Primary PDF Theorem 11 and Table 2, p. 11",
+          "method": "Targeted open-access PDF inspection at n=5,k=4",
+          "title": "Constructing k-ary orientable sequences with asymptotically optimal length",
+          "trigger": "General cycle-joining method with explicit small-parameter lower bounds"
+        },
+        {
+          "assessment": "Different parameters, so no equivalent or dominating construction here",
+          "evidence": [
+            "341177c7af0a and c2f06fe02eed: quaternary order four, period or maximum 106",
+            "db4210f2a8a3: ternary order five, maximum 93"
+          ],
+          "identifier_or_url": "Resultary 341177c7af0a, c2f06fe02eed, db4210f2a8a3",
+          "material_read": "Findings of the 106-symbol order-four quaternary construction, its exact capacity, and the ternary order-five exact maximum",
+          "method": "Focused semantic queries and inspection of the matched local records",
+          "title": "Related indexed orientable cycles and capacities",
+          "trigger": "Closest indexed candidates for equivalence or better bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mitchell–Wild arXiv:2603.18646, §6 and Table 4",
+        "Independent 448-witness check"
+      ],
+      "rationale": "This is a named extremal parameter already singled out by the benchmark literature, not an arbitrary search slice. The explicit, easily replayable word raises the documented lower bound by 44 and reduces the 48-position gap to four. The exact period is useful in its own right as a length guarantee for an orientable position-sensing word, without claiming a new general construction or maximum.",
+      "residual_risks": [
+        "No optimality, classification of witnesses, or all-parameter result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

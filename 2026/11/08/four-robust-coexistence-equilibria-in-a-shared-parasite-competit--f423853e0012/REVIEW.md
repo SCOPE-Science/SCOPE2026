@@ -1,19 +1,21 @@
-# Scientific review: four coexistence states in a shared-parasite competition map
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The positive fixed-point equations are the two conics obtained by clearing strictly positive denominators. Five explicit rational intervals bracket the unique positive first-nullcline ordinate at five increasing first coordinates. The second nullcline alternates strict signs with an exact gap exceeding \(1/1000\), so continuity produces four positive intersections. The first conic is irreducible under an invertible affine change, and the second is not a multiple; Bézout's upper bound is four. Equality of the number of points and total intersection multiplicity establishes their transversality and persistence. All exact inequalities replay from the bundled `verify.py`; numerical roots are supplementary only.
+PASS
 
-## Originality
+The rational witness is correct. An independent exact symbolic replay (branches/replay_05.py) constructed the integer conics from the stated coefficients and verified all five first-nullcline brackets and the second-nullcline margins by sign of the cleared quadratics and strictly positive denominators. The margins exceed 1/1000; the decreasing-in-x first response at the right endpoint keeps its positive branch defined throughout the bracket range. The primitive resultant is square-free of degree four and exact root counts give one in each requested x-interval; the optional numerical pairs agree. The analytical upper bound for the witness follows because the nonzero first determinant turns Q1 into an irreducible affine hyperbola and the brackets rule out any common component. Bézout makes four the total multiplicity, so the four intersections are transverse. An open neighborhood keeps the coefficients positive, the determinant nonzero and all strict sign brackets, giving exactly four throughout. The broader wording about a sharp upper bound needed to exclude nonisolated points: the admissible choice phi1=phi2=2/(1+x+y) has a segment of positive equilibria. The repaired RESULT.md and SLOGAN.txt state the precise bound on isolated equilibria and prove it: an arbitrary nonempty positive nullcline comes from an irreducible conic for independent density forms or a single line when they are proportional; distinct curves intersect at most four times, and a shared positive branch has no isolated points. The corrected scope preserves the witness and does not assert attraction or full-model equilibria. The supplied verifier was read, not run.
 
-PASS, best-knowledge assessment. The primary full text of Bravo de la Parra–Sanz (doi:10.3934/dcdsb.2019204, openly deposited as arXiv:2402.04041) explicitly supplies an upper bound of four and says that four examples were not found in its numerical experiments. Its classification and figures treat only zero through three. The present witness resolves the unattained extremal case for the same rational response law; this is not a new derivation of the known upper bound. Related four-equilibrium Allee-effect systems use different demographic functions. Related positive-equilibrium counts in other predator–prey and epidemic systems do not imply this construction. The priority conclusion cannot exclude unindexed or later independent examples.
+## originality
 
-## Value
+PASS
 
-PASS. Whether the fourth coexistence intersection permitted by the original model is actually realizable is a concrete, motivated gap identified by the initiating research itself. A strictly positive rational witness gives both attainability of the sharp algebraic upper bound and a structurally persistent open family; the result is not a random small enumeration or a new name for a known identity. The exact certificate provides a reproducible case for subsequent stability and basin analysis. It does not establish all four states as attractors or make empirical predictions.
+The distinct supported result is an exact, positive, four-intersection witness with an open neighborhood in the specified reciprocal-affine family, not the response form, isocline geometry or upper bound. Bravo de la Parra–Sanz gives the identical form and upper bound but reports an unsuccessful numerical search for the four-positive case. An earlier same-form fast-dispersal reference is now acknowledged explicitly; no universal priority is asserted. Its unavailable full text leaves a material but unverified overlap risk, not a negative finding. The unrelated four-interior-equilibrium Allee-effect example does not imply four for this constrained family.
 
-## Closest literature and residual risks
+## value
 
-The main paper's hyperbolic isocline geometry and at-most-four bound are prior work. Kang's generalized Beverton–Holt map permits four coexistence equilibria under Allee effects, but differs from the shared-parasite, decreasing-response construction. The accessible references and mathematical records examined do not establish priority against every possible unindexed example. The result applies to the reduced map only; extending to a finite-fast-step full model would require a separate argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-positive case is a concrete missing extremal regime identified in the published model study, not an arbitrary parameter slice. Exact attainability and transversality give a useful reproducible test case and a nonzero open parameter regime, without conflating persistence with attraction. Qualifying the bound by isolation resolves the degenerate common-curve case and retains this scientific contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

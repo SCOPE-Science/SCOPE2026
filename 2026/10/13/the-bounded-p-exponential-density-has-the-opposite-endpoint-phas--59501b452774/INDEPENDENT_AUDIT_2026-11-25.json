@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:52:42.649883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the open support put δ=p+1−x>0 and K=p/(p+1)^p>0. The density is Kδ^(p−1), its derivative is −(p−1)Kδ^(p−2), and the second derivative of its logarithm is −(p−1)/δ². Therefore it strictly increases to infinity for 0<p<1, is the constant 1/2 for p=1, and strictly decreases to zero for p>1; in the last case the left limit p/(p+1) is the supremum, not an attained maximum on the open interval. The ordinary second derivative has constant sign as well, since f''/f=(p−1)(p−2)/δ². The survival integral is (δ/(p+1))^p, giving exactly the stated hazard p/δ and its positive derivative p/δ². The publisher's PDF directly states the incompatible Figure 1 prose (including right-endpoint blow-up in all cases), and §2.3 calls the density decreasing for 0<p≤1 immediately after giving the log derivative that shows otherwise. This check concerns the published interpretation; no assertion about the rendered curve strokes is needed. The supplied checker was inspected but not executed; representative numerical cases are unnecessary for the all-parameter analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper already gives the density and IFR hazard, the uniform case and the scaled-beta representation. Its p>1 log-concavity conclusion is also correct. The focused literature lookup surfaced the paper and publisher entry rather than an identified correction."
+        ],
+        "reasoning": "The usual beta calculus covers the mathematical phase diagram on its own; it does not cover an identification and repair of these model-specific contradictions in the printed interpretation. This pass does not attribute any new beta-distribution fact to the record.",
+        "searches": [
+          "Bakouch et al., §§2.1–2.3, Eqs. (4)–(5), Remark 1 and Corollary 1",
+          "10.3390/math14061076 corrigendum correction bounded p exponential density monotonicity Bakouch Figure 1 endpoint"
+        ]
+      },
+      "checked_sources": [
+        "Bakouch et al., Mathematics 14 (2026), 1076, DOI 10.3390/math14061076",
+        "Resultary 182c5a645f67 and model-specific ranked searches",
+        "Focused DOI/corrigendum literature lookup",
+        "Frozen RESULT.md and verification package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior expressions mechanically imply every derivative/endpoint phase, and Eq. (5) gives the unchanged hazard. The same text claims initial decay or moderation followed by upward bending and blow-up for all p, then labels 0<p≤1 decreasing despite its positive log slope below one."
+        ],
+        "reasoning": "The analytic calculation is prior by implication and is credited as such. What survives is the concrete published-error diagnosis: which prose statements to reverse, where to replace blow-up by a uniform density or a zero endpoint limit, and why no hazard correction follows.",
+        "searches": [
+          "Bakouch et al., Eq. (4), §2.3 log derivatives, and §2.2 Corollary 1, versus the Figure 1 prose and §2.3 verbal conclusion",
+          "Resultary 182c5a645f67, same-model density and estimator claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article asserts X=(p+1)Y, Y~Beta(1,p), so the density shape is exactly that of Beta(1,p) under a positive scale change. The same-model Resultary hit 182c5a645f67 instead concerns a sample-maximum estimator and the likelihood boundary."
+        ],
+        "reasoning": "Equivalent density formulae and their familiar beta phases are not new. The distinct assertion compares the correct implications with the source's incorrect prose; the likelihood-boundary result addresses a different question.",
+        "searches": [
+          "Resultary: The One-Parameter Bounded p-Exponential Distribution: Properties, Inference, and Applications",
+          "Resultary: bounded p-exponential scaled Beta(1,p) density shape phase monotonicity",
+          "Bakouch et al., §2.2 Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary article's Figure 1 discussion says the curve blows up at the right endpoint in all cases; that is opposite to the exact p>1 right limit. The matched same-model catalogue entry 182c5a645f67 supplies no exact correction table for the three density phases."
+        ],
+        "reasoning": "The relevant exact-table comparison is with the claimed model-specific phase information and corrections, not numerical density evaluations. An indexed paper giving the same formula is not evidence that it has corrected its own three incompatible assertions.",
+        "searches": [
+          "Resultary: bounded p-exponential density increasing decreasing monotone endpoint behavior",
+          "Resultary: bounded p-exponential Figure 1 density initially decays bends upward blow-up right endpoint",
+          "Resultary: frozen finding exact title",
+          "Bakouch et al. Figure 1 discussion and §2.3, compared against the exact phase classification"
+        ]
+      },
+      "rationale": "The supported distinct content is a correction of the paper's model-specific density-shape assertions, not a new result about beta densities or a new derivative, distribution, hazard, or representation. The primary article states the correct inputs but explicitly draws contradictory shape conclusions. No distinct matching correction was established in the checked catalogue and literature results.",
+      "residual_risks": [
+        "Bounded searches do not rule out a recent or unindexed correction. The rendered plot was not inspected; the contradiction is established from the explicit accompanying prose and equations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies all correct analytic inputs but contains the specific model-description errors targeted here",
+          "evidence": [
+            "The Figure 1 discussion says the density initially decays or remains moderate before bending upward and blows up in all cases. §2.3 calls f_p decreasing at 0<p≤1; its own log derivative is positive for 0<p<1. The article itself gives the scaled Beta(1,p) representation and uniform law at p=1."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-14-01076/article_deploy/mathematics-14-01076.pdf",
+          "material_read": "§2.1, p. 5, Eqs. (4)–(5) and Figure 1 discussion (offset around 21500); p. 6 Figure 1 caption (26729); §§2.2–2.3, p. 7, Remark 1, Corollary 1 and log-shape discussion (33000–36586)",
+          "method": "Bounded publisher OA PDF passages",
+          "title": "The One-Parameter Bounded p-Exponential Distribution: Properties, Inference, and Applications",
+          "trigger": "Same model; original density, Figure 1 prose and purported shape conclusion"
+        },
+        {
+          "assessment": "Same density, different scientific correction",
+          "evidence": [
+            "Addresses whether max{0,M_n−1} is an MLE and discusses the likelihood boundary, not the density's shape across p or the interpretation of Figure 1."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-bounded-p-exponential-sample-maximum-estimator-is-not-the-ml--182c5a645f67",
+          "material_read": "Local mirror RESULT.md, opening finding at offset 0",
+          "method": "Bounded local source inspection",
+          "title": "The bounded p-exponential sample maximum estimator is not the MLE",
+          "trigger": "Strongest matched catalogue entry using the same density"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is worthwhile as a narrow published correction, not as a textbook differentiation exercise. It replaces an erroneous common-shape and blow-up description with the correct parameter-dependent behavior, distinguishes a boundary supremum from a mode in the open support, and preserves the separate increasing-hazard conclusion. The correction changes how users of the proposed model interpret density near the upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

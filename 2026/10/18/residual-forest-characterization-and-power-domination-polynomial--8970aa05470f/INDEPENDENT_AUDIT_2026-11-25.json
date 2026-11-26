@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:14.342900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen structural criterion and counts check, but the final assessment is of the narrower and strengthened enumerative claim in /workspace/repairs/3/RESULT.md. The initially unseen line-graph vertices are exactly the edges induced by the unused endpoints W. A first force on a cycle there is impossible because its source would see both incident unobserved cycle edges at one endpoint. Since a nonempty selected edge meets two parts, any residual leaf has a permanently observed edge to a used vertex in another part. That edge sees the single unobserved leaf edge, so all residual forests can be stripped. The allowed multipartite residual profiles have support at most one, or support two with a singleton. Apply subset inversion to the indicator f(T) of that profile condition. Its transform α(B)=Σ_(T⊆B)(−1)^(|B|−|T|)f(T) satisfies f(W)=Σ_(B⊆W)α(B). Exchanging this sum with the edge-selection enumerator leaves terms (1+z)^e(a−u) when B has profile u, since selecting any edge incident to B is then forbidden. For the transform weight after factoring (−1)^|u|, the empty subset contributes 1, each occupied part contributes −1, and each pair contributes u_i+u_j−u_i u_j by summing over t_i=1 or t_j=1 and subtracting the common singleton pair. The empty selection is counted by f(V(H)), which is 1 only for a star in this family, and is subtracted. The resulting single sum enumerates all coefficients. An independent replay of the frozen two-sum formula and direct forcing on nine profiles passed (python3 /workspace/checks/frozen_review_checks.py power). A fresh compact-formula verifier ran successfully on 21 profiles and 25,942 labelled edge selections, including the (1,2,3) example and star boundary tests through K_(1,12): python3 /workspace/repairs/3/verify_compact_polynomial.py. Both are finite checks, not the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "df97bef8930a proves the broader line-graph criterion for minimum degree at least two, and computes an explicit polynomial on the Petersen line graph; the forest criterion says which placements qualify, not closed coefficients for general part profiles",
+          "Brimkov et al. give general methods, special families and finite enumeration; the inspected Section 4 includes complete graphs and a finite census",
+          "Girish et al. address fault-tolerance transfer under line graphs, not the full cardinality enumerator in question"
+        ],
+        "reasoning": "The structural part of the frozen finding is a special case, with a trivial star boundary. Handling all coefficient profiles is not obtained by specializing the Petersen or other listed enumerators. Neither the existence of a brute-force method nor knowing the admissible sets evaluates the signed profile transform; the repaired formula performs that calculation.",
+        "searches": [
+          "Resultary df97bef8930a, endpoint–forest theorem and Petersen polynomial",
+          "arXiv:1805.10984, §3.2 and §4 (decomposition and specific graph polynomials)",
+          "DOI:10.1038/s41598-026-54352-z, line-graph results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:df97bef8930a",
+        "Resultary:48ce98e1f82f",
+        "Resultary:b7c1b689a10e",
+        "Resultary:e4946fa80078",
+        "arXiv:1805.10984",
+        "DOI:10.1038/s41598-026-54352-z (scope passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum-degree-two coverage plus the complete-graph polynomial handles the entire frozen structural classification, including degenerate roots",
+          "Rook E_(r,c) and triangular F_s are isolated-vertex inclusion–exclusion restricted to their respective supports",
+          "In the repaired proof, the sum over two-part star profiles evaluates to u_i+u_j−u_iu_j after accounting for their common two-singleton profile"
+        ],
+        "reasoning": "The new output is not the immediate corollary that the forest theorem applies, nor a reparameterization of the isolated-vertex formulas on those two families. It computes the explicit Möbius weights for mixed multipartite roots and removes the inner inclusion–exclusion at each admissible residual profile. Subset inversion as a general method is classical; novelty is limited to its evaluated coefficient formula here.",
+        "searches": [
+          "df97bef8930a, Finding and Proof Step 1",
+          "48ce98e1f82f and b7c1b689a10e, explicit weight enumerators",
+          "arXiv:1805.10984, Proposition 20 and Section 4 opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary df97bef8930a uses exactly the original residual acyclicity condition with minimum root degree at least two; the only omitted complete multipartite roots are stars",
+          "In the repaired formula, α(B) depends on the full profile through the evaluated signed weight (−1)^|u|Γ(u), including interactions between each pair of positive entries"
+        ],
+        "reasoning": "Endpoint deletion and residual forest describe the same placements, not a new variant of forcing. The difference in the repair is the cardinality enumerator computed by evaluating the weight for forbidden endpoints on all part profiles. Rephrasing in terms of avoiding a 2-core would not add anything.",
+        "searches": [
+          "Resultary: line graph power domination, endpoint forest, 2-core",
+          "Resultary: complete multipartite line graph power domination polynomial arbitrary part sizes support Mobius inversion single sum isolated vertices forest coefficient e(a-u)",
+          "Public literature: power domination polynomial, line graph, complete multipartite, edge set, isolated inclusion exclusion, forest polynomial coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "48ce98e1f82f contains the identical row/column classification, full rook polynomial and both rectangular/square minimum counts",
+          "b7c1b689a10e gives the same triangular polynomial and both minimum multiplicities, and goes further on inclusion-minimal sets",
+          "Brimkov et al. explicitly report exhaustive computation on graphs with fewer than ten graph vertices"
+        ],
+        "reasoning": "The rook and triangular entries are exact coverage; small numerical cases may also already be in the census, and are not presented as new. Neither finite graphs nor a catalogue of bipartite and all-singleton profiles supplies a uniform formula for arbitrarily many, arbitrary-sized parts.",
+        "searches": [
+          "Resultary 48ce98e1f82f, rectangular rook formula and minimum coefficient",
+          "Resultary b7c1b689a10e, triangular graph finding",
+          "Resultary e4946fa80078, ordinary and connected rook enumerators",
+          "arXiv:1805.10984, §4 opening (graphs with fewer than ten vertices)"
+        ]
+      },
+      "rationale": "The frozen claim package cannot pass as a new structural criterion plus new rook and triangular enumerations: these are covered. The repaired record does not claim those as contributions. Its distinct result is an evaluated subset-transform coefficient giving the whole polynomial with one sum over part profiles, for all root multipartite lists including mixed sizes and at least three parts. Neither the general placement criterion nor the exact enumerators restricted to rook and triangular graphs give these explicit weights for mixed profiles. The repair proves and checks the single-sum formula; it is not just a certificate or disclaimer for the covered claims.",
+      "residual_risks": [
+        "The cited 2014 and 2016 product-paper full texts were inaccessible via lawful routes attempted. A previously unindexed formula evaluating the same multipartite transform is possible; the focused public search was not decisive. Catalogue path dates are not used as proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural claim except trivial degree-one star boundaries; does not give a multipartite profile formula",
+          "evidence": [
+            "The theorem assumes δ(H)≥2 and asserts exactly the residual-forest iff; the explicit polynomial is for L(Petersen)"
+          ],
+          "identifier_or_url": "Resultary df97bef8930a",
+          "material_read": "Finding, assumptions and proof of the endpoint criterion, plus stated Petersen enumerator, offset 0 onward",
+          "method": "Local mirror original RESULT.md",
+          "title": "An edge-endpoint forest criterion and the complete power-domination landscape of the Petersen line graph",
+          "trigger": "Closest broader endpoint characterization"
+        },
+        {
+          "assessment": "Exact rook specialization coverage",
+          "evidence": [
+            "All but at most one row or column; bipartite no-isolate polynomial E_(r,c); minimum counts p q^(p−1) and 2p^p−p²(p−1)!"
+          ],
+          "identifier_or_url": "Resultary 48ce98e1f82f",
+          "material_read": "Finding, hypotheses, initial observation and forcing lemmas, offset 0 onward",
+          "method": "Local mirror original RESULT.md",
+          "title": "Complete power-domination-set classification and polynomial of rectangular rook graphs",
+          "trigger": "Exact rook classification, coefficient and polynomial match"
+        },
+        {
+          "assessment": "Exact triangular specialization, with stronger inclusion-minimal conclusions",
+          "evidence": [
+            "Placement iff i(S)≤2; polynomial Σ_(u=0)^2 binom(n,u)F_(n−u)(z), and the matching/one-path minimum counts"
+          ],
+          "identifier_or_url": "Resultary b7c1b689a10e",
+          "material_read": "Finding and hypotheses, offset 0 onward",
+          "method": "Local mirror original RESULT.md",
+          "title": "Power domination of triangular graphs: star-forest rigidity and full enumerators",
+          "trigger": "Exact triangular specialization match"
+        },
+        {
+          "assessment": "Reconfirms rook overlap and adds connected variant; no mixed-profile result in the finding",
+          "evidence": [
+            "Ordinary rook and connected-set enumeration, under the rook hypotheses"
+          ],
+          "identifier_or_url": "Resultary e4946fa80078",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror original RESULT.md",
+          "title": "Complete ordinary and connected power-domination enumerators of rook graphs",
+          "trigger": "Related explicit rook polynomial"
+        },
+        {
+          "assessment": "General framework and partial coverage including complete graphs and finite census",
+          "evidence": [
+            "Reports brute-force polynomials for graphs on fewer than ten vertices, and gives the explicit complete-graph and other special-family formulas"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10984",
+          "material_read": "Definition (page 1), §3.2 locator and §4 opening and Proposition 20 (pp. 10–11; PDF offset 36955 onward)",
+          "method": "Lawful OA primary PDF",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Foundational polynomial and possible indexed computations"
+        },
+        {
+          "assessment": "Different objective in the inspected passage",
+          "evidence": [
+            "Fault-tolerance amplification under line-graph transformation, not a complete multipartite coefficient formula"
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-026-54352-z",
+          "material_read": "Scope in the p. 2 passage around PDF offset 6500",
+          "method": "Lawful OA primary PDF",
+          "title": "Fault-tolerance amplification in line graphs: a framework for resilient PMU placement in power networks",
+          "trigger": "Closely related line-graph power-domination method"
+        },
+        {
+          "assessment": "Insufficient for a whole-paper comparison; not used to claim novelty of any rook result",
+          "evidence": [],
+          "identifier_or_url": "DOI:10.1080/09728600.2014.12088762; DOI:10.1016/j.akcej.2016.02.004",
+          "material_read": "Full texts not obtained; attribution distinguished from the inspected exact Resultary coverage",
+          "method": "Lawful DOI and publisher routes attempted; no identified OA copy retrieved",
+          "title": "Soh–Koh 2014 and Koh–Soh 2016 on product power domination",
+          "trigger": "Attribution of the rook numerical minimum and possible broader product results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired enumerator addresses a natural question beyond recognizing or minimizing a placement: it gives directly every cardinality coefficient for a broad labelled graph family, including mixed profiles not covered by the rook or triangular formulas. The evaluated profile weight replaces enumeration of edge subsets or a separate inner subset inversion at each residual profile with a single finite sum of binomial coefficients and powers. For a fixed number of parts the number of summands is polynomial in the root order, rather than exponential in the root edge count. This value rests on the explicit uniform evaluation, not on novelty of Möbius inversion or on recalculating known special cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

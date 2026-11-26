@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:09:53.945262Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–99",
+        "Frozen verify_two_band.py and VERIFICATION.md (inspected only)",
+        "Independent replay: python3 /workspace/review-evidence/5-replay.py, 75-digit Decimal arithmetic; numerical check only"
+      ],
+      "rationale": "The depth Hessian is strictly positive, the derivative at zero is 1−21k and the depth derivative tends to infinity. These prove existence and uniqueness, including the zero boundary branch; the nonzero Hessian gives smoothness on k>1/21. With y=kz and G(y)=e^(−y)+20e^(−20y), the stationarity equation is e^(y/k)=kG(y). The function log k+log G(y)−y/k increases in k and decreases in y, giving a strictly increasing coordinate y. At the threshold y tends to zero, while bounded y at infinite k would make the right side of stationarity diverge and the left approach one. Thus all y>0 are traversed. The sign of z_*' is the negative sign of f(y)=(y−1)e^(19y)+20(20y−1); f is negative, positive, negative, positive at 0, 1/10, 1/2, 1. The strict signs use e^(1.9)<8 and the fourth-degree Taylor lower bound e^(9.5)>360. Since f''=(361y−323)e^(19y) has exactly one positive zero, Rolle's theorem gives exactly three positive roots; another zero of f' at any root would contradict that curvature count. Therefore the three turns on the positive-depth branch are a strict maximum, minimum and maximum. The bound z_*<=log(21k)/(1+k) gives the decay. In the one-band case the positive solution is log(abk)/(1+bk); its derivative sign is that of 1+1/t−log(at) with t=bk, which strictly decreases from a positive threshold value to minus infinity. My Decimal replay of the three roots and the inverse stationarity equation reproduced all displayed digits of the three attenuation and depth values.",
+      "residual_risks": [
+        "The three critical values are interior turns for k>1/21; the constant boundary branch is not part of that count. There is no assertion of an ecological calibration or a classification of all two-band choices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Došlá's Proposition 6 classifies arbitrary common shape q, distinct rates a>b and weights p by q>(a+b)²/(a−b)² and p in an explicit open interval. Ahmed et al. also give the common-shape quadratic and use its roots to compute the mixing-weight interval.",
+          "The indexed e45ac4ab94e8 gives ordinary log-concavity and the signs of log-curvature; failure of log-concavity by itself does not imply two modes."
+        ],
+        "reasoning": "The general primary modality result is stronger than an exact count for rate ratio 20; its hypotheses fit this case. A log-curvature theorem on the same densities is not substituted for the required bimodality result.",
+        "searches": [
+          "Došlá, Conditions for bimodality and multimodality of a mixture of two unimodal densities, §3.5",
+          "Ahmed–Goria–Hussein, Gamma Mixture: Bimodality, Inflexions and L-Moments, §2.2 equal-shape case",
+          "Resultary finding e45ac4ab94e8"
+        ]
+      },
+      "checked_sources": [
+        "Primary searches on optical refuge choice and common-shape Gamma modality; audited specialization to Došlá and Ahmed et al.",
+        "Resultary local-mirror comparisons and exact self-match c69469fed1c0",
+        "Frozen RESULT.md, interpretation and stationarity equations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute q=2, a=20, b=1, p=1/21 into Proposition 6. The separation condition is 2>441/361 and the two boundary arguments are x_1,x_2=(21±sqrt(281))/40.",
+          "Writing R(x)=exp(19x)(1−x)/(400(20x−1)), the boundaries have fast weights R(x_i)/(1+R(x_i)). R has its interior local minimum at x_1 and maximum at x_2; R(x_1)<=R(1/10)<1/20<R(1/2)<=R(x_2) by e^(1.9)<8 and e^(9.5)>360. Thus the fast weight 1/21 lies strictly inside the published interval. The stationary ratio is strictly monotone on each of the three pieces between its two extrema, giving exactly three simple crossings.",
+          "Aksnes–Giske give optimal depth by minimizing their habitat tradeoff expressions when feeding and predation risk are known with depth; that passage is conceptual background, not the decisive implication."
+        ],
+        "reasoning": "The two published interior Gamma modes and single intervening minimum transfer directly by the strict monotonicities; one component is directly unimodal. The three reported k and z values merely locate these known types of extrema in the new coordinates.",
+        "searches": [
+          "Došlá §3.5 Proposition 6 and its exact formulas; Ahmed et al. §2.2, equations (4), (8)",
+          "Aksnes–Giske 1990, Habitat profitability in pelagic environments, PDF p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationarity with y=kz gives z exp(z)=y(e^(−y)+20e^(−20y)); W_0 is strictly increasing and k↦y is an increasing bijection on the interior branch.",
+          "Gamma(shape 2, rate r) has density r² y e^(−ry); normalizing yG gives (20/21) times the rate-1 density plus (1/21) times the rate-20 density."
+        ],
+        "reasoning": "Monotone transformations in domain and range give exact equivalence for the central maximum/minimum count. The response curve is not literally a probability density, but its mode pattern is the same under this reparameterization. With y=bkz in the one-band case, z exp(z)=a y e^(−y), a single Gamma shape.",
+        "searches": [
+          "Primary literature: bimodality mixture of two gamma distributions same shape different scale necessary sufficient conditions modes",
+          "Resultary: two component gamma mixture bimodality shape 2 Erlang modes; y(e^-y+20e^-20y)",
+          "Došlá, §3.5, Proposition 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact optical-risk catalogue hit c69469fed1c0 is the assigned finding. 1f66622b0c1c optimizes attenuation for depth-mean photosynthesis, rather than animal depth, and the same-day ec56817d66ae uses integrated stellar exposure sensitivity, a different score.",
+          "No independent exact optical-depth table was identified; the general published Gamma formula explicitly gives the applicable boundaries for the fast weight (about 0.0147327 and 0.9979307)."
+        ],
+        "reasoning": "The absence of a table of the k and z values is immaterial: their number and ordering are decided by the prior criterion and the coordinates are routine inversions. The self-match and other optical or exposure objectives are not used as proof of coverage.",
+        "searches": [
+          "Resultary: two-band optical refuge depth, optical-depth optimum, and equal-shape Gamma (Erlang-2) modes",
+          "Resultary local-mirror findings c69469fed1c0, 1f66622b0c1c and ec56817d66ae",
+          "Došlá, Proposition 6 closed boundaries"
+        ]
+      },
+      "rationale": "The central mode-count claim is a direct corollary of published equal-shape Gamma-mixture bimodality criteria. On the positive branch stationarity gives z exp(z)=yG(y); hence z=W_0(yG(y)), with W_0 strictly increasing, and y(k) strictly increases onto (0,infinity). Thus the response has exactly the same extrema, in the same order, as yG(y). After multiplication by 20/21 this function is exactly a mixture of shape-2 Gamma densities with fast rate 20 (weight 1/21) and slow rate 1 (weight 20/21). Došlá (2009), Proposition 6, gives the precise bimodal region, and Ahmed–Goria–Hussein (2008), §2.2, gives the equivalent common-shape criterion. Substituting the stated parameters proves bimodality strictly inside that region. For one band the corresponding transformed curve is a multiple of the single shape-2 Gamma density, already strictly unimodal. The depth minimization interpretation does not change the mode count, and the threshold, limit and numerical coordinates are routine stationarity consequences. This is demonstrated prior implication, not an inference from inaccessible ecology literature.",
+      "residual_risks": [
+        "The exact history of the ecological example was not established: several ecology articles lacked readable full text, and the focused ecological query found unrelated results. The FAIL concerns the demonstrable mathematical implication, not historical authorship or an unsupported claim of what those ecology papers contain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage by specialization",
+          "evidence": "The proposition gives the strict separation threshold, the two quadratic arguments and fast-component mixture-weight interval for bimodality. Substitution and strict comparison above apply to the assigned model.",
+          "identifier_or_url": "https://www.kybernetika.cz/content/2009/2/279/paper.pdf",
+          "material_read": "§3.5 Proposition 6, journal pp. 288–289, PDF offsets 33140–36600",
+          "method": "Public publisher OA PDF; queried Gamma and read the decisive proposition and continuation by offset",
+          "title": "Conditions for bimodality and multimodality of a mixture of two unimodal densities",
+          "trigger": "An exact general modality classification for the equivalent equal-shape two-Gamma mixture"
+        },
+        {
+          "assessment": "Earlier independent coverage of the equivalent modality criterion",
+          "evidence": "The common-shape quadratic determines the two arguments at which to compute the endpoints of the interval of bimodal weights. Došlá gives the same relevant condition in rate notation.",
+          "identifier_or_url": "https://doi.org/10.1080/03610920701713286",
+          "material_read": "Section 2 setup, §§2.1–2.2 boundary weight formula (4), and the equal-shape case (8), including the discussion at journal p. 1152 (offset 35650)",
+          "method": "Public PDF of the same paper identified at https://stat.ethz.ch/pipermail/r-help/attachments/20080702/0db0ac8e/attachment.pdf after publisher and other identified copies were unavailable",
+          "title": "Gamma Mixture: Bimodality, Inflexions and L-Moments",
+          "trigger": "Earlier direct classification of bimodal Gamma mixtures"
+        },
+        {
+          "assessment": "Same family, different invariant; not decisive for bimodality",
+          "evidence": "Classifies log-concavity from the relative fast amplitude, not the number of maxima in the non-log-concave regime.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-log-concavity-threshold-for-equal-shape-gamma-rate-mixtu--e45ac4ab94e8",
+          "material_read": "Finding, assumptions, limitations and references, offsets 0 and 6500",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp log-concavity threshold for equal-shape Gamma rate mixtures",
+          "trigger": "Strongest indexed equivalent density family"
+        },
+        {
+          "assessment": "Related ecological optimization but not the deciding mathematical theorem",
+          "evidence": "When feeding and predation risk are functions of depth, optimal depth is obtained by minimizing one of two displayed habitat-profitability expressions, not by the stated exponential objective or an attenuation-response count.",
+          "identifier_or_url": "https://doi.org/10.3354/meps064209",
+          "material_read": "Abstract and PDF p. 3 (journal p. 211, offset around 14918)",
+          "method": "Lawful OA PDF at https://www.int-res.com/articles/meps/64/m064p209.pdf",
+          "title": "Habitat profitability in pelagic environments",
+          "trigger": "Closest readable ecological depth-choice antecedent"
+        },
+        {
+          "assessment": "Different variable and objective",
+          "evidence": "Optimizes attenuation for depth-mean photosynthesis and gives a unique positive optimum increasing with surface irradiance.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-optical-depth-optimum-for-a-uniformly-mixed-photoinhibit--1f66622b0c1c",
+          "material_read": "Finding, offset 34",
+          "method": "Local mirror RESULT.md",
+          "title": "A sharp optical-depth optimum for a uniformly mixed photoinhibited water column",
+          "trigger": "Closest earlier optical-depth catalogue hit"
+        },
+        {
+          "assessment": "Different score and variable; not decided by date",
+          "evidence": "Integrated exposure sensitivity E(T)/sqrt(T) can have two maxima with a two-exponential source, versus one in the single-exponential case.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-local-exposure-sensitivity-maxima-from-a-monotonically-decay--ec56817d66ae",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Two local exposure-sensitivity maxima from a monotonically decaying two-timescale stellar transient",
+          "trigger": "Strong same-day analogy for two-component versus one-component mode counts"
+        },
+        {
+          "assessment": "Unresolved separate ecological-model priority; not evidence for the failure",
+          "evidence": "Available material does not expose the decisive depth/attenuation formulas. The prior Gamma implication is independent of these access limits.",
+          "identifier_or_url": "https://doi.org/10.1086/284789 ; https://doi.org/10.1016/0304-3800(93)90007-F",
+          "material_read": "Clark–Levy cited in Aksnes–Giske 1990; Aksnes–Giske 1993 landing/abstract material only",
+          "method": "Public DOI/OA attempts; Clark–Levy full text unavailable and no identified lawful alternate returned for Aksnes–Giske 1993",
+          "title": "Clark–Levy vertical migration model and Aksnes–Giske aquatic visual feeding model",
+          "trigger": "Plausible ecological precedents with depth-dependent visual predation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope, proof and limitations",
+        "Došlá Proposition 6 and Ahmed–Goria–Hussein §2.2",
+        "Equivalence via z exp(z)=yG(y) and increasing y(k)"
+      ],
+      "rationale": "The example is a correct illustration that uniquely optimizing a stylized tradeoff can give nonmonotone comparative statics. Here its proposed mathematical contribution is, however, a fixed parameter substitution in known Gamma-mixture bimodality, followed by monotone depth and attenuation coordinates. The one-band comparison is the elementary single-Gamma case, and the isolated decimal coordinates and endpoint facts do not supply an independently useful new result. The specific ratio and amplitudes are not independently motivated by a physical setting, and no new full two-band boundary, downstream application, or standalone structural theorem is established in the frozen claim.",
+      "residual_risks": [
+        "This does not rule out value in a separately substantiated ecological application or a different model whose comparative statics do not reduce to established modality criteria."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

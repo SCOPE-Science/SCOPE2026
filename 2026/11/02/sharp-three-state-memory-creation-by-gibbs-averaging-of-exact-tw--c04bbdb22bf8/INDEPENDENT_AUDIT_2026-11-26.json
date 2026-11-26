@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:12:13.527033Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the extremal reduction in RESULT.md. In the orthonormal centered basis (1,−1,0)/√2 and (−1,−1,2)/√6, doubly stochasticity separates the constant eigenvector, P²=Π forces centered trace zero, and the trace-one stochastic parameterization has centered entries −τ,τ on the diagonal and √3(t−r∓d)/2 off the diagonal, with τ=(3s−1)/2, s=P33, r=1−s. Centered determinant zero, equivalently square zero with trace zero, gives d²=(t−r)²+3(s−1/3)². Nonnegativity is exactly |d|≤2s and |d|≤r−|t−r|, giving √3|s−1/3|≤min(2s,1−s), with equality-compatible witnesses at t=r and d=√3(s−1/3). Solving both inequalities gives (2√3−3)/3≤s≤1/√3. The witnesses are strictly positive in the interior and square to Π including at both endpoints. Gibbs compression kills the first centered basis vector and retains τ on the second. Thus H=G−Π is a rank-one orthogonal projection with squared Frobenius norm 1 and largest row half-L1 norm 2/3; powers and the upper-endpoint maximum follow, since the positive endpoint has larger modulus. In dimension two the sole centered eigenvalue must be zero. Inspected frozen verify.py and its recorded 3,714 assertion result, without executing the supplied script; finite checks do not establish the uniform inequalities or all-time powers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choi–Wang's all-time Frobenius comparison assumes ergodic reversibility.",
+          "Mehta–Schulman discuss power decay for triangular contractions and nilpotent double-stochastic examples, not extremal compressions.",
+          "The normality-defect catalogue theorem gives an inequality for general kernels and a stronger result for normal kernels."
+        ],
+        "reasoning": "Nonzero centered square-zero operators are nonnormal and in particular non-self-adjoint. General inequalities for nonnormal kernels or their power-decay horizons do not characterize the range of the compressed eigenvalue.",
+        "searches": [
+          "arXiv:2610.39239 Theorem 4.1",
+          "arXiv:1909.12497 Lemma 19 and appendix on nilpotent Schur forms",
+          "SCOPE c3fe4348bafa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and VERIFIER_OUTPUT.txt",
+        "arXiv:2610.39239, 2512.13067 and 1909.12497",
+        "SCOPE e58a56157489 and c3fe4348bafa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-block compression reduces to one scalar, but the existing existence witness does not supply a constraint on P33 for all eligible kernels or show both attainable extremes.",
+          "The cited reversible and self-adjoint comparisons exclude each nontrivial example in this regime."
+        ],
+        "reasoning": "The sharp part requires jointly using nilpotence and entrywise nonnegativity and exhibiting boundary matrices, not substituting parameters into a known power comparison. The norm identities after the scalar range is known are elementary consequences, not independent novelty claims.",
+        "searches": [
+          "arXiv:2610.39239 Theorem 4.1 and arXiv:2512.13067 Proposition 3.2",
+          "SCOPE e58a56157489 three-state witness and c3fe4348bafa Frobenius bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE e58a56157489 constructs positive exact two-step mixers with lasting geometric memory for all nontrivial partitions and includes one three-state witness with τ=1/8.",
+          "arXiv:2512.13067, Proposition 3.2, compares spectral gaps under self-adjointness."
+        ],
+        "reasoning": "The broad existence statement overlaps the phenomenon and the explicit witness realizes one interior scalar only. The interval concerns τ, not the whole centered spectrum {0,τ}. Neither witness nor spectral-gap comparison identifies the attainable extremes.",
+        "searches": [
+          "Resultary: Gibbs averaging can destroy two-step exact mixing; sharp nonnormality-defect bounds",
+          "Primary literature on exact two-step doubly stochastic mixing and nilpotent Gibbs compression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest distinct catalogue entries give a single explicit three-state point and a general defect bound, rather than the endpoint interval or exact least-upper-bound errors."
+        ],
+        "reasoning": "The compared catalogue statements neither enumerate nor sharply bound the feasible range over all three-state inputs. Later or same-day catalogue dates do not by themselves establish priority.",
+        "searches": [
+          "Resultary exact two-step mixer, sharp three-state Gibbs spectrum",
+          "SCOPE e58a56157489, Finding and §5; SCOPE c3fe4348bafa, Finding"
+        ]
+      },
+      "rationale": "The distinct claim is the complete sharp attainable interval for the sole potentially nonzero compressed centered mode, with endpoint and positivity statements and exact worst-case errors. Neither the general compression framework nor memory creation by itself is credited as new.",
+      "residual_risks": [
+        "An equivalent sharp P33 bound for a doubly stochastic matrix with spectrum (1,0,0) could occur in inverse-eigenvalue or lumping literature under a different formulation; the targeted comparison does not certify historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader dimension, different self-adjointness regime.",
+          "evidence": [
+            "The theorem expressly requires an ergodic reversible baseline."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39239",
+          "material_read": "Theorem 4.1, PDF p. 16, offset 50260",
+          "method": "Targeted OA PDF reading",
+          "title": "Bregman projections and partition design for accelerating finite Markov chains",
+          "trigger": "Same Gibbs projection and all-time Frobenius comparison"
+        },
+        {
+          "assessment": "No general compressed-mode exact extremum for nonreversible square-zero inputs.",
+          "evidence": [
+            "Uses self-adjointness with Rayleigh–Ritz for absolute gap comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.13067",
+          "material_read": "Proposition 3.2, PDF p. 15, offset 40104",
+          "method": "Targeted OA PDF reading",
+          "title": "Group-averaged Markov chains II: tuning of group action in finite state space",
+          "trigger": "Same compression idea and spectral claim"
+        },
+        {
+          "assessment": "Different quantity: power decay and expansion, not the three-state Gibbs range.",
+          "evidence": [
+            "Bounds powers of triangular contractions and discusses an order-n decay horizon for nilpotent Schur forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.12497",
+          "material_read": "Lemma 19, PDF p. 13, offset 51350; appendix, pp. 43–44, offset 151888",
+          "method": "Targeted OA PDF reading",
+          "title": "Edge Expansion and Spectral Gap of Nonnegative Matrices",
+          "trigger": "Power bounds and stochastic nilpotent examples under equivalent centered formulation"
+        },
+        {
+          "assessment": "Material overlap for the existence example, not the sharp attainable interval.",
+          "evidence": [
+            "A uniform three-state witness has τ=1/8; the general assertion is existence of positive witnesses."
+          ],
+          "identifier_or_url": "SCOPE e58a56157489",
+          "material_read": "RESULT.md Finding and proof §5",
+          "method": "Published record via local mirror",
+          "title": "Every nontrivial Gibbs partition can destroy two-step exact mixing",
+          "trigger": "Same memory-creation phenomenon, all partitions"
+        },
+        {
+          "assessment": "A quantitative inequality rather than a feasible-spectrum classification; same-day ordering not assumed.",
+          "evidence": [
+            "Gives an all-time Frobenius bound with a nonnormality defect term and a normal-baseline result."
+          ],
+          "identifier_or_url": "SCOPE c3fe4348bafa",
+          "material_read": "RESULT.md Finding and normal-baseline comparison",
+          "method": "Published record via local mirror",
+          "title": "Sharp normality-defect bound for Gibbs-averaged finite Markov chains",
+          "trigger": "Broader kernel inequalities with the same compression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural minimal dimension for a nonreversible obstruction is three. The exact feasible range quantifies how large the all-time deterioration can be after exact mixing, distinguishes negative and positive retained modes, and identifies when strict positivity can be retained. A single counterexample or general nonnormality bound would not supply this sharp benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

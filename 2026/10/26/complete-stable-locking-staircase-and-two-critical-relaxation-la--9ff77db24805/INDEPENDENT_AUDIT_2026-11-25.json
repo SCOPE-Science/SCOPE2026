@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:42:34.260272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md, Finding, Assumptions and Proof",
+        "Frozen RESULT.md, lines 4–60",
+        "Frozen VERIFICATION.md, lines 19–25 and verify.py, lines 8–69"
+      ],
+      "rationale": "With coupling K per neighbor, equilibrium forces constant sine on each parity and their odd-minus-even difference is a/K. The signed cycle form is evaluated on exactly the zero-sum space of edge differences. Two negatives, or a negative and a zero, are excluded by equal opposite edge differences. Against a single conductance −c, the other m−1 edges of that parity have +c; taking differences 1 on the negative edge and −1/(m−1) on those gives −c+c/(m−1)<0. Vanishing conductances alone delete an entire parity and create extra zero modes. Thus strict stability requires acute increments. The winding condition and monotone sine difference for d∈(0,π−|2πq/m|) give precisely one labelled phase class per q with 2|q|<m and K>K_q, excluding threshold equality. The Fourier blocks give both spectral bands; all minus modes lie at or below −(u+v), and r=1,m−1 in the plus band gives the slowest nonzero rate. At q=0 both conductances equal sqrt(K²−a²/4); at nonzero q the weak conductance is aε/sin(2π|q|/m)+O(ε²) while the other stays positive. Expanding the exact full gap yields the stated coefficients, powers and remainder orders, with fixed m,q,a. Winding signs interchange the two conductances.",
+      "residual_risks": [
+        "The uploaded script was inspected, not run. Its 630 recorded spectrum/residual comparisons are finite; the gap tests sample one small offset at six ring sizes. The illustrative path-weight loop (lines 63–68) has one more positive entry than a 2m-cycle with one deleted edge, so it is not an exact path reconstruction; the corrected proof gives the exact zero-sum witness directly. No nonlinear stability at threshold is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed-cycle test with nonzero conductances requires all positive, or one negative and negative reciprocal sum. For one negative −c, equal sine within its parity gives at least m−1 positive +c entries, making the reciprocal sum positive. Thus the stability exclusion is a direct specialization and is credited, including the negative-edge possibility in other general rings.",
+          "The inspected cycle-flow and inertia statements do not establish magnitudes of the smallest nonzero eigenvalues or a rate as K approaches each winding threshold."
+        ],
+        "reasoning": "Inertia alone cannot tell how fast the transverse eigenvalues collapse. The full acoustic band must be compared across Fourier modes, and the detuning equations distinguish vanishing of both conductances from vanishing of only one.",
+        "searches": [
+          "arXiv:1508.01507, Theorem 2.6 and Eqs. (4.1)–(4.2)",
+          "arXiv:1103.4966, §§III–IV and Eqs. (8)–(12)",
+          "arXiv:1102.3890, pp. 1–5 and 7–8"
+        ]
+      },
+      "checked_sources": [
+        "Corrected RESULT.md",
+        "arXiv:1108.3271",
+        "arXiv:1508.01507",
+        "arXiv:1103.4966",
+        "arXiv:0909.0043",
+        "arXiv:1102.3890",
+        "Bačić et al., DOI 10.1038/s41467-026-75565-w",
+        "Local published Resultary index and SCOPE-1ab73de8538e, SCOPE-05700de1f25a, SCOPE-806535c3bca9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior signed-cycle criterion and monotone winding relation recover the stable count; branch geometry and threshold location are not separate originality claims. The different reduced crossings in Tilles et al. provide qualitative context, not an evaluation of the slowest full-space rate.",
+          "At central onset the Jacobian itself vanishes and all conductances are of order √ε. At a noncentral onset m isolated dimers remain and m−1 additional relative modes soften; the full least decay coefficient comes from the r=1,m−1 plus band together with the exact derivative of the small conductance. These numbers do not follow from signs, branch type or local threshold alone."
+        ],
+        "reasoning": "The Fourier technique is generic, but none of the inspected statements mechanically evaluates the sharply normalized least full-space decay laws at both degenerate onsets. The revised contribution is the resulting precise gap comparison, not the standard diagonalization as a theorem in its own right.",
+        "searches": [
+          "arXiv:1108.3271, §IV, especially Eqs. (36), (47), Figs. 8–9 and discussion preceding §V",
+          "arXiv:1508.01507, Eq. (4.2)",
+          "Frozen and corrected RESULT.md, full spectrum and critical expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alternating +a and −a on opposite parities is the same family after shifting labels. Tilles et al. give K_s=a/2 and the ten-node exchanges near 0.764a and 5.236a, which match the acute thresholds. Their eigenvalues used for those exchanges are those of two-dimensional invariant-subspace Jacobians, not the full-cycle gap.",
+          "The four-node Resultary model with coefficient K/2 has its threshold K>a, equivalent to per-edge coupling >a/2 after dividing its K by two; m=2 is outside the repaired result."
+        ],
+        "reasoning": "Parity shifts, switching winding sign, and normalizing coupling per neighbor do not create a new model. An eigenvalue of a reduced symmetry subspace generally need not be the least transverse rate of the full ring.",
+        "searches": [
+          "arXiv:1108.3271, §IV Eq. (32), Eqs. (33)–(47), Fig. 9 and boundary with §V",
+          "arXiv:0909.0043, §4",
+          "Resultary four-node alternating-ring SCOPE-1ab73de8538e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-1ab73de8538e treats a four-cycle only; SCOPE-05700de1f25a strengthens one bond of the four-cycle; SCOPE-806535c3bca9 addresses identical frequencies and a weak bond, even allowing an obtuse stable bond. These are not the repaired domain or a table of its rates.",
+          "Tilles's ten-node values match thresholds, and the separate prior ring twisted-state count in Eq. (28) matches the eventual high-K number. Neither is a table of winding-dependent critical coefficients in the detuned model."
+        ],
+        "reasoning": "An exact all-m gap law must not be credited as novel merely because prior values use another convention, but neither these exact threshold examples nor a count of limiting twisted states contains the relaxation coefficient or exponent dichotomy.",
+        "searches": [
+          "Local Resultary lookup for exact alternating Kuramoto ring thresholds, stable winding staircase, spectral gap, and critical relaxation",
+          "arXiv:1108.3271, Fig. 9",
+          "Bačić et al., DOI 10.1038/s41467-026-75565-w, Eq. (28)"
+        ]
+      },
+      "rationale": "Pass is for the repaired paired sharp full-space spectral relaxation laws and the winding-resolved coefficients. General signed-cycle stability and previously known alternating branch relations cover the underlying stability exclusion and threshold method; those and the standard period-two Fourier formula are not claimed independently. The same-family primary source treats reduced stability exchanges and discusses the need for a full-space classification, but the inspected passages do not give the least transverse eigenvalue's paired sharp laws over all windings.",
+      "residual_risks": [
+        "Earlier full-space spectral calculations under alternate notation remain possible, especially outside the inspected passages. The bounded search does not establish historical priority; standard Floquet, inertia and bifurcation methods are explicitly credited as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct branch and threshold overlap, with distinction between reduced and full spaces; corrects the frozen attribution to §V",
+          "evidence": [
+            "Eq. (36) gives K_s=ω/2. Fig. 9 and text give exchanges near 0.764 and 5.236 for ten oscillators.",
+            "The stability discussion for these exchanges uses the two-dimensional Jacobian and the discussion before §V states the need to identify collisions and full stability for a complete census.",
+            "Eq. (48) introduces ω_{N/2+n}=−ω_n, which differs from adjacent alternation when N/2 is even."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.3271",
+          "material_read": "§IV, Eqs. (32)–(47), printed pp. 6–10, offsets about 48800–80200; Figs. 8–9 and start of §V/Eq. (48), offsets 76500–84347",
+          "method": "lawful OA PDF passages",
+          "title": "Local attractors, degeneracy and analyticity: symmetry effects on the locally coupled Kuramoto model",
+          "trigger": "Same homogeneous alternating ring and critical exchanges"
+        },
+        {
+          "assessment": "Direct broader coverage of cycle stability criterion and sign exclusion, not of relaxation rates",
+          "evidence": [
+            "The index is the negative-edge count minus the positive index of the cycle form.",
+            "On a cycle with nonzero edge conductances, stability permits one negative only if the sum of reciprocals is negative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.01507",
+          "material_read": "§2.2 Theorem 2.6, offset 18000 onward; §4, pp. 9–10, Eqs. (4.1)–(4.2), offset 39900 onward",
+          "method": "lawful OA PDF passages",
+          "title": "Graph Homology and Stability of Coupled Oscillator Networks",
+          "trigger": "Stronger signed network stability test covering the original stable-branch exclusion"
+        },
+        {
+          "assessment": "Related general branch and signed-Jacobian results, not a winding-critical alternating relaxation law",
+          "evidence": [
+            "A mixed branch with one reverse-sine choice can be orbitally stable in general; acute stability requires the current problem's special parity argument."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.4966",
+          "material_read": "§§III–IV, Eqs. (8)–(12), pp. 8–11, offsets about 17400–29100",
+          "method": "lawful OA PDF passages",
+          "title": "Synchronized oscillations on a Kuramoto ring and their entrainment under periodic driving",
+          "trigger": "General cycle-flow and mixed-angle comparison"
+        },
+        {
+          "assessment": "General winding equation and count bound rather than the winding-specific gap laws",
+          "evidence": [
+            "Gives the cycle phase-sum equation and upper bound 1+2 floor(N/4) on stable winding solutions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.0043",
+          "material_read": "§4, pp. 3–5, offsets about 7800–12000",
+          "method": "lawful OA PDF passages",
+          "title": "Synchronization of Coupled Oscillators in a Local One-Dimensional Kuramoto Model",
+          "trigger": "Prior winding-count and cycle closure method"
+        },
+        {
+          "assessment": "Access resolved for inspected passages; studies general/random frequency rings and branch stability",
+          "evidence": [
+            "The inspected branch analysis does not evaluate paired critical gap constants for alternating detuning."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1102.3890",
+          "material_read": "pp. 1–5 and 7–8, offsets about 0–26400 and 51400–57200",
+          "method": "lawful OA PDF passages",
+          "title": "Multistable behavior above synchronization in a locally coupled Kuramoto model",
+          "trigger": "Explicit high-relevance access risk recorded in the frozen result"
+        },
+        {
+          "assessment": "Matching limiting count, but different scope for the heterogeneous example",
+          "evidence": [
+            "Eq. (28) gives 1+2 floor((s−1)/4) stable ring twists. The heterogeneous six-ring example is a higher-order edge-phase model."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41467-026-75565-w",
+          "material_read": "Eq. (13), p. 4, and Eq. (28), p. 7, offsets about 29500–41400 and 65500–67500",
+          "method": "lawful OA source passages",
+          "title": "Phase locking and multistability in the topological Kuramoto model on cell complexes",
+          "trigger": "Potential general winding-count and heterogeneous ring coverage"
+        },
+        {
+          "assessment": "Close but not matching repaired scope",
+          "evidence": [
+            "Two Findings concern four-node rings, one with a strengthened bond; the third concerns a weak bond and identical frequencies rather than alternating detuning."
+          ],
+          "identifier_or_url": "Resultary SCOPE-1ab73de8538e; SCOPE-05700de1f25a; SCOPE-806535c3bca9",
+          "material_read": "Local RESULT.md Findings",
+          "method": "local Resultary lookup and published-record mirror",
+          "title": "Nearby alternating and inhomogeneous Kuramoto ring results",
+          "trigger": "Strongest catalogue comparisons on cycle symmetry, stability and winding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Proof §§3–4",
+        "Tilles et al., arXiv:1108.3271, §IV",
+        "Bronski–DeVille–Ferguson, arXiv:1508.01507, Eq. (4.2)"
+      ],
+      "rationale": "Two different critical slowing-down rates occur on stable branches of the same homogeneous cycle with the same detuning pattern. The exact winding and size dependence of the slowest transverse time scale distinguishes all-link collapse from weak links between surviving dimers, even in the presence of multiple vanishing modes at a threshold. The full-space coefficient is useful for estimating the slow approach of perturbations and is not given by a reduced stability exchange. Standard Fourier band formulas or the already-covered branch count alone are not the basis of this value judgment.",
+      "residual_risks": [
+        "Does not quantify nonlinear relaxation times, basin geometry, or simultaneous large-ring limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:47:03.835587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–33; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/scope_record3_census.py; target8=0, maxima=31, orbit sizes 1 and 30, stabilizers 5040 and 168; canonical SHA-256 c6d843cb81ba620e9f5dec28c20e01b50e3c2ce72e1f2616971ea0f0c2d78027"
+      ],
+      "rationale": "The enumeration may restrict to antichains since a containment would violate the triple condition for any family of size at least three. Independently enumerating target sizes 8 and 7 with pair-compatibility bitsets gives zero and 31, respectively. Each step selects the least remaining mask or advances past it, and, for each previously selected A and new B, removes any future C contained in A∪B or containing either A∖B or B∖A. These are precisely the three violations; pruning for insufficient remaining masks is safe. Exhaustion at size 8 excludes all larger families. The replay checked the seven singletons, 30 Fano systems, exactly one occurrence of each point pair in the triple systems, and the full permutation orbit and stabilizers. There is also a direct proof: for an antichain with at least three members satisfying the condition, the projections of the other columns outside any fixed column A form a nonempty antichain of distinct sets, since containment of two traces is exactly containment in the union with A. With at least seven columns on seven points, a column of weight at least four would leave at most three points and therefore at most three other columns, a contradiction. For 3≤v≤6 and m≥v the same argument excludes weights ≥3: the maximum sizes of the projected antichains are at most 1,1,2,3 for v=3,4,5,6, below m−1. A block of size at most two must have a private point; otherwise two other blocks cover it. Deleting a private point and its block gives induction for v≤6, starting with antichains on at most two points, and forces equality to consist of all singletons (an extra point in the deleted block would contain one of the retained singleton columns). The same reduction handles seven-point families with a private point. Without a private point all blocks have size three, and any repeated pair together with a block containing the remaining point would cover a triple. Thus m≤7, with a Steiner system at equality. At a fixed point its three incident triples determine one of 15 matchings of the other six points. The other four triples select one point from each pair and have bijective projections to each two of the pairs, giving exactly two parity choices. Relabeling acts transitively on the matchings and interchanges the parity choices, giving the stated orbits and stabilizers.",
+      "residual_risks": [
+        "The equivalence with ordinary 2-disjunctness is used at family sizes at least three; vacuous triple conditions in smaller families do not affect the maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 with t=ceil((n−2)/5)=1 at n=7 gives a(7)≤7, attained by singletons. The Resultary weight-three theorem reduces that branch to maximum triple packings, which at seven points saturate all 21 pairs and give the Fano plane."
+        ],
+        "reasoning": "The general bound covers the size, and the constant-weight theorem covers the triple branch; neither alone is needed to rule out mixed-weight equality once the exact unrestricted orbit table is read.",
+        "searches": [
+          "Mahajan–Chopra, Two Exact Values and an All-Dimensions Upper Bound for Binary 2-Cover-Free Families, Theorems 3 and 5",
+          "Resultary c72f7a3b70a2, constant weight three"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A286874 and A303977, including revision history",
+        "Mahajan and Chopra, Theorem 5",
+        "Resultary c72f7a3b70a2 and 1304c36f56de",
+        "Historical texts attempted: Kautz–Singleton DOI 10.1109/TIT.1964.1053689, Kim–Lebedev DOI 10.1023/B:PRIT.0000044255.42299.4F, Kim–Lebedev–Oh DOI 10.1002/jcd.20029 (no independent full-text access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All point permutations stabilize the singleton family. In the Fano system the lines are the sets {v,w,v+w} on the nonzero vectors of F₂³; an incidence automorphism is linear since it preserves the third point on every line. There are (8−1)(8−2)(8−4)=168 ordered bases, so its orbit contains 7!/168=30 families."
+        ],
+        "reasoning": "Orbit–stabilizer applied to the two published representatives forces 31 labeled maxima and the two stabilizer orders. Independently re-enumerating the table or hashing its labeled expansion certifies the count but does not add a distinct classification.",
+        "searches": [
+          "A303977, seven-bit rows and comments; A303977 revision history",
+          "Resultary 1304c36f56de, at-most-two separability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bitwise OR of two columns encodes the union of their supports; a third covered column has no private 1 against the pair. A303977 defines equivalence by reordering bits, which is point relabeling on the seven-set. The seven-column solutions have distinct nonempty supports and are counted as unordered families."
+        ],
+        "reasoning": "The code and set-family conditions and their orbit actions are exactly equivalent in the relevant seven-column range. At-most-two separability compares OR outcomes instead and is not the condition used by the decisive table.",
+        "searches": [
+          "Resultary: seven-row binary 2-disjunct codes, seven-point unrestricted 2-cover-free families and Fano equality types",
+          "OEIS A286874 definition; A303977 comments and hexadecimal examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A286874 has maximum 7 at n=7; A303977 has initial offset 0 and entry 2 at n=7. Its exact examples for n=7 are {1 2 4 8 10 20 40} and {7 19 2a 34 4c 52 61} in hexadecimal. The latter is the frozen representative with first point as low bit. The May 2018 revision already lists the singletons and a relabeled Fano plane {70 4a 45 2c 23 19 16}."
+        ],
+        "reasoning": "These are complete inequivalent maxima of the same unrestricted problem, not a table of uniform bounds or isolated constructions. The historical revision confirms the classification is not a later addition coinciding with the frozen finding.",
+        "searches": [
+          "https://oeis.org/A286874, sequence and cross-references",
+          "https://oeis.org/A303977, n=7 example and offset",
+          "https://oeis.org/history?seq=A303977&start=25, revision #2"
+        ]
+      },
+      "rationale": "The exact unrestricted equality classification was already recorded. OEIS A286874 gives the same extremal set-family problem and a(7)=7. Its cross-reference A303977 explicitly lists exactly two inequivalent maxima on seven bits, the singleton family and a Fano plane. The May 2018 revision already contains both types. The current entry's hexadecimal Fano representative even decodes to exactly the frozen seven blocks. The 31 labeled families and the stabilizers are mechanical consequences of these two known orbits, not independent unknown invariants. This is verified database coverage, not a failure based on inaccessible papers.",
+      "residual_risks": [
+        "The earliest historical derivation is not resolved; the explicit 2018 database classification is sufficient for this decision. Unavailable historical full texts are not relied on."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same extremal definition and known numerical maximum.",
+          "evidence": [
+            "a(6)=6, a(7)=7; the cross-reference states A303977 gives the number of distinct solutions and lists them."
+          ],
+          "identifier_or_url": "https://oeis.org/A286874",
+          "material_read": "Definition, data at n=6 and n=7, and cross-reference to the inequivalent-solution list",
+          "method": "Original OEIS page, website mode",
+          "title": "Maximum size of a binary 2-cover-free family (OEIS A286874)",
+          "trigger": "Exact maximum-size table for seven rows and unlimited weights"
+        },
+        {
+          "assessment": "Direct unrestricted two-orbit coverage; the old revision confirms both equality types, and the current Fano bitmasks decode exactly to the frozen representative.",
+          "evidence": [
+            "Bit-reordering equivalence; data a(7)=2 and the two explicit hexadecimal representatives. The first 2018 entry already includes both classes."
+          ],
+          "identifier_or_url": "https://oeis.org/A303977",
+          "material_read": "Data, COMMENTS and EXAMPLE at n=7, text offset 0; historical revision #2 at https://oeis.org/history?seq=A303977&start=25",
+          "method": "Original OEIS entry and revision history, website mode",
+          "title": "Number of inequivalent solutions to problem discussed in A286874",
+          "trigger": "Exact equivalence-class census linked from the maximum-size table"
+        },
+        {
+          "assessment": "Directly covers the bound a(7)≤7; the precise orbit decision rests on A303977.",
+          "evidence": [
+            "a(n)≤floor[binom(n,t)/binom(2t−1,t)] at t=ceil((n−2)/5); t=1 at n=7."
+          ],
+          "identifier_or_url": "OEIS A286874 manuscript link, Siddhartha Mahajan and Paras Chopra (2026)",
+          "material_read": "Original PDF p. 2, Lemma 2 and Theorem 3; p. 3, Theorem 5 and equation (3)",
+          "method": "OA PDF through the OEIS-linked manuscript",
+          "title": "Two Exact Values and an All-Dimensions Upper Bound for Binary 2-Cover-Free Families",
+          "trigger": "Broad upper bound that may cover seven rows and constrain equality"
+        },
+        {
+          "assessment": "Covers the triple-only branch, not the singleton branch or unrestricted exclusion of mixed weights.",
+          "evidence": [
+            "For v≥7, extremal weight-three families are maximum triple packings."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2",
+          "material_read": "RESULT.md, Finding, text offset 300",
+          "method": "Resultary and local mirror",
+          "title": "Exact weight-three two-cover-free families",
+          "trigger": "Potential exact Fano classification"
+        },
+        {
+          "assessment": "Different number of rows and condition; not used to decide coverage.",
+          "evidence": [
+            "Six tests and at-most-two separability, rather than seven rows and 2-disjunctness."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-rigidity-of-the-six-test-seven-item-at-most-two-separable-design--1304c36f56de",
+          "material_read": "Resultary finding and distinction of hypotheses",
+          "method": "Resultary statement check",
+          "title": "Rigidity of the six-test seven-item at-most-two separable design",
+          "trigger": "Nearby Fano-type small-code equality classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–33",
+        "OEIS A286874 and A303977, n=7 rows"
+      ],
+      "rationale": "Classifying the first projective-plane optimum can be a worthwhile coding question, but the frozen claim recomputes the exact known unrestricted table entry and applies the routine Fano orbit size. The digest confirms the census; it is not an additional mathematically useful invariant beyond the established equality types.",
+      "residual_risks": [
+        "This rejects the incremental recomputation, not the usefulness of the classical classification or the possibility of worthwhile unknown small-code classifications."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

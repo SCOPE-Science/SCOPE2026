@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is only the unique stationary root and maximizer of the specified geometric-vector lower bound. The derivative and full eighth-degree polynomial are reconstructed from its rational expression. An exact positive-half-line change of variables gives nine coefficients. Three strict coefficient comparisons force a single Descartes sign change for every permitted parameter triple. Endpoint signs give existence, the positive series proves the sharp lower location \(z_*>1/3\), and root simplicity gives real-analytic dependence. The accompanying symbolic test verifies identities, not the infinite quantification; the displayed inequalities supply that proof.
+## correctness
 
-## Originality
-**PASS, with stated priority risks.** The original 2026 paper explicitly leaves this exact full-parameter uniqueness question open after proving only its restricted Case 1. Its other theorem precludes roots below one-third but does not limit root count above it. The 2009 geometric and 2025 two-periodic results specialize the modulations. Two indexed same-operator studies address the true numerical radius under a total-modulation budget and its Airy edge; neither statement implies the geometric test-vector root count. Searches covered theorem wording, polynomial coefficients, unimodality aliases, Möbius substitutions and relevant published mathematical records. The 2025 full text was inaccessible, and unindexed priority remains possible.
+PASS
 
-## Value
-**PASS.** Resolves the exact open uniqueness question for a natural four-periodic weighted-shift lower bound without restrictions on the independent modulations. The single simple root also gives an unambiguous maximizing parameter and analyticity of that optimizer. This is distinct from the unsolved problem of writing the actual operator numerical radius in elementary closed form.
+The squared geometric coordinates sum to one, and summing the positive adjacent-coordinate products against the weights gives the claimed F. Independently, with b=(1,sq,q²,tq³), each monomial b_i z^i contributes b_i z^i[(2i+1)−(2i+3)z+q⁴z⁴((7−2i)+(2i−5)z)] to the cleared derivative; this gives all nine G coefficients and its endpoint signs. For G coefficients g_j in ascending order, the transformed coefficients are c_k=sum_{j≤k} binom(8−j,k−j)g_j. Independent symbolic expansion (python /workspace/review_checks.py, check 3) matches the entire printed list and all three differences. The differences are strictly negative using u²,u³≤u and x,v>0; therefore once c_3 through c_6 are nonpositive no positive coefficient can follow. The first three are positive and the last two negative. Descartes counts multiplicities and the Möbius substitution preserves them at positive y, so the sign change together with the opposite endpoint signs gives exactly one simple root. Termwise differentiation of the locally uniformly convergent positive series proves positivity up through 1/3 (at equality, all terms except n=0 give positive derivatives). This places the unique critical point strictly after 1/3; its change from positive to negative derivative yields the global maximum, and simplicity gives real-analytic parameter dependence locally, with branches agreeing by uniqueness. No assertion about boundary q=1 or about norming vectors for the true numerical radius is inferred.
 
-## Boundaries and independent validation
-The proof is self-contained for \(0<q<1\), \(s,t>0\). No assertions are made at boundary parameters or for all true numerical-radius extremizing vectors. The 2025 source was not inspected in full. The result has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked source poses this exact stationarity-root question outside its restricted regimes. The checked older same-shift results optimize a different invariant. The later modulation-response result reproduces the uniqueness proof and explicitly credits this exact frozen claim rather than being an earlier independent source of it. The supported distinct claim is unrestricted simple uniqueness and its maximizing-parameter consequence for the geometric profile, not the profile formula, lower exclusion bound, or actual numerical radius.
+
+## value
+
+PASS
+
+It answers a specific published unrestricted open question for a natural weighted-shift test-vector family. The branch is uniquely selectable and simple throughout the admissible open region, making optimizations and sensitivity analysis unambiguous, without claiming global numerical conditioning or an exact operator-radius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

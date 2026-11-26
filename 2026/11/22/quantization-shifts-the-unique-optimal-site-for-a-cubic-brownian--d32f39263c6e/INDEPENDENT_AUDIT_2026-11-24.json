@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:49:15.256465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–127; VERIFICATION.md lines 19–21; inspected verify.py (symbolic identities and quadrature) without executing it. To replay the independent root check, bisect the single sign-changing interval (3/4,4/5) of the stated quartic."
+      ],
+      "rationale": "For s≤t, Wick pairing gives E[W_s³W_t³]=9s²t+6s³; integrating over both time orders gives 9/5. Independently reconstruct the posterior by putting Z=W_x/√x for x>0 and c=min(x,t). The Gaussian regression of W_t³−3tW_t onto Z is (c/√x)³(Z³−3Z), and that of 3tW_t is 3tcZ/√x. The integrated coefficients of Z and Z³−3Z are b₁=√x(3−x²)/2 and b₃=x^(3/2)(1−3x/4), which recover the frozen cubic decoder. The full scalar reading explains b₁²+6b₃² by orthogonality. The sign datum explains (2/π)(b₁−b₃)² because the signed Gaussian moments of Z and Z³−3Z are ±√(2/π), respectively. This recovers the stated m and both gain/risk formulas; at x=0 the datum is deterministic and its explained variance is zero. The sign gain is maximized at the unique interior zero of 5x²−12x+6, with positive and then negative derivative. For the full gain, 8G'=g and g'=4x(145x²−216x+54); the latter quadratic is positive at 0, negative at 1 and tends to +∞, so g first increases and then decreases on [0,1]. The opposite endpoint signs and signs at 3/4, 4/5 prove one interior maximizer, bracketed by those fractions. Since (6−√6)/5<3/4, the inequality between the sites is also certified without decimal comparisons. Exact substitution gives the sign maximum and explained fraction. Bisection of the displayed g on (3/4,4/5) gives x_full≈0.7886095813305781 and substitution gives the stated numerical fractions and displacement.",
+      "residual_risks": [
+        "The full reading is one exact scalar W_x, not a path observation. The result does not optimize general binary encoders, nonzero thresholds, observation noise or adaptive sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brownian polynomial approximation treats quadratic conditional integrals using endpoint and time-integral information.",
+          "The causal Wiener sampling paper treats an adaptive trajectory tracking loss and a communication budget.",
+          "The indexed quadratic path energy result allows arbitrary binary encoding and optimizes a magnitude threshold at x=3/4."
+        ],
+        "reasoning": "A broader encoder class for an even quadratic target cannot supply the odd cubic sign design, and an optimally triggered trajectory estimator does not imply the optimum for a different loss and one predetermined sample. The more informative Gaussian data in the Brownian approximation do not optimize this observation-time comparison.",
+        "searches": [
+          "Foster–Lyons–Oberhauser arXiv:1904.06998v1 Theorems 1.2–1.3",
+          "Guo–Kostina arXiv:1909.01317v1 abstract and introductory statement",
+          "Resultary hit SCOPE-optimal-one-bit-magnitude-sensing-of-brownian-quadratic-path-ene--61a1a6b86a00"
+        ]
+      },
+      "checked_sources": [
+        "Resultary queries and distinct mirrored originals above",
+        "arXiv:1904.06998v1",
+        "arXiv:2212.04470v1",
+        "arXiv:1909.01317v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a jointly Gaussian scalar channel target the conditional-mean mechanism uses Gaussian signal structure, whereas C has two conditional Hermite components, of degrees one and three. The full datum explains their squared orthogonal contributions, while sign projects both onto a single contrast with opposite signs.",
+          "The one-shot modality switch compares noisy integrated-Wiener X(x) or derivative W_x for quadratic energy of X; its conditional target has degree two and risk score depends on one covariance-square integral. Static Hermite norm or regression results and linear bridge quadrature do not optimize the two competing cubic gains."
+        ],
+        "reasoning": "Known Gaussian projection identities are the proof tools. None of these compared statements or their direct specializations gives the relative optimal sites of the two cubic gains with the same W_x input; in particular the sign reduction is not multiplication of the full gain by a fixed efficiency factor when the two Hermite weights change with x.",
+        "searches": [
+          "Fesl–Koller–Utschick §IV-B and its Gaussian univariate conditional-estimator setting",
+          "SCOPE-a-sharp-modality-switch-for-one-shot-integrated-wiener-quadratic--7ee779b752f0, original Finding and nonlinear information criterion",
+          "Compared published mirror records 55f0d0a5beeb, df33c46c5ea3 and 1c7b05ec88c4 for cubic-Hermite, cubic regression and Brownian quadrature overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalogue match d32f39263c6e is the audited record itself.",
+          "The web result led to a Brownian variance estimation paper listed on T. Tony Cai's public papers page; its noisy-sample variance problem is not path-functional Bayes design.",
+          "The closest one-sign same-day match 10a2261b11b9 is for Brownian running maximum; ec7f7a8efc6a is for occupation time."
+        ],
+        "reasoning": "The projection objective Var(E[C|datum]) is equivalent to the Bayes-risk criterion by total variance, so optimizing either formulation is the same problem. Replacing C with a running maximum, occupation time or a variance parameter changes the joint law with the datum, not just notation.",
+        "searches": [
+          "Resultary: integrated signed cubic Brownian path conditional mean optimal deterministic one point zero threshold sign and full scalar observation Bayes mse",
+          "Web: \"integrated cubic Brownian\" \"sign\" optimal observation time ∫ W_t^3 deterministic point observation full precision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficients/root search returned d32f39263c6e itself, not a distinct matching formula.",
+          "The comparable site values ≈0.82176036 (quartic energy, noiseless full reading) and 16/21 (running maximum, sign) solve different target problems. The inspected Table I gives Bussgang estimator optimality by Gaussian channel parameters, not Brownian sampling sites."
+        ],
+        "reasoning": "The target is continuous optimization; exact-entry checks concern the root polynomial, radical and two risk formulas. A quartic term in another target or a table about quantization does not establish either exact cubic-target optimum.",
+        "searches": [
+          "Resultary: Brownian cubic path quartic 145x^4-288x^3+108x^2+18 (6-sqrt(6))/5 optimal site sign full",
+          "Fesl–Koller–Utschick arXiv:2212.04470v1 Table I",
+          "Local mirror of the quartic Wiener one-site case 67fbfabf0f46 and the running-maximum one-sign case 10a2261b11b9"
+        ]
+      },
+      "rationale": "The inspected indexed and primary sources establish related conditional-expectation methods and nearby designs, but none supplies the optimal-site comparison for the signed cubic Brownian integral from one predetermined observation. The distinct claim concerns the two exact risk functions and their strictly separated unique maxima; no novelty is claimed for conditional-expectation projection, Gaussian regression, sign moments or polynomial root tests themselves.",
+      "residual_risks": [
+        "The targeted web query did not find an applicable paper; this is not a proof of absence. A prior unindexed equivalent computation remains possible.",
+        "The dates of related same-day catalogue findings do not establish ordering or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related conditional Gaussian calculations; different target and data",
+          "evidence": "The estimates concern integrated quadratic Brownian motion with a polynomial matching endpoint and time integral, not the single-site cubic sign/full comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+          "material_read": "Theorems 1.2–1.3 pp. 2–3, offsets 6274 and 10957",
+          "method": "Lawful OA full-text inspection",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Conditional Brownian path-functional quadrature"
+        },
+        {
+          "assessment": "Known one-bit estimation mechanism, no path-site coverage",
+          "evidence": "Results concern Gaussian channel targets and quantify exact Bussgang estimator optimality with channel/pilot/noise conditions. The cubic path target is not jointly Gaussian with a reading.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.04470",
+          "material_read": "Abstract p. 1; §IV-B p. 4 offset 26665; Table I p. 6 around offset 42000",
+          "method": "Lawful OA full-text inspection",
+          "title": "On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems",
+          "trigger": "Potentially general one-bit conditional-mean optimality"
+        },
+        {
+          "assessment": "Different protocol and objective",
+          "evidence": "Uses event-triggered causal sampling and sign-of-innovation encoding for time-averaged trajectory reconstruction, not a fixed-time integral target.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.01317",
+          "material_read": "Problem/approach p. 1 near offset 3557",
+          "method": "Lawful OA full-text inspection",
+          "title": "Optimal Causal Rate-Constrained Sampling of the Wiener Process",
+          "trigger": "Potential broader Wiener sampling theorem"
+        },
+        {
+          "assessment": "Different target and observation comparison",
+          "evidence": "Optimizes a noisy scalar reading for ∫W_t⁴dt, with noiseless optimum about 0.82176036; does not analyze the cubic sign/full pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noisy-sampling-design-for-quartic-wiener-path-energy--67fbfabf0f46",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local published mirror",
+          "title": "Unique noisy sampling design for quartic Wiener path energy",
+          "trigger": "Natural neighboring path-power optimum"
+        },
+        {
+          "assessment": "Same datum, different path functional",
+          "evidence": "Computes optimum 16/21 for the Brownian running maximum, not the signed cubic integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-16-21-horizon-sign-sensor-rule-for-brownian-running-maxi--10a2261b11b9",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local published mirror",
+          "title": "A sharp 16/21-horizon sign sensor rule for Brownian running maximum",
+          "trigger": "Identical zero-threshold sign observation and Bayes time design"
+        },
+        {
+          "assessment": "Different target and optimal binary datum",
+          "evidence": "Optimizes a magnitude-threshold bit at 3/4 for the quadratic path energy, not the fixed sign of a measurement for the cubic payoff.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-one-bit-magnitude-sensing-of-brownian-quadratic-path-ene--61a1a6b86a00",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local published mirror",
+          "title": "Optimal one-bit magnitude sensing of Brownian quadratic path energy",
+          "trigger": "Broader binary encoders for a nearby path functional"
+        },
+        {
+          "assessment": "Different target",
+          "evidence": "The one-site bit estimates occupation time and can be noisy; the Bayes gain is not that of the cubic path functional.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-one-bit-optimal-sampling-for-brownian-occupation-under-rel--ec7f7a8efc6a",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local published mirror",
+          "title": "Exact one-bit optimal sampling for Brownian occupation under reliability limits",
+          "trigger": "Nearby sign observation optimum"
+        },
+        {
+          "assessment": "General design theme, but different process, functional and readings",
+          "evidence": "Compares noisy value and derivative of X(t)=∫₀ᵗW du for ∫X², which has a quadratic conditional mean. Neither the cubic payoff nor the sign/full precision comparison is covered.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-modality-switch-for-one-shot-integrated-wiener-quadratic--7ee779b752f0",
+          "material_read": "RESULT.md Finding, assumptions and proof §1, offsets 0–3680",
+          "method": "Local published mirror",
+          "title": "A sharp modality switch for one-shot integrated-Wiener quadratic-energy sensing",
+          "trigger": "One-site Bayes risk comparison with different modality-dependent optima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md sign/full Bayes gains and exact optimizer comparison; independent Hermite decomposition in the correctness review"
+      ],
+      "rationale": "This is a benchmark for whether quantization can be treated as a site-independent loss of information in a deterministic one-sample design. For a pure first Gaussian-chaos target the sign gain would be a constant fraction of the full gain, so the optimal site would not move. The signed cubic integral is the first higher odd power with competing first and third Hermite coefficients: the full reading adds their squared contributions, while sign sees one contrast. The two unique optimal sites and the roughly 0.079-horizon separation give a concrete, motivated counterexample to carrying the unquantized site over unchanged, useful for checking sampling methods for nonlinear Gaussian functionals.",
+      "residual_risks": [
+        "An exact one-site fixed-sign benchmark does not establish improved general rates or the best design over all binary measurements."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

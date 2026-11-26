@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:50:18.234099Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=2, compatibility is necessary by the all-positive trace. For a compatible k-support, all specified cells are distinct. Insert positives, then insert an alternative symbol at each negative cell: at most k-1 earlier entries ban symbols in the relevant row or column and the query bans at most one more. For k<=n-1 a choice always remains. The resulting k-entry partial Latin square satisfies Smetaniuk's completion theorem (Evans conjecture), so realizes the trace. A compatible full row has an impossible pattern of n-1 positives and one negative, proving sharpness as an existential obstruction. For n=3 there are 6 first rows and two derangements for the second row, with the third forced. Each point occurs four times. Two compatible points occur together twice when they share one coordinate, and once when they share none, by normalizing labels and checking these row choices. On a shattered triple the seven nonempty traces exhaust its twelve positive incidences, so each occurs once; all three pairs must share a coordinate and these equalities cannot all lie in one fibre, which would give two all-positive traces. Conversely the normalized Latin triangle {(0,0,0),(0,1,1),(1,0,1)} has one all-positive trace, and its pair and singleton incidence counts give all other traces. There are 24 such triangles through a point, and every edge sharing a coordinate lies in one. No size-four support fits 16 traces into 12 squares. An independently written enumeration of the 12 squares, all supports through size four, maximal edges, and binary incidence columns was run; replay: python3 /workspace/branches/01c403cf-fb9f-414f-ba95-94fbc1a9fafc/latin_independent.py. It returns (1,27,270,216,0), 108 maximal edges, 216 triangles, rank(partial_2)=133 and a connected one-skeleton. Thus rank(partial_1)=26, giving reduced Betti numbers 111 and 83 over F2 and zero in other degrees. No integral homology claim is established or asserted. Both frozen checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hatami–Qian indexed heading and Theorem 2.2 concern VC and recursive teaching dimensions; frozen RESULT.md:51–65 describes asymptotic lower bounds for the same label-triple concept class.",
+          "Frozen RESULT.md:29–33,51–67 identifies the known completion premise for partial Latin squares, and describes the random Latin-box threshold literature as addressing a different regime."
+        ],
+        "reasoning": "A bound on the largest shattered support is not a uniform classification of supports up to a cutoff. The classical completion theorem only enforces positives; realizing negatives requires the separate symbol preassignment and a sharp forcing obstruction at the next size. The random threshold question does not quantify over every prescription on a fixed support. Primary passages of the most relevant VC source were unavailable, so this is not a whole-document exclusion.",
+        "searches": [
+          "Primary literature: Latin-square teaching dimension, VC dimension and exact small-support shattering",
+          "Hatami–Qian arXiv:1606.00032; Luria–Simkin arXiv:1711.09741; Smetaniuk/Evans completion as cited in doi:10.1016/j.disc.2006.05.028"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–69, VERIFICATION.md, verify_latin.py and verify_latin.cpp (inspection only)",
+        "Independent finite replay cited in correctness",
+        "Local Resultary entries 701af9676ccb, 63721f81dfe5 and 6b17d0a5145d",
+        "Hatami–Qian index and cited completion/Latin-box comparisons as described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact sphere statement implies the triangle boundary invariant once the Latin-square triangle classification is known; the concepts are not interchangeable because every pair shatters for spheres but incompatible pairs cannot shatter for Latin squares.",
+          "RESULT.md:29–43 establishes the missing Boolean trace classification, including the uniform cutoff and the stronger order-three characterization."
+        ],
+        "reasoning": "Sphere coverage of the entire upper incidence block and the resulting mechanical homology implication are credited, without inferring chronological priority from the shared catalogue date. The sphere result alone cannot establish which traces are realized by completed Latin squares, and neither the partial-square topology nor VC dimension bounds give that classification.",
+        "searches": [
+          "Hatami–Qian arXiv:1606.00032, VC-dimension section and Theorem 2.2",
+          "Local Resultary exact sphere entry 701af9676ccb and partial-square entry 63721f81dfe5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-antipodal-sphere-shattering-and-two-degree-topology-in-the-terna--701af9676ccb indexed statement: all 351 pairs, precisely 216 geometric triples, 189 maximal edges, and mod-two Betti numbers (192,83).",
+          "2026/10/25/SCOPE-thirty-eight-four-spheres-in-the-order-three-partial-latin-squar--63721f81dfe5 indexed statement: the eight-dimensional complex of all partial Latin squares of order three has homotopy type a wedge of 38 four-spheres."
+        ],
+        "reasoning": "Partial-Latin-square compatibility only forbids conflicting positives, not arbitrary signed traces. The sphere complex is materially closer: for three points to have an all-positive trace under exact-distance-three spheres, at most two symbols may occur in each coordinate. To exclude each designated point while retaining both others, that point must be the unique singleton value in some coordinate. Three coordinates force exactly one such coordinate for each point, equivalent to the Latin-triangle pattern. Conversely the singleton coordinates independently allow each point to be excluded by the center, so all traces occur. The triangle sets thus coincide but the Latin-square complex lacks the 81 incompatible edges, which are not triangle edges.",
+        "searches": [
+          "Local Resultary: Latin-square shattering, partial Latin-square complexes, order-three mod-two homology",
+          "Local Resultary: Antipodal-sphere shattering and two-degree topology in the ternary three-cube 701af9676ccb coordinate singleton Latin triangle criterion 216 boundary rank 133"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed entries 63721f81dfe5 and 6b17d0a5145d give topology of the full partial-square complex and of its cyclic-symbol quotient, respectively, not this shattered-support complex.",
+          "The sphere entry 701af9676ccb gives the matching rank via 216 triangles and beta2=83, but its face polynomial has 351 rather than 270 edges and its beta1 is 192 rather than 111."
+        ],
+        "reasoning": "A list of 12 Latin squares is input data, not a table of their Boolean traces. For sphere triangles the matching numbers are not a coincidence: the coordinate equivalence shows rank 133 mechanically transfers because the deleted edge rows are zero in the triangle boundary. The associated numerical Betti values for the Latin-square complex then follow using its own edge count and connectivity. This is not an independent novelty claim for the finite rank.",
+        "searches": [
+          "Local Resultary: order-three Latin-square shattering polynomial, facet counts, and Betti numbers; order-three partial Latin-square complexes and quotients"
+        ]
+      },
+      "rationale": "Credit the uniform sharp signed-trace criterion and the exact Latin-square shattering complex, not the completion theorem, the concept class, or the ternary triangle boundary calculation as a freestanding new invariant. The strongest indexed overlap, the antipodal-sphere complex, has exactly the same triangles and boundary rank, as follows from comparing the two concepts mathematically. It does not give the Latin-square shattering theorem or its specific edge and facet classifications. The original finding is the classification for the Latin-square concept class; the homology figures are valid consequences with the overlap credited, not the basis for the originality pass.",
+      "residual_risks": [
+        "The exact Hatami–Qian passage and full mirrored Resultary text could not be retrieved. Earlier small-support Boolean trace classifications or exact Latin-square finite computations remain possible. The concrete sphere overlap is established despite lack of full text; the rank is not claimed independent of that overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same triangles and rank; different lower skeleton and different concept class. Chronological priority not determined.",
+          "evidence": "Summary gives every pair, 216 geometric triples, 189 maximal edges, and Betti numbers (192,83); the singleton-coordinate argument establishes the actual triangle-set equivalence.",
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-sphere-shattering-and-two-degree-topology-in-the-terna--701af9676ccb",
+          "material_read": "Exact indexed scientific summary; full mirrored text unavailable",
+          "method": "Local Resultary comparison, mirror retrieval attempt, and mathematical comparison of the indexed concept definitions",
+          "title": "Antipodal-sphere shattering and two-degree topology in the ternary three-cube",
+          "trigger": "Same ternary ground set, triangle count, and second Betti number"
+        },
+        {
+          "assessment": "Different face sets and topology; not a classification of Boolean traces in completed squares",
+          "evidence": "The unquotiented object has dimension eight and the indexed homotopy type is a wedge of 38 four-spheres; the other object is a cyclic quotient with stated integral 3-torsion.",
+          "identifier_or_url": "2026/10/25/SCOPE-thirty-eight-four-spheres-in-the-order-three-partial-latin-squar--63721f81dfe5; 2026/11/22/SCOPE-two-integral-three-torsion-degrees-in-the-cyclic-symbol-quotient--6b17d0a5145d",
+          "material_read": "Indexed scientific statements",
+          "method": "Local Resultary search and comparison",
+          "title": "Thirty-eight four-spheres in the order-three partial Latin-square complex; Two integral three-torsion degrees in the cyclic-symbol quotient of partial Latin squares",
+          "trigger": "Order-three Latin-square complexes with exact topology"
+        },
+        {
+          "assessment": "Same concept class credited. No exact small-support or order-three implication verified from the accessible statements.",
+          "evidence": "Indexed Theorem 2.2 concerns VC and recursive teaching dimensions; frozen comparison identifies its bounds as asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.00032",
+          "material_read": "Indexed VC-dimension heading and Theorem 2.2 topic; frozen comparison at RESULT.md:51–65; paper passages unavailable",
+          "method": "Primary-literature search and OA source attempts",
+          "title": "Teaching dimension, VC dimension, and critical sets in Latin squares",
+          "trigger": "Same Boolean concept class and shattering notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform sharp cutoff distinguishes when arbitrary negative prescriptions are as feasible as positive partial completion. The exact first nontrivial boundary describes which compatible triples survive and which lower-dimensional facets cannot extend. This provides a useful finite model for the established shattering class; the transferred boundary rank by itself is not the value justification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

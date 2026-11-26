@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact claim specifies the binary alphabet, nonwrapping length-four cyclic rotations, at most one error, and every integer length at least four. The proof assigns every nonidentity output to its earliest generating window, shows that windows separated by at least three positions cannot produce the same changed word, and derives a 32-state max-plus recurrence. The componentwise identity between lengths six and eleven, checked by two finite enumeration methods, induces an exact all-length five-step recursion. The periodic word supplies matching witnesses. The included standalone source returned `VERIFY_OK`.
+## correctness
 
-## Originality (O): PASS, with residual literature risk
-Chen–Milenkovic (2026), Definition 3, has the same exact-window cyclic channel. Their Theorems 2–3 address asymptotic bounds for window length at least nine, Theorem 4 estimates ball sizes for variable window length, and their Example 1 evaluates a particular length-five input at window length four. None of those statements implies the exact maximization formula for all binary lengths. Searches for four-symbol cyclic burst ball volumes, periodic witnesses, aliases, and broader code-ball identities did not identify an equivalent formula. The nearest indexed findings concern different burst/deletion channels. The possibility of an unindexed independent exact calculation remains.
+PASS
 
-## Value (V): PASS
-Four-symbol windows are singled out in the source's nanopore readout motivation, while source bounds for cyclic burst code redundancy are general/asymptotic. The exact coefficient \(11/5\), nontrivial period-five extremizer and short finite-state proof replace a window-counting upper bound of asymptotic coefficient three in this natural, practically motivated error-ball invariant. The statement applies at every blocklength, and can be used to sharpen finite neighborhood-counting and greedy bounds for this precisely specified channel. No code-optimum claim is made.
+A nonidentity rotation preserves weight and must change at least two coordinates. Two windows at distance at least three share at most one coordinate, so their nonidentity outputs cannot coincide. The number of new outputs contributed by the latest window therefore depends only on it and the two preceding windows, and comparing their padded outputs on the joint six-bit string is exact. Splitting off the first two windows gives the correct five-bit initial states and suffix transition: for each terminal tb only at followed by b can be a predecessor, and its increment is independent of the earlier prefix. An independent bit-mask verifier (python3 /workspace/audit_evidence/rotation_ball_certificate.py) enumerated every full word at lengths 6 and 11, verified the displayed v6 and the shift of +11 for all 32 suffix states, and directly obtained bases [4,7,9,11,13,15,18] at lengths 4–10. The max-plus update commutes with adding the same scalar to every state, so this certifies the identity at all n≥6. The independent verifier checked the witness at 4 and 5 and the complete six-bit increment period [2,2,2,2,3], which repeats structurally and proves attainment at every length. There is no assumption of wraparound or allowance of shorter windows.
 
-## Limitations
-The proof does not classify all maximizing words. It concerns only exactly-four-position rotations, not arbitrary permutations or a mix of window lengths. No external audit was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same channel is prior work, and an exact maximum for this window size is available for q≥3, but the inspected results do not give this binary exact-window maximum. A strict superchannel and an adjacent window length likewise do not dominate this exact invariant.
+
+## value
+
+PASS
+
+This is the worst-case neighborhood size of a previously motivated channel at a window length with genuine overlap at two different offsets. It quantifies how collisions depress the binary extremum below the simple count of rotations and the q≥3 extremum, and supplies a uniform extremal pattern. The exact maximum gives a precise local degree input for coding bounds; it is not presented as the optimum code size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

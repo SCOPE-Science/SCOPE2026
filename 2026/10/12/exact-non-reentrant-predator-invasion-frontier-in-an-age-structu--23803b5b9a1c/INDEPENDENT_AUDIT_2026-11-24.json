@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:19:42.751469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repair restricts to the sharp numerical fertility and mortality profiles, with positive reproductive mass and a uniform mortality lower bound h. At the prey-only state the predator is autonomous to first order, with replacement integral R. A real positive characteristic root proves invasion above one, and the exponentially weighted Volterra convolution plus prey variation of constants proves exponential decay below one. Shifting adult age to s removes T from fertility and extracts exp(-g*xbar*T). Since cumulative baseline mortality is nondecreasing, Q(T2,k) <= exp(-h(T2-T1))*Q(T1,k). Positivity, continuity and decay imply a unique positive age crossing precisely when Q(0,k)>1, and give the explicit upper bound. The logarithmic g-threshold decreases where T>0 and Q>1. No finite-steepness age conclusion or global nonlinear extinction is asserted. The frozen numerical script was inspected, not executed, and is unnecessary for the repaired analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General McKendrick theory gives a replacement threshold; Lu and Liu obtain a threshold and stronger global conclusions in a different, age-structured-prey model.",
+          "e1bfc3bf3626 gives the exact same-model integral but no varying-T result."
+        ],
+        "reasoning": "Replacement theory supplies the interpretation of the integral, but not comparison across changes in maturation age and its coincident shift of adult fertility.",
+        "searches": [
+          "Cushing DOI 10.1007/BF00275988",
+          "Lu and Liu DOI 10.1186/s13662-018-1614-y pp. 11–12",
+          "Same-model Resultary e1bfc3bf3626"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/verify.py",
+        "Suarez et al. arXiv:2502.19748",
+        "Resultary e1bfc3bf3626 and 09e4b1a89451",
+        "Lu and Liu (2018)",
+        "Cushing (1984), access limited"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier result ends the novelty claim for smooth fixed-age non-reentry. It holds T constant, and with smooth logistic maturation the proportional juvenile survival factor is age dependent.",
+          "In the sharp model, the age shift identifies a common post-maturation fertility kernel and transfers all T dependence to survival; comparing survival at different absolute ages yields the bound."
+        ],
+        "reasoning": "The repaired result requires a new model-specific cross-age comparison and is not obtained by a numerical substitution into a stronger monotonicity theorem for the same parameter.",
+        "searches": [
+          "e1bfc3bf3626 RESULT.md opening, assumptions and g derivative",
+          "Suarez et al. §6.1 shifted fertility and positive mortality profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives smooth logistic maturation and numerical attractor classes; exact birth support at and after T is a sharp-limit assumption.",
+          "e1bfc3bf3626 fixes T and varies g. 09e4b1a89451 varies the resource/prey level, a different direction through parameter space."
+        ],
+        "reasoning": "An observed extinction diagram, fixed-age juvenile-predation cutoff, or re-entry under varying prey level is not a cross-age local invasion theorem.",
+        "searches": [
+          "Suarez et al. arXiv:2502.19748, Eqs. (2.5a–g), §6.1 and phase-diagram discussion",
+          "Resultary e1bfc3bf3626 and 09e4b1a89451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The best Resultary matches are e1bfc3bf3626 and 09e4b1a89451.",
+          "The source diagrams are from time integration and are not a table or formula of the exact local age threshold."
+        ],
+        "reasoning": "The inspected exact outputs concern other parameter slices; numerical labels do not establish the new threshold or bound.",
+        "searches": [
+          "Local Resultary search on age-structured role reversal and predator invasion",
+          "Suarez et al. prediction and phase-diagram passages"
+        ]
+      },
+      "rationale": "Pass only the sharpened cross-age comparison for the exact step model with the specified shifted fertility profile, including its positive age threshold and bound, not the general replacement rule or the prior fixed-age g-cutoff.",
+      "residual_risks": [
+        "Bounded primary-literature search and incomplete Cushing full-text access leave an unindexed or differently formulated sharp-age comparison possible.",
+        "The unbounded age-domain theorem is not an assertion about the numerical age truncation or nonlocal dynamical basins."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same equations and profiles; not the exact sharp cross-age result in the inspected sections",
+          "evidence": "Juvenile and adult weights are smooth in the model; numerical fertility is shifted by maturation age, and L=30 is used as a large numerical age with negligible residual density.",
+          "identifier_or_url": "https://arxiv.org/html/2502.19748",
+          "material_read": "§2.2 and (2.5a–g), §6.1 profiles, and phase-diagram discussion (OA offsets 13866, 20157, 45209, 65781)",
+          "method": "Original OA HTML passage inspection",
+          "title": "A predator-prey model with age-structured role reversal",
+          "trigger": "Motivating exact model and numerical extinction claims"
+        },
+        {
+          "assessment": "Covers smooth fixed-age g-cutoff; not the repaired sharp-age comparison",
+          "evidence": "States invasion iff R_P(g)>1 and a unique positive g_c when R_P(0)>1, explicitly fixing the maturation age; also differentiates the growth root with respect to g.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626/RESULT.md",
+          "material_read": "Finding and assumptions (local-mirror offsets 0–2989); proof passage around 4846",
+          "method": "Local Resultary search and mirror text",
+          "title": "Juvenile consumption creates a unique predator-invasion cutoff",
+          "trigger": "Exact same-model prior finding"
+        },
+        {
+          "assessment": "Different varying parameter; no priority inferred from date",
+          "evidence": "Uses local replacement at variable prey abundance and obtains high-resource/re-entry statements, not a comparison across T.",
+          "identifier_or_url": "09e4b1a89451",
+          "material_read": "Resultary finding",
+          "method": "Local mirror comparison",
+          "title": "High-resource predator invasion limits and reentrant invasion",
+          "trigger": "Same-day same-model match"
+        },
+        {
+          "assessment": "Related threshold theorem for structured prey, not the same fertility/survival model",
+          "evidence": "Predator net reproduction number separates global predator-free stability and persistence under that paper's hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1186/s13662-018-1614-y",
+          "material_read": "pp. 11–12",
+          "method": "OA primary text",
+          "title": "Threshold dynamics of a predator-prey model with age-structured prey",
+          "trigger": "Possible broader threshold coverage"
+        },
+        {
+          "assessment": "General threshold precedence credited; exact hypotheses not verified from primary full text",
+          "evidence": "The repaired proof does not rely on invoking a theorem from the inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00275988",
+          "material_read": "Bibliographic references; full theorem unavailable",
+          "method": "DOI/publisher PDF access attempts",
+          "title": "Existence and stability of equilibria in age-structured population dynamics",
+          "trigger": "Age-structured stability background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair supplies an exact age-dependent boundary, existence criterion and quantitative upper bound for shortage of local recruitment, in the very age parameter used to organize the motivating phase diagrams. It separates this usable analytic frontier from both the known fixed-age cutoff and global numerical outcomes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

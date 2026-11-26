@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:22:45.036385Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–130",
+        "Frozen VERIFICATION.md, verify.py and numerical dependency specification; source verifier not executed",
+        "Independent frozen_oct19_checks.py, block 2: exact characteristic polynomial and resolvent of direct matrix-unit action"
+      ],
+      "rationale": "The full complex matrix-unit equations have the stated permutation-trivial and standard blocks. To see that they exhaust the non-scalar action, the off-diagonal leaf row/column-sum map has image the pairs of vectors with equal total sum. On mean-zero coefficient vectors its 2×2 map is [[n−1,−1],[−1,n−1]], invertible for n≥3; the constant off-diagonal block supplies the common scalar sum. Its kernel is precisely the zero-diagonal leaf-only remainder of dimension n²−3n+1. In a standard block the sum of the two hub–leaf coordinates and difference of the off-diagonal coordinates form the quadratic sector; the complementary three variables give S_n. In the trivial block the trace is conserved and the symmetric hub–leaf variable decays at −γ, leaving the T_n sector. The factors, multiplicities, and simple zero follow. In the positive-u parametrization y=2u/(u²+1−2/n), γ is strictly increasing onto (0,∞) since y′≥−1/[4(1−2/n)]. This gives the unique root in the stated interval and the unique optimizer. After shifting by −s, S_n reduces to w times a strictly stable quadratic. For shifted T_n, a=2γ−3s>0, c_T=a ng², and b_T>ng², so Routh–Hurwitz gives strict separation; the other factors lie at real part −γ. The contrast is the diagonal coefficient in the standard three-variable block with initial value 1, giving the stated numerator, positive residue, and observed rate. The sentence at line 120 calling s itself an eigenvalue is a sign slip: it is −s, as the shifted proof and finding require. Independent direct matrix-unit generation gave exact polynomial agreement at (n,g,γ)=(3,−2,7),(4,1,2),(5,2,9) and exact rational leaf-resolvent agreement at z=1,3 in each case; these finite checks support, not replace, the proof.",
+      "residual_risks": [
+        "Only homogeneous positive site dephasing with nonzero real adjacency coupling is covered. The theorem is about long-time relaxation, not an optimal finite-time mixing threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coherent star papers study Hamiltonian evolution or adjacency spectral distributions without the dissipator. Bressanini et al. use same-site Haken–Strobl projectors but a Laplacian Hamiltonian and fidelity distance. The network preprint proves uniqueness of the maximally mixed state under irreducibility and fits noisy relaxation. The exact lossy-star and complete-bipartite absorption findings measure killing times with a central/part sink."
+        ],
+        "reasoning": "Coherent spectra, stationary-state uniqueness, fitted relaxations and mean absorption from a lossy generator do not imply the full nonzero spectrum of a trace-preserving adjacency-star Liouvillian or the leaf-sector ordering.",
+        "searches": [
+          "arXiv:0903.1149 pp. 1–2",
+          "arXiv:0904.2054 pp. 2–4",
+          "arXiv:1111.7065 p. 1",
+          "DOI 10.1007/s11128-022-03647-x pp. 3–5 and 10–12",
+          "arXiv:2507.17880 pp. 4–6 and 11",
+          "Resultary 0248fe9e0e67 and 1bb5a4022ca4, findings and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e0e911e9d37, 0248fe9e0e67, 1bb5a4022ca4",
+        "DOI 10.1007/s11128-022-03647-x",
+        "arXiv:2507.17880, 0903.1149, 0904.2054, 1111.7065"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact earlier transform determines the observable's poles, residues and noise variation as a function. Its signed integrated-return optimum is a different objective from maximizing the pole's exponential rate. It does not assert that a pole from that transfer dominates every mode on the adjacency star.",
+          "The star-specific T_n spectrum and its shifted Hurwitz inequality require the star operator decomposition and are absent from the compared scalar law."
+        ],
+        "reasoning": "After rescaling the earlier scalar law, one can optimize its dominant pole and compute its residue without a new transfer function. The hard additional claim is the full adjacency-star factorization and dominance over modes not observed in that transfer, which is not implied by the matched law or by stationarity.",
+        "searches": [
+          "Resultary 4e0e911e9d37, normalized excess-return transform and §2 reduced cubic",
+          "Frozen RESULT.md lines 96–130 and source self-audit complete-graph comparison",
+          "arXiv:2507.17880 stationarity and star relaxation passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The universal-hub result at unit hopping has a normalized contrast numerator (z+γ)²+N²−2N and denominator z[(z+γ)²+N²]+2Nγ, where N is the number of sites. Choosing the complete graph makes its Laplacian NI−J; the identity term drops out of the commutator. The normalized hub excess is the hub population minus any other population by symmetry.",
+          "Other indexed star optimizers use a sink; the published no-sink noisy-star comparison uses the graph Laplacian, which on a star is not adjacency plus a scalar or an overall sign."
+        ],
+        "reasoning": "Set N=n and rescale time by α=|g|/√n with original dephasing γ/α; the complete-graph Laplace transform then has numerator (z+γ)²+(n−2)g² and denominator S_n exactly. This proves equivalence of the functions, not of the physical systems or their full spectra. At the same leaf count a Laplacian-star hub trajectory is a different specialization and cannot identify the adjacency-star leaf-difference spectral multiplicities.",
+        "searches": [
+          "Resultary: exact Liouvillian spectrum complete graph vertex dephasing characteristic polynomial cubic n squared hopping, adjacency-star dephasing n-2 leaf contrast",
+          "Resultary 4e0e911e9d37 RESULT.md offsets 0–2599 and 4500–5545",
+          "DOI 10.1007/s11128-022-03647-x, Hamiltonian and dephasing definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed closed rational transfer matches after the complete-graph scaling, but the displayed reduced matrix has order three and does not reproduce the all-operator characteristic polynomial. The noisy-star figures or finite fits do not give the required exact factors with multiplicities."
+        ],
+        "reasoning": "Exact trace-response coverage is credited. A scalar resolvent cannot reveal modes invisible to that initial state and observable, including the extra T_n and shifted quadratic sectors; no inspected exact table or record establishes those star factors.",
+        "searches": [
+          "Configured Resultary exact-spectrum and observable queries; in particular exact Liouvillian spectrum complete graph vertex dephasing characteristic polynomial cubic n squared hopping, adjacency-star dephasing n-2 leaf contrast",
+          "Resultary 4e0e911e9d37 RESULT.md finding and three-dimensional reduced matrix",
+          "DOI 10.1007/s11128-022-03647-x star graph figures and arXiv:2507.17880 star example"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exhaustive all-n adjacency-star Liouvillian factorization and the strict comparison showing that its standard sector dominates all additional star sectors. An earlier-dated universal-hub indexed result, specialized to a complete graph and rescaled, already gives the same rational scalar transfer function, including its numerator and S_n denominator. This is stronger overlap than identifying the cubic alone. The scalar contrast law and optimum of its dominant rate are not independent novelty claims; the new content is that this mode is realized by a leaf contrast in the adjacency star and governs the entire star relaxation despite additional sectors. None of the inspected sources gives or forces this complete star-specific result.",
+      "residual_risks": [
+        "The frozen text does not identify the specific full complete-graph spectral antecedent it mentions. Exact equivalence of its observed transfer is established here from a located source; no claim is made as to who first derived it.",
+        "An uninspected more general operator-spectrum theorem could cover the remaining adjacency-star factorization. The searches and inspected material are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar rational law exactly after reparameterization, not the full adjacency-star spectrum",
+          "evidence": [
+            "Normalized excess-return numerator (z+γ)²+N²−2N and denominator z[(z+γ)²+N²]+2Nγ for unit hopping."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-integrated-hub-return-resonance-under-position-dephasing--4e0e911e9d37/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–2599; reduced matrix and cubic offsets 4500–5545",
+          "method": "Local published-record mirror and independent time/dephasing rescaling",
+          "title": "Exact integrated hub-return resonance under position dephasing",
+          "trigger": "Exact dephased universal-vertex response, including on complete graphs"
+        },
+        {
+          "assessment": "Closest published no-sink model, with different Hamiltonian and observable",
+          "evidence": [
+            "H=L, uniform site-projector noise, fidelity classicalization, and finite-star illustrations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11128-022-03647-x",
+          "material_read": "pp. 3–5 and 10–12, OA offsets 8331, 10781, 12973, 27353 and 32222–33324",
+          "method": "OA primary passages",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Site-projector dephasing applied to star quantum walks"
+        },
+        {
+          "assessment": "Stationarity and finite noisy-star fits, not an exact complete-spectrum theorem",
+          "evidence": [
+            "Position-basis dephasing, irreducibility implying unique maximally mixed state, fitted star coherence decay."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.17880",
+          "material_read": "pp. 4–6 and 11, OA offsets 8800, 11000, 30300 and 31800",
+          "method": "OA primary passages",
+          "title": "Stability of Continuous Time Quantum Walks in Complex Networks",
+          "trigger": "Noisy star relaxation and uniqueness of stationary state"
+        },
+        {
+          "assessment": "Lossy dynamics and mean absorption, not the trace-preserving gap",
+          "evidence": [
+            "Central sink and absorption-time objective."
+          ],
+          "identifier_or_url": "Resultary 0248fe9e0e67",
+          "material_read": "RESULT.md offsets 0–2606",
+          "method": "Local published-record mirror",
+          "title": "Coherence-dependent optimal dephasing for lossy star quantum walks",
+          "trigger": "Same adjacency star and dephasing with exact optimization"
+        },
+        {
+          "assessment": "Explicit absorption under loss on a part, not full no-sink spectrum",
+          "evidence": [
+            "Exact mean absorption and noise optimum on complete bipartite graphs, with one part lossy."
+          ],
+          "identifier_or_url": "Resultary 1bb5a4022ca4",
+          "material_read": "RESULT.md offsets 0–2780",
+          "method": "Local published-record mirror",
+          "title": "Dephasing-induced switching threshold for bright-state absorption on complete bipartite quantum networks",
+          "trigger": "Bipartite graph family includes a star as a special case"
+        },
+        {
+          "assessment": "Hamiltonian-only comparisons in the inspected passages",
+          "evidence": [
+            "Coherent Laplacian transition probabilities, coherent adjacency spectral distributions, and coherent spreading under bond changes, respectively."
+          ],
+          "identifier_or_url": "arXiv:0903.1149; arXiv:0904.2054; arXiv:1111.7065",
+          "material_read": "Respectively pp. 1–2, pp. 2–4, and p. 1 (OA offsets 6823/10700, 1203/3293–4323, and 1075–2195)",
+          "method": "OA primary passages",
+          "title": "Coherent star quantum walk comparisons",
+          "trigger": "Same star geometry or star-versus-complete-graph comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–30 and 60–130",
+        "Resultary 4e0e911e9d37 reduced transfer"
+      ],
+      "rationale": "The all-order reduction resolves a growing nonnormal generator into fixed low-degree spectral factors and quantifies multiplicities and separation. For a canonical hub–leaf system it identifies a measurable contrast that sees the actual global relaxation exponent, rather than just a fitted decay or absorption rate. The full spectral comparison carries this value even though a rescaled scalar transfer was already known.",
+      "residual_risks": [
+        "No inference is made about optimal mixing for other observables, nonuniform dephasing, or arbitrary networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

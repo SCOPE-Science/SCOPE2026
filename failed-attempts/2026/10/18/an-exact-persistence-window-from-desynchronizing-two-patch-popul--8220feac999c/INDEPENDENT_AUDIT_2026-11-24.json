@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:44:32.035234Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and exact example",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exact rational and matrix-series replay"
+      ],
+      "rationale": "Put E(t)=exp(At) and D_i=I-(1-p_i)P_i for the two coordinate projectors. In the trace expansion cyclicity and E(T-tau)E(tau)=E(T) make the terms with zero or one P_i phase-independent; the remaining term is (1-p_1)(1-p_2) E(T-tau)_{12}E(tau)_{21}, zero at synchrony. Since (A-(a+d)I/2)^2=chi^2 I, this is exactly the stated product. The determinant is a fixed h>0 and every Q is strictly positive, hence both eigenvalues are real and positive and the larger strictly increases with the trace. The hyperbolic product is strictly increasing up to T/2 and strictly decreasing after; 0 and T are the same phase modulo T. If rho(Q_0)<1 then h<1, so the smaller eigenvalue never reaches 1; det(I-Q) has the claimed threshold sign. Solving the equality gives the two endpoints when 0<L<H, with equality only at the midpoint when L=H. Shared scalar crowding is removable by a time-dependent scalar amplitude, unchanged at linear pulses; integration gives the stated projective census map. Summing the Perron component proves exponential extinction below one, convergence to the unique positive periodic orbit above one from every nonzero nonnegative census, and n*u_n tending to v/(kappa*k_tau^T*v) at one. The critical nonlinear population still goes extinct, algebraically. Independent replay: python3 /workspace/branches/replay_exact_audit.py 1 used the two exact eigenspace projectors to get rho(Q_0)=24/25, midpoint det(I-Q)=-17/5000, and the arcosh argument 693/676; an independent 40th-order matrix series reproduced the asymmetric trace and determinant numerically at ten phases. The uploaded checker was read, not executed; its midpoint hyperbolic check itself uses floats.",
+      "residual_risks": [
+        "Global conclusions require the stated common scalar crowding, not independent density dependence or changing generators. Endpoints share the synchrony multiplier, with the census convention at coincident pulses accounted for by shifting past a pulse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue theorem gives a necessary and sufficient phase-wise trace test whenever det Q<1, not only when synchrony is subcritical, and no subcritical phase when det Q>=1.",
+          "The general permanence theorem only supplies a sufficient growth condition. Georgescu et al. use joint two-patch sprays and separately phased biological releases."
+        ],
+        "reasoning": "The broader linear phase test implies the frozen thresholds, including equality at a single maximum when the maximum trace is 1+det Q. General permanence machinery is not identified as the source of the trace formula.",
+        "searches": [
+          "Resultary 61cfe5d6932c determinant regimes",
+          "General periodic-pulse permanence, arXiv:2609.09343 Theorem 3.1",
+          "Georgescu–Dimitriu–Sinclair DOI 10.1142/S0218339010003561 Floquet threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 61cfe5d6932c and 0b940b65e050",
+        "arXiv:1309.0265",
+        "Gao et al., DOI 10.1093/imammb/dqw005",
+        "Georgescu et al., DOI 10.1142/S0218339010003561",
+        "arXiv:2609.09343",
+        "Terry 2010 access probes and frozen AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting H_0=tr Q_0 and B=C into the indexed phase threshold gives the frozen lower endpoint, with the upper endpoint its reflection. The linear theorem need not literally state the nonlinearity.",
+          "The common scalar crowding is an integrating factor and the denominator after n steps is 1+kappa*sum_{j<n} k_tau^T Q^j u. At rho=1 divide numerator and denominator by n to get the stated coefficient directly from the same Perron term."
+        ],
+        "reasoning": "The exact trace theorem leaves no new phase comparison. The nonlinear analogue and critical coefficient are mechanical geometric-sum consequences of the scalar crowding reduction; a different admissible numerical reversal is not a distinct theorem.",
+        "searches": [
+          "Resultary 61cfe5d6932c Finding, Proof §§2–4 and exact example",
+          "Frozen AUDIT.json discussion of shared-crowding construction and equal-spacing permutation result",
+          "Projective linear lift of shared-crowding census map"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 61cfe5d6932c, Finding: G=A, delta=tau, s_i=p_i; identical matrix product, trace excess and determinant; H_0 equals tr Q_0 and B equals C.",
+          "Browne–Smith–Bourouiba, arXiv:1309.0265 Theorem 5: only a local optimum and half-period critical point for a restricted vaccination setting."
+        ],
+        "reasoning": "The first map is identical, not just biologically similar. The vaccination model has different pulses and narrower analytical phase results; agreement in optimal phase alone is not equivalence.",
+        "searches": [
+          "Local Resultary: sharp independent two-patch culling phase, synchrony, half-period extremum, Floquet spectral radius",
+          "Relative phase of independent diagonal survival pulses; two-patch pulse vaccination in-phase versus counter-phase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary 61cfe5d6932c gives delta_c in arcosh form and an exact rational characteristic-sign table with opposite signs at the two phases.",
+          "Same-day hit 0b940b65e050 instead optimizes a stochastic two-site clearing rate, not a periodic phase."
+        ],
+        "reasoning": "The exact match is the full indexed formula and qualitative reversal at the same fixed budget and frequency, not the particular rational values or the similar-title stochastic record.",
+        "searches": [
+          "Local Resultary: exact trace/arcosh threshold for independent patch culling and exact Floquet inequality",
+          "Local Resultary: common scalar crowding, linear-fractional census map, critical Perron decay"
+        ]
+      },
+      "rationale": "Distinct Resultary record 61cfe5d6932c covers the central all-parameter trace law, both unique extremizers, the complete phase threshold and an exact rational-matrix reversal witness. The two schedules, generators, survival multipliers and Perron criteria coincide under notation changes. The literal numerical example in the frozen record differs, but exhibits the same covered phenomenon. The nonlinear statement is a standard projective consequence under precisely shared scalar crowding: lift the census map to the block linear matrix with first row of blocks (Q,0) and second row of blocks (kappa*k_tau^T,1), then divide by the last coordinate. The Perron geometric sum above one, linear sum at one and dominated numerator below one give the whole claimed extension and its coefficient with no independent timing phenomenon. The frozen package itself credits an earlier shared-crowding threshold construction. This is a coverage decision, not a priority assertion: the distinct comparator's catalogue path date is later, and that does not establish priority or provenance. Inaccessible papers are not the reason for FAIL.",
+      "residual_risks": [
+        "Terry full text unresolved; the frozen package also flags Xie–Yuan–Wang DOI 10.1016/j.jocs.2014.06.011 as not fully inspected. Neither is used to decide coverage.",
+        "Chronology is not settled by the matching record's later catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact central theorem coverage and broader determinant regimes; no global nonlinear assertion in that record",
+          "evidence": "Its trace excess uses the same product of hyperbolic sines with the same prefactor. Stable phases are those with trace below 1+det Q when det Q<1. Its separate rational witness changes sign by phase alone.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-phase-law-for-independent-culling-of-two-exchanging-pest-p--61cfe5d6932c/RESULT.md",
+          "material_read": "Finding, scope, proof and rational witness; mirror offsets 0–7773 in bounded passages",
+          "method": "Local Resultary mirror",
+          "title": "Sharp phase law for independent culling of two exchanging pest patches",
+          "trigger": "Exact local-catalogue trace, phase window and reversal overlap"
+        },
+        {
+          "assessment": "Genuine synchrony antecedent in different equations and with local analytical scope",
+          "evidence": "For identical patches with no cross-infection or infected movement, the in-phase minimum is local and half-period is critical.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0265",
+          "material_read": "Theorem 5 pp. 14–15; broader-setting phase figures pp. 18–20",
+          "method": "Original OA PDF, bounded passages",
+          "title": "From regional pulse vaccination to global disease eradication",
+          "trigger": "Closest published phase-extremum comparison reached"
+        },
+        {
+          "assessment": "Qualitative advantage covered, spatial relative phase absent from that comparison",
+          "evidence": "The homogeneous SIS model compares constant/asynchronous/synchronized schemes and gives R_c>R_infty>R_1; it has no independent patch-pulse matrices in that proposition.",
+          "identifier_or_url": "https://www.math.miami.edu/~dzgao/Gao%20et%20al-MMB2016.pdf",
+          "material_read": "p. 3 schedules and Prop. 3.1 pp. 9–10",
+          "method": "Original OA PDF, bounded passages",
+          "title": "Mass drug administration: the importance of synchrony",
+          "trigger": "Qualitative synchrony overlap"
+        },
+        {
+          "assessment": "Different offset and pair of interventions",
+          "evidence": "Pesticide spraying acts jointly on both patches; the offset is relative to infective pest release, not a delay between the two diagonal culls.",
+          "identifier_or_url": "https://math.etti.tuiasi.ro/pg/papers/JBS10.pdf",
+          "material_read": "pp. 4–5, 7 (interventions); pp. 14,16 (monodromy and criterion)",
+          "method": "Original OA PDF, bounded passages",
+          "title": "Impulsive control of an integrated pest management model with dispersal between patches",
+          "trigger": "Two-patch trace-based Floquet analysis and offset interventions"
+        },
+        {
+          "assessment": "Sufficient general condition, not the exact relative timing law",
+          "evidence": "Uses a weighted growth condition on a Morse decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09343",
+          "material_read": "Theorem 3.1 p. 7",
+          "method": "Original OA PDF, bounded passage",
+          "title": "Persistence of n-Species Lotka–Volterra Models with Periodic Pulses",
+          "trigger": "General pulsed persistence framework"
+        },
+        {
+          "assessment": "Unresolved full-text overlap, not negative evidence",
+          "evidence": "The reference concerns impulsive two-patch culling, but no exact statement from the primary work was verified.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-009-0325-0",
+          "material_read": "Bibliographic identity and frozen secondary description only; identified Springer and ResearchGate full-text paths did not yield the paper",
+          "method": "Lawful alternate OA probes and source attribution",
+          "title": "Impulsive culling of a structured population on two patches",
+          "trigger": "Closest named independently timed culling model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen nonlinear trajectory and example",
+        "Resultary 61cfe5d6932c, exact phase theorem and witness"
+      ],
+      "rationale": "The exact phase window is a meaningful benchmark for the mathematical culling model, but it and an exact phase-only reversal are already supplied by an equivalent theorem. What remains here is a different parameter example and the immediate scalar-crowding/Perron consequence of the same multiplier, not a distinct phase mechanism, separate nonlinear theorem outside that reduction, or independently needed exact invariant. Those additions do not meet the contribution standard for a repaired finding.",
+      "residual_risks": [
+        "There is no conclusion here about empirically optimal culling, seasonally forced models, or patch-specific nonlinear density dependence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

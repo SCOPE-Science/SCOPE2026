@@ -1,19 +1,21 @@
-# Mathematical review: Three placement regimes versus universal balanced coverage in a two-crop pollination model
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Global optimality follows from strict exterior monotonicity and the strictly decreasing stationary ratio \(t/\sinh t\). All three cases, equalities, and the symmetric pair of noncentral maxima are covered by the analytic sign argument. A separate log-concavity proof gives the unique midpoint maximum for both-crop service. The proof also independently establishes the strictly ordered fixed-strength spacing thresholds and the square-root bifurcation. The exact \(\log2\) construction and `python3 check.py` (482428 supplementary assertions) support reproducibility; no numerical enumeration substitutes for the proof.
+PASS
 
-## Originality
+Each one-hit service probability is 1−exp(−μ); independence is needed for the product J, not for summing expectations in S. Outside the crop interval both means strictly decrease as one moves farther out, so neither objective has an exterior maximizer. Inside, for t=kx≥0, the means are qe^t and qe^(−t). Comparing the two positive terms in S'(t) by their log ratio gives 2(t−q sinh t). The function t/sinh t decreases strictly from 1, since the numerator of its derivative has derivative −t sinh t and starts at zero. Thus at q=1 the derivative is negative for every t>0, at q=D/sinh D it is positive on (0,D) with zero endpoint derivative, and between the thresholds there is a unique interior sign change. Reflection gives all maximizers. For J, h(s)=log(1−exp(−e^s)) has derivative u/(e^u−1), u=e^s; this is strictly decreasing in u because e^u(1−u)−1<0. Jensen's inequality at the two log means gives J(x)<J(0) whenever x≠0 inside the crop interval, and exterior monotonicity handles the rest. Multiplying the q-bounds by e^D gives e^D and 2D/(1−e^(−2D)); the latter is strictly between 1 and e^D and increases from 1 to infinity by e^(2D)>1+2D. This gives the fixed-strength transition order. Expanding t/sinh t=1−t²/6+O(t⁴) yields the claimed continuous onset; substituting t=log 2 and D=log 4 confirms the stated optimizer and numerical coverage example.
 
-**PASS on inspected material, with a priority limitation.** The inspected 2021 InVEST study supplies exponential distance-based pollinator visitation and a simulation-based placement problem; the 2018 field study supplies empirical distance trends; the 2023 individual-based work emphasizes effective rather than merely observed visitation. The 2004 Oikos paper already derives the Poisson one-hit service response, which is **not** claimed as novel. None of the inspected accessible results states or implies the complete combined two-crop expected-versus-joint-coverage optimizer classification. Public mathematical research records on sensor placement, pollinator-network reliability, and landscape trapping use differing objectives/kernels. Equivalence searches do not prove priority, and the 2004 full-document visual comparison was limited by access.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is an exact phase diagram for an ecologically motivated placement decision. It isolates the substantial distinction between serving as many crop units as possible *on average* and requiring that both units be served: the latter is always centrally optimized, while the former undergoes two sharp, physically interpretable placement transitions. The fixed-strength separation law makes the boundary meaningful without a fitted downstream prediction. The mathematical fact stands independently of field calibration.
+The inspected same-day records have meaningful overlaps in exponential placement or two-site Poisson optimization, but use different decision sets, success rules, or objectives. None supplies the two sharp S thresholds together with universal midpoint J for the stated model. The one-hit Poisson response, exponential attenuation and log-concavity argument are not credited as novel on their own. Some named literature could not be fully inspected; this is a bounded assessment, not a historical-priority claim.
 
-## Closest literature and limitations
+## value
 
-Desaegher, Sheeren and Ouin (2021), https://doi.org/10.1111/1365-2664.13949, is the closest field-informed spatial optimization paper. Ganser and colleagues (2018), https://doi.org/10.1002/ece3.4631, report observational distance effects. Kortsch and colleagues (2023), https://doi.org/10.1111/1365-2435.14353, demonstrate why visits are not automatically effective pollination. Feldman, Morris and Wilson (2004), https://doi.org/10.1111/j.0030-1299.2004.12845.x, establish the pre-existing Poisson success transform. Full historical priority remains unverified; a broader facility-location theorem might subsume the exact model. Both-source coupling, crop heterogeneity and real yield are outside scope. Numerical checks supplement but do not replace the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exactly solvable spatial example distinguishes optimizing the expected served count from ensuring neither crop fails. The first objective has a nonempty phase with genuinely interior asymmetric maximizers between midpoint and crop-endpoint regimes; the second always strictly favors the midpoint. The sharp boundaries, equality cases and continuous onset give a meaningful benchmark beyond the standard Poisson success formula or an isolated parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of independent symmetric monodromy for three triquadratic genus-one discriminants
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof works with the complete characteristic-zero coefficient space, not one special surface. Independent first-jet interpolation yields irreducible critical-point and ordered-pair incidence varieties, hence two-transitivity of each degree-24 root cover. The Hessian rank-one and cubic-term conditions define an irreducible cusp divisor. An explicit A2 local deformation yields a transposition; a modular exact-arithmetic witness proves that the other two discriminants stay squarefree at that divisor. Conjugating these *pure* transpositions generates three entire separate symmetric factors. The supplied standard-library checker independently reconstructs and verifies degree-24 discriminants, generic squarefreeness and one isolated cusp witness. The abstract incidence and analytic arguments, not just the checker, establish the infinite-family claim.
+PASS
 
-## Originality
+The binary quartic B²−4AC has bidegree (4,4) in the base and retained fiber coordinate; its degree-six coefficient discriminant gives degree 24 in the base. A repeated quartic root with a nonzero quadratic fiber form is detected by completing the square in a chart centered at its double root. If all three quadratic coefficients vanish at a point of the retained coordinate, the curve includes that ruling, meets its residual component there, and the quartic already has a double root whose value varies to first order by zero; such a fiber cannot furnish a simple discriminant zero. With an ordinary double quartic root the discriminant is locally the value at the moving stationary point, up to a unit. Thus simple base roots represent unique vertical nodes with nonzero base derivative; higher or multiple repeated roots cannot give simple base zeros. The independent exact F_101 reproduction gives (degree, derivative-GCD degree) = (24,0) three times for the generic witness and (24,1),(24,0),(24,0) for the cusp witness. Nonzero leading coefficients exclude infinity and subresultant ranks lift the degree and upper bounds on GCD to characteristic zero. The imposed central fiber has quartic −u³(19u+4), a single cusp at (u,v)=(0,0), Hessian kernel u=v with cubic 1, and F_t=1. Hence its first base discriminant has a double root at zero in characteristic zero, and no other repetition; the other two are squarefree. Single and double critical incidences use independent vertical first jets, with two distinct base values separated by a linear base section. Their open projective-bundle descriptions yield transitivity on ordered distinct roots. For pure inertia, solve F=0 for the base coordinate at the cusp, eliminate the nondegenerate Hessian direction, and vary the linear jet along the null direction. The reduced derivative is a unit times a quadratic with two roots splitting as ±const·sqrt(s); their critical values have distinct leading split of order s^(3/2). A loop exchanges them alone, and the other discriminants have holomorphic roots there. Permuting axes supplies one such transposition per factor; two-transitivity conjugates each to every transposition in that factor. Geometric S24³ then forces the same arithmetic group. The argument concerns characteristic zero and the generic universal coefficient field, not an arbitrary reduction or specialization. The frozen checker was inspected, not executed.
 
-**PASS, with priority uncertainty.** Dvorsky–Kaliman–Zaidenberg study the associated double-cover Fano threefold and its three del Pezzo fibrations, not their joint discriminant splitting fields. Dao describes the general triquadratic K3 fibration and its 24 nodal members. Zhan proves a single \(S_{24}\) monodromy for the full genus-one Weierstrass K3 family, with a section, but not for the three correlated coordinate pencils of a triquadratic K3. An earlier mathematical record for the same threefold family already calculates individual 24 nodal values and the moving 16-line cover of each del Pezzo pencil; this does not imply the **simultaneous product**. Searches for joint splitting-field independence, three independent S24 groups, and Wehler monodromy found no equivalent published theorem. Such negative searches cannot establish absolute publication priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Full three-way linear disjointness is a meaningful arithmetic-geometric invariant of the natural three-fibration Fano family, stronger than the three separate degree-24 fiber counts and stronger than three marginal symmetric groups. It rules out shared alternating-sign quadratic subfields and all other hidden common Galois quotients; Hilbert irreducibility then gives dense rational coefficient specializations exhibiting this maximal independent complexity. The joint independence is not a routine numerical increment of a known 24-fiber census.
+The 24 nodal fibers and the three del Pezzo fibrations are prior. Full joint linear disjointness and S24³ in this universal triquadratic coefficient space are the distinct contribution on the evidence inspected. Individual S24 results for other K3 families and line-cover monodromy in the same geometry do not cover it.
 
-## Scope and risks
+## value
 
-The result holds over the universal characteristic-zero coefficient field, not at arbitrary special members; it concerns the singular base parameters, not line-scheme or homological monodromy. The modular witness validates nonempty open and cusp-separation conditions; the group proof is conceptual. Equivalent unpublished or unindexed work may exist. Independent external validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three pencils are intrinsic to the threefold/K3 presentation and their base discriminants depend on shared coefficients. The exact simultaneous group distinguishes genuine three-way independence from even full individual groups and excludes common Galois quotients such as a shared sign field. That structural distinction is not a small increase in the known fiber count or a reinterpretation of line monodromy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

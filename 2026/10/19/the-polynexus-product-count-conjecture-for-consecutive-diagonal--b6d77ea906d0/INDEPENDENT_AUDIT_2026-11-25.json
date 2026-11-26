@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:01:16.369126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, lines 25–97",
+        "Frozen checker.py and VERIFICATION.md, inspected as supplied evidence",
+        "/workspace/reproductions/review_2.py"
+      ],
+      "rationale": "For each block its row and column intervals have the same length; ordinary matrix multiplication is nonzero exactly when the first column interval and second row interval meet. The zero-product gap count has two left/right orders, three slack gaps, and independent unused interval starts. The resulting sum is polynomial of degree at most six by expansion into monomials and summation in s, so the seven exact values in RESULT.md really prove the identity. Independently, classify nonempty intersections by their first position i. The weighted count of intervals starting at i is A=(n-i+1)(n+i)/2; the weighted count containing i is C=(n+1)i(n-i+1)/2, since the free other start contributes n+start-end and averaging over the rectangle of endpoints gives (n+1)/2. At least one interval starts at i, so sum A(2C-A) over i=1..n. Expanding and using power sums gives n(n+1)(7n^4+14n^3+21n^2+14n+4)/120, the claimed expression. Subtracting 2Q_n-1 removes identity pairs exactly; leading terms (7/120)n^6 and (1/9)n^6 give 21/40. The n=1 extension also gives 1 for the product count, without asserting a ratio on an empty nonzero set. Independent replay `python3 /workspace/reproductions/review_2.py` checks explicit interval sets and first overlaps at n=1..10 (17, 118, 514 for n=2,3,4). This finite run supports, not replaces, the symbolic count.",
+      "residual_risks": [
+        "No formal proof or external attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The extension enlarges the triplet domain to real parameters and gives structural inverse-semigroup results and a general product rule."
+        ],
+        "reasoning": "Neither the general product rule nor the structural theorems evaluate the count of its ordered nonzero products in the discrete submonoid.",
+        "searches": [
+          "arXiv:2302.09496",
+          "DOI:10.1007/s00233-023-10393-8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.01863 author version and version-of-record metadata",
+        "arXiv:2302.09496",
+        "OEIS A083200",
+        "Resultary 7c8729564780 and 12e310078e35"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original product criterion and sextuple sum precede the explicit conjecture; the identity-deletion proportion there is conditional. The later commuting-pair statements do not count unequal nonzero products."
+        ],
+        "reasoning": "One must evaluate an unevaluated sum or supply a new enumeration; neither the prior finite checks nor the matched subset formula does this.",
+        "searches": [
+          "arXiv:2111.01863, Conjecture 1 and Conditional Proposition 1",
+          "Resultary findings 7c8729564780 and 12e310078e35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's nested sum counts ordered pairs, including identity factors; only its conditional ratio excludes them. The exact expression was conjectured and tested through n=70."
+        ],
+        "reasoning": "This is the same invariant and equality, not a competitor theorem with a different ordering convention. The contribution is the missing proof.",
+        "searches": [
+          "Fikioris nonzero product count Polynexus conjecture",
+          "arXiv:2111.01863, §8 (53)–(55)",
+          "Resultary: interval-translation rook monoid ordered nonzero product pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A083200 gives the same sequence with index n+1, but no multiplication-based identification in the inspected formula entry. Two later matched Resultary entries concern equal products/commuting pairs only."
+        ],
+        "reasoning": "A known table of the candidate numerical sequence or a count of a restricted subset does not prove the requested equality on all ordered pairs.",
+        "searches": [
+          "OEIS A083200",
+          "Resultary: consecutive diagonal rook matrices nonzero product count"
+        ]
+      },
+      "rationale": "The polynomial and its monoid interpretation as a conjecture are prior. The supported distinct contribution is the all-size proof of their equality, not the sequence or the statement of the conjecture. No equivalent proof was found in the matched statements inspected. The exact conjecture is §7 in the early record reference and §8 in the inspected later author version.",
+      "residual_risks": [
+        "Publisher version not independently available in full; author-version comparison is explicit.",
+        "Differently titled or unindexed solutions may exist; no historical priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same proposed expression and convention, not an all-size proof in the inspected version",
+          "evidence": "Conjecture 1 and conditional proportion following verification through n=70.",
+          "identifier_or_url": "https://arxiv.org/html/2111.01863v3; https://doi.org/10.1007/s00233-022-10302-5",
+          "material_read": "Author version §8, (53)–(55), HTML offsets 48000–52973 and PDF pp. 16–17; publisher bibliographic evidence only",
+          "method": "Lawful OA author version used after the DOI routes did not yield the article text",
+          "title": "A subsemigroup of the rook monoid",
+          "trigger": "Exact conjecture and possibly revised published proof"
+        },
+        {
+          "assessment": "Inspected results do not contain the sought evaluation",
+          "evidence": "Integer to real triplets; Green relations, ideals and roots.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.09496",
+          "material_read": "Introductory change of parameters, product-rule context and §4 summary near HTML offset 21966",
+          "method": "Accessible primary text",
+          "title": "An extension to ‘A subsemigroup of the rook monoid’",
+          "trigger": "Later work by same authors on a larger family"
+        },
+        {
+          "assessment": "Exact number sequence, not the monoid count theorem",
+          "evidence": "Index n+1 gives the conjectured polynomial.",
+          "identifier_or_url": "https://oeis.org/A083200",
+          "material_read": "Formula entry near offset 736",
+          "method": "Direct entry comparison",
+          "title": "Polynexus numbers of order 7",
+          "trigger": "Exact sequence database match"
+        },
+        {
+          "assessment": "Different statistics even in the overlapping nonzero cases",
+          "evidence": "Both require XY=YX; the frozen count requires only XY nonzero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-commuting-pair-polynomial-and-a-three-tenths-law-for-consecutive--7c8729564780; https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-nonzero-product-commuting-pairs-in-interval-translation-ro--12e310078e35",
+          "material_read": "Mirrored RESULT.md finding passages on the two commuting counts",
+          "method": "Search and exact statements in local mirror",
+          "title": "Commuting-pair polynomial and a three-tenths law; Exact nonzero-product commuting pairs",
+          "trigger": "Same monoid, plausible overlapping enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Author version §8, Conjecture 1 and conditional proportion",
+        "Frozen proof and identity-exclusion corollary"
+      ],
+      "rationale": "Settles a stated all-size enumeration conjecture for a natural inverse monoid. The interval count explains the algebraic obstruction and turns a conditional proportion into an exact one, rather than improving a finite test cutoff.",
+      "residual_risks": [
+        "No claim about all product fibers, real parameters, or higher powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

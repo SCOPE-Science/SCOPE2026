@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:11:47.384581Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–73; VERIFICATION.md lines 19–23; verify.py inspected, not executed",
+        "Independent integer grid replay: for q=p/M compare ordered totals as M(s+a-C)_+ + (p min(C,s+a)+M(b-C))_+; take C=2..11, s=1..C-1, 2<=A<=2C, 1<=B<A, and p=1..22 with M=23. All 159720 comparisons and all 1980 extra straddling tests at (p,M)=(s,s+B) agree exactly."
+      ],
+      "rationale": "The absolutely continuous solution of the loss equation multiplies post-first storage by q=exp(-K). Summing the overflows gives the displayed positive-part identity. If neither first pulse overflows, the small-first sequence has the larger second overflow argument by (1-q)(A-B), so the difference is nonpositive. If both first pulses saturate, they have the same post-first storage and their first-runoff difference A-B cannot be exceeded by the opposite second-runoff difference, by the 1-Lipschitz positive part. These cases include s+A=C and s+B=C respectively. In the strict straddling case put y=s+B and q0=s/y. The larger-first second overflow becomes active only above (C-B)/C, strictly above q0 because y<C. Until that activation the sign is the sign of s-qy: the larger-first first overflow is positive, and the small-first second positive part exceeds, equals, or falls short of that positive value precisely as qy exceeds, equals, or falls short of s. Above activation the difference simplifies to (1-q)(y-C)<0. This gives one zero in q and the stated strict signs in K, with arbitrary nonnegative integrable proportional-loss profiles.",
+      "residual_risks": [
+        "The weak-sign regimes can tie. Results concern two instantaneous impulses in a single proportional-loss, capped store, not field-scale runoff or any arbitrary inter-event law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartlett et al. establish instantaneous threshold runoff and a stochastic soil-moisture balance, without the two-event ordering. A bounded inquiry could not retrieve Zheng et al. from the DOI and Wiley pages. The Green–Ampt sequencing law excludes inter-event drying and is a different infiltration model. The larger-storm-first sequence theorem e27dfe4f22cd assumes the store starts empty."
+        ],
+        "reasoning": "None of those frameworks alone implies the threshold. The direct relevant coverage is the general single-roof sign-bound calculation in the heterogeneous-roofs result, not generic hydrology or analogy.",
+        "searches": [
+          "Bartlett et al. 20150389 open manuscript pp. 3,8; Zheng et al. DOI 10.1029/2022WR033226",
+          "Resultary: transient fixed initial storage capped bucket two unequal rainfall pulses compare AB versus BA saturation excess runoff crossover as drying changes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and distinct original passages as identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For z+y<C<z+x the indexed proof gives d=-(1-q)(C-z-y) when qC+y>=C and d=min{z+x-C,(1-q)z-qy} otherwise. Set z=s, x=A, y=B: the second branch vanishes at q0=s/(s+B), and q0 C>s as well as q0 C+B<C. On s/C<=q<1 the prior proof directly covers the sign and unique zero with preparatory fill u=s/(qC). Below s/C, one has qC<s and q(s+B)<s, so the larger-first second event has no overflow and the small-first second overflow is strictly less than the larger-first first overflow. Thus no additional zero or sign change can occur outside the explicit prior range."
+        ],
+        "reasoning": "The exact critical locus and both strict signs at the transition are already implicit in the inspected formula; fixing s and solving (1-q)s-qB=0 is the only change of sweep. Substituting q=e^-K gives the claimed threshold and its independence of A, C and profile. The outer nonstraddling signs follow by monotonicity or the 1-Lipschitz positive part, even outside pre-dried states. There is no surviving distinct sharp transition to claim for the frozen formulation.",
+        "searches": [
+          "56bb6286d54f original RESULT.md Finding, Assumptions and scope and Proof: Single-roof sign bound (mirror offset 0 through 5195)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A capped leaky bucket, finite dam, or retention roof is equivalent if storage between impulses is multiplied by q and the pulse overflow is the positive part above C. In 56bb6286d54f, set z=q C u (u is fraction at the start of the preparatory interval); z is the frozen record's first-pulse storage s, and x,y are A,B."
+        ],
+        "reasoning": "Matching the states at the first impulse shows the exact recurrence overlap, despite different notation and sweeps. With u in [0,1] the older formula is explicitly applied at s<=qC; the decisive zero lies strictly inside this overlap. The web query returned unrelated engineering, not evidence that equivalent buffer results do not exist.",
+        "searches": [
+          "Resultary: finite buffer dam interchange ordering transient initial content two pulses spill evaporation",
+          "Literature: finite dam OR buffer storage runoff order of two unequal rainfall pulses initial storage exponential drainage interchange theorem capped store overflow",
+          "56bb6286d54f, Assumptions and scope and Single-roof sign bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned threshold record is a self-match. The distinct two-roof record gives three exact starting-fill thresholds for one weighted pair of roofs and includes a general one-roof branch formula. The periodic results compare three distinct repeating pulses or spacings of two equal repeating pulses. The irrigation-horizon result has a single horizon crossover but measures cumulative response rather than overflow."
+        ],
+        "reasoning": "There is no need for an exact table explicitly printing K_c to establish coverage: the indexed two-roof calculation already gives the one-roof switching identity. The other exact results do not. The same date establishes neither priority nor independence.",
+        "searches": [
+          "Resultary: two storm runoff order reversal antecedent moisture capped soil store inter-event loss",
+          "Resultary: reservoir rainfall-runoff two unequal storm ordering antecedent storage exponential decay threshold crossover",
+          "56bb6286d54f, d7dd28e86fa3, e537d5c1eb7c and 8d550be81ba0, original statements"
+        ]
+      },
+      "rationale": "The distinct indexed two-roof result 56bb6286d54f already gives the decisive general single-roof straddling identity as part of its proof. The change from a starting-saturation sweep to a loss-dose sweep solves that same identity for another variable. Even enforcing the earlier record's pre-drying restriction, every critical point and its two-sided neighborhood are covered, and the excluded high-loss range is trivially of one sign. The central novelty asserted for the frozen threshold therefore is not established as a distinct result. This is a coverage comparison of two original statements, not a claim that their same-day indexing proves chronological priority or that the frozen theorem is false.",
+      "residual_risks": [
+        "Same-day timestamps do not establish chronological priority. The finding fails because its distinct mathematical contribution is not established versus inspected coverage, not because a paper was inaccessible.",
+        "Unindexed finite-dam and buffer operations literature may contain further equivalent statements. The limited literature query and blocked Zheng article do not resolve that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the decisive one-roof straddling transition by direct change of variable; preparatory-interval restriction does not remove any threshold",
+          "evidence": "The one-roof formula has a branch min{z+x-C,(1-q)z-qy} and a negative other branch; pre-drying confines z to [0,qC], while the threshold z/(z+y) strictly exceeds z/C.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-exact-storm-order-reversals-across-two-heterogeneous-reten--56bb6286d54f",
+          "material_read": "RESULT.md Finding, Assumptions and scope and Proof: Single-roof sign bound, mirror offset 0–5195",
+          "method": "Resultary query and bounded original local-mirror passages; checked substitution and domain overlap directly",
+          "title": "Three exact storm-order reversals across two heterogeneous retention roofs",
+          "trigger": "Same-day distinct hit with general one-roof two-pulse switching formula"
+        },
+        {
+          "assessment": "Different sequence, stationary state and parameter constraints",
+          "evidence": "Three distinct equally spaced repeating pulses, comparing orders in the unique periodic state, not from prescribed transient storage.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Resultary local-mirror original text",
+          "title": "A sharp storm-ordering window for saturation runoff in a periodic linear store",
+          "trigger": "Cited same-model ordering result"
+        },
+        {
+          "assessment": "Different inputs and comparison",
+          "evidence": "Equal repeated pulses, compare cyclic separations in the periodic state rather than orders of unequal pulses.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Resultary local-mirror original text",
+          "title": "Exact cyclic-gap law for saturation-excess runoff from two periodic storms",
+          "trigger": "Cited two-event periodic axis"
+        },
+        {
+          "assessment": "Different objective without hard storage cap",
+          "evidence": "Cumulative saturating response over an observation horizon, not total capacity overflow.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-horizon-reversal-for-two-unequal-irrigation-pulses-unde--8d550be81ba0",
+          "material_read": "RESULT.md at offsets 0 and 2050",
+          "method": "Resultary local-mirror original text",
+          "title": "A unique horizon reversal for two unequal irrigation pulses under a saturating response",
+          "trigger": "Distinct close same-day exact reversal"
+        },
+        {
+          "assessment": "Different initial-state restriction",
+          "evidence": "Initially empty store and finite pulse sequences with no post-final loss.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-largest-storm-first-rule-holds-through-three-pulses-but-fail--e27dfe4f22cd",
+          "material_read": "RESULT.md at offset 301",
+          "method": "Resultary local-mirror original text",
+          "title": "The largest-storm-first rule holds through three pulses but fails beyond",
+          "trigger": "Same capped recurrence and a different ordering law"
+        },
+        {
+          "assessment": "Different governing model and no implication",
+          "evidence": "Green–Ampt wetting front, explicitly no surface detention and inter-event drying.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-rainfall-sequencing-law-for-a-green-ampt-infiltration-mo--955c7a9f5dc3",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Resultary local-mirror original text",
+          "title": "A sharp rainfall sequencing law for a Green–Ampt infiltration model",
+          "trigger": "Cited broad rainfall rearrangement law"
+        },
+        {
+          "assessment": "Known modeling ingredients, not the ordering theorem",
+          "evidence": "Instantaneous rainfall and threshold rule (z-(1-x^-))_+ in normalized units.",
+          "identifier_or_url": "https://water.usask.ca/hillslope/documents/pdfs/2015/Bartlett_Stochastic_20150389.full.pdf",
+          "material_read": "PDF p. 3 offset 10177 and p. 8 offset 33500",
+          "method": "Open primary manuscript passages",
+          "title": "Stochastic rainfall-runoff model with explicit soil moisture dynamics",
+          "trigger": "Closest general soil-moisture balance and saturation excess model"
+        },
+        {
+          "assessment": "Access-limited; not used to support the verdict",
+          "evidence": "Both inspected routes blocked; empirical scope described only by frozen record.",
+          "identifier_or_url": "https://doi.org/10.1029/2022WR033226",
+          "material_read": "No independent primary full-text passage",
+          "method": "Attempted lawful DOI and Wiley article retrieval",
+          "title": "Controls on the Spatial and Temporal Patterns of Rainfall-Runoff Event Characteristics—A Large Sample of Catchments Across Great Britain",
+          "trigger": "Cited empirical antecedent-moisture comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and case analysis; 56bb6286d54f Proof: Single-roof sign bound"
+      ],
+      "rationale": "There is practical interpretive value in reporting the threshold as an integrated loss dose, but the scientific addition here is only solving the existing exact switch identity for q, converting variables to K, and extending the weak signs to unconstrained transient starts by immediate positive-part bounds. The removed preparatory interval does not create a new threshold regime or a new switching phenomenon, since every threshold is already attainable under the earlier restriction. No separate valuable new mathematical remainder is established, so no repair is submitted.",
+      "residual_risks": [
+        "This assessment concerns distinct scientific contribution; it does not deny the usefulness or correctness of the formula as a restatement for single-store modeling."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

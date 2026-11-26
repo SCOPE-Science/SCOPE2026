@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` using Python, NumPy and SciPy. The script uses event-driven continuous-time run-and-tumble trajectories with orientation reversal and independent bulk resetting, independent exponential wall residence, and a fixed reproducible pseudorandom seed. Its checks compare the theoretical excursion moments, long-horizon Fano and count–bound-time covariance, unique crossover location, and the weak-reset critical-rate limits.
+# Independent mathematical audit
 
-Executed checks: 100,000 exact excursions at each of three reset rates; 2,500 independent time-horizon-750 regenerative trajectories for each of five parameter pairs; four small-reset values; scalar root search. The root was \(r_*=0.5041300402\) at \(v=\alpha=x_0=1\). All programmed tolerance assertions passed. For the five joint tests the empirical count Fano values differed by at most roughly \(0.04\) from the analytic ones, while covariance rates differed by at most approximately \(0.005\). Monte Carlo fluctuations and nonstationary initialization cause finite-sample errors.
+## correctness
 
-Mathematical validity depends on the explicit backward equations, exact resetting transform, regenerative reward identities and the monotonicity argument in `RESULT.md`. Numerical finite-horizon checks cannot certify the full all-parameter or infinite-time statement. No independent external audit has been carried out.
+PASS
+
+At fixed positive rates and v,x₀>0, the decaying solution of the two-velocity backward equations with the incoming boundary condition gives φ₀(z)=exp[−(x₀/v)√(z(z+2α))]. Conditioning on the first Poisson reset gives (1−φᵣ(z))/z=(1−p)/(z+rp), p=φ₀(r+z); evaluation and differentiation at zero reproduce the stated mean m and variance s². Both bulk resets and independent exponential wall desorption return to (x₀,−1); bulk clocks are stopped while bound. With centered excursion and residence times U,V, the centered cycle rewards are (−(U+V),mV−bU)/(m+b), giving the stated covariance per unit time by independence. The actual covariance limit, not just a distributional CLT, is justified: a reset followed by direct leftward traversal gives a uniform positive chance of hitting in a fixed time block, so the first delay and ordinary cycles have exponential tails. Ordinary cycles also have duration at least x₀/v. Stopping the centered-reward martingale at the first cycle end after t gives its covariance as the expected number of sampled cycles times the one-cycle covariance. The overshoot reward and centering error are bounded in L² by the initial delay and the maximum of O(t) exponentially-tailed cycles, hence are o(√t) in L². Dividing by t yields the displayed covariance and the mean-rate/Fano normalization. The cross term has its unique zero at m/s²; the Fano sign is that of s²−m²−2mb. The ratio rβ′/(1−e⁻ᵝ) is a product of two strictly increasing positive factors and goes from 1/2 to infinity, giving precisely one resetting crossover. The weak-reset asymptotics m∼K r⁻¹ᐟ² and s²∼K r⁻³ᐟ², K=(x₀/v)√(2α), give the two claimed constants after t→∞ at fixed r. The frozen simulation script was inspected, not executed; finite simulations are corroborative only.
+
+## originality
+
+PASS
+
+The supported distinct result is the combined model-specific sign diagram, with a unique r crossover and two ordered desorption thresholds with different weak-reset constants. Count/occupation fluctuation methods and first-passage inputs are prior; in particular Akimoto's accessible full text already encodes mixed count/occupation moments. No priority is assigned to that general fluctuation framework.
+
+## value
+
+PASS
+
+The sign diagram answers when increased wall occupation is positively correlated with counts even though the count process is quieter than Poisson. The unique reset crossover specifies exactly when the Fano transition disappears, and the different weak-reset constants quantify a robust separation of the two boundaries. Those distinctions add information beyond a stationary mean or a generic fluctuation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The orientation-bit model explicitly determines both endpoint sink tests and every interior transition. Its signed transfer identity is a finite sum over exactly the same \(2^{n-1}\) orientations as the claimed convolution kernel. The rank-one factorization \(J=ee^{\mathsf T}\), matrix period \(B^4=-4I\), and four endpoint/interior scalar tables establish the complete run criterion in both directions. Projective row states give the exact 4-by-4 survival matrix, not a probabilistic approximation. Its characteristic polynomial proves the all-order rank recurrence, and primitive Perron–Frobenius theory gives exponential decay. The supplied independent exact checker passed every character through order fourteen and the recurrence through order two hundred. A direct independent-set sum also agreed through order eight. These finite checks are corroboration, not the infinite proof.
+## correctness
 
-## Originality (O) — PASS under bounded prior comparison
-The published multivariate acyclic-orientation polynomial of Hwang et al. determines sink-set weights, and Alexandersson–Leite's weighted independence expansion computes arbitrary signed evaluations in principle. Those inputs were not renamed as a new result: the claim is the *simultaneous nonvanishing classification* of all labelled path frequencies, its exact rational rank generating function, and the strict spectral-density decay. Gebhard–Sagan concerns sink counts; its stated results do not imply this rank sequence. Related earlier path/cycle sink-convolution work proves path noninvertibility by leaves but not the exact rank or all-character run criterion. Relevant records about sink-free bipartite orientations and edge-orientation Walsh spectra have different objects. The searched result lists and identified primary texts contain no dominating rank theorem. Residual risk: an unindexed or differently termed run-language enumeration may already imply this recurrence.
+PASS
 
-## Value (V) — PASS
-Prior knowledge that every path is singular does not tell how many of its exponentially many Fourier modes are recoverable. The complete zero test is local on selected runs, the four-state rational generating function gives exact rank at every order, and the Perron rate quantifies asymptotic information loss. The canonical vertex-sink statistic is a standard refinement of acyclic-orientation enumeration, making the precise Fourier recovery invariant mathematically natural, rather than an arbitrary parameter slice.
+The signed sum weights orientations, including repetitions of the same sink set. With rightward edge bit 1, the terminal signs indeed use left bit 0 and right bit 1, and an interior sink has bit pair (1,0). This gives the displayed transfer, including the empty interior product at n=2. A zero interior letter gives J=ee^T, and zero endpoints give e or e^T. Factorization at these zeros and B^4=-4I then give the run restrictions; the full selection instead uses exponent n−2 with both signed terminal vectors and vanishes at n=0 mod 4. Empty selection has sum 2^(n−1). The four projective transitions and terminal survival counts are correct; the live states form a strongly connected graph with a self-loop. Independent symbolic calculation confirmed the characteristic polynomial, generating function and positive root 1.85356027758. Primitivity and the nonnegative nonzero initial and terminal vectors give a positive leading coefficient and exponential decay of the surviving fraction. Independent orientation enumeration and integer FWHT agreed frequency by frequency for n=2 through 14 and reproduced rank 3878 at n=14. The recurrence yields 157406 at n=20.
 
-## Closest literature and limitations
-The strongest general prior is Hwang et al. (arXiv:1910.10920) for the multivariate sink enumerator; the strongest recent combinatorial bridge is Alexandersson–Leite (arXiv:2610.41502). The 1999 Gebhard–Sagan preprint supplies archival starting context. This theorem does not classify nonzero magnitudes or extend to arbitrary trees. Historical priority is assessed from bounded available searches, not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claims are the exact positional support test and resulting all-order rank law. Multivariate orientation polynomials provide substantially the same sink data, and a closely matching Fourier study provides a path singularity obstruction; neither inspected result classifies the full nonzero support on paths.
+
+## value
+
+PASS
+
+For a natural inhomogeneous Boolean observation operator, a singularity witness alone leaves both recoverable coordinates and information dimension open. This theorem identifies every recoverable character and quantifies rank and its decay for all path orders. The endpoint and full-run exceptions are needed to apply the criterion, not redundant numerical checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

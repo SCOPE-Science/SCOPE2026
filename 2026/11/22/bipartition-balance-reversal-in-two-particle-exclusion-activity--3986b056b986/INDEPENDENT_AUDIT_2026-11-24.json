@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:01:09.074322Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–98",
+        "Frozen VERIFICATION.md and both verification scripts (read, not executed)",
+        "/workspace/review_evidence/check_1_2_4.py"
+      ],
+      "rationale": "Every accepted hop changes the shore-occupancy class by one, so the three-class rate reduction loses no counted events. Under uniform pairs the class masses are r(r-1), 2rs, s(s-1) divided by n(n-1); the exit rates are 2s, n-2, 2r respectively, with an absent class omitted. Independently, complete returns from the mixed class AB to itself are iid regenerative cycles of two hops. For a=n-2 the cycle duration is Exp(a) plus an independent mixture of Exp(2s) and Exp(2r), with respective weights (r-1)/a and (s-1)/a. Writing H=(r-1)/(2sa)+(s-1)/(2ra), its mean is 1/a+H and its variance is 1/a^2+2[(r-1)/(a(2s)^2)+(s-1)/(a(2r)^2)]-H^2. The delayed renewal formulas give mean rate 2/E[X] and Fano ratio 2 Var(X)/(E[X])^2; the initial and terminal partial cycles do not change the long-time rates. This yields exactly the claimed rational functions (symbolic difference zero); a bounded exact rational check over every unordered shore split at n=4–30 confirmed the result. For example the star and balanced values change from 26/25 and 53/50 at n=5 to 10/9 and 26/25 at n=6. The coefficient n^2-6n+4 is strictly negative for n=4,5 and positive thereafter. The four-site star has constant rate 2 at every accessible state, hence genuine Poisson activity; all other cases have F>1. Dividing the formula by its leading denominator gives the stated macroscopic limit, not process convergence. Replay: python3 /workspace/review_evidence/check_1_2_4.py.",
+      "residual_risks": [
+        "Exactly two particles, equilibrium initialization, unit exchange per active edge, no rejected attempts counted. The independent finite check supplements the all-size proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-network theorem supplies the arbitrary-graph Green identity and Poisson classification. The ring paper supplies the activity tilt; the complete-bipartite paper diagonalizes the ordinary generator."
+        ],
+        "reasoning": "These cover the framework and some conclusions, but not the biclique activity covariance as a function of the two shores.",
+        "searches": [
+          "Resultary Poisson activity on finite exclusion networks",
+          "Appert-Rolland et al. arXiv:0804.2590",
+          "Mendonça arXiv:1207.4106"
+        ]
+      },
+      "checked_sources": [
+        "Inspections above",
+        "Resultary friendship-graph activity record 0bd88cc80d7e (Finding, distinct family)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula gives the mean by setting k=2 and |E|=rs, and its equality theorem leaves only K_{1,3}. The inverse-generator expression for general graphs is unevaluated on arbitrary bicliques. The friendship calculation is for a distinct non-bipartite family."
+        ],
+        "reasoning": "A new quotient/renewal calculation measures the orbit-dependent holding times; its result is required to expose the sign-changing imbalance term, not a renaming of an earlier numerical Fano law.",
+        "searches": [
+          "Resultary arbitrary-graph activity Finding and Proof",
+          "Mendonça §4",
+          "Resultary compound-Poisson jump doublets on friendship graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bicliques are complete bipartite graphs. The Hamming and cycle records give the same value on H(2,2)=C_4=K_{2,2}, but do not vary the two shores."
+        ],
+        "reasoning": "A matching graph instance does not give the all-biclique evaluation or fixed-size extremizers.",
+        "searches": [
+          "Resultary two-particle exclusion activity on bicliques, finite exclusion networks and Hamming graphs",
+          "Mendonça arXiv:1207.4106, complete bipartite SSEP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closed forms for Hamming graphs and cycles both cover K_{2,2}; the finite-network classification supplies the K_{1,3} equality. The matching complete biclique formula in Resultary was the assigned record itself."
+        ],
+        "reasoning": "Neither single matching numerical case establishes the arbitrary shore formula or the extremizer transition.",
+        "searches": [
+          "Resultary indexed exact mean and Fano formulas for Hamming graphs, cycles, and other finite networks"
+        ]
+      },
+      "rationale": "The arbitrary-graph mean, Fano Green identity, universal nonnegative excess and four-site star equality are already covered. The square's 10/9 case appears in earlier Hamming work and also in distinct same-date cycle work. The surviving new claim is the evaluated Fano ratio across all positive shore sizes, with the strict balance reversal and dense-imbalance limit. Ordinary-generator spectra and the general Green formula do not provide this response to partition imbalance without an additional activity calculation.",
+      "residual_risks": [
+        "A bounded priority search cannot exclude an earlier unindexed evaluation. DOI 10.1103/PhysRevE.83.041914 was inaccessible and its available title/search information did not establish Fano overlap; no originality inference rests on it.",
+        "No novelty is credited to the general Green identity, mean, Poisson case or square example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication of mean, nonnegative excess and Poisson equality case",
+          "evidence": "Gives mean 2|E|k(N-k)/[N(N-1)], a Green-operator variance correction, and equality only for complete graphs or balanced-occupancy stars in the two-particle regime; does not evaluate the biclique Green term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-poisson-activity-on-finite-exclusion-networks-a-complete-graph-c--016805168b38",
+          "material_read": "RESULT.md Finding and Proof from local offsets 0 and 1800",
+          "method": "Local Resultary mirror",
+          "title": "Poisson activity on finite exclusion networks: a complete graph classification",
+          "trigger": "Arbitrary-graph count cumulants and equality"
+        },
+        {
+          "assessment": "Covers one biclique instance",
+          "evidence": "H(2,2)=K_{2,2}; its Fano value is 10/9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-jump-activity-noise-for-two-particle-exclusion-on-hamming--9e35afb2f386",
+          "material_read": "RESULT.md Finding/Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact jump-activity noise for two-particle exclusion on Hamming graphs",
+          "trigger": "Common square graph"
+        },
+        {
+          "assessment": "Matching square, not a biclique theorem; no intra-day ordering inferred",
+          "evidence": "Cycle Fano ratio 1+(n-3)/(3(n-1)) is 10/9 at C_4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-diffusive-time-theta-crossover-for-two-particle-exclusion-acti--ef4ea58edfd5",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity",
+          "trigger": "Same-date cycle result including C_4"
+        },
+        {
+          "assessment": "Ordinary dynamics, not count variance",
+          "evidence": "Explicitly diagonalizes the untilted SSEP generator on K_{N_1,N_2}, not the accepted-jump-count tilt or the evaluated Fano correction.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.4106",
+          "material_read": "§4 pp. 7–8, OA offsets 20624–24800",
+          "method": "OA full-text targeted passage",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Same base family and process"
+        },
+        {
+          "assessment": "Shared activity framework, periodic ring",
+          "evidence": "Counts configuration changes and calculates cumulants using a tilted matrix on the periodic ring.",
+          "identifier_or_url": "https://arxiv.org/abs/0804.2590",
+          "material_read": "§II p. 2, offset 9000",
+          "method": "OA full-text targeted passage",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Activity observable and tilt antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§2–3",
+        "Independent renewal computation",
+        "Prior finite-network and complete-bipartite comparisons"
+      ],
+      "rationale": "The closed law gives the entire accepted-jump noise ordering across bipartitions at fixed vertex count. The reversal between five and six and the persistence of the excess under dense relative imbalance are meaningful comparisons that are not evident from the earlier inequality or the ordinary exclusion spectrum. This separates effects of topology on count fluctuations from effects on the mean rate.",
+      "residual_risks": [
+        "No result about higher long-time cumulants, higher particle counts, or full Poisson convergence in the dense limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

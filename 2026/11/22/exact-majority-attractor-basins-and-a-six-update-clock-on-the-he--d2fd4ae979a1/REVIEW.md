@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite theorem has a complete vertex and edge definition and a fully specified tie-retaining synchronous majority rule. Two independently implemented exhaustive algorithms compute and trace **all** 2048 binary states and agree on 20 fixed states, 61 primitive two-cycle orbits, complete basin sizes, and first periodic-entry counts. The first checks \(F^8=F^6\) and the sharp failure of \(F^7=F^5\) for every state; the second verifies the 12 automorphisms and all geometric classes. The tests were executed from the complete candidate package without missing supporting data. A finite exhaustive proof applies only to this graph.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The primary literature of Goles and Olivos and the inspected complete text of Kuhlman–Mortveit–Murrugarra–Kumar (arXiv:1108.2974, Section 3 and Appendix A) establish general recurrence restrictions, but not this graph-specific full functional-graph census. Searches of the relevant literature and published graph-dynamics records for the Herschel graph, exact majority basins, aliases and stronger classifications found no directly dominating claim. The Heawood, Pappus and Chvátal classifications apply to other named graphs; their numerical claims do not imply the 18-edge Herschel census. No exhaustive pre-publication priority proof is claimed; unindexed computations or omitted graph catalogues remain possible.
+PASS
 
-## Value — PASS
-The Herschel graph is a natural, minimal non-Hamiltonian polyhedral graph with a mixed degree sequence; it is a motivated finite benchmark rather than an arbitrary graph slice. The complete exact phase-space classification distinguishes **when** a configuration settles from **which** attractor it reaches, and demonstrates three discrete equilibrium-basin scales, six oscillation-basin scales, and a sharp six-update delay occurring exclusively in fixed-point basins. It further classifies all periodic orbits up to the graph's symmetries. These quantities are not consequences of the known period-at-most-two theorem and are suitable as an independently reproducible reference case.
+On exactly the listed 18 edges, simultaneous majority with unchanged ties defines a deterministic successor for each of the 2048 labelled states. The suffix starting at the first occurrence of the first repeated state is the entire least-period orbit; its start index is the least entry time. The independent fresh trajectory census reproduced 20 fixed states and 61 unordered two-cycles, the full orbit-level basin spectrum and all time-by-period counts. In particular the 48 depth-six starts all fix, and exhaustive checks gave F^8=F^6 but not F^7=F^5. The graph action commutes with the update because adjacency and current-bit ties are invariant under relabelling; filtering all degree-preserving vertex permutations by edge preservation exhausts automorphisms. The 12 surviving permutations give the reported period/class-size/basin-size signatures, with six spatial fixed classes and eleven two-cycle classes. Replay: python /workspace/branches/cef202a4-d94b-485b-a7fd-71a970bad7f4/fresh_majority_check.py; recorded fresh output fresh_majority_check.json in the same directory. This is exact finite enumeration, not a formal proof checker or a theorem on other graphs.
 
-## Evidence and limits
-See `RESULT.md` for the edge list, definitions, full counts, proof and primary references; `check_functional.py` and `check_trajectory_symmetry.py` supply exact reproductions. The work is finite, has not undergone independent audit, and may have an unindexed precedent. A literature search cannot establish absolute priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new claim is the joint clock, orbit-level basin and symmetry census on the explicit Herschel graph, not the general eventual period bound. The closest distinct published records match either the graph or the majority rule and several output statistics, but not both. The Resultary exact hit is this record itself.
+
+## value
+
+PASS
+
+The Herschel graph is a canonical small non-Hamiltonian polyhedral graph with both odd- and even-degree update sites. A reproducible complete benchmark identifies which periods attract which starts, distinguishes maximum delay from orbit lengths, and detects that sharp delays occur only in fixed-point basins. Neither the universal period bound nor another graph's isolated counts supply this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

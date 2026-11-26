@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-dimensional Laplace transform follows by a linear change to sum/difference coordinates. Parameter differentiation produces an explicit rational Fourier density, whose numerator is certified nonnegative at the critical coefficient by a two-case polynomial argument. Convexity in the coefficient and an exact negative-frequency witness establish both directions of the threshold, including equality and strict positive definiteness on distinct configurations. Symbolic algebra and 18 independent one-dimensional oscillatory integrals provide checks; they do not replace the universal polynomial proof.
+PASS
 
-## Originality — PASS, bounded comparison
+In the stated unnormalized convention, the two diagonal coordinates separate the base transform F_a=8a²/((a²+X)(a²+Y)), X=(ξ−η)² and Y=(ξ+η)². Exponential domination justifies two derivatives in a. Independently, with u=1/(1+X), v=1/(1+Y), the ratio of the correction transform to F_1 is E=−13/6+6(u+v−5/6)²+2(u−v)². Thus the transform is F_1(1+cE); the unique minimizing pair u=v=5/12 is attainable and gives exactly X=Y=7/5, hence the four stated zeros and immediate failure beyond the threshold. E is bounded on (0,1]², so integrability follows by comparison with the product form of F_1. By Bochner and Fourier inversion the signed density determines positive semidefiniteness, and in the allowed range it is positive almost everywhere. For distinct sites a nonzero finite exponential sum does not vanish identically (restrict to a line with distinct projected sites), giving a strictly positive Gram form. The radial derivative is e^(−r)[−1+c(2r−r²)], nonpositive for c≤1 and strictly negative except for the isolated stationary radius at c=1. This proves the contrast and all asserted boundary cases for c≥0.
 
-Xu (arXiv:1508.07615v1, Sections 1 and 3) gives the broader square/hexagonal norm-radial setting and the abstract \(\ell_\infty\) characterization, not this sharp one-parameter phase boundary. A related explicit hexagonal-versus-square counterexample uses a different profile with linear and quadratic terms and does not entail the complete coefficient classification here. Indexed searches using profile aliases, the precise constant, Fourier-zero geometry, and norm changes returned no implication of the present theorem. An unindexed older explicit computation remains the chief residual originality risk; no universal priority claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The square norm is a natural non-Euclidean stationary covariance geometry. The result settles its simplest nontrivial quadratic perturbation family with an exact rational critical parameter and determines the spectral degeneration at equality. Its clean monotonicity counterexample explains why shape constraints alone are insufficient for kernel admissibility, making the cutoff useful for covariance selection and Fourier-positive function construction.
+The sharp square-norm boundary and four-point zero set survive comparison with general norm-radial characterizations and the same-day Euclidean covariance cone. The planar L¹/square change of variables and the base Laplace transform are known. The distinct content is the optimized correction and its critical frequencies, not a general radial characterization.
 
-## Limits
+## value
 
-No general higher-dimensional classification or independent scientific validation is asserted. The novelty comparison is bounded by accessible literature and indexed records.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The square kernel is a natural separable Laplace example after a diagonal change of coordinates. The sharp coefficient tells exactly when a positive decreasing profile stops defining a covariance kernel, and the isolated zeros distinguish the first loss of spectral positivity from loss of strict finite-site definiteness. These are useful concrete properties not furnished by an abstract admissibility criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review of the \(\operatorname{GP}(18,3)\) radius-two boundary classification
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact domain is the 36 labelled vertices of the unweighted generalized Petersen graph with outer step one and inner step three, using inclusive graph-metric radius two. The proof first classifies all 21 graph hexagons, 42 maximal exceptional triangles and the full four-level face vector. It then collapses the 36 neighborhood tetrahedra and centered faces onto the graph, transports the exceptional two-cell attachments, and splits off one integral \(S^2\) from each paired hexagon. Of the remaining 21 disks, 18 have unique inner edges and leave one circle; each of three inner cycles wraps once around that circle, giving two additional \(S^2\) factors. This yields exactly 23 two-sphere summands by actual CW homotopy equivalences, not by homology alone. The package contains executable exhaustive finite checks of all clique/collapse hypotheses, a separate 127-step integral cellular-generator elimination ending at 23 trivial relators, and signed modular chain-rank cross-checks. All checks replayed successfully. No extrapolation from a finite parameter sample is used.
+PASS
 
-## Originality: PASS against inspected evidence
+For the 36 vertex metric, independently enumerating cliques through size five gives (36,162,186,36,0); any larger clique would contain a five-clique. The tetrahedra are exactly the 36 neighborhood simplices and the 42 outside triangles are precisely the distinct alternating triples of the 21 listed hexagons. The two-spoke step equation leaves a=3,b=1, and the only spokeless hexagons are the three inner rings. In the neighborhood complex, each nonadjacent pair has a unique graph midpoint by girth, so neighbor-only triangles first collapse with their tetrahedra, then centered triangles collapse along their distance-two edges. Transport of the exceptional attaching maps along the resulting retraction is a homotopy-invariant CW attachment, not a collapse of the full Rips complex along edges now shared with exceptional triangles. Traversing either alternating triangle, the actual midpoint words trace its own hexagon. The second disk on each gives a sphere after the first disk, hence 21 spheres. With just the first disks, each outer-spoke hexagon has a free inner edge before adding the inner disks; collapse then leaves the outer circle and pendant spokes. Each transported inner loop traverses that circle once, with degree +1 (checked by the signed path substitution), so the first fills it and the two remaining give two more spheres. This proves the integral homotopy type independently of modular arithmetic. At radius one there are no graph triangles and the connected 36-vertex 54-edge graph has cycle rank 19.
 
-The closest published same-family result, *Persistent hexagon spheres in generalized Petersen graph thickenings* (https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-persistent-hexagon-spheres-in-generalized-petersen-graph-thicken--c6f4ddebbf06), proves the integral \(n\ge19\) stable range but **explicitly does not** classify the homotopy type for \(n=18\); it gives the now-agreed mod-two ranks only. A mod-two homology vector cannot imply the new integral homotopy type. Adamaszek's girth-seven closed-neighborhood collapse and hexagon-packing results under edge-disjointness exclude the present overlapping girth-six graph. The graph-power and metric-gluing primary works and hypercube Rips classification do not imply the boundary result. Searches for the exact graph, the radius-two graph-square clique complex, its 23 sphere count, and generalized Petersen aliases returned no stronger coverage. Residual risk: a not-indexed general graph-square theorem or independent classification could cover this case.
+## originality
 
-## Value: PASS
+PASS
 
-The prior family theorem explicitly identifies \(n=18\) as the obstruction to its sharp range but leaves its **integral homotopy** unresolved. The present classification resolves this motivated natural boundary, explains why three additional inner hexagons kill the unique circle, and proves torsion-freeness and a genuine sphere wedge. It is not merely a recomputation of the already published mod-two ranks and does not claim a general theorem beyond the single boundary graph.
+The prior calculation already gives the ranks over F2 at this exact parameter and the same outer-hexagon mechanism in the stable regime. The distinct claim is the integral homotopy classification at the previously excluded boundary, with the degree-one effect of the three additional rings, not the number 23 as a mod-two Betti value or the stable proof technique itself.
 
-## Scientific limits
+## value
 
-The proof classifies only scale two and only \(\operatorname{GP}(18,3)\). The finite face enumerator and Tietze checker are independently reproducible; the conceptual CW argument is required to deduce the homotopy equivalence. No assertion of independent external validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the natural first omitted parameter of a proven family, already recognized by a boundary mod-two anomaly. The added degree-one attaching loops determine whether the stable circle survives and provide an integral answer that field ranks cannot give, with an explicit explanation of the change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

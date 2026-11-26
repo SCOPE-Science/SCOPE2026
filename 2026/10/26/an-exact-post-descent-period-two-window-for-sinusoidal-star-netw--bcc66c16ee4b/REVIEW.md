@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In the edge-difference formulation of the unit-weight star, the incidence Gram matrix is \(K=I+\mathbf1\mathbf1^{\mathsf T}\). The diagonal circle reduces to \(t\mapsto t+\kappa\sin t\). An exact two-step interchange gives \(\kappa=2\delta/\sin\delta\), strictly monotone for \(\delta\in(0,\pi)\). At both orbit points the derivative is the same matrix \(I-h\cos\delta\,K\), whose entire spectrum yields the cutoff \(\kappa=\pi\). The local implicit-function argument ensures robust weighted persistence only inside the strictly attracting window. Fifteen numerical matrix/transition examples were replayed. Finite checks supplement, not replace, the analytic proof.
+## correctness
 
-## Originality
-**PASS (best-knowledge, with residual priority risk).** The full 2026 primary source arXiv:2610.10993v1 gives the same star model and a sharp lower step bound but no period-two formula beyond descent. Earlier local flip analysis for a tridiagonal path is not a global stability classification for this rank-one-coupled star. Searches for Huygens star two-cycles, sinusoidal discrete Kuramoto period doubling and equivalent sine-map formulations found nearby but non-covering triangle, all-to-all and classical continuous-time results. Scalar orbit existence is a reduction, but it does not on its own prove full transverse attraction. Older papers accessible only through abstracts remain an acknowledged risk.
+PASS
 
-## Mathematical value
-**PASS.** At the very threshold where strict descent ceases, a stable oscillation is born in the physical multi-oscillator model and persists up to the exact second boundary \(\pi/(n+1)\), regardless of the number of leaves after rescaling. The full Floquet spectrum and positive-weight robustness identify a tangible open family of discrete oscillatory attractors, without claiming an unsupported global portrait.
+The no-winding pair pi ± delta on the diagonal has prime period two precisely when kappa=2 delta/sin(delta), strictly increasing from 2 to infinity on (0,pi). Its equal one-step Jacobians are I−h cos(delta)K, so the return eigenvalues are (1−kappa cos(delta))² and (1−h cos(delta))² with multiplicities 1 and n−1. The quantity 2 delta cot(delta) lies in (0,2) before delta=pi/2, vanishes there, and is negative afterward; this proves the strict attracting window and repulsion above it. The implicit function theorem applies to the return fixed points throughout the strict window and preserves distinctness and strict attraction under sufficiently small weight changes at each fixed h. The nonhyperbolic boundary is not classified nonlinearly. An independent bounded n=4 calculation checked orbit exchange and both multipliers below, at, and above pi (at kappa=2.5: 0.00411598 and 0.61963475; at 3.5: 2.39968129 and 1.23169620); these are not the basis of the proof.
 
-## Closest literature and limitations
-The closest source is Buescu–D'Aniello–Oliveira (2026), arXiv:2610.10993v1, §§3–5; prior path-family local flip results have a different Gram matrix. At \(\kappa=\pi\) only linear neutral behavior is proved. No all-periodic-orbit classification, full basin measure, or statement on global Morse–Smale transversality follows. Exhaustive independent priority review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier records inspected give the descent theory, a different balanced-sign star branch, and a path-local flip. A later biregular-graph result exactly covers the diagonal star case, but was published in the catalogue after the frozen result and is not evidence of earlier priority. Acceptance is limited to the specified branch and full return spectrum/window, not the map, diagonal reduction, or general flip theory.
+
+## value
+
+PASS
+
+The cycle gives a concrete robust attracting regime immediately beyond the sharp descent boundary, and locates the exact second boundary for the whole star phase space, not merely a local flip on an invariant circle. The full spectrum and weight persistence distinguish the result from finding a scalar example. It is a narrowly scoped boundary result, not a classification of attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

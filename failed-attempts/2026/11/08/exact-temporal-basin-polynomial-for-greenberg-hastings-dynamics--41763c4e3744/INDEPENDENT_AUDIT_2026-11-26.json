@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:44.916140Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed all 49 support histories from the simultaneous rule, computing recurrence by repetition and, separately, the color permutation around each recurrent support cycle. A full state cannot be periodic before support recurrence. At support entry the lap map on each support is onto, hence a permutation; because each supported color occurs, its order gives the exact multiple of the support period required to restore every labelled vertex. The recurrent cases have (support period, lap order) (1,1), (1,3), and (2,2), as claimed. Weighting support cardinalities by the numbers of surjections onto the prescribed colors verified every coefficient, including all zero classes, for positive shore sizes. The sole t=4 class is all-rest with coefficient 2u+2U+v+V, positive outside K_(1,1); the singleton-only restriction has two states of depth three. Replay: python3 /workspace/audit_evidence/excitation.py. This is an exact proof of the uniform census, not extrapolation from the recorded direct tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff, Theorem 3, and Doba, §6 Theorem 1, characterize eventual fixation/sustained activity without specifying the joint labelled basin law.",
+          "54f879326e9f covers recurrent configurations for more colors, not transient depths."
+        ],
+        "reasoning": "Neither broad qualitative coverage nor recurrence enumeration is being mistaken for the complete temporal result; the exact coverage comes from the indexed ten-class census.",
+        "searches": [
+          "Greenberg-Hastings cellular automaton complete bipartite graph recurrent configurations periodic states basin transient first-entry time",
+          "arXiv:1610.07320",
+          "DOI:10.25088/ComplexSystems.27.2.101",
+          "Resultary 54f879326e9f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:3a7e2d671cfb",
+        "Resultary:29320e9e89df",
+        "Resultary:54f879326e9f",
+        "Resultary:5f4b0c36707a (tripartite analogue)",
+        "arXiv:1610.07320",
+        "DOI:10.25088/ComplexSystems.27.2.101",
+        "arXiv:patt-sol/9303002 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior table is on labelled loopless K_(a,b) with the same parallel threshold-one update, positive shores and least-period convention. The generating polynomial and aggregate basins follow from placing each prior count on its corresponding monomial and summing."
+        ],
+        "reasoning": "There is no leftover parameter regime or theorem within the frozen claim that is not given or immediately implied by the earlier-indexed census.",
+        "searches": [
+          "Resultary 3a7e2d671cfb, Finding and Assumptions and scope",
+          "Focal frozen Finding, lines 14–39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 3a7e2d671cfb use (a,b)=(m,n), (U,W,V,Z)=(u,U,v,V), and exchange the order of census indices. Its time-four coefficient P+Q-A-B-2 becomes exactly 2u+2U+v+V.",
+          "29320e9e89df states the same GHM counts in a pointwise GHM/CCA comparison."
+        ],
+        "reasoning": "Both comparators concern true labelled-state first periodic entry, not return time, extinction alone or recurrence of unlabelled supports.",
+        "searches": [
+          "Resultary: Greenberg–Hastings complete bipartite graphs recurrent configurations basin first-entry time period-resolved",
+          "Resultary 3a7e2d671cfb and 29320e9e89df, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3a7e2d671cfb lists all ten matching rows, says the others are zero and includes all positive shore sizes. Its five p=1 rows are expanded into powers of 2 and 3; the p=3,4 rows use the same onto counts."
+        ],
+        "reasoning": "The match includes the transient time/period pairs, not just recurrence families or sampled sizes.",
+        "searches": [
+          "Resultary 3a7e2d671cfb, Finding, exact orbit-depth table",
+          "Resultary 29320e9e89df, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same ten labelled first-entry/least-period populations on precisely the same graph family and rule, as well as the sharp cutoff, the extinction-only fourth layer and absence of transient approaches to three-cycles. Its formulas are exactly equivalent under renaming and expansion. A second distinct catalogue item also includes the same census as its GHM half. This establishes statement-level coverage independent of any claim about authorship or chronological priority.",
+      "residual_risks": [
+        "The precise historical priority beyond the indexed matches is not established.",
+        "The cited Durrett–Griffeath full text was not retrieved; this is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Ten rows, sharp cutoff including the two-vertex edge, and orbit consequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-four-step-relaxation-law-and-complete-orbit-depth-census-for-b--3a7e2d671cfb/RESULT.md",
+          "material_read": "Finding, scope and proof passages",
+          "method": "Local mirror and algebraic comparison of all rows",
+          "title": "A four-step relaxation law and complete orbit-depth census for bipartite excitable dynamics",
+          "trigger": "Same rule, graph, entry-time and least-period population"
+        },
+        {
+          "assessment": "Additional exact overlap for the GHM portion",
+          "evidence": "The GHM joint entry-time and least-period counts match.",
+          "identifier_or_url": "Resultary:29320e9e89df",
+          "material_read": "Finding, offsets 0–4918",
+          "method": "Local mirror comparison",
+          "title": "Matched eventual periods but different transient clocks for three-color dynamics",
+          "trigger": "Time-resolved GHM/CCA comparison on the same graph"
+        },
+        {
+          "assessment": "Recurrence-only partial overlap",
+          "evidence": "Periodic configurations are counted, but transient depth is excluded from scope.",
+          "identifier_or_url": "Resultary:54f879326e9f",
+          "material_read": "Finding and scope, offsets 0–4924",
+          "method": "Local mirror passages",
+          "title": "Parity-selective periodic excitation on complete bipartite graphs",
+          "trigger": "General-color recurrence classification on the same graph"
+        },
+        {
+          "assessment": "Qualitative criterion, not joint labelled populations",
+          "evidence": "Irrotationality criterion and a convergence bound in the synchronizing case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Abstract and p. 4, Theorem 3",
+          "method": "Lawful open full-text inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same update and broad finite-graph synchronization theorem"
+        },
+        {
+          "assessment": "Qualitative overlap",
+          "evidence": "Cycle-phase criterion rather than full labelled first-entry populations.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Printed p. 114, §6 Theorem 1; §7 excitation rates",
+          "method": "Lawful open full-text inspection",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "General finite-graph periodic behavior"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The labelled depth of a dynamical basin is a meaningful invariant, but this frozen claim computes exactly the joint table already explicitly available. Presenting the table as a two-variable polynomial is a direct re-encoding and does not supply a new calculation or structural result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

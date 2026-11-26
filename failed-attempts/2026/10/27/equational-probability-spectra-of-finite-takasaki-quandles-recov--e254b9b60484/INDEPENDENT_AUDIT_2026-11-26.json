@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:17:28.565896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof, lines 3–41",
+        "Frozen VERIFICATION.md and verify.py (inspection only)"
+      ],
+      "rationale": "In the binary-only language, each term has integral affine coefficients of sum one. The difference of two terms, with coefficient gcd g, maps A^k onto gA by Bézout, so its zero set has fraction |A[g]|/|A|, including probability one when g=0. The kernel agrees with that for gcd(g,exp A). Conversely, the terms t₀=y, t₁=x and t_{m+1}=t_{m−1}▷t_m evaluate to y+m(x−y); t_{d+1}=x realizes the kernel of multiplication by d. This includes exponent two, where the operation itself is projection, and does not require constants. From the least probability recover |A|; among the resulting integer kernel sizes, the pure p powers are exactly the strictly increasing sizes |A_p[p^j]| up to the exponent of A_p. Successive differences of their logarithms base p count cyclic factors of order at least p^j. Distinct primary combinations give the product spectrum cardinality, hence the elementary-abelian criterion and the stated cyclic specialization.",
+      "residual_risks": [
+        "The supplied finite checker was not executed; the all-group conclusion is checked by the algebraic proof, not the reported fifteen examples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Latin-affine result covers finite vector spaces with operation Tx+(I−T)y. With T=−I at odd p it yields {p^(−n),1}, in the same binary-only language.",
+          "Cardó gives the cyclic prime-power spectrum and studies group minimality; the second paper includes an example with all nullary functions and is not the same signature."
+        ],
+        "reasoning": "The Latin result directly subsumes the odd elementary-abelian Takasaki subfamily but not the p=2 projection case, general higher exponent, or mixed primes. Cardó's examples do not themselves give unordered-spectrum reconstruction for all finite abelian groups.",
+        "searches": [
+          "2026/10/26/SCOPE-equational-probability-spectra-of-finite-latin-affine-quandles--5e4215ffc0b3",
+          "Cardó arXiv:2603.19487v2 and arXiv:2604.08446v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b39fa8c811b6, 5e4215ffc0b3 and 83094871f355",
+        "Cardó arXiv:2603.19487v2 and 2604.08446v1",
+        "Sakia–Kiania DOI record and access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior abelian-group proof reduces a linear equation to its coefficient gcd, and counts by the kernel of multiplication by that gcd. The Takasaki operation is a group term. Its alternating-reflection terms t_{m+1}=t_{m−1}▷t_m give y+(m+1)(x−y), realizing every prior torsion ratio using t_{d+1}=x.",
+          "The later Resultary retraction-rank reconstruction uses a different invariant; the Sakia–Kiania full text was unavailable."
+        ],
+        "reasoning": "Inclusion of the new spectrum in the known group spectrum follows by composition of group terms; the two-variable recurrence gives the reverse inclusion. All recovery and cardinality conclusions then follow from the prior result without a new invariant or reconstruction step. Neither an inaccessible paper nor unrelated search results drive the decision.",
+        "searches": [
+          "October 13 record, Proof Steps 1–2 and group recovery; frozen Takasaki term calculation",
+          "Sakia–Kiania DOI 10.1080/00927872.2020.1797065 and related quandle reconstruction in Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 13 record gives PSpec(G)={|G[d]|/|G|:d divides exp(G)} for the group and multiplication-only signatures. It reconstructs G from this unlabelled set by primary valuation differences and gives spectrum cardinality τ(exp G)."
+        ],
+        "reasoning": "Choosing pure p powers of the integer kernel sizes gives exactly the same ordered exponents as taking distinct p-valuations of all kernel sizes: prime contributions range independently. The recovered cyclic factors and spectrum are identical. This is equivalence of the numerical invariants, not of the algebraic signatures.",
+        "searches": [
+          "Local Resultary: equational probability spectra, finite abelian groups, Takasaki and affine quandles",
+          "2026/10/13/SCOPE-equational-probability-spectra-classify-finite-abelian-groups--b39fa8c811b6, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index record b39fa8c811b6 contains the same full spectrum and classifies all possible sets, not merely small-case matches. Record 5e4215ffc0b3 contains the odd elementary-abelian subfamily in the binary operation."
+        ],
+        "reasoning": "The invariant is a parametric set of rationals indexed by groups, not a single sequence for a term-table lookup; the precise indexed classifications are the pertinent exact database comparison.",
+        "searches": [
+          "Local Resultary: finite abelian spectrum classification and affine-quandle probability spectra"
+        ]
+      },
+      "rationale": "The 13 October Resultary finding already states the identical numerical spectrum for all finite abelian groups in two other signatures, reconstructs the group from that unordered set, and characterizes which sets occur. The Takasaki signature is not literally covered by that statement. However every Takasaki equation is a group equation, and the two-variable alternating-reflection recurrence realizes all of the prior spectrum in the new signature. Thus the reconstruction and cardinality are already known for exactly the same invariant, and the distinctive content here is a direct transfer to one more signature. The earlier Latin-affine finding also directly covers the binary-only formula for odd elementary-abelian groups.",
+      "residual_risks": [
+        "No exact previously published Takasaki-language transfer for all mixed-exponent groups was demonstrated; the failure is based on overlap and the direct implication for the same invariant, not a claim of verbatim duplication.",
+        "Sakia–Kiania full text was inaccessible. The primary-literature query returned unrelated results and was not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the numerical invariant, with signature transfer needed",
+          "evidence": "The unlabelled set of rational probabilities determines G up to isomorphism; the group and multiplication-only spectra equal all torsion-kernel ratios. The proof reconstructs the cyclic factors from valuation differences.",
+          "identifier_or_url": "2026/10/13/SCOPE-equational-probability-spectra-classify-finite-abelian-groups--b39fa8c811b6",
+          "material_read": "RESULT.md Finding and scope, Proof Steps 1–2 and primary recovery passages (offsets 0 and 4300)",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Equational-probability spectra classify finite abelian groups",
+          "trigger": "Exact same torsion-ratio set and group reconstruction"
+        },
+        {
+          "assessment": "Direct coverage of odd elementary-abelian cases",
+          "evidence": "Its spectrum formula for Latin affine operations specializes to {p^(−n),1} on the odd-characteristic core.",
+          "identifier_or_url": "2026/10/26/SCOPE-equational-probability-spectra-of-finite-latin-affine-quandles--5e4215ffc0b3",
+          "material_read": "RESULT.md Finding and operation hypotheses",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Equational probability spectra of finite Latin affine quandles",
+          "trigger": "Same operation at T=−I within the vector-space Latin hypothesis"
+        },
+        {
+          "assessment": "Overlapping examples and minimality program in a different signature",
+          "evidence": "For Z/p^rZ the probabilities are p^(s−r), 0≤s≤r.",
+          "identifier_or_url": "https://arxiv.org/html/2603.19487v2",
+          "material_read": "Cyclic formula near offset 37500, minimality argument around 39956–42451",
+          "method": "Open arXiv HTML passage inspection",
+          "title": "On semigroups and groupoids with minimal probabilistic spectrum",
+          "trigger": "Prime-power cyclic spectra and group minimality"
+        },
+        {
+          "assessment": "Different scope; no general reconstruction in these passages",
+          "evidence": "Example on Z_n allows all nullary functions and includes a Z_2 primality example.",
+          "identifier_or_url": "https://arxiv.org/html/2604.08446v1",
+          "material_read": "Abstract and Example 5.3 (offset about 48306)",
+          "method": "Open arXiv HTML passage inspection",
+          "title": "Probabilistic equational spectrum, primality and approximation in finite algebras",
+          "trigger": "Primary literature on groupoid probability spectra"
+        },
+        {
+          "assessment": "No conclusion on full-text coverage",
+          "evidence": "The identified subject is the subquandle lattice, not a probability spectrum.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2020.1797065",
+          "material_read": "Bibliographic title; full text not retrieved",
+          "method": "DOI access returned 403; no lawful repository copy surfaced",
+          "title": "On the lattice of subquandles of a Takasaki quandle",
+          "trigger": "Reconstruction from a Takasaki-quandle invariant"
+        },
+        {
+          "assessment": "Later record and distinct invariant",
+          "evidence": "Uses a retraction-rank polynomial for C_(p²)^a⊕C_p^b at odd p.",
+          "identifier_or_url": "2026/11/22/SCOPE-retraction-rank-polynomials-reconstruct-mixed-exponent-odd-takas--83094871f355",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Retraction-rank polynomials reconstruct mixed-exponent odd Takasaki quandles",
+          "trigger": "Related reconstruction theorem for Takasaki quandles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen term realization and recovery proof",
+        "Resultary b39fa8c811b6 and 5e4215ffc0b3"
+      ],
+      "rationale": "The prior invariant and its reconstruction are worthwhile, but already available in stronger form. What survives is the observation that alternating two-variable Takasaki terms witness all of the same probabilities. That equality is a short definability consequence of the affine operation, with no change to the classification, information content, or examples; it does not support a distinct finding of the claimed scope. Narrowing to that transfer would not rescue the scientific value of this submission.",
+      "residual_risks": [
+        "No assessment is made here of other invariants or of affine quandles with a different operator; they would need separate claims and checks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

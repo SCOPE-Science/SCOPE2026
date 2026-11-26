@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:04:51.227443Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With r=n−k+1 overlapping linear reads, the t-th offset count is the source sum over [t,t+r−1], so neighboring offset counts differ by w_(t+r)−w_t. Each residue chain with any nonzero difference is fixed by that difference and propagation in both directions. For k>k*, integer rounding gives n≥4r−1, so at most one chain has length three and every other chain has length ≥4 (for r=1 the sole chain has n≥8 sites). A constant chain of at least four sites cannot contain ones, and the remaining weight determines the only possible constant length-three chain. At the claimed boundary, n=hr+b, h=2 or 3, 0≤b<r. In the h=2 branch there are b≥2 valid weight-three phases: n≥4r−5 gives b≥2r−5 for r≥4, and n≥8 gives b≥2 for r=3. For h=3 there are r−b≥2 valid phases since n≤4r−2. A phase change permutes the r read-start residues, so the entire ordered-within-read multiset agrees even though the linear words differ. This proves the last ambiguity, not all smaller lengths. An independent direct enumeration of the 56 weight-three words at n=8 found ambiguities at k=1,2,3,4,6 and injectivity at k=5,7,8, supporting the remark about nonmonotonicity. The two frozen verification ranges are only checks of the proof, not its basis; the uploaded code was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Three-marker composition record 489f1ecb7528 counts compositions over all factor lengths and gives uniqueness up to reversal.",
+          "The close b660da7f5eb3 result is for exact weight two, and 53b37289c576 concerns cyclic gap-dependent thresholds.",
+          "The frozen discussion describes Piña–Uzcátegui as using contiguous factor decks through a length cutoff; the available publisher metadata did not verify this full statement."
+        ],
+        "reasoning": "Different-weight proofs, all-length composition counts, and cyclic gap results do not specialize to this linear single-length class. If using an all-shorter-decks uniqueness theorem, what must be shown is that the information it needs is available even from a single deck on this domain; that implication was not established in inspected evidence.",
+        "searches": [
+          "Resultary: three-marker substring-composition rigidity, cyclic gap spectrum and two-marker linear reads",
+          "Piña–Uzcátegui DOI 10.1016/j.tcs.2008.01.052"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–20 and 22–62, VERIFICATION.md, verify_sparse3.py, verification_output.txt",
+        "Angal et al. arXiv:2610.41110v1 p. 1",
+        "Configured Resultary searches for nearby linear, cyclic, composition and scattered deck records; Piña–Uzcátegui publisher metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Angal et al. abstract includes fixed weight and periodic classes but explicitly for subsequence decks.",
+          "The boundary collider here exploits phase permutation of exactly r windows in a linear word while retaining three ones; above it the chain-length count is what forces marginal injectivity."
+        ],
+        "reasoning": "Periodic collisions are a known kind of ambiguity, but the matching exclusion of all larger lengths even from position marginals is not a consequence of the available period/fixed-weight statements in other channels.",
+        "searches": [
+          "Angal et al. arXiv:2610.41110v1; Resultary cyclic period and two-marker contiguous records; frozen Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angal et al. §1 defines subword using arbitrary strictly increasing maps, not necessarily consecutive indices.",
+          "Three-marker necklace record 19f2074d3041 uses all cyclic starts, including wraparound, with threshold floor(2n/3).",
+          "A k-mer Euler-trail representation is an equivalent formulation only with the same linear start multiplicities and exact weight constraint."
+        ],
+        "reasoning": "Neither scattered embedding multiplicities nor the cyclic channel are equivalent to r=n−k+1 linear consecutive starts. Merely switching to an Euler trail description does not settle the exact-weight restrictions or extract the offset-only result.",
+        "searches": [
+          "Resultary: three-marker linear and cyclic contiguous k-mer/shotgun reconstruction; weight-three deck reconstruction",
+          "Angal et al. arXiv:2610.41110v1, p. 1 and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching formula occurs in frozen target 7dce4e71091d itself.",
+          "The separate weight-three binary three-deck enumeration record 39c59472a4df uses eight scattered-subsequence counts, not contiguous reads.",
+          "The frozen finite output reports ranges 8–26 and 8–500, not an unbounded table or independent priority evidence."
+        ],
+        "reasoning": "A fixed-three-length scattered deck table cannot give the maximum ambiguous contiguous length across n; no distinct exact table for that invariant was found among the checked results.",
+        "searches": [
+          "Resultary: exact last-ambiguity formula and weight-three deck enumeration"
+        ]
+      },
+      "rationale": "Supported distinct content is the sharp last collision for linear weight-three words from one exact contiguous read length, together with the stronger offset-marginal sufficiency above that collision. Strongly related contiguous cyclic and weight-two results and fixed-weight results for other deck channels do not give this conclusion under the same assumptions.",
+      "residual_risks": [
+        "Piña–Uzcátegui full text and the full statements of every nearby catalogue item were not inspected; a single-deck result as a subcase elsewhere would merit comparison.",
+        "The proof does not classify all k below k*, nor cyclic reads, noisy observations or other weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Observation channel definitively differs in the inspected definition",
+          "evidence": [
+            "Lines 14–19 describe fixed-weight reconstruction; lines 32–35 define strictly increasing index maps rather than contiguous intervals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41110",
+          "material_read": "v1 PDF p. 1 abstract and start of §1",
+          "method": "Lawful PDF text preview after OA passage lookup timed out",
+          "title": "Deck Reconstruction for Restricted Word Classes",
+          "trigger": "Same fixed-weight class, deck language and periodic subclasses"
+        },
+        {
+          "assessment": "Scattered length-three deck, not an equivalent invariant",
+          "evidence": [
+            "Eight multiplicities of length-three subsequences, on linear weight-three words."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-proof-of-the-weight-three-binary-three-deck-enumeration-conjectu--39c59472a4df",
+          "material_read": "Finding and assumptions",
+          "method": "Configured catalogue and matching text inspection",
+          "title": "Proof of the weight-three binary three-deck enumeration conjecture",
+          "trigger": "Exact weight and deck enumeration"
+        },
+        {
+          "assessment": "Cyclic instead of linear",
+          "evidence": [
+            "Cyclic reads with wraparound; uniform threshold floor(2n/3)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-read-length-reconstruction-of-binary-three-marker-necklace--19f2074d3041",
+          "material_read": "Available indexed statement",
+          "method": "Configured catalogue search",
+          "title": "Sharp read-length reconstruction of binary three-marker necklaces",
+          "trigger": "Same weight and similarly named sharp contiguous threshold"
+        },
+        {
+          "assessment": "Exact weight two; differs on substance, not merely on date",
+          "evidence": [
+            "Threshold floor((2n+1)/3)+1 on weight-two words."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-thirds-reconstruction-threshold-and-the-unique-long--b660da7f5eb3",
+          "material_read": "Available indexed statement",
+          "method": "Configured catalogue search",
+          "title": "A sharp two-thirds reconstruction threshold and the unique long collision",
+          "trigger": "Same linear single-length observation channel"
+        },
+        {
+          "assessment": "Scope comparison provisional; no inference about the whole paper",
+          "evidence": [
+            "Frozen RESULT.md lines 51–53 describes all contiguous factor multisets up to a cutoff, rather than only the one deck at that cutoff."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2008.01.052",
+          "material_read": "Citation metadata; scope characterized in the frozen literature discussion",
+          "method": "Publisher retrieval after OA attempt",
+          "title": "Reconstruction of a word from a multiset of its factors",
+          "trigger": "Closest classical contiguous factor-multiset reference in the frozen text"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three markers are a natural fixed-sparsity test for reconstructing a linear word from its contiguous reads. The exact last ambiguous length is useful because smaller read lengths need not behave monotonically. The offset-marginal result is a substantive reduction in required data, and the periodic full-deck witnesses show that the upper guarantee cannot be improved even when the complete ordered contents of all reads are available.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

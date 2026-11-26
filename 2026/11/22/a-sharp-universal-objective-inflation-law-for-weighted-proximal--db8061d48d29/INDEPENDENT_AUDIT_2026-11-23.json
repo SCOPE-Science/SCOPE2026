@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:47.609040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "VERIFICATION.md and verify.py",
+        "arXiv:2610.32750, p. 4, Definition 2.1"
+      ],
+      "rationale": "The finite sublinear penalty is the support function of a compact convex C containing zero and having a nonzero point. With A=1+r, B=r+κ, D=r+κ(2−κ), p=Π_C(κb) and q=κb−p, the projection inequality gives p·q≥0 and H(q)=p·q; weighted stationarity then gives xκ=q/B. The true optimal value is ||b||²/2−dist(b,C)²/(2A), bounded below by L=||b||²/2−||b−p||²/(2A). Direct evaluation and B²−D(r+κ²)=κ²(1−κ)² give (A/D)L−f_b(xκ)=(1−κ)²(B p·q+r||q||²/2)/(DB²). Equality thus needs q=0 and tightness of the projection lower bound, giving exactly κb=Π_C(b)∈C. For a norm-maximizer p in C, p·(c−p)≤0 for every c in C, so b=p/κ realizes that equality and is nonzero. A direct scalar check with H=|x| and b=1/κ gives xκ=0 and denominator D/(2Aκ²). The general denominator is positive for b≠0 by the ridge-only lower bound. Completing the square in the proximal step and using nonexpansiveness gives contraction factor (1−κβ)/(1+rβ) with the stated fixed point. The claimed strong-quasar parameter also checks directly against Definition 2.1: the quadratic terms cancel after substitution and leave (1−κ)tH(x). Supplied verification code was inspected, not run; finite box examples do not establish the all-gauge statement.",
+      "residual_risks": [
+        "No ratio at b=0. The upper equality argument uses r>0 and 0<κ<1; no endpoint-parameter or nonisotropic extension is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.15 gives distance-to-minimizer inequalities; Example 3.16 compares those bounds in a scalar illustration.",
+          "Orthogonal-design shrinkage corresponds to a special box dual C, whereas the exact gap depends only on two metric projections for general C."
+        ],
+        "reasoning": "Distance upper bounds do not directly bound the relative increase of a nonsmooth objective with no common global smoothness bound. Rescaling all of h would align the two minimizers but changes the problem. Box formulas do not yield the positive-homogeneous family with arbitrary dual geometry.",
+        "searches": [
+          "arXiv:2610.32750 Theorem 3.15, Example 3.16, and whole-regularizer scaling",
+          "Convex gauge/support-function formulation and orthogonal elastic-net thresholds in the frozen references"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.32750, Introduction, Definition 2.1, Theorem 3.15, Example 3.16",
+        "Local Resultary: db8061d48d29 and 5772bc742552"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior method can identify the weighted target, but its inspected results do not give the comparison denominator or exact value slack involving B p·q+r||q||²/2.",
+          "The extremal b exists for every nonzero dual C, including non-box, asymmetric and lower-dimensional C."
+        ],
+        "reasoning": "Even recovering the constant in a box example would at most give a lower witness for a supremum over all penalties, not an upper bound and attainment for every penalty. No inspected stronger theorem implies the full statement.",
+        "searches": [
+          "Compare arXiv:2610.32750, Theorem 3.15 and Example 3.16, with frozen lines 47–73",
+          "Compare local 5772bc742552 Finding with the metric-projection equality criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brito, Lara and Yuan, arXiv:2610.32750, p. 2, defines the same κ-weighted iteration and distinguishes Fκ from f.",
+          "Resultary db8061d48d29 is this same frozen record, while 5772bc742552 treats coordinatewise Lipschitz amplification for a squared weighted-l1 proximal map."
+        ],
+        "reasoning": "Comparing objective values at two different minimizers is not equivalent to comparing Lipschitz constants. Dividing Fκ by κ is a regularization rescaling that does not eliminate the mismatch with the fixed target f.",
+        "searches": [
+          "Weighted proximal gradient sharp unweighted objective ratio, gauge rescaling, scale mismatch",
+          "Local Resultary: weighted proximal objective inflation and proximal amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise ratio and equality match db8061d48d29, the record under review. The distinct 5772bc742552 statement is a different sharp constant and observable."
+        ],
+        "reasoning": "The target is a formula on continuous parameters and arbitrary compact dual sets rather than an enumerated number. No separate matching formula was found in the checked catalogue.",
+        "searches": [
+          "Local Resultary: sharp universal objective inflation and sharp weighted-proximal thresholds"
+        ]
+      },
+      "rationale": "The weighted proximal iteration, its distinction from optimization of the unweighted target, and the projection/thresholding tools are existing material. The distinct supported claim is the exact objective-value worst case, with same-factor attainment for every admissible geometry and a full equality criterion. The closest inspected primary result and matching catalogue candidates do not cover that comparison.",
+      "residual_risks": [
+        "A general sharp value-comparison result under different regularization-path terminology could imply the same ratio; the bounded comparison is not certification of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Setup and distance comparison covered, not the same all-gauge value ratio in the passages inspected",
+          "evidence": [
+            "The rule uses κ∇g and optimizes Fκ=κg+h; Theorem 3.15 bounds displacement, with a distance comparison in Example 3.16."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.32750",
+          "material_read": "p. 2 introduction (around offset 5600), p. 4 Definition 2.1 (11130–13120), p. 15 Theorem 3.15 (around 41000), p. 17 Example 3.16 (around 48258)",
+          "method": "Lawful OA primary PDF and targeted passages",
+          "title": "A Proximal Gradient Method for Nonconvex Nonsmooth Optimization with Applications",
+          "trigger": "Exact same weighted proximal rule and comparison target"
+        },
+        {
+          "assessment": "Distinct map and observable",
+          "evidence": [
+            "Studies coordinatewise Lipschitz amplification of a squared weighted-l1 prox, rather than inflation of the fixed target objective at the optimum of a different one."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 5772bc742552",
+          "material_read": "Mirrored RESULT.md Finding around offset 114",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp weight-anisotropy envelope and active support threshold",
+          "trigger": "Sharp weighted proximal envelope in nearby catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof of equality and scope",
+        "arXiv:2610.32750, weighted objective and distance comparison"
+      ],
+      "rationale": "This quantifies a documented algorithm/objective mismatch by a dimension-free, sharp performance benchmark rather than a bound on displacement. Attainment for every gauge distinguishes the result from a bad scalar counterexample and shows the gap cannot be improved merely by knowing the gauge geometry. The projection criterion also gives an exact diagnostic of extremal data; simple convex tools do not by themselves supply that sharp calibration.",
+      "residual_risks": [
+        "It is a deliberate unweighted-target mismatch with an isotropic fitting term, not a transient, prediction-risk, or general nonconvex guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

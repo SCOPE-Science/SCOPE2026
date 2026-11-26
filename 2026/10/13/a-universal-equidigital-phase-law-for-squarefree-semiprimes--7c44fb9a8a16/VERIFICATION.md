@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The unrestricted exact classification is proved in `RESULT.md` from the two
-possible base-\(B\) digit lengths of a product of two fixed-length factors.
+# Independent mathematical audit
 
-The asymptotic proof uses the prime number theorem in the form
-\[
-\pi(x)\sim\frac{x}{\log x}.
-\]
-For each fixed subinterval of a base-\(B\) digit block, this gives uniform
-limiting mass after normalization by the block's prime count. Product measure
-therefore gives uniform area on \([1,B]^2\). The boundary \(uv=B\) has area
-zero, and direct integration gives
-\[
-\rho_B=\frac{B(B-1-\log B)}{(B-1)^2}.
-\]
+## correctness
 
-The packaged checker independently verifies the exact digit criterion for many
-finite prime pairs and counts ordered distinct-prime pairs in equal decimal
-digit blocks through six digits. It also checks the numerical value of the
-closed-form constant.
+PASS
 
-Finite prime enumeration is corroborative only. It does not replace the prime
-number theorem in the infinite limiting statement.
+The retained claim is the ordered distinct-prime two-block limit. Independently rescaling each input gives the event uv≥B. PNT on fixed intervals [sX,tX) yields mass (t−s)/(B−1) after division by the block count; the Cartesian product gives the limiting rectangle probabilities without assuming anything about primes in short intervals. The hyperbola has zero limiting area, and the diagonal exclusion costs at most reciprocal block size in equal blocks and nothing otherwise. The section length B−B/u integrates to the announced constant. The elementary finite criterion is true but is now background, not a separate contribution. The rounded constants agree with direct evaluation.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the repaired claim only. The exact finite criterion is an immediate specialization of Pinch and is no longer presented as a contribution. No exact two-complete-prime-block asymptotic was found in inspected comparisons. The global-count papers were not all available for statement-level comparison, so this is not a comprehensive priority determination.
+
+## value
+
+PASS
+
+After excluding the already covered finite digit observation as a standalone result, the asymptotic answers a natural prevalence question: with the input lengths prescribed, how often does a squarefree semiprime occupy the larger of the two possible product lengths? It gives a precise base-dependent benchmark for this conditional sample, rather than counts in an arbitrary finite slice or an assertion of a global density. It combines the finite criterion with a genuinely different distributional calculation, even though the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

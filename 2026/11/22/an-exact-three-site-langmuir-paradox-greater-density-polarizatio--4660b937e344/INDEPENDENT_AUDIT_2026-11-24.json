@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:56:52.997102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The w=0 chain already communicates: any configuration can be emptied by right hops and exits, and a target is reachable by placing particles from right to left. Particle-hole reflection commutes with the generator. Denote the unnormalized pair weights of RESULT.md by A for 000/111, B for 100/110, C for 010/101, and E for 001/011. Direct generator balances reduce to (a+w)A=aE+wC, (1+w)B=aA+aC+wB, (1+a+w)C=B+wA and (2a+w)E=C+wE. Choosing E=a+w gives the stated A,B,C, which satisfy all four balances; their sum with E is D. The contrast is (E-B)/D, the adjacent covariances are (A-C)/(4D), and the distal numerator over 4D^2 simplifies to (A+C)^2-4BE=a^2(2a+4w+1)(1-2a). Since 4D-(2a+4w+1)(2a+1)^2=2a-1, the distal derivative has the claimed opposite sign (2D-2a+1>0); the adjacent and contrast derivatives follow by differentiating in w. At a=1/2 all weights agree and the contrast is zero, not strictly monotone. The strong-exchange limits follow directly. The frozen checker was inspected, not executed; the four exact balances, reflection and these rational identities are a replayable analytic verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The zero-eigenvector construction covers longer finite chains but the reported rate ratios are α/β=1/3 and ω_A/ω_D=3; the displayed exact covariance example is k=16 at fixed rates."
+        ],
+        "reasoning": "These ratios are outside the balanced equal-boundary slice. The general kernel prescription is a procedure for deriving moments, not a stronger sign or monotonicity theorem covering the claim.",
+        "searches": [
+          "Silva et al., arXiv:2611.07053, Eq. (8) and exact covariance examples pp. 8–9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Silva et al., arXiv:2611.07053",
+        "Botto et al., arXiv:1809.03231",
+        "Local Resultary fixed-slice counting and static reset results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior printed a=1 stationary vector yields C12=C23=−1/[4(9w+7)], C13=−(4w+3)/[4(9w+7)^2] and Δ=−(3w+2)/(9w+7), so it implies the fixed-slice static covariance and contrast claims even though its main results concern long-time event counts."
+        ],
+        "reasoning": "The positive branch a<1/2, sign change, and uniform opposite derivative signs as functions of a do not follow from that vector. They require new symbolic moment and derivative factorization, not a fixed-rate solver run.",
+        "searches": [
+          "Resultary five-channel counting-noise record, RESULT.md",
+          "Silva et al., arXiv:2611.07053, Eq. (8) and exact covariance discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Silva et al. sum exchange over interior sites j=2 through k−1. Set k=3, unit hopping and equal boundary and exchange pairs to obtain exactly the submitted generator.",
+          "Botto et al. factorize J_n=p_n(1-p_{n+1}) in mean field and use exchange at every node."
+        ],
+        "reasoning": "Fock-space versus configuration-space representation does not change the process. Neither generic representation nor a factorized mean-field closure gives the finite connected sign law.",
+        "searches": [
+          "Silva et al., arXiv:2611.07053, Eq. (8)",
+          "Botto et al., arXiv:1809.03231, §2",
+          "Resultary three-site exclusion stationary/counting covariance matches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-channel record prints the exact stationary numerator (2w+1,4w+3,2(w+1),4w+3,w+1,2(w+1),w+1,2w+1) and denominator 2(9w+7), agreeing with the submitted a=1 slice.",
+          "The reentrance record uses reset moves and fixed boundary rates α=1/2, β=1/6."
+        ],
+        "reasoning": "The same-day stationary vector is exact fixed-slice coverage regardless of priority. It is not a table for variable a. The reset law does not describe balanced insertion and deletion at the middle site.",
+        "searches": [
+          "Local Resultary matches on three-site exclusion, stationary laws, Langmuir exchange and occupation correlations",
+          "Resultary 2026/11/22/SCOPE-exact-five-channel-counting-noise-classification-for-a-three-sit--92f9d1f1c7c8",
+          "Resultary 2026/11/2/SCOPE-reentrant-distal-occupation-correlations-in-a-three-site-exclusi--dc9245657979"
+        ]
+      },
+      "rationale": "The model and generator method are prior; the same-day counting-noise record even gives the exact stationary vector along the full w-line at a=1. The supported distinct result is the two-parameter classification, especially the sign reversal across a=1/2 and the opposed strict responses for all a≠1/2. The closest general exact method determines a kernel but does not give a closed stationary law or a correlation theorem that specializes to these inequalities; the fixed-a vector cannot give the reversal or global classification.",
+      "residual_risks": [
+        "The comparison is bounded. An unindexed symbolic solution or an exact correlation inequality for balanced interior exchange could alter priority.",
+        "Same-day publication order is unknown and was not used in deciding claim overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and exact solver covered, submitted inequality classification not given by inspected results",
+          "evidence": [
+            "Interior exchange only, zero-eigenvector method, unequal rate ratios in reported examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.07053",
+          "material_read": "PDF p. 2, pp. 3–4 Eq. (8) and rates; pp. 8–9 covariance discussion (text offsets 9956, 22966, 23800, 53420, 56773)",
+          "method": "Bounded OA PDF passages",
+          "title": "Langmuir kinetics and totally asymmetric volume exclusion in linear chains via Fock space formalism",
+          "trigger": "Same exact generator family and covariance computations"
+        },
+        {
+          "assessment": "Mean-field scope and exchange sites differ",
+          "evidence": [
+            "Factorized current does not retain connected occupation covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.03231",
+          "material_read": "§2, PDF pp. 3–4, offsets 8300–10000",
+          "method": "Bounded OA PDF passage",
+          "title": "Dynamical transition in the TASEP with Langmuir kinetics: mean-field theory",
+          "trigger": "Balanced Langmuir kinetics and density transition"
+        },
+        {
+          "assessment": "Exact fixed-slice implication, not general-a coverage; chronology undetermined",
+          "evidence": [
+            "Printed stationary vector with denominator 2(9w+7) gives all equal-time moments at a=1."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-five-channel-counting-noise-classification-for-a-three-sit--92f9d1f1c7c8",
+          "material_read": "RESULT.md opening and stationary probabilities, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact five-channel counting-noise classification for a three-site exclusion chain",
+          "trigger": "Same-day same generator at a=1"
+        },
+        {
+          "assessment": "Different generator and parameters, no direct implication",
+          "evidence": [
+            "Particle reset moves at sites 2 and 3 replace the balanced exchange mechanism."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-reentrant-distal-occupation-correlations-in-a-three-site-exclusi--dc9245657979",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Reentrant distal occupation correlations in a three-site exclusion process",
+          "trigger": "Exact static covariance classification on a three-site chain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three sites are the smallest chain with an interior exchange site and two directed bonds. The all-rate signs and strict divergence between density contrast and connected covariance strength distinguish two transport diagnostics that could otherwise be conflated. They provide a finite calibration case near the product law, not evidence of a bulk phase transition or a longer-chain rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

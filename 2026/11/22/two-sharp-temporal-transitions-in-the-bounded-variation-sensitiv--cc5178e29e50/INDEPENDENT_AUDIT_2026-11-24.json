@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:20.574007Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orient all spokes out of the center and write their difference matrix as E. Then L=EᵀE and EEᵀ=I+11ᵀ. The edge map is onto, so the common absolute column sum of −(I+11ᵀ) exp[−t(I+11ᵀ)] gives the attained norm, including t=0. The off-diagonal changes sign at t₀=log(k+1)/k while the diagonal stays negative. The late derivative has the sign of −2(k−1)+(k−2)(k+1)²e^(−kt); its sign at t₀ is the sign of k(k−3). Thus at k=3 the right derivative vanishes only at the joining time and strict decrease still holds. For k≥4 this proves the cusp and the unique later peak. The displayed logarithmic derivative of the real extension of the peak is positive: the log term is at least log(25/3) and the negative rational part is bounded below by −2/15. Independently tested the actual vertex matrix E(−L)e^(−tL) on lifted coordinate columns at k=2,3,4,8,9,25 and checked the derivative identity symbolically and the two rational powers exactly (10330523392/10460353203 < 1 < 536870912/341796875). These finite checks supplement the all-k proof. The frozen Python code was read, not run; it records finite floating-point and rational comparisons, not a proof or formal certificate. Scope is unit masses, unit conductances and edge ℓ¹ on the combinatorial star.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/26/9fedb9294a7c proves the exact edge ODE with an onto edge map and column criterion for ∥e^(tQ)∥₁. Its unit star has Q=−(I+11ᵀ) and κ_e=3−k.",
+          "2026/11/17/86f601cc5033 proof §4 gives exact edge differences and single-indicator extremizers for the undifferentiated operator."
+        ],
+        "reasoning": "The general edge representation and even the heat solution needed to compute the derivative are prior. Neither general statement bounds the scaled peak relative to one or proves strict size monotonicity for the derivative peak.",
+        "searches": [
+          "Resultary: weighted tree contraction in edge variation",
+          "Resultary: exact complete-bipartite heat amplification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact records 9fedb9294a7c, 86f601cc5033, 469537d6a8c8, 08990441c272 and ecbe5ad031f6",
+        "Primary-literature lookup for temporal edge-BV star norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the star N_k(s)=2(k−1)e^(−s)/k−(k−2)e^(−(k+1)s)/k. Differentiating the prior edge differences, not just their norm, gives D_k(t)=−N_k′(t) for t≥t₀ and entirely negative derivative columns before t₀. Then −N_k′(t₀+s)=e^(−t₀)N_k(s).",
+          "The late peak is below one at k=8 and above one at k=9 despite prior semigroup amplification at both, and the frozen strict height monotonicity yields the full threshold."
+        ],
+        "reasoning": "The prior equations make the matrix and much of the turning-time calculation direct. The new height comparison and degree classification are not obtained by restating the broader tree criterion or substituting a=1 in the bipartite peak theorem; the scaled-height inequality is decisive.",
+        "searches": [
+          "2026/10/26/9fedb9294a7c proof, exact edge equation",
+          "2026/11/17/86f601cc5033 proof §§4–5",
+          "2026/10/26/469537d6a8c8 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/17/86f601cc5033 gives the exact ordinary edge-BV norm N_k on K_{1,k}; the late derivative curve is a delayed, scaled N_k. The initial derivative regime instead has one sign throughout each column.",
+          "2026/10/25/08990441c272 gives a temporal norm in vertex ℓ∞ (also ℓ¹) on friendship graphs, not the quotient edge norm on a star."
+        ],
+        "reasoning": "The late waveform is equivalent after a shift/rescaling, but a crossing of unit gain for D_k is then a crossing of a variable level by the known semigroup peak, not its existing amplification threshold. A scalar Lipschitz or BV norm of P_t is not in general the norm of its derivative.",
+        "searches": [
+          "Resultary: star heat flow, sharp temporal derivative, edge total variation",
+          "Resultary: heat gradient time derivative and cusp/rebound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact related records encode the degree-four unscaled amplification boundary; neither the matching tree formula nor the bipartite peak analysis tables the derivative peak or the degree-nine cutoff. Literature search surfaced no decisive exact table."
+        ],
+        "reasoning": "The invariant sought is an entire sharp time profile and an integer cutoff, for which an exact formula or table would cover the contribution; generic estimates and the unscaled threshold do not. Retrieval is not exhaustive.",
+        "searches": [
+          "Resultary: exact temporal sensitivity on a unit star, degree-four cusp and degree-nine unit threshold",
+          "Primary literature search: star graph heat Laplacian time derivative total variation norm"
+        ]
+      },
+      "rationale": "There is stronger prior overlap than a mere analogy between scalar norms. The weighted-tree edge equation gives the star generator immediately, and the complete-bipartite edge-BV heat norm N_k gives the late branch by the exact relation D_k(t₀+s)=e^(−t₀)N_k(s), s≥0. In particular the shape of the rebound and the degree-four boundary carry over by scaling and translation; they are not credited as an unrelated discovery. The sharp temporal norm over the sign switch and, specifically, the unit threshold for the scaled peak and its strict ordering in k require an additional signed-column comparison and an all-size height inequality. The inspected prior results do not supply that comparison to the k-dependent level e^(t₀). Pass for that precise temporal classification, not for the evolution, edge reduction, or unscaled semigroup amplification.",
+      "residual_risks": [
+        "The late branch and most of its phase structure are implicit in a sharp published semigroup result; the distinct contribution is narrow and the extra inequality elementary.",
+        "No decisive scholarly source arose from the primary-literature lookup; specialist or unindexed treatments of the same derivative norm may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact quotient evolution and the star contractivity cutoff for P_t, not the temporal derivative peak-height test.",
+          "evidence": [
+            "Q=−WBM⁻¹BᵀCW⁻¹; N(t)=∥exp(tQ)∥₁; its logarithmic norm is max_e(−c_e κ_e/w_e)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c/RESULT.md",
+          "material_read": "RESULT.md proof, offsets 3020–5270, edge ODE through column criterion",
+          "method": "Indexed search and bounded local mirror text",
+          "title": "A conductance-independent contraction criterion for weighted tree heat flow in total variation",
+          "trigger": "Same edge BV, general trees including stars"
+        },
+        {
+          "assessment": "Covers N_k and complete edge-difference dynamics; implies the late waveform by differentiation of edges and a shift, but the peak-height criterion is for N_k, not e^(−t₀)N_k.",
+          "evidence": [
+            "A second-part singleton attains the two-exponential norm of H_t; the sign test in §5 is −2a(b−1)+(a+b)(b−2)e^(−bt)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033/RESULT.md",
+          "material_read": "Finding and proof §§1–5, including offsets 4545–6248 for exact heat decomposition and peak",
+          "method": "Indexed search and bounded local mirror text",
+          "title": "Sharp edge variation heat amplification on complete bipartite graphs",
+          "trigger": "Exact same star as K_{1,k}, same input and output seminorm"
+        },
+        {
+          "assessment": "Graph-Lipschitz norm of P_t; agrees with the ordinary star variation norm but not with D_k.",
+          "evidence": [
+            "Operator in the statement is the undifferentiated heat semigroup."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-transient-lipschitz-amplification-for-complete-bipartite-h--469537d6a8c8/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed search and local mirror text",
+          "title": "Exact transient Lipschitz amplification for complete-bipartite heat semigroups",
+          "trigger": "Same star family and a sharp heat norm"
+        },
+        {
+          "assessment": "Different graph and seminorm; temporal analogue, not a covering specialization.",
+          "evidence": [
+            "Uses vertex ℓ∞ and ℓ¹ on friendship graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-two-sharp-temporal-sensitivity-transitions-for-heat-flow-on-frie--08990441c272/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed search and local mirror text",
+          "title": "Two sharp temporal sensitivity transitions for heat flow on friendship graphs",
+          "trigger": "Time derivative peaks and two thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The norm measures the sensitivity of the heat trajectory's velocity to an edge-BV perturbation, not whether the trajectory itself smooths that perturbation. For degrees four through eight the temporal response rebounds but its secondary peak stays below unit gain in the fixed normalization, while the ordinary heat norm already amplifies. The degree-nine change is therefore a distinct, attained, sharp diagnostic across the whole natural branching family, not just a selected graph or a new name for the known contraction boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

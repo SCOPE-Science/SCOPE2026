@@ -1,19 +1,21 @@
-# Scientific review of cyclic-radical square fibers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The square-root target lies in the second radical power; its semisimple square root component must vanish because a field has no nonzero element squaring to zero. The remaining square equations are exactly the cyclic adjacent products of arrow coefficients, with the second radical layer contributing a free factor of the field order to the power of the cycle length. The three support cases are exhaustive and disjoint. Each mixed nonzero-edge run has one free invertible initial coefficient; a one-edge zero gap is impossible, and a longer gap has a precisely counted independent-set interior. The transfer matrix enumerates the permitted support strings; correcting the full-support contribution gives the exact image cardinality. A primitive Perron–Frobenius argument and a strict eigenvalue bound prove the asymptotic. Every prescribed target was independently checked for fourteen small finite-field/cycle configurations, including a field of non-prime order. Limitation: finite enumeration is corroboration, not proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Reducing modulo the radical forces all vertex-idempotent coefficients of a root to vanish (a field has no nonzero square-zero scalar). In J^3=0 the degree-two part of the root is then free and contributes q^n, leaving the cyclic products u_i u_(i+1). For Y=0, a support is independent on the cycle; conditioning on a chosen vertex gives the two weighted path terms. For a mixed target, the nonzero edges force their incident vertices and form disjoint paths, each with one multiplicative degree of freedom. At a zero gap of length L there are L−1 internal vertices. The two outermost internal vertices are forced zero (the same vertex for L=2); L=1 is impossible and the remaining max(0,L−3) vertices support an independent set. This proves the fiber for all nonzero edge labels, including characteristic two. Full support leaves one cyclic consistency equation: even length requires equal alternating products and leaves q−1 starters; odd length identifies the square of the starter and gives the stated image correction. Legal mixed binary words are exactly those avoiding the cyclic triple 101; the closed walks of the displayed pair-state matrix weight each labelled pattern once and cannot admit 101. Its characteristic polynomial is t(t^3−qt^2+(q−1)t−(q−1)); the positive-weight pair graph is irreducible and aperiodic. With w=q−1, the cubic signs are negative at w and positive at w+1, and its derivative is nonnegative at w and strictly increasing on [w,infinity), identifying the Perron root in that interval. The other eigenvalues and the O(w^n) torus correction are lower order at fixed q. The frozen checker counts arrow-coordinate solutions, not the free factor q^n; the argument supplies that factor exactly.
 
-The full-support torus constraint is known/standard and excluded from the original contribution. The relevant literature on cyclic Nakayama algebras concerns singularity and derived Picard structures, while graph toric-set literature studies nonzero-coordinate torus constraints. The independently checked distinction is that zeros in prescribed targets introduce a new gap obstruction and independent-set fiber factors, culminating in a whole-image cardinality and exponential image-density law. No examined source implies this mixed-support classification. A general finite-field graph-monomial-map paper could conceivably subsume the result; absence from searches is not a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Prescribed square-root fibers are a natural invariant of the power map on the radical of a finite-dimensional algebra. The exact obstruction at isolated zero coordinates, the gap-dependent root multiplicities, and the exponential loss of attainable degree-two targets answer a complete naturally parameterized family of questions, not an arbitrary finite slice. The value is not based merely on novelty or the existence of a checker.
+Credit the prescribed singular fiber law and the complete image count and growth, not the radical reduction alone, full-support torus, independent-set technique or transfer-matrix method. The closest compared results do not give the assigned singular law and complete image asymptotic, subject to stated access limitations.
 
-## Closest works and boundaries
+## value
 
-D. Shen, arXiv:1404.2451 (2014), gives the Nakayama-algebra setting and a different homological classification. Y. Volkov and A. Zvonareva, arXiv:1508.01721 (2015), treat derived Picard groups of the cyclic selfinjective family. Neves, Vaz Pinto and Villarreal, arXiv:1111.6278 (2011), treat finite-field toric graph sets relevant to the nonzero-coordinate special case. Delgado-Eckert, arXiv:0711.1230 (2007), supplies a general framework for monomial finite-field dynamics but its inspected objectives are fixed-point systems rather than prescribed one-step fibers. The present statement is restricted to Loewy length three, radical inputs, and second-radical-power targets; full-algebra square-image counts, other truncations and historical priority under every conceivable equivalent formulation remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the first nonzero radical-square layer, the full-support data misses the qualitative obstruction caused by an isolated zero and the quantitative dependence of root multiplicities on gap lengths. The closed singular fiber formula and transfer spectrum give exact solvability and a sharp density of attainable targets for a natural algebra family; they apply across unbounded n and all prime powers, not just one arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

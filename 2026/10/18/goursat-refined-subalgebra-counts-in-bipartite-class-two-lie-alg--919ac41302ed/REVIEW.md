@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Goursat data classify the projected subspaces without multiplicity. A basis-level direct-sum decomposition of their commutators proves \(\dim[S,S]=ij-\binom{t+1}{2}\) even in characteristic two; Gaussian central slices and linear graph lifts finish the exhaustive proof. The standalone verifier checks every stratum by direct matrix closure in eight small field/dimension cases, including \(\mathbb F_4\). Finite tests are corroborating evidence, not an infinite proof. Relevant proof and code appear in `RESULT.md` and `verification/verify.py`.
+## correctness
 
-**Originality — PASS within inspected coverage.** Carnevale–Schein–Voll, arXiv:1903.03090 §5.3, establish ideal-zeta results for this *same* \(\mathfrak g_{a,b}\) family; the result here counts subalgebras, for which \([S,S]\) replaces the stronger \([S,L]\) ideal condition. Lee, arXiv:2010.02268, covers the \(a=b=1\) Heisenberg specialization, which is prior knowledge rather than a new contribution, and his Grenham theorem counts ideals. Bauer–Schein, arXiv:2202.10865, concern ideal growth. Comparisons include subring/subalgebra terminology, broader methods and close mathematical database entries. An identical unindexed Goursat-refined subalgebra enumeration remains a priority risk, not an asserted impossibility.
+PASS
 
-**Value — PASS.** This is the complete dimension polynomial and natural four-way incidence distribution for a two-parameter family of class-two Lie algebras over every finite field. The coupling rank has an exact nontrivial effect on commutator-image dimension and separates subalgebra counting from known ideal counting. The formula encompasses all dimensions and yields independently enumerable finite cases.
+For the image S in the central quotient, its two projections A,B and its two coordinate kernels A0,B0 recover S as the inverse image of the graph of an isomorphism A/A0→B/B0. This gives exactly the four Gaussian factors and |GL_t|, with quotient dimensions t. In complements X,Y associated by that isomorphism, the bracket image contains exactly A0⊗B0, A0⊗Y, X⊗B0 and the paired off-diagonal differences in X⊗Y. These pieces are disjoint by tensor coordinates; the paired differences are independent even in characteristic two because each has a coordinate unique to its unordered index pair. Thus rank is ij−t(t+1)/2. A central slice of dimension ρ+e is exactly an e-space in Z/[S,S]; modulo that slice the lifts are all graphs S→Z/T. This proves attainability, the count and the dimension (and hence codimension) generating polynomials. It includes t=0, S=0, and full projection S=U⊕V, in which case only H=L occurs. The profile describes incidence in the central quotient, not a direct specification of H∩U or H∩V. Frozen test code was inspected but not run; the proof establishes all prime powers without relying on finite tests.
 
-**Limits.** Only \(\mathbb F_q\)-linear Lie subalgebras are counted; no valuation-ring lattice formula, non-field-linear subgroup census or isomorphism classification is claimed. The finite checker and review do not constitute independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected same-family ideal formulas do not give this all-subalgebra profile: their central closure requirement ignores the coupling rank in the commutator image. The known Heisenberg index polynomial is a covered special case, not evidence of general four-way coverage. No equivalent or dominating profile was found in the bounded checks.
+
+## value
+
+PASS
+
+The tensor-bracket family is already natural in class-two zeta counting, but ideal counts do not explain its subalgebra lattice dimensions. The closed, characteristic-independent count resolves how the coupling of the two projected summands changes bracket rank and the census, and yields every dimension coefficient without enumerating the subspaces of the full algebra. The unrefined Heisenberg case is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

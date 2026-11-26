@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:32:14.460197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a0≠0 the linearization Δq(A) is separable and its roots form a d-dimensional Fq-space V. Its nonzero roots modulo the scalar subgroup μℓ correspond to the roots of G, via α↦α^ℓ, with the q-Frobenius action preserved. If A has a proper nonconstant factor D, Δq(D) has a proper nonzero root subspace in V (composition of linearizations gives Δq(A)), invariant under Frobenius, so that action cannot be transitive. If A is irreducible, the Frobenius action makes V a one-dimensional module over Fq[T]/(A); transitivity on V×/μℓ means that a root β of A has ord(β^ℓ)=n. For β=Γ^e, the joint conditions are gcd(e,n)=1 and e≡r mod q−1, by the norm formula and the constant's sign (-1)^d. Primes dividing both n and q−1 impose gcd(r,h)=1, while each other prime divisor of n forbids one class among the U possible progression indices; their square-free product divides U, so complete CRT cycles give the stated product. Every qualifying β has degree d since n≥U>q^(d−1), and its norm is constant over its d conjugates. Summing and using U≡d mod q−1 verifies the total and all-constants criterion, including q=2 (r=0 and h=1) and the empty product cases. Zero constant gives a reducible polynomial because n>1. Fresh direct tests of every polynomial in 12 small systems (268 polynomials including three systems over F4) passed, using gcds against X^(q^k)−X for all k≤n/2 rather than the cyclic-exponent formula. Replay: python /workspace/replay_frozen.py 5. These tests are finite corroboration; no formal proof check or expert attestation is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kononen–Moisio–Rinta-Aho–Väänänen count irreducibles with specified trace and norm in a base-group coset, without simultaneously imposing the quotient-order condition.",
+          "Sharma concerns full-group primitivity and primitive constants over an extension coefficient field, including a nonexistence result in a sign-sensitive regime, not all prescribed constants under the weaker quotient-order condition.",
+          "Kuttner–Wang's broader setup includes unequal Frobenius and coefficient fields, but its count in the equal-field case is the unrestricted ℓφ(n)/d."
+        ],
+        "reasoning": "These theorems are broader along other axes, not demonstrated stronger results on the same order-and-norm fibers.",
+        "searches": [
+          "arXiv:0710.2767v1, opening definitions P_m(a,s,h) and Theorem 1",
+          "arXiv:2608.07262v3, definition of primitive polynomial and Theorem 2.1/Corollary 2.1",
+          "arXiv:2611.18927v1, Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and bundled verify.py",
+        "arXiv:2611.18927v1",
+        "Oxford ORA full text for Amadio Guidi–Lindqvist–Micheli",
+        "arXiv:0710.2767v1",
+        "arXiv:2608.07262v3",
+        "Resultary records de699f6d2942, 9b336efb5d40 and 6dc114b9615f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting all exponents coprime to n, as in the unrestricted enumeration, gives no support test for r. The asserted equal fibers and support require comparing prime obstructions inside a fixed progression e≡r mod q−1, including primes dividing both moduli."
+        ],
+        "reasoning": "The unrestricted sum and root equivalence are inherited. The norm-coset restriction coupled with quotient order is the actual extra enumeration; no inspected stronger statement already counts that intersection. The refinement is elementary after the correspondence, not an assertion of a new general sieve method.",
+        "searches": [
+          "arXiv:2611.18927v1, Lemmas 3.1–3.3 and Theorem 3.4, compared against RESULT.md proof Steps 2–5",
+          "arXiv:0710.2767v1, norm-coset definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The root reformulation counts degree-d Frobenius orbits with β^ℓ generating the order-n quotient and prescribed norm; Kuttner–Wang counts the order condition without the prescribed norm.",
+          "Amadio Guidi–Lindqvist–Micheli define projectively primitive roots by generation of the quotient by the entire base-field multiplicative group, the ℓ=q−1 order condition here, with no norm-fiber count."
+        ],
+        "reasoning": "Matching projective generator conditions do not by themselves assert the frequency conditional on the constant. Conversely, ℓ=1 recovers the primitive norm condition and should not be taken as a novel primitive-polynomial count.",
+        "searches": [
+          "Resultary: irreducible projective polynomial prescribed constant/name and norm-fiber comparisons",
+          "arXiv:2611.18927v1, Lemmas 3.1–3.3",
+          "Oxford ORA: Full Orbit Sequences in Affine Spaces via Fractional Jumps and Pseudorandom Number Generation, Definition 3.1 and Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match was the assigned record ending de699f6d2942, not an independent antecedent.",
+          "Indexed records ending 9b336efb5d40 and 6dc114b9615f exhibit a specific degree-41 irreducible but imprimitive trinomial over F_(41²) with primitive constant; the former also reports an order-83 obstruction on 64 of 384 primitive constants.",
+          "Table 1 of arXiv:0710.2767 concerns restricted norm with a trace constraint in its s=2 case, not a table for this sparse family."
+        ],
+        "reasoning": "Neither the fixed trinomial records nor the retrieved norm table census the constant fibers of the family here; no distinct same-day equivalent was identified in the comparisons.",
+        "searches": [
+          "Resultary: fixed constant / irreducible projective polynomial and primitive-constant family"
+        ]
+      },
+      "rationale": "Pass is for the positive-divisor family with equal coefficient field and Frobenius base, refined by the exact fixed constant. The order characterization, unrestricted sum, and classical primitive-norm special case are not new. The inspected stronger root characterization leaves the distribution across individual constants to be worked out; the closest other sources treat a different order condition or different counting constraints. No distinct indexed record or inspected primary result supplying the full fixed-constant refinement was established.",
+      "residual_risks": [
+        "An earlier exact-order count conditioned on norm, or an equivalent subgroup-projection formula in unindexed finite-field work, could cover the refinement. The comparisons do not certify priority.",
+        "The Sharma reference is retitled in the current OA version; the comparison concerns the retrieved v3 statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers correspondence and total, not the individual constant fibers in the passages read",
+          "evidence": "The criterion is ord(β^ℓ)=(σ^d−1)/ℓ, and the count at q=σ is ℓφ((q^d−1)/ℓ)/d without an A(0) constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18927",
+          "material_read": "v1, pp. 12–14: Lemma 3.1, orbit-degree characterization in Lemma 3.3, Theorem 3.4",
+          "method": "Lawful OA PDF text passages",
+          "title": "Irreducible Projective Polynomials",
+          "trigger": "Exact family and irreducibility criterion"
+        },
+        {
+          "assessment": "Order characterization, not a prescribed-norm enumeration",
+          "evidence": "A root class generates the quotient by the base-field units; this characterizes projective transitivity.",
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:03524a20-dcb9-48d0-9489-c0a42ed17b3f/files/mf56b366f7ce66cb9a3a32dd1b0df7821",
+          "material_read": "pp. 6–7, Definition 3.1 and Theorem 3.4",
+          "method": "Lawful OA PDF text passages",
+          "title": "Full Orbit Sequences in Affine Spaces via Fractional Jumps and Pseudorandom Number Generation",
+          "trigger": "Projective-primitivity reformulation"
+        },
+        {
+          "assessment": "The inspected count has a trace constraint and a norm coset, not the required root order",
+          "evidence": "P_m(a,s,h) fixes trace a and restricts norm to a multiplicative coset; the inspected table takes s=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.2767",
+          "material_read": "Abstract, p. 2 definitions, p. 8 Theorem 1 and Table 1",
+          "method": "Lawful OA PDF text passages",
+          "title": "Irreducible Polynomials with Prescribed Trace and Restricted Norm",
+          "trigger": "Potential dominating norm counting theorem or table"
+        },
+        {
+          "assessment": "Addresses a different primitivity and nonexistence requirement",
+          "evidence": "Full multiplicative order and primitive constant are required; the nonexistence regime includes q^n≡3 mod 4 and odd relative degree.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.07262",
+          "material_read": "v3, pp. 2–4, definition and Theorem 2.1/Corollary 2.1",
+          "method": "Lawful OA PDF text passages",
+          "title": "Primitive Polynomials of the Form g(x)+λ over Finite Fields: Non-Existence Results and Conjectures",
+          "trigger": "Primitive constant coefficient and order overlap"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Both supply a particular witness over F_(41²), not all constants or quotient orders for the assigned family.",
+          "identifier_or_url": "Resultary IDs ending 9b336efb5d40 and 6dc114b9615f",
+          "material_read": "Both RESULT.md Finding sections",
+          "method": "Local catalog and mirror",
+          "title": "Degree-41 irreducible nonprimitive trinomial records",
+          "trigger": "Closest distinct indexed records on prescribed or primitive constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The constant is a natural coefficient constraint (equivalently a base-field norm of the ordinary root). The exact distribution determines when a specified constant can be realized in this sparse irreducible family and how many choices result, with a sharp all-constants threshold including nonprimitive quotient regimes. This resolves a substantive existence/counting question not answered by the unrestricted positive count. Value is for the uniform all-parameter refinement, not the CRT technique or isolated examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

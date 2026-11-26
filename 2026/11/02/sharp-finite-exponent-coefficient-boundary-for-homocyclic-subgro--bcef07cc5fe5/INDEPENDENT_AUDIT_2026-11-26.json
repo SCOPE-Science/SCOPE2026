@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:38.366226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each Delsarte summand has degree sum h_i(r-h_i): the Gaussian degree contributes (h_i-h_{i+1})(r-h_i), which adds to the explicit p-power. The maximum is attained by a constant middle chain and cannot cancel, giving the stated degree and reversal. Writing (t;t)_j for the finite product, the reversed Gaussian factors telescope to (t;t)_r divided by the product of (t;t)_gap over consecutive height drops, including the top anchor r and bottom anchor 0. For even rank, a chain with central height s has an upper and a lower Durfee chain; recursively removing the top square from a partition of width <=s and its right-hand rectangle proves each bounded chain sum equals 1/(t;t)_s. In the absence of s, insertion splits one strictly positive crossing gap (including a possible anchor gap) and multiplies the contribution by a Gaussian with constant and linear coefficients 1. Every noncentral entry has defect >=1, so patterns of length <a cancel, length a contribute E-N, and lengths >=a+1 contribute E. All differences are coefficientwise nonnegative. At codegree a+1 only deviations ±1 can occur: a+1 length-a patterns contribute from the first insertion coefficient and a+2 length-(a+1) patterns contribute from constant factors. This proves the universal deficit 2a+3 even when the finite polynomial has no coefficient at that codegree. For odd rank, noncentral entries have defect >=2; at fixed k and a>=k+2, each contributing noncentral pattern has a central run of length L>=2. Both constant-height choices are independent of L, while the L-1 interior switch choices have identical Gaussian factors, giving affine dependence. For k=0,1 only central chains contribute; the a+1 terminal Gaussians and a-1 interior switches each have linear coefficient 1, for 2a. In even rank one terminal factor and the two unit deviations give 3. The recorded finite checks and support code were inspected, not executed; they do not prove the formal or all-rank statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pointwise product bound and sharp limit already sum recentered chains. The even lower-limit proof already pads with the middle height; Lemma 3.2 deals with length cutoffs and terminal entries of zero defect in a shifted Durfee sum.",
+          "Corollary 9.1 handles polynomial degree and leading coefficient more generally, including ranks three and four."
+        ],
+        "reasoning": "Those statements supply the machinery and cover leading terms; they do not state where the first omitted formal coefficient is nor its universal size. The odd limit divided by a+1, and its proof by weighted chain bounds, do not give exact affineness of every fixed coefficient without further finite switch and boundary tracking.",
+        "searches": [
+          "Aivazidis, Theorem A, Lemma 4.1 and Proposition 4.2",
+          "Aivazidis, Lemma 3.2 and §9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Aivazidis arXiv:2606.03320",
+        "Delsarte subgroup-type formula in Aivazidis",
+        "Chew–Chin–Lim DOI 10.1080/00927872.2019.1691571 (full text unavailable)",
+        "Resultary targeted homocyclic coefficient search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed factorial split in Lemma 4.1 yields a Gaussian multiplier with constant 1, so the coefficientwise domination is directly recoverable together with the formal Durfee sum. The older proof then takes a limit, admitting each fixed noncentral pair once width is large enough.",
+          "The proof of Lemma 3.2 already removes repeated zero-defect entries in its one-sided chain estimate."
+        ],
+        "reasoning": "The finite comparison here adds the first surviving defect counts from both present-but-unsplit and entirely missing patterns, giving a+1 plus a+2. Odd rank requires the two boundary choices and the exact multiplicity of interior switches in the full finite two-sided chain, rather than bounding a one-sided sum. These are the supported additions, not novelty of the known factorization.",
+        "searches": [
+          "Aivazidis arXiv:2606.03320, Lemma 4.1 proof and Proposition 4.2 sharpness proof",
+          "Aivazidis Lemma 3.2 proof of the shifted chain estimate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aivazidis's normalization p^(-D) times the homocyclic subgroup count at t=1/p is the reversal in this record. His even block constant xi is the same finite-product expression as Xi.",
+          "No materially matching theorem was surfaced in the bounded Resultary query."
+        ],
+        "reasoning": "The variable change supplies the identical leading-end product; equality to that product through exactly codegree a and the first deficit amount are stronger assertions than the analytic limit at a fixed t.",
+        "searches": [
+          "Resultary: homocyclic subgroup polynomials reversed/codegree finite exponent coefficients; 2a+3 sharp defect and odd affine law",
+          "arXiv:2606.03320, §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rank two gives F=Σ_{j=0}^a (2j+1)t^j and Xi=(1-t)^(-2), already yielding 2a+3 there. Fixed rank three and rank four exact-formula literature is identified; the rank-four full text was not obtained."
+        ],
+        "reasoning": "Rank-specific formulas recover individual instances, and rank two already gives the same number. They do not assert the exact deficit uniformly in rank or fixed-codegree affineness uniformly in odd rank.",
+        "searches": [
+          "Resultary: sharp finite-exponent homocyclic subgroup coefficient deficit",
+          "Chew–Chin–Lim Cor. 4.4; Hampejs–Tóth rank-three formula via Aivazidis §9",
+          "Delsarte formula, rank-two specialization"
+        ]
+      },
+      "rationale": "The limiting product, leading terms, Delsarte sum, and central insertion and Durfee methods are existing work. Coefficientwise nonnegativity is obtainable by reading the known insertion factor formally. The distinct finite results are the sharp, all-rank first disagreement with its universal count and the exact odd-rank eventual affine dependence at fixed codegree, not independent novelty of the product or insertion inequality.",
+      "residual_risks": [
+        "Special-rank exact formulas can imply special-rank cases, and some were not inspected directly. An older all-rank analysis in generating-function notation remains possible. No priority is claimed for the limiting series, basic insertion method or leading coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in estimates, products, and proof tools; not the sharp all-rank finite boundary or exact odd codegree law",
+          "evidence": "Lemma 4.1 gives the exact split factors in its proof. Proposition 4.2 pads even chains to derive the limit, and uses shifted sums and an (a+1)-type normalization in odd rank (paper's width variable d).",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.03320",
+          "material_read": "Theorem A, pp. 2–3; §§2–4, especially Lemmas 3.1, 3.2 (~27400–33019), 4.1 (~36320–39804), Proposition 4.2 proof (~43500–52407); §9, pp. 27–28",
+          "method": "Open primary PDF, focused theorem and proof passages",
+          "title": "Subgroup bounds for abelian p-groups with applications",
+          "trigger": "Same homocyclic normalization and limiting products; potentially dominating insertion and length laws"
+        },
+        {
+          "assessment": "Unresolved direct rank-four comparison",
+          "evidence": "Aivazidis explicitly notes that its rank-four leading coefficient is consistent with Chew–Chin–Lim's Corollary 4.4; the full text was not obtained.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2019.1691571",
+          "material_read": "Bibliographic information and the specific Corollary 4.4 citation in Aivazidis §9, not the original full theorem",
+          "method": "Publisher/DOI and repository recovery attempted",
+          "title": "The number of subgroups of finite abelian p-groups of rank 4 and higher",
+          "trigger": "May already recover rank-four instances"
+        },
+        {
+          "assessment": "Exact enumeration is background; rank-three original statement not directly inspected",
+          "evidence": "The rank-two reversed polynomial follows from Delsarte; Aivazidis points to explicit rank-three formulas, not an all-odd-rank finite-coefficient theorem.",
+          "identifier_or_url": "Delsarte (1948); Hampejs–Tóth, Ann. Univ. Sci. Budapest. Sect. Comput. 39 (2013), 111–124",
+          "material_read": "Delsarte's formula as quoted in Aivazidis Proposition 2.1; rank-three reference identified in Aivazidis §9",
+          "method": "Comparison through the cited full-text formula and rank-two evaluation",
+          "title": "Fonctions de Möbius sur les groupes abéliens finis; On the subgroups of finite abelian groups of rank three",
+          "trigger": "Classical exact subgroup type enumeration and possible explicit low-rank coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first codegree at which the finite exponent changes the limiting coefficient is a natural precision question for the homocyclic enumeration. A rank-independent exact deficit, and a contrasting finite affine law rather than stabilization for odd rank, are useful structural information, not isolated coefficient recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

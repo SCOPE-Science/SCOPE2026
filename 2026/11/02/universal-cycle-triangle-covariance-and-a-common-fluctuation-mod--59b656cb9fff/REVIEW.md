@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact conditioning calculation covers \(k=3\) separately and every \(k\ge4\), including a full enumeration of how forced cycle arcs intersect a triangle. The Walsh argument independently isolates all quadratic coefficients by edge reversal and relabeling, identifies them through the cyclic-triangle outdegree identity, and bounds the variance of higher-degree terms by Parseval and a support-size count. The probabilistic correlation conclusion follows with fixed cycle length. The standalone exhaustive rational checker passed 101745 assertions for \(3\le n\le6\), including orthogonality and quadratic Walsh identities. These computational checks do not replace the infinite proof.
+## correctness
 
-## Originality — PASS, qualified historical priority
-Research-record searches for exact directed-triangle/directed-cycle covariance, equivalent Walsh or Hoeffding projections, variance asymptotics, and tournament cycle aliases yielded no directly covering record. Linial–Morgenstern (arXiv:1405.1576) and Komarov–Mackey (arXiv:1410.6828) study deterministic extremal cycle identities, not the fully stated uniform-random mixed covariance theorem. However, Andersson (1998) studies asymptotic distributions of arbitrary tournament subgraph counts and may imply the asymptotic rank-one limit. Its complete text could not be inspected. It is not established that prior work lacks any specialization proving the finite formula. This is a concrete priority limitation; no unconditional novelty certification is claimed.
+PASS
 
-## Mathematical value — PASS
-Directed simple-cycle counts are a fundamental natural family of random-tournament statistics. The exact mixed covariance across *all* lengths and common second-chaos mode reveal an otherwise nonobvious one-dimensional fluctuation structure, not merely an elementary single-length enumeration. The result distinguishes a finite exact moment from fixed-length asymptotics and has a reproducible proof.
+The original is mathematically sound: forcing a cycle changes the cyclic-triangle expectation by k/4, and global reversal and relabeling leave just the adjacent-pair invariant quadratic mode, with the stated variance and coefficient. The repaired RESULT.md rederives this as background directly from Walsh coefficients. In its new claim for lengths k≥5, a proper subset of an underlying simple cycle cannot contain a cycle component; therefore a four-edge support on four vertices is impossible, and on five vertices the only contributing residual support is a four-edge path. A fixed oriented path extends to (n−5) falling (k−5) directed words; reversal contributes the same sign to its degree-four coefficient. Division by the triangle coefficient gives 1/[4(n−3)(n−4)] for every k≥5. The path products are mutually orthogonal, with (n) falling 5 over 2 such products. The residual on v≥6 vertices has O_k(n^v) possible supports with unnormalized coefficients O_k(n^(k−v)), giving normalized variance O_k(1) and zero residual for k=5. The five-vertex variance is exactly the triangle variance divided by (n−3)(n−4); Taylor expansion gives the positive coefficient 1/2 in the n^(−2) triangle correlation gap. For two lengths ≥5, the common first two components have variance Theta(n³) and the remaining cross-covariance is O(1), which gives the n^(−3) bound. All exact formulas are for n≥k; asymptotics fix lengths. The frozen code and its recorded finite checks were inspected, not executed, and are not certification of the new result.
 
-## Limitations
-The general subgraph-limit literature leaves residual historical-priority uncertainty, and the analytic remainder bound is not uniform in growing cycle length. No independent assessment was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only for the delivered five-vertex refinement, not for the original exact covariance and common triangle mode as stand-alone novelty. The score-profile result already explicitly projects every centered cycle count to the stated triangle coefficient times the centered triangle count in a space containing triangles. This gives the exact covariance (the elementary triangle variance supplies the normalization) and, with the one-dimensional invariant quadratic subspace, the same quadratic projection. That is demonstrable mathematical coverage independent of chronology. Its inspected statement and proof give no higher-order variance or correlation estimate. The repaired result identifies and counts the first surviving motif for lengths ≥5, giving a common second component and sharper explicit rates not supplied by the score-profile result or the known length-four computation.
+
+## value
+
+PASS
+
+The repaired result resolves the first non-triangle source of fluctuation for an entire natural family: the four-cycle rate does not describe any fixed longer length, and the five-vertex fluctuation cancels when comparing two longer lengths to each other. The positive universal coefficient and exact shared normalized correction are substantive information, not a looser rephrasing of the common triangle projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

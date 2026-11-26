@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact paired recursion gives scalar contraction \\(1-r^2\\) and additive innovation \\(h(\\xi_1-(I+rS)\\xi_0)\\). Independent pairs yield a scalar geometric sum at every finite horizon. In the two eigendirections of the symmetric update, marginal-variance Cauchy–Schwarz bounds are attained by a feasible orthogonal Gaussian coupling; strict equality identifies the unique minimizer except at \\(r=1\\). Algebra establishes both stationary risk curves and limits for every \\(0<r<\\sqrt2\\). Standard-library exact-rational verification checks 5,676 comparisons; these are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorbunov et al. analyze stochastic extragradient with sampling schemes, not paired negative-step GDA; the stochastic operator structure differs.",
+        "The inspected bilinear extragradient coupling paper has random multiplicative sample slopes 1 or 2 and distinguishes mean-square from typical-path objectives, not additive isotropic Gaussian noise in signed GDA."
+      ],
+      "reasoning": "No inspected broader theorem states the exact fixed-marginal signed-GDA Gaussian stationary risk or optimal swap threshold. General stability and covariance results alone do not yield these numerical identities without further scheme-specific computation. Priority risk remains.",
+      "searches": [
+        "2026 negative stepsizes make gradient descent ascent converge periodic slingshot bilinear game exact spectral stability two steps three steps negative stepsizes",
+        "published-finding corpus: 2026/11/1/SCOPE-two-distinct-optimal-coupling-transitions-for-stochastic-extragr--002177710edb",
+        "arxiv:2111.08611 stochastic extragradient same and independent samples",
+        "arxiv:2306.16502 stationary stochastic variational inequalities"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2505.01423",
+      "https://arxiv.org/html/2505.01423v2",
+      "https://arxiv.org/abs/2111.08611",
+      "https://arxiv.org/abs/2306.16502",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-two-distinct-optimal-coupling-transitions-for-stochastic-extragr--002177710edb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shugart and Altschuler give the deterministic pairing and explicitly identify stochastic gradients as a robustness problem, but do not specify the joint Gaussian marginal optimization or its exact stationary risks in the inspected sections.",
+        "Previously inspected normal extragradient and stochastic bilinear extragradient theorems use different update polynomials and/or oracle models."
+      ],
+      "reasoning": "Deterministic contraction \\(1-r^2\\) does not imply the sign-dependent optimal Gaussian coupling; indeed independent observation noise retains a nonzero small-step stationary floor. The current piecewise law additionally uses an exact covariance minimization not provided as a corollary in inspected sources.",
+      "searches": [
+        "arxiv:2505.01423v2 Sections 1.2, 3.1, 6 and Appendix A",
+        "stochastic noisy slingshot stepsize schedules GDA 2025 2026 exact stationary covariance two step negative learning rates bilinear",
+        "published-finding corpus normal-extragradient Gaussian noise coupling and bilinear SEG sample coupling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected normal-extragradient result minimizes its additive Gaussian innovation through the polar factor of a normal operator and proves an even/odd-dimensional exact-cancellation obstruction. Its update is an extragradient polynomial, not the scalar signed GDA polynomial \\(1-r^2\\).",
+        "The signed GDA exact one-pair stochastic innovation here is \\(h(\\xi_1-(I+rS)\\xi_0)\\), with optimal covariance sign crossing at \\(r=1\\)."
+      ],
+      "reasoning": "The general optimal Gaussian covariance alignment principle is a shared lemma, not a covered problem-specific theorem. In signed GDA the positive symmetric update has an eigenvalue changing sign, unlike the cited extragradient operator. The derived threshold and stationary law require a different direct reduction and are not implied as a quoted case of the closest inspected result.",
+      "searches": [
+        "Shugart Altschuler slingshot negative stepsizes GDA bilinear game additive gradient noise common random numbers paired noise stationary variance correlation floor",
+        "stochastic noisy slingshot stepsize schedules GDA 2025 2026 exact stationary covariance two step negative learning rates bilinear",
+        "paired negative gradient descent ascent bilinear noise reuse cross correlation stationary variance",
+        "published-finding corpus: 2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus retrieved closest records on normal extragradient Gaussian noise coupling, stochastic extragradient sample pairing and signed-step schemes; the two closest full mathematical statements were inspected.",
+        "No exact table giving the current bilinear signed-step risk functions or switch point was identified in these searches."
+      ],
+      "reasoning": "No found exact database or table covers the current statistic, yet missing searches and indexing limits prevent a claim of exhaustive nonexistence.",
+      "searches": [
+        "Shugart Altschuler slingshot negative stepsizes GDA bilinear game additive gradient noise common random numbers paired noise stationary variance correlation floor",
+        "two-step alternating signed gradient descent ascent bilinear common random numbers additive noise mean-square steady state variance positive constant",
+        "published-finding corpus searches on noisy signed-step slingshot, pairwise oracle couplings, stationarity and bilinear games"
+      ]
+    },
+    "rationale": "The primary 2025 signed-steps source provides the deterministic schedule and open stochastic-robustness motivation, while closely related Gaussian-noise and stochastic sampling coupling results analyze different extragradient algorithms. The exact two-step signed-GDA phase reversal, stationary law, and small-step independent-noise floor are not direct implications of the accessible inspected claims. Historical-priority limits remain.",
+    "residual_risks": [
+      "The exact coupling optimizer is a specialized application of known covariance-alignment principles; historical priority of the sharp signed-GDA switch remains subject to unseen or differently named work.",
+      "Not every related paper was inspected in complete full text; no database search establishes mathematical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found the deterministic scheme and motivation but no equivalent optimal Gaussian coupling phase transition in inspected material",
+        "evidence": [
+          "arxiv:2505.01423 initial release 2025-05-02",
+          "§6 raises stochastic-gradient robustness; Appendix A studies other sources of perturbation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.01423v2",
+        "material_read": "Full public HTML, specifically Sections 1.2, 3.1, 6 and Appendix A (algorithm, bilinear reduction, future robustness, random step-size and finite-precision discussion)",
+        "method": "Compared explicit deterministic polynomial and stochastic assumptions with the current paired Gaussian innovation and stationary covariance statement",
+        "title": "Negative Stepsizes Make Gradient-Descent-Ascent Converge",
+        "trigger": "Exact signed-step bilinear algorithm and open stochastic gradient robustness question"
+      },
+      {
+        "assessment": "Shares covariance alignment lemma but is stochastic extragradient, not negative-step GDA; does not imply sign-changing swap threshold for this scheme",
+        "evidence": [
+          "Its normal-extragradient predictor-corrector map is \\(I-\\eta M+\\eta^2M^2\\); the signed two-step GDA map here is \\((1-r^2)I\\)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41",
+        "material_read": "Full RESULT.md, including Finding, Assumptions, Proof, Relationship to prior work and limitations",
+        "method": "Compared affine update maps, polar-factor coupling, horizon risks, adaptive oracle assumptions and implications",
+        "title": "A parity obstruction to perfect coupled-noise cancellation in normal extragradient",
+        "trigger": "Closest additive Gaussian coupled-noise research theorem"
+      },
+      {
+        "assessment": "Different update method and oracle randomness; no direct covering implication",
+        "evidence": [
+          "Its underlying samplewise operator is \\(F_u(z)=uJz\\) with \\(u\\in\\{1,2\\}\\); current gradient matrix \\(\\sigma S\\) is deterministic with additive Gaussian observations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-two-distinct-optimal-coupling-transitions-for-stochastic-extragr--002177710edb",
+        "material_read": "Full RESULT.md, including exact risk formulas, proof and limitations",
+        "method": "Compared random two-point multiplicative slope marginals with additive independent-pair Gaussian marginal coupling",
+        "title": "Two distinct optimal-coupling transitions for stochastic extragradient on a bilinear game",
+        "trigger": "Closest bilinear stochastic sampling-coupling research theorem"
+      },
+      {
+        "assessment": "General SEG analysis does not by itself provide exact signed two-step Gaussian coupling threshold; residual full-text coverage risk retained",
+        "evidence": [
+          "Gorbunov et al. classify SEG sampling and convergence, a distinct iteration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.08611",
+        "material_read": "Public abstract/metadata and relevant statement comparisons through inspected nearby primary research; not a complete fresh full-text read",
+        "method": "Assessed algorithm family, oracle model and possibility of a broader implication",
+        "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+        "trigger": "Same-sample versus independent-sample stochastic saddle algorithms"
+      },
+      {
+        "assessment": "No established direct implication to a signed-step, fixed Gaussian-marginal coupling optimizer",
+        "evidence": [
+          "Focus on stochastic VI ergodicity/bias, not exact per-pair Gaussian noise correlation choice"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.16502",
+        "material_read": "Public abstract/metadata and full-text statements visible in the adjacent published normal-extragradient result; not complete full text in this run",
+        "method": "Compared target iteration type and stationary quantities",
+        "title": "Stochastic Methods in Variational Inequalities: Ergodicity, Bias and Refinements",
+        "trigger": "Stationary noise analysis of stochastic saddle methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f3b1210-6861-4604-a091-e1cce87f093f",
+  "value": {
+    "rationale": "The primary signed-GDA paper poses robustness to noisy gradients as a motivated next problem. This result exactly quantifies an unexpected fixed positive steady-state error floor for independent zero-stepsize observations and a nontrivial sharp swap of two coordinate noises for higher stable steps. These are actionable stochastic-oracle benchmark boundaries with explicitly restricted scope, beyond a rename of the deterministic theorem.",
+    "status": "PASS"
+  }
+}

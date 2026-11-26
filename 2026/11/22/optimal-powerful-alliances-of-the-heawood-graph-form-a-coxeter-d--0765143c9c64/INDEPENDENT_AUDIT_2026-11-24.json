@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:11:34.056540Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md, check_geometry.py and check_bruteforce.cpp (inspected)",
+        "/workspace/reviews/evidence/heawood.py (executed with standard Python 3)"
+      ],
+      "rationale": "In the cubic graph the four-element closed-neighborhood inequality is precisely at least two selected per closed neighborhood. Every selected vertex has ≤2 outside neighbors and every omitted vertex has ≥2 selected neighbors. Counting crossing edges gives |S|≥7; equality would give a perfect matching on the selected seven vertices and is impossible. If |S|=8, its six omitted vertices cannot contain a collinear point triple or a concurrent line triple: the witness line or point would violate the same closed-neighborhood inequality whether selected or omitted. A cap has size ≤4, and a four-point cap is the complement of a line, since its six secants account for its twelve incidences. At most one line can meet it in ≤1 point, so the omission splits as three points and three lines. For three nonconcurrent lines, the omitted points cannot include a pairwise intersection; they must be the single point off the three lines and two private points, since the three private points are collinear in binary coordinates. These choices satisfy the inequality on both shores: within the omission every vertex has ≤1 omitted neighbor, and the cap conditions forbid a selected vertex from having three omitted neighbors. Thus there are 28×3=84 optima. The intersection triangle Q has exactly the three omitted lines as its side lines; the omitted point triangle P is disjoint from Q. For fixed Q the allowed point triples differ by one point; for fixed P the dual private-point argument gives three line triples differing by one line. A jump preserves exactly one coordinate, yielding the line graph of the bipartite Coxeter double; shore balance rules out all slides. Binary linear changes of basis permute any chosen triangle of independent line equations and its private-point positions, giving transitivity. An independent binary-vector Fano construction and closed-neighborhood scan of every subset of size at most eight in /workspace/reviews/evidence/heawood.py verified the optimum count, the ordered-pair bijection and every jump/slide comparison. All 84 BFS layer vectors were (1,4,8,16,28,22,4,1), confirming connectedness and diameter seven; the same checker produced 168 jump edges and a single collineation orbit under 168 maps.",
+      "residual_risks": [
+        "The census and distances apply to minimum-cardinality alliances of the Heawood graph only; no result on inclusion-minimal or larger alliances is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Fernau–Mann introduction and definitions cover the general powerful-alliance reconfiguration setup; they do not supply this instance's optimizer classification.",
+          "The half-order crossing bound is elementary and would give seven; its equality parity obstruction gives eight as a lower bound but does not show which eight-sets work. The foundational bounds article was not fully read in this review."
+        ],
+        "reasoning": "General feasibility definitions or complexity do not classify tight eight-sets of the Heawood graph. No novelty is assigned to the basic local-majority or crossing bound arguments by themselves.",
+        "searches": [
+          "Fernau–Mann arXiv:2509.08798 pp.1,3–4",
+          "Brigham et al. DOI 10.1016/j.disc.2006.10.026 and Brigham–Dutton, Ars Combinatoria 88 (2008) 135–159",
+          "Resultary Heawood Coxeter optimum-configuration families"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0765143c9c64, dbd1bd34456c, 0d18ffe9d675, cd43734a0963, 8cd2964a9d93",
+        "Fernau–Mann arXiv:2509.08798",
+        "Bounded web and OA lookups under double-domination and limited-packing aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path-cover paper obtains edges A_T B_U precisely for disjoint Fano triangles, hence already gives all 84 ordered edge labels. It does not identify them as complements of the three omitted points and three omitted lines of a minimum double-dominating set.",
+          "The edge-dominators are five-edge matchings specified by missed point/line pairs and a perfect matching of the remaining graph. Its two-edge exchange graph and its quotient triangles do not supply the three-omitted-point/line criterion or the one-vertex move equivalence."
+        ],
+        "reasoning": "Once the new alliance-to-ordered-pair bijection and shared-coordinate move criterion have been proved, taking a line graph is mechanical. The inspected results on other configuration classes do not supply either of those equivalences. Same-day dating does not establish priority.",
+        "searches": [
+          "Compare dbd1bd34456c Finding and Proof §§1–4 and 0d18ffe9d675 Finding and Proof to frozen Proof §§2–4",
+          "Compare open-majority Resultary 8cd2964a9d93 Finding and Assumptions to |N[v]∩S|≥2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a cubic graph |N[v]∩S|≥2 is exactly double (2-tuple) domination, and the complement satisfies |N[v]∩T|≤2, i.e. a 2-limited packing. These are exact equivalences and preserve exchange upon complementing.",
+          "Resultary 8cd2964a9d93 uses open-neighbor majority of three with no self-loops, rather than the closed-neighborhood condition with ties admitted. It describes fixed/periodic states and their basins."
+        ],
+        "reasoning": "The alternative domination and packing terminology is genuinely equivalent, whereas synchronous open majority reaching a fixed point is a different property. The bounded search under the exact aliases did not expose a distinct matching Heawood extremal census; unavailable full texts do not count as exclusions.",
+        "searches": [
+          "Resultary Heawood Fano minimum powerful alliances, ordered disjoint triangles and Coxeter double line graph",
+          "Resultary Heawood maximum 2-limited packing, minimum double or 2-tuple domination and closed majority",
+          "Primary-literature lookup using Heawood, 2-limited packing, double domination, 2-tuple domination and signed 2-independence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0765143c9c64 is the exact assigned catalogue entry, not distinct prior evidence.",
+          "dbd1bd34456c has 58 minimum three-vertex-path covers with graph 2K1 plus C×K2; its mobile part has 84 edges with the same triangle-pair labels. 0d18ffe9d675 has 42 optimum five-edge dominators with graph L(C), diameter five, under two-edge replacements. cd43734a0963 has 28 two-sensor power-dominating antiflags with no slides."
+        ],
+        "reasoning": "The 84 edges of the mobile path-cover component are not a table of 84 vertex alliances; the required alliance membership rule is absent. Neither a matching number of edges or states nor a shared Coxeter construction identifies the feasible sets under the frozen predicate.",
+        "searches": [
+          "Resultary exact Heawood minimum global powerful alliance/2-limited packing count 84 and line graph of Coxeter double",
+          "Inspected Resultary dbd1bd34456c, 0d18ffe9d675 and cd43734a0963 Findings and relevant proof sections"
+        ]
+      },
+      "rationale": "Pass for the alliance-specific extremal membership criterion and reconfiguration identification, not for constructing the Coxeter double or taking its line graph. The strongest distinct match is a same-day three-vertex-path cover result with exactly the same ordered triangle pairs as edges of its mobile component. It supplies the graph framework but not the correspondence with minimum closed-neighborhood majority sets or their moves.",
+      "residual_risks": [
+        "Historical priority is not certified. Foundational powerful-alliance articles could not be fully read; Limited packing vs tuple domination in graphs (Ars Combinatoria 133, paper 11) had no extractable text and On the signed 2-independence number of graphs did not yield accessible full text from the located links. No claim of noncoverage is based on those retrieval failures.",
+        "The structural overlap with the same-day path-cover record is material and its chronology unresolved; the passing scope is the alliance proof and move correspondence, not the double-cover construction itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching ordered labels for mobile path-cover edges but different configuration predicate",
+          "evidence": [
+            "58 covers; 2K1 disjoint union C×K2; A_T and B_U adjacent exactly for disjoint triangles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-coxeter-double-cover-as-the-optimum-three-path-cover-slide-g--dbd1bd34456c",
+          "material_read": "RESULT.md Finding and Proof §§1–4",
+          "method": "Local Resultary mirror statement and proof comparison",
+          "title": "The Coxeter double cover as the optimum three-path cover slide graph",
+          "trigger": "Strong structural overlap on the same Heawood and Coxeter graphs"
+        },
+        {
+          "assessment": "Five-edge sets, different move and parent (C itself)",
+          "evidence": [
+            "At optimum exactly two unused points and lines; two perfect matchings on the remaining vertices. 42 states, two-edge replacement gives L(C)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-coxeter-line-graph-of-optimal-edge-dominators-in-the-heawood--0d18ffe9d675/RESULT.md",
+          "material_read": "RESULT.md Finding, assumptions and proof of size/mobility (offsets 0–6743)",
+          "method": "Local Resultary mirror, two bounded passages",
+          "title": "The Coxeter line graph of optimal edge dominators in the Heawood graph",
+          "trigger": "A Coxeter line graph for optima on the same host"
+        },
+        {
+          "assessment": "Different majority convention and question",
+          "evidence": [
+            "Synchronous open-neighbor majority F(S,T)=(Ψ(T),Φ(S)); no self-loops and no ties."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93/RESULT.md",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–3091",
+          "method": "Local Resultary mirror",
+          "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+          "trigger": "Plausible majority-rule equivalent on the same graph"
+        },
+        {
+          "assessment": "General framework; no Heawood classification in inspected passages",
+          "evidence": [
+            "Defines token jumps/slides and the global powerful alliance problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.08798",
+          "material_read": "pp.1,3–4, OA offsets 0 and 10876",
+          "method": "Primary OA PDF passage inspection",
+          "title": "How to Reconfigure Your Alliances",
+          "trigger": "Same alliance and reconfiguration definitions"
+        },
+        {
+          "assessment": "Unverified potential historical overlap, not a negative source comparison",
+          "evidence": [
+            "Frozen references attribute definitions and the general half-order bound; the audit independently derives the applicable half-order inequality and parity obstruction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.10.026 ; https://combinatorialpress.com/article/ars/Volume%20088/volume-88-paper-13.pdf",
+          "material_read": "Bibliographic/abstract material for the first; no readable full-text passage from either in this audit",
+          "method": "Lawful OA attempts including an identified author-posted landing page; access denied or nonextractable text",
+          "title": "Powerful alliances in graphs; Bounds on Powerful Alliance Numbers",
+          "trigger": "Foundational powerful-alliance definitions and possible cubic graph bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Independent Heawood census",
+        "Resultary dbd1bd34456c and 0d18ffe9d675 for structural comparison"
+      ],
+      "rationale": "A complete minimum double-domination/limited-packing classification on the canonical cubic incidence cage connects a natural local feasibility predicate to Fano triangle geometry. The bijection explains every optimizer and why jumping connects them while sliding cannot even start. The reusable contribution is this structural explanation and exact small-graph benchmark, rather than the bare lower bound or a new name for a known graph.",
+      "residual_risks": [
+        "No broader claim about arbitrary cubic graphs is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

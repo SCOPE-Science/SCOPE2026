@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:46:32.130011Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian convolution and the positive tilt give m(a)/m₀=Eν[q^β], with 0<β≤1 and positive tilted mass below 1. The even Gram block has determinant (1−q²)²+η(2+q⁴)+η²>0; the outer numerator is strictly positive and the center numerator is m₀(η−H(q)). The derivative H′/(4q³) is strictly decreasing from +∞ to (Eνβ−1)/2<0. Local differentiation is bounded uniformly in β on compact positive q-intervals, so no moment of the target scale is needed. Because H(0)=−1 and H(1)=0, the unique stationary point is a positive maximum, and each level gives precisely the stated count of crossing spacings, with their order reversed by q=e^(−a²/(2ℓ²)). Pointwise H(q)<2q−1−q⁴, maximized at 2^(−1/3); already evaluating at that q for single Gaussian targets as s/ℓ→∞ proves sharpness. At the stationarity point H″=4q_*²(E_*β−3)<0, where E_* tilts by (1+β)q_*^β. Taylor expansion and the nonzero derivative of spacing in q give the stated fold. The exact proof is sufficient; the finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karvonen–Kanagawa–Särkkä, §3.5 Corollary 1, obtains positivity for a totally positive kernel of order 2 at a locally optimal design.",
+          "Glaubitz–Reeger, arXiv:2301.12998, p. 1, frames RBF stability in terms of support, shape parameters and data conditions, with oversampled least squares as an alternative.",
+          "SCOPE-20261122-cce661a57067 proves a unique unregularized radius for isotropic Gaussian targets and 2D+1 sigma points with D≥2."
+        ],
+        "reasoning": "An optimized design or an alternative stable integration construction is not a sign classification for the prescribed symmetric nodes. Higher-dimensional single-Gaussian unregularized coverage does not extend to noisy arbitrary mixtures.",
+        "searches": [
+          "arXiv:1812.08509",
+          "arXiv:2301.12998",
+          "Resultary: Gaussian sigma-point quadrature positivity radius"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.09532",
+        "arXiv:1812.08509",
+        "arXiv:2301.12998",
+        "SCOPE-20261102-bf59562e8e52",
+        "SCOPE-20261122-d5fbecc13c52",
+        "SCOPE-20261122-cce661a57067"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Karvonen–Särkkä's Theorem 2.2 derives approximate weights at scaled Gauss–Hermite nodes; the p. 9 discussion does not prove the prescribed-node noisy sign law.",
+          "The sigma-point formulas, algebraically evaluated at D=1, reproduce the single-Gaussian noiseless cutoff; the stated theorem assumes D≥2.",
+          "The pointwise three-node calculation recovers H(q) verbatim but gives no global critical-point count."
+        ],
+        "reasoning": "The formula overlaps are material, and same-day dates do not establish priority. An extra global monotonicity and extremal argument, absent from the inspected claims, is needed for the result being passed.",
+        "searches": [
+          "arXiv:1803.09532, Theorem 2.2 and positivity discussion",
+          "SCOPE-20261122-d5fbecc13c52, Finding and Proof §§1–2",
+          "SCOPE-20261122-cce661a57067, Finding and Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general pointwise threshold in SCOPE-20261122-d5fbecc13c52 becomes exactly H(q) when k(a)=q, k(2a)=q⁴ and m(a)/m(0)=Eνq^β.",
+          "In SCOPE-20261102-bf59562e8e52, changing Gaussian shape at fixed a for a bounded uniform measure changes its scale relative to the interval, not just spacing for a fixed tilted mixture."
+        ],
+        "reasoning": "Credit the exact algebraic overlap. Pointwise threshold and collision behavior do not imply global unimodality. The bounded-uniform theorem is not the same sign diagram under a reparameterization.",
+        "searches": [
+          "Resultary: symmetric three-node Gaussian kernel quadrature positive weights with nugget and global spacing",
+          "SCOPE-20261122-d5fbecc13c52"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact bounded-uniform one-crossing record treats a noiseless shape threshold. The exact sigma-point radius record concerns an isotropic single Gaussian and no nugget.",
+          "Neither inspected exact record supplies the target-uniform supremum or the two-root coalescence at the positive nugget threshold."
+        ],
+        "reasoning": "The question is invariant-level coverage, not merely an exact match to the decimal. The inspected phase diagrams do not give the extremum of H over the stated target family.",
+        "searches": [
+          "Resultary: Gaussian-kernel quadrature sharp nonnegative nugget, spacing and reflection-symmetric three-node rules",
+          "SCOPE-20261102-bf59562e8e52",
+          "SCOPE-20261122-cce661a57067"
+        ]
+      },
+      "rationale": "The supported distinct result is the global spacing diagram under a fixed Gaussian kernel for arbitrary centered Gaussian scale-mixture targets: one maximum, sharp universal nugget and nondegenerate fold. The pointwise sign reduction is shared and is expressly not claimed as original.",
+      "residual_risks": [
+        "Intra-day priority is unresolved for the algebraically overlapping records.",
+        "A differently phrased regularized Gaussian quadrature theorem could be unindexed. The primary search yielded no useful additional matches; this is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "approximate weights at a special design, not nugget phase law",
+          "evidence": [
+            "Positivity of approximate weights is discussed on p. 9 as a question for rigorous proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.09532",
+          "material_read": "§2, pp. 3–4, Thm. 2.2 and p. 9 positivity discussion",
+          "method": "OA primary full text",
+          "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+          "trigger": "same kernel and single Gaussian target"
+        },
+        {
+          "assessment": "sufficient design hypotheses do not include all prescribed spacings",
+          "evidence": [
+            "Positivity assumes local optimality and total positivity of order 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+          "material_read": "§3.5, p. 9, Corollary 1 and discussion",
+          "method": "OA primary full text",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "general positivity theorems for Gaussian quadrature weights"
+        },
+        {
+          "assessment": "the read passage concerns different stability conditions, not a full-text priority exclusion",
+          "evidence": [
+            "Compact support, shape parameters and least-squares oversampling are the stated stability frameworks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.12998",
+          "material_read": "p. 1 abstract",
+          "method": "OA primary full text, limited to the framework passage",
+          "title": "Towards stability results for global radial basis function based quadrature formulas",
+          "trigger": "RBF weight and quadrature stability"
+        },
+        {
+          "assessment": "different measure and parameter varied; no nugget",
+          "evidence": [
+            "Uses Lebesgue (uniform) measure on [−1,1] and varies shape at prescribed spacing, with the one-crossing regime a<1/√3."
+          ],
+          "identifier_or_url": "SCOPE-20261102-bf59562e8e52",
+          "material_read": "Finding, Assumptions and Proof, opening at offset 0",
+          "method": "configured Resultary mirror",
+          "title": "A one-crossing positivity diagram for symmetric three-node Gaussian kernel quadrature",
+          "trigger": "same three-node kernel and a global sign theorem"
+        },
+        {
+          "assessment": "exact pointwise overlap; no maximum or fold classification",
+          "evidence": [
+            "The formula η_c=2k(a)m(a)/m(0)−1−k(2a) coincides with H(q) under the Gaussian convolution."
+          ],
+          "identifier_or_url": "SCOPE-20261122-d5fbecc13c52",
+          "material_read": "Finding, Assumptions, and Proof §§1–2",
+          "method": "frozen copy and configured Resultary mirror",
+          "title": "A universal quadratic noise threshold for colliding three-node kernel quadrature",
+          "trigger": "exact pointwise noise threshold also for Gaussian kernel"
+        },
+        {
+          "assessment": "zero-nugget, single-target radial result, not the regularized target-mixture phase diagram",
+          "evidence": [
+            "D≥2 in the statement; the formulas at D=1 specialize algebraically to the single-Gaussian noiseless boundary."
+          ],
+          "identifier_or_url": "SCOPE-20261122-cce661a57067",
+          "material_read": "Finding and Proof §§1–3, opening at offset 0",
+          "method": "configured Resultary mirror",
+          "title": "A sharp positivity radius for Gaussian sigma-point kernel quadrature",
+          "trigger": "prior Gaussian global spacing boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a whole target family without moment restrictions, the result determines both an exact universally sufficient nugget and the only possible nonpositivity window at smaller noise. These are useful global properties not furnished by the pointwise Gram solve, and the fold quantifies how the window closes. No accuracy improvement or positivity of realized noisy outputs is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

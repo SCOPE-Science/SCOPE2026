@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:45:44.330582Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In descending priority order within a color, the initial same-part run consists of all the peaks: once a second part has appeared, any later vertex has an earlier neighbor in one of these two parts. Its tail is the sum of the without-replacement same-part probabilities, including a run occupying an entire nonempty color class and zero for an empty one. Given the full color assignment the relative priority permutations are independent, and their run laws depend only on the part-by-color table, so the product law survives conditioning on that table. A vertex with B same-color neighbors is a peak with probability 1/(B+1); integrating the binomial pgf gives the exact mean. Fixed k follows from simultaneous cell laws of large numbers and convergence of the product of color laws to the stated geometric mixture. For k→∞ and n/k≫log n, the stated relative-error Chernoff bound is superpolynomial after the union bound. On this event (m)_j/(M)_j≤(m/M)^j bounds the tails by rρ^j, so conditional variances converge uniformly to the mixture variance and conditional centered third moments are bounded. Conditional Berry–Esseen and total variance apply after checking the centering: on the convex good count box all denominators in the conditional mean are Ω(n/k) and each cell derivative is O(k/n). The global clipped Hamming-Lipschitz extension and Efron–Stein give variance O(k²/n)=o(k), with squared error at most n² on the negligible bad event. Thus exact unconditional centering is valid and the variance limit follows as well. Lemma 1 of the primary paper applies with the stated recoloring rule and palette. The frozen exact-enumeration check.py was inspected, not executed; it concerns finite distributions, not the growing-k result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper's bounded-degree Gaussian regime does not have Δ=Θ(n); its bipartite model varies edge probability rather than the palette in the growing-color theorem.",
+          "Resultary e337c15215c7 has the same complete-multipartite setting and states a quantitative TV bound min(1,2k³(1+ε⁻²)/n) to the iid geometric-mixture law."
+        ],
+        "reasoning": "The TV estimate is useful for k³=o(n), not throughout k log n=o(n). For example k of order n^(1/2) is admitted by the frozen theorem while that TV bound is vacuous. General peak equivalence does not provide a many-color triangular-array analysis.",
+        "searches": [
+          "arXiv:2611.17989v1 general-graph normal approximation and §5.4",
+          "local maxima/minima on dense multipartite graphs with a growing initial palette"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17989v1",
+        "Resultary e337c15215c7",
+        "Resultary 2484223143f3",
+        "Resultary cd7af7620aee (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion's quantitative proof gives the uniform-in-k bound with the actual finite part proportions. In the range k³=o(n), pushing that bound forward by the sum and using the iid mixture CLT gives a weak normal approximation, with the frozen exact mean differing negligibly from the mixture-sum centering by the general mean formula.",
+          "The distinct frozen step controls the dependence through Var(E[S|table])=O(k²/n)+o(1), with uniform conditional run moments via n/k≫log n."
+        ],
+        "reasoning": "An unconditional TV bound does not by itself give convergence of unbounded second moments, and its k range does not imply the full frozen CLT. The wider range and second-moment statement need the concentration and centering estimates; they are not merely a relabeling of the fixed-k theorem.",
+        "searches": [
+          "Resultary e337c15215c7 RESULT.md exact and quantitative statements and proof",
+          "arXiv:2611.17989v1 §§3 and 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 1 identifies unchanged vertices in distribution with priority peaks under the stated recoloring rule.",
+          "Resultary e337c15215c7 uses unchanged-vertex counts by initial color and the same maximal initial part run. Its fixed-k limit is identical and its finite formulas describe the same unconditional joint law.",
+          "Resultary 2484223143f3 uses the same one-color run as a statistic for Cholesky fill."
+        ],
+        "reasoning": "The change of observable name does not make the common run or fixed-palette law new. The exact conditional law given the entire part-by-color table is not the same as a joint formula averaged over that table. The one-color case alone does not establish the many-color limit.",
+        "searches": [
+          "Resultary searches on complete multipartite colored peaks, first-run law, random central daemon and growing palettes",
+          "arXiv:2611.17989v1 Lemma 1 and Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cd7af7620aee is the frozen record itself, not corroboration.",
+          "e337c15215c7 computes joint survival probabilities via a multinomial color-total event times a uniform-injection falling-factorial formula, determining all unconditional finite probabilities.",
+          "Theorem 1 specializes to the displayed finite mean at degrees n−n_i."
+        ],
+        "reasoning": "The unconditional finite law and the exact mean are already represented by explicit formulas, not new exact values. The companion conditions only on color totals or the population threshold for its injection argument, not the entire table; finite formulas alone do not settle the frozen limit in this growth regime.",
+        "searches": [
+          "Resultary cd7af7620aee, e337c15215c7 and 2484223143f3",
+          "arXiv:2611.17989v1 Theorem 1"
+        ]
+      },
+      "rationale": "Pass for the distinct contribution identified in RESULT.md's prior-work section, chiefly the k→∞, k log n=o(n) Gaussian and variance limits using the full count-table factorization. Do not credit the prior-equivalent recoloring reduction, mean formula, or fixed-palette limit as distinct. A same-day companion contains the same run interpretation, the full unconditional joint law and a stronger fixed-palette approximation; its bound even implies a Gaussian weak limit in a more restrictive range. The wider palette-growth theorem with unconditional variance and exact centering is not covered by that comparison.",
+      "residual_risks": [
+        "The ordering or priority of same-day records is not inferred from their dates.",
+        "The bounded literature query returned no additional results, which does not rule out equivalent results under other representations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recoloring equivalence and mean already covered; different asymptotic regimes",
+          "evidence": "Uniform labeling under q≥Δ+1 gives T=n−S in law. The degree-based mean covers n−n_i. Proposition 9 treats bipartite Erdős–Rényi with fixed palette, not k→∞ in dense multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17989",
+          "material_read": "§3.1 Lemma 1 p.5, §3.2 Theorem 1 p.7, §5.4 Proposition 9 p.15 (OA offsets about 16680, 23780, 52680–60258)",
+          "method": "Lawful OA PDF text, targeted passages",
+          "title": "The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution",
+          "trigger": "Primary source with same statistic and exact mean and possible normal approximation coverage"
+        },
+        {
+          "assessment": "Material equivalent fixed-palette coverage and limited growing-palette weak convergence implication, not the wide-regime CLT and variance theorem",
+          "evidence": "Explicit unconditional multivariate tails, independent geometric-mixture comparison and bound min(1,2k³(1+ε⁻²)/n); conditioning in the injection proof is on threshold events for color totals, not on cell counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-colored-peak-limits-for-random-stabilization-on-complete-m--e337c15215c7/RESULT.md",
+          "material_read": "Exact joint tails and TV theorem at offsets 550–3650; run and coupling proof passages around offsets 4430–7475; same mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and bounded mirror passage reads",
+          "title": "Sharp colored peak limits for random stabilization on complete multipartite graphs",
+          "trigger": "Strongest distinct match on identical recoloring model and observable"
+        },
+        {
+          "assessment": "The uncolored run law is recycled, not the colored triangular array",
+          "evidence": "A uniform vertex permutation produces the first same-part run; its study there concerns fill rather than peaks under growing independent colors.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-first-run-law-and-geometric-near-maximal-fill-for-complete-mul--2484223143f3",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary search and mirror passage read",
+          "title": "A first-run law and geometric near-maximal fill for complete multipartite graphs",
+          "trigger": "Earlier exact run law for the same multipartite order model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The growing-color theorem identifies Gaussian fluctuations and an explicit composition-dependent variance on graphs with degree proportional to n. The count-table dependence is resolved at the true sqrt(k) scale and the result reaches palette sizes much larger than the independently available product-law TV comparison supports. This is a distinct regime of a canonical stability-time statistic, not another finite distribution computation. The theorem requires fixed r, all positive limiting part proportions and k log n=o(n); it does not identify the sharp growth boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

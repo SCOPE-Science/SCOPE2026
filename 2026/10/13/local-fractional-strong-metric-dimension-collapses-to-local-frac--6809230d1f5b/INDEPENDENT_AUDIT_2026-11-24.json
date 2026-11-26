@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:41:03.030442Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49 and 51–115; frozen VERIFICATION.md, verify.py and verify_output.txt",
+        "Replaced RESULT.md, Finding, Assumptions and scope, and Proof; replaced SLOGAN.txt",
+        "Benish–Murtaza–Javaid, arXiv:1810.02882, Lemma 2.1 with order n≥2"
+      ],
+      "rationale": "For the repaired finding, adjacency implies |d(w,u)−d(w,v)|≤1. The integer difference is nonzero precisely when it is ±1, in which case appending the edge to the shorter geodesic gives the required geodesic containing the nearer endpoint. The strong condition implies the same ±1 equality by splitting the geodesic. This identifies each constraint and thus every feasible and optimal function, including for the empty constraint family. For a graph with an edge, a constraint gives the lower bound 1. Bipartition makes distances to adjacent endpoints opposite in parity, so concentration of weight 1 at any vertex attains it. Conversely a weight-one minimizer must have every positive-weight vertex in every resolving neighborhood; the parity of distance from such a vertex is a proper two-coloring. The minimizer exists by compactness and nonemptiness. The K1 zero minimum and C4 value one follow directly. The frozen enumerator excludes order 1 and is not evidence for the removed overclaim; no uploaded code was executed.",
+      "residual_risks": [
+        "The proof uses unweighted integer edge distances and adjacency. It does not identify the all-pairs strong and ordinary parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.1 states the ordinary bipartite characterization for n≥2. The 2021 comparison is only ldim_f≤lsdim_f, and Lemma 4 claims paths only. The 2023 metadata concerns graph families; decisive full text was not obtained."
+        ],
+        "reasoning": "The ordinary scalar theorem does not establish equality of the two programs; the inspected strong source itself does not supply the missing converse inclusion. The inaccessible continuation is a residual risk, not negative evidence.",
+        "searches": [
+          "arXiv:1810.02882, Lemma 2.1",
+          "IEEE Access DOI 10.1109/ACCESS.2021.3131311 PDF pp. 2–3, inclusion/comparison and Lemma 4",
+          "Complexity DOI 10.1155/2023/3635342, lawful full-text attempts and metadata"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.02882, pp. 2–3",
+        "DOI 10.1109/ACCESS.2021.3131311, pp. 2–3",
+        "DOI 10.1155/2023/3635342 (metadata only)",
+        "Resultary 47dc94fb749e (catalog summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior ordinary theorem covers the nontrivial bipartite characterization, and the raw definitions do imply the collapse via a one-edge triangle argument. The 2021 paper does not draw the collapse and asserts lsdim_f=1 only for paths. C4 violates that assertion under the exact same definitions."
+        ],
+        "reasoning": "Credit the ordinary theorem and the definitions. This is a corrective equivalence, not a novel computation of the ordinary value and not a special case of the published one-sided inequality.",
+        "searches": [
+          "IEEE Access DOI 10.1109/ACCESS.2021.3131311, PDF p. 3, Lemma 4 and the one-sided inequality",
+          "arXiv:1810.02882, PDF p. 3, Lemma 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2018 definition is unequal distances across an edge; the 2021 definition is the endpoint-on-geodesic condition for an edge. In the inspected passages they lead to independently named LPs, but mathematically their edge neighborhoods coincide.",
+          "The strongest topical Resultary summary (47dc94fb749e) is about complete multipartite graphs and ordinary fractional local optimizers, not universal LP equality."
+        ],
+        "reasoning": "Compared both neighborhood formulations and the resulting feasible and optimal function sets, not merely the scalar values. The class-specific optimizer summary does not supply that equivalence.",
+        "searches": [
+          "Resultary: local strong versus ordinary local resolving neighborhoods on adjacent pairs, equivalence of lsdim_f and ldim_f",
+          "arXiv:1810.02882 PDF p. 2; IEEE Access DOI 10.1109/ACCESS.2021.3131311 PDF p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest surfaced related record has a complete-multipartite ordinary-parameter scope in its available summary. The local mirror full text for that hit was unavailable."
+        ],
+        "reasoning": "No numerical table of small graph values can establish the claimed identity of all constraints over arbitrary graphs; the published-findings index was checked for an equivalent theorem.",
+        "searches": [
+          "Local Resultary comparison of fractional-local/strong equality, value one, and optimizer findings; topical record 47dc94fb749e"
+        ]
+      },
+      "rationale": "The surviving contribution is an exact identification of a separately introduced adjacent-pair LP, together with a correction of a stated general characterization. The ordinary bipartite characterization is prior, and K1 is a scope repair, not new mathematics. The equality is a short consequence of the published definitions, but the introducing paper explicitly gives only a one-sided comparison and draws an incompatible path-only conclusion. The comparison concerns whether the identification and correction are already established, not whether they are hard to derive.",
+      "residual_risks": [
+        "The 2023 full text and the strongest topical catalog hit's full text were not accessible. Earlier explicit observations in unindexed work remain possible; the argument's simplicity makes that risk material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ordinary value-one theorem for at least two vertices, not the cross-parameter equivalence.",
+          "evidence": "L(uv) is the unequal-distance set; Lemma 2.1 explicitly assumes order n≥2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.02882",
+          "material_read": "PDF pp. 2–3, definition and Lemma 2.1 (offsets about 6206 and 8254)",
+          "method": "Open primary PDF passage inspection",
+          "title": "The Fractional Local Metric Dimension of Graphs",
+          "trigger": "Ordinary LP and scope of known value-one result"
+        },
+        {
+          "assessment": "Same adjacency/geodesic definition as the repaired theorem. The one-sided comparison misses equality and the path characterization is false under that definition.",
+          "evidence": "The text defines local strong resolution by a geodesic containing the other endpoint, states ldim_f≤lsdim_f, and asserts value one iff a path for order n≥2.",
+          "identifier_or_url": "https://doi.org/10.1109/ACCESS.2021.3131311",
+          "material_read": "PDF pp. 2–3, local-strong definitions and comparison and Lemma 4 (offsets about 9800–16300)",
+          "method": "Open IEEE PDF passage inspection, document 9627964",
+          "title": "Local Fractional Strong Metric Dimension of Certain Rotationally Symmetric Planer Networks",
+          "trigger": "Introducing source and disputed path-only assertion"
+        },
+        {
+          "assessment": "Metadata shows graph-family scope; the precise cycle assertion and general claims were not verified and are not relied on in the repair.",
+          "evidence": "No exact full-text cycle-value or equality passage was obtained.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/3635342",
+          "material_read": "Search metadata only; publisher and identified alternate full-text routes did not succeed",
+          "method": "Lawful OA retrieval attempts, including publisher and identified alternate copies",
+          "title": "Local Fractional Strong Metric Dimension of Certain Complex Networks",
+          "trigger": "Continuation possibly treating even cycles or identifying equivalence"
+        },
+        {
+          "assessment": "Visible statement concerns complete multipartite graphs, not general local-strong/ordinary equivalence.",
+          "evidence": "The surfaced summary identifies ordinary fractional local values and optimizer classifications for that family.",
+          "identifier_or_url": "2026/10/4/SCOPE-correction-and-optimizer-classification-for-fractional-local-met--47dc94fb749e",
+          "material_read": "Catalog summary only; local-mirror full text unavailable",
+          "method": "Configured Resultary search and local-mirror attempt",
+          "title": "Correction and optimizer classification for fractional local metric dimension (catalog title)",
+          "trigger": "Closest topical Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof",
+        "Jamil et al. (2021), comparison and Lemma 4"
+      ],
+      "rationale": "Despite the elementary proof, it corrects an explicit published structural characterization by exhibiting a nonpath counterexample and shows why two separately used graph invariants require no separate optimization. The equality transfers every feasible and optimal solution, not just a single value or family. The singleton repair only sets the boundary correctly; it is not the reason the finding is valuable.",
+      "residual_risks": [
+        "The impact is on the local adjacent-pair convention only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

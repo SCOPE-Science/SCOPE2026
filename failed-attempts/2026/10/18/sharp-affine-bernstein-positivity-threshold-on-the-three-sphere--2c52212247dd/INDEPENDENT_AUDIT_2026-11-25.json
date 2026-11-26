@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:01:36.977598Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Schoenberg gives uniformly convergent nonnegative mixtures of R_m=U_m/(m+1), and the Bernstein operator is bounded in the uniform norm. Expanding by parity and U_k gives the low-degree formulas in RESULT.md. At n=3 the bound 3/(2 sqrt(2)(m+1)) controls both small coefficients after m=0,1. At n=4, U_m(1/2) is periodic with values in {0,±1}; U_m(0) is 0 for odd m and ±1 for even m. The even m≥8 bounds are strictly positive; direct substitution of m=0,2,4,6 and of the odd case m=1 gives the claimed zero sets. For the obstruction, the nth alternating binomial sum on the centered grid annihilates degrees <n. Its (n+2)-moment divided by its nth moment is (n+1)(n+2)/(6n), from the first two nonzero Taylor coefficients of (2 sinh(z/n))^n. Combining the two leading monomials of U_{n+2} and dividing by the leading coefficient of R_n gives the stated strictly negative eta_n for all n≥5. The S² contrast follows from the negative P_4 coefficient −9/256 of B_4 P_6. Fresh replay: python3 /workspace/replay/sphere_bernstein.py (548 exact low-degree basis images and 26 obstructions; the all-index proof is analytic).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3785c4062726 proves preservation exactly for n≤d+1 for d≥2 and the nonnegative monomial expansion for all those degrees; its proof uses Fourier–Walsh positivity from restricting to an embedded n-cube.",
+          "a8520e405e97 has the S² threshold and high-degree obstruction, not the affirmative S³ case. Beatson–zu Castell's operators are dimension-shifting differentiation/integration."
+        ],
+        "reasoning": "The first comparison dominates the frozen theorem; neither the S² threshold nor dimension-hopping alone gives it.",
+        "searches": [
+          "Resultary 3785c4062726, Finding and proof",
+          "Resultary a8520e405e97, Finding",
+          "arXiv:1510.08658 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (read only)",
+        "Resultary 3785c4062726 and a8520e405e97",
+        "arXiv:2608.04836 and arXiv:1510.08658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d=3 in n≤d+1 gives n≤4, and d=3 in n≥d+2 gives failure beginning at n=5 with the same mode R_{n+2}.",
+          "A negative degree-four example on S² does not establish either sign on S³, where the test cone differs."
+        ],
+        "reasoning": "Both implications of the central equivalence are already contained in the distinct general statement. The frozen paper's independent derivation does not change that coverage.",
+        "searches": [
+          "3785c4062726 theorem and S³ specialization",
+          "a8520e405e97 all-dimension obstruction and S² case",
+          "arXiv:2608.04836 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At d=3 the normalized Gegenbauer basis of 3785c4062726 is U_m/(m+1) and the PSD cone, interval grid and sampling formula are identical.",
+          "The Otten–Nguyen–Watts circle theorem samples angles jπ/n, not those affine dot-product nodes."
+        ],
+        "reasoning": "Changing basis names or isolating d=3 does not change the problem. The angular circle operator, by contrast, is genuinely different.",
+        "searches": [
+          "Resultary: ordinary affine Bernstein preservation on S³; Chebyshev U/(m+1) mode cone",
+          "arXiv:2608.04836 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published index contains the covering all-dimensional theorem, but its inspected statements do not enumerate the exceptional m=0,2,6 or m=1 sets.",
+          "The explicit example in §4 of the paper instead tabulates B_4 P_6 on S², not the S³ mode table."
+        ],
+        "reasoning": "The universal frontier is covered even without a table. For the subsidiary zero sets the top coefficient is, up to a nonzero factor, the single highest monomial coefficient; for the parity-allowed degree this reduces to evaluating the finite-node transform at 0 and 1/2 using the short-period U_m values.",
+        "searches": [
+          "Resultary search for affine Bernstein on S³, degree four and the top coefficient zeros; exact comparison 3785c4062726",
+          "arXiv:2608.04836 §4"
+        ]
+      },
+      "rationale": "A distinct indexed result, 3785c4062726, establishes the same affine operator threshold for every d≥2, with a strictly stronger positive conclusion. The frozen headline is exactly its d=3 specialization. This is statement-level coverage, not a claim that the later-dated entry had historical priority. Its inspected passages do not list the frozen mode-specific zero sets; these are direct coefficient evaluations and do not sustain a separate substantive repaired finding. The antecedent high-degree obstruction is not credited as new to the frozen record.",
+      "residual_risks": [
+        "Historical priority was not determined from the dates of distinct records.",
+        "No claim that all older approximation sources or indexed mode tables were exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the main threshold and strengthens the positive direction",
+          "evidence": [
+            "Exact frontier 1≤n≤d+1 for d≥2; nonnegative power coefficients and all-sphere lift"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-dimension-degree-frontier-and-infinite-sphere-lift-for-aff--3785c4062726/RESULT.md",
+          "material_read": "Finding, assumptions and proof passages at offsets 0 and 6481, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror full-text excerpts",
+          "title": "Sharp dimension–degree frontier and infinite-sphere lift for affine Bernstein kernels",
+          "trigger": "Same affine dot-product operator and broader sphere dimensions"
+        },
+        {
+          "assessment": "Covers the obstruction, not the affirmative borderline at d=3",
+          "evidence": [
+            "S² threshold n≤3 and obstruction n≥d+2 in general"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-degree-frontier-for-affine-bernstein-approximation-of-sp--a8520e405e97",
+          "material_read": "RESULT.md at offset 0, scoped theorem",
+          "method": "Local Resultary mirror excerpt",
+          "title": "A sharp degree frontier for affine Bernstein approximation of spherical positive-definite functions",
+          "trigger": "Related affine frontier with explicit dimension parameters"
+        },
+        {
+          "assessment": "Different circle operator; same affine map only in the relevant S² negative example",
+          "evidence": [
+            "Angle nodes jπ/n; B_4 P_6 has −9/256 times P_4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04836",
+          "material_read": "Introductory definitions pp. 1–2 and §4 pp. 12–13",
+          "method": "OA PDF passages at offsets 4800 and 41100",
+          "title": "Preservation of Positive-Definiteness by Bernstein Operators on the Circle",
+          "trigger": "Primary source on the Bernstein positivity problem"
+        },
+        {
+          "assessment": "The compared operators do not imply the affine sampling theorem",
+          "evidence": [
+            "Integration/differentiation between sphere dimensions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.08658",
+          "material_read": "§2 pp. 3–4 definitions of I and D",
+          "method": "OA PDF excerpts at offsets 9500 and 13450",
+          "title": "Dimension hopping and families of strictly positive definite zonal basis functions on spheres",
+          "trigger": "Potential broader positivity-preserving operators"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical question, the exact boundary distinguishes approximation degrees safe for every zonal covariance kernel from those admitting a concrete counterexample; S² failure is not a substitute for the S³ classification. This does not restore originality: with the threshold covered, the remaining zero-set arithmetic alone does not warrant a repaired standalone claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

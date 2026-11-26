@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from the folder containing this file. Requires only Python's standard library. Expected terminal line:
+## correctness
 
-`VERIFY_OK: finite full census n=3..26; independent rotation-Hamming distances n=3..17; extremal bounds`
+PASS
 
-The script constructs every three-subset for each tested length, canonicalizes rotation orbits, derives a separation profile for each orbit, and independently computes shifted Hamming distance for every pair of necklace orbits through length 17. It checks all optimum radii and optimum counts for lengths 3–14, explicitly checks the two fourteen-position centres, and extends the predicted radius-four regime through length 26. It also tests the numerical inequalities used in the analytic proof. It is *not* a certificate of the infinite-size theorem; that theorem uses the Cauchy–Davenport inequality, Mantel's theorem, and the classification of the extremal complete bipartite graph.
+For weight-three supports translation always aligns one point, and aligning two is equivalent to a shared undirected separation. Thus, outside a single rotation class, distances are 2 if the profiles meet and 4 otherwise. Consecutive gap bounds give the explicit centres through 11; parity gives centres at 12 and 14. At 13 the allowed signed differences form a symmetric set A of size at least 6; |A+A|≥11 by Cauchy–Davenport, so (A+A) meets A and the allowed graph contains a triangle. For n≥15 at most 3n edges are excluded, so Mantel forces a triangle and hence a distance-four adversary for every centre. At 14 the triangle-free equality case must be K_{7,7}; translation by one swaps its bipartition classes, since otherwise transitivity is impossible. Hence the forbidden separations are precisely 2,4,6. After halving on one parity class, the gaps have distinct absolute separations 1,2,3 and sum to seven, so they are 1,2,4. Their two cyclic orders give the two indicated rotation orbits; x↦2−x interchanges the representatives, but rotation preserves gap order up to cyclic shift. Burnside gives the total number in the radius-four regime, since the only nonidentity stabilizing rotations have order three. The finite census independently checks the additional multiplicities.
 
-This work has undergone the stated self-review only; independent scientific audit has not been performed.
+## originality
+
+PASS
+
+The distinct claim is the exact radius classification and exceptional-centre classification of the rotation-quotient Hamming metric on the weight-three layer. Existing necklace counting and overlap-distance centre results do not give this. Closely related cyclic triples, repeated gaps and Hamming-distance-two counts occur in distinct Resultary statements; the exact shared and differing properties are specified below.
+
+## value
+
+PASS
+
+Weight three is a natural fixed-content layer for cyclic Hamming geometry. The result completely resolves its one-centre radius over all lengths and locates a nonmonotone exception at exactly fourteen, identifying its two reversal-related but rotation-distinct centres. The relation between this exceptional length and equality in the triangle-free extremal bound is structural, not just a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

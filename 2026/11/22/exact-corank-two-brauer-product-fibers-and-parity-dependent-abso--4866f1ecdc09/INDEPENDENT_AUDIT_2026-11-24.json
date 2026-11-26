@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:08:46.983275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69",
+        "Frozen VERIFICATION.md, verify.py, and checker_output.txt"
+      ],
+      "rationale": "A right factor from the full rank-(n−2) class has a single uniform top hook. In the middle row of the stack, only this edge can link distinct endpoints that propagate from the left diagram. Both of its endpoints must be among the r through endpoints for a loss of two; if an endpoint is in a bottom hook, tracing that hook either exits toward the bottom or stays internal, and no two through endpoints are joined. Thus the conditional loss probability is binom(r,2)/binom(n,2), including zero at minimum rank. Permuting the outer rows independently acts transitively on every rank stratum and preserves the convolution powers of the bi-invariant input measure. Consequently the mass of any prescribed diagram is its total rank mass divided by the stratum size, and multiplying by the number of ordered tuples produces the exact integer fibers. The stay-and-drop recurrence yields the displayed generating function with exponent k−1 because X1 is already present. At each successive rank above the minimum, the holding time is geometric on {1,2,…}, independent of previous holding times by the rank chain and the strong Markov property. Summing 1/[r(r−1)] by parity gives the harmonic difference for each parity; the empty n=3 sum is zero. At any fixed admissible ranks the scaled geometric vector converges to independent exponentials, and the remaining scaled expectation is bounded by the summable reciprocal-product tail, uniformly in n. Each limiting law has a finite mean and a positive finite variance, and their different means separate the two laws. Their CDFs are continuous and strictly increasing on the positive axis: any remainder can be small with positive probability by finite truncation and a mean bound, and an independent first exponential supplies positive mass on every intervening interval. Rank-uniformity at the absorbing rank gives the exact TV identity; the nondegenerate strictly varying survival profiles on each parity exclude cutoff. Independent replay: python3 /workspace/checks/frozen_math_checks.py 2 enumerates matchings and stacks them using union–find, validating every prescribed target including the unattainable top rank for n=3,4,5 up to lengths 3,4,2 respectively.",
+      "residual_risks": [
+        "The finite replay is not evidence for the asymptotic theorem without the proof. Multiplication erases loops, and factors are uniform on the whole class, not on idempotents or projections alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "East–Gray's Lemma 8.3 constructs a lower-rank projection using two higher-rank diagrams and derives reachability; Theorem 8.4 gives ranks of ideals, and Remark 8.6 yields the class size used here. Dolinka–East add a floating-component coordinate and study Green relations. Wolff's walk is a different kernel on related diagrams."
+        ],
+        "reasoning": "Existence or minimum size of generating sets and class sizes do not determine the rank transition counts of full-class right multiplication. No inspected broader theorem on convolution of Brauer classes supplied the transition and full fibers.",
+        "searches": [
+          "arXiv:1404.2359 Sec. 8, Lemma 8.3, Theorem 8.4 and Remark 8.6",
+          "arXiv:1510.08666 Sec. 3",
+          "doi:10.1007/s10801-018-0858-7 Secs. 3.2 and 4.2"
+        ]
+      },
+      "checked_sources": [
+        "East–Gray arXiv:1404.2359",
+        "Dolinka–East arXiv:1510.08666",
+        "Wolff doi:10.1007/s10801-018-0858-7",
+        "Resultary index and local mirror Findings b068f89f1b6f, d4c885580c8a, 010b48ded83e and 1110b14cea6d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 8.3 uses overlapping products of disjoint hook projections and only shows selected higher-rank products reach a given lower rank. It does not provide the hook-intersection criterion for an arbitrary current diagram times a random full-class factor. The symmetric inverse and symplectic partial-bijection records use subset intersection; the latter obtains a dyadic absorption profile rather than parity-restricted pair loss."
+        ],
+        "reasoning": "Once the Brauer transition is proved, the generating-function algebra and scaled waiting-time analysis follow by standard arguments. The inspected structural and probabilistic inputs do not supply the new identification of the chain or its fixed-target law.",
+        "searches": [
+          "arXiv:1404.2359 Lemma 8.3 proof and Remark 8.6",
+          "Resultary 1110b14cea6d, b068f89f1b6f and 010b48ded83e Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent descriptions are the convolution of the uniform measure on the first singular two-sided unit orbit and a parity-restricted rank chain with uniform conditional mass. Wolff's adjacent-generator Metropolis kernel with length-dependent acceptance is neither of these, even if its loop weight is specialized away.",
+          "Resultary 1110b14cea6d gives the corresponding inverse-monoid result via deleted-subset intersections rather than middle-row pairings."
+        ],
+        "reasoning": "The rank-uniform convolution idea has precedents but its realizations have different rank dynamics; the pairwise hook loss in the frozen object is not an equivalent description of either comparison process.",
+        "searches": [
+          "Brauer monoid random walks uniform rank strata convolution product rank transition absorption law prior work East Gray Wolff",
+          "Resultary: full corank-two Brauer product convolution, pure-death rank chain, and prescribed-output fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 7 tabulates generator ranks of ideals, not target-specific multiplication fibers. Resultary b068f89f1b6f computes exact prescribed-target Jones fibers for two factors, including rank-(n−4) fibers of sizes 1,2,3,4,5,6,8. Resultary d4c885580c8a gives joint counts by rank, paths and loops for two Motzkin factors."
+        ],
+        "reasoning": "The Jones result counts a planar subset of factors, and the unequal fibers illustrate why its formulas cannot be substituted for uniformity in the Brauer rank class. The Motzkin aggregates do not specify arbitrary labeled Brauer targets. Same-day catalogue dates do not settle priority.",
+        "searches": [
+          "Resultary: full corank-two Brauer product convolution and prescribed-target fibers",
+          "arXiv:1404.2359 Table 7 and Remark 8.6"
+        ]
+      },
+      "rationale": "Credit the Brauer rank classes and class sizes to the structural literature, the two-sided invariance to the usual symmetry argument, and the exponential pair-merger rates to coalescent theory. The inspected sources do not give the same full-stratum random product transition and its consequent all-length prescribed-output and absorption laws. Related exact convolution results concern different monoids whose multiplication changes the transition probabilities or even the rank-uniformity conclusion.",
+      "residual_risks": [
+        "A broader unlocated diagram-convolution calculation could imply the same transition matrix. The closest same-day Jones computation is distinguished by its exact mathematical scope, not its date. The general waiting-time techniques are not credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers class sizes and qualitative generation, not the all-length product count",
+          "evidence": [
+            "Lemma 8.3 uses the projection identity α=τ_{a1,b1}⋯τ_{ak,bk} and overlapping subproducts. Remark 8.6 gives |J_r|=ρ_{nr}² r!; Table 7 concerns rank(I_r)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.2359",
+          "material_read": "Sec. 8.1, pp. 29–30, Lemma 8.3 proof, Theorem 8.4, Remark 8.6 and Table 7",
+          "method": "Original OA PDF, character offset 102800 onward, compared the projection construction and numerically counted objects",
+          "title": "Diagram monoids and Graham–Houghton graphs: idempotents and generating sets of ideals",
+          "trigger": "Same monoid, rank classes and lower-rank products"
+        },
+        {
+          "assessment": "Structural results, not a full-class convolution theorem",
+          "evidence": [
+            "The twisted product appends a count of floating components, and the inspected results describe Green classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.08666",
+          "material_read": "Sec. 3 pp. 5–6, definition and Green relations",
+          "method": "Original OA PDF, offset 17343, product definitions compared",
+          "title": "Twisted Brauer monoids",
+          "trigger": "Stronger-looking loop-retaining product"
+        },
+        {
+          "assessment": "Different stochastic kernel",
+          "evidence": [
+            "Brauer-algebra multiplication includes q^c for c loops. The Metropolis moves multiply by adjacent transpositions with an acceptance based on length."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-018-0858-7",
+          "material_read": "Secs. 3.2 and 4.2 pp. 352–355",
+          "method": "Original PDF passages at offsets 12637 and 19084; compare multiplication and sampling rules",
+          "title": "Random walks on the BMW monoid: an algebraic approach",
+          "trigger": "Primary random-walk paper on related diagrams"
+        },
+        {
+          "assessment": "Planar two-factor computation, not the Brauer convolution",
+          "evidence": [
+            "Exact prescribed-output fibers for two rank-(n−2) Jones factors; rank-(n−4) targets have multiple possible fiber sizes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-seven-multiplication-fiber-strata-at-the-first-singular-jones-ra--b068f89f1b6f",
+          "material_read": "Finding at offset 0",
+          "method": "Read local mirror and compare the allowed matchings and product lengths",
+          "title": "Seven multiplication fiber strata at the first singular Jones rank",
+          "trigger": "Closest exact diagram-product comparison"
+        },
+        {
+          "assessment": "Prior conceptual analogue, not covering the Brauer chain",
+          "evidence": [
+            "Counts for products of partial bijections and absorption driven by deleted subsets, rather than rank losses from hooks."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-rank-uniform-convolution-and-coupon-collector-collapse-in-the-sy--1110b14cea6d",
+          "material_read": "Finding from offset 116",
+          "method": "Read local mirror and compare multiplication mechanisms",
+          "title": "Rank-uniform convolution and coupon-collector collapse in the symmetric inverse monoid",
+          "trigger": "Earlier rank-uniform all-length convolution and absorption"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–43",
+        "East–Gray arXiv:1404.2359 Sec. 8.1"
+      ],
+      "rationale": "The first singular rank class is a natural generating stratum, and the count into an individual diagram is finer information than either stratum sizes or generation of lower ideals. The exact TV identity and the distinct even/odd quadratic profiles describe how the random product reaches its minimal ideal; they are more informative than a generic time bound or a small-degree calculation.",
+      "residual_risks": [
+        "No result is established for arbitrary rank strata, biased measures, or the loop-weighted algebra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

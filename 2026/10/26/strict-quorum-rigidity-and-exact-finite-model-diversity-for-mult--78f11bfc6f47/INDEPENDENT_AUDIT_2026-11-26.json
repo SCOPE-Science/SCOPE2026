@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:56:16.560683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof from the frozen Finding and Proof. Conflicting incoming or outgoing arcs have disjoint supporter sets and so cannot both meet 2q>r. Relative to any spanning path the only possible extra union arc is its closing arc. In the cycle case each order omits one arc, quorum bounds the omissions by c=r-q, and the union recovers the cycle, precluding multiple counting. For s occupied cut sites the positive bounded allocation exists iff s<=r<=sc; this proves both the census and the full diversity spectrum, including exclusion of diversity two. For n=1 or c=0 the cyclic coefficient vanishes. For q<=r/2 the two specified order types with multiplicities q and r-q support every used arc but give branching even after appending a common suffix. The inspected checker enumerates finite order tuples independently of the coefficient DP; it was not executed. The universal results here are proved combinatorially, not by the finite census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives a decision result and a block representation at bounded cost measured against a reference successor. The latter settles unrestricted finite satisfiability via profiles and counting constraints."
+        ],
+        "reasoning": "Satisfiability of a language containing the quorum sentence is not a classification or count of its finite labelled models. A budget on disagreement is weaker than a lower bound on each used arc's support.",
+        "searches": [
+          "arXiv:2610.09758v1, Theorem 13 and §7.3",
+          "arXiv:2610.19943, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "arXiv:2610.09758v1",
+        "arXiv:2610.19943",
+        "Resultary a1d5fcd736fe, 989d3a8e4180, 79dcaad9c554, 573dba7ec4ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For quorum two the named triple (123,123,231) has reference loss just one but arc 3→1 has only one supporter. A small total cost, even with a common cyclic order, need not imply strict quorum."
+        ],
+        "reasoning": "The prior common-block and decision theorems do not supply the per-arc support argument or its exact labelled consequences; bounded occupancy counting is standard once the new structural equivalence is established.",
+        "searches": [
+          "arXiv:2610.09758v1 §7 cost and common-block construction",
+          "arXiv:2610.19943 finite satisfiability and profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The explicit three cyclic block permutations in §7.3 satisfy r=3,q=2: every interblock arc is omitted once. The same-day exact-rank-two logical-limit record treats independent random orders and limiting theories, not the deterministic majority-support restriction."
+        ],
+        "reasoning": "A cyclic permutation of contiguous blocks can realize the quorum phenomenon, but the block formalism by itself does not enforce the omission cap or prove that all strict-quorum families have one parent cycle.",
+        "searches": [
+          "Resultary: multiple successor orders, shared or quorum adjacency, common cuts",
+          "Michaliszyn–Witkowski, arXiv:2610.09758v1, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected nearby SCOPE records count limiting theories, short cycles in random unions, dependence of pair-local events, or points needed to realize profiles. None enumerates strict-quorum tuples by the number of distinct cuts. The cited cyclic example is a witness, not an enumeration."
+        ],
+        "reasoning": "The database comparisons are for the full coefficient and exact nonzero spectrum, not merely for an isolated small count. No matching census was identified.",
+        "searches": [
+          "Resultary: successor-order quorum, cyclic cuts, finite model counts and diversity",
+          "arXiv:2610.09758v1 §7.3; arXiv:2610.19943 introduction"
+        ]
+      },
+      "rationale": "The prior cyclic-block example is an exact instance, and disagreement-budget results and arbitrary-successor finite satisfiability cover the setting. The inspected statements do not cover the strict-quorum characterization with its converse, labelled census, and exact diversity threshold as a joint result.",
+      "residual_risks": [
+        "The targeted search did not uncover a close theorem under permutation-consensus or adjacency-aggregation terminology, but was not exhaustive. The exact previously published three-cut witness is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact motivating instance and broader representation; no covering quorum census in inspected passages",
+          "evidence": [
+            "The cost is measured against a reference successor; B1 B2 B3, B2 B3 B1, B3 B1 B2 realize the three-cut case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.09758v1",
+          "material_read": "Abstract, §7 (Theorem 13) and §7.3, including cyclic block example",
+          "method": "Open-access full-text passage inspection",
+          "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+          "trigger": "Same named successor relations and low disagreement"
+        },
+        {
+          "assessment": "Decision inclusion, not statement-level coverage",
+          "evidence": [
+            "Local profiles and signed counting decide existence; this is not the stated labelled diversity census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19943",
+          "material_read": "Abstract and introduction",
+          "method": "Open-access passage inspection",
+          "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+          "trigger": "Broader theorem on the same logic"
+        },
+        {
+          "assessment": "Distinct theorem; same-day date gives no priority inference",
+          "evidence": [
+            "Poisson overlap variables give 2^{r(r-1)} limiting positive-probability theories."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 a1d5fcd736fe",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Exact rank-two logical limit types for independent random successor orders",
+          "trigger": "Same-day nearby record with shared arc support"
+        },
+        {
+          "assessment": "Different counting object",
+          "evidence": [
+            "Counts cycles in an uncoloured union of independent paths, not named quorum tuples."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 989d3a8e4180",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Exact finite-size and Poisson short-cycle laws for superposed linear orders",
+          "trigger": "Counts directed cycles in successor unions"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Forest criterion for independence of pair-local events and triangle cumulant."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 79dcaad9c554",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Forest independence and the first triangular dependence in multiple successor orders",
+          "trigger": "Dependence across multiple named successors"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": [
+            "Ten and seventeen points are needed to realize profile sets, not to admit distinct quorum orders."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 573dba7ec4ee",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Sharp ten- and seventeen-point saturation thresholds for three orders",
+          "trigger": "Exact size threshold with multiple successor orders"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quorum is a natural local agreement condition on named linear successors. The theorem turns it into a complete global classification, an exact labelled count and a sharp threshold for how many distinct orders can coexist. It explains why two distinct orders cannot occur as the only types and why this rigidity fails right at half quorum. The substantive result is the structural package, not the standard allocation identity by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

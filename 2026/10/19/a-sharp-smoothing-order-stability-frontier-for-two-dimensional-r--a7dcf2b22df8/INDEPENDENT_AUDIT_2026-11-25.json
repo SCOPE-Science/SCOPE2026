@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:35:58.167588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the correction by projecting the residual orthogonally off Ap. Let u be a unit vector orthogonal to Ap, so C_p=A^(-1) u u^T A and all unit directions u occur. Set d=1-1/k and t=u_1^2. The pre-order norm is d |u_1| ||A^(-1)u||<=d, attained at t=1. The post-order squared norm is d^2 t[k^2-(k^2-1)t], a concave quadratic with optimizer t=min(1,k^2/[2(k^2-1)]). This proves both sharp envelopes including the transition at sqrt(2). Above sqrt(2), max squared norm minus one equals (k^3-k^2-4k-4)/(4(k+1)). The cubic is negative up through 2 for k>1, strictly increasing thereafter, and has a root between 2 and 3 (2.875129794162778826...). For k=3, p=(sqrt(7),1) gives the optimizer and post norm 3 sqrt(2)/4. Both rank-at-most-one products have trace dt and obey T^2=(dt)T, proving the power law. At t=0 both matrices are zero: the finding's phrase 'common nonzero eigenvalue' should be read as 'common trace, the only potentially nonzero eigenvalue'; the formula includes zero. Both orders are contractions in the residual norm because their A-conjugates replace C_p by an orthogonal projection. Thus the effect is genuinely Euclidean solution-error amplification, not divergence, residual growth or a claim about adaptive history spaces. The exact argument does not rely on the package's floating-point grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He distinguishes classical and preconditioned residual norms and supplies monotonicity results; the target is worst-case solution-error norm. The Reusken full text and a potentially adjacent nonnormal analysis were not retrieved in primary full form."
+        ],
+        "reasoning": "Although residual norms are equivalent to error norms for fixed SPD A, nonincrease in one does not carry over to sharp nonincrease in the other. The unresolved broader literature is a residual risk, not evidence for or against an exact match.",
+        "searches": [
+          "arXiv:2603.25983v1 Theorems 2.2 and 3.3",
+          "DOI 10.1137/0731020",
+          "Analysis of two-grid methods: The nonnormal case"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2609.13091v1",
+        "arXiv:2603.25983v1",
+        "Resultary 1082617ed86e and 21774554697b",
+        "DOI 10.1137/0731020 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known operator factorizations give the starting point, not the comparison of suprema (nor the change of maximizing direction). The prior optimization uses span{r,Ar}, whereas here a single arbitrary fixed line is used in both orders."
+        ],
+        "reasoning": "The distinguishing new calculation retains the anisotropy of the weighted least-squares line and the one-dimensional surviving smoother direction jointly. Equal eigenvalues or common weighted residual contraction do not imply equality in the unweighted error norm, let alone its optimized cubic loss of nonexpansivity.",
+        "searches": [
+          "arXiv:2609.13091v1 Eqs. (3.2)–(3.9), (3.12)",
+          "arXiv:2603.25983v1 Eqs. (16)–(18)",
+          "Resultary 1082617ed86e RESULT.md offsets 0–3910 and 7150–9639"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper gives both placements (I-pi)(I-BA) and (I-BA)(I-pi). At scalar B=I/k its two projection weights are proportional to A^2, so these are exactly the operator forms in this finding.",
+          "The norm of the oblique projector itself uses its range/kernel angle; the product norms require the projection applied to, or tested against, the one retained Richardson direction."
+        ],
+        "reasoning": "Recognizing the same operator family credits a real overlap. An angle or full-projector norm bound cannot be substituted for the two sharp directional product norms and does not give the all-line equality cases.",
+        "searches": [
+          "arXiv:2609.13091v1 §3.1 Lemma 3.1 and §3.2 Lemma 3.3",
+          "Oblique projection norm/angle and rank-one product comparison",
+          "Resultary 1082617ed86e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest earlier index entry optimizes conditioning of a two-column coarse normal matrix and concerns GMRES(2); its objective is not either propagator norm. The Gauss–Seidel record concerns a different one-sweep operator. The inspected Table 1 summarizes convergence/GMRES correspondences, not pairs of sharp error norm envelopes."
+        ],
+        "reasoning": "The exact lookup target is both envelopes, or an equivalent all-line nonexpansivity threshold for these same products. A numerically similar threshold or a coarse matrix condition number would not suffice.",
+        "searches": [
+          "Resultary 1082617ed86e and 21774554697b",
+          "arXiv:2603.25983v1 Table 1"
+        ]
+      },
+      "rationale": "The residual-minimal correction and the two product orderings are prior art. The supported distinct claim is their contrasting sharp worst-case Euclidean error norms over all fixed coarse lines with the endpoint Richardson step, including the cubic all-line stability threshold. Neither general projector obliquity nor prior residual monotonicity is equivalent to this directional rank-one product optimization. The rank-one power identity itself is standard and is not credited as a separate novelty.",
+      "residual_risks": [
+        "Older two-grid work on residual scaling, nonnormal analyses or oblique-projection products could contain a comparable special case. ScienceDirect full-text requests for adjacent papers returned 403 and a nonnormal analysis was only available at landing-page level. These unknowns are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct operator antecedent, not a sharp all-line Euclidean error optimization in the inspected passages",
+          "evidence": [
+            "The NGMRES coarse projector uses A^T A and the AA one uses A^T B^T B A; scalar B makes the two weights proportional."
+          ],
+          "identifier_or_url": "arXiv:2609.13091v1",
+          "material_read": "§3.1 Lemma 3.1, pp. 5–6, offset 18950; §3.2 Lemma 3.3 / Eq. (3.12), pp. 7–8, offset 22600",
+          "method": "OA primary PDF text",
+          "title": "A Unified Two-Grid Framework for Anderson Acceleration and Nonlinear GMRES",
+          "trigger": "Strongest primary overlap: the very same two correction/smoother products"
+        },
+        {
+          "assessment": "Residual monotonicity and equivalences, not the unweighted error threshold",
+          "evidence": [
+            "The classical and preconditioned residual comparisons address different norms from the maximization in the record."
+          ],
+          "identifier_or_url": "arXiv:2603.25983v1",
+          "material_read": "Abstract; Theorem 2.2 / Eqs. (16)–(18), pp. 7–8; Theorem 3.3 and Table 1, pp. 18 and 21, offsets 0, 20600, 50600 and 58000",
+          "method": "OA primary PDF text",
+          "title": "Properties of Nonlinear GMRES Applied to the Preconditioned Richardson Iteration",
+          "trigger": "Possible prior monotonicity and norm frontier"
+        },
+        {
+          "assessment": "Unresolved adjacent work; not used as noncoverage evidence",
+          "evidence": [
+            "The retrieved identification concerns maximum norm in elliptic multigrid."
+          ],
+          "identifier_or_url": "DOI 10.1137/0731020",
+          "material_read": "Bibliographic identity only; no readable primary passage",
+          "method": "DOI/SIAM requests returned HTTP 403; no open copy located",
+          "title": "On maximum norm convergence of multigrid methods for elliptic boundary value problems",
+          "trigger": "Cited alternative norm and stability work"
+        },
+        {
+          "assessment": "Related different optimization",
+          "evidence": [
+            "The coarse space is span{r,Ar}; it minimizes a coarse normal matrix's condition number and gives restarted GMRES(2) equivalence."
+          ],
+          "identifier_or_url": "Resultary 1082617ed86e",
+          "material_read": "RESULT.md offsets 0–3910 and 7150–9639",
+          "method": "Local mirror text",
+          "title": "Richardson parameter invariance and a unique conditioning optimum",
+          "trigger": "Strongest earlier catalogue match for Richardson and residual-minimal two-grid"
+        },
+        {
+          "assessment": "Different iteration from the primary operator in this finding",
+          "evidence": [
+            "The comparison concerns a Gauss–Seidel sweep, not a weighted residual-minimal coarse correction in two Richardson orders."
+          ],
+          "identifier_or_url": "Resultary 21774554697b",
+          "material_read": "Indexed scientific summary only",
+          "method": "Local Resultary search",
+          "title": "Two-coordinate Gauss–Seidel Euclidean transient threshold",
+          "trigger": "Similar one-sweep Euclidean amplification question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a real order decision even for the same coarse line and the same strictly contracting smoother. The exact all-line envelope identifies when smoothing last can cause transient solution-error growth, quantifies its unbounded size with conditioning, and sharply separates it from asymptotic convergence and residual contraction. The calculation is short, but the arbitrary-line worst-case threshold provides a useful fixed-space benchmark rather than a routine application of a general norm bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

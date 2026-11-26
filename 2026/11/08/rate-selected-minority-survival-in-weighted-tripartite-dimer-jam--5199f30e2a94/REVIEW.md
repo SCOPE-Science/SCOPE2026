@@ -1,23 +1,21 @@
-# Scientific review: rate-selected minority survival in weighted tripartite adsorption
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Edge counts produce the stated exact finite Markov transition probabilities. Independent exponential clocks of weights divided by system size have precisely the same ordered deposition law. Their bounded-jump martingale decomposition and a locally Lipschitz drift justify a finite-time fluid limit. The symmetry reduction, integrating-factor identity, three positive-root cases and threshold equality establish the closed formula. A pathwise future-consumption bound controls the infinite-time/large-size interchange, without relying on numerical experiments. The two separate reproducibility scripts passed exact labeled-state comparisons, symbolic invariant differentiation, deterministic integrations and finite stochastic checks. The result explicitly excludes vanishing reaction rates and does not claim a critical-window law.
+PASS
 
-## Originality
+Racing the admissible edges at rates equal to their weights divided by N gives the exact embedded greedy chain. The three part-pair totals give the stated finite recurrence, with impossible transitions omitted; the terminal monomial has at most one nonzero exponent. On every compact time interval the bounded density region makes all total intensities O(N) and the jumps O(1/N). Thus the compensated coordinate martingales have O(T/N) second moments, and Doob plus Gronwall gives uniform convergence to the Lipschitz drift ODE from the limiting initial condition. The last two deterministic coordinates coincide by uniqueness. Independently, let s(t)=integral_0^t y(v)dv and r=y/x. Positivity for finite times gives x=a exp(−2s) and dr/ds=−1+(2−rho)r, r(0)=b/a. Because y tends to zero by y'≤−rho y², finite terminal s is exactly the first zero of this explicit linear solution; if there is no finite zero, x tends to zero instead. Solving yields all branches including rho=2 and the zero-density threshold. For delta=rho−rho_c>0 small the base is (b/a)delta, and (2/(2−rho)−2b/a)log(delta) tends to zero, giving the specified power and prefactor. For the finite chain, after time T the A count can drop by at most the entire B-plus-C count at T. Together with monotonicity and the fixed-time limit this gives the terminal convergence without interchanging limits. The uniform density bound gives L1 convergence. Both numerical examples follow by substitution.
 
-**PASS on examined evidence, with historical-priority risk.** The rate-symmetric three-species mean-field law was treated by ben-Avraham and Redner (1986), so that known \(\rho=1\) case is not treated as independently new. Hilhorst, Washenberger and Täuber (arXiv:cond-mat/0409079, Sections 2–3 and conclusion) supply the general annihilation master equation and discuss equal-density decay; Section 3.1 explicitly excludes analysis of the unequal-density surviving states. Their symmetry-normalized rate setting does not evaluate the asymmetric \(AB=AC\ne BC\) terminal-density function for arbitrary initial \(a,b\). Pippenger's foundational graph RSA results do not identify this precise high-degree weighted tripartite law. Comparisons checked random greedy matching, equivalent three-species annihilation vocabulary, master-equation parameter reduction, source- and claim-based record searches, and the accessible historical claims for related graph adsorption. No source examined gives this exact weighted threshold and the finite stochastic terminal LLN. Full text of the closely relevant 1986 work remained inaccessible; it is a stated risk, not a claim of having ruled out all equivalent results.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A fixed positive rate change produces a sharp, continuously tunable jamming transition in a natural three-color adsorption network that can admit perfect matchings. The nontrivial surviving-density expression and onset exponent \(2b/a\) quantify how irreversible kinetics selects one part even when that part initially contains fewer sites than either competing part. The exact finite-size recurrence links the macroscopic transition with reproducible finite systems. This is more than static matching feasibility, a renamed master equation or a small finite calculation.
+The basic complete-mixing master and mean-field equations and the equal-rate specialization are not credited as new. The supported distinct result is the explicit fixed positive asymmetric-rate terminal law with a rate-selected threshold, critical power and a terminal convergence argument for the finite graph process. The closest indexed weak-channel result specializes to the same graph proportions but lets rho shrink with N and analyzes a different, order-one terminal count. The strongest inspected primary rate equations contain the drift, but the symmetric row sums used in their equal-species analysis fail for the frozen asymmetric weights, and the unequal-initial-density case is set aside. No inspected prior result establishes the full distinctive terminal theorem.
 
-## Closest literature and remaining limits
+## value
 
-- D. ben-Avraham and S. Redner (1986), https://doi.org/10.1103/PhysRevA.34.501: equal-rate three-species kinetic precursor, with abstract but not full text examined.
-- N. Pippenger (1989), https://doi.org/10.1137/0402034: general irreversible graph adsorption precursor, with abstract and publication details examined.
-- H. J. Hilhorst, M. J. Washenberger and U. C. Täuber (2004), https://arxiv.org/abs/cond-mat/0409079: original full text examined in relevant sections, including the explicit decision not to analyze unequal-density terminal states.
+PASS
 
-Priority is provisional pending broader expert literature comparison; the theorem is limited to positive fixed edge rates and the specified symmetric two-part initial populations. Simulations are supporting checks, not infinite-size proof. No external or independent validation is asserted.
+Changing only the relative BC rate can leave an extensive residue in the initially smallest part even in graphs that can match all vertices. The exact threshold and generally noninteger onset power quantify that distinction between random greedy kinetics and feasibility. The terminal coupling makes the mechanism an exact asymptotic statement for the graph process rather than a mass-action guess.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

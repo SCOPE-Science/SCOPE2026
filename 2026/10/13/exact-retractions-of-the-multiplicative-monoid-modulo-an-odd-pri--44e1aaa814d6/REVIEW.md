@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Corollary 3.2 of Atalaye--Baker--Marques reduces every nonconstant endomorphism to a valuation multiplier \(v\), a unit power-map exponent \(t\), and a unit parameter \(r\). Composition-idempotence forces \(t^2\equiv t\pmod N\) and forces the valuation multiplier either to be \(1\) or to collapse every positive valuation to zero. In the \(v=1\) branch, equality on \(p\) is exactly \(r^t=1\pmod{p^{e-1}}\). Cyclicity of the unit group gives \(\gcd(t,N_-)\) choices for \(r\), and the Chinese remainder theorem factorizes the sum over idempotent \(t\). The standalone exhaustive finite-monoid checker agrees at four prime powers.
+## correctness
 
-## Originality
-PASS. The motivating paper classifies the entire hom-set and studies pointwise multiplication of morphisms, but searches within its full text found no composition, retraction, retract, or idempotent-endomorphism classification. The predecessor paper is restricted to automorphisms. Targeted statement searches found no source that gives the exact retraction formula or the two-branch classification. A cited 2026 thesis was not available in full and remains an explicit residual risk.
+PASS
 
-## Value
-PASS. Retractions are the composition-idempotents of the newly classified endomorphism monoid and are a natural first structural invariant after the hom-set classification. The result gives both a complete classification and a closed multiplicative count, separating collapse retractions from valuation-preserving retractions and showing exactly how the unit-group prime factors control them.
+An identity-preserving multiplicative idempotent is exactly a map restricting to the identity on its image. The only multiplicative idempotents of the residue ring are 0 and 1, by reduction modulo p and invertibility of one of x and 1-x. If a monoid endomorphism sends 0 to 1 then it is constant one. Otherwise it fixes 0, sends units to units, and is determined by those unit images and the image of p. The cyclic unit restriction gives the condition t²=t modulo N. For a nonzero f(p)=p^v r, equality f²(p)=f(p) requires v=min(v²,e), hence v=1; for f(p)=0 all nonunits collapse. In the surviving nonzero case f²(p)=p r^(t+1), giving exactly r^t=1 modulo p^(e-1). For p^u b with u≥1, b is determined modulo p^(e-u) and r modulo p^(e-1) suffices, so the formula is well-defined. Multiplicativity follows by adding valuations and multiplying unit parts, including when the valuation reaches e. Distinct t and r are detected on a primitive unit and on p. There are 2^omega(N) unit idempotent powers, and gcd(t,N_-) roots per power in the valuation-preserving case. CRT factors the weighted sum: the 0 choice contributes the full prime-power factor of N_-, including 1 when the exponent is zero, and the 1 choice contributes 1. This reproduces 11,17,15,33 for the four examples without assuming that the examples exhaust the domain. The supplied checker and saved output were inspected, not executed.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.02393v1, especially Proposition 3.1 and Corollary 3.2; it supplies the endomorphism normal form but not the composition-idempotent locus. arXiv:2408.06278v2 covers automorphisms only. The theorem here excludes powers of \(2\), and the unavailable thesis remains a bounded originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The older thesis and the cited paper already give the general parametrization of endomorphisms; the distinct contribution is the classification under composition-idempotence and the exact weighted CRT count. A later Resultary record gives both in full and extends them to an image-size spectrum; that is explicit equivalent coverage, but the located record is later dated and does not establish earlier priority. The checked earlier primary statements did not give that composition classification or its count.
+
+## value
+
+PASS
+
+Retracts are natural in a finite multiplicative monoid; here the three forms show which valuation behavior can survive a projection and exactly what choices of unit projection and twist are compatible. The closed count is uniform in p and e, resolves the multiplicities of the twist parameters, and answers a natural complete enumeration rather than recomputing a few small moduli or merely relabeling the endomorphism theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

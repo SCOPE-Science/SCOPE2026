@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:37.347205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Regeneration can be taken at arrivals at the left wall. From anywhere in the interior, a flip-free block of length L/v hits a wall; from the right release it reaches the left with probability exp(-γL/v). These geometric bounds, with finite independent wall means, give finite cycle mean and the unique stationary renewal law. Interior directional occupation is absolutely continuous by piecewise-linear motion. Zero spatial current in stationarity gives equal directional densities; the bulk transport equations then make them constant. Directional crossing flux as position tends to a wall gives its arrival intensity vc (equivalently the boundary flux); renewal reward gives q_i=vc m_i and normalization fixes c. Conditioned on attachment at 0 the residual has density (1-F₀(s))/m₀, not the law of a new hold. Strict positivity and this continuous residual imply zero cross-wall joint mass even at t=L/v. At lag τ+ε the straight flight of duration τ gives exactly vc exp(-γτ) times the convolution of the two fresh-hold survival functions on [0,ε]: the left factor arises from the residual density and the right from surviving the first arrival. Independent remainder check: condition on residual s≤ε. Before first arriving at L, net displacement forces total backwards bulk time to be at most (ε-s)/2, since holds consume slack as well. If the first excursion returns to 0, its backwards time equals its forwards time and is at least the interval to the first flip, which must therefore be at most ε/2. If it reaches L in that excursion but flips, its first backwards run must end in a second flip within ε/2, since only + motion can arrive at L; this is an O(ε) event by the exponential waiting-time bound. After a direct crossing, release and return to L during the slack requires a bulk flip within ε of that release, also O(ε). These exhaust the excluded paths regardless of the number of subsequent visits. The residual-window mass is O(ε), giving the joint O(ε²) remainder, uniform in holding-law shapes at fixed means and motion parameters. Expanding the survival convolution isolates the sum of the coefficients at the minimal exponent divided by 1+β; the product of CDFs is of higher order and ε² is negligible because β<1. No smoothness or second moment is needed; the argument is symmetric on swapping walls. Independent particle terms add only on matched particles, producing Nf₀² for outward magnitudes, as stated. The inspected script verification/check_front.py was not executed; its source-reported quadrature and simulations are illustrative only and cannot establish the remainder or arbitrary-law theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bressloff two-wall occupation transform allows cumulative occupation absorption thresholds, not independent per-visit release times. Bressloff–Linn do allow nonexponential renewal desorption but in a resetting half-line model with one sticky boundary.",
+          "Pietrangeli et al. give a slit transport diffusivity; Li–Eichhorn–Dabelow give stationary mean pressure."
+        ],
+        "reasoning": "An applicable complete two-wall lag-resolved transition, including a corresponding exact Laplace transform with independent per-visit renewals, would be serious stronger coverage. The actual passages inspected do not give one for this model and stationary initialization. Neither a one-boundary renewal equation nor a mean-pressure relation has the needed joint law as a specialization.",
+        "searches": [
+          "arXiv:2602.02446, pp. 1–2",
+          "arXiv:2302.01158, pp. 4–5",
+          "arXiv:2404.07680, Eqs. (7)–(10)",
+          "arXiv:2610.01287, Eq. (12)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.03123",
+        "arXiv:2302.01158v1",
+        "arXiv:2602.02446v1",
+        "arXiv:2404.07680v1",
+        "arXiv:2610.01287v1",
+        "Resultary: 80d9ac09ebe7",
+        "Resultary: c81a4f00da00",
+        "Resultary: 7d3362d4b823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Center-initialized pressure is a different propagator experiment. Exact rates in the same interval model average a whole range of lags. Exponential residence, where F_i(s)=O(s), is outside the claimed subunit-exponent refinement."
+        ],
+        "reasoning": "Finite propagation implies the pre-front plateau, but the inspected statements do not mechanically imply either the stationary residual-weighted coefficient or the minimal-exponent coefficient with arbitrary wall-specific releases. Computing these requires identifying the no-flip law and bounding the rest relative to ε^(1+β).",
+        "searches": [
+          "arXiv:2206.03123, pp. 3–7",
+          "arXiv:2602.02446, pp. 1–2",
+          "Resultary: 80d9ac09ebe7 and c81a4f00da00"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the stated constant magnitude, pressure covariance is wall-indicator covariance times the force factors. The exact target is a stationary transition from initial wall occupation averaged over its equilibrium residual, not fresh injection.",
+          "Angelani's center-initialized one-wall occupation exhibits an arrival front at L/(2v). The two same-interval catalogue formulas give long-time integrated rates for Markov wall holds."
+        ],
+        "reasoning": "A transient center-to-wall front and integrated stationary cross-wall noise do not fix the lag-resolved stationary covariance at L/v. The residence signature specifically comes from two survival factors under equilibrium-residual and fresh-arrival sampling.",
+        "searches": [
+          "arXiv:2206.03123, Eqs. (1)–(19)",
+          "arXiv:2302.01158, Eqs. (1.3)–(1.5), (2.1)",
+          "Resultary: asymmetric sticky wall occupation covariance hidden tumbling 80d9ac09ebe7",
+          "Resultary: exact cross-wall pressure noise c81a4f00da00"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact neighbouring formulas in the catalogue are an unequal-exponential occupation-fraction covariance rate, a symmetric exponential integrated force rate, and a four-direction slit diffusion coefficient in terms of a wall-residence Laplace transform."
+        ],
+        "reasoning": "The natural exact coverage check is for formulas in this observable/model, not numerical tabulation: finitely many holding laws or integrated rates do not determine a function of lag for arbitrary wall-specific renewal distributions.",
+        "searches": [
+          "Resultary: 80d9ac09ebe7",
+          "Resultary: c81a4f00da00",
+          "Resultary: 7d3362d4b823"
+        ]
+      },
+      "rationale": "Qualified pass for the explicit stationary opposite-wall covariance's first right-hand slope and the wall-specific independent-renewal fractional correction. Finite propagation and equilibrium renewal weighting are prior principles. The nearest same-setting findings concern integrated correlations with exponential residence; inspected transient pressure and renewal-propagator papers change the initial ensemble, the boundary law, the geometry, or the observable. The slope is not novel simply as a finite-speed front, and the result is not an all-time propagator.",
+      "residual_risks": [
+        "The broad search wave was deferred; the decision rests on exact available primary passages and catalogue comparisons, not the absence of a search result.",
+        "A more general lag-resolved renewal propagator outside the passages read, or additional comparison material not retrieved (including supplements), could narrow the distinct contribution. This is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant propagation precedent but not stationary wall-to-wall covariance or general rests.",
+          "evidence": "For initialization at the center, first arrival occurs at L/(2v); its wall occupancy gives a pressure transient for exponential turning.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03123",
+          "material_read": "pp. 3–7, Eqs. (1)–(19)",
+          "method": "Lawful open primary text passages.",
+          "title": "Confined run-and-tumble swimmers in one dimension",
+          "trigger": "Exact transient sticky-wall pressure in a two-wall telegraph model."
+        },
+        {
+          "assessment": "Different boundary generalization and derived quantities.",
+          "evidence": "Separate thresholds describe absorption at cumulative bound occupation; applications are mean absorption times and splitting probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.01158v1",
+          "material_read": "pp. 4–5, Eqs. (1.3)–(1.5), (2.1)",
+          "method": "Lawful open primary text passages.",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Two sticky walls and occupation-time transforms could cover the target."
+        },
+        {
+          "assessment": "No pair of walls and a different observable.",
+          "evidence": "Half-line resetting model with first-passage and nonequilibrium stationary observables.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.02446v1",
+          "material_read": "pp. 1–2, setting and renewal objectives",
+          "method": "Lawful open primary text passages.",
+          "title": "Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary",
+          "trigger": "Arbitrary nonexponential renewal waiting at a sticky wall."
+        },
+        {
+          "assessment": "Longitudinal diffusivity, not opposite-wall pressure correlation.",
+          "evidence": "Uses surface motion and escape-rate boundary treatment to obtain an effective diffusivity.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.07680v1",
+          "material_read": "pp. 3–4, Eqs. (7)–(10)",
+          "method": "Lawful open primary text passages.",
+          "title": "Optimal run-and-tumble in slit-like confinement",
+          "trigger": "Exact transformed surface/bulk theory with two confining walls."
+        },
+        {
+          "assessment": "Inspected equation is static, not a joint-in-time covariance.",
+          "evidence": "Stationary active-gas pressure relation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01287v1",
+          "material_read": "p. 3, Eq. (12); no comprehensive supplement comparison",
+          "method": "Lawful open primary passage reading.",
+          "title": "Ideal gas of active particles in a box",
+          "trigger": "Contemporary exact active-gas pressure."
+        },
+        {
+          "assessment": "Overlaps exponential subfamily, not the target small-lag quantity.",
+          "evidence": "Closed formula for the long-time occupation-fraction covariance rate for exponential holds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-asymmetric-sticky-wall-occupation-covariance-and-hidden-tumbling--80d9ac09ebe7",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Local published mirror passages.",
+          "title": "Asymmetric sticky-wall occupation covariance and hidden tumbling identification",
+          "trigger": "Closest same process and wall observables, with unequal holds."
+        },
+        {
+          "assessment": "Integrated long-time force rate with symmetric exponential holds.",
+          "evidence": "Nontrivial off-diagonal covariance rate of time-integrated forces, not time-domain opposite-wall front.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-cross-wall-pressure-noise-and-noncommuting-box-size-limits--c81a4f00da00",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Local published mirror passages.",
+          "title": "Exact cross-wall pressure noise and noncommuting box-size limits for run-and-tumble swimmers",
+          "trigger": "Closely matching physical quantity and box geometry."
+        },
+        {
+          "assessment": "Different process/observable; not a wall-to-wall covariance transform.",
+          "evidence": "A wall-residence Laplace value determines longitudinal diffusivity for a four-direction slit process.",
+          "identifier_or_url": "Resultary: 7d3362d4b823",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published mirror passage.",
+          "title": "Non-Poisson wall residence controls exact slit dispersion by a Laplace transform",
+          "trigger": "Non-Markovian wall residence and exact transform in a two-wall slit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem separates two effects in a natural observable: the first arrival slope calibrates finite-speed persistence and the residence means, while the next right-hand power detects the minimal short-hold exponent and the associated sum of amplitudes. The quantitative uniform control of nonstraight paths is necessary for that separation. This is more informative than a propagation delay or a long-time covariance alone. The identification is a noiseless asymptotic signature, not a stable estimator or a promise of recovering both hold laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

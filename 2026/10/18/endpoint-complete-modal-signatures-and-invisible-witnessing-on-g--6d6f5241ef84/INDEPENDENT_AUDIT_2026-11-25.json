@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:27:58.971606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5 and representative table",
+        "Frozen VERIFICATION.md and star_checker.py (inspected, not executed)",
+        "Independent replay: /workspace/audit_checks.py, python3 audit_checks.py 1"
+      ],
+      "rationale": "Under the declared fixed valuations, all leaves share the same strict order 0<s<1. At a terminal leaf Box always returns 1 and Diamond 0, and the three Gödel connectives act on that ordered triple uniformly. This proves by induction that the leaf-coordinate function of each formula is 0, s, or 1, with one common role. At the root a modal operation on these roles returns respectively 0, a or b as appropriate, and 1; the zero-weight root edge contributes only the neutral value. The propositional operations preserve the scalar root chain {0,a,b,1}. Box p and Diamond p recover a and b. At their extrema the neutral self-edge cannot supply a missing witness, since a<1 and b>0 even if a=0 or b=1. If both endpoints are present they witness the identity role, and constants or terminal evaluation cause no other witnessing obstruction. For 0<a<b<1 the signatures are distinct and the displayed table realizes each of the 12: Box bottom and Diamond p allow the needed root values independently of the leaf role, and Box bottom implies p gives the identity role with root 1. The pair with and without endpoint leaves has the same root theory and the same role-1 theory at every leaf, so universal local truth-one consequence agrees even for arbitrary premise sets. In fact the order of all formula degrees at a leaf also depends only on role. The conclusion distinguishes fixed-valued models, not class logics or frame validity. A fresh exact closure on vectors of actual world values gave 12 states on each of two finite stars with equal distinct interior endpoints and 9 on a singleton leaf set, outside the twelve-state hypothesis.",
+      "residual_risks": [
+        "The bounded closure test is only corroboration. The infinite unwitnessed model and all-depth exact equality are established by the semantic induction, not by sampling finite stars.",
+        "Interior truth constants, non-Gödel negation or varying additional atom valuations are outside the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day three-leaf result classifies six terminal unary functions on [0,1]; their restrictions to (0,1) are exactly the three roles and therefore supply the leaf lemma. Its proof retains realized extrema and preserves all root values on finite stars. The uniform-witnessing result quantifies over all valuations on a frame."
+        ],
+        "reasoning": "The leaf lemma is common, and the same extremal idea directly yields finite endpoint preservation for this subclass. The finite reduction theorem does not add nonrealized extrema to an infinite model, change its witnessing status, or identify the entire algebra on a fixed star. Frame-level quantification does not give the fixed-model indistinguishability implication.",
+        "searches": [
+          "Resultary: unary terminal star normal forms and finite reduction",
+          "SCOPE-a-sharp-three-leaf-threshold-for-unary-g-del-modal-stars--bc4e901cf546",
+          "SCOPE-uniform-witnessing-on-fuzzy-g-del-frames-finite-support-versus-v--330bea6aba26"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bc4e901cf546, 5346d5ef08d0, 330bea6aba26",
+        "arXiv:2606.31906v1, 2605.15810v1, 1105.1256v2 and 0903.2767",
+        "DOI 10.1007/978-3-032-06085-3_8",
+        "DOI 10.1007/s11225-010-9247-6 (journal full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The height-cutoff result has an H=1 unwitnessed star omitting infimum 0; its statement is about how deeply to test actual witness attainment. Metcalfe–Olivetti's lemma is invariance under order regrading. The crisp-model calculus contrasts the laws valid in two semantic classes. Caicedo–Rodríguez's accessible early preprint describes completeness of the separate modal fragments and their finite-model behavior."
+        ],
+        "reasoning": "Detecting actual attainment from the semantics is not detecting it from formula degrees. Order regrading moves degrees and weights on existing worlds rather than adding endpoint worlds at fixed degrees. Class-level validity and the separate-fragment completeness results do not imply the concrete pair's equivalence for all formulas and all local truth-one sequents. The crucial additional argument uses arbitrary interior leaf spectra and compares unattained to attained endpoints without changing the uniform leaf roles.",
+        "searches": [
+          "SCOPE-sharp-finite-height-cutoff-for-witnessing-in-crisp-g-del-modal-m--5346d5ef08d0",
+          "arXiv:1105.1256v2, Lemma 5",
+          "DOI 10.1007/978-3-032-06085-3_8 Section 2",
+          "Caicedo–Rodríguez arXiv:0903.2767 opening and DOI 10.1007/s11225-010-9247-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferrari et al. explicitly use nonattained extrema on an infinite crisp star with p(u_k)=1/(k+1) and q(u_k)=k/(k+1); the relevant example also has a formula that fails there. Vidal–Rodriguez define local consequence for individual models but their completeness result is about a class of models with partial witnessing."
+        ],
+        "reasoning": "A countermodel showing nonattainment, or a class-level axiomatization, does not give two particular fixed-valued models with exactly the same modal observations but different attainment. The boundary endpoints 0 and 1 in the prior star also cannot be adjoined using the same strict interior leaf-role argument.",
+        "searches": [
+          "Resultary: Gödel modal stars, endpoint completion, model-level witnessing and indistinguishability",
+          "arXiv:2606.31906v1, Section 2 and Figure 1",
+          "arXiv:2605.15810v1, Section 0.2 and Theorem 0.4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact finite table lists 0, 1, x, not x, not not x and x or not x at terminal leaves as functions on [0,1]. The compared indexed results provide neither a table of joint root/leaf signatures nor the claimed count of 12 for a fixed interior-endpoint model."
+        ],
+        "reasoning": "The terminal list collapses to three interior roles and is not a joint signature list: it cannot supply the lower bound that all four root values occur with each of the three roles. That lower bound is established by representatives in the frozen result, not by the absence of a search hit.",
+        "searches": [
+          "Resultary: exact twelve signatures and root/leaf semantic quotient for fixed unary Gödel stars",
+          "bc4e901cf546/RESULT.md, Proof §§1–2"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the exact whole-model twelve-signature classification and the explicit endpoint-completion pair with equal exact root degrees and all local consequence despite different witnessing status. The unary leaf normal form and finite extremal reduction have materially overlapping indexed evidence and receive no independent originality credit. None of the inspected claims establishes the whole-model classification or the preservation across the witnessed/unwitnessed pair. This is bounded evidence, not a certification of historical priority.",
+      "residual_risks": [
+        "An older unary-term normal form or semantic completion theorem may contain the endpoint-completion observation under different terminology. The uninspected journal text is a named access risk, not negative evidence.",
+        "The two same-day indexed comparisons do not establish relative priority. The terminal-function lemma and related finite endpoint preservation are explicitly not treated as new here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in the leaf lemma and finite root reduction; no exact joint quotient or infinite endpoint-completion pair in the inspected theorem",
+          "evidence": "Six terminal functions restrict to three interior roles. The root-preserving operation retains existing extremal leaves in a finite, already witnessed model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-three-leaf-threshold-for-unary-g-del-modal-stars--bc4e901cf546/RESULT.md",
+          "material_read": "Scope, proof §§1–2 (offset 1950 and following)",
+          "method": "Indexed full-text passages through the local mirror",
+          "title": "A sharp three-leaf threshold for unary Gödel-modal stars",
+          "trigger": "Closest indexed same-object theorem, possible full classification"
+        },
+        {
+          "assessment": "Close nonattainment construction with a different conclusion",
+          "evidence": "The H=1 example has p-values 1/n and omits infimum 0; the theorem locates depth sufficient to test attainment, without exhibiting equal theories across different witnessing statuses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-finite-height-cutoff-for-witnessing-in-crisp-g-del-modal-m--5346d5ef08d0",
+          "material_read": "RESULT.md theorem and one-step sharpness example",
+          "method": "Indexed full-text passages through the local mirror",
+          "title": "Sharp finite-height cutoff for witnessing in crisp Gödel modal models",
+          "trigger": "Same-day witnessing result with one-step countermodel"
+        },
+        {
+          "assessment": "Witnessing semantics and nonattainment examples are prior, not the exact claimed indistinguishability",
+          "evidence": "Figure 1 uses opposite endpoint sequences approaching 0 and 1; the work focuses on the logic and proof procedures for witnessed models.",
+          "identifier_or_url": "https://arxiv.org/html/2606.31906v1",
+          "material_read": "Introduction, Section 2 and Figure 1 (offsets 2738–14388)",
+          "method": "Lawful OA full-text bounded relevant passages",
+          "title": "A Gödel Modal Logic Over Witnessed Models",
+          "trigger": "Closely related semantics and unwitnessed star construction"
+        },
+        {
+          "assessment": "Relevant framework and class-level characterization; does not prove individual model indistinguishability in the inspected theorem",
+          "evidence": "Defines local consequence, and gives completeness for a class of Diamond-witnessed models.",
+          "identifier_or_url": "https://arxiv.org/html/2605.15810v1",
+          "material_read": "Section 0.2 (offsets 7367–10124) and Theorem 0.4.2 (41787–44784)",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "Axiomatizing logics of finite Gödel-Kripke models",
+          "trigger": "Uses fixed-model local consequence and may characterize witnessing"
+        },
+        {
+          "assessment": "Prior witnessed-class distinction and countermodel to a particular formula; not an equal-theory pair",
+          "evidence": "An infinite crisp example refutes Box not not p implies not not Box p; finite crisp models are witnessed.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-06085-3_8",
+          "material_read": "Section 2, pp. 143–144 (offsets 4972–13345)",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "A Gödel Modal Logic over Witnessed Crisp Models",
+          "trigger": "Exact crisp accessibility semantics and possible endpoint argument"
+        },
+        {
+          "assessment": "Order regrading does not identify endpoint completions at fixed truth scales",
+          "evidence": "Lemma 5 applies order automorphisms to truth values and weights; it does not adjoin leaf worlds.",
+          "identifier_or_url": "https://arxiv.org/html/1105.1256v2",
+          "material_read": "Introduction, semantics and Lemma 5 (offsets 0–3998 and 31497–35995)",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "Towards a Proof Theory of Gödel Modal Logics",
+          "trigger": "Foundational semantic invariance that might imply endpoint addition"
+        },
+        {
+          "assessment": "Early opening confirms the unimodal-fragment focus; not a whole-document exclusion or verified access to the journal version",
+          "evidence": "The preprint states strong completeness of the separate fragments and their different finite-model properties. No available decisive passage yields the frozen pair.",
+          "identifier_or_url": "https://doi.org/10.1007/s11225-010-9247-6 ; https://arxiv.org/pdf/0903.2767",
+          "material_read": "No full journal text accessed; separately read the early preprint's opening at offsets 0 and 2050",
+          "method": "DOI and publisher attempts did not retrieve the paper; lawful arXiv PDF for the explicitly identified early preprint",
+          "title": "Standard Gödel Modal Logics / related early preprint A Gödel Modal Logic",
+          "trigger": "Possible earlier semantic compactification or countermodel observation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Ferrari et al. arXiv:2606.31906v1, Section 2",
+        "Vidal–Rodriguez arXiv:2605.15810v1, definitions and class completeness comparison"
+      ],
+      "rationale": "The explicit pair answers a natural expressibility question raised by witnessed semantics. Even a full collection of local consequences of a fixed-valued model cannot decide attainment, although the logic of the witnessed class can have a completeness theorem. The exact all-depth signature algebra makes the observational limit concrete, rather than producing only a bounded countermodel or one formula that fails.",
+      "residual_risks": [
+        "The expressibility obstruction is for this fixed-valued model language and does not preclude frame-level definitions or analogous characterizations in a richer language."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

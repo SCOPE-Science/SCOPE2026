@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:20:53.274542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–44",
+        "VERIFICATION.md:19–33",
+        "verify_tangent_f5.cpp:12–103; verify_witness.py:5–35; verify_vectorized_numpy.py:4–31 (inspected, not executed)",
+        "/workspace/branches/1c5aa631-792e-47a8-863b-5f3f4b8b5621/independent_tangent_f5.py and independent_tangent_f5_full.log (independent exact replay)"
+      ],
+      "rationale": "Both the witness and the all-forms lower bound check out. Over the algebraic closure, X=0 and the last two partials would force Y=Z=0. Otherwise the first two partials force Y=Z=2X and the last is X³≠0. This proves geometric smoothness; plane components would intersect by Bézout and create a singularity, so the quartic is geometrically irreducible, with genus three. The projective point list is complete by normalizing the last nonzero coordinate. For each form there is exactly one first-nonzero-coefficient normalization; the finite census tests each rational zero and includes only nonzero gradients, whose lines are the tangents by the hypersurface formula. A separately written exact modular computation exhausted 31, 3906 and 2441406 forms and found zero filling cases, with maximum coverages 6, 21 and 29. It independently found 11 quartic points, 11 distinct tangent lines and union size 31. In particular, six of those lines already comprise a complete pencil, consistent with the assertion concerning the union of all eleven.",
+      "residual_risks": [
+        "The finite census certifies only the specified field and degrees; geometric smoothness is established separately, not inferred from the finite points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed construction works for every q of characteristic greater than three and specializes literally to the submitted witness; its F5 proof additionally excludes all lines, conics, and cubic equations.",
+          "The published paper poses the minimization, but its main positive construction requires q≥11 and Remark 1.4 excludes its own small-field construction at q=5 and 7. Its general nonexistence bounds do not settle cubics at q=5."
+        ],
+        "reasoning": "The journal paper motivates rather than subsumes the whole claim. Coverage is established instead by the indexed record's actual stronger statement and its small-field proof.",
+        "searches": [
+          "Resultary c6df3fd5c558, Finding and Sharpness at q=5",
+          "Asgarli–Ghioca arXiv:2302.13420 Theorems 1.1–1.3, Remark 1.4 and Question 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary c6df3fd5c558, 410866346998 and 41693294dd2e, decisive RESULT.md passages",
+        "Asgarli–Ghioca arXiv:2302.13420, introductory statements and remark"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-date matching result gives line and conic exclusions directly, a bound of 29 even across singular and reducible cubics, and the same quartic with 11 rational points.",
+          "The later-catalogued stronger statement explicitly covers all three lower degrees and the same quartic, independent of interpreting the more general family."
+        ],
+        "reasoning": "These results imply the entire submitted sharpness claim. Smoothness, genus and the eleven-line witness do not furnish a distinct remainder: the same specialized curve appears, with its geometric smoothness and genus covered, and the rational tangent calculation is the explicit incidence data of that same witness. Catalog dates do not resolve priority or dependence.",
+        "searches": [
+          "c6df3fd5c558, RESULT.md offsets 0 and 2940–5011",
+          "410866346998, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c6df3fd5c558 states the same degree-four F5 minimum and displays the identical quartic as C_5.",
+          "The six pencil lines in the matched result are a subset of the verified eleven rational tangent lines, not a different filling criterion."
+        ],
+        "reasoning": "Both formulations define rational tangents at smooth rational zeros and ask that their union cover PG(2,5). Covering with a subset of them establishes the same claim about their full union.",
+        "searches": [
+          "Local Resultary tangent-filling minimum degree over F5 and cubic coverage deficit",
+          "Literature search on tangent-filling plane curves minimum degree and the F5 cubic obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "410866346998 states the exact maxima 6, 21 and 29 over all forms and the same quartic minimum.",
+          "c6df3fd5c558 reports zero filling cubic forms and maximum 29 among all 2441406 normalized cubics.",
+          "41693294dd2e sharpens the cubic-only comparison with equality cases."
+        ],
+        "reasoning": "These are exact matches on the coefficient-field, degrees, gradient convention and ambient rational-point set, not neighboring-field data. The independent re-enumeration validates the data but does not distinguish the submission.",
+        "searches": [
+          "Local Resultary 410866346998 and 41693294dd2e, exact small-degree coverage",
+          "Local Resultary c6df3fd5c558, F5 exhaustive cubic sharpness"
+        ]
+      },
+      "rationale": "A distinct indexed result demonstrably covers the same exact minimum, the identical smooth witness, and the all-forms exclusion in each lower degree. It proves a stronger uniform pencil construction and an exact cubic coverage deficit. Another exact matching record gives the lower-degree maxima explicitly. This is a failure to establish scientific distinctness, not an inference about which record came first or an assertion of incorrect mathematics.",
+      "residual_risks": [
+        "Relative dates, authorship, and dependence are not inferred from catalog ordering. The assessment is of demonstrable coverage and distinctness, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes the frozen mathematics; chronological priority unresolved",
+          "evidence": [
+            "Its q=5 specialization has exactly the same equation; the complete pencil establishes filling, and its exact 29-point cubic bound includes singular and reducible forms.",
+            "Section 3 explicitly excludes lines and both smooth and reducible conics; Verification gives the same 11 rational points and full coverage."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-smooth-degree-q-1-tangent-pencils-and-the-sharp-mathbb-f-5-thres--c6df3fd5c558",
+          "material_read": "RESULT.md Finding, Assumptions, smoothness setup and §3 Sharpness/Verification, offsets 0–2200 and 2940–5011",
+          "method": "Exact local-mirror file passages",
+          "title": "Smooth degree-q−1 tangent pencils and the sharp F5 threshold",
+          "trigger": "Same field, sharp minimum and explicit witness in Resultary"
+        },
+        {
+          "assessment": "Explicit stronger finite coverage, not proof of chronological priority",
+          "evidence": [
+            "Maxima 6,21,29 for degrees 1,2,3; same quartic and full pencil of six tangents through (1:1:0)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-minimum-tangent-filling-degree-over-mathbb-f-5-and-the-sharp-cub--410866346998",
+          "material_read": "RESULT.md Finding, Assumptions, and finite proof setup from offset 0",
+          "method": "Exact local-mirror file passage",
+          "title": "Minimum tangent-filling degree over F5 and the sharp cubic obstruction",
+          "trigger": "Same minimum and all-forms exclusions"
+        },
+        {
+          "assessment": "Covers and refines the cubic component only",
+          "evidence": [
+            "The sharp 29-point upper bound and its equality cases strengthen the frozen cubic exclusion."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-two-point-tangent-coverage-deficit-for-plane-cubics-over-t--41693294dd2e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Exact local-mirror file passage",
+          "title": "Sharp two-point tangent coverage deficit for plane cubics over F5",
+          "trigger": "Direct match to the difficult cubic obstruction"
+        },
+        {
+          "assessment": "Motivates the problem; its inspected positive and negative results do not settle the F5 cubic case",
+          "evidence": [
+            "The cubic nonexistence bounds in Theorems 1.1 and 1.2 require p≥16 and q≥576 respectively; Theorem 1.2 does cover irreducible conics at q=5.",
+            "Remark 1.4 states that its displayed construction is not filling for q=5 or 7."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13420",
+          "material_read": "PDF pp. 1–3, Theorems 1.1–1.3, Remark 1.4, Question 1.5, locations 3916, 5967 and 8775",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Primary source posing the minimum-degree problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–44,60–68",
+        "Resultary c6df3fd5c558, Finding and §3; 410866346998, Finding"
+      ],
+      "rationale": "The extremal question is mathematically motivated by a published problem, and the correct field-five computation is useful as corroboration. As a distinct contribution, however, the result consists of the already covered sharp bound and the identical witness; the parallel census does not add a new exact fact, a new invariant, or a structurally different explanation. Even the independently obtained sharp cubic coverage count is covered by the matching records. No genuine valuable remainder survives as a repair of the submitted claim.",
+      "residual_risks": [
+        "This failure concerns incremental scientific value as submitted, not the usefulness of the underlying extremal question or the validity of the corroborating computation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

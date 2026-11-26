@@ -1,19 +1,21 @@
-# Scientific review: log-periodic killed-chain asymptotics
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite-state Perron normalization converts killed transitions to a strictly positive stochastic base matrix plus a log-periodic inverse-time perturbation. The Poisson equation removes the first-order spatial residual of the proposed positive approximate harmonic vector. Its residual is summable at order \(n^{-2}\), so positive product comparisons construct an exact harmonic limit. A spectral contraction on the zero-mean subspace gives the sharper vector expansion, and contraction of normalized forward rows gives the full survival amplitude with relative error \(O(n^{-1})\). The explicit two-state arithmetic and 63 finite checks from `check.py` support the algebra. The infinite conclusions are proved by those arguments, not by testing.
+PASS
 
-## Originality
+Perron conjugation gives F_n=Q+ε_nA, ε_n=f(log n)/n. Bounded f,f' give ε_{n+1}−ε_n=O(n⁻²) and s_{n+1}/s_n=1−κε_n+O(n⁻²), with s_n the inverse stated envelope. Substituting Φ_n=s_n(1+ε_n u) cancels the first-order defect by the centered Poisson equation. Positive products propagate componentwise relative errors against Φ_n, bounded by exp(CΣ_{k≥n}k⁻²); summing the propagated residuals makes the backward products Cauchy and gives the positive h_n with h_n/s_n=1+O(n⁻¹). Writing h_n=(πh_n)(1+w_n), the centered equation for w_n−ε_nu iterates under the stable restriction of Q with O(n⁻²) forcing; the convergent geometric sum is O(n⁻²). The scalar ratio a_n/a_{n+1}=1+κε_n+O(n⁻²) then yields the displayed Doob derivative, whose rows sum to zero. For fixed initial time, the normalized rows of the forward F-product approach π at O(n⁻¹) by the strict-positive stochastic contraction and O(n⁻¹) forcing. Testing against Φ_n and 1/R gives c_{m,x}=R(x)h_m(x)π(1/R)>0 and the claimed relative error with exponent n−m. Ratios for fixed prefixes give the harmonic Doob law. A shift of log n not a period of the mean-zero primitive gives a nonconstant multiplicative ratio if κ≠0; integer phase subsequences exist. In the witness, all live entries stay positive and the maximum row sum is 7/8. Independent characteristic-polynomial and eigenvector differentiation gives λ'/λ=1/12 and the rational response [[1/9,−1/9],[1/18,−1/18]] (python -B /workspace/independent_checks.py 5); the sine multipliers at their extrema have ratio e^(1/6). The finite arithmetic corroborates the witness, not the asymptotic estimates.
 
-PASS on the accessible scientific comparisons, with historical-priority reservations. Theorem 1.2 and Proposition 2.10 of Iba (arXiv:2610.38590v1) require coefficients independent of time at the \(1/n\) scale; a nonconstant profile \(f(\log n)/n\) violates that hypothesis. Champagnat and Villemonais (arXiv:1603.07477) construct a time-dependent conditioned limit and survival ratios, not the displayed explicit periodic multiplier and response coefficient. Oçafrain (arXiv:1707.08419) treats genuinely periodic moving absorbing sets, not an inverse-time perturbation of a common strictly positive kernel. General asymptotic-integration theory of Benzaid and Lutz (doi:10.1002/sapm1987773195) is potentially relevant, but its full text was not accessible; it may subsume aspects of the survival prefactor. Its abstract does not establish coverage of the particular conditioned transition response. No claim of universal priority follows from a negative search.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Inverse-time perturbations form a natural boundary between summable changes and cumulative survival effects. The result determines how a smooth slowly oscillating time profile affects *both* survival and the limiting never-killed dynamics. In particular, a nonconstant log-periodic profile can destroy ordinary regular variation without destroying the conditioned process, and a two-state model demonstrates nontrivial state-dependent response. This is a structural boundary to a recent explicit asymptotic theorem, not an arbitrary finite numerical slice.
+Limited to the log-periodic endpoint envelope with its error, the oscillatory Doob response through first order with O(n⁻²) error, and their simultaneous nonscalar witness. The constant-profile law and existence of an inhomogeneous Q-process are already covered. General product theory presents material risk for the survival portion considered by itself, but no inspected result establishes both stated quantitative conclusions in this regime.
 
-## Closest literature and limitations
+## value
 
-The 2026 Iba paper provides the reference conditioning framework, with a fixed first-order coefficient; the 2018 Champagnat–Villemonais paper establishes broad ratio and mixing theory; the 2017 Oçafrain paper studies a different form of periodic nonstationarity. The 1987 Benzaid–Lutz matrix-asymptotics paper is a material unresolved overlap risk because only its abstract could be accessed. The theorem here assumes a primitive positive finite kernel and a differentiable periodic profile. It neither settles broader aperiodic oscillations nor claims a higher-order transformed-kernel expansion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a natural finite-state killed-chain setting, this exhibits a non-regularly-varying survival factor even though the kernels converge to a strictly positive limit, with quantified tracking of the instantaneous Perron transform by the actual infinite-horizon conditioned transitions. The nonscalar two-state witness realizes the survival modulation and a nonzero response simultaneously; multiplying a fixed kernel by alternating scalar masses would give only the former. The combined formula and rates make the distinction useful beyond a proof of existence of the conditioned process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

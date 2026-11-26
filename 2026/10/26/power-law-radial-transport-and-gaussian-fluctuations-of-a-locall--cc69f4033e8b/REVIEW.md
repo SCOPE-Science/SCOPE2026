@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator-norm convergence for the summable commuting flips makes the finite product evolution converge. The Born distribution is the independent Bernoulli product law with \(p_k(t)=\sin^2(ctk^{-\alpha})\); summability of the probabilities prevents infinite-vertex mass. The exact variance identity \(V_t=\mu_{2t}/4\), the improper Riemann-sum argument and the gamma integral determine both nonzero leading constants. Divergent variance and uniformly bounded individual centered summands establish the Lindeberg limit and standard Berry--Esseen bound. Chebyshev establishes concentration. The assumptions and normalizations match all displayed conclusions. The accompanying finite-coordinate checks passed but are not a proof of the asymptotics.
+## correctness
 
-## Originality — PASS
-The most relevant source is Ce Wang's arXiv:2602.23970v1 (2026), read in full accessible HTML. It defines the locally infinite graph and operator, but focuses on spectral and time-reversal results rather than the late-time radial Born distribution. Earlier finite-hypercube perfect-transfer work (arXiv:2212.00020) and a discrete-time QBN central-limit paper (DOI:10.1155/2018/2507265) do not cover this statement, by their model and observable. Focused database searches examined alternate Bernoulli, Hamming, weighted-hypercube, and power-law formulations, plus their closest retrieved records. No direct theorem of sharp \(t^{1/\alpha}\) mean and variance constants together with the radial Gaussian/Fano laws was located. Generic tensor factorization and classical independent-sum limit theorems remain known ingredients; novelty is not asserted for those. Residual risk of unindexed or implicit stronger coverage remains.
+PASS
 
-## Value — PASS
-Graph-distance growth for a locally infinite continuous-time walk is a natural quantitative transport question left open by the 2026 operator/symmetry study. The power-law weight class is the canonical summable scale-free specialization. Its sharp spreading exponent, gamma coefficient, non-Poisson variance-to-mean limit and Gaussian fluctuations describe both the typical propagation scale and its uncertainty. The results apply uniformly over the entire nontrivial continuum \(\alpha>1\) and are not finite tabulation, an arbitrarily chosen parameter value, or a renaming of the earlier spectral bounds.
+For alpha>1, the commuting finite-flip Hamiltonians converge in norm. Their Born laws factor as Bernoulli bits with probabilities sin^2(tck^(-alpha)); Hilbert-norm convergence implies total-variation convergence of the Born laws, and the independent product has finite support almost surely in the sense of finitely many occupied coordinates, since the probabilities sum. No division by a cosine is used. With N=(ct)^beta, the normalized mean is the Riemann sum of sin^2(x^(-alpha)); the oscillatory portion on (0,epsilon) is bounded by its interval length up to discretization and the tail is dominated by x^(-2alpha). Substitution v=2x^(-alpha) and integration by parts reduce the limiting integral to 2^(beta-1) times the sine transform of v^(-beta), giving the claimed gamma-cosine value for 0<beta<1. The variance identity V_t=mu_(2t)/4 fixes the factor 2^(beta-2). For centered Bernoulli variables sum of third absolute moments is at most V_t; finite Berry–Esseen passes to the countable sum by L^2 convergence at each t and continuity of the Gaussian CDF, giving O(V_t^(-1/2)). Chebyshev gives the stated concentration since V_t/mu_t^2 tends to zero.
 
-## Closest literature and limitations
-Ce Wang, *Continuous-Time Quantum Walk on Locally Infinite Graph*, arXiv:2602.23970v1; Ce Wang, *Abstract Model of Continuous-Time Quantum Walk Based on Bernoulli Functionals and Perfect State Transfer*, arXiv:2212.00020; C. Wang et al., *Advances in Mathematical Physics* (2018), 2507265. Only fixed-time Born radial observables and positive summable power-law edge weights are treated. No almost-sure trajectory coupling, correlated start, or non-summable Hamiltonian is covered. Prior-search evidence is non-exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The locally infinite flip Hamiltonian, finite hypercube laws, and independent-sum fluctuation principles are prior. The supported distinct claim is the power-law Hamming observable's sharp moment equivalents and limiting fluctuation law with explicit Fano ratio. No inspected stronger source or exact indexed result covered that combination.
+
+## value
+
+PASS
+
+Graph distance is a natural transport observable for this infinite weighted model, and the complete power-law scaling separates the spreading exponent, its dimensional prefactor and the asymptotic variance-to-mean ratio. Those quantities identify how spread and fluctuations depend on alpha and do not follow from existence of unitary dynamics or from the generic CLT alone. The contribution is the sharp model-specific calculation, not a new independent-sum limit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

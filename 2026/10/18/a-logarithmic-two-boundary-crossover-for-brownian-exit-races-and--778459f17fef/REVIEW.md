@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The domain and limit are explicit: for fixed \(d,D>0\), fixed \(\theta\), and \(N\to\infty\), each of \(N\) independent walkers begins at \(d\) and the reset boundary is at \(d(2+\theta/\log N)\). Absorbing-interval image expansions give exact one-particle first-exit probability fluxes. Their leading small-time terms establish both competing Poisson-scale intensities; the differentiated fluxes establish a normalized two-mark Gumbel density. The convergence in probability of each scaled episode duration to one, geometric tightness of the number of resets, and the renewal mean identity establish the restarted laws. A separate tail argument proves the necessary uniform integrability for the mean. The numerical code checks finite examples but does not infer infinite-population convergence from them.
+PASS
 
-## Originality (O) — PASS with residual risk
+Expanding the exact hyperbolic-sine Laplace transforms in exp(-2L_N sqrt(s/D)) gives both stated signed image series, with distances d and L_N-d in the leading terms. The remaining image distances have a uniform gap in squared action near L_N=2d, and their Gaussian tails are uniformly negligible for t=b/(c_N+y) on compact y sets. The erfc prefactor and centering give intensities e^(-y) and e^(-2theta-y), since the relative right action change times c_N+y tends to 2theta. The event for the inverse-time CDF is survival to t, not exit by t. Multiplying each leading flux by N and the absolute Jacobian yields the two marked intensities; the common survival factor gives the joint densities, which factor and have total mass one. For restart, iid episode pairs give a geometric count, and truncation at a fixed count with a uniform geometric tail allows replacing each scaled duration by one without assuming finite-N mark-duration independence. For the moment claim, survival from Ab/log N to any fixed t_* is at most exp(-N^(1-1/A+o(1))) for A>1. For t>=t_*, a Gaussian step displacement larger than a common interval-length upper bound gives a uniformly positive exit probability from every possible position; the Markov property then bounds survival by q^(N floor(t/t_*)) for q<1. These bounds justify the weighted tail integrals for every fixed positive integer moment. The renewal mean is E[T_N]/p_N, so the normalized mean tends to C_theta. The finite diagnostic script was inspected, not executed; it is not needed for any limit.
 
-Biswas, Majumdar and Pal (2026, arXiv:2603.25338) formulate the same finite-population model and its exact renewal mean; their examined asymptotics do not cover a moving interval boundary approaching the midpoint on the inverse-logarithmic scale. Their 2025 precursor (arXiv:2504.13501) gives a general renewal framework and finite-population diffusion formula. Linn and Lawley (2021, arXiv:2110.11277) establish minority-target probabilities for fixed unequal target distances, with a hypothesis that fails to stay uniform as the two distances become equal. Krapivsky, Majumdar and Rosso (2010, arXiv:1004.5042) provide exact box-exit probabilities, not the joint near-balanced time/mark and restarted completion laws. The extensive direct claim comparison and relevant scientific literature searches identified no covering result; nevertheless a general marked extreme-value theorem or implicit derivation from exact finite-\(N\) formulae could subsume portions of the statement. No global uniqueness is claimed.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The boundary separation \(d\theta/\log N\) is forced by the small-time Brownian action difference and determines a genuine nondegenerate target-selection transition. The result gives the corresponding logistic probabilities and joint timing law; most significantly, a continuous Gumbel single-episode fluctuation produces a discrete geometric limit for the completed restarted search. The limit for the mean also identifies the full leading coefficient missed by fixed-ratio limits. The outcome is a motivated structural classification for a current statistical-physics model, rather than a routine finite-\(N\) integral.
+The same resetting protocol and the exact finite-population renewal formulas are established prior work. The distinct finding is the moving 1/log N competition window with a joint time/mark law and the ensuing scaled geometric completion law and mean. No inspected statement covers that combined regime.
 
-## Limits and nearest literature
+## value
 
-No result is asserted for interacting walkers, finite-duration reset operations, or thresholds outside the prescribed scaling window. The earlier general renewal and fixed-ratio results are explicitly recognized, and their possible implicit overlap remains a residual scientific risk. Computational checks are finite and not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the natural near-tie scale of an established physical model and identifies both the competition probabilities and their joint timing fluctuations. It distinguishes the continuous single-episode fluctuation from a discrete scaled completion law and determines the leading mean throughout the window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

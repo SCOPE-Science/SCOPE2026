@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check_dyck_pressure.py` using Python 3 with its standard library. It exhaustively enumerates primitive positive excursions of semilength at most seven, tests Catalan totals and Narayana peak counts, and verifies cyclic pair-energy identities for three independent real parameter settings. It also computes exact-form finite-core pressure roots by scalar bisection for seven cutoffs and cross-checks the closed limiting and full Perron pressures. Finally, it maps all balanced binary words of lengths eight through sixteen into primitive excursions, verifies admissibility and tests the explicit rotation preimage bound. The observed result was `PASS exact enumeration / pressure / surgery checks: 18188`.
+## correctness
 
-The finite diagnostics do not prove weak-star entropy density, infinite constrained-pressure equality, or all-parameter equality classification. The analytic proof in `RESULT.md` provides those claims, including the positive Markov approximation, counting and distortion bounds, variational duality, and exact two-symbol Markov optimization. The quantitative finite-core pressure asymptotic of a previously published record is treated only as a prior-work comparison, not a reproduced novelty claim.
+PASS
 
-No independent mathematical audit or certification has been performed.
+In a finite core all complete excursions contribute zero signed sum and the two end fragments are uniformly bounded; that interval bound survives closure and integration gives exact balance. For entropy density, mixing the target with a small amount of fair Bernoulli makes all block probabilities positive without changing balance or significantly lowering entropy. Its stationary k-step approximation matches the required cylinder probabilities for large k, is mixing because the full de Bruijn graph is positive on its allowed edges, and has entropy no smaller than the approximated process. The typical-word step gives exponentially many words of the desired empirical frequencies and |signed sum|<=δm. Selecting one signed-sum class loses only a factor O(m); balancing by appending at most δm symbols, rotating at a height minimum, and wrapping with + and − gives primitive equal-length generators with at most L preimages each. The distortion of fixed block frequencies is O(δ+1/m), since rotation changes cyclic frequencies by zero and changes at the padding/wrapper and concatenation boundaries are bounded by the block length. On concatenations the global lowest height identifies generator boundaries (every proper prefix is strictly above it); the randomized fixed length phase and iid generators therefore yield entropy log|E|/ℓ. Choose δ smaller than the positive Markov entropy and then large m to obtain the lower-entropy approximation. The pressure limit follows for all continuous potentials; concavity and upper semicontinuity of constrained free energy give a supporting slope at the interior frequency 1/2, so the multiplier minimum is attained. For pair potentials, stationarity and balance reduce the joint law to one flip probability; conditional entropy is optimized by the symmetric Markov chain. The Perron root for the full shift is at least sqrt(e^a e^d)+e^((b+c)/2) with equality iff a=d. The finite renewal root follows from the cyclic transition counts and Narayana numbers (including the sole semilength-one generator). At the root it is weighted free energy, not bare name entropy, that the Bernoulli weights optimize. Inspected the finite code and verification notes; no frozen script executed.
+
+## originality
+
+PASS
+
+The code, its full-shift closure and unique decoding, qualitative exhaustion of sequential pressure, and the unweighted entropy limit are established antecedents. The distinction supported by the inspected sources is identifying the entire entropy-lower accessible family of invariant measures and thus the sequential-pressure functional for every continuous potential. The nearest-neighbor formula is a consequence of that identification, not a new transfer-matrix or Narayana formula.
+
+## value
+
+PASS
+
+Topological density of the cores in the binary full shift does not say what free energies they approximate. The theorem identifies a natural, exact surviving measure constraint, proves entropy approximation even for nonergodic targets, and resolves when a continuous potential can recover full pressure. The full nearest-neighbor equality locus supplies a concrete strict-gap application beyond the previously understood zero potential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

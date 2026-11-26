@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:38.802424Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q=q^r with coefficient q fixed, each (X,Y0) with X nonzero gives one triangular solution, and the zero fiber contributes Q times the associated zero count. The seed first equation restricts u to F_q, so Omega is 1 for u nonzero and v^(q-1) for u=0. The four seed counts are consequently 1, q, Q+q-1, Q+2(q-1). The actual L and E formulas retain the old zero set at u=0 (with appended coordinates zero) and give the two distinct choices 0,-u for every other coordinate at each nonzero u in F_q, also in characteristic two. Definition 4.25 makes the increment (q-1)(m-Par(m))/2, and parent steps preserve m mod 8. Telescoping, adding the nonzero fiber, and exponentiating the resulting Q and Q^2 terms gives the displayed formulas for every extension and every triangular realization specified. 'Two-pole' means at most the two displayed locations: the q pole is absent at m=4 and at (m,q)=(8,2), as the formula itself shows. The recorded VERIFICATION.md result is 124 finite enumeration cases; verify.py was inspected, not rerun, and no computation is needed for the universal argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former treats general triangular systems via the base-field special fiber and gives the polygonal recursion; the latter gives base-field counts for four particular double Danielewski surfaces."
+        ],
+        "reasoning": "The triangular-fiber identity works over extensions as well, but gives no special-fiber count by itself. The four individual surfaces do not cover the recursive extension sequence.",
+        "searches": [
+          "arXiv:2610.32930v1, sections 3, 4.5–4.6",
+          "arXiv:2605.24821v1, Theorem 7.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.32930v1",
+        "arXiv:2605.24821v1",
+        "Resultary and local published record 29d54f243cb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact seeds and L/E operations are prior. Proposition 4.17 counts the seed line configurations on F_q^2; Lemma 4.23 gives the original increment. At fixed q under extension only the vertical seed line admits Q choices, and every nonzero leading-coordinate branch of a lift contributes only F_q-rational points."
+        ],
+        "reasoning": "The new calculation is short and closely follows the prior root split, but it is not specialization of an extension theorem or numerical substitution in the prior formulas. It requires the fixed-coefficient seed branch analysis and propagation of that extension dependence; the exponential step itself is standard.",
+        "searches": [
+          "arXiv:2610.32930v1, equations (4.1)–(4.6), Proposition 4.17, Definitions 4.18, 4.21, 4.25 and Lemma 4.23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorems 3.1 and 4.27 count F_q-points, not all coefficients of log Z for the same equations. At fixed (m,q)=(8,2) the F_4 count is 32, not the rebuilt family count 40."
+        ],
+        "reasoning": "Both point-count and zeta formulations were compared. Replacing the coefficient field in the construction is not base change of a fixed F_q-variety.",
+        "searches": [
+          "arXiv:2610.32930v1, Theorems 3.1 and 4.27 and Proposition 4.17",
+          "Resultary ranked searches for extension counts and zeta functions of the even polygonal Danielewski family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest zeta catalogue hit concerns a fixed projective Wiman sextic at bad primes. The polygonal sequence in the construction paper tabulates base-field counts for varying coefficient fields."
+        ],
+        "reasoning": "Neither catalogue match nor polygonal sequence supplies the extension-degree counts for the fixed affine family.",
+        "searches": [
+          "Resultary ranked extension-count/zeta search, inspected record 29d54f243cb0",
+          "arXiv:2610.32930v1, Proposition 4.17 and Theorem 4.27"
+        ]
+      },
+      "rationale": "The distinct result is the all-extension count (equivalently the zeta function) of a fixed recursive system. The primary construction and its original base-field calculation are not new. The prior seed and recursive case splits are close, but the stated counts and the seed descriptions are of F_q-points; one must determine which seed branches actually acquire new points under extension and which remain F_q-rational. No materially covering theorem was found in the bounded checks.",
+      "residual_risks": [
+        "Bounded catalogue and primary-literature search does not rule out an unindexed extension-field treatment or priority elsewhere; the increment proof is particularly close to the earlier base-field argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the construction and the base-field count; no all-extension formula in these results",
+          "evidence": [
+            "Proposition 4.17 restricts its zero-set calculation to F_q^2. Lemma 4.23 splits on the first coordinate and Definition 4.25 iterates the split. Theorem 4.27 states the count P_m(q) over F_q."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.32930",
+          "material_read": "Theorem 3.1, pp. 4–5; equations (4.1)–(4.4) and Proposition 4.17, pp. 11–13; Definitions 4.18, 4.21, 4.24–4.25, Lemma 4.23, equation (4.6), Theorem 4.27, pp. 13–17",
+          "method": "Read targeted original OA PDF passages; checked the seed proof directly at PDF-text offset 31800",
+          "title": "Rational Points on Affine Varieties over Finite Fields and Polygonal Number Sequences",
+          "trigger": "Exact construction and strongest prior counting theorem"
+        },
+        {
+          "assessment": "Related base-field examples, not fixed-family extension coverage",
+          "evidence": [
+            "The theorem covers four particular double Danielewski examples and their F_q-counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.24821",
+          "material_read": "Section 7, Theorem 7.2, p. 31, PDF-text offset 103148",
+          "method": "Targeted original OA PDF inspection",
+          "title": "Counting Rational Points on Danielewski and Double Danielewski Surfaces over Finite Fields",
+          "trigger": "Same authors and closely related triangular surfaces"
+        },
+        {
+          "assessment": "Different object and prime regime; no equivalent formula",
+          "evidence": [
+            "Counts the fixed projective Wiman sextic at p=2,3,5, rather than the even-index triangular affine systems."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-bad-prime-zeta-functions-and-projective-geometry-of-wiman-s-plan--29d54f243cb0",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Bad-prime zeta functions and projective geometry of Wiman's plane sextic",
+          "trigger": "Closest ranked local catalogue zeta hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The zeta function is a natural invariant of the explicitly motivated polygonal family, which was originally constructed to realize a different invariant (one point count). The extension calculation separates two arithmetic types and explains exactly when an entire new affine-line branch of the associated zero set persists through the recursion, something not inferable from the original count at one field size. It gives all extension counts for the family rather than a selected numerical census or a substitution in the polygonal polynomial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

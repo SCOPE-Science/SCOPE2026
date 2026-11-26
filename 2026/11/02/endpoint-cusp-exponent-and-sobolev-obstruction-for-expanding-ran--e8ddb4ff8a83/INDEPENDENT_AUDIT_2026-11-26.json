@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:08:39.055995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md, check.py",
+        "/workspace/branches/audit_kernel_checks.py"
+      ],
+      "rationale": "Each branch is onto, with inverse Lipschitz bound rho_j = [2 alpha + (1-alpha) theta_j]^{-1}<1. An interior jump of a BV input enters at most one branch image per map (the turning-point jump maps to the boundary); continuous branch weights and the triangle inequality contract the sum of absolute interior jumps by at most sum pi_j rho_j < 1. Stationarity a.e. therefore yields a continuous representative and a pointwise equation in the interior. A zero propagates to every inverse image of any one active map. Its full-branch cylinders cover the interval with diameters tending uniformly to zero, so a zero contradicts normalization. Inverting z=theta_j t+A_j t^alpha gives t~(z/A_j)^{1/alpha} and weight ~A_j^{-1/alpha}z^gamma/alpha. The positive common limiting branch value h(c) gives the stated coefficient; integrating divides it by 1+gamma, and the positive limit gives the one-sided exponent. At finite p>=1/(1-gamma), an absolutely continuous representative with trace zero actually satisfies |h(1-z)|=o(z^{1-1/p}) by the vanishing local L^p norm of h', so equality at the threshold is excluded too. W^{1,infty} and W^{2,1} imply Lipschitz regularity here. This is conditional on a stationary BV density and proves no subthreshold membership. Independent replay: python3 /workspace/branches/audit_kernel_checks.py checked the trial-input kernel on a different mixture, not a stationary density; the continuity, positivity and obstruction are analytic. The frozen check.py's nominal assertion count is a bookkeeping convention, not a measure of coverage.",
+      "residual_risks": [
+        "Trial-function arithmetic does not construct a stationary density; no existence or uniqueness for mixtures is used or certified by this review."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Random-cusp p. 1 asserts -1<beta<-1/2; deterministic response Theorem 1.1 uses beta<(1-2p)/(2p) for p>1.",
+          "The indexed critical mixture theorem treats two square-root cusp maps, with W^{2,1} control; the explicit invariant density of Antoniou et al. uses a different cusp map."
+        ],
+        "reasoning": "Neither spectral/response result extends through beta=-1/2 to the weak-cusp range in its stated hypotheses. Neither same terminology nor an unproductive search excludes other literature.",
+        "searches": [
+          "arXiv:2608.26969v1",
+          "arXiv:2505.17462v1",
+          "arXiv:nlin/0106039v1",
+          "2026/11/2/SCOPE-global-bernoulli-mixing-and-boundary-recovery-for-critical-cusp--f3ad9f80a7b5",
+          "Literature lookup for weak cusp endpoint invariant density and Sobolev regularity (irrelevant results)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d55fbcbd710b and f3ad9f80a7b5",
+        "arXiv:2610.23180v1",
+        "arXiv:2608.26969v1",
+        "arXiv:2505.17462v1",
+        "arXiv:nlin/0106039v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General BV theory supplies a regularity framework but not a positive h(c) or an exact endpoint power.",
+          "The W^{1,p} exclusion for a deterministic map follows from the already-covered positive power by the same trace estimate, even though the indexed theorem only states the W^{2,1} consequence."
+        ],
+        "reasoning": "Do not credit the deterministic corollaries as new. For several genuinely different active cusps one still has to establish continuity and positivity of the common stationary density to use the weighted inverse-branch law; the prior deterministic and critical statements do not supply that implication.",
+        "searches": [
+          "d55fbcbd710b, Finding and scope",
+          "arXiv:2610.23180v1, Proposition 4.2 and BV background",
+          "f3ad9f80a7b5, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed deterministic theorem gives exactly the same F and limit after beta=alpha-1, theta=vartheta; its scope explicitly does not include random compositions.",
+          "Critical-cusp Proposition 4.2 uses beta=-1/2, not the open weak-cusp interval."
+        ],
+        "reasoning": "A change of exponent notation yields actual overlap at one active map, not a change in substance; Bernoulli averaging of transfer operators is not averaging of their invariant densities.",
+        "searches": [
+          "Resultary weak cusp invariant density / endpoint exponent / Bernoulli mixture comparisons",
+          "2026/11/8/SCOPE-sharp-invariant-density-cusp-exponent-above-the-critical-sobolev--d55fbcbd710b",
+          "arXiv:2610.23180v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The deterministic indexed finding gives the exact positive endpoint limit and W^{2,1} obstruction; the critical mixture finding concerns square-root maps and a different boundary-jet problem."
+        ],
+        "reasoning": "This is a continuum theorem, not a finite numerical table. The closest indexed exact formulas must still be compared: they cover the one-active-map exact coefficient but not the nontrivial mixture coefficient. Catalogue dates do not decide priority.",
+        "searches": [
+          "Resultary weak-cusp and critical-mixing theorem searches; indexed records d55fbcbd710b and f3ad9f80a7b5"
+        ]
+      },
+      "rationale": "The deterministic endpoint law and loss of W^{2,1} are directly covered by a distinct indexed record; no independent novelty or priority is credited for that specialization. The credited difference is the finite weak-cusp Bernoulli law for the actual common stationary density (including its positive weighted coefficient), with the first-derivative Sobolev exclusion including the borderline. The deterministic statement does not imply this genuinely mixed law, and the critical mixture result has a different exponent and regularity. Decision is best-of-knowledge, not a priority determination.",
+      "residual_risks": [
+        "Overlap on the deterministic subcase is established, but the historical relationship of records is not.",
+        "Broader density-singularity literature may use other terminology; the targeted outward search was unproductive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact deterministic coverage; no genuinely mixed result",
+          "evidence": [
+            "Limit 2h(1/2)/[(1+beta)A^{1/(1+beta)}] and exclusion from W^{2,1}. Scope excludes general random compositions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-invariant-density-cusp-exponent-above-the-critical-sobolev--d55fbcbd710b/RESULT.md",
+          "material_read": "Finding, assumptions, endpoint and Sobolev proof passages, offsets 0 and 4790",
+          "method": "Resultary index and local mirror (36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Sharp invariant-density cusp exponent above the critical Sobolev threshold",
+          "trigger": "Exact weak-cusp power match"
+        },
+        {
+          "assessment": "Related but different exponent and conclusion",
+          "evidence": [
+            "Two critical square-root maps, W^{2,1} mixing, boundary-jet recovery."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-global-bernoulli-mixing-and-boundary-recovery-for-critical-cusp--f3ad9f80a7b5",
+          "material_read": "Finding and scope",
+          "method": "Resultary index and local mirror",
+          "title": "Global Bernoulli mixing and boundary recovery for critical cusp maps",
+          "trigger": "Same mixture setting"
+        },
+        {
+          "assessment": "Critical case only",
+          "evidence": [
+            "beta=-1/2; W^{2,1} invariant density in the critical family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23180",
+          "material_read": "Abstract and §§3–4, pp. 1, 3–4; Proposition 4.2",
+          "method": "OA PDF passages",
+          "title": "Critical cusp cancellation and analytic response for a Bernoulli random interval map",
+          "trigger": "Same family at the critical threshold"
+        },
+        {
+          "assessment": "Stated response and Sobolev range disjoint",
+          "evidence": [
+            "-1<beta<-1/2 in the stated spectral result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.26969",
+          "material_read": "Abstract p. 1 and example family §4, pp. 22–23",
+          "method": "OA PDF passages (access obtained)",
+          "title": "Linear response for random systems with a cusp",
+          "trigger": "Potential stronger mixed-family theorem"
+        },
+        {
+          "assessment": "Different cusp exponent conditions",
+          "evidence": [
+            "beta<(1-2p)/(2p), p>1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.17462",
+          "material_read": "Assumptions and Theorem 1.1, pp. 2–3",
+          "method": "OA PDF passages",
+          "title": "Linear response for systems with a cusp",
+          "trigger": "Possible broader deterministic theorem"
+        },
+        {
+          "assessment": "Different formula and density",
+          "evidence": [
+            "The explicit density applies to that paper's distinct family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/nlin/0106039",
+          "material_read": "Map and density construction, pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "Resonances of the cusp family",
+          "trigger": "Possible explicit invariant-density coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and proof",
+        "Critical-cusp Proposition 4.2",
+        "Deterministic Resultary comparison d55fbcbd710b"
+      ],
+      "rationale": "The positive asymptotic for actual mixed stationary densities rules out transferring the strong/critical W^{2,1} approach intact to the weak-cusp side. The critical-inclusive W^{1,p} exclusion and endpoint mass coefficient are usable quantitative constraints rather than a regularity observation about an arbitrary trial input. No value is attributed to a new deterministic priority claim or to a sharp two-sided Sobolev classification.",
+      "residual_risks": [
+        "Does not prove response failure or describe regularity below the exclusion threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: strict convex-order shear laws
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes each generator length and uses independent arclength- or area-uniform endpoints. In both models the joint coordinate law has independent coordinate-reflection symmetries. Accordingly the squared interpoint distance has the exact representation \(A+cJ\), with the pair \((A,J)\) invariant under sign reversal of \(J\). Conditional symmetric convexity yields convex order for all continuous convex tests; strictness follows from positive probability of a nonzero cross-term. The curvature deficit is integrated exactly from \(\mathbb E J^2\) and is attained for quadratic tests. The moment-exponent reversal follows from the strict convexity/concavity of \(z^{p/2}\). The collinear boundary density was counted explicitly and integrated. The independent rational checker reproduced both sampling laws' second and fourth moments and the curvature coefficients; experiments are not used to prove the universal theorem.
+PASS
 
-## Originality — PASS (subject to historical priority)
+For fixed half-sides, the coefficient law is independent of c: constant Jacobian in area, and ordered side weights a/(2(a+b)), b/(2(a+b)) on the boundary. Separate coordinate reflection makes J=2ab ΔW ΔV symmetric conditional on the diagonal contribution D and |J|. With θ=(1+c1/c2)/2, each D±c1|J| is a convex combination of D±c2|J| with exchanged weights. Strict Jensen applies on |J|>0, which occurs almost surely in area and with positive probability on opposite parallel edges in the boundary model. Direct second moments give the two c-independent means. Subtracting mz²/2 from the test function gives the deficit (m/2)(c2²−c1²)E[J²] by convex order; the two E[J²] values follow from E[(ΔW)²(ΔV)²]=4/9 in area, and 2E[W²V²]+2E[W²]E[V²]=4/3+8ab/(9(a+b)²) on the boundary. Quadratic tests attain equality. I separately checked these slopes by tensor three-node Gauss–Legendre integration over the side-pair and area-pair coordinates (polynomials of degree at most four per coordinate); at (a,b)=(2,1) the slopes of E[Z²] versus c² were 7.1111111111 and 24.4938271605, respectively. On collapse, each of the two boundary routes from −(a+b) to a+b projects monotonically, with common arclength density; the resulting uniform law yields the stated triangular difference density and moment formula. Nonattainment of extremal needle values pertains to p≠2; p=2 is explicitly constant in the Finding. The supplied script was inspected, not run.
 
-The 2026 Tokmachev paper compares boundary and interior samples of the same fixed body, not different shear parameters at fixed generator lengths. Existing full-text published mathematical results provide a fourth-chord ratio and a one-point radial convex order; neither contains the asserted full two-point chord convex order. The accessible same-topic historical rectangle mean-distance result changes aspect ratio at a right angle, not the angle at fixed sides. The squared fourth-moment identities are prior-known consequences and are not asserted as new. Exact claim/implication comparisons and source inspection are detailed in AUDIT.json. Older unindexed sources remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result simultaneously settles the full all-convex-test angular behavior of two natural random-chord models for every aspect ratio and every angle, identifies a sharp phase reversal for all positive power moments, gives sharp quantitative convexity moduli, and isolates the universal collinear endpoint law. Unlike a single moment calculation, convex order controls every convex statistic of squared random interpoint distance and has immediate consequences for sampling energies and geometric shape comparison. The full scope is not inferred from a finite sample and does not assert a statement for all convex bodies.
+The supported distinct claim is the fixed-side angular convex ordering of the squared two-point distance, in both sampling models, including strictness and its quantitative deficit. Prior fourth-moment formulae are not novel, and the exact quadratic deficit uses that moment information together with the new order. The sharp boundary mean/perimeter lower bound 1/6 and a needle limit realizing sharpness are already known; credit here only the fixed-side shear mechanism and full limiting law and power moments, not the bare 1/6 bound.
 
-## Limitations and context
+## value
 
-Only Euclidean parallelograms with fixed positive side lengths and two independent uniform samples are covered. No independence of historical priority, no extension to arbitrary quadrilaterals, and no global stochastic ordering of distances is asserted. Sources include Tokmachev (arXiv:2607.08869v1), the published fourth-chord parallelogram result, and the published radial convex-order parallelogram result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A comparison of full laws answers a more informative geometric question than one or two moments: the equal-mean squared chord becomes more dispersed for every fixed-side shear, both in area and on the boundary. It explains the complete reversal at p=2 with strict extrema and sharp quantitative control. The distinction from varying aspect ratio or switching sampling measures matters for using the result in shape comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

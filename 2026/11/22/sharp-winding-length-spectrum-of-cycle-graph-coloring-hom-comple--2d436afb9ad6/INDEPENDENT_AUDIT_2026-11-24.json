@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:42:03.662342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41",
+        "Frozen cycle_recoloring_systole_verify.py and VERIFICATION.md, inspected, not run"
+      ],
+      "rationale": "Independently reconstruct the cover. Encode each coloring by f(0) and its r minus edges. A nontrivial recoloring requires equal neighboring colors, swaps the two opposite steps, and contributes +2 to f(0) precisely for a positive crossing of the cut (−2 in reverse). Any active coordinate has at most two colors and two adjacent active coordinates would require a K2,2 in C_n; thus the cubes are exactly simultaneous moves along disjoint closed particle edges. Projection forgetting f(0) is a covering: every move and every independent family of moves lifts uniquely locally from its starting coloring, with the color of 0 changing only for a cut move. Rotation does not stabilize a cell nontrivially (a two-color coordinate has separation 2 and n≥5). For an independent check of the primitive coordinate, lift the ordered particle positions to integers x_1<...<x_r<x_1+m, extend periodically by x_{i+r}=x_i+m, and take the unit cubes whose vertices all obey these inequalities. This covers the quotient particle complex by retaining the cyclic labeling and its unwrapped starting position; all lifts differ by T(x)=(x_2,...,x_r,x_1+m). For comparable feasible x≤y a positive unit path exists: a coordinate still below y that is blocked by its successor at spacing one forces that successor also below y; a full cycle of blocked spacings is impossible because m>r. Two possible first moves can be made in either order and span a square; induction via such diamonds makes all ascending paths with fixed endpoints homotopic. A finite loop admits a common feasible coordinatewise upper bound for all its vertices (a sufficiently large translate of one vertex), and is null by replacing each edge with the paths to that bound. The lifted complex is connected by the same path construction and simply connected. Since sum(Tx)−sum(x)=m, a primitive quotient loop has signed displacement m and one net cut crossing. It preserves target color after L=n/gcd(n,2) repetitions; cover components are the monodromy orbits. Each signed edge contributes ±1, so winding q in a component costs at least |q|mL. A monotone path x→Tx has exactly m moves from any basepoint; repeat and reverse as needed. This checks existence, integer powers, optimality, and parity independently of the bundled finite diagnostic or the cited discretization theorem.",
+      "residual_risks": [
+        "Finite BFS evidence is supplementary; the argument covers only the nonmonotone sectors and the standard cubical moves for the stated cycle lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 43–57 describes topology/classification and cover results for cycle targets and discretization of graph particle configurations. Indexed same-day record d22bb1f9c258 addresses component counts and point/circle classification for cycle bouquets."
+        ],
+        "reasoning": "A broader homotopy classification does not preserve edge lengths. An explicit combinatorial cover is closer: to imply the claimed metric directly it must give the relevant directed deck displacement and a shortest or monotone path to it. No such all-sector path statement was established in the available source material.",
+        "searches": [
+          "arXiv:math/0408015 §§2, 5–6",
+          "arXiv:2408.04802, universal covering",
+          "arXiv:0909.5511 Theorem 3.2",
+          "Resultary:d22bb1f9c258"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary:2d436afb9ad6, 57b6b00dbd46, 05782b23a296, d22bb1f9c258 (index)",
+        "arXiv:math/0408015, 2408.04802 and 0909.5511 (targeted retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed homology-module record gives an evaluation-index dichotomy, and the transfer record gives H_1 coefficients. The frozen source cites earlier covers but adds an explicit m-positive-move loop and a stepwise displacement bound (lines 27–37)."
+        ],
+        "reasoning": "The evaluation index can contribute to a lower bound when coupled with local step lengths and evaluations at all vertices, so the primitive period is not counted as wholly new. Exact attainment needs the compatible same-sign motion and cannot be read off from the index or coefficients alone. No verified prior metric formula was found.",
+        "searches": [
+          "Resultary:57b6b00dbd46 and 05782b23a296",
+          "arXiv:2408.04802, universal cover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The returned exact formula is the assigned record 2d436afb9ad6 itself. Distinct record 57b6b00dbd46 describes integral dihedral first homology and evaluation index; 05782b23a296 describes integral transfer and parity cancellation."
+        ],
+        "reasoning": "The metric can be expressed as the minimal number of unit particle moves of signed displacement qmL, or as the deck translation distance in the cyclic integer lift. First-homology ranks and transfer factors are not these distances.",
+        "searches": [
+          "Resultary: exact one-skeleton shortest primitive recoloring loop and winding-length spectrum Hom(C_m,C_n)",
+          "Resultary: exclusion-particle circulation, evaluation parity and covering degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded results gave no distinct exact all-sector spectrum. The frozen comparison at RESULT.md lines 45 and 55 credits agreement of a special family of long cycles, Hom(C_(2s+1), C_(2s−1))."
+        ],
+        "reasoning": "Matching known component cycle lengths on special parameters do not check the other admissible sectors, target parities, or possible shortcuts in higher-dimensional components; no negative inference from an unavailable table is made.",
+        "searches": [
+          "Resultary: shortest recoloring generator, signed displacement and q-spectrum",
+          "Čukić–Kozlov arXiv:math/0408015, special long-cycle examples"
+        ]
+      },
+      "rationale": "Pass concerns the exact metric for all admissible nonextreme sectors and all powers, not the circle topology, target evaluation parity, or cycles in already computed special cases. Known topological/evaluation invariants constrain the possible displacement but do not by themselves provide an optimal monotone realization for every sector. Comparisons with the closest distinct indexed records and cited papers are bounded by the explicit access limits below.",
+      "residual_risks": [
+        "Remote full texts and the closest mirror passage were not retrieved. In particular, incidental stronger combinatorial consequences of the universal-cover paper were not ruled out from its full text.",
+        "The bounded catalogue checks are not historical priority certificates; same-day records are compared for content, without inferring order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known topology and reported matching special cases; full source implications not established",
+          "evidence": [
+            "Frozen RESULT.md lines 43–47 and 55."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408015",
+          "material_read": "Title and frozen account of §§2, 5–6; primary retrieval timed out",
+          "method": "Bounded web lookup and targeted OA PDF requests",
+          "title": "The homotopy type of complexes of graph homomorphisms between cycles",
+          "trigger": "Same spaces; known long-cycle examples"
+        },
+        {
+          "assessment": "Closest broader cover method; absence of incidental sharp-distance coverage not verified",
+          "evidence": [
+            "Frozen RESULT.md lines 47 and 57."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.04802",
+          "material_read": "Frozen relationship statement; targeted primary request timed out",
+          "method": "OA passage requests",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are cycles",
+          "trigger": "Universal-cover construction might also encode a metric"
+        },
+        {
+          "assessment": "Topology ingredient, not by itself a length calculation",
+          "evidence": [
+            "Frozen RESULT.md lines 25–27 and 56."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0909.5511",
+          "material_read": "Theorem 3.2 citation and hypotheses as stated in frozen proof; OA timed out",
+          "method": "Targeted OA request and independent check in the cycle case",
+          "title": "Abrams's stable equivalence for graph braid groups",
+          "trigger": "Discretization ingredient for primitive coordinate"
+        },
+        {
+          "assessment": "Partial coverage by evaluation index and symmetry; no stated metric",
+          "evidence": [
+            "Summary distinguishes odd and even target evaluation index and computes integral H_1 module."
+          ],
+          "identifier_or_url": "Resultary:57b6b00dbd46",
+          "material_read": "Indexed mathematical summary; original mirror request timed out",
+          "method": "Configured Resultary search and mirror passage attempt",
+          "title": "The integral dihedral homology module of cycle-to-cycle graph Hom complexes",
+          "trigger": "Same components, same target parity distinction"
+        },
+        {
+          "assessment": "Homological covering coefficients, not a displacement realization",
+          "evidence": [
+            "Summary concerns induced first homology under graph covers."
+          ],
+          "identifier_or_url": "Resultary:05782b23a296",
+          "material_read": "Indexed mathematical summary",
+          "method": "Configured Resultary search",
+          "title": "Integral transfer and parity cancellation for covering maps of cycle Hom complexes",
+          "trigger": "Same components and winding under coverings"
+        },
+        {
+          "assessment": "Point/circle and count information, not stated recoloring length",
+          "evidence": [
+            "Bouquet-source component classification/counts in the summary."
+          ],
+          "identifier_or_url": "Resultary:d22bb1f9c258",
+          "material_read": "Indexed mathematical summary",
+          "method": "Configured Resultary search",
+          "title": "A product-counted point–circle classification for Hom complexes of cycle bouquets",
+          "trigger": "Distinct same-day cycle-target result with related topology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 27–37, 43–51"
+      ],
+      "rationale": "Single-vertex recoloring is the natural adjacency operation in this complex. The exact filtration by edge length of the fundamental-group classes is not supplied by the rank of that group. An optimal signed circulation resolves every sector, exhibiting why particle density does not enter and why target parity does; this is useful to anyone interested in shortest essential walks rather than only component topology.",
+      "residual_risks": [
+        "No weighted, graph-general, or continuous length claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

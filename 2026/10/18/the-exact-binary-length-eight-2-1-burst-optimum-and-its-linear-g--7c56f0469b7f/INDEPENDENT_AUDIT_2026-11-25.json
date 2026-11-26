@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:58:49.942132Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof; VERIFICATION.md, proof_checker.cpp and verify_independent.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/burst_review_exact.py (standard library, assertions enabled)"
+      ],
+      "rationale": "Independently generated the incidence relation in reverse: for each seven-bit output and each of its seven coordinates, replace that output bit by each of the four binary pairs. Transposition gives exactly the claimed forward channel, including positions at either end. All 256 received sets have eight outputs. The 14-word witness uses 112 different outputs; the XOR span of 21, 79 and 164 produces eight different words with 64 different outputs. An independent integer-mask search rules out 15 without relying on the reported C++ run or on a floating-point optimizer. It splits by the least codeword x, and restricts the rest to words above x that avoid every output of x. In each search state it partitions candidates into classes with a shared received word, so a packing may use at most one member of each class. It branches on taking each next candidate in reverse class order, removes that word from remaining sibling branches, and removes all incompatible inputs when taking it. Fewer live classes than required words makes a branch impossible; otherwise every possible packing follows the branch of its first chosen word in that traversal. The run returned no size-15 packing for all possible least words, visiting 49,429 states. This proves the exact unrestricted maximum 14; binary linear cardinalities are powers of two, so the exhibited dimension three is optimal. The frozen C++ search has a valid analogous coloring/pruning invariant; its node count and the auxiliary MILP are not needed for the independent decision.",
+      "residual_risks": [
+        "This exact computation concerns only binary words of length eight and the fixed adjacent replacement channel, not changes at independent locations, larger lengths or larger alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Zhang yield the packing upper bound 2^7/8=16. Schoeny et al. prove a syndrome-family construction for the same channel without determining either reviewed optimum.",
+          "The length-eight optima 8 (at most one 2-substring edit) and 5 (one deletion and up to one substitution) are for channels allowing additional operations."
+        ],
+        "reasoning": "The wider channels supply feasible codes for the narrower channel, not upper bounds on its optimum. The general packing theorem supplies an upper bound but does not exclude 15 or 16.",
+        "searches": [
+          "Lu–Zhang arXiv:2201.10259v1, Theorem 3",
+          "Schoeny et al. arXiv:1602.06820v2, Construction 5 and Theorems 7–9",
+          "Smagloy et al. arXiv:2005.09352v1, definition p. 2",
+          "Resultary cadcb4698a54 and 49b7ae777343"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.10259v1",
+        "arXiv:1602.06820v2",
+        "arXiv:2005.09352v1",
+        "Resultary 531630cac2ea, cadcb4698a54, 49b7ae777343 and 31ecb6da01be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bound of 16 allows a linear code of size 16; the prior construction theorem proves correctness of its own family, not optimality among arbitrary subsets or binary subspaces.",
+          "The exact channels with broader error sets have smaller feasible-code families; their optima cannot supply the exclusion of 15 in the restricted channel."
+        ],
+        "reasoning": "The independently reproduced size-15 exclusion is the missing upper-bound input. Given the unrestricted result, exclusion of linear size 16 is mechanical; attainment by an eight-word linear code is separately checked. A different channel with the same eight-word size does not resolve the comparison.",
+        "searches": [
+          "Lu–Zhang Theorem 3 at t=2,n=8",
+          "Schoeny et al. Construction 5 and Theorem 7",
+          "Resultary exact statements for 531630cac2ea, cadcb4698a54, 49b7ae777343"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lu–Zhang define the same-coordinate replacement and state equivalence of the (t,1) and (1,t) correcting-code properties.",
+          "The explicit alias lookup produced finite entries for different operations, not a relevant (1,2) exact cell. The indexed 2,1-separating-systems value 10 concerns frameproof codes, not channel correction."
+        ],
+        "reasoning": "The reverse-operation notation at the same transmitted length is a genuine alias of the correcting-code predicate, unlike arbitrary deletions and substitutions or collusion/separation. No equivalent stated exact result was found; the available searches are bounded.",
+        "searches": [
+          "Lu and Zhang arXiv:2201.10259v1, Introduction p. 2",
+          "Resultary: exact binary length-eight code size for a single (1,2) delete-one insert-two burst, dual of (2,1), and linear dimension",
+          "Web: binary (1,2)-burst correcting codes, length 8 or n=8, exact cardinality and deletion–insertion table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact related length-eight entries are 8 for a (3,1) burst, 8 for the larger substring-edit channel, 5 for the deletion/substitution channel, and 4 for two disjoint adjacent pair deletions.",
+          "The alias search also surfaced two-list deletion tables and tandem duplication tables, whose observables or replacement rules differ from the target."
+        ],
+        "reasoning": "Matching the length, alphabet, or one numerical result does not make a table applicable. These records change the output length, allowed edits, or decoding requirement. A same-channel exact table is not verified by these checks.",
+        "searches": [
+          "Resultary: exact binary (2,1) and (1,2) burst maxima, exact length 8 linear or unrestricted",
+          "Resultary 531630cac2ea, cadcb4698a54, 49b7ae777343 and 31ecb6da01be"
+        ]
+      },
+      "rationale": "Prior work already defines this channel, gives correcting constructions and proves the constant ball size and packing bound. The checked prior results and exact tables do not determine the unrestricted optimum 14 and its gap to the exact linear optimum 8. The pass is for those optima and their gap, not the constant size of the balls or existence of channel-specific constructions.",
+      "residual_risks": [
+        "The searches cannot rule out an unindexed exact table, including under the reverse (1,2) notation. The substring-edit comparison rests on the exact local result; the separate article was not recovered in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of channel and packing bound, not either reviewed optimum",
+          "evidence": [
+            "(t,1) and (1,t) correcting-code properties are equivalent.",
+            "|C|≤2^(n−t+1)/(n−t+2), giving 16 at the target parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.10259v1",
+          "material_read": "PDF pp. 1–2 abstract/introduction, p. 6 Theorem 3 (OA offsets 0, 2471 and 28742)",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "t-Deletion-1-Insertion-Burst Correcting Codes",
+          "trigger": "Same channel, general upper bound and dual burst terminology"
+        },
+        {
+          "assessment": "Channel-specific correcting family and applications, not a short-block optimum theorem in the inspected statements",
+          "evidence": [
+            "Theorem 7 proves C₂,₁(n,a,c) corrects the specified burst."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.06820v2",
+          "material_read": "PDF pp. 12–14, Construction 5 and Theorems 7–9 (OA offsets 63511 and 70000)",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Same-channel construction"
+        },
+        {
+          "assessment": "Different deletion size and output length",
+          "evidence": [
+            "A₃,₁(8)=8 for deletion of three adjacent bits and insertion of one."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+          "material_read": "RESULT.md exact profile and channel scope",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Exact binary (3,1)-burst code sizes through length 8",
+          "trigger": "Same length and closest exact burst-size profile"
+        },
+        {
+          "assessment": "Additional edits make its optimum only a lower bound for this restricted channel",
+          "evidence": [
+            "Allows at most one edit of a substring of length at most two by a substring of length at most two; length-eight optimum 8."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-initial-profile-for-binary-2-substring-edit-codes--cadcb4698a54",
+          "material_read": "Local RESULT.md definition and exact profile; separate primary full-text recovery did not succeed",
+          "method": "Resultary and local mirror; DOI/OA availability check",
+          "title": "Exact initial profile for binary 2-substring-edit codes",
+          "trigger": "Exact table for a channel that includes the specified burst"
+        },
+        {
+          "assessment": "Broader errors, not an exact-cell match",
+          "evidence": [
+            "Length-eight maximum 5 allows a deletion and up to one substitution without the adjacency restriction."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343",
+          "material_read": "RESULT.md exact table and scope; Smagloy et al. arXiv:2005.09352v1 p. 2 (OA offset 5386) for the primary channel definition",
+          "method": "Resultary mirror and lawful OA primary passage comparison",
+          "title": "Exact binary one-deletion one-substitution codes at lengths seven and eight",
+          "trigger": "Related deletion-plus-substitution exact table; fixed burst can be realized by adjacent operations"
+        },
+        {
+          "assessment": "Different number of events and net deletions",
+          "evidence": [
+            "Two disjoint adjacent-pair deletions produce four-bit outputs when n=8; optimum 4."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-short-block-binary-two-burst-deletion-codes-and-a-perfect--31ecb6da01be",
+          "material_read": "RESULT.md channel and finite claims",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Exact short-block binary two-burst deletion codes and a perfect length-nine construction",
+          "trigger": "Exact binary table with 'two-burst' alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and explicit witnesses",
+        "Lu–Zhang Theorem 3 for constant ball size and packing denominator",
+        "Independent exact enumeration above"
+      ],
+      "rationale": "Length eight is a natural short-block benchmark: the constant ball count n means perfect binary (2,1) packing requires n dividing 2^(n−1), hence a power of two. The trivial length-two case is perfect, and 0000 and 1111 are perfect at length four (their distinct outputs have weights at most one and at least two, respectively). Length eight is the next possible perfect length by divisibility. The calculation resolves two concrete issues there: attainable packing is exactly two codewords short of the perfect bound, and linearity further reduces the best size from 14 to 8. The result is useful as an exact benchmark, without extrapolation to other lengths.",
+      "residual_risks": [
+        "Does not give an all-length profile, optimal-code census, or asymptotic bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

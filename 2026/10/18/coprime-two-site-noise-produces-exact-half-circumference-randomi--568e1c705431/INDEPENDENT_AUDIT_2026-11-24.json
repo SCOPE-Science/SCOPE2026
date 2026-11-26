@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:09.668164Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify_rule90.py (inspected, not executed)",
+        "/workspace/review_evidence/reproduce.py, rule90()"
+      ],
+      "rationale": "Iteration is an affine map of 2t independent fair bits, and all fibers of its linear part have equal size. The one-site Krylov basis consists of the center singleton and successive reflection-pair sums: the operator sends each interior pair to its neighboring pair sums (the center contribution cancels), and at the far end the even antipode cancels while the odd last pair contributes to itself. This also covers the n=3 and n=4 boundary cases. Dual vectors are constant on the inversion orbits of residues modulo h=gcd(n,2d) and must vanish on the residues 0 and d. For odd n there is just one fixed inversion residue and d=0 mod h; for even n the second fixed residue h/2 is removed exactly when d is not 0 mod h. This gives the stated deficiency and the coprime iff. In the coprime odd case the two truncated spaces intersect only in constants, which do not appear before the final step. In the coprime even case a common vector is separately constant on the two parity classes and vanishes at the two opposite-parity antipodes, hence is zero. These dimension calculations give min(2t,n), and the single-site basis is always too short. Independent coordinate updates and incremental binary elimination replay via `python3 /workspace/review_evidence/reproduce.py 4`: 21,318 rank-time steps over n=3..40 and 166 exact output-mass checks including noncoprime separations over n=3..8.",
+      "residual_risks": [
+        "The computation is bounded; the argument, not the tests, proves the universal claim. The probability law requires independent unbiased post-update flips and deterministic start as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A finite-field multiagent controllability abstract described a controllability-matrix criterion; no readable theorem was retrieved from that hit. The frozen discussion identifies generic free-self-loop and field-size hypotheses for the Sundaram–Hadjicostis theorem, whose full text was not retrieved. arXiv:2406.16973 concerns MDS and involutory properties of circulants."
+        ],
+        "reasoning": "The general controllability-matrix criterion gives a rank problem, not the evaluation for this fixed zero-diagonal binary cycle. The available evidence does not give a stronger theorem evaluating that rank; inaccessible work remains a risk.",
+        "searches": [
+          "Primary-literature lookup: finite-field circulant fixed-cycle controllability and Krylov rank",
+          "Sundaram–Hadjicostis DOI 10.1109/TAC.2012.2204155",
+          "arXiv:2406.16973"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary sensor record 162c468ed707 and actuator record 5e9a0bd8234b",
+        "Mendonça arXiv:1506.08132",
+        "arXiv:2406.16973",
+        "Frozen RESULT.md bibliography and noted unpublished comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mendonça PDF pp. 2–3 (OA offsets 4223, 6423) studies phase transition with the update x_i XOR x_(i+1) with probability p, otherwise zero. The frozen comparison identifies deterministic Rule 90 structure and characteristic/minimal polynomials in the two other references, whose requisite primary passages could not be retrieved."
+        ],
+        "reasoning": "The noise-law pushforward is standard and not by itself a priority claim. The earlier diluted update does not specialize to this noise-law or two-source rank; knowledge of a characteristic polynomial alone does not determine the positions' joint Krylov rank. No actual earlier implication of the exact arithmetic evaluation was demonstrated.",
+        "searches": [
+          "Mendonça arXiv:1506.08132, local noisy update",
+          "Martin–Odlyzko–Wolfram DOI 10.1007/BF01223745",
+          "Lettieri–Stevens–Thomas DOI 10.1216/rmjm/1181069447"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sensor record's Finding (OA offsets 0, 214) states the invisible-space dimension, coprime two-sensor criterion and exact ceil(n/2) horizon. Its Proof (offset 3785) identifies sensor observation rows with Krylov spaces by symmetry."
+        ],
+        "reasoning": "The two-input reachability rank equals the two-output observability rank because A is symmetric. On two sites the eventual deficiency and first full horizon match exactly, not merely by terminology. The distinct sensor result is dated 2026-10-25 versus 2026-10-18 for the reviewed result. The explicit rank at every earlier coprime time is not stated in that later Finding.",
+        "searches": [
+          "Local Resultary: cyclic Rule 90 static sensors, reachability and characteristic-two controllability",
+          "2026/10/25/SCOPE-exact-rank-deficits-and-optimal-static-sensors-for-cyclic-rule-9--162c468ed707"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index surfaced the exact later sensor match, and the 2026-10-26 real cyclic-shift result 5e9a0bd8234b. In the latter's Finding one of two actuators is randomly selected per step."
+        ],
+        "reasoning": "No earlier exact indexed formula or table was identified. The later real-shift rank census is not an instance of the binary sum-of-shifts dynamics with both noise inputs available at each step.",
+        "searches": [
+          "Local Resultary query for fixed cyclic Rule 90 Krylov rank, sensor rank deficiencies and actuator schedules"
+        ]
+      },
+      "rationale": "The exact deficiency, sharp coprime horizon and complete coprime rank profile survive comparison to verified earlier statements. The striking exact sensor-dual match is from a later dated record, not earlier priority evidence; the earlier stochastic model inspected has a different transition operator. This is a bounded best-of-knowledge decision, not a global priority claim.",
+      "residual_risks": [
+        "Some older full texts were inaccessible; this does not support absence of prior coverage.",
+        "Circulant control or coding literature under other names could contain an equivalent evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact two-site overlap on eventual rank and sharp full horizon, later dated",
+          "evidence": "The invisible space depends on the gcd of sensor separations with n, and observability rows are transposed reachability columns.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-rank-deficits-and-optimal-static-sensors-for-cyclic-rule-9--162c468ed707",
+          "material_read": "Finding and symmetry reduction, offsets 0, 214, 3785",
+          "method": "Local mirror via OA paper",
+          "title": "Exact rank deficits and optimal static sensors for cyclic Rule 90",
+          "trigger": "Exact dual of the two-input rank question"
+        },
+        {
+          "assessment": "Different matrix, field and schedule",
+          "evidence": "A real cyclic shift with one randomly chosen active input per step, measured at horizons qn.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-rank-deficiency-law-and-poisson-threshold-for-random-cycli--5e9a0bd8234b",
+          "material_read": "Finding, dynamics and horizon",
+          "method": "Local mirror via OA paper",
+          "title": "Exact rank deficiency law and Poisson threshold for random cyclic reachability",
+          "trigger": "Index hit for two cyclic actuators"
+        },
+        {
+          "assessment": "Not the stated finite-ring model",
+          "evidence": "With probability p takes one-sided XOR, otherwise writes zero (Rule 102 dilution).",
+          "identifier_or_url": "https://arxiv.org/abs/1506.08132",
+          "material_read": "PDF pp. 2–3, local transition and model aim",
+          "method": "OA paper full text",
+          "title": "The inactive-active phase transition in the noisy additive (exclusive-or) probabilistic cellular automaton",
+          "trigger": "Prior noisy XOR cellular automaton"
+        },
+        {
+          "assessment": "Unresolved primary-text access, not negative evidence",
+          "evidence": "Frozen §Relationship to prior work identifies Theorem 5 as assuming free self-loop weights and sufficiently large fields.",
+          "identifier_or_url": "10.1109/TAC.2012.2204155",
+          "material_read": "Frozen comparison only; no accessible primary theorem retrieved",
+          "method": "DOI and lawful alternate retrieval attempted",
+          "title": "Structural Controllability and Observability of Linear Systems Over Finite Fields With Applications to Multi-Agent Systems",
+          "trigger": "Potential general theorem giving the fixed binary case"
+        },
+        {
+          "assessment": "Primary-text coverage remains unconfirmed",
+          "evidence": "Frozen comparison reports deterministic orbit structure and characteristic/minimal polynomials respectively, not the two-input formula.",
+          "identifier_or_url": "10.1007/BF01223745; 10.1216/rmjm/1181069447",
+          "material_read": "Frozen comparison; Springer and Project Euclid primary copies not readable in this search",
+          "method": "OA retrieval attempts and bounded scope review",
+          "title": "Algebraic Properties of Cellular Automata; Characteristic and Minimal Polynomials of Linear Cellular Automata",
+          "trigger": "Deterministic Rule 90 algebra may underlie the rank calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Later dual observability comparison 162c468ed707"
+      ],
+      "rationale": "The natural two-site randomization question asks for both the obstruction and the first full-support time, not just eventual existence. The orbit formula quantifies every obstructed separation, including parity-dependent defects, and the rank profile shows exact saturation of the information-theoretic bound in the unobstructed cases. These results are directly useful for choosing two sites and a finite update budget.",
+      "residual_risks": [
+        "No value attributed to the standard uniform-image fact in isolation or to unstated results for biased/moving noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

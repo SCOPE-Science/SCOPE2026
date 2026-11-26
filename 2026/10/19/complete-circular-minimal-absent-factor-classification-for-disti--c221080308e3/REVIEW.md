@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** A full-gap \(0\,1^j0\) uniquely identifies a phase because the positive gaps are distinct. This proves the cutoff of three zero symbols in a minimal absent factor; a case analysis with the independent dominance predicate verifies all six families. The disjoint union yields the exact count. Independently constructed periodic factors agreed with the formula for all 152 permutations of consecutive lengths through five gaps and for six irregular test profiles. No finite test is used to infer an infinite theorem.
+## correctness
 
-**Originality (PASS, with risk).** Primary full-text inspection of Fici–Restivo–Rizzo (arXiv:1707.04450) found general circular-antidictionary algorithms and a Fibonacci case but no distinct-gap formula. Primary full-text inspection of Akagi et al. (arXiv:2202.13591) found general RLE enumeration for linear strings rather than this cyclic family. Published-record searches did not identify a covering formula. A prior three-gap classification is subsumed, acknowledged, and excluded from the new part of the claim. There is a residual risk of overlooked run-gap results not indexed by searched databases; no novelty is inferred merely from a search failure.
+PASS
 
-**Value (PASS).** The result is a complete symbolic antidictionary for an unbounded family of circular words, with a uniform structural three-zero cutoff and a precise description of the first sensitivity to gap ordering. The formula works directly with compressed circular gap data and makes the distinction between different cyclic orders explicit. It does not claim a stronger general-purpose algorithm than the established linear-string and circular-word methods.
+The two immediate proper factors of a minimal absent word must occur. If both share one complete gap, that gap's unique starting phase aligns the occurrences and forces the proposed word to occur. Four zeros always leave a common complete gap, and three zeros with either nonempty exterior run do too. With exactly three zeros and no exterior runs, the two proper factors require x,y in S, y≤s(x), x≤p(y), and absence is y≠s(x). For two zeros, a missing full gap is minimal exactly when both shortened runs are allowed (including 00); for an existing gap, both nonempty exterior runs are forbidden by the common anchor, and the one-sided overrun must exceed its allowed run by exactly one with its other proper factor tested by dominance. One zero has a dominance test on both immediate deletions, with only positive flank lengths capable of minimal absence. Zero zeros gives 1^{M+1}. The disjoint cardinality formula follows. An independent literal periodic-language scan checks all words up to the safe period-length-plus-one horizon (a longer candidate's proper factors agree on a full period), not a horizon derived from the predicted families. It matched 157 gap profiles (rotation representatives up to six consecutive gaps plus irregular examples) and the 10 versus 11 contrast. Replay python3 /workspace/reviews/evidence/reproduce.py 4.
 
-**Boundaries and risks.** Repeated gap lengths are outside scope. The sharp extremal spread for arbitrary numbers of gaps is not determined. Equivalent results in other terminologies or obscure publications remain possible. Independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact three-gap antidictionary and its cutoff as covered. The supported distinct contribution is the parameter-uniform six-family classification for arbitrarily many distinct gaps and the first cyclic-order dependence. Existing general instance-listing algorithms are also prior.
+
+## value
+
+PASS
+
+The complete symbolic antidictionary exposes which adjacencies and flank lengths force absent words from compressed gap data, uniformly in the number and sizes of gaps. The phase-anchor cutoff and the first explicit order contrast are structural information beyond an algorithm that outputs a fixed instance or the already known three-gap case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

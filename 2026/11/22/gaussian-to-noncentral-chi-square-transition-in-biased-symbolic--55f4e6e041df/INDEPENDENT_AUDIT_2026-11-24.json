@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:00:25.187579Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parseval for ordered histogram squares, with N self-matches subtracted and division by two for unordered pairs, gives the stated collision identity. At fairness the overlap equality constraints are forests of residue chains with exactly k independent constraints; the centering is therefore exact. Translated Walsh supports differ only at boundedly many boundaries. At fairness only a matching translated support has nonzero covariance, yielding unit long-run variance per anchored shape. Near fairness a bounded finitely dependent triangular-array CLT follows by taking independent blocks of growing length o(√N) with fixed separating gaps; the discarded centered rows have variance o(N), and covariance varies continuously in p. Means of the normalized sums are −2θ for singleton supports and vanish for higher degrees. Squaring gives (k−d)/2^{k+1} per shape (half the word-covariance eigenvalue), with one singleton and 2^{d−1} shapes for d≥1. Fourth-power uniform integrability follows by splitting into finitely many independent subsequences and bounding higher moments. The resulting mean and variance, including k=1, agree with (2). Expanding the collision histogram around Nπ leaves a centered quadratic term O_p(N), uniformly in p by the finite-dependence L² bound. The linear score π(W_i) factors over the window; unshared digits give A, shared digits give B, yielding the stated lag covariance. Since B−A²=p(1−p)(2p−1)²>0, the variance is positive for the stated fixed p. For δ→0, with X_j=(−1)^{B_j}, the score is the product of (1/2−δX_j). The centered degree-one terms sum to −kδ·2^{1−k} times the centered digit sum up to O_k(|δ|) endpoints; the sum of higher-degree centered terms has L² size O_k(√N δ²). The centered collision remainder divided by N^{3/2}|δ| vanishes under √N|δ|→∞. The digit CLT, allowing either sign of δ_N, gives (4). Independently obtained exact overlap probabilities matched the 1,364 entries of the fair Walsh-transformed word covariance for k=1,…,5; that is finite consistency evidence, not a triangular-array limit proof. Frozen checker and output inspected, checker not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schnurr–Silbernagel–Ruiz Marín project the ordinal-pattern equality kernel and obtain a fixed-law Gaussian limit with a long-run covariance of its projection; their conclusion uses fixed-law dependence and a different pattern map. The fair full-shift record proves the joint Gaussian limit of all anchored product sums, not just the scalar law."
+        ],
+        "reasoning": "The fixed-bias CLT mechanism is a standard instance of a dependent U-statistic projection or histogram delta method, not a novelty claim. At critical bias, Gaussian-shift/contiguity theory also supplies the abstract noncentral mechanism. The concrete overlap variance and the simultaneous vanishing-bias regime require evaluation for this score and control of a shrinking leading term; they are not conclusions of either inspected fixed-law statement.",
+        "searches": [
+          "arXiv:2410.18726v2 Theorem 4.4 and projected-kernel formula (7)",
+          "Uniform full-shift collision record 0ded5372fff8, Proof offsets 3000–6092"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, and check_results.txt",
+        "Resultary uniform full-shift record 0ded5372fff8",
+        "arXiv:2606.17880v3",
+        "arXiv:2410.18726v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint fair shape limit includes the singleton and hence the Bernoulli likelihood score, up to endpoints. Under a contiguous bias the log likelihood ratio is −2θ times that normalized singleton score minus 2θ² plus o_p(1) under fairness. A standard Gaussian likelihood tilt therefore yields precisely the one-mode shift of (1); existing weights and multiplicities need no new diagonalization."
+        ],
+        "reasoning": "The critical law is a short local-alternative extension of the fair joint theorem, not a new spectral law. The prior uniform theorem plus contiguity does not govern √N|δ_N|→∞, where the laws are no longer contiguous. The fixed-law projection formula gives a covariance series but not its A,B evaluation and cannot be used by substitution to prove convergence at the shrinking scale N^{3/2}|δ_N|. The distinct increment is the evaluated matching of these regimes, with uniform remainder control at the latter scale.",
+        "searches": [
+          "Uniform full-shift collision record 0ded5372fff8, Finding and anchored product CLT in Proof",
+          "arXiv:2410.18726v2 Theorem 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Literal cylinder collisions are the squared histogram, equivalently the equality-kernel U-statistic. The uniform Resultary result is exactly the same statistic for q=2 and θ=0. Baker–Todd instead use distance balls on an interval with a shrinking metric scale."
+        ],
+        "reasoning": "The uniform and histogram formulations are truly equivalent where their fixed fair-input assumptions agree. The distance-scale result is not an equivalent formulation of the literal overlapping fixed-length block event under a varying binary mean.",
+        "searches": [
+          "Resultary: exact non-Gaussian fixed-cylinder pair-collision law for full shifts",
+          "Shared literature query on weighted chi-square limits for overlapping Bernoulli word counts under local bias",
+          "arXiv:2606.17880v3 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 0ded5372fff8 gives eigenvalues (k−d)/q^k with explicit multiplicities for fair q-ary cylinders; its covariance and variance data fully cover the fair row of the present crossover."
+        ],
+        "reasoning": "The exact match must be credited for θ=0 and the covariance spectrum, including its derivation, not treated as a title-only near neighbor. Its theorem has no varying/biased digit parameters, so it is not a table of the leading variance or distribution outside fairness.",
+        "searches": [
+          "Resultary: exact non-Gaussian fixed-cylinder pair-collision law for full shifts"
+        ]
+      },
+      "rationale": "Credit the uniform full spectrum, entire θ=0 law, proof structure, and the standard fixed-law Gaussian mechanism as existing coverage or technique. The surviving contribution is the evaluated bias crossover for overlapping windows: the bias direction in the known spectrum, the exact overlap-dependent biased variance, and a varying-law Gaussian limit outside the local window that matches its quadratic variance degeneration. The central spectrum alone and general fixed-law U-statistic results do not supply this three-regime comparison.",
+      "residual_risks": [
+        "The literature search was bounded and returned no useful closer primary result; there may be an equivalent explicit changing-law calculation in the word-count or local-alternatives literature. No claim of a new CLT method or first noncentral quadratic-form theory is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact central case and underlying joint spectral proof; fixed uniform digits only",
+          "evidence": "One covariance block per anchored decorated pattern, all-ones block divided by q^k; joint identity covariance for the normalized anchored sums.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-non-gaussian-fixed-cylinder-pair-collision-law-for-full-sh--0ded5372fff8/RESULT.md",
+          "material_read": "Finding and anchored-pattern CLT, spectrum and cumulant proof; first passage from offset 0, decisive detail at offsets 3000–6092",
+          "method": "Local mirror source passages",
+          "title": "Exact non-Gaussian fixed-cylinder pair-collision law for full shifts",
+          "trigger": "Identical fixed-cylinder collision statistic at fairness"
+        },
+        {
+          "assessment": "Different event, scale, and conclusion in inspected parts",
+          "evidence": "Counts orbit pairs at small interval-distance thresholds; not repeated fixed cylinder labels under varying Bernoulli bias.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17880",
+          "material_read": "v3 pp. 1–3, abstract and introduction, PDF offsets 0 and 4459",
+          "method": "OA PDF text passages",
+          "title": "Pair Correlation Statistics for Dynamical Systems",
+          "trigger": "Potential equivalence to pair-collision statistics under dynamics"
+        },
+        {
+          "assessment": "Standard fixed-law projection and long-run variance, with a different observable; no stated local or separating bias regime",
+          "evidence": "Theorem 4.4 gives a Gaussian limit with long-run variance of h_1(X_i), the first projection of the ordinal-pattern match kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.18726",
+          "material_read": "v2 pp. 11–12, offsets 32950–37124, Theorem 4.4 and formula (7)",
+          "method": "OA PDF text passage",
+          "title": "Limit Theorems for the Symbolic Correlation Integral and the Rényi-2 Entropy under Short-range Dependence",
+          "trigger": "Potential general coverage by a dependent equality-kernel U-statistic CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same natural recurring-word statistic changes normalization at a scale where weak bias and dependence among overlapping windows both matter. The evaluated crossover identifies which of the prior fair modes carries the signal, gives the correct biased noise level for the actual overlapping design, and justifies a Gaussian approximation when a fixed-bias limit is not uniform enough. Taken together these facts answer a concrete interpretation and scaling question; the fair law or the existence of a fixed-bias CLT alone would not be a valuable new result here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

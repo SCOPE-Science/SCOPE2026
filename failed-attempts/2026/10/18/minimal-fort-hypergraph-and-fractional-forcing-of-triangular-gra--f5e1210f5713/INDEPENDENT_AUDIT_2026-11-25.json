@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:50.718863Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an absent base edge uv, the number of selected neighbors in the line graph is d_F(u)+d_F(v), without double counting. Thus a nonempty edge set is a fort iff it covers all base vertices or has no degree-one vertex. Every edge cover contains a minimal edge cover; such a cover has a degree-one endpoint on every edge and is a spanning star forest. No proper subset still covers all vertices, and a nonempty proper subset, being acyclic and nonspanning, has an isolate and a degree-one vertex. Conversely, a nonspanning fort contains a cycle, which itself is a nonspanning fort with no proper fort subset. Isolated edges have only one realization per pair; larger star components have one choice per center. The exponential formula and the unoriented cycle count give the exact total. A matching or a matching plus a three-vertex star attains the edge-cover minimum; proper triangles exist for n≥4, giving the claimed minimum size. Summing minimum-fort LP constraints over all base permutations gives the exact uniform optimum; Steiner triples partition the base edges and attain the size upper bound on fort packing for the specified orders. The frozen code and outputs were read, not run. The n=7 check draws 80,000 random subsets and conditionally tests the fort ones, not 80,000 guaranteed forts; the exhaustive candidate total includes the empty mask in each board's tally but the code tests only nonempty forts. These reporting details do not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bivariate catalogue result holds for n≥2 and marks the size of every minimal fort",
+          "Cameron et al. give the fort-cover LP framework; Becker et al.'s inspected abstract concerns other listed families"
+        ],
+        "reasoning": "The bivariate statement contains the claimed total; it is not just a general fort-enumeration method. The general LP framework itself does not state the numeric evaluation.",
+        "searches": [
+          "2026/10/13 Resultary Finding, bivariate enumerator",
+          "arXiv:2310.17904 §2",
+          "arXiv:2404.05963 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/13 848b00fdf2ba",
+        "Resultary 2026/10/26 8cde40182533",
+        "arXiv:2310.17904",
+        "arXiv:2404.05963",
+        "DOI:10.1007/s12190-024-02064-w (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set the size marker to 1 in the bivariate EGF: the first term becomes exp(u(e^u−1)−u²/2)−1; the second gives the proper-cycle sum",
+          "The minimum-size formula and transitivity give the LP optimum by uniform weights and orbit averaging",
+          "At the stated Steiner orders, its triples are size-three forts covering the full base-edge set exactly once"
+        ],
+        "reasoning": "The total and minimum are covered; the fractional scalar and the restricted packing equality are direct consequences of already available inputs, not surviving independent structural assertions.",
+        "searches": [
+          "2026/10/13 Resultary Finding and smallest-fort paragraph",
+          "arXiv:2310.17904 Definition 2.3",
+          "Classical Steiner triple system existence and decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13 Resultary Finding identifies all three graph names and gives the same two classes",
+          "Maximum failed forcing size is |V| minus minimum fort size"
+        ],
+        "reasoning": "The catalogue statement is identical after translation to base edges. A scalar failed-forcing value alone would not enumerate the minimal forts.",
+        "searches": [
+          "Resultary: minimal forts of triangular graphs, Johnson J(n,2), line graph of K_n, spanning star forests and proper cycles",
+          "DOI:10.1007/s12190-024-02064-w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives the full bivariate identity and totals 11, 60, 308, 1659 for n=4 through 7; the second independently indexes a matching classification and size count"
+        ],
+        "reasoning": "The first match is exact for all n, not merely a numerical sequence coincidence.",
+        "searches": [
+          "Resultary: exact counts for triangular-graph minimal forts",
+          "2026/10/13 record 848b00fdf2ba",
+          "2026/10/26 record 8cde40182533"
+        ]
+      },
+      "rationale": "The distinct 2026/10/13 Resultary theorem covers the same minimal-fort classification on a broader domain and gives a stronger cardinality-marked enumerator. Its specialization at weight one gives both terms of the frozen total, and its stated smallest sizes agree. The scalar fractional formula follows mechanically from this covered minimum size and vertex transitivity, regardless of the inaccessible Johnson failed-forcing paper. The packing equality at Steiner orders is not stated in the inspected matching catalogue Finding, but it needs no new packing result: use the covered triangle class and minimum size with the classical Steiner triple decomposition and the immediate cardinality bound. No independently valuable non-covered claim survives as a repair. This is statement coverage and implication, not a claim about historical priority.",
+      "residual_risks": [
+        "The original full text of Afzali–Ghodrati–Maimani was not obtained; it could contain more than the cited scalar, but the exact catalogue coverage settles the main claim.",
+        "Catalogue dates are not historical priority certificates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structure and stronger enumerator; no explicit LP or Steiner packing in inspected text",
+          "evidence": "Two identical classes at n≥2; cardinality-graded EGF and smallest sizes stated explicitly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-minimal-forts-of-triangular-graphs-are-spanning-star-forests-or--848b00fdf2ba/RESULT.md",
+          "material_read": "Finding at offset 0; first proof step and follow-on passages through offset 9676",
+          "method": "Local matching-record text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Minimal forts of triangular graphs are spanning star forests or proper cycles",
+          "trigger": "Same graph, structure and enumerator"
+        },
+        {
+          "assessment": "Matching structure and size enumerator",
+          "evidence": "Spanning star forests and nonspanning simple cycles, with their size counts.",
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE-minimal-forts-of-triangular-graphs-a-cycle-star-forest-classific--8cde40182533",
+          "material_read": "Finding, offset 0",
+          "method": "Local matching-record text",
+          "title": "Minimal forts of triangular graphs: a cycle–star forest classification",
+          "trigger": "Second exact catalogue candidate"
+        },
+        {
+          "assessment": "Framework, not direct triangular evaluation",
+          "evidence": "Defines fractional transversal of the minimal-fort hypergraph; orbit averaging then evaluates it from the covered minimum size.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.17904",
+          "material_read": "PDF pp. 4–5, §2 and Definition 2.3",
+          "method": "OA PDF passages",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Underlying fractional parameter and fort containment"
+        },
+        {
+          "assessment": "No match established in inspected material, no full-text exclusion",
+          "evidence": "Abstract names paths, cycles and spiders among analyzed families.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+          "material_read": "PDF p. 1 abstract; literal triangular-graph query found no match",
+          "method": "OA PDF abstract and literal lookup",
+          "title": "On the Number of Minimal Forts of a Graph",
+          "trigger": "Potential prior graph-family counts"
+        },
+        {
+          "assessment": "Unverified attribution and broader coverage; not the basis of failure",
+          "evidence": "Frozen RESULT.md credits the paper for the scalar consequence only; independent textual comparison was unavailable.",
+          "identifier_or_url": "https://doi.org/10.1007/s12190-024-02064-w",
+          "material_read": "Citation only; no original paper passage obtained",
+          "method": "OA DOI and publisher retrieval attempts; no lawful same-paper copy identified",
+          "title": "Failed zero forcing numbers of Kneser graphs, Johnson graphs, and hypercubes",
+          "trigger": "Plausible broader Johnson-graph result, cited for the minimum fort size"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original mathematical content as a whole is substantial for a natural line-graph family: the complete obstruction hypergraph distinguishes structurally different types and supplies a labeled enumerator useful beyond the scalar minimum. These valuable components are covered, however. The two routine optimization consequences by themselves do not provide a valuable narrowed repair under the same standard.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

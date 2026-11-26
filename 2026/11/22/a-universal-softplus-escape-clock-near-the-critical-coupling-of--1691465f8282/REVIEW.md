@@ -1,15 +1,21 @@
-# Scientific review: A universal softplus escape clock near the critical coupling of a Gaussian map
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact invariant-antidiagonal reduction and positive squared-amplitude recurrence are derived from the full map. The unique large root is correctly normalized. A compact-layer reciprocal-increment/Riemann-sum argument gives the softplus derivative, and a monotone comparison integral controls all earlier steps before the moving window. Sending the window boundary to negative infinity completes the argument for all fixed offsets; monotone inversion gives the scaled trajectory statement. The checks in `verify.py` pass, but the proof is analytic and not inferred from computations.
+## correctness
 
-## Originality — PASS within inspected evidence
-Soula et al. (2023) define the map and analyze its numerical basin geometry. The closest exact critical-coupling theorem (public finding f463338d3c52) gives the logarithmic escape rate at the *fixed* boundary, but not detuned first-passage limits. A related earlier same-map finding (483979a4-5fcf-47cd-ac80-e1a8fb37478a) already gives the subcritical antipodal cycle and is excluded from the new claim. Comparisons distinguish the new joint limit from both static conclusions. Unindexed analytical literature remains a priority risk.
+PASS
 
-## Value — PASS
-The near-critical time-to-escape question is physically and mathematically natural because tiny positive detuning changes unbounded dynamics only after an exceptionally long transient. The full softplus function, not only a leading exponent, quantifies the crossover from the Gaussian feedback-dominated regime to linear coupling-driven geometric escape. The result connects a motivated published system and its sharp critical boundary to finite-observation asymptotics without claiming unrelated global dynamics.
+The invariant antidiagonal gives u_{n+1}=u_n(1+h_ε(u_n))², h_ε(u)=2ε+a(u−1)e^(−u), with u_0>2. The increments are at least 4εu_n, so all defined targets are eventually crossed. The zero-detuning contribution is strictly decreasing in h for u>2, giving a unique balance root U>2 and U−log(U−1)=log(a/(2ε)); this gives the stated two-term root asymptotic. Writing λ=4εU, the root relation makes q_ε(U+w)/λ→1+e^(−w) uniformly on compact w. For each fixed layer boundary, increments below it are eventually less than 1 past a sufficiently large fixed cutoff, and below the cutoff the images are bounded; thus the crossing originates within a bounded w-window and has overshoot O(λ). The reciprocal-increment Riemann sum therefore gives the compact layer integral. Before the layer, the fixed-cutoff crossing takes bounded time, and the decreasing lower bound q_0(v)=2av(v−1)e^(−v) supplies 1≤∫_v^{v+q_ε(v)}ds/q_0(s); multiplication of the resulting integral bound by λ gives limsup at most e^(1−L) at U−L. Sending L to infinity yields the clock. Bracket a fixed τ between the limiting clocks of two offsets on either side of log(e^τ−1) to justify the floor-time inverse. No off-antidiagonal or τ=0 assertion follows. Read VERIFICATION.md and verify.py without executing; the finite floating-point checks are supplementary, including the bisection root check, not exact computations or a limit proof.
 
-## Limits
-This is an invariant-antidiagonal theorem for fixed \(a>0\) and \(r_0>\sqrt2\), with exact arithmetic and positive detuning. No claim about arbitrary full-plane initial conditions or finite-parameter uniform error bounds is made. Priority is limited to inspected sources. Numerical tests are supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the positive-detuning joint limit with its entire finite-offset profile. The fixed-critical escape law, the balance-root scale on the opposite side and the underlying coupled map are already known; none of the compared statements determines this clock.
+
+## value
+
+PASS
+
+This determines the actual time dependence across the competition between exponentially small Gaussian drift and positive detuning, rather than merely locating their balance or proving escape. The scale and exact clock allow predictions at fixed offsets or times with no fitted dependence on the gain or fixed starting radius. The result fills a concrete neighboring regime of the known critical law, though only on the invariant antidiagonal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

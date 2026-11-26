@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:44:47.234156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof",
+        "VERIFICATION.md and check_parity.py, inspected without execution"
+      ],
+      "rationale": "For uniform plane-tree shapes, the root decomposition reflects both signed marks on each child subtree and adds a leaf mark only at a singleton root. Write B=F(z;0,0), D=1−B, z=BD and w=1−2B. The first-derivative equations have factor 1+z/D² and give F_s=z and F_t=zD. The second-derivative equations have factor 1−z/D²=w/D and give F_ss=z(1−2z)/w, F_st=zD/w−z² and F_tt=(zD+2z³)/w. Thus for n≥3 the mixed coefficient is half the central binomial coefficient at n−1, i.e. n C_(n−1)/2; the first all-vertex mean is zero. The leaf raw square is n/2+2(n−2)C_(n−3)/C_(n−1), algebraically the stated expression before centering. The Catalan ratios give both variances, with respective linear terms n/2 and 5n/8; the correlation limit follows without a CLT. At n=3 the same extraction includes C_0 and all denominators are nonzero. Both variables are nonconstant for n≥3 (compare the star and the tree with one length-two arm and all other arms of length one).",
+      "residual_risks": [
+        "The supplied finite enumeration for n=3,…,11 is corroboration only; it was not rerun. The all-size replay is the displayed formal derivative calculation, not external certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson's explicit covariance operates on the all-vertex depth-residue vector and includes the plane-tree law, but no leaf indicator. Meir–Moon's cited PDF did not yield extractable text in the available OA routes."
+        ],
+        "reasoning": "The theorem for all vertex residues has no coordinate for the terminal-offspring class and is not an exact mixed-moment statement.",
+        "searches": [
+          "Janson, arXiv:math/0509471 §2.3, Theorem 2.12",
+          "Meir–Moon, On the bipartition numbers of random trees, II, Ars Combin. 51 (1999), 21–31"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and proof",
+        "Resultary e35cdf8704cb, e3ced0125c69, 505642a3ba95",
+        "Chen–Li–Shapiro journal §4",
+        "Janson Theorem 2.12",
+        "Elizalde Table 1",
+        "Chen–Shapiro–Yang §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The journal version gives exactly the equal even/odd vertex totals and the Catalan excess of odd-depth leaves in the edge-count convention; replacing the edge count by n−1 gives the two means. Janson's limiting theorem has no leaf marker."
+        ],
+        "reasoning": "The prior mean formulas and single-residue-vector limit do not fix E[XY] or E[Y²]. The reflected two-mark recursion and its second derivatives supply the missing same-tree information.",
+        "searches": [
+          "Chen–Li–Shapiro, The butterfly decomposition of plane trees, journal PDF, §4 Corollary 4.3 and Proposition 4.4",
+          "Janson, arXiv:math/0509471, Theorem 2.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing the signs as even minus odd shows that parity of the total number of leaves is a different statistic, and an equidistribution is not a same-tree pairing. Elizalde treats individual-depth marginals, not this product."
+        ],
+        "reasoning": "The relevant equivalent would be a joint count or mixed derivative for vertex and leaf counts by depth residue in the same uniform tree, not two separate equidistributions.",
+        "searches": [
+          "Resultary: signed vertex and leaf depth parity covariance for uniform plane trees",
+          "arXiv:math/0503300 §1",
+          "arXiv:2302.05252v3 abstract and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first catalogue hit is the identical e35cdf8704cb record, not separate prior evidence. The distinct hits describe signed leaf imbalance paired with cherry count in full binary trees, and unsigned leaf count paired with the even class in labeled Cayley trees, respectively."
+        ],
+        "reasoning": "Neither different law/statistic supplies the exact measurement here; no independent equivalent entry surfaced in the bounded catalogue comparison.",
+        "searches": [
+          "Local Resultary: exact vertex/leaf depth parity coupling and covariance",
+          "2026/11/22/SCOPE-exact-vertex-leaf-depth-parity-coupling-in-uniform-plane-trees--e35cdf8704cb",
+          "2026/11/8/SCOPE-a-nonzero-residual-cherry-leaf-parity-covariance-in-uniform-cata--e3ced0125c69",
+          "2026/10/18/SCOPE-a-nonvanishing-leaf-parity-covariance-in-uniform-cayley-trees--505642a3ba95"
+        ]
+      },
+      "rationale": "The reviewed distinct result is the exact same-tree mixed moment and leaf-parity variance and the resulting correlation, not the known marginals or the all-vertex parity limit theory. The closest inspected results do not determine these joint statistics under the assigned law.",
+      "residual_risks": [
+        "Meir–Moon full-text comparison is unresolved. Unindexed bivariate enumerations could contain an equivalent mixed derivative; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the means, not the mixed statistic; the numbering is correct in the journal version",
+          "evidence": "The total numbers by vertex parity agree; there are c_(edge count−1) more odd-height leaves.",
+          "identifier_or_url": "https://cfc.nankai.edu.cn/_upload/article/files/6c/0a/8a70749e40e2a1f0c7295f53f2f3/a618af21-3d6f-4af5-8b94-3feb88df9c64.pdf",
+          "material_read": "Journal full-text PDF §4, extraction offset 35650, Corollary 4.3 and Proposition 4.4",
+          "method": "OA search and bounded offset read",
+          "title": "The butterfly decomposition of plane trees",
+          "trigger": "Exact marginal parity identities with same law"
+        },
+        {
+          "assessment": "All-vertex residue vector only",
+          "evidence": "Components count all vertices by depth modulo m, with no degree-zero filter.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0509471",
+          "material_read": "§2.3, Theorem 2.12, PDF p. 8",
+          "method": "OA bounded full-text inspection",
+          "title": "Congruence properties of depths in some random trees",
+          "trigger": "Conditioned GW generalization with explicit depth-residue covariance"
+        },
+        {
+          "assessment": "Related marginals",
+          "evidence": "Individual node/leaf depths, not a joint signed imbalance with all vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05252v3",
+          "material_read": "Abstract and Table 1, PDF pp. 1 and 3",
+          "method": "OA bounded full-text inspection",
+          "title": "On individual leaf depths of trees",
+          "trigger": "Same plane-tree leaf-depth statistic family"
+        },
+        {
+          "assessment": "Different parity statistic",
+          "evidence": "Parity of the number of leaves and an equidistribution with even-level vertex count.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503300",
+          "material_read": "§1, PDF pp. 1–2",
+          "method": "OA bounded full-text inspection",
+          "title": "Parity reversing involutions on plane trees and 2-Motzkin paths",
+          "trigger": "Potential parity equivalence"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of absence",
+          "evidence": "No extractable text was returned.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%2051/volume-51-paper-2.pdf",
+          "material_read": "Bibliography and attempted PDF text retrieval; no decisive passage read",
+          "method": "OA direct and alternate route",
+          "title": "On the bipartition numbers of random trees, II",
+          "trigger": "Simply generated tree bipartitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and first/second derivative formulas",
+        "Chen–Li–Shapiro marginals and Janson all-vertex residue theorem"
+      ],
+      "rationale": "The statistics are natural signed bipartition imbalances before and after restriction to terminal vertices. Exact joint covariance gives a sharp measure of the information retained by that restriction, and the 4/5 least-squares fraction is not fixed by marginal enumeration or an all-vertex CLT. The result is useful as an exact benchmark for joint marked-tree results.",
+      "residual_risks": [
+        "Limited to the uniform ordered-shape law; no joint CLT or universality is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

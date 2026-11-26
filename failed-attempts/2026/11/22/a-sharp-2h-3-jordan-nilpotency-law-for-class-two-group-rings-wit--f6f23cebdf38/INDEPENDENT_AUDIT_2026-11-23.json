@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:24:53.272882Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps (1)–(3); VERIFICATION.md and verify.py inspected, not executed",
+        "Coffey–Hindmarsh–Lettington–Pryce, eqs. (3.55)–(3.56), and independent coefficient and ideal-power checks above"
+      ],
+      "rationale": "On group-basis inputs, centrality gives J_n as the ordered product of the inputs times n−1 central factors 1+s^j. Multilinearity then handles arbitrary finite group-ring sums. Put u=1+s and K=(2,u) in (Z/2^h)[C_4]; every factor lies in K. An independent check of the critical powers uses the fourth-root filter: if C_N(k) is the coefficient of s^k in u^N, then for N>0, 4C_N(k)=2^N+2 Re(i^(−k)(1+i)^N), with i²=−1. At N=2h+1 the coefficients are 2^(2h−1)±2^(h−1), each nonzero modulo 2^h. At N=2h+2 they are 2^(2h) or 2^(2h)±2^h, all zero modulo 2^h. For a mixed generator 2^a u^b of K^(2h+2), if a<h then b=2h+2−a≥2(h−a)+2, so u^b vanishes modulo 2^(h−a); if a≥h the factor 2^a already vanishes. Thus all products of length 2h+3 vanish. At least one commutator is a generator of C_4, since otherwise the derived group would be contained in its order-two subgroup. Repeating the second element of such a commutator gives a length-2h+2 word with precisely u^(2h+1) up to multiplication by group units. Exact characteristic embeds Z/2^h into R and the group-basis coefficients cannot cancel, so the witness survives. Direct binomial coefficient sums independently matched the claimed nonzero power for h=1 through 20; the symbolic argument, not that range, gives the exact index.",
+      "residual_risks": [
+        "Exact characteristic and a central cyclic derived subgroup of order four are required. No statement about noncentral derived groups or arbitrary parenthesizations is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (3.56) gives an exact root-of-unity formula for general modulus n, with no odd-modulus premise on that equation; the later Theorem 3.19 has its own odd-modulus premise. Weisman's valuation inequality, reproduced and generalized by Sun, gives floor((N−2)/2) for modulus four directly.",
+          "Theorem 4.3 of the Jordan paper uses central-factor calculations but its sufficient-index statement assumes elementary abelian derived subgroup, not C_4. Theorem 4.1 supplies a necessary reduction, not the all-h exact tower."
+        ],
+        "reasoning": "The congruence alone is sufficient for the ideal upper bound but not exactness. The general exact residue evaluation is stronger and gives both sides by substitution, so the conclusion does not rest on confusing elementary abelian and cyclic groups.",
+        "searches": [
+          "Coffey–Hindmarsh–Lettington–Pryce, DOI 10.5802/jtnb.985, eqs. (3.54)–(3.57)",
+          "Z.-W. Sun, arXiv:math/0507008, eq. (1.2) and Theorem 1.1",
+          "arXiv:2611.06587v1, Theorems 4.1, 4.3, 5.1 and Corollary 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: exact local match and related Jordan-matrix findings",
+        "DOI 10.5802/jtnb.985, eqs. (3.54)–(3.57)",
+        "arXiv:math/0507008",
+        "arXiv:2611.06587v1",
+        "Repeated-root cyclic and negacyclic codes over a finite chain ring, bibliographic material only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For modulus four the alternating sign is constant within a residue class. Replacing γ with −γ in the source's root-of-unity formula gives 4C_N(k)=2^N+2 Re(i^(−k)(1+i)^N). Immediately, (1+i)^(2h+1)=2^h i^h(1+i) and (1+i)^(2h+2)=2^(h+1)i^(h+1), giving the exact nonzero and zero powers.",
+          "The same even-exponent calculation at h−a eliminates each mixed ideal generator 2^a u^(2h+2−a). Centrality puts all Jordan factors in that ideal, and repeatedly using one generator commutator requires no additional classification."
+        ],
+        "reasoning": "This recovers the entire formula under the frozen hypotheses, including sharpness over any ring of the exact characteristic. It uses an explicit prior evaluation, two direct exponent substitutions, and the standard group-ring reduction. No prior statement with the literal index 2h+3 is asserted.",
+        "searches": [
+          "DOI 10.5802/jtnb.985, p. 402, eqs. (3.55)–(3.56), setting modulus n=4",
+          "arXiv:2611.06587v1, proof of Theorem 4.3, central-factor calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Local search returned the frozen finding itself and unrelated Jordan matrix lifts. The central ideal K equals (2,s−1); s↦−s takes s−1 to −(1+s). The power coefficients are residue-class binomial sums, exactly the Fleck numbers up to signs indexed by the residue."
+        ],
+        "reasoning": "There is an exact reduction, not just a similarity of parameter names: the ideal controls every central factor, a single repeated commutator realizes the pure power, and the order-four residue classes are the same coefficients in the group basis.",
+        "searches": [
+          "Resultary: left-nested Jordan nilpotency, central derived C_4 and characteristic 2^h",
+          "Primary-literature searches: cyclic derived order-four Jordan index; repeated-root cyclic ring augmentation nilpotency; Fleck–Weisman binomial residues modulo four"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The characteristic-two classification gives exact index five on this class. For characteristic not two, Corollary 2.4 and Theorem 5.1 exclude indices through six for central C_4, so the known upper bound immediately yields index seven when h=2.",
+          "No separate Jordan-index table for h≥2 was identified. The exact arithmetic expression covers the higher powers without a table."
+        ],
+        "reasoning": "The characteristic-four statement is not an entry in the low-index theorem, but it is forced by its exclusion and the known valuation bound. Coverage of the rest of the tower is by formula, not by claiming an unobserved table.",
+        "searches": [
+          "Resultary: characteristic-four index-seven central C_4 and exact higher powers",
+          "arXiv:2611.06587v1, Theorem 3.1(4)(i), Corollary 2.4 and Theorem 5.1"
+        ]
+      },
+      "rationale": "The all-h exact index is mechanically implied by the published exact binomial residue-sum evaluation together with the standard class-two Jordan factorization and repetition of a commutator generator. The earlier Jordan paper alone does not state the tower. The decisive comparison is the stronger arithmetic identity, not a keyword match or the mere existence of a general divisibility bound.",
+      "residual_risks": [
+        "The full Goodaire–Polcino Milies 2014 article and the cited repeated-root coding text were not independently available. They may contain stronger or explicit statements; the failure is based on positive arithmetic coverage, not on denied access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_EXACT_ARITHMETIC_EVALUATION",
+          "evidence": [
+            "Equation (3.56) applies to every modulus n and determines the integer cyclic-power coefficients by specialization. Equation (3.54) also records the Weisman congruence."
+          ],
+          "identifier_or_url": "https://jtnb.centre-mersenne.org/item/10.5802/jtnb.985.pdf",
+          "material_read": "Title page; pp. 401–402, Definition 3.18 and eqs. (3.53)–(3.57), OA offsets 127150–132683",
+          "method": "Bounded OA primary PDF passages; checked scope of exact equation against adjacent theorem",
+          "title": "On Higher-Dimensional Fibonacci Numbers, Chebyshev Polynomials and Sequences of Vector Convergents",
+          "trigger": "Potential stronger exact valuation or evaluation of arithmetic alias"
+        },
+        {
+          "assessment": "COVERS_UPPER_VALUATION_NOT_EXACT_WITNESS_BY_ITSELF",
+          "evidence": [
+            "At p=2 and α=2 the bound is floor((N−2)/2) for each signed residue class; modulo four this is the unsigned bound as well."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0507008",
+          "material_read": "p. 2, eq. (1.2) and Theorem 1.1 opening, OA offsets 4950–7588",
+          "method": "Bounded OA original PDF passage",
+          "title": "Polynomial extension of Fleck's congruence",
+          "trigger": "General divisibility bound for the central ideal"
+        },
+        {
+          "assessment": "PARTIAL_JORDAN_COVERAGE_AND_KNOWN_REDUCTION",
+          "evidence": [
+            "Exact h=1 case and exclusion of non-elementary derived subgroups for characteristic not two at indices ≤6; the sufficient theorem has elementary abelian scope; its proof displays central commutator factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06587v1",
+          "material_read": "Corollary 2.4, Theorem 3.1(4)(i), Theorems 4.1 and 4.3 including their relevant proof steps, and Theorem 5.1",
+          "method": "Bounded OA HTML passages; primary PDF scope corroborated for the characteristic-two case",
+          "title": "On Jordan nilpotency of index n in group rings",
+          "trigger": "Same Jordan product, centrality and potential mixed-characteristic classification"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": [
+            "No claim about the contents of an uninspected theorem."
+          ],
+          "identifier_or_url": "ScienceDirect PII S0166218X05002465",
+          "material_read": "Bibliographic result only; full text unavailable",
+          "method": "Checked OA routes for the same paper",
+          "title": "Repeated-root cyclic and negacyclic codes over a finite chain ring",
+          "trigger": "Possible exact nilpotence of the cyclic augmentation or maximal ideal"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope, proof and claimed incremental range",
+        "DOI 10.5802/jtnb.985, eq. (3.56)",
+        "arXiv:2611.06587v1, Corollary 2.4 and Theorems 4.3 and 5.1"
+      ],
+      "rationale": "The exact Jordan index is a natural invariant, and the characteristic-four case would be a useful reference. However, here the apparent new two-adic law is already encoded in the published exact four-residue binomial coefficients. Centrality and a commutator generator transfer the explicit values to the index without a new structural or sharpness obstacle. The frozen claim does not resolve a further case where generator witnesses or higher noncentral commutators create a substantive constraint.",
+      "residual_risks": [
+        "This does not assess the value of a broader classification where the reduction to an attainable cyclic power fails."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

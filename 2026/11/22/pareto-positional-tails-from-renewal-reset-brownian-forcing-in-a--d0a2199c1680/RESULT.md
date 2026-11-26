@@ -2,7 +2,7 @@
 
 ## Finding
 
-Resetting **only the random forcing**, without resetting a harmonically confined particle's position, can produce a stationary spatial law with an exact algebraic tail and divergent variance despite strictly positive trap stiffness. A renewal-clock tail exponent determines an exact spatial-tail exponent and amplitude. The same model has a sharp all-clock stationary-variance principle: among clocks with a prescribed mean, deterministic reset intervals uniquely minimize stationary position variance.
+Resetting **only the random forcing**, without resetting a harmonically confined particle's position, can produce a stationary spatial law with an exact algebraic tail and divergent second moment despite strictly positive trap stiffness. A renewal-clock tail exponent determines an exact spatial-tail exponent and amplitude. The same model has a sharp all-clock minimization principle: among clocks with a prescribed mean, deterministic reset intervals uniquely minimize the stationary positional second moment.
 
 Let the physical parameters satisfy \(D,\mu>0\), and let reset intervals \(T\) be strictly positive, identically distributed, independent of the driving Brownian increments, with mean \(m=\mathbb ET\in(0,\infty)\). At each renewal only the Brownian forcing restarts at zero, while the particle position remains continuous. If, for some \(c>0\) and \(\alpha>1\),
 \[
@@ -21,18 +21,18 @@ In particular, for every \(p>0\), including the boundary value,
 \[
 \boxed{\mathbb E|X|^p<\infty\quad\Longleftrightarrow\quad p<2(\alpha-1).}
 \]
-Consequently the stationary distribution exists for every \(\alpha>1\) but has infinite spatial variance exactly throughout the heavy-tail window \(1<\alpha\le2\).
+Consequently the stationary distribution exists for every \(\alpha>1\) but has an infinite spatial second moment exactly when \(1<\alpha\le2\). For \(1<\alpha\le3/2\) it does not even have a Lebesgue mean, so ordinary centered variance is not defined there.
 
-For **every** positive finite-mean renewal law, not just Pareto-tailed ones, its stationary variance is finite exactly when \(\mathbb E T^2<\infty\), and when finite equals
+For **every** positive finite-mean renewal law, not just Pareto-tailed ones, the extended quadratic spread \(W=\mathbb E X^2\) is finite exactly when \(\mathbb E T^2<\infty\). The stationary position is symmetric, so whenever \(W\) is finite it equals the variance, and
 \[
 \boxed{\displaystyle
-\operatorname{Var}X=
+W=
 \frac{D}{\mu^2 m}\left[
 \mathbb ET^2-\frac{2m}{\mu}
 +\frac{2(1-\mathbb Ee^{-\mu T})}{\mu^2}
 \right].}
 \]
-At fixed \(D,\mu,m>0\), the unique variance-minimizing clock among all positive renewal laws of mean \(m\) is \(T=m\) almost surely. Its exact variance is obtained by substituting that constant into the displayed expression. The variance has no finite upper bound at fixed mean. If \(T_1\) and \(T_2\) have the same mean and \(T_1\preceq_{\mathrm{cx}}T_2\), their stationary spatial variances are ordered in the same direction, strictly when the clock laws differ, allowing infinite values at the upper end.
+At fixed \(D,\mu,m>0\), the unique minimizer of \(W\) among all positive renewal laws of mean \(m\) is \(T=m\) almost surely. Its exact variance is obtained by substituting that constant into the displayed expression. The finite values have no finite upper bound at fixed mean. If \(T_1\) and \(T_2\) have the same mean and \(T_1\preceq_{\mathrm{cx}}T_2\), then \(W_1\le W_2\). For distinct clock laws the inequality is strict whenever \(W_1<\infty\); if \(W_1=\infty\), both spreads equal \(+\infty\).
 
 For the concrete Lomax/Pareto-II clock \(\Pr(T>t)=(1+t/\tau)^{-\alpha}\), \(\tau>0\), the tail coefficient simplifies to
 \[
@@ -47,7 +47,7 @@ At each reset epoch the driving noise \(Y\), *not* the particle position, is res
 \[
 \frac{dX_t}{dt}=-\mu X_t+Y_t.
 \]
-There is no independent thermal noise in \(X\). The renewal clock is independent of all Brownian excursions; the positive intervals are i.i.d. At stationarity, observation is at an ordinary uniformly chosen time, **not** necessarily immediately after a resetting event. Thus the interval containing time zero is length-biased and its age is distributed according to the equilibrium renewal law. The statement applies to the unique stationary augmented process recording position, forcing and renewal age. The spatial marginal exists even where its variance is infinite. The power-tail equivalence requires the stated regularly varying survival with positive asymptotic constant; the variance identity needs no power-tail assumption.
+There is no independent thermal noise in \(X\). The renewal clock is independent of all Brownian excursions; the positive intervals are i.i.d. At stationarity, observation is at an ordinary uniformly chosen time, **not** necessarily immediately after a resetting event. Thus the interval containing time zero is length-biased and its age is distributed according to the equilibrium renewal law. The statement applies to the unique stationary augmented process recording position, forcing and renewal age. The spatial marginal exists even where its second moment diverges. The power-tail equivalence requires the stated regularly varying survival with positive asymptotic constant; the second-moment identity needs no power-tail assumption.
 
 ## Proof
 
@@ -100,7 +100,7 @@ The explicit Gaussian moment is \(\mathbb E|Z|^{2\delta}=2^\delta\Gamma(\delta+\
 \[
 \mathbb E|X|^p=p\int_0^\infty x^{p-1}\Pr(|X|>x)\,dx
 \]
-combined with the positive finite asymptotic constant proves finiteness exactly when \(p<2(\alpha-1)\), including divergence at the boundary. Thus a confining harmonic force cannot make the spatial variance finite for \(1<\alpha\le2\) when only its *driving noise* renews.
+combined with the positive finite asymptotic constant proves finiteness exactly when \(p<2(\alpha-1)\), including divergence at the boundary. Symmetry follows by negating all independent force excursions. Thus a confining harmonic force cannot make the spatial second moment finite for \(1<\alpha\le2\) when only its *driving noise* renews; symmetry and the \(p=1\) boundary together show that both the positive and negative parts have infinite means for \(1<\alpha\le3/2\).
 
 **5. Exact stationary variance for arbitrary renewal clocks.** Let \(C_Y(t)=\mathbb E[Y_0Y_t]\) for nonnegative lag \(t\). If there is a renewal between the observations, their force excursions are independent and have zero mean. Otherwise Brownian covariance is \(2D\) times the earlier age. The equilibrium renewal occupation formula gives, whenever \(\mathbb ET^2<\infty\),
 \[
@@ -116,13 +116,13 @@ Using
 \frac{T^2}{\mu}-\frac{2T}{\mu^2}
 +\frac{2(1-e^{-\mu T})}{\mu^3}
 \]
-proves the variance formula. When \(\mathbb ET^2=\infty\), equilibrium age has infinite expectation. Since \(h(a)\sim\kappa a\), the independent-current-excursion variance \(\mathbb Eh(A)\) diverges, and the cross term with the previous-epoch position has zero expectation under conditional centering; hence \(\mathbb EX^2=\infty\), without unjustified exchange of infinite covariances.
+proves the finite variance formula. When \(\mathbb ET^2=\infty\), equilibrium age has infinite expectation. Since \(h(a)\sim\kappa a\), \(\mathbb Eh(A)\) diverges. Conditionally on \((A,Q)\), the second moment is \(e^{-2\mu A}Q^2+h(A)\), so \(\mathbb EX^2=\infty\) by integration of a nonnegative conditional expectation, without using a covariance of a process that is not square integrable.
 
 **6. Sharp fixed-mean design.** Write
 \[
 g(t)=t^2-\frac{2t}{\mu}+\frac{2(1-e^{-\mu t})}{\mu^2}.
 \]
-Then \(\operatorname{Var}X=D\mathbb Eg(T)/(\mu^2m)\), with extended-real expectation. Its second derivative \(g''(t)=2(1-e^{-\mu t})>0\) for every \(t>0\). Strict Jensen gives a unique global minimizer \(T=m\); ordinary convex-order monotonicity follows. If the second moment is unbounded, the displayed variance grows without bound at fixed mean, realized as a limit through positive two-point laws with an increasingly remote rare interval. No maximizer with finite variance exists.
+Then \(W=D\mathbb Eg(T)/(\mu^2m)\), with extended-real expectation. Its second derivative \(g''(t)=2(1-e^{-\mu t})>0\) for every \(t>0\). Strict Jensen gives a unique global minimizer \(T=m\). For convex order, write \(g(t)=\int_0^\infty g''(u)(t-u)_+\,du\), since \(g(0)=g'(0)=0\). By definition of convex order the call functions \(u\mapsto\mathbb E(T_i-u)_+\) are ordered. Together with nonnegative integration this yields \(W_1\le W_2\). If both spreads are finite and the clock laws differ, the call functions, which determine the laws by their right derivatives, differ on an interval in \((0,\infty)\) by continuity. Since \(g''>0\) there, the inequality is strict. If only the upper spread is infinite, strict inequality is immediate; if both are infinite, strictness is impossible. For instance, let \(U\) have survival \((1+t)^{-7/4}\) for \(t\ge0\), take \(T_1=2+U\), and let \(T_2=T_1+\varepsilon\) for an independent equiprobable sign \(\varepsilon=\pm1\). These clocks are positive, have equal finite means, and conditional Jensen gives convex order. Their laws differ (only \(T_2\) can be less than \(2\)), but both have infinite second moments. Finally, at fixed mean the finite spread can grow without bound through positive two-point laws: put probability \((m/2)/(L-m/2)\) at \(L>m\) and the rest at \(m/2\), and send \(L\to\infty\).
 
 ## Verification
 
@@ -136,12 +136,12 @@ Barkai, Flaquer-Galmés and Méndez, arXiv:2306.13621 (2023), study equilibrium 
 
 ## Limitations
 
-The model is one-dimensional, overdamped and harmonically confined, with independent driftless Brownian forcing excursions, i.i.d. positive renewal intervals, and **forcing-only** resets. The spatial marginal alone is generally not Markov. The exact power-law coefficient needs a genuinely regularly varying interval survival with nonzero asymptotic constant; it is not claimed for arbitrary oscillatory long tails. The variance identity is an extended-real statement, with a finite formula only for finite second waiting-time moment. The all-clock minimizer assumes a fixed mean interval, fixed \(D\), and fixed \(\mu\). No rates of convergence in the extreme-tail equivalent, experimental finite-sample estimator, multi-particle interaction result, or arbitrary nonlinear-trap extension is claimed. Originality is subject to independent publication-priority review.
+The model is one-dimensional, overdamped and harmonically confined, with independent driftless Brownian forcing excursions, i.i.d. positive renewal intervals, and **forcing-only** resets. The spatial marginal alone is generally not Markov. The exact power-law coefficient needs a genuinely regularly varying interval survival with nonzero asymptotic constant; it is not claimed for arbitrary oscillatory long tails. The quadratic-spread identity is an extended-real statement, finite only for finite second waiting-time moment. The all-clock minimizer assumes a fixed mean interval, fixed \(D\), and fixed \(\mu\). No rates of convergence in the extreme-tail equivalent, experimental finite-sample estimator, multi-particle interaction result, or arbitrary nonlinear-trap extension is claimed. Historical priority is subject to the limits of the available literature.
 
 ## References
 
 1. M. Guéneau, S. N. Majumdar, G. Schehr, *Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables*, arXiv:2306.09453, first public 2023-06-15, https://arxiv.org/abs/2306.09453.
 2. E. Barkai, L. Flaquer-Galmés, V. Méndez, *Ergodic properties of Brownian motion under stochastic resetting*, arXiv:2306.13621, 2023, https://arxiv.org/abs/2306.13621.
 3. A. Nagar, S. Gupta, *Diffusion with stochastic resetting at power-law times*, arXiv:1512.02092 (2015), https://arxiv.org/abs/1512.02092.
-4. *Sharp dwell-time noise bounds and trap-spectroscopic recovery for alternating-renewal propulsion*, published mathematical result, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-dwell-time-noise-bounds-and-trap-spectroscopic-recovery-fo--3baa3630f98c.
-5. *Two exact spatial tail exponents for Pareto-driven harmonic first-hit returns*, published mathematical result, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-exact-spatial-tail-exponents-for-pareto-driven-harmonic-firs--909fa6bb7163.
+4. *Sharp dwell-time noise bounds and trap-spectroscopic recovery for alternating-renewal propulsion*, published mathematical result, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-dwell-time-noise-bounds-and-trap-spectroscopic-recovery-fo--3baa3630f98c .
+5. *Two exact spatial tail exponents for Pareto-driven harmonic first-hit returns*, published mathematical result, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-two-exact-spatial-tail-exponents-for-pareto-driven-harmonic-firs--909fa6bb7163 .

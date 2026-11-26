@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:21:31.532812Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–43",
+        "VERIFICATION.md; verify.py; verify_output.txt, lines 1–13",
+        "Myers–Wilf, arXiv:math/0304229v1, Section 4, equation (49)"
+      ],
+      "rationale": "Fix the priority order and the designated positions. The first-appearance order from each student's independent uniform label stream has the required ranking law (prefix a forced s and use only other labels for a designated student's tail). RSD reads through the first available label, so each school's first occurrence assigns it and a later occurrence in a different student's read prefix witnesses incoming envy; earlier students cannot envy a later assignment. Thus the unenvied count equals the singleton count. With no designations the fresh draws together are iid uniforms, stopped on complete collection. With one designation, conditioning on that student's top school leaves the law of the count invariant by school relabeling. With at least two, the first designated move allocates s if it is not already allocated, so s is not last; both designated students probe s and it cannot be a singleton. Generate each ordinary probe by an independent flag (output s with probability 1/n), and on non-s probes draw the next label from a common independent iid uniform reservoir on the other schools. A designated probe is either its forced s or the next reservoir label; this realizes the same conditional transition laws at every revealed history. The reservoir is read exactly up to the first discovery of all its labels, because s is not last, and multiplicities of the non-s labels are unchanged. This proves the fixed-priority claim for all n, including n=2, r=2 with S_1=1. Independent rate-one Poisson clocks give the stated density integral: choose the last type and j−1 already seen exactly once, with the other types seen at least twice at its first-arrival time. For the mean, for any type and maximum T of the other first arrival times, its singleton probability is E[(1+T)e^(−T)]=H_m/m (for m=1 take T=0).",
+      "residual_risks": [
+        "The frozen replay path is python3 verify.py; its recorded 810,521 enumerations are finite and the script pools designations at fixed n,r rather than asserting each conditional mass function separately. The conditional result is established by the proof. Frozen code was inspected, not independently executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang studies two-sided stable matching and assortment with Mallows-distributed rankings; Ortega et al. leave correlated preferences open in the inspected discussion."
+        ],
+        "reasoning": "Neither the mechanism and preference hypotheses of Wang nor the independent uniform theorem cover the common-first model and its ex-post envy statistic.",
+        "searches": [
+          "Resultary: correlated-preference RSD",
+          "arXiv:2603.24526v1, Abstract and Section 3",
+          "arXiv:2603.23385v1, Discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.23385v1",
+        "Resultary record 5179499719b9",
+        "arXiv:math/0304229v1",
+        "arXiv:2603.24526v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day independent-rank result gives the full baseline law, including the part reused here; it does not impose any shared favorite. Myers–Wilf start from uniform iid draws over a fixed alphabet."
+        ],
+        "reasoning": "The new implication needs both an s repetition guarantee and a stopping-rule guarantee for the thinned draws, together with preservation of their uniform conditional laws. None of those shared-favorite statements follows from the inspected baseline theorems without the deletion coupling. Same-day dating is not evidence of priority.",
+        "searches": [
+          "Resultary 2026/11/2 branch ending 5179499719b9, RESULT.md",
+          "arXiv:2603.23385v1, Proposition 3 and Discussion",
+          "arXiv:math/0304229v1, Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed record gives X_n^RSD =d S_n under independent uniform full rankings. Ortega et al. derive H_n in that setting and explicitly pose the correlated-preferences question."
+        ],
+        "reasoning": "Deleting s from the correlated experiment is not equivalent to retaining n uniform coupon types. For n≥2 the laws already have different means. Relabeling accounts for r=1 but cannot condition away shared first choices for r≥2.",
+        "searches": [
+          "Resultary: common-first-choice RSD; correlated-preference RSD; independent-uniform RSD distribution",
+          "arXiv:2603.23385v1, Proposition 3 and Discussion",
+          "Resultary 2026/11/2 branch ending 5179499719b9, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Myers–Wilf already give exactly the mass function and mean, indexed by the coupon alphabet size. The distinct indexed matching result explicitly associates the n-type formula with iid RSD."
+        ],
+        "reasoning": "Existing exact probabilities are credited. Their availability does not identify which coupon parameter governs the common-first assignment experiment.",
+        "searches": [
+          "Resultary: coupon singleton counts; independent-uniform RSD distribution",
+          "arXiv:math/0304229v1, Section 4, equation (49)"
+        ]
+      },
+      "rationale": "Pass the supported distinct claim: two or more forced common-first rankings lower the effective coupon alphabet by one, with the entire fixed-priority unenvied-count law independent of r in that range. The coupon law, independent-preferences baseline, and single-designation relabeling consequence do not constitute new results here.",
+      "residual_risks": [
+        "Nonexhaustive search; the targeted common-first-choice web query yielded no useful hit, which is not evidence of absence.",
+        "An unindexed shared-first-choice coupling could exist. Relative priority of the independent-rank same-day result was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers iid first moment only on the passages inspected, not the common-first reduction",
+          "evidence": [
+            "Proposition 3 gives H_n; Discussion asks what happens when preferences are correlated."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.23385v1",
+          "material_read": "Proposition 3 (offset 15420) and Discussion (offset 19195)",
+          "method": "Bounded OA primary HTML passages",
+          "title": "The Distribution of Envy in Matching Markets",
+          "trigger": "Closest published result on RSD unenvied counts and the correlation question"
+        },
+        {
+          "assessment": "Exact overlap on the iid baseline; distinct same-day record, order not established",
+          "evidence": [
+            "X_n^RSD =d S_n with independent uniform rankings, also comparing deferred acceptance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-distributional-equality-of-unenvied-agents-under-deferred-accept--5179499719b9/RESULT.md",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Distributional equality of unenvied agents under deferred acceptance and random serial dictatorship",
+          "trigger": "Strongest indexed match to the distributional baseline"
+        },
+        {
+          "assessment": "Covers and is credited for the classical coupon probability and mean, not the matching coupling",
+          "evidence": [
+            "Stopped coupon singleton mass function and harmonic mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0304229v1",
+          "material_read": "Section 4, equation (49) and mean (offset 49804)",
+          "method": "Bounded OA primary HTML passage",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Exact target singleton distribution"
+        },
+        {
+          "assessment": "Different matching mechanism, statistic, and preference model",
+          "evidence": [
+            "Two-sided stable matching and Mallows ranking laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.24526v1",
+          "material_read": "Abstract and Section 3, offsets 0 and 7764",
+          "method": "Bounded OA primary HTML passages",
+          "title": "Random Matching Markets with Correlated Preferences",
+          "trigger": "Plausible broader coverage by correlated matching theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and assumptions",
+        "Ortega et al., Discussion"
+      ],
+      "rationale": "A popular school with a guaranteed group of first choices is a natural elementary demand concentration in RSD. The result identifies the exact threshold at two and gives the full unenvied-count law, not just its mean; once the threshold is crossed, every additional designated student leaves the law unchanged. The reduction permits exact probability computations for arbitrary n without enumerating preference profiles.",
+      "residual_risks": [
+        "Does not predict effects of multiple common favorites, general preference correlations or other assignment mechanisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

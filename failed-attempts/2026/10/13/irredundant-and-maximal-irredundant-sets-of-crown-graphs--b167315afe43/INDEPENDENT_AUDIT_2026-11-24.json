@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:39.317687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a selected a_i, self-privacy is J contained in {i}; an external witness b_j must satisfy j not in J, j different from i, and I minus {i} contained in {j}. The symmetric test is exact. Index overlap rules out every extension of a deleted pair. With disjoint nonempty indices there is no self-privacy, hence each side has size at most two. In a mixed triple the singleton needs an unused fourth index; in a disjoint (2,2) the other vertex on the same side supplies the index of an external witness. This proves the types, including the n=3 exception. Irredundance is hereditary. At n>=4 every disjoint mixed pair and triple extends to a (2,2) set, and none of the full sides, deleted pairs or disjoint (2,2) sets extends. At n=3 the full sides and all nine mixed pairs are maximal. The coefficients follow from counting these types; for example the quartic coefficient is binom(n,2)binom(n-2,2) plus the one-sided contribution when applicable. Both scalar invariants and the K_{n,n} comparison follow. Read VERIFICATION.md and verify_irredundance.py without running the frozen code; a separate direct closed-neighborhood enumeration over 3<=n<=7 corroborated both tables and maximality. At n=3 it obtained all-set coefficients 1,6,15,2 and maximal coefficients 9,2 in sizes 2,3; at n=4, (1,8,28,32,8) and 4x^2+8x^4. These bounded checks do not replace the local proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-multipartite result gives the K_{n,n} baseline, not the matching-deletion case. The 1978 paper uses the same ir and IR extrema of maximal irredundant sets.",
+          "The cycle entries cover arbitrary cycle lengths, hence the maximal counts and grading at the crown boundary."
+        ],
+        "reasoning": "Neither foundational definitions nor complete multipartite graphs give the deletion result. The broader cycle tables give the n=3 maximal invariants exactly; the general n>=4 coverage comes directly from the crown entry A290710.",
+        "searches": [
+          "Resultary: all-irredundant-sets-of-complete-multipartite-graphs--cea2cfd82f21",
+          "Cockayne–Hedetniemi–Miller DOI 10.4153/CMB-1978-079-5 §4",
+          "OEIS A286954 and A291044"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification",
+        "OEIS A290710, A289121, A286954, A291044",
+        "MathWorld Crown Graph",
+        "Resultary cea2cfd82f21",
+        "Cockayne–Hedetniemi–Miller 1978"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=4 every non-full one-sided prior type extends on its side; no mixed type other than a deleted pair permits a shared selected index; disjoint types with fewer than two on a side extend to (2,2).",
+          "With n=3, the published total 24 is exhausted by the 15 one-sided subsets, including the empty set, and nine mixed pairs. The cycle table gives the exact grading and therefore ir=2 and IR=3 at that boundary."
+        ],
+        "reasoning": "No new extremal argument is required to read the grading and maximal families from the known object-level types, and the n=3 exception already has exact table coverage. The local witness proof certifies the results but does not remove the overlap.",
+        "searches": [
+          "A290710 Comments; A291044 Example and Formula; A286954 Comments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A290710 lists all one-side selections, all mixed pairs, non-opposing (2,1)/(1,2) and (2,2) types, and the empty set.",
+          "The ordinary 3-crown is the 6-cycle: each of its six vertices has degree two and traversal alternating sides visits all six. OEIS A291044 gives the 6-cycle size-refined maximal polynomial explicitly."
+        ],
+        "reasoning": "The binary 'non-opposing' restriction is disjointness of selected labels across the two sides. Cyclic labeling at n=3 changes no closed-neighborhood or containment predicate.",
+        "searches": [
+          "A290710 Comments for n>3",
+          "MathWorld Crown Graph",
+          "Web: \"maximal irredundant sets\" \"cycles\" graph number C6 polygon OEIS irredundance enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A290710 starts at crown n=3 with 24, then 77, and states size-resolved mixed type counts for n>3.",
+          "A289121 claims crown coverage for n>1 and starts 3,4,5,12 at offset 1, yielding a(3)=5. Its polynomial equals n+6 binom(n,4)+2 for n>=4.",
+          "A286954 has a(6)=11 for cycles. A291044 explicitly gives 9x^2+2x^3 in its row for cycle length six."
+        ],
+        "reasoning": "A289121's stated boundary value is contradicted by both the private-neighbor check and the equivalent cycle tables. This is not evidence that the correct boundary count was previously unknown.",
+        "searches": [
+          "https://oeis.org/A290710",
+          "https://oeis.org/A289121",
+          "https://oeis.org/A286954",
+          "https://oeis.org/A291044"
+        ]
+      },
+      "rationale": "OEIS A290710 already states the entire all-set classification for n>=4 by the same types and their counts, including sizes of every mixed family, and separately lists the all-set total 24 at n=3. The graded enumerator is the size-weighted form of this classification. The n>=4 maximal families follow by one-vertex containment tests directly on those known types and A289121 lists their total. A289121 incorrectly lists 5 instead of 11 at crown order 3, but the correct count and the exact boundary polynomial 9x^2+2x^3 are already published under the equivalent cycle graph in A286954 and A291044. A narrow repair around the discrepancy would therefore be a reconciliation of known tables, not a distinct mathematical finding.",
+      "residual_risks": [
+        "The 1979 Bollobás–Cockayne DOI and 2011 bipartite irredundance PDF did not yield open full text; they may contain broader coverage. The disposition rests on the verified same-object database entries, not access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for the all-set types and n>=4 size enumerator; exact n=3 total",
+          "evidence": [
+            "2(2^n-1) nonempty one-side sets, n^2 mixed pairs, n(n-1)(n-2) mixed triples, n(n-1)(n-2)(n-3)/4 mixed quads, and one empty set"
+          ],
+          "identifier_or_url": "https://oeis.org/A290710",
+          "material_read": "Offset 80 through comments, formula and n=3 initialization; Howroyd comments dated August 2017",
+          "method": "Public HTML passage",
+          "title": "Number of irredundant sets in the n-crown graph",
+          "trigger": "Exact same graph and predicate"
+        },
+        {
+          "assessment": "Same count for n>=4; incorrect n=3 value under its stated definition",
+          "evidence": [
+            "For n>1 the comments identify a(n) with maximal irredundant sets in n-crown; a(n)=(8-2n+11n^2-6n^3+n^4)/4"
+          ],
+          "identifier_or_url": "https://oeis.org/A289121",
+          "material_read": "Offsets 90–1530 and author block 1460 onward",
+          "method": "Public HTML passage",
+          "title": "Maximal irredundant set count for crowns",
+          "trigger": "Exact maximal-set count"
+        },
+        {
+          "assessment": "Direct total 11 at C6 for the same predicate",
+          "evidence": [
+            "At length six the sixth term is 11"
+          ],
+          "identifier_or_url": "https://oeis.org/A286954",
+          "material_read": "Offset 80, sequence, offset and comments",
+          "method": "Public HTML passage",
+          "title": "Number of maximal irredundant sets in the n-cycle graph",
+          "trigger": "Alternate description of the 3-crown"
+        },
+        {
+          "assessment": "Direct grade-by-grade coverage at C6",
+          "evidence": [
+            "Row 6 is 0,0,9,2; the examples explicitly write 9x^2+2x^3"
+          ],
+          "identifier_or_url": "https://oeis.org/A291044",
+          "material_read": "Offset 80 through Example and Formula",
+          "method": "Public HTML passage",
+          "title": "Number of maximal irredundant sets of size k in the n-cycle graph",
+          "trigger": "Size-refined maximals at the exceptional boundary"
+        },
+        {
+          "assessment": "Covers the complete-bipartite comparison but not crowns",
+          "evidence": [
+            "All and maximal irredundant set formulas for complete multipartite graphs"
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-all-irredundant-sets-of-complete-multipartite-graphs--cea2cfd82f21",
+          "material_read": "RESULT.md Finding near offset 539",
+          "method": "Configured search and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All irredundant sets of complete multipartite graphs",
+          "trigger": "Strongest adjacent indexed Resultary finding"
+        },
+        {
+          "assessment": "Definitions, not a crown enumeration in the inspected passage",
+          "evidence": [
+            "Private closed neighborhoods and smallest/largest maximal-set sizes"
+          ],
+          "identifier_or_url": "10.4153/CMB-1978-079-5",
+          "material_read": "§4, printed pp. 463–464, offset 7584",
+          "method": "Lawful open PDF passage",
+          "title": "Properties of Hereditary Hypergraphs and Middle Graphs",
+          "trigger": "Foundational same predicate"
+        },
+        {
+          "assessment": "Unresolved source, not evidence for or against coverage",
+          "evidence": [],
+          "identifier_or_url": "https://www.scielo.cl/pdf/proy/v30n1/art02.pdf",
+          "material_read": "No full text read (HTTP 403)",
+          "method": "Lawful OA attempt",
+          "title": "Bipartite theory of irredundant set",
+          "trigger": "Plausible coverage of bipartite irredundance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The structural description is useful as an exposition, but the size marking is a direct readout of known classes, and maximality is an immediate extension test on those classes. The alternative C6 tables already supply the correct exceptional count and maximal enumerator, leaving no independently useful unknown exact invariant or substantive correction suitable for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

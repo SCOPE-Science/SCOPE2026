@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:00:47.053507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson marking produces independent reset and flip clocks of rates r=λp and κ=λ(1−p). The no-reset backward system has spatial exponents ±√(s(s+2κ))/v; boundedness to the left selects the positive exponent, and only the target-facing mode is required to have boundary value 1 at L. Thus the no-reset hit transform from (0,+v) is φ(s)=exp[−(L/v)√(s(s+2κ))]; κ=0 is ballistic. A trial until hitting or the first reset lasts on average (1−φ(r))/r and succeeds with probability φ(r)>0, giving (1−φ(r))/(rφ(r)). The κ=λ no-reset transform at s↓0 gives an infinite mean; also F_q(p) diverges as p↓0 for each q>0. For a=√(p(2−p)), b=qa, h=(1−p)/(2−p), the derivative has sign h−ψ(b), ψ=(1−e^(−b))/b. Stationarity parametrizes p=(1−2ψ)/(1−ψ) strictly increasing in b>b₀ and q=Q(b). Direct differentiation gives bQ'/Q=1−AD/(BC) with A,B,C,D as in the proof. A/B strictly decreases by the weighted-average derivative of t/(e^t−1); (D/C)'=−A/C²<0. Both factors are positive and H=AD/(BC) goes from infinity to zero with H'<0, so Q has one nondegenerate minimum q_s and diverges at both ends. At fixed p the derivative sign expression strictly increases with q, so relative to the stationary curve it is negative outside the two roots and positive between them. At the fold the derivative has a quadratic zero (the critical q as a function of p has a nondegenerate minimum, and ∂_q(h−ψ)>0), giving a stationary inflection. The upper stationary point is a strict local maximum, never an endpoint tie. Along the smooth lower branch the derivative in p of the objective ratio to p=1 vanishes, and its log derivative in q has sign m(qa)−m(q)<0 with m(z)=z/(1−e^(−z)) increasing. The ratio tends from a value strictly above one at the fold to zero (lower branch O(q²), endpoint exponential), hence crosses exactly once and the switch is discontinuous. The lower b tends to b₀, so q²p→b₀²/2 and F_q(p)/q²→2(e^b₀−1)/b₀². I independently checked the displayed decimal constants by standard-library Decimal bisection in /workspace/branches/replay_telegraph.py (run with python3); q_s=2.9938108746030780388…, q_c=3.7295732243919928885…, p_c=0.1204656388350102878…, objective coefficient 3.0882773047417401791…. These non-interval numerical checks are supplemental; the proof gives exact thresholds by uniqueness, and the frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Majumdar's minimization varies reset rate under its own velocity protocol and fixed reduced target distance. The available Li–Wang–Xu abstract concerns transition-path time and discusses separate reset, reversal and velocity-mark parameters. The 2022 APS first-passage abstract concerns starting-position mixtures, confinement and resetting; its full text was not readable by the attempted routes."
+        ],
+        "reasoning": "General renewal and first-passage transforms can recover objectives but do not prove a global switch on the fixed-sum constraint. Different target boundaries/observable or reset-direction dynamics are material distinctions. Inaccessible full texts do not permit an exclusion of all possible implicit coverage.",
+        "searches": [
+          "arXiv:1808.06450v2 §5 Eqs. 45–50",
+          "DOI 10.1103/xy11-ztd3, finite-interval telegraph transition-path optimization",
+          "DOI 10.1039/D5SM00340G, orientation-reset active Brownian first passage",
+          "DOI 10.1103/PhysRevE.106.044127, first-passage statistics of reset one-dimensional run-and-tumble particles"
+        ]
+      },
+      "checked_sources": [
+        "Di Crescenzo et al. DOI 10.1007/s10955-026-03670-7 OA text",
+        "Evans–Majumdar arXiv:1808.06450v2 OA text",
+        "RSC and APS related records (limited material as specified)",
+        "Resultary c03d7b4691ae and 264e39f8cf09",
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt, and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean is a standard telegraph hit transform with exponential renewal after rate substitution. The large-distance scale is the usual Brownian resetting optimization. The cited model and renewal results do not compare a metastable interior branch with the all-reset boundary at fixed total rate."
+        ],
+        "reasoning": "The familiar integral and renewal machinery implies F_q but not the number and ordering of stationary rates, the unique crossover, or the discontinuity. Those rely on the exact monotonic fold parameter and finite-q objective comparison, not on a change of notation in a separately optimized reset rate.",
+        "searches": [
+          "Di Crescenzo–Iuliano–Verasani §7 comparison with first-passage work",
+          "Evans–Majumdar Eq. 50 optimization and Eqs. 45–46 Brownian limit",
+          "Resultary 264e39f8cf09 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Di Crescenzo et al. identify the Poisson decision clock and θλ reset intensity in the exponential case. Evans–Majumdar distinguish velocity randomization and a reset mark that preserves or reverses current velocity; §5 Eqs. 45–46 give their first-passage mean and Brownian limit."
+        ],
+        "reasoning": "The Bernoulli formulation and two independent clocks constrained by r+κ=λ are equivalent by thinning. Resetting to a fixed +v is not the same as randomizing or reversing the current velocity with a fixed probability, and independently optimizing r at fixed propagation parameters is not optimizing along the fixed-sum line.",
+        "searches": [
+          "telegraph run and tumble first passage resetting initial positive velocity fixed sum total rate tumbling resetting optimal split discontinuous transition mean exp sqrt Masoliver first order",
+          "Di Crescenzo–Iuliano–Verasani DOI 10.1007/s10955-026-03670-7 §§4, 7",
+          "Evans–Majumdar arXiv:1808.06450v2 §§3, 5, 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c03d7b4691ae gives a two-sided stationary law and mean/majority thresholds for the same Bernoulli process. Resultary 264e39f8cf09 optimizes alarm intensity for first passage with finite-speed returns in a slow-return limit."
+        ],
+        "reasoning": "The law/mean-majority thresholds of a stationary position distribution are not first-passage optima; the closer first-passage entry has another protocol and optimization. No inspected entry supplies the exact pair of finite-q fold/coexistence thresholds under this control constraint.",
+        "searches": [
+          "Resultary: Bernoulli resetting telegraph first passage, fixed total decision rate, sharp switch",
+          "Resultary c03d7b4691ae and 264e39f8cf09",
+          "Published first-passage optimization search: fixed sum total rate and discontinuous reset split"
+        ]
+      },
+      "rationale": "The supported advance is the complete finite-distance fold and unique discontinuous global optimum at fixed r+κ for deterministic favorable relaunch, not the Bernoulli telegraph model, standard first-renewal mean or Brownian asymptote. The strongest same-model primary source gives position laws and scaling, not this first-passage optimization. The strongest readable first-passage optimization treats a different reset mark and varies reset rate at fixed reduced target distance. No inspected result implies the frozen fixed-sum phase diagram; full-text access limits are recorded separately.",
+      "residual_risks": [
+        "The detailed results of the 2022 reset first-passage paper and the Li–Wang–Xu and Baouche papers were not independently accessible in full; implicit coverage remains possible and is not ruled out by access failure.",
+        "Other telegraph first-passage transforms and restart formulas can already yield the mean; priority is not asserted for that formula or the familiar Brownian limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process; position laws, moments, stationary behavior and diffusion scaling, not a half-line optimum",
+          "evidence": [
+            "§4 Poisson event clock intensity λ and reset intensity θλ; §7 describes the scope and distinguishes first-passage work"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-026-03670-7",
+          "material_read": "Introduction and §4 (PDF pp. 4 and 11–12 of 42), §7 (pp. 36–37)",
+          "method": "Read the lawful OA text, then compared the clock and observable with the frozen claim",
+          "title": "A Generalized Telegraph Process with Resetting to the Origin Driven by Bernoulli Trials",
+          "trigger": "Same Bernoulli decision protocol in the exponential case"
+        },
+        {
+          "assessment": "Known renewal and Brownian precedents; does not supply the fixed-total-rate favorable-relaunch phase diagram",
+          "evidence": [
+            "Velocity randomization or reversal with probability η at reset; §5 mean and Brownian limit; optimization of the reset rate holding its reduced target parameter fixed"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1808.06450v2",
+          "material_read": "§§3, 6 on the reset protocols (HTML offsets about 15100 and 28000), §5 Eqs. 45–50",
+          "method": "Read alternate lawful OA full-text passages on velocity marks, time objective and independent parameters",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Closest older exact first-passage renewal and reset-rate optimization"
+        },
+        {
+          "assessment": "Reported comparison is a two-dimensional active Brownian orientation-reset model, but detailed coverage not independently excluded",
+          "evidence": [
+            "Frozen prior-work section identifies the different model and observable; not counted as verified whole-text noncoverage"
+          ],
+          "identifier_or_url": "https://doi.org/10.1039/D5SM00340G",
+          "material_read": "Bibliographic result and frozen comparison only; no independently readable full-text passage",
+          "method": "Lawful publisher text attempted; HTTP 403 on both configured routes",
+          "title": "Optimal first-passage times of active Brownian particles under stochastic resetting",
+          "trigger": "Nearby orientation-dependent optimization"
+        },
+        {
+          "assessment": "Transition-path time with multiple control parameters, rather than a demonstrated fixed-budget half-line result; full coverage unresolved",
+          "evidence": [
+            "Abstract reports semianalytical optimization and dependence on γ, α, η; publisher access returned 403"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/xy11-ztd3",
+          "material_read": "Indexed primary abstract only; no independently readable full text",
+          "method": "Compared abstract and attempted lawful primary endpoint on configured routes",
+          "title": "Optimal transition path time of run-and-tumble particles with stochastic resetting",
+          "trigger": "Recent similar-named reset optimization"
+        },
+        {
+          "assessment": "Potential established first-passage formulas, not evidence of prior fixed-sum phase classification on available material",
+          "evidence": [
+            "Abstract mentions hitting L>0, arbitrary starting-position distribution, and free or confined motion"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.106.044127",
+          "material_read": "Indexed primary abstract excerpt only",
+          "method": "Compared the indexed objective; publisher and identified alternate-recovery attempt did not yield a verified readable copy",
+          "title": "First-passage time of run-and-tumble particles with resetting",
+          "trigger": "Earlier one-dimensional first-passage work with a reset clock"
+        },
+        {
+          "assessment": "Uses independent alarms and finite-speed returns; the regime and constrained parameter differ",
+          "evidence": [
+            "Optimizes the alarm rate in a slow-return limit"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-slow-return-criticality-law-for-persistent-telegraphic-s--264e39f8cf09",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Compared controlled rate and return mechanism",
+          "title": "A sharp slow-return criticality law for persistent telegraphic search",
+          "trigger": "Closest catalogue match on optimization of telegraphic first passage"
+        },
+        {
+          "assessment": "Same Bernoulli process, distinct observables; later date alone not relied on",
+          "evidence": [
+            "Stationary two-sided-exponential law and thresholds for position mean versus majority"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-closed-stationary-telegraph-law-and-the-mean-majority-polarity-r--c03d7b4691ae",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Compared stationary position statistics and first-passage objectives",
+          "title": "Closed stationary telegraph law and the mean-majority polarity reversal",
+          "trigger": "Strongest same-model catalogue overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The total-event constraint models a single opportunity clock and exposes an actual design tradeoff absent from varying an independent restart rate. The proof distinguishes onset of a metastable interior solution from its true global crossover, gives both sharp thresholds and the discontinuity, and links the long-distance optimal reset scale to diffusive search. These results answer more than an MFPT evaluation or a sampled optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

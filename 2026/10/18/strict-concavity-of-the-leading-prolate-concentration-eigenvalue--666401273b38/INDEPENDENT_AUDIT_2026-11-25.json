@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:35.268838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The classical simple ordered prolate modes identify the top normalized sinc eigenfunction with the no-node Sturm–Liouville mode. In unweighted Lebesgue normalization F_c^*F_c=(2π/c)K_c; differentiating the sinc kernel gives the cosine kernel divided by π. The finite-Fourier equation at x=1 and Hellmann–Feynman therefore give Λ'=2Λb/c. The smooth simple differential eigenfunction branch in L² is also smooth up to the endpoints, by expressing it as F_c applied to the branch divided by its nonzero Fourier eigenvalue. Its endpoint value does not vanish: if it were zero, pψ'(x)=−∫_x^1(qt²−χ)ψ(t)dt would bound |ψ'| by a constant times the supremum of |ψ| on a short endpoint interval; integrating would force ψ to vanish there. For q=c², differentiating the differential equation gives W'= (x²−m_q)ψ², with W(0)=W(1)=0 by evenness, normalization/mean, and endpoint regularity. The integrand changes sign once, so W<0 in 0<x<1. Thus ∂_q log(ψ_q(x)/ψ_q(1))=−∫_x^1 W/(pψ_q²)>0 for x<1; the quotient has a finite endpoint limit since W vanishes linearly and ψ_q(1)>0. Differentiating the squared normalized ratio integral explicitly gives ∂_q(1/b)>0, not just weak monotonicity. Also 0<χ<=q/3 and the same single-sign-change argument applied to (pψ')' gives ψ strictly decreasing spatially, hence 0<b<1/2. Differentiating Λ' then gives strict concavity for every c>0. Analytical replay: RESULT.md lines 23–61; no required numerical claim. The reported Nyström checks are consistency only and were not replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu–Speckbacher compare concentration for E and an interval I with |I|=|E| at fixed frequency interval Ω. Their displayed Theorem 1.1 does not compare interval optima across products. The Bonami–Karoui opening describes eigenvalue decay and choices of c for truncated PSWF approximation, not a curvature theorem in the inspected statement."
+        ],
+        "reasoning": "An optimizer over set shape at each fixed measure is consistent with any positive or negative curvature in measure. Likewise decay across eigenvalue indices at fixed c is not curvature of the top mode in c.",
+        "searches": [
+          "Abreu–Speckbacher arXiv:2607.19192 Theorem 1.1",
+          "Osipov–Rokhlin ordering and differential spectral results",
+          "Bonami–Karoui arXiv:1012.3881 opening statement and monotonicity/endpoint terms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c548bca48bc",
+        "Resultary 4048bfddff1f (ranked hit only)",
+        "arXiv:1301.1707",
+        "arXiv:2607.19192",
+        "arXiv:1012.3881",
+        "Slepian–Pollak 1961 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known differential/integral correspondence gives the classical first derivative formula, but the sign of Λ'' depends on b(2b−1)+cb'. Even strict log-concavity alone would not give Λ''<0; exponentiating a concave logarithm adds a positive squared logarithmic-derivative term. The proof supplies a strict Wronskian comparison for b' and the bound b<1/2."
+        ],
+        "reasoning": "The derivative normalization and identification of the top eigenfunction are covered background. Neither them nor the strongest accessible related optimization statement implies the strict q-comparison of normalized endpoint amplitudes. An inaccessible classical text is a limitation, not a negative search result.",
+        "searches": [
+          "arXiv:1301.1707 normalization and mode-ordering equations",
+          "arXiv:2607.19192 Theorem 1.1 fixed-measure comparison",
+          "1961 Slepian–Pollak alternate OA retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Osipov–Rokhlin's Q_c is the frozen sinc operator, with top eigenvalue μ_0=c|λ_0^F|²/(2π) rather than λ_0^F itself. Their eigenfunction correspondence and identity imply Λ'=2Λb/c by one differentiation. The indexed detachment result's u_s'(r) is differentiated in the spatial argument at fixed bandwidth."
+        ],
+        "reasoning": "Replacing c by 2πWT is a positive linear reparametrization when one of W,T is fixed; a curvature statement in the Fourier eigenvalue or in q=c² would need extra reasoning. An endpoint spatial slope at fixed bandwidth is not a derivative of the normalized endpoint value along the parameter family.",
+        "searches": [
+          "Resultary strict concavity of leading prolate concentration eigenvalue and endpoint parameter derivative",
+          "Osipov–Rokhlin arXiv:1301.1707 Theorems 1 and 3, equations (28), (31)–(34), (38)",
+          "Resultary 2c548bca48bc Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded searches did not surface an identical self-hit. The nearest inspected indexed Paley–Wiener record computes a small-detachment deficit, not Λ''<0. The related annulus-spectrum hit is in the Bargmann–Fock setting."
+        ],
+        "reasoning": "This is a uniform parameter inequality, not a numeric table value; similar concentration terminology and numerical signs would not establish coverage. The exact-title miss is not evidence of uniqueness.",
+        "searches": [
+          "Resultary frozen title, prolate-concavity wording, and endpoint derivative formula",
+          "Resultary 2c548bca48bc actual Finding; distinct 4048bfddff1f annulus-spectrum hit"
+        ]
+      },
+      "rationale": "The classical eigenfunction correspondence and first derivative identity are inputs, not the distinct result. The actual primary and indexed passages inspected do not give the strict bandwidth derivative of the normalized endpoint amplitude or the resulting strict concavity of the top concentration eigenvalue. Nearby spatial-endpoint, shape-optimization, and eigenvalue-index-decay results have different quantifiers. This bounded pass does not settle exhaustive historical priority.",
+      "residual_risks": [
+        "Classical prolate literature may contain an earlier equivalent monotonicity or curvature inequality; the classical 1961 article did not yield a decisive full-text passage in the attempted copies.",
+        "The indexed and primary comparisons are bounded, not proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact normalization and classical mode correspondence; no curvature comparison in these statements",
+          "evidence": "Q_c=c F_c^*F_c/(2π), eigenvalues μ_n=c|λ_n^F|²/(2π), ordered ψ_n have n interior zeros and correspond to increasing χ_n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1707",
+          "material_read": "pp. 9–10, Theorems 1 and 3, equations (28), (31)–(34), (38), and concentration-mode ordering",
+          "method": "OA PDF bounded passage inspection; keyword locators for concavity terms",
+          "title": "On the evaluation of prolate spheroidal wave functions and associated quadrature rules",
+          "trigger": "Same operator and possible bandwidth inequalities; need ground-state correspondence"
+        },
+        {
+          "assessment": "Same interval concentration profile in a shape comparison, not a bandwidth-curvature result",
+          "evidence": "For fixed Ω, concentration of E is at most that of I of equal measure, without range restriction on |Ω||E|.",
+          "identifier_or_url": "https://arxiv.org/html/2607.19192",
+          "material_read": "Theorem 1.1 and surrounding statement, HTML offsets 3650–6113",
+          "method": "OA HTML locate then bounded passage inspection",
+          "title": "Optimal concentration in the Paley–Wiener space",
+          "trigger": "Closest cited general concentration optimization"
+        },
+        {
+          "assessment": "Different perturbation and derivative variable",
+          "evidence": "Spatial endpoint slope u_s'(r)<0 appears in a small detachment deficit at fixed bandwidth, not the normalized parameter derivative.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-detachment-crossover-for-paley-wiener-concentration--2c548bca48bc/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offset 0",
+          "method": "Resultary search and actual local-mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact detachment crossover for Paley–Wiener concentration",
+          "trigger": "Strongest verified indexed overlap with an endpoint derivative"
+        },
+        {
+          "assessment": "Addresses spectral decay and approximation; no whole-document exclusion asserted",
+          "evidence": "The abstract describes decay of the indexed spectrum and bandwidth choice for truncated approximation, not curvature of the leading eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/pdf/1012.3881",
+          "material_read": "Abstract and opening, text offsets 0–2885; keyword locators for monotone, endpoint and log-concave",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Spectral decay of the sinc kernel operator and approximations by Prolate Spheroidal Wave Functions",
+          "trigger": "Additional same-operator spectral inequalities"
+        },
+        {
+          "assessment": "Classical exact comparison unresolved; alternate primary source supplies the needed correspondence",
+          "evidence": "Archive retrieval timed out and the university copy yielded no extractable passage; no negative inference.",
+          "identifier_or_url": "Slepian–Pollak, Bell System Technical Journal 40 (1961), 43–63",
+          "material_read": "No decisive full-text passage retrieved; bibliographic identification only",
+          "method": "Lawful OA archive, UC Davis copy and DOI route attempted",
+          "title": "Prolate Spheroidal Wave Functions, Fourier Analysis and Uncertainty—I",
+          "trigger": "Classical source could already give a relevant endpoint inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strict diminishing marginal gain across the entire bandwidth range is a meaningful qualitative control of the canonical optimal concentration profile. The Wronskian comparison gives a short structural reason and a stronger strict endpoint-amplitude statement, rather than extrapolating asymptotics, pointwise monotonicity, or numerical checks. The result is expressly confined to the leading one-interval mode.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

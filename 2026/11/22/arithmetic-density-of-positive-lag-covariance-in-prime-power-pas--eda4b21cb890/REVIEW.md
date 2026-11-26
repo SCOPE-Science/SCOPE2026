@@ -1,19 +1,21 @@
-# Scientific review of the positive-lag Pascal-column covariance density
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prime-power Kummer reduction makes the binomial column a repeated integer valuation sequence. Two-point moments follow from compatible prime-power congruences, yielding the exact covariance with the correct carry-over boundary weights. The strictly positive sign count handles the two disjoint adjacent integer multiples of \(p\); equality is eliminated by a valuation obstruction. Summing the exact frequencies of integer valuation strata establishes a natural density (the infinite-tail frequency tends to zero). The floor values stabilize past depth \(a\); replacing them by their real arguments produces the Lambert series with a rigorously bounded error of \(p^{-a-1}\). The checker passed all declared finite tests, which are corroborative only.
+PASS
 
-## Originality — PASS on the inspected literature, subject to priority risks
+Kummer reduces the fixed column to v_p(floor(n/p^a)). For quotients q in [1,K] and fixed c≥0, the frequency of v_p(q+c)≥j is bounded by (1+c/K)p^(−j); summing the square tails and applying Cauchy–Schwarz justifies removing bounded periodic truncation. For a nonzero shift of depth d the incompatible part of the joint threshold sum is exactly p^(−d) times the unshifted second moment. The two translated quotient shifts receive weights (r−u)/r and u/r for h=rt+u. If one shift has depth d≥1, the corresponding weight must exceed p^d/((p+1)(p^d−1)); equality cannot hold because its reduced numerator after multiplication by r has p-valuation a+d, and the denominator is prime to p and >1. Depth infinity likewise has no tie. Counting the two remainder sets gives 2r−1−2c_d, including endpoints, and the valuation layers each have frequency (p−1)/p^(d+1). For d≥a+1 the increment above r/(p+1) is <1/(p+1), hence no floor change. In fact the sign alone is periodic modulo p^(2a+1) since the stabilized threshold includes depth infinity; the covariance need not be periodic. The proof's tail argument does not require periodicity. Replacing c_d by rg_d changes the weighted answer by at most 1/(pr) and the remaining series simplifies to the claimed Lambert sum. All four stated numerical examples agree. The swapped ordering of u and r−u in the tie sentence does not affect the symmetric impossibility argument.
 
-The exact two-point valuation formula is **already accessible from general simple-root joint-valuation intersection methods** and is not the originality claim. The final claim is the density of lag *signs* for every prime and every prime-power Pascal column, followed by a uniform depth limit. Snyder (2023, arXiv:2308.11718) characterizes local valuation trees, without providing the two-stage lag sign-frequency law. Spiegelhofer–Wallner (2016, arXiv:1604.07089) concerns valuation counts within Pascal rows. The relevant prime-power Pascal-column literature discusses one-point densities, not positive-lag sign densities. No equivalent all-parameter formula or stronger explicit lag-density theorem was found in the inspected sources. Unindexed literature and short unstated derivations from the existing local covariance theory are meaningful residual priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A fixed Pascal-column valuation sequence has unbounded spikes and nontrivial arithmetic long-range dependence. The sign of its lag covariance is a natural dynamical/arithmetic invariant that cannot be inferred from its one-point valuation histogram; the new result counts every positive shift, yields a finite exact formula instead of casework at selected lags, and quantifies a nontrivial high-depth limit by a convergent Lambert series. This is a complete two-parameter classification of an intrinsically defined arithmetic statistic, not a sample-size computation.
+Credit the local valuation autocovariance as prior framework, with an exact overlap in the odd-prime case. What survives is the all-lag sign count for the mixture induced by the positive-depth column, including p=2, the finite rational expression and the quantitative Lambert-series limit.
 
-## Scope and limitations
+## value
 
-All primes and all integer exponents \(a\ge1\) are included, and shifts are positive. The result concerns Cesàro index covariance followed by natural density in the shift variable, not finite-window Pearson correlations. Numerical tests do not replace the proof. The full earlier 2001 Barat–Grabner text was not available for inspection, and an equivalent result in broader digit-correlation literature remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign density for a natural family describes how often a random lag reinforces, rather than merely how large an autocovariance can be. Exact residue arithmetic resolves nonvanishing, all finite depths, and a limit with controlled error. This is usable both to classify finite lag residues and to compare columns of different depth; it is not the routine single-valuation correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

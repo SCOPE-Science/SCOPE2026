@@ -1,15 +1,21 @@
-# Assessment of the three-census seed-bank identification theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is proved over all strictly interior \((c,g_0,g_1,d)\in(0,1)^4\), not inferred from simulation. The key ecological premise \(B_{t+1}=Y_t\) follows from the one-year bank rule of the motivating 2013 model. Independence and common disturbance then yield the exact order-two transition table. Algebraic inversion proves global one-to-one recovery and the complete strict feasible-domain inequalities. The four-state stationary pair chain is irreducible; the two-year law depends on only two smooth ratios with differential rank two, proving the sharp failure of two-year identification. An exact-rational checker tested 256 parameter quadruples and symbolic Jacobians. The result requires perfect detection and exact population laws; numerical tests are supplemental.
+PASS
 
-## Originality — PASS within inspected sources, residual historical risk
+On this perfect-detection Markov life cycle with constant immigration, the local one-year bank is Y from the previous census, so successive visible pairs are the states. With u=1−d and w=u(1−c), independence gives q_yz=u−w(1−g0)^y(1−g1)^z. In coordinates (q00,a,b,r) this is (u−w,wg0,wg1,wg0g1), yielding w=ab/r. Positivity of q00, the strict inequalities on r and the upper bound on q00+w are exactly what is needed for 0<w<u<1 and 0<g0,g1<1. Substitution recovers every table entry. The determinant in the listed order is −u w² g0 g1, agreeing with the frozen formula; at g1=0 the lag contrast and determinant vanish. Every pair is reached with positive probability in two steps and the chain has self-loops, so stationary conditional denominators are positive. In the pair law, stationarity imposes pi01=pi10, and flow into 00 and 11 fixes pi01/pi00=q00/(1−q01) and pi11/pi01=q10/(1−q11). Conversely those two ratios and normalization give every pair frequency. Fixing the ratios gives two independent affine constraints in the open table domain, so each interior parameter has a local two-dimensional fiber even though the triple gives all four conditionals. The stationary linear solve and 256 exact rational round trips were independently replayed, including the frozen witness and a distinct witness with the same pair law.
 
-The full accessible principal article (Fréville et al., 2013, DOI 10.1111/1365-2745.12141) introduces the four-state model and discusses HMM fitting and structural nonidentifiability when delayed recruitment vanishes. It does not state the global rational four-parameter inverse, the feasible-table characterization, or the sharp *stationary three-observation law* theorem in its inspected main text. Choquet and Cole (2012) develop generic local identifiability tests rather than these exact statements. The accessible complete Borgy et al. (2015) and Louvet et al. (2021) papers use different longer-lived or survival-based bank models. Manna et al. (2017) report three-year simulated scenario discrimination with 1,000 sites but not this exact universal structural theorem; only its abstract and bibliographic material were accessible. Algebraic noisy-OR inversion is elementary known methodology, not separately claimed as novel. The 2013 supplementary matrix appendix could not be accessed, so an unlocated equivalent formulation remains a genuine risk. Published-finding comparisons did not identify an exact dominating theorem, but absence of such a match does not certify novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The article's core practical mathematical issue is how above-ground surveys distinguish unseen dormancy, colonization, and disturbance. Here a nominal hidden four-state model becomes an *observable* two-step process, giving the precise minimal calendar horizon and an exact admissibility test from four observable conditional probabilities. This is a natural diagnostic and survey-design boundary rather than an arbitrary numerical slice. No claim of small sample error, robustness to patch heterogeneity, or field-ready three-observation estimation is made. Conditioning becomes poor near zero delayed recruitment, supporting the need for substantial replication in practice.
+PASS for the exact global interior inverse, its strict feasible-table characterization and the sharp stationary law horizon with two-dimensional pair-law fibers. Do not credit the observable-state reduction itself, or the idea of using three-year histories, as new: the 2017 follow-up makes both explicit. The accessible likelihood and simulation sections do not establish the surviving exact law-level theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For the constant-immigration ecological model used in real survey methodology, the exact short-horizon distinction matters: the pair law leaves continuous parameter ambiguity, whereas replicated three-census histories can in principle recover the full interior model. The feasible-table inequalities are a concrete diagnostic of compatibility with the assumed life cycle. The result isolates structural limitations and does not assert reliable estimation or that three realized observations suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

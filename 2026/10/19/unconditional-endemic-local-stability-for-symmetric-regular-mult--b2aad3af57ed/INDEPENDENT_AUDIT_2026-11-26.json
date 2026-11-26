@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:18:57.149645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed RESULT.md:18–54. In the homogeneous model, positive A forces S=u/B and I=αA/v. After eliminating R with the population constraint, the S equation yields the displayed positive A exactly when R₀>1; the R balance gives positive R. This proves uniqueness only within the homogeneous endemic class. The disease-free susceptible fraction is (μ+γ)/d; the infected next-generation factor for the constant mode is S_DFE B/u and the row-stochastic contact matrix has spectral radius one, consistent with the stated R₀. Linearizing in S,A,I gives the stated mode block J(q) with g+h=u. For X=z+v and P=(z+u−gq)X−hvq, direct determinant expansion and cancellation give det(zI−J)=(z+d)P+λ[(z+u+γ)X+γα]. Writing t=1−q, P=z²+(h+v+gt)z+vut; this recovers all three coefficients. They are positive for t≥0 including the homogeneous mode t=0 and the bipartite extremal mode t=2. At t=0, c₂>λ(u+γ) and c₁(u+γ)−[vu+γ(α+v)]=(d+λ+h)(u+γ)−γα>0 by d≥γ and u>α. The derivative of c₁c₂−c₃ is the sum of dg c₁(0), g c₂(0), vu(c₁(0)−d) and 2g(dg+vu)t, hence positive. The cubic Hurwitz test is strict in every mode, with no vaccination-versus-recovery restriction. Symmetry gives a complete eigenbasis. If community totals N_i are included as coordinates, their autonomous equations have eigenvalue −μ and make the enlarged Jacobian block triangular, so there are no missing population modes. Hyperbolicity gives local exponential stability for the smooth finite-dimensional model. The supplied VERIFY.py was inspected, not executed: the symbolic check starts from the reduced cubic and the three numerical examples use a single 3-community topology. These checks are ancillary to the exact universal calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Multigroup Theorem 10 needs proportional matrices, both recovery rates above the relevant vaccination rates, and a further inequality. Multigroup Theorem 14 proves global attraction without additional rate conditions for no waning in its setup, including differing stage-specific recoveries and vaccination.",
+          "Multigroup Theorem 15 allows waning but assumes equal recoveries, recovery exceeding vaccination, and (μ_i+ν_i)S_i*≥γR_i*."
+        ],
+        "reasoning": "The no-waning GAS theorem supplies genuine qualitative stability overlap on its domain, though its stated conclusion is not the strict spectral assertion. The two waning results do not cover the joint high-vaccination and unequal-recovery regime even for shared W.",
+        "searches": [
+          "Web: Ottaviano Sensi Sottile Global stability of multi-group SAIRS epidemic models theorem endemic equilibrium vaccination recovery conditions arXiv 2202.02993; Global stability of SAIRS epidemic models arXiv 2109.05122",
+          "arXiv:2202.02993v1, §§4.1, 5.1, 5.2, Theorems 10, 14, 15"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.05122, Theorem 10",
+        "arXiv:2202.02993v1, Theorems 10, 14, 15 and contact assumptions (Theorem 10 passage also located in v2)",
+        "Resultary 45f2bd1d5fd8 and 1a2a3d5aebd2 (matched findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-group theorem settles the constant mode only. Shared W supplies proportionality but does not imply the previous rate inequalities. Waning γ>0 is outside Theorem 14.",
+          "The reviewed proof bounds the Routh–Hurwitz deficit for all t=1−q≥0, including negative q from regular networks with zero diagonal."
+        ],
+        "reasoning": "The full high-vaccination multigroup result with waning is not obtained by substituting homogeneous rates into a previously established sufficient condition. Credit the constant mode and the no-waning stability overlap; the supported advance is the joint all-mode strict estimate in the full stated parameter range.",
+        "searches": [
+          "arXiv:2109.05122 Theorem 10 versus the frozen q=1 block",
+          "arXiv:2202.02993v1 Theorems 10, 14, 15 versus frozen ν≥0, γ≥0 and independent δ_A,δ_I",
+          "Resultary 45f2bd1d5fd8 and 1a2a3d5aebd2, exact findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The homogeneous mode is exactly the Jacobian of the single-population SAIRS model with vaccination and waning. The prior single-population theorem proves local stability when R₀>1 without identifying the stage rates.",
+          "The shared symmetric matrix W gives proportional contact matrices in the multigroup model, but the frozen assumptions do not require a positive diagonal."
+        ],
+        "reasoning": "The model is a specialization, not a new compartmental model. Applying the one-group result to constant perturbations is valid; it does not remove the nonconstant modes, whose eigenvalue enters the transmission derivatives.",
+        "searches": [
+          "arXiv:2109.05122, p. 3 model, p. 10 Theorem 10",
+          "arXiv:2202.02993v1, p. 5 model assumptions and §4.1",
+          "Resultary: SAIRS endemic equilibrium symmetric irreducible row-stochastic matrix network perturbation Routh Hurwitz high vaccination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-model indexed entry, 45f2bd1d5fd8, instead proves disease-free stability at R₀=1, including heterogeneous vaccination.",
+          "Entry 1a2a3d5aebd2 has an unconditional local endemic statement in a different two-stage SIRS model without network W."
+        ],
+        "reasoning": "There is no exact table or finite enumeration underlying the theorem. The precise available indexed stability statements differ in equilibrium, threshold, or model structure and do not cover the modal result.",
+        "searches": [
+          "Resultary: Ottaviano Sensi Sottile SAIRS endemic stability multi-group vaccination condition recovery network heterogeneous modes",
+          "Resultary: unconditional endemic local stability symmetric regular multigroup SAIRS networks high vaccination all network eigenmodes"
+        ]
+      },
+      "rationale": "The distinct contribution is strict local stability in every spatial mode under the shared symmetric regular contact matrix, with common community rates but potentially unequal stage rates, including positive waning and vaccination above both recoveries. The homogeneous mode is prior, and the no-waning multigroup stability case is substantially covered under the prior paper's contact assumptions. The retrieved antecedents do not imply the whole unrestricted-within-family assertion.",
+      "residual_risks": [
+        "The literature and index comparisons are bounded, not an exhaustive priority determination. The one-group antecedent's account of the earlier Ansumali et al. equal-rate model was not independently checked and does not drive the verdict.",
+        "The prior qualitative no-waning overlap is material; this review does not claim all subcases of the broad result are new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior one-community stability result; no spatial modes",
+          "evidence": [
+            "Theorem 10 establishes local asymptotic endemic stability when R₀>1 without stage-rate equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.05122",
+          "material_read": "Model, p. 3 (offset 9800); Theorem 10, p. 10 (opened at offset 33300); first-version date on p. 1",
+          "method": "Primary OA PDF, stated model and theorem comparison",
+          "title": "Global stability of SAIRS epidemic models",
+          "trigger": "Same model with one community, relevant to the homogeneous mode"
+        },
+        {
+          "assessment": "Material no-waning overlap and conditional local or global results with waning; no all-mode unconditional theorem for the reviewed family in these passages",
+          "evidence": [
+            "Theorem 10 adds vaccination and further inequalities; Theorem 14 assumes no waning; Theorem 15 assumes equal recovery and further thresholds. The contact setup has positive diagonals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02993v1; DOI 10.1002/mma.9303",
+          "material_read": "Contact assumptions p. 5 (offset 17400); §4.1 Theorem 10 p. 12 (44684; v2 match 44928); §5.1 Theorem 14 pp. 14–15 (55000, 57474); §5.2 Theorem 15 p. 18 (73800)",
+          "method": "Primary OA PDF passages, hypotheses and conclusion check",
+          "title": "Global stability of multi-group SAIRS epidemic models",
+          "trigger": "Exact multigroup antecedent; possible dominating endemic theorem"
+        },
+        {
+          "assessment": "Disease-free critical-threshold result, not endemic local stability",
+          "evidence": [
+            "The stated equilibrium is disease-free at R₀=1."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11, 45f2bd1d5fd8, RESULT.md",
+          "material_read": "Finding (mirror offset 0)",
+          "method": "Local published-source mirror",
+          "title": "Critical-threshold extinction with heterogeneous vaccination",
+          "trigger": "Closest indexed SAIRS vaccination result"
+        },
+        {
+          "assessment": "Different two-stage SIRS model without a network mode parameter",
+          "evidence": [
+            "There is no shared contact matrix W or heterogeneous spectral decomposition in the stated model."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12, 1a2a3d5aebd2, RESULT.md",
+          "material_read": "Finding (mirror offset 0)",
+          "method": "Local published-source mirror",
+          "title": "No local bifurcation of the two-stage endemic equilibrium",
+          "trigger": "Closest indexed unconditional endemic local-stability statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates an exact structural network-stability question from earlier sufficient rate inequalities. An endemic equilibrium stable on the synchronized subspace need not in general be stable to network-heterogeneous modes. Showing strict damping in every allowable mode even with waning and unrestricted vaccination closes that gap for a natural regular homogeneous network class. The result is local and provides no claim about global attraction, intervention choice, or arbitrary heterogeneous or directed networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

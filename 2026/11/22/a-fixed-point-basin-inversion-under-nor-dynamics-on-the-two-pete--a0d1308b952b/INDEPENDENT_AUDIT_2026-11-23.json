@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:49:06.206703Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The precise graph scope is GP(10,2) and GP(10,3), not a classification of all Petersen covers. Reduction modulo five is locally bijective: the two inner neighbors map to distinct residues at offsets ±2, and the spoke and outer edges give the other required adjacencies. The symmetric-neighbor polarity gives S⊆F²(S) and F³=F; fixed sets are exactly independent sets dominating their complement. The largest cycle's stated basin is exactly the empty set plus total dominating sets, since F(S)=V forces S empty in a graph without isolated vertices and F(S)=∅ means the open neighborhoods of S cover V. An independent full Python census, replayable with python3 /workspace/branches/5b479397-3a7d-41f2-960e-07d992e52fa2/nor_census.py, uses subset-neighborhood-union recursion and forward walks with reverse path assignment, not the frozen peel or vectorized implementation. It classified 1,048,576 states per graph; fixed/cycle counts 295/19830 and 187/17391, depths {0:39955,1:1008621} and {0:34969,1:1013607}, fixed-basin populations 745 and 1941, two-cycle-basin populations 1047831 and 1046635, and maxima 35 and 388 agree. Its combined basin spectra agree bin by bin with the sums of the two period-specific spectra in the frozen files; subtracting the independently listed fixed-orbit basin populations recovers the two-cycle spectra, whose largest bins are unique at 156533 and 150545. The two Desargues shore masks are 0x556aa and 0xaa955. Directly in the disjoint-2-subsets Petersen representation, enumerating all subsets T of one shore and requiring each opposite 2-subset to have a disjoint member of T returns size counts 4:10, 5:72, 6:140, 7:110, 8:45, 9:10, 10:1, summing to 388. No frozen code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aracena et al. compare fixed-point counts over signings; their theorem does not count labeled initial states in each terminal basin.",
+          "Aledo et al. is a plausible general parallel-dynamics source; independent retrieval returned citation only. The frozen audit reports reading its general periodic-point bounds, not an exact matching basin theorem."
+        ],
+        "reasoning": "Generic closure and periodic-orbit machinery give how to compute, not the paired evaluated numbers or inequality without the graph-specific fiber evidence. The incomplete full-text check of Aledo et al. is not negative evidence.",
+        "searches": [
+          "arXiv:1507.06141 Eq. (2) and Theorem 1",
+          "DOI:10.1155/2020/9708347",
+          "Web: dodecahedral Desargues graphs NOR synchronous anti-majority minterm parallel dynamics maximal independent sets attraction basins 295 187 745 1941"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.06141",
+        "DOI:10.1155/2020/9708347 (citation; frozen audit summary)",
+        "MathWorld Generalized Petersen Graph",
+        "Resultary NOR and majority summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An MIS criterion decides whether F(X)=X, not how many Y have F(Y)=X.",
+          "The indexed Desargues majority comparison obtains its basins via majority projection fibers, and the dodecahedral majority summary uses a longer transient than this NOR rule."
+        ],
+        "reasoning": "Neither source statement entails 745<1941 for fixed attraction together with 295>187 for equilibria, or the exceptional shore basin distribution.",
+        "searches": [
+          "Resultary: dodecahedral Desargues Petersen double covers synchronous NOR fixed point basin census 745 1941",
+          "arXiv:1507.06141"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The negative conjunctive network is exactly this open-neighborhood NOR; Aracena–Richard–Salinas Eq. (2) supplies its maximal-independent-set fixed-point equivalence.",
+          "MathWorld identifies the exact GP(10,2) and GP(10,3) graph aliases."
+        ],
+        "reasoning": "Even complete maximal independent set counts do not determine their preimage populations. The evaluated basin inversion, not a relabeling of fixed configurations, is the claim.",
+        "searches": [
+          "Web: dodecahedral Desargues graphs NOR synchronous anti-majority minterm parallel dynamics maximal independent sets attraction basins 295 187 745 1941",
+          "arXiv:1507.06141",
+          "MathWorld Generalized Petersen Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record. Nearby indexed numerical censuses concern synchronous majority: 118 dodecahedral fixed states and a Desargues majority construction with 124 fixed states, neither the NOR count.",
+          "Retrieved graph-identity tables give graph parameters rather than entering-state populations."
+        ],
+        "reasoning": "The transition maps differ; a majority basin table or an ordinary graph-invariant table does not reproduce the exact labeled NOR basin spectra.",
+        "searches": [
+          "Resultary: dodecahedral Desargues Petersen double covers synchronous NOR fixed point basin census 745 1941",
+          "Web: Petersen graph neighborhood complex number formal concepts maximal independent dodecahedral Desargues 295 187 maximal independent sets OEIS bipartite total dominating NOR"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the specified NOR basin inversion and full spectra, not for the general fixed-point, cover, or short-orbit facts.",
+      "residual_risks": [
+        "Aledo et al. full text was not independently recovered.",
+        "Equivalent basin or total-domination tables may be unindexed or expressed through other combinatorial encodings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-set correspondence but not the claimed basin comparison in the inspected statements",
+          "evidence": [
+            "fix(G−)=mis(G)",
+            "Theorem 1 counts over signed versions of the graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06141",
+          "material_read": "Introduction, exact negative-sign identity Eq. (2), neighboring theorems",
+          "method": "Primary preprint PDF text",
+          "title": "Fixed points in conjunctive networks and maximal independent sets in graph contractions",
+          "trigger": "Same negative-conjunctive update"
+        },
+        {
+          "assessment": "No independent full-text exclusion",
+          "evidence": [
+            "Frozen audit reports general bounds and no table for the two graphs"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+          "material_read": "Citation only in independent retrieval; frozen audit's summary of Sections 1–4 separately noted",
+          "method": "DOI access attempt and read-only frozen evidence",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "General minterm/maxterm periodic orbit coverage"
+        },
+        {
+          "assessment": "Confirms named graphs, no dynamic conclusion from the listed graph invariants",
+          "evidence": [
+            "GP(10,2) dodecahedral; GP(10,3) Desargues; GP(5,2) Petersen"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/GeneralizedPetersenGraph.html",
+          "material_read": "Definition, degree and special-cases table",
+          "method": "Reference full-page text",
+          "title": "Generalized Petersen Graph",
+          "trigger": "Graph normalization and exact-table check"
+        },
+        {
+          "assessment": "The compared stated counts refer to a different Boolean operator",
+          "evidence": [
+            "Synchronous majority, not NOR in both summaries"
+          ],
+          "identifier_or_url": "Resultary: 2026/11/17/SCOPE-a-four-step-petersen-majority-projection-and-the-desargues-doubl--b8bcbb0b4dff; 2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+          "material_read": "Indexed statements only",
+          "method": "Resultary retrieval",
+          "title": "A four-step Petersen majority projection and the Desargues double-cover basin spectrum; Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+          "trigger": "Exact same graphs and basin observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural question is whether increased equilibrium multiplicity yields an increased probability of settling at equilibrium. Two natural covers with the same quotient, size, degree and one-update time ceiling show that it does not. The exact attraction distribution and 388-state shore fibers explain which configurations account for the disparity and provide useful benchmarks for dynamical comparisons; the finding is more than an isolated fixed-point count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

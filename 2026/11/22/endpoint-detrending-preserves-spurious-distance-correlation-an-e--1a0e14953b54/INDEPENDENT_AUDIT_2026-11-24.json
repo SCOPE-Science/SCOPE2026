@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:13.470514Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–17 and 21–79",
+        "Frozen VERIFICATION.md, lines 19–25; frozen CHECKER.py inspected, not executed",
+        "Independent replay: /workspace/branches/48aeb148-c676-40f2-b55b-2d5ad2d1e121/bridge_grid_expectation_check.py (standard Python); explicit deterministic double-centering agrees with the Gaussian formula at n=2,3,5,8 to 2.43e-17."
+      ],
+      "rationale": "Under the stated independent iid, centered, positive finite-variance innovations, joint Donsker convergence followed by endpoint pinning gives independent bridges. The maximal normalized increment vanishes in probability, so the occupation functional of right-endpoint steps has the same limit. Centered-distance kernels are continuous under uniform path convergence; the distance variances of nonconstant continuous paths are positive (a zero centered kernel forces all distances zero using the diagonal). Conditional on a nonconstant first bridge, the time covariance with the second is Gaussian with positive variance: the Wiener integrand is the primitive of the centered first path minus its integral, and cannot vanish identically. Conditional occupation independence would force this covariance to be zero. Equality at distance correlation one forces proportional centered kernels, then proportional distances by the diagonal; two interior values of the independent pinned bridges rule out an affine relation almost surely. A pinned tent path paired with an increasingly oscillatory pinned tent has occupation law tending to the independent uniform product by Riemann sums; continuous interpolation back to the original tent keeps a nonconstant path and realizes the intermediate correlations. Bridge uniform support gives support [0,1], not atoms at its endpoints. Independence of the two kernels turns the expected squared distance covariance into the squared norm of the expected kernel. The bridge expected distance before centering is sqrt(2/pi) sqrt(h(1-h)); its continuum row mean after removing sqrt(2/pi) is pi/8 and the mean square is 1/6. On the cyclic grid k/n, k=1,...,n, the row mean is n^(-2) sum sqrt(h(n-h)), and summing h(n-h) gives (n^2-1)/(6n^2). This yields both formulas with the biased double-centering convention, not an expectation of squared distance correlation. For unrestricted permutations, each centered distance matrix has trace -n times its grand raw mean, and off-diagonal sum n times that mean. Hence E_pi T_n^pi = raw_mean_X raw_mean_Y/(n-1). Conditional Markov, tight raw means and a strictly positive limiting numerator imply p_n tends to zero in probability for every fixed 0<alpha<1. The exact finite formula requires Gaussian innovations; the limit and rejection do not. Neither unrestricted shuffling nor the null considered stands for a dependence-preserving test.",
+      "residual_risks": [
+        "The submitted Monte Carlo (CHECKER.py lines 105–119) samples both pins on a denominator-64 grid at nominal n=65, but compares to the exact distinct-label theorem grid on denominator 65. Directly centering sqrt(h(1-h)) with h=|i-j|/64 on the simulated 65 labels gives 0.0083244368795 instead of 0.0082993322248. Thus this is only a magnitude illustration, not direct simulation of that exact finite formula; the independent deterministic reproduction on the specified grid and the proof are unaffected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stable-domain record broadens the undetrended innovation classes but explicitly does not claim detrending, full support or closed numerator mean.",
+          "The path-occupation/functional-limit machinery is general and transfers once pinning is performed."
+        ],
+        "reasoning": "Credit the broad method; it does not give the strictness/support for pinned paths or the exact normalized-input Gaussian grid expectation without further analysis.",
+        "searches": [
+          "arXiv:2611.16614v1, §2.1 and Theorems 1–2",
+          "Resultary 4e88b1165008, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: exact assigned record 1a0e14953b54 (not independent evidence), and distinct 4e88b1165008",
+        "Zhu and Xie, arXiv:2611.16614v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Permutation inconsistency is already known for the undetrended occupation limit and its conditional permutation bound transfers given positivity.",
+          "The motion increment kernel sqrt(h) is not the bridge's cyclic sqrt(h(1-h)) and lacks the latter's constant row mean."
+        ],
+        "reasoning": "The analogical asymptotic argument is closely related, but the bound statement establishes positive/full-support bridge occupation, and the new kernel and discrete centering calculation give exact pinned constants not implied by the prior motion value.",
+        "searches": [
+          "arXiv:2611.16614v1, Theorems 1–2 and Proposition 1",
+          "Resultary 4e88b1165008, Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu–Xie sample paths at one common uniform time but their paths are independent Brownian motions, not bridges.",
+          "The separate symmetric stable Resultary finding, 4e88b1165008, is also undetrended."
+        ],
+        "reasoning": "Distance correlation is invariant under separate time-constant affine transforms of the ordinate, not under subtraction of random endpoint slopes. Pinning changes the expected-distance kernel and time dependence; it is not an equivalent formulation of the antecedents.",
+        "searches": [
+          "Focused Resultary semantic search for detrended random walk distance correlation",
+          "arXiv:2611.16614v1, §2.1 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned finding itself; the separate stable record supplies no constant.",
+          "Proposition 1 gives 26/(75 pi)-1/12, the different Brownian-motion mean."
+        ],
+        "reasoning": "The searchable invariant here is the exact expected numerator and all-n Gaussian identity, not a tabulation of numerical correlations. The closest exact calculation is for a different process/kernel.",
+        "searches": [
+          "Resultary search for endpoint-detrended spurious distance correlation and bridge expectation",
+          "arXiv:2611.16614v1, Proposition 1"
+        ]
+      },
+      "rationale": "Credit the occupation-limit method, spurious undetrended correlation, permutation failure and Brownian-motion numerator calculation to the close antecedent; the supported distinct claim is for endpoint-pinned paths, notably the exact bridge and finite Gaussian-grid numerator laws of expectation and the proved strict/full-support limit after detrending. No checked statement covers those quantitative bridge results or the entire detrended finding.",
+      "residual_risks": [
+        "Search was focused, not exhaustive; earlier work on detrended distance statistics or bridge occupation could overlap. No worldwide priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method and phenomenon overlap; does not cover the pinned calculation",
+          "evidence": [
+            "Motion occupation, strict interior and full support in Theorem 1; unrestricted-shuffle rejection in Theorem 2; motion value 26/(75 pi)-1/12 in Proposition 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16614v1",
+          "material_read": "§2.1 and Theorem 1 (HTML offsets 5078 and 14800); Proposition 1 and Theorem 2 (PDF pp. 5–6, offsets 19125 and 20700)",
+          "method": "OA arXiv HTML and PDF primary-text passage inspection",
+          "title": "Nonsense nonlinear correlations between independent random walks",
+          "trigger": "Closest cited analogue with same statistic, independent walks, permutation and exact expectation"
+        },
+        {
+          "assessment": "Common-time stable-process occupation and permutation failure without detrending; same-day date does not establish priority",
+          "evidence": [
+            "Symmetric stable domains of attraction, undetrended inputs; no full-support or closed mean assertion."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-nonsense-distance-correlation-persists-in-independent-infinite-v--4e88b1165008",
+          "material_read": "RESULT.md, Finding, Assumptions and scope, Limitations",
+          "method": "Resultary semantic search and bounded local-mirror text inspection",
+          "title": "Nonsense distance correlation persists in independent infinite-variance walks",
+          "trigger": "Material distinct Resultary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Zhu and Xie, Proposition 1 and Theorem 2"
+      ],
+      "rationale": "Linear endpoint detrending is a concrete alteration of an integrated-series analysis that could plausibly eliminate the original null artifact. Here it changes the limiting path and quantitative scale yet leaves even the unrestricted permutation rejection probability tending to one. Strict full support and exact continuum and finite-grid numerator benchmarks distinguish fragile empirical effects from the persistent artifact and supply usable checks for this common normalization. This is not a proposed calibrated test or a universal claim about detrending.",
+      "residual_risks": [
+        "No density or expected value for the normalized coefficient, or quantitative finite-size rejection calibration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

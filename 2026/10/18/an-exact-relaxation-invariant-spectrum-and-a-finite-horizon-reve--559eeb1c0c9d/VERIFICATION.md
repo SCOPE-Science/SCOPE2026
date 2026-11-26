@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` using the Python standard library. The observed output was `PASS: 5528 finite independent matrix and affine checks`.
+## correctness
 
-For each integer 3 through 30 and seven relaxation parameters (including both endpoints), the verifier independently composes all Euclidean projectors and reflectors in the stated order and compares the resulting 2-by-2 matrix to the closed-form theorem. It also checks four powers, singular-norm comparisons, and explicitly translated line-map differences. These computations do not exhaust real relaxation parameters or arbitrary line counts, and they do not constitute a numerical certificate for infinitely many cases. The analytical rotation-conjugacy argument, finite-product telescope and explicit triangular power prove those cases.
+PASS
 
-No independent audit has yet been performed. Earlier potentially equivalent specialized treatments remain a bibliographic risk.
+For the ordered pair (reflection first in the second line), use the frame at each line. If Q is rotation by pi/m, the first pair's linear part multiplied on the right by Q is K=[[c,0],[(1-lambda)sin(pi/m),lambda*c]]. Conjugation by Q^j includes the wrap-around because Q^m=-I, giving M=-K^m. The off-diagonal geometric sum for K^r is c^r tan(pi/m)(1-lambda^r), also valid at 0 and 1. This proves both eigenvalues and the exact power law. The affine offsets affect only the constant term; rho(M)=c^m<1 gives the unique globally attracting fixed point, and (1,tan(pi/m)) attains the asymptotic rate. At lambda=1 the power is scalar; for lambda<1 its first column has norm strictly greater than c^(mk) for every k>=1. This is a comparison relative to each method's own fixed point, including inconsistent lines. Independent replay: python3 /workspace/branches/replay_exact_audit.py 3 symbolically multiplies the original pairs at m=3,4,6 with indeterminate relaxation and compares the first two powers exactly. The frozen checker was inspected, not run; its reported finite trials are not the universal proof.
+
+## originality
+
+PASS
+
+Best of the inspected evidence: the identifiable distinct claim is the joint all-relaxation spectrum and strict all-positive-horizon optimum for the specified cyclic fan, not the algorithm, local convergence in general, or the separate projection and unrelaxed endpoints. No equivalent or dominating theorem was established in the checked sources.
+
+## value
+
+PASS
+
+This canonical symmetric affine test includes inconsistent instances and separates a spectral factor from the worst achievable error after any prescribed number of cycles. Knowing the common spectral radius alone gives no preference among relaxation weights, while the exact power law supplies a strict preference on the finite-cycle operator norm. This is a useful benchmark for tuning and for testing claims that relaxation improves cyclic DR; it does not compare feasibility residuals or different fixed points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

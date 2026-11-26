@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The step-set difference multiset has two representations for every nonzero difference, establishing the strongly regular parameters and the independence/neighbor-count argument. The Cauchy--Schwarz inequality forces independent sets of size at most four, and equality makes every outside vertex adjacent to precisely two vertices of each four-set; therefore four-color proper conflict-free colorings cannot exist on either graph. On \(S\) the explicit five-color matrix was checked against all 48 edges and every open neighborhood by two separate implementations. For \(R\), five colors are ruled out by equality of the row-missing and column-missing multiplicities, and a checked six-color matrix attains the bound. Computation verifies finite certificates, while the lower bounds are complete proofs.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The independently recreated graphs each have 16 vertices, 48 edges, degree 6 and exactly two common neighbors at each pair of distinct vertices. For an independent class C of size t, counting its incidences and shared neighbors gives Σa_x=6t and Σa_x²=2t(t+2). Cauchy–Schwarz gives t²+4t−32≤0 and hence t≤4, with a_x=2 at every outside vertex when t=4. Four colors would force four maximum classes and multiplicities 2,2,2 in each open neighborhood, precluding a singleton. For the rook graph with five available colors each row and column omits exactly one. The multiplicity of any missing color is the same among rows and columns, because its occurrences lie in distinct rows and distinct columns. Choose a row and column with the same missing color; at the intersection the two palettes after dropping the center color coincide, so every encountered color occurs twice. Thus five colors also fail for the rook graph. Both supplied arrays were validated by independent code under the exact Cayley-step and row/column definitions: all edges proper and all 16 open neighborhoods have at least one singleton in each array. The asserted values 5 and 6 follow.
 
-Liu (2022) and Jiménez et al. (2023) give definitions and general bounds but no exact Shrikhande value in the inspected relevant statements/full-text search. Existing online research reports the exact square-rook value \(6\), so that component is prior work and is not claimed as newly discovered. Its statement alone places no constraint on the nonisomorphic Shrikhande graph. Targeted research-record searches for the Shrikhande proper conflict-free and equivalent proper odd invariants identified no matching result. Residual risk: a direct graph-specific calculation might exist in unindexed publications; a previously reported odd number could imply the PCF bound only with extra argument because \(S\) is not claw-free.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-These are the two standard nonisomorphic strongly regular graphs with parameters \((16,6,2,2)\), an established test case for distinguishing invariants not fixed by an intersection array. The new exact Shrikhande value separates proper conflict-free coloring on this matched pair; it is supported by a conceptual lower bound and explicit optimal certificate. The precise five-versus-six distinction is a motivated natural invariant, rather than an arbitrary induced subgraph or parameter slice. It also pinpoints the gap between identical common-neighbor data and an asymmetric uniqueness requirement on actual color classes.
+The claimed distinct contribution is the Shrikhande value and separation of the parameter twins. The rook value is explicitly credited and is exactly covered by the dated rectangular/square rook theorem. No inspected Shrikhande exact statement or dominating theorem gave the five-color proper open-neighborhood conflict-free value.
 
-## Limits
+## value
 
-This does not classify arbitrary strongly regular graphs, and the comparison with historical literature is not exhaustive. The previously reported rook result is cited, not presented as a new independent discovery.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Shrikhande and rook graphs form a canonical same-parameter and cospectral pair. The exact values give a concrete counterexample to determining proper open-neighborhood conflict-free chromatic number from either that parameter set or the spectrum. A sharp certificate plus parameter-based common lower bound distinguishes the S value from an arbitrary computed graph statistic; the credited rook value makes the contrast precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

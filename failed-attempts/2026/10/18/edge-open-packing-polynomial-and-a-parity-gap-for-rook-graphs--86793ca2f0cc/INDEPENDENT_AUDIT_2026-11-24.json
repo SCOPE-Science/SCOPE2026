@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:50.574788Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The third edge must have two distinct endpoints, one from each selected edge, and differ from both. Thus there are no extra edges among used vertices, and adjacent vertices of selected degree at least two would make their joining edge forbidden by two other selected edges (including in a triangle). Each component is an induced star. In a rook graph its center has at most one leaf in each of its row and column cliques. The resulting horizontal, vertical and L blocks must be disjoint in both sorts of labels, and the condition is sufficient. Their weights on fixed label sets are 1, 1 and 4; unused labels are singleton blocks. This proves the EGF and factorial expansion. For k=a+b+2c edges the used rows and columns are k+b and k+a: both are at least k, equality on both sides forces k even, and disjoint L blocks with at most one added horizontal block realize the claimed maxima (transpose if needed). On an odd square of side 2t+1 at size 2t, one has a,b≤1 and a+b even, giving precisely (a,b,c)=(0,0,t) or (1,1,t−1). Even squares and the one-cell board give the other cases. An independent endpoint-mask enumeration matched the first-row recurrence coefficient by coefficient for 0≤m≤n≤6, and the recurrence matched the maxima and square counts for 1≤m≤n≤20 (replay: python3 /workspace/reproductions/enumerator_review.py). The finite tests supplement the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar et al. give product lower bounds, not the full distribution.",
+          "The 10/18 local-mirror theorem gives rectangular optimizer counts, including the square counts as special cases for side ≥2."
+        ],
+        "reasoning": "The general product bound itself is insufficient. The distinct catalogue theorem is stronger for optimizer counts on nondegenerate rectangles; the one-cell count is immediate.",
+        "searches": [
+          "arXiv:2406.04020 §5 Corollary 5.3",
+          "2026/10/18/SCOPE-complete-edge-open-packing-polynomial-and-odd-square-rigidity-of--43a6aee37b6e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local-mirror records c00dbc4c5ae6, 43a6aee37b6e and 0a390f6f9e3c",
+        "arXiv:2406.04020",
+        "arXiv:2508.01935",
+        "Chelladurai–Kalimuthu–Soundararajan (2022), retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extract the top coefficient of the 10/13 sum: on even squares only c=q/2 survives; on odd squares only c=t or a=b=1,c=t−1 survives. The 10/18 formula (q+7)(q!)²/(8t!) is equal to (q!)²(1/t!+1/[4(t−1)!]) for q=2t+1≥3."
+        ],
+        "reasoning": "The explicit top coefficient, together with the trivial one-cell case, gives no substantive surviving claim.",
+        "searches": [
+          "c00dbc4c5ae6, full enumerator and extremal consequence",
+          "43a6aee37b6e, exact square coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/13 record defines a forbidden third edge with the same two-endpoint condition. Its horizontal, vertical and right-angle blocks have the same resource footprints and independent row/column labels.",
+          "Pandey–Santra §1 identifies the edge-open condition with induced-star components, not induced matching or vertex open packing."
+        ],
+        "reasoning": "Renaming the size polynomial or switching to the equivalent rook line-graph presentation L(K_m,n) does not alter the edges, label convention or packings.",
+        "searches": [
+          "Resultary: labelled rook graph edge-open packing polynomial, Cartesian product of cliques, line graph of a complete bipartite graph",
+          "arXiv:2508.01935 §1, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/13 finding contains the same EGF and exact factorial formula, and also the same row recurrence and maximum for all positive m,n.",
+          "The 10/25 entry gives the same square counts (including 45 and 288 on sides 3 and 4); its later path date is not earlier-priority evidence."
+        ],
+        "reasoning": "This is an exact catalogue match to the principal result, not a match just to sample coefficients.",
+        "searches": [
+          "2026/10/13/SCOPE-edge-open-packing-polynomial-of-rook-graphs-via-three-local-bloc--c00dbc4c5ae6, RESULT.md, Finding",
+          "2026/10/25/SCOPE-edge-open-packing-optimizers-of-rectangular-rook-graphs--0a390f6f9e3c, RESULT.md, Finding"
+        ]
+      },
+      "rationale": "An earlier date-stamped, distinct Resultary record states the same all-size labelled EGF, coefficient sum, local-block decomposition and parity maximum, even including the zero-dimension convention. The remaining square optimizer count is an immediate extraction from that exact sum at its published maximum, and another distinct same-day record states the same counts explicitly for nondegenerate squares. This is exact coverage and implication, not a priority judgment inferred from same-day ordering.",
+      "residual_risks": [
+        "The date-stamped catalogue identifies distinct matching statements, not their actual order of release or historical provenance.",
+        "Older treatments under induced-star and line-graph terminology and the inaccessible 2022 paper are not ruled out; the exact catalogue coverage already decides the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Same label convention, exact EGF, factorial formula and parity maximum; the explicit sum already supplies every extremal coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-edge-open-packing-polynomial-of-rook-graphs-via-three-local-bloc--c00dbc4c5ae6/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof, offsets 0–3300",
+          "method": "Local-mirror full statement and algebraic comparison",
+          "title": "Edge-open-packing polynomial of rook graphs via three local blocks",
+          "trigger": "Exact object, definition and enumerator"
+        },
+        {
+          "assessment": "COVERING_ON_STATED_DOMAIN",
+          "evidence": "Same EGF and parity gap and exact rectangular optimizer counts. Odd-square form (q+7)(q!)²/(8t!) is the same number.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-edge-open-packing-polynomial-and-odd-square-rigidity-of--43a6aee37b6e/RESULT.md",
+          "material_read": "Opening theorem, positive dimensions m,n≥2",
+          "method": "Local-mirror passage comparison",
+          "title": "Complete edge-open-packing polynomial and odd-square rigidity of rook graphs",
+          "trigger": "Distinct same-day exact match"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "Product lower bounds, not a statement about every labelled rook coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "Section 5, Corollary 5.3, PDF p. 20, offset near 84350",
+          "method": "OA PDF bounded passage",
+          "title": "Induced Matching vs Edge Open Packing: Trees and Product Graphs",
+          "trigger": "General Cartesian-product results"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "Equivalent induced-star condition; distinguishes induced matching.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.01935",
+          "material_read": "§1, PDF pp. 1–2, offsets 5200–8141",
+          "method": "OA PDF bounded passage",
+          "title": "Edge Open Packing: Further Characterizations",
+          "trigger": "Equivalent star condition"
+        },
+        {
+          "assessment": "INACCESSIBLE",
+          "evidence": "Both routes returned HTTP 403; no statement-level noncoverage inferred.",
+          "identifier_or_url": "RAIRO–Operations Research 56 (2022), 3765–3776",
+          "material_read": "No full text accessed",
+          "method": "Direct and alternate lawful retrieval attempts",
+          "title": "Edge Open Packing Sets in Graphs",
+          "trigger": "Foundational definition and possible exact examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full size distribution of this interference invariant on labelled rook graphs is a worthwhile mathematical target, but the decomposition, exact enumerator and parity obstruction are already available. The displayed square maximizer formula is routine extraction of at most two terms from the known factorial sum, not an independently motivated unresolved result. The one-cell case cannot support a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

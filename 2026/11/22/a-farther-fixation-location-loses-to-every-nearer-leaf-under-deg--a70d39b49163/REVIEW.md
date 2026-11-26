@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The colonization rule has an exact rate-one-reproducer continuous-time embedding. The two branches of the rooted tree admit independent edge-thinned exponential waits; the long branch yields a gamma shape-three time and the short leaves share one hub delay. Conditioning, binomial expansion and the gamma Laplace transform give the exact all-size expression. At four short leaves, exact rational arithmetic gives the strict sign. The elementary moment inequality and Stirling's formula prove the asymptotic comparison for all sufficiently large families. A separately coded Markov recursion verifies the formula for 17 values of the number of leaves; numerical tests are not used as the infinite proof.
+## correctness
 
-## Originality — PASS, literature-bounded
-The 2026 fixation-location paper already introduces the location statistic and shows a farthest-vertex ranking failure on a small graph containing a cycle. Its accessible main article and supplementary discussion were compared, including colonization examples and the general configuration-graph reachability result. No explicit unique-farthest-tree comparison or exponential family law appeared in inspected material. The 2024 colonization-times article covers a different invariant, and general first-passage methods are acknowledged rather than claimed new. Publicly indexed related results on bicliques and competing infections concern different processes or graph classes. Uninspected historical literature may nevertheless contain an equivalent tree calculation.
+PASS
 
-## Value — PASS
-A farthest-node heuristic for locating the last original inhabitant can fail even in an acyclic population structure, solely because each vertex divides reproductive effort across its neighbors. This is a motivated counterexample to a geographic intuition already discussed in the originating paper. The exact nine-vertex witness and all-size exponential separation show that the contrast is structural rather than a tiny finite-graph anomaly. The fact is useful when interpreting terminal-location data under heterogeneous dispersal networks; no empirical predictive validation is claimed.
+Uniform selection among mutants is the jump chain of independent rate-one clocks, with null events retained. Thinning by destination gives independent edge clocks of rate 1/deg(source). On the rooted tree only the parent can first occupy a child, so independent outward waiting times can be started when each parent is reached. The far time is Gamma(3,1/2); each short terminal time is the same hub wait plus an independent Exp(1/(k+1)) wait. The hub wait must not be treated as independent across short leaves. Only leaves other than the root can finish last; ties have probability zero. Integrating out the hub wait gives the stated binomial–Laplace expression, including at jb=1/2 where -a L'(a)=3/16. Symmetry then gives the near-leaf probabilities. Independently recomputed with labeled-set states and exact fractions: at k=4 the far probability is 40122073072/243729729243, a near leaf has 203607656171/974918916972, and near minus far is 43119363883/974918916972. Replay: make adjacency lists, memoize on the occupied bitmask S, return the indicator of the far leaf when exactly one vertex remains, and otherwise average over S union {v} with weights sum_{u in S adjacent to v} 1/deg(u), normalizing by their sum. The labeled recursion visited 67 states at k=4 and also checked k=1,2,3,5,10. The all-k claim follows separately by bounding the conditional product by (T/(k+1))^k; the gamma moment is 2^(k-1)(k+2)! and Stirling yields O(k^(5/2)(2/e)^k). An open set of clock realizations gives q_k>0 for each k. The conclusion is reversal at k=4 and for sufficiently large k, not for all k; the exponential statement is an upper bound, not an exact decay rate. The frozen checker was inspected as text.
 
-## Scope and risks
-The result concerns infinitely strong mutant selection, not finite-fitness fixation or a recovery epidemic. The explicit nine-vertex witness is not asserted minimal. Independent historical-priority screening of all related first-passage percolation literature remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the explicit rooted-tree reversal and all-k formula/separation, not for the fixation-location statistic, the generic computation method, or the observation that a farthest vertex can lose a ranking on some graph.
+
+## value
+
+PASS
+
+The original distance intuition has a particularly clean failure on a tree: the path to the uniquely farthest leaf is longer, yet the fixed reproduction budget is divided among the hub's children, making each nearer leaf more likely to finish last. The exact nine-vertex comparison and the ratio diverging along a family distinguish a robust mechanism from a distance tie or a tiny finite fluctuation. Useful as an exact check on fixation-location methods in this infinite-selection model, not as a finite-fitness or empirical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:31:47.793831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All roots have norm √2 and are distinct, hence exposed. Constant score on all roots forces constant potentials within each part and then equality of the three part potentials, as the AB and BC differences add to the AC difference. This gives the full zero-sum affine dimension, including singleton parts. The same-block face is a product of simplices. The specified strict potentials for shared-tail AB/AC, shared-head AC/BC, and noncomposable AB/BC have positive maximum attained exactly twice; for the last one the AC shortcut has score zero, below the common score one. Each excluded disjoint-tail/head or composable pair with b≥2 has an alternative root-pair sum, so it cannot be a strict two-vertex maximum. For b=1 the composable pair is exposed by the displayed negative potential and any exposing potential must be negative because the shortcut's score is twice the common score. This proves the origin comparison, since the origin maximizes the increasing-layer potential, no negative witness survives its addition, and a positive witness survives. Within-block edge counts are pq(p+q−2)/2, mixed counts are abc, abc and ac[b(b−1)+1_(b=1)]; direct incidence counts give the degrees. A swapped coordinate or the shortcut is a common neighbor for each nonedge. A nonedge exists if a>1 (different AB/AC tails), c>1 (different AC/BC heads), or b>1 (composable pair), so exactly the singleton triple has diameter one. Comparing each degree to dimension gives the stated simplicity thresholds. Inspected verify.py's strict-score and alternative-sum tests; the reported 125 finite profiles corroborate the arguments but were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Numata et al. give a general facet criterion and an all-face criterion with a rank function. Here a two-arc path and its shortcut require incompatible rank differences.",
+          "Setiabrata's origin-adjoined result is general in the acyclic case and applies to the surviving root-to-root edges."
+        ],
+        "reasoning": "A general facet algorithm could be specialized and iterated; the stated all-face rank theorem cannot be applied directly. The origin-adjoined criterion cannot decide whether a missing segment is present in P. The singleton-middle exception needs separate geometric analysis.",
+        "searches": [
+          "Numata–Takahashi–Tamaki Theorems 1.2–1.3",
+          "Setiabrata Theorems 3.4 and 3.18"
+        ]
+      },
+      "checked_sources": [
+        "Numata–Takahashi–Tamaki arXiv:2203.14521v1",
+        "Setiabrata arXiv:2001.05191v2",
+        "Resultary 71a9627069b9 and 95c090fe6926"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For b≥2 an alternative intermediate gives an equal pair sum and hence excludes all composable pairs already in P. For b=1 the strict negative witness exposes each composable pair in P, and the long arc forces negative support in every witness, so none survive adjoining zero.",
+          "Positive strict witnesses for every other edge certify that only the exceptional pairs change."
+        ],
+        "reasoning": "This derives the threshold and rules out hidden additional births. A characterization only of faces after adjoining zero does not imply this comparison, and iterating general facet tests is not an existing complete edge census.",
+        "searches": [
+          "arXiv:2001.05191v2 Theorem 3.18 vs frozen b=1/b≥2 dichotomy",
+          "arXiv:2203.14521v1 Theorems 1.2–1.3 vs the ungraded three-layer case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setiabrata distinguishes Q_H from its origin-adjoined version and gives conditions for Q_H to be a face of the larger origin-adjoined polytope.",
+          "A face of P exposed with common negative maximum need not be a face of the origin-adjoined polytope; that sign is forced exactly for the surviving composable pairs in P."
+        ],
+        "reasoning": "The equivalent geometric language is strict pairwise maxima of directed potential differences. Changing whether zero competes in the maximum changes the claim, not just its notation.",
+        "searches": [
+          "Directed edge polytopes vs acyclic type-A root polytopes with/without zero: arXiv:2203.14521v1 and arXiv:2001.05191v2",
+          "Resultary exact 1-skeleton and origin deletion, transitive-tournament record 71a9627069b9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "71a9627069b9 counts n−2 births between successive unit roots for the full positive-root polytope of the transitive tournament, which has arcs within every nonsingleton layer.",
+          "95c090fe6926 is a highest-root deletion volume formula, not an origin-deletion one-skeleton formula."
+        ],
+        "reasoning": "The former is a genuine overlap in invariant and operation but not the same family. Dropping within-layer vertices can change old-root adjacencies, so one cannot infer the three-layer graph or the quadratic-in-outer-sizes birth count by retaining entries in its table.",
+        "searches": [
+          "Resultary exact one-skeleton and origin deletion for directed/type-A root polytopes: 71a9627069b9, 95c090fe6926"
+        ]
+      },
+      "rationale": "The supported distinction is the complete non-origin-adjoined edge classification and the exact origin-deletion threshold for complete three-layer digraphs. Existing acyclic origin-adjoined face results already cover the surviving edges, and general facet machinery exists for P. Neither those statements nor the transitive-tournament census supply the threshold and the complete non-adjoined graph by direct specialization.",
+      "residual_risks": [
+        "The source comparison is bounded; an equivalent explicit specialization in other directed-edge-polytope literature was not excluded. No general face criterion is credited to this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Facet machinery applies, all-face rank theorem does not",
+          "evidence": "The rank-function hypothesis fails at the two-step path plus direct shortcut.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.14521v1",
+          "material_read": "Theorems 1.2 and 1.3, pp. 2–3, offsets 6552 and 7410",
+          "method": "OA PDF passages",
+          "title": "Faces of Directed Edge Polytopes",
+          "trigger": "Possible broad coverage of all faces without adjoining zero"
+        },
+        {
+          "assessment": "Covers the surviving edges in the origin-adjoined model",
+          "evidence": "Theorem 3.18 tests whether Q_H is a face of the origin-adjoined parent by path consistency and admissibility.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05191v2",
+          "material_read": "Abstract/definitions p. 1; Theorems 3.4 p. 4 and 3.18 p. 8, offsets 0, 16707 and 30771",
+          "method": "OA PDF passages",
+          "title": "Faces of Root Polytopes",
+          "trigger": "Possible broad coverage of all acyclic-root edges"
+        },
+        {
+          "assessment": "Different root set and exact birth formula",
+          "evidence": "All positive type-A roots, with exactly n−2 edges born between successive unit roots.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9",
+          "material_read": "RESULT.md Finding, offset 385",
+          "method": "Resultary and local mirror",
+          "title": "Exact 1-skeleton and simple-vertex exhaustion of transitive-tournament root polytopes",
+          "trigger": "Same deletion operation and one-skeleton census"
+        },
+        {
+          "assessment": "Not the same deletion or invariant",
+          "evidence": "Deletes the longest root and evaluates a normalized-volume loss.",
+          "identifier_or_url": "95c090fe6926",
+          "material_read": "RESULT.md Finding, offset 58",
+          "method": "Resultary and local mirror",
+          "title": "Crosspolytopal highest-root deletion and a power-of-two volume loss",
+          "trigger": "Related indexed root-deletion result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three layers are the first complete transitively layered case with both paths and shortcuts and no rank function. The exact graph gives usable degrees, simplicity, and a sharp deletion effect: a singleton middle part gives one new edge per outer pair, so the effect can be quadratic, while adding one middle vertex eliminates it. This is a naturally parameterized structural distinction, not a finite enumeration or a rewording of the full tournament result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

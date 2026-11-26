@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:17:30.957634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A singleton at positive distances has a realizable distance vector exactly when the Katětov inequalities hold. Arbitrarily many copies at mutual distance 1 prove nonalgebraicity, and homogeneity makes the vector determine its type. With center value x and leaves y_i, the leaf-pair condition is y_i+y_k>=4, so a unique value-1 leaf, when allowed, forces the others to be at least 3. Splitting by x=1,2,3,4 gives (1+z)^n+nz, two copies of (2+z)^n+n2^(n-1)z, and (2+z)^n. Only coefficient 1 is raised relative to b_j=binom(n,j)(1+3·2^(n-j)). At internal j the reference inequality is 2(n+1)(1+t)^2>j(n-j)t with t=3·2^(n-j)>n-j. The sole possible failure is consequently grade 2, whose exact Turán bracket is (33-3n)Q²+(136-32n)Q+80-16n, Q=2^n. For n=3–5 its sign is positive directly; for n=6–10 it is at least 3Q²-184Q-80>0; for n>=11 it is negative. There is no internal grade 2 for n=1,2. Unimodality follows from c_0<=c_1, c_2<c_1 and c_3<c_2 when those grades exist for n<=7, and the initial rise followed by a log-concave tail when n>=8. Normalizing the polynomial gives a mixture with Bin(n,1/3) weight 3^(n+1)/F_n(1), proving the total-variation bound. The supplied artifacts/check_star_types.py and VERIFICATION.md were inspected, not executed. A separately written check (branches/50f06070-eb21-4db8-9bb4-e54dddd1d215/independent_star_check.py, check-complete.log) enumerated vectors through n=7 and checked exact coefficients and shape through n=300. At n=11 the grade-2 difference -2788445 was also recomputed from coefficients, not exhaustive distance-vector enumeration. The infinite claim follows from the sign and shape arguments, not the finite observations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sauer gives Katětov realization with infinite orbit in the relevant Urysohn setting, not graded counts for the 2/4-star.",
+          "The tree minimality result uses a three-distance palette and scalar counts; the cycle record treats graded counts over capped cycles in U_3. The Widom–Rowlinson identity is for the three-distance graph-metric setting."
+        ],
+        "reasoning": "A general realization theorem does not evaluate the distribution or its Turán differences. The three-distance formulas do not cover a leaf-pair distance of four, and the other base families have different constraints.",
+        "searches": [
+          "Sauer arXiv:1010.4212 §2 and Theorem 2.2",
+          "Resultary cfb579b2560b, 7b4f8a785d18, and ec80747a5989"
+        ]
+      },
+      "checked_sources": [
+        "Sauer arXiv:1010.4212 §2",
+        "Resultary 6c1e1d2d061a, cfb579b2560b, 7b4f8a785d18, 4b00ec285056 and ec80747a5989"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equilateral result supplies the shared leaf classification for x=2,3; the extra center constraints alter the other cases, and even the completed polynomial needs a separate grade-2 sign analysis and unimodality proof.",
+          "The three-distance cycle result is for a different base and palette and does not supply these coefficients as a substitution."
+        ],
+        "reasoning": "Neither the exact polynomial with its additional terms nor the only-violation theorem is a stated or mechanically resolved special case of an inspected broader shape theorem.",
+        "searches": [
+          "Resultary 6c1e1d2d061a Finding and Assumptions",
+          "Sauer arXiv:1010.4212 §2",
+          "Resultary 7b4f8a785d18 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A grade is the number of leaves in a positive Katětov distance vector having value <=2; it is not a compatibility-matrix invariant or an ungraded type count.",
+          "The four-distance equilateral-base classification of vectors gives G_n=(2+z)^n+n2^(n-1)z. Precisely two center-distance cases contribute G_n, but F_n also has the contributions at center distances 1 and 4."
+        ],
+        "reasoning": "There is an exact component-level reduction, not an equivalence of the full polynomial or its coefficient inequalities to the equilateral-base compatibility theorem.",
+        "searches": [
+          "Resultary diameter-four star/equilateral singleton type spectra",
+          "arXiv:1010.4212 §2",
+          "Resultary 6c1e1d2d061a",
+          "Resultary ec80747a5989"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No examined distinct record gives the exact grade-2 Turán cutoff for this starred U_4 parameter set. The seven-vertex result is a different minimization failure; the homogeneous 4-branching record is about a D-set, not distances {1,2,3,4}.",
+          "The exact grade sequence through the cutoff in the supplied evidence agrees with the derived polynomial; the proof is not a novelty claim about enumerating a table."
+        ],
+        "reasoning": "Integer parameters, similar titles or other sharp finite cutoffs are not coverage of this graded singleton invariant. Same-day dates give no evidence of precedence.",
+        "searches": [
+          "Resultary 6c1e1d2d061a, cfb579b2560b, 7b4f8a785d18 and 4b00ec285056",
+          "Katětov star coefficient profile and eleven-leaf cutoff"
+        ]
+      },
+      "rationale": "Pass for the full star grading together with its sharp all-order coefficient-shape classification. The Katětov extension theorem and the equilateral-leaf counting subproblem are covered ingredients; the sharp failure at eleven leaves, uniqueness of the offending grade, and coexistence with an exponentially accurate binomial approximation are not established by those ingredients alone.",
+      "residual_risks": [
+        "An unexamined enumeration of graded four-distance Katětov stars or an equivalent coefficient-shape result could affect priority.",
+        "The exact equilateral-leaf component is covered; the verdict credits the full starred polynomial and the sharp shape result rather than that component."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational extension theorem, not the sharp spectrum claim",
+          "evidence": [
+            "Gives the metric inequalities, one-point realization, and infinite orbit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.4212",
+          "material_read": "§2, p. 4, inequalities and Theorem 2.2",
+          "method": "OA original PDF passage",
+          "title": "Vertex partitions of metric spaces with finite distance sets",
+          "trigger": "Katětov realization/type correspondence"
+        },
+        {
+          "assessment": "Genuine component-level overlap, different principal theorem",
+          "evidence": [
+            "Classifies equilateral-base distance vectors; this yields the leaf-only polynomial G_n. The result addresses integer congruence of a unit-distance compatibility matrix."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-integral-splitting-of-unit-distance-type-compatibility-in-the-di--6c1e1d2d061a/RESULT.md",
+          "material_read": "Finding and Assumptions, local mirror offsets 0–1980",
+          "method": "Local mirror original record",
+          "title": "Integral splitting of unit-distance type compatibility in the diameter-four metric space",
+          "trigger": "Exact same palette and equilateral leaves"
+        },
+        {
+          "assessment": "Other metric palette and scalar observable",
+          "evidence": [
+            "Capped trees in U_3 with scalar counts, not a near-leaf graded U_4 spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-seven-vertex-failure-of-path-minimality-for-capped-tree-ka--cfb579b2560b/RESULT.md",
+          "material_read": "Finding, local mirror offsets 0–2187",
+          "method": "Local mirror original record",
+          "title": "Sharp seven-vertex failure of path minimality for capped-tree Katětov counts",
+          "trigger": "Recent sharp threshold for tree-based types"
+        },
+        {
+          "assessment": "Different palette and base family",
+          "evidence": [
+            "Trivariate spectrum over capped U_3 cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-local-response-law-for-three-distance-cycle-type-spectra--7b4f8a785d18/RESULT.md",
+          "material_read": "Finding, local mirror offsets 0–2055",
+          "method": "Local mirror original record",
+          "title": "A sharp local response law for three-distance cycle type spectra",
+          "trigger": "Nearby graded type polynomial"
+        },
+        {
+          "assessment": "Distinct class of structures and types",
+          "evidence": [
+            "Uses D-relation and labelled trees, not positive integer distance vectors in U_4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-shape-blind-marked-base-extension-spectra-of-the-homogeneous-4-b--4b00ec285056/RESULT.md",
+          "material_read": "Finding and Assumptions, local mirror offsets 0–3810",
+          "method": "Local mirror original record",
+          "title": "Shape-blind marked-base extension spectra of the homogeneous 4-branching D-set",
+          "trigger": "Potential title-level match on homogeneous four-valued types"
+        },
+        {
+          "assessment": "Different distance set and parameter class",
+          "evidence": [
+            "Graph-metric U_3 type count as a homomorphism partition function, not a graded four-distance star."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989/RESULT.md",
+          "material_read": "Main formula, local mirror offset 1450",
+          "method": "Local mirror original record",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Prior generating-function model for type counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The star with leaf distances twice the radius is a natural metric family, and grading by the distances up to that radius is meaningful. The result isolates a low-grade obstruction to log-concavity at a sharp finite threshold, proves it is the only failure at every larger size, and exhibits why an exponentially small total-variation error does not control that local statistic. The value is in this classification and contrast, not just an elementary count of feasible vectors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

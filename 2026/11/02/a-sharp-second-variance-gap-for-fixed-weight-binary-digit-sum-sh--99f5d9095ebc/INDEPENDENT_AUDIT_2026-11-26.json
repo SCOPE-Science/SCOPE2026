@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:02:40.337526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an incoming carry C_i the next conditional mean is (b_i+C_i)/2. The output-bit identity Y_i-X_i=b_i+C_i-2C_{i+1} sums to k minus the number of carries. Above the top input position a surviving carry has a geometric tail. Finite-bit cylinder frequencies agree in the limit with independent fair bits; for arbitrary prefix endpoints, an additional run of h carries above the top bit requires h specified consecutive bits all equal to one, and in the prefix starting at zero their frequency is at most 2^(-h) (the all-one block occurs at the end of each controlling binary period). This justifies passage of the quadratic moment. Conditional propagation gives Cov(C_i,C_j)=2^(-(j-i))q_i(1-q_i) and summing gives 3 times the sum of q_i(1-q_i). Each one-bit adds 1 to sum q_i; diagonal terms in sum q_i^2 add 1/3 per one-bit, and each unordered distinct pair adds (2/3)2^(-distance). The energy strictly decreases in every positive integer gap. An outside pattern compresses strictly to a single gap of length 2 unless already in that form. At cut i a gap of length 2 loses exactly (1-2^(-i))(1-2^(-(k-i))) of energy, uniquely minimized at the two edge cuts by strict convexity of 2^(-i)+2^(-(k-i)); they coincide when k=2. This proves both levels, exactly the stated equality shifts and their gap. Sparse supports approach 2k, strictly below it for finite positions when k>=2; k=1 is constant. The supplied finite checker was inspected, not run or substituted for the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tarłowski's length lower bound D^2[P_w]>=2-2^(-ell(w)) yields V>=4-2^(2-k) since ell(w)>=k-2. His run lower bound at b=2 gives V>=17/4, and at b=3 gives V>=39/8; he also gives weak monotonicity under increasing existing run lengths.",
+          "The right bound in the frozen second-level claim is greater than 39/8 for k>=6. The word-block bound for b>=4 rules out those larger block counts for a minimizer; b<=3 still needs comparisons at fixed total number of R letters and strictness."
+        ],
+        "reasoning": "Known length and block-count bounds cover the first minimum and provide stronger results for other constraints or subfamilies, but do not mechanically imply the constrained second-minimum classification. Existing-run length monotonicity is not the strict comparison across arbitrary placements and deletions of excess zeros needed for the claimed equality classification.",
+        "searches": [
+          "arXiv:2605.08624v1 Theorem 21 and (4.6)",
+          "arXiv:2605.08624v3 Theorem 19 and (4.7)",
+          "arXiv:2005.07167v3 Lemma 2.4 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and cusick_verify.py",
+        "Tarłowski arXiv:2605.08624v1 and v3",
+        "Spiegelhofer–Wallner arXiv:2005.07167v3; Sobolewski–Spiegelhofer arXiv:2411.07779v2",
+        "Resultary 04e8343e48d1 and eea6e9c2119c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=2 the nonconsecutive word has length >=1 and Tarłowski's bound gives the second value 7/2; for k=3 the run lower bound gives 17/4 for nonconstant words and an alternating length-two word attains it. The general edge words LR^(k-2) and R^(k-2)L cease to be alternating once k>3.",
+          "The variance recursion and two-block characteristic-function results are routes to evaluate candidates; they do not provide the compared all-weight strict extremal selection."
+        ],
+        "reasoning": "No separate novelty credit is given for the easily specialized low weights or the prior first minimum. At general k one needs more than the old inequalities: the weight-preserving gap comparison reduces the arbitrary gap problem to one missing bit, then identifies the edge cuts strictly. The uniform gap follows by subtraction, not as an unrelated new bound.",
+        "searches": [
+          "arXiv:2605.08624v1 pp.12–13 §4.4 offsets 38650–44033",
+          "arXiv:2605.08624v3 pp.11–12 §4.4 offsets 35000–44585",
+          "arXiv:2411.07779v2 §3.1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spiegelhofer–Wallner's second cumulant is exactly V(t); they give kappa_2(1)=2, kappa_2(2t)=kappa_2(t), and kappa_2(2t+1)=1+[kappa_2(t)+kappa_2(t+1)]/2.",
+          "For odd t other than 1, its interior binary word uses L=0 and R=1, so k=2+#R, and V(t)=2+D^2[P_w]. A count of L and R runs is not Hamming weight or even the number of binary one-runs. For example RRRLR has three word runs and two binary one-runs."
+        ],
+        "reasoning": "The known recurrence already determines each numerical value and the pair form is a closed evaluation, not a different invariant. Word reversal exchanges the two edge-hole minimizers. The new extremal statement needs a comparison over all gap vectors, not a relabeling of a known invariant or use of reversal alone.",
+        "searches": [
+          "arXiv:2005.07167v3 Theorem 1.2 and Lemma 2.4",
+          "arXiv:2605.08624v1 Definition 1, §4.4; arXiv:2605.08624v3 §2.1 and §4.4",
+          "arXiv:2411.07779v2 §3.1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "04e8343e48d1 is indexed for fixed-weight Cusick sign-bias minima and equality through weight eight, not variance; only the indexed summary was available after a bounded full-statement attempt timed out.",
+          "eea6e9c2119c concerns nondecrease-density monotonicity and stabilization in two-run shifts. The frozen numerical shift table is corroboration, not earlier coverage or an independent novelty test."
+        ],
+        "reasoning": "The closest indexed geometry and fixed-weight comparisons govern c_t=mu_t(Z_{>=0}), not the quadratic moment. The semantic evidence does not establish catalogue absence, and the unresolved full statement of 04e8343e48d1 remains a bounded access risk.",
+        "searches": [
+          "Resultary: pair-energy variance binary digit-sum fixed Hamming weight, isolated second minimum and edge gaps",
+          "Resultary 04e8343e48d1 and eea6e9c2119c"
+        ]
+      },
+      "rationale": "Credit is limited chiefly to the unrestricted fixed-Hamming-weight second level, gap and rigidity. The pair formula evaluates an already published exact recurrence, and Tarłowski already yields the first minimum. His bounds also resolve some low-weight subcases and constrain the possible word-block patterns, but do not give the all-weight fixed-Hamming-weight comparison or its rigidity by substitution. The inspected bias results govern a different statistic.",
+      "residual_risks": [
+        "An earlier sharper few-block inequality or pair sum might encode the exact comparison. Only the specified passages were inspected.",
+        "The indexed bias match 04e8343e48d1 could not be read in full; an unproductive literature lookup was not taken as proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 21 directly covers first level and some low-weight subcases, not the full next level",
+          "evidence": "D^2[mu_t]=2+D^2[P_w]; (4.6) is weak monotonicity for lengths of existing word runs; theorem bounds total length and word-run count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08624v1",
+          "material_read": "Title page; §2.1 Definition 1 around offset 10979; §4.4 pp.12–13 offsets 38650–44033",
+          "method": "OA PDF passages",
+          "title": "The martingale evolution of probability measures defined via the sum-of-digits functions",
+          "trigger": "Strongest prior exact variance bounds at related combinatorial constraints"
+        },
+        {
+          "assessment": "Same relevant inequalities renumbered, not a new fixed-weight second bound",
+          "evidence": "Theorem 19 and Eq. (4.7) separate word length and word-run count; the interior digit map gives two exterior ones plus #R.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08624v3",
+          "material_read": "§2.1 p.4 around offset 10500; §4.4 pp.11–12, offsets 35000–44585",
+          "method": "OA PDF passages",
+          "title": "On the sum-of-digits measures and Cusick’s conjecture via stopped random walks",
+          "trigger": "Check latest compared wording and exact L/R map"
+        },
+        {
+          "assessment": "Computes the invariant exactly; a coarse variance bound uses one-block count",
+          "evidence": "The even/odd recurrence plus V(1)=2 determines V(t); it does not assert the fixed-weight isolation level.",
+          "identifier_or_url": "arXiv:2005.07167v3",
+          "material_read": "Theorem 1.2 p.4 offset 11800; Lemma 2.4 p.11 offset 38200",
+          "method": "OA PDF passages",
+          "title": "The binary digits of n+t",
+          "trigger": "Exact prior recurrence and possible broader variance extremum"
+        },
+        {
+          "assessment": "Characteristic-function decomposition; inspected section treats reversal and c_t, not the all-weight extremum",
+          "evidence": "Two-block shapes are addressed; reversal gives equality of the bias, not selection of the minimal variance among all other shapes.",
+          "identifier_or_url": "arXiv:2411.07779v2",
+          "material_read": "Abstract; §3.1.2 p.13 offset 42500",
+          "method": "OA PDF passages",
+          "title": "Decomposing the sum-of-digits correlation measure",
+          "trigger": "One- and two-block cases may include the candidate minima"
+        },
+        {
+          "assessment": "Available evidence concerns a different statistic; full-text overlap not established",
+          "evidence": "Indexed claim caps gaps and identifies nondecrease-bias minima through weight eight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-gap-clipping-and-exact-initial-fixed-weight-minima-for-cusick-s--04e8343e48d1",
+          "material_read": "Indexed summary only; bounded RESULT.md retrieval timed out",
+          "method": "Resultary index; local mirror attempt",
+          "title": "Gap clipping and exact initial fixed-weight minima for Cusick’s sum-of-digits bias",
+          "trigger": "Closest indexed fixed-weight gap claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The variance is the natural fluctuation scale for digit-sum correlations. Knowing its first and distinct next value under a fixed Hamming-weight constraint gives a uniform rigidity margin with equality classifications independent of ambient bit length. The gap approaches 1 as the weight grows; the result is not an empirical shift table, a new sign-bias estimate, or merely an alternative computation of one already-known variance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

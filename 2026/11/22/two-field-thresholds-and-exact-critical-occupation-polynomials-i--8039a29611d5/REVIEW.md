@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every integer \(a>b>c\ge1\), the preferred-color induced-edge minimum is established by majorization over the three shore occupancies. Equality cases are classified at both field crossings, and the proper two-color assignments of the remaining sites yield complete occupancy polynomials. Exact integer/rational multinomial enumeration passes 48 independent field-and-parameter cases. The finite checks supplement, rather than replace, the all-size argument.
+## correctness
 
-**Originality — PASS on examined evidence, with residual priority uncertainty.** Chang and Shrock's arbitrary-graph magnetic Potts partition identity (arXiv:0907.0777) is a broader partition-function framework, but it does not state or directly evaluate this all-size tripartite field envelope and its complete critical occupation polynomials. Their related weighted-coloring paper (arXiv:0908.2375) concentrates on proper colorings at infinite antiferromagnetic coupling, whereas the asserted high-field regimes deliberately create equal-color edges at finite coupling. Shrock–Xu (arXiv:0911.4218) mentions multipartite extensions of weighted-coloring bounds without the asserted finite-coupling equality-case count. Comparable published calculations on wheels, line graphs and finite cubic graphs have different objects and do not imply the shore-size formulas. An earlier algebraic specialization or unindexed exact calculation remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a natural full-family exact zero-temperature classification, not a one-off numerical evaluation: it determines all positive-field ground-energy sectors and the entire critical preferred-color occupation distribution. The two coexistence mechanisms yield different exponential state counts, and the intermediate strict-field regime retains extensive color entropy. For growing dense tripartite graphs the two critical residual entropy densities have a sharp ordering criterion \(\beta/\gamma=\log3/\log2\), supporting comparisons of field-induced degeneracy between unequal shore sizes. The work does not assert a standard fixed-field thermodynamic transition.
+For s zeros, their cross-edge cost is (s²−u²−v²−w²)/2. Sorting occupancies, the first partial sum is at most a and the second at most a+b, as well as at most s. Filling largest shores first attains both partial-sum bounds, so strict convexity of the squares forces the same sorted vector in every equality case. This yields the sharp piecewise lower bound with slopes 0,a,a+b. Its three positive-field vertices are feasible with zero nonpreferred edge cost. At h=0 any proper coloring uses three disjoint nonempty shore color sets and hence exactly one color per shore. At h=a the largest shore must be full of zeros and the extra k may occupy only one other shore. For partial filling of that shore, both nonzero shores are nonempty and must use opposite constant colors; when the shore is exhausted every vertex of the last shore chooses independently. The two cases add, including when their monomials coincide (e.g. k=c on B and all of C). This gives the displayed P_a and its sum 3(2^b+2^c)−6 even for c=1. At h=a+b strict capacities force A and B full; all three colors of each C vertex are free, giving x^(a+b)(2+x)^c. The strict regimes follow from unique minimizing s and the same equality rules. The optional residual-entropy limits follow by bounding the first degeneracy between constants times 2^b and by taking logs of the other exact counts.
 
-**Closest literature and limitations.** References [1]–[3] in the result give the underlying field Potts framework; potential equivalence through explicit evaluation of a general partition formula is a residual priority risk. Restriction to exactly three colors, strictly unequal shores, uniform positive bond penalty, finite positive coupling and nonnegative field is essential. The accompanying finite enumeration is neither an infinite proof nor independent scientific review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-graph field partition-function identity covers the model and implicitly its coefficients. The explicit all-size ground-energy and full labeled occupation classification at the two finite-coupling crossings is not stated or immediately supplied by the inspected comparisons. Related findings change either the geometry and field or the spin count and optimization criterion. Credit is limited to the explicit tripartite classification.
+
+## value
+
+PASS
+
+An all-size exact finite-field classification for the natural first three-shore family distinguishes independent color choices when a shore is saturated from constrained two-shore choices. It separates two distinct critical entropy mechanisms and also exposes an extensive intermediate degeneracy, neither of which the ground-energy envelope alone determines. The critical polynomials are useful finite-size information, not just checks at chosen parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

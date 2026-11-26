@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:52:38.321061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the positive equilibrium the bracket vanishes; differentiating it using u₀(1−u₀)=β(u₀+α) gives A=αβ/(u₀+α) and the convolution coefficient −C=−u₀²/(u₀+α). For frequency k=2πj/L, integrate the periodized kernel over one period by unfolding to the real line; its multiplier is exp(−σk²). Hence λ_j=f_D(k²), f_D(z)=A−Cexp(−σz)−Dz. The zero mode is negative and high frequencies decay. Strict concavity reduces the phase diagram to the interior maximum at z*=log(σC/D)/σ for D<σC; its sign changes once as q=t(1−log t), t=D/(σC), increases from 0 to 1. W_{−1} solves the critical equation on 0<t<1. At criticality the only neutral lengths are those with some k_j²=z_c, and no mode grows. Below criticality the two positive roots follow by putting w=σ(z−A/D) into w exp(w)=−(σC/D)exp(−σA/D); the ordered branches give the two roots. A strict open gap exists between I_j and I_(j+1) exactly when j<k₋/(k₊−k₋), because both starts and ends increase. Equality gives an isolated neutral contact (no other interval covers it), and all later intervals overlap. This gives the ceiling formula, including ratios at or below one. For δ=D_c−D, put z=z_c+√δ v and divide f by δ. At δ=0 the continuation gives z_c−σD_cv²/2 with two simple roots in v; the implicit-function argument in √δ gives errors O(δ) in z. Taking square roots and the integer ceiling yields the displayed coefficient and bounded remainder. The rational example gives the scaled values 0,321,0 at z=9,10,16, so strict concavity forces the band (3,4); the given roots r/2 and 1/2 make the positive upper equilibrium homogeneously stable, and interval arithmetic gives exactly the two indicated gaps and the neutral contact at 2π. Independent replay /workspace/branches/be4f96ec-cab6-4d8c-bf9c-bb5546a7ce38/independent-check.md confirms the rational identities and gives N√δ=0.390,0.395,0.3957 at δ=10⁻⁴,10⁻⁶,10⁻⁸ for A/C=1/2 and σ=C=1, against coefficient 0.39580152… . The supplied script was inspected, not executed. Finite numerics do not establish the theorem; nonlinear stability is not asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van der Voort et al. explicitly restrict the analysis to compactly supported kernels, excluding the Gaussian, and analyze a continuum threshold. Hazra et al. define admissible integer modes and mode-dependent curves for the compared bounded Neumann model; this is actual discrete-mode overlap but not the present length-near-fold count. The finite-domain band-switching lead was accessible only through a search result summary, not primary full text."
+        ],
+        "reasoning": "The general spectral principle is established; the inspected results do not establish the frozen census through arbitrary lengths and exact neutral contacts. No noncoverage conclusion is inferred from inaccessible full text.",
+        "searches": [
+          "arXiv:2512.09488, §2 and §3.1 Eqs. (3.5)–(3.11)",
+          "Hazra et al. arXiv:2609.29052v1 §7 Eqs. (78)–(79) and §5.1 Theorem 6",
+          "Exact finite-domain Turing onset and band switching, PII S0375960126006092"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08215",
+        "arXiv:2512.09488",
+        "arXiv:2609.29052v1",
+        "Resultary discrete-Neumann and mobility-window results",
+        "DOI 10.1103/PhysRevE.82.036210 (full text unavailable)",
+        "PII S0375960126006092 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The growth/no-growth test results from inserting 2πj/L in the known dispersion and is not an independently novel principle. The further comparison of adjacent intervals establishes a number of returns, not a number of modes at one length; combined with the model's double-root coefficient it proves unboundedly many distinct gaps as D approaches the threshold."
+        ],
+        "reasoning": "The exact inversion of overlap order and its parameter-dependent accumulation are the substantive separate inference; a maximum of a continuous dispersion or admissibility of a given discrete mode does not evaluate them.",
+        "searches": [
+          "Dimatz–Kuperman §§II–III",
+          "Resultary bounded Neumann mode finding and Hazra §7",
+          "van der Voort et al. general continuum Turing criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a single band, the problem is equivalently the exact coverage and contact count of the increasing intervals (2πj/k₊,2πj/k₋), with strict gaps and touching endpoints separated. The Gaussian ecological dispersion is the prior continuous-space input."
+        ],
+        "reasoning": "Continuous onset and discrete selection identify modes, but do not themselves give the number of distinct post-onset return windows or its critical scaling with diffusion.",
+        "searches": [
+          "Resultary meaning search: Gaussian Turing reentrance, circle circumference spectral windows, discrete bounded modes",
+          "Dimatz–Kuperman arXiv:2611.08215 Eqs. (8)–(10)",
+          "Literature search for finite-domain Turing instability, length reentrance, adjacent band overlap and stable-window count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-domain-size-reentrance-and-its-square-root-accumulation-la--6f0c96990cd5 is the identical target, not an independent source. SCOPE-discrete-neumann-modes-are-the-missing-condition-in-the-bounded--7c21fb0918de establishes the need for actual Neumann eigenvalues in a different model. SCOPE-maximal-disconnected-mobility-instability-windows-in-an-ecologic--73f028dfb28e counts windows varying mobility on a fixed weighted graph, not a circumference at fixed diffusion."
+        ],
+        "reasoning": "Different controls and spectra preclude using the exact indexed graph count to obtain the circle length law. The sample values are internal corroboration, not a published covering table.",
+        "searches": [
+          "Resultary: exact Gaussian circumference reentrance and fold scaling, discrete Neumann instability, disconnected Turing windows"
+        ]
+      },
+      "rationale": "The Gaussian dispersion and continuous onset, and the idea of testing admissible discrete modes, are prior inputs. The surviving distinct part is the exact all-circumference strict-return census (including contacts), its sharp accumulation coefficient, and the exact admissible realization. The reviewed primary results do not give an all-length gap census or its critical count for this model, nor a stronger count theorem from which those are supplied by substituting parameters.",
+      "residual_risks": [
+        "An exact band-overlap census or fold coefficient may occur in unindexed finite-size Turing work under other terminology. Older Clerc et al. and the band-switching full texts were unavailable; no priority judgment is inferred from that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual same-model dispersion and continuous touching onset, not a strict length-gap census in the passages inspected",
+          "evidence": [
+            "The q-Gaussian family includes the Gaussian and the linear dispersion uses the Fourier transform of the kernel; marginal onset is a maximizing zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08215",
+          "material_read": "§II Eq. (2), §II.1, offsets 7000–11972; §III Eqs. (8)–(10), offsets 12000–16983",
+          "method": "Lawful primary arXiv HTML bounded passages",
+          "title": "Pattern selection and biomass shifts in a vegetation model with nonlocal competition and Allee activation",
+          "trigger": "Same vegetation equation and Gaussian limit"
+        },
+        {
+          "assessment": "Different kernel hypothesis and continuous domain threshold",
+          "evidence": [
+            "§2 requires compact support; Eqs. (3.5)–(3.11) derive continuous critical parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.09488",
+          "material_read": "Primary PDF §2 around p. 4; §3.1 pp. 6–7",
+          "method": "Lawful primary PDF passages",
+          "title": "Vegetation pattern formation induced by local growth outpacing susceptibility to non-local competition",
+          "trigger": "General vegetation Turing theory"
+        },
+        {
+          "assessment": "Establishes testing an actual discrete mode, not the strict circumference-return count",
+          "evidence": [
+            "The Neumann eigenvalue z_k=k²/l² must lie in the unstable band; the mode-dependent curves test admissible integers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-discrete-neumann-modes-are-the-missing-condition-in-the-bounded--7c21fb0918de",
+          "material_read": "Finding and Proof; underlying Hazra et al. arXiv:2609.29052v1 §7 Eqs. (78)–(79), OA offsets 56500–61100",
+          "method": "Configured Resultary local mirror and underlying lawful arXiv HTML",
+          "title": "Discrete Neumann modes are the missing condition in the bounded-domain criterion",
+          "trigger": "Closely equivalent mode-selection step"
+        },
+        {
+          "assessment": "No full-text comparison established",
+          "evidence": [
+            "No scientific noncoverage inference from HTTP failure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.82.036210",
+          "material_read": "Title and bibliographic identification only; DOI/APS routes unavailable",
+          "method": "Lawful OA attempts",
+          "title": "Analytical studies of fronts, colonies, and patterns: combination of the Allee effect and nonlocal competition interactions",
+          "trigger": "Earlier same-mechanism Allee/nonlocal patterns"
+        },
+        {
+          "assessment": "Relevant access risk; not treated as noncovering from snippet",
+          "evidence": [
+            "The visible summary describes an exact mode-dependent threshold and nonexistence criterion, not enough for a full comparison."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0375960126006092",
+          "material_read": "Search result gives only the Neumann eigenvalue onset characterization; publisher full text not accessible",
+          "method": "Targeted literature search; direct and alternate lawful routes attempted",
+          "title": "Exact finite-domain Turing onset and band switching",
+          "trigger": "Potentially related exact finite-domain result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Checking that some mode grows at a fixed length misses the repeated, bounded intervals of strict stabilization as length is varied. The exact count, isolated threshold contacts, and the unbounded near-onset growth with its sharp coefficient quantify those interruptions for a natural controlled habitat-length sweep; the admissible exact example shows they actually occur without relying on numerical near-zero signs. This does not claim ecological field validation or nonlinear patterns.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

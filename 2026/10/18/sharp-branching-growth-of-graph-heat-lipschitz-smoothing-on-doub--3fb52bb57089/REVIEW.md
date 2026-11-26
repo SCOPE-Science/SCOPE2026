@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the stated unnormalized unit-rate graph convention, \(\ell^\infty\)-\(\ell^1\) duality reduces the sharp edge norm to the total variation of a heat-evolved signed pair of vertices. The antisymmetric two-dimensional invariant subsystem proves the bridge formula and its sign extremizer exactly. The three-component leaf-edge decomposition supplies a degree-uniform time-weighted bound, separating the global maximum from leaf edges for sufficiently large multiplicity. The two positive bridge eigenweights and their eigenvalues yield the exact asymptotic factor, and compactness of the rescaled maximizing times forces their limit \(1/4\). Finite independent Markov-uniformization checks are reproducible in verify.py.
+PASS
 
-## Originality
+With counting measure, symmetry and sup-norm duality give the edge norm as the l1 mass of H(t)(delta_u-delta_v). The antisymmetric hub/leaf generator has entries (-(m+2),m;1,-1); it preserves left-half nonnegativity. The left-half mass has initial value 1 and derivative -2, yielding the two positive bridge coefficients and sign-input extremizer (at t=0 the zero leaf components pose no issue). The pendant mass splits into leaf differences of rate 1, the symmetric hub/leaf contrast of rate m+1, and two antisymmetric modes. Checking their leaf coefficients using a'=h-a gives the two stated remainder amplitudes, at most 2/m and 3, respectively. With lambda_- of order 1/m and lambda_+ of order m, the weighted pendant supremum is uniformly bounded. For the bridge, after writing y=lambda_- t, the fast weighted exponential is uniformly negligible relative to the slow prefactor, by max_y sqrt(y)exp(-r y)=1/sqrt(2er). The slow profile sqrt(y)exp(-y) has a unique maximum at y=1/2 and vanishes at both ends, so every maximizing time has lambda_- t→1/2. Since m lambda_-→2 and c_-→1, the rescaled optimum tends to e^(-1/2) and t/m→1/4. Finite positive maximizing times exist by continuity and the endpoint decay of edge masses; the pendant bound yields strict bridge superiority at all sufficiently large optimizing m.
 
-PASS within inspected published mathematical evidence. The graph Li–Yau and spatial Hamilton estimates give curvature-dependent inequalities for positive heat solutions, while general \(L^\infty\)-to-Lipschitz semigroup theory treats sharp constants abstractly. None of the inspected relevant sections computes the present unnormalized bistar bridge signed-kernel norm, its sharp degree-growth constant, or the asymptotic maximizing edge and time. The nearest published graph-family comparisons under other mathematical invariants or metric quantum-graph edge envelopes do not imply this discrete combinatorial heat result. Full historical priority remains a risk under alternative Markov-chain total-variation nomenclature.
+## originality
 
-## Value
+PASS
 
-PASS. Even among unit-edge trees of fixed diameter three, a single bottleneck edge forces the optimal time-weighted heat regularization constant to diverge at an exactly quantified square-root degree rate. The result locates both the extremal spatial edge and time, identifies extremizing rough data, and establishes the necessity of geometric or degree restrictions in a dimension-free smoothing inequality for unnormalized graph Laplacians. The exact sharp coefficient is not a mere statement about spectral gap: it requires the signed kernel mass and suppression of all competing leaf-edge modes.
+Best of current evidence: the sharp degree growth, limiting time and exact bridge coefficient are distinct from known Lipschitz-input amplification for the same family and bounded-input smoothing for a different family. Neither general gradient estimates nor a spectral gap identify the competing edge norms.
 
-## Scope and risk
+## value
 
-The theorem is restricted to balanced double stars and the unnormalized counting-measure Laplacian. A complete finite-parameter formula for every leaf edge is not claimed. Stronger unpublished, older, or differently named total-variation results may affect priority; no external mathematical review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family gives a quantitative sharp obstruction to degree-independent t^(-1/2) smoothing even among diameter-three unit-edge trees with the counting-measure Laplacian. The exact bridge law and the proof that the bridge alone controls the large-m optimum distinguish slow bottleneck dynamics from faster local leaf dynamics, information not supplied by a generic spectral-gap estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

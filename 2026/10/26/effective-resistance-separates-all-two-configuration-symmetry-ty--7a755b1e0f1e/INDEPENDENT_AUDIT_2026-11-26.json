@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:11:20.372571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact replay /workspace/replay/1.py used the symmetric difference of pairs of token states and disjointness of underlying labels to build all 45 vertices and 120 edges. All-pairs distances confirmed connectedness and counts 120,390,390,90. Inverting L+J (J the 45-by-45 all-ones matrix), with the inverse product checked, gives the exact voltage solution on zero-sum unit current vectors e_i-e_j, since J kills that subspace. The resulting 990 quadratic forms split into 17 buckets. Starting each bucket at its least pair and applying adjacent label transpositions gives exactly that bucket; each is therefore one S5 orbit. Every graph automorphism preserves resistance and the S5 action is by automorphisms, so the buckets also coincide with the full group orbits without needing the full group classification. All representatives, multiplicities, scaled numerators and distances match the frozen table; the exact Kirchhoff sum, characteristic polynomial, extrema and the graph-distance inversion agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The automorphism theorem applies since Petersen is connected of girth five and k=2 is not half its order.",
+          "The spectral inclusion source is about eigenvalues, not the entries of an inverse."
+        ],
+        "reasoning": "The group theorem determines the acting automorphisms, not the injectivity of a scalar invariant on their pair-orbits. Eigenvalues determine the total Kirchhoff sum, but not which pairs have equal resistance.",
+        "searches": [
+          "arXiv:2207.12336 connected C4,diamond-free token graph automorphisms",
+          "arXiv:2012.00808 Laplacian inclusion and spectra"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507251",
+        "arXiv:0910.4774",
+        "arXiv:2012.00808",
+        "arXiv:2207.12336",
+        "Resultary 85c991936c69, 9adb00cdf2f8 and 096636fa2b19",
+        "PII S002437951200420X (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The polynomial is prior/same-object data and not a novel claim here. The resolving-set result concerns shortest-path distances to multiple landmarks rather than a single invariant of pairs."
+        ],
+        "reasoning": "The inverse entries can of course be computed from the graph, but neither the available spectrum nor the group identification supplies those entries or certifies distinctness of the resistances on all orbitals. The independent electrical table is required.",
+        "searches": [
+          "arXiv:2207.12336 group reconstruction; arXiv:math/0507251 symmetric powers; Resultary 85c991936c69 and 9adb00cdf2f8 exact findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definitions in all three primary sources identify the same unordered-move graph in their settings.",
+          "Search on configuration graphs found the potentially relevant Invariant adjacency matrices of configuration graphs; no full text was accessible, and its snippet is not proof that it covers or excludes this claim."
+        ],
+        "reasoning": "The alias equivalence uses the symmetric-difference edge rule; it does not convert an adjacency spectrum or distance-resolving problem into a pair-resistance theorem.",
+        "searches": [
+          "Petersen symmetric square / token graph / two-particle exclusion configuration graph effective resistance and orbit separation",
+          "arXiv:math/0507251; arXiv:0910.4774; arXiv:2012.00808"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Resultary critical-group record 85c991936c69 has the identical graph and a Laplacian polynomial, tree count and critical group. Later record 096636fa2b19 likewise gives critical group and tree count.",
+          "Same-day Resultary landmark record 9adb00cdf2f8 gives shortest-path metric dimension 5, 189540 metric bases and 1627 natural-S5 basis orbits, not a pair-resistance table."
+        ],
+        "reasoning": "These records must be compared regardless of date; their exact stated findings are for different outputs. No known table inspected tabulates or entails the exact resistance bucket partition.",
+        "searches": [
+          "Resultary: exact effective resistance spectrum and orbit separation in two-token Petersen graph, symmetric square and exclusion graph aliases"
+        ]
+      },
+      "rationale": "The verified distinct claim is the exact pair-resistance table and equivalence of resistance equality with pair-orbit equivalence in this 45-state graph. Same-object published data overlap materially for the Laplacian polynomial and for using shortest-path geometry with S5, but do not supply an orbital inverse or the exact pair-level separation.",
+      "residual_risks": [
+        "Uninspected full text of Invariant adjacency matrices of configuration graphs might contain stronger orbital data. Other unindexed exact pair tables are possible; bounded search cannot establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph construction and spectral framework, no orbit-resistance theorem in the compared statements",
+          "evidence": "Subset motion rule and Laplacian spectral focus.",
+          "identifier_or_url": "arXiv:math/0507251; arXiv:0910.4774; arXiv:2012.00808",
+          "material_read": "Opening definitions and stated results, PDF p. 1 offsets 1450, 360, 2050 respectively",
+          "method": "OA primary PDF passages",
+          "title": "Symmetric Squares of Graphs; Token Graphs; On the Laplacian spectra of token graphs",
+          "trigger": "Same-object aliases and potentially determining Laplacian methods"
+        },
+        {
+          "assessment": "Applies to the group, not electrical injectivity",
+          "evidence": "Aut(G) is isomorphic to Aut(F_k(G)) for the stated class when k is not n/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.12336",
+          "material_read": "p. 1 offset 820, automorphism result",
+          "method": "OA primary PDF passage",
+          "title": "Connected (C4,Diamond)-free Graphs Are Uniquely Reconstructible from Their Token Graphs",
+          "trigger": "Full automorphism group in the claimed equivalence"
+        },
+        {
+          "assessment": "Material same-object overlap, not coverage of pairwise resistance",
+          "evidence": "Gives critical group, tree count and Laplacian characteristic polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-critical-group-of-the-petersen-symmetric-square-f-2-p--85c991936c69",
+          "material_read": "RESULT.md Finding and scope, offsets 211 and 612",
+          "method": "Local mirror primary text",
+          "title": "The critical group of the Petersen symmetric square F_2(P)",
+          "trigger": "Identical graph and Laplacian checksum"
+        },
+        {
+          "assessment": "Distinct distance and symmetry invariant",
+          "evidence": "Counts metric bases using shortest-path distance and the induced S5 action.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-five-landmark-resolving-bases-and-maximally-separated-codes-in-t--9adb00cdf2f8",
+          "material_read": "RESULT.md Finding and scope, offsets 98 and 1345",
+          "method": "Local mirror primary text",
+          "title": "Five-landmark resolving bases and maximally separated codes in the Petersen token graph",
+          "trigger": "Same graph with separation by metric measurements and S5"
+        },
+        {
+          "assessment": "Unresolved coverage, not a negative full-paper finding",
+          "evidence": "Snippet mentions Petersen graph and invariant adjacency matrices; it does not establish the resistance equivalence.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S002437951200420X",
+          "material_read": "Indexed snippet only; OA direct and VPN full text unavailable",
+          "method": "Targeted web and lawful OA access attempts",
+          "title": "Invariant adjacency matrices of configuration graphs",
+          "trigger": "Petersen orbital-matrix candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural two-particle exclusion network on Petersen has only four positive graph distances; the resistance invariant instead completely resolves all 17 symmetry types of unordered vertex pairs and reverses some shortest-path comparisons. The exact values supply a reference for this network and its associated commute-time geometry, rather than just duplicating its trace or symmetry group.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

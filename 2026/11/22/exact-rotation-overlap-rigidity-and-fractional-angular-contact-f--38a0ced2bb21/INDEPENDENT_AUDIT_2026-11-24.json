@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:00:36.985449Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The squared radial function is strictly decreasing with circular distance to the nearest axis for every 0<p<2. On a period L=π/2 and for 0<d≤L/2, the two profiles cross at d/2 and (L+d)/2. Between these points the first is the minimum; reflection t↦d−t modulo L interchanges the profiles and the two complementary half-periods. Integrating therefore gives I=4∫[d/2,(L+d)/2] fₚ(t)dt, also at d=0 by continuity. This yields the exact formula and strictly negative interior derivative. At the minimum the centered sum is even analytic with quadratic coefficient −fₚ′(π/8)>0. Near the axis fₚ(t)=1−(2/p)tᵖ+O(t^{2p}+t²), and near the diagonal the first change is O(t²); integrating yields the displayed coefficient and little-o remainder for all fixed 0<p<2. The astroid substitution gives 3u²/(1+u²)³ and differentiation verifies its primitive; independent quadrature gives minimum 0.845064236407053630. At p=1 the first nonlinear term is the integer power d² (analytic on the folded branch); the signed-angle profile still has a linear absolute-value cusp. The formulas need no repair; the fractional/nonanalytic description of the nonlinear term is understood only for p≠1.",
+      "replay_paths": [
+        "/workspace/reproductions/2.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes and Chraibi handle two ellipses; Rai et al. give rotated superellipse parametrization and a full-shape area. The quartic covariogram finding 3344fb8c8a7e concerns translations and p=4."
+        ],
+        "reasoning": "General ellipse algorithms do not apply to this nonelliptic boundary. A rotated shape parametrization by itself supplies neither the profile of its intersections nor the sharp asymptotics. Translating a quartic ball is outside both the operation and exponent range here.",
+        "searches": [
+          "arXiv:1106.3787, abstract and § on Gauss–Green sector areas; Rai et al., Capturing human activity spaces, p. 8; Resultary 8bdc3d36cdac and 3344fb8c8a7e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 38a0ced2bb21 (identical record), 8bdc3d36cdac, 978be5722785 and 3344fb8c8a7e",
+        "arXiv:1106.3787",
+        "Rai et al., Capturing human activity spaces",
+        "MathWorld Astroid and Superellipse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearby ellipse records study different radial profiles or a different observable. General polar overlap gives an integral of a minimum, not a previously stated p-dependent coefficient."
+        ],
+        "reasoning": "The crossing/monotonicity argument applies more broadly to equally shifted symmetric unimodal radial profiles, but the sharp coefficient here uses the Lamé-specific expansion at an axis. Neither the general minimum identity nor the inspected ellipse formulas subsume it.",
+        "searches": [
+          "Resultary: small-angle overlap contact expansion of rotated L^p discs, d^(p+1) correction and coefficient; 8bdc3d36cdac equal-scale clause and 978be5722785 endpoint behavior"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same catalogue hit is 38a0ced2bb21, the assigned finding. The distinct ellipse area profile 8bdc3d36cdac allows equal-scale copies, but applies to ellipses. 978be5722785 concerns perimeter of centered ellipse intersections."
+        ],
+        "reasoning": "Changing area to perimeter or using an ellipse does not give the stated arc integrals for the rotationally symmetric Lamé family. The signed-angle and folded-angle versions are equivalent by reflection and π/2 periodicity.",
+        "searches": [
+          "Resultary: exact rotation overlap of equal concentric Lamé regions (superellipses) and folded angle for 0<p<2; rotated astroid intersection area and elementary closed form; rotated centered star bodies from radial functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reference pages describe the single-shape area and geometry; the assigned finding contains the exact astroid angle profile and its minimum. No distinct exact table for this angular profile was located in the checked evidence."
+        ],
+        "reasoning": "The full astroid area only fixes the aligned value, and standard boundary data do not tabulate its rotated overlap. An unsuccessful exact-query search is not evidence of absence.",
+        "searches": [
+          "Resultary: rotated astroid intersection area overlap exact elementary closed form, p=2/3 Lamé curve; MathWorld Astroid and Superellipse; web: rotated superellipse intersection area overlap formula astroid"
+        ]
+      },
+      "rationale": "The checked comparisons do not cover the complete Lamé area profile and its sharp pointwise-in-p correction. The radial-minimum identity, Lamé areas and the square specialization are not the basis for this conclusion.",
+      "residual_risks": [
+        "An equivalent astroid profile or an exact periodic radial-overlap formula under other terminology may have escaped the bounded search. Mathematical originality here is not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogue for ellipses, not this Lamé family",
+          "evidence": "The elementary centered-ellipse formula permits a scale factor, with an equal-area specialization at k=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-containment-atom-and-fractional-onset-law-for-randomly-rotat--8bdc3d36cdac/RESULT.md",
+          "material_read": "Finding, opening through the equal-scale reduction (offsets 0–4175)",
+          "method": "Compare object, scaling, and angular area formulas in the text",
+          "title": "The containment atom and fractional onset law for randomly rotated ellipses",
+          "trigger": "Closest distinct rotational area profile and exact contact comparison"
+        },
+        {
+          "assessment": "Overlap algorithm for two ellipses, not all p",
+          "evidence": "It uses ellipse sectors, Gauss–Green segment areas and polygonal components, not Lamé radial powers or the asserted contact law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.3787",
+          "material_read": "Abstract and p. 5 sector-area discussion",
+          "method": "Primary PDF comparison of shape assumptions and integration method",
+          "title": "Calculating Ellipse Overlap Areas",
+          "trigger": "General exact intersection-area method for a nearby family"
+        },
+        {
+          "assessment": "Shape background",
+          "evidence": "The rotation and exponent are fitted shape parameters; the relevant passage gives a parametrization and full area, not an intersection profile.",
+          "identifier_or_url": "https://svn.vsp.tu-berlin.de/repos/public-svn/publications/vspwp/2007/07-06/26feb07activity-spaces.pdf",
+          "material_read": "Abstract and p. 8 superellipse model",
+          "method": "Primary PDF passage comparison",
+          "title": "Capturing human activity spaces: New geometries",
+          "trigger": "Rotated superellipse geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The profile provides a strict inverse orientation law including nonconvex regions, and the first nonlinear power relates the overlap profile to the Lamé exponent. The exact constants distinguish the alignment cusp from the diagonal quadratic minimum; the astroid profile gives a practical closed-form reference. These claims are limited to equal-scale concentric copies and are not uniform in the exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

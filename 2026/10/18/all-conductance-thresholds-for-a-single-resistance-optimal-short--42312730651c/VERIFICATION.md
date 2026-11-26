@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction of analytical and exact-arithmetic checks
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3.11 or later and SymPy 1.13 (or compatible 1.x release). The output verified from the embedded source is:
+## correctness
 
-```
-VERIFY_OK 67122 exact symbolic, rational placement, tie, and direct-matrix checks
-```
+PASS
 
-The script symbolically reduces polynomial difference identities, the balanced-tail formula and the odd-parity amplitude inequality. It exhaustively compares every nonadjacent shortcut for path orders \(4\) through \(32\), using exact rational arithmetic at and around every predicted transition and over additional conductor values. It also independently obtains Kirchhoff indices from rational matrix inverses for orders \(4\) through \(9\). These finite computations support the proof and permit error detection; they are not an exhaustive proof for unbounded path order. Infinite quantifiers, optimality and strict cutoff ordering are justified in the analytical argument in RESULT.md.
+Independently, for any vertex pair the inserted edge and the intercepted path form the unique cycle. If the two vertices project to positions at distance a on the original span ℓ, the two cycle arcs give a decrease a²/(ℓ+1/w); the series tails cancel. Summing yields the stated gain: centering the clipped ramp at ℓ/2 gives sum −(p−q)ℓ/2 and sum of squares ℓ(3nℓ−2ℓ²+2)/12. The resulting imbalance penalty eliminates nonmaximal placements at fixed span. At odd tail sum the two even-tail neighbors have total numerator strictly larger than twice the odd numerator, by (n−ℓ)²/2, and average denominator equal to the odd denominator; thus one strictly wins. The only missing neighbor case is span two at even n, where span three wins both at w→0 in the numerator and at w→∞ after dividing by span, hence at every w>0. Subtracting adjacent centered scores gives the stated crossing and its sign, with positive crossings exactly at k<K. To check ordering directly, write the crossing in x as 3(1/x+1/(x−2))(n+1−x)/(4x−3n−4); both positive factors increase as successive spans x decrease in the admitted range. After the final crossing range each next shorter span is strictly dominated by its longer neighbor for every finite w. These adjacent comparisons yield exactly the claimed winners and two-way ties for all n, including K=0. An independent cycle-arc enumeration verifies all nonedges for orders 4–32 at 125 exact rational probes, covering every equality and every open phase in that range.
 
-The accompanying files provide source, dependencies and exact output sufficient to rerun these checks. No external or independent mathematical validation has been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the complete hierarchy of finite-order thresholds for arbitrary positive finite w, with no skipping, exact ties, and no off-center optimizer. The strongest exact indexed match fixes w=1. Its actual proof specializes the parity argument and optimizes a specialized cubic sign in n, and does not supply inequalities over w. The acknowledged gain formula, first transition, and large-order behavior are not credited as new. No inspected source established the full hierarchy or a stronger implication that gives it without the additional uniform optimization argument. This is a bounded judgment, not a priority ruling.
+
+## value
+
+PASS
+
+For a standard robustness objective on the canonical path, the result answers which single link to place as its allowed strength varies, at every finite size. The exact count of phases, impossibility of skipped placements and exhaustive tie law are structural information needed to use the answer without searching over all endpoint pairs. This is a natural complete classification, beyond the first transition or the unit-conductance slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

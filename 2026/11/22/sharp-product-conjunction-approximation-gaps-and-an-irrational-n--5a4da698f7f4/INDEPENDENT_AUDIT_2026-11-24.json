@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:22:44.791103Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–66",
+        "Frozen VERIFICATION.md and checker.py inspected, not executed"
+      ],
+      "rationale": "For m=min_i x_i, the product lies between m^n and m, and m-m^n has maximum h_n at t_n; the diagonal attains it. The clipped shift of m by h_n/2 has error at most h_n/2 on the whole cube, hence in all models, and rational shifts approach it uniformly. On a singleton unit loop both modalities are identities and each extended term is 1-Lipschitz in the sup norm. The two diagonal valuations at t_n and 1 force error at least (t_n-t_n^n)/2; saturation forces endpoint values t_n-e_n and 1-e_n and the slope-one segment between them. At rational input 1 a rational term has rational output, but e_n=(n-1)t_n/(2n) is irrational for n>=3 by the monic rational-root theorem and 2^(n-1)>n. For n=2 the shift 1/8 works, and t_n tends to 1 so e_n tends to 1/2. In the plain language the diagonal branch on (1/2,1) is one of 0, 1-s, s, 1, by fixed order and closure; any improvement needs value 1 at s=1 and thus branch s or 1. These incur at least h_n at t_n (by continuity for n=2) or 1-2^(-n)>h_n at 1/2, respectively.",
+      "residual_risks": [
+        "The grid checker is corroboration only; the all-model and irrationality assertions are justified analytically, not by a grid or floating-point error comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gutev, Theorem 2.1 and Proposition 2.2, supplies the general Lipschitz envelopes. Gebhart–Schröder–Wild's inspected modalities paper gives uniform interpolation, and the description-logic paper introduces related syntax and complexity questions."
+        ],
+        "reasoning": "The general metric result does not impose finite-formula syntax or rational values at rational points, and interpolation does not solve approximation of this external product target.",
+        "searches": [
+          "arXiv:2002.07205v1",
+          "arXiv:2610.32335v1",
+          "arXiv:2505.09416v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused searches and mirrored strong-disjunction/half-grid records above",
+        "arXiv:2002.07205v1",
+        "arXiv:2505.09416v3",
+        "arXiv:2610.32335v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lipschitz envelopes and the pairwise error inequality give half the maximal positive difference between target oscillation and distance as the unrestricted minimax error. Half-grid elimination optimizes substitutions in terms already expressible in its syntax."
+        ],
+        "reasoning": "The product/min envelope and diagonal endpoints evaluate the classical metric formula here; diagonal rigidity follows from saturation. Neither general approximation nor half-grid elimination supplies the plain-language branch obstruction and the arithmetic nonattainment dichotomy for product.",
+        "searches": [
+          "arXiv:2002.07205v1, Theorem 2.1 and Proposition 2.2",
+          "Resultary: 2026/11/2/SCOPE-sharp-half-grid-witnesses-for-rational-non-expansive-fuzzy-propo--1641f2a5f07b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strong-disjunction Finding and Proof: truncated addition has errors 1-1/n and (1-1/n)/2, rational attainment and a forced slope-one segment on [0,1/n]."
+        ],
+        "reasoning": "The singleton and Lipschitz arguments transfer as methods, but De Morgan duality for the multiplicative target yields probabilistic sum, not truncated addition; neither the constants nor the rational-attainment claim transfer by duality.",
+        "searches": [
+          "Resultary: Zadeh/product t-norm minimax and product versus min; 2026/11/8/SCOPE-exact-three-language-approximation-gap-for-strong-fuzzy-disjunct--9cd5fba0d403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed product/min match was this very record, 2026/11/22/SCOPE-sharp-product-conjunction-approximation-gaps-and-an-irrational-n--5a4da698f7f4. The inspected nearby exact published record targets Łukasiewicz disjunction."
+        ],
+        "reasoning": "The identical indexed record is not independent coverage. No distinct exact product classification was established from the inspected matches; the result is not an entry of a checked exact table.",
+        "searches": [
+          "Resultary: product-versus-min uniform error; product t-norm minimax approximation; Zadeh approximation"
+        ]
+      },
+      "rationale": "Pass for the product-specific three-language classification and the arity-dependent rational-attainment obstruction. The method and a corresponding diagonal law have a close published Łukasiewicz analogue; the metric optimum alone is an application of classical Lipschitz approximation, not a new general approximation theorem. The examined evidence does not cover the product-specific syntax and attainment result.",
+      "residual_risks": [
+        "An older direct analysis of product/min approximation or Zadeh term functions could cover more of the specialization; checked sources do not establish historical priority exhaustively.",
+        "The cited Navara summary was not inspected successfully."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodological overlap; not equivalent by duality",
+          "evidence": "Target min(1,sum x_i) and rational attainment at every arity, unlike the multiplicative target.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-three-language-approximation-gap-for-strong-fuzzy-disjunct--9cd5fba0d403",
+          "material_read": "Mirrored RESULT.md, Finding and Proof, offset 0",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact three-language approximation gap for strong fuzzy disjunction",
+          "trigger": "Same three-language problem for another t-conorm"
+        },
+        {
+          "assessment": "Metric component covered by general envelope and specialization, not syntactic attainment",
+          "evidence": "Pasch–Hausdorff infimum/supremum Lipschitz envelopes reproduce the unrestricted error characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.07205v1",
+          "material_read": "Theorem 1.1 p. 2, offset 5520; Theorem 2.1 and Proposition 2.2 pp. 4–5, offset 11900",
+          "method": "OA primary text, bounded passages",
+          "title": "Lipschitz Extensions and Approximations",
+          "trigger": "Potential general minimax implication"
+        },
+        {
+          "assessment": "Language context, not the product minimax statement in the examined passage",
+          "evidence": "Product logic is listed among fuzzy bases; non-expansive Zadeh is extended by rational shifts.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.09416v3",
+          "material_read": "p. 2, offset 6800, introductory passage",
+          "method": "OA primary text, bounded passage",
+          "title": "Non-expansive Fuzzy ALC",
+          "trigger": "Same base syntax and parallel product logic"
+        },
+        {
+          "assessment": "The stated result is interpolation, not the product comparison",
+          "evidence": "Identifies uniform interpolation for non-expansive fuzzy modal logic as the contribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32335v1",
+          "material_read": "p. 3, offset 6373, contribution statement",
+          "method": "OA full-text source, bounded passage",
+          "title": "Non-Expansive Fuzzy Modal Logic Has Uniform Interpolation",
+          "trigger": "Motivating work on the same modal language"
+        },
+        {
+          "assessment": "Different optimization domain",
+          "evidence": "Sup/inf elimination on a finite half-grid for terms within the syntax, not an external product target.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-half-grid-witnesses-for-rational-non-expansive-fuzzy-propo--1641f2a5f07b",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp half-grid witnesses for rational non-expansive fuzzy propositional elimination",
+          "trigger": "Stronger-looking exact result for rational finite terms"
+        },
+        {
+          "assessment": "Unresolved from this source; no negative inference",
+          "evidence": "No statement-level overlap assessment from the unavailable page.",
+          "identifier_or_url": "https://www.scholarpedia.org/article/Conorm",
+          "material_read": "No primary passage retrieved",
+          "method": "Bounded lawful retrieval attempts",
+          "title": "Triangular Norms and Conorms",
+          "trigger": "Background and duality reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Published strong-disjunction comparison above"
+      ],
+      "rationale": "The product is a standard alternative conjunction. Quantifying its distance from the weaker languages and identifying exactly when dense rational syntax fails to contain an optimizer establish a useful expressivity boundary. The singleton saturation witness explains why greater modal depth cannot repair it; this is a substantive distinction from the available strong Łukasiewicz benchmark, even though the unrestricted metric calculation is elementary.",
+      "residual_risks": [
+        "The result is specific to the stated languages and product target and does not by itself classify approximation to other t-norms or restricted model classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

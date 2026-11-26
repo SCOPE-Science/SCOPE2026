@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:57:23.842724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graphical-group alternating form for an edge weighting has rank twice the matching number of its forest support: a maximum matching gives a nonzero principal Pfaffian on its endpoints, with no cancellation because two different perfect matchings would give a cycle. Conversely the rank of an alternating matrix is attained on a nonsingular principal submatrix (successive coordinate-pair pivots suffice), whose Pfaffian requires a matching of half that size. There are (q-1)^k weightings of a fixed k-edge support, yielding the stated q^(n-2r) character multiplier per rank-2r weighting in odd characteristic. Equality of profiles forces the same n since the number of linear characters is q^n; at fixed n, equality at all odd prime powers is equivalent to polynomial equality by the infinite-root test. The independent replay `python3 -B /workspace/reproduce_frozen.py 2` generates rooted trees as multisets of smaller rooted trees, identifies unrooted trees by the minimum rooted code over all roots, and derives each support matching number from the largest matching submask. It reproduced orders 1–10, 106 trees and 105 profiles at ten and no collision below, the exact two witnesses and all 19 coefficients. The diameters are six and seven. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-tree result gives the rank-support formula and rooted recurrence for odd q; Rossmann §1.6 describes the antisymmetric rank specialization and poses the distribution question."
+        ],
+        "reasoning": "The general enumerator is prior and calculates the invariant, but the formula in isolation is not a statement of the specific collision or minimality. The separate October 18 record gives both explicitly.",
+        "searches": [
+          "Rossmann arXiv:2107.05564, §1.6",
+          "2026/10/4/SCOPE-tree-graphical-groups-have-matching-support-character-polynomial--fb80c871ed65, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary October 18 exact collision record and October 4 all-tree formula record",
+        "Rossmann arXiv:2107.05564 §1.6",
+        "Independent replay /workspace/reproduce_frozen.py, argument 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older exact pair and census are over the same graphs, orders and fields. Rossmann supplies the broader setup, not this cutoff."
+        ],
+        "reasoning": "Replacing u by q-1 and applying the identical power of q translates the earlier distribution into the frozen form without adding a mathematical claim.",
+        "searches": [
+          "2026/10/18/SCOPE-a-sharp-ten-vertex-character-spectrum-collision-for-tree-graphic--391f3dbc358c",
+          "Rossmann arXiv:2107.05564, §1.6, Question 1.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-a-sharp-ten-vertex-character-spectrum-collision-for-tree-graphic--391f3dbc358c, RESULT.md: cutoff nine and unique pair at ten, odd-prime-power character counts",
+          "Old witness 1 maps to frozen B by [0,1,4,7,9,5,2,6,8,3]; old witness 2 to frozen A by [2,0,1,4,5,3,7,6,8,9] (images in vertex order)."
+        ],
+        "reasoning": "The older term character spectrum refers to the same complete multiplicities, not merely the set of degrees; the explicit relabellings make the collision identical.",
+        "searches": [
+          "Resultary: tree graphical-group character degree/spectrum and support-matching collision",
+          "Primary literature: \"tree character-degree profile\" collision matching-support polynomial ten Rossmann graphical groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older result gives 106 trees, 105 profiles and the five rank slices; for u=q-1 these are 1, u(2u^2+10u+9), u^2(u+1)(7u^2+28u+26), 2u^3(u+1)^2(u+2)(3u+7), u^4(u+1)^3(u+3)^2."
+        ],
+        "reasoning": "Expanding those slices gives the same 19 nonzero entries as the frozen table. Counts of trees alone would not decide the character question; this is a profile census.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-a-sharp-ten-vertex-character-spectrum-collision-for-tree-graphic--391f3dbc358c, RESULT.md"
+        ]
+      },
+      "rationale": "A distinct earlier catalogued result gives the same minimal order, unique unordered isomorphism pair and complete character-degree distribution. The relabellings and coefficient comparison establish actual equivalence, not just a similar invariant or a matching title.",
+      "residual_risks": [
+        "The limited primary search does not determine first historical priority. This does not weaken the demonstrated equivalent catalogued coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen cutoff and collision",
+          "evidence": "Reconstruction through nine; identical pair at ten by the relabellings above; exact distributions match.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-ten-vertex-character-spectrum-collision-for-tree-graphic--391f3dbc358c",
+          "material_read": "RESULT.md opening theorem, witness edge lists and polynomial slices (offset 0)",
+          "method": "Local Resultary mirror and statement comparison",
+          "title": "A sharp ten-vertex character-spectrum collision for tree graphical groups",
+          "trigger": "Specific older collision census"
+        },
+        {
+          "assessment": "Covers the general reduction, not the advertised census by itself",
+          "evidence": "Coefficient of z^r times q^(n-2r) gives the ordinary character multiplicity for every tree and odd prime power.",
+          "identifier_or_url": "2026/10/4/SCOPE-tree-graphical-groups-have-matching-support-character-polynomial--fb80c871ed65",
+          "material_read": "RESULT.md formula and description of rooted recurrence (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Tree graphical groups have matching-support character polynomials",
+          "trigger": "Prior all-tree polynomial formula cited by the record"
+        },
+        {
+          "assessment": "Matching framework; the inspected passage does not assert the census",
+          "evidence": "Defines ch(Γ,i;q) and discusses the connection to ranks of antisymmetric specializations for odd q.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.05564",
+          "material_read": "PDF p. 5, §1.6, Question 1.10 (offset 14607)",
+          "method": "Lawful OA passage inspection",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Primary source defining the character-degree invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp reconstruction cutoff of a representation-theoretic invariant is a meaningful question, but this frozen finding gives the same answer, witnesses and exact distribution as the earlier record. Its recomputation is useful corroboration, not a distinct mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

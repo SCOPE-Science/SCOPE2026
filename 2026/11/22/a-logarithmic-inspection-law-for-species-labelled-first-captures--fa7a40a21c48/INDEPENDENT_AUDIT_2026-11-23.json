@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:16:54.579004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reconstruction gives the reported determinant: with q=1-exp(-rt) and pi_i=lambda_i/r, the total-rate Bernoulli information is t^2 exp(-rt)/q; the species block is q times the multinomial information with determinant 1/product(pi_i); the squared change-of-coordinate determinant is r^(-2(k-1)). The score blocks are orthogonal by conditioning on capture, not in general independent as the proof's wording suggests. The time-resolved likelihood for elapsed time S=min(T,t), capture indicator D and label J has radial score D/r-S, so the radial information is E[D]/r^2=q/r^2 and the conditional categorical block is unchanged. This proves the determinant ratio, not a claim about the efficiency of each species estimator. The time-dependent log derivative is strictly decreasing from positive infinity to -1, is positive at x=2 for k>=3, and increases pointwise with k. The root identity exp(x_k)=1+(k-2)/(1-2/x_k) brackets the root between log(k) and log(k)+1 for large k and gives x_k=log(k)+2/log(k)+O(log(k)^(-2)). Thus k exp(-x_k) tends to one, q^(k-2) tends to exp(-1), and the same-horizon ratio is asymptotic to (log(k))^2/k, without the extra exp(-1) in the normalized optimal determinant. These statements concern a common duration at all stations, conditional on nominal r; they do not optimize mixed-duration designs, cost-normalized designs, or timestamped experiments over their own horizons. Read the supplied diagnostics without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou et al. give general multinomial Fisher information for competing risks and study discrete candidate inspection schedules, treatment allocation and costs.",
+          "Wu–Huang's accessible abstract describes progressive type-I interval censoring and binomial removals; the closest full text could not be verified. Distiller–Borchers model timed individual encounters and trap dependence in a spatial likelihood."
+        ],
+        "reasoning": "The categorical information matrix is a direct specialization, and should not be credited as a new general information result. The design domains and parameters differ; the inspected broad design results do not imply that the optimum over the positive real common horizon has the stated all-k root and asymptotics.",
+        "searches": [
+          "10.1007/s10985-026-09695-0 Sections 2.4, 3.1–3.3",
+          "10.1109/TR.2014.2313708 author-posted and open repository full-text routes",
+          "10.1002/ece3.1748 St Andrews repository full text"
+        ]
+      },
+      "checked_sources": [
+        "Zhou et al. 2026 open article design sections",
+        "Wu–Huang 2014 abstract and OA availability checks",
+        "Distiller–Borchers 2015 open Methods",
+        "Exponential one-shot reliability literature search",
+        "Resultary competing-risks design search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specialize the multinomial Fisher formula to the one-time cause categories and the determinant follows by algebra. The time-resolved information uses a different radial score while retaining the same composition block.",
+          "The new narrow optimizer needs the positive, decreasing log-derivative crossing plus the large-k analysis; a method for calculating or numerically maximizing the general FIM does not supply these statements."
+        ],
+        "reasoning": "Credit the standard FIM and its mechanical specialization as background; distinguish the explicit design and high-cause-count conclusions from numeric progressive designs. A one-shot text treating the same free horizon analytically would be decisive prior art if located.",
+        "searches": [
+          "Zhou et al. (2026) categorical FIM and design-space definition",
+          "Distiller–Borchers (2015) Materials and Methods likelihood",
+          "Wu–Huang (2014) abstract and open-copy investigation",
+          "2015 one-shot exponential competing-risks estimation abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cause-labelled current-status observation at one common inspection time is exactly the same experiment: no failure has probability exp(-rt) and cause i has probability (1-exp(-rt)) lambda_i/r.",
+          "2015 exponential one-shot reliability papers use closely related cause-labelled outcomes under accelerated life testing for parameter estimation. The two-visit occupancy result returned by the local index has a latent occurrence state and a fixed effort-splitting problem, not this law."
+        ],
+        "reasoning": "Ecological relabelling is not novelty. The theorem must be compared against unrestricted-time one-shot reliability design under the same constant hazard and fixed sample-size assumptions, not against capture-recapture alone.",
+        "searches": [
+          "Resultary: competing exponentials first species capture cause only inspection horizon D optimal Fisher determinant logistic complementary log log",
+          "Web: one-shot device exponential competing risks single inspection D-optimal time test conditions Balakrishnan Ling So",
+          "Web: single inspection current status independent exponential competing risks D-optimal common inspection time Fisher information unknown cause-specific rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Zhou et al. examples concern treatment effects and discrete observation schedules, and the local index search surfaced no second record with the same root sequence or determinant ratio. Published one-shot reliability abstracts found report estimation and simulation, not a table for arbitrary cause count at the common optimum."
+        ],
+        "reasoning": "A numerical table for selected k would not establish the global all-k results. No competing exact table was found in the material inspected; the unsuccessful full-text routes are not evidence of absence.",
+        "searches": [
+          "10.1007/s10985-026-09695-0 design examples and tables",
+          "Web: one-shot device exponential competing risks single inspection D-optimal time test conditions",
+          "Resultary: competing exponentials first species capture cause only inspection horizon D optimal Fisher determinant"
+        ]
+      },
+      "rationale": "The category likelihood and generic information matrix are established competing-risks methods, including an equivalent one-shot reliability formulation. The narrower surviving contribution is the continuous common-time optimization for arbitrary species/cause count with its logarithmic expansion and exact coarsening comparison. The relevant broader sources that could be read materially do not give a dominating design theorem; the inaccessible reliability full texts leave a specific priority risk.",
+      "residual_risks": [
+        "Wu–Huang's full text and related one-shot exponential competing-risk reliability monographs could contain a stronger continuous unrestricted common-time result; inability to access them is not negative evidence.",
+        "The determinant formula is a direct application of standard multinomial information, not a stand-alone claim to priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic Fisher matrix is prior; finite scheduled treatment designs are not the free common-horizon theorem",
+          "evidence": "The information section derives a multinomial FIM; the design sections combine candidate observation times, group allocation and fixed cost.",
+          "identifier_or_url": "https://doi.org/10.1007/s10985-026-09695-0",
+          "material_read": "Open Springer article abstract, Sections 2.4 and 3.1–3.3 and design-example passages",
+          "method": "Compared likelihood, parameters, and feasible design variables",
+          "title": "Optimal designs for discrete-time survival models with competing risks",
+          "trigger": "Broad categorical information and competing-risks design"
+        },
+        {
+          "assessment": "Broader likely information framework; precise optimization overlap not determined from full text",
+          "evidence": "The abstract specifies progressive type-I interval censoring with binomial removals, rather than a theorem identifiable from the abstract about a common terminal retrieval time for arbitrary cause count.",
+          "identifier_or_url": "https://doi.org/10.1109/TR.2014.2313708",
+          "material_read": "Publisher abstract and indexed open-copy metadata; full-text attempts at CORE and author-posted copies unsuccessful",
+          "method": "Compared the accessible experiment description; did not treat the supplied self-review as an independent reading",
+          "title": "Planning Progressive Type-I Interval Censoring Life Tests With Competing Risks",
+          "trigger": "Closest claimed prior treatment of D-optimal inspection with exponential competing risks"
+        },
+        {
+          "assessment": "Uses actual timestamps in a spatial capture-recapture likelihood; not the coarsened species-count design",
+          "evidence": "Likelihood uses sets of actual detection times for identified individuals; simulation resets trap availability and tracks competing captures across traps.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.1748",
+          "material_read": "Open St Andrews repository PDF, introduction, Methods likelihood and simulation passages",
+          "method": "Compared recorded observations, clock and spatial dependencies",
+          "title": "A spatially explicit capture–recapture estimator for single-catch traps",
+          "trigger": "Actual single-catch station model with capture competition"
+        },
+        {
+          "assessment": "Strong likelihood overlap, precise design overlap unresolved beyond abstract",
+          "evidence": "Abstract describes competing risks and EM estimation for accelerated life tests, not an analytic common-horizon design.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0951832015000022",
+          "material_read": "Indexed publisher abstract; lawful full text not obtained",
+          "method": "Compared model type and stated estimation objective only",
+          "title": "EM algorithm for one-shot device testing with competing risks under exponential distribution",
+          "trigger": "Equivalent cause-labelled one-time reliability setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One shared duration is a natural logistical constraint. The optimum balances the disappearing information in the empty category against the increasing information in species labels, with roughly one empty station in k at large k. The exact determinant loss at the same horizon is useful for judging when timestamps can matter in the idealized setup. The result is a benchmark, not a field recommendation or a robustness study.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

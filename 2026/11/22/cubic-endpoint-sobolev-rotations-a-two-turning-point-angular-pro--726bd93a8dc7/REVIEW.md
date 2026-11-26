@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns exactly the complete real planar \(W^{3,1}\) derivative-sum norm and rotation pullbacks. The four cubic input columns and lower-order columns are computed by the full chain rule, with rotation Jacobian one. The mixed-cubic column dominates all others by explicitly signed polynomial inequalities on \(0\le r\le1\). The non-inequality of Ornstein, in the equal-homogeneous-order form stated in Kazaniecki–Stolyarov–Wojciechowski (2017), applies because \(\partial_x^2\partial_y\) is not in the linear span of the other three cubic monomials; dilation suppresses all lower derivatives. Thus the full Sobolev norm equals the sharp column bound. The derivative signs and exact root enclosure prove both turning points and the global maximum. The 1,201 exact rational test cases are supporting checks and are not substituted for these universal arguments. At nontrivial angles the positive degree-zero contribution forces nonattainment.
+## correctness
 
-## Originality — PASS, qualified
-The relevant first-public 2026 Hamad preprint classifies norm-preserving isometries but does not give the quantitative nonisometric rotation profile. The directly relevant published quadratic-jet rotation theorem yields a different expression and a different global maximizing angle, and explicitly restricts itself to order two. A second result treats shear operators at all integer orders; it does not imply equality for rotations via shear factorization. The classical Ornstein non-inequality is used rather than claimed. Searches for cubic rotation distortion, signed-permutation Sobolev jets, and equivalent symmetric-power rotation norms found no direct result. Residual risk: a general, unindexed change-of-coordinate theorem could imply the formula, even if not using the same terminology. This is a qualified originality assessment, not a claim of exhaustive priority.
+PASS
 
-## Mathematical value — PASS
-The order-three derivative-sum norm is the first natural cubic continuation of the same norm in which the sharp angular shape has an interior smooth maximum, an interior cusp minimum, and a **diagonal** global maximum, reversing the **oblique** global maximum at order two. The exact norm and sharp angle identify actual coordinate-rotation instability for a natural endpoint Banach-space norm. This qualitative extremizer relocation and complete angular phase diagram are substantive beyond mere substitution of the order parameter; only a naturally motivated and completely classified order is claimed.
+Reflections and quarter-turns act by signed permutations of the derivative slots. Reducing to 0≤φ≤π/4, write c=cos φ, s=sin φ, r=s/c. The cubic xxy column of the chain-rule matrix is (3c²s,c(c²−2s²),s(s²−2c²),3cs²), and the xyy column has the same absolute sum. In units of c³, this sum is 3r+|1−2r²|+r(2−r²)+3r², giving the two numerators P₋=1+5r+r²−r³ and P₊=−1+5r+5r²−r³. The pure cubic maximum and first-order maximum are c+s; the second-order maximum is (1−r²+4r)/(1+r²). Squaring to compare this with the cubic mixed sum, the respective numerator differences are 2r[3r⁴+4r²+1+6r(1−2r²)] and 2r(26r²−r⁴−9), both positive for r>0 on their branch. The second-order term bounds the first. The chain rule thus gives L₃ as an upper bound. To prove equality, use the same-order Ornstein theorem on D_xxy against the other three cubic monomials. A sequence concentrates the cubic L¹ mass in D_xxy; dilation suppresses orders 0–2, and rowwise reverse triangle inequalities yield the full column sum. The norm identity is therefore on the genuine Sobolev space, not on unconstrained jets. The signs of (1+r²)P′−3rP on the two branches are those of 5−r−13r²−r³ and (1−r)(5r²+18r+5). The root is between 0.57 and 0.58; using P₋(0.58) and the denominator at 0.57 bounds its branch maximum below 8/3. The cusp at 1/√2 is a strict local minimum and 2√2 at r=1 is the strict global maximum on the reduced interval. At nonquarter angles L₃>1, and the unchanged positive zeroth-order norm of a nonzero function forces strict inequality in the complete norm estimate. At quarter-turns all slots are preserved in norm. This verifies both isometry and attainment statements.
 
-## Closest literature and limitations
-Hamad (arXiv:2611.09577v1; submitted 2026-11-06), the published quadratic rotation calculation (2026-11-17), and the published all-order shear calculation (2026-11-17) provide the closest source and overlap comparisons. Ornstein's 1962 theorem and Kazaniecki–Stolyarov–Wojciechowski (2017) furnish the indispensable non-inequality. These do not supply a checked direct cubic rotation statement. No claims are made for nonlinear coordinate transforms or higher-order angular classifications; hidden general coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originality is the explicit third-order rotational profile: two interior turning points of different types and a diagonal global maximum rather than the order-two oblique maximum. The same-order non-inequality, coordinate-isometry rigidity, and sharpness-by-concentration method are prior ingredients. No broader norm formula settling this profile was found in the bounded comparison.
+
+## value
+
+PASS
+
+For this natural complete endpoint derivative-sum norm, knowing the exact distortion or where it is worst can matter in using rotated coordinates; a generic equivalence bound loses that information. The fixed cubic order resolves a change from the previous natural derivative order: the worst angle becomes diagonal and an interior smooth maximum and distinct cusp minimum appear. The proof realizes the coefficient bound in the function space and rules out attainers, so the sharp result is more than a finite jet computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

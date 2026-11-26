@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The direct Cayley–Hamilton matrix identities and the binomial-valuation bound give exact valuation equalities for all regular parity branches, not just bounds. A separate fourth-power matrix calculation treats the binary valuation-one boundary and proves full quotient-unit coverage using two 8-adic isometries. All zero-denominator and least-period issues are excluded explicitly. The standalone finite checker passed 470 complete-period tests at 38,068 index positions, independently corroborating the formulas, not replacing their proofs.
+## correctness
 
-## Originality — PASS on inspected evidence
-Antony and Barman (arXiv:2207.07084, first posted 14 July 2022; 2023 journal), Theorem 1.10 and Example 1.11, already prove non-density of these unit-seeded ratio sets; that assertion is excluded from the novelty claim. The full inspected text supplies neither exact prime-power fibers nor the dyadic unit-group quotient equality. Garcia et al. (2017), Section 5, use the distinct first-kind and companion normalizations. Antony–Barman (2024) treat a different reducible characteristic-root/density setting. The closest published two-adic companion result concerns odd recurrence coefficients and initial values \((2,P)\), while a repeated-root recurrence period theorem is inapplicable for primes dividing the present coefficient. No examined statement logically implies this exact combined result. **Residual risk:** a more obscure recurrence-distribution table or implicit earlier local congruence theorem may independently imply portions of the conclusion; search failure is not an originality proof.
+PASS
 
-## Mathematical value — PASS
-The theorem gives an exact answer to a natural question left by an established non-density criterion: how large the quotient set actually is within its permitted local unit group. The all-depth two-per-parity multiplicities and sharp least periods are structural information rather than a few sample congruences. The exceptional dyadic valuation-one phase is a genuine change in lifting and image behavior, explaining why a uniform straightforward parity argument fails there. No downstream theorem or novelty in the known non-density conclusion is claimed.
+The state matrix M is a swap modulo p, fixing the all-ones seed and ensuring nonzero unit denominators even for negative a. With M^2=I+aM, the first binomial term for an index difference d has scalar valuation h+v_p(d), since its projected factor is another sequence term. In the regular range (j-1)h-v_p(j)>=1 for j>=2, so higher terms cannot cancel it. Each parity is then a bijection at depth k-h; an odd scalar period 2u+1 would require both u and u+1 divisible by p by the first two terms modulo p^(h+1). Constancy for k<=h follows from M^2=I mod p^h. The principal unit subgroup and the denominator x_0=1 give the regular quotient closure. For a=2u with u odd, M^4=I+4B, B mod 2 is I+M, B^2 is even, and B applied to the orbit is even. Modulo four the projected B-value is x_r+3u x_(r+1), which is 2 for both selected branches in each parameter class. Thus their leading valuations are 3+v_2(d), strictly below the higher terms; the branches fill the depth-three balls at 1 and 7. A fixed term c=3 mod 8 and division by each of those balls fill the remaining odd balls; the closed unit group excludes nonunits. Only the two specified value subballs and the full quotient closure are claimed at h=1, not the whole exceptional value classification. Independent bounded checks passed over 5,848 orbit positions for a=3,-3,25,4,-16,2,-2,6,-6 at the corresponding primes. Frozen replay path is check.py beside RESULT.md; the finite checks supplement the proof and do not establish the universal quantifiers.
 
-## Verification limits
-The proof treats all primes dividing a nonzero coefficient, and all levels, while the checker samples finite prime-power levels only. It does not determine exact dyadic exceptional value frequencies nor say anything about primes not dividing the coefficient. Independent historical priority and mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-power parity isometry, exact least periods and fibers at regular primes, and the precise quotient closure including the v_2(a)=1 lift for the all-ones seed. Generic non-density in Q_p is already covered and is not counted as original.
+
+## value
+
+PASS
+
+For this natural unit-seeded test of the known non-density theorem, the useful refinement is the exact arithmetic structure: a scale and multiplicity for every regular power and a dyadic lift where individual values miss a residue class modulo 8 but quotients nevertheless fill the unit group. The uniform branch information is stronger than non-density and is not inferred from finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

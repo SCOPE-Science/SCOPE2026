@@ -1,25 +1,21 @@
-# Review of the quadratic accretion fragmentation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The favorable and adverse Riccati flows have the explicitly derived Möbius endpoint maps; their composition has a strictly increasing positive fixed-point polynomial. Its constant term changes sign at the stated arctangent–hyperbolic-tangent threshold. The three cases are verified separately, including finite-time loss for every positive finite initial state above threshold and boundary grazing at equality. Strict concavity of the scalar arctangent–hyperbolic-tangent function proves fragmentation monotonicity for all positive parameters and all integers, and Taylor expansion proves the stated sharp inverse-square difference. The delivered checker independently integrates the ODE and passed 802 numerical and high-precision formula checks. Numerical tests are supporting evidence, not a replacement for all-parameter proof.
+PASS
 
-## Originality
+Independently set z=u'/u with u''=p^2 u or u''=-q^2 u in the two phases. A zero launch (u,u')=(1,0) gives u' at the end of the pair equal to p sinh(pL/n) cos(qT/n) minus q cosh(pL/n) sin(qT/n); for qT/n<π/2 this has the sign of F(0) and changes sign at the stated T_n. For positive states below the first adverse tangent pole the signed pair map has positive denominator and is strictly increasing. Subtracting z leaves a numerator B_0−αz−Cz^2 with α,C>0. Below threshold B_0>0, so each iterate stays on its own side of the unique positive fixed point and moves monotonically toward it. The phase flows give convergence to the periodic profile; an increasing map has no nontrivial periodic cycles. At equality F(0)=0 and 0<F(z)<z for z>0, hence convergence to the zero endpoint without finite-time loss; that limiting boundary-touching cycle is not a surviving periodic trajectory. Above threshold, indefinite survival would force a nonnegative fixed point from a decreasing sequence, impossible. At or beyond qT/n=π/2 the first adverse interval kills every finite starting state. For c=p/q, the derivative of arctan(c tanh x) is c(1−tanh²x)/(1+c²tanh²x), strictly decreasing on x>0. Its chord slope and its cubic coefficient −(c+c³)/3 give strict all-n threshold increases and the stated n^−2 deficit with O(n^−4) remainder at fixed parameters. Replay: frozen RESULT.md lines 24–54, VERIFICATION.md and checker.py (inspected, not executed). Independent bisection of the transfer derivative with p=q=L=1 returned T_1≈0.6508801680, T_2≈0.8657694832 and 64²(1−T_64)≈0.666504, consistent with the analytic coefficient 2/3. Conclusions are for starts at a favorable boundary and the stipulated repeated identical pairs, not arbitrary histories.
 
-PASS provisionally against the inspected material. Mudd, D'Alpaos and Morris (2010) establish the relevance of nonlinear elevation–sedimentation feedback, and D'Alpaos, Mudd and Carniello (2011) analyze responses to changes in sea-level rise and suspended sediment. General periodic-Riccati and switched-system theory covers qualitative existence and asymptotic stability mechanisms. The claim here is the joint *exact* all-frequency viability boundary, strictly increasing subdivision family, positive-mean-but-loss window, and sharp \(n^{-2}\) coefficient. None of these specific parameter comparisons was established in the inspected accessible full texts. Abstract-level general Riccati coverage is an important residual priority risk; the potentially relevant 1985 periodic matrix-Riccati paper could not be inspected in full. Literature retrieval is not a guarantee of global novelty.
+## originality
 
-## Value
+PASS
 
-PASS. This is a motivated quantitative boundary between mean-input forecasts and intermittency-sensitive loss in an idealized marsh elevation-feedback model. The exact monotone sequence quantifies how much additional adverse forcing is tolerable at progressively shorter environmental pulses, while the inverse-square correction distinguishes finite from infinitely fast variation. The narrow model is clearly identified; no ecological calibration or general policy claim follows.
+The supported distinct contribution is the joint viability phase diagram and exact finite-fragmentation comparison for a prescribed scalar forcing schedule with loss at zero. The Riccati-to-linear transformation, projective period map, and time-averaged forcing limit are background mechanisms, not claimed as new. No covering statement for the joint result was established in the available evidence.
 
-## Closest literature and scientific limits
+## value
 
-- Mudd et al. (2010), doi:10.1029/2009JF001566: mechanisms of marsh accretion and vegetation effects, not the switching threshold.
-- D'Alpaos et al. (2011), doi:10.1029/2011JF002093: analytical wetland dynamics under changed forcing; not this exact piecewise-quadratic comparison.
-- Shayman (1985), doi:10.1137/0323045: abstract reports general classification of periodic Riccati flows, full text unavailable; potential general-theory overlap.
-- Ni (2018), doi:10.1155/2018/2805161: existence and stability theory for periodic Riccati equations; does not state the explicit fragmentation phase diagram in inspected sections.
-- Gökçek (2004), doi:10.1155/S1024123X04401069: fast-switching stability mechanism; does not establish monotonicity at every finite fragmentation count.
+PASS
 
-Assumptions: imposed absorbing viability boundary, quadratic feedback, deterministic piecewise-constant forcing, no switching cost or stochasticity. Independent validation and field testing have not occurred.
+Holding total favorable and adverse exposure fixed isolates a motivated timing effect. The exact all-frequency threshold identifies where a positive mean falsely predicts survival and how fast that discrepancy shrinks; the strict ordering and leading coefficient answer quantitative questions not addressed by averaging alone. The contribution is to this stylized switched model, not a field-validated ecological prediction or an optimality theorem for all schedules.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

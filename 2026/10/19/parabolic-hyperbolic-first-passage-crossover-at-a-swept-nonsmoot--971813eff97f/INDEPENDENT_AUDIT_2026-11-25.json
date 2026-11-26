@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:53:28.083804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–3",
+        "Frozen VERIFICATION.md and verify_crossover.py, inspected but not executed"
+      ],
+      "rationale": "With q=1−a the tracking formula first becomes nonnegative at n0=ceil(1/q), including the case of equality, and any bounded difference from the negative-time frozen branch eliminates the homogeneous term proportional to a^n. The continuation satisfies v[n+1]=b v[n]+n, b=1+δ, and is strictly increasing. Direct summation gives v[n]=(b^n−1−nδ)/δ²+c(b)b^n for δ>0 with c bounded at b=1; the neutral sum is n(n−1)/2. At h=√ε and δ/h→κ the convolution is uniformly a Riemann sum on compact rescaled time intervals; for δ=κh exactly, the kernel and grid errors are O(h). The derivative of Hκ at the threshold is strictly positive, so discrete bracketing gives the claimed limit and O(1) iteration error. Hκ increases strictly in κ for positive t and depends continuously on κ including at zero. For R=Lδ²/ε→∞, integers with n log b=log R±η+O(log b) have nδ=O(log R), and x[n]/L→exp(±η); rounding is negligible precisely because δ→0. This proves the additive-log limit without replacing log(1+δ) by δ.",
+      "residual_risks": [
+        "The proof is for fixed a,L and the stated affine history, not a perturbation result or a fixed-δ additive-log assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson Thm. 1 gives frozen-map divergence; Kiers treats nonautonomous discrete tracking/tipping qualitatively; Chu–Lin–Tsai Thm. 1 gives a slow-passage layer for an Euler-discretized smooth quadratic saddle-node."
+        ],
+        "reasoning": "No inspected theorem has both this map and a quantitative conclusion strong enough to yield the asserted finite-κ or additive-log limits. Frozen divergence lacks a time estimate and the smooth fold is not the affine nonsmooth normal form.",
+        "searches": [
+          "Simpson arXiv:2406.04587",
+          "Kiers arXiv:1907.11601",
+          "Chu–Lin–Tsai arXiv:2311.07242"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.04587",
+        "arXiv:2305.09902",
+        "arXiv:2311.07242",
+        "arXiv:1907.11601",
+        "Resultary 7a029911b9ab",
+        "Resultary b9cfe10e48ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known fixed-rate logarithmic behavior and a separate fixed-parameter planar logarithmic rate; the frozen scalar recurrence instead has a ramp-driven geometric convolution with degenerate multiplier."
+        ],
+        "reasoning": "Fixed-rate delay cannot be sent to the neutral boundary without a uniform error estimate; even replacing log(1+δ) by δ is not valid at additive o(1) precision without extra conditions on δ log R. The claimed crossover and lattice-scale error are not mechanical consequences of the prior statements.",
+        "searches": [
+          "Budd–Kuske arXiv:2305.09902 §§1.2–1.4",
+          "Simpson arXiv:2406.04587 §3 Thm. 1",
+          "Resultary 7a029911b9ab Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Budd–Kuske §§1.2–1.4: linearly drifting continuous-time absolute-value fold, a fixed positive tipping level, and logarithmic delay at fixed hyperbolicity."
+        ],
+        "reasoning": "A related threshold observable and exponential response are known. The ODE with fixed unstable rate is not an equivalent presentation of the discrete near-unit recurrence: it does not control the discrete grid error or the log(1+δ) factor in the joint limit.",
+        "searches": [
+          "Budd–Kuske arXiv:2305.09902",
+          "Primary search for nonsmooth fold first-passage crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7a029911b9ab gives a fixed-parameter planar fold passage law with a Jordan-edge log–log term. b9cfe10e48ed gives a uniform local exit bound for planar scalar feedback."
+        ],
+        "reasoning": "There is no finite table at issue; the relevant indexed objects are exact passage and exit formulas. These two adjacent records fix the parameter during passage and do not classify the linearly swept scalar near-neutral family.",
+        "searches": [
+          "Local Resultary search on nonsmooth fold first passage and logarithmic delay: 7a029911b9ab, b9cfe10e48ed"
+        ]
+      },
+      "rationale": "The closest prior swept nonsmooth example is continuous time with fixed unstable rate; the closest discrete nonsmooth theorem is frozen-parameter divergence. Neither supplies the jointly scaled discrete passage law. The positive finding supported here is the finite-κ crossover with its iteration error and the near-neutral additive-log law, not logarithmic fold delay itself.",
+      "residual_risks": [
+        "The bounded primary search yielded no additional relevant result; that is not evidence of absence. Equivalent estimates may appear under nonautonomous affine recurrences rather than fold tipping."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Frozen-parameter theorem, not swept first passage",
+          "evidence": "Every forward orbit diverges when both branch fixed points are virtual under the theorem hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04587",
+          "material_read": "§3, Theorem 1, PDF p. 7",
+          "method": "Open primary PDF passage",
+          "title": "Nonsmooth folds as tipping points",
+          "trigger": "Closest discrete nonsmooth fold theorem"
+        },
+        {
+          "assessment": "Relevant fixed-rate continuous-time antecedent",
+          "evidence": "The normal form uses 2|x| and a drift μ0−εt; fixed-level delay has the ε|log ε| parameter scale.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.09902",
+          "material_read": "§§1.2–1.4, PDF pp. 2–3",
+          "method": "Open primary PDF passages",
+          "title": "Dynamic tipping and cyclic folds, in a one-dimensional non-smooth dynamical system linked to climate models",
+          "trigger": "Closest swept nonsmooth model and threshold definition"
+        },
+        {
+          "assessment": "Smooth quadratic fold, not the affine switch",
+          "evidence": "Euler discretization and ε^(2/3) slow-passage layer with mesh regimes.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.07242",
+          "material_read": "§2.1, PDF p. 3; Theorem 1, p. 6",
+          "method": "Open primary PDF passages",
+          "title": "Slow Passage through a Saddle-Node Bifurcation in Discrete Dynamical Systems",
+          "trigger": "Discrete dynamic-fold quantitative comparison"
+        },
+        {
+          "assessment": "Qualitative context only for this claim",
+          "evidence": "Pullback attractors and endpoint tracking along stable paths, not explicit first-hit constants.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.11601",
+          "material_read": "Abstract p. 1 and introduction p. 2",
+          "method": "Open primary PDF passages",
+          "title": "Rate-induced Tipping in Discrete-time Dynamical Systems",
+          "trigger": "Plausibly broader discrete nonautonomous framework"
+        },
+        {
+          "assessment": "Different fixed-parameter planar mechanism",
+          "evidence": "Jordan-boundary log–log correction in the μ→0 fixed-parameter family.",
+          "identifier_or_url": "7a029911b9ab",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local Resultary mirror",
+          "title": "A Jordan-edge logarithmic-logarithmic tipping delay in a planar nonsmooth fold",
+          "trigger": "Strongest indexed exact first-passage overlap"
+        },
+        {
+          "assessment": "Adjacent exit bound, not crossover",
+          "evidence": "Uniform scalar-feedback exit bound floor(5η/μ)+1 in a planar problem.",
+          "identifier_or_url": "b9cfe10e48ed",
+          "material_read": "RESULT.md local exit statement",
+          "method": "Local Resultary mirror",
+          "title": "A sign-free scalar-feedback escape theorem at nonsmooth folds",
+          "trigger": "Adjacent indexed quantitative fold escape result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; comparison with Simpson and Budd–Kuske"
+      ],
+      "rationale": "This gives a quantitative benchmark at a motivated loss-of-hyperbolicity boundary of a swept border collision. It separates the neutral square-root time scale from the exponential-growth regime, locates the crossover, and retains the exact discrete multiplier in the additive-log law where a continuous-rate replacement can lose precision. It is a useful exact model result, not a universal tipping claim.",
+      "residual_risks": [
+        "No persistence for nonlinear perturbations or noisy/multidimensional dynamics is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

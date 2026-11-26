@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:54:03.477083Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–90 and 100–102; complete corrected /workspace/repairs/3/RESULT.md",
+        "VERIFICATION.md lines 19–23 and check.py lines 11–64 inspected, not executed; the reported 387 checks are finite source evidence",
+        "Replay: python3 -I /workspace/reproductions/3.py; log-gamma binomial probabilities vs exact small binomial sums and 45 finite weight checks against explicit adjacent averaging; large n=100000 complex envelopes near 0.99984, 0.70396 and zero for β=0.22, 0.5 and 0.78; finite far-tail gain spot checks at n=32"
+      ],
+      "rationale": "For positive weights the polar factor is S and the adjacent averaging recurrence gives exact binomial convolution. With Y=J_n−n/2, on |Y|≤n/4 the Taylor segment is in [n/4,∞) at every j; the phase remainder is bounded by a constant times n^(β−2)Y², with E Y²=n/4, and the tail costs at most twice its exponentially small probability. This proves the O(n^(β−1)) linearization, in fact uniformly in j. For fixed j, n t²/8 is asymptotic to θ²β² 2^(−1−2β)n^(2β−1); the fourth-order log-cosine correction is relatively o(1), giving the three envelopes including exp(−θ²/16). Increasing unbounded phases with vanishing increments cross neighborhoods of every sufficiently large even and odd π multiple. This gives exact fixed-coordinate limsup and liminf, excludes WOT convergence at and below criticality, and yields SOT convergence above it by density and uniform boundedness. For each fixed n the far-tail n-site phase variation vanishes as j→∞ and realizes both extreme averages in the limit, giving sharp norms (including n=0). The diagonal self-commutator entries tend to zero. Sum-integral error is O(N^β) by integrating the modulus of the derivative; after substituting u=x^β, integration by parts bounds the integral by O(N^(1−β)), yielding the Cesàro mean. The replacement corrects the false nonuniform-error assertion (fixed-site damping limits, not the Taylor error, cause the quantifier issue), the tail wording, and the introductory conflation of three damping regimes with three distinct topology outcomes; the theorem and its parameter range survive unchanged.",
+      "residual_risks": [
+        "The large-order replay is floating-point corroboration, not a relative-error estimate when the linearized amplitude is near zero and not proof of any infinite-dimensional claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.19: γ_j^(n)=2^(−n)∑ binom(n,k) α_(j+k); Theorem 3.20 is a hyponormality criterion",
+          "Hakala full text not retrieved"
+        ],
+        "reasoning": "The known general finite-order identity does not evaluate this phase as n→∞; the adjacent-window norm argument is another limit with a different quantifier. General Euler smoothing could contain the scalar threshold; no such theorem was verified.",
+        "searches": [
+          "Jung–Ko–Park, Subscalarity of operator transforms, Lemma 3.19 and Theorem 3.20",
+          "Hakala, DOI 10.1002/qua.560010633"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary including SCOPE IDs above",
+        "Jung–Ko–Park (2015), primary PDF; Lee–Lee–Yoon (2014) attribution",
+        "Hakala (1967) retrieval attempt",
+        "Targeted Euler/binomial power-chirp websearch"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jung–Ko–Park cite Lee–Lee–Yoon for the binomial identity",
+          "Direct phase estimate in frozen Proof steps 2–5 controls fluctuations of width √n and uses separate far-tail windows"
+        ],
+        "reasoning": "Combining a finite identity with an ordinary fixed-frequency CLT is not enough in the growing-rescaled-frequency regime; a characteristic function estimate and nonlinear-phase control are necessary. Fixed-site limits also do not imply a sharp norm bound away from zero. The checked prior formulas do not already supply those limits.",
+        "searches": [
+          "Jung–Ko–Park Lemma 3.19 and Theorem 3.20; targeted Euler power-phase websearch above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharp Cesàro trichotomy for regularly varying Gaussian meshes, SCOPE record 9d8d66f59465, Finding",
+          "Jung–Ko–Park Lemma 3.19 identifies the finite sequence average as an Euler/binomial mean"
+        ],
+        "reasoning": "A Gaussian feature-curve Cesàro average with density parameter n d_n is not the fair-binomial power-phase average; the topology analogy and same index date do not show equivalent coverage. Scalar Euler means of cos(θ(j+1)^β) are a true equivalent formulation of each coordinate; the search did not identify a statement giving those envelopes.",
+        "searches": [
+          "Configured Resultary semantic comparison: chirped weighted shifts / Gaussian damping / binomial mean-transform orbits",
+          "Euler summability binomial means sequence sin sqrt(n) cos n^alpha oscillatory sums binomial transform phase Gaussian asymptotic weighted shifts mean transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day SCOPE record 26ab1d826a7e concerns singular-value mass of finite triangular Euler matrices; eb2577d37a58 concerns bilateral finite-support perturbations, and 9ddf13292fdf inverse norms on odd cycles; Findings inspected"
+        ],
+        "reasoning": "Relevant indexed theorem checks did not surface this rule; a finite numerical table could not itself cover the continuum of phase parameters and operator limits.",
+        "searches": [
+          "Configured Resultary: power chirp, Euler/binomial means and critical exponents"
+        ]
+      },
+      "rationale": "Bounded pass for the exact power-chirp damping law together with its operator-topology and norm consequences. The binomial mean-transform iterate and the general averaging mechanism are not original. No stronger inspected result covers the exhibited classification.",
+      "residual_risks": [
+        "Classical Euler/binomial summability could contain equivalent oscillatory power-phase asymptotics; the targeted search was limited and Hakala full text and Lee et al. Proposition 2.2 were not accessible in this review. No priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct averaging operator, hypotheses and conclusion",
+          "evidence": "Firmly nonexpansive orbit in Gaussian feature space with regimes indexed by n d_n, not a unilateral power-chirp or its binomial damping.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-ces-ro-trichotomy-for-regularly-varying-gaussian-meshes--9d8d66f59465",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Sharp Cesàro trichotomy for regularly varying Gaussian meshes",
+          "trigger": "Nearest same-day Gaussian/averaging/topology hit"
+        },
+        {
+          "assessment": "No equivalent statement in the inspected Findings",
+          "evidence": "Finite triangular Euler singular values; bilateral finite-support spectral profiles; inverse norms on finite odd cycles, respectively.",
+          "identifier_or_url": "SCOPE records 26ab1d826a7e, eb2577d37a58, 9ddf13292fdf",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Uniform Bessel approximation and critical correction for finite Euler summability matrices; Hermite–Szegő spectral laws for finite-band mean-transform orbits; Euler-zigzag amplification law for repeated binomial smoothing on odd cycles",
+          "trigger": "Equivalent averaging methods and mean-transform neighbors"
+        },
+        {
+          "assessment": "Finite identity directly covered and credited; inspected hyponormality result does not treat the asymptotic chirp",
+          "evidence": "γ_j^(n)=2^(−n)∑ binom(n,k) α_(j+k).",
+          "identifier_or_url": "https://cms.ewha.ac.kr/user/ebkmath/k2board/2019%20%EC%A2%85%ED%95%A9%ED%8F%89%EA%B0%80/%EB%B0%95%EC%8B%A0%ED%98%9C_S.pdf",
+          "material_read": "Lemma 3.19, Theorem 3.20, PDF p. 12 / printed p. 2053, and ref. 17",
+          "method": "Lawful author-hosted PDF, bounded extraction at offsets 59886 and 73700",
+          "title": "Subscalarity of operator transforms",
+          "trigger": "Published positive-weight binomial mean-transform identity"
+        },
+        {
+          "assessment": "Finite identity credited; no whole-paper finding",
+          "evidence": "Jung–Ko–Park reference 17 and Lemma 3.19.",
+          "identifier_or_url": "10.1016/j.jmaa.2013.08.003",
+          "material_read": "Bibliographic entry and attribution in Jung–Ko–Park; original proposition not readable via DOI",
+          "method": "Lawful retrieval attempt and corroborated reading of subsequent primary paper",
+          "title": "The mean transform of bounded linear operators",
+          "trigger": "Cited antecedent for the exact averaging identity"
+        },
+        {
+          "assessment": "Unresolved access risk, no inferred noncoverage",
+          "evidence": "Title indicates normalized binomial averaging but gives no phase hypotheses or asymptotic constants.",
+          "identifier_or_url": "10.1002/qua.560010633",
+          "material_read": "Citation and title only; no readable full text",
+          "method": "Lawful OA lookup; endpoint returned HTTP 403 and no repository copy was identified",
+          "title": "The use of normalized binomial coefficients as weights to accelerate convergence of oscillatory first-order iterations",
+          "trigger": "Earlier oscillatory smoothing might cover scalar envelopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding, especially (2)–(4); comparison with the known finite-order formula"
+      ],
+      "rationale": "A natural one-parameter test family separates coordinate damping from the operator norm in a known transform. The exact positive critical envelope and strong convergence with sharp norm separation are useful benchmarks: the usual regularity of adjacent weights, essential normality and a common Cesàro mean do not determine convergence. This is a precise example, not a new general transform theory.",
+      "residual_risks": [
+        "No scope beyond positive weights of the given power-phase family or quantitative SOT rate on arbitrary vectors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

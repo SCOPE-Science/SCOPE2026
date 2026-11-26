@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:07.964425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "/workspace/replay.py (sketch, Python 3 + SymPy) reconstructs the full projected vector equation, both bilinear identities and the homogeneous next vector. The shift makes the right side H-orthogonal to u; v spans that complement, so the correction is unique iff a−bt²≠0, and is inconsistent otherwise since t≠0 and the residual pairing is nonzero. For H in the distortion band, Hu lies in the disk of radius ε∥u∥ about u, hence its angle differs by at most arcsin ε. In the claimed cone a−bt²>0 by the diagonal bounds, and the maximal polar deviation leaves a positive first coordinate. The two-by-two tangent perturbation in the basis along and perpendicular to u has eigenvalues ±ε and attains the upper slope ratio; for t<0 conjugate by diag(1,−1) to reverse the slope. The resulting F(r)/r increases and is less than one exactly inside ρ, giving a geometric contraction from each starting slope even under arbitrary admissible stepwise changes. At t=0 the correction vanishes; the admissible diagonal metric makes ±ρ inconsistent and iterates finite exterior slopes by −t³/ρ², diverging in magnitude to the other direction. A fixed metric has leading coefficient −c/a, of sharp magnitude τ by the same angular argument, and ε=0 gives the exact cubic. No assumption of invertibility at either spectral shift is used; the conclusion is for this real two-dimensional exact restarted model, not a general eigensolver. Packaged rational tests were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 11 gives a local normal-matrix bound with a quadratic term for sketched shifts and cubic behavior under the ordinary shift.",
+          "Geltner and Batterson–Smillie full texts were not available via bounded OA attempts; their topics include generalized and ordinary RQI dynamics, respectively."
+        ],
+        "reasoning": "The inspected method and local order results are not a global uniform sharp basin or a bound sharp at each nonzero slope; the inaccessible papers remain a comparison risk, not evidence of coverage or noncoverage.",
+        "searches": [
+          "arXiv:2609.29651v1, §§3–4, Remark 11; DOI:10.1137/0718057 and DOI:10.1137/0726037"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFY.py",
+        "arXiv:2609.29651v1, §§3–4",
+        "Resultary 56d514bb44a5",
+        "DOI:10.1137/0718057 and 10.1137/0726037 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior equation defines the dynamics, and the prior estimate describes local order; the frozen theorem maximizes the exact projective update over all H in the distortion band and treats inversion failure of the one-dimensional projected operator."
+        ],
+        "reasoning": "A local order estimate does not give an attained finite-r envelope or determine the uniform cone, let alone one allowing arbitrary stepwise metric changes. The sharp angle and projected breakdown arguments supply both the uniform guarantee and the obstruction.",
+        "searches": [
+          "Compare Grigori–Park–Simunec Eq. (4), Remark 11, Resultary 56d514bb44a5 Finding with frozen Proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grigori–Park–Simunec Eq. (4) gives the sketched-orthogonal correction and discusses the projection/iteration method.",
+          "Resultary 56d514bb44a5 derives the ordinary-RQI t₊=−t³ in the equal-diagonal Stieltjes case."
+        ],
+        "reasoning": "Considering inverse or generalized Rayleigh quotient iteration under its solvability conditions does not handle the projected equation at exceptional shifts. Ordinary RQI can take a step at equal component magnitudes in the inspected unsketched case where the exact restarted correction is inconsistent; the interior recurrence nonetheless overlaps at ε=0.",
+        "searches": [
+          "Resultary: sharp sketch-distortion cone, sketched Jacobi–Davidson, exact two-dimensional slope dynamics",
+          "arXiv:2609.29651v1, §3 Eq. (4) and inverse-iteration relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved exact projective law is the cubic map and |t|<1 attraction for ordinary RQI in the equal-diagonal two-dimensional Stieltjes case."
+        ],
+        "reasoning": "That identification accounts for the interior unsketched special case, but does not give the ε-dependent sharp per-step slope, optimizing orientations or boundary inconsistency of the required correction.",
+        "searches": [
+          "Resultary: exact two-dimensional Rayleigh quotient iteration positivity and slope recurrence, sketch-dependent cone and singularity; 56d514bb44a5"
+        ]
+      },
+      "rationale": "The exact correction and the qualitative normal-matrix local quadratic versus cubic phenomenon are prior coverage, as is the ordinary unsketched two-mode cubic map on the cone interior. The distinct content is the exact attained envelope over the entire admissible Gram band, its maximal sketch-uniform basin including arbitrary changes of metric, and the explicit projected singularity. No inspected statement implies this joint quantitative classification, with residual uncertainty about historical weighted RQI literature.",
+      "residual_risks": [
+        "The two historical RQI full texts were not accessible in bounded searches; a related calculation for particular weighted quotients may predate the frozen result. No historical priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers method and qualitative local order, not inspected global restarted classification",
+          "evidence": "Sketched-orthogonal correction and subspace expansion; local quadratic normal-matrix term due to the sketched shift, with cubic bound under the ordinary shift.",
+          "identifier_or_url": "https://arxiv.org/html/2609.29651v1",
+          "material_read": "§3 Eq. (4), offset around 22500; §4 Remark 11, offset around 74000",
+          "method": "OA HTML",
+          "title": "Randomized Jacobi–Davidson method",
+          "trigger": "Same sketched correction and available local convergence theory"
+        },
+        {
+          "assessment": "Ordinary unsketched interior specialization only",
+          "evidence": "t₊=−t³ and cubic attraction on |t|<1 for equal diagonal entries; ordinary RQI is defined at |t|=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-two-dimensional-positivity-law-for-rayleigh-quotient-itera--56d514bb44a5",
+          "material_read": "RESULT.md opening and equal-diagonal statement",
+          "method": "Resultary local mirror",
+          "title": "Exact two-dimensional positivity law for Rayleigh quotient iteration on Stieltjes matrices",
+          "trigger": "Closest exact two-mode projective recurrence"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "Full-text DOI route returned 403 and no repository copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1137/0718057",
+          "material_read": "Bibliographic identity; no primary full-text passage",
+          "method": "Bounded OA and repository access attempts",
+          "title": "General Rayleigh Quotient Iteration",
+          "trigger": "Generalized Rayleigh quotients may include related weighted dynamics"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "Full-text DOI route returned 403 and no repository copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1137/0726037",
+          "material_read": "Bibliographic identity; no primary full-text passage",
+          "method": "Bounded OA and repository access attempts",
+          "title": "The Dynamics of Rayleigh Quotient Iteration",
+          "trigger": "Historical dynamical basins for RQI"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest restarted spectral plane isolates metric distortion from multi-vector expansion. The exact worst-case one-step map and the sharp failure witness locate the boundary at which even a consistent exact projected solve can no longer be guaranteed. The extremizing metrics distinguish the sharp per-step and basin mechanisms, and the cone remains valid under every admissible sequence. This is useful quantitative sensitivity information without a claim about full unrestarted algorithms or sketch probabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

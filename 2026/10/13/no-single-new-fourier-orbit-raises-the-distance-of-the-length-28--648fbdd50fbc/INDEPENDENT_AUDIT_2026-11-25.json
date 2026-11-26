@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:49:17.014426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fourier transform over the splitting field is invertible; descent by the 16-power Frobenius gives one independent base-field constraint for zero and two for each nonzero conjugate pair. Thus the new dimension is 282. The 1,a,a^(-1) Vandermonde excludes support of size at most three when first coordinates are distinct. With exactly two distinct first coordinates, the singleton is killed by 1,a and the remaining coefficients by 1,b; with one first coordinate use the second-coordinate Vandermonde. For the upper bound, rectangles with coefficients 1 handle zero exponents. On each four-point norm-one line, the three-row matrix has a one-dimensional kernel with all cofactors nonzero; Frobenius swaps its last two rows, so the unique null vector normalized to first entry 1 is fixed by Frobenius. This independently verifies the subfield-coefficient step behind the divided differences. An independent polynomial-arithmetic and cofactor replay, /workspace/review-evidence/5/replay.py, checked all 2,380 four-subsets, reproduced the published count vector (accounting for its index w=k+1), and split all 142 new Frobenius orbits into 14 rectangle, 120 line, and 8 residual cases. The last 8 are covered by the two supplied words under independent axis inversions and axis exchange. The replay checked nonzero fixed-field coefficients and all seven Fourier equations for both words. This exhausts exactly the one-added-orbit family, not multiple additions or arbitrary codes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu et al. Theorem V.13 gives a necessary-and-sufficient test in this family; Feng–Hollmann–Xiang Theorem 3.3 gives a general shift lower bound; Bernal–Guerreiro–Simón develop apparent-distance bounds from defining sets."
+        ],
+        "reasoning": "The test covers q=16 as an input but does not give its outcome; exact evaluation requires the four-support obstructions. The broader bounds are not universal upper-bound obstructions for the stated extension family.",
+        "searches": [
+          "Primary literature on distance bounds and single-cyclotomic-orbit extensions for abelian codes; arXiv:2608.18664, 1804.00367, 1704.03761"
+        ]
+      },
+      "checked_sources": [
+        "Local published Resultary index",
+        "arXiv:2608.18664v1",
+        "arXiv:1804.00367",
+        "arXiv:1704.03761"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base lower bound and dimensional setup already follow from the prior framework. At q=8 a single addition succeeds, so the framework does not yield a field-independent obstruction. At q=16 the nonvanishing tests leave residual cases needing actual witnesses."
+        ],
+        "reasoning": "The verdict is a new concrete evaluation of an explicit criterion, not a restatement or a single parameter substitution into a theorem already yielding the result. The novel part is the upper bound holding for every new orbit.",
+        "searches": [
+          "Yu et al. Theorem V.3, Theorem V.13, Corollary V.15 and Example 3; Feng et al. Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At q=16, the cyclotomic coset of (u,v) is the signed pair {(u,v),(-u,-v)}; Yu et al.'s three base cosets reproduce D0 exactly. No materially overlapping indexed finding was identified among the returned Resultary hits."
+        ],
+        "reasoning": "The source's one-coset question is equivalent to the stated one-orbit question, not a different coding construction. Posing it and identifying the base do not answer it at q=16.",
+        "searches": [
+          "Local Resultary: exact finding title and length-289 F16 fixed-base single-orbit distance obstruction",
+          "Yu et al., arXiv:2608.18664v1, Questions V.4–V.5 and Theorem V.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected tables describe other parameters or support types; the closest explicit one-orbit worked example gives [81,74,5] over F8, not an outcome at length 289 over F16. No same-census table was found."
+        ],
+        "reasoning": "A code table listing one comparable parameter triple would not certify every subcode of the fixed base. The tables checked do not list this family's q=16 orbit-by-orbit distance outcome.",
+        "searches": [
+          "Local Resultary exact family and parameters",
+          "Yu et al. Tables I–IV, Corollary V.15, Example 3; Bernal et al. Example 47"
+        ]
+      },
+      "rationale": "The base code, distance four, extension question and general test are prior art. The distinct content is the exact negative result over F16 for this fixed base and all 142 new orbits. The closest primary text poses this problem and gives explicit outcomes at q=2,4,8, not the exhaustive q=16 verdict. No inspected catalogue or other source supplies that verdict.",
+      "residual_risks": [
+        "Search and inspections cannot exclude an unindexed exact computation or a different representation of the same census.",
+        "No novelty is attributed to the base family, Fourier dimension formula, or general extension test."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers base and testing criterion, not the evaluated q=16 verdict in the checked material",
+          "evidence": "Theorem V.3 gives [(q+1)^2,(q+1)^2−5,4]; the successful F8 extension in Example 3 contrasts with the new F16 obstruction.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.18664",
+          "material_read": "Version 1 PDF pp. 6–10: Theorem V.3, Questions V.4–V.5, Theorem V.13, Corollary V.15, Example 3 and relevant tables (extracted offsets about 47,467–85,600)",
+          "method": "Lawful OA text, located and read targeted passages",
+          "title": "Constructing Good Abelian Codes via Shift Bounds and Genetic Algorithms",
+          "trigger": "Exact base family and explicit one-orbit question"
+        },
+        {
+          "assessment": "General lower bound, not the claimed universal upper bound",
+          "evidence": "Uses Z-independent subsets of characters and F-closed defining-set supersets; its characteristic condition is satisfied here.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.00367",
+          "material_read": "PDF p. 6, Theorem 3.3 (extracted offset about 21,129)",
+          "method": "Lawful OA text, decisive theorem passage",
+          "title": "The shift bound for abelian codes and generalizations of the Donoho–Stark uncertainty principle",
+          "trigger": "General abelian-code bounds might imply the concrete outcome"
+        },
+        {
+          "assessment": "Related methods; inspected example is a different code family",
+          "evidence": "Example 47 concerns binary length-105 examples, not the F16 length-289 fixed-base census.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.03761",
+          "material_read": "Abstract; Example 47 and its tables, PDF pp. 26–27",
+          "method": "Lawful OA text, targeted passages",
+          "title": "From ds-bounds for cyclic codes to true distance for abelian codes",
+          "trigger": "Potential abelian-code computational tables or exact distance framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the next power of two after the successful q=8 example in the published one-added-orbit problem. Ruling out every such extension at q=16 resolves a motivated design case and shows that the preceding success does not persist at the next field size. The certificate is a complete result for a fixed-base family, not a claim about the best possible length-289 code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

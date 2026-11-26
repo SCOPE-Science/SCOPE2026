@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:13.845135Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A triple is IR exactly when none of its vertices has two hostile partners, equivalently its induced friendship graph is connected. The independent replay tested all 32,768 labeled simple graphs, testing all 20 triples and pairing each with its complement (each unordered partition is counted twice). It matched every one of the 176 CSV entries, all binomial row totals, 25,748 feasible graphs (6437/8192 at p=1/2), and the two seven-edge positive-minimum-degree obstruction classes (15 and 90). Independent-edge sampling supplies the p^j(1-p)^(15-j) weight per graph, with no further binomial factor. For the analytic dense cutoff, a universal vertex leaves a five-vertex graph with at least three edges, hence two adjacent edges; a degree-four vertex can pair its unique nonneighbor with two neighbors, or the nonneighbor and its sole neighbor with a common third vertex from the degree-four vertex's neighborhood, or use the connected remaining three neighbors if the latter is unavailable. With maximum degree three, eight edges yield degrees (1,3,3,3,3,3) or (2,2,3,3,3,3), and nine give a cubic graph. Deleting the leaf in the first case leaves K5 minus P3 and K2, with the stated spanning path through the leaf. In the second case the two deficient vertices can be joined if nonadjacent and Dirac's theorem applied to the augmented graph; if adjacent, start through them and follow a Hamiltonian path from a prescribed vertex in K4 minus one edge. A six-vertex spanning path splits into two connected triples. Isolation obviously obstructs. The two explicit seven-edge witnesses leave either a K2 component or five vertices covered only by a matching on removal of the universal vertex, so neither can work. The first moment follows by block independence and the all-ten law by counting matching hostility graphs. Scope: exactly six agents, two unordered size-three blocks, symmetric +/-1 preferences; only the probability model assumes independent equal-p edges. The finite census is exhaustive, not a proof for other sizes.",
+      "replay_paths": [
+        "/workspace/replay/05_triples.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fioravantes et al. give algorithms and hardness under constrained IR; Schierreich and Schlotter include hardness of balanced small-coalition feasibility, not this probability law.",
+          "Lawful retrieval of the Kaneko–Kelmans–Nishimura full text was blocked; its theorem statements were not inspected."
+        ],
+        "reasoning": "A decision or existence theorem could overlap the dense boundary but does not give the multiplicity law unless it controls the count of distinct partitions per labeled instance. No stronger covering claim was verified.",
+        "searches": [
+          "arXiv:2603.21826v1, scope and results table",
+          "arXiv:2608.14461v2, Theorems 2–3",
+          "DOI:10.1002/1097-0118(200104)36:4<175::AID-JGT1005>3.0.CO;2-T"
+        ]
+      },
+      "checked_sources": [
+        "Resultary scoped graph-census, path-factor and coalition searches",
+        "arXiv:2608.14461v2",
+        "arXiv:2603.21826v1",
+        "Kaneko–Kelmans–Nishimura 2001 DOI (retrieval attempted)",
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py and multiplicity_coefficients.csv"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observation 1 gives the block viability test but no joint edge/count statistic; hardness with variable input size proves neither the isolate-only cutoff nor the exact failed orbits at this order."
+        ],
+        "reasoning": "The frozen census and sharp layer require further structural analysis or full finite counting, not a substitution into any retrieved theorem. The originality pass excludes the standard feasibility reduction.",
+        "searches": [
+          "arXiv:2608.14461v2, Observation 1 and Theorems 2–3",
+          "arXiv:2603.21826v1, contribution and results table",
+          "Resultary: six-vertex positive-minimum-degree P3-factor obstructions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Observation 1 characterizes friend-oriented IR by having a friend inside the coalition or no enemy there; with no neutral pairs this gives the frozen connected-triple criterion.",
+          "Resultary 2026/11/2 SCOPE-minimum-three-path-covers-of-cyclic-clique-products-an-exact-kne--84be1c32ab09 counts minimum vertex sets meeting all three-vertex paths in C_m square K_n, not factors or partitions."
+        ],
+        "reasoning": "P3-factor existence is equivalent, but counting factors as spanning edge-subgraphs overcounts vertex partitions containing a triangle. Path covering by hitting sets is a different problem.",
+        "searches": [
+          "Resultary: signed two-triple individual rationality; P3-factors and connected triple partitions on six vertices",
+          "arXiv:2608.14461v2, Observation 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly comparable table or pair of obstruction orbits surfaced in scoped ranked results. The same-day three-path cover result is a hitting-set parameter, and 2026/10/25 SCOPE-matching-polynomial-enumeration-and-extremal-rigidity-of-p-3-con--24fc074e8484 counts P3-convex sets in once-subdivided complete graphs."
+        ],
+        "reasoning": "A catalog of six-vertex graphs supplies inputs, not the joint table; it does not tabulate valid connected-triple partitions by density. Ranked retrieval does not rule out unindexed tables.",
+        "searches": [
+          "Resultary: six-vertex graph census and path-factor multiplicity; isolate-free density cutoff and K4 disjoint union K2 / universal vertex with matching obstructions"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint edge-layer and connected-triple-partition multiplicity census together with the sharp six-vertex obstruction layer. Neither the P3-factor existence equivalence nor the general constrained-IR model is new. The inspected statements do not supply the claimed law or its sharp obstruction classification.",
+      "residual_risks": [
+        "The full 2001 path-packing paper was not accessible; a general existence theorem may imply some of the dense feasibility cases.",
+        "An unindexed six-vertex multiplicity table or alternate formulation could affect priority. No claim of exhaustive priority or external attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the viability predicate but not the census or dense layer in the examined results",
+          "evidence": "Observation 1: friend in the block or no enemy there; Theorem 3: hardness for balanced sizing with maximum block size three.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14461",
+          "material_read": "v2 OA PDF, Observation 1 (p. 6), Theorems 2 and 3 (around offsets 22500 and 26800)",
+          "method": "Targeted OA PDF passage inspection",
+          "title": "Individual Rationality in Constrained Hedonic Games: Friends, Enemies, and Neutrals",
+          "trigger": "Same no-neutral model on size-three blocks"
+        },
+        {
+          "assessment": "Complexity classifications, not the finite law",
+          "evidence": "The inspected table classifies algorithmic problems under coalition-size and number constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.21826",
+          "material_read": "v1 OA PDF abstract, p. 2 results table and p. 3 contribution",
+          "method": "Targeted OA PDF passage inspection",
+          "title": "Individual Rationality in Constrained Hedonic Games: Additively Separable and Fractional Preferences",
+          "trigger": "Additively separable constrained IR"
+        },
+        {
+          "assessment": "Unresolved potential existence-theorem overlap, not evidence of coverage",
+          "evidence": "No theorem passage available for comparison.",
+          "identifier_or_url": "DOI:10.1002/1097-0118(200104)36:4<175::AID-JGT1005>3.0.CO;2-T",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Lawful OA retrieval attempts on direct and VPN routes returned HTTP 403; no identified accessible copy",
+          "title": "On Packing 3-Vertex Paths in a Graph",
+          "trigger": "Possible general P3-factor result"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "A vertex hitting set for all three-vertex paths in a cyclic clique product is not a vertex partition into connected triples.",
+          "identifier_or_url": "2026/11/2/SCOPE-minimum-three-path-covers-of-cyclic-clique-products-an-exact-kne--84be1c32ab09",
+          "material_read": "Indexed claim on minimum covers",
+          "method": "Local Resultary comparison",
+          "title": "Minimum three-path covers of cyclic clique products",
+          "trigger": "Same-day path-cover terminology hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two size-three blocks are the first balanced triadic instance with a choice among full partitions. The joint law answers both how frequently assignment is possible and how many alternatives remain, at every friendship density. The isolate-only threshold and exact preceding obstruction types give a structural explanation at the dense edge of the law, not merely a graph-atlas recount. This is a finite baseline for symmetric constrained allocation, not a conclusion about larger markets or strategic stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

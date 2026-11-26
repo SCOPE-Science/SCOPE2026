@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:42:07.599143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The disk involution and its reproducing-kernel cocycle give the weighted unitary; the order-three vanishing ideal at r is mapped to the one at zero, so the entire jet span maps to the first three orthogonal Taylor modes. Expanding (r−z)^n(1−rz)^{−(n+β)} gives exactly Q_j/j! times r^{n−j}; the monomial norms j!/(β)_j yield the displayed capture. A fresh symbolic calculation checks the full polynomial derivative identity for symbolic n and β, not just substituted integers. The Jacobi weights for Q_3 and Q_2 are v=x^{n−3}(1−x)^{β−1} and xv respectively. If S_2,S_3 are monic for v, then x times the monic quadratic for xv is S_3−[S_3(0)/S_2(0)]S_2. Evaluated at the three roots of S_3, its signs alternate by ordinary interlacing, so the two intervening roots are strict. The derivative is positive near zero and changes sign at each zero, giving exactly three interior peaks and two interior minima. The x=0 endpoint has capture zero (an endpoint minimum); the excluded x=1 endpoint has limit zero. Coefficient convergence under x=1−t/n and the gamma-ratio normalization give the locally uniform boundary limit; all possible global maximizers lie among the three Q_3 roots, which individually rescale to the three distinct Laguerre roots. A fresh exact rational certificate bisected the three β=2 root brackets and bounded exp(t) by a positive series and geometric remainder, reproducing the three stated disjoint height intervals. The replay /workspace/branches/replay_5.py checks these and both polynomial scalings. At large β the cubic in (t−β)/sqrt(β), after division by β^(3/2), tends to 3y−y³, and Stirling gives the stated Gaussian-polynomial heights. The central height wins strictly since e^(3/2)>4. Three continuous peak-value branches must share a global maximum somewhere when the unique winning index changes; the same strict endpoint rankings hold for all large n, giving the claimed finite-degree tie too. No uniqueness of the switch is proved or assumed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General multiple-kernel existence includes weighted Bergman spaces but does not evaluate this particular projection or optimize a common radius for the monomial. The Fock result includes higher jet orders and three peaks at order two, but for a different kernel and Gaussian/Hermite scaling. Fock derivative sampling/interpolation density is a different observable."
+        ],
+        "reasoning": "Greater generality in approximation existence or in Fock jet order does not deliver this disk-specific captive-norm formula and candidate ranking. In particular a formal Laguerre-to-Hermite limit accounts for just the high-weight end of the disk reversal.",
+        "searches": [
+          "Qu–Qian–Deng arXiv:2006.03290v3 Theorem 2.1",
+          "Resultary 88725981a16e Gaussian Fock all-jet parity law",
+          "Escudero–Haimi–Romero 10.1007/s11785-020-01065-4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3a5edfc03127, 88725981a16e, 4fa0f3b59e48 and 92f0f9ba35f5",
+        "Qu–Qian–Deng arXiv:2006.03290v3 §1.1 and Thm. 2.1",
+        "DLMF §§18.2, 18.7",
+        "Escudero–Haimi–Romero 10.1007/s11785-020-01065-4, OA PDF p. 1",
+        "Qu–Dang DOI 10.1002/mma.5648, access-limited"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-jet Gamma result finds a preferred radius among two candidates; it cannot assert the ranking among the three new candidates. The Fock three-peak result does not have the same disk weight parameter. The pure-derivative Gram result 4fa0f3b59e48 concerns Gram-kernel zeros rather than optimizing monomial norm capture by a mixed jet."
+        ],
+        "reasoning": "Even where the finite-peak proof uses familiar tools, tying the global maximum across the weight range needs a strict comparison at different weights and transfer to the exact finite-degree maxima. No inspected statement supplies this as a direct consequence.",
+        "searches": [
+          "Resultary 3a5edfc03127 and 88725981a16e Finding and scope",
+          "DLMF classical limits in §18.7",
+          "Qu–Dang 10.1002/mma.5648, exact article access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triple repeated kernel at one node is exactly the value and first two derivative span. In the limit H_β(t)=t w(t)K_2(t,t), where w(t)=t^(β−1)e^(−t) and K_2 is the degree-through-two Laguerre projection kernel for w. At L_3 roots this is t_j w(t_j) divided by the Gaussian quadrature weight. Standard Christoffel–Darboux and Gaussian weight identities describe these values, not their order as β varies."
+        ],
+        "reasoning": "A repeated-kernel approximation, weighted Christoffel kernel, and quadrature-weight formulation are appropriate aliases. Neither the inspected repeated-kernel existence result nor the related radial-star Christoffel Resultary result 92f0f9ba35f5 ranks these three Gamma peak heights.",
+        "searches": [
+          "Resultary: same-site second-jet monomial norm capture, Gamma/Laguerre root peak switch and weighted Christoffel forms",
+          "arXiv:2006.03290v3 §1.1 (1.1)–(1.2); DLMF §§18.2(v)–(vi), 18.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day disk comparison 3a5edfc03127 gives exact formulas, two local maxima and a Gamma law for a different, two-dimensional jet span. The earlier Fock catalogue result gives different formulas despite three peaks at jet order two. DLMF has the classical polynomial identities and zero facts, not the three candidate heights or the β=2-to-large-β winner switch."
+        ],
+        "reasoning": "The exact disk formula at first derivative order is genuine adjacent coverage; adding the orthogonal second mode changes both the derivative polynomial and all peak heights. No separate matching exact result was verified for the degree-two disk jet or its switch.",
+        "searches": [
+          "Resultary: exact degree-dependent second-jet Bergman formula, three maxima, Gamma root heights",
+          "DLMF §18.7(iii), equations 18.7.21 and 18.7.26; §18.2(vi)"
+        ]
+      },
+      "rationale": "The distinct claim is the second-jet weighted disk radial classification and, especially, the weight-driven change in the global winning Gamma peak, not the general use of repeated kernels or of classical polynomial scaling. The close first-jet result and the earlier Fock three-peak analogue are credited explicitly. Inaccessible primary text is a bounded residual risk, not an affirmative priority claim.",
+      "residual_risks": [
+        "The full Qu–Dang article was not obtained, so a worked-example overlap remains possible. The check of older Laguerre Christoffel/relative quadrature-weight extremum literature is bounded. Same-day catalogue metadata does not fix priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE FIRST-JET ANALOGUE; NOT SECOND-JET COVERAGE",
+          "evidence": [
+            "Value and first derivative, two strict local maxima and high-degree preference for the smaller radius."
+          ],
+          "identifier_or_url": "Resultary 3a5edfc03127",
+          "material_read": "Mirrored RESULT.md opening passage, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement-level comparison",
+          "title": "Two competing jet sampling radii and a sharp Gamma boundary law",
+          "trigger": "Same-day exact weighted-disk monomial radius law"
+        },
+        {
+          "assessment": "EARLIER ANALOGUE IN DIFFERENT SPACE",
+          "evidence": [
+            "Gaussian Bargmann–Fock jets and Laguerre finite-radius candidates, with Hermite/Gaussian scaling rather than the disk Gamma boundary law."
+          ],
+          "identifier_or_url": "Resultary 88725981a16e",
+          "material_read": "Mirrored RESULT.md opening passage",
+          "method": "Local mirror statement-level comparison",
+          "title": "A parity law for optimal single-site Fock jets and their Laguerre radius candidates",
+          "trigger": "Exact three-peak analogue at jet order two, broader jet orders"
+        },
+        {
+          "assessment": "GENERAL EXISTENCE, NOT AN EXACT RADIUS LAW",
+          "evidence": [
+            "Repeated nodes give kernel derivatives; the theorem is existence of best multiple-kernel approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2006.03290v3",
+          "material_read": "§1.1 equations (1.1)–(1.2) at HTML offset 6100 and Theorem 2.1 near offset 22984",
+          "method": "Lawful OA passage inspection",
+          "title": "A sufficient condition for n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Repeated kernels through second derivatives in weighted Bergman approximation"
+        },
+        {
+          "assessment": "CLASSICAL IDENTITIES AND LIMITS, NOT THE PEAK RANKING",
+          "evidence": [
+            "Classical separation of zeros and limits (18.7.21), (18.7.26)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18",
+          "material_read": "§§18.2(v)–(vi), 18.7(iii), including the Jacobi–Laguerre and Laguerre–Hermite limits",
+          "method": "Lawful OA section and formula inspection",
+          "title": "NIST Digital Library of Mathematical Functions: Orthogonal Polynomials",
+          "trigger": "Potential classical orthogonal-polynomial or weighted kernel equivalence"
+        },
+        {
+          "assessment": "ACCESS LIMIT; NO FULL-TEXT NONCOVERAGE CLAIM",
+          "evidence": [
+            "Title and DOI identify a relevant precursor; exact worked examples were not checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mma.5648",
+          "material_read": "Bibliographic identification; publisher and lawful OA searches did not produce a readable article for this review",
+          "method": "DOI/OA access attempted; no alternate repository copy identified",
+          "title": "Reproducing kernel approximation in weighted Bergman spaces: Algorithm and applications",
+          "trigger": "Potentially overlapping worked weighted Bergman example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural one-site second-order measurement, the result reduces an unrestricted radial optimization to exactly three computable candidates for all n≥3 and all standard positive Bergman weights. The change of the maximizing asymptotic root, and its finite-degree consequence, explain why a single persistent choice of sampling shell cannot solve this problem. That structural switch is stronger than adding one Taylor coefficient or improving a single numerical example. The claim is restricted to the monomial and the same-site jet.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

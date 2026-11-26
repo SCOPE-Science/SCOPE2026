@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:08:41.952283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legendre gives the valuation as the digit-sum excess in adding md and m(q−d), divided by p−1. Cyclic carrying of the digit weights modulo r preserves residue modulo m=p^r−1 and decreases the weight by p−1 until a positive r-digit multiple of m remains, necessarily m. More directly on the claimed finite row range, every t from 1 through b=p^r has mt=(t−1)b+(b−t), a pair of complementary r-digit blocks. Thus for 2≤q≤b, all three digit sums at t=d,q−d,q equal r(p−1), so in fact every selected coefficient has valuation r. At q=b+1, the row is p^(2r)−1; subtraction of any selected lower argument involves no borrow and every such coefficient has valuation zero. This proves the GCD result, the least failure, and the scope at both endpoints. Global maximality of r also follows from Fairfax-Ball's bound, or by subtracting the proper selected index mp^(k−r) with k the largest occupied base-p position of N=mq: its r-digit block immediately below position k can induce at most r borrows, ending at or before that nonzero digit. `python3 /workspace/branches/independent_checks.py 1` checked 28,068 exact carry counts at six prime/exponent pairs; this is corroboration, not proof of unbounded quantifiers. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fairfax-Ball gives r as the global maximum at m=p^r−1 but does not state this initial interval or collapse. The least-row result treats m=p^a+1.",
+          "Wu and McTague concern the same G; their inspected criteria for a prime power of the valuation prime or p≡1 mod m exclude m=p^r−1, r≥2.",
+          "Same-day 2026/10/18/SCOPE-exact-digit-sum-spectra-and-relative-frobenius-gaps-of-generaliz--612537f7b691 overlaps the binary cyclic-digit lemma for r≥4; for p>2 its repunit modulus differs. Later 2026/11/2/SCOPE-complete-digit-sum-spectrum-and-two-block-rigidity-for-b-t-1--d321d1108c05 implies the cyclic-digit lower bound and is not evidence of earlier priority. Later 2026/11/8/SCOPE-uniform-stabilization-of-prime-adic-gcds-along-prime-power-index--9bcc7b944830 treats prime-power multipliers, not all q in the interval."
+        ],
+        "reasoning": "The general maximum and other named restricted-GCD theorems alone are insufficient. The decisive comparison is the routinely equivalent single-index valuation law, not citation proximity or the contemporaneous digit-sum record.",
+        "searches": [
+          "arXiv:2610.01328v1, Proposition 3.1, Proposition 4.2, Theorem 4.3, §7",
+          "arXiv:2606.20940v2, pp. 1–2",
+          "arXiv:1510.06696v5, Theorem Q",
+          "Resultary: stronger digit-sum spectra and prime-power indexed restricted binomial rows"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md, verify.py and metadata/self-review",
+        "arXiv:2610.01328v1",
+        "arXiv:2606.22997v1",
+        "arXiv:2606.20940v2",
+        "arXiv:1510.06696v5",
+        "Resultary entries db4eebf1aab7, d7bb5de82236, 4eafbaba4040, 612537f7b691, d321d1108c05, 9bcc7b944830"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put s=v_p(q−1)<r and X=mq=(q−1)b+(b−q). The Oct. 12 carry ranges specialize to r−s borrows at boundaries p^(s+1) through p^r and s more at p^(r+1) through p^(r+s). For any j>r+s the residue of (q−1)b modulo p^j is a nonzero multiple of p^(r+s), so in [p^(r+s),p^j−p^(r+s)]. Adding 0≤b−q<b cannot wrap; the resulting X residue exceeds m, hence no further borrow. Thus the earlier method specializes directly to the exact v_p(B_q)=r on the full prefix.",
+          "Factorial telescoping gives the all-d law without a simultaneous digit-sum lemma. At q=b+1, the row has 2r digits p−1 so the valuation zero holds for every lower index by Kummer, whether selected or not."
+        ],
+        "reasoning": "The difference between the earlier single-index and asserted all-index formulas is a product identity, and the first failure is the ordinary no-borrow row immediately after the prefix. This defeats the proposed distinctive contribution even though no retrieved earlier text was found using the exact same full-claim wording.",
+        "searches": [
+          "Resultary Oct. 12 db4eebf1aab7, Proof, universal lower bound and pure-power witness, offsets 1913–3700",
+          "arXiv:2610.01328v1, Lemma 2.2 (Kummer residue/borrow criterion)",
+          "Frozen RESULT.md lines 79–82, claim about prior single-index implication"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fairfax-Ball's G is the within-row GCD; Guo et al.'s D is across q at one lower index. Write B_j=binom(jm,m) and B_1=1. For 1≤d<q, binom(qm,dm)=∏_{j=q−d+1}^q B_j / ∏_{j=1}^d B_j, by cancellation of successive factorials.",
+          "The frozen RESULT.md line 82 credits v_p(B_j)=r for all 2≤j≤p^r as a known specialization. Substituting that exact law in the product gives dr−(d−1)r=r for every selected index; all-index equality conversely includes d=1."
+        ],
+        "reasoning": "The two GCD definitions are distinct. The function j↦v_p(B_j) on the whole prefix is nevertheless enough to reconstruct all within-row coefficients there. The frozen originality assertion treats the exact prefix law as if only one isolated coefficient in a single row were known, which misses this equivalent formulation.",
+        "searches": [
+          "Resultary: exact single coefficient p-adic valuation or congruence for binomial(q*(p^r−1),p^r−1) uniformly for 2≤q≤p^r",
+          "Resultary: arithmetic-progression binomial GCD D(k), restricted within-row GCD G(mq;m), cyclic digit sums for p^r−1",
+          "arXiv:2610.01328v1, §2 and §3; arXiv:2606.22997v1, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7 gives D(p^r−1)=p^r. Its proof locates the r carries for each q in this specialization, supplemented by an equality witness q=p. The proof passage is stronger evidence than the D value alone.",
+          "2026/10/18/SCOPE-exact-prime-power-valuations-of-a-binomial-coefficient-greatest--d7bb5de82236 gives the same D value with q=2 as a witness. Its same-day date is not used to establish precedence. The same-day first-prime-adic-shell entry 4eafbaba4040 treats a different cofactor range, excluding cofactor 1.",
+          "The exact single-index congruence attribution was not recovered by the targeted lookup, and no earlier table spelling out all within-row values was verified."
+        ],
+        "reasoning": "Neither the cross-row scalar minimum nor an exact match of its prime power is by itself this theorem. The earlier work is material because the proof identifies the specialized per-coefficient carries, not because an aggregate table has the same number.",
+        "searches": [
+          "Resultary: exact prime-power valuation of binomial-progression gcd, A080170, all selected multiples in prime-power-minus-one rows",
+          "Focused literature search for an exact single-coefficient congruence at bottom index p^a−1"
+        ]
+      },
+      "rationale": "The claimed new all-index lower bound does not survive implication-level comparison with the exact single-index law that the record itself credits as known. Those laws are equivalent on the plateau by factorial telescoping, and the collapse is the immediate all-digits-p−1 case of Kummer/Lucas. Moreover the Oct. 12 cross-row GCD proof supplies the carry ranges for the single-index law, with a direct residue check showing those ranges exhaust the carries in the pure prime-power specialization. This is substantive coverage by mechanical implication, not a claim that the earlier paper or catalogue entry literally states the new plateau sentence. The exact bibliographic attribution of the single-index congruence was not recovered, but the positive implication and earlier specialized carry analysis are checkable without it.",
+      "residual_risks": [
+        "The precise cited primary source for the known exact single-index valuation remains unresolved. The implication-level assessment does not depend on whether the all-index corollary was printed verbatim.",
+        "The content overlap of the same-day entries does not resolve their precedence or relationship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "D alone does not establish coverage. Proof ranges plus the immediate no-extra-borrow check give the exact B_q prefix and therefore the within-row plateau by telescoping.",
+          "evidence": [
+            "For k=p^ab−1 the lower carries come from j>v_p(q−1) up to a and the additional carries from a+t+1≤j≤a+v_p(q−1), with t=floor(log_p b); in the pure-power case take b=1, t=0."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+          "material_read": "RESULT.md Finding and Proof, especially universal carry bound and pure-power witness, offsets 1913–3700",
+          "method": "Local mirror, exact source passages and carry-range specialization",
+          "title": "Exact prime-power factorization of the binomial progression GCD",
+          "trigger": "Earlier exact cross-row gcd and per-coefficient bound for the same progression"
+        },
+        {
+          "assessment": "Antecedent global maximum and carry criterion; no direct statement of first plateau or zero transition.",
+          "evidence": [
+            "For m coprime to p the maximum is min{j:m<p^j}, with a constructed equality row. The least-row theorem treats a prime power plus one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01328v1",
+          "material_read": "Definition 2.1, Lemma 2.2, Proposition 3.1, Theorem 4.3, and comparison to the §7 least-row result; OA offsets 4200–9496 and 11230–16364",
+          "method": "Original OA PDF passages",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Same G and sharp universal result"
+        },
+        {
+          "assessment": "Published p-support criterion, not all selected indices; exact single-index antecedent not attributed to this theorem.",
+          "evidence": [
+            "D(k)=gcd over 2≤q≤k+1 of B_q; p divides D(k) iff the p-free cofactor in k+1 is at most its p-part, for p dividing k+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22997v1",
+          "material_read": "Abstract/introduction and Theorem 1, pp. 1–2, offsets 0 and 5000–6959",
+          "method": "Original OA PDF passages",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Older cross-row GCD for the same single-index entries"
+        },
+        {
+          "assessment": "Different restrictions on a and the valuation prime.",
+          "evidence": [
+            "Cases a=p^t or p≡1 mod a do not include a=p^r−1 here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.20940v2",
+          "material_read": "Definition p. 1 and early results p. 2, offsets 4800–9239",
+          "method": "Original OA PDF passages",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Same restricted-GCD definition"
+        },
+        {
+          "assessment": "Same G; congruence hypothesis fails here.",
+          "evidence": [
+            "Under p≡1 mod a the valuation is at most one and a digit-sum threshold decides it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06696v5",
+          "material_read": "pp. 1–2, Theorem Q, offsets 0 and 4400–7315",
+          "method": "Lawful OA author preprint after journal route was inaccessible",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Earlier multiple-index restriction theorem"
+        },
+        {
+          "assessment": "Parallel D result; exact agreement for that different GCD and same quantifier gap in its statement. No priority inferred from date.",
+          "evidence": [
+            "For n=p^r its D(n−1) is p^r; the q=2 coefficient witnesses the minimum."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-prime-power-valuations-of-a-binomial-coefficient-greatest--d7bb5de82236",
+          "material_read": "RESULT.md Finding and Proof comparison including pure-power q=2 witness, offsets near 2395–3324",
+          "method": "Local mirror passages",
+          "title": "Exact prime-power valuations of a binomial-coefficient greatest common divisor",
+          "trigger": "Distinct same-day record with exact exponent for the same progression"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The least-failure question is natural in the extremal-row framework, and the identity can be useful when tabulating examples. For this specific family, however, the apparent extra all-coefficient invariant is mechanically obtained from the antecedent single-index valuation by factorial cancellation, and the zero boundary is the standard all-digits-p−1 row. Compared with that evidence it is a concise corollary, not an independent structural increment. The record establishes no separately motivated new regime beyond that prefix; the universal digit-sum lemma is ancillary and no distinct repaired finding was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

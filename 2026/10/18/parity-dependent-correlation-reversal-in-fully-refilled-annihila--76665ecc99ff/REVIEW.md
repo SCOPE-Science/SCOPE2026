@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The directed jump convention gives \(k(k-1)\) annihilation rate. The renewal product and symmetric conditional occupancy reconstruct all finite stationary probabilities. The covariance and both asymptotic limits follow with explicit remainder control for each fixed finite size. An independent full-generator script checked 1,008 state probabilities and 24 covariances, without substituting for the all-size proof. No assertion about uniqueness of the general odd crossing is made.
+## correctness
 
-## Originality — PASS, with residual risks
-Closest primary works examined: Evans and Majumdar (2011), which supplies the general renewal framework but studies one-particle diffusion and search; Krapivsky and Ben-Naim (2015), which studies diffusion-limited annihilation on an inhomogeneous half-line without global full refills. The finite-state pure-death reduction is elementary and is not claimed as a new general method. Targeted exact-claim, alias and implication searches did not identify the explicit complete-graph refilled annihilation distribution or its parity-sensitive site correlations. A specialized catastrophe/replenishment paper outside indexed sources remains possible.
+PASS
 
-## Value — PASS
-A natural all-size finite interacting-particle model becomes exactly tractable at the level of every stationary occupancy configuration. The odd/even distinction traces directly to particle-number parity, and the positive high-refill correlation comes from a single pair-annihilation event, providing a benchmark and a mechanism rather than an arbitrary finite computation.
+The replacement RESULT.md reconciles a literal conflict in the frozen scope: removals are triggered by occupied-to-occupied attempts, not additional independent Poisson events. The clocks in the replacement agree with the original Finding, proof, and the configuration generator. On this precise model, balance gives (r+a_0)p_0=r and (r+a_j)p_j=a_(j-1)p_(j-1), including a_m=0; normalization telescopes. The unique reachable stationary class and site permutation symmetry give conditional uniformity. Factorial moments give the covariance; at small r the even case has N/2 contributing nonterminal levels while the odd case is a uniform singleton. At large r, one death produces a specified vacant pair with probability 2/r+O_N(r^-2), while two deaths and mean-product corrections are second order. The rational formula has a genuine sign-changing crossing for odd N; direct substitution gives the unique N=3 crossing at 2. This is an analytic check on the replacement for all fixed finite N and r>0, not an extrapolation of tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the pair-annihilation count and parity-sensitive site covariance taken together, not for Poisson renewal, the pure-death recursion alone, or the general reset-driven sign-reversal mechanism. The directly inspected same-day coalescing-cycle result is materially related but has a different reaction, state space and leading power; the decision does not depend on priority within that date. The clock clarification leaves the compared claim unchanged.
+
+## value
+
+PASS
+
+The exact count law by itself is a routine reset computation. Its application to labeled pair correlations exposes a sharp structural distinction: at rare refill an odd survivor excludes every other site, whereas at frequent refill a single annihilation creates vacancies in pairs and dominates the covariance. The result gives an all-size sign reversal and quantified opposite limits, rather than a finite-sample observation or novelty claim for the general mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

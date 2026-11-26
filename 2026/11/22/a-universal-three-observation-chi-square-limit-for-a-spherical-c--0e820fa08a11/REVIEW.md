@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The statistic is reconstructed from the published column-standardized sphere integral. An exact four-index spherical-character identity reduces it to the sample Gram matrix. A uniform \(m^{-1}\) expansion of \({}_0F_1\) is justified by a summable factorial series, not numerical fitting. Row exchangeability forces the fixed-sample Gram limit. With three rows, zero row sums and fixed trace reduce perturbations to a two-dimensional tangent; its universal isotropic covariance and the bounded-vector CLT give the \(\chi_2^2\) factor. The curvature correction yields the explicit shift \(\beta\); the quadratic Taylor coefficient yields \(\gamma>0\). The limiting rejection probability follows from continuous limiting quantiles, and the full-sample separation follows from Hellinger affinity. The included checker was replayed successfully with 267 checks. No finite test is treated as a proof of an infinite limit.
+PASS
 
-## Originality
+The published unbiased sample variance and Euclidean sphere match the frozen definitions. Atomlessness avoids zero sample variance; column standardization yields iid bounded columns of fixed squared length N−1 and zero sum. The Gram SLLN to P_N follows from row exchangeability, which fixes its diagonal and off-diagonal expectations. Expanding the squared modulus and using joint sphere rotational invariance (not independent projected blocks) gives the claimed kernel H_m. Its coefficient product ∏_{j<r}(1+j/m)^−1 has first-order term −r(r−1)/(2m); a uniform O(r⁴/m²) remainder is summable against B^r/r!, giving the claimed −x² exp(−x/4)/(32m) curvature contribution. This gives the general leading constant and at N=2 the Gram matrix is exactly P_2. At N=3 a tangent matrix is determined by its three trace-zero diagonal entries and its squared Frobenius norm is three times their squared length. A single-column increment zzᵀ−P_3 has squared norm 2, and by exchangeability its diagonal covariance is a scalar on the trace-zero plane, with scalar 1/3 by the trace. The Frobenius covariance is therefore I_2. The bounded-vector CLT and a Taylor expansion with zero linear term give the χ²_2 fluctuation with γ>0. Independently evaluating the three possible first kernel arguments 0,2,4 with weights 1/9,4/9,4/9 and the cross term at 4/3 reproduced C_3=0.1285958736506253, β=−0.2014753345640410 and γ=0.0378204722311850 by elementary Python arithmetic. For deterministic Gaussian right-tail cutoffs an interior asymptotic size forces convergence to the unique scaled limit quantile; the same continuous limit under each alternative gives that size as power. The underlying uniform/Gaussian experiments separate already by the event that all coordinates lie in the uniform support, with uniform probability one and Gaussian probability exponentially small. The Hellinger bound in the original is valid. The uploaded numerical checker was inspected, not executed. The χ² assertion is for T=M_m/A_m, only at N=3, and only in the stated fixed-sample iid regime.
 
-PASS with qualified historical priority. The original 2021 preprint and 2022 journal full HTML have the same sphere-integrated test but treat fixed-dimensional asymptotics and simulations rather than the fixed-three-observation, growing-dimension distribution. Baringhaus–Henze (1988) studies covariance-whitened empirical characteristic functions, not this test. Chen–Xia (2019) gives a nearest-neighbor high-dimensional normality test, not the present functional. A published record concerning an exact Gaussian-null mean for a multivariate Fourier–Stein normality test is a different statistic and does not supply this \(\chi_2^2\) limit or equality of alternative power. Absence of a matching search result is not proof of first priority; general fixed-sample high-dimensional empirical-characteristic-function literature remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Three observations are the first sample size permitting nonconstant column-standardized Gram geometry; two observations have an exactly deterministic Gram matrix. The result goes beyond elementary high-dimensional concentration by determining the first nonzero fluctuation, its universal distribution under nonnormal alternatives, and the exact limiting rejection power. It exhibits a meaningful calibration boundary: the statistic has only nominal limiting power even when the full Gaussian and uniform experiments become asymptotically mutually singular. It does not criticize the original paper's fixed-dimensional consistency claim.
+The verified motivating paper uses exactly this statistic but its limit theorems grow the sample size at fixed dimension. The strongest retrieved neighboring fixed-sample high-dimensional statements concern different functionals. Neither the primary source nor the inspected distinct catalogue records give this statistic's fixed-N dimension-growth constants, universal second-order calibration at N=3, or alternative-side rejection law.
 
-## Limitations and closest literature
+## value
 
-The theorem is confined to independent identically distributed scalar coordinates and exact spherical averaging. Only the three-observation second-order law is universal here; no conclusion about fixed larger sample sizes is asserted. The closest methodological paper is Ejsmont, Milošević and Obradović, arXiv:2107.04845 and DOI:10.1007/s00362-022-01365-1. The separate covariance-whitened Baringhaus–Henze test and Chen–Xia nearest-neighbor test do not imply these constants. Historical-priority comparison is qualified, not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three rows are the first nonconstant standardized Gram geometry, so this cutoff is structurally selected rather than an arbitrary small sample. The common leading constant would not suffice to determine test power; the explicit universal second-order law does, even for a full-sample alternative asymptotically separated in total variation. It therefore identifies a concrete failure regime of a published test without contradicting fixed-dimensional consistency or claiming a general impossibility of testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,54 +1,58 @@
-# Fibonacci exceedance laws and spatial Rayleigh extremes for jittered interval samples
+# Spatial near-maximum gap process for jittered interval samples
 
 ## Finding
 
-For equally stratified one-dimensional sampling with one independent uniform site per stratum, the entire upper-tail count of near-maximal consecutive gaps has an exact independent-set polynomial. The near-maximal gaps, jointly with their positions, form a Poisson process on the scale of their deficit from twice the mesh spacing. In particular the maximum has a Rayleigh deficit, in contrast to the Gumbel behavior for an unstratified independent uniform sample.
+Take independent \(U_1,\ldots,U_n\) uniform on \((0,1)\), and put \(X_i=(i-1+U_i)/n\) for \(1\le i\le n\). These are the ordered sites of the equal-stratum, one-site-per-stratum design. For internal gaps write
+\[
+G_{n,i}=n(X_{i+1}-X_i),\qquad T_{n,i}=\sqrt n(2-G_{n,i}),\qquad 1\le i<n.
+\]
+The location–deficit process satisfies
+\[
+\Xi_n=\sum_{i=1}^{n-1}\delta_{(i/n,T_{n,i})}\;\Longrightarrow\;\operatorname{PPP}(ds\,t\,dt)
+\]
+in the vague topology of locally finite point measures on \([0,1]\times[0,\infty)\).
 
-For integers \(n\ge2\) and \(0\le\delta\le1/2\), define \(q=\delta^2/2\). Then
-
-\[\mathbb E[z^{N_n(\delta)}]=\sum_{k=0}^{\lfloor n/2\rfloor}\binom{n-k}{k}q^k(z-1)^k,\qquad \Pr(nM_n\le2-\delta)=\sum_{k=0}^{\lfloor n/2\rfloor}(-q)^k\binom{n-k}{k}.\]
-
-The variance also has the exact formula
-\[\operatorname{Var}(N_n(\delta))=(n-1)q-(3n-5)q^2.\]
-
-For the extremal scale, set \(T_{n,i}=\sqrt n\bigl(2-n(X_{i+1}-X_i)\bigr)\). Then
-\[\Xi_n=\sum_{i=1}^{n-1}\delta_{(i/n,T_{n,i})}\ \Longrightarrow\ \operatorname{PPP}(ds\,t\,dt)\]
-
-in the vague topology of locally finite point measures on \([0,1]\times[0,\infty)\). In particular,
-\[\Pr\bigl(\sqrt n(2-nM_n)>t\bigr)\longrightarrow e^{-t^2/2}\quad(t\ge0).\]
-
-The maximizing internal-gap location, divided by \(n\), converges to an independent uniform \([0,1]\) variable. For every fixed positive integer \(k\), the deficit of the \(k\)-th largest internal gap has survival limit \(e^{-t^2/2}\sum_{j=0}^{k-1}(t^2/2)^j/j!\).
-
-## Assumptions and scope
-
-Take independent \(U_1,\ldots,U_n\sim\operatorname{Uniform}(0,1)\), let \(X_i=(i-1+U_i)/n\), and take \(X_0=0\) and \(X_{n+1}=1\). By construction the observations are already ordered. The maximum \(M_n\) includes both external boundary gaps and all \(n-1\) internal gaps; the count \(N_n(\delta)\) counts only internal gaps. Results for the exact polynomial hold at every integer \(n\ge2\) and every real \(\delta\in[0,1/2]\). Convergence statements hold as \(n\to\infty\), with bounded nonnegative deficit marks and with any fixed order \(k\).
+In particular the spatial coordinate of the largest internal gap converges jointly with its scaled deficit to an independent uniform location and Rayleigh mark. For any fixed rank \(k\) (largest gaps first), the corresponding scaled deficit has limiting survival
+\[
+e^{-t^2/2}\sum_{j=0}^{k-1}\frac{(t^2/2)^j}{j!},\qquad t\ge0.
+\]
+The two boundary gaps, from 0 to \(X_1\) and from \(X_n\) to 1, do not change the limiting largest gap. The contribution is the joint spatial marked process for this design, not a new hard-core polynomial identity or a new general theorem for dependent maxima.
 
 ## Proof
 
-**1. Triangular rare-event geometry.** The internal scaled gap is \(G_i=n(X_{i+1}-X_i)=1+U_{i+1}-U_i\). Its near-maximal event \(E_i(\delta)=\{G_i>2-\delta\}\) is the triangle \(\{0<U_i<\delta,\ 1-\delta+U_i<U_{i+1}<1\}\) of area \(q=\delta^2/2\). At \(0\le\delta\le1/2\), the events \(E_i\) and \(E_{i+1}\) are disjoint: their shared jitter variable would need to be simultaneously less than \(\delta\) and greater than \(1-\delta\). Any selection of nonadjacent event indices depends on disjoint pairs of independent jitter variables and hence its events are mutually independent.
+**Geometry.** Since \(G_{n,i}=1+U_{i+1}-U_i\), for \(0\le\delta\le1/2\) the event \(G_{n,i}>2-\delta\) is \(U_{i+1}>1-\delta+U_i\), which has probability \(q=\delta^2/2\) by integrating the triangle. Two neighboring exceedances are incompatible: the first requires the shared jitter to be greater than \(1-\delta\), while the second requires it to be less than \(\delta\). At nonneighboring indices the gaps use disjoint uniforms. Thus for any fixed \(L\) and all \(n\) with \(L/\sqrt n\le1/2\), the law of a deficit mark on \([0,L]\) has density \(t/n\) and adjacent indices cannot both have marks in that window. Endpoint equalities have probability zero.
 
-**2. Exact exceedance polynomial.** Expand \(z^{N_n}=\prod_{i=1}^{n-1}(1+(z-1)\mathbf1_{E_i})\) by subsets of event indices. Only nonconsecutive subsets contribute. There are exactly \(\binom{n-k}{k}\) subsets of size \(k\) of \(\{1,\ldots,n-1\}\) without neighboring indices. Their intersection probability is \(q^k\); this proves the generating function. Substituting \(z=0\) gives the probability that no internal gap exceeds \((2-\delta)/n\). Since the boundary gaps are at most \(1/n\), they cannot exceed this threshold. Thus the same probability is exactly \(\Pr(nM_n\le2-\delta)\). Differentiating the generating function at \(z=1\) yields the stated mean \((n-1)q\) and variance \((n-1)q-(3n-5)q^2\).
+**Marked convergence.** For a nonnegative continuous test function \(f\) supported in \([0,1]\times[0,L]\), put \(h_i=\mathbb E[1-e^{-f(i/n,T_{n,i})}]=n^{-1}\int_0^L(1-e^{-f(i/n,t)})t\,dt\). Expanding the expectation of the product \(\prod_i e^{-f(i/n,T_{n,i})}\), the subsets containing a neighboring pair contribute zero by exclusion, and each other subset contributes \(\prod_{i\in S}(-h_i)\) by independence. Including the omitted terms gives \(\prod_i(1-h_i)\). The total absolute weight of those terms is at most
+\[
+e^{\sum_i h_i}\sum_{i=1}^{n-2}h_i h_{i+1}=O_L(n^{-1}),
+\]
+by charging every omitted subset to an adjacent pair it contains and summing over the other included indices. Since \(0\le h_i\le L^2/(2n)\), the logarithm of the product is \(-\sum_i h_i+O_L(n^{-1})\). Passing to the spatial Riemann sum gives the Laplace functional
+\[
+\exp\left(-\int_0^1\int_0^L(1-e^{-f(s,t)})t\,dt\,ds\right),
+\]
+which is that of the claimed Poisson point process. Convergence of these Laplace functionals is the vague point-process convergence criterion.
 
-**3. Poisson point process with spatial marks.** For every fixed bounded interval of deficit marks \((a,b]\subset[0,\infty)\), and all sufficiently large \(n\),
-\[\Pr(a<T_{n,i}\le b)=\frac{b^2-a^2}{2n}.\]
-Indeed \(\{T_{n,i}\le t\}=E_i(t/\sqrt n)\). Events associated with neighboring indices and bounded deficit marks are mutually exclusive once the maximal deficit cutoff divided by \(\sqrt n\) is less than \(1/2\). Events at pairwise nonneighboring indices are independent. For any fixed finite collection of disjoint spatial-mark rectangles, expand all mixed falling factorial moments of their counts as sums over distinct index tuples. Tuples containing neighboring indices vanish. Tuples with all indices at mutual distance at least two contribute products of the exact single-index probabilities. Their number differs from the unrestricted tuple count by \(O(n^{r-1})\) for a factorial moment of fixed total order \(r\). Since every individual rare-event probability is \(O(1/n)\), these excluded tuples contribute only \(O(1/n)\) to the unrestricted asymptotic factorization. The limiting factorial moments are therefore those of independent Poisson variables with mean \((b-a)\int_c^d t\,dt\) on a spatial interval \((a,b]\) and deficit interval \((c,d]\). Tightness of bounded-window counts follows from their bounded expectations, and the point-process convergence follows from the resulting Laplace functionals on bounded-support continuous test functions.
+**Ranks and endpoints.** On each bounded window with no limit point on the cutoff, the point ordering by deficit is continuous whenever the relevant ranks exist and have no ties. The Poisson intensity is diffuse in the mark and the probability of fewer than \(k\) points in \([0,1]\times[0,L]\) tends to zero as \(L\to\infty\). The mean below \(t\) is \(t^2/2\), so a Poisson count of fewer than \(k\) gives the displayed survival. The factorized intensity gives independent uniform spatial coordinates conditional on the ordered marks. The boundary gaps are at most \(1/n\); independent gaps made from \(\lfloor n/2\rfloor\) disjoint uniform pairs each satisfy \(\Pr(G_{n,i}>1)=1/2\), so the chance that a boundary gap attains the overall maximum is at most \(2^{-\lfloor n/2\rfloor}\).
 
-**4. Extreme gaps and location.** The limiting Poisson process has mean \(t^2/2\) on \([0,1]\times[0,t]\). Its least deficit exceeds \(t\) if and only if that region is empty; this gives survival \(e^{-t^2/2}\). The process has a.s. a unique smallest mark and its corresponding spatial coordinate is independent \(\operatorname{Uniform}(0,1)\), because intensity factors as Lebesgue space measure times \(t\,dt\). Its fixed order-statistic void/count law is \(e^{-t^2/2}\sum_{j=0}^{k-1}(t^2/2)^j/j!\). Boundary gaps are bounded above by \(1/n\), while the largest internal gap exceeds that level with probability tending to one, so the largest-gap asymptotics and its location are not changed by including the endpoints. More precisely, independent disjoint pairs give \(\Pr(\max_i G_i\le1)\le2^{-\lfloor n/2\rfloor}\).
+## Context: the finite count law and the univariate maximum
 
-## Verification
+Let \(N_n(\delta)\) count internal gaps above \((2-\delta)/n\), and let \(M_n\) be the maximum including boundaries. The geometry realizes a one-dependent hard-core process with marginal \(q\) on the path of \(n-1\) indices. Its standard independent-set expansion [2, Lemmas 23–24] specializes to
+\[
+\mathbb E[z^{N_n(\delta)}]=\sum_{k=0}^{\lfloor n/2\rfloor}\binom{n-k}{k}q^k(z-1)^k,\qquad
+\Pr(nM_n\le2-\delta)=\sum_{k=0}^{\lfloor n/2\rfloor}\binom{n-k}{k}(-q)^k,
+\]
+for \(n\ge2\) and \(0\le\delta\le1/2\). Indeed the mixed inclusion probability vanishes on any subset with neighbors and is \(q^k\) on an independent subset of size \(k\). There are \(\binom{n-k}{k}\) such subsets; the boundary gaps are below the threshold. Summing variances of the indicators and covariances of adjacent pairs yields \((n-1)q-(3n-5)q^2\). At \(\delta=0\) the count is zero. This finite law is a model-specific use of the prior hard-core identity, not a separate originality claim.
 
-The accompanying `checker.py` recomputes every nonadjacent-subset coefficient exactly for \(2\le n\le15\); checks rational polynomial identities, the exact variance, and recurrence; independently integrates the sequential uniform density for selected sizes and thresholds; computes large-size Rayleigh survival via the equivalent second-order recurrence; and compares a seeded simulation against the exact finite formula. It reports 316 passed assertions. Computations are finite consistency checks; the proof of all-size identities and convergence is in the preceding steps.
+The univariate Rayleigh law alone also follows from Watson's dependent-maxima theorem in the form quoted in [3, §2]. The sequence \((2-G_{n,i})^{-1}\) is the restriction of a stationary 1-dependent sequence with upper tail \(1/(2y^2)\) for \(y\ge2\) and no adjacent exceedances at such a level. Using \(y=\sqrt n/t\), for fixed \(t>0\), yields \(\Pr(\sqrt n(2-nM_n)>t)\to e^{-t^2/2}\) by the endpoint bound. That theorem does not give the location–deficit process above.
 
-## Relationship to prior work
+## Verification and limitations
 
-Pausinger and Steinerberger (arXiv:1510.00251, first posted 1 October 2015) study exactly the underlying jittered-sampling construction, principally through multidimensional discrepancy and a partition principle. Their full text discusses one-dimensional star-discrepancy at order \(1/n\) but does not derive the maximum-gap exceedance polynomial or spatial extremal process. Mijatović and Vysotsky (arXiv:1508.00944, first posted 5 August 2015) analyze maximal spacings of *unstratified independent uniform points*, for which the normalized maximum has a Gumbel rather than Rayleigh limit. Watson's 1954 theory of extremes of dependent sequences offers relevant general background, but does not itself supply the exact finite triangular-event polynomial for this stratified model. The specific combination of a sharp finite probability law with spatially marked extreme gaps is the contribution assessed here.
-
-## Limitations
-
-Uniformity and independence of one point inside each equally sized stratum are essential for the simple triangular probability and nonadjacent independence. The exact polynomial is claimed only for deficits \(\delta\le1/2\). The marked process is an asymptotic statement on bounded deficit scales and does not describe every gap simultaneously at macroscopic deficits. The checker is a reproducibility aid, not a substitute for the proof. An equivalent statement could exist in older perturbed-lattice or scan-statistic literature not identified by the searches; independent historical priority and independent mathematical audit remain unestablished.
+The supplied `checker.py` checks finite exceedance coefficients, variance, selected transfer-integral calculations and the univariate limit numerically; it does not prove the marked convergence. The analytic Laplace functional proof covers all fixed compact mark windows and ranks. The sample model assumes equal one-dimensional strata and independent uniform jitter. The finite polynomial applies only through \(\delta=1/2\). The marked convergence does not quantify gaps with macroscopic deficits. Indexed analogues on unstratified uniform spacings [3,5] use a different tail and Gumbel normalization; discrepancy for this very design [1] is a different statistic. Unindexed perturbed-lattice or scan-statistic precedents cannot be excluded.
 
 ## References
 
-- F. Pausinger and S. Steinerberger, *On the Discrepancy of Jittered Sampling*, arXiv:1510.00251 (first submitted 2015-10-01), https://arxiv.org/abs/1510.00251 .
-- A. Mijatović and V. Vysotsky, *On the Weak Limit Law of the Maximal Uniform k-Spacing*, arXiv:1508.00944 (first submitted 2015-08-05), https://arxiv.org/abs/1508.00944 .
-- G. S. Watson, *Extreme Values in Samples from m-Dependent Stationary Stochastic Processes*, Annals of Mathematical Statistics **25** (1954), 798–800, https://doi.org/10.1214/aoms/1177728670 .
+1. F. Pausinger and S. Steinerberger, *On the Discrepancy of Jittered Sampling*, §1, https://arxiv.org/abs/1510.00251.
+2. A. E. Holroyd and T. M. Liggett, *Finitely dependent coloring*, §9, Lemmas 23–24 and Eq. (24), https://arxiv.org/abs/1403.2448.
+3. A. Mijatović and V. Vysotsky, *On the Weak Limit Law of the Maximal Uniform k-Spacing*, Theorem 1 and §2, https://arxiv.org/abs/1508.00944.
+4. G. S. Watson, *Extreme Values in Samples from m-Dependent Stationary Stochastic Processes*, Annals of Mathematical Statistics 25 (1954), 798–800.
+5. *Independent spatial extreme fields for finitely many maximal uniform spacings*, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-independent-spatial-extreme-fields-for-finitely-many-maximal-uni--a7482687ed1b/RESULT.md.

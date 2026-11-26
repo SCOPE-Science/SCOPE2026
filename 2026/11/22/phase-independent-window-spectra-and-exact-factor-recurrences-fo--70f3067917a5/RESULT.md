@@ -16,7 +16,7 @@ Put \(n=p^k m\), with \(k=\nu_p(n)\) and \(p\nmid m\). **For every phase \(r\)**
 \]
 Thus the ordinary nonoverlapping-window complexity (phase zero) depends only on the \(p\)-free part of the length, and the count is *independent of the window phase*.
 
-The factor count on the right is determined at every positive length by the following exact finite radix recurrence, with \(n=pt+s\) and \(0\le s<p\) in the last line:
+For evaluation of this window spectrum, the ordinary factor count on the right can be computed by the following exact finite radix recurrence, with \(n=pt+s\) and \(0\le s<p\) in the last line. This recurrence is a specialization of Sell's simple Toeplitz factor-complexity theorem; a short direct derivation is included for completeness.
 \[
  P(n)=\begin{cases}
  1+n(q-1),&1\le n\le p,\\
@@ -24,7 +24,7 @@ The factor count on the right is determined at every positive length by the foll
  (p-s)P(t)+sP(t+1),&n\ge2p.
  \end{cases}
 \]
-In particular \(|\mathcal W_{p^k,r}|=q\) for every \(k\ge0\), even though \(P(p^k)\ge p^k+1\). At lengths coprime to \(p\), all \(P(n)\) factors occur in *every* phase. The same proof also covers \(p=2\), yielding the classical period-doubling instance; the prime-base extension \(p\ge3\) is the intended scope here.
+In particular \(|\mathcal W_{p^k,r}|=q\) for every \(k\ge0\), even though \(P(p^k)\ge p^k+1\). At lengths coprime to \(p\), all \(P(n)\) factors occur in *every* phase. The new claim is the explicit all-phase window bijection in prime bases \(p\ge3\). Neither the ordinary factor counts nor the dyadic case are claimed as new.
 
 ## Assumptions and scope
 
@@ -64,7 +64,9 @@ Two independent standalone Python programs accompany this result. `verify_templa
 
 Cassaigne and Kaboré, *On modulo-recurrence and window complexity in infinite words* (arXiv:2606.13744v1, June 11, 2026), establish a window-complexity/ordinary-complexity identity for the **Thue–Morse** word based on removing the dyadic valuation of the window length. The prime-base words here instead have a fixed-letter prefix in each substitution block; the result treats every phase, all prime bases \(p\ge3\), all residue-alphabet sizes, and supplies an independent exact factor recurrence.
 
-Bognini and Ammar, *A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences* (arXiv:2511.20881v1, November 25, 2025), analyze the **base-two** generalized period-doubling morphism and kernel/gap factorizations. Their inspected paper does not state these prime-base window spectra. Some previously indexed work supplies base-two factor counts and other invariants, which are not claimed as new here. The earlier base-two case is used only as context; the prime-base, all-phase statement is the new claim.
+Bognini and Ammar, *A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences* (arXiv:2511.20881v1, November 25, 2025), analyze the **base-two** generalized period-doubling morphism and kernel/gap factorizations. The distinct record *Complete factor and aligned-window complexity of generalized period-doubling words* states the all-length ordinary count and the aligned-window law for \(p=2\), \(q\ge2\). Its windows start only at multiples of their length. It does not state the all-phase result for the higher prime bases, and no relative publication order is asserted here.
+
+Sell's *Combinatorics of One-Dimensional Simple Toeplitz Subshifts*, Proposition 3.7 and Theorem 3.9, supplies the ordinary factor counts for this family. In his coding take level letters \(a_j=j\bmod q\), periods \(n_j=p\) and hole offsets \(r_j=p-1\). The hole set at level \(j\) is \(-1+p^{j+1}\mathbb Z\); its one-sided word is the valuation word above. Filling the single two-sided limit hole at \(-1\) by any letter does not change the factor language: every finite block through that hole is repeated at sufficiently high positive prime powers with the matching valuation residue. All tail alphabets have size \(q\). Thus the ordinary complexity is \(1+(q-1)L\) up to \(p\), and for \(B=p^j\), \(j\ge1\), and \(B<L\le pB\), it is \((q-1)L+B+\min(0,L-2B+B/p)\). This gives \(P(pt)=pP(t)\) when \(t\ge2\); above \(2p\) its breakpoints are multiples of \(p\), so linear interpolation between adjacent multiples gives the displayed recurrence. This prior formula counts all translates together, not the factors observed at starts restricted modulo their own length. The phase-window bijection here requires the separate coprime repetition and shifted-slice arguments in Steps 1–3.
 
 ## Limitations
 
@@ -75,3 +77,5 @@ This does not establish the full analogous identity for composite substitution l
 1. J. Cassaigne and I. Kaboré, *On modulo-recurrence and window complexity in infinite words*, arXiv:2606.13744v1 (first publicly posted 2026-06-11), https://arxiv.org/html/2606.13744v1.
 2. K. E. Bognini and H. Ammar, *A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences*, arXiv:2511.20881v1 (first publicly posted 2025-11-25), https://arxiv.org/html/2511.20881v1.
 3. M. Morse and G. A. Hedlund, *Symbolic Dynamics II: Sturmian Trajectories*, Amer. J. Math. 62 (1940), 1–42 (factor-complexity aperiodicity bound).
+4. D. Sell, *Combinatorics of One-Dimensional Simple Toeplitz Subshifts*, arXiv:1801.08778v2, https://arxiv.org/pdf/1801.08778v2, Proposition 3.7 and Theorem 3.9.
+5. *Complete factor and aligned-window complexity of generalized period-doubling words*, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-factor-and-aligned-window-complexity-of-generalized-per--b359a69047d4.

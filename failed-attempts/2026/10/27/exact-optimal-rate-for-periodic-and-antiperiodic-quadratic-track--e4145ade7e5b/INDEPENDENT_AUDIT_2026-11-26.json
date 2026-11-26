@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:14:17.507173Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–77, including the real scalar strict-proper class, exact pole model, recurrence and endpoint bound",
+        "Frozen VERIFICATION.md, recorded channels inspected; no finite or formal certificate relied upon",
+        "Van Scoy and Bianchin arXiv:2510.12512v1, Lemma 2 and Section IV, primary PDF offsets 26683–30132 and 31134–33803, for the same scalar characteristic polynomial and root objective"
+      ],
+      "rationale": "For every real strictly proper candidate, p_λ(z)=z^n−σ−λd(z) is monic. Bounding the product of its n roots at μ and L by ρ^n and using Lp_μ(0)−μp_L(0)=−σ(L−μ) gives ρ^n≥(L−μ)/(L+μ). The constant numerator −2σ/(L+μ) makes p_λ(z)=z^n−σ(1−2λ/(L+μ)), attaining that bound exactly at either endpoint, including the repeated zero-root case at the midpoint. The optimizer satisfies the same signed n-step recurrence as b_k. Its subtraction gives the stated linear error recurrence, so interleaved error subsequences have factor at most q=(L−μ)/(L+μ) per block, and a nonzero endpoint mode realizes it in the worst case. Line 44 incorrectly writes equality between the fixed-A spectral norm and the maximum over the whole allowable interval; only ≤ is true in general, as obtained from the maximum over spec(A). That local correction immediately proves the same bound and does not change the theorem. The argument is exact for either sign and does not require n≥4.",
+      "residual_risks": [
+        "The rate is worst-case over the full curvature interval and does not assert equality for every fixed Hessian or every initialization. No rate claim for more general controllers or forcing is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Scoy and Bianchin minimize the worst-case root radius of m−λd over the same minimal-order class. With model poles on the unit circle, their lower bound applies to both z^n−1 and z^n+1.",
+          "Wu–Petersen–Shames use a repeated unit pole and a larger algorithm class; Bianchin–Van Scoy characterize asymptotic tracking. The inspected Blondel et al. theorem constrains one polynomial rather than a real interval family."
+        ],
+        "reasoning": "The general lower bound applies without modifying model assumptions and is enough when joined with the exact first-order filter lift. Neither polynomial tracking with repeated poles nor single-polynomial optimization is being mistaken for this equivalence.",
+        "searches": [
+          "arXiv:2510.12512v1, Lemma 2, Section IV Theorem 1 and equation (11)",
+          "arXiv:2508.21335, Theorems 1–2",
+          "arXiv:2407.08037, Theorem 1",
+          "Blondel et al., Theorems 1 and 6, https://optimization-online.org/wp-content/uploads/2011/04/3007.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 49–92",
+        "arXiv:2510.12512v1, Lemma 2, Theorem 1 and Section V-A",
+        "Primary passages from arXiv:2508.21335, arXiv:2407.08037 and Blondel et al.",
+        "Resultary record 35cbb349a324"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 bounds the degree-n rate by q^(1/n) from below. The same paper's ±1 controllers attain q for degree one, with the exact numerator −σα.",
+          "Their Section V announces explicit design cases n=1,2,3; an explicit larger regular-polygon formula is not claimed for the source."
+        ],
+        "reasoning": "The n-order lower theorem applies to every competing numerator, not only the lifted ones. Lifting the stated signed first-order filters attains it simultaneously for all λ. The lift uses no added theorem or special-curvature check: taking nth roots of the prior single-step pole proves the bound and endpoint equality. It follows that both the optimum number and the proposed optimizing controller are mechanically implied, despite not being printed for n≥4.",
+        "searches": [
+          "arXiv:2510.12512v1, primary PDF Section IV offsets 26683–30132 and 31134–33803; Section V-A offsets 34100–35499 and 35180–37770"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section V-A gives the real filters −α/(w−1) and +α/(w+1), with α=2/(L+μ), each attaining q=(L−μ)/(L+μ)."
+        ],
+        "reasoning": "Replace w by z^n in either filter. Its closed-loop polynomial is the linear polynomial w−σ(1−αλ) evaluated at z^n. Every root w produces nth roots z of modulus |w|^(1/n), with the zero case also immediate. The filter remains real and strictly proper and has no canceled model poles. This gives the same constant numerator and same worst-case factor for each sign, including even n. The alternative z→−z equivalence only applies to odd n and is not needed.",
+        "searches": [
+          "Van Scoy–Bianchin arXiv:2510.12512v1, Section V-A 'Case: n = 1', OA offsets 34100 and 35180; Fig. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Lookahead factor in record 35cbb349a324 is q^k for a different cycle multiplier in unforced quadratic optimization. No exact repository match appeared in the bounded lookup."
+        ],
+        "reasoning": "That factor is not a tabulation of a forcing-model root minimax and is not used as evidence of exact coverage. The actual exact implication is from the inspected primary-source statements.",
+        "searches": [
+          "Resultary minimal-order signed periodic quadratic tracking minimax lookup; matching-scope comparison with 35cbb349a324"
+        ]
+      },
+      "rationale": "The prior source explicitly proves the n-order lower bound in the same class and states the attaining first-order filter for each sign. Its first-order filters composed with w=z^n have precisely the required denominator and bounds and are exactly the claimed filters. This makes the full equality a direct consequence of inspected prior results, even though the paper does not print these high-order special cases. The two real compositions work separately for every n, including even antiperiodic n, so no unsupported real rotation is needed.",
+      "residual_risks": [
+        "The precise scope of the cited CDC paper was not established, and additional exact statements could exist. The rejection is based on a demonstrated implication from the inspected source, not on citation access or claiming any absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS by direct implication",
+          "evidence": [
+            "The rate is the worst-case max pole modulus for m−λd; the degree-n lower bound is q^(1/n). At m(w)=w−1 the filter is −α/(w−1), and at m(w)=w+1 it is +α/(w+1). Both give rate q. The composition w=z^n preserves the allowed controller form and gives rate q^(1/n) for each sign."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.12512v1",
+          "material_read": "Primary PDF pp. 4–5, Lemma 2, Section IV Theorem 1 and equation (11), Section V-A and Fig. 2; OA offsets 26683–30132, 31134–33803, 34100–35499, 35180–37770",
+          "method": "Bounded primary OA PDF passages and polynomial composition check",
+          "title": "Temporal Variabilities Limit Convergence Rates in Gradient-Based Online Optimization",
+          "trigger": "Same root minimax objective, lower bound, and first-order signed optimizers"
+        },
+        {
+          "assessment": "Different optimization hypotheses",
+          "evidence": [
+            "Optimizes one polynomial subject to one affine coefficient constraint, not a shared numerator in a family indexed by the full curvature interval."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2011/04/3007.pdf",
+          "material_read": "Primary PDF Theorem 1 p. 4 and Theorem 6 p. 8, OA offsets 8338 and 19630",
+          "method": "Bounded primary OA passages",
+          "title": "Explicit Solutions for Root Optimization of a Polynomial Family With One Affine Constraint",
+          "trigger": "Potential broader root-radius optimization theorem"
+        },
+        {
+          "assessment": "Different model and class",
+          "evidence": [
+            "Uses polynomially varying optima and a repeated pole of (z−1)^n, not the regular-polygon pole model in the same-order filter class."
+          ],
+          "identifier_or_url": "arXiv:2508.21335",
+          "material_read": "Primary PDF Theorems 1–2, OA offsets 35554–43054",
+          "method": "Bounded primary OA PDF comparison",
+          "title": "A Fundamental Convergence Rate Bound for Gradient Based Online Optimization Algorithms with Exact Tracking",
+          "trigger": "Similar exact tracking and rate bounds"
+        },
+        {
+          "assessment": "Tracking conditions, not used as rate coverage",
+          "evidence": [
+            "Inspected theorem characterizes asymptotic tracking rather than solving the interval minimax."
+          ],
+          "identifier_or_url": "arXiv:2407.08037",
+          "material_read": "Primary PDF Theorem 1 p. 6, OA offset 42946",
+          "method": "Bounded primary OA PDF comparison",
+          "title": "The Internal Model Principle of Time-Varying Optimization",
+          "trigger": "Earlier exact tracking with internal models"
+        },
+        {
+          "assessment": "Different recurrence and objective",
+          "evidence": [
+            "It minimizes an unforced Lookahead cycle multiplier 1−α+α(1−ηλ)^k, not the root radius of m−λd."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-parity-stability-without-minimax-acceleration-in-lookahead-sgd-q--35cbb349a324",
+          "material_read": "Mirrored RESULT.md multiplier, hypotheses and optimum; commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Parity stability without minimax acceleration in Lookahead SGD",
+          "trigger": "Repository near hit on a quadratic minimax factor"
+        },
+        {
+          "assessment": "Not determined; not used for the verdict",
+          "evidence": [
+            "No decisive passage available from the cited conference paper. The inspected arXiv paper independently suffices for the implication."
+          ],
+          "identifier_or_url": "2025 CDC, cited author PDF name GB-BVS-25-cdc.pdf",
+          "material_read": "Citation but no primary paper retrieved through title and exact filename lookup",
+          "method": "Bounded lawful lookup, latest query ‘\"GB-BVS-25-cdc.pdf\" Bianchin Van Scoy author version’ returned no results",
+          "title": "The Discrete-time Internal Model Principle of Time-varying Optimization: Limitations and Algorithm Design",
+          "trigger": "Possible additional exact controller theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, claimed new content at lines 79–81",
+        "arXiv:2510.12512v1, general lower bound and both signed first-order optimal controllers"
+      ],
+      "rationale": "Exact attainment is worthwhile for genuinely unresolved pole geometries. In these two families the stated construction is just the prior signed one-pole optimum run on each residue class; polynomial substitution gives the per-step rate, and the matching lower theorem already applies. There is no nonmechanical remainder such as a wider pole geometry, a classification of optimal numerators, or a new boundary for attainability.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

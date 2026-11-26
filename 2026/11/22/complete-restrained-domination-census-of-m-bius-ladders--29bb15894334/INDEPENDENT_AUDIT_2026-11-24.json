@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:13:36.207613Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–3",
+        "Frozen VERIFICATION.md, verify_direct.py, verify_transfer.py and recorded output (inspected, scripts not executed)",
+        "Independent exact determinant and leading-series replays"
+      ],
+      "rationale": "Label columns j by the pair (j,j+n); only the boundary exchanges the two rows. For a zero bit in a middle column b, the three distinct neighbours give the exact test 1≤a_r+b_(1−r)+c_r≤2. Starting at (τ(c_(n−1)),c_0), the n transitions end at its row-swapped state and charge every middle-column weight once; the fixed index zero makes this a bijection with labelled subsets, not a count modulo rotation. The row swap J fixes four of the sixteen pair states and has six two-orbits, giving dimensions 10 and 6, and commutes with T. Independent exact subset-DP determinants reproduce both sector polynomials over Z[y,z]; twisted trace and the determinant logarithmic derivative agree in the bounded replay. The formal identity over Q[z] then proves the enumerator for all n≥3. Under z=t², y=w/t the exponent is 2|S|−n and all powers of t are nonnegative. For L=log(D₋/D₊), w∂_w L₀=4w²/(1−w⁴), L₁=w³(3−w²)/(1−w²), and the degree-0-mod-4 part of L₂ is 4w⁴/(1−w⁴)²; these identities were checked exactly. At 4|n the last expression contributes n at w^n before taking the Euler derivative, giving n² at order t². At odd n order t has coefficient 9 at n=3 or 2n for n≥5, and at n≡2 mod 4 order zero has coefficient 4. These are precisely the first nonzero orders and give the stated minima and multiplicities.",
+      "replay_paths": [
+        "/workspace/reviews/evidence/4/verify_restrained_mobius_det.py",
+        "/workspace/reviews/evidence/4/verify_restrained_mobius_det.output.txt",
+        "/workspace/reviews/evidence/4/verify_leading_series.py",
+        "/workspace/reviews/evidence/4/verify_leading_series.output.txt"
+      ],
+      "residual_risks": [
+        "The bounded trace comparisons are corroborations, not the all-length proof; the exact finite determinants, twisted walk identity and formal series are the proof. The graph interpretation excludes n=1,2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 addresses numerical domination and restrained domination for the same graph family and uses constructions, not a cardinality enumerator or optimal-set count. Its printed/extracted case distinction was not relied on. The efficient-set existence criterion cited in the frozen record gives attainment at n≡2 mod 4, with the same condition as for an ordinary dominating set meeting the cubic lower bound."
+        ],
+        "reasoning": "The scalar minimum or existence of equality does not determine the polynomial or the multiplicity of its lowest coefficient in the other residue classes.",
+        "searches": [
+          "Hemalatha et al. Restrained and Total Restrained Domination of Ladder Graphs, Theorem 5.3",
+          "\"Efficient domination in cubic vertex-transitive graphs\" \"Lemma 2.2\" Knor Potočnik preprint Möbius ladder pdf"
+        ]
+      },
+      "checked_sources": [
+        "Resultary circular-ladder and 1-limited Möbius-ladder Findings",
+        "Hemalatha et al. Theorem 5.3",
+        "Knor–Potočnik DOI abstract and frozen attribution of Lemma 2.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The untwisted source gives tr(T^n) and det(I−yT)=D₊D₋ without assigning factors to swap parity. The sum of sector traces does not provide their difference; the twist and parity-resolved computation give the ratio. For efficient sets, summing the perfect-neighbourhood condition over two rows yields s_(j−1)+2s_j+s_(j+1)=2 for column loads. This forces alternating occupied/empty columns, with the occupied rows switching across each empty column. The twist requires an odd number n/2 of occupied columns, and two phases and two first rows give four. That part alone is a short consequence of efficiency and is not the basis of the originality pass."
+        ],
+        "reasoning": "Neither known minimum formulas nor the untwisted polynomial is a parameter substitution yielding the complete twist-resolved result. One needs both the twist correspondence and information about the action of the exchange on the transfer sectors.",
+        "searches": [
+          "Resultary circular-ladder record, Proof §§2–3 and Verification",
+          "Hemalatha et al. Theorem 5.3",
+          "Knor–Potočnik Lemma 2.2 as cited in frozen RESULT.md §Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The chord-and-cycle problem is equivalently a two-bit local-rule walk with a row swap at closure. The circular ladder has the same interior local rule but uses unpermuted closure. Equality in 2n≤4|S| is equivalent to an efficient dominating set on this cubic graph."
+        ],
+        "reasoning": "The efficient-set criterion addresses attainment of one bound, not the census. The local predicate is shared but changing the closure changes the counted objects and the operator in the trace.",
+        "searches": [
+          "Knor–Potočnik Efficient domination in cubic vertex-transitive graphs Lemma 2.2, DOI 10.1016/j.ejc.2012.04.007",
+          "Resultary 2026/11/22/SCOPE-restrained-domination-of-circular-ladders-complete-polynomial-an--b16007ea6b3d, Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The circular-ladder Finding gives the exact same two polynomials as factors of the untwisted determinant. Its leading terms differ, e.g. four minima when 4|n versus n² here. The October 18 and November 2 1-limited records do use the same graph but impose an upper bound on outside neighbours of selected vertices, not a restraint on the outside vertices themselves."
+        ],
+        "reasoning": "The circular-ladder table is the strongest related exact result but counts another boundary condition. The 1-limited counts concern a different predicate and do not represent a disguised restrained census.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-restrained-domination-of-circular-ladders-complete-polynomial-an--b16007ea6b3d",
+          "Resultary 2026/10/18/SCOPE-the-1-limited-domination-polynomial-and-exact-minima-of-m-bius-l--502418830498",
+          "Resultary 2026/11/2/SCOPE-exact-minimum-1-limited-domination-and-rigidity-of-m-bius-ladder--c41d45b62a38"
+        ]
+      },
+      "rationale": "Credit is for the full restrained enumerator with Möbius closure, and its optimal-set counts not already explained by the efficient case. There is substantial shared machinery and even identical determinant factors with the indexed untwisted result. Its inspected statement uses only the ordinary trace and product and does not identify the determinants of the row-swap eigenspaces. The Möbius proof needs that identification and a twisted walk correspondence; no priority is inferred from same-day dates. The scalar domination minimum and efficient criterion are not treated as new.",
+      "residual_risks": [
+        "The Knor–Potočnik full passage was unavailable; it may contain more efficient-set structure than the cited existence statement. The same-day circular record shares the two determinant factors and interior model; its date alone establishes no derivation order. An unlocated twist-resolved result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material method and determinant overlap; does not state a sector-resolved or Möbius count in those passages",
+          "evidence": "Proof §2 identifies tr(T^n) with cyclic selection words and det(I−yT) with the product of the two factors; §3 expands the product for its own minima.",
+          "identifier_or_url": "2026/11/22/SCOPE-restrained-domination-of-circular-ladders-complete-polynomial-an--b16007ea6b3d",
+          "material_read": "Finding, proof §§1–3, and relevant Verification; OA offsets 0, 2500–6719 and 6870–8370",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Restrained domination of circular ladders: complete polynomial and exact minima",
+          "trigger": "Exact same factors and transfer with untwisted closure"
+        },
+        {
+          "assessment": "Scalar overlap but no census in the relevant theorem; duplicated-looking residue cases not used as numerical evidence",
+          "evidence": "The theorem states a piecewise gamma=gamma_r formula for the Möbius ladder followed by a construction, rather than enumerating all sets or even all optima.",
+          "identifier_or_url": "https://www.rgnpublications.com/journals/index.php/cma/article/download/2569/1604/9079",
+          "material_read": "Theorem 5.3 and accompanying construction, p. 1322, OA offset 33856",
+          "method": "Bounded OA publisher PDF inspection",
+          "title": "Restrained and Total Restrained Domination of Ladder Graphs",
+          "trigger": "Same graph and numerical restrained domination"
+        },
+        {
+          "assessment": "Existence credited as prior according to the attribution, with exact wording and possible classification unresolved",
+          "evidence": "The frozen record attributes to Lemma 2.2 efficient domination iff n≡2 mod 4. The efficient-set implication for restrained domination was independently checked; no originality is assigned to this criterion.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2012.04.007",
+          "material_read": "DOI landing/abstract and frozen attribution to Lemma 2.2; original lemma not directly read",
+          "method": "OA attempts on author preprint https://www.math.sk/knor/PREP/p076.pdf and publisher landing page; targeted alternate-copy search returned the same copies",
+          "title": "Efficient domination in cubic vertex-transitive graphs",
+          "trigger": "Attainment of the lower bound and potential efficient-set classification"
+        },
+        {
+          "assessment": "Different eligible subsets",
+          "evidence": "Its bound is on outside neighbours of each member of the dominating set, rather than requiring a selected and an outside neighbour for each nonmember.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-1-limited-domination-polynomial-and-exact-minima-of-m-bius-l--502418830498",
+          "material_read": "Finding and definition of the 1-limited condition",
+          "method": "Resultary lookup and local-mirror statement inspection",
+          "title": "The 1-limited domination polynomial and exact minima of Möbius ladders",
+          "trigger": "Same graph family and full polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–3",
+        "Resultary circular-ladder Finding and proof §3",
+        "Independent exact determinant and leading-series replays"
+      ],
+      "rationale": "Restrained domination is an established predicate on this natural cubic family. The twist changes which small sets close up and, in particular, replaces four optimum sets in one even congruence class of the circular ladder by a quadratic count there for the Möbius ladder. The full signed-sector enumerator quantifies this boundary effect at every cardinality and gives explicit comparable data beyond the scalar minimum. The utility lies in the spectrum and parity effects, not just another proof of efficient-set existence.",
+      "residual_risks": [
+        "No classification up to automorphism or formula for other domination conditions or graph families follows from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

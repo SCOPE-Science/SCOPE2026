@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:00:24.916461Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–65",
+        "VERIFICATION.md:19–25; verify_bricks.py and verify_independent.cpp, inspected not executed",
+        "Independent replay: python3 /workspace/branches/2c42a999-8f82-4b6e-8479-874cd5e82d2c/gcd_reduced_census.py; captured output gcd_reduced_census.txt in that directory"
+      ],
+      "rationale": "A separate gcd-reduced integer-square census exhausts all 4,881,250 leg pairs and all unordered triples found via common neighbors. It reproduces 3125 vertices, 14856 edges, and exact set equality of the 288 triangles with the two 144-member scaling families. Gcd reduction preserves the square test because a rational square root of an integer is integral. The seeds have gcd one and per-prime maximum valuations (4,2,2,1,1), so the stated scale range is exact. The coordinate 2-adic valuations are (4,2,0) for both seeds and every scale is odd, ruling out overlaps between different coordinate positions. The two cross-family ratios 21/5 and 275/63 give respectively 48 double overlaps and 9 single overlaps by exponent-range intersection. Their endpoint ranges are disjoint within both families; each ratio by itself gives a matching. Thus the conflict graph is 174 isolated vertices and 57 edges, also verified by checking all unordered triangle pairs. One triangle per component packs 231 disjoint triangles; one vertex in each singleton or common to each pair is a transversal of size 231. The packing is also a lower bound for any transversal.",
+      "residual_risks": [
+        "The finite classification applies only to the fifth box and places no constraint on the hypotenuse beyond integrality. It does not compute the independence number."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiao bounds the independence function asymptotically. The same-day Resultary finding determines independence through N=4 and gives one fifth-box triangle to witness failure of bipartiteness."
+        ],
+        "reasoning": "Independence results and one triangle witness neither enumerate the fifth-box triangles nor determine which share vertices.",
+        "searches": [
+          "Resultary prime-power box independence and triangle census, 546034d2307d",
+          "Xiao arXiv:2610.11965v2"
+        ]
+      },
+      "checked_sources": [
+        "Xiao v2",
+        "Knill v1",
+        "Resultary 546034d2307d",
+        "Grothmann indexed description",
+        "OEIS A239618 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources establish the two seed examples and hence validate the proposed families as examples by scaling, but there is no prior exhaustion over the full relevant exponent domain in the inspected sources."
+        ],
+        "reasoning": "The missing exhaustion is needed for the exact triangle count and for global conclusions about the intersection graph and both packing and transversal numbers.",
+        "searches": [
+          "Same-day Resultary 546034d2307d, Finding and fifth-box witness",
+          "Knill pp. 1, 17",
+          "Grothmann side cutoff description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knill identifies the full positive-integer graph triangles with Euler bricks and lists both primitive seeds. Xiao defines the exact exponent-box graph via two Pythagorean legs, irrespective of hypotenuse location."
+        ],
+        "reasoning": "Translate into all primitive Euler bricks whose three coordinates are 11-smooth with exponents at most four, together with their allowed scales. Examples of such bricks do not imply completeness of this restricted set.",
+        "searches": [
+          "Xiao arXiv:2610.11965v2 §1.2",
+          "Knill arXiv:2205.13285v1 §1.1 and p. 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Knill's finite lists include the two seeds. Grothmann's indexed description advertises a brute-force list up to largest side 10^7; the README/code were not accessible for inspection. The frozen record identifies OEIS A239618 as a side-cutoff count, but the entry was not independently retrieved."
+        ],
+        "reasoning": "Even granting completeness at 10^7, the exponent box permits sides as large as 2310^4. Taking a primitive representative alone cannot prove that its maximum side lies below the table cutoff. The bounded tables do not certify absence above that cutoff.",
+        "searches": [
+          "Grothmann, list-of-euler-bricks, largest side at most ten million",
+          "OEIS A239618, primitive Euler brick count",
+          "Knill arXiv:2205.13285v1 finite lists, p. 17"
+        ]
+      },
+      "rationale": "Both primitive bricks and the unrestricted triangle/Euler-brick correspondence are known. The distinct supported claim is completeness in the fifth prime-power box and the exact intersection structure, packing and transversal, not discovery of the seeds. The same-day independence record is material but does not establish these claims.",
+      "residual_risks": [
+        "The full Grothmann and OEIS materials were not verified; a different unindexed exponent-restricted census may exist. No priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph, different theorem",
+          "evidence": "Defines Φ_N and the two-leg independence function, allowing outside hypotenuses; gives an asymptotic independence bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11965v2",
+          "material_read": "§1.2, p. 3, text offset 11582 and the extremal scope",
+          "method": "Original OA PDF",
+          "title": "Pythagorean pairs in boxes of prime powers",
+          "trigger": "Introduces the identical Pythagorean box graph"
+        },
+        {
+          "assessment": "Both seeds known; no inspected exact box classification",
+          "evidence": "Graph triangles correspond to Euler bricks; lists (240,252,275) and (1008,1100,1155).",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.13285v1",
+          "material_read": "Abstract and §1.1, p. 1; finite lists, p. 17 (text offset near 49000)",
+          "method": "Original OA PDF",
+          "title": "The Babylonian Graph",
+          "trigger": "Equivalent Euler-brick formulation and possible exact table"
+        },
+        {
+          "assessment": "Same-day partial overlap; no date-based priority inference",
+          "evidence": "Exact independence through N=4, bipartiteness threshold, and witness (240,252,275) at N=5.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-pythagorean-independence-in-the-first-prime-power-boxes--546034d2307d",
+          "material_read": "Finding and fifth-box triangle witness",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Pythagorean independence in the first prime-power boxes",
+          "trigger": "Same-day exact small-box result"
+        },
+        {
+          "assessment": "The stated cutoff does not dominate the box; database implementation not audited",
+          "evidence": "Description specifies all bricks with 1≤a<b<c≤10^7, rather than the exponent restriction.",
+          "identifier_or_url": "https://github.com/TobiasGrothmann/list-of-euler-bricks",
+          "material_read": "Indexed description only, including stated 10^7 cutoff; README and code not obtained",
+          "method": "Primary literature/web lookup and lawful access attempt",
+          "title": "List of Euler-Bricks",
+          "trigger": "Advertised exhaustive exact brick database"
+        },
+        {
+          "assessment": "Unverified catalog overlap; no inference of absence",
+          "evidence": "Frozen source describes a primitive-brick count by largest-side cutoff.",
+          "identifier_or_url": "https://oeis.org/A239618",
+          "material_read": "Frozen citation only; entry not retrieved independently",
+          "method": "Lawful retrieval attempt",
+          "title": "OEIS A239618",
+          "trigger": "Cited brick census by size cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:18–24,49–65",
+        "Resultary 546034d2307d, bipartiteness threshold and witness"
+      ],
+      "rationale": "The fifth box is the first nonbipartite box in the related extremal problem, not a convenient arbitrary cutoff. The explicit overlap decomposition and the exact packing and transversal numbers supply reusable structural information about the triangle obstruction at that threshold. These invariants go beyond a re-listing of known bricks and are not asserted to improve independence bounds.",
+      "residual_risks": [
+        "No claim of a general triangle classification for larger boxes or a new bound on the independence number."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

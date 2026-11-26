@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:37:48.485340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Algorithm 2 of arXiv:2105.10190v1 supplies the quoted scalar angle and adjacent minimum. Sign alternation makes the numerator magnitude 2G and the denominator 1-G^2 at every transition from t=2, so the minimum agrees with the single-transition angle from t=3 regardless of startup. The cosine and tangent transform inputs are respectively |1-G^2|/(1+G^2) and 2G/|1-G^2|. These are invariant under G->1/G, and on 0<G<1 the first is strictly decreasing and the second strictly increasing; reciprocity gives the other half. G=1 is a continuous extension, not a defined evalution of the printed quotient: the extended coefficients are 1/2 and 1. Equating the inputs and dividing by G^2 gives z^2-2z-4=0 for z=G+1/G>=2. The two positive reciprocal roots and their quoted decimals check; the strict tangent advantage is between the roots, the strict cosine advantage is below the lower or above the upper root, and there is equality at the two roots. The exact direction flip is the same (angle pi) for every amplitude; the paper statistic instead measures an acute angle of slopes. The claim isolates the paper coefficient and does not assert the same output for the public implementation or any full objective trajectory. Frozen verification code was inspected, not executed; an independent root evaluation corroborated the algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Torque-Aware Momentum uses m_(t-1) dot g_t divided by the product of the two norms, a different normalized statistic.",
+          "arXiv:2408.11839 reproduces the AngularGrad formula in its background and then analyzes sign-based adaptive friction variants, not a general response result covering this scalar coefficient. Resultary 39646841fce0 treats A2Grad step scaling, not these transforms."
+        ],
+        "reasoning": "A normalized cosine is invariant under positive vector rescalings and does not imply the behavior of the unnormalized slope statistic. Analysis of other alternating laws likewise does not cover the two AngularGrad transform inputs.",
+        "searches": [
+          "Literature: AngularGrad scale invariance gradient rescaling alternating gradient cosine tangent angle optimizer amplitude analysis Roy",
+          "arXiv:2412.18790v1 Eq. (2)",
+          "arXiv:2408.11839 Sections II.D and III",
+          "Resultary 604561322840 and 39646841fce0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.10190v1 Algorithm 2",
+        "mhaut/AngularGrad main optimizer source files",
+        "arXiv:2408.11839 Section II.D",
+        "arXiv:2412.18790v1 Eq. (2)",
+        "Resultary 604561322840 and 39646841fce0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 supplies both transforms and the general recurrence. Its formula makes the scale issue analyzable, but the cited discussion of small and right angles is not a result about amplitudes that realize those regimes with unchanged directions.",
+          "The two-root ordering requires analyzing the equal-input equation and its sign rather than just identifying monotonicity of tanh or the ranges of the two coefficients."
+        ],
+        "reasoning": "There is no novelty in the update rule or angle identities themselves. The distinct mathematical statement is the exact response to a motivated fixed-direction, variable-amplitude test, prescribing when the two published choices reverse order. No stronger checked result supplies that response.",
+        "searches": [
+          "arXiv:2105.10190v1 Algorithm 2 and geometric discussion",
+          "arXiv:2408.11839 Section II.D",
+          "arXiv:2412.18790v1 Eq. (2)",
+          "Resultary 604561322840, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper and Section II.D of arXiv:2408.11839 use the tangent-difference angle and adjacent-angle minimum. The repository uses the same elementwise tangent-difference quantity but a stored angle-selection rule.",
+          "The closest Resultary alternation match, 604561322840, concerns the ratio A/B for an EMA sign test, not absolute common amplitude G for two angular transforms."
+        ],
+        "reasoning": "The paper recurrence is the same underlying object but not the solved response. The repository's different state rule is not mathematically equivalent to the adjacent minimum, and the EMA ratio window for other optimizers is not the reciprocal-G phase diagram.",
+        "searches": [
+          "Resultary: AngularGrad equal-amplitude sign alternation, scalar angle, reciprocal amplitude, extrema and two crossovers",
+          "arXiv:2105.10190v1 Algorithm 2",
+          "arXiv:2408.11839 Section II.D",
+          "mhaut/AngularGrad myoptims/cosangulargrad.py and tanangulargrad.py"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two catalogue matches concern other optimizers and contain no values for the AngularGrad crossover roots. Algorithm 2 gives the update, not a response table or curve for fixed alternating amplitudes."
+        ],
+        "reasoning": "The target is a proved continuous-parameter phase diagram, not a finite benchmark entry; the exact check instead tested for an existing symbolic response or thresholds.",
+        "searches": [
+          "Resultary: exact AngularGrad reciprocal-amplitude curve and cosine/tangent crossover comparison",
+          "Resultary 604561322840 and 39646841fce0",
+          "arXiv:2105.10190v1 Algorithm 2"
+        ]
+      },
+      "rationale": "The checked paper and a subsequent AngularGrad summary provide the recurrence, not the quantitative equal-amplitude two-variant phase diagram. The closest comparators give other angular statistics or different alternating-gradient transfer laws. The bounded searches do not establish first priority. The supported distinction is the exact reciprocal symmetry, reversal in variant ordering, and opposite extremal response at fixed alternating directions for the paper recurrence.",
+      "residual_risks": [
+        "A closer analysis under slope-angle, rescaling, or optimizer diagnostics terminology may be unindexed; bounded searches are not a priority claim.",
+        "No repository release behavior or training performance was inferred from the paper response."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms paper formula, not the stated phase diagram",
+          "evidence": [
+            "Uses the absolute tangent-difference angle, adjacent minimum, two transforms, and lambda_1=lambda_2=1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.10190v1",
+          "material_read": "Algorithm 2, p. 3, OA offset about 15682; code reference p. 1",
+          "method": "Read bounded OA PDF passage and compare scalar specialization",
+          "title": "AngularGrad: A New Optimization Technique for Angular Convergence of Convolutional Neural Networks",
+          "trigger": "Primary algorithm and intended scope"
+        },
+        {
+          "assessment": "Same elementwise transform but different selection rule, so the paper result must not be assigned to the implementation",
+          "evidence": [
+            "Cosine uses (1+tan^2 A)^(-1/2); the stored value is selected through an elementwise comparison and branching, not the paper's adjacent minimum."
+          ],
+          "identifier_or_url": "https://github.com/mhaut/AngularGrad/blob/main/myoptims/cosangulargrad.py ; https://github.com/mhaut/AngularGrad/blob/main/myoptims/tanangulargrad.py",
+          "material_read": "Public source display of angular statistic and state-selection blocks, OA offset about 2400 in each file",
+          "method": "Static inspection only; no repository code executed",
+          "title": "Official AngularGrad cosine and tangent optimizer source",
+          "trigger": "Possible equivalent implementation and singular-point behavior"
+        },
+        {
+          "assessment": "Restates AngularGrad; the subsequent sign-based friction formulas concern new methods, not the frozen phase diagram",
+          "evidence": [
+            "Lists A_t, min(A_(t-1),A_t), tanh coefficient and parameter update, then introduces sigmoid friction based on the gradient product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.11839",
+          "material_read": "Section II.D and beginning of III, PDF p. 2, OA offsets 10330–13907",
+          "method": "Bounded OA PDF reading and equation comparison",
+          "title": "Sign-based adaptive friction optimizers paper (sigSignGrad and tanhSignGrad)",
+          "trigger": "Literature hit explicitly discusses AngularGrad and short-term gradient oscillations"
+        },
+        {
+          "assessment": "Different normalization and inputs; no implication for the AngularGrad scalar statistic",
+          "evidence": [
+            "Correlation is normalized cosine similarity of previous momentum and the current gradient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.18790v1",
+          "material_read": "Eq. (2) and surrounding text, p. 3, OA offsets 10675–12574",
+          "method": "Bounded OA PDF reading and statistic comparison",
+          "title": "Torque-Aware Momentum",
+          "trigger": "Later angle-aware normalized comparison"
+        },
+        {
+          "assessment": "Thematically related, mathematically different rules and invariants",
+          "evidence": [
+            "PowerSign/AddSign use the sign-agreement window beta<=A/B<1/beta; A2Grad compares asymptotic step scaling."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 604561322840; 2026/10/04 39646841fce0",
+          "material_read": "Catalogue findings on the EMA agreement window and A2Grad scaling",
+          "method": "Bounded local-mirror statement comparison",
+          "title": "PowerSign and AddSign alternating-amplitude agreement; A2Grad-inc alternating-gradient scaling",
+          "trigger": "Closest catalogue candidates for alternating-amplitude optimizer comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal-magnitude sign alternation is a controlled test of a mechanism described as responding to directions: all consecutive gradients are antiparallel, so amplitude is the only changing input across tests. The exact crossover and extremum analysis shows which of the two published variants damps or amplifies the relative step more, and how the ordering reverses under rescaling. That is useful for interpreting or reproducing the paper rule, beyond one numerical counterexample; it makes no claim of better training or of a defect in an implementation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

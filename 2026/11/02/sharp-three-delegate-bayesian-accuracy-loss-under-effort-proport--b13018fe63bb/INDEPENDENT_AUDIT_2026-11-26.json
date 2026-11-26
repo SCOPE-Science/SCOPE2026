@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:24:45.211194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Limitations",
+        "Frozen VERIFICATION.md and verify.py (source inspected, not executed)"
+      ],
+      "rationale": "Independent likelihood calculation: among the eight ordered sign vectors only (+,-,-) and its reverse can affect the loss, since a coalition containing the largest weight and any other weight strictly wins under both weightings. Under the positive state the difference of the two exceptional likelihoods is ((1+4yz)x-y-z)/2, and under the negative state the two likelihoods exchange roles. Thus Bayes follows the largest signal iff x>(y+z)/(1+4yz), whereas effort weights do so iff x>y+z (with the specified fair tie at equality). The effort tie loses half the likelihood difference, xyz; a Bayesian tie has zero loss independent of the action chosen. For s=y+z<=1/2 the open gap is less than 2syz<=s^3/2; for s>=1/2 it is less than (1/2-y)(1/2-z)<=(1-s)^2/4. The tie case is below 1/32. At (1/2-1/N,1/4,1/4), N>10, the gap is 1/16-5/(8N). For <=2 signals both weights are strictly increasing in effort and the effort ranking suffices. The proof, not the finite grid, covers all permitted real efforts.",
+      "residual_risks": [
+        "The theorem fixes fair tie-breaking and symmetric priors. The wording about disagreement at a Bayes tie concerns accuracy, not necessarily actions. Some deterministic weighted-tie conventions (e.g. always choose +) give the same unconditional tie loss by symmetry; other conventions change it. This does not change the specified theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The governance papers address incentivized information acquisition/effort allocation and weighted-rule accuracy, allowing general committees; Berend–Kontorovich characterize the Bayes comparator for arbitrary finite committees."
+        ],
+        "reasoning": "A broader model, separate accuracy objective, or Bayes optimality theorem does not itself supply the exact regret frontier for effort weights.",
+        "searches": [
+          "arXiv:2610.07959v1 model and equilibrium analysis",
+          "arXiv:2406.10525 §2, pp. 4–5",
+          "Berend–Kontorovich, introduction and §2",
+          "JSTOR:2526397"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic index and mirror record 34c35662b2a7",
+        "arXiv:2610.07959v1",
+        "arXiv:2406.10525",
+        "JMLR 16 (2015) berend15a",
+        "JSTOR:2526397 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalized x-rule and Bayes rule specify the benchmark. The payout criterion is conditional on the sharing rule, while the regret is a state-mixture likelihood difference."
+        ],
+        "reasoning": "The known rules are premises for the comparison, but their stated properties leave the opposition chamber, the tie loss, and the global continuous-effort optimization to be proved.",
+        "searches": [
+          "arXiv:2406.10525 pp. 4–5",
+          "JMLR 16 (2015), p. 1520, Eqs. (2)–(3)",
+          "Resultary record 34c35662b2a7, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Competence p=1/2+x; normalized x-weights give the same decisions as unnormalized x. Bayes weights are log(p/(1-p)) in the classical symmetric model."
+        ],
+        "reasoning": "These are the same two rules after reparametrization, but the inspected statements do not compare their all-profile three-signal regret.",
+        "searches": [
+          "arXiv:2610.07959v1 §2–2.1",
+          "arXiv:2406.10525 §2, Eq. (1)",
+          "JMLR 16 (2015) 1519–1545, Eqs. (2)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected indexed finding uses the same three-delegate effort and signal model but determines the payment advantage of sincere voting under conditional proportional sharing."
+        ],
+        "reasoning": "The indexed quantities are incentive differences, not differences in probability of a correct outcome. No exact match surfaced in the bounded searches; there is no canonical finite lookup table for the continuum regret problem.",
+        "searches": [
+          "Resultary top 50 and top 100 semantic searches for three-delegate Bayesian accuracy loss and effort-proportional weighting",
+          "Resultary 2026/11/2/SCOPE-heterogeneous-three-representative-sincerity-under-conditional-w--34c35662b2a7"
+        ]
+      },
+      "rationale": "The effort model and log-odds comparator are known. The distinct supported claim is the exact fixed-effort regret, including its linear-weight tie surface, and the sharp nonattained 1/16 frontier for the first loss-producing committee size. No equivalent or dominating statement was established by the inspected evidence.",
+      "residual_risks": [
+        "Lawful OA did not yield Nitzan–Paroush full text. Further prior coverage in the extensive heterogeneous-competence voting literature is possible; the bounded search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent, not the inspected regret result",
+          "evidence": [
+            "p_i=1/2+x_i, independent signals, w_i=x_i/sum x_j, independent fair tie coin. A neutral prior and sincere signal-following are specializations, rather than the paper's global assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.07959v1",
+          "material_read": "§§2–2.1, model and voting rule",
+          "method": "OA HTML passage comparison",
+          "title": "Rewarding Informed Voting in PoS Governance",
+          "trigger": "Same model"
+        },
+        {
+          "assessment": "Effort-allocation antecedent",
+          "evidence": [
+            "Same p_x=1/2+x and normalized effort weights; budgets and success probability, not inspected exact regret."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.10525",
+          "material_read": "Abstract; §2, pp. 4–5, Eq. (1) and success probability benchmark",
+          "method": "OA PDF passage comparison",
+          "title": "Reward Schemes and Committee Sizes in Proof of Stake Governance",
+          "trigger": "Earlier exact effort/weight parametrization"
+        },
+        {
+          "assessment": "Classical comparator is covered",
+          "evidence": [
+            "Optimal fixed-competence log-odds weights under conditional independence and unbiased truth; attributes the rule to Nitzan and Paroush."
+          ],
+          "identifier_or_url": "https://jmlr.org/papers/volume16/berend15a/berend15a.pdf",
+          "material_read": "Introduction pp. 1519–1520, Eqs. (2)–(3); §2 p. 1521; references p. 1545",
+          "method": "OA PDF passage comparison",
+          "title": "A Finite Sample Analysis of the Naive Bayes Classifier",
+          "trigger": "Known-competence Bayes aggregation"
+        },
+        {
+          "assessment": "Comparator antecedent on secondary evidence; precise 1982 coverage not verified",
+          "evidence": [
+            "Berend–Kontorovich p. 1521 attributes the naive-Bayes weighted majority rule to this paper."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/2526397",
+          "material_read": "Landing page/abstract and Berend–Kontorovich's attribution, not primary full text",
+          "method": "Lawful OA attempts, direct and VPN; secondary cross-check",
+          "title": "Optimal Decision Rules in Uncertain Dichotomous Choice Situations",
+          "trigger": "Earliest cited log-odds antecedent"
+        },
+        {
+          "assessment": "Related, not equivalent; same-day date gives no ordering",
+          "evidence": [
+            "Exact voting-stage payment advantage Ba(2pi-1)Q and sincerity conditions, not a Bayes-accuracy regret."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-heterogeneous-three-representative-sincerity-under-conditional-w--34c35662b2a7",
+          "material_read": "RESULT.md Finding; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic search and local mirror",
+          "title": "Heterogeneous three-representative sincerity under conditional winner sharing",
+          "trigger": "Closest indexed same-model result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§3–5 of proof",
+        "arXiv:2610.07959v1",
+        "arXiv:2406.10525"
+      ],
+      "rationale": "Effort weighting is motivated by existing governance models, and two voters cannot distinguish the effort and Bayes orderings. At the first committee size where aggregation can be suboptimal, the exact regret and its 6.25-point worst-case frontier distinguish a potentially material statistical loss from strategic incentive effects. The exceptional tie surface and limiting, highly asymmetric profile matter to evaluating the rule, rather than being an arbitrary parameter slice.",
+      "residual_risks": [
+        "This is not an equilibrium inefficiency bound, a model of correlated signals, or a general-committee guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

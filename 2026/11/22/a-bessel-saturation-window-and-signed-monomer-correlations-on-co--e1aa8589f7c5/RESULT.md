@@ -17,7 +17,15 @@ Then the quantitative all-size convergence and its explicit first two factorial 
  f_2=\mathbb E[J(J-1)]=c\frac{I_{k+2}(2\sqrt c)}{I_k(2\sqrt c)}.
 \]
 
-Every pair of **distinct unmatched-vertex indicators in the same shore has strictly negative covariance**, and every pair in opposite shores has **strictly positive covariance**, for every finite \(n\ge2\), \(k\ge0\) and \(\lambda>0\), not merely in the scaling window. In the Bessel window, writing \(C_{LL}, C_{RR}, C_{LR}\) for a marked pair on the smaller shore, larger shore, or across shores respectively, one has
+The first-order error is explicit. Write \(p_n(j)=\Pr(J_n=j)\), \(p(j)=\Pr(J=j)\), \(D(j)=\binom j2\), and \(\bar D=\mathbb E D(J)=f_2/2\). Then
+\[
+ n(p_n-p)\ \longrightarrow\ \bigl(p(j)(\bar D-D(j))\bigr)_{j\ge0}\quad\text{in }\ell^1,
+ \qquad
+ n\,d_{\rm TV}(\mathcal L(J_n),\mathcal L(J))\ \longrightarrow\ \tfrac12\mathbb E|D(J)-\bar D|>0.
+\]
+Thus finite size favors deficits with \(D(j)<\bar D\) to first order, and the total-variation rate has exact order \(1/n\).
+
+The classical alternating-path sign rule gives strict negative same-shore and strict positive cross-shore monomer covariance at every finite positive activity. The graph-specific quantitative assertion is its magnitude in the Bessel window: writing \(C_{LL}, C_{RR}, C_{LR}\) for a marked pair on the smaller shore, larger shore, or across shores respectively, one has
 \[
  \lim_{n\to\infty}n^2 C_{LL}=f_2-\mu^2<0,\qquad
  \lim_{n\to\infty}n^2 C_{RR}=f_2-\mu^2-k<0,\qquad
@@ -48,7 +56,13 @@ For all integers \(j\ge0\),
 \]
 by telescoping the product \(\prod_{i=0}^{j-1}(1-i/n)\) when \(j\le n\), and trivially when \(j>n\). Rejection-coupling of the two distributions bounds total variation by \(\mathbb E(1-b_{n,J})\le\mathbb E[J(J-1)]/(2n)\). Shifting the Bessel power series yields \(\mathbb E (J)_r=c^{r/2}I_{k+r}(2\sqrt c)/I_k(2\sqrt c)\), proving the displayed bound and moments. Domination of each weighted factorial-moment series also gives convergence of all fixed moments of \(J_n\).
 
-**3. Strict finite spatial signs.** For an arbitrary \(\lambda>0\), write \(t=1/\lambda\). The normalized deficit generating polynomial is proportional to
+For the first-order profile, let \(d_n(j)=n(1-b_{n,j})\). For each fixed \(j\), expansion of the finite product gives \(d_n(j)\to D(j)\); the bound above gives \(0\le d_n(j)\le D(j)\) for every \(j\). Thus \(d_n(J)\to D(J)\) in \(L^1\). Since \(p_n(j)=p(j)b_{n,j}/\mathbb E b_{n,J}\),
+\[
+ n(p_n(j)-p(j))=p(j)\frac{\mathbb E d_n(J)-d_n(j)}{\mathbb E b_{n,J}}.
+\]
+The denominator tends to one. The numerator converges in \(L^1(p)\), proving the claimed \(\ell^1\) and total-variation limits. Positivity follows because \(J=0\) and \(J=2\) both have positive probability and different values of \(D\).
+
+**3. Finite-size sign rule (background and a Laguerre proof for this graph).** Take two independent Gibbs matchings, color their edges by sample, and consider the covariance as half the expected product of the two differences of monomer indicators at the marked vertices. If the differences are nonzero, the vertices are endpoints of alternating paths. If they lie on different paths, swapping colors along just one path preserves the weight and reverses the sign of the product. If they bound the same path, the sign is positive for odd path length and negative for even path length. On a connected bipartite graph the parity is fixed by the shores, and strictly positive edge weights ensure a marked path has positive probability. This is the alternating-path form of the matching-polynomial Christoffel–Darboux argument. The following Laguerre calculation also gives the exact covariances in this model. For an arbitrary \(\lambda>0\), write \(t=1/\lambda\). The normalized deficit generating polynomial is proportional to
 \[
  P_{n,k}(t)=\sum_{j=0}^n\frac{(n)_j}{j!(j+k)!}t^j
  =\frac{n!}{(n+k)!}L_n^{(k)}(-t).
@@ -90,7 +104,7 @@ The companion `CHECK.py` uses independent recursion over labeled matchings on sm
 
 ## Relationship to prior work
 
-Heilmann and Lieb (1970) established fundamental analytic properties of the general monomer–dimer system, not the specific near-perfect-matching Bessel deficit law here. Davies, Jenssen, Perkins, and Roberts (2015) established sharp matching occupancy-fraction extremality results using complete bipartite graphs, but their examined model-specific theorems and derivations do not state the present fixed-imbalance saturation window, two-shore signed monomer covariances, or their limiting coefficients. DeSalvo (2026) studies a general Bessel probability law and explicit approximations for conditioned differences and contingency tables, without identifying the present Gibbs matching observable or the same spatial covariance formulas. The factorial matching enumeration, the Laguerre identity, and the abstract Bessel distribution are established tools, not claimed as individually new. This finding is the combined graph-specific finite correlation law, sharp window, and explicit quantitative limit. Prior equivalence in unindexed literature remains possible.
+The finite covariance signs specialize the classical matching-polynomial Christoffel–Darboux framework of Heilmann and Lieb (1972); Step 3 gives the implication by alternating paths as well as a model-specific Laguerre calculation. The qualitative Bessel limit also follows from the classical Laguerre Mehler–Heine formula, DLMF 18.11.6 at \(z=-c\): \(B_{n,k}(c)=n!L_n^{(k)}(-c/n)/(n+k)!\), and the probability generating function is \(B_{n,k}(cs)/B_{n,k}(c)\). Uniform convergence on compact complex sets gives convergence of its derivatives. The abstract conditioned-Poisson Bessel law and its moments are not new; see DeSalvo (2026) for general Bessel approximation and contingency-table applications. Davies, Jenssen, Perkins, and Roberts (2015) prove extremality for one-point edge occupancy. The quantitative contribution here is the graph-specific all-size total-variation bound and first-order signed probability error, together with the explicit two-shore covariance scales and the sharp order of the activity window. The first-order error resolves the effect of the falling-factorial depletion of available labeled vertices, which a qualitative polynomial or distributional limit alone does not give. Historical priority for such quantitative statements is not asserted beyond the comparisons made here.
 
 ## Limitations
 
@@ -98,6 +112,7 @@ The graph must be complete bipartite, the edge activity uniform and positive, an
 
 ## References
 
-- O. J. Heilmann and E. H. Lieb, “Monomers and Dimers,” *Physical Review Letters* 24 (1970), 1412; DOI: https://doi.org/10.1103/PhysRevLett.24.1412. Published 1970-06-22; abstract accessible.
+- O. J. Heilmann and E. H. Lieb, “Theory of monomer-dimer systems,” *Communications in Mathematical Physics* 25 (1972), 190–232, https://doi.org/10.1007/BF01877590.
+- NIST Digital Library of Mathematical Functions, [§18.11(ii), Eq. 18.11.6](https://dlmf.nist.gov/18.11.E6), classical Laguerre Mehler–Heine formula; see also Szegő, *Orthogonal Polynomials*, Theorem 8.22.4.
 - E. Davies, M. Jenssen, W. Perkins, and B. Roberts, “Independent Sets, Matchings, and Occupancy Fractions,” first publicly available 2015-08-19, https://arxiv.org/abs/1508.04675. Relevant full text examined.
 - S. DeSalvo, “Two moments suffice for Bessel approximation: conditioned differences, contingency tables, and probabilistic divide-and-conquer,” first publicly available 2026-10-30, https://arxiv.org/abs/2611.00263. Relevant full text examined.

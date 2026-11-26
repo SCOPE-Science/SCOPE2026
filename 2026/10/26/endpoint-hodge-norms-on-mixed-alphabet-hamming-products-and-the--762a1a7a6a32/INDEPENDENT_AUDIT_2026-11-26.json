@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:20:04.294273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5",
+        "Frozen VERIFICATION.md and check_exact.py (inspected, not run)",
+        "/workspace/branches/reproduce_45.py, products()"
+      ],
+      "rationale": "An i-edge divergence has its i-factor in the q_i eigenspace; on this sector L is strictly positive. The product heat resolvent on the other coordinates has mass 1/q_i and distinguished-minus-other differences of fixed sign. Summing absolute gradients in direction i gives 2(q_i-1)/q_i; in direction j the other factors have mass one and the distinguished-minus-other marginal integrates to 1/(q_i+q_j), counted in two layers with q_j-1 neighbors each. Expanding the resolvent at the distinguished vertex gives Q_ee=2alpha_i, so the complementary column sum is 1+A_i-4alpha_i. Symmetry identifies row and column norms. For a<b the cut difference is positive by ab>a+b. Conditioning the resistance difference on the remaining factors gives (b-a) E[1/((a+Z)(b+Z)(a+b+Z))]. At Z=0 the resulting difference bound plus the positive remaining-factor contribution works unless (a,b)=(2,3); there the bound from any third factor c is strictly positive since 1/30-1/(15c) >= 0 and c-1-2/(c+5)>0. Equal-size factors tie by permutation. An independent rational grounded-Laplacian computation (python3 /workspace/branches/reproduce_45.py 5) tested 31 representative columns across nine products, including (2,3,4) with exact binary-direction values 14/5 and 28/9. This corroborates rather than replaces the proof.",
+      "residual_risks": [
+        "Only the finite test subset was computed independently; the proof covers the whole stated range, not weighted edges or arbitrary Banach-space projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record --d11ca8ac5f42 gives a bound and large-m limits for H square K_m, not finite mixed direction scores.",
+          "Record --a883b79978a2 gives exact weighted cut scores; setting each conductance to 1 recovers A_i, but its Finding gives no complementary cycle score or cycle maximizer. Its catalog date is 2026-11-02."
+        ],
+        "reasoning": "The broader graph class of a bound/limit does not imply exact finite values. The weighted exact cut theorem genuinely subsumes A_i, but is not evidence of earlier coverage of the joint claim.",
+        "searches": [
+          "Resultary clique-factor projection bounds and weighted Cartesian clique-product norm comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.12582 §§2.6–2.7",
+        "Resultary --05695b9bae19",
+        "Resultary --d11ca8ac5f42",
+        "Resultary --80693b940215",
+        "Resultary --397f4b160890",
+        "Resultary --a883b79978a2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-alphabet uniqueness/norm results use symmetries not interchanging unequal directions. The complementary column identity requires the direction-dependent diagonal in addition to A_i, and strict ordering of 1+A_i-4alpha_i requires controlling their competing differences."
+        ],
+        "reasoning": "Neither symmetry alone, the cut formula alone, nor a large-factor limit supplies the cycle comparison. The d>=3 estimate for the 2 versus 3 pair is substantive: the two-factor cycle difference has the opposite sign.",
+        "searches": [
+          "arXiv:2305.12582 Theorems 43, 45",
+          "Resultary --d11ca8ac5f42 and --a883b79978a2 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 45 gives (d+1)/2 for the binary cut norm, exactly the A_i specialization. Theorem 43 concerns the invariant cycle projection on equal-alphabet powers.",
+          "Resultary 2026/10/26/…--80693b940215 Finding concerns categorical products; its edges change both coordinates rather than just one."
+        ],
+        "reasoning": "Electrical-gradient and incidence-projection terminology does not make the known binary or categorical cases equivalent to mixed Cartesian products. Real symmetry makes the endpoint row and column versions equivalent here.",
+        "searches": [
+          "Resultary mixed Hamming product and electrical-gradient endpoint projection comparisons",
+          "arXiv:2305.12582 §§2.6–2.7",
+          "External search: Cartesian product / mixed alphabet Hamming / electrical routing / orthogonal cut cycle projection exact norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record --05695b9bae19 Finding gives both exact scores for H(d,q), matching the all-equal specialization. Record --397f4b160890 uses the same mixed graphs for homology of the three-cut complex, not gradient or cycle-flow projection norms."
+        ],
+        "reasoning": "The direct exact-score catalog match has a single alphabet size; shared graph parameters in a homology record do not give an exact table for this projection invariant.",
+        "searches": [
+          "Resultary exact endpoint formulas for nonbinary Hamming and mixed-alphabet products"
+        ]
+      },
+      "rationale": "Verified equal-alphabet, binary, and broad product precedents do not supply the mixed finite pair of formulas with the strict cycle maximizing-direction law. The later weighted-product record does cover the cut formula at unit conductance; that overlap is explicit, but it neither predates the frozen result by its catalog date nor supplies the cycle theorem. Pass is limited to the stated mixed canonical projection result, not the known equal-alphabet formulas, product resistance methods, or the general weighted cut theory.",
+      "residual_risks": [
+        "The cyclic-clique-cylinder record --58fa50f7a7be was available only as a search-summary comparison; the full Finding could not be inspected. The described K_m square C_n is a different class except for a clique-cycle coincidence at n=3.",
+        "The targeted external lookup surfaced generic graph product information and other invariants rather than an exact projection result. This does not exclude a broader electrical-routing result or an unindexed treatment of the mixed cycle scores."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage",
+          "evidence": "Theorem 43 concerns a single alphabet size, and Theorem 45 gives the cube cut norm, not the mixed-alphabet cycle comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "§2.6 pp. 20–23 and §2.7 Theorem 45 p. 23",
+          "method": "OA PDF targeted reading",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Closest primary source on graph projections and Hamming graphs"
+        },
+        {
+          "assessment": "Equal-alphabet specialization",
+          "evidence": "Both H(d,q) equations match after all q_i are set equal, a case excluded from the frozen novelty scope.",
+          "identifier_or_url": "2026/10/18/…--05695b9bae19",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "Both exact Hamming projection norms"
+        },
+        {
+          "assessment": "Related bounds and limits, not finite exact mixed scores",
+          "evidence": "The assertions for H square K_m give a difference bound and fixed-H large-m limits.",
+          "identifier_or_url": "2026/10/18/…--d11ca8ac5f42",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp clique-factor dominance and limiting norms for canonical graph projections",
+          "trigger": "Broader Cartesian-product scope"
+        },
+        {
+          "assessment": "Direct cut-side overlap in a later catalog record",
+          "evidence": "The axis-conductance direction formula specializes to A_i at conductance 1; it is not a cycle-score result.",
+          "identifier_or_url": "2026/11/2/…--a883b79978a2",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp endpoint norms and conductance resonance for Cartesian products",
+          "trigger": "Potential dominance by weighted clique products"
+        },
+        {
+          "assessment": "Different adjacency and scope",
+          "evidence": "Both factors must change on an edge of the two-factor categorical product.",
+          "identifier_or_url": "2026/10/26/…--80693b940215",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp endpoint cut/cycle norms on categorical products of complete graphs",
+          "trigger": "Same-day exact clique-product norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: formulas and §§3–4",
+        "Resultary --d11ca8ac5f42 and --a883b79978a2 Findings"
+      ],
+      "rationale": "The exact direction scores remove a graph-sized projection computation for a natural heterogeneous family and identify all worst directions for both endpoint norms. In particular, the cycle ordering is not a restatement of the cut ordering: diagonal resistance competes with it, and adding a third factor restores a strict ordering that can fail for two factors. This is an exact canonical-projection invariant, not a minimal-projection theorem.",
+      "residual_risks": [
+        "No claim for intermediate norms or optimization over projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

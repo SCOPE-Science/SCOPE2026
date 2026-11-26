@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:07:42.359872Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–64: form, Green kernel, finite-rank reduction, thresholds and scope",
+        "Frozen VERIFICATION.md lines 3–15 and beam_instability_checker.py (recorded numerical corroboration, inspected rather than executed)"
+      ],
+      "rationale": "On the line with no axial term, the evaluations are infinitesimally form bounded: write the evaluation as a Fourier integral, bound the low frequencies by C_R||u||, and the tail by O(R^(-3/2))||u''||. Thus the point terms at any fixed strength define the advertised semibounded closed form. With H_0=D^4+1, congruence by H_0^(1/2) reduces it to identity minus a rank-two positive operator. Its nonzero reduced matrix is a times the Green Gram matrix, with diagonal 1/(2√2) and off-diagonal e^(-t)(cos t+sin t)/(2√2), t=d/√2. These constants follow from the homogeneous decaying ODE, continuity through the second derivative and the unit third-derivative jump. A two-dimensional inversion of the resolvent form preserves essential-spectrum bottom 1; negative inertia is therefore the number of reduced eigenvalues strictly above one, and an eigenvalue exactly one corresponds by the same form transformation to an L² zero eigenfunction. The two eigenvalues average a/(2√2)<1 in the stated regime, so strict negativity is exactly |F(t)|>r=(2√2-a)/a. F'=-2e^(-t)sin t; from the first endpoint t=0 and successive zero-separated lobes the heights are e^(-nπ) for n≥0. Each height strictly above r contributes one bounded open interval, giving the ceiling of log(1/r)/π. When log(1/r)/π=n is a positive integer, the n-th later lobe reaches threshold at t=nπ only and the count is n, not n+1. The isolated spring's Gram value is a/(2√2)<1. This is an exact whole-line argument, not a numerical extrapolation.",
+      "residual_risks": [
+        "The result is for ideal point softeners and strict negative eigenvalues. Each fixed strength in the open stated range has finitely many windows; their counts are unbounded as strength increases to critical. A later window surrounds its peak, not necessarily its exact geometric midpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example B treats multiple point inclusions but gives finite-domain perturbative modal and buckling formulas. The other cited descriptions concern a finite elastica, a compressed joint/crack model, or a compressed beam with a finite-width defect; full texts for those descriptions were not confirmed."
+        ],
+        "reasoning": "A perturbative formula on a finite beam does not imply a nonperturbative inertia comparison uniformly over all separations on the line, and compression or a different interface can change both the Green function and its maxima.",
+        "searches": [
+          "DOI 10.1007/s00419-020-01823-y, Example B, (31)–(32)",
+          "DOI 10.1093/imamat/hxh088; DOI 10.1061/(ASCE)EM.1943-7889.0000097; DOI 10.3103/S1063454115010069"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1806.08667 §3.1",
+        "DOI 10.1007/s00419-020-01823-y Example B",
+        "Resultary two targeted queries",
+        "Limited-access prior comparisons as detailed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-defect criterion determines the diagonal Green value only for stability purposes. Finite-beam spatial resonance is quantified as perturbative mode shifts; the frozen proof requires the strict spectral crossing test and heights of every lobe of the infinite-line pair Green function."
+        ],
+        "reasoning": "Known kernels and finite-rank methods make the proof short, but the strict global topological classification and neutral equality cases are not conclusions of either inspected physical theorem. A finite sample of resonances does not imply exact reentrance counts arbitrarily near criticality.",
+        "searches": [
+          "arXiv:1806.08667 §3.1",
+          "DOI 10.1007/s00419-020-01823-y Example B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shishkina–Gavrilov–Mochalova use a single concentrated negative stiffness; Abramian et al. describe delta springs at multiple sites in a finite beam, with approximate spectral shifts and spatial resonance."
+        ],
+        "reasoning": "Changing terminology between elastic inhomogeneities, delta springs and point softeners does not change the actual boundary/model distinctions. The inspected closest formulations are not the exact separation-component theorem.",
+        "searches": [
+          "Web: \"two point springs\" \"Winkler\" beam instability negative point stiffness exact separation intervals",
+          "Resultary: two equal negative point springs D^4+1 exact instability intervals reentrant count ceiling log a/(2 sqrt 2-a) thresholds",
+          "arXiv:1806.08667 §3.1; DOI 10.1007/s00419-020-01823-y Example B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior critical value 2√2 is reproduced in the single-defect equations; neither those equations nor the reasonably matched catalogue evidence supplies the sequence a_n or the two-defect interval count."
+        ],
+        "reasoning": "An exact match of the isolated threshold is credited and does not settle the sharp separation thresholds, which depend on the oscillation of the off-diagonal coupling. An index miss is not taken as proof of novelty.",
+        "searches": [
+          "Resultary: Infinitely many reentrant instability windows for two point softeners on a Winkler beam",
+          "Resultary: two equal negative point springs D^4+1 exact instability intervals reentrant count ceiling log a/(2 sqrt 2-a) thresholds",
+          "arXiv:1806.08667 §3.1 equations (8)–(11)"
+        ]
+      },
+      "rationale": "The inspected prior result gives exactly the single-site threshold but not two-site positioning. The nearest multi-spring primary text is finite-domain and perturbative. The exact strict two-defect placement-component classification is the distinct contribution, not the Green kernel, a general rank method, or the isolated critical value. Bounded best-of-knowledge only.",
+      "residual_risks": [
+        "The Coman, Wang and Indeitsev et al. full texts were unavailable in the attempted routes; their uninspected contents and differently indexed biharmonic point-interaction work remain possible sources of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior isolated-defect threshold; inspected statement is not a two-site theorem",
+          "evidence": "For one negative spring the trapped mode reaches localized buckling at |K|=2√2.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.08667",
+          "material_read": "§3.1, PDF pp. 5–6, equations (8)–(11), OA offset 9300",
+          "method": "Primary OA PDF locate for point inhomogeneity and bounded passage read",
+          "title": "Non-stationary localized oscillations of an infinite Bernoulli–Euler beam lying on the Winkler foundation with a point elastic inhomogeneity of time-varying stiffness",
+          "trigger": "Same uncompressed infinite-line point spring"
+        },
+        {
+          "assessment": "Finite beam and perturbative, not the stated exact infinite-line result",
+          "evidence": "Positive or negative delta stiffness and approximate buckling-load shifts in spatial resonance.",
+          "identifier_or_url": "https://doi.org/10.1007/s00419-020-01823-y",
+          "material_read": "Example B, PDF p. 8, journal pp. 1298–99; equations (31)–(32), OA offset 29000",
+          "method": "Primary OA bounded read after literal locate for concentrated springs",
+          "title": "Dynamics and buckling loads for a vibrating damped Euler–Bernoulli beam connected to an inhomogeneous foundation",
+          "trigger": "Multiple concentrated springs and spatial resonance"
+        },
+        {
+          "assessment": "Described finite-elastica scope differs; whole article not assessed",
+          "evidence": "Frozen comparison describes finite elastica and spatial variations, not the exact two point problem.",
+          "identifier_or_url": "https://doi.org/10.1093/imamat/hxh088",
+          "material_read": "Bibliographic and model description in frozen RESULT.md; no independent full text",
+          "method": "DOI recovery and identified publisher route; publisher 403 and no OA repository copy resolved",
+          "title": "Inhomogeneities and localised buckling patterns",
+          "trigger": "Potentially related localized foundation buckling"
+        },
+        {
+          "assessment": "Reported compressed/jointed or cracked model differs; cannot exclude unseen overlap",
+          "evidence": "The described weakening is an interface/joint and the beam has compression.",
+          "identifier_or_url": "https://doi.org/10.1061/%28ASCE%29EM.1943-7889.0000097",
+          "material_read": "Bibliographic and scope description in frozen RESULT.md; no independent full text",
+          "method": "Lawful DOI retrieval and publisher route; publisher 403 and no OA copy resolved",
+          "title": "Buckling of a Weakened Infinite Beam on an Elastic Foundation",
+          "trigger": "Infinite beam with weaknesses and buckling"
+        },
+        {
+          "assessment": "Reported single finite-width defect with compression; whole article not assessed",
+          "evidence": "Single finite-width defect rather than two negative point springs in the described setting.",
+          "identifier_or_url": "https://doi.org/10.3103/S1063454115010069",
+          "material_read": "Bibliographic and scope description in frozen RESULT.md; no independent full text",
+          "method": "DOI recovery and direct route, repeated redirects and no resolved OA copy",
+          "title": "Localization in a Bernoulli–Euler Beam on an Inhomogeneous Elastic Foundation",
+          "trigger": "Infinite beam defect localization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and separation-component proof",
+        "arXiv:1806.08667 single-defect result and the finite-beam multi-spring comparison"
+      ],
+      "rationale": "The ideal model presents a natural design/stability question: can two individually stable point defects switch a beam repeatedly between stable and unstable by moving one defect? The exact number of such windows and the strict birth thresholds answer this globally, including arbitrarily many stable–unstable alternations near the one-defect threshold. This is information a single critical stiffness, a local frequency shift, or isolated resonance examples do not provide.",
+      "residual_risks": [
+        "No robustness to finite boundaries, compression, damping, finite width, or nonlinear behavior is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

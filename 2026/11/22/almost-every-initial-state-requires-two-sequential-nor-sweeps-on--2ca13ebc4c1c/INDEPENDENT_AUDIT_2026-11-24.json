@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:17:53.583912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An adjacent pair cannot both be one after a sweep, since the later vertex would have seen the earlier one's final bit. From an independent state existing ones cannot turn off, and a second sweep leaves no undominated zero. The fixed words avoid cyclic 11 and 000; the unweighted transfer U has U^3=U+I and counts anchored words by tr(U^n). For the one-sweep census use initial context (y_(n-1),y_0) and ordinary updates i=1,...,n-3 with free choices at x_(i+1). The three contexts 00,01,10 give rows (0,1,0),(0,0,2),(1,1,0) of T. The seam ends at the initial context while solving for x_(n-1),x_1 and checking y_(n-1)=NOR(y_(n-2),y_0); its rows are (1,1,0),(0,1,3),(1,1,2). The product counts each compatible input once except for the free x_0, giving R_n=2 tr(T^(n-3)D), also when n=3 and the ordinary product is empty. T^3=2T+2I gives the recurrence and bases. The context graph is irreducible with cycles of lengths 2 and 3; the positive Perron projection pairs positively with D, so R_n is of order rho^n. Direct comparison at n=4,5,6 and the recurrence prove strict R_n<2^n for all n>=4. The supplied VERIFICATION.md, verify_transfer.py and verify_direct.py were inspected, not executed; a separate direct sweep census through n=16 agreed, including (90,11782,53664) at n=16. The matrix argument, not the finite checks, proves the general claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gadouleau–Kutner give a two-pass fixing guarantee on all graphs and study decision of universally fixing permutations.",
+          "The circular-ladder record is synchronous and counts fixed and two-cycle states, not sequential first-entry populations. The sequential bi-threshold record uses a closed-neighborhood (1,3) rule."
+        ],
+        "reasoning": "A universal guarantee does not quantify the number of initial states that already reach a fixed point in one specific sweep. The graph/rule/schedule changes in the other records affect the relevant preimages.",
+        "searches": [
+          "arXiv:2403.17658v2, one-pass fixing permutations and universal ww fixing words",
+          "Resultary dc2ed3dbbb19 and e79a108b9794"
+        ]
+      },
+      "checked_sources": [
+        "Gadouleau–Kutner arXiv:2403.17658v2",
+        "Resultary 9b825fd6faf8, dc2ed3dbbb19 and e79a108b9794",
+        "OEIS exact-prefix lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sequential theorem establishes membership in Fix after two sweeps, not the weights of first-sweep fibers.",
+          "The unused input bit and the coupled two ends of the in-place sweep create the weighted seam D, absent from the synchronous calculation."
+        ],
+        "reasoning": "The all-n sharp population and exponential law require the weighted in-place transfer; neither two-pass fixing nor the fixed-state enumeration implies them.",
+        "searches": [
+          "Gadouleau–Kutner arXiv:2403.17658v2; synchronous Rule 5 Resultary 9b825fd6faf8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_n is the sum of the sizes of the one-sweep fibers above all maximal independent sets, not a per-output fiber claim.",
+          "The exact recurrence's matching Resultary hit was the identical frozen record; the distinct Rule-5 hit 9b825fd6faf8 has synchronous updates."
+        ],
+        "reasoning": "Changing open-neighborhood NOR to MIS-network terminology preserves the local rule; changing an in-place schedule to a parallel map does not preserve the preimages.",
+        "searches": [
+          "Resultary: sequential NOR cycle one-sweep preimage census and exact R_n recurrence",
+          "Gadouleau–Kutner arXiv:2403.17658v2, introduction; MIS Boolean network"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither exact R_n prefix nor R_n/2 prefix had an exact OEIS hit in those lookups.",
+          "The prior synchronous record identifies the same Perrin fixed-point count on odd cycles, but gives Fibonacci fibers for a different map."
+        ],
+        "reasoning": "The known fixed-output count P_n does not count preimages; the exact-prefix checks are bounded and do not exclude other indexings or representations.",
+        "searches": [
+          "OEIS: 8,10,26,36,72,124,216,392",
+          "OEIS: 4,5,13,18,36,62,108,196,340,608",
+          "Resultary 2026/11/2/SCOPE-fibonacci-fibers-and-the-uniquely-dominant-lucas-basin-for-odd-r--9b825fd6faf8"
+        ]
+      },
+      "rationale": "The universal two-sweep bound, MIS fixed points and Perrin cycle count are existing results, not the contribution. The supported distinct claim is the exact total first-sweep preimage mass of all fixed outputs for the specified labelled cyclic order and its exponential law. The strongest inspected nearby results do not count that population.",
+      "residual_risks": [
+        "The cited 2011/2012 article was not retrieved in full.",
+        "Exact sequence lookup and the literature comparison are bounded and do not exclude indexed under different terminology, unpublished, or otherwise uninspected equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general stabilization, not the exact population",
+          "evidence": [
+            "Any doubled permutation fixes; deciding whether a permutation is universally fixing is studied independently of counting good inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.17658v2",
+          "material_read": "Introduction, definition of MIS network and fixing words, ww guarantee and one-pass decision statements; HTML offsets 1277–3664 and 9460–13253",
+          "method": "Lawful OA arXiv HTML passage inspection",
+          "title": "Generalising the maximum independent set algorithm via Boolean networks",
+          "trigger": "Same open-neighborhood NOR rule and sequential fixing"
+        },
+        {
+          "assessment": "Perrin overlap, but synchronous preimages differ",
+          "evidence": [
+            "Odd synchronous cycle fibers and basins rather than in-place first entry."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-fibonacci-fibers-and-the-uniquely-dominant-lucas-basin-for-odd-r--9b825fd6faf8",
+          "material_read": "Finding and assumptions, RESULT.md offsets 0–3371",
+          "method": "Configured Resultary and local mirror",
+          "title": "Fibonacci fibers and the uniquely dominant Lucas basin for odd-ring Rule 5",
+          "trigger": "Same local rule on cycles; exact fiber claims"
+        },
+        {
+          "assessment": "Different graph and update schedule",
+          "evidence": [
+            "Synchronous C_n square K_2 fixed and two-cycle states; does not count the relevant first-entry populations."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-split-exact-nor-orbit-census-on-circular-ladders--dc2ed3dbbb19",
+          "material_read": "Finding and limitations, offsets 0–1800 and 7600–8919",
+          "method": "Configured Resultary and local mirror",
+          "title": "A parity-split exact NOR orbit census on circular ladders",
+          "trigger": "Close indexed exact NOR census"
+        },
+        {
+          "assessment": "Unavailable on checked routes; no whole-paper noncoverage inference",
+          "evidence": [
+            "The correspondence needed here is confirmed by the accessible Gadouleau–Kutner text and the NOR fixed-point equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12190-011-0517-9",
+          "material_read": "No full text retrieved in this audit",
+          "method": "DOI and Springer PDF access attempts",
+          "title": "On the computation of fixed points in Boolean networks",
+          "trigger": "Original citation for AND-NOT/MIS correspondence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact first-fixed-entry distribution answers a natural deterministic scheduling question under uniform initial bits. It shows that the known worst-case bound is typical, with an explicit exponential rate, and that the sequential seam changes what would otherwise be a routine cycle fixed-point count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

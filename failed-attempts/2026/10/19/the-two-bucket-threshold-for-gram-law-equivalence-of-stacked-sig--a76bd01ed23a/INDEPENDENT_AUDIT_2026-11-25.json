@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:09:54.844539Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The theorem is exact arithmetic for uniform mutually independent signed hashes and the specified width-dependent weights. It compares Gram laws, not unrotated entries, low-precision error, runtime or adaptively selected sketches. The minimum sparsity is conditional on the stacked one-hot family, not a general sketch lower bound.",
+      "rationale": "For b=1 the normalized entry is already a sign divided by sqrt(m); for b=2 the four equally likely signed coordinate vectors rotate under the normalized Hadamard to the four equally likely sign pairs, each with coordinate size 1/sqrt(m). Since the draw is independent per block and column, the concatenated rotated matrix is iid dense Rademacher and the Gram identity holds on this coupling. For n≥2, the inner product of two unit columns is Σ_j(b_j/m)X_j, where X_j is 0 for a noncollision and ±1 each with probability 1/(2b_j). The positive weights sum to one, so its magnitude is one iff every block has the same nonzero collision sign. Rank failure therefore has probability 2∏_j(2b_j)^−1; dense rank failure is 2^(1−m). The ratio factors into 2^(b_j−1)/b_j, each at least one with equality only at 1 or 2. The event is Gram-measurable. Counting one nonzero per block yields the stated minimal count with a width-one block for odd m. For n=1 the necessity fails, as expected and excluded by the original quantifiers.",
+      "replay_paths": [
+        "/workspace/reproductions/1.js (exact histograms of three-coordinate m-scaled Grams and collapse counts)",
+        "Frozen check.py and VERIFICATION.md (inspected, not executed)"
+      ],
+      "reproduction_result": "At m=5 the full enumerated histograms for (1,2,2) and (2,1,2) matched dense with rank-failure probability 1/16. For (1,1,3), (2,3), (1,4), (5) the histograms differed and the rank-failure probabilities were 1/12, 1/12, 1/8 and 1/5, respectively. Finite enumeration is not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior embedding guarantees and the three-point coupling do not themselves assert exact Gram-law equivalence to iid signs.",
+          "The close catalogue theorem covers the characteristic one-block obstruction: equal variances and strictly positive fourth-moment gap for every b≥3. Independence composes it across any heterogeneous collection.",
+          "Jeendgar et al.'s current revision Eq. (3) gives no-collision full rank on a coordinate subspace for CountSketch; taking two coordinates recovers the single-block failure formula. The chronology of that revision was not needed to decide coverage."
+        ],
+        "reasoning": "The broader embedding literature concerns bounds rather than this identity, but the indexed exact local law and moment obstruction already give the general normalization by rescaling and adding independent blocks.",
+        "searches": [
+          "Heidary arXiv:2609.02978v1 §§1.1–1.3, 2.2",
+          "Camaño–Epperly–Meyer–Tropp arXiv:2508.21189v1 pp. 8, 24",
+          "Jeendgar–Flint–Anzt arXiv:2606.20195v1 §2.2 and current Eq. (3)",
+          "Resultary 893b68c79546, Proof (1)–(2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 893b68c79546 RESULT.md",
+        "arXiv:2609.02978v1 §§1.1–1.3, 2.2",
+        "arXiv:2606.20195 v1 §§2.2 and current Eq. (3)",
+        "arXiv:2508.21189v1 pp. 8, 24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In each block the two-column term before the global division by m is b_jX_j. The prior proof gives E[(b_jX_j)^2]=b_j and E[(b_jX_j)^4]=b_j³. The b_j dense independent sign products have the same second moment and fourth moment 3b_j²−2b_j. Cross-block contributions cancel in the fourth-moment difference, giving Σ_j b_j(b_j−1)(b_j−2)/m⁴.",
+          "The rank obstruction follows by keeping only each block's prior positive and negative endpoint masses 1/(2b_j), multiplying across the already independent blocks and counting the two common signs."
+        ],
+        "reasoning": "This is a direct derivation of the full mixed-width iff and separate probability from the inspected prior local results; optimal packing of 1- and 2-blocks is then immediate. It does not require a new classification result.",
+        "searches": [
+          "Resultary 893b68c79546, Proof (1)–(2), especially the ζ=1 specialization",
+          "Jeendgar et al. arXiv:2606.20195 current PDF Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting every b_j=b reduces sqrt(b_j/m) to 1/sqrt(s), exactly the prior normalization.",
+          "The prior record explicitly states the full Gram-law iff for every input dimension at least two, and rotates each width-two block by the same H_2. Its equality extends to joint Gram observables on arbitrary fixed inputs."
+        ],
+        "reasoning": "The equal-width central theorem is exactly equivalent after relabelling input and output dimensions. Mixing different admissible block sizes changes the packing, not the local law.",
+        "searches": [
+          "Resultary: two-bucket SparseStack exact Gram-law dense Rademacher rotation, signed one-hot block classification",
+          "Resultary 893b68c79546, RESULT.md Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed record has the exact same law classification and orthogonal coupling for equal-width SparseStack, with the explicit (b−1)(b−2)/(b³s³) gap for large widths.",
+          "It gives the explicit independent signed-collision law used for the alternative rank-collapse computation."
+        ],
+        "reasoning": "The match is an exact prior finding, not a related title or a numerical table coincidence; no second source with the product formula verbatim is required for the implication.",
+        "searches": [
+          "Resultary: exact dense Rademacher Gram distributions for signed one-hot sketches",
+          "Resultary 2026/10/13 893b68c79546, RESULT.md, offsets 0–8331"
+        ]
+      },
+      "rationale": "The earlier indexed theorem 893b68c79546 gives the same exact iff, deterministic Hadamard, and whole-Gram consequences for equal widths. The mixed-width extension is not identical wording, but it is a mechanical blockwise consequence of the prior proof. Apply its coupling separately to each 1- or 2-block at scale sqrt(b_j/m). For necessity, its one-block fourth-moment gap with ζ=1, rescaled and added using independence and equal block variances, yields ΔE[C^4]=m^−4 Σ_j b_j(b_j−1)(b_j−2), which is positive exactly when a block has b_j≥3. The alternative collapse formula is an endpoint probability of the very same prior explicit signed-collision law: all block collisions must take the same sign. The ceiling minimum and odd-row case follow immediately by counting and packing the already covered blocks. This is demonstrated precise coverage and implication, not an inference about who discovered the result first from a catalogue date.",
+      "residual_risks": [
+        "The local-mirror date is not posting or discovery history. The judgement is equivalent statement and implication coverage, not attribution of historical priority.",
+        "The current Jeendgar–Flint–Anzt rank formula's version chronology remains unresolved, without bearing on the exact independent-collision implication above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equal-width coverage and mechanically implies mixed-width threshold, with the width-dependent normalization fixed",
+          "evidence": [
+            "Quadratic Gram-law equality iff b is 1 or 2; same Hadamard rotation at b=2.",
+            "Explicit independent signed-collision variable gives the endpoint probabilities and fourth moments needed for the heterogeneous case."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-two-bucket-sparsestack-is-exactly-a-dense-rademacher-sketch-up-t--893b68c79546",
+          "material_read": "Local-mirror RESULT.md Finding, assumptions, proof (1)–(2) and relationship passages, offsets 0–8331",
+          "method": "Resultary ranked search and bounded local-mirror statement and proof read",
+          "title": "Two-bucket SparseStack is exactly a dense Rademacher sketch up to a fixed rotation",
+          "trigger": "Exact same model and Gram-law classification at equal widths"
+        },
+        {
+          "assessment": "Covers the equal-width model and three-point moment comparison, not the precise Rademacher law identity",
+          "evidence": [
+            "Selector coupling in §2.2 uses independent three-point variables for moment control; the normalization is s^−1/2 for equal widths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02978v1",
+          "material_read": "§§1.1–1.3 and §2.2 pp. 3–6, near offsets 9000–11000, 14000, 20000",
+          "method": "Lawful OA PDF bounded passage review",
+          "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+          "trigger": "Same sketch and an exact coupling technique"
+        },
+        {
+          "assessment": "Current revision covers the single-block two-column rank formula; not relied on for precedence or for the central Gram proof",
+          "evidence": [
+            "Full-rank probability on an n-coordinate subspace is ∏_{j=0}^{n−1}(1−j/d) in the current revision; n=2 gives failure probability 1/d."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20195",
+          "material_read": "v1 §2.2 p. 2 and p. 12 near offsets 9700 and 73863; current PDF p. 2 Eq. (3)",
+          "method": "Lawful OA versioned and current PDF passage comparison",
+          "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+          "trigger": "CountSketch collision and coordinate rank probability"
+        },
+        {
+          "assessment": "Model and embeddings covered, but not decisive for exact law classification",
+          "evidence": [
+            "Describes independent stacked CountSketch blocks and the one-block specialization; the inspected guarantees are performance bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.21189v1",
+          "material_read": "p. 8 and §3.1 p. 24 near offsets 36178 and 100693",
+          "method": "Lawful OA PDF bounded passage review",
+          "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+          "trigger": "Structured sparse sketch results and coordinate injection"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The equal-width exact equivalence is a useful embedding fact, but it is already covered. In the new presentation the only remaining changes are the immediate independent-block composition, the elementary product at the two endpoints of that already specified collision law, and one-versus-two block packing for odd size. As scoped, there is no separately motivated nonmechanical threshold, new sketch design problem, or unknown exact statistic beyond those consequences to justify a surviving valuable repair. This does not detract from the correctness of the proof or from the previously known classification's utility.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

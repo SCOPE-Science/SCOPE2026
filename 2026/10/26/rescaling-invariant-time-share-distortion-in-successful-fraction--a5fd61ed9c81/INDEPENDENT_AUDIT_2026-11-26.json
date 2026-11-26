@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:16:32.967081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a property of a successful attempt ending at z, summation over the number of earlier failures multiplies its one-attempt mass and the one-attempt z mass by the same geometric factor. On an allowed k-step path, the independent reset clock contributes exp(−r sum W_j), so the conditional rescaled waits have independent transform (1+a)/[(1+s)^β+a] and the path has mass (h/2)^k, h=a/(1+a). The unique shortest path has m steps. Summing the crude 2^k word bound from k=m+2 shows that all other strata have conditional mass O(a²). The transform of a unit-rate Gamma(jβ) law is (1+s)^(−jβ); geometric expansion of the tilted transform gives a signed measure series absolutely convergent in total variation for a<1. Subtracting the unit-rate Gamma(β) term and a times Gamma(β) minus Gamma(2β) leaves norm O(a²). Finite tensor multiplication preserves this order, and pushing forward to simplex shares contracts the variation norm. Under the base law normalization gives Dirichlet_m(β); replacing one shape β by 2β multiplies its simplex density by A_(m,β) v_j^β. The resulting correction has integral zero and is nonconstant by comparing the barycenter (sum m^(1−β)) with a vertex limit (sum 1); full interior support then gives half the absolute integral as a strictly positive distance coefficient. At β=1 the exact common-rate exponential tilt gives uniform Dirichlet shares, so only the off-m mass contributes. The one opposite step in a word of length m+2 must occur before the mth toward step, at any of m positions except the first if that opposite step would reach the other absorber. The remaining paths start at m+4, giving c h²/4+O(h⁴) and the stated expansion in 1/(rτ). This verifies fixed m≥2 and each specified endpoint, without uniformity in β or interval length. The source verifier and VERIFICATION.md were inspected; the recorded 2804 comparisons are finite supplements, not replayed here or used to prove the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley give general high-reset limits for the total first-passage time and moments, including subdiffusive search. The related reset CTRW papers formulate renewal equations for propagators and first-hitting quantities; Chen–Li–Huang address splitting probabilities and conditional mean first-passage times."
+        ],
+        "reasoning": "Generality of the reset mechanism or waiting law does not by itself extend a theorem on a scalar first-passage or one-time observable to a joint path-marked TV expansion.",
+        "searches": [
+          "arXiv:2302.05409v2 Theorems 1, 4 and 5",
+          "arXiv:2507.07590v1 abstract and renewal subsection",
+          "arXiv:1812.08489v3 abstract; arXiv:2111.01330v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Pal–Das–Pal arXiv:2604.01986v2",
+        "Linn–Lawley arXiv:2302.05409v2",
+        "Kuśmierz–Gudowska-Nowak arXiv:1812.08489v3 (abstract)",
+        "Colantoni–Pagnini arXiv:2507.07590v1 (abstract and renewal subsection)",
+        "Chen–Li–Huang arXiv:2111.01330v1 (abstract)",
+        "Resultary Findings 49a3dc7c7913, fc90c0f60b27 and c978920207aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint renewal factor and one-attempt Laplace tilt use standard resetting ideas. The inspected formulas for endpoint splitting or total FPT do not carry independent marks for the successive intervals through normalization. Even the Gamma-to-Dirichlet identity alone gives only the limiting shape or the exact exponential case."
+        ],
+        "reasoning": "Getting the nonzero correction requires the fixed-path signed perturbation in variation norm and separating detour mass. The leading endpoint exponent and classical normalization do not mechanically imply this coefficient or its cancellation.",
+        "searches": [
+          "arXiv:2604.01986v2, Eqs. (2)–(9)",
+          "arXiv:2302.05409v2, Theorem 1",
+          "Resultary fc90c0f60b27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pal–Das–Pal's model is close, but its renewal fluxes and conditional first-passage transforms aggregate across the durations. Resultary fc90c0f60b27 marks successful stable-flight attempts by duration, side and overshoot, not by individual normalized holding intervals."
+        ],
+        "reasoning": "Normalization discards absolute duration and retains a joint ordered simplex-valued mark. A law for total attempt duration, exit mark, or overshoot is not an equivalent formulation of that mark.",
+        "searches": [
+          "Resultary: marked high-reset excursions, normalized waiting-time fractions, terminal path time shares",
+          "arXiv:2604.01986v2, model and Eqs. (2)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day rigidity record 49a3dc7c7913 concerns equality of one-time position laws with renewal CTRWs. The two other inspected records concern marked stable-flight exits and first-arrival event types for competing clocks, respectively. None of these findings gives C_(m,β) or the β=1 detour coefficient in the assigned model."
+        ],
+        "reasoning": "There is no natural general coefficient table to substitute for the joint asymptotic here; the indexed comparisons include the closest model and mark matches. An exact unindexed result is not ruled out.",
+        "searches": [
+          "Resultary: Dirichlet time shares of successful fractional reset excursions and marked clock fluctuations",
+          "Resultary 49a3dc7c7913, fc90c0f60b27 and c978920207aa, actual Findings"
+        ]
+      },
+      "rationale": "The inspected sources cover competing exits for the same resetting model, reset renewal identities, ordinary high-reset first-passage asymptotics and other marked-excursion observables. Credit those results and the classical Gamma-to-Dirichlet normalization. The supported distinct claim is the sharp total-variation correction for the normalized ordered holding durations on the successful path, including the exact cancellation and geometric detour term for the memoryless clock.",
+      "residual_risks": [
+        "Uninspected general marked-renewal identities could provide a closer formula-level implication. An unrelated web-search return carries no negative evidence; comparisons are limited to the cited inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model family and aggregate observable, not the claimed joint expansion",
+          "evidence": [
+            "The setup has a 1-D CTRW between two absorbing endpoints and general waiting times; the flux and transform equations concern first-passage outcomes, not the vector of holding-time shares."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.01986v2",
+          "material_read": "PDF pp. 2–3, Model Set-up details and renewal flux/conditional FPT Eqs. (2)–(9), including offsets near 14000–21000 and 22500",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Resetting optimized competitive first-passage outcomes in non-Markovian systems",
+          "trigger": "Closest primary match to competing exits and the resetting model"
+        },
+        {
+          "assessment": "Total-time results, and no joint-share implication in these statements",
+          "evidence": [
+            "Theorem 1 gives a unit-rate exponential limit for r p_0 T and moment asymptotics rather than the final-attempt shares."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.05409v2",
+          "material_read": "Theorem 1, p. 5 around offset 13950, and subdiffusive-search Theorems 4–5 around pp. 7 and offset 18350",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Strong high-reset asymptotic comparison"
+        },
+        {
+          "assessment": "Different observable and mathematical comparison",
+          "evidence": [
+            "The theorem is about representing one-time position laws by a no-reset renewal CTRW, not conditioning on an absorbing endpoint."
+          ],
+          "identifier_or_url": "49a3dc7c7913",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "An exponential-reset rigidity theorem for ordinary renewal representations",
+          "trigger": "Closest same-day Resultary model match"
+        },
+        {
+          "assessment": "Different marks and model",
+          "evidence": [
+            "The stable-flight successful attempt has duration, exit side and overshoot marks, not successive path intervals normalized by their sum."
+          ],
+          "identifier_or_url": "fc90c0f60b27",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A marked clock fluctuation law for frequently reset stable flights",
+          "trigger": "Closest indexed successful-attempt marking"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observable removes the arbitrary scale of excursion time and asks whether anomalous trapping still leaves a signature when short successful paths overwhelmingly dominate. The strictly positive coefficient answers yes and distinguishes intrinsic clock distortion from the rare change in path length that is the entire memoryless error. This is meaningful information absent from splitting probabilities and total-time statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

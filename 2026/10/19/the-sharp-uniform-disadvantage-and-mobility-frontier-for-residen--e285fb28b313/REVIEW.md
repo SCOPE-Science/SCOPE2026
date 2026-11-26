@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The weighted resident balance \(\int Qr=0\), the strict positive Rayleigh perturbation \(w=1+\epsilon r\), strict diffusion monotonicity, and Neumann perturbation theory collectively establish the entire parameter frontier. The exact rational verifier reproduces the analytical example's \(1/35\) and \(13/700\) bounds and the coefficient \(C=1/32\). The continuum limits are analytically proven, not inferred from finite tests.
+## correctness
 
-## Originality — PASS
-The Braverman–Lawson primary study explicitly leaves the equal-capacity nonideal-resident case as Question 1(a); its invasion theorem requires additional carrying-capacity advantage. Prior discrete-patch nonideal invasion and movement-reduction theorems do not imply success for the prescribed continuous-space target \(Q=u_*\) or the exact uniform-disadvantage threshold. Accessible primary sources and targeted research searches disclosed no covering theorem. Residual risk persists from possibly unindexed stronger literature, and some equations in a discrete-patch predecessor had incomplete browser rendering.
+PASS
 
-## Mathematical value — PASS
-The theorem answers a motivated primary-source question and quantifies a sharp loss-versus-mobility tradeoff with an exact reproducible disadvantaged-invader example. It is not merely a restatement of the variational principle: resident resource balance supplies a strict sign that generic diffusion monotonicity does not.
+The no-flux balance gives ∫Qr=0, and r≡0 iff m/P is constant (test the homogeneous weighted Neumann equation by m/P). With v=Qw the operator is self-adjoint in L²(Q dx). The trial w=1+εr has a positive linear term 2ε∫Qr² against a quadratic diffusion cost, so the eigenvalue is strictly positive for each finite d. A constant positive principal eigenfunction would force r constant; the Rayleigh upper bound is therefore strict and the derivative is the strictly negative normalized Dirichlet energy. Interior bumps arbitrarily close to a maximizer give the d↓0 endpoint even for a boundary maximum. Normalize w=1+u with weighted mean u zero. On the mean-zero subspace the Neumann operator B=−Q⁻¹ div(a∇) has a bounded inverse; projecting the eigen-equation gives dBu=r+(I−Π)ru−Λu. The bounded potential and bounded Λ imply u=h/d+O(d⁻²) in weighted L². The mean equation gives Λ=∫Qru/∫Q=C/d+O(d⁻²), with C=∫a|∇h|²/∫Q>0. Constant c shifts the eigenvalue by −c exactly; strict monotonicity and the limits give the stated unique cutoff and cd_c→C. Direct cosine moments in the witness give potential, energy and norm squared per π equal to 1/16, 1/32 and 35/32; capacity minima are 5/12 and 61/150, and C=1/32.
 
-## Limits
-Linear invasion, not eventual global exclusion or coexistence, is proved. The uniform carrying-capacity disadvantage and smooth positive habitat assumptions are material. Independently auditing the result is outside this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equal-capacity invasion substantially overlaps a distinct indexed result and is explicitly an open question in the cited primary paper, not a new general spectral principle. The supported distinction is the entire additive-loss/mobility frontier for the prescribed resident target, including its Neumann corrector and inverse scaling; neither that primary paper's advantage theorem nor the indexed fixed-mobility proportional-loss threshold establishes it.
+
+## value
+
+PASS
+
+The theorem answers a model-specific linear-invasion question for an explicit prescribed dispersal target and quantifies the tradeoff between a uniform ecological disadvantage and movement, rather than merely showing existence of some favorable strategy. The corrector predicts the mobility cutoff for small losses and the exact positive-disadvantage witness rules out an interpretation confined to equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

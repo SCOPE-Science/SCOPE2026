@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:45:33.737002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 29–56; VERIFICATION.md and CHECK.py inspected without execution",
+        "Independent replay: cd /workspace && python3 branches/audit-replay.py 5; root-of-unity phase grids and direct time-domain fourth autocorrelation DFT at the specified entries for N=4,6,8,10."
+      ],
+      "rationale": "With the stated unnormalized lag DFT, replacing x+t_i by independent summation variables gives the product of the r Fourier factors including the negative sum frequency, with no normalization factor. Shifting the x-sum by N/2 proves every odd autocorrelation zero; the Fourier support and conjugate symmetry are as asserted. For equal power and equal selected samples the unit ratios satisfy h(2j+1)=h(2j−1)h(1)^2. Thus with z=h(1) they satisfy h(2j+1)=z^(2j+1). At N=4m the terminal indices 2m+1 and 2m−1 are paired by negation; at N=4m+2 the terminal index M=2m+1 is self-conjugate and its ratio is ±1. Both give z^N=1, including N=4 and 6; all ratios are precisely those of a cyclic translation. For reconstruction, the initial phase is an unknown parameter, not a freely chosen final phase: the normalized measured phases fix each higher phase as a monomial in it, and the terminal relation fixes its N-th power. For the lower bound, at fixed positive magnitudes and optionally fixed Nyquist sign the signal family is a full m-torus. Each individual coefficient is zero or a constant times a character there. Fewer than m such rows in the integer exponent matrix have a positive-dimensional kernel. A finite translation orbit cannot exhaust a fiber; this proves the claimed fixed, nonadaptive individual-entry lower bound.",
+      "residual_risks": [
+        "The replay checks small cyclic orders, discretized phases and numerical DFT normalization. The recurrence and torus argument, rather than these computations, apply to continuous phases and all orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agulnick–Busick-Warner imply completeness through order 6 by the index-two theorem with v=2, not entry-count optimality at order 4. Bendory–Edidin–Kreymer treat generic linear measurements and give a phase-marching heuristic for known nonvanishing full power, known mean and a root-of-unity first phase. Casper–Orozco's N=6 example lacks the odd frequency 3."
+        ],
+        "reasoning": "The odd coset has zero mean and missing even frequencies, so the marching heuristic's hypotheses are not the same. The odd-lag orders vanish here, but the order-6 data in the index-two theorem cannot be dropped solely by that theorem. A sparse-support counterexample doesn't contradict full odd-support reconstruction.",
+        "searches": [
+          "arXiv:2604.13310v1, Theorem B",
+          "arXiv:2103.01551, Theorem 1.1, Corollary 1.2 and section 3.3",
+          "arXiv:2503.21022v1, Example IV.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary finding 6ca0ac34f4ec; arXiv:2604.13310v1, 2103.01551, 2503.21022v1; primary access attempts and secondary account for DOI 10.1107/S0108767394009827"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-array comparator builds a character by using every available equal-sum relation and a three-translate argument. The published phase-marching discussion requires full nonvanishing power and special initial phase, and has no fixed-entry lower bound in this class. The read secondary account of Grünbaum–Moore reports completeness through order 6 for even-order rational cyclic signals."
+        ],
+        "reasoning": "Full-data equivalence and generic marching precedents do not supply a uniformly identifying subset. Selecting the recurrence that advances by two, closing it at the appropriate parity boundary, and matching its length with a dimension obstruction are the additional steps. Neither the rational whole-order result nor its unresolved hypothesis about the mean gives the claimed minimum.",
+        "searches": [
+          "6ca0ac34f4ec, phase ratios around offsets 2385 and 2918",
+          "arXiv:2103.01551, section 3.3 at offset 18094",
+          "DOI 10.1107/S0108767394009827, primary OA retrieval and search for an alternate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In distinct 6ca0ac34f4ec the full trispectrum forces r(s1)r(s2)=r(s3)r(s4) for equal-sum pairs in the support."
+        ],
+        "reasoning": "Phase ratios, Fourier polyspectrum monomials and fourth-autocorrelation equality are equivalent when all entries are measured. The frozen claim uses only a chain of specified relations and a terminal constraint. The whole-array implication cannot be reversed to give those few measured entries automatically.",
+        "searches": [
+          "Resultary match 6ca0ac34f4ec, phase ratio and Freiman homomorphism proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct local match 6ca0ac34f4ec was read at its Finding and proof of the full-array result: support greater than 2|H|/3 in a single index-two coset suffices under equality of the entire fourth autocorrelation. The frozen full odd coset satisfies that condition."
+        ],
+        "reasoning": "This counts as demonstrable broader full-spectrum coverage regardless of the two records' same-day ordering. It is not a catalogue of minimal sample designs, and no exact competing count/design was confirmed in the inspected entries.",
+        "searches": [
+          "Resultary match 6ca0ac34f4ec"
+        ]
+      },
+      "rationale": "The distinct indexed full-fourth-order coset theorem already implies full-spectrum reconstruction for this class. The supported increment is the exact minimum number of individual entries with the power spectrum, including the specified deterministic design, proof for all allowed signals, and lower bound against every fixed smaller design. A generic few-measurement theorem or the larger full-spectrum result does not determine the number or this subset; generic recursive phase recovery is prior method, not itself credited.",
+      "residual_risks": [
+        "The Grünbaum–Moore primary text remains inaccessible and its mean hypothesis is unresolved. An earlier equivalent fixed sample selection or phase monomial lattice construction could remain unindexed. No historical priority is inferred from a same-day timestamp."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full-array identifiability, not the specified sparse optimal measurement set",
+          "evidence": "Coverage at support size >2|H|/3 includes the full odd coset; proof assumes every equal-sum relation available from the complete fourth autocorrelation.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-one-third-spectral-hole-threshold-for-fourth-autocorrelati--6ca0ac34f4ec",
+          "material_read": "Finding at offset 0; Freiman relation and character proof near offsets 2385 and 2918",
+          "method": "Resultary search and bounded local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp one-third spectral-hole threshold for fourth-autocorrelation recovery",
+          "trigger": "Strongest distinct indexed overlap on real signals supported in one odd coset"
+        },
+        {
+          "assessment": "Broader whole-order result and source of secondary historical wording",
+          "evidence": "If S^v is an index-two subgroup of the subgroup generated by S, orders through 3v give a complete set. For the full odd coset v=2. The discussion attributes completeness through order 6 for rational cyclic sequences of even period to Grünbaum–Moore.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.13310v1",
+          "material_read": "Theorem B, p. 5 / offset 12448; discussion of rational cyclic predecessors at p. 3 / offset 6840",
+          "method": "OA PDF bounded passages",
+          "title": "Higher-Order Autocorrelations on Finite Abelian Groups",
+          "trigger": "Direct higher-order theorem for support in an index-two coset"
+        },
+        {
+          "assessment": "Generic measurement guarantee and related recursion, not the frozen nonadaptive individual-entry optimum",
+          "evidence": "Section 3.3 assumes full nonvanishing power, known mean and root-of-unity first phase; it describes successive coefficients and says the same approach can apply to the trispectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.01551",
+          "material_read": "Theorem 1.1 and Corollary 1.2, p. 2 / offset 7375; section 3.3, offset 18094",
+          "method": "OA PDF bounded passages",
+          "title": "Signal recovery from a few linear measurements of its high-order spectra",
+          "trigger": "Prior sparse higher-order measurements and possible explicit recursive design"
+        },
+        {
+          "assessment": "Relevant counterexample outside full odd-frequency support",
+          "evidence": "The support in the cyclic-order-six construction is only {1,−1}, omitting the odd Nyquist frequency.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.21022v1",
+          "material_read": "Example IV.1, pp. 11–12 / offset 92655",
+          "method": "OA PDF bounded passage",
+          "title": "Reconstructing Gridded Data from Higher Autocorrelations",
+          "trigger": "Possible even-cycle fourth-order counterexample or coverage"
+        },
+        {
+          "assessment": "No exact sample-design comparison can be certified from the unavailable primary text. The frozen nonzero-constant-coefficient characterization is not supported by the secondary statement read and is not relied on.",
+          "evidence": "The secondary account gives rational-valued whole-order completeness through six at even order and does not state a nonzero-mean condition; even if directly applicable it would not establish the frozen count.",
+          "identifier_or_url": "https://doi.org/10.1107/S0108767394009827",
+          "material_read": "Primary full text unavailable; Agulnick–Busick-Warner p. 3's account read instead",
+          "method": "Lawful OA DOI attempts, direct and VPN, plus targeted search for alternate copy",
+          "title": "The Use of Higher-Order Invariants in the Determination of Generalized Patterson Cyclotomic Sets",
+          "trigger": "Earlier whole-order cyclic invariants and disputed mean hypothesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof sections 1–3; full-array comparison in 6ca0ac34f4ec and generic measurements in arXiv:2103.01551"
+      ],
+      "rationale": "The proof turns a full higher-order spectrum into an explicit set of only floor(N/4) entries once power is known, in a natural all-zero-bispectrum family. The sharp match to a lower bound, including the two parity cases and every full-odd-support signal, is the valuable increment, not reconstruction using the entire fourth-order array.",
+      "residual_risks": [
+        "Not a statement about stable recovery, adaptive designs, arbitrary linear measurements, or remaining odd-frequency holes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

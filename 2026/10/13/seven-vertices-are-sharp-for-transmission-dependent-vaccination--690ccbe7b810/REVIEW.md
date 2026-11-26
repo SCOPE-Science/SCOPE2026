@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact probability is derived by partitioning the seed component into sizes one, two, and at least three. For each forest, an infected pair corresponds uniquely to one open edge and closure of all other incident edges, yielding the polynomial identity in RESULT.md. The Prüfer bijection exhausts every labeled tree through seven vertices; canonical center-rooted encodings reduce these to all 24 unlabelled shapes. For 23 shapes, every competitor difference against a designated fixed vaccinee is exactly nonnegative by the transformed integer coefficient formula. For the remaining shape, explicit factorizations prove a strict reversal and a unique crossover. The verifier was extracted from its package path and executed successfully, with 35 independent exact edge-subset checks of the witness. A finite census is not a theorem about arbitrarily large trees; no such claim is made.
+PASS
 
-## Originality — PASS, with residual risk
+Conditional on seed x in T−v, the two complementary cases are that all incident edges are closed, or exactly one edge xy is open and all remaining edges incident to either endpoint are closed. This yields the frozen formula after averaging over n−1 post-deletion seeds, including isolated seeds and order two. I inspected the proof, verification notes and checker, and independently generated tree shapes by adding a leaf at every location of each previous shape; deduplication by the smallest recursively sorted rooted encoding over all choices of root is complete up to isomorphism. I summed seed counts for components of size at least three by exhaustive edge-state enumeration, padding ignored incident edges so all candidates share the same degree n−1 Bernstein basis. Coefficientwise comparisons certify a common minimizer in 23 of 24 shapes; nonzero nonnegative differences are strictly positive on the open interval. The only exception is the subdivided double claw at order seven. Its bridge, hub and leaf numerators (denominator 6) are 6p², 9p²−5p³ and 15p²−11p³+2p⁴. Leaf-minus-bridge and leaf-minus-hub are strictly positive throughout (0,1), and hub-minus-bridge is p²(3−5p)/6, giving the stated three-way tie and both strict phases. Replay: python3 -I /workspace/review_math.py 3. The proof uses independent bonds, not independent outgoing Markov SIR transmissions.
 
-Schneider et al. (arXiv:1102.1929) analyze immunization units through large-network epidemic percolation and component-size criteria. Holme (arXiv:1708.06456) enumerates small graphs for continuous-time SIR under distinct spread and sentinel objectives. Altarelli et al. (Phys. Rev. X 4, 021024) use message-passing for containment optimization. In the materially inspected full-text sources, the exact three-case tail-risk objective with **one deleted vaccinee**, a **uniform post-vaccination seed**, and the **sharp seven-vertex topology classification** was not established. Optimization of expected epidemic size, a fixed seed's reachability, or total susceptible giant-component size does not imply a tail-probability optimizer. Specific specialized tree-reliability or percolation literature not located could still contain the identical classification. Search nonhits by themselves do not prove novelty; the novelty assessment is limited to the actual inspected evidence and implication comparisons.
+## originality
 
-## Value — PASS
+PASS
 
-The natural risk of crossing a small outbreak threshold is different from minimizing expected infections. The smallest contact-tree size on which a one-dose vaccination priority reverses is a meaningful exact benchmark for risk-sensitive intervention design; the explicit seven-vertex topology explains two competing mechanisms, blocking a central connector at small transmission probability and removing a hub when the probability is high. The complete, sharp finite classification is not a numerical example alone. The result is a model-level benchmark, not a claim about clinical policy or larger networks.
+The distinct claim is the first tree order, unique exceptional shape, and exact change in optimal pre-exposure vertex removal for the three-case tail event under iid bonds and a uniform surviving seed. The closest same-day mean-objective result gives a different classification, and the same-day exact three-case result optimizes over unvaccinated tree shapes rather than choices within a tree. The reviewed work does not establish priority beyond the comparisons made.
 
-## Scientific limitations
+## value
 
-Independent edge activation, perfect single-site immunity, a fixed uniform seed after vaccination, and the threshold of three cases are essential. Exhaustiveness stops at seven vertices. The comparison with published literature has a residual unlocated-prior-work risk. External independent audit and experimental ecological/epidemiological validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Size three is the first outbreak threshold that tests more than whether any transmission occurred. The exact bridge-versus-hub switch resolves when targeting that tail event requires tuning the intervention to transmissibility, and separates the answer from that for mean case count in the same simple model. The tight order and single exceptional topology provide a motivated benchmark for finite-tree risk optimization, not a claim about practical vaccine efficacy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

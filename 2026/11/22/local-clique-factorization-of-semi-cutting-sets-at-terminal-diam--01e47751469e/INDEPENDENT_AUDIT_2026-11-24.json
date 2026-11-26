@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:21:27.462714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59",
+        "Frozen VERIFICATION.md lines 19–27 and both Python checkers inspected, not executed",
+        "Bosek–Serra–Vena, arXiv:2611.20287v1, Lemma 2.6 and Theorem 4.1"
+      ],
+      "rationale": "Distance cannot decrease under deletion. For adjacent terminals the edge is compulsory. For nonadjacent terminals the original distance is two, so every geodesic has one intermediate vertex. A terminal intermediate is already dealt with by the compulsory edges; a nonterminal v forbids retaining both edges to any nonedge in G[L_v]. Thus the retained terminal neighbors form exactly a clique, independently at each nonterminal. Nonterminal-nonterminal deletions are free. This proves the polynomial and works when original nonterminal components or newly disconnected terminal pairs are present. Local maximum cliques minimize and count the minimum sets, while inclusion-maximal cliques give inclusion-minimal sets, with no free deletions. For example a cone on K2 disjoint union K1 has local maximal clique sizes 2 and 1. The cone on two triangles has e_T=6, d_v=6, local clique counts (1,6,6,2), hence z^9(z^3+6z^2+6z+2); the cubic's discriminant is -108. In the multipartite case a terminal part of size p_i>0 contributes one factor z^(p_i-1)(z+p_i) for every nonterminal outside it. Local maxima and maximal choices coincide (choose one from every available part); two optima differ by one edge swap exactly when they differ in one of these disjoint choice coordinates. The factors give nonpositive real zeros and the strictly stronger normalized Newton inequality gives strict log-concavity wherever three positive coefficients occur. For t>=3, three or more occupied parts already cost at least t compulsory edges. Two parts give pq>=p+q-1, with equality requiring one singleton terminal count and all nonterminals in the part with t-1 terminals. One terminal part costs (t-1) times the number of outside vertices. These cases give precisely stars, and a star realizes equality in each possible terminal placement.",
+      "residual_risks": [
+        "The proof does not depend on finite census coverage. The multipartite supplementary checker iterates a finite family with an edge-count cap, not every order-six instance. The result does not cover original terminal distances above two or assert star-only equality for two terminals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives |F|>=|T|-1 for general graphs, but not a size-generating polynomial or the complete multipartite equality converse. A maximal-geodesic transversal theorem is not a broader theorem on the same terminal family."
+        ],
+        "reasoning": "The new enumerator concerns all sizes and every placement under the terminal diameter hypothesis. The lower bound is prior; the full restricted counting result and its structural consequences are not covered by that bound.",
+        "searches": [
+          "arXiv:2611.20287v1 Lemma 2.6, Theorem 4.1 and adjacent discussion",
+          "Resultary exact semi-cutting and geodesic-transversal polynomials",
+          "Focused primary-literature lookup on semi-cutting and small terminal diameter"
+        ]
+      },
+      "checked_sources": [
+        "Bosek–Serra–Vena arXiv:2611.20287v1",
+        "Prabha–Sandhiya–Manuel arXiv:2610.36821v1",
+        "Original Resultary findings 54c9edbfc8eb and 624506a8e19c",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.6 makes the problem an edge hitting set but does not impose a product for arbitrary geodesic constraints. The diameter-two proof identifies all forced variables and disjoint local conflicts. The bipartite formula does not imply the treatment of arbitrary local clique polynomial factors (including the nonreal-root cone) or the product of choices over distinct terminal parts when r>2."
+        ],
+        "reasoning": "The novelty is the exact decomposition with its explicit counting and rigidity consequences, not general transversal theory or Newton's inequalities. Once the decomposition is established some of the displayed corollaries are elementary.",
+        "searches": [
+          "Bosek–Serra–Vena arXiv:2611.20287v1 Lemma 2.6 and Theorem 4.1",
+          "Resultary bipartite polynomial 54c9edbfc8eb, original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semi-cutting here means hitting every geodesic of every terminal pair, per Lemma 2.6. After compulsory deletions the equivalent local problem is vertex cover in the graph on the incident terminal edges whose forbidden pairs are nonedges of G[L_v]; its surviving complements are cliques. The edge-geodesic-transversal problem hits maximal geodesics of the whole graph, which is not that family."
+        ],
+        "reasoning": "The equivalence supplies the starting formulation, not an already stated reduction and enumerator for this diameter class. The maximal-geodesic polynomial concerns a different collection of constraints.",
+        "searches": [
+          "Resultary: semi-cutting set polynomial, shortest-path transversal, clique factorization",
+          "Bosek–Serra–Vena arXiv:2611.20287v1 Lemma 2.6",
+          "Prabha–Sandhiya–Manuel arXiv:2610.36821v1 definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact bipartite record gives the polynomial, minima and counts, real-rootedness and equality cases for all complete bipartite graphs and terminal placements. At r=2 the frozen formula is exactly its polynomial, including empty terminal parts. The catalogue also gives a polynomial for transversals of maximal geodesics, not a matching general semi-cutting enumerator."
+        ],
+        "reasoning": "This is material exact-subclass coverage, not support for novelty in the bipartite case; it does not cover multipartite instances with more parts or arbitrary G[L_v]. Same-day dating does not order the results.",
+        "searches": [
+          "Resultary SCOPE-all-semi-cutting-sets-of-complete-bipartite-graphs-a-real-rooted--54c9edbfc8eb",
+          "Resultary SCOPE-complete-edge-geodesic-transversal-polynomials-and-unmixedness-o--624506a8e19c"
+        ]
+      },
+      "rationale": "Credit the existing geodesic-hitting characterization and universal lower bound, standard generating-function multiplication, and the exact overlap in the complete bipartite subclass. The inspected statements do not cover the full terminal-diameter-two enumerator and its clique-polynomial realization, or the combination of multipartite factorization, optimum exchange structure and rigidity beyond two parts.",
+      "residual_risks": [
+        "No historical-priority finding; the exact bipartite overlap is a same-day catalogue record. The searches cannot exclude an unindexed equivalent under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational characterization and bound, not the claimed enumeration",
+          "evidence": "Hits all terminal-pair geodesics and bounds every semi-cutting set below by |T|-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.20287v1",
+          "material_read": "Lemma 2.6, p. 3 offset 10600; Theorem 4.1 and proof, p. 5 offset 20100",
+          "method": "OA original PDF passages",
+          "title": "Structural Properties of Semi-Cutting Sets",
+          "trigger": "Same mathematical object, possible structure and rigidity coverage"
+        },
+        {
+          "assessment": "Exact bipartite overlap, including |T|>=3 rigidity, not full generality",
+          "evidence": "Substitute r=2 and p_1=x,p_2=y in the assigned formula; the earlier comparison also treats |T|=2 equality, outside the claimed rigidity regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-semi-cutting-sets-of-complete-bipartite-graphs-a-real-rooted--54c9edbfc8eb/RESULT.md",
+          "material_read": "Finding at offset 0, factor conventions and equality cases",
+          "method": "Local Resultary mirror",
+          "title": "All semi-cutting sets of complete bipartite graphs: a real-rooted polynomial",
+          "trigger": "Closest exact polynomial for a full subclass"
+        },
+        {
+          "assessment": "Different transversal family",
+          "evidence": "The edge set must meet maximal geodesics of the whole graph, not every geodesic between designated terminals.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.36821v1",
+          "material_read": "Definition, p. 1 offset 1000",
+          "method": "OA original PDF passage",
+          "title": "The Edge Geodesic Transversal Problem",
+          "trigger": "Closely related parameter under different terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59",
+        "Bosek–Serra–Vena Theorem 4.1",
+        "Resultary 54c9edbfc8eb as the exact bipartite benchmark"
+      ],
+      "rationale": "Counting all size classes is a natural refinement of the published semi-cutting minimization question. The factorization tells a future researcher exactly which local graph invariants control every coefficient and optimum, and the cone construction explains why real-rootedness from the bipartite or multipartite cases cannot persist under just the terminal diameter condition. The multipartite result describes all optima and their exchange graph, and tests sharpness of the published bound for each placement rather than merely reproducing that bound.",
+      "residual_risks": [
+        "It is a structural enumeration, not a polynomial-time algorithm for computing arbitrary clique polynomials or a result at larger terminal diameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

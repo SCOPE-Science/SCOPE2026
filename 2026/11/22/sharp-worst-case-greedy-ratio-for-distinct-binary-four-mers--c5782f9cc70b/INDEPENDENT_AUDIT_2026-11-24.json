@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:46:02.849636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66, VERIFICATION.md, verify_binary_four.cpp and output_binary_four.txt (read, not executed)",
+        "Independent exact replay and witness check"
+      ],
+      "rationale": "Independently reproduced the full finite classification with an exact de Bruijn-graph BFS for OPT (state: final triple, exact mask of factors seen, followed by minimization over supermasks), and a separately written head-to-tail matching recursion for all maximizing ordered Greedy ties. To justify the compression without relying on the retrieved literature, maintain pairwise substring-free current strings and a nonincreasing maximum overlap k, initially at most 3. Upon merging X to Y at overlap k, any overlap from XY to another Z exceeding k either comes wholly from Y, contradicting maximality, or contains all of Y in Z, contradicting substring-freeness; the incoming case is symmetric. If XY newly contains Z, the occurrence must start before Y starts and end after X ends, giving a larger X-to-Z overlap. The reverse containment would put X in Z. Thus the invariants hold after every merge, including ties; once zero is reached, all remaining merges save zero. The length of each positive overlap is determined by the end words. Reversal with merge directions reversed, and complementation, preserve both problems. All 65,535 nonempty masks entered the symmetry filter (16,959 representatives); exact cross-products give the unique best representative 1343, ratio 17/11, and labeled masks 1343, 5431, 60584, 64672. Independent literal-string recursion visited 418 states for mask 1343, confirmed the stated legal length-17 output is among the worst outputs, and verified the given length-11 optimum by the factor-window lower bound.",
+      "replay_paths": [
+        "/workspace/replays/binary_four.py",
+        "/workspace/replays/binary_four_witness.py",
+        "/workspace/replays/binary-four-1-8191.txt",
+        "/workspace/replays/binary-four-8192-16383.txt",
+        "/workspace/replays/binary-four-16384-24575.txt",
+        "/workspace/replays/binary-four-24576-32767.txt",
+        "/workspace/replays/binary-four-32768-40959.txt",
+        "/workspace/replays/binary-four-40960-49151.txt",
+        "/workspace/replays/binary-four-49152-57343.txt",
+        "/workspace/replays/binary-four-57344-65535.txt"
+      ],
+      "residual_risks": [
+        "Ordinary ordered maximum-overlap Greedy, distinct binary four-mers and worst-case ties only; this is an exhaustive mathematical computation, not a formal proof-assistant certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 68–80 identifies the unrestricted length-four bound as 2, and the cited unrestricted length-three exact result as 9/5; the endpoint result is cited as Lemma 2.2. Primary retrieval did not verify those locations independently."
+        ],
+        "reasoning": "A length-four upper bound of 2, a length-three sharp bound, and a general endpoint reduction do not supply the sharper numerical bound or equality census for binary length four.",
+        "searches": [
+          "DOI 10.1007/978-3-319-19929-0_26",
+          "arXiv:2608.20018, sections 2, 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_binary_four.cpp and output_binary_four.txt",
+        "Configured Resultary records c5782f9cc70b, 25f98f2d59f0, a4c0a785c07b (index)",
+        "arXiv:2608.20018 and CPM 2015 length-four presentation (attempted; not inspected in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-obstruction and per-instance tie-law results bound or describe smaller domains. The frozen proof supplies the global tie-complete recurrence; the independent exact replay checks the rest of the finite domain."
+        ],
+        "reasoning": "A threshold for the first violation of 3/2 gives a lower bound for the global supremum, but does not logically cap it. The reduction to endpoints enables computation but does not evaluate the resulting optimization.",
+        "searches": [
+          "Resultary records 25f98f2d59f0 and a4c0a785c07b",
+          "arXiv:2608.20018, Lemma 2.2",
+          "Frozen RESULT.md lines 37–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact all-subset search hit c5782f9cc70b is the assigned record itself. An indexed distinct record a4c0a785c07b concerns the exact tie law for a particular eight-word obstruction."
+        ],
+        "reasoning": "The maximum of the support of a tie law recovers the worst tie for that input if all legal choices have positive probability; it does not optimize across inputs. Here the population of inputs is the full nonempty power set.",
+        "searches": [
+          "Resultary: worst legal tie Greedy versus shortest common superstring, all distinct binary four-mers, 17/11",
+          "Resultary: tie output distribution for eight binary four-mers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed same-day record 25f98f2d59f0 reports four eight-word sets with lengths 11 and 17 in a minimum-size threshold analysis. No distinct all-cardinality census was returned in the bounded results."
+        ],
+        "reasoning": "The eight-word result supplies attainment and reported overlapping examples. To cover the current claim a table must also exclude higher or tied ratios at cardinalities 9–16. The available summary states a different range/question; uninspected content is not ruled out.",
+        "searches": [
+          "Resultary: eight binary four-mers necessary and sufficient to cross the 3/2 Greedy ratio",
+          "Resultary: full binary length-four worst tie, all subset sizes"
+        ]
+      },
+      "rationale": "Pass is for the all-cardinality upper bound and absence of any other equality sets, not for the eight-word obstruction, the exhibited sharp instance, or endpoint compression by itself. Closest indexed companion claims overlap on the eight-word extremizers; no inspected statement imposes the necessary upper bound for larger input sizes. Same-day dating does not settle priority. Literature and companion-file access limits are material to the historical judgment, not to the independent census.",
+      "residual_risks": [
+        "Full text of the indexed same-day companions was not retrieved; a broader computation in their uninspected material could affect the judgment.",
+        "The precise scope of the inaccessible papers was not established independently; no priority order is inferred from dates or absent hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap; global coverage not demonstrated",
+          "evidence": [
+            "Minimum cardinality eight for a ratio above 3/2; four labeled 11/17 examples in the summary."
+          ],
+          "identifier_or_url": "Resultary:25f98f2d59f0",
+          "material_read": "Indexed claim summary; original Finding could not be retrieved",
+          "method": "Configured Resultary index and targeted mirror attempts",
+          "title": "Eight binary four-mers are necessary and sufficient to cross the Greedy ratio threshold",
+          "trigger": "Same alphabet, tie model and extremizers"
+        },
+        {
+          "assessment": "Per-instance law, not a stated global optimization",
+          "evidence": [
+            "Output law for the eight-word obstruction."
+          ],
+          "identifier_or_url": "Resultary:a4c0a785c07b",
+          "material_read": "Indexed summary only",
+          "method": "Configured Resultary index",
+          "title": "The exact random-tie output law of a binary four-mer Greedy superstring instance",
+          "trigger": "Same eight-word obstruction and tie behavior"
+        },
+        {
+          "assessment": "The reported Lemma 2.2 is an ingredient; full-paper coverage remains unverified",
+          "evidence": [
+            "Frozen RESULT.md lines 37–58 and 68–80; independent argument for the reduction in the correctness assessment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+          "material_read": "Frozen citation and claim summary; primary abstract/PDF/HTML attempts timed out",
+          "method": "Targeted OA attempts",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Cited overlap reduction and nearby exact classifications"
+        },
+        {
+          "assessment": "Reported general ratio 2 is weaker; uninspected tables remain a risk",
+          "evidence": [
+            "Frozen RESULT.md lines 68–79."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-19929-0_26",
+          "material_read": "Frozen relationship discussion and citation; targeted public presentation retrieval timed out",
+          "method": "OA attempt at https://cpm.cs.helsinki.fi/cpm15/26_Kulikov.pdf",
+          "title": "Greedy Conjecture for Strings of Length 4",
+          "trigger": "Same input word length, broader alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–19 and 58–74",
+        "Resultary:25f98f2d59f0 and a4c0a785c07b (index)"
+      ],
+      "rationale": "Binary four-mers are a natural complete finite domain of distinct equal-length reads. The worst legal tie quantifier is an algorithmic guarantee, not a distributional observation. Settling every larger input size and isolating one exact equality orbit turns a known obstruction into a sharp guarantee for the domain. No claim is made about larger alphabets, longer words or random-tie performance.",
+      "residual_risks": [
+        "The main contribution is the full finite-domain worst-case guarantee, not ecological, sequencing, or general superstring-algorithm performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

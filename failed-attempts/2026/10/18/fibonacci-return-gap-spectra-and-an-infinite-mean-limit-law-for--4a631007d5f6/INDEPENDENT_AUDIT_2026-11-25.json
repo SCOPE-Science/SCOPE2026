@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:40:59.088187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66; VERIFICATION.md and verify.py (inspected)",
+        "Replay: python3 /workspace/checks/baum_sweet_trailing_digits.py"
+      ],
+      "rationale": "The binary suffix language tiles by 1 and 00. For suffix length l>=2 the initial 00 and 1 blocks are ordered, have sizes F_(l-1) and F_l, and meet at a unique gap 2^(l-2)+1+min(T_(l-1)). Minima alternate 0 and 1; maxima are 2^l-1. A bridge first made at length j is inherited in F_(l-j+1) copies, including the base l=j. Summing over the positive shells reproduces F_(N-j+2)-1. There are N shell boundaries including 0 to 1, with alternating gaps 1,2 starting at 1. This checks N=1,2 and the coincidence j=2,3. The limiting atoms from Binet sum to one (so no mass escapes), their geometric tail has the claimed value, and the mean series diverges since 2/phi>1. The finite mean follows directly by telescoping from 0 to 2^N-1. A separately written trailing-digit recurrence checks every dyadic cutoff N=1..20; it is corroboration, not the infinite proof.",
+      "residual_risks": [
+        "The audited theorem concerns dyadic windows only, not arbitrary cutoffs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Finding has H_2(t)=h_(t+2) and lambda_2=phi, and states frequencies for arbitrary cutoffs X."
+        ],
+        "reasoning": "Its r=2 frequencies give the dyadic law as a special case, with t=0 and 1 contributing to the same gap. Its start-position shell convention includes one outgoing gap at the terminal selected index; it must be removed when recovering a wholly internal finite-window histogram.",
+        "searches": [
+          "Resultary Baum–Sweet gap spectrum and limit query",
+          "2026/11/8/SCOPE-exact-return-gap-spectrum-and-frequencies-of-generalized-baum-sw--15a79d8d43cf"
+        ]
+      },
+      "checked_sources": [
+        "The four local SCOPE Finding passages above; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "OEIS A060142, A219608, A219609 and A086747 (recurrence comment at offset 990)",
+        "Bounded primary-literature search on Baum–Sweet gap distributions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shell-law Finding specifies F_(L-t-2) copies of within-shell gap Delta_t, initial and intershell gaps, and the same limiting frequencies.",
+          "A086747 records the generating-function recursion g(x)=xg(x^2)+g(x^4)."
+        ],
+        "reasoning": "Summation of the explicit shell counts and boundaries implies the full dyadic histogram. The earlier support and series recurrences determine the gap data, but extracting the stated closed form and law from those alone requires a derivation; no earlier primary theorem proving them was established by the bounded literature comparison.",
+        "searches": [
+          "Baum-Sweet word consecutive gap distribution Fibonacci multiplicities dyadic cutoff limiting law",
+          "2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+          "OEIS A060142 and A086747"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/25 Finding has exactly the boundary terms floor((K+1)/2), floor(K/2), bridges G_m=2^(m-2)+1+1_{2|m}, and weight F_(K-m+2)-1; it gives the same limiting masses, tail and infinite mean.",
+          "The 11/2 Finding uses r=j-1 for higher gaps and combines the two gap-three terms as F_(M+1)-2 where both contributions occur."
+        ],
+        "reasoning": "Changing labels K=N and G_m=h_m gives the frozen spectrum directly; the frozen finite mean is determined by this spectrum, or by the already specified endpoints and support cardinality. These are distinct overlapping records, not a hit consisting of the assigned record itself.",
+        "searches": [
+          "Resultary: Baum–Sweet word Fibonacci gap multiplicities all dyadic cutoff limiting gap distribution infinite mean",
+          "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+          "2026/11/2/SCOPE-exact-fibonacci-gap-spectrum-of-baum-sweet-support--138012f26e30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A060142 gives the closure rules 2x+1 and 4x from 0; A219608 is exactly the odd subsequence; A219609 is half its consecutive differences and links a 10,000-term table."
+        ],
+        "reasoning": "Each odd support element is 2x+1 for one support element x, in increasing order, so the consecutive gaps were already tabulated exactly. Tabulation does not itself establish the closed-form histogram or the law.",
+        "searches": [
+          "OEIS A060142, A219608, A219609 and A086747"
+        ]
+      },
+      "rationale": "Substantive equivalent coverage is established in distinct published records: a direct matching all-cutoff formula and limit, and a stronger family covering the classical limit. The existing OEIS gap sequence is not, by itself, an explicit statement of these quantitative results. The matching SCOPE path dates are later than the frozen path date; the comparison establishes current published coverage and no distinct surviving content from the frozen claim, not who first obtained it or whether the frozen derivation was independent.",
+      "residual_risks": [
+        "No priority claim is established by path dates alone.",
+        "The full Baum–Sweet and Allouche papers were not inspected; priority of the quantitative theorem is not adjudicated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage",
+          "evidence": "N_K(g) bridge sum with F_(K-m+2)-1 and exact limiting law.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, statement comparison",
+          "title": "The complete return-gap law for the Baum–Sweet sequence",
+          "trigger": "Same dyadic windows and gap theorem"
+        },
+        {
+          "assessment": "Equivalent spectrum and limiting law",
+          "evidence": "Higher gaps match by j=r+1; H_M(3) consolidates duplicate bridges.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fibonacci-gap-spectrum-of-baum-sweet-support--138012f26e30",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact Fibonacci gap spectrum of Baum–Sweet support",
+          "trigger": "Same statistic via reindexing"
+        },
+        {
+          "assessment": "Equivalent by shell summation",
+          "evidence": "F_(L-t-2) copies of Delta_t, with boundary gaps and same limiting frequencies.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-dyadic-gap-law-for-the-baum-sweet-support--98bde352d9b4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact dyadic gap law for the Baum–Sweet support",
+          "trigger": "Potential shell-form equivalence"
+        },
+        {
+          "assessment": "Broader law with matching r=2 specialization",
+          "evidence": "H_2(t)=h_(t+2), lambda_2=phi, arbitrary cutoffs.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-return-gap-spectrum-and-frequencies-of-generalized-baum-sw--15a79d8d43cf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact return-gap spectrum and frequencies of generalized Baum–Sweet indicators",
+          "trigger": "Stronger possible family theorem"
+        },
+        {
+          "assessment": "Exact sequence coverage, not explicit histogram theorem",
+          "evidence": "A219608(n)=2 A060142(n)+1 in order; hence half its differences have the claimed sequence of gaps.",
+          "identifier_or_url": "https://oeis.org/A219609",
+          "material_read": "Definition and table link, offset 0; A219608 definition at offset 0; A060142 recursive rules at offset 0 and binary description at offset 2435",
+          "method": "OA sequence entry comparison",
+          "title": "Half of first differences of A219608",
+          "trigger": "Exact consecutive-gap database"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of the limiting law; A219609 for the baseline of explicit tabulation"
+      ],
+      "rationale": "As a mathematical result, a closed histogram and a normalized limit with infinite mean address a natural statistic of a classical automatic sequence. They identify rare large gaps that frequency convergence alone misses, and provide a reproducible benchmark beyond tabulation. This intrinsic value does not make the overlapping frozen finding separately original.",
+      "residual_risks": [
+        "No general automatic-sequence theorem or arbitrary-cutoff result is attributed to the frozen record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

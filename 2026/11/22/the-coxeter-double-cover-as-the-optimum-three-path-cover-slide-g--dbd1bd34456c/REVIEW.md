@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence proof classifies every maximum dissociation set of the fourteen-vertex Fano incidence graph, using a cardinality-eight exclusion and the unique side-line structure of each noncollinear triangle. It proves that all legal optimum one-token replacements coincide with incident slides and identifies the mobile graph as the canonical bipartite double of the Coxeter graph. The component's exact all-root distance shells were checked by two separately written exhaustive programs using different Fano incidence models; the standalone scripts are included. Finite BFS is exhaustive here because the graph has exactly fifty-six mobile vertices, with no inference to larger graphs.
+## correctness
 
-## Originality — PASS (with historical-priority qualification)
-The 2019 first-public preprint of Hoang, Suzuki and Yagita gives general reconfiguration complexity and algorithms, not this exact Heawood result. The 2022 Hoang caterpillar work treats a different graph class. The well-known Coxeter graph as the disjointness graph of noncollinear Fano triples and its fifty-six-vertex bipartite double are acknowledged rather than claimed. The new statement is a precise optimum three-path-cover realization, its two frozen states and the slide/jump coincidence. Published related studies of three-path covers on cyclic clique products and Heawood identifying codes concern other optimization constraints, so do not imply this realization. An earlier formulation in dissociation-set or Fano-geometry literature might still exist.
+PASS
 
-## Value — PASS
-The Heawood graph is the canonical smallest cubic girth-six incidence network. Its minimum path-cover configurations exhibit an unexpectedly rigid/mobile dichotomy, while all fifty-six mobile configurations form a named symmetric graph with known structure, constant degree and exact worst-case rerouting cost. The equality of local and unrestricted moves is directly informative for constrained maintenance and token-routing protocols on this network. The finite result is a complete, natural classification, not a sampled or arbitrary subcase.
+The complement of a three-path cover has induced maximum degree at most one. A size-eight such set can be assumed to have at least four points by Fano duality. With four points there are at most three lines meeting them at most once (and only one if the four points complement a line); with five points there is only one such line and with six or seven none. Size seven is attained by each shore. The one-point and two-point cases cannot supply enough allowable lines, nor can their duals. In a three-point/four-line optimum the points cannot be collinear (each remaining line meets their line, so four incidences would repeat a point). For a noncollinear triple each point has exactly one nonside line through it, so all four nonside lines together form a valid state. Its complement is also valid: the three side lines each meet the outside points once and their outside neighbors are distinct, as every pair of side lines meets within the triple. Duality gives exactly 28 states with four points, so these complements exhaust that case. A same-type swap is impossible since either the triangle or its side-line set determines the other (the triangle is the set of pairwise intersections of its sides). The pure shores are isolated. Cross-type jumping requires disjoint triangles; then the unique line in neither side set meets both triples at most once and must contain the one omitted point. Thus each cross-type jump slides along that incident flag, giving precisely the categorical Coxeter double. Independent direct enumeration of covers over all 42 simple three-vertex paths, construction of both move graphs and BFS from every mobile root confirm cardinality seven, 58 states, two isolates, 84 mobile edges, and shells (1,3,6,12,18,12,3,1), hence mobile radius and diameter seven.
 
-## Boundaries
-This is a single-graph theorem and not a claim about all graphs or larger projective planes. The disconnected total graph does not have a finite global diameter. The two isolated optimal covers remain isolated for both specified one-token move rules. Historical novelty remains qualified pending a broader human literature audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the exact optimum-cover realization and slide/jump equality, not the classical Coxeter graph, the double-cover operation, or their abstract graph metrics considered alone. The strongest related same-day record has an especially close Coxeter connection but a different optimizer family, state graph, and slide behavior. The checked statements support this distinction; neither catalogue dating nor inaccessible literature fixes priority.
+
+## value
+
+PASS
+
+This is an exact solution of a natural mobility question for a standard cubic geometry, not just an enumeration of the frozen states. The Fano incidence proof explains why an apparently stronger jump operation never adds a move and identifies the classical cubic lift governing all remaining configurations. The isolated-versus-mobile split and exact shell profile make a useful comparison instance for optimum-cover reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

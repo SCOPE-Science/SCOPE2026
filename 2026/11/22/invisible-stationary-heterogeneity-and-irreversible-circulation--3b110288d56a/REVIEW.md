@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact transition matrix is derived from the uniform focal/role-model rule, shared-return cancellation, Fermi response and fair mutation. Irreducibility follows because every one-bit mutation transition has positive probability. For any unequal-cost pair, the near-full-cooperation square has forward/backward transition-product ratio strictly different from one, contradicting Kolmogorov's detailed-balance criterion. For equal costs the displayed positive weights satisfy every edgewise detailed-balance identity. The two-player distribution solves all stationarity equations exactly and yields the explicit signed current. The full finite-state checker independently reconstructs the matrices and verifies the rational example. No finite sampling is used as the infinite-parameter proof.
+PASS
 
-## Originality
+The common return cancels in the payoff comparison; a defector copying cooperator j uses p_j, while cooperator i copying a defector uses q_i. A reset contributes u to any specified flip. This gives the stated hypercube kernel; every flip and self-loop has positive probability. On the square missing only i and j at its bottom, the common first addition, the removals from the full set, and common factors cancel to give the stated ratio. Its two factors have the same strict comparison sign because q=1-p, so Kolmogorov's criterion rules out reversibility for any unequal pair. For equal p, the reciprocal edge weights depend only on level and the stated product recursion satisfies detailed balance on every edge. At fixed mutation rate with N=2, influx to each singleton equals u times the mass of the two consensus states and outflux is (2u+v) times the singleton mass, whence the common singleton probability u/(4u+v). The two consensus balances give the displayed probabilities and J=uv(p_1-p_2)/(2(4u+v)). Conservation fixes the same signed flux on all four edges; the stationary probabilities cancel around the cycle in the log ratio for entropy production. The homogeneous model at the mean p is admissible and has that same snapshot law with zero current. An independent exact solve that builds transitions directly from focal and model payoff comparisons tested 12 kernels for N=2,3,4, including the stated pair of examples; see /workspace/reproductions/frozen-check-3.txt and replay with python3 /workspace/reproductions/frozen_checks.py 3.
 
-PASS, subject to historical-priority uncertainty. The 2026 Foster–Knight–Krapohl source supplies the Fermi-mutation transition rule and its cooperation ceiling, but not the precise reversibility criterion, its edge-cycle obstruction, or the two-player stationary-law identifiability failure. The August 2026 Foster–Knight–Krapohl paper on *introspection* dynamics addresses counterfactual-payoff updates, not Fermi copying; its product stationary law cannot be substituted for the imitation chain. Existing potential-game logit-reversibility theory concerns self-comparison rules, also distinct. Published records on aspiration-game circulation and environmental Markov currents establish related phenomena under different kernels; their summaries do not establish the present specific formula. Access to complete text for those two records was unavailable, so their historical coverage is a residual risk. Search failures are not asserted to prove novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The contribution is a sharp all-finite-population structural classification with a concrete observational consequence: identical stationary action snapshots do not determine detailed balance or time-directed circulation. This matters for interpreting empirical behavior and for distinguishing learning rules using temporal transitions rather than stationary cooperation frequencies. The effect arises from heterogeneous contribution costs despite a common reward and holds for every positive fair-mutation and imitation strength. It is not merely a numerical census or an arbitrary parameter slice.
+The linear public-goods instance is already in Foster–Knight–Krapohl with the same Fermi-plus-fair-reset probability law, not merely an absorbing imitation antecedent. The source gives the transition formula, payoff domination and a bound on mean cooperation. The checked results do not establish the exact reversibility threshold or the equality of the full labeled stationary distribution across models with different time reversal. Neither the standard finite-chain cycle criterion nor the prior mean bound substitutes for the chosen square and the two-player contrast calculation.
 
-## Limits
+## value
 
-The result is restricted to homogeneous shared benefits and complete well-mixed sampling. It says nothing about empirical populations outside these assumptions. The two-player entropy-production formula uses the standard stationary discrete-time definition; independent mathematical review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact necessary-and-sufficient criterion over all finite population sizes is stronger than inferring reversibility from a stationary average. The two-player formula supplies an explicit identifiability obstruction even when snapshots resolve every labeled state: matching the acceptance sum hides heterogeneity, but the signed trajectory current exposes it. The example is structural across the admissible two-player parameters, not a lone numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

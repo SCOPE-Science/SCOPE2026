@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:34:33.924073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The target in RESULT.md line 5 is J=integral_0^1 X(t) dt, whereas lines 36–40 use the Itô kernel for X(1)=integral_0^1 B(t) dt. Stochastic Fubini gives J=integral_0^1 (1-u)^2/2 dB(u), variance 1/20, and covariances with (X(z),B(z)) equal to (z^2(6-4z+z^2)/24, z(3-3z+z^2)/6). The observation covariance K is as given, but the target covariance is not. Thus both the risk and the optimizing design fail, not merely a normalization of the displayed risk. For P=10 the claimed optimal risk 1/14 exceeds the risk 1/20 of ignoring all data. For an exact design counterexample at that budget, both designs use z=1, where the true c=(1/8,1/6). The proposed (p,q)=(8,2) yields reduction c^T(K+diag(1/8,1/2))^(-1)c=53/1512, whereas (p,q)=(10,0) yields (1/8)^2/(1/3+1/10)=15/416, an improvement of 79/78624. Separately, even noiseless observations leave residual risk at least z^5/720+(1-z)^5/20: the quadratic part on [0,z] cannot be represented by an affine function, and the tail is unobserved. The minimum of this bound on [0,1] is positive, unlike the claimed limit. The source checker fixes the wrong c at line 13 and integrates f=1-xx at lines 54–60, so its reported PASS in VERIFICATION.md does not address this discrepancy. Inspected but did not run check.py. No repaired theorem for the stated target is claimed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Matérn-3/2 three-regime result shares the precision budget architecture but uses a different stationary prior and functional.",
+          "The joint precision/time Brownian integral result allows several noisy Brownian values for integral B; a noisy integrated path value X(z) is not a Brownian value."
+        ],
+        "reasoning": "More sites or general posterior formulas do not dominate a result that optimizes a different observation family or different covariance.",
+        "searches": [
+          "Primary literature: gradient-enhanced Bayesian quadrature, noisy integrated Brownian motion and joint measurement design",
+          "Resultary: 1163ec88a28d, ca21be61c9e2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8499b026e52d (identical), 3e4b47324f39, 1163ec88a28d, ca21be61c9e2",
+        "arXiv:1704.00060",
+        "DOI:10.1109/MLSP.2016.7738903 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-instrument result applies to the two pure boundaries and explicitly uses the quadratic Itô kernel; it does not optimize over mixed points. The multiple Brownian value design is for integral B, the surrogate modeled in the frozen proof, not integral X."
+        ],
+        "reasoning": "Standard GP regression implies the reduction step only, after the target is correctly specified. The strongest same-target result does not imply a mixed endpoint classification.",
+        "searches": [
+          "3e4b47324f39: regression and single-modality switch statements",
+          "1163ec88a28d: precision regimes at lambda=8",
+          "ca21be61c9e2: joint Brownian value designs",
+          "arXiv:1704.00060, sections 3 and 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent Gaussian c-optimal objective is c(z)^T(K(z)+diag(1/p,1/q))^(-1)c(z) with the correct J covariance. Wu–Aoi–Pillow give Gaussian derivative conditioning and integral-posterior formulas, not its global scalar-budget optimizer.",
+          "The Resultary record 3e4b47324f39 has the same J and two candidate observation kinds but observes exactly one, never a mixed allocation."
+        ],
+        "reasoning": "The full feasible set includes every simultaneous split p+q=P at a common z. Neither a one-kind choice nor a posterior variance identity settles this joint optimization.",
+        "searches": [
+          "Resultary: one-site shared precision integrated Wiener value derivative sensor design and exact switching law",
+          "Wu–Aoi–Pillow arXiv:1704.00060, sections 3 and 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical record 8499b026e52d was not counted as separate prior coverage. The same-J pure-channel record 3e4b47324f39 reports a different, single-noise switch eta*=0.1260852103... . No separate exact indexed frontier for the joint split was identified."
+        ],
+        "reasoning": "An exact numerical crossover must correspond to the same target, feasible design and precision or variance normalization; numbers from the adjacent models are not entries for this optimization.",
+        "searches": [
+          "Resultary: exact one-site Wiener mixed-channel threshold, constant derivative allocation, risk frontier"
+        ]
+      },
+      "rationale": "This is a statement-level coverage judgment, not validation of the asserted switch. The exact one-site independently noisy X and B design with shared precision for J=integral X is distinct from the inspected single-channel law for that J, from a two-channel Matérn case, and from Brownian-value designs for integral B. No dominating result for the full model and law was found in the bounded checks; the target confusion is a correctness failure, not evidence that the claimed law is known.",
+      "residual_risks": [
+        "Bounded searches, not a priority certification; the 2016 gradient quadrature full text was unavailable.",
+        "Same-date indexed distinctions were made by mathematical coverage, not an inferred publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same target and pure boundaries, not the mixed-budget design",
+          "evidence": [
+            "Exactly one measurement at a prescribed common noise variance; quadratic target kernel and prior variance 1/20."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-noise-driven-choice-between-value-and-derivative-sensing-i--3e4b47324f39/RESULT.md",
+          "material_read": "Opening theorem and target setup, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp noise-driven choice between value and derivative sensing",
+          "trigger": "Same target and instruments, exact switch"
+        },
+        {
+          "assessment": "Different prior and optimization",
+          "evidence": [
+            "A stationary Matérn-3/2 model; gradient-only, mixed and value-only regimes at lambda=8."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-precision-regimes-for-one-site-gradient-enhanced-mat-rn-qu--1163ec88a28d/RESULT.md",
+          "material_read": "Opening theorem, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three precision regimes for one-site gradient-enhanced Matérn quadrature",
+          "trigger": "Same allocation architecture with mixed channel regime"
+        },
+        {
+          "assessment": "Brownian point evaluations, not simultaneous integrated value and derivative",
+          "evidence": [
+            "Allocates total precision across n noisy Brownian values to estimate integral B."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-joint-precision-and-time-design-for-wiener-integral-quadra--ca21be61c9e2/RESULT.md",
+          "material_read": "Opening theorem, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp joint precision and time design for Wiener integral quadrature",
+          "trigger": "Closest surrogate target and budget design"
+        },
+        {
+          "assessment": "Methodological coverage; no scalar all-budget switch in these passages",
+          "evidence": [
+            "Joint GP covariance and posterior formula, integral posterior moments, active site selection and experimental examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.00060",
+          "material_read": "Section 3, PDF p. 4 (OA offset 12000); Section 5.2, pp. 13–14 (offsets 83100 and 86890)",
+          "method": "Primary open PDF",
+          "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+          "trigger": "General derivative-enhanced BQ design method"
+        },
+        {
+          "assessment": "Unresolved access; not evidence of noncoverage",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1109/MLSP.2016.7738903",
+          "material_read": "No full text obtained",
+          "method": "Attempted lawful OA retrieval",
+          "title": "On the Use of Gradient Information in Gaussian Process Quadratures",
+          "trigger": "Potential derivative quadrature antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The measurement-budget question is worthwhile, but the delivered result supplies no sharp law for that question: its central risk formula and optimal allocation are false for the advertised integrated-Wiener functional. The surviving fixed-design Gaussian reduction after correcting c and the coefficient-to-precision Cauchy–Schwarz rule are standard. A switch theorem for X(1) would instead concern prediction of a terminal path value (equivalently the integral of B), and substituting that different target is not an established result about integration of X. No separate repaired finding is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

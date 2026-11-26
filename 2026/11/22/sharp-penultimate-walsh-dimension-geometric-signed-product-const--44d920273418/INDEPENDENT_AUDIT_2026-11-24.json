@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:51:38.490607Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and witness",
+        "VERIFICATION.md and verify.py inspected, not executed; independent scalar derivation and n=4 decimal evaluation"
+      ],
+      "rationale": "Normalize nonzero inputs by the sum of squared radii. For d=N−1 assign to each of the N sign rows a norming coordinate; two rows collide. Both the agree and disagree sets of signs are nonempty, so the two scalar sums A±B satisfy |A+B||A−B|=|A²−B²|≤(R−t)² with R the sum and t the minimum radius. All other factors are ≤R. Cauchy–Schwarz on the remaining m radii with sum S yields exactly F_n(z)=m^q(m+z)^(2−q)/(m+z²), z=mt/S∈[0,1]. Its derivative has the sign of (2−q)m−2mz−qz², strictly decreasing with opposite endpoint signs, giving the claimed z_n. For the witness, keep one full signed coordinate for each row except a pair differing only in the last sign, and give that pair a shared coordinate omitting the last component. For either omitted row at each other coordinate the first m sign products match at index one and disagree at least once, so their absolute sum is ≤m−2; adding z_n≤1 cannot exceed m. Thus the omitted norms are m and all other norms m+z_n. Saturation is attained with one coordinate per row, and conversely compactness gives an attaining tuple; equality in Cauchy–Schwarz and the scalar triangle inequality forces equal positive radii and a different norming coordinate for each row modulo global reversal. The root equation gives 1−z_n=O(q); near 1 the log derivative at 1 is O(q/n) and its derivative O(1/n), yielding F_n(z_n)−F_n(1)=O(q²). Now F_n(1)=n(1−1/n)^q and n log(n/(n−1))→1, proving the deficit asymptotic. Independent decimal evaluation of the n=4 witness gives 3.532200615298932666… .",
+      "residual_risks": [
+        "The collision uses real scalar factorization. No general lower-dimension formula or complete maximizing-tuple classification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier same-functional theorems give comparison inequalities and L_p/ℓ_p values for 1≤p≤2 and Morrey-space results, not a finite p=∞ subthreshold value.",
+          "Ciesielski–Płuciennik give n for the arithmetic square-mean on cubes with dimension ≥N."
+        ],
+        "reasoning": "General Banach-space inequalities and high-dimensional saturation are relevant context but do not give equality under geometric averaging at N−1 coordinates; AM–GM alone gives at most an arithmetic bound.",
+        "searches": [
+          "arXiv:2611.24308v1 Theorems 1, 3 and 5",
+          "DOI 10.1007/s43037-019-00033-1, upper n-th von Neumann–Jordan constant and finite cube examples"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and exact self-match 44d920273418; actual mirrored c6961088c8ee",
+        "arXiv:2611.24308v1; DOI 10.3934/math.2025296; DOI 10.1007/s43037-019-00033-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The order-three proof already uses a shared norming coordinate, the same real product inequality and a scalar optimization; this is a genuine methodological overlap. Its exact theorem stops at order three, and the arithmetic result uses a different aggregation.",
+          "The all-order argument needs the N−2 individual sign coordinates plus the paired coordinate and the variable product exponent q=4/N; optimizing and comparing as q→0 produces the new deficit."
+        ],
+        "reasoning": "The target is a natural extension of a proof technique, not an application of a prior higher-order exact theorem or a numerical specialization of the four-entry table. The prior high-dimensional arithmetic equality does not determine the two unsaturated geometric factors or the optimized deficit.",
+        "searches": [
+          "c6961088c8ee, proof 'Dimension three' and 'Dimensions at least four'",
+          "arXiv:2611.24308v1 comparison and evaluation theorems",
+          "DOI 10.1007/s43037-019-00033-1 arithmetic examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ifronika–Gunawan–Lindiarni use exactly the same fixed-first-sign product, exponent 1/2^(n−2)=2/N, and squared norm denominator.",
+          "Li et al. use a three-vector, two-shift, distance-constrained quotient, not this all-sign-row product."
+        ],
+        "reasoning": "Credit exact prior definition and distinguish the evaluated finite-dimensional regime. The distance constraint and different factors do not give an equivalent evaluation.",
+        "searches": [
+          "Resultary: higher-order geometric signed product on finite real cubes; Zbăganu finite-cube constants",
+          "arXiv:2611.24308v1 §2",
+          "DOI 10.3934/math.2025296 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target exact match is its own catalogue entry 44d920273418. Distinct record c6961088c8ee gives exact order-three values 1, 2, 1+√6/2, 3 for d=1,2,3,≥4, including unequal radii √6−2:1:1 at d=3."
+        ],
+        "reasoning": "That is exact matching data for the excluded lower order; it does not tabulate or extrapolate rigorously to the dimension sequence at orders n≥4. Numerically and algebraically its d=3 entry agrees with extending the new expression to n=3, m=2, q=1.",
+        "searches": [
+          "Resultary: exact third Zbăganu finite-dimensional real cubes; penultimate Walsh dimension"
+        ]
+      },
+      "rationale": "The functional itself is exactly the published higher-order Zbăganu functional. The saturation-side dimension scale overlaps the arithmetic theory, and a distinct indexed same-day result gives the exact order-three dimension sequence using the same one-collision proof idea. The supported distinct claim is the all-orders n≥4 penultimate evaluation and deficit; neither checked theorem supplies it. No publication ordering is inferred for the two indexed records.",
+      "residual_risks": [
+        "The indexed order-three proof has substantive common machinery; the comparison does not establish priority or independence of the same-day records.",
+        "The frozen statement's source-date cutoff was not independently established. The arXiv paper is dated 18 November 2026 and was included in the scientific comparison regardless of the cutoff.",
+        "Equivalent finite-cube work under other names is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material lower-order and proof overlap; not all-order coverage",
+          "evidence": [
+            "The order-three d=3 proof bounds the collided pair by (S−min a_i)² and the other two by S, attains with unequal radii and states the four-case dimension sequence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-third-zb-ganu-constants-of-real-finite-dimensional-cubes--c6961088c8ee/RESULT.md",
+          "material_read": "Finding, assumptions and dimension-three and saturation proofs; mirror offset 0–6657",
+          "method": "Local semantic search and mirrored statement/proof comparison",
+          "title": "Exact third Zbăganu constants of real finite-dimensional cubes",
+          "trigger": "Closest distinct indexed exact evaluation with the identical functional at one order"
+        },
+        {
+          "assessment": "Exact definitional coverage; no established penultimate result in checked statements",
+          "evidence": [
+            "Exponent 1/2^(n−2) and identical normalization; comparison and other-space results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.24308v1",
+          "material_read": "Open v1 PDF §2, p. 2 (offset 7346); Theorems 1, 3 and 5, pp. 3–5 (offsets 11485 and 19390)",
+          "method": "Lawful open full-text passages",
+          "title": "The n-th Zbăganu constant",
+          "trigger": "Identical general functional under published name"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Two shifted factors with three inputs and a distance restriction ||b−c||≤t||a||."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2025296",
+          "material_read": "§2, p. 6483, OA PDF offset 12785",
+          "method": "Lawful open publisher PDF passage",
+          "title": "A new constant in Banach spaces based on the Zbăganu constant",
+          "trigger": "Same advertised family of constants"
+        },
+        {
+          "assessment": "Arithmetic analogue and saturation-side overlap only",
+          "evidence": [
+            "Upper arithmetic n-th constant equals n for real ℓ∞^d at d≥2^(n−1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43037-019-00033-1",
+          "material_read": "Definitions pp. 651–652, offset 2994; cube example pp. 659–660, offset 34000",
+          "method": "Lawful open primary PDF passages",
+          "title": "On some modifications of n-th von Neumann–Jordan constant for Banach spaces",
+          "trigger": "Higher-order signed-row normalization and dimension threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact penultimate theorem, sign witness and deficit",
+        "Order-three catalogue record c6961088c8ee and arithmetic analogue DOI 10.1007/s43037-019-00033-1"
+      ],
+      "rationale": "The last dimension before saturation is selected by the sign-cube geometry, not by numerical convenience. Quantifying the exact cost of losing one norming coordinate for every order and showing the deficit is asymptotic to 4/N provide a usable benchmark for comparing geometric versus arithmetic signed-sum invariants. The simple shared-coordinate construction explains why a tailored unequal-radius witness is needed instead of an equal-radius estimate.",
+      "residual_risks": [
+        "The value is in the all-orders penultimate law; the method, the invariant's definition and the broader saturation idea are not presented as new in isolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

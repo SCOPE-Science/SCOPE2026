@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:15:04.880577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonsingular affine map preserves the four independent uniform side parameters, containment, and normalized area. On the square the four omitted corner triangles have disjoint interiors. Conditioning on one intercept gives the stated corner integral and summing the two active corners in the wedge gives the frozen depth formula, with continuous zero depth on the boundary. Both wedge derivatives are positive where needed to reach the unique maximum at the center. There the logarithms expand to give a uniform quadratic deficit with coefficient 4 in both affine coordinates; localization and disk comparison give the upper coefficient π/4. On y≥η>0 the inverse low-depth width is uniformly ε/log(1/ε). For y≤√ε the inequality D≥2x bounds the area by O(ε^1.5), and for √ε≤y≤η the further log(y/x) term bounds the scaled width by 2. Eight wedges therefore give the lower coefficient 4. This proves the two limits for the pointwise depth at an independent area-uniform point, not for the area of the random hull. The frozen checker.py and VERIFICATION.md were inspected, not executed; reported Monte Carlo and numerical integration are supplementary only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reitzner–Schütt–Werner treat pooled independent boundary samples and asymptotics for hull functionals.",
+          "Maesumi treats an area quotient in a triangle. The later Resultary record treats the exact same four-side experiment but the hull area, not depth."
+        ],
+        "reasoning": "Pooled boundary samples are not the prescribed-side product distribution. Even an exact law for the same random hull's area does not give the distribution of its spatial inclusion probabilities.",
+        "searches": [
+          "arXiv:1911.05917 pp. 1–2",
+          "arXiv:1804.11007 Theorem 2 and §§2.1, 4",
+          "Resultary 28cb15669f56 RESULT.md opening"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary records 7079f4ade0b5 and 28cb15669f56",
+        "arXiv:1804.11007, 2601.02929, 1911.05917"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangular corner identity can be reused in the square. The area laws do not yield the spatial field; Fubini gives only E[D(U)]=E[area(Q)/area(P)] from that observable."
+        ],
+        "reasoning": "The imported local identity does not supply the inversion at low depth uniformly up to a controlled corner layer, nor the area asymptotics near the different host's center. Originality credit excludes the shared lemma and the affine invariance.",
+        "searches": [
+          "Resultary 7079f4ade0b5 RESULT.md offsets 0 and 6400",
+          "Resultary 28cb15669f56 RESULT.md offset 0",
+          "arXiv:1804.11007 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7079f4ade0b5 uses the same corner-triangle integral but aggregates it into a different triangular-host profile in barycentric coordinates.",
+          "arXiv:2601.02929 formulates fixed-point inclusion for three points uniform on a circle; its radial law is not equivalent by an affine transformation to four independent prescribed straight-side samples."
+        ],
+        "reasoning": "Normalize any parallelogram to the square before comparing. Neither changing from three to four sides nor changing circle sampling to prescribed side sampling preserves the experiment. The corner integral is genuinely shared.",
+        "searches": [
+          "Local Resultary: side-stratified pointwise inclusion depth, triangular and parallelogram hosts",
+          "Primary-literature search: fixed-point inclusion in a square with one independent uniform sample per side"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching analytic records are 7079f4ade0b5 (triangle depth) and 28cb15669f56 (four-side area); neither indexes the pair of square depth limits. Maesumi's tabulation and exact distribution are for area quotients."
+        ],
+        "reasoning": "The endpoint constants are tied to an analytic distribution and sampling model, not an integer sequence. The pertinent exact-result lookup compared the actual observables rather than matching constants alone.",
+        "searches": [
+          "Local Resultary coverage-depth and four-side area-law comparisons",
+          "Primary-literature search for prescribed-side square point inclusion"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the four-side depth-level result, with the exact depth field providing its derivation. The closest same-date triangular profile contains the identical elementary corner calculation, which receives no originality credit. Applying it around the square is direct; the claim of interest is the resulting full four-side field with its two sharp area-of-level-set laws. No inspected source gives or implies those endpoint evaluations in this model.",
+      "residual_risks": [
+        "No relevant earlier square-specific primary source was identified in the bounded search; an unindexed one could change the assessment.",
+        "The date shared with the triangle record does not establish priority. The common corner lemma was not counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared exact lemma, not the four-side theorem",
+          "evidence": [
+            "The formula D_T=Σ t_i(1−t_i)log((1−t_i)/t_i) uses the same two-intercept corner probability F(a,b)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5",
+          "material_read": "RESULT.md offsets 0 and 6400, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "local Resultary mirror",
+          "title": "Exact barycentric inclusion depth for side-stratified random triangles",
+          "trigger": "Closest indexed pointwise depth result"
+        },
+        {
+          "assessment": "Later result about a different random variable",
+          "evidence": [
+            "The density and extremes are for random hull area, not conditional coverage depth at a random location."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-universal-area-density-and-marked-extreme-area-law-for-four-side--28cb15669f56",
+          "material_read": "RESULT.md offset 0, finding",
+          "method": "local Resultary mirror",
+          "title": "Universal area density and marked extreme area law for four-side sampling",
+          "trigger": "Same four-side parallelogram sampler and endpoint laws"
+        },
+        {
+          "assessment": "Area distribution, not pointwise depth",
+          "evidence": [
+            "Derives moments and a density/CDF of the random inscribed triangle area quotient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.11007",
+          "material_read": "PDF pp. 1–3 (including Theorem 2 and §2.1) and p. 5 (§4; OA offsets 0, 5400, 10576)",
+          "method": "open-access PDF text",
+          "title": "Triangle Inscribed-Triangle Picking",
+          "trigger": "Exact results for uniform prescribed-side sampling"
+        },
+        {
+          "assessment": "Different support and sampling distribution",
+          "evidence": [
+            "Three uniform circle points; fixed-point radial parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+          "material_read": "PDF p. 1 (OA offset 0)",
+          "method": "open-access PDF text",
+          "title": "Ismailov, fixed-point inclusion by a random triangle on a circle",
+          "trigger": "Pointwise inclusion analogue"
+        },
+        {
+          "assessment": "Different probability model and observables",
+          "evidence": [
+            "Independent samples from pooled boundary and asymptotics of face counts and volume difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "PDF pp. 1–2 (OA offset 0)",
+          "method": "open-access PDF text",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Potential broader random-boundary-hull coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural sampling model these quantify where almost no realizations and where nearly all realizations cover an independent location. The exact constants and distinct boundary and center rates are not supplied by the expected hull area or an area density. The lower limit in particular must control the corners, where naive uniform edge inversion fails.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:03:48.941712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 28–92",
+        "VERIFICATION.md and verify.py, inspected not executed",
+        "/workspace/audit_replay/witt_nullcone.py and witt_nullcone.out"
+      ],
+      "rationale": "In characteristic two the square is a derivation, so checking x,y suffices. Leibniz gives D(xy)=v₁y+v₂x+tr(B)xy and the three displayed coefficient equations. For v≠0, B=uλ_v, c=(λ_v u)u; division by v₁ or v₂ on the corresponding chart gives a regular inverse. For v=0 the equations are B²=0 and Bc=0. For B₀=αwλ_w and c₀=βw, v=tw and u=αw/t+b with λ_w b=β/α yield exactly the polynomial limits stated in the proof. For B₀=0 and c₀≠0 the t² scaling of v and t⁻¹ scaling of u keep c equal to c₀ and specialize B to zero. These curves over an algebraic closure exhaust the boundary of the dense chart. A nonzero v gives two independent images and rank two; at zero v the nonzero block [B|c] has rank one, or all coefficients vanish. A nonzero nilpotent B is specified by its image/kernel line and a nonzero quotient-to-line map, giving q²−1 possibilities and q choices of c; B=0 gives q² choices. The independent direct composition/image-size enumeration gives rank counts (1,9,12) and (1,75,240) over F₂ and F₄.",
+      "residual_risks": [
+        "Only the reduced variety and ordinary endomorphism rank are audited; no statement about radicality of the square ideal or about the full nilpotent scheme."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Premet assumes p>2 and studies nilpotence under a sufficiently high restricted power, not restricted square-zero at p=2.",
+          "The all-derivation rank polynomial allows rank three; the toral fourfold is cut out by D²=D; the one-variable result is for a different truncated algebra."
+        ],
+        "reasoning": "Those nearby scopes do not account for the result. The decisive broader presentation is the square-preserving sl₃ matrix model of the same object.",
+        "searches": [
+          "Premet arXiv:1405.2426v3 §1.1 and nilpotent-cone definition",
+          "Resultary: all derivations on the truncated plane; toral and one-variable square-zero rank loci"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/25/SCOPE-socle-detection-of-acyclic-square-zero-derivations-on-the-charac--3d755f804481",
+        "Resultary 2026/10/18 derivation-rank-polynomials, 2026/11/8 toral-derivation-fourfold, and 2026/10/25 parity-stable-rank-varieties",
+        "arXiv:1405.2426v3",
+        "MathNet sm1322 (bibliographic access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The orthogonal-pair model supplies the nonzero locus as the image of the rank-two annihilator bundle over u≠0 with the zero section removed. On v₀≠0, normalize v₀=1 using the scaling ambiguity; then the first column is u and u₀ is determined by u₁,u₂,v₁,v₂."
+        ],
+        "reasoning": "The bundle is geometrically irreducible; scalar multiplication specializes a nonzero matrix to zero. In the chart (u₁,u₂)≠(0,0) and v₁,v₂ are free, with regular inverses on u₁≠0 or u₂≠0. Thus the matrix presentation mechanically gives precisely the open product, dimension four and rationality even though the chart is not displayed in its abstract.",
+        "searches": [
+          "Socle-detection RESULT.md, Coordinate model and Parametrization and socle criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The socle-detection record exhibits an explicit linear Φ:Der(A)→sl₃ with Φ(D²)=Φ(D)². Nonzero square-zero matrices are uvᵀ with vᵀu=0. Its constant coefficients on x,y are (u₁v₀,u₂v₀)."
+        ],
+        "reasoning": "The same points over all field extensions and their reduced coordinate loci are related by a linear isomorphism. The chart of interest is exactly v₀≠0 in the rank-one factorization, by orthogonality.",
+        "searches": [
+          "Resultary: characteristic-two truncated plane or W(2;1), square-zero derivations, rank counts and geometry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The socle-detection Finding lists 1, (q+1)(q²−1), q²(q²−1), total q⁴+q³−q for all q=2ᵉ, using ordinary k-rank on A."
+        ],
+        "reasoning": "These are termwise the frozen counts; the criterion D(xy)≠0 equals the nonzero-constant chart, so the strata, not just the numbers, agree.",
+        "searches": [
+          "Resultary: exact finite-field ranks and q⁴+q³−q for square-zero derivations of k[x,y]/(x²,y²)"
+        ]
+      },
+      "rationale": "A distinct indexed record already gives exactly the same square-zero condition on the same derivation algebra, the same rank strata and identical counts. Its explicit square-preserving linear identification with sl₃ also directly yields the entire reduced geometry and the specific open product, so no distinct geometric remainder is established. This is a coverage finding, not a determination of historical priority from repository paths.",
+      "residual_risks": [
+        "Historical priority is not resolved; the matching catalog path is later, but independently attested priority does not follow from either path.",
+        "The 1992 full text was not verified; the positive equivalence is independent of that source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact counts and rank strata; entire geometric statement follows from explicit model",
+          "evidence": [
+            "Φ(D²)=Φ(D)²; the rank-one presentation u vᵀ explicitly recovers the two constant coefficients and D(xy)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-socle-detection-of-acyclic-square-zero-derivations-on-the-charac--3d755f804481/RESULT.md",
+          "material_read": "Finding, assumptions and proof through coordinate model and rank-one factorization",
+          "method": "Local Resultary search and bounded mirror passages",
+          "title": "Socle detection of acyclic square-zero derivations on the characteristic-two truncated plane",
+          "trigger": "Exact algebra, square relation and counts"
+        },
+        {
+          "assessment": "Does not state the frozen characteristic-two height-one result",
+          "evidence": [
+            "Assumes algebraically closed characteristic p>2 and nilpotence defined by x^[p]^N=0 for large N."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.2426v3",
+          "material_read": "§1.1 and definition of nilpotence near offset 16000",
+          "method": "OA HTML passage inspection",
+          "title": "Regular derivations of truncated polynomial rings",
+          "trigger": "Standard Cartan-type Witt nilpotent-fiber comparison"
+        },
+        {
+          "assessment": "Not used as evidence for or against novelty",
+          "evidence": [
+            "This retrieval did not verify the precise hypotheses of the full text."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/sm1322",
+          "material_read": "Bibliographic landing information; decisive full text not retrieved",
+          "method": "Bounded MathNet and bibliography check",
+          "title": "The theorem on restriction of invariants, and nilpotent elements in W_n",
+          "trigger": "Historical nilpotent-cone reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and boundary argument",
+        "Socle-detection rank-one and coordinate model passages"
+      ],
+      "rationale": "Rank strata and a rational chart are worthwhile invariants of this restricted algebra, but the frozen package provides no remaining independently useful new invariant after the exact counts and immediate chart from the square-preserving matrix model are credited. Rechecking a known table or presenting different boundary curves for that same chart does not supply a surviving valuable claim.",
+      "residual_risks": [
+        "This judgment does not address potentially new scheme-theoretic or cohomological refinements, neither of which is claimed in the frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:10:14.183551Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed labelled terminals in K_{a,b}, all xy cross-terminal edges are mandatory. Each same-shore pair has a shortest path through every vertex of the other shore, so after deletion any opposite nonterminal may retain at most one edge to that terminal shore. These are all the original geodesics, and the A_0 by B_0 edges affect none. Thus the classes of selected edges are independent; their factors are z^{xy}, H_x per B_0 vertex, H_y per A_0 vertex and 1+z per nonterminal-nonterminal edge. With no terminal neighbors the factor is 1; otherwise a minimum leaves exactly one, and no free edge can be in an inclusion-minimal set. This gives the minimum, count and exchange connectivity by changing one survivor at a time. The factorization has only nonpositive real roots and contiguous positive coefficient support, so Newton's inequalities give log-concavity and unimodality. When both terminal shores are occupied, the excess over x+y-1 is (b-1)(x-1)+(a-x)(y-1), zero in a non-star precisely for x=y=1. With terminals all on one shore the minimum is the opposite shore size times |T|-1; a star gives equality in every eligible placement, including when its center is a terminal. Inspected the supplied BFS verifier and verification notes; the 92 small-profile exhaustive checks and 92 larger formula-only checks are separate and neither replaces the block proof. No supplied code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct result factors the polynomial for all graphs with every terminal-pair distance at most two, with a reversed clique polynomial for the terminal neighborhood of each nonterminal. It explicitly specializes to every complete multipartite graph.",
+          "Theorem 4.1 of the motivating article proves the universal lower bound; its Section 5 raises minimum structure and equality as further problems rather than supplying this census."
+        ],
+        "reasoning": "Every biclique falls under the diameter-two hypothesis. Each nonterminal's terminal neighborhood is independent, so its reversed clique polynomial is exactly H_x or H_y. No additional structural assumption is needed.",
+        "searches": [
+          "Resultary 01e47751469e, Local clique factorization of semi-cutting sets at terminal diameter two, Finding and Complete multipartite specialization and rigidity",
+          "Bosek–Serra–Vena, Theorem 4.1 and Section 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 01e47751469e, 54c9edbfc8eb, 624506a8e19c and e5c4e05a4d10",
+        "arXiv:2611.20287v1",
+        "arXiv:2610.36821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute (p_1,p_2)=(x,y), (q_1,q_2)=(a-x,b-y) in the multipartite formula. This gives the four factors and minimum count, as well as the single-edge exchange graph as a product of cliques. For |T|>=3 the source's stated equality condition is exactly the star case. At |T|=2, the same minimum formula gives 1 for opposite terminals and the size of the opposite shore for same-shore terminals."
+        ],
+        "reasoning": "The formula, all optimum structure, real-rootedness and rigidity including both two-terminal cases follow by substitution, with no distinct surviving conclusion in the frozen finding.",
+        "searches": [
+          "01e47751469e, multipartite statement and equality proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bosek–Serra–Vena use the same requirement of hitting every shortest path between each terminal pair. Edge-geodesic transversals use maximal geodesics of the whole graph, not terminal geodesics.",
+          "The local clique theorem uses exactly the same strict terminal-distance definition, allowing infinity after deletion."
+        ],
+        "reasoning": "A vertex transversal or a maximal-geodesic edge transversal is not equivalent; for example all vertices terminal in a non-star biclique forces every edge selected for semi-cutting, but a maximal-geodesic edge transversal can leave the edges of a matching. The local clique formula is an equivalent description on bicliques.",
+        "searches": [
+          "Resultary: semi-cutting sets, terminal geodesics, complete bipartite and multipartite graphs",
+          "Bosek–Serra–Vena arXiv:2611.20287v1; Prabha–Sandhiya–Manuel arXiv:2610.36821"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The title and ID 54c9edbfc8eb retrieve the assigned record itself, not prior evidence. The distinct 01e47751469e match gives a symbolic census for all complete multipartite parameters, not a finite table. The distinct 624506a8e19c and e5c4e05a4d10 matches enumerate maximal-geodesic edge and vertex transversals, respectively."
+        ],
+        "reasoning": "The decisive catalogue overlap is independent of the identical listing and is exact for the entire biclique parameter family. The other tables or enumerators use different constraints.",
+        "searches": [
+          "Resultary search for the assigned biclique census, multipartite semi-cutting polynomials and geodesic transversal polynomials"
+        ]
+      },
+      "rationale": "A distinct indexed result, Local clique factorization of semi-cutting sets at terminal diameter two (01e47751469e), demonstrably covers the biclique theorem. Its complete multipartite specialization gives the whole labelled census and stronger coefficient/exchange statements; it gives rigidity for |T|>=3, and its explicit minimum formula gives the remaining two-terminal cases. Both indexed records are dated November 22, 2026; the lack of verified within-day priority does not erase the mathematical coverage. This is not a finding that the assigned record necessarily appeared second.",
+      "residual_risks": [
+        "The common date and local mirror snapshot do not establish historical priority or derivation between the two records.",
+        "The search was targeted, not a claim of exhaustive historical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material complete coverage; within-day publication order unverified",
+          "evidence": [
+            "The stated factors count retained terminal cliques; in an independent terminal neighborhood these are precisely the empty set or a singleton.",
+            "The multipartite statement explicitly includes the roots, minimum count, exchange graph and equality for at least three terminals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-local-clique-factorization-of-semi-cutting-sets-at-terminal-diam--01e47751469e/RESULT.md",
+          "material_read": "Finding and complete multipartite specialization at offset 0, equality proof near offset 6150, Relationship to prior work at offset 9574",
+          "method": "Resultary lookup and original text via local mirror",
+          "title": "Local clique factorization of semi-cutting sets at terminal diameter two",
+          "trigger": "Same constraint and a broader graph family"
+        },
+        {
+          "assessment": "Covers the bound and definition, not the exact classification",
+          "evidence": [
+            "Theorem 4.1 gives |F|>=|T|-1; Section 5 identifies equality and minimum structure as further questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.20287",
+          "material_read": "Definition and abstract, Theorem 4.1 on PDF page 5 and Section 5 on pages 5–6",
+          "method": "Original arXiv PDF",
+          "title": "Structural properties of semi-cutting sets",
+          "trigger": "Motivating primary article"
+        },
+        {
+          "assessment": "Different constraints",
+          "evidence": [
+            "The enumerated edge sets hit maximal geodesics; omitted edges can form blockwise matchings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-edge-geodesic-transversal-polynomials-and-unmixedness-o--624506a8e19c/RESULT.md",
+          "material_read": "Finding at offset 0 and comparison at offset 6686",
+          "method": "Resultary lookup and local mirror",
+          "title": "Complete edge-geodesic transversal polynomials and unmixedness",
+          "trigger": "Similar exact polynomial for complete multipartite graphs"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": [
+            "It selects vertices hitting maximal geodesics, not deleted edges for all terminal-pair geodesics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-geodesic-transversals-of-complete-multipartite-graphs--e5c4e05a4d10/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "All geodesic transversals of complete multipartite graphs",
+          "trigger": "Related multipartite geodesic census"
+        },
+        {
+          "assessment": "The assigned record itself, not counted as another result",
+          "evidence": [
+            "Matching ID, theorem and scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-semi-cutting-sets-of-complete-bipartite-graphs-a-real-rooted--54c9edbfc8eb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "All semi-cutting sets of complete bipartite graphs: a real-rooted census and sharp terminal rigidity",
+          "trigger": "Direct title match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the exhaustive structure on this natural dense family is useful: it answers the motivating minimum-structure and sharp-bound questions for every terminal placement and counts all feasible deletions as well as the optimizers. This is not an independently new contribution given the broader coverage documented on the originality axis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

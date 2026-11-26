@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:05:51.571709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For chosen k-element endpoint sets there are k! bijections with the same character value, so the transform is the stated product sum of elementary sign polynomials. Simultaneous sign negation preserves all phases and reduces the zero test to a=0 and a=1. The Newton identities for right sign sum x=n−2b give the two cubics, including at n=1,2 where out-of-range symmetric sums vanish. For a=0 the variable y=x+1 must divide 2 at a zero, with y=0 excluded by the value −2; none of the four candidates gives integral n. For a=1, put t=3x+1: the exact identity 27(x³+x²+x−1)=t³+6t−34 gives t|34 and t≡1 mod 3. The only admissible (x,n) are (−1,1) and (11,43); (0,−1) fails the size constraint and (−6,11) fails parity. The resulting classes and their complements give nullities 6 and 6·C(43,16)=1,591,092,895,308, with rank 2^46 minus the latter. At n=43 every multiplier is even and a=0,b=22 realizes −2; the trivial character attains the total matching mass 79,594, an upper bound in absolute value for any character. Walsh diagonalization in counting ℓ² then gives the norms without a factor of |G_n|. Direct finite enumeration over endpoint subsets and bijections, summing each character for n=1–5, corroborated the transform and those small zero sets; the divisor candidates and the n=43 witness and counts were also checked separately. The supplied verify.py was inspected, not run. The divisor proof, not finite search, establishes the all-size conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full edge-cube result has singularity for every odd n and gives explicit extension blocks and gap witnesses for arbitrary signs.",
+          "Wagner's relevant nonvanishing domain requires activities in the open right half-plane. The same-day covered-vertex inertia result treats K_n, not K_(3,n)."
+        ],
+        "reasoning": "The edge result rules out all even n here by restriction but does not rule out or prove zeros in the restricted set for odd n; its four-column extension uses more than one pair of antipodal columns, impossible for rank-one sign matrices. Mixed positive and negative activities lie outside the half-plane theorem, and complete-graph matching counts differ from bipartite counts.",
+        "searches": [
+          "Resultary 5bf177d89df5: complete Walsh singularity for all matchings of K_(3,n)",
+          "Wagner arXiv:0803.1659v1 and math/0412059v2",
+          "Resultary ea8a2d73bd66: Gaussian sign rigidity for a covered-vertex operator"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 5bf177d89df5, ea8a2d73bd66, 3f0888fdee6d and 9046021fcb99",
+        "Wagner arXiv:0803.1659v1 and math/0412059v2",
+        "MathWorld Rook Polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general edge expression can be specialized to get the rank-one multipliers, and the general parity lower bound for nonzero magnitudes applies. The prior edge theorem's odd-n zeros are existence witnesses in its larger domain, not a classification of proportional columns."
+        ],
+        "reasoning": "The formula and parity are inherited ingredients. To classify zeros one must still solve the two integer cubics under |x|≤n and x≡n mod 2. That restriction and divisor calculation remove all but n=1,43 and furnish the nullity; the sharp restricted gap also needs a nonzero witness in the rank-one family.",
+        "searches": [
+          "Resultary 5bf177d89df5, aggregate formula and Steps 2–5 of the proof",
+          "Resultary ea8a2d73bd66, Finding",
+          "Wagner arXiv:0803.1659v1, statement of the matching nonvanishing domain"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An edge character with signs z_ij=u_i v_j has precisely the covered-vertex sign on every matching; each k-element pair of endpoint sets contributes k! copies. Equivalently, this is a signed weighted rook-polynomial evaluation at t=1.",
+          "The inspected classical polynomial definition permits writing the sum. The exact-sign web search did not yield a comparable zero theorem; that is not evidence of absence."
+        ],
+        "reasoning": "The equivalence is to the rank-one family of edge signs, not to arbitrary edge signs or to an unweighted set of covered vertices. This is the correct specialization to test for prior exact coverage.",
+        "searches": [
+          "Resultary: covered-vertex matching convolution and Walsh zeros on K_(3,n)",
+          "Wagner, arXiv:0803.1659v1, vertex-activity matching polynomial",
+          "Primary web search: signed rook polynomial complete 3 by n rank one plus minus vertex weights total matching sums zero Krawtchouk permanent matching 43"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected rook tables give unsigned counts of nonattacking rook placements. The two-edge-only record keeps a single matching size and the same-day first-threshold record addresses an edge-frequency support threshold."
+        ],
+        "reasoning": "Neither unsigned rook tables nor the inspected exact edge-coordinate records tabulate the mixed-sign all-size sum on rank-one assignments. Their numerical coincidences would not give the required infinite exclusion of other n.",
+        "searches": [
+          "MathWorld, Rook Polynomial, definition and tabulated values",
+          "Resultary 9046021fcb99: two-edge K_(3,n) Fourier norms",
+          "Resultary 3f0888fdee6d: first Walsh-zero threshold for partial K_(3,n) matchings",
+          "Primary signed-rook web query above"
+        ]
+      },
+      "rationale": "The vertex-activity transform is classical and is also the rank-one sign restriction of a known edge-incidence transform. The compared results do not give the complete zero set on that restriction. The distinguishing claim is the exact exceptional positive sizes and zero classes for the multiplicity-weighted covered-vertex operator, not the parity bound, matching-polynomial definition, or Fourier diagonalization.",
+      "residual_risks": [
+        "An equivalent older signed-rook specialization or table may exist outside the inspected sources. The keyword lookup did not settle that possibility. Same-day records were compared by statement, without assuming a priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps the transform formula and spectral parity; does not cover the rank-one zero classification",
+          "evidence": "The all-odd zero construction appends a block with four distinct sign columns, whereas a rank-one matrix has only one column and its negative as possible columns.",
+          "identifier_or_url": "Resultary 5bf177d89df5",
+          "material_read": "Finding and assumptions at offset 0; proof of parity, extension blocks, and operator consequences at offsets 2300–5403",
+          "method": "Indexed local mirror, bounded statement and proof passages",
+          "title": "Complete Walsh singularity and sharp spectral gap for all matchings of K_(3,n)",
+          "trigger": "Closest broader transform on the same graph and matching family"
+        },
+        {
+          "assessment": "Polynomial construction applies; inspected zero-free result does not address negative activities",
+          "evidence": "The matching generating sum runs over matchings with vertex activities, and its stated domain uses |arg x_v|<π/2.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.1659v1",
+          "material_read": "Open paper pp. 1–2, definition and nonvanishing domain (offsets 0 and about 4107)",
+          "method": "Lawful open preprint passages",
+          "title": "Weighted enumeration of spanning subgraphs with degree constraints",
+          "trigger": "Classical multivariate polynomial with vertex activities"
+        },
+        {
+          "assessment": "Provides degree-factor formulation, not the claimed sign-zero locus in the inspected material",
+          "evidence": "A matching is a (0,1)-factor.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0412059v2",
+          "material_read": "Open paper p. 1, introductory definitions",
+          "method": "Lawful open preprint passage",
+          "title": "Enumeration of spanning subgraphs with degree constraints",
+          "trigger": "Older spanning-subgraph formulation including matching factors"
+        },
+        {
+          "assessment": "Unsigned counts; not the weighted evaluation at mixed row and column signs",
+          "evidence": "The coefficients count placements of nonattacking rooks.",
+          "identifier_or_url": "https://mathworld.wolfram.com/RookPolynomial.html",
+          "material_read": "Public definition and unsigned tables",
+          "method": "Public technical reference page",
+          "title": "Rook Polynomial",
+          "trigger": "Possible exact rook-polynomial tables for the same board"
+        },
+        {
+          "assessment": "Different graph family and exceptional sizes",
+          "evidence": "For complete graphs K_n rather than complete bipartite graphs, the singular sizes are 2 and 3.",
+          "identifier_or_url": "Resultary ea8a2d73bd66",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Gaussian sign rigidity and exact inertia of matching-covered vertex convolution",
+          "trigger": "Distinct same-day result for the same operator type"
+        },
+        {
+          "assessment": "Edge-coordinate first support-degree problem, not the full vertex zero set",
+          "evidence": "The threshold is expressed for edge signs, not signs that must factor into one left and one right vertex sign.",
+          "identifier_or_url": "Resultary 3f0888fdee6d",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Sharp first Walsh-zero threshold for partial matchings of K_(3,n)",
+          "trigger": "Same-day exact K_(3,n) Walsh cancellation"
+        },
+        {
+          "assessment": "Different measure and frequency space",
+          "evidence": "The measure includes only size-two matchings on the edge-coordinate cube.",
+          "identifier_or_url": "Resultary 9046021fcb99",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Exact zero-free residues and sharp Fourier norms for two-edge matchings in K_(3,n)",
+          "trigger": "Exact K_(3,n) Fourier resonances and norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The operator naturally models the matching measure when only covered vertices are observed. The change from arbitrary edge signs to rank-one signs has a substantive effect: instead of all odd sizes, only two sizes give singularity, and the only nontrivial one is isolated at 43. The infinite exclusion, exact loss of recoverable dimensions, and sharp condition number give a useful classification rather than a small-board calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

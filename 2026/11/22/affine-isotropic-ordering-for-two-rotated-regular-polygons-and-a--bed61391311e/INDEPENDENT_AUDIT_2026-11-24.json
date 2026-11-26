@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:10:39.895832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each gap between successive distinct tangent normals contributes two polar sectors with radius sec(t), 0 <= t <= g_i/2, giving A=n S_1 and J=n(S_1+S_3/3)/2. Repeated normals add zero to these sums. Since n>=3 the centroid is zero and the covariance is J/(2A) times the identity, giving the determinant divided by A^2 exactly as stated. For two gaps use ab=1-(a+b)/T, where T=tan(pi/n), to obtain the positive bracket in (2); the sum of tangents has negative derivative until the midpoint. Coincidence and half-step yield the specified regular n- and 2n-gon classes, respectively. For three gaps, varying q in (alpha-2epsilon,(1+q)epsilon,(1-q)epsilon) changes S_1 by q^2 epsilon^3/4+O(epsilon^4) and S_3 by 3q^2 epsilon^3/4+O(epsilon^4) relative to q=0. Differentiation of F=(3S_1+S_3)/(3S_1^2) at (T,T^3) gives delta F=-q^2 epsilon^3/6+O(epsilon^4), verifying the cancellation and, with q=1/2, the precise coefficient in (3). The largest coordinate agrees and the second partial sum increases by epsilon/2. For fixed k>3 append equal delta entries and subtract (k-3)delta from the common largest coordinate; for sufficiently small delta<epsilon/2 this preserves the partial-sum inequalities and the sign by continuity. No uniform smallness or global Schur-concavity is inferred. The analytical checks are replayable from RESULT.md Steps 1–4. VERIFICATION.md and check_geometry.py were inspected, not executed; the 1140 reported finite checks are secondary (the sampling loop repeats some inputs since its weights depend on the sample index modulo seven). Usual terminology would call the displayed normalization L_K^4; the formula defines the precise quantity unambiguously.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Mahler result concerns the same deterministic family but uses the product (n^2/2)(sum tan(g_i/2))(sum sin(g_i)) and proves strict Schur-concavity. The unequal-order and random overlap records concern area; the former assumes unequal orders. Kweon–Zhu optimize overlap area under translations.",
+          "Theorem 1.1 of the Pólya–Szegő paper controls a torsional-rigidity deficit for fixed-area tangential polygons, with perimeter and angular terms. Torsional rigidity is not the second moment used here."
+        ],
+        "reasoning": "Neither the angular inequalities for other functionals nor optimum comparisons with a regular polygon order this invariant at all intervening phases or give a local pair witnessing reverse majorization.",
+        "searches": [
+          "Local Resultary angular-gap Mahler ordering 073641383518, rotational overlap for unequal orders ed975dc47a69, random rotations ed3ca8970379",
+          "A Quantitative Pólya–Szegő Theorem for Tangential Polygons, arXiv:2607.28768v2, Theorem 1.1",
+          "Kweon–Zhu arXiv:2307.00409v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_geometry.py",
+        "Resultary radial, rotational-area, Mahler and isotropic comparison records identified above",
+        "OA tangential polygon torsion and translative overlap papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the exact same two-gap domain, the Mahler order and the claimed isotropic order have opposite signs under balancing. The three-gap witness agrees with the Mahler sign but the general result on that different functional does not imply it. Recovering the moment formula from the radial law supplies the profile, not the identity reducing it to a two-angle monotone sum or the cubic sign after balancing two small gaps.",
+          "The accessible abstract of the regular-polytopes paper concerns first-order optimality and local-maximizer structure, not specific angular gap lists; an OA full-text attempt was denied."
+        ],
+        "reasoning": "The shared geometry is credited as known. The opposite monotonic response in dimension one of the gap simplex versus a direction in dimension two needs a comparison of the actual ratio, and does not follow by transferring the previously known inequalities or a general extremum claim.",
+        "searches": [
+          "Mahler record 073641383518 proof, including OA offset 4994",
+          "Radial-distance record 682fa94d6003 Finding",
+          "Isotropic constants and regular polytopes, ScienceDirect S0001870825002592"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The radial-distance predecessor for tangential polygons gives a law determined by the unordered gaps, from which the area and polar second moment can be recovered. With n-fold symmetry the invariant here is precisely the square of the normalized centroidal polar inertia J/(2A^2).",
+          "The isotropic-constant records for a regular array of disk centers, regular Reuleaux odd-gons, and two-disk lenses compare the same normalized determinant, but by a disk-center radius, an arc count, or a disk-center separation. None of these is the fixed-inradius rotating half-plane family."
+        ],
+        "reasoning": "Changing from covariance to area-normalized polar moment is just a re-expression, and the moment identity is covered by the radial law. Neither the law's recovery of gap multisets nor the different isotropic orderings give the sign when the angular gaps of the present intersection vary. Same-date indexed findings were compared as distinct objects, without assuming priority from the date.",
+        "searches": [
+          "Local Resultary radial-distance laws for tangential polygons, 682fa94d6003",
+          "Local Resultary isotropic ordering of unit-disk intersections and Reuleaux polygons, b0c48ac08665, 015afdcf4653, 3f7b7b7ccd99"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched isotropic records tabulate or order other families; the exact angular statements inspected on tangential polygons give the radial law and the Mahler product order, respectively."
+        ],
+        "reasoning": "This is an analytic comparison over continuous phase parameters, not a finite table claim. The plausible equivalent type of exact source would be an explicit inertia-versus-angle profile with its sign or a classified set of gap orderings. The matches establish no such sign on this family; a numerical sample likewise cannot establish this continuous strict order.",
+        "searches": [
+          "Local Resultary same normalized covariance observable: b0c48ac08665, 015afdcf4653, 3f7b7b7ccd99",
+          "Local Resultary same angular gap domain: 682fa94d6003, 073641383518"
+        ]
+      },
+      "rationale": "The known normal-gap moment geometry is not new. The distinct content supported here is the strict normalized covariance ordering on the entire two-copy phase interval and the explicit opposite-sign majorization witness for three copies at every n. The closest statements on rotational overlap, Mahler comparison and isotropic constants of other intersections do not cover those signs. This is a bounded priority comparison.",
+      "residual_risks": [
+        "Unindexed normalized-inertia treatments could contain the two-copy formula or angular comparison.",
+        "The regular-polytopes full text and rotating-polygon MathOverflow discussion were unavailable, so neither is ruled out by full-text evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying moments, not the comparison",
+          "evidence": "The full radial law recovers the unordered gaps but not cyclic order; integration yields the required moments.",
+          "identifier_or_url": "2026/11/1/SCOPE-radial-distance-laws-classify-tangential-polygons-up-to-cyclic-o--682fa94d6003",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Radial-distance laws classify tangential polygons up to cyclic ordering",
+          "trigger": "Same gap representation and radial moments"
+        },
+        {
+          "assessment": "Different invariant with strict Schur-concavity",
+          "evidence": "Product uses sums of tangents and sines, whereas normalized inertia requires the third tangent-power sum and powers of area.",
+          "identifier_or_url": "2026/11/1/SCOPE-strict-angular-gap-majorization-of-mahler-products-for-rotationa--073641383518",
+          "material_read": "RESULT.md Finding at offset 0 and proof continuation at offset 4994",
+          "method": "Local Resultary mirror",
+          "title": "Strict angular-gap majorization of Mahler products for rotational polygon intersections",
+          "trigger": "Exact same family and comparison by majorization"
+        },
+        {
+          "assessment": "Covers area inputs and random asymptotics only as relevant here",
+          "evidence": "Exact area sum supplies one ingredient, but not the normalized inertia comparisons.",
+          "identifier_or_url": "2026/10/25/SCOPE-independent-gumbel-and-gaussian-errors-for-randomly-rotated-regu--ed3ca8970379",
+          "material_read": "RESULT.md Circular-gap representation, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Independent Gumbel and Gaussian errors for randomly rotated regular polygons",
+          "trigger": "Rotated regular polygons and exact circular-gap area sum"
+        },
+        {
+          "assessment": "Different parameter domain and observable",
+          "evidence": "Requires n<m and classifies area, not normalized covariance.",
+          "identifier_or_url": "2026/10/18/SCOPE-universal-convex-gap-rigidity-and-the-exact-rotational-overlap-l--ed975dc47a69",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal convex-gap rigidity and the exact rotational overlap law of unequal regular tangential polygons",
+          "trigger": "Deterministic rotational overlap law"
+        },
+        {
+          "assessment": "Meaningful comparators, with different families and parameters",
+          "evidence": "Regular-array disk intersections approach a limiting polygon; Reuleaux and lens cases vary arc count and disk separation, rather than rotating fixed polygonal copies.",
+          "identifier_or_url": "Resultary b0c48ac08665; 015afdcf4653; 3f7b7b7ccd99",
+          "material_read": "Each RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Strict isotropic constant growth for intersections of regular arrays of disks; strict isotropic ordering of regular Reuleaux odd-gons; strict isotropic monotonicity for symmetric planar disk intersections",
+          "trigger": "Other exact orderings for the same normalized covariance invariant"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "The inequality controls torsional rigidity, not normalized centroidal inertia.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.28768v2",
+          "material_read": "Abstract p. 1 and Theorem 1.1 p. 2, extracted offsets 0 and 8390",
+          "method": "Lawful OA PDF passages",
+          "title": "A Quantitative Pólya–Szegő Theorem for Tangential Polygons",
+          "trigger": "Potential stronger angular deficit theorem for tangential polygons"
+        },
+        {
+          "assessment": "Different transformation and objective",
+          "evidence": "Optimizes area over translations.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.00409v1",
+          "material_read": "p. 1 abstract, OA offset 0",
+          "method": "Lawful OA PDF passage",
+          "title": "Maximum Overlap Area of Several Convex Polygons Under Translations",
+          "trigger": "Named overlap predecessor"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; abstract addresses different questions",
+          "evidence": "First-order optimality, RS movements and local-maximizer structure are described; it does not state this rotation comparison.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0001870825002592",
+          "material_read": "Accessible abstract only; OA full-text attempt returned 403",
+          "method": "Published abstract and lawful OA attempt",
+          "title": "Isotropic constants and regular polytopes",
+          "trigger": "Potentially broader isotropic constant results for regular polytopes"
+        },
+        {
+          "assessment": "Inaccessible; no exclusion inferred",
+          "evidence": "No readable statement used as evidence for the verdict.",
+          "identifier_or_url": "https://mathoverflow.net/questions/221120/intersection-of-rotating-regular-polygons",
+          "material_read": "No substantive passage retrieved",
+          "method": "Lawful OA and public-page attempts, both 403",
+          "title": "Intersection of rotating regular polygons",
+          "trigger": "Named comparison on rotating polygons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp ordering of a standard affine invariant for the basic two-copy rotation family supplies precise extremizers, and the positive three-gap construction establishes an actual limit to extrapolating that ordering by majorization. The sign cancellation and its persistence for every n are substantive, rather than a numerical example or a new name for a known moment formula. The classification is complete only for the two-copy case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

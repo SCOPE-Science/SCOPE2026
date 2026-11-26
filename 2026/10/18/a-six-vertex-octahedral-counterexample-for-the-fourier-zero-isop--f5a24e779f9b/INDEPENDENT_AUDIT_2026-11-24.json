@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:03:53.276429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Quadrant symmetry gives the real diamond-section transform. Differentiating its nested integrals yields Φ''(s)≥4[1−(v²+w²)s²/2], strictly positive for s<1 on the closed frequency cylinder. With g(t)=Φ(1−t), the conditions g(1)=g'(1)=0 turn the axial cosine integral at u≠0 into (au)^−2 times the integral of g''(t)[1−cos(aut)], strictly positive even at v²+w²=2; at u=0 use g>0 on [0,1). At (0,s,s), the coordinates y+z,y−z give a square with Jacobian 1/2 and a marginal proportional to 1−p², giving 4a(sin s−s cos s)/s³. Its sign change gives a nonempty closed zero set and the least norm is attained, so it strictly exceeds √2. The equal-volume ball has radius (a/π)^(1/3), giving the stated comparison. Independently checked the ninth Taylor sum bound by exact scaled integer arithmetic and the rational sufficient threshold (<101); replay /workspace/branches/independent_checks.js. The Taylor terms decrease from the second onward and the first ball root lies in (π,3π/2), so the finite arithmetic checks are sufficient for the integer example but are not the uniform positivity proof. The six displayed vertices are exposed; antipodal spanning pairs prove the minimum in the stated class. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 proves a strict equal-volume comparison for elongated circular bipyramids in d≥3; Corollary 1.3 makes κ unbounded at fixed volume. The paper disproves the general conjecture in d≥2."
+        ],
+        "reasoning": "This is prior coverage of general failure, but the existential statement over all bodies does not enforce any vertex budget or positivity cylinder for the octahedra. Continuous approximation by polytopes also supplies no six-vertex bound.",
+        "searches": [
+          "Gómez-Serrano–Levitin–Platt–Polterovich, arXiv:2609.10517v1, §§1.1–1.2, Theorem 1.2 and Corollary 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0801.1617v3",
+        "arXiv:2609.10517v1",
+        "Resultary 72c1da0f9bb0 and 7d5ef01cc46e",
+        "Frozen RESULT.md, VERIFICATION.md and checks/exact_bounds.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture 2.2 is about the least norm of a real zero versus the equal-volume ball for a balanced convex body. Remark 4.11 concerns failure of diameter control for thin circular bipyramids; the later circular result directly answers the equal-volume conjecture."
+        ],
+        "reasoning": "Neither theorem-level statement gives the diamond-section curvature bound; the analytical positivity mechanism itself is not credited as new. The remaining exact claim is sharper in combinatorial complexity, not a fresh solution of the general conjecture.",
+        "searches": [
+          "Benguria–Levitin–Parnovski, arXiv:0801.1617v3, Conjecture 2.2 and Remark 4.11",
+          "Primary literature search on anisotropic octahedral indicator transforms and Fourier-zero comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two closest results concern |x|+α√(y²+z²)≤1, not |x|/a+|y|+|z|≤1, even after accounting for scalar and axial dilations."
+        ],
+        "reasoning": "An invertible affine map cannot send a disk to a diamond, and the radial Bessel transform of a disk does not imply the two-frequency diamond bound. Changing the body, not the Fourier normalization, is the substantive difference.",
+        "searches": [
+          "Resultary semantic search: six-vertex Fourier-zero octahedron, P_101, anisotropic octahedron and diamond-section transform",
+          "Resultary 7d5ef01cc46e and 72c1da0f9bb0, original Finding passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "72c1da0f9bb0 certifies a circular-section comparison at (α,d)=(100,3); 7d5ef01cc46e certifies a circular-section comparison for every α≥23. No corresponding exact octahedral entry was identified in the results returned."
+        ],
+        "reasoning": "The impressive numeric overlap is not a certificate for the same object; the exact witness check is a known-prior comparison, not a priority proof from failed search.",
+        "searches": [
+          "Resultary exact witness P_101 / √2 cylinder / six-vertex lattice octahedron",
+          "Resultary exact title/ID lookup for 328d6e388fdc"
+        ]
+      },
+      "rationale": "The claim that the ball fails to maximize the first real Fourier-zero distance is already known. What survives is the uniform diamond-section cylinder bound and the explicit minimum-vertex polyhedral counterexample. Inspected primary and catalogue disproofs for d≥3 use disks and do not yield a six-vertex octahedron or a sign statement for its diamond sections.",
+      "residual_risks": [
+        "The leading-slope note was not read in its original form; no judgment about its exact scope beyond the attribution is inferred.",
+        "An unindexed anisotropic cross-polytope transform or equivalent diamond-section result could predate this witness. Neither optimal cylinder width nor an optimal a is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the comparison and gives an earlier diameter counterexample, not the frozen witness",
+          "evidence": "The thin body has circular sections and fixed diameter 2 while κ diverges.",
+          "identifier_or_url": "https://arxiv.org/html/0801.1617v3",
+          "material_read": "§2 Conjecture 2.2, offset near 11150; §4 Remark 4.11, offset near 42000",
+          "method": "Lawful OA HTML",
+          "title": "Fourier transform, null variety, and Laplacian's eigenvalues",
+          "trigger": "Original conjecture and earlier thin-body construction"
+        },
+        {
+          "assessment": "Prior general disproof, not prior six-vertex coverage in the passages read",
+          "evidence": "The displayed d≥3 family is a circular-section convex bipyramid and eventually beats its equal-volume ball.",
+          "identifier_or_url": "https://arxiv.org/html/2609.10517v1",
+          "material_read": "§§1.1–1.2, offset near 3300, Theorem 1.2 and Corollary 1.3",
+          "method": "Lawful OA HTML",
+          "title": "An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies",
+          "trigger": "Primary prior disproof of the same conjecture"
+        },
+        {
+          "assessment": "Prior circular-section analogue",
+          "evidence": "A Bessel-root strip and explicit (100,3) comparison for rotationally symmetric bipyramids.",
+          "identifier_or_url": "Resultary 72c1da0f9bb0",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Lawful local mirror text",
+          "title": "A Pólya–Bessel zero-free strip for Fourier bipyramids",
+          "trigger": "Closest cylinder positivity result and concrete parameter witness"
+        },
+        {
+          "assessment": "Prior stronger bound for a different body",
+          "evidence": "κ(Ω_α)>2α and strict equal-volume comparison for α≥23, where Ω_α has circular sections.",
+          "identifier_or_url": "Resultary 7d5ef01cc46e",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Lawful local mirror text",
+          "title": "A rationally certified width-two Fourier zero-free strip for three-dimensional bipyramids",
+          "trigger": "Closest rationally certified ball comparison"
+        },
+        {
+          "assessment": "Unresolved source access; no theorem exclusions inferred",
+          "evidence": "The frozen discussion describes it as a circular-section leading slope result; the lookup returned related records with other IDs.",
+          "identifier_or_url": "Resultary 328d6e388fdc",
+          "material_read": "Frozen citation and description only; original statement not retrieved",
+          "method": "Local exact title/ID lookup and frozen citation inspection",
+          "title": "Exact leading slope of Fourier-zero distance for elongated bipyramids",
+          "trigger": "Cited close comparison on elongated bipyramids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six is a genuine sharp complexity bound within centrally symmetric 3-polytopes, and the example attains it with integral vertices. The continuum cylinder estimate and exact finite endpoint check make that sharp complexity statement usable without numerical zero searches; they are not merely an improvement of the already known circular threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

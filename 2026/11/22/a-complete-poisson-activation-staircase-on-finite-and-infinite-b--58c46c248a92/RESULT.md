@@ -7,6 +7,7 @@ Let \(E=\{n_0,n_1,\ldots\}\subseteq\mathbb N_0\) be finite with at least two ele
 \mathcal K_E(\rho)=\sup_{0\ne f\in H_E}\frac{\|T_\rho f\|_{L^4(\mathbb T)}^4}{\|f\|_{L^2(\mathbb T)}^4},\qquad
 H_E=\overline{\operatorname{span}}^{L^2}\{z^{n_i}:n_i\in E\}.
 \]
+Thus \(\mathcal K_E(\rho)\) is the **fourth power** of the operator norm, not the operator norm itself.
 Put \(w_i=\rho^{2n_i}\). There is a unique \(t=t(\rho)>0\) satisfying the **finite** sum equation
 \[
 \sum_{i:w_i>t}\left(1-\frac{t}{w_i}\right)=\frac12.
@@ -90,7 +91,7 @@ w_k-t_{k+1}=\frac{w_kG_k}{k+\tfrac12+G_k}.
 \]
 At the crossing the normalizing sum in (2) is \(D_k>0\). Since \(G_k(\rho_k)=0\) and \(G_k'(\rho_k)>0\), Taylor expansion yields the stated linear squared-magnitude law, with positive coefficient. Earlier amplitudes vary continuously and no other mode can enter at this radius.
 
-**5. Endpoint distinction.** For infinite \(E\), (1) at \(\rho=1\) extends by \(L^4\) density to all \(f\in H_E\) and gives \(\|f\|_4^4=2\|f\|_2^4-\sum_i|c_i|^4<2\|f\|_2^4\) for every nonzero \(f\). Flat normalized coefficients on increasingly many frequencies approach the ratio two, so the endpoint norm is two but unattained. For each fixed finite truncation, \(T_\rho\to I\) as \(\rho\uparrow1\), hence \(\liminf_{\rho\uparrow1}\mathcal K_E(\rho)\ge2-1/N\) for every \(N\). Conversely (1) is bounded by two, proving the limit is two. For finite \(E\), (1) at \(\rho=1\) is maximized only by \(p_i=1/N\), giving \(2-1/N\).
+**5. Endpoint distinction.** On finite Fourier sums at \(\rho=1\), (1) gives \(\|f\|_4\le2^{1/4}\|f\|_2\). Applying this bound to differences of truncations shows they converge in \(L^4\) to their \(L^2\) limit, so the identity extends to all \(f\in H_E\). For every nonzero \(f\), \(\|f\|_4^4=2\|f\|_2^4-\sum_i|c_i|^4<2\|f\|_2^4\). For infinite \(E\), flat normalized coefficients on increasingly many frequencies approach the fourth-power ratio two; thus \(\mathcal K_E(1)=2\) and the operator norm is \(2^{1/4}\), unattained. For each fixed finite truncation, \(T_\rho\to I\) as \(\rho\uparrow1\), hence \(\liminf_{\rho\uparrow1}\mathcal K_E(\rho)\ge2-1/N\) for every \(N\). The upper bound two holds throughout, and \(\mathcal K_E\) is nondecreasing because (1), expanded into diagonal and pair terms, has nonnegative coefficients and each weight is nondecreasing in \(\rho\). This proves the asserted limit. For finite \(E\), (1) at \(\rho=1\) is maximized only by \(p_i=1/N\), giving \(\mathcal K_E(1)=2-1/N\) and operator norm \((2-1/N)^{1/4}\).
 
 ## Verification
 
@@ -102,17 +103,18 @@ Finite tests support, but do not prove, the general countable-spectrum claim. Th
 
 ## Relationship to prior work
 
-Frank and Ivanisvili (2021) establish global Poisson-semigroup hypercontractivity on spheres, including the circle setting, but their sharp global contractivity criterion does not determine the operator norm and all maximizing Fourier supports *above the critical radius* for an arbitrary \(B_2\) restriction. Ciccone and Gonçalves (2022) study sparse arithmetic Fourier supports and sharp \(L^2(\mathbb S^1)\to L^6(\mathbb R^2)\) circle extension under their \(P(3)\) condition; their operator and objective differ from the present \(L^2(\mathbb T)\to L^4(\mathbb T)\) Poisson smoothing problem.
+Frank and Ivanisvili (2021) give the global Poisson-semigroup hypercontractivity criterion in low sphere dimensions and credit the circle case to Weissler. That global criterion does not determine the operator norm and maximizing Fourier supports above the first restricted threshold for an arbitrary \(B_2\) spectrum. Ciccone and Gonçalves (2022) study sparse arithmetic Fourier supports and sharp \(L^2(\mathbb S^1)\to L^6(\mathbb R^2)\) circle extension under their \(P(3)\) condition; their operator and objective differ from the present \(L^2(\mathbb T)\to L^4(\mathbb T)\) Poisson smoothing problem.
 
 Previously available sharp fourth-moment analysis of finite nonresonant **three-frequency** Poisson spaces implies the one- and two-activation special case and is not claimed as new. Another published result gives exact **unweighted** fourth-moment constants for arbitrary finite lacunary \(B_2\) sets, with equal-energy extremizers; that result corresponds to \(\rho=1\) in the finite setting. The present all-length and countably infinite theorem covers the exact \(0<\rho<1\) waterline, infinitely many individually ordered sharp transitions, the onset law, and the nonattaining infinite endpoint. The searched literature did not establish these stronger weighted statements; priority remains conditional on historical completeness.
 
 ## Limitations
 
-The theorem uses a strict \(B_2\) pair-sum hypothesis and analytical Poisson weights \(\rho^{n_i}\). It does not classify general midpoint-resonant sets, other smoothing multipliers without monotone weights, other even moments, or arbitrary Fourier phases when additive collisions occur. No closed form for each threshold polynomial is expected or claimed beyond its unique scalar equation. This is a self-reviewed mathematical proof, not an independently audited or mechanically certified theorem. The most significant originality risk is an older general weighted \(B_2\)-synthesis or diagonal multiplier theorem that implies the waterline argument under a different name.
+The theorem uses a strict \(B_2\) pair-sum hypothesis and analytic Poisson weights \(\rho^{n_i}\). It does not classify general midpoint-resonant sets, other smoothing multipliers without monotone weights, other even moments, or arbitrary Fourier phases when additive collisions occur. No closed form for each threshold polynomial is claimed beyond its unique scalar equation. The most significant originality risk is an older general weighted \(B_2\)-synthesis or diagonal multiplier theorem that implies the waterline argument under a different name.
 
 ## References
 
 1. Rupert L. Frank and Paata Ivanisvili, *Hypercontractivity of the semigroup of the fractional laplacian on the n-sphere*, arXiv:2101.06209, first public 2021-01-15, https://arxiv.org/abs/2101.06209 .
 2. Valentina Ciccone and Felipe Gonçalves, *Sharp Fourier Extension on the Circle Under Arithmetic Constraints*, arXiv:2208.09441, first public 2022-08-19, https://arxiv.org/abs/2208.09441 .
-3. *Exact three-frequency Poisson fourth-moment norm and phase classification*, earlier accessible research result; the nonresonant three-frequency subcase is treated as established precedent, not a new result.
-4. *Resonance-chain phase rigidity in lacunary fourth-moment extremizers*, published mathematical research record (2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-resonance-chain-phase-rigidity-in-lacunary-fourth-moment-extremi--2b706c80a337 .
+3. *Two sharp activation thresholds for analytic three-frequency Poisson fourth moments*, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-sharp-activation-thresholds-for-analytic-three-frequency-poi--1425405cb653 . The nonresonant three-frequency case is not claimed as new here.
+4. *Resonance-chain phase rigidity in lacunary fourth-moment extremizers*, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-chain-phase-rigidity-in-lacunary-fourth-moment-extremi--2b706c80a337 .
+5. F. B. Weissler, *Logarithmic Sobolev inequalities and hypercontractive estimates on the circle*, J. Funct. Anal. 37 (1980), 218–234, https://doi.org/10.1016/0022-1236(80)90042-7 .

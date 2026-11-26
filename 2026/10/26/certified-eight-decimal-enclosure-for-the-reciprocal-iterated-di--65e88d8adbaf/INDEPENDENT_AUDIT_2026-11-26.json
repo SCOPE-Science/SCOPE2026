@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:57:02.055912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the powerful part beta of the independent valuation model its weight is zeta(2)^−1 beta^−1 ∏_{p|beta} p/(p+1): at p not dividing beta the event E_p≤1 has probability 1−p^−2, and at p|beta the fixed exponent contributes (1−1/p)p^−e. The odd part of tau(beta) equals V on this event, so the expectation equals Campbell's actual c3. The proxy divides V and can differ only for a middle prime with exponent ≥4 or an omitted prime with exponent ≥2. The integral bounds give a one-sided loss at most 1/(3·1000^3)+10^−8. The package's floor transitions preserve lower masses, and the upper sum must add the entire deficit and use ceiling reciprocal contributions; these inequalities are valid. Independently replayed with python3 /workspace/reproductions/divisor_enclosure.py (not the uploaded checker). For each small-prime state v=3^a w with 3∤w, integrate x^a ∏(1−u_p(1−x))/tau(w) over [0,1]. Pointwise Bonferroni orders 3 and 4 give lower and upper polynomials; the first three elementary symmetric coefficients come from bounded power sums, and e4≤(Σu_p)^4/24. A segmented sieve processed 5,761,287 middle primes, and 765 small-product states left less than 10^−15 probability unrepresented. Exact rational arithmetic with outward display gave [0.83670132148021748910, 0.83670133181355127258], strictly inside both announced endpoints. This verifies the valuation expectation enclosure, not the asymptotic theorem or a specific asymptotic error term.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 already gives the asymptotic for Σ1/d(d(n)); Lemma 9 gives absolute convergence and 6/π²≤c3≤1. The earlier Resultary record states the asymptotic and series under C."
+        ],
+        "reasoning": "These general formulas define a computable target but no tight error bound for any stated numerical truncation was found there. Do not credit the asymptotic or convergence as new.",
+        "searches": [
+          "Campbell arXiv:2605.00695v2, Lemma 9 and Theorem 2",
+          "Resultary 97bdc4ac7f94, Finding and verification discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Campbell arXiv:2605.00695v2, Lemmas 8–9 and Theorem 2",
+        "Resultary 97bdc4ac7f94, including partial-sum artifacts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected prior series is absolutely convergent but no bound there places its uncomputed tail at the frozen scale. The earlier partial sum is almost 0.001 below the new lower endpoint."
+        ],
+        "reasoning": "The published series and its convergence do not mechanically certify these endpoints. The new claim needs a rigorous truncation and probability or summation bounds at the claimed scale, plus a directed-arithmetic computation.",
+        "searches": [
+          "Campbell arXiv:2605.00695v2, Lemma 9 proof and bounds",
+          "Resultary 97bdc4ac7f94, verification discussion and partial-sum artifact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comparing C in the October 13 record with c3 in Campbell gives the same powerful-integer sum. The powerful-part mass zeta(2)^−1 beta^−1 ∏p/(p+1) and odd divisor-count observable show the frozen expectation is another formulation of that same sum."
+        ],
+        "reasoning": "The new assertion is not a second constant or a new series; it is the explicit enclosure for this common constant.",
+        "searches": [
+          "Resultary semantic lookups for reciprocal iterated-divisor leading constant, powerful-part series and numerical enclosure",
+          "Resultary 2026/10/13/SCOPE-an-explicit-leading-constant-for-the-reciprocal-iterated-divisor--97bdc4ac7f94",
+          "Campbell arXiv:2605.00695v2, Lemmas 8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier output reports partial_C=0.835770608715 with floating-point arithmetic and powerful integers through 100000; the record disclaims a certified interval. The relevant Campbell bounding passage contains only the broad bounds."
+        ],
+        "reasoning": "A partial sum for the same number is a real numerical overlap, but is not a high-precision value or a two-sided enclosure for the infinite constant. Missing keyword hits are not proof of priority.",
+        "searches": [
+          "Campbell v2 full-text searches for decimal and the claimed numerical prefix",
+          "Resultary 97bdc4ac7f94/artifacts/replay.txt and artifacts/verify.py"
+        ]
+      },
+      "rationale": "The supported distinct claim is the narrow certified interval only. The asymptotic, powerful-part series, and identically weighted expectation are prior or equivalent. Campbell gives only broad bounds in the inspected passages; an earlier Resultary numerical partial sum has no comparable precision or infinite-tail certificate. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "External literature lookup was unavailable; an unindexed or other published numerical evaluation cannot be excluded. A v3 HTML request returned 404 and version metadata could not be confirmed, so version-history completeness is not asserted. These limitations are not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same asymptotic and constant; series and broad interval are explicit, not the tight numerical enclosure.",
+          "evidence": "The summand is 1/[beta d(v(beta))] times the product of p/(p+1) over p|beta and the common zeta(2)^−1 factor. v(beta) is the odd part of d(beta).",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00695v2",
+          "material_read": "Lemma 8 p. 16, Lemma 9 p. 17 (PDF text offsets 38,100–39,762), Theorem 2 p. 19 (around offset 44,380); literal checks for numerical wording and prefix",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On divisor sums due to Erdős and Ramanujan",
+          "trigger": "Exact constant and possible numerical prior coverage"
+        },
+        {
+          "assessment": "Equivalent constant and earlier numerical partial sum; does not establish the claim.",
+          "evidence": "partial_C=0.835770608715; the cutoff is powerful numbers through 100000, and the verification discussion disclaims certification of the full value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-an-explicit-leading-constant-for-the-reciprocal-iterated-divisor--97bdc4ac7f94",
+          "material_read": "RESULT.md offsets 0–6,353 including Finding and verification; artifacts/replay.txt and cutoff in artifacts/verify.py",
+          "method": "Local Resultary mirror, files inspected without executing the code",
+          "title": "An explicit leading constant for the reciprocal iterated-divisor sum",
+          "trigger": "Prior record on the same asymptotic, series and numerical constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the leading coefficient of a motivated reciprocal iterated-divisor asymptotic, not a parameter chosen after computation. The certificate shrinks the broad known interval of width about 0.392 to about 1.03×10^−8, which supplies a usable target for other analytic bounds and numerical evaluations. The divisor count couples equal odd prime factors across outcomes, so a product of scalar local means would not give this benchmark. Neither a new asymptotic nor a unique rounding to eight decimal places is needed for the stated interval.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

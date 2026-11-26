@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:34.519059Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lee et al.'s Type-2 equations yield the invariant logistic axis and the normal multiplier bx−a, independent of c. Doubling with x=sin²(πt) pushes Haar to the stated arcsine law; the logarithm is integrable even at endpoint/double zeros. Jensen applied to z²+(2A/B)z+1 gives the two log-integral branches, including a=b. For a>b the positive branch argument is strictly increasing with a, and solving for argument 1 yields a=(1+b/4)² when b<4; the b=4 and b>4 cases follow from the value at a=b. For C=cos(2πt), doubling transfer deletes odd Fourier orders and halves even ones, giving L(w²)=A²+B²/2+(B²/2)C and L(w²C)=AB(1+C). Transfer duality then gives (Mⁿ)₁₁. Its determinant is A³B; A<0 gives a strictly positive matrix and visible Perron mode, A>0 a negative determinant and positive trace with visible positive dominant eigenvalue, and A=0 has the direct power (B²/2)ⁿ. On the centered line the sine quotient has 2ⁿ unit Fourier coefficients and its fourth moment counts pairs with equal sums, giving (2·2³ⁿ+2ⁿ)/3 before multiplying by (b/4)⁴ⁿ. The exact b=3 rates are log(3/4) and log(9/8); continuity of the all-parameter formulas gives an open set. As a finite independent check the off-center case (a,b)=(7/4,3), n=2 gives 469/256, and the centered case (3/2,3), n=2 gives second/fourth moments 81/64 and 72171/16384. The uploaded verifier was inspected, not run; those finite checks are not used as the limiting proof. Scope is linear normal growth along the exact axis, not nonlinear extinction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee et al. give the polynomial system and discuss Lyapunov computation, not the rank-two raw moment recursion.",
+          "Anteneodo gives finite-time log variance/autocorrelation and exact density at full chaos. The inspected Chebyshev-compression record treats multiplication by logistic iterates rather than products of shifted multipliers."
+        ],
+        "reasoning": "Exact centered log-distribution information is stronger than two centered raw moments but limited to that multiplier up to scaling. General transfer duality explains the method; it does not itself state the invariant two-dimensional Fourier space and dominant eigenvalue of the offset system.",
+        "searches": [
+          "Lee et al., arXiv:2301.11669v2 §§2.4 and 2.6",
+          "Anteneodo, Eqs. (14)–(15), (18), (20)",
+          "Public 634dc48171fb, Finding and proof; public 55143ffed1ca, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:15–58, 60–96 and supporting VERIFICATION.md and verify.py",
+        "Lee et al. arXiv:2301.11669v2, Type-2 model and Lyapunov computation",
+        "Anteneodo arXiv:nlin/0309065, finite-time Ulam statistics",
+        "Resultary and public records 634dc48171fb, 55143ffed1ca, and indexed 3bff36abf380"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The model equations imply the cocycle but a conventional numerical Lyapunov computation observes typical log growth, not the logarithm of a raw ensemble moment.",
+          "Anteneodo's law determines centered moments after rescaling. The inspected public log-covariance conclusions give second moments of a log sum rather than its exponential moment."
+        ],
+        "reasoning": "A strict centered sign gap can be deduced from the old centered law with moment evaluation; to quantify it at arbitrary offsets, or obtain the stated explicit continuous raw-moment exponent there, one still needs a calculation such as the verified Fourier transfer closure.",
+        "searches": [
+          "Lee et al., Eqs. (20)–(21), (40)",
+          "Anteneodo, Ulam derivative quotient and density",
+          "Published transverse-log-covariance spectrum, exact cocycle Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anteneodo gives the telescoping log-sine quotient for the derivative product. At a=b/2, the multiplier equals −(b/8)L′(x), making the entire centered law a deterministic rescaling of the Ulam derivative law.",
+          "Public 634dc48171fb addresses the same Type-2 cocycle in a parameter band via covariance of log multipliers and includes the turning-point case (2,4)."
+        ],
+        "reasoning": "Credit the centered product identity and distribution to direct equivalence. Away from a=b/2 the affine offset cannot be reproduced by deterministic rescaling of the logistic derivative; log-covariance statements do not directly give the raw moment spectrum.",
+        "searches": [
+          "Anteneodo arXiv:nlin/0309065, Ulam-map finite-time Lyapunov exponent distribution, Eqs. (18) and (20)",
+          "Resultary: logistic boundary normal cocycle, transverse Lyapunov exponent and exact moment growth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected index hit, 634dc48171fb, gives exact logarithmic covariance, not a table of raw moments or a sign comparison. The same-day 3bff36abf380 search summary concerns a two-node matrix-logistic fluctuation cancellation; the matching primary file could not be read through the mirror."
+        ],
+        "reasoning": "The claim is an all-parameter exponent/moment formula, not an isolated numerical entry. The index did not supply a verified table or same symbolic claim for the general raw second moment. The inaccessible record is a residual risk, not negative evidence.",
+        "searches": [
+          "Resultary: exact normal moments, logistic-map transverse spectra and mean-square versus almost-sure rates"
+        ]
+      },
+      "rationale": "The distinct result supported by comparison is the all-offset exact second-moment transfer and the resulting open separation of the Lyapunov and raw second-moment growth signs in the Type-2 model. The logistic conjugacy, log-cosine integral, and centered sine-quotient law are not independent originality claims. In particular the centered finite-time distribution has a directly equivalent antecedent in the Ulam-map literature, and the displayed centered moments can be recovered from it. No inspected source supplies the off-centered transfer and comparison; the decision is best-of-knowledge, not exhaustive priority.",
+      "residual_risks": [
+        "A weighted-doubling pressure or generalized Lyapunov exponent result could subsume the two-dimensional spectrum when specialized.",
+        "The same-day matrix-logistic record was not available in primary text, and targeted queries are not exhaustive. No priority conclusion is based solely on publication labels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the model; the inspected analysis is not exact raw moment growth",
+          "evidence": [
+            "f=μ₀x(1−x)−μ₁xy and g=−ν₀y(1−y)+ν₁xy; Eq. (40) is a Lyapunov definition/computational discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.11669v2",
+          "material_read": "§2.4, Eqs. (20)–(21), PDF p. 8; §2.6, Eq. (40), p. 14",
+          "method": "Targeted open primary passages",
+          "title": "Predator Extinction arose from Chaos of the Prey",
+          "trigger": "Original Type-2 model and transverse-Lyapunov discussion"
+        },
+        {
+          "assessment": "Direct centered antecedent; not an arbitrary-offset moment calculation",
+          "evidence": [
+            "Autocorrelation and log variance; exact transformed density; telescoping sine quotient for the derivative product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/nlin/0309065",
+          "material_read": "PDF pp. 2–3, Eqs. (14)–(15), (18), (20), offsets 14500–24944",
+          "method": "Bounded primary-text passages and exact derivative-rescaling comparison",
+          "title": "Statistics of finite-time Lyapunov exponents in the Ulam map",
+          "trigger": "Classical exact full-chaos derivative statistics"
+        },
+        {
+          "assessment": "Substantial overlap for log fluctuations, not direct raw product coverage",
+          "evidence": [
+            "Exact finite-time covariance of logarithmic transverse multipliers and an explicit turning-point case; not the raw Qₙ² or Qₙ⁴ moment."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-transverse-log-covariance-spectrum-on-the-chaotic-axis-of--634dc48171fb/RESULT.md",
+          "material_read": "Finding and relevant proof passages",
+          "method": "Public-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact transverse log covariance spectrum on the chaotic axis",
+          "trigger": "Strong same-model Resultary hit"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": [
+            "Analyzes compressed multiplication by logistic/Chebyshev iterates, not the products of the offset normal multiplier."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-finite-section-spectral-transitions-for-chebyshev-iterates--55143ffed1ca/RESULT.md",
+          "material_read": "Finding, opening passage",
+          "method": "Public-record local mirror",
+          "title": "Exact finite-section spectral transitions for Chebyshev iterates",
+          "trigger": "Possible equivalent Fourier/transfer formulation"
+        },
+        {
+          "assessment": "Unresolved finer overlap; no whole-text inference",
+          "evidence": [
+            "Indexed summary describes a two-node matrix-logistic log-growth fluctuation question."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-transverse-fluctuation-cancellation-in-a-matrix-logisti--3bff36abf380",
+          "material_read": "Indexed summary only; matching primary passage unavailable through mirror",
+          "method": "Resultary and attempted local-mirror inspection",
+          "title": "A unique transverse fluctuation cancellation in a matrix logistic model",
+          "trigger": "Same-day transverse logistic-fluctuation hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact rank-two reduction applies throughout a natural two-parameter transverse stability problem, rather than just at a solvable resonance. It explains why a negative almost-sure exponent does not guarantee small average squared amplification and identifies a genuine open region without extrapolating from numerical plots or asserting nonlinear population extinction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

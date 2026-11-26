@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:21.519943Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the central strip with the stated parameters, the rotation increment lies in (0,1) and ω decreases strictly for 0<v<1, including ε=1 since 1+ε−2εv²>0 there. Hence a genuine half-turn at each step forces both heights to be ±Y, with the smaller quadratic root in (0,1). Equal heights force x=0,1/2; for reversing heights there is exactly one +Y endpoint per orbit and its sine equals 2Y/b. This proves the count, merger, and least period. The kick–twist derivative has determinant one; the second step reverses the cosine sign and, only on a reversing cycle, the sign of the twist derivative. The products have traces 2−c²w² and 2+c²w² respectively, and at the merger the two zero-cosine shears cancel exactly. The equality b_c/b_f=Q_ε(t) follows by eliminating a; Q_ε is strictly increasing throughout (0,1), with Q_ε(0)=0 and Q_ε(1/4)>1, and a(t) increases with a(1/4)<1 for all allowed ε. Thus a unique reachable t_*<1/4 decides nonempty open coexistence, and ε=1 gives the stated closed forms. The proof's use of b<1 describes the open coexistence interval: on the allowed endpoint b=1 itself the same traces also permit coexistence if b_c<1<b_f. The theorem does not exclude this endpoint and makes no assertion of nonlinear stability. Frozen VERIFICATION.md and verify_halfturn.py were inspected, not run. Independent lifted-map and Jacobian checks covered 117 orbit evaluations including mergers and b=1 (python -I /workspace/branches/independent_checks.py 3).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wurm et al. pp. 4–5 give symmetry conditions and exact low-period indicator curves, including b²=4(1−1/(2a)) for the standard-map hyperbolic 1/2 case (Table I). Grime et al. arXiv:2209.07408 §3.1 give fixed points and their collisions. Their later transport paper emphasizes odd-period island chains, PDF p. 12."
+        ],
+        "reasoning": "The standard-map row agrees with the ε=0 limit, not the nonzero-quartic classification. The indicator method generalizes to the quartic model and is a real antecedent, but no inspected result compares the two-step linear trace regimes for its constant-height and reversing two-cycles.",
+        "searches": [
+          "arXiv:nlin/0411026, §II.C and Table I",
+          "arXiv:2209.07408, map and §3.1",
+          "arXiv:2409.00785, transport scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.17538",
+        "arXiv:2209.07408",
+        "arXiv:2409.00785",
+        "arXiv:nlin/0411026",
+        "Resultary f0775f13bc35",
+        "Resultary 7842537cf4da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quartic study uses one-dimensional numerical root finding for its bifurcation curves, derives analytic criteria for other reconnections, and gives P_0^±=(±1/4,±b/2) in Appendix A. The standard-map exact curves come from the periodicity of indicators."
+        ],
+        "reasoning": "Substituting the published quartic indicator into the map gives the frozen merger equation under the half-turn condition; even the shear cancellation can be quickly calculated there. Neither calculation supplies all the cycles and the two distinct monodromy formulas, or identifies where the constant-height trace −2 and the reversing merger coincide. In particular Figure 6 cannot establish that Q_ε(t)=1 has a unique solution controlling elliptic coexistence.",
+        "searches": [
+          "arXiv:2305.17538, §3 PDF pp. 7–8, offsets 25300–29965; Appendix A PDF p. 10, offsets 36150 onward",
+          "arXiv:nlin/0411026, §II.C and Table I, offsets 24789–31000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grime et al. §3, Figure 6 gives a numerical rotation-1/2 collision at (a,ε,b)=(0.515,0.1,0.3259), close to the frozen b_c≈0.325836900672. Appendix A equations (9)–(15) specify both the reflection/half-shift symmetry and the indicator at height b/2."
+        ],
+        "reasoning": "The parameters, geometry and indicator calculation are directly relevant, but an orbit with average rotation 1/2 is not definitionally constrained to have an exact half-turn at both steps with heights in (−1,1). The numerical example is evidence of closely related prior coverage, not a proof of the restricted count or of the crossover.",
+        "searches": [
+          "Resultary: central half-turn, rotation 1/2, period-two reversing collision in the biquadratic nontwist map",
+          "arXiv:2305.17538, §3 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f0775f13bc35 is an exact same-map full-cylinder winding-by-winding period-one census at finding offset 0; 7842537cf4da studies parameter rescaling and the b=0 subfamily. Wurm's exact table concerns ε=0. The closest numerical quartic entry is Figure 6 of arXiv:2305.17538."
+        ],
+        "reasoning": "Neither period-one stability, integrable rotation data, nor an ε=0 table provides the b>0, ε>0 central two-step classification. No priority is inferred between records sharing the 2 November date.",
+        "searches": [
+          "Resultary: same-map exact period-two census, b_c=2Y and return stability",
+          "Resultary f0775f13bc35 and 7842537cf4da",
+          "Wurm et al., Table I"
+        ]
+      },
+      "rationale": "The numerical collision and the indicator points are already published. In fact the same-map indicator coordinates in Grime et al. make the collision threshold a short calculation: demanding a half-turn at (1/4,b/2) yields ω(b/2)=1/2 directly. Do not credit a new collision phenomenon or a new indicator criterion. The supported distinction is the exhaustive restricted census together with exact linear types, the full identity return at the singular merger, and the unique crossover comparing the two different thresholds. The closest prior statements and methods do not give or mechanically determine that combined stability classification. No absolute priority or conclusion about the full-cylinder period-two census is asserted.",
+      "residual_risks": [
+        "The identity of every branch drawn in the motivating numerical figure with the restricted half-turn family is not established by its caption or parameters alone. Unindexed same-map or general reversible-map calculations could anticipate additional parts; the inspected comparisons do not establish such an implication for the full classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on collision and exact precursor to its location, not the full stability classification",
+          "evidence": "The collision parameters, one-dimensional root-search description and explicit indicator coordinates (±1/4,±b/2).",
+          "identifier_or_url": "https://arxiv.org/abs/2305.17538",
+          "material_read": "§3 PDF pp. 7–8, Figure 6 caption and numerical search; Appendix A p. 10, equations (9)–(15)",
+          "method": "OA original PDF, bounded passages",
+          "title": "Shearless curve breakup in the biquadratic nontwist map",
+          "trigger": "Same map and numerical rotation-1/2 collision"
+        },
+        {
+          "assessment": "Exact ε=0 coverage and general method, not a quartic crossover theorem",
+          "evidence": "Spatiotemporal symmetry conditions and the exact 1/2 hyperbolic-reconnection indicator row.",
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0411026",
+          "material_read": "§II.C, PDF pp. 4–5, Table I",
+          "method": "OA original PDF, bounded passages",
+          "title": "Meanders and Reconnection–Collision Sequences in the Standard Nontwist Map",
+          "trigger": "Exact antecedent for a low-period reconnection threshold"
+        },
+        {
+          "assessment": "Defines the underlying model and fixed-point analysis",
+          "evidence": "Primary reconnection and eight fixed points, rather than the restricted half-turn classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.07408",
+          "material_read": "Map and scope, p. 2, OA offset 6354; §3.1 p. 6, offset 18563",
+          "method": "OA original PDF",
+          "title": "Biquadratic Nontwist Map: a model for shearless bifurcations",
+          "trigger": "Defining same-map paper"
+        },
+        {
+          "assessment": "The inspected transport analysis does not settle the even-period claim",
+          "evidence": "Focuses on odd-period island chains and identifies even-period barriers as further study.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.00785",
+          "material_read": "PDF p. 12, OA offset 59406",
+          "method": "OA original PDF",
+          "title": "Effective transport barriers in the biquadratic nontwist map",
+          "trigger": "Same-map transport and resonance analysis"
+        },
+        {
+          "assessment": "Same-day distinct record on period one, no order inferred",
+          "evidence": "Its winding-by-winding fixed-point classification is not about two-step orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-global-integer-winding-fixed-point-spectrum-and-sharp-elliptic-s--f0775f13bc35",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Resultary search, local mirror",
+          "title": "Global integer-winding fixed-point spectrum and sharp elliptic staircase",
+          "trigger": "Exact same-map classification and linear stability"
+        },
+        {
+          "assessment": "Different parameter regime and object",
+          "evidence": "Parameter-rescaling conjugacy and an integrable b=0 rotation-depth law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-reciprocal-dynamical-symmetry-and-an-exact-two-sided-rotation-de--7842537cf4da",
+          "material_read": "Mirrored finding",
+          "method": "Resultary search, local mirror",
+          "title": "Reciprocal dynamical symmetry and an exact two-sided rotation-depth law",
+          "trigger": "Same-map exact orbit information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scope isolates the primary half-turn resonance in a published model and relates to a concrete numerical bifurcation, rather than carving out an arbitrary parameter slice. The complete branch classification and crossover give an exact way to identify whether the reversing saddles can coexist with elliptic constant-height cycles, and the identity return distinguishes the merger from merely trace-two monodromy. These are useful for linear bifurcation diagrams without inferring nonlinear stability or global transport. The indicator calculation alone would not merit the same assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

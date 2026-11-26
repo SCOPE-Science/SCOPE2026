@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:25:57.046690Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated same-sign gate and v_0=0 the first update is pure gradient descent, so v_1=s theta_0 and theta_1=(1-s)theta_0. If theta_t v_t<0, then v_(t+1)=s theta_t and theta_(t+1)=(1-s)theta_t, whose product is strictly negative for s>1 and theta_t nonzero. The asserted formulas follow; the inherited contribution is permanently zero, not the stored v_t. The multiplier has modulus s-1, giving the exact convergence factor, neutral two-cycle, and divergence in their stated regimes. The ordinary-momentum characteristic polynomial is z^2-(1+alpha-s)z+alpha; the two endpoint Jury inequalities are s>0 and 2(1+alpha)-s>0, with alpha<1 supplying the remaining condition. This gives the strict comparison window for alpha>0. The printed source indicator is imprecise, but the recurrence being proved agrees with the source prose and the frozen gate assumption. This verifies deterministic exact scalar arithmetic, not finite precision, noisy gradients, or rotated modes of a nondiagonal multivariate problem. Inspected VERIFICATION.md and the NumPy-based verify.py as finite diagnostics and did not run the uploaded script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The supplement analyzes sufficient convergence on a strongly convex smooth class; it does not assert the sharp scalar neutral/divergent boundary or preservation/loss of the heavy-ball enlarged interval."
+        ],
+        "reasoning": "A conservative sufficient convergence result does not imply the instability comparison or classify all zero-initialized scalar overshoots. The update itself still makes the specialization routine.",
+        "searches": [
+          "Wang et al., arXiv:1812.11305v1 §3.1–3.2 and supplement §2",
+          "arXiv:1812.11305v2 §3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.11305v1 §§3.1–3.2 and supplement §2",
+        "arXiv:1812.11305v2 §3.2",
+        "Resultary indexed PID, Fisher-momentum, and PowerSign/AddSign comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When the intended source gate is off, one step has theta'=(1-s)theta and v'=s theta. The same scalar multiplication puts the next state back into the gate-off region whenever s>1. Ordinary momentum uses a standard quadratic Jury test."
+        ],
+        "reasoning": "No stronger prior theorem found already states the all-time SPI specialization. However, the source definition together with the textbook scalar gradient descent sign flip and the ordinary-momentum test mechanically yields the exact result, which limits its scientific value.",
+        "searches": [
+          "arXiv:1812.11305v1 §3.2 equations (4)–(5), supplement equation (10) and p. 15 convergence bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SPI paper describes suppressing the historical term when the directions disagree. The equivalent phrasing is an absorbing opposite-sign branch; it is not literal zeroing of the state buffer.",
+          "Indexed sign-based optimizer and PID results use different recurrence laws."
+        ],
+        "reasoning": "Equate the inherited contribution with the gated term, not the velocity buffer. The one-step source statement is not word-for-word or theorem-level all-iterate coverage over the stated overshoot regime.",
+        "searches": [
+          "Resultary: SPI-Optimizer scalar quadratic overshoot permanent momentum erasure sign gate stability interval",
+          "Resultary: SPI-Optimizer sign-consistent momentum gate first overshoot Wang Ji scalar quadratic",
+          "Literature: \"SPI-Optimizer\" scalar quadratic overshoot sign gate permanent momentum reset stability interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest separate records concern an ungated PID reduction, cycles of a normalized Fisher optimizer, and sign-product behavior for PowerSign/AddSign. They do not supply an SPI threshold or an SPI invariant branch."
+        ],
+        "reasoning": "Same date, scalar setting, or sign terminology does not imply equivalent coverage. The operative maps differ.",
+        "searches": [
+          "Resultary: SPI-Optimizer sign gate permanent momentum reset scalar quadratic overshoot",
+          "2026/10/4/SCOPE-exact-quadratic-stability-and-hidden-momentum-factorization-of-t--7b863d0a1163",
+          "2026/10/13/SCOPE-a-sharp-attracting-cycle-window-for-regularized-fisher-momentum--41be5e1891bf",
+          "2026/10/13/SCOPE-powersign-and-addsign-have-a-sharp-alternating-amplitude-agreeme--604561322840"
+        ]
+      },
+      "rationale": "The narrow explicit all-iterate absorbing-branch and stability-comparison statement was not identified in the inspected prior sources. Credit the original sign gate, its gradient-descent step after a crossing, and the classical separate GD and heavy-ball thresholds; the calculation is an immediate consequence of those inputs, not a new optimizer or stability criterion in general. Its routine character is decisive on value.",
+      "residual_risks": [
+        "An earlier explicit statement of this elementary specialization may not be indexed.",
+        "Attribution is to the intended gate as defined by source prose, not to a literal reading of the incomplete printed indicator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original sign gate and one-step mechanism; no explicit scalar absorbing-branch phase diagram in those passages",
+          "evidence": "The prose identifies product -1 as inconsistent and retains momentum only for consistent signs; the printed indicator lacks an explicit comparison predicate. The supplement gives a sufficient bound, not the exact scalar comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.11305v1",
+          "material_read": "§3.1–3.2, PDF pp. 3–4, equations (4)–(5); supplement §2, PDF pp. 14–15, equation (10) and sufficient convergence bound; corresponding v2 §3.2",
+          "method": "Targeted OA PDF and version 2 HTML passage inspection",
+          "title": "SPI-Optimizer: an integral-Separated PI Controller for Stochastic Optimization",
+          "trigger": "Exact optimizer, overshoot rationale and convergence analysis"
+        },
+        {
+          "assessment": "Different PID method",
+          "evidence": "The reduction has no SPI sign gate.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-quadratic-stability-and-hidden-momentum-factorization-of-t--7b863d0a1163",
+          "material_read": "Matched RESULT.md passages on scalar stability and heavy-ball reduction",
+          "method": "Local indexed mirror",
+          "title": "Exact quadratic stability and hidden momentum factorization of a PID optimizer",
+          "trigger": "Closest indexed quadratic stability comparison"
+        },
+        {
+          "assessment": "Distinct normalized Fisher update",
+          "evidence": "Does not study the SPI absorbing branch or its neutral two-cycle.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-attracting-cycle-window-for-regularized-fisher-momentum--41be5e1891bf",
+          "material_read": "Matched RESULT.md passages on the normalized recurrence and cycles",
+          "method": "Local indexed mirror",
+          "title": "A sharp attracting cycle window for regularized Fisher momentum",
+          "trigger": "Indexed scalar cycles and momentum"
+        },
+        {
+          "assessment": "Distinct optimizer and input condition",
+          "evidence": "The sign agreement calculation is not a reset or stability result on SPI trajectories.",
+          "identifier_or_url": "2026/10/13/SCOPE-powersign-and-addsign-have-a-sharp-alternating-amplitude-agreeme--604561322840",
+          "material_read": "Matched RESULT.md passages on sign products and exponential averaging",
+          "method": "Local indexed mirror",
+          "title": "PowerSign and AddSign have a sharp alternating-amplitude agreement threshold",
+          "trigger": "Indexed alternating sign and momentum test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating stability comparison is sensible, but this exact slice does not add a nonroutine mathematical boundary. Zero initialization forces a gradient-descent step, and for s>1 textbook scalar gradient descent reverses sign on every step. The optimizer's already-intended response to that reversal forces the very same update again, independently of alpha. After this immediate observation, the entire phase diagram and comparison are exactly the two textbook GD/heavy-ball intervals, with no further branch, competition, or sharp estimate to resolve. The correct explanation may be useful pedagogically, but this frozen result does not analyze the regimes where retention versus suppression is genuinely in question. No surviving distinct claim justifies a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

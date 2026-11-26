@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:27:05.789864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86 and VERIFICATION.md lines 18–47",
+        "Inspected frozen verification/count_fixed.py, verification/bruteforce.py and verification/large_deviation.py"
+      ],
+      "rationale": "The exact leaf test is y=u implies x=u and x=v implies y=v. Its five/six allowed page pairs give the displayed coefficient formulas after adding the opposite hub to the count vector; color relabelling gives factors 3 and 6. With hubs (0,1), the first hub's failure differs from A2>A0 only when A1>=A0 (including a tie of the two challengers), with Chernoff rate (2+2 sqrt(3))/6. The hub-swapped event has the same rate of error, and the six bivariate increments give diagonal MGF (2r+r^2+2+r^(-2))/6<rho for simultaneous lower tails. Tilting the single-coordinate walk at log r makes +/-1 symmetric, with variance 2 sqrt(6)/(1+2 sqrt(6)) and a positive atom at zero. Lattice Fourier inversion gives the centered local Gaussian limit at each fixed -j and a uniform O(m^(-1/2)) bound; undoing the tilt gives summable weights r^j for j>=1, yielding the stated c. Inclusion-exclusion and the six ordered distinct hub pairs produce the negative 12c correction. The agreeing sector is bounded by 5^m, and division by 3^(2m+2) gives the already-fixed probability, not any basin probability.",
+      "residual_risks": [
+        "Recorded finite diagnostics were not replayed and are not needed for the analytic proof. No claim about trajectories, other schedules or other tie rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b7d28b39fb97 has the same graph, but its three-state Greenberg–Hastings rule gives the all-zero fixed state only.",
+          "3b37aec41c1b has K_{1,m} square K_2 but optimizes grounded Laplacian leader placement.",
+          "Mossel–Neeman–Tamuz p. 1 studies eventual majority unanimity on expanders, not labelled fixed-state counts for ternary book plurality."
+        ],
+        "reasoning": "Graph coverage or eventual behavior does not dominate this rule-specific stationary census.",
+        "searches": [
+          "Resultary: dynamics and fixed points on quadrilateral books",
+          "Mossel–Neeman–Tamuz arXiv:1207.0893v1"
+        ]
+      },
+      "checked_sources": [
+        "The frozen statement and coefficient formulas",
+        "Resultary material identified above",
+        "Mossel–Neeman–Tamuz and Apt et al. OA passages",
+        "OEIS exact prefix search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "a74ff3318934 gives a parity split on wheels K_1 join C_n.",
+          "2d7906b7fadd gives an asymptotic 3·5^m sqrt(5/(4πm)) for triangle windmills with one shared hub."
+        ],
+        "reasoning": "These are genuine related same-rule results, but neither covers two adjacent hubs with an ordered pair of leaves per page; their statements do not yield the pair of correlated rare events or the rate (1+2 sqrt(6))^m here. Same-day listing does not establish ordering.",
+        "searches": [
+          "Resultary: fixed configurations under three-opinion plurality with incumbent ties on wheels and windmills",
+          "Primary literature search for ternary plurality square-book fixed states (unavailable; no negative inference)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct same-formulation match is the bound record b1358b923807 itself.",
+          "Apt et al. p. 7 defines Nash as 1-equilibrium. With a hub's two other colors tied for first and its own color absent, the plurality rule retains it while a coordination-game best response does not."
+        ],
+        "reasoning": "A Nash-equilibrium enumeration cannot be substituted for this tie rule, and the bound self-match provides no independent priority claim.",
+        "searches": [
+          "Resultary: square books, ternary tie-retaining plurality, fixed configurations and sharp hub asymptotic",
+          "Apt et al., arXiv:1501.07388"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://oeis.org/search?q=39%2C93%2C531%2C5109%2C20979 returned no exact table match for these terms.",
+          "Frozen VERIFICATION.md lines 28–43 records U_m, V_m, E_m values, not an independent prior table. The exact catalogue hit is the frozen record itself."
+        ],
+        "reasoning": "No independently matching finite table was established in these checks; a table match alone would still not establish the correction term.",
+        "searches": [
+          "OEIS sequence search 39,93,531,5109,20979",
+          "Resultary: exact labelled fixed-state census on K_{1,m} square K_2"
+        ]
+      },
+      "rationale": "The exact count and sharp first correction for labelled square books under the specified tie rule were not found in the inspected comparisons. Same-graph results change the process; same-rule results change the hub/leaf structure and do not specialize to this count. This is a bounded assessment, not a historical-priority guarantee.",
+      "residual_risks": [
+        "External primary-literature search was unavailable; it supplies no negative evidence.",
+        "The Di Ianni and Yang–Pan original results were not retrieved in full. Other variants or exact counts under different indexing may be missed; same-day catalogue dating proves no priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage.",
+          "evidence": "Same expansion, leaf pair filters and hub conclusion.",
+          "identifier_or_url": "2026/11/22/SCOPE-anti-aligned-hubs-dominate-ternary-plurality-fixed-points-on-qua--b1358b923807",
+          "material_read": "Finding offsets 743–963 and frozen lines 22–42",
+          "method": "local mirror and frozen text",
+          "title": "Anti-aligned hubs dominate ternary plurality fixed points on quadrilateral books",
+          "trigger": "exact catalogue match"
+        },
+        {
+          "assessment": "Different update rule.",
+          "evidence": "Reports all-zero as the unique fixed configuration under its excitation rule.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-three-and-four-phase-excitation-on-quadrilateral-books--b7d28b39fb97",
+          "material_read": "Finding at offset 0",
+          "method": "local mirror",
+          "title": "Exact three- and four-phase excitation on quadrilateral books",
+          "trigger": "same graph and color count"
+        },
+        {
+          "assessment": "Different quantity.",
+          "evidence": "Optimizes an inverse-Laplacian trace over grounded leader sets.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-stage-two-leader-transition-on-quadrilateral-book-graphs--3b37aec41c1b",
+          "material_read": "Finding at offset 0",
+          "method": "local mirror",
+          "title": "A three-stage two-leader transition on quadrilateral book graphs",
+          "trigger": "same graph family"
+        },
+        {
+          "assessment": "Wheel, not square book.",
+          "evidence": "Parity split and a square-root asymptotic for a hub joined to a cycle.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-locked-three-opinion-plurality-equilibria-on-wheel-graphs--a74ff3318934",
+          "material_read": "Finding at offset 462",
+          "method": "local mirror",
+          "title": "Parity-locked three-opinion plurality equilibria on wheel graphs",
+          "trigger": "same tie rule with hub"
+        },
+        {
+          "assessment": "One shared hub and triangular pages; different statistic.",
+          "evidence": "Its fixed-state asymptotic is 3·5^m sqrt(5/(4πm)).",
+          "identifier_or_url": "2026/11/22/SCOPE-three-opinion-plurality-on-triangle-windmills-a-sharp-three-step--2d7906b7fadd",
+          "material_read": "Finding at offset 0",
+          "method": "local mirror",
+          "title": "Three-opinion plurality on triangle windmills",
+          "trigger": "same update with shared pages"
+        },
+        {
+          "assessment": "Available passage does not give the stationary book count.",
+          "evidence": "Eventual unanimity of a majority process on expanding networks.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.0893v1",
+          "material_read": "p. 1, offset 2680",
+          "method": "OA original text",
+          "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+          "trigger": "cited related plurality/majority process"
+        },
+        {
+          "assessment": "Best-response criterion is different.",
+          "evidence": "Identifies Nash as 1-equilibrium; an incumbent outside the tied leaders can improve in the game but is retained here.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.07388",
+          "material_read": "p. 7, offset 19300",
+          "method": "OA original text",
+          "title": "Coordination Games on Graphs",
+          "trigger": "possible equilibrium reformulation"
+        },
+        {
+          "assessment": "Unresolved source comparison, not negative evidence.",
+          "evidence": "No inspected theorem used to rule out coverage.",
+          "identifier_or_url": "AppliedMath 5(4), 147 (2025)",
+          "material_read": "Frozen bibliographic citation only; attempted full-text retrieval did not succeed",
+          "method": "bounded OA attempt",
+          "title": "Three Majority-Based Deterministic Dynamics for Three Opinions",
+          "trigger": "cited three-state dynamics"
+        },
+        {
+          "assessment": "Unresolved source comparison.",
+          "evidence": "No matching statement established.",
+          "identifier_or_url": "Yang and Pan, WMSVM 2010, pp. 98–101",
+          "material_read": "Frozen citation; no primary passage retrieved",
+          "method": "bounded OA attempt on IEEE source",
+          "title": "Solution on Tie in Three-Opinion Dynamics Research",
+          "trigger": "potentially related tie mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–22, 51–86; related wheel and windmill findings"
+      ],
+      "rationale": "The book graph isolates two interacting hubs with simple repeated pages, a useful comparison problem for finite-state network dynamics under explicit tie retention. Opposite hubs ultimately dominate, and the first loss from the full six-choice page ensemble has a computed exponential rate and lattice prefactor; a count bound or leading growth rate would not identify that rare-event mechanism. The result is meaningful without claims about basins or other plurality rules.",
+      "residual_risks": [
+        "No extension across graph families or implication for convergence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

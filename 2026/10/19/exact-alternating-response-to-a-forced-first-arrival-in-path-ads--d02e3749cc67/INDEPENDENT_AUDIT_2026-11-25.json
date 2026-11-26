@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:18:34.563174Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, recurrence, generating function and proof by boundary-distance parity",
+        "Frozen VERIFICATION.md and rsa_path_first_arrival_verify.py (inspection only)"
+      ],
+      "rationale": "Conditioning on the first uniform permutation element leaves the two segments with the same path law, yielding 1+J_(i-2)+J_(n-i-1) with J_(-1)=J_0=0. Averaging gives the frozen recurrence; differentiating the stated generating function verifies it and the zero constant term. With q=e^(-2), subtracting the affine part J_m=(1-q)m/2+(1-3q)/2+e_m cancels it from the response, leaving e_(a-1)+e_(b-1)-e_(a+b+1), a<=b, and e_(-1)=q. Taylor remainders and integration by parts give e_m=(-1)^(m+1) u_m with the stated positive integral. The integral gives u_m<2^(m+1)/(m+2)! and u_(m+1)/u_m<2/(m+1); e^2>7 also gives u_0>u_1. If a,b have the same parity the signs and dominance give sign (-1)^a; for a even and b odd decreasing u gives positivity. For a odd >=3 and b even the two potentially counteracting terms have ratio to u_(a-1) strictly below 2/a+4/[a(a+1)]<=1. For a=1 and b even, u_0=u_1+u_4 gives equality at b=2 and strict negativity thereafter. In the endpoint case a=0, b=0 gives 2q-u_1=0, b=1,3 give equality by q=u_0-u_2=u_2-u_4, even b>=2 give positivity by monotonicity, and odd b>=5 by u_4=(1-7q)/2<q since e^2<9. Together these give exactly the three exceptional sizes. For a>=1, the furthest residual term is strictly smaller in magnitude than u_(a-1), so the triangle inequality gives the stated strict bound below 3u_(a-1) and hence below 3*2^a/(a+1)!.",
+      "residual_risks": [
+        "The proof uses the uniform relative order and one forced first proposal. It does not imply monotonicity for finite changes to proposal rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sparse-random-graph work studies jamming constants and the large-network limit. Indexed defect results address dimers on the infinite line, rate perturbations on infinite trees, or a path-versus-branch graph change."
+        ],
+        "reasoning": "The particular finite-path total occupancy response is not a specialization of those inspected interventions: a rate perturbation at a different type of object, a remote-site probability, and an edge/branch edit do not specify a uniform permutation conditioned at its first vertex.",
+        "searches": [
+          "arXiv:1604.03918v1",
+          "DOI:10.1103/PhysRevE.50.4523; DOI:10.1137/0402034",
+          "Resultary: single-site or inhomogeneous adsorption defects"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.07216v4",
+        "arXiv:1604.03918v1",
+        "Resultary records listed above",
+        "DOI:10.1103/PhysRevE.50.4523 and DOI:10.1137/0402034, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known path formulas furnish the inputs for Delta directly, but no sign of their cancellation is supplied. Alternation and factorial decay occur in structurally analogous but distinct models."
+        ],
+        "reasoning": "The sign theorem needs relative bounds on oscillatory errors and exact identities at small indices; the closed expression by itself does not supply those inequalities, and the analogies do not give a reduction preserving Delta.",
+        "searches": [
+          "arXiv:1907.07216v4, §8, equations (10)–(15)",
+          "Resultary 2026/10/26/62931be7f8b0, 2026/11/22/23985ac98f83 and 2026/11/8/403e69aef65d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-order nearest-neighbor RSA is the same process as greedy MIS; the prior recurrence explicitly writes the conditional expectations as its summands."
+        ],
+        "reasoning": "The formulas for the conditional response are known in substance. Extracting the sign of the difference uniformly and proving where it vanishes still requires remainder comparisons and exceptional-case estimates.",
+        "searches": [
+          "Resultary: forced-first path parity and factorial response; first-site priority in greedy maximal independent set",
+          "arXiv:1907.07216v4, §8, eqs. (10)–(15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior formulas evaluate J_n at every n; the inspected equations and indexed results do not tabulate or assert the complete response sign pattern or the exact exceptional sizes."
+        ],
+        "reasoning": "The theorem is not a numerical table of J_n. Knowing or computing all finite expectations is distinct from the dimension-free symbolic sign and localization comparisons.",
+        "searches": [
+          "Resultary: finite-path RSA recurrences and first-priority response",
+          "arXiv:1907.07216v4, §8 finite-path formulas"
+        ]
+      },
+      "rationale": "The exact unconditioned path expectation and the formulas that compute each conditional mean are prior; the supported distinct claim is the sign and exception classification and its uniform strict factorial bound. The inspected perturbation results are on other models, graphs or observables. None was shown to mechanically imply the finite-path sign comparisons, including their small cancellations.",
+      "residual_risks": [
+        "Two classic related papers could not be compared in full text; the older indexed cycle comparison is summary-level only.",
+        "The bounded search does not exclude an unindexed equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the expectation and conditional formulas, not the asserted sign/exceptions/bound in the inspected passage",
+          "evidence": "Equation (10) averages the first-site-conditioned means; equation (11) evaluates the finite path mean.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216v4",
+          "material_read": "§8, p. 19, equations (10)–(15), OA offset 68359",
+          "method": "Lawful OA full-text passages",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Exact path expectations and the same conditional recurrence"
+        },
+        {
+          "assessment": "Same process framework, different result",
+          "evidence": "Identifies nearest-neighbor RSA and greedy MIS under a uniform ordering but studies large sparse-random-graph jamming behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.03918v1",
+          "material_read": "p. 2, OA offset 4117",
+          "method": "Lawful OA full-text passage",
+          "title": "Generalized Random Sequential Adsorption on Sparse Random Graphs",
+          "trigger": "General framework and possible graph-level RSA bound"
+        },
+        {
+          "assessment": "Different model and later record",
+          "evidence": "A single dimer-bond rate defect changes edge occupations on the infinite line.",
+          "identifier_or_url": "2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary local mirror",
+          "title": "Alternating factorial screening of one anomalous dimer adsorption rate",
+          "trigger": "Close parity and factorial-tail match"
+        },
+        {
+          "assessment": "Different observable and later record",
+          "evidence": "Finite-rate perturbation on an infinite regular tree changes distant-site probabilities, not a finite-path total under forced first arrival.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-and-sharp-factorial-screening-of-a-single-adsorption-rate--23985ac98f83",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary local mirror",
+          "title": "Parity and sharp factorial screening of a single adsorption rate",
+          "trigger": "Marked vertex and factorial response"
+        },
+        {
+          "assessment": "Different intervention and later record",
+          "evidence": "The graph is altered with a branch instead of conditioning the proposal order.",
+          "identifier_or_url": "2026/11/8/SCOPE-boundary-to-bulk-branch-response-in-random-greedy-adsorption-on--403e69aef65d",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary local mirror",
+          "title": "Boundary-to-bulk branch response in random greedy adsorption",
+          "trigger": "Expected size and factorial error on path-based graphs"
+        },
+        {
+          "assessment": "Limited comparison; summary addresses a different law",
+          "evidence": "The indexed result concerns output-law uniformity on cycles.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-greedy-independent-sets-on-cycles--9a6d94e819c5",
+          "material_read": "Catalogue summary only; file not found in pinned mirror",
+          "method": "Resultary search and mirror attempt",
+          "title": "Exact uniformity and a local likelihood-ratio obstruction for greedy independent sets on cycles",
+          "trigger": "Earlier close greedy-MIS hit"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "No readable original body was obtained; the frozen description of the scope is not independently confirmed.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.4523",
+          "material_read": "Citation and access response; full text not obtained",
+          "method": "Bounded lawful OA attempts",
+          "title": "Inhomogeneous random sequential adsorption on bipartite lattices",
+          "trigger": "Inhomogeneous site rates could be relevant"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "No readable original body was obtained, so no statement-level exclusion is based on it.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Citation and access response; full text not obtained",
+          "method": "Bounded lawful OA attempts",
+          "title": "Random sequential adsorption on graphs",
+          "trigger": "Possible older perturbation or boundary analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and proof",
+        "arXiv:1907.07216v4, §8"
+      ],
+      "rationale": "The expected-size sensitivity to selecting one definite vertex first is natural for the random greedy process, with the path isolating boundary effects. The result resolves the full all-size sign profile rather than just computing examples, identifies the small paths with no sensitivity, and quantifies how rapidly interior priority effects vanish. The known mean formula alone does not exhibit any of those qualitative outcomes.",
+      "residual_risks": [
+        "The bound constant is not optimized; no claim of a finite-rate or general-graph extension is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

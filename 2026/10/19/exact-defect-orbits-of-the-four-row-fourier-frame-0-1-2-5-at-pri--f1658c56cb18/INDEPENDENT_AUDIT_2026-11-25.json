@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:02:00.694664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–69; VERIFICATION.md; verify.py and verification-output.txt (recorded evidence).",
+        "Independent replay: /workspace/branches/2f3d35dc-cde2-4008-86f1-e76dd34ee1f0/check_independent.py and check_independent.out."
+      ],
+      "rationale": "For four distinct nodes, the remainder of X⁵ modulo their monic quartic has X³ coefficient e₁²−e₂=h₂. Row elimination thus gives the Vandermonde times h₂; the first three rows force rank at least three. The pair-sum polynomial has value 10 at 1, and divisibility by the prime-power cyclotomic polynomial forces p=2 or 5. In the binary case divide away common parity until both parities occur. The odd part must vanish; a 1+3 split is impossible by the odd term count, and the 2+2 split makes the odd part the product of two pair sums, forcing an antipodal pair. Writing the roots as u,−u,v,w reduces the equation to u²+v²+vw+w²=0; its modulus constraint gives v/w=−1 or ±i and hence the two stated shapes. The first is a subgroup coset; the second has one antipodal pair and cannot be fixed by the half-turn, so the stabilizers have orders four and one. For p=5 each residue class of pair sums must have a count divisible by 5. The 3+1 and 2+2 patterns give (6,3,1) and (3,4,3). In 2+1+1, the repeated residue contributes three pairs, the mixed pairs with the two singletons add two each at distinct different residues, and the three singleton pair sums are distinct; the maximum is four. For four distinct residues, deleting the missing residue from all five subtracts one pair per sum from three, leaving two each. Thus all four residues coincide, and iterating yields the order-five coset. Its converse follows from the reciprocal product (1−αt)/(1−t⁵). Independent exact replay checked all 625 residue tuples and all 915,337 four-sets at N=7,8,16,25,27,32,49,64 with zero mismatches; singular counts were 0,10,20,25,0,40,0,80.",
+      "residual_risks": [
+        "The independent exhaustive replay is finite and does not substitute for the cyclotomic proof. The orbit counts concern unordered distinct columns, and only prime powers N>5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform distribution over divisors yields the existence dichotomy at prime powers: the rows are imbalanced modulo 4 or 5 in those two characteristics and satisfy the criterion otherwise.",
+          "Principal minors require coincident row and column sets, whereas the present columns vary independently. The semiprime result assumes N=3p, including N=15 but not these prime powers."
+        ],
+        "reasoning": "The half-turn and fifth-adic necessity arguments classify individual selections, information not contained in a full-spark condition on the fixed row set.",
+        "searches": [
+          "Alexeev–Cahill–Mixon, arXiv:1110.3548, Theorem 9",
+          "Caragea–Lee, arXiv:2409.09793, abstract",
+          "Resultary 04538f9363bb, Finding and §§4–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 04538f9363bb, bb8a5601ae6d, de39e0486913; arXiv:1110.3548, 2409.09793, 2403.10817."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier semiprime proof gives the same missing-fifth-root generating identity and uses a modulo-three obstruction for necessity. It does not constrain the fifth-adic residue splits or the binary roots.",
+          "The {0,1,2,4} determinant has a different Schur factor; two antipodal pairs alone do not force h₂=0 for {0,1,2,5}."
+        ],
+        "reasoning": "The known results explain some witnesses and the existence dichotomy, but do not imply that exactly the displayed translation orbits exhaust all failures.",
+        "searches": [
+          "Resultary 04538f9363bb, proof §§4–5, offsets 3830–5580",
+          "Alexeev–Cahill–Mixon, Theorem 9",
+          "Resultary bb8a5601ae6d, proof near offset 2218"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vanishing of the Schur polynomial h₂ on four chosen nodes is equivalent to singularity, and the prior semiprime record uses that formulation.",
+          "Hidaka–Itoh specialize at the entire set of primitive roots, not at arbitrary four chosen Nth roots."
+        ],
+        "reasoning": "Renaming a Fourier-minor zero as a Schur zero adds nothing; no inspected equivalent formulation settles the prime-power necessity and orbit classification.",
+        "searches": [
+          "Hidaka–Itoh, arXiv:2403.10817, Theorem 1.1",
+          "Resultary 04538f9363bb, same-row determinant/Schur formulation",
+          "Resultary bb8a5601ae6d and de39e0486913, nearby exponent patterns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matching fifth-coset geometry at semiprime order 15, where the earlier record counts 15 such sets; near-consecutive {0,1,2,4} record instead counts a two-antipodal-pair family."
+        ],
+        "reasoning": "Neither is a table of the same prime-power failures. The prime-power and semiprime order sets here are disjoint, even though the fifth-root witness is shared.",
+        "searches": [
+          "Local Resultary search for the {0,1,2,5} singular-minor classification and the cited nearby row patterns; matches 04538f9363bb, bb8a5601ae6d, de39e0486913"
+        ]
+      },
+      "rationale": "Full-spark existence for this row set at prime-power orders follows from Alexeev–Cahill–Mixon. The preceding same-row semiprime record also explicitly establishes the order-five pattern at N=15 and the h₂ identity that proves sufficiency at any multiple of five. What survives is necessity for all prime-power orders, especially the binary two-orbit classification and the proof that no larger fifth-power configurations arise. The inspected results do not give these or their counts.",
+      "residual_risks": [
+        "The catalogue and primary comparisons are bounded. An unindexed equivalent exact classification is possible; no absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared fifth-coset mechanism, different ambient order and necessity theorem",
+          "evidence": "For N=15 exactly 15 defects, four points of order-five cosets; full spark for N=3p, p≥7. The reciprocal product identity matches the frozen sufficiency step.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-odd-semiprime-full-spark-rigidity-theorem-for-a-four-row-four--04538f9363bb/RESULT.md",
+          "material_read": "Finding and proof §§4–5, offsets 3830–5580, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror; compare hypotheses and root identities",
+          "title": "An odd-semiprime full-spark rigidity theorem for a four-row Fourier frame",
+          "trigger": "Strongest same-row catalogue result"
+        },
+        {
+          "assessment": "Covers existence of at least one defect, not its location, count or orbit",
+          "evidence": "Full spark at prime-power orders is equivalent to uniform row distribution over divisors.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Theorem 9, PDF p. 12, at about offset 46200",
+          "method": "OA PDF passage and substitution of row residues",
+          "title": "Full spark frames",
+          "trigger": "General theorem on the same prime-power Fourier minors"
+        },
+        {
+          "assessment": "Principal rather than independent column choices",
+          "evidence": "Its principal-minor restriction does not range over independent four-column sets for the specified rows.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.09793",
+          "material_read": "PDF p. 1 abstract at offset 415",
+          "method": "OA PDF passage checking scope",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Exact Fourier-minor literature"
+        },
+        {
+          "assessment": "Different specialization",
+          "evidence": "Evaluates Schur polynomials on all primitive roots, not an arbitrary four-node subset.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.10817",
+          "material_read": "Theorem 1.1, PDF p. 1, offset 1629",
+          "method": "OA PDF theorem passage",
+          "title": "The Schur polynomials in all primitive nth roots of unity",
+          "trigger": "Potential equivalent Schur-specialization result"
+        },
+        {
+          "assessment": "Different row set and forbidden configurations",
+          "evidence": "Rows {0,1,2,4} give exactly column sets with two antipodal pairs.",
+          "identifier_or_url": "Resultary bb8a5601ae6d",
+          "material_read": "Finding near offset 200; proof near 2218",
+          "method": "Local mirror",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame",
+          "trigger": "Nearby exact column classification"
+        },
+        {
+          "assessment": "Different row set and full-spark question",
+          "evidence": "Does not classify {0,1,2,5} column defects.",
+          "identifier_or_url": "Resultary de39e0486913",
+          "material_read": "Finding near offset 109",
+          "method": "Local mirror",
+          "title": "Exact full-spark criterion for the four-row Fourier pattern {0,1,3,4}",
+          "trigger": "Nearby four-row criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, lines 4–64; comparison with Theorem 9 of Full spark frames and Resultary 04538f9363bb."
+      ],
+      "rationale": "The first quadratic Schur case after the consecutive and linear cases is a motivated four-row sample-reconstruction problem. The enumeration supplies exactly which samples fail and how many, explains the distinct fourth-, eighth- and fifth-root mechanisms, and replaces the binary full-spark answer with an all-size classification. This is useful beyond repeating the known existence dichotomy or the earlier fifth-root witness.",
+      "residual_risks": [
+        "Rank and orbit counts are not estimates of conditioning or stability at nonsingular selections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

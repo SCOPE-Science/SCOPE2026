@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:50:11.059402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The regeneration identity pi_r=r delta_0 sum_k s^k P^k gives a normalized invariant distribution and uniqueness by TV contraction with factor s per step. Reversibility yields G_s(0,n)=m_n G_s(n,0); the strong Markov property along successive lower-site first hits factors the latter as G_s(0,0) times the product of the w_j. The reversible weight product has m_n proportional asymptotically to n^(−2 epsilon) and p_n tends to 1/2; divergent edge resistances on the positive half-line (2 epsilon > −1 in the stated range) give almost-sure lower hits. Each w_j rises strictly and continuously from zero to one, and the first two target constants lie strictly between those endpoints. At r_1, the exact site-one balance pi(1)=s[pi(0)/2+(2+epsilon)pi(2)/4] yields pi(2)/pi(1)=2(2−s)/(s(2+epsilon))>1. Thus r_2>r_1, and continuity preserves pi(2)>pi(0) immediately to the right of r_1. Positive summable masses and strict separation from site one guarantee an attained outer maximum on each side. Each adjacent ratio is strictly decreasing in r, so equalities are countable; in the claimed window there are in fact only finitely many potentially tied pairs since w_n≤s≤1−r_1 and m_n/m_(n−1) tends to one. A plateau of four positive sites would force 1=s[1−epsilon/(j²−1)] at two distinct interior sites j≥2, impossible; this also justifies the qualitative 'short plateau' wording. An independent recurrence evaluated with outward rounding and tail bounds 0≤w_501≤1 encloses r_1 near 0.00740343587959632569 and r_2 near 0.03099729756312700554 within widths below 8e−31, confirming the quoted decimals. Replay: python3 /tmp/opencode/ordinal3_threshold_check.py. The submitted uncertified tail approximation and mass-losing finite-window propagation were inspected, not run; they are diagnostics, not interval certificates or infinite-chain proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radice gives first-hitting generating functions and studies when resetting worsens mean first-hitting time; its eq. (142) is a mean-time comparison. Ray–Reuveni gives a stationary Bessel profile and a cusp-to-displaced-mode threshold under a strongly repulsive continuous half-line log-potential with reset to a positive position."
+        ],
+        "reasoning": "Ray–Reuveni's morphology is a real conceptual precedent, but the state space, reset location, bias regime and shape observable do not specialize to this weakly outward full-line lattice theorem. Radice's continuous-diffusion analogy (eqs. (93)–(95)) is a formal scaling relation, not an exact stationary-shape transfer.",
+        "searches": [
+          "arXiv:2208.10220v4 §§7–8, especially §7.3 eq. (142), and Appendix A",
+          "arXiv:2004.01898v2 §III.A–B, eqs. (8)–(15)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.10220v4 §§7–8 and Appendix A",
+        "arXiv:2004.01898v2 §III",
+        "Resultary target 628bdf083df8 and related reset-morphology search hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radice's transforms F_j(s)=E_j[s^T_0] already give w_1=F_1 and w_2=F_2/F_1 by the first-hit factorization. Thus the analytic hitting quantities themselves are not new. Ray–Reuveni's threshold places the continuum mode at or to the right of its reset cusp."
+        ],
+        "reasoning": "Knowing the first-hit functions offers a way to evaluate both thresholds but is not the ordering result. The key extra implication is local stationary balance at the central equality, which forces the second ratio strictly above one; summability and reflection then give distinct side peaks. Neither supplied primary result states or mechanically identifies that coexistence window.",
+        "searches": [
+          "Radice arXiv:2208.10220v4 eq. (96), Appendix A eqs. (A.1)–(A.10), and §7.3 eq. (142)",
+          "Ray–Reuveni arXiv:2004.01898v2 §III.B eqs. (13)–(15)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two roots may equivalently be defined by either adjacent invariant-mass ratio crossing one or the discounted neighbor-hitting transforms crossing reciprocal reversible-weight ratios. Radice uses the same replacement-per-step reset convention, but its mean first-passage threshold compares different observables."
+        ],
+        "reasoning": "Rewriting stationarity as the discounted potential kernel identifies exactly where hitting-formula overlap occurs, but the order of the two adjacent-ratio crossings and the existence of separated maxima require further reasoning. A cusp is not itself a strict local peak.",
+        "searches": [
+          "Gillis random walk stochastic resetting stationary distribution trimodal three peaks origin local maxima resetting outward bias ratios (web)",
+          "stationary distribution reset Gillis walk lattice repulsive local mode two thresholds near origin (Resultary)",
+          "Gillis random walk stationary distribution with resetting mode cusp morphology discrete lattice (web)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index retrieves this target and different-reset or different-dynamics stationary-mode diagrams. In the inspected primary Gillis paper the tabulated/numerical threshold is for first-passage times, not the equalities pi(0)=pi(1) or pi(1)=pi(2)."
+        ],
+        "reasoning": "No independently matching lattice stationary-ratio threshold table was identified. Replaying the target decimals certifies those numerics only, not priority.",
+        "searches": [
+          "Gillis stochastic resetting three peak trimodal coexistence stationary exact local ratios (Resultary)",
+          "Gillis random walk stationary distribution with resetting mode cusp morphology discrete lattice (web)"
+        ]
+      },
+      "rationale": "The same-chain hitting transforms are prior and mathematically very close, as are modal shifts for continuum diffusions. The surviving claim is the pair of exact stationary neighboring-site thresholds, their strict order for all weakly outward biases, and the consequent open coexistence interval for a single lattice reset site. The inspected sources do not give this combined stationary shape claim. The implication is short but not a direct identification with an existing first-passage optimization threshold.",
+      "residual_risks": [
+        "Unindexed work on invariant spatial shape of reset birth–death chains could contain this or a more general ordering lemma. Inspected first-passage equations already give the transforms; priority is limited to the stationarity and coexistence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model analytic precursor for hitting transforms, not the two adjacent stationary-mass comparisons",
+          "evidence": [
+            "(A.1) expresses the first-hit generating function as a quotient of propagator generating functions; (142) is the equality between mean first-hit times with and without resetting, not a stationary crossing."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.10220v4",
+          "material_read": "Model eq. (1), §§7–8, particularly eqs. (93)–(96), eq. (142) p. 29, and Appendix A (A.1)–(A.10)",
+          "method": "Open primary PDF text at relevant sections",
+          "title": "Non-homogeneous random walks with stochastic resetting: an application to the Gillis model",
+          "trigger": "Same Gillis kernel and close first-passage formulas"
+        },
+        {
+          "assessment": "Primary stationary cusp/mode transition for a different continuum model",
+          "evidence": [
+            "The strongly repulsive half-line density has a cusp at its positive reset location x_0; eqs. (14)–(15) place the threshold at x_0^dagger for coincidence of cusp and mode."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.01898v2",
+          "material_read": "§III.A–B, pp. 3–5, including eqs. (8)–(15)",
+          "method": "Open primary PDF text at relevant sections",
+          "title": "Diffusion with resetting in a logarithmic potential",
+          "trigger": "Nearest primary result on a shift of stationary modes under reset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local attraction caused by resetting and outward displacement of the stationary mass are not mutually exclusive. This example gives a strict central peak and two side peaks for an open interval across the entire stated outward-bias regime, not just a tuned numerical profile. The exact neighboring-site comparisons isolate the mechanism and give a region where the reset-site peak is lower than outer mass, while leaving the full inventory of extrema explicitly open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

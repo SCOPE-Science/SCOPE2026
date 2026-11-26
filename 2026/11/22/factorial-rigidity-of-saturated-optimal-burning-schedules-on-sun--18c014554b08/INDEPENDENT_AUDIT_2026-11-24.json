@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:39:29.234242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With r rounds of remaining spread, a core source reaches at most 2r-1 pendants for r≥1 and zero for r=0. A pendant source reaches its own pendant and other pendants only within cycle distance r-2, yielding at most max(1,2r-3) for r≥1 and exactly one for r=0. Thus k rounds cover at most (k-1)²+1 pendants and k-1 rounds cannot suffice. At equality each source attains its bound and the pendant footprints partition the cycle. Since the maximum arc length 2k-3 is less than n, there is no wraparound saturation ambiguity; each odd-length arc has a unique center. Rounds with r≥2 must use cores, the r=1 singleton permits either type and the final singleton must use its pendant. Conversely all such tilings cover every pendant and its core except possibly the final core; the latter has a neighboring nonsingleton block because there are only two singleton blocks and n≥5, and that block's core radius extends one further than its pendant radius. Disjoint cycle intervals of radii h_s,h_t have center distance at least h_s+h_t+1, which exceeds t-s for s<t≤k-1 with h_i=k-i-1. Pendant sources add a step for distinct indices; the last pendant lies outside every earlier footprint so its distance from any earlier core source exceeds k-s, and it is at least two steps from the penultimate source. Thus the constructed schedules satisfy even strict inequality in the stated ignition condition. A clockwise start of the first block gives n choices, arranging the other time labels gives (k-1)! choices, and the penultimate source gives the factor of two. Fixing every source but one fixes the complement footprint; its center and vertex type are forced except for the penultimate switch. This proves the matching. Every ordered schedule fixes at least three center indices if preserved, impossible for a nonidentity symmetry of the cycle, so the dihedral orbit count is (k-1)!. Inspected the supplied C++ enumeration and tiling checker without executing them. An independently written distance enumeration exhausted all 10³ triples on S₅, found 20 schedules and 10 exchange edges each of degree one at its endpoints, and found no two-round success. This corroborates only k=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational general characterization checks a proposed sequence rather than classifying corona equality cases",
+          "The frozen result credits Jenifer–Shanthi with 1+ceil(sqrt(n-1)), already giving k at these n; the proof could not be inspected independently here",
+          "The exact broader path/cycle comparison concerns n=k² and n=k²-1 on bare graphs"
+        ],
+        "reasoning": "The credited scalar sunlet result settles how many rounds are needed; the really relevant test is whether its proof goes further and classifies equality schedules. No such accessible passage was found, and this inability to verify is a named residual risk, not proof of absence.",
+        "searches": [
+          "arXiv:1507.06524, burning-sequence characterization",
+          "doi:10.47974/JDMSC-2582, Theorem 3.4 candidate; publisher PDF and identified KoreaScience copy attempts",
+          "Resultary e67fc0d8b5fa and 4e5c0a298726"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.06524",
+        "doi:10.47974/JDMSC-2582 (proof inaccessible)",
+        "Resultary:e67fc0d8b5fa",
+        "Resultary:4e5c0a298726",
+        "Resultary:18c014554b08 (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "4e5c0a298726 explicitly proves the same capacity-equality-to-tiling argument on C_(k²), with an edgeless replacement graph",
+          "The sunlet classification must additionally prove attainment for both penultimate types, cover the final singleton's parent, and show there are no other optimal changes"
+        ],
+        "reasoning": "The combinatorics of ordering labelled arcs is prior technique. Specializing the bare-cycle result cannot determine the same-index cycle/pendant freedom or prove coverage and legality on the corona; the scalar sunlet statement alone also cannot do so.",
+        "searches": [
+          "Resultary 4e5c0a298726 Finding and Proof step 1, offsets 0–2946",
+          "Resultary e67fc0d8b5fa Finding, offsets 0–1887",
+          "Compare the credited scalar sunlet bound with the frozen equality and exchange proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bonato–Janssen–Roshanbin, pp. 2–3, identify valid schedules through final ball cover and the pairwise distance inequalities",
+          "The bare-cycle records exhibit saturation and exact ordered-arc tilings, but cover ordinary cycle vertices rather than pendants"
+        ],
+        "reasoning": "Rewriting the frozen equality case as a cyclic tiling does not give an ordinary equal-round cycle burning instance: its footprint lengths are 2k-3,…,3,1,1, with a vertex-type choice at one singleton. The pendant and parent constraints do not exist in the bare-cycle model.",
+        "searches": [
+          "Resultary: sunlet graph, cycle corona K₁, optimal burning schedules and pendant tilings",
+          "Primary literature: saturation, strict/proper burning and single-source exchange on cycle coronas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 18c014554b08 is the identical assigned finding, not a prior count",
+          "The exact counting table in e67fc0d8b5fa is for P_n and C_n at square and one-below-square orders",
+          "4e5c0a298726 gives no edges in the saturated bare-cycle case and a different nontrivial exchange structure below saturation"
+        ],
+        "reasoning": "A relevant table must count the legal ordered schedules and fixed-round replacements on the sunlet itself. Neither a table of scalar burning numbers nor a bare-cycle count identifies those objects.",
+        "searches": [
+          "Resultary: exact ordered-optimum counts on sunlets at n=(k-1)²+1",
+          "Resultary: factorial exchange components and one-ignition changes for cycle burning"
+        ]
+      },
+      "rationale": "The burning model, the scalar sunlet burning number credited to Jenifer–Shanthi, and saturation-based tiling and rigidity on undecorated cycles are prior groundwork. The supported distinct claim is the exhaustive saturated sunlet schedule classification with a two-type penultimate singleton, its exact labelled schedule and dihedral counts, and its matching of all one-round replacements. The closest sunlet proof was inaccessible in this review, so priority is qualified.",
+      "residual_risks": [
+        "The proof of Jenifer–Shanthi Theorem 3.4 was not independently inspected; it could contain stronger equality information than the credited scalar statement.",
+        "The bounded searches do not rule out another unpublished or differently indexed sunlet schedule enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general model, not the classified family in the material read",
+          "evidence": "Successful schedules are ball covers with d(x_i,x_j)≥j-i; this supplies a recognition condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06524",
+          "material_read": "PDF pp. 2–3, offset about 4300",
+          "method": "OA PDF",
+          "title": "How to Burn a Graph",
+          "trigger": "Standard deterministic burning and the exact legality convention"
+        },
+        {
+          "assessment": "Scalar result credited; exact equality proof unresolved",
+          "evidence": "The attributed scalar value yields k at n=(k-1)²+1. No implication about all ordered schedules is present in that scalar statement.",
+          "identifier_or_url": "doi:10.47974/JDMSC-2582",
+          "material_read": "Theorem and scalar formula as described in frozen RESULT.md line 67; no independent full-text proof passage available",
+          "method": "Publisher landing page and direct publisher PDF attempt; identified KoreaScience PDF and public alternate routes also unsuccessful",
+          "title": "Burning number of path and cycle related graphs",
+          "trigger": "Same sunlets and potential coverage by the equality argument for Theorem 3.4"
+        },
+        {
+          "assessment": "Shared saturation technique, not corona coverage",
+          "evidence": "For paths and cycles at square and one-below-square lengths, gives partitions or single-defect arc overlaps, with counts by final-round redundancy.",
+          "identifier_or_url": "Resultary:e67fc0d8b5fa",
+          "material_read": "Finding and exact counts, offsets 0–1887",
+          "method": "Local mirror",
+          "title": "One-defect rigidity and exact counts of optimal burning sequences on paths and cycles",
+          "trigger": "Closely analogous saturation and exact schedule counting"
+        },
+        {
+          "assessment": "Analogous exchange question on bare cycles; different graph and answer",
+          "evidence": "At square order its unique-center tilings yield an edgeless exchange graph, and one-site slack instead gives large components; neither has a penultimate core/pendant switch.",
+          "identifier_or_url": "Resultary:4e5c0a298726",
+          "material_read": "Finding, scope and square-order proof, offsets 0–2946",
+          "method": "Local mirror",
+          "title": "Factorial fragmentation of optimal cycle-burning schedules at one-site slack",
+          "trigger": "Closest exchange-geometry counterpart"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical sizes are exactly those where the pendant capacity has no slack, making them a natural rigidity boundary. The known scalar minimum does not characterize the successful schedules. An exhaustive classification gives factorially many optima but the strongest possible fragmentation compatible with any variability: all optima have exactly one local move. This isolates the sole effect of the pendant choice on mobility and gives a baseline for testing what changes below saturation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

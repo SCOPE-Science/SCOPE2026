@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:03:15.489364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With B=C[y,z], the two conics give a smooth integral Laurent polynomial ring R, free of rank four over B. Writing C=y²+z²−2y²z² gives x²=C+2yzst. The basis coefficient matrix for 1,x,x²,x³ in 1,s,t,st has determinant 4y²z²(y²−z²), proving that the displayed monic quartic is minimal over Frac(B). Hence A is its monogenic B-order, with the same fraction field as R; R is finite by the monic s,t equations and normal by smoothness. For an independent conductor check, write M^∨ for the B-trace dual in this fraction field. The monogenic identity A^∨=F_x(x)⁻¹A follows by Lagrange interpolation: Tr(h(x)/F_x(x)) is the coefficient of x³ in the remainder of h modulo F, and the coefficient pairing on 1,x,x²,x³ is unimodular (unit antidiagonal and zeros before it). The two quadratic sign involutions similarly give R^∨=(4st)⁻¹R, with dual basis 1/4,1/(4s),1/(4t),1/(4st). Biduality shows that rR⊂A iff rA^∨⊂R^∨; since A⊂R and 1∈A this is exactly r∈F_x(x)R^∨. Now F_x(x)=4x(x²−C)=8xyzst, giving (xyz)R. Multiplying 2xyz by the basis of R recovers the four claimed generators in A. Away from the image of xyz=0 the normalization is an isomorphism, and the equation on each coordinate plane cuts out the stated two lines set-theoretically. To check all other points, not just generic ones, symmetry reduces to (x,y,z)=(z₀,0,z₀), z₀≠0. Choose s=√(1−y²) near y=0 with s=1 there. In that neighborhood F factors as the product of (x−zs)²−y²(1−z²) and (x+zs)²−y²(1−z²); the second factor is a unit. If z₀²≠1 the first factors into two independent smooth linear coordinates in x−zs and y using a nonvanishing analytic square root of 1−z². If z₀²=1, c=1−z² is a local coordinate and the first factor is exactly a²−b²c with a=x−zs and b=y. Symmetry yields the twelve distinct points. Near the origin both analytic square roots exist; x=±z√(1−y²)±y√(1−z²) gives four smooth graphs with the four distinct tangent planes. This independently checks all strata over C; the supplied symbolic script was inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 of Mascarin gives a singular-locus inclusion; the exact hypersurface discussion cited is in a higher ambient dimension. Resultary 14d802ee1053 covers λ²≠1, including λ=i, and gives the torus normalization, all six curve components and generic transverse crossings. Its Limitations explicitly exclude conductor ideals and finite ramification and intersection types. Resultary c7d4b55603be assumes c∉{0,±1}."
+        ],
+        "reasoning": "Credit the stronger trace-image theorem's specialization even though it is not a priority finding. Neither it nor the c≠0 case establishes all exceptional analytic germs at c=0; the four triple crossings coalesce into a different point in the excluded member.",
+        "searches": [
+          "arXiv:2611.15725v1 §5 and introduction",
+          "Resultary 14d802ee1053 Finding and Limitations",
+          "Resultary c7d4b55603be Finding and Relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.06844v2 Example 1.3",
+        "arXiv:2611.15725v1 Example 3.10, introduction and §5",
+        "Resultary 14d802ee1053 and c7d4b55603be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general singular support and normalization do not specify the scheme-theoretic ideal or the local analytic forms at the finite exceptional points. The other phase record gives pinch coordinates that can be formally specialized but its local theorem excludes c=0. It describes the c=0 member as previously studied with normalizer and intersecting double lines, without identifying an exact conductor antecedent in that passage."
+        ],
+        "reasoning": "The credited normalizer enables a conductor computation but is not itself that computation. Determining the exact ideal and checking the pinch and four-branch normal forms at the excluded phase require additional mathematical arguments; the audit verified those arguments directly.",
+        "searches": [
+          "14d802ee1053, Finding offset 0 and Limitations offset 9300",
+          "c7d4b55603be, Finding offset 0 and phase-special prior-work remark around offset 8941",
+          "Mascarin 2611.15725v1 Example 3.10 and Theorem 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sine-addition parametrization and the polynomial in those examples are the same surface. In trace coordinates put U=y+is, V=z+it, W=i/(UV). Then UVW=i and the three traces (W+W⁻¹)/2, (U+U⁻¹)/2, (V+V⁻¹)/2 are respectively x,y,z. Thus (p_1,p_2,p_3)=(1,1,1), λ=i, c=(λ+λ⁻¹)/2=0 in the cited trace conventions."
+        ],
+        "reasoning": "Alias and phase conversion establish genuine overlap with the general trace-image normalization theorem. The six ellipses in the intersection with the Cayley cubic in Example 3.10 are not the six singular lines.",
+        "searches": [
+          "Resultary: shifted triangle Lissajous sextic, exact conductor, Whitney pinch, four-branch origin",
+          "Mascarin–Telen arXiv:2509.06844v2 Example 1.3",
+          "Mascarin arXiv:2611.15725v1 Example 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is an exact self-hit. The same-day general curve census gives 3(p_1+p_2+p_3)−3=6 curves, and its D-slice descriptions specialize to the same lines. The other same-day entry lists twelve pinches on six lines, but at a different phase and with four distinct triple points. No separate exact conductor entry was found in these comparisons."
+        ],
+        "reasoning": "The exact line count, line support and generic crossing data overlap; an equal pinch count in the family outside this parameter does not certify its persistence or rule out extra exceptional points at this parameter.",
+        "searches": [
+          "Resultary: exact affine triangle sextic equation and normalization; singular line census; twelve pinches; conductor and four branches",
+          "Resultary 14d802ee1053 and c7d4b55603be"
+        ]
+      },
+      "rationale": "The sextic, its parametrization and irreducibility are credited to the primary literature. A separate same-day general Resultary theorem also covers this normalization and singular support and the generic crossing type. Another same-day theorem has twelve pinches on other phases, explicitly excluding this phase. The surviving supported contribution is the exact conductor in both rings and the exhaustive affine analytic refinement at the exceptional points of the phase-zero member in the cosine-phase convention. The inspected sources do not supply that refinement and ideal jointly or as mechanically implied statements; no relative priority among the same-day records is inferred.",
+      "residual_risks": [
+        "The phase-special prior-work remark does not identify an antecedent for the exact conductor and exceptional germs; an uninspected source might do so.",
+        "Same-day records establish overlap, not relative priority. A web search with no pertinent hit provides no exclusion of earlier work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers surface and parametrization; inspected passages do not state the exact conductor or exceptional strata",
+          "evidence": [
+            "The sine parametrization (sin(t₁−t₂),sin t₂,−sin t₁) and the degree-six equation agree with this record."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.06844v2",
+          "material_read": "Example 1.3 and irreducibility context, OA offset about 3450",
+          "method": "Lawful direct OA HTML",
+          "title": "Lissajous Varieties",
+          "trigger": "Exact triangle polynomial and parametrization"
+        },
+        {
+          "assessment": "Same sextic and general singular support information, not the exact conductor and local-type census in inspected passages",
+          "evidence": [
+            "Example 3.10 gives the polynomial and six ellipses in its Cayley-cubic intersection; Theorem 5.3 gives a general singular-locus inclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15725v1",
+          "material_read": "Introduction (about 11400), Example 3.10 (about 57800), and §5 Theorem 5.3 (about 97500)",
+          "method": "Lawful direct OA HTML",
+          "title": "Intersections, Equations, and Singularities of Lissajous Varieties",
+          "trigger": "Exact triangle and potential dominating singular-locus theorem"
+        },
+        {
+          "assessment": "Direct overlap of normalization, singular support, generic crossings; same day with no inferred precedence",
+          "evidence": [
+            "λ²≠1 includes i; with all exponents one, there are six D-curves and no C-curves. The Limitations say neither conductor ideals nor local analytic types at intersections or finite ramification points are calculated."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-generic-singular-curve-census-and-phase-dependent-normaliz--14d802ee1053",
+          "material_read": "Finding and scope at offset 0, Limitations at offset 9300",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact generic singular-curve census and phase-dependent normalization of three-variable Lissajous hypersurfaces",
+          "trigger": "Broader exponents/phase range includes the exact surface"
+        },
+        {
+          "assessment": "Closely related, but c=0 is explicitly outside scope; same date does not order the claims",
+          "evidence": [
+            "Lists six lines, twelve pinches and four triple crossings for c∉{0,±1}; describes c=0 as a previously studied phase-special member but gives no exact conductor reference in that passage."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-triple-crossings-and-twelve-pinch-points-on-generic-triangl--c7d4b55603be",
+          "material_read": "Finding at offset 0; prior-work passage around offset 8941",
+          "method": "Local Resultary mirror, same snapshot",
+          "title": "Four triple crossings and twelve pinch points on generic triangle Lissajous sextics",
+          "trigger": "Apparently matching count and local stratification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a standard small nonnormal example from the triangle Lissajous/Kuramoto setting, not an arbitrary specialization: at this phase all six singular lines meet at a single four-branch point. The exact conductor gives scheme-level gluing data beyond the known support and separates it from the Jacobian scheme. The exhaustive analytic description distinguishes pinching from transverse double crossing and the four-branch origin. These are useful geometric invariants within the stated affine scope; no claim is made about infinity or an entire family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

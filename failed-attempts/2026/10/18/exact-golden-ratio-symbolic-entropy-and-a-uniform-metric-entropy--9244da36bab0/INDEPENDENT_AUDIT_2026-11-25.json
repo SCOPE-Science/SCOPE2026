@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:37.456509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five affine images give the support rows starting at 1,1,1,2,4,5,…, with expansion uniformly greater than 1 for fixed λ. Closed walks to state 1 are finite at each length since sufficiently high states can descend at most one level per step. With r=(3−√5)/2 and β=2+√5, the tail sum gives Aw=βw for w₁=w₂=w₃=1, wᵢ=2r^(i−3) otherwise: the identity in the tail is βr(1−r)=1, and states 1–3 and 4 supply the two stated finite boundary equations. The Doob transform is irreducible and aperiodic with a strictly negative drift −1+r/(1−r) outside a finite set, proving positive recurrence and return growth β. For either this chain or the acip chain with tail parameter p=r or p=λ<1/2, V(i)=a^i with 1<a<(1−p)/p has a strict multiplicative Foster contraction outside the finite head, since E[V(J)|i]/V(i)=(1−p)/(a(1−pa))<1. Hence the stationary state index has finite mean (indeed a finite exponential moment) and finite one-state entropy. This justifies the entropy-rate/generator step and makes log w integrable for the Doob chain. In stationarity −log Qᵢⱼ=logβ+log wᵢ−log wⱼ averages to logβ, confirming maximal entropy. Affinity preserves conditional cell uniformity given every finite past itinerary for the acip, so the metric entropy is the Shannon entropy of the geometric row. Its derivative and the limits at 0 and 1/2 give the claimed strict gap and infimum. The frozen symbolic/truncation checker was inspected, not run; finite truncations are not a proof of the growth rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-cell result gives Fλ(z) for every λ (including its exact Taylor coefficients). The four-cell result gives first-return and height laws under normalized base Lebesgue sampling. Ji–Ma gives the acip range and normalized left vector.",
+          "The Sarig 1999 DOI was not readable on a bounded OA attempt; its unavailable text is not the basis of the verdict."
+        ],
+        "reasoning": "The all-parameter three-cell first-return family supplies strictly more weighted information than the unweighted loop count needed here. Excursion summaries alone were not used as evidence of coverage.",
+        "searches": [
+          "9c2fa9f11f90, Finding and Exact Markov coding at mirror offsets 0–3672; 09530ed69aa1, Finding and §1 at offsets 0–4105; Ji–Ma §5.1, Lemma 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Ji–Ma §5.1, Lemma 5.2",
+        "Resultary 9c2fa9f11f90 and 09530ed69aa1, actual Findings and transition data",
+        "Sarig doi:10.1017/S0143385799146820, OA attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed length n only finitely many first-return paths to B={1,2,3} are possible from state 1. Divide every Pᵢⱼ by 1−λ and take λ↑1; each allowed edge tends to weight 1. Since all three initial rows coincide, the first-return series starting at 1 is thus R(z)=lim Fλ(z/(1−λ)) coefficientwise. Using the explicit formula gives R(z)=3z+2z(1−s)/(1+s), s=√(1−4z).",
+          "Renewal of visits to B gives 1/(1−R(z)) and the counts returning to 1 are one step later than visits to B (only the three base states have an edge to 1). The first positive solution of R(z)=1 is ρ=√5−2<1/4, with finite R′(ρ), giving h_G=−logρ and finite-mean normalized first returns, the positive-recurrent case. Ji–Ma’s geometric transition rows and acip give the metric entropy by summing a geometric Shannon entropy; the gap is then immediate."
+        ],
+        "reasoning": "This recovers each material invariant by a direct coefficient limit, renewal and elementary algebra, plus the standard entropy rate of the already specified measure. The frozen Doob eigenvector gives a different valid proof, but the exact invariants are mechanically implied by the compared results.",
+        "searches": [
+          "9c2fa9f11f90, displayed exact Fλ and Pᵢⱼ; Ji–Ma §5.1 pp. 8424–8426"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct local mirror inspection confirms both catalogue hits use all five identical affine branches and the same support; 9c2fa9f11f90 uses the three-cell base with identical transition rows on its three cells.",
+          "Ji–Ma §5.1 explicitly distinguishes the auxiliary map from Fλ, to which it is not semiconjugate."
+        ],
+        "reasoning": "The relevant equivalence is computing counts from the same graph’s weighted excursions, not confusing the comparison map with the original induced map or the weighted transition matrix with adjacency.",
+        "searches": [
+          "Resultary comparisons for Gurevich/Perron entropy and exact Fibonacci-bimodal first returns and excursions; records 9c2fa9f11f90 and 09530ed69aa1",
+          "Ji–Ma doi:10.3934/math.2023424, §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest checked indexed record tabulates the exact weighted first-return coefficients symbolically rather than printing log(2+√5)."
+        ],
+        "reasoning": "The exact return function is the appropriate catalogue datum for this continuous family; a numerical entropy table or an exact matching printed log is not needed once the radius follows from the published function.",
+        "searches": [
+          "Resultary exact entropy and same-map return-law lookups; 9c2fa9f11f90, displayed Fλ and pₙ"
+        ]
+      },
+      "rationale": "The original source gives the acip and geometric rows. More decisively, the distinct indexed same-map record 9c2fa9f11f90 gives the exact weighted first-return series to the three-cell base for every λ. Coefficientwise removal of the geometric weights followed by the ordinary first-return renewal identity gives the exact Gurevich growth and positive recurrence. This is demonstrable coverage in the available corpus, not a conclusion that the later-labelled record was publicly available before this frozen record or that one author obtained a proof from the other.",
+      "residual_risks": [
+        "Catalogue labels are not evidence of priority. No priority ruling or inference about how either proof was obtained is made.",
+        "Sarig full text was not inspected; this does not affect the explicit return-law implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same affine map despite the title’s terminology; provides the all-parameter first-return formula implying the symbolic invariant.",
+          "evidence": [
+            "Displayed Fλ and pₙ; identical geometric rows for i=1,2,3; terminal base is those three cells."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-returns-and-critical-crossover-for-a-fibonacci-bimod--9c2fa9f11f90/RESULT.md",
+          "material_read": "Finding, Assumptions, Exact Markov coding, offsets 0–3672",
+          "method": "Resultary match then bounded direct local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact first returns and critical crossover for a Fibonacci bimodal Markov map",
+          "trigger": "Potential stronger exact return theorem on same graph"
+        },
+        {
+          "assessment": "Same comparison map, but weighted excursions from a four-cell base, not an explicit entropy claim; not needed for implication.",
+          "evidence": [
+            "Same five branches and row starts; initial law is normalized Lebesgue on V₁∪⋯∪V₄."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-space-time-excursion-laws-and-two-critical-windows-for-the--09530ed69aa1/RESULT.md",
+          "material_read": "Finding, Assumptions, and start of Proof, offsets 0–4105",
+          "method": "Bounded direct local mirror read, same snapshot",
+          "title": "Exact space-time excursion laws and two critical windows for the Fibonacci bimodal comparison map",
+          "trigger": "Second same-map candidate"
+        },
+        {
+          "assessment": "Defines precisely the system and measure; metric entropy follows routinely from the given weights, though neither entropy is stated in those passages.",
+          "evidence": [
+            "Geometric rows of the weighted Aᵢⱼ; summable left vector for λ<1/2; not semiconjugate to Fλ."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-424.pdf",
+          "material_read": "§5.1 pp. 8423–8426, OA offsets ~90600–109974, Lemma 5.2",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Phase transition for piecewise linear fibonacci bimodal map",
+          "trigger": "Original map, transitions, and acip"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The entropy gap is a meaningful comparison on a natural auxiliary system, and the Doob transform is a useful alternative proof. But the exact growth, positive recurrence, and final entropy gap follow directly from the indexed exact first-return law and Ji–Ma’s geometric kernel. Under the criterion for a narrow exact invariant, there is no independently needed unknown invariant left in this record; no stronger genuinely distinct result about the original bimodal map is claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:57:33.916873Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 3–49; independent event and inequality reconstruction",
+        "CHECK.py: graph, recursion and independent-set enumeration inspected, not executed",
+        "VERIFICATION.md: the stated scope is diagnostic; the code checks r=2 through 80 inclusive (79 parameters), with full finite-state comparisons only for r=2,3,4"
+      ],
+      "rationale": "The two sampling laws are on cardinalities, not on labeled maximal sets. The hub-selected class consists only of hub plus square antipode. Excluding the hub, one must take one vertex per triangle and then either the square antipode or its two neighbors; all such selections dominate the hub because r≥2. This yields counts (1,2^r,2^r). Under i.i.d. priorities, conditional on hub priority t all triangle priorities must exceed t for hub acceptance, and the independent square gate is (1−t)^2 plus the integral of 2u(1−u) from 0 to t (the first hub neighbor in the square appears at u<t but is blocked by the antipode). Beta integration gives (r+1)/((r+2)(2r+1)). For size r+1 the antipode must have the earliest of the three nonhub square priorities and at least one triangle priority must precede the hub, with independent probabilities 1/3 and 1−1/(2r+1). At size 2 the sequential CDF is greater than 1/(2r+3), itself greater than the static CDF. At r+1 the sequential CDF is less than (2r+3)/(3(2r+1))<1/2, and the static CDF exceeds 1/2. Thus the two outside signed mass differences are positive and the middle one is negative. Its magnitude is total variation and tends to 1/6. Taking the quotient of the two size-2 probabilities gives asymptotic equivalence to 2^r/r.",
+      "residual_risks": [
+        "The exact limiting statement rests on the analytic proof, not on a new independent run of the package checker."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general connected counterexample family in the parking paper has two possible occupancy sizes; the three-size example is listed separately.",
+          "The clique-bouquet formulas concern clique blocks; the square here is an induced four-cycle block."
+        ],
+        "reasoning": "Two-point laws cannot have strictly crossing CDFs. The square has a nonneighbor of the hub and its gate affects the law; the clique-block hypotheses do not apply.",
+        "searches": [
+          "arXiv:2611.14718v1 §§5.1–5.3",
+          "Resultary local mirror 7409a1c63395, greedy-law balance for clique bouquets"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary target 51ac4c198d5a and related records 7409a1c63395, 2e934e112112",
+        "Higuita-Diaz, López and Roldán-Correa, arXiv:2611.14718v1 §§5.1–5.3",
+        "Bounded primary literature search for the triangle–square family"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known witness proves existence of incomparability and supplies the base graph, without formulas as r grows.",
+          "The wheel record concerns K_1 joined to C_n, with a sharp comparability transition; only a different family is analyzed. The clique-bouquet record gives exact statistics under an incompatible block hypothesis."
+        ],
+        "reasoning": "Neither an existence witness nor the comparisons in the two other graph families determines the two crossing signs, the size-2 probability ratio or the nonvanishing TV limit in this enlargement.",
+        "searches": [
+          "arXiv:2611.14718v1 §5.3",
+          "Resultary local mirrors 2e934e112112 and 7409a1c63395",
+          "Primary web search: stochastic incomparability on triangle–square bouquets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's sequential parking and static complete-configurations models give the same cardinality laws on this graph at r=2. Random priority is the greedy sequential model by exchangeability, not a new sampling model.",
+          "Resultary gave the exact target as its own catalogue entry, as well as the distinct wheel and clique-bouquet records."
+        ],
+        "reasoning": "Changing terminology to random sequential adsorption or greedy independent sets does not remove the credited overlap. None of the distinct inspected entries gives the all-r claim for this graph.",
+        "searches": [
+          "Resultary: triangle–square bouquet, random greedy/parking and uniform maximal independent set",
+          "arXiv:2611.14718v1 §§2, 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match ends in 51ac4c198d5a and is the frozen target itself.",
+          "The primary source has static CDF entries 1/9 and 5/9 and sequential entries 3/20 and 5/12 at sizes 2 and 3, with exactly nine maximal sets."
+        ],
+        "reasoning": "This is actual exact finite overlap (recovering the entire r=2 laws), not an all-parameter precedent. No distinct matching all-r entry was verified.",
+        "searches": [
+          "Resultary local search for the family, crossing, and exact TV limit",
+          "arXiv:2611.14718v1 §5.3 exact finite probabilities"
+        ]
+      },
+      "rationale": "The known eight-vertex witness and its law are exactly the credited r=2 case. The distinct supported claim is the all-r enlargement with exact three-point laws, persistent crossing, TV limit and rare-size asymptotic. The inspected related results do not imply that package.",
+      "residual_risks": [
+        "An unindexed shared-vertex composition theorem or another analysis of this exact enlargement could change the priority judgment. Unrelated search returns do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact r=2 coverage, not established for all r",
+          "evidence": [
+            "§5.3: two triangles and a square sharing a hub, with the two pairs of CDF entries above.",
+            "The adjoining counterexample discussion contrasts two-size laws, whose CDFs cannot cross, with the three-size example."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14718v1",
+          "material_read": "OA HTML §§5.1–5.3, text offsets approximately 52000–61172",
+          "method": "Opened relevant full-text passages and compared graph construction and CDFs",
+          "title": "Stochastic Dominance in Discrete Parking Processes on Graphs",
+          "trigger": "Exact witness and plausible general family"
+        },
+        {
+          "assessment": "Different block class",
+          "evidence": [
+            "The coincident hub joins disjoint cliques, not an induced square block."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395/RESULT.md",
+          "material_read": "Finding on the clique-bouquet family",
+          "method": "Local Resultary mirror",
+          "title": "Exact greedy-law balance and infinite non-equicardinal uniform clique bouquets",
+          "trigger": "Similar hub decomposition and exact law comparison"
+        },
+        {
+          "assessment": "Distinct host family; no priority inference from the date",
+          "evidence": [
+            "The wheel hub is adjacent to every cycle vertex; the bouquet hub has a square antipode."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-stochastic-comparability-transition-for-sequential-and-s--2e934e112112/RESULT.md",
+          "material_read": "Finding restricting the statement to wheels",
+          "method": "Local Resultary mirror",
+          "title": "A sharp stochastic-comparability transition for sequential and static parking on wheels",
+          "trigger": "Comparable exact crossing for another hub graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: Finding and scope",
+        "arXiv:2611.14718v1 §5.3: original witness and problem context"
+      ],
+      "rationale": "This is a natural extension of the published witness, not an arbitrary finite census. It resolves whether incomparability persists when the number of identical triangle blocks grows. The rare event keeps one crossing strict despite its vanishing absolute mass, with polynomial versus exponential rarity, while the TV limit quantifies a discrepancy that does not vanish. This is useful exact information about the two ensembles, distinct from merely finding another crossing.",
+      "residual_risks": [
+        "The family has unbounded hub degree; there is no general claim for bounded-degree graphs, all bouquets, or extremal TV."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

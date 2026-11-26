@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:01:46.697917Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/reproductions/record_3_local.py (SymPy)."
+      ],
+      "rationale": "Repeated substitution of the ODE expresses every jet through the two retained initial conditions, so the affine prolongation is exactly the graph of the homogeneous D-iterates. Differentiating the monomials gives the stated top jets. Removing the visible coordinate factors, the two order-three residual linear forms have determinant 1−2n; for order four the swapped residual quadratics differ by −2(n−1)(u²−v²) and are nonzero at both candidate projective roots u=±v. Thus base points on the infinity line are only the coordinate points when 1<=m<n, and none for m=0 or m=n=3. At [1:0:0], r=n−m and M=m(n−1); the leading t-orders of the normalized top jets are r and r+1. For j=2 through m, both earlier jets have t-order at least n−j+1>=r+1. The degree-n jet B1 supplies z^M; A1 has positive t-order and constants and order-zero jets carry z-powers >M. Hence with wt(t)=M and wt(z)=r the leading forms are ct^r+uz^M and vz^M, with c,v nonzero generically. The regular sequence gives the associated graded quotient by (t^r,z^M): possible leading-term cancellations in a combination lift using the Koszul syzygy, increasing weight until the initial term is exposed. The local length is rM, also at the other point by symmetry. Generic codimension-two linear sections avoid the graph closure's boundary of dimension at most one and meet the smooth affine graph transversely. In the parametrizing plane the two degree-d curves have no component, either affine or at infinity. Bézout minus the two local lengths gives d²−2rM=(m²+1)n²−m²; d² alone gives n² and 81 at the two zero-correction regimes. A separate symbolic check tested the gcd and all allowed lower-jet weight inequalities for n=3 through 12, but the conclusion for all n rests on the analytic comparisons above.",
+      "residual_risks": [
+        "Characteristic zero and generic slices are essential assumptions. The residual factor and weight argument is only used at orders 0–3, not claimed at larger orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Puddu proves an all-order exact result for exponent 2 only. Lanciano supplies a general squared-degree upper bound and a degree-7 example for n=2."
+        ],
+        "reasoning": "The geometric bound and the all-order result on the quadratic flow do not give the exact degree of the nonquadratic flows.",
+        "searches": [
+          "Puddu arXiv:2611.06638v1 §3, Theorem 3.3, and §4",
+          "Lanciano arXiv:2609.27047 §7.2, Proposition 7.7 and Example 7.8"
+        ]
+      },
+      "checked_sources": [
+        "Puddu, Pogudin and Lanciano primary passages listed above",
+        "Local Resultary exact self-match 01f10866f05f; no distinct statement-level match identified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Puddu expressly notes that the prior criterion does not establish cases n=3, m=1,2, and makes implication of the conjectural formula conditional on the exact generic local multiplicities. Pogudin asks for a proof of the cubic pattern. The checked Lanciano result only bounds degrees."
+        ],
+        "reasoning": "The proof supplies the nontransverse length computation needed to turn the prediction into a theorem; it is not an immediate consequence of the cited statements.",
+        "searches": [
+          "Puddu arXiv:2611.06638v1 §4, transversality criterion and its failure in the cubic examples",
+          "Pogudin §2 Question 6",
+          "Lanciano §7.2 exact degree example vs general bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Puddu's prediction d²−2(n−1)r(n−r), r=m mod (n+1), specializes to the exact submitted polynomial when m<=3 and n>=3. His stated expected local contributions specialize to the same rM. Pogudin's cubic-flow questions include the same numerical values at n=3."
+        ],
+        "reasoning": "Exact equivalence to a known prediction is credited; the subject of originality is proof of the needed multiplicities and resulting degree, not prediction or reformulation.",
+        "searches": [
+          "Puddu arXiv:2611.06638v1 §4, Conjecture 4.1 and local contributions",
+          "Pogudin Some Open Problems in Differential Algebra §2, symmetric cubic flow"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 01f10866f05f is the assigned record itself. Pogudin reports finite verification for n=3; Puddu reports gcd checks for 2<=n<=100 and 0<=m<=1000, and exact quadratic degrees separately."
+        ],
+        "reasoning": "Known numerical values and even verified leading gcds do not give generic local lengths uniformly in the exponent.",
+        "searches": [
+          "Local Resultary exact prolongation-degree profile and infinity multiplicity search",
+          "Pogudin's symmetric cubic values through order ten",
+          "Puddu's exact quadratic and finite gcd data"
+        ]
+      },
+      "rationale": "The graph framework, elementary order-zero degree, general predicted formula and predicted infinity multiplicities are prior. The nontrivial contribution supported here is their uniform proof at orders 1–3 for n>=3. The exact formula is indeed a specialization of Puddu’s conjecture, but the prior computational evidence and his available transversality criterion do not prove this range.",
+      "residual_risks": [
+        "The bounded public query returned unrelated material, not negative evidence. Unindexed proof variants or later proofs of the conjecture remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves n=2, predicts the submitted n>=3 degrees and local lengths, no prior uniform proof identified",
+          "evidence": "Expected correction 2(n−1)r(n−r); states generic multiplicity condition and why cubic cases evade the prior criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06638v1",
+          "material_read": "§3 Theorem 3.3 p. 25 offset 74901; §4 Conjecture 4.1 p. 29 offset 88154",
+          "method": "OA PDF passages",
+          "title": "On the geometric degree of the prolongation varieties of the differential system x'_1=x_2², x'_2=x_1²",
+          "trigger": "Exact general formula and possible prior proof in low orders"
+        },
+        {
+          "assessment": "Some overlapping finite values, not a uniform proof",
+          "evidence": "Cubic degree pattern verified for m<=10 and posed as a proof problem; distinct from the unequal-exponent F3 example.",
+          "identifier_or_url": "https://www.lix.polytechnique.fr/Labo/Gleb.POGUDIN/files/da_problems.pdf",
+          "material_read": "§2 pp. 3–4, offset 7800, Question 6 and the symmetric cubic example",
+          "method": "OA PDF passages",
+          "title": "Some Open Problems in Differential Algebra",
+          "trigger": "Earlier symmetric cubic-flow data"
+        },
+        {
+          "assessment": "No implication from inspected bound and example",
+          "evidence": "Degree of the prolonged variety bounded by squared original degree; degree 7 in an n=2 example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27047",
+          "material_read": "§7.2 Proposition 7.7 and Example 7.8, p. 30, offset 103115",
+          "method": "OA PDF passages",
+          "title": "Degrees and directional defects of embedded algebraic vector bundles",
+          "trigger": "Plausible dominating theorem on prolongations; frozen literature discussion only read abstract"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md weighted regular-sequence proof and boundary cases",
+        "Puddu §4 and Pogudin §2 problem statements"
+      ],
+      "rationale": "This proves a substantive initial-order range of a proposed two-parameter formula and explains exactly the lost Bézout degree at nontransverse infinity points. Uniform control in the exponent and the local length formula answer a specific obstruction in prior work; the elementary order-zero case only anchors the profile.",
+      "residual_risks": [
+        "No solution at higher orders is implied; the small-order restriction is exactly where the jet and infinity comparisons were established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

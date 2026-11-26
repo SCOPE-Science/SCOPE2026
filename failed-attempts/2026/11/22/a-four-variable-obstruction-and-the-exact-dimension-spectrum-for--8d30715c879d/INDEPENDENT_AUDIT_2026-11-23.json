@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:56:06.425532Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-dimensional alternating 3-form is contraction of a volume form with a unique nonzero vector, so its radical is that vector's line. Use it as the fourth basis direction; D_3 then fixes the only cubic term to be u_1u_2u_3. If the cross-quadratic lambda is zero, the radical row is empty and some other row is nonempty because an identically zero D_2 would force additivity. If lambda is nonzero, preserve the volume form while taking lambda=u_1. For r=e_4 and x=e_2+(a+c)e_4, D_2(r,z)=w_1 and D_2(x,z)=w_1w_3 for c=0 or w_1+w_3+w_1w_3 for c=1. Their supports give the claimed strict cardinality pairs. The ternary indicator at h=(1,1,1) has six distinct supports {h,h+x} and one six-point support excluding h, making an antichain. Nondegenerate quadratic blocks separate since distinct nonzero polar linear functionals are independent over F_2. For a direct sum, if a differing block has x_i nonzero, that block supplies (1,0), with all other witnesses zero; if the available differing block has x_i=0,y_i!=0, use another nonzero x-block to realize the first bit and the differing block to cancel the second bit. This verifies the odd and even constructions, including n=3 and n=6; degree three is impossible below n=3 and persists in sums on disjoint variables. A fresh exact replay checked all 15,360 four-variable cubic ANFs including linear parts, the normalized strict nesting examples, and all 42 and 3,906 ordered pairs in the two seed dimensions respectively. Replay: python3 /workspace/branches/bbb177e2-3050-4f2a-9d22-a0491b9656bb/replay.py. The replay does not prove all-dimensional extension; the block argument does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grichkov–Pires arXiv:1412.2185 §3.2 Lemma 4 and Theorem 4 give the rank-four normal form and 16 exhaustive characteristic vectors",
+          "Pineda Montoya’s direct-sum lemma permits adjoining any number of nondegenerate hyperbolic quadratic pairs to the known ternary and double-ternary seeds"
+        ],
+        "reasoning": "The prior code-loop theorem classifies the entire appropriate dimension-four input space, not merely the two symmetric cubics. Positive existence starting at 3 and 6 covers every permitted odd and even dimension; n<3 is excluded by the definition of degree. A five-dimensional classification is not needed to determine this existence spectrum.",
+        "searches": [
+          "Code loops: automorphisms and representations rank 4 characteristic vectors arxiv",
+          "arXiv:1712.06524 §§2–3",
+          "arXiv:2611.02544v1 Lemmas 3.1 and 4.1, Theorem A, Corollary 8.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.2185 §3.2, Theorem 4",
+        "arXiv:1712.06524 Theorem 3.1 and Proposition 3.3",
+        "arXiv:2611.02544v1 Lemmas 3.1 and 4.1, Theorem A and Corollary 8.1",
+        "Resultary 3c357e02ae40, d2beb6785961"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the eight quadratic strings in the order above, direct readout gives nested pairs (x,y)=(8,1),(8,1),(8,1),(8,1),(2,8),(2,8),(8,6),(8,2) with sizes (0,12),(0,4),(0,4),(0,4),(4,8),(4,8),(8,12),(8,12); vertex labels are binary masks with coordinate one least significant",
+          "Every pair listed has S_x a proper subset of S_y"
+        ],
+        "reasoning": "For each published row, set f(u) equal to the indicator that its first three bits are all 1 plus the sum modulo two of pair monomials selected by its six-bit string in the printed order. For z=0 through 15, include z in S_x iff f(x XOR z) XOR f(x) XOR f(z)=1. This short lookup yields all explicit sizes above, not just failure of the predicate, and Theorem 4 exhausts the input orbits. Thus both the dimension-four exclusion and the specific nested-support certificate follow by reconstruction and evaluation of the old exact table, without the frozen proof or a fresh classification. The credited higher-dimensional existence arguments then finish the stated spectrum.",
+        "searches": [
+          "Grichkov–Pires arXiv:1412.2185 §3.2 Theorem 4",
+          "O’Brien–Vojtěchovský arXiv:1712.06524 Proposition 3.3 Eq. (3.3)",
+          "Pineda Montoya arXiv:2611.02544v1 Lemma 3.1, Lemma 4.1, Theorem A, Corollary 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O’Brien–Vojtěchovský arXiv:1712.06524 §2.6–2.7, Theorem 3.1 and Proposition 3.3",
+          "Pineda Montoya arXiv:2611.02544v1 §2.3"
+        ],
+        "reasoning": "A normalized polynomial of degree exactly three is the squaring map of a nonassociative code loop, with associator D_3 and commutator D_2 on the quotient by the distinguished order-two subgroup. Thus S_x is the exact noncommuting support on that quotient, and ordered separation is pairwise support incomparability. Loop equivalences preserve the unique nonidentity associator and induce an invertible linear map on the quotient; row supports and strict inclusions are preserved.",
+        "searches": [
+          "cubic generating functions code loops second polarization ordered separation commutator containment supports symplectic Boolean function Ovsienko dimension four five",
+          "Code loops in dimension at most 8 authors open pdf classification rank 4",
+          "cubic Boolean second-polar ordered separation commutator nondegenerate code loop rank four (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grichkov–Pires, §3.2 Theorem 4 table, column lambda; immediately preceding display orders commutators ab, ac, ad, bc, bd, cd",
+          "Resultary 3c357e02ae40 classifies five-dimensional cubics; d2beb6785961 gives witness counts in a cubic–symplectic family"
+        ],
+        "reasoning": "The 16 published rows collapse after discarding four linear bits to the eight quadratic strings 110100,000000,100000,010100,001000,111000,001100,111100, with cubic term x1*x2*x3 in the displayed associator-adapted basis. The indexed five-dimensional result and symplectic family concern positive instances only; the older rank-four table is decisive even though it tabulates characteristic vectors, not the vocabulary of ordered separation.",
+        "searches": [
+          "Code loops: automorphisms and representations rank 4 characteristic vectors arxiv",
+          "ordered separating cubic Boolean functions commutation support inclusion dimension four code loop polar form (Resultary)"
+        ]
+      },
+      "rationale": "The claimed new universal four-variable obstruction, including the stated strict support sizes, is a direct finite readout of an earlier complete rank-four nonassociative code-loop classification. The rest of the spectrum is a direct consequence of the credited positive constructions and the degree bound. The frozen proof is a concise table-free derivation, but the exact mathematical finding is covered; no priority claim is made about the wording of the witness or this specific proof.",
+      "residual_risks": [
+        "The audit establishes prior mathematical coverage by an exhaustive table; it does not assign historical priority for the exact phrasing or for the particular table-free derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all rank-four nonassociative code loops, and determines the claimed obstruction by direct test of every representative",
+          "evidence": [
+            "Theorem 4 is exhaustive over 16 characteristic vectors",
+            "The fourth basis direction is radical for the third form; the six commutator entries are specified in the basis preceding the table"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.2185; https://ar5iv.labs.arxiv.org/html/1412.2185",
+          "material_read": "Introduction, commutator/associator definitions, §2 characteristic-vector definition and §3.2 Lemma 4, Theorem 4 and case split of its proof",
+          "method": "Public arXiv PDF and accessible full-text conversion, checked individual bits and basis order from the table and display",
+          "title": "Code loops: automorphisms and representations",
+          "trigger": "Potential exhaustive exact table for the same objects under loop notation"
+        },
+        {
+          "assessment": "Supplies the two-way identification between code loops and normalized degree-at-most-three Boolean polynomials, with nonassociativity exactly when the third polar is nonzero",
+          "evidence": [
+            "Theorem 3.1 gives GL orbit correspondence",
+            "Proposition 3.3 recovers the ANF using the characteristic coefficients"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.06524; https://ar5iv.labs.arxiv.org/html/1712.06524",
+          "material_read": "§§2.5–2.7, Theorem 3.1, Proposition 3.3 formulas (3.1)–(3.3)",
+          "method": "Public full-text conversion of primary preprint",
+          "title": "Code loops in dimension at most 8",
+          "trigger": "Verify that the exact-degree polynomial problem is covered by the rank-four loop list, not merely a similarly named classification"
+        },
+        {
+          "assessment": "Supplies the identical condition and all positive dimensions via direct sums; not relied on for nonexistence at four",
+          "evidence": [
+            "§2.3 states both directions of the ordered pair quantifier and cites the original appendix",
+            "Corollary 8.1 supplies the double ternary seed; Lemma 3.1 then allows arbitrary even symplectic extensions"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.02544v1",
+          "material_read": "§2.3, Lemma 3.1, Lemma 4.1, statement of Theorem A, Corollary 8.1 and §9 scope",
+          "method": "Open primary full HTML, targeted theorem and proof inspection",
+          "title": "Counterexamples to a Cubic Nondegeneracy Conjecture",
+          "trigger": "Exact ordered condition and positive dimension coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact dimension question is natural, and the compact coordinate calculation provides pedagogical explanation. As framed, however, the proposed contribution is the exact dimension fact and nested sizes already mechanically readable from the exhaustive prior characteristic-vector table plus established constructions. No further new obstruction, broader class, or consequence is established, so a cleaner proof is not a surviving novel exact finding here. No repaired claim is proposed as validated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

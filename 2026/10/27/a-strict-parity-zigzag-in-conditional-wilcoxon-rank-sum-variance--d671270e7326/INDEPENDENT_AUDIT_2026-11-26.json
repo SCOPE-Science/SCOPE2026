@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:39.450073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen unrestricted 'without independence' is false at a=b=1, where R=2 almost surely; the corrected complete RESULT.md is at /workspace/repairs/2/RESULT.md and addresses exactly this case. In all other cases R=2,3 are both attainable, and their strictly different conditional variances prove dependence. Reversal gives the conditional mean for all feasible r and hence zero covariance, including the exception. Given orientation, independent uniform compositions have the stated projected covariance, and the centered linear and bilinear terms are pairwise uncorrelated. In the even case equal orientation weights yield a between-orientation variance (ab/(2k))²; in the odd case the two conditional means agree and the composition counts give weights proportional to a−k and b−k. The variance formulas and positive difference factorizations remain unchanged. /workspace/review_checks/check_2.py independently verified the three rational identities symbolically and checked exact word moments in six cases, including the degenerate independence case. The general proof, not the finite sample, covers every attainable count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed duplicate-overlap statement covers the same even/odd formulas and adjacent strict inequalities and additionally proves a decreasing odd subsequence. Its SOURCE.json records a different source record and a 2026-11-08 UTC source commit.",
+          "Conger–Viswanath treats the inversion and descent marginals by separate normal approximations; the inspected Krattenthaler formulas give turn count jointly with KS."
+        ],
+        "reasoning": "This is demonstrated coverage by a closely related later record, not evidence of earlier dissemination or an independent priority determination. The earlier multiset normal approximations and KS joint formulas do not dominate the exact conditional inversion theorem.",
+        "searches": [
+          "Resultary 0712c2da4770 RESULT.md Finding and proof Eq. (2)–(5)",
+          "Krattenthaler §§3.3.2, 3.5 and Conger–Viswanath arXiv:math/0508242 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md",
+        "Resultary 0712c2da4770 RESULT.md and SOURCE.json",
+        "Krattenthaler §§3.3.2, 3.5",
+        "arXiv:math/0508242 p. 1",
+        "Handa–Mohanty bibliographic record and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reversal symmetry gives the conditional mean directly but not the variance. The earlier inspected path-turn and marginal-inversion results do not yield the required mixed moments. The later indexed proof's positive difference factors do imply the same zigzag."
+        ],
+        "reasoning": "A full area-by-turn generating function, if established earlier, would give the moments by differentiation, but exact strict inequalities would still require comparison. No such dominating earlier implication was verified. The repair's exact independence criterion is already implied by the variance comparison and the constant-run boundary.",
+        "searches": [
+          "Krattenthaler turn and KS formulas; Conger–Viswanath inversion/descents normal approximations",
+          "Handa–Mohanty DOI:10.1137/0511090 lawful OA lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0712c2da4770 explicitly uses the same Mann–Whitney orientation, or centered Wilcoxon rank sum up to sign, under the same fixed-content law.",
+          "Krattenthaler §3.3.2 equates label runs with path turns but uses maximum path deviation for the KS statistic, not path area."
+        ],
+        "reasoning": "Inversion count, path area and the affine rank-sum form are the same statistic for this variance question. A KS path-deviation CDF is not equivalent, even when jointly conditioned on exactly the same number of turns.",
+        "searches": [
+          "Resultary exact conditional Wilcoxon/rank-sum variance by runs and inversions",
+          "Primary query: exact joint distribution inversions and number of runs in binary words with fixed content q-binomial generating function area turns conditional moments variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result matches the displayed V₂k and V₂k₊₁ expressions, the three variance differences and the same a=b=3 numerical example.",
+          "Krattenthaler's even/odd formulas count paths satisfying a KS deviation bound, not classes of fixed area."
+        ],
+        "reasoning": "No natural classification table applies to all a,b,k; the closest exact formula matches were compared directly. The meaningful indexed overlap is not just a matching example.",
+        "searches": [
+          "Resultary exact formulas and factorizations in 0712c2da4770",
+          "Krattenthaler §3.5 parity-specific exact joint formulas"
+        ]
+      },
+      "rationale": "Pass for the frozen contribution's finite inversion/run second-moment formulas and the strict adjacent comparisons, retained by the repair. A distinct indexed SCOPE result demonstrably contains essentially the same theorem and proof, including the boundary comparisons, and extends it to the odd subsequence. Its recorded source is later than the bound record; it is not evidence that these formulas were already known when this finding was made, and the comparison does not establish independent discovery or priority between the underlying work. No inspected earlier primary result supplies the area/run variance profile or its ordering. The corrected independence sentence is a consequence, not a new contribution.",
+      "residual_risks": [
+        "Older joints of inversion area and path turns may be relevant; Handa–Mohanty full text was not available in the bounded lookup. The provenance relationship between the exact indexed overlap and the bound finding was not reconstructed beyond the supplied metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same moment and parity theorem, stronger odd-subsequence result, and distinct later source metadata; no inference of independent origin",
+          "evidence": [
+            "The proof's Eq. (3) treats preceding even counts at an endpoint; Eq. (4) covers the other adjacent comparison; Eq. (5) adds decreasing odd variances."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-parity-sawtooth-law-for-conditional-wilcoxon-variance-under-fi--0712c2da4770",
+          "material_read": "Mirrored RESULT.md Finding and proof offsets 0–3803 and 4100–6481; SOURCE.json provenance",
+          "method": "Local Resultary search plus decisive mirror passages",
+          "title": "A parity-sawtooth law for conditional Wilcoxon variance under fixed-composition runs",
+          "trigger": "Exact same model, observable and parity signature"
+        },
+        {
+          "assessment": "Exact parity-specific joint KS/run count, not area/run count",
+          "evidence": [
+            "Runs correspond to turns; KS corresponds to maximum deviation. Section 3.5 reproduces Vellore's joint KS results."
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~kratt/artikel/turnsurv.pdf",
+          "material_read": "§3.3.2 pp. 5–6 and §3.5 pp. 17–19",
+          "method": "Targeted OA full-text comparison",
+          "title": "The Enumeration of Lattice Paths With Respect to Their Number of Turns",
+          "trigger": "Runs as turns and plausible joint rank/turn formulas"
+        },
+        {
+          "assessment": "Inspected statements concern separate marginal approximations",
+          "evidence": [
+            "Normal approximation for inversions and descents, not a fixed-run exact second moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0508242",
+          "material_read": "PDF p. 1, result overview",
+          "method": "Targeted OA passage inspection",
+          "title": "Normal approximations for descents and inversions of permutations of multisets",
+          "trigger": "Same inversion/descents family on multiset permutations"
+        },
+        {
+          "assessment": "Unresolved source-level coverage, not treated as proof of absence",
+          "evidence": [
+            "Citation identifies a potentially relevant q-binomial treatment, not a verified result covering this theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0511090",
+          "material_read": "Bibliographic identification; full text not retrieved",
+          "method": "Lawful DOI and repository lookup",
+          "title": "On q-Binomial Coefficients and Some Statistical Applications",
+          "trigger": "Potential older joint q-enumeration source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same two-sample labeling law supports both rank and runs tests. The exact finite conditional variance profile shows that mean independence hides a ubiquitous parity effect, rather than merely exhibiting one small counterexample. Strict comparisons at every feasible interior or boundary pair and the exact degeneracy exception give usable finite-sample information; no value is assigned merely to correcting the a=b=1 sentence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

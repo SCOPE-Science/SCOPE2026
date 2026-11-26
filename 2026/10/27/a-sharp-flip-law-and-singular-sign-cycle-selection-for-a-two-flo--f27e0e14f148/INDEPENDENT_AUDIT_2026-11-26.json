@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:41:09.280965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Composing d/(|d|+delta) with the fourth-power soft-sign kernel and clearing the positive normalization denominator gives the frozen F exactly. L is strictly increasing from epsilon*delta to infinity, so |F(x)|<|x| for x nonzero and C<=2*epsilon*delta; continuity rules out a positive limit. At the matched step the one-sided radial expansion of L gives (lambda/delta)*x*|x| to leading order. At the critical step the magnitude satisfies r_next=r-(2*lambda/delta)*r^2+O(r^3), so the reciprocal increments tend to 2*lambda/delta and give the asserted limit except for orbits hitting zero. Beyond the frontier, zero has derivative below -1 and the strict radial increase gives a unique symmetric cycle L(a)=C/2. The elasticity q=a*L'(a)/L(a) lies strictly between zero and one: its denominator minus numerator is epsilon^4*delta*(lambda*a+delta)^3. Thus the two-step multiplier is (-1+2*q)^2<1, and inversion of L at zero gives the linear onset coefficient. As delta goes to zero the limiting L is linear off the origin, giving a=t/2 in the limit and q tending to 1; the limiting sign-step map has F_0^2=u on (0,t). This is a local symmetric-cycle statement and a singular branch limit, not a global supercritical basin or an interchangeable time/floor limit. Frozen finite diagnostics were inspected, not executed or used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2605.11850v1 HTML offsets 131500 and 138826 give the two distinct floors and pre-normalized update",
+          "2605.31371v1 HTML offset 8000 uses tanh of scaled momentum",
+          "2608.04607 PDF page 3, offset 9100 describes generalized matrix Newton–Schulz iteration"
+        ],
+        "reasoning": "The first source's update contains the studied map exactly; obtaining the formula is a specialization. The inspected general optimization setting and the other models do not supply the exact constant-step scalar instability, attraction and singular limit for this map.",
+        "searches": [
+          "arXiv:2605.11850v1 Appendix F.1 and F.2 equation (30)",
+          "arXiv:2605.31371v1 §2.1",
+          "arXiv:2608.04607 §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "arXiv:2605.11850v1, 2605.31371v1 and 2608.04607, passages specified above",
+        "Resultary 5f6e926df82f, 5eb1801a903e, eb8a64761b00, 9e3a2ce60668 and b52e2697411c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The composition in equation (30) implies L by algebra",
+          "The one-floor result has no term linear in |x| in its denominator at zero, while L'(0+)=epsilon*lambda here",
+          "The momentum sign result establishes neutrality along an interval of cycles, not loss of attraction of a particular regularized branch"
+        ],
+        "reasoning": "The underlying map is already specified in broader work, but the strict global magnitude inequality, inverse-time law and linear onset depend on the two-floor radial structure. Neutrality of sign steps alone does not imply that the symmetric attracting branch tends to the midpoint or that its multiplier tends to one.",
+        "searches": [
+          "arXiv:2605.11850v1 equation (30)",
+          "Resultary 5f6e926df82f",
+          "Resultary 5eb1801a903e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5f6e926df82f mirrored RESULT.md offset 0 has update x-gamma*h_4'(lambda*x) with no normalization floor, yielding n^(-1/4), fourth-root onset and fifth-order matched step",
+          "5eb1801a903e mirrored RESULT.md gives a neutral continuum for Signum with momentum"
+        ],
+        "reasoning": "Changing units or parameter names cannot turn the one-floor origin expansion into the two-floor |x| term and different orders of contact. The sign-step continuum overlaps the singular picture qualitatively but is not a result on the positive-floor branch or its limit. The web query returned unrelated material, not evidence of absence.",
+        "searches": [
+          "Resultary: fourth-power soft-sign pre-normalized gradient normalization epsilon delta scalar quadratic equation 30",
+          "Resultary: global convergence frontier critical n inverse rate scalar gradient softsign flip",
+          "Resultary: sign descent fixed step scalar quadratic continuum neutral period two orbit midpoint selected regularization",
+          "Web: \"d/(|d|+δ)\" fourth-power soft sign two-cycle normalization floor scalar iteration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "eb8a64761b00 mirrored RESULT.md offset 0 concerns a capped proximal Polyak map with a continuum at threshold",
+          "5f6e926df82f mirrored RESULT.md offset 0 concerns a one-floor scalar preconditioner",
+          "9e3a2ce60668 gives inverse-time and linear-onset laws in a GeCo2 two-state exchange map; b52e2697411c treats a different curvature-scaled quadratic rule"
+        ],
+        "reasoning": "A finite table is not applicable to this all-positive-parameter dynamical theorem. In the indexed findings, equal exponents in a different recurrence and a same-date threshold for a different rule do not determine the frozen update, its constants or its cycle.",
+        "searches": [
+          "Resultary: fourth-power soft-sign pre-normalized gradient normalization epsilon delta scalar quadratic equation 30",
+          "Resultary: global convergence frontier critical n inverse rate scalar gradient softsign flip"
+        ]
+      },
+      "rationale": "The preconditioner, the scalar substitution, and the sign-step limit viewed alone are not the advance. The supported distinct claim is the exact two-floor phase boundary, critical and matched rates, onset and locally attracting cycle with a singular midpoint limit. The strongest apparent earlier scalar flip record drops the normalization floor before applying the soft sign and has different crossing, matched-step and amplitude exponents; neither that relation nor the inspected primary optimization results cover this classification.",
+      "residual_risks": [
+        "Bounded searches and passages do not rule out an exact scalar classification under a different optimizer or saturation-map description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the defining algorithm, not the scalar phase theorem in the inspected material",
+          "evidence": "(h_kappa*)'(z)=z/(varepsilon^kappa+|z|^kappa)^(1/kappa); equation (30) feeds d/(||d||+epsilon) into the preconditioner.",
+          "identifier_or_url": "https://arxiv.org/html/2605.11850v1",
+          "material_read": "Appendix F.1 and Appendix F.2 equation (30), HTML offsets 131500 and 138826",
+          "method": "Bounded OA full-text passages",
+          "title": "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives",
+          "trigger": "Exact normalized preconditioner"
+        },
+        {
+          "assessment": "Different soft sign and update state",
+          "evidence": "Uses tanh of a scaled momentum direction.",
+          "identifier_or_url": "https://arxiv.org/html/2605.31371v1",
+          "material_read": "§2.1, HTML offset 8000",
+          "method": "Bounded OA full-text passage",
+          "title": "Softsign: Smooth Sign in Your Optimizer For Better Parameter Heterogeneity Handling",
+          "trigger": "Related optimizer smoothing"
+        },
+        {
+          "assessment": "Different polynomial spectral operation",
+          "evidence": "Describes generalized Newton–Schulz matrix iterates.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04607",
+          "material_read": "PDF §1.1, p. 3, offset 9100",
+          "method": "Bounded OA full-text passage",
+          "title": "On MUON optimization: From non-convergence to an error analysis with Polar Express and the Newton-Schulz polynomial from implementations",
+          "trigger": "Related nonconvergence and spectral approximation"
+        },
+        {
+          "assessment": "One-floor variant, not equivalent",
+          "evidence": "Critical n^(-1/4), fourth-root onset and fifth-order matched step for the unnormalized map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f/RESULT.md",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Catalogue search and bounded mirror passage",
+          "title": "A sharp flip frontier for the Polar Express surrogate on scalar quadratics",
+          "trigger": "Closest exact scalar quadratic and fourth-power comparison"
+        },
+        {
+          "assessment": "Related limiting phenomenon, not the regularization law",
+          "evidence": "Signum with a momentum state and a neutral tangential multiplier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e/RESULT.md",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Catalogue search and bounded mirror passage",
+          "title": "Exact continuum of neutral two-cycles for scalar Signum",
+          "trigger": "Neutral period-two family"
+        },
+        {
+          "assessment": "Different update and different threshold behavior; no priority inference from date",
+          "evidence": "Piecewise-affine capped proximal Polyak iteration with a continuum at threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-scalar-flip-threshold-and-nonvanishing-cycles-for-composit--eb8a64761b00/RESULT.md",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Catalogue search and bounded mirror passage",
+          "title": "Sharp scalar flip threshold and nonvanishing cycles for composite proximal Polyak updates",
+          "trigger": "Same-date scalar flip and cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows why a modeling floor that might look cosmetic in a normalized optimizer changes the actual critical exponents and long-time dynamics in its simplest deterministic mode. The exact frontier and singular-cycle result provide a benchmark beyond the derivative-at-zero test. This does not establish the behavior of the matrix, stochastic or momentum optimizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

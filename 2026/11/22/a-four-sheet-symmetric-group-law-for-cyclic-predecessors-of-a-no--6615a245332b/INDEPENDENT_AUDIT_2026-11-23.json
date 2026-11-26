@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:53:10.250865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For indexed y, a fixed state at the cut before site 0 extends by the displayed backward maps to an n-periodic sequence of overlapping four-bit states. Taking first coordinates of those states recovers a unique predecessor, and overlap enforces wraparound even for n<5. Independent enumeration directly from the polynomial gives 491 maps (ranks 16,10,8,6,4: 1,2,2,6,480); all sixteen length-four products have rank four. Left composition preserves the kernel when rank stays four, and the 480 maps divide into two closed kernel classes of 240. Each has ten four-point images, each image meets each kernel block once, and each fiber contains every one of the 24 possible block-to-image bijections. A fixed point must lie in the image, on which the map acts as a permutation, so three fixed points are excluded. The n=1,2,3 count vectors in order (0,1,2,4) are (1,0,1,0), (3,0,0,1), (1,6,1,0). Both classes are strongly connected and have coprime return walks of lengths 2 and 11. A block relabelling commutes with the left-composition transition and is transitive on each image fiber; uniqueness of the stationary distribution in a class forces uniformity conditional on the image. Each fiber gives (9,8,6,1)/24. Therefore the possibly unequal stationary class weights do not matter, and primitive finite-chain convergence gives an O(rho^n) error for some rho<1. The reverse evaluation order does not alter sampling for iid uniform letters. The result is for period dividing n, not least period n or rotation classes; finite direct checks alone do not prove the limit.",
+      "replay": "python3 /tmp/opencode/ordinal2/recompute.py (independently written); full cyclic update and transfer counts agree target-by-target for n=1 through 12. Closure, four-letter ranks, all fibers and forward/reverse connectivity plus the two return words are exhaustively checked. Frozen check.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix B of arXiv:2610.33131v1 gives exactly x1+x3+x2(x4+1)(x3+x5+1), with n=4; the table's n is the full two-sided fiber degree. Theorem 4.4 gives n-to-one from block regularity.",
+          "Noorani–Parry's general theorem counts lift partitions by a finite group and its coset action; it does not in its stated scope identify which group/action the polynomial realizes."
+        ],
+        "reasoning": "Applying a stronger abstract theorem still requires a rule-specific lifting cocycle and its distribution/generation data. Infinite n-to-one and LEO by themselves supply neither; the paper's block-regularity is not a cyclic fixed-point census.",
+        "searches": [
+          "four-to-one Haugland Larsen Omland Rustad locally eventually onto cellular automata periodic cyclic preimage open constant-to-one factor maps permutation fiber fixed-point distribution",
+          "arXiv:2610.33131v1, Theorem 4.4 and Appendix B",
+          "doi:10.1007/BF02584816"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33131v1",
+        "doi:10.1007/BF02584816 (public abstract)",
+        "Resultary eight-sheet law and two open five-neighbor rules (indexed summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even in open shift-commuting degree-four examples the periodic law can differ: over F2 the rule x_i+x_{i+2} has kernel consisting of the four two-periodic configurations on the full shift, is onto by the recurrence, and on even rings only multiplicities 0 and 4 occur. It is bipermutive at its endpoints and LEO. The abstract Chebotarev distribution requires knowledge of the lifting action, not merely its degree."
+        ],
+        "reasoning": "The differing even-ring law shows that the specific asymptotic vector does not follow from full-shift degree and openness or LEO. The finite certificate proving transversality, full S4 fibers and primitive chains is the rule-specific contribution, including the small-ring exclusion separately.",
+        "searches": [
+          "arXiv:2610.33131v1 Theorem 4.4",
+          "Noorani and Parry, A Chebotarev Theorem for finite homogeneous extensions of shifts",
+          "Resultary eight-sheet periodic predecessor comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count is the number of fixed sheets of the spatial-shift return on the preimage fiber over a periodic point; for indexed words no division by n or passage to a rotation class is appropriate. Noorani–Parry describes lifting closed orbits by cycle type in finite homogeneous extensions."
+        ],
+        "reasoning": "The monodromy interpretation and general cycle-type approach are not new. A fixed fiber degree of four does not identify S4 as the effective group or give the averaging and periodicity hypotheses. The displayed finite computation supplies these missing data for this rule.",
+        "searches": [
+          "periodic points lifts constant to one factor codes shift of finite type group extension monodromy uniform fixed points permutation Chebotarev symbolic dynamics Parry",
+          "Chebotarev symbolic dynamics group extension shifts finite type Parry periodic orbits mixing conjugacy classes uniform finite group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In addition to the assigned record itself, the closest entries were the earlier eight-sheet law (2026/11/8, 0106d4eac899) and the two-rule obstruction census (2026/11/8, b4fa1671dcc9). The former reports the S8 law for another polynomial, the latter two-to-one counts for two different rules.",
+          "The source Appendix B table reports full-shift degree, block parameters and LEO checks, not indexed predecessor multiplicities."
+        ],
+        "reasoning": "Neither the S8 fixed-point vector nor the degree-two census transports to the first four-to-one rule just by replacing a parameter. No such intertwining of rules is exhibited.",
+        "searches": [
+          "Resultary: locally eventually onto Haugland Larsen Omland Rustad binary cellular automaton four-to-one nonlinear diameter five cyclic predecessors periodic points S4 fixed point probabilities transition monoid",
+          "arXiv:2610.33131v1 Appendix B table"
+        ]
+      },
+      "rationale": "Best of checked knowledge, the contribution is the specific four-sheet periodic lifting law, not the polynomial, full-shift four-to-one result, or the general principle of group-extension equidistribution. Earlier group and automaton work does narrow the novelty to the rule-specific monoid and permutation calculation.",
+      "residual_risks": [
+        "The indexed eight-sheet record was not read in full; it might supply a more general framework or other examples.",
+        "The full Noorani–Parry text was not inspected and no authorized Oxford access was available. Unindexed rule-specific monodromy calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already establishes rule, infinite multiplicity and LEO; those statements do not assert the ring law",
+          "evidence": [
+            "Appendix B first non-bipermutive k=5 row: n=4, kappa=4, lambda=1, iterations=4; Theorem 4.4 concerns the map on the two-sided full shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.33131v1",
+          "material_read": "Abstract, introduction, local/global rule notation, Theorem 4.4 statement and Appendix B diameter-five table and its legend",
+          "method": "Read open preprint and compared explicit polynomial, n column and hypotheses",
+          "title": "Locally eventually onto cellular automata",
+          "trigger": "Primary source of the exact polynomial"
+        },
+        {
+          "assessment": "Prior general mechanism, not evidence of an already-computed S4 action for this exact rule",
+          "evidence": [
+            "Abstract describes extensions on X times G/H and asymptotic counts for closed orbit lift partitions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02584816",
+          "material_read": "Publisher's public abstract and metadata; not subscription full text",
+          "method": "Compared the stated homogeneous extension and lift partition to the fixed-sheet problem",
+          "title": "A Chebotarev Theorem for finite homogeneous extensions of shifts",
+          "trigger": "Potential prior general periodic lift theorem"
+        },
+        {
+          "assessment": "Close analogy; its stated S8 theorem is not the S4 theorem for the present polynomial; no full-text conclusion asserted",
+          "evidence": [
+            "The indexed result states eight sheets and missing seven predecessors, not four sheets and missing three."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-an-eight-sheet-symmetric-group-law-for-periodic-predecessors-of--0106d4eac899",
+          "material_read": "Indexed mathematical summary only",
+          "method": "Compared degree, fixed-point law and finite claims",
+          "title": "An eight-sheet symmetric-group law for periodic predecessors of a nonlinear cellular automaton",
+          "trigger": "Closest indexed explicit family comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rule is a previously distinguished smallest-diameter, non-bipermutive four-to-one LEO example. Its same-period lifting spectrum and limiting attainable fraction 5/8 answer questions not settled by the known infinite degree or by a finite set of ring examples. The finite certificate gives a concrete case where the full symmetric-group distribution, rather than just a mean count, is visible, with an all-length prohibition on multiplicity three.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

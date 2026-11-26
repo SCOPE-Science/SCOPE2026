@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:50:57.684571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–71",
+        "Frozen VERIFICATION.md, lines 19–23 and check.py, lines 19–87"
+      ],
+      "rationale": "The angular-frequency convention gives kernel sin(Wx)/(πx). Restricting the unitary Fourier transform between the finite windows gives a Hilbert–Schmidt factor, so the square trace is the integral of the squared kernel. Its two off-diagonal rectangles give exactly 2J; they have positive integral because the sine zeros occupy a null subset. Writing s=v−u gives an even, compactly supported difference measure with Fourier transform F(t)=4 sin(at/2)sin(bt/2)/t². Taylor expansion of (D+s)^−2 yields the stated leading J, and fixed-phase sequences realize the entire stated cluster interval. In the exact derivative, expanding (D+s)^−2 and (D+s)^−3 uniformly gives the quadratic term WB sin(2WD) and the cubic term −ab+(B+2WB′)cos(2WD), after factoring π^−2; the sign comes from ∫s sin(2Ws)=−F′(2W). A second derivative of the exact compact integral gives leading curvature 2W²B cos(2WD)/(π²D²) with O(D^−3) error. For B≠0 the derivative signs at the ends of fixed small phase neighborhoods of kπ are opposite, curvature there has fixed nonzero sign, and outside those neighborhoods the leading sine is bounded away from zero. This gives exactly one late stationary point per neighborhood, displacement O(1/k), and alternating strict extrema. For B=0, if sin(Wa)=0 then |2WB′|=a|sin(Wb)|/W<ab, symmetrically if the other factor vanishes, and if both vanish B′=0. The uniform negative D^−3 margin makes J′ strictly negative eventually and the defect strictly increasing to the isolated-window sum. Swapping the Hilbert–Schmidt factor and its adjoint transfers the nonzero spectrum to the dual time–frequency setup with the specified convention.",
+      "residual_risks": [
+        "The recorded quadrature and symbolic moment tests were read but not replayed; the exact compact-integral argument establishes the asymptotic claims.",
+        "Remainders and the eventual threshold are for fixed parameters; a uniform threshold near resonance is not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes–Israel–Mayeli prove a general cross-boundary defect identity, and Azimifard presents its dual and rescaled forms. The single-window sine-kernel trace paper concerns the one-window defect.",
+          "A publisher retrieval and a separately identified ResearchGate PDF route for the 2012 bandpass paper were unavailable; only indexed description was used independently."
+        ],
+        "reasoning": "The boundary identity supplies the starting interaction integral and wider scope, not the eventual derivative classification: cubic-order control is needed after the leading oscillation cancels. The unavailable paper is not treated as noncovering.",
+        "searches": [
+          "arXiv:2607.02996 Proposition 1.2; arXiv:2609.14946 Proposition 8.1; arXiv:2608.17338v1 p. 1",
+          "Primary literature: SenGupta et al. disjoint frequency intervals, unequal widths, sine-kernel separation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification notes",
+        "arXiv:2607.02996",
+        "arXiv:2609.14946",
+        "arXiv:2608.17338",
+        "Resultary 90e7f069326c",
+        "DOI 10.1007/s00041-011-9197-y (indexed abstract description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With equal widths the two sine factors vanish together and B′=0 there. For one vanishing factor with unequal widths the cubic oscillatory term 2WB′ need not vanish. Its strict domination by ab is proved by |sin z|<z, while the general identity alone fixes neither the sign nor critical-point uniqueness."
+        ],
+        "reasoning": "The large-distance sign on mixed resonance is not the symmetric sign proof by substitution. The new comparison of the competing cubic terms, together with the unequal-width nonresonant classification, provides the supported distinct result.",
+        "searches": [
+          "Compare Proposition 8.1 of arXiv:2609.14946 and Resultary 90e7f069326c with frozen RESULT.md lines 48–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The trace defect of two spatial windows and one band equals that of the conjugate setup with two bands and one time interval via the nonzero singular spectrum.",
+          "The equal-width band record 90e7f069326c solves the symmetric specialization, including its late extrema and resonant monotonicity."
+        ],
+        "reasoning": "The two-band and two-window descriptions are equivalent, but duality and common rescaling preserve the width ratio; an equal-width theorem cannot produce a singly resonant unequal pair.",
+        "searches": [
+          "Resultary: unequal separated windows, unequal disjoint bands, Fourier-dual mixed resonance",
+          "arXiv:2609.14946 Proposition 8.1; Resultary 90e7f069326c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned November 22 record is an exact self-match. The distinct equal-width record 90e7f069326c is the closest matched scientific statement in the inspected rankings."
+        ],
+        "reasoning": "The self-match is not independent coverage. The earlier equal-width result covers the interaction, envelope, cluster set and alternating/monotone dichotomy on that slice, but cannot be used as an exact table for unequal parameters.",
+        "searches": [
+          "Resultary: unequal-interval separation resonance, one-width resonance, large-distance cluster, cross-boundary defect"
+        ]
+      },
+      "rationale": "Supported distinct content is the unequal-width large-separation classification, specifically the strict derivative margin under a single resonant width. The trace identity, its dual, and the equal-width classification are covered and not credited here. The strongest matched catalogue analogue uses equal widths and does not address the mixed asymmetry.",
+      "residual_risks": [
+        "The named 2012 full text remained inaccessible in bounded lawful attempts, so equivalent coverage there is not excluded.",
+        "An earlier unindexed simplification of the known general trace-defect identity may exist; the comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the trace-defect foundation, not the classified mixed-resonance sign.",
+          "evidence": "Defect as squared projection kernel integrated against the translated cross-boundary window overlap.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02996",
+          "material_read": "Proposition 1.2, p. 2",
+          "method": "OA primary PDF passage",
+          "title": "Trace bounds for limiting operators on rough domains",
+          "trigger": "General trace-defect identity for arbitrary windows"
+        },
+        {
+          "assessment": "Covers starting integral and dual formulations; no unequal-width asymptotic classification in the inspected proposition.",
+          "evidence": "Cross-boundary, symmetric-difference, dual and scaled expressions for the quadratic trace defect.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.14946",
+          "material_read": "Proposition 8.1, pp. 68–69",
+          "method": "OA primary PDF passage",
+          "title": "Componentwise and Measure-Sensitive Bounds for One-Dimensional Time-Frequency Localization",
+          "trigger": "General trace identity and Fourier duality"
+        },
+        {
+          "assessment": "Direct coverage of the entire equal-width specialization, not the unequal-width theorem.",
+          "evidence": "Equal bands have the same inverse-square envelope and phase cluster interval, eventual decrease at integer time-bandwidth product and one alternating late extremum near each phase point otherwise.",
+          "identifier_or_url": "2026/11/8/SCOPE-separation-resonance-in-the-quadratic-trace-of-two-band-fourier--90e7f069326c",
+          "material_read": "RESULT.md Finding and proof, offsets 0–7290",
+          "method": "Local mirror text",
+          "title": "Separation resonance in the quadratic trace of two-band Fourier concentration",
+          "trigger": "Strongest apparent overlap under Fourier duality"
+        },
+        {
+          "assessment": "Single-window result; not the two-window parameter comparison.",
+          "evidence": "Gives an exact quadratic defect identity for a single interval.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17338",
+          "material_read": "v1, p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Entropy-type traces and moment expansions for the sine-kernel time-band limiting operator",
+          "trigger": "Related exact sine-kernel trace expressions"
+        },
+        {
+          "assessment": "Close in geometry; full-text coverage of the summed asymptotic defect could not be assessed independently.",
+          "evidence": "The indexed abstract addresses two concentration problems for signals bandlimited to disjoint frequency intervals.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-011-9197-y",
+          "material_read": "Indexed abstract description only; lawful full-text routes unavailable",
+          "method": "Publisher OA attempts; targeted primary search and identified ResearchGate PDF attempt (HTTP 403)",
+          "title": "Concentration Problems for Bandpass Filters in Communication Theory over Disjoint Frequency Intervals and Numerical Solutions",
+          "trigger": "Classic disjoint-band concentration and possible asymmetric coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36 and 48–71",
+        "Resultary 90e7f069326c (symmetric benchmark)"
+      ],
+      "rationale": "In a canonical two-window concentration problem the summed transition defect does not in general approach independent-window behavior monotonically. The sharp criterion tells when infinitely many separated extrema persist, and proves that tuning only one of two independently variable unequal lengths suffices to remove them eventually, even though a smaller oscillatory derivative term remains. The cluster interval adds quantitative information about the residual coupling independently of any individual eigenvalue.",
+      "residual_risks": [
+        "No individual eigenvalue ordering, higher Schatten moment, or uniform near-resonance separation scale follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:38:05.316222Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With at least one grounded leader in a connected graph, extending a follower vector by zero on leaders gives a Dirichlet quadratic form that is positive on nonzero vectors. Thus the stable OU mean decays and the Lyapunov covariance identity gives P=tr(G Sigma)/2, G=A^(-1). Differentiate G by -G E_ii G: the first partial is -(G Sigma G)_ii/2, nonpositive even for singular PSD Sigma; the second partial is G_ij(G Sigma G)_ij. Inverse positivity follows, e.g., by integrating the entrywise-nonnegative semigroup exp(-rA) of the Metzler matrix -A. Entrywise nonnegative Sigma therefore makes all rectangular differences nonnegative, including repeated endpoints via the same-coordinate second derivative; telescoping gives the exact set inequality. Conversely choose the proposed two leaders, all followers grounded at s to the first, and the sole inter-follower edge c between the labels of any negative Sigma_ij. The two absent edges to the second leader are legitimate unit candidates. On their increment square G_ij=c/det of the positive two-by-two block, and sG tends uniformly to I; hence s^2(G Sigma G)_ij tends uniformly to Sigma_ij<0. Integration gives a negative gap for large finite s, even with other noise correlations present. For the exact two-follower boundary take x=s+c and D0=x^2-c^2, D1=x(x+t)-c^2, D2=(x+t)^2-c^2. Inversion yields the gap t/D1 times [x(x+rho c)/D0-(x+t)(x+t+rho c)/D2]; putting over the common denominator gives c t^2 [c(2x+t)+rho(x(x+t)+c^2)]/(D0 D1 D2), the displayed formula. The four stated rational values and negative gap -1/200 follow, and the covariance eigenvalues are 1/5 and 9/5. Replay proofs from RESULT.md lines 51–97; verify.py is supporting finite rational evidence, not the universal proof or an independent certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Clark and Mackin works optimize selected leader nodes rather than absent leader edges with a fixed leader set. Summers et al. treat ungrounded graph-edge addition via a pseudoinverse trace. Xu–Zhang use the grounded trace inverse for their leader-edge result."
+        ],
+        "reasoning": "The prior theorems motivate the claim but none of these statements includes the sign condition for general instantaneous covariance. In particular the guarantee for independent noise cannot yield a negative discrete gap for every covariance having any negative off-diagonal.",
+        "searches": [
+          "arXiv:1208.0946v1, Theorem 1",
+          "arXiv:1411.4884v1, §III-A, Theorem 3",
+          "arXiv:1712.08212v1, model and objective",
+          "arXiv:2308.07008v1, Theorem 4.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.07008v1",
+        "arXiv:1208.0946v1",
+        "arXiv:1411.4884v1",
+        "arXiv:1712.08212",
+        "Resultary local published-record search and two matched RESULT.md files",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior trace-inverse results imply the independent unit-noise case. The arbitrary PSD first-derivative monotonicity and nonnegative sufficient case use standard PSD and inverse-positivity facts. The negative-sign witness requires choosing a weighted graph whose mixed response asymptotically isolates Sigma_ij."
+        ],
+        "reasoning": "The separate monotonicity and proof tools are not claimed as new. The contribution is the sharp universal boundary and the nontrivial fixed-network threshold; neither is a special case of the inspected independent-noise guarantees or leader-selection statements.",
+        "searches": [
+          "arXiv:2308.07008v1, §§4.2–4.3",
+          "arXiv:1208.0946v1, trace characterization and Theorem 1",
+          "Resultary: screened inverse-trace submodularity threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Zhang use leader-to-follower candidate edges and tr(L_Q(S)^(-1)); Theorem 4.3 establishes supermodularity of this inverse trace. The five-vertex screened threshold indexed result concerns optional internal edges and a scalar screening parameter."
+        ],
+        "reasoning": "The factor 1/2 from the Lyapunov equation is immaterial, but tr(G Sigma) for arbitrary fixed Sigma is not tr(G) nor is correlated noise reducible by whitening without changing the one-coordinate edge updates and sign structure. The screened threshold is not a reparameterization of correlations.",
+        "searches": [
+          "Resultary: correlated noise covariance supermodular grounded inverse trace leader-edge additions",
+          "arXiv:2308.07008v1, §§4.2–4.3 and Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-leader record evaluates inverse-grounded-trace coherence of leader triples in strongly regular graphs with independent follower noise. The screened P5 result gives an exact scalar screening threshold for improvement by internal edge additions."
+        ],
+        "reasoning": "The closest indexed exact-invariant and threshold entries do not give the covariance-sign boundary or rho_*(s,c,t). The three-leader record was compared by assumptions and statement, not dismissed by shared date. A finite numerical database cannot establish the uniform iff claim.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-exact-three-leader-coherence-and-optimal-triples-on-strongly-reg--a1b8a2e42b3a",
+          "Resultary 2026/11/22/SCOPE-sharp-screened-submodularity-threshold-on-the-five-vertex-path--26b637136294"
+        ]
+      },
+      "rationale": "The nearest prior leader-edge theorem proves inverse-trace supermodularity, i.e. independent equal noise. The inspected indexed records change either what is selected or what is varied. None inspected gives the uniform covariance-sign characterization with necessity for each fixed covariance, or the exact continuous family of two-follower thresholds.",
+      "residual_risks": [
+        "Focused scholarly and indexed searches are bounded; earlier results on weighted inverse traces outside this literature could give additional overlap.",
+        "Necessity is over all admissible weighted networks for the fixed Sigma, not a necessary condition on a single fixed network. Changing the covariance with the edge set or measuring variance about a random mean is not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers independent equal noise, not the sign boundary",
+          "evidence": [
+            "The edge candidate class joins Q to its complement; the theorem proves tr(L_Q(S)^(-1)) supermodular."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.07008v1",
+          "material_read": "Sections 4.2–4.3, Theorem 4.3, text offsets 25700–29300",
+          "method": "OA full-text passage",
+          "title": "Minimizing Polarization in Noisy Leader-Follower Opinion Dynamics",
+          "trigger": "Same intervention and closest prior supermodularity claim"
+        },
+        {
+          "assessment": "Different intervention and noise model",
+          "evidence": [
+            "Steady-state error is tr(L_ff^(-1))/2 under its link-noise model; the selected set consists of leader agents."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1208.0946v1",
+          "material_read": "Contribution around text offset 5478 and Theorem 1 around 18600",
+          "method": "OA full-text passage",
+          "title": "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+          "trigger": "Grounded trace and noisy supermodular design"
+        },
+        {
+          "assessment": "Ungrounded independent-noise coherence, not the fixed correlated model",
+          "evidence": [
+            "The inspected theorem uses negative tr(L_E^dagger) under graph edge addition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1411.4884v1",
+          "material_read": "Section III-A, Theorem 3, text offset 12500",
+          "method": "OA full-text passage",
+          "title": "Topology Design for Optimal Network Coherence",
+          "trigger": "Edge-addition supermodularity with a trace objective"
+        },
+        {
+          "assessment": "Leader selection instead of fixed-leader edge additions",
+          "evidence": [
+            "Leaders as well as followers are noise-corrupted; the selection variable consists of leader nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.08212",
+          "material_read": "Abstract p. 1 and model/objective p. 3, text offset about 14400",
+          "method": "OA paper passages",
+          "title": "Submodular Optimization for Consensus Networks with Noise-Corrupted Leaders",
+          "trigger": "Total stationary variance and submodularity under noisy leader design"
+        },
+        {
+          "assessment": "Does not cover the sign condition",
+          "evidence": [
+            "Follower variance equals C(S)/2 for independent equal-intensity white noise when S chooses three leaders on strongly regular graphs."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-three-leader-coherence-and-optimal-triples-on-strongly-reg--a1b8a2e42b3a",
+          "material_read": "RESULT.md finding and noise/objective statement",
+          "method": "Local published-record mirror",
+          "title": "Exact three-leader coherence and optimal triples on strongly regular graphs",
+          "trigger": "Same-date closest indexed grounded coherence result"
+        },
+        {
+          "assessment": "Different scalar parameter, edge class and graph scope",
+          "evidence": [
+            "Inverse-trace improvement for all six optional internal edges of P5 is submodular iff the uniform screening exceeds its exact threshold (approximately 1.268)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-screened-submodularity-threshold-on-the-five-vertex-path--26b637136294",
+          "material_read": "RESULT.md threshold theorem",
+          "method": "Local published-record mirror",
+          "title": "Sharp screened submodularity threshold on the five-vertex path",
+          "trigger": "Closest indexed inverse-trace threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This characterizes exactly when a common edge-selection diminishing-returns guarantee survives correlated noise, rather than just giving a counterexample. The separation from monotonicity and the exact two-node transition make the condition interpretable and give concrete tests for design assumptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

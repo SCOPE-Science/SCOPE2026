@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:58.443362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any received y and target syndrome a the unique parent is y plus a copy of a−s(y), so distinct occupied labels give distinct outputs and the shadows tile the received simplex. In the character filter the factor for a coordinate is [1−(1−u)χ(g)z]/[1−χ(g)z]. An order-d character takes each dth root q/d times; multiplying the factors and taking the coefficient of z^n gives exactly the displayed Q, including the zero contribution if d does not divide n. Characters with order dividing e are the dual of G/eG, giving |G[e]| times the indicator a∈eG; divisor inversion gives the integer formula. Translation shifts the syndrome by nb; conversely support one tests membership in nG, and nG is proper when gcd(n,E)>1. For prime q the nontrivial term when q divides n is exactly 1−(1−u)^q. For distinct a,b each occupied g gives the unique allowed transfer g→g+b−a with that removed label; its signed coordinate vector determines g, so the degree is the support and the inter-class edge count is the shadow total. Independent enumeration of sorted words reproduced both order-four group examples, with zero-syndrome rows (4,2,4,0) and (4,6,0,1), respectively, and the prime-five example. Replay: RESULT.md lines 51–100; inspected support_spectrum_check.py and its frozen .out (100 group/length settings, 27,824 multisets and 15 transfer settings, not independently rerun). Scope is n≥1 and the entire finite abelian group alphabet, not general label maps or multiple deletions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovačević–Tan stratify ambient bounds by support; the polynomial constructions of Kreindel et al. enumerate different, same-length metric balls in the relevant sections.",
+          "Zabokritskiy gives independence of the general finite-abelian additive coloring fibers, not the support profile inside them."
+        ],
+        "reasoning": "Ambient support strata or metric-ball statistics do not determine the joint syndrome and support coefficients; neither does the graph-coloring existence/count bound. These broader statements cover natural background, not the all-group order-dependent evaluation.",
+        "searches": [
+          "Resultary: fixed support and prescribed sum multiset compositions finite abelian groups generating function character order balance replacement degree",
+          "arXiv:1612.08837 Lemma 3 and Theorem 17",
+          "arXiv:2603.18322v1 §§3–4",
+          "arXiv:2607.13733 §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.05636v2",
+        "arXiv:2603.18322v1",
+        "arXiv:1612.08837",
+        "arXiv:2607.13733",
+        "Resultary 18af41f331e1",
+        "Resultary 62b2e855dedf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older results give class sizes and unrestricted support counts, two marginals. The cyclic decoder fixes the parent given the received word and syndrome and thereby already implies cyclic shadow occupancy.",
+          "Translation explains balance in the coprime case, and replacement by g+b−a directly gives the graph degree from full-group labeling."
+        ],
+        "reasoning": "Even with the known marginal counts and shadow first moment, the remaining higher support coefficients are not fixed by those statistics. The order-dependent factor with (1−u)^d is the substantive joint evaluation and the support-one coefficient gives the all-group obstruction to coefficientwise balance. No rate or optimality novelty is asserted.",
+        "searches": [
+          "arXiv:2601.05636v2 Props. 14 and 16, Appendices B/C",
+          "arXiv:2607.13733 §2 additive coloring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 14 counts multiplicity vectors by cyclic residue, equivalent to W_{a,n}(1); its product does not mark how many different labels occur.",
+          "The fixed-support prescribed-sum interpretation was explicitly checked, including against the all-group additive coloring in arXiv:2607.13733 §2."
+        ],
+        "reasoning": "Marking support in the cyclotomic product retains a joint distribution rather than re-expressing the existing single-variable cardinality formula. The ordinary product at u=1 loses precisely the needed coordinate weights. No exact joint finite-abelian formula was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: finite abelian group additive syndrome support size distribution multiset deletion shadow profile",
+          "Web: fixed support sum multisets finite abelian group generating function exact support-size distribution prescribed modular sum compositions",
+          "arXiv:2601.05636v2 §5.1 and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE 18af41f331e1 gives zero-checksum multiplicity partitions at G=Z/5, n=5, whose support counts are exactly 5u+20u³+u⁵.",
+          "SCOPE 62b2e855dedf gives syndrome-class shadow polynomials and an equal first moment for ordered binary words with a length-two burst and differential VT constraints."
+        ],
+        "reasoning": "The former exactly covers one illustration, not arbitrary groups, lengths or labels; the latter has a different channel, code constraints and underlying objects. Neither covers the full frozen profile.",
+        "searches": [
+          "Resultary: sum modulo q syndrome classes multiset one-deletion exact support spectrum W_{a,n} coefficient distribution",
+          "Resultary: one deletion additive syndrome size q-ary multiset composition fixed checksum support enumerator character orders"
+        ]
+      },
+      "rationale": "The weighted finite-abelian character-order distribution and exact coefficientwise balance criterion survive comparison. The cyclic deletion construction, its implied occupancy, the unweighted or unconditional marginals, and a particular quinary row have prior coverage; the elementary transfer consequences are not the main originality basis.",
+      "residual_risks": [
+        "An unlocated equivalent restricted-partition or cyclotomic enumeration may exist; the targeted discovery query's lack of hits is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cyclic decoding/occupancy and two marginals, not the joint polynomial",
+          "evidence": [
+            "The character product is unweighted in support; the support packing bound uses A_r summed over all syndromes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+          "material_read": "§5.1, Props. 14 and 16, App. B/C, including OA offsets 78000, 84394 and 120000",
+          "method": "OA HTML and mathematical comparison",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same cyclic syndrome construction and use of deletion-shadow size"
+        },
+        {
+          "assessment": "Different syndrome map and whole-space metric-ball statistics",
+          "evidence": [
+            "Same-length metric balls do not count one-sided shadows of words in a fixed additive class."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.18322v1",
+          "material_read": "§§3–4, OA offsets 17048 and 36510",
+          "method": "OA HTML passage inspection",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Related syndrome constructions and enumerators"
+        },
+        {
+          "assessment": "Ambient packing bounds, not the conditioned profile",
+          "evidence": [
+            "The strata depend on nonzero multiplicity-coordinate count without fixing a checksum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.08837",
+          "material_read": "Lemma 3 and Theorem 17, OA offsets 79953 and 82833",
+          "method": "OA PDF passage inspection",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+          "trigger": "Foundational support-stratified counting"
+        },
+        {
+          "assessment": "General additive coloring and independent sets; no joint enumeration in the inspected passage",
+          "evidence": [
+            "Additive coloring fibers are independent; the cited class statistic is a size lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.13733",
+          "material_read": "§2, pp. 3–4, OA offset 11056",
+          "method": "OA PDF passage inspection",
+          "title": "Independent Sets in Multiset Profile Graphs via Weighted Local Covers",
+          "trigger": "General finite-abelian additive classes in the transfer graph"
+        },
+        {
+          "assessment": "Exactly covers the zero-checksum quinary example",
+          "evidence": [
+            "Partition counts 5, 10, 10, 1 have support sizes 1, 3, 3, 5, respectively."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-six-perfect-maximum-quinary-length-five-multiset-deletion-codes--18af41f331e1",
+          "material_read": "RESULT.md, zero-checksum multiplicity-partition counts",
+          "method": "Local mirror and aggregation by support",
+          "title": "Six perfect maximum quinary length-five multiset deletion codes",
+          "trigger": "Exact checksum example overlap"
+        },
+        {
+          "assessment": "Analogous statistic for a distinct ordered-string channel",
+          "evidence": [
+            "Two consecutive deletions and differential-VT syndromes, not additive multiset checksum classes."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-exact-burst-deletion-sphere-spectra-in-power-of-two-differen--62b2e855dedf",
+          "material_read": "RESULT.md, finding and scope",
+          "method": "Local mirror statement comparison",
+          "title": "Two exact burst-deletion sphere spectra in power-of-two differential VT codes",
+          "trigger": "Similar syndrome-conditioned shadow spectrum and equal moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Support is exactly the number of distinct possible received multisets per word, used in natural deletion-shadow packing bounds. Resolving its full distribution by checksum shows what equal total occupancy conceals: different class sizes and branching patterns, and different distributions for the same alphabet cardinality under different group structures. This is a motivated exact finite-length invariant, without an unsupported claim of optimal coding rate or improved decoder complexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

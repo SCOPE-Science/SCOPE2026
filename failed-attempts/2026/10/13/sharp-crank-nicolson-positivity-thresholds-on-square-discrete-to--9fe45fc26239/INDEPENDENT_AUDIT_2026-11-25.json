@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:25.861326Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/frozen_replay.py 2 (independent return-walk computation)"
+      ],
+      "rationale": "For s=h/2>0, the resolvent of L=4I-A has strictly positive entries by its geometric random-walk expansion and connectivity. T=2(I+sL)^{-1}-I with constant diagonal 2G_n-1 by Fourier diagonalization, so only that diagonal can change sign; symmetry and L1=0 give unit row and column sums. G_n decreases from 1 to 1/n², with a unique crossing and equality allowed. The C_3 spectrum gives 14s²-s-1=0. Periodization gives G_n as the sum of the infinite-volume kernel over nZ². For coordinate heat-kernel differences the tridiagonal generator, shifted by 3I, is bounded and entrywise nonnegative, with a positive path from index zero to every index; this proves strict coordinate decrease and hence strict size ordering. The image sum beyond the origin tends to zero by summability; bracketing the unique limiting crossing gives convergence. The infinite-volume walk has independent transformed coordinate increments under (x+y,x-y), giving even return probabilities [binom(2k,k)/4^k]^2; their generating series is 2K(r)/π. Independently reproduced the root near 0.29409864184281405743 using this series with a geometric tail bound. The distance bound on each image gives 4r^n/(1-r^n)^2, and the trace derivative lower bound 4/(1+8s_3)^2 gives the asserted envelope. This covers n≥3 including h=0; the numerical bracket corroborates and does not prove strict monotonicity.",
+      "residual_risks": [
+        "No claim for n<3, different couplings, boundary conditions or finite-precision positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result states the criterion and strict size ordering for all periodic dimensions. Higueras–Roldán (2023) gives 1D homogeneous Dirichlet sharp bounds, a different geometry."
+        ],
+        "reasoning": "Taking d=2 in the indexed theorem gives the square equal-period case; the Dirichlet result does not.",
+        "searches": [
+          "Resultary 1102c3b3899f, mirrored RESULT.md; arXiv:2301.01066 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md references and proof",
+        "Resultary record 1102c3b3899f",
+        "Higueras–Roldán arXiv:2301.01066",
+        "Guttmann arXiv:1004.1435"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad periodic criterion immediately implies the full finite-square threshold, strict ordering and stated limiting equation under the parameter change. The 2023 Dirichlet paper cites a separate periodic manuscript without an identifier."
+        ],
+        "reasoning": "The fail decision rests on observed coverage, not on the inaccessible periodic manuscript or on a standard integral alone.",
+        "searches": [
+          "Resultary 1102c3b3899f",
+          "arXiv:2301.01066 pp. 1, 5–6, 10, 26",
+          "Higueras–Roldán 2022 exact-title search: On the positivity and contractivity of Crank–Nicolson method applied to the periodic diffusion problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching RESULT.md offsets 0–6988 defines c as the whole time step; c_{2,n}=2s_n and both statements concern entrywise positivity for every datum."
+        ],
+        "reasoning": "Same operator, threshold and quantifier after a factor-of-two conversion, not merely a similar positivity title.",
+        "searches": [
+          "Resultary: sharp Crank–Nicolson positivity on isotropic periodic heat lattices; matching record 1102c3b3899f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record gives the 3×3 and infinite-square special values; the classical square return Green function is exactly 2K(z)/π."
+        ],
+        "reasoning": "Neither the special values nor the elliptic Green evaluation distinguish the frozen claim; the particular quantitative upper envelope was not located in the matching entry.",
+        "searches": [
+          "Resultary 1102c3b3899f",
+          "Guttmann, arXiv:1004.1435 §1, Eqs. (4), (6)"
+        ]
+      },
+      "rationale": "A distinct published Resultary entry states the exact periodic positivity frontier in all isotropic dimensions, its strict period ordering and the dimension-two finite and limiting special values. Setting d=2 and converting its c to h=2s recovers the main frozen claim. This is substantive coverage at audit, not an inference of earlier priority, derivation, or authorship from the later catalog date. The particular global square-torus estimate was not found in that entry, but alone is a coarse bound from the standard path-length majorant and a derivative estimate, not a surviving valuable separate claim.",
+      "residual_risks": [
+        "Priority and the relationship between the frozen package and the later catalog entry are not inferred from dates.",
+        "The cited 2022 periodic manuscript was not recovered; Morita (1971) and Faragó–Korotov–Szabó (2010) supplied routes did not yield readable full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers core claim; the particular frozen exponential envelope was not identified",
+          "evidence": [
+            "All isotropic d-tori; strictly decreasing thresholds; matching finite and infinite d=2 values"
+          ],
+          "identifier_or_url": "Resultary/2026 2026/11/8/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-heat-steps-on-per--1102c3b3899f",
+          "material_read": "RESULT.md offsets 0–6988, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and bounded mirror read",
+          "title": "Sharp positivity thresholds for Crank–Nicolson heat steps on periodic lattices",
+          "trigger": "Same scheme; broader periodic theorem"
+        },
+        {
+          "assessment": "Reviewed theorem is for 1D Dirichlet; raises a separate open access risk",
+          "evidence": [
+            "Homogeneous Dirichlet in abstract and conclusion; bib entry for a 2022 periodic manuscript"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.01066",
+          "material_read": "Abstract p. 1, Theorem 1 pp. 5–6, conclusion p. 10, bibliography p. 26",
+          "method": "Bounded open primary PDF inspection",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Closest available prior numerical-analysis source and periodic bibliography lead"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Citation supplies no identifier or URL"
+          ],
+          "identifier_or_url": "Higueras and Roldán (2022), citation in arXiv:2301.01066 p. 26",
+          "material_read": "Citation only; no full text retrieved",
+          "method": "Exact-title retrieval plus inspected citation",
+          "title": "On the positivity and contractivity of Crank–Nicolson method applied to the periodic diffusion problem",
+          "trigger": "Potentially directly overlapping periodic treatment"
+        },
+        {
+          "assessment": "Covers exact Green evaluation, not the positivity frontier in the inspected passages",
+          "evidence": [
+            "P(0;z)=2K(z)/π; Fourier integral for the square lattice"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1435",
+          "material_read": "§1 pp. 2–3, Eqs. (4) and (6)",
+          "method": "Open primary PDF passage inspection",
+          "title": "Lattice Green functions in all dimensions",
+          "trigger": "Exact square-lattice elliptic expression"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Higueras–Roldán arXiv:2301.01066, positivity scope"
+      ],
+      "rationale": "The exact all-data admissible step and its finite-to-infinite ordering answer a practical and well-posed numerical-analysis question not resolved by the nonnegative-stencil sufficient condition or spectral stability. This judgment is about the scientific question, not separate credit for the already-covered answer or for the loose envelope in isolation.",
+      "residual_risks": [
+        "Does not quantify accuracy, contractivity beyond positivity, or performance on a different mesh."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

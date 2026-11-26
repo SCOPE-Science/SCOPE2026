@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:47:22.963019Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(5) and event-count assumptions",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "At R₀φ=1 choose Z=exp(∫₀ᵗJ), so Ż=ZJ. Using population conservation and the two never-infected equations shows that ZJ+sZ^(−α)+vZ^(−ε) is conserved and equals 1 from the initial data, with α=(1−φ)/φ and ε=(θ−φ)/φ. Hence i≤Ż≤1 and 1+it≤Z≤1+t. At fixed ε, Ż and Z/t tend to the same strictly positive constant (1−v or 1), giving tJ→1. Independently, total recovered fraction R satisfies Ṙ=J−JR and Q̇=JR, so Q=log Z−R, counting only postinitial reinfections. This gives exactly the two offsets. For T=exp(z/ε), fixed z>0 and r>0, the linear bounds give ε log Z(rT)→z and Z(rT)^(−α)→0. Averaging Ż over [0,T] by bounded convergence gives Z(T)/T→1−v exp(−z); R(T)→1 by the same bounds. This proves the asserted profile including its additive constant and the order of the limits.",
+      "residual_risks": [
+        "No statement at z=0 before the limit or uniform error rate is established. Finite trajectory diagnostics cannot certify a double-limit theorem. The calculation does not cover finite stochastic populations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published SIRI final-size analysis takes the strictly transient condition R₀φ<1. Katriel is a simpler partial-immunity reinfection model without a separate never-infected vaccine stratum as described in the frozen comparison; the full text was not retrieved. The Gomes records provide reinfection and vaccination threshold context, but only landing/abstract material was accessible."
+        ],
+        "reasoning": "A threshold or extinction conclusion, even for a broad class, is not a statement of the renormalized cumulative count in the logarithmic-time crossover. No negative whole-text verdict relies on inaccessible sources.",
+        "searches": [
+          "Gutierrez–Gog, DOI 10.1007/s11538-026-01610-w, §4.2",
+          "Katriel, DOI 10.1016/j.mbs.2010.09.003",
+          "Gomes–White–Medley, DOIs 10.1016/j.jtbi.2004.02.015 and 10.1016/j.jtbi.2004.10.001"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Gutierrez–Gog 10.1007/s11538-026-01610-w",
+        "Katriel and Gomes–White–Medley OA access attempts",
+        "Resultary 4eddf338581a, c1921b9ff104 and be151af14b68"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known integrating-factor relation is a starting point for the scalar ODE, and its fixed-parameter leading slope is readily derived. The crossover instead requires controlling the limit jointly in time and ε: the vaccine term does not vanish uniformly as ε↓0."
+        ],
+        "reasoning": "The time rescaling, bounded convergence along r exp(z/ε), and exact identification of the recovered fraction in the event count are needed to obtain the noncommuting-limits profile, which a fixed-parameter final-size relation or prevalence exponent does not supply.",
+        "searches": [
+          "Gutierrez–Gog, §§4.1–4.2, particularly Eqs. (30)–(35) and the subsequent final-size discussion",
+          "Resultary 4eddf338581a and be151af14b68, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper uses the same leaky SIRI stratum equations and directly integrates λ as a function of S_U using the integrating factor S_U^(−φ). The final λ expression, Eq. (35), specializes to the same prevalence-versus-susceptible relation at R₀φ=1, with the integration constant adapted to the frozen positive initial infectious fraction."
+        ],
+        "reasoning": "Using Z=(S_U/s)^(−φ) translates the known relation into the frozen scalar clock after accounting for initial data. The new claim is not the model, threshold, or existence of an integrating factor.",
+        "searches": [
+          "Gutierrez–Gog, DOI 10.1007/s11538-026-01610-w, §§4.1–4.2, Eqs. (23)–(25) and (29)–(35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4eddf338581a gives t⁻¹ and cumulative logarithmic growth in a SLEIRS system with recruitment and waning. c1921b9ff104 gives a crossover on a scale proportional to ε⁻² in a different nonlinear SIRS model. The later same-model record be151af14b68 gives subgroup reinfection bounds under R₀φ<1."
+        ],
+        "reasoning": "Critical relaxation and crossover have material indexed analogues, but none of these statements has the same object, threshold and exp(z/ε) count-profile limit. A numerical table of invariants is inapplicable to this two-parameter asymptotic identity.",
+        "searches": [
+          "Local Resultary search for critical SIRI reinfection/vaccination and susceptibility crossover; records 4eddf338581a, c1921b9ff104, be151af14b68"
+        ]
+      },
+      "rationale": "The leaky-vaccination equations and integrating-factor prevalence relation are prior, and the critical 1/t tail is not a standalone originality basis. The distinctive finding is the matched cumulative-reinfection offsets and the sharp exponential-time interpolation as the two susceptibility parameters coalesce at the exact reinfection threshold. The closest full text supplies the state relation but does not give this singular clock or a result implying it without additional analysis.",
+      "residual_risks": [
+        "Literature comparison is bounded and not a priority certification. Full texts of the older Katriel and Gomes papers were unavailable, so their precise simpler-model critical asymptotics remain unchecked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and integrating-factor equation covered; singular event-count limit distinct",
+          "evidence": "Equation (35) gives λ as a function of S_U using the limiting zero-prevalence initialization; the subsequent final-size treatment is strictly subcritical. The medRxiv v1 was not accessible, but the published paper was read.",
+          "identifier_or_url": "10.1007/s11538-026-01610-w",
+          "material_read": "Published PDF pp. 9–10, §§4.1–4.2, Eqs. (23)–(25), (29)–(35) and surrounding final-size argument; extracted offsets 20500 and 26720–30116",
+          "method": "Bounded open Springer PDF inspection",
+          "title": "Final-Size Solutions for SIRI Models with Vaccination",
+          "trigger": "Same model and exact integrated state relation"
+        },
+        {
+          "assessment": "Residual risk for the precise simpler-model critical asymptotics",
+          "evidence": "No sharper full-text implication was verified.",
+          "identifier_or_url": "10.1016/j.mbs.2010.09.003",
+          "material_read": "Bibliographic reference and frozen comparison; no full text retrieved",
+          "method": "DOI and lawful ScienceDirect PDF/HTML attempts",
+          "title": "Epidemics with partial immunity to reinfection",
+          "trigger": "Critical extinction antecedent"
+        },
+        {
+          "assessment": "Relevant context; no full-text exclusion asserted",
+          "evidence": "No inspected passage establishes the frozen count-profile limit.",
+          "identifier_or_url": "10.1016/j.jtbi.2004.02.015; 10.1016/j.jtbi.2004.10.001",
+          "material_read": "Landing/abstract-level material only",
+          "method": "Bounded OA attempt for the cited papers",
+          "title": "Infection, reinfection, and vaccination under suboptimal immune protection; The reinfection threshold",
+          "trigger": "Reinfection and vaccination threshold antecedents"
+        },
+        {
+          "assessment": "Different mechanism and count",
+          "evidence": "Five-compartment SLEIRS model with recruitment and waning, not the critical leaky SIRI vaccination model.",
+          "identifier_or_url": "Resultary 4eddf338581a",
+          "material_read": "Mirrored RESULT.md, Finding and model scope",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Critical SLEIRS relaxation reveals a susceptibility-variance law at fixed reproduction number",
+          "trigger": "Critical t⁻¹ and logarithmic count overlap"
+        },
+        {
+          "assessment": "Different parameter degeneration and clock",
+          "evidence": "Algebraic scaling proportional to ε⁻² rather than the exponential time clock and reinfection offset herein.",
+          "identifier_or_url": "Resultary c1921b9ff104",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Universal extinction crossover at the pitchfork edge of a nonlinear SIRS model",
+          "trigger": "Singular extinction crossover in a compartment model"
+        },
+        {
+          "assessment": "Later related result under a distinct threshold hypothesis",
+          "evidence": "Subgroup bounds under strict R₀φ<1 do not cover the equality or the coalescing susceptibilities.",
+          "identifier_or_url": "Resultary be151af14b68",
+          "material_read": "Mirrored RESULT.md, Finding and regime assumptions",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Strict subgroup reinfection bounds distinguish leaky and all-or-none vaccination",
+          "trigger": "Same leaky SIRI model and cumulative reinfection quantity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, equations (3)–(5) and Limitations",
+        "Gutierrez–Gog, §§4.1–4.2"
+      ],
+      "rationale": "The exact reinfection threshold and equality of two existing model susceptibilities are natural boundaries. The common 1/t prevalence tail hides a discontinuity in an integrated event-count offset. The exponential-time profile explains how that discrepancy builds up and identifies the precise limit missed by treating the small parameter at fixed observation time or in fixed-parameter final-size analysis.",
+      "residual_risks": [
+        "The result is a deterministic critical-model benchmark, not a prediction for a finite population, a vaccine recommendation, or an inference from reported counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

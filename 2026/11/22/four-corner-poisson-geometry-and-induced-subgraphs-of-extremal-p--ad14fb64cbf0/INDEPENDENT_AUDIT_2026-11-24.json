@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:24:10.788839Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed tuple of r candidate cells, only tuples with distinct rows and columns can occur, at probability 1/(n)_r. Bounded marked rectangles contain n times their areas plus O(sqrt(n)) cells, and forbidden tuples are O(n^(r-1/2)) even when corners share row or column bands. Joint factorial moments and local tightness thus give independent unit-intensity processes at all four corners. Conditional on a sampled cell, the nearest relevant corner has offset sum s<=n-1 and degree or deficit D=s-2K with K hypergeometric. E[D] is at least s/2 by the product bound ab<=s^2/4. If s>4t sqrt(n), D<=t sqrt(n) requires K-E[K]>=s/8; the sample size is at most s, giving exp(-s/32) by Hoeffding, or zero probability if the sample is empty. The union bound for both populations is at most 2n exp(-t sqrt(n)/8). Inside fixed-size rescaled corner squares K is bounded simultaneously by the corner cell count, tight by its bounded expectation, giving a uniform o_P(1) error in scaled degree versus score. The zero-intensity boundary at x+y=t gives the triangle restriction. The exact tagged inversion ordering is continuous at configurations without ties; the Poisson limit has none. For a pair of uniform unit-triangle points, one concordant order has integral of (1-x-y)^2/2 over the triangle = 1/24, so discordance probability is 2/3. A high corner reverses exactly one axis (column for LT, row for RB); the proof's wording about the column in both is an immaterial slip. With lambda=t^2/2, the means are 2lambda^2/3 and 4lambda^2/3, the latter including all cross-high pairs. Bounded moments of corner counts plus the exponentially rare remote event justify convergence of finite-n edge means too. Nested triangles at finitely many fixed thresholds give two independent rate-one processes in squared-score time and the stated rank laws, without asserting independence of ranks within a population. Read verify.py: it tests exact degree formulas, tagged adjacency and two corner factorial moments, not the asymptotic assertions; the latter were independently reconstructed analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general degree-process convergence is normalized by n at macroscopic positions. The minimum-degree proof does localize low vertices via the diagonal score and gives threshold-sandwich estimates (Lemmas 8.1–8.2).",
+          "The two-corner proof uses the same O(sqrt(n)) row and column occupancy and (n)_r^-1 probabilities; it readily adapts to four raw corner planes."
+        ],
+        "reasoning": "A macroscopic process says little about the sqrt(n) extreme scale. The prior raw-corner argument and score-replacement estimates cover much of the toolkit, but the checked statements do not give a stronger limit theorem whose specialization is the joint selected marked graph.",
+        "searches": [
+          "Bhattacharya–Mukherjee, revised Theorem 3.1 and Corollary 3.3",
+          "Bhattacharya–Mukherjee arXiv:1503.03582, Theorem 3.7 and Lemmas 8.1–8.2",
+          "Resultary 14fa62567e42, Proof 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Bhattacharya–Mukherjee arXiv:1503.03582 and revised version",
+        "Resultary 14fa62567e42 and 9e288e46509a",
+        "arXiv:1901.06678 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior score estimates separate the low-degree and score selections by vanishing-width threshold sandwiches; the higher degree analogues follow by value complementation.",
+          "The two-cloud theorem proves independence inside one pair, not independence of that pair from its complemented pair, even though its counting proof supports the extension."
+        ],
+        "reasoning": "Combining the two marginal cloud laws does not imply four-way independence. One needs a simultaneous mixed-corner moment argument, transfer to degree-selected points of both types, and the induced-graph map and pair calculation. First ranks and the tools for marginal approximation are already covered; the joint graph law is the substantive addition.",
+        "searches": [
+          "arXiv:1503.03582 §8, offsets 101508–112920",
+          "Resultary 14fa62567e42 RESULT.md, offset 1580 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October mirrored Finding gives two anti-diagonal Poisson fields for uniform permutation cells, and a displacement statistic, not the joint fields selected by degree and deficit.",
+          "The same-day interval-graph Finding uses paired random interval endpoints, low-degree ranks, and universal vertices, not permutation inversions."
+        ],
+        "reasoning": "Column reversal gives the complementary graph and transfers a low-degree statement to high-degree deficits in law; this symmetry alone does not couple both populations from the same permutation or give their induced edges. The same-day analogue is compared on its object and claims, without inferring a publication order.",
+        "searches": [
+          "Resultary: independent corner Poisson clouds and Gaussian inversion fluctuations",
+          "Resultary: coupled Poisson extremes of degrees and universal vertices in random interval graphs",
+          "Bhattacharya–Mukherjee arXiv:1503.03582, Section 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned title appearing in Resultary is the same record. The closest other catalogue statements concern two raw corner fields or a different graph model. The survey of permutation-graph statistics in the arXiv abstract includes degree counts and isolates, not this marked limit."
+        ],
+        "reasoning": "Finite count tables cannot cover a joint distributional theorem at all fixed thresholds, and no checked exact limiting distribution gives the full graph-valued law. The abstract is screening evidence only, not a full-text exclusion.",
+        "searches": [
+          "Resultary indexed corner Poisson and extremal degree records",
+          "Gürer–Işlak–Yıldız arXiv:1901.06678, p. 1"
+        ]
+      },
+      "rationale": "Credit both the prior extreme-degree localization/diagonal score replacement and the near-identical factorial-moment method for raw corner clouds. The supported distinction is the full joint degree-selected induced graph (all four fields, with cross-population as well as within-population edges) and its graph statistics, not a new Poisson approximation method, inversion rule, or first-rank Rayleigh marginal.",
+      "residual_risks": [
+        "A more general permutation point-process result could already give four raw corner fields, and other work may cover some rank consequences. The pass is for the joint graph at degree extremes; it does not assert priority of the corner counting or marginal minimum laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers low first rank and supplies localization and score replacement; not the joint selected graph",
+          "evidence": "Equation (8.1) defines the diagonal corner sum; Lemmas 8.1–8.2 prove localization and concentration of threshold mismatches.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03582",
+          "material_read": "Theorem 3.7, p. 11; Section 8, pp. 27–29, Lemmas 8.1–8.2",
+          "method": "Primary OA PDF",
+          "title": "Degree Sequence of Random Permutation Graphs",
+          "trigger": "Same random graph and extreme degree scale"
+        },
+        {
+          "assessment": "Macroscopic normalized degrees and a marginal minimum, not the graph at extremes",
+          "evidence": "The general process uses scale n and fixed macroscopic vertex indices; the minimum result has the separate Rayleigh limit.",
+          "identifier_or_url": "https://sites.stat.columbia.edu/sumitm/perm_deg.pdf",
+          "material_read": "Theorem 3.1 and Corollary 3.3 in §3.1; Theorem 3.5 in §3.2.3",
+          "method": "Primary OA author-site PDF",
+          "title": "Degree Sequence of Random Permutation Graphs (revised publication)",
+          "trigger": "Check for stronger degree-process coverage in the revised same work"
+        },
+        {
+          "assessment": "Two raw corners and directly reusable factorial-moment idea; no four-corner selected graph",
+          "evidence": "Proof 1 controls row/column collisions by O(n^(m-1/2)) and identifies independent counts in bounded rectangles of two marked corner planes.",
+          "identifier_or_url": "2026/10/12/SCOPE-independent-corner-poisson-clouds-and-gaussian-inversion-fluctua--14fa62567e42",
+          "material_read": "RESULT.md Finding and assumptions, offset 0; Proof 1, offset 1580 onward",
+          "method": "Published Resultary local mirror",
+          "title": "Independent corner Poisson clouds and Gaussian inversion fluctuations",
+          "trigger": "Closest uniform-permutation Poisson-cloud construction"
+        },
+        {
+          "assessment": "Different graph model and marks",
+          "evidence": "The marked low-degree limit is coupled to universal-vertex counts of random interval graphs, not induced inversion edges.",
+          "identifier_or_url": "2026/11/22/SCOPE-coupled-poisson-extremes-of-degrees-and-universal-vertices-in-ra--9e288e46509a",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Coupled Poisson extremes of degrees and universal vertices in random interval graphs",
+          "trigger": "Same-day degree-extreme process and rank analogue"
+        },
+        {
+          "assessment": "Relevant background; abstract insufficient to rule out all finer rank results",
+          "evidence": "Lists vertex-degree statistics, counts of degrees, isolates, cliques and component results.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.06678",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Primary OA PDF screening",
+          "title": "Gürer, Işlak and Yıldız, arXiv:1901.06678",
+          "trigger": "Relevant exact permutation-graph degree statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Vertex-count and first-rank laws do not reveal the subgraph induced by extremes. Equal limiting counts mask a twofold difference in mean edge counts and structural differences such as a complete versus empty cross-corner bipartite graph. The full marking specifies dependencies and cross-population connections rather than offering only another scalar minimum statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

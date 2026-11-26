@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:28:45.928498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In attack-topological order each head sees only decided predecessors, so the recursion has an order-independent solution K and its attack targets are exactly A minus K. For a complete E, inductively a head rejected by K is attacked by E through the same accepted tail; each tail of an accepted head contains a rejected predecessor, already attacked by E, so E attacks any closed attacker of this head. Completeness forces acceptance. Stability forces the same membership recursion directly. When K is closed, it defends each member by attacking an outsider in each attacking tail; for a rejected head a firing tail T has closed attacker cl_S(T) contained in K, which conflict-freeness prevents K from attacking. This proves all three families are {K} or empty, even with empty or cyclic supports and also for A empty. The algorithm needs only an attack incidence-list topological sort, a head-indexed attack-rule scan, and a scan of the original support rules; no support closure search is needed. A violated rule supplies the claimed witness in the stated linear bound. Independent diagnostics: `python -B /workspace/branches/replay_records_1_3_4_5.py`, section 4, checked direct closed-attacker semantics against the unique attack-only kernel in 131215 bounded cases (empty support family counted in both regimes); the proof is not inferred from this computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The attack splitting in arXiv:2604.28112v1 requires S=S1∪S2 for two disjoint subframeworks, then uses support-closed negative links; the isolated support splitting has only positive links across the split.",
+          "The 2024 example of no complete extension uses an attack {d}→d, outside the DAG regime."
+        ],
+        "reasoning": "Positive dependencies can cross every useful attack-topological cut in the frozen regime. The inspected splitting statements do not supply the criterion under such unrestricted crossings, and the nonexistence example does not establish the claimed classification.",
+        "searches": [
+          "arXiv:2604.28112v1, Definitions 15 and 18, Theorems 28 and 30, §4",
+          "doi:10.24963/kr.2024/12, Example 3.15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "doi:10.24963/kr.2024/12",
+        "arXiv:2604.28112v1",
+        "doi:10.1017/S1471068424000310",
+        "Resultary 3d211752e469"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical stability already requires closedness and, with conflict-freeness, attack on every outsider. Lemma 3.12 uses support closure of each attack tail to characterize defense."
+        ],
+        "reasoning": "The stability branch is close to an immediate consequence of the attack-only kernel and the definitions; that alone does not force all complete extensions to be that candidate. The checked contribution is the unified existence/nonexistence result including complete and grounded, and its one-pass witness without computing support-closed negative links.",
+        "searches": [
+          "doi:10.24963/kr.2024/12, Definition 3.3, Lemma 3.12 and Theorem 3.13",
+          "arXiv:2604.28112v1, §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berthold–Rapberger–Ulbricht translate BSAFs into non-flat ABAFs (Theorem 3.10) and give the closed-attacker defense test (Lemma 3.12).",
+          "Alfano et al. use acyclicity of binary support and map complete semantics of their framework to partial stable models."
+        ],
+        "reasoning": "The ABAF translation preserves relevant semantics but the cited theorem does not classify this syntactic attack-only DAG regime; acyclicity of binary support is not the claimed acyclicity, and the cited mapping does not cover arbitrary collective supports with this defense notion.",
+        "searches": [
+          "doi:10.24963/kr.2024/12, Definitions 3.1–3.3, Theorem 3.10 and Lemma 3.12",
+          "doi:10.1017/S1471068424000310, §§2.2 and 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored 2026/10/25/SCOPE-cyclic-gap-classification-and-exact-complete-extension-polynomia--3d211752e469 concerns gap classification and a complete-extension generating function in bidirected Dung cycles."
+        ],
+        "reasoning": "The nearest surfaced indexed hit has cyclic attacks and no collective support closure; it does not encode the closure test or any extension-existence table identifying it.",
+        "searches": [
+          "Local Resultary semantic search: acyclic-attack BSAF / collective attacks / support-closure kernel and complete, stable, grounded extensions"
+        ]
+      },
+      "rationale": "The semantics, closure characterization of defense, support-free kernel, and possibility of nonexistence are established background. No compared source covers the single support-closure criterion for all three classical semantics when only attack dependencies are acyclic and support rules can be arbitrary. The proof depends on a stronger induction (also propagating defeated predecessors), not on restricting all dependencies or switching to a modified defense semantics.",
+      "residual_risks": [
+        "Ranked catalogue and targeted literature searches are not exhaustive; older non-flat ABA results using equivalent restrictions remain a priority risk.",
+        "No definitive primary priority finding for the support-free acyclic SETAF kernel; it is not asserted as original here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Semantics and defense established; not the attack-only closure gate",
+          "evidence": [
+            "Defense iff the set attacks cl(T) for each attack tail T on the head. The nonexistence example uses a self-attacking argument."
+          ],
+          "identifier_or_url": "https://proceedings.kr.org/2024/12/kr2024-0012-berthold-et-al.pdf",
+          "material_read": "Definitions 3.1–3.3; Theorem 3.10; p. 3, Lemma 3.12, Theorem 3.13 and Example 3.15",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "Capturing Non-flat Assumption-based Argumentation with Bipolar SETAFs",
+          "trigger": "Original definitions and possible general implication"
+        },
+        {
+          "assessment": "Not directly applicable to arbitrary crossed supports",
+          "evidence": [
+            "Attack splitting requires S=S1∪S2; the separate isolated support split shares only positive links. Theorem 30 is directional and uses a modified reduct."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.28112",
+          "material_read": "§2; pp. 4 and 6, attack splitting definition, Definition 18, Theorems 28/30 and opening of §4",
+          "method": "Lawful OA PDF; checked around offsets 29000 and 46960",
+          "title": "Splitting Argumentation Frameworks with Collective Attacks and Supports",
+          "trigger": "Strongest plausible modular proof covering attack-topological evaluation"
+        },
+        {
+          "assessment": "Adjacent model and different acyclicity",
+          "evidence": [
+            "No support cycles in the acyclic binary-support case; co(Δ)=PS(P_Δ) for its mapping."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1471068424000310",
+          "material_read": "§2.2 pp. 925–926 and §3.1 p. 932",
+          "method": "Lawful OA primary text, bounded sections",
+          "title": "Cyclic Supports in Recursive Bipolar Argumentation Frameworks: Semantics and LP Mapping",
+          "trigger": "Possible equivalent acyclicity under LP mapping"
+        },
+        {
+          "assessment": "Different attack graph and no supports",
+          "evidence": [
+            "Loop-free bidirected Dung cycles, gap classification and generating function."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-cyclic-gap-classification-and-exact-complete-extension-polynomia--3d211752e469",
+          "material_read": "Mirrored RESULT.md, finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Cyclic gap classification and exact complete-extension polynomial",
+          "trigger": "Nearest same-domain published Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural tractable fragment of collective argumentation is characterized by a condition on attacks alone; supports may still be cyclic. The single linear-time existence test and explicit failure witness replace general closed-attacker/extension searches and isolate the obstruction to complete and grounded existence. The preferred counterexample prevents an overgeneralization to all semantics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

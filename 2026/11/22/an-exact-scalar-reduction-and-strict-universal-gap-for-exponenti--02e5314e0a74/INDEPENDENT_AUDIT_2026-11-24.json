@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:19.659861Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a smooth exterior input tp+λv, p·v=0 and p,q,v (q the tangential part of p′ orthogonal to p) form an orthogonal basis. The input differential in the q direction has coefficient t+λe^r/||q||², whereas the output has coefficient t, since v′·q=e^r and v′·p=0. The invertible normal parametrization thus gives Jacobian eigenvalues 1, ρ, 0 in those directions. The polar projects to zero and the cone interior gives identity. For a nonzero flat-face output (-a,0,b), a,b≥0, a normal lies in the polar and is orthogonal to the output. A polar vector has first component ≥0 and third ≤0; orthogonality forces the first to vanish if a>0, or the third if b>0. If the third vanishes, testing on (r,1,e^r) as r→+∞ forces the first to vanish too. Testing r→−∞ then forces the second to be nonpositive. Hence this branch has input x≤0,y≤0 and projection (x,0,max(z,0)); the residual seams, cone boundary and polar boundary are null sets. Mollification propagates the a.e. row-norm bound globally. Conversely, at each fixed r the two endpoint Jacobians are limits at λ→∞ and λ↓0, furnishing lower bounds for the true Lipschitz constant. Maximizing coordinate row sums reduces to the stated R,H; the equality ratios follow from Cauchy–Schwarz in the two other coordinates and maximizing over the distinguished magnitude. Neither p(r) nor v(r) realizes these ratios: in particular (1−r)e^r≤1 for r≤1, equal only at 0. Both scalar functions tend to 1 at each end; R(1)>1 and H(0)=4/3, ensuring finite attainment separately and hence a strict uniform gap. An independent numerical evaluation gives 1.3660217223118953 at the stated radial witness and 1.3660254037844386 at the ceiling; the analytic proof, not the decimals or supplied grid, establishes strictness. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day 96cde73fc3b5 proves the non-strict ceiling for every closed convex set and equality for compact convex bodies with C¹ boundary. The exponential cone is neither compact nor globally C¹.",
+          "Earlier ball-clipping record 78696bf157c3 realizes the generic three-coordinate ceiling by optimizing tangent planes over all unit normals.",
+          "The inspected sensitivity papers supply differentiability/semismoothness frameworks, not the cone-specific strict gap."
+        ],
+        "reasoning": "A universal upper estimate gives ≤, not the strict inequality; limit or attainment cannot be inferred from exclusion from the compact smooth equality class. Credit the shared bound without inferring priority from the same date.",
+        "searches": [
+          "Resultary 96cde73fc3b5; 78696bf157c3",
+          "Friedlander–Goodwin–Hoheisel arXiv:2102.06809 §§1,5",
+          "Agrawal et al. arXiv:1904.09043 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Friberg 8204.pdf; arXiv:2102.06809; arXiv:1904.09043",
+        "Resultary 96cde73fc3b5, 78696bf157c3, 81c081c6a122, d5fc2548a47f, db9303fd2c8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular-cone analogue also uses endpoint projectors but their direction curves and equality cases are different.",
+          "For the exponential cone one must identify both actual limiting derivative families and exclude all ceiling equality directions including at the noncompact parameter ends."
+        ],
+        "reasoning": "Applying general sensitivity and a shared uniform bound does not supply these geometry-specific exclusions or the near-ceiling lower witness.",
+        "searches": [
+          "Friberg §§3–4 with Resultary 96cde73fc3b5",
+          "Resultary circular cone analogue 81c081c6a122, Finding and Proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record itself is the matching exact-title result, not an independent antecedent.",
+          "Friberg's single scalar root describes the projection of a specified input, not the supremum of the induced infinity norm over all input pairs."
+        ],
+        "reasoning": "The two scalar problems use the same underlying normal geometry but optimize different quantities. Limiting radial/tangent row optimization and strict nonattainment of the universal ceiling are not statements of the root characterization.",
+        "searches": [
+          "Resultary: exact exponential-cone title; exponential cone and coordinatewise Lipschitz",
+          "Friberg 8204.pdf §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Friberg supplies an exact case classification for projection onto the exponential cone; indexed cone-specific exact constants found concern circular or monotone extended second-order cones (81c081c6a122, d5fc2548a47f, db9303fd2c8a)."
+        ],
+        "reasoning": "This is an exact norm invariant, not a table cutoff. The classification of branches is relevant input, but none of the inspected exact other-cone formulas gives the extremum for the exponential generator and normal curves.",
+        "searches": [
+          "Resultary: sharp coordinatewise cone projection constants",
+          "Friberg 8204.pdf Thm. 3.1, Lem. 4.1, Thms. 4.2 and 4.5"
+        ]
+      },
+      "rationale": "Credit the known exponential-cone projection geometry, general projection sensitivity and universal non-strict bound. The surviving cone-specific results are the exact full-projector scalar norm formula and the proof that its optimal constant strictly misses the universal bound despite the close analytic lower witness.",
+      "residual_risks": [
+        "A general exact sensitivity theorem stated in equivalent geometric language or unlocated exponential-cone work could supply further overlap.",
+        "Same-day records establish overlap, not date-based priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Projection classification, not global max-norm optimization",
+          "evidence": "Closed-form branches and a unique scalar root for the remaining branch.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2021/01/8204.pdf",
+          "material_read": "§3 Thm. 3.1 pp. 5–6; §4 Lem. 4.1 and Thms. 4.2, 4.5 pp. 6–8",
+          "method": "OA PDF",
+          "title": "Projection onto the exponential cone: a univariate root-finding problem",
+          "trigger": "Exact same primal/dual cone projection"
+        },
+        {
+          "assessment": "General framework",
+          "evidence": "Local Lipschitz continuity, directional differentiability and semismoothness, not the sharp global coordinate coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.06809",
+          "material_read": "§§1 and 5, pp. 1, 18–19",
+          "method": "OA PDF",
+          "title": "From perspective maps to epigraphical projections",
+          "trigger": "General epigraphical projection sensitivity"
+        },
+        {
+          "assessment": "Derivative framework",
+          "evidence": "The passage lists exponential and dual exponential cones and references projection derivative expressions; it does not optimize their infinity norms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.09043",
+          "material_read": "§3.1, p. 6",
+          "method": "OA PDF",
+          "title": "Differentiating Through a Cone Program",
+          "trigger": "Cone-program projection derivatives including exponential cones"
+        },
+        {
+          "assessment": "Same-day material overlap for the non-strict ceiling only",
+          "evidence": "All closed convex sets obey the bound, and compact C¹ convex bodies attain the coefficient; the latter argument does not imply equality or strictness for the exponential cone.",
+          "identifier_or_url": "Resultary 96cde73fc3b5",
+          "material_read": "Finding and Proof §§1–3, offsets 0 and 3700–7026",
+          "method": "Resultary and local mirror",
+          "title": "Shape-independent sharp coordinatewise stability of smooth convex projection",
+          "trigger": "Exact same universal ceiling"
+        },
+        {
+          "assessment": "Earlier distinct setting with the same generic benchmark",
+          "evidence": "Ball normals range over all unit directions; exponential-cone normal directions do not.",
+          "identifier_or_url": "Resultary 78696bf157c3",
+          "material_read": "Finding and Proof §§1–2, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp weighted coordinate sensitivity of Euclidean ball clipping",
+          "trigger": "Generic tangent-projector maximum row sums"
+        },
+        {
+          "assessment": "Close same-day method analogue for another cone",
+          "evidence": "Circular cones have different radial/tangent direction curves and aperture dependence.",
+          "identifier_or_url": "Resultary 81c081c6a122",
+          "material_read": "Finding and Proof §2, offsets 0 and 3750",
+          "method": "Resultary and local mirror",
+          "title": "Sharp aperture asymptotics of coordinatewise circular cone projection",
+          "trigger": "Exact endpoint-based cone norm formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp global coordinate-error coefficient for a standard optimization cone, including branches near its singular face. The analytic scalar extremum is useful without a closed-form optimizer: it replaces a supremum over two inputs by explicit functions of one real variable. The narrow numerical interval is meaningful because it certifies near-worst-case coordinate amplification while distinguishing it from exact saturation, not because of extra decimal places or a tiny algorithmic improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

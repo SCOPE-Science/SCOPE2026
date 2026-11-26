@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:54.993360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–93",
+        "Frozen VERIFICATION.md and verify_fractional_torus.py"
+      ],
+      "rationale": "On both arcs h± conjugates the base to translation, and the skew term goes to zero at the fixed endpoints. Interpolating the translation and the vertical term gives an isotopy by homeomorphisms. Each point of an open arc has a neighborhood inside a translation strip of width <1, hence is wandering; both endpoint fibers are fixed. The lift of the base fixes the endpoints of each interval, giving bounded horizontal displacement. In the other coordinate, sin(2π(s+j)) is constant along the orbit and the sum of the amplitudes is uniformly Oβ(n^(1−β)), by ordering the negative tail by increasing distance from the cutoff. This proves uniform convergence of the normalized lift displacement to zero. For entropy, the same sum estimate and summability of the tail derivative bound the Lipschitz constants of ALL partial Birkhoff sums by Oβ(n^(1−β)) on each unit strip, including across the continuous piecewise-smooth cutoff. A mesh at that inverse scale suffices for each of O(n) central strips. On the far negative tail the base trajectories all stay near r for large n. At fixed fractional mesh coordinate u, all amplitude differences between two strips have the same sign at every time (and the sine factor is fixed), so the largest partial-sum difference is the endpoint difference. Binning those endpoint values gives O(n^(1−β)) additional choices per u and hence O(n^(2−2β)) there; changing u to its mesh point uses the uniform Lipschitz bound. The positive tail and fixed circles cost O(1), and the zero-cocycle second arc costs O(n). The spanning bound O(n^(2−β)) also proves zero topological entropy. For the lower bound, Ω(n) separated transit times j in [n/3,2n/3] are detected at time j by the base coordinate; h+(u) for u∈[0,1/8] stays uniformly away from either endpoint. Within each transit strip, until k=floor(j/2) all amplitudes are on the increasing negative tail and of order n^(−β). Differentiation over u∈[0,1/8] gives ∂u B_k≥cβ n^(1−β). Thus a mesh of spacing K n^(β−1) produces endpoint lift differences >4ε. Differences increase in time and the one-step increments are <ε for large n, so a first crossing of ε gives a difference in (ε,2ε], genuine circle separation before k<n. These two separations give Ω(n^(2−β)) at fixed small ε and the required exponent. The argument is for each real 0<β<1, not merely sampled parameters. The frozen script was inspected only; no numerical simulation is needed for the proof.",
+      "residual_risks": [
+        "No endpoints β=0 or β=1, no regularity beyond continuity of the cocycle, and no claim of zero rotation vector for lifts other than the specified one. The fixed circles also rule out minimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 1 asks for every α∈[1,∞], zero topological entropy, identity isotopy and a singleton for any lift. The Morse–Smale theorem assumes a Morse–Smale diffeomorphism of a compact surface. The frozen-base theorem concerns fiber translations over a fixed base, with exponent from its velocity image."
+        ],
+        "reasoning": "An open question is not coverage; this finding resolves its open subinterval (1,2). The two pointwise fixed circles place the example outside the Morse–Smale hypotheses. The fixed-base velocity theorem cannot be specialized to a moving north–south base.",
+        "searches": [
+          "Corrêa §5.1, Problem 1",
+          "Correa–de Paula arXiv:2203.08336v2, Theorem 1",
+          "Resultary frozen-base velocity image theorem 2c91fbb3a44a"
+        ]
+      },
+      "checked_sources": [
+        "Corrêa §5 and §5.1",
+        "Resultary 2c91fbb3a44a and 66b278bf390d",
+        "Correa–de Paula Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-singleton example immediately before Problem 1 has positive topological entropy. A rational base becomes the identity after iteration, a reduction explicitly used for the zero–one law; no positive iterate of the frozen g is the identity."
+        ],
+        "reasoning": "Neither zero rotation alone nor the higher-dimensional fixed-base law entails the desired realization. The growth here requires both the range of transit times and accumulated resonant shear within a transit strip.",
+        "searches": [
+          "Corrêa §5.1 and Remark 5.2",
+          "Resultary 66b278bf390d, iterate yielding frozen-base twist",
+          "Resultary 2c91fbb3a44a, box-dimension law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corrêa reports earlier irrational-rotation skew examples with h_pol<1, and contrasts the rational-base family. The frozen construction uses a base with nonperiodic interior orbits converging to fixed endpoints."
+        ],
+        "reasoning": "Neither periodic nor irrational-rotation base dynamics gives this two-fixed-circle family or the stated simultaneous realization. A different construction of the same exponent range under the same hypotheses would count as overlap; none was established by these comparisons.",
+        "searches": [
+          "Resultary: singleton rotation set two-torus polynomial-entropy realizations and phase-resonant moving-base or parabolic skew products",
+          "Corrêa, Polynomial entropy and rotation sets, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact log 4/log 3 example has dimension three and a nonsingleton velocity/rotation image. The exact zero–one law has only the levels 0 and 1."
+        ],
+        "reasoning": "The existing example shares an exponent in (1,2), but an exponent match is not a match of object and hypotheses. Even that value under the frozen T² constraints was not supplied by the table or examples inspected.",
+        "searches": [
+          "Resultary: fractional exact polynomial-entropy values for toral pseudo-rotations",
+          "Resultary 2c91fbb3a44a, Finding and example",
+          "Resultary 66b278bf390d, Finding"
+        ]
+      },
+      "rationale": "The supported distinct result is the whole open interval (1,2) among zero-topological-entropy, identity-isotopic T² homeomorphisms with singleton rotation set, here even zero for the specified lift. The closest actual passages do not cover these simultaneous conditions. The comparison is not a claim that noninteger polynomial entropy, torus skew products, or singleton rotation sets in isolation are new.",
+      "residual_risks": [
+        "Older equivalent slow-entropy or parabolic-skew examples may be indexed differently. The description of the Correa–Pujals irrational examples was checked in Corrêa's paper, not independently in their original §4. No global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact problem, not an existing solution in the inspected passage",
+          "evidence": "Problem 1 asks for α∈[1,∞] with h_top=0 in Homeo_0(T²) and singleton rotation set; Remark 5.2 has a positive-entropy horseshoe. The preceding comparison describes the earlier irrational-base examples as having h_pol<1.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-026-02286-3",
+          "material_read": "PDF §5 and §5.1, pp. 7–8, offsets about 17418 and 21450–22494",
+          "method": "Targeted open publisher PDF",
+          "title": "Polynomial entropy and rotation sets",
+          "trigger": "Exact torus rotation and entropy realization problem"
+        },
+        {
+          "assessment": "Different dimension, dynamics and rotation set",
+          "evidence": "A frozen-base T³ example with h_pol=log 4/log 3 and fractal nonsingleton velocity image.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-polynomial-entropy-equals-velocity-image-box-dimension-for-froze--2c91fbb3a44a",
+          "material_read": "Resultary local mirror at offset 400, Finding and example",
+          "method": "Local mirror",
+          "title": "Polynomial entropy equals velocity-image box dimension for frozen-base torus translations",
+          "trigger": "Exact fractional entropy in the target numerical interval"
+        },
+        {
+          "assessment": "No coverage of moving north–south bases",
+          "evidence": "Rigid rational base x↦x+p/q; the q-th iterate has fixed base and the law gives h_pol=0 for constant periodic Birkhoff sum, 1 otherwise.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-zero-one-polynomial-entropy-law-for-continuous-rational-skew-p--66b278bf390d/RESULT.md",
+          "material_read": "Offsets 0–3160, Finding, hypotheses and iterate reduction",
+          "method": "Local mirror",
+          "title": "A zero-one polynomial entropy law for continuous rational skew products",
+          "trigger": "Continuous scalar torus skew products with singleton rotation set"
+        },
+        {
+          "assessment": "Different dynamical regularity and nonwandering hypotheses",
+          "evidence": "The generalized growth is [n^L(f)] for a Morse–Smale diffeomorphism of a compact surface; the frozen maps are not Morse–Smale.",
+          "identifier_or_url": "https://arxiv.org/html/2203.08336v2",
+          "material_read": "Theorem 1 at character offset 4957",
+          "method": "Targeted open primary article",
+          "title": "Polynomial entropy of Morse-Smale diffeomorphisms on surfaces",
+          "trigger": "Surface polynomial-entropy rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrêa §5.1 Problem 1",
+        "Frozen RESULT.md, spanning and separated bounds"
+      ],
+      "rationale": "The result supplies an explicit continuum of intermediate growth exponents in the exact realization class posed in Corrêa's Problem 1. It separates sublinear unwrapped drift (hence zero rotation) from growth of distinguishable orbit segments and shows why a slowly decaying resonant term amplifies transit-strip complexity without giving positive topological entropy.",
+      "residual_risks": [
+        "This is a partial solution in the exponent variable; no endpoints, exponent ≥2, smoothness, minimality or area-preserving realization are delivered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

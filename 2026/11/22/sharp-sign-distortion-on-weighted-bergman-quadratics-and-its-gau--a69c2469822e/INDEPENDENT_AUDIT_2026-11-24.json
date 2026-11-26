@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:16:14.192622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–87",
+        "VERIFICATION.md lines 3–13 and analytic/numerical notes",
+        "CHECK.py lines 19–98; inspected, not executed",
+        "Independent replay /tmp/opencode/frozen-quadratic-endpoints.py"
+      ],
+      "rationale": "The radial beta integral gives m_j=j!/(beta)_j. Expanding the square of the quadratic leaves only one phase-sensitive term, 4m_2 Re(b^2 conjugate(ac)); independent signs average it out and a flip of exactly one of the outer modes reverses it. For fixed magnitudes, the maximal ratio uses maximal destructive interference in the input. With v=|b|^2, x=|ac|/v and t=|a|/|c|, minimizing H/(4m_2 v^2 x) in x is the strict equality case for m_2/x+x(t^2+4m_2+m_4/t^2). The balancing substitution for t then gives the displayed F_beta. The norm term in F_beta is convex by the vector-norm second derivative: its Cauchy–Schwarz residual is nonnegative and its vector dotted with its second derivative is positive. The cosh term gives strict convexity and uniform coercivity. A_beta-B_beta has sign beta-1, so the derivative at zero is positive and the unique minimizer is negative. Each of the three parameters increases strictly, which increases the minimum by comparison at the new minimizer. Uniform coercivity and local uniform convergence justify both limits of the minima; the scale change gives limiting moments j!. Sharp equality requires all three coefficients, the unique x,t, and the specified phase; constructive and destructive phases give opposite sides of the Rademacher comparison. An independent 65-digit decimal bisection in y=exp(s), /tmp/opencode/frozen-quadratic-endpoints.py, reproduced the illustrative endpoint and area-weight decimals. The proof, not the numerical check, gives the all-weight result.",
+      "residual_risks": [
+        "Exact statements use the variational constants, not decimal rounding; no larger degree or infinite-dimensional space is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang's inspected opening states a Littlewood-type theorem for random weighted Bergman functions and sets up weighted norms and random variables. The available Cheng–Fang–Liu abstract describes regularity and a boundary curve for random Bergman functions."
+        ],
+        "reasoning": "These passages support general randomization antecedents, not an exact degree-two optimization or an equality theorem. The comparison does not establish what inaccessible sections contain.",
+        "searches": [
+          "Cheng–Fang–Liu DOI 10.1093/imrn/rnab018",
+          "Wang DOI 10.2298/FIL2316215W, p. 5215 opening and introduction",
+          "Primary-literature comparison on weighted Bergman randomization, precise degree-two L4 sign norms"
+        ]
+      },
+      "checked_sources": [
+        "Frozen finding, proof and prior-work section",
+        "Two October Resultary Finding statements",
+        "Wang p. 5215",
+        "Cheng–Fang–Liu indexed abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coalescing-root record states an expansion with limiting K_beta=6; the strict-mixing record gives a 48/beta^2 gap for its comparator. Neither is an evaluated sign-interference quotient. Here the sign gain requires optimizing interference relative to H, then controlling all weights simultaneously."
+        ],
+        "reasoning": "Sharing a three-mode resonance and Gaussian scaling does not imply the unique sign norm optimizer, the new normalized contrast, or its strict monotonicity. No independence or novelty is attributed to the diagonal monomial moments or the scaling alone.",
+        "searches": [
+          "Bergman quadratics: comparison of the two October Findings with RESULT.md lines 36–53 and 70–87",
+          "Weighted and unweighted Littlewood-type randomization comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compared Findings optimize the fourth moment divided by the square of the second moment, with constructive phase and different asymptotic data. The audited denominator is instead a sign-transformed fourth norm or its Rademacher average H."
+        ],
+        "reasoning": "These coincide neither as objectives nor as extremizer statements. For example, the coefficients of |ab|^2 in H and in the square of the second moment are 4m_1 and 2m_1; they already agree on pure constants, so they cannot be constant multiples. Common monomial moments and constructive phases in a numerator do not convert the sharp quotient.",
+        "searches": [
+          "Resultary: weighted Bergman quadratic fourth moment, sign distortion, three-mode resonance and Gaussian limit",
+          "2026/10/25/SCOPE-persistent-three-mode-rigidity-and-a-coalescing-root-limit-for-w--1df75c4e4cbb",
+          "2026/10/26/SCOPE-strict-three-mode-mixing-and-the-sharp-high-weight-correction-fo--9d0e2b39f308"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest recorded exact constants and high-weight expansions are for the L4/L2 problem, including its two-mode restrictions, not for the present ratio."
+        ],
+        "reasoning": "A tabulation of those extrema does not determine the ratio with the different denominator; no matching exact norm table was established.",
+        "searches": [
+          "Resultary comparison for exact quadratic sign multiplier, unconditional constant and Rademacher comparison across disk weights",
+          "Indexed high-weight quadratic records 1df75c4e4cbb and 9d0e2b39f308"
+        ]
+      },
+      "rationale": "Credit the earlier three-mode fourth-moment expansion and qualitative randomization framework. The distinct claim supported here is the sharp sign and Rademacher comparisons with a quartic phase-averaged or sign-transformed denominator, their equality conditions and strict dependence on the disk weight. The strongest inspected weighted-quadratic results optimize a different ratio and do not supply these conclusions.",
+      "residual_risks": [
+        "The Cheng–Fang–Liu full text and decisive further Wang passages were unavailable. An earlier general sharp finite-mode randomization result is not excluded; this is a best-knowledge decision, not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fourth/second moment optimization differs in denominator and optimizer objective",
+          "evidence": [
+            "K_beta maximizes the fourth moment divided by the square of the second moment; its expansion is 6-24/beta+132/beta^2+O(beta^-3)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-persistent-three-mode-rigidity-and-a-coalescing-root-limit-for-w--1df75c4e4cbb",
+          "material_read": "Available Finding statement",
+          "method": "Local Resultary/source comparison",
+          "title": "Persistent three-mode rigidity and a coalescing-root limit for weighted Bergman quadratics",
+          "trigger": "Closest same-space and same-weight optimization"
+        },
+        {
+          "assessment": "Genuine overlap in three-mode phenomenon, not the sign constants",
+          "evidence": [
+            "Three-mode necessity and K_beta-W_beta=48/beta^2+o(beta^-2) concern the L4/L2 objective."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-strict-three-mode-mixing-and-the-sharp-high-weight-correction-fo--9d0e2b39f308",
+          "material_read": "Available Finding statement",
+          "method": "Local Resultary/source comparison",
+          "title": "Strict three-mode mixing and the sharp high-weight correction for quadratic Bergman fourth moments",
+          "trigger": "Possible equality or Gaussian endpoint overlap"
+        },
+        {
+          "assessment": "Inspected text is qualitative context, not a matching evaluated quotient",
+          "evidence": [
+            "Opening describes Littlewood-type results and sets up weighted spaces and independent random variables."
+          ],
+          "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2023/37-16/37-16-4-19486.pdf",
+          "material_read": "p. 5215, abstract and opening introductory setup",
+          "method": "Lawful OA PDF, passage access limited",
+          "title": "A Littlewood-type theorem for random weighted Bergman functions and random power series",
+          "trigger": "Same randomization operation and weighted family"
+        },
+        {
+          "assessment": "Full-text overlap remains unverified",
+          "evidence": [
+            "Abstract describes regularity of random Bergman series, rather than an identified exact quadratic sign-norm result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/imrn/rnab018",
+          "material_read": "Available indexed abstract; full text not accessed",
+          "method": "Index and publisher retrieval attempt",
+          "title": "A Littlewood-Type Theorem for Random Bergman Functions",
+          "trigger": "Earlier motivating randomization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 23–56 and 59–87",
+        "Compared fourth-to-second-moment Finding statements"
+      ],
+      "rationale": "Degree two is the first cutoff with colliding exponents in the square and therefore the first nontrivial fourth-norm sign distortion. The exact unconditional and randomized comparisons, all equality cases, and strict evolution from Hardy to Gaussian weights quantify that minimal resonance in a way the usual fourth-to-second moment constant does not. This gives a natural exact benchmark for higher-mode analyses without claiming the higher-degree problem.",
+      "residual_risks": [
+        "The gain is specific to three monomials and exponent four."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

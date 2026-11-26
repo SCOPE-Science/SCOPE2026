@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:57:36.218829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fully alternating arc in unscaled ambient coordinates, the primary vertex construction gives distinct alternating selections. Translating negative coordinates by 1 also makes these zero–one points, each extreme among the listed points. The one-match open/closed block matrix is [[2,1],[1,1]], giving F_(2r+1). For a pair, the squared chord counts exactly the differing bits. It is even since each support has even size. The start and end are both 00, and quotienting the two exchanged states gives the claimed cubic characteristic polynomial and recurrence; the initial terms and generating-function numerator agree. The second shell is genuinely off-diagonal only for r>=2. Its recurrence gives 72 ordered pairs in rank 3 and r^2*2^r for all r>=2, while the leading term is 2^r. Support follows by comparing consecutive-interval matchings to the empty matching. At q=1 the positive transfer has a simple analytic dominant root, a spectral gap and a nonzero start/end eigenprojection; implicit differentiation verifies the two log-root derivatives and strictly positive variance. Taylor expansion proves the normalized CLT, and discarding the diagonal of mass 1/F_(2r+1) leaves the limit unchanged. An independent exact enumeration of 435664 ordered pairs and symbolic cubic/log-derivative checks are reproducible with record1() in /workspace/branches/frozen_metric_replay.py. The discrete tests do not prove the infinite result; the frozen script was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4ffb07614719 gives squared diameter 2(f+g), with f=r and g=0 here. 6152ee04b3f8 gives the all-vertex sphere and minimum-sphere condition but does not by itself determine the chord law.",
+          "0acaa0ef9409 treats arbitrary linked profiles and gives explicit local transfer matrices for every initial/terminal state via its path expansion, then sums over the four starting states for the full vertex set."
+        ],
+        "reasoning": "The diameter is previously known as credited. More importantly, the wider transfer's path expansion already computes the rank-specific subenumerator without new state analysis, even though its boxed whole-polytope polynomial sums over ranks.",
+        "searches": [
+          "Resultary:4ffb07614719, general shard diameter",
+          "Resultary:6152ee04b3f8, canonical vertex sphere",
+          "Resultary:0acaa0ef9409, complete linked-interval transfer"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.01008",
+        "Resultary:4ffb07614719",
+        "Resultary:6152ee04b3f8",
+        "Resultary:0acaa0ef9409",
+        "Resultary:116c1b2e395e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write N=M_0 and P=M_1 for the earlier matrices. For S={2,4,...,2r-2}, the rank-restricted row product from its proof is e_11^T (NP)^(r-1)NN e_00. Let J flip both state bits. Then JNJ=P, JPJ=N, e_11^T J=e_00^T and JN e_00=N e_00=[1,z,z,1]^T. Conjugating all but the final factor gives exactly e_00^T(PN)^r e_00=W_r(z^2).",
+          "The same fixed block implies the same cubic by the swap-symmetric quotient, the same coefficient recurrence (including the second shell), and the same simple Perron root and log derivatives at 1. The standard analytic expansion then gives the stated constants, not just an unspecified CLT."
+        ],
+        "reasoning": "The exact specialized transfer is mechanically available from the printed prior proof, even though the isolated formula and constants are not separately printed there. The derivative and coefficient computations are correct, but are routine consequences of that identical transfer.",
+        "searches": [
+          "Resultary:0acaa0ef9409, offset 0 through Proof §§1–2; compare both frozen transfer matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let n=2r, D={2,4,...,2r}, S=D minus {2r}, and T=D. For a binary vertex x of rank r, the linked suffix bounds are equivalent, before the last coordinate, to prefix counts floor(j/2) or floor(j/2)+1. The extra prefix bit is exactly the shard open state after position j. Hence the rank-r face is the translate by 1_D in the native Euclidean metric.",
+          "The earlier paper defines y_i as suffix count minus that of S. Thus fixing rank r fixes y_1=1, and for both endpoints simply fixes the first of its pair states to 11; no extra states or rank variable are needed."
+        ],
+        "reasoning": "This is the same metric pair problem, with specified boundary states of an existing exact encoding. It is not a comparison only at a shared parameter or to a merely affine copy.",
+        "searches": [
+          "Resultary: alternating shard chord law and linked type-C snake spectra",
+          "Resultary:0acaa0ef9409, binary suffix lemma and exact transfer",
+          "arXiv:2007.01008 Definition 39 and Proposition 40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=2r>=4 the target profile satisfies the earlier linked theorem's maximum-profile condition, giving 2^(r-1) unordered pairs of squared length 2r. Both endpoints must have rank r: mixed ranks have total size 2r-1, and two lower ranks total 2r-2. The base r=1 is direct.",
+          "Distinct same-date 116c1b2e395e has an exact top multiplicity 2^(r-1) for the larger interval [empty,D] with the same blockwise-complement pairs; its 2r-1 shell cannot be a shard shell by parity. No separate rank-restricted coefficient table was identified apart from the assigned record; the exact prior transfer supplies its coefficients by the boundary selection."
+        ],
+        "reasoning": "The raw all-rank coefficient at degree 2r-2 can mix two ranks, but this does not block exact rank-resolved coverage: the earlier matrix path coefficients already separate starts. Same-date proximity alone does not decide priority.",
+        "searches": [
+          "Resultary: exact alternate shard-shell counts and linked interval coefficients",
+          "Resultary:0acaa0ef9409, maximum-profile theorem",
+          "Resultary:116c1b2e395e, Finding"
+        ]
+      },
+      "rationale": "The earlier linked type-C transfer already covers the ordered rank-r enumerator by a direct boundary specialization, not a new rank-marking or an inversion of its mixed-rank output polynomial. In its published state encoding, y_1=|A|-|S|, so restricting both endpoints to rank r just replaces the initial row of ones by e_11^T. For the alternating profile, this produces the identical alternating two-matrix product after relabeling the binary suffix states; the cubic, shell coefficients and explicit Gaussian constants follow by ordinary algebra and standard Perron asymptotics. The older run-length theorem also separately covers the diameter and the linked theorem explicitly supplies the top multiplicity. No scientifically distinct claimed remainder was established.",
+      "residual_risks": [
+        "The search was bounded; no order of precedence between distinct same-date records was established. The failure rests on positive earlier transfer coverage, not on missing papers or search terms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies alternating matching realization, not an identified pair-statistic theorem there",
+          "evidence": [
+            "Alternating matching is an interleaved sequence a_1<b_1<...<a_k<b_k with signed characteristic vector; the shard polytope is their convex hull."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.01008",
+          "material_read": "p. 19, Definition 39 and Proposition 40 (offsets 76756 and 77944)",
+          "method": "Lawful OA primary PDF, targeted statement passages",
+          "title": "Shard Polytopes",
+          "trigger": "Primary realization and potential equivalent matching-statistic theorem"
+        },
+        {
+          "assessment": "Covers diameter 2r directly",
+          "evidence": [
+            "Diameter squared equals 2(f+g) for its specified run statistics."
+          ],
+          "identifier_or_url": "Resultary:4ffb07614719",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published local-mirror exact statement",
+          "title": "A run-length formula for the Euclidean diameter of every shard polytope",
+          "trigger": "General theorem on the identical metric and family"
+        },
+        {
+          "assessment": "Covers center/radius information but not the chord enumeration by itself",
+          "evidence": [
+            "All-vertex sphere has squared radius pq/m, with the minimum-sphere criterion given separately."
+          ],
+          "identifier_or_url": "Resultary:6152ee04b3f8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published local-mirror exact statement",
+          "title": "Shard polytopes have a canonical vertex sphere with a balanced-prefix minimum-sphere criterion",
+          "trigger": "Possible stronger common-sphere statement on the same embedding"
+        },
+        {
+          "assessment": "Decisive coverage: suffix initial state is the endpoint rank marker and yields the identical block transfer; top pairs also follow explicitly from the maximum-profile theorem",
+          "evidence": [
+            "The prior proof sets y_i=suffixcount(x)-suffixcount(S), b_i=(y_i,y'_i), enumerates a product from arbitrary initial b_1 to b_(n+1)=00, and prints M_0, M_1.",
+            "Its maximum-profile theorem counts 2^(ceil(n/2)-1) diametral pairs for the relevant profile."
+          ],
+          "identifier_or_url": "Resultary:0acaa0ef9409",
+          "material_read": "RESULT.md offset 0, Finding, assumptions, Proof §§1–2 and start of §3",
+          "method": "Published local-mirror technical passages; independently specialized its exact matrices",
+          "title": "Four-state Euclidean distance spectrum and antipodal rigidity of linked type-C snake polytopes",
+          "trigger": "Larger interval contains the translated face and has an exact distance transfer"
+        },
+        {
+          "assessment": "Overlaps top pairs but not the shard near-top shell; does not establish same-date ordering",
+          "evidence": [
+            "The larger [empty,D] interval has 2^(r-1) diametral pairs and its second shell is at squared distance 2r-1."
+          ],
+          "identifier_or_url": "Resultary:116c1b2e395e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published local-mirror exact statement",
+          "title": "Two sharp Euclidean chord shells in alternating type-C Gale intervals",
+          "trigger": "Distinct same-date alternating chord-shell overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank-specific chord distribution and separation of extremal from typical chords are meaningful metric descriptors for a natural infinite family. Their explicit statement is useful even though this record does not clear the distinct-contribution requirement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

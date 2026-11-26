@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:04:57.963724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parts give complementary within-part contrasts, across-part mean contrasts and global constants, with Laplacian eigenvalues d,N,0; the projectors give off-diagonal entries b across parts and b-1/[(mu+N)(mu+d)] = a within. Independent signs cancel all cross terms among distinct unordered pairs, giving four times the sum of squared same-color entries. Writing s_i=2k_i-m, S=sum s_i and Q=sum s_i^2 produces the displayed objective S^2-(1-r^2)Q with r=a/b strictly between 0 and 1. For even q the bounds Q<=qm^2 and S^2>=0 are attained together only by balanced whole parts. For odd q and |S|<m, strict convexity forces any continuous fixed-sum maximum of Q to be extreme: if two coordinates are interior, a small opposite-coordinate perturbation increases the mean square over its two signs. Hence only one coordinate can be interior; the other q-1 endpoints have sum a multiple of 2m, necessarily zero, leaving Q<=(q-1)m^2+S^2. At |S|=m this bound is automatic; |S|>m costs strictly more by Q<=qm^2. The minimum |S| is epsilon=m mod 2, attainable with the one interior coordinate, and r>0 and 1-r^2>0 force the claimed equality conditions. They obey the nonempty-class constraint. Substitution gives both minimum variances, and the best whole-part S^2=m^2 for odd q gives the stated positive gap. Independent replay: python3 /workspace/review_checks/probing.py computes exact inverse matrices and exhausts admissible vertex-level sign placements on four small graphs at three rational shifts, corroborating all optimizers, the variance, the gap, and the stated K_{2,2,2} example. The frozen exact-rational checker was inspected; neither finite check substitutes for the fixed-sum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The probing result gives 2 times the squared off-diagonal Frobenius norm of a class block per Rademacher draw, and sums the fixed-block variances. Its sample allocation problem fixes the partition.",
+          "Closing the Gap Beyond QAOA Limit, arXiv:2408.13207, defines parity-signed graphs with all intrashore edges negative and all intershore ones positive, and obtains an exact cut there."
+        ],
+        "reasoning": "The general variance theorem gives a computable objective but no extremizers. The sign-restricted weighted-cut theorem does not contain the all-positive complete weighted graph here, which contains triangles and has no two-shore parity sign representation.",
+        "searches": [
+          "Frommer–Rinelli–Schweitzer arXiv:2308.07722 Theorem 3.3 and Lemma 3.5",
+          "arXiv:2408.13207 Definition 5, Remark 6 and Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and review materials; arXiv:2308.07722 §3.2; Resultary 1edc2b42b895, b49efa2c401d and 3ce288627e5e; arXiv:2408.13207 Definition 5 and Theorem 8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite prior's strict uncrossing puts at least one original shore at an endpoint in the two-coordinate model. It does not constrain the overall sum of imbalances or give the exact best sum for q odd.",
+          "The two same-day comparisons have a different number of probe classes and screening-dependent transitions, not the two-color parity classification across all positive shifts."
+        ],
+        "reasoning": "The generic weight/variance representation can be reused; deriving every optimizer additionally needs the fixed-sum extremal Q envelope and the discrete central imbalance, especially the strict odd-q comparison establishing one balanced split. No inspected prior theorem subsumes that classification in the stated weights.",
+        "searches": [
+          "Compare arXiv:2308.07722 §3.2, Resultary 1edc2b42b895, b49efa2c401d, 3ce288627e5e, and arXiv:2408.13207 §V.B with frozen RESULT.md §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximize the cut on the complete graph with a^2 on within-part edges and b^2 on between-part edges, or minimize its two-coupling zero-field Ising energy. The cut divides the full weighted edge sum into cut versus same-color contributions, so this is exact, not merely analogy.",
+          "The analogous bipartite resolvent objective in Resultary 1edc2b42b895 has two original parts, unequal sizes allowed, and distinct ambient weight ratios alpha and beta; the uncut weight gives the same variance reduction."
+        ],
+        "reasoning": "Neither graph here is an unweighted multipartite MaxCut instance: the within-part weights are strictly positive, not absent. The balanced two-coupling equivalence preserves every optimizer and is the principal search alias; the inspected bipartite extremizers do not include an odd number of original parts.",
+        "searches": [
+          "exact maximum cut balanced complete multipartite graph positive weights within parts weaker than between parts odd number blocks split one block Ising ground states two couplings",
+          "Resultary balanced multipartite resolvent stochastic two-color probing weighted MaxCut"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1edc2b42b895 gives an exact q=2 classification, including an unequal-part screening transition. For equal sizes it recovers the expected whole bipartition.",
+          "Resultary b49efa2c401d and 3ce288627e5e were inspected on their full findings and assumptions; they address three classes on K_{1,1,q} or K_{n,n}, respectively."
+        ],
+        "reasoning": "The shared probing setting and publication day do not settle overlap. Those specific exact results neither list nor imply the two-class balanced q>=3 optimizer table or its odd-q gap.",
+        "searches": [
+          "Resultary exact multipartite two-class probing variance, complete bipartite and same-day probing transitions"
+        ]
+      },
+      "rationale": "The fixed-partition variance identity and equivalent weighted-cut representation are prior tools. The supported distinct claim is the sharp parity-dependent global optimizer and equality classification over all two-class designs on the balanced multipartite resolvents, including the positive quantitative whole-part gap. The inspected exact bipartite, three-probe and signed MaxCut theorems do not provide it; historical priority for an equivalent two-coupling optimization remains qualified.",
+      "residual_risks": [
+        "A differently formulated two-weight complete-graph MaxCut or block Ising ground-state classification may have precedence; the bounded comparison does not establish historical uniqueness.",
+        "Nothing is inferred about weighted, unequal-size, or different probe-budget regimes except the specific comparisons stated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in the fixed-partition variance identity, not optimization over partitions in this graph family.",
+          "evidence": [
+            "One class contributes 2 times its squared off-diagonal Frobenius norm; independence adds such terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.07722",
+          "material_read": "Theorem 3.3, eq. (3.6) p. 7, around text offset 25933; Lemma 3.5 p. 8, around 27990",
+          "method": "OA PDF passage comparison",
+          "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+          "trigger": "General stochastic-probing variance theorem for class probes"
+        },
+        {
+          "assessment": "Exact q=2 theorem; partly reusable method, not q>=3 balanced all-extremizer theorem.",
+          "evidence": [
+            "Its normalized cut is alpha x(m-x)+beta y(n-y)+x(n-y)+(m-x)y. The uncrossing forces one of the two original shores monochromatic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895",
+          "material_read": "Mirrored RESULT.md theorem, weighted-cut objective and uncrossing result",
+          "method": "Published-result primary text comparison",
+          "title": "Sharp two-color stochastic-probing transition on complete bipartite resolvents",
+          "trigger": "Closest exact probing optimum with same number of classes"
+        },
+        {
+          "assessment": "Distinct graphs or probe budgets and different conclusions, not excluded solely by metadata.",
+          "evidence": [
+            "Two-hub split graph has three classes and within-class count costs binomial(r_j,2)+r_j s_j+beta binomial(s_j,2). The bipartite three-class theorem has a transition at mu=n(sqrt(2)-1)."
+          ],
+          "identifier_or_url": "Resultary b49efa2c401d and 3ce288627e5e",
+          "material_read": "Mirrored RESULT.md findings, hypotheses and transition objectives",
+          "method": "Published-result primary text comparison",
+          "title": "A sharp proper-to-improper three-probe transition on two-hub split graphs; A sharp mixed-class transition in three-probe trace estimation",
+          "trigger": "Same-day exact probing optimization records"
+        },
+        {
+          "assessment": "Sign restrictions rule out coverage of the present positive complete interaction graph.",
+          "evidence": [
+            "The graph requires a 0/1 assignment sigma such that sgn(w(ij))=(-1)^(sigma(i)+sigma(j)+1); in particular every positive edge crosses the signing partition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.13207",
+          "material_read": "Definition 5, Remark 6 and Theorem 8 at text offset 47050–49670, pp. 9–10",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Closing the Gap Beyond QAOA Limit",
+          "trigger": "Exact weighted parity-signed MaxCut potentially overlapping the equivalent objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed two-probe budget on q>=3 original parts makes proper coloring impossible. The theorem resolves the exact variance cost of forbidding splits over the whole balanced multipartite family and shows that the optimizing geometry does not depend on the positive shift even though the gap does. Those are useful benchmarks for stochastic probing and the equivalent weighted cut, not a runtime improvement or a claim that probing is necessary for these explicitly diagonalizable matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:09:18.529956Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–69 and 71–85; VERIFICATION.md lines 19–26; verify_sets.py and verify_masks.cpp inspected, not executed",
+        "Independent exhaustion: build the twelve vertices as cyclic placements of (0, ±1, ±phi), connect at squared Euclidean distance 4, and compute all twelve signatures directly after every submask erasure of each of the 4096 detector masks. Accept iff the signatures are nonzero and distinct up to t-1 erasures. Replayed (5,120),(6,20),(11,12),(12,1), no level 5, unique five-to-six extension, and equality of all twenty level-two minima with the twenty induced face nets.",
+        "Wolfram MathWorld Sun Graph (https://mathworld.wolfram.com/SunGraph.html, first two paragraphs) distinguishes the complete sun from the pendant-cycle usage, and calls the 3-sunlet the net graph."
+      ],
+      "rationale": "A failed signature or equality of signatures after erasure is equivalent to deleting every selected witness of a closed neighborhood or symmetric difference. Closed neighborhoods are antipodal transversals. In axis coordinates, the north closed neighborhood is 0^6; the five upper ones differ in the two consecutive axes i+2,i+3 mod 5, and the other six are their complements. This proves distances 2,4,6 between signatures at graph distances 1,2,3 (reduce to the north vertex by transitivity). Adjacent-pair differences give all pairs of axes: pole-to-upper edges give consecutive pairs, upper-pentagon edges give nonconsecutive pairs, and cross-ring edges give the pole with one cyclic axis; each occurs twice. The pair occupancies therefore force the lower bounds 5,6,11,12. With five detectors, omitting any axis projects the twelve signatures to distinct words, forbidding exactly twelve of 32 choices; separation is automatic. At size six, the occupancy inequalities force a transversal. Relative to the zero and cycle-edge words, admissible choices have (pole bit, cyclic weight) (1,1), (0,2), (1,3), (0,4); the five choices in each class are respectively singleton, independent pair, vertex cover of size three, and complement of a singleton. Each admissible word is even, so deleting one detector cannot give a 5-set shared by two admissible words. Each face yields the claimed induced triangle with one pendant leaf at each triangle vertex; face transitivity, the checked representative, and the unique triangle in each such induced graph give twenty distinct optima. At eleven detectors, deleting one vertex of the full graph loses at most one witness from any requirement of size at least four. At twelve every requirement holds to level four, and a four-element pair witness rules out level five and above.",
+      "residual_risks": [
+        "Use 'net graph' or '3-sunlet' to avoid the competing complete 3-sun terminology. The frozen claim explicitly defines the pendant-triangle graph, so its result is unambiguous on a full reading. Its six-sets have degrees 1,1,1,3,3,3, not 2,2,2,4,4,4.",
+        "Fixed labelled graph and erasures of selected detectors only; not open-neighborhood, bit-flip, graph-vertex deletion or multiple-intruder results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet et al. give ordinary identifying-code bounds and complexity by graph class, not the exact icosahedral hierarchy. Jean–Seo's two-witness criterion applies to this graph, but the inspected exact results for ladders, trees and cubic graphs do not cover the 5-regular icosahedron."
+        ],
+        "reasoning": "A general feasibility test does not establish the minimum, optimum family, or complement relation. Here the icosahedral axis geometry gives all three.",
+        "searches": [
+          "Bousquet et al. arXiv:1407.5833 Introduction and Table 1; Jean–Seo arXiv:2112.01685 Theorem 2 and special graph classes"
+        ]
+      },
+      "checked_sources": [
+        "Bounded Resultary census and source_inspections above; frozen RESULT.md references and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier volume table gives (4+8 phi)/3 for sign vector (+,+,+,+,+,-) in its listed order and counts exactly 20 such transversals of that volume. Using squared-distance 4 in Z[phi], that representative has induced degree sequence 1,1,1,3,3,3, minimum domination 2 and minimum pair separation 2. The reviewed twenty optima are a single face-transitive orbit, so they all have that volume. The twenty-element volume class and the twenty level-two optima therefore coincide."
+        ],
+        "reasoning": "Credit exact overlap of the families. The volume counts alone do not imply that this class is the optimum for one erasure, that there are no smaller candidates, or that its five-subsets give exactly all ordinary optima with unique extension. The earlier dodecahedral and mixed-metric claims are distinct.",
+        "searches": [
+          "bf118805f790 Finding, sign representatives and multiplicities; 6f3f5679e5c9 Finding; c75eb9e42da9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jean–Seo Theorem 2 gives exactly the two covering witnesses per vertex and two distinguishing witnesses per pair for one detector failure. Distance metric and zero-forcing publications use different observables. The antipodal volume classification operates on the same 64 transversals."
+        ],
+        "reasoning": "The one-erasure notion is equivalent to RED:IC, not new terminology for a new constraint. Metric bases, mixed metric resolution and zero-forcing sets are not interchangeable with this notion, and the volume classifier starts with transversals a priori rather than deriving them from the detector requirements.",
+        "searches": [
+          "Resultary icosahedral ordinary identifying codes, RED:IC, antipodal selections and closed-neighborhood signatures",
+          "Jean–Seo arXiv:2112.01685; Resultary volume record bf118805f790"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen record is a self-match. Dodecahedral one-erasure minima are 12 with 15 optima, for the dual 20-vertex graph. The icosahedral zero-forcing record gives 200 optima of size six (8 or 9 induced edges), whereas the reviewed families have six induced edges. A distinct same-day mixed metric result also has 20 six-sets, but with both endpoints of three antipodal axes, unlike every reviewed transversal. The volume record lists four exact volume classes of 12,20,20,12."
+        ],
+        "reasoning": "Matching count, object nickname or publication date is not equivalence. In the one genuinely overlapping census (convex hull volume), the relationship can be verified precisely as in claim_vs_prior_implication. No separate same-model exact identifying-code table was found in these inspected results.",
+        "searches": [
+          "Resultary exact minimum/count for ordinary and redundant identifying codes on the icosahedron, and graph neighbours including Platonic duals",
+          "Resultary volume bf118805f790, zero forcing 3e6559fd96e0 and mixed resolution c75eb9e42da9, original findings"
+        ]
+      },
+      "rationale": "The ordinary model and general redundancy criterion are prior. A materially overlapping volume census even classifies the same optimal six-sets as one of its classes, but does not identify them by detector properties, prove their minimality as robust codes, or give the multilevel or extension results. No inspected statement covers the joint detector hierarchy and unique completion. The originality pass is for those detector results and their structural characterization, not for discovering the previously classifiable 20-element cohort as a set of point configurations divorced from its identifying-code property.",
+      "residual_risks": [
+        "No exhaustive bibliographic priority claim; an unindexed small-graph or identifying-code census could partly overlap.",
+        "The one-erasure detector-optimality classification is distinct from, but should be cross-referenced to, the already classified exact volume cohort."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general one-erasure criterion, not this classification",
+          "evidence": "At least two selected witnesses for each closed neighborhood and each pairwise symmetric difference, with prior attribution to Slater.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.01685",
+          "material_read": "Theorem 2, PDF pp. 1–2, offset 0; special-class scope, p. 3 offset 7200 and bounded later sections",
+          "method": "OA PDF text passages",
+          "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+          "trigger": "Equivalent RED:IC model and exact special-class results"
+        },
+        {
+          "assessment": "General background, not an exact Platonic-graph census",
+          "evidence": "Defines the ordinary model; Table 1 lists graph-class lower bounds and complexity/approximability.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.5833",
+          "material_read": "Introduction, PDF p. 1 offset 0; Table 1, p. 2 offset 7080",
+          "method": "OA PDF text passages",
+          "title": "Identifying codes in hereditary classes of graphs and VC-dimension",
+          "trigger": "General ordinary identifying-code theory and summary table"
+        },
+        {
+          "assessment": "Same 20 selections as one exact geometric class; no detector-optimality result",
+          "evidence": "The volume (4+8 phi)/3 class coincides with the reviewed one-erasure optima by exact representative check, face transitivity and the two equal counts.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-volume-spectrum-of-antipodal-vertex-selections-in-the-regu--bf118805f790",
+          "material_read": "RESULT.md Finding table, coordinates and proof outline at offset 204",
+          "method": "Resultary query, local mirror original passage and independent exact adjacency of representatives",
+          "title": "Exact volume spectrum of antipodal vertex selections in the regular icosahedron",
+          "trigger": "Identical graph and 64 transversals with two classes of size twenty"
+        },
+        {
+          "assessment": "Different graph, no implication via geometric duality",
+          "evidence": "GP(10,2), minimum 12 with 15 optima.",
+          "identifier_or_url": "2026/11/8/SCOPE-one-erasure-identifying-codes-of-the-dodecahedral-graph-fifteen--6f3f5679e5c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror original text",
+          "title": "One-erasure identifying codes of the dodecahedral graph: fifteen isolated optima with a Kneser intersection geometry",
+          "trigger": "Same model on the Platonic dual graph"
+        },
+        {
+          "assessment": "Different signature/intervention; distinct configurations",
+          "evidence": "200 minimum six-sets with eight or nine induced edges; twenty force in two rounds.",
+          "identifier_or_url": "2026/10/25/SCOPE-icosahedral-six-set-edge-criterion-and-zero-forcing-exchange-geo--3e6559fd96e0",
+          "material_read": "RESULT.md Finding, offset 35",
+          "method": "Resultary local mirror original text",
+          "title": "Icosahedral six-set edge criterion and zero-forcing exchange geometry",
+          "trigger": "Same graph and minimum six-sets"
+        },
+        {
+          "assessment": "Different configurations and objective, regardless of date",
+          "evidence": "Distance signatures for vertices and edges, twenty six-sets of three whole antipodal pairs rather than one endpoint on every axis.",
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-completion-and-the-sharp-two-spare-mixed-resolution-th--c75eb9e42da9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror original text",
+          "title": "Antipodal completion and the sharp two-spare mixed-resolution threshold",
+          "trigger": "Distinct same-day record on the same graph with twenty optima"
+        },
+        {
+          "assessment": "Distance metric bases, not identification by closed neighborhoods",
+          "evidence": "160 metric bases of size three.",
+          "identifier_or_url": "2026/11/8/SCOPE-antipodal-matroid-bases-and-one-slide-transport-detours-on-the-i--afe70695ac53",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror original text",
+          "title": "Antipodal matroid bases and one-slide transport detours on the icosahedron",
+          "trigger": "Antipodal basis/locator alternative terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md hierarchy, axis constraints and unique-completion argument; volume and dodecahedron findings as baselines"
+      ],
+      "rationale": "The fixed icosahedral graph is a canonical tightly symmetric test for robust identification. The main return is structural: a triangle-and-leaves optimum for one loss, a unique extension for every smallest ordinary code, and a sharp jump from six detectors to eleven for one more tolerated failure. This relates exact configurations across levels rather than simply reporting an exhaustive-program count, and gives a benchmark against graphs with similar antipodal geometry.",
+      "residual_risks": [
+        "Finite graph-specific value; no scalability, empirical detector performance or arbitrary polytope theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

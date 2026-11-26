@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:10:50.225038Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–43",
+        "Frozen verify_vt_two_deletion.py, lines 17–88; VERIFICATION.md, lines 19–23; verification_output.txt, lines 1–11"
+      ],
+      "rationale": "Independently reconstructed the bound. For each inserted bit, the identical insertion gaps are exactly those joined by successive copies of that bit, giving n distinct one-insertion descendants of the receiver in total. Inserting a bit into a fixed length-(n−1) word gives checksum increments in [0,n]; same-bit equal increments mean identical words, and opposite-bit increments are separated (zero insertions at most the word's weight, one insertions at least weight plus one). Thus shadows of distinct words in a syndrome are disjoint. A singleton shadow forces the two removed symbols of any witness embedding to be in one constant run, so the word is obtained by inserting a repeated pair. For the pair 00 the integer increment is twice the suffix weight; for 11 it is twice the total weight plus twice the prefix zero count plus three. For a fixed pair equal increments imply the insertion gaps are separated by copies of its symbol and hence give the same word; the two pairs give opposite parities. All increments are in [0,2n−1], so at most two such words per syndrome are possible. The shadow budget gives 2L≤n+2. For the zero receiver, syndrome zero includes the zero word and exactly the pairs of 1-positions with sum n+1; no weight-one word contributes. At n=2, the checksum residues of 00, 01, 10 and 11 are 0, 2, 1 and 0. The frozen script and saved output corroborate the theorem but are not its proof.",
+      "residual_risks": [
+        "Binary words and exactly two deletions; equality for every individual syndrome is not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE sharp saturation e9733e35c471 optimizes an arbitrary codebook subject to a per-receiver list cap when only two symbols remain; d834481dd89c deletes one whole overlapping read. Theorem 8 of Banerjee et al. gives a lower bound on the average number of competitors."
+        ],
+        "reasoning": "Neither the codebook-size optimization nor the weighted average result controls this individual VT syndrome/receiver list from above.",
+        "searches": [
+          "Resultary semantic lookup on two-deletion lists",
+          "arXiv:2610.15767v1 Theorem 8 and preliminary definitions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary (bounded lookup and matching Findings)",
+        "Wachter-Zeh arXiv:1701.02612 §VI",
+        "Banerjee et al. arXiv:2610.15767v1 definitions and Theorem 8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 gives one possible codeword per intermediate word. Theorem 8 averages across syndromes and, within them, over codewords and distinct deletion outputs, excluding the transmitted word from the competitor count."
+        ],
+        "reasoning": "Neither yields a limit of two singleton shadows in a syndrome or the resulting floor(n/2)+1 maximum. The older n upper bound is strictly weaker for n≥3.",
+        "searches": [
+          "arXiv:1701.02612 §VI, PDF p. 7",
+          "arXiv:2610.15767v1 PDF pp. 2, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's insertion formulation enumerates n distinct intermediate words; it bounds the two-deletion VT list by n. Counting distinct length-n supersequences grouped by syndrome is the equivalent list formulation here."
+        ],
+        "reasoning": "The insertion/deletion reformulation is known, not the improved bound. The new comparison is at the level of distinct codewords, not deletion alignments.",
+        "searches": [
+          "Resultary semantic lookup for binary VT two-deletion worst-case list size",
+          "arXiv:1701.02612 §VI Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected the Finding of both relevant distinct same-day results, e9733e35c471 and d834481dd89c; neither states this extremum. The classical n upper bound is the closest external comparison found."
+        ],
+        "reasoning": "No exact entry was identified in the bounded lookup. Finite tables by length would not certify the all-length extremum.",
+        "searches": [
+          "Resultary published findings lookup for sharp binary VT two-deletion list size"
+        ]
+      },
+      "rationale": "The inspected sources have the same intermediate-layer technique, a weaker worst-case upper bound, an average-size lower bound, or a different deletion-list problem. None gives the sharp pointwise VT upper bound plus attainment.",
+      "residual_risks": [
+        "The targeted general search did not produce additional sources; this is not negative evidence. The cited 1966 single-deletion background was not independently retrieved. Unindexed equivalent proofs remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior intermediate layer and weaker upper bound; not covering the sharp result",
+          "evidence": [
+            "There are n intermediate length-(n−1) supersequences, yielding the n upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.02612",
+          "material_read": "§VI Algorithm 2 and following paragraph, PDF p. 7, OA offset 60464",
+          "method": "OA original text and direct statement comparison",
+          "title": "List Decoding of Insertions and Deletions",
+          "trigger": "Same VT code and exact two-deletion channel"
+        },
+        {
+          "assessment": "Average lower bound, not pointwise maximum",
+          "evidence": [
+            "Average over syndromes of average competing-list size is greater than n/2−10 for n≥3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15767",
+          "material_read": "PDF p. 2 definitions (OA offset 11800), p. 5 Theorem 8 (offset 39700)",
+          "method": "OA original text; checked theorem quantifiers and normalization",
+          "title": "On the Average List Size of VT Codes under Two Insertions or Two Deletions",
+          "trigger": "Same classes and number of deletions"
+        },
+        {
+          "assessment": "Different code and optimization question",
+          "evidence": [
+            "Optimizes arbitrary codebook size under list constraints when exactly two symbols remain, rather than a VT list under two deletions."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-sharp-saturation-of-binary-two-symbol-deletion-list-codes--e9733e35c471",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read indexed result in local mirror",
+          "title": "Sharp saturation of binary two-symbol deletion list codes",
+          "trigger": "Closest distinct same-day deletion list index hit"
+        },
+        {
+          "assessment": "Different channel",
+          "evidence": [
+            "One whole length-ell read is deleted from a vector of overlapping reads."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-exact-inverse-list-distribution-for-one-deleted-overlapping-read--d834481dd89c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read indexed result in local mirror",
+          "title": "Exact inverse list distribution for one deleted overlapping read",
+          "trigger": "Related same-day inverse-list result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Wachter-Zeh §VI",
+        "Banerjee et al. Theorem 8"
+      ],
+      "rationale": "Gives the exact worst-case ambiguity of a classical single-deletion-correcting code just beyond its unique-decoding radius. It nearly halves the known n candidate bound, proves an all-length witness and identifies the singleton-shadow obstruction rather than just computing small cases. The distinction from average list size matters for worst-case list budgets. No decoding-time gain is asserted.",
+      "residual_risks": [
+        "Does not classify all equality cases or all syndrome-specific maxima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

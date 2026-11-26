@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:09:27.928427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed 0<p<2 the Euclidean unit disk contains the Lamé region, with equality on its boundary only at the four axial tips, including for p<1. The distance deficit bounds the sum of the radial deficits, which control the axial deficits near the tips because transverse squares are o(axial deficit). Thus after localizing to each of four ordered opposing tip pairs, axial scales ε and transverse scales ε^(1/p) give a compact scaled domain. Integrating the transverse widths over U+W<1 gives the stated gamma quotient, Dirichlet law and conditional uniform marks. For p=2−λε with fixed λ, the uniform radial expansion is 1−λεH+O(ε²); near-diameter pairs have both radial deficits O(ε) and antipodal offset O(√ε). The polar Jacobian gives ε^(5/2) and the section a+b+z²/4<c has volume (16/15)c^(5/2). This proves both the integral and marked law, including the disk value 32/(15π). Entropy maximizes at the diagonals with H=log(2)/4; at equality only the four exact diagonals have zero density. As λ tends to infinity separately, the monotone axial region has width of order √(2/(λ log λ)); on that scale 2λH tends to s² and its support is uniformly bounded. Integrating (1−s²)^(5/2) and including four axes gives 4√2/(3π). The captured six Sobol ratios lie between 0.9880 and 1.0016; CHECK.py was inspected, not executed, and those finite diagnostics do not prove the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ellipsoid record 157978e267c9 Eq. (1) uses uniform volume in all fixed dimensions and the same ε^(5/2) power in dimension two, with angular penalty 2∑λᵢΘᵢ² due to a linear map of the ball.",
+          "Schrempp examines sample maxima and requires a unique diameter and C² poles; Demichel et al. examine Gumbel-domain elliptical clouds and formulate a sample maximum limit. Neither model is this fixed-dimensional Lamé area-pair family."
+        ],
+        "reasoning": "The ellipsoid result is broader in dimension, but applies to quadratic contraction profiles, not arbitrary radial deformations. A nonzero Lamé entropy penalty vanishes on both coordinate axes, which no nonzero nonnegative quadratic profile in two dimensions can do, even after rotation. The smooth unique-pole maxima results likewise do not supply this marked pair tail.",
+        "searches": [
+          "Schrempp arXiv:1709.03706v1; Demichel–Fermín–Soulier arXiv:1407.6312v2",
+          "Resultary: Uniform near-diameter crossover and sharp anisotropy ordering for ellipsoids"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py, CHECK_OUTPUT.txt",
+        "Resultary 5305ac8d2f96, 70f541f7740f, 157978e267c9 and Five near-diameter regimes for arclength-random chords of Lamé curves",
+        "Schrempp arXiv:1709.03706v1",
+        "Demichel–Fermín–Soulier arXiv:1407.6312v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The boundary result already gives the joint angular admissibility and the logarithmic axial localization scale. To get the volume law one must localize both inward depths, expand the deficit uniformly with their sum, and integrate the two-dimensional simplex over angular mismatch. This changes the power and the sharp large-λ coefficient.",
+          "The prior ellipsoid proof reduces to radial/angular independence of a ball under a fixed linear deformation; it does not prove the Lamé marked radial section. The fixed Lamé area tip calculation additionally yields Dirichlet marks for the isolated-tip regime, including nonconvex p<1."
+        ],
+        "reasoning": "The arclength and ellipsoid results give important pieces of the mechanism but are not stronger theorems about this sampling and these bodies. They supply neither the volume mark law nor the fixed-shape volume constants.",
+        "searches": [
+          "Local 70f541f7740f Finding and proof §§1–3; 157978e267c9 Eq. (1) and proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct 2026/11/22 70f541f7740f states the arclength joint limit for p=2+λε for any real λ. At its λ=−L, its G equals 2L times the present H, and its rescaled angular mismatch also contributes z²/4. The angular admissible set and log width therefore agree.",
+          "Its boundary probability is of order ε^(1/2), with angular weight c^(1/2); the present independent area pair has two continuous inward deficits, ε^(5/2) and angular weight c^(5/2), including the corresponding conditional radial marks."
+        ],
+        "reasoning": "Reversing the parameter sign is not a scientific distinction. The sampling measure and the two constrained inward radial coordinates are, and change the limit law rather than just notation.",
+        "searches": [
+          "Resultary: area-uniform nearly circular diametral pairs, Lamé entropy angular crossover, fixed Lamé tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned 5305ac8d2f96 entry itself is an exact hit. The distinct same-day Five near-diameter regimes for arclength-random chords of Lamé curves, local Finding offset 0, gives fixed-shape boundary exponents (for 1<p<2, 2/p rather than the volume 2+2/p).",
+          "The disk baseline is already given by the spherical overlap calculation in 157978e267c9 §1 and its Eq. (1) at zero anisotropy, yielding the identical disk constant."
+        ],
+        "reasoning": "Credit the exact disk case. Boundary tables and fixed-eccentricity ellipse formulas are not tables of the area-uniform Lamé tails or their inward marks.",
+        "searches": [
+          "Resultary: exact Lamé diameter-pair constants and circle crossover; fixed Lamé arclength diameter tails"
+        ]
+      },
+      "rationale": "Passes for the area-uniform fixed-shape and moving-shape pair laws, including their radial/axial marks and constants. The disk value and the entropy penalty, cutoff mechanism and logarithmic angular scale viewed without the area sampling are not distinct novelty. The strongest same-day arclength comparison actually includes both signs of its shape parameter, including this record's below-circle regime.",
+      "residual_risks": [
+        "Earlier general pair-tail formulas for varying star bodies or Lamé area tails could exist. The older Appel et al. publisher passage could not be obtained; the Schrempp introduction is the available account. No ordering or priority follows from the date of the closely related arclength record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-day overlap in angular mechanism on both sides; boundary measure only, not equivalent to the area law",
+          "evidence": [
+            "λ ranges over all real numbers, and G_λ=(max(λ,0)log 2−λ times binary entropy)/2. The marked limit is constant density in angle and rescaled angular mismatch, without radial coordinates."
+          ],
+          "identifier_or_url": "Resultary:70f541f7740f",
+          "material_read": "Local RESULT.md offset 0–5673, Finding, scope and proof §§1–3",
+          "method": "Configured Resultary and local mirror",
+          "title": "Binary-entropy crossover and asymmetric rare-chord localization on near-circular Lamé ovals",
+          "trigger": "Same shape deformation, entropy and angular mismatch"
+        },
+        {
+          "assessment": "Same power and disk law in d=2 but only a quadratic semiaxis perturbation, not Lamé entropy",
+          "evidence": [
+            "Uses A_t=diag(1−tλᵢ) and the independence of the norm and direction of the difference of two uniform ball points, giving a spherical expectation of the positive part to power (d+3)/2."
+          ],
+          "identifier_or_url": "Resultary:157978e267c9",
+          "material_read": "Local RESULT.md Finding Eq. (1), assumptions and proof §§1–2, offsets 0 and 4440",
+          "method": "Configured Resultary and local mirror",
+          "title": "Uniform near-diameter crossover and sharp anisotropy ordering for ellipsoids",
+          "trigger": "Closest area-measure comparison at the same moving-shape scale"
+        },
+        {
+          "assessment": "Sample-maximum result with smooth unique diameter; does not directly cover this fixed- or moving-shape pair law",
+          "evidence": [
+            "Requires smooth C² pole boundaries at a unique diameter, unlike the p<2 axial Lamé tips or the continuum of circular diameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.03706v1",
+          "material_read": "Abstract, unique-pole assumptions and main theorem/ellipsoid specialization, pp. 1–6; offsets 0, 7122, 17700, 26088 and 27240",
+          "method": "Lawful OA PDF",
+          "title": "Limit laws for the diameter of a set of random points from a distribution supported by a smoothly bounded set",
+          "trigger": "Closest primary fixed-shape diameter-extremes framework"
+        },
+        {
+          "assessment": "Sample maximum in Gumbel-domain elliptical model, not uniform-area Lamé pair",
+          "evidence": [
+            "Theorem 3.1 addresses a unique largest eigenvalue in the Gumbel-domain model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.6312v2",
+          "material_read": "Abstract p. 1; Theorem 3.1 p. 10, offset 33785",
+          "method": "Lawful OA PDF",
+          "title": "The diameter of a random elliptical cloud",
+          "trigger": "Diameter asymptotics for related geometric families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform area is the natural interior model. The isolated-tip and near-circle limits quantify how loss of a continuum of diameter directions changes both probability and where the successful interior points sit. Exact coefficients and marked laws distinguish the geometry from the corresponding boundary sampling and from quadratic anisotropy; no uniform joint large-λ claim is credited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

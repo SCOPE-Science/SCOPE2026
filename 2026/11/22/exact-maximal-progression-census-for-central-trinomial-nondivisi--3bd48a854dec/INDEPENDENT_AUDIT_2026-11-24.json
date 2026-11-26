@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:18:59.959595Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–77; VERIFICATION.md lines 19–23; checker.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py 4",
+        "Noe, §7 (12)–(13), §8 Thm. 8.5; Walker and Walker, Prop. 2.2"
+      ],
+      "rationale": "In F_7 the constant term for a digit expansion factors: after the lowest digit, all remaining exponents are multiples of 7, whereas the lowest-digit factor has exponents from −6 through 6. The one-digit residues are (1,1,3,0,5,2,1), so support excludes precisely digit 3. For any positive step, at its first nonzero digit the seven successive terms give all residues; 4 through 9 realize six. For the all-step count, r digits suffice for both inputs under the strict cutoff; the component carries of u+jd enforce every support constraint and a zero terminal vector is necessary and sufficient for no overflow. The zero-step correction is 6^r. For an independent all-coefficient check I generated allowed output digits of all six terms, imposing the four adjacent second-difference equations using signed carries. After column k each carry is the corresponding difference of truncated terms divided by 7^k; a zero terminal vector gives actual progressions. This alternative automaton has 23 reachable states and counts decreasing and increasing progressions equally, plus 6^r constant ones. With the asserted denominator Q and numerator N for the increasing count, its count series S satisfies Q S = B+2N: the check verifies all initial coefficients and a full block of 23 zero residual coefficients past the numerator and denominator degrees. From then on the residual is a fixed row times a power of the same 23-state matrix times the accept vector, so Cayley–Hamilton proves every remaining coefficient is zero. The displayed r=0..12 values match, as does independent endpoint-pair enumeration at r=0..3, with leading zeros and r=0 covered.",
+      "residual_risks": [
+        "The certificate is an exact finite-state proof for full base-seven truncations only, not for arbitrary cutoffs or a count by fixed step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walker and Walker give general upper bounds on maximal AP length, including <= p−1 in a proper prime-base set",
+          "Rowland and Yassawi give general automata for congruences and give central-trinomial Lucas products"
+        ],
+        "reasoning": "Both broader results apply to ingredients of the problem, but neither returns the progression counting transfer function in the inspected statements.",
+        "searches": [
+          "arXiv:1809.02430, Thm. 1.1 and Prop. 2.2; arXiv:1310.8635, §§4.2,5.1"
+        ]
+      },
+      "checked_sources": [
+        "Walker–Walker arXiv:1809.02430; Noe JIS 06.2.7; Rowland–Yassawi arXiv:1310.8635",
+        "Resultary 3bd48a854dec, 024c6f1d1c89, 50ffd95589d7, 8b2885fb5572"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two sources yield the support and maximum-length upper bound; the closest progression analogue uses a different digit language and cutoff"
+        ],
+        "reasoning": "The positive-step census depends on coupled carries and terminal constraints at all depths, including nonprimitive steps. A new finite transfer calculation and degenerate-path subtraction are needed; the exact function does not follow just by instantiating the bound or the congruence.",
+        "searches": [
+          "Noe (12)–(13) and Thm. 8.5, Walker and Walker Prop. 2.2, Resultary 024c6f1d1c89"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noe §7 (12)–(13) and Thm. 8.5 identify the equivalent no-digit-3 support",
+          "Walker and Walker Prop. 2.2 concerns precisely proper prime-base Kempner sets and bounds length"
+        ],
+        "reasoning": "The exact census on the Kempner set is equivalent to the binomially defined census, but neither the digit-product theorem nor the maximum-length result enumerates it.",
+        "searches": [
+          "Resultary searches for central trinomial modulo seven six-term AP census; primary search for arithmetic progressions in base-seven restricted-digit sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3bd48a854dec is the exact bound entry itself",
+          "024c6f1d1c89 counts lengths 3–6 by step for ternary Motzkin nondivisibility below (3^(r+1)−1)/2",
+          "50ffd95589d7 counts progressions in fixed odd-coefficient Pascal row supports; 8b2885fb5572 concerns binary fibbinary triples"
+        ],
+        "reasoning": "These are different counting problems, not alternate tables for the base-seven support. A same-day listing is not proof of temporal priority or chronological order.",
+        "searches": [
+          "Resultary central-trinomial progression censuses and exact AP spectra"
+        ]
+      },
+      "rationale": "Supported distinct contribution is the evaluated series for the count of all positive-step six-term progressions, not the digit rule, maximal-length bound, or transfer-matrix method. The closest other exact censuses have different support languages, cutoffs or progression lengths. The available general results establish the digit rule and length obstruction, not the exact count in this support.",
+      "residual_risks": [
+        "A bounded search cannot exclude an unindexed exact Kempner-set enumerator or one in uninspected literature. No historical-priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the upper bound, not enumeration in inspected statements",
+          "evidence": "Prop. 2.2 states length <= p−1 for proper prime-base Kempner sets; p=7 gives six.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.02430",
+          "material_read": "PDF pp. 2–3, Thm. 1.1 and Prop. 2.2",
+          "method": "Bounded primary PDF inspection",
+          "title": "Arithmetic Progressions with Restricted Digits",
+          "trigger": "Same restricted-digit progression problem, plausible stronger theorem"
+        },
+        {
+          "assessment": "Pointwise support is known",
+          "evidence": "Digit product and divisibility iff a digit-level coefficient vanishes modulo p.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+          "material_read": "PDF p. 5 §7 (12)–(13); p. 6 §8 Thm. 8.5",
+          "method": "Bounded primary PDF inspection",
+          "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+          "trigger": "Establishes equivalent support formulation"
+        },
+        {
+          "assessment": "Method and congruence overlap; not an evaluated progression enumerator",
+          "evidence": "Central-trinomial congruences and Lucas product in the general automata framework.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.8635",
+          "material_read": "PDF p. 32 §4.2; p. 37 §5.1",
+          "method": "Bounded primary PDF inspection",
+          "title": "Automatic Congruences for Diagonals of Rational Functions",
+          "trigger": "Generic automaton theory and exact sequence comparator"
+        },
+        {
+          "assessment": "Comparable census, not equivalent, same displayed date",
+          "evidence": "Different support and cutoffs; counts lengths 3–6 by step and excludes seven.",
+          "identifier_or_url": "024c6f1d1c89",
+          "material_read": "RESULT.md Finding and proof",
+          "method": "Resultary mirror",
+          "title": "Exact arithmetic-progression spectra at ternary Motzkin nondivisibility",
+          "trigger": "Closest distinct exact spectrum and length-six maximum"
+        },
+        {
+          "assessment": "Counts progressions in a different set",
+          "evidence": "Support belongs to a fixed row of Pascal's triangle and its binary submasks, not a missing base-seven digit.",
+          "identifier_or_url": "50ffd95589d7",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror",
+          "title": "Exact arithmetic-progression census in odd-binomial Pascal rows",
+          "trigger": "Earlier exact digit-restricted AP enumeration"
+        },
+        {
+          "assessment": "Different support, length and base",
+          "evidence": "All positive-step triples of fibbinary integers below powers of two.",
+          "identifier_or_url": "8b2885fb5572",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror",
+          "title": "Exact maximal-progression census for odd binom(3n,n)",
+          "trigger": "Same-day all-step maximal progression analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof; Walker–Walker Prop. 2.2; Noe Thm. 8.5"
+      ],
+      "rationale": "Nondivisibility gives a natural digit-restricted support, and the known sharp maximum selects length six intrinsically. Counting every positive step rather than exhibiting one progression measures how often that length bound is attained across natural digit scales, with exact reproducible coefficients and recurrence for further additive-structure comparisons.",
+      "residual_risks": [
+        "A specific complete census for modulus seven and full digit blocks, not a theorem for all prime-base supports or a census at arbitrary cutoffs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:42:13.510370Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–79",
+        "VERIFICATION.md and verify_cycle_majority.py (inspected, not executed)",
+        "python3 /workspace/audit-replay/frozen_checks.py 5"
+      ],
+      "rationale": "In the stated noncomplete range every neighbourhood consists of 2k distinct positions. For binary signs, shifting the zero neighbourhood-sum equations by k factors the operator as B(I+T^(k+1)) with B=I+T+⋯+T^(k−1). Global balance forces even n, and alternating signs work for even k. For odd k, let L=n/gcd(n,k+1). If L is odd the alternating geometric sum gives an inverse for I+T^(k+1), forcing Bx=0, impossible for a sum of k signs. If L is even, alternating signs on each (k+1)-step cycle solve the equations (the frozen block word is one such choice). L is even exactly at the displayed 2-adic threshold. When gcd(n,k)=1, Bx=0 implies T^kx=x, hence constancy and x=0, so all binary solutions are obtained by alternating independently on the gcd(n,k+1) cycles. The ternary word is periodic 012 with zero, one or two distinct inserted symbols at one junction. A length-k interval with s of those symbols contains at most ceil((k−s)/3) ordinary occurrences of a given colour; across two disjoint neighbour intervals the largest counts are bounded by 2ceil(k/3), or by ceil((k−1)/3)+ceil(k/3)+1 for a colour actually inserted there. Both are at most k for k≥3. At k=2 the eleven junction windows satisfy the four-neighbour cap after removing the centre; only one insertion block can be met. The independent replay exhausts 25 small binary cases and verifies 2,304 ternary constructions, including the shortest cycles, complementing the universal proof.",
+      "residual_risks": [
+        "Enumeration formula only for two named colours and gcd(n,k)=1; the proof does not enumerate all binary colourings outside this subfamily or any ternary colourings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Collins et al. prove the equal-class-size obstruction in regular NBC graphs and give sufficient open NBC constructions, including alternating parity for half-even and half-odd steps and pairing d with n/2−d when 4|n. Theorem 17 instead adds the antipodal step and targets closed-neighbourhood balance.",
+          "ArXiv:2509.06003v1 gives residue-class equal-frequency constructions, including three colours when both the cyclic order and step multiplicities meet divisibility constraints; Minyard–Sepanski also require equal local frequencies. Kalinowski et al.'s upper bound uses a minimum-degree hypothesis."
+        ],
+        "reasoning": "For even k, the Collins parity construction with steps 1,…,k and equal-class-size obstruction give the full binary phase. For odd k and n=2k+2 the reflection construction with the middle step n/4 added back supplies the positive boundary case. Those sufficient constructions do not yield the odd-k nonexistence for arbitrary n at low 2-adic valuation. Equal-frequency ternary constructions under divisibility cannot cover nonmultiples of three and do not supply a general at-most-half construction.",
+        "searches": [
+          "Collins et al. DOI 10.1007/s00373-025-02950-5 §§5.1–5.2.1, Thms. 12 and 15–17",
+          "arXiv:2509.06003v1 Thms. 2.25–2.26",
+          "Minyard–Sepanski DOI 10.1007/s00373-026-03038-4 Def. 2.2 and Thm. 3.1",
+          "arXiv:2605.23828 high-minimum-degree three-colour upper bound"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23828 and arXiv:2509.06003v1",
+        "DOIs 10.1007/s00373-024-02766-9, 10.1007/s00373-025-02950-5 and 10.1007/s00373-026-03038-4",
+        "Resultary bdc17603a163, 47b8b1851412, c41a3bb22c73, f0815fe7bf25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest matched older arguments impose equal class sizes or exhibit specific balanced patterns; none of the compared statements determines the binary sign kernel for odd consecutive step sets. The known regularly repeated ternary residue construction only applies directly with appropriate divisibility."
+        ],
+        "reasoning": "The new obstruction is stronger than even order: for odd k it excludes all n with ν₂(n)≤ν₂(k+1) by reducing to an impossible odd zero-sum window. Coprimality removes the other shift factor, which makes the exact labelled count possible. The insertion argument supplies the missing general upper bound, including seam cases, rather than recomputing a periodic example.",
+        "searches": [
+          "Collins et al. Thms. 12, 15–17; Freyberg–Marr Thm. 9; arXiv:2509.06003v1 Thms. 2.25–2.26; arXiv:2605.23828 Observation 5 and general upper bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open neighbourhood-balanced binary colouring is exactly binary strong-majority on even-regular graphs. The quartic circulant classification specializes to C_n², and Observation 5 covers k=1, which the frozen claim excludes."
+        ],
+        "reasoning": "Binary exact equivalence follows because allowing neither colour more than k of 2k neighbours forces equal counts. That equivalence does not extend to equal-frequency ternary colourings. The quarter-turn and quartic cases are real prior coverage rather than notation differences.",
+        "searches": [
+          "graph powers of cycles neighborhood balanced circulant consecutive generators adjacency kernel perfect two coloring gcd k+1 strong majority coloring",
+          "Freyberg–Marr DOI 10.1007/s00373-024-02766-9 Theorem 9",
+          "arXiv:2605.23828 Observation 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Resultary 2026/10/18 … bdc17603a163 concerns directed cycle blow-ups D_(d,m), not C_n^k.",
+          "2026/11/2 … 47b8b1851412 counts labelled binary additive colourings of ordinary cycles, testing inequality of neighbour sums across edges; 2026/11/8 … c41a3bb22c73 treats strong-majority on fan graphs. 2026/10/4 … f0815fe7bf25 concerns edge colourings of complete graphs."
+        ],
+        "reasoning": "Directed blow-ups and fan graphs have different neighbourhoods; edge-sum inequality and edge colouring are different predicates. None of the inspected findings provides the cycle-power threshold or count. Same-day dating was not used to exclude the directed-cycle record.",
+        "searches": [
+          "Resultary: strong-majority cycle powers, open-neighbourhood balanced circulants, labelled binary colouring count and parity"
+        ]
+      },
+      "rationale": "Prior results already cover ordinary cycles, the quartic two-colour case, and the even-k binary phase; older circulant constructions also cover a boundary subfamily of odd powers. The supported distinct content is the full odd-k two-adic converse and threshold, the three-colour upper bound across the entire noncomplete range, and the coprime labelled count. No compared stronger statement supplies those remaining facts.",
+      "residual_risks": [
+        "The search is not an exhaustive review of equitable partitions, perfect colourings, or circulant kernels. Older even-k and odd boundary cases are not treated as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary cycles and a restricted general bound, not arbitrary powers",
+          "evidence": [
+            "Observation 5 gives the 4|n two-colour criterion for k=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "PDF pp. 3–4, Observation 5, general three-colour upper-bound context",
+          "method": "OA original PDF passage inspection",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Same invariant and ordinary cycles"
+        },
+        {
+          "assessment": "Covers the k=2 two-colour criterion; no general odd-power census",
+          "evidence": [
+            "The quartic classification applied to generators 1,2 gives even n."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-024-02766-9",
+          "material_read": "Definition pp. 1–2; Theorem 9 p. 9",
+          "method": "OA original paper passage inspection",
+          "title": "Neighborhood Balanced Colorings of Graphs",
+          "trigger": "Equivalent binary predicate and quartic circulants"
+        },
+        {
+          "assessment": "Earlier coverage of even-k binary phase and some odd-power positives",
+          "evidence": [
+            "Theorem 15 uses an equal number of even and odd steps; Theorem 16 pairs steps d,n/2−d and optionally adds n/4; Theorem 17 is closed-balance with an additional antipodal neighbour."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02950-5",
+          "material_read": "Open-balance cycle statement, Theorem 12, and §5.2.1 Theorems 15–17 (offsets 41000–50723 for circulants)",
+          "method": "OA original PDF passage inspection and specialization",
+          "title": "Closed Neighborhood Balanced Coloring of Graphs",
+          "trigger": "Open-balance results inside a principally closed-neighbourhood paper"
+        },
+        {
+          "assessment": "Restricted equal-frequency constructions, no complete odd-power threshold or unrestricted ternary bound",
+          "evidence": [
+            "Theorem 2.26 assumes order and number of steps divisible by the number of colours and equal step-residue multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.06003v1",
+          "material_read": "Circulant section, Lemmas 2.23–2.24 and Theorems 2.25–2.26 (offsets 47070–52661 and adjacent Theorem 2.26 statement)",
+          "method": "OA original HTML passage inspection",
+          "title": "Neighborhood Balanced k-Coloring of Graphs",
+          "trigger": "General equal-frequency colouring results for circulants"
+        },
+        {
+          "assessment": "Exact equal frequency, not at-most-half",
+          "evidence": [
+            "Degree must be divisible by three, which need not hold for the target powers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-026-03038-4",
+          "material_read": "Abstract, Definition 2.2, Theorem 3.1 (pp. 1–4)",
+          "method": "OA original PDF passage inspection",
+          "title": "Neighborhood 3-Balanced Graphs",
+          "trigger": "Closely related three-colour predicate"
+        },
+        {
+          "assessment": "Different objects or rule, including the same-day directed result",
+          "evidence": [
+            "Directed blow-ups, edge-sum inequality, fan graphs and edge colourings do not supply the open-neighbourhood sign constraint on C_n^k."
+          ],
+          "identifier_or_url": "Resultary bdc17603a163, 47b8b1851412, c41a3bb22c73, f0815fe7bf25",
+          "material_read": "Findings in the four records",
+          "method": "Local mirror original passage comparisons",
+          "title": "Catalogue records on majority-stable directed blow-ups, binary additive cycles, fan graphs, and the complete-graph index",
+          "trigger": "Nearest matches for graph family, predicate or exact counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–22 and 43–79",
+        "Prior graph-colouring comparisons above"
+      ],
+      "rationale": "A natural graph family gets a sharp optimal colour classification, including a genuine odd-power arithmetic obstruction not predicted by graph order being merely even. The uniform constructive cap and coprime exact count answer useful existence and enumeration questions beyond a finite survey or a single degree, while separating them from already known low-degree cases.",
+      "residual_risks": [
+        "The value does not rely on claiming a complete classification of balanced colourings for arbitrary circulants or for all noncoprime parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

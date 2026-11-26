@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:57:04.087492Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen ordinal 3 RESULT.md Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify_hesse.py, inspected",
+        "/workspace/review_checks/hesse.py",
+        "/workspace/review_checks/hesse.log"
+      ],
+      "rationale": "The gradient forces W=0, and any projective critical point has XYZ nonzero, giving t³=−27 by multiplication. Conversely at that parameter the partials vanish at [1:1:−3/t:0], with the equation following by Euler's relation. For every smooth parameter the nine stated points have triple tangent contact: on −tρX+3Y+3ρ²Z=0 the branch polynomial restricts to (1+t³/27)X³ by cancellation of the two cross terms and Z³. Smooth plane cubics in this characteristic have nine flexes, and their tangents are distinct by degree. Pullback of each tangent gives the three distinct line graphs W=ηX (with the coordinate permuted at the other flexes), so the 27 lines are exhausted. Since the deck-root parameter is common to the rational flex tangents when q≡1 mod 3, Frobenius is the identity on all line classes in the split case and a common nontrivial deck power in the nonsplit case. For the latter, independently of the tame Lefschetz computation, the invariant H² of the deck action is the H² of the finite quotient P²: the invariant part of the finite pushforward is the constant sheaf (geometric fibers are single group orbits), and averaging is exact over Q_l. Thus the invariant rank is one, with the other six eigenvalues split equally between primitive cube roots by the rational integral Picard action. For q≡2 mod 3 the unique rational cube root and unique rational root of unity give three fixed lines and twelve pairs, all splitting quadratically; the projection is a bijection on base-field points, so the Picard trace is 1 and multiplicities are 4 and 3. The line classes generate Picard, and H² is its Tate twist, with odd cohomology zero and the other even factors 1−T and 1−q²T, giving the stated point counts over every extension. An independent exhaustive RREF scan of 2-planes tests vanishing at four distinct arguments of the binary cubic on each line, and independent normalized projective representative counts reproduce all smooth parameter results over F5, F7, F11 and F13, including both stated frequency examples.",
+      "residual_risks": [
+        "The RREF replay checks four prime fields; the all-extension result uses the symbolic flex restriction and the Picard/cohomological argument. No isomorphism classification and no characteristic-two or -three claim is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das arXiv:2002.11183v2 and Banwait–Fité–Loughran arXiv:1606.00300v2 give class/trace distributions or possibilities. McKean arXiv:2101.08217v4 discusses rational-line counts and equationwise determination as Question 1.8. Distinct same-day Resultary 5e55036a6d2f recovers the Weyl class from (L_1,T_1,L_2,T_2,L_3,T_3)."
+        ],
+        "reasoning": "Knowing possible line and Picard spectra or recovering the Weyl class after being given six descent counts does not solve the marked-parameter problem. The latter theorem can be used with additional calculated incidence data, but it does not turn t into that input.",
+        "searches": [
+          "Primary literature on W(E6) Frobenius classes, rational-line possibilities, and point-count distributions",
+          "Local Resultary: cubic surface Frobenius from lines and tritangents"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary e72f01c11ab5, c910adbbd32c, 5e55036a6d2f, 7ea6018f38a4 and 49ca8401e2ad",
+        "arXiv:1910.09593, 2207.04493, 2002.11183v2, 1606.00300v2 and 2101.08217v4",
+        "Dolgachev–Duncan MathNet abstract and bounded primary full-text retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric prior work gives nine triples of lines. The wide Frobenius result identifies classes from exact descent inputs, not from surface polynomials. Neither inspected formulation supplies the common residue c_t or its controlling effect on the actual Frobenius permutation over the pencil."
+        ],
+        "reasoning": "The finite-field specialization requires computing an explicit tangent restriction that yields the same coefficient over all nine flexes, then separating the cubic-root and unity conjugation regimes. The known quotient/cohomology formulas determine the zeta factor once those regimes are established, not by substituting a Hesse parameter into a general trace distribution.",
+        "searches": [
+          "arXiv:1910.09593 pp. 1 and 3; arXiv:2101.08217v4 pp. 2 and 4; Resultary c910adbbd32c and 5e55036a6d2f statement and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Medrano arXiv:1910.09593 pp. 1 and 3 and Resultary c910adbbd32c identify geometric line triples and the cyclic group action over complex surfaces. Brundu–Logar–Polli arXiv:2207.04493 pp. 1 and 21 study the symmetric Hesse geometry over algebraically closed fields of characteristic zero."
+        ],
+        "reasoning": "Splitting of each of nine line triples is an arithmetic version of the geometric correspondence, not equivalent to knowing the triples or their complex monodromy. One needs an equation over the actual finite field for the line parameters and must compare the root and flex orbits.",
+        "searches": [
+          "Local Resultary and primary literature: Hesse cyclic cubic surface pencil, cubic residue, finite-field rational lines, point counts and zeta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e72f01c11ab5 is the same record. The Fermat-specific entries 7ea6018f38a4 and 49ca8401e2ad contain rational incidence and descent information at t=0, including the three rational lines when q≡2 mod 3. The general cubic-surface tables are arranged by Weyl classes and traces, not by Hesse t."
+        ],
+        "reasoning": "The numerical spectra can be tabulated once the class is known; the meaningful claim here is how the marked coefficient selects the spectrum. A table for t=0 does not determine the nonconstant choice even over F7.",
+        "searches": [
+          "Local Resultary exact Hesse pencil, cubic-residue spectrum and Fermat specialization",
+          "Primary search on finite-field Hesse line or point-count tables"
+        ]
+      },
+      "rationale": "Credit the flex/deck geometry, general finite-field cubic-surface trace and Weyl-class tables, and the Fermat subcase. The supported distinct result is the arithmetic of each marked equation, with a single coefficientwise cube test controlling the line fields and the Picard factor for every allowed field. The closest broader Weyl reconstruction has a different input and does not supply this map. No distinct covering coefficientwise result was established in the inspected materials.",
+      "residual_risks": [
+        "Classical explicit treatments of Hesse/arithmetic cyclic cubic surfaces or uninspected portions of positive-characteristic classification could contain equivalent formulas. The two unnamed Fermat comparisons in the frozen prose were not identified bibliographically beyond checking the named indexed analogues above. No priority conclusion is drawn from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric correspondence and complex monodromy covered; coefficientwise arithmetic not stated there",
+          "evidence": "Each branch flex corresponds to three of the 27 lines; the deck group acts on the triple.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.09593",
+          "material_read": "PDF p. 1 offset 2972 and p. 3 offset 9705",
+          "method": "OA primary PDF passages",
+          "title": "Monodromy of the family of cubic surfaces branching over smooth cubic curves",
+          "trigger": "Strong geometric antecedent of flex-indexed line triples"
+        },
+        {
+          "assessment": "The inspected Hesse results concern algebraic geometry in characteristic zero",
+          "evidence": "Algebraically closed characteristic-zero assumption and a Hesse-configuration passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.04493",
+          "material_read": "PDF p. 1 offset 0 and p. 21 offset 66076",
+          "method": "OA primary PDF passages",
+          "title": "Construction of Symmetric Cubic Surfaces",
+          "trigger": "Same symmetric constructions and Hesse geometry"
+        },
+        {
+          "assessment": "General distributions and trace possibilities, not the marked Hesse selector",
+          "evidence": "W(E6) class distributions and the trace form 1+aq+q² with possible traces over finite fields.",
+          "identifier_or_url": "arXiv:2002.11183v2; arXiv:1606.00300v2",
+          "material_read": "Das pp. 1, 3 (offsets 2497 and 8005); Banwait–Fité–Loughran p. 1 (offset 0)",
+          "method": "OA primary PDF passages",
+          "title": "Arithmetic statistics on cubic surfaces; Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "General finite-field Weyl and point-count classifications"
+        },
+        {
+          "assessment": "General possibility constraints; no covering parameter formula in the inspected statements",
+          "evidence": "Existence conditions on separable extension degrees and a question about computing from the defining polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.08217",
+          "material_read": "v4 pp. 2 and 4 (offsets 4508 and 9561), existence theorem and Question 1.8",
+          "method": "OA primary PDF passages",
+          "title": "Rational lines on smooth cubic surfaces",
+          "trigger": "Possible coefficientwise determination of rational lines"
+        },
+        {
+          "assessment": "Geometric antecedent in complex setting, not complete descent of the pencil",
+          "evidence": "Nine deck orbits indexed by flexes, with 9+36 tritangent incidence.",
+          "identifier_or_url": "Resultary c910adbbd32c",
+          "material_read": "Local RESULT.md Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "The 45 tritangents of a cyclic cubic surface lie over the Hesse affine plane",
+          "trigger": "Closest indexed Hesse/cyclic cubic geometric result"
+        },
+        {
+          "assessment": "Material broader coverage from known incidence counts, but not from the parameter t",
+          "evidence": "Six line/tritangent counts recover W(E6) class and Picard action; the theorem assumes those counts as input.",
+          "identifier_or_url": "Resultary 5e55036a6d2f, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Local RESULT.md offsets 0–2927 (Finding and Assumptions) and limitation on extracting incidence inputs",
+          "method": "Local Resultary mirror",
+          "title": "Three-extension recovery of cubic-surface Frobenius from lines and tritangent planes",
+          "trigger": "Distinct same-day result with broader finite-field Frobenius reconstruction"
+        },
+        {
+          "assessment": "Credited special case, does not span nonzero t",
+          "evidence": "Fermat line-point incidence formulas; sixer/double-sixer descent and three rational lines when q≡2 mod 3.",
+          "identifier_or_url": "Resultary 7ea6018f38a4 and 49ca8401e2ad",
+          "material_read": "Local RESULT.md findings and family scopes",
+          "method": "Local Resultary mirror",
+          "title": "The complete rational-line incidence spectrum of the Fermat cubic; Frobenius descent of sixers and double sixes on the Fermat cubic",
+          "trigger": "Exact indexed all-field analyses of the marked member t=0"
+        },
+        {
+          "assessment": "Abstract-level scope, full-text coverage unresolved",
+          "evidence": "Classifies automorphism groups over algebraically closed fields, with lifting and moduli strata.",
+          "identifier_or_url": "Dolgachev–Duncan, MathNet article record",
+          "material_read": "MathNet abstract offset 1000; full PDF unavailable via bounded configured retrieval",
+          "method": "Lawful OA website and PDF attempts",
+          "title": "Automorphisms of cubic surfaces in positive characteristic",
+          "trigger": "Plausible algebraic classification in overlapping characteristics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen ordinal 3 Finding and Proof",
+        "/workspace/review_checks/hesse.log",
+        "Resultary 5e55036a6d2f",
+        "arXiv:1910.09593 and 2101.08217v4"
+      ],
+      "rationale": "A coefficientwise descent criterion is useful for this natural symmetric pencil: it distinguishes the split and line-free fibers without enumerating lines and supplies point counts over every extension, not only a list of possible Weyl classes. Its nonconstant behavior in small fields makes the parameter dependence substantive. The result is an exact arithmetic refinement of the established flex geometry and an explicit test case for the general cubic-surface Frobenius framework.",
+      "residual_risks": [
+        "Value attaches to the uniform coefficient test and classification, not to recovering the known Fermat specialization in isolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: rigidity and resonance of perfect matching cuts
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is universally quantified over \(k\in\{4,5,6,7\}\), \(n\ge2k+1\). The proof reduces the cut condition at every outer vertex to the forced spoke bit \(d_i=1-t_{i-1}-t_i\), and at every inner vertex to an exact length-\(2k+2\) local test. It separately enforces the global parity needed to recover a cyclic outer coloring. The finite transition graph has no cyclic strongly connected components beyond the explicitly verified loops and period-two/five cycles. Exhaustive generation, SCC classification, and direct original-neighborhood tests were independently replayed. Hence the four formulas and disjoint classifications follow for all admissible orders. There is no extrapolation from finite sample sizes.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Relevant mathematical-record searches under “perfect matching cuts”, “one opposite neighbor”, “two induced 2-factors”, “disconnected 2-factors”, and the named generalized Petersen parameters returned published results for jumps two and three, but no corresponding theorem for the four new jumps. The complete published proofs for jumps two and three were materially inspected; neither quantifies over the new jumps. Le–Telle (2021) treats recognition complexity and explicitly flags enumeration as a research direction. The 2014 generalized Petersen source concerns spectra, the 2014 step-four source metric dimension, and Bouquet–Picouleau (2024 online) complexity/algorithms. None contains the same claim or a theorem immediately implying the full four-step classification. Some isolated graphs are isomorphic to graphs in prior families; no novelty is attributed to those finite special instances. Unindexed sources remain a historical-priority risk.
+PASS
 
-## Value — PASS
-This is not the isolated existence of the obvious spoke cut. The exact all-order theorem exhibits a discontinuous sequence of two rigid steps and two resonant steps, with precisely identified period-four and period-five obstructions. It identifies all possible ways to split these cubic graphs into two induced 2-regular shores joined by a perfect matching, as opposed to a mere algorithm returning one cut. That nonmonotone structural classification addresses a natural gap following the earlier jump-two and jump-three formulas. It also gives a reproducible exact finite-state mechanism to test more steps, without asserting an unsupported general law.
+Since n>2k the graph is connected and cubic with three distinct neighbors at each vertex. For any cut with one crossing at each vertex, the outer transitions t determine each spoke difference d_i=1−t_(i−1)−t_i, and therefore both shores up to simultaneous complement. Conversely an even cyclic t with no consecutive ones reconstructs the shores, and the remaining exact test is one crossing at each inner vertex. The 2k+2-bit windows are precisely the span needed for the central test; their overlaps identify closed walks of length n with indexed cyclic words, including when a window wraps. I reproduced the cyclic core using the simplified inner crossing parity t_(j−1)+sum(t_(j+1),…,t_(j+k−2))+t_(j+k) modulo 2, and iteratively removed sources and sinks rather than using the supplied Tarjan code. Every surviving state had one predecessor and one successor. The replay produced (arc count, incident state count) (180,280), (720,1120), (2880,4480), (11520,17920), respectively, with cycle representatives 0; 0,01; 0; and 0,01,00101 and the same minimum states as the frozen table. Source/sink removal cannot delete any closed walk, so this is exhaustive. The alternating word yields two phases with even parity exactly when 4 divides n; the five-period word yields five phases with even parity exactly when 5 divides n and has one crossing spoke per period. The zero word gives the spoke cut. Different indexed words give different edge sets, not extra shore orientations. This proves the four all-order formulas; the recorded direct tests are corroborative, not the all-order argument.
 
-## Closest sources and limits
-See the six scientific references and exact implications in `RESULT.md`. The primary 2021 perfect-matching-cut paper and the published jump-two/jump-three claims were read in substantive detail; the step-four metric-dimension article was only partially accessible, and the general 2016 algorithmic paper was unavailable in full. These access limitations do not change the exact proof but limit the originality assessment. Independent external validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior jump-3 theorem has exactly the jump-7 count formula, and earlier jump-specific theorems cover individual isomorphic instances. Those overlaps are real but do not supply the all-admissible-order classification at the four claimed jumps. The inspected general perfect-matching-cut sources address the same predicate but do not give that enumeration or its exact cyclic cores. No inspected exact source establishes an equivalent all-order census for these jumps.
+
+## value
+
+PASS
+
+These are the consecutive next small jumps after the two prior classified families, testing whether their period-four and period-five resonances persist. The exact answer separates two rigid families, one with only the first resonance, and one with both. The proof gives the actual cut types, including spoke content, and applies to every admissible order; it is not a table of small graphs or a certificate of the obvious spoke cut alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:51:32.785745Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kroumi's (A7) for one coordinate on four cyclic states uses cosines 1,0,−1,0. The four-point transform of (1,q,q²,q) gives (1+q)²,1−q²,(1−q)²,1−q². At transform argument s/(2ν), (A7) therefore yields (ν/2)F_s; (29) at μ=1 takes s=1,3,5 and the common factor cancels, leaving the submitted ratio. An independent bounded integer-polynomial reconstruction multiplies both forms by T=∏_{s=1,3,5}(s+2ν)(s+4ν). The multiplied denominator is 64ν(1−q)U; U is positive on the stated open domain. If P is the multiplied numerator divided by 32 and V=νU, the derivative numerator is P'V−PV'; its coefficient rows agree with every listed coefficient of H_q. The two mixed-sign rows h_5 and h_4 are strictly negative by bounding their positive terms with q²,q³≤1 and discarding their negative linear terms. All degrees ≥6 are positive, all lower degrees negative. Since H(0)<0 and its leading coefficient is positive, Descartes' rule and continuity give exactly one positive root counted with multiplicity. The derivative changes from negative to positive there, and its simple zero and positive denominator give positive second derivative. The q=1/2 isolate is illustrative, not part of the universal argument. The submitted supporting files were inspected without running the supplied script. This conclusion is only for the abstract weak-selection, large-population four-state model with μ=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary D.5 gives at least one interior global minimum, from endpoint behavior and continuity. The inspected unbounded-lattice paper has phenotype space Z^n. The indexed two-site result states uniqueness and strict convexity for its single nonzero relaxation rate, not for L=4."
+        ],
+        "reasoning": "Existence over a larger parameter space does not cover uniqueness; neither an unbounded lattice nor a two-site single-rate spectrum governs the two-rate four-cycle derivative.",
+        "searches": [
+          "Kroumi arXiv:2608.21872v1, Appendix D Theorem D.3 and Corollary D.5",
+          "Kroumi arXiv:2607.27570, unbounded lattice",
+          "Resultary d8384d5ac0bd, binary cycle"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Kroumi arXiv:2608.21872v1 including Appendix D",
+        "Kroumi arXiv:2607.27570",
+        "Resultary d8384d5ac0bd and d4b65382617c local mirrors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem D.3 gives endpoint divergence and D.5 applies continuity. The two-state theorem is explicit about its restricted cycle length; four states produce two distinct finite relaxation rates and three spectral weight groups."
+        ],
+        "reasoning": "Endpoint divergence cannot control the number or multiplicity of stationary points. The two nonzero rates cannot be collapsed into the binary rate with the same q-dependent weights, so the derivative sign certificate supplies a genuinely additional step.",
+        "searches": [
+          "arXiv:2608.21872v1 Appendix D existence argument",
+          "d8384d5ac0bd, Finding and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The transform at s/(2ν) equals (ν/2)F_s, so the frozen ratio is exactly the special case of the original threshold. Its critical-point equation is equivalent on the domain to H_q=0 because its denominator is positive."
+        ],
+        "reasoning": "Reparameterizing α by q or clearing denominators is not the new result; its substantive content is the all-q positive-root classification.",
+        "searches": [
+          "Kroumi arXiv:2608.21872v1, Eqs. (29), (A7)",
+          "Resultary: four-state recognition cycle and phenotype-mutation optimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed d4b65382617c hit is the assigned record itself. The closest distinct indexed exact optimum d8384d5ac0bd uses L=2, not L=4."
+        ],
+        "reasoning": "The self-match is not separate coverage. A binary optimum or isolated numerical observation cannot settle the positive-root count for every q on the four-cycle.",
+        "searches": [
+          "Resultary: four-state μ=1 degree-ten optimum",
+          "Resultary: unique optimal phenotype mutation and comparative statics"
+        ]
+      },
+      "rationale": "The Fourier threshold and existence of an interior optimum are covered by Kroumi; the rational specialization is not a new threshold. The supported distinct claim is uniqueness and nondegeneracy for every α>0 on the four-state cycle at μ=1, certified by a controlled sign change in its two-rate derivative. Neither the finite-periodic existence theorem nor the distinct indexed binary-cycle theorem implies that claim.",
+      "residual_risks": [
+        "The search and statement-level comparisons are bounded, not a historical priority proof.",
+        "The distinct indexed binary theorem shares the date; no within-day priority is inferred. No claim is made about a general uniqueness theorem for other μ or cycle sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact threshold and existence covered; inspected results do not establish uniqueness",
+          "evidence": "D.5 concludes at least one interior global minimum, not a one-root or nondegeneracy statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21872",
+          "material_read": "Eq. (29) PDF p. 7 or HTML offset 37200; Eq. (A7) PDF p. 14 or offset 102304; Appendix D Theorem D.3 and Corollary D.5, pp. 21–22 or offsets 161050 and 177428",
+          "method": "Primary OA full-text passages",
+          "title": "Phenotypic Assortment and the Evolution of Cooperation in Finite Periodic Phenotype Spaces",
+          "trigger": "Exact general threshold and possible stronger optimization theorem"
+        },
+        {
+          "assessment": "Different phenotype space and limiting regime",
+          "evidence": "Phenotypes lie on Z^n; the high-mutation statement there does not furnish the finite four-cycle classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27570",
+          "material_read": "Abstract and introduction, offsets 900 and 4185",
+          "method": "Primary OA passages",
+          "title": "The evolution of cooperation under imperfect phenotypic recognition",
+          "trigger": "Same graded recognition but possible optimum theorem"
+        },
+        {
+          "assessment": "Related binary result, not the same spectrum",
+          "evidence": "L=2 theorem with strict convexity for positive α,μ; larger cycles are excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-optimal-phenotype-mutation-rate-and-its-comparative-stati--d8384d5ac0bd/RESULT.md",
+          "material_read": "Finding, stated parameter scope and limitations",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique optimal phenotype mutation rate and its comparative statics",
+          "trigger": "Distinct indexed theorem with the same uniqueness objective"
+        },
+        {
+          "assessment": "Assigned record itself",
+          "evidence": "Same cycle, fixed μ=1, and degree-ten uniqueness statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-phenotype-mutation-optimum-on-the-four-state-recognitio--d4b65382617c/RESULT.md",
+          "material_read": "Finding and stated assumptions",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique phenotype-mutation optimum on the four-state recognition cycle",
+          "trigger": "Exact indexed theorem hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four sites are the first cyclic phenotype space with two distinct nonzero decay rates. This makes it a natural minimal check of whether the single-rate uniqueness phenomenon survives spectral competition. At the fixed scaled benchmark μ=1 the theorem answers this uniformly in discrimination strength and gives an exact criterion for the unique design point. This is a usable exact classification within the stated abstract model, not a general mutation prescription or a result extrapolated from the example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,14 +21,12 @@
 
 # Reproduction and limits
 
-The package includes a complete standard-library Python 3 verifier, `verify.py`, executed with `python3 verify.py`. Expected output:
+The unchanged standard-library Python 3 verifier `verify.py` can be run with `python3 verify.py` in the source package. Expected output:
 
 ```
 VERIFY_OK rational_identity_cases=7 global_orbit_cases=33 finite_amplitude_reversal=PASS
 ```
 
-Exact rational certificates check the phase ratio and two-cycle equations, the arithmetic-mean formula and its factorized constant-policy comparison for three sign regimes and their degenerate boundary. High-precision decimal trajectories separately test 33 parameter/initial-value combinations, including the persistence boundary and the critical extinction case. This is a finite reproducibility check; the proof of all-parameter convergence relies on the logarithmic-coordinate strict-contraction argument and the extinction monotonicity calculation in `RESULT.md`.
+The rational checks concern the two-cycle equations and the square of the arithmetic mean, including cases of enhancement, suppression and equality. The decimal trajectories are finite corroboration; global convergence and the critical extinction case follow from the proof in RESULT.md. The survival cap at fixed \(R,h\) is not certified by the numerical trajectories. Its exact test is \(h+\delta\le R\), together with \(\delta<\sqrt{h^2-1}\) for persistence.
 
-The two explicit same-mean survival-policy instances are \((7/10,3/10)\) and \((8/10,2/10)\) at \(R=10\); their long-run mean-square abundances are \(2\sqrt5\) and \(2\sqrt{10}-5/2\), respectively, compared with the constant policy's value \(4\). The verifier checks the sign reversal; elementary radical comparisons are exact.
-
-This file records implementation checks and mathematical limits, not an independent external audit or formal certification.
+For the two example policies at \(R=10,h=5\), the squares of their long-run arithmetic means are \(2\sqrt5\) and \(2\sqrt{10}-5/2\), respectively; the square for the constant policy is 4. The verifier checks the sign reversal, which also follows by direct comparison of these radicals.

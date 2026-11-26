@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:35:05.936847Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, compatibility reduction, orbit representatives and witness",
+        "Frozen VERIFICATION.md and verify_overlap.cpp (inspected, not executed)",
+        "Independent full prefix-mask census, orbit check, and pairwise witness check"
+      ],
+      "rationale": "For n>=6 the three-letter endpoint blocks are disjoint, and every cross-prefix/suffix comparison is decided by these blocks, including self-pairs. For the observed prefix set P, the suffix set lies in the full compatible set S(P), so the code is contained in P times the free middle words times S(P). Conversely the full product is admissible. The independent chunked subset-OR census exhausts every one of the 134217728 prefix masks, obtaining product 72 for exactly 42 masks with (prefix size,suffix size) multiplicities (6,12):6, (8,9):15, (9,8):15 and (12,6):6. A maximum code must use the full product; S(P) is nonempty and its code recovers P as the set of actual prefixes, so there are exactly 42 labelled maximum codes at every n>=6. Permuting symbols and reversing words acts on the saturated pairs as stated; an independent check finds disjoint representative orbits of sizes 12,12,12,6 whose union is all 42 maximizing pairs. The proposed size-72 witness passes all 15552 ordered pair/overlap-length comparisons at n=6. The valid reason for that witness is that every forbidden-length prefix starts with 0 and every forbidden-length suffix starts with 1 or 2; different first and last symbols alone would only exclude length one. Replay with python3 /workspace/branches/58b5f690-3f98-400f-a95a-e5adec20c352/census.py (NumPy); equality_pairs.txt in the same directory contains the equality pairs. The finite calculation proves the base problem, and factorization proves the all-length statement.",
+      "residual_risks": [
+        "The witness justification in the frozen text is abbreviated as noted; the choice of suffixes, not merely a difference of initial and terminal symbols, is necessary for that justification. The proof of the extremal census is computational."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older q-ary cardinality bound gives at most 121 at the ternary base case. The improved bound summarized by Stanovnik gives 117 and the primitive-necklace bound 116. The exact general scaling from length 2k leaves S_1^3(3,6) to determine; the exact k=2 result does not decide it."
+        ],
+        "reasoning": "No inspected broader theorem supplies the upper bound of 72 or classifies its equality cases. The full Cai–Wang–Feng paper could not be inspected; this assessment is based on the primary material actually retrieved and the specific secondary descriptions.",
+        "searches": [
+          "Blackburn–Nasr Esfahani–Kreher–Stinson arXiv:2211.10309v4, Section II",
+          "Stanovnik arXiv:2411.02899, improved bound and Proposition 5",
+          "Cai–Wang–Feng DOI:10.1109/TIT.2023.3319010 via lawful OA and descriptions in the accessible related papers"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE overlap-code results 27a92f19f261, 47abd3220a26, 7bf1a47a6de0",
+        "arXiv:2211.10309v4",
+        "arXiv:2411.02899",
+        "Yang–Ding DOI:10.1587/transfun.2025EAL2050",
+        "Cai–Wang–Feng DOI:10.1109/TIT.2023.3319010 (access attempts and secondary comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general reduction mechanically extends a known base optimum by a free middle block. The prior construction specializes to P=I^3, S=Sigma^2 J and gives a genuine equality pair of profile (8,9)."
+        ],
+        "reasoning": "Credit the all-length scaling mechanism and the earlier witness. Neither identifies the base maximum as 72 rather than a larger compatible product, and the prior witness does not imply the other profiles, multiplicities or orbits.",
+        "searches": [
+          "Stanovnik arXiv:2411.02899 reduction to n=2k",
+          "Yang–Ding Construction 3.1, Theorem 3.2 and Corollary 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest returned exact length-one-through-three result 27a92f19f261 treats binary fixed-weight codes. The unrestricted binary result 47abd3220a26 forbids overlaps of lengths one through seven. The ternary exact result 7bf1a47a6de0 also forbids homopolymers and all proper overlaps."
+        ],
+        "reasoning": "Under the exact length reduction, the ternary base value and compatible-pair classification give the claimed invariant at every n>=6. Changing the alphabet, adding a fixed-weight or run restriction, or forbidding further lengths does not preserve that optimization or equality set.",
+        "searches": [
+          "Resultary: ternary (1,3)-overlap-free unrestricted maximum and all-code census",
+          "Restricted-overlap notation S_1^3(3,n), and the length-six base problem in Stanovnik arXiv:2411.02899"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Yang–Ding formula gives 72 times 3^(n-6) for q=t=3, I of size two and J of size one, hence directly covers the attainable size.",
+          "The exact indexed records inspected have different parameters or extra restrictions. Yang–Ding Theorem 5.2 is an upper bound within a restricted construction family under equal partition sizes."
+        ],
+        "reasoning": "The same exact number is already present as a constructed size, not as a global capacity backed by optimality or as a classification of the 42 codes. The restricted upper bound does not apply to the unrestricted ternary problem.",
+        "searches": [
+          "Resultary exact capacity and maximizing-code census for ternary short overlaps",
+          "Yang–Ding, Corollary 4.1 and Section 5 construction-size comparisons"
+        ]
+      },
+      "rationale": "The length reduction and the lower bound of 72 times 3^(n-6) are prior. The supported distinct claims are the matching global upper bound and the complete equality classification for the labelled ternary codes. The closest exact results differ in alphabet, overlap interval or fixed-weight restriction. No inspected general bound forces this optimum, and the exact prior construction gives only some maximum codes.",
+      "residual_risks": [
+        "The highly relevant Cai–Wang–Feng full text could contain an additional q=3,k=3 result omitted by accessible descriptions. The searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound does not settle ternary (1,3)",
+          "evidence": "q^n/(2k), with k<=n/2; at q=3,n=6,k=3 this is 121.5 before taking the integer floor.",
+          "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+          "material_read": "Abstract/introduction and Section II, Theorem 2 (offsets 0 and 4073)",
+          "method": "Targeted OA HTML",
+          "title": "Constructions and Bounds for Codes with Restricted Overlaps",
+          "trigger": "General restricted-overlap framework and bounds"
+        },
+        {
+          "assessment": "Unresolved full-text risk, not evidence of noncoverage",
+          "evidence": "Available descriptions credit q-ary constructions, the improved upper bound and reduction, and exact treatment of k=2, without establishing the k=3 ternary optimum or equality census.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+          "material_read": "Full text not retrieved; secondary comparison in Stanovnik (offset 4194) and Yang–Ding (pp. 757–758)",
+          "method": "Lawful OA DOI attempted, HTTP 202; no repository copy found by recovery",
+          "title": "Constructions and Bounds for q-Ary (1,k)-Overlap-Free Codes",
+          "trigger": "Same q-ary (1,k) family, plausible exact case coverage"
+        },
+        {
+          "assessment": "Exact reduction and relevant non-sharp bounds",
+          "evidence": "The improved bound specializes to 117 and the necklace bound to 116; scaling still needs the exact length-six value.",
+          "identifier_or_url": "https://arxiv.org/html/2411.02899",
+          "material_read": "Previous results (offset 4194) and §3 Prop. 5 (offset 15500)",
+          "method": "Targeted OA HTML",
+          "title": "Codes with Restricted Overlaps: Expandability, Constructions, and Bounds",
+          "trigger": "Possible exact stronger coverage through bounds or reduction"
+        },
+        {
+          "assessment": "Prior lower bound and one family of equality codes, not a global upper bound or census",
+          "evidence": "Specialization gives 8·1·9·3^(n-6), while the restricted-family upper bound assumes equal partition sizes.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/E109.A/3/E109.A_2025EAL2050/_pdf",
+          "material_read": "Construction 3.1 and Thm. 3.2 pp. 758–759; Cor. 4.1 p. 759; Thm. 5.2 pp. 760–761 and conclusion",
+          "method": "Targeted OA journal PDF",
+          "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+          "trigger": "Exact matching size in a construction"
+        },
+        {
+          "assessment": "Different optimization domains",
+          "evidence": "Binary fixed weight with lengths 1–3; binary unrestricted with lengths 1–7; ternary homopolymer-free codes with all proper overlaps forbidden, respectively.",
+          "identifier_or_url": "27a92f19f261; 47abd3220a26; 7bf1a47a6de0",
+          "material_read": "Findings and scopes of the three local records",
+          "method": "Configured local Resultary index and mirror",
+          "title": "Closest indexed exact overlap-code results",
+          "trigger": "Exact codes with similar overlap lengths or same alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and independent equality census",
+        "Stanovnik, bound and length reduction",
+        "Yang–Ding Corollary 4.1"
+      ],
+      "rationale": "The first short-overlap parameter beyond the exact k=2 result gives a natural ternary base capacity problem. The prior construction provides a concrete extremal candidate and the inspected general bounds are looser; the unrestricted upper bound closes that gap. A complete equality classification distinguishes inequivalent optimal constructions that the size alone could not identify, and applies at every length of the factorization, rather than just to a single small codebook.",
+      "residual_risks": [
+        "The outside-parameter cases and a non-enumerative proof of the upper bound are not supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

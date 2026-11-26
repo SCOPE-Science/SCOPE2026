@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:59:56.764231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59, verification implementations and recorded reference outputs inspected",
+        "Independent replay: python3 /workspace/branches/reproduction/review_pappus.py forcing; review_pappus_forcing.out in the same directory"
+      ],
+      "rationale": "For two perfect matchings, a selected edge distinguishes them exactly when it belongs to their symmetric difference. Each component of that difference is an alternating even cycle whose vertex complement is matched, so hitting every nice cycle suffices. Conversely the two alternating halves of a nice cycle extend by the same complementary matching, so each such cycle must be hit. I checked the explicit affine-to-LCF isomorphism on the complete edge sets. In the LCF graph I independently enumerated simple cycles by paths with fixed least vertex, deduplicated by edge mask, and used an exact cached complementary perfect-matching recursion. This gives 42 matchings and 603 nice cycles with all six stated length counts. Filtering the complete size-eight and size-nine mask families by the nice cycles gives 0 and 13,608 hits; monotonicity excludes every smaller size. Indexing nine-masks by eight-edge cores constructs every one-replacement edge and gives the exact degree histogram, 104,490 edges, and one component of size 12,636 and 108 of size nine. For each small component I verified an explicit grid characterization: its triangles partition into rows and columns intersecting at singletons, and edges are exactly pairs sharing a coordinate. Seven-edge core matches to the giant certify a two-replacement bridge from every small component (eight-edge overlap is impossible across one-replacement components). The threshold is therefore exactly two.",
+      "residual_risks": [
+        "Exhaustive for one labelled Pappus graph, not a result for general incidence graphs. No formal verification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lower bound ceil(log₂ K(G)) and cyclomatic upper bound |E|−|V|+1 give only 6≤gf(P)≤10.",
+          "The directly identified 2007 grid-graph PDF was fetched but not readable in extraction; the comparison of the general statements uses the readable survey. The focused literature search service was unavailable and provides no negative evidence."
+        ],
+        "reasoning": "Even the exact 42-matching count with these bounds cannot imply gf(P)=9. Grid-graph scope is not used to draw an uninspected conclusion about that paper's full text.",
+        "searches": [
+          "Che–Chen §5.1 general global-forcing bounds; Vukičević–Došlić grid-graph paper",
+          "Primary search: Pappus graph, global forcing number or total forcing, nice cycles and 13608"
+        ]
+      },
+      "checked_sources": [
+        "Che–Chen survey §5.1; AJC grid-graph PDF access attempt",
+        "Resultary 5f94616aae5d, 157dc0be9f8c, b52665049fe7, c2babc0f2d15",
+        "Frozen records 4 and 5, Findings and object definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pappus flip findings provide the already-known 42 perfect matchings and the geometry under selected cycle flips. Their six-cycle and through-eight-cycle moves do not classify the exact optimum hitting sets of all nice cycles, including lengths 10 through 18.",
+          "The same-day Pappus perfect-matching Walsh record has counting convolution by the matching vectors; its absolute spectrum is not an edge-signature injectivity classification or optimum reconfiguration theorem."
+        ],
+        "reasoning": "Obtaining the census requires labelled matching disagreements and a separate transversal optimization and exchange calculation. None of the inspected exact invariants by itself supplies the result by a parameter substitution or yields the rook-component decomposition.",
+        "searches": [
+          "Che–Chen §5.1 and Resultary Pappus alternating-cycle classifications 157dc0be9f8c and b52665049fe7; same-day c2babc0f2d15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Che–Chen §5.1 gives separation of all perfect matchings and the characterization by hitting nice cycles. Both are mathematically the same optimization as in the frozen record; neither is credited as new.",
+          "The inspected Pappus flip records 157dc0be9f8c and b52665049fe7 organize matchings by alternating-cycle moves, not separating edge sets by replacements."
+        ],
+        "reasoning": "The transversal equivalence changes the representation of the optimization but supplies no transversal number or count; alternating-cycle flips on matchings do not induce the claimed exchange graph on optimum transversals.",
+        "searches": [
+          "Resultary: Pappus global/total perfect-matching forcing, nice/alternating cycle transversals, optimal exchanges",
+          "Che–Chen survey §5.1, total/global forcing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5f94616aae5d gives global forcing number 7 and 8064 optima for Heawood. The two Pappus flip records use a 42-matching state space. The distinct same-day record c2babc0f2d15 has 36 minimum maximal matching states and an exchange threshold of three."
+        ],
+        "reasoning": "None of the matched tables is on the 13,608 optimal separating subsets; a threshold on another state space with the same graph is not equivalent.",
+        "searches": [
+          "Resultary exact forcing numbers and exchange counts for Pappus or neighboring cubic incidence graphs; hits 5f94616aae5d, 157dc0be9f8c, b52665049fe7, c2babc0f2d15"
+        ]
+      },
+      "rationale": "The forcing criterion and its nice-cycle formulation are prior general theory. The distinct bounded contribution is the exact Pappus optimum and the geometry of all optimal observation sets. The general bounds underdetermine the optimum and provide no exchange census. The closest inspected Pappus exchange computations use either perfect matchings or minimum maximal matchings as states, not optimal forcing sets; the analogous global-forcing census for Heawood concerns a different graph. No inspected statement or implication supplies the Pappus census. This is not a claim of historical priority.",
+      "residual_risks": [
+        "The original 2007 PDF comparison was limited by extraction; the focused literature lookup was unavailable. Unindexed exact computations remain possible. Neither limit is evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general formulation and bounds, not a Pappus optimum census",
+          "evidence": "The information lower and cyclomatic upper bounds specialize to six and ten; the nice-cycle characterization specifies the exact optimization.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match66/n1/match66n1_93-136.pdf",
+          "material_read": "§5.1, printed pp. 125–126, PDF text offsets 65500–69988",
+          "method": "OA full-text passage",
+          "title": "Forcing on Perfect Matchings – A Survey",
+          "trigger": "General total/global-forcing characterization and dominating bounds"
+        },
+        {
+          "assessment": "Residual direct full-text limit",
+          "evidence": "The readable survey supplies the globally forcing terminology and characterization; no full-document conclusion is drawn from the unusable extraction.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/38/ajc_v38_p047.pdf",
+          "material_read": "Identified direct PDF and inspected extraction, which was corrupted; relevant general results read in the survey, not this PDF",
+          "method": "Lawful OA retrieval and readable survey comparison",
+          "title": "Global forcing number of grid graphs",
+          "trigger": "Foundational direct literature on the invariant"
+        },
+        {
+          "assessment": "Same invariant, different graph",
+          "evidence": "Heawood has minimum seven and 8064 labelled optima.",
+          "identifier_or_url": "2026/10/13/SCOPE-global-perfect-matching-forcing-in-the-heawood-graph-seven-edges--5f94616aae5d",
+          "material_read": "Finding and graph scope",
+          "method": "Local Resultary mirror",
+          "title": "Global perfect-matching forcing in the Heawood graph: seven edges",
+          "trigger": "Exact count of optimal globally forcing sets in a nearby incidence graph"
+        },
+        {
+          "assessment": "Different state space and move rule",
+          "evidence": "The 42 states are perfect matchings, with transitions by six-cycle flips.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-pappus-perfect-matching-hexagon-flip-graph-is-two-alternatin--157dc0be9f8c",
+          "material_read": "Finding and move definition",
+          "method": "Local Resultary mirror",
+          "title": "The Pappus perfect-matching hexagon-flip graph is two alternating hexagon triangles",
+          "trigger": "Same graph, exact matching and exchange classification"
+        },
+        {
+          "assessment": "Matching flip dynamics, not optimal forcing sets",
+          "evidence": "The edges encode alternating-cycle flips through cycles of length at most eight.",
+          "identifier_or_url": "2026/11/2/SCOPE-hexagon-parity-and-octagon-mobility-in-pappus-perfect-matchings--b52665049fe7",
+          "material_read": "Finding and scope of permitted moves",
+          "method": "Local Resultary mirror",
+          "title": "Hexagon parity and octagon mobility in Pappus perfect matchings",
+          "trigger": "Pappus cycles and exchange thresholds"
+        },
+        {
+          "assessment": "The apparent exchange overlap is not equivalent",
+          "evidence": "The 36 states are minimum maximal matchings and the sharp threshold there is three, not an exchange classification for global-forcing optima.",
+          "identifier_or_url": "2026/11/22/SCOPE-affine-triangles-and-a-sharp-three-edge-exchange-threshold-for-p--c2babc0f2d15",
+          "material_read": "Finding and state-space definition",
+          "method": "Local Resultary mirror",
+          "title": "Affine triangles and a sharp three-edge exchange threshold for Pappus matching states",
+          "trigger": "Distinct same-day exact exchange classification on Pappus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof, independent solution and exchange census",
+        "Che–Chen §5.1 for the comparison bounds"
+      ],
+      "rationale": "The exact number of membership observations needed to distinguish all matchings on this classical cubic incidence graph is a well-motivated invariant between nonmatching generic bounds. The result goes beyond the scalar optimum: 108 isolated rook components and one giant contrast sharply with connectivity under two simultaneous replacements. This quantifies how freely optimal measurement sets can be modified at fixed cost, and the nice-cycle census gives an independent transversal interpretation. These fixed-graph data are useful for comparing observation and reconfiguration behavior, not a generic computation on an arbitrary small graph.",
+      "residual_risks": [
+        "The motivation and conclusion are fixed-graph; no general threshold or family law is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

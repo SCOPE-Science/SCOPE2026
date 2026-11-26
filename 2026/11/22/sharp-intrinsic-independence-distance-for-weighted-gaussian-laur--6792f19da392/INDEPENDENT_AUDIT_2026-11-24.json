@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:06:49.966183Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof at RESULT.md line 50 had an incorrect nonzero covariance prefactor. Write p=q² and J=(p;p)_∞. The published theta omits the factor J, while the frozen displayed theta includes it. Translating Eq. (2.30) to that convention requires J³/θ(−r;p), not J²/θ(−r;p). Independently, as u→1 from below, (1−u) times the defining Laurent sum tends to 1 (the positive-tail coefficient differs from 1 by a summable correction, and the negative tail stays bounded); θ(u;p)/(1−u)→J³, also forcing the corrected factor. A separately written 65-digit check at p=.09,r=.5,u=.4 gave a series–product residual below 10⁻⁶³ with the corrected prefactor, versus about −0.19858 as printed. Complete corrected RESULTS and self-review files are in /workspace/repairs/2/ (RESULT.md and REVIEW.md); the Finding is unchanged. In the repaired proof, the numerator zeros are exactly −ru=p^k with boundary products excluded; for nonintegral ξ the only admissible k is ceil ξ. Proper Gaussianity makes covariance zero equivalent to independence. Lift to the log strip, map it by exp(iπ(w+L)/L) to the upper half-plane, and minimize over deck lifts; the cosh formula increases in the magnitude of the lifted angular displacement, giving ±π for these product pairs. At fixed mean angle θ0=π{ξ}, letting b=sin²t measure radial imbalance gives cosh d=1+(cosh(π²/L)−1+2b)/(sin²θ0−b), strictly increasing on the admissible domain. Thus b=0 is the unique radial configuration, giving the orbit and exact arsinh distance. The core length is 2π²/L by the strip metric on its central geodesic, yielding the sharp half-length bound; at exceptional weights there is no pair, and sin(π{ξ})=sin(πh/(2L)) gives the stated divergence constant. Replay: repaired RESULT.md lines 41–83; arXiv:2008.04177v3 Eqs. (2.10)–(2.12), (2.30), Lemma 2.3. The supplied checker was inspected, not executed and does not test the normalization identity; the finite independent check only corroborates the analytical correction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (38) of the weighted product gives the same zero factors; its accompanying Theorem 3, read literally, contains a narrower weight statement not used in the repair. The all-weight inputs are secured instead by the Katori–Shirai quotient and lemma.",
+          "The 2023 original abstract describes using conformal mapping to evaluate Szegő zeros on general smooth doubly connected regions; this is about locating the zeros, not an advertised theorem minimizing the intrinsic distance of the pair."
+        ],
+        "reasoning": "General zero evaluation can cover the zero input without covering the fixed-product geodesic optimization. No full-text exclusion is inferred for the 2023 article.",
+        "searches": [
+          "arXiv:2202.09114 §5 Eq. (38) and Theorem 3",
+          "doi:10.3934/math.2023607, weighted Szegő zeros on doubly connected regions through conformal mapping",
+          "Resultary: annular kernel powers, real critical-point orbits and boundary zero for a different weight"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.04177v3",
+        "arXiv:2202.09114 and identified journal DOI 10.1155/2022/3763450",
+        "doi:10.3934/math.2023607 abstract",
+        "Resultary c551782d30c5, f5a0daa8d9a7 and identical-record hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior special pairing w=−q/z̄ admits unequal radii and does not supply its shortest orbit or the sharp lower bound. Even at r=q the sharp config requires the core geometry; general weights force the average strip latitude away from the core.",
+          "The prior products prescribe the sum of strip latitudes, not the minimizing split. The quotient-distance calculation and its strict imbalance monotonicity resolve this remaining joint constraint, yielding the all-weight shortening, equality and singular profile."
+        ],
+        "reasoning": "The strip metric and theta inputs are classical; the surviving claim is an explicit sharp geometric optimization with a complete weight law, not an immediate fine normalization or rewording of an exact prior distance formula.",
+        "searches": [
+          "arXiv:2008.04177v3 Proposition 2.4 and Lemma 2.3",
+          "arXiv:2202.09114 Eq. (38)",
+          "doi:10.3934/math.2023607, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this proper Gaussian field independence is orthogonality of evaluation kernels. The prior kernel zeros already classify their products and which weights admit pairs; at r=q the prior pairing w=−q/z̄ is explicitly independent.",
+          "A minimum of the curvature −1 geodesic distance over both radii and all viable antipodal-angle pairs is not the same output as finding their product or selecting a partner at one given radius."
+        ],
+        "reasoning": "Under this equivalence, all zero-set results are credited as prior. The new geometric quantity still requires optimizing the complete quotient metric over the full radial family.",
+        "searches": [
+          "arXiv:2008.04177v3 Eqs. (1.6), (1.18), (2.30), Lemma 2.3 and Proposition 2.4",
+          "Resultary: intrinsic hyperbolic distance of independent annular Gaussian Laurent evaluations, weighted Szegő covariance zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is this same assigned record. The distinct c551782d30c5 concerns derivative critical points, and f5a0daa8d9a7 a boundary zero of a different positive annular weight; neither available indexed claim calculates an interior all-weight intrinsic minimum.",
+          "No separate exact table for the continuous distance profile was identified in these bounded comparisons."
+        ],
+        "reasoning": "Matching keywords and the frozen record's own catalogue entry are not independent coverage; the related indexed statements are compared, not rejected by date.",
+        "searches": [
+          "Resultary: exact minimum Poincaré separation of independent weighted annular Gaussian evaluations, antipodal equal-radius extremizers",
+          "Resultary: annular Szegő critical points and weighted boundary zeros"
+        ]
+      },
+      "rationale": "Reassessed the unchanged distance claim and corrected normalization/attribution. Only the sharp intrinsic geodesic minimization and resulting all-weight quantitative distance law are credited, not the covariance formula, zero products, existence or nonexistence of independent pairs, or the special conformally invariant pairing.",
+      "residual_risks": [
+        "The 2023 article was not inspected in full and the nearby indexed statements were not available in full mirror text. The assessment is bounded and not a historical-priority guarantee.",
+        "The geometry step is elementary once posed; originality is limited to the precise motivated minimum and weight law, not classical strip or Szegő identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the kernel and product-zero classification, and the r=q independent-pair correspondence, not the asserted shortest-distance optimization in the inspected passages",
+          "evidence": [
+            "The source theta omits J, the source numerator coefficient is J² with its own theta convention, and the zeros have −ru=p^k. Proposition 2.4 identifies the r=q partner −q/z̄."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2008.04177v3",
+          "material_read": "arXiv v3 §§1.1, 2.2–2.3, Eqs. (1.6), (1.18), (2.10)–(2.12), (2.16), (2.30), Lemma 2.3 and Proposition 2.4",
+          "method": "Primary arXiv equation-level passage comparison and independent one-sided pole check",
+          "title": "Zeros of the i.i.d. Gaussian Laurent series on an annulus: weighted Szegő kernels and permanental-determinantal point processes",
+          "trigger": "Identical field, covariance and independence pair input"
+        },
+        {
+          "assessment": "Same factors; narrower adjacent theorem language not needed. No distance minimization in those passages",
+          "evidence": [
+            "The product contains (1+t ā z ρ^{2n})(ā z+ρ^{2n+2}/t), which together give ā z=−ρ^{2k}/t. At ρ=1/2,t=3,a=3/5,z=−5/9 the first n=0 factor is zero with neither argument on the boundary, so a narrower global weight claim cannot be used without additional qualifications."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.09114",
+          "material_read": "arXiv original §5 Eq. (38) and adjacent Theorem 3; journal DOI 10.1155/2022/3763450 not independently compared at equation level",
+          "method": "Direct arXiv passages, compared numerator factors and conventions",
+          "title": "Infinite Product Representation for the Szegö Kernel for an Annulus",
+          "trigger": "Direct weighted annular kernel comparator"
+        },
+        {
+          "assessment": "Abstract advertises zero formulas, not evaluation-independence distance; full-text overlap remains unverified",
+          "evidence": [
+            "AIMS Mathematics 8(5), pp. 12040–12061: abstract says the annular zero formula is known and describes obtaining zeros for smooth doubly connected regions."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2023607",
+          "material_read": "Original publisher abstract; full-body retrieval unsuccessful",
+          "method": "Lawful publisher/open retrieval attempts and stated-scope comparison",
+          "title": "Computing the zeros of the Szegö kernel for doubly connected regions using conformal mapping",
+          "trigger": "Closest further paper on same zero locations and generalized domains"
+        },
+        {
+          "assessment": "Derivative critical points rather than pair orthogonality and intrinsic-distance minimization",
+          "evidence": [
+            "Its two orbits are critical-point orbits of the kernel, not minimizing radii on the covariance-zero locus."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-real-critical-point-orbits-of-weighted-annular-szeg-kernels--c551782d30c5",
+          "material_read": "Indexed scientific statement; local mirror timed out",
+          "method": "Resultary indexed-claim comparison",
+          "title": "Two real critical-point orbits of weighted annular Szegő kernels",
+          "trigger": "Closest retrieved distinct same-kernel indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reassessed after the normalization repair: the smallest separation for exact independent sampling is a natural invariant of this weighted Gaussian field, and the full optimized formula gives information the already-known existence/product locus alone does not supply. It identifies the unique rotating configuration, the sharp relation to the geometric core, and the scale and constant of divergence when independence becomes impossible. This has use as an exact design constraint for the given field and metric, not as a broader mixing or zero-process theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:54:38.737967Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–68",
+        "Frozen verify.py, lines 11–93, inspected only",
+        "Independent central derivative integral on both sign-changing branches"
+      ],
+      "rationale": "Finite discrete variation makes the sequence a uniformly convergent superposition of translated unit steps plus its left limit. The derivative of the reconstruction is the same translated sum in L¹ because the unit-step derivative is compactly supported; hence its L¹ norm is exactly the sharp induced norm, attained by a single step. Each side cell has one hump of magnitude 4|λ|/27 and equal endpoint values, giving 16|λ|/27 in total. With z=2t−1, the central derivative is (3−λ)/2+3(λ−1)z²/2 and its signed integral is one. For λ<0 its positive arc has integral (3−λ)q/3, where q²=(3−λ)/(3(1−λ)), giving J=2(3−λ)q/3−1. For λ>3 the negative central arc has absolute integral (λ−3)q/3, giving J=1+2(λ−3)q/3. In between the derivative is nonnegative; λ=0 has endpoint zeros and λ=3 a double midpoint zero. This checks the fractional-power excess and both endpoints. Since J≥1 and the side contribution vanishes only at λ=0, that is the only nonexpansive member. The Hermite slopes reproduce nonconstant affine data exactly only at λ=1/2, where the norm is 35/27.",
+      "residual_risks": [
+        "No finite-grid boundary closure is analyzed. The smoothness excess at λ=3 has exponent 3/2, not a breakpoint at 3/2. The uploaded finite test was not replayed and is not needed for the analytic result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Park–Schowengerdt's readable abstract treats the full one-parameter family with frequency-domain reconstruction tradeoffs",
+          "This step's normalized Hermite slopes lie on the equal-slope line (λ,λ). Classical monotonicity conditions concern the sign of the central derivative. Even complete knowledge of that sign interval does not give the side-lobe size or the absolute area on the nonmonotone branches."
+        ],
+        "reasoning": "An equal-slope specialization explains the geometric threshold but is not a stronger result about this induced norm. The full texts of the two closest historical sources were not available on the attempted routes; no document-wide negative inference is made from excerpts.",
+        "searches": [
+          "Park–Schowengerdt, NTRS 19830065032 and DOI 10.1016/0734-189X(83)90026-9",
+          "Primary lookup for Fritsch–Carlson 1980 monotonicity conditions, DOI 10.1137/0717021"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a05ba9fbfd74",
+        "Keys 1981, public PDF pp. 1153–1154",
+        "Meijering–Unser 2003, public PDF p. 477",
+        "NTRS 19830065032 (abstract)",
+        "DOIs 10.1016/0734-189X(83)90026-9 and 10.1137/0717021 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier comparator already uses the translated step and two outer lobes at λ=1/2, with a monotone central interval",
+          "Outside the monotone branch the derivative has two interior zeros and the signed area on the arc between them must be integrated with the correct sign; at λ>3 this yields the explicit (λ−3)^(3/2) excess over the affine branch"
+        ],
+        "reasoning": "The old step-reduction mechanism and the central monotonicity condition are ingredients, but neither already evaluates the induced norm on the sign-changing branches or gives the full parameter phase diagram as a special case.",
+        "searches": [
+          "Resultary a05ba9fbfd74, mirrored RESULT.md around offset 4300",
+          "Keys (1981) pp. 1153–1154 and Meijering–Unser (2003) p. 477",
+          "Fritsch–Carlson 1980 monotone Hermite comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keys' four-tap kernel convention uses parameter a=−λ, verified from the derivative at the neighboring knots",
+          "Meijering–Unser identify the third-order Keys kernel with the Catmull–Rom/osculatory construction; this overlaps the λ=1/2 method, not the whole TV law"
+        ],
+        "reasoning": "The operator is classical under those parameter and interpolation aliases. The norm compares continuous output variation with discrete input variation; it is not the reconstruction order, ordinary sup norm, or a pointwise range envelope.",
+        "searches": [
+          "Resultary all-parameter cubic convolution interpolation and sharp discrete-to-continuous TV gain",
+          "Keys (1981), public PDF pp. 1153–1154",
+          "Primary lookup: Keys cubic convolution parametric cubic Hermite monotonicity unit step response total variation amplification overshoot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier record a05ba9fbfd74 explicitly gives the four-tap comparator at slopes (y_(j+1)−y_(j−1))/2 with sharp norm 35/27",
+          "The identical all-parameter hit c6616c0111cd is the assigned record itself"
+        ],
+        "reasoning": "The precise standard-parameter entry is already covered, not a novelty claim; a fixed four-tap comparator does not determine the norm at other values.",
+        "searches": [
+          "Resultary a05ba9fbfd74 and cubic convolution exact TV gain",
+          "Resultary search for 35/27 and arbitrary interpolation parameter"
+        ]
+      },
+      "rationale": "The kernel family, standard parameter, classical Hermite monotonicity mechanism, and sharp 35/27 special case are prior inputs. Credit the exact induced variation norm jointly across all real parameters, including the sign-changing branches, and the resulting quantitative excess beyond the threshold. No inspected source gives that full norm or an equivalent all-parameter induced-gain evaluation. The central sign interval alone is not credited as new.",
+      "residual_risks": [
+        "Full article texts of Park–Schowengerdt and Fritsch–Carlson were not read on the attempted routes. A historical equivalent all-parameter step-variation or induced-norm statement could change the assessment if located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special case; different parameter scope",
+          "evidence": "At slopes (y_(j+1)−y_(j−1))/2 the unit-step central cell is monotone and the two outside lobes give the sharp total 35/27.",
+          "identifier_or_url": "a05ba9fbfd74",
+          "material_read": "Mirrored RESULT.md, four-tap comparator at offset about 4300",
+          "method": "Local primary text",
+          "title": "Sharp bounded-variation cost of fourth-order Keys cubic convolution",
+          "trigger": "Exact prior norm for the standard four-tap comparator"
+        },
+        {
+          "assessment": "Exact kernel overlap, not an induced TV assertion in inspected passages",
+          "evidence": "Support (−2,2) gives four samples; u′(1)=a yields the Hermite slope −a(y_(i+1)−y_(i−1)).",
+          "identifier_or_url": "https://ncorr.com/download/publications/keysbicubic.pdf",
+          "material_read": "Printed pp. 1153–1154, offsets about 4100 and 9100",
+          "method": "Public PDF text",
+          "title": "Cubic Convolution Interpolation for Digital Image Processing",
+          "trigger": "Original kernel and sign convention"
+        },
+        {
+          "assessment": "Historical kernel equivalence, different question",
+          "evidence": "The third-order Keys kernel is identified with Catmull–Rom and related to earlier osculatory interpolation.",
+          "identifier_or_url": "https://bigwww.epfl.ch/publications/meijering0301.pdf",
+          "material_read": "Page 477, offset about 1700",
+          "method": "Public PDF text",
+          "title": "A Note on Cubic Convolution Interpolation",
+          "trigger": "Osculatory and Catmull–Rom equivalent formulations"
+        },
+        {
+          "assessment": "Frequency-domain abstract only; full-text overlap unresolved",
+          "evidence": "NTRS shows no download, and the identified publisher path returned HTTP 403. The abstract concerns optimizing the parameter for frequency content.",
+          "identifier_or_url": "https://ntrs.nasa.gov/citations/19830065032",
+          "material_read": "NTRS abstract around offset 250; no available full text on the attempted routes",
+          "method": "Public bibliographic abstract; bounded publisher retrieval",
+          "title": "Image Reconstruction by Parametric Cubic Convolution",
+          "trigger": "Same parametric family and plausible reconstruction tradeoff coverage"
+        },
+        {
+          "assessment": "Related central-cell monotonicity, no whole-document conclusion",
+          "evidence": "Publisher returned HTTP 403; the alternate did not load. The equal-slope sign restriction was verified independently from the derivative, not inferred from those access attempts.",
+          "identifier_or_url": "https://doi.org/10.1137/0717021",
+          "material_read": "Bibliographic identity only; full text not read",
+          "method": "Publisher and identified bibliographic alternate attempted",
+          "title": "Monotone Piecewise Cubic Interpolation",
+          "trigger": "Classical monotone Hermite segment conditions include the equal-slope line used here"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Keys (1981), parameter family",
+        "Resultary a05ba9fbfd74 for the separate known standard-parameter value"
+      ],
+      "rationale": "The exact variation cost is a natural stability criterion for the classical cardinal four-tap family. The parameter law quantifies all signs and the change beyond the central double-zero threshold. It also resolves a structural tradeoff: the only nonexpansive parameter loses affine reproduction, whereas the uniquely affine-reproducing one has a strict cost. The claim is useful as an interpolation stability benchmark, not as a new interpolation method or a re-report of the standard-parameter value.",
+      "residual_risks": [
+        "No inference is made about image-grid boundary handling, nonuniform knots or multivariate TV."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem states its exact good-characteristic, coprime-degree and normalization hypotheses. The proof derives all geometric affine singularities from separable Chebyshev critical points, gives a complete two-preimage label for each node, and computes Frobenius as multiplication by \(q\) on the primitive \(2mn\)-th-root indices. A branch exchange acts by inversion on the node torus, so the signed cycle decomposition yields the asserted **integral** Weil-restriction and norm-one factors. The unique branch at infinity is unipotent and creates no missing torus factor. Normalization corrections yield the stated extension-field point counts and zeta function. Exact checks independently evaluated 1,471 arithmetic label configurations, 498 direct prime-field curve counts and 162 direct quadratic-field counts. No finite computation is substituted for the universal proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest comparison is the published 2026 signed-residue Chebyshev zeta theorem. Its two simultaneous congruence assumptions imply fixed nodes and a uniform sign, whereas the present theorem treats every unit residue modulo \(2mn\), including mixed signed cycles of different lengths, and additionally identifies the maximal Picard torus integrally. In particular \((m,n,q)=(3,8,7)\) is genuinely outside those assumptions and has length-two positive orbits alongside three negative fixed nodes. Koseleff–Pecker and Freudenburg–Freudenburg establish the same rational parametrized geometry and node pairs, not the finite-field general Galois action. Dimca–Sticlaru's equal-degree, reducible Chebyshev arrangements concern different objects. The separately inspected complex-dual and real-chamber results do not imply the arithmetic classification. Priority remains vulnerable to unindexed arithmetic treatments of Chebyshev diagram curves; this is not an independent literature certification.
+PASS
 
-## Mathematical value — PASS
-The exact arithmetic isomorphism type of the maximal connected Picard torus is a natural integral invariant of these maximally nodal rational plane curves. It is stronger than computing rational Frobenius eigenvalues and extends previously known zeta formulas across an infinite class of previously excluded residue types. The natural small example \((3,8,7)\) shows nonuniform node splitting and yields a torus with both norm-one and induced split factors. The result is a general classification, not an arbitrarily chosen point count.
+The degrees of the two polynomial maps from the parameter line are m and n, so the intermediate function field has index dividing gcd(m,n)=1. Integrality of the parameter and the degree-m minimal relation then give the asserted affine normalization. In the stated characteristics the distinct Chebyshev critical points with the same critical value give exactly (m-1)(n-1)/2 nodes with nonsingular quadratic tangent cones. I checked label completeness directly: for any 1<=a<mn divisible by neither m nor n, choose k,l in the specified ranges with A=kn+lm congruent to a modulo mn. Either A represents a modulo 2mn or the B-label with k replaced by m-k does, because that label is A-mn. Conversely the proposed branches are different modulo sign, have the same image, and their indices are divisible by neither m nor n, so neither image coordinate is an endpoint and both are critical. The free involution (k,l)->(m-k,n-l) duplicates the unordered pairs; the preimage count proves there are no further identifications. Frobenius powers the roots of unity, and the nodal factor is the integral branch-ratio torus, with inversion exactly for a swap. The conductor unit quotient at the unique geometric branch at infinity has no torus, since the residue-unit factors cancel and only principal-unit quotients remain; Pic^0 of the normalization is zero. Positive and negative signed cycles give respectively the induced trivial and quadratic-sign integral lattices, not just rational factors. The normalization correction per rational node is 1 minus its number of rational preimages, which gives the signs in the point counts and both zeta formulas. Independent finite-field enumeration of the worked example returned 10 and 42 points and confirmed the seven distinct labeled nodes and signed orbit types. Replay: /workspace/branches/059122b1-fdb5-44ae-9859-01941256b9a8/independent_check.py and independent_check_output.txt in the same directory. The example does not prove the uniform statement; the geometric and lattice argument does. The frozen checker was inspected, not executed.
 
-## Limitations
-The result does not cover \(p\mid2mn\), noncoprime degrees, or the unipotent structure of the infinity cusp. Historical priority cannot be guaranteed from targeted source inspections alone. The work has no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known parametrization and even the explicit geometric branch pairs, and credit the earlier exact zeta in the simultaneous signed subfamily. The independently supported distinction is the arithmetic signed-orbit computation on the paired branches for every unit residue and its integral descent to an explicit product of tori. The latter does not follow from a zeta polynomial or a point order. The standard local nodal torus construction and root-of-unity powering are inputs, not themselves attributed discoveries. No inspected result gives the all-residue paired-branch arithmetic together with the resulting torus; the example shows concrete scope beyond the closest earlier zeta formula.
+
+## value
+
+PASS
+
+The precise integral isomorphism class of this natural generalized Jacobian torus, together with all extension-field counts, is finer than the known geometry, a single point count, or an isogeny class. The nonsigned example demonstrates the need for the extension by exhibiting both branch exchange and nontrivial node orbits. The result gives an exact arithmetic invariant uniformly without factorization, rather than an isolated parameter computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

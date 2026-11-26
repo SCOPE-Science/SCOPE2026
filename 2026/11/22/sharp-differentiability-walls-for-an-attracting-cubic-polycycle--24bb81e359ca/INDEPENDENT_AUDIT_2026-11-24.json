@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:19:51.520882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking radial and angular components gives (2) and, for V=r^2 and z=cos(2θ), the linear ODE (3). The unique solution bounded at z=1 has integrating factor M=(1-z)^β(1+z)^(-α) and is (4); the homogeneous term 1/M diverges at the horizontal saddle. Its positive analytic expansion at that saddle follows by integrating the convergent series in 1-z term by term, since β>0. The axes contain the two saddles and two sinks with the claimed eigenvalues. Each open sector has monotonically moving angle, from its horizontal boundary toward its vertical one. Compact invariant circles surrounding the origin must use this bounded radial solution on every open sector; on each axis only its nonzero equilibrium has a full orbit in a compact annulus. Logistic radial bounds give an eventual compact annulus for every nonzero orbit. Hence angles tend to the vertical sink in open sectors, radial variables converge to the matching equilibrium by trapping with the limiting radial coefficient, and axial trajectories tend to axial equilibria. Attraction here is of the punctured plane; the repelling equilibrium itself stays at the origin. For the regularity, subtraction of E=(1+εz)^(-1) gives (5), with strictly positive integrand. Put t=1+z and q=1-ε. The weighted integrand near v=0 is v^(-α) times an analytic function of v with value ε2^β/q². Integration gives a nonzero t^α term for 0<α<1, a nonzero t log(1/t) term for α=1, and a forced linear defect -εt/[q²(α-1)] for α>1. For α>1 the Taylor-integrated remainder consists of higher analytic powers and order t^α terms (t^α log t at integer resonance), with corresponding derivative bounds. Combining with E and t=2sin²u gives the three stated radial constants and the differentiated limits. For 2α<1 the normalized secants to the sink from the two arcs approach the same inward radial ray, inconsistent with a regular C¹ curve; at 2α=1 they give a corner. Above 2α=1 the tangent is transverse to the radial direction, making x a regular local coordinate. The curvature obstruction for 1<2α<=2 is then intrinsic, with logarithmic divergence at 2α=2. Replay: python3 /workspace/branches/independent_checks.py 3 (mpmath), independent differentiated endpoint diagnostics at ε=0.4 and α=0.3,0.5,1,1.5. The analytic argument, not the finite quadrature or the frozen checker, proves sharpness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison attributes existence and topological classification of attracting circles for contracting homogeneous star-node fields to Alarcón–Castro–Labouriau, and recounts a separate nonsmooth quintic example from Llibre–Zhang.",
+          "The indexed angular return/Floquet result assumes nonvanishing angular drift, but here θ'=ωr²sin(2θ) vanishes on the four rays."
+        ],
+        "reasoning": "Neither a topological classification, a different nonsmooth example, nor a rotating-cycle return theorem yields two exact geometric walls within one pinned phase. Sufficient spectral smoothness criteria would not themselves establish a nonzero globally matched defect or failure at equality.",
+        "searches": [
+          "Alarcón–Castro–Labouriau DOI 10.1007/s40687-024-00427-0",
+          "Llibre–Zhang DOI 10.1007/s00010-026-01298-2",
+          "Baigent DOI 10.1017/S0013091510000684",
+          "Resultary 7c00337eaa41"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and star_node_cusp_verify.py",
+        "Resultary 24bb81e359ca, 7c00337eaa41, ca713ddee5f9, 677c44b6c037, b6a9712d7f01",
+        "Academic source IDs and available material listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eigenvalue ratio identifies the candidate exponent but the positive global integral matches at the other endpoint and rules out cancellation; it also handles the resonant log coefficient.",
+          "At ε=0, explicitly excluded, the very same spectral walls would predict a loss that does not occur: the invariant circle is smooth for all ω."
+        ],
+        "reasoning": "A prediction of exponent, a one-sided shape result, or general existence does not imply necessity or the strict boundary values. The distinct claim is an actual noncancellation and embedding theorem with explicit constants, not merely the application of a known exponent formula.",
+        "searches": [
+          "Star-node invariant-circle theorem (arXiv:2307.16020)",
+          "Baigent carrying simplex (DOI 10.1017/S0013091510000684)",
+          "Frozen RESULT.md equations (4)–(6); Resultary 677c44b6c037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the vertical equilibrium the eigenvalues are -2 and -2ω/(1-ε); their ratio gives κ=(1-ε)/ω. The closed curve glues two analytic open branches at each vertical sink.",
+          "Baigent's indexed setting is the carrying simplex in the positive quadrant of a totally competitive planar Lotka–Volterra flow."
+        ],
+        "reasoning": "A one-sided axial endpoint and a two-sided regular embedded Jordan curve are not equivalent tests. In the present positive quadrant the off-diagonal derivatives have competitive signs only for ω<(1+ε)/2, not on the whole admissible parameter range. The local eigenvalues alone do not select a nonzero coefficient of the matched branch.",
+        "searches": [
+          "Resultary: differentiability of contracting cubic star-node invariant circles, separatrix and carrying-simplex regularity",
+          "Alarcón–Castro–Labouriau arXiv:2307.16020",
+          "Baigent DOI 10.1017/S0013091510000684"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "24bb81e359ca is the assigned work itself. The indexed 677c44b6c037 reports power/logarithmic/linear transitions for a discrete quadratic-map basin edge, not this vector field.",
+          "The indexed b6a9712d7f01 studies first-crossing tails; ca713ddee5f9 studies depinning, periods and occupation laws."
+        ],
+        "reasoning": "Analogous singularity types or angular degeneracies are not exact records of the sink coefficient and both embedding thresholds. The depinning field's possible identity was not resolved from the available summary, which does not state the present regularity classification.",
+        "searches": [
+          "Resultary 24bb81e359ca",
+          "Resultary 677c44b6c037, b6a9712d7f01 and ca713ddee5f9"
+        ]
+      },
+      "rationale": "Credit only the globally matched nonzero singular amplitudes and sharp geometric C¹/C² walls for the reflected, closed cubic invariant curve. The invariant circle, its topological classification and local eigenvalue-ratio mechanism are background. No verified stronger same-family theorem establishes the matching and both boundary obstructions.",
+      "residual_risks": [
+        "The strongest star-node and carrying-simplex theorem passages were not all accessible; related separatrix or carrying-simplex literature could have a sharper equivalent result.",
+        "Resultary comparisons relied on available indexed statements, not a complete comparison of the depinning and star-node vector fields."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence/topology credited; comparison on matching cubic examples limited",
+          "evidence": "The frozen record invokes this theorem for the attracting circle, not the geometric walls.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16020; DOI 10.1007/s40687-024-00427-0",
+          "material_read": "Catalogue/bibliographic information and frozen comparison at lines 52–56, 112–119; bounded original passage unavailable",
+          "method": "Targeted bibliography lookup and lawful OA passage attempt",
+          "title": "Global planar dynamics with a star node and contracting nonlinearity",
+          "trigger": "Closest general star-node theorem and cubic examples"
+        },
+        {
+          "assessment": "Relevant but not an established implication for the four-quadrant curve",
+          "evidence": "The scope is totally competitive planar Lotka–Volterra geometry; the off-diagonal sign condition for (1) excludes part of its range.",
+          "identifier_or_url": "DOI 10.1017/S0013091510000684",
+          "material_read": "Bibliographic metadata and indexed setting, not theorem full text",
+          "method": "DOI lookup and scope/competitiveness comparison",
+          "title": "Convexity-preserving flows of totally competitive planar Lotka–Volterra equations and the geometry of the carrying simplex",
+          "trigger": "One-sided invariant curve and potential smoothness overlap"
+        },
+        {
+          "assessment": "Different assumptions (nonvanishing drift), target (occupation), or object (discrete map)",
+          "evidence": "None of the inspected statements identifies the two geometric walls for the pinned four-connection closed curve.",
+          "identifier_or_url": "Resultary 7c00337eaa41, ca713ddee5f9, 677c44b6c037",
+          "material_read": "Indexed summaries; mirrored full passages remained unavailable",
+          "method": "Local Resultary lookup and attempted passage inspection",
+          "title": "Angular return and physical-time Floquet rigidity; Quartic depinning cusp; Three-phase basin-edge regularity transition",
+          "trigger": "Possible same-system or analogous transition and matching laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family isolates a change in geometric regularity without a topological bifurcation. The exact power and resonant logarithm identify genuine obstructions, not just sufficient smoothness estimates. The integral criterion and intrinsic tangent argument explain why the reflected global curve loses regularity at both boundaries, which cannot be read off from a local linearization alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

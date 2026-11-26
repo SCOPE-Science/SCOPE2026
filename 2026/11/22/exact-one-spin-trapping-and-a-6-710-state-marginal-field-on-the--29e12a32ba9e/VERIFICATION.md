@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,32 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run the two standalone scripts in the same directory as this file:
+## correctness
 
-```bash
-python3 verify_bruteforce.py
-python3 verify_structural.py
-```
+PASS
 
-The first script traverses all \(2^{20}=1,048,576\) binary spin assignments and evaluates exact integer local flip costs at the two critical field values and rational representatives of every open interval. It also independently minimizes the exact energy over the full spin space at each representative. The second script uses no complete energy scan: it builds the pentagonal face dual and enumerates its perfect matchings, and it independently generates (i) all independent subsets, (ii) maximal independent subsets, and (iii) dominating subsets of induced maximum degree one. The resulting certificates establish 125 dual perfect matchings, 250 zero-field exchange minimizers, 295 maximal independent sets and 6710 field-one marginal configurations. The analytic sign analysis proves the classification across continuous field intervals.
+The per-spin energy change is 2Jσ_i(x−sum of neighboring spins), so the only nonnegative positive-field sign breakpoints are 1 and 3, with no ties at zero. Below 1, stability requires the aligned edges to be a matching. Each of 12 pentagons has an odd number of aligned edges, and a matching fits at most two per pentagon, so there is precisely one per face and exchange energy −18J. Conversely equality in the face lower bound forces that matching in the cubic planar embedding. The aligned edges correspond to perfect matchings on the dual and face-parity consistency determines spins up to global reversal. For a down-spin set A of size k, the energy in units of J is 30−20x+2(x−3)k+4e(A). For k≤8 and 0<x<3 this is minimized only by independent eight-sets; for k>8 the exchange bound −18 and magnetization <4 exclude a tie. At x=1 strict flips require independence and at least two down neighbors for each up vertex, forcing 3k≥2(20−k). An independent eight-set reaches the zero-field exchange bound and thus every up vertex has at most one up neighbor; all five such sets are strict. Weak flips at x=1 instead permit each down vertex at most one down neighbor and require each up vertex at least one. For 1<x<3 the strict and weak conditions both say independent and dominating, exactly maximal independent. At 3, the weak and ground sets are the independent sets and none is strict; above 3 only all-up survives. Independent exact reproduction: python3 /workspace/evidence/dodecahedron.py uses two ten-bit rings, rotated neighbor masks, and all 1,048,576 labelled assignments. At doubled fields 0,1,2,4,6,8 the strict/weak/ground counts are 250/250/250, 250/250/5, 5/6710/5, 295/295/5, 0/5828/5828, 1/1/1; it checks identity of the plateau ground sets and the relevant magnetization distributions. The analytic energy and flip inequalities, not field sampling, extend these counts to the indicated real intervals. In particular 6710 is the inclusive weak count at x=1, and 6705 are weak but non-strict (admit a neutral flip); the frozen informal use of marginally stable refers to the inclusive weak count. Absorbing means under the stated positive-rate allowance for zero-energy flips, not collective or multispin dynamics.
 
-Successful exact replay produced:
+## originality
 
-```text
-EXHAUSTIVE_PASS states=1048576
-h_over_J= 0 /2 strict= 250 weak= 250 ground= 250
-h_over_J= 1 /2 strict= 250 weak= 250 ground= 5
-h_over_J= 2 /2 strict= 5 weak= 6710 ground= 5
-h_over_J= 4 /2 strict= 295 weak= 295 ground= 5
-h_over_J= 6 /2 strict= 0 weak= 5828 ground= 5828
-h_over_J= 8 /2 strict= 1 weak= 1 ground= 1
-STRUCTURAL_PASS dual_matchings=125 zero_field_ground=250
-magnetization_distribution= {-4: 5, 0: 240, 4: 5}
-independent_sets= {0: 1, 1: 20, 2: 160, 3: 660, 4: 1510, 5: 1912, 6: 1240, 7: 320, 8: 5}
-maximal_independent_sets= {6: 10, 7: 280, 8: 5}
-h_equal_1_weak= 6710 h_equal_1_strict= 5
-```
+PASS
 
-These are finite exact enumerations, not dynamic trajectories. The number of weakly stable configurations at a critical field is not the number of absorbing states, because zero-energy flips remain allowed. No independent external validation was performed.
+The supported distinction is the labelled all-field strict/weak one-spin stability census, especially the degree-one dominating-set condition and 6710 weak states at x=1. The equilibrium benchmark and independent-set totals are credited, and the generic local flip formula or equivalence with independent domination is not a standalone originality claim.
+
+## value
+
+PASS
+
+An exactly specified canonical frustrated Ising cage separates thermodynamic equilibrium from the zero-temperature single-spin landscape: the same five ground states persist while strict excited traps change from 245 to 290, and the intervening field has 6705 additional neutral-move weak states. The structural descriptions make the exact finite census interpretable and useful as a dynamics benchmark rather than a recomputation of equilibrium counts. It does not predict basins, escape barriers, or absorption times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:12:37.473308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scoped unit is an indexed binary array, not an equivalence class of rotations. A closed de Bruijn walk with its start specified determines exactly that array. The flow relations e=b, g=d, f=c+d−b and total a+b+2c+3d+h=16 are correct. With b,d>0 the four vertices form a directed cycle in the support, and a tree to 00 must use edges 10→00 and 11→10 and one of the c+d edges from 01, giving b d(c+d). For a fixed root the labeled last-exit count is t times its outdegree times the product of (r−1)!; summing roots gives the factor 16 and dividing by multiplicity factorials forgets the copy labels, without any assumption of aperiodicity. With b=0 or d=0, the disconnected loop is excluded unless it alone is active, giving the stated reduced supports. An independent direct census of all 65536 arrays matched all 271 CSV rows, including unique 1296 at all twos and unique 1280 at (1,2,3,2,2,3,2,1); next size 1152. At length 8 the 27-profile direct census gives the unique 24 at (0,1,2,1,1,2,1,0) vs 16 at the uniform vector. Independent replay: /workspace/branches/9d35c4e4-bed7-4118-aea7-e96320845b22/direct_census.py and direct_census_n8.log / direct_census_n16.log in that directory. This exhaustive calculation proves the scoped finite statement; it gives no general-length extremal assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tesler's W(2,2,3)=(4!/(2!)²)^4=1296 is the indexed uniform fiber. Jacquet et al. describe Eulerian realizations of fixed Markov types and enumerate types."
+        ],
+        "reasoning": "Counting the prescribed uniform class, or representing general type classes by Eulerian walks, does not rank the feasible nonuniform profiles against it.",
+        "searches": [
+          "Tesler arXiv:1708.03654, linearized cyclic multi de Bruijn sequences",
+          "Jacquet–Knessl–Szpankowski, Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "Kiah–Puleo–Milenkovic arXiv:1502.00517"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, profile_census.csv and both verifier scripts (inspected, not run)",
+        "Independent complete indexed-array replay for lengths 8 and 16",
+        "Tesler and Jacquet et al. primary passages; three compared Resultary statements; profile-code abstract and cross-join retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known methods permit computing individual fiber sizes. The fixed uniform count and the profile count alone constrain neither the ranking nor equality cases; the closest actual extremal theorem compares a support-restricted domain."
+        ],
+        "reasoning": "Certification requires comparing the unrestricted feasible profiles, by arborescence census or exhaustive arrays; the unique runner-up and gap are not a parameter substitution into the inspected prior results.",
+        "searches": [
+          "Tesler equations (4)–(7); Jacquet et al., fixed-type Eulerian encoding p. 4",
+          "Resultary: same-date six-factor restriction, all-length profile counts, and linear full-support threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-date homopolymer-exclusion result forbids 000 and 111 and gives only L(16)=600 for that subset. The full-support threshold treats linear, presence/absence observations."
+        ],
+        "reasoning": "The restricted theorem excludes both unrestricted leading profiles since both loop counts are positive; linear presence/absence coalesces many distinct multiplicity vectors and changes wraparound, so its mode is not an equivalent invariant.",
+        "searches": [
+          "Cyclic indexed binary three-grams, order-two Markov type maximum multiplicity",
+          "Resultary: exact worst-case cyclic three-gram ambiguity and sharp full-support threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tesler tabulates count conventions and formulas including the uniform case at this exact length. The separate Resultary generating function specializes to C_16=271 distinct profiles."
+        ],
+        "reasoning": "These exact quantities do not give the profile-to-fiber map or the first and second ranks. The frozen CSV is supporting evidence for this claim, not an independent prior table.",
+        "searches": [
+          "Tesler Table 2 and equations (4)–(7)",
+          "Resultary: exact cyclic binary three-gram profile enumeration, 2026/10/26/SCOPE-exact-cyclic-binary-three-gram-profile-enumeration--9b2754288e6b"
+        ]
+      },
+      "rationale": "Supported here is the unrestricted length-16 uniqueness and full comparison with the runner-up, together with the contrast to the first possible uniform length. The size of the uniform fiber and the number of possible profiles are separately covered and are not credited as distinct results. The closest comparisons do not give the unrestricted exact ranking.",
+      "residual_risks": [
+        "An uninspected table in the Alhakim–Szmidt paper or historical exact Markov-type computations may contain a comparison not exposed by bounded search.",
+        "Only a bounded search and the specific passages listed were used; a non-hit is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-twos fiber coverage, not a comparison to other profiles",
+          "evidence": [
+            "W(m,q,k) counts linearized cyclic words; its formula gives 1296 at (2,2,3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+          "material_read": "PDF pp. 2–5, example, Table 2, equations (4)–(7)",
+          "method": "Bounded primary OA passages",
+          "title": "Multi de Bruijn Sequences",
+          "trigger": "Exact uniform count, including the m=2, q=2, k=3 example"
+        },
+        {
+          "assessment": "Relevant method and type enumeration, no exact order-two binary ranking in inspected passages",
+          "evidence": [
+            "Order-one Markov model, fixed type class linked to Eulerian cycles."
+          ],
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+          "material_read": "PDF p. 1 scope and p. 4 fixed-type encoding (offset about 10350)",
+          "method": "Bounded author-hosted primary OA passages",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Eulerian encoding and type classes, possible exact enumeration"
+        },
+        {
+          "assessment": "Restricted mode, not competing unrestricted profiles; comparison rests on scope, not date",
+          "evidence": [
+            "Indexed cyclic arrays forbidden to contain 000 or 111 have a six-factor profile and L(16)=600."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-worst-case-cyclic-three-gram-ambiguity-under-a-binary-homo--c032933384a3",
+          "material_read": "Local-mirror RESULT.md opening Finding at offset 0",
+          "method": "Resultary and bounded local mirror",
+          "title": "Exact worst-case cyclic three-gram ambiguity under a binary homopolymer restriction",
+          "trigger": "Same date and observation, length-16 extremum"
+        },
+        {
+          "assessment": "Covers 271, not the fiber-size extremum",
+          "evidence": [
+            "The generating function counts distinct attainable profiles, including C_16=271."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-cyclic-binary-three-gram-profile-enumeration--9b2754288e6b",
+          "material_read": "Local-mirror RESULT.md Finding at offset 0",
+          "method": "Resultary and bounded local mirror",
+          "title": "Exact cyclic binary three-gram profile enumeration",
+          "trigger": "Identical profile domain and exact count at length 16"
+        },
+        {
+          "assessment": "Different observation and boundary convention",
+          "evidence": [
+            "The comparison is linear and presence/absence-only; full support is uniquely modal from length 14."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-sharp-full-support-threshold-for-binary-three-factor-spectra--e450d182bc9b",
+          "material_read": "Local-mirror RESULT.md Finding at offset 0",
+          "method": "Resultary and bounded local mirror",
+          "title": "The sharp full-support threshold for binary three-factor spectra",
+          "trigger": "Binary three-factor modality and finite threshold"
+        },
+        {
+          "assessment": "Background only; no whole-document exclusion claimed",
+          "evidence": [
+            "Studies sequence-profile equivalence and restricted de Bruijn graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+          "material_read": "p. 1 abstract; ranking across exact cyclic length-16 fibers not established by this passage",
+          "method": "Bounded primary abstract check",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Equivalent profile coding vocabulary and de Bruijn graphs"
+        },
+        {
+          "assessment": "Unresolved remainder, not negative evidence",
+          "evidence": [
+            "No primary body available on the routes tried."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11051262",
+          "material_read": "Landing/abstract only; full paper body and tables not obtained",
+          "method": "Lawful OA publisher page and PDF retrieval attempts",
+          "title": "Multi de Bruijn Sequences and the Cross-Join Method",
+          "trigger": "Later multi de Bruijn constructions and possible exact comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lengths 8 and 16 are the first two natural uniform-coverage scales for eight cyclic triples: one of each and two of each. The precise modality switches there, refuting the uniform-at-first-coverage guess and giving a usable extremal ambiguity benchmark at the next scale. The strict gap 1296−1280 and exact runner-up certify that the second result is not a tie or merely the standard uniform count. No all-length cutoff is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

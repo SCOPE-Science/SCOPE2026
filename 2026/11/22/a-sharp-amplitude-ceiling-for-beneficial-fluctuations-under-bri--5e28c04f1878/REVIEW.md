@@ -1,19 +1,21 @@
-# Scientific review: Brière-I symmetric thermal amplitude
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem applies to all \(0<a<1\), \(0<d<(1-a)/2\), and \(m\in[a+d,1-d]\). The exact derivative formula has strictly negative third derivative throughout the open response domain; strict concavity of the first derivative forces the Jensen gap to decrease with mean, while endpoint comparisons prove that the upper endpoint is negative and the lower endpoint has sign opposite a specified quadratic. Its unique positive root in the weak-lower-threshold regime yields all equality, interior-crossover, and negative-only cases. Endpoint derivative singularities are bypassed by continuity. The optional standalone checker passed 33,560 diagnostic assertions. The proof, not finite sampling, establishes the continuum claim.
+PASS
 
-## Originality — PASS relative to inspected evidence, with historical-priority risk
+With y=1−x the normalized rate is (1−a)y^{1/2}−(2−a)y^{3/2}+y^{5/2}; its third x-derivative is −[3(1−a)+3(2−a)y+15y²]/(8y^{5/2})<0. Thus f' is strictly concave and the mean derivative of the symmetric gap is negative in the open feasible interval; continuity and interior strict decrease give strict order also at both endpoints. At m=1−d the warm term vanishes and f(1−2d)/f(1−d)<√2, making the gap negative. At m=a+d the gap divided by d is the difference of two nonnegative terms, whose squared difference is −d[7d²+(9a−3)d+a(3a−2)]. At a≥2/3 this bracket is positive for d>0. Below 2/3 the bracket has exactly one positive zero, the stated radical, strictly below (1−a)/2 because its value there is (1+a)²/4. The endpoint signs and strict decrease settle uniqueness, including equality only at m=a+d at the critical amplitude. Differentiating the radical gives d_*'<0 and continuity gives the two limiting values. The physical scale factor is positive, so it preserves signs. In the scope prose, ‘largest half-amplitude admitting a positive gap’ should read ‘supremum’: strict benefit is not attained at the ceiling, as the theorem correctly specifies. A separate bisection reproduces m_*=0.5247407404111 at a=.2,d=.1 and the cutoff 0.3033078030247. Frozen CHECK.py was inspected, not executed; those grid tests are diagnostic.
 
-Worner's 1992 model comparison and Ruel–Ayres's 1999 Jensen review anticipate the qualitative idea that variable temperatures may accelerate or retard insect development. Martin–Huey's 2008 full text concerns optimal mean temperature under a different performance curve; Roitberg–Mangel's 2016 full text treats temperature histories and a Ratkowsky-type model; Rebaudo–Struelens–Dangles's full accessible 2017 text supplies the Brière functional form and fitting perspective; von Schmalensee and coauthors' full 2021 text concerns broader thermal-variability effects. The exact critical-amplitude radical and the unique mean threshold on the full feasible domain were not identified in these inspected materials or searches for equivalent nonlinear averaging and rate-summation formulations. A separate known Lactin-2 thermal-allocation theorem uses a different rate curve and optimizes arbitrary mean-constrained distributions; it does not imply the Brière-I two-point cutoff. Full Brière, Worner, and Estay primary manuscripts were not accessible, so a definitive priority claim is not made.
+## originality
 
-## Value — PASS
+PASS
 
-The Brière-I curve is used to model arthropod development. Physiological rate summation under temperature variation requires more than a local second-derivative or mean-temperature check: the theorem provides the exact amplitude beyond which *no* feasible mean temperature benefits from symmetric daily variation, together with an exact lower/upper threshold-ratio boundary and a unique crossover for smaller amplitudes. These are interpretable model benchmarks for choosing conditions where constant-temperature predictions overstate or understate developmental rate. The theorem is not a claim about field-calibrated demography or alternative heat-response laws.
+Nonlinear rate summation, Brière fitting and curvature-dependent effects of variable temperature are prior. The closest retrieved primary paper uses a local mean-variance approximation, with separate Brière fits to empirical data. Neither it nor the compared exact Lactin-2 result yields the finite-amplitude Brière-I quadratic sign criterion and unique all-mean crossover. This is bounded to inspected evidence, with full-text gaps identified below.
 
-## Limits
+## value
 
-Only equal-duration in-range fluctuations, positive calibrated numerical temperatures and instantaneous rate summation are covered. Full historical-priority review and independent empirical/model validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard empirical arthropod development law, the question whether there is any feasible mean at which finite symmetric excursions help is a motivated global invariant, not a small-variance or one-parameter numeric example. The exact amplitude ceiling, unique below-ceiling crossover, and calibrated-scale ratio threshold provide comparisons meaningful to rate-summation modelers. The result is restricted to equal-duration in-range temperatures and instantaneous development; it does not establish a population response, biological memory effect or field validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact spectral decomposition of the split-graph Laplacian gives only two off-diagonal resolvent weights; fourth-moment identities reduce variance to a three-bin integer energy. The strict local exchange eliminates all separated-clique candidates but two; one is strictly dominated for \(q\ge4\). Strict discrete convexity classifies the remaining joined-clique designs. An explicit binomial difference proves the global threshold, including both equality families and all quantifiers. Independently replayed exact-rational matrix and score checks provide reproducible supplementary evidence. The finite checker does not claim infinite certification.
+## correctness
 
-**Originality — PASS (with priority risk).** The direct source arXiv:2308.07722 provides the fixed-partition variance identity, not the optimal three-class phase switch. The closest located public two-class complete-bipartite result concerns a different graph and exactly two rather than three probe classes; its one-dimensional weighted-cut objective does not imply the three-bin clique-merger criterion. The related equal-part multipartite two-probe theorem likewise cannot specialize to this three-probe two-hub setting. Web and semantic searches for split-graph three-class optimal probing found no equivalent theorem; absence of a search hit is not proof of priority. A general weighted three-state Potts/max-cut classification might subsume the result, so publication-priority assessment remains provisional.
+PASS
 
-**Value — PASS.** For every independent-set size \(q\ge4\), the theorem identifies exactly when the proper chromatic coloring ceases to be variance-optimal even though all designs use the same three quadratic forms. The exact threshold grows with \(q\), and the ensuing number of independent vertices colocated with the two hubs has an explicit discrete-convex optimizer and secondary integer transition points. This supplies a complete benchmark separating graph coloring from variance-optimal probe partitioning, rather than a mere restatement of the standard fixed-partition formula. It does not claim a speedup or broad algorithmic improvement.
+With n=q+2 the Laplacian is zero on the constants, 2 on leaf contrasts and n on the remaining two dimensions. In the spectral resolvent the distinct-vertex constant contribution is c; for two leaves the contrast subtracts (1/(μ+2)−1/(μ+n))/q=1/((μ+2)(μ+n)), leaving 2c/(μ+2). Products of different unordered pairs of independent signs are uncorrelated. Each unordered same-class pair contributes 4B_ij² to the summed variance. Dividing by 4c² gives the stated class-count energy. For separate hubs with u≤v attached leaves, when u≥1 the move (u,v)→(u−1,v+1) followed by merging the second hub into the first class has energy difference −(1−β)(v−u+1) and leaves three nonempty classes. If u=0 and v≥2, simply merging gives 1−v. The leftover one-attached-leaf profile exceeds the balanced merged, zero-attached-leaf profile by β(H_q−q+1)=β(floor(q/2)−1)(ceil(q/2)−1)>0. With joined hubs, fixing x leaves in their class forces balance of the other classes by pair convexity, and ΔF=2+β[x−floor((q−x−1)/2)] is strictly increasing; this accounts for possible adjacent ties below the transition. The proper profile exceeds the balanced merged profile by βH_q−1. At β≤1/H_q the first ΔF is positive, so no further profile ties. This proves the threshold, uniqueness statements up to the stated symmetries and minimum variance for all q≥4, μ>0, including μ_c=2 for q=4.
 
-**Closest sources and remaining limits.** Frommer–Rinelli–Schweitzer (arXiv:2308.07722, full-text Section 3.2 and Theorem 3.3); Switzer et al. (DOI:10.1137/21M1422495, abstract); Laeuchli–Stathopoulos (DOI:10.1137/18M1176427, abstract); publicly indexed two-class complete-bipartite shifted-resolvent optimization (complete RESULT.md inspected). The exact assertion is restricted to the named split graph and the three independent Rademacher quadratic forms. Historical multiway weighted-cut optimization could establish a stronger form, which has not been excluded exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact transition and complete extremizer classification for the two-adjacent-hub, three-nonempty-class problem. Credit the general variance objective, the existing proper-color probing designs, and analogous switches for other specific graph families. The evidence inspected does not show this classification following from those analogues.
+
+## value
+
+PASS
+
+This is an exact design benchmark at a fixed three-query cost: full proper coloring can be beaten by deliberately placing adjacent universal vertices together, and the exact parameter and equality cases determine when this happens. The competing topologies and their uniqueness are substantive information beyond a pair-sum formula or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

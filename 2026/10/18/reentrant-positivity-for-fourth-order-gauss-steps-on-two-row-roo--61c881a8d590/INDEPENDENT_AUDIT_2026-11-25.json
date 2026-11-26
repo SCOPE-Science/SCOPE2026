@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:12:04.836422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The interval theorem stands as written; the corrected full RESULT.md in /workspace/repairs/5 fixes statements about distinct eigenvalues and entries, and distinguishes a negative entry from an entrywise negative matrix at the sign witnesses. At n=2 the sectors with eigenvalues 2 and n coincide and t10=t01. The 36-vertex 'negative' examples have positive diagonals, so the corrected text names the actual negative entries. Independent replay /workspace/branches/replay_5.py derived the quartics from the coincidence projectors, checked exact matrix examples with T1=1, reconstructed Sturm sequences by rational polynomial division for all eleven orders 7–17, and evaluated the symbolic witness and recovery remainders. The diagonal is positive from the positive scalar map; the opposite-coordinate class is positive for h>0 since g(t)/t strictly decreases, giving g(a+b)<g(a)+g(b). Thus both edge numerators must be nonnegative and suffice. B has all positive coefficients at n=2,3, and at n≥4 a unique simple positive root by the negative leading coefficient and Descartes' rule. A has positive coefficients at n≤6 and equal Sturm variation one at zero and positive infinity for each n=7,…,17. For every n≥18 the shifted polynomial certificate makes A(8/n)<0; positive endpoints and two sign changes give exactly two simple roots. Both A and B are positive at sqrt(12/n)>8/n, so this witness lies strictly between β_n and γ_n, establishing separated intervals of positive length and including all equality cases. At n=18 the exact sign pairs (A,B) at 1/3,2/5,4/5,6/5 are (+,+),(−,+),(+,+),(+,−), respectively. The n=18 approximate roots also reproduce; these are not used to prove signs or ordering. No internal-stage, general graph, or repeated-step classification is entailed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-step product theorem gives exactly n=2,3 as all-step positive on K2 square Kn and proves eventual negativity for n≥4 using the sign of the off-diagonal Green function. The weighted inequality similarly decides all-step positivity from conductance ratios. Absolute monotonicity supplies method-wide positivity/contractivity guarantees."
+        ],
+        "reasoning": "The unconditional slice and eventual failure are demonstrably covered by the broader product statement, independent of priority. Quantifying over all h or describing the sign as h grows does not determine whether or where a middle lost band recovers.",
+        "searches": [
+          "Resultary e93fc3196dc7 Finding and proof §§2,4–5; 77ae586e3cd0 Finding",
+          "Lóczi–Ketcheson arXiv:1303.6651v1 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e93fc3196dc7, 77ae586e3cd0, 4defdf9c32e5, 3b12f25d4b2d, 5b0558f2856d",
+        "Zappavigna et al., working-paper deposit 3761",
+        "arXiv:1303.6651v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later all-step product proof uses lim_(h→∞) h T_xy(h)=-12 L^+_xy for excluded orders, and gives the orbit formulas in its small surviving two-factor analysis. The finite signs for n≥4 are not classified by that asymptotic argument. Zappavigna et al. give small-step negative entries on a different, nonconservative example."
+        ],
+        "reasoning": "Even with the shared projector formulas, the exhaustive range 7–17, symbolic witnesses and ordering of finite thresholds are extra nontrivial sign and root results. Unconditional failure is compatible with one window, two windows or more; it cannot imply sharp onset of a second positive-length window.",
+        "searches": [
+          "Resultary e93fc3196dc7 proof §§2,4–5 and Limitations",
+          "Zappavigna et al. §4 Example 3 and Lóczi–Ketcheson arXiv:1303.6651v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unweighted K2 square Kn is a two-factor complete-graph product evaluated by the same scalar rational function. The anisotropic rectangular case reduces to this geometry at equal conductances. Example 3 of Zappavigna et al. instead concerns a nonconservative Hurwitz Metzler matrix."
+        ],
+        "reasoning": "The differently named product and rook formulations match and must be credited where they overlap; a positivity counterexample for a general Metzler step is not the same Laplacian classification.",
+        "searches": [
+          "Resultary: fourth-order Gauss–Legendre [2/2] Padé positivity for rectangular rook graphs or Cartesian products of cliques, e93fc3196dc7 and 77ae586e3cd0",
+          "Zappavigna et al. §4 Example 3, diagonal C_2(hA) Padé"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-step product proof lists numerator certificates for surviving small factor pairs (2,2),(2,3),(3,3). The strongly regular and complete multipartite classifications overlap here only at the four-cycle. The same-date cycle record uses a [0/2] inverse-quadratic step, not this [2/2] map. The primary query returned no results, not evidence of historical absence."
+        ],
+        "reasoning": "None of these read tables or exact findings gives the two edge-sign thresholds for n≥18 and their ordering, or the complete exclusion of a split for n≤17.",
+        "searches": [
+          "Resultary: exact timestep intervals, [2/2] Padé, reentrant rook positivity; e93fc3196dc7, 4defdf9c32e5, 3b12f25d4b2d, 5b0558f2856d",
+          "Primary query: positivity (Gauss–Legendre OR Padé) rook graph Cartesian product complete graphs time-step positivity intervals K2 Kn"
+        ]
+      },
+      "rationale": "The supported distinct claim is the graph-specific finite-timestep partition, including recovery cutoff and onset at eighteen. The same map on a broader product family has an indexed all-timestep classification, which covers the unconditional case and eventual failure here by specialization. Neither that result nor the other inspected analyses give this complete finite-step classification. No independent originality is attributed to the four-cycle case or to those overlapping qualitative subclaims.",
+      "residual_risks": [
+        "An unindexed exact finite-window result for this family or a stronger still-unlocated finite-step product result is possible. The date of the overlapping all-step record does not in itself establish priority or independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exactly the all-step slice and proves eventual failure on excluded orders; no finite-window theorem for excluded orders",
+          "evidence": [
+            "Two factors both of size two or three give all-step positivity. For excluded two-factor products the displayed Green-function formula shows eventual negativity when the larger factor is at least four. Explicit small surviving two-factor orbit formulas and coefficient arrays do not classify excluded orders at finite h."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md",
+          "material_read": "Finding; proof §2 and §§4–5 (offsets near 2969 and 4514–6700); comparison near 8200",
+          "method": "Local index and mirror",
+          "title": "Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Same [2/2] step and a stronger graph family"
+        },
+        {
+          "assessment": "Anisotropic all-step statement only; the latter graph classes or maps do not dominate the finite thresholds here",
+          "evidence": [
+            "Weighted rectangular rook inequality, one-window or all-step classification on strongly regular graphs, all-step positivity on complete multipartite graphs, and C8 recovery with a second-order [0/2] map."
+          ],
+          "identifier_or_url": "Resultary 77ae586e3cd0, 4defdf9c32e5, 3b12f25d4b2d, 5b0558f2856d",
+          "material_read": "Finding statements, offset 0",
+          "method": "Local index and mirror",
+          "title": "Rectangular anisotropic rook graphs; strongly regular graphs; complete multipartite graphs; cycle recovery",
+          "trigger": "Equivalent geometries, other exact positivity classifications, and strongest same-date conceptual match"
+        },
+        {
+          "assessment": "Map-level related negative example but not the conservative Laplacian or finite-window analysis",
+          "evidence": [
+            "A diagonal C_2(hA) has negative entries for sufficiently small positive h with Hurwitz Metzler A=-tI+N."
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Abstract and §4 Example 3, pp. 12–14, offsets near 34800 and 40800",
+          "method": "OA working-paper PDF passages",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Diagonal Padé failures on positive systems"
+        },
+        {
+          "assessment": "General sufficient bounds, not these graph-specific endpoints",
+          "evidence": [
+            "The radius of absolute monotonicity is defined and related to conditional positivity and contractivity for rational steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6651v1",
+          "material_read": "Introduction p. 1 near offset 1800",
+          "method": "OA PDF passage",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General positivity guarantees for rational time stepping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural mass-conserving diffusion model separates scalar spectral positivity from entrywise monotonicity. It exhibits two different edge mechanisms, with one losing and regaining its sign before the other fails permanently. The exact n=18 cutoff and finite recovered interval answer a question left open by all-step classifications or sufficient timestep bounds and can guide the choice of endpoint step on this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

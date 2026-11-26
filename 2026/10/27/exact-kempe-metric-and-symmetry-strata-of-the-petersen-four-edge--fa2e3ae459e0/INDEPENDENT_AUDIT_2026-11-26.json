@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:21.773038Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–42",
+        "VERIFICATION.md lines 19–23 and frozen verify.py (code inspected, not executed)",
+        "Independent replay: python3 -I /tmp/opencode/petersen_review_census.py (matching-cover and KG(5,2) implementation; successfully run)"
+      ],
+      "rationale": "An independent full computation represented Petersen as KG(5,2) (indices mod 5, u_i={i,i+2}, v_i={i+3,i+4}) and represented a colour class by a nonempty matching of the 15 edges. It enumerated all matching masks and recursively partitioned the remaining edges by adding the unique class containing the least uncovered edge. This exhausts unordered partitions into at most four classes without duplicates. No cover with fewer than four classes occurred. For each union of two classes, it closed a seed edge's endpoints under incident union edges to recover one component at a time, XORed the component into each class, sorted the class masks and removed loops. Bitset distance fronts from every state reached all states; a front contains exactly the vertices at its current distance. The automorphisms used were the S5 action on the pairs: the size-four independent sets in KG(5,2) are exactly the five stars (checked over all four-subsets), and each vertex is determined by the two stars containing it, so the action is the full Petersen automorphism group. Orbit computation on matching masks gives (size,eccentricity):multiplicity (20,6):1, (40,6):1, (40,7):1, (60,5):1, (60,6):2, (120,6):14, (120,7):1. Output confirms 2080 states, 12600 undirected edges, degrees 12:1840 and 13:240, eccentricities 5:60, 6:1860 and 7:160, radius 5, diameter 7, group order 120 and 21 orbits. Both the independent reconstruction and the supplied algorithm address all states, not a sample.",
+      "residual_risks": [
+        "Orbits refer to the natural Petersen automorphism action, not a claim about the full automorphism group of the Kempe graph.",
+        "The metric is that of the colour-name quotient, not the metric of named colourings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald–Mohar–Scheide Theorem 3: every two proper four-edge-colourings of a subcubic graph are Kempe-equivalent.",
+          "Belcastro–Haas is titled for three-edge-coloured cubic graphs; the Petersen graph has no proper three-edge-colouring.",
+          "The accessible search excerpt for Diameter of colorings under Kempe changes mentions swaps in two colour classes, apparently for vertex colouring; the full article was not verified."
+        ],
+        "reasoning": "The general subcubic theorem settles connectedness, not shortest-path distances. Three-edge colourings do not realize this state space. Vertex colouring of the Petersen graph would be different; vertex colouring of its line graph is an equivalent formulation but no transferable exact table was established.",
+        "searches": [
+          "arXiv:1005.2248, abstract and Theorem 3",
+          "Focused primary-literature search for Petersen four-edge Kempe diameter and partitions; located Diameter of colorings under Kempe changes",
+          "Belcastro–Haas, Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and three related summaries",
+        "arXiv:1005.2248",
+        "Belcastro–Haas bibliographic description",
+        "Diameter of colorings under Kempe changes search excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Connectivity survives quotienting, so that part is an immediate corollary of the prior theorem.",
+          "The prior theorem makes no numerical assertion about degree, distances or group action; the same-base recolouring variant changes the move, and the four-cube variant changes the graph."
+        ],
+        "reasoning": "Neither result gives the displayed joint eccentricity/orbit stratification, radius, diameter or degree census. The finite computation gives genuinely finer information rather than recomputing connectivity for one example.",
+        "searches": [
+          "arXiv:1005.2248 Theorem 3 at PDF p. 8",
+          "Resultary recolouring and four-cube summaries compared with RESULT.md lines 5–24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recolouring summary concerns transitions changing one edge at a time among 49,920 named colourings. Dividing that state count by 24 gives 2080 for the colour-name quotient.",
+          "Single-edge changes are singleton-component Kempe switches, but the Kempe graph additionally permits longer bichromatic-component flips and here quotients by colour names."
+        ],
+        "reasoning": "Even if the labelled count is credited as covered, the move and equivalence changes prevent transferring an exact distance or orbit/eccentricity table from the recolouring graph. This distinction does not depend on the date of the related record.",
+        "searches": [
+          "Local Resultary semantic searches for Petersen proper four-edge-colouring Kempe quotient, exact distances and symmetry orbits",
+          "Petersen four-edge recolouring: SCOPE-local-sign-parity-and-exact-mobile-distances-in-petersen-four-ed--f42ba7a5e7e8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned four-cube record concerns nine components of a colour-name quotient on a different graph. The indexed Petersen symmetry-breaking colouring polynomial concerns vertex-colouring partitions, despite shared orbit sizes 40 and 120. The closest same-base-edge-colouring record describes single-edge moves and named states."
+        ],
+        "reasoning": "No same-object and same-move census was found among the returned results; neither matching orbit sizes from a different action nor a related state count determines this table.",
+        "searches": [
+          "Local Resultary semantic searches for a 2080-state Petersen quotient and the exact eccentricity and orbit profiles"
+        ]
+      },
+      "rationale": "Credit is for the complete Kempe metric and symmetry strata, not the previously proved connectivity or the underlying colouring count alone. The nearest indexed variants change the move or the object. The bounded evidence does not identify a prior statement or table entailing these profiles.",
+      "residual_risks": [
+        "No priority certification; an unindexed finite census or line-graph result could overlap.",
+        "The related diameter paper and Belcastro–Haas were not verified in full text; indexed related claims were compared at summary level where local bodies were unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Connectedness is prior-covered, not metric/orbit profiles",
+          "evidence": [
+            "All proper four-edge-colourings of a subcubic graph are Kempe-equivalent."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2248",
+          "material_read": "OA PDF abstract p. 1 and Theorem 3, p. 8",
+          "method": "Compared full connectivity statement and its quotient implication",
+          "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+          "trigger": "General theorem includes Petersen"
+        },
+        {
+          "assessment": "Title-level scope differs; not a whole-paper negative conclusion",
+          "evidence": [
+            "Title specifies 3-edge-colored cubic graphs; independent enumeration shows Petersen admits no such colouring."
+          ],
+          "identifier_or_url": "Discrete Mathematics 325 (2014), 77–84",
+          "material_read": "Citation/title and scope description; full text not retrieved (attempted DOI route failed)",
+          "method": "Compared named palette with the exactly four-colour scope",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Cubic edge-Kempe orbit/count literature"
+        },
+        {
+          "assessment": "No demonstrated exact implication; full-text risk remains",
+          "evidence": [
+            "Search excerpt describes a colour-class-induced move."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0304397520303169",
+          "material_read": "Search excerpt only; OA request returned 403",
+          "method": "Compared the apparent vertex-colour move with the line-graph formulation; no theorem was verified",
+          "title": "Diameter of colorings under Kempe changes",
+          "trigger": "Possible broader diameter result under a line-graph reduction"
+        },
+        {
+          "assessment": "State-count overlap, different transitions and metric on the available evidence",
+          "evidence": [
+            "Summary treats 49,920 named colourings and single-edge recolouring."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-local-sign-parity-and-exact-mobile-distances-in-petersen-four-ed--f42ba7a5e7e8",
+          "material_read": "Local Resultary search summary; no locally readable claim body located",
+          "method": "Compared labelled state space and single-edge recolouring to colour-name-quotient component flips",
+          "title": "Petersen four-edge recolouring and mobile distances",
+          "trigger": "Strongest same-base and same-palette match"
+        },
+        {
+          "assessment": "Different base graph and reported invariant",
+          "evidence": [
+            "Summary concerns nine connected components on the four-cube."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-nine-kempe-classes-of-proper-4-edge-colourings-of-the-four-cube--7a8c015cd491",
+          "material_read": "Local Resultary search summary; no locally readable claim body located",
+          "method": "Compared graph and component invariant",
+          "title": "Nine Kempe classes of proper 4-edge-colourings of the four-cube",
+          "trigger": "Same general edge-Kempe quotient formulation"
+        },
+        {
+          "assessment": "Vertex partitions rather than edge-Kempe states",
+          "evidence": [
+            "Orbit sizes 40 and 120 occur in the vertex symmetry-breaking comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-proper-symmetry-breaking-colouring-polynomial-of-the-peterse--2b49c41819af",
+          "material_read": "Local Resultary search summary; no locally readable claim body located",
+          "method": "Compared the objects acted on",
+          "title": "Proper symmetry-breaking colouring polynomial of the Petersen graph",
+          "trigger": "Same automorphism group and some matching orbit sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–24 and 28–38",
+        "Independent matching-cover census",
+        "arXiv:1005.2248 Theorem 3"
+      ],
+      "rationale": "Petersen is the classical small cubic obstruction to three-edge-colourability, so its four-colour reconfiguration graph is a natural benchmark in the palette where Kempe connectivity is guaranteed. Exact radius and diameter specify the best-base and worst-pair numbers of component moves, and the orbit census establishes the sharp distinction between a single central Petersen orbit and two peripheral orbits. These are natural finite invariants for comparison with other cubic reconfiguration graphs, not just a known connectivity test.",
+      "residual_risks": [
+        "No inference for other graphs, palettes or unquotiented metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

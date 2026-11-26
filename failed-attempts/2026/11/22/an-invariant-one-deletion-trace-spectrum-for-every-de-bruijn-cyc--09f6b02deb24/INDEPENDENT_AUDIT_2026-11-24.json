@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:41.631336Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique a^n factor defines exactly one run of length n for each symbol a. Deleting a there destroys that factor, whereas deleting a in another run preserves it and cannot join two a-runs. Root both latter outputs at the preserved factor: equality of the resulting linear strings forces all source letters between the deleted indices to agree. Different deleted symbols are distinguished by letter counts. Thus the mass of each descendant is its source run length divided by q^n. For lengths at most n−2, count bounded runs via the q^(n−ℓ−2) extensions of each factor b a^ℓ c with b,c ≠ a. For ℓ=n−1 there are q occurrences of a^(n−1), exactly two in the length-n run. This covers n=2 and the zero multiplicity for binary runs of length n−1. The total number also agrees with the count of unequal consecutive letters, (q−1)q^(n−1). The supplied verifier and log were inspected, not executed; their finite results are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Short-factor uniqueness, deterministic theorem: pairwise distinct cyclic ℓ-factors and 2ℓ≤N imply a run-bijection for a labeled q-ary circle of length N.",
+          "Liron and Langberg, Section I: run-dependent deletion-subsequence bounds for linear binary strings."
+        ],
+        "reasoning": "Take N=q^n and ℓ=n. The uniqueness assumption is the defining property and 2n≤q^n for q≥2 and n≥2. The linear bounds neither establish nor weaken this direct coverage.",
+        "searches": [
+          "Resultary: cyclic word necklace single deletion distinct descendants run equivalence",
+          "Liron and Langberg, arXiv:1202.1644v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verify.py, verification.log",
+        "Resultary eef1c8604afc, 2341722fce11, 0ff31e943bf5",
+        "arXiv:math/0207197v1",
+        "arXiv:1202.1644v1",
+        "Sawada–Williams–Wong author preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Short-factor uniqueness supplies the exact fibers of the deletion map, not merely a bound on their number.",
+          "The de Bruijn condition fixes all short factor frequencies by counting extensions; the construction paper states cyclic factor uniqueness for the binary case."
+        ],
+        "reasoning": "With uniform deletion each fiber has mass proportional to its run length. For any fixed symbol a, the frequencies of b a^ℓ c, a^(n−1), and a^n give all three run-length cases without another collision lemma. Thus the full stated spectrum, not just its support size, is a routine specialization.",
+        "searches": [
+          "Resultary eef1c8604afc, deterministic theorem",
+          "Sawada, Williams and Wong, A surprisingly simple de Bruijn sequence construction, Section 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The short-factor-uniqueness record explicitly equates circular one-deletion outdegree with cyclic run count, and identifies the distinct runs with their descendants.",
+          "Sloane's |D_1(u)|=r(u) counts linear descendants and does not justify the rotation quotient."
+        ],
+        "reasoning": "In the rotation-only setting deletions within a run already agree, so equality of the counts is equivalent to a run-bijection. The short-factor result addresses precisely the collision that the linear formulation misses.",
+        "searches": [
+          "Resultary: de Bruijn cycle one deletion cyclic deletion necklaces source runs spectrum",
+          "Resultary: cyclic word necklace single deletion distinct descendants run equivalence",
+          "Sloane, arXiv:math/0207197v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact circular maximal-repetition runs in order-five binary de Bruijn cycles, Resultary 0ff31e943bf5: eight period-one maximal repetitions, requiring length at least two.",
+          "Sharp one-deletion outdegree of binary necklaces, Resultary 2341722fce11: maxima over length classes, not the mass histogram for a fixed source."
+        ],
+        "reasoning": "The order-five count matches the eight nonsingleton runs (four of length 2, two of length 3 and two of length 5), but this finite result does not give the general spectrum. The maxima likewise are not source-specific tables. Neither comparison changes the direct broader coverage.",
+        "searches": [
+          "Resultary: de Bruijn run lengths",
+          "Resultary: binary necklace one-deletion maxima"
+        ]
+      },
+      "rationale": "A distinct, same-day indexed theorem directly covers the run-bijection in the identical rotation-only convention. The probability spectrum follows mechanically from that bijection and the de Bruijn factor frequencies; it need not be printed in the broader record. This establishes coverage, not a priority order between the records.",
+      "residual_risks": [
+        "The index and open sources are not exhaustive. Same-day indexing does not establish the order of disclosure or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by specialization; priority unresolved",
+          "evidence": "Different runs have distinct rotation-identified descendants if the cyclic ℓ-factors are distinct and ℓ≤floor(N/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-short-factor-uniqueness-makes-circular-one-deletion-shadows-asym--eef1c8604afc/RESULT.md",
+          "material_read": "Finding, deterministic theorem and assumptions (offsets 0–2490); synchronization proof passage",
+          "method": "Indexed local mirror; bounded statement and proof passages",
+          "title": "Short-factor uniqueness makes circular one-deletion shadows asymptotically run-exact",
+          "trigger": "Stronger cyclic deletion theorem on the same date"
+        },
+        {
+          "assessment": "Different quantifier and output statistic",
+          "evidence": "Optimizes across binary necklaces of a given length rather than computing fixed-source probabilities.",
+          "identifier_or_url": "Resultary 2341722fce11",
+          "material_read": "Finding and run-based proof comparison",
+          "method": "Indexed local mirror",
+          "title": "Sharp one-deletion outdegree of binary necklaces",
+          "trigger": "Exact cyclic one-deletion counts"
+        },
+        {
+          "assessment": "Finite partial overlap",
+          "evidence": "Counts period-one repetitions with length at least two in binary order five.",
+          "identifier_or_url": "Resultary 0ff31e943bf5",
+          "material_read": "Finding and definition of repetition run",
+          "method": "Indexed local mirror",
+          "title": "Exact circular maximal-repetition runs in order-five binary de Bruijn cycles",
+          "trigger": "Existing exact run census"
+        },
+        {
+          "assessment": "Linear predecessor, not sufficient for the cyclic collision claim",
+          "evidence": "The number of one-deletion descendants equals the number of runs for a linear word.",
+          "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+          "material_read": "Sections 2 and 5, offsets 13100 and 30200",
+          "method": "Lawful open preprint passages",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Classical one-deletion/run equivalence"
+        },
+        {
+          "assessment": "Linear subsequence bounds, not the cyclic spectrum",
+          "evidence": "Defines runs for binary linear strings and treats t-deletion subsequences.",
+          "identifier_or_url": "https://arxiv.org/html/1202.1644v1",
+          "material_read": "Section I, offset 1900",
+          "method": "Lawful open preprint passage",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "General run-dependent deletion bounds"
+        },
+        {
+          "assessment": "Supplies cyclic factor definition; inspected construction passage is not a deletion theorem",
+          "evidence": "Each binary length-n string occurs exactly once as a cyclic substring.",
+          "identifier_or_url": "https://www.cis.uoguelph.ca/~sawada/papers/new_construction_binary.pdf",
+          "material_read": "Section 1, p. 1, offset about 500",
+          "method": "Lawful author preprint passage",
+          "title": "A surprisingly simple de Bruijn sequence construction",
+          "trigger": "Cyclic de Bruijn hypothesis and possible construction-specific counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Knowing the complete likelihood histogram for a fixed cyclic deletion source is mathematically natural, and the symbol-anchor proof is concise. As a separate finding, however, the histogram is mechanically implied by the broader run-bijection and elementary factor counts. No distinct useful invariant or nonroutine extension remains in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

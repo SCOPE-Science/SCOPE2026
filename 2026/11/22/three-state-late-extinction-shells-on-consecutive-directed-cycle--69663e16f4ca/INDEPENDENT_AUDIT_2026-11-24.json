@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:51.336213Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md lines 21–65, iteration of the incoming AND yields exactly the AND over length-t predecessors of each target. Thus the surviving nonempty initial zero sets are the distinct nonempty subsets of the complements of these predecessor sets. With α the distance to the hub and β the distance from it, any length ≥a² walk must pass through the hub: a walk avoiding it lies on one of the two open arms and cannot last even a steps. Between the first and last hub visits it makes complete circuits, so a walk exists exactly when t−α−β belongs to ⟨a,a+1⟩. For n=ha+r with 0≤r<a, membership means h≥r: at least r copies of a+1 are needed for this residue, and r such copies suffice. Hence above or at c−a=a(a−2), the sole gap is c−1 (the last residue in the block h=a−2); c=a(a−1). For t=E−k the residual length is at least c−a, so missing predecessors of a target at distance β are exactly the source level α=2a+1−k−β. The nonempty levels run from a+1−k to a: a singleton at a and k−1 two-vertex levels. Duplicate targets with the same β make no new subsets. Counting singles and whole pairs yields (2k−1)z+(k−1)z². At E all residual lengths are at least c, and at E−1 the α=β=a pair is still missing. Subtracting survivor polynomials therefore gives 2z+z² at E−a+1 through E−1 and z at E; includes a=2. Inspected the two frozen checkers without executing them. Independent `python3 /workspace/replay/check_assignments.py 2` shifts the two arm bitfields and directly updates the hub for every labelled non-all-one state at 2≤a≤7, verifying extinction and zero weights in every claimed shell. This is corroboration, not the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The double-circuit propositions concern fixed points and possible attractor periods via gcd; the parallel circuits paper concentrates on at least one negative side circuit.",
+          "The weakly connected elementary model is two disjoint cyclic components joined by one directed edge, with an LCM-time projection and no feedback from the second component to the first."
+        ],
+        "reasoning": "The fixed-point and period classifications imply the eventual recurrent states, not their time-resolved labelled basin-shell weights. The result for disjoint strongly connected components joined by an edge cannot specialize to two cycles sharing a vertex in one strongly connected component.",
+        "searches": [
+          "Demongeot–Noual–Sené §5, Lemma 5 and Propositions 1–2",
+          "Noual arXiv:1011.3930, introduction and model",
+          "Chen–Gao–Başar Asymptotic Behavior of Conjunctive Boolean Networks Over Weakly Connected Digraphs, Definition 4 and Lemma 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0805.0275 and arXiv:1011.3930",
+        "Demongeot–Noual–Sené (2012), §5",
+        "Chen–Gao–Başar, Definition 4 and Lemma 8",
+        "Resultary 69663e16f4ca (self-match), fa747d13f051 (indexed summary), 23d53b0522f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general primitive bound on 2a vertices is (2a−1)^2+1, larger than E; even knowing the exact E would only establish the maximum delay, not the weights for k≥2.",
+          "The bridge record computes basin entry from a rotating source cycle with A_i'=A_(i−1), a feature absent from the shared-hub AND graph. Its endpoint count differs."
+        ],
+        "reasoning": "The new calculation goes beyond conjugacy of dynamical descriptions: it isolates the last semigroup gap in the window, translates it into whole source levels of multiplicity one or two, and counts distinct zero subsets across targets. None of the compared theorems or retrieved proof passages supplies that defect partition for the infinite family.",
+        "searches": [
+          "Jarrah–Laubenbacher–Veliz-Cuba §§2.2–2.3: primitive Boolean exponent and Wielandt bound",
+          "Demongeot–Noual–Sené §5: synchronous double-circuit recurrence",
+          "Resultary 23d53b0522f1 Finding and update equations, local-mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjunctive network iterates are Boolean matrix powers in the walk sense, and height in the primitive case is the exponent. The frozen refinement is the union of the nonempty subset families of the Boolean zero columns, counted by subset size, not the number of zero entries or the height alone.",
+          "The doubly positive case of the double-circuit model includes exactly the hub AND rule on the specified pair of cycles."
+        ],
+        "reasoning": "This establishes genuine aliases and the strongest reduction: knowing an exact late Boolean support pattern for these matrices would imply the polynomial, whereas knowing only the exponent or attractor periods cannot reconstruct the column defect sets or account for target duplicates.",
+        "searches": [
+          "Jarrah–Laubenbacher–Veliz-Cuba arXiv:0805.0275, §§2.2–2.3: Boolean matrix powers, height and exponent",
+          "Demongeot–Noual–Sené, Combinatorics of Boolean automata circuits dynamics §5: doubly positive double circuits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact self-hit is the assigned 69663e16f4ca record. The distinct fa747d13f051 summary reports a full hitting-time census for mixed 2/3-cycle bouquets and 2^k−1 states at six steps. One cycle of each length is the a=2 graph and the terminal count is one. The mirrored RESULT.md was not available, so the zero-weight refinement for that case remains unresolved.",
+          "The inspected 23d53b0522f1 finding gives first-periodic-entry shells for disjoint cycles joined by one bridge. Its exact terminal count for consecutive lengths is 2^a at time a(a+1) among 2^(2a+1) labelled initial states."
+        ],
+        "reasoning": "The summary overlap at a=2 is real but has no support there for general consecutive lengths. Equal maximal times in the distinct bridge problem do not identify its polynomial with shared-hub extinction; even the number of vertices and last-shell size differ. No distinct exact general table was substantiated.",
+        "searches": [
+          "Resultary: late extinction shells of consecutive directed cycles sharing one hub under synchronous AND, weighted by initial zeros",
+          "Resultary fa747d13f051: six-step hitting-time census for mixed directed bouquets",
+          "Resultary 23d53b0522f1: exact relaxation shells, one-bridge conjunctive cycles"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete late-time initial-zero-weight profile for consecutive shared-hub cycles. The walk/AND correspondence, numerical semigroup conductor and constant attractors are not new. Neither attractor results on the identical graph nor bounds on the exponent determine the missing-predecessor sets with their source multiplicities. The closest indexed comparison for a=2 agrees at the terminal count but has inaccessible full text and only 2/3-cycle topology in its summary. The available one-bridge result treats a different dynamics and gives different shell counts. No checked statement implies the infinite-family refinement; priority is not asserted.",
+      "residual_risks": [
+        "The complete same-day 2/3-cycle census was not available from the mirror; its zero-weight coverage at a=2 is unresolved, not discounted on the basis of date. Older equivalent calculations of the near-exponent Boolean matrix defect patterns could have been missed; no priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes general equivalence and exponent bound, not the exact transient census",
+          "evidence": [
+            "Boolean matrix powers describe iterates, height is tied to exponent, and primitive exponent is bounded by (n−1)^2+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+          "material_read": "OA PDF §§2.2–2.3, pp. 6–8, offsets 18480 and 23200",
+          "method": "Selected OA full-text passages",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "Equivalent Boolean-power formulation and primitive exponent bounds"
+        },
+        {
+          "assessment": "Same geometry and positive case attractor structure, not weighted extinction shells",
+          "evidence": [
+            "Hub can be AND; fixed-point and gcd-based period results treat the doubly positive case."
+          ],
+          "identifier_or_url": "Discrete Applied Mathematics 160 (2012), 398–415; Demongeot, Noual and Sené",
+          "material_read": "HAL OA PDF §5, pp. 15–16, offsets 45600–51564; Lemma 5 and Propositions 1–2",
+          "method": "Selected OA full-text passages",
+          "title": "Combinatorics of Boolean automata circuits dynamics",
+          "trigger": "Exact same shared-hub double-circuit model"
+        },
+        {
+          "assessment": "The inspected introduction and model focus on non-doubly-positive cases and attractor enumeration",
+          "evidence": [
+            "The introduction identifies the focus as at least one negative side circuit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.3930",
+          "material_read": "arXiv PDF pp. 1–3, offsets 1600–7575",
+          "method": "Selected OA PDF passages",
+          "title": "Dynamics in parallel of double Boolean automata circuits",
+          "trigger": "Parallel dynamics of the same shared-hub topology"
+        },
+        {
+          "assessment": "Disjoint cycles plus bridge, not a hub bouquet",
+          "evidence": [
+            "Defines an elementary two-component weakly connected digraph and gives an LCM-time projection."
+          ],
+          "identifier_or_url": "Chen–Gao–Başar, OA paper, Definition 4 and Lemma 8",
+          "material_read": "OA PDF pp. 8–9, offsets 60900 and 73300",
+          "method": "Selected OA PDF passages",
+          "title": "Asymptotic Behavior of Conjunctive Boolean Networks Over Weakly Connected Digraphs",
+          "trigger": "Closest primary transient-related conjunctive cycle construction"
+        },
+        {
+          "assessment": "Agrees at maximum delay and terminal count for a=2; zero-weight coverage at that boundary unresolved",
+          "evidence": [
+            "Summary names bouquets of 2- and 3-cycles and 2^k−1 states requiring six updates."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-six-step-hitting-time-census-for-boolean-dynamics-on-mixed-dir--fa747d13f051",
+          "material_read": "Resultary indexed summary only; exact local RESULT.md requested, not available",
+          "method": "Local Resultary search and mirror lookup",
+          "title": "A six-step hitting-time census for Boolean dynamics on mixed directed bouquets",
+          "trigger": "Same-day direct boundary overlap with a=2"
+        },
+        {
+          "assessment": "Exact shells for distinct topology and different hitting-time notion",
+          "evidence": [
+            "Terminal count 2^a at a(a+1) for consecutive lengths, with one bridging directed edge and no hub identification."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-relaxation-shells-and-a-coprime-rare-delay-transition-in-o--23d53b0522f1",
+          "material_read": "RESULT.md Finding, Assumptions and proof; decisive statement and update equations at mirror offsets 0–2593",
+          "method": "Local Resultary mirror statement and proof comparison",
+          "title": "Exact relaxation shells and a coprime rare-delay transition in one-bridge conjunctive cycles",
+          "trigger": "Exact late shells for consecutive AND cycles with the same maximal time"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard strongly connected conjunctive network, the exact population and zero weights of the longest-delay states are information not supplied by an exponent or attractor theorem. The result explains why only a small number of configurations can attain those times and why the late population is restricted to specific singletons and pairs. The uniform terminal size-three shells and sharp last singleton are meaningful natural transient invariants, not just measurements at a small size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

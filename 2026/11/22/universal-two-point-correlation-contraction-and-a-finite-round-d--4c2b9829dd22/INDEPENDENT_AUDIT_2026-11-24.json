@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:33:42.184261Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sign gauge transforms each bond to rho>0 and the signed pair products to ordinary ferromagnetic correlations. The nearest observed endpoints give conditional means linear in their values, with nonnegative position-dependent coefficients, including absent endpoints. In a common gap the conditional two-spin table is proportional to (1+u a x)(1+d xy)(1+v b y), d=rho^(j-i), normalized by 4(1+duvab). Four times the determinant of this probability table is the spin covariance d(1-u^2)(1-v^2)/(1+duvab)^2. If the sites are separated by an observation it is zero by the Markov property. For adjacent unrevealed sites u,v<=rho, proving the claimed uniform positive bound. Induct on the disclosed positions: new-old moments propagate through the nonnegative linear mean coefficients; new-new moments of the decoder propagate through their products, while the target has the extra nonnegative conditional covariance averaged under the target, not under the decoder. Both diagonals equal one, so the comparison holds even when their revealed contexts have different laws. Pair moments are final upon reveal, with zero single-spin means by flip symmetry. Exogenous scheduling mixes those inequalities; iid labels give collision probability sum a_k^2>=1/K. The defect divides the bond shortfall by two, and the exact bond-log representation multiplies it by log((1+rho)/(1-rho)), not by a KL identity. No floor is implied for coordinated schedules. The frozen check.py uses finite fraction recursion; its stored counts are not proof. The independent full-law restriction checker /workspace/branches/178f0add-b045-4969-abc5-bbcd14821517/check_record4_independent.py confirmed 1177 pair inequalities, 214 adjacent bounds, and 8 exact all-singleton cases on its bounded grid and confirmed a nonuniform iid example.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baule's exact recurrence covers independent sampling at finite lengths and rounds; Lavenant–Zanella supply general KL error bounds; Wen–Liang–Lu give a KL identity and coordinated zero-error schedules for Markov sources."
+        ],
+        "reasoning": "Schedule-general total-correlation techniques do not give the pairwise sign and an iid lower bound on the stated final-output observable as written. Zero-error coordination underscores, rather than displaces, the iid-label restriction.",
+        "searches": [
+          "Baule arXiv:2611.07845v1 §§III–IV",
+          "Lavenant–Zanella arXiv:2510.25544 Proposition 2",
+          "Wen–Liang–Lu arXiv:2608.25505v1 conditional total correlation and Markov depth"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Baule arXiv:2611.07845v1",
+        "Lavenant–Zanella arXiv:2510.25544",
+        "Wen–Liang–Lu arXiv:2608.25505v1",
+        "Resultary 4c2b9829dd22, b351c0c06698 and 349d75d8a2fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baule's recurrence and adjacent counts are exact analytic results, not just numerical counts. Eqs. (22)–(26) evaluate the final adjacent observable and cross entropy under independent schedules, but do not state the pointwise bridge lower bound c(rho) or the all-pair deterministic comparison.",
+          "The induction controls dependence on the revealed context under two different laws; the collision probability alone cannot supply the result without nonnegative deficits on noncolliding schedules."
+        ],
+        "reasoning": "Exact evaluability of the averaged adjacent observable does not by itself specialize to the claimed deterministic inequality, nor does it establish the uniform positive floor without a further order/bound argument. The possible derivation of a related iid floor via recurrence analysis remains a priority risk, not evidence of exact coverage.",
+        "searches": [
+          "Baule Eq. (20), Eqs. (22)–(26), Eq. (47); Lavenant–Zanella Prop. 2; Wen–Liang–Lu v1 abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baule's excess switch density in the binary persistence parametrization f=(1-rho)/2 equals the excess edge-defect density after the staggered gauge. Its factor log((1-f)/f) equals the frozen log-odds factor.",
+          "The equality connecting switches and target cross-entropy is already present in Baule Eq. (47)."
+        ],
+        "reasoning": "Changing sign by a gauge or relabeling switches is not a new observable. The contribution is an inequality for it, alongside the pairwise envelope at arbitrary deterministic batch partitions.",
+        "searches": [
+          "Baule arXiv:2611.07845v1, binary Markov switch density and generative perplexity, §IV and Eq. (47)",
+          "Resultary: parallel masked Ising/Markov unmasking signed correlations, adjacent defects, finite round error floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-pair and finite-round hit 4c2b9829dd22 is the assigned record. Distinct entries b351c0c06698 and 349d75d8a2fe optimize strong-correlation fixed-round path entropy and a two-pass path-entropy objective respectively."
+        ],
+        "reasoning": "Neither related Finding states the final-output signed correlation envelope or the explicit edgewise floor. Path-law entropy and the energy-based final-output cross entropy are different objectives.",
+        "searches": [
+          "Resultary 4c2b9829dd22, b351c0c06698, 349d75d8a2fe"
+        ]
+      },
+      "rationale": "Credit the deterministic all-pair signed comparison and the explicit co-reveal deficit and iid finite-round lower bound, not the already available exact output-defect and cross-entropy observable, the one-site decoder, or the chain energy identity. The strongest inspected same-model source has exact recursions for independent schedules, not the asserted deterministic all-pair inequality or explicit lower bound in the passages checked.",
+      "residual_risks": [
+        "An alternate inequality analysis of Baule's exact recurrence may yield a related iid finite-round bound; no claim of exhaustive priority or optimality of c(rho)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap in exact iid model and observable; not exact coverage of the claimed inequality in inspected text",
+          "evidence": "Finite labelled-gap recurrence, exact adjacent counts/cross entropy, and exact switch-log-odds identity.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07845v1",
+          "material_read": "§III Eq. (20), extracted offset about 26350; §IV Eqs. (22)–(26), offsets about 32500–37500; binary Eq. (47), offset about 54300",
+          "method": "OA primary text passage inspection",
+          "title": "Masked diffusion as random sequential adsorption: an exactly solvable model for parallel decoding",
+          "trigger": "Same Markov decoder and adjacent defect observable"
+        },
+        {
+          "assessment": "Different type of bound",
+          "evidence": "General KL bound in expected conditional total correlation and an information-profile approach to schedule optimization.",
+          "identifier_or_url": "https://arxiv.org/html/2510.25544",
+          "material_read": "Proposition 2, extracted offset about 13200",
+          "method": "OA primary passage inspection",
+          "title": "Error Bounds and Optimal Schedules for Masked Diffusions with Factorized Approximations",
+          "trigger": "Broader quantitative guarantees for factorized unmasking"
+        },
+        {
+          "assessment": "Compatible coordinated zero-error result, not the iid-label output floor",
+          "evidence": "KL–conditional-total-correlation identity for deterministic value-adaptive policies and zero-error schedules for finite-order Markov chains.",
+          "identifier_or_url": "https://arxiv.org/html/2608.25505v1",
+          "material_read": "v1 abstract and introduction, extracted offsets 0–9800",
+          "method": "OA primary passage inspection",
+          "title": "Conditional Total Correlation and the Serial Depth of Adaptive Parallel Sampling",
+          "trigger": "Same Markov sampling class with broader policies"
+        },
+        {
+          "assessment": "Related but distinct path-entropy optimization",
+          "evidence": "One obtains fixed-round strong-correlation reveal fractions, the other a two-pass Bernoulli schedule optimum; neither gives final-output pair order or the edgewise defect guarantee.",
+          "identifier_or_url": "Resultary b351c0c06698 and 349d75d8a2fe",
+          "material_read": "Both Findings and specified entropy objectives",
+          "method": "Local mirror after Resultary retrieval",
+          "title": "Universal fixed-round geometric unmasking law; Unique two-pass scheduling",
+          "trigger": "Nearest distinct catalogue results on finite-round binary unmasking"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-pair comparison turns a local conditional-independence approximation into a deterministic schedule-wide constraint even when the decoder has changed the revealed-context distribution. The explicit local covariance loss and iid collision bound give a length-independent finite-round limitation for every bond, without solving a decoder recurrence. Separating the guarantee from coordinated schedules matters for understanding when parallel exact-marginal decoding incurs thermodynamic error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

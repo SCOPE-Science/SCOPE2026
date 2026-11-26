@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:30:36.605622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t≥1 each homogeneous or inhomogeneous recurrence extends from t consecutive symbols in both directions because the constant and leading coefficients of (1−S)^t are units. In particular F^t is surjective and the homogeneous solution space has dimension t. The binomial coordinates ((S−1)^j x)_0, 0≤j<t, form a unit triangular transform of the free initial coordinates, so restriction rows are represented by (1+y)^e modulo y^t. Independently reduce the row-space generators before truncation: the first block spans y^j for j<L, and the second spans (1+y^N)y^j for j<R, by triangularity and Frobenius. Subtract matching rows for j<h and retain the first block plus the unmatched second rows when R>L. The resulting basis has pairwise distinct lowest degrees 0,…,H−1 and N,…,N+h−1; modulo y^t only the rows of lowest degree below t survive and they stay independent. Counting them proves the formula, including t=0, t=N, and H=N. Write W=(ker F^t)|_E. If W is full, all preimage fibers meet any cylinder. If W is proper, for any prescribed v choose x with x|_E outside v+W and set z=F^t x; the fiber over z misses that cylinder. Thus the exact full-image threshold holds for every fixed pattern, not just for a quantifier over all patterns collectively. The time plateau has N−H steps of no rank increase. N is the separation of the two starting positions, not the number N−L of unobserved sites. The frozen finite checker was inspected; the all-parameter conclusion here follows from the rank proof, not from the finite evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 18 characterizes strong transitivity by eventual hitting of zero for each finite interval pattern; its proof takes a maximum over patterns.",
+          "Theorem 5 of the 2025 paper rules out strong transitivity on finite nonabelian alphabets, and its discussion treats decidability.",
+          "The 1999 work and the structural strong-transitivity lead were not available in full text for the quantitative comparison."
+        ],
+        "reasoning": "The known broad qualitative results apply to eventual behavior or obstructions and give no rank at a specific t and no sharp cutoff in this geometry.",
+        "searches": [
+          "DOI:10.4230/LIPIcs.MFCS.2019.68, Lemma 18",
+          "arXiv:2507.09761, Theorem 5 and pp. 29–30",
+          "DOI:10.1016/S0304-3975(99)00031-6",
+          "https://hub.valency.io/works/W_2328tn6w"
+        ]
+      },
+      "checked_sources": [
+        "MFCS 2019, DOI:10.4230/LIPIcs.MFCS.2019.68 (primary Lemma 18)",
+        "arXiv:2507.09761 (primary Theorem 5 and discussion)",
+        "Frozen result and audit trail for eff551c9-4343-4de8-acc3-b054603783c8",
+        "DOI:10.1016/S0304-3975(99)00031-6 and W_2328tn6w (limited landing material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior interval kernel-hitting criterion does not distinguish different filling times, and the reported progression formula tests a different collection of offsets.",
+          "Even the standard polynomial rank representation leaves a nontrivial dependence between the translated blocks; the independent row reduction shows why the only late degrees are N through N+h−1."
+        ],
+        "reasoning": "Neither specializing the existential condition nor substituting a spacing in the isolated-pair calculation mechanically yields the joint rank with two nonsingleton blocks. The Frobenius-induced identification and subsequent separation of their common directions is the content being credited.",
+        "searches": [
+          "MFCS 2019 Lemma 18, proof",
+          "arXiv:2507.09761, discussions on strong transitivity",
+          "Frozen RESULT.md lines 26–39 and referenced trace result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial rank and the cardinality of the attainable kernel restrictions are equivalent here (a rank r gives p^r patterns).",
+          "The frozen audit identifies eff551c9-4343-4de8-acc3-b054603783c8 as a predecessor-trace result on probes {0,N,…,(m−1)N}; its original was not available in the local sources."
+        ],
+        "reasoning": "Probes with m=2 give the singleton-block geometry. Such a trace does not specify the joint ranks when both blocks contain successive offsets. The existential all-pattern hitting criterion is not an alternative expression of the full time profile.",
+        "searches": [
+          "Finite-time predecessor/restriction-rank and arithmetic-progression trace comparison in the local sources",
+          "arXiv:2507.09761",
+          "DOI:10.4230/LIPIcs.MFCS.2019.68"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only concretely identified related quantitative record in the local evidence concerns arithmetic-progression probes, as summarized in the frozen audit.",
+          "Lemma 18 does not tabulate ranks, times or finite cylinder thresholds."
+        ],
+        "reasoning": "The reported isolated-pair overlap is not evidence for a two-block table; the locally unavailable archive original is not treated as a negative corpus result.",
+        "searches": [
+          "Local audit/source search for two-block probes and arithmetic-progression predecessor traces; record eff551c9-4343-4de8-acc3-b054603783c8",
+          "DOI:10.4230/LIPIcs.MFCS.2019.68 Lemma 18"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp rank and filling profile for two prime-power-separated contiguous blocks with both lengths at least two, on the bilateral system. Standard recurrence, polynomial and strong-transitivity tools, and the reported singleton special case, receive no novelty credit. The inspected results do not already determine this profile; see the limits on historical and archive access below.",
+      "residual_risks": [
+        "The full 1999 article and the modern structural lead were unavailable for quantitative comparison.",
+        "The cited predecessor-trace original and an independent complete archive index were unavailable in the local sources.",
+        "Older quantitative treatments can express the same rank as a vanishing-order or predecessor count rather than as strong transitivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative eventual covering; no exact two-block profile.",
+          "evidence": "The criterion is existential in the iterate and the proof uses the maximum of the times for finitely many interval patterns.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.68",
+          "material_read": "Primary OA PDF p. 11, Lemma 18 and proof",
+          "method": "Bounded primary passage comparison",
+          "title": "Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties",
+          "trigger": "Broader kernel and cylinder criterion"
+        },
+        {
+          "assessment": "The inspected statements do not yield finite-time two-block ranks.",
+          "evidence": "Theorem 5 excludes finite nonabelian alphabets; the later discussion addresses decidability of strong transitivity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.09761",
+          "material_read": "Theorem 5, p. 16; qualitative discussion pp. 29–30",
+          "method": "Bounded primary OA passages",
+          "title": "A Divide and Conquer Algorithm for Deciding Group Cellular Automata Dynamics",
+          "trigger": "Broader strong transitivity characterization"
+        },
+        {
+          "assessment": "Reported special-case overlap; broader implications beyond the summarized scope are unverified.",
+          "evidence": "The reported m=2 progression only observes sites 0 and N, excluded as a standalone novelty claim.",
+          "identifier_or_url": "eff551c9-4343-4de8-acc3-b054603783c8",
+          "material_read": "Frozen originality summary; original not located in local sources",
+          "method": "Local exact-record comparison using the identified summary only",
+          "title": "Arithmetic-progression predecessor traces (reported result)",
+          "trigger": "Exact finite-time probe formula"
+        },
+        {
+          "assessment": "Unresolved priority risk; no inference of noncoverage from access failure.",
+          "evidence": "The identified work concerns topological classification; the actual quantitative scope of its proofs was not inspected.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(99)00031-6",
+          "material_read": "Landing-page bibliographic evidence; not the full text",
+          "method": "Lawful OA retrieval attempt and inspection of the accessible landing material",
+          "title": "A Complete and Efficiently Computable Topological Classification of D-dimensional Linear Cellular Automata over Z_m",
+          "trigger": "Closest historical classification with possible quantitative examples"
+        },
+        {
+          "assessment": "No full-paper determination of quantitative scope.",
+          "evidence": "Accessible material describes structural invariance under translations and temporal iterations, not a verified formula for the present rank.",
+          "identifier_or_url": "https://hub.valency.io/works/W_2328tn6w",
+          "material_read": "Landing/abstract material only",
+          "method": "Primary literature lead followed by OA retrieval attempt",
+          "title": "Strong Transitivity of Group Cellular Automata",
+          "trigger": "Potentially relevant modern structural strong-transitivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precise delay for observing two contiguous pieces is a natural quantitative strengthening of strong transitivity: it quantifies the compatibility of spatial constraints with every output, not simply eventual covering. With fixed block widths their joint degrees of freedom can remain flat for arbitrarily many iterates by increasing the prime-power separation, then become independent at the exact reported time. The result describes all times and all block lengths in that geometry, with a clean mechanism explaining the delay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

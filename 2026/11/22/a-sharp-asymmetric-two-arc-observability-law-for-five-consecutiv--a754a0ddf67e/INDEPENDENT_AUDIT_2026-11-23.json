@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:00:23.417109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized Haar measure makes the coefficient norm Euclidean, and the least Rayleigh quotient is the minimal Gram eigenvalue. For centers z_i, the degree-four polynomial Q=(z−z_1)²(z−z_2)² has squared coefficient norm S=34+32c+4c², c=cos δ, and normalized squared angular quadratic term R=4(1−c)²/S at either center. Direct differentiation gives R_c'=80(c−1)(2c+5)/S², so R peaks uniquely at δ=π with value 8/3. On separated centers the four value/first-derivative constraints can be imposed by a bounded inverse on cubics (a cubic cannot have two distinct double roots), uniformly for δ≥ε>0. Starting with Q/√S, the value corrections −C_i h_i²/3 and zero derivative corrections are O(a²) in coefficient norm. The Taylor expansion and integration then cost (8/45)|C_i|²h_i⁵ on arc i before Haar normalization, with total remainder O_ε(a⁶); normalization of the corrected vector does not change that leading term. For δ→0 the uncorrected Q gives O(a⁵(a+δ)^4), which also covers touching arcs. These bounds apply to subsequences of near-supremizers even without a finite-a maximizer. Strict maximization of R and of the convex width sum h_1⁵+h_2⁵ at the boundary of fixed total width gives the geometric necessity if the upper coefficient is reached. For the antipodal construction, bounded unit coefficients give Taylor estimates |f(b)|=O(a^{5/2}h^{-1/2}+h²), |f'(b)|=O(a^{5/2}h^{-3/2}+h) by averaging against 1 and u on each arc, since the trial bounds the L² mass there. Both tend to zero also for h=a^{3/2}. Compactness forces all limit directions into the one-dimensional normalized double-zero kernel; thus the squared large-arc quadratic coefficient tends to 8/3. Projection onto u²−h²/3 lower-bounds each applicable local integral by (8/45)|C_i|²h⁵+O(h⁶), using uniform third-derivative control. The large arc alone, h_1/a→2, yields (1/(2π))(8/45)(8/3)2⁵=1024/(135π). For equal antipodal widths the same argument projects on both arcs and replaces 2⁵ by 2, giving 64/(135π). The proof uses RESULT.md §§1–6; the supplied VERIFICATION.md and checker were inspected, not executed. No claim about maximizing at any fixed a or over general measurable sets is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-window Resultary result expresses fixed-index asymptotics in orthogonal-polynomial moment norms and expressly disclaims uniformity for varying windows.",
+          "The inspected primary concentration theorems are transition-eigenvalue counts with d≥2; the union-of-intervals paper concerns exponential Riesz bases."
+        ],
+        "reasoning": "The optimized sequence changes width ratios and can have colliding centers. A fixed-window moment theorem or a counting bound does not supply the uniform upper bound or the matching lower bound in that regime.",
+        "searches": [
+          "Resultary 175763578bb2, Finding and Assumptions",
+          "Marceca–Romero–Speckbacher arXiv:2301.11685 Theorems 1.1–1.2",
+          "Asipchuk–Drezels arXiv:2211.03821"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 900ee56c5370, 421f4178227e, 175763578bb2",
+        "Marceca–Romero–Speckbacher arXiv:2301.11685",
+        "Asipchuk–Drezels arXiv:2211.03821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest equal-width statement gives the exact maximum over placements, not width splits. The earlier asymptotic fixed-index comparison makes no degenerating-window uniformity assertion."
+        ],
+        "reasoning": "The factor sixteen and the necessarily vanishing width share are not substitutions into these results: they require controlling the least eigenvector while the short arc shrinks faster than the long arc, as well as ruling out colliding and fixed-ratio sequences.",
+        "searches": [
+          "Resultary 900ee56c5370 and 421f4178227e equal-arc statements",
+          "Resultary 175763578bb2 fixed-window assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Modulation by e^{2it} takes the centered five-mode space to modes 0,…,4 without changing squared magnitudes, so the equal-width results genuinely overlap.",
+          "Observability is the least eigenvalue of the Fourier restriction Gram matrix, i.e. finite-band concentration, not the construction of an exponential basis."
+        ],
+        "reasoning": "Matching indices after modulation does not equate equal and variable width admissible sets.",
+        "searches": [
+          "Resultary two-arc Fourier observability and finite-band Gram minima; 900ee56c5370 and 421f4178227e",
+          "Resultary fixed-index low-bandwidth Fourier concentration; 175763578bb2",
+          "arXiv:2301.11685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For m=2 the earlier optimized equal-arc formula gives 64/(135π), and the distinct same-day record states the same coefficient with O(a⁷) remainder under equal widths.",
+          "The compared exact records do not state 1024/(135π) for arbitrary width allocation or force a shorter/total width ratio of zero."
+        ],
+        "reasoning": "There is no separate numerical table that establishes this optimizing continuum limit. Closest exact records were matched by mode space, measure and admissible geometry, without relying on same-day ordering.",
+        "searches": [
+          "Resultary exact five-mode two-arc observability, 421f4178227e",
+          "Resultary equal-arc Legendre constant, 900ee56c5370"
+        ]
+      },
+      "rationale": "An earlier Resultary theorem covers the equal-width coefficient and antipodal placement, and a distinct same-day record supplies a stronger finite-aperture statement on the equal-width slice. The reviewed remainder is the different two-width minimax with a singular allocation, sharp sixteenfold gain and rigidity of the width share and separation. None of the compared statements dominates that problem.",
+      "residual_risks": [
+        "Unindexed or inaccessible equivalent results are not ruled out by the bounded comparison.",
+        "No priority ordering is inferred between distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers equal-width benchmark",
+          "evidence": "The equal-half-width formula 2^{4m+1}/[π(2m+1)binom(2m,m)^3] at m=2 is 64/(135π), with optimal antipodal placement.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-two-arc-fourier-observability-a-legendre-constant-and-asym--900ee56c5370",
+          "material_read": "Mirrored RESULT.md, Finding, offset 190",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-arc Fourier observability: a Legendre constant and asymptotic antipodal design",
+          "trigger": "Exact coefficient for the centered five-mode space and two arcs"
+        },
+        {
+          "assessment": "Stronger on the equal-width slice only",
+          "evidence": "Exact finite-width optimum over placements under equality of half-widths; its expansion is 64a⁵/(135π)+O(a⁷).",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-five-mode-fourier-observability-on-two-equal-circle-arcs--421f4178227e",
+          "material_read": "Mirrored RESULT.md, Finding, offset 611",
+          "method": "Local Resultary mirror",
+          "title": "Exact five-mode Fourier observability on two equal circle arcs",
+          "trigger": "Distinct same-day matching band and arc geometry"
+        },
+        {
+          "assessment": "Related but no degenerating-window uniformity",
+          "evidence": "Asymptotics via orthogonal-polynomial moment norms for fixed windows are not asserted uniformly over shapes or widths which vary in the limit.",
+          "identifier_or_url": "2026/10/25/SCOPE-fixed-index-low-bandwidth-spectra-for-arbitrary-two-window-fouri--175763578bb2",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-index low-bandwidth spectra for arbitrary two-window Fourier concentration",
+          "trigger": "Broader fixed-index concentration asymptotics"
+        },
+        {
+          "assessment": "Different spectral question",
+          "evidence": "Bounds the number of eigenvalues away from 0 and 1 for the stated d≥2 regimes, not a fixed five-mode shrinking two-arc optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.11685",
+          "material_read": "Abstract p. 1 (offset 0), Theorems 1.1–1.2 pp. 3–4 (offsets 8866, 13176)",
+          "method": "OA PDF passage inspection",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "Fourier concentration on nonconvex domains"
+        },
+        {
+          "assessment": "Different basis problem",
+          "evidence": "Constructs exponential bases for unions of intervals under gap conditions, not aperture allocation for five prescribed characters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.03821",
+          "material_read": "Abstract and introduction p. 1 (offset 0)",
+          "method": "OA PDF passage inspection",
+          "title": "Examples of exponential bases on unions of intervals",
+          "trigger": "Fourier analysis on disconnected observation intervals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Given a fixed total observation measure and two components, allocating their widths is a natural part of the design rather than an arbitrary generalization. Equal allocation, though optimal over placements on its own slice, loses a factor of sixteen at leading order. The result shows that a companion with negligible measure can still enforce two independent jet conditions, and that all near-maximizers must use a vanishing width fraction there while staying antipodal in the limit. This changes the design conclusion, not merely a normalization or numerical estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

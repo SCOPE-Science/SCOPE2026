@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:38:26.370267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The identity fixes f²(x), so these are labelled rooted forests of height at most two, including shallower components. Choosing and connecting the three layers proves the profile count, with the identity map the only r=n, s=t=0 case. The nested labelled set construction proves the EGF including its empty-size term. Differentiating the entropy weight F gives b=ae^a, r=ae^b and n=r[1+b(1+a)]; all factors increase and the last expression ranges from zero to infinity. The displayed negative Hessian has the stated positive determinant. In relative coordinates on the ε-rectangle, its top diagonal entry is bounded below by a constant times s_*, its cross term is O(s_*), and its bottom diagonal is bounded below by a constant times t_*; t_*/s_*=a→∞, so its minimum eigenvalue is bounded below by a positive multiple of s_*. Integrating twice gives an Ω(ε²s_*) loss on the boundary, and concavity extends it to all exterior profiles, including the limit t=0. Along the ray to the identity profile the finite endpoint limit is F=−n log n, consistent with its weight one up to the same Stirling error. Rounding the two saddle coordinates costs O(s_*/r_*²+t_*/s_*²)=o(1) in F. Uniform O(log n) Stirling errors and O(n²) profiles are negligible compared with s_*~n/W(log n), since log n=b+O(log b). This proves the joint bound and then T/n→1. The inspected checker is finite corroboration for the count through n=6, not evidence for the concentration bound; it was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 2.2 uses bounded-height finite DAGs for closure-controlled model theory. Random expansions of bounded-height trees condition on prescribed base trees. The iterated exponential Bell-number result in §3 keeps size fixed and grows iteration order."
+        ],
+        "reasoning": "None of these passages gives the law of the randomly chosen base forest at fixed depth as label count grows. Bounds for increasing iteration order would not supply the uniform fixed-depth saddle or its curvature.",
+        "searches": [
+          "Koponen arXiv:2610.16163, Example 2.2",
+          "Koponen–Tousinejad arXiv:2410.11775, abstract",
+          "Skau–Kristensen arXiv:1903.07979, §3",
+          "Fixed-height labelled rooted forest and tree-profile asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2610.16163, 2410.11775 and 1903.07979, specified passages",
+        "Resultary 78c3b4b45ec0 and f0761e894052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A formal nested EGF can establish enumeration by depth once marked, but it does not state the fixed-relative-deviation rate.",
+          "The checked comparisons do not give the relative-coordinate curvature bound with s_*≪t_* or exclude different rate scales for the two rootward layers."
+        ],
+        "reasoning": "A labelled count or unmarked saddle is not stronger coverage of the joint relative tail. No inspected result implies the specific bound without a further quantitative argument.",
+        "searches": [
+          "arXiv:1903.07979, iterated exponential Bell numbers",
+          "Resultary 78c3b4b45ec0 and f0761e894052, actual findings; labelled forest and tree-profile asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Functional digraphs of these unary maps are labelled rooted forests of height at most two with each root given its self-loop.",
+          "Resultary 78c3b4b45ec0 concerns the same identity but uniform isomorphism classes and fixed component-type observables."
+        ],
+        "reasoning": "Dropping labels changes the probability measure: labelled sampling weights a class by n! divided by its automorphism-group size. The named unlabelled result cannot be specialized to this distribution or the same observables.",
+        "searches": [
+          "Resultary: f³=f² and height-two unary models; labelled rooted forests and layer concentration",
+          "arXiv:2410.11775, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day f0761e894052 covers rooted-star relation counts by functional-cover rank, not depth profiles of unary maps. Later 78c3b4b45ec0 covers unlabelled components and first-order limits, not the labelled joint tail."
+        ],
+        "reasoning": "Totals for the first six sizes, even if already tabulated, would support only finite enumeration. The novelty-bearing joint rate and saddle concentration are not a finite count table, so no sequence/table priority is inferred from lack of a match.",
+        "searches": [
+          "Resultary: unary f³=f² enumeration and quantitative labelled depth-layer concentration; nested exponential assemblies"
+        ]
+      },
+      "rationale": "The elementary labelled profile count and nested exponential construction are not the basis for an originality pass. The supported distinction is the joint relative concentration of root and depth-one layer sizes under uniform labelled sampling, with explicit saddle scales and an exponential rate at scale n/W(log n). The closest inspected records change either the measure, the observable, or the limit, and general counting constructions alone do not give the two-coordinate tail on this nonuniform scale.",
+      "residual_risks": [
+        "The targeted forest/profile search does not exclude a quantitatively strong general triangular-array assembly or multivariate saddlepoint result that subsumes this bound. The comparison is conditional on the inspected passages, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounded-height example, no labelled joint depth concentration there",
+          "evidence": "Finite DAG example used for the closure condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16163",
+          "material_read": "Example 2.2, p. 3",
+          "method": "Targeted original PDF passage",
+          "title": "A characterization of the finite model property for ω-categorical theories",
+          "trigger": "Cited bounded-height finite models"
+        },
+        {
+          "assessment": "Studies expansions, not sampling of base trees",
+          "evidence": "The base is a prescribed sequence of trees; added relations are random.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.11775",
+          "material_read": "Abstract, p. 1",
+          "method": "Targeted original PDF passage",
+          "title": "Random expansions of trees with bounded height",
+          "trigger": "Uniform random models on bounded-height bases are a plausible alternate formulation"
+        },
+        {
+          "assessment": "Different asymptotic regime",
+          "evidence": "The size is fixed as iteration order grows.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07979",
+          "material_read": "§3, p. 2",
+          "method": "Targeted original PDF passage",
+          "title": "An asymptotic Formula for the iterated exponential Bell Numbers",
+          "trigger": "Related nested exponential generating functions"
+        },
+        {
+          "assessment": "Same combinatorial objects up to labels, distinct measure and result",
+          "evidence": "A first-order zero-one law and fixed-type component multiplicities on a logarithmic scale for unlabelled models.",
+          "identifier_or_url": "78c3b4b45ec0",
+          "material_read": "Published RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp logarithmic first-order limits for unlabelled height-two unary models",
+          "trigger": "Same stabilization identity"
+        },
+        {
+          "assessment": "Different sampled structure and statistic",
+          "evidence": "Expansive relations between rooted stars, functional-cover rank and Poisson target-leaf core.",
+          "identifier_or_url": "f0761e894052",
+          "material_read": "Published RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Functional-cover spectrum and Poisson transition for expansive relations",
+          "trigger": "Distinct same-day catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The axiom gives a natural test case in which almost all vertices lie at depth two, yet the two smaller layers are separated by another diverging scale. An explicit joint exponential estimate, rather than total model counts or a marginal limit, makes it possible to control simultaneous depth-profile exceptions. It is a structurally informative quantitative result for the uniform labelled model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

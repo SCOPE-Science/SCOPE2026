@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_lcf.py` and `python verify_incidence.py` with Python 3.8 or later. Both rely solely on the Python standard library and should exit successfully with `PASS` output. Each exhaustively examines all \(262{,}144\) vertex subsets, independently constructing the 18-vertex graph from the signed-offset Hamiltonian presentation and the nine-three-incidence presentation. The first uses an integer boundary recurrence and counts optimal-prefix chains backward; the second counts crossing edges directly and propagates valid chains forward. The explicit isomorphism in the latter rules out accidental use of a different graph with the same name.
+## correctness
 
-The verified cut-minimum sequence is \((0,3,4,5,6,7,6,7,8,7,8,7,6,7,6,5,4,3,0)\). All prefix cuts of the specified cyclic order attain those minima, giving exact cutwidth \(8\) and arrangement cost \(99\). The complete constrained-minimizer counts and exact optimum-layout count \(31{,}850{,}496\) follow from exhaustive integer algorithms; these finite checks are a proof for this specifically defined graph, not a general-parameter theorem. A small `certificate.json` repeats the checkable input and output values without replacing the executable verifier.
+PASS
 
-This package does not claim an independent audit, an independent authorship assessment, or generalization to other graphs. The existing literature establishes the cut-sum and nested-chain implication; originality here is limited to the Pappus-specific finite classification.
+Reconstructed the point-line Levi graph using projective Pappus coordinates and checked its isomorphism with the signed-offset LCF graph. A direct crossing-edge scan of all 262144 subsets gave b=(0,3,4,5,6,7,6,7,8,7,8,7,6,7,6,5,4,3,0) and m=(1,18,27,54,126,324,18,108,540,54,540,108,18,324,126,54,27,18,1), including the empty and full sets. The LCF prefixes realize every entry of b. Each edge contributes its span to the sum of prefix cuts, so sum(b)=99 and max(b)=8 are attained lower bounds on the two objectives. Equality for the sum holds exactly when all prefixes are minimizing sets. With one path at the empty set, forward extension by one vertex to any minimizing superset counts each labelled optimal order once and gives 31,850,496 paths to the full set. No identification by automorphisms or reversal was taken. Replay and raw results: /workspace/review-evidence/1/pappus_independent_check.py and /workspace/review-evidence/1/pappus_independent_check.out. The frozen certificate and checkers were inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinct result is the complete labelled minimizer multiplicities and the exact count of optimal arrangements on this specific canonical graph. The prior scalar edge-isoperimetric number, classical graph description, general layout lower bound, and analogous counts on other graphs are credited. The unweighted boundary profile and layout values admit an elementary derivation combining the scalar, girth, parity and prefix evaluation; they are not treated as separate priority claims.
+
+## value
+
+PASS
+
+For a canonical small cubic symmetric incidence graph, the complete minimizer tie counts and the precise number of labelled optimum layouts quantify the degeneracy of two linked optimization problems, beyond a best-known objective and beyond existence of a nested order. They provide a reproducible exact benchmark for subset and layout enumeration methods with unambiguous symmetry normalization. The result need not assert generalization to other configurations or other Hamilton cycles to supply those invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

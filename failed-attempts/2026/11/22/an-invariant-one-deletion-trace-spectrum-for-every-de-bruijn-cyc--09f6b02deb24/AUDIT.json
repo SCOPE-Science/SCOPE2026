@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies a unique a^n run for each deletion symbol a, shows it is either destroyed or preserved as the same unique rotation anchor, and reduces equal anchored outputs to the classical same-run linear deletion criterion. Different deleted symbols differ by Parikh content. Exact run counts follow from factors b a^ell c and the q occurrences of a^(n-1); the boundary case n=2 is included. The output probability for a run is ell/q^n. verify.py implements literal deletion and rotation independently and exhaustively verifies all binary cycles through order five, plus 16 q,n FKM cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liron–Langberg arXiv:1202.1644v1, Sections I–II and VII: general bounds for linear subsequences organized by ordinary runs.",
+        "Sawada–Williams–Wong (2015), Sections 1–4: binary de Bruijn generation via necklaces; no circular deletion likelihood spectrum in inspected text.",
+        "Published sharp necklace outdegree theorem (2026): binary maximum only, no q-ary all-source likelihood theorem."
+      ],
+      "reasoning": "General deletion-channel results include a larger class of source words but a different output equivalence (linear, not modulo cyclic rotation). A source construction does not imply the output multiplicity spectrum. The available broader necklace extremum is a maximum and hence does not determine each de Bruijn cycle.",
+      "searches": [
+        "published-finding corpus: unique constant-letter run anchor ensures circular deletion descendants distinct per run; De Bruijn order k q-ary (q-1)q^(k-1)",
+        "published-finding corpus: deletion shadow of universal cycles fixed size independent of arrangement runs necklace",
+        "web: single deletion output circular necklaces deletion descendants strings set modulo rotation paper",
+        "web: de Bruijn sequence single deletion circular trace necklace deletion output number distinct"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207197v1",
+      "arxiv:1202.1644v1",
+      "https://www.cis.uoguelph.ca/~sawada/papers/new_construction_binary.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane: exactly number of linear runs for linear one-deletion outputs, without quotienting outputs by rotations.",
+        "Sawada–Williams–Wong: successor rule generates de Bruijn sequences but no deletion-output probabilities.",
+        "published-finding corpus sharp theorem: largest binary necklace one-deletion outdegree, whereas here the q-ary de Bruijn output support is fixed and complete distribution given.",
+        "Own ledger motif probabilities concern length-(n+1) windows, not deletion-modulo-rotation output necklaces; own binary necklace fixed-weight classification does not cover de Bruijn word with q^n positions."
+      ],
+      "reasoning": "The existing linear theorem gives an upper bound equal to run count but cannot rule out additional collisions after quotient by rotation. That strict implication gap is filled by the unique constant-block anchor proof. The run-length histogram is then from complete factor multiplicities; neither alone gives a circular probability spectrum. Arbitrary-necklace maximum results cannot imply the exact per-source distribution.",
+      "searches": [
+        "https://arxiv.org/html/math/0207197v1 Section 5 descendants of a vector",
+        "https://arxiv.org/html/1202.1644v1 Section I and deletion patterns",
+        "https://www.cis.uoguelph.ca/~sawada/papers/new_construction_binary.pdf Sections 1-4",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11/RESULT.md",
+        "Own accessible ledger: 6864ba36-5d1a-4dfd-a2ed-a2a499bd1667; 7c5764be-6af8-4254-aab3-b51437fb1496; d29a4726-3f5b-4fec-a4ad-d7c9be7c53ab; 29e5e80f-f472-4c95-bdda-db4b20d78fbf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Publicly indexed result 2026/11/8/.../SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11 states a maximum over all binary necklaces, not exact support per de Bruijn source.",
+        "Sloane 2002, https://arxiv.org/html/math/0207197v1, Sec. 5 treats linear descendants."
+      ],
+      "reasoning": "One-deletion sphere, deletion shadow, outdegree, circular trace, conjugate output and run-based formulations were compared. The cyclic no-extra-collision assertion is strictly stronger than the linear run count for this constrained source family, but not implied by the unrestricted necklace maximum.",
+      "searches": [
+        "published-finding corpus: one deletion shadow of de Bruijn cycles all 2^(n-1) distinct deletion necklaces",
+        "published-finding corpus: circular one-deletion descendant uniform degree for de Bruijn necklaces q-ary",
+        "web: de Bruijn necklaces single deletion number distinct outputs uniform run count cyclic deletion",
+        "web: de Bruijn sequence one deletion patterns unique factor 000 indistinguishable deletion necklaces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000031 and A000013 retrieved by the search concern necklace/shift-register counts and are not an exact deletion likelihood spectrum.",
+        "Public indexed results concerning BWT runs or de Bruijn sequence enumerations count different objects."
+      ],
+      "reasoning": "No exact public table for the proposed q,n-dependent probability spectrum was identified. Numerical coincidences with powers of q or generic run counts do not by themselves establish an original theorem.",
+      "searches": [
+        "web: \"de Bruijn\" \"deletion\" \"runs\" \"necklaces\" \"probability\"",
+        "web: \"de Bruijn sequences\" \"single-deletion\" \"necklaces\" distinct",
+        "web: \"de Bruijn\" \"deletion sphere\" \"rotation\"",
+        "published-finding corpus: exact number universal cycles of binary words with bounded changes transitions"
+      ]
+    },
+    "rationale": "The exact cyclic one-deletion shadow support and full point-mass spectrum for every de Bruijn circle are not stated by the inspected linear deletion theorems, de Bruijn shift-rule construction, or the published maximum-over-all-necklaces result. These known results supply components but do not imply the special lack of rotation-induced collisions, which requires the per-symbol unique constant-factor anchor. Searches are not proof of priority; an unindexed stronger cyclic-run result remains a residual risk.",
+    "residual_risks": [
+      "Older unindexed cyclic deletion/necklace literature might have the same fixed-source theorem or a stronger anchor lemma.",
+      "Run-length distributions of de Bruijn sequences are simple consequences of exact factor counts; novelty rests on the rotation-collision rigidity and complete output law, not these counts alone.",
+      "No external independent priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LINEAR_ONLY; no necklace output rotation quotient and no de Bruijn-specific cyclic likelihood spectrum",
+        "evidence": [
+          "Section 5 begins with linear run equality; Section 1 defines deletion outputs as ordinary vectors."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Introduction and Sections 2 and 5 on descendants, including the |D_1(u)|=r(u) statement",
+        "method": "Read accessible full-text HTML at the cited sections",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Classical linear deletion-descendant count might subsume run counting"
+      },
+      {
+        "assessment": "LINEAR_SUBSEQUENCES; does not supply cyclic rotation collision-free property",
+        "evidence": [
+          "The source studies r-run linear strings and t-deletion descendant bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1202.1644v1",
+        "material_read": "Introduction, main run-extremizer statement, and Section VII deletion-pattern definitions",
+        "method": "Read HTML full-text material at the specified sections",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "General run-based deletion theorem could cover the claimed distribution"
+      },
+      {
+        "assessment": "CONSTRUCTION_ONLY; necklace membership tests for generation differ from deleting one source position and counting output necklaces",
+        "evidence": [
+          "Theorem 1 is a de Bruijn successor rule; Theorem 2 is amortized construction complexity."
+        ],
+        "identifier_or_url": "https://www.cis.uoguelph.ca/~sawada/papers/new_construction_binary.pdf",
+        "material_read": "Seven-page text including Sections 1–4, theorem, algorithm and references; first page visually inspected",
+        "method": "Read publisher-author-hosted paper and first-page screenshot",
+        "title": "A surprisingly simple de Bruijn sequence construction",
+        "trigger": "Relevant construction/necklace source; assess whether deletion behavior is already established"
+      },
+      {
+        "assessment": "NOT_DOMINATING; exact maximum over all binary sources, not per-source de Bruijn spectrum nor q-ary formula",
+        "evidence": [
+          "Its stated M(n) is the maximum over binary necklaces and its Limitations explicitly exclude descendant counts for every source."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11/RESULT.md",
+        "material_read": "Complete public RESULT.md including Finding, Proof, Verification, Relationship and Limitations",
+        "method": "Read the complete UTF-8 published mathematical file",
+        "title": "Sharp one-deletion outdegree of binary necklaces",
+        "trigger": "Closest exact cyclic one-deletion theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09f6b02d-eb24-4bfd-9b38-179c2c6c6230",
+  "value": {
+    "rationale": "A complete and construction-independent output-likelihood law for cyclic universal test sequences is a natural coding/sequence-design invariant. It establishes exactly when quotienting by rotation costs no distinguishability after deletion, despite known nontrivial collapses for arbitrary binary necklaces, and gives the precise run-length-weighted mass spectrum across all alphabet sizes and orders. The theorem is not asserted as a paper-size advance or an optimal code capacity.",
+    "status": "PASS"
+  }
+}

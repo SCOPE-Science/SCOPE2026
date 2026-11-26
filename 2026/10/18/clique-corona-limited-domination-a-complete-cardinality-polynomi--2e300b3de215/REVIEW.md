@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The central lemma distinguishes an omitted core from a selected core and computes their exact permitted private-subset sizes; every limitation and domination constraint is both necessary and sufficient. Each finite set has a unique selected-core set, so the polynomial counts each once. The per-cluster lower bound and its constructions prove the minimum value; equality enforces zero edge boundary for selected cores when \(k\le s\), and a bounded core cut when \(k>s\). The explicit brute-force checker independently verified 857 graph-parameter cases and 1,877,184 candidate vertex subsets; the proof, not those tests, establishes the infinite result.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2026 introducing paper supplies general \(k\)-limited bounds and individual base-graph values, including a connection to ordinary leaf coronas when the private attachment has size one. It does not classify the full solution distribution for arbitrary private-clique coronas. The related 2026 Cartesian-product study treats independent-leaf coronas, which are not private cliques. Searches for equivalent terminology, general corona theorems and cardinality enumerators found no exact coverage of the private-clique polynomial and its component/cut optimizer transition. This is evidence of noncoverage in inspected material, not absolute priority proof. Earlier capacity-domination and corona literature could contain an unindexed equivalent formulation.
+PASS
 
-**Value — PASS.** Counting every feasible limited-dominating set across an arbitrary core family strictly refines the minimum number and reveals a meaningful structural threshold: a componentwise product independent of core edges below the threshold becomes a constrained core-boundary partition function above it. This provides a tractable exact expression and the complete minimum-set classification for a natural modular graph construction used to distinguish resource-capacity constraints. It is more than a substitution into a known graph parameter bound, although unrestricted computation may remain exponential.
+Condition on the exact core intersection B. An omitted core requires a private selection to cover its cluster; each selected private vertex then sees s+1−j outside, so the lower cutoff for its occupancy is max(1,s+1−k). A selected core covers its cluster and sees s−j+d_B(v) outside, which dominates the private vertices' outside count. This gives cutoff max(0,s+d_B(v)−k), including the empty range, and binomial multiplicity on each of the disjoint private cliques. It proves the full polynomial without double-counting. Every cluster has at least max(1,s+1−k) selected, and the all-private construction attains that bound. For k≤s, equality in an included-core cluster forces d_B(v)=0, equivalently the whole component must be chosen, with the two binomial weights as stated. For k>s equality forces one vertex per cluster and bounds d_B(v) by k−s; each omitted core contributes s choices. Both descriptions agree at k=s; k≥s+Δ(H) makes every core set feasible. Independent set-based enumeration checked the full distributions and minimum classifications by core choice in 71 configurations including connected and disconnected cores. Replay: python /workspace/branches/independent_replay.py 1.
 
-The source comparison uses the complete accessible foundational journal article and the full relevant section of the Cartesian-product preprint. Neither gives the asserted all-set polynomial. An independent mathematical referee has not checked the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the full cardinality distribution and equality-case transition for arbitrary uniform clique coronas. It is not the scalar minimum in known regimes, ordinary domination, or a new general equivalence to domination with degree-dependent requirements. In the sources inspected, none of these known equivalences or different graph-family formulas gives the new core-cut enumeration at limited capacities. The relationship paragraph's characterization of Tepeh as studying Cartesian products of leaf coronas is not substantiated by the passages checked; that attribution is not needed for the mathematical result or originality decision.
+
+## value
+
+PASS
+
+The whole distribution and equality classification separate two genuinely different ways core geometry enters the constraint. In the low regime the minimum count depends only on component sizes; at k=s+1, even connected cores of the same order can differ: on three vertices P₃ has two admissible singleton core sets (its ends), whereas K₃ has none; larger core sets are all admissible in both, giving a minimum-count difference 2s². This is a meaningful exact structural refinement of the topology-independent scalar minimum, not a claim to improve computational complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

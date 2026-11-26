@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:08:26.166241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-vector error is the quadratic form of E[B^T B] for chronological error transition B. In a word of rank-one projections the Gram matrix is the first projection times the squared overlaps of consecutive ranges. Summing separately the six label permutations and 27 IID words gives the reported difference and determinant exactly; the calculation was independently repeated symbolically with a rational parametrization covering s>0. The two projection lines span the plane. For u<1/2 the difference is positive definite, at u=1/2 it has rank one, and for 1/2<u<1 it is indefinite. The repeated-row normal gives the asserted negative IID-minus-RR gap there. The exact risks at (c,s)=(4/5,3/5) match, and the distinct-row RR-minus-IID gap is 155773981063185047/1754082541013512921875>0. Strict inequality also persists under perturbation by continuity. For two labels the difference is (1−u)(P+Q)/4; coincident projections give equality and with one label the two protocols coincide. This is one epoch with equal label probabilities, not sampling distinct row directions, multiepoch convergence, or a three-distinct-row classification. Replay: python3 -B /workspace/branches/frozen_math_replay.py (kaczmarz; SymPy). Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie gives per-permutation contraction bounds. Lai–Lim bounds the averaged unsquared three-factor product in norm. De Sa's §2.3 projection example takes direct sums and six labels, with norms taken before averaging. Evidence Press Proposition 8.2 proves a strict Gram comparison in a different five-contraction example."
+        ],
+        "reasoning": "Contraction bounds or norm inequalities do not impose Loewner order on two distinct expected Gram matrices. The published counterexample uses a different size, dimension and metric; the five-contraction Gram result establishes metric dependence, not this exact planar reversal and threshold.",
+        "searches": [
+          "Han–Xie arXiv:2410.01140 Theorem 3.2",
+          "Lai–Lim arXiv:2006.01510 Theorem 2",
+          "De Sa, Random reshuffling is not always better, §2.3",
+          "Evidence Press low-length manuscript, Proposition 8.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Recht–Ré Conjecture 3.1 and Proposition 3.2",
+        "Lai–Lim Theorem 2",
+        "Han–Xie Theorem 3.2",
+        "De Sa §2.3",
+        "Evidence Press linked low-length paper",
+        "Resultary f1e5ffc63f15, 8cad78dc3e3a, 402dad3ef2fc and 241542a71cef",
+        "Bai–Wu DOI full-text retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Recht–Ré's two-matrix proof orders norms, not quadratic forms for every initial vector. The general-m catalogue result fixes e_0=(1,0). An IID transfer operator can produce only the IID side unless augmented by a without-replacement calculation."
+        ],
+        "reasoning": "These statements do not imply the sign of both coefficients of the exact Gram difference or its determinant, nor the pointwise impossibility of reversal for two normalized planar rows. In particular, indefiniteness in this result by itself does not contradict a norm inequality.",
+        "searches": [
+          "Recht–Ré Eq. (3.2), Proposition 3.2 and its proof",
+          "Lai–Lim Theorem 2",
+          "Later Resultary f1e5ffc63f15 general-m risk expressions",
+          "Bai–Wu Theorem 2.1 DOI 10.1016/j.laa.2018.05.009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (3.2) has the same expected palindromic Gram matrices inside norms; PDF p. 6 visibly places norm delimiters on both sides. The later multiplier record sets k=c² and e_0=(1,0), and for m=3 gives the same 1/2 cutoff and exact example."
+        ],
+        "reasoning": "The squared error for a fixed initial vector compares quadratic forms, not largest eigenvalues. The later normal-direction result is precisely a restriction of the theorem to one direction; it does not identify when all directions are simultaneously ordered or supply the indefinite regime's opposite sign. A later displayed date does not establish derivation or priority.",
+        "searches": [
+          "Resultary local search for one-epoch planar repeated-row Kaczmarz and Loewner/expected squared error comparators; f1e5ffc63f15, 8cad78dc3e3a, 402dad3ef2fc, 241542a71cef",
+          "Recht–Ré arXiv:1202.4184, Conjecture 3.1 and Eq. (3.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later exact-family catalogue record repeats 48/625 versus 1179/15625 at the same row direction and has a distinct-row witness. The same-day regular-simplex entry gives an isotropic contraction; the quadratic entries use scalar or SPD maps, not the three labeled projectors."
+        ],
+        "reasoning": "The exact witness and cutoff in the normal direction are genuinely catalogued in the later item. None of these matched statements supplies the all-vector matrix or boundary. No sequence or tabulated constant is a more pertinent independent index for a continuous projector identity.",
+        "searches": [
+          "Resultary local exact-risk and angle-boundary lookup; strongest f1e5ffc63f15, Finding offsets 0 and about 1337; simplex 8cad78dc3e3a and quadratic comparators 402dad3ef2fc, 241542a71cef, Finding offsets 0"
+        ]
+      },
+      "rationale": "Credit the sharp all-starting-vector Loewner boundary for this three-row family and its minimum label count, not exact IID MSE or the general distinction between reshuffling metrics. A later-dated catalogue result reproduces the normal-direction cutoff and exact counterexample and generalizes that direction in multiplicity, but does not cover the all-vector ordering. Matrix product and norm results examined do not imply the pointwise Gram statement. The verdict is for the exact bounded claim, not an assertion of research priority.",
+      "residual_risks": [
+        "The Evid­ence Press companion Which Sampling Scheme Is Better? Metric-Dependent Rankings in Random Reshuffling Dynamics was named in the inspected linked manuscript but not obtained in full; its extensions may overlap.",
+        "Bai–Wu's publisher text was not independently accessible; exact IID MSE is not part of the credited novelty. No priority beyond the inspected evidence is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Expected palindromic products appear in a comparison of operator norms, not a Loewner-order claim",
+          "evidence": "Both sides of printed Eq. (3.2) have visible norm delimiters; its two-matrix proof bounds the norm of the without-replacement moment against that of the with-replacement moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.4184",
+          "material_read": "Conjecture 3.1, equations (3.1)–(3.2) and Proposition 3.2 on pp. 6–7",
+          "method": "OA extracted passages near offsets 20350 and 23335; rendered PDF p. 6 inspected for norm bars lost in text extraction",
+          "title": "Toward a noncommutative arithmetic–geometric mean inequality",
+          "trigger": "Closest conjectural comparison, including the two-matrix case"
+        },
+        {
+          "assessment": "Different moment and different ordering",
+          "evidence": "The theorem bounds the average of unsquared products under PSD normalization in operator norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.01510",
+          "material_read": "Theorem 2, p. 4, near OA offset 24750",
+          "method": "Bounded OA PDF passage",
+          "title": "Recht–Ré noncommutative arithmetic–geometric mean conjecture is false",
+          "trigger": "Three-factor theorem potentially governing this length"
+        },
+        {
+          "assessment": "Contraction estimate, not exact relative one-epoch risk",
+          "evidence": "It bounds contraction for individual permutations and does not compute the competing expected Gram operators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.01140",
+          "material_read": "Theorem 3.2, pp. 6–7, OA offset about 17600",
+          "method": "Bounded OA PDF passage",
+          "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+          "trigger": "Same reshuffling Kaczmarz algorithm"
+        },
+        {
+          "assessment": "Reversal in a different metric and direct-sum model",
+          "evidence": "The constructed B_k are direct sums over permutations, and the displayed n=6 example compares averages of norms of products.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "§2.3, p. 5, offsets 19892–23521",
+          "method": "Bounded OA PDF passage",
+          "title": "Random reshuffling is not always better",
+          "trigger": "Exact counterexamples with projection-based starting family"
+        },
+        {
+          "assessment": "Verified exact metric-dependent five-contraction result; companion overlap unresolved",
+          "evidence": "Proposition 8.2 has M_WR−M_RR=(4405/1048576)P_perp+(1035/131072)P_1 positive definite, the opposite risk sign to the frozen adverse direction and not the same projection family.",
+          "identifier_or_url": "https://evidencepress.org/releases/exact-low-length-recht-re-inequalities/",
+          "material_read": "Linked Exact Low-Length Recht–Ré Inequalities, abstract p. 1, Proposition 8.2 p. 14 and companion notice p. 18; companion full text unavailable",
+          "method": "Release link and OA PDF passages at offsets 1869–2089, 46800–51752 and 63800–66300",
+          "title": "Exact Low-Length Recht–Ré Inequalities and Metric-Dependent Rankings in Random Reshuffling Dynamics",
+          "trigger": "Plausible exact Gram-and-reshuffling result in the cited release"
+        },
+        {
+          "assessment": "Exact coverage of the normal-direction example and cutoff in a later-dated item, not the all-initial-vector result",
+          "evidence": "The m−1 repeated rows and one exceptional row are studied at e_0=(1,0); m=3 and (4/5,3/5) give the same risk rationals and reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-multiplicity-threshold-for-one-epoch-kaczmarz-reshufflin--f1e5ffc63f15",
+          "material_read": "Finding and exact risk formulas, offsets 0 and about 1337",
+          "method": "Configured local mirror",
+          "title": "A sharp multiplicity threshold for one-epoch Kaczmarz reshuffling reversal",
+          "trigger": "Strongest exact-family and cutoff overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp projective-angle and label-count boundaries resolve a focused version of a motivated sampler comparison. The example shows why operator-norm evidence cannot decide every fixed-vector mean-square comparison, even for a full-rank two-dimensional system and an epoch of only three projections. Perturbation to distinct directions shows this is not just an equality-degeneracy of duplicated observations. No broad sampler recommendation or long-run claim is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

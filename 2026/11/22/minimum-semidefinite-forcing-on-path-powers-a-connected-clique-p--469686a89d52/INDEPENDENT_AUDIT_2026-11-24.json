@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:10:52.357759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 34–58",
+        "VERIFICATION.md, lines 19–23",
+        "verify_psd_path_powers.py inspected without running",
+        "Independent replay: python3 /workspace/branches/bounded_replay.py path"
+      ],
+      "rationale": "Fewer than k deleted positions cannot create a surviving-order gap greater than k, so there is just one white component; every blue vertex has at least two white neighbors. For a seed of size k, disconnected whites force all k deleted positions to be one consecutive internal gap. If whites are connected, a first forcer has one white neighbor and at most k−1 blue neighbors, hence degree at most k and must be an endpoint. This is the intended upper-bound argument in RESULT.md line 44 ('at least' should be 'at most'). Endpoint seeds fill a boundary interval and sweep across it. For an interior interval, the rightmost blue vertex can force the next left white vertex in its component, and the leftmost does the reverse; the enlarged blue interval sustains these moves. This proves the exact disjoint census L_i,R_j,C_a. Intersections of size k−1 give two K_k's and the consecutive internal path, with all terminal attachments, one extra attachment at each end when n≥k+3, and between-clique edges a matching, one bridge, or none. Counting these gives the three stated edge totals. The terminal path bounds all distances by n−k; the one-internal-node case is noncomplete, and for two internal nodes the nonexceptional left and right vertices have no common neighbor. For n≥k+4 the integer labels in RESULT.md line 56 are 1-Lipschitz on every listed edge and attain a gap n−k. Ordinary forcing permits only endpoint first moves, so its optimizers induce the asserted disconnected graph for n≥k+4. The independent sequential-force and exchange BFS replay matched every count, seed family and diameter on 36 parameter pairs (4≤n≤11, 2≤k≤n−2); this corroborates but does not replace the all-order proof.",
+      "residual_risks": [
+        "The theorem does not address k=1 or complete graph powers; no finite replay certifies arbitrary n and k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fallat–Meagher–Yang construct an optimal seed for chordal graphs and prove Z_+(G)=|V(G)|−cc(G), with cc the edge clique cover number. Abiad et al. give ordinary Z(P_n^k)=k and PSD monotonicity across powers."
+        ],
+        "reasoning": "P_n^k is chordal by the left-to-right perfect elimination order. The n−k consecutive (k+1)-cliques cover all edges and each distance-k edge lies in exactly one of those maximal cliques, so cc=n−k. Thus the older chordal theorem mechanically gives Z_+=k. Its optimal-output and value statements alone do not give all seeds, the exchange counts or diameter.",
+        "searches": [
+          "Fallat–Meagher–Yang arXiv:1407.7017 §4 Theorem 4.3 and Corollary 4.4",
+          "Abiad et al. arXiv:2610.03892 Theorem 4 and Proposition 7"
+        ]
+      },
+      "checked_sources": [
+        "Fallat–Meagher–Yang §4",
+        "Abiad et al. Theorem 4, Proposition 7",
+        "Bong et al. TAR definitions",
+        "Resultary 816bf7a10356, 8f1eaf3a981b, 850ba66c3452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary exchange result is the induced subgraph on PSD seeds with a graph endpoint; the additional seeds separate the white graph. The chordal characterization of the value and existence of an optimum does not state how a minimum seed can exploit such components."
+        ],
+        "reasoning": "From ordinary exchange data one still needs the separating-seed classification and its intersections with both cliques. Generic PSD monotonicity and computing one optimum do not give that information.",
+        "searches": [
+          "Resultary: ordinary path-power first moves 850ba66c3452 and earlier minimum exchanges 8f1eaf3a981b",
+          "Fallat–Meagher–Yang §4",
+          "Abiad et al. Proposition 7 and Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reviewed adjacency is symmetric difference two among minimum seeds. The TAR paper uses single insertions/deletions (symmetric difference one) with a cardinality bound. The distinct catalogue ordinary-force result 816bf7a10356 has only the endpoint families."
+        ],
+        "reasoning": "Ordinary and PSD rules coincide while white vertices stay connected, but differ on the separating blue intervals. TAR can model exchanges through size-k+1 intermediate nodes at a suitable bound; its definition is not a closed enumeration of the present graph.",
+        "searches": [
+          "Resultary: positive semidefinite / PSD zero-forcing minimum seeds of powers of paths; one-exchange or token-jumping reconfiguration",
+          "Bong et al. arXiv:2205.09668"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct PSD exact hit 469686a89d52 is the assigned record. The older ordinary catalogue entries give the 2k seed census and exchange graph K_k square K_2 for n=k+2, two cliques with one bridge for n=k+3, and disjoint cliques for n≥k+4."
+        ],
+        "reasoning": "These directly cover the ordinary comparison but not the PSD graph, which has additional vertices C_a and is always connected. No independent PSD exact census and graph formula were found in the retrieved statements.",
+        "searches": [
+          "Resultary: full PSD optimum census, exchange edge counts, and diameter on path powers",
+          "Resultary: 8f1eaf3a981b and 816bf7a10356"
+        ]
+      },
+      "rationale": "The scalar PSD value follows from an earlier chordal corollary, and the explicit ordinary comparison is prior coverage; do not credit those as new. The contribution is the complete PSD minimum-set census and its exchange geometry for the full two-parameter family. Neither the earlier ordinary census nor the broader inspected PSD algorithm and scalar theorems give this result.",
+      "residual_risks": [
+        "Unindexed equivalents are possible. An access-restricted foundational 2013 PSD paper surfaced without a matching claim in the accessible evidence; this does not settle its contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the scalar value; does not give the claimed PSD census or exchange formulas in the inspected statements",
+          "evidence": [
+            "Chordal |V|−cc=Z_+; the algorithm returns an optimal positive zero forcing set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.7017",
+          "material_read": "§4, algorithm text offset 23190 and Corollary 4.4, PDF p. 10, offsets 29275–30226",
+          "method": "Primary OA PDF, decisive corollary and output statement compared",
+          "title": "On the Complexity of the Positive Semidefinite Zero Forcing Number",
+          "trigger": "A broader PSD theorem on chordal graphs"
+        },
+        {
+          "assessment": "Ordinary scalar and PSD monotonicity covered, not PSD optima",
+          "evidence": [
+            "Proposition 7 gives Z(P_n^k)=M(P_n^k)=k for n≥k+2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+          "material_read": "Theorem 4, PDF offset 13746; Proposition 7, offset 17243",
+          "method": "Primary OA PDF statement comparison",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Same path-power family and PSD power monotonicity"
+        },
+        {
+          "assessment": "Exact prior ordinary coverage",
+          "evidence": [
+            "2k endpoint seeds; disjoint K_k components for n≥k+4 under ordinary forcing."
+          ],
+          "identifier_or_url": "Resultary 816bf7a10356 and 8f1eaf3a981b",
+          "material_read": "Mirrored RESULT.md Findings, offsets 0 and 287 respectively",
+          "method": "Local mirror theorem and rule comparisons",
+          "title": "Exact optimal zero-forcing seed classifications for powers of paths and cycles; A connectivity dichotomy for minimum zero forcing on powers of paths and cycles",
+          "trigger": "Exact same ordinary subsequence and exchange comparison"
+        },
+        {
+          "assessment": "Different adjacency framework; no exact path-power PSD exchange data in the inspected material",
+          "evidence": [
+            "TAR uses one addition or removal with a size bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.09668",
+          "material_read": "Definitions, PDF pp. 3–4, offsets 10771 and 13199",
+          "method": "Primary OA PDF adjacency comparison",
+          "title": "Isomorphisms and properties of TAR reconfiguration graphs for zero forcing and other X-set parameters",
+          "trigger": "Potential general reconfiguration implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–32 and 50–58",
+        "Fallat–Meagher–Yang Corollary 4.4",
+        "Resultary ordinary exchange comparison 8f1eaf3a981b"
+      ],
+      "rationale": "The known scalar says how many blue vertices are needed but not where to place them or how to move between optimal placements. The exact PSD census turns interior graph separators into the configurations that connect two previously disjoint ordinary clusters. The derivation gives complete adjacency, boundary cases and a growing exact diameter over a naturally motivated unbounded family, not a routine calculation of Z_+.",
+      "residual_risks": [
+        "This classifies fixed-cardinality exchanges, not token sliding, propagation time or arbitrary chordal graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

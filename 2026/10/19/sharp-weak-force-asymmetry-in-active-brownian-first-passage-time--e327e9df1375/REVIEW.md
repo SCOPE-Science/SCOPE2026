@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stopping-time Girsanov density is valid for small force because the bounded-interval exit has an exponential moment for each fixed positive diffusivity and bounded propulsion. Differentiation after conditioning yields an exact covariance identity. The four backward equations for exit, time, orientation-integral and their product close at the required angular orders. The Dirichlet inverses are unique, the centered Green kernel is explicit, and elementary integration yields the displayed rational-hyperbolic susceptibility. Taking the exponential boundary parameter to zero gives the sharp two-term expansion. The supplied checker independently compares this identity against Green quadrature and a discretized angular-harmonic boundary problem.
+PASS
 
-## Originality
+For fixed positive diffusivity the bounded-interval exit has an exponential moment. The stopped-drift likelihood produces the conditional covariance response because the endpoint term cancels in the conditional quotient. Reflection gives the sign T_- minus T_+. At U=0 the conditional times agree for all F by passive stopped-path reweighting, and elliptic analyticity, evenness in U and oddness in F then give the two-variable remainder. The independent harmonic derivation gives 2c20(0)-4m0(0)b20(0), where m0(0)=1/(16 epsilon). For the exact evaluation, rescale x by sqrt(epsilon), set Z=1/(2 sqrt(epsilon)), C=cosh Z and S=sinh Z. In the covariance, the b20, m1 and c1 derivative contributions have polynomial parts -Z^4/12, Z^4/24 and Z^4/24. The remaining elementary integrals are respectively (1/C+Z/S)(C-1-Z^2/2), (Z^2/3-ZS/(2C))(C-1)/C+(ZS-2(C-1))/(2C), and Z(ZS-C+1)/(2S)-Z^2 C(C-1)/(2S^2). Exact cancellation in the rational field with e^Z as an independent symbol reproduces the boxed formula. Its constant-denominator expansions at y=0 give both stated asymptotic coefficients and the exponential error. An independently coded harmonic discretization corroborated the closed values at epsilon=.03,.1,1. The archived direct finite-difference test was not used: its splitting RHS omits the adjacent right boundary contribution U/(2 step) to harmonic one, so it is not an exact centered-stencil implementation of that boundary problem at finite grid spacing. The analytical hierarchy and exact identity are unaffected.
 
-PASS, with residual risk. Tasinkevych, Le and Ryabov (arXiv:2609.27425v1), Sections IV.1 and Appendix C, establish a common leading weak-activity correction to the two conditional first-passage means and an upper bound of order \(\varepsilon^{-3/2}\) on their difference; they explicitly leave the difference's sharp scale unresolved. This finding evaluates its zero-force derivative as an exact function of diffusivity, resolving a nontrivial cancellation and giving the smaller \(\varepsilon^{-1}\) scale with explicit coefficient. Caraglio (arXiv:2410.07226) studies a parabolic barrier; Baouche et al. (arXiv:2503.05401) treat one absorbing wall; Iyaniwura and Peng (DOI:10.1088/1367-2630/ae635d) study splitting probabilities, not conditional-time difference response. The use of Girsanov, elliptic Green functions, and perturbation theory is established methodology, not a novelty claim. A broader, implicit coverage by general first-passage theory remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. Bias-dependent exit timing measures a physical distinction that is absent for passive drift diffusion. The motivating work isolates the difference in a boundary-layer remainder without computing its leading order. The new result identifies the exact small-force susceptibility for the same model and shows that the leading putative \(\varepsilon^{-3/2}\) term cancels, leaving a calculable \(1/(12\varepsilon)\) response and an unusually simple next correction. This gives a natural quantitative scale for experiments or simulations designed to resolve directional timing asymmetry in the rapid angular-relaxation regime.
+The exact statistic is the derivative at zero of the directional difference in the order-U² coefficients, not the leading common weak-activity correction. The closest same-model primary source supplies a common bulk term and a remainder bound, explicitly without resolving the directional contribution. Nearby exact susceptibility results do not have this force-odd conditional observable.
 
-## Limits of assessment
+## value
 
-The result is restricted to a centered symmetric interval, isotropic initial orientation, constant force and sequential perturbative limits. Numerical corroboration is not an infinite-dimensional certificate. The inspection establishes no uniqueness claim against every conceivable general first-passage theorem. The use of the source paper's backward hierarchy is acknowledged, and the additional explicit evaluation is the assessed contribution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves an explicitly undetermined directional contribution for a natural sequential force response, absent for passive drift diffusion. It supplies an exact positive-diffusivity calibration function and identifies the nonzero fast-rotation coefficient and its next algebraic correction, rather than just improving a bound by restricting parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

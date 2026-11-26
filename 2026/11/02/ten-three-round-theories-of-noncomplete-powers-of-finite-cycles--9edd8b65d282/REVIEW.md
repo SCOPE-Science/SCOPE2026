@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-round spectrum criterion is proved by a two-sided Ehrenfeucht–Fraïssé strategy on vertex-transitive graphs. For cycle powers, all third-point patterns follow from explicit circular-arc, neighborhood, and common-neighbor tests; the ten-row table is exhaustive and each row is realized. The infinite common tail and exact sharpness follow analytically, not from finite samples. Independent implementations corroborate the table, including a direct full-game solver.
+## correctness
 
-## Originality — PASS, qualified
-The directly relevant published predecessor Brown–Hoshino (2007) classifies paths and ordinary cycles, hence supplies the radius-one portion but not the six radius-at-least-two cases. Verbitsky (2004) supplies much broader definability bounds without this exact phase diagram. Searches for graph powers, circulant graphs, three-round equivalence, and competing adjacency-extension classifications identified no exact or stronger published counterpart. A previously existing rank-four analysis for the square of a cycle gives a much later rank-four tail and does not imply the present early rank-three cutoff or cross-radius collapse. Search coverage cannot establish absolute priority; unindexed literature is a remaining risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete two-parameter classification, not a small numerical example: the infinite family of noncomplete cycle powers has exactly ten rank-three theories, and all radii at least two share a single sharp length-to-radius tail. The phase transitions have geometric interpretations in common-neighbor existence and two-vertex domination; they explain which structural distinctions low-depth logic can and cannot see despite unbounded degree and graph order.
+The two-sided three-round game on a vertex-transitive graph reduces to the set of adjacency-and-extension spectra over distinct ordered pairs; a missing third pattern can be played on either side. For cyclic separation d, a 00 witness exists exactly when the longer gap n-d exceeds 2r+1. For nonedges, 11 exists exactly when d≤2r, and the only pair missing both one-sided witnesses is the antipodal nonedge at n=2r+2: regularity equates one-sided counts, and a common-neighbor count over the two arcs attains 2r only there. Adjacent pairs have distinct closed neighborhoods and a common neighbor precisely for r≥2. Re-evaluating the ranges d≤r and r<d≤floor(n/2) gives the displayed ten distinct rows; the six genuine-power rows all occur at r=2. At n=4r+2 two antipodes dominate, while at n≥4r+3 at most 4r other vertices can be covered, proving strict fixed-radius sharpness including r=1.
 
-## Limits
-Only pure undirected adjacency/equality and rank at most three are covered. The underlying historical source comparison does not constitute independent priority verification, and finite verification programs are supporting evidence rather than proofs of the infinite assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported novelty is the exact six genuine-power classes and their relationship to ordinary cycles, including the cross-radius tail; the ordinary-cycle slice is credited and the pair-extension principle is standard.
+
+## value
+
+PASS
+
+The classification exposes exactly which local phenomena—domination, common neighbors and antipodal twins—remain visible at rank three despite unbounded degree and order. The sharp tail and the complete cross-radius comparison are useful beyond isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

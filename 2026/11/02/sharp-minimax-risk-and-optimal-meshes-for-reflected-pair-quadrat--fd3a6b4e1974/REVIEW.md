@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to continuous convex functions with Lipschitz bound \(L>0\) and independent reflected pairs. The curvature-measure representation gives total nonnegative mass at most \(2L\). For a hinge in a cell, equation (3) is a direct identity with uniform folded location; its variance is maximized exactly at the midpoint with \(h^4/192\). The Bochner/Minkowski integral bound yields \(L^2 h_{\max}^4/48\), and the V-shaped test function saturates it. The rigidity proof forces the curvature measure onto one longest-cell midpoint and slopes \(-L,+L\). Distinct cells are independent so equality cannot arise from curvature spread across cells. Unique mesh optimality follows from \(h_{\max}\ge1/n\); independently noisy pair evaluations yield the stated added variance. The standalone exact-rational verifier passed 3562 assertions after execution from the prepared source directory. Residual risk: the exact extremal claim depends on the stated independence and full convexity; neither permits an unmentioned generalization. Computational checks are finite and not substitutes for the analytical all-class proof.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The nearest source, Wu (arXiv:2011.15086v1, introduction and Theorem 3.2), introduces this exact symmetric random trapezoid, proves unbiasedness, and gives fractional-Sobolev rate bounds but not the sharp convex-Lipschitz minimax constant, unique V-function equality cases, optimal irregular-mesh law, or noise addition. Owen (arXiv:0811.0528, introduction and final discussion) studies a different local antithetic randomized-net construction and smooth-function rates. Goldstein–Rinott–Scarsini (arXiv:1005.5414v2, Sections 1 and 4) proves convex-order comparisons of stratification, not this within-cell reflected-pair sharp extremum. Goda–Kazashi–Suzuki (arXiv:2212.11476, abstract and main theory) studies Gaussian-weight randomization, not this bounded-interval class. Actual published-finding database searches using aliases for antithetic/reflected trapezoid, convex Lipschitz, sharp variance, and mesh extremizers did not yield an equivalent or broader source; closest hits concern deterministic Romberg quadrature or unrelated stratification. Accessible previous research findings on smooth reflected-pair asymptotics, single-sample monotone-Lipschitz stratification, and other randomized integration methods do not imply the sharp nonsmooth class theorem. A specialized older sharp convex antithetic-quadrature result could still exist; database absence alone does not prove uniqueness, and priority should undergo independent literature review.
+PASS
 
-## Value — PASS
-The precise object is a fixed, already-used antithetic quadrature design on an important nonsmooth integrand class: convex Lipschitz functions arise naturally as piecewise-linear losses, payoffs and interpolation envelopes. The bound identifies exact worst-case risk, all worst functions, and which deterministic mesh is minimax. This resolves a genuine missing constant/extremizer question not obtained from ordinary order bounds and makes a practical sharp comparison to unequal meshes, including under independent query noise. The result does not imply an algorithmically optimal method among all methods; it supports exact design calibration and benchmarks. No large downstream application is claimed.
+For a cell centered at c, the unordered abscissas are c±T with T uniform on [0,h/2]. If ℓ and u are the endpoint interior slope bounds, φ(T)=(f(c+T)+f(c−T))/2 is nondecreasing and (u−ℓ)/2-Lipschitz. The independent-copy identity Var φ(T)=E[(φ(T)−φ(T′))²]/2 gives h² Var φ(T)≤h⁴(u−ℓ)²/192. The nonnegative cell slope increments sum to at most 2L, even for singular curvature; summing independent variances proves the claimed bound. Equality forces all 2L of the slope increment into one longest cell. Within it, equality in the independent-copy bound makes φ affine with slope L; almost-everywhere differentiation then forces slopes −L and L on the two halves. Convexity extends those slopes to the whole interval, giving exactly the stated midpoint V's, which attain the bound. For the auxiliary hinge kernel, integration over Z in [0,u] gives E[(u−Z)₊(v−Z)₊]=u²v−u³/3 for density 2 on [0,1/2]; subtraction gives (5). Each cell pair is unbiased by uniform marginals. Independent query noise adds precisely ν²∑h_i²/2, with no effect on extremizers; the maximum width alone already forces uniqueness of the equal mesh, which also minimizes the noise term.
 
-## Remaining priority and scope limits
-Unindexed prior numerical integration literature may contain an equivalent constant; the above comparisons are statement-specific but cannot guarantee exhaustive historic coverage. The uniqueness claim assumes positive-width deterministic cells. The fresh additive error corollary assumes independence of all measurement noises and uniform variance. No smoothness beyond convex Lipschitz is required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reflected estimator and unbiasedness are established prior art. The supported distinct claim is the exact worst-case law on arbitrary meshes with the complete extremizer classification; mesh and independent-noise conclusions follow from it. This is a bounded best-of-knowledge comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+The result gives a tight, shift-invariant error budget and a complete failure-mode classification for a standard implementable rule on a natural nonsmooth shape class. In particular arbitrary meshes depend on the longest cell rather than the sum of fourth powers; this changes mesh design and explains why a single cusp is worst. The noise extension makes the exact risk directly usable without claiming optimality over all quadrature algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

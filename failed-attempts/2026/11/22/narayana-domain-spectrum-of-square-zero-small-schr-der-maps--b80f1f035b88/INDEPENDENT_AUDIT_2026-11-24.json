@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:12:50.367481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62, including independent reconstruction of the two-row encoding, moments, and nilpotent shift",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "Laradji–Umar arXiv:1304.7574, Theorems 3.1–3.2 and 3.8"
+      ],
+      "rationale": "Ordinary partial composition gives f^2 empty exactly when domain and image are disjoint. For a k-point domain d_1<...<d_k with complement e_1<...<e_m, m=n-k, encode x_i=d_i-i and j_i by f(d_i)=e_(j_i). Regressiveness and disjointness give j_i<=x_i, and isotonicity gives weak increase of the j_i. Conversely x_i+i restores the domain in {2,...,n}, the same complement restores the images, and both constraints hold. Reversal and subtraction by one give the stated two-row boxed plane partition, including the empty k=0 case and the all-zero box at k=n-1. The rectangular product gives the two binomial expressions. Vandermonde normalizes the distribution: K is hypergeometric, drawing n-1 objects from two classes of size n each, so its mean and variance agree with the stated formulas. A regressive finite chain map is nilpotent exactly when all defined steps are strict, and shifting its domain down by one identifies these maps with all regressive isotone partial maps on n-1 elements. The large Schröder and Catalan sequences have the same power n^(-3/2) in their asymptotics, so the claimed exponential ratio follows.",
+      "residual_risks": [
+        "The finite captured results through n=9 are supplemental. Domain size is not image rank for these partial maps; the moment law is for the domain only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 applies to all decreasing isotone partial maps on the n-element chain. Theorems 3.2 and 3.5 give the full Schröder and unconditioned domain counts. Theorem 3.8 gives the horizontal-segment distribution on type I paths without diagonals. The related indexed all-nilpotent census does not condition on the square being empty."
+        ],
+        "reasoning": "The unconditioned total alone cannot select square-zero maps. The published path correspondence is stronger because it preserves the precise level data deciding square zero; applying the no-HV restriction and local expansion makes the evaluated segment formula applicable.",
+        "searches": [
+          "arXiv:1304.7574 Theorems 3.1–3.2, 3.5, and 3.8",
+          "Laradji–Umar JIS article https://cs.uwaterloo.ca/journals/JIS/VOL7/Umar/Umar034.pdf, p. 1 and p. 5 Proposition 2.8",
+          "Resultary domain-marked nilpotent partial chain transformations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1304.7574 §§3.1–3.8, particularly Theorems 3.1 and 3.8",
+        "Laradji–Umar JIS article",
+        "arXiv:2512.19422",
+        "Local Resultary exact record and three distinct related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A domain of k elements means k vertical steps; a path ending at (n,n) has exactly n-k diagonals. Expanding the diagonals of an HV-free path gives a no-diagonal path with n-k peaks, hence exactly n-k horizontal segments. Theorem 3.8 evaluates that number. Its formula at r=n-k is the frozen Q(n,k), including k=0 and k=n-1."
+        ],
+        "reasoning": "This is a direct corollary of the published exact path model and evaluated refinement. Summing gives the Catalan number, binomial moments give the stated mean and variance, and shifting strict maps gives the known Schröder denominator. These consequences do not depend on the frozen plane-partition derivation. The conclusion is mechanical coverage, not a claim that the older paper explicitly phrases its theorem using f^2=0.",
+        "searches": [
+          "arXiv:1304.7574 §3, column/level encoding at offsets 9300–12923 and inverse construction at offsets 12700–16758; Theorem 3.8 at offsets 19700–23035",
+          "Frozen RESULT.md lines 30–62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mapping before Theorem 3.1 puts j in the domain for a vertical step at level j, and in the image for a horizontal step at that level. The inverse construction explicitly distinguishes the case of a horizontal run followed by a vertical step when j is in both.",
+          "In the frozen regressive class, every square-zero map already omits 1: if 1 is defined it is fixed. After translating labels by one, the type I encoding therefore covers exactly the desired subclass when restricted to paths with no consecutive H,V steps."
+        ],
+        "reasoning": "A type I path never goes above the diagonal. At a fixed level all horizontal steps occur in one run; it has a vertical exit exactly when that level is in the domain. So an image/domain intersection is exactly an H,V pair. Every diagonal replacement D -> HV stays in the allowed half-plane and preserves endpoints. If the input has no HV, each peak of the expanded path comes from a replaced diagonal; turning each peak back into a diagonal recovers an HV-free path. This is a reversible local translation, not a comparison of unrelated coefficient values.",
+        "searches": [
+          "Laradji–Umar arXiv:1304.7574, partial-map to type I path encoding in §3, pp. 5–9",
+          "arXiv:2512.19422 p. 1 for the small Schröder domain restriction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-narayana-domain-spectrum-of-square-zero-small-schr-der-maps--b80f1f035b88 is the identical frozen record. Distinct matches cover all nilpotent isotone partial maps, maximal domain only, or pairwise annihilating subsemigroups. The published Narayana row is explicit as J(n,r)=binom(n,r)binom(n-1,r-1)/(n-r+1)."
+        ],
+        "reasoning": "The identical entry does not establish priority; the distinct indexed records are not full direct duplicates. The coefficient match with J(n,n-k) becomes a scientific coverage result only because of the statistic-preserving path translation, not because the numbers coincide.",
+        "searches": [
+          "Resultary square-zero small Schröder and domain spectrum",
+          "arXiv:1304.7574 Theorem 3.8 and JIS article p. 1, full Catalan image-rank distribution"
+        ]
+      },
+      "rationale": "The core square-zero domain census is a direct specialization of the published Laradji–Umar partial-map path bijection together with their evaluated horizontal-segment refinement. The overlap is not inferred merely from identical Narayana numbers: the source explicitly records domain by the levels of vertical steps and image by the levels of horizontal steps. Thus square-zero amounts exactly to avoiding a horizontal step immediately followed by a vertical step. Expanding each diagonal step into horizontal then vertical, with inverse obtained by collapsing every peak, reduces this exact domain-conditioned subclass to the paths counted in Theorem 3.8 with n-k horizontal segments. The remaining moment and rarity claims are direct consequences of the resulting known row and the known Schröder count, not a distinct enumerative remainder.",
+      "residual_risks": [
+        "The separate cited technical-report copy was inaccessible. The negative verdict rests instead on a checked, explicit implication of the accessible preprint, not on the access failure. Historical occurrence of the square-zero terminology itself is not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERED by explicit bijection and exactly evaluated refinement",
+          "evidence": "Part (i) of the inverse construction gives a horizontal run then a vertical step precisely for a level in both image and domain. Avoiding that pattern and expanding all diagonals produces exactly the no-diagonal paths in Theorem 3.8 with r=n-k horizontal segments.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.7574",
+          "material_read": "§3, pp. 5–11: level encoding, inverse construction cases (i)–(iii), Theorems 3.1–3.2, 3.5, and 3.8; extracted offsets 9300–16758 and 19700–23035",
+          "method": "OA primary-text passage comparison and direct specialization",
+          "title": "Lattice paths and order-preserving partial transformations",
+          "trigger": "Published encoded partial maps with the same shiftable ground set, plus the exact Narayana row"
+        },
+        {
+          "assessment": "Direct numerical antecedents; unconditioned domain formula is not by itself the square-zero refinement",
+          "evidence": "The full Catalan transformation image-rank formula equals the reversed frozen row, and the partial-map domain parameter in Proposition 2.8 ranges over the entire ambient class.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL7/Umar/Umar034.pdf",
+          "material_read": "p. 1 and p. 5, Proposition 2.8",
+          "method": "OA primary-text passages",
+          "title": "Combinatorial results for semigroups of order-decreasing partial transformations",
+          "trigger": "Known Schröder total, Narayana rank distribution, and broader partial-domain enumeration"
+        },
+        {
+          "assessment": "Same ambient class; no evaluated square-zero row in the checked passages",
+          "evidence": "The omitted least element defines the same semigroup; the passages address structure, abundance and rank rather than the square-zero domain spectrum.",
+          "identifier_or_url": "arXiv:2512.19422; DOI 10.3934/math.2026705",
+          "material_read": "Definition and abstract p. 1",
+          "method": "OA primary-text passage",
+          "title": "On the small Schröder semigroup",
+          "trigger": "Same semigroup"
+        },
+        {
+          "assessment": "Partial overlap or distinct objects/statistics",
+          "evidence": "All-index nilpotents need not be square-zero, the maximal-domain rank refinement covers only an endpoint of the domain parameter, and maximal pairwise annihilating families are not the individual square-zero census. Shared date alone does not order the two same-day findings.",
+          "identifier_or_url": "2026/11/8/SCOPE-nilpotent-partial-chain-transformations-an-exact-domain-enumerat--877b71416fdc; 2026/10/26/SCOPE-image-rank-distribution-of-maximal-domain-nilpotent-partial-isot--8f08dd8f928c; 2026/11/22/SCOPE-maximal-annihilating-subsemigroups-of-finite-chain-partial-isoto--08a399f91b4a",
+          "material_read": "Local RESULT.md findings for each entry",
+          "method": "Local Resultary mirror",
+          "title": "Resultary related nilpotent and annihilation findings",
+          "trigger": "Possible stronger nilpotent/domain and annihilation formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–25 and 30–62",
+        "arXiv:1304.7574 §3, especially Theorems 3.1 and 3.8"
+      ],
+      "rationale": "The square-zero statistic is natural, but the exact spectrum here is mechanically implied by the existing path model and its evaluated Narayana refinement. The alternative two-row proof gives another standard encoding, not an independently useful unknown invariant or a new structural consequence beyond that implication. The moment formulas are textbook hypergeometric moments and the rarity is a direct comparison of the existing Catalan and shifted Schröder enumerations. No substantive distinct remainder is established by this frozen finding.",
+      "residual_risks": [
+        "This does not negate the usefulness of studying higher nilpotency indices or simultaneous domain/image statistics; neither is established as a distinct result here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

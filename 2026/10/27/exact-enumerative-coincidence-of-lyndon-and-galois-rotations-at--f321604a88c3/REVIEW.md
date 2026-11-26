@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** At every competing zero-starting rotation, the first mismatch against the unique shortest gap occurs at position \(a+2\) when indexed from one. Hence alternating order chooses the ordinary minimum precisely when \(a\) is odd. Unique-root encoding proves the two exact generating functions without rotational overcount; elementary singularity analysis gives explicit exponential constants. An independent exhaustive verifier checks every binary input to length \(18\), while the proof handles arbitrary lengths.
+## correctness
 
-**Originality: PASS, with residual risk.** The 2024 Galois rotation algorithm and Daykin–Mhaskar–Smyth's stronger general characterization of border-free Galois words cover membership questions in a broader setting. Neither inspected source gives this family's two enumerative series, its exponential conditional agreement law, or the complementary global rarity bound. Novelty is attached to that quantitative combination, not to defining or recognizing Galois/Lyndon rotations in general. Unindexed equivalent enumerations remain possible, and the stronger characterization could facilitate their derivation.
+PASS
 
-**Mathematical value: PASS.** The requirement of a uniquely shortest cyclic gap provides a canonical intrinsic root, avoiding arbitrary choices and making parity-controlled coincidence exactly enumerable. The infinite family exhibits a nontrivial contrast: conditional agreement density tends to one, while global agreement density decays exponentially. This provides sharp, computable benchmark data for the interaction of ordinary and alternating cyclic order, without asserting any unresolved complete classification.
+For a shortest gap of length a and any strictly longer gap, the first differing symbol is at one-based position a+2. The ordinary minimum starts at the unique shortest gap, and the alternating comparison selects it against every other zero-start rotation exactly when a is odd. The unique marked gap also precludes a proper power and roots the cyclic list without overcounting. With k further gaps the length is a+1+k(a+2)+sum(t_i), t_i>=0, giving the stated summand for k>=1. The positive root rho_a is simple and is the only pole of its modulus by equality in the triangle inequality. For a parity tail with smallest index b, on any circle of radius r<rho_b the denominators are bounded below by 1-r-r^(b+2)>0 and the numerators are summable. This justifies the residue constants and exponentially smaller tails. The global bound follows from the conflict between prefixes 00 and 01 for mixed words, the trace of the two-state cyclic no-00 transfer matrix, and n distinct rotations for each primitive necklace. A fresh direct rotation census confirmed both series for n=1 through 18, including (u_18,v_18)=(96,23), and checked the 00 obstruction in that range. The run is finite corroboration, not a proof or a formal certificate.
 
-Closest work: Hendrian et al. (2024), arXiv:2403.02636; Daykin et al. (2024), arXiv:2409.02757, especially their Lemma 50 and Theorem 54; Giancarlo et al. (2019), arXiv:1907.02308. Scope is limited to uniquely shortest positive one-gaps; extension to tied minima and an exact global coincidence count remain unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the paired exact enumerators for agreement and disagreement in the uniquely rooted gap family and their conditional asymptotics, contrasted with the global bound. Alternating canonical rotation and structural membership theory are prior work. A distinct later indexed result has exact overlap on the agreement subcount at fixed zero count; it neither establishes earlier priority nor supplies the disagreement count or the stated conditional ratio.
+
+## value
+
+PASS
+
+The unique shortest gap is an intrinsic root, not an arbitrary sample restriction. Counting both outcomes yields exact coefficients and distinguishes a natural conditional concentration from global rarity, with a quantitative exponential correction. This is more useful than the local parity observation or an isolated count; it does not purport to solve the global enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

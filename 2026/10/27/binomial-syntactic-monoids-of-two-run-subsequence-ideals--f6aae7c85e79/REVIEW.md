@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The greedy-prefix DFA recognizes precisely the target subsequence ideal; each state has a distinguishing suffix. The transformation action is reconstructed from the capped counts of ones after specified zero positions. These parameters form a unique monotone signature, and a constructive alternating-run word realizes each possible signature. Stars and bars then proves the exact binomial formula. The nonempty-word semigroup is one smaller because no nonempty word acts as identity. The included finite verifier agrees with the proof on 36 pairs of parameters; see `VERIFICATION.md` for precise limits.
+## correctness
 
-**Originality: PASS, subject to stated residual risk.** The most relevant inspected primary source, Brzozowski–Davies–Madan (arXiv:1806.04645), proves state-complexity bounds for subsequence matching and treats single-word matching in Section 7.4; this is not a transition-monoid enumeration. Angluin–Aspnes–Eisenstat–Kontorovich (JMLR 2013) provide canonical shuffle-ideal DFAs, but not this exact two-run monoid count. Brzozowski–Ye (arXiv:1010.3263) address different worst-case syntactic complexity for broader ideal classes, and Halfon–Schnoebelen (arXiv:1810.02953) analyze closure under shuffling. Targeted literature and published-database searches did not identify an implication covering the result. An unindexed specialized semigroup result remains a real residual possibility; absence of a hit is not treated as proof of priority.
+PASS
 
-**Mathematical value: PASS.** The invariant counts syntactic transformations rather than just automaton states for a canonical principal shuffle ideal, a natural elementary building block of piecewise-testable languages. The theorem gives a complete normal form, a closed exact two-parameter count, and a qualitative exponential-versus-linear complexity contrast. It is not a numerical increment or a restatement of state complexity.
+Independently checked the greedy DFA: each state is reached by a prefix of the target, and a target suffix completing the higher of two states is too short to complete the lower one. Therefore the automaton is minimal and its transition monoid is the syntactic monoid. If the input contains z zeros, c=max(r-z,0) is the first state that can reach the ones phase; below c the map is translation by r-c. At a state i between c and r−1 its final displacement above r counts ones after the (r−i)th zero, capped at s; starting at r all ones count, and states above r translate by that total with a cap. This proves the signature is weakly increasing and fixes every image. In reverse, the image of 0 determines c and the images of c through r recover all signature entries. Interlacing r−c zeros with successive differences of the entries and putting t_c ones after the last zero realizes the tuple with at most r+s letters; c=r uses only ones. The number at fixed c is binomial(s+r−c+1,r−c+1), and summing gives binomial(r+s+2,r+1)−1. A nonempty zero-containing word strictly moves state 0, and an all-ones nonempty word strictly moves r, proving the distinct empty identity. For balanced parameters (r=s, or bounded difference), Stirling's formula gives the stated order 2^N/sqrt(N) with N=r+s+1.
 
-The result applies to binary two-run scattered-subsequence ideals with positive block lengths only; no assertion is made for general patterns. The finite verifier is not an all-length proof or an external assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the exact cardinality and signature bijection for the syntactic monoid of the scattered two-run ideal. The automaton, its state complexity, and the relation to the extensive order-preserving monoid are known or standard, but do not enumerate the specific two-generator monoid. Close exact factor-language results concern a different acceptance condition. A targeted literature query did not produce relevant additional coverage; this is not a priority guarantee.
+
+## value
+
+PASS
+
+The monoid count is an exact algebraic size for a natural family of principal shuffle ideals. The signature identifies all actions and yields short word representatives rather than only a count. Balanced patterns give a concrete family with linear DFA state count yet exponentially many distinct actions, in contrast to the polynomial census for the contiguous-factor version of the same pattern. This provides an exact benchmark for studying the extra algebraic complexity induced by gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:50.093573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 6.6 uses the stated two column types and lengths. The simplex block is full rank. An r-space U has exactly 2^(m-r)-1 nonzero columns in its annihilator, so its simplex support is B_r. The block omission conditions are containment in two distinct hyperplanes; their intersection has dimension m-2. The four frequencies are respectively G(m-2,r), twice the individual frequency G(m-1,r)-G(m-2,r) in the two separate single-block cases, and G(m,r)-2G(m-1,r)+G(m-2,r). This proves all four rows by inclusion–exclusion, including zero counts at the top ranks. For r≤m-2 the neither-active case is attainable; for r=m-1 exactly either of the two hyperplanes activates just one block; for r=m all coordinates are supported. No equal-length tie is possible under the stated parity hypotheses, but the aggregation rule is correct. The analytic calculation is universal; the frozen verify.py and recorded output for m=3,4 are supplementary, not the proof. The r=1 layer agrees with the published Table VIII.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the systematic result's proof, for every fixed set S of s coordinates, the number of r-dimensional coefficient subspaces having exact support S is F_2(s,r) = sum_j (-1)^j binom(s,j) G_2(s-j,r). Its fixed simplex contribution is the same B_r. Gray-code compression and SR-sums address different projective sets and are not needed for the implication."
+        ],
+        "reasoning": "The specified-support count is more detailed than a two-position activation count. It handles any weight assigned to each identity position, including zero weight at positions deleted from the identity block and positive weights at repeated positions.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08, Finding and proof",
+          "Resultary 2026/10/12/SCOPE-projective-flat-compression-of-simplicial-gray-codes--f91818bd3af7",
+          "Resultary 2026/10/4/SCOPE-minimum-support-multiplicities-for-simplex-sr-sums--b93f5e25acc2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2507.12240",
+        "Three Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let A⊆{1,2} be the exact active subset of the marked coordinates. Sum the prior F_2 over all S with S∩{1,2}=A: the count is sum_t binom(m-2,t) F_2(t+|A|,r). Assign each such A weight B_r plus its active block lengths.",
+          "Summing F_2 over all supports in a fixed k-set gives G(k,r); hence these same marginals simplify to G(m-2,r), G(m-1,r)-G(m-2,r) for each singleton, and G(m,r)-2G(m-1,r)+G(m-2,r) for both."
+        ],
+        "reasoning": "The weighted marginal is valid for all admissible m and block lengths and determines the exact spectrum, its minima, and every minimum multiplicity. None of the frozen higher-dimensional numerical content survives this implication as a distinct result.",
+        "searches": [
+          "Systematic-simplex Resultary RESULT.md proof, mirror offset 400–4717",
+          "arXiv:2507.12240, Theorem 6.6, OA offset 87252"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The appended vectors e1+e2 and e1 are independent and can be sent to the first two unit vectors. The same invertible row transformation only permutes the columns of the binary simplex block."
+        ],
+        "reasoning": "The exact family becomes full simplex plus repeated copies of two marked systematic positions. Its support over coefficient subspaces is the simplex contribution plus a two-coordinate weighted indicator.",
+        "searches": [
+          "Resultary: systematic simplex higher-support spectra, simplex SR-sums and projective-flat compression",
+          "arXiv:2507.12240, Theorem 6.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table VIII has the precise ordinary-weight layer, not r>1. The systematic-simplex Resultary record supplies F_2(s,r) for every specified set, not a table of numerical instances of the target lengths."
+        ],
+        "reasoning": "The r=1 counts are published literally; the rest are already covered through complete specified-set formulas even though the table for the weighted projection is not printed.",
+        "searches": [
+          "arXiv:2507.12240, Table VIII and Examples 6.7–6.8",
+          "Local Resultary comparison: fixed-support counts of the systematic-simplex LCD families"
+        ]
+      },
+      "rationale": "The distinct indexed systematic-simplex result already counts r-subspaces with every specified identity-coordinate support. The frozen all-r spectrum is a weighted two-coordinate marginal of that count after a binary row-basis change. This is a statement- and implication-level overlap, not an assertion that the two complete codes have identical lengths or a priority inference from a date.",
+      "residual_risks": [
+        "Full texts for the two cited adjacent journal families were unavailable. The FAIL rests on the explicit indexed fixed-support count and reduction, not on those unavailable sources or an inference about discovery order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The fixed-support formula covers the frozen distribution by a weighted marginal",
+          "evidence": [
+            "The binary generator is [I_m|S_2(m)]; the proof counts exactly F_2(s,r) for each fixed set S of active coordinates."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08",
+          "material_read": "Finding and proof, RESULT.md mirror offset 400–4717",
+          "method": "Local Resultary lookup and mirrored primary text",
+          "title": "Exact higher-support spectra for the new systematic simplex LCD families",
+          "trigger": "Exact higher-support count for the corresponding full simplex and its marked identity positions"
+        },
+        {
+          "assessment": "Confirms the two repeated types and r=1 distribution; does not state the all-r spectrum",
+          "evidence": [
+            "The appended column types are e1+e2 and e1; Table VIII multiplicities are 2^(m-2)-1 and three copies of 2^(m-2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.12240",
+          "material_read": "Theorem 6.6 and Table VIII, PDF pp. 25–26, and Examples 6.7–6.8, p. 27",
+          "method": "OA PDF targeted passages",
+          "title": "Characterization and constructions of binary self-orthogonal singly-even linear codes",
+          "trigger": "Exact primary construction and ordinary layer"
+        },
+        {
+          "assessment": "Other projective systems, not the decisive coverage",
+          "evidence": [
+            "The first treats the hierarchy of a punctured simplex projective core, the second minimizers for a different simplex restriction."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-projective-flat-compression-of-simplicial-gray-codes--f91818bd3af7; 2026/10/4/SCOPE-minimum-support-multiplicities-for-simplex-sr-sums--b93f5e25acc2",
+          "material_read": "Mirrored Findings",
+          "method": "Local Resultary lookup and targeted mirror reading",
+          "title": "Projective-flat compression of simplicial Gray codes; Minimum-support multiplicities for simplex SR-sums",
+          "trigger": "Nearby punctured-simplex and multiplicity results"
+        },
+        {
+          "assessment": "No whole-document noncoverage judgment; not needed to establish the direct indexed implication",
+          "evidence": [],
+          "identifier_or_url": "10.3934/amc.2023056; 10.3934/amc.2026016",
+          "material_read": "Citation-level material; full text unavailable in bounded OA retrieval",
+          "method": "OA DOI attempts",
+          "title": "Weight distributions and weight hierarchies of a class of binary linear codes with a few weights; The weight distributions and weight hierarchies of two classes of self-orthogonal codes",
+          "trigger": "Cited nearby families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The source construction and higher-support invariant are mathematically natural, but the precise frozen result is mechanically determined by a stronger specified-support count: relabel the two positions, discard the other systematic positions and assign the two multiplicities. This yields every histogram and hence its hierarchy. No independent exact fact or additional structural lemma remains after that reduction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for all integers \(m\ge2\), all noise-intensity ratios \(\rho>0\), and every gain budget \(B>0\). Positive definiteness over the whole simplex, strict convexity with a positive definite noise weight, and uniqueness without symmetry assumptions are proved directly. Leaf symmetry follows *after* unrestricted uniqueness. A Schur complement gives the precise rational cost; both endpoint derivatives were reconstructed symbolically, and the sign criterion follows from strict convexity. A single-variable derivative has one positive zero, producing the exact golden-ratio cusp. The theorem's two asymptotic scales follow from endpoint expansions, not extrapolation. The standalone checker passed 3,371 exact-symbolic and numerical assertions; these do not replace proof.
+PASS
 
-## Originality — PASS, with residual risk
+For a connected unit star and an exact positive budget, the quadratic form of L+diag(g) is positive definite even on the simplex boundary. The trace of the covariance is half of J by the Lyapunov equation. The second differential of J is twice tr(PK^2) for P positive definite and K a nonzero symmetric conjugate of the gain perturbation. Compactness and strict convexity give uniqueness, and uniqueness under leaf permutations forces equal leaf gains without imposing them beforehand. With x the hub gain, y=(B-x)/m, the Schur denominator is B+xy. Independent differentiation gives F'(0)=m(m-1)/(B+m)^2-rho(B+2m)/(m^2 B) and F'(B)=1+2/B. This yields exactly the claimed non-strict hub-zero criterion, rules out x=B, and gives a unique interior critical point otherwise. For z=B/m, f(z)=z/[(1+z)^2(2+z)] has derivative 2(1-z-z^2)/[(1+z)^3(2+z)^2], vanishes in value at the two limiting ends, and has peak (5sqrt(5)-11)/2 at z=(sqrt(5)-1)/2. This proves the two-root, tangency and no-root cases including ties. The end expansions f(z)~z/2 and f(z)~z^-2 give both budget asymptotics for fixed rho; at m=2 and rho=1/6 the equation factors as (B-2)(B^2+10B-8). Replay by the block inverse and the endpoint calculations above and in RESULT.md §§1–5. The package records 3,371 checker assertions; its uploaded code was not executed for this review. The proof, not the recorded tests, covers all parameters.
 
-The closest foundational source is Lin–Fardad–Jovanović (arXiv:1302.0450), whose read model and optimization sections use equal-noise covariance and selection of fixed-gain Boolean leaders; its convex relaxation does not state the heterogeneous-noise, continuously divisible-budget threshold. Fitch–Leonard (arXiv:1407.1569) treats fixed equal-gain leader sets and unit-intensity noise. Patterson–Bamieh (DOI:10.1109/CDC.2010.5718151) addresses noise-free designated leaders, but only its abstract-level description was checked. Previous uniform-noise complete-bipartite allocation is close: the \(\rho=1\) star case is not independently claimed as novel. No checked reference implies the exact two-parameter variance-ratio phase diagram, the tangency at \(B_*(m)\), or its large-star asymptotic pair. An equivalence buried in broader A-optimal-design literature remains possible, so novelty is best-knowledge rather than exhaustive.
+## originality
 
-## Value — PASS
+PASS
 
-In a network with a single high-degree hub, it is not evident when to invest feedback at the hub rather than in redundant leaves, especially when noise intensities differ. The theorem classifies the optimizer for an infinite graph family and all noise ratios and budgets, including exactly how a support interval appears, collapses to one point, and disappears. The golden-ratio critical parameter, three-vertex example, and separated small-/large-budget scales provide structural design information beyond a generic convexity statement or another fixed-parameter computation. The proof identifies why increased budget can both suppress and restore hub feedback.
+Best-of-knowledge pass for the joint heterogeneous-noise/budget diagram, sharp cusp and switching scales; not for generic convexity, inverse-trace methods, or uniform-noise reentrance. The strongest catalogue match is exactly the rho=1 slice, not the two-parameter classification. Catalogue dates do not establish dependence or priority.
 
-## Limitations and comparison
+## value
 
-The result is confined to unit-edge stars, one noise intensity at the hub and a common intensity at leaves, and linear pinning costs. The interior optimizer is characterized by a unique root rather than a radical expression. General weighted A-optimal-design results, other unindexed network-control work, or a more complete version of an abstract-only source may contain equivalent consequences. Neither finite tests nor a negative literature search prove novelty. Full detail, references, and reproduction are in the result and verification files.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural question is whether increasing a continuous stabilizing feedback budget preserves the support of an optimal controller. The result gives an exact nonmonotonicity region with a sharp tangency boundary, different small and large switching scales, and a three-node witness that the uniform-noise case cannot supply. This is a substantive support classification, not just a stationarity formula or a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

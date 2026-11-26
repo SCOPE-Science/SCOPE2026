@@ -1,15 +1,21 @@
-# Review of the critical generalized Cesàro kernel limit
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The discrete Hilbert–Schmidt Gram function is an absolutely convergent geometric and zeta series; the dilogarithm expansion proves the precise finite-mesh norm limit. The continuous kernel's squared norm is independently evaluated by the Frullani integral. Pointwise convergence of the embedded step kernels plus convergence of their Hilbert–Schmidt norms proves strong kernel convergence; the standard singular-value perturbation inequality then yields convergence of complete singular sequences in \(\ell^2\). Fixed-parameter strong Cesàro convergence uses entrywise domination by the bounded classical Cesàro operator. The exact-rational checker confirms the finite Gram identity and supplementary numerical normalization, but is not a substitute for these infinite-dimensional arguments.
+## correctness
 
-## Originality
-**PASS, qualified by historical-priority uncertainty.** Rhaly's original analysis treats each generalized Cesàro matrix and the classical boundary operator. Curbera–Ricker study the compactness and fine spectra of individual generalized Cesàro operators, including \(\ell^2\), and Albanese–Bonet–Ricker (2023) extend the fixed-parameter spectral and dynamic framework to nonnormable sequence spaces; the inspected full texts do not formulate the two-parameter critical scaling kernel, the exact log-cosh Hilbert–Schmidt separation, or entire-list singular-value convergence under step embedding. Published findings concerning power-diagonal Cesàro commutators and finite Cesàro spectral edges involve different operators or limiting regimes. Generic Hilbert–Schmidt kernel convergence does not fix the specific kernel or the cancellation constant. This is a best-knowledge scientific comparison, not a claim of exhaustive historical uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** A natural compact-operator family approaches the noncompact classical Cesàro operator strongly. The full singular-value limit identifies the nontrivial boundary layer when two rates approach that endpoint together, while the scale-invariant exact logarithmic metric quantifies spectral separation not seen by strong convergence. The result goes beyond a norm calculation by identifying an explicit continuum operator and converging every singular-value rank, supplying a foundation for further spectral study of this transition.
+Grouping matrix entries by row and by lag gives the cross Gram series F(ts)=(ζ(2)−Li₂(ts))/(1−ts). Integrating −log u/(1−u) from 0 to the deficit gives F(1−h)=1−log h+O(h|log h|). In its three-term difference the constants and −log ε cancel, leaving 2log(a+b)−log(2a)−log(2b) with the stated remainder. Independently, the embedded kernel has denominator ε(n+1) on (n,k) cells; for x>y the mesh powers tend to the two exponentials. A direct domination is also available: for j=n−k≥1 the numerator is bounded by |a−b|jε exp(−min(a,b)(j−1)ε); jε≤x, and for x>1, jε differs from x−y by at most ε. Thus the kernels are bounded on 0≤y<x≤1 and bounded by a constant times exp(−min(a,b)(x−y)/2)/x on x>1, both square-integrable on their regions. Cells with j=0 have zero numerator. This independently gives L² convergence, consistent with the frozen weak-plus-norm proof. Tonelli in u=x−y and Frullani evaluate the squared kernel norm as the same logarithm. The Schatten-2 singular-value inequality controls the entire zero-padded ordered list and the isometry preserves nonzero singular values. The equality case a=b vanishes; the identity with 2log cosh(log(a/b)/2) and scale invariance follow by algebra. The strong limit uses entrywise domination by the bounded C₁ and finite supports; normalized indicators of successive escaping intervals [N,2N] give a norm bounded below for C₁ on a weakly null sequence, verifying noncompactness. Frozen check.py was inspected, not executed: its finite rational identity and quadrature diagnostics are not the kernel or spectral proof.
 
-## Closest literature and limitations
-H. C. Rhaly Jr. (1984), “Generalized Cesàro Matrices,” provides the classical individual-family setting and endpoint discontinuity. G. P. Curbera and W. J. Ricker (2022, arXiv:2302.08750) establish compactness, spectra, and norms for broad sequence-space classes; A. A. Albanese, J. Bonet, and W. J. Ricker (first public arXiv version 2023-05-08, arXiv:2305.04805) study a further range of sequence spaces and their dynamics. Full operator asymptotics for varying rates and explicit singular values of the limiting integral operator are not claimed. A specialist may identify an earlier equivalent singular-limit statement that was not located in the surveyed literature. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the two-rate endpoint blow-up of C_t−C_s in Hilbert–Schmidt norm on a common step-function embedding, with identification of the complete limiting singular sequence via the continuum operator. Fixed-parameter compactness, individual Hilbert–Schmidt norms, spectral edge laws and operator-norm endpoint discontinuity are prior work; the logarithmic scalar calculation from the Gram formula and the standard singular-value inequality are not standalone novelty claims.
+
+## value
+
+PASS
+
+The natural family of compact matrices has a common strongly convergent, noncompact endpoint. The identified nonzero Hilbert–Schmidt continuum operator resolves how a fixed ratio of approach rates is visible despite that strong limit; the scale-invariant distance and convergence of the whole singular list provide a quantitative model of that boundary. This is not merely an endpoint norm recomputation or an isolated number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

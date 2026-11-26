@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:05:56.936205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical first-difference asymptotic is correct. The parity indicators give F_±=((1-z)^(-1)±T)/2; multiplying F_±^k by (1-z) takes the first difference with zero extension, and the term with no T has coefficient 2^(-k) binom(n+k-2,k-2). Allouche–Shallit quote the uniform full-circle Gelfond bound, which Abel summation at rho=e^(-1/N) transfers to sup |T|=O(N^alpha). Parseval gives the normalized integral of |T|^2 exactly (1-rho^2)^(-1)=O(N). Cauchy's coefficient factor is e on taking N=n, and |1-rho e^(i theta)| is comparable to N^(-1)+|theta|. For 1<=j<=k-3 the uniform bound on T and the weighted angular integral give a saving j(1-alpha) against N^(k-2) (this also independently verifies the record's j=2 case without a split). For j=k-2,k-1 the maximum of the weight, the bound on T^(j-2), and its second moment save (j-2)(1-alpha). The pure T^k term has the harmless factor (1-z) and is O(N^(1+(k-2)alpha)), saving (k-2)(1-alpha)-1. This is positive for k>=7 since 3^5<4^4, and entails the stated common eta_k for both signs and fixed k. The main term gives eventual strict positivity, with no least threshold. No computation is required for the infinite estimate. The frozen VERIFICATION.md records checks through degree 320; the source script was inspected, not executed, and the finite checks are not the proof. The historical claim of newly settled cases is addressed under originality, not credited as a consequence of the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche–Shallit Thm. 10 reaches k>=10 at alpha=log_4 3, and Cor. 11 and following text establish tenfold growth and list then-unresolved cases. The earlier indexed disk L6 lemma is a bound on T itself, independent of the number of summands in the desired coefficient. Sándor–Yang's lead-base-four-digit and density-one constructions concern other sets."
+        ],
+        "reasoning": "The k-independent sixth moment is reusable and stronger than the pure signed-term bound needed here; it bridges exactly the range not reached by the older published sufficient inequality. A result for other sets is not a broader theorem about these parity sets.",
+        "searches": [
+          "Resultary 32f21fdb5b42, Sixth-moment lemma, Arbitrary prefixes and the disk",
+          "arXiv:2112.13627v3 Theorem 10 and Corollary 11",
+          "arXiv:2606.28849v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 32f21fdb5b42",
+        "arXiv:2112.13627v3",
+        "arXiv:2606.28849v1",
+        "arXiv:2212.12473 p. 1",
+        "arXiv:2302.02138 p. 1",
+        "TrureTuring sixfold dossier",
+        "INTEGERS 21 A124"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For j<=k-3 use the angular integral and j sup factors; for j=k-2,k-1 use Parseval and j-2 sup factors. Both classes save at least 1-alpha. For j=k, the earlier L6 bound times k-6 sup factors saves 4-beta+(k-6)(1-alpha)>1-alpha. Separately, convolution of the sixfold first differences with the remaining nonnegative representation counts propagates eventual positivity: the fixed small-index terms are O(n^(k-7)), whereas for the small shift taking all remaining summands 0 in E or 1 in O, or summing over all sufficiently small shifts, positive terms dominate. For k=7,8,9 the single selected term alone is order n^4 and already dominates."
+        ],
+        "reasoning": "The coefficient argument using the earlier proof supplies all claimed rates and all fixed k>=7; the elementary convolution observation is only needed to emphasize direct coverage of the advertised three new eventual-growth cases, not invoked for the rate or for arbitrary high k.",
+        "searches": [
+          "Resultary 32f21fdb5b42, disk L6 proof and sixfold coefficient expansion, offsets 0–5693",
+          "arXiv:2112.13627v3 Corollary 11 and full-circle Gelfond bound, p. 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity conventions, ordered tuples with repetitions, and inclusion of zero only for E agree across the frozen, indexed and originating statements. Raised indicator series encode exactly this convention. Theorem 10 of Allouche–Shallit uses a generic set without zero, with the shift bridge explained in Remark 9."
+        ],
+        "reasoning": "No unordered representation, summand-distinctness, set shift, or parity-sign mismatch blocks the implication from the indexed result. The first-difference product is the same coefficient problem.",
+        "searches": [
+          "Resultary 32f21fdb5b42, ordered evil/odious first differences",
+          "arXiv:2112.13627v3 printed p. 1 and Corollary 11",
+          "Thue Morse evil odious ordered representation function eventual strict monotonicity six seven eight nine summands first differences Gel'fond Parseval Allouche Shallit asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives an infinite asymptotic at k=6, not a k=7–9 table; its own finite checks are not needed. The separate dossier describes eventual and fixed-threshold sixfold claims; its reported proof execution was not independently audited here. A124 studies Frobenius numbers of tails of sequences, not ordered k-fold differences."
+        ],
+        "reasoning": "An exact page of the frozen coefficients is neither asserted nor needed: the operative coverage is analytic implication. Finite tables could not settle eventual growth. The dossier is corroborating context; its dating and formal status do not drive the disposition.",
+        "searches": [
+          "Resultary 32f21fdb5b42 Finding and Verification",
+          "https://www.trureturing.org/research/allouche-shallit-2021-sixfold-evil-odious/ offsets 2230–4900",
+          "INTEGERS 21 A124, opening PDF"
+        ]
+      },
+      "rationale": "The earlier Resultary record 32f21fdb5b42 proves the analogous sixfold result for these same ordered tuples and supplies a disk sixth-moment lemma that, with classical inputs and the same coefficient expansion, implies the full frozen quantitative claim, not just eventual positivity. For j<k, standard sup and second-moment bounds give saving at least 1-alpha (details under correctness). The indexed sixth-moment bound is integral |T|^6=O(N^beta), beta=log_2 15<4. For j=k>=7, combine it with k-6 uniform Gelfond factors and |1-z|<=2: the coefficient is O(N^(beta+(k-6)alpha)), saving 4-beta+(k-6)(1-alpha)>1-alpha. Thus known bounds give O_k(n^(k-2-(1-alpha))) for every k>=7, at least as strong as the frozen eta_k and strictly stronger at k=7. This uses the earlier proof's moment lemma, not the unsupported claim that the sixfold asymptotic alone propagates every quantitative exponent. The target's use of L2 instead of L6 is a different estimate, not a new bound or unresolved-case theorem.",
+      "residual_risks": [
+        "The exact history or formal status of the external sixfold dossier was not independently verified. The originality verdict rests on the inspected earlier Resultary proof and its explicit quantitative implication, not on priority in the wider literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS by implication, including the rate when the proof lemma is used",
+          "evidence": "Sixth-moment transfer matrix has spectral radius below 15; dyadic decomposition plus Minkowski and Abel give ||T(r e^(i theta))||_6=O((1-r)^(-beta/6)). Combined with uniform Gelfond, this applies to the pure signed term at all higher k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-eventual-strict-growth-of-sixfold-evil-and-odious-representation--32f21fdb5b42/RESULT.md",
+          "material_read": "Finding, scope, dyadic sixth-moment lemma, arbitrary-prefix and Abel transfer to disk, coefficient proof, offsets 0–5693",
+          "method": "Local Resultary and mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Eventual strict growth of sixfold evil and odious representation counts",
+          "trigger": "Earlier smaller summand count and quantitative Thue–Morse moment with direct implications"
+        },
+        {
+          "assessment": "Older k>=10 coverage and classical uniform bound; not standalone k=7–9 coverage",
+          "evidence": "Theorem 10 requires k>2/(1-alpha). Corollary 11 and the following remark give the tenfold conclusion and mark 6–9 then unknown; the quoted maximum of the signed prefix polynomial on the unit circle supplies the Gelfond input.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13627v3",
+          "material_read": "Printed p. 1 definitions (offsets 3600–6703), Remark 9 and Theorem 10 p. 7 (around offset 22400), Corollary 11 and open-status passage p. 10 (around 30800), references p. 13 (around 42500)",
+          "method": "Primary OA PDF passages",
+          "title": "Additive Properties of the Evil and Odious Numbers and Similar Sequences",
+          "trigger": "Original conjecture and required exponential sum input"
+        },
+        {
+          "assessment": "Different sets",
+          "evidence": "Leading base-four-digit and separate density-one constructions, not the parity-of-popcount classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.28849v1",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Primary PDF opening",
+          "title": "On the Monotonicity of Higher-Fold Representation Functions",
+          "trigger": "Later monotonicity result in the same general setting"
+        },
+        {
+          "assessment": "Corroborating statement, not independently validated formal proof or independent priority evidence",
+          "evidence": "Dossier identifies a sixfold result and explicitly reports both eventual and fixed-threshold clauses; not the source of the sixth-moment estimate used here.",
+          "identifier_or_url": "https://www.trureturing.org/research/allouche-shallit-2021-sixfold-evil-odious/",
+          "material_read": "Problem and Evidence excerpts, including offsets 2230–4900",
+          "method": "Public research dossier page",
+          "title": "Sixfold evil and odious representation counts",
+          "trigger": "Search hit reporting the same sixfold conjecture"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Computes Frobenius numbers for final segments; no fixed-arity ordered first-difference result in the inspected passages.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/v124/v124.pdf",
+          "material_read": "Abstract and opening definition, pp. 1–2",
+          "method": "Public primary PDF passages",
+          "title": "Frobenius Numbers and Automatic Sequences",
+          "trigger": "Literature search match for evil and odious representations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Resolving the monotonicity question or providing a genuinely improved error estimate would be valuable. The frozen finding does neither relative to the indexed sixfold work and its lemma: the claimed cases and quantitative conclusion follow, with a stronger saving at seven, and there is no new least threshold. Using a simpler second-moment argument has expository interest, but it gives a narrower result by replacing the previously available moment estimate with a weaker one, without a separately established useful extension or new theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

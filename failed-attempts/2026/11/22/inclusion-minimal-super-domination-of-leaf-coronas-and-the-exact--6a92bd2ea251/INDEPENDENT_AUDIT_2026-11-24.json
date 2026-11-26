@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:23:31.020053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–52, VERIFICATION.md, verify_corona_minimal.py, verification_output.txt; uploaded script inspected but not executed",
+        "Separate direct-definition replay, all labelled base graphs of orders 1–4 and all subsets of sunlets with 3<=n<=8: branches/c19918a7-c9ac-4da0-b983-a04c34bf484f/bounded_witness_check.py and witness_check_output.txt"
+      ],
+      "rationale": "For any super dominating set, a private leaf and its core cannot both be omitted. Every omitted core in A is witnessed by its selected leaf; every omitted leaf at a core in B needs that core as witness, so it cannot have any adjacent omitted core. Thus the allowed omitted sets are precisely nonconflicting choices. They are downward closed and inclusion-minimality of the selected set is maximality of the omissions. An empty pair at v can add an omitted core iff v has no B-neighbor, and can add an omitted leaf iff it has no A-neighbor. This establishes both directions of the classification, including isolates and disconnected bases. On a cycle the E's are isolated, and every E flips the occupied type across it. Therefore their number is even, say 2j, and the 2j remaining positive runs alternate, requiring 4j<=n. Marking one separator gives n labelled choices, two choices of first type, and binom(n-2j-1,2j-1) ordered run compositions, divided by 2j possible marks. The zero-separator case gives the two constant words; it includes n=3, with no positive j. The resulting support, maximum size and all four residue formulas follow by substitution. A bounded replay from the witness definition agrees, including the C_8 counts 2,40,4 at sizes 8,10,12.",
+      "residual_risks": [
+        "The replay corroborates only the stated finite range. The result above is for labelled subsets, not witness assignments, orbit counts, or the neighborhood corona."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-pendant-multiplicity theorem identifies admissible profiles as arbitrary omitted cores A and chosen pendants only at V minus N[A]. The all-rung Möbius-ladder theorem gives coefficient (2n/k) binom(k,n-k) for every admissible odd k. The cycle coloring theorem gives the complete distribution by the number of balanced edges for each n."
+        ],
+        "reasoning": "At one leaf the all-base profile is identical before taking maximal elements. The older results cover the even and odd observable size profiles by exact transformations, not just by analogy or matching small sizes.",
+        "searches": [
+          "Resultary SCOPE-08492630563f, Finding, Local obstruction and Sufficiency",
+          "SCOPE-2d809678ac3c, Möbius-ladder size distribution",
+          "Burnette et al. arXiv:2506.07192, §4 Theorem 11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-2d809678ac3c, SCOPE-08492630563f, SCOPE-304999ba8c77, SCOPE-16bec2bc3654",
+        "Burnette et al. arXiv:2506.07192, Theorem 11",
+        "OEIS A290608, A007040, A401867",
+        "Cited primary theorem passages for 1705.00928v2, 2209.01795v3 and 2611.23464"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximality in the earlier local admissibility model is exactly B=V minus N[A] and A=V minus N[B], which is the two-neighbor rule. For n odd set k=n-2j in the old Möbius formula and complement the size to 2n-k=n+2j. For n even set e=2j and use n-e balanced edges in Theorem 11; its count is 2 binom(n-e-1,e)+4 binom(n-e-1,e-1), equal to (2n/e) binom(n-e-1,e-1) for e>0, and 2 for e=0."
+        ],
+        "reasoning": "Both branches give the same coefficient n/j times binom(n-2j-1,2j-1) for positive j with exactly the source support. Taking the largest size then gives the extremal formulas by algebra. The exact saturation of the general admissibility rule does not independently supply a nonroutine new invariant.",
+        "searches": [
+          "SCOPE-08492630563f Local obstruction and Sufficiency; SCOPE-2d809678ac3c formula and state argument; arXiv:2506.07192 Theorem 11 and its two-color phase proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let Q_H have vertices a_v,b_v and edges a_u b_v exactly when u=v or uv is a base edge. The earlier allowable-omission subsets are exactly the independent sets of Q_H; minimal selections therefore correspond by complementation to maximal independent sets of Q_H. For odd n the cross edges with consecutive cycle indices form a single 2n-cycle and the same-index edges join its opposite vertices, giving M_{2n}. For even n there are two n-cycles with same-index rungs, giving the n-prism.",
+          "The E-labels in a cyclic profile determine exactly the set of isolated separators (with two phase choices if their count is even). In the integrated-coloring formulation, use the same indices for the unbalanced (equal-color) edges. These edges cannot touch, and an even number of balanced (opposite-color) edges is necessary and sufficient for a return to the starting color."
+        ],
+        "reasoning": "For even n the latter parity is precisely even |E|. The two admissible phases on each side give a label-preserving correspondence for the separator/edge subsets and counts by cardinality. For odd n the direct Möbius-ladder isomorphism already covers every configuration and cardinality.",
+        "searches": [
+          "Resultary: leaf corona maximal independent sets closed-neighborhood bipartite double cover; size distribution of maximal independent sets on odd Möbius ladders; exact independent-domination polynomial of prisms",
+          "Primary literature query: maximal independent sets circular ladder prism graphs, total numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-2d809678ac3c is an earlier exact size-refined result for all Möbius ladders, hence for every odd sunlet row. A290608 and A007040 already give the unweighted maximal-independent-set totals in the Möbius and prism cases, respectively. For even n, A401867 gives the minimum independent-dominating size 2 ceil(n/4) and its cardinality-slice count; these are the reflected maximum sunlet size and its exact multiplicity. SCOPE-304999ba8c77 separately gives the exact two minimum sets for each connected one-leaf corona."
+        ],
+        "reasoning": "A count of minimum sets or an unweighted table alone would not cover the spectrum. Here the even mixing distribution and the exact Möbius-ladder polynomial supply the missing size refinement; the tables confirm the correct equivalences rather than deciding solely by numerical coincidence.",
+        "searches": [
+          "Resultary: exact independent-domination polynomial of Möbius ladders and minimum independent-domination of circular ladders",
+          "OEIS A290608, A007040 and A401867"
+        ]
+      },
+      "rationale": "An older pendant-corona result already gives the exact allowable omissions on every base; the new-looking two-neighbor condition is saturation of those omissions. More importantly, the entire cycle size distribution reduces exactly to earlier enumerations in other formulations: the odd sunlet rows are the reflected independent-domination polynomial of odd-rung Möbius ladders; the even rows are a change of parameter of the established mixing-number distribution for integrated cycle colorings. This also covers the upper cardinality and every claimed optimizer multiplicity. The obstruction is mathematical prior coverage, not an inaccessible source or a flaw in the formulas.",
+      "residual_risks": [
+        "The sources need not have stated the conclusion in super-domination terminology. The coverage follows by explicit graph and cardinality transforms; no assertion is made about who first noticed these connections. No precedence is inferred for nearby same-date path records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive full overlap for odd sunlets",
+          "evidence": "For all n>=3 the Möbius ladder on 2n vertices has exactly (2n/k) binom(k,n-k) independent dominating sets of each odd size k between ceil(n/2) and n, with alternating rung states and no consecutive empty rungs.",
+          "identifier_or_url": "2026/10/12 SCOPE-2d809678ac3c",
+          "material_read": "Local RESULT.md Finding, assumptions and proof of alternating states and exact cardinality, offsets 0–5208",
+          "method": "Resultary lookup and local published mirror",
+          "title": "Odd-cardinality rigidity and exact independent-domination polynomial of Möbius ladders",
+          "trigger": "Exact odd-sunlet dual via the closed-neighborhood bipartite conflict graph"
+        },
+        {
+          "assessment": "Decisive full overlap for even sunlets after matching equal-color edges to separators",
+          "evidence": "The theorem bins the colorings by balanced edge count; its proof imposes exactly no consecutive unbalanced edges cyclically and even balanced count, with two choices of starting color. Its binomial coefficients give the reflected count exactly.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.07192",
+          "material_read": "§4, pp. 9–11, particularly Theorem 11 and proof, OA PDF offsets 24700 and 31800 onward",
+          "method": "Direct OA PDF found from the primary search and OEIS A007040 cross-reference",
+          "title": "Extending the Affirmative Action Problem: mixing numbers and integrated colorings of graphs",
+          "trigger": "Prism counts and size-by-mark law under the integrated cycle coloring mapping"
+        },
+        {
+          "assessment": "Admissibility exactly matches and the general maximality criterion follows by saturation",
+          "evidence": "Arbitrary omitted cores U are allowed; an omitted pendant can only be at V minus N[U], with at most one such omission per pair or bundle.",
+          "identifier_or_url": "2026/10/12 SCOPE-08492630563f",
+          "material_read": "Local RESULT.md Finding and Local obstruction/Sufficiency, offset 0–5765",
+          "method": "Resultary lookup and local published mirror",
+          "title": "Super-domination polynomial of arbitrary heterogeneous pendant coronas",
+          "trigger": "Same corona with more general leaf multiplicities and all permitted selections"
+        },
+        {
+          "assessment": "Totals and even extremal slice corroborate the overlap; not the sole evidence for every coefficient",
+          "evidence": "A290608 gives Möbius-ladder totals, A007040 the n-prism totals in its comments, and A401867 the minimum independent-dominating size and count in the prism. The odd prism must not be equated with the odd Möbius ladder.",
+          "identifier_or_url": "https://oeis.org/A290608; https://oeis.org/A007040; https://oeis.org/A401867",
+          "material_read": "A290608 title and Formula at offset 0; A007040 Comments at offset 410; A401867 Comments and Formula at offset 410",
+          "method": "Public page OA passages",
+          "title": "OEIS: maximal independent sets of Möbius ladders and prisms, and minimum independent dominating sets of prisms",
+          "trigger": "Check exact existing tabulations under the two ladder formulations"
+        },
+        {
+          "assessment": "Exact $2z^n$ overlap for the first; different graph family for the second",
+          "evidence": "The first gives 2^c(H) minimum sets on a one-leaf corona; the second is a complete census for the bare cycle, not a sunlet.",
+          "identifier_or_url": "SCOPE-304999ba8c77; SCOPE-16bec2bc3654",
+          "material_read": "Both local RESULT.md Findings at offset 0",
+          "method": "Resultary lookup and local published mirror",
+          "title": "Minimum super dominating sets of one-leaf coronas; Inclusion-minimal super domination on cycles",
+          "trigger": "Directly related indexed lower and upper domination results"
+        },
+        {
+          "assessment": "Do not confuse minimum, inclusion-minimal, neighborhood corona or bare cycle",
+          "evidence": "These passages concern the scalar minimum for coronas, minimum-set enumeration for bare cycles and minimum neighborhood-corona results, and a bare cycle/path upper comparison, respectively.",
+          "identifier_or_url": "arXiv:1705.00928v2; arXiv:2209.01795v3; arXiv:2611.23464",
+          "material_read": "Theorem 18 p. 9; corona definitions p. 2, Corollary 3.4 p. 9 and Theorem 6.5 p. 21; Proposition 2.12 p. 7, respectively",
+          "method": "Direct OA PDF passages",
+          "title": "On the super domination number of graphs; Super Domination: Graph Classes, Products and Enumeration; Minimal super dominating sets of maximum cardinality",
+          "trigger": "Cited primary minimum, enumeration, and upper domination comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen A/B/E and sunlet claims; SCOPE-08492630563f and SCOPE-2d809678ac3c; Burnette et al. Theorem 11"
+      ],
+      "rationale": "A size-refined classification for this natural family would intrinsically be useful, but all of the claimed new census and extremal information is already accessible through exact earlier results. The remaining all-base local test is an immediate maximality reformulation of the known allowed omissions; it does not add a nonroutine structural or enumerative consequence. A credit correction alone would not leave a distinct valuable theorem to repair.",
+      "residual_risks": [
+        "This decision assesses the supplied classification and census, not the usefulness of a future new invariant about leaf coronas or ladders."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:36:31.927343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the posterior variance and global argument in RESULT.md lines 47–102. The Dirichlet inverse of −d²/dt² applied to 2t−1 gives g=t(1−t)(2t−1)/6 and Var(J)=1/180. Cubic averaging yields the stated cross covariance, and direct averaging of min(s,t)−st gives a+h/3−c²=c(1−c)−h/6 for a=c−h/2. The noisy variance is positive even at the boundary since its minimum without noise is h(4−3h)/12. With z=c(1−c), every interior derivative sign is the sign of the stated quadratic N, and N(1/4)<0. If S>0 strict concavity and endpoint signs give a unique simple crossing; if S≤0 then h≥h₀ and N'(L_h)<0, so N is strictly negative beyond L_h even at equality. The reflected centers exhaust the optimizers; the midpoint has zero reduction. The interior log derivative is strictly increasing in eta and has negative z derivative at its simple maximizing root, establishing inward motion. Implicit differentiation at threshold gives N_eta(L_h)=8(1−h)(1−2h) and dz/dc=1−h, reproducing the positive onset coefficient. Uniform convergence of eta times the objective to its numerator gives the constrained large-noise limit with maximizer z=(2+h²)/12 when h<1/2. Independent bisection of the log derivative on [7/64,1/4] for h=1/4, eta=1/5 gave c=0.196817468335539 and a relative variance-reduction gain of 27.6931016062%. Inspected verify.py, VERIFICATION.md and the printed verification output without running the supplied script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Travelletti–Ginsbourger–Linde treats general noisy linear GP observations for sequential excursion-set design. Hendriks et al. treats noisy integral readings and squared-exponential covariance evaluation. Foster–Lyons–Oberhauser's abstract treats optimal polynomial path representation preserving integrals against low-degree polynomials."
+        ],
+        "reasoning": "General conditioning specifies the objective once the sensor operator is chosen; it does not place a contiguous window or give its global phase boundary. Polynomial path approximation does not optimize location over the fixed-width window family.",
+        "searches": [
+          "arXiv:2109.03457 §2 bounded linear operators and posterior updates",
+          "arXiv:1812.07319 §2 line-integral observations",
+          "arXiv:1904.06998 Brownian polynomial moment approximation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 89a9092c8f3a, 4854c484cc2c, 6b64b371a801",
+        "arXiv:2109.03457",
+        "arXiv:1812.07319",
+        "arXiv:1904.06998"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest sources supply the posterior-risk framework or exact optimizers in materially different design families. The audit derives the derivative sign through an h-dependent quadratic and checks its slope at contact; neither follows from a generic conditioning identity or from inserting a weight into a point-design threshold."
+        ],
+        "reasoning": "A h=0 point limit does not decide contact for any positive footprint. An exact optimum for each separately weighted target likewise gives no theorem for the signed contrast; its covariance is squared only after taking the difference. The exact classification is not a mechanically covered specialization of those results.",
+        "searches": [
+          "arXiv:2109.03457 §2 p.4 and arXiv:1812.07319 §2 p.1",
+          "Resultary 89a9092c8f3a and 4854c484cc2c Finding/Assumptions/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 89a9092c8f3a estimates the same signed moment jointly with the ordinary integral from one noisy point. Its threshold changes from reflected point sites to a midpoint, not from endpoint-touching windows to interior windows.",
+          "Resultary 4854c484cc2c optimizes one noisy point for each beta-weighted moment A_n. The signed target is A₂−A₁, not either prior target.",
+          "Resultary 6b64b371a801 uses three overlapping interval means for deterministic quadratic reconstruction."
+        ],
+        "reasoning": "A normalized mean and an integral over fixed h can be converted by rescaling noise by h², but not into a noisy point reading for h>0. A linear combination of separately optimized targets does not preserve the loss or optimizer. The strongest indexed overlaps change an essential constraint, not just notation; same-day records were compared at statement level.",
+        "searches": [
+          "Brownian bridge signed polynomial moment one noisy fixed-width interval average optimal placement phase boundary sensor footprint",
+          "Brownian bridge optimal point observations polynomial integral moment designs point vs linear measurements interval averages",
+          "\"Brownian bridge\" \"first polynomial moment\" optimal one-point observation noisy design signed integral point observation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact formula w_c=(9+72 eta)/(1+4 eta) in 89a9092c8f3a concerns point sensing and a two-target weight; the other checked exact results concern a different target or three means."
+        ],
+        "reasoning": "No inspected exact formula/table gives the phase boundary for the continuous (h,eta) window-placement problem; a point result or a sampled table would not cover the all-parameter maximum and equality cases.",
+        "searches": [
+          "Resultary semantic design queries for Brownian bridge fixed-width signed moment and noisy point polynomial moments",
+          "Local mirror 89a9092c8f3a, 4854c484cc2c, 6b64b371a801 RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact global width/noise boundary-contact transition, its equality cases, and the subsequent center movement for one contiguous normalized average estimating this one signed bridge moment. Gaussian conditioning, Brownian polynomial moment calculus, and optimal point or multi-observation designs are not claimed as novel.",
+      "residual_risks": [
+        "Specialized optimal-observation literature could contain an equivalent signed-contrast design under different normalization. The extra web lookup yielded no usable relevant source and is not evidence of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong thematic overlap but different loss and admissible sensor",
+          "evidence": "Weighted simultaneous estimation of the signed and ordinary moments from one point; at weight 15 the point transition is at eta=1/2.",
+          "identifier_or_url": "Resultary: 2026/11/22/89a9092c8f3a",
+          "material_read": "RESULT.md offset 0, Finding/Assumptions/Proof",
+          "method": "Resultary and local mirror bounded passage",
+          "title": "Sharp noise-induced restoration of midpoint sampling for two Brownian-bridge moments",
+          "trigger": "Same signed moment and exact noise-driven phase transition"
+        },
+        {
+          "assessment": "Different objective and no positive-width footprint",
+          "evidence": "One noisy point for A_n=n∫s^(n−1)B_s ds; the signed contrast A₂−A₁ is not a member of the optimized family.",
+          "identifier_or_url": "Resultary: 2026/11/22/4854c484cc2c",
+          "material_read": "RESULT.md offset 0, Finding/Assumptions/Proof",
+          "method": "Resultary and local mirror bounded passage",
+          "title": "Sharp noise-order boundary layer for beta-weighted Brownian-bridge moments",
+          "trigger": "Exact noisy single-sensor optimization for related bridge moments"
+        },
+        {
+          "assessment": "Deterministic three-average reconstruction, not this design",
+          "evidence": "Optimizes overlap among three segment means for reconstructing quadratics.",
+          "identifier_or_url": "Resultary: 2026/11/02/6b64b371a801",
+          "material_read": "RESULT.md offset 0, opening statement",
+          "method": "Resultary and local mirror passage",
+          "title": "An exact overlap-optimal three-segment quadratic histopolation rule",
+          "trigger": "Prior exact interval-average placement result"
+        },
+        {
+          "assessment": "General noise and conditioning framework only for this comparison",
+          "evidence": "Bounded linear observation operators discretized as weighted point evaluations; application is gravimetric sequential excursion-set design.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.03457",
+          "material_read": "§2 p.4, OA offset 12500",
+          "method": "Lawful OA passage",
+          "title": "Uncertainty Quantification and Experimental Design for Large-Scale Linear Inverse Problems under Gaussian Process Priors",
+          "trigger": "Broader linear-observation experimental design"
+        },
+        {
+          "assessment": "Different kernel and inference objective",
+          "evidence": "Noisy line-integral data and squared-exponential GP function prediction, rather than a signed moment and a placement phase law.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.07319",
+          "material_read": "§2 p.1, OA offset 3600",
+          "method": "Lawful OA passage",
+          "title": "Evaluating the squared-exponential covariance function in Gaussian processes with integral observations",
+          "trigger": "Noisy interval/integral sensor precedent"
+        },
+        {
+          "assessment": "The abstract's approximation result is distinct",
+          "evidence": "Orthogonal polynomial path representations preserve integrals against low-degree polynomials and are optimal in a weighted path approximation norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06998",
+          "material_read": "Abstract and opening introduction, OA offset 0",
+          "method": "Lawful OA PDF passage",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Brownian polynomial moments and use of bridge covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed nonzero footprint is a motivated measurement constraint. The optimization gives a complete boundary-versus-interior design rule across all widths and noise levels, including exact onset and a limiting location, rather than just a numerical improvement at one setting. The two optimizers and their degeneracies are fully resolved for the scalar design, without making a multi-sensor or arbitrary-prior claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

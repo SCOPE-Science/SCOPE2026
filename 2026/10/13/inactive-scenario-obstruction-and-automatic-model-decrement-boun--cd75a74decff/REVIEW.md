@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The affine witness is exact. At \(x=0\), only \(f_1(x)=x\) is active. The source max-model has its unique minimizer at \(v=-1\) with \(\theta=-1/2\), and the robust directional derivative equals \(-1\). The inactive scenario has gradient \(-M\), so its product with the same direction is \(M>0\). Hence the all-scenario maximum is positive and cannot satisfy the negative bound in Assumption 4.1(15).
+PASS
 
-The replacement is also exact. Writing the source model as \(\Psi_x(v)=\max_j\Phi_j^*(x,v)\), first-order optimality gives \(-v\in\partial\Psi_x(v)\). Convexity and \(\Psi_x(0)=0\) yield \(\Psi_x(v)\le-\|v\|^2\), from which
-\[
-\Phi_j^*(x,v)\le-|\theta|
-\]
-and
-\[
-\|v\|^2\le2|\theta|
-\]
-follow. Active scenario offsets vanish, so every active gradient product is strictly negative.
+The exact scalar model is bounded below by w+w²/2=−1/2+(w+1)²/2 everywhere, and at w=−1 the two affine terms are −1 and −2, so the lower bound is attained uniquely with θ=−1/2. Only the first scenario is active at zero, giving directional derivative −1; the inactive product is M>0 and hence exceeds every negative bound of the stated form. Both affine functions meet the smoothness and convexity conditions, and the robust max is bounded below since it grows at both infinities. The obstruction applies to any step prescription requiring the exact direction and the stated all-scenario test at this point; it does not refute convergence conditional on the test. For the general model, G=Ψ_x+∥·∥²/2 is strongly convex and G(0)=0, so G(0)≥G(v)+∥v∥²/2 at its minimizer. The norm bound follows, and each objective's baseline-adjusted model is bounded by Ψ_x(v)=θ−∥v∥²/2. Active scenarios have zero baseline offset and obey the claimed product bound. The frozen supporting script and saved output were inspected, not executed; the calculation here is analytic.
 
-## Originality
+## originality
 
-PASS. The primary full proof, the monotone predecessor, the later global-convergence analysis, and a related non-monotone Newton method were compared statement-by-statement. The inspected sources do not state the affine inactive-scenario obstruction or the exact pair of automatic steepest-model inequalities. Targeted searches by article identifier, assumption number, active/inactive scenario language, and model-decrement terminology found no equivalent published result or correction.
+PASS
 
-A residual risk is a later or poorly indexed erratum. None was located.
+The supported distinct claim is a source-model obstruction: a family with strict actual robust descent and unbounded positive inactive-scenario product while the exact subproblem value stays fixed. The active-set descent criterion and exact proximal-model bounds are standard antecedents or elementary consequences of the available earlier model; they do not earn separate originality credit. The best inspected evidence does not cover the explicit counterexample or the specific incompatibility it diagnoses.
 
-## Value
+## value
 
-PASS. The finding isolates a structural mismatch between worst-case active-set descent and a condition imposed on all uncertainty scenarios. It also supplies exact intrinsic inequalities from the same subproblem, providing a concrete route toward removing the extraneous inactive-scenario restriction rather than merely identifying a notation issue.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An algorithm cannot require both the exact standard subproblem minimizer and a negative upper bound on all raw scenario-gradient products on the full finite-scenario class. The witness isolates the reason from curvature, line search and solver error: even affine scenarios give a fixed, genuinely descending exact step, while arbitrary inactive slopes defeat the proposed requirement. This diagnoses what to test in this model rather than merely rederiving a proximal inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

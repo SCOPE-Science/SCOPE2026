@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python checker.py` using Python 3 and SymPy. On the bundled checker, this prints:
+## correctness
 
-`PASS: symbolic Fisher determinant and derivative; 4000 numerical local-optimum comparisons; rare-mixture asymptotics`
+PASS
 
-The checker constructs the \((A,p)\) Poisson Fisher matrix, checks its determinant symbolically, checks the transformed stationary polynomial and the strict positive cross-derivative with exact symbolic algebra, compares 4,000 seeded interior stationary points with nearby alternatives, and checks the three rare-mixture asymptotic regimes. The analytic proof in `RESULT.md`, not finite sampling, establishes global optimality and quantified limiting behavior.
+Independent score calculation for the two Poisson means gives determinant e0 e1 g²/f: the downstream-only rank-one contribution cancels in the determinant and the source measurement supplies the second direction. With d=μ−λ, r=λ/d and t=exp(−dx), logarithmic differentiation gives the stated quadratic P. Its roots have negative product, P(0)>0 and P(1)=−2, giving a simple unique root in (0,1), with strict unimodality and the asserted distance cap. At the root the t derivative of the log-score is negative, while its p derivative is 1/[p+(1−p)t]², giving dx*/dp<0. Writing P=rp+b t−a t², the positive root (b+sqrt(b²+4arp))/(2a) yields t*/p→r/(1−r) for r<1 after rationalization, t*/sqrt(p)→1/sqrt(2) at r=1, and t*→(r−1)/(r+1) for r>1. This gives every displayed distance limit, including constants. The opening 'half the logarithmic slope' means half the limiting supercritical coefficient as μ decreases to 2λ, not half the coefficient at an arbitrary fixed μ>2λ; the exact formulas are unambiguous. This is a local design at a nominal p with known rates and fixed efforts, not a uniform finite-sample guarantee. Replay: RESULT.md lines 34–58 and the quadratic calculation above; the inspected checker and VERIFICATION.md document finite corroboration, not the proof.
 
-The likelihood uses independent count samples; if one physical water sample is destructively split into coupled aliquots, the model must be changed. The result concerns a two-size-class, fixed-rate, fixed-sampling-effort local D criterion and is not experimentally validated. Independent audit is not performed.
+## originality
+
+PASS
+
+The supported distinct result is the global one-distance optimum and its singular rare-source-fraction classification in this fixed-rate Poisson model. First-order transport and Fisher/local-D methods are not new. The strongest matching catalogue statement has similar physics and Poisson data but a different unknown, reference configuration and asymptotic variable; no equivalent or dominating statement was established in the inspected evidence.
+
+## value
+
+PASS
+
+The exact boundary tells whether a locally informative sampling site stays at a finite distance for a rare source class or moves logarithmically far away; at the boundary a different balance sets the slope. The sharp coefficients and strict unimodality also govern when an accessibility cap binds. This is useful beyond applying the standard Fisher identity, while remaining conditional on a deliberately idealized steady two-class count model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

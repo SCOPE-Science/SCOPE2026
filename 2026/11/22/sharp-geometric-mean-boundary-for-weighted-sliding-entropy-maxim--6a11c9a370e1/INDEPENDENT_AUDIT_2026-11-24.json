@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:50:36.344363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–4 and VERIFICATION.md",
+        "Frozen check_weighted_lse.py (read, not run)",
+        "/workspace/checks/4-exact-pairs.py and 4-exact-pairs.txt; replay python3 /workspace/checks/4-exact-pairs.py"
+      ],
+      "rationale": "Modulo constants, input adjacent differences are the coefficients of suffix steps, so the exact induced variation norm of the derivative is the largest variation of a step column. A full column is 0,p,q,1; a truncated column has no greater variation. Set X=u_(k-1), Y=u_k for the two shared exponentials. The only possible decrease p-q is bounded by P-Q=(ac-b²)XY/((bX+cY)(aX+bY)). When this is positive, minimizing the denominator divided by XY gives (sqrt(ac)+b)² at X/Y=sqrt(c/a). Integrating derivatives along the input segment proves the two-input bound. The cut k=4 exists already at n=6 and places both outside values 0 and 1 in the output. In the nonexpansive regime the column is monotone at all finite base points, so a finite suffix step gives equality. In the expansive regime sending the two nonshared exponentials to zero yields the extreme derivative value in the limit; small finite perturbations then approach it. On every fixed finite segment the shared-mass bound is strict at all potentially descending columns, uniformly by continuity and compactness; hence no finite attainment. Temperature independence follows also from F_tau(x)=tau F_1(x/tau). Independent exact tests of finite pairs use rational exponentials and compare powers of products of adjacent ratios, without evaluating logarithms.",
+      "residual_risks": [
+        "Frozen test output labels a group as temperature tests although the shown calls use the default temperature. The independent scaling identity proves temperature independence. Shorter paths and more than three taps are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen source identifies monotone likelihood ratio of translates and log-concavity in Prop. 2.3",
+          "Nesterov background is entropy smoothing and its gradient",
+          "Cyclic comparator's reported coefficient is one"
+        ],
+        "reasoning": "TP2/monotone likelihood ordering is sufficient to order the step-column tails when b²≥ac, but it gives no sharp norm or nonattainment once ordering fails. A bound on cyclic variation is not directly a bound in the unweighted open-path seminorm, and the frozen comparison additionally identifies a different convention for cyclic weights.",
+        "searches": [
+          "Saumard–Wellner arXiv:1404.5886v1 Prop. 2.3",
+          "Nesterov CORE DP 2003/12 §4.1 Lemma 4",
+          "Resultary 67758c789c79"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 67758c789c79 and 2caf55bd42d7 summaries",
+        "Frozen prior-work section",
+        "Saumard–Wellner and Nesterov primary retrieval attempts",
+        "Web literature query on TP2 and weighted sliding log-sum-exp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monotone row tails imply the bound on the log-concave side; the opposite side instead needs the two-shared-site optimization and approach by boundary concentration",
+          "The two catalogue summaries do not state that optimization for relative taps on open paths"
+        ],
+        "reasoning": "Standard softmax differentiation and the qualitative implication from log-concavity are ingredients rather than the claimed sharp law. In particular the same geometric-mean boundary in a different nonlinear operator does not imply strict finite-pair nonattainment for log-sum-exp.",
+        "searches": [
+          "Frozen comparison lines 60–69; arXiv:1404.5886v1; Resultary 67758c789c79; Resultary 2caf55bd42d7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 67758c789c79 describes unit variation coefficient and a window-size attainment threshold on a cycle",
+          "Resultary 2caf55bd42d7 concerns moving weighted isotonic regression on a cycle"
+        ],
+        "reasoning": "Viewing the result as the sharp induced l1 norm after passing to increments is an equivalent formulation, but changing to least-squares isotonic projection is not: its derivative and attainment cases differ. An all-unit cyclic coefficient is also not an equivalent formulation of the superunit relative-tap law.",
+        "searches": [
+          "Resultary: weighted sliding log-sum-exp variation",
+          "Web literature: weighted moving log-sum-exp, variation norms, TP2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cyclic record summary has coefficient one",
+          "Isotonic record at the same displayed date shares b²≥ac but reports a different gain and finite attainment on both sides"
+        ],
+        "reasoning": "These indexed exact laws are for other objects. Matching the threshold is not matching the scalar optimum or its finite attainment. The date provides no ordering or exemption from comparison.",
+        "searches": [
+          "Resultary search for sliding weighted entropy and exact variation coefficient",
+          "Catalogue records 67758c789c79 and 2caf55bd42d7"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp amplification law and attainment classification for fixed relative-position taps on an open path. Classical smoothing and monotone-likelihood-ratio results account for components of the proof, especially the nonexpansive side; neither supplies the expansive law. The nearest published records differ in topology, map or reported sharp coefficient. Priority remains best-of-knowledge.",
+      "residual_risks": [
+        "Cyclic comparator's precise weight hypotheses were not independently accessible. An uninspected general variational-norm theorem or older monotone-kernel result could change the priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap on method and unit bound, but cyclic unit-coefficient/size-threshold result does not state the relative-tap open-path amplification law",
+          "evidence": [
+            "Summary says coefficient one and finite equality for window size at most half a cycle. Frozen RESULT.md line 61 describes absolute-site weights; mirror request timed out, so that distinction is not independently verified."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/67758c789c79",
+          "material_read": "Catalogue statement plus frozen source's comparison; full Finding not retrieved",
+          "method": "Local catalogue lookup and OA mirror passage request",
+          "title": "Sharp variation nonattainment threshold for cyclic entropy-smoothed maxima",
+          "trigger": "Closest comparator: two-input entropy-smoothed window variation"
+        },
+        {
+          "assessment": "Different map and different sharp gain and attainment",
+          "evidence": [
+            "Summary gives weighted isotonic regression on cycles with finite attainment on both sides. Mirror access timed out."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/2caf55bd42d7",
+          "material_read": "Catalogue summary; full Finding not retrieved",
+          "method": "Local catalogue lookup and OA mirror passage request",
+          "title": "A geometric-mean threshold for two-input variation stability of moving weighted isotonic regression",
+          "trigger": "Same threshold with three moving weights"
+        },
+        {
+          "assessment": "Qualitative ordering plausibly covers part of the nonexpansive proof, not the stated sharp expansive gain",
+          "evidence": [
+            "Frozen RESULT.md lines 61, 68 identify the equivalence with monotone likelihood ratios; OA request timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.5886",
+          "material_read": "Prop. 2.3 as described in the frozen source; primary passage not retrieved",
+          "method": "OA request and comparison with frozen reference",
+          "title": "Log-concavity and strong log-concavity: a review",
+          "trigger": "Potential general variation-diminishing mechanism"
+        },
+        {
+          "assessment": "Standard logarithmic smoothing and gradient, not a path-variation optimization as cited",
+          "evidence": [
+            "Frozen RESULT.md lines 61, 67; OA request timed out."
+          ],
+          "identifier_or_url": "CORE Discussion Paper 2003/12, §4.1 Lemma 4",
+          "material_read": "Frozen attribution; primary lemma not retrieved",
+          "method": "OA request and comparison with frozen reference",
+          "title": "Smooth minimization of non-smooth functions",
+          "trigger": "Foundational entropy-smoothed maximum formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and sharpness proof",
+        "Independent exact two-input tests"
+      ],
+      "rationale": "This is a natural two-signal stability problem for a nonlinear local smoother. The threshold alone would leave the severity and realizability of instability unanswered. The exact gain from one overlap reversal, its near-three limit for a small middle tap, and a strict distinction between finite equality and concentration in the limit answer those questions within a complete three-tap classification.",
+      "residual_risks": [
+        "The result does not classify arbitrary filters, weighted seminorms or cyclic geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The middle-coordinate weighted three-site isotonic fit has precisely four continuous affine branches. In every branch its Jacobian is a nonnegative tridiagonal row-stochastic matrix with left and right neighbor weights bounded by \(a/(a+b)\) and \(c/(b+c)\). Expressing consecutive output differences in input-difference coordinates gives three coefficients per input edge and the exact absolute-column upper bound \(K(a,b,c)\). Piecewise-affine segment integration establishes the two-input inequality. Two strictly decreasing, four-edges-separated cuts in an explicit alternating eight-site signal produce disjoint derivative packets of that exact norm; small finite perturbations realize equality, and the construction embeds in every longer cycle. The checker passed 5,000 exact-rational inequalities, 30 exact-rational finite-pair equalities, and four branch checks. The universal result is based on the proof, not enumeration.
+PASS
 
-## Originality — PASS, qualified
+The four weighted PAV branches give a continuous piecewise-linear center coordinate. On each chamber the two off-center coefficients are bounded by A=a/(a+b) and C=c/(b+c). In edge-difference coordinates input edge j sends the signed packet (gamma_j,1-gamma_j-alpha_{j+1},alpha_{j+1}) to consecutive edges, giving its absolute sum as max(1,2(gamma_j+alpha_{j+1})-1). The uniform column bound and integration over the affine pieces yield the two-input bound; for a segment contained in faces one can also approximate by generic segments and use continuity. Since the quotient for cyclic differences is constrained by zero total sum, a single column does not prove sharpness. The two downward edges in the eight-site witness both have strict left/right pair activity in the relevant rows for small perturbations; the input jumps are +1 and -1 and the two maximal packets have disjoint supports. This reaches equality for every positive weight triple and n>=8, including b^2=ac. The upper bound on ordinary shorter cycles is not a claim of sharpness there. Independent exact-rational checks (256 local comparisons with the minimizing feasible partition, 400 upper-bound checks on lengths 3–7, 12 witness equalities at lengths 8, 9 and 12) used /workspace/branches/7236e76f-ada5-45b2-8eb6-ebd56ce641c4/verify_weighted_pav_independently.py; the supplied checker was inspected but not run.
 
-Kearsley (2006, fully inspected relevant sections) develops weighted globally ordered isotonic regression and PAV pooling; it does not analyze overlapping cyclic three-site center outputs or two-input variation amplification. Dubois (2010 posting; inspected introduction, interpolation definitions, selected variation estimates) gives a different conservative nonlinear interpolation/TVD framework. Harten (1983) and Tadmor (1988) contribute general incremental TVD conditions; those criteria explain an upper-bound mechanism but do not give this operator-specific exact unstable gain, geometric-mean threshold and attained examples. A published sharp weighted-chain isotonic variation theorem concerns one global fit on a directed chain, not overlapping local fits; published three-point running-median stability results use rank selection rather than weighted isotonic averaging. Statement/implication searches found no exact covering result. The Harten and Tadmor original texts were not fully read, and unindexed equivalent local-filter work is a residual priority risk. No independence of the historical-priority assessment is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete, exact and dimension-independent stability threshold for a natural nonlinear local shape-constrained smoother. The center weight must be at least the geometric mean of its outer weights for nonexpansivity in the difference-variation metric. If it is smaller, the precise amplification is attained by actual signals, not only by infinitesimal derivatives. This separates safe from unsafe weighting in overlapped isotonic smoothing and distinguishes a stronger two-input robustness requirement from one-signal variation diminution. The naturalness comes from classical weighted PAV regression and the standard adjacent-variation seminorm, not a chosen ad hoc parameter slice.
+The local projection formula and column-norm technique are standard; the covered contribution is the exact two-input constant and its finite realization for the particular overlapping-window operator. Best-of-knowledge assessment only.
 
-## Scope and residual limitations
+## value
 
-The exact formula and attainment are established only for cyclic real signals with at least eight sites, fixed positive within-window weights, and a three-site nondecreasing local least-squares fit. Smaller-cycle constants, other window lengths and arbitrary graph neighborhoods remain open here. Full historical priority is not certified; older general TVD articles and unindexed overlapping-filter sources could contain equivalent conclusions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural composition of overlapping shape-constrained fits, the result separates variation contraction of perturbations from exact amplification, and determines the optimal uniform gain including actual finite equality examples. Neither the familiar stability of global least-squares projections nor a one-signal TVD test answers that robustness question. The result is restricted to length-three windows, stationary positive weights and ordinary cycles of at least eight sites for sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

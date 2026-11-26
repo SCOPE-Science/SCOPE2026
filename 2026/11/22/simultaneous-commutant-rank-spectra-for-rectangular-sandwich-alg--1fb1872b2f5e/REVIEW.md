@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof starts from the exact equations for a sandwich-idempotent, derives canonical Boolean joint eigenspaces and their unique off-core lifts, gives explicit invertible row/column untwisting maps preserving the sandwich operation, and identifies every unrestricted common-centralizer matrix block. The rank polynomial follows by direct matrix-rank additivity. The standalone independent multiplication enumeration verifies every predicted rank stratum and signature multiplicity in ten finite-field cases, including characteristic two and three, zero sandwich rank, rectangular dimensions, and three commuting idempotents. The finite checks support, but are not substitutes for, the general proof.
+PASS
 
-## Originality
+Work with A:U→V and e_i:V→U. The projections E_i=e_iA on U and F_i=Ae_i on V commute within each family. A intertwines these families, and each e_i is also an intertwiner in the reverse direction. On an active signature σ, take i with σ_i=1: A and e_i are inverse isomorphisms on the joint spaces, and each e_j there is σ_j times A inverse. On the zero signature each e_j vanishes. On im A the joint eigenspaces W_σ form an ordered direct-sum decomposition, counted by the stated GL quotient. The active spaces in U are independent sections of A over W_σ, contributing q^((m-r)D); the zero space is A^{-1}(W_0). The active spaces in V are the W_σ themselves; the zero space modulo W_0 is a complement to W_active in V/W_0, contributing q^((n-r)D). These choices construct all tuples without overcount. A matrix Y centralizes the tuple exactly when E_iY=YF_i for all i, hence is an unrestricted diagonal family of maps between equal signatures. The active square algebra factors use invertible A, and the residual rectangular factor uses A of rank d_0. Ordinary ranks add, with rank-j rectangular maps counted by the full-rank two-factor count divided by |GL_j|. This proves the stated polynomials including all-zero tuples, r=0, zero-size factors, ordered repetitions and arbitrary characteristic. The claimed independence means fixing the active multiplicities; the literal full type includes d_0 and determines r. Fresh bounded corroboration: python3 /workspace/reproductions/trace_and_commutant.py gives 113 triples over F_4 at m=n=2 and a non-diagonal rank-one A: the zero type occurs once and each active bit pattern 16 times, with active commutant coefficients (1,6,9) and zero-type coefficients (1,75,180). The frozen checker was inspected, not run.
 
-**PASS with residual historical-priority risk.** The closest archival paper by Dolinka and East proves the single-idempotent rank count, not a mixed arbitrary-centralizer rank polynomial. A published related result counts the ranks of **two commuting idempotents**, not an unrestricted common centralizer; another describes commuting-idempotent spectra for unital split basic algebras, not the present rectangular sandwich and unrestricted-rank setting. The claimed novelty is the all-arity mixed census and rank-preserving block-product decomposition with an arbitrary centralizing element. Standard Peirce decomposition is acknowledged as underlying background. An older implicit equivalent in generalized matrix algebra literature cannot be excluded.
+## originality
 
-## Value
+PASS
 
-**PASS.** The common commutant of idempotents is an intrinsic semigroup/algebra invariant. Its complete rank spectrum, for all tuple lengths and arbitrary sandwich ranks, is more informative than the already known idempotent-pair distribution and gives a uniform block classification. The independence from sandwich rank at fixed simultaneous type, and examples with identical individual idempotent ranks but commutant orders 32 and 8, demonstrate why the precise invariant is mathematically motivated rather than a routine isolated numerical refinement.
+Credit the established one-idempotent rank formula, the commuting idempotent pair census, and simultaneous projection/Peirce methods. The supported distinct claim is the complete ordinary-rank polynomial for an unrestricted common centralizing element, with its rectangular residual block, and the resulting all-arity mixed census. The available comparisons do not establish this as a specialization of an earlier enumerator.
 
-## Sources and limits
+## value
 
-Relevant sources: Dolinka–East (arXiv:1503.03139, especially Lemma 4.1 and Proposition 7.2); *Joint matrix-rank spectrum of commuting idempotents in rectangular sandwich semigroups*; *Simultaneous idempotent spectra of split basic algebras and an inverse random-cluster invariant*; and Britnell–Wildon (2011) on commutation of square-matrix similarity classes. The result does not concern nonidempotent defining tuples, and finite checker runs do not certify infinite families. Independent validation and priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This yields the full rank distribution of the commutant of each tuple, not just the number of compatible idempotents. It resolves which data control the distribution: active signatures matter even at the same marginal ranks (the displayed 32 versus 8 example), whereas changes in the residual sandwich rank do not affect the ordinary-rank polynomial. This is a useful uniform invariant for studying the common commutants of these nonunital matrix algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

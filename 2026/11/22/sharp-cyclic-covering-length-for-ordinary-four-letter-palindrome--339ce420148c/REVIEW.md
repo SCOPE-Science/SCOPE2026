@@ -1,19 +1,21 @@
-# Mathematical review: sharp circular covers of four-letter palindromes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(q\ge2\) the proof classifies every possible proper overlap between two distinct \(abba\) targets. It translates cyclic consecutive target starts into a directed flow on first letters, proving the baseline \(3q^2-\binom q2\) bound and the additional even-\(q\) parity cost. Euler tours of \(K_q\) for odd \(q\), and \(K_q\) minus a perfect matching for even \(q\ge4\), give explicit optimum hosts; \(q=2\) has an independently checked witness. All quantifiers and boundary cases are covered. The included Python script produced `VERIFY_OK` on constructions for \(2\le q\le10\) and exact independent tour optimization for \(q=2,3,4\). The universal proof does not depend on finite enumeration.
+PASS
 
-## Originality — PASS (qualified)
+Fix one cyclic occurrence per target. For distinct abba words a gap of one would require a three-symbol overlap bba=cdd, forcing equality of all letters and hence the targets. A two-gap can only be abba followed by baab with a!=b. These transitions use each unordered pair at most once, since reciprocal transitions would isolate a two-cycle in the single ordering of q^2>=4 distinct targets. Writing r for the number of two-gaps and z for gaps at least four gives L>=3q^2-r+z. Project the cyclic ordering to first letters: three-gaps are loops and the entire projection is balanced. For even q every vertex of K_q has odd degree, so each must be incident to an omitted pair or to a long-gap edge. Counting two incidences per omitted pair or long-gap transition gives the extra q/2 lower bound. For odd q use an Euler tour of K_q; for even q>=4 delete a perfect matching first (the remainder is connected and even-degree). Each retained edge contributes its two orientations in succession at gap two; neighboring edge blocks meet at a common first letter and have gap three. Diagonal targets and both orientations of deleted pairs are inserted at their corresponding first-letter vertices at gap three. The cyclic overlaps really glue: successive gaps are at least two, so nonneighbor starts in either cyclic direction are at least four apart and have no shared positions. The supplied q=2 circle attains 12. Independent replay `python3 /workspace/reproduce_frozen.py 3` checks binary cyclic hosts directly and exact minimum overlap tours at q=2,3,4 (12,24,44). The frozen checker was inspected, not executed. Finite tests do not prove the formula for unrestricted q.
 
-Actual related-research searches compared ordinary reversal palindromes with their nearest aliases, two-letter overlap transitions, shortest circular superstrings, parity-based Euler tours, tandem squares and reverse-complement palindromes. The indexed tandem-square result gives \(2q(q+1)\) for target \(abab\), not the present \(abba\). The fixed-point-free complement result gives \((5q^2-q)/2\) for the different target \(ab\overline b\overline a\), and the ternary length-five palindrome result addresses length five. The 2013 Orenstein–Shamir full article concerns covering every length-\(k\) word up to reverse complement, not the restricted ordinary-palindrome set. OEIS A330022 already gives the binary length-four linear result \(12\); that instance is expressly credited and is not claimed new. The arbitrary-alphabet parity theorem was not found in actual searches. This is evidence for qualified originality, not proof of global uniqueness. Full manuscripts of the relevant indexed 2026 records could not be inspected, leaving priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This settles the minimum length of a single cyclic test string covering all ordinary even-four palindrome motifs over *every* alphabet. It is an all-parameter optimal value, with an explicit constructive algorithm and a nontrivial odd-versus-even correction arising from graph parity. The invariant is a natural constrained-motif covering length rather than an arbitrary selected slice; it is pertinent to universal word and sequence-design questions. It does not purport to settle longer palindromes or arbitrary reversal-invariant word families.
+Credit the known linear binary value and the directly overlapping q=4 cyclic minimum in a distinct same-day quaternary census. Only the universal arbitrary-alphabet cyclic parity theorem and all-parameter construction are supported as distinct by this bounded comparison. Different symmetries, lengths, or partial parameter tables do not give that theorem. No within-day priority is inferred.
 
-## Limits and priority caveat
+## value
 
-Full open-access 2013 paper and OEIS entry were materially inspected. The related indexed 2026 descriptions were compared at statement and parameter level but their complete public manuscripts could not be read in this session. Independent review and exhaustive prior-art search have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural family of ordinary reversal motifs, the exact minimum tells how short a single cyclic test word can be over any finite alphabet. The proof makes the even-alphabet cost structural via parity and supplies optimal hosts. This value is in the uniform parity classification, not a recomputation of the known small cases or a claim about biological targets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

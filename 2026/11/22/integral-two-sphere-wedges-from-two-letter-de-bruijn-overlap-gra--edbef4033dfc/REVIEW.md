@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete family proof classifies every clique, exhibits a contractible-cone cover with pairwise edge intersections and empty triple intersections, identifies the attaching loops of the remaining cyclic triangles, computes a saturated integral boundary image, and derives simple connectivity and the sphere-wedge equivalence. The special \(q=2\) case is included. The independent enumerator checks all faces and mod-two chains for seven alphabet sizes (2 through 8), but finite checks are not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS against inspected evidence.** The closest source, Philippakis–Mallinar–Pandit–Belkin, arXiv:2410.07622 (2024-10-10), studies Laplacian eigenspaces and one-dimensional cycle spaces of de Bruijn graphs, not the fundamental group or second homology of a filled flag complex. The distinction between the directed/multiedge construction and the simple shadow is made explicit. Searches for de Bruijn clique, flag, Vietoris–Rips, homotopy, and sphere results did not identify a stronger all-alphabet classification. General nerve and clique-complex results supply methods but do not calculate this object. Residual risk: unpublished or unindexed equivalent work.
+PASS
 
-**Value — PASS.** Full integral homotopy type for the natural family of word-overlap graphs identifies exactly how the graph's cycles disappear under flag filling and how higher-dimensional classes remain. The closed polynomial multiplicity and absence of torsion hold for all alphabet sizes, with a sharp first noncontractible case at three letters. This provides a reusable exact baseline for topological analyses of short-word transition networks.
+Using all ordered pairs, a diagonal word has bipartite link with one incoming and one outgoing side. For an off-diagonal overlapped edge ab,bc the common neighbors are bb and ca if a differs from c, or aa and bb otherwise; in either case they are nonadjacent. Thus no four-clique exists, all edges lie in the diagonal-star union, and the omitted triangles are the two cyclic orientations on each alphabet triple. The closed diagonal stars are cones and intersect pairwise in the edge ab--ba, with no triple intersections. Their good-cover nerve is the unfilled complete graph. Explicitly, on barycentric subdivision the map assigning each face the set of stars containing it is an inclusion-reversing nerve map; on a cyclic boundary it traces the three subdivided nerve edges because its vertices lie in the respective pair intersections. Attaching maps may therefore be transported across the nerve equivalence. The CW model has two disks attached around each alphabet triangle; one per triple gives the simply connected simplex two-skeleton when q>=3, and q=2 gives an interval. Root-triangle boundaries span the integral graph cycle lattice, of rank binomial(q-1,2). The kernel in degree two is free of rank 2 binomial(q,3)-binomial(q-1,2); the homology isomorphism from Hurewicz representatives is a homotopy equivalence by Whitehead. This verifies the unrestricted q proof without using finite-field ranks to infer integral homotopy.
 
-**Limitations.** The claim concerns the full two-letter alphabet and the simple undirected clique complex, not weighted, observed-subword, directed, or longer-word variants. Independent scientific audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded searches and decisive passages distinguish this all-alphabet flag-complex classification both from graph cycle-space results and from other same-day overlap-graph and nerve constructions. The exact Resultary hit is the assigned record itself.
+
+## value
+
+PASS
+
+A natural entire family of short-word transition graphs gains a tractable homotopy model after flag filling, not merely a graph-cycle count. The argument explains which cycles die via triangular fillings and why independent sphere classes remain, with an exact first noncontractible case at three letters. This provides an exact topology benchmark for word-overlap models without claiming the analogous result for longer words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

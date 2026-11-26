@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:12:58.452653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r<ell_min/3 each sampled interior point is within along-edge distance r of at most one endpoint. A ball of radius r cannot travel through a whole intervening edge. Away from endpoints it has length 2r; within distance t≤r of a degree-d endpoint its length is 2r+(d-2)(r-t), from the two directions on its own edge and the d-1 possible branches once it reaches the vertex. Integrating over the d edge ends at each vertex adds d(d-2)r²/2 to the unnormalized pair volume. This gives the displayed CDF after division by L², including r=0 by atomlessness. Right differentiation gives exactly the two inverse formulas. The handshake identity gives the Betti formula and degree-two subdivision changes neither degree sum expression nor L. In a tree, summing binom(d-1,2) over the vertices yields B+1, and degree at most three leaves just the degree-three count. The upper bound counts unordered incident edge pairs; if every pair meets, two edges meeting at v force all other edges to meet at v or form a triangle, impossible in a tree. Equality at the bottom is exactly the no-branch path case, including one edge. The proof establishes the finding on its stated class. Simplicity is a standing restriction here, not an independently established necessity; the proof does not need the limitations paragraph's stronger wording about essentiality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original metric-graph lemma allows varying edge lengths, with normalized total length and r<r0/2.",
+          "0917dabf7d7f formula (1) allows arbitrary positive lengths with arbitrary edge-mixture weights; 4391c88d9842 concerns the narrower unit-edge complete-bipartite family.",
+          "Inserting degree-two subdivision vertices preserves q and can only restrict the radius being asserted when one uses the shortest edge of the finer presentation."
+        ],
+        "reasoning": "For the same normalized graph, the earlier short-distance statement covers the claimed range; the rescaling leaves no constraint on actual L. The mixture experiment is more general for the forward formula even though its multi-experiment reconstruction differs.",
+        "searches": [
+          "Mémoli–Needham arXiv:1810.09646v5 Lemma 4.18",
+          "Resultary 0917dabf7d7f, 33a6f7c3cdbf and 4391c88d9842"
+        ]
+      },
+      "checked_sources": [
+        "Mémoli–Needham arXiv:1810.09646v5 §§2.3 and 4, Lemmas 4.18–4.19",
+        "Resultary 0917dabf7d7f, 33a6f7c3cdbf and 4391c88d9842",
+        "Resultary 874c43902707 (later all-radii tree comparison only)",
+        "DOI 10.1002/sta4.135 and 10.1016/j.spasta.2017.10.002 (no full text obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F(r)=H_G(r/L) gives derivative values 2/L and q(G)/L². Thus both inverse statistics follow without new hypotheses.",
+          "The sum for q=2B and the tree degree sum imply all local tree branch-count claims. Lemma 4.19 already isolates the Y-graph as the tree case q=0.",
+          "For edge-mixture weights ell_e/L each same-edge quadratic contributes -r²/L² and every unordered incident edge pair adds r²/L²."
+        ],
+        "reasoning": "The Betti/subdivision identities and extremal tree cases follow directly from routine handshaking and counting, not a separate stronger or independently unknown inverse theorem. The single-measurement distinction from multi-experiment tomography is explicitly covered by the Mémoli–Needham global distribution.",
+        "searches": [
+          "Mémoli–Needham Lemmas 4.18 and 4.19 and §4 length discussion",
+          "0917dabf7d7f Formula (1) uniform-arclength substitution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mémoli–Needham §2.3 and §4 use the distribution under independent normalized arclength, defined as the product-measure mass of d≤r.",
+          "Lemma 4.18 gives H_G(r)=2r+r² q(G)/2 with q=sum_v deg(v)²-4|E|; q=2B including the circle.",
+          "33a6f7c3cdbf states the same coefficient and derivative inversion for unit-edge graphs."
+        ],
+        "reasoning": "The object measured is the identical unlabeled pair distance law, not a compensated point-process K-function. The equation becomes exactly the frozen one on multiplying metric lengths by L.",
+        "searches": [
+          "Metric-graph short-distance distribution, global inverse problem, distance tomography, arclength K-functions",
+          "arXiv:1810.09646v5 global distance distribution and q(G)",
+          "Resultary degree mixing and edge-selective short-distance laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "33a6f7c3cdbf states the exact unit-edge quadratic and recovery for 0≤r≤1, not merely numeric examples.",
+          "0917dabf7d7f gives the complete general local formula in edge-mixture parameters, which becomes uniform arclength by direct substitution."
+        ],
+        "reasoning": "This is a theorem over continuous edge parameters rather than a finite graph tally; an enumerated example table is not decisive. The exact formula records already provide a uniform-arclength instance and a general parameterized covering law.",
+        "searches": [
+          "Resultary: pair-distance coefficient, exact radius laws, tree branching and edge-degree mixing"
+        ]
+      },
+      "rationale": "Mémoli–Needham arXiv:1810.09646v5 Lemma 4.18 explicitly gives the same global arclength distance distribution in a unit-total-length normalization at the wider radius r<r0/2. Its combinatorial coefficient is exactly 2B by the handshake identity. Rescaling and taking two derivatives gives the frozen inverse formulas, and the tree claims are elementary degree bookkeeping on the known coefficient. The earlier indexed edge-mixture law independently includes the frozen formula as the direct substitution p_e=ell_e/L. Renaming the coefficient does not make it a new statistic.",
+      "residual_risks": [
+        "Full texts of the named 2017 K-function sources were not available, so no claim is made about their precise correction definitions or priority. The direct global law from Mémoli–Needham is decisive independently.",
+        "Lemma numbers differ between versions; the locator used here is Lemma 4.18 in arXiv v5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior formula with wider stated radius; inverse derivatives mechanically implied",
+          "evidence": "Normalized uniform arclength, H_G(r)=2r+r² q(G)/2 for r<r0/2; q(G)=sum deg(v)²-4|E| (circle 0); length from global law; q(T)=0 iff Y-graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.09646v5",
+          "material_read": "PDF p.7 §2.3 (offset 30579), p.25 §4 (113100), p.26 length discussion (117441), p.34 definition of q and Lemmas 4.18–4.19 (150850 and following)",
+          "method": "Targeted lawful OA PDF passages; separately inspected the decisive formula and argument",
+          "title": "Distance Distributions and Inverse Problems for Metric Measure Spaces",
+          "trigger": "Primary statement for metric graphs, global distance law and possible exact formula"
+        },
+        {
+          "assessment": "Forward formula covers the exact frozen experiment by substitution",
+          "evidence": "p_e=ell_e/L yields the uniform arclength CDF with 2r/L and coefficient B/L²; the main multi-experiment inverse differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-edge-selective-short-distance-laws-reconstruct-finite-metric-net--0917dabf7d7f/RESULT.md",
+          "material_read": "RESULT.md Finding and formula (1), offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Edge-selective short-distance laws reconstruct finite metric networks",
+          "trigger": "Potential broader laws for unequal lengths"
+        },
+        {
+          "assessment": "Exact overlap for equal unit lengths",
+          "evidence": "F(r)=[2mr+(S/2-m)r²]/m² on 0≤r≤1; S/2 counts unordered incident edge pairs, and the local derivatives recover the coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-short-distance-geodesic-histograms-recover-edge-degree-mixing-in--33a6f7c3cdbf/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Short-distance geodesic histograms recover edge-degree mixing",
+          "trigger": "Candidate exact coefficient and recovery formula"
+        },
+        {
+          "assessment": "Unresolved; not used as negative originality evidence",
+          "evidence": "Only access failures or landing pages from attempts; the confirmed global metric-graph formula does not depend on these papers.",
+          "identifier_or_url": "DOI 10.1002/sta4.135 and DOI 10.1016/j.spasta.2017.10.002",
+          "material_read": "No readable full-text passage retrieved",
+          "method": "Bounded lawful OA retrieval and repository-copy checks",
+          "title": "Network K-function primary sources",
+          "trigger": "Possible formula under network distance-statistics terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Extracting graph structure from an unlabeled distance observation is worthwhile, but this local coefficient is already the known q/2. Recovering it from local derivatives, expressing it with Betti and degree data, and obtaining the degree-three tree count and path/star bounds are routine consequences. The frozen record does not identify a distinct new inverse invariant or new recoverability regime that survives the coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

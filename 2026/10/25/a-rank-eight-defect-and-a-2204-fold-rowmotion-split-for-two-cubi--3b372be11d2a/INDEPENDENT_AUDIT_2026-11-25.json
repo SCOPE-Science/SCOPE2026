@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:23:57.616878Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–86",
+        "verify_incidence_rowmotion.py, lines 8–134, inspected, not executed",
+        "VERIFICATION.md, lines 19–27",
+        "Independent exact replay: build edge masks and endpoint prerequisites, scan 20-bit masks, remove upset(max(I)) using endpoint adjacency, and form the least common multiple of the distinct cycle lengths."
+      ],
+      "rationale": "An ideal is uniquely a vertex subset U and any subset of its induced edges, giving H=F(t,1+t). Equal cubic triangle-free counts agree through triples, and m(U)=12-3|V\\U|+m(V\\U) handles sizes at least five. For four-sets, the independent-set counts are 2 and 0, and the induced squares number 6 and 4. In the Wagner graph a square must use two disjoint opposite chords and parallel cycle edges (0 or 1 chord cannot close in four steps, three or four cannot lie in a four-cycle because the chords are a matching); the cube squares are its faces. Counting all four-sets and occurrences of single edges and pairs of edges gives the three common equations for the intervening coefficients, hence difference (2,-8,12,-8,2). Independently ran an exhaustive Python enumeration, different from the supplied checker: scan all 2^20 subsets for each graph, dropping any that include an edge but omit an endpoint; map each valid I to P minus the upset of max(I), which is inverse rowmotion because maximal elements of the generated ideal are exactly its complement-minimal generators. Verify the inverse images give exactly the ideal set; traverse the cycles and count ranks directly. This reproduced both complete histograms in RESULT.md, all ideal/orbit/max-length counts and both automorphism orders (also independently enumerated over 8! permutations). The computed LCMs are 110880 and 244379520, ratio 2204, and the directly enumerated rank defect is (8,+2).",
+      "residual_risks": [
+        "The supplied script prints the full histograms and asserts aggregate features; it does not hard-code equality with every printed bucket. The independent traversal explicitly matched both full printed lists. Neither finite enumeration is a theorem for a larger graph class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A connected skeletal poset of height two consists of complete comparisons across its two ranks; here an edge covers precisely two of eight vertices.",
+          "Fence Hasse diagrams are paths, unlike either incidence graph.",
+          "Resultary's K_{2,n} and star incidence theorems yield order 24 on their named families, neither of which contains an eight-vertex cubic graph of the stated kinds."
+        ],
+        "reasoning": "The hypotheses of the strongest inspected class theorems exclude these objects; generic toggle rules do not give the numerical orbit orders or census without evaluation.",
+        "searches": [
+          "arXiv:1402.6178, skeletal definition and §10",
+          "arXiv:2108.12443, fence definition",
+          "Resultary rowmotion incidence census searches, including standard examples, K_{2,n}, stars, and Fano plane"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.6178 and arXiv:2108.12443",
+        "Resultary records 18a88d96aa1a, 285b64708dc0, 59671d53d950, 6803de11ff95, 1838b18ae038 and 2026/9/14/SCOPE003",
+        "Focused primary-literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general rowmotion transition supplies an algorithm, not the values or this counterexample-style comparison.",
+          "Knowing the same most rank counts, or knowing the two rotation diameters, cannot alone give the rowmotion LCMs. The identity H=F(t,1+t) makes the rank defect a consequence of the new graph census rather than a separately novel transform."
+        ],
+        "reasoning": "The result is not a parameter substitution into any inspected stronger theorem with these outputs.",
+        "searches": [
+          "Grinberg–Roby §10 Prop. 10.27 versus the two explicit incidence relations",
+          "Resultary same-object Findings 18a88d96aa1a and SCOPE003 versus RESULT.md lines 5–36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Resultary record 18a88d96aa1a uses Q and W but computes rooted-elimination-tree rotation graphs, with radius 17 and diameter 20, rather than ideal rowmotion.",
+          "Resultary 2026/9/14/SCOPE003 gives the Wagner M8 edge ideal Waldschmidt constant 8/5, not the bivariate induced-edge census or its specialization."
+        ],
+        "reasoning": "Neither an elimination-tree rotation nor a monomial graph edge ideal is the vertex–edge ideal poset in this finding. The bivariate count and its rank specialization were compared as related, not as independent dynamical claims.",
+        "searches": [
+          "Focused Resultary cube/Wagner induced-edge polynomial and rank-eight queries",
+          "Resultary cube/Wagner rotation and rowmotion comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected standard example census 285b64708dc0 gives cycle polynomial (2^n-2n-2)t²+t³+nt⁵ and order 15 or 30; the Fano incidence census 1838b18ae038 has 458 ideals with cycle counts 29, 35, 28 at lengths 3, 5, 7.",
+          "The bounded public search did not yield an exact table for either claimed pair of histograms and orders."
+        ],
+        "reasoning": "None of the identified exact catalogs/censuses contains the same labelled posets and dynamics. This is not an exhaustive lookup of all finite-poset computations.",
+        "searches": [
+          "Resultary searches for paired histograms and orders 110880 and 244379520",
+          "Focused public literature search for cube and Wagner graph incidence rowmotion"
+        ]
+      },
+      "rationale": "The distinct contribution is the induced-edge and rank defect paired with the full classical rowmotion cycle contrast on these two precise labelled incidence posets. The strongest same-object archive hit studies a different dynamics; closest same-dynamics sources do not include the two posets. No exact table overlap was found by the bounded checks.",
+      "residual_risks": [
+        "An unpublished or unindexed all-small-poset census or induced-subgraph table may have computed part of the result. The inspected sources do not establish absolute priority, and archive dates alone are not treated as evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, not covering census",
+          "evidence": "Proposition compares classical and birational orders on skeletal posets; the input posets fail that class condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.6178",
+          "material_read": "Skeletal definition on pp. 49–50 and Prop. 10.27 on p. 64 (PDF text offsets 158301 and 206524)",
+          "method": "Read OA PDF passages and applied the recursive definition at height two",
+          "title": "Iterative properties of birational rowmotion",
+          "trigger": "General order theorem potentially covering the two incidence posets"
+        },
+        {
+          "assessment": "Different object class",
+          "evidence": "Fence covers make a zigzag path; degree-three vertices occur in both incidence Hasse diagrams.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.12443",
+          "material_read": "p. 1, fence definition, PDF text offset 1744",
+          "method": "Read OA PDF theorem setup",
+          "title": "Rowmotion on fences",
+          "trigger": "Nearby explicit orbit computation"
+        },
+        {
+          "assessment": "Same graph inputs, different state space and operation",
+          "evidence": "Rooted-elimination-tree rotations give radius 17 and diameter 20 for both graphs, with differing distance profiles.",
+          "identifier_or_url": "Resultary 2026/10/25, record 18a88d96aa1a",
+          "material_read": "Mirrored Finding",
+          "method": "Read indexed primary result statement in mirror",
+          "title": "Equal rotation diameters with different antipodal profiles",
+          "trigger": "Exact same cube and Wagner graphs"
+        },
+        {
+          "assessment": "Different posets",
+          "evidence": "For standard examples S_n, only orbit lengths 2, 3 and 5 occur. The date does not establish relative priority.",
+          "identifier_or_url": "Resultary 2026/10/25, record 285b64708dc0",
+          "material_read": "Mirrored Finding",
+          "method": "Read indexed primary result statement in mirror",
+          "title": "Uniform rowmotion orbits and a sharp rank-average split",
+          "trigger": "Same dynamics and height-two standard-example setting"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "For K_{2,n}, possible lengths are 2, 3, 4, 6, 8 and 24; order 24.",
+          "identifier_or_url": "Resultary 2026/10/26, record 59671d53d950",
+          "material_read": "Mirrored Finding",
+          "method": "Read indexed primary result statement in mirror",
+          "title": "Uniform order 24 and exact cycle census for rowmotion on complete bipartite incidence posets",
+          "trigger": "Explicit census for graph-incidence posets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md full rank and orbit comparisons",
+        "Independent exact census",
+        "Adjacent archival graph-incidence rowmotion calculations"
+      ],
+      "rationale": "The cube and Wagner graph are standard, comparably small connected vertex-transitive cubic graphs; the shared parameters force almost all of their incidence-ideal rank data to match. The contrast between a single two-ideal discrepancy and a 2204-fold order change is a concrete test of how little those near-equal static statistics constrain the order of the dynamics. The exact census is a usable benchmark for methods computing classical rowmotion on graph incidence posets, where full rather than sampled profiles matter.",
+      "residual_risks": [
+        "This is a paired witness with equal ranks except for one degree, not an example with exactly identical rank polynomials or a theorem on all cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 scripts/verify_pauli_gap.py` after extracting both files from this package. The verifier needs only the Python standard library. It constructs the full 16-by-16 integral symplectic Fourier matrix, examines **all** support subsets containing the origin of sizes four through six, and produces the rank counts and positive-support classifications recorded in `verification-output.txt`. Rank tests modulo 65537 certify characteristic-zero lower bounds; exact integer cofactors and full residual comparisons certify the actual one-dimensional kernel cases. The 45 two-dimensional kernels are supplied by explicit independent Lagrangian indicator solutions. A rational nonstabilizer witness and its Fourier eigenidentity are recomputed exactly.
+## correctness
 
-The mathematical argument additionally uses purity of a rank-one projector and elementary Pauli/Clifford geometry; no separate machine certification of these identities is asserted. The certificate proves the finite classification only, not a theorem for general orders or numerical robustness. Independent audit has not been performed.
+PASS
+
+With unit norm, the 16 Hermitian Pauli expectations have squared magnitudes w with w(0)=1, w<=1 and sum 4. Expanding the rank-one density matrix in this basis proves H w=4 w via tr(rho P_u rho P_u)=tr(rho P_u)^2. I independently restricted H-4I to every support containing zero, using exact integer elimination and rational back-substitution. The numbers of strictly positive supports at sizes 4, 5, 6 are 15, 0, 45; at size six each successful kernel is exactly the span of two intersecting isotropic-plane indicators. Normalization gives w(u)=1 at their shared nonzero point and hence a Pauli eigenstate. A Clifford sends the eigenoperator and eigenvalue to the Z⊗I,+1 sector; the remaining pure qubit has exactly two nonzero Bloch coordinates. Signed permutations of these coordinates give the stated real normal form, excluding axis endpoints. For the converse all intersecting pairs are equivalent: quotient the perpendicular of their common line by that line and map the two distinct directions in the resulting symplectic plane to a fixed pair, extending to a symplectic basis. Clifford realization and the product expectations give every support. The 15 planes each meet six others in a line and each union is counted once as an unordered pair. Independent replay: python /workspace/branches/independent-discrete.py (STFT block). The Walsh condition alone was used for necessity, not as a general purity test.
+
+## originality
+
+PASS
+
+The prior minimum-support results are correctly excluded. A later indexed theorem contains the support-five exclusion but expressly leaves size six unclassified. No earlier implication-equivalent source for this small gap plus the complete first nonminimal support geometry and Clifford normal form was established in the inspected literature and records.
+
+## value
+
+PASS
+
+The smallest noncyclic phase space is a natural first test of what lies immediately above the known uncertainty minimum. Finding the first gap is useful, but the substantive gain is determining every next-minimal support and proving the presence of one exact Pauli eigenconstraint on every such signal. The result supplies an exact small reference class for Fourier sparsity and two-qubit Pauli geometry, not a claim about larger groups or noisy support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:59:12.746489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over C the gradient is 4 z_i(S+t z_i^2), so for t nonzero every singular projective point has k nonzero coordinates of the same square and t=-k. Each such point lies on the fibre; the support/sign count is binomial(4,k) 2^(k-1) and signed permutations act transitively. In a chart with one supported coordinate set to 1, at the all-positive representative the affine Hessian splits into 8(J_(k-1)-kI) and 4k I_(4-k). Both blocks are invertible when present. The resulting finite singular locus rules out repeated factors and reducibility, and gives normality by the hypersurface Cohen–Macaulay property and regularity in codimension one. At zero the equation is the square of a smooth quadric, and the Fermat member at infinity is smooth. At each node Q takes the value k after normalization, giving order one on its local discriminant branch; locally the different nodes contribute one factor each. The degree 108 of the quartic discriminant then leaves order 68 at zero. The explicit resultant specialization in the originality assessment independently gives all orders without using transversality. The submitted verification code was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 factors the discriminant of any symmetric homogeneous polynomial, including four variables and degree four. Theorem 3.3 applied to the normalized degree-three partials yields the same formula up to a nonzero constant."
+        ],
+        "reasoning": "Full permutation symmetry suffices for the theorem; the additional sign symmetry of this pencil does not put it outside its hypotheses.",
+        "searches": [
+          "arXiv:1407.2799v1, Theorem 3.3 (PDF p. 9) and Theorem 4.2 (PDF p. 18); Journal of Symbolic Computation 76 (2016), 142–157"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification script inspected as evidence",
+        "Catanese, arXiv:2101.10501v1",
+        "Busé–Karasoulou, arXiv:1407.2799v1",
+        "Resultary matches f46d8d49f941 and 20379da9fc77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalize the partials to P_i=z_i S+t z_i^3. Their first, second, third and fourth index divided differences, up to sign, are xS+t x^3, S+t(x^2+xy+y^2), t(x+y+z), and t.",
+          "The partitions (4),(3,1),(2,2),(2,1,1) have weights 1,4,3,6. Their respective specialized resultants, up to nonzero constants, are (t+4), t^2(t+1)(t+3)(t+4), t^2(t+2)^2(t+4), and t^8(t+2)(t+3)^2. In the binary stages use S=a x^2+b y^2, factor P_1=x(S+t x^2), and note that the second divided difference differs from S+t x^2 by t y(x+y). In the ternary stage extract t^6 from the linear input and set z=-x-y before applying the same binary calculation with S=3x^2+2xy+2y^2.",
+          "The constant fourth divided difference has exponent m_0=108-(1+4*5+3*5+6*11)=6. Multiplication gives t^68(t+1)^4(t+2)^12(t+3)^16(t+4)^8, exactly."
+        ],
+        "reasoning": "The specialized published formula gives the entire claimed divisor, including the nonreduced member's exponent. It does not require the frozen local-geometric proof or its Hessian checks.",
+        "searches": [
+          "Busé–Karasoulou, arXiv:1407.2799v1, eq. (9), Thm. 3.3 and Thm. 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catanese's s_1(z_i^2)^2 and s_2(z_i^2) are S^2 and Q; his chart lambda_1=1 identifies t=lambda_2, not an alternative pencil.",
+          "Catanese lists 0,-1,-2,-3,-4 and gives the 16-node orbit at -3."
+        ],
+        "reasoning": "The prior support and special Cefalù fibre are exact overlaps; the relevant passages do not give the full restricted divisor.",
+        "searches": [
+          "Resultary: S4 coordinate sign permutation symmetry Cefalu quartic pencil singular fibres S^2+tQ discriminant",
+          "Resultary: Cefalù quartic 16 nodes symmetric pencil",
+          "arXiv:2101.10501v1, PDF pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored Kuribayashi–Komiya flex-monodromy finding f46d8d49f941 is about a plane-quartic cover, not this surface-pencil discriminant.",
+          "The mirrored finding 20379da9fc77 treats a doubled-node ideal of a Kummer quartic and a witness, not this fibre divisor.",
+          "The search summary for f0a07bc20820 concerns a characteristic-two family; its mirror text was not retrieved."
+        ],
+        "reasoning": "No inspected exact table or duplicate was located; the prior formula supplies the exact value nonetheless.",
+        "searches": [
+          "Resultary: Cefalù quartic pencil discriminant profile quartic S^2+tQ nodes multiplicities",
+          "Resultary: S4 coordinate sign permutation symmetry Cefalu quartic pencil singular fibres S^2+tQ discriminant"
+        ]
+      },
+      "rationale": "The frozen record advertises the complete discriminant multiplicity profile as a main new result. Busé–Karasoulou's stronger published symmetric discriminant factorization evaluates to the entire claimed polynomial on this pencil, by four low-degree resultant substitutions. This is demonstrated prior implication, not an inference from title similarity. The verdict does not assert that all four baskets are printed verbatim in the sources.",
+      "residual_risks": [
+        "The older exact history of the individual node baskets was not exhaustively determined.",
+        "The exact mirror text of f0a07bc20820 could not be retrieved; its search summary distinguishes the characteristic.",
+        "These limits do not affect the demonstrated prior implication for the discriminant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the main exact discriminant profile by direct specialization",
+          "evidence": "Partition resultants and constant top divided-difference exponent specialize as tabulated in claim_vs_prior_implication.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2799",
+          "material_read": "arXiv v1 pp. 9 and 18; equation (9), Theorems 3.3 and 4.2",
+          "method": "Lawful OA PDF, bounded passage inspection and algebraic specialization",
+          "title": "Resultant of an equivariant polynomial system with respect to the symmetric group",
+          "trigger": "Strong candidate to imply the exact restricted discriminant"
+        },
+        {
+          "assessment": "Exact prior pencil and singular parameter set; partial overlap of baskets",
+          "evidence": "The t=-3 member has a 16-node orbit; the chart lists the five finite singular parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.10501v1",
+          "material_read": "Theorem 1, PDF p. 3 (offset 7548), and pencil paragraph, PDF p. 4 (offset 12210)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Kummer quartic surfaces, strict self-duality, and more",
+          "trigger": "Identical pencil and famous special fibre"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": "Kuribayashi–Komiya plane quartics, flex-cover monodromy, not a quartic-surface discriminant.",
+          "identifier_or_url": "Resultary f46d8d49f941",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local mirror",
+          "title": "S4 monodromy of flexes in a symmetric quartic pencil",
+          "trigger": "Closest title and S4-pencil overlap"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Studies the doubled-node ideal of a general Kummer quartic and a tetrahedroid witness.",
+          "identifier_or_url": "Resultary 20379da9fc77",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local mirror",
+          "title": "The doubled-node ideal of a general Kummer quartic and a symmetric witness",
+          "trigger": "Overlap in Kummer quartics and symmetric nodes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The geometry is natural, and the explicit numbers are useful reference data, but the asserted discriminant invariant is a direct low-degree evaluation of a general published formula. The support and the notable sixteen-node fibre are already recorded for this exact pencil, and the other baskets follow by elementary support/sign counts and the two scalar Hessian blocks. The frozen package does not establish a distinct nonroutine contribution beyond this specialization and its local checks.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

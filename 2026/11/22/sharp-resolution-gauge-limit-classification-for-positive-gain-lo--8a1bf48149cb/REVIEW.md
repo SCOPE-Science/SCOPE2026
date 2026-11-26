@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prescribed nonnegative pair \(G_{i,h}=\alpha_{i,h}x_i\) and \(L_{i,h}=\kappa_i+\alpha_{i,h}\) cancels identically to \(-\kappa_i x_i\), for every state and offset. The rational NSFD update is exactly a positive scalar multiplier. The uniform identity for the effective rate and the log inequality bound the global shadow-flow error by \(C_i h\) without any upper bound on the offsets. Compactness and exponential injectivity give the full attainable limit cube and the necessary-and-sufficient criterion. Exact rational identity checks and finite limiting examples accompany the proof, without being presented as its substitute.
+PASS
 
-## Originality — PASS, with historical-priority limitations
+Writing z=φ/h and u=hα≥0, the exact effective step is hv=φ/(1+φα), and the multiplier (1+κhv)⁻¹ is in (0,1). The identity v−(1+u)⁻¹=(z−1)/[(1+zu)(1+u)] bounds the error uniformly in u, with v≤2 for small h. By 0≤y−log(1+y)≤y²/2, the numerical and shadow exponents differ at all mesh times by at most Tκ|z−1|+2Tκ²h. Exponentiation on nonpositive arguments and bounded-rate left-cell interpolation preserve O(h). Compactness gives both inclusions of the cluster-set identity. Terminal evaluation at T>0 is injective in q for a,κ>0, proving necessity of q→1 and thus hα→0. The prescriptions (1−θ)/(hθ) for θ>0 and h⁻² for θ=0 work independently in all coordinates and include the two scalar examples. The choice of sufficiently small h does not depend on the offsets.
 
-The source's consistency statement assumes fixed differentiable gain and loss functions and supplies no resolution-dependent gauge classification. Its full first-public preprint was inspected, including equations (1)–(3), Proposition 1, and the proof. General nonstandard discretization surveys and a different Patankar face-flux-offset stalling result do not imply the all-resolution shadow-flow theorem for this NSFD layer. The separate two-time split-flow alias theorem concerns inverse identification of time maps, not this gain–loss representation equivalence. Search and full-text comparisons found no covering theorem, but unexamined literature may contain equivalent reformulations.
+## originality
 
-## Value — PASS
+PASS
 
-Resolution transfer is an intrinsic mathematical question when positivity-constrained gain–loss parameters are inferred independently from observations at different sampling intervals: equality of the underlying vector field does not identify the representation. A sharp and complete continuum-limit classification distinguishes correct decay, arbitrary slowed decay, and total freezing; it gives an exact uniform parameter-growth condition required for the physically correct limit. This is not merely a positivity check or an assertion that first-order methods converge; it delineates the boundary at which a fixed-model consistency theorem ceases to be uniform.
+Best-of-knowledge pass for the resolution-dependent uniform classification and sharp physical-limit criterion, not for the positive update or scalar implicit-Euler solution. Comparable offset stalling and shadow dynamics are known in other maps. Implications were assessed from available statements; several primary passages were not accessible, so no broad priority claim follows.
 
-## Closest literature and limitations
+## value
 
-Zinihi–Ehrhardt–Sidi Ammi (arXiv:2607.10858v1) is the exact source of the integrator. Related fixed-step flux-offset mPDeC stalling and split exponential–Euler alias results concern different maps and hypotheses. The present result is restricted to diagonal linear ODEs, nonnegative offsets and mesh-dependent representations. No claim is made for arbitrary neural-network training procedures, nonlinear coupled equations, or an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact positivity and equality of the vector field do not guarantee invariance under a representation refit as resolution changes. The sharp threshold and the full cluster set, including oscillating offset sequences, locate where fixed-representation consistency ceases to be uniform. That is an interpretable diagnostic for this positive layer, not a claim about general nonlinear flows or a new scalar integration formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

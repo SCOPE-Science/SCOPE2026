@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:54:53.973685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique missing colour at each endpoint is the only viable alternative, so matching missing colours characterize the legal moves. I enumerated proper colourings by first-use-ordered classes, expanded over all 24 palettes after verifying that every partition uses four classes, bucketed colourings by deletion of one edge coordinate to form all transitions, and computed components by BFS. The result was 49920 states, 109440 edges, 960 singletons and two components of 24480, with the full frozen degree histogram reproduced. Explicit symbol and palette actions gave one frozen orbit and the asserted sign action on the two mobile components. Replay: python3 branches/independent_petersen.py. This is exact for four named colours and one-edge moves only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The subcubic Kempe-equivalence theorem and the five-colour frozen Petersen example do not give this census.",
+          "The indexed local-sign result goes beyond the assigned finding: its invariant completely distinguishes the two mobile components; each has radius 24 and diameter 25, and it gives a frozen-missing-map classification."
+        ],
+        "reasoning": "The strongest coverage is the exact finite result in the same model, not the general complexity or Kempe theory.",
+        "searches": [
+          "Petersen graph 4-edge-colourings recolouring graph 49920 24480 isolated 960 single-edge recolouring",
+          "arXiv:1609.00109 p. 2",
+          "arXiv:1005.2248 Theorem 3",
+          "Bousquet habilitation pp. 57–58",
+          "Resultary f42ba7a5e7e8, §§Finding, Proof 1–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f42ba7a5e7e8",
+        "OEIS A159233",
+        "arXiv:1609.00109",
+        "arXiv:1005.2248",
+        "Bousquet habilitation pp. 57–58"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product of the ten local permutation signs is invariant under palette relabelling (factor sign(palette)^10). Reordering incident edges under any symbol permutation multiplies the product by a factor independent of colouring. This gives a homomorphism to {+1,-1}; the reported sign swap by a transposition makes the homomorphism the ordinary sign.",
+          "The same source gives exactly two A5 x S4 frozen orbits, and 480 frozen states of each sign. Each of these orbits has a constant sign, so an odd symbol permutation interchanges the two and the full group is transitive on the frozen states."
+        ],
+        "reasoning": "Together with completeness of sign on the mobile states, the stronger result entails the assigned symmetry claims, even where not phrased as the same orbit statement.",
+        "searches": [
+          "f42ba7a5e7e8/RESULT.md, local-sign formula, sign counts and Proof §4",
+          "arXiv:1005.2248 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proper edge-colourings correspond to vertex colourings of the Petersen line graph, with the same one-coordinate moves. Osawa et al. define the one-edge move. The local-sign record uses the identical four named colours and excludes simultaneous multiedge changes.",
+          "McDonald–Mohar–Scheide's Kempe move switches alternating paths or cycles and is strictly stronger here; its connectivity result does not cover this state graph."
+        ],
+        "reasoning": "The line-graph reduction preserves the transitions; replacing single-edge moves by Kempe exchanges does not. The exact mirror overlap is under the correct, weaker move.",
+        "searches": [
+          "Resultary: exact Petersen four-edge-colouring single-edge components, 960 frozen states, S5 parity",
+          "OEIS A159233",
+          "arXiv:1609.00109 p. 2",
+          "arXiv:1005.2248 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS already gives the raw 49920 colouring count, not reachability.",
+          "The distinct mirror theorem gives 49920 states, 109440 edges, 962 components (960 singleton and two of size 24480), and all eight degree counts in the same labelled graph."
+        ],
+        "reasoning": "This is exact table equality for the census, not just coincidence in a normalizing parameter.",
+        "searches": [
+          "OEIS A159233, sequence and comments",
+          "Resultary exact lookup: 49920 109440 960 24480 Petersen single-edge reconfiguration",
+          "f42ba7a5e7e8/RESULT.md, opening theorem and degree table"
+        ]
+      },
+      "rationale": "The distinct indexed Petersen local-sign and distance result gives the same census, degree distribution and frozen criterion and implies the claimed group actions, including the full frozen orbit. Thus the assigned scientific content is covered by a stronger result in the examined catalogue. The indexed result has a later date label than the frozen record; this decision is about demonstrable coverage in the current evidence, not a finding about which came first or whether they were developed independently. No independent scientific remainder in the frozen finding was established.",
+      "residual_risks": [
+        "The compared catalogue date labels do not establish priority, derivation or independence.",
+        "The bounded literature comparison does not exclude other earlier equivalent censuses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers census and implies both orbit and action statements; adds parity classification and metric information",
+          "evidence": "Exact component/degree table; local product sign; 480 frozen of each sign; two A5 x S4 frozen orbits; a symbol transposition swaps signs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-local-sign-parity-and-exact-mobile-distances-in-petersen-four-ed--f42ba7a5e7e8/RESULT.md",
+          "material_read": "Finding and Proof §§1–5, offsets 0–11015 including 2470 and 6030",
+          "method": "bounded text passages from local published mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Local-sign parity and exact mobile distances in Petersen four-edge recolouring",
+          "trigger": "Exact census and action overlap"
+        },
+        {
+          "assessment": "Covers raw count only",
+          "evidence": "The four-colour entry is 49920, credited to Alois P. Heinz (2009).",
+          "identifier_or_url": "https://oeis.org/A159233",
+          "material_read": "Sequence and comments, offsets 450 and 3154",
+          "method": "public page passages",
+          "title": "Number of edge colorings of the Petersen graph",
+          "trigger": "Exact count database normalization"
+        },
+        {
+          "assessment": "Same legal move, not the exact census in examined passage",
+          "evidence": "A step changes the colour assigned to exactly one edge.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.00109",
+          "material_read": "p. 2, OA PDF offset 4483",
+          "method": "bounded original PDF text",
+          "title": "The Complexity of (List) Edge-Coloring Reconfiguration Problem",
+          "trigger": "Same single-edge model in general input graphs"
+        },
+        {
+          "assessment": "Different move, no coverage of the one-edge components",
+          "evidence": "A Kempe swap can recolour an entire alternating path or cycle; all four-edge-colourings in the subcubic case are Kempe equivalent.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2248",
+          "material_read": "pp. 1–2, definition and Theorem 3, PDF offsets 3239 and 5900",
+          "method": "bounded original PDF text",
+          "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+          "trigger": "Potential stronger connectivity statement"
+        },
+        {
+          "assessment": "Different palette",
+          "evidence": "The illustrated frozen edge-colouring uses five colours.",
+          "identifier_or_url": "https://perso.liris.cnrs.fr/nbousquet/Habilitation_defense.pdf",
+          "material_read": "pp. 57–58, PDF offset 141150",
+          "method": "bounded original PDF text",
+          "title": "Bousquet habilitation manuscript",
+          "trigger": "Frozen Petersen example might overlap four-colour census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The state graph and its two mobile classes are a natural benchmark. However, as a distinct scientific finding this record supplies a component census and actions already covered by the stronger indexed analysis; the independent reproduction verifies them but does not establish an additional boundary, obstruction or invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

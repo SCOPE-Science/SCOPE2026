@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:58:25.743132Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 3–54; complete corrected RESULT.md under repairs/5.",
+        "Direct rational replay used b=1/5,3/5,5/8,9/10 and n=0..14, applying the inverse-branch rule b f(bx) + 1_{x>b²} f(1−(x−b²)/(1+b))/(1+b) on interior cell representatives and comparing weighted half-L1 to the formula. Frozen symbolic checker and VERIFICATION.md inspected."
+      ],
+      "rationale": "The original asserts that the full three-cell graph is primitive, which is false: J₀ has no incoming edges from J₁ or J₂; the closed two-cell class is primitive. The repair proves uniqueness among all absolutely continuous invariant probabilities, not just cell-constant ones: refine by itineraries through k, so every positive-length atom maps affinely onto a full cell and the mesh is at most max(b,1/(1+b))^k. Conditional averaging on the atoms converges in L1. At time k the averaged density is cell-constant; the three distinct eigenvalues 1, b, −b/(1+b), together with mass preservation, force its future iterates to the normalized stationary vector. L1 contraction then gives convergence for any absolutely continuous probability and hence uniqueness. The inverse branches produce the stated matrix in density-value, not mass coordinates. The fixed vector and displayed two decaying eigenvectors and coefficients yield J₀ deviation b^n, J₂ strictly negative because the relative oscillatory correction is bounded by (1−b)/((1+2b)(1+b)), and the stated signed J₁ deviation. Half-L1 is exactly the sum of positive masses, including b^(n+2) on J₀; the 1-Lipschitz positive part gives the stated error even at γ. The difference of the two branches of C is b(1−b−b²)/(b+2), whose derivative at γ is strictly negative, proving the corner. I independently checked 60 exact rational inverse-branch iterations, not a formal or exhaustive proof; the frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The exact rate and prefactor concern full-interval Lebesgue initialization. The repaired general L1 convergence argument gives no uniform rate over all Lebesgue densities. Singular invariant probabilities are not excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "898171b8464a treats stationary covariance and fluctuation on a=b=t,c=0. 71914a4764b2 treats sharp band exchange and alternating correlations for a different skew-tent family. The origin paper was identified but its theorem-bearing passages were unavailable."
+        ],
+        "reasoning": "Use of a finite-dimensional transfer representation is classical; the compared stationary and band-exchange results do not solve mass balance for this initial density with its genuinely transient cell. No whole-paper assessment is made for the origin paper.",
+        "searches": [
+          "Resultary 898171b8464a and 71914a4764b2",
+          "Moysis et al., DOI 10.3390/sym15122138; direct and lawful open-copy attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 88c9efcacec7 (identical)",
+        "Resultary 006ba8e20665",
+        "Resultary 898171b8464a",
+        "Resultary 71914a4764b2",
+        "Resultary b38ef0f9d169",
+        "Moysis et al. DOI 10.3390/sym15122138 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives TV on the invariant interval at times 6k for piecewise-affine densities, with factor φ^(−12k). The latter evaluates stationary autocovariances and fluctuations on a different parameter slice."
+        ],
+        "reasoning": "The invariant-core TV comparison corresponds at γ to the faster mode b/(1+b)=φ^−2, not to the slower b mode of the full domain. Neither the faster decay on the core at one parameter nor stationary correlation identities determine the positive-part combination governing the leading full-interval TV coefficient across the family.",
+        "searches": [
+          "006ba8e20665 exact density/TV formula on invariant interval",
+          "898171b8464a finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 006ba8e20665 gives exact six-step on-core TV relaxation for the standard golden-mean tent map. When b=γ the two absolute slopes both equal φ, and the increasing affine map between invariant intervals matches the turning point and endpoint values; this is a conjugacy on the core."
+        ],
+        "reasoning": "The known invariant-interval experiment does not place any mass in J₀. Starting uniformly on all of [0,1] creates the distinct b eigenmode and its b^(n+2) positive transient mass, which the conjugacy of the cores does not transport.",
+        "searches": [
+          "Resultary: postcritical three-cell endpoint-skewed tent map and exact relaxation in total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact Resultary hit is 88c9efcacec7 itself. Same-day distinct b38ef0f9d169 concerns a nonlinear map, a critical three-cycle and golden-mean entropy; it does not give this TV law. The focused primary search did not identify an accessible alternative full text."
+        ],
+        "reasoning": "A period-three critical orbit alone does not determine the transfer slopes, transient mass or sign switch, and the assigned record's own index entry is not evidence of separate coverage. Unsuccessful retrieval is not evidence of absence.",
+        "searches": [
+          "Resultary: c=b² exact TV and transient mass / golden-ratio prefactor",
+          "Primary lookup: DOI 10.3390/sym15122138 or Chaotic Maps with Tunable Mean Value, skewed tent generalized c full text"
+        ]
+      },
+      "rationale": "Only the parameter-specific exact whole-interval TV law and its sharp sign-driven prefactor transition are credited. The closest distinct relaxation theorem is exactly related by conjugacy on the closed class at b=γ, but neither includes the transient contribution from full-interval initial volume nor varies the parameter to give the corner. The repair defines the branches directly and removes the unconfirmed blanket statement about what the inaccessible origin paper does not derive.",
+      "residual_risks": [
+        "The underlying published paper's Eq. (3) and any account of this slice could not be independently inspected. An equivalent whole-interval formula in other interval-map literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent invariant-core map at one parameter, not the asserted full-interval law",
+          "evidence": [
+            "T(x)=φ min(x,1−x) restricted to [(φ−1)/2,φ/2], piecewise-affine input on that interval, exact factor φ^(−12k) at 6k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-six-step-density-relaxation-and-alternating-correlations-o--006ba8e20665",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2329",
+          "method": "Mirrored primary result",
+          "title": "Exact six-step density relaxation and alternating correlations of the golden-mean tent map",
+          "trigger": "Closest exact density and TV relaxation and equivalent core at b=γ"
+        },
+        {
+          "assessment": "Different parameter subfamily and stationary observable",
+          "evidence": [
+            "a=b=t,c=0; autocovariance and CLT, not time-dependent TV from full Lebesgue input."
+          ],
+          "identifier_or_url": "Resultary 898171b8464a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Mirrored primary result",
+          "title": "Exact covariance resonance and fluctuation-optimal tuning in a Markov tent subfamily",
+          "trigger": "Closest same-family prior topic"
+        },
+        {
+          "assessment": "Full comparison unavailable; no negative coverage inference",
+          "evidence": [
+            "DOI/publisher routes delivered a landing page or access error; identified publisher PDF exceeded the reader limit; XML attempts did not yield usable full text. The explicit map in the corrected result is the operative definition."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15122138",
+          "material_read": "Bibliographic landing information only; Eq. (3) and other scientific passages not independently read",
+          "method": "OA publisher/DOI routes, publisher PDF and XML alternatives; targeted primary lookup for another open copy",
+          "title": "Chaotic Maps with Tunable Mean Value—Application to a UAV Surveillance Mission",
+          "trigger": "Cited origin of the branch parameterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parameter curve comes from a natural critical-orbit closure b→1→b²→b. The exact total-variation error answers a quantitative startup convergence question and identifies which spatial regions determine it. Showing a nonsmooth prefactor when the decay eigenvalue itself is smooth is a meaningful structural feature of using the full Lebesgue initial law, rather than a spectral renaming or a numerical golden-ratio coincidence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

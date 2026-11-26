@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Itô isometry gives exact strictly convex regression risk. Positive weights follow from the tridiagonal inverse Brownian covariance M-matrix. Boundary, zero and duplicate samples admit strict improving perturbations; interior knot and weight FOCs force equal coefficients, the unique feasible quadratic root, and a closed risk. Analytic infinite-n quantifier is proved for every integer n, not extrapolated from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mukherjee (2003) abstract claims exact optimal designs for product-covariance process integrals, making it the closest potential dominating source.",
+        "Benhenni–Cambanis (1992) abstract centers regular-design asymptotics and optimal-coefficient estimation.",
+        "Cai–Lam–Scarlett (2022) gives non-exact error rates for noisy quadrature over kernel classes."
+      ],
+      "reasoning": "Noiseless product-covariance design formulas are acknowledged as prior; independent measurement noise adds a diagonal nugget and is not itself a product-covariance kernel. The full 2003 source is unavailable, so absence of a stronger noisy extension cannot be certified. This remains an explicit residual risk, not a negative full-text claim.",
+      "searches": [
+        "https://doi.org/10.1081/STA-120022249",
+        "https://doi.org/10.1214/aos/1176348517",
+        "https://arxiv.org/abs/2202.10615"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2202.10615v2",
+      "https://arxiv.org/abs/2202.10615",
+      "https://doi.org/10.1081/STA-120022249 (abstract only)",
+      "https://doi.org/10.1214/aos/1176348517 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 noisy BQ result gives asymptotic rates not the finite-sample optimized design or equal weight rigidity.",
+        "2003 abstract addresses integral estimation with product covariance, without specifying separate positive observation-noise variables.",
+        "1992 work concerns mostly regular-sequence/asymptotic optimal coefficients, not the displayed exact all-noise fixed-design formula."
+      ],
+      "reasoning": "The new theorem implies the previously known noiseless sampling positions in a limit; reverse implication from noiseless results is invalid. Existing general Gaussian conditioning supplies the risk formula but not the global optimization. A full text of the 2003 exact-design result remains the decisive comparison still unavailable.",
+      "searches": [
+        "https://arxiv.org/html/2202.10615v2",
+        "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "https://www.researchgate.net/publication/228826001_On_Sampling_Designs_for_Integral_Estimation_of_a_Random_Process"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General noisy Bayesian quadrature risk uses GP covariance matrix plus nugget; a Wiener kernel is min(s,t), whose integrated kernel mean is t-t²/2.",
+        "Cai–Lam–Scarlett (2022), §§1–4, treats bounds and a two-batch estimator, not a closed exact Wiener fixed-design theorem."
+      ],
+      "reasoning": "Wiener integral Bayes risk is equivalent to an L² projection of the ramp 1-s on nested indicators with a diagonal quadratic penalty. That equivalence is used in the new proof, but no equivalent all-n optimized explicit rule was found in the inspected related primary text.",
+      "searches": [
+        "Brownian motion integral optimal two noisy observation times equal variance gaussian noise exact optimal positions",
+        "optimal sampling points Wiener process integral noisy observations equally spaced design posterior variance",
+        "https://arxiv.org/html/2202.10615v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published table or exact parameter formula was located among the inspected accessible literature.",
+        "The noiseless equispaced nodes are previously known and are explicitly excluded from the novelty assertion."
+      ],
+      "reasoning": "The all-n noise-dependent quadratic and exact Bayes risk are compared as statements, not via keyword matching; this search is not a proof that no table exists.",
+      "searches": [
+        "arbitrary n noisy Wiener integral optimal design equal weights equally spaced locations fixed independent Gaussian measurement noise",
+        "Brownian motion integral n noisy observations unique global minimizer quadratic closed formula equal weights",
+        "Wiener integral exact equal weight noisy Gaussian samples all n 4n²-1",
+        "arXiv 2202.10615 Wiener Brownian sampling nodes"
+      ]
+    },
+    "rationale": "The all-sample-count independent additive-noise formula is absent from inspected relevant contemporary full text and distinct from older noiseless and asymptotic claims; the 2003 exact-design full text is inaccessible and retained as publication-priority risk.",
+    "residual_risks": [
+      "The full 2003 exact-design article and related thesis were inaccessible; a noisy special case might already be covered.",
+      "Search and finite-source inspection cannot prove a universal negative publication-priority claim.",
+      "All-n theorem assumes an observed Wiener path with known covariance and identical independent Gaussian noise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general bounds, not exact all-n minimum for min(s,t) kernel; has same nugget-noise observation setup",
+        "evidence": [
+          "§2 eqs (4)–(5) GP posterior formulas",
+          "§3 Theorem 1 lower bounds",
+          "§4 Theorem 2 noisy upper bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.10615v2",
+        "material_read": "Complete available HTML outline and relevant §§1–4, Theorems 1–2, comparison table and conclusions",
+        "method": "Read arXiv HTML and page 1 of corresponding PDF",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Noisy kernel quadrature and Gaussian conditioning closest contemporary motivating paper"
+      },
+      {
+        "assessment": "Potential material priority risk; no conclusion about full-text coverage; abstract does not specify independent Gaussian measurement noise",
+        "evidence": [
+          "2003 article abstract explicitly reports exactly optimal designs for product covariance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+        "material_read": "Abstract and bibliographic citations only; full text inaccessible",
+        "method": "Searched arXiv and lawful open access; institutional access attempt not available",
+        "title": "On Sampling Designs for Integral Estimation of a Random Process",
+        "trigger": "Historical exact design for product-covariance integrals is plausible stronger coverage"
+      },
+      {
+        "assessment": "Asymptotic integrated-process sampling is prior; no exact all-n independent-noise optimum supported by inspected material",
+        "evidence": [
+          "1992 abstract reports optimal-coefficient estimators and regular-design asymptotics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aos/1176348517",
+        "material_read": "Abstract and bibliographic description",
+        "method": "Read indexed publisher/repository abstract",
+        "title": "Sampling Designs for Estimating Integrals of Stochastic Processes",
+        "trigger": "Classical regular-design and stochastic-integral estimation results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad44ca25-6f44-466d-802c-b927b6f6dc15",
+  "value": {
+    "rationale": "The rigid equal-weight and equispaced-internal design plus exact one-quadratic reduction for every n is a reusable noisy numerical-integration design law; it rules out finite-noise replication and provides a closed optimal risk, beyond a simple one-off finite invariant.",
+    "status": "PASS"
+  }
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 CHECKER.py` with only the Python standard library. The checker uses `fractions.Fraction` throughout and fixed-seed rational sample points. The output from the saved package was:
+## correctness
 
-```
-d=3: 26 vertices; 24 facet normals; volume=1/3; ratio=1/4; projected-face test passed
-d=4: 80 vertices; 64 facet normals; volume=2/45; ratio=1/15; projected-face test passed
-d=5: 242 vertices; 160 facet normals; volume=1/210; ratio=1/56; projected-face test passed
-d=6: 728 vertices; 384 facet normals; volume=2/4725; ratio=1/210; projected-face test passed
-PASS: 1076 candidate vertices 324016 halfspace evaluations, 640 all-face projection tests, 12 closed-form identities
-```
+PASS
 
-The exact-rational projection test checks every nonempty proper face for each sampled point. It is not an exhaustive check over all real coordinates or dimensions. The analytic proof in RESULT.md supplies the universal theorem. The dimension-three cases provide a known-reference regression check; novelty is asserted only for dimension at least four.
+For a signed m-vertex face on S, the Euclidean foot has x_i=b_i+s_i(1−Σ_{j∈S}s_j b_j)/m on S and zero elsewhere. Positivity of the i-th signed barycentric coordinate for all sign choices is equivalent to (m−1)|b_i|+Σ_{j∈S∖{i}}|b_j|<1, because the signs at i and at the other coordinates can be chosen independently. The full-support inequalities dominate every smaller support and imply interior membership, giving exactly the stated strict kernel. Its closure is the corresponding weak ball by radial scaling. Each of the d·2^d given normals uniquely supports a facet at a point of the chosen signs with unique absolute maximum at its distinguished index. Signed order chambers give all possible vertices s/(d−2+|supp s|); the listed candidates are extreme because the active-normal differences generate d−1 directions perpendicular to the point (off-support flips and on-support changes of distinguished index), and one active normal supplies the last direction. The origin is interior. The order-difference coordinates give a simplex with volume 1/[d!∏_{j=1}^d(d−2+j)]; counting all 2^d d! chambers gives the volume and fraction. The central-binomial asymptotic at d−1 recovers 4√(πd)/4^d. At d=4 the volume is 2/45 and the fraction is 1/15.
 
-The motivating paper's kernel definition, the companion paper's distinct cross-polytope realization and published summary records were compared as set out in REVIEW.md and AUDIT.json. Historical priority beyond these checks and external independent audit remain unresolved.
+## originality
+
+PASS
+
+The supported distinct result is the identification of the all-face Euclidean projection kernel for regular cross-polytopes in dimensions d≥4 and its resulting geometric probability law. The d=3 exact case is already known; the mixed-norm body and signed-prefix atom representation are covered much more generally by ordered weighted ℓ₁ geometry, so the norm-ball calculations are not credited as independent novelty.
+
+## value
+
+PASS
+
+The natural all-face admissibility test ranges over exponentially many faces. In the original regular Euclidean embedding it reduces to two norms, and the exact volume determines how rare simultaneous relative-interior feet are for uniform anchors in high dimension. The point is this geometric identification and the associated probability, not a renaming of a known mixed-norm ball.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

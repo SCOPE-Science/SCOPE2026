@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For every eta>0 the noisy two-observation covariance is SPD. Exact Gram conditioning reduces risk to 1/12-v^T M^{-1}v. Symmetric-coordinate derivative factorization proves that fixing separation d leaves only centered sites or interval endpoints as candidates; the endpoint information bound is strictly smaller than two midpoint repeats. The centered derivative has a unique root d_eta in (0,1/3), and the stationary identity gives the exact minimum variance and strict noncollision. SymPy independently confirms five algebraic identities and 765 rational-grid diagnostic comparisons. Finite checks are supplementary, not the all-pairs proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lam–Scarlett establish noisy-kernel-quadrature rate bounds for Matérn and squared-exponential kernels; the paper contains no Brownian bridge model or exact optimized pair of locations.",
+        "Karvonen–Kanagawa–Särkkä prove qualitative quadrature-weight positivity under local optimality, not a global explicit minimizer for this two-node noisy integral target.",
+        "Briol et al. address random sampling laws; conditioning on a fixed pair and optimizing over deterministic pairs with independent sensor noise is not their theorem.",
+        "Ji–Müller permit scalar-response targets, so their abstract design formalism covers construction of an objective, but no theorem read implies the exact location solution."
+      ],
+      "reasoning": "General formulas for posterior variance and general optimality principles do not automatically imply a solved global nonconvex location optimization; the required symmetry/global-maximality proof, sharp radical root and high-noise separation asymptotic were compared against these broader methods. Nothing inspected supplies a dominating ready-made exact theorem, though full historical coverage cannot be certified.",
+      "searches": [
+        "Web: \"Brownian bridge\" \"optimal design\" \"integration\" \"measurement error\"",
+        "Web: \"Brownian bridge kernel\" noisy \"optimal nodes\" quadrature",
+        "Web: \"Brownian bridge\" \"Bayesian quadrature\" \"nodes\" \"noise\"",
+        "arXiv:2202.10615v2, Sections 1–2 and PDF searches for Brownian/optimal design",
+        "Karvonen–Kanagawa–Särkkä, DOI:10.1007/s11222-019-09901-0, Sections 2–3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.15959v1",
+      "arxiv:2202.10615v1",
+      "arxiv:1706.03369v1",
+      "arxiv:1604.05375v1",
+      "DOI:10.1007/s11222-019-09901-0",
+      "published published-finding corpus Brownian-bridge i.i.d. two-node RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Our result minimizes Var(J|B(x)+noise_1,B(y)+noise_2) over deterministic x,y, allowing independent noisy repeat readings, and supplies exact unique x,y for each positive noise variance.",
+        "Published 2026-11-02 published-finding corpus claim instead minimizes expectation of noiseless, fixed-node variance when X,Y are independently drawn from an arbitrary probability law; it explicitly excludes deterministic designs as its subject.",
+        "Santin makes identical-point-spacing statements only for supremum interpolation error and noiseless observations with a different kernel parameter.",
+        "Ji–Müller general risk functional and Gaussian conditioning encompass evaluating this objective but their stated results do not determine its global minimizer."
+      ],
+      "reasoning": "Neither a general conditional covariance formula nor a theorem for a distinct design class implies the exact function d_eta or excludes all asymmetric competitors. The present derivative-sign lemma and one-observation boundary exclusion supply that missing implication. Classical optimal-design literature has not been exhaustively ruled out.",
+      "searches": [
+        "Full published RESULT.md of 2026-11-02 Brownian-bridge iid-node theorem (public published-finding corpus repository)",
+        "arXiv:2210.15959v1: Theorem 5, kernel shape and pointwise interpolation criterion",
+        "arXiv:1706.03369v1: Eq. (3), optimization over sampling distributions",
+        "arXiv:1604.05375v1: Eqs. (1)–(9), Gaussian prediction designs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brownian-bridge Gaussian posterior risk is equivalent to noise-regularized worst-case integration error in the pinned Sobolev kernel, as exhibited by Gram-matrix completion of squares.",
+        "Santin, Theorem 5 (arXiv:2210.15959v1), minimizes the supremum interpolation power function with a differential-operator shape parameter, and uses noiseless evaluations; its parameter is not independent measurement noise.",
+        "Ji–Müller (arXiv:1604.05375v1) provide general Gaussian best linear prediction and optimize different aggregate criteria without a closed finite-noise Brownian-bridge integral design formula."
+      ],
+      "reasoning": "The general Gaussian conditioning identity and deterministic noise-regularized kernel quadrature are equivalent objective formulations, so novelty does not rest on renamed terminology. Checked sources do not state the globally unique two-location radical solution or the finite-noise noncollision law. An older optimal-design theorem stated in equivalent response-prediction variables remains a real residual risk.",
+      "searches": [
+        "published-finding corpus: \"exact globally optimal two deterministic locations for Brownian bridge integral conditional variance with independent Gaussian measurement noise\"",
+        "published-finding corpus: \"Brownian bridge Sobolev H01 noisy 2 point Bayesian cubature symmetric optimum root equation\"",
+        "Web: \"Brownian bridge\" \"two observations\" \"integral\" \"noise\" optimal",
+        "arXiv:2210.15959v1, Theorem 5; arXiv:1604.05375v1, Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published published-finding corpus item 2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4 was read in full: it optimizes a Borel i.i.d. random-location law in the noiseless problem, with a continuous density, not deterministic sites with sensor noise.",
+        "No matching exact table/value for the function of sensor-noise variance was identified in these actual searches."
+      ],
+      "reasoning": "The distinctive sampled-law, sensor-noise and objective quantifiers are different, as confirmed in published full text and checked primary source statements. A search miss is not a mathematical uniqueness or publication-priority guarantee; a specialized classical table may still exist.",
+      "searches": [
+        "published-finding corpus: \"two noisy Brownian bridge observations optimal deterministic nodes for integral posterior variance coalescing midpoint\"",
+        "published-finding corpus: \"noisy Brownian bridge integrated process two-point Bayesian quadrature exact nodes\"",
+        "published-finding corpus: \"sharp two-node noise-regularized spline quadrature designs pinned Wiener process\""
+      ]
+    },
+    "rationale": "No inspected primary source or closest accessible published mathematical record implies the exact globally unique two deterministic noise-calibrated Brownian-bridge quadrature locations. Closest exact same-kernel published result optimizes i.i.d. noiseless random-node laws; Santin optimizes noiseless pointwise interpolation; broader noisy quadrature papers bound rates or provide general formulas. Publication-priority uncertainty about older specialized continuous-time optimal design remains explicitly recorded.",
+    "residual_risks": [
+      "An older c-optimal or Bayesian experimental design theorem for Gaussian Markov bridges, potentially described using scalar functional-regression rather than quadrature language, might already yield the identical pair; specialized classical books and non-indexed papers were not fully checked.",
+      "No search/partition can certify complete publication novelty; independent expert bibliographic audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: noiseless interpolation supremum power-function objective; epsilon changes covariance kernel, not observation-noise level",
+        "evidence": [
+          "Theorem 5 minimizes infinity norm of the interpolation power function at equally spaced sites.",
+          "The paper does not treat two independent Gaussian-noise readings or the integral posterior variance."
+        ],
+        "identifier_or_url": "arxiv:2210.15959v1",
+        "material_read": "PDF abstract/introduction, Section 2 kernel definition, Section 4.2 and Theorem 5 including its proof",
+        "method": "arXiv full text plus visual PDF inspection of page 1; extracted text around Theorem 5",
+        "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+        "trigger": "Same pinned Brownian-bridge kernel and optimized nodes; possible stronger theorem"
+      },
+      {
+        "assessment": "Not covering by inspected model/objectives: nonparametric rate bounds, no two-node pinned Brownian-bridge exact location theorem",
+        "evidence": [
+          "The paper states asymptotic sample-complexity rates for Matérn and squared-exponential kernels.",
+          "Find searches for Brownian and optimal design in its searchable PDF yielded no matching terms."
+        ],
+        "identifier_or_url": "arxiv:2202.10615v1",
+        "material_read": "PDF abstract, Sections 1.1–1.2 including Table 1, and relevant full-PDF term searches",
+        "method": "arXiv full text plus screenshot of page 1 and search for Brownian and optimal design",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Modern noisy Bayesian quadrature framework, potential rate theorem subsuming design"
+      },
+      {
+        "assessment": "Not covering: chooses stochastic sampling distribution, focuses expected/supremum error and rates, not two deterministic noise-calibrated Brownian bridge sites",
+        "evidence": [
+          "Eq. (3) optimizes random-location sampling laws over functions; Gaussian additive observation noise is not its location-design parameter."
+        ],
+        "identifier_or_url": "arxiv:1706.03369v1",
+        "material_read": "PDF pages 1–3 and Eq. (3), with sections/sampling search results",
+        "method": "arXiv PDF text and screenshot of first page; material around explicit optimization objective",
+        "title": "On the Sampling Problem for Kernel Quadrature",
+        "trigger": "Could cover optimal node sampling through a general kernel quadrature theorem"
+      },
+      {
+        "assessment": "Not covering: positivity/magnitude of weights, no explicit noise-dependent pair for bridge integral",
+        "evidence": [
+          "General posterior integral variance identity is prior; location optimization solved here is distinct."
+        ],
+        "identifier_or_url": "DOI:10.1007/s11222-019-09901-0",
+        "material_read": "Open-access full-text HTML introduction, Sections 2.1 and 3 on optimal-point weights, relevant searchable passages",
+        "method": "Springer Nature open-access HTML read and heading/term searches",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "General result for locally optimal Bayesian quadrature points and weights"
+      },
+      {
+        "assessment": "Related broad framework; no explicit solved pair with Brownian-bridge integral target in inspected material",
+        "evidence": [
+          "Eqs. (1)–(9) specify general noise-prediction and optimization formulations; no exact d_eta or unique two-site theorem stated."
+        ],
+        "identifier_or_url": "arxiv:1604.05375v1",
+        "material_read": "PDF abstract and Sections 1–3 including Gaussian observation equation, conditional predictor, and design criteria",
+        "method": "arXiv PDF searchable text and screenshot of page 5",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "General noisy scalar-response prediction could contain a more powerful optimal-design theorem"
+      },
+      {
+        "assessment": "Different: i.i.d. random nodes, no observation noise, expected fixed-node posterior variance. Explicitly not deterministic node design.",
+        "evidence": [
+          "Statement optimizes over probability measures mu^{tensor2}, with a truncated interior density; its scope says evaluations noiseless and deterministic designs not solved."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+        "material_read": "Entire published RESULT.md, including theorem, proof, scope, limitations and references",
+        "method": "Complete public article read from its published repository source",
+        "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+        "trigger": "Same Brownian-bridge integral, two locations, possible direct overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15716724-ea95-48a9-8c81-30b5e4c14d49",
+  "value": {
+    "rationale": "The two-read budget and independent measurement noise give a motivated exact Bayesian quadrature/sensor-placement benchmark. An exact global design, strict avoidance of duplicate sites at every finite noise, and high-noise 1/(8 eta) convergence distinguish it from naive co-location or noiseless equal-thirds rules. The boundary-versus-center structural lemma is a substantive solution of a nonconvex continuous location optimization, not a mere algebraic renaming or known-table recomputation. It does not imply higher-budget, adaptive or operational speed gains.",
+    "status": "PASS"
+  }
+}

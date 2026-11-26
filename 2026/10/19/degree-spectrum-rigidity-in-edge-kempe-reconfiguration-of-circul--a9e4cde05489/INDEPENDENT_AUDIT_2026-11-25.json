@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:17:59.080286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–41",
+        "VERIFICATION.md",
+        "prism_verify.py and prism_verify_output.json (read-only inspection)",
+        "prism_transfer_verify.py and prism_transfer_verify_output.json (read-only inspection)"
+      ],
+      "rationale": "At each column matching incoming rim colors force matching outgoing rim colors; unequal incoming colors force the outgoing pair to be reversed. The identical-rim family is counted by the trace of the nth power of the 3-color transition matrix with zero diagonal and unit off-diagonal entries (eigenvalues 2,-1,-1). The opposite-rim family contributes six named states exactly at even n. Each global orbit gives one anchored coloring. For an omitted color occurring r>0 times in identical rims, deletion leaves r corresponding pairs of paths: spokes join their matching endpoints and not their interior vertices, yielding r bichromatic components. An omitted color absent from the rim instead gives two intact rims. In the opposite-rim family a color pair using the spoke color is one spanning cycle: alternating rim steps with spokes advances one column per rim step in the same direction and returns only after n such steps. Excluding the spoke color gives the two rims. Exactly three cycles contain the anchor, and different remaining cycles yield different neighbors because their changed edge sets distinguish them. This proves the full multiset and the handshake formulas. At n=3 there is one isolated vertex; at n=4 the merged degree-one multiplicity is three, with the other vertex of degree three.",
+      "residual_risks": [
+        "The recorded direct computations through n=11 and transfer calculations through n=12 are finite corroboration, not the general proof; supplied code was not executed in this audit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 theorem determines crossed-prism cube-with-leaf graphs; the ordinary-prism structure in that paper's even-rim family is discussed as a suggested pattern, not proved.",
+          "The 2012 preprint proves one edge-Kempe class for the prism families in its setting."
+        ],
+        "reasoning": "Neither a result for crossed rims nor one component for ordinary rims fixes local degrees or how many colorings have each degree.",
+        "searches": [
+          "Belcastro–Haas 2017, Theorem 4.2 and following ordinary-prism paragraph",
+          "Belcastro–Haas, arXiv:1209.1730v1, Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its references",
+        "Belcastro–Haas 2017 and arXiv:1209.1730v1",
+        "arXiv:2105.01363",
+        "Resultary c4fb511b080a and d41f740a6f49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Connectivity passes from the global to the fixed-vertex graph by Theorem 2.15. A transfer count gives the number of colorings but does not determine the bichromatic-component count for each color pair."
+        ],
+        "reasoning": "The ordinary-rim calculation F=n, n+2, or 4, and consequently the exceptional normalized degrees and handshake edge count, are the supported distinct content. No full adjacency classification is claimed.",
+        "searches": [
+          "Belcastro–Haas 2017, Theorem 2.15 and pp. 212–213",
+          "arXiv:1209.1730v1, Theorem 5.1",
+          "Resultary c4fb511b080a, Finding and transfer argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KE_v fixes named incident colors and has degree equal to the unnormalized Kempe degree minus the chains through v; this is exactly a 3-cycle subtraction in cubic graphs.",
+          "Resultary c4fb511b080a uses named Tait colorings; its 2^n+3+5(-1)^n is exactly 6N_n under the free global color action."
+        ],
+        "reasoning": "Credit the common normalization and state count. Neither comparison gives the total number of bichromatic cycles per ordinary-prism coloring.",
+        "searches": [
+          "Resultary: Tait edge-colorings of ordinary prisms, fixed-vertex Kempe degrees and circular ladders",
+          "Belcastro–Haas, AJC 69 (2017), definition of KE_v and Theorem 2.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4fb511b080a explicitly gives the equivalent named-state formula and uses the diagonal/off-diagonal transfer divide; it is dated Nov. 8, after the frozen record. d41f740a6f49 concerns vertex coloring and single-vertex recoloring.",
+          "The primary computational tables tabulate numbers of graphs by global Kempe-class counts, not normalized state-by-state degrees or exact ordinary-prism edge totals."
+        ],
+        "reasoning": "There is exact indexed coverage of the state subcount, but none located for the degree/edge census. The checked table invariant is genuinely different.",
+        "searches": [
+          "Resultary c4fb511b080a and d41f740a6f49",
+          "arXiv:2105.01363, pp. 12–14, computational tables"
+        ]
+      },
+      "rationale": "Pass for the ordinary-prism anchored degree spectrum and resulting edge census, not for the general degree shift, prior connectivity, or the vertex count taken in isolation. The exactly equivalent named-color state count also occurs in a later indexed record; that overlap is real but does not supply the degree or edge theorem. No inspected primary statement gives the full spectrum for ordinary prisms or implies it without the ordinary-rim cycle classification.",
+      "residual_risks": [
+        "Unindexed ordinary-prism descriptions could imply the census; no exhaustive priority conclusion.",
+        "The date of the indexed state-count comparator does not establish underlying publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial antecedent; crossed-prism theorem not an ordinary-prism degree census",
+          "evidence": [
+            "Theorem 2.15 gives the chains-through-anchor subtraction and component correspondence.",
+            "Theorem 4.2 is for crossed prisms; the next paragraph leaves the ordinary structure unresolved."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+          "material_read": "PDF pp. 199, 204, 212–213: definition, Theorems 2.15 and 4.2, closing ordinary-prism paragraph",
+          "method": "OA primary PDF passages by locator",
+          "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+          "trigger": "Same normalization and highly related prism structural results"
+        },
+        {
+          "assessment": "Prior connectivity, not the anchor degree spectrum",
+          "evidence": [
+            "Theorem 5.1 states K'(Pr_k,3)=K'(CPr_k,3)=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+          "material_read": "v1 §5 p. 15, Theorem 5.1",
+          "method": "OA primary preprint passage",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Prior ordinary-prism Kempe theorem"
+        },
+        {
+          "assessment": "Different enumerated quantity",
+          "evidence": [
+            "Tables aggregate graphs by global class numbers; they are not lists of fixed-vertex state degrees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.01363",
+          "material_read": "PDF pp. 12–14, tables and headings",
+          "method": "OA primary preprint passages",
+          "title": "Switching 3-edge-colorings of cubic graphs",
+          "trigger": "Potential exact cubic-graph census"
+        },
+        {
+          "assessment": "Exactly covers named-state subcount in a later record, not the degree spectrum",
+          "evidence": [
+            "Named census 2^n+3+5(-1)^n; the off-diagonal transfer family closes only at even n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-tait-colourings-as-primitive-three-excitation-on-cubic-line-grap--c4fb511b080a/RESULT.md",
+          "material_read": "Finding at offset 0 and transfer proof at offset 4300",
+          "method": "Indexed Resultary match; local mirrored primary result",
+          "title": "Tait colourings as primitive three-excitation on cubic line graphs",
+          "trigger": "Exact ordinary-prism coloring census"
+        },
+        {
+          "assessment": "Different objects and operations",
+          "evidence": [
+            "Proper vertex colorings and single-vertex recoloring, not edge-coloring Kempe cycles."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49",
+          "material_read": "Opening definitions",
+          "method": "Local mirrored Resultary result",
+          "title": "Exact winding-sector sizes and exchange counts for three-colourings",
+          "trigger": "Closest indexed exchange-count terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Belcastro–Haas 2017, Theorems 2.15 and 4.2 and the ordinary-prism paragraph"
+      ],
+      "rationale": "The vertex-fixed ordinary-prism problem is motivated by the prior crossed-prism classification and the ordinary-prism structural question. This theorem determines a natural graph invariant at every order, including precisely which two configurations break generic regularity for even n, and provides a necessary test for any proposed ordinary-prism adjacency description. It is not just a state-count recomputation.",
+      "residual_risks": [
+        "The degree and edge data do not give the full isomorphism type, distance invariants or mixing behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

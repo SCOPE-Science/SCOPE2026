@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the real Dahlquist test equation, both randomized implicit variants of [1] reduce exactly to the one-step multiplier \(R_s(t)=(1-s+st)/(1+st)\). The square of this multiplier admits three explicit global affine lower supports. The corresponding equality sets, together with \(\mathbb ET=1/2\), prove existence and uniqueness of the optimal laws and the two exact transition values. The proof covers all Borel probability laws, including atomic and degenerate laws. The packaged exact symbolic checker verifies all three rational factorizations, boundary agreement and selected rational witnesses; the finite grid is supplementary, not a proof of optimality.
+## correctness
 
-**Originality — PASS, subject to residual publication-priority risk.** The closest source is Bochacik–Przybyłowicz, arXiv:2404.19059 [1], whose Sections 1.2 and 3 analyze uniform stage fractions and give scalar uniform-law mean-square stability properties. The earlier randomized explicit analysis, arXiv:2006.12131 [2], has a different amplification law and also uses uniform stages. Neither inspected treatment provides optimization over every mean-half stage distribution, a three-regime support classification, or the sharp algebraic change points. Targeted searches of mathematical records and accessible primary literature found no covering statement. However, the supporting-line method is related to standard constrained moment optimization, and an equivalent specialized result could be present in unindexed numerical-analysis literature. Recent related randomized SDIRK literature was accessible at abstract level only, not excluded at full-document level.
+PASS
 
-**Mathematical value — PASS.** Choosing a stage-sampling law subject to the natural first-moment condition is a concrete numerical-design problem prompted by the existing uniform-stage scheme. The complete distributional optimum has three qualitatively different stages (symmetric endpoints, *asymmetric* atomic mixture, and deterministic midpoint), rather than only a numerical comparison between two arbitrary laws. It establishes that randomness can strictly improve a scalar mean-square damping factor in one stiffness range and rigorously cannot help in another. For example, at \(s=1\) the unique asymmetric law achieves \(7/64\), beating midpoint \(1/9\). The result does not assert improved full ODE accuracy, any multi-mode guarantee, or a paper-sized general theory.
+Equation (11) of the source scheme gives the multiplier 1+z/(1−zT), hence the stated R_s for z=−s. Independently, put x=1+sT, B=1+s and m=1+s/2. For f(x)=(1−s/x)^2, the endpoint chord error is s(x−1)(x−B)(s/x+s+s/B−2)/(xB). The last bracket decreases in x and at x=1 has sign 2s²+s−2, proving strict support in the interior up to c. The error from the tangent at y is s(x−y)²[s(2x+y)−2xy]/(x²y³). The tangent through B has y=2sB/(s+2), and y−1 and y−m change sign precisely at c and d. Its affine error bracket is positive below B and vanishes at B. For s>=d the tangent at m has nonnegative bracket throughout the interval, checked at x=1 and B; at s=d the additional contact B cannot carry mass at mean m. Equality in the integrated supports forces exactly the proposed contact laws and their unique masses, including at both thresholds. Exact symbolic evaluation in x gives the three stated optimal values. IID products give the stated squared iterate expectation, including s=2 and deterministic zero initial data.
 
-## Scope and comparison risks
+## originality
 
-The optimum depends on known scalar stiffness; a matrix spectrum need not share one optimum. The comparison is a best-knowledge literature priority assessment, not independent publication certification. Existing general convex-envelope principles may be adapted to recover the proof, but the exact three-phase numerical stage design is not stated in the inspected primary sources. Equation coefficients and claim are defined fully in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The multiplier and general affine-support method are known, as is the uniform-stage analysis. What is distinct in the inspected literature is the global fixed-stiffness optimizer over all mean-half laws, its exact two transitions, unique support and masses, and sharp optimized value. The closest indexed records optimize different quantities or restrict the admissible laws.
+
+## value
+
+PASS
+
+The full law optimization under one prescribed moment is a natural design question for the existing randomized stage. The exact asymmetric two-point regime shows a strict advantage over midpoint damping at s=1 (7/64 versus 1/9), while the upper threshold certifies when any nontrivial randomization strictly loses. The sharp classification and unique equality cases are useful even within the scalar model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

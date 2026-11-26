@@ -1,19 +1,21 @@
-# Review of order-reversing square-root fibers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The full proof derives the unique reversal of the square's fixed-point set, the necessary and sufficient endpoint conditions for each coupled rail pair, and the weighted double generating function for those pairs. Its coefficient extraction proves the pointwise root polynomial; summing over all rooted interval fibers proves the global rank identity. The additional one-sided calculation independently reconstructs the isotone benchmark. `verify.py` actually computes all opposite-rail possibilities through lengths six and every map of both monotonicities on chains through nine points. It checks every individual idempotent-root polynomial, not just aggregate counts. Finite checking supplements the arbitrary-dimension proof; it does not extend the brute-force range to infinity.
+PASS
 
-## Originality
+If f²=e, commutation and invertibility on the fixed points force their unique order reversal and hence mirrored target intervals. Measuring outward on paired rails gives nondecreasing maps a,b with a_B=b_A=0, where A=max a and B=max b; those two tests suffice by monotonicity. Independently count a total of j positive image values by splitting j=j_a+j_b. In the first rail choose j positions: the first j_b entries are the positive values of b, and the last j_a entries are positive-run starts of a. The endpoint condition is exactly that the latter occur after the former; analogously on the second rail take j_a values of a followed by j_b run starts of b. Assign the run values in increasing order. This gives a bijection for every split, including empty ones, hence the stated H. Distinct target rails contribute disjoint excess image points and use each side length once, even in the central fiber. Summing binomial coefficients gives the double generating function and its diagonal at z; ordered side lengths describe all idempotents without quotienting by symmetries. With k roots, [v^(r−k)] of H(z,z;v)^k gives binomial(2k+r−k−1,r−k) times z^(2(r−k))/(1−z)^(2r), yielding the second binomial after the k roots are accounted for. An isotone square root fixes all roots (the only increasing bijection there), so f² idempotent is equivalent in that class to f³=f². On each one-sided rail the positive image values all precede the positive run starts, giving binomial(a,2j); the square of its one-rail generating function equals the antitone diagonal. The empty-map and rank boundary conventions agree. The additional independent exhaustive local check using the pointwise return equations matched all coefficients for 0≤L,R≤3.
 
-PASS relative to inspected literature, subject to historical-priority risk. The published isotone joint-rank result already contains the same numerical binomial coefficient and rational generating function. Those *numeric formulas by themselves are not claimed novel*. The new claim concerns order-reversing square roots of **each given idempotent**, with a product over reversed pairs of its side lengths; the global equality with isotone ranks then emerges by a separate sum. The fact that an idempotent on five points with one middle fixed point has antitone root polynomial \(1+8v+3v^2\), compared with the isotone \(1+2v+v^2\), establishes that the existing isotone formula cannot merely be transplanted pointwise. The 2022 study of the full monotone transformation monoid treats endomorphisms, the 2005 study addresses congruences, and the separately published injective partial-Catalan root formula concerns a different object. An earlier unpublished or poorly indexed general root-count theorem could subsume the result; no global originality certification is claimed.
+## originality
 
-## Value
+PASS
 
-PASS. The main object—composition-square roots of idempotents inside the order-reversing part of a natural finite transformation monoid—is structurally motivated by the presence of nontrivial two-cycles and by the fact that a square returns to the order-preserving submonoid. The exact idempotent-by-idempotent fiber polynomial distinguishes root counts that cannot be determined by the size or rank of the target alone, while the aggregate equidistribution identifies an unexpected invariant shared with order-preserving maps. The formula applies to arbitrary fiber profiles and all positive chain lengths, rather than isolated small examples. No general theorem on other transformation families is asserted.
+Pass for the antitone fixed-target rank polynomial and its distributional comparison. The matching numerical formula and generating function for the isotone class are already known and credited. The same-day general-root census is substantive overlap in subject, but its aggregate root counts do not separate order-reversing roots; no relative priority is inferred from the date.
 
-## Closest sources and limitations
+## value
 
-The closest statement in the literature is *Joint stable-rank and image-rank enumeration of quasi-idempotents on a finite chain* (2026-11-02), which determines the isotone joint-rank expression but not the antitone square-root fibers. D. B. Li and V. H. Fernandes, *Endomorphisms of semigroups of monotone transformations* (arXiv:2204.07838, posted 2022-04-16), supplies the setting but asks different questions. Fernandes, Gomes and Jesus (2005) describe congruences; Imam et al. (2023) treat the isotone class. The older literature on order-reversing quasi-idempotent generating ranks was only located in an abstract, making broad unindexed overlap a residual risk. The calculation neither constructs a canonical pairing of isotone and antitone solutions nor treats nonmonotone or partial transformations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact fixed-target polynomial gives information a square-root count from total rank or block sizes cannot recover, and it solves the order constraint for all labelled finite chains. The relation between global antitone and isotone ranks is useful precisely because their fixed-target distributions differ. The result also identifies the two-cycles on the square's image without imposing regularity or injectivity on the full map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

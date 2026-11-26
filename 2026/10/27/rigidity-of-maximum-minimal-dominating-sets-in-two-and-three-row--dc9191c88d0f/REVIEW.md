@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The local five-column witness predicate is equivalent to minimal domination, and max-plus dynamic programming retains exactly the largest selected cardinality and its multiplicity in each state. Exact integer identities over all reachable states at three lengths prove a four-step translation of the score vectors and affine count-vector evolution; the final count slopes vanish in all four residues. This is a genuine induction for every order, not an extrapolation from small graphs. The independent bitmask enumerator and direct witness tests match for both heights through eight columns.
+## correctness
 
-## Originality
-PASS, subject to historical priority. The September 2026 grid result establishes extremal *size*, not the number or structure of extremal sets. The 2017 OEIS totals sum minimal dominating sets across cardinalities and do not imply the leading coefficient or its classification. The older uniqueness theorem covers a component of the odd-area statement; the nonunique cases and combined exact classification remain distinct. A related circular-ladder classification is not a reduction for open boundaries. Searches of published research records and literature identified no equivalent or stronger two-height enumeration. Residual priority risk remains, particularly for older grid-enumeration literature.
+PASS
 
-## Value
-PASS. The count of extremizers, unlike their already-known maximum cardinality, answers a natural structural degeneracy question raised by the new rectangular-grid evaluation. The theorem completely classifies every optimizer in the first two nontrivial grid-strip widths, distinguishing parity-unique versus multi-extremal regimes with four- and six-way rigidity, and supplies a reusable finite-state induction certificate. This is not a restatement of the bipartite upper-domination equality or the total number of minimal dominating sets.
+A selected vertex is essential exactly when its closed neighborhood contains a real vertex whose own closed neighborhood meets the selection in just that vertex. Five masks suffice for this test and domination at the center; the last two real columns are validated by padding twice, with absent and unselected columns treated distinctly. At a fixed four-mask suffix a suboptimal prefix cannot catch up. An independently written closed-neighborhood bitset recurrence reproduced at height three the equal supports of size 1285 at lengths 16, 20 and 24, weight increments 6 on every state, and zero count second differences. It reproduced terminal pairs (24,4), (27,4), (30,4), (33,4) at lengths 16,18,20,22 and the stated even base counts; it also matched the frozen height-two certificate. A coordinate-wide additive weight shift preserves all maximizing transitions, so four steps act on counts by the same integer linear map throughout the orbit. The verified second difference yields affine count evolution; two identical terminal counts in each even residue class set its slope to zero. This proves every even length, not just the test orders. Both checkerboards and both full-column patterns have the requisite size, domination and private witnesses, and are distinct also at n=2, so the count proves exhaustiveness.
 
-## Limitations
-Only two- and three-row strips are treated; arbitrary widths remain outside the theorem. The full text of one older uniqueness paper was not inspected; historical priority and the finite-state implementation need independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the exhaustive even-length three-row pattern classification and the corresponding count are claimed in the repair. The two-row duplicate, known scalar formula, odd-length uniqueness, and earlier ladder automaton framework are credited and are not independent novelty claims.
+
+## value
+
+PASS
+
+The next open strip after the ladder is a natural setting to test whether the known extremal size hides further patterns. The even three-row result shows that rows drop out but the checkerboards and two full-column types exhaust all maxima, including nonindependent ones. This supplies a useful top coefficient and structural list not implied by the size theorem, with an exact all-order certificate rather than a small grid census or a restatement of the ladder result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

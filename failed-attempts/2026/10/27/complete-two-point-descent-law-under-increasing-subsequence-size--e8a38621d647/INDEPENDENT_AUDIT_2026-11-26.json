@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:09.204214Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Weighting by Z is exactly the marginal from planting an increasing subsequence at a uniform k-set of positions. Under the base law, permuting entries inside each consecutive block preserves the restricted count of increasing subsequences using at most one position per block. Hence its conditional expectation on prescribed internal orders is unchanged. On the descent events this restriction contains every increasing subsequence: the cases have one block of length 2, one block of length 3, or two disjoint blocks of length 2. Excluding forbidden marked-position sets by elementary counting gives all stated one- and two-point probabilities. For separated positions y/x is zero when k=2 or 3, and for 4≤k<n is the product (k-2)/(n-2) times (k-3)/(n-3), strictly below x=k(k-1)/(n(n-1)); hence the separated covariance is strictly negative unless k=n, when the permutation is the identity. The variance sum uses n-2 adjacent pairs and (n-2)(n-3)/2 separated pairs. Independent symbolic factorization gave the submitted variance, and exact planted position/value enumeration checked all probabilities, means and variances for 4≤n≤7, 2≤k≤n (python3 /workspace/branches/independent-checks/check_descents.py). The variance/n limit follows by scaling the polynomial as n tends to infinity, including α=0,1. These finite checks do not replace the general proof or give a CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 determines the full descent composition distribution on shuffles of disjoint permutations by multiplying their fundamental quasisymmetric functions.",
+          "Iterating for the descending k-word and the singleton words gives e_k h_1^{n-k}, whose fundamental coefficients count the complemented permutations by descent set, regardless of the labels of the planted values.",
+          "Kammoun's uniform or conjugation-invariant descent results do not supply this finite size-biased distribution."
+        ],
+        "reasoning": "The shuffle product determines arbitrarily high order inclusion probabilities in this exact ensemble, not merely the first two moments. The full-distribution prior theorem applies with no change of hypotheses or asymptotic approximation.",
+        "searches": [
+          "arXiv:1706.00750, §4.1, equations (4.1)–(4.2), Theorem 4.1",
+          "arXiv:1805.05253, Theorems 9–10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1706.00750",
+        "arXiv:math/0407353",
+        "arXiv:math/0604067",
+        "arXiv:1805.05253",
+        "Resultary 74c814f06015",
+        "Resultary 487eac650807"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a set J of required original descents, form consecutive blocks by joining positions across boundaries in J, including singleton blocks. Let ℓ_1,…,ℓ_m be their lengths. By Eq. (4.1), the monomial coefficient for composition (ℓ_1,…,ℓ_m) counts complemented shuffles with descent set contained in the cut positions, precisely the required event.",
+          "In e_k h_1^{n-k}, that coefficient is (n-k)! times [t^k]∏_r(1+ℓ_r t)/∏_r ℓ_r!, by choosing the k distinct variables in e_k. Divide by n!/k! to get the exact probability.",
+          "Lengths (2,1,…), (3,1,…) and (2,2,1,…) give respectively the submitted formulas, with common factor 1/2, 1/6 or 1/4. The variance is the sum of those elementary covariances."
+        ],
+        "reasoning": "This one coefficient extraction from an exact, previously established full distribution principle delivers all the finite-parameter formulas, not merely an algorithm by exhaustive permutation enumeration. The asymptotic variance and sign are immediate algebraic consequences.",
+        "searches": [
+          "arXiv:math/0407353, planted-card shuffle",
+          "arXiv:1706.00750, Theorem 4.1 and Eq. (4.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky's card-marking description fixes a random set of increasing values and uniformly shuffles the remaining values without constraints on their order.",
+          "After reversing numerical values, descents in the original permutation become ascents in the image, and the planted subsequence is a fixed descending word conditional on its values."
+        ],
+        "reasoning": "Given the planted values, the complemented law is uniform over all shuffles of the descending planted word and n-k distinct singleton words, so every desired event becomes the requirement that the complemented descent set avoid specified internal block boundaries. This is the exact shuffle statistic, not a resemblance to it.",
+        "searches": [
+          "arXiv:math/0407353, abstract and Eq. (1.3)",
+          "arXiv:math/0604067, §2",
+          "Gessel Zhuang Shuffle-compatible permutation statistics arxiv shuffle product fundamental quasisymmetric functions Theorem",
+          "Resultary: increasing-subsequence size bias and adjacent or separated descent pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-a-rank-dispersion-law-for-fixed-points-under-increasing-subseque--74c814f06015 uses the same law but treats fixed points, not descent moments.",
+          "Resultary 487eac650807 treats record conditioning, not subsequence-count size bias.",
+          "No exact table was located; the tested claim is a symbolic law for all n,k, and the prior shuffle generating function directly determines all its coefficients."
+        ],
+        "reasoning": "Neither retrieved catalogue record is equivalent; their dates are not the basis of the verdict. The symbolic generating function is the stronger exact prior source rather than a finite table or a title match.",
+        "searches": [
+          "Resultary 74c814f06015, same size-biased measure",
+          "Resultary 487eac650807, descent count under record conditioning",
+          "arXiv:1706.00750, §4.1, exact fundamental-to-monomial conversion"
+        ]
+      },
+      "rationale": "The primary comparison that determines the verdict is not Pinsky's model identity alone. Gessel–Zhuang's classical exact shuffle product, applied to Pinsky's planted-card construction after complementing values, yields the entire descent-set distribution in this model. Its elementary monomial coefficient specializes directly to the one-point, adjacent and disjoint-pair formulas. Covariance and variance then follow by subtraction and summation. No identical standalone statement was found, but it is a mechanically covered specialization.",
+      "residual_risks": [
+        "Bounded searches did not identify a source printing these exact simplified moments. The determination is about demonstrated implication of the exact formulas, not an exhaustive bibliographic or priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the full descent law for the planted chain plus singleton cards, and hence the submitted moments.",
+          "evidence": [
+            "Eq. (4.1): the fundamental indexed by descent set S sums monomials with cut sets containing S.",
+            "Theorem 4.1: product coefficients count descent compositions of shuffles of disjoint permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.00750",
+          "material_read": "§4.1, PDF p. 19: fundamental and monomial bases, Eq. (4.1), Theorem 4.1 and Eq. (4.2) (extracted offsets 60900–63426)",
+          "method": "Targeted inspection of the primary PDF and coefficient extraction under the submitted model",
+          "title": "Shuffle-compatible permutation statistics",
+          "trigger": "Candidate stronger exact theorem for descent compositions of planted-card shuffles"
+        },
+        {
+          "assessment": "Establishes the exact model and planted construction needed for the shuffle theorem; does not itself give the submitted descent formulas.",
+          "evidence": [
+            "Eq. (1.3) is the Z-weighted density; the shuffle description conditions on the marked subsequence being increasing."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407353",
+          "material_read": "Abstract; Eq. (1.3) and card-marking description, PDF pp. 1 and 3",
+          "method": "Targeted primary PDF comparison",
+          "title": "Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure",
+          "trigger": "Original identical permutation measure and shuffle representation"
+        },
+        {
+          "assessment": "Same planted law, used for longest increasing subsequences rather than these descent probabilities.",
+          "evidence": [
+            "A random k-subsequence is conditioned to be increasing."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0604067",
+          "material_read": "§2, PDF p. 5, planting description",
+          "method": "Targeted primary PDF comparison",
+          "title": "When the law of large numbers fails for increasing subsequences of random permutations",
+          "trigger": "Same planted model in subsequent work"
+        },
+        {
+          "assessment": "Covers a uniform baseline and a different asymptotic conjugation-invariant setting, not the finite planted size-biased law.",
+          "evidence": [
+            "Theorem 10 makes conjugation-invariance and an additional asymptotic assumption."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.05253",
+          "material_read": "§1.3, PDF pp. 6–7, Theorems 9–10",
+          "method": "Targeted primary PDF comparison",
+          "title": "Monotonous subsequences and the descent process of invariant random permutations",
+          "trigger": "Potential descent formula for a broader permutation ensemble"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The change in separated-descent dependence is a meaningful interpretation, and the formulas are convenient. But the exact pair probabilities are routine coefficient specializations of a known stronger descent distribution principle, and the covariance sign, total variance and variance limit then require only elementary arithmetic. The submission does not isolate a further nonmechanical statistic or structural conclusion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

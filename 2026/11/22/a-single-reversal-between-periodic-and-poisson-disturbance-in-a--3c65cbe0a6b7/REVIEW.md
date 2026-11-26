@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Renewal-reward occupancy is derived directly from independent cycles. The phase-type suitability probability and both time-average formulae are computed exactly, including equal maturation and senescence rates. Uniqueness rests on a complete derivative-sign argument: the logarithmic elasticity of the comparison kernel decreases strictly from 1 to -2. A standalone checker verifies exact Markov balance equations, separate numerical quadrature and representative crossovers (12,924 assertions). The numerical diagnostics supplement rather than replace the proof.
+## correctness
 
-## Originality
-**PASS relative to the inspected literature, with historical-priority risk.** Earlier work established the ecological importance of successional duration distributions and disturbance schedules, and standard renewal theory supplies the occupation formulas. The inspected accessible primary full texts did not establish the exact single-crossing comparison of periodic versus Poisson disturbance for a temporary exponential two-stage suitability window. Earlier more general results may imply this law without presenting it in this form; full access to the particularly relevant Ellner–Fussmann paper was unavailable. Published mathematical searches and the comparison with other known resetting results did not identify direct or stronger coverage. The conclusion is a best-knowledge comparison, not proof of exhaustive priority.
+PASS
 
-## Value
-**PASS.** Habitat maturity and subsequent senescence create a biologically motivated transient window; disturbance variability at a matched mean can either increase or decrease time spent in that window. The unique threshold completely classifies this minimal two-stage model and gives quantitative bounds for any pair of rates. This is useful as an analytically checkable baseline against which richer disturbance-management simulations can be assessed. It is not a claim about metapopulation survival or empirical policy effectiveness.
+Independent cycles reset both stages; the sample-path renewal-reward ratio gives the almost-sure suitable fraction. The periodic and exponential age weights are 1_{0≤t<m}/m and e^{-t/m}/m. With the two-exponential suitability probability these give the stated formulas and the exact unequal-rate difference a[g(am)-g(bm)]/(a-b). For B(x)=1-(1+x)e^{-x}, differentiating x²e^{-x}/B(x) gives the sign of -J(x), with J(0)=0 and J'=B>0. The elasticity r=xg'/g therefore strictly decreases from 1 to -2, giving the strictly monotone dilation ratio and the unique positive maximum z. The equality point is strictly between z/max(a,b) and z/min(a,b). The coinciding-rate limit is am g'(am), not a ratio test at a=b. Independently, p(t) is proportional to e^{-min(a,b)t}(1-e^{-|a-b|t}) for unequal rates and t e^{-at} for equal rates, hence has decreasing logarithmic elasticity. In the rescaled reward integral the weight e^{-x}-1_{x<1} has one sign change; increasing m reweights strictly towards the negative part via the decreasing ratio p(m₂x)/p(m₁x). This corroborates uniqueness. Independent bisection of 3 log(1+z)-z-log(1+2z) and of the direct reward difference with 2,048-panel Simpson quadrature give z≈0.868863198403742 and m*(1,2)≈0.607586231915717. RESULT.md §§Assumptions and Proof are the replay path for the exact result; VERIFICATION.md and check.py were inspected, not executed. Finite diagnostics do not certify the universal claim.
 
-## Closest literature and limits
-Ellner and Fussmann (2003) address successional stage durations and persistence. Wilcox et al. (2006) analyze disturbance and recovery with patch occupancy and extinction. Fraterrigo and Langille (2020) simulate stochastic versus deterministic disturbance effects on mature-stage coverage. These are not asserted to prove the single-crossing theorem; their detailed models and biological response quantities differ. The 2003 paper's full text was not accessible, leaving an explicit comparison risk. The models' disturbance clocks and age-stage mechanisms are not claimed to match observed systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the all-rate matched-mean reversal and exact characterization of its threshold for a transient suitability window, not renewal reward, the Markov balance equations, or a claim about population persistence. The closest inspected results share a clock comparison, a one-crossing property, or a biological setting, but not the same observable and assumptions. The decision is bounded by the inspected material, not a priority certificate.
+
+## value
+
+PASS
+
+Matching mean disturbance intervals removes a major confound but does not order habitat suitability: young patches have not matured and old patches have already senesced. The theorem completely resolves the sign and brackets its switch over all positive rates, including exactly coincident rates. This is a useful model benchmark for temporary suitability under reset variability, rather than a generic claim about persistence or management outcomes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

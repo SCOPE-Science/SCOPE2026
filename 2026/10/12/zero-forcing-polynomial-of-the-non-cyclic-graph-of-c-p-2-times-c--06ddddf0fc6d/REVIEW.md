@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(G=C_{p^2}\times C_p\), the cyclicizer is trivial. The maximal cyclic order-\(p^2\) subgroups share one common order-\(p\) subgroup, while the remaining order-\(p\) elements form the other projective lines of \(G[p]\cong C_p^2\). This yields the exact \(P,A_i,B_j\) false-twin partition and the complete adjacency table. For \(p\ge3\), every class has a blue mate whenever it contains one white vertex, so the forcing process is exactly the stated class-peeling process. The neighbor-count calculation proves the peelability criterion, from which the forcing number, every coefficient, and the minimum-set classification follow. The \(p=2\) boundary is exhaustively finite and separately certified.
+PASS
 
-The packaged checker constructs the groups and their cyclic subgroups directly for \(p=2,3,5\), verifies the partition and adjacency without assuming the formula, replays forcing, and checks the closed coefficients. All \(2^7\) subsets are independently tested in the binary boundary.
+Each element of order p² generates one of p subgroups H_i, distinguished by slope modulo p; every H_i has the same order-p line. Torsion elements have order p and lie on one of p+1 lines. A generator of order p² fails to generate a cyclic subgroup with an element on any of the other lines; an order-p element fails with a point on a different line. Thus only the identity is in the cyclicizer. This gives the claimed independent twin classes P,A_i,B_j of sizes s=p−1, a=ps, s, with P joined only to the B side and all distinct A/B parts mutually joined. At most one white per class is possible. For odd p a blue mate remains in any white class. Write (e,r,t) for white P, A and B class counts. If r≥3, no A or B source can force as long as those three A classes are white, and P cannot remove an A even if it forces a lone B. If t≥2 and e+r+t≥3 every blue source has at least two white neighbors. Two white B classes alone peel via their blue mates. For t≤1,r≤2, P removes a lone B; then blue A vertices peel the at most two A whites, and a B vertex removes P if necessary. Hence the stated exact criterion. All pairs of distinct classes are admissible; their total weight is (N²−[(p+1)s²+pa²])/2. The three-class weight is s(pa)(ps)+binom(p,2)a²(ps+s), and the four-class weight is s binom(p,2)a²(ps). These simplify to the displayed coefficients and match the asserted minimum profiles. For p=2 I constructed each two-generator subgroup by modular sums, then exhausted all 128 white sets via containment of a nonempty fort; the census is 20,18,7,1 in degrees 4 through 7 with precisely the stated seven minimum omission profiles (weights 4,4,4,2,2,2,2). Replay: python3 /workspace/branches/independent_exact_checks.py, check_noncyl_p2(). The packaged tests were read; the odd-prime proof does not rely on them.
 
-## Originality
+## originality
 
-PASS. The inspected 2007 full text introduces the exact non-cyclic graph, supplies the cyclicizer criterion, and studies classical graph structure, but contains no zero-forcing or minimum-rank terminology. The inspected zero-forcing-polynomial paper provides the general counting framework and generic graph families, but its full text contains no “non-cyclic” occurrence and no finite-group specialization. Exact web and semantic searches combining \(C_{p^2}\times C_p\), non-cyclic graphs, zero forcing, and zero forcing polynomials did not locate the accepted formula or minimum-set classification.
+PASS
 
-The closest existing work therefore supplies either the algebraic graph or the generic forcing polynomial, not their mixed-exponent synthesis. Residual risk remains that a later paper on a graph isomorphic to the displayed false-twin blow-up may have computed the same polynomial without group terminology; no such source was located.
+The graph definition and cyclicizer facts are established, and generic polynomial coefficients and twin obstructions are not new here. The supported distinct claim is the exact family enumerator with the maximum white-set classification for this mixed-exponent group, including the singleton-class boundary. The sources compared do not provide a dominating formula or the profile classification for this graph.
 
-## Value
+## value
 
-PASS. \(C_{p^2}\times C_p\) is the first mixed-exponent rank-two abelian \(p\)-group beyond the elementary-abelian case. Its non-cyclic graph has three genuinely different subgroup roles, yet the entire forcing polynomial collapses to five terms for odd \(p\). The theorem classifies every minimum forcing set by subgroup position and supplies a sharp binary boundary, giving a natural exact invariant rather than a routine single-case computation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This mixed-exponent abelian group is a natural case where order-p elements and order-p² generators visibly differ in the graph. The exact forcing classification describes all smallest seeds in terms of that subgroup geometry, and explains why the allowable number of white vertices stays bounded as the graph grows and why it changes when three classes become singletons at p=2. It supplies both a family benchmark for forcing polynomials on group graphs and explicit seed choices; those are useful independently of graph reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

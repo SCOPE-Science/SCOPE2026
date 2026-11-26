@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map follows directly from the three-person rule, and its signed representation has an exact affine multiplier in the two flip probabilities. Central reflection makes signs conditionally fair; continuous uniform distributions preclude exact zero hits for nonzero initial imbalance. The squared multiplier's conditional expectation is \((9-6x+5x^2)/24\le3/8\) on \([0,1]\), proving global almost-sure contraction and uniqueness of the invariant measure. Uniform logarithmic second moments justify the martingale strong law and the exact exponent \(\log(3/2)-3/2\). Exact-rational and seeded finite numerical checks reproduce the formulas; their finite scope is explicit.
+PASS
 
-## Originality — PASS with residual risk
+Expanding the cubic gives z'=zC(z²,a,b), with centered independent uniform contributions of widths 3(1-z²)/2 and (3+z²)/2. Squaring and using variance 1/12 gives the stated quadratic in z², bounded sharply by 3/8 as nonzero states approach the tie. Geometric decay of the second moment gives almost-sure convergence by summable tail probabilities and forces every invariant law to have zero second moment. Conditional on each past, reflecting both uniforms changes C to -C and the b-slope stays at least 3/2 in magnitude, so C has no atom at zero even at |z|=1. From a nonzero initial imbalance all finite-time signs are therefore conditionally fair given the whole past and jointly independent. The same b-slope gives uniformly bounded log-squared moments by integrating on [-3/2,3/2]; this gives uniform integrability and continuity of the mean log multiplier. The series of centered increments weighted by 1/(t+1) converges in the square-integrable martingale argument, so its unweighted averages tend to zero. The triangular density 2(1-s) of |1-a-b| then gives h(0)=log(3/2)-3/2. This is a geometric mean pathwise rate, not a deterministic one-step ratio; the sign and log-rate assertions exclude the fixed tie. The two frozen corner triangles have total area 1/9. Proof reviewed at RESULT.md §§1–4; the finite identity tests and simulation in verify_temporal_galam.py were inspected as supplemental, not executed or relied upon.
 
-The closest works are Toth and Galam, arXiv:2107.09344, which analyze fixed parameters, and Toth, arXiv:2211.13601, which samples parameter vectors to compare fixed-model properties. Neither source's inspected relevant sections establishes pathwise convergence under independent round-by-round common-environment refresh, independent majority signs, or the exact exponent. Gimenez et al., arXiv:2309.05765, use externally oscillating propaganda and a different update mechanism. Targeted searches in the mathematical findings index and public literature revealed no covering model-specific theorem. A possible equivalent result in general random iteration theory remains a residual risk; this is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem rigorously isolates a concrete effect of temporal disorder: even parameter draws that individually make the balanced state unstable cannot sustain polarization under independent refresh. The exact sharp second-moment factor, the nontrivial almost-sure contraction exponent, and independently flipping majority labels provide distinct observable predictions. They answer a natural dynamical question left open by a static random-parameter analysis, rather than simply renaming a fixed-point calculation.
+The supported distinct claim concerns independent common renewal at each round and the joint conclusion of almost-sure tie, exact nonlinear Lyapunov exponent, and independent fair majority signs. The polynomial update and the 1/9 frozen contrast are not new. The strongest inspected random-iteration matches concern other maps or different temporal laws; best-of-knowledge assessment, not an exhaustive priority claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Separating static random parameters from common temporal refresh is a substantive modeling distinction. An exact almost-sure decay exponent and independent sign fluctuations despite a vanishing majority margin identify the behavior more precisely than stability of the tie or a generic negative-drift criterion. No conclusion about finite populations or arbitrary renewal laws is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

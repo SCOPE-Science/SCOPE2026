@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:24:13.418262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With k represented in 0,…,N−1, split the cyclic sum at j=k: the wrapped terms acquire w=γ^N, and z=|γ|²ω^b has z^N=|w|². The resulting numerator is w−|w|²+(1−w)z^k, and the z=1 limit is the stated linear sum. Off the unit circle a zero requires |z^k|=|w|, using |w̄−1|=|1−w|, hence k=N/2. The remaining equation (−1)^b=(|w|−w/|w|)/(1−w) gives exactly odd b for positive w and even b for negative w, and rules out other phases. On the unit circle the nonzero-frequency numerator vanishes exactly when w=1 or N divides kb; the zero-frequency equation requires k=N/2 and w=−1. The gcd count includes k=0 correctly. In the Weyl basis the coefficients of the base projector are proportional to conjugate ambiguities. Orbit conjugation multiplies each by a distinct character, so character orthogonality isolates exactly the nonzero coefficients and their directions, proving the complex rank. In the missing half-shift Weyl modes the entries at (j,j+m) and (j+m,j) differ by (−1)^b, and either parity supplies a full m-point Fourier basis on j=0,…,m−1. Hermiticity then makes the independent entries imaginary antisymmetric or real symmetric, as stated. A nonzero block has eigenvalues ±1 on its two coordinates and yields a rank-one positive pair with identical data. Flat unit-circle atom magnitudes give the coordinate-vector witness. For nonunit ratios shifts 0 and 1 are measured in every N≥3, including N=3 and N=4, so the rank-one diagonal and first cyclic off-diagonal determine the phases for full support. The inspected verification script's floating-point data checks illustrate these cases but do not replace this exact analysis; I did not execute the frozen upload.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2.2–2.4 supply the standard nonvanishing and first-two-shifts sufficient conditions.",
+          "Li's wrapped finite sum computes a specific seed with γ_N^N=2i and proves its quantitative ambiguity margin."
+        ],
+        "reasoning": "The general criteria apply to every window but do not evaluate the ambiguity or identify exactly which singular kernels contain rank-two Hermitian differences. The explicit geometric seed is one nonreal-w branch representative, not an analysis of the zero loci or all phase retrieval cases.",
+        "searches": [
+          "Bojarovska–Flinth arXiv:1503.05800 Theorems 2.2–2.4",
+          "Li arXiv:2609.09614v1 Theorem 3.8 and (3.22)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 28196b33871c, 51cfce1c5210 and 3e7434d8ba3d; 430465ea64b7 fixed-seed comparison",
+        "Li arXiv:2609.09614v1",
+        "Bojarovska–Flinth arXiv:1503.05800"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-support statement is an application of the standard sufficient condition after exact ambiguity classification. The positive-w failure and its witnesses follow from the earlier real case and orbit-preserving equivalences.",
+          "Li's proof at w=2i gives the same summation mechanism, but it does not address cancellation for every w or the z=1 boundary and unit-circle divisibility strata."
+        ],
+        "reasoning": "The generic implications and the positive-real reduction count as prior coverage, not novelty. The exact complex boundary needs the separation by modulus, half-shift phase and unit divisibility, and rank-deficient cases require actual rank-two witnesses rather than inferring failure from tomography alone.",
+        "searches": [
+          "arXiv:1503.05800 Theorem 2.4, shifts zero and one",
+          "arXiv:2609.09614v1 (3.22), actual seed and evaluated parameters",
+          "Resultary 28196b33871c proof of real-window rank loss"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonunit w>0 is equivalent to a positive real ratio by modulation and, for |γ|>1, reversal j↦N−1−j plus scalar. Resultary 28196b33871c already gives the same zeros, ranks and imaginary antisymmetric kernel for 0<γ<1.",
+          "Resultary 51cfce1c5210 has the same full zero/rank diagram, writing the divisor sum as a gcd sum. Its catalog date is 2026-11-08, after the frozen record."
+        ],
+        "reasoning": "Count the full positive-w regime as covered, not just the real-axis representatives. The gcd and divisor versions are mathematically identical. The later exact equivalent is substantive but not established as prior; the earlier positive-real result leaves nonreal w, negative w, and unit modulus outside its scope.",
+        "searches": [
+          "Resultary geometric cyclic Gabor ambiguity zeros, rank and phase resonance",
+          "Resultary 28196b33871c and 51cfce1c5210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "28196b33871c dated 2026-10-18 supplies exact ranks N² and N²−N/2 and the kernel for real 0<γ<1. 51cfce1c5210 dated 2026-11-08 supplies the identical all-ratio zero and rank entries.",
+          "3e7434d8ba3d dated 2026-11-01 supplies exact fibers for positive real ratios; the later 430465ea64b7 addresses quantitative liminfs for a fixed nonreal seed."
+        ],
+        "reasoning": "The prior positive-real entries are duplicated, the later exact diagram is a full rank-data match, and the later fiber result is stronger on a narrower parameter regime. None of the inspected pre-dating records supplies the complete complex and unit-circle tables.",
+        "searches": [
+          "Resultary 28196b33871c, 51cfce1c5210, 3e7434d8ba3d, 430465ea64b7"
+        ]
+      },
+      "rationale": "A previous positive-real geometric record covers precisely the positive-w nonunit branch up to simple equivalences, including its kernel. A fixed complex seed and the general rank/recovery criteria are also previous inputs. The supported distinction is the complete parameter diagram beyond those already covered cases: all complex nonunit zero loci and the negative-w kernel, all unit-circle strata and counts, and the resulting exact arbitrary-signal versus full-support boundary. A later catalog record states the same complete zero/rank diagram; the demonstrated overlap is reported separately from priority.",
+      "residual_risks": [
+        "The literature keyword query did not produce another useful older match; it is not negative evidence.",
+        "The later exact rank/zero catalog overlap is reported without assuming independent development or resolving unindexed priority. An earlier all-parameter derivation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the positive-w nonunit regime; not all complex ratios",
+          "evidence": [
+            "g_j=r^j, 0<r<1; exact odd-b half-shift zeros for even order and no zeros for odd order; corresponding imaginary antisymmetric kernel and witnesses."
+          ],
+          "identifier_or_url": "Resultary:28196b33871c",
+          "material_read": "Mirrored Finding and Proof, offsets 0–3896",
+          "method": "Compare zero locations and the pair blocks; modulate and reflect for equivalent ratios",
+          "title": "One extra intensity sharply repairs every even-dimensional real geometric cyclic Gabor frame",
+          "trigger": "Earlier exact kernel and rank for geometric ratios"
+        },
+        {
+          "assessment": "Complete matching zeros and ranks; catalog date after the frozen record",
+          "evidence": [
+            "Same nonunit case split and N²+N−Σ_a gcd(a,N)−1_{N even,γ^N=−1} in the nontrivial unit case."
+          ],
+          "identifier_or_url": "Resultary:51cfce1c5210",
+          "material_read": "Mirrored Finding and unit-circle part of the Proof near offset 5000",
+          "method": "Compare parameters, zero parities, and group the gcd sum by divisors",
+          "title": "Rank strata and sharp phase-resonance instability for complex geometric cyclic Gabor windows",
+          "trigger": "Identical complex geometric family and rank diagram"
+        },
+        {
+          "assessment": "Computational mechanism and one zero-free seed, not a full parameter diagram",
+          "evidence": [
+            "γ_N=2^(1/N)e^(πi/(2N)), hence γ_N^N=2i; proves a normalized ambiguity margin of order N⁻²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v1",
+          "material_read": "Proof of Theorem 3.8, (3.22), PDF pp. 10–11",
+          "method": "Identify the seed and compare finite-sum formula and parameter quantifiers",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Exact wrap-around ambiguity computation for a geometric window"
+        },
+        {
+          "assessment": "Full-support inference is prior once shifts zero and one have been checked; not a geometric window classification",
+          "evidence": [
+            "Nonvanishing coefficients on shifts 0 and 1 suffice for recovery of signals with no zero entries."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Theorems 2.2–2.4, in particular Theorem 2.4 on pp. 5–6",
+          "method": "Compare the general hypotheses to the specific nonunit zero set and exact witnesses",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "General Weyl and phase-retrieval criteria could imply part of the claim"
+        },
+        {
+          "assessment": "Later, exact stronger fiber description in the positive real case only",
+          "evidence": [
+            "Even-order ambiguities precisely of antipodal two-point type with nonreal cross-product; odd-order injectivity."
+          ],
+          "identifier_or_url": "Resultary:3e7434d8ba3d",
+          "material_read": "Mirrored Finding on fibers",
+          "method": "Compare scope in γ and branchwise witness interpretation",
+          "title": "Exact phase retrieval fibers and one-probe completion for cyclic geometric windows",
+          "trigger": "Possible all-signal classification covering the resonant window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural low-parameter window family for complete-orbit tomography, and a single zero-free example or the usual sufficient theorem cannot distinguish degeneracy of the measurement operator from ambiguity of rank-one signals. The exact resonance/parity and unit-modulus arithmetic strata quantify every rank defect; the explicit low-rank kernel and full-support comparison show how the same measurements can lose injectivity on sparse signals without losing it on full-support signals. That provides useful exact information beyond the already known positive-real branch.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

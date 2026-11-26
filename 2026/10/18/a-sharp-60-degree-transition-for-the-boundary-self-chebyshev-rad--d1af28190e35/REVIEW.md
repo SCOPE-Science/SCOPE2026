@@ -1,15 +1,21 @@
-# Review of the rhombus boundary self-Chebyshev classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The radius and complete center locus follow from the two farthest-vertex squared-distance quadratics on each edge. The switch at \(r=3\) is exact; the full proof includes the boundary and equality cases. The area derivative is negative for \(1<r<3\) and positive above \(3\), while the fixed-perimeter normalization decreases to a plateau. Exact-rational reproducibility checks in `checker.py` agree for 10 parameter settings and 10,410 sampled edge parameters; finite checks supplement the proof.
+## correctness
 
-## Originality — PASS
-The full relevant HTML preprint of Nikitenko–Nikonorov (arXiv:2301.03218, §3 and Theorem 1) determines a global quadrilateral perimeter ratio with a magic-kite optimizer and reports the square benchmark. It does not state the complete rhombus-by-angle radius, the complete center locus, or the sharp fixed-area inequality. Other targeted search results concern different statistics such as inscribed rectangles or regular polygons with at least five sides. The 2016 Walter precursor supplies the general minimax setting and a polygonal algorithm, but only its abstract was accessible. An undiscovered equivalent is a residual risk; the search was not treated as a proof of universal uniqueness.
+PASS
 
-## Mathematical value — PASS
-The full one-parameter family has a sharp structural transition: four boundary centers change to two at the same non-square shape that uniquely minimizes radius for fixed area. The square instead uniquely maximizes radius for fixed perimeter, and the entire acute-angle range up to \(60^\circ\) is a plateau of fixed-perimeter minimizers. This resolves two natural constrained versions of a currently studied polygonal radius, with explicit optimizers rather than one isolated numerical instance.
+I rederived the minimax on the closed first-quadrant edge x=(u(1−t),vt). Squared distance has its boundary maximum at a vertex; quadrant signs make the two negative-axis vertices dominate. Their squared distances divided by v² are r(2−t)²+t² and r(1−t)²+(1+t)². The first strictly decreases up to t=1, including the square where its derivative vanishes only at that endpoint. The crossing t*=(3r−1)/(2(r+1)) is exactly 1/2 to the right of the second quadratic's vertex. Thus the envelope has its unique edge minimum at t* for 1≤r<3, and at 1 otherwise, including equality at r=3. Substitution and the four sign symmetries give the stated values and all centers (four interior-to-edge centers collapsing onto two short-diagonal endpoints). For the area ratio the derivative on the first branch has sign (r−1)(r²−14r+1), negative on 1<r≤3, versus positive for r>3; its unique minimum is 2/√3 at r=3. The ratio δ²/(u²+v²) decreases from 5/4 to 1 and is thereafter constant, yielding both L/δ bounds and their exact equality sets. The angle relation is r=cot²(φ/2). No degenerate rhombus is included. The frozen rational checker was inspected, not executed; its grid is not needed for the continuous proof.
 
-## Scientific limitations
-Only nondegenerate Euclidean rhombi are classified. No stronger inequality for unrestricted quadrilaterals is claimed. The original 2017 Walter paper was not examined in full; potential overlap should be checked independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The square endpoint is already published. The supported contribution is the all-shapes boundary-constrained rhombus profile, complete center transition and sharp equality families, including the fixed-area extremizer and fixed-perimeter plateau. The compared sources do not give or mechanically imply these classifications.
+
+## value
+
+PASS
+
+The geometry solves the full natural rhombus class for an established boundary minimax invariant. The sharp center bifurcation and the contrast between the unique 60° fixed-area minimizer and the fixed-perimeter minimizing plateau give information not available from the square endpoint or the global quadrilateral bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

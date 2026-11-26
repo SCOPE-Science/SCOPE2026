@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:06:59.811112Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 90 sources are precisely the ordered strings with two of each of three labeled symbols. Two sources are confusable if and only if they both contain the same length-four subsequence: duplicate deletion choices from one source contribute one read, not several. Independently generated all sources and the 54 admissible reads by filtering Cartesian products, tested subsequences by a greedy scan, and iteratively grew increasing lists of sources with disjoint read masks, using the union of occupied read masks rather than a compatibility graph. Each admissible codebook appears once, since it has a unique increasing order. The counts from sizes 0 to 5 are 1,90,1164,1788,144,0; absence of size five excludes larger codes. The four-word example was found among the 144. The images of the 14 frozen representatives are pairwise disjoint and exactly exhaust the 144, with four classes of size six and ten of size twelve, for the stated action of symbol relabelings and reversal. Independently tested both fractional certificates in integer units: primal objective 300/60 and maximum read load 60/60; dual has 30 positive reads of weight 1/6 and minimum source coverage 6/6. Weak duality proves exactly five, distinct from the integer optimum four. Replay: python3 /workspace/reproductions/2.py. This exhaustive argument applies to the specified length, composition, and ordered read channel only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Farnoud–Milenkovic v1 PDF p. 1 abstract and opening introduction describe general Ulam/Hamming code bounds/constructions and connect Ulam distance and LCS. Its theorem pages and the 54 bound cited by the frozen file were not independently verified. The Sala–Gabrys–Dolecek DOI retrieval yielded metadata, not full text."
+        ],
+        "reasoning": "The inspected general descriptions do not imply the optimum or census for the ordered shadow relation. Care is required even for identically named multipermutation distances: a general theorem for the rank-class metric need not evaluate the fixed-order LCS graph. No whole-document noncoverage is inferred from the available materials.",
+        "searches": [
+          "Farnoud–Milenkovic arXiv:1312.2163v1 multipermutation Ulam bounds; Sala–Gabrys–Dolecek DOI:10.1109/ISIT.2014.6875338 deletions in multipermutations",
+          "Targeted literature comparison for ordered constant-composition two-deletion codes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, code/verify_shadow.py, code/verify_lcs.py, code/verify_fractional.py and data/equality_orbits.txt",
+        "Resultary 9d01af2d0cb4, 1684bd8b749a, 056b752654a3, f262ebab78e2 and e97570935b5d",
+        "arXiv:1312.2163v1 (opening page); DOI:10.1109/ISIT.2014.6875338 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest exact prior mathematical comparisons respectively use rank-equivalence-class Ulam distance, one fewer deletion, or unordered read multiplicities. The present certificates refer to the 54 ordered words of length four possible as reads."
+        ],
+        "reasoning": "A length-four shadow packing corrects one deletion as well, but the known one-deletion optimum yields only a nonsharp upper bound, not the integer exclusion of five or the equality census. Forgetting read order identifies outputs that remain distinct here, hence the unordered-channel table cannot mechanically give the ordered maximum. An integer packing from a different channel gives no matching dual bound for this incident LP.",
+        "searches": [
+          "Resultary 9d01af2d0cb4 metric and S_6 action, versus 1684bd8b749a length-five shadows and 056b752654a3 unordered outputs",
+          "arXiv:1312.2163v1 and DOI:10.1109/ISIT.2014.6875338"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9d01af2d0cb4 Finding and Assumptions and scope give A_circ(6,2,3)=5 and 72 five-word optima for the minimum ordinary Ulam distance over rank-equivalence classes, using cell relabeling. The one-deletion result 1684bd8b749a uses the same composition but length-five received strings and has maximum 18.",
+          "In the present shadow graph, 001122 and 021021 are compatible, while simultaneous swapping of cells 1 and 3 gives 100122 and 120021, both containing read 1001."
+        ],
+        "reasoning": "Ordinary LCS of rank strings in a fixed cell order is not a cell-relabeling invariant distance on rank-equivalence classes. The witness shows the incompatibility of the two symmetry descriptions even on this small parameter set. Length-five instead of length-four output changes confusability even without changing the source set.",
+        "searches": [
+          "Resultary ordered ternary (2,2,2) six-word two-deletion maximum, LCS <=3, multipermutation Ulam A_circ(6,2,3), rank-equivalent permutation distance",
+          "Resultary 9d01af2d0cb4 and 1684bd8b749a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct integer tables are for 72 size-five rank-class Ulam optima, a one-deletion optimum of 18, and a length-six unordered multiset-deletion optimum of 6. Other indexed hits treat unrestricted ternary length five or binary length six. No competing LP table for the same ordered-read incidence matrix was identified in these checks."
+        ],
+        "reasoning": "Changing source alphabet, allowed source compositions, received length, or whether read order is retained changes the instance. A cell-relabeling orbit census is not the alphabet-permutation/reversal census. The rank-class integer optimum five is unrelated to the fractional objective five certified here.",
+        "searches": [
+          "Resultary exact fixed-composition ternary length-six two-deletion packing, 144 unordered optima, 14 relabeling/reversal orbits, fractional packing five",
+          "Resultary 9d01af2d0cb4, 1684bd8b749a, 056b752654a3, f262ebab78e2, e97570935b5d"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the precise ordered-shadow packing number, maximizing-codebook and orbit censuses, and fractional optimum. The strongest same-parameter Ulam hit has a different metric and symmetry, not a conflicting enumeration of this problem; the same-source one-deletion theorem is a different confusability graph. Full-text limitations for the direct multipermutation literature remain material risks, not support for negative coverage claims.",
+      "residual_risks": [
+        "A same-channel exact computation in the uninspected parts of the two multipermutation papers, an unindexed table, or an independently published equivalent LCS formulation remains possible.",
+        "Comparison to the cited general bound is limited to the inspected primary passage and the explicitly checked difference of metric/symmetry in the closest exact record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different distance and symmetry, not a counterexample or a prior computation of the ordered-shadow results",
+          "evidence": [
+            "A_circ(6,2,3)=5 with 72 size-five maxima; minimum ordinary Ulam distance over permutations in the two rank-equivalence classes; S_6 cell relabeling"
+          ],
+          "identifier_or_url": "Resultary 9d01af2d0cb4",
+          "material_read": "Finding and Assumptions and scope with the rank-equivalence-class minimum-distance definition and cell relabeling",
+          "method": "configured Resultary lookup and targeted local-mirror passages",
+          "title": "Complete equality classification for a six-cell two-regular Ulam code",
+          "trigger": "same 90-element parameter space and neighboring exact integer optimum and census"
+        },
+        {
+          "assessment": "different received length and graph",
+          "evidence": [
+            "one-deletion optimum 18 and eight labeled maximum codebooks, with length-five reads"
+          ],
+          "identifier_or_url": "Resultary 1684bd8b749a",
+          "material_read": "available statement of the one-deletion result",
+          "method": "configured Resultary comparison",
+          "title": "Exact balanced ternary deletion codes and a chromatic obstruction",
+          "trigger": "same ordered word set and deletion channels"
+        },
+        {
+          "assessment": "unordered multiplicities or different source lengths/alphabets",
+          "evidence": [
+            "056b752654a3 uses unordered reads and has length-six optimum 6; f262ebab78e2 uses unrestricted ternary length-five sources; e97570935b5d uses binary length-six sources"
+          ],
+          "identifier_or_url": "Resultary 056b752654a3; f262ebab78e2; e97570935b5d",
+          "material_read": "indexed statements and channel/parameter descriptions",
+          "method": "configured Resultary comparison",
+          "title": "Sharp ternary multiset two-deletion code sizes through length twelve and neighboring exact deletion enumerations",
+          "trigger": "nearby exact channel tables with ternary or length-six parameters"
+        },
+        {
+          "assessment": "related framework in inspected material; do not infer full-text noncoverage or certify the frozen cited numerical bound",
+          "evidence": [
+            "scope includes Ulam and Hamming code bounds and constructions; LCS connection described in introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.2163",
+          "material_read": "v1 PDF p. 1 abstract and opening introduction; relevant later theorem pages not retrieved",
+          "method": "lawful arXiv PDF retrieval, targeted OA passage retrieval attempted",
+          "title": "Multipermutation Codes in the Ulam Metric for Nonvolatile Memories",
+          "trigger": "general bounds/constructions on same-composition multipermutations"
+        },
+        {
+          "assessment": "scope of full paper unresolved; no statement-level no-coverage finding from metadata",
+          "evidence": [
+            "Sala, Gabrys and Dolecek, ISIT 2014; target lists it as relevant"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875338",
+          "material_read": "bibliographic metadata only in independent retrieval",
+          "method": "lawful DOI/OA lookup",
+          "title": "Deletions in Multipermutations",
+          "trigger": "directly relevant titled primary conference paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Composition (2,2,2) is the smallest uniformly repeated ternary source space, a natural benchmark for ordered deletions with repeated symbols. It gives an exact integral obstruction not captured by the natural deletion-shadow LP, which permits five rather than four. Moreover the census specifies all equality configurations up to the channel's natural symmetries, useful for comparing short-code designs and stronger relaxations even though no asymptotic claim is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

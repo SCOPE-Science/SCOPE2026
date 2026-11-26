@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:16:38.989370Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/branches/reproduce_1.py"
+      ],
+      "rationale": "For state (N_{n+2},N_{n+1},N_n) the given companion matrix has order 7 modulo 2 and M^28=I+8E with E odd in some entries, whereas M^14 is not the identity modulo 8. Successive squaring preserves E modulo 2 in the leading error term. Thus the matrix order is 7*2^(k-1); the first three orbit vectors form an integral basis, ruling out a shorter scalar period. The last row of E has parity (1,1,0), so each vanishing position in classes 4 and 6 modulo 7 has exactly one lift at each step. At k=6 direct recurrence gives one in class 4, two in class 6, and eight on the 28-grid. On that grid L=log(I+8E) converges, and L=8E-32E^2 modulo 64. The identities eEv=2320 and eE^2v odd yield odd first and second coefficients after extracting 32t from e exp(tL)v. Terms of degree at least three before extraction have valuation at least 8 and tend to zero. The resulting restricted series is 1+t modulo 2 and every distinct-pair divided difference is odd, giving a unique odd root and the exact valuation formula. v2(N_140)=8 then implies alpha=5 modulo 8. The congruences for even and odd t each give four positions in an interval of length 2^(k-3), including zero under the stated convention. The least-state periods, zero sets and local residues were separately reproduced for each k=6,...,14 by python3 /workspace/branches/reproduce_1.py, which also gives N_28/8=2320 and v2(N_140)=8. Finite runs were used for the base and corroboration, not extrapolation.",
+      "residual_risks": [
+        "The frozen theorem is a local valuation law and zero census, not a valuation classification at every index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5's strict first-lift case with periods 7 mod 2 and 14 mod 4 implies the exact period. Earlier record --849f5443ff2b also covers it, by c=1 and the primitive initial state.",
+          "Later catalog record --145313dde067 classifies all 28 index branches; its r=0 formula is exactly the frozen local law."
+        ],
+        "reasoning": "Both earlier period results truly subsume that auxiliary component. The later valuation theorem also truly covers the local component; the dates locate the overlap, not independent authorship or global priority.",
+        "searches": [
+          "Kuloğlu–Özkan–Shannon Theorem 2.5",
+          "Resultary complete periodic-cycle spectra of the generalized Narayana recurrence",
+          "Resultary complete binary valuation law for Narayana numbers"
+        ]
+      },
+      "checked_sources": [
+        "Kuloğlu–Özkan–Shannon Theorem 2.5",
+        "arXiv:1509.05745 pp. 1–2",
+        "arXiv:2112.06187 Theorem 1.1",
+        "doi:10.7546/nntdm.2023.29.3.462-473 Theorem 2.7",
+        "arXiv:1702.05819 Theorem 3",
+        "Resultary --849f5443ff2b, --145313dde067 and --bde71f25e69e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guadalupe gives a complete 3-adic law for the same sequence. Ismail–Rihane–Anwar treat 3-adic valuations of shifted values N_n±1. Sobolewski's binary law applies to consecutive even-order 2k-nacci sums, not the lacunary Narayana recurrence.",
+          "The antecedent period proof counts cycles, not intersections of an orbit with the hyperplane N_n=0. The later complete binary law does address those valuations directly."
+        ],
+        "reasoning": "Neither changing the prime nor changing these recurrence coefficients is a valid specialization of the inspected valuation theorems. An orbit length alone does not determine its intersections with a coordinate hyperplane.",
+        "searches": [
+          "Guadalupe arXiv:2112.06187 Theorem 1.1",
+          "Ismail–Rihane–Anwar Theorem 2.7",
+          "Sobolewski arXiv:1702.05819 Theorem 3",
+          "Resultary --849f5443ff2b and --145313dde067 proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The period paper The Narayana Sequence in Finite Groups and arXiv:1509.05745 use the same recurrence and initial indexing.",
+          "Record --bde71f25e69e concerns the binomial Narayana triangle, not the Narayana cows recurrence."
+        ],
+        "reasoning": "Switching from the state order (N_n,N_{n+1},N_{n+2}) to its reverse does not change its period. The triangle and linear recurrence are different sequences; this is not an index-shift issue.",
+        "searches": [
+          "Resultary generalized Narayana recurrence modulo powers of two",
+          "Narayana recurrence periods and term valuations under the convention N_0=0,N_1=N_2=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cycle-spectrum record tabulates lengths by state valuation, not vanishing index classes on a specific cycle.",
+          "The most direct exact valuation match is the later --145313dde067 Finding and §3. Its odd parameter is 698045 modulo 2^22, hence 5 modulo 8, with the same recurrence and valuation factorization."
+        ],
+        "reasoning": "A period catalog does not tabulate zero positions. The exact matching binary valuation entry must be distinguished from nearby tables for other primes and from earlier prime-period records.",
+        "searches": [
+          "Resultary Narayana exact prime-power period/zero and binary valuation comparisons",
+          "Narayana period tables and prime-modulus period comparison in arXiv:1509.05745 pp. 1–2"
+        ]
+      },
+      "rationale": "The exact period is covered and receives no novelty credit. The frozen text already puts forward the eleven-zero census and the local two-root valuation law, not the period mechanism, as the advance. The closest antecedent period results do not count zeros of the observed coordinate or give its local factorization. There is a later direct valuation overlap, which is recorded explicitly but is not evidence of an antecedent by its catalog date.",
+      "residual_risks": [
+        "The bounded comparisons do not exclude unindexed binary valuation formulas or establish independent chronology of the later catalog overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Auxiliary period already covered",
+          "evidence": "When the first modulus-p lift changes the period, Theorem 2.5 gives p^(k-1) times the modulus-p period; here direct base values are 7 and 14.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/60-5/kologlu.pdf",
+          "material_read": "PDF p. 1 definition, pp. 3–4 Theorem 2.5 and proof (OA offset 10727)",
+          "method": "OA PDF targeted reading",
+          "title": "The Narayana Sequence in Finite Groups",
+          "trigger": "Exact same sequence and prime-power lifting"
+        },
+        {
+          "assessment": "Direct earlier catalog coverage of exact period",
+          "evidence": "The primitive-state length at odd c is 7*2^(k-1), hence applies at c=1 to the initial state.",
+          "identifier_or_url": "2026/10/18/…--849f5443ff2b",
+          "material_read": "Finding and proof, Odd coefficients",
+          "method": "Resultary local mirror",
+          "title": "Complete periodic-cycle spectra of the generalized Narayana recurrence modulo powers of two",
+          "trigger": "Stronger state-cycle theorem for the same moduli"
+        },
+        {
+          "assessment": "Direct broader valuation coverage, later catalog date",
+          "evidence": "The r=0 mod 28 branch is 5+v2(m)+v2(m-theta) with odd theta congruent to 5 mod 8; the other branches are treated as well.",
+          "identifier_or_url": "2026/11/2/…--145313dde067",
+          "material_read": "Finding and Proof §3",
+          "method": "Resultary local mirror",
+          "title": "A complete binary valuation law and bounded-discrepancy density for Narayana numbers",
+          "trigger": "Same recurrence, prime and valuation target"
+        },
+        {
+          "assessment": "Different prime",
+          "evidence": "The formula is for v_3, not v_2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.06187",
+          "material_read": "PDF p. 2 Theorem 1.1",
+          "method": "OA PDF targeted reading",
+          "title": "On the 3-adic valuation of the Narayana numbers",
+          "trigger": "Complete valuation theorem on same sequence"
+        },
+        {
+          "assessment": "Different recurrence",
+          "evidence": "Standard even-order sums of consecutive terms do not specialize to this three-step two-term sum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.05819",
+          "material_read": "PDF p. 4 Theorem 3 and its recurrence hypotheses",
+          "method": "OA PDF targeted reading",
+          "title": "The 2-adic valuation of generalized Fibonacci sequences with an application to certain Diophantine equations",
+          "trigger": "Potential broader binary valuation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Resultary --849f5443ff2b and --145313dde067"
+      ],
+      "rationale": "For this classical third-order recurrence, the count of zero positions in a period is a natural invariant not determined by its length. The result reduces infinitely many congruence counts to a stable residue pattern and gives an exact two-root valuation law in the difficult branch where the elementary one-lift criterion does not apply. The density is a direct consequence, not an independent advance. The three off-grid positions can in fact be identified as P_k-8, P_k-3 and P_k-1 by invertible backward extension (N_-8=N_-3=N_-1=0) and the proved census; this observation does not remove the main two-root difficulty.",
+      "residual_risks": [
+        "Later broader valuation work reduces the present theorem's standalone coverage; the frozen result is useful as a shorter local analysis, not as the current largest valuation classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:15.444319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–95",
+        "Frozen VERIFICATION.md, verify_shadow.py and verify_shadow_output.txt",
+        "Independent replay: python3 /workspace/branches/recompute_5.py; output /workspace/branches/recompute_5.txt"
+      ],
+      "rationale": "All equality patterns are represented over a five-element alphabet, and relabeling preserves the weighted shadow. I independently canonicalized all 5^5 words, and generated distinct subsequences by scanning the word and updating sets indexed by retained length in descending order. This yields exactly 52 classes and the stated eight groups; minima for equal and different first symbols are respectively 22 and 30. Type counts in the entire output space are q, q(q-1) for each two-equal type, and q(q-1)(q-2). Thus total weight is q(3q^2+7q+12). Pairwise disjoint shadows give the claimed universal inequality and the q and q(q-1) literal-prefix counts yield a mandatory excess q(q-1)(20-3q). Direct checks of the available weights and mandatory excess for q=2 through 7 gave excesses 28, 66, 96, 100, 60, -42. At q=7 the obstruction no longer applies; it does not prove existence. The supplied verifier and recorded output were inspected without executing the uploaded script.",
+      "residual_risks": [
+        "The proof does not decide integral existence at q=7, and the finite pattern lemma is specific to five-letter words and length-three outputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact seven-symbol fractional threshold concerns all valid nonnegative prefix-constrained packings and constructs a rational feasible packing for every q>=7. Kulkarni–Kiyavash gives a general deletion-hypergraph fractional transversal method without itself supplying this exact prefix threshold. The literal-prefix paper gives existence for sufficiently large alphabets, but its displayed alphabet-size converse does not exclude the small alphabets at this parameter."
+        ],
+        "reasoning": "The precise fractional threshold is stronger coverage of the entire endpoint exclusion, not merely a general method from which a bespoke calculation might be developed. Its q>=7 sufficiency is fractional only and is not attributed to the frozen finding.",
+        "searches": [
+          "Resultary SCOPE-20261102-a3b0670c1b09, Finding and sufficiency proof",
+          "arXiv:1211.3128 Section IV, Theorem 4.1",
+          "arXiv:2609.38259 Proposition 2.6 and conclusions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-20261102-a3b0670c1b09 and SCOPE-20261102-b2a10c6ff32c",
+        "arXiv:2609.38259",
+        "arXiv:2210.14006",
+        "arXiv:1211.3128"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the indexed fractional result, summing the type weights yields 14q+q(q-1)(2q+6) available weight, whereas the prescribed prefix masses require at least 14q+19q(q-1). Thus 19<=2q+6, giving precisely q>=7 for integer q. Its fractional feasibility proof is not needed for this implication. As a bound on arbitrary composition those two minima give 14m_=+19m_neq<=q(2q^2+4q+8), not the exact frozen inequality. For example at q=7 the numerical pair (m_=,m_neq)=(0,49) satisfies that aggregate bound and the ternary record's all-q size bound, but violates the frozen aggregate bound; this is a comparison of scalar constraints, not a claim that the pair is realizable."
+        ],
+        "reasoning": "The published fractional claim mechanically implies the frozen systematic lower bound. The different universal coefficient pair is not claimed covered by these aggregate comparisons, but the frozen central implication cannot be accepted as distinct. Same-day overlap is verified without assigning chronological precedence.",
+        "searches": [
+          "Resultary SCOPE-20261102-a3b0670c1b09 necessity proof and relationship section, RESULT.md offsets 2250–6791",
+          "Resultary SCOPE-20261102-b2a10c6ff32c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grishin–Zabokritskiy defines E(x)=x concatenated with p(x); at n=k=2 their bound is q^3>=I_2(2,q)=q^2. Song–Cai instead constructs the prefix from a regularizing encoder, not the unchanged two-symbol message. The indexed fractional record has one unit of total mass for every ordered literal prefix and capacity one for each distinct three-letter deletion output, exactly the relaxed form of the frozen packing."
+        ],
+        "reasoning": "The exact parameter and definition match is with the fractional record, not generic systematic codes or all unrestricted codes. A valid frozen encoder gives an indicator-vector packing in that same relaxation.",
+        "searches": [
+          "Resultary semantic lookup for five-symbol literal-prefix systematic two-deletion codes, weighted deletion shadows and packing",
+          "arXiv:2609.38259 Section 2.1 and Proposition 2.6",
+          "arXiv:2210.14006 Theorem 2",
+          "Resultary SCOPE-20261102-a3b0670c1b09"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary capacity record gives A_3(5,2)=6 and A_q(5,2)<=floor((q^3-q^2+5q)/5); with q^2 codewords it only forces q>=5. The fractional record gives exact permissibility at q=7, plus word minima 14 and 19 for weights (14,3,2,5,2); it explicitly evaluates all 52 equality patterns and gives feasible loads (1,1,4/5,1,5/(q-2)) by output type."
+        ],
+        "reasoning": "The first exact census does not cover q=5,6, but the second directly gives the missing exclusions in a relaxation of the same exact endpoint. This is a substantive statement-level match, not a title or similarity hit.",
+        "searches": [
+          "Resultary SCOPE-20261102-b2a10c6ff32c, exact ternary capacity and all-q bound",
+          "Resultary SCOPE-20261102-a3b0670c1b09, exact equality-pattern table and orbit loads"
+        ]
+      },
+      "rationale": "The frozen headline q>=7 for the literal-prefix endpoint is demonstrably covered by a distinct indexed record with the same constraints and a stronger result: its fractional problem is feasible iff q>=7 and every integral encoder maps to a feasible 0–1 point. Its necessity proof already uses the same five ordered equality classes and the same 52-pattern reduction, with different numerical weights. The catalogue dates coincide, and the stronger record itself credits earlier weighted converses; no chronological priority or copying is inferred. The particular universal inequality for arbitrary prefix composition is algebraically distinct from the compared aggregate bounds, so this finding is not that those exact coefficients are already printed or that the mathematics is false. That distinction does not make the frozen endpoint finding original as delivered.",
+      "residual_risks": [
+        "The same-date indexed records do not establish chronological priority. The overlap is established as mathematical coverage, not a claim about attribution or publication sequence.",
+        "The full literature status of the separate mixed-count inequality is not settled; the two numerical aggregate comparisons do not establish originality for a narrower repaired claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable stronger coverage of the q>=7 claim, not a chronology determination",
+          "evidence": [
+            "Weights (14,3,2,5,2), minima 14 and 19; exact fractional feasibility iff q>=7; distinct from claiming any integral existence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-seven-symbol-threshold-for-fractional-systematic-two-delet--a3b0670c1b09/RESULT.md",
+          "material_read": "Finding, relaxation, exact 52-case minima, necessity and sufficiency, relationship section; decisive lower-bound passage offsets 2250–6791",
+          "method": "Local catalogue mirror passage reading",
+          "title": "Exact seven-symbol threshold for fractional systematic two-deletion packing",
+          "trigger": "Direct same-endpoint stronger result"
+        },
+        {
+          "assessment": "Covers an unrestricted size bound giving only q>=5 when applied without the prefix stratification",
+          "evidence": [
+            "A_3(5,2)=6; all-q upper bound floor((q^3-q^2+5q)/5)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-length-five-two-deletion-capacity-via-a-universal--b2a10c6ff32c/RESULT.md",
+          "material_read": "Finding, assumptions and weighted-shadow lemma, starting at offset 0; local mirror comparison near offset 6200",
+          "method": "Local catalogue mirror passage reading",
+          "title": "Exact ternary length-five two-deletion capacity via a universal weighted shadow",
+          "trigger": "Exact unrestricted packing bound at the same length and deletion number"
+        },
+        {
+          "assessment": "Exact model benchmark but its general converse is weaker at n=k=2",
+          "evidence": [
+            "I_2(2,q)=q^2, so q^3>=q^2 at this endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.38259",
+          "material_read": "PDF p. 3 systematic definition; p. 6 Section 2.5, Proposition 2.6; p. 42 discussion",
+          "method": "Primary open PDF passage inspection",
+          "title": "Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets",
+          "trigger": "Same literal-prefix encoding and three appended deletion-prone symbols"
+        },
+        {
+          "assessment": "Different encoding and redundancy regime",
+          "evidence": [
+            "Its systematic construction's first block is the result of E_Reg, not the unchanged arbitrary two-symbol message."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.14006",
+          "material_read": "PDF p. 8, Theorem 2, text offset near 37900",
+          "method": "Primary open PDF passage inspection",
+          "title": "Non-binary Two-Deletion Correcting Codes and Burst-Deletion Correcting Codes",
+          "trigger": "Possible systematic-code equivalence"
+        },
+        {
+          "assessment": "General fractional transversal framework, not the exact literal-prefix threshold",
+          "evidence": [
+            "Disjoint deletion shadows correspond to hypergraph matchings, and a fractional transversal provides a size upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "PDF p. 6 deletion hypergraph; p. 9 Section IV, Theorem 4.1",
+          "method": "Primary open PDF passage inspection",
+          "title": "Nonasymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Potential broader LP covering argument"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "Resultary SCOPE-20261102-a3b0670c1b09 exact threshold",
+        "Resultary SCOPE-20261102-b2a10c6ff32c unrestricted exact ternary result"
+      ],
+      "rationale": "Excluding q=5 and q=6 at the first meaningful literal-prefix endpoint is a natural and worthwhile goal, but the stronger exact relaxation already resolves exactly the frozen cutoff and explains why capacity weights cannot raise that cutoff there. Changing the weights and recording the resulting arbitrary-code inequality is correct, but the frozen result supplies no separate motivated extremal question or demonstrated use for this exact mixed-prefix inequality beyond that covered cutoff. Nonimplication by two aggregate inequalities alone is not sufficient evidence of an independently valuable remaining finding. No narrower replacement is accepted on this evidence.",
+      "residual_risks": [
+        "A separately motivated use of the mixed-count tradeoff could merit a future claim; no conclusion is drawn about q=7 integral feasibility."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

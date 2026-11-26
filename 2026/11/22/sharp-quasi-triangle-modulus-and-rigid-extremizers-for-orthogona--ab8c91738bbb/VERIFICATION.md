@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The mathematical proof uses support functions, an exact common-tangent face decomposition and convex-hull normalization; it verifies all positive real semiaxes and every pair of real input vectors. The exact contact witnesses are \(e=(a^2,b^2)/\sqrt{a^2+b^2}\), \(f=(b^2,a^2)/\sqrt{a^2+b^2}\).
+## correctness
 
-Run `python scripts/check.py` from this package root to reproduce fixed-seed numerical and exact-rational diagnostic assertions. Sampling is not a proof and does not claim exhaustiveness or verification beyond the checked cases. An independent audit has not been performed.
+PASS
+
+For nonzero normal u the difference of squared support functions is (a²−b²)(u₁²−u₂²). The strict cases expose ellipse arcs with gauge one (on the larger-coordinate branch); diagonal normals expose four segments between the stated e and f with coordinate reflections. The first-quadrant contact ratio is b²/a², and the segment is s+t=√(a²+b²), giving the two radial branches with agreement at contact. On each half of a segment q² is strictly convex and the two limiting endpoint values of q are 1 and (a²+b²)/(2ab)>1. Thus only the four face midpoints maximize q on the hull. A normalized sum with positive weights belongs to the hull; equality forces both inputs onto the supporting line, whose only union points are the exposed contacts. Their convex combination equals the midpoint only for equal weights. This also attains the convexification bound, by radial normalization. Zero input is strict when a>b, and a=b gives ordinary Euclidean equality. The frozen script was inspected, not executed; its samples do not prove any universal quantifier.
+
+## originality
+
+PASS
+
+The supported contribution is the exact joint evaluation and full rigidity classification for the swapped smooth ellipse gauges. Inspected statements concern different gauges or invariants, or a general framework without the evaluation. General common-tangent geometry and normalization are not themselves claimed as new.
+
+## value
+
+PASS
+
+The minimum of two anisotropic quadratic norms is a natural smooth-input model whose unit ball becomes nonconvex. The exact convexified geometry and all maximizing decompositions quantify this failure, including the quadratic onset from a Euclidean ball; these are more informative than a generic norm-equivalence bound or a single witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

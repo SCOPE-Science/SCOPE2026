@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-curve coupling is constructed by quantile coupling the first time that both altered pair species have been sampled, preserving correct conditional distributions of every two-species word, and sharing the pair/other-individual interleaving. This proves an all-size, all-prefix assertion. A direct subset count gives an exact nonnegative tail-improvement kernel; the mean gain and its strictness range follow from Pascal's identity. Standard integer majorization and coupling gluing extend the result to any balancing chain. Exact integer enumeration checked 150,643 upper-tail statements over 1,846 transfers and 280 direct two-color survival identities. The enumerations are verification, not the infinite proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** The full accessible Zoroa et al. (arXiv:1608.00155) treats iid draws with replacement and their marginal stochastic comparison, not a simultaneous coupling across every finite-census sample size. Wong–Yue (1973) is also explicitly iid. Walton's 1986 multiple-hypergeometric paper is closer in sampling assumptions but available abstract material describes distributional and moment formulas, not this pathwise transfer comparison; its full text remained inaccessible. Relevant research-record comparisons concern occupancy covariances, iid discovery and balancing different statistics, rather than the present joint pathwise theorem. A prior equivalent via majorization theory cannot be ruled out without independent literature review; no inaccessible paper is falsely certified absent coverage.
+PASS
 
-**Mathematical value — PASS.** The result answers a natural ecological rarefaction question at the level of the whole random species-accumulation trajectory, rather than only its classical expected richness curve. It guarantees every discovery milestone can be reached no later under evenness balancing and gives an exact nonnegative formula for each distributional tail; both are useful for comparing finite censuses and sampling designs. It neither requires nor implies a variance ordering.
+The pair-only word is uniformly distributed and the event of no second discovery through j counts the two monochromatic prefixes (restrict to j>=1). Pascal's identity gives the nonnegative difference in survival numerators C(a-1,j-1)-C(b,j-1). A quantile coupling of the second discovery times followed by the correct conditional words preserves both marginals. A common independent pair/rest interleaving and identical sequence of other individuals then order every prefix at once; uniform labeling within species recovers the full uniform permutations. At fixed m and j only one-to-two pair richness can change, so the event at threshold r changes only when the other-species richness is r-2, giving the displayed W kernel. The exact expectation follows by subtracting the two affected absence probabilities; its numerator is strictly positive precisely when 1<=m-1<=N-b-1. This includes the stated m=0 and full-census conventions. For integral majorization, sort both profiles, transfer from the first surplus to the first subsequent deficit (at least two apart in abundance), and resort. Prefix inequalities persist and the sum of squared abundances decreases, so a finite chain reaches the target. Conditional gluing of the adjacent whole-curve couplings is valid on these finite path spaces. The read-only checker uses exact DP/subset counts and binary words to corroborate finite cases, not to prove the path theorem.
 
-**Relevant limits.** Uniform sampling without replacement; fixed finite positive integer species counts; majorization comparisons only. Not a claim about field-survey detection, abundance dynamics, or incomparable communities. The archival bibliography is not exhaustive, and scientific validation is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+One-size hypergeometric richness, mean rarefaction, and majorization under iid sampling are background. The supported distinct result is finite-census ordered whole paths with exact upper-tail gains, not the classical expectation formula or a PMF single-crossing claim.
+
+## value
+
+PASS
+
+Whole-path order controls all richness discovery times in the same joint experiment. The one-transfer construction even confines the simultaneous path difference to 0 or 1, and the exact gain localizes how a one-unit balancing changes threshold probabilities. This is more informative than comparing means or separate one-size samples, while staying within uniform finite-census sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

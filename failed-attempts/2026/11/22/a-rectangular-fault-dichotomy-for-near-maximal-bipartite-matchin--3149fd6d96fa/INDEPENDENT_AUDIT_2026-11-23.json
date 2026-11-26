@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:13:28.159724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the surviving bipartite graph the only vertices that can exceed selected degree n-1 are intact vertices, and then only by their full n-edge stars. A surviving edge in the bounding fault rectangle is in no such star, so it is a cone point. If the rectangle is full and proper, the intact stars cover the ground set E of surviving edges, and selecting one edge from each intact star into a faulted vertex of the other class gives distinct private representatives. Put Q equal to E minus those chosen representatives. For each q in Q at any stage, a forbidden set containing q loses its constraint on deletion, and its private representative is a cone point there. Link formation replaces every forbidden set by that set minus q, leaving its private representative in place and still covering the remaining Q. Both star and deletion are contractible, so the gluing gives a suspension; at the last vertex the link consists only of the empty face and there are two contractible components. Here |Q|>=1 since there is an intact star of size n>=2 and exactly one chosen representative belongs to it. This yields S^(|E|-t-1), t=2n-|R|-|C|, and both displayed dimension forms follow. RESULT.md, VERIFICATION.md and verify_rectangular.py were inspected without execution. The finite mod-two checks were not used to infer integral homotopy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim Theorem 1.2 gives I(H) homotopy equivalent to the suspension of st(v) intersected with the union of st(S minus v) over edges S incident to a nonisolated vertex v not in an induced Berge triangle. A private vertex automatically satisfies this. This is stronger than Theorem 1.3, which only asserts that some suspension description exists.",
+          "Singh's intact theorem and Reiner–Roberts' complete-board rational homology theorem do not supply arbitrary deleted-edge homotopy types. Dong's primary full text was unavailable, so no determination is made from that access attempt."
+        ],
+        "reasoning": "The covering result is at the more general level of hypergraph independence complexes; no assumption on the fault graph or absence of Berge cycles elsewhere in H is needed when applying Theorem 1.2 at a private vertex. The separate no-Berge-cycle-multiple-of-three Betti bound is not used.",
+        "searches": [
+          "arXiv:2408.14321v2, original Theorem 1.2 and definition of st",
+          "arXiv:2006.13632v2, Theorem 1.2 and §4",
+          "doi:10.1023/A:1008728115910, §3 and Theorem 3.3",
+          "doi:10.1016/S0021-8693(03)00024-3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.14321v2",
+        "arXiv:2006.13632v2",
+        "doi:10.1023/A:1008728115910",
+        "doi:10.1016/S0021-8693(03)00024-3 (abstract/access attempt)",
+        "Resultary 3149fd6d96fa (self-match)",
+        "Resultary d148e7a31082",
+        "Resultary 5ec45c594d64",
+        "Resultary 12dcae7e99e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a forbidden star S_i choose its private vertex p and put A=S_i minus {p}. Let H' have ground set E minus S_i and hyperedges S_j minus S_i for j unequal to i. The only edge incident to p is S_i, so the union in Kim's Theorem 1.2 is the single star st(A). A face in st(A) omits p; its part outside S_i must be in I(H'), and its part in A is arbitrary. Intersecting with st(p) excludes the full subset A and adds no other constraint, since p is private. Thus the actual intersection in the prior theorem is exactly the join of the boundary simplex on A with I(H'). Kim gives a suspension by |S_i|-1 dimensions for nonempty A; singleton S_i is a forbidden singleton and can simply be removed. H' again has all remaining private vertices and covers its ground set. Iterate, with the final single forbidden set giving a simplex boundary; if an intersection has empty realization the two nonempty stars are disjoint and give S^0. The summed suspension contributions give S^(|E|-t-1)."
+        ],
+        "reasoning": "This iteration proves the entire private-element homotopy lemma of the frozen proof as a corollary of a previously stated stronger theorem, rather than only matching its homology or using a general technique without computing the result. For the graph application the intact-star cover fails exactly at an unremoved entry of the bounding rectangle, giving the isolated-vertex cone direction directly; otherwise private star edges are immediate. The graph-specific formula follows by counting those stars and the surviving edge ground set.",
+        "searches": [
+          "arXiv:2408.14321v2 p. 3, Theorem 1.2, OA offset 10200; specialization at an edge with a private vertex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X_F is I(H) on surviving edge-vertices, with hyperedges exactly the intact stars. In the nonrectangular case H has an isolated vertex. In the rectangular case every hyperedge has a private vertex and the hyperedges cover the vertex set.",
+          "The Alexander dual is the union of simplices on E minus each intact star. Its nerve is the boundary of a simplex because every proper subfamily leaves a private edge uncovered while the entire family covers. Alexander duality alone in this route computes the specified integral homology, not the homotopy equivalence."
+        ],
+        "reasoning": "The hypergraph independence formulation is identical, not just a related homology calculation. It brings the exact hypotheses of Kim's explicit star-cluster identity into play at every private representative.",
+        "searches": [
+          "Hypergraph independence complex of intact row/column stars; arXiv:2408.14321v2 §1.3, Theorems 1.2–1.3",
+          "Resultary: rectangular faults and near-maximal bounded-degree edge matching complexes",
+          "Combinatorial Alexander dual and nerve of the complementary star simplices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3149fd6d96fa is the same frozen finding, not a distinct prior claim. Same-day d148e7a31082 treats ordinary matchings of K_8 with at most three faults. 5ec45c594d64 and 12dcae7e99e6 examine rectangular or quadrilateral edge faults but use complexes on graph vertices avoiding independent sets."
+        ],
+        "reasoning": "These indexed matches are not exact duplicates. This does not overcome the broader primary-theorem coverage established independently. No priority conclusion is drawn from same-day catalogue dates.",
+        "searches": [
+          "Resultary: near-maximal bipartite matching complex rectangular faults and complete low-fault homotopy profiles",
+          "Resultary d148e7a31082, 5ec45c594d64 and 12dcae7e99e6, original Findings"
+        ]
+      },
+      "rationale": "The exact indexed graph formulation appeared only as the frozen record itself, and the closest graph-specific results are different. But the operative spherical-case lemma is a direct corollary of the prior hypergraph star-cluster theorem (Jinha Kim, arXiv:2408.14321v2, Theorem 1.2). Specialization at a private vertex gives the full suspension count, not merely a one-step existence statement. The remaining reduction to that lemma and to the isolated-vertex cone criterion is the immediate intact-star description. This is mathematical coverage by a stronger result, not a rejection based on scope similarity, access failure or catalogue nonreturn.",
+      "residual_risks": [
+        "No assertion is made that the exact rectangular formula has previously been printed verbatim, or that the closest graph-specific same-day finding has priority.",
+        "Dong's unretrieved full text and other combinatorial-topology literature could provide additional coverage; the decisive coverage here does not depend on those sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.2 covers the decisive lemma by the private-vertex specialization and iteration given in claim_vs_prior_implication",
+          "evidence": [
+            "The theorem identifies the actual suspension base st(v) intersected with the union of st(e_i minus v); if v is private the union has one term, and the base factors as the boundary-simplex join computed above."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.14321v2",
+          "material_read": "Original PDF p. 3, §1.3, star definition and Theorems 1.2–1.3, OA chars 10200–13479",
+          "method": "Open-access primary PDF",
+          "title": "Topology of Independence Complexes and Cycle Structure of Hypergraphs",
+          "trigger": "Potentially dominating suspension theorem for independence complexes of intact-star hypergraphs"
+        },
+        {
+          "assessment": "Intact case only at this threshold; correct locator in v2 is Theorem 1.2 and §4",
+          "evidence": [
+            "M_(n-1)(K_n,n) is a sphere of dimension (n-1)^2-1 by a discrete Morse argument; no deletion parameter appears in the inspected theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.13632",
+          "material_read": "v2 PDF p. 2, Theorem 1.2, and §4 pp. 9–10, OA offsets about 6800 and 29800",
+          "method": "Open-access primary PDF",
+          "title": "Higher matching complexes of complete graphs and complete bipartite graphs",
+          "trigger": "Identical intact host and degree threshold"
+        },
+        {
+          "assessment": "Complete-board characteristic-zero homology representations, not arbitrary deleted-host integral homotopy",
+          "evidence": [
+            "The board in the bounded-degree definition contains all cells; the theorem states rational homology representations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1008728115910",
+          "material_read": "Original §3 and Theorem 3.3, PDF pp. 13 and 15, OA offsets about 33000 and 38900",
+          "method": "Original accessible primary PDF",
+          "title": "Minimal Resolutions and the Homology of Matching and Chessboard Complexes",
+          "trigger": "General degree-bounded chessboard homology and monomial resolutions"
+        },
+        {
+          "assessment": "Unresolved at full text; does not enter the rejection inference",
+          "evidence": [
+            "The abstract reports several homotopy-type results for bounded-degree complexes, but does not resolve the arbitrary edge-fault implication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0021-8693(03)00024-3",
+          "material_read": "Accessible abstract only; full-text access attempts returned 403",
+          "method": "Publisher OA access attempt",
+          "title": "Topology of bounded-degree graph complexes",
+          "trigger": "Possible broader primary homotopy overlap"
+        },
+        {
+          "assessment": "Different host, degree threshold and fault range",
+          "evidence": [
+            "Ordinary matchings of K_8 minus at most three edges; S² wedge multiplicities classified by the fault graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-low-fault-homotopy-profile-of-the-eight-point-matching--d148e7a31082",
+          "material_read": "Original RESULT.md, Finding",
+          "method": "Resultary local mirror",
+          "title": "Complete low-fault homotopy profile of the eight-point matching complex",
+          "trigger": "Closest distinct same-day matching-complex fault profile"
+        },
+        {
+          "assessment": "Different face ground set and constraint",
+          "evidence": [
+            "The complex is on graph vertices avoiding independent k-sets and studies a family of rectangular deletions with a surviving hub."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-rectangular-bipartite-edge-faults-equivariant-collapse-and-a-ter--5ec45c594d64",
+          "material_read": "Original RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Rectangular bipartite edge faults: equivariant collapse and a terminal homology rebirth",
+          "trigger": "Same rectangular bipartite deletion language"
+        },
+        {
+          "assessment": "Vertex-set clique-avoidance complex with disjoint blocks, not the target edge-set matching complex",
+          "evidence": [
+            "Deletes vertex-disjoint K_2,2 blocks and gives a wedge computation for sets avoiding independent 4-sets."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-disjoint-quadrilateral-edge-defects-in-fourth-robust-clique-comp--12dcae7e99e6",
+          "material_read": "Original RESULT.md, Finding",
+          "method": "Resultary local mirror",
+          "title": "Disjoint quadrilateral edge defects in fourth robust clique complexes",
+          "trigger": "Additional rectangular bipartite fault comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical classification, the partition into cones and homotopy spheres for all nonempty proper deletions is useful: equal-size faults can have opposite outcomes, and the dimension depends explicitly on two geometric fault extents. This gives a natural diagnostic for instability of the intact topology. That utility does not make the covered specialization an original finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

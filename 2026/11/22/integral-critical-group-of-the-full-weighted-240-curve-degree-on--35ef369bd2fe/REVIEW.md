@@ -1,11 +1,21 @@
-# Review of the weighted 240-curve integral critical group
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric identification of exceptional curves with all \(E_8\) roots, together with \(E_\alpha\cdot E_\beta=1-\langle\alpha,\beta\rangle\), yields the explicit Laplacian \(240I-J+RR^{\mathsf T}\). Root symmetry gives eigenvalues \(0,240,300\) of multiplicities \(1,231,8\). The attached checker independently generates both the 240-root and eight-point-blowup divisor-class presentations; for three deleted vertices in each, exact prime-power Smith operations give the same valuation sequences. Their valuations match the matrix-tree determinant at all its primes. The proof does not mistake modular tests or numerical spectrum approximations for an infinite claim.
+## correctness
 
-**Originality — PASS (provisional).** The 2010 Serganova–Skorobogatov paper proves the full pairwise geometric intersection formula, but not a graph critical group. The 2022 Desjardins–Winter preprint defines the same weighted graph for concurrency and clique problems, not its Smith form. The prior simple intersection-one calculation uses only 15120 unit edges and does not imply the present multigraph decomposition, whose weighted edge count is 28920 and whose torsion has no seven-primary part. Targeted literature and indexed-record searches found no exact 240/72000 decomposition. Residual historical-priority risk remains.
+PASS
 
-**Mathematical value — PASS.** The integer multiplicities 0,1,2,3 are exactly the surface intersection pairing, making this a canonical finite invariant of the complete exceptional configuration rather than a selected subgraph. The complete 230-factor answer exposes a rank-eight integral correction consistent with the \(E_8\) lattice and is finer than the immediate weighted-degree and rational-spectrum data. It can serve as the baseline for integral equivariant and arithmetic questions, without asserting that the non-nodal 240-curve divisor itself is semistable.
+The 240 exceptional curves correspond to E8 roots by E↦E+K_S with the negative intersection form; distinct curves have intersection 1−⟨α,β⟩. Summing the weights gives degree 241 and yields L=240I−J+RR^T. Root symmetry gives R^TR=60I and R^T1=0, so the spectrum is 0 once, 240 with multiplicity 231, and 300 with multiplicity 8. This certifies connectedness and tree determinant 240^230·300^8; only 2,3,5 occur. I checked the full integral classification by a different block reduction, not by trusting the submitted modular pivots. In an integral E8 basis let U be the 240-by-9 matrix of rows (1,α), G the E8 Gram matrix and V=diag(−1,G)U^T. Then L=240I+UV and VU=diag(−240,60I_8). The rows of U span Z⊕E8: every root is the difference of two roots (choose a root of inner product −1 and add it), and the roots span E8. Thus U is a split injection, and V is surjective by unimodularity. For p=2,3,5, extend U to a local basis. In that basis V=[VU,W], with W of rank 9 modulo p because VU vanishes modulo p. Changing basis in the complementary 231 coordinates makes W=[I_9,0]. The nine unit pivots in that block leave 222 factors 240 and the remaining block 240(240I_9+VU), with eight factors 72000 and one zero. Removing the single free factor gives the reduced Smith result and exponent exactly. Independent code checked the integral coordinates and primitivity, the two matrix identities, and the pair histogram 6720,15120,6720,120 at weights 0,1,2,3. In particular there are 28920 weighted edges and no seven-primary torsion.
 
-**Closest literature and limitations.** References are supplied in RESULT.md. The published sources establish the configuration and intersection data, not the exact sandpile form. The result concerns an abstract weighted multigraph, not a geometric Néron component group. Independent review and a search of potentially unindexed historical graph tables remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest primary source explicitly defines the weighted curve graph and identifies its E8 weight layers. The strongest separate indexed Smith computation concerns only the intersection-one graph. Neither supplies the frozen full-multiplicity group; the integral rank-eight extension requires additional structure beyond the rational spectrum or the prior clique results. This is a bounded best-of-knowledge judgment, not a publication-priority certificate.
+
+## value
+
+PASS
+
+The object is the complete geometric intersection-multiplicity configuration, not a selected collection of E8 layers. Its graph Jacobian is a natural integral divisor-class invariant. The eight factors enlarged from 240 to 72000 exhibit exactly the root-lattice contribution, information absent from a tree count and from the simple intersection-one group's torsion. The result gives precise integral data for future calculations with the weighted exceptional configuration without claiming a degeneration theorem or an arithmetic application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the cited unique join-prime factorization and the minimal-representative order from the source. The signed-coordinate extension test makes continuity equivalent to order preservation. Two-coordinate comparisons force each matrix row to be supported on at most one input; an independent zero-input comparison removes offsets from every variable row. Conversely scalar single-coordinate maps and constants are order preserving. The join-coprimality criterion follows by identifying a monoid map with its nonnegative prime-factor matrix. An exact finite stress test covers 729 small affine maps and checks a discontinuous algebraic automorphism, but the infinite theorem rests on the symbolic proof.
+## correctness
 
-## Originality
-PASS at current evidence level, subject to the literature limitations below. The closest source defines and studies the join-Grothendieck Alexandrov space and proves inversion continuous and multiplication discontinuous, but does not classify its affine selfmaps or characterize precisely which join-monoid maps have continuous group completions. General Alexandrov theory describes continuous maps as monotone maps, without the algebraic row-sparsity criterion. Earlier finite-rank punctured-subspace homeomorphism results cover only invertible topology maps and do not imply the full noninvertible affine classification. No identified source implies the exact pairwise join-coprimality criterion. Unindexed work on signed-divisor partial orders remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. The source introduces a new natural topology on a group completion in which addition is not continuous. The exact criterion for *which* morphisms remain continuous after group completion identifies a sharp functoriality obstruction, rather than another isolated counterexample. The uniform affine-map classification, including noninvertible maps, is structurally complete across all prime coordinates and gives an intrinsic, testable condition for maps of the original join monoid. The result is algebraically concise but concerns a motivated foundational mapping question of the new construction.
+Minimal-nonface components give the unique join factorization: no minimal nonface crosses exactly those partitions which exhibit a join. Thus reduced numerator and denominator record the positive and negative prime exponents, and continuity in the downset Alexandrov topology is signed-coordinate monotonicity. A column-finite homomorphism matrix may have infinite rows a priori. In any row with two nonzero entries, choose a one-coordinate input with output magnitude larger than the absolute coefficient of the second input. Appending a new unit coordinate with either sign is an upward move; choose the sign that decreases the output magnitude. An offset in a nonconstant row also fails, by comparing zero to a one-coordinate input with sufficiently large coefficient of the opposing sign. Constants and single unshifted scalar multiples preserve the order, including negative multipliers. Column finiteness and finite offset support suffice even at infinite rank. In a bijective map surjectivity excludes constant rows, repeated use of an input, and nonunit coefficients; injectivity excludes unused inputs. The nonnegative prime-image matrix of a unital join map gives precisely pairwise disjoint image supports; ordinary join divisibility is always preserved. The displayed injection is witnessed by (0,-1) below (1,-1), whose images fail the relation in the second coordinate.
 
-## Closest literature and limitations
-The originating source is Chocano–Prieto-Martínez, arXiv:2611.14300v1 (2026-11-10), especially Sections 3–4. The 2023 paper on Alexandrov topologies for Cohen–Macaulay modules concerns a different category and order. The full homeomorphism-group calculation for finite-rank punctured signed-divisor spaces is prior, not new here. This result does not classify non-affine continuous maps, nor does it assert novelty of signed-permutation homeomorphism groups already known in related records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete affine classification (including noninvertible maps) and its exact join-coprimality obstruction for group-completion maps. The underlying topology, unique factorization and basic inversion/addition phenomena are prior. The signed-permutation conclusion is not credited as a separate discovery over related homeomorphism work.
+
+## value
+
+PASS
+
+Continuity is not automatic in this natural group completion. An intrinsic exact test on the images of prime generators identifies which algebraic morphisms survive continuously, including the failure of an injective monoid substitution whose group extension is an algebraic automorphism. This gives a reusable structural classification, not just a discontinuity counterexample or a rephrasing of order preservation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

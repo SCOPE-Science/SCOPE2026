@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:13.915239Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the all-path version of P3-convexity, a selected pair of neighbors forces any outside middle vertex into the set, whether or not the pair itself is adjacent. At a join, two selected vertices on one shore force the opposite shore to be selected in full; if both shore orders are at least two this forces the full graph. Apart from empty and singleton cases, the only other possible proper set selects one vertex per shore, and each must be isolated within its own shore to avoid an outside middle vertex. With a singleton factor u, omitting u permits only empty or singleton sets, while including u leaves no allowance for an edge from a selected to an outside vertex inside the other factor: the selected subset there must be a union of components. This proves both polynomial formulas (also K2, without double counting). A disjoint union splits the condition by factor; joins are connected with no isolates, so the auxiliary updates follow. A connected cograph with no universal vertex has a join decomposition with both orders at least two. Equality in i(A)i(B)≤|A||B|≤floor(n²/4) forces edgeless balanced shores and conversely gives the claimed graph. The O(n²) dense coefficient arithmetic bound follows by charging child-size products to pairs of leaves and array overhead to the sum of node sizes; the scalar updates are O(n) arithmetic using counts. Own replay: python3 /workspace/review_replay.py 4, scanning all graphs through order six with an induced-P4 detector, checking the actual predicted families against independent wedge implications; 6039 cographs, with 3, 10 and 10 labelled equality cases at orders 4, 5 and 6. This is a finite check; the supplied checker and saved output were inspected, not executed. Nonmaterial environment note: the supplied checker uses int.bit_count(), which needs Python ≥3.10 rather than the 3.9+ in its header.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 gives 2^(n-1)+n over all connected graphs, with star, P4 and P5 equality, not the sharp restricted bound.",
+          "The later nonstar extremum is reached by a one-edge-subdivided star, which contains an induced P4. The later bipartite stability result treats a particular range of sufficiently large shores under locally bounded cross-edge deletion.",
+          "The general MSO graph-enumeration paper is a relevant algorithmic precedent; only its landing page/abstract was accessible."
+        ],
+        "reasoning": "Even allowing a general bounded-clique-width counting algorithm or cardinality enumerator, existence and complexity of an algorithm do not give the positive closed join formulas or their equality analysis. Stars, P4, P5 and the subdivided-star extremizer are excluded from the sharp-bound class. The bipartite stability theorem is not over all connected cographs in that class.",
+        "searches": [
+          "arXiv:2603.04706, Theorems 11 and 14",
+          "DOI 10.1016/S0166-218X(00)00221-3",
+          "Resultary nonstar extremum 7e7b47ccfaf5 and bipartite stability 4d247a07a844"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.04706",
+        "DOI 10.1016/j.dam.2014.05.005 (abstract)",
+        "DOI 10.1016/S0166-218X(00)00221-3 (abstract)",
+        "Resultary af818a6c215c",
+        "Resultary 4d247a07a844",
+        "Resultary 7e7b47ccfaf5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The block-graph polynomial implies the whole desired polynomial on the overlapping block-cograph class only; connected block graphs with the windmill form have a universal cut vertex. The zero-deletion formula checks some equality examples but does not compare them to arbitrary cographs.",
+          "Threshold and general connected-graph bounds give neither the isolated-factor coefficient nor the optimal balanced-shore inequality restricted to the intended class."
+        ],
+        "reasoning": "The exact extremal count follows from the structural classification at a general join, which is not inherited from any of the matched domain restrictions. Countability, isolated checks and narrower formulas were separated from coverage of the theorem.",
+        "searches": [
+          "arXiv:2603.04706 Theorems 11/14",
+          "Resultary block-graph af818a6c215c",
+          "Resultary nonstar 7e7b47ccfaf5 and bipartite stability 4d247a07a844"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Dourado et al. counting definition matches the all-path statistic, but its threshold formula is scalar for a subclass.",
+          "The same-day Resultary block-graph recurrence gives exactly the specialization 1+tmz+z(1+z^m)^t for K1 joined to t copies of Km, which are also cographs.",
+          "The Campos et al. landing page is a close match on cographs and the convexity, but does not supply a checked complete coefficient recurrence."
+        ],
+        "reasoning": "The windmill specialization is actual coverage of that intersection, with no priority inferred from the same date. General cograph cones can have nonclique components, and joins of two factors of size at least two can yield non-block graphs such as K2,2. An invariant of extreme proper convex sets alone is not equivalent to counting every convex set by size.",
+        "searches": [
+          "arXiv:2603.04706, Theorems 11 and 14",
+          "DOI 10.1016/j.dam.2014.05.005 (cograph P3 convexity)",
+          "Resultary cograph/block-graph P3 convex-set polynomial, af818a6c215c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The windmill formula is identical on the overlapping family. The later stability result's zero-deletion polynomial (1+mz)(1+nz)+z^(m+n) agrees with the appropriate complete-bipartite cases. The star total 2^(n-1)+n is already known."
+        ],
+        "reasoning": "The finite labelled census is only a proof check; neither those numbers nor any coincident evaluations are the distinct contribution. The theorem covers all cographs, including unequal-factor joins whose proper convex pairs depend on the isolated vertices inside each factor.",
+        "searches": [
+          "arXiv:2603.04706, threshold formula and extremal counts",
+          "Resultary af818a6c215c generalized-windmill formula",
+          "Resultary 4d247a07a844 zero-deletion polynomial"
+        ]
+      },
+      "rationale": "The star extremum, general algorithmic countability, and the overlapping windmill/complete-bipartite special cases are not credited as novel. The distinct finding is the explicit cardinality and structure of the convex sets at arbitrary cograph joins/unions and its sharp extremal consequence with unique balanced bipartite equality class in connected cographs without a universal vertex. No inspected statement implies that full package.",
+      "residual_risks": [
+        "Campos et al. is a close primary source not retrieved in full; an exact formula under a different presentation cannot be excluded.",
+        "Exact scope of the general MSO enumeration paper was not confirmed from full text. No priority is inferred for the same-day windmill overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar threshold formula and broader but weaker extremal bound; not the claimed cograph statement",
+          "evidence": [
+            "Theorem 11: total ≤2^(n-1)+n, with stated equality graphs; Theorem 14: scalar threshold count with linear graph-size evaluation under its assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+          "material_read": "Introduction p. 3 offset 7800; Theorem 11 p. 11 offset 26164; Theorem 14 p. 15 offset 35001",
+          "method": "Bounded OA PDF passages",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Primary exact counting and sharp extremal precedent for the same statistic"
+        },
+        {
+          "assessment": "Plausible related structural source; not ruled out at full-text level",
+          "evidence": [
+            "Title and abstract concern invariants for P3-convexity on graphs with few induced P4s. Exact enumeration coverage is not verified from this access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.05.005",
+          "material_read": "Accessible landing page and abstract only",
+          "method": "Publisher OA attempt and DOI repository recovery; publisher text endpoint unavailable, no lawful full text retrieved",
+          "title": "Graphs with few P4's under the convexity of paths of order three",
+          "trigger": "Same convexity and overlapping graph class"
+        },
+        {
+          "assessment": "Algorithmic precedent acknowledged; exact weighted theorem not assessed from unavailable text",
+          "evidence": [
+            "Title and abstract concern MSO graph enumeration; no credit for polynomial-time countability alone."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00221-3",
+          "material_read": "Publisher landing page/abstract only",
+          "method": "OA and repository recovery attempts; no full text retrieved",
+          "title": "On the fixed parameter complexity of graph enumeration problems definable in monadic second-order logic",
+          "trigger": "Broader graph-class countability and possible weighted enumeration"
+        },
+        {
+          "assessment": "Exact coverage on overlapping block cographs, not general cographs or the no-universal extremum",
+          "evidence": [
+            "K1 joined to tKm: 1+tmz+z(1+z^m)^t, precisely the component-polynomial specialization."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/13/SCOPE-a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c",
+          "material_read": "RESULT.md finding, generalized windmills (offsets 0 and 3722) and relationship section (7208)",
+          "method": "Resultary query and bounded local-mirror inspection",
+          "title": "A three-state multivariate P3-convexity polynomial for block graphs",
+          "trigger": "Same-day overlapping exact cardinality polynomial"
+        },
+        {
+          "assessment": "Later result in a bipartite perturbation regime",
+          "evidence": [
+            "Polynomial specializes to (1+mz)(1+nz)+z^(m+n) when no edges are deleted."
+          ],
+          "identifier_or_url": "Resultary record 4d247a07a844",
+          "material_read": "RESULT.md, offset 0, finding",
+          "method": "Resultary query and bounded local-mirror inspection",
+          "title": "Sharp P3-convex-set stability under locally bounded bipartite edge deletions",
+          "trigger": "Same polynomial on some extremizing graphs"
+        },
+        {
+          "assessment": "Later nonstar extremum; equality graph outside cographs",
+          "evidence": [
+            "For n≥9 the indicated extremizer is a one-edge-subdivided star."
+          ],
+          "identifier_or_url": "Resultary record 7e7b47ccfaf5",
+          "material_read": "RESULT.md, offset 0, finding",
+          "method": "Resultary query and bounded local-mirror inspection",
+          "title": "Sharp second maximum of the number of three-path convex sets",
+          "trigger": "Possible broader sharp bound for nonstar graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula answers an existing convex-set counting problem in a natural class while retaining cardinality information lost by scalar algorithms. It identifies a sharp quadratic alternative to the exponential star regime in connected cographs with no universal vertex, and characterizes exactly the extremal graphs. These contributions are more than an algorithmic application or a census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

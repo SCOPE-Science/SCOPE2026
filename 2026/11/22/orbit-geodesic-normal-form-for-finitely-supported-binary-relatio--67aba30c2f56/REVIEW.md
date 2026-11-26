@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Pure equality symmetry gives a complete orbit decomposition of the binary relation into finite parameter-to-parameter arcs, two parameter-interface sets, and the diagonal/off-diagonal generic bits. Path-shortening arguments prove all five distance formulas and their boundary cases. The generic-component dichotomy follows by the same exact formula. The sharp \(m+1\) bound is proved by simple-path compression and a directed-chain construction; no finite-domain inference is used as a substitute for proof. `verify.py` independently compares every pairwise distance on 132,132 exhaustive encodings with at most three named parameters, 3,000 sampled encodings with four, and sharp examples through seven.
+## correctness
 
-**Originality — PASS, with stated priority risk.** The central new claim is the explicit point-pair distance normal form, the min-plus rank-one correction, and the unnamed-component dichotomy. Ciobanu's general orbit-count convergence theorem already implies a similar sharp reachability cutoff, so the cutoff alone is not treated as new. The closest directly relevant 2012 and 2016 nominal-computation works establish symbolic transitive-closure evaluation, not the five-case closed distance classification in their inspected sections. Search comparisons include alternative terms such as equality atoms, finitely supported relations, nominal transitive closure, orbit geodesics, and arbitrary named parameters. Earlier unindexed literature may contain an equivalent distance-normal-form theorem; that residual historical risk remains.
+PASS
 
-**Value — PASS.** The result classifies **all** directed pointwise distances in an infinite but finite-context graph, using just one ordinary \(m\)-vertex directed distance matrix, two interface vectors, and one generic scalar, in cubic arithmetic time in the context size. It separates the anonymous off-diagonal relation orbit from its diagonal and yields an exact all-or-none structural classification of anonymous strong components. This is useful for precise symbolic reachability, rather than merely certifying eventual termination. It is not an arbitrary finite slice or a restatement of a universal orbit bound.
+Reconstructed the proof of RESULT.md lines 19–55. Pointwise stabilizers act transitively on generic atoms and ordered distinct generic pairs, giving uniform arcs for each named interface and a separate off-diagonal bit. A named-to-named walk that visits generic atoms can replace everything between its first entry and last exit by two arcs through one generic vertex, even if the removed segment contains adjacent generic vertices. The typed shortest lengths are then the internal named length δ or β+2+α for named endpoints, and the first/last generic-visit shortcut gives 1+α or 1+β when exactly one endpoint is generic. Without an off-diagonal generic arc, a walk between two distinct generic endpoints has a named-only block joining F to B between its initial generic departure and first generic return; this costs at least 2+γ and any internal minimizer realizes it. Loops do not affect reflexive distances. In the disconnected generic case no named vertex can share the SCC of even one generic atom: mutual reachability through a named vertex would concatenate to a path between distinct generic atoms, by the uniform mixed formulas. Deleting repeats gives length at most m+1; the directed named chain between two distinct generic endpoints attains it for m≥1, and one arc attains it at m=0. Computing δ then vector and scalar minima is cubic in the size of the finite orbit description (constant at m=0). This is an all-m proof; the reported finite Floyd–Warshall checks were inspected but not rerun.
 
-**Scope and limitations.** Pure equality atoms; unweighted arbitrary binary relations; reflexive distance. Extensions to richer symmetries or general nominal carriers are unproved. Historical priority and mathematical correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinguishing claim is an explicit exact distance profile with one min-plus correction to the internal named distances and the generic off-diagonal distance and SCC classification. Fixed-context reachability and a finite-step cutoff are credited as prior consequences. The strongest comparisons inspected do not supply the exact profile.
+
+## value
+
+PASS
+
+This is a useful structural lemma for exact symbolic geodesics, not a new generic shortest-path algorithm. It reuses the internal named distance matrix and isolates precisely what anonymous transit changes: one separable correction, two endpoint profiles, and one effective off-diagonal distance. It also distinguishes a single generic SCC from genuinely singleton SCCs; an ordinary quotient by generic identity alone obscures the latter. The unbounded supported-graph family and exact boundary cases are the motivation, not recomputation of the known orbit cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

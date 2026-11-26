@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:38:15.549621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–66",
+        "Frozen VERIFICATION.md and VERIFY.py (inspected, not executed)"
+      ],
+      "rationale": "The endpoint norms are ordinary induced coordinate norms of the symmetric projector, so both equal the largest absolute row sum. The zero, contrast and within-part Laplacian eigenvalues are respectively 0, 2mb and m(a+b), yielding the stated cross-edge potential correction k=(a−b)/(2m²b(a+b)). An intra-part row has contribution (2m−2)a/d from own-part edges and 2m√(ab)/d from incident cross edges, d=m(a+b). In a cross row, same or singly incident cross-edge coefficients have positive sign in the common A-to-B orientation, and only disjoint cross edges change sign at a=b. The signed cross-to-cross row sum is one, and when a<b the absolute contribution adds 4b|k|(m−1)². These orbit counts give the two formulas and the factored differences select the claimed row on each branch. The first branch's distinct top eigenvector has y=√(1+4h²)−2h∈(0,1), with value 1+h√(1+4h²). The other branch is bounded by h+√(1+h²), which is strictly smaller: for s=√(1+4h²), (1−h+hs)²−(1+h²)=h²(4h²−1)+2h(1−h)(s−1)>0 on 1/2≤h<1. This proves uniqueness as a ratio, not as a pair (a,b) up to scale. The boundary limits, strict comparison to the equal-conductance value, and m→∞ limits follow. An independent grounded-Laplacian double-precision check confirmed 392 individual row sums for m=2,3,4 at eight positive ratios y, with tolerance 10⁻⁹; the proof is exact and does not rely on that check.",
+      "residual_risks": [
+        "The independent finite numerical corroboration is not the original recorded exact 752-row computation or a claim of exhaustive computation.",
+        "Without the square-root normalization the ordinary endpoint norms need not be equal or have these values; the Euclidean norm is one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The blow-up theorem uses independent replacement sets; it does not include the positive internal edges in both parts of this family.",
+          "The same-date split-graph orbit formulas allow positive clique conductance on one shore and no internal edges on the other. The multipartite formula treats no internal edges in either equal part."
+        ],
+        "reasoning": "The covered spectra and endpoint norms do not range over the positive two-clique family. In particular no relabeling produces a second positively weighted clique in the split graph.",
+        "searches": [
+          "Oliveira–de Lima–Nikiforov arXiv:1412.0319 Theorem 3",
+          "Resultary weighted split graphs and complete multipartite electrical projections"
+        ]
+      },
+      "checked_sources": [
+        "Lyons arXiv:math/0204325v4",
+        "Oliveira–de Lima–Nikiforov arXiv:1412.0319v1",
+        "Resultary 5704b55011f7, 100837ac2e20, 0f6b407e194c",
+        "Focused primary-literature search (no decisive passage located)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic projector expression and the vertex spectrum do not by themselves evaluate the absolute overlaps on all edge-pair orbits. The two positively weighted communities give contributions and a branch change that disappear in the independent-part formulas.",
+          "The optimizer over (0,∞) requires comparing the two distinct allowed row branches rather than substituting in a known optimum for independent parts or a single perturbed edge."
+        ],
+        "reasoning": "The prior operator construction and adjacent exact statements do not imply the target optimizer without a separate row and optimization analysis.",
+        "searches": [
+          "Blow-up spectra Theorem 3; transfer-current projector construction; weighted split-graph and one-edge bipartite Resultary formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lyons §1 Example 1.1 and §2 identify the transfer-current/cut-space operator in the unit-conductance case.",
+          "For weights, the current map and symmetric projector can differ by diagonal conjugacy. Such a change preserves spectrum but not in general ordinary ℓ¹ or ℓ∞ norm. The comparison cannot be made on operator name alone."
+        ],
+        "reasoning": "The claimed norm is of the symmetric projection in conductance-normalized coordinates. The general operator identity does not evaluate its absolute rows or optimize the ratio.",
+        "searches": [
+          "Lyons arXiv:math/0204325v4 transfer current and edge projection",
+          "Targeted primary lookup: square-root conductance-normalized electrical routing/cut-space projection endpoint norm on weighted complete two-block/two-clique graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest structural match, 5704b55011f7, gives exact orbit norms and phase diagrams on weighted split graphs. Record 100837ac2e20 optimizes one edge of K_{r,r}, not uniform weights on all edges of two complete communities. Record 0f6b407e194c gives exactly 1+2h² at the K_{m,m} boundary."
+        ],
+        "reasoning": "Exact prior values and optimization in adjacent parameter families are credited where they apply; none establishes the formula on the full ratio domain of this graph.",
+        "searches": [
+          "Resultary: weighted endpoint Hodge/cut-space electrical norms; two-clique, biclique and conductance optimization"
+        ]
+      },
+      "rationale": "The accepted distinction is the exact induced endpoint norm on the positive-conductance balanced two-clique family and its unique interior optimum. Transfer current, Laplacian symmetry decomposition, and exact formulas at unweighted limiting graphs are not new. The very close same-date split-graph result treats a different weighted edge family; comparison is based on edges and modes, not the date. The bounded primary-literature search did not yield an exact covering source; that fact is not evidence of exhaustive priority.",
+      "residual_risks": [
+        "A general exact weighted projector or electrical routing theorem covering these orbit sums may exist under different terminology. The bounded primary search did not settle that possibility.",
+        "No priority order is inferred between distinct same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Operator context, not the weighted endpoint norm",
+          "evidence": "Unit-conductance spanning-tree transfer currents and projection, no two-weight family evaluated in the passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0204325v4",
+          "material_read": "§1 Example 1.1 p. 3; related §2 passage p. 8",
+          "method": "OA full-text passages, offsets 8500 and 22900",
+          "title": "Determinantal Probability Measures",
+          "trigger": "Canonical transfer-current cut-space operator"
+        },
+        {
+          "assessment": "Different family and a spectrum, not a projector endpoint norm",
+          "evidence": "Independent-set blow-up, Laplacian eigenvalues tμ_i and td_i with multiplicity t−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.0319v1",
+          "material_read": "Definition p. 1 and Theorem 3 p. 2",
+          "method": "OA full-text passages, offsets 0 and 4600",
+          "title": "Spectra of the blow-up graphs",
+          "trigger": "Potentially broader Laplacian decomposition for equal communities"
+        },
+        {
+          "assessment": "Closely related orbit formulas, distinct graph family",
+          "evidence": "Same symmetric edge projector on a clique joined to an independent set, with no within-part conductance on the independent shore.",
+          "identifier_or_url": "Resultary 2026/10/26 record 5704b55011f7",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Reentrant cut-cycle phases and a sharp alignment law for conductance-weighted split graphs",
+          "trigger": "Strongest structural overlap, same date"
+        },
+        {
+          "assessment": "Different optimization variable and graph",
+          "evidence": "One perturbed edge of a graph without internal edges, not two communities with block-uniform internal weights.",
+          "identifier_or_url": "Resultary 2026/10/25 record 100837ac2e20",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp one-edge conductance amplification on K_{r,r}",
+          "trigger": "Exact conductance optimum for the same norm"
+        },
+        {
+          "assessment": "Exact match only at the boundary, independent of date",
+          "evidence": "The unweighted K_{m,m} result is 3−4/m+2/m²=1+2h², where internal edges are absent.",
+          "identifier_or_url": "Resultary 2026/11/17 record 0f6b407e194c",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp endpoint norms of complete multipartite electrical gradient projections",
+          "trigger": "Exact complete bipartite boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 34–66",
+        "Resultary 5704b55011f7 and 0f6b407e194c"
+      ],
+      "rationale": "The balanced two-community network is a natural weighted deformation between complete and bipartite behavior in which the changing sign of remote edge coefficients switches the worst row orbit. The formula identifies a unique nontrivial ratio that is strictly worse in endpoint amplification than equal conductances and either extreme contrast, a concrete exact benchmark that general spectral norms or the limiting cases cannot supply.",
+      "residual_risks": [
+        "No general optimum is inferred for unequal sizes or non-block-uniform weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

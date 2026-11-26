@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Use Python 3 (standard library only): `python3 checker.py`. The expected stdout is stored verbatim in `checker_output.txt`. The program separately computes longest common subsequences by dynamic programming and exhaustive Parikh feasibility by letter counting. For binary alphabets it checks all hosts of length up to \(k+1\), for \(1\le k\le6\), against every target of length up to \(k\). For ternary alphabets it checks all hosts of length up to \(k\), for \(1\le k\le5\), against all such targets. It also tests reverse-block sharpness for three larger alphabets and enumerates all host words of length at most seven (binary) or five (ternary) for content-envelope checks.
+## correctness
 
-The resulting counts are 191852 plateau checks and 34188 host-pattern comparisons for the content envelope. These finite ranges are explicitly bounded. The independent finite program cannot establish the universal claims; the four proof lemmas in `RESULT.md` give the complete infinite argument. There is no claim of external proof certification or independent review.
+PASS
 
-Public reproducibility requires only these embedded files; no file paths outside this package, proprietary software or downloaded external paper are needed.
+A feasible nonempty pattern with maximum letter count h shares a constant-letter subsequence of length h with every host of the specified content and has length at most T=min(k, sum_i min(c_i,h)). Conversely one can realize every admissible h with total T and maximum count h by reserving one coordinate of capacity h, then filling the remaining capacities. Placing those counts in reverse block order from the host forces every common subsequence to use one letter and attains T−h. The empty host and pattern give zero. Globally the deficit of a feasible length-m pattern is at most m−ceil(m/q), a nondecreasing function of m. Pure-letter patterns detect the capped count of every letter at any nonnegative budget. Opposite block orders with balanced counts and total length k attain the bound k−ceil(k/q); the reverse host distinguishes itself from the forward host at every lower budget without changing the capped counts. This also covers q=1 and k=1, when no lower nonnegative budget exists, and q>k, when the witness uses k distinct letters.
+
+## originality
+
+PASS
+
+The definition, finite-index framework, capped-count result at budget k−1, and the pigeonhole sufficient condition are not credited as new. The supported distinct claims are the exact worst-order envelope at every content and the matching necessity at the alphabet-dependent collapse threshold. Inspected more precise subthreshold counts apply to one binary parameter triple, not the general sharp statement.
+
+## value
+
+PASS
+
+The exact envelope determines how much order can cost at a prescribed content, including highly unbalanced contents where the worst-case alphabet bound is far from attained. The sharp collapse theorem answers exactly when all order information disappears from this established equivalence model, rather than giving another nonoptimal sufficient budget. The two statements are useful despite not classifying the subthreshold quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

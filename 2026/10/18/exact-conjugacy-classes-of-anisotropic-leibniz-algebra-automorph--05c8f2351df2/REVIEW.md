@@ -1,11 +1,21 @@
-# Self-review: Exact conjugacy classes of anisotropic Leibniz-algebra automorphisms over finite fields
+# Independent mathematical audit
 
-**Correctness — PASS.** The bracket's anisotropic norm form yields the explicit affine-semilinear automorphism group, independently derived rather than relying on a classification citation. Conjugation separates ordinary slopes by Frobenius orbits and semilinear slopes by norm and trace; all seven strata are disjoint and exhaustive, their weighted sizes equal the group order, and the involution and commuting formulas follow. The standalone standard-library script verified complete automorphism similitudes and actual group conjugacy classes for four odd fields, including a nonprime base field. This is a finite reproducibility check, not an infinite proof.
+## correctness
 
-**Originality — PASS within inspected coverage.** The 2023 arXiv group description and 2024 journal Theorem 3.1 already give qualitative automorphism matrices for the matching algebra; the 2026 comprehensive classification likewise includes it as previously known. Fulman and Guralnick's 2021 general orbit lemma for affine group classes provides a relevant method but does not give the full conjugacy class sizes of the affine *similitude* group or its norm/trace split. The small q=3 group is known and is not an originality claim. The class-size formula and two involution orbits were not found in examined primary texts or targeted searches. Risk: some older general semilinear-group classification could already entail this exact table.
+PASS
 
-**Value — PASS.** This is the full class-size distribution of an infinite, naturally defined family of algebra automorphism groups, not a special finite experiment. The trace obstruction distinguishes two norm-one semilinear orbits, with sharp involution-size consequences, and gives class numbers and commuting probabilities uniformly over every odd prime power. The precise invariant refines already-known qualitative automorphism groups.
+The original odd-characteristic table is correct. The repaired RESULT.md explicitly limits the diagonal presentation, not existence of anisotropic extension norms, to odd characteristic: in characteristic two squaring is bijective, and x²+xy+y² over F_2 is an anisotropic norm. It also makes the full stabilizer of the normalized slope explicit. For odd q the nondegenerate bracket forces center kz. Any bracket similitude divided by its value at 1 fixes 1 and acts by ±1 on the orthogonal line; the central shear parameters then yield the additive K ⋊ (K^× ⋊ <σ>) law. Linear slopes reduce to Frobenius orbits, with one nonzero translation class. For semilinear slopes, conjugation by multiplications gives the q+1 slopes in a norm fiber. When the norm is not 1, 1−aσ is invertible and all translations collapse to one orbit. For norm 1 normalize to σ and quotient by (1−σ)K=ker Tr; the slope centralizer comprises k^× and its composites with σ, acting by scalar multiplication on the trace. The two orbits have q and Q−q lifts per slope and give sizes q(q+1) and q(Q−1). The seven rows sum with multiplicities to 2Q(Q−1); counting their classes gives (Q+3q)/2 and the commuting-pair formula by the centralizer sum. Squaring shows that exactly the linear −1 class and the semilinear norm-one, zero-trace class are the nonidentity involutions. These arguments also apply over nonprime k; no step requires the prime-field Frobenius in place of the relative q-Frobenius.
 
-**Closest literature and limitations.** Kurdachenko–Pypka–Semko, arXiv:2310.11180v1 (Theorem 3.7), 2024 *Ukrains'kyi Matematychnyi Zhurnal* Theorem 3.1, and arXiv:2609.24320v1 (summary); Fulman–Guralnick, arXiv:2112.15219v1 (Lemma 2.1). The result covers only anisotropic dimension-three Leibniz algebras over finite fields of odd characteristic, and only conjugacy within the full algebra automorphism group. No independent verification or priority assessment has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving claim is the full uniform seven-row distribution with explicit norm and trace strata, not the known group structure, the basic affine orbit method, or the order-144 example alone. The strongest inspected comparisons establish some ingredients and linear specializations, but do not determine the semilinear class-size strata without an additional orbit calculation. The replacement scope and proof clarification do not enlarge the claimed family or change these comparisons.
+
+## value
+
+PASS
+
+For this natural full algebra automorphism group, the exact class-size distribution answers more than the known abstract group identification or a total class count: it separates fixed-point-free semilinear slopes from the two classes with the same norm but different translation obstruction. The distinction determines exact centralizer sizes and explains the second involution class uniformly over nonprime as well as prime fields. This provides a useful intrinsic invariant, rather than a single small-group recomputation. The repaired explanation does not pretend to extend that contribution to characteristic two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

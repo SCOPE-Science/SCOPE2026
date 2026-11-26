@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:23:58.805754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to the corrected /workspace/repairs/5/RESULT.md, not the frozen proof. Frozen RESULT.md 45–49 prints a false general Jacobian identity: at (r1,k1,s,k0,h,A,lambda,b)=(10,1,1,1/10,1/2,1,7,1) and coexistence (x,y)=(1/2,1), det J is 17/32 but its printed right side is 221/512. The replacement adds the predator row to the prey row, using the exact sum balance s(Y−y), and obtains det J = sy(Y' q_y + q_x) = sy q_y(Y'−Z'); direct differentiation gives q_y=x(Ab−lambda)/B². Thus in the inhibitory regime the signs from the repeated-node divided differences of F=Y−Z (F'''<0) give positive, negative, positive determinants as claimed. Rechecked all three count arguments: the feasible intersection is one open interval with no interior pole; on the cooperative interval Z decreases and is convex, F' is positive to the prey maximum and strictly decreasing after it, hence at most two distinct roots. The neutral cancellation fixes one prey coordinate, and inhibitory F'''<0 rules out four roots by Rolle. Replayed /workspace/independent_exact_checks.py, coexistence(): exact cooperative signs and neutral x=5/16, the quartic and Jacobian identities for the inhibitory example, its three disjoint feasible sign brackets, fourth root beyond the pole, and direct rational interval trace/determinant/discriminant signs (+,+,+), (+,-,+), (-,+,-). The nonzero Jacobians give persistence with the signs and domain retained. The positive count bounds are sharp maxima, not fixed counts for every parameter choice. The companion frozen checker and output were inspected, not executed; they cover only the examples and do not verify the false general formula. The replacement is complete and retains their correct scoped usage.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Gao–Ta HTML shows a truncated 'Theorem 2.4 guarantees that there can be at …'; the PDF search result gives title and abstract material only. The frozen source records a restricted at-most-two result, but decisive primary hypotheses were not retrieved. The other returned indexed Allee results concern different model structures."
+        ],
+        "reasoning": "The available primary excerpt alone does not establish the scope of its upper bound. The frozen comparison, if confirmed, covers only part of the cooperative case, not a positive-parameter continuation across reversal of the response derivative. Results for a different location of the Allee effect or a different response function have no immediate equation-level implication.",
+        "searches": [
+          "arXiv:2601.10739v1 Theorem 2.4, model (1.3), Section 3",
+          "Resultary: Allee coexistence equilibria and same-model variants",
+          "PMC8718388 and arXiv:2007.12801 (frozen literature leads)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, check.py and CHECK_OUTPUT.txt",
+        "Resultary matching entry 52216a4fc9b2 and related indexed model leads",
+        "Gao–Ta arXiv:2601.10739v1 (search material and bounded primary/mirror retrieval attempts)",
+        "Corrected /workspace/repairs/5/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md 94–98 and AUDIT.json 20–45 report extra strong-Allee hypotheses, including k0>k1/2, for Gao–Ta's at-most-two result. Accessible search material does not reproduce the full theorem. The repaired proof and examples give counts on both strict sides and on the boundary with no extra restriction on k0/k1."
+        ],
+        "reasoning": "Even if the original positive-cooperation count already covers more than the frozen comparison reports, that by itself does not cover the sharp three-state inhibitory regime or its explicit hyperbolic stability pattern. General Rolle and local-stability tools do not entail attainability in this model.",
+        "searches": [
+          "Exact Gao–Ta arXiv HTML, PDF, and export.arxiv.org PDF; Theorem 2.4",
+          "Resultary 52216a4fc9b2 with related Allee records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the exact model, lambda=lambda0 b and A=lambda0+a make lambda−Ab=−ab. Positive coexistence is equivalent to cubic–linear-fractional intersection on the sign-restricted open interval, or a quartic with domain restrictions after clearing the denominator. The exact Resultary trichotomy is the frozen item itself."
+        ],
+        "reasoning": "Claims confined to positive hunting cooperation examine only one sign regime; neutral response and three-state inhibitory continuation are not aliases of positive cooperation. A generic quartic bound neither yields the feasible maxima nor implies attainments.",
+        "searches": [
+          "Resultary: Gao–Ta saturating strong-Allee coexistence; sign of lambda−Ab; inhibitory continuation",
+          "\"Bifurcation Analysis of a Predator–Prey Model with Allee Effect and Cooperative Hunting\" \"Theorem 2.4\" coexistence hypotheses Gao Ta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 52216a4fc9b2 is the assigned item. Other returned records did not give its concrete inhibitory parameter set, quartic, or state classifications in the available descriptions. The frozen audit attributes 0/1/2 intersections to Gao–Ta Figure 2; the figure was not independently accessible."
+        ],
+        "reasoning": "The exact three-state witness is compared only to actual accessible summaries. No unwitnessed table or figure is used as independent evidence of absence.",
+        "searches": [
+          "Resultary: Gao–Ta 2/1/3 trichotomy, middle saddle and explicit three-state example",
+          "Exact cited arXiv HTML/PDF on coexistence and Theorem 2.4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp sign-dependent trichotomy within this exact rational response family, including the inhibitory three-state example and its robustness. The only exact indexed match identified is the assigned record itself. The original paper is clearly a high-relevance source for the model and partial equilibrium counts; its precise theorem scope could not be independently verified here, so the repaired text does not claim a checked improvement over a particular statement of Theorem 2.4.",
+      "residual_risks": [
+        "The exact Gao–Ta Theorem 2.4 hypotheses, tables/figures and any stronger related result are not independently confirmed. Earlier results on closely related rational response laws may cover portions of the trichotomy. The inhibitory continuation is mathematically admissible but not positive cooperative hunting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant model source; comparison to the precise full theorem is limited by access, not a full-document exclusion",
+          "evidence": "Truncated Theorem 2.4 search line; frozen RESULT.md 94–101 and AUDIT.json 20–45 identify model and theorem locations",
+          "identifier_or_url": "https://arxiv.org/html/2601.10739v1",
+          "material_read": "Indexed HTML fragment and title/abstract search material; the theorem, figures and exact hypotheses were not accessible. Frozen comparison read separately.",
+          "method": "Targeted primary websearch plus lawful arXiv HTML, PDF and export arXiv PDF retrieval attempts",
+          "title": "Bifurcation Analysis of a Predator–Prey Model with Allee Effect and Cooperative Hunting",
+          "trigger": "Same model and Theorem 2.4 partial count comparison"
+        },
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Frozen Finding 3–6, examples 53–89",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-one-three-coexistence-bounds-for-a-saturating-allee-pr--52216a4fc9b2",
+          "material_read": "Indexed mathematical synopsis and bound frozen theory and examples",
+          "method": "Resultary statement and exact local-source comparison",
+          "title": "Sharp two–one–three coexistence bounds for a saturating Allee predator–prey flow",
+          "trigger": "Exact 2/1/3 bound and example match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign is a natural boundary: it changes the sign of the per-capita predator derivative in predator density. A sharp feasible count across all allowed prey-threshold ratios, with exact witnesses and robust three-state local stability rather than just a quartic degree bound, distinguishes two structurally different regimes and the neutral degeneracy. This conclusion does not require an experimental interpretation of inhibition or any global phase-portrait claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

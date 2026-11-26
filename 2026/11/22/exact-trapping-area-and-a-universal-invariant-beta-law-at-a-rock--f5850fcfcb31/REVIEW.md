@@ -1,20 +1,21 @@
-# Scientific assessment: exact trapped-area law for conservative radial rocking
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns the canonical radial Hamiltonian \(H_\beta(r,p)=p^2/2+V_\beta(r)\), and does not confuse canonical area with unweighted area in polynomial coordinates or with a physical capture probability. The saddle equation \(\beta=s^3(1-s)\) and the exact quartic factorization supply all turning points; integrating the vertical Hamiltonian cross-sections yields the exact area quadrature. Envelope differentiation shows pointwise shrinkage of the interval and cross-section with increasing \(\beta\). The saddle–center Taylor expansion, limiting lobe geometry and explicit area integral produce the sharp factor \(256\,2^{3/4}/45\). Invariance of normalized area follows from Hamiltonian volume preservation. Compact common support and \(L^1\)-convergence of rescaled domain indicators give total-variation, rather than merely weak, convergence; the radial marginal evaluates to \(\operatorname{Beta}(3/2,2)\). The included `verify.py` checks exact identities plus high-precision quadratures and limiting ratios; tests are not used as infinite proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-The generating paper (Prieto-Castrillo, Pérez-González and Pérez del Río, arXiv:2611.13861v1, Sections 4–6) provides the radial effective potential, confinement interval and saddle–center collision but not the exact full-parameter canonical area, its strict monotonicity or the invariant Liouville-area probability limit. The highly relevant publication *Two resonance accumulation scales for conservative complex rocking* studies the same Hamiltonian but establishes closed-angle resonance ladders and physical-time asymptotics; its full result/proof were read and do not imply the claimed exact area or distribution. Kubyshin et al. (2017, Appendix B) establish an area-law exponent for a **different** near-fold area-preserving map. Thus the fold exponent and universal cubic mechanism alone are not asserted to be novel. The combined complete exact area description and area-probability law for this concrete Hamiltonian were not found among inspected sources. The original rocking regularization from 2005 was not accessible in full; priority of an equivalent unpublished/older invariant measure calculation cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-The size of the trapped region in canonical phase space is a natural quantitative invariant in the model's confinement/escape problem. The result supplies its entire parameter dependence as an exact computable radical quadrature, shows it decreases without reversals from the exact limiting area one to zero, quantifies its sharp disappearance at the phase transition, and describes the universal nondegenerate probability law under the normalized **invariant** Liouville ensemble. These statements refine the qualitative existence of confinement and are neither a table recomputation nor only a routine threshold check. They have potential use in sensitivity and ensemble modeling of conservative regularized rocking, but make no claim about impact probabilities, dissipative basins, or uniqueness of statistical sampling conventions.
+For β=s³(1−s), E_s=3s/2−s², so r⁴−2r³+2E_s r²−β factors as (r−s)²(r²−2(1−s)r−s(1−s)). The roots are L,N in the claim, with N<0<L<r_m<s. The component on the left of s is invariant by energy conservation and contains the well; puncturing it at the equilibrium to speak literally of the period annulus makes no area or probability difference. The interval shrinks with β and the envelope derivative of E_s−V_β(r) is 1/(2s²)−1/(2r²)<0 on it. With r=L+(s−L)t the width times dr is 2(s−L)^(5/2)(1−t)√t·√(r−N)/r dt, differentiable under integration at every interior parameter. The zero-parameter width is bounded by 2(1−r) on (0,1) and tends pointwise to it, giving area 1. Independently using the exact factorization at the fold, with a=3/4 and h=s−a, δ=(9/8)h²+2h³+h⁴, L=a−2h+O(h²), and N→−1/4. Thus h/√δ→c and at r=a+hz the momentum half-height divided by h^(3/2) tends to (4/3)(1−z)√(z+2). Using √(2C)=(4/3)√3·c^(3/2) gives precisely the proposed scaled lobe. Its bounding graphs and endpoints converge with common compact support and a zero-area limiting boundary, yielding L¹ indicator convergence and hence TV convergence after normalization. The area is 24/5 in scaled coordinates, and multiplying by the Jacobian gives 256·2^(3/4)/45 as claimed. Divergence zero gives canonical area invariance; integrating the limiting vertical width and putting w=(z+2)/3 yields density (15/4)√w(1−w). This proof does not require executing the supplied finite checker.
 
-## Closest literature and scientific limits
-- Prieto-Castrillo et al. (2026), arXiv:2611.13861v1: effective potential, equilibria, and conservation are **known** and explicitly attributed.
-- *Two resonance accumulation scales for conservative complex rocking* (17 November 2026): physically closed complex trajectories and two resonance accumulation laws for the same potential; no phase-area/law calculation in the complete inspected mathematical proof.
-- Kubyshin, Larreal, Ramírez-Ros and Seara (2017), Appendix B: generic saddle–center lobe area scaling in a different symplectic map. Its result is a genuine antecedent for the local mechanism.
-- Prieto and Lourenço (2005): earlier rocking model, full text unavailable for final historical comparison.
+## originality
 
-The unit probability is **uniform canonical area over the radial trapped annulus**, not time sampling of one periodic orbit; the theorem does not extend to the damped system or reconstructed rigid-body impact trajectories. Scientific historical priority has no independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct contribution is the exact global canonical lobe area and strict monotonicity for this radial model, together with the sharp model-specific normalization and finite-parameter invariant-area convergence. The fold mechanism, cubic lobe shape, and Beta marginal as an elementary consequence of that shape are not independent priority claims.
+
+## value
+
+PASS
+
+The canonical area quantifies the entire trapped ensemble in a model previously characterized principally by confinement and orbit behavior. Exact endpoint areas, strict global order, and the normalized collapse law give concrete calibration for phase-area sampling across the confinement interval. This is not a claim about empirical capture, damping, the full reconstructed flow, or uniqueness of an invariant ensemble.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

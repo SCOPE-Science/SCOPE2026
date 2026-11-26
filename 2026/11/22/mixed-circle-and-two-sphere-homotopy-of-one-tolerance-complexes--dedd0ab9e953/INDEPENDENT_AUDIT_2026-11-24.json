@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:06:12.674620Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 18–40",
+        "VERIFICATION.md, lines 19–21",
+        "check_tolerance.py, lines 9–24 and 27–86"
+      ],
+      "rationale": "A permitted face meets at most two blocks and, if it meets two, has at most one vertex in one of them. For pair i<j, the two joins with one full simplex are contractible and intersect in the connected graph K_{a_i,a_j}. The homotopy pushout along simplicial cofibrations is its suspension, a wedge of (a_i-1)(a_j-1) two-spheres (contractible for a singleton block). Distinct pair spaces meet only in common block simplices. Collapsing those contractible vertex spaces separately preserves homotopy type; equivalently use the double mapping cylinder at each edge of K_r. After a spanning tree connects the components, each remaining edge-space attachment contributes one circle, while every attachment retains its pair-space sphere summands. For integral naturality set A equal to the disjoint union of the block simplices. H_2(X) maps isomorphically to H_2(X,A), whose relative chains split by block pairs, and hence to the sum of the pair H_2 groups. In each pair the natural Mayer–Vietoris map gives the integral cycle lattice of the bipartite graph: since oriented edges run from i to j, its integral cycles are exactly matrices with all row and column sums zero, the tensor of the two augmentation kernels. The affine map collapsing blocks to their index vertices induces an isomorphism on H_1: H_1(X,A) is one free copy of Z per pair, with connecting map the usual incidence matrix. This also proves trivial within-block action on H_1. In RESULT.md line 40, 'four-simplex' should read 'tetrahedron (3-simplex)'; the four-element forbidden set and its allowed triangular boundary are unambiguous, so this does not affect the claim. The uploaded field checker was inspected, not run; the all-size integral result follows from the proof, not the field comparisons.",
+      "residual_risks": [
+        "This does not assert a homotopy splitting equivariant under any permutations; the module action is only under within-block permutations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Selvaraja's chordal bound gives 3-collapsibility at tolerance one (hence vanishing in degrees at least three), without computing the lower-degree ranks or modules. The arbitrary-graph theorem covers all disjoint vertices and edges, but states explicitly that filled cliques are not in its scope."
+        ],
+        "reasoning": "In the shared subclass the exact wedge is covered, not merely bounded. In the full-simplex problem, a block of size at least three and a vertex of a second block give a permissible four-element face, whereas the one-dimensional-input tolerance complex has none; the two-body decomposition is extra information, not a direct application to the one-dimensional skeleton.",
+        "searches": [
+          "arXiv:2611.14384v1 Theorem 1.3",
+          "Resultary: The homotopy type of one-tolerance complexes of arbitrary graphs, 6217221a2721"
+        ]
+      },
+      "checked_sources": [
+        "Kim–Lew arXiv:2109.03030v1",
+        "Selvaraja arXiv:2611.14384v1",
+        "Resultary 6217221a2721 and 61d0b213c45a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A chordal Leray bound gives vanishing, not counts or attaching maps. The one-dimensional wedge formula is nonequivariant; it makes no statement identifying the integral augmentation tensor action."
+        ],
+        "reasoning": "Even an auxiliary graph model for the ordinary wedge would need a homotopy comparison for filled blocks and would not identify the natural module merely by matching ranks. The pair Mayer–Vietoris map and its integral action are distinct from the inspected general bounds and earlier sphere example.",
+        "searches": [
+          "Kim–Lew §1 two-facet example",
+          "Selvaraja Theorem 1.3",
+          "Resultary: 6217221a2721 displayed b_1,b_2 and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-deletion tolerance on the clique complex of a cluster graph is exactly the object reviewed. Kim–Lew's two blocks of size t+1 give its (r,a_1,a_2)=(2,2,2) specialization at t=1. The multipartite join is a different input: it allows only one label per block and allows faces across blocks before tolerance."
+        ],
+        "reasoning": "The predicate agrees with tolerance of the cluster-graph clique complex; replacing it by the graph's one-dimensional skeleton changes the predicate for blocks of size at least three. The multipartite-join result is not an alias.",
+        "searches": [
+          "Resultary: one-tolerance disjoint simplices / cluster graphs, exact mixed wedge and integral augmentation modules",
+          "arXiv:2109.03030v1 §1",
+          "Resultary: 6217221a2721 and 61d0b213c45a findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the one-dimensional graph record put m equal to the number of size-two blocks and n=r+m. Its displayed b_1 is binomial(r-1,2), and s=(n-2)m gives b_2=binomial(m,2), precisely this subclass's ranks. No all-block exact formula with these integral modules was found among the inspected claims."
+        ],
+        "reasoning": "The graph and assigned records have the same listed UTC date, which does not establish priority. The exact rank overlap holds regardless of their order.",
+        "searches": [
+          "Resultary: arbitrary-block one-tolerance homotopy and integral modules; source IDs 6217221a2721 and 61d0b213c45a",
+          "arXiv:2109.03030v1 boundary example"
+        ]
+      },
+      "rationale": "Credit the earlier boundary-sphere special case and chordal homology vanishing, and disclose the same-day full wedge overlap for disjoint edges and vertices. The inspected statements do not supply the joint claim for arbitrary full simplex blocks and their within-block integral modules. No priority for the overlapping subclass is asserted.",
+      "residual_risks": [
+        "Relative order of same-day related records is not established.",
+        "Unindexed equivalents are possible; no novelty credit is given for the overlapping subfamily or for high-degree vanishing alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage",
+          "evidence": [
+            "Disjoint A and B of size t+1 yield the boundary of the simplex on A∪B, S^{2t}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.03030",
+          "material_read": "Primary §1, OA text offsets 8741–9205",
+          "method": "Bounded OA text inspection",
+          "title": "Leray Numbers of Tolerance Complexes",
+          "trigger": "Same definition and exact disjoint-facet sphere"
+        },
+        {
+          "assessment": "Covers the high-degree vanishing; not the wedge ranks or modules",
+          "evidence": [
+            "Chordal clique complex t-tolerance is (2t+1)-collapsible for t≤3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14384v1",
+          "material_read": "Primary §1, Theorem 1.3, OA offset 8200",
+          "method": "Bounded OA theorem inspection",
+          "title": "Tolerance complexes of chordal graphs and squarefree symbolic powers",
+          "trigger": "General chordal family includes unions of cliques"
+        },
+        {
+          "assessment": "Exact same-day overlap on blocks of size at most two; not a theorem for filled cliques or their integral modules",
+          "evidence": [
+            "The theorem specifies strictly one-dimensional K(G), no filled triangles, and explicitly excludes sets of size four in its tolerance complex."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-homotopy-type-of-one-tolerance-complexes-of-arbitrary-graphs--6217221a2721/RESULT.md",
+          "material_read": "Finding, scope, and opening triangle count, offsets 0–2581",
+          "method": "Local mirror, direct comparison of displayed formulas and input",
+          "title": "The homotopy type of one-tolerance complexes of arbitrary graphs",
+          "trigger": "Same operator and ordinary mixed wedge on a plausibly broader class"
+        },
+        {
+          "assessment": "Different input, no covering implication",
+          "evidence": [
+            "The input is the join of discrete block sets, and the output described is an S^r wedge with a rational character."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-one-tolerance-multipartite-joins-sphere-ranks-and-full-automorph--61d0b213c45a",
+          "material_read": "Mirrored RESULT.md Finding, opening passage",
+          "method": "Local mirror statement comparison",
+          "title": "One-tolerance multipartite joins: sphere ranks and full automorphisms",
+          "trigger": "Same tolerance parameter and block symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Kim–Lew and Selvaraja above",
+        "Resultary 6217221a2721"
+      ],
+      "rationale": "For a natural family of disconnected chordal clique complexes the result gives an all-size integral answer, not a recomputation of the old two-block sphere. It identifies exactly when both homology degrees occur and gives the actual integral action in degree two, useful for symmetry and quotient calculations not provided by a collapsibility bound or ordinary Betti numbers.",
+      "residual_risks": [
+        "The result neither treats arbitrary chordal graphs nor gives an equivariant wedge decomposition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

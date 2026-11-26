@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:58:30.404935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–6",
+        "Frozen VERIFICATION.md and check_maw_palindromes.py, inspected but not executed"
+      ],
+      "rationale": "I reconstructed the classification with the occurrence test that interior runs must be traversed in full. One- and two-run candidates give just the two forbidden unary extensions. In a three-run 010 candidate the middle run has length b or both ends must be singletons and the middle length is <b. At length b the supported outer-exponent pairs are two transposed rectangles, with unique internal minimal gap (min(a,c)+1,min(a,c)+1) if a≠c. A 101 candidate gives exactly the singleton ends with a supported zero-run length other than c. For a four-run 0^i1^j0^k1^h candidate, the entire first three runs lie in its shorter prefix and the last three in its shorter suffix. These force j=b, k=c, h≤b and i≤a (the transposed rectangle can allow (i,c) only if c≤a and i≤c). This also bypasses swapped prefix/suffix descriptions in the frozen four-run case split. A five-run candidate starting with 0 contains both four-run boundary blocks, which force it to occur; starting with 1 it must have singleton ends and both shorter factors occur exactly when its internal runs have lengths c,b,c with c≤a. Six runs cannot have both boundary deletions present, and seven or more retain too many runs. The families are disjoint and their counts sum to b+max(a,c)+1+1_{a>c}. The unary case uses the ambient missing letter, and the three-run case gives the shorter symmetric list. In 0010110100, the absent words 0011 and 1100 have present length-three prefixes and suffixes; the source is palindromic with seven runs and a palindrome cannot have an even run count.",
+      "residual_risks": [
+        "The minor prefix/suffix label swap in the four-run prose does not affect the statement or the boundary-block argument given here. The finite recorded tests do not establish the unrestricted formula by themselves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akagi et al. give an output-sensitive algorithm. 3131fc449d40 handles the more general 0^a1^b0^c1^d0^e pattern but leaves a bounded remainder; a3767ec90631 gives a bound on just the palindromic subset of MAWs."
+        ],
+        "reasoning": "An algorithm may enumerate every particular input without giving the closed symbolic count or a uniform rigidity theorem. The wider pattern's bounded remainder cannot decide the exact remaining families, and a bound on palindromic MAWs cannot rule out nonpalindromic ones.",
+        "searches": [
+          "Akagi et al. arXiv:2202.13591, Theorem 1",
+          "Resultary 3131fc449d40 and a3767ec90631"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.13591",
+        "arXiv:2006.02134",
+        "DOI:10.1186/s13015-017-0094-z",
+        "Resultary 3131fc449d40, a3767ec90631 and a8201f56b9b0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With d=b and e=a, the 3131fc449d40 three-run bridge count is b+max(a,c)−2, precisely frozen families 2 and 3. It leaves the non-bridge remainder bounded but unclassified. The cited 2017 construction gives a₂a₁^ka₂, 0≤k≤n−3, as MAWs of a₂a₁^(n−2)a₂."
+        ],
+        "reasoning": "Credit the exact bridge implication (in a later-dated record) and the earlier short-word overlap. Neither gives the remaining symmetric exponent and endpoint cases or the universal five-run threshold with a seven-run obstruction.",
+        "searches": [
+          "Resultary 3131fc449d40 Finding and Proof §1",
+          "Almirantis et al., tight bounds section",
+          "Akagi et al. arXiv:2202.13591 §§2.4–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akagi et al. use ordinary contiguous MAWs but their five classes are run-encoding algorithm classes. Mieno et al. and a8201f56b9b0 study MAPWs, whose proper-factor requirement tests the palindrome's interior rather than both length-one-shorter boundaries."
+        ],
+        "reasoning": "Changing MAW to MAPW changes the property: requiring occurrence of the interior is weaker. The five RLE classes and five explicit families also describe different levels of classification.",
+        "searches": [
+          "Minimal absent words on run-length encoded strings, arXiv:2202.13591",
+          "Minimal absent palindromic words, arXiv:2006.02134 and Resultary a8201f56b9b0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact lists are three-run bridge families within general five-run words and a MAPW spectrum for a different family. Almirantis et al. list absent bridges in a particular three-run palindrome."
+        ],
+        "reasoning": "There is no finite table needed to state this result; the comparable indexed objects are exact symbolic lists. These particular lists and bounds do not identify the full ordinary MAW language for arbitrary positive a,b,c.",
+        "searches": [
+          "Local Resultary search for five-run binary minimal absent factors, 3131fc449d40, a3767ec90631 and a8201f56b9b0",
+          "Almirantis et al. DOI:10.1186/s13015-017-0094-z, tight bounds section"
+        ]
+      },
+      "rationale": "Earlier work supplies general run-length MAW enumeration and an earlier three-run example, but in the inspected statements neither supplies the symmetric five-run closed classification or sharp universal palindromicity boundary. The closest indexed general five-run count has an exact partial overlap and leaves the crucial remainder unresolved.",
+      "residual_risks": [
+        "The bounded searches do not exclude an earlier exact symmetric specialization or an indexed equivalent under other terminology. Catalogue dates alone do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic coverage, not the claimed structural classification",
+          "evidence": "Partitions ordinary MAWs into RLE classes and gives an output-sensitive enumeration framework.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.13591",
+          "material_read": "§§2.4–3 pp. 3–5 and Theorem 1 p. 9",
+          "method": "Open primary PDF passages",
+          "title": "Minimal Absent Words on Run-Length Encoded Strings",
+          "trigger": "General five-class MAW characterization for arbitrary run patterns"
+        },
+        {
+          "assessment": "Genuine three-run special-case overlap",
+          "evidence": "Explicit absent bridge family for a₂a₁^(n−2)a₂.",
+          "identifier_or_url": "https://doi.org/10.1186/s13015-017-0094-z",
+          "material_read": "Tight bounds on minimal absent words, p. 4, offset 19300",
+          "method": "Open primary PDF passage",
+          "title": "On avoided words, absent words, and their application to biological sequence analysis",
+          "trigger": "Earlier exact binary palindrome MAW construction"
+        },
+        {
+          "assessment": "Different notion of minimality",
+          "evidence": "Tests occurrence of the absent palindrome's interior, not both boundary deletions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.02134",
+          "material_read": "Definition p. 3 and §5.2 pp. 13–14",
+          "method": "Open primary PDF passages",
+          "title": "Palindromic Trees for a Sliding Window and Its Applications",
+          "trigger": "Potentially equivalent palindromic absence terminology"
+        },
+        {
+          "assessment": "Later partial coverage of bridge families, not complete classification",
+          "evidence": "The symmetric specialization matches the three-run bridge families exactly, with an unspecified bounded remainder.",
+          "identifier_or_url": "3131fc449d40",
+          "material_read": "RESULT.md Finding and Proof §1, offsets 0–4562",
+          "method": "Local Resultary mirror",
+          "title": "A five-run limit law for minimal absent factors of binary words",
+          "trigger": "Closest direct indexed five-run overlap"
+        },
+        {
+          "assessment": "Later bound on palindromic subset only",
+          "evidence": "At most n palindromic MAWs for binary words of length n, with a three-run extremizer.",
+          "identifier_or_url": "a3767ec90631",
+          "material_read": "RESULT.md Finding and proof, offsets 0–4215",
+          "method": "Local Resultary mirror",
+          "title": "A sharp bound on palindromic minimal absent factors of binary words",
+          "trigger": "Potential general consequence for palindromicity"
+        },
+        {
+          "assessment": "MAPWs, not classification of unrestricted ordinary MAWs",
+          "evidence": "Treats block powers and its statement distinguishes the two definitions.",
+          "identifier_or_url": "a8201f56b9b0",
+          "material_read": "RESULT.md Finding, offsets 0–4601",
+          "method": "Local Resultary mirror",
+          "title": "Complete palindromic and minimal absent palindrome spectra of binary block powers",
+          "trigger": "Adjacent exact absent-palindrome lists"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§3–6; comparison with RLE enumeration and the general five-run bridge result"
+      ],
+      "rationale": "Reversal closure of the MAW set for a palindrome does not force its elements to be individually palindromic. The minimal-run transition is therefore a natural rigidity question. The five-family description explains why reversal does fix each minimal absence through five runs, and the seven-run counterexample identifies where this need no longer hold. This is a structural result for arbitrarily long words, stronger than checking short palindrome instances.",
+      "residual_risks": [
+        "No classification of seven-run MAWs generally or of nonpalindromic five-run source words is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The graph contains a forward Hamiltonian path and only forward separated even-to-odd chords, forcing identical total-order reachability for all choices. The three possible types of two-step path have distinct missing ordered endpoints: short gap-two chain pairs, odd-to-odd long chain/chord pairs, and even-to-even long chord/chain pairs. Their boundaries consequently have a linearly independent projection to forbidden arcs, proving \(\Omega_2=0\) over the integers. The spanning chain gives incidence rank \(4m-1\) and explicit primitive integral chord-cycle basis. The proof is uniform in \(m\) and \(S\); the finite checker is supplementary.
+## correctness
 
-## Originality: PASS with residual priority risk
-The motivating Muranov–Muranova article (arXiv:2611.15308, Sections 5–6) defines the relevant topologies but does not state a quantitative all-Betti-ranks fixed-topology family. Hepworth–Roff (arXiv:2312.01378, Introduction and Example 2.7) already prove the **qualitative** failure of reachability to determine first path homology; this is not the novelty claim. Chaplin (DOI:10.1007/s41468-022-00108-3, Proposition 3.17, citing Grigor'yan et al.) gives a general motif criterion which subsumes the vanishing-two-chain lemma when its hypotheses are checked. The presently distinguished assertion is the explicitly constructed *antisymmetric linear reachability* family realizing the **complete integer interval** from zero through a quadratic maximum on one fixed labeled topology. Semantic record and literature searches did not identify this exact stronger quantitative statement. The result might have unindexed precursors.
+PASS
 
-## Mathematical value: PASS
-The new vertex-path Alexandrov topology suggests asking what information it loses about ordinary GLMY homology. This establishes a quantitative nonrecoverability result in the most rigid possible \(T_0\) reachability setting (a totally ordered set). Full integer interpolation through \(m^2\) ranks, integral cycle bases and the asymptotically correct quadratic growth rate give a natural comparison theorem, not an arbitrary isolated computation. It does **not** solve the exact extremal constant and does not assert that qualitative nonrecoverability was previously unknown.
+Successor arcs give exactly the labeled total reachability order because every chord also increases labels. The endpoint sets defining the left and right bases are the upper and lower principal sets, respectively; the common preorder nerve is the simplex on a finite chain. For a two-step path, two successor arcs give a gap of two, whereas successor–chord and chord–successor give gaps of at least four with odd–odd and even–even endpoints respectively. The endpoints determine the middle vertex in each case; two chords cannot be consecutive because the chord source and target sets are disjoint. None of these three endpoint pairs is an arc. Projecting the formal boundary onto the missing arcs sends each two-path to its own distinct negative basis vector, so Ω₂ is zero over Z, with no hidden cancellation. Deleting vertices from an increasing path keeps them distinct, so regularization does not change the calculation. Chord coefficients give integer coordinates for all one-cycles: subtract the corresponding multiples of the displayed closed chord-minus-chain chains and the remainder is a cycle on a tree, necessarily zero. This proves freeness and every rank from 0 to m², including m=1 and the full and empty subsets. The ambient cycle-rank bound gives O(n²); the exhibited n²/16 lower bound for n divisible by four is an order statement, not a sharp leading constant.
 
-## Reproducibility and limits
-A self-contained Python 3 checker exhausts all chord selections in the first three sizes and one graph of each rank in five further sizes; 725 instances passed. Only the written structural argument proves the all-parameter theorem. Stronger or equivalent prior claims in obscure sources remain a residual risk; independent review is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative separation from reachability and the criterion for degree-two chains are known. Even arbitrary ranks on a fixed finite total order are available from the nearby barcode construction when the number of vertices grows linearly with the desired rank. The distinctive result here is the explicit family interpolating every first integral rank through order n² on the same n=4m labeled total order, with free integral generators and transparent proof. No compared claim covers that size bound.
+
+## value
+
+PASS
+
+For one labeled rigid T₀ total order, varying only which additional arcs exist produces the full first integral rank interval of the same order as the ambient quadratic upper bound. That measures how much first-homology information the endpoint-set topologies and preorder nerve can lose, beyond a qualitative counterexample or an interval of linear size. Explicit free integral cycles also distinguish this from merely checking Betti numbers over a field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

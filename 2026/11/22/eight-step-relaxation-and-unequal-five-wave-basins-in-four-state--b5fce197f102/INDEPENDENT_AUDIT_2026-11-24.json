@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:06.158494Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64 and VERIFICATION.md; verification/{census.csv,python_results.txt,cpp_results.txt,verify_prism_stdlib.py,verify_prism_indegree.cpp}",
+        "Independent replay: python3 /workspace/branches/finite_reconstruction.py prism; output /workspace/branches/prism_run.txt"
+      ],
+      "rationale": "I reconstructed all 4^10 transitions and checked the census by a separate integer, vectorized lag-equality enumeration. For each starting configuration the first t with an equality F^(t+l)(x)=F^t(x) for l in {1,4,5} exists by t=8. Such equality is possible only on-cycle, and if it holds at any later time it holds on all phases of that cycle, so the earliest such t is the true entry time. Testing the smaller positive lags gives the least period. Canonicalizing the repeated phases gives 1, 530, 6 primitive orbits and all 25 nonzero histogram cells agree with the frozen table and both transcripts. The exact period-basin totals are 436846, 579750, 31980. In the prism any cycle crossing rails uses a positive even number of spokes; a five-cycle with two spokes would require two nonempty rail paths on the same pair of indices with total length three, which is impossible, and four spokes require at least four intervening rail edges. Thus the rail pentagons force shared dihedral action and optional swap. Applying all twenty maps to canonical cycles gives eleven and twenty-one classes of size 10 and 20 at period four; at period five the class of size 2 has basin size 1280 per orbit and the class of size 4 has 7355 per orbit. All 20 depth-eight states are one spatial orbit through 28081, with destination in the latter class (representative 27756 for the witness). The periods divide 20, so the depth bound proves F^28=F^8; F^27 differs from F^7 precisely on the depth-eight states.",
+      "residual_risks": [
+        "The result is exact for this integer-labelled deterministic rule only. Frozen executables were not run; their outputs were compared with a separate reconstruction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former parametrizes multicolor lattice rules; the latter treats three-color finite-graph synchronization and activity."
+        ],
+        "reasoning": "Specifying the multicolor map allows computation but does not give the claimed invariant. The finite-graph theorem changes the number of states and its conclusions do not enumerate basins.",
+        "searches": [
+          "Fisch–Gravner–Griffeath DOI 10.1007/BF01890834, abstract and rules",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320v1, abstract and Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact target b5fce197f102 and prior records 7d4c1d4df82a, 9ac3197a4c9b",
+        "DOI 10.1007/BF01890834; arXiv:1610.07320v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Petersen comparison changes inner rail adjacency from step 1 to step 2, while the three-state comparison changes the update from 2->3 to 2->0. The 6 and 8 coincidences do not preserve the five-cycle basin."
+        ],
+        "reasoning": "No conjugacy or specialization of these findings preserves the joint orbit, symmetry and depth data; the exact counts require new enumeration.",
+        "searches": [
+          "Earlier findings 7d4c1d4df82a and 9ac3197a4c9b; arXiv:1610.07320v1 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact 530/6 and 1280/7355 hit has the frozen record's own ID. Record 7d4c1d4df82a matches GP(5,1) but uses three states."
+        ],
+        "reasoning": "The Cartesian product and generalized Petersen names here are equivalent, but changing the refractory clock changes the update map and the state space. The target's own copy is not a distinct finding.",
+        "searches": [
+          "Resultary: exact prism four-state claim, C5 square K2, GP(5,1), pentagonal prism; records b5fce197f102, 7d4c1d4df82a, 9ac3197a4c9b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7d4c1d4df82a reports six five-orbits, eight updates, and combined five-basin 2190 on the three-state prism. 9ac3197a4c9b reports 90 four-orbits, 30 five-orbits and eleven updates on the four-state Petersen graph."
+        ],
+        "reasoning": "Neither earlier table concerns the specified graph and update jointly; only the identical catalog copy has the complete claimed census.",
+        "searches": [
+          "Resultary entries b5fce197f102, 7d4c1d4df82a and 9ac3197a4c9b; exact five-wave basin values and graph aliases"
+        ]
+      },
+      "rationale": "The exact same record in the catalog is not earlier independent coverage. The strongest same-graph comparison shares two quantitative results but changes the local dynamics; the strongest same-rule comparison changes the graph and its numbers differ. The inspected general results do not give the claimed joint census or unequal per-orbit basins. This passes the distinct four-state prism classification on the available evidence, not priority over the excitation rule or those neighboring censuses.",
+      "residual_risks": [
+        "The 1978 source DOI 10.1137/0134040 and cited 1993 preprint patt-sol/9303002 were not available in full on attempted routes. A focused primary search was unavailable; no inference of absence was taken from that failure. Unindexed exact tables may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material quantitative overlap, different map",
+          "evidence": [
+            "Three states, five-basin 2190, as opposed to four states and five-basin 31980."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-recurrence-and-basins-on-the-two-ten-vertex-generalized-pe--7d4c1d4df82a",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local archived source text",
+          "title": "Exact recurrence and basins on the two ten-vertex generalized Petersen graphs",
+          "trigger": "Same GP(5,1), six five-orbits, eight updates"
+        },
+        {
+          "assessment": "Different graph and exact findings",
+          "evidence": [
+            "GP(5,2), 90/30 primitive orbits and maximum first entry 11."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-five-cycle-survival-and-two-four-cycle-symmetry-types-in-four-st--9ac3197a4c9b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local archived source text",
+          "title": "Five-cycle survival and two four-cycle symmetry types in four-state Petersen excitation",
+          "trigger": "Same four-state threshold-one rule and graph family"
+        },
+        {
+          "assessment": "The read model statements concern lattice scaling, not this exact census",
+          "evidence": [
+            "The rules specify range, threshold and colors on the square lattice."
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+          "material_read": "PDF p. 1, abstract and §1 rules",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Classical multicolor threshold framework"
+        },
+        {
+          "assessment": "Three colors, qualitative conclusion",
+          "evidence": [
+            "Theorem 3 treats synchronization and long-run activity, not four-state orbit basins."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "Abstract and Theorem 3",
+          "method": "Open primary HTML bounded passages",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broad deterministic finite-graph results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope; reconstructed histograms and five-wave orbit basins",
+        "Earlier comparison records 7d4c1d4df82a and 9ac3197a4c9b"
+      ],
+      "rationale": "The pentagonal prism is a natural small cubic graph with two odd rails, allowing controlled comparison with its three-color predecessor and its four-color Petersen relative. In particular orbit period and readily matching recurrence counts do not capture attractiveness: geometry divides equal-period five-waves into per-orbit basins differing by over a factor of five. The sharp, spatially resolved longest transient and complete depth-by-period counts are concrete benchmarks for finite excitation dynamics.",
+      "residual_risks": [
+        "Value is as a natural finite invariant and comparison benchmark, not as a law for other cubic graphs or numbers of states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

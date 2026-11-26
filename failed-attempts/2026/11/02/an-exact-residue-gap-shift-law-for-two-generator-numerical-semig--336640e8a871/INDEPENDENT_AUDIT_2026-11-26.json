@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:21:48.347425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The simultaneous shift and all stated consequences hold under the two endpoint coprimality hypotheses, without any coprimality assumption on an intermediate pair. An independent algebraic check uses (1-z^a)P_{a,b}(z) = sum_{i=0}^{a-1}z^i - sum_{i=0}^{a-1}z^{ib}, where P is the gap polynomial. Subtract the corresponding identity at (a+m,b+m) in the polynomial ring modulo z^m-1. The increment profile f satisfies f(t)-f(t-a)=1-e*1_{e|t}; exchanging a,b yields f(t)-f(t-b)=1-d*1_{d|t}. The proposed sawtooths satisfy both cyclic differences, since a is -k modulo e and b is k modulo d. The two differences determine f up to a constant because gcd(a,b)=1; the difference of the Sylvester genera fixes its mean to a+(k+m-2)/2. CRT yields the asserted product-uniform multiplicities, range and variance, and t=0 counts exactly the quotient gaps. The source's Fourier recurrence is understood as a change of -1, rather than a decrease by -1. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "N_t is genus/m plus b/m times [rem_d(b^{-1}t)-(d-1)/2], plus a/m times [rem_e(a^{-1}t)-(e-1)/2], plus a term depending only on a,b modulo m (with m and t fixed)."
+        ],
+        "reasoning": "This result supplies the counts themselves for arbitrary coprime pairs greater than one, not just their differences; both endpoints of the frozen theorem satisfy its hypotheses.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-resonant-affine-laws-for-residue-class-gaps-of-two-generator-num--305af2150821, exact decomposition in Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 305af2150821 mirrored RESULT.md",
+        "arXiv:2101.01760",
+        "arXiv:1809.09360",
+        "arXiv:1904.08240",
+        "arXiv:2607.23076"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting at (a+m,b+m) and (a,b) cancels the residual and gives a+(k+m-d-e)/2+rem_d(b^{-1}t)+rem_e(a^{-1}t).",
+          "The remainders are u_d(t) and e-u_e(t)-e*1_{e|t}, respectively."
+        ],
+        "reasoning": "This is exactly the frozen formula including shared-factor cases. Using the absolute decomposition avoids the unjustified assumption that a one-generator intermediate pair stays coprime. Uniform independent CRT residues immediately give range and variance; taking t=0 gives the genus corollary.",
+        "searches": [
+          "305af2150821 RESULT.md, exact decomposition and residual term"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed N_r(a,b;m) and the frozen G_{a,k,m}(t) count the same positive gaps under b=a+k, r=t.",
+          "The quotient genus counts just t=0. Shor's static equidistribution concerns one histogram and is not the translation balance predicate."
+        ],
+        "reasoning": "The variable change is exact. Neither a quotient Frobenius number nor a static balance test is a substitute for the full translated histogram.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-resonant-affine-laws-for-residue-class-gaps-of-two-generator-num--305af2150821",
+          "arXiv:1809.09360, Theorem 1.3 and Corollary 2.3",
+          "arXiv:2101.01760, Proposition 3.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hit supplies an exact symbolic histogram rather than a numerical table, and includes both one-generator step formulas as well."
+        ],
+        "reasoning": "The indexed symbolic match is stronger than any parameter table. The proof does not depend on a sequence lookup or a coincidence in the six-entry example.",
+        "searches": [
+          "Resultary local indexed record 305af2150821 and its mirrored RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed result gives a stronger exact formula for every static residue count. Subtracting this formula at the two endpoints recovers the entire frozen increment; its CRT statistics are immediate consequences. This is demonstrated mathematical coverage, not a priority determination based on catalog dates.",
+      "residual_risks": [
+        "The catalog paths have different dates but do not establish the creation or priority chronology. The disposition rests on statement-level coverage.",
+        "The bounded primary-literature comparison does not establish the earliest appearance of the formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the increment with the full assumptions",
+          "evidence": [
+            "The exact residue-count decomposition has coefficients b/m and a/m and a remainder invariant under generator shifts by m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/22/SCOPE-resonant-affine-laws-for-residue-class-gaps-of-two-generator-num--305af2150821/RESULT.md",
+          "material_read": "Finding, scope and Proof through the exact decomposition and residual term (offsets 0–4172)",
+          "method": "Local mirror; algebraic differencing at both endpoints",
+          "title": "Resonant affine laws for residue-class gaps of two-generator numerical semigroups",
+          "trigger": "Strongest indexed formula-level match"
+        },
+        {
+          "assessment": "Static criterion, not the exact increment",
+          "evidence": [
+            "The criterion applies to equidistribution of one multiset of gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.01760",
+          "material_read": "PDF pp. 6, 8–9: gap polynomial, Proposition 3.9 and cyclotomic criterion",
+          "method": "OA passage inspection",
+          "title": "Equidistribution of numerical semigroup gaps modulo m",
+          "trigger": "Static residue gaps and Fourier method"
+        },
+        {
+          "assessment": "Related Fourier and quasipolynomial framework",
+          "evidence": [
+            "Theorem 1.3 filters multiples of the quotient divisor, not all residue differences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.09360",
+          "material_read": "PDF pp. 2–3 and 5: Theorem 1.3 and proof, Corollary 2.3",
+          "method": "OA passage inspection",
+          "title": "On the genus of a quotient of a numerical semigroup",
+          "trigger": "Potential coverage of quotient consequence"
+        },
+        {
+          "assessment": "Inspected theorem is not a full histogram under the frozen shared-factor hypotheses",
+          "evidence": [
+            "Theorem 10 is stated with pairwise coprimality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.08240",
+          "material_read": "PDF p. 52, Theorem 10",
+          "method": "OA passage inspection",
+          "title": "Quotients of numerical semigroups generated by two numbers",
+          "trigger": "Exact quotient-genus formula"
+        },
+        {
+          "assessment": "The inspected statement addresses largest gaps, not counts by residue",
+          "evidence": [
+            "The abstract describes a quasipolynomial Frobenius number for a consecutive-generator family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23076",
+          "material_read": "PDF p. 1, abstract and stated result scope",
+          "method": "OA passage inspection",
+          "title": "On the Frobenius Number of Quotients of Numerical Semigroups",
+          "trigger": "Frozen comparison to fixed-modulus quotient asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full transition histogram can be useful, but here the asserted translation law is a direct subtraction of a stronger available residue formula. The remaining spread, variance and balance criterion are routine computations for the two CRT uniforms, not a distinct surviving advance worth a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:51:56.593041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66",
+        "Frozen verify.py and VERIFICATION.md",
+        "Resultary 9fedb9294a7c edge generator and exact column formula"
+      ],
+      "rationale": "In edge coordinates g_i=u_i-u_0, put b_i=c_i sign(g_i)|g_i|^(p-1). Then g'=Ab with A=-diag(1/m_i)-(1/m_0)11^T. The right derivative of the weighted absolute-value norm is a sum of signed velocities on nonzero edges and absolute velocities on zero edges. Expanding by columns of A gives the upper bound sum_i |b_i|B_i for B_i=(W-2w_i)/m_0-w_i/m_i; the off-diagonal contributions can be no larger than sum_(j!=i) w_j/m_0. A one-edge signal achieves B_i in the normalized derivative, hence the supremum is the maximum of the B_i, not every B_i (the wording at line 62 is imprecise; the Finding and displayed proof are clear). The vector field stays inside the initial value bounds, and monotonicity in the mass inner product gives uniqueness without requiring local Lipschitzness for 1<p<2. The right derivative criterion therefore applies at every time; a strictly positive B_i gives immediate increase, while all B_i<=0 force monotonicity by absolute continuity in time. Normalized weights satisfy w_i/W>0 and w_i/W>=(2+m_0/m_i)^(-1), proving feasibility and uniqueness at equality. The frozen checker was inspected but not executed.",
+      "residual_risks": [
+        "This is a finite-star, one-solution directional statement. It does not establish a two-solution Lipschitz estimate for nonlinear heat or cover p=1 or p=infinity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9fedb9294a7c evaluates every logarithmic column on arbitrary finite weighted trees, with independent mass, conductance and edge-variation weights",
+          "The cited primary p-heat papers' inspected contraction statements concern norms on the vertices, while the graph-cut article provides general subgradient machinery"
+        ],
+        "reasoning": "The older finite-tree column formula covers the required edge operator and all mass and weight parameters. The broader nonlinear heat semigroup papers alone do not furnish the particular variation norm criterion, but no new nonlinear argument is needed once the same-sign substitution into the tree result is made.",
+        "searches": [
+          "Resultary 9fedb9294a7c weighted-tree theorem",
+          "Hua–Mugnolo arXiv:1410.1584, weighted graph p-heat generator and semigroups",
+          "Mugnolo arXiv:1207.1996 Prop. 3.9",
+          "van Gennip et al. DOI 10.1007/s00032-014-0216-8, Appendix B"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9fedb9294a7c and 9f22d07634ed",
+        "arXiv:1410.1584 and arXiv:1207.1996",
+        "DOI 10.1007/s00032-014-0216-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier log column of the weighted edge matrix is -c_i kappa_i/w_i and its one-coordinate state is realizable",
+          "For unit conductance its one-coordinate directional derivative per unweighted l1 is -kappa_i=B_i; expanding the derivative by columns yields the same upper bound for every flux vector",
+          "The inequalities w_i(2+m_0/m_i)>=W are exactly kappa_i>=0 and sum of the normalized lower bounds gives the claimed feasibility threshold"
+        ],
+        "reasoning": "There is no uncaptured extremizer or sharp coefficient from changing p: D J_w(g;Ab) depends on the magnitudes only through b, and that substitution is onto. The earlier formula plus a change of directional normalization supplies the entire stated law. Time-monotonicity follows pointwise in either flow, so a nonlinear semigroup comparison is not needed.",
+        "searches": [
+          "Resultary 9fedb9294a7c proof, abs-logarithmic columns and one-edge witness",
+          "Frozen RESULT.md sharp normalized law and mass threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior diagonal column term is -c_i(1/m_i+1/m_0); its off-diagonal absolute terms before coordinate weighting are c_i/m_0",
+          "For every direction v, the convex directional derivatives D J_w(g;v) and D J_w(b;v) agree because their signs and zero sets agree"
+        ],
+        "reasoning": "Replace the nonlinear differences by their flux coordinates in the directional derivative only, not in the time evolution. Then D J_w(g;Ab)=D J_w(b;Ab), which is exactly the older linear directional derivative in the star with unit conductances. The feasible b set is all of R^d. The flux denominator becomes ordinary l1 of b; the earlier individual logarithmic columns multiply by w_i when changing that normalization, giving precisely B_i.",
+        "searches": [
+          "Resultary search for weighted star or tree edge total variation and nonlinear graph heat contraction",
+          "Resultary 9fedb9294a7c proof and independent mass/conductance/variation weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9fedb9294a7c gives kappa_e=(2w_e-s_u)/m_u+(2w_e-s_v)/m_v; its equal-leaf-mass star example already has central mass at least (d-2)m for unweighted variation",
+          "9f22d07634ed gives (d-3)c_j on an isolated-edge initial state of the nonlinear unit-mass unweighted star, with the three-leaf cutoff"
+        ],
+        "reasoning": "The exact symbolic inequalities are the natural indexed objects, not a numerical table. For general star masses, set s_0=W and s_i=w_i in the earlier weighted-tree record. Its criterion is exactly the frozen one after the sign-preserving flux reduction. The same-day result is a narrower nonlinear overlap, with no priority inferred from the date.",
+        "searches": [
+          "Resultary semantic search for exact weighted-tree contraction and nonlinear star variation",
+          "Resultary 9fedb9294a7c and 9f22d07634ed"
+        ]
+      },
+      "rationale": "The preceding weighted-tree linear heat record 9fedb9294a7c already evaluates the same signed columns and exact contraction criterion. The entire claimed nonlinear extension is a pointwise sign-preserving substitution into those derivative data: g and b=(c_i sign(g_i)|g_i|^(p-1)) have the same signs and zero set, so their weighted-norm directional derivatives in the common direction Ab coincide exactly. Every b is attainable, since the coordinate power maps are bijective and every star edge vector is realizable. Therefore the normalized supremum and its witnesses reduce to the previously covered unit-conductance linear star case. The mass feasibility criterion and equality are immediate normalization of those known column inequalities. The distinct same-day nonlinear graph record corroborates overlap, but is not needed to infer earlier coverage.",
+      "residual_risks": [
+        "The audit does not claim the older linear result explicitly stated the nonlinear reparametrization. Its implication is shown here by exact comparison; no priority ranking for the same-day result is inferred. Broader priority beyond these inspections is unassessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly broader graph domain for the linear criterion; the frozen nonlinear star conclusions are mechanically implied by pointwise sign-preserving reduction",
+          "evidence": [
+            "Tree incidence is onto, kappa_e and individual log columns are explicit, and coordinate-vector witnesses are realized by edge cuts",
+            "Known equal-mass star boundary is m_0>=(d-2)m"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c/RESULT.md",
+          "material_read": "Finding, assumptions, full edge generator and column proof, star specialization; local mirror offsets 0–7999, decisive computation at 2500–6850",
+          "method": "Local Resultary mirror and direct substitution in its matrix entries",
+          "title": "A conductance-independent contraction criterion for weighted-tree heat variation",
+          "trigger": "Exact classification for independent weighted-tree heat and an equal-leaf-mass star threshold"
+        },
+        {
+          "assessment": "Exact nonlinear special-case overlap for unit masses and unweighted variation; not complete coverage and not a priority determination",
+          "evidence": [
+            "For d leaves the one-active-edge right slope is (d-3)c_j under unit difference"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cartesian-tensorization-of-nonlinear-graph-heat-variation-contra--9f22d07634ed/RESULT.md",
+          "material_read": "Star derivation and single-leaf witness near offset 5500",
+          "method": "Local Resultary mirror",
+          "title": "Cartesian tensorization of nonlinear graph heat variation contraction",
+          "trigger": "Nonlinear star case in same-day indexed record"
+        },
+        {
+          "assessment": "General model but not the independent edge-variation criterion in the inspected passages",
+          "evidence": [
+            "The generator takes edge conductances and vertex masses; discussed contractions are in vertex spaces"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.1584",
+          "material_read": "PDF pp. 1–2, weighted generator and nonlinear semigroup passages",
+          "method": "Lawful author PDF",
+          "title": "Time regularity and long-time behavior of parabolic p-Laplace equations on infinite graphs",
+          "trigger": "Cited general weighted graph p-heat result"
+        },
+        {
+          "assessment": "Vertex contractivity, not the frozen edge norm",
+          "evidence": [
+            "Order and l-infinity contraction are discussed for vertex solutions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.1996",
+          "material_read": "Prop. 3.9 and supporting argument, PDF pp. 13 and 17",
+          "method": "Lawful author PDF",
+          "title": "Parabolic theory of the discrete p-Laplace operator",
+          "trigger": "Cited p-heat contractivity results"
+        },
+        {
+          "assessment": "General variation calculus, not the star p-heat threshold",
+          "evidence": [
+            "Appendix B gives convex subgradient first-variation machinery"
+          ],
+          "identifier_or_url": "10.1007/s00032-014-0216-8",
+          "material_read": "Abstract and Appendix B pp. 57–58",
+          "method": "Lawful full-text PDF passages",
+          "title": "Mean curvature, threshold dynamics, and phase field theory on finite graphs",
+          "trigger": "Graph TV derivatives and convex subgradients"
+        },
+        {
+          "assessment": "Access gap, not part of the evidence for failure",
+          "evidence": [
+            "Access request returned HTTP 403; no available alternate was identified in the bounded check"
+          ],
+          "identifier_or_url": "10.1155/2011/937079",
+          "material_read": "No decisive primary passage available",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Discrete p-Laplacian diffusion with absorption",
+          "trigger": "Frozen citation on nonlinear graph evolution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp derivative, feasibility statement and example",
+        "Resultary 9fedb9294a7c edge calculations and mass boundary"
+      ],
+      "rationale": "The underlying question of when graph heat diminishes edge variation is natural. But this record's claimed contribution is a pointwise substitution into known column data followed by normalization; the stability boundary and its equal-mass example add no substantive independent result. No valuable non-covered remainder of the frozen claim was identified for repair.",
+      "residual_risks": [
+        "This does not assess potentially novel questions about two-solution nonlinear contraction, decay rates, or graphs with cycles, none of which is claimed in the record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

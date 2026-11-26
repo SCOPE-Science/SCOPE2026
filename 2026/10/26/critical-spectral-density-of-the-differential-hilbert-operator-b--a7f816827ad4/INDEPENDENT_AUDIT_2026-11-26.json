@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:16:51.140481Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the declared normalized Bergman bases, the kernel expansion gives (n+1)/(n+k+1) times the square root of the target/source monomial weight ratio. The calculation on polynomials extends to the integral operator: evaluation at t is bounded by (1−t²)^(−(α+2)/2) times the input norm, which is integrable on (0,1) here, and at fixed disk z the other kernel is bounded. Set x=n+1,y=k+1. The uniform gamma-ratio and shift errors, and the cell interpolation error by log differentiation, are relative O(x⁻¹+y⁻¹) for Kδ=cδ x^(−δ/2)(y/x)^s/(x+y). Squared weighted error sums on y≥x and x≥y are bounded respectively by constants times Σx⁻³ and Σy⁻³, using 0<s<1/2. This proves the uniform Hilbert–Schmidt comparison after the unit-cell embedding. The logarithmic unitary gives the half-line convolution h_s(t)=exp(st)/(2 cosh(t/2)) with output damping exp(−δu/2). Young's inequality and direct integration give uniform operator norms and Hilbert–Schmidt norms O(δ⁻¹/²). For q≥1 the positive cyclic trace integral can first be taken on bounded boxes and then passed to the limit by monotone integration and Hilbert–Schmidt convergence. Anchor u₁, scale it by δ, and express the remaining coordinates as differences from u₁. The product of kernels is dominated by an exponential of the negative sum of edge differences from any spanning tree of the connected cycle; each anchored displacement is bounded by the sum along its tree path. Thus for small δ the damping in relative coordinates is absorbed with a fixed integrable exponential envelope, and the remaining exp(−qδu₁) yields the factor 1/q after scaling. The unconstrained difference integral is the zero-value convolution power of the autocorrelation, hence (2π)⁻¹∫|ĥ_s|^(2q); substitution r=e^t yields ĥ_s=π/cos(π(s−iξ)). Trace-norm telescoping with the Hilbert–Schmidt error changes each scaled moment by O_q(√δ). Polynomial approximation for the weighted measures on a common compact interval then proves the asserted weak limit. The phase-space pushforward has no positive-threshold atom, including at the maximum, because each ξ gives at most one u at any positive level. Division by the spectral coordinate above t² is thus justified; F(x)=x^(p/2−1) gives every fixed real p≥2 including p=2. At s=1/4, ∫sech(2πξ)dξ=1/2 and ∫sech²(2πξ)dξ=1/π yield the two stated benchmarks. Replay: RESULT.md lines 52–153 with the summability/domination arguments above. The supplied verify.py was inspected, not executed: it checks quadrature and a finite entrywise gamma-ratio comparison, not a discretized spectrum despite the loose wording at RESULT.md line 153. No finite experiment is needed for the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Zhou treat the exact spaces and operator, establishing compactness and Schatten membership and a Hilbert–Schmidt expression. Fedele treats logarithmically scaled fixed-symbol regularized Hankel counts. Otte treats a finite Hilbert matrix determinant."
+        ],
+        "reasoning": "The ordinary Wiener–Hopf/Mellin model has a semiclassical phase-space interpretation after rescaling x=δu, but these inspected results do not supply a transfer of the weight-dependent Bergman matrix to that model or the claimed variable soft cutoff. The Hankel and finite-section results are not verified dominating theorems here.",
+        "searches": [
+          "arXiv:2610.05672v1 Theorems 4.2, 4.4",
+          "arXiv:1903.11572 singular-value density Theorems 1.1 and 1.2",
+          "arXiv:2207.11029 Theorem 1.1 Hilbert/Carleman Szegő limit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05672v1",
+        "arXiv:1903.11572",
+        "arXiv:2207.11029",
+        "Resultary:ea74937420c0",
+        "Resultary:05c0d7c6bcd1",
+        "Resultary:1bba781d9ccf",
+        "Resultary:2895330734c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact gamma-ratio to soft convolution comparison needs uniform Hilbert–Schmidt control so all rescaled spectral moments, not just p=2, survive transfer. The current proof derives the variable damping spatial integral exp(−qu) and the factor 1/q; none of the inspected earlier statements gives this for the frozen operator."
+        ],
+        "reasoning": "The primary results explain why this regime exists and supply models and established techniques. An off-the-shelf phase-space theorem for the rescaled convolution model might replace the trace-cycle step; the weight-dependent operator identification and controlled error remain necessary for an implication about Tδ.",
+        "searches": [
+          "Li–Zhou Thms. 4.2/4.4; Fedele Thms. 1.1/1.2; Otte Thm. 1.1",
+          "Resultary: ea74937420c0; 05c0d7c6bcd1; 2895330734c4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary threshold of λ=s_j² in the weighted phase-space law gives the logarithmic positive part; the integer spectral moments encode the same compactly supported weighted measure. Indexed 05c0d7c6bcd1 and 1bba781d9ccf describe entrywise or output-degree energy, not this pushforward of singular spectrum."
+        ],
+        "reasoning": "The distribution of matrix-entry energy or its output-degree marginal controls total Hilbert–Schmidt mass but not the traces of powers of T* T: order two and higher involve cross terms around cycles.",
+        "searches": [
+          "critical spectral density differential Hilbert operator weighted Bergman spectral distribution Schatten asymptotic delta",
+          "differential Hilbert Bergman near-critical delta singular values counting law full spectral distribution Mellin convolution e^{-u} mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026-10-18 ea74937420c0 gives exactly c²B(α+2,−α). 2026-10-25 05c0d7c6bcd1 gives the same p=2 residue with bounded remainder and a finite-section energy law. Later 2895330734c4 has a comparable soft-cutoff spectral law for the positive symmetrically tapered Hilbert matrix."
+        ],
+        "reasoning": "The beta residue equals Γ(α+4)Γ(−α), so this is direct exact overlap in one observable, not merely a related constant. The symmetrically tapered Carleman model in the later record has different weights, multiplier, and observable, so is not equivalent coverage.",
+        "searches": [
+          "Resultary: critical spectral density differential Hilbert operator weighted Bergman spectral distribution Schatten asymptotic delta",
+          "Resultary: differential Hilbert Bergman near-critical delta singular values counting law full spectral distribution Mellin convolution e^{-u} mixture"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the weighted singular spectral law and its fixed-threshold and p>2 consequences for the exact differential operator. The p=2 residue, including 15π/8 at α=−1/2, is existing coverage and receives no originality credit. Neither exact entrywise energy knowledge nor critical boundedness and above-critical membership gives the other spectral moments or the full counting law.",
+      "residual_risks": [
+        "A more general semiclassical Szegő or weighted Wiener–Hopf result may yield the continuum trace limit; this review did not locate an existing theorem for the exact differential Bergman-weight matrix that also supplies the needed transfer. The bounded general web lookup returned no results, which does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator, no scaled full spectral law in passages checked",
+          "evidence": "Equivalence of compactness and Schatten membership for the upper weight range and exact Hilbert–Schmidt series/integral.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05672v1",
+          "material_read": "Abstract; Thms. 4.2, 4.4, offsets approximately 61246–67000",
+          "method": "OA text passages",
+          "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+          "trigger": "Exact operator and boundary"
+        },
+        {
+          "assessment": "Comparable but different theorem hypotheses and cutoff",
+          "evidence": "Jump-height-based log-N asymptotics for fixed-symbol Hankel matrices under Schur-multiplier regularization conditions.",
+          "identifier_or_url": "https://arxiv.org/html/1903.11572",
+          "material_read": "Definition around offset 8000; Thms. 1.1/1.2 around 19500",
+          "method": "OA text passages",
+          "title": "The Spectral Density of Hankel Operators with Piecewise Continuous Symbols",
+          "trigger": "Earlier singular-value counting on Hilbert-type matrices"
+        },
+        {
+          "assessment": "Hard-cutoff determinant comparison, not the present family",
+          "evidence": "Log-asymptotics for the finite Hilbert determinant, using the Carleman/Kac–Akhiezer route.",
+          "identifier_or_url": "https://arxiv.org/html/2207.11029",
+          "material_read": "Abstract and opening Thm. 1.1",
+          "method": "OA text passages",
+          "title": "A Szegő Limit Theorem Related to the Hilbert Matrix",
+          "trigger": "Earlier Hilbert-to-Carleman asymptotic method"
+        },
+        {
+          "assessment": "Direct p=2 overlap",
+          "evidence": "Exact c²B(α+2,−α) and compression/membership, not all spectral moments.",
+          "identifier_or_url": "Resultary:ea74937420c0",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Root-exponential compression and a critical Hilbert–Schmidt residue",
+          "trigger": "Exact prior residue for the same operator"
+        },
+        {
+          "assessment": "Entrywise energy law and direct p=2 overlap",
+          "evidence": "Full-operator Hilbert–Schmidt residue with Oα(1) remainder; explicitly distinguishes entry energy from singular counting.",
+          "identifier_or_url": "Resultary:05c0d7c6bcd1",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Beta-prime energy law and critical-window crossover for differential Hilbert operators",
+          "trigger": "Possible same-operator spectral distribution coverage"
+        },
+        {
+          "assessment": "Later energy law, not singular spectrum",
+          "evidence": "Exponential law for rescaled output-degree energy and same Hilbert–Schmidt mass.",
+          "identifier_or_url": "Resultary:1bba781d9ccf",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Universal exponential output-degree energy law at the differential Hilbert boundary",
+          "trigger": "Similar e^{-u} law for the same operator"
+        },
+        {
+          "assessment": "Later and a different operator",
+          "evidence": "Weighted measure and fixed-threshold counting for positive (mn)^(−ε/2)/(m+n) with π sech(πξ) symbol.",
+          "identifier_or_url": "Resultary:2895330734c4",
+          "material_read": "RESULT.md offsets 0 and 6100",
+          "method": "Local Resultary mirror",
+          "title": "Soft-cutoff spectral counting and a three-halves edge law",
+          "trigger": "Close soft-cutoff spectral analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of singular modes surviving at any fixed nonzero level measures how compactness fails when the exact Bergman-weight gap tends to zero. The result resolves that distribution quantitatively, not merely its Hilbert–Schmidt mass or the already-known class membership, and gives usable constants for all fixed powers p≥2. Uniform control of the discretization error and the half-line boundary in all trace moments make the spectral law substantive. There is no claimed uniform shrinking-threshold result, p<2 asymptotic, or individual singular-value estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

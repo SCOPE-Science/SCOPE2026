@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:26:59.114948Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For closed-neighborhood signatures, survival of every one-detector deletion is equivalent to double coverage of each N[v] and double hitting of every N[u] symmetric difference N[v]. Necessity follows by removing the lone witness when there is one, and a set with zero witnesses already fails identification. Sufficiency follows since one deletion reduces any witness count by at most one. Membership is monotone under adding detectors. Independent construction from inclusion of two- and three-subsets and enumeration of all 2^20 masks reproduced the full coefficient list (15,120,680,1824,2155,940,190,20,1) in degrees 12 through 20, zero below, and total 5945. The independently generated 15 paired-complement four-cycle masks equal exactly the twelve-element minima, and the natural S5 action is transitive since it sends any ground four-cycle to any other. BFS with all valid masks and single-bit moves reaches one minimum with budgets 12, 13 and 14, and all 15 with 15; equivariance extends the separation result to every minimum. For b<12 endpoints are absent, so the distinct-component wording applies to 12<=b<=14. Independent replay: `python3 /workspace/branches/612ca51f-d283-49fe-997b-69a441813e25/independent_check.py`; same-directory independent_check.log reports a deterministic small probe, complete census, the 180 direct deletion checks at the minima, and a concrete eight-move path at cap 15. The supplied programs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cubic-graph density bound is 4/7, which rounds up to 12 for n=20. The cubic section supplies generic extremal families, not a theorem classifying every feasible detector placement."
+        ],
+        "reasoning": "The general bound covers nonexistence below 12. Neither it nor the double-witness test proves Desargues attainment or gives the geometry and connecting paths among its optima.",
+        "searches": [
+          "Jean–Seo arXiv:2112.01685, Theorems 2 and 11, cubic graph section"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_main.cpp and verify_secondary.py",
+        "Jean–Seo arXiv:2112.01685",
+        "MathWorld Desargues Graph",
+        "Resultary 11c358e3f61c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The criterion permits exhaustive evaluation but gives no counts without solving the constraints. The lower bound eliminates degrees 0–11 only. TAR paths depend on overlap among feasible supersets and not on the minimum size or the aggregate census."
+        ],
+        "reasoning": "The exact enumeration and labelled family answer questions not determined by the prior lower bound. Monotonicity provides paths at a sufficiently large cap via unions, but does not force connectivity at 15; the two-spare obstruction and three-spare reachability are independent checks.",
+        "searches": [
+          "arXiv:2112.01685 Theorems 2, 11 and Table 2",
+          "Resultary exact Desargues match 11c358e3f61c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same graph is Desargues, H(5,2), or GP(10,3). The complement labels identify the two parts with pairs and turn containment into disjointness across parts.",
+          "Theorem 2 gives double domination and double distinction for redundant identifying codes, exactly the fault model here."
+        ],
+        "reasoning": "These aliases and the equivalent closed-neighborhood hitting formulation identify what a prior exact result would have to count or characterize. They do not themselves specify the omitted four-cycle edge sets, coefficients or reachability threshold.",
+        "searches": [
+          "Resultary: Desargues graph and redundant identifying codes",
+          "MathWorld: Desargues Graph",
+          "Jean–Seo arXiv:2112.01685, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At order 20 Table 2 reports 510489 connected cubic graphs, 427277 supporting a redundant identifying code, and extrema 12 and 18 across that population. It is aggregate, not a row for the Desargues graph.",
+          "Resultary 2026/11/22/SCOPE-four-cycle-complements-and-sharp-three-sensor-reconfiguration-on--11c358e3f61c is the identical assigned finding."
+        ],
+        "reasoning": "An aggregate minimum of 12 is not a per-graph equality statement, an enumerator across cardinalities, a labelled classification, or a TAR table. A separate per-graph resource remains possible but was not established.",
+        "searches": [
+          "Jean–Seo arXiv:2112.01685, Table 2, offset 42698",
+          "Resultary: four-cycle complements and sharp three-sensor reconfiguration on the Desargues graph"
+        ]
+      },
+      "rationale": "The double-witness criterion and lower bound of 12 are prior. The Desargues-specific enumerator, complete four-cycle-complement classification of optima, and sharp TAR slack are distinct from the verified prior statements. An exact catalogue hit matching all three is the frozen record itself, not a distinct priority claim.",
+      "residual_risks": [
+        "A separate per-graph census, implementation output or graph-specific reconfiguration result could exist; the checked aggregate table and bounded searches cannot exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the criterion and lower bound, and gives an aggregate order census; no graph-specific enumerator, optimum pattern or TAR in these results",
+          "evidence": "Table 2 reports only population counts and lowest/highest RED:IC(G) by order, with 12/18 at order 20.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01685",
+          "material_read": "Theorems 2 and 11 (OA offsets 5035 and 37000); cubic extrema and Table 2 (offset 42698)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+          "trigger": "Identical one-erasure criterion, stronger cubic-graph coverage, exact census risk"
+        },
+        {
+          "assessment": "Graph identification only",
+          "evidence": "The cubic 20-vertex graph is a generalized Petersen graph and a bipartite Kneser graph; the frozen incidence definition specifies the aliases in this audit.",
+          "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+          "material_read": "Opening graph description, offset 0",
+          "method": "Public webpage passage",
+          "title": "Desargues Graph",
+          "trigger": "Check graph aliases and parameters for exact matches"
+        },
+        {
+          "assessment": "Same finding identity, not a distinct antecedent",
+          "evidence": "Exact match of enumerator, 15 paired-complement patterns and minimum TAR budget.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-cycle-complements-and-sharp-three-sensor-reconfiguration-on--11c358e3f61c",
+          "material_read": "Matching Finding and frozen proof",
+          "method": "Indexed Resultary search and comparison to bound RESULT.md",
+          "title": "Four-cycle complements and sharp three-sensor reconfiguration on the Desargues graph",
+          "trigger": "Exact Resultary match on graph, model and three outputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Desargues graph is a canonical small cubic incidence graph, and the one-erasure model and TAR cap have a clear fault-tolerance interpretation. The complete enumerator gives the sizes and multiplicities of robust placements; the four-cycle pattern organizes all exact optima, and the sharp extra-capacity requirement answers a different question from minimum size. The result is more than verifying a known cubic bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

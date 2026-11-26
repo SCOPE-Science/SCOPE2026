@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:45.552945Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed n,k, every marker-containing window is determined by its padding limits up to t=k−1, and the all-zero count is the remainder. The prefix-minus-suffix imbalance of the (k−1)-factor path recovers both boundary strings whenever unequal and thus recovers the outer clipped gaps. A window can contain both markers iff b≤k−2 (a substring of length at most k can be extended to a k-window since n≥k), and it gives the internal gap. When the imbalance is zero, equal boundary strings can contain at most one marker because the two boundary windows are disjoint. All-zero boundaries identify A=C=t. Equal single-marker boundaries require a+c=t−1 and force b≥t in the claimed length range. For these exceptions the first marker realizes offsets 0 through a and the second a+1 through t, each once, giving exactly the same profile. The all-zero boundary case cannot share that profile: it has either a two-marker window or, with B=t, two single-marker windows at each offset. At n−2≥3t all triples with a capped gap are feasible by adding the surplus to a capped coordinate, and no uncapped triple is feasible. At n−2=3t−1 only (t,t,t) is lost. Subtracting t−1 for the exceptional merge gives the two counts and proves a sharp stabilization threshold of 3k−1; the fiber theorem already applies at 3k−2. The exception label has just one element for k=2. One representative from each fiber gives the exact code size under this deterministic channel. The supplied partition script was inspected, not executed; the proof is independent of its finite range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected profile-space framework gives arc counts; the Markov-type comparison switches from order-one linear endpoint correction to cyclic balanced matrices.",
+          "The unrestricted binary three-mer count entries do not classify weight-two words; the composition channel discards internal order and pools shorter lengths."
+        ],
+        "reasoning": "The general edge representation gives the imbalance, but it does not solve the balanced linear case, where the exceptional merges occur. Unrestricted k=3 profile counts do not directly specialize to a sparse subfamily, still less extend to every k.",
+        "searches": [
+          "arXiv:1502.00517v1 §§2–3",
+          "Counting Markov Types, DOI 10.46298/dmtcs.2768",
+          "Resultary 7044900c1ee8, c5ea7e549c82 and e75b073e3080"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1502.00517v1 §§2–3",
+        "DOI 10.46298/dmtcs.2768 pp. 387–389",
+        "arXiv:1301.5104 §2 and Prop. 2.8",
+        "Resultary 14cf0c12c2fc, 7044900c1ee8, c5ea7e549c82, e75b073e3080, e4c6817f57fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed three-mer result directly covers the k=3 binary subcase, but its claim fixes k=3.",
+          "The inspected k-abelian proposition concerns factors of a common episturmian word; its definition counts lengths the frozen observable does not.",
+          "The balanced flow of the exceptional fibers loses the common nonzero prefix/suffix; cyclic balanced frequency enumeration does not restore this linear boundary datum."
+        ],
+        "reasoning": "The prior methods and specializations are material but do not supply the arbitrary-k exceptional family or the exact clipping enumeration in the linear model. Indexed dates are not taken as proof of priority.",
+        "searches": [
+          "14cf0c12c2fc RESULT.md offsets 0 and 3483",
+          "arXiv:1301.5104 §2 and Proposition 2.8",
+          "10.46298/dmtcs.2768 pp. 387–389"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "k-abelian equivalence requires counts of every nonempty length up to k. The difference from equal k-factor counts is exactly the boundary datum on this family.",
+          "The indexed k=3 theorem gives the two binary exceptional clipped labels (0,2,1) and (1,2,0)."
+        ],
+        "reasoning": "Given k-counts and the last t letters, all shorter counts follow by successively summing counts over right extensions and adding the suffix occurrence. Conversely the t-counts and outgoing k-counts recover the length-t suffix. Distinct exceptional labels have different suffixes, so this common alternate equivalence is strictly finer for k>2.",
+        "searches": [
+          "Ordered fixed-length contiguous factor multispectrum, multiplicity profile and Markov type",
+          "k-abelian equivalence, arXiv:1301.5104",
+          "Resultary 14cf0c12c2fc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching index entry gives 17 profiles at n=7 and 18 at n≥8 for k=3, exactly the frozen specialization.",
+          "The similarly parameterized gapped-pair count instead grows with n and uses different reads."
+        ],
+        "reasoning": "Match on the exact subcase was checked and credited; a count sequence or fixed-k table alone does not imply the fiber structure and the length threshold simultaneously for arbitrary k.",
+        "searches": [
+          "Local Resultary search for binary weight-two k-mer multiplicity fibers and stabilization",
+          "Resultary 14cf0c12c2fc, 7044900c1ee8, c5ea7e549c82 and e4c6817f57fb"
+        ]
+      },
+      "rationale": "The de Bruijn flow representation and profile definition are known. An indexed theorem for k=3 overlaps exactly in the binary case, even on the exceptional merge and deficient length. The supported distinct result is the linear fixed-weight-two fiber classification and sharp count for arbitrary k, not separate novelty for k=3. The relevant k-abelian equivalence keeps additional boundary information and splits exactly the exceptional labels when k>2. No broader statement giving the entire frozen claim was established in the compared sources.",
+      "residual_risks": [
+        "A boundary-sensitive sparse-word theorem in older word-combinatorics or Markov-type literature could supply an equivalent specialization missed by bounded searches.",
+        "No independent publication-priority conclusion follows from the indexed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework overlap",
+          "evidence": "Defines the vector of factor occurrence counts and arcs from length-(ℓ−1) prefixes to suffixes.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517v1",
+          "material_read": "§2 offset 4200; §3 offset 24700",
+          "method": "OA primary passages",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Full ordered factor-count profile and edge encoding precedent"
+        },
+        {
+          "assessment": "Different constraints and scope in inspected passages",
+          "evidence": "Pair-frequency matrices of order one followed by counting balanced frequency matrices of cyclic strings.",
+          "identifier_or_url": "10.46298/dmtcs.2768",
+          "material_read": "pp. 387–389, especially linear correction p. 388 and cyclic enumeration p. 389",
+          "method": "OA primary proceedings passages",
+          "title": "Counting Markov Types",
+          "trigger": "Potential broader exact edge-frequency classification"
+        },
+        {
+          "assessment": "Finer equivalence, not the same observable",
+          "evidence": "Counts factors of all lengths through k; inspected proposition is for factors of a common episturmian word.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "§2 p. 2 offset 5000; Prop. 2.8 p. 6 offset 19336",
+          "method": "OA primary PDF passages",
+          "title": "On a Generalization of Abelian Equivalence and Complexity of Infinite Words",
+          "trigger": "Potential equivalent word relation"
+        },
+        {
+          "assessment": "Direct k=3 subcase overlap",
+          "evidence": "Binary specialization gives the same sole nontrivial clipped-label merge and counts 17 and 18.",
+          "identifier_or_url": "2026/11/8/14cf0c12c2fc",
+          "material_read": "RESULT.md offsets 0 and 3483",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-mer multiplicity fibers for two-marker words",
+          "trigger": "Most exact indexed fixed-weight overlap"
+        },
+        {
+          "assessment": "Different allowed inputs or observation channel",
+          "evidence": "Unrestricted binary three-mer inputs in the first two; composition rather than ordered factor counts in the third.",
+          "identifier_or_url": "2026/11/2/7044900c1ee8; c5ea7e549c82; e75b073e3080",
+          "material_read": "Indexed statements on profile counts and observation rules",
+          "method": "Local Resultary comparisons",
+          "title": "Binary three-mer enumeration and capacity; binary substring-composition fibers",
+          "trigger": "Same-day related exact enumeration claims"
+        },
+        {
+          "assessment": "Different channel",
+          "evidence": "Counts symbols and pairs with minimum separation; capacity grows linearly in n, not the stabilized count here.",
+          "identifier_or_url": "2026/11/22/e4c6817f57fb",
+          "material_read": "Indexed claim on measurement and count growth",
+          "method": "Local Resultary comparison",
+          "title": "Sharp linear capacity of weight-two gapped-pair decks at every spacing",
+          "trigger": "Weight two and numerically similar length threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers two exact questions for a natural sparse observation problem: which sources cannot be distinguished and the maximal possible distinguishable family. The boundary imbalance and the exceptional balanced merge explain why including shorter factors changes the answer. The one-profile deficit at the boundary proves a genuine cutoff rather than just a sufficient stabilization bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

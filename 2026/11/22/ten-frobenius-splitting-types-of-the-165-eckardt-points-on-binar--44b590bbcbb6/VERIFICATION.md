@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Execute `python3 hermitian_orbits.py` to construct the \(\mathbb F_4\)-linear normalized Hermitian solution space for each rational projective class, test all 1,023 nonzero vectors, divide by the three scalar representatives, and decompose Frobenius on exactly 165 isotropic classes. Its complete output contains the thirteen codes, their matrix-order bounds, each cycle multiset, and the irreducible field polynomial. These are exact enumerations, not probabilistic samples.
+## correctness
 
-Compile and execute `cc -O3 -std=c11 verify_orbits.c -o verify_orbits && ./verify_orbits` to re-enumerate the thirteen disjoint congruence orbits, with their sizes adding to 9,999,360. Compile `cc -O3 -std=c11 verify_full.c -o verify_full && ./verify_full` for a second enumeration of the rational Eckardt-point spectrum across all 9,999,360 invertible binary matrices; it obtains the five ground-field counts \(0:4221952,1:4166400,3:1388800,7:208320,15:13888\).
+PASS
 
-Execute `python3 verify_small_fields.py` in the same directory to check each class directly against the tangent-quadratic cone condition over \(\mathbb F_2\), \(\mathbb F_4\), and \(\mathbb F_8\), independently of the semilinear isotropic-point test. These three-field checks are supporting regression checks; the full kernel and all-cycle computation is the complete finite certificate.
+The expansion on the tangent hyperplane gives the cone criterion Av proportional to Aᵗv^[4]; rescaling normalizes it uniquely up to F4*. Invertibility gives smoothness and, on a normalized isotropic line, the two-sided tangent radical is precisely that line, so the quotient plane cubic is smooth. The affine equations v_i^4−(Cv)_i have disjoint leading monomials in a graded order and invertible Jacobian C, so have exactly 4^5 reduced roots over the closure. Iteration bounds the field by F_{2^{2h}} for h the order of C. Our independent binary-RREF enumeration found 495 nonzero isotropic solutions in each of the 13 cases. Counting projective Frobenius fixed vectors by cross products for every divisor of 2h, dividing by three, and applying divisor inversion confirms every row and exactly ten distinct partitions. Separately, a different generating set and vectorized closure reproduced thirteen disjoint congruence classes of exactly the table's sizes, summing to |GL5(F2)|=9,999,360. The degree and zeta conclusions follow from those same closed-point lengths.
 
-The irreducibility of each used binary field polynomial is tested by the standard Frobenius/GCD criterion. The finite-field vector-space kernel is represented by bit matrices and its rank is checked exactly. No assertion of independent expert audit is made.
+## originality
+
+PASS
+
+Pass for the complete threefold splitting classification, not for the thirteen coefficient classes or the 165-point geometric count. There is demonstrable prior coverage of the fifteen degree-five points of the Klein row via the marked Gauss fixed scheme, but not the full row or census. This partial implication is credited below; it does not cover the 150 other points in that row or any other row by the same argument.
+
+## value
+
+PASS
+
+The exact Frobenius action on a distinguished finite cone-center locus answers a descent question not settled by geometric equivalence or rational Fano-line counts. In particular it identifies late first or full splitting (degrees five and 24), and gives the point counts over arbitrary extensions. This precise arithmetic information is useful in studying which distinguished tangent cones are available over a given finite field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

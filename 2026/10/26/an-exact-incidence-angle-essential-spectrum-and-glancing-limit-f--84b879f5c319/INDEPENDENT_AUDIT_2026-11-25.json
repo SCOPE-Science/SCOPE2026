@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:49:29.223840Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed d<1 the two endpoints are distinct and transverse. The critical chord density gives weights (ts)^((α+1)/2) and kernel singularity order α+2; replacing the denominator by its linear part incurs a relative O(t+s) error since its real part is bounded below by cos(φ)(t+s). The error is bounded by a constant times (ts)^((α+1)/2)/(t+s)^(α+1) and is Hilbert–Schmidt, as are the off-endpoint pieces. Logarithmic conjugation gives the claimed cosh kernel and the beta integral gives 2^(α+1) times the gamma quotient, with an exponential tilt of either sign according to orientation. For fixed angle the positive symbol has image (0,C] and closure [0,C]; only the closure includes zero, despite the compressed wording at frozen line 52. The half-line compression is bounded and positive, and long translated plane-wave packets give the essential spectrum. One can justify boundedness of restriction by the kernel Gram form of the adjoint on compactly supported chord test functions and then duality. Polar decomposition transfers nonzero essential spectra, and closedness includes zero. Independently, mapping the two endpoints to 0 and ∞ in a half-plane takes the chord to a single ray of angle ±arcsin d; the arclength, target density and Bergman isometry factors cancel exactly, yielding the same homogeneous trace kernel on the entire ray, hence the same symbol on the full logarithmic line. Derivation: /workspace/chord-proof-check.md. With s=α+1>0 and δ=π−2φ, uniform large-frequency Stirling reduces the maximum to y^s exp(−δy) at y=s/δ, while bounded frequencies contribute zero in the limit. Since cosφ~δ/2 the limit is 2π(s/e)^s/Γ(s+1). At α=d=0 the multiplier 2πξ/sinh(πξ) has maximum 2. The frozen numerical script evaluates example maxima from the symbol formula; it is not an independent derivation of the Fourier identity or an infinite-dimensional certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halder–Kumar's convex trace inequality uses the same density with a bound depending on maximum radius R and gives no finite bound at R=1. Their two-diameter theorem is harmonic and has different function/weight hypotheses. Ma–Lu–Zu give the real-denominator Hankel multiplier for the relevant power weights; the survey addresses the discrete Hilbert matrix."
+        ],
+        "reasoning": "The standard Mellin result matches the centered local symbol up to 2^(α+1), and its complex translation is the correct mechanism for the angled symbol. The broader trace inequality neither supplies sharp essential norm nor applies with a finite constant to the full chord. The closest complex-ray antecedent is a different power, so its angle calculation does not give the specific positive-weight glancing maximum.",
+        "searches": [
+          "arXiv:2607.13543v1 Theorems 1.1 and 1.4; arXiv:2608.22882v1 §3; arXiv:1109.6085 §2.2; arXiv:2411.00187v1 §6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_chord.py",
+        "arXiv:1109.6085",
+        "arXiv:2607.13543v1",
+        "arXiv:2608.22882v1",
+        "arXiv:2411.00187v1",
+        "The two Resultary records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior real-power Hankel model has factor |Γ(ρ+1/2+iξ)|²/Γ(1+2ρ), agreeing with the untilted symbol at ρ=(α+1)/2 after scaling. The angular Laplace model has a large-frequency factor exp(−(π−2|θ|)|ξ|) but no positive power of |ξ| for its tilted tail. The frozen positive-weight family has the additional |ξ|^(α+1) factor and cos(φ)^(α+1) scaling."
+        ],
+        "reasoning": "The abstract range-of-symbol spectral argument is standard. The prior weighted formula with θ=0 and the prior angled formula at denominator power one do not state a diagonalization simultaneously in both parameters. Deriving the critical-weight glancing constant requires the positive-power asymptotics and optimization on the escaping-frequency scale, not substitution of the earlier angle-dependent Hardy norm.",
+        "searches": [
+          "Ma–Lu–Zu arXiv:2608.22882v1 §3 pp. 11–12; Merzon–Sadov arXiv:1109.6085 Lemma 2.3, Eq. (2.25) and surrounding spectral proof; frozen RESULT.md §3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sending the two endpoints to 0 and ∞ gives the whole ray; conformal factors cancel with exponents −(α+2), α+1, 1. On unweighted ray L² the Gram kernel is (2cosφ)^(α+1)(ts)^((α+1)/2)/(e^(iφ)t+e^(−iφ)s)^(α+2), up to orientation. Merzon–Sadov's Eq. (2.24) has denominator power one and no ray power weights; Eq. (2.25) has the factor exp(2θτ) and symbol π/cosh(πτ)."
+        ],
+        "reasoning": "Using |Γ(1/2+iτ)|²=π/cosh(πτ), the prior exact multiplier coincides with the α=−1 boundary model, up to the sign of frequency. It is an actual equivalent spectral problem at that limiting weight, not the claim for the allowed parameters α>−1. The ray equivalence is needed to assess such antecedents even though the frozen proof uses two separate endpoint models.",
+        "searches": [
+          "Merzon Sadov Laplace transform restricted to a ray weighted L2 Mellin gamma eigenvalues exact norm half-plane power weights complex angle",
+          "arXiv:1109.6085 §2.2; disk-to-half-plane critical ray equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The diameter record uses weight 1−|t|, essential norm 1 and an outlier; the frozen unweighted-space chord uses 1−t² on the centered diameter. The same-day record concerns a Hilbert matrix between Bergman spaces with oscillatory radial weights. No matching angle-dependent family surfaced."
+        ],
+        "reasoning": "There is no finite classification table for this continuous family; the relevant exact lookup is for spectrum/constant formulas with the same operator, density, α and angle. The diameter weights differ by a factor tending to 2 at both ends, so centered essential behavior is closely related by a compact kernel comparison after rescaling, but this does not cover the noncentered formula. No priority inference relies on a catalogue date alone.",
+        "searches": [
+          "Resultary: Bergman diameter/chord essential spectrum, incidence angle and glancing norm",
+          "2026/11/1/SCOPE-a-unique-spectral-outlier-for-the-bergman-diameter-trace--3099e4afe94e",
+          "2026/10/26/SCOPE-oscillatory-critical-logarithmic-bergman-weights-have-an-exact-h--5361aa9c5ddc"
+        ]
+      },
+      "rationale": "The supported distinct content is the critical power-weighted analytic chord family at nonzero incidence, including the sharp grazing limit. There is strong prior model overlap: the centered real-power Hankel symbol is known and Merzon–Sadov diagonalize an explicitly tilted Laplace ray Gram operator, with a grazing norm limit, at denominator power one (the excluded Hardy endpoint in the equivalent model). Neither read theorem covers the combination of nonzero tilt, the higher denominator power and the critical ray weights for α>−1. The multiplier method, the angular tilt as a general mechanism, and the diameter case are not credited as new.",
+      "residual_risks": [
+        "An unindexed Mellin treatment of a complex ray kernel with both weights and the same asymptotic could imply the result; bounded searches do not establish global priority.",
+        "The frozen prose's unspecified recent exact centered-diameter reference was not resolved as stated; the comparison does not credit the centered case as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and angle overlap at denominator power one, not the α>−1 power-weighted ray family.",
+          "evidence": "Equations (2.24)–(2.25) give λ_τ(θ)=π exp(2θτ)/cosh(πτ) for the first-power complex denominator on L² of the half-line.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.6085",
+          "material_read": "Introduction on the kernel and L² exact norm, p. 3; §2.2 p. 11 offsets 24545–26302; Lemma 2.3 and beginning of Lemma 2.4, pp. 13–14 offsets 28560–30996",
+          "method": "Targeted literature lookup then bounded exact-version OA PDF readings",
+          "title": "Hausdorff–Young type theorems for the Laplace transform restricted to a ray or to a curve in the complex plane",
+          "trigger": "Exact angle-dependent ray Gram diagonalization in the natural conformal formulation"
+        },
+        {
+          "assessment": "Relevant inequalities, not the claimed oblique-chord Fredholm spectrum.",
+          "evidence": "The Theorem 1.1 bound uses maximum radius; Theorem 1.4 is for two diameters and harmonic f with f(0)=0.",
+          "identifier_or_url": "arXiv:2607.13543v1",
+          "material_read": "Theorems 1.1 and 1.4, PDF pp. 4–5, offsets near 15500 and 22500",
+          "method": "Bounded OA PDF readings",
+          "title": "Gabriel's and Frazer's problems for weighted Bergman spaces and their applications",
+          "trigger": "Same weighted arc-length density on convex curves; weighted diameter results"
+        },
+        {
+          "assessment": "Matches the centered endpoint Mellin multiplier after scaling, but denominator has no complex incidence phase.",
+          "evidence": "Kernel (xy)^ρ/(x+y)^(1+2ρ) and gamma quotient with shape ρ+1/2.",
+          "identifier_or_url": "arXiv:2608.22882v1",
+          "material_read": "§3 pp. 11–12, PDF contexts at offsets 32300 and 34500",
+          "method": "Bounded exact-version OA PDF readings",
+          "title": "Helson Forms and Integral Operators on Bergman Spaces of Dirichlet Series",
+          "trigger": "Mellin formula for the same real-denominator power kernel"
+        },
+        {
+          "assessment": "Classical Hilbert-matrix background with different operator.",
+          "evidence": "Reports the classical discrete Hilbert-matrix spectral interval [0,π].",
+          "identifier_or_url": "arXiv:2411.00187v1",
+          "material_read": "§6, p. 13, PDF context near offset 38600",
+          "method": "Bounded OA PDF reading",
+          "title": "On the Hilbert matrix operator: a brief survey",
+          "trigger": "Spectral antecedent for classical Hankel/Hilbert models"
+        },
+        {
+          "assessment": "Centered only, with a different density and focus on an isolated outlier.",
+          "evidence": "Uses 1−|t|, gives essential norm 1 and one isolated eigenvalue above 1.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-unique-spectral-outlier-for-the-bergman-diameter-trace--3099e4afe94e",
+          "material_read": "RESULT.md, opening finding at offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "A unique spectral outlier for the Bergman diameter trace",
+          "trigger": "Close catalogue hit for the analytic diameter operator"
+        },
+        {
+          "assessment": "Different operator and weight phenomenon.",
+          "evidence": "Hilbert matrix acting between weighted and unweighted Bergman spaces, with oscillatory radial weight.",
+          "identifier_or_url": "2026/10/26/SCOPE-oscillatory-critical-logarithmic-bergman-weights-have-an-exact-h--5361aa9c5ddc",
+          "material_read": "RESULT.md, opening finding at offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Oscillatory critical logarithmic Bergman weights have an exact Hilbert-matrix essential norm",
+          "trigger": "Same-day exact essential norm for an operator on Bergman spaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical trace has a natural noncompactness invariant that general trace bounds do not determine. The theorem identifies it at each oblique incidence and shows quantitatively why decreasing chord length does not force it to vanish: the controlling frequency escapes to order (π−2φ)⁻¹, and the boldface limiting constant persists at the critical weight. This is a sharp geometric degeneration result, not just repetition of the centered Hankel calculation or of an unweighted ray transform. The degenerate chord itself is not part of the assertion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

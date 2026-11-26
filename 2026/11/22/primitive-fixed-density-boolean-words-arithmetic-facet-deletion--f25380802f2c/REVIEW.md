@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every length and weight in the stated domain, periodic cyclic subsets have vanishing first root-of-unity moment. One-coordinate exchanges change that moment by a nonzero root difference, making periodic subsets a Johnson-graph independent set. Each trace fiber except its genuinely forced endpoint has a Johnson edge, so must contain a primitive realization. The remaining forced traces yield exactly the rank-\(r\) aperiodicity criterion. Classical Möbius inversion supplies the already-known number of primitive words. Deleted top facets are pairwise without a common ridge; each missing boundary bounds a cone in the retained complex. Null cell attachments and the standard skeleton homotopy calculation yield the asserted integral sphere-wedge homotopy type. The finite checker exhaustively confirms \(81{,}924\) trace instances, \(680\) missing-face exchange comparisons and \(45\) mod-two boundary ranks. Finite tests do not replace the proof.
+PASS
 
-## Originality: PASS (with bounded historical-priority risk)
+The nontrivial-stabilizer coset sum vanishes at a primitive nth root, whereas a single swap changes the sum by a nonzero difference of distinct roots. Thus the forbidden sets are Johnson-independent. Any trace fiber with nonextreme free weight contains an edge, so it has a primitive extension. At |S|=r the only singleton fibers are the relevant extreme trace(s), and their sets are S or its complement, whose stabilizers agree; this includes the balanced case. Larger supports exceed a weight constraint. Primitive cyclic blocks guarantee attainment. The fixed-density Möbius sum counts labeled words, not rotation classes. The Johnson separation gives purity and fills every missing simplex boundary by the other facets through an outside vertex, all present in the complex. Hence restoring missing cells wedges on top-dimensional spheres. The full skeleton is a wedge of binom(n−1,r) such spheres (collapse the contractible star of one vertex), so the original complex is a retract up to homotopy, is (r−2)-connected, and has the claimed top Betti number. The connected graph case and the discrete r=1 case agree separately. This is an integral homotopy argument; the finite mod-two rank tests are only corroboration.
 
-The primary paper Heckenberger–Sawada (arXiv:1801.09516, first posted 2018-01-29) proves results about the number of fixed-density necklaces and Lyndon words. Hartman–Sawada (DOI:10.1016/j.tcs.2019.04.007) gives ranking and unranking via prefix counts, and Adamson–Deligkas–Gusev–Potapov (arXiv:2108.01990) gives fixed-content necklace algorithms. Their established Möbius count is credited here. The exact criterion for **all indexed-position traces** and the corresponding sphere-wedge topology are not assertions in the inspected materials, nor consequences of their counting statements without a separate proof. Related public records about first-order Walsh transforms of primitive words, exact-transition word systems, and translated-coset concept families have different concept/query structures and do not imply these statements in their retrieved summaries. Searches cannot establish absolute priority; some record full texts and older history were unavailable for complete comparison.
+## originality
 
-## Value: PASS
+PASS
 
-A natural weight-restricted family of primitive circular words has an arithmetic top-facet deletion rule, while all lower query supports survive. The result identifies the entire learning-theoretic shattering complex and computes its ordinary homotopy, not just a count of words or a scalar VC dimension. The cyclic moment argument connects primitive-necklace arithmetic with Johnson adjacency and a particularly simple topological cell-attachment mechanism. The exact all-parameter distinction between forbidden top faces and unrestricted lower faces is structural and useful for studying trace complexes.
+The fixed-density necklace enumerator is classical, and the topology is an application of known sparse-paving/independence-complex structure once the Johnson separation and trace classification are identified. What is distinct on the checked evidence is the determination of all indexed shattered supports for this cyclic primitive class, including the arithmetic description of the missing facets. Neither the topology theorem in isolation nor the necklace count is credited as new. This is a bounded comparison, not proof of priority.
 
-## Scientific limitations and closest literature
+## value
 
-The parameter family uses labeled rotations and is not an orbit-quotient concept class. The homotopy statement is nonequivariant; the module structure under rotation is not determined. The Möbius word count and topology of full simplex skeleta are classical. Relevant full-text primary sources were read where available; remaining equivalent unindexed or inaccessible results could affect historical priority. This is mathematical self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivation is to determine how passing from the uniform Boolean layer to primitive words changes indexed membership-query expressivity. The answer identifies every obstruction, shows the VC dimension is unchanged while top supports are removed in an arithmetic pattern, and gives the exact resulting homotopy invariant. The full trace criterion is stronger than the single VC number and is not furnished by enumerating necklaces or by the generic matroid topology theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

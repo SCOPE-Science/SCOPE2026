@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:56:11.773516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/check.py",
+        "Independent interaction-frame, polar antiderivative and moment proofs; independent linearized Bloch propagation"
+      ],
+      "rationale": "In the ideal interaction frame the overlap derivative with the input ray is minus the integrated jump variance. For the lab jump |0><1| at a pure state with excited population p it is p−p(1−p)=p², so 4K± are the integrals of (1∓z)². The polar angle is absolutely continuous and |θ′|≤Ω. For every continuous f≥0, integrate the derivative of its polar-angle antiderivative to obtain Ω∫f(θ)dt≥∫f(θ)θ′dt=∫_0^π f(s)ds. Hence the residence measure minus ds/Ω is positive, of mass Δ, and the common baseline is C. At Δ=0 this proves the singleton. For Δ>0 the moments of X=cosθ under normalized residual mass satisfy h²≤q≤1, equivalent to the claimed inequalities. For h<1 an independent representation uses a=(h−q)/(1−h) and mass (h−a)/(1−a) at +1 with the rest at a; for h=1 take X=1. Maximum-speed meridian travel plus those dwells realizes all pairs by piecewise-constant control. Then 4K+≥C and 4K−≤C+4Δ. Equality with Δ>0 forces residual time entirely at the north pole: the angular crossing spends at least π/Ω in the open band, exactly its total residence there, and must be a shortest maximum-speed meridian. No extra pole-to-interior excursion or south-pole wait remains possible. Replay: /workspace/review-check-5.py; exact rational moment checks and independent numerical first variations for piecewise-constant GKSL schedules including a nonmeridional path. Frozen checker inspected, not executed.",
+      "residual_risks": [
+        "Only first derivatives at zero rate, fixed finite T, under the fixed one-jump model and Euclidean control cap. Numerical tests are secondary and do not establish the arbitrary-path result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patra p. 20 fixes an active flip fraction δ=(π/Ω_max)/T and varies the relative pole waits; it studies a selectivity bound of this family's trajectory moments. The cited Lin–Sels–Wang work is a minimum-time dissipative-state-transfer problem, not the stated joint slope set at fixed time."
+        ],
+        "reasoning": "Optimizing over baths for a given path or over waits for a given flip does not give the full allowed moments over arbitrary paths for a fixed bath. Pole waits have q=1; actual arbitrary-path feasibility includes q<1.",
+        "searches": [
+          "Patra arXiv:2611.18755v1, §7.2 Quantum-speed-limit pulse dwell scaling",
+          "Lin–Sels–Wang DOI 10.1103/PhysRevA.101.022320 (cited control comparison)"
+        ]
+      },
+      "checked_sources": [
+        "Patra arXiv:2611.18755v1, Prop. 1 and §7.2",
+        "Resultary exact-title hit 986c3c26cc52",
+        "Frozen RESULT.md prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A pole dwell allocates all excess duration at z=±1, so u+v=4. Patra's pole fraction and asymmetry can realize that edge and, at one-sided wait, its extreme ratio in this bath. A dwell at z=0 instead reaches (1,1), and at each h a single dwell at z=h produces the parabolic lower edge."
+        ],
+        "reasoning": "A general trajectory cost plus special schedules is not a proof that every trajectory has a positive residual measure above a compulsory transit or that all admissible moments are attainable. The compulsory transit and the moment converse add substantive fixed-bath information, rather than simply recasting the prior ratio schedule.",
+        "searches": [
+          "Compare Patra §7.2 and Prop. 1 to frozen RESULT.md Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patra, p. 6, Prop. 1 and Eq. (12), gives the integrated jump variance on an ideal pure trajectory; the p. 2 summary states the antipodal moment decomposition."
+        ],
+        "reasoning": "At fixed T, changing from the derivative in ε=γT to that in γ only multiplies slopes by T. The two sets of moment variables are not by themselves a new theorem. The extra condition is that the moments come from actual unitary paths at a prescribed Euclidean speed cap and duration.",
+        "searches": [
+          "Patra arXiv:2611.18755v1, Proposition 1 (jump-variance law)",
+          "Resultary: speed-limited qubit inversion / amplitude-damping error pair / trajectory moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record 2026/11/22/SCOPE-the-exact-speed-limited-error-pair-region-for-an-amplitude-dampe--986c3c26cc52 is this assignment. No distinct exact-region record appeared in the focused hits."
+        ],
+        "reasoning": "There is no finite parameter table to verify against this continuum theorem; exact analytic-region results were compared instead. The exact-title hit is not a separate source.",
+        "searches": [
+          "Resultary: exact speed-limited error-pair region amplitude-damped qubit, parabolic boundary, two dwells"
+        ]
+      },
+      "rationale": "The general first-order variance/moment identity and the pole wait–flip–wait family are covered by Patra. In particular the one-sided pole wait and its fixed-bath achievable ratio are not standalone new results. The supported distinct claim is the exact jointly attainable region for every speed-capped ideal inversion under the fixed bath, including a global converse, the non-polar boundary, and two-dwell achievability. The inspected prior formulas do not classify which moments are feasible at fixed T and Ω.",
+      "residual_risks": [
+        "No exhaustive priority claim; the inspected Patra passages are not a claim about every line of that paper.",
+        "The pole extremizer and variance law are credited to the existing framework, not accepted as independent originality here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies trajectory-variance premise and overlap at pole schedules; inspected passages do not furnish the all-path fixed-bath pair characterization",
+          "evidence": [
+            "Prop. 1 integrates pure-state jump variance along the trajectory.",
+            "§7.2 parameterizes pole waits and a speed-limited active flip; its selectivity calculation concerns that family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18755",
+          "material_read": "v1 p. 1 abstract; p. 6 Prop. 1, Eq. (12), offsets 28915–30490; p. 20 §7.2, offsets starting 111191",
+          "method": "Lawful OA original PDF, locate and bounded passage read",
+          "title": "Directional gate-error asymmetry and universal selectivity bounds in non-unital open quantum systems",
+          "trigger": "Same weak-damping observable and speed-limit pole-dwell construction"
+        },
+        {
+          "assessment": "Identical record, not a separate antecedent",
+          "evidence": [
+            "The complete fixed-bath parabolic region and ratio agree exactly."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-speed-limited-error-pair-region-for-an-amplitude-dampe--986c3c26cc52",
+          "material_read": "Resultary summary and the frozen Finding",
+          "method": "Resultary and assigned original text",
+          "title": "The exact speed-limited error-pair region for an amplitude-damped qubit inversion",
+          "trigger": "Exact bound, pair coordinates and two-dwell construction in closest result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen region and constructive proof",
+        "Comparison to Patra pole-dwell family"
+      ],
+      "rationale": "Classifying the attainable pair, not just the best directional ratio, quantifies the tradeoff of both input errors under a practical scalar speed budget. It exposes which part of the feasible set pole schedules miss and supplies a short exact synthesizer for each attainable pair without restricting the converse to meridians.",
+      "residual_risks": [
+        "Idealized weak-noise and bandwidth-free control statement; actual finite-noise hardware feasibility is not inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

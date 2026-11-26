@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:12:58.916781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof equations (1)–(5)",
+        "Frozen check.py and VERIFICATION.md, inspected without executing",
+        "Independent resolvent matching and variance-transform differentiation"
+      ],
+      "rationale": "For u=s−θ1{x>0}, let m and d be the half-sum and half-difference of the two free conditional resolvents. The backward equations give v m′=(u+2α)d and v d′=u m−1. Boundedness selects one decaying mode on each half-line. Matching m,d at zero with p=s−θ and q=s yields F=(1/D_p+1/D_q)/(q/D_q+p/D_p), D_u=√(u(u+2α)), which is the frozen transform. For α=0 a direct two-direction average gives the same result. Full reset renews the process. The unique kernel root has p,q>0 since F decreases from infinity to zero on s>max(0,θ); for nonzero θ, λ lies strictly between 0 and θ, so no extraneous squared root is taken. Squaring the pole equation gives λ²+(2R−θ)λ−Rθ=0. The exponentially tilted renewal kernel is nonlattice with finite mean and its forcing is continuous with an exponential bound, so the root is the genuine SCGF. Bounded support and the derivative range (0,1) give the full LDP, with the endpoint lower bound by interior approximation. For an independent variance check, differentiating the centered renewal transform at tilt zero gives the Laplace transform of Var(A_T), [1/(z+r)+1/(z+r+2α)]/(4z²). Inverting gives slope (1/r+1/(r+2α))/4=1/(4R), including α=0. R increases from r/2 toward r and the sign observable is independent of v>0.",
+      "residual_risks": [
+        "The result assumes independent symmetric direction redraws, not position-only resets or biased resets. Finite-time laws are not identified with the Brownian law; the recorded simulations are not proof of a large-deviation limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper gives the same renewal transform and solves the free two-direction interface equations for general ρ±, a broader family than symmetric resets.",
+          "The second gives the reset Brownian occupation SCGF and rate, with the same square-root form as the frozen rate after inserting R, not a telegraph-process theorem."
+        ],
+        "reasoning": "The two-direction equations provide more than numerical output or a vague correspondence. The Brownian solution explains what is being identified; the earlier exact run-and-tumble equations supply the substantive coverage.",
+        "searches": [
+          "Bressloff arXiv:2009.01968, Eqs. (3.8)–(3.10), (4.3)–(4.12)",
+          "den Hollander et al. arXiv:1801.09909, Theorem II.1 and Section IV"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2009.01968v1",
+        "arXiv:1801.09909",
+        "Resultary 7145b66264ca, d877991387f6, c006de0c6b77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symmetric direction average is the half-sum of the two already determined conditional resolvents. The published renewal denominator vanishes when its free transform equals 1/r."
+        ],
+        "reasoning": "In the published interface conditions, half-sum matching is continuity of m and half-difference matching is continuity of v m′/(u+2α). With the already given decay exponents D_p/v and D_q/v, the latter reads (q/D_q)(m−1/q)=−(p/D_p)(m−1/p); solving gives precisely the frozen F. At the earlier renewal pole put p=λ+r−θ, q=λ+r, which yields λD_p=(θ−λ)D_q. The quartic terms cancel on squaring and dividing by θ≠0, leaving the quadratic in the correctness assessment. The standard renewal and Legendre steps cover the growth limit and rate, and differentiation at zero supplies the variance. The earlier paper's printed α→0 comment for mixed directions in §IV A is not used: it does not match the positive-reset-rate symmetric ballistic limit, which follows even directly by thinning reset marks into sign flips at rate r/2.",
+        "searches": [
+          "Bressloff, Section IV matching equations (4.8)–(4.12) and Section III Eq. (3.10)",
+          "den Hollander et al., reset Brownian occupation formulas (IV.17)–(IV.18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff §II, Eq. (2.4), starts/resets at the origin with direction probabilities ρ±; setting both to 1/2 is exactly the frozen law and α is the reversal rate.",
+          "Resultary 7145b66264ca and d877991387f6 concern sluggish diffusion and Lamperti edges; c006de0c6b77 concerns wall adsorption time rather than the indicator of the positive half-line."
+        ],
+        "reasoning": "The sign of position is invariant under rescaling v, and starting with a freshly drawn symmetric velocity matches the earlier law, not merely a Brownian scaling limit. Neither the sluggish-diffusion nor sticky-wall record is the same stochastic observable in the same model.",
+        "searches": [
+          "Resultary: positive-half-line occupation, reset telegraph/run-and-tumble process, symmetric velocity redraw, SCGF",
+          "Bressloff arXiv:2009.01968, positive occupation and reset-direction distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected pole plots for biased redraw and comparisons to Brownian are numerical. The frozen claim is an analytic statement across all real tilts and finite switching rates, not a cutoff data table."
+        ],
+        "reasoning": "A table-dominance comparison is inapplicable to this unbounded analytic claim. Numeric plots do not imply its equality; exact transform specialization does.",
+        "searches": [
+          "Bressloff arXiv:2009.01968, Section IV A–B numerical pole and rate discussion",
+          "Closest Resultary occupation-LDP claims 7145b66264ca, d877991387f6, c006de0c6b77"
+        ]
+      },
+      "rationale": "Bressloff's published exact interface and renewal equations already cover this same model and observable for arbitrary reset-direction probabilities. On setting both probabilities to 1/2, adding and subtracting the two interface conditions reduces the resolvent to the frozen ratio; squaring the scalar pole equation is an elementary quadratic cancellation. The explicit rate, SCGF and variance are therefore covered by direct specialization and standard convex duality/renewal arguments, despite the absence of that closed form from the inspected symmetric-case discussion. No exact same-model Resultary comparator was needed for this decision.",
+      "residual_risks": [
+        "Priority for first printing the simplified symmetric rate was not established. The verdict rests on the algebraic consequence of the earlier exact equations, not a claim of verbatim publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication of the frozen closed form from prior exact equations; the explicitly reported numeric treatment and the mixed-direction zero-switching comment are not themselves the result.",
+          "evidence": [
+            "Arbitrary independent reset probabilities, exact renewal denominator, free decaying eigenmodes and two continuity conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.01968v1",
+          "material_read": "§II Eq. (2.4), offsets 18000–24885; §III Eqs. (3.8)–(3.10), offsets 38500–46468; §IV interface and free resolvent, especially offsets 55220–62137; §IV A–B slow-switching comment and numeric rate discussion, offsets 69250–76689.",
+          "method": "OA primary PDF; specialized its paired interface equations, compared conventions, and expanded the resulting pole identity.",
+          "title": "Occupation time of a run-and-tumble particle with resetting",
+          "trigger": "Same observable and independent velocity redraw, with the broader class of biases."
+        },
+        {
+          "assessment": "Confirms the Brownian formula at rate R; not itself a result for run-and-tumble dynamics.",
+          "evidence": [
+            "Brownian SCGF (θ−2r+√(θ²+4r²))/2 and rate r(1−2√(a(1−a)))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+          "material_read": "Theorem II.1, Eq. (II.3), offsets 8000–14953; §IV, Eqs. (IV.17)–(IV.18), offsets 44000–50982.",
+          "method": "OA full-text passages and comparison of exponents and rate normalization.",
+          "title": "Properties of additive functionals of Brownian motion with resetting",
+          "trigger": "Exact Brownian comparator for the stated effective-rate identity."
+        },
+        {
+          "assessment": "Different observables or models; neither direct coverage nor the reason for failing originality.",
+          "evidence": [
+            "First two records concern a Lamperti occupation law for sluggish diffusion; the third measures sticky wall adsorption rather than half-line occupation."
+          ],
+          "identifier_or_url": "Resultary 7145b66264ca, d877991387f6, c006de0c6b77",
+          "material_read": "RESULT.md findings and assumptions in the local mirror for each record.",
+          "method": "Compared processes, observables and scope of the quoted large-deviation results.",
+          "title": "Sluggish diffusion occupation LDPs and orientation-dependent sticky run-and-tumble edge laws",
+          "trigger": "Closest indexed reset occupation and run-and-tumble edge records."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and relationship to prior work",
+        "Bressloff Eqs. (3.10) and (4.8)–(4.12)",
+        "den Hollander et al., Section IV"
+      ],
+      "rationale": "The finite-persistence Brownian comparison is a clear and useful interpretation, and the explicit reduction removes the need for numerical pole-finding in the symmetric model. The frozen mathematical claim nevertheless consists of that routine exact specialization of the already solved transform, standard large-deviation and variance deductions, and the direct ballistic limit. It establishes no separate nonmechanically implied invariant, renewal regime, or additional nontrivial claim about the correction of the earlier numerical treatment.",
+      "residual_risks": [
+        "The same algebra need not simplify biased or nonrenewing resets; those are outside the frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

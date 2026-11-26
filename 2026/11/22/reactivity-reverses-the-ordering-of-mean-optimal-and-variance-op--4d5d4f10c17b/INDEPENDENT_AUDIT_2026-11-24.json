@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:57:33.472869Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified uniform start and sticky boundaries, the exact input moments agree with Jeon–Go–Kim, Eqs. (28), (113), and with an independent backward-equation derivation. For first passage on [0,1], let D_k=M_k^+−M_k^- and t=1/v: D_k′=−kt(M_{k−1}^++M_{k−1}^-), D_k(1)=kM_{k−1}^+(1) by the exponential sticky hold, and (M_k^-)′=t(D_k+kM_{k−1}^-) with M_k^-(0)=0 for k>0. Averaging the first-hit moments and using the outgoing-origin return moments, a geometric number of failed crossings adds q times the return mean and q times its variance plus Q times its squared mean. This gives the supplied expressions. At fixed a both objectives diverge at the speed endpoints. In inverse speed the mean curvature exceeds 4/3 because z coth(z/2)>2, hence there is a unique global mean optimum. For weak capture, q≥1/z−1/2 and Q≥1/z²−1/12 follow from the displayed hyperbolic inequalities: the latter reduces by differentiation to sinh³x>x³cosh x, using y(2+cosh y)−3sinh y strictly increasing for y>0. The resulting global lower bounds and the trial at v=c a^(1/3) trap all optima in a common compact interval for s=v/a^(1/3). There the stated C² expansions have leading f and 4f with positive curvature; inserting c³=4/3 into the first corrections gives c²/8 and c²/5, so the gap is 3c² a^(2/3)/40+O(a). For strong capture the trial z=log a and the lower bounds force log a−O(log log a)≤z≤O(log a) at every minimum. The leading derivative balances in z give a exp(−z)→3/2 for mean and →1 for variance. On [log a−1,log a+1] the variance curvature is 2 exp(−z)(1+o(1))+O(a⁻²)>0, giving uniqueness there and hence globally for large a; subtraction gives the asserted log(3/2) coefficient. From /workspace, python3 reproductions/run_tumble.py reproduced the exact rational first-hit and return polynomial coefficients and checked stationary speeds at a=10⁻⁹,10⁻⁶,10,10⁹. At a=10⁻⁶ they are 0.01102156774 and 0.01103064384, and at a=10 they are 4.56964452 and 4.24722284 (mean then variance). The frozen script was inspected, not executed. Numeric roots do not prove global uniqueness or intermediate-reactivity behavior. The theorem compares absolute variance, not CV, and gives neither all-a variance uniqueness nor a single-crossover theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4cc6a1bceac3 gives distinct mean-, absolute-variance-, and relative-risk-optimal reversal rates for endpoint absorption with a sticky wall, with b_M=√(2/3)<b_V≈0.97533. 43d8e6166a15 allocates a reversal budget for two particles on a ring and the three criteria share optimal endpoints. c5e90a3196ae studies a CV threshold under release/killing at sticky walls."
+        ],
+        "reasoning": "These are meaningful optimization overlaps but control tumbling or a budget, not the speed at fixed center reactivity, and use different absorption mechanisms. No inspected general result specializes to both optimizer gaps here.",
+        "searches": [
+          "Resultary: mean–variance Pareto optimization, sticky active first passage, variance-optimal tumbling",
+          "Resultary 4cc6a1bceac3, 43d8e6166a15 and c5e90a3196ae, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.04016v1, Eqs. (11)–(14), (28), (44), (51), (113)",
+        "arXiv:2102.11787 model and Sec. IV Eq. (46)",
+        "Resultary 4cc6a1bceac3, 43d8e6166a15, c5e90a3196ae, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (44) establishes the weak leading mean optimum; Eq. (51) already exhibits log(2a/3) for the strong mean optimum. The sticky active escape record has a fixed mean–variance ordering for its different control and geometry."
+        ],
+        "reasoning": "The mean contribution in the strong gap is credited. To get the actual comparison requires controlling all variance minimizers and their shifts (weak c²/5 and strong z=log a+o(1)), not just knowing their objective function or a different model's ordering. The distinct comparison survives the direct overlap.",
+        "searches": [
+          "arXiv:2310.04016v1 Eqs. (28), (44), (51), (113)",
+          "Resultary 4cc6a1bceac3 exact finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jeon–Go–Kim's a=k̃, v=ṽ conventions and Eqs. (11)–(14), (28), (113) reproduce the model and objectives; the geometric-return formulation is not a different model. Mercado-Vásquez–Boyer uses a dynamically switching gate and discusses relative variance, Sec. IV Eq. (46)."
+        ],
+        "reasoning": "The strongest exact equivalence is with the Jeon model; changing to the reciprocal speed z or describing the repeated attempts geometrically does not create novelty. A stochastic gate is not constant independent absorption on each crossing.",
+        "searches": [
+          "arXiv:2310.04016v1 center crossing, exact moments and speed optimum",
+          "arXiv:2102.11787 stochastic gating and first-passage fluctuations",
+          "Resultary: partially absorbing center absolute-variance-optimal speed versus mean-optimal speed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior mean-optimum formulas/scales and variance expression are verified, as are exact optimizer comparisons for other sticky models in the local records. None of those passages gives the two specified speed minima or their gap coefficients for the same center-capture model."
+        ],
+        "reasoning": "The prior exact moments are data for the optimization, not a catalogue of its global speed optima. Numerical examples are not evidence of novelty or complete coverage.",
+        "searches": [
+          "Resultary: weak and strong reactivity optimum speed, two-optimum ordering, and exact first-passage moment comparisons",
+          "arXiv:2310.04016v1 Eqs. (44), (51), (113) and optimization discussion"
+        ]
+      },
+      "rationale": "Pass the two-objective optimizer reversal with explicit asymptotic gap coefficients and variance-optimum uniqueness in both limiting regimes. The stochastic model, exact moments, weak leading mean scale and strong mean logarithmic denominator are prior work, not separate novel contributions. The bounded comparisons establish substantive distinction from nearby first-passage optimization results without guaranteeing priority.",
+      "residual_risks": [
+        "The same-model exact moments were public and allow a separate analytic optimization; unindexed work may have analyzed the same minima. The bounded literature comparison cannot rule that out.",
+        "The same-day ring record has no established temporal priority and is scientifically different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in exact moments and mean asymptotic scales, not the paired variance optimization in inspected passages",
+          "evidence": [
+            "(28) is the supplied mean; (113) is the full-time variance; (44) and (51) supply leading weak and logarithmic strong mean scales."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.04016v1",
+          "material_read": "Eqs. (11)–(14), (28), (44), (51), and Appendix C Eq. (113); OA offsets around 11000, 15000, 27500–30000 and 58000–60500",
+          "method": "Primary OA HTML, comparison of normalization, formulas, and optimizers",
+          "title": "Searching for a partially absorbing target by a run-and-tumble particle in a confined space",
+          "trigger": "Exact same model, time moments, and potential direct coverage of the optima"
+        },
+        {
+          "assessment": "Different gating mechanism and relative-fluctuation objective",
+          "evidence": [
+            "Target switches stochastically between invisible and visible states; Eq. (46) concerns relative variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2102.11787",
+          "material_read": "Abstract, model and geometry, Sec. IV Eq. (46), at OA offsets 350, 6500 and 33500",
+          "method": "Primary OA HTML statement comparison",
+          "title": "First hitting times between a run-and-tumble particle and a stochastically-gated target",
+          "trigger": "Same class of particle and partially reactive target, first-passage fluctuations"
+        },
+        {
+          "assessment": "Related optimizer comparison with different control, geometry and fixed ordering",
+          "evidence": [
+            "Sticky endpoint escape, varying reversal rate: b_M=√(2/3)<b_V≈0.97533."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-mean-variance-pareto-frontier-and-relative-risk-optimum-in--4cc6a1bceac3/RESULT.md",
+          "material_read": "RESULT.md, Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror full record and statement comparison",
+          "title": "Sharp mean–variance Pareto frontier and relative-risk optimum in sticky active escape",
+          "trigger": "Strongest model-adjacent exact comparison between mean and absolute variance"
+        },
+        {
+          "assessment": "Different process and control; same day supplies no priority inference",
+          "evidence": [
+            "The criteria share endpoint allocation optima under a fixed two-particle reversal budget."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-simultaneous-mean-variance-and-relative-risk-optimality-of-unequ--43d8e6166a15/RESULT.md",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Simultaneous mean, variance, and relative-risk optimality of unequal tumbling in two-particle ring encounters",
+          "trigger": "Same-day exact optimizer comparison"
+        },
+        {
+          "assessment": "CV and wall release/killing, not absolute variance of center absorption",
+          "evidence": [
+            "A CV-optimal tumbling threshold and a mean increasing with bulk tumbling, not a speed-order reversal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae/RESULT.md",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp fluctuation-optimal tumbling threshold for sticky reactive run-and-tumble walls",
+          "trigger": "Closest threshold phrasing with sticky reactive boundaries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mean absorption time and its absolute variance are distinct, naturally motivated objectives for selecting propulsion in a confined search. The theorem shows that the preference between their optimal speeds reverses as capture reactivity changes, gives the separation on two different scales, and establishes actual unique global variance optima in both regimes. That explains when mean-optimal tuning does or does not also improve repeatability; the result is more than another evaluation of known moments or an intermediate-parameter plot.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

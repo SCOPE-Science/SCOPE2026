@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:57:04.187707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scalar rotation reduces the operator to homogeneous blocks. On degree d, conditioning on the radius cancels the same positive moment in numerator and denominator. Dividing independent complex Gaussian moments by the corresponding radial Gaussian moment gives the uniform sphere integral 2*alpha!/(d+2)!. Comparing monomial inner products gives (z_i partial_j+delta_ij)/(d+3); the order of the indices agrees with the stated z_i times conjugate(z_j) symbol. This is a scalar trace term plus the differential symmetric-power action of A. An invertible change of basis triangularizing A also triangularizes this action with the occupation sums on the diagonal, even in a Jordan case. At degree zero this gives tr(A)/3. Combining repeated levels yields one or d+1 distinct values, and independent gaps give one value per occupation triple. For dependent distinct gaps choose primitive 0,p,q, unique up to reversing the endpoints as clarified in the assumptions. Equal sums require the difference of the middle occupations to be divisible by q; replacing q middle copies by q-p lower and p upper copies gives exactly one representative with middle occupation below q. Counting those representatives gives the series, linear form and exact first collision at q. Nilpotent matrices have only one spectral value on each block, not necessarily a scalar block. Independent replay /workspace/replay/05.py compared 20 exact full characteristic polynomials from angular moment matrix entries with the occupation prediction, including conjugated nonnormal matrices. Finite replay corroborates the proof; it does not establish all block degrees. Frozen checker inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aschieri–Ruba–Solovej give exact projective quantization on symmetric powers and the full harmonic diagonalization of the Berezin transform. Equation (4.4) acts on the traceless angular quadratic harmonics H_(1,1) by m/(m+D) in degree m and ambient complex dimension D.",
+          "Quiroga-Barranco gives general monomial-action integral coefficients on weighted balls. Bauer–Rodriguez Rodriguez identify cardinality growth of generalized blocks as an open question; the open question is motivation but does not prove that the particular family needs new spectral analysis."
+        ],
+        "reasoning": "The exact projective result gives the specific action by one harmonic substitution, even though the motivating general question is wider and not solved by it.",
+        "searches": [
+          "complex projective space exact Berezin Toeplitz quantization linear moment map matrix symmetric powers trace shift z_i derivative homogeneous polynomials n+k projective angular quadratic",
+          "arXiv:2508.19968 Proposition 11 and Eq. (1.1)–(1.2)",
+          "DOI:10.1007/s11785-022-01248-1 §3.6 and concluding open problem 2",
+          "arXiv:2106.01980 Theorem 7.3 and Corollary 7.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.19968",
+        "arXiv:2505.05329v3",
+        "DOI:10.1007/s11785-022-01248-1",
+        "arXiv:2106.01980",
+        "arXiv:1608.08543",
+        "Resultary 56f967b9701f",
+        "Resultary ed43628bf3a8 (near indexed contrast)",
+        "Resultary cd11fdeea039 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the normalized sphere, the degree-m monomial reproducing vector with argument z is proportional to conjugate(z)^(tensor m), so the angular compression is the projective coherent-state quantization in Eq. (1.1), up to the change to w=conjugate(z) dictated by the symbol convention. Its matrix elements for arbitrary U(D)-invariant radii differ before normalization by a common radial factor only.",
+          "Subtract scalar trace/D from the quadratic symbol to land in H_(1,1). Eq. (4.4) says the covariant symbol of its quantization is m/(m+D) times that harmonic. The covariant symbol of the differential tensor action of traceless A is m times the same harmonic (sum over tensor legs). Coherent expectations determine the operator by comparing homogeneous monomial coefficients. Restoring the scalar gives (tr(A)I+differential symmetric action(A))/(m+D), including degree zero by angular averaging. These steps are complex-linear and impose no normality.",
+          "Applying triangularization now gives affine transforms of occupation sums. Affine independence over Q or repetitions produce the other three elementary counts. A primitive relation in the resonant case gives the plane-curve Hilbert series (1-t^q)/(1-t)^3 directly."
+        ],
+        "reasoning": "The claimed classification only specializes an exact transform eigenvalue, uses a degree-zero radial cancellation and evaluates a standard hypersurface Hilbert series. There is no independent uncovered spectral invariant once these reductions are made.",
+        "searches": [
+          "arXiv:2508.19968 pp. 2 and 17, equations (1.1), (1.2), (4.4)",
+          "arXiv:2505.05329v3 pp. 2–4, Theorem 5 and occupation description",
+          "arXiv:1608.08543 Remark 5.3 and Theorem 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the resonant case, after removing the affine scale and trace shift, the spectrum is the d-fold sumset d{0,p,q}, allowing repeated summands. Its dimension count is the degree-d Hilbert function of the image subring generated by s^q, s^(q-p)t^p, t^q, with these generators of graded degree one.",
+          "The primitive relation X_1^q-X_0^(q-p)X_2^p generates the homogeneous kernel: divide by its middle-variable leading monomial and observe that the reduced monomials in each degree have distinct t-exponents modulo q for distinct middle exponents, and distinct exponents for different upper occupations at fixed middle exponent."
+        ],
+        "reasoning": "The resonant case is exactly the Hilbert function of a plane hypersurface of degree q, not a new Hilbert-function problem. The principal relation gives both the usual Hilbert series and the degree of the first relation.",
+        "searches": [
+          "Nathanson cardinality h-fold sumset three element set {0,a,b} exact formula three elements binomial phase relation Granville Walker",
+          "arXiv:2505.05329v3, Theorem 5 and Eq. (3)",
+          "Resultary: angular quadratic Toeplitz homogeneous spectrum primitive-gap collision and monomial-curve Hilbert function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary cd11fdeea039 is the same record. The nearest distinct 56f967b9701f has exact spectral islands for analytic quadratic harmonic Bergman compressions (one complex variable, two moments, full spectra); ed43628bf3a8 concerns monomial cross-composition operators, not this homogeneous Toeplitz cardinality.",
+          "Nathanson's Theorem 5 explicitly tabulates the possible cardinalities of h-fold sumsets of three integers as differences of triangular numbers. This is not stated there as a Toeplitz table, or as the parameter-by-parameter match to the frozen q; the exact identification of q follows independently from the principal relation of the plane monomial curve."
+        ],
+        "reasoning": "The index hits alone do not show coverage; the math identifies the exact invariant with an established Hilbert-function calculation, with the published three-element sumset table providing a check in the same arithmetic setting.",
+        "searches": [
+          "Resultary: radial-universal spectral collision angular quadratic Toeplitz homogeneous block eigencount",
+          "Nathanson cardinality h-fold sumset three element set {0,a,b} exact formula three elements binomial phase relation Granville Walker",
+          "arXiv:2505.05329v3, Theorem 5"
+        ]
+      },
+      "rationale": "No inspected paper is asserted to state the four cases in this wording. The exact problem is nevertheless mechanically covered: the published finite-degree projective Berezin transform gives the angular quadratic block including its scalar normalization; separation of the single radial moment is immediate for a degree-zero symbol. The spectral set is then the elementary triangular symmetric-power spectrum, and the only nontrivial-looking cardinality case is the standard Hilbert function of a degree-q plane monomial curve. Neither allowing arbitrary radials nor allowing complex nonnormal A obstructs the reductions. This concrete chain, not a query miss or the mere fact that some methods are known, defeats the novelty of the frozen exact invariant.",
+      "residual_risks": [
+        "The comparison establishes mathematical implication, not priority for the combined Toeplitz wording or a verbatim earlier four-case statement.",
+        "The inspected sumset table establishes the set of possible sizes, not a claim that its theorem labels them by this operator's primitive span. The explicit plane-curve reduction supplies that match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader transform gives the operator needed for this classification via a direct specialization",
+          "evidence": [
+            "Projective coherent-state quantization and its Husimi symbol; exact harmonic coefficient m!(m+D-1)!/((m-n)!(m+D-1+n)!) on H_(n,n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.19968",
+          "material_read": "Version 1 p. 2, Eqs. (1.1)–(1.2) and coherent-state setup; §2.1 pp. 7–8 (2.8); §4 p. 17, Proposition 11 and Eq. (4.4), extracted offsets 49870–51384",
+          "method": "Apply the harmonic coefficient at n=1 to traceless angular quadratic functions and compare the differential action by coherent expectation",
+          "title": "Optimal Remainder Estimates in the Quantization of Complex Projective Spaces",
+          "trigger": "Exact projective transform on the symmetric tensor quantization space"
+        },
+        {
+          "assessment": "Exact relevant arithmetic table, not by itself the frozen parameter-to-count operator theorem",
+          "evidence": [
+            "Theorem 5 gives R_Z(h,3) as binom(h+2,2) minus binom(ell,2) for ell from 1 to h; §2 gives integer occupation vectors for h-fold sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.05329v3",
+          "material_read": "Theorem 5, Eq. (3) and opening of §2, PDF pp. 2–4 (offsets 6600–11382)",
+          "method": "Match repeated sums to occupation counts and distinguish the set of possible sizes from a formula at a fixed q",
+          "title": "Explicit sumset sizes in additive number theory",
+          "trigger": "Exact size classification for repeated sums of three integers"
+        },
+        {
+          "assessment": "Conceptual antecedent, not a direct four-case statement",
+          "evidence": [
+            "Asks when the number of distinct finite-block eigenvalues grows to infinity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11785-022-01248-1",
+          "material_read": "§3.6 PDF p. 15 and Conclusion problem 2 p. 35 (offsets near 39200 and 104800)",
+          "method": "Compare requested growth conclusion and the frozen special family",
+          "title": "Commutative Toeplitz Algebras and Their Gelfand Theory: Old and New Results",
+          "trigger": "Motivating block spectrum-cardinality question"
+        },
+        {
+          "assessment": "Action precedent in weighted Bergman spaces; not relied on alone for arbitrary radial weights",
+          "evidence": [
+            "Explicit integrals of products of angular monomials and radial factors for quasi-homogeneous symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.01980",
+          "material_read": "Theorem 7.3 and Corollary 7.4, PDF pp. 25–26 (offsets 84972–87832 and 88441–90828); related pp. 26–27 passages",
+          "method": "Compare angular and radial integrals in the indicated monomial matrix coefficients",
+          "title": "Toeplitz operators, torus-invariance and quasi-homogeneous symbols",
+          "trigger": "Potentially broader angular monomial action"
+        },
+        {
+          "assessment": "Prior geometric context, not relied on for the exact arithmetic counts",
+          "evidence": [
+            "Moment-map connection and the monomial integral formulas over projective Delzant polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.08543",
+          "material_read": "Remark 5.3 and Theorem 5.4, PDF pp. 14–15, extracted offsets around 50700 and 51500",
+          "method": "Compare projective geometry and monomial action with the particular finite-block count",
+          "title": "Toeplitz operators, pseudo-homogeneous symbols and moment maps on the complex projective space",
+          "trigger": "Projective moment-map description of angular symbols"
+        },
+        {
+          "assessment": "Different operator and observable",
+          "evidence": [
+            "Full spectra of analytic quadratic compressions on a one-variable harmonic Bergman space with dependence on a ratio of moments."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-moment-universality-and-sharp-spectral-islands-for-radial-ha--56f967b9701f",
+          "material_read": "Mirrored Finding",
+          "method": "Compare ambient dimension, operator family, spectral level and role of radial moments",
+          "title": "Two-moment universality and sharp spectral islands for radial harmonic Bergman operators",
+          "trigger": "Nearest distinct Resultary hit for radial universality of quadratic Toeplitz spectra"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The motivating block-spectrum growth question is worthwhile and the formulas are a useful example. In this special family, however, the frozen output is a routine specialization of exact projective action followed by a standard three-point sumset/Hilbert-function calculation. Radial realization and nonnormality do not add new cases to the resulting distinct-value problem. No independently new invariant or surviving valuable repair is present in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

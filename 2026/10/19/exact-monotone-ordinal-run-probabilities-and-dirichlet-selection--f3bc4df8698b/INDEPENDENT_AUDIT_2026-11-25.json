@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:18.824125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are m comparisons on m+1 observations, but m points in the empirical measure. On digit branch j, x<T_b x iff x>j/(b-1); j=b-1 is excluded, and the omitted endpoints are null. Each survivor branch maps onto (j/(b-1),1), so admissible paths are exactly weakly nondecreasing labels. Inverse composition gives interval length (b-1-j)/[(b-1)b^m] for a path ending at j. Summing over paths ending at j, and writing b-1-j as a count of upper labels, gives the binomial coefficient by two hockey-stick sums. Full visitation requires a positive composition of m with b-1 parts and all such paths have the same final label and weight. Its conditional probability is the stated ratio and tends to one. The normalized distinct integer cut locations tend to uniform order statistics (sampling with and without replacement differ by O_b(1/m)); their spacings are Dirichlet(1,...,1). The sum of deviations from each branch fixed point is bounded by a geometric series below b/(b-1) per contiguous block, giving the claimed coupling cost; summation by parts on the spacings gives the uniform-sum law and moments. The one-label case b=2 is included. Read RESULT.md, VERIFICATION.md and verify.py without executing uploaded code. Independently checked 152,993 base-adic cells over (b,m)=(2,13),(3,8),(4,7),(5,6),(6,6),(7,5),(8,5),(10,4), with exact integer endpoints on the common denominator (b-1)b^m: for cell r use floor(r/b^(m-t)) at time t, take the maximum lower bound from the comparison inequalities and sum the surviving lengths. All eight interval sums gave the stated numerator; this checks finite probabilities, not the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General alphabet shift enumeration concerns cardinality of the support of ordinal permutations.",
+          "The indexed all-base ascent-law result matches the probability exactly and goes further on the sign process's memory, not on empirical measures.",
+          "The standard uniform-spacing law is for spacings once uniform occupancy has been proved; it does not assert uniformity under this dynamical conditioning."
+        ],
+        "reasoning": "Larger families of patterns or a memory result do not imply the conditional distribution of states. Even a complete finite sign-process probability law alone does not identify the state values conditional on a given sign pattern.",
+        "searches": [
+          "arXiv:0909.2274 Theorem 4.2 and §5",
+          "arXiv:1008.4167 realizability threshold",
+          "Resultary: all-base ascent laws and ordinal memory; Dirichlet selection under monotone runs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:0707.4628, 0909.2274, 1008.4167, 1512.04479",
+        "Resultary 8eeed03cd4a8 and summary of 5878a875c093"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same finite-event probability determines only a total mass, not the individual occupancy weights or where points lie in long blocks.",
+          "For the frozen conditional law, equal weight of all full-visitation cylinders and fixed-point concentration within each block are decisive in addition to the standard spacings limit."
+        ],
+        "reasoning": "The inspected prior results cover ingredients or the scalar probability, not a theorem implying the limiting random fixed-point mixture under the stated conditioning.",
+        "searches": [
+          "arXiv:0707.4628 sawtooth system",
+          "Resultary 8eeed03cd4a8 RESULT.md, ascent-law statement and prior-work context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amigó–Elizalde–Kennel identify Lebesgue dynamics with the uniform-symbol Bernoulli shift and analyze realizability in its natural lexicographic order.",
+          "The Elizalde and Elizalde–Moore papers compare alphabets or slopes that realize particular patterns, rather than giving conditional occupation laws."
+        ],
+        "reasoning": "The symbolic conjugacy identifies the same object, but an allowed lexicographic pattern is not an event mass or an orbit-occupation measure; the conditional branch lengths and fixed-point comparison require further work.",
+        "searches": [
+          "arXiv:0707.4628 sawtooth/shift equivalence and allowed ordinal patterns",
+          "arXiv:1008.4167 permutations and beta-shifts",
+          "arXiv:1512.04479 negative shifts and thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact shift counts (six and eighteen distinct patterns at lengths three and four in base two) tabulate admissibility, not the Lebesgue weight of the ascending pattern.",
+          "The October 26 indexed tripling law is (m+2)/(2*3^m), as also follows from the frozen formula; the November 22 indexed result states the full probability for fixed integer base, but no matching Dirichlet claim was found in the relevant passage."
+        ],
+        "reasoning": "Credit exact indexed overlap for the probability. The later dates do not establish earlier priority. The empirical measure statement is a separate claim, not a reformatted run-length table.",
+        "searches": [
+          "Resultary: algebraic infinite ordinal memory and exponential Markov walk error",
+          "Resultary: exact ascending-run laws and sharp ordinal-memory transition",
+          "arXiv:0909.2274 length-three and length-four binary patterns; Theorem 4.2"
+        ]
+      },
+      "rationale": "The exact ascent probability is also in later indexed work and a tripling-case overlap should be credited. The supported distinct claim is the conditional weak limit of the actual orbit empirical measure, with its explicit random masses, finite occupancy description and coupling estimate. The checked symbolic pattern results, exact run laws and ordinary uniform-spacing facts do not supply that orbit-level conclusion.",
+      "residual_risks": [
+        "The earlier tripling documentation referred to in the later all-base record was not identified. The October 26 source was unavailable in the local mirror; no whole-document noncoverage inference is made.",
+        "Older work on conditional escape or reducible open dynamical systems could contain an applicable general limit; the priority judgment is bounded by the sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching system, not a claim about this conditional empirical law.",
+          "evidence": [
+            "Identifies x↦Nx mod 1 with the uniform N-symbol shift and discusses patterns realizable in that shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0707.4628",
+          "material_read": "PDF p. 13, extraction offset 39792, the Bernoulli-shift/sawtooth comparison and pattern framework.",
+          "method": "Compared measure-preserving coding and the statements about patterns.",
+          "title": "Forbidden patterns and shift systems",
+          "trigger": "Same integer map and Lebesgue ordinal-pattern problem."
+        },
+        {
+          "assessment": "Exact support counts, not pattern probabilities or conditioned states.",
+          "evidence": [
+            "Theorem 4.2 counts distinct binary-shift realizable permutations; §5 treats general alphabet size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.2274",
+          "material_read": "PDF p. 1, Theorem 4.2 on pp. 11–12 and §5 p. 13, extracts at 824, 46404, 51530.",
+          "method": "Compared what the formulas enumerate, and the role of primitive words.",
+          "title": "The Number of Permutations Realized by a Shift",
+          "trigger": "Exact ordinal-pattern counts and general alphabet results."
+        },
+        {
+          "assessment": "Realization/threshold results, not evidence of coverage of the occupation limit.",
+          "evidence": [
+            "The former studies the smallest slope realizing a permutation; the latter focuses on negative shifts."
+          ],
+          "identifier_or_url": "arXiv:1008.4167; arXiv:1512.04479",
+          "material_read": "First paper p. 1 introduction (offset 0); second p. 2 comparison with positive shifts (offset 5607).",
+          "method": "Compared stated target quantity and order/slope conventions.",
+          "title": "Permutations and β-shifts; Patterns of Negative Shifts and Beta-Shifts",
+          "trigger": "Broader parameter families and ordinal realization thresholds."
+        },
+        {
+          "assessment": "Exact probability overlap; no Dirichlet empirical-measure limit in the inspected statement.",
+          "evidence": [
+            "Same formula and fixed-base asymptotic; the tripling case is described as previously documented."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-ascending-run-laws-and-the-sharp-ordinal-memory-transition--8eeed03cd4a8",
+          "material_read": "Local mirror RESULT.md offsets 0 and 4991, finding and context.",
+          "method": "Matched base, observations/comparisons and exact mass; compared ascent-process memory to empirical-state conditioning.",
+          "title": "Exact ascending-run laws and the sharp ordinal-memory transition",
+          "trigger": "Distinct indexed exact run-law match."
+        },
+        {
+          "assessment": "Exact overlap for the tripling probability in the available evidence; no determination of whole-document coverage.",
+          "evidence": [
+            "The summary gives (m+2)/(2*3^m) and infinite Markov order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-algebraic-infinite-ordinal-memory-and-exponential-markov-walk-error--5878a875c093",
+          "material_read": "Resultary catalogue summary; source unavailable in local mirror.",
+          "method": "Matched the summarized formula at b=3, without relying on the summary for absence of other conclusions.",
+          "title": "Algebraic infinite ordinal memory and exponential Markov walk error",
+          "trigger": "Exact tripling-map ascending-run overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The measure theorem answers what long monotone runs actually select, beyond how often they occur. The selected orbits spend random macroscopic fractions near several deterministic repelling fixed points, rather than converging to a single deterministic mean or an unconditioned invariant law. The uniform composition mechanism, quantitative concentration estimate and orbit-average law make the distinction usable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

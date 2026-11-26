@@ -1,15 +1,21 @@
-# Review: rank-one spectral fiber theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated equality is for all finite fields, all positive dimensions, all fixed base matrices, and every monic target polynomial of the same degree. The determinant lemma is a polynomial identity. The cyclic annihilator argument identifies both the exact image and fiber dimension of the covector-to-characteristic-polynomial map. The elementary-divisor count uses the exact primary kernel sizes, without assuming eigenvalue splitting. Strict dominance is a positive-coefficient comparison of the entire kernel sequence, not an extrapolation from examples. Ten explicit canonical forms and 92 complete target-fiber comparisons pass literal determinant enumeration; exhaustive matrix checks and 696 strict dominance comparisons corroborate the proof. Main risk: an error in the resolvent-to-cyclic-subspace argument would affect all targets; the triangular coefficient proof addresses precisely this step.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The closest inspected 2011 primary paper provides the resolvent characteristic-polynomial identity and studies generic complex eigenvalue curves; the current determinant step is not independently new. The 2021 and 2023 papers characterize which prescribed target polynomials are reachable, including over arbitrary fields in 2023, so support classification is also not new. Carriegos–Trobajo (2022) also review the classical fixed-input pole-assignment subspace. These results do not give complete **finite-field fiber multiplicities aggregated across all inputs** or the strict Jordan-dominance comparison. The explicit product law and monotonicity are narrower in perturbation rank but stronger in enumeration. Exact-source and alternative-formulation searches did not identify a covering enumeration theorem. Residual risks include uninspected older finite-field transfer-function counting literature and a possible implicit formula elsewhere; the search results alone do not prove novelty.
+PASS
 
-## Value — PASS
-The invariant is natural: for any fixed linear transformation it gives the exact distribution of the characteristic polynomial under a uniformly chosen rank-one factorization, simultaneously for all targets, all finite fields, and all similarity types. It distinguishes matrices that share a characteristic polynomial by a strict, order-theoretic criterion. The irreducible case has a uniform distribution over all other monic targets, while the scalar case is confined to a one-parameter family. The information goes beyond the already-known reachability conditions and is usable in finite-field matrix sampling and spectral-preservation questions.
+For fixed u with annihilator g and d=deg(g), the determinant lemma reduces the target to a linear equation in v. The coefficient vectors of g(t)(tI-A)^(-1)u form a triangular basis of the cyclic span of u,Au,...,A^(d-1)u. Thus the image is all (chi_A/g) times polynomials of degree <d, with q^(n-d) lifts per target, including u=0 by the zero-dimensional convention. Primary exponent e has precisely K_e-K_(e-1) choices by the kernel dimensions of the f-power maps; divisibility by chi_A/g gives exactly the lower limits r_f, and summation factors. Every nonzero rank-one matrix has q-1 factorizations and zero has 2q^n-1, giving the correction. At the unchanged target the summation-by-parts coefficients on the kernel sizes before stabilization are strictly positive. Indeed sum_j min(e,lambda_j) equals M minus max_r(sum_(j<=r) lambda_j - re), so dominance gives the stated direction; distinct partitions have different increments of these dimensions, ensuring strictness somewhere before M. Rank-one extremes follow from a single irreducible factor or from the scalar dot-product count. These arguments work in characteristic two and in dimension one as well. Independent finite checks used direct determinant expansion and literal updates for 92 targets across 13 types over F_2 and F_3, plus 699 exact partition comparisons for q=2,3,5 and partition size up to seven. Replay: python3 /workspace/branches/2dcda91d-ea99-4105-aaf8-f8900e12579b/independent_fiber_check.py. Those checks are bounded and do not establish the theorem for general q or n.
 
-## Limits
-The finite computations corroborate but do not replace the arbitrary-field proof. There is no independent validation, no classification of changed Jordan forms, and no guarantee of historical priority outside the inspected literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scoped distinct contribution is the complete multiplicity across all input vectors for each target and its strict isospectral dominance law, not the rank-one characteristic-polynomial identity, fixed-input pole placement, or the set of attainable targets. The available comparisons support this distinction.
+
+## value
+
+PASS
+
+The exact fiber size gives the probability of each characteristic polynomial under uniform factorized rank-one updates, or under uniform distinct nonzero rank-one updates after correction. The unchanged-target counts also strictly detect comparable changes in the primary partitions that the support condition cannot distinguish. These are motivated finite-field statistics for arbitrary input matrices, not just an extra test of a known attainability criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

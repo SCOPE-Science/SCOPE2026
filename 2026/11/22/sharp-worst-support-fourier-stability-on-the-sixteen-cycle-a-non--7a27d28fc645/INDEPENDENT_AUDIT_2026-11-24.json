@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:48:25.611471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unnormalized 16-DFT the squared lower gain on each fixed C is the least Gram eigenvalue. An odd multiplier on rows permutes supports, and translation changes only unit phases on columns, so the minimum over C is affine-invariant. Repeated row classes modulo four duplicate rows on C={0,4,8,12}; the converse is the prime-power full-spark theorem (balanced residues at each divisor of 16, implied here by one representative of each class modulo 4). The independently written exact reproduction at /workspace/branches/c64e8ab6-aba3-4c76-900e-19f789cfd1a9/reproduce.py exhausts all 1,820 row sets and verifies the 256 balanced sets decompose into disjoint affine orbits of sizes 64,128,64. Its reproduction.log lines 2–3 give negative determinants of 1000G−I on one support for each competing orbit, implying a strictly subthreshold eigenvalue. Line 4 records strict positive signs for every one of 7,280 leading principal minors for the last orbit representative: exhaustive enumeration of 1,820 supports, recursive determinants in Z[x]/(x^8+1) and integer radical enclosures. Sylvester's criterion gives a strictly superthreshold least eigenvalue at every support, hence also for the finite minimum. The determinant digest matches the frozen exact certificate; its supplied code and optional floating-point diagnostic were inspected but not executed. This proves the affine optimizer class and the 64/192/1564 split. Neither the spectral condition-number ratio nor blind unknown-support identifiability with four samples follows; the result compares the gain conditional on each frequency support.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited prime-power full-spark characterization covers exactly positivity of the worst gain and applies at order 16. The cited treatment of consecutive designs concerns their conditioning, not the exact minimax among all universal designs. A related indexed exact spectral result gives the orbit of {0,1,4} on the order-25 three-sample problem, a different pair of parameters."
+        ],
+        "reasoning": "Credit the broader support-invertibility theorem fully; its qualitative invariant does not rank positive gains. No reduction from the available order-25 three-point statement or consecutive-design bound gives the order-16 four-point optimizer.",
+        "searches": [
+          "Alexeev–Cahill–Mixon arXiv:1110.3548 Theorem 9",
+          "Osgood–Siripuram–Wu arXiv:1204.0992 Theorem 4 and Appendix A",
+          "Resultary 2026/11/22/SCOPE-the-unique-noise-optimal-universal-three-point-fourier-sampling--be8e4fc599e1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.py, certificate_output.txt, numeric_crosscheck.py, numeric_output.txt",
+        "Independent bounded exact reproduction and reproduction.log",
+        "Resultary assigned record, November 8 rank census and distinct order-25 three-point minimax record",
+        "Alexeev–Cahill–Mixon and Osgood–Siripuram–Wu citation leads and retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first rank-level split and finite candidate orbits can be recovered from the known classification. Separating all three balanced types requires new spectral information, witnessed here by two strict negative determinants and uniform positive definiteness on the third type. Rank equality for each competitor cannot supply these signs."
+        ],
+        "reasoning": "The contribution does not consist of rediscovering universal sets with new terminology. The exact winner and separator are not mechanical statements of the located rank results.",
+        "searches": [
+          "Compare frozen RESULT.md lines 29–48 and 56–58 with the cited full-spark theorem, consecutive-design bound and Resultary rank and order-25 spectral census descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The criterion is equivalently maximum worst-case squared lower singular value, or minimum worst-case inverse Euclidean reconstruction gain on an invertible fixed support. Normalizing entries by 1/4 does not change the orbit but changes the separator to 1/16000. Ordinary condition-number comparison can depend on the top eigenvalue and is not equivalent."
+        ],
+        "reasoning": "The comparison covers alternate unit conventions and universal-sampling terminology without treating nonsingularity or condition-number bounds for a single design as the all-row objective.",
+        "searches": [
+          "Configured Resultary and literature lookup for order-16 four-sample Fourier minimax stability, worst-column-support least singular value and the affine orbit of {0,1,3,14}",
+          "Osgood–Siripuram–Wu arXiv:1204.0992, Theorem 4 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed record gives fourth-order rank incidence and 25 affine row-orbit incidences for this exact matrix. The assigned finding is the exact spectral catalogue hit, not an additional publication covering the result. No distinct table of the minimax least eigenvalues was established."
+        ],
+        "reasoning": "This is material same-object overlap, but rank and orbit data certify only whether the least eigenvalue vanishes, not its positive size or ordering. Full rank census text was not recovered; the comparison rests on the available indexed statement and frozen description.",
+        "searches": [
+          "Configured Resultary search for fourth-order cyclic 16 DFT rank incidence and finite spectral or sampling orbits",
+          "Resultary 2026/11/8/SCOPE-complete-fourth-order-rank-incidence-for-the-cyclic-16-point-fou--d844f172dad8"
+        ]
+      },
+      "rationale": "Pass for the exact minimax spectral comparison on the order-16 four-row problem. The full-spark criterion and rank census, including the qualitative split and universal orbit structure, are not credited as new. Available evidence does not show distinct prior coverage of the winner or strict separator.",
+      "residual_risks": [
+        "The full same-object rank census and cited scholarly passages did not load; no claim about uninspected sections is made.",
+        "An unlocated spectral table or stronger general minimax result could affect priority. Search misses are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rank-level overlap, not evidence of spectral coverage",
+          "evidence": [
+            "The available summary describes all fourth-order rank incidences and 25 affine row-orbit incidences, not minima of positive squared singular values."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-fourth-order-rank-incidence-for-the-cyclic-16-point-fou--d844f172dad8",
+          "material_read": "Resultary indexed statement and the frozen relationship passage at RESULT.md lines 56–58; full external record not obtained",
+          "method": "Configured Resultary lookup and local mirror retrieval attempt",
+          "title": "Complete fourth-order rank incidence for the cyclic 16-point Fourier transform",
+          "trigger": "Exact matching matrix size, minor order, and row orbits"
+        },
+        {
+          "assessment": "Related objective; different order and number of points, not coverage on available evidence",
+          "evidence": [
+            "The indexed winning orbit is of {0,1,4} for three points on the 25-cycle."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-unique-noise-optimal-universal-three-point-fourier-sampling--be8e4fc599e1",
+          "material_read": "Resultary indexed statement",
+          "method": "Configured Resultary search",
+          "title": "The unique noise-optimal universal three-point Fourier sampling (order 25)",
+          "trigger": "A distinct exact minimax spectral problem on a nearby prime-power cycle"
+        },
+        {
+          "assessment": "Credit full-spark/universal classification as background; independent full-text inspection unavailable",
+          "evidence": [
+            "The criterion used is uniform distribution modulo divisors of the prime-power size. The relevant comparison is the optimization of the least singular value across designs, not just whether row restriction is universal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548 ; https://arxiv.org/abs/1204.0992",
+          "material_read": "Citation and theorem/application as reported in frozen RESULT.md lines 29, 56–68; no external decisive passages recovered",
+          "method": "Citation comparison and lawful OA retrieval attempts",
+          "title": "Full Spark Frames; Discrete Sampling and Interpolation: Universal Sampling Sets for Discrete Bandlimited Spaces",
+          "trigger": "General prime-power classification and comparison with consecutive samples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite case compares a motivated stability invariant in a cyclic Fourier inverse problem, not a convenient isolated minor. It distinguishes all fixed-size designs by a strict uniform bound and shows that, among universally invertible four-sample designs, the consecutive baseline is not optimal. The quantitative comparison is useful for this order even without an exact expression for the optimal eigenvalue or an all-orders theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:52:31.923753Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, hypotheses and proof §§1–5; VERIFICATION.md and verify.py inspected without execution",
+        "Independent bounded reproduction, ordinal 1",
+        "Rauh, generalized binomial edge ideals, definition, Lemma 5 and Theorem 7"
+      ],
+      "rationale": "For any k, choose complements to ker D and bases of im D. The bracket of inputs (a_i,v_i),(a_h,v_h) has coordinates a_i Dv_h−a_h Dv_i in im D. This identifies defining ideals under a linear input change, with c independent kernel coordinates per input; it is not merely a pointwise match. If a is nonzero, every row of Y is a multiple of a, so the support is the union of a=0 and the rank-at-most-one stacked matrix locus. The irreducible rank-one cone has dimension equal to number of rows plus number of columns minus one, and neither locus contains the other for r,s≥2. This proves the stated dimensions, intersection and unique equidimensional case. For finite fields, counting on a=0 and a≠0 gives N_s and hence the displayed zeta function. On all tuples the joint map is (b,u)↦(a_i u−b y_i)_i: when a=0 it has rank 0 or 1; otherwise the u-block has rank r and the b-column adds one precisely when Y is not of the form ua. This gives the claimed four frequencies, including in characteristic 2. For the nilpotent rank-two example D_{31}²≠0 and D_{22}²=0; γ_{j+1}=D^jV, and the central quotient is abelian exactly when D²=0. For d≤3, rank fixes the nilpotent partition. Independent direct simultaneous-centralizer enumeration used two invertible rank-two matrices over F₂ and one rank-two singular matrix over F₃, checking both the rank frequencies and commuting counts (python3 /workspace/reviews/evidence/reproduce.py 1).",
+      "residual_risks": [
+        "The agreement for the nilpotent examples is not an assertion about arbitrary pairs of Lie algebras. Component claims in the frozen statement concern reduced geometric support. The finite reproducibility check is not a scheme proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rauh's general decomposition gives exactly the full vertex set and the set of all leaves for K_{1,r}. The first is connected, so all columns are proportional; the other kills a and leaves isolated columns unconstrained. Rauh's radicality result even strengthens the geometric-support formulation.",
+          "Goodwin–Röhrle give two commuting-pair components in the B₂ nilradical; Richardson treats reductive commuting varieties and notes solvable reducibility."
+        ],
+        "reasoning": "The broader graph theorem gives the whole component geometry mechanically, and point counts follow readily from the model. It does not enumerate joint centralizers in the Lie category or exhibit the nilpotent collision.",
+        "searches": [
+          "Rauh §1, Lemma 5 and Theorem 7",
+          "Goodwin–Röhrle §3.5 and Richardson §2 Cor. 2.5/Rem. 2.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1210.7960, 0909.4717, 1209.1289v1",
+        "Richardson 1979; DOI 10.1080/00927870903117535 (access limit)",
+        "Resultary 625d7cf23cc4 and 0e69fccd676e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph primary decomposition applies once the equations are identified. It says nothing about shifting inputs between Lie algebras without respecting the central quotient bracket.",
+          "The explicit central quotients in the frozen example do not even agree in abelianness, so prior sufficient results for isoclinic Lie algebras would not explain this collision."
+        ],
+        "reasoning": "Distinguish linear input/output equivalence of the alternating bracket maps from isomorphism of central quotient Lie algebras. The concrete consequence at the first possible dimension and the Lie joint-adjoint polynomial are not just the graph component theorem.",
+        "searches": [
+          "Rauh a priori graph decomposition; Goodwin–Röhrle B₂ pair case; DOI 10.1080/00927870903117535 on Lie isoclinism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With vertex set {0,…,r}, star edges (0,j), and d₀=s, transpose [a;Y] so that each row variable becomes a graph column. Rauh's edge generators are exactly the frozen equations, with the kernel coordinates adjoined freely.",
+          "Herzog et al.'s ordinary edge ideal is only the d₀=2 specialization; the generalized statement subsumes it."
+        ],
+        "reasoning": "This is exact equality of the coordinate ideals after labeling. It covers the abstract coordinate model and its geometry, not the conclusion about what it forgets on almost-abelian Lie input algebras. Retractions are a different kind of input object.",
+        "searches": [
+          "Rauh, arXiv:1210.7960, generalized binomial edge ideals",
+          "Herzog et al., arXiv:0909.4717; Resultary commuting Lie retractions and element-tuple schemes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "625d7cf23cc4 states all-arity B₂ point counts and components in odd characteristic, matching d=3,r=2,c=1. In characteristic 2 its action has rank one.",
+          "0e69fccd676e counts commuting idempotent endomorphisms for invertible action, not commuting tuples of elements."
+        ],
+        "reasoning": "The closest exact catalogue formula is a special case, not an all-input rank or isoclinism result. The indexed date of that entry is not used to infer priority.",
+        "searches": [
+          "Resultary: almost-abelian Lie element-tuples, B₂ bad-prime commuting tuples, commuting Lie retractions and centralizer ranks"
+        ]
+      },
+      "rationale": "The common ideal is exactly a known generalized binomial edge ideal after transpose, and its decomposition and the component formulas are covered. Credit that prior result rather than treating the geometry of this model as new. The distinct contribution is the Lie-theoretic identification of all-arity commuting schemes and joint-adjoint rank distributions for same-dimension, same-rank almost-abelian algebras, including the sharp nonisoclinic class-two/class-three collision. No checked source covers that conclusion or the full joint-adjoint enumerator.",
+      "residual_risks": [
+        "One broad public search was nonresponsive and the isoclinism paper's full text was unavailable. A specialized Lie bracket-map or joint-centralizer result might cover additional parts; a search miss is not proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ideal decomposition and hence the geometric part",
+          "evidence": "Thm. 7 retains all vertices or all leaves in the star: in the latter the removed center joins the disconnected leaves. Lemma 5 gives the corresponding primes.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.7960",
+          "material_read": "p. 1 definition and abstract, pp. 4–5 decomposition and Lemma 5, p. 6 Theorem 7 (PDF offsets 0, 14855, 19580)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Generalized binomial edge ideals",
+          "trigger": "Exact generalized edge-ideal hypothesis"
+        },
+        {
+          "assessment": "Ordinary two-row case; superseded here by Rauh",
+          "evidence": "Edge generators are 2×2 minors between two graph columns.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.4717",
+          "material_read": "§1, p. 1, PDF offsets 2550–4594",
+          "method": "OA PDF passage inspection",
+          "title": "Binomial edge ideals and conditional independence statements",
+          "trigger": "Ordinary edge-ideal formulation"
+        },
+        {
+          "assessment": "Covered pair special case",
+          "evidence": "Gives C(u)=C(e₁)∪C(e₂) for B₂, in its characteristic-zero setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1289v1",
+          "material_read": "§3.5, p. 8 (PDF offset around 25000)",
+          "method": "OA PDF passage inspection",
+          "title": "On commuting varieties of nilradicals of Borel subalgebras of reductive Lie algebras",
+          "trigger": "Known B₂ nilradical component statement"
+        },
+        {
+          "assessment": "Reductive case and solvable caution, not this Lie classification",
+          "evidence": "Irreducibility for reductive cases and acknowledged solvable reducible examples.",
+          "identifier_or_url": "https://www.numdam.org/item/CM_1979__38_3_311_0.pdf",
+          "material_read": "§2, Cor. 2.5 and Rem. 2.6 around PDF offset 8264",
+          "method": "OA PDF passage inspection",
+          "title": "Commuting varieties of semisimple Lie algebras and algebraic groups",
+          "trigger": "Foundational commuting variety and reducibility scope"
+        },
+        {
+          "assessment": "Rank-two B₂ specialization in odd characteristic; not whole theorem",
+          "evidence": "Brackets [e₁,e₂]=e₃ and [e₁,e₃]=2e₄ give a rank drop in characteristic 2.",
+          "identifier_or_url": "Resultary 625d7cf23cc4",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary local mirror",
+          "title": "Bad-prime component collapse in commuting tuples of the B₂ positive nilradical",
+          "trigger": "Exact all-arity component and count overlap"
+        },
+        {
+          "assessment": "Endomorphism-tuples, not element-tuples",
+          "evidence": "Counts idempotent Lie endomorphisms rather than centralizers of elements.",
+          "identifier_or_url": "Resultary 0e69fccd676e",
+          "material_read": "RESULT.md, relevant statement on commuting retractions",
+          "method": "Resultary local mirror",
+          "title": "Commuting Lie retractions: a rational-canonical joint rank census",
+          "trigger": "Closest joint-rank and almost-abelian object hit"
+        },
+        {
+          "assessment": "Inaccessible full text, not negative evidence",
+          "evidence": "The frozen example is independently distinguished by its central quotients; no inference about the paper's unpublished-to-this-review contents.",
+          "identifier_or_url": "https://doi.org/10.1080/00927870903117535",
+          "material_read": "Bibliographic scope only; no full-text passage compared",
+          "method": "DOI/publisher and repository recovery attempt",
+          "title": "Characterizing n-isoclinism classes of Lie algebras",
+          "trigger": "Possible overlap with equivalence of brackets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, rank enumeration and five-dimensional witness; Rauh, Theorem 7 for what the abstract geometry already gives"
+      ],
+      "rationale": "The value is the sharp failure of Lie reconstruction even if every ordered-tuple commuting scheme and every joint-adjoint rank frequency is supplied. The pair changes nilpotency class and isoclinism at the first possible dimension, so it isolates a real loss of structure. The known determinantal component geometry alone is not the value claim.",
+      "residual_risks": [
+        "No reconstruction classification or general theorem beyond the almost-abelian setting is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

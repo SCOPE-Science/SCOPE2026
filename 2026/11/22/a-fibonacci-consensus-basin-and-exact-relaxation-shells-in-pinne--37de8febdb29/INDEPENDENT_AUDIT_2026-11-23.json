@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:53:03.537255Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With x₀=0 the edge XOR word determines x uniquely; even parity is necessary and sufficient for closing the ring. A site flips iff both incident edges are 1 and the site is not pinned. XOR of the two endpoint flips with an edge bit shows that a zero never turns on, and that an edge currently 1 turns off exactly when it has just one neighboring 1 in the linear word (virtual zeros at the two ends). Thus both edges of any run of length ≥2 are removed at once, and singleton runs are fixed. This proves that the first fixed time is the largest floor(run length/2), and proves absence of cycles, with the empty-run maximum interpreted as zero. The parity-projected series follows by splitting at zero walls: one capped initial run, then any number of zero-plus-capped-run blocks. The coefficients at n<3 describe formal words; no physical boundary convention there is required. At time floor(n/2) the extremizers are exactly the even all-one word, or the two end-positioned length-(n−1) runs at odd n. The all-zero attractor requires every run length even; these words tile uniquely by 0 and 11, so the Fibonacci recurrence and its initial values follow directly. Division by the 2^(n−1) indexed starts and Binet's identity give the claimed asymptotic. Independent replay /tmp/opencode/frozen_majority_replay.py exhausts lengths 3–16 using bitwise open-string majority, checks each start's time and basin membership, and compares all cumulative counts to a parity/terminal-run-state automaton. At n=8 it gives [27,77,20,3,1] and basin 34; at n=16 [1292,18532,9900,2404,512,104,20,3,1] and basin 1597. The uploaded source and output were inspected without executing them. The unbounded conclusions use run erosion and exact formal-language counting, not the replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakar–Ron study all-updating cyclic radius-r majority and eventual spatially patterned states. Fukś uses a composition of rules 184 and 232 to classify density. Neither abstract states a pinned basin or exact relaxation census. The frozen review identifies the 2000 fixed-boundary comparison as the overlapping qualitative and maximum-time result."
+        ],
+        "reasoning": "A broader qualitative classification is not a distribution of initial configurations by first fixation time or eventual unanimous state. The independent attempts to inspect the 2000 Rule 232 section did not return readable full text; any stronger as-yet-uninspected count there remains a priority risk.",
+        "searches": [
+          "Web: On Limit Cycles and Transient Lengths Inokuchi Sato Rule 232 fixed boundary pdf",
+          "Nakar–Ron arXiv:2205.08972",
+          "Fukś arXiv:comp-gas/9703001"
+        ]
+      },
+      "checked_sources": [
+        "Inokuchi–Sato DOI metadata and frozen Rule 232 section comparison; independent full-text attempts unsuccessful",
+        "Nakar–Ron arXiv:2205.08972 abstract",
+        "Fukś arXiv:comp-gas/9703001 abstract",
+        "Resultary cyclic majority stabilization census (indexed statement)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited fixed-boundary orbit-type, fixed-state count and maximum-length statements alone do not distribute points among the transient layers or among attractors. The cyclic result's local erosion mechanism is closely related but does not make the split at the pin."
+        ],
+        "reasoning": "The pinned formulas add a boundary-specific reconstruction and count a linear, parity-filtered run language and a specified basin. Neither cutting an aggregate circular histogram nor just substituting n−1 for n yields these amounts. The originality determination is limited to the inspected statements; no whole-document exclusion of the 2000 paper is asserted.",
+        "searches": [
+          "Inokuchi–Sato DOI 10.5109/13492 and frozen §3.37 comparison",
+          "Resultary: Exact stabilization census and Poisson critical window for cyclic majority automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cutting the pinned site gives n−1 dynamic cells and the same zero at both boundaries. Frozen source evidence points to Inokuchi–Sato §3.37, Lemma 3.88/Proposition 3.89/Theorem 3.90, for fixed-boundary Rule 232.",
+          "The related indexed cyclic census uses circular wall runs and counts entry into a periodic orbit, allowing the exceptional alternating two-cycle."
+        ],
+        "reasoning": "The fixed-boundary alias is identical and must be credited. In contrast, the cyclic unpinned problem reconstructs two bit strings per even wall word and joins the two pin-adjacent wall runs across the cut; choosing x₀=0 in the ensemble alone does not impose x₀=0 in the update.",
+        "searches": [
+          "Web: Rule 232 fixed zero boundary Inokuchi Sato exact transient distribution majority cellular automaton Fibonacci all zero basin alternating wall runs",
+          "Resultary: Rule 232 majority fixed zero boundary stabilization time relaxation distribution Fibonacci consensus basin cyclic",
+          "https://doi.org/10.5109/13492"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest independently indexed exact census is explicitly cyclic, given by a transfer trace. Web search also surfaced the Wolfram Rule 232 finite-size atlas, which describes finite-state plots but does not furnish a retrieved pinned all-length time/basin table. The comparable fixed-point recurrence in the frozen same-object evidence is a t=0 count."
+        ],
+        "reasoning": "An integer match with Fibonacci or an existing cyclic table cannot identify this basin: the counted word property is that all maximal linear wall runs are even, not that every run has length at most one or that the graph is cyclic.",
+        "searches": [
+          "Resultary: Rule 232 majority fixed zero boundary stabilization time relaxation distribution Fibonacci consensus basin cyclic",
+          "Web: On Limit Cycles and Transient Lengths Inokuchi Sato Rule 232 fixed boundary pdf"
+        ]
+      },
+      "rationale": "Qualified for the pinned all-time and consensus-basin counts, not the known same-model absence of nontrivial cycles, fixed-point enumeration or worst transient time. The model is exactly the open dynamic string with two fixed zero boundary values, not just analogous to it. Access limits for the 2000 full text are recorded below.",
+      "residual_risks": [
+        "Uninspected full text of the closest fixed-boundary source could contain additional statewise counts; current independent access stopped at bibliographic evidence and the frozen excerpt-based comparison.",
+        "Equivalent open-string basin formulas could be indexed under binary run languages or phase-space trees rather than the pinned-ring formulation. Search is bounded, not worldwide priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known same-model context; independent full-text exclusion unavailable",
+          "evidence": [
+            "Frozen comparison names §3.37 and Theorem 3.90 for fixed states and sharp transients. The institutional route returned no usable text; ResearchGate denied access."
+          ],
+          "identifier_or_url": "https://doi.org/10.5109/13492",
+          "material_read": "Verified DOI bibliographic record; Rule 232 section descriptions in the frozen audit only. Institutional PDF and full-text ResearchGate retrieval did not yield readable text.",
+          "method": "Direct DOI/OA same-paper routes attempted; compared the frozen passage-level account without treating it as an independent primary-text reading",
+          "title": "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+          "trigger": "The exact zero-zero Rule 232 same-object reference"
+        },
+        {
+          "assessment": "Related all-updating cyclic setting; not a full-text exclusion",
+          "evidence": [
+            "Abstract explicitly uses cyclical boundary conditions and describes eventual fixed points and 2-cycles for majority of radius r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "Primary arXiv abstract and submission record",
+          "method": "Compared the dynamics described in the abstract to the pinned hypothesis",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Possible broader majority-dynamics classification"
+        },
+        {
+          "assessment": "Close method, different dynamical map and counts",
+          "evidence": [
+            "Indexed census gives time to periodicity on a full-update cycle and a transfer-matrix trace."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238",
+          "material_read": "Resultary indexed summary; an attempted full-text fetch for the separate cyclic histogram reference cited in RESULT.md did not resolve",
+          "method": "Statement and boundary-map comparison",
+          "title": "Exact stabilization census and Poisson critical window for cyclic majority automata",
+          "trigger": "Exact related histogram and erosion method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-case time and fixed-state totals do not answer how often a single immutable opinion wins or how quickly typical starting states freeze. These two natural exact invariants are given uniformly over sizes and times; in particular, certain fixation coexists with exponentially vanishing consensus probability. The value is the two exact pinned invariants, not a new local rule or arbitrary extracted slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

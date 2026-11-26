@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:12:39.059948Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x₀≥d and x gaps ≥L>2d, s_(kσ)≤e^(−kL), so the sensor is Hilbert–Schmidt. With t_j=e^(x_j) and weight t_j, the exact analysis block is U_k diag φ(x_j−x_k−δ_(kσ)); its diagonal has least singular value ≥ma_d and norm ≤M/√(2e). Since φ(u)≤e^(−|u|/2), both block Schur sums of the off-diagonal part are bounded by ε. Neumann inversion gives an isomorphism onto the full coefficient space, not merely a lower frame inequality. For finite supports, geometric summation gives the integer-time Gram form; each diagonal block is bounded between m²/2 and M²/(1−e^(−2)) by the bound on s/(1−e^(−2s)). Concavity gives 1−e^(−(a+b))≥(a+b)(1−e^(−2))/2, and the separated logs give √(min(a,b)/max(a,b))≤e^d q^|k−ℓ|, so the off-block operator norm is ≤η. The estimates extend by density (coordinate evaluations agree with CA^n). In the counting argument only the unique cluster interval intersecting log R can contribute a discrepancy, of at most r, also at endpoints; repeated eigenvalues count with multiplicity. The formal theorem has r modes per cluster and does not assert uniform invertibility for arbitrary varying cluster cardinalities. Independently recalculating the example at d=1/4,L=12,m=M=1,r=4 gives a_d≈0.3137918482, ε≈0.0056315476 and η≈0.0590414234. The supplied checker was inspected, not executed; its 27 real-orthogonal finite sections do not verify arbitrary complex mixing or the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabrelli et al. characterize frames of unthinned integer iterates using multiplicity, separation partitions, eigenspace sensor geometry and an H²-range compatibility condition.",
+          "Wu's Proposition 4.6 proves a general finite-rank counting obstruction. The cited existence results at the sharp count are for a scalar single-orbit problem rather than cluster blocks with variable mixing."
+        ],
+        "reasoning": "Potential broader model-space coverage concerns the integer frame component, not an onto interpolation map for the specified thinned real times and weights. The cited scalar sufficient conditions impose different spectral/sensor hypotheses.",
+        "searches": [
+          "arXiv:1702.03384, Theorem 2.3 (vector-valued model-space frame criterion)",
+          "arXiv:2610.31278, Theorems 3.10–3.11 and Proposition 4.6; arXiv:2611.20122, Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary claim search",
+        "Wu arXiv:2610.31278",
+        "Cabrelli et al. arXiv:1702.03384",
+        "Krishtal–Wu arXiv:2611.20122",
+        "Frozen RESULT.md, VERIFICATION.md, check_clustered_sampling.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The obstruction rN_μ(R)≥n_A(R)−K_μ is necessary, not an existence theorem. The unthinned criterion gives no invertibility on a prescribed thinned sequence. The strong single-orbit theorem allows a Riesz design with N_μ=n_A+O(1), but for a scalar frame, which fails at cluster multiplicity r with one sensor.",
+          "The frozen proof uses a new quantitative comparison for these particular block kernels with independent U_k and works even at exact collisions and arbitrarily uneven center gaps."
+        ],
+        "reasoning": "Neither direct specialization nor direct summation of those results gives the specified weighted basis and integer frame simultaneously for these data. Direct sums of scalar examples do not yield arbitrary varying cross-cluster mixing or the stated block bounds.",
+        "searches": [
+          "arXiv:2610.31278, Proposition 4.6, Example 4.7, Theorems 3.10–3.11; arXiv:1702.03384 Theorem 2.3; arXiv:2611.20122 Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match is the assigned 6dbaaeef94d4 record itself, not a distinct earlier or same-day finding.",
+          "Krishtal–Wu Theorem 3.4 is a one-direction Riesz sampling theorem; Wu Theorem 3.11 gives an explicit scalar separated-speed construction."
+        ],
+        "reasoning": "The scalar translations yield one coefficient per time for cyclic spectra. At an exactly repeated cluster eigenvalue of multiplicity r a single sensor cannot resolve the modes; splitting into r independently scalar orbits likewise does not reproduce arbitrary k-dependent mixed sensor matrices.",
+        "searches": [
+          "Resultary: critical multichannel weighted sampling, nearly colliding spectral clusters, one time per cluster, varying invertible sensor matrices",
+          "arXiv:2611.20122, Theorem 3.4; arXiv:2610.31278, Theorem 3.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materials retrieved did not identify a distinct entry for the explicit cluster-time design and separation constants; the exact indexed hit is this finding.",
+          "Wu's explicit sharpness example establishes the factor 1/r in the class, rather than listing uniform bounds and exact times for the family of variable clustered matrices."
+        ],
+        "reasoning": "The known optimal coefficient is not a new exact number. The assertion being checked is a class-wide construction and two quantitative stability bounds, not enumeration of examples.",
+        "searches": [
+          "Resultary: positive diagonal orbits, rank-r critical counting, weighted real time at one per cluster, clustered Laplace block sampling",
+          "arXiv:2610.31278, Proposition 4.6 and Example 4.7"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit real-time weighted Riesz isomorphism with one time per full r-mode cluster for arbitrary uniformly invertible complex U_k and bounded internal offsets, jointly with explicit bounds for the original integer-time frame. Neither the rank-r lower bound, scalar Riesz sampling, nor a characterization of the unthinned integer orbit supplies that simultaneous construction. The counting lower-bound principle, scalar designs, and Schur/Neumann methods are not original here.",
+      "residual_risks": [
+        "Older vector-valued kernel, clustered interpolation or Carleson theorems might independently handle parts of the construction; the comparisons do not exhaust that literature.",
+        "No necessity or sharpness asserted for ε and η, and no integer-time critical Riesz design proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers count obstruction, sharpness in the class, and closely related scalar designs, not the general variable cluster-mixing construction.",
+          "evidence": [
+            "Prop. 4.6 rank-r lower bound; Ex. 4.7 sharpness; Thm. 3.11 ratio s_j/s_(j+1)≥9 in the single-orbit design."
+          ],
+          "identifier_or_url": "https://borowiecki.dev/pdf/2610.31278",
+          "material_read": "Theorems 3.10–3.11, pp. 15–17; Proposition 4.6 and Example 4.7, pp. 22–23; arXiv:2610.31278",
+          "method": "Lawful primary PDF, bounded theorem and example passages",
+          "title": "Optimal weighted sampling of positive and normal operator orbits",
+          "trigger": "Same positive operators and general rank-r critical count"
+        },
+        {
+          "assessment": "Addresses unthinned integer-time orbit frames; not the sparse weighted real-time Riesz design.",
+          "evidence": [
+            "Multiplicity bound, partition into uniformly separated sequences, sensor geometry, and H² compatibility."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.03384",
+          "material_read": "Theorem 2.3, p. 6 and setup p. 3",
+          "method": "Primary PDF theorem and setup passages",
+          "title": "Dynamical sampling on finite index sets",
+          "trigger": "Broader multichannel orbit-frame and model-space characterization"
+        },
+        {
+          "assessment": "General single-direction Riesz design does not cover near-colliding r-mode clusters with varying r-channel sensor geometry.",
+          "evidence": [
+            "One original integer orbit is a frame; real and integer critical sampling with N_μ(R)=n_A(R)+O(1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.20122",
+          "material_read": "Theorem 3.4 and proof on p. 17, comparison at p. 3",
+          "method": "Primary PDF decisive passages",
+          "title": "Totally Positive Interpolation and Critical Sampling of Positive Operator Orbits",
+          "trigger": "Closest critical-count Riesz design located for positive operator orbits"
+        },
+        {
+          "assessment": "The identical assigned record, not evidence of priority or distinct coverage.",
+          "evidence": [
+            "Same one-time-per-cluster, r-sensor design with the same critical-count guarantee."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-critical-multichannel-sampling-across-irregular-and-nearly-colli--6dbaaeef94d4",
+          "material_read": "Indexed claim and frozen RESULT.md:8–47, 90–98",
+          "method": "Local catalogue and bound original",
+          "title": "Critical multichannel sampling across irregular and nearly colliding spectral clusters",
+          "trigger": "Exact local Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The meaningful gap is between a necessary sampling count for several sensors and stable, onto data at that count, as ordinary scalar mode separation breaks at close or repeated eigenvalues. The explicit mixed-channel construction provides both bounds with no within-cluster spacing lower bound, and permits logarithmic centers without uniform upper gap control. It is a useful model class and a quantitative witness to rank-r critical sampling, not a proof of universally optimal designs or best separation constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

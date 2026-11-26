@@ -1,19 +1,21 @@
-# Review of three-task transient capacity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four physical transition rates in the cited switch sum to \(u=2k\cosh(\theta+fx/2)\) and \(v=2k\cosh(\theta-fx/2)\). Solving the forward equation with a common initial occupation yields a memory term \(\delta e^{-\lambda T}\) and an input-antisymmetric response. Their exact minima at the control interval endpoints and origin give the four-labeling count. Optimizing the minimum of the constant and copy margins over the preparation imbalance gives a two-branch envelope. Strict monotonicity of the branches proves uniqueness of the finite optimal readout; the root equation proves the weak-driving expansion. All hypotheses, strict versus weak inequalities, deterministic endpoints and the positive-time restriction were checked. The independent rate-construction checker passes 12,931 finite assertions; finite tests are not used as proofs of the universal claims.
+PASS
 
-## Originality — PASS, qualified
+Summing the four rates gives forward and reverse rates 2k cosh(θ±fx/2), so the centered output is an input-independent bias δ exp(−a cosh θ) plus an odd input response x tanh θ tanh(f/2)[1−exp(−a cosh θ)]/2. The best signed worst-input margin for the bias-matched constant is at 0 and equals C, and the opposite constant cannot have positive margin. For copying, the response term increases on [0,b] while the absolute bias decreases; inversion is its reflection. Both therefore have best margin B attained at opposite endpoints. This proves the count, including equality at positive margin, zero bias, and impossibility of four. With d=|δ|, z=exp(−a), maximizing min(dz,H(1−z^c)/2−dz^c) at fixed z either balances the strict increasing and decreasing terms or uses d=1/2 if their crossing is outside the interval. The balanced branch strictly decreases as z increases (numerator decreases and denominator increases); the other branch z/2 strictly increases. Their unique meeting is z+(1+H)z^c=H. At that point the maximizing d is 1/2, giving exactly two preparations and a unique finite positive time. The root bounds 0<H−z≤(1+H)H^c give z/H→1 and the stated power and logarithmic expansions for fixed b>0. A separate scalar root computation gave (z,T,γ)=(0.2206514320678,0.3350337566916,0.1103257160339) for k=b=f=1, agreeing with the example.
 
-Aslyamov and Esposito, *Physical limits to stochastic classifiers*, arXiv:2610.20481v1, § Application and Appendix C, derive the same switch for **uniform** initial preparation; their resulting terminal occupations are exactly input-antisymmetric, so the constant labelings do not occur and their optimized margin concerns copying or inversion at fixed time. The present nonuniform-preparation model breaks this antisymmetry, adds a natural third labeling and solves a distinct joint preparation/time minimax problem. Floyd et al., arXiv:2409.05827v1, analyze steady-state network expressivity, which cannot produce this decaying initial-memory term or its optimal readout. The standard two-state relaxation formula is not claimed as novel. Related mathematical-record searches did not return an equivalent task-count/optimal-time theorem; the remaining possibility of an older implicit transient-classification specialization is a priority risk, not a proven absence.
+## originality
 
-## Value — PASS
+PASS
 
-For the recent physical-classifier question, the result specifies exactly how a finite preparation resource changes the number of binary tasks from two to three, gives a sharp positive-margin design limit for all preparations and positive readout times, proves the deterministic-preparation boundary and unique finite optimum, and supplies a generally noninteger weak-drive correction to its optimal performance. The count, optimization and singular boundary law are natural constraints in the stated physical system, not arbitrary data slices.
+The dynamics, uniform-preparation output, and uniform finite-time copy/invert margin are exact prior coverage. The distinct finding is the arbitrary common preparation dependence of attainable tasks and the joint preparation-time optimum and weak-driving law. The inspected stronger-looking transient bound explicitly fixes uniform preparation, and the broader stationary theory cannot retain the preparation variable.
 
-## Limitations and comparison boundary
+## value
 
-The result does not classify arbitrary stochastic networks, initializations dependent on the input, feedback, other threshold choices, single-shot errors or energetic preparation costs. The primary model and uniform-preparation result are established prior art. General Markov relaxation is elementary. The finite verification script does not certify universal mathematics, and literature-wide priority remains unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the finite-time initialization question for a previously studied benchmark. It distinguishes a genuine change in attainable task set from a change in margin alone, shows why a maximally biased preparation is globally best despite its penalty for input-dependent tasks, and gives the uniquely timed design and its fixed-control weak-drive scaling. These conclusions are useful within the specified ensemble-mean classifier even without an experimental or wider-network claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

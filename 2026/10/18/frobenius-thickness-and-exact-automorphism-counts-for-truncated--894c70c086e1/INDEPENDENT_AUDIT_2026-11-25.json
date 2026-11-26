@@ -1,0 +1,224 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:15:05.292252Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65; VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: cd /workspace && python3 review_evidence/independent_checks.py; rectangle() constructs the prime-field quotient and counts 2048 at p=2, (a_1,a_2)=(1,2). In this example u=(2,1), reduced dimension 13, tangent dimension 16, and thickness 2^(1*2+2*1)=16 by the coordinate-ring calculation."
+      ],
+      "rationale": "Over any commutative k-algebra R, the Frobenius relations on generator images separate coefficient by coefficient because distinct surviving monomials stay distinct after scaling by p^{a_i}. Exactly u_i coefficients of image i (including its constant term) are constrained by their p^{a_i}-th powers. For each residue field the constant terms vanish, and invertible cotangent action implies surjectivity on each graded piece of the maximal-ideal filtration and hence invertibility. On the full finite free R-module this criterion holds exactly when all residue-field fibers are invertible, by the determinant criterion; it does not require assuming every substitution preserves the augmentation over nonreduced R. Modulo a nilpotent ideal of constrained coefficients the linear matrix is block triangular, with blocks ordered by exponent value. Inverting its determinant is equivalent to inverting the product of the block determinants since the difference is nilpotent. This gives the proposed scheme product, not a law of composition. Its nilradical is the truncated-coordinate ideal; the ordinary-variable quotient is geometrically reduced and connected. The monomial basis in the truncated coordinates gives the exact free rank, while all defining power equations have zero first differentials, giving tangent dimension dN. Every u_i is positive, so tangent dimension always exceeds local dimension. Over a field the constrained coordinates have only value zero, leaving precisely the stated point-count formula.",
+      "residual_risks": [
+        "The direct count is one bounded finite example; finite-field points cannot check nilpotent structure. The proof treats all commutative k-algebras for fixed k, with no claim that the displayed factors multiply independently as groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Shu–Yao's finite-level determinant criterion is for a field and common p-power height. Ma's relevant identification is height one, and the arbitrary divided-power-height discussion is about a different algebraic structure.",
+          "The inspected Díaz papers assume characteristic zero. Retrieval of the cited Deo–Maitra public scan was denied; the scan is not negative evidence."
+        ],
+        "reasoning": "A common-height Jacobian criterion can yield the common-height rational count, not the unequal-height equations on nilpotent coefficients or the full thickening.",
+        "searches": [
+          "arXiv:2609.31711v2 pp. 2–3; arXiv:2401.11072v1 §3 Lemma 3.1; arXiv:2609.13741, arXiv:2408.02197v3, arXiv:2409.15081v2; Deo–Maitra public scan"
+        ]
+      },
+      "checked_sources": [
+        "Source inspections above; frozen record 5 Finding and Proof for the pure-power point-count overlap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For y^n with n=2^e≥4, 8bdc2462d3e6 gives reduced dimension 3n-1+n/2, tangent dimension 4n and count (q-1)^2 q^(3n-3+n/2), exactly the slice obtained here with u_1=n/2,u_2=1. That source explicitly does not claim a product for the full nonreduced scheme.",
+          "A tangent excess of u_1+u_2 alone does not imply thickness p^{sum a_i u_i}; tangent dimensions do not remember the individual nilpotence orders. The ordinary-variable determinant localization further requires independently invertible blocks at each exponent."
+        ],
+        "reasoning": "Even where counts or dimensions follow by substitution, the full unequal-height scheme conclusion is not implied; credit it only as a scheme, not a direct product group.",
+        "searches": [
+          "Resultary 8bdc2462d3e6 Finding and scope; 962bc42e198d Finding; Ma arXiv:2609.31711v2 height-one comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An abelian restricted p-Lie chain of length a_i per variable presents the same associative algebra via its restricted enveloping algebra. The same ring is also the additive Hopf coordinate algebra of a product of alpha_{p^{a_i}}.",
+          "Restricted-Lie and Hopf automorphisms must preserve extra structure; for instance Hopf automorphisms of alpha_p^d just act by invertible linear maps on the primitives, while plain algebra automorphisms admit higher terms and infinitesimal translations. Ma identifies the ordinary height-one coordinate scheme with the W(n;1) automorphism scheme under its stated characteristic and base assumptions."
+        ],
+        "reasoning": "The ordinary algebra functor is not equivalent to classifying structured automorphisms of the associated group scheme or restricted-Lie presentation, and the height-one Witt correspondence does not give arbitrary mixed heights.",
+        "searches": [
+          "Cartan type / Jacobson–Witt and divided powers: arXiv:2609.31711v2 pp. 2–3; restricted enveloping and finite additive group scheme reformulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "053f4f0df574 is the same-day exact p=2 height-one two-variable case; d5a40e9576ac gives the p=2 height-one scheme for all numbers of variables. 6aede90aadc6 gives the univariate scheme case.",
+          "962bc42e198d and bac767308614 overlap the common-height counts; frozen record 5 includes the same count when all exponents agree and are powers of p. 183198c7b07b and 8bdc2462d3e6 cover geometric dimensions or reduced normal forms/counts for the slice (2,2^e) in characteristic two."
+        ],
+        "reasoning": "Exact special cases and same-day coverage are credited independently of date-based priority. None of the inspected catalogue passages establishes the full unequal-height scheme and rank formula.",
+        "searches": [
+          "Resultary local catalogue: 053f4f0df574, 962bc42e198d, 6aede90aadc6, 183198c7b07b, 8bdc2462d3e6, d5a40e9576ac, bac767308614; frozen record 5"
+        ]
+      },
+      "rationale": "The credited overlaps include the level-one Jacobson–Witt identification, common-height field-level results, exact square-zero and univariate scheme products, and mixed two-variable counts and dimensions. The supported distinction is the full ordinary algebra-automorphism scheme product with all infinitesimal coefficient exponents and rational counts at arbitrary unequal p-power heights, not any one of those specializations or a count of structured Hopf automorphisms.",
+      "residual_risks": [
+        "Historical Witt-group sources cited in Ma were not all inspected directly, and historical truncated polynomial literature could have an equivalent presentation. The bounded comparison and inaccessible scan do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Height-one correspondence in its stated scope",
+          "evidence": [
+            "Over a perfect field of characteristic p≥5 the W(n;1) scheme is identified with ordinary coordinate automorphisms of O(n;1). The higher divided-power discussion does not classify the ordinary unequal-height rectangle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.31711v2",
+          "material_read": "pp. 2–3, offsets 6000–10251",
+          "method": "OA PDF bounded reading",
+          "title": "Extremal Derived Length in the Unipotent Radicals of Cartan-Type Automorphism Groups",
+          "trigger": "Possible Witt automorphism scheme counterpart"
+        },
+        {
+          "assessment": "Field-level common-height criterion, not full scheme",
+          "evidence": [
+            "Uses preservation of the unique maximal ideal and invertibility of the Jacobian determinant; coefficient constants are killed by p-powering over the field."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11072v1",
+          "material_read": "§3, pp. 2–3, offsets 4494–9905, especially Lemma 3.1",
+          "method": "OA PDF offset reading",
+          "title": "Inverse Limits of Automorphisms of Truncated Polynomials and Applications Related to Jacobian Conjecture",
+          "trigger": "Same positive-characteristic quotients at common height"
+        },
+        {
+          "assessment": "Outside the target characteristic",
+          "evidence": [
+            "Ground field is algebraically closed of characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13741",
+          "material_read": "Introduction p. 1, offset 2423",
+          "method": "OA PDF bounded reading",
+          "title": "The structure of automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "Broader monomial-algebra structure theorem"
+        },
+        {
+          "assessment": "Outside the target characteristic",
+          "evidence": [
+            "Characteristic-zero ground field."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.02197v3",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "OA PDF bounded reading",
+          "title": "The Automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "Broader monomial automorphism theory"
+        },
+        {
+          "assessment": "Outside the target characteristic",
+          "evidence": [
+            "Main reconstruction theorem assumes characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.15081v2",
+          "material_read": "Theorem 1.1, p. 1, offset 0",
+          "method": "OA PDF bounded reading",
+          "title": "Finite monomial algebras are determined by their automorphism group",
+          "trigger": "Related reconstruction theorem"
+        },
+        {
+          "assessment": "Exact p=2, (a_1,a_2)=(1,1) coverage",
+          "evidence": [
+            "Reduced dimension 6, tangent dimension 8, count q^2 |GL_2(q)|, and the scheme structure for this algebra."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-derivation-rank-polynomials-and-a-nonsmooth-symmetry-jump-in-a-f--053f4f0df574",
+          "material_read": "Finding, offsets 0–3111",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Derivation rank polynomials and a nonsmooth symmetry jump",
+          "trigger": "Same-day scheme result for square-zero variables"
+        },
+        {
+          "assessment": "Exact common-p-power counts and a translation subgroup",
+          "evidence": [
+            "For a common p^e order it gives the same finite-field count and the alpha_{p^e} translation directions, not unequal-height thickness."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-smoothness-boundary-for-automorphism-schemes-of-box-trun--962bc42e198d",
+          "material_read": "Finding and proof, offsets 0–8478",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "A sharp smoothness boundary for automorphism schemes of box truncations",
+          "trigger": "Same scheme functor for common truncation exponent"
+        },
+        {
+          "assessment": "Exact univariate p-power scheme specialization",
+          "evidence": [
+            "One variable cannot yield coefficients surviving in larger-exponent variables."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-smoothness-threshold-for-automorphism-schemes-of-truncated-polyn--6aede90aadc6",
+          "material_read": "Finding, offsets 0–2009",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Smoothness threshold for automorphism schemes of truncated polynomial algebras",
+          "trigger": "Single-variable rectangle"
+        },
+        {
+          "assessment": "Reduced/tangent dimensions overlap at p=2, m=2^e",
+          "evidence": [
+            "Does not give the stated general scheme decomposition or thickness."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-characteristic-dependent-automorphism-schemes-of-k-x-y-x-2-y-m--183198c7b07b",
+          "material_read": "Finding, offsets 0–3086",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Characteristic-dependent automorphism schemes of k[x,y]/(x²,y^m)",
+          "trigger": "Unequal-height two-variable special case"
+        },
+        {
+          "assessment": "Gives rational substitutions, counts and reduced variety for x²,y^n, agreeing at n=2^e≥4",
+          "evidence": [
+            "Gives d_n=3n−4+floor(n/2)+1_{2|n} and count (q−1)^2 q^{d_n}; expressly limits the product assertion to the reduction."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-unbounded-infinitesimal-symmetry-excess-for-truncated-complet--8bdc2462d3e6",
+          "material_read": "Finding, scope and proof steps 1–3, offsets 0–3136",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "An unbounded infinitesimal symmetry excess for truncated complete intersections in characteristic two",
+          "trigger": "Strongest matching mixed-height point-count family"
+        },
+        {
+          "assessment": "Full equal-height scheme match at p=2 and all a_i=1",
+          "evidence": [
+            "Only the square-zero exponent occurs, so no mixed-height factor follows."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-non-smooth-characteristic-two-symmetry-scheme-for-square-zero--d5a40e9576ac",
+          "material_read": "Finding, offsets 0–3114",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "A non-smooth characteristic-two symmetry scheme for square-zero truncations",
+          "trigger": "Full scheme comparison for the square-zero family"
+        },
+        {
+          "assessment": "Common-height count match",
+          "evidence": [
+            "Explicitly does not treat the automorphism functor on nonreduced bases."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-prime-power-symmetry-jump-for-modular-monomial-complete--bac767308614",
+          "material_read": "Finding and scope, offsets 0–2739",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "An exact prime-power symmetry jump for modular monomial complete intersections",
+          "trigger": "Prime-power automorphism counts"
+        },
+        {
+          "assessment": "Primary scope not verified in this audit",
+          "evidence": [
+            "No inference of noncoverage from the access failure."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/266354814_Automorphism_groups_of_truncated_polynomial_algebras",
+          "material_read": "Bibliographic identification only; scan inaccessible",
+          "method": "Public scan retrieval attempt, HTTP 403",
+          "title": "Automorphism groups of truncated polynomial algebras (Deo–Maitra, 1997)",
+          "trigger": "Potential historical treatment of related rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4; mixed-height and common-height comparisons under originality"
+      ],
+      "rationale": "The arbitrary mixed-height decomposition separates rational symmetry from infinitesimal symmetry: e.g. it specifies the lengths of each nonreduced coordinate, which are invisible to the rational counts and are not determined by counting tangent directions. It gives a uniform usable coordinate presentation for nonreduced base changes and a simultaneous counting formula for a standard family of local complete intersections. The value survives crediting the exact small and equal-height cases.",
+      "residual_risks": [
+        "No claim that this classifies the group law or that this pattern extends to arbitrary monomial ideals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

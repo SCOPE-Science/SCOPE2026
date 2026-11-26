@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:20:37.523998Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67",
+        "Frozen VERIFICATION.md lines 19–25 and verify.py (inspected, not executed)",
+        "arXiv:2208.05463v3 §4.4, Theorem 4.13 and Example 4.14",
+        "/workspace/review-evidence/bounded-checks.js"
+      ],
+      "rationale": "For a fixed primitive root and over C, the revised primary Theorem 4.13 gives the additive Chow groups with multiplicity n! r^s/((n−s)!∏j_i!), with the j_i≥2 in their chain order; the shifts are 1 through j_i−1. Odd cohomology vanishes by the blow-up decomposition along products and their corresponding arrangement strata, so these Chow ranks are the rational even Betti numbers. The empty jump tuple supplies (1+t)^n. Ordered jumps give a geometric series of exponential jump terms, yielding the displayed F. To check the PDE directly, put a=1−(r−1)t, E=exp(r(1−t)z) and D=1−tE. Then ∂_z log F=a+rt(1−t)E/D and ∂_t log F=−1/(1−t)−(r−1)z+(1−rtz)E/D. The fractions with denominator D cancel in (1−rtz)∂_z log F−rt(1−t)∂_t log F, leaving 1+t+r(r−2)tz. Coefficients give the stated recurrence, which preserves constant term 1 and makes its top coefficient (rn+1)−rn=1. At each negative zero of P_n the derivative and P_{n−1} both have sign (−1)^(n−i); r−2≥0 including zero at r=2. Hence the next polynomial changes sign in every gap, at the left exterior gap by monicity and at the right by its constant term. The n+1 open intervals exhaust its degree and give simple negative zeros strictly interlacing the preceding row. Base rows 1 and 1+t cover n=0,1. Strict normalized Newton follows because the positive reciprocal-root elementary symmetric means have strict inequalities unless all roots coincide; multiplying by the component count does not change the conclusions for zeros or the inequalities. Independent integer evaluations via the EGF denominator at t=2 reproduce 147, 6075 and 465843 at (r,n)=(2,3),(3,4),(4,5), matching the coefficient table; replay with node /workspace/review-evidence/bounded-checks.js. These evaluations corroborate but cannot establish the recurrence or the all-n root conclusion.",
+      "residual_risks": [
+        "The claim concerns ranks for these complexes, not integral torsion, ring multiplication or equivariant representations. Monicity is for a single component."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haglund–Zhang prove rowwise real-rootedness for the colored-binomial symmetric decomposition, giving interlacing between its two components at fixed n. Athanasiadis proves real-rootedness/interlacing of Eulerian transforms on a cone of input polynomials and derives symmetric-decomposition results for ordinary derangement transforms. Shankar's super-recurrence is a different two-term coefficient recurrence with fixed integral powers."
+        ],
+        "reasoning": "Interlacing between two summands of one row is not strict consecutive-row interlacing. Also, a derivation through an input polynomial with coefficients involving the output variable t cannot simply invoke a real-rootedness-preserving theorem on fixed real inputs. No object-preserving reduction to the broader theorems was established.",
+        "searches": [
+          "arXiv:2208.05463v3 Theorems 3.4, 4.13 and Conjecture 4.15",
+          "arXiv:1902.01278v3 Theorem 3.2",
+          "Athanasiadis DOI 10.1112/jlms.70083 Theorem 1.1 and Corollary 4.2",
+          "arXiv:2508.12467 and arXiv:2609.07325v2 §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–51 and 73–85",
+        "arXiv:2208.05463v3",
+        "arXiv:2104.06526v1 abstract",
+        "arXiv:1812.00434",
+        "arXiv:1902.01278v3",
+        "arXiv:2302.00754v5",
+        "arXiv:2609.07325v2",
+        "arXiv:2508.12467",
+        "Resultary c3849174c6bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The corrected multinomial provides the same generating-polynomial coefficients; the paper explicitly conjectures log-concavity beyond the known r=2 case. The inspected q_{n,k} weights fixed points among the first k positions by 1+t, while the present weight on every fixed point is (1+t)/r after normalizing by r^n."
+        ],
+        "reasoning": "The revised Chow formula is the input; the derived differential recurrence and sign-compatible lower-row term are the extra implications needed here. The prior type-B root theorem is immediate coverage at r=2 only, and the inspected transformations do not give strict all-r consecutive interlacing by normalization or parameter substitution.",
+        "searches": [
+          "arXiv:2208.05463v3 §4.4 offsets 98000 and 100682",
+          "arXiv:2302.00754v5 Eq. (7) and §4",
+          "arXiv:1902.01278v3 Theorem 3.2 offset 30809"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing D(z,t) for the EGF of ordinary excedance derangements gives F_r(z,t)=e^((1+t)z)D(rz,t), or P_n/r^n=Σ_{π∈S_n} t^exc(π)((1+t)/r)^fix(π).",
+          "Athanasiadis Eq. (52) simplifies to the same denominator but numerator (1−t)e^z, not (1−t)e^([1−(r−1)t]z)."
+        ],
+        "reasoning": "The derangement-binomial transform with weight on all fixed points is an exact alias. The published full colored-binomial family differs already at n=1 (1+rt versus 1+t). Its symmetric plus component from a=(p−t^(n+1)p(1/t))/(1−t) has row n=2 equal to 1+(2r+1)t+t², while the frozen row is 1+(r²+2)t+t². They differ for every r≥2 at the same color parameter, despite the related binomial form.",
+        "searches": [
+          "Resultary: cyclic-curve moduli Betti polynomials, negative zeros, strict interlacing, fixed-point-weighted excedance",
+          "Athanasiadis arXiv:1812.00434 Eq. (52)",
+          "Haglund–Zhang arXiv:1902.01278v3 Eqs. (8)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The revised primary paper already gives exact ranks through its uniform additive decomposition and sample tables, and states the type-B identification. The closest Resultary hit under the alternative formulation, c3849174c6bc, instead gives rational group homology for a two-ring motion group."
+        ],
+        "reasoning": "Exact Betti rank tables are prior, not an original claim. The other homology formula has different objects and degrees. Exact ranks alone are not an all-degree root-location statement or an interlacing argument.",
+        "searches": [
+          "Resultary queries for cyclic moduli Betti ranks, fixed-point/excedance formulation and root properties",
+          "arXiv:2208.05463v3 Example 4.14 and Theorem 4.13",
+          "arXiv:1812.00434 Eq. (3) and first sample rows"
+        ]
+      },
+      "rationale": "The underlying additive ranks and the r=2 type-B case are prior; the supported distinct claim is the uniform simple negative zeros and strict consecutive interlacing for r≥3, giving the stated strengthened resolution of Conjecture 4.15. The closest colored-binomial symmetric component and the Eulerian and derangement transformations were compared by generating functions or low-degree polynomial identities, not titles. The inspected results do not give a specialization covering the claimed family. This is a best-of-knowledge assessment, not proof of priority.",
+      "residual_risks": [
+        "Some interlacing-transformation literature was not available in full (SSRN 7510941 and Some interlacing sequences related to the Eulerian and derangement polynomials, Discrete Mathematics 2025, publisher page blocked). An unlocated theorem encompassing output-dependent fixed-point weights remains possible; unavailable texts were not counted as evidence against coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct rank formulas and r=2 overlap, not the uniform strict root theorem",
+          "evidence": "Corrected chain multiplicity includes n−|j| as the final multinomial entry. Example 4.14 identifies type B, and Conjecture 4.15 requests log-concavity.",
+          "identifier_or_url": "https://arxiv.org/html/2208.05463v3",
+          "material_read": "Theorem 3.4 offset 69297; §4.4 offsets 98000 and 100682, Theorem 4.13, Example 4.14 and Conjecture 4.15",
+          "method": "OA revised HTML full-text passages",
+          "title": "Wonderful compactifications and rational curves with cyclic action",
+          "trigger": "Same moduli spaces and original Betti-number conjecture"
+        },
+        {
+          "assessment": "Related but different family even after comparing the symmetric component",
+          "evidence": "The simplified numerator is (1−t)e^z, under the same denominator as F_r; the finite rows distinguish the transforms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.00434",
+          "material_read": "Eq. (3) and sample rows p. 2 offset 5960; Eq. (52) and its proof pp. 30–31 offset 108930ff",
+          "method": "OA PDF full-text passages",
+          "title": "Binomial Eulerian polynomials for colored permutations",
+          "trigger": "Plausible exact identification via binomial-Eulerian generating functions"
+        },
+        {
+          "assessment": "Interlaces a different pair of polynomials, not the frozen consecutive rows",
+          "evidence": "The fixed n theorem compares the positive and negative components of the colored-binomial row.",
+          "identifier_or_url": "https://arxiv.org/html/1902.01278v3",
+          "material_read": "Colored-statistic and symmetric-decomposition definitions, Eqs. (8)–(9), Theorem 3.2, offsets 27540–31635",
+          "method": "OA HTML full-text passage",
+          "title": "Real-rootedness of variations of Eulerian polynomials",
+          "trigger": "Prior real-rootedness of the symmetric components of colored binomial Eulerian polynomials"
+        },
+        {
+          "assessment": "Different input class and fixed-point specialization",
+          "evidence": "q_{n,k} uses (1+t)^fix_k, and the derangement map acts on real univariate inputs; this is not the present output-variable-dependent fixed-point weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00754",
+          "material_read": "Theorem 1.1 pp. 2–3 offsets 4000–6357; Eq. (7) p. 5 offset 18896; §4 pp. 10–13 offsets 35000 and 45000",
+          "method": "Lawful OA arXiv version of DOI 10.1112/jlms.70083",
+          "title": "On the real-rootedness of the Eulerian transformation",
+          "trigger": "Potentially broader real-rootedness theorem for the fixed-point/excedance alias"
+        },
+        {
+          "assessment": "Descent derangements and powered coefficient recurrences are not the weighted excedance family here",
+          "evidence": "The super-Eulerian family raises recurrence coefficients to a fixed positive integer power, not the consecutive-row differential recurrence with a lower-row term in the present work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07325v2",
+          "material_read": "Abstract offset 0 and super-Eulerian definition §5 p. 12 offset 38890ff; reference list p. 27ff offset 93200ff",
+          "method": "OA PDF passages; checked the cited super-recurrence against arXiv:2508.12467 abstract",
+          "title": "Real-rooted Eulerian polynomials from permutations, words, and paths",
+          "trigger": "Recent candidate with consecutive interlacing for Eulerian-type families"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not used as negative evidence",
+          "evidence": "The available citation describes size-dependent factorial compression and applications to other gamma-polynomial families, but does not identify these cyclic-moduli polynomials.",
+          "identifier_or_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7510941",
+          "material_read": "Citation and description in arXiv:2609.07325v2 p. 1 and references; SSRN full text not read",
+          "method": "Lawful direct and VPN access attempt at identified source failed",
+          "title": "A factorial compression theorem for strict interlacing",
+          "trigger": "Potentially broader strict interlacing transform cited by Alexandersson"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Clader–Damiolini–Li–Ramadas Conjecture 4.15 and Example 4.14",
+        "Frozen RESULT.md lines 3–11 and 47–67"
+      ],
+      "rationale": "For r≥3 this resolves a specific geometric conjecture beyond the type-B regime and strengthens it to negative simple roots, strict interlacing across dimensions, and strict binomially normalized log-concavity. Those properties are not supplied by known Betti counts and are meaningful additional structure of this sequence of moduli spaces.",
+      "residual_risks": [
+        "The interlacing theorem does not imply any asserted result about limits of normalized root distributions or other compactifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

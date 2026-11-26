@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:02:38.721594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58",
+        "Frozen VERIFICATION.md and artifacts/verify.py, inspected without execution",
+        "Separate finite triangle-filter count at n=1,2; n=2 gave (35,49,42), (49,81,64), (42,64,56)"
+      ],
+      "rationale": "Every triangle on the extension is either old, a unary Katětov constraint, or a new-new-old triangle. A valid finite diagram embeds, and homogeneity aligns its named base with the given A. An isometry of such diagrams extends to an automorphism over A, so each diagram contributes exactly one complete ordered pair type. Unary admissibility is no 1 and 3 together for base distance 1, unrestricted for distance 2, and at most one 1 for distance 3. The positive unary vectors are nonalgebraic: one can make arbitrarily many copies with all mutual distances 2. For s=1 the local forbidden entries are (1,3),(3,1), for s=2 there are none, and for s=3 only (1,1) is forbidden. This gives the product row for base distance 2 and the stated intersection correction -4·2^n+1 for base distance 1. For base distance 3 at s=1, both vectors either avoid 1 (4^n), have just one occurrence between them (2n·4^(n-1)), have one each at a common coordinate (n·4^(n-1)), or have them at distinct coordinates (n(n-1)·4^(n-2)). At s=3 the common coordinate case is forbidden; each separated 1 leaves two choices for the other entry at that coordinate. At s=2 the count is the square of the unary count. These recover all coefficients, the all-n linear identity and the leading vectors (2,4,3), (0,1,0) after scaling by 9^n, and (1,4,4) after scaling by n²·4^(n-2). Normalizing by the row sum gives the stated laws and by the squared unary count gives the mean multiplicities. The n=1 row (7,9,8) is independent of the vacuous base parameter. Separate direct checks at n=1,2 agreed; the frozen script was inspected, not replayed.",
+      "residual_risks": [
+        "No material proof gap found. The n=1,2 check is corroboration only; the proof does not assume any finite range exhausts n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sauer gives the Katětov constraints and extension property. The indexed unary Widom–Rowlinson result gives exact counts 2^(n+1)-1 and 3^n at the two equilateral extrema for old metrics using distances 1,2."
+        ],
+        "reasoning": "The extension theorem guarantees realization of an admissible distance diagram and the unary polynomial accounts for two unary entries. Neither counts ordered pairs with restrictions on the new-new distance, except that the unrestricted channel s=2 is the square of the unary count.",
+        "searches": [
+          "Sauer arXiv:1010.4212, §2, Theorem 2.1",
+          "2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions, proof and cited comparison",
+        "Resultary local index and three inspected related mirror results",
+        "Sauer arXiv:1010.4212 §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forbidden-triangle source has limiting laws (0,2/5,3/5) and (0,1/5,4/5), while the matching-base source gives (25/313,144/313,144/313). The restricted grammar has no universal distance-2 channel and no unbounded base corresponding to the unrestricted all-unary-vectors base-distance-2 regime."
+        ],
+        "reasoning": "Some unrestricted terms are immediate, and the four transferred channels require no new enumeration once the alias is recognized. The joint unrestricted table still requires the unrestricted compatibility counts and common normalization across all three channels, including the unconditioned product regime. No located stronger statement yields the full unrestricted family with these laws.",
+        "searches": [
+          "Sauer §2 and Theorem 2.1",
+          "Local-mirror forbidden-triangle RESULT.md, Finding, local matrices, asymptotics",
+          "Local-mirror matching-base RESULT.md, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The restricted-class source omits (1,1,1) and (1,2,2) and displays local compatibility matrices M_1,M_2,M_3. Its N_(2,2), N_(2,3), N_(3,2), N_(3,3) equal the frozen P_(1,1), P_(1,3), P_(3,1), P_(3,3), respectively, for n>=2."
+        ],
+        "reasoning": "For restricted base distance 2, the restricted unary alphabets {1,3},{2,3} become the frozen base-1 alphabets {1,2},{2,3} by swapping 2 and 3. For restricted base distance 3 the same swap preserves the at-most-one-1 domain. In both comparisons the swap takes the forbidden entries of restricted M_2 to those of unrestricted channel 1, and restricted M_3 to unrestricted channel 3. This is exact channel-wise equivalence, not just a matching coefficient list. It does not identify the remaining compatibility matrices or the normalized distance laws.",
+        "searches": [
+          "Resultary: unrestricted equilateral base pair spectrum, generic three-distance metric, Katětov types",
+          "Primary search: finite distance Urysohn space ordered pair types equilateral base Katětov function pair enumeration distance spectrum",
+          "2026/11/22/SCOPE-exact-distance-channel-spectra-and-stochastic-ordering-over-equi--bb334aca00ca"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching-base table yields (35,49,42) at m=1. The forbidden-triangle source supplies a six-entry table, with four equivalent entries as detailed above, and two different limiting laws. The indexed frozen record itself is not separate coverage."
+        ],
+        "reasoning": "The matching base has m distance-1 pairs separated by distance 3; for m>1 it is not an equilateral base. At m=1 it is exactly the frozen n=2, base-distance-1 case, not the table for all n or for all base distances.",
+        "searches": [
+          "Resultary: exact ordered pair-type tables and finite constraint spectra on equilateral, matching and forbidden-triangle bases",
+          "2026/11/22/SCOPE-the-matching-base-two-point-spectrum-of-the-homogeneous-three-va--29adaa0e35f2",
+          "2026/11/22/SCOPE-exact-distance-channel-spectra-and-stochastic-ordering-over-equi--bb334aca00ca"
+        ]
+      },
+      "rationale": "The distinctive supported claim is the full unrestricted, ordered-pair spectrum and its three conditional laws. Four channel counts overlap exactly with a same-day restricted-class result even at the level of equivalent constraint enumerations; another same-day result overlaps one small base. Neither provides the full unrestricted spectrum or the distance laws. Earlier unary counts and the extension framework are credited, not treated as new. Same-day dating establishes no ordering.",
+      "residual_risks": [
+        "The bounded primary search returned no results; this is not evidence against older equivalent finite-alphabet enumerations.",
+        "Chronology of the same-day overlaps was not determined. This pass does not claim priority for their equivalent channels, the common two-point case, or earlier unary counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scope-limited equivalence for four counts, different ambient class and laws",
+          "evidence": "Two additional forbidden triangles change the allowed unary vectors and local triangle matrices. Under the explicit letter swap, M_2 and M_3 give the same local constraint as frozen channels 1 and 3 in the corresponding unary domains.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-distance-channel-spectra-and-stochastic-ordering-over-equi--bb334aca00ca/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; local matrices and base-distance proofs, offsets 3050–6850",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact distance-channel spectra and stochastic ordering over equilateral bases",
+          "trigger": "Distinct same-day table over equilateral bases; four entries match exactly"
+        },
+        {
+          "assessment": "One base in common; not a dominating family",
+          "evidence": "m pairs at distance 1 and interpair distance 3; at m=1 this gives exactly the two-point equilateral distance-1 row of the frozen claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-matching-base-two-point-spectrum-of-the-homogeneous-three-va--29adaa0e35f2/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0",
+          "method": "Local published-record mirror",
+          "title": "The matching-base two-point spectrum of the homogeneous three-valued metric space",
+          "trigger": "Distinct same-day ordered-pair enumeration in the same unrestricted space"
+        },
+        {
+          "assessment": "Foundational implication credited; no exact spectrum in the inspected statement",
+          "evidence": "Pairwise Katětov inequalities characterize possible one-point distance functions, and the Urysohn extension theorem realizes them.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.4212",
+          "material_read": "§2, PDF p. 4, around OA offset 7800, Katětov condition and Theorem 2.1",
+          "method": "Lawful OA text",
+          "title": "Vertex partitions of metric spaces with finite distance sets",
+          "trigger": "Prior exact metric-extension theorem"
+        },
+        {
+          "assessment": "Unary counts at base distances 1 and 2 are covered",
+          "evidence": "The one-point Katětov formulation and the two exact unary extrema count the admissible vectors, not ordered-pair compatibility as a function of the mutual distance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989/RESULT.md",
+          "material_read": "Finding and unary extremal-envelope passage, offsets 0 and 2450",
+          "method": "Local published-record mirror",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Earlier exact type counts for the same unrestricted space and equilateral parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–32 and 48–58",
+        "Related forbidden-triangle and matching-base Findings"
+      ],
+      "rationale": "The complete family is an exact benchmark for joint type counts in the unrestricted generic metric. It separates concentration at distance 2 in the unconditioned base-distance-2 regime from two different mixed laws for the other base distances. Those mixed laws even share the same limiting mean number of available distances, so the mean and one-point counts alone do not reveal the distinction. The nine-channel comparison has use beyond restating the standard metric extension criterion or recounting the already overlapping entries.",
+      "residual_risks": [
+        "The distribution is over logical types, not over sampled points. The formulas are not claimed for nonequilateral bases or for three new points."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

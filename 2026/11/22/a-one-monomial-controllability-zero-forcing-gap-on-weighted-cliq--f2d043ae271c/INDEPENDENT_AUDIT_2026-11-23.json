@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:09:09.287197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the all-parameter PBH test directly from the support of a putative invisible eigenvector. Omitting two nongateways on either side permits their difference mode. Otherwise each clique has at least one selected nongateway, because p,q≥3. For a Laplacian eigenvector vanishing on the inputs, that selected row forces x_U+x_A=0, where x_A is the sole omitted nongateway value if present and zero otherwise; similarly x_V+x_B=0. If x_U≠0, the omitted-nongateway row forces eigenvalue pa. The gateway row is then pa x_U+t(x_U−x_V), so positivity of t gives x_V=x_U≠0; the right omitted-nongateway row forces qb=pa. The argument starting from x_V is symmetric. If both gateway values are zero the whole vector vanishes. Thus the only additional obstruction has two unselected gateways, one omitted nongateway each, and equal clique spectral scales. Conversely the vector with values +1 at the two gateways and −1 at the omitted nongateways is exactly an invisible eigenvector in this case. Independently the quotient characteristic polynomial can be recovered by starting at t=0 with λ²(λ−pa)(λ−qb) and subtracting the bridge rank-one term tλ[(λ−a)(λ−qb)+(λ−b)(λ−pa)]. This yields both claimed collision factors; conjugation to irreducible symmetric tridiagonal form proves simplicity and the end rows preclude a zero end entry. For ordinary zero forcing, omitted twin pairs obstruct propagation, and leaving both gateways plus one nongateway each white stalls. Otherwise a blue gateway, or a clique with every nongateway blue, starts forces that clear its own clique, cross the bridge, then clear the other side. Binomial counting gives the quoted C and Z polynomials and both leading coefficients; the only difference is the least-degree monomial off resonance. RESULT.md lines 35–76 supply the full proof. The supplementary symbolic_certificate.py and verify.py were inspected, not executed here. At integer examples full modular rank implies full rational rank; modular deficiency alone is not a rational noncontrollability certificate, and the exact proof is needed for the full positive-real statement. Nothing here bounds control energy or conditioning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monshizadeh et al., p. 4, offsets 34300–38935: all-matrices qualitative-family control, with explicit warning that control on a subset need not imply zero forcing.",
+          "SCOPE-20261108-7537ea98c09f, RESULT.md offsets 0–4988: two equally sized unweighted cliques joined by at least two matched bridges, and minimum dedicated sets.",
+          "Dai full-text OA on the DOI/publisher route was unavailable for independent comparison."
+        ],
+        "reasoning": "A larger family of dynamics quantified universally gives a stronger robustness demand, not the full truth set for a particular dynamics member. The matching-clique theorem also does not contain the target parameter region: k≥2 changes the number of gateways and modes, whereas this claim has a single bridge, independently weighted cliques and an all-size census.",
+        "searches": [
+          "arXiv:1403.4868 §IV, Theorem IV.4 and Corollary IV.6",
+          "Resultary 7537ea98c09f, exact minimum dedicated-leader sets for cliques joined by a partial matching",
+          "doi:10.1049/cth2.12385"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.4868",
+        "doi:10.1038/ncomms3447",
+        "Resultary 5431b532d7f2 and 7537ea98c09f published mirror texts",
+        "doi:10.1049/cth2.12385 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monshizadeh et al., §IV, p. 4, OA offsets 36000–40173, include a fixed-Laplacian path example; the general possibility of extra controllable sets is not new.",
+          "The known forcing criterion does not depend on a,b,t, while the fixed-matrix PBH failure on the sole exceptional support requires two equal spectral values and both gateway coordinates nonzero."
+        ],
+        "reasoning": "The graph polynomial and PBH or multiplicity theorem do not imply which sets are additionally controllable, whether their number is constant off a single resonance, or whether bridge weight drops out. Those are established by the concrete selected-row equalities, eigenmode cancellation across the bridge and subsequent all-set enumeration.",
+        "searches": [
+          "arXiv:1403.4868 §IV, example of a controllable fixed Laplacian with non-zero-forcing input",
+          "SCOPE-20261004-5431b532d7f2 RESULT.md forcing criterion",
+          "doi:10.1038/ncomms3447 Eqs. (2)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yuan et al., p. 2 Eq. (2), OA offsets 10200–13402: PBH rank for each spectral parameter; p. 3 Eqs. (3)–(4), offsets 13600–16562: geometric-multiplicity count for minimum unrestricted independent control inputs.",
+          "Monshizadeh et al., Theorem IV.4 and Corollary IV.6, p. 4: equivalence of zero forcing with controllability over the qualitative matrix family."
+        ],
+        "reasoning": "PBH for symmetric matrices is exactly injectivity of coordinate restriction on each eigenspace. The prior rank framework does not itself specify the supports of all invisible modes for this topology. Robust matrix-family control and fixed-matrix PBH are not equivalent formulations: the latter can hold on sets that fail the former.",
+        "searches": [
+          "doi:10.1038/ncomms3447, PBH and multiplicity framework",
+          "arXiv:1403.4868, zero forcing and controllability",
+          "Resultary 5431b532d7f2, zero forcing polynomial of bridge barbells"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261004-5431b532d7f2, RESULT.md offsets 0–4541, gives the same graph, exact forcing-subset criterion and Z polynomial.",
+          "The exact related dedicated-actuator record 7537ea98c09f treats a different bridge topology and only the minimum size class."
+        ],
+        "reasoning": "The prior graph polynomial is fully covered and is not a novelty claim. It cannot count the additional minimum fixed-matrix placements that are not zero forcing. No checked table gave the fixed-matrix polynomial with the indicator of pa≠qb; these comparisons are not proof that no such table exists.",
+        "searches": [
+          "Resultary 5431b532d7f2, exact ordinary zero forcing polynomial on bridge barbells",
+          "Resultary 7537ea98c09f, all minimum dedicated placements for partially matched cliques"
+        ]
+      },
+      "rationale": "The graph zero-forcing polynomial, the PBH method, and examples of fixed-Laplacian control by a non-zero-forcing set are already known. The added content is the complete dedicated-input classification on the internally uniform weighted one-bridge family and the exact bridge-independent spectral boundary where the two notions agree. Inspected related statements do not cover that narrower quantitative claim; this is provisional as to historical priority.",
+      "residual_risks": [
+        "Dai full text not independently retrieved; unindexed weighted-clique control results may contain related or equivalent cases.",
+        "Published mirror texts were accessible but their exact frozen underlying versions were not retrieved. No blanket historical novelty is claimed for zero-forcing counts, PBH or the existence of a fixed-matrix gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Robust-family characterization and prior fixed-matrix counterexample; no barbell-specific resonance or census in these statements",
+          "evidence": [
+            "PDF offsets 3000–5941 and 34300–40173: qualitative-family definition, all-matrices equivalence and fixed-Laplacian example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+          "material_read": "Qualitative family definition p. 1 and §IV, Theorem IV.4, Corollary IV.6 and example, p. 4",
+          "method": "Targeted lawful OA PDF reading",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Principal candidate for coverage of the forcing/control equivalence"
+        },
+        {
+          "assessment": "General controllability methods; not the family-specific support and polynomial result",
+          "evidence": [
+            "Offsets 10200–13402 and 13600–16562 give rank and multiplicity statements."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/ncomms3447",
+          "material_read": "PDF pp. 2–3, Eqs. (2)–(4)",
+          "method": "Lawful OA published PDF passage reading; PMC route did not give full text",
+          "title": "Exact controllability of complex networks",
+          "trigger": "General PBH and geometric multiplicity approach"
+        },
+        {
+          "assessment": "Direct prior coverage for Z and its subset criterion, not the claimed fixed-Laplacian correction",
+          "evidence": [
+            "The prior polynomial and minimum use the parameter-free ordinary color-change rule on the same bridge barbell."
+          ],
+          "identifier_or_url": "SCOPE-20261004-5431b532d7f2",
+          "material_read": "Mirrored published RESULT.md, offsets 0–4541",
+          "method": "Local published Resultary mirror passage reading",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Exact same underlying graph and ordinary zero-forcing polynomial"
+        },
+        {
+          "assessment": "Scope excludes the claim's one bridge and general unequal internal weighted cliques",
+          "evidence": [
+            "Hypotheses specify equal-size unweighted cliques, at least two matching bridges, and a minimum-set classification."
+          ],
+          "identifier_or_url": "SCOPE-20261108-7537ea98c09f",
+          "material_read": "Mirrored published RESULT.md, offsets 0–4988",
+          "method": "Local published Resultary mirror passage reading",
+          "title": "Exact minimum dedicated-leader sets for cliques joined by a partial matching",
+          "trigger": "Closest related family of two-clique dedicated-control problems"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not used as noncoverage evidence",
+          "evidence": [
+            "Publisher requests returned HTTP 403; the frozen audit's account is not independent passage reading."
+          ],
+          "identifier_or_url": "doi:10.1049/cth2.12385",
+          "material_read": "Bibliographic reference only; publisher full text unavailable on attempted routes",
+          "method": "OA DOI/publisher HTML and PDF attempts",
+          "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+          "trigger": "Possible broader dedicated leader placement result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural two-community dynamical family gives an explicit example in which a graph-level robust criterion can be sharpened for every dedicated actuator subset and every positive bridge strength. The equality of internal spectral scales, rather than equality of clique weights or sizes separately, predicts exactly when a compact mode removes the extra smallest placements. The exact census and its one-monomial discrepancy make the example a useful structural benchmark, not a claim about quantitative control performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

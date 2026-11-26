@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Verification and limits
 
-The independent finite direct-projection checker `CHECK.py` uses deterministic random unit vectors, a self-contained planar monotone-chain hull, and exact branch comparisons across representative heights. Execute with `python CHECK.py`. The proof in `RESULT.md` contains exhaustive symbolic global extrema and local analytic probability asymptotics; finite checker diagnostics do not prove any limiting statement. No independent mathematical audit was performed.
+The complete minimum classification follows by enumerating the unit-sublevel vertices; local chart calculations prove the probability and crossover laws. The accompanying `CHECK.py` compares the facet-based expression against the areas of finitely many direct planar convex-hull projections and checks sample extrema candidates, bounds and transition identities. It includes upper-brightness diagnostics as context, not as certification of a contribution here. The finite checks do not prove the all-directions or limiting statements.

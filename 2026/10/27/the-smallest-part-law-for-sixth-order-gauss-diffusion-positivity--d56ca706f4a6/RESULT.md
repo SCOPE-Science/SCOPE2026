@@ -14,7 +14,7 @@ If \(N\ge3\), every \(F_{N,m}\) decreases strictly from \(1\) at \(h=0\) to \(2/
 \[
 \boxed{T(h)\ge0\ \text{entrywise}\quad\Longleftrightarrow\quad 0\le h\le H_{N,m_*}.}
 \]
-For every \(h>0\), *all off-diagonal entries* are strictly positive. The first zeros at \(H_{N,m_*}\) occur precisely on the diagonals of vertices belonging to smallest parts; those entries remain strictly negative for all larger \(h\). Thus the sharp threshold depends on the total order and the smallest part size alone, not on the rest of the partition. For fixed \(N\), \(H_{N,m}\) increases strictly with \(m\). In the degenerate case \(N=2\), the graph is \(K_2\) and \(T(h)\) is entrywise positive for all finite \(h>0\). For every graph in the family and every \(h\ge0\), \(T(h)\) is symmetric, doubly stochastic, and satisfies \(\|T(h)\|_{2\to2}=1\), whether or not its diagonal is nonnegative.
+For every \(h>0\), *all off-diagonal entries* are strictly positive. The first zeros at \(H_{N,m_*}\) occur precisely on the diagonals of vertices belonging to smallest parts; those entries remain strictly negative for all larger \(h\). Thus the sharp threshold depends on the total order and the smallest part size alone, not on the rest of the partition. For fixed \(N\), \(H_{N,m}\) increases strictly with \(m\). In the degenerate case \(N=2\), the graph is \(K_2\) and \(T(h)\) is entrywise positive for all finite \(h>0\). For every graph in the family and every \(h\ge0\), \(T(h)\) is symmetric, has row and column sums equal to one, and satisfies \(\|T(h)\|_{2\to2}=1\). It is doubly stochastic exactly when it is entrywise nonnegative.
 
 ## Assumptions and scope
 
@@ -59,7 +59,7 @@ The earliest diagonal zero therefore occurs exactly in the parts of minimum size
 
 ## Verification
 
-The accompanying `verify.py` symbolically checks the displayed rational and derivative identities with SymPy, constructs the independent rational matrix quotient on 87 complete multipartite graphs of orders two through nine, checks 14,925 exact transition-entry identities at three rational timesteps per graph, verifies symmetry, stochastic row sums and strict positivity of all off-diagonal entries, and checks smallest-part ordering. Execute `python verify.py` with the version requirement in `requirements.txt`. All matrix comparisons are exact rational equalities and cannot establish the infinite-family theorem; the analytical projector and scalar-sign proof above does.
+The accompanying `verify.py` symbolically checks the displayed rational and derivative identities with SymPy, constructs the independent rational matrix quotient on 87 complete multipartite graphs of orders two through nine, checks 14,925 exact transition-entry identities at three rational timesteps per graph, verifies symmetry, unit row and column sums and strict positivity of all off-diagonal entries, and checks smallest-part ordering. Execute `python verify.py` with the version requirement in `requirements.txt`. All matrix comparisons are exact rational equalities and cannot establish the infinite-family theorem; the analytical projector and scalar-sign proof above does.
 
 ## Relationship to prior work
 

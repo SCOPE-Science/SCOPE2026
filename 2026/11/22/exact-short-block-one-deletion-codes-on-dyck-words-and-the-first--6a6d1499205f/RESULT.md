@@ -1,19 +1,15 @@
 # Exact short-block one-deletion codes on Dyck words and the first fractional-packing gap
 
 ## Finding
-A Dyck word of semilength \(m\) is a binary word with exactly \(m\) ones and \(m\) zeros and at least as many ones as zeros in every prefix. Let \(\mathcal D_m\) be the labeled, indexed set of these words, and let \(D_1(w)\) be the set of distinct words obtained by deleting exactly one symbol from \(w\). A code \(C\subseteq\mathcal D_m\) corrects one deletion if \(D_1(u)\cap D_1(v)=\varnothing\) whenever \(u\ne v\) in \(C\). Define \(A_m\) as its maximum cardinality.
 
-**Theorem (exact finite spectrum and first gap).** For every integer \(1\le m\le6\),
+A Dyck word of semilength \(m\) is a binary word with \(m\) ones and \(m\) zeros and at least as many ones as zeros in every prefix. Let \(\mathcal D_m\) be the set of these words. For \(w\in\mathcal D_m\), write \(D_1(w)\) for its set of distinct outputs after deleting exactly one symbol. A one-deletion-correcting code is a subset of \(\mathcal D_m\) whose members have pairwise disjoint deletion shadows. Write \(A_m\) for its maximum size and \(F_m\) for the optimum of the fractional deletion-shadow packing program
 \[
-(A_1,A_2,A_3,A_4,A_5,A_6)=(1,1,2,4,9,24).
+\max\sum_{w\in\mathcal D_m} x_w\quad\text{subject to}\quad x_w\ge0,\qquad \sum_{w:y\in D_1(w)}x_w\le1\quad\text{for every output }y.
 \]
-For the natural fractional deletion-shadow packing program, namely maximizing \(\sum_{w\in\mathcal D_m}x_w\) subject to \(x_w\ge0\) and \(\sum_{w:y\in D_1(w)}x_w\le1\) for every possible output \(y\), the exact optima are
-\[
-(F_1,F_2,F_3,F_4,F_5,F_6)=\left(1,1,2,4,\frac{29}{3},\frac{3269}{131}\right).
-\]
-Thus \(m=5\) (word length ten) is the **first** semilength at which this relaxation is not integral, with exact gap \(F_5-A_5=2/3\). At length twelve, the sharp capacity is \(24\) out of \(132\) Dyck words, while the fractional relaxation has value \(3269/131\).
 
-| Semilength \(m\) | Dyck words | Distinct possible deletion outputs | Exact code capacity \(A_m\) | Exact fractional optimum \(F_m\) |
+**Theorem (exact finite spectrum and first strict objective gap).** For \(1\le m\le6\) the exact values are:
+
+| Semilength \(m\) | Dyck words | Distinct possible deletion outputs | Code capacity \(A_m\) | Fractional optimum \(F_m\) |
 |---:|---:|---:|---:|---:|
 | 1 | 1 | 2 | 1 | 1 |
 | 2 | 2 | 4 | 1 | 1 |
@@ -22,36 +18,47 @@ Thus \(m=5\) (word length ten) is the **first** semilength at which this relaxat
 | 5 | 42 | 84 | 9 | \(29/3\) |
 | 6 | 132 | 264 | 24 | \(3269/131\) |
 
+The first strict gap \(F_m>A_m\) is at \(m=5\) (word length ten), and equals \(2/3\). This is a statement about the all-ones objective, not the first semilength with a nonintegral feasible polytope. In fact the feasible polytope is already nonintegral at \(m=4\), where \(F_4=A_4=4\).
+
 ## Assumptions and scope
-The alphabet is precisely \(\{0,1\}\), with \(1\) interpreted as an up-step. The decoder receives a length-\(2m-1\) string with **exactly one arbitrary deleted symbol**, with no indication of its position; the received word need not be Dyck. Duplicate outputs created by deleting different positions of the same source are counted **once**, not with multiplicity. Codebooks need not be linear, symmetric, or checksum-defined. All endpoints, labels, and fixed finite ranges are part of the claim; no formula beyond \(m=6\) is asserted.
+
+The alphabet is precisely \(\{0,1\}\), with \(1\) an up-step. The receiver sees a length-\(2m-1\) string after exactly one arbitrary deletion, with no location information. This string need not be Dyck. Each output in \(D_1(w)\) occurs once even if several deletions yield it. Codebooks are unrestricted subsets; there is no linearity, symmetry, or checksum constraint. The table asserts no values beyond \(m=6\).
 
 ## Proof
-**1. Exact packing duality.** Associate to each input \(w\in\mathcal D_m\) its finite output set \(D_1(w)\). Pairwise disjoint output sets are necessary and sufficient for zero-error one-deletion correction. Therefore any code characteristic vector is feasible for the linear relaxation above. Its dual assigns nonnegative rational weights \(b_y\) to outputs such that \(\sum_{y\in D_1(w)}b_y\ge1\) for every source \(w\); the objective minimizes \(\sum_yb_y\). Weak duality follows directly by interchanging finite sums:
+
+Pairwise disjoint shadows are necessary and sufficient for unambiguous decoding, so the code capacity is the optimum of the same program restricted to characteristic vectors. A nonnegative family of output weights \(b_y\) is a dual cover if \(\sum_{y\in D_1(w)}b_y\ge1\) for each \(w\). Every fractional packing obeys
 \[
-\sum_wx_w\le\sum_w x_w\sum_{y\in D_1(w)}b_y
-=\sum_y b_y\sum_{w:y\in D_1(w)}x_w\le\sum_yb_y.
+\sum_w x_w\le \sum_w x_w\sum_{y\in D_1(w)}b_y
+=\sum_y b_y\sum_{w:y\in D_1(w)}x_w\le\sum_y b_y.
 \]
-In particular, the integral capacity satisfies \(A_m\le\lfloor\sum_yb_y\rfloor\).
 
-**2. Explicit witnesses and rational certificates.** The complete `certificates.json` includes, for each \(m=1,\ldots,6\), a list of \(A_m\) actual Dyck codewords with disjoint one-deletion shadows, a sparse nonnegative rational primal vector \(x\), and a sparse nonnegative rational dual vector \(b\). Omitted entries are zero. The two *independent* packaged exact-arithmetic programs regenerate **every** Dyck source and **every** distinct deletion output, and check **each** primal inequality, **each** dual inequality, disjointness of the witness codeword shadows, and the exact objective values. These are finite certificates, not solver logs or numerical tolerances.
+For each of the six semilengths, `certificates.json` lists a codebook, a sparse rational packing and a sparse rational cover, with omitted weights set to zero. `verify.py` generates all sources by recursively extending admissible prefixes, and regenerates all distinct shadows by deleting one position at a time. It checks code membership and disjointness, the domains and signs of the weights, every packing and cover inequality, and equality of the exact rational objectives with the stated entries. `verify_independent.py` reconstructs the same layers independently by choosing the up-step positions of a bit mask and deleting bits by shifts. Each codebook attains the floor of the corresponding matched packing and cover objectives, proving the code-capacity column. In particular the last upper bound is \(A_6\le\lfloor3269/131\rfloor=24\), matched by a 24-word codebook. The first four rows have equal objectives, while \(29/3-9=2/3\).
 
-The rational primal and dual objectives agree at each \(m\). The values are exactly \(1,1,2,4,29/3,3269/131\). Consequently the LP optimum is precisely the displayed common rational value by weak duality. Every listed code has cardinality equal to the floor of that rational value, so the integral capacities are exactly the displayed integers. In particular, the last upper bound follows from \(3269/131<25\) and a 24-codeword witness; the first fractional separation follows from \(29/3>9\), while all smaller \(m\) have matched integral and fractional objectives.
-
-**3. Finite completeness.** All semilengths \(1\le m\le6\) and all source/output possibilities at each semilength are generated from the defining prefix-balance condition, not sampled. A second generator uses combinations of the \(m\) up-step positions in an integer bit mask, then applies a separate bit-deletion formula. The two independent representations agree on all six certificate layers, hence the claimed *finite* classification has no unsampled parameter or hidden extrapolation. The proof does not infer anything from a timeout or claim an all-length result.
+To see why the objective claim is distinct from polyhedral integrality, at \(m=4\) take \(p=10101100\), \(q=10110100\), \(t=11011000\). Their deletion shadows are respectively
+\[
+\begin{aligned}
+D_1(p)&=\{0101100,1101100,1001100,1011100,1010100,1010110\},\\
+D_1(q)&=\{0110100,1110100,1010100,1011100,1011000,1011010\},\\
+D_1(t)&=\{1011000,1111000,1101000,1101100\}.
+\end{aligned}
+\]
+Every pair intersects and no output is common to all three. Setting their weights to \(1/2\) and every other weight to zero is therefore feasible. The three pair constraints restrict on this support to \(x_p+x_q=x_p+x_t=x_q+x_t=1\) at that point. Together with the other coordinates set to zero, they have this unique solution, so it is a fractional vertex. Equivalently, the inequality \(x_p+x_q+x_t\le1\) holds on the convex hull of codebooks but fails at this point.
 
 ## Verification
-In the same directory as `certificates.json`, execute `python3 verify.py` and `python3 verify_independent.py` using Python 3 and only its standard library. Both output their verified source counts, output counts, integral witness sizes, and exact rational LP objectives for all six parameters and finish with `EXACT_DYCK_CERTIFICATES_OK` and `INDEPENDENT_DYCK_OK`, respectively. No external optimizer is needed for replay. The certificate data includes every input needed for verification and uses canonical binary strings as keys.
+
+In the directory containing the unchanged `certificates.json` and checkers, run `python3 verify.py` and `python3 verify_independent.py` with standard-library Python 3. The two programs print the reconstructed layer sizes and objective values for all six semilengths, followed by `EXACT_DYCK_CERTIFICATES_OK` and `INDEPENDENT_DYCK_OK`. The nonintegrality example can be verified directly from the three displayed shadows; its conclusion is independent of the certificate table.
 
 ## Relationship to prior work
-Kulkarni and Kiyavash (2012) developed deletion-shadow hypergraph packing and dual upper bounds for constrained sources, with a run-length-limited application, rather than this Dyck-language optimum and fractional spectrum. Cullina, Kulkarni and Kiyavash (2012) determined optimal colorings of general constant-weight deletion graphs; an optimal coloring does not imply the independence number of the induced Dyck subgraph. In a related result entitled *Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap*, the unrestricted balanced weight-\(m\) layer has integral optimum equal to the Catalan number through semilength six, and its LP first becomes fractional at semilength four. The present Dyck restriction is a **proper and qualitatively different source universe**: its code capacities are much smaller and its first LP gap occurs at semilength five, not four.
 
-A separate result, *Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree*, joins two Dyck words only when they share **two** distinct one-deletion outputs; it explicitly does not determine single-deletion code capacities. Here two source words are incompatible if they share **at least one** output. Its graph independence numbers and output hypergraph are consequently different. The published general frameworks do not determine the exact values in this theorem. A differently indexed or unpublished historical computation may still exist.
+Kulkarni and Kiyavash give the general deletion-shadow hypergraph packing and fractional-cover framework and apply it to constrained sources, including run-length-limited codes. Cullina, Kulkarni, and Kiyavash give colorings of unrestricted constant-weight deletion graphs. Neither method by itself supplies the sharp evaluated capacities or fractional objectives for this Dyck subset. A published computation for the unrestricted balanced weight layer concerns a larger source and has a different first strict objective gap. The Dyck-restricted two-read graph instead joins pairs with two distinct shared reads, not pairs with at least one shared read, and does not give these packing optima.
 
 ## Limitations
-The capacity and exact LP profile cover only semilengths one through six; no assertion of asymptotic behavior, optimal-codebook counts, or a Catalan-type formula for larger semilengths is made. The certificates are fully finite exact-arithmetic mathematical evidence, but they have not undergone independent expert audit. Historical-priority coverage, particularly unpublished Dyck coding enumerations or alternative descriptions of the same hypergraph, is not exhaustive.
+
+The result concerns the exact optima only through semilength six; it does not classify optimal codebooks, assert an all-length formula, or locate the first fractional vertex. Different formulations of the same finite packing problem or historical exact enumerations may be unindexed.
 
 ## References
-1. A. A. Kulkarni and N. Kiyavash, *Non-asymptotic Upper Bounds for Deletion Correcting Codes*, arXiv:1211.3128 (first public posting 2012-11-13), https://arxiv.org/abs/1211.3128.
-2. D. Cullina, A. A. Kulkarni and N. Kiyavash, *Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings*, arXiv:1211.4056 (first public posting 2012-11-16), https://arxiv.org/abs/1211.4056.
-3. *Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap*, published 2026-11-02; https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082/RESULT.md.
-4. *Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree*, published 2026-11-08; https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f/RESULT.md.
+
+1. A. A. Kulkarni and N. Kiyavash, *Non-asymptotic Upper Bounds for Deletion Correcting Codes*, [arXiv:1211.3128](https://arxiv.org/abs/1211.3128).
+2. D. Cullina, A. A. Kulkarni and N. Kiyavash, *Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings*, [arXiv:1211.4056](https://arxiv.org/abs/1211.4056).
+3. [*Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap*](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082/RESULT.md) (2026-11-02).
+4. [*Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree*](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f/RESULT.md) (2026-11-08).

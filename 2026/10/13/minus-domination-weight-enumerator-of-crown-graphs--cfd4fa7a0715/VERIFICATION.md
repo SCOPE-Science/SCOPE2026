@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces every closed-neighborhood inequality to one of two exact identities:
-\[
-f(N[a_i])=B+x_i-y_i,\qquad f(N[b_i])=A-(x_i-y_i).
-\]
-Taking the extreme pair differences proves the iff criterion without computational assumptions.
+# Independent mathematical audit
 
-The enumerator is independently reconstructed from the nine possible labels on one matched pair. The five Laurent polynomials \(\Phi_d\) group pair states by the difference \(d=x_i-y_i\); inclusion-exclusion extracts exact minimum/maximum difference ranges, and coefficient truncation applies the feasibility inequalities.
+## correctness
 
-A standalone exhaustive checker verifies every labeling for \(3\le n\le6\), compares the direct graph predicate with the structural criterion, compares every nonzero bivariate coefficient with the symbolic construction, compares every total-weight coefficient, and checks the complete minimum layer.
+PASS
 
-Replay output:
+For d_i=x_i-y_i, the two closed-neighborhood sums at index i are B+d_i and A-d_i, yielding precisely A>=1+M and B>=1-m. The five pair factors partition all nine label pairs, and inclusion-exclusion extracts the exact two attained extrema before the feasibility truncation; specialization then records total weight. Weight two forces m=M=d, A=1+d, B=1-d, and nd=A-B=2d. Hence for n>=3 the labels are diagonal and the common vector has sum one; the stated multinomial counts all such vectors. A direct labeled-neighborhood enumeration against an independent extrema-state recurrence at n=2,3,4 confirmed the bivariate coefficients, with 6 and 16 diagonal minima at n=3,4 and two extra off-diagonal minima at n=2. The universal conclusion uses the proof, not this finite comparison.
 
-`VERIFY_OK n_range=3..6 labelings=597780 valid_functions=28559 criterion_checks=597780 bivariate_coefficients=94 weight_coefficients=32 minimum_checks=4 max_order=12`
+## originality
 
-The exhaustive range is finite and does not establish the theorem for larger \(n\); the symbolic proof supplies the general result. The boundary \(n=2\) is excluded from the theorem because its minimum-function classification is different.
+PASS
+
+Best of inspected evidence: the two-extrema feasibility criterion and bivariate/all-weight census apply to the deleted matching, not to intact complete multipartite adjacency. The scalar regular-graph lower bound is already a direct double count and is not credited as original. The closest same-graph diagonal minimum census concerns a different label alphabet and rule, and neither it nor the multipartite census implies the ternary crown enumerator.
+
+## value
+
+PASS
+
+The crown is a natural highly symmetric graph where the missing matching obstructs the intact bipartite formulas. Tracking the two side sums gives a genuine complete distribution (not just an optimum) with a constant-size alphabet of pair extrema and only polynomially many side-sum states. It also identifies which minimizers realize the universal lower bound and why the small matching boundary behaves differently. These outputs are useful for exact enumeration and comparison with other domination rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

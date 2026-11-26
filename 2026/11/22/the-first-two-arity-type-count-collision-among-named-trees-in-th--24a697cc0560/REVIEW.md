@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Henson homogeneity reduces one-, two-, and three-tuple types to independently chosen neighborhood sets subject to forbidden triangles. The known identities \(t_1=I\), \(t_2=I^2+D\), \(t_3=I^3+3ID+3J\) are reconstructed explicitly. The exhaustive tree enumeration is complete by leaf deletion/attachment and isomorphism-free by canonical rooted-parenthesis codes. A second tree-transfer count for six witness tests independently confirms the ternary contributions. The exact ten-vertex witness values and complete collision census reproduce under `verify.py`.
+## correctness
 
-**Originality — PASS, provisional.** Earlier general finite-extension/type identities and a sharp seven-vertex collision over unrestricted triangle-free graph bases are credited and excluded from the claim. The latter's first witness is a disconnected graph/tree pair, not a pair of trees, and stops far below the tree threshold. Wagner–Wang's pseudo-twin results give asymptotic/large-tree indistinguishability for several graph polynomials but not the first collision of the joint numbers \((I,D)\), nor the ten-vertex uniqueness and ternary split. Primary Henson/Conant texts and the closest published higher-arity counting result were compared. An unindexed equivalent small-tree census remains a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** Tree-shaped named parameter structures are a natural constrained class, and the first two small-arity type-orbit counts form a natural logical reconstruction invariant. Establishing a sharp ten-vertex boundary, classifying its *sole* first failure despite identical degree sequences, and detecting that failure at arity three is an exact motivated structural cutoff, not an arbitrary numerical sample. The finite range is proved exhaustive, and the theorem does not claim any unsupported all-order extension.
+Triangle-free finite extensions of the fully named induced base realize exactly the complete ordered injective tuple types, by amalgamation into the Henson graph and homogeneity. A new vertex has an independent old neighborhood; a new edge additionally requires disjoint neighborhoods. For three new vertices there are one empty pattern, three edges and three paths, with contributions I^3, ID and J respectively (no triangles). I independently generated rooted types by child-multisets, deduplicated free trees by their invariant centers and counted extensions by transfer of allowed cross-neighborhood states across old edges. Replay python3 /workspace/branches/reproduce_trees.py. This different generator and count matched the 106 packaged CSV entries by unlabelled class. Counts from orders 1 to 10 were 1,1,1,2,3,6,11,23,47,106; the only fibre of size >1 is a doubleton at order ten with I=160, D=8649. Both trees have the stated degree sequence; J=578337 and 578961 yield respectively 9982531 and 9984403 ternary types. The finite cutoff does not establish reconstruction for larger trees or general graphs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The tree-only first-collision census for (I,D), its values and ternary separation are distinct from the actual known claims. Important correction to the frozen audit's comparison: the October connected-partition truncation result already exhibits exactly these same two UNLABELLED trees, for a different invariant. Credit the known pair; originality lies in the Henson invariant classification, not discovery of the trees or the pair as an indistinguishability example in general.
+
+## value
+
+PASS
+
+Low-arity logical types give a natural hierarchy of reconstruction invariants on named trees. The joint unary and binary counts nearly reconstruct trees through the first noninjective order, have a unique obstruction there, and are rescued at that order by arity three. Knowing a pair from a different forest-count invariant does not supply the sharp guarantee or its ternary diagnosis, which are the useful outputs here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

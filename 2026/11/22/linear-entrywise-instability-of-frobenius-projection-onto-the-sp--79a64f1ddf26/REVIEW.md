@@ -1,15 +1,21 @@
-# Scientific review: spectral-norm-ball maximum-entry stability
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the singular-value-clipped Euclidean projector, differentiates at smooth exterior points \((1+s)uv^{\mathsf T}\), and takes the justified limit to a rank-one tangent hyperplane projection. Exact absolute-row calculations and Cauchy equal-tail saturation prove the tangent maximum formula. The positive-contraction Jacobian bound for a Hilbert nearest-point projector yields a global maximum-entry upper bound; the two-sided inequality is exact at \(m=n=2\). Analytic estimates prove the tangential leading coefficient \(1/4\) as both dimensions grow. The NumPy checker passed 622 supplementary assertions; these are not infinite-dimensional certification or a substitute for the proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2012 Lefkimmiatis--Ward--Unser Schatten projection theorem and the 2018 Sedghi--Gupta--Long use of operator-norm-ball projection supply the base SVD clipping operation, but the inspected primary sections do not give the entrywise Lipschitz bounds or rank-one tangent optimization. Semantic comparison to records on positive-semidefinite repair, Birkhoff projection and sign-constrained SVD does not imply the spectral-ball theorem; their feasible sets and stated conclusions differ. Search terms, comparisons, inspection materials and remaining risks are recorded in AUDIT.json. A historically earlier equivalent formulation under another alias remains possible.
+PASS
 
-## Mathematical value — PASS
-The gap is an exact coordinatewise robustness analysis of a commonly used nonpolyhedral matrix projector. The proven lower and upper bounds show linear growth for square matrices despite Frobenius nonexpansivity; the tangent-family formula and exact \(2\times2\) coefficient provide structural, directly checkable benchmarks. This is not a claim of the globally sharp constant for higher dimensions.
+Clipping is the Frobenius projector by the singular-value trace inequality and scalar minimization. At X=(1+s)uv^T, symmetric dilation gives a simple positive eigenvalue with a uniform gap as s decreases to zero, so the derivative of the leading singular outer product remains bounded. Differentiating X-(sigma_1-1)uv^T gives the asserted tangent limit in coordinate operator norm. The selected row sum is 1+|u_i v_j| ||u||_1 ||v||_1-2u_i^2 v_j^2. With fixed absolute selected entries x,y, equal absolute tails attain both Cauchy inequalities, including the endpoints. The explicit half-mass coordinates give the lower bound. Independently, for input difference h and output difference g, firm nonexpansivity gives ||g-h/2||_2 <= ||h||_2/2, hence the upper bound globally without assumptions on differentiability. The bounds coincide at 2 by 2. The only jointly leading term in the rank-one formula is bounded by sqrt((m-1)(n-1))/4 and attained to leading order by x=y=1/sqrt(2); the single-root terms vanish upon division by sqrt(mn) if both dimensions diverge. No finite-pair equality or unrestricted leading constant is established in general dimensions.
 
-## Boundaries and limitations
-No exact unrestricted \(L_{m,n}\) for general matrices or unrestricted limiting leading constant is claimed. The \(1/4\) limit applies to the rank-one tangent family only, and numerical checks do not prove continuum bounds. The strongest priority risk is an earlier unlocated endpoint Lipschitz result. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the rectangular, independently optimized rank-one tangent formula and its use in nondifferentiability-sensitive bounds for this projector. Singular-value clipping and the universal convex-projection upper bound are not new. Neither the square growth phenomenon nor the 2 by 2 benchmark alone is a strong priority claim given the close PSD transfers.
+
+## value
+
+PASS
+
+The entrywise modulus is a natural worst-case stability benchmark for a standard matrix projection, different from its Euclidean modulus. The independent left/right tangent optimization gives a sharp and usable rectangular benchmark, with a mechanism showing order growth even though the operation is Frobenius nonexpansive. The universal upper bound or a repeated 2 by 2 number alone would not justify this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

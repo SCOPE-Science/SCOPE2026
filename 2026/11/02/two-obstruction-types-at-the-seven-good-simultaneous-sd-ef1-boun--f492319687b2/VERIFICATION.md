@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification summary
+# Independent mathematical audit
 
-The substantive computation is exact integer enumeration, not simulation and not a claim about arbitrary numbers of goods. Every strict singleton order of seven goods is represented in the full enumeration. Fixing the market order causes no loss because goods can be relabeled simultaneously.
+## correctness
 
-Run with Python 3.10 or newer:
+PASS
 
-```
-python3 verify.py
-```
+Removing the highest-ranked good in the other bundle witnesses all the relevant prefix inequalities at once. With complete allocation, the own-count lower bound is floor(prefix length/2); odd bounds follow from the previous even bound. The market therefore forces one per pair and leaves the singleton free. An independent exhaustive replay used actual per-ranking good removals and compared sorted positions for SD dominance; it tested all 128 bundles for market feasibility, all 5040 strict orders for the resulting 16 market bundles, and checked each strict refinement within the 630 paired orders before grouping. It confirmed the full histogram, 96 exceptional paired profiles and the identical exceptional union of two disjoint 48-profile orbits generated from the reported representatives. The 64 refinements per paired profile yield 6144 failures and 8/33075. For the mean, reflection of a length-seven prefix walk at its first visit to −2 gives 35−21=14 successful three-good position sets and 35−7=28 four-good sets. Independence gives 16(14/35)(28/35)=128/25, also confirmed by the exact allocation incidence 130056192.
 
-Expected checked totals: 630 distinct paired subjective rankings per agent; 396900 paired-ranking profiles; 96 profiles without a compatible allocation; two disjoint obstruction orbits of 48 profiles each; 6144 incompatible strict-ranking pairs; probability 8/33075; mean compatible allocation count 128/25. The script tests each representative against every one of the 128 possible complete allocations in addition to the structured market-split test.
+## originality
 
-Run with a C++17 compiler:
+PASS
 
-```
-g++ -O2 -std=c++17 independent_full.cpp -o independent_full
-./independent_full
-```
+The seven-good boundary, market-pair construction and Type I are explicitly prior. The complete two-orbit census and distinct obstruction Type II are not supplied by the strongest identified source; its common-ranking reduction does not resolve the two subjective SD-EF1 constraints. No equivalent census was identified in the bounded comparisons.
 
-Expected full-ranking totals: 25401600 subjective-ranking pairs; 6144 with zero compatible allocations; 130056192 compatible allocations summed over all pairs (each feasible allocation counted once per profile). The program independently uses a direct prefix-difference predicate rather than the paired-order orbit calculation. Both verifiers completed with their assertions satisfied from the included source files.
+## value
 
-The proof of the prefix reduction and symmetry group action is in `RESULT.md`. The programs exhaust their specified finite domains, but neither proves analogous results for eight or more goods, tied rankings, or additional agents. No independent scientific audit or certification has been conducted.
+PASS
+
+The first impossible layer is a published, mathematically motivated cutoff. Its complete orbit classification distinguishes a new obstruction from relabelings of the known one, and the exact zero frequency quantifies how exceptional worst-case nonexistence is in the natural uniform model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

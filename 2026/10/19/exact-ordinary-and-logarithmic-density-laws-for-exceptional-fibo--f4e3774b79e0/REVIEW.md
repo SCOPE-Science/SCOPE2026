@@ -1,11 +1,21 @@
-# Scientific review: exact entropy-threshold length densities
+# Independent mathematical audit
 
-**Correctness — PASS.** The scope includes precisely all fixed positive Rényi orders and nontrivial interior thresholds. The classical three-distance theorem is cited for every finite cylinder probability. Binet asymptotics yield a uniform entropy profile across each Fibonacci block, and its derivatives give exactly two threshold crossings. Summing selected lengths across complete and partial blocks gives a continuous phase-dependent density with strict and attained extrema. Harmonic sums over blocks establish the distinct exact logarithmic density. A standalone independent-gap computation corroborated 45 orbit partitions and 180 entropy values; large-cutoff checks corroborated eight extremal densities. Finite checks are not misrepresented as universal proofs.
+## correctness
 
-**Originality — PASS, with risk.** The full classical three-distance frequency theorem and Shannon block entropy definition are explicitly acknowledged. A complete read of the nearest public finite-type-cover entropy theorem shows that it evaluates different entropy (topological cover growth rather than invariant-measure word probabilities). The inspected classical frequency, Sturmian combinatorics and Fibonacci thermodynamic papers do not formulate the claimed sharp natural-density envelope or logarithmic density for entropy-thresholded word lengths. The new arithmetic summations are essential. Searches are not proof of novelty, and an unindexed earlier treatment remains possible.
+PASS
 
-**Mathematical value — PASS.** The exceptional-length set is intrinsic to the maximal-complexity-normalized entropy of a canonical uniquely ergodic zero-entropy dynamical system. The theorem separates two fundamental ways to sample information deficiency (ordinary and logarithmic word-length density), classifies all interior thresholds and all positive Rényi orders, and proves strict failure of one density despite existence of the other. It is a motivated exact classification of information irregularity rather than an arbitrary finite slice or a reprint of factor-frequency tables.
+The lengths being counted are word lengths, for each fixed q>0 and each strict intermediate threshold. Mechanical coding gives the rotation gaps (reflection of the boundary points is immaterial). For the finite table I reconstructed the insertion invariant: in direction (-1)^(j-1) at F_j points the long gaps start at the first F_(j-1) orbit points. Inserting F_j+i shifts the ith point by alpha^j in that direction, cutting off a short front piece; on reversing direction, every old endpoint now starts a gap of length alpha^(j-1), and each new endpoint starts a gap of length alpha^j. The base at F_3=2 is immediate. Binet gives uniform block convergence including the Shannon normalization. The derivative has a positive denominator and an affine numerator with strictly negative slope when q is not 1; d_1 is strictly concave. Endpoint equality gives two transverse crossings. The symmetric-difference error in each block is o(F_j) and the geometrically summed error is still o(F_j). In a partial block the count adds the clipped window length to phi L F_j from previous blocks. The resulting phase profile joins across the endpoints 1 and phi, decreases/increases/decreases, and has extrema phi L/(1+t_-) and phi^2 L/(1+t_+); compactness and continuity give exactly the full interval of limits. A complete block contributes log((1+t_+)/(1+t_-))+o(1) to the harmonic sum, an incomplete block contributes O(1), and the block count is log N/log phi+O(1). Independently replayed 56 exact rotation gap profiles in Z[alpha] through j=15 with /workspace/review_work/fibonacci.py and checked the displayed Shannon illustration. These diagnostics are not the proof of the limits. No equality-threshold claim was tested or inferred.
 
-**Closest literature and limits.** Bruin–Leplaideur, arXiv:1309.7934v1, identifies the Fibonacci invariant dynamical measure. Berthé's survey, §§2.2 and 6.2, contains the crucial pre-existing entropy definition and all three distance multiplicities. Carey–Clampitt, arXiv:1804.08724, addresses Sturmian frequencies. The closest published Fibonacci finite-type-cover entropy staircase is a different statistic. The result is restricted to the Fibonacci slope, positive Rényi orders and interior thresholds. An earlier unindexed analytical corollary cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the joint natural/logarithmic cutoff-density theorem for Rényi deficit threshold crossings, not rotation-gap frequencies, a statement about entropy values alone, or a finite-type-cover entropy. No equivalent earlier cutoff-density law was found in the inspected sources. The closest Shannon phase profile is later-dated and does not itself state cutoff densities.
+
+## value
+
+PASS
+
+Golden rotation is the canonical bounded-type Sturmian example. The theorem resolves whether ordinary and logarithmic sampling over lengths give the same stable exceptional frequency, quantifies the full ordinary oscillation, and does so for a continuum of orders and thresholds. That distinction would be lost in an order-of-magnitude bound or an entropy-phase cluster set alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

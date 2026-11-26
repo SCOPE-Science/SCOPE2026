@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The provided standard-library-only program `verify_rank3.py` was executed with `--crosscheck`. It generated `rank3_manifest.csv` for all 255 nonzero vectors in \(\{0,1,2,3\}^4\) and reported:
+## correctness
 
-```
-canonical_profiles=255 rank3_theories=22 sharp_kernel_order=9
-direct_EF_pairwise_inequivalence=231/231
-direct_EF_selected_equivalence_tests=4/4
-```
+PASS
 
-The rank-three invariant is implemented directly as iterated sets of atomic three-variable types, avoiding approximate hashes or floating-point arithmetic. The cross-check uses a separate memoized minimax recursion for the three-move Ehrenfeucht–Fraïssé game. Full correctness for arbitrarily large finite star forests also relies on the textual proof of component truncation; exhaustive enumeration of finite test graphs alone would not establish it. The script uses standard-library modules only. Independent validation has not been performed.
+In three rounds Duplicator needs at most three leaves in any visited star and at most three fresh components of each type. Matching components consistently preserves equality, within-component adjacency, and nonadjacency between components, including when a previously marked vertex is chosen again. This proves truncation for all nonempty finite star forests and never increases the order of a representative. The iterated sets of six-bit ordered triple types are the exact extension invariants of the three-round game: atomic types decide the final position, and equality of extension sets is precisely the back-and-forth response condition at each earlier position. Nonemptiness allows each partial atomic type to be recovered from an extension. An independent direct minimax classification in increasing order of the 255 profiles gives 22 classes and one representative minimum nine, for profile (0,0,3,0), with all 231 pairs of representatives inequivalent. Size-monotone truncation excludes any smaller noncanonical witness.
+
+## originality
+
+PASS
+
+The exact 22-class census and sharp minimum-representative bound are distinct on the inspected evidence. The closest graph-class census is for linear forests, which covers some but not all of the target rank-three theories; the same-day nine-element bound for equivalence relations concerns a different vocabulary interpretation and a different class of structures. The general EF method gives a decision criterion but not the census or its sharp kernel.
+
+## value
+
+PASS
+
+This is an exact low-rank model classification for a natural class of forests, with no expansion of the language or artificial vertex cutoff. Rank three is the first rank that can witness two distinct neighbors of a vertex. A sharp uniform representative bound and its extremal class give a useful finite domain for deciding equivalence at that depth; the computation identifies what the general finite-type theorem cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

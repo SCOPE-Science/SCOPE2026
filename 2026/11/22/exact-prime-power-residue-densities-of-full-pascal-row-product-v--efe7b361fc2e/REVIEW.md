@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The valuation is exactly the sum of prime-adic factorial exponents, equivalently Lagarias–Mehta's digit-sum expression. The proof recomputes the digit block formula without hidden divisibility assumptions; it checks that the denominator \(p-1\) is a unit modulo \(p^k\), proves the forced valuation strata using an independently derived Kummer borrow census, proves equidistribution for *arbitrary* cutoffs by root-of-unity filtering, and counts the resulting residues without dropping boundary classes. The sharpness witnesses are exhibited for all primes. The accompanying reproducible checker is supporting finite evidence, not the justification for the infinite theorem.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Lagarias–Mehta, arXiv:1409.4145, Theorem 5.1, already gives the exact valuation as a function of digit sums; it is prior work, not a new contribution. Its inspected argument and scope discuss value size, digit-formula descriptions and growth fluctuations, not an exact residue-by-residue natural-density law modulo every prime power, the sharp compression length, and finite-block frequency law. Its companion arXiv:1503.00199 studies the different reduced Farey product and its Möbius connection. OEIS A001142 and A187059 supply exact sequence definitions and finite tables, not the uniform all-prime distribution. Near-neighbor findings on Pascal columns and binomial-ray carry valuations have different parameters and objects. The added derivation requires digit-block separation, harmonic power-saving bounds and a conditional-mixture argument; nevertheless, an unindexed equivalent consequence of an earlier digital-statistics theorem remains a genuine risk.
+PASS
 
-## Value — PASS
-The complete Pascal-row product is a classical factorial/Farey integer. The theorem settles a natural and mathematically motivated question about the long-index residue frequencies of its prime-adic valuations: the answer is not uniform and has an exact universal formula for all primes and levels, with quantitative convergence. The sharp smallest prefix and an exact finite histogram strengthen the distribution classification in a way suitable for computing modular statistics without the exponentially growing products. This is not a single arbitrary cutoff, a small numerical increment, or a renaming of the pointwise valuation identity.
+Legendre's formula gives (p-1)W_p(n)=2S_p(n)-(n-1)s_p(n). Splitting at p^L gives the displayed exact difference, with all terms except (a+1)s_p(t) divisible by p^L after multiplication by p-1. The alternate carry formula can be checked by counting, for each m=p^h, those j for which j mod m exceeds n mod m in each complete block; it gives W_p(n) divisible by p^j whenever n+1 is. On aligned p^i-blocks the digit-sum character bound is |1+zeta+...+zeta^(p-1)|^i. Choosing a common upper bound strictly between max(1,max_zeta |1+...+zeta^(p-1)|) and p, then summing over the at most p-1 blocks per scale in a prefix, gives a power saving for arbitrary cutoffs. For j<k, the linear coefficient in the compressed congruence has exact valuation j, so the conditional law is uniform on p^j multiples; j>=k forces zero. Each j<k contributes (p-1)/p^(k+1) per permissible residue, and the last stratum adds p^(-k) at zero. The histogram is the generating-function count of tail digit sums, including r=k; one free digit already gives exact uniformity modulo p. For L>=1, setting a=0 gives a remainder coefficient congruent to -(L+1) at t=1 and to -L at t=p+1, so some remainder has valuation exactly L. At L=0 the witness a=0,t=1 works for every k>=1 since W_p(1)=0 and (p-1)^(-1) is a unit. Independent Legendre-valuation enumeration supplied 1,406 bounded checks at p=2,3,5 (blocks up to 2,000 indices); replay: /workspace/branches/3e039027-151e-40e3-bbc6-20471bee4a29/replay.py and replay-output.txt in that directory. The finite replay does not establish the natural density or the uniform quantifiers.
 
-## Limits and literature
-The proof establishes valuations, not values or cross-prime independence; the implied error exponent is fixed-parameter. The parent pointwise identity is due to Lagarias and Mehta. No independent verification has been performed. Historic-priority uncertainty remains for implicit modular-distribution consequences in wider automatic-sequence literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pointwise valuations of the full row product (equivalently the reciprocal unreduced Farey product) are known. The supported increment is the sharp low-digit compression together with the exact conditional and unconditional all-precision natural laws and finite histograms. The subset of these claims equivalent to older pointwise formulas is not counted as original.
+
+## value
+
+PASS
+
+The valuation of a full Pascal row product is a natural aggregate rather than a selected binomial coefficient. Its nonuniform law is explained by the valuation strata of n+1, and the sharp split depth gives an exact finite counting procedure at arbitrary output precision. These give distinct usable information on the whole sequence beyond the known term formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

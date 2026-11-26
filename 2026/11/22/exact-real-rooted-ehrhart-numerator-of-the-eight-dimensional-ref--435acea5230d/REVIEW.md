@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The same explicitly defined eight-dimensional polytope appears in the claim and proof. Its integer lattice fibers are parameterized bijectively by the last two coordinates; the free-sum gauge identity reduces counting to 49 finite integer shell counts. The actual standalone checker derives the 37 primitive facet inequalities from all 1330 triples of 21 vertices, verifies the 21 extremal points, and exhaustively evaluates the shells in a proven complete bounding box. The nine counts yield the exact numerator by finite differences. Independently, triangulation of the three-dimensional base gives normalized volume 1071 and hence total normalized volume 6882246, matching the numerator sum. Exact quartic sign changes imply eight simple negative roots. An independently produced proof is not claimed.
+## correctness
 
-**Originality — PASS, provisional priority.** Hofscheier–Nill's original arXiv:2611.08819v1 describes the 44 vertices, 1371 facets and reflexivity, but supplies no Ehrhart numerator or root description. Beck–Jayawant–McAllister (arXiv:1207.0164v2) gives a general free-sum generating-function framework, including a criterion for multiplicativity, without the precise lattice count or root property of this particular polytope; the free-sum factor used here is not reflexive. Braun's formula has a reflexivity hypothesis not directly available for the factor. Searches of published mathematical records and general literature uncovered no stronger exact table or theorem implying the stated polynomial and its real roots. Because public software datasets and unpublished computations are not exhaustive-searchable, priority is provisional.
+PASS
 
-**Value — PASS.** The motivating eight-dimensional polytope is the first-dimensional counterexample to a long-standing extremal reflexive-facet conjecture. Its full Hilbert/Ehrhart series and unexpectedly strict negative real-root spectrum are natural, concrete invariants of that same geometrically important example; the complete vector determines every lattice-point count in all dilates and gives positive \(\gamma\)-coefficients. This addresses a specific natural object rather than an arbitrary parameter slice. It is one finite exact result, not a theorem about every reflexive polytope.
+The six-dimensional free-sum gauge is the sum of the two Q gauges, by the convex-combination definition. The last two coordinates uniquely select nonnegative apex weights m/3 and n/2 and leave base scale k-m/3-n/2. This proves the lattice-fiber bijection. An independent replay proposed facet planes with a triangulated hull and then proved completeness in exact arithmetic: the halfspaces contain all inputs, their normals positively span, and all feasible nonsingular triple intersections are exactly the input vertex set. It found 8,11,18 primitive facets at heights 1,3,6. The Q shells were recomputed by counting exact vertical integer intervals in each rational dilation jQ/6. With shell series S(X), the slice counts are coefficients at 6k of S(X)^2/((1-X)(1-X^2)(1-X^3)), so no h* coefficients were assumed. It reproduced all nine lattice counts and all nine coefficients, their sum 6882246, and gamma=(1,4189,191491,825921,246354). Separately, P has the two apex-weight inequalities and 37^2 normalized primitive inequalities from pairs of Q facets; each pair gives a five-dimensional face of B joined to the two apices, hence a facet. The apex-weight facets also have lattice distance one; all paired inequalities have integral normal and right-hand side one after multiplying by six, giving reflexivity. The reciprocal quartic was reconstructed from the coefficients. Its endpoint sign pairs (+,-),(-,+),(+,-),(-,+) on (-5000,-4000),(-50,-40),(-7,-6),(-3,-2) certify four simple roots below -2, which give eight distinct negative roots of h*. The volume is h*(1); the separate determinant-of-apex-displacements factor 6 in the source is also correct.
 
-**Closest literature and risks.** The 2026 construction is [1] in `RESULT.md`; the 2013 free-sum formula and 2006 Braun formula are [2] and [4]. Residual priority risk: an existing unindexed PolyDB or private computation may contain this concrete polynomial. The exact certificate does not constitute an independent external audit, and the general product formula cannot replace the lattice-fiber calculation in the nonreflexive case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The construction and extremal facet count are known. In the inspected original and compared work the exact numerator and its strict negative-real root property were not given. General free-sum tools do not state these invariants for this explicit nonreflexive base and do not mechanically settle the quartic signs without the new arithmetic.
+
+## value
+
+PASS
+
+This is a specific motivated extremal counterexample, not an arbitrary finite lattice polytope. The exact numerator determines the entire dilate census; the certified eight distinct negative roots add a concrete strong shape property not explained by the facet counterexample or by palindromicity. A researcher comparing Ehrhart shape of known extremal reflexive examples can directly use this invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification procedure and limits
 
-The standalone `verify.py` needs Python \(3.10\) or later and the standard library only. Invoke `python3 verify.py` from the extracted artifact directory. It rebuilds all \(81\) ternary four-words and each radius-one Hamming ball (exactly nine targets), then checks **every** indexed cyclic string of lengths \(9\), \(10\), \(11\) and \(12\). For every string, all modular four-windows are evaluated and their ball bitmasks combined. Thus the covering predicate is equivalent to equality with the all-ones \(81\)-bit target mask; there is no sampling and no external solver.
+# Independent mathematical audit
 
-Expected full census output:
+## correctness
 
-```
-length=9 total=19683 covering=0 max_covered=69
-length=10 total=59049 covering=0 max_covered=76
-length=11 total=177147 covering=0 max_covered=76
-length=12 total=531441 covering=48 max_covered=81
-orbits_without_reversal=2, each_size=24
-orbits_with_reversal=1, size=48
-witness=001022021121
-VERIFY_OK
-```
+PASS
 
-For shorter lengths, the exact radius-one sphere volume gives \(9m<81\), so lengths at most eight cannot work. The symmetry check forms all rotations of every relabeling of both the witness and its reversal and verifies equality with the **entire** length-twelve winner set. A separately written C++17 implementation is embedded as `verify_independent.cpp`. Compile and run with `g++ -std=c++17 -O2 verify_independent.cpp -o verify_independent && ./verify_independent`; it independently recomputes the same complete four-length census and determines the one equivalence class under relabeling, rotation and reversal. The two implementations agreed.
+Each radius-one Hamming ball has 1+4(3−1)=9 targets, so every cycle of length at most 8 is excluded, including cycles shorter than the window length. In a fresh exhaustive calculation I generated the balls by changing one ternary digit and used rolling base-three indices to visit each cyclic window, including wraparound. The 19,683, 59,049, 177,147 and 531,441 indexed sequences at lengths 9–12 give 0,0,0,48 full covers, with largest coverage sizes 69,76,76,81. The explicit length-12 witness is in the census. Constructing every uniform symbol relabeling and rotation of the witness and of its reversal gives two disjoint orbits of 24 whose union is exactly the full census. Adding reversal exchanges those orbits. The one-orbit statement is for the positional dihedral group together with uniform relabeling, not the positional dihedral group alone.
 
-These checks establish the stated exact finite result; they do not extrapolate to larger spans or other radii. This procedure is reproducible but is not a separately conducted independent scientific audit.
+## originality
+
+PASS
+
+The closest inspected literature has the same cyclic object, binary finite tables, general bounds, or a constacyclic Hamming construction at these exact ternary span and radius parameters. Etzion's paper also explicitly describes how to merge constituent cycles, not just how to construct separate ones. Its merge retains all original windows, and the Hamming construction for these parameters supplies nine pairwise distance-at-least-three centers. Independent checking finds that not even four such centers occur among the windows of any optimal length-12 cycle. Thus that construction, specialized as given, does not supply the length-12 witness, let alone its optimality or the census. The closest indexed classification match is for binary span seven and is not implication-equivalent.
+
+## value
+
+PASS
+
+Span four is the first nontrivial ternary radius-one perfect Hamming parameter: an unrestricted cover needs only nine centers, attained by the kernel of a ternary parity-check matrix with one column from each of the four projective directions in dimension two. Requiring the centers to occur on a single walk of overlapping windows raises this to exactly 12, a sharp one-third overhead. At this natural benchmark the equality description distinguishes the effect of reversal and identifies the unique full-symmetry type. This answers a concrete finite comparison not supplied by the sphere bound or the multicomponent construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

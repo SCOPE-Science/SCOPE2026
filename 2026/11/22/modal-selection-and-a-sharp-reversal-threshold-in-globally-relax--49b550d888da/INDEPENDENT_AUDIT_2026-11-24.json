@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:16:54.381570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With u_j=R(ix_j)-1, direct expansion gives q_j=|u_j|^2>0 and g_j=-2Re(u_j)/q_j>0 on the excited interval. The unique nonzero root gamma is the E_j q_j weighted mean of g_j; the squared modal multiplier is 1+q_j gamma(gamma-g_j). Summing proves conservation; multiplying by g_j before summing gives the negative weighted variance. Energy of the initial minimizing set increases by at least g_* min_M(q_j) E_M(0)(gamma-g_*). Bounded monotonicity therefore forces gamma->g_*, and the mean formula with bounded denominator forces each loser to zero. The limiting squared multiplier yields the claimed ratio on surviving losers. Exactly, g(rt)-g(t)=48(r-1)t^2 P_r(t)/(D(t)D(rt)); the proof's removal wording omits one harmless positive factor t. Endpoint signs +96(r+1), -48r and positive leading coefficient give the unique admissible root. At r=4, P_4(197/100)=-931/500 and Q(197/100)>Q(197/25), with 197/25<8, so the two corrections really select opposite winners within RK4 stability. Recorded VERIFY_OK 127 was inspected, not freshly run; independent bounded rational replay is /workspace/branches/957ea9b8-9f45-40d6-a345-3836be29f3a9/independent-check.py. The infinite-time conclusion is analytic; no assertion on allocation within tied winners or on rounding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic quadratic-invariant step is the known scalar correction; related catalogue results use a fixed-step relaxation-free correction or two-invariant stage-span correction."
+        ],
+        "reasoning": "Conservation alone does not rank the modes; the minimizer argument and switch require the specific modal factors of classical RK4.",
+        "searches": [
+          "Ketcheson arXiv:1905.09847, relaxation method and §4.1",
+          "Resultary search above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.09847 §4.1",
+        "Resultary 3016d962c708 and assigned-record hit 49b550d888da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radial projection multiplies the modal ratio by fixed Q_2/Q_1; increment relaxation uses state-dependent gamma. The same stable step gives opposite asymptotic winners."
+        ],
+        "reasoning": "The radial winner theorem cannot substitute for or directly imply the increment-relaxation winner theorem; the earlier Fourier observation also does not imply the exact switch.",
+        "searches": [
+          "Ketcheson §4.1; radial RK4 record 3016d962c708, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier transport modes give the same independent rotating blocks for this quadratic invariant; the 2019 primary text reports transfer experimentally."
+        ],
+        "reasoning": "Changing from planar oscillators to complex Fourier coefficients does not avoid the earlier observation; the earlier experiments do not classify the exact asymptotic winners.",
+        "searches": [
+          "Resultary: global energy-conserving RK4 increment relaxation versus endpoint projection, oscillator modal energy ratios Fourier mode asymptotic selection Lyapunov and exact two-frequency reversal threshold",
+          "Ketcheson arXiv:1905.09847 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "49b550d888da is the identical record. The distinct radial record gives the exact threshold 168/85 for frequencies 1,2."
+        ],
+        "reasoning": "That threshold is known and credited; it is not the increment-relaxation threshold (71-sqrt(2641))/10.",
+        "searches": [
+          "Resultary search above; records 3016d962c708 and 49b550d888da"
+        ]
+      },
+      "rationale": "The known relaxation and the existence of modal transfer are not new. The finite-mode winner law, its explicit Lyapunov identity and exact increment-relaxation switch are distinct on the located evidence.",
+      "residual_risks": [
+        "An older asymptotic result expressed in Fourier or conservative-integration terminology could have escaped the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mechanism and observation, not the claimed exact classification in the inspected discussion",
+          "evidence": "Attenuation and amplification of distinct Fourier components under global energy preservation are explicitly discussed.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.09847",
+          "material_read": "§4.1, PDF pp. 13–14, OA extraction around offset 43750",
+          "method": "Primary PDF passage comparison",
+          "title": "Relaxation Runge–Kutta Methods: Conservation and Stability for Inner-Product Norms",
+          "trigger": "Same quadratic relaxation of classical RK4 on Fourier modes"
+        },
+        {
+          "assessment": "Different correction; covers radial comparator only",
+          "evidence": "Fixed Q_2/Q_1 factor, including radial switch at 168/85.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708",
+          "material_read": "RESULT.md, offsets 1000–6026 and 5750–8250",
+          "method": "Primary local mirror; compare recursions and thresholds",
+          "title": "A unique symplectic timestep and sharp modal-energy reversal in projected RK4",
+          "trigger": "Same RK4 oscillator pair, conserved total energy and reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact global energy conservation masks the loss of all nonwinning independent physical actions. The finite-mode law and sharp frequency-step diagnostic distinguish two widely relevant correction geometries at an identical stable base step; this is stronger than one observed transient or one isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

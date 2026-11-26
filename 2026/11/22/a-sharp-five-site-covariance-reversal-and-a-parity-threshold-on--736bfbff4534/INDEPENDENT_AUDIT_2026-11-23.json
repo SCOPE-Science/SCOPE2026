@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:54:11.980026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–79, and VERIFICATION.md; submitted verify.py inspected, not executed",
+        "Independent replay: /workspace/branches/7111e3f8-2c67-4cdb-81d5-1c3cd6c5bfe8/conditional_delete_audit.py, representative_output.txt and full_census_output.txt",
+        "Bencs arXiv:1409.2527, Theorem 1.3 and induced-path parity discussion, PDF pp. 2–3"
+      ],
+      "rationale": "Deleting closed endpoint neighborhoods gives Z=I_n+z, the two single-site numerators zI_(n−2), and joint z²I_(n−4). The recurrence roots a,b satisfy a+b=1 and ab=−z and yield I_(n−4)I_n−I_(n−2)^2=(−1)^(n−1)z^(n−2). Thus odd n is positive, and for even n the positive-coefficient ratio I_(n−4)/z^(n−3) strictly decreases from infinity to zero. At z=1 it equals one only for n=4; at z=2 it is below one. For z<2, I_(m+2)/I_m>a²>z² for even m, forcing strict ordering of successive roots, and a/z>1 gives convergence to 2. In the log root equation the left factor is log(a/z)=(2−z)/3+O((2−z)^2), and the right tends to log(3/2), with characteristic-ratio error O(2^(−n)). This verifies the stated first-order asymptotic and error. A separate conditional-deletion enumeration classified all 1,099 graphs and 10,650 marked pairs, giving exactly 60 mixed-sign numerators, all z³−z⁴ and all marked fans. There is also an analytic cross-check from Bencs: a reversal requires both parities of induced u–v paths. Through five vertices this requires an induced P4 and a common neighbor outside it (an induced length-four path on five vertices is the entire graph and cannot coexist with another path). If k of the two possible common-neighbor-to-internal-vertex edges are absent, the connected induced bipartite terms give z³+(k−1)z⁴, since each absent edge permits one positive four-vertex term and the P4 is the only negative term. The full five-vertex induced graph has an odd cycle. Only k=0 reverses, giving precisely K1∨P4 with the marked endpoints.",
+      "residual_risks": [
+        "The large-fan result is for path endpoints and a common positive activity, not site-dependent fugacities or all vertex pairs. The minimum counts total graph vertices, while n indexes only the path."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bencs expands the marked-pair difference over induced connected bipartite graphs, with a sign from marked distance and a squared partition polynomial for the complement of the closed neighborhood. Trinks proves a parity-graph sign property for the unweighted independent-set count."
+        ],
+        "reasoning": "On a fan, the hub-containing terms require an independent set of additional internal path vertices, so they sum to +z³I_(n−4) for covariance. The only hub-free term is the full path with sign (−1)^(n−1). Thus Bencs directly covers the displayed covariance identity and the special rational example. Fixed-parity signs also apply for odd path sizes, but not to the competition between the two parities on even fans.",
+        "searches": [
+          "arXiv:1409.2527 Theorem 1.3 and Corollary 1.5",
+          "arXiv:1401.1596v1 §4",
+          "Scott–Sokal arXiv:cond-mat/0309352 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Bencs arXiv:1409.2527; Trinks arXiv:1401.1596v1 and citation trail in arXiv:1006.4253; Scott–Sokal arXiv:cond-mat/0309352",
+        "Three distinct Resultary comparisons listed above",
+        "EuDML record 258148 and attempted lawful OA for the Wang–Li–Gutman paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trinks explicitly compares unweighted independent-set counts. Bencs gives the signed polynomial terms but does not locate or order variable-activity roots. The near Resultary crossover concerns a different class and asymptotic scale."
+        ],
+        "reasoning": "Starting from Bencs still requires classifying competing induced paths and their exact weights at small order to rule out a reversal at any positive activity, and a separate recurrence/root analysis to prove existence, uniqueness, strict ordering and the coefficient 3 log(3/2) for the even sequence. The supported contribution is that analysis, not a new partition-function identity or the first observation of zero at z=1 on this marked graph.",
+        "searches": [
+          "Bencs Theorem 1.3, Trinks §4 and Figure 1, Resultary three-shore crossing statement",
+          "‘More examples and counterexamples for a conjecture of Merrifield and Simmons’ Wang Li Gutman 2001 41 50 pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary occupation covariance equals the vacancy covariance. Multiplication by Z² therefore gives −[I(G−u)I(G−v)−I(G)I(G−u−v)], the negative Merrifield–Simmons polynomial, equivalently a signed, activity-scaled Rayleigh difference."
+        ],
+        "reasoning": "Trinks' unit evaluation and Bencs' weighted identity are comparisons to the same observable, not merely similarly named correlations. Scott–Sokal's vertex-deletion formalism provides the same calculation in occupation variables.",
+        "searches": [
+          "Ferenc Bencs Christoffel Darboux type identities independence polynomial induced bipartite subgraphs endpoint hard core covariance fan graphs",
+          "arXiv:1409.2527 Theorem 1.3",
+          "arXiv:cond-mat/0309352 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Trinks' Figure 1 identifies G1 as a minimal counterexample and gives Δ(G1,u,v)=6·6−9·4=0. The connected minimal case with vanishing covariance at z=1 is the marked F4, as follows from the preceding induced-path classification. A separate same-day Resultary record gives one crossing for a three-shore deleted-triple graph, with threshold (log 2)/n+O(n^−2). The fixed-size path/cycle correlations and fan dissociation counts change the ensemble or the underlying admissible sets."
+        ],
+        "reasoning": "The unit-weight example and its minimality for violating the unit-weight sign conjecture are known. That is not a classification of both-sign behavior over all positive activities. No distinct all-activity five-vertex table or even-fan threshold sequence was established by the retrieved works; the three-shore result is a different graph and scale irrespective of date.",
+        "searches": [
+          "Merrifield Simmons conjecture ‘Graph propagators’ Gutman smallest counterexample five vertices fan graph independence polynomial",
+          "Trinks arXiv:1401.1596v1 §4, Figure 1",
+          "Local Resultary exact and related covariance crossover, canonical path and fan-polynomial lookups"
+        ]
+      },
+      "rationale": "The standalone endpoint covariance formula, including the F4 rational example, is covered as a direct specialization of Bencs' general identity. Trinks also reports the marked F4's zero at unit activity as a minimal Merrifield–Simmons counterexample. Credit those facts explicitly. The distinct combined result is the all-activity minimum and uniqueness of strict sign reversal, together with the even-fan sequence of unique thresholds, its strict increase and its sharp approach to 2. The compared works do not resolve that positive-activity classification and threshold law.",
+      "residual_risks": [
+        "Gutman's 1990 Graph propagators is known through Trinks and Bencs citations here; the 2001 Wang–Li–Gutman full text was not retrieved. Older chemical graph theory may contain further overlapping special cases. No historical priority is asserted.",
+        "The frozen prior-work discussion omits the closest induced-bipartite identity and unit-weight example. This audit credits their coverage explicitly; the verified distinction is the variable-activity classification and root analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the standalone family identity and five-vertex example, not the threshold hierarchy and asymptotic or the resolved weighted minimum classification",
+          "evidence": "The sum is over induced connected bipartite H containing u,v, with coefficient (−1)^(d_H+1) z^|H| I(G−N[H],z)^2. Covariance has the opposite sign; the two fan cases give the exact displayed identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2527",
+          "material_read": "Theorem 1.3 and parity discussion, pp. 2–3, offset 6090; references at offset 19900",
+          "method": "Primary OA PDF; direct analytic specialization to fan endpoints",
+          "title": "Christoffel-Darboux type identities for the independence polynomial",
+          "trigger": "General weighted marked-pair identity in exactly the equivalent observable"
+        },
+        {
+          "assessment": "Covers the unweighted marked F4 counterexample, not strict sign reversal as activity varies",
+          "evidence": "Identifies G1 as the minimal MSC counterexample and evaluates Δ(G1,u,v)=6·6−9·4=0. The induced-path analysis identifies the unique connected five-vertex zero as the marked F4.",
+          "identifier_or_url": "https://arxiv.org/html/1401.1596v1",
+          "material_read": "§1 definition of Δ; §4 and Figure 1 caption/Remark 13, HTML offset 27280; PDF p. 7 caption confirms the evaluation",
+          "method": "Primary OA PDF and author HTML; graph identification by the minimality and zero condition",
+          "title": "The Merrifield–Simmons conjecture also holds for parity graphs",
+          "trigger": "Minimal counterexample for the very same marked covariance polynomial at activity 1"
+        },
+        {
+          "assessment": "Prior general deletion recurrence, not the resulting fan thresholds",
+          "evidence": "Vertex recursion splits the independent-set sum into absent and present contributions with the closed neighborhood removed in the latter.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0309352",
+          "material_read": "§3.1, printed p. 36, equation (3.5), OA offset 103700",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The Repulsive Lattice Gas, the Independent-Set Polynomial, and the Lovász Local Lemma",
+          "trigger": "Standard hard-core partition and conditional-deletion method"
+        },
+        {
+          "assessment": "Different graph family and scaling; vacancies by themselves are not a distinction",
+          "evidence": "Uses selected vertices in a three-shore graph with deleted aligned triples; its threshold is (log 2)/n+O(n^−2), not a parity-dependent threshold tending to 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-single-covariance-reversal-for-paired-vacancies-in-a-three-sho--922a800f0b88",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Targeted local Resultary lookup and mirror",
+          "title": "A single covariance reversal for paired vacancies in a three-shore graph",
+          "trigger": "Strongest distinct Resultary same-day match: single crossing under common activity"
+        },
+        {
+          "assessment": "Different ensemble, host and marked sites",
+          "evidence": "Conditions on fixed cardinality for sites 1 and 3 on paths/cycles; its grand-canonical path comparison is strictly positive.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-canonical-hard-core-path-and-cycle-correlations-have-distinct-sq--2ba6fd783632",
+          "material_read": "Local-mirror RESULT.md offsets 700–2853",
+          "method": "Targeted local Resultary lookup and mirror",
+          "title": "Canonical hard-core path and cycle correlations have distinct square-root thresholds",
+          "trigger": "Hard-core path correlation with threshold terminology"
+        },
+        {
+          "assessment": "Distinct admissible-set family and different invariant",
+          "evidence": "Counts dissociation sets on fans, not the partition polynomial of independent sets with marked occupations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+          "material_read": "Local-mirror RESULT.md offsets 0–1790",
+          "method": "Targeted local Resultary lookup and mirror",
+          "title": "Dissociation polynomial and extremal coefficients of fan graphs",
+          "trigger": "Same fan graph and graph-polynomial terminology"
+        },
+        {
+          "assessment": "Cannot infer coverage or noncoverage from landing metadata",
+          "evidence": "Wang, Li and Gutman, Publications de l’Institut Mathématique 69 (83), 2001, pp. 41–50. Trinks arXiv:1006.4253 cites it for unicyclic graphs.",
+          "identifier_or_url": "https://eudml.org/doc/258148",
+          "material_read": "EuDML bibliographic record, not article full text",
+          "method": "Primary-literature search and lawful OA attempts; identified EMIS PDF and ResearchGate copy unavailable",
+          "title": "More Examples and Counterexamples for a Conjecture of Merrifield and Simmons",
+          "trigger": "Earlier plausible overlap with minimal counterexamples, cited in Trinks arXiv:1006.4253"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§3–6",
+        "Bencs induced-path sign expansion and Trinks unit-weight counterexample"
+      ],
+      "rationale": "A monotone fugacity can switch the sign of a two-site hard-core correlation even on a five-vertex graph; distinguishing this from a zero at one fugacity is substantive. The classification resolves the smallest possible competition of opposite-parity induced paths, and the fan sequence quantifies how that competition gives a strictly varying threshold converging to 2 with an explicit leading constant. This adds information beyond evaluating a classical identity or rechecking a known unit-weight counterexample.",
+      "residual_risks": [
+        "The activity limit is a finite-graph crossover sequence, not an infinite-volume thermodynamic phase transition or a general classification of larger graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

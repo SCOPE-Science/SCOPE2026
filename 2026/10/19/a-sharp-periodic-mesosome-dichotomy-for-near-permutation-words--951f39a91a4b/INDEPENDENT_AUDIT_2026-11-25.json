@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:58:26.346634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a half-length h=tn+r, r=0 gives identical halves and is excluded. Conjugacy requires equal multiplicities; after deleting t full periods in counts, the adjacent cyclic r-arcs must therefore agree on every singleton position. Their symmetric difference has cardinality 2 min(r,n-r) (the arcs are disjoint when r<=n/2, and their complements otherwise). It is nonempty and contained in the two positions of the repeated letter. Hence r=1 or n-1 and these positions are cyclic neighbors in either case. This excludes factors of all lengths when the repeat is nonadjacent. For an adjacent repeat, rotating to aaC yields (Ca)(aC), distinct conjugate halves of length n-1. The only possible smaller residue is 1, which cannot give distinct conjugates for half-length 1. A singleton forces the period to be primitive; dividing the multinomial linear count by n gives q!/2 for fixed repeated label a. Fusing the adjacent aa gives (q-1)! circular arrangements, and subtraction gives the avoiding classes, including zero for q=2. Independent replay (`python3 independent_check.py`) directly tested all rotation classes for q=2 through 7, at all cyclic starts and half-lengths through 2(q+1), finding exactly the predicted table (at q=7: 2520/720/1800). The finite window does not prove infinite avoidance; the residue argument does. The supplied checker was inspected rather than run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 is explicitly binary, and includes the q=2 regime, not all q.",
+          "The inspected circular record is also binary and tests factors of at most one circumference, expressly not infinite periodic repetition."
+        ],
+        "reasoning": "Neither result is a stronger theorem under which the q>=3, arbitrary-half-length periodic claim is a special case. Forcing at length 2q already exceeds one circumference for q>=2.",
+        "searches": [
+          "Cummings, Shallit and Staadecker Theorem 3",
+          "Resultary: circular mesosome avoidance; multialphabet one-repeat infinite periodic words"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (read only)",
+        "arXiv:2107.13813 and arXiv:1904.09157",
+        "Resultary circular mesosome avoidance record named above",
+        "Focused primary literature search on multialphabet periodic mesosome avoidance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior binary avoidance yields only the boundary case.",
+          "Fusing aa and applying primitive necklace counting give the class counts once the dichotomy is known; the novelty does not rest on that routine arithmetic."
+        ],
+        "reasoning": "A generic cyclic conjugacy definition or a binary one-period obstruction does not itself show that distinct conjugate halves at all lengths force cyclic adjacency of the two repeated positions. The remaining multialphabet theorem is the modular obstruction and sharp witness.",
+        "searches": [
+          "arXiv:2107.13813 Theorem 3",
+          "arXiv:1904.09157 §§3.1–3.2",
+          "Resultary binary circular avoidance record, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mesosomes are distinct position rotations of halves, while pseudosquares apply a permutation or transformation to the alphabet.",
+          "Equal Parikh vectors are a necessary condition but are not in general sufficient for cyclic conjugacy; the finding uses an explicit witness for sufficiency in the adjacent case."
+        ],
+        "reasoning": "Neither calling the object an alphabet-permutation square nor merely counting Abelian squares establishes the mesosome criterion. The focused primary search returned no results; no inference of absence is drawn.",
+        "searches": [
+          "arXiv:2107.13813, introduction and Theorem 3",
+          "arXiv:1904.09157, §§3.1–3.2",
+          "mesosome avoidance periodic infinite words larger alphabet ternary circular near permutation one letter repeated conjugate halves Cummings Shallit Staadecker periodic classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest compared index entry counts binary circular avoidance under a different length convention.",
+          "No matched one-repeat q-ary count table or girth classification was identified among the checked results."
+        ],
+        "reasoning": "Ordinary multinomial and necklace formulas give the total count, but not which classes avoid mesosomes over arbitrary half-lengths. The avoiding count uses the independently established structural dichotomy, rather than a lookup.",
+        "searches": [
+          "Resultary: SCOPE-circular-mesosome-avoidance-a-parity-classification-and-exact-bi--29316d6a6c7f",
+          "Resultary: one-repeat circular/periodic mesosome classification and exact necklace counts"
+        ]
+      },
+      "rationale": "The supported distinct claim is the multialphabet periodic one-repeat dichotomy across arbitrarily many period boundaries, including exact shortest length and rotation-class counts. The binary boundary is covered by prior classification; neither the inspected bounded circular classification nor the alphabet-permutation results supply the multialphabet statement. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "The focused search produced no results, not evidence of absence. A differently named theorem on nontrivial conjugate or Abelian factors in periodic words could imply some claims and was not identified.",
+        "No global publication priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary result, covers q=2 only",
+          "evidence": [
+            "Introduction specifies binary words; Theorem 3 classifies binary infinite avoiders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.13813",
+          "material_read": "Introduction p. 2 (text offset 4264), Theorem 3 p. 6 (offset 13745)",
+          "method": "Open primary PDF passages",
+          "title": "Mesosome Avoidance",
+          "trigger": "Original definition and strongest published infinite avoidance classification located"
+        },
+        {
+          "assessment": "Different transformation, not covering the result",
+          "evidence": [
+            "Uses x p(x) with p acting on alphabet labels, not cyclically shifting positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.09157",
+          "material_read": "§§3.1–3.2, p. 7 (offset 15546)",
+          "method": "Open primary PDF passages",
+          "title": "New results on pseudosquare avoidance",
+          "trigger": "Potential equivalent or more general square notion"
+        },
+        {
+          "assessment": "Binary circles, certificates of length at most one circumference, not infinite periodic avoidance",
+          "evidence": [
+            "Its scope explicitly excludes concluding avoidance in the infinite periodic repetition."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-circular-mesosome-avoidance-a-parity-classification-and-exact-bi--29316d6a6c7f",
+          "material_read": "Mirrored RESULT.md offsets 0–5563, Finding and scope",
+          "method": "Local Resultary and mirrored passages",
+          "title": "Circular mesosome avoidance: a parity classification and exact binary counts",
+          "trigger": "Strongest direct indexed thematic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification of the first natural repeated-letter extension of permutation periods. It isolates cyclic adjacency as the only obstruction, permits true infinite periodic avoidance despite repetition, and gives exact first witness length when avoidance fails. Applying a position-residue argument to all half-lengths is the useful content; the necklace counts are secondary consequences. It does not address several repeated labels or arbitrary periodic words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

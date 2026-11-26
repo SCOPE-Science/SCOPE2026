@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:59:59.705174Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35; VERIFICATION.md and both attached source certificates inspected, not executed.",
+        "Independent replay: python3 /workspace/branches/08832833-5c8f-415c-885d-abbc614fee41/independent_check.py; independent_check.log and smoke.log in the same directory."
+      ],
+      "rationale": "On the cubic inclusion graph, each 2 can certify at most two zeros, and each 3 at most three, so for label multiplicities (a,b,c) at 1,2,3 the bound is 3w−40≥a+c. This excludes w≤13 and restricts w=14 to (0,7,0),(2,6,0),(1,5,1),(0,4,2). A separately written exact enumeration checked respectively 77,520, 3,527,160, 3,255,840 and 581,400 placements and found 0, 40, 0, 0 survivors. The rule was also checked directly on the survivors. They have the claimed shore counts and 10 complementary versus 30 incident one-label pairs. The complete pairwise Hamming histogram is {6:60,8:60,10:180,12:360,14:120}. At six the ten hubs correspond to two-subsets and each disjoint pair has exactly two common intermediate states of degree two; no other edges occur. For the specific ordered-pair indexing, the orbit of an incident one-label pair (A,B^c) determines one state because the 30 possible incident pairs form a single orbit and exactly 30 states occur. Its two neighbor anchors are disjoint and invariant as a pair under swaps within A and within B. Other two-subsets lie in an orbit of size four or an orbit of size two whose members intersect, so the two anchors must be A and B. The base Petersen graph is connected of diameter two. In the doubled subdivision every hub has eccentricity five (there are edges of the base both of whose endpoints intersect the hub); every intermediate vertex has eccentricity six (e.g. for base edge {01,23}, use {02,13}, where every cross pair intersects, and use symmetry). Thus radius five, diameter six and sharp connectivity threshold six follow for full-label Hamming exchanges among optima only.",
+      "residual_risks": [
+        "Only this graph and optimum-preserving Hamming exchanges are covered; the two orbit seeds alone do not certify exhaustiveness, which is supplied by the full finite enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The founding work compares ordinary Roman, strong Roman and domination numbers and gives general upper bounds. The 2026 paper quotes the degree-at-most-four lower bound ceil(3n/5), giving 12 here, and its section on strong Roman exact values opens with t-fold wheel graphs."
+        ],
+        "reasoning": "These bounds neither attain the frozen weight 14 solely by substitution nor classify equality and threshold exchanges. The inspected wheel results are for a different family.",
+        "searches": [
+          "arXiv:1502.03933 §3, propositions 8–9",
+          "DOI:10.3390/math14091535, p. 4 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and cited mirror pairs",
+        "Álvarez-Ruiz et al. arXiv:1502.03933",
+        "Valenzuela-Tripodoro et al. DOI:10.3390/math14091535"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary Roman moves P1,P2,P3 on weight-12 states give five 48-vertex components and 100 isolates, not a connected 40-state optimum graph. The strong Roman paper's inspected exact-value proposition concerns wheels."
+        ],
+        "reasoning": "The old ordinary optimum states are at the wrong weight for this exchange problem and there is no implication from their move graph to the claimed threshold or isomorphism. Generic bound and admissibility do not mechanically give the census and incidence structure.",
+        "searches": [
+          "Resultary:SCOPE-frozen-and-mobile-minimum-roman-functions-of-the-desargues-graph--20a24343886d, Finding and assumptions",
+          "DOI:10.3390/math14091535, §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same 20-vertex graph is represented by generalized Petersen coordinates in the prior entries. The ordinary Roman validity condition merely asks for an adjacent 2; the strong condition makes 2 unable to serve when all three neighbors are zero, and allows label 3."
+        ],
+        "reasoning": "Graph isomorphism transports coordinates and Hamming distances but not one labeling rule to the other. Same graph is not equivalent optimization or reconfiguration.",
+        "searches": [
+          "Desargues / GP(10,3) / H(5,2), strong Roman domination and optimum exchanges; arXiv:1502.03933 §3; Resultary Roman reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-strong-roman-rigidity-of-the-desargues-graph-and-a-doubled-peter--b6f4d2c95a18 is the exact self-match. SCOPE-coefficientwise-roman-defense-dominance-of-the-desargues-graph--6f3a77d808c6 gives an ordinary Roman weight table, with minimum 12 and 340 minimum labelings on Desargues. The semitotal domination two-replacement index entry is a different invariant."
+        ],
+        "reasoning": "The identical entry is not independent coverage; the earlier or contemporaneous related exact tables quantify over different feasible objects.",
+        "searches": [
+          "Local Resultary: Desargues strong Roman minimum 14, 40 optima and doubled Petersen subdivision"
+        ]
+      },
+      "rationale": "No equivalent exact strong Roman result was established by the sources checked. The known invariant and general bounds are background. Prior Desargues Roman censuses and exchange graphs use ordinary Roman validity and different move definitions, so they do not cover the strong Roman weight, optimum-state census or doubled Petersen exchange graph.",
+      "residual_risks": [
+        "An unindexed finite computation or a broader uninspected exact theorem could overlap. The bounded primary search returned no decisive extra source; that does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds and model, not decisive coverage of the Desargues minimizer structure",
+          "evidence": "Proposition 8 places strong Roman between ordinary Roman and (1+ceil(Delta/2)) times classical domination; Proposition 9 bounds it above by n−floor(Delta/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.03933",
+          "material_read": "§3 pp. 8–9, offset 24400, Propositions 8–9; Desargues literal locator",
+          "method": "OA PDF bounded passage and literal locator",
+          "title": "On the Strong Roman Domination Number of Graphs",
+          "trigger": "Foundational invariant and potentially covering graph bounds"
+        },
+        {
+          "assessment": "Verified different exact-value family at the §5 opening and a weaker general lower bound in the inspected passage; term misses are not proof of absence",
+          "evidence": "§5 opens with t-fold wheel graphs; the cited general bound for Delta≤4 is ceil(3n/5).",
+          "identifier_or_url": "https://doi.org/10.3390/math14091535",
+          "material_read": "Abstract, p. 4 Theorem 1 and Remark 1 (offset 16300), §5 pp. 11–12 opening and Proposition 11 (offset 59460); Desargues and Petersen locators",
+          "method": "Identified lawful publisher static PDF after DOI/landing-page failure; bounded passage and locators",
+          "title": "Complexity and Exact Values for [k]-Roman and Strong Roman Domination for Specific Graph Families",
+          "trigger": "Plausibly broader exact-value theorem"
+        },
+        {
+          "assessment": "Different validity, weights, move set and geometry",
+          "evidence": "340 ordinary Roman assignments of weight 12, with P1,P2,P3 graph 5H_48 disjoint union 100 isolated vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-frozen-and-mobile-minimum-roman-functions-of-the-desargues-graph--20a24343886d/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0–1804",
+          "method": "Local mirror bounded read",
+          "title": "Frozen and mobile minimum Roman functions of the Desargues graph",
+          "trigger": "Closest same-graph reconfiguration statement"
+        },
+        {
+          "assessment": "Different invariant, irrespective of relative priority",
+          "evidence": "Ordinary Roman weight-polynomial dominance; each zero needs a 2-neighbor, with minimum 12 and 340 minimizers on Desargues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-coefficientwise-roman-defense-dominance-of-the-desargues-graph--6f3a77d808c6/RESULT.md",
+          "material_read": "Finding, offset 0–1601",
+          "method": "Local mirror bounded read",
+          "title": "Coefficientwise Roman-defense dominance of the Desargues graph",
+          "trigger": "Same graph and overlapping exact census terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and proof; independent census and pairwise comparison; ordinary Roman same-graph comparator"
+      ],
+      "rationale": "The problem couples a standard optimization invariant on a canonical cubic graph with a natural optimum-preserving exchange rule. The full census explains, via label-pair geometry, why the first possible moves make a connected doubled Petersen subdivision. This identifies more structure than a single exact domination value or an unaided finite search output.",
+      "residual_risks": [
+        "No claim of a general reconfiguration theorem, other move types or larger incidence graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

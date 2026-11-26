@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:48.279532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Rayleigh bound, equality case and exact quotient",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The centered four-level vector has squared norm V=9pq/(p+q)-4 and energy B minus total optional-edge conductance. Equality forces all optional weights to vanish, and the leaf and first-hub eigenvector equations then force exactly the displayed weights. They are positive on the tree edges and sum to B. For an independent quotient check, put d=3pq/(p+q), a=3q/(p+q), b=3p/(p+q), c=d-1. The block-constant quotient has eigenvalues 0 and 1 from the constant and centered four-level vectors. Its trace is 4d-2 and the sum of its principal order-three minors is (p+q)abc=3d(d-1). Thus the other two roots have sum 4d-3 and product 3d(d-1), giving d and 3d-3, both greater than 1. The transverse eigenvalues are a and b, with multiplicities p-2 and q-2. When a transverse space is absent its corresponding inequality is automatic. Thus equality holds on the entire closed factor-two range including the boundary; outside it the forced candidate has an eigenvalue below the target, and a strict bound follows by compactness. Uniqueness concerns the conductances even if the eigenvalue is multiple.",
+      "residual_risks": [
+        "The 529 recorded finite exact checks are not the proof for all side orders. No exact out-of-range augmented-graph optimum is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For d=3 and P=max(p,q), Q=min(p,q), set n=P+Q and k=(P-Q)/2 when n is even, (P-Q-1)/2 when n is odd. Richter–Rocha's cutoff is k=n/6 when n is even, (n-3)/6 when odd; both translate to P=2Q.",
+          "Their form (1) line embedding is constant on each leaf class, with unit changes along the three edge levels. Its variance is V. Form (2) gives tree variance P+4Q-4, which exceeds V by (P-2Q)^2/(P+Q) off the cutoff. The two values coincide at the cutoff; the comparison quadratic in Proposition 13's proof has a double root there."
+        ],
+        "reasoning": "The known larger double-broom family contains the full claimed tree range, with the same transition and closed boundary, not just identical-size cliques or a single discrete example.",
+        "searches": [
+          "Richter–Rocha author preprint PREPRINT_10, Theorems 1, 3 and 14, Proposition 13",
+          "Sun–Boyd–Xiao–Diaconis, doi:10.1137/S0036144504443821, Sections 4.1, 4.3 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Richter–Rocha 2014 author preprint, PREPRINT_10.pdf",
+        "doi:10.1137/S0036144504443821",
+        "Resultary records ce2d9d2c11c2 and 124a9f37736a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree line vector remains a feasible dual vector after adding any within-side leaf edges, whose endpoint distances in it are zero. It gives the same universal upper bound, whether or not it is optimal on the tree. Inside the closed range an optimal tree allocation extends with zero weights to attain the bound. Strict slack on each added edge forces its weight to be zero in every equality allocation, reducing uniqueness to the tree or to its leaf and hub equations. Outside the range an equality allocation would similarly reduce to a tree equality allocation, impossible because P+4Q-4>V."
+        ],
+        "reasoning": "This implication covers even asymmetric choices of optional edges and the strictness claim, not just the quoted tree case. The extension requires only feasibility of the existing line certificate and its zero length on added edges; a new outside-range augmented optimum would be a different claim.",
+        "searches": [
+          "Richter–Rocha, problem (1), Proposition 13, and Theorem 14",
+          "doi:10.1137/S0036144504443821, centered embedding dual and complementary slackness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The double star is the diameter-three double broom. Scaling its absolute algebraic connectivity from total weight n-1 to B gives the same fixed-budget problem. Sun et al.'s centered maximum-variance embedding is its dual at unit edge cost.",
+          "The Resultary priced-bridge formulation contains this double-star problem at price t=1 with leaf counts p-1 and q-1."
+        ],
+        "reasoning": "The comparison uses the continuous-time Laplacian gap and identical budget after rescaling, not discrete-time eigenvalue modulus or effective resistance. The tree equivalence is exact.",
+        "searches": [
+          "Resultary: asymmetric double stars, bridge price, budgeted algebraic connectivity and factor-two threshold",
+          "Richter–Rocha, Absolute algebraic connectivity of double brooms, Section 1",
+          "doi:10.1137/S0036144504443821, Sections 1.2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The priced asymmetric tree record gives a unique optimum at all bridge prices; at t=1 its balanced-branch weights are the frozen weights on the tree, and for P>2Q its budget-one value is 1/(P+4Q-4). The mirrored priced record overlaps only the balanced tree setting. The prior closed forms are stronger than finite numerical tables."
+        ],
+        "reasoning": "An explicit existing formula specializes to the claimed exact tree values and weights. The published tree formula alone is not an exact table of arbitrary augmented-graph optima, and the frozen record makes no such calculation outside the range.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-a-bridge-price-phase-transition-for-fastest-mixing-on-asymmetric--ce2d9d2c11c2",
+          "Resultary 2026/11/8/SCOPE-unique-priced-algebraic-connectivity-allocation-for-mirrored-dou--124a9f37736a",
+          "Richter–Rocha, Theorem 1"
+        ]
+      },
+      "rationale": "The claimed closed threshold and tree optimum specialize prior double-broom results; the priced double-star catalog record also already gives the tree weights and uniqueness at unit bridge price. The arbitrary optional-edge extension, including strictness outside the range, follows directly from the known centered line embedding and standard complementary slackness because every added edge has length zero. The augmented-graph result need not be stated verbatim in the prior papers for the whole reviewed claim to follow. This is demonstrated prior implication, not failure to establish originality due to access limits.",
+      "residual_risks": [
+        "Richter–Rocha's final journal version and Fiedler's primary full text were not recovered. The verdict uses the accessible author's exact formulas and embedding results plus the dual certificate, not a claim about wording in inaccessible versions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the optimal tree values, the line certificate, and the branch transition that specializes to the exact threshold",
+          "evidence": [
+            "Theorem 14 switches forms at k=[n(d-2)+p]/(2d) with p=-d for odd leaf count and zero otherwise. At d=3 the balanced value is the four-level variance, and the comparison quadratic in Proposition 13 shows equality of branch values at the cutoff."
+          ],
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+          "material_read": "Definition of T(n,d,k), pp. 1–2 (offset 1330); dual problem (1), p. 2; Theorems 1 and 3, p. 3 (offset 5520); Proposition 13 and proof and Theorem 14, pp. 8–10 (offsets 22000–30596)",
+          "method": "Bounded author-hosted preprint PDF inspection and d=3 parameter comparison",
+          "title": "Absolute algebraic connectivity of double brooms",
+          "trigger": "Potential full prior coverage of the cutoff and double-star spectrum optimization"
+        },
+        {
+          "assessment": "Supplies the objective, dual upper certificate, and slackness that extends the tree conclusion",
+          "evidence": [
+            "The constraints are upper bounds on squared edge lengths of centered point configurations. A strict dual edge inequality forces zero primal rate; the nonzero embedding coordinates satisfy the optimizing Laplacian eigenvector equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144504443821",
+          "material_read": "Section 1.2 (pp. 682–683; offsets 5200–11664), Sections 4.1 and 4.3–4.4 (pp. 689–691; offsets 25750–34933)",
+          "method": "Bounded open PDF full-text comparison",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Dual equivalence and optional-edge implication"
+        },
+        {
+          "assessment": "Contains the full tree special case, not arbitrary optional edges",
+          "evidence": [
+            "Use bridge price t=1 and leaf counts P-1 and Q-1. The known tree values and balanced weights agree exactly."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-bridge-price-phase-transition-for-fastest-mixing-on-asymmetric--ce2d9d2c11c2",
+          "material_read": "Finding on unique rates and piecewise optimal value",
+          "method": "Resultary lookup and exact statement comparison",
+          "title": "A bridge price phase transition for fastest mixing on asymmetric double stars",
+          "trigger": "Strongest matching local priced-tree record"
+        },
+        {
+          "assessment": "Narrower topology; overlaps the equal-sided uniform-cost case, not the arbitrary two-side claim",
+          "evidence": [
+            "The mirrored setup allows heterogeneous spoke prices but uses balanced trees."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-unique-priced-algebraic-connectivity-allocation-for-mirrored-dou--124a9f37736a",
+          "material_read": "Finding on balanced mirrored trees and heterogeneous spoke prices",
+          "method": "Resultary statement comparison",
+          "title": "Unique priced algebraic connectivity allocation for mirrored double stars",
+          "trigger": "Additional matching local priced-tree result"
+        },
+        {
+          "assessment": "Exact coverage in this paper was not verified and is not needed for the rejection",
+          "evidence": [
+            "Richter–Rocha explicitly identify their fixed-budget tree objective as Fiedler's absolute algebraic connectivity."
+          ],
+          "identifier_or_url": "Fiedler, Linear and Multilinear Algebra 26 (1990), 85–106",
+          "material_read": "Bibliographic record and attribution of the optimization in Richter–Rocha Section 1; no primary full text read",
+          "method": "Bounded lawful retrieval attempt; publisher route denied and no repository copy recovered",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Foundational prior on the same tree objective"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Richter–Rocha, Theorem 14 and Proposition 13",
+        "Sun et al., Section 4.4",
+        "Priced asymmetric double-star record ce2d9d2c11c2"
+      ],
+      "rationale": "The allocation question is natural and the short proof is useful exposition. As a proposed new result, however, the tree cutoff, values and rates are already obtained from stronger prior results. The only apparent scope increment consists of added edges on which the known optimal line certificate has coincident endpoints. Dual feasibility and strict slack then give exactly the claimed deletion, and the same slack reduces strictness to the known tree inequality. There is no surviving independently useful unknown invariant or boundary in the frozen claim. No repair is supplied: a new theorem about optimal use of optional edges or their exact value outside the factor-two range was not established here.",
+      "residual_risks": [
+        "This rejects the scientific increment of the stated claim, not the mathematical correctness of its certificate or the value of pursuing a genuinely new out-of-range theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

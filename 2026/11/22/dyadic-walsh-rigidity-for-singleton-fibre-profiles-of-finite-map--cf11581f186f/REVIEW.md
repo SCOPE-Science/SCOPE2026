@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The only nontrivial counting identity is exact inclusion–exclusion on selected singleton fibres; the number of maps with each of \(j\) prescribed fibres singleton is \((n)_j(n-j)^{n-j}\). In the even-order valuation proof, the \(j=1\) term has valuation \(1+\nu_2(n)+\nu_2(k)\); both the \(j=0\) term and every \(j\ge2\) term have strictly higher valuation, including the endpoint \(j=n\) under the \(0^0=1\) convention. For odd orders the constant term is odd and all remaining terms are even. The two singular eigenvalues at order two and the determinant formula follow from explicit frequency multiplicities. Independently enumerated exact maps and a separate generating-function method agree with the theorem in their stated finite ranges. Computations do not prove the infinite statement.
+PASS
 
-## Originality — PASS (bounded comparison)
+A weight-k character assigns the product of 1-2 times each selected singleton indicator, i.e. factors 1−2·indicator. For a prescribed j-subset of selected targets to be singleton, choose their distinct labelled preimages in (n)_j ways and then map all remaining inputs into the other n-j targets. This gives the full multiplier formula with 0^0=1, and the equivalent exponential series is obtained by replacing e^z by e^z-2z in k factors. For odd n the j=0 term is odd and all other terms even. For even n>=4, k>0, set a=v2(n), b=v2(k); j=1 has valuation 1+a+b since n-1 is odd. For j=0, na>1+a+b (including n=4), using b<=floor(log2 n). Factoring kn/j from the coefficient for j>=2 supplies valuation at least a+b+j-v2(j), before the (n-j)^(n-j) factor. For j>=3 the excess j-v2(j) is at least two, including j=n with the endpoint convention; j=2 receives at least two more powers of two from the positive even n-2. Thus j=1 has unique least valuation. The weight-zero output is n^n. For n=2 the two constant maps give the empty mask and the two bijections give the full mask, so the eigenvalues by weight are 4,0,4 and the nullity is two. At n=1 the unique mask is full, giving 1,-1. The binomial count of weight-k characters gives the stated determinant and dyadic multiplicities.
 
-The 2004 full-text study by Milenkovic–Compton provides general occupancy transforms and de-Poissonization, not signed finite-cube frequency valuations. Riedel's 2015 bivariate singleton-count generating function subsumes the raw unsigned occupancy enumeration and makes the characteristic generating-function formula accessible by substitution; it does not state nor directly provide the exact dyadic order of each of the \(n+1\) Fourier bands. Barbour–Gnedin's small-count asymptotic work likewise uses occupancy statistics but does not yield this finite exact classification. Related spectral analyses of vacant-image profiles concern a different event (zero rather than one occupant) with different coefficients, dyadic valuations and order-two nullity. Public index searches for singleton occupancy Walsh transforms, 2-adic valuations and equivalent binomial sums found no claimed equivalent theorem; this is a bounded priority judgment, not a uniqueness certificate. Risk: unindexed arithmetic variants of occupancy generating functions may already contain the exact valuation statement.
+## originality
 
-## Value — PASS
+PASS
 
-Singleton urns are the first occupied-cell frequency class in classical balls-into-boxes and a natural genuinely dependent occupancy vector. The exact full-dimensional binary Fourier recovery classification is not a restatement of the marginal occupancy-count distribution: it distinguishes each character band and exposes a singular order with two lost modes. The all-dimensional valuation formula is a structural arithmetic spectral law, yielding determinant exponents and complete dyadic multiplicities without numerical extrapolation. The precise spectrum is relevant to injectivity of convolution by the empirical-counting kernel over characteristic zero and to the arithmetic denominator structure of its matrix. No sharp real condition estimate or downstream theorem is claimed.
+The distinct result is the exact dyadic classification by frequency weight for singleton target fibres of finite self-maps, including its exceptional nullity. The same-day vacant-image and singleton-partition results are materially close and credited below; neither covers the extra factor from the prescribed labelled preimages in the present signed sum. The inclusion–exclusion and generating-function inputs are standard and are not claimed as a separate novelty.
 
-## Closest sources and limits
+## value
 
-O. Milenkovic and K. J. Compton (2004), DOI 10.1017/S0963548304006285; M. Riedel (2015), https://math.stackexchange.com/questions/801454/probability-of-k-boxes-contain-exactly-1-ball/1379701; A. D. Barbour and A. V. Gnedin (2008), arXiv:0809.4387. The first two provide the main broad counting framework and constitute the closest possible implication checks. The code covers finite orders; the proof covers every positive order. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Singleton incidence is a natural dependent occupancy statistic for labelled finite mappings. Determining recoverability for every dimension, including the two lost modes at the exceptional dimension, and the exact arithmetic strata of all nonconstant modes is a structural classification. The nearby vacant-image problem has genuinely different dyadic arithmetic, so the refinement is not a renaming. The determinant formula is a direct useful corollary rather than the sole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

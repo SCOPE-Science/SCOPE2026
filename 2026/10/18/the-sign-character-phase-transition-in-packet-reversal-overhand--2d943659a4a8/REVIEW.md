@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Reversing a packet of length \(\ell\) has sign \((-1)^{\lfloor\ell/2\rfloor}\). The independent-cut first-packet renewal decomposition gives the rational generating function exactly, without asymptotic approximation. Characteristic roots yield the sharp discriminant threshold and the explicit critical double-root formula. A periodic-zero-sum argument for rational angles, and density of irrational rotations otherwise, proves infinitely many sign reversals in the oscillatory regime. The multiplicative sign character supplies the exact finite-pass parity law. The standalone rational-cut enumeration passed all 48 full comparisons and additional spot checks. These tests are corroboration, not an infinite certificate.
+PASS
 
-## Originality — PASS (best-knowledge)
+Independent transfer calculation: let A_n and B_n be the signed expectations restricted to odd and even current last-packet length, respectively. Appending a card after a cut starts a new odd packet without changing sign. Without a cut, the sign flips exactly when the old last length was odd, since appending adds that many inversions to its reversal. Therefore A_{n+1}=p A_n+B_n, B_{n+1}=-q A_n, starting from (1,0). The transfer polynomial is r²-pr+q; the combined expectation at n=2 is p-q, compatible with epsilon_0=epsilon_1=1. The resulting formal series has numerator 1+qz and denominator 1-pz+qz². The discriminant vanishes once in (0,1), at 2(sqrt(2)-1); above it, 0<r_-<r_+<1 and (1-r_-)r_+^n>(1-r_+)r_-^n. At the repeated root r=sqrt(2)-1, the initial values give r^n(1+sqrt(2)n). Below the threshold the normalized expectation is a nonzero phased cosine for 0<theta<pi/2. An irrational orbit and each of its tails are dense and hit open arcs of both signs; at rational resonance the full-period sum is zero and the n=0 term is +1, so both signs recur infinitely often. Sign multiplicativity yields the exact all-pass parity law (at t=0 its power is 1), and parity projection gives the lower bound, not an equality claim, for full-deck TV. Global reversal has the stated deterministic sign. The fixed-p and n≥2 hypotheses matter, and the phase statement applies to in-place reversal without the physical correction. The proof is analytical; I inspected check.py but did not execute its finite tests.
 
-Jiang's arXiv:2610.00137v1 develops the identical random-cut model, but its stated exact diagonalization is for a tagged-card cosine kernel; its complete searchable text contains no parity-character claim or the deck-size sign transition. Jonasson's arXiv:math/0501401 studies mixing-time order and tagged-card eigenfunctions; its accessible full text does not formulate the exact sign-spectrum theorem. Relevant public research records and scientific-index searches for packet reversal, permutation sign, and parity eigenvalues produced no equivalent claim. The general sign-homomorphism observation is standard; the model-specific scalar and phase classification are the claimed contribution. Residual risk: older work on the sign representation or Pemantle's original 1989 paper might contain this calculation, which has not been independently ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Parity is a canonical irreducible-character observable for a random walk on the symmetric group, so its eigenvalue is a natural spectral invariant, not an arbitrary numerical slice. The finding exactly solves that full-deck observable, gives a sharp qualitative transition as the cut rate varies, and distinguishes parity equilibration in a single pass from much slower full-deck mixing. It also specifies the deterministic correction for physical packet-order reversal. The proof does not purport to improve full-deck cutoff estimates.
+The exact in-place sign-character sequence and its sharp deck-size sign dichotomy are distinct from the one-card spectrum or cutoff, the standard multiplicativity observation, and the close composition or covariance studies. No inspected earlier or same-day statement gives this evaluation or threshold. This is a bounded assessment; Pemantle's full paper could not be compared.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sign is a natural full-permutation observable not seen by a single-card projection. The result determines the exact parity bias for every fixed cut probability, deck size and pass count, and distinguishes all-size positivity from infinitely recurring biases in both directions. This gives a precise mode-specific contrast to full-deck mixing rather than a routine re-expression of the known cutoff or a claim that parity governs total mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

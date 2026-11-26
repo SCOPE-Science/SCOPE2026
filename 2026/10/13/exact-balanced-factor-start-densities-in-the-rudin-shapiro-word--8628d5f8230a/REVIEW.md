@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-state coding is checked against the Rudin–Shapiro recurrence, and an induction on two substitution levels proves uniform positive-prefix bounds and the exact base-four level sets. A suffix-prefix difference computation treats all eight adjacent state pairs and yields an iff classification for every starting position. Substitution frequencies prove the exact natural density; direct finite enumeration independently corroborates each step. The finite check alone would not prove the statement.
+## correctness
 
-**Originality — PASS.** The 2023 Dyck-word primary text (arXiv:2301.06145, especially the Rudin–Shapiro section) treats Dyck-factor existence and nesting rather than balanced-start densities. The distinct 2023 Rudin–Shapiro sums paper (arXiv:2302.00405, Sections 3–9) treats global summatory functions, extremal ranges and level counts but not fixed-window zero-increment start densities. Research index searches under balanced/abelian, zero-sum, discrepancy, summatory-increment, offset and base-four terminology found no statement with this implication; its nearest hits concern Rudin–Shapiro string attractors, which do not determine these frequencies. Risk: an equivalent theorem could be deducible or hidden in older Rudin–Shapiro sums literature.
+PASS
 
-**Value — PASS.** The result is a complete exact classification of zero-discrepancy windows at the natural self-similar length scales in a canonical automatic sequence, not a finite computation or arbitrary parameter slice. Its explicit address-language and exact square-root density describe a substantial structural frequency phenomenon relevant to automatic words, equal-Parikh factors and constrained parenthesis walks. No claim is made about Dyck nonnegative-prefix factors.
+The coding satisfies a(2i)=a(i), a(2i+1)=(-1)^i a(i) with a(0)=1, so it represents overlapping 11 parity. In a positive scale-m block every nonempty prefix is positive; the A and B upper bounds 2H-1 and H, respectively, propagate under the two-step substitution with block-entry heights (0,H,2H,3H) and (0,H,2H,H). At height 2H the only hits are in the second and fourth subblocks, including the second subblock's right endpoint, giving T_(m+1)=(Q+T_m) union (3Q+T_m). A full window has signed mass S_X-P_X(j)+P_Y(j); complement and the two prefix-difference cases give the six stated admissible bigrams, while BA and DC give no hits. Primitivity gives limiting frequencies; the four internal-image pairs have frequency 1/8 and the boundary-pair equations force the other four to have the same frequency. Thus there are six contributing pairs each with 2^(k-1) offsets per 4^k positions, giving 3/(8*2^k). This covers j=0, the block endpoints, and k=1. An independently written digit-parity/prefix-sum check matched every predicted start for 0 <= i < 262144 and 1 <= k <= 8 (counts 49152, 24576, 12288, 6144, 3072, 1536, 768, 384); replay with python3 /workspace/branches/ce62b1a5-10db-471b-99bc-453ad619124f/independent_check.py. This is bounded corroboration, not the proof or a formal certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The best-supported distinct finding is the joint all-scale occurrence-density formula and explicit start-location classification. The closest inspected results concern global cumulative sums, existence of more constrained factors, or distinct factor classes. None was shown to give this formula or classification; this is not a priority guarantee.
+
+## value
+
+PASS
+
+For a canonical automatic word, the probability that a uniformly sampled start has zero discrepancy over a complete substitution scale is not given by Abelian complexity or the range of discrepancies. The theorem supplies that probability (including its exact inverse-square-root coefficient) and a finite digit rule locating every qualifying start. This resolves a natural occurrence question at all complete scales without extrapolation from a prefix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

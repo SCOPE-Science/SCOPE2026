@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:14:51.806551Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 11–27 and 31–76",
+        "VERIFICATION.md, status and reproduction sections",
+        "checker.py (inspected, not executed)",
+        "Independent direct evaluation at the printed d and radii: Delta about +0.179786021530 and -0.179786021535, respectively; both x-derivatives of Delta have magnitude below 3e-9."
+      ],
+      "rationale": "In the stated source-column and sampling-row order the rows are (a,b,1), (c,c,1), (b,a,1), so the signed determinant is -Delta_d. Proof step 1 displays the outer rows in reverse; this is an orientation-only typo and does not affect the stated absolute determinant or Fisher square. Since a-b>0, the rank defect is exactly the positive return of f=exp(-x^2/2)cosh(dx) to 1. For d<=1, log cosh(dx)<d^2 x^2/2; for d>1, d tanh(dx)/x decreases from d^2 to 0, giving a single crest and a single positive return. At the return the source columns are independent (their common positive middle entry would force a proportionality factor of 1, incompatible with the outer entries); (1,1,-2c) is a null vector. Dividing log f by x^2, the constant and next terms are (d^2-1)/2 and -d^4 x^2/12. The implicit-function argument in x^2 gives the stated onset and error. Each nonzero lobe attains its squared maximum in the interior, strictly locally by analyticity. The positive and negative lobe heights are continuous, for example by maximizing the positive and negative parts on a compact interval and using the uniform Gaussian tail on each compact d-range. As d approaches 1 the positive height tends to 0 while the negative height at x=2 stays bounded below. As d grows the positive value at x=d tends to 1 while the whole negative lobe is bounded by 2 exp(-d^2/2). Continuity gives equality of the two attained heights for at least one d, hence distinct global optima. This does not depend on the numerical illustration.",
+      "residual_risks": [
+        "The decimals are numerical illustrations, not certified root enclosures or uniqueness evidence. The supplied replay path is python checker.py with NumPy and SciPy, not an all-parameter certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison at RESULT.md lines 78–86 describes single-source position information, one-versus-two-source hypothesis testing, and simultaneous Poisson source/background photometry of apertures, respectively; this is not a fresh full-text comparison.",
+          "The nearby catalog quadrature result compares replication with sensor separation for a precision budget."
+        ],
+        "reasoning": "An optimal-design theorem on a convex class of approximate designs, or one with flux-dependent weighting, does not by itself classify tied pure radii on this nonconvex subset. The known-center linear mean model and constant variance are essential when comparing stronger conclusions.",
+        "searches": [
+          "Local Resultary Gaussian-kernel, radial basis, and Fisher-design searches",
+          "Méndez–Silva–Lobos arXiv:1304.6361",
+          "Prasad arXiv:1403.4919",
+          "Primini–Kashyap arXiv:1410.6564 (alternate OA PDF attempted)"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 5–39 and 78–93",
+        "Resultary same-record hit and distinct Gaussian quadrature synopsis",
+        "Primary-literature search results did not provide a relevant mathematical statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The antecedent a Gaussian spatial kernel is shared, but the available statements have different parameters and objective functions.",
+          "The exact rank defect here is linear dependence of the two source columns with the intercept at noncoincident sample locations. The global tie compares maxima of opposite signs of one determinant after squaring, at the same source separation."
+        ],
+        "reasoning": "Neither the replication/separation statement, Gaussian Fisher matrix construction, nor generic existence of an optimal design implies the one-width threshold or equality of the highest determinant lobes. No actual available broader statement was found that supplies these two conclusions together.",
+        "searches": [
+          "Closest distinct local Resultary Gaussian quadrature record 19a27b2e304d",
+          "Frozen RESULT.md lines 78–86 and 88–93, cited imaging comparisons",
+          "Primary literature lookup for Gaussian radial regressors and symmetric D-design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same problem can be written as saturated regression with columns phi(z+d), phi(z-d),1 and homoscedastic noise.",
+          "Equivalently, the determinant separates the odd contrast a-b from the sampled even response a+b-2c. A theory locating zeros and tied global lobe maxima of the resulting Gaussian product would count as coverage even under different terminology.",
+          "The identified distinct local summary is for Gaussian kernel quadrature, not this determinant."
+        ],
+        "reasoning": "Full-rank claims for a Gaussian interpolation matrix on matching centers and evaluation nodes would not directly specialize to three samples, two Gaussian regressors, and a separate constant regressor. Source/background estimation literature is relevant under the same objective and design constraints, not merely the same kernel.",
+        "searches": [
+          "Resultary: symmetric three-point two-Gaussian source D-optimal design",
+          "Resultary: Gaussian radial-basis regression with intercept and Gaussian PSF Fisher-information design",
+          "Primary literature lookup: fixed Gaussian radial regressors, intercept and D-optimal symmetric sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is this same record; the distinct nearby catalog statement is about replication versus separation in mirror-paired Gaussian quadrature.",
+          "The d and radii printed in the frozen record are illustrative and not a table of the singular curve or of global optima."
+        ],
+        "reasoning": "Neither the matching identity hit nor the distinct quadrature summary supplies separate exact coverage. The adjacent same-day record is not excluded on timing grounds. An independently sourced exact classification in this family would matter, but none was identified.",
+        "searches": [
+          "2026/11/22/SCOPE-singular-and-doubly-optimal-three-point-designs-for-two-gaussian--f0ea65f75ed4",
+          "2026/11/22/SCOPE-sharp-replication-to-separation-transition-in-symmetric-gaussian--19a27b2e304d",
+          "Local Resultary searches on Gaussian Fisher design and radial-basis regression"
+        ]
+      },
+      "rationale": "The supported distinct result is the rank-defect threshold, two-lobe geometry, and existence of a global tie for this exact symmetric saturated regression family. The available neighboring statements concern different objectives, noise, parameters or design domains. Primary full-text access was incomplete; no novelty inference is made from failed access or a search miss.",
+      "residual_risks": [
+        "Primary-source retrieval and nearest-neighbor full-record retrieval did not yield decisive passages. An equivalent exact-design theorem in Gaussian radial-basis regression with an intercept, or an analogous complete two-source sampling design result, remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not distinct precedent",
+          "evidence": "Both state a positive singular radius iff d>1 and a global tie in the symmetric three-location family.",
+          "identifier_or_url": "2026/11/22/SCOPE-singular-and-doubly-optimal-three-point-designs-for-two-gaussian--f0ea65f75ed4",
+          "material_read": "Local catalog summary and frozen Finding and assumptions",
+          "method": "Resultary search and comparison to RESULT.md lines 5–39",
+          "title": "Singular and doubly optimal three-point designs for two Gaussian image sources",
+          "trigger": "Exact statement hit"
+        },
+        {
+          "assessment": "The available statement is for a different optimization problem; full-text overlap not resolved",
+          "evidence": "The synopsis concerns mirror-paired kernel quadrature with a fixed precision budget and a transition from replication to distinct sites, not estimating two fluxes and constant background.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-replication-to-separation-transition-in-symmetric-gaussian--19a27b2e304d",
+          "material_read": "Local catalog synopsis only; full text was not retrievable",
+          "method": "Resultary comparison and attempted local mirror reading of RESULT.md",
+          "title": "Sharp replication-to-separation transition in symmetric Gaussian kernel quadrature",
+          "trigger": "Closest distinct indexed Gaussian design threshold"
+        },
+        {
+          "assessment": "Reported Poisson-aperture objective and design differ from the frozen homoscedastic point design; no whole-document assessment",
+          "evidence": "The frozen comparison says Poisson photon-count model and aperture choices, not exact D-optimal radii for three homoscedastic samples.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.6564",
+          "material_read": "Frozen statement-level prior-work description (RESULT.md lines 78–80), not primary full text",
+          "method": "Cited-source and alternate OA PDF attempts timed out",
+          "title": "Determining X-Ray Source Intensity and Confidence Bounds in Crowded Fields",
+          "trigger": "Simultaneous source/background estimation with overlaps"
+        },
+        {
+          "assessment": "The reported single-source astrometry question has different unknowns",
+          "evidence": "RESULT.md lines 78–80 describes a single source with unknown position, rather than two fixed centers and unknown fluxes plus background.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.6361",
+          "material_read": "Frozen citation and statement-level comparison, not primary full text",
+          "method": "Cited-work comparison and attempted OA retrieval",
+          "title": "Analysis and interpretation of the Cramér–Rao lower-bound in astrometry: One dimensional case",
+          "trigger": "One-dimensional Gaussian point-source Fisher information"
+        },
+        {
+          "assessment": "The reported binary testing problem differs from the design theorem",
+          "evidence": "The cited comparison concerns discriminating one source from an equally bright pair, not choosing a radius to estimate three unknown regression coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.4919",
+          "material_read": "Frozen description only",
+          "method": "Compare cited scope in RESULT.md lines 78–80 to the frozen hypotheses",
+          "title": "Asymptotics of Bayesian Error Probability and 2D Pair Superresolution",
+          "trigger": "Comparable Gaussian pair separation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–39 and 45–72"
+      ],
+      "rationale": "For a saturated three-sample design, distinct known source locations do not prevent a positive-radius loss of one parameter direction. The sharp separation threshold and onset quantify that blind spot. Comparing the two optimum branches establishes a genuine global design ambiguity at some separation, not merely multiple local optima or a numerical observed tie. These are meaningful distinctions for choosing radii within the motivated family.",
+      "residual_risks": [
+        "This gives no global designs over arbitrary sample locations, no Poisson or finite-pixel prescription and no claim of uniqueness of the tying parameter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

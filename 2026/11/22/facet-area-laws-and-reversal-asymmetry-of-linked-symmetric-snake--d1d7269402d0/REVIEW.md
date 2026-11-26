@@ -1,15 +1,21 @@
-# Scientific review: facet-area laws of linked symmetric-snake polytopes
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result concerns the standard Euclidean metric on the native zero-one-coordinate feasible polytope, not the standard metric of an affinely equivalent order polytope. The exact affine change of coordinates has determinant one and converts its suffix constraints into an order polytope of a path poset. Every claimed facet corresponds to a cover, a minimal-element zero facet, or a maximal-element unit facet. The lattice-volume/Euclidean-covolume calculation produces the individual areas; the volume follows from linear extensions. The endpoint-turn reversal difference is an exact subtraction of those facet sums, and the real-variable derivative argument proves strict positivity for every \(n\ge4\). Independent convex-hull computations match all profiles through dimension seven and the closed special-family formulas through dimension twelve. No numerical extrapolation is used as proof.
+## correctness
 
-## Originality
-**PASS, with historical-priority limitations.** The 2023 full-text primary construction and its volume/triangulation theorems are credited. The directly relevant published distance-spectrum result for the same type-\(C\) snake family was materially read and addresses squared vertex distances, diameter, and antipodes; it does not state facet-area measures, and those distances alone do not imply the displayed oriented facet-volume classification. The closest order-polytope boundary-area result was materially read: its standard-order-polytope height-two identity uses a different Euclidean metric and explicitly treats that area identity as auxiliary. This result adds the complete weighted facet measure in the *native* coordinates of every linked snake member and a strict, explicit reversal asymmetry at equal Euclidean volume. No checked source supplies the weighted all-profile formula or its all-dimensional strict reversal inequality. A broader unpublished or unindexed affine order-polytope metric formula remains a residual risk; common poset facet principles are credited, not claimed as original.
+PASS
 
-## Mathematical value
-**PASS.** Chen et al. establish a volume formula for this natural class of type-\(C\) delta-matroid polytopes. Volume is invariant under unimodular changes of coordinates, whereas the next Steiner coefficient, Euclidean surface area, is not. The finding supplies *every* oriented facet and its exact area across all \(2^{n-1}\) linked profiles, yielding a full natural Euclidean boundary invariant. It also proves an infinite family of equal-volume, affinely unimodularly equivalent pairs separated by a definite, explicitly quantified surface-area gap. The latter shows why the metric calculation has information not contained in the established volume/Ehrhart results. This is not asserted to resolve an isoperimetric extremum for all profiles.
+The suffix transform y_i=sum_(j>=i)x_j−c_i is integral triangular of determinant one and uses x_i=b_i+y_i−y_(i+1) for i<n. Hence precisely the order-polytope cover and extremal-coordinate facets survive. Contraction of the cover or deletion of an extremum gives the indicated (n−1)-element order polytope with its full induced affine lattice. The primitive x-normal is a signed coordinate vector or suffix vector. Its norm is the covolume of the integer direction lattice: adjoining an integer vector pairing to one with the primitive normal gives determinant one and height the reciprocal of the norm. Thus the extension-count volumes acquire exactly the stated norm weights. For S={1}, the chain n≺n−1≺⋯≺2 has the extra element 1 constrained only below 2. There are n−1 insertions; cover contractions have counts 1 for contracting (1,2) and n−2 at each of the n−2 other covers. Deleting extrema 1,2,n gives counts 1,n−1,n−2. Reversal with order duality gives the mirrored data and affine unimodular map to T. The two weighted sums subtract to the claimed gap; its numerator is zero at n=3, positive at 4, and on t≥4 its derivative exceeds sqrt(2)−1−3/(4sqrt(t))>0. Cancellation of the leading radical terms gives (sqrt(2)−1)n+O(sqrt(n)) in the numerator. A fresh original-coordinate hull test checked all 60 profiles for n=3–6, all 474 individual facet hyperplanes and facet areas, and total area and volume, with reversal gaps 0, 0.0077480441, 0.0053745919, and 0.0019933096.
 
-## Closest work and limitations
-Chen–Sanchez–Veliz–Ying, arXiv:2311.15441v1 (2023-11-26), supplies the native inequality model and volume count. Stanley (1986) supplies classical order-polytope facet and extension-volume theory. The published linked-snake distance-spectrum result and the published zigzag-order-polytope cover-contact result concern distinguishable metric statements; their full mathematical results were checked. The all-profile surface-area classification has no independently verified historical-priority certificate, and general affine-face formula treatments may be unindexed. The new calculations were reviewed here only; external mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result supported by the inspected statements is the original-coordinate facet measure as applied to linked snakes and, decisively, the exact dimension-uniform signed reversal gap between the specified profiles. The facet description, triangulation and lattice-normalized counts are established machinery; the area formula is a direct specialization of that machinery with the x-normal factors, not a new general facet theorem. No stronger statement covering the actual reversal was found in the primary or indexed passages compared.
+
+## value
+
+PASS
+
+The useful distinction is not the familiar possibility that a unimodular map changes Euclidean measures. It is the complete usable facet measure for a specified natural family, and a signed, exact, every-dimension separation of two natural reversed profiles that face-lattice and volume data cannot distinguish. The normal weights explain the mechanism and locate the first dimension where it occurs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

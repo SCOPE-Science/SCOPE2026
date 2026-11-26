@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:14:41.364804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen and repaired RESULT.md, Proof Steps 1–5 and example",
+        "Frozen VERIFICATION.md and verify.py",
+        "Vitale et al. arXiv:2610.13382v1, equations (7), (11)–(13)"
+      ],
+      "rationale": "BLOKS Eq. (7) is the stated H, and (12)–(13) give the inverse of the stated P. Writing C=δE+ρ1_n1_mᵀ gives CᵀC=δ²I+(2δρ+nρ²)J and hence h₀,h₁. Blockwise zero sums, zero-global-sum block constants, and the global constant vector give the three simultaneous SPD eigenpairs and listed multiplicities. To check strict ordering independently, write F(x)=1+(δ+ρx)/(δ+λx). The inequality h₁/h₀>t₁/t₀ is exactly mF(n)>sF(s). For ρ≥λ, F is nondecreasing and m≥2s; for ρ<λ, F(n)>1 and F(s)<2. Also t₁>t₀. The s=1 within-block space is absent; when m=n=s, P=H. Comparing the real all-ones direction with the zero-sum vector having equal-modulus root-of-unity phases by block gives identical Q quadratic forms for any SPD block-diagonal Q and a quotient ratio h₁/h₀. CG takes the degree of the least residual polynomial annihilating the spectral components from a zero start, and full column rank of C makes generic responses possible. At n=8,m=4,s=2,ρ=3/5,λ=1/10 direct substitution gives 1/48,1/4,11/16 with ratio 33; b=(1,2,3,4) has each required component. In the repair the normalized top eigenvalue is 1+(mρ/δ)F(n); its derivative has the sign of ρ−λ and the middle ratio t₁/t₀ is independent of n. Packaged code was read, not executed.",
+      "residual_risks": [
+        "Equal size splits and exact arithmetic, not floating-point iteration/runtime or unequal block performance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 result scales by the actual block diagonal of H, not the source's kernel block sketch. Southworth–Olivier treat general 2×2 block preconditioners and convergence bounds. General optimal scaling plausibly covers the lower bound, and that bound is not claimed as new; theorem-level full text of the three named classical comparisons was not obtained."
+        ],
+        "reasoning": "A structural optimal-block-scaling bound is not the exact spectrum of the fixed nonexact sketch. The exact-Jacobi equality surface does not identify t₀,t₁ for equation (12) or compare their ordering with the tall normal-matrix ratio.",
+        "searches": [
+          "Shapiro 1985 Optimal Block Diagonal ℓ₂-Scaling of Matrices",
+          "Kolotilina 2002 Optimally conditioned block matrices",
+          "Demmel 2023 Nearly Optimal Block-Jacobi Preconditioning",
+          "Southworth–Olivier arXiv:2001.00711",
+          "Resultary October 26 exact block-Jacobi rank-one phase diagram"
+        ]
+      },
+      "checked_sources": [
+        "BLOKS primary equations",
+        "Resultary 2026/11/8 replicated construction",
+        "Resultary 2026/11/2 orientation construction",
+        "Resultary 2026/10/26 exact-Jacobi diagram",
+        "Southworth–Olivier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching block eigenspaces are a reusable result, not new. Equality of extremes for the two decompositions requires h₁/h₀>t₁/t₀; for the tall model it is mF(n)>sF(s), including the regime in which F decreases with n. Replication holds the ratio at F(m) regardless of n, and exact Jacobi replaces the block eigenvalue factors."
+        ],
+        "reasoning": "The existing comparisons supply the mechanism, but their formulas do not imply the sharp normalized profile or ordering for fixed ρ,λ with distinct noncenter observations.",
+        "searches": [
+          "BLOKS equation (7), (12)–(13)",
+          "November 8 coarse correction Proof §§1–2",
+          "October 26 exact-Jacobi reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The replicated normal matrix is (n/m)(K_m²+λmK_m); its h₁/h₀ equals the distinct-center formula evaluated at n=m for the same parameters. Here CᵀC adds nρ²J but retains δ²I, so generally the normalized largest eigenvalue depends on n at fixed ρ,λ. The November 2 homogeneous comparison is for a different full-center rank-one family."
+        ],
+        "reasoning": "Credit the overlapping mechanism and the boundary profile; no equivalence for the distinct tall family at fixed hyperparameters except the ratio coincidence when ρ=λ.",
+        "searches": [
+          "Configured Resultary equicorrelation/BLOKS spectral identity and unchanged conditioning/third-level queries",
+          "Resultary November 8 replicated-center coarse-correction model",
+          "Resultary November 2 BLOKS full-center block-orientation model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Replicated-center tables have the same multiplicities and quotient arrangement but h₀=nδ(δ/m+λ), not δ(δ+λn); the November 2 example treats n=m and other Gram parameters; the October 26 exact-Jacobi denominator is blockdiag(I+v_jv_jᵀ)."
+        ],
+        "reasoning": "Substantial table overlap in shape; not exact formula coverage for the normalized profile and monotone distinct-point dependence at arbitrary n>m.",
+        "searches": [
+          "Configured Resultary unchanged conditioning and third-level results",
+          "November 8 replicated-center exact eigenvalues",
+          "November 2 homogeneous block-orientation comparison",
+          "October 26 rank-one Jacobi equality cases"
+        ]
+      },
+      "rationale": "Pass the exact normalized spectral profile and ordering for the actual BLOKS sketch with distinct equicorrelated nonlandmarks of arbitrary count, including the exact dependence on n. The abstract optimal block-scaling lower bound and the first appearance of a third eigenvalue are not accepted as independent discoveries. The full-center and replicated-center constructions already exhibit the homogeneous three-level mechanism and unchanged conditioning; the repair gives them explicit credit. For the same center Gram and ridge, adding distinct training points changes the normalized profile in general, whereas replication never changes it; the mathematical comparison removes the possible equivalence via scalar replication.",
+      "residual_risks": [
+        "Theorem-level access to Shapiro, Kolotilina and Demmel was limited. Earlier general formulae may absorb the block-local lower bound. No priority inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the formula and not the tall equicorrelation specialization in the passages used.",
+          "evidence": "H=K_nmᵀK_nm+λnK_mm and inverse blocks with denominator (nq/s)K_s²+λnqK_s.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13382v1",
+          "material_read": "PDF p. 3 Eq. (7) near offset 12549; p. 4 Eqs. (11)–(13) near offset 19557; p. 5 near offset 22778",
+          "method": "Lawful OA primary PDF passages",
+          "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+          "trigger": "Source algorithm"
+        },
+        {
+          "assessment": "Covers the mechanism with repeated centers and the same normalized profile as full-center equicorrelation. Different tall normal matrix; correction not claimed here.",
+          "evidence": "n=tm, H=(n/m)K_m²+λnK_m, three levels with the same multiplicities and same-condition-number phenomenon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-optimal-rank-one-coarse-correction-for-equicorrelated-sketche--fbb7f09b97e0/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–2 opening, offsets 0–4064",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "An optimal rank-one coarse correction for equicorrelated sketched-block preconditioning",
+          "trigger": "Same sketch, equicorrelation and exact three-level obstruction"
+        },
+        {
+          "assessment": "Overlaps on the exact-CG lesson including a homogeneous three-level comparison, but not the distinct tall family.",
+          "evidence": "n=m, s=2 and inhomogeneous rank-one spike yield q+1 levels; homogeneous orientation gives three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-eigenvalue-kernel-system-whose-sketched-block-precondition--1b0a634c0def/RESULT.md",
+          "material_read": "Finding, assumptions and proof of stratified rank-one example, offsets 0–4198; homogeneous case compared in source check",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "A two-eigenvalue kernel system whose sketched block preconditioner requires arbitrarily many exact CG steps",
+          "trigger": "Same sketch and degradation of exact Krylov grade"
+        },
+        {
+          "assessment": "Related equality for different preconditioner.",
+          "evidence": "Exact H block diagonal, equal-energy equality at two or three blocks in the studied cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-three-block-condition-number-deterioration-phase-diagram--714da92ddf3c/RESULT.md",
+          "material_read": "Finding, assumptions and block reduction, offsets 0–2796",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "A sharp three-block condition-number deterioration phase diagram for rank-one block Jacobi",
+          "trigger": "Equal rank-one block energy conditioning equality"
+        },
+        {
+          "assessment": "Different operators and scope.",
+          "evidence": "General two-block matrices and minimal-residual behavior, not exact BLOKS equicorrelation spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00711v1",
+          "material_read": "PDF abstract p. 1 and discussion pp. 2–3 near offset 4800",
+          "method": "Lawful OA PDF passages",
+          "title": "A note on 2×2 block-diagonal preconditioning",
+          "trigger": "Prior general Krylov/preconditioner statements"
+        },
+        {
+          "assessment": "Named residual risk for abstract optimal scaling, which is not passed as a new claim.",
+          "evidence": "No mathematical conclusion is drawn from retrieval failure.",
+          "identifier_or_url": "https://doi.org/10.1137/0722005 ; https://doi.org/10.1016/S0024-3795(01)00412-8 ; https://doi.org/10.1137/22M1504901",
+          "material_read": "No usable theorem passages obtained",
+          "method": "Lawful OA retrieval attempted; Shapiro and Demmel access errors with no repository copy in the attempted route; Kolotilina landing page only",
+          "title": "Optimal Block Diagonal ℓ₂-Scaling of Matrices; Optimally conditioned block matrices; Nearly Optimal Block-Jacobi Preconditioning",
+          "trigger": "Plausible coverage of block-diagonal condition-number lower bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof Steps 1–5",
+        "BLOKS equations and replicated/full-center comparisons"
+      ],
+      "rationale": "The exact spectral calculation for a standard, normalized, realizable kernel and actual distinct-point Nyström sampling analyzes a case not modeled by copying landmarks. It shows why added off-center training points can alter the largest generalized ratio while the failure to condition better and the extra Krylov step survive uniformly. This is a useful obstruction to interpreting a sketched block inverse as automatically improving the distinct-point normal system, beyond an abstract block scaling lower bound.",
+      "residual_risks": [
+        "Not a statistical, wall-clock or finite-precision recommendation; kernel symmetry is special."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:46:21.032815Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79; direct proof replay above",
+        "Frozen VERIFICATION.md lines 19–25, examples.json, and verify.py (inspected, not executed)",
+        "Independent finite replay: for p=2,3 in dimension two, separate supports of affine spans of dimension 0, 1, 2. Enumerated affine subset orbits by the two coordinate translations, coordinate swap, a shear and one-coordinate sign change. The nonempty subset class counts by size are [1,1,1,1] and [1,1,2,2,2,2,1,1,1]. Singleton supports give that histogram for their fibers; line supports of ℓ=2,…,p give multisets of ℓ quotient subset sizes from {1,…,p}, weighted by p times their sum (line stabilizer induces all permutations of a support in these cases). Full-span supports use the affine subset histogram after removing singletons, pairs and the line-triple class at p=3, with sizes multiplied by p². This reproduces every coefficient in examples.json for both extensions, totaling 9 and 39. Labeled split by span dimension gives 60+54+5=119 and 4599+5880+454=10933. Direct affine subset orbits in prime dimensions f=1 also give the four claimed totals."
+      ],
+      "rationale": "The right translations generate inner orbits equal to the rows. Every automorphism thus has row maps F_b and a common base permutation h, satisfying F_b(a+t)−F_b(a)=h(b)−h(b−t) for every a,t. This difference is additive in t and is a bijective slope. Expressing the same h through each row shows all slopes equal one F_p-linear L, with h(b)=L(b)+v. Conversely these maps with arbitrary independent u(b)=F_b(0) preserve the operation. For a fixed support B, differences b−d for any one b generate all differences of B; finite closure is therefore equivalent to every nonempty fiber being a union of W_B-cosets. Quotient first by the normal group of independent u(b)-translations. Each row now independently carries a nonempty subset of V/W_B up to translations; its size in Q is |W_B| times its size in the quotient. The residual affine group moves the rows and acts by the corresponding induced L on the labels. Closing an h-cycle of length ℓ requires the initial translation-orbit to be fixed by the induced L^ℓ. For any such fixed translation-orbit O in a quotient H, each of its |O| representatives has exactly |H|/|O| translating vectors bringing its image under M back to itself. Thus its contribution to the average in (1) is exactly one, including nonfree translation-orbits; nonfixed orbits contribute zero. Fixed subsets of each affine bijection are exactly cycle unions. Weighted Burnside then yields (2), including W_B=V where the nonempty zero-space subset contributes a single monomial. For f=1 a singleton row support gives the full affine subset action on its fiber, while all supports of size ≥2 have full rows and give affine support orbits. Counting translations and the multipliers of each order yields (4)–(5) and the identity-term asymptotic. The argument uses the additive F_p-space and applies in characteristic two.",
+      "residual_risks": [
+        "The finite replay covers only the stated small examples; the general result uses the proof. Rank one refers to a realization over a degree-f extension field, not rank one over F_p when f>1. No multiplicative field structure, formal verification, or complexity bound is assumed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hou's general Alexander-quandle automorphism result is explicitly credited; the frozen record does not claim (3) as independently new.",
+          "The strongest earlier corpus statement 288df6733df1 describes all embedded subquandles by size via labeled counting. Same-day b3ec99783ff2 describes retraction images and numbers of retractions; 86b84ad88c25 describes endomorphism normal forms and image-size multiplicities."
+        ],
+        "reasoning": "Credit exact overlap on the embedded objects and the structural inputs. Counting every labeled subset, endomorphisms or retracts does not describe all embedded orbits. Distinct same-day items are compared by scope, not excluded by date or presumed temporal order.",
+        "searches": [
+          "Resultary 288df6733df1, b3ec99783ff2, 86b84ad88c25",
+          "Hou DOI:10.1016/j.jalgebra.2011.06.027; affine mesh arXiv:1409.8396"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5af653adc891, 288df6733df1, b3ec99783ff2, 86b84ad88c25",
+        "arXiv:1708.02362 abstract excerpt; Hou DOI:10.1016/j.jalgebra.2011.06.027 with documented access limits",
+        "Frozen RESULT.md lines 91–114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen RESULT.md lines 69–77 uses labeled fibers and the known group but removes normal row translations before summing cycle constraints with induced powers on different quotient spaces."
+        ],
+        "reasoning": "An undifferentiated application of Burnside to the known group would require a new fixed-subquandle count for every huge row-shear map. The proposed reduction removes those maps and computes residual fixed points using only supporting affine cycles and quotient-space subset classes. That explicit functional enumeration is not supplied by the identified structural ingredients alone.",
+        "searches": [
+          "Resultary: prior row-shear reduction and cyclic Burnside formula",
+          "Resultary 288df6733df1; Hou DOI:10.1016/j.jalgebra.2011.06.027; arXiv:1708.02362"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5af653adc891 is the assigned theorem itself.",
+          "The inspected arXiv:1708.02362 abstract excerpt characterizes which quandles embed into an affine quandle; it is not an assertion of ambient conjugacy of embeddings into this fixed Q."
+        ],
+        "reasoning": "An embedded automorphism orbit determines an abstract type, but abstract type need not determine the orbit. For example, singleton-support subsets are all trivial subquandles, while in F_3² collinear and noncollinear triples in a row cannot be conjugate under the allowed first-coordinate affine maps.",
+        "searches": [
+          "Resultary: full ambient automorphism orbits on rank-one unipotent embedded subquandles, quotient by row translations",
+          "arXiv:1708.02362 and arXiv:2210.16763"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula and 9/39 totals are from the target itself. The older labeled polynomial concerns different counts; the frozen examples give 119 and 10933 labeled subquandles in those cases."
+        ],
+        "reasoning": "The affine subset polynomial B_p is a standard cycle-index statistic and is not claimed separately. Its specific combination by support rank and the extension orbit counts are the compared objects. No distinct exact coefficient table was found in the bounded search.",
+        "searches": [
+          "Resultary: prime-field affine cycle-index formula for ambient subquandle orbits and exact dimension-two totals 9 and 39",
+          "Resultary 288df6733df1 and 5af653adc891"
+        ]
+      },
+      "rationale": "Credit prior labeled fibers, general ambient automorphism structure, and standard Burnside counting. The assessed distinct result is the explicit all-prime all-dimension orbit polynomial of embedded subquandles under the full group, through a residual affine action on translation-classes. No evidenced prior statement yields this polynomial or its orbit coefficients without the extra quotient analysis.",
+      "residual_risks": [
+        "Exact full passages from the prior labeled result and key arXiv texts were unavailable upon lawful retrieval; the comparison is scoped to the available statements and frozen attributions.",
+        "An unindexed general ambient orbit enumeration, or further relevant content in an inaccessible source, could imply the explicit formula. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap of labeled objects and fibers; stated enumerator differs from ambient conjugacy counts",
+          "evidence": [
+            "Indexed result counts every embedded subquandle by size for all primes and extension degrees via affine-span Möbius inversion; the frozen comparison describes the earlier result as excluding ambient orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-subquandle-size-distribution-for-rank-one-unipotent-ale--288df6733df1/RESULT.md",
+          "material_read": "Indexed mathematical statement, and frozen RESULT.md lines 69 and 99 comparing its scope",
+          "method": "Local Resultary search; attempts at exact source file retrieval timed out",
+          "title": "Complete subquandle size distribution for rank-one unipotent Alexander quandles",
+          "trigger": "Same family and same embedded objects with a complete cardinality enumerator"
+        },
+        {
+          "assessment": "Abstract embedding/isomorphism structure, not stated to count orbits of embeddings under a fixed ambient action",
+          "evidence": [
+            "The retrieved excerpt's definition is a quandle that embeds into an affine quandle; it names characterization and explicit construction over abelian groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.02362",
+          "material_read": "Indexed abstract excerpt defining and characterizing quasi-affine quandles; frozen RESULT.md lines 93–95",
+          "method": "Bounded literature lookup and failed OA arXiv full-text attempts",
+          "title": "Subquandles of affine quandles",
+          "trigger": "Potential stronger classification of affine subquandles"
+        },
+        {
+          "assessment": "Credit prior automorphism-group coverage, not a whole-document exclusion of additional results",
+          "evidence": [
+            "(3) is an ingredient not submitted as novel."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2011.06.027",
+          "material_read": "Bibliographic identification and frozen RESULT.md lines 95–99; full text not independently inspected",
+          "method": "Comparison to the cited theorem scope and frozen attribution; no lawful open full text established",
+          "title": "Automorphism groups of Alexander quandles",
+          "trigger": "General group theorem relevant to normal form (3)"
+        },
+        {
+          "assessment": "Different subclasses and statistics in available statements; no assumed order",
+          "evidence": [
+            "Counts of retractions per image and endomorphism image-cardinality multiplicities differ from ambient orbits of all nonempty subquandles."
+          ],
+          "identifier_or_url": "Resultary b3ec99783ff2 and 86b84ad88c25",
+          "material_read": "Indexed statements of their image objects and cardinality statistics",
+          "method": "Local Resultary search",
+          "title": "Related retraction-image and endomorphism-image censuses",
+          "trigger": "Distinct same-day entries on the same square-zero family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–55 and 69–79; examples.json"
+      ],
+      "rationale": "This counts the full natural embedded population modulo its actual symmetries, not only labeled subsets, retraction images, or abstract types. The quotient-space factors make the computation much smaller than direct Burnside on the full automorphism group, expose when equal-size labeled results have distinct ambient types, and give both a prime-field asymptotic and reproducible nontrivial extension examples.",
+      "residual_risks": [
+        "Exact finite algorithm, not a large-f complexity guarantee or a classification of arbitrary Alexander modules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

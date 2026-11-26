@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:33:01.531566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–31",
+        "VERIFICATION.md line 19",
+        "robust_dependency_check.py lines 4–49 (inspected, not run)"
+      ],
+      "rationale": "The team split is equivalent to total vertex labels such that each edge's assigned color matches a label at one endpoint. A satisfying split supplies partial labels, completed arbitrarily because the alphabet is nonempty; conversely each edge can be assigned to a matching endpoint. Constant labels on each side solve the two-color case. In a tree or unicyclic component orient edges to have at most one incoming edge at each vertex; each vertex then labels its one incoming edge. For necessity, take a spanning tree plus two non-tree edges in a component with at least two cycles, and prune leaves. This gives a connected core of minimum degree two with E=V+1. The sum of degree excesses above two is two. Suppressing degree-two paths leaves either one degree-four vertex with two loops, or two degree-three vertices with either three joining edges or one joining edge and a loop at each end. On undoing suppression these are exactly the figure-eight, theta and joined disjoint cycles. For each subcubic core, König's bipartite edge-coloring theorem supplies a proper three-coloring; each vertex can then cover at most one edge, fewer total than required. In the figure-eight, give the two incidences of each cycle at the shared vertex the same color, distinct across cycles. Alternate the two other colors along each remaining path, so each noncentral vertex sees distinct colors. Every cycle must use the shared vertex to cover an edge, but no single label can cover edges of both cycles. Extending the falsifying coloring preserves failure. Checking E≤V for each connected component takes linear time and includes isolated vertices. The checker was inspected, not run. It stops at the first falsifier on each nonrobust support, so it correctly tests the universal condition but the wording that it tests every coloring even on those supports is too strong.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 14 gives exactly the pseudoforest condition for dep(x,y)∨dep(y,x), whose split orients edges with at most one edge assigned to each vertex.",
+          "In Theorem 24(3), the antecedent is lifted using distinct z on incident edges. Figure 8 itself uses z values 1,2,3 on a cycle plus a chord, giving specific three-color theta witnesses.",
+          "Combining the uncolored lemma with a proper edge coloring produces a falsifier on every non-pseudoforest with a sufficiently large palette, and gives the three-color part for subcubic cores. This mechanism cannot properly color the degree-four figure-eight with just three colors."
+        ],
+        "reasoning": "Substantial standard and prior components are credited. Prior orientation and proper-edge-coloring results alone do not give the sharp global palette size; repeated colors at the shared vertex are essential.",
+        "searches": [
+          "arXiv:2508.16146 Lemma 14, Theorem 24 and Figure 8",
+          "König's bipartite edge-coloring theorem: maximum degree colors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.16146 Theorem 12, Lemma 14, Theorem 24(3) and Figure 8",
+        "Resultary 04b7d4ca83c7",
+        "Usual bipartite edge-coloring theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Giving all incident edges distinct colors makes vertex label feasibility equivalent to the prior reduction to assigning at most one edge per vertex. Hence the unbounded-palette version is an immediate implication of the prior lemma.",
+          "The Fig. 8 chorded-cycle family supplies only special three-color obstructions; K_{2,n} does not contain two simple cycles meeting only at one vertex, since each of its cycles needs both vertices on the size-two side."
+        ],
+        "reasoning": "Neither antecedent resolves the degenerate degree-four bicyclic core. Proving that core admits a falsifying—not proper—three-coloring, and that two colors never falsify any support, establishes the missing sharp classification.",
+        "searches": [
+          "arXiv:2508.16146 Lemma 14 and Theorem 24(3), including actual color pattern in Figure 8",
+          "Resultary 04b7d4ca83c7, theorem and semantic reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact graph predicate is ∀ edge colorings c ∃ vertex labels such that c(xy) equals at least one endpoint's label. This is neither proper edge coloring nor list edge coloring: arbitrary incident repetitions may occur in the input, and matching rather than avoidance is required.",
+          "Theorem 12 uses the same formula but quantifies over the given team as an input instance, not over every coloring of its support. The ordinary graph-coloring results of the alternate-terminology search did not give the matching predicate.",
+          "The same endpoint-label reduction appears in the K_{2,n} catalogue record."
+        ],
+        "reasoning": "A support classification must preserve the universal coloring quantifier and common finite alphabet. A single-team decision theorem or independent proper-colorability condition is not equivalent.",
+        "searches": [
+          "graph arbitrary edge coloring vertex labels every edge matches color of one endpoint pseudoforest 3 colors edge vertex color cover universal generalized 2 SAT",
+          "arXiv:2508.16146 Theorem 12 and Lemma 14",
+          "Resultary exact three-colour census, 04b7d4ca83c7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "04b7d4ca83c7 gives an exact three-color satisfying-coloring census and deletion-distance formula for complete K_{2,n}, and shares the functional-team viewpoint and semantic reduction.",
+          "The inspected finding is tied to complete K_{2,n} supports and does not give a figure-eight or arbitrary-support classification."
+        ],
+        "reasoning": "The restricted census can answer robustness on its own supports but does not extend to arbitrary supports with large sparse bicyclic cores. This same-day overlap is credited without inferring chronology.",
+        "searches": [
+          "Local Resultary: dependence splitting, three colors, pseudoforest, endpoint coverage, bicyclic obstructions"
+        ]
+      },
+      "rationale": "The uncolored pseudoforest criterion and the same formula on a single given team are prior. Fröhlich–Kolaitis–Meier also already give three-color witnesses on a particular family of chorded even cycles. Their results, combined with proper edge coloring, account for the unbounded-palette implication and the subcubic obstructions. The distinct supported result is the sharp palette threshold for arbitrary finite bipartite supports: a three-color obstruction also exists on every figure-eight, where degree four prevents a proper three-edge-coloring, and two colors are always coverable. The closest matched catalogue record gives an exact three-color census and deletion distances on K_{2,n}, not the arbitrary-support threshold. Its same-day date gives no order or priority determination.",
+      "residual_risks": [
+        "The bounded alternate-terminology search did not expose a closer theorem. Equivalent edge-cover or constraint-satisfaction formulations not indexed under the checked terms remain possible.",
+        "The same date label does not establish order, independent authorship, or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier single-team treatment, uncolored pseudoforest criterion, and particular three-color obstructions; not the general bounded-palette threshold",
+          "evidence": [
+            "Theorem 12 is NL-completeness for a given team. Lemma 14 uses the different uncolored formula. Figure 8 alternates 1 and 2 on the even cycle and gives its chord color 3; Theorem 24 lifts an incoherence witness, not an all-support result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.16146",
+          "material_read": "Theorem 12 pp. 7–9; Lemma 14 pp. 9–10; Figure 8 p. 16 and Theorem 24(3) pp. 16–17, text offsets 57690–64773 for the latter passages",
+          "method": "Original lawful OA PDF passage inspection",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Same formula, pseudoforests and colored incoherence witnesses"
+        },
+        {
+          "assessment": "Material restricted overlap, no arbitrary-graph threshold or figure-eight construction",
+          "evidence": [
+            "Exact satisfaction counts and deletion distances apply to complete K_{2,n} supports."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-three-colour-census-and-sharp-deletion-budget-for-a-two-at--04b7d4ca83c7",
+          "material_read": "RESULT.md opening finding, scope and endpoint-label reduction",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact three-colour census and sharp deletion budget for a two-atom dependence disjunction",
+          "trigger": "Same-day catalogue match for the same functional teams and palette"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "arXiv:2508.16146 Theorem 12 and Lemma 14"
+      ],
+      "rationale": "For an established dependence formula whose individual-team model checking has already been studied, asking whether an unlabeled support guarantees all teams work is a distinct, naturally motivated question. The sharp jump from universal acceptance at two colors to a linear-time structural classification at three identifies the least usable counterexample alphabet, including the only bicyclic core not covered by the direct proper-edge-coloring argument.",
+      "residual_risks": [
+        "The theorem is not a new solver for the satisfaction question on individually colored teams, or a classification with edge-specific color lists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

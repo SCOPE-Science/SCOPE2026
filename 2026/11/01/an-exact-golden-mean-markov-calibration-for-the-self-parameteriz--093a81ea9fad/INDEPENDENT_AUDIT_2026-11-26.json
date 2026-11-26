@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:58.103747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75, VERIFICATION.md and verify_markov.py (inspected, not executed)",
+        "Paul et al. 2023, Table 2, printed pp. 7–8",
+        "Independent monotonicity and branch-endpoint check"
+      ],
+      "rationale": "With a=37/25+C/4, h=(a+1/8)/2 and q=(a+h/4)(1−h), one has 0<q<1/2<h<1 throughout the physical control range. The only zero of a q+q²/4−1/2 in [0,1] is the increasing quadratic factor's root C*. Independently, q decreases with q′≤−989/6400 and q≤212431/640000, so (a q+q²/4)′=q/4+(a+q/2)q′<0; the claimed root is obtained by taking 18h²−11h−3=0, for which q=h−1/2 and (a+q/4)q=1/2. The three distinct points give least period three. Each monotone branch expands by at least a and the endpoint images give A→B, B→I. Points below q but above zero grow by a factor at least a until they reach I; those above h but below 1 first go below q, while 1 goes to the fixed point 0. Thus there are no other periodic points outside the core. A cyclic allowed word has a unique fixed point of the composed inverse branches. For a periodic orbit hitting the shared endpoint c, the predecessor is q∈A, so c must be coded B, and the itinerary q,c,h has the allowed transitions A,B,B. All other periodic orbits have unambiguous itineraries; consequently the trace counts distinct points, plus one for 0. The determinant zeta identity and Perron root follow from the stated two-state matrix. Expansion gives the finite-to-one coding (after any first visit to c all subsequent endpoint visits have a forced code), and the primitive shift makes the core mixing. Outside I∪{0} each point has a wandering neighborhood: near a point of (0,q) its image lies strictly above that neighborhood and orbits cannot return from I; a neighborhood above h returns below h at once. Hence the full-interval entropy is the core entropy.",
+      "residual_risks": [
+        "The all-period count and entropy are for ideal real arithmetic at the unique C*, not claims for a digitization, random-bit quality, or other controls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary construction studies circuit/chaos metrics and gives the parameterized formula; general expanding unimodal results address entropy and kneading. Neither inspected source identifies this parameter as the unique exact critical calibration."
+        ],
+        "reasoning": "Generic period-three coding can explain the golden-mean recurrence after the itinerary and boundary conditions are known. It does not locate the control, give uniqueness across [0,1], or by itself determine the exterior contribution.",
+        "searches": [
+          "Alsedà–Misiurewicz–Pérez arXiv:2004.01813, entropy and kneading-determinant passages",
+          "Paul et al. 2023 Table 2 and §8; ICECS 2021 §II-A"
+        ]
+      },
+      "checked_sources": [
+        "Paul et al. 2023 DOI 10.3390/jlpea13010018 and ICECS 2021 proceedings paper",
+        "arXiv:2004.01813",
+        "Resultary b38ef0f9d169"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The related matrix has trace powers 1+Lₙ; the core matrix's Perron root and determinant are standard formulas. The checked four-cell presentation does not establish a one-to-one correspondence at periodic boundary points."
+        ],
+        "reasoning": "The entropy and formal trace formulas are not independently novel once the calibration and Markov description are in hand. To turn the trace into the full dynamical census the frozen proof checks coding at c and accounts for the exceptional fixed point outside the core. Novelty is assigned to the model-specific computation and classification, not the general tools.",
+        "searches": [
+          "ArXiv:2004.01813 entropy/kneading passages and local Resultary b38ef0f9d169 four-cell matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Table 2 gives [0.25(x+C)+1.48] times x or 1−x, exactly the frozen branches. Its parameters M=0.125, B=0.74 are construction constants, not the external algebraic C*. The later catalogue entry gives the same C* and critical cycle."
+        ],
+        "reasoning": "Agreement of the two branch formulas identifies the same family. A standard tent map or the internal feedback gain alone is not the calibrated control. The later entry's four-cell matrix is a related full-interval representation, not a different model.",
+        "searches": [
+          "Paul et al. 2023 DOI 10.3390/jlpea13010018 Table 2, SPM-Tent",
+          "Paul et al. ICECS 2021 §II-A, self-parameterized tent seed",
+          "Resultary b38ef0f9d169"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b38ef0f9d169, dated 2026-11-22, gives the same C*, critical cycle, finite absorption, mixing core, entropy and a full-interval transition matrix, but the inspected statement does not report the distinct-point count or zeta. Table 2 lists branch laws and does not give this critical parameter."
+        ],
+        "reasoning": "There is substantial exact overlap in calibration and entropy, not just shared parameters. It is a later dated record; there is no evidence from it of earlier priority. The formal equality of matrix traces is not alone identification with geometric periodic points.",
+        "searches": [
+          "Local Resultary for self-parameterized tent critical three-cycle, exact radical and Lucas/zeta census",
+          "Paul et al. 2023 Table 2 and surrounding analysis"
+        ]
+      },
+      "rationale": "The construction and the general coding, trace, zeta and entropy machinery are prior art. The distinct supported content is the unique algebraic calibration for the published control family and the complete distinct-point census on the whole interval. A later Resultary record materially overlaps the calibration and entropy; the checked passages of that record do not prove the distinct-point trace identity or its zeta consequence. No earlier covering statement was located in the primary construction or precursor passages checked.",
+      "residual_risks": [
+        "The bounded literature comparison cannot rule out earlier calculations under another control notation. The later exact overlap should be credited without inferring historical priority from content alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same formula; inspected passages do not derive the calibration or census",
+          "evidence": [
+            "The exact piecewise formula is printed in Table 2; surrounding and concluding text discuss transfer, bifurcation, hardware and chaos metrics."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/jlpea/jlpea-13-00018/article_deploy/jlpea-13-00018.pdf",
+          "material_read": "Table 2 and surrounding text, pp. 7–8, offset 32514; §8, offset 74716",
+          "method": "Lawful publisher PDF passages",
+          "title": "Self-Parameterized Chaotic Map for Low-Cost Robust Chaos",
+          "trigger": "Exact originating SPM-Tent construction"
+        },
+        {
+          "assessment": "Same construction and seed/gain mechanism, not the exact three-cycle calibration in inspected passages",
+          "evidence": [
+            "Feedback law Vc0=C(Vo+Vc)+Vbias, tent seed and gains 0.125 and 0.74, with hardware-oriented conclusion."
+          ],
+          "identifier_or_url": "https://confcats-event-sessions.s3.amazonaws.com/icecs21/papers/2160.pdf",
+          "material_read": "Abstract offset 0, §II-A offsets 4791–14259, conclusion offset 27700",
+          "method": "Lawful proceedings PDF passages",
+          "title": "Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range",
+          "trigger": "Earlier same-group conference precursor"
+        },
+        {
+          "assessment": "General methods, not model-specific exact control",
+          "evidence": [
+            "Entropy and kneading determinant framework for piecewise expanding unimodal maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.01813",
+          "material_read": "p. 1 offset 532 and p. 13 offset 41344",
+          "method": "Open primary PDF passages",
+          "title": "Flexibility of Entropies for Piecewise Expanding Unimodal Maps",
+          "trigger": "General expanding-unimodal and kneading theory"
+        },
+        {
+          "assessment": "Substantial later overlap; geometric census and zeta not stated in checked material",
+          "evidence": [
+            "Same unique radical, critical cycle and entropy; four-state matrix whose trace powers are 1+Lₙ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unique-critical-three-cycle-and-golden-mean-entropy-in-a-self-pa--b38ef0f9d169",
+          "material_read": "Mirrored RESULT.md critical calibration, invariant-core, entropy and full-interval matrix statements",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Unique critical three-cycle and golden-mean entropy in a self-parameterized tent map",
+          "trigger": "Strong exact catalogue match on model and radical"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen algebraic calibration and full-interval classification",
+        "Paul et al. 2023 Table 2 and its qualitative design-space analysis"
+      ],
+      "rationale": "Least critical period three is a natural nontrivial postcritical calibration in this published family, not an arbitrary numerical control value. The precise control and proven global distinct-point count give a benchmark for kneading and periodic-orbit computations on the nonlinear construction. The extra fixed point and the critical cell boundary matter to that benchmark and are not decided by quoting entropy or a symbolic trace alone. The contribution is modest and model-specific, not a new coding theorem.",
+      "residual_risks": [
+        "No claimed practical performance or security measure follows from this idealized benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

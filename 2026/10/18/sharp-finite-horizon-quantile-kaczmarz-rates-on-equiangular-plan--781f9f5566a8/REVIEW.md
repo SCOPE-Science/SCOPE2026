@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact row definition, order-statistic selection, and tie inclusion are specified. The single-step orthogonal-projection identity reduces the risk to the mean of the least \(r\) squared residuals. A finite trigonometric progression bounds that average sharply, with explicit worst-orientation equality. After a projection every nonzero error is perpendicular to an original row, so each future acceptance set contains \(r\) members for odd \(r\) and all-row selection, or \(r+1\) for even nonterminal \(r\). This yields one exact conditional post-first-step risk factor, proving the all-horizon equality and sharp supremum. The rank-one absorbing state, geometric decay for higher rank, and stated asymptotics follow directly. The standalone verifier reproduces 39,420 deterministic numerical checks; the analytic proof carries the infinite and all-horizon claims.
+PASS
 
-## Originality — PASS under the presently accessible record
+This PASS is for repairs/5/RESULT.md and SLOGAN.txt, not the frozen unrestricted retained-row statement. At x_0=x_star, m=4 and r=1, all residuals are zero after every projection, so all four rows are retained, not one as the frozen Finding states. The replacement gives the parity count only for nonzero post-projection errors, gives the count m for zero, and preserves arbitrary initialization for the moment identities. Independently, normalized squared residual is sin² of projective distance to the error-perpendicular line. The r nearest admit a consecutive r-block, and its doubled-angle geometric sum gives average removal at least 1−Q; additional cutoff ties can only increase this average. The block midpoint makes the bound exact (strict gap to the complement if r<m). A nonzero post-projection error has its perpendicular line on the grid: after the zero residual come equal pairs, with a possible singleton at projective distance pi/2 ranked last. This gives exactly the stated parity change for r<m and all m for r=m. The centered block then gives multiplier B, while at zero the same conditional equality holds because both sides vanish. The tower property gives every finite-horizon identity. At r=1 a least-residual row cannot erase a nonzero error and all later updates vanish; at r≥2 the multiplier is strictly below one, and nonincrease of squared norm plus bounded convergence gives almost-sure convergence. Direct Taylor expansion and the doubled-angle frame Gram sum give the stated rates and normalization. The supplied numerical checker and recorded 39,420 checks were treated as finite supplementary evidence, without executing the script.
 
-Steinerberger's original quantile rule already chooses uniformly from all residuals at or below a quantile; it also anticipates slow progress when residuals are small and identifies tight frames and spherical designs as natural deterministic instances. Lok–Rebrova's constrained quantile formulation is a relevant structured extension; Coria–Haddock–Pacheco's analysis concerns perturbations and high-level error rates. Their inspected original statements do not furnish the exact regular-frame trigonometric first-step optimum, parity-sensitive after-first law, or equality at every finite horizon. An accessible mathematical-record comparison and the available prior-claim record uncovered no stronger covering claim. This is a priority assessment, **not** an independence or exhaustive-publication certificate. A concealed formulation in older cyclic-projection or trigonometric-design literature remains possible.
+## originality
 
-The closest mathematical-record entries describe two-row deterministic cyclic Kaczmarz and maximal-residual Kaczmarz. Neither has the minimum-residual order-statistic mechanism or a random update among tied least-residual rows. The related prior-claim record involving quantile rank selection acts on a sampled subset and establishes a different rank-statistical property, not the present equiangular full-frame finite-horizon law.
+PASS
 
-## Value — PASS
+The tie-inclusive algorithm and the uniform-sampling full-rank cutoff case are covered by prior work. The verified distinctive contribution, retained in the repair, is the sharp all-horizon law for adaptive rank r<m on this frame, particularly the change after the first step and the resulting even/odd factor. The at-zero correction itself is not claimed as new.
 
-The result gives the exact worst-risk function for **every** finite horizon of a natural existing algorithm on a family with condition number one. It separates (i) a pathological permanent rank-one stalling threshold, (ii) an exact one-time parity correction induced by cutoff ties, and (iii) a quadratic-in-frame-size convergence slowdown for any fixed accepted rank. These structural distinctions are invisible to estimates based solely on global frame conditioning, and the exact benchmark is useful for interpreting quantile cutoff choices. The claim's value is the algorithmic structural characterization, not the underlying elementary sine-sum identity alone.
+## value
 
-## Scope and risks
+PASS
 
-Two real coordinates, equally spaced projective row normals, consistent data, exact orthogonal projections and inclusive quantile ties only. No independently performed audit, no claim about corruption resilience, no novelty proof from unsuccessful searches. Possible equivalent forms under older geometric Kaczmarz terminology remain an originality risk.
+The repaired theorem quantifies a concrete consequence of adaptive low-residual sampling even for a perfectly conditioned tight frame: sharp worst-case loss over any number of steps and a change at even ranks caused solely by inclusion of ties. The orientation reduction, parity, and m^(−2) contraction gap calibrate behavior not predicted by frame conditioning or uniform sampling. Correct handling of the absorbing zero state preserves that quantitative result for every deterministic initialization.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

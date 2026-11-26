@@ -1,15 +1,21 @@
-# Scientific review: sharp Euclidean volume distortion for oriented unicyclic root polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies the fixed unit-incidence embedding, intrinsic volume dimension, all graph and orientation quantifiers, the parity boundary and the discrete extremizers. The tree-incidence lattice has covolume \(\sqrt n\). For nonbalanced cycles, the simplex difference determinant is exactly the absolute cycle imbalance. For balanced cycles, the height potential is integral and well-defined, the positive-circuit deletion simplices are an interior-disjoint triangulation, and their common Euclidean volume is determined by the centered potential norm. Substituting the four-cycle pendant heights gives the claimed quadratic law; optimizing its single squared integer deviation proves both sharp endpoints and the unbounded ratio. Unimodular equivalence follows by flipping only bridge vectors in a spanning-tree lattice basis. The standalone integer-Gram checker passed 1,144 fully specified orientations across ten graphs, and independent low-dimensional convex hull volume checks agreed. Finite checks are secondary to the all-order proof.
+## correctness
 
-## Originality — PASS, priority provisional
-Kálmán–Tóthmérész, *Root polytopes and Jaeger-type dissections for directed graphs* (arXiv:2105.00960), gives the semi-balanced dimension theory and spanning-tree geometry, but does not evaluate the orientation-dependent intrinsic Euclidean volume or the sharp family ratio. Numata–Takahashi–Tamaki, *Faces of Directed Edge Polytopes* (arXiv:2203.14521), characterizes faces and rank potentials but not these metric extrema. A prior exact oriented-cycle Ehrhart calculation gives an orientation-count description of lattice-normalized volumes for a pure cycle, not a same-graph Euclidean distortion law for arbitrary pendant-edge directions. Standard conversion from lattice volume to Euclidean volume is part of the argument, not asserted to be new. The further nonconstant centered-potential norm and sharp optimization yield the assessed contribution; an unindexed or more general equivalent remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The family presents a geometric distinction invisible to its full Ehrhart polynomial and face lattice: changing directions of bridge edges within a *fixed* unicyclic graph produces unbounded, sharply quantified intrinsic Euclidean volume distortion. It answers a natural metric-sensitivity question for directed-edge polytopes and gives a useful general conversion law for arbitrary unicyclic orientations. The special family is not an arbitrary numerical slice: it is the smallest balanced cycle together with the tree attachments needed to expose Euclidean metric sensitivity. No claim is made that this is a universal extremum among all graphs.
+Deleting a cycle edge leaves a spanning tree, whose incidence roots are an integer basis of A_(n−1), of covolume √n. The sole cycle dependence has coefficient sum δ; when nonzero, subtracting the deleted vertex from the remaining tree roots gives a rank-one determinant update with absolute determinant |δ|, giving the full-dimensional simplex formula. When balanced, the cycle integrability condition defines h uniquely modulo constants, the unique dependence is affine, and every root belongs to the same height-one hyperplane in the root space. In its circuit subdivision, shift convex coefficients in the negative direction of the cycle relation until a positive-support coefficient vanishes. This endpoint is unique, and lying in two deletion simplices requires a zero at both corresponding indices, so interiors are disjoint. There are ℓ/2 deletion simplices. Each is the height-one base of a spanning-tree pyramid of volume √n/(n−1)! and height 1/∥h−h̄1∥, yielding the stated Euclidean volume. In the leaf family the attachment is the height-zero vertex of the listed (0,1,2,1) cycle (the convention used in the proof). The energy n(t+6)−(4+2a−t)² attains its minimum 2n uniquely at a=t and maximum at the nearest permitted 4+2a−t to zero, with the stated parity and small t exceptions. Bridge-root sign changes give a lattice automorphism in a tree basis that fixes the omitted cycle root. Each deletion simplex is unimodular in the height-one lattice because the tree basis elements all have height one and their differences span the integral height-zero kernel. Thus the common normalized volume is 2. The independent exact Gram calculation checks actual coordinates, including nδ² in a nonbalanced case and both deletion simplices across 63 small leaf patterns; it does not prove the all-graph formulas.
 
-## Limits
-An independent mathematical audit has not been performed. The proof does not cover multicyclic or weighted cases, and balanced versus nonbalanced volumes live in different dimensions. The already-known combinatorial dimension and lattice-volumetric facts are explicitly separated from the new sharp Euclidean statement. Historical priority remains subject to fuller specialized literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the semi-balanced dimension, tree dissections, rank potentials and normalized cycle volume. The Euclidean conversion from height-kernel covolume also follows from existing lattice tools. The supported distinct claim is a sharp fixed-cycle, same-graph Euclidean distortion growing without bound with t despite preserved affine lattice type. Available sources do not establish that explicit separation or its sharp ratio; priority remains provisional.
+
+## value
+
+PASS
+
+Within a natural one-cycle family and the same graph and cycle orientation, the explicit optimization exhibits unbounded metric distortion at identical Ehrhart and face data, with a sharp finite ratio and a precise asymptotic. The known lattice invariant alone would obscure this effect. No separate value claim is needed for the standard covolume conversion in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

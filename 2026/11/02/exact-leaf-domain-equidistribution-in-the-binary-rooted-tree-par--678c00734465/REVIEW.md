@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** All root-preserving partial isomorphisms are partitioned by their first-level partial bijection and recursively assigned child morphisms. The rank-zero, one-active-child, and two-active-child cases give a closed induction for the count of each *specified* terminal set. The boundary at height zero is explicit and the normalization, total-variation, and limit-law deductions have correct quantifiers. An independently formulated exact enumeration checks every prescribed set through height three; those checks are corroboration, not a replacement for induction.
+## correctness
 
-**Originality — PASS relative to the inspected accessible evidence.** Primary full-text reading compared the 2007 wreath-power construction and D-class enumeration, the 2018 binary-tree total-cardinality/first-moment/spectrum formulas, and the 2020 general-tree spectrum theorem. Earlier work already contains the total monoid size, rank first moment, and spectral vanishing; these are acknowledged, not presented as novel. The new exact uniform count **per specified subset**, the exact entire rank polynomial and the resulting joint Bernoulli law are not stated in the inspected results. Searches also compared semigroup rank and tree orbit-profile claims with different meanings. Existing shape-by-shape formulas may still conceal an equivalent identity; absence of a match is not proof of absolute priority.
+PASS
 
-**Value — PASS.** The statement collapses a shape-sensitive enumeration into a uniform number for every nonempty leaf subset, despite multiple nonconjugate possible domain shapes. It supplies a complete rank-resolved invariant and a strong probability law for a natural inverse semigroup, clarifying the contrast between many defined leaves and previously known vanishing ultimate/eigenvalue rank. The failure already at ternary height one identifies the precise binary-specific feature.
+Here terminal means the ambient bottom level B_n, not all leaves of the domain subtree. Prefix closure and a root-to-root isomorphism give the unique first-level partial injection and child maps in RESULT.md 33–50. An independent reconstruction marks every bottom vertex v by its own variable x_v in a square-free domain generating polynomial. Adjoin one formal empty map of weight 1. If X,Y are the augmented child polynomials in disjoint variable sets, the ranks 0,1,2 of the first-level partial injection give the parent polynomial 2+2(X−1)+2(Y−1)+2(X−1)(Y−1)=2XY: the first 2 counts the empty map and root-only map. This holds for every shape and every mask because the two variables sets are labeled by the domain children, and their injections into image children give the coefficient 2. At height zero the augmented polynomial is 1+x_root. Iteration gives c times the product of (1+x_v), c=2^(2^n−1), and removing the formal empty map gives the claimed exceptional constant term. Setting every x_v=t gives H_n(t). Normalization produces the stated probability: relative to uniform masks the empty mask alone has a deficit, of (2^b−1)/(2^bN), giving the exact total variation, including b=1. The data-processing inequality under the map to size and any subsequent normalization gives the LLN and CLT from Bin(b,1/2). For d≥3 the rank-one and rank-two counts d and d(d−1) differ at height one. Independent bounded replay: python3 /workspace/branches/independent_math_checks.py. It enumerates distinct full-automorphism restrictions to prefix-closed domains and checks every mask at heights 0–3 (1,7,127,32767 maps). All rooted partial isomorphisms extend locally by completing each partial bijection of children, so that enumeration is exhaustive in that range. The uploaded verifier was inspected, not run; the proof, not finite enumeration, establishes all heights.
 
-**Closest literature and limits.** Kochubinska (2007) supplies the underlying partial wreath and Green-class machinery; Kochubinska (2018) gives the total order and first rank moment; Kochubinska (2020), arXiv:2006.15558v1, analyzes spectral asymptotics. A prior enumeration reexpressed through rooted-tree isomorphism classes could subsume the result, and independent mathematical and publication-priority validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is shape-independent multiplicity for every prescribed bottom-level domain, with an exact one-mask correction, not the old partial-wreath construction, total order, first moment, full-domain automorphism count, or ultimate-rank theorem. The inspected results do not subsume the set-resolved identity. The probability formulas follow from that identity and are not independent priority claims.
+
+## value
+
+PASS
+
+This is a natural distribution on which leaves a random partial automorphism actually defines. The mask multiplicity collapses despite the large variety of incompatible rooted-tree shapes, and the exact law differs from independent fair bits only by removal of one empty map from the augmented uniform model. This clarifies why many leaves are defined even though the ultimate rank may be small, and the height-one failure beyond the binary case explains why the law is not a generic wreath-power statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

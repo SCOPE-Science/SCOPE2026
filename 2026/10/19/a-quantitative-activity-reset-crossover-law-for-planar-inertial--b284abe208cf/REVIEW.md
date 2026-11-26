@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full-state regeneration age is exactly exponential and independent of the between-reset Brownian noises. The stochastic convolution (2) follows from the linear velocity equation with zero velocity at reset. Brownian scaling produces the exact coupled law (3). The pointwise kernel and angular inequalities (4), conditional \(L^2\) triangle inequality, and planar Itô isometry reproduce all four coefficients in bound (1); the active-orientation coefficient uses the integral \(\int_0^s(s-z)\sqrt z\,dz=4s^{5/2}/15\), and the exponential fifth and sixth moments. Conditional Gaussianity gives both the characteristic function and density; factorial moments give anisotropic second/third moments. Uniform polynomial-moment control yields convergence beyond \(W_2\). Above the crossover, division by \(\alpha_r\) gives a nonzero one-dimensional limit. The packaged finite checker corroborates published finite moments and the asymptotic formulas, but finite tests alone do not establish the theorem.
+PASS
 
-## Originality — PASS, with residual risks
+At stationarity the independent Poisson reset age is E/r with E unit exponential. Integration of the zero-state velocity equation and Brownian scaling give the claimed coupling with h(w)=Mr(1−e^(−w/(Mr))) and diffusing orientation U_r(z)=(cos(√(2/r)W_z),sin(√(2/r)W_z)). Independently split the active error into coefficient, orientation and kernel defects. The coefficient defect is bounded by |α_r−α| times the L² norm of E²/2, namely √6. Conditional on E=s, the orientation L² defect is at most α√(2/r)∫₀ˢ(s−z)√z dz=4α√(2/r)s^(5/2)/15; averaging gives 16√15 α/(15√r). Using 0≤w−h(w)≤w²/(2Mr) bounds the active kernel defect by αE³/(6Mr), of norm 2√5 α/(Mr). The two-dimensional thermal Itô isometry gives squared kernel error at most E[E⁵]/(5M²r²)=24/(M²r²). Their sum bounds W₂ for all r>0. Conditioning on the age gives mean αs²e₁/2 and covariance 2s³I₂/3; direct Gaussian mixing gives the stated characteristic function and density (possible divergence at the reset point). With A=E²/2, D=A−1 and v=2E³/3, the factorial identities give E[D³]=74 and E[Dv]=36; conditional centering then gives both third moments and the displayed covariance. Bounds by exponential-age moments give uniform integrability at every fixed order and Lᵖ convergence on the same coupling. For diverging α_r, division by α_r removes the thermal term and gives the strictly positive-magnitude age-square limit, so the original scale escapes in probability. This is a stationary one-time position law for complete resets to a fixed heading, not an assumption of constant orientation between resets or a statement on position-only resetting. The supplied finite checker was read, not run.
 
-The primary 2026 paper is inspected in full (model, complete-reset setting, stationary second/fourth moments, transient results and appendices) and credited for those results. It does not state the joint \(\mathrm{Pe}_r\sim\sqrt r\) limit with a complete anisotropic planar distribution and an explicit Wasserstein error. The passive underdamped, random-acceleration and overdamped active-reset studies share modeling ideas but do not provide the same inertial active joint-scaling conclusion in accessible material. Search of indexed published research and related published statements did not yield an equivalent statement; this is **not** proof of global uniqueness. A broader general stochastic-convolution/renewal theorem might imply the result. Full text of two older preprints could not be accessed; their abstracts and available citations were compared. No independent originality audit has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-The source identifies inertial high-reset localization by finite moments, yet fixed activity hides when self-propulsion survives on the fluctuation scale. The new joint scaling resolves the physically natural strength threshold and describes an entire non-Gaussian anisotropic distribution rather than one further moment or a routine finite-parameter special case. The explicit \(W_2\) rate permits quantitative use of that limit and separates three experimentally interpretable regimes. The transverse/longitudinal variance and mixed third moment show precisely why a variance-matched Gaussian fails.
+The supported distinction is the joint inertial high-rate/high-activity planar law with an explicit all-rate W₂ error, not the resetting model, exponential-age construction, known passive scale, or moment formulas. Earlier same-model scalar moments do not determine the law or the error, and the closest inspected indexed result has an equivalent limiting position family but is later and does not give the submitted bound.
 
-## Scope and closest literature
+## value
 
-Patel and Shee (2026), arXiv:2602.21134, supply the dynamics and finite moment formulas, but not the stated joint law/error; Franke and Sokolov (2026) treat passive underdamped resetting; Singh (2020) concerns passive random acceleration, Kumar–Sadekar–Basu (2020) the overdamped active case. The literature comparison leaves open implicit derivability from general renewal-limit results. The theorem requires complete fixed-orientation resets and fixed inertia, not partial or random-angle resetting.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result distinguishes three physically meaningful scales and gives a quantitative law for the regime where propulsion and thermal fluctuations have comparable size. A scalar second moment does not tell whether the position is Gaussian or whether the orthogonal fluctuation size depends on the longitudinal displacement. The common-age mixture, asymmetric moments and explicit rate supply that information and a finite-rate accuracy benchmark under the specified reset protocol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

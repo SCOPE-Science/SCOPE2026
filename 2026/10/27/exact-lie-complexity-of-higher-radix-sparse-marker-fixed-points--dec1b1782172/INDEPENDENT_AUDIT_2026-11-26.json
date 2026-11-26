@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:52:07.293159Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the one-sided fixed point, all ones occur at block ends. The preimage has no adjacent ones, so the longest zero run is 2r-1 (attained in the image of 10; the initial run is only r-1). For n<2r every one-marker rotation 0^a 1 0^b fits using the images of 10 or 01 and the zeros in the next block, since min(a,b)<=r-1. Together with the zero necklace this gives two. Two chosen ones in a complete necklace force both complementary circular distances to be multiples of r, by considering cuts on either arc. Thus such necklaces require r|n, and at the only multiple r in the base interval two ones cannot fit. At nonmultiples above the base interval even the one-marker necklace fails, since one rotation would need at least 2r zeros. For n=rm with m>=2 the zero necklace is impossible. The marker residue fixes block phase in every occurrence of an aligned representative, so completeness implies completeness of the unique preimage up to rotation. In reverse, every complete preimage has a zero (it cannot be 1^m), hence its image has a marker; every offset below r of an aligned occurrence is realized by replacing only initial zeros by zeros from the next block. Images cannot collapse two preimage necklaces because a rotation between aligned marker-containing words moves by a multiple of r. This proves the recursion; n=r is covered separately by the base case. Dividing out whole powers works for composite r as well. There are 2(r-1) possible reduced lengths, each yielding a disjoint geometric progression, proving both counting consequences. The supplied verify_lie.py was read, not executed. Separate 50,000-letter prefix checks at r=2,3,4,5 matched in all 108 cases; replay: /workspace/branches/4e9d84bc-9d85-4c3b-b17e-1da8dfe33aa9/small_lie_check.py, log small_lie_check.log in the same directory. The all-length proof does not rely on prefix saturation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Bell–Shallit and Li passages state general boundedness/automaticity results or discuss related variants; De Luca–Fici concerns the exact Sturmian setting."
+        ],
+        "reasoning": "Being bounded and automatic does not determine the accepted reduced lengths or the constant two on that support. A formula for Sturmian words is for a different hypothesis class.",
+        "searches": [
+          "arXiv:2102.03821, p. 1",
+          "arXiv:2207.05859, p. 1",
+          "arXiv:2206.00995, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_lie.py",
+        "Resultary d2b1e5730ed7; indexed but unread exact source b359a69047d4",
+        "arXiv:2102.03821, 1402.5843, 2206.00995 and 2207.05859"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier-compared exact record gives a doubling bijection and explicit r=2 representatives, whereas the general theory says Lie complexity is automatic for automatic words."
+        ],
+        "reasoning": "The r=2 bijection itself gives no r-block phase or allowable short marker configurations at r>=3; general automaticity alone also does not classify them. The frozen result proves the needed correspondence with an arbitrary block length and separately establishes its short-length cases.",
+        "searches": [
+          "Resultary d2b1e5730ed7, Finding and Relationship to prior work",
+          "arXiv:2102.03821, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The period-doubling record uses 0->01, 1->00, exactly r=2.",
+          "Cyclic Complexity of Words counts necklaces represented by at least one factor, not those with all rotations present."
+        ],
+        "reasoning": "The period-doubling alias is genuinely equivalent only for r=2 in the inspected exact statement. An ordinary cyclic, aligned-window or factor-complexity count is not the same statistic. Here the reduction removes powers of the substitution length, not powers of any individual prime divisor.",
+        "searches": [
+          "\"Lie complexity\" \"generalized period-doubling\" substitution radix r p-adic valuation fixed point",
+          "Resultary d2b1e5730ed7 and b359a69047d4",
+          "arXiv:1402.5843, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former gives the exact powers-of-two and three-times-powers-of-two support and value two; it does not tabulate other radices.",
+          "The second hit's index describes factor and aligned-window complexity; the precise primary record could not be retrieved."
+        ],
+        "reasoning": "The exact existing radix-two entry is credited and lies outside the accepted r>=3 claim. No checked table treats that claim; a finite list of values would not cover its two unbounded parameters. The inaccessible hit is not assessed as definitively non-covering.",
+        "searches": [
+          "Resultary d2b1e5730ed7, Finding",
+          "Resultary b359a69047d4; attempted exact RESULT.md in the local mirror"
+        ]
+      },
+      "rationale": "The exact radix-two spectrum exists in a distinct Resultary record. The frozen claim excludes it. The inspected evidence does not supply the all-integer r>=3 spectrum or its higher-radix desubstitution bijection. This judgment credits the overlap and does not infer priority from the shared date.",
+      "residual_risks": [
+        "An equivalent nonbinary-radix result under another substitution name may exist, particularly given the unretrieved generalized-period-doubling record.",
+        "The checked exact r=2 statement is same-dated; no priority inference or separate external radix-two citation was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers r=2, not asserted here",
+          "evidence": "L_d(n)=2 for n=2^a or 3·2^a, otherwise 0; explicit representatives and doubling bijection.",
+          "identifier_or_url": "2026/10/27/SCOPE-exact-lie-complexity-spectrum-of-the-period-doubling-fixed-point--d2b1e5730ed7",
+          "material_read": "RESULT.md Finding at offset 0; relationship passage at offset 6483",
+          "method": "Local Resultary mirror",
+          "title": "Exact Lie Complexity Spectrum of the Period-Doubling Fixed Point",
+          "trigger": "Exact named specialization"
+        },
+        {
+          "assessment": "General theory, no exact coverage in inspected statement",
+          "evidence": "Requires every rotation to occur and states boundedness/automaticity results.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.03821",
+          "material_read": "p. 1, OA offsets 308–683, definition and abstract",
+          "method": "OA primary PDF",
+          "title": "Lie Complexity of Words",
+          "trigger": "Same invariant and broad automatic-word results"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts cyclic classes of factors and discusses period doubling for a liminf, not an all-rotations spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "p. 1, OA offset 1150",
+          "method": "OA primary PDF",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Period-doubling overlap under similar terminology"
+        },
+        {
+          "assessment": "Different word family",
+          "evidence": "Computes Lie complexity in the Sturmian setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.00995",
+          "material_read": "p. 1, OA offset 1012",
+          "method": "OA primary PDF",
+          "title": "On the Lie Complexity of Sturmian Words",
+          "trigger": "Exact Lie-complexity formulas in a related class"
+        },
+        {
+          "assessment": "Inspected statement does not classify the family",
+          "evidence": "Discusses automaticity and extended or prefix variants.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.05859",
+          "material_read": "p. 1, OA offset 566",
+          "method": "OA primary PDF",
+          "title": "A Note on the Lie Complexity and Beyond",
+          "trigger": "Potential general results about Lie complexity"
+        },
+        {
+          "assessment": "Unresolved scope; not negative evidence",
+          "evidence": "Index describes factor and aligned-window complexity and 2-adic scaling; the underlying family and claims were not verified.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-factor-and-aligned-window-complexity-of-generalized-period-doubling-words--b359a69047d4",
+          "material_read": "Index summary only; exact mirror RESULT.md unavailable",
+          "method": "Resultary search and exact local-mirror retrieval attempt",
+          "title": "Complete Factor and Aligned-Window Complexity of Generalized Period-Doubling Words",
+          "trigger": "Generalized-period-doubling alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The higher-radix family is defined by a natural period-doubling substitution with sparse fixed-phase markers. Its all-rotations spectrum is a stricter invariant than ordinary factor counts. The classification determines a logarithmically sparse support explicitly, including composite radices, and its desubstitution shows how whole necklace classes, not just individual factors, are preserved. This is a substantive exact family calculation beyond the known binary-length control, not a new general theorem about all substitutive words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

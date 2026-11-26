@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:54:40.476941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projection into the m-dimensional span and extension there to a hyperplane cannot increase the maximum error. For its unit normal w, the coordinates y=B* w satisfy ||w||²=y^T G^{-1}y and the error is ||y||∞. Homogeneity gives the reciprocal of the maximum inverse-Gram quadratic on the real cube for the squared width. Every maximizer is a corner by strict convexity in each coordinate. Multiplication verifies G^{-1}=A(I−γ11^T)A; positivity follows from 0<mγ<1. This yields the stated discrepancy formula and all optimal planes within the span, with opposite signs giving the same plane. At δ=1, normalization gives pairwise cosine 1/2 and the threshold holds exactly for a balanced sign assignment. The rational instance map has polynomial bit length, the certificate is a sign vector, and the usual subset-sum dynamic program is pseudopolynomial. The frozen CHECK.py (inspected, not run) supplies only finite rational diagnostics; the general claim follows from the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sinai (PDF pp. 5 and 8) gives the orthogonal spike width and identifies Sofman's finite-octahedron input; this is the δ=0 limit.",
+          "Outer radii, printed pp. 2–3, gives unrestricted approximation complexity, not hardness on this promised fixed-angle family.",
+          "The Pinkus landing page/abstract was readable but the full paper was not; no theorem-level coverage is attributed to it."
+        ],
+        "reasoning": "Orthogonal and unrestricted statements alone do not give the correlated family. General matrix width theory plausibly contains the generic duality step, but the rejection rests instead on the verified simplex radius result and elementary duality.",
+        "searches": [
+          "Sinai arXiv:2611.19378, Theorem 3.3 and Proposition 4.4",
+          "Pinkus, DOI 10.1016/0024-3795(79)90046-6",
+          "Varadarajan–Venkatesh–Ye–Zhang, Approximating the Radii of Point Sets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary 76756fb38188 (decisive), b5affca84eb2 (distinct), b6099a095d3f (self)",
+        "Sinai arXiv:2611.19378; Sofman via Sinai's explicit citation",
+        "Varadarajan–Venkatesh–Ye–Zhang original preprint pp. 2–3",
+        "Pinkus publisher abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let R(a) be the circumradius for the prior author's m strictly positive weights a. Substitution gives d_{m−1}^{−2}=(1−mγ)Q+4mγR(a)^2. Since mγ>0, maximizing signs for R(a) are exactly those for the width dual problem. The generic map BG^{-1} from the maximizing signs gives the width normals.",
+          "For positive integer weights the frozen threshold is equivalent to 4R(a)^2=Q, the earlier exact balanced-sign threshold, with the same weights. No change in the promise on weights is required."
+        ],
+        "reasoning": "All couplings, not just δ=1, follow because the difference of the two corner objectives after rescaling is constant. The new geometric phrasing does not add a new extremal computation, optimizer classification or complexity boundary beyond the exact earlier statement and the generic linear-algebra bridge.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-weighted-simplex-generator-zonotopes-an-exact-incenter-graph-and--76756fb38188, Finding and proof",
+          "Frozen RESULT.md lines 31–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The real terminal width is the affine outer 1-radius of the absolute convex hull in its span, because the hull is centrally symmetric. The cited outer-radii paper defines this objective on printed p. 2 but does not provide the positive-angle result.",
+          "Resultary 2026/10/18/SCOPE-weighted-simplex-generator-zonotopes-an-exact-incenter-graph-and--76756fb38188, Finding and projected-box proof: 4R(a)^2=Q−Δ(a)^2/m on m strictly positive simplex weights, and the maximizing sign patterns minimize Δ."
+        ],
+        "reasoning": "For all δ>0, decompose the inverse-Gram quadratic on corners into γm times the weighted projected-simplex quadratic plus (1−γm)Q, which is constant on corners. This identifies an equivalent sign optimization, not just a common use of PARTITION.",
+        "searches": [
+          "Resultary: terminal equiangular Kolmogorov width and number partition; weighted simplex zonotopes and sign discrepancy",
+          "Varadarajan–Venkatesh–Ye–Zhang, https://optimization-online.org/wp-content/uploads/2006/08/1447.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed b6099a095d3f item is the frozen finding itself, not independent evidence.",
+          "The distinct 76756fb38188 item gives a closed formula and maximizing-sign characterization, not a numeric width table. Resultary 2026/11/8/SCOPE-partition-discrepancy-formula-for-diagonal-metric-inballs-of-com--b5affca84eb2 treats a different diagonal-metric edge polytope."
+        ],
+        "reasoning": "A finite database table is not the relevant test for a formula in arbitrary positive real parameters. The indexed exact formula for the transformed invariant does provide coverage; the edge-polytope hit by itself does not.",
+        "searches": [
+          "Resultary: terminal equiangular widths; balanced-sign discrepancy; projected simplex generator zonotopes; diagonal metric partition discrepancy"
+        ]
+      },
+      "rationale": "The earlier weighted-simplex zonotope result already determines the entire δ>0 terminal-width formula, optimizer sign patterns and threshold via the elementary inverse-Gram duality acknowledged by the frozen result. This is a demonstrated implication on strictly positive weights, not an inference from a keyword hit, an inaccessible source, or a one-zero-weight limit.",
+      "residual_risks": [
+        "Pinkus full text and Sofman's original full text were not inspected; they may contain more general width statements. Neither access limitation determines the verdict.",
+        "This is a demonstrated implication, not a claim of exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the width formula, optimal signs and decision threshold",
+          "evidence": "4R(a)^2=Q−Δ(a)^2/m, farthest signs minimize discrepancy, and 4R(a)^2=Q is the exact PARTITION threshold for positive weights.",
+          "identifier_or_url": "2026/10/18/SCOPE-weighted-simplex-generator-zonotopes-an-exact-incenter-graph-and--76756fb38188/RESULT.md",
+          "material_read": "Finding and projected-box proof, local-mirror offsets 0–3733 and 3800–6839",
+          "method": "Configured Resultary discovery and local-mirror text",
+          "title": "Weighted simplex generator zonotopes",
+          "trigger": "Closest exact partition-discrepancy and extremizer match"
+        },
+        {
+          "assessment": "Orthogonal limit only",
+          "evidence": "The formulas are for coordinate spikes on orthonormal directions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.19378",
+          "material_read": "PDF pp. 5, 8; Theorem 3.3 and Proposition 4.4 and the latter's proof referring to Sofman",
+          "method": "Bounded original PDF text",
+          "title": "Lower bounds for the Kolmogorov widths of global attractors of dissipative systems",
+          "trigger": "Cited closest orthogonal-width result"
+        },
+        {
+          "assessment": "Broad hardness context, not the promised family",
+          "evidence": "R_1 is half the point-set width, with affine flats allowed.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2006/08/1447.pdf",
+          "material_read": "Printed pp. 2–3, definitions and hardness summary",
+          "method": "Bounded original PDF text",
+          "title": "Approximating the Radii of Point Sets",
+          "trigger": "Same outer-radius objective after absolute convex hull"
+        },
+        {
+          "assessment": "Unresolved beyond inspected material",
+          "evidence": "No theorem or page could be verified from the readable material.",
+          "identifier_or_url": "10.1016/0024-3795(79)90046-6",
+          "material_read": "Landing page/abstract only; PDF inaccessible",
+          "method": "Lawful original publisher access attempt",
+          "title": "Matrices and n-Widths",
+          "trigger": "Generic matrix width duality might be explicit there"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A fixed-angle threshold is a meaningful way to limit a width problem, and the reciprocal-radius correspondence can be useful exposition. Here the core invariant and full optimizer/threshold information are mechanically transported from the earlier positive-weight zonotope computation, using a constant shift and rescaling on the cube. The frozen finding supplies no distinct nonroutine consequence beyond that transport.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

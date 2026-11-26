@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:11:37.680080Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed length n, a binary palindrome's complete observation is determined by (a,D010,D101), with a its zero count and b=n−a its one count. By reversal, D01=D10=ab/2; D001=D100=(b·binom(a,2)−D010)/2, and D011=D110=(a·binom(b,2)−D101)/2. Constant-letter patterns have binomial counts. Conversely the three coordinates are given observations. To compute them I scanned each literal palindrome from all n-bit strings (retaining leading zeroes). A 1 with x earlier zeroes contributes x(a−x) occurrences of 010, and a 0 with y earlier ones contributes y(b−y) occurrences of 101. This exact reduced signature and reversal filter are independent of the supplied direct-embedding and prefix-DP implementations, which I inspected but did not run. For n=1..13 each fiber is a singleton; at n=14 there are 116 singletons and six doubletons, with exactly the six listed pairs. In table order their reduced signatures are (10,50,30),(8,62,46),(8,60,48),(6,48,60),(6,46,62),(4,30,50). Thus there are 128 palindromes and 122 distinct profiles at n=14, not counting complement as an equivalence. Replay: python3 /workspace/review_evidence/palindromes.py; see palindromes.log. The exhaustive proof establishes no statement above length 14.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angal et al. discuss all words of fixed weight s and bound the reconstruction deck length by s when s≥5; their example for s=4 is stronger than 3-equivalence. The four-one Resultary theorem covers all lengths but only one weight, and the unrestricted four-one ambiguity result covers other words and reports growth at large length."
+        ],
+        "reasoning": "A reconstruction guarantee at deck length s≥5 does not imply a guarantee at deck length three. An all-length result at one weight does not specialize to a result over all weights; general equivalence-test algorithms establish computability, not the asserted cutoff or census.",
+        "searches": [
+          "arXiv:2610.41110v1 §3.1",
+          "arXiv:1509.00622v2",
+          "arXiv:2001.11732",
+          "Resultary c4ca3d49873e and ef95cc2ffb13"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.41110v1",
+        "arXiv:1509.00622v2",
+        "arXiv:2001.11732",
+        "ORBi:2268/149313",
+        "Resultary: c4ca3d49873e, ef95cc2ffb13, 58afc1431d6d, c38042504353, 9966d889482b, 5d691b245815"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact pair 10^5 110^5 1 and 01010^6 1010 is already 4-deck-equivalent in Angal et al.; it is the first displayed pair with the order reversed. Complement preserves equivalence and gives the last pair. In the same-day four-one record, the length equation for a doubleton is n=4+2a+3c+10d, so a=c=0,d=1 is forced at n=14."
+        ],
+        "reasoning": "The upper bound of 14 on first failure and these two witnesses are mechanically implied by prior 4-deck equality. The weight-four classification also implies injectivity below 14 in weight four and its complements. The supported distinct contribution is the complete all-weight lower bound and first equality layer, particularly the remaining four pairs, not discovery of the first witness.",
+        "searches": [
+          "arXiv:2610.41110v1 Remark 3.2, p. 7",
+          "Resultary c4ca3d49873e Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n≥3, summing multiplicity of an r-letter word over all 3-deck entries counts each of its original embeddings binom(n−r,3−r) times, so the exact scattered 3-deck and the through-length-three profile are equivalent here. The analogous extension identity applies to a 4-deck at length 14. The indexed 3-Abelian palindrome, one-gap and separated-deck records impose contiguity or spacing instead; the four-run deck result exhibits reversal partners, not distinct words that are each palindromes. The external query surfaced unrelated palindromic-decomposition work, not a source-level deck comparison."
+        ],
+        "reasoning": "Ordinary deck results are directly relevant and must not be distinguished merely by the deck name. Restricted-position results do not supply the same counts, and reversal pairs of nonpalindromes do not live in this domain.",
+        "searches": [
+          "Binary palindromes / 3-deck reconstruction / 3-binomial equivalence; Resultary c4ca3d49873e, 58afc1431d6d, c38042504353, 9966d889482b, 5d691b245815",
+          "Literature: palindromic binary words palindrome 3-deck reconstruction ‘palindromes’ k-binomial equivalence two distinct palindromes subsequence counts equality length 14 01010000001010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete family P(a,c+5d,c) ↔ P(a+d,c+d,c+6d), a,c≥0,d≥1, yields at length 14 precisely the first listed pair (and by complement the last listed pair), and no smaller collisions in its weight layer. The published paper gives that specific pair already. None of the inspected tables contains the weight-6 and weight-8 palindrome layers at n=14 or the full 122-profile count."
+        ],
+        "reasoning": "This is genuine exact prior coverage within two weight layers, not simply a similar title. A full unrestricted table with member words at lengths ≤14 would imply the claim by restricting each fiber to reversal-fixed words, but none of the inspected enumerations supplies that table.",
+        "searches": [
+          "Resultary exact scattered three-deck fibers of four-one palindromes c4ca3d49873e and of words with at most four runs 58afc1431d6d",
+          "arXiv:2610.41110v1 Remark 3.2"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the exact lower bound across all palindrome weights and the complete first-layer census as a joint claim. The existence of a length-14 palindrome collision is already known: Angal et al., Remark 3.2, give the identical first pair with the stronger 4-deck equality, which also gives the last listed pair by complement. The same-day four-one classification additionally determines the weight-4 and, by complement, weight-10 layers through length 14. Neither source supplies global injectivity below length 14 or the remaining four doubletons of weights 6 and 8. No originality credit is given to the overlapping witnesses or those restricted layers.",
+      "residual_risks": [
+        "An unindexed all-weight finite table or palindrome-specific lower-bound theorem is not excluded. The same-day catalogue comparison establishes mathematical coverage of the four-one slice but not chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the existence upper bound and two witnesses via complement, not the first-layer census",
+          "evidence": "Remark 3.2 explicitly gives 10^5 110^5 1 and 01010^6 1010 as 4-deck equivalent; both are literal palindromes of length 14.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41110v1",
+          "material_read": "§3.1 and Remark 3.2, pp. 6–7, PDF offset 22150; HTML definitions and Remark 3.2 at offset 20900",
+          "method": "OA original PDF / HTML passage reading",
+          "title": "Deck Reconstruction for Restricted Word Classes",
+          "trigger": "Exact matching palindrome witness with a stronger deck equality"
+        },
+        {
+          "assessment": "Complete all-length result in weight four, materially overlapping but not covering the variable-weight theorem",
+          "evidence": "All doubletons are P(a,c+5d,c) ↔ P(a+d,c+d,c+6d); first one at n=14, explicitly credited to earlier work.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-three-deck-fibers-and-a-two-fifteenths-ambiguity-law-for-f--c4ca3d49873e/RESULT.md",
+          "material_read": "Finding, Assumptions and start of proof, offset 0; reference identifying the preceding paper, offset 7400",
+          "method": "Local Resultary mirror passage reading",
+          "title": "Exact three-deck fibers and a two-fifteenths ambiguity law for four-one binary palindromes",
+          "trigger": "Strong exact same-day overlap"
+        },
+        {
+          "assessment": "Relation and general testing, not the finite palindrome census in the inspected statements",
+          "evidence": "Equality of scattered counts through k and polynomial-time algorithms for testing it.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.00622v2",
+          "material_read": "Definition and introduction, p. 1 offset 1617",
+          "method": "OA original PDF passage reading",
+          "title": "Testing k-binomial equivalence",
+          "trigger": "Established relation and potential general method"
+        },
+        {
+          "assessment": "Different order/domain for the inspected classification",
+          "evidence": "Includes a class-generation algorithm for 2-binomial equivalence; does not assert the all-weight 3-binomial palindrome census.",
+          "identifier_or_url": "https://arxiv.org/html/2001.11732",
+          "material_read": "Abstract and definitions, offset 250",
+          "method": "OA full-text passage reading",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Class cardinalities for finite words"
+        },
+        {
+          "assessment": "Foundational relation, different stated application",
+          "evidence": "Studies binomial factor complexity of infinite words including Sturmian and Thue–Morse words.",
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "Page 1, offset 400",
+          "method": "OA repository passage reading",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Foundational use of the binomial observation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful gap is the exact reconstruction boundary under natural reversal symmetry across all weights, not existence of a collision, which is already known. Verifying no earlier collisions and classifying the entire first ambiguous layer shows four additional pairs at weights six and eight beyond the known pair and its complement, with all remaining profiles singleton. That supplies a precise finite benchmark for palindrome-constrained deck reconstruction, rather than another example or an arbitrarily truncated unrestricted table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

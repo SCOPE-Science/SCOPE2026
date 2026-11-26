@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:11.574203Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt",
+        "Independent exact_review_checks.py, routine powers"
+      ],
+      "rationale": "For the finite linear word (0^a1^b)^m with a,b,m at least two, the singleton factors force one position per symbol. The 01 and 10 tests require, respectively, an internal-block boundary endpoint and an inter-block boundary endpoint. The first and last positions of each constant run are distinct, leaving just the two stated families. For sufficiency of a last-position pair, the first change of any mixed factor fixes its start residue r modulo p=a+b. If its length is at least p-r, it reaches the last one of its starting block. Place the occurrence in the chosen one's block if that start fits; otherwise the rightmost occurrence starts before that position and ends at least at (m-1)p, since less than one period can be left unused on its right. If the length is smaller than p-r it must start with zeros, cross 01, and fit in the chosen zero's block. Constant factors fit through the selected run ends, and reversal with complementation maps the first-position family to the last-position family with run lengths swapped. Thus the boundary restrictions, optimal size and count 2m(m-1) all follow. An independent occurrence-interval program checked every candidate pair and the four-test equivalence for 30 parameter triples; replay: python3 /workspace/branches/exact_review_checks.py 5. The frozen checker and its output were inspected, not executed; both finite checks are corroborative, not the proof.",
+      "residual_risks": [
+        "No assertion for circular words, a single period, or run lengths one is needed for the frozen proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact match proves the four tests for all positive run lengths and counts the additional min(a,b)=1 cases.",
+          "Banbara et al. cover Fibonacci, period-doubling and Thue–Morse families, not this whole parameter domain. The cited Mantaci PDF returned HTTP 403 on bounded retrieval; no negative full-text comparison is asserted."
+        ],
+        "reasoning": "The matched theorem strictly contains the assigned domain, not merely a selected periodic example.",
+        "searches": [
+          "Resultary exact match, Finding and Assumptions at offset 0",
+          "arXiv:2602.16152v3, Abstract and Introduction",
+          "Mantaci et al., A combinatorial view on string attractors, cited Proposition 15"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE matched two-run-powers, binary two-attractor and antipalindromic records",
+        "arXiv:2602.16152v3",
+        "arXiv:2308.00850",
+        "10.1016/j.tcs.2020.11.006 (access limitation noted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rote and pseudostandard results apply to specified prefixes; the related exact catalogue examples (01)^n and 0(1100)^(n-1)1 do not give the claimed all-parameter family.",
+          "The general binary two-attractor record concerns coverage up to length two, not full coverage. The exact two-run-powers match explicitly proves full coverage from those tests."
+        ],
+        "reasoning": "It is the restriction of the exact matched theorem, not an inference from a general short-factor definition or special-prefix example, that covers the full assigned finding.",
+        "searches": [
+          "arXiv:2308.00850, Theorems 8 and 19",
+          "Resultary antipalindromic-pseudostandard and binary two-attractor records",
+          "Exact matched two-run-powers Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record All smallest string attractors of binary two-run powers states the identical four-factor iff condition and both disjoint boundary families for a,b at least two."
+        ],
+        "reasoning": "Last zero with last one of a nonterminal block is exactly L, and first one with first zero of a noninitial block is exactly F; both one-based labels shift uniformly by one.",
+        "searches": [
+          "Resultary: binary two-run power smallest string attractors and four short factors; exact matched RESULT.md, Finding at offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At offset 0 the indexed Finding gives size two, 2k(k-1) pairs, and the exact pair families when both lengths are at least two."
+        ],
+        "reasoning": "This is direct theorem-level database coverage, independent of any matching small table entries.",
+        "searches": [
+          "Local Resultary match 2026/11/2/SCOPE-all-smallest-string-attractors-of-binary-two-run-powers--16126812e394"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding explicitly covers every frozen claim and extends the domain. Converting its one-based positions to zero-based and renaming k to m identifies the two families term for term, as well as the minimum, exact count, and four-factor iff certificate. This is demonstrable catalogue coverage, not an allegation about authorship or historical priority. The compared catalogue path is later than the frozen path; these dates alone do not determine the scientific relationship. No genuinely distinct remainder is claimed in the assigned finding.",
+      "residual_risks": [
+        "Catalogue dates and available statements do not resolve provenance, direction of influence, or first discovery.",
+        "Mantaci Proposition 15 was not inspected in primary full text; this does not affect the demonstrated exact catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL COVERAGE",
+          "evidence": "All positive run lengths, four-factor iff, and identical last/first pair taxonomy and count on a,b at least two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-smallest-string-attractors-of-binary-two-run-powers--16126812e394/RESULT.md",
+          "material_read": "Finding, Assumptions, and proof opening; mirror offset 0–3884",
+          "method": "Local mirror theorem-level reading",
+          "title": "All smallest string attractors of binary two-run powers",
+          "trigger": "Same object and claims with apparently broader parameters"
+        },
+        {
+          "assessment": "Inspected claims cover different families",
+          "evidence": "Named word families and period-doubling multiplicity, not a two-run-power theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2602.16152v3",
+          "material_read": "Abstract and Introduction; offsets 0 and 4200",
+          "method": "OA primary text",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "All-optima classifications for recurrent word families"
+        },
+        {
+          "assessment": "Inspected claims have different hypotheses",
+          "evidence": "The theorem classes are pseudostandard or Rote prefixes, not arbitrary two-run powers.",
+          "identifier_or_url": "https://arxiv.org/html/2308.00850",
+          "material_read": "Abstract and Theorems 8 and 19; offsets 0, 17591, 39445",
+          "method": "OA primary text",
+          "title": "String attractors of Rote sequences",
+          "trigger": "Related binary factors and pseudostandard words"
+        },
+        {
+          "assessment": "Not assessed in primary text",
+          "evidence": "The citing record describes minimum-size stabilization; no inference about the unseen paper's full coverage.",
+          "identifier_or_url": "10.1016/j.tcs.2020.11.006",
+          "material_read": "Citation and characterization in matched catalogue record only",
+          "method": "Bounded OA PDF access attempt returned HTTP 403",
+          "title": "A combinatorial view on string attractors",
+          "trigger": "Proposition 15 cited for periodic powers"
+        },
+        {
+          "assessment": "Different domain",
+          "evidence": "(01)^n has unit runs, and 0(1100)^(n-1)1 is truncated rather than a complete power in the assigned class.",
+          "identifier_or_url": "2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local mirror",
+          "title": "All smallest attractors in two exceptional antipalindromic pseudostandard families",
+          "trigger": "Very similar exact enumeration for periodic or truncated words"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The statement concerns factors of length at most two, not arbitrary factors.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-minimum-binary-two-attractors-and-their-weight-distributio--f4e557c51cbc",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local mirror",
+          "title": "Exact minimum binary two-attractors and their weight distribution",
+          "trigger": "Same four short binary factors"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Exact matched broader Resultary Finding"
+      ],
+      "rationale": "As mathematical content, the four-factor criterion replaces checking unbounded factor lengths, and the complete pair families explain both the terminal restrictions and why multiplicity is independent of the two run lengths. This directly informs verification and counting in a natural periodic family, not just an optimum-size calculation. The content is useful; it supplies no additional catalogue contribution beyond the broader match identified on originality.",
+      "residual_risks": [
+        "The four-factor criterion is not a general theorem for arbitrary binary words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The full parameter classification is proved analytically. Differentiate the explicit unit-Lomax distortion to obtain a power series for \(T'\), use binomial product positivity in the published rectangle, and prove **all** positive coefficients in the new parameter strip by the displayed three-term induction. Normalization uses \(T(1)=1\) and monotone convergence, not a finite numerical sum. The forbidden shape region fails positive curvature at the origin; the forbidden scale region has a negative second exponential coefficient inconsistent with uniqueness and positivity of the Laplace measure. All endpoints and the quantifier “every finite dimension” were explicitly checked. The checker independently verifies nine rational coefficient expansions and selected signs; its finite tests are not used as infinite proofs.
+PASS
 
-## Originality (O): PASS, with residual historical risk
+The ratio (1-z)/(1+s z), s=theta-1, has derivative -theta/(1+s z)^2, giving T'=alpha theta f with f=(1-z)^(alpha-1)(1+s z)^(-alpha-1). The logarithmic derivative yields (1-z)(1+s z)f'=(A+2s z)f, A=2-(1+alpha)theta. In the extension strip 0<s<1 and A≥0, coefficient matching gives (n+1)a_(n+1)=[A+(1-s)n]a_n+s(n+1)a_(n-1); induction includes A=0. When theta≤1 the two factors are individually nonnegative binomial series for alpha≤1, including alpha=1. In both cases |s|<1, so integration gives w_k=alpha theta a_(k-1)/k inside the unit disc and monotone convergence at z=1 yields sum w_k=1. The resulting positive-integer Laplace mixture gives the canonical all-dimensional copula and the conditional exponential sampler, with uniform margins. For alpha>1 the ratio at t=0 is (t/theta) times an analytic function equal to one at zero, so psi'' is negative to leading order. Otherwise above the theta frontier, e^t psi tends to positive w_1 and would force a positive Laplace measure to avoid [0,1) and have an atom w_1 at 1. The residual measure would be nonnegative, contradicting w_2 e^(-2t)+O(e^(-3t)) with w_2<0. This excludes any mixing measure, not just integer ones. The all-dimensional complete monotonicity criterion has the required strict endpoint and monotonicity hypotheses.
 
-The 17 May 2024 full-text source (doi:10.3390/appliedmath4020035) introduces the exact bivariate function and proves a sufficient convexity rectangle, but stops short of the all-dimensional analysis and explicitly mentions higher dimensions as future work. Its second derivative implies a wider **convexity** interval; that elementary consequence is not claimed as the result. The 2020 similarly named unit-Lomax work (doi:10.3390/risks8040106) uses a different algebraic distortion. The standard all-dimensional completely-monotone generator criterion (doi:10.1214/07-AOS556), and the Joe and AMH specializations, do not establish the exact interior mixing law. Semantic searches of mathematical research records and primary literature returned no dominating formulation. A broader or unindexed theorem may still cover the result; this is not a certificate of historical priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-The motivating work gives a flexible bivariate dependence model, but generic bivariate distortions need not extend to arbitrary finite dimensions. The new sharp classification and explicit positive-integer mixing distribution answer that natural construction and simulation question for the full two-parameter family, including parameters beyond its previously stated sufficient domain. It supplies a structural and reproducible multivariate model rather than an arbitrary parameter slice.
+The inspected sources establish the bivariate distortion, the general criterion and known one-parameter slices. They do not give the exact family-wide all-dimensional frontier and the associated positive-integer frailty weights, especially the mixed strip 1<theta≤2/(1+alpha).
 
-## Scientific limits
+## value
 
-The conclusion is restricted to canonical Archimedean extension and does not classify alternative multivariate couplings with the same bivariate margins. It does not determine the largest valid finite dimension outside the admissible region. Independent mathematical validation and exhaustive historical priority assessment remain open. The code checks finite rational cases; the written recurrence induction and Laplace-transform arguments prove the infinite statements.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact dimension-free classification for a previously proposed bivariate distortion, including an extra strip beyond the known rectangle and the full upper boundary. The explicit frailty law gives a constructive interpretation and exact joint sampler rather than just an existence test. It does not identify the maximal finite dimension outside that frontier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

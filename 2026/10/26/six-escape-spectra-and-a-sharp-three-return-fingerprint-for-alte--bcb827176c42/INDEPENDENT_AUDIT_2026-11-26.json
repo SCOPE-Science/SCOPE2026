@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:54:28.160020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the 2-bit overlapping states and delete one transition in each phase. A time-two edge has a unique intermediate state determined by its endpoints; closed length-j paths count exactly the phase-labelled 2j-periodic strings including repeats. Thus the trace determinant formula gives the symbolic zeta function. Survivor cylinder counts come from summing entries of the alternating products and multiplying by 2^(-n-2). For even n these sums are comparable to an induced norm of P^(n/2); for odd n the terminal vector M_u1 has entries in [1,2], preserving the same growth exponent. The finite-state entropy and escape formulas follow. The unpunctured matrix has rank 2, hence each deleted-edge matrix and P have rank ≤3, so the first three traces determine the full determinant by Newton identities. Independent exact reproduction checked all 64 ordered pairs (including the static pairs) and 192 cyclic word counts: class sizes 8,16,12,8,16,4, the stated six cubic denominators and all triples agree. Rational disjoint brackets and monotonicity of each cubic from 5/2 establish strict Perron ordering; the end cubics give the squares of the golden and tribonacci constants. 000:000 and 000:001 both give (3,11) but have third returns 39 and 33, proving sharpness. Replay: branches/9444d01f-7582-4398-904b-46ef7365b438/reproduce_census.py. This finite run checks the classification, not the all-time identities by itself. The zeta calculation does not claim interval endpoint periodic counts. Frozen checker and verification notes inspected, not rerun; audit/attestation/Lean were not performed in the frozen record.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Livorati et al. address periodic moving/breathing holes and compute rates using Ulam approximations; Georgiou et al. use exact periodic overlap for static finite Markov holes; Bonanno et al. classify fixed-word extremizers."
+        ],
+        "reasoning": "The fixed-word results account for static cases only, and the broader moving-hole set-up does not supply this family’s partition, determinants, or first-two-return collision.",
+        "searches": [
+          "Livorati et al., arXiv:1312.7030 pp. 1,2,4",
+          "Georgiou–Dettmann–Altmann, arXiv:1207.7000 pp. 1,4",
+          "Bonanno–Cristadoro–Lenci, arXiv:2112.14248 Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.7030, 1207.7000 and 2112.14248",
+        "Resultary a999edc596d5, 6dadc656cf56 and 91c8d26540fd",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard transfer and Newton identities provide an upper bound of three traces once rank is bounded; the checked 000:000 versus 000:001 collision and the full ordered-pair spectrum are not consequences of the cited overlap or extremal statements alone."
+        ],
+        "reasoning": "The prior tools are sufficient to set up the enumeration, not a stronger result already giving its exact output. Identical fixed-word methods do not yield minimal universal period information without the phase-specific witnesses.",
+        "searches": [
+          "arXiv:2112.14248 Theorem 3.4 and fixed-word formulation versus the phase-labelled product",
+          "Resultary a999edc596d5 and 6dadc656cf56 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a999edc596d5 contains the 000:111 schedule and its matching cubic, but restricts to the 000 and 111 endpoints; 6dadc656cf56 treats relative ordering of nested holes of different sizes.",
+          "Livorati et al. use moving boundaries and weighted overlaps; that is not an equivalent finite enumeration."
+        ],
+        "reasoning": "The endpoint schedules and static special cases are proper subfamilies, and different-sized nested holes and asymptotic coefficients are different parameters and invariants. None supplies the full phase-labelled fixed-point profiles.",
+        "searches": [
+          "Resultary: alternating depth-three binary cylinder holes, period-two doubling map, six escape spectra and return counts",
+          "arXiv:1312.7030, moving or breathing hole set-up"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a999edc596d5 explicitly has the C cubic λ³−2λ²−3λ−1 for one schedule and studies other periods/finite horizons. The neighboring 91c8d26540fd concerns depth-two endpoint holes. The cited moving-hole calculations do not provide the six-row census in the accessed material."
+        ],
+        "reasoning": "An exact match of one cubic is prior comparison material, but it neither enumerates the schedules of that class nor supplies the other five classes and their multiplicities. The record containing that one cubic is later by date; the same-day phase-ordering record was compared on its mathematics, not assigned priority by date.",
+        "searches": [
+          "Resultary: exact time-two zeta and 64 ordered length-three holes, including similar endpoint schedules and special cases",
+          "arXiv:1312.7030 passages on rate computations"
+        ]
+      },
+      "rationale": "The inspected primary literature supplies return/transfer methods and static or continuous moving-hole results, and one later indexed result gives the same class-C cubic for a single schedule. None of those statements or implications gives this complete equal-depth, period-two spectrum, or the optimal fingerprint within it. Credit is for that finite classification and sharpness, not the determinant method or the individual static spectra.",
+      "residual_risks": [
+        "The focused general web query returned unrelated hits and is not negative evidence. An unlocated exact finite census under different terminology remains possible.",
+        "The comparison does not assert no other moving-hole papers cover particular schedules or extremizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close moving-hole background, not equivalent coverage in the accessed material",
+          "evidence": "Periodic oscillating/breathing hole boundaries, periodic overlap and Ulam rate calculations.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.7030",
+          "material_read": "PDF pp. 1,2,4, offsets 1168,9900,15350",
+          "method": "Bounded OA passage reads",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same map and periodically moving holes"
+        },
+        {
+          "assessment": "Static-hole scope",
+          "evidence": "Periodic-orbit overlap formula for one fixed Markov hole.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.7000",
+          "material_read": "pp. 1,4, offsets 600,26000",
+          "method": "Bounded OA passage reads",
+          "title": "Faster than expected escape for a class of fully chaotic maps",
+          "trigger": "Finite Markov cylinders and exact escape computations"
+        },
+        {
+          "assessment": "Fixed-word classification",
+          "evidence": "One forbidden word, with a characterization of fixed-word maximizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.14248",
+          "material_read": "p. 2 set-up and p. 7 Theorem 3.4, offsets 7800,28500",
+          "method": "Bounded OA passage reads",
+          "title": "Maximal escape rate for shifts",
+          "trigger": "Sharp escape in forbidden-word shifts"
+        },
+        {
+          "assessment": "One matching cubic, later, restricted family",
+          "evidence": "000:111 has class-C Perron cubic; other results concern finite horizons and period three.",
+          "identifier_or_url": "Resultary a999edc596d5",
+          "material_read": "Finding and period-two cubic comparison",
+          "method": "Local Resultary mirror reads",
+          "title": "The first failure of alternating escape for complementary three-bit holes",
+          "trigger": "Exact period-two alternating endpoint schedule"
+        },
+        {
+          "assessment": "Different family and invariant",
+          "evidence": "Small-hole coefficient for differently sized nested endpoint holes.",
+          "identifier_or_url": "Resultary 6dadc656cf56",
+          "material_read": "Finding and hole parameter regime",
+          "method": "Local Resultary mirror reads",
+          "title": "Sharp phase-ordering coefficients for periodically breathing dyadic holes",
+          "trigger": "Same date and phase-dependent escape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete exact classification of a natural first moving-hole family where hole sizes and depths are held fixed and only the schedule varies. The six different rates exhibit real schedule effects, and the sharp finite return test and static/alternating spectral coincidences show exactly what short periodic data can and cannot recover. The value does not hinge on generalizing beyond this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

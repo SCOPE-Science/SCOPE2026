@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:46:10.258710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With δ=t/K and P=I+αuuᵀ, the two objectives at fixed α reduce to extremizing the Rayleigh quotient of S or S⁻¹. For α>0 both select the t mode and for −1<α<0 both select the δ mode; optimizing q=1+α gives q equal to the chosen eigenvalue in either direction. The residual cost differences are (1−1/K)t−log K and log K−(K−1)/t, with simple roots T_F and T_R. The nonzero extrema are simple, identity is strictly worse, and ties between the two directions occur only at the stated objective-specific thresholds. The global spectral comparator follows by interlacing the sign-definite rank-one change in S^(1/2)P⁻¹S^(1/2) from S: the endpoint ratio is at least 1/δ for α>0 and at least t for α<0, with respective diagonal equality examples. A unit middle eigenvalue is essential; in dimension two P=diag(δ/t,1) makes both generalized eigenvalues t. The logarithmic mean satisfies L_K/√K=sinh(h)/h>1 for h=(log K)/2, and 1<T_F and T_R<K follow from the strict log bounds. The mismatch ratios K/t² and t²/K are monotone up to the relevant excluded ties and give the common sharp supremum. This is a statement about spectral ratios, not Krylov iteration counts. The source package records 9,093 finite seeded checks; the all-update proof does not require their execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matrix-truncation paper gives both mode-score selection rules. The earlier condition-number theorem assumes a positive-semidefinite relative error and PSD corrections. The later Kaporin theorem is trace/determinant based."
+        ],
+        "reasoning": "The Bregman selectors and crossings specialize the general published mode scores; the PSD spectral theorem does not directly supply the mixed-sign comparator. The corpus's all-sign rank-one bound does. A rotation fixing the extreme axes reduces any candidate in n≥3 to an affected 3×3 block plus unit eigenvalues, which do not widen its spectral interval by interlacing.",
+        "searches": [
+          "arXiv:2312.06417v3 §2",
+          "arXiv:2304.12162v7 Theorem 2",
+          "arXiv:2503.22286v1 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 81737ab36f99",
+        "arXiv:2312.06417v3",
+        "arXiv:2304.12162v7",
+        "arXiv:2503.22286v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched forward mismatch branch is T_F<t<√K at fixed K. Inversion preserves the rank and maps the preconditioned operator exactly to its inverse."
+        ],
+        "reasoning": "With q=K/t the forward branch becomes √K<t<K/T_F=T_R, and K/q²=t²/K. Supremizing either branch yields K/T_F²=T_R²/K. The combined diagram and equal sharp constants thus do not require an additional independent result.",
+        "searches": [
+          "Resultary 81737ab36f99 Finding, forward score crossover and regret",
+          "arXiv:2312.06417v3, forward and reverse objectives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "81737ab36f99 uses diag(ε,1,M), forward log-det divergence, all SPD rank-one identity updates and comparator min(M,ε⁻¹); use (ε,M)=(t/K,t).",
+          "arXiv:2503.22286v1 §2 distinguishes Kaporin's measure from the extreme eigenvalue ratio."
+        ],
+        "reasoning": "The matched forward problem has the same scale and admissible class, unlike the Kaporin objective. Inversion with an extreme-coordinate swap sends the reverse problem back to the matched forward one, with t mapped to K/t.",
+        "searches": [
+          "Resultary: sharp rank-one spectral conditioning regret for Bregman log-determinant truncation",
+          "81737ab36f99",
+          "arXiv:2503.22286v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "81737ab36f99 Finding: comparator min(M,ε⁻¹) and forward regret factor (Mε)⁻¹ on its mismatch branch."
+        ],
+        "reasoning": "This continuous phase problem requires a symbolic law, not a numerical table. Under the fixed-K substitution, the exact forward branch becomes K/t², and its equality of scores gives T_F.",
+        "searches": [
+          "Resultary 81737ab36f99, exact comparator, mode switch and forward mismatch factor"
+        ]
+      },
+      "rationale": "The distinct Resultary result 81737ab36f99 covers the forward half and the same unrestricted spectral comparator. The reverse half follows exactly by simultaneous inversion: D(P,S)=D(S⁻¹,P⁻¹), the admissible rank-one class is preserved, and the preconditioned spectrum is reciprocated without changing the condition number. At fixed K, S⁻¹ is the same family after swapping the extreme coordinates and replacing t by K/t. Thus its forward threshold and mismatch law reflect to the reverse threshold and mismatch law, giving the full claimed phase diagram and the common sharp supremum. Extending the matched 3×3 model to repeated unit modes adds no new degrees of freedom by rotation of the unit eigenspace. This is established equivalent coverage in the inspected corpus, not a claim that the October 26 record preceded the October 19 frozen one.",
+      "residual_risks": [
+        "The corpus dates and equivalent claims do not establish historical priority or the provenance of the overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact forward overlap; reverse is not stated there but is equivalent by inversion.",
+          "evidence": [
+            "Same full rank-one class; comparator min(M,ε⁻¹); scalar forward crossover φ(ε)=φ(M); regret (Mε)⁻¹."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-rank-one-spectral-conditioning-regret-of-bregman-log-deter--81737ab36f99",
+          "material_read": "RESULT.md, Finding and forward crossover/conditioning argument",
+          "method": "Bounded full-text inspection via local public corpus mirror",
+          "title": "Sharp rank-one spectral conditioning regret of Bregman log-determinant truncation",
+          "trigger": "Same mixed-sign family and unrestricted spectral comparator"
+        },
+        {
+          "assessment": "General prior mode scores; their specialization yields the two scalar thresholds, not by itself the unrestricted sharp spectral comparator.",
+          "evidence": [
+            "Forward score θ−log(1+θ); distinct reverse score and its mode selection."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.06417v3",
+          "material_read": "§2, Eqs. (15)–(19), (21)–(24)",
+          "method": "Open full-text HTML, bounded passage inspection",
+          "title": "A New Matrix Truncation Method for Improving Approximate Factorisation Preconditioners",
+          "trigger": "General Bregman selectors in both orientations"
+        },
+        {
+          "assessment": "Different PSD error and correction regime; does not apply here.",
+          "evidence": [
+            "Relative error PSD with nontrivial kernel, and allowed corrections PSD."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.12162v7",
+          "material_read": "Theorem 2 and hypotheses",
+          "method": "Open full-text HTML, bounded passage inspection",
+          "title": "Preconditioner Design via the Bregman Divergence",
+          "trigger": "Potential stronger spectral optimality theorem"
+        },
+        {
+          "assessment": "Full text was accessible for this review; relates Bregman divergence to Kaporin's different measure, not to spectral regret as a ratio of extremes.",
+          "evidence": [
+            "Kaporin uses the trace/arithmetic-to-geometric-mean ratio. Equality in its Bregman relation uses tr(AP⁻¹)=n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.22286",
+          "material_read": "v1 pp. 2–4; §2 Eqs. (4)–(7), §3 Theorem 1 and Eqs. (14)–(16)",
+          "method": "Lawful open full-text PDF, bounded passage inspection",
+          "title": "Connecting Kaporin's condition number and the Bregman log determinant divergence",
+          "trigger": "Could relate Bregman optimality to the wrong or the same condition measure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact conditioning loss is a motivated counterexample to using exact divergence minimization as a spectral performance guarantee. The mixed-sign model and comparator over noncommuting rank-one updates make that question meaningful even in dimension three. This is the value of the mathematical conclusion, not evidence of a distinct contribution beyond the equivalent corpus result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

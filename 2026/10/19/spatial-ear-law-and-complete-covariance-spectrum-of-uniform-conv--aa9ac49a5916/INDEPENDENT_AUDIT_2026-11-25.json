@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:02.900065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An adjacent prescribed pair forces crossing diagonals for n≥5. A cyclically independent S cuts off |S| distinct triangular faces and leaves a convex (n−|S|)-gon of at least three vertices; gluing back the prescribed ears is the inverse even when new ears appear in the smaller polygon. Thus all inclusion moments, and by Boolean inversion the law, follow. The covariance is (p−q)I−qH+(q−p²)J with H cycle adjacency. The constant mode agrees with Var(total ears)/n; the other modes are obtained by annihilating J. The minimum nonconstant mode is positive by p−3q≥0 for n≥8, with strict positivity contributed by 1−cos; for n=5,6,7 the maximal nonconstant cosine is <1/2, =1/2, and <9/10 respectively and the exact Catalan ratios give the claimed signs. Only the constant mode at n=5 vanishes. A fixed nonadjacent set has limiting inclusion moment 4^(−|S|); consecutive 01 patterns conflict and nonconsecutive ones use disjoint pairs of bits, so all finite-block moments match. An independent enumeration of noncrossing diagonal sets (not the supplied root recursion) checked all 480 inclusions and Fourier spectra for n=5 through 8; replay: OPENBLAS_NUM_THREADS=1 python /workspace/independent_checks.py (NumPy and SciPy). These checks are finite corroboration, not a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mansour–Rastegar's weighted-triangle framework addresses far more than ear counts, but the inspected ear specialization is for equal weights and solves the scalar law.",
+          "Indexed Hurtado–Noy material describes total-ear enumeration through classes of dual trees; lawful full-text attempts did not yield the paper."
+        ],
+        "reasoning": "A generic weighted Catalan recurrence can compute position-marked finite cases, but does not give the evaluated all-size law or Fourier rank without a positional argument. The elementary ear-cutting/Catalan completion mechanism is standard; it is not claimed here as a new triangulation method.",
+        "searches": [
+          "arXiv:1911.04025v2, ear example and surrounding weighted-triangle setup",
+          "Hurtado–Noy, Discrete Mathematics 149 (1996), 319–324, CORE and publisher copies"
+        ]
+      },
+      "checked_sources": [
+        "Mansour–Rastegar arXiv:1911.04025v2",
+        "Asinowski–Regev arXiv:1309.0743",
+        "Hurtado–Noy (1996), indexed abstract and later attribution only",
+        "Resultary record 503a9ed7716d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ear-count variance determines only the action on the constant mode in a rotationally invariant covariance matrix.",
+          "Pair moments, even exactly specified at all distances, do not by themselves determine every higher binary inclusion event or the finite-dimensional process limit."
+        ],
+        "reasoning": "The prior count formulas mechanically imply the constant mode but not equality of nonneighbor pair moments at every distance or all labeled k-site inclusions. The later exact spectrum is equivalent on that component, not a broader all-moment law and not evidence of earlier priority.",
+        "searches": [
+          "arXiv:1911.04025v2, Lemma 1.4 and §3.2",
+          "arXiv:1309.0743, positional classification",
+          "Resultary record 503a9ed7716d, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n≥5 an ear inclusion is presence of the short diagonal (i−1,i+1); in the dual tree it is a leaf with a prescribed boundary position.",
+          "Asinowski–Regev pp. 2–3 characterize symmetry classes for exactly two or three ears, not the probabilities of prescribed sites in the unrestricted ensemble.",
+          "Mansour–Rastegar Lemma 1.4 packages the total count in a one-variable generating function."
+        ],
+        "reasoning": "Prescribed sites and unrestricted total counts are not interchangeable. The distribution of the latter gives the aggregate over prescribed sets, without identifying those labeled summands. Conditioning on few total ears is also not the inclusion law.",
+        "searches": [
+          "Resultary: convex polygon triangulation ear sites mixed moments covariance spectrum Fourier rank local limit",
+          "arXiv:1309.0743",
+          "arXiv:1911.04025v2, Lemma 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mansour–Rastegar gives exactly nλ₀ for Var(total ears) and np for the mean.",
+          "Resultary record SCOPE-sharp-harmonic-observability-crossover-for-ear-patterns-of-rando--503a9ed7716d (2026-11-16) states the pair moments, full spectrum and rank, and adds a least-mode crossover; it expressly does not assert higher-order correlations."
+        ],
+        "reasoning": "The exact constant-mode match is earlier coverage, while the audited indexed all-mode match is later-dated than the frozen finding and does not establish prior coverage. No inspected exact table supplied the labeled higher moments or the process limit.",
+        "searches": [
+          "Resultary: ear indicators and harmonic covariance in random triangulations",
+          "Mansour–Rastegar Lemma 1.4, exact moments"
+        ]
+      },
+      "rationale": "The total-ear law and constant covariance mode are prior results. The distinct claim supported by the comparison is the labeled site law together with the finite all-mode spectrum/rank and identified finite-block limit. The strongest indexed spectrum overlap is a later-dated Resultary record; it is explicitly credited as equivalent second-order coverage there, not treated as earlier priority evidence. This assessment is bounded by inspected material.",
+      "residual_risks": [
+        "The full Hurtado–Noy paper was not inspected; an older general prescribed-face result could give the inclusion formula as a special case.",
+        "The later Resultary spectrum overlap does not establish transmission, independence, or priority in either direction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier scalar mean, variance and pgf overlap; no labeled ear law in the inspected specialization",
+          "evidence": [
+            "Lemma 1.4(I) uses the single scalar z; parts (II)–(III) give the mean and variance, with the latter equal to nλ₀."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1911.04025v2",
+          "material_read": "Abstract, the ears example and Lemma 1.4, and opening of §3.2",
+          "method": "OA HTML passage and section inspection",
+          "title": "On typical triangulations of a convex n-gon",
+          "trigger": "Same uniform ensemble and exact ear-count distribution; broader weighted statistics"
+        },
+        {
+          "assessment": "Structural coverage for configurations with two or three total ears, not the unrestricted specified-site probabilities",
+          "evidence": [
+            "For two ears, their locations and an up/down sequence identify the triangulation; §3 concerns disjoint diagonals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0743",
+          "material_read": "Abstract, pp. 2–3 symmetry argument, §3 opening p. 4",
+          "method": "OA PDF passage inspection",
+          "title": "Triangulations with few ears: symmetry classes and disjointness",
+          "trigger": "Labeled ear geometry in earlier triangulation counts"
+        },
+        {
+          "assessment": "Earlier total-ear count coverage; residual risk of stronger positional material in unread text",
+          "evidence": [
+            "Enumeration by prescribed total number of ears via dual-tree classes, as also credited following Lemma 1.4 of arXiv:1911.04025v2."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0012365X9400331C",
+          "material_read": "Indexed abstract excerpt, not full paper",
+          "method": "Identified CORE PDF and publisher attempts; neither yielded accessible full text. Compared abstract and the attribution in Mansour–Rastegar.",
+          "title": "Ears of triangulations and Catalan numbers",
+          "trigger": "Most relevant older direct-ear enumeration"
+        },
+        {
+          "assessment": "Same pair moments and full eigenvalues/rank; later dated, adds a spectral crossover and does not assert higher moments",
+          "evidence": [
+            "Same p and q and Fourier modes; least-mode change at n=21 is additional."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-harmonic-observability-crossover-for-ear-patterns-of-rando--503a9ed7716d",
+          "material_read": "RESULT.md Finding and scope/limitations",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp harmonic observability crossover for ear patterns of random triangulations",
+          "trigger": "Strongest material indexed spectrum overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The labeled field rather than the total count is a natural observable: its spectrum controls the variance of every weighted position statistic and identifies an exact rank transition, i.e. the disappearance of deterministic linear constraints beyond the pentagon. The explicit limiting process describes complete fixed-window laws rather than just pair decorrelation. The credited total-ear moments and standard Catalan methods are not the proposed value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

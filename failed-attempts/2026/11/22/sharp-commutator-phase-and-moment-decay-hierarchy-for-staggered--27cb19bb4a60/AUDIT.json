@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The normalized block overlaps give \\(U^*V=(1-r/p)I+(r/p)S\\) and hence \\(U^*PQPU=I-\\tau\\Delta\\), where \\(\\tau=r(p-r)/p^2\\). Fourier–Floquet fibers are rank-one projectors with squared overlap \\(\\lambda(\\theta)=1-4\\tau\\sin^2(\\theta/2)\\), yielding imaginary commutator eigenvalues \\(\\pm i\\sqrt{\\lambda(1-\\lambda)}\\) and zero. Continuous matrix multipliers establish both full and Fredholm essential spectra, while almost-everywhere fiber ranks establish the kernel. Parseval and a Gaussian rescaling give the moment-by-moment sharp coefficient. The standalone checker passed 135 finite Bloch spectral instances, 276 phase-threshold comparisons, and twelve high-iteration asymptotic tests; no finite experiment was treated as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Badea--Seifert 2015/2016 establishes general Ritt/Friedrichs-angle rate results but no explicit shifted uniform block model: https://arxiv.org/abs/1510.04560",
+        "Borodin–Kopecká (2019), Theorem 3, gives \\(O(N^{-1/2})\\) for initial vectors in the sum of orthogonal complements, not the localized coarse-block impulse in the present theorem: https://arxiv.org/abs/1911.06176",
+        "Dou--Du--Wang (2017) gives general anticommutator spectral relations without block-stagger parameter or local iteration asymptotics: https://arxiv.org/abs/1705.05866"
+      ],
+      "reasoning": "General two-projection theorems cover the algebraic two-dimensional fiber calculation, which is expressly credited. They do not specify the shifted-grid compression \\([1-4\\tau,1]\\) or the Gaussian moment coefficients; a full implication comparison distinguishes these new input-specific assertions from the general results. The \\(N^{-1/2}\\) estimate has a restricted input hypothesis that excludes the coarse block impulse with \\(N^{-1/4}\\) decay.",
+      "searches": [
+        "alternating orthogonal projections shifted grid cell average two partitions slow convergence rate n 1/4",
+        "staggered partitions block conditional expectation operator spectral radius alternating projection cell averages",
+        "commutant algebra projections Hilbert space principal angles general spectral theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.06176",
+      "https://arxiv.org/abs/1510.04560",
+      "https://arxiv.org/abs/1306.1923",
+      "https://arxiv.org/abs/1705.05866"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general spectral connection between PQP and two-projection matrices is standard (Loring; Dou--Du--Wang).",
+        "The new claim computes \\(PQP\\) explicitly for staggered length-\\(p\\) grids, including its entire continuum, then derives an exact diffusivity threshold and moment-resolved decay.",
+        "The separate unshifted unequal-block family has finite-path compression and discrete essential spectra, hence does not imply the continuum or heat limit of the shifted equal-width bilateral model."
+      ],
+      "reasoning": "The claim does not assert discovery of principal-angle calculus or the abstract alternating-projection dichotomy. Its parameter-specific heat compression and ensuing exact asymptotic coefficients require an additional overlap/Fourier computation absent from the inspected general theories. The closest unshifted result concerns a different geometry and spectral type. Potential older multigrid or local random-walk formulations remain a live priority risk.",
+      "searches": [
+        "two shifted block averaging projections Fourier symbol principal angles spectral band phase threshold",
+        "spectra of anticommutator for two orthogonal projections",
+        "alternating projections remotest projections greedy approximation sharp rate",
+        "commutator spectra orthogonal projections consecutive unshifted integer block averages lengths p and q weighted path Laplacian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The overlap multiplier is \\((1-r/p)+(r/p)e^{i\\theta}\\); this is equivalent to the lazy random-walk step \\(I-\\tau\\Delta\\) on coarse block coefficients, with \\(\\tau=r(p-r)/p^2\\).",
+        "Borodin--Kopecka (2019) treats alternating projections in abstract Hilbert spaces rather than this explicit shifted-grid realization: https://arxiv.org/abs/1911.06176",
+        "Loring (2013) gives abstract principal-angle geometry, not this lattice Fourier overlap: https://arxiv.org/abs/1306.1923"
+      ],
+      "reasoning": "Searches included staggered partitions, conditional expectations, overlapping averaging and principal-angle/Fourier aliases. The heat-step equivalence is proved directly and is not separately claimed as a new general theorem. No inspected source identified its exact shift-dependent constants or moment hierarchy; general decompositions alone do not specify the concrete overlap symbol.",
+      "searches": [
+        "shifted block averaging orthogonal conditional expectation alternating projections Fourier eigenvalues commutator discrete lattice",
+        "staggered bins shifted block averaging conditional expectations two projections spectrum cosine symbol",
+        "two shifted block averaging projections Fourier symbol principal angles spectral band phase threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact spectrum is continuous, given by the image of \\(\\sqrt{\\lambda(1-\\lambda)}\\), rather than a precomputed finite table; no matching table or specialized formula was located in the checked records.",
+        "Related known unshifted unequal-block projection calculations yield finitely many essential spectral values and do not cover bilateral staggered equal-width bands."
+      ],
+      "reasoning": "The object and invariant were compared using the natural discrete-block, conditional-expectation, overlapping-partition, and Toeplitz/Laplacian terminology. A search miss is not taken as proof of uniqueness, and the scope of this check is limited to available indexed material.",
+      "searches": [
+        "commutator of orthogonal conditional expectations on shifted equal size block partitions of integers essential spectrum translation step Fourier",
+        "overlapping partition averaging projections cosine Toeplitz matrix spectral",
+        "uniform sliding-block averaging orthogonal projections shifted grid norm convergence spectrum"
+      ]
+    },
+    "rationale": "The reviewed contribution is the parameter-specific, complete bilateral staggered-grid commutator spectrum with its sharp \\(1/8\\) transition, exact heat-step representation, and localized moment asymptotics. General two-projection decomposition and abstract alternating-projection convergence theorems are prior ingredients, not stated explicit results about these grids. Direct mathematical record and literature comparisons revealed no dominating result for the same equal-width staggered lattice geometry. Equivalences and residual specialized-literature risks remain explicitly acknowledged.",
+    "residual_risks": [
+      "Older finite-difference, multigrid, stationary Markov averaging and signal-processing literatures may have independently derived the identical lazy-heat stagger relation or its spectral consequences.",
+      "Indexed-search coverage of specialized lattice conditional-expectation papers is incomplete.",
+      "General two-projection and heat-kernel theory makes parts of the calculation accessible; the claimed original unit is the complete concrete parameter-specific classification, not a universal theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_RATE_RESULTS_NOT_SAME_OBJECT",
+        "evidence": [
+          "General \\(O(N^{-1/2})\\) bound in Theorem 3 has the hypothesis that the input belongs to a sum of orthogonal complements.",
+          "No staggered equal-width lattice projection, Floquet multiplier, or sharp \\(N^{-1/4}\\) block-impulse coefficient was identified in examined material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.06176",
+        "material_read": "Full-text rendering: abstract, introduction, convergence-rate dichotomy, Theorem 3 and its proof, and text search for block/Fourier constructions",
+        "method": "arXiv full-text rendering and targeted in-document examination",
+        "title": "Alternating projections, remotest projections, and greedy approximation",
+        "trigger": "Primary motivating paper on rates for products of orthogonal projections"
+      },
+      {
+        "assessment": "GENERAL_GEOMETRIC_FRAMEWORK_NOT_CONCRETE_COEFFICIENTS",
+        "evidence": [
+          "Gives general convergence-rate dichotomy and dense smooth initial subspaces.",
+          "Does not present the concrete overlap coefficients of staggered equal-size block partitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.04560",
+        "material_read": "Abstract, introduction, Friedrichs-angle discussion, main rate statements and cited consequences",
+        "method": "arXiv full-text rendering",
+        "title": "Ritt operators and convergence in the method of alternating projections",
+        "trigger": "Closely related general fast-versus-slow alternating projection theorem"
+      },
+      {
+        "assessment": "GENERAL_PROJECTION_DECOMPOSITION_CREDITED",
+        "evidence": [
+          "Provides the canonical rank-two principal-angle mechanism.",
+          "The theorem is not a computation of lattice stagger parameters or of local alternating iteration rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.1923",
+        "material_read": "Abstract, introductory statements, two-projection theorem and canonical angle blocks",
+        "method": "arXiv full-text rendering",
+        "title": "Principal angles and approximation for quaternionic projections",
+        "trigger": "Classical two-projection decomposition could dominate commutator spectrum"
+      },
+      {
+        "assessment": "ANTICOMMUTATOR_GENERAL_THEOREM_NOT_STAGGERED_MODEL",
+        "evidence": [
+          "Relates anticommutator spectrum to PQP spectrum for arbitrary projections.",
+          "Does not compute the spectrum of PQP for the present offset block partitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.05866",
+        "material_read": "Full 95-line article rendering, including Theorem 1.1, Halmos block decomposition and proof",
+        "method": "arXiv full-text rendering",
+        "title": "Spectra of anticommutator for two orthogonal projections",
+        "trigger": "Potential stronger spectral coverage for arbitrary two-projection operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "27cb19bb-4a60-431d-a84e-970ffb2444bd",
+  "value": {
+    "rationale": "The unshifted or shifted alignment of blockwise averaging is a basic concrete setting for alternating projections and repeated signal reconciliation. The sharp \\(\\tau=1/8\\) commutator transition, full essential spectral interval, heat-step equivalence and moment-by-moment sharp decay classify nontrivial geometric and dynamical behavior across every width and stagger. The moment law identifies which localized inputs can converge rapidly despite norm-nonconvergence and supports quantitative iteration estimates; it is not an arbitrary isolated small-dimensional parameter.",
+    "status": "PASS"
+  }
+}

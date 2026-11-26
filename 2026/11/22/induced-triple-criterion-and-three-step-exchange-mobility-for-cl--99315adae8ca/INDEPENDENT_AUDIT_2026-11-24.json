@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:59:15.159735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original mathematics is correct, including the removed exchange claim. A fresh implementation (not either uploaded verifier) checked all 65,536 placements and independently ran BFS from all 320 minimum triples. It reproduced failed counts 1,16,120,240,60 and none above size four, exact equality of failures with subsets of induced 2K2s, unique extension for every failed triple, and at most one wave after initial observation for every success. It also reproduced degree 21, 3360 edges and shells (1,21,126,172) at all 320 roots for the original graph. Replay: /workspace/branches/42a07edb-32ce-4794-99f4-9daa907203a4/reproduce_record2.py and its reproduction_subsets.json and reproduction_exchange.json. For the repaired claim I independently checked the written proof: wave monotonicity follows because a forcer remains observed and an unobserved target remains unique in the larger observed state. The three triple orbits use a translated vertex of the appropriate type; the XOR representatives have the listed initial unseen sets and wave behavior. For an edge represented by ∅,{i}, the six nonneighbors of both endpoints induce three pairs of complementary two-subsets of the other four coordinates. This supplies the unique completion and the count 40·3/2. For the failed representative {0,1,6}, adding its partner 7 leaves the observed set unchanged, so the completed set is stalled. Every pair extends to a failed triple; a four-set with one edge in every triple is a matching by counting twice per edge, and such a five-set would require 3e=10. The complete failure classification and polynomial follow, without an exchange enumeration. Repaired RESULT.md, SLOGAN.txt and scientific body of VERIFICATION.md were checked for consistency; the verification-status front matter is unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary-hypercube statements concern Q_n, not the antipodal quotient. The blind-spot paper extends exact minimum-placement results to both token jumps and slides but its compared placement analysis is for one-, two- and three-sets.",
+          "The same-day Shrikhande classification is an all-subset theorem on a different sixteen-vertex Cayley graph. Its maximal failures are 32 triangles and 12 cyclic lines, and it has successful pairs."
+        ],
+        "reasoning": "Changing the host by taking the antipodal quotient, or to another strongly regular graph of order 16, changes the neighborhood process. The exact minimum-triple theorem is a genuine antecedent for the repaired proof but does not by itself classify four-set failures. No inspected broader theorem supplies their failure structure for this host.",
+        "searches": [
+          "Dean–Ilic–Ramirez–Shen–Tian DOI 10.1109/CSE.2011.211; Resultary 142d52a30ab7 proof §§I and IV; Resultary 3fe85d5d226a Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:142d52a30ab7",
+        "Resultary:3fe85d5d226a",
+        "Resultary:99315adae8ca (identical original)",
+        "DOI:10.1109/CSE.2011.211",
+        "https://aeb.win.tue.nl/graphs/twographs.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first Finding item of 142d52a30ab7 gives γ_P=3, 160 successful independent triples and 160 paths, and the triple wave bound. Its jump proof gives 21-regularity, 3360 edges, radius and diameter 3, and full distance layers.",
+          "Remaining work beyond that classification is to prove exhaustion of failures of size ≥4 and determine the exact extensions: the common-nonneighbor subgraph of each edge is three disjoint edges, and adjoining the compelled partner leaves the failed representative's closed-neighborhood union unchanged."
+        ],
+        "reasoning": "A minimum-triple classification certifies success for supersets of those triples. It does not certify failure of supersets of failed triples, because adding vertices can create successful placements even without a successful triple. The matching/unchanged-observation proof plus the all-size edge count are the required additions. The repaired global one-wave bound is then a corollary, not a stand-alone originality claim.",
+        "searches": [
+          "Resultary 142d52a30ab7 Finding and proof §§I, III–IV, including source offsets 0 and 6752; Dean et al. full-text hypercube theorem passages; Resultary 3fe85d5d226a Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 142d52a30ab7 uses the identical XOR generators and standard propagation. Its unrestricted jump rule is exactly symmetric difference of size two; its Finding and proof §IV give the identical graph and degree/profile claims.",
+          "Brouwer's table lists the regular switching class with the degree-ten complement of the host and K1+T(6). The successful triples are even-edge triples of the five-regular graph, equivalently odd-edge triples of the complement, giving the known two-graph alias."
+        ],
+        "reasoning": "The jump graph is the 2-intersection graph of those triples, not the adjacency-restricted slide graph. A switch preserves triple edge parity but need not preserve the neighborhood process or identify maximal failed four-sets as induced 2K2s in the specified host. The repaired scope is the all-size power-domination failure boundary, not the classical switching class or recognition of optimal triples.",
+        "searches": [
+          "Resultary: Clebsch power domination minimum triples and exchange shells; five-regular Clebsch graph power domination maximal unsuccessful sensor placements 60 induced 2K2 unique extension one edge triple all sizes successful placement polynomial",
+          "Clebsch regular two-graph even triples, Seidel switching and 2-intersection graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact hit for those claims was frozen record 99315adae8ca itself. The distinct hit 142d52a30ab7 contains the exact original jump table: either orbit representative has row 1,21,126,172 followed by zeros. The verified full-placement table in 3fe85d5d226a is for Shrikhande, not Clebsch."
+        ],
+        "reasoning": "The identical frozen record is not independent prior evidence; the other Clebsch table is a substantive match to the original exchange claim and is removed, not dismissed on the basis of date. The Shrikhande table has different entries and a nonisomorphic host. The compared exact Clebsch passages do not tabulate the maximal failed four-sets or the full success polynomial.",
+        "searches": [
+          "Resultary narrow query for 60 maximal failed induced 2K2s, unique extension of failed triples and all-size Clebsch success polynomial"
+        ]
+      },
+      "rationale": "Originality of the combined original claim FAILS the distinct-claim requirement: an independently indexed same-day result gives the same minimum-triple classification and exact token-jump graph, including all claimed distance layers. This is demonstrable overlap, not a finding that either record has chronological priority or that the frozen theorem is false. The repaired finding removes the entire reconfiguration claim and credits the three-set input. PASS applies only to the surviving new content: the exact maximal failed family, unique failed-triple extension, and all-placement classification and polynomial. A narrowed search and statement-level comparison support that distinct content, with the risks below.",
+      "residual_risks": [
+        "Date alone cannot rank the overlapping exchange records; the repaired text makes no priority assertion on their shared facts.",
+        "Historical or unindexed Clebsch calculations could cover the remaining maximal-failure result. No absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact material overlap with original; only the distinct maximal-failure theorem is retained",
+          "evidence": "Finding items 1 and 3, plus the distance-layer table and orbit argument, give all the original minimum and exchange facts. The inspected placement verification is through size three; the full size-four failure result and its all-size counting consequences are not in those passages.",
+          "identifier_or_url": "Resultary:142d52a30ab7; https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-blind-spot-antipodes-and-the-sharp-relocation-gap-of-the-five-re--142d52a30ab7/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§I–IV and verification passage; mirror offsets 0, 6752 and around 8937",
+          "method": "Resultary query and targeted local mirror passages",
+          "title": "Blind-spot antipodes and the sharp relocation gap of the five-regular Clebsch graph",
+          "trigger": "Same graph, same process and exact claims on minimum placements and jump distances"
+        },
+        {
+          "assessment": "Does not transfer to the folded quotient by identification of vertices",
+          "evidence": "The stated host is the ordinary binary hypercube, not the five-regular antipodal Clebsch quotient.",
+          "identifier_or_url": "https://doi.org/10.1109/CSE.2011.211; https://kjtian.github.io/PDSHypercube.pdf",
+          "material_read": "Ordinary Q_n conclusions, PDF p. 2 at text offset about 7288",
+          "method": "Targeted lawful author-hosted PDF passage",
+          "title": "On the Power Dominating Sets of Hypercubes",
+          "trigger": "Published results for powers of the cube, possibly including the folded five-cube"
+        },
+        {
+          "assessment": "Credits known triple system up to switching, not all-placement power domination",
+          "evidence": "The switching class of the ten-regular complement includes an isolated point plus T(6); the five-regular host lies in its complementary class.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/twographs.html",
+          "material_read": "Regular two-graphs on sixteen vertices, switching-class passage around offsets 2046–2700",
+          "method": "Original public mathematical catalogue, targeted passages",
+          "title": "Two-graphs",
+          "trigger": "Classical alias of the even-edge exchange triples"
+        },
+        {
+          "assessment": "Different host and failures, with no priority inferred from the date",
+          "evidence": "Six directions in Z_4×Z_4, successful pairs, 32 triangular and 12 cyclic-line maximal failures; these are not Clebsch's induced matchings.",
+          "identifier_or_url": "Resultary:3fe85d5d226a",
+          "material_read": "Opening Finding and assumptions",
+          "method": "Resultary narrow search and local mirror",
+          "title": "Triangles and cyclic lines are exactly the failed power-dominating placements in the Shrikhande graph",
+          "trigger": "Strong analogous exact all-placement claim at the same graph order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired finding is an exact structural classification on a canonical strongly regular graph, not a recomputation of minimum size or jump distances. It identifies all maximal ways to fail, gives a unique completion rule for each failing triple and specifies the success enumerator at every sensor budget. Those are distinct useful finite facts for reasoning about robustness of placements. The proof explains why the induced matchings stall, beyond simply listing the configurations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

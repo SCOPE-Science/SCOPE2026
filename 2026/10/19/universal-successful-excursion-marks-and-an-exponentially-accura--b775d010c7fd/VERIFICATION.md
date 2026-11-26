@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytical argument in `RESULT.md` proves the high-rate joint transform using the absorbing-interval boundary-value solution, renewal conditioning, endpoint Laplace asymptotics, and a coupling to a half-line process. The explicit finite-rate upper bound is independent of any numerical experiment and holds for every real shape \(\beta>0\) once \(x\ge2\beta+2\). Every limiting assertion quantifies over fixed physical size and diffusion parameters and fixed local-power coefficients; the limit is \(r\to\infty\).
+## correctness
 
-Running `python CHECK.py` with Python 3 and no third-party packages returned `PASS: 219 deterministic tests; no analytical limit inferred from these checks.` It independently integrates the exact two-endpoint first-passage transform, compares uniform resetting with the hyperbolic-tangent identity, checks the predicted transforms at multiple density powers and high but finite reset rates, and checks the finite-circle versus half-line mass discrepancy against the coupling upper bound for integer shapes. The code uses composite-Simpson quadrature, so its tests establish numerical consistency only and are not exhaustive proof.
+PASS
 
-No independent external scientific audit has been performed. Prior general formulas for the last reset position, mean passage time, and unmarked exponential limit are cited and not represented as newly proved discoveries.
+Conditioning one excursion on success gives the terminal marks, since the trials are iid and geometrically repeated. The absorbing-interval transform has a near-endpoint term exp(-qd sqrt(1+s)) and an opposite-endpoint term bounded exponentially in q. After z=qd, the local densities are dominated by a constant times z^(beta-1), and the part outside any fixed target neighborhood is exponentially small. This proves the rescaled transform on each side, with a leading coefficient of zero allowed, and p_r ~ (c_+ + c_-) Gamma(beta) q^(-beta). The conditional time transform gives E[U|Z]=Z/2 and Var(U|Z)=Z/4, so Cov(Z,U)=beta/2 and the claimed correlation is 1/sqrt(2) for the limit law. The failed-duration sum is independent of the terminal marks at finite rate; its Laplace transform on the rp_r scale tends to (1+theta)^(-1), while the terminal duration on that scale vanishes. The mean threshold follows from the single-trial elapsed mean (1-p_r)/r. For total variation the coupling can disagree only if the far endpoint is hit first and before reset, with probability sinh(qd)/sinh(2aq). Add the omitted half-line Gamma tail, use ring success mass at least half the untruncated half-line mass for x>=2beta+2, and bound the cost of normalization by twice the unnormalized discrepancy divided by ring success mass. This gives the claimed factor-four bound for the symmetric pure power family, not an exact TV asymptotic. Proof replay: RESULT.md lines 54–110; CHECK.py and VERIFICATION.md were inspected, not executed, and the mass comparisons in the script are not an empirical verification of the joint TV bound.
+
+## originality
+
+PASS
+
+The supported contribution is the joint high-rate law of terminal distance, terminal duration and side under target-contact density powers, with the quantitative ring-to-half-line TV bound for a pure power. Last-reset weighting, the renewal mean and the unmarked exponential clock are not credited as new. The strongest inspected position/time precursor concerns total arrival time and last reset position; its integrand can give a prelimit successful-excursion measure but does not supply the stated asymptotic or quantitative domain comparison.
+
+## value
+
+PASS
+
+The limit identifies persistent dependence invisible to the two Gamma marginals or to the unmarked arrival clock. Its exponent-independent correlation and independent side are interpretable properties of successful trajectories. For the pure-power family, the explicit whole-law error controls replacing the ring by a half-line for events involving both marks simultaneously; that guarantee is not available from a mean or a marginal transform alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

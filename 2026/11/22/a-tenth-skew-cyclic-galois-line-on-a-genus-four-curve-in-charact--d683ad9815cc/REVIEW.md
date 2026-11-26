@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The extra line is explicit. Exact characteristic-five polynomial identities prove preservation of both defining equations by an order-six automorphism; the two projection forms transform with the same factor, so the order-six group fixes their quotient. The line misses the complete-intersection curve; the degree-six projection then proves a cyclic Galois extension. The published nine geometric centers are preserved under reduction because explicit integral cyclotomic certificates and nonzero skew-intersection coefficients survive in characteristic five, and the new line differs from all nine. The curve is smooth by the separable six-branch-point triple-cover model. The standalone checker verifies the algebraic identities and all original generator certificates.
+## correctness
 
-**Originality — PASS with residual priority risk.** The nine lines and their characteristic-zero maximality are credited directly to Komeda–Takahashi (2023). The present tenth-line witness exists only thanks to the special characteristic-five identity and is not implied by a classification restricted to characteristic zero. Searches on the exact curve, characteristic-five cyclic lines, and additional Galois centers did not identify an equivalent positive-characteristic lower-bound witness. Other prior results on diagonal genus-four curves concern Weil polynomials, not the full skew-line locus. An unindexed characteristic-five classification remains possible.
+PASS
 
-**Mathematical value — PASS.** Extending geometric extremal bounds across characteristics is a natural question, and an explicit smooth reduction with strictly more Galois lines pinpoints a genuine boundary of the characteristic-zero classification. The result is not a renaming or a parameter substitution: the new order-six group comes from an extra characteristic-five involution acting on the sextic branch configuration. The result does not purport to determine the entire positive-characteristic classification.
+The affine chart Y=1 has t=Z/Y, X/Y=t^2, w=W/Y, and w^3=-(t^6+1). The six simple branch zeros give geometric irreducibility. The complete intersection is smooth: the quadric gradient is nonzero off its vertex (which is not on C); if W is nonzero the cubic gradient has nonzero W component, and if W=0 then X,Y,Z are nonzero and the quadric gradient has nonzero Z component whereas the cubic gradient has zero Z component. Adjunction gives the canonical embedding and genus four. On the proposed center Q=-2Z^2 and F=W^3, so it is disjoint. Independently, the projection ratio on the chart is f=t(t+1)/(1-t), of degree two on the base t-line, with the other root t'=(t+1)/(t-1). The characteristic-five identity (t+1)^6+(t-1)^6=2(t^6+1) lifts this involution as (t,w)->(t',3w/(t-1)^2); applying it twice multiplies w by 9/4=1 modulo five. It commutes with w->omega*w, so the cyclic order-six group fixes f and exhausts its function-field degree 3*2. This recovers the stated matrix action and distinguishes geometric Galoisness from arithmetic descent. The prior nine can be checked in the same chart: t->-t over t^2; t->a/t over t+a/t for a^6=1, with lift w->cw/t^2 where c in {a,-a} has c^3=1; and the two diagonal order-six actions preserving X/W or Y/W. All nine centers remain disjoint, distinct from one another, and distinct from the new center (which neither lies in Z=0 nor in W=0 and has X,Y not identically zero). The frozen script and its exact certificates were inspected, not executed.
 
-**Main limitation.** This is an existence lower bound (at least ten), not an exhaustive count or a claim about arithmetic cyclicity over the prime field.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known nine centers are expressly prior. The claimed contribution is only an explicit geometric counterexample to extending the characteristic-zero nine-line upper bound to this reduction, not a complete characteristic-five classification. The strongest located exact line classification is characteristic zero; the same-curve maximality and quotient descriptions do not themselves give the skew projection or its sixth-order deck action. The identical indexed record is not independent coverage. No earlier positively covering statement or implication was established in the inspected material.
+
+## value
+
+PASS
+
+A concrete smooth canonical genus-four failure of a sharp characteristic-zero bound is a natural boundary example. The line and cyclic degree-six projection are explicitly verifiable; the higher count is not obtained by merely reducing the known nine. The result explains the failure through a new branch involution in characteristic five and can serve as an exact test for any positive-characteristic classification. Its value is the counterexample, not a full line census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

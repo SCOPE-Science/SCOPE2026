@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:06:55.477411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44 and 48–96",
+        "Frozen VERIFICATION.md and check.py, inspected without execution",
+        "Dowker arXiv:1207.2096, equations (29)–(31)",
+        "Independently recomputed Bessel critical point and value"
+      ],
+      "rationale": "With the forward incidence matrix E, Q_n=−EᵀE and A_n=−EEᵀ, so the heat intertwining holds including n=2. The norm at an edge is the variation of the corresponding Dirichlet kernel row with zero endpoints. Its discrete derivative evolves by Q_n starting at e_(i−1)−e_i. Each adjacent two-site Markov factor has nonnegative ordered minors (adjacency is essential); Cauchy–Binet and the Lie–Trotter limit give nonnegative ordered two-minors for the full heat matrix. Positivity then orders the two neighboring column ratios, so the row derivative changes sign at most once and the row variation is twice its peak. Strict Gram Cauchy–Schwarz at off-diagonal entries makes the global maximum a diagonal one. Odd reflection on the 2n-cycle gives K_t(i,i)=q_t(0)−q_t(2i); the consecutive radial differences satisfy the stated cooperative tridiagonal ODE with −3 end diagonals, including n=2. They are strictly positive, so exactly the central edges maximize, with the stated step attaining the norm. The sine expansion gives the finite formula and strict decrease. Killing removes paths that leave and return with positive probability, giving the strict lattice deficit, which vanishes along central sites at fixed time by the jump-count tail. For the scaled lattice profile put z=2t and r=I₁(z)/I₀(z); the logarithmic derivative in z is r−(1−1/(2z)). The Riccati equation gives slope −1/(4z²) at each zero; the function is positive near zero and negative at infinity by its leading asymptotic −1/(8z²). There is exactly one global maximum, and no finite path attains it. Independent root evaluation gave t*=0.3949892106717841 and constant 0.6630149334909871. Diffusive scaling follows from the fixed-mode sine and eigenvalue limits and the summable majorant exp(−4sk²).",
+      "residual_risks": [
+        "Numerical root evaluation supports the decimals only. Conclusions use counting measure, rate one along each edge and unweighted adjacent differences; they do not transfer as stated to weighted paths or continuum derivatives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Ponti and Stefani define bounded-input Lipschitz smoothing and its optimal time function without evaluating it on this graph in the read passage.",
+          "Wang and Yan give a continuum Neumann L¹-to-L∞ gradient estimate. Abadias and de León-Contreras give ℓ¹ decay estimates for infinite-lattice heat-kernel differences."
+        ],
+        "reasoning": "The general framework contains the norm question, and the lattice estimates concern a related kernel, but none supplies the sharp finite-path bounded-input operator norm or optimized universal time weight.",
+        "searches": [
+          "De Ponti and Stefani, arXiv:2403.00620, Definition 3.1",
+          "Wang and Yan, arXiv:1009.1965, Theorem 1.1",
+          "Abadias and de León-Contreras, arXiv:2107.06778, Lemma 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b61064b7e3c0, 14f278a0557c, 53414e7e29f7 and adbd0b0a91ef",
+        "arXiv:0801.2625",
+        "arXiv:1207.2096",
+        "arXiv:2107.06778",
+        "arXiv:1009.1965",
+        "arXiv:2403.00620"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact integrated BV coefficient gives 2K_t(c,c) upon differentiation, with the maximizing cut c fixed for all times; the odd cycle comparison already establishes location for the diagonal.",
+          "The new norm comparison uses single-sign-change of a Dirichlet row derivative and strict Gram reduction. The sharp time constant requires a global Bessel quotient crossing, not just the lattice or interval kernel formula."
+        ],
+        "reasoning": "The prior central diagonal rigidity and spectral data substantially cover intermediate conclusions. Taking an integrated norm's scalar derivative does not in general give the norm of its derivative, and the read BV theorem does not bound arbitrary row variation. The finite bounded-input norm and its unique sharp time optimum remain a meaningful additional result; catalogue-date order by itself plays no role.",
+        "searches": [
+          "b61064b7e3c0, Proof Steps 2–5",
+          "Dowker, arXiv:1207.2096, pp. 3 and 10–11",
+          "Frozen RESULT.md, row unimodality, Gram reduction and Bessel uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spatial gradient norm is twice the maximum total variation between adjacent vertex transition rows, with TV equal to half the ℓ¹ distance.",
+          "The catalogue BV approximation is instead sup of ||H_t f−f||₁/TV(f). Its sharp central-cut coefficient differentiates to the same scalar profile, and its Step 2 evaluates the derivative through the central step's edge gradient."
+        ],
+        "reasoning": "The BV derivative gives the absolute response of the particular sign-step normalized to the bounded-input problem. It does not control the absolute row variation for general bounded inputs. The birth–death endpoint result inspected is for separation, not adjacent-row TV at a fixed time.",
+        "searches": [
+          "Resultary finite-path heat-kernel/BV norm lookup; exact b61064b7e3c0 Finding and Proof Steps 1–3",
+          "Birth–death adjacent-row total variation comparison; Ding, Lubetzky and Peres, arXiv:0801.2625, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The BV record contains the integrated central spectral sum and proves the exact pointwise diagonal maximizer. Dowker gives the discrete free Bessel kernel and the Dirichlet image/sine formulas.",
+          "The switching-staircase record gives the exact lattice ℓ¹-to-ℓ∞ gradient as the maximum of Bessel first differences; the same-date cycle and Ehrenfest findings study generator times semigroup under the weight t."
+        ],
+        "reasoning": "Exact central kernel data are already available, including the scalar expression by differentiation. The other exact norm entries have different endpoints, graph or generator, and time weights; none inspected gives this bounded-input maximum or its optimized √t-weighted value.",
+        "searches": [
+          "Resultary b61064b7e3c0, Proof Steps 2–5",
+          "Resultary 14f278a0557c, Finding",
+          "Resultary same-date 53414e7e29f7 and adbd0b0a91ef, Findings",
+          "Dowker arXiv:1207.2096, discrete interval image and spectral formulas"
+        ]
+      },
+      "rationale": "The closest exact catalogue result supplies the same central Dirichlet diagonal and its finite spectral data, and its sharp BV approximation coefficient differentiates to exactly the displayed numerical profile. Those kernel and centrality statements are covered and not credited as new. Its different operator norm does not give the arbitrary bounded-input upper bound or maximizing evaluation location for that norm: its step calculation supplies a lower bound there, not the needed row-variation comparison. The supported distinct contribution is the sharp evaluation for the bounded-input spatial gradient, including the finite deficit and unique dimension-uniform time-weighted optimum. No inspected comparison implies that full claim.",
+      "residual_risks": [
+        "Historical birth–death coupling or monotone row-distance literature may encode the adjacent-row norm under another name. The comparison does not certify absolute priority, and the exact structural diagonal and its BV integral are explicitly treated as covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap for sharp diagonal and central spatial profile, different optimized norm",
+          "evidence": "Central-cut BV coefficient is the integral of 2K_t(c,c), proved by exact differentiation of the step response, with exact cycle-diagonal rigidity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-finite-path-heat-approximation-in-discrete-bounded-variati--b61064b7e3c0",
+          "material_read": "Finding, Assumptions and Proof Steps 1–5; offsets 0–6703",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact finite-path heat approximation in discrete bounded variation, with central-cut rigidity",
+          "trigger": "Exact same finite path, spectral coefficients and central edge"
+        },
+        {
+          "assessment": "Different distance optimization in decisive passage",
+          "evidence": "The endpoint pair maximizes separation in the stated continuous-time or lazy birth–death setting, not the adjacent-pair TV quantity in the frozen theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.2625",
+          "material_read": "PDF p. 1, around offset 1830",
+          "method": "OA preprint PDF text",
+          "title": "Total Variation Cutoff in Birth-and-Death Chains",
+          "trigger": "Equivalent TV formulation for adjacent transition rows"
+        },
+        {
+          "assessment": "Prior kernel identities; not by themselves the bounded-input norm optimization",
+          "evidence": "Free lattice kernel e^(−2t)I_|j−j′|(2t), Dirichlet image and eigenfunction formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.2096",
+          "material_read": "PDF p. 3 offset 5805; pp. 10–11 offset 29414, equations (29)–(31)",
+          "method": "OA preprint PDF text",
+          "title": "Heat-kernels on the discrete circle and interval",
+          "trigger": "Exact kernel formulas for the same domain"
+        },
+        {
+          "assessment": "Different norm, domain and maximizing geometry",
+          "evidence": "ℓ¹(ℤ)-to-ℓ∞ norm of a first difference kernel is a maximum of consecutive Bessel differences, not bounded-input row variation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact switching staircase for discrete Gaussian gradient peaks",
+          "trigger": "Exact Bessel-based gradient optimization"
+        },
+        {
+          "assessment": "Related decay estimates, not the finite-path sharp optimization",
+          "evidence": "ℓ¹ difference bounds for the lattice heat kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.06778",
+          "material_read": "Lemma 2.6, PDF p. 13, offset 53880",
+          "method": "OA preprint PDF text",
+          "title": "Discrete Hölder spaces, their characterization via semigroups associated to the discrete Laplacian and kernels estimates",
+          "trigger": "Sharp or general lattice difference norm estimates"
+        },
+        {
+          "assessment": "Different domain, input norm and sharpness question",
+          "evidence": "L¹-to-L∞ gradient bound for a compact Riemannian manifold with boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.1965",
+          "material_read": "Theorem 1.1, PDF p. 2, offset 4037",
+          "method": "OA preprint PDF text",
+          "title": "Gradient Estimate on the Neumann Semigroup and Applications",
+          "trigger": "Neighboring gradient smoothing theorem with reflection"
+        },
+        {
+          "assessment": "General definition, no exact finite-path evaluation in the located passage",
+          "evidence": "Defines the L∞-to-Lipschitz property and optimal smoothing function c_star(t).",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00620",
+          "material_read": "Definition 3.1, PDF p. 9, offset 30254",
+          "method": "OA preprint PDF text",
+          "title": "Properties of Lipschitz smoothing heat semigroups",
+          "trigger": "Most direct broader bounded-input Lipschitz framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary b61064b7e3c0, Finding and Proof",
+        "De Ponti and Stefani arXiv:2403.00620, Definition 3.1"
+      ],
+      "rationale": "A rate-one path is a canonical test for bounded-input heat regularization. The exact operator norm and sharp, unattainable finite-path deficit separate edge geometry from lattice smoothing; the global time optimizer identifies a finite-time peak that is strictly above the large-time continuum constant. The bounded-input upper bound and this sharp dimension-uniform optimization add information beyond retrieving a kernel formula or differentiating the BV expression.",
+      "residual_risks": [
+        "Interpretation is for the specified path normalization only, and provides no weighted-graph or general-space estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

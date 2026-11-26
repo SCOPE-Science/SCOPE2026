@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim covers every integer dimension at least two, arbitrary centered iid constant-norm heading redraw law, and all strictly positive trap/tumble rates without thermal forcing. The stationary generator closes on the five polynomials \(R,H,Q,M,RH\) and the necessary fourth-order quantities, with no assumption of Gaussian position or isotropic headings. The derived stationary variance is positive. A two-state regression system for lagged \(R\) and \(H\) produces the universal autocovariance, including the coincident-rate limit. Its second and third right derivatives uniquely recover the unordered relaxation-rate pair; exchanging its two entries is the only second assignment and has a positive tumble rate exactly in the stated strict interval. The variance difference factors as a strictly positive rational multiplier of \(\gamma-\mu\), and the trace inequality and explicit centered heading mixture give the complete sharp envelope. Exact-rational finite-state generator tests passed 319 checks; an independent 40,000-path simulation also agreed with the nonzero-lag temporal prediction. They corroborate, not replace, the universal proof. The proof does not address noncentered or correlated-turn models.
+## correctness
 
-## Originality — PASS (best-knowledge, qualified)
-The February 9, 2026 preprint by Guéneau, Majumdar and Schehr establishes the isotropic stationary model, moments and stick-breaking law, including ingredients implying the known isotropic stationary fourth moment. The inspected full preprint does not present a two-time squared-radius covariance, universal centered angular law, or complete inverse-rate ambiguity. The inspected preprint of Sun, Ye and Podgornik presents transient and stationary moment machinery for finite-tumble active particles but not this inverse classification for the connected stationary radial-energy two-time observable. Garcia-Millan and Pruessner derive the different two-time *position* covariance in one dimension, which does not determine fourth-order two-time energy correlations for non-Gaussian dynamics. Published neighboring results cover anisotropic *traps* at equal time or inverse covariance twins for a *switching passive trap*; neither has the hypotheses and conclusion here. An implicit derivation in earlier general moment machinery or an unindexed multitime paper remains the principal risk. Novelty is a reasoned best-knowledge assessment, not an independent priority certificate.
+PASS
 
-## Value — PASS
-Measuring temporal decay of radial energy is a natural active-matter spectroscopy observable. The theorem identifies a previously hidden limitation of using even its full normalized autocorrelation and stationary mean to infer a trap-relaxation rate versus a heading-refresh rate; it proves the ambiguity is precisely twofold, gives the exact admissible window and a single higher-order amplitude measurement that always resolves it. The result also proves anisotropy can alter fluctuation amplitudes sharply while leaving their entire normalized relaxation history unchanged. These are nontrivial qualitative structural facts, not merely a routine restatement of known stationary radial moments. They do not imply robust finite-sample inference or apply to generic active forces.
+The stationary convolution makes the relevant polynomials bounded. In dimensionless units, the generator applied to R=|X|² and H=X·n gives −2R+2H and 1−(1+α)H. Applying it to XᵀΣX and XᵀΣn gives their equal stationary means s/(1+α), since the heading marginal is ν. At redraw, the conditional value of H² is XᵀΣX, which closes the H², RH and R² equations without higher angular moments. Stationarity of R² gives E(RH)=E(R²); consequently the two-time centered system has equal initial covariances and solves to the displayed normalized kernel, including the repeated-root limit. The stationary variance is strictly positive and affine increasing in s. Its trace bounds are attained by isotropic covariance and symmetric antipodal laws, and their mixture realizes the whole interval. With a=2μ, b=μ+γ, the second and third right derivatives of K give −ab and ab(a+b), determining exactly the unordered pair. The swap is nontrivial and physically allowed exactly for γ≠μ, γ<3μ; γ=3μ would give a zero redraw rate. The mean depends only on ab. An independent symbolic check verified the variance factorization under the swap and the example 1/18 versus 1/63 (variance_swap_check.py in the independent algebra evidence); the sign is fixed by γ−μ at fixed ν and v. The frozen checker.py was inspected but not executed; VERIFICATION.md reports finite-check evidence only. No finite-data identifiability or stability is inferred.
 
-## Closest literature and limits
-- Guéneau, Majumdar and Schehr (arXiv:2602.08436v1): full-text inspected; stationary radial law and its isotropic moments are acknowledged prior.
-- Sun, Ye and Podgornik (arXiv:2409.00578v1): full-text inspected; general moment recursion, without the stated two-time inverse-fiber conclusion.
-- Garcia-Millan and Pruessner (arXiv:2012.02900): accessible article material inspected; one-dimensional two-time *position* covariance is distinct. Complete full-text comparison was not possible in this review.
+## originality
 
-Residual risk: no mathematical-literature search is exhaustive, and a broad generating-functional formalism might contain this claim implicitly. No claim is made about independent audit or finite-data recovery.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There is exact indexed overlap for the normalized kernel in three-dimensional isotropic orientation, and the rate-exchange symmetry is already implicit in that kernel wherever it applies. The supported distinct claim is the centered, possibly anisotropic iid sphere-redraw result in arbitrary dimension with its explicit s-dependent variance, sharp angular envelope and full variance-resolved inverse classification in that scope. The narrower indexed result is not dismissed, nor is publication order inferred from the common date.
+
+## value
+
+PASS
+
+The useful distinction is not the algebraic exponents alone: full radial relaxation shape and even the calibrated mean can leave a binary rate ambiguity, while a single stationary variance separates the assignments across all unchanged centered redraw laws. The sharp stationary fluctuation envelope quantifies how anisotropy affects amplitude while leaving shape invariant. This is an exact observability result in a natural model, not a claim about robust rate estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:28:39.970736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43 and 47–81; VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent reproduction: python3 /workspace/reproduction/check.py 3; stdout /workspace/reproduction/3.txt. Exhausts valid edit neighbors and weight-refined histograms through n=16 and checks the differentiated-root coefficients. The length-ten histogram was reproduced."
+      ],
+      "rationale": "For n>=2 let b count adjacent unequal pairs. The b incidences on zeros cover b−t distinct zeros, since exactly the centers of 101 are counted twice. Thus n−(b−t) replacements are allowed. Among the b potential swaps precisely two per such center are forbidden, without repeat swap positions even for overlapping occurrences. All allowed operations give distinct outputs by their changed-position sets. This gives degree n−t (also directly for n=1) and ball size one more. With k ones, choose c of the k−1 interior zero gaps to have length one, give all others two zeros, and allocate the residual n−3k+2+c across k+1−c variable gaps. Stars and bars yields the stated multiplicities and a geometric series in the number of gaps gives H(z,u). Spacing of starts and the words (10)^c followed by 1 and trailing zeros give exact support; at maximum c one must have k=c+1 for n>=3, with at most one extra zero in an exterior gap, giving the stated extremizers. Setting u=0 counts maximum-degree words. The small Fibonacci root stays simple and separated from other poles near u=1 for complex u; the nonzero amplitude and strict radius gap permit differentiating the simple-pole coefficient asymptotic via analyticity. Differentiating D(r(t),exp(t))=0 twice gives the two displayed cumulant slopes for d=n−t.",
+      "residual_risks": [
+        "The complex-root argument, not finite numerical fits, proves the asymptotics. These are constrained linear one-edit neighborhoods (sphere excludes the center), with no wraparound or unrestricted outputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 same-graph paper gives the exact edge recurrence and total; the 2025 comparison gives diameter/radius ceil(n/2). The earlier exact degree and moment formulas are for the different replacement-only adjacency."
+        ],
+        "reasoning": "A summed degree or the length of shortest paths does not specify the degree sequence. No stronger degree-distribution law that specializes to this graph was identified in these inspected materials.",
+        "searches": [
+          "arXiv:2303.09898 §5.1",
+          "OASIcs.Grossi.5 tilde-Fibonacci discussion",
+          "Klavžar–Mollard–Petkovšek, The degree sequence of Fibonacci and Lucas cubes, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior-work comparison; both Anselmo papers, Klavžar–Mollard–Petkovšek, and the indexed comparisons above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2|E|/F_(n+2) has leading coefficient 2/sqrt(5) from the published edge formula. The replacement-only spectrum omits permissible swaps; neither its marginal nor the summed tilde edge count contains the required word-specific covariance with swaps."
+        ],
+        "reasoning": "Explicitly credit the first-moment implication. Knowing the graph lets one recompute neighbors; that is not a prior spectrum theorem. The refined histogram and variance arise from the cancellation identity and gap analysis, not by substituting parameters into the prior exact formulas.",
+        "searches": [
+          "Anselmo et al., arXiv:2303.09898 §5.1 edge formula",
+          "2011 Fibonacci/Lucas degree paper, Theorem 1.1",
+          "Same-graph cycle-basis RESULT.md finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tilde-Fibonacci cube means the same 11-free graph with replacement plus adjacent different-symbol swaps; its degree is the distinct-error sphere, with the ball adding one.",
+          "Classical Fibonacci-cube theory uses the same vertices but only replacement edges."
+        ],
+        "reasoning": "A terminology difference is not novelty. Conversely replacing the tilde graph by the classical cube changes degrees; for 010 the classical degree is one and the tilde degree is three.",
+        "searches": [
+          "Anselmo et al., arXiv:2303.09898, §5.1 tilde-Fibonacci cube",
+          "Anselmo et al., DOI 10.4230/OASIcs.Grossi.5, Definition 1 and Proposition 36",
+          "Resultary: Fibonacci constrained swap and replacement/mismatch degree spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is the identical frozen record. The strongest distinct same-graph match gives swap-triangle/replacement-edge and minimum-cycle-basis results, not a histogram or local degree formula. The homopolymer catalogue summary describes alphabet size at least three, no adjacent repeats, and swap-only moves."
+        ],
+        "reasoning": "Edge-type counts in the cycle-basis result also give the mean via edge sums but cannot supply a second moment without the joint incidence data. The homopolymer comparison is an analogue, not the same graph or a containing parameter family on the evidence inspected. Same-day indexing establishes no order.",
+        "searches": [
+          "Resultary SCOPE-exact-one-error-sphere-spectrum-of-fibonacci-constrained-swap-an--189bd40b7833",
+          "Resultary SCOPE-exact-minimum-cycle-bases-of-swap-and-mismatch-fibonacci-cubes--b3b639f9f8b1",
+          "Resultary SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible-adjacent-swaps--8cf8692431c0"
+        ]
+      },
+      "rationale": "The graph and its edge total are prior; by the handshaking identity the leading mean 2/sqrt(5) is already implied and is not independent novelty. The supported distinct contribution is the local 101 identity for the combined degree, the exact degree spectrum refined by number of ones, sharp endpoints, and the variance coefficient, which are not supplied by the inspected edge totals or replacement-only degree polynomials.",
+      "residual_risks": [
+        "The homopolymer item's comparison is summary-only. An unindexed tilde-spectrum or equivalent 101 gap distribution with a known degree connection remains possible; this is a bounded historical assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior same-graph edge total implies mean degree; no refined law in the located statements",
+          "evidence": "Adjacent unequal swap and 11 avoidance definitions; exact edge count ((n+1)F_(n+3)+(n−2)F_(n+1))/5.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.09898",
+          "material_read": "PDF pp. 2–3 (OA offsets 7662, 11327) and §5.1 pp. 9–10 (offset 28550)",
+          "method": "OA primary PDF text",
+          "title": "Hypercubes and Isometric Words based on Swap and Mismatch Distance",
+          "trigger": "Defines the same edit graph and gives an exact numerical invariant"
+        },
+        {
+          "assessment": "Same edit metric and graph, distinct invariant",
+          "evidence": "The located radius and diameter result gives ceil(n/2), not a pointwise degree or variance.",
+          "identifier_or_url": "https://doi.org/10.4230/OASIcs.Grossi.5",
+          "material_read": "Definition 1 pp. 5:3–5:4 (OA offsets 8009, 10055); tilde-Fibonacci discussion and Proposition 36 pp. 5:11–5:12 (offset 38682)",
+          "method": "OA primary paper",
+          "title": "Generalized Fibonacci Cubes Based on Swap and Mismatch Distance",
+          "trigger": "Later treatment of the same graph"
+        },
+        {
+          "assessment": "Exact spectrum for replacement-only graph",
+          "evidence": "Edges change one bit, so the degree law does not include new swap neighbors.",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/DegSeqRevised.pdf",
+          "material_read": "Abstract p. 1 and Theorem 1.1 p. 2 (OA offsets 782 and 3681)",
+          "method": "OA primary PDF text",
+          "title": "The degree sequence of Fibonacci and Lucas cubes",
+          "trigger": "Exact degree multiplicities on the same vertex set"
+        },
+        {
+          "assessment": "Same graph; overlap in edge-count consequences, not the degree histogram",
+          "evidence": "Counts of swap triangles and replacement edges, and an exact description of minimum cycle bases by triangles and four-cycles.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimum-cycle-bases-of-swap-and-mismatch-fibonacci-cubes--b3b639f9f8b1",
+          "material_read": "RESULT.md finding and associated passages, offsets 0–8108",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Exact minimum cycle bases of swap-and-mismatch Fibonacci cubes",
+          "trigger": "Strongest distinct indexed same-graph claim"
+        },
+        {
+          "assessment": "Scope in summary differs; whole text not assessed",
+          "evidence": "Reported alphabets have size at least three, forbid all adjacent repeats, and use swaps only.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible-adjacent-swaps--8cf8692431c0",
+          "material_read": "Catalogue summary; local mirror unavailable",
+          "method": "Resultary semantic catalogue",
+          "title": "Exact degree spectrum of homopolymer-free words under admissible adjacent swaps",
+          "trigger": "Potential broader constrained-word degree law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38, 65–67 and 75–87; arXiv:2303.09898 §5.1 for the known invariant baseline."
+      ],
+      "rationale": "For a standard constrained edit graph, the histogram measures how one-error exposure varies by source and weight. The local characterization gives extremal neighborhoods and the variance gives a fluctuation scale neither determined by the prior mean nor by graph diameter. The distribution is for all lengths and usable for constrained-channel analysis without claiming a new packing bound.",
+      "residual_risks": [
+        "No coding performance, construction or optimum is proved. The already-known mean is not the mathematical value added."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

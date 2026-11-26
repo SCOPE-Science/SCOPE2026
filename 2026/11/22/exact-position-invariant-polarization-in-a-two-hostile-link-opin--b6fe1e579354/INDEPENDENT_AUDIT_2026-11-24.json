@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:31:34.219276Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76",
+        "Frozen VERIFICATION.md and CHECK.py"
+      ],
+      "rationale": "Path differences are linear coordinates on each fixed-mean hyperplane. The potential is the quadratic sum of path drops minus the two log-cosh terms in their total and the distinguished drop, all divided by K. Permuting the differences preserves its values and Hessian inertia but not the flow metric. The two columns (ones and the distinguished coordinate vector) have Gram matrix [[K-1,1],[1,1]], giving the stated Perron eigenvalue and the unique first loss of positive Hessian at consensus. At or below threshold, y·grad Phi is positive for every nonzero y by z tanh(alpha z)<alpha z^2 when z is nonzero (and is ||y||^2 if both repulsive drops vanish). Coercivity and gradient dissipation give global convergence to the unique critical point. Above threshold the negative Hessian direction implies linear instability, and coercivity gives a nonzero global minimum. Replacing all drops by their absolute values strictly decreases energy if there were both positive and negative drops. Stationarity of a nonzero aligned minimum then forces positive ordinary drops u and distinguished drop u+v. The positive Perron direction and the all-ones vector bracket a positive fixed point; the maximum ratio of two vectors cannot exceed one in either direction by strict subhomogeneity of tanh, proving uniqueness. The positive Jacobian of this two-component map sends the fixed vector strictly below itself (z sech^2(z)<tanh(z)); the corresponding rank-two Hessian perturbation has spectral radius less than one, so both sign-related minima are exponentially attracting in the fixed-mean flow. For the optional onset coefficient the complementary eigenspace is invertible at threshold; its component is cubic in the amplitude and projection of the tanh cubic onto (1,t) gives the stated coefficient. No classification of additional stationary states or equality of transients is needed. I inspected the finite checker without executing it.",
+      "residual_risks": [
+        "Reversal is about the fixed population mean. The exact placement equivalence concerns the energy and profiles in difference coordinates, not the continuous-time transients or stability transverse to the mean constraint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bronski–DeVille bound inertia via positive and negative subgraphs. Boyce et al. furnish the attraction–repulsion gradient model and, in the published Appendix C, the relevant quadratic form."
+        ],
+        "reasoning": "General signed spectral theory is the right framework for consensus linearization, but the negative directions only control local instability. A global minimizing profile and the number and Hessian of those nonlinear minima require the log-cosh objective, sign alignment and the positive fixed-point argument; this does not follow from the inertia theorem.",
+        "searches": [
+          "arXiv:1303.0718, Theorem 2.8",
+          "DOI 10.1007/s00332-026-10333-0, Section 2 and Appendix C"
+        ]
+      },
+      "checked_sources": [
+        "Primary and indexed passages in source_inspections",
+        "Websearch: \"Opinion dynamics modelling\" \"Appendix C\" \"Arrangement B\" repulsive path edge Boyce (no hits; not negative evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Eq. C.6 treats endpoint repulsion and x1–x2 repulsion and already gives the quadratic form I-alpha(ee^T+e_1 e_1^T) in difference coordinates, up to scaling. After Eq. C.6 the text states exact determination is impractical and gives the bracket in C.9. The inspected arXiv version has a different Appendix C."
+        ],
+        "reasoning": "The rank-two matrix in C.6 does already determine the exact onset at the end placement by a short diagonalization; credit it as a direct antecedent rather than touting the algebra as independent scientific novelty. Moving the distinguished summand to j gives the same linear criterion. Neither the quadratic form nor its bound supplies the endpoint nonlinear convergence or the two global profiles with the stated stability for all alpha above onset. The latter features use a structurally stronger equivalence of the full potential.",
+        "searches": [
+          "Published Boyce et al. DOI 10.1007/s00332-026-10333-0, Arrangement B, Appendix C Eqs. C.6–C.9, pp. 31–32",
+          "Compare arXiv:2512.05725 Appendix C version heading"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local hit is the bound record itself. Distinct Resultary records 2026/10/18/SCOPE-a-persistent-receptive-path-and-sharp-diffusive-relaxation-in-re--1b8b8cade899, 2026/10/26/SCOPE-sharp-hostile-degree-threshold-and-finite-stabilization-in-compl--83f04c040918 and 2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b respectively use discrete gap-deficit dynamics on a receptive path, a synchronous bounded-confidence hostile-degree rule, and a persuadable agent with two fixed zealots."
+        ],
+        "reasoning": "The finite-time and stability phenomena in those models are not equivalent to stationary points of this autonomous tanh-gradient potential: their update rules, conserved quantities, or fixed agents differ, and they supply no permutation of this objective's nonlinear difference coordinates.",
+        "searches": [
+          "exact alpha threshold position independent hostile edge placement tanh polarization opinion path",
+          "fixed-mean tanh potential two positive stationary differences u v exact global polarized minima opinion path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table and Appendix C give 1/K <= alpha_* < 1/(K-1). The exact indexed record returned is the bound original. Distinct 2026/11/2/SCOPE-a-single-antagonistic-tie-is-persistently-receptive-exactly-when--aa4da2245e3c supplies an effective-resistance formula and two equilibria in a different single-antagonistic-edge bounded-confidence model."
+        ],
+        "reasoning": "The published bracket does not tabulate the exact threshold or profiles; the candidate involving effective resistance has a different number of repulsive links and a different dynamical system. The bound record itself does not count as a prior match.",
+        "searches": [
+          "Boyce arrangement B endpoint repulsive chord one hostile path edge consensus threshold",
+          "Published Boyce et al. arrangement comparison table p. 18 and Appendix C Eq. C.9",
+          "Local Resultary query for exact threshold and placement"
+        ]
+      },
+      "rationale": "Boyce et al. already supply the tanh-gradient model and the boundary-placement quadratic form. The exact onset is a short rank-two evaluation of that quadratic form, and linear threshold placement invariance follows from the permutation of its distinguished coordinate. The materially distinct claim is the sharp nonlinear classification on fixed-mean hyperplanes: uniqueness and global convergence through the degenerate endpoint, exactly two global minima above it, and their explicit placement-invariant positive branch and strict local stability. These are not consequences of the prior quadratic bracket or of general signed-Laplacian inertia alone. No historical exclusivity is asserted.",
+      "residual_risks": [
+        "An earlier application of positive fixed-point or signed-gradient theory could contain the same nonlinear classification. The comparison does not establish unqualified historical priority.",
+        "The published and preprint appendix locations are not interchangeable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same configuration at j=1 and same quadratic form, with only a bracket reported; no nonlinear minimizer classification in the inspected arrangement analysis",
+          "evidence": [
+            "C.6 singles out Y1 and has ordinary Y_i^2 and all-pairs cross terms; C.9 gives the threshold bracket."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00332-026-10333-0",
+          "material_read": "Arrangement B pp. 17–18; Appendix C pp. 31–32, equations C.6–C.9 (OA offsets approximately 89150–94123 for the decisive calculation)",
+          "method": "OA published primary-text passages",
+          "title": "Opinion dynamics modelling: distinct attraction and repulsion topologies highlight quantitative effects of trolling",
+          "trigger": "Direct match to the boundary-edge arrangement and threshold"
+        },
+        {
+          "assessment": "Not the version to use for Appendix C arrangement comparison",
+          "evidence": [
+            "Appendix C is titled Large controversialness in all-to-all network."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.05725",
+          "material_read": "Appendix C heading, PDF p. 26, OA offset 98900",
+          "method": "OA primary-text passage",
+          "title": "Opinion dynamics modelling, arXiv version",
+          "trigger": "Check cited version for the arrangement comparison"
+        },
+        {
+          "assessment": "Existing linear spectral machinery, not nonlinear minimization or placement classification",
+          "evidence": [
+            "Bounds numbers of signed-Laplacian eigenvalues by positive- and negative-edge subgraph characteristics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.0718",
+          "material_read": "Theorem 2.8, PDF p. 7, OA offset 27978",
+          "method": "OA primary-text passage",
+          "title": "Spectral Theory for Networks with Attractive and Repulsive Interactions",
+          "trigger": "Possible broader theorem of which the threshold and profile are corollaries"
+        },
+        {
+          "assessment": "Different dynamics and one negative link",
+          "evidence": [
+            "Uses synchronous Kann–Feng bounded-confidence updates."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-antagonistic-tie-is-persistently-receptive-exactly-when--aa4da2245e3c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "A single antagonistic tie is persistently receptive exactly when …",
+          "trigger": "Indexed effective-resistance and polarized-equilibrium analogue"
+        },
+        {
+          "assessment": "Different fixed-zealot system",
+          "evidence": [
+            "One persuadable agent and two fixed zealots, with no conserved-mean path-gradient system."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "Exact tristability window in a three-agent sigmoidal opinion network",
+          "trigger": "Indexed sigmoidal equilibrium classification"
+        },
+        {
+          "assessment": "Different bounded-confidence models",
+          "evidence": [
+            "One has a linear gap-deficit recurrence on a receptive path; the other has a complete-network hostile-degree condition d_(1)+d_(2)<n."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-persistent-receptive-path-and-sharp-diffusive-relaxation-in-re--1b8b8cade899 ; 2026/10/26/SCOPE-sharp-hostile-degree-threshold-and-finite-stabilization-in-compl--83f04c040918",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local mirror original passages",
+          "title": "Receptive path relaxation and hostile-degree threshold, distinct indexed findings",
+          "trigger": "Closest indexed results for hostile path and thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and all-size proof",
+        "Published Boyce et al. arrangement-B comparison"
+      ],
+      "rationale": "This is a named previously analyzed arrangement and its natural complete placement family. The practical invariant is that, although the distinguished step can move, neither the polarization range nor the global minimum energy changes, and only the position of the larger drop changes at all supercritical strengths. The fixed-mean consensus statement at the nonhyperbolic endpoint and the exact global profiles distinguish actual nonlinear polarization from a simple spectral threshold. The small matrix diagonalization alone would be a weaker contribution.",
+      "residual_risks": [
+        "The result does not determine transient motion, basins or general hostile-edge placements with more edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

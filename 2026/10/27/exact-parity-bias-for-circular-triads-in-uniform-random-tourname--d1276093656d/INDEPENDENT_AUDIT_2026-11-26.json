@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:39:05.344600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–43, definitions, score identity and roots-of-unity proof",
+        "Frozen VERIFICATION.md and verify.py: inspected finite checks rather than executing them; the independent parity-vector derivation above proves all orders"
+      ],
+      "rationale": "Each transitive triple contributes once to the sum over vertices of binomial(outdegree,2), whereas a cyclic triple contributes zero. For an independent proof of the signed expectation, let S be the number of odd outdegrees and m the number of edges. Since binomial(d,2) has parity floor(d/2), the sign of the triad count is (-1)^(binomial(n,3)+(m-S)/2). After conditioning on all edges off a fixed star, the other n-1 vertices' outdegree parities are independent fair bits, and the star center's parity is fixed by the sum m. Thus the parity vector is uniform over the required parity hyperplane. Summing the sign over the binomial Hamming weights yields (-1)^binomial(n,3) times 2^(1-n) Re[i^m(1-i)^n], confirming the roots-of-unity expression in the frozen proof. For n=2k the cosine has argument pi*k*(k-1), hence is one, and binomial(n,3) is even. For n=2k+1 the cosine is (-1)^k/sqrt(2), canceled in sign by binomial(n,3) of parity k. The resulting bias is positive 2^(-floor((n-1)/2)); since all 2^m orientations have equal mass this gives the exact difference and both probabilities. The same proof agrees with the trivial n=2 boundary.",
+      "residual_risks": [
+        "One direction is chosen per unordered edge, independently and fairly. The identity is not for arbitrary independent directed arcs, biased orientations, or a score-conditioned ensemble."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harris–McShane express each fixed-d EGF through partitions of d and atomic generators. Chatterjee–Bhattacharya give fluctuation regimes in more general models. Claesson et al. count distinct sorted outdegree sequences, not labeled tournaments with multiplicity."
+        ],
+        "reasoning": "The fixed-d decomposition is a framework for recovering coefficients when the required atoms are known. To recover the parity expression by this route one still needs to evaluate the signed contribution of the generators for unbounded d; the inspected formula does not do that. A general random model for fluctuations and an unweighted enumeration of score types also do not provide the required multiplicities or signed count.",
+        "searches": [
+          "Harris–McShane, Article 24.8.7, §4 and Theorem 10",
+          "Chatterjee–Bhattacharya, arXiv:2606.02340v1",
+          "Claesson et al., Counting tournament score sequences, abstract and Corollary 12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 8ea3fa598b27, 5a1dbbab7927 and 42554a237df6",
+        "Harris–McShane (2024), §4; Claesson et al., Corollary 12; Chatterjee–Bhattacharya, abstract",
+        "Kendall–Babington Smith bibliographic record and bounded secondary account; original inaccessible"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two indexed sources use the classical score identity and evaluate conditional or quadratic score moments. The Walsh comparator instead concerns inversion vectors of transitive tournaments. The closest counting theorem organizes fixed-d counts by partition and atoms rather than evaluating the complete signed sum."
+        ],
+        "reasoning": "To obtain the claimed closed form from the score identity one needs a further reduction modulo four of the degree statistic and a cancellation or binomial character evaluation under the fair orientation law. This step is absent from the inspected moments and fixed-count formulas. The historical source was not accessible directly, so it was not treated as evidence of noncoverage.",
+        "searches": [
+          "Resultary 8ea3fa598b27, 5a1dbbab7927 and 42554a237df6",
+          "Harris–McShane Theorem 10, formula and proof",
+          "Kendall–Babington Smith historical attribution in the 2024 introduction and the cited Oxford DOI route"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed claims are exact low-order score-based fluctuation statements, not parity. The primary search retrieved a fixed-triad count enumerator and a score-sequence count paper; neither inspected statement evaluates this sign character."
+        ],
+        "reasoning": "Parity probabilities, even-minus-odd counts, evaluation at -1 of the triad-count probability generating function, and the bias of (-1)^C are equivalent after the appropriate factor of 2^m. Fixed-order moments or asymptotic limits are not equivalent to one of those exact evaluations.",
+        "searches": [
+          "Resultary: exact parity character expectation cyclic triangle count uniform tournament",
+          "Resultary: alternating sum (-1)^(number of circular triads) random tournament",
+          "Primary search: tournaments exact all-order signed sum (-1)^(number of cyclic triples) circular triads parity character even minus odd counts score sequence parity classical enumeration generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2024 paper explicitly gives the count sequences for each fixed d from zero to fourteen and reports that Kendall–Babington Smith counted cases at n<=7, d<=14. No all-order signed table was identified in the returned indexed material."
+        ],
+        "reasoning": "The number of possible triad totals grows with n, so the signed sum at arbitrarily large n requires terms beyond d=14; finite tables can confirm small cases but do not give the claimed law.",
+        "searches": [
+          "Harris–McShane, abstract, introduction and §4",
+          "Resultary exact parity and alternating sum searches above"
+        ]
+      },
+      "rationale": "The score identity is classical and gives the necessary reduction, but neither the exact fixed-triad enumerator nor the score-type or fluctuation results inspected give the exact all-order alternating sum. The supported distinct claim is evaluation of this signed marginal in the fair labeled ensemble, not discovery of the score identity or of triad enumeration. The retrieval and scope limitations below remain.",
+      "residual_risks": [
+        "The full 1940 paper was not obtained from the identified Oxford routes, so related historical coverage is unresolved. The bounded comparison does not exclude an unindexed signed-count evaluation or an unpublished reformulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-d framework and published small-d sequences, not a closed signed marginal in the inspected statements",
+          "evidence": "G_d(x) is a sum over partitions with products of atomic generators; explicit sequences are provided at d=0,...,14, not a cancellation for the sum over all d.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/McShane/mcshane1.pdf",
+          "material_read": "Abstract/Introduction near offset 1100 and section 4, pp. 10–11, offset 24350 onwards, Theorem 10 and proof",
+          "method": "Read relevant open PDF pages and compared formula and coefficient requirements",
+          "title": "Counting Tournaments with a Specified Number of Circular Triads",
+          "trigger": "Closest exact published circular-triad enumeration"
+        },
+        {
+          "assessment": "Counts score types rather than weighted labeled realizations",
+          "evidence": "A score sequence is a sorted list of outdegrees; the corollary computes the number of such distinct sequences.",
+          "identifier_or_url": "https://akc.is/papers/039-Counting-score-sequences.pdf",
+          "material_read": "Abstract, p. 1, offsets 435–931; Corollary 12, p. 15, offset 39689",
+          "method": "Inspected the original PDF statement and count definition",
+          "title": "Counting tournament score sequences",
+          "trigger": "Primary query returned a possible general score-based counting theorem"
+        },
+        {
+          "assessment": "Asymptotic fluctuations, not this finite-order marginal in the passage read",
+          "evidence": "Three fluctuation regimes and a bootstrap for the associated limiting distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.02340v1",
+          "material_read": "Abstract, p. 1 at offset 0",
+          "method": "Open primary passage inspection",
+          "title": "Transitivity in Inhomogeneous Random Tournaments",
+          "trigger": "Broader random tournament model and same triad statistic"
+        },
+        {
+          "assessment": "Classical score identity and conditional low-order quantities, not the parity expectation",
+          "evidence": "Conditional means, variances and score-covariance statements; the deterministic score identity is explicitly credited as known.",
+          "identifier_or_url": "2026/10/26/SCOPE-conditional-triad-fluctuations-and-a-krawtchouk-projection-for-f--8ea3fa598b27",
+          "material_read": "Finding and relationship-to-prior-work passage, RESULT.md around offset 6200",
+          "method": "Bounded statement comparison in the local mirror",
+          "title": "Conditional triad fluctuations and a Krawtchouk projection",
+          "trigger": "Closest Resultary hit for same cyclic-triad/score statistic"
+        },
+        {
+          "assessment": "Related structure and moments, no character evaluation in the stated result",
+          "evidence": "The centered triad count decomposes as a sum of pairwise-uncorrelated quadratic score terms.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-one-score-prediction-and-orthogonal-cycle-fluctuations-in--5a1dbbab7927",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Sharp one-score prediction and orthogonal cycle fluctuations",
+          "trigger": "Same cycle count expressed as a quadratic score statistic"
+        },
+        {
+          "assessment": "Historical priority limitation, not evidence of either covering or excluding the all-order formula",
+          "evidence": "The 2024 paper attributes tables for n<=7 and d<=14 to the 1940 work.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/31.3-4.324",
+          "material_read": "No original full text retrieved; its coverage of small cases is described in Harris–McShane, introduction, p. 2",
+          "method": "Cited Oxford DOI PDF and HTML access attempts were denied; read the discussion in the available 2024 paper",
+          "title": "On the Method of Paired Comparisons",
+          "trigger": "Classical paper introducing circular-triad enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact bias and proof",
+        "Fixed-d and fluctuation comparisons above"
+      ],
+      "rationale": "For a classical tournament statistic, parity is the basic discrete oscillatory marginal not resolved by moment calculations or fluctuation limits. The result determines its exact positive excess for every order and identifies the odd-to-next-even plateau; neither follows from a finite table. The cancellation based on outdegree parity gives a concrete structural explanation of the bias, not merely re-enumeration of small tournaments.",
+      "residual_risks": [
+        "The exact parity marginal does not determine the full triad count distribution or establish any analogous result under biased orientations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

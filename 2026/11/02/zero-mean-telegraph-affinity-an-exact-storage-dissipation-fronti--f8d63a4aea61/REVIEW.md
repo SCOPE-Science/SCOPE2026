@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The stated finite four-state irreducible Markov generator is fully specified with strictly positive rates. Solving the two stationary charged-subpopulation equations yields the excess marginal charge in the claimed hyperbolic closed form. All four oriented edge currents coincide; the unique rectangular cycle has affinity \(2\alpha\), giving the full-chain path entropy-production rate \(2\alpha J\). The normalized charge/dissipation identity follows by common-denominator algebra, and positive denominator factors prove strict response monotonicity. The Bernoulli-KL first and second derivative identities give the strict free-energy frontier. The open endpoints are described as limits, not stationary uniqueness at zero switching. The standalone checker establishes 339 symbolic/exact-rational assertions independently from the original analytic elimination, including full generator stationarity, direct rational linear-system solves, currents, strict charge inequalities and derivative identities. Risk: the stochastic thermodynamic implementation of the source-flip mechanism need not have exactly the abstract chain's path entropy as its full physical fuel expense; this is explicitly excluded by scope.
+PASS
 
-## Originality (PASS under the inspected evidence, qualified)
+The sign marginal is uniform, and the positive-rate joint chain is irreducible. Independently set p to the charged marginal and d to half the difference of the two conditional charged probabilities. Adding the conditional balance equations gives p-p_eq=(Bs/G)d because the sum and difference of the relaxation rates are 4kG and -4kBs and the ratio of the summed up rates to the summed relaxation rates is p_eq. Subtracting the equations then gives 4(ν+H/G)d=2ks/C, so d=ksc/[2(H+νG)] and the oriented flip current is νd. Conservation gives the same current on the other three edges; the summed log rate ratio is 2α and all stationary mass ratios cancel. This gives the stated σ and both normalized fractions H/(H+νG) and νG/(H+νG). Since ks²<H+νG, the charge is strictly between p_eq and 1/2. The fractions give strict monotonicity and the one-sided limits; the Bernoulli divergence has positive first derivative for p>p_eq and second derivative 1/[p(1-p)], yielding the decreasing strictly convex free-energy frontier.
 
-The first source derives a *constant*-affinity two-state battery and motivates a stored-work functional but has no independent switching variable or stationary four-state entropy–charge relation. The second source predates it and explicitly uses a four-state telegraph-driven two-well master equation; that shared architecture, the stationary linear inversion method, and general noise-induced response are **prior art**. Its displayed conclusion is a mean switching rate in a symmetric two-well model, not the asymmetric-storage population together with the full thermodynamic cycle current and exact affine storage–dissipation law. The third source supplies standard cycle-current/affinity and hidden-pump thermodynamics, but its protocols and comparisons do not specify this exact zero-mean telegraph storage frontier. Claim-level searches of related two-state batteries, telegraph modulation, stationary populations, currents, entropy production and normalized frontiers found no exact stated counterpart among inspected sources; failure to locate one is not proof of publication priority. Relevant existing mathematical claims were compared by implication, with no identified assertion of this particular theorem. Remaining risk: a broader finite-state switching theorem could imply the formulas as a simple corollary; specialist independent literature review is needed before any priority claim.
+## originality
 
-## Value (PASS)
+PASS
 
-The source's central physical gap is storing a nonequilibrium resource for later release, rather than only creating contemporaneous current. Replacing an ideal constant active affinity with a symmetric zero-mean fluctuating supply probes whether fluctuations alone can charge a biased two-level store and quantifies the unavoidable microscopic circulation. The theorem delivers a complete, nonperturbative switching-rate response: strictly positive but uninverted charge, increasing dissipation as storage decreases, an exact normalized affine relation, and a strictly convex work–dissipation frontier; critically, rapid modulation hides a positive dissipation rate behind a thermal-looking battery marginal. These are motivated, exact model-specific design and interpretation facts, not a claim about all active matter or a general stochastic thermodynamic theorem. The result is modest in system size and derives from explicit linear algebra, but its precise resource–cost classification and singular fast-switch interpretation provide substantive information beyond restating the generator.
+The bounded comparison supports the specific biased-battery marginal versus full-chain dissipation identity and its switching frontier, not novelty of four-state telegraph models, the free-energy convention, or cycle entropy production. The closest examined telegraph model computes a different observable with symmetric wells.
 
-## Closest published literature and limits
+## value
 
-- Lin, Liu and Ma, *Active-Matter Battery* (2026), arXiv:2610.00428v1, especially model equations (1)–(4): constant-affinity battery and stored free energy.
-- Bena, *Dichotomous Markov Noise* (2006), arXiv:cond-mat/0606116v3, Section VII equations (116)–(118): a closely related four-state switching model; strong methodological overlap acknowledged.
-- Esposito and Parrondo, *Stochastic thermodynamics of hidden pumps* (2013/2015), arXiv:1310.2987v3, Sections II–IV: standard edge-current/affinity and hidden-source thermodynamics.
+PASS
 
-The model does not include manufacturing, chemical fuel or switching-control costs; it does not show all physical efficiencies or any generic universal fluctuation benefit. Broader result subsumption remains an originality risk. Only the stated joint theorem was assessed.
+For fixed battery and affinity parameters the identity gives an exact way to infer full-chain dissipation from the storage marginal when switching is the only parameter varied. The positive fast-switching dissipation limit despite a thermal storage marginal and the opposite slow-switching endpoint quantify what a marginal-only model misses. This is a useful restricted benchmark rather than a general battery efficiency or optimal-control claim.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -183,6 +183,10 @@ def proof_checks():
     for t,cnt,osizes in [(Q(1),30,[10,10,10]),(Q(5,4),70,[10,10,10,20,20]),(Q(3,2),70,[10,10,10,20,20]),(Q(7,4),70,[10,10,10,20,20]),(Q(2),30,[10,10,10])]:
         vertices={value(f,t) for f,(a,b) in intervals.items() if a<=t<=b}
         assert len(vertices)==cnt and orbit_lengths(vertices)==osizes
+        if t==1:
+            assert Counter(map(centered_norm2,vertices))=={Q(4,5):10,Q(6,5):20}
+        if t==2:
+            assert Counter(map(centered_norm2,vertices))=={Q(6,5):10,Q(2):10,Q(14,5):10}
     # The center inball's squared facet-normal lengths for all five orbits.
     expected=[
       lambda t: Q(2,5)*(3*t*t-4*t+3),

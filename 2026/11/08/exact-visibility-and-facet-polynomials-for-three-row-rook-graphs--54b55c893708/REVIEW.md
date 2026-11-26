@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geodesic obstruction is exactly a fully selected 2-by-2 rectangle: a diagonal selected pair has exactly the two other corners as length-two intermediates. Therefore any two distinct column supports intersect in at most one row. Partition by triple columns versus no triples, then enumerate distinct pair supports. For maximality, empty columns and at most one pair can be extended; with two distinct pairs all other singleton rows must equal their intersection, and with all three pairs every remaining singleton is arbitrary. These arguments prove necessity, sufficiency, uniqueness and all three counts, including \(n=2\). Direct literal graph tests on 299,584 vertex subsets (\(n=2\) through \(6\)) confirm all coefficients and maximal types; finite tests do not prove the infinite range.
+PASS
 
-## Originality — PASS (provisional priority)
+A pair in distinct rows and columns has exactly the other two rectangle corners as possible geodesic intermediates; a full selected rectangle is the only obstruction. Thus each unordered pair of rows may occur together in at most one column. If a column is full it consumes all three pairs and the others have sizes at most one. Without a full column, j distinct row pairs can be placed injectively in labelled columns, with empty/singleton choices elsewhere. These two disjoint cases give the face polynomial. A facet cannot have an empty column. With a full column, every other singleton is blocked from growing. Without a full column, zero or one pair leaves an augmentation (create a pair, or enlarge the unique pair to a triple). With exactly two pairs, a pair-to-triple addition duplicates the other pair, and a singleton is blocked precisely when it is in the common row of the two pairs. With three pairs, all augmentations of any nonempty column duplicate a used pair. These types give n·3^(n−1), 3n(n−1) and (n)₃·3^(n−3) facets respectively, of sizes n+2,n+2,n+3; the third type is absent at n=2. This establishes the unrestricted formulas and nonpurity exactly where claimed. An independent obstruction-mask check reproduced {4:12} facets at n=2 and {5:45,6:6} at n=3, with 334 faces at n=3. The frozen script was read, not run.
 
-The known general \(C_4\)-free representation of rook mutual visibility (Cicerone–Di Stefano–Klavžar) and known lower scalar bound (Brešar–Yero) are explicitly excluded from the novelty claim. The complete labelled visibility polynomial and the complete labelled maximal-set/facet classification are strictly more detailed than those statements. Inspected primary texts of the two papers, plus accessible related visibility-polynomial papers, did not state a matching formula. The closely related Bryant–Fu 2002 paper studies the possible saturated edge counts; only an abstract was accessible, and full-text overlap cannot be ruled out. Searches under \(C_4\)-saturated bipartite matrices, rook graphs, visibility polynomials, and maximal mutual-visibility sets found no directly covering statement. This is best-knowledge novelty, not a priority certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The lower mutual-visibility parameter asks how a maximal-set construction can terminate. Counting every maximal configuration and its possible sizes gives a natural exact refinement: for every \(n\ge3\), the mutual-visibility simplicial complex has two different facet sizes, with sharply different labelled multiplicities, whereas the earlier lower-number result gives only their smallest size. The complete generating polynomial also enumerates all feasible configurations at each weight, not merely the extremizers. The 3-row scope is natural because exactly three pair-support types occur, leading to a finite structural partition.
+Pass is for the exact labelled face and facet enumerators and their counted support decomposition, not the C4-free encoding, the smaller facet size, or priority of the unweighted size spectrum. No inspected source determines the labelled counts. The Bryant–Fu full-text gap is real and keeps priority for the structural portion provisional.
 
-## Limits and nearest literature
+## value
 
-The graphs are labelled \(K_3\square K_n\), \(n\ge2\); this is **ordinary**, not total, mutual visibility. Scalar lower bound \(n+2\) was already known. The strongest unresolved overlap risk is the inaccessible complete paper by Bryant and Fu (2002), DOI 10.1016/S0012-365X(02)00371-0; its abstract speaks of existence of saturated graphs with prescribed edge numbers, not the counting formulas. A separate priority search may reveal an equivalent enumerator under matrix or saturation terminology. No independent validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three rows are the first width with distinct pair supports that interact. Their exact labelled occupancy and saturation distributions refine scalar maximum and minimum-size results; in particular they distinguish a large class of non-maximum maximal configurations from the largest facets and provide an exact test family for extremal and counting questions with more rows. The value is in the complete distributions, not rediscovery of their extrema.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

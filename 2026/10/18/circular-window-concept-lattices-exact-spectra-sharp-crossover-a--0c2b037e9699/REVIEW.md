@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence derivation converts closed intents to complements of unions of equal-length cyclic windows. Each proper union is uniquely described by runs whose lengths exceed the missing-window width, and the reverse construction holds. Ordered alternating compositions and marked run starts give the exact binomial census; the finite-state matrix gives the exact trace and recurrence and its primitive spectral radius gives the fixed-defect asymptotic. A strict monotonicity witness and explicit modular-law failure supply sharp boundaries. Independent enumerations from actual window intersections, cyclic-word tests, transfer matrices, and the binomial formula agree for all 55 parameter pairs with \(2\le n\le11\). Small-lattice modularity is brute-force checked for 20 cases. The all-parameter claims rest on proof, not only these tests.
+PASS
 
-## Originality — PASS, qualified
+Intents are all window intersections, so complementing gives all unions of cyclic r-windows. Every included vertex can be covered by one such window iff the mixed word has all one-runs of length at least r. Marking one of j runs produces n choices for its start and j-fold overcounting; stars and bars gives the stated binomial factor. Independently, the formal series for the positive-index counts divided by n is -log((1-z)^2-z^(r+1)), by summing the marked run-pair contributions over j. This gives the trace polynomial, initial terms and recurrence, including r=1. The state graph is strongly connected with a loop and each allowed labeled cyclic word gives exactly one closed walk, so the trace has leading Perron term with coefficient 1. The root equation gives strict decrease in r and limit 1. The one-run term is n*ell; a second run is possible exactly when n >= 2(r+1). A single run of length r proves strict nesting when the defect increases to r+1. Proper intents have size at most ell, and concentric intervals supply an ell+2-element chain. In the middle regime W_0 intersect W_1 is properly below W_0 and contains W_2 intersect W_0, but adjoining W_2 to W_0 intersect W_1 forces the full join by cardinality; this violates modularity. The two boundaries are the Boolean lattice and the modular n-atom diamond, with the n=2 coincidence accounted for. A separately written checker matches the complete intent families, recurrence, formula, crossover and monotonicity for n=2..11, checks maximum chain sizes through n=8 and both modularity and distributivity through n=7, and recovers the n=8 count vector.
 
-Rawson et al. (arXiv:2307.11681, Theorem 3.1) already provide the general concept-lattice/intersection-structure equivalence. Kovačević and Vukobratović (arXiv:2105.04617, Section II-F) already treat run-constrained word enumeration and asymptotic methods. Cattaneo et al. (doi:10.1016/j.ins.2015.09.054) analyze hypergraph/FCA correspondences, including complete uniform hypergraphs. These foundations are not claimed as new. The candidate combines a precise circular-window logical-closure identification with a full lattice-structural classification, including inverse width recovery, a sharp low-width crossover and modularity; the inspected materials and actual mathematical-record and history queries revealed no exact coverage. The accessible 2016 submitted full text could not be read (repository 403); an unindexed equivalent result, or a direct implicit corollary in wider literature, remains possible. No priority certificate is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform sliding-window incidence occurs naturally in cyclic observation and hypergraph overlap data. Its concept lattice can be much larger than the input incidence matrix, so the exact complexity law and crossover are motivated. Structural questions—whether the lattice is modular, how tall maximal chains may be, and whether concept counts recover window width—are resolved completely for the full family. This is a finite-family mathematical classification, not a claim to have invented generic transfer matrices or all circular-arc lattice theory.
+The supported contribution is the explicit classification of this labeled cyclic-window closure lattice, including crossover, strict inverse width recovery, height and modularity/distributivity. The general FCA representation and run-language tools are not original, and no standalone priority is inferred for the trace or run count as a word-enumeration technique. The strongest inspected nearby findings describe different structures or different invariants, not the lattice classification.
 
-## Limits
+## value
 
-The asymptotic is at fixed complementary width only. Small numerical checks are supplementary; no independent external validation has occurred. The closest literature and incomplete access are documented in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family comprises canonical translation-invariant interval incidence contexts. Counting and characterizing their closed sets answers which width can be recovered from cardinality and exactly where a second complementary run changes the low-width law. The height bound and modularity witness add order-theoretic information not recovered from cyclic word counts. The result is a full two-parameter classification, not a selected numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

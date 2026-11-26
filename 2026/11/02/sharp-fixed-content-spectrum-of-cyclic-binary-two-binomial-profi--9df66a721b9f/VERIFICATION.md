@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,8 @@
 
 # Verification
 
-Reconstruct the unrestricted proof in `RESULT.md` from the height identity \(h_i=(p+q)B_i-qi\), congruence classes modulo \((p+q)/\gcd(p,q)\), balanced-window deletion, exact arithmetic-progression intersections and adjacent-swap continuity. No computational certificate substitutes for these arguments.
+Reconstruct the proof in `RESULT.md` using the height identity \(h_i=(p+q)B_i-qi\), the congruence classes modulo \((p+q)/\gcd(p,q)\), deletion of a balanced window using normalized heights \(h_i/\gcd(p,q)\), the arithmetic-progression upper witness and adjacent-swap continuity. The normalization makes the retained increments identical when the content and gcd are both reduced by deleting a balanced window.
 
-Run `python3 checker.py`. The direct enumerator checks all 32,738 nonconstant binary strings of lengths 2 through 14, computing actual indexed rotations and scattered `01` counts rather than reusing the proof's height formula; it checks bounds, equality, pairwise collision conditions, and complete fixed-content attainment sets. It additionally checks 9,801 content pairs using explicit lower and upper witnesses and the length-\(N/d\) cyclic balancing lemma. These finite experiments cannot establish the infinite theorem alone.
+Run `python3 checker.py` alongside `RESULT.md` with the unchanged included script. The enumerator checks all 32,738 nonconstant binary strings of lengths 2 through 14. It builds the rotations and computes the scattered pair profiles independently of the height formula to cross-check the profile count. The height computation tests individual collisions against arc counts. It also checks the bounds, the lower equality case and complete fixed-content attainment at these lengths, plus lower and upper witnesses and balanced windows for 9,801 positive content pairs. No finite test substitutes for the quantified proof.
 
-The 2004 Chuan paper uses a moment statistic affine-equivalent to the coefficient in this theorem. Its complete text was inaccessible in this scientific comparison; the historical comparison remains qualified. No independent mathematical review was conducted.
+Chuan's moment statistic is affine-equivalent to the `01` count at fixed content. Its complete paper was not available for comparing cardinality theorems; the comparison does not establish historical priority.

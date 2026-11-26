@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support bands follow directly from two-sided spacing inequalities. The union bound gives the critical upper probability without independence; the two-branch construction supplies an actual copula with exactly uniform marginals, not merely a fractional feasibility estimate. Equality forces all conditional ordered coordinates to be uniform in their distinct bands; their translated offsets are ordered and equidistributed, hence equal almost surely. This also proves the full optimizer structure and the incompatible-threshold corollary. The exact checker passes 3128 assertions over many rational parameters; only the analytic argument establishes the theorem for all integers and real thresholds.
+PASS
 
-## Originality — PASS on inspected evidence, with historical-priority risk
+Sorting the coordinates gives the deterministic bands (j−1)r ≤ V_j ≤ (j−1)r+a, a=1−(n−1)r. In the open critical interval they are disjoint, and the expected occupancy of each band is na by the marginals. The occupancy is exactly one on the separation event, giving the upper bound q=na. A uniform shift of the spacing-r progression, with balanced label probabilities, gives unconditional density one on the bands at mass q. A common uniform draw on the complementary set H on failure gives density one there and attains q. At r≤1/n the shifted 1/n lattice gives probability one; at r=1/(n−1) a successful packing must hit 0 and 1, an event of zero probability by atomlessness, and above it the packing is impossible. At equality, each band's occupancy exhausts its marginal mass on success, so failures lie in H almost surely; consequently each ordered successful V_j is uniform on its band. The offsets after subtracting (j−1)r are ordered and have equal expectations, so they coincide almost surely, establishing the exact progression. For any label i and position j, the conditional probability kernel p_ij(t) satisfies (q/a)p_ij(t)=1 a.e. by uniform marginal mass on each translated Borel subset of band j and zero failure mass there; hence p_ij=1/n. Failure marginals are uniform on H. The converse allows every coupling with those failure marginals because a tuple in H cannot pass the band condition. The optimizer attains S=r on all its successes, so every larger tail is zero, and in particular no pair of distinct critical thresholds has a common optimizer. All these statements were checked analytically; the frozen diagnostic was only read.
 
-The 2025 Cattaneo–Masini–Underwood paper optimizes interval concentration of a *maximum*, with copula-diagonal proofs; it does not control the minimum of all pairwise distances or force arithmetic-progression equality cases. The 2026 Cunden–Cuppone–Gramegna–Vivo paper optimizes subsets of a fixed random point cloud with independent gaps and does not optimize arbitrary copulas with fixed marginals. Related results on multivariate marginal feasibility, symmetric spacings and prescribed maxima concern distinct domains. Direct searches of published mathematical records and the available prior-claim ledger revealed no statement that covers the explicit capacity plus rigidity and incompatible-tail results. This is a best-knowledge scientific comparison, not a claim of exhaustive historical uniqueness; broader transport and dependence literature might contain an unlocated formulation.
+## originality
 
-## Value — PASS
+PASS
 
-The event represents full hard-core exclusion under complete dependence uncertainty, a natural robust sampling and multi-point anti-concentration problem. An exact nontrivial probability envelope is useful, but the more structural outcome is the full classification of maximizing couplings: conditional gaps must be equal, and optimizers at different critical thresholds are mutually incompatible. This separates thresholdwise sharpness from a stochastic extremal law, an issue not resolved by a single union bound or by marginal correctness alone.
+Exact progression and exact-distance copula capacities are close neighbors. The supported distinct result is the whole all-pairs separation tail and the complete critical equality structure with incompatibility, rather than merely constructing separated samples or maximizing a prescribed progression event. This is a bounded statement comparison, not a priority determination.
 
-## Independent assessment and limitations
+## value
 
-No independent mathematical audit has been performed. All coordinates must have exact standard-uniform marginals; nonuniform marginals and restrictions to absolutely continuous copulas are outside scope. The theorem has an explicit complete proof, while any broader historical-priority assertion remains uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact attainable tail for this natural constrained-packing statistic is accompanied by a nontrivial change in all optimizing laws: every band marginal saturates and produces a rigid success pattern with a full description of allowed label couplings. The zero larger tail of every critical optimizer gives a sharp obstruction to a universal stochastic maximizer, not visible from an upper bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

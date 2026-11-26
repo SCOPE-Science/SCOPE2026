@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:44:48.146604Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86, VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/branches/d5755225-08db-4241-80e6-59650a9f529e/bridge_finite_identity_check.py: 76 exact checks for 1≤d≤4, 1≤L/2≤4, and moments through r=2"
+      ],
+      "rationale": "At positive even L, return is exactly the all-even multinomial event. Multinomial sequence counts give the cosh coefficient PGF and all falling moments, including r=0 and r=d. Exponentially tilted even-Poisson site sizes conditioned on their sum reproduce precisely these weights. At fixed density the tilt tends to a finite positive value. The support points (1,0),(0,1),(0,2) of (zero indicator, half site size) generate the full difference lattice and a positive definite covariance. The 2D Fourier local CLT is uniform for tilts in a compact neighborhood of the limit (uniform exponential moments and off-origin damping). Dividing by the 1D local CLT at its exact mean, summing on bounded normalized intervals, and using that the resulting normal density has total mass 1 proves conditional weak convergence with the stated Schur complement. No replacement of the actual centering by its limit is used. The strict mean-fraction inequality follows from the increasing positive difference λ tanh λ − log cosh λ. Independently, for the critical window let Q_m be even-time return probability on m coordinates. The parity Fourier formula is Q_m=2^{-m} Σ_j binom(m,j)(1−2j/m)^L. The two endpoints contribute 2^{1−m}; the remaining sum relative to those endpoints is at most (1+exp(−2L/m))^m−1=o(1) for m=d or m=d−r (fixed r), by reflection and the bound on j≤m/2. Thus Q_{d−r}/Q_d→2^r. Omitting r designated coordinates contributes the unconditional factor (1−r/d)^L and gives exactly a uniform (d−r)-cube walk; the conditional factorial moment is therefore (d)_r(1−r/d)^L Q_{d−r}/Q_d→(2e^{−c})^r. The Poisson moment argument gives weak convergence and the zero mass (use a half-integer cutoff); the unconditioned moments omit the Q ratio. This independently verifies the factor of two and the positive d log 2 shift of equal-probability coverage levels. Small exact coefficient tests corroborate only the finite identity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bogachev et al. allocate independent balls to infinitely many fixed-frequency boxes for an occupied-box variance problem. Matthews's available abstract addresses unvisited vertices near vertex cover time. DGM full text was not retrieved."
+        ],
+        "reasoning": "A general all-even conditional occupancy theorem or a joint endpoint/support result could cover the finding. The passages actually read do not supply one; the arguments for ordinary occupancy and for vertex coverage do not give this conditional law.",
+        "searches": [
+          "Bogachev–Gnedin–Yakubovich arXiv:math/0609498 abstract",
+          "Matthews DOI 10.1007/BF01048275",
+          "Diaconis–Graham–Morrison DOI 10.1002/rsa.3240010105"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary results and mirror passages identified above",
+        "Bogachev–Gnedin–Yakubovich p. 1",
+        "Matthews abstract",
+        "DGM retrieval attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives unconditioned covariance/correlation scales; the next analyzes joint vacancies from refreshed coupon samples; the latter treats first corner entrance of independent coordinate flips. None gives the joint empty-direction event with return at even L."
+        ],
+        "reasoning": "Conditioning on the exact endpoint needs a joint-event calculation. In the verified critical argument the unconditioned mean is multiplied by the ratio of even-time return probabilities across dimensions. The ordinary coupon-collector limit and the listed unconditioned or first-entrance statements do not themselves give that ratio for the support moments. At fixed density the application of the conditional-CLT method is standard and not itself credited as new.",
+        "searches": [
+          "Resultary 47a05f4ce943 Finding",
+          "Resultary c552f8b16e6b Finding",
+          "Resultary 93dd688a2c65 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target's parity event is exactly the simultaneous evenness of every box, and the target face codimension is the number of empty boxes. Related Resultary monomer work conditions only a sum on parity; the earlier exploration–displacement record studies the unconditioned walk."
+        ],
+        "reasoning": "The all-even occupancy problem would give equivalent coverage; total parity, even time by itself, and an unconditioned joint covariance are different data.",
+        "searches": [
+          "Local Resultary: conditional coordinate occupancy or missing coordinate directions for a hypercube random walk bridge return to origin even time",
+          "Local Resultary: critical coupon collector window missing coordinates conditioned on all multinomial counts even parity Poisson intensity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula and Poisson(2e^{−c}) entry matched only target ID 7afdf1415689 in the reported hits; the prior unconditioned exploration record and the distinct same-day refreshed-coupon entry had different conclusions."
+        ],
+        "reasoning": "Any other source tabulating the conditional support law or its limit under the same scaling would cover the corresponding claim. The matches reviewed do not independently supply that data; this is not a proof of absence.",
+        "searches": [
+          "Local Resultary: Matthews sample path hypercube random walk coordinate directions used support codimension",
+          "Local Resultary: Diaconis Graham Morrison many dimensional hypercube random walk sample path coordinate coverage parity return endpoint"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the quantitative endpoint-conditioned support law, particularly the doubled critical-window intensity, not for the occupancy encoding, the conditional local-limit method, or ordinary coupon collection. In the strongest distinct Resultary comparison the unconditioned distinct-direction count is the same observable after complementation, but its joint second moments with displacement do not identify its law on an exact return. The exact catalogue hit is the target record itself. The inspected hypercube sample-path abstract studies vertex coverage, not direction coverage. Potential older full-text implications remain an access risk, not a negative result.",
+      "residual_risks": [
+        "The full Matthews paper and DGM were not retrieved; a stronger earlier endpoint/support or conditional-allocation law could imply part of the finding. No priority is asserted for classical parity Fourier sums, generating functions, or normal/Poisson limit techniques."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical finding, no independent priority evidence",
+          "evidence": "States Poisson(2e^{−c}), even fixed time, and excludes first return.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-return-bridges-double-the-missing-direction-intensity-at-hypercu--7afdf1415689",
+          "material_read": "Finding, critical coverage and hypotheses, mirror offset 1249",
+          "method": "Local mirror",
+          "title": "Return bridges double the missing-direction intensity at hypercube coverage",
+          "trigger": "Exact Resultary hit"
+        },
+        {
+          "assessment": "Strongest distinct catalogue comparison; not a covering joint conditional law",
+          "evidence": "Covariance and correlation of unconditioned exploration and Hamming displacement do not recover the distribution on the return event.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-correlation-crossover-between-exploration-and-displace--47a05f4ce943",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two-scale correlation crossover between exploration and displacement",
+          "trigger": "Same unconditioned walk, number of flipped directions and endpoint displacement"
+        },
+        {
+          "assessment": "Different vacancies, no all-even conditioning",
+          "evidence": "Three vacancy counts in two refreshed samples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-critical-resampling-noise-and-a-three-poisson-vacancy-law-at-cou--c552f8b16e6b",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Critical resampling noise and a three-Poisson vacancy law",
+          "trigger": "Coupon-collector vacancy limit in indexed corpus"
+        },
+        {
+          "assessment": "Different model and conditioning",
+          "evidence": "Weighted tripartite matchings with conditioning on total parity rather than simultaneous even site counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-parity-conditioned-poisson-monomers-and-opposite-covariance-sign--35d49f4086b4",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Parity-conditioned Poisson monomers",
+          "trigger": "Parity-conditioned Poisson formulation"
+        },
+        {
+          "assessment": "Different dynamics and time event",
+          "evidence": "Stationary first entrance to a corner for independently flipping coordinates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-persistent-corner-passage-law-and-its-signed-finite-dimensio--93dd688a2c65",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The persistent corner passage law",
+          "trigger": "Cube walk corner-return language"
+        },
+        {
+          "assessment": "Different regime and no all-even bridge in the passage",
+          "evidence": "Occupied-box variance for independent balls allocated to infinitely many boxes of fixed frequencies.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Primary OA PDF excerpt",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Related occupancy variance formulation"
+        },
+        {
+          "assessment": "Abstract addresses a different observable; no whole-paper conclusion",
+          "evidence": "Counts and separations of unvisited vertices near expected cover time.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/BF01048275",
+          "material_read": "Publisher abstract; full-text retrieval unsuccessful",
+          "method": "Primary abstract and OA attempts",
+          "title": "Some sample path properties of a random walk on the cube",
+          "trigger": "Potential earlier cube-coverage result"
+        },
+        {
+          "assessment": "Unresolved historical-coverage risk, not negative evidence",
+          "evidence": "Frozen bibliography line 107 identifies the paper; access failure does not identify its claims.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010105",
+          "material_read": "No decisive primary passage retrieved",
+          "method": "DOI and publisher OA attempts (access failure)",
+          "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+          "trigger": "Potential stronger transition or sample-path theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding lines 16–31",
+        "Parity return-ratio proof and conditioned CLT check",
+        "Resultary unconditioned exploration/displacement Finding"
+      ],
+      "rationale": "Coordinate support describes which face contains a conditioned path; it is distinct both from endpoint displacement and from vertex coverage. The result quantifies endpoint conditioning in two regimes with observable changes: a different mean fraction and conditioned variance at fixed density, and twice the missing-direction intensity (one explicit d log 2 shift) at critical coverage. The latter is a sharp boundary-sensitive comparison at the same time and dynamics, not a known unconditioned coupon count relabeled as a bridge.",
+      "residual_risks": [
+        "No first-return result, unequal weights, vertex cover-time limit, or noncritical growing-time bound is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

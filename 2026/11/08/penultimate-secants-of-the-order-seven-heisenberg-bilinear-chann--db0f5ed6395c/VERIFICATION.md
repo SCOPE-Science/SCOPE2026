@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification
 
-The witness data `parameters_q7.txt` comprise \(16\) consecutive triples of vectors on \(\mathbb F_7^2\), each vector having \(49\) entries. All entries lie in \(\{1,\ldots,28\}\) and are interpreted in \(\mathbb F_{29}\). The C++17 code reconstructs derivatives using the explicit twisted-convolution coefficient formula; it is not a precomputed rank table. The reduction uses \(\zeta_7\mapsto7\), which has order exactly seven in \(\mathbb F_{29}\).
+# Independent mathematical audit
 
-Exact commands from the directory holding the included files:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 verify_q7.cpp -o verify_q7
-./verify_q7 parameters_q7.txt
-python3 check_derivatives.py parameters_q7.txt
-```
+PASS
 
-Observed exact output:
+The two independent rescalings of any nonzero parameter triple give a two-dimensional fiber, so the affine r-channel dimension is at most 145r. Independently rebuilt the derivative over F_29 by scattering the derivatives of d_k a_u b_v times the phase to row (k+u,k+v), directly from the stated coefficient map. Used the frozen 2352 integers, verified the primitive order of 7 modulo 29, and performed exact integer blocked modular elimination, with no floats, on the four selected-column matrices. All four attained 2320 pivots of 2320 for (0,0),(0,1),(1,1),(1,2). Replay: python3 replay/review_q7_rank.py <frozen-package>/parameters_q7.txt 16 0 1 2 3. In the lift to Z[zeta_7], the reduced nonzero full minor cannot come from a zero determinant in the coefficient ring; selecting only the columns of r channels likewise gives 145r independent columns in the complex r-channel Jacobian. The dimension equals the upper bound in characteristic zero. Scaling the first coordinate of every index and transposing (i,j) give the corresponding type scaling and input swap. The remaining triality can also be checked on the coefficient map: with B(x,y)=x_x y_y and q(x)=B(x,x), swap k and u=i-k, replace v by -v, and set i'=i,j'=i-j. The exponent differs from the (-s-t,t) exponent by s q(k')+(s+t)q(u')-(s+t)q(i')+t B(i',j'), a sum of separate input and output phase gauges, yielding a linear equivalence of the image cones. Enumerating the scaling/permutation orbits of (s,t,-s-t) gives sizes 1,18,18,12 covering all 49 pairs. The polynomial map is conical and summing a dense parametrized subset of each cone gives the affine cone over the projective secant on closure. Thus the projective dimension is 145r-1 and the order-16 codimension is 81. Neither this computation nor the original proof tests order 17.
 
-```text
-type=(0,0) rank=2320 expected=2320
-type=(0,1) rank=2320 expected=2320
-type=(1,1) rank=2320 expected=2320
-type=(1,2) rank=2320 expected=2320
-ALL_FOUR_JACOBIAN_RANK_CERTIFICATES_OK
-INDEPENDENT_DERIVATIVE_FORMULAS_OK 240
-```
+## originality
 
-There are \(49^2=2401\) target coordinates. For each of the \(16\) summands the verifier selects \(3\cdot49-2=145\) derivative columns, and proves their total \(2320\) columns independent for each type orbit. Full rank over \(\mathbb F_{29}\) implies a nonzero \(2320\times2320\) minor over the cyclotomic integer ring and hence over \(\mathbb C\). The differential upper bound and the four type orbits finish the proof. The second independent checker compares finite differences of the original coefficient sums to their separately coded derivative formulas for \(240\) sample positions. It is a formula check, not a replacement for the full-rank computation.
+PASS
 
-The remaining limitations are mathematical: no conclusion about the expected filling at \(r=17\), all larger primes, or independent external validation.
+The motivating paper supplies the map, symmetries, one-channel dimension and second secants, not the q=7 nondefectivity through r=16. Inspected same-day work has a different invariant. A later result fills at 17 but gives only the 16-channel upper bound, not the exact subgeneric ranks. The pass is for the exact q=7 subgeneric dimensions beyond the known low orders, not for the parameterization, symmetry reductions, orders 1–2, or the generic width.
+
+## value
+
+PASS
+
+q=7 is the first prime case beyond the motivating paper's complete small-q profiles, and r=16 is the largest predicted subambient order. The full exact rank there certifies every lower order for all twists, including their dimension rather than only a generic-width cutoff. It gives a clear answer about dimension 2319 and codimension 81 at the meaningful boundary, complementary to, and not superseded by, filling at 17.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review — fractional-moment shift defect staircase
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is \(m\ge2\) integer, \(a>0\), \(m-2<\alpha<m-1\), and real \(\eta>-a\). The weights are positive and bounded. The defect is diagonal and its signs reduce to one finite-difference quotient. A unit-cube derivative representation proves both signs without numerical assumptions. Its weighted-mean quotient has derivative strictly exceeding \(\alpha/(m-\alpha)\), by the strict Cauchy--Schwarz inequality. This yields all-index threshold monotonicity, the full positive-rank and kernel classification, and the large-parameter counting law. The diagonal tail is nonzero to leading order \(n^{-m}\), proving compactness and the exact quasi-Schatten cutoff. The packaged standard-library diagnostic makes 888 finite consistency checks; it is not relied upon for any infinite conclusion.
+PASS
 
-## Originality — PASS, qualified
+For m≥2, a>0, m−2<α<m−1 and η>−a, b_n=(n+a)^{α−1}(n+a+η)>0 and the weights tend to one. Telescoping makes the defect diagonal with entries Δ⁺ᵐb_n/b_n. The m-fold fundamental theorem of calculus writes the forward differences as cube averages of derivatives; the two falling factorials for α and α−1 have opposite signs (negative and positive, respectively). Hence the entry sign is exactly sign(η−τ_n). Writing c=α/(m−α), r=α−m−1, Y=x+Σu_i and weighting cube measure by Y^r, τ(x)=c E_xY. Differentiation gives τ′/c=1+r(1−E_xY E_xY⁻¹)>1 by strict Cauchy–Schwarz. Uniform expansion over the cube gives τ(x)=c(x+m/2)+O(1/x); thus gaps are strictly greater than c and approach c. The sign pattern yields the exact concavity interval, each positive rank and kernel, and an infinite negative tail for every η. Inverting the threshold asymptotic gives r_+(η)=η/c+O(1), with strict index counting at equality. For fixed η the entries equal α^{↓m} n^{−m}+O(n^{−m−1}); closure yields a compact diagonal defect. For the sorted absolute values, sandwich the tail between (|α^{↓m}|±ε) times decreasing power sequences, then shift the indices by at most the finite prefix length. This justifies the leading singular-value constant even without assuming the original absolute entries are already ordered. The p-series test includes divergence at p=1/m. A separate bounded Decimal check for m=2, α=1/2, a=1 found initial thresholds about 0.5907703, 0.9519487, 1.2978908; its finite checks are not all-index evidence. The frozen verification script was inspected, not run.
 
-The strongest direct comparison, Suciu (arXiv:2611.20171v1, Sections 1–3), establishes general higher-order lifting mechanisms, defines the defect, and gives other weighted-shift examples; it does not establish the present two-power fractional-moment thresholds or complete defect spectral classification. Chavan–Stochel (2023, Proposition 4.3) concerns polynomial-moment \(m\)-isometries and related weak concavity, and Benhida–Curto–Exner (arXiv:2309.05888v2, Section 1 and main results) use geometrically regular weights with exponential-power dependence. Their stated cases and consequences do not yield this classification directly. Equivalent formulations by finite-difference sign changes and stronger divided-difference comparison theorems were searched; no statement covering the complete classification was identified. This is a best-knowledge comparison, **not a proof of priority**. A broad classical total-positivity/divided-difference theorem may implicitly subsume the threshold monotonicity, and uncatalogued literature could cover the exact family.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The one-parameter moment perturbation of a fractional-power shift is a natural controlled test for the higher-order concavity condition that triggers recent lifting results. Determining **exactly** which perturbations satisfy it, and how the entire sign spectrum changes beyond its boundary, is a meaningful classification rather than a binary sample calculation. The strict separated rank staircase, explicit asymptotic number of positive defect modes, and parameter-independent singular-value/Schatten tail jointly distinguish finite-dimensional leakage from invariant infinite-dimensional defect regularity. The exact family is intentionally restricted and does not pretend to classify all lifts or weighted shifts.
+Credit the diagonal finite-difference reduction, integral identity, and operator lifting theory as established. The distinct supported result is the classification of the two-power fractional family with explicit strict threshold separation, positive ranks and kernels, and sharp defect-ideal cutoff. The strongest retrieved broader and close-family statements do not supply that classification.
 
-## Prior-work and residual limitations
+## value
 
-Direct literature inspected: Suciu's full HTML preprint, including the definitions, Theorem 3.2 and weighted-shift examples; Chavan–Stochel's article including Proposition 4.3; Benhida–Curto–Exner's full HTML paper with its moment/contractivity and hyperexpansivity framework. The classical finite-difference identity and known lifting consequence are credited. No independence, external mathematical certification, or exhaustive bibliographic priority is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The neighboring-power perturbation preserves the large-index leading moment but can reverse the sign of the finite head of the operator defect. The exact parameter region tells when higher-order concavity and its lifting hypotheses apply, the thresholds tell precisely how that structure fails, and the parameter-independent ideal cutoff quantifies the remaining infinite negative tail. This is a motivated sign and spectral classification rather than a finite test of a single shift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,108 +1,63 @@
-# Sharp two-view power-Cauchy error with reentrant sign transitions
+# Sharp positive two-view minimax for superquadratic planar brightness
 
 ## Finding
-For every real exponent \(p\ge2\), put
-\[
-c_p=\frac{\Gamma((p+1)/2)}{\sqrt\pi\,\Gamma(1+p/2)},\qquad
-\mathfrak D_p(\mu)=\max_{\theta\in\mathbb R/\pi\mathbb Z}
-\left|\sum_{j=1}^{m}w_j|\cos(\theta-\phi_j)|^p-c_p\right|.
-\]
-Among all normalized positive rules \(\mu\) supported on at most two unoriented planar directions, the sharp discrepancy is
-\[
-\boxed{\inf_\mu\mathfrak D_p(\mu)
-=\max\left\{\frac12-c_p,\ c_p-2^{-p/2}\right\}.}
-\]
-For every \(p\ge2\), the minimizing rule is unique modulo common rotation, reversal of direction representatives and exchange of nodes: two mutually perpendicular axes, each of weight \(1/2\). For this rule, the worst discrepancy is *positive* at the coordinate axes for \(2<p<4\), *negative* at the bisectors for \(4<p<6\), and positive again for \(p>6\). The two signs tie exactly at \(p=4\) and \(p=6\); the rule is exact at \(p=2\). Thus the optimizing directions remain fixed while the worst-error polarity switches twice.
 
-The corresponding sharp **perimeter-normalized planar convex-body brightness error** is exactly one half of the displayed value (definition below). The phase transition holds for the continuum of all real \(p\ge2\), not just even integers.
+For every real \(p>2\), write
+\[
+c_p=\frac{\Gamma((p+1)/2)}{\sqrt\pi\,\Gamma(1+p/2)}.
+\]
+Among all fixed normalized positive rules \(\mu\) on at most two unoriented planar directions, the minimum angular discrepancy is
+\[
+\inf_\mu\mathfrak D_p(\mu)=\max\{\tfrac12-c_p,\ c_p-2^{-p/2}\}.
+\]
+The unique minimizing rule, up to a common rotation, sign choices of direction representatives and relabeling, places weight \(1/2\) on each of two perpendicular directions. It simultaneously attains the universal bounds on the upper and lower potential extremes. The sharp perimeter-normalized convex-body error is half the angular discrepancy. The contribution is the superquadratic minimax value and equality classification. The convex-body norm reduction, exact quadratic endpoint, and the polarity comparison described below are not asserted as new.
 
 ## Assumptions and scope
-Let \(K\subset\mathbb R^2\) be a compact full-dimensional convex body, \(S_K\) its surface-area measure, and \(P(K)>0\) its perimeter. For a unit vector \(u\), define the power-Cauchy brightness observable
+
+Take \(K\subset\mathbb R^2\) compact, convex and full-dimensional, with surface-area measure \(S_K\) and perimeter \(P(K)=S_K(S^1)\). Put
 \[
-B_pK(u)=\frac12\int_{S^1}|u\cdot v|^p\,dS_K(v).
+B_pK(u)=\tfrac12\int_{S^1}|u\cdot v|^p\,dS_K(v).
 \]
-The exact normalized circular average is \(c_pP(K)/2\). A positive rule with one or two unoriented directions is \(\mu=\sum_{j=1}^m w_j\delta_{u_j}\), where \(1\le m\le2\), \(w_j>0\), and \(\sum_jw_j=1\). The error on convex bodies is
+The uniform circular mean is \(c_pP(K)/2\), where \(c_p=\pi^{-1}\int_0^\pi|\cos\theta|^p\,d\theta\) by the beta integral. Write a rule as \(\mu=\sum_{j=1}^m w_j\delta_{u_j}\) with \(1\le m\le2\), weights \(w_j>0\), \(\sum_jw_j=1\), and angles \(\phi_j\in\mathbb R/\pi\mathbb Z\) representing the \(u_j\). The potential and angular discrepancy are
 \[
-\mathcal E_p(\mu)=\sup_{K\text{ full-dimensional}}
-\frac{\left|\sum_jw_jB_pK(u_j)-c_pP(K)/2\right|}{P(K)}.
+F_\mu(\theta)=\sum_jw_j|\cos(\theta-\phi_j)|^p,
+\qquad \mathfrak D_p(\mu)=\|F_\mu-c_p\|_\infty.
 \]
-An even continuous potential and increasingly thin rectangles show that \(\mathcal E_p(\mu)=\mathfrak D_p(\mu)/2\). This reduction also follows from the sharp defect theorem of An (2026), and is not a newly claimed identity. The theorem optimizes \(\mathcal E_p\) over fixed calibrated, positive rules supported on at most two projective directions.
+The geometric error is the supremum over \(K\) of \(\bigl|\sum_jw_j B_pK(u_j)-c_pP(K)/2\bigr|/P(K)\).
 
 ## Proof
-**1. The two unavoidable directional errors.** Write a two-node rule with weights \(w,1-w\), directions \(\phi_1,\phi_2\) in the projective circle \(\mathbb R/\pi\mathbb Z\), and potential \(F(\theta)=w|\cos(\theta-\phi_1)|^p+(1-w)|\cos(\theta-\phi_2)|^p\). Evaluating at either node gives
-\[
-\max_\theta F(\theta)\ge\max(w,1-w)\ge\frac12.
-\]
-The two nodes divide the projective circle of circumference \(\pi\) into two gaps. One gap has length \(L\ge\pi/2\). Its midpoint has projective angular distance \(L/2\ge\pi/4\) to *both* nodes, hence
-\[
-\min_\theta F(\theta)\le \cos^p(L/2)\le2^{-p/2}.
-\]
-Since \(c_p\le1/2\) for \(p\ge2\), and \(c_p\ge2^{-p/2}\) by Jensen applied to the mean of two orthogonal components, the signs are consistent and
-\[
-\mathfrak D_p(\mu)\ge
-\max\left\{\frac12-c_p,\ c_p-2^{-p/2}\right\}.
-\]
-A one-node rule is included by taking a coincident two-node representation, for which the first inequality is strict.
 
-**2. Sharpness and uniqueness.** For the equally weighted orthogonal rule,
-\[
-F_0(\theta)=\frac12\bigl(|\cos\theta|^p+|\sin\theta|^p\bigr).
-\]
-Set \(q=p/2\ge1\) and \(x=\cos^2\theta\). Then \(F_0=(x^q+(1-x)^q)/2\). Convexity of \(x^q\), or the elementary power-mean inequality, yields
-\[
-\min F_0=2^{-q},\qquad \max F_0=1/2.
-\]
-Thus the universal lower bound is attained. Suppose the two projective nodes are not perpendicular. Their larger gap has \(L>\pi/2\), so \(\min F<2^{-q}\), strictly losing whenever the negative error sets the bound. Also \(\max F>1/2\): at a heaviest node the value is at least \(\max(w,1-w)\), strictly above \(1/2\) if weights are unequal, and above \(1/2\) through the positive other-node contribution if equal. This strictly loses whenever the positive error sets the bound. If the nodes are perpendicular but weights are unequal, \(\max F\ge\max(w,1-w)>1/2\), so they cannot optimize in a positive-error-dominated regime. In a negative-error-dominated regime the derivative of \(F\) at the angular bisector is nonzero for unequal weights, giving \(\min F<2^{-q}\). At ties either argument applies. Therefore equality requires perpendicular axes and weights exactly \(1/2\). This also covers \(p=2\), when the sharp error is zero.
+**Norm reduction.** Interchanging integrations gives the geometric error bound \(\mathfrak D_p(\mu)/2\). Choose rectangles with long-side normals \(\pm v_0\), where \(v_0\) maximizes the absolute angular discrepancy. As the aspect ratio tends to infinity, their normalized surface-area measures tend to the even two-point measure on \(\pm v_0\). The potential is even, so this realizes the bound as a supremum. This is the planar instance of An's defect norm identity [1, Theorem 3.2].
 
-**3. Exact reentrant sign diagram.** Let \(X=\cos^2\Theta\), with \(\Theta\) uniform modulo \(\pi\). Then \(X\) has the arcsine distribution \(\operatorname{Beta}(1/2,1/2)\) and \(c_p=\mathbb E[X^q]\). Introduce the three-point Lobatto functional
+**Universal bounds and sharpness.** At a heaviest node the potential is at least its weight, hence \(\max F_\mu\ge1/2\). If there are two distinct projective nodes, their larger separating gap on the circle of circumference \(\pi\) has length \(L\ge\pi/2\). At its midpoint the distance to both nodes is \(L/2\), so \(\min F_\mu\le\cos^p(L/2)\le2^{-p/2}\). A one-node rule has minimum zero and maximum one, and satisfies both bounds strictly. For the equal perpendicular rule,
 \[
-Q(g)=\frac14g(0)+\frac12g(1/2)+\frac14g(1).
+F_0(\theta)=\tfrac12\bigl(|\cos\theta|^p+|\sin\theta|^p\bigr)
+=\tfrac12[x^q+(1-x)^q],\qquad x=\cos^2\theta,\quad q=p/2>1.
 \]
-It agrees with the arcsine expectation on every polynomial of degree at most three, since the first four moments of \(X\) are \(1,1/2,3/8,5/16\). Direct calculation gives
-\[
-2\left(\mathbb E[X^q]-Q(x^q)\right)
-=2c_p-\frac12-2^{-q}.
-\]
-For \(g_\varepsilon(x)=(x+\varepsilon)^q\), the cubic Hermite interpolation polynomial matching values at \(0,1/2,1\) and the first derivative at \(1/2\) has remainder
-\[
-g_\varepsilon(x)-H_\varepsilon(x)
-=\frac{g_\varepsilon^{(4)}(\xi_x)}{4!}
-\,x(x-1)(x-1/2)^2.
-\]
-The polynomial factor is nonpositive on \([0,1]\), and
-\[
-g_\varepsilon^{(4)}(x)=q(q-1)(q-2)(q-3)(x+\varepsilon)^{q-4}.
-\]
-Because \(Q\) is supported on interpolation nodes, \(Q(g_\varepsilon-H_\varepsilon)=0\), whereas the arcsine expectation of the remainder has strict sign opposite that of the displayed product except at polynomial exponents. Letting \(\varepsilon\downarrow0\) preserves the non-strict sign by continuity. Strictness for noninteger \(q\notin\{1,2,3\}\) follows from the generalized Hermite remainder applied directly on every compact subinterval of \((0,1)\): the fourth derivative has constant nonzero sign there. Therefore
-\[
-2c_p-\frac12-2^{-p/2}\begin{cases}
-<0,&2<p<4,\\
->0,&4<p<6,\\
-<0,&p>6,
-\end{cases}
-\]
-with zeros exactly at \(p=2,4,6\). This is precisely the difference between the magnitudes of negative and positive deviations for the optimal rule, proving the asserted two polarity reversals.
+Strict convexity gives its maximum \(1/2\) and minimum \(2^{-q}\). Its mean is \(c_p\), which lies strictly between the two endpoints. Thus the universal bounds imply the stated minimax error, and the perpendicular equal rule attains it.
 
-**4. Convex-body interpretation.** Interchanging surface-area integration and the directional rule gives
+**Uniqueness.** Nonperpendicular distinct nodes have \(L>\pi/2\), hence \(\min F_\mu<2^{-q}\). They also have \(\max F_\mu>1/2\): either the larger weight exceeds \(1/2\), or the weights are equal and there is a strictly positive contribution from the other node at a sampled node. For perpendicular nodes with unequal weights, the larger weight again exceeds \(1/2\). At the bisector the value is \(2^{-q}\) but the angular derivative is \(p2^{-q}(1-2w)\ne0\), where \(w\) weights the direction with angle zero. This gives \(\min F_\mu<2^{-q}\). In each nonoptimal case both extrema are strictly worse, which excludes equality regardless of which side of the error dominates.
+
+## Polarity as a consequence of prior moment monotonicity
+
+For the optimal rule the high and low deviations are \(1/2-c_p\) at the axes and \(c_p-2^{-q}\) at the bisectors. Their comparison follows directly from the balanced order-four character moment in [2]. With that source's phase variable,
 \[
-\sum_jw_jB_pK(u_j)-\frac{c_pP(K)}2
-=\frac12\int_{S^1}(F(v)-c_p)\,dS_K(v).
+H_q(\phi)=\tfrac14\sum_{k=0}^3(1+\cos(\phi+k\pi/2))^q.
 \]
-Thus \(\mathcal E_p(\mu)\le\frac12\mathfrak D_p(\mu)\). If \(v_0\) maximizes the absolute potential discrepancy, choose long thin rectangles with long-edge outer normals \(\pm v_0\). Their normalized surface-area measures converge to \((\delta_{v_0}+\delta_{-v_0})/2\), and the integrand is even. Hence the upper bound is the supremum, proving the stated factor \(1/2\) and completing the geometric claim.
+Its axis value satisfies \(2^{-q}H_q(0)=1/4+2^{-q-1}\). Its circular mean is \(2^q c_p\), since \((1+\cos\phi)/2=\cos^2(\phi/2)\). In [2, Proof, balanced-coefficient argument], \(H_q\) is strictly decreasing on \((0,\pi/4)\) for \(1<q<2\) and \(q>3\), strictly increasing there for \(2<q<3\), and constant at \(q=2,3\). Phase periodicity and reflection then make \(H_q(0)\) a strict extremal value relative to its mean in the nonconstant cases. Thus the positive error is larger on \((2,4)\) and \((6,\infty)\), the negative error is larger on \((4,6)\), and the magnitudes tie at 4 and 6. This application of [2] compares the two deviations for the optimal rule; [2] does not optimize the planar two-direction problem over weights and nodes.
+
+## Relation to prior work and limitations
+
+An [1, Theorems 3.2, 4.3, 5.2] supplies the norm reduction and exactness framework, including the known unique exact equal orthogonal pair at \(p=2\). The subquadratic two-direction theorem [3] determines a different error for \(0<p<2\) with the same optimizer. Its obstruction uses test normals perpendicular to the samples to get \(\min F\le1/2\), useful when \(c_p>1/2\). For \(p>2\), the mean lies below \(1/2\), and the two obstructions and their strict cases above are needed. The sign corollary is credited to [2] through the moment identity. These comparisons do not establish exhaustive historical priority.
+
+The theorem is for real \(p>2\), calibrated positive weights, fixed rules with at most two planar projective directions, and perimeter-normalized error over full-dimensional bodies. No determination for more nodes, signed weights, adaptive rules or other dimensions is asserted. The rectangle argument proves a supremum, not attainment by a full-dimensional convex body.
 
 ## Verification
-Run `python verify.py` with Python 3 and no third-party packages. It independently compares the gamma normalization with numerical angular integration, reconstructs the exact orthogonal potential extrema for fourteen different exponents, checks the polarity on both sides of both transitions, and tests the two universal geometric lower-bound witnesses across 2,400 pseudorandom positive two-node rules. In the preparation of this result the checker reported 7,264 successful numerical comparisons. These finite tests are checks, not a substitute for the all-exponent proof above.
 
-## Relationship to prior work
-C. An, *Exact Finite Integral Geometry: Directional Kernels and Spherical Designs* (arXiv:2609.05869v1, first public 2026-09-05), establishes the universal norm reduction, spectral exactness criterion and the unique exact quadratic rule in its Theorem 5.2. We credit those results and do not claim novelty at \(p=2\). Its full text does not optimize two-view error at \(p>2\), nor classify the \(p=4,6\) error-polarity switches.
-
-The earlier published finding *Sharp positive two-direction quadrature for subquadratic cosine brightness* (2026) treats \(0<p<2\), with the orthogonal rule as optimizer; that exponent range is disjoint from the strict superquadratic range proved here. Another earlier result, *Sharp positive \(N\)-direction Cauchy quadrature and angular rigidity*, treats the Cauchy exponent \(p=1\) and all positive node counts. The current new claim is the complete \(p>2\) two-view minimax formula, its rigidity and the twice-reentrant sign classification; none follows from a theorem establishing only exactness at \(p=2\) or impossibility of exactness for non-even exponents.
-
-## Limitations
-The rule is positive, normalized, calibrated, nonadaptive and supported on at most two unoriented planar directions. Signed rules, more nodes, nonplanar bodies, additional kernel classes and the \(0<p<2\) result are outside the new theorem. The supremum over planar convex bodies need not be attained by a full-dimensional body; thin rectangles approach it. The short elementary proof does not itself establish global historical priority, and relevant unindexed sources may exist.
+The proof of the minimax value and uniqueness is analytic. The accompanying `verify.py` uses Python 3 and its standard library for finite numerical checks of the normalization, orthogonal extrema, the two geometric test directions and selected instances of the credited polarity comparison. It is a diagnostic, not the proof for all real exponents or all rules.
 
 ## References
-1. C. An, *Exact Finite Integral Geometry: Directional Kernels and Spherical Designs*, arXiv:2609.05869v1 (2026-09-05), especially Theorems 3.2, 4.3 and 5.2. https://arxiv.org/abs/2609.05869
-2. *Sharp positive two-direction quadrature for subquadratic cosine brightness* (2026), pre-existing published mathematical result, subquadratic case \(0<p<2\). https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-positive-two-direction-quadrature-for-subquadratic-cosine--35c0341352f2
-3. *Sharp positive \(N\)-direction Cauchy quadrature and angular rigidity* (2026), classical Cauchy case \(p=1\). https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae
-4. C. An, *Gauss--Chebyshev Quadrature, \(\mathbb S^1\)-Designs, and the Planar Minkowski Inverse Problem*, arXiv:2610.11814v1 (2026-10-08), on related circle quadrature and inverse Minkowski geometry. https://arxiv.org/abs/2610.11814
+
+1. C. An, *Exact Finite Integral Geometry: Directional Kernels and Spherical Designs*, [arXiv:2609.05869v1](https://arxiv.org/abs/2609.05869), Theorems 3.2, 4.3 and 5.2.
+2. [*Sharp Λ(p) constants for order-four character pairs*](https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-lambda-p-constants-for-order-four-character-pairs--edfa311d2932/RESULT.md), Proof, balanced-coefficient phase analysis.
+3. [*Sharp positive two-direction quadrature for subquadratic cosine brightness*](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-positive-two-direction-quadrature-for-subquadratic-cosine--35c0341352f2/RESULT.md), Finding and Proof §§2–3.

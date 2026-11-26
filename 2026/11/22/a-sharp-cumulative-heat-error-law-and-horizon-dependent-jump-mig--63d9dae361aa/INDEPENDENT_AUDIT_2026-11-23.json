@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:57.465744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A BV function equals a constant plus a superposition of left steps against −Df. Taking the spacetime Hilbert norm gives an attained one-step maximum (the step profile is continuous, zero at the endpoints, and positive inside). Equality forces the step residuals with the signs of their measure densities to align on one ray almost everywhere. A nontrivial proportionality for distinct knots would persist at a positive time and make a nontrivial combination of distinct steps constant, since the Neumann nullspace of I−P_t is exactly the constants. This gives the complete equality case. Cosine coefficients and integration of (1−exp(−π²n²t))² reproduce the displayed J_T. Independently derive the image formula by writing the fixed-time derivative as q−2Q_t q+Q_{2t}q, with q(s)=1−2s on (0,1) periodically extended and Q_t the periodic heat semigroup of diffusivity 1/4 (the sine multipliers are exp(−π²n²t)). Convolving the sawtooth derivative q′=−2+2Σδ_k gives Q_t q=q−Σ sign(s−k)erfc(|s−k|/√t), yielding (49). On 0<s≤1/2 the nonzero images and their first s-derivatives are O(exp(−c/t)), absorbing powers of t into a slightly smaller exponent. Thus integrating time and then space gives uniform rescaled profile convergence and C² convergence near the candidate knot. A(z)=∫₀¹erfc(z/√u)du is the twice integrated positive erfc tail with A″=4erfc. The increasing erfc hazard (reciprocal ∫₀∞ exp(−v²−2zv)dv) and the log-concave tail-ratio argument give increasing positive hazard for A; therefore A(z)/A(z/√2) decreases strictly from 1 to 0, the latter also by integrating its positive hazard over [z/√2,z]. The unique critical point of G is nondegenerate, and G(∞)=2(2−√2)/(3√π) is strictly lower; the uniform profile gap localizes every maximizing knot and the C² limit proves uniqueness on each half for small T. The absolutely convergent second derivative of the spectral correction gives J_T″<−2T+1, proving the midpoint result including T=1/2. Independent numerical replay using the erf power series and I(z)=(z+2z³/3)erfc(z)+2[1−(1+z²)exp(−z²)]/(3√π), an antiderivative of A starting at zero, gives ζ≈0.772397284434471, G(ζ)≈0.257188139594510 and the stated 16.72874596% gain. The frozen checker was inspected but not run. The proof does not classify intermediate horizons or optimize the sufficient 1/2 guarantee.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miranda et al. identify short-time full-space heat crossing and pair-integral limits with perimeter or variation; Choulli et al. bound the Neumann heat kernel above by Gaussian terms.",
+          "6f50c9ea61c0 studies variation contraction in drifted Neumann heat flow; 1a083add3aa3 classifies an instantaneous periodic implicit-Euler resolvent error."
+        ],
+        "reasoning": "Neither short-time BV perimeter characterizations, heat-kernel bounds, exact variation contraction nor the resolvent result bounds the squared cumulative residual sharply with a complete optimizer statement. They use a different functional, a different filter, or estimates that do not preserve enough information to decide exact maxima.",
+        "searches": [
+          "Miranda–Pallara–Paronetto–Preunkert, CVGMT document 686, (1.4)–(1.5)",
+          "arXiv:1502.06740 Theorem 1.1",
+          "Resultary: cumulative heat residual, drifted Neumann optimizer migration and worst-BV error bifurcation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7bee99d6a8aa, 79e9f8095717, 6f50c9ea61c0, 1a083add3aa3 and self-hit 63d9dae361aa",
+        "Miranda et al., CVGMT document 686, (1.4)–(1.5)",
+        "Choulli et al., arXiv:1502.06740 Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the Neumann single-time boundary layer the derivative profile is h(z)=2erfc(z)−erfc(z/√2), which has its sole positive zero at about 0.992269655382. With H(z)=∫₀ᶻh, the cumulative profile is G(z)=∫₀¹√u H(z/√u)du.",
+          "Independent erf-series and antiderivative evaluation gives the time integral of the pointwise sharp profile constant as (2/3)max H≈0.264417994929, strictly larger than max G≈0.257188139595."
+        ],
+        "reasoning": "A fixed z cannot place z/√u at the sole maximizer of H for almost every u. On the exact finite interval the same image localization at single times forces instantaneous maximizing knots toward the endpoints as t→0, so no fixed interior knot maximizes at almost every time of any positive horizon. Integrating already-maximized sharp norms loses sharpness; the cumulative profile comparison, rigidity, and long-time concavity require additional arguments.",
+        "searches": [
+          "Original RESULT.md of Resultary 7bee99d6a8aa and 79e9f8095717",
+          "Miranda et al. (1.4)–(1.5) and Choulli et al. Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7bee99d6a8aa optimizes the fixed-time periodic squared heat error over two-jump arcs and has distance scaling d_t/(2√t)→0.992269655382.",
+          "79e9f8095717 is on the same Neumann interval and selects the centered step, but in the fixed-time L¹ norm."
+        ],
+        "reasoning": "Even reflection relates a Neumann step to a periodic pair of jumps and explains shared Gaussian image mechanisms. It does not change a fixed-time criterion into optimization of an integral with one fixed input. Nor can L¹ midpoint optimality be transferred to the squared L² residual; the latter has two cumulative off-center optima at short horizons.",
+        "searches": [
+          "Resultary: microscopic two-jump periodic heat extrema; same-interval reflecting heat sharp BV residual; cumulative Neumann BV-to-spacetime L² error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "63d9dae361aa is the frozen record itself, not separate priority evidence.",
+          "The strongest inspected distinct matches 7bee99d6a8aa, 79e9f8095717, 6f50c9ea61c0 and 1a083add3aa3 give respectively a single-time periodic L²² norm, a Neumann single-time L¹ norm, a variation norm and a fixed-time periodic resolvent norm."
+        ],
+        "reasoning": "None of those original statements gives the cumulative root 0.772397284434, its value 0.257188139594, or the unique midpoint at all T≥1/2 for the same cumulative objective. No priority ordering is inferred for distinct same-day records; an unsuccessful catalogue search is not proof of novelty.",
+        "searches": [
+          "Resultary: cumulative spacetime L² heat approximation, Gaussian fixed-time periodic residual, BV-to-L¹ reflecting heat error, optimizer migration and bifurcation"
+        ]
+      },
+      "rationale": "The strongest nearby periodic theorem already has a sharp Gaussian two-jump profile at one time, and a matching-geometry Neumann theorem already has an exact centered jump in instantaneous L¹. Neither supplies the cumulative L²² optimization over a common initial datum. The Gaussian profile and the need to integrate are related to these earlier techniques, but the new critical equation and rigorous short-/long-horizon maximizing regimes are not mechanically implied. Bounded primary and catalogue comparisons do not certify historical priority.",
+      "residual_risks": [
+        "Available exact neighbors were compared at the level of original statements; unindexed exact spacetime BV norm results remain possible.",
+        "The same-day dates establish no within-day priority. No sharp intermediate-horizon transition is asserted or certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-time periodic squared L² theorem, not cumulative Neumann",
+          "evidence": [
+            "Two-jump arc indicators on the circle; d_t/(2√t) approaches 0.992269655382."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-microscopic-two-jump-extremizers-for-sharp-periodic-heat-approxi--7bee99d6a8aa",
+          "material_read": "Original RESULT.md Finding, offsets 0 and 1067",
+          "method": "Local Resultary mirror and image/scale comparison",
+          "title": "Microscopic two-jump extremizers for sharp periodic heat approximation",
+          "trigger": "Strongest sharp Gaussian residual analogue"
+        },
+        {
+          "assessment": "Same Neumann geometry but instantaneous L¹ output",
+          "evidence": [
+            "Fixed-time residual norm has equality only for centered jumps."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-bv-to-l-1-approximation-norm-of-reflecting-interval-heat-f--79e9f8095717",
+          "material_read": "Original RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp BV-to-L¹ approximation norm of reflecting interval heat flow",
+          "trigger": "Exact same geometry and centered worst jump"
+        },
+        {
+          "assessment": "Variation-contraction norm, not cumulative error",
+          "evidence": [
+            "Optimizes V(P_t^(b)f)/V(f), with centered jump when b=0."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-real-bv-contraction-for-drifted-neumann-heat-and-migration--6f50c9ea61c0",
+          "material_read": "Original RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp real BV contraction for drifted Neumann heat and migration",
+          "trigger": "Same interval, migrating step extremizer"
+        },
+        {
+          "assessment": "Periodic resolvent, not Neumann semigroup or cumulative objective",
+          "evidence": [
+            "One-parameter transition of the worst periodic arc to a semicircle for an implicit-Euler residual."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-bifurcation-of-worst-bv-errors-for-periodic-implicit-eul--1a083add3aa3",
+          "material_read": "Original RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp bifurcation of worst BV errors for periodic implicit Euler",
+          "trigger": "Related exact squared L² optimizer transition"
+        },
+        {
+          "assessment": "Full-space perimeter/variation limits, not the stated norm",
+          "evidence": [
+            "√(π/t) times heat mass crossing from a set to its complement tends to its perimeter."
+          ],
+          "identifier_or_url": "https://cvgmt.sns.it/document/686/",
+          "material_read": "Open original PDF printed pp. 2–3, offsets 2980 and 5800, (1.4)–(1.5) and Gaussian pair-integral passage",
+          "method": "Bounded PDF statement and geometry comparison",
+          "title": "Short-time Heat Flow and Functions of Bounded Variation in R^N",
+          "trigger": "Primary BV and small-time Gaussian heat laws"
+        },
+        {
+          "assessment": "Kernel estimates; do not give sharp cumulative residual maximizers",
+          "evidence": [
+            "Provides an upper Gaussian bound under geometric hypotheses, not an exact step maximization theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.06740",
+          "material_read": "Open original PDF Theorem 1.1, p. 3, offset 12000",
+          "method": "Bounded primary theorem comparison",
+          "title": "Observations on Gaussian Upper Bounds for Neumann Heat Kernels",
+          "trigger": "Primary broader Neumann boundary heat estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cumulative error on one fixed input is a natural stability benchmark for diffusion. It gives a different sharp Gaussian location than one-time error, an exact correction above the bulk value, complete equality conditions, and a provably different midpoint regime at long horizons. The result is not just an integral of instantaneous optimal values or a numerical maximization at one time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

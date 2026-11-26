@@ -1,19 +1,21 @@
-# Scientific review: Separate modal persistence does not compose
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns extrinsic intuitionistic fusion models, not intrinsic forcing. With \(W=\{a,b,c\}\), \(a<b\), modal rows \(\{a\},\{a,c\},\{a\}\), and \(V(p)=\{b,c\}\), every diamond image of an upset belongs to \(\{\varnothing,\{b\},W\}\). All box-only truth sets are confined by induction to the Heyting subalgebra \(\{\varnothing,\{b,c\},W\}\), stable under box. Direct semantic calculation yields \(\llbracket\Box(p\to\Diamond p)\rrbracket=\{a,c\}\), violating \(a<b\) persistence. The two-world lower bound follows by splitting two-world preorders into discrete, chain and universal-equivalence types, using complementarity of \(\Box\bot\) and \(\Diamond\top\). The depth-one lower bound is syntactic. The enclosed checker verifies the complete finite closure calculations and tiny-world enumeration. No finite computation is presented as a proof of an unbounded claim.
+PASS
 
-## Originality — PASS, with residual historical risk
+In the displayed model, the diamond operation sends every set to an upset because the only strict comparison is a<b and R[a] is contained in R[b]. The box operation preserves the three sets empty, {b,c}, W, which also form a Heyting subalgebra: in particular the negation of {b,c} is empty. Thus the fragments are persistent at all depths. Direct evaluation gives {b}, {a,b}, and {a,c} for Diamond p, p→Diamond p, and Box(p→Diamond p), respectively; the last is not an upset. At two worlds the discrete case is automatic. In the chain and equivalent-points cases, the complementary upsets Box bottom and Diamond top force uniform successor-row emptiness. The modals then preserve the constant truth sets. On the chain the only other upset is {b}; if any letter denotes it, its two unimodal images are persistent by hypothesis, and otherwise the constant sets suffice for induction. Independently, any modal-headed subformula at depth one has a propositional argument, so both fragment hypotheses and closure under the intuitionistic connectives prove the depth bound.
 
-Sato 2026 expressly poses the fixed-model implication as Problem 3.10. Its confluence theorem answers the different all-valuations/frame-level implication, so it does not imply this counterexample. The nearest inspected published published-finding corpus finding concerns commutation of modal relation completions and explicitly does not claim mixed-language truth preservation. Semantic and alias searches for fixed-model/pure-fragment persistence and the formula \(\Box(p\to\Diamond p)\) identified no covering statement. A historical equivalent in older, poorly indexed fusion-model literature remains possible; no absolute-priority guarantee is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The finding gives a direct negative solution to an explicitly identified 2026 research problem about compositionality of persistence. It isolates the obstruction in a finite one-atom model, proves that the number of worlds is optimal irrespective of available atoms, and pinpoints the first possible modal nesting depth. The fixed-model versus universal-frame distinction is essential, not a superficial renaming of known confluence results.
+The exact published question concerns one fixed f-model, and the checked version poses it without the answer given here. The closest indexed three-world result separates operators across frames rather than proving any mixed failure inside one model. Neither it nor the checked relation-condensation result establishes this countermodel or its two minima. This is a bounded comparison, not a priority certification.
 
-## Scientific limits
+## value
 
-No uniqueness classification of witnesses or variable-minimum theorem is asserted. The result does not apply to intrinsic semantics or jointly confluent frames. Expert historical-priority assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example answers an explicit fixed-model problem and gives exact bounds on two natural complexity measures. It pinpoints why verifying whole single-operator fragments separately is insufficient: a mixed operator can receive an upset never produced by its own fragment. The separation is useful independently of a larger classification of fusion models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

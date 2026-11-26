@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:16:17.433944Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–58 and 60–106; VERIFICATION.md; verify.py (recorded n=3..9 reproduction, not rerun)",
+        "Independent reproduction /tmp/opencode/crown-audit.py applied the inequality to adjacency masks, unioned closed neighborhoods, and checked induced reachability for all subsets for n=3..7. Global totals were 16,121,306,2004,4306; the two small polynomials and minimum size/count for n=5,6,7 agreed. No nonglobal or disconnected defensive alliance occurred for n=5..7."
+      ],
+      "rationale": "With the closed-neighborhood convention the threshold for a selected vertex in the (n−1)-regular crown is ceil((n−2)/2)=q. For a selected vertex the only missing potential selected opposite neighbor is its matched mate, so a doubled index forces both shore sizes at least q+1; otherwise both must be at least q. Because q>=1, nonempty alliances meet both shores. At n>=5, at least two chosen vertices per shore guarantee domination, at most one being nonadjacent to any given outside vertex. For c=0 the induced subgraph is complete bipartite; for c>0 both sizes are at least three, so any two selected vertices on one shore have a common selected neighbor, and every selected vertex has a neighbor. For n=3,4, a singleton selected shore in the disjoint case leaves the opposite matched vertex undominated, so global alliances are exactly sets with at least two selected vertices on each shore. Expanding (sum_{j=2}^n binom(n,j)x^j)^2 gives both claimed boundary polynomials. The four-state multinomial formula has correct weights, and equality at the minimum 2q for n>=5 requires disjoint q-element shore selections, with exactly the stated multiplicity. The comparison with K_{n,n} uses the closed-neighborhood inequality in both graphs.",
+      "residual_risks": [
+        "Finite checks supplement the proof; the n>=5 connectivity statement does not extend to every global defensive alliance at the two smaller orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haynes et al. define global defensive alliances and Proposition 3 computes the scalar minimum for complete bipartite graphs, without a deleted matching. Ibrahim defines a different bivariate polynomial of connected subsets and gives complete-bipartite examples. A plausible join/corona/composition paper's listing was inaccessible through the attempted route."
+        ],
+        "reasoning": "The 2003 minimum supplies only the comparison baseline. The bivariate polynomial in principle records minimum induced degree information on regular graphs, but the inspected example results do not supply a crown specialization. The decision rests on the actual indexed crown criterion, not on title, keyword misses or access limitations.",
+        "searches": [
+          "Haynes–Hedetniemi–Henning DOI 10.37236/1740; Ibrahim arXiv:1811.10089; primary search for global defensive alliances on crowns and graph constructions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8bf284dea59d, 8c1a382222d3, 68b89b545fff; Haynes et al. R47; Ibrahim arXiv:1811.10089; search listing for join/corona/composition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed feasibility lemma requires disjoint shore selections of sizes at least q or arbitrary selections of sizes at least q+1. It gives the ordinary minimum 2q and the coefficient binom(n,q)binom(n−q,q) in its minimal census. The same lemma applies at n=3,4."
+        ],
+        "reasoning": "When q>=2 the lemma immediately gives domination by the at-most-one missing cross neighbor; the disjoint selections induce complete bipartite graphs, and with overlap both sides have size>=3 so the induced graph is connected. Therefore summing the labelled four-state multinomials over the already classified family directly gives the whole global enumerator, including even n. The minimum and its count coincide for the same reason. At q=1, domination excludes just the disjoint selections with a shore of size one, leaving arbitrary selections of size at least two per shore on these two graphs. No extra structural or counting input beyond the indexed criterion and the defining matching is necessary.",
+        "searches": [
+          "Read exact complete feasibility lemma in 8bf284dea59d and compared it with frozen RESULT.md lines 79–99; compared 68b89b545fff odd-order polynomial and Haynes et al. Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8bf284dea59d, proof equation (1), gives (|X|,|Y|>=q+1) OR (|X|,|Y|>=q and X∩Y empty) for all n>=3 using the same closed-neighborhood inequality. The checked 8c1a382222d3 feasibility split is the same. These are not the frozen record itself."
+        ],
+        "reasoning": "Splitting the first comparison by whether X∩Y is empty yields exactly the frozen c>0 and c=0 clauses. Globally minimal in the comparison means inclusion-minimal, not dominating; the material overlap is the general feasibility lemma, not an identification of the main minimal-polynomial findings with the frozen enumerator.",
+        "searches": [
+          "Resultary: crown graph defensive and global defensive alliances, deleted matching / bipartite double-cover formulation, minimum and size enumerator; 8bf284dea59d, 8c1a382222d3, 68b89b545fff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "68b89b545fff gives the complete labelled strong-alliance size polynomial on odd n>=5 and even n>=4. 8bf284dea59d and 8c1a382222d3 enumerate inclusion-minimal alliances, not all dominating alliances."
+        ],
+        "reasoning": "For odd n>=5 the crown degree is even, so the strong and closed-neighborhood defensive inequalities impose the same integer threshold. Connectivity and domination are automatic at that threshold by the indexed feasibility lemma, so the odd-order polynomials and minimum counts coincide. The strong polynomial is not equivalent at even n, where the threshold is one higher.",
+        "searches": [
+          "Resultary crown cardinality polynomials: 68b89b545fff, 8bf284dea59d and 8c1a382222d3"
+        ]
+      },
+      "rationale": "The exact all-set defensive feasibility criterion under the same convention already has equivalent indexed coverage. For n>=5 the asserted globality, connectivity, enumerator, minimum and count follow directly from that criterion and the fixed deleted matching; odd-order enumerators are explicitly covered via an equivalent strong-alliance invariant in this regime. The boundary counts add no distinct nonroutine claim. These are statements about available equivalent coverage and implication, not priority inferences from same-day or later displayed dates.",
+      "residual_risks": [
+        "Priority was not determined. The inaccessible graph-construction paper and bounded coverage elsewhere do not affect the conclusion from the inspected exact criterion and direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general feasibility overlap; main census counts a different minimality property",
+          "evidence": "Both shores at least s=q+1, or both at least q and disjoint; the smallest cardinality is 2q with the binomial minimum term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-globally-and-locally-minimal-defensive-alliances-of-crown-graphs--8bf284dea59d/RESULT.md",
+          "material_read": "Finding, assumptions and proof through equation (1), offset 0–3485",
+          "method": "Bounded OA local-mirror text",
+          "title": "Globally and locally minimal defensive alliances of crown graphs",
+          "trigger": "Exact crown feasibility criterion under the same inequality"
+        },
+        {
+          "assessment": "Same underlying defensive criterion, different main census",
+          "evidence": "Separates disjoint selections from selections sharing matched indices, with the same size thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-crown-graph-defensive-alliances-exact-local-global-minimal-censu--8c1a382222d3/RESULT.md",
+          "material_read": "Local-mirror feasibility split and scope",
+          "method": "Bounded OA local-mirror text",
+          "title": "Crown graph defensive alliances: exact local/global minimal census",
+          "trigger": "Second same-family same-invariant match"
+        },
+        {
+          "assessment": "Exact polynomial overlap for odd n>=5 but genuinely different even-order invariant",
+          "evidence": "Threshold ceil((n−1)/2), connectedness required by definition, explicit cardinality polynomial and minimum on each parity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-strong-alliance-polynomial-of-crown-graphs--68b89b545fff/RESULT.md",
+          "material_read": "Finding, assumptions and proof of feasibility, offset 0–2888",
+          "method": "Bounded OA local-mirror text",
+          "title": "Strong alliance polynomial of crown graphs",
+          "trigger": "Same object with a potentially equivalent polynomial"
+        },
+        {
+          "assessment": "Baseline only in the inspected statements",
+          "evidence": "For r,s>=2 the complete bipartite minimum is floor(r/2)+floor(s/2).",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v10i1r47/pdf",
+          "material_read": "PDF p. 1 definition, p. 3 Proposition 3 and literal crown/matching keyword checks",
+          "method": "Bounded OA PDF text",
+          "title": "Global defensive alliances in graphs",
+          "trigger": "Foundational definition and complete-bipartite comparison"
+        },
+        {
+          "assessment": "Different polynomial and no crown formula established in inspected passages",
+          "evidence": "Bivariate weighting of connected induced vertex subsets by size and defensive margin; complete bipartite examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.10089",
+          "material_read": "Abstract and p. 2 definition; literal crown/matching keyword checks",
+          "method": "Bounded OA PDF text",
+          "title": "Defensive alliance polynomial",
+          "trigger": "Potential broader enumerator"
+        },
+        {
+          "assessment": "Inaccessible plausible comparator, not adverse originality evidence",
+          "evidence": "No theorem text was recovered; exact scope undetermined.",
+          "identifier_or_url": "https://www.researchgate.net/publication/264927599_Global_Defensive_Alliances_in_the_Join_Corona_and_Composition_of_Graphs",
+          "material_read": "Search listing only; attempts to fetch opening page were forbidden",
+          "method": "Primary search and OA lookup",
+          "title": "Global Defensive Alliances in the Join, Corona and Composition of Graphs",
+          "trigger": "Possible graph-construction result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–51 and 77–99; exact feasibility lemma in Resultary 8bf284dea59d; 68b89b545fff; Haynes et al. Proposition 3"
+      ],
+      "rationale": "The exact structural characterization of a natural graph family would be valuable from scratch. Once the equivalent all-set classification and the odd-order exact polynomial are credited, the remaining counts are the direct multinomial weight sum over known feasible profiles (and the elementary two-shore square at n=3,4). Automatic domination and connectivity follow directly from the known per-shore sizes and a single missing neighbor. No distinct motivated exact result beyond that mechanical specialization survives; the two small expansions or the subtraction from the known complete-bipartite minimum do not rescue it.",
+      "residual_risks": [
+        "This is a judgment of the surviving contribution, not an assertion that exact alliance polynomials are intrinsically without scientific use."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

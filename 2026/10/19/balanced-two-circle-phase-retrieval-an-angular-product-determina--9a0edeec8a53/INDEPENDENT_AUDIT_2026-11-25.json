@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:35.908609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–67; VERIFICATION.md; verify_balanced.py; verify_output.txt (recorded)",
+        "/workspace/branches/replay_frozen_checks.py (argument 5)"
+      ],
+      "rationale": "In each harmonic below d, the first two entries on the Hermitian diagonal for that harmonic produce an invertible two-radius coefficient map (determinant proportional to r²−1); the top harmonic has only one entry, shared with scaling r^d. An individual vanishing profile at 2d distinct unit nodes has one real degree of freedom and leading direction given by the inverse square root of the angular product, modulo real scaling. For the determinant, use complex lower-frequency columns z^(−d+1),…,z^(d−1). Appending z^d gives a Vandermonde times the product of z^(−d+1); appending z^(−d) instead gives a ratio −1/Pi. Thus the two-circle determinant in complex columns has modulus r^d |Delta(U)Delta(V)| |Pi_U−Pi_V|. Converting the lower pairs on both circles and the one shared top pair has total modulus factor 2^(1−2d). Hadamard equality for each Fourier Vandermonde forces every ratio of distinct nodes to be a nontrivial 2d-th root of unity; the remaining factor is maximized exactly at opposite angular products. Off resonance, equality of full circle moduli leads to multiplicative dilation invariance of P/Q by r², hence a constant rational ratio. In degree two the singular odd cubic determinant on a circle in the real two-plane kernel vanishes; no nonzero semidefinite kernel element is possible because the outer nodes span the evaluation space. The resulting indefinite rank-two matrix gives an ambiguity. Independent exact Gaussian-rational checks verified the determinant square and ranks in four nonregular designs in degrees 2 and 3, including distinct resonant angular sets.",
+      "residual_risks": [
+        "The two-plane argument uses the 3×3 Hermitian determinant; it is not an all-degree nonlinear converse. Determinant maximization is not a smallest-singular-value or nonlinear noise theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalendar–Partington prove uniqueness from complete moduli on two circles (with wider analytic classes). Bodmann–Hammen's 4d construction uses intersecting circles and a 2d+1 / 2d−1 allocation after reindexing by degree. The Pohl–Li–Boche full text was not recovered from the attempted routes."
+        ],
+        "reasoning": "Continuous uniqueness is invoked only after recovering both full profiles; it does not imply when finitely many arbitrary angles determine them. Existence of 4d measurements under another allocation or geometry does not give this classification.",
+        "searches": [
+          "arXiv:2403.16255 Thms. 2.6 and 2.16",
+          "arXiv:1302.5487 §2.3",
+          "DOI 10.1109/SAMPTA.2017.8024411; IEEE full-text routes and ResearchGate identified copy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 12ae1d0f43de and 0026bf390afd",
+        "arXiv:2403.16255",
+        "arXiv:1302.5487",
+        "DOI 10.1109/SAMPTA.2017.8024411 (access limitation as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known regular angular tests provide a special case of the present interpolating-rank statement and stronger all-degree nonlinear necessity on that subfamily. The continuous-circle theorem supplies the final recovery step once interpolation succeeds."
+        ],
+        "reasoning": "The implication does not reverse: regular-grid failure need not describe any nonregular resonant two-plane, and continuous recovery cannot fix finite interpolation rank. The exact determinant and arbitrary-node converse must be proved independently of these earlier components.",
+        "searches": [
+          "12ae1d0f43de RESULT.md Finding",
+          "0026bf390afd RESULT.md Finding",
+          "arXiv:2403.16255 Thm. 2.6",
+          "arXiv:1302.5487 §2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Records 12ae1d0f43de and 0026bf390afd, Findings: for regular 2d-gons the angular criterion is sin(d times the rotation difference) nonzero, and half-step staggering optimizes the normalized Nyquist subsystem."
+        ],
+        "reasoning": "On a regular 2d-gon the product is −exp(2id times the rotation), so the criterion is identical there. The two findings are separate hits; neither gives the two Vandermonde magnitudes for arbitrary angular sets. The subsystem conditioning and global full determinant have different feasible domains and objectives.",
+        "searches": [
+          "Resultary 12ae1d0f43de, RESULT.md Finding, offset 0",
+          "Resultary 0026bf390afd, RESULT.md Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two catalogue findings provide a complete rotation-angle condition on the regular-grid parameter family, not an exact table or formula for arbitrary angle lists. The intersecting-circle construction fixes a different geometry."
+        ],
+        "reasoning": "The sharp full determinant, its vanishing and global maximum constitute a functional invariant; a finite or regular-grid construction does not yield the variable Vandermonde factors, sharp bound or arbitrary-node quadratic converse.",
+        "searches": [
+          "Resultary 12ae1d0f43de and 0026bf390afd, complete regular-grid criteria in RESULT.md",
+          "arXiv:1302.5487 §2.3, finite frame construction"
+        ]
+      },
+      "rationale": "The regular-grid angular criterion and half-step geometry are covered by two distinct catalogue findings and are not separate novelty. The supported distinct claim is the arbitrary-distinct-node determinant with the specified normalization and lifting ranks, the global determinant upper bound and all equality cases over arbitrary angular sets, and the quadratic converse for arbitrary four-plus-four nodes. The regular-grid results do not imply these nonregular statements.",
+      "residual_risks": [
+        "A prior block trigonometric interpolation identity could cover arbitrary nodes; the search is bounded.",
+        "The regular case should be credited separately. The precise neighboring allocation in the Pohl–Li–Boche paper was not independently verified; do not rely on that attribution to establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified regular-grid coverage, not arbitrary-node results",
+          "evidence": [
+            "Two regular 2d-gons recover all polynomials iff sin(d times the rotation difference) is nonzero; normalized Nyquist subsystem has a half-step optimum."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-angular-criterion-for-balanced-two-circle-phaseless-polyno--12ae1d0f43de",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling",
+          "trigger": "Same allocation and half-step geometry"
+        },
+        {
+          "assessment": "Verified second regular-grid coverage, not arbitrary-node results",
+          "evidence": [
+            "All-degree nonlinear criterion and a half-step Nyquist-demixing optimum on regular 2d-gons."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Complete two-polygon phase-retrieval criterion for polynomials",
+          "trigger": "Same recovery criterion on two regular polygons"
+        },
+        {
+          "assessment": "Established recovery from full modulus profiles, not sample placement",
+          "evidence": [
+            "Theorem 2.6 uses complete modulus data a.e. on the unit circle and r times the unit circle."
+          ],
+          "identifier_or_url": "arXiv:2403.16255",
+          "material_read": "Theorems 2.6 and 2.16, PDF pp. 5 and 11; pp. 1–2 discussion of Pohl–Li–Boche",
+          "method": "Open primary PDF bounded passages",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Continuous complex-analytic two-circle uniqueness"
+        },
+        {
+          "assessment": "Different geometry and split",
+          "evidence": [
+            "Uses 2q−1 and 2q−3 evaluations for maximum degree q−1 on intersecting circles."
+          ],
+          "identifier_or_url": "arXiv:1302.5487",
+          "material_read": "§2.3, PDF p. 3, offset 8900",
+          "method": "Open primary PDF bounded passage",
+          "title": "Stable phase retrieval with low-redundancy frames",
+          "trigger": "4d point-evaluation uniqueness construction"
+        },
+        {
+          "assessment": "Specific finite allocation remains unverified independently; no whole-paper noncoverage claim",
+          "evidence": [
+            "The secondary account describes Theorem 3 as full-circle modulus uniqueness for a specified H^1 class, not its finite-allocation statement."
+          ],
+          "identifier_or_url": "DOI 10.1109/SAMPTA.2017.8024411",
+          "material_read": "Full text not recovered; secondary account in arXiv:2403.16255 pp. 1–2 (around offset 2300) only, covering its Theorem 3",
+          "method": "DOI/IEEE routes and identified ResearchGate alternative attempted; secondary primary-literature discussion inspected separately",
+          "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+          "trigger": "Cited finite allocation on two concentric circles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–32, 44–67",
+        "Exact nonregular designs in /workspace/branches/replay_frozen_checks.py (argument 5)"
+      ],
+      "rationale": "The exact invariant detects one global sampling resonance even with distinct nodes, including highly nonregular layouts. It gives all global determinant maximizers, not just an optimum among regular grids. In degree two it determines nonlinear failure as well as linear singularity, so practical design and ambiguity can both be read from arbitrary sample angles.",
+      "residual_risks": [
+        "No claim that maximizing the determinant improves optimal worst-case noisy reconstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

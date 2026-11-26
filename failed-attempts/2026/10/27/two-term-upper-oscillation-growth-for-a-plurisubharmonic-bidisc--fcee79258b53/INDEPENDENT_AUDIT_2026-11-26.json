@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:19.398585Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The log-radius expression is convex and coordinatewise increasing: the positive square root before negation is the concave geometric mean of the two positive linear forms A' + B' and B', where A' and B' are negative log radii. This gives plurisubharmonicity off the axes, and the upper-semicontinuous extension is −∞ on the axes. Normalized product area gives independent rate-2 exponentials X,Y, so the boundary supremum and the integrable average give UO = E[sqrt((A+B+X+Y)(B+Y))] − sqrt((A+B)B). For S=B+X+Y, the absolute error of replacing sqrt(1+S/A) by 1+S/(2A) is at most S²/(8A²), globally, not only on bounded radii. The moment times sqrt(B+Y) is finite; the boundary term satisfies the same estimate. The first coefficient is E[sqrt(B+Y)]−sqrt(B)>0, and the second is (1/2)E[(B+Y)^(3/2)] + (1/4)E[(B+Y)^(1/2)]−B^(3/2)/2. The rate-2 incomplete-gamma moments give both displayed constants and the claimed error. This is an analytic check for fixed B>0, not a claim of uniformity in B. The frozen verification notes give the same analytic ingredients; no numerical certification is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.7 starts with an exact double-integral identity valid for arbitrary r1,r2 in (0,1); the later divergence argument specializes to y=−1. The exact identity is stronger input than the qualitative statement about that path."
+        ],
+        "reasoning": "The all-radii identity directly specializes to every fixed B>0 in the Finding. The B=1 divergence argument alone would not imply the Finding.",
+        "searches": [
+          "Chen–Wang, arXiv:1906.10170, Theorem 3.5 and Lemmas 3.6–3.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Chen–Wang arXiv:1906.10170 §3.3",
+        "Resultary local records b5a268e9e12f and 14c59cba22d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The display is f(x,y) minus the double average of f(x+t,y+s) against de^(2t) de^(2s) on t,s≤0, for exactly the frozen f.",
+          "Apply |sqrt(1+u)−1−u/2|≤u²/8 on u≥0 to the integrand and boundary term; integrate B+Y powers against 2e^(−2Y), and use E[X]=1/2."
+        ],
+        "reasoning": "This proves the entire two-term formula, not only its order, directly from the already specialized published identity by a routine expansion.",
+        "searches": [
+          "Chen–Wang, arXiv:1906.10170, PDF p. 9, first display in proof of Lemma 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Wang's I(x,y) in Lemma 3.7 is precisely sup minus the normalized area mean; x=−A, y=−B, t=−X, s=−Y. Theorem 3.5 concerns normalized absolute mean oscillation, which is not the same statistic.",
+          "The retrieved Resultary records b5a268e9e12f and 14c59cba22d3 concern harmonic-annulus frequency and one-dimensional endpoint/cusp oscillation, respectively."
+        ],
+        "reasoning": "In the primary source the equivalence is an exact change of variables in the same upper oscillation. Neither near-index match gives that identity on this bidisc.",
+        "searches": [
+          "Resultary search for the Chen–Wang function, bidisc oscillation and fixed-radius logarithmic growth",
+          "Chen–Wang, arXiv:1906.10170, §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/11/SCOPE-sharp-log-log-frequency-window-for-the-harmonic-annulus-countere--b5a268e9e12f, RESULT.md Finding: harmonic-map frequency threshold on annuli.",
+          "2026/10/11/SCOPE-an-exact-logarithmic-envelope-criterion-for-two-endpoint-weak-os--14c59cba22d3, RESULT.md Finding: one-dimensional cusp profiles with weak-type endpoint criteria."
+        ],
+        "reasoning": "Neither inspected indexed claim supplies a gamma coefficient for these normalized bidiscs. There is no separate canonical data table to check for this symbolic function of a continuous parameter; the exact-identity comparison is decisive.",
+        "searches": [
+          "Resultary local index: same function / upper oscillation / shrinking bidisc"
+        ]
+      },
+      "rationale": "Chen–Wang do not print the coefficients, but Lemma 3.7 already gives the exact normalized oscillation for this same function and arbitrary interior radii. A direct Taylor expansion in that specific integral, with the elementary exponential moment bound, yields both coefficients and the exact order of the error. This is demonstrated prior implication, not merely the observation that the divergence was known or a failure to find literature.",
+      "residual_risks": [
+        "No exhaustive priority claim about who first wrote the gamma coefficients; the rejection rests on a demonstrated implication of the inspected primary source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication via an exact formula",
+          "evidence": "Lemma 3.7 writes the normalized upper oscillation exactly as a two-dimensional radial integral for arbitrary radii, then uses y=−1 for divergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.10170",
+          "material_read": "§3.3, Theorem 3.5, Lemmas 3.6–3.7 and relevant proofs, PDF pp. 9–10; Lemma 3.7 starts at text offset 25816",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Bergman kernel and oscillation theory of plurisubharmonic functions",
+          "trigger": "Identical bidisc counterexample"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Frequency thresholds on annuli, not upper oscillation of this function on a bidisc.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-log-log-frequency-window-for-the-harmonic-annulus-countere--b5a268e9e12f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp log-log frequency window for the harmonic annulus counterexample",
+          "trigger": "Ranked topical Resultary match"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "One-dimensional cusp profiles and weak-type criteria, rather than the stated normalized bidisc integral.",
+          "identifier_or_url": "2026/10/11/SCOPE-an-exact-logarithmic-envelope-criterion-for-two-endpoint-weak-os--14c59cba22d3",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "An exact logarithmic envelope criterion for two-endpoint weak oscillation",
+          "trigger": "Similar oscillation terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The example and growth question are natural, but for this precise one-parameter slice the prior paper already furnishes the specialized exact oscillation integral. The two coefficients follow by an ordinary Taylor expansion and elementary moments, with no further quantitative obstruction, varying-radius estimate or other distinct mathematical result. The Finding is thus a correct explanatory calculation, not a surviving valuable new invariant under the non-mechanical requirement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

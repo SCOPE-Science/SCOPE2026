@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The output functional is exactly a row of coefficients obtained from the smallest unit left singular vector, and Cauchy–Schwarz gives its induced norm and independent-noise variance without approximation. The accompanying standard-library program uses only integer/rational arithmetic to certify all trigonometric approximations, strict eigenvalue separation, residual eigenvector proximity, and endpoint inequalities. The exact finite-dimensional proof verifies both endpoints. Numerical estimates are explanatory only.
+## correctness
 
-## Originality — PASS (qualified)
-The originating paper supplies the endpoint predictor but does not quantify its worst-case noise amplification for its default 21-node configuration. Barnett's Fourier-submatrix conditioning theorem and Dirckx–Huybrechs–Ongenae's periodic prolate spectral method are important prior coverage but address singular values or their computation, not the explicit endpoint-coordinate noise gain of this predictor. Searches for equivalent endpoint perturbation laws, the same numerical parameters, and stronger Fourier-submatrix bounds did not reveal a covering result. Equivalence hidden in older prolate extrapolation literature remains a historical-priority risk.
+PASS
 
-## Value — PASS
-The noise norm is a natural operational invariant of an endpoint-recovery algorithm, and the original paper identifies a concrete 21-point setting. The certified gain exceeds 280,000, so this quantifies a substantial specific robustness cost which is not visible from reported noiseless integration accuracy. It can guide noise-aware use of correction, parameter design, and decisions about regularizing this exact subprocedure. The analysis deliberately makes no claim about end-to-end quadrature error or practical failure on noiseless input.
+Liu–Zhao–Gong's n=10, m=21, T=6 and uniform samples give L=120 and the stated Gram matrix. The endpoint formula in their Eq. (4), with a zero placeholder at the missing endpoint, gives exactly the coefficient row in the finding. The Euclidean row norm is sqrt(1/|u_p|²−1), attained by an aligned perturbation; even for real data the eigenvector may be chosen real. The rational certificate's rank-one positive shift restricts to the perpendicular complement of the test vector, giving lambda_2(H)>10^−35 in increasing order by min–max and Weyl. The Rayleigh bound places lambda_1(H) below 2·10^−38; the normalized residual and gap then bound the difference of endpoint magnitudes by less than 2·10^−15. Commutation with reflection and simplicity give equal endpoint magnitudes. The strict rational coordinate inequalities imply both claimed gain bounds. For independent centered equal-variance noise, the variance is exactly A²sigma²; the strict lower variance comparison is for sigma²>0, with zero prediction variance at sigma²=0. The Bareiss and endpoint checks were inspected, not independently replayed; the submitted verification reports their successful execution. The line 81 cosine-error comment should not be used: it neglects fixed-point rounding. To recover the actual needed bound, the recurrence uses 49 floors at scale 10^90, with subsequent propagation coefficient at most 1/3 for j≥2, so term errors are at most 1.5 units of scale and contribute less than 74 units in their sum. Angle quantization adds less than two units via the Lipschitz bound for cosine, and the Taylor remainder is below 10^−125. Thus the stated coarser cosine bound 10^−85 is ample: together with the final downward entry rounding it gives entry error less than 2·10^−75 and a row-sum bound less than 10^−70. No change to the scientific bound is needed.
 
-## Limits
-Only the specified 21-node, 21-frequency, sixfold extension and the linear predictor are certified. The strict interval is not an exact decimal value; independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The predictor and the choice of Fourier block are existing work, and the row-norm and independent-noise variance identities are elementary. The distinct surviving claim is the certified size of the endpoint gain for the published 21-row block. Prior Fourier-block singular-value estimates do not estimate this coordinate; the closest vector machinery provides a way to compute it but not the bracket or an already certified substitute.
+
+## value
+
+PASS
+
+The published method motivates this precise block before computation. A certified gain above 280000 identifies severe endpoint noise amplification in a method component that smooth-data accuracy and Fourier condition numbers alone do not quantify. It is useful for assessing observation precision requirements without inferring failure of the full quadrature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

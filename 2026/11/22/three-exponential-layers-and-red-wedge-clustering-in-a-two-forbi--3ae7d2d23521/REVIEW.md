@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Direct strong amalgamation and matching-block factorization reduce complete types to finite state assignments; the local eight-state calculations and strict two-edge comparisons prove the fixed-arity three-term expansion. Independent brute-force diagram enumeration confirms all cited small cases.
+## correctness
 
-**Originality: PASS, provisional.** Henson (1971) and Conant (2015) give the general existence framework. The closest indexed uncoloured Henson rare-edge clustering treats a different forbidden-subgraph age and does not supply coloured matching-block coefficients. Full inspection of that inaccessible historical analogue remains a residual priority risk.
+PASS
 
-**Value: PASS.** The theorem gives all-arity exact factorization plus a sharp three-layer structural classification and conditional red-edge wedge law for a natural homogeneous two-forbidden-colour theory.
+Neutral cross-edges give strong amalgamation, and homogeneity in the finite relational language makes each admissible named complete diagram exactly one complete type. Triangles with vertices in different old matching blocks have a neutral edge, so the old blocks impose independent constraints. Each new label has nine pairs of attachment colours less (R,R), giving b(H)^m for a fixed labelled internal graph H. For a red edge the four states without red allow eight choices at the other end, and the four states with one red allow six: 56. For a green edge the two excluded events are that both new vertices attach green to the first old endpoint or that both attach green to the second. They have sizes 9 and 9 with intersection 1, giving 47. The explanatory words about a red attachment in RESULT.md line 15 are a slip; its constraint on line 13 and the stated result use the correct green event. A red wedge has weight 4·8²+4·6²=400. In an independent enumeration (`python3 /workspace/reviews/reproduce_2_3_5.py`), the incident two-edge weights RR,RG,GG are 400,324,301 and the disjoint weights are 3136,2632,2209. Every competitor without a red wedge is bounded by a one-green or nonwedge two-edge pattern strictly below 25/32 after normalizing. Any extra edge in a wedge-containing pattern reduces its weight strictly: colour only the two chosen attachments to a single old endpoint by the extra edge colour, all other attachments neutral. This respects the original wedge and violates the added constraint. Hence for fixed r there is a strict finite gap beyond the three stated layers. Ordered labels give binomial(r,2) red edges and 3 binomial(r,3) wedges; division after restricting to at least two nonneutral internal edges proves concentration under the uniform type distribution. No growing-arity bound is used.
 
-**Limitations.** Fixed arity, old red matching and neutral other old edges only; no uniformity when arity grows. Independent validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier one-colour Henson results give both the product-count structure and a genuinely close three-layer/wedge law. The distinct claim supported here is the exact red/green asymmetric spectrum and the strictly dominant red wedge for this three-state palette and red-matching base. The one-colour results do not compare the additional green competitors or mechanically supply these coefficients. Bounded best-of-knowledge judgment.
+
+## value
+
+PASS
+
+The base and two forbidden relations define a natural asymmetric test of the one-colour clustering phenomenon. The exact third layer and its strict motif classification show clumping specifically in red despite both colours being constrained; an existence theorem or a small-arity count does not capture that. The all-fixed-arity formula and quantitative gap connect the local colour constraints to a limiting structure. Value lies in this asymmetric extension, not in the abstract idea of independent block counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

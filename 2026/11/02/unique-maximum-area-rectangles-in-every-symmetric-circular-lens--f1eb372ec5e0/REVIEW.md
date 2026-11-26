@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The candidate is quantified over all translations and rotations of Euclidean rectangles contained in the two-disk lens for every separation parameter \(0<c<1\). Central symmetry and convexity reduce translations without changing area. The four corner inequalities give the exact necessary-and-sufficient relation \(a^2+b^2+2c(a|\cos\theta|+b|\sin\theta|)+c^2\le1\). Orientation minimization forces axis alignment, then the unique stationary root \(2b^2+3bc+c^2=1\) is the global maximum. An averaging argument at the two active pairs of circle contacts proves that no noncentral translation ties. Direct differentiation, radical substitution and elementary asymptotics prove the inverse parameter and both endpoint regimes. The independent self-contained script verifies algebraic equalities, constraint feasibility, selected global comparisons and limiting constants numerically; these tests support, but cannot replace, the analytic proof.
+## correctness
 
-## Originality: PASS, subject to historical search limitations
-The full accessible 2019 Behroozi treatment studies maximum-area rectangles in arbitrary convex bodies and gives general centering and optimization machinery, but its theorems and illustrated examples do not state the complete all-separation lens formula, unique axis alignment, inverse aspect ratio, or sharp rectangle-versus-square thin-lens divergence. The full accessible 2023 Basit--Lángi work studies disk-polygons and area/perimeter sequences, not Euclidean rectangles inscribed in a two-disk intersection. Closest indexed records discuss maximum rectangles in rhombi and regular polygons or lens mean width, not this exact lens classification. These statements were compared by mathematical implication, not solely terminology. Any previously published special lens calculation could reduce or remove originality; priority is not independently certified.
+PASS
 
-## Value: PASS
-The symmetric circular lens is the canonical intersection of two congruent disk constraints, a natural test geometry for inscribed-box optimization. A complete global exact optimizer, including its equality/center/orientation classification, provides an analytic benchmark for general convex-set algorithms. The shape is provably nonsquare for every nonzero center offset, and near tangency the optimal rectangle wins over the optimal square by an unbounded factor, revealing distinct geometric scaling exponents. Its aspect ratio also exactly reconstructs the lens parameter, so the result is not simply a value substituted into a generic convex optimization inequality.
+Normalize R=1. Central symmetry and convexity let each pair of diagonally opposite vertices of a translated rectangle be averaged with their reflected counterparts to obtain a feasible centered copy. For c>0 the lens is strictly convex: if the original center is nonzero these midpoints are strictly interior to both disks, and the centered copy can be enlarged. For centered half-sides a,b each vertex has squared radius a²+b², and the largest |x| is a|cos θ|+b|sin θ|. The lens inequality is exactly x²+y²+2c|x|+c²≤1. Thus containment at fixed side lengths is least restrictive when the shorter side is horizontal; equality in the angular minimization requires axis alignment, and any other orientation permits a strict area improvement after realignment. On that axis the active constraint is a²+(b+c)²=1. The area derivative has the sign of 1−c²−3cb−2b², strictly decreasing from a positive value to −cb_square at the square boundary. Its sole zero gives the claimed sides and a²=b(b+c)>b². This proves uniqueness as a subset, not a unique labeling of the same rectangle. The square optimum follows by the same constraint, and substitution of c/b=r²−1 gives the inverse aspect relation. Independent symbolic expansions give unit-radius area 2−2√2 c+c²/2+O(c³) versus square area 2−2√2 c+O(c³). At tangency the rectangle, square and lens areas have leading terms (8√6/9)(1−c)^(3/2), 4(1−c)² and (8√2/3)(1−c)^(3/2), respectively. Scaling gives all R factors. At c=0 the radius constraint gives equality only for centered squares, with every orientation allowed.
 
-## Closest literature and limits
-Behroozi, arXiv:1905.13246 (2019-05-30), general maximum-area inscribed rectangles in convex sets, Sections 3--6; Basit--Lángi, arXiv:2307.04026 (2023-07-08), disk-polygon extremal area/perimeter. The result does not address unequal disks, three or more disks, or other convex bodies. Independent audit and exhaustive historical priority search are unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The central symmetry reduction and disk case have clear antecedents. The strongest inspected general rectangle and disk-polygon sources and the closest indexed results do not establish the precise positive-separation classification for the two-circle lens. Credit the known ingredients, not historical priority for the full statement.
+
+## value
+
+PASS
+
+The result gives the complete equality classification for a natural two-boundary convex family, removing both orientation and translation restrictions. It quantifies an immediate symmetry-breaking away from the disk, reconstructs the separation and scale from the optimal rectangle, and shows a divergent penalty from insisting on a square in a thin lens. The closed form and equality cases give a useful exact benchmark for general inscribed-rectangle methods; the contribution is not the single-variable derivative after restricting to aligned rectangles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

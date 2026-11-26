@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-All operators are normalized explicitly: the restricted operator is \(p_d\) times the conditional operator. The symmetry decomposition accounts for the complete \(d(d+1)/2-1\)-dimensional harmonic space. Balanced-sign pair and quadruple correlations, Dirichlet magnitude moments, and Johnson adjacency eigenvalues reconstruct all matrix entries and bands. Exact determinant factorizations establish the strict extremal ordering and the unique transition from the lower standard branch to the scalar branch between dimensions \(10\) and \(12\). Numerical finite checks corroborate the general algebra; they are not an infinite-dimensional proof.
+## correctness
 
-## Originality: PASS, provisional
-Full accessible mathematical texts of Jaming–Speckbacher (2020) and Aslam–Khalid (2020) establish general concentration estimates and spatial Slepian transforms, not this exact balanced-sign-count spectrum. Closest published mathematical records cover positive-single-orthant and two-fixed-hemisphere restrictions. They do not state the present mask or threshold in their accessible summaries, but their inaccessible detailed operator formulas are a material residual priority risk. General Johnson-scheme eigenvalues are cited tools rather than claimed inventions. The absence of an exact search hit alone is not a proof of novelty.
+PASS
 
-## Value: PASS
-The result gives a complete all-dimensional sharp reconstruction law with an unexpected finite-dimensional change of the least-observed symmetry sector. Balanced sign-chamber restriction has asymptotically bounded *relative* conditioning despite observing a vanishing \(\sqrt{2/(\pi d)}\) fraction of the sphere. This is mathematically distinct from the quadratic growth found for a single positive orthant. No downstream theorem or arbitrary finite slice is needed for the exact classification to be useful.
+The trace-free matrix model has L² Gram 2 tr(AB)/[d(d+2)]. Signs and absolute coordinates separate, and multiplying ∑S_i=0 by one and by three distinct signs gives pair and four-sign moments −1/(d−1) and 3/[(d−1)(d−3)]. The Dirichlet magnitude moments then give the squarefree block with entries 1, −2/[π(d−1)], and 12/[π²(d−1)(d−3)] (same edge, intersecting, disjoint). For the unsigned incidence matrix N, NᵀN=2I+A for the intersecting-edge adjacency A and NNᵀ=(d−2)I+J. This gives the stated three edge-sector eigenvalues and multiplicities without assuming the representation decomposition. For a trace-free diagonal u the mixed moment on edge ij is −√2(u_i+u_j)/[π(d−1)], so only the standard sector mixes, with coupling g_d and the two eigenvalues ℓ_{d,±}. The diagonal block is identity and the listed multiplicities exhaust the space, also after complexification. Positivity follows from polynomial nonvanishing on an open cone. Writing C=π(d−3), the determinant of c_d I minus the mixed block has numerator 6(d−2)(C²+12C+24) over π⁴(d−1)²(d−3)², and c_d exceeds both diagonal entries. Since a_d<1<ℓ_{d,+}, the sign of the determinant at a_d compares a_d to ℓ_{d,−}; its sign is that of d(4π²−18π+18)−π², with threshold strictly between 10 and 12 by the stated rational bounds. The exact squared condition numbers and their limit follow, with all unconditioned eigenvalues scaled by p_d.
 
-## Limitations and nearby literature
-The result concerns even ambient dimension, pure degree two, and the exact balanced-sign region only; it does not claim that this mask is globally optimal. The older single-orthant full text was inaccessible, so potential reduction by averaging its detailed fourth-moment operator is not ruled out. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the complete trace-free degree-two spectrum with its mixed standard bands and sharp dimensional switch. The same-day squarefree result gives substantive scope overlap: its k=2 balanced specialization is the off-diagonal compression, hence it covers the scalar sectors a_d and c_d there and the compression eigenvalue b_d. These pieces are not treated as independently novel, and relative priority is not inferred from dates. The compression result does not itself specify the diagonal–off-diagonal coupling or the extrema in the full degree-two space.
+
+## value
+
+PASS
+
+Sharp observability of pure quadratics from an exactly balanced sign mask is a natural concentration problem. The complete spectrum identifies which symmetry mode limits stability and proves that this mode changes between d=10 and 12. The sharp relative conditioning remains bounded as the observed area tends to zero. The switch and mixed spectrum give usable mathematics beyond the known squarefree block or a finite numerical comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

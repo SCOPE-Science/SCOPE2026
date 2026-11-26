@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The local decomposition of the cyclic shift into roots with nilpotent multiplicities is exact. The characteristic-\(p\) binomial vanishing, and especially the nonzero column-zero path coefficient \((-1)^m\binom{p^e-1}{m-1}b^{p^e-m}\), prove the sharp threshold. The separated nonunit-root blocks give the other direction. The packaged exact-field checker gives 135 positive tests, not a replacement for proof.
+## correctness
 
-## Originality
-PASS under available literature. Yang's Section 3 defines the triangular coefficient rule for the closed-image problem; Castillo-Ramirez's Section 4 treats invertibility and failure of reversibility, not the finite-ring temporal order. The period formula has a new quantitative mixed resonance in the spatial \(p\)-part and inner-layer depth. Related existing finite-cellular-automaton temporal-period research is a residual priority risk; no absolute novelty assertion is made. Closest searchable records about finite-volume clock factors concern traveling affine scalar rules, not this triangular module.
+PASS
 
-## Mathematical value
-PASS. Temporal period is a natural global invariant of every finite deterministic dynamical system. The theorem gives its complete two-parameter arithmetic law for finite quotients of a currently studied singular cellular automaton, notably showing that spatial and inner-coordinate prime-power factors combine through a sum rather than an independent maximum. It proves a sharp, unbounded transition from finite periodic models to an infinite-order product-coordinate limit. This is more informative than a single instance of inverse-memory divergence.
+On the cyclic shift module F_p[z]/(z^L-1) the map is triangular with diagonal 1,z,...,z. For L=dq, q=p^a, extension to a splitting field yields local z=lambda+b with b^q=0 at each dth root. The presence of every dth root for m>=1 gives prime-to-p order exactly d by the semisimple/unipotent decomposition. At lambda=1 put N=A-I. For k=p^e, N^k on column zero has coefficient (-1)^j binom(k-1,j-1)b^(k-j) in row j<=k: the first step must leave coordinate zero. The binomial coefficients are all units modulo p by Lucas, so row min(k,m) shows nonzero for k<m+q. For k>=m+q all such terms vanish; in positive columns Frobenius on bI-J kills all entries. On lambda!=1, B-I for the positive-index block is invertible, so the column coupling splits off and B^(dp^e)=I for k>=m+q. Raising a nontrivial p-group element to d coprime to p cannot erase the lower-bound obstruction. Thus the exact cutoff holds also when p divides L, including L=1, with m=0 identity. Compatible triangular inverses give the inverse-limit map, and finite order would bound all quotient orders. An independent direct iteration of every unit input (`python3 /workspace/reproduce.py`) verified the first identity time in 72 parameter triples, including m=0, mixed d and q, and powers of p. The frozen CHECK_OUTPUT.txt is recorded evidence only.
 
-## Limitations
-The proof is restricted to the constant-step finite-ring and finite-inner-coordinate model over a prime field. It does not classify single-orbit periods. The full text of Aso's 1985 general finite-order study was not available for comparison; other general results might subsume the formula. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The triangular rule and general finite-linear-map order machinery are prior. The claim credited is the explicit least whole-configuration order in every finite spatial and coefficient truncation, with its inseparable-shift threshold. The inspected source statements do not give that threshold or make it a direct specialization without a rule-specific nilpotence calculation.
+
+## value
+
+PASS
+
+The least identity time is a natural invariant for finite reversible truncations of an existing rule. The exact threshold explains the extra p-power needed when spatial shift multiplicity and coefficient depth interact, gives usable finite recurrence times and separates finite quotient periodicity from infinite order on the product limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

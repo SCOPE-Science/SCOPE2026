@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:06:49.554278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For weight-three supports translation always aligns one point, and aligning two is equivalent to a shared undirected separation. Thus, outside a single rotation class, distances are 2 if the profiles meet and 4 otherwise. Consecutive gap bounds give the explicit centres through 11; parity gives centres at 12 and 14. At 13 the allowed signed differences form a symmetric set A of size at least 6; |A+A|≥11 by Cauchy–Davenport, so (A+A) meets A and the allowed graph contains a triangle. For n≥15 at most 3n edges are excluded, so Mantel forces a triangle and hence a distance-four adversary for every centre. At 14 the triangle-free equality case must be K_{7,7}; translation by one swaps its bipartition classes, since otherwise transitivity is impossible. Hence the forbidden separations are precisely 2,4,6. After halving on one parity class, the gaps have distinct absolute separations 1,2,3 and sum to seven, so they are 1,2,4. Their two cyclic orders give the two indicated rotation orbits; x↦2−x interchanges the representatives, but rotation preserves gap order up to cyclic shift. Burnside gives the total number in the radius-four regime, since the only nonidentity stabilizing rotations have order three. The finite census independently checks the additional multiplicities.",
+      "reproduction": {
+        "evidence": "An independent exact census of n=3,…,14 canonicalizes by actual rotations and minimizes 6−2|T∩(U+s)| over all shifts, without using separation profiles. The optimal-centre counts are 1,1,2,4,5,7,6,10,10,2,22,2; at 14 precisely (0,2,6) and (0,2,10) among 26 orbits. This corroborates only those lengths; the infinite result uses the analytic bound. Frozen verifier inspected, not executed.",
+        "replay": "python3 /workspace/branches/aece40ae-51d0-43a0-acee-dee9c8850bdf/rotation_census.py"
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general fixed-content count covers N(n) and is not new.",
+          "The triangle-free edge bound and the extremal bipartite graph are exactly the standard Mantel input; the case at 13 uses standard Cauchy–Davenport. No specific classification of the separation-profile centre condition was found in the inspected comparison material."
+        ],
+        "reasoning": "The known extremal theorems control the graphs after applying the specific reduction. They do not state the radius, its small-length boundary, or the two rotation classes, which require the separation-profile correspondence and the parity-gap classification. Specialized broader external classifications remain a search limitation.",
+        "searches": [
+          "arXiv:2108.01990v2 §4.2, fixed-content Burnside counting, and §8.1, general necklace centre setting",
+          "Resultary: triangle-free circulant Cayley graphs and cyclic separation classifications"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2005.10095",
+        "arXiv:2108.01990v2",
+        "10.1007/978-3-031-23101-8_26",
+        "Resultary 2b571c81ab42, 3cb64ddcad03, 5c7e95d63306, 448a7956b01d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting necklaces gives the number of candidates, but it becomes the number of optimal centres at large n only after proving every candidate has a distance-four adversary.",
+          "The n=14 basis criterion also includes {0,1,3}, whose distinct gaps (1,2,11) are not the two exceptional even-parity gap orders; the basis property does not characterize these centres.",
+          "Hamming distance between a word and a particular one of its rotations is not the minimization between different classes; on its own orbit the quotient distance is zero."
+        ],
+        "reasoning": "The examined properties or counts cannot replace the forbidden-separation graph criterion and its tight classification. No direct implication of the full claim was established.",
+        "searches": [
+          "Compare fixed-content counting and overlap centre definitions in arXiv:2108.01990v2 §§4.2, 8.1",
+          "Compare gap and conjugate-distance criteria in Resultary 3cb64ddcad03, 5c7e95d63306 and 448a7956b01d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The necklace k-centre papers define overlap by subword multisets, explicitly distinguishing ordinary Hamming in arXiv:2005.10095.",
+          "Resultary 2b571c81ab42 studies pairwise disjoint translates of the one triple {0,1,4} using A−A; this is packing, not the minimax distance to all rotation orbits.",
+          "The separation-profile formulation uses the undirected support differences of one block; it is not a cyclic difference-family existence or multiplicity condition."
+        ],
+        "reasoning": "Neither an overlap-distance k-centre output nor a translate-packing classification gives the eccentricity in the stated quotient Hamming metric.",
+        "searches": [
+          "arXiv:2005.10095 pp. 2–3, Hamming and overlap coefficient",
+          "arXiv:2108.01990v2 §§4.2, 8.1, fixed-content necklaces and centre distance",
+          "10.1007/978-3-031-23101-8_26 pp. 3, 6, overlap distance",
+          "Resultary: cyclic triple difference/translation packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3cb64ddcad03 (same date) classifies prefix-maximal roots by zero-gap patterns. The two n=14 supports have patterns (1,3,7) and (1,7,3); the first has a prefix-maximal root and the second does not.",
+          "5c7e95d63306 (same date) counts indexed words with a nonzero shift at Hamming distance two from themselves, not distances across distinct classes.",
+          "448a7956b01d gives edge-multiset bases up to dihedral gap data. The two centres do share its basis property via gaps 2,4,8, but that property uses a different distance and gives one dihedral orbit rather than the distinct rotation orbits."
+        ],
+        "reasoning": "These comparisons identify concrete overlaps without conflating properties, equivalence relations, or priority. None is the indicated radius or centre-multiplicity table.",
+        "searches": [
+          "Resultary: fixed-content minimum-rotation Hamming centre at weight three, length fourteen, and cyclic triple gaps",
+          "Resultary 3cb64ddcad03, 5c7e95d63306, 448a7956b01d"
+        ]
+      },
+      "rationale": "The distinct claim is the exact radius classification and exceptional-centre classification of the rotation-quotient Hamming metric on the weight-three layer. Existing necklace counting and overlap-distance centre results do not give this. Closely related cyclic triples, repeated gaps and Hamming-distance-two counts occur in distinct Resultary statements; the exact shared and differing properties are specified below.",
+      "residual_risks": [
+        "The bounded necklace-literature and local Resultary comparisons do not exclude specialized cyclic-difference or triangle-free-Cayley results outside the inspected passages; no general external search of the latter classification was performed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different metric",
+          "evidence": [
+            "Explicit Hamming distinction; coefficient constructed from cyclic subword multisets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.10095",
+          "material_read": "PDF p. 2 at offset 6945; p. 3 at offset 12102",
+          "method": "OA PDF bounded passages",
+          "title": "The K-Centre Problem for Necklaces",
+          "trigger": "Closest necklace-centre question"
+        },
+        {
+          "assessment": "Counting is covered, not this centre classification",
+          "evidence": [
+            "General fixed-content formula; overlap distances in the k-centre definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.01990",
+          "material_read": "v2 §4.2 at offset 110000, §8.1 at offset 226700",
+          "method": "OA PDF bounded passages",
+          "title": "Combinatorial Algorithms for Multidimensional Necklaces",
+          "trigger": "Broader fixed-content count and centre framework"
+        },
+        {
+          "assessment": "Different metric",
+          "evidence": [
+            "Distance defined using overlap of subword multisets."
+          ],
+          "identifier_or_url": "10.1007/978-3-031-23101-8_26",
+          "material_read": "OA PDF pp. 3 and 6, offsets 8939 and 18890",
+          "method": "OA PDF bounded passages",
+          "title": "The k-centre Problem for Classes of Cyclic Words",
+          "trigger": "Published treatment of cyclic-word centres"
+        },
+        {
+          "assessment": "Translated-triple packing, not centres",
+          "evidence": [
+            "A fixed triple {0,1,4}, disjoint translates, difference-set characterization of packing gaps."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-index-stability-cutoff-and-maximal-subfactor-gaps-for-a-cy--2b571c81ab42",
+          "material_read": "Mirrored statement and proof from offset 0",
+          "method": "Resultary and local-mirror bounded reading",
+          "title": "Sharp index stability cutoff and maximal subfactor gaps for a cyclic triple",
+          "trigger": "Related cyclic triple differences and graph"
+        },
+        {
+          "assessment": "Distinguishes the two n=14 supports by another property",
+          "evidence": [
+            "Gap-order criterion for prefix-maximal roots, rather than quotient Hamming distance."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-first-circular-prefix-normal-obstructions-and-the-complete-three--3cb64ddcad03",
+          "material_read": "Statement of gap conditions for prefix-maximal roots",
+          "method": "Resultary and local mirror",
+          "title": "First circular prefix-normal obstructions and the complete three-one classification",
+          "trigger": "Same date, weight-three cyclic gap classification"
+        },
+        {
+          "assessment": "A word compared to its own shift",
+          "evidence": [
+            "Counts indexed binary words by weight admitting a nonzero distance-two rotation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-fixed-content-enumeration-of-binary-words-with-a-distance-two-co--5c7e95d63306",
+          "material_read": "Finding on counts and primitivity",
+          "method": "Resultary and local mirror",
+          "title": "Fixed-content enumeration of binary words with a distance-two conjugate",
+          "trigger": "Same date, Hamming distance two under rotations"
+        },
+        {
+          "assessment": "Different invariant; both centre orbits share one dihedral gap type",
+          "evidence": [
+            "Distinct cyclic gaps give the basis condition subject to the stated antipodal exception."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-dihedral-gap-classification-of-edge-multiset-bases-of-c-n--448a7956b01d",
+          "material_read": "Finding defining edge-multiset bases and the gap criterion",
+          "method": "Resultary and local mirror",
+          "title": "Dihedral gap classification of edge-multiset bases of C_n",
+          "trigger": "Cycle triple classification with exceptional behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weight three is a natural fixed-content layer for cyclic Hamming geometry. The result completely resolves its one-centre radius over all lengths and locates a nonmonotone exception at exactly fourteen, identifying its two reversal-related but rotation-distinct centres. The relation between this exceptional length and equality in the triangle-free extremal bound is structural, not just a finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

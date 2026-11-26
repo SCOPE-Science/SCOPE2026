@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The eight anticanonical monomials match cubics through the two coordinate vertices. The general footprint proof gives sharp generalized weights using an exhaustive eight-exponent classification. Exact inclusion–exclusion and a nonnegative-coefficient certificate for all 255 nonempty exponent subsets handle every integer t>=4. For the critical ranks, quadratic interpolation forces collinearity and the cubic monomial x²y excludes non-coordinate collinear optimizers. The coordinate-fibre residual includes 1,x,y and separates two distinct off-fibre points. This proves the exact equality cases and counts for every prime power q>=5, not merely the finite experiments. Replay of the standalone checker confirms finite-field rank counts over F5 and F7.
+## correctness
 
-## Originality — PASS, provisional
-Little–Schwarz and Little–Schenck focus on toric code constructions and first distance. The Boguslavskii del Pezzo tables treat all rational surface points, not the dense torus. Beelen–Datta consider complete Cartesian spaces; Camps and collaborators consider broader decreasing codes but do not give the relevant all-extremizer counts. The closest published cubic-scroll classification has only one ruling family; the degree-six del Pezzo hexagon concerns its second weight and the quartic scroll has a different support. These results do not entail all fourth- and fifth-rank minimizers for the degree-seven eight-monomial pentagon. Unindexed specialized prior work is a residual risk, so the novelty conclusion is provisional.
+PASS
 
-## Mathematical value — PASS
-The all-field classification of maximizing anticanonical linear sections resolves a natural arithmetic geometric incidence problem and yields the exact minimizing-subcode numbers in ranks four and five, rather than only numerical generalized weights. The two different coordinate ruling families and their common zero configurations explain the factor two and reveal geometry not supplied by a single-distance or footprint bound.
+The eight monomials come from cubics vanishing at the two specified fixed points. The torus grid ideal and the coordinate-degree bounds give injectivity and the footprint bound from distinct leading terms. Since E is a lower set, the product-of-linear-factors witnesses realize every candidate shadow exactly. An independent exact inclusion–exclusion calculation checked all 255 candidates coefficientwise after t=s+4 and found attainment in every dimension. There is also a direct finite reduction: a leading set can be replaced by an upper filter of E of the same size within its shadow. For such a filter its complement J in E has size 8−r; the complement of the full shadow has size |J|+(t−3)B(J), where B counts cells of J on the right and top edges of the 3×3 box, excluding (2,2). Maximizing B for these sizes gives 3,2,2,1,1,0,0,0 (one through four boundary cells require minimum ideal sizes 3,5,7,8). For equality geometry, when no four of five points are collinear, each point is separated by a product of two lines avoiding it: the other four can be paired across their direction classes, none of which exceeds size two. The four-point analogue also holds. Four collinear points on a non-axis line are independent on V because a cubic restriction extends the quadratic restriction space, and a point off that line increases rank. Thus a rank-three set of size t must be a full axis fiber. A rank-four set of size t+1 must contain four points on an axis fiber, since any other line holds at most t torus points and a further point would raise the rank. Dividing sections vanishing there by the fiber equation leaves a residual space containing 1,x,y, so any two off-fiber points impose two independent additional conditions. This gives exactly the claimed extremal sets, unique annihilators at the prescribed dimensions, and the counts 2t²(t−1) and 2t. The inequalities use t≥4, including q=5, without characteristic exceptions.
 
-## Limitations
-The proof concerns dense-torus rational points, split degree-seven del Pezzo geometry and prime powers q>=5. It does not classify all optimizers in other ranks or establish historical priority by independent review. The finite-field test is not an infinite proof; the general argument is supplied in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction, also the originality the Finding itself asserts, is the uniform all-extremizer classification and exact multiplicities for this eight-monomial degree-seven torus code. The shifted high-weight tail has real coverage by the same-day degree-six comparison: its monomial space embeds with codimension one and supplies the same numerical upper bounds on common zeros for dimensions 4–8. The analogous degree-six fiber cases also constrain part of the large-field geometry. Neither that work nor the scroll or Cartesian comparisons establishes the exact two-axis classification and multiplicities, including the small fields. This is a bounded scientific verdict, not historical priority.
+
+## value
+
+PASS
+
+The dense-torus sections of the anticanonical embedding have a natural incidence and coding interpretation. Bounds on common zeros alone cannot tell a researcher which maximal 3-spaces or 2-planes occur, how many there are, or that only the two axis fiber families occur in the equality cases. The uniform low-rank argument answers that precise geometric question over all fields in scope, including the smallest ones; the shifted numerical hierarchy is supporting data, not the source of the value verdict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

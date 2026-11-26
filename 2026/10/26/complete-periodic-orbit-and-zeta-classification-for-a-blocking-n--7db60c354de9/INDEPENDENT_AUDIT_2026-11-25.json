@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:51:21.141054Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rule number and polynomial describe disjoint swaps of each isolated zero with the 1 immediately to its left (also consistent on rings of size 1 and 2). Once a zero belongs to an adjacent pair it never moves; while mobile it advances one site each step and hence cannot complete a circuit past an original permanent zero pair. This proves the bound and recurrent split. The only word avoiding both forbidden blocks is all ones. Pair-state closed walks give the indexed cyclic no-101 word count (including the small-ring repeated indices); the characteristic polynomial is u(u³−2u²+u−1) and the first traces are 2,2,5. The matrix is irreducible with a loop, hence primitive. The complementary traveling sector repeats an admissible word of length gcd(N,t) under the t-th iterate, giving the Lucas term and Möbius cycle and zeta formulas. Independent functional-graph enumeration from the integer truth table reproduced every sector, transient bound and iterate count for N=1–14 and t=1–2N; replay: python3 /workspace/branches/replay_3_4_5.py 3. The frozen verifier's loop actually checks fixedness after N+1 steps, not N (verify.py lines 43, 49–50). The independent replay checks true entry time, and the universal bound follows from the proof, not the frozen computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1998 article classifies number conservation and describes 56528 motion; the nearby reported limit set concerns 60200/48770. The 2020 article gives exact finite-block preimages on bi-infinite configurations. Formenti–Kamilya concerns a different reversible second-order CA."
+        ],
+        "reasoning": "Neither general conservation nor finite-block preimages supply a joint finite-ring classification of temporal periods or the zeta counts; the former does not identify the recurrent languages and the latter is used via a global ring argument, not mere parameter substitution.",
+        "searches": [
+          "arXiv:adap-org/9712003, four-input rule discussion",
+          "arXiv:2601.00479, propositions 1–2 and conclusion",
+          "arXiv:2606.13159, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Fukś–Jin (2020), OA author manuscript arXiv:2601.00479",
+        "Boccara–Fukś (1998), OA preprint adap-org/9712003",
+        "Formenti–Kamilya arXiv:2606.13159",
+        "Resultary 41d1bc3e373b and 947b2a9e90ed",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fukś–Jin explicitly show that an isolated zero moves with speed one until a zero cluster absorbs it; their finite-block preimage analysis identifies buffers with no double zeros. Their result concerns persistence of a marked block, not an indexed-ring time spectrum."
+        ],
+        "reasoning": "The travel and capture statements are direct deductions and are not the novelty in isolation. The exact global enumeration additionally requires ruling out other recurrent components on every ring, isolating the common state, and counting period restrictions in the traveling sector separately from the frozen sector. No prior formula for this combined invariant was found.",
+        "searches": [
+          "Fukś–Jin, Proposition 2 proof, pp. 6–7",
+          "Boccara–Fukś, arXiv:adap-org/9712003, rule 56528 and following rules, pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boccara–Fukś describe rightward motion of a 1 across an isolated zero; Fukś–Jin describe the equivalent leftward isolated-zero motion and absorption. The 1998 paper lists reflected rule 57580 and binary conjugate 62660, so neither relabeling nor switching particles creates a new rule result."
+        ],
+        "reasoning": "The motion is prior knowledge; the review asks whether the periodic spatial restrictions, complete temporal counts or their exact equivalents were already stated or supplied by a stronger theorem.",
+        "searches": [
+          "Resultary: 56528 Fukś Jin cellular automaton frozen cyclic no 101 no 00 isolated zero Artin Mazur zeta blocking number conserving recurrent ring",
+          "Boccara Fuks 6007 1998 Cellular automaton rules conserving number active sites rule 56528 ring periodic final configurations PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Rule 3 entry uses the same no-101 spatial trace, but alternates between a Perrin count and that trace by time parity. The four-color census uses a different successor-contact rule. The Lucas counts are classical cyclic no-00 counts."
+        ],
+        "reasoning": "Known component sequences do not count the time orbits of 56528 by themselves. No full table covering this two-language, gcd-dependent temporal spectrum was located.",
+        "searches": [
+          "Resultary: cyclic rule 56528 orbit counts/zeta",
+          "Resultary 41d1bc3e373b and 947b2a9e90ed"
+        ]
+      },
+      "rationale": "Credit the local particle dynamics to the earlier rule papers, the fixed/traveling languages to that dynamics, and the counting tools to standard transfer and necklace methods. The assessed contribution is the exact finite-ring temporal spectrum for this particular rule: a global capture/translation argument identifies which two spatial languages suffice, and their indexed counts yield every time-iterate trace and primitive period. Neither inspected rule paper gives that finite-ring result or a more general orbit formula specializing to it.",
+      "residual_risks": [
+        "Specialist traffic-rule work could express equivalent recurrence under reflected or bit-complemented numbering. Inspected papers establish local mechanisms, not guaranteed historical priority for the finite census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local dynamics and marked-preimage overlap; no finite-ring temporal census in inspected results",
+          "evidence": "Rule 56528 on binary bi-infinite words; 100 blocking; isolated zeros move left and clusters absorb them; preimages of 101 have a buffer with no 00.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.00479 ; DOI 10.1142/S0129183120501727",
+          "material_read": "§2 pp. 3–4, Propositions 1 and 2 with particle/preimage argument pp. 5–7 (offsets about 17000–25900), conclusion pp. 17–18",
+          "method": "OA author manuscript; publisher route restricted; credit 2020 publication date",
+          "title": "Approximating dynamics of a number-conserving cellular automaton by a finite-dimensional dynamical system",
+          "trigger": "Same rule, potential prior dynamical characterization"
+        },
+        {
+          "assessment": "Same local rule, no equivalent finite-ring spectrum in inspected passages",
+          "evidence": "A 1 moves right iff the next two symbols are 01; subsequent limit-set discussion refers to rules 60200 and 48770, not 56528.",
+          "identifier_or_url": "https://arxiv.org/pdf/adap-org/9712003 ; DOI 10.1088/0305-4470/31/28/014",
+          "material_read": "Periodic boundary example p. 2, 56528 quartet and following rule discussion pp. 7–8, decisive passage at offsets 17820–19513",
+          "method": "DOI recovery to OA preprint; read actual rule and nearby limit-set text",
+          "title": "Cellular automaton rules conserving the number of active sites",
+          "trigger": "Earlier primary reference for rule motion"
+        },
+        {
+          "assessment": "Different rule and configuration class",
+          "evidence": "Reversible second-order rule 115 on finite configurations, not 56528 on cyclic rings.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.13159",
+          "material_read": "p. 1, rule and finite-support claim",
+          "method": "OA passage inspection",
+          "title": "The Curious Case of Reversible Elementary Second Order Cellular Automaton 115",
+          "trigger": "Frozen record's cited temporal-periodicity motivation"
+        },
+        {
+          "assessment": "Component overlap or structural analogy, not same temporal problem",
+          "evidence": "Rule 3 has the no-101 trace for even iterates but not the stated Lucas traveling correction; the four-color successor-contact rule has different states and updates.",
+          "identifier_or_url": "Resultary 2026/11/8 41d1bc3e373b ; 2026/11/17 947b2a9e90ed",
+          "material_read": "First record Finding and transfer discussion at offsets 0 and 4459; second record Finding",
+          "method": "Local mirror statement comparison",
+          "title": "Perrin transfer periodic-orbit census for cyclic Rule 3; Complete temporal orbit census for the four-color cyclic cellular automaton",
+          "trigger": "Strongest catalogue hits by spectrum and frozen/traveling decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an established blocking, number-conserving rule, the exact temporal orbit spectrum answers which finite periodic motions survive and how many trajectories have each primitive period, across all ring sizes. It gives concrete counts for fixed points, translating states and the asymptotic dominance of the frozen sector without constructing exponentially large transition graphs. Its value is the complete finite-ring invariant, not a new local motion law or a new general zeta method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

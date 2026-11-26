@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:45:38.875516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (inspected)",
+        "Corrected files in /workspace/repairs/3/; python3 /workspace/repairs/3/check_witness.py (completed)",
+        "Independent starting check: python3 /workspace/branches/independent_replay.py 3",
+        "ArXiv:2211.08382v1, Definition 3.1 and Theorem 4.8"
+      ],
+      "rationale": "The repair proves minimal section dimension for unequal face lattices and replays the concrete three-dimensional witness. For ℓ>0 the coordinate-face height intervals are [0,N−a_i−ℓ] and [a_i+ℓ,N], and the link intervals are [a_i−ℓ,N−a_{i+1}+ℓ]. Bounds give the endpoints and 2ℓ≤min a_i ensures their explicit extremizers satisfy the other links; the extremizers are unique. Each original facet has relative interior, and produces a section facet exactly at strict intermediate heights. Distinct projected normals (or parallel coordinate planes with different offsets) prevent double-counting. Pairing the coordinate intervals and cyclically relabeling the link endpoints proves complementary facet counts by class even at wall heights. Thus dimension two has equal polygon side counts and dimension one consists of intervals; ℓ=0 is the box reflection case. For the witness, a separately written rational ambient-system solver, exact two-coordinate convex hulls and Jacobian factors recover seven coordinate and four link facets at each height, the two area totals, and 16 versus 15 vertices. Euler gives (16,25,11) and (15,24,11). Theorem 4.8 directly applies to its integer parameters and heights for Ehrhart equality. The area corollary is identified as prior implication, not relied on as a novelty assumption.",
+      "residual_risks": [
+        "The minimal-dimension statement applies to interior complementary sections with the half-size link threshold, and concerns face-lattice isomorphism, not congruence, lattice-affine equivalence, or all height profiles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior all-dimensional theorem gives volume and Ehrhart equivalence, and §6 studies facets and vertices of the whole polytope. The slope comparison of the two area families is covered by the old volume theorem. The indexed isoperimetric result concerns surface area of whole chainlink polytopes."
+        ],
+        "reasoning": "Neither total combinatorics of the unsliced polytope nor volume of complementary slices resolves the face-lattice cutoff. What matters is which original faces and vertices the slice intersects at each complementary height.",
+        "searches": [
+          "ArXiv:2211.08382v1, Theorem 4.8, Proposition 3.2 and §6",
+          "Resultary 0614300ec957 on dimensional chainlink surface area; targeted Resultary search for face-lattice differences"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:2211.08382v1 (primary passages above)",
+        "Resultary 26d25037b662 and c9e534b71133 (original passages), 0614300ec957 (excerpt), 5d0777188f6c (frozen self-match)",
+        "Focused primary and Resultary searches for vertex counts and face-lattice separation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The volume identity implies both Euclidean area totals by first variation in the link and box support directions. The planar publication proves edge-length sums via disjoint corner shavings, with two hexagons in its witness and no higher-dimensional theorem."
+        ],
+        "reasoning": "Credit the previously implied metric symmetry and already known metric distinctions. The repaired lower cutoff uses section-facet incidence, not length sums, and the upper cutoff uses a different-vertex-count certificate at the first permitted dimension. They are not obtained by differentiating the known volume identity or relabeling its planar example.",
+        "searches": [
+          "ArXiv:2211.08382v1, Theorem 4.8 and Introduction",
+          "Resultary 26d25037b662, Proof §§1–4; Resultary c9e534b71133, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ArXiv:2211.08382v1, Introduction, Figure 2: the planar sections (6,4,5;2) at 4 and 11 are described as non-isomorphic, but each has three coordinate and two link edges by evaluating the defining height intervals.",
+          "Resultary 26d25037b662 proves separate planar length sums and exhibits noncongruent complementary hexagons, so both of its exemplars have six sides."
+        ],
+        "reasoning": "Different metric or lattice-affine types, the same-named geometric forms, and different face lattices are not equivalent. Equal side count exhausts face-lattice type in section dimension two; the repaired three-dimensional different vertex counts force truly different types.",
+        "searches": [
+          "Resultary: combinatorially nonisomorphic complementary chainlink polytope sections different vertex numbers 16 15 three dimensional Ehrhart equivalent same facet counts",
+          "Primary websearch: chainlink polytopes, complementary sections, number of vertices, combinatorial equivalence, face lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise indexed numerical witness is the frozen self-match 5d0777188f6c. Resultary c9e534b71133 has different planar sections with the same six-vertex count; primary Figure 2 is also a different planar case. Its §6 vertex formula counts the unsliced polytope."
+        ],
+        "reasoning": "The inspected numbers do not give these two three-dimensional face vectors, and a finite table alone would not establish the minimal dimension under the full real-parameter hypotheses.",
+        "searches": [
+          "Resultary targeted search for chainlink face vectors, 16-versus-15 vertex counts and complementary section types",
+          "ArXiv:2211.08382v1, Figure 2 and §6 vertex results"
+        ]
+      },
+      "rationale": "The repaired finding is specifically a section-dimension cutoff for a face-lattice difference, with an exact witness in that first dimension. It no longer claims the two separate area equalities are original. The prior use of 'non-isomorphic' for planar rational slices does not mean distinct polygon face lattices: in the published example both polygons have five sides by direct evaluation of the facet-height intervals. No inspected source gives the cutoff or a prior matching combinatorial separation.",
+      "residual_risks": [
+        "The comparison does not rule out an unindexed enumeration of complementary slice types or an equivalent argument elsewhere; no universal priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen metric symmetry by implication; planar example does not show distinct face lattices",
+          "evidence": "Theorem 4.8 explicitly equates complementary relative volumes and quasi-Ehrhart polynomials. The Introduction gives (6,4,5;2) at 4 and 11, whose two edge counts are both five. Section 6 deals with unsliced bounds and faces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.08382v1",
+          "material_read": "Introduction and Figure 2 discussion, pp. 1–2 (offsets 400, 5114–5500); §3, Definition 3.1 and Proposition 3.2 (around 18350); Theorem 4.8, p. 13 (39460–41713); §6 excerpts on facets/vertices (around 49834–55442)",
+          "method": "Lawful OA PDF with targeted phrase location and bounded passages",
+          "title": "Chainlink Polytopes and Ehrhart-Equivalence",
+          "trigger": "Same sections, prior stronger volume result, and potential non-isomorphism precedent"
+        },
+        {
+          "assessment": "Different metric polygons, not different face lattices; proof uses three pairwise disjoint caps",
+          "evidence": "Explicit lengths distinguish two six-edge sections; no claim for higher dimensions.",
+          "identifier_or_url": "Resultary 26d25037b662",
+          "material_read": "Mirrored Finding and scope; Proof §§1–4 (offset 2968–8326)",
+          "method": "Configured local mirror",
+          "title": "Complementary three-chainlink sections preserve Euclidean perimeter and separate facet-length totals",
+          "trigger": "Exact lower-dimensional area analogue and reported noncongruence"
+        },
+        {
+          "assessment": "Same planar face lattice, different radii",
+          "evidence": "Its heights 6 and 9 yield exactly six vertices each and unequal inradii.",
+          "identifier_or_url": "Resultary c9e534b71133",
+          "material_read": "Mirrored Finding and scope, offsets 0–2967",
+          "method": "Configured local mirror",
+          "title": "Six Euclidean inball phases of complementary chainlink sections",
+          "trigger": "Closest independent catalogue example comparing equal-volume and equal-perimeter complementary slices"
+        },
+        {
+          "assessment": "Scope different in the excerpt; not a full-text exclusion",
+          "evidence": "Concerns the surface area of whole chainlink polytopes, not complementary-section face types.",
+          "identifier_or_url": "Resultary 0614300ec957",
+          "material_read": "Catalogue excerpt",
+          "method": "Configured Resultary comparison",
+          "title": "A dimension-independent sharp Euclidean isoperimetric optimizer for chainlink polytopes",
+          "trigger": "Potential broader surface-area coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, both proof subsections; corrected exact witness replay",
+        "ArXiv:2211.08382v1, Figure 2 and Theorem 4.8; Resultary 26d25037b662"
+      ],
+      "rationale": "The focused result identifies the first dimension where the geometry and combinatorics part company in this family. The witness has equal Ehrhart functions, equal total areas by facet class and even equal facet counts by class, yet distinct face vectors; the exact cutoff makes this more than an arbitrary numerical example. The distinction is between different cell-incidence types and merely different lengths or radii of the same face type.",
+      "residual_risks": [
+        "No general classification of higher-dimensional complementary face vectors or face lattices is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

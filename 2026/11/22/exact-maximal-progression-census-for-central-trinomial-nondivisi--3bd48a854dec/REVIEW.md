@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The prior Lucas product identifies the nondivisibility indices with the seven-ary digit language excluding digit three. The six-output column-carry recurrence is exact for each first term and positive or zero step; a terminal zero carry forces every indexed term below the cutoff. Exhaustive construction finds 24 states and a specified integer matrix. The standalone standard-library checker establishes the characteristic-polynomial and complete numerator identities, so Cayley--Hamilton proves the rational generating function for all digit lengths. Removal of the exactly \(6^r\) zero-step choices yields the stated enumeration. Independent brute-force enumeration for the first four blocks and direct index computations support but do not replace the infinite argument.
+PASS
 
-## Originality (PASS, with residual risk)
+In F_7 the constant term for a digit expansion factors: after the lowest digit, all remaining exponents are multiples of 7, whereas the lowest-digit factor has exponents from −6 through 6. The one-digit residues are (1,1,3,0,5,2,1), so support excludes precisely digit 3. For any positive step, at its first nonzero digit the seven successive terms give all residues; 4 through 9 realize six. For the all-step count, r digits suffice for both inputs under the strict cutoff; the component carries of u+jd enforce every support constraint and a zero terminal vector is necessary and sufficient for no overflow. The zero-step correction is 6^r. For an independent all-coefficient check I generated allowed output digits of all six terms, imposing the four adjacent second-difference equations using signed carries. After column k each carry is the corresponding difference of truncated terms divided by 7^k; a zero terminal vector gives actual progressions. This alternative automaton has 23 reachable states and counts decreasing and increasing progressions equally, plus 6^r constant ones. With the asserted denominator Q and numerator N for the increasing count, its count series S satisfies Q S = B+2N: the check verifies all initial coefficients and a full block of 23 zero residual coefficients past the numerator and denominator degrees. From then on the residual is a fixed row times a power of the same 23-state matrix times the accept vector, so Cayley–Hamilton proves every remaining coefficient is zero. The displayed r=0..12 values match, as does independent endpoint-pair enumeration at r=0..3, with leading zeros and r=0 covered.
 
-The closest primary texts are Noe (2006), Rowland--Yassawi (2013), and Walker--Walker (2018). Noe and Rowland--Yassawi already imply the base-seven support digit rule. Walker--Walker's Theorem 1.1 and Proposition 2.2 cover the sharp maximal progression *length*, so that is explicitly not claimed as original. Their examined proof and subsequent sections do not provide the exact six-progression frequency at every base-seven cutoff. The evaluated rational function, including the fully quantified all-step census, is not a direct implication of the known length or digit statements and was not found in the searched primary and indexed records. An unpublished or more general specialized carry-count theorem could still cover this numerical specialization.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Having identified the longest possible progressions in a sparse arithmetical digit set, their number at each natural base-scale is a precise and motivated additive-combinatorial invariant, unlike an arbitrary finite slice. The formula counts all common differences without restrictions, determines exact large-block frequencies and an order-nine rational recurrence, and exposes a nontrivial 24-state carry structure compressed into an eighth-degree factor. Neither the known upper bound nor the digit density \((6/7)^r\) determines these counts.
+Supported distinct contribution is the evaluated series for the count of all positive-step six-term progressions, not the digit rule, maximal-length bound, or transfer-matrix method. The closest other exact censuses have different support languages, cutoffs or progression lengths. The available general results establish the digit rule and length obstruction, not the exact count in this support.
 
-## Scope and limitations
+## value
 
-The theorem concerns six terms, modulus seven, and the central-trinomial nondivisibility support. The generic upper bound and Lucas product are credited prior work. No inference of historical uniqueness follows from searches, and independent review is still necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nondivisibility gives a natural digit-restricted support, and the known sharp maximum selects length six intrinsically. Counting every positive step rather than exhibiting one progression measures how often that length bound is attained across natural digit scales, with exact reproducible coefficients and recurrence for further additive-structure comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

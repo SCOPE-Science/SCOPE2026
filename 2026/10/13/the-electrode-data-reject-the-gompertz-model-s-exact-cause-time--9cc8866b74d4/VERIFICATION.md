@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-For latent cause-specific Gompertz hazards
-\[
-h_j(t)=\lambda_j e^{\theta t},
-\]
-the bundled checker verifies numerically that
-\[
-\frac{f_{T,J=j}(t)}{f_T(t)}
-=
-\frac{\lambda_j}{\lambda_1+\lambda_2}
-\]
-at multiple positive parameter values and times.
 
-The checker then reconstructs the 45 failures and labels printed in the source electrode table. It uses doubled midranks so the tied observation is handled exactly with integer arithmetic.
+# Independent mathematical audit
 
-A subset-sum dynamic program enumerates every possible 19-label assignment conditional on the 45 observed times. It verifies
-\[
-R_E=219,\qquad U=29,
-\]
-and counts
-\[
-44{,}812
-\]
-assignments at least as far from the null mean rank sum as observed, out of
-\[
-\binom{45}{19}=2{,}438{,}362{,}177{,}020.
-\]
+## correctness
 
-The exact two-sided conditional probability is therefore
-\[
-1.837790973889128\times10^{-8}.
-\]
-No fitted nuisance parameter or asymptotic approximation is used.
+PASS
+
+The joint subdensity is the cause-specific hazard times the joint survival; dividing by the sum leaves a constant label probability. For independent units and label-neutral observation, removal and stopping, fixing observed times and counts leaves the same likelihood for every placement of the observed labels. Independently recomputed from the frozen Table 8 transcription at verify_gompertz_cause_time.py:21–31 without executing it: order times, assign doubled midranks (two observations at .328 each get 71), and expand the product of (1+x*y^r) over ranks r, retaining degree 19 in x. R_E=219, U=29, doubled mean 874. Grouping the tie with multiplier 2 for selecting one, the coefficients at doubled sums <=438 total 22,633 and those >=1310 total 22,179 (the latter by reflection r→92−r); their sum over choose(45,19) gives 1.837790973889128e−8. The result is a conditional model check, not a test distinguishing all possible alternatives or a check on the latent marginal fits. The published Table 8 layout and the article's printed likelihood could not be independently read; the numerical replay uses the supplied article-specific transcription.
+
+## originality
+
+PASS
+
+The supported distinct claim is the electrode-specific conditional exact rank diagnostic and the resulting observed failure of the common-shape restriction. The hazard-ratio factorization and the permutation method themselves are not novel. No inspected counterpart covered the exact application and result.
+
+## value
+
+PASS
+
+The application matters independently of the standard mark-factorization: cause–time ordering very strongly violates a structural restriction of the fitted model even without estimating parameters. This checks a feature that separate cause-wise curve fits to selected minima cannot validate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

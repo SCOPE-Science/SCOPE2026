@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:24:20.977281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all admissible allocations the quadratic form of M is the sum of the baseline, path edge energies, and nonnegative coordinate penalties. With v=0 a vector in the null space would be constant, then vanish because some x_i>0. Thus M is positive definite and a unique steady state exists. The (1,3) cofactor is k², so c₃=qk²/det M with a positive denominator. Set a=v+k and b=v+2k. The determinant is (a+x₁)(b+x₂)(a+x₃)−k²(2a+x₁+x₃). With x₂ fixed it increases strictly under endpoint balancing except at equality, giving x=(u,F−2u,u). Along that line D′/2=g(u)=(a+u)(F+k−3u)−k². Independently of the logdet argument, g is a quadratic with negative leading coefficient and g(0)=aF+kv>0, so it has exactly one positive root with a sign change. At F/2 its derivative criterion is D′(F/2)=(4kv−2vF−F²)/2, giving the stated threshold including the endpoint optimum at equality. Above it the positive quadratic root lies strictly within the interval and is the displayed radical; g(u)=0 forces F−3u=k²/(a+u)−k<0. Hence F/3<u<F/2 and 0<x₂<u. At v=0 the threshold is zero and all positive budgets are interior. The two-room inverse entry has a positive constant numerator k and a denominator uniquely maximized at equal splitting; an intermediate room first exists on a three-vertex path. For k=1,v=1/2,F=2, direct substitution gives u≈0.8586778913 and c₃≈0.09290658561 for q=1. The supplied verifier and verification note were inspected, not executed. This is the stated continuous-budget steady receptor model, not transient exposure, arbitrary graphs or a field validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Namchaisiri–Yamashita, arXiv:2409.19743v1, p. 1 problem (P) and p. 2 applications: general log-det SDP and numerical/convergence method, not an explicit resource-allocation support theorem.",
+          "2026/10/26/SCOPE-exact-d-optimal-conductances-on-heterogeneously-priced-unicyclic--93ce11e266fa, RESULT.md offsets 0–3200: a determinant maximization and deletion threshold on grounded networks for conductance costs of edges in a unicyclic graph."
+        ],
+        "reasoning": "General optimization can encompass diagonal additions but does not give the optimizer or its support merely by substituting the model parameters into the inspected algorithmic statement. The inspected network theorem varies edge conductances, not room sinks with fixed inter-room edges; grounding all three sinks for this problem would add ground links as well as fixed path links, not directly put the model under that priced unicyclic result.",
+        "searches": [
+          "Primary literature theorem maximize log det of path Laplacian plus baseline and nonnegative diagonal loading with fixed total budget, characterize active-set support threshold",
+          "Resultary: D-optimal grounded-Laplacian determinant budget and active-set transitions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Original local Resultary steady two-zone, transient three-room, four-site path-loading and unicyclic design records",
+        "Namchaisiri–Yamashita arXiv:2409.19743v1 pp. 1–2",
+        "Cited Kikumoto–Ooka and Antonopoulos–Dillon–Gall access checks; Airgle editorial illustration",
+        "Focused literature lookups on path-Laplacian diagonal budgets and steady multizone removal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General strict logdet concavity or KKT supplies uniqueness or an implicit gradient condition, not the active set in (k,v,F). The exact comparison needs the allocation-independent transfer numerator, the balancing argument, and the sign of the model-specific boundary derivative.",
+          "The transient-placement and fixed-configuration sources considered outcomes of different candidate designs; knowing their responses is not an inequality over all three-rate splits. No exact known same-model threshold follows from the inspected statements."
+        ],
+        "reasoning": "Unlike a finite expansion of an explicit known optimum for the same design problem, these techniques and analogues require solving the different budget problem. The closest direct model overlaps and the material access limits are recorded, without treating search misses or abstracts as proof of novelty.",
+        "searches": [
+          "Local Resultary originals for two-zone steady allocation, three-room transient placement, four-site loading, and unicyclic D-optimal conductances",
+          "Namchaisiri–Yamashita problem (P), OA PDF pp. 1–2",
+          "OA attempts for cited cleaner placement and wildfire mass-balance sources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-sharp-source-to-remote-filtration-transition-in-a-two-zone-pol--cd7c91b4d72d, original RESULT.md offset 400: the two-zone sum-of-concentrations objective gives a budget threshold B_c=2r+r²/m; the remote-only objective gives the equal split, overlapping exactly with the frozen two-room comparator.",
+          "2026/11/22/SCOPE-a-unique-transient-filtration-placement-reversal-with-cumulative--95d6860f0732, original RESULT.md offset 0: a three-room source/receptor path and a single fixed-strength filter after a pulse give a time crossover, not a rate-budget optimum.",
+          "2026/11/22/SCOPE-a-sharp-endpoint-to-interior-loading-transition-for-spectral-con--a2818e5de4a3, original RESULT.md offsets 0–3791: a four-site path with a support transition minimizes condition number, not concentration or reciprocal determinant."
+        ],
+        "reasoning": "End-to-end steady transfer on the three-room path is indeed exactly the inverse determinant times qk². This identifies a mathematical alias for the target. Neither the two-zone objective with a remote activation nor the four-site condition-number objective is proportional to this determinant. Integrating a transient response for a prescribed filter identifies a steady response only for that design; it does not solve a continuous three-rate budget problem.",
+        "searches": [
+          "Resultary: steady three-room symmetric path end-to-end concentration, fixed continuous removal budget, middle activation",
+          "Primary lookup: (air cleaner OR filtration), three rooms, steady-state removal rate budget and source–receptor allocation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed record 2026/11/22/SCOPE-a-sharp-middle-room-activation-threshold-for-end-to-end-air-clea--e2566768d1d9 is the assigned record itself. The related originals inspected give a two-zone threshold for another objective, a transient crossover, and a four-site spectral-loading threshold, not this formula.",
+          "An Airgle public two-room example compares an all-in-one placement with an equal split and is identified there as illustrative rather than measured. It is neither data for this threshold nor a continuous design classification."
+        ],
+        "reasoning": "No independent exact match was established in this bounded index comparison. No empirical table or numerical constant is the novelty; the scope is an explicit all-admissible-parameter support threshold in the specified model.",
+        "searches": [
+          "Local Resultary index: three-room middle activation sqrt(v²+4kv)−v; steady and transient filtration allocation; path loading thresholds"
+        ]
+      },
+      "rationale": "Bounded pass for the three-room explicit activation and unique budget allocation. The two-room remote-concentration equal split, cofactor algebra and logdet concavity are not new. The closest inspected sources address a distinct control set, geometry or objective, or give general methods without a same-model support classification. The decision is not a claim of worldwide priority or absence of related air-cleaner research.",
+      "residual_risks": [
+        "The cited Kikumoto–Ooka full text and Walker–Lessa–Lozinsky full text were unavailable through the attempted routes; the Antonopoulos et al. comparison was abstract-level. The review does not claim no equivalent result anywhere in those works.",
+        "Lookup was bounded; unindexed steady allocation work or a stronger exact active-set theorem may exist. Similar same-date catalogue records were evaluated by their objectives, not dismissed by their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap with two-room comparator only; different threshold objective and number of rooms",
+          "evidence": "Total concentration gives a remote-activation threshold; remote-only concentration gives equal allocation.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-source-to-remote-filtration-transition-in-a-two-zone-pol--cd7c91b4d72d",
+          "material_read": "Original RESULT.md, threshold and objective comparison, text offset 400",
+          "method": "Local Resultary mirror",
+          "title": "A sharp source-to-remote filtration transition in a two-zone pollutant model",
+          "trigger": "Closest steady-state continuous filtration allocation and a sharp activation threshold"
+        },
+        {
+          "assessment": "Different controls and time-dependent objective",
+          "evidence": "Compares placing one cleaner in the source or middle room after an impulse and proves a temporal crossover.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-transient-filtration-placement-reversal-with-cumulative--95d6860f0732",
+          "material_read": "Original RESULT.md Finding, text offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A unique transient filtration placement reversal with cumulative exposure comparison",
+          "trigger": "Identical path length and source/receptor neighborhood"
+        },
+        {
+          "assessment": "Different length and objective; not an equivalent determinant allocation",
+          "evidence": "Four-vertex path; objective is spectral condition number.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-endpoint-to-interior-loading-transition-for-spectral-con--a2818e5de4a3",
+          "material_read": "Original RESULT.md offsets 0–3791",
+          "method": "Local Resultary mirror",
+          "title": "A sharp endpoint-to-interior loading transition for spectral conditioning",
+          "trigger": "Closely related path diagonal budget and support transition"
+        },
+        {
+          "assessment": "Edge weights and unicyclic geometry differ from constrained vertex removal",
+          "evidence": "Grounded determinant optimized over separately priced edge conductances, with an edge-deletion threshold.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-d-optimal-conductances-on-heterogeneously-priced-unicyclic--93ce11e266fa",
+          "material_read": "Original RESULT.md offsets 0–3200",
+          "method": "Local Resultary mirror",
+          "title": "Exact D-optimal conductances on heterogeneously priced unicyclic networks",
+          "trigger": "Possible stronger network determinant budget result"
+        },
+        {
+          "assessment": "Method and optimization framework, not an explicit path support classification",
+          "evidence": "Logdet objective with penalties and linear constraints; the paper studies a solver and convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.19743",
+          "material_read": "PDF p. 1 abstract and problem (P), and p. 2 applications discussion at offset 6500",
+          "method": "Open-access original PDF passages",
+          "title": "Dual Spectral Projected Gradient Method for Generalized Log-det Semidefinite Programming",
+          "trigger": "Strongest result of the focused general logdet allocation query"
+        },
+        {
+          "assessment": "Inaccessible plausible placement comparator; no whole-paper claim made",
+          "evidence": "Title targets adjoint-based placement; the frozen record describes a single-cleaner example, not independently confirmed from the full text.",
+          "identifier_or_url": "https://doi.org/10.1002/2475-8876.12318",
+          "material_read": "Bibliographic/title evidence only; no full text obtained",
+          "method": "Lawful DOI/publisher access attempt",
+          "title": "Study on influence of air cleaner on room dispersion field and its optimal placement using adjoint concentration",
+          "trigger": "Physically close source–receptor air-cleaner optimization"
+        },
+        {
+          "assessment": "Application context; full-text scope comparison not independently verified",
+          "evidence": "The accessible description concerns assessing fixed interventions; not primary evidence against coverage elsewhere in the article.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10863606/",
+          "material_read": "Landing/abstract content only",
+          "method": "Lawful OA PMC and publisher attempts",
+          "title": "Experimental and Modeled Assessment of Interventions to Reduce PM2.5 in a Residence during a Wildfire Event",
+          "trigger": "Steady-state removal application cited by the record"
+        },
+        {
+          "assessment": "Finite choices and expressly editorial example, not a theorem on the continuous problem",
+          "evidence": "Compares all cleaning in one room with a specified equal split.",
+          "identifier_or_url": "https://www.airgle.com/research/one-large-or-two-small-air-purifiers",
+          "material_read": "Illustrative steady comparison, text offsets 5700 and 8500",
+          "method": "Public webpage passages",
+          "title": "One large or two small air purifiers?",
+          "trigger": "Concrete candidate overlap on steady two-room allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The receptor placement and continuously divisible air-cleaning budget give a natural design question before any algebra. The exact transition gives an actionable distinction within the ideal model: a positive background sink creates an interval of budgets at which the only connecting room is optimally left unfunded, whereas no such interval exists when the sink is zero. The solution gives both the threshold and actual unique rates, not only generic convexity or a small numerical witness. This is a deliberately minimal path classification, not a claim of practical performance in uncontrolled buildings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

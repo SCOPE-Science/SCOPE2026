@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:24:58.485274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–109",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify_hypocycloid.py, lines 18–117, inspected without execution"
+      ],
+      "rationale": "For fixed n≥3 and r>0, the speed is 2r(n−1)|sin(nt/2)| and integrates to 8r(n−1). On the first open arc the polar angle increases strictly within the cusp wedge (the factor (n−1)+exp(−int) has a single-valued argument), and the support projection onto the cusp-side normal decreases then increases without reaching the side in the interior. Thus the cusp polygon is the convex hull and only its farthest cusp pairs maximize distance on the curve. Both branches at each cusp satisfy P_j(s)=v_j−s exp(it_j)+O(s^{3/2}) in inward arclength s. The chord projections give the loss a_n(s_1+s_2)+O((s_1+s_2)^{3/2}); compactness excludes every other chart. Each of four branch pairs contributes ε²/(2a_n²L_n²) for each of n or 2n ordered cusp pairs, giving the stated coefficients, including 1/16 and 1/72. After rescaling, the error in the normalized loss is O(√ε); convergence of the event indicators in L¹ gives total variation, including the uniform independent labels and Dirichlet(1,1,1) mark. Disjoint arclength neighborhoods give the joint nearest-gap survival (1−Σx_j/N)^N. A pair of nearest samples gives an O_p(N^{-1}) loss; the lower linear loss then puts every maximizing pair in charts at arclength O_p(N^{-1}), where the remainder is o_p(N^{-1}). This proves the exact scaling 2N/(a_n L_n) and the minimum of exponential sums. Even edges are disjoint and the odd step (n−1)/2 generates one cycle. For n=3 the two smallest exponentials sum to twice the first spacing plus the second, yielding 4 exp(−3t/2)−3 exp(−2t).",
+      "residual_risks": [
+        "Fixed n,r and complete-curve normalized arclength only. No joint limit in cusp count is proved.",
+        "The frozen sample loop at lines 87–109 tests the magnitude of a nearest-gap surrogate, not the claimed sample-by-sample comparison to a computed maximum suggested by its comment. Lines 110–114 check only that six survival values lie in [0,1] to tolerance, not the law. The finite quadrature and these checks are not relied on for the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lao uses normalized length on straight regular polygon sides and weighted exponential side-gap sums, providing a close boundary-extreme precedent.",
+          "The accessible odd-polygon Finding and the broader catalogue description concern uniform area in polygons and √N scaling, with corner Poisson costs and shared vertices."
+        ],
+        "reasoning": "These are related mechanisms, but the stated supports, branch projections and in the area case even scaling differ. The retrieved theorems do not cover the curved arclength-supported case.",
+        "searches": [
+          "Wei Lao 2010, Chapter 5, Theorems 5.1 and 5.3",
+          "Resultary SCOPE-diameter-graph-poisson-limits-for-random-samples-in-convex-polygons--6a01e893119f",
+          "Resultary SCOPE-a-coupled-poisson-diameter-law-for-odd-regular-polygons--5e3a52b5d3db"
+        ]
+      },
+      "checked_sources": [
+        "Lao 2010 Chapter 5",
+        "Caltech 7wxkh-b1h64",
+        "arXiv:1503.00566",
+        "Published record IDs 27c3f17c40ea, 6aeabc14978b, 5e3a52b5d3db and f64acf954997",
+        "Published index entry 6a01e893119f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Replacing hypocycloids by their convex hull preserves the maximum length and the graph of maximizers but changes the endpoint measure and its tangent projections. Lao's straight-side gaps are not the two arclength branches with identical first-order projection used here.",
+          "A growing-side-count crossover on straight polygon edges does not include this fixed-cusp curved-support law."
+        ],
+        "reasoning": "The prior arguments motivate the proof but do not supply its local arclength input, the mark normalization or the collapse to a single exponential per vertex; the result is not a parameter substitution into the cited statements.",
+        "searches": [
+          "Lao, Theorems 5.1 (p. 73) and 5.3 (p. 88)",
+          "Resultary SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mani–Rubinstein-Salzedo p. 1 studies arc-division constructibility for rational hypocycloids, not chords under random arclength sampling.",
+          "The cycloidal-arch record's transverse endpoint cusps give exponent 4/3 and Dirichlet(2/3,2/3,1). The time-uniform trochoid record has a quadratic regime but the measure is uniform rolling phase and the shape is a one-period trochoid, not the complete arclength-uniform hypocycloid."
+        ],
+        "reasoning": "Neither phase reparameterization nor replacing the curve by a cycloidal arch preserves both the measure and the longitudinal cusp loss. Matching one exponent is not equivalent coverage.",
+        "searches": [
+          "arXiv:1503.00566",
+          "Resultary SCOPE-cuspidal-curvature-and-the-four-thirds-rare-diameter-law-for-cyc--27c3f17c40ea",
+          "Resultary SCOPE-three-diameter-tail-regimes-and-a-cusp-crossover-for-time-unifor--6aeabc14978b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Caltech abstract is about cycloidal areas. The polygon-to-circle record computes nearly diametral boundary-chord crossover with growing polygon side count, and the cycloidal-arch record computes a different coefficient and cusp mark."
+        ],
+        "reasoning": "No directly reusable exact coefficient or law for fixed-n hypocycloid arclength appears in this evidence. The familiar length and regular-polygon diameter alone do not establish the stochastic quantities.",
+        "searches": [
+          "Caltech 7wxkh-b1h64 / DOI 10.4169/193009709X458573",
+          "Resultary SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997",
+          "Resultary SCOPE-cuspidal-curvature-and-the-four-thirds-rare-diameter-law-for-cyc--27c3f17c40ea"
+        ]
+      },
+      "rationale": "Credit classical hypocycloid geometry and Lao's boundary-sample diameter method. The supported distinct claim is the fixed-cusp arclength chord coefficient and conditional marks together with the specific sample diameter law: folding the two branches into one independent exponential per cusp gives a graph of sums with dependent consecutive edges in the odd case. No coverage of this claim was established in the examined strongest comparisons; this is not a historical-priority certificate.",
+      "residual_risks": [
+        "Apostol–Mnatsakanian was accessible at abstract level only. The convex-polygon diameter-graph record was accessible at index level only.",
+        "Contemporaneous records were compared for coverage, not assumed to establish an ordering. Older unindexed stochastic-chord literature may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological predecessor; distinct support and exponential weights",
+          "evidence": "Straight polygon sides and nearest-vertex side gaps, rather than inward radial cusp arclength.",
+          "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000019800/105664897",
+          "material_read": "Chapter 5, Theorems 5.1 and 5.3, pp. 73 and 88 (text offsets 239250 and 348030)",
+          "method": "Bounded passages from the open dissertation",
+          "title": "Some Weak Limit Laws for the Diameter of Random Point Sets in Bounded Regions",
+          "trigger": "Closest boundary sample-diameter theorems, with even and odd regular polygons"
+        },
+        {
+          "assessment": "Geometric background; no full-text verdict",
+          "evidence": "Abstract specifies cycloidal areas and their extension to hypocycloids.",
+          "identifier_or_url": "https://authors.library.caltech.edu/records/7wxkh-b1h64",
+          "material_read": "Record and abstract only; metadata-only access",
+          "method": "Public Caltech page",
+          "title": "New Insight into Cycloidal Areas",
+          "trigger": "Classical hypocycloid geometry"
+        },
+        {
+          "assessment": "Related geometry; different question",
+          "evidence": "Constructibility of rational hypocycloid division points.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.00566",
+          "material_read": "p. 1, abstract",
+          "method": "Open preprint passage",
+          "title": "N-Division Points of Hypocycloids",
+          "trigger": "Same curve family and arclength geometry"
+        },
+        {
+          "assessment": "Different cusp geometry and tail/mark",
+          "evidence": "Unique diametral pair, transverse endpoint tangencies, power 4/3, Dirichlet(2/3,2/3,1).",
+          "identifier_or_url": "2026/11/22/SCOPE-cuspidal-curvature-and-the-four-thirds-rare-diameter-law-for-cyc--27c3f17c40ea",
+          "material_read": "Finding and proof, mirror offsets 0 and 4700",
+          "method": "Local published record passages",
+          "title": "Cuspidal curvature and the four-thirds rare-diameter law for cycloidal arches",
+          "trigger": "Cusps, sharp pair tail and Dirichlet mark"
+        },
+        {
+          "assessment": "Different curve and sampling normalization",
+          "evidence": "Uniform rolling phase on one trochoid period.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-diameter-tail-regimes-and-a-cusp-crossover-for-time-unifor--6aeabc14978b",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published record passage",
+          "title": "Three diameter-tail regimes and a cusp crossover for time-uniform trochoid pairs",
+          "trigger": "Quadratic near-diameter regime"
+        },
+        {
+          "assessment": "Structural analogue, not the arclength exponential law",
+          "evidence": "Uniform area, √N scaling, Poisson-cone corner costs.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-coupled-poisson-diameter-law-for-odd-regular-polygons--5e3a52b5d3db",
+          "material_read": "Finding and proof, mirror offsets 0 and 4700",
+          "method": "Local published record passages",
+          "title": "A coupled Poisson diameter law for odd regular polygons",
+          "trigger": "Same odd diameter graph and shared-vertex dependence"
+        },
+        {
+          "assessment": "Different geometry and limit regime",
+          "evidence": "Regular polygon sides, with the number of sides growing.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published record passage",
+          "title": "Parity-split polygon-to-circle crossover for almost-diametral boundary chords",
+          "trigger": "Boundary arclength, parity and near-diameter pair laws"
+        },
+        {
+          "assessment": "Summary specifies a different sampling regime; detailed comparison remains bounded",
+          "evidence": "Summary gives area-uniform polygon sampling and √N scaling.",
+          "identifier_or_url": "2026/11/1/SCOPE-diameter-graph-poisson-limits-for-random-samples-in-convex-polygons--6a01e893119f",
+          "material_read": "Resultary summary only; exact mirror fetch did not return the file",
+          "method": "Published index and attempted local mirror",
+          "title": "Diameter-graph Poisson limits for random samples in convex polygons",
+          "trigger": "Potential broader diameter-graph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–5",
+        "Lao 2010 Chapter 5 for the natural neighboring boundary problem"
+      ],
+      "rationale": "A canonical singular arclength measure has a full sharp pair law and a dependent sample extreme not obtained by treating the O(N²) chords as independent. The exact branch-mark law and matching-versus-cycle dependence distinguish local and global extremes, and give reusable benchmark full distributions rather than just an order of growth.",
+      "residual_risks": [
+        "Does not claim a general theory for arbitrary cusps, rolling ratios or sampling measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

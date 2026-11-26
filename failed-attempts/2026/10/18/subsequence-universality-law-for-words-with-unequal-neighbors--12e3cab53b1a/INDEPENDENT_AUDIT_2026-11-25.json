@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:33:15.048440Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy complete-alphabet arches characterize the index: choose one letter from each for the lower bound, and use each arch's first completion letter followed by a missing suffix letter for an unmatched pattern. At seen count j there are j-1 repeat and q-j new choices. A first arch begins with q choices, a subsequent arch q-1; grouping each run of old letters gives 1/(1-(j-1)t), and multiplying the new-letter choices gives A_0,A,B_0,B as in RESULT.md. Summing the unique decompositions B_0+u A_0 B/(1-u A) yields the boxed formula, including the empty and binary cases. In the uniform Markov word the geometric waits at each j have parameter (q-j)/(q-1) independent of the identities seen; conditional lengths therefore have the same distribution for every preceding letter, including the initial arch, with independence at stopping times. Summing geometric moments gives mu and v. For q>=3 arch lengths q and q+1 both have positive probability and the length PGF f(z)=A(z/(q-1)) is analytic beyond |z|=1; f(z)=1 only at z=1 on or within that circle. The renewal count PGF (1-f)/((1-z)(1-u f)) gives mean and factorial-second-moment PGFs f/((1-z)(1-f)) and 2 f²/((1-z)(1-f)²). With x=1-z and c=(v+mu²-mu)/2, f=1-mu x+c x²+O(x³); their pole expansions give mean n/mu+O(1) and variance n v/mu³+O(1). Inverting the iid sum CLT gives the displayed renewal CLT. Verification files were inspected but not run; a separate direct subsequence test agreed for ternary and binary through n=8. Replay: RESULT.md arch/count proof and the renewal PGF calculation here; finite tests do not prove the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November record gives the same complete distribution and limit law, plus an almost-sure density and statements about exact shortest words and attainable support.",
+          "Regular-language algorithms count finite-length k-universal words accepted by automata; proper words are regular."
+        ],
+        "reasoning": "General algorithmic access to exact-index counts by differencing thresholds is not itself a symbolic all-q rational formula. The November theorem, in contrast, is an exact match on the symbolic and probabilistic substance and supplies more consequences.",
+        "searches": [
+          "Resultary 4cd9e1de10a7 Finding Eqs. (1)–(4)",
+          "arXiv:2311.10658 abstract and §§2–4",
+          "arXiv:2304.04583 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8/4cd9e1de10a7",
+        "arXiv:2304.11932",
+        "arXiv:2311.10658",
+        "arXiv:2304.04583",
+        "Filomat article 22204 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result uses the same collapsed seen-count transitions and iid arch renewal law, same mean and variance parameters, and same Gaussian scaling. The Filomat abstract concerns a different universal/null-coupon setup."
+        ],
+        "reasoning": "The explicit O(1) remainders come from the routine first two derivatives at u=1 of the same renewal PGF, using its isolated span-one pole as shown in the correctness check. They are not a separate structural claim. No conclusion about the full unavailable coupon paper is used in the decision.",
+        "searches": [
+          "Resultary 4cd9e1de10a7 Proof §§1–2 and renewal discussion near offset 5000",
+          "Filomat article 22204 abstract and lawful access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November record Eq. (1) counts the identical labeled Smirnov language with all subsequences over the fixed full alphabet. Its notation has tH_q(t)=V_q(t), tC_q(t)=(q-1)!t^q/D_{q-1}(t).",
+          "Schnoebelen–Veron Eq. (5) gives the classical arch characterization."
+        ],
+        "reasoning": "Put a=tC_q(t), B_0=1+qV, B=1+(q-1)V. The frozen GF is B_0+u q a B/(1-u(q-1)a); with a common denominator its numerator is B_0+u a since qB-(q-1)B_0=1. This is exactly November Eq. (1), not merely matching short coefficients.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-subsequence-universality-in-adjacency-distinct-words-exact-enume--4cd9e1de10a7",
+          "arXiv:2304.11932 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same indexed exact generating series has ternary specialization (1+2t+3t²+2ut³)/(1-t-4ut³), and hence all the frozen finite histograms."
+        ],
+        "reasoning": "The rational equality certifies all table entries, not just n=3 and n=6. The external counting algorithms alone would allow recomputation rather than establish a direct exact-table match.",
+        "searches": [
+          "Resultary 4cd9e1de10a7 ternary specialization and general Eq. (1)",
+          "arXiv:2311.10658 finite-length threshold counting"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, 4cd9e1de10a7, covers the exact same all-q rational distribution and the same fixed-q renewal law, binary boundary and constants. The finite-n O(1) moment remainders follow directly from the identical rational arch-length PGF. The compared record is later-dated; this decision establishes present statement-level coverage, not priority, copying, or an earlier publication. No distinct nonmechanical remainder warrants a repaired finding.",
+      "residual_risks": [
+        "Historical priority and the relationship between the two indexed records are unresolved. Full text of the Filomat comparator was not available; it plays no decisive role."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established coverage by a distinct later-dated record, no priority inference",
+          "evidence": "Identical adjacency restriction and fixed alphabet; same rational function, arch dynamics, Gaussian law and binary boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-subsequence-universality-in-adjacency-distinct-words-exact-enume--4cd9e1de10a7/RESULT.md",
+          "material_read": "Finding Eqs. (1)–(4), assumptions and Proof §§1–2 at offsets 0–4877, and bounded passage near 5000",
+          "method": "Resultary search, local mirror, algebraic equivalence check",
+          "title": "Subsequence universality in adjacency-distinct words: exact enumeration and renewal laws",
+          "trigger": "Same object and all-q formulas in the local index"
+        },
+        {
+          "assessment": "Classical arch characterization, not the proper-word distribution",
+          "evidence": "The index is the number of greedy arch jumps with the paper's alphabet convention.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+          "material_read": "§3.1, PDF p. 5, Eq. (5), about offset 13500",
+          "method": "OA PDF passage",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Arch factorization is the central reduction"
+        },
+        {
+          "assessment": "General k-universality algorithms, not the isolated rational law",
+          "evidence": "Count and rank k-universal accepted words of a specified length.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+          "material_read": "Abstract and counting/ranking discussion §§2–4, pp. 1,3–4, near offsets 0 and 12400",
+          "method": "OA PDF passages",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Proper words form a regular language"
+        },
+        {
+          "assessment": "General fixed-length counts, not the adjacency-distinct distribution in the inspected passage",
+          "evidence": "Counts universal words under the general unrestricted formulation.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "§3.1 PDF p. 4 near offset 14500",
+          "method": "OA PDF passage",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Related finite-word enumeration"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; not evidence of noncoverage",
+          "evidence": "Abstract describes a universal/null-coupon model and fundamental-matrix waiting-time calculations.",
+          "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/22204",
+          "material_read": "Accessible abstract only",
+          "method": "Journal page and identified lawful full-text attempts via JSTOR and repository/journal pages",
+          "title": "Markov chain approach to the coupon collector problem with universal coupon",
+          "trigger": "Potential Markov cover-time equivalent for the arch distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-size rational law and regeneration for a natural constrained language are mathematically useful: the collapse to the number of distinct letters simultaneously gives an exact combinatorial law and explicit asymptotic uncertainty. This is not a tiny-table computation. Its mathematical usefulness does not supply a distinct contribution relative to the matching indexed record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

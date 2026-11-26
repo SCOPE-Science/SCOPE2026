@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:55:16.887794Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and VERIFY_OUTPUT.txt; uploaded code inspected without execution",
+        "Independent adjacent_audit.py"
+      ],
+      "rationale": "The cases n=1 and n=2 give respectively (0,1) and (1,1) for the aliquot sums. Mixed prime/composite entries cannot agree because primes have aliquot sum 1 whereas composites have a proper divisor greater than 1; (2,3) is the only pair of adjacent primes. Independently, if both entries are composite with Ω=2, the even entry cannot be 4, whose neighbours are prime. It is thus 2q with q an odd prime and s(2q)=q+3 even. An odd squarefree semiprime has odd aliquot sum, so the odd member must be an odd prime square p². Equal sums give p=q+2, but p²−2q=q²+2q+4>1, excluding either orientation. This verifies the frozen unbounded theorem independently of its algebraic case split. A separate replay (python /workspace/checks/adjacent_audit.py) accumulated proper divisors by their multiples and counted Ω via prime powers. For 1≤n≤200000 it found 8042 eligible pairs and only n=2 with equality, matching the packaged output; this is corroboration only.",
+      "residual_risks": [
+        "The theorem puts no bound on all equalities without the two Ω constraints; the replay cannot provide such a bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper excludes six-term constant runs of s. The Pell-boundary record concerns five-term runs and excludes those up to a finite cutoff."
+        ],
+        "reasoning": "Neither restricts the existence of two-term runs to the (2,3) pair in the stated Ω-layer.",
+        "searches": [
+          "JIS 26 (2023), Art. 23.8.4, Theorem 4 and open-equation discussion",
+          "2026/10/4/SCOPE-pell-rigidity-at-the-five-term-boundary-for-equal-proper-divisor--91ee4d5579bc"
+        ]
+      },
+      "checked_sources": [
+        "JIS Article 23.8.4",
+        "OEIS A001065",
+        "MathOverflow 14459 (direct text unavailable)",
+        "Four named Resultary records on ordinary, aliquot and alternating divisor sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The JIS discussion cites no further solutions in a finite range, not a theorem for the entire layer. The full-divisor result gives n=14 under σ equality, where s(15)−s(14)=−1. The two alternating-divisor results use β, with different classified instances and hypotheses."
+        ],
+        "reasoning": "Neither bounded verification nor the analogous classification of a different sequence yields the exact unbounded aliquot claim.",
+        "searches": [
+          "JIS 26 (2023), Art. 23.8.4, p. 3",
+          "2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+          "2026/10/12/SCOPE-a-sharp-two-almost-prime-barrier-for-equal-consecutive-alternati--d3fdd5ef5b68",
+          "2026/10/13/SCOPE-complete-low-factor-neighbor-classification-for-alternating-divi--af184e0321d9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Since s(n)=σ(n)−n, equality is σ(n+1)=σ(n)+1, not equality of the two σ values. The JIS article explicitly discusses this same s equation."
+        ],
+        "reasoning": "An equality of successive full divisor sums or successive alternating divisor sums is not an equivalent formulation.",
+        "searches": [
+          "Focused Resultary queries for adjacent equal aliquot/proper-divisor sums and the two-almost-prime condition",
+          "Ordinary divisor-sum formulation σ(n+1)=σ(n)+1",
+          "JIS 26 (2023), Art. 23.8.4, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001065 tabulates the exact s sequence, starting 0,1,1,3; the cited table runs only through 10000. The inspected lists returned related classifications but no exact low-Ω pair theorem for s."
+        ],
+        "reasoning": "The list records the example but cannot exclude arbitrarily large n meeting the Ω conditions.",
+        "searches": [
+          "OEIS A001065, definition and linked T. D. Noe table",
+          "Broad and focused Resultary ranked lists"
+        ]
+      },
+      "rationale": "No inspected claim gives the unrestricted-in-size low-multiplicity classification for proper divisor sums. The same-equation sources give the unrestricted question or longer-run statements; the nearest same-depth classifications use different arithmetic functions. The inaccessible MathOverflow discussion remains an explicit risk rather than negative evidence.",
+      "residual_risks": [
+        "The MathOverflow answers were not inspectable; their unbounded low-Ω content is not known from the accessible paper. Related or unindexed observations could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The discussion of adjacent equalities reports an open question; the theorem concerns six-term runs.",
+          "evidence": "The authors report Frank's uniqueness question and Poonen's computation through 10¹⁶, not a low-Ω theorem.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Lebowitz/lebo10.pdf",
+          "material_read": "PDF p. 3 (offset 5700) and reference [8] p. 10 (offset 23413); Theorem 4 context.",
+          "method": "Lawful OA full-text passage inspection.",
+          "title": "Arithmetic Functions that Remain Constant on Runs of Consecutive Integers",
+          "trigger": "Same open equation in the initiating article."
+        },
+        {
+          "assessment": "Unresolved as to any additional statements in the thread.",
+          "evidence": "The JIS paper attributes the question and the finite exclusion bound to the discussion.",
+          "identifier_or_url": "https://mathoverflow.net/q/14459",
+          "material_read": "Only the discussion and reference in the JIS paper, not the thread itself.",
+          "method": "Direct OA and webpage requests yielded HTTP 403; the identified printable route also did not supply the text.",
+          "title": "Are there pairs of consecutive integers with the same sum of factors?",
+          "trigger": "Potential same-equation observations in the thread cited by the paper."
+        },
+        {
+          "assessment": "Correct sequence; finite table rather than an unrestricted Ω-layer theorem.",
+          "evidence": "Initial values 0,1,1,3; the T. D. Noe link is for indices 1 through 10000.",
+          "identifier_or_url": "https://oeis.org/A001065",
+          "material_read": "Definition and initial terms at offset 0; table scope link near offset 2180.",
+          "method": "Direct OA database inspection.",
+          "title": "Sum of proper divisors (or aliquot parts) of n",
+          "trigger": "Exact database for the function and its initial repeat."
+        },
+        {
+          "assessment": "Different equation.",
+          "evidence": "The statement uses σ(n)=σ(n+1), with sole n=14 at this depth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301/RESULT.md",
+          "material_read": "Finding and hypotheses.",
+          "method": "Configured local mirror passage inspection.",
+          "title": "Unique two-almost-prime solution of the Erdős–Sierpiński equation",
+          "trigger": "Matched adjacency and exact multiplicity bound, with near-alias divisor-sum wording."
+        },
+        {
+          "assessment": "Different run length; no two-term classification.",
+          "evidence": "The stated reductions target five-term runs and exclude them below 10³⁸.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-pell-rigidity-at-the-five-term-boundary-for-equal-proper-divisor--91ee4d5579bc/RESULT.md",
+          "material_read": "Finding and scope of the finite exclusion.",
+          "method": "Configured local mirror passage inspection.",
+          "title": "Pell rigidity at the five-term boundary for equal proper divisor sums",
+          "trigger": "Nearest same-function indexed result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "JIS Article 23.8.4, p. 3"
+      ],
+      "rationale": "The paper explicitly isolates the unrestricted consecutive aliquot-sum question. This result excludes an entire natural first multiplicative layer, including prime squares and repeated factors, at every size. A researcher looking for further solutions can therefore rule out both-low-depth candidates on structural rather than numerical grounds.",
+      "residual_risks": [
+        "A modest layer theorem only; it supplies neither an example beyond (2,3) nor sharpness of the lower bound among n>2 solutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

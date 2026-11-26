@@ -1,15 +1,21 @@
-# Scientific review: sharp all-degree binomial-polynomial semigroup asymptotics
+# Independent mathematical audit
 
-## Correctness — PASS
-For fixed degree \(d\ge2\), a direct Vandermonde bound on index cost and a fixed-depth greedy binomial expansion give the exact power-saving profile \(\mu_d(n)=(d!n)^{1/d}+O_d((n+1)^{(d-1)/d^2})\). The coprimality condition gives an exact Apéry residue envelope, with the minimization over additional multiples of \(a\) pinned between two \(b\)-independent bounds. Standard Frobenius and genus Apéry identities imply the two stated expansions uniformly in \(b\). The proof covers all \(a\ge2\) and fixed \(d\ge2\); the asymptotic constants depend only on \(d\). The independent finite algorithm comparisons validate the residue setup on \(928\) sample cases but are not substituted for symbolic proof.
+## correctness
 
-## Originality — PASS within checked literature
-Hashuga–Herbine–Jensen (arXiv:2009.01981, §§3 and 8) analyze the same degree-two generator family; their Corollaries 8.3 and 8.5 give \(\Theta(a^{3/2}+ab)\), not the sharp constants and power-saving precision here, and do not treat all higher degrees. Liu–Xin–Ye–Yin (arXiv:2306.03459) give repunit-recurrence Apéry results with nonmatching hypotheses. Hwang–Song (arXiv:2412.17882) treat finite pure fixed-upper binomial coefficient generators, not the mixed polynomial family. Actual published-finding corpus queries for sharp constants, degree-d variants and coin-cost equivalences did not return an implication-matching record. An abstract-only broad graphical semigroup paper and unindexed earlier work remain residual coverage risks; no unconditional priority or independent novelty certification is claimed.
+PASS
 
-## Mathematical value — PASS
-Both Frobenius number and genus are central numerical-semigroup invariants; replacing qualitative order estimates by exact normalized limits and uniform error control determines real new arithmetic information. The theorem also extends the motivating degree-two phenomenon to every fixed integer degree \(d\ge3\), with a structural weighted-binomial lemma useful for further analysis of polynomial-generated semigroups. The precise leading coefficients are mathematically motivated by the natural gap statistics of the family.
+The complete corrected RESULT.md under repairs/4 gives the formulas for fixed d≥3. The coprime generators a and da+b ensure cofiniteness and the least positive generator is a. Vandermonde bounds the total represented binomial value by the binomial at the total index cost, proving the lower bound c_d n^(1/d). To check the upper bound independently, if k is the largest admissible index, the bounds for the binomial product put c_d n^(1/d) in [k−d+1,k+1). Pascal's identity bounds the remainder r by O_d((n+1)^((d−1)/d)), with r<n. Since (r+1)^(1/d)/(n+1)^(1/d)≤1/2 for all sufficiently large n, strong induction first gives a global bound A_d(n+1)^(1/d) (cover bounded n by the unit coin). Applying that bound only to the first remainder gives O_d((n+1)^η_d), including n=0. In residue br the binomial value has form r+ja with j≥0, by coprimality and nonnegativity; index below d only adds multiples of a. The least residue element is br+a times the index-cost envelope above br, i.e. w_r=br+a min_j(μ_d(r+ja)+bj). Every j gives the same required lower bound and j=0 gives the upper bound uniformly in b, whether or not it minimizes. Counting individual residue gaps gives the Apéry max-minus-a and sum identities. Taking r=a−1 for the lower maximum and bounding monotonically for the upper, and using integral comparison for the genus sum, gives both constants and O_d(a^(1+η_d)); all estimates include a≥2 and the residue r=0. The frozen script was inspected (it tests finite residue minima), not executed.
 
-## Limitations
-The error exponents need not be optimal; no exact finite-parameter Frobenius formula, growing-degree uniformity, or independent mathematical audit is asserted. Previously inaccessible or unindexed stronger theorems remain a publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original's assertion of a new quadratic refinement is not passed: the precise degree-two powers and coefficients already follow from Hashuga–Herbine–Jensen's bounds and exact Apéry formulas. The repaired contribution is the uniform expansion for every fixed d≥3. The closest general coin, Apéry, and binomial Frobenius results inspected do not supply this higher-degree mixed-family statement.
+
+## value
+
+PASS
+
+For higher degrees the quantitative binomial cost estimate and control of every residue lift establish explicit leading constants for two natural semigroup invariants, extending the quadratic problem and remaining informative after subtraction even when b grows without bound. This is not a new claim about the covered quadratic case or a table of small semigroups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

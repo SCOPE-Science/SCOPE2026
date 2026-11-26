@@ -1,19 +1,21 @@
-# Scientific review: switching-reservoir exclusion correlations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-state generator is specified completely, including environment independence, rate normalization, and all boundaries. The constant-reservoir covariance used as a premise is reconstructed from the stationary moment equations and separately documented in Derrida–Lebowitz–Speer, §7.2, Eq. (7.13). Singular-limit arguments are finite-dimensional: frozen-bath sector invariant measures and fast-bath averaged dynamics are each uniquely determined. The explicit slow- and fast-rate covariances have opposite strict signs for every pair, with the two-site rational covariance following from exactly solved mixed-moment equations. The all-size result is proved rather than extrapolated from experiments. `verify.py` checks the exact two-site identity, stationary full generators on chains through five sites, and fixed-bath moment identities through eighty sites.
+PASS
 
-## Originality — PASS, with limited bibliographic uncertainty
+The bath marginal is exactly 1/2; the right drift ζ−η_N is linear, so the discrete Dirichlet problem yields the stated mean without independence. At κ>0 the chain can empty with the right bath held open for removals and can build any target configuration from empty by left injections and exchanges, filling the desired rightmost sites first. For a fixed bath, substitution of the bilinear covariance into the neighboring-pair equation gives the squared mean gradient, with zero covariance on virtual boundaries and the nonadjacent harmonic equation satisfied. The killed two-site walk reaches a boundary, proving uniqueness. As κ↓0 the stationary equations leave two sector invariant laws with fixed weights 1/2; the full-bath sector has only the full stationary configuration. The covariance mixture adds i j/[4(N+1)²], and its numerator bracket is at least 2. As κ→∞ the stationary equations divided by κ force sector equality for every configuration; summing the unscaled equations identifies the averaged bath at density 1/2. The covariance there is strictly negative for i<j. The finite irreducible stationary solution depends continuously on κ, so a crossover exists for each pair. For N=2, multiplying site drifts by ζ and adding κ(m_i−2E[ζη_i]) gives the stated mixed-moment equations; the product drift is m_2+E[ζη_1]−2E[η_1η_2]. Solving yields the stated rational covariance and its decreasing quadratic numerator has exactly one positive root √10/2−1. This reconstruction is analytic; the original finite script was inspected but not executed.
 
-The closest directly examined paper, Derrida–Lebowitz–Speer (arXiv:cond-mat/0109346, pp. 3–4 and §7.2), derives static-reservoir correlations, not the switching-bath claim. Santos–Schütz (arXiv:cond-mat/0104147, pp. 1–3) studies a single constant-density reservoir on a semi-infinite chain, not the finite telegraph boundary. Floreani and collaborators (Journal of Statistical Physics 186, 33, 2022, §§1, 3.1–3.3) allow particle jump-rate/type switching with prescribed reservoirs rather than random switching of reservoir occupancy. Targeted bibliographic and published-claim searches for random/telegraph boundary densities, stationary SSEP covariance reversals, finite-size formulas, and equivalent switching-process formulations found no demonstrated stronger coverage. A specialized publication under alternate terminology could exist; the searches are not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-For classical boundary-driven SSEP, fixed reservoirs enforce nonpositive off-site correlations. The theorem isolates a competing physically meaningful mechanism, common temporal boundary fluctuations, and proves that it overturns this sign for every pair in every finite chain when sufficiently slow. The opposite fast-switching regime and exact minimal-size critical rate make the effect quantitative, rather than a generic assertion about mixtures. This is a finite-volume correlation property relevant to interpreting driven transport measurements in fluctuating environments; it does not require a downstream general theorem to be useful.
+The classical fixed-bath covariance is already covered. The distinct claim is the finite-chain all-pair reversal from the combination of positive environmental mixture covariance and negative averaged-process covariance, and the exact N=2 switching threshold. Neither a single static law nor the inspected differently switched or reset models covers it.
 
-## Limitations and closest sources
+## value
 
-No uniqueness or rate formula for zero-crossings is claimed beyond two sites. The slow/fast limits are not asserted uniformly over growing chain lengths. Additional literature under dynamic-boundary or random-environment terminology is a residual overlap risk. The references and scientific limits are described in RESULT.md. Independent validation is not included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same stationary means coexist with strictly opposite connected-correlation signs at the two ends of the bath rate, for every pair in every finite chain. The calculation identifies a distinct common-noise mechanism competing with the exclusion anticorrelation and gives an exact two-site benchmark, not just a statement that mixtures may create positive correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

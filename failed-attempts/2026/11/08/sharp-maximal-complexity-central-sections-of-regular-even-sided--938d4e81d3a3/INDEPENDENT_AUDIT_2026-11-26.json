@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:17:05.044036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polygon has at most one side per prism face, hence at most n+2. Away from planes through a vertex, with q=|U_z| and t=hq/√(1−q²), the top and bottom each contribute two crossed edges if t is below the maximum absolute horizontal vertex projection, and none above it. The n vertical edges occur in opposite pairs, a pair crossing exactly if its projection modulus is below t. Thus the n+2 event is exactly that t lies between the two largest moduli. Folding the azimuth onto (0,π/n) gives those moduli as cos φ and cos(2π/n−φ); Haar q is independent uniform on (0,1). The CDF b/√(h²+b²) and elementary antiderivative give exactly the stated probability, also for n=4. The derivative in z=(1+h²)^−1/2 has sign 1−3 cos²(π/n) z² after comparison of positive radicals; the unique zero is interior even at n=4. Substitution, the cubic Taylor term 2(π/n)^3/(3√3) in the arcsine difference, and the exact square and hexagon evaluations agree with the finding. The supplied Monte Carlo/quadrature code was inspected, not rerun, and is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fbfccb3b80e1 catalogue summary reports central Haar side-count laws for centrally symmetric polygonal bases and the n=6 optimizer; exact text not retrieved.",
+          "De Loera et al. analyze maximum counts and combinatorial sections; Kim et al. distribute area rather than number of vertices."
+        ],
+        "reasoning": "The distinct same-day hit suggests a broader base class, but neither that unresolved comparison nor the general papers are the basis of the failure; the earlier exact claim suffices.",
+        "searches": [
+          "Resultary same-day fbfccb3b80e1",
+          "arXiv:2412.12419v3, PDF pp. 1, 3, 6",
+          "arXiv:1512.07289v1, PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b6d28d7c72f4, 45d2a55425d4, fbfccb3b80e1",
+        "arXiv:2412.12419v3, 1512.07289v1, 1404.2443v2",
+        "DOI:10.2307/1427832 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The large-n claim follows by substituting x=π/n into the earlier exact optimized probability and Taylor expanding.",
+          "The earlier angular proof for the projecting opposite pairs works also for two pairs; the endpoint 2π/n=π/2 does not alter the positive-height integral. The cube optimum is already recognized in the frozen comparison."
+        ],
+        "reasoning": "Adding the square specialization and the first nonzero series coefficient does not separate the frozen headline theorem from prior coverage.",
+        "searches": [
+          "b6d28d7c72f4 RESULT.md, Finding and §§1–4; frozen RESULT.md lines 45–59 and 64–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier b6d28d7c72f4 Finding and Proof §§1–4 give the same arcsine event law and optimum in the same height variable for n≥6.",
+          "Catalogue summary of 45d2a55425d4 describes the exact rectangular-box hexagon law and unique cube maximizer; the frozen result also calls the optimal cube probability known."
+        ],
+        "reasoning": "There is no change of sampling measure or geometric observable that separates the main result from the earlier even-family record.",
+        "searches": [
+          "Resultary exact Haar maximal central-section law for regular even prisms; b6d28d7c72f4",
+          "Resultary rectangular-box Haar hexagon law; 45d2a55425d4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier b6d28d7c72f4 explicitly gives the all-even n≥6 law and the exact sqrt(5)/2 half-height and octagon probability at n=6."
+        ],
+        "reasoning": "This is an actual earlier indexed theorem, not the frozen record matching itself, a near match of titles, or extrapolation from numerical entries.",
+        "searches": [
+          "Resultary b6d28d7c72f4 and 45d2a55425d4"
+        ]
+      },
+      "rationale": "Actual earlier Resultary text b6d28d7c72f4 states and proves the same optimal probability and exact optimizer for every even n≥6, with identical plane law, normalization and maximal-count event, including the exact regular hexagon result. The added n=4 is a known cube consistency check and direct extension of the identical angular calculation to the endpoint; the large-n expansion is a direct Taylor consequence of the earlier exact formula. No substantive uncovered remainder is established.",
+      "residual_risks": [
+        "The exact same-day general-prism text and the full 1995 stereology article were unavailable; neither is needed for the demonstrated earlier coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier exact coverage for n≥6",
+          "evidence": [
+            "Same radii, half-height and Haar law; same expressions and uniqueness, including n=6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-maximal-section-optimizer-for-every-even-regular-polygo--b6d28d7c72f4/RESULT.md",
+          "material_read": "RESULT.md from offset 0, Finding and Proof §§1–4",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique maximal section optimizer for every even regular polygonal prism",
+          "trigger": "Exact family and optimizer match"
+        },
+        {
+          "assessment": "Corroborates square case; not treated as independently read full proof",
+          "evidence": [
+            "Summary describes the formula for boxes and unique cube maximum."
+          ],
+          "identifier_or_url": "Resultary 45d2a55425d4",
+          "material_read": "Catalogue summary only; mirror retrieval timed out",
+          "method": "Local Resultary search and mirror attempt",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Square-base endpoint"
+        },
+        {
+          "assessment": "Potential broader coverage, not priority evidence",
+          "evidence": [
+            "Summary identifies full regular-hexagon side-count law and same octagon optimizer."
+          ],
+          "identifier_or_url": "Resultary fbfccb3b80e1",
+          "material_read": "Catalogue summary only; mirror retrieval timed out",
+          "method": "Local Resultary search and mirror attempt",
+          "title": "Central-section stratification and height rigidity for symmetric prisms",
+          "trigger": "Distinct same-day broader base family"
+        },
+        {
+          "assessment": "Combinatorial bounds rather than fixed-prism probability",
+          "evidence": [
+            "The passages discuss maximum vertices, avoiding vertex coincidences and sections of cyclic polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+          "material_read": "v3 PDF pp. 1, 3 and 6; offsets 0, 9973 and 19744",
+          "method": "OA PDF passages",
+          "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+          "trigger": "General combinatorial comparison"
+        },
+        {
+          "assessment": "Area rather than vertex count",
+          "evidence": [
+            "The distribution function is defined in terms of volumes of sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.07289",
+          "material_read": "v1 PDF p. 1, definitions and abstract",
+          "method": "OA PDF passage",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Central-section distribution under an alternate observable"
+        },
+        {
+          "assessment": "Historical scope unresolved; not used as negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.2307/1427832",
+          "material_read": "Frozen record reports an abstract-level comparison; independent full text not retrieved",
+          "method": "Lawful OA retrieval attempts timed out",
+          "title": "Stereology for Some Classes of Polyhedrons",
+          "trigger": "Plausible earlier polyhedron stereology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full height-design law answers a natural geometric question, but that contribution is already available. For this frozen record the only additions identified are the known square/cube endpoint, its immediate inclusion in the same proof, and the leading coefficient mechanically extractable from the earlier law. They do not supply an independently useful unknown mathematical result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:14:19.656117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the Poisson expansion at fixed volume independently, with A-rate 1 and B-rate ε=p/(1−p). The root-only probability is ε/(5+ε). Conditional on the A clocks, truncate at M=max of all first A clocks. If at most two B attempts have occurred by M, every vacant vertex at M has an A neighbor: an adjacent B is needed to have blocked its own first A; among the other three neighbors the second B cannot protect the two opposite neighbors simultaneously unless located at the vacant vertex itself. A neighbor unprotected by the two B particles must have accepted A on its first clock. Thus no subsequent B can change the result in these histories. The probability of three or more B attempts through M is bounded by (L²ε)^3 E[M³]/6; the root-only comparison obeys the same truncation logic. In the difference, histories with at most two attempts contribute only an off-root attempt at u followed by the root attempt at s. For overlap m the gain on the success event at u has first-A survival e^(−5u−(5−m)s), minus the no-cooperation e^(−5s−(5−m)u). Conditional on the A clocks the exact Poisson weight includes e^(−L²εM); replacing it by 1 at this order is controlled by another finite moment of M. Both configurations contributing to the increment require s<M (a nonoverlap root clock exceeds s). Integration gives 1/60 for each of eight m=2 offsets and 1/180 for each of four m=1 offsets, and zero otherwise. Consequently the ε² coefficient is −1/25+7/45=26/225, giving 71/225 in p; the arithmetic difference from 493/1800 is 1/24. Same-type retries after failure can never help, but a B attempt after an A attempt was blocked is not a same-type retry. For example, in an adjacent two-B history one can have u<T_root<s; this contributes at quadratic order. The error bound is fixed-L only. No uploaded code was executed; the frozen checker was inspected and its local identities agree with the derivation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MDZ study the full repeated-attempt square model, obtain 1/5 and propose a quadratic number but rely on numerical two-B pattern values in Eqs. (10)–(15).",
+          "Do Amaral–dos Santos calculate in a single-arrival model; the indexed repeated-attempt ring calculation is one-dimensional at equal rates."
+        ],
+        "reasoning": "The broader physical treatment establishes context and the leading term, but does not supply the exact finite-volume coefficient and a remainder. Exact one-shot or equal-rate ring coverage cannot specialize to it.",
+        "searches": [
+          "arXiv:2211.04622, §§II–III",
+          "arXiv:2306.09786, introduction and conclusion",
+          "Resultary:2812e3487b2e, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2211.04622",
+        "arXiv:2306.09786",
+        "Resultary:70dc8f5fb70f",
+        "Resultary:2812e3487b2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original two-B computation chooses two B trials among otherwise A arrivals and specifies how some subsequent A trials are handled; its conditional numerical outcomes are not an exact Poisson expansion.",
+          "The net response when a root B arrives after its first A was blocked by an adjacent B is a genuine two-B contribution and is not secured by isolating one-shot seed configurations."
+        ],
+        "reasoning": "The overlaps are meaningful, including the same observable and local geometries, but do not imply the rigorous coefficient. The paper's calculation should not be redescribed as changing its full physical model to one-shot trials; identifying the missing-type histories does not show that every one-shot variant yields 493/1800.",
+        "searches": [
+          "arXiv:2211.04622, §III.2, pp. 5–6",
+          "Resultary:70dc8f5fb70f, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MDZ define fraction x_B=r_B/(r_A+r_B) in a model where an unsuccessfully attempted empty site can be selected again. Normalizing the A rate makes ε=x_B/(1−x_B).",
+          "The square-torus three-seed Resultary record fixes seed labels and one arrival per site, not the unrestricted two-clock process."
+        ],
+        "reasoning": "Changing from p to ε is only a time normalization and the coefficient must be converted back before comparison. Designated-seed arrival ensembles are not interchangeable with independent species clocks.",
+        "searches": [
+          "arXiv:2211.04622, §II and §III.2",
+          "Resultary: antagonistic adsorption, dilute minority coverage, designated B seeds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected MDZ table/calculation gives pattern data, 493/1800 as believed exact, and an unstable fitted 0.298.",
+          "The same-day indexed square-torus result enumerates three-seed success under a one-arrival model and explicitly does not claim unrestricted curvature."
+        ],
+        "reasoning": "Neither the numerical coefficients nor the exact data for a different experiment tabulate 71/225 for the stated process. The focused lookup did not locate an explicit correction; this is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary:70dc8f5fb70f",
+          "Resultary:2812e3487b2e",
+          "arXiv:2211.04622, §III.2 Eqs. (10)–(15)",
+          "Focused literature lookup for MDZ 493/1800 and curvature correction"
+        ]
+      },
+      "rationale": "The repeated-attempt square-lattice model and leading coefficient are prior. The supported distinct claim is the exact fixed-volume quadratic term with a controlled remainder. MDZ's 493/1800 is a tentative estimate for the same scientific observable, not an exact theorem; the comparison is to their two-B calculation, not a claim that their actual process uses one attempt per site. The fixed-volume result alone does not settle an interchange of dilute and infinite-volume limits.",
+      "residual_risks": [
+        "No exhaustive priority claim; an independent adsorption expansion or correction might be indexed differently.",
+        "Precise attribution of every discrepancy in MDZ's finite numerical approximation is not a theorem here, nor is uniformity in L."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same normalization and repeated-attempt process; prior leading coefficient and tentative, different curvature",
+          "evidence": [
+            "§II leaves empty sites available after unsuccessful attempts; §III.2 treats two B trials and reports numerical outcomes, then says the authors believe 493/1800 exact.",
+            "The polynomial-fit estimate 0.298 is described as order-sensitive."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.04622",
+          "material_read": "§II p. 2, §III.1/§III.2 pp. 5–6; around offsets 8200, 11000, 33400, 36200–45377",
+          "method": "Open-access PDF text",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Same model and disputed quadratic coefficient"
+        },
+        {
+          "assessment": "Distinct one-deposition-per-site model",
+          "evidence": [
+            "Explicitly distinguishes its model from repeated-attempt work and cites MDZ on the square lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09786",
+          "material_read": "Introduction p. 2 and conclusion p. 11, offsets 6314 and 28244",
+          "method": "Open-access PDF text",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Plausible exact antagonistic coverage comparison"
+        },
+        {
+          "assessment": "Different dynamics and observable, independently of record date",
+          "evidence": [
+            "One arrival per site, three designated seeds; expressly not a concentration coefficient for repeated attempts."
+          ],
+          "identifier_or_url": "Resultary:70dc8f5fb70f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Exact three-seed shape selection in antagonistic lattice adsorption",
+          "trigger": "Closest same-day indexed square-torus local calculation"
+        },
+        {
+          "assessment": "Different graph and parameter regime",
+          "evidence": [
+            "One-dimensional finite cycles and equal rates, not two-dimensional dilute-minority curvature."
+          ],
+          "identifier_or_url": "Resultary:2812e3487b2e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "An exact finite-ring law for antagonistic two-species adsorption",
+          "trigger": "Indexed exact coverage in a repeated-attempt antagonist process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated exact second-order coefficient for an established competitive deposition process replaces a widely usable numerical/tentative benchmark at fixed volume, with a geometric bound that makes the perturbation rigorous. It identifies when post-rejection deposition matters without revising unrelated threshold estimates or asserting a thermodynamic remainder.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

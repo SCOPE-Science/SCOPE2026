@@ -1,11 +1,21 @@
-# Scientific review: exponential balance in Wood's eight-colouring
+# Independent mathematical audit
 
-**Correctness — PASS.** The paper's exact quasigroup and preferred-path rule are reproduced. Four independently checked five-leaf trees cover all root labels. Two further five-leaf trees have identical root label and complementary parity data for both possible incoming preferred-path depths. This distinction matters: an involution based on the top-of-tree parity alone would not suffice when substituted into an arbitrary context. The ancestor-label quasigroup bijection and unchanged preferred choices justify global substitutions. The avoidance grammar gives the exact algebraic generating function \(\(A_j=z+A_j^2-jz^5\)\), with no uncounted exceptional compositions; the explicit \(\(r=251/1000\)\) lies below the positive branch singularities. The quantitative inequality follows from the orbit and involution partitions. The verifier independently walks preferred paths and tests contexts and rotations.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Wood, arXiv:2611.19659v1, gives the colour construction and its correctness, not an eight-colour occupancy limit. Tan, arXiv:2611.05323v1, uses a different twelve-colour construction. Lehtonen–Waldhauser, arXiv:2310.09184, treat linear-quasigroup bracketing identities, not this full parity colouring distribution. Searches for colour-class asymptotics, equidistribution, preferred-path parity and fringe-pattern analogues, together with comparisons against accessible research records and prior claimed results, identified no covering statement. The construction is explicitly attributed to Wood, and the originality claim is limited to its colour-class distribution and quantitative bound.
+PASS
 
-**Value — PASS.** The new upper bound eight raises a natural structural question: whether its eight symbolic colours are actually occupied at comparable frequencies or whether some are asymptotically negligible. The result proves full eight-way asymptotic equity, with an explicit uniform exponential convergence rate and a reusable finite-pattern involution mechanism. This is an infinite-family, all-colour occupancy theorem for the very construction that supplied the breakthrough bound, not a textbook consequence of properness. It does not claim a lower chromatic number or an independent mathematical audit.
+The map agrees with Wood, including counting preferred left edges by the parent's even depth from the top of its preferred path. Both one-argument restrictions of Q are invertible affine maps, so varying a replacement label permutes the full root labels. Independent evaluation of the four five-leaf label witnesses gives 00, 01, 10, 11 in order. Independent evaluation of the two parity witnesses gives the same label 00 and parity pairs (0,0) and (1,1); the two incoming-depth cases are essential. Replacements preserve the first preorder occurrence (other equal-size occurrences are disjoint) and label-preserving replacements leave the preferred-path data outside unchanged. The four-element label orbits and parity involution therefore cancel the corresponding contributions exactly. With j forbidden patterns of size five the root recurrence subtracts exactly j z^5; coefficients are nonnegative, and nesting avoidance shows a_4(n) <= a_2(n). At r=0.251 the discriminants are 0.003970005010008 and 0.011940010020016 and decrease on [0,r]. The formal branch continues analytically through that interval, so Pringsheim's theorem is sufficient for the claimed evaluation and coefficient bound. Catalan asymptotics give the relative error. The supplied colour enumeration through n=10 is corroboration, inspected but not rerun; the exact witnesses and analytic argument do not rely on that enumeration.
 
-**Closest literature and limits.** The 2026 eight-colouring theorem is a strict prerequisite rather than competing novelty; the 2026 twelve-colouring result and the 2023 quasigroup-bracketing analysis do not state or imply the preferred-path parity distribution as identified in their relevant sections. An unindexed earlier balance theorem is possible. The error rate is intentionally conservative; the exact sequences for individual colour classes are not solved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited original result is the quantitative class distribution of Wood's actual fixed map with all leaf labels zero, not the map or the proper eight-colouring theorem. The inspected alternatives do not cover both label and parity frequencies for that map.
+
+## value
+
+PASS
+
+It quantifies how the classes in an explicit proper colouring of a natural graph are actually used. It proves eventual presence of all eight colours and controls finite-size imbalance, neither of which follows from an eight-colour upper bound. The depth-robust parity switch is a useful part of the explanation rather than a numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

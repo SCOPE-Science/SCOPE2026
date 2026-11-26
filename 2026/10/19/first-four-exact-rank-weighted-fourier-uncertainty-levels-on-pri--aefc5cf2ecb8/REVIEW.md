@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The stated support sizes are exact and the Fourier convention is explicit. The proof gives the complete irreducible block matrix, distinguishes the determinant-identically-zero case from the nonzero determinant case, and applies the prime Fourier-minor zero bound to the true cyclic coefficient support. In mixed three-tap supports the determinant has at most three cyclic coefficients and cannot vanish at one nontrivial character pair together with the trivial character. In mixed four-tap supports the three-plus-one and two-plus-two cases yield the claimed uniform nullity bounds; the exceptional two-plus-two case of identically zero determinant is handled by nonvanishing of a two-tap transform at both conjugate roots. Direct matrix-rank and exact cyclotomic checks corroborate all four sharp constructions for five primes. These checks do not establish the infinite result without the proof.
+## correctness
 
-## Originality
-The closest published work establishes general rank-weighted uncertainty, all two-tap ranks, the abelian cyclic-semiprime exact-support profile, a unit-weight three-tap census, and the spectral method for dihedral Cayley graphs. The cyclic-semiprime profile has numerically identical initial levels but no implication for noncommutative two-dimensional Fourier fibers. The three-tap census explicitly restricts to unit weights and therefore does not imply arbitrary-complex coefficient minima. The four-tap mixed-coset analysis appears absent from the inspected primary literature and accessible published findings. An unlocated general sparse group-algebra rank theorem remains a residual bibliographic risk.
+PASS
 
-## Value
-This is a natural first nontrivial exact-sparsity window for sparse convolution on an infinite nonabelian family. It determines a complete four-level rank profile, a growing reversal when support rises from two to three, and a sharp four-tap rank construction; it also clarifies which part of the analogous abelian parity law survives in a genuine two-dimensional representation setting. The result applies directly to minimum possible image dimension and maximum possible kernel dimension of sparse dihedral convolution.
+The left regular action decomposes into the irreducible Fourier blocks with multiplicities 1,1,2,…,2. One tap is invertible; for two, left translation reduces to aI+bL_h and the largest possible eigenspace has dimension p, attained at an involution. For three taps in one coset the prime Fourier theorem gives nullity at most 4, with equality at U(z)=(z−ζ)(z−ζ²); its three coefficients are nonzero. In the 2+1 split the determinant D=U(z)U(z⁻¹)−V(z)V(z⁻¹) is supported on 0,±d, is nonzero, and has at most two prime-frequency zeros. Nontrivial zeros pair under inversion; a zero at 1 uses one slot and the singleton prevents both linear characters vanishing. The total nullity is at most 2. For four taps, the one-coset nullity is at most 6. In the 3+1 split Cauchy–Davenport gives at least four distinct nonzero differences among six ordered differences, so a singleton difference makes D nonzero. At most six Fourier roots and the same paired-root and linear-block accounting give total nullity at most 6. In the 2+2 split no 2×2 block can vanish, since a binomial cannot vanish at both distinct frequencies in its pair. A nonzero D has at most four roots and gives total nullity at most 4 even if both linear characters vanish. If D is identically zero the 2×2 blocks all have rank one, giving rank at least p−1. The product (δ_e−δ_r)*(δ_e−δ_s) has exactly four distinct nonzero taps and gives rank p−1. The weakest intermediate comparison 2p−6≥p−1 holds at and above p=5. These arguments apply to arbitrary complex coefficients and exact support sizes.
 
-## Limitations
-The theorem concerns arbitrary complex weights on supports of size at most four, with prime rotation subgroup and odd prime at least five. Other supports and groups are untreated. An established prime Fourier theorem is cited as a premise; modular examples are checks, not infinite verification. Literature comparisons are extensive but do not certify absolute uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known rank invariant, one-tap observation and previously covered two-tap level are background. The distinct supported contribution is the sharp three- and four-tap arbitrary-complex-coefficient minimum for all the stated prime dihedral groups, combined in the exact profile. No prior statement or implication covering this contribution was identified in the sources inspected.
+
+## value
+
+PASS
+
+The natural exact-support analogue of group uncertainty is not monotone: the three-tap minimum rises over the two-tap minimum by p−4, then the four-tap minimum drops by p−3. The growing gaps and the all-prime mixed-support sharp bound distinguish this from a finite example or a product-bound corollary. The first four levels show both changes with no arbitrary slice in p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

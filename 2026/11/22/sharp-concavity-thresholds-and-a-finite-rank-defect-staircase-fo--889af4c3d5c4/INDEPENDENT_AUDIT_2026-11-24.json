@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:42:02.420671Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m≥2, a>0, m−2<α<m−1 and η>−a, b_n=(n+a)^{α−1}(n+a+η)>0 and the weights tend to one. Telescoping makes the defect diagonal with entries Δ⁺ᵐb_n/b_n. The m-fold fundamental theorem of calculus writes the forward differences as cube averages of derivatives; the two falling factorials for α and α−1 have opposite signs (negative and positive, respectively). Hence the entry sign is exactly sign(η−τ_n). Writing c=α/(m−α), r=α−m−1, Y=x+Σu_i and weighting cube measure by Y^r, τ(x)=c E_xY. Differentiation gives τ′/c=1+r(1−E_xY E_xY⁻¹)>1 by strict Cauchy–Schwarz. Uniform expansion over the cube gives τ(x)=c(x+m/2)+O(1/x); thus gaps are strictly greater than c and approach c. The sign pattern yields the exact concavity interval, each positive rank and kernel, and an infinite negative tail for every η. Inverting the threshold asymptotic gives r_+(η)=η/c+O(1), with strict index counting at equality. For fixed η the entries equal α^{↓m} n^{−m}+O(n^{−m−1}); closure yields a compact diagonal defect. For the sorted absolute values, sandwich the tail between (|α^{↓m}|±ε) times decreasing power sequences, then shift the indices by at most the finite prefix length. This justifies the leading singular-value constant even without assuming the original absolute entries are already ordered. The p-series test includes divergence at p=1/m. A separate bounded Decimal check for m=2, α=1/2, a=1 found initial thresholds about 0.5907703, 0.9519487, 1.2978908; its finite checks are not all-index evidence. The frozen verification script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suciu's general lifting theorem starts with the requisite operator inequality rather than classifying its parameter region; Chavan–Stochel Proposition 4.3 treats polynomial moment sequences in an m-isometric class.",
+          "The comparison theorem for two divided differences is a plausible broader analytic source, but no primary statement and hypotheses could be retrieved on the attempted routes."
+        ],
+        "reasoning": "The inspected general results do not force the threshold gap, rank and ideal classification for fractional moments. No statement-level claim is made about the inaccessible comparison theorem.",
+        "searches": [
+          "Web: (\"m-concave\" OR \"m-concavity\") weighted shifts finite differences power moments thresholds OR \"divided differences\" quotient monotonicity power functions weighted shifts",
+          "arXiv:2611.20171v1 Theorem 3.2",
+          "Chavan–Stochel Proposition 4.3",
+          "ScienceDirect PII S0022247X18303202"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_fractional_defects.py",
+        "Local Resultary exact self-match and distinct finding 54f96220ed0f",
+        "Suciu Theorem 3.2; Chavan–Stochel Proposition 4.3; Benhida–Curto–Exner family definition; divided-difference comparison access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general diagonal defect formula reduces the question to finite-difference signs but does not compare the opposite-sign differences across n; the proof needs the strict translated-cube derivative comparison.",
+          "The polynomial-moment hypothesis is absent for this family, whose defect has an infinite nonzero tail. The geometric cutoff uses a q-product in a different parameter and order regime."
+        ],
+        "reasoning": "These verified broader inputs do not give the separation or tail law by specialization. The staircase requires the strict quotient comparison and the singular-value cutoff uses the nonzero fractional falling factorial.",
+        "searches": [
+          "arXiv:2611.20171v1 introduction and Theorem 3.2",
+          "Chavan–Stochel ibid., Proposition 4.3",
+          "Resultary 54f96220ed0f, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target diagonal signs are those of η−τ_n for positive prefactors; in divided-difference notation τ_n is a ratio of the two distinct power divided differences on equally spaced translated nodes.",
+          "Benhida–Curto–Exner use square weights (pⁿ+N)/(pⁿ+D), p>1. Their weights approach one exponentially, unlike the present square weights with leading excess α/n."
+        ],
+        "reasoning": "The difference-quotient formulation is mathematically equivalent and was included in the search. The geometrically regular parametrization is not a renaming of the present power-decay shift.",
+        "searches": [
+          "Resultary: fractional power moment weighted shifts m-concavity finite difference thresholds",
+          "Resultary: divided differences power quotient monotonicity uniform separation thresholds",
+          "arXiv:2309.05888v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 889af4c3d5c4 is the frozen result itself.",
+          "The closest distinct Resultary Finding, 54f96220ed0f, computes the last hyperexpansive order in a geometric family near a special ray, with a logarithmic and log-log law."
+        ],
+        "reasoning": "The nearby exact cutoff varies the difference order, concerns geometric weights, and does not tabulate the positive spectral count at fixed m or its thresholds. The target self-match does not count as an independent match.",
+        "searches": [
+          "Resultary: weighted shift m-concave diagonal defect power-law moments positive rank finite staircase Schatten cutoff",
+          "Resultary: higher order concavity weighted shifts diagonal defect finite differences Schatten class"
+        ]
+      },
+      "rationale": "Credit the diagonal finite-difference reduction, integral identity, and operator lifting theory as established. The distinct supported result is the classification of the two-power fractional family with explicit strict threshold separation, positive ranks and kernels, and sharp defect-ideal cutoff. The strongest retrieved broader and close-family statements do not supply that classification.",
+      "residual_risks": [
+        "Whether the inaccessible divided-difference comparison theorem implies part of the quotient analysis is unresolved.",
+        "Other moment-classification or operator-ideal results in differently indexed literature are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general lifting, not the boundary of the specific family",
+          "evidence": "The lifting assumes m-concavity and includes an expansive m-isometric weighted-shift component.",
+          "identifier_or_url": "https://arxiv.org/html/2611.20171v1",
+          "material_read": "Introduction around offset 3600 and Theorem 3.2 around offset 38973",
+          "method": "Lawful arXiv HTML passage reads",
+          "title": "Higher-Order Isometric Liftings of Convex and Concave Operators",
+          "trigger": "General m-concavity and possible weighted-shift coverage"
+        },
+        {
+          "assessment": "Distinct m-isometric polynomial-moment characterization",
+          "evidence": "The proposition uses squared weights p(n+1)/p(n) with p a positive polynomial of degree at most m−1 and further inequalities.",
+          "identifier_or_url": "DOI:10.1017/S0308210522000853",
+          "material_read": "Cambridge primary PDF, Proposition 4.3, pp. 8–9, offsets 30250–33689",
+          "method": "Lawful Cambridge PDF passage read",
+          "title": "Weakly concave operators",
+          "trigger": "Potential classification through weighted-shift moments"
+        },
+        {
+          "assessment": "Different family, not equivalent to the two fractional powers",
+          "evidence": "Weights are square roots of (pⁿ+N)/(pⁿ+D), p>1.",
+          "identifier_or_url": "https://arxiv.org/html/2309.05888v2",
+          "material_read": "Family definition around offset 2250",
+          "method": "Lawful arXiv HTML passage read",
+          "title": "Geometrically regular weighted shifts",
+          "trigger": "Similar difference-based classification with a two-parameter weighted shift"
+        },
+        {
+          "assessment": "Potential implication unverified",
+          "evidence": "Both routes returned 403; title alone does not establish coverage or noncoverage.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022247X18303202",
+          "material_read": "Identification only; no theorem text obtained",
+          "method": "Lawful direct and VPN OA access attempts",
+          "title": "A comparison theorem for two divided differences and applications to special functions",
+          "trigger": "Possible stronger theorem for the threshold quotient or separation"
+        },
+        {
+          "assessment": "Related difference test, different family and invariant",
+          "evidence": "Finds largest order with simultaneous alternating difference signs for geometrically regular shifts; does not give fractional moment ranks or Schatten tails.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-log-log-finite-hyperexpansivity-cutoff-beyond-the-geometric-sh--54f96220ed0f",
+          "material_read": "Finding, assumptions and proof opening, offsets 0–2874",
+          "method": "Local Resultary GitHub mirror",
+          "title": "A log-log finite-hyperexpansivity cutoff beyond the geometric-shift boundary",
+          "trigger": "Closest distinct local catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The neighboring-power perturbation preserves the large-index leading moment but can reverse the sign of the finite head of the operator defect. The exact parameter region tells when higher-order concavity and its lifting hypotheses apply, the thresholds tell precisely how that structure fails, and the parameter-independent ideal cutoff quantifies the remaining infinite negative tail. This is a motivated sign and spectral classification rather than a finite test of a single shift.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

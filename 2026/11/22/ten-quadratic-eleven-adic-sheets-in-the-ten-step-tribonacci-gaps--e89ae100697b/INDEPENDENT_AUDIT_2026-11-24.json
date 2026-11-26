@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:15:43.517085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write the gap as the x^2 coefficient of x^n h in Z[x]/(x^3-x^2-x-1), with h=x^10-1. Independent ring arithmetic gives h=(43,68,81), xh=7h mod 11, h^2=0 mod 11 and h^3/11=7h mod 11. For t on sheet r the normalized nonconstant Mahler series has quadratic leading coefficient 3*7^r mod 11. In the remainder after dividing by 121 the coefficient valuations of term i are at least floor((i+1)/2)-2-v_11(i!), nonnegative for i>=3 and tending to infinity. Hensel gives one derivative zero; translation and division by the square of the displacement yields a unit factor congruent to 1, with integral square root. Multiplication of the displacement by that factor's square root preserves all distances and is surjective by finite-quotient bijectivity. The ten mod-11 residues differ, and each fiber is a shifted square fiber at one lower depth. The normalized series is 1-Lipschitz; the unit quadratic coefficient excludes nonzero shifts mod 11 and a point with unit derivative detects exactly v_11(q) for q divisible by 11. Modulo 11 itself the ten disjoint classes give the least period directly. Counting units at even valuations gives the stated images; summing Haar measures gives 5/12. Standalone replay: python3 /workspace/branches/tribonacci_reproduction.py. It independently lifts critical roots, compares full shifted-square multiplicity tables (rather than just multiplicity bounds), and tests the recurrence periods through depth five: 10, 60, 560, 6110, 67110 image residues. Those finite checks are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klaška's primitive-period approach uses the companion-matrix return of the initial vector; the frozen paper itself credits the period theorem for this generalized recurrence"
+        ],
+        "reasoning": "A least period alone cannot imply the critical values or the square multiplicities. General p-adic interpolation or a Morse lemma is not the residue-class calculation giving ten nondegenerate integral charts for this sequence.",
+        "searches": [
+          "DOI:10.21136/MB.2008.140627, §3",
+          "arXiv:2609.22364"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.21136/MB.2008.140627",
+        "arXiv:2609.22364",
+        "Resultary a24da7d7968e; b91bf42833d8; 7e3e471f3ea3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md steps 2–4 use h^3/11, the integral tail bound, a unit derivative slope and unique critical lift to derive the full shifted-square law"
+        ],
+        "reasoning": "The overlap in method and period is real, while the value-image and fiber theorem needs additional analytic and congruence work. The accessible prior statements do not already imply that part.",
+        "searches": [
+          "DOI:10.21136/MB.2008.140627",
+          "Resultary a24da7d7968e, b91bf42833d8, 7e3e471f3ea3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.22364 abstract treats zeros of the original Tribonacci sequence including prime eleven",
+          "Lag shift and subtraction changes the generalized recurrence's initial vector; knowing zeros of the original sequence is not knowing all fibers of that different recurrence"
+        ],
+        "reasoning": "Compared lagged difference, scalar recurrence and shifted-square image formulations, not just the title.",
+        "searches": [
+          "Resultary: Tribonacci lag-ten gap / first difference / 11-adic square sheets and fibers",
+          "Public literature search: Tribonacci 11-adic interpolation, image, and lagged differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a24da7d7968e and b91bf42833d8 concern dyadic images or fibers of the original Tribonacci sequence",
+          "7e3e471f3ea3 has the same 11-adic period and a quadratic sheet, for the three-column lonesum matrix count"
+        ],
+        "reasoning": "Neither a different prime/input recurrence nor an identical period for a different sequence gives a matching image table. The assigned record's own search hit is not independent evidence.",
+        "searches": [
+          "Resultary: exact Tribonacci residue images and fibers, lag 10 at 11"
+        ]
+      },
+      "rationale": "The distinct contribution is the complete lag-ten gap image and square-root fibers at 11. The generalized recurrence period theorem is credited prior context. No compared statement supplies the ten shifted-square gap sheets; this is a qualified finding, not a historical priority certificate.",
+      "residual_risks": [
+        "Primary full texts and some mirrored records were not retrieved; source-level exclusion is limited to material actually seen.",
+        "A wider treatment of images of ramified recurrence differences could cover this gap law; finite arithmetic does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit exact period theory; full-document image comparison unresolved",
+          "evidence": [
+            "Return condition is a condition on the whole recurrence state, not a fiber count for its gap values."
+          ],
+          "identifier_or_url": "https://doi.org/10.21136/MB.2008.140627",
+          "material_read": "Indexed companion-matrix return-condition excerpt; frozen RESULT.md §Relationship credits Lemma 3.1 and Theorem 3.10. OA attempts to DML/EUDML sources did not produce the theorem passage",
+          "method": "Literature search and attempted lawful full-text retrieval",
+          "title": "Tribonacci modulo 2^t and 11^t",
+          "trigger": "Same prime and generalized recurrence; strongest prior for the period"
+        },
+        {
+          "assessment": "Nearby p-adic result, not an observed matching gap-image statement",
+          "evidence": [
+            "Abstract concerns p-adic zeros of the original sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22364",
+          "material_read": "Indexed abstract; full text not obtained",
+          "method": "Literature search and OA attempt",
+          "title": "On periods of the Tribonacci sequence modulo primes",
+          "trigger": "Same sequence/prime in a p-adic setting"
+        },
+        {
+          "assessment": "Different prime/recurrence, or different sequence at the same prime",
+          "evidence": [
+            "The lonesum count has one exceptional quadratic sheet, not the ten sheets for the specified gap sequence."
+          ],
+          "identifier_or_url": "Resultary a24da7d7968e; b91bf42833d8; 7e3e471f3ea3",
+          "material_read": "Resultary summaries; requested mirror readings did not produce full passages",
+          "method": "Local semantic catalogue search and mirror OA attempts",
+          "title": "Dyadic Tribonacci images and fibers; eleven-adic lonesum matrix fibers",
+          "trigger": "Closest indexed value-image/fiber analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The lag-ten difference probes the first return of a natural recurrence at the exceptional prime. Exact periods alone leave the support and the number of preimages undetermined. The ten critical-value sheets provide exact all-depth membership and multiplicity tests and explain the positive-measure omission (image Haar measure 5/12). This is an arithmetic classification, not a table of a few moduli.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

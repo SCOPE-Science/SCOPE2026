@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:28:26.924364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed labels a,b, the labels of the two products agree and the subset equations s_x t_(x+a)=t_x s_(x+b) factor across cosets of <a,b>. Both labels zero gives 4^n. On a two-point orbit with exactly one label nonzero there are eight solutions from a constant indicator and two from a nonconstant one; for equal nonzero labels there are 4+3*2 singular binary column pairs. For independent a,b put d=a+b. Up to translation the supports of S are empty, {0}, {0,a}, {0,b}, {0,d}, {0,a,b}, and full, with multiplicities 1,4,2,2,2,4,1. Substitution gives respectively 16,4,1,4,4,1,4 choices of T: the singleton sets t_a=t_b=0; the a-pair and the triple force all four t to zero; the b-pair and full set leave equality on a-pairs; the d-pair again forces t_a=t_b=0. Thus the four-point total is 58. Multiplying per orbit and summing over 1, 3(n-1), (n-1)(n-2) ordered labels proves the full count, with no independent-label case for n=2. The n empty elements commute with all of W_G. Replace their ordered-pair contribution 2n(n*2^n)-n^2 by 2|M_G|-1; no new commuting pair of nonempty elements is created since both products already have identical labels and differ, if at all, by subsets. The zero and nonempty partial identities give exactly 2^n idempotents in M_G, all mutually commuting. Since 58^(1/4)<sqrt(10) and 2<sqrt(10), the error term follows by division by |M_G|^2=n^2*4^n*(1+O(2^-n)), and the conditional idempotent probability is exactly 4^n/C(M_G). The independent python3 /workspace/independent_checks.py 5 composes explicit partial maps to obtain (46,31,7) and (1504,1129,61) at n=2,4, and independently counts the local 58. These are corroborative finite tests; the coset argument covers all k. The supplied checker was inspected, not run; its bit_count call requires Python 3.10+ despite the broader compatibility note in VERIFICATION.md. This does not affect the claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Silva–Soares analyzes Howson properties for semilattice-by-group semidirect products; the available passages supply structural context, not a commuting-pair count.",
+          "Proposition 2.2 gives partial-injection commutation conditions. It attributes the criterion to Lipscomb, Theorem 10.1; that book was not inspected.",
+          "The restriction-semigroup background of the Kudryavtseva paper was visible via landing/abstract material only."
+        ],
+        "reasoning": "A result on general multiplication or individual commutation covers the framework and decision problem. No inspected broader enumeration specializes directly to the orbit weights and zero correction here.",
+        "searches": [
+          "Silva–Soares, arXiv:1412.3048 abstract and introduction",
+          "Kudryavtseva DOI 10.1016/j.jalgebra.2015.01.017",
+          "Araújo–Bentz–Konieczny, arXiv:1205.1664v1 section 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1205.1664v1",
+        "arXiv:1412.3048",
+        "DOI 10.1016/j.jalgebra.2015.01.017 (partial access)",
+        "Resultary 2523a33ab907 and 015301143d17; 2c1df9903a3a is self"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chain reflection count illustrates the same two-point compatibility mechanism in a mixed count. The all-pair translation count also includes an equal-nonzero-label case and independent-label orbits.",
+          "A partial-injection test can be used to generate instances, but requires deducing coordinates on cosets, evaluating the four-point compatibility count, and controlling the ordered empty-label multiplicities to recover the closed law."
+        ],
+        "reasoning": "There is a mathematical difference between specializing the individual test and having a census that implies the full formula. The resulting asymptotic is a consequence of the translation-specific census, not in itself a new general concentration theorem.",
+        "searches": [
+          "Closest Resultary 2523a33ab907 and 015301143d17 findings; arXiv:1205.1664v1 section 2 Proposition 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonzero elements of M_G are partial injections of fixed translation label, with zero the empty map. The general criterion for partial injections in Proposition 2.2 is formulated in terms of cycles and chains.",
+          "The broad literature query also returned work on partial inner automorphisms (arXiv:2605.00041), whose abstract describes the group case as inner automorphisms with zero, not power-set restrictions of regular translations."
+        ],
+        "reasoning": "These families and conventions are not interchangeable. A general criterion for two maps and the simple commuting graph are not the all-pair count with diagonals and zero.",
+        "searches": [
+          "Resultary Boolean translation inverse monoid, partial translations and commutativity",
+          "arXiv:1205.1664v1 section 2 Proposition 2.2",
+          "commuting pair count partial translations inverse monoid power set semidirect product elementary abelian 2-group commuting probability Boolean inverse semigroup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c1df9903a3a is the exact self-record, not independent coverage.",
+          "2523a33ab907 gives a factor 10 from reflection orbits in a mixed idempotent–element count and a 1/36 commutativity limit for partial chain isometries.",
+          "015301143d17 supplies mixed counts and a 1/9 limit for order-preserving partial chain isometries, not a closed full commuting-pair count."
+        ],
+        "reasoning": "Credit analogous orbit counts and idempotent concentration even though the records have the same date. The chain monoids do not realize two independent regular involutions on every four-point orbit, and the matching local 10 does not cover 58 or the translation family.",
+        "searches": [
+          "Resultary exact commutativity in Boolean translation inverse monoids, finite-chain partial isometries and idempotent concentration"
+        ]
+      },
+      "rationale": "Existing work supplies the semidirect-product setting, the general commutation criterion, and closely analogous two-point and idempotent-dominance phenomena. The supported distinct result is the explicit all-pair orbit enumeration, including the independent-label factor 58 and the zero-collapse correction for the regular translation monoids. The applicable criterion does not supply those multiplicities without the extra local census and orbit argument. Historical priority remains provisional.",
+      "residual_risks": [
+        "Uninspected full text of Kudryavtseva and Lipscomb could contain related or broader theory. No exact implication from them was verified.",
+        "Another unindexed local configuration census for commuting translation restrictions could establish equivalent coverage. Same-day dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Individual commutation criterion and graph invariants, narrower than a commuting-pair census on the translation submonoid",
+          "evidence": "The proposition is a cycle-and-chain criterion. The introduction describes clique-number and diameter problems.",
+          "identifier_or_url": "https://arxiv.org/html/1205.1664v1",
+          "material_read": "Introduction (text offset about 949), section 2 Proposition 2.2 (about 14780)",
+          "method": "Targeted OA arXiv passages",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "General criterion on the ambient monoid of partial injections"
+        },
+        {
+          "assessment": "Structural, rather than numerically equivalent, coverage",
+          "evidence": "The paper studies Howson properties and local finiteness of actions on semilattices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3048",
+          "material_read": "Abstract and introduction, pp. 1–2, text offsets 1632–6605",
+          "method": "Targeted OA PDF passages",
+          "title": "Howson's property for semidirect products of semilattices by groups",
+          "trigger": "Same broad semilattice-by-group construction"
+        },
+        {
+          "assessment": "Exact overlap not assessed from full text",
+          "evidence": "Available material concerns partial actions and restriction semigroups; it does not settle overlap with the pair count.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2015.01.017",
+          "material_read": "Landing page and abstract only; full text not retrieved",
+          "method": "Lawful OA DOI retrieval attempt",
+          "title": "Partial monoid actions and a class of restriction semigroups",
+          "trigger": "Related restriction-semigroup representation framework"
+        },
+        {
+          "assessment": "Close analogue on a different monoid and a mixed pair statistic",
+          "evidence": "The reflection orbits govern exact idempotent–element pairs, and the full commutativity probability tends to 1/36 rather than decaying with n.",
+          "identifier_or_url": "2026/11/22/SCOPE-commutativity-and-the-reflection-factor-in-finite-chain-partial--2523a33ab907",
+          "material_read": "Local RESULT Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Commutativity and the reflection factor in finite-chain partial isometries",
+          "trigger": "Matching local factor 10 and concentration of commuting idempotents"
+        },
+        {
+          "assessment": "Related asymptotic claims, different operations and no matching full count",
+          "evidence": "Gives mixed counts and a limit of 1/9 but does not give a closed all-pair count.",
+          "identifier_or_url": "2026/11/22/SCOPE-exponential-convergence-to-one-ninth-commutativity-for-finite-ch--015301143d17",
+          "material_read": "Local RESULT passages at offsets 0 and 8200",
+          "method": "Resultary search and local mirror passages",
+          "title": "Exponential convergence to one-ninth commutativity for finite-chain order-preserving partial isometries",
+          "trigger": "Analogous commutativity probability and conditional idempotent result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Regular group translations give a natural inverse monoid of partial bijections, and the ordered commuting count measures its deviation from a commutative semilattice. The formula identifies the non-idempotent contributions by their orbit type, explains the effect of preserving or discarding empty labels, and yields an exponentially accurate comparison between the full commuting census and its idempotent pairs. The all-order family and quotient dependence offer more than a tiny instance or a single graph computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

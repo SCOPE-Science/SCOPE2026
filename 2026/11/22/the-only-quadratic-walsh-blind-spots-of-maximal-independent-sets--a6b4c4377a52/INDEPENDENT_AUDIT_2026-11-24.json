@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:15:50.364575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–81, VERIFICATION.md and verify_low_degree.py inspected without executing the latter",
+        "Independent replay: python3 /workspace/replays/frozen_review_checks.py 3; direct character sums through n=12 and binomial rather than recurrence computation of exact seeds and rational bounds"
+      ],
+      "rationale": "In a nonempty maximal independent set, clockwise gaps are 2 or 3; fixing one vertex roots an ordered composition, and fixing a second independently roots both arcs. Thus the one- and two-site incidence counts are b_n and b_d b_(n−d), including d=1 where the latter is zero. Perrin recurrence and lengths 3,4,5 give P_n=2b_n+b_(n−3). Expanding the two Walsh signs yields H(n,d)=4b_d b_(n−d)−2b_(n−2)−b_(n−3). The constant mode is positive, the singleton multiplier b_(n−3) vanishes only at n=4, and adjacency gives a strictly negative pair multiplier. The exact seeds at distances 2 through 9 suffice: each later H is the sum of its two- and three-step predecessors, and all earlier feasible lengths in those rows are accounted for. For larger distances use d≤n/2 and the proven bounds 0.408<b_k/λ^k<0.421 for all k≥10; they propagate from 10,11,12 because λ^(−2)+λ^(−3)=1. The strict rational comparison 4·0.408²>0.421(2/L²+1/L³) at L=1.324717957 enforces H>0 when both arcs are at least 10. Thus the finite check is not used to infer infinite nonvanishing. At n=9 each of distances 3 and 4 has nine unordered pairs; ordinary unnormalized convolution multiplies each Walsh character by its own coefficient.",
+      "residual_risks": [
+        "The claim and the audit concern only degrees 0–2, simple labelled cycles n≥3, and the uniform indicator, not a greedy sampling law or full-spectrum invertibility."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ca075279ef80 classifies whether any Walsh coefficient vanishes, with singular lengths n mod 14∈{1,2,4,9,11}; it does not bound the minimum zero degree globally.",
+          "fa45e67a7896 includes all independent sets; 9a6d94e819c5 concerns a different probability law, nonuniform for most lengths."
+        ],
+        "reasoning": "Full nonsingularity implies low-degree nonsingularity only in the nonsingular residue classes. Full singularity does not decide which low-degree modes vanish. The larger set of all independent sets and the biased greedy law do not specialize to the frozen unweighted maximal-set sum.",
+        "searches": [
+          "Resultary ca075279ef80 full-spectrum modulo-fourteen classification",
+          "Resultary fa45e67a7896 first Walsh zero degree for all independent sets",
+          "Resultary 9a6d94e819c5 random-order greedy law"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 84ad81841c78, ca075279ef80, fa45e67a7896 and 9a6d94e819c5",
+        "Bisdorff–Marichal, JIS 11 (2008), 08.5.7",
+        "Bounded primary literature search on maximal independent sets, Walsh coefficients and independent domination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expanding a product of two signs immediately gives P_n−4b_n+4b_d b_(n−d) from the known moments; the modulo-fourteen exclusion already handles nine length classes."
+        ],
+        "reasoning": "Neither prior result decides the signs or nonvanishing of this two-parameter expression at the remaining lengths. The audited small-distance propagation and uniform large-distance inequality are substantive additional steps. Originality does not extend to the formula or to the already tabulated individual witnesses.",
+        "searches": [
+          "84ad81841c78 §1 exact one- and two-site moments",
+          "ca075279ef80 §§2–3 parity exclusion and explicit witnesses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "84ad81841c78, Proof §1: E X₀=b_n/P_n and E(X₀X_d)=b_d b_(n−d)/P_n for the same labelled uniform ensemble.",
+          "The cyclic gaps are 2 and 3 in Bisdorff–Marichal §2, equations (4)–(5)."
+        ],
+        "reasoning": "Degree-two zero is the uncentered sign-product balance E[(1−2X₀)(1−2X_d)]=0, not zero covariance or a singularity of the spatial covariance spectrum. Known exact moments give the equation but not its all-length integer zero classification.",
+        "searches": [
+          "Resultary: maximal independent sets / independent domination, Walsh coefficients and Perrin–Padovan moments",
+          "Bisdorff–Marichal arXiv:math/0701647v2, cyclic gap and ordered composition formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The modulo-fourteen paper explicitly gives a singleton witness at n=4 and a separation-three pair at n=9, then a block-insertion rule adding negative positions. The covariance record gives exact formulas, not a signed zero table."
+        ],
+        "reasoning": "The table overlaps two concrete examples; this does not account for separation four at n=9, the full kernel dimensions, or the absence of other low-degree zeros. The added-sign construction produces higher-degree witnesses rather than settling low-degree nonvanishing.",
+        "searches": [
+          "ca075279ef80, §3 starting-length table",
+          "84ad81841c78 exact transfer formulas; Bisdorff–Marichal Perrin counts and orbit tables"
+        ]
+      },
+      "rationale": "The counting formula is already substantially covered, as are examples of low-degree zeros and full nonvanishing on nine residue classes. The surviving distinct claim is the exhaustive classification in degrees at most two at all lengths, including exclusion within residue classes where the full operator can be singular. None of the inspected strongest statements supplies that exclusion or implies it without further mathematics.",
+      "residual_risks": [
+        "The bounded search cannot exclude an older unindexed all-length signed-enumerator classification. Earlier exact moments, partial exclusions and witness examples are positively established, not merely possible overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical gap and count basis; inspected claims concern counts and orbits, not Walsh zero locations.",
+          "evidence": "Independent domination is one or two zeros between successive ones; the resulting compositions are into 2 and 3.",
+          "identifier_or_url": "https://arxiv.org/html/math/0701647v2",
+          "material_read": "§2 equations (4)–(5) and §3 Propositions 3.1–3.2, HTML offsets about 16200 and 17800",
+          "method": "OA primary HTML passages",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Closest primary work on the same combinatorial family and composition model"
+        },
+        {
+          "assessment": "Material overlap in moment formulas; spatial covariance rank is different from the Walsh multiplier zero set.",
+          "evidence": "The transfer expression tr(ET^dET^(n−d))=b_d b_(n−d) appears explicitly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78/RESULT.md",
+          "material_read": "Proof §1 and start of §2, offsets 2350–4814",
+          "method": "Resultary local mirror",
+          "title": "Perrin–Padovan Fourier sampling on maximal independent sets of cycles",
+          "trigger": "Direct exact correlation formula on the same uniform ensemble"
+        },
+        {
+          "assessment": "Covers full invertibility in nine classes and specific zeros; not the vanishing set within the quadratic band.",
+          "evidence": "For n=4,9 the table exhibits respectively {1} and {1,4}; proof also gives nonvanishing at n≡8 mod 14 by congruence modulo 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-modulo-fourteen-walsh-invertibility-law-for-cyclic-maximal-ind--ca075279ef80/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–3 through zero table and transfer block, offsets 0–4671",
+          "method": "Resultary local mirror",
+          "title": "A modulo-fourteen Walsh invertibility law for cyclic maximal independent sets",
+          "trigger": "Strongest same-operator all-length spectral statement and exact witness table"
+        },
+        {
+          "assessment": "Different ensemble.",
+          "evidence": "Uses all independent sets, including the empty set, and claims the first zero at degree k+1 for n=3k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-first-walsh-zero-degree-for-cyclic-independent-sets--fa45e67a7896/RESULT.md",
+          "material_read": "Finding and definition of ensemble at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp first Walsh zero degree for cyclic independent sets",
+          "trigger": "Plausible broader degree-threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–4",
+        "ca075279ef80 full-spectrum classification and 84ad81841c78 known moment formulas"
+      ],
+      "rationale": "The restricted low-degree band has a natural role: it comprises all linear and pair statistics of the vertex bits. Exact identification of which such signals are erased by this unweighted averaging is a useful discrimination even when the full operator is singular. The result is a complete invariant for this band at every cycle length, not a repetition of the known count formula or a cutoff picked after an enumeration.",
+      "residual_risks": [
+        "No consequence for the rank on higher Walsh degrees or for other graph families is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

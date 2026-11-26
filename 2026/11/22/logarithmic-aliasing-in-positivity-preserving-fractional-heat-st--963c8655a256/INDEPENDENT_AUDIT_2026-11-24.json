@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:20:51.087319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Divide the scalar resolvent sum F_m(λ) by √λ; each term becomes (4/π)sech((8ℓ−log λ)/2). The infinite lattice sum is periodic in log λ with period 8. The angular Fourier transform of sech(u/2)/(2π) is sech(πω), by the beta integral with substitution t=e^u, so its periodization has exactly the stated Fourier coefficients. The positive and alternating series give R_+>1>R_->0. All phases and finite truncations are bounded above by C*=1+4/(e^(π²/4)−1)<√2. The resolvent equals the positive Neumann series for an inverse of (2m²+t)I−m²(S+Sᵀ); every pair is linked by a walk, so each resolvent has strictly positive entries. This makes the off-diagonal B_m entries negative. B_m annihilates constants, and its diagonal is bounded by F_m(4m²)≤2mC*<4m by spectral positivity and monotonicity of F_m. This proves strict stochasticity. The CFL uses the nodal diagonal 2m², not the maximal eigenvalue 4m²; F_m(2m²)/(4m)≤(√2/4)C*<1/2 agrees with the cited pure-diffusion restriction. The Nyquist eigenvalue is 4m², and the sinc truncation error there is O(m e^(−4m)); rounding the two mesh sequences preserves limiting phases 0 and 4. Thus m_j^+ gives 0.31588529… and m_j^− gives 0.65514027…, versus the target forward-Euler multiplier 1/2. The printed numerical pair follows the order R_−,R_+, not m_j^+,m_j^−; the displayed equations give the correct correspondence. Inspection of checker.py and a separate bounded calculation of the sums and j=1,…,6 support the constants, not the all-mesh proof. The result is not an inconsistency claim for fixed smooth data or for refined quadrature.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximum-principle theorem gives nonnegative convex weights under the CFL, not the sign-changing spectral error. Its main formulation has boundary conditions; §2.2 explicitly notes the analogous periodic treatment.",
+          "The quadrature sources estimate exponential error with refined spacing and controlled truncation, not the asymptotic phase variation at nonvanishing spacing."
+        ],
+        "reasoning": "A positivity theorem and bounds on the magnitude of quadrature errors neither yield opposite signs nor exhibit two explicit admissible mesh sequences. The frozen result directly proves strict positivity in its periodic example rather than relying on a strict analogue of the published maximum principle.",
+        "searches": [
+          "arXiv:2611.20833v1 §3.3 Theorem 3.3 and §3.4 Lemma 3.4",
+          "arXiv:1709.06619 Theorem 3.2 and Remark 3.1",
+          "arXiv:1508.05869 §7.2 equations (5)–(6) and Remark 7.2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, checker.py and requirements.txt context (mpmath)",
+        "arXiv:2611.20833v1",
+        "arXiv:1709.06619",
+        "arXiv:1508.05869",
+        "Published SCOPE mirror records ending 963c8655a256, 5fe679bc2f74, 33b30d8de2cf and 6076636d2982"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established criterion is insensitive to the sign of error in the Nyquist eigenvalue. With fixed spacing, an exponential-in-1/k error upper bound alone is compatible with one limit, two limits, or either sign of error."
+        ],
+        "reasoning": "Obtaining the claim requires computing the log-periodic scalar profile, controlling truncation on the moving meshes, and relating its contrasting phases to a bound uniform enough for the CFL; it is not a direct instance of the cited approximation or stability theorems.",
+        "searches": [
+          "arXiv:2611.20833v1 (20)–(21), Theorem 3.3 and Lemma 3.4",
+          "arXiv:1709.06619 Eq. (3) and Theorem 3.2",
+          "arXiv:1508.05869 §7.2 Remark 7.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted CFL expression is the previously published nodal sinc diagonal after setting s=1/2, k=8 and m_i=1/m, a_ii=2m.",
+          "The closest alias laws in the catalogue are first-temporal aliases for sampled continuum resolvents or two-sided continuum fractional damping, not periodization of a resolvent quadrature in log λ at a discrete Nyquist eigenvalue."
+        ],
+        "reasoning": "The normalizations identify the established scheme and CFL. They do not identify the new log-phase subsequential limit with the catalogue's distinct alias operators.",
+        "searches": [
+          "arXiv:2611.20833v1 §§2.2–2.3 and 3.3–3.4",
+          "Resultary: fractional diffusion sinc quadrature, aliasing, Nyquist damping and positive/CFL steps; records ending 5fe679bc2f74, 33b30d8de2cf and 6076636d2982"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the assigned publication itself. The other Nyquist match is an integer-power periodized sinc covariance result with parity dependence. The other two catalogued alias laws are continuum multiplier results."
+        ],
+        "reasoning": "Same-day findings were compared by their statements, not excluded by date. No distinct checked catalogue result or table gives the same stochastic fractional-heat example with the two limits.",
+        "searches": [
+          "Resultary ID 2026/11/22/SCOPE-logarithmic-aliasing-in-positivity-preserving-fractional-heat-st--963c8655a256",
+          "Resultary ID 2026/11/22/SCOPE-exact-odd-cycle-nyquist-rescue-and-critical-band-wrap-crossover--6076636d2982",
+          "Resultary ID 2026/11/22/SCOPE-first-alias-universality-and-one-sided-frequency-selection-for-f--33b30d8de2cf",
+          "Resultary ID 2026/11/17/SCOPE-a-first-alias-law-for-sampled-resolvents-with-slowly-varying-spe--5fe679bc2f74"
+        ]
+      },
+      "rationale": "The resolvent scheme, sufficient maximum-principle restriction and general sinc accuracy estimates are prior work. The distinct assertion is the witness within that restriction: one fixed-spacing positive periodic discretization with explicit meshes converging to opposite Nyquist damping biases. The closest checked aliasing records analyze other operators or sampling mechanisms.",
+      "residual_risks": [
+        "A broader earlier log-quadrature alias analysis could cover more of the scalar phase identity than the inspected literature. The decision concerns the combined CFL-admissible counterexample, not priority for the Fourier identity or sinc rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the criterion, not the oscillating multiplier witness",
+          "evidence": "The transport term vanishes in pure diffusion; the remaining CFL term is Λ_i,sinc^s, with threshold at most one half.",
+          "identifier_or_url": "https://arxiv.org/html/2611.20833v1",
+          "material_read": "§2.2 near offset 10500; §3.3 Eq. (20)–(21) and Theorem 3.3 near offset 36550; §3.4 Lemma 3.4 and discussion near offsets 44000–44800",
+          "method": "Located relevant open full-text passages and specialized the nodal CFL",
+          "title": "Maximum principle preserving approximation of scalar conservation equations with a fractional Laplacian",
+          "trigger": "Exact source for the underlying quadrature and CFL; strongest candidate for prior coverage"
+        },
+        {
+          "assessment": "Refinement and truncation bounds; no covering fixed-spacing two-sign CFL statement",
+          "evidence": "The error estimate has the form Ce^(−c/k) with truncation parameters of order k^(−2).",
+          "identifier_or_url": "https://arxiv.org/abs/1709.06619",
+          "material_read": "Eq. (3), Theorem 3.2 and Remark 3.1; error statement near offsets 3000–4050",
+          "method": "Open full-text comparison of approximation bounds",
+          "title": "On Sinc Quadrature Approximations of Fractional Powers of Regularly Accretive Operators",
+          "trigger": "Possibly stronger sinc error analysis"
+        },
+        {
+          "assessment": "Refined-spacing error analysis; not the phase-locked benchmark",
+          "evidence": "The finite sum uses k=1/√N, −N≤ℓ≤N and an error bound C_Q e^(−π²/(2k)).",
+          "identifier_or_url": "https://arxiv.org/abs/1508.05869",
+          "material_read": "§7.2 equations (5)–(6), Remark 7.2, text offsets around 11200–12000",
+          "method": "Open full-text comparison of quadrature parameters",
+          "title": "Numerical Approximation of Fractional Powers of Regularly Accretive Operators",
+          "trigger": "Pre-existing quadrature scheme and truncation error theory"
+        },
+        {
+          "assessment": "Different continuum resolvent sampling mechanism",
+          "evidence": "A norm law for the first temporal alias, not the Nyquist step of a finite stochastic fractional-heat update.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-first-alias-law-for-sampled-resolvents-with-slowly-varying-spe--5fe679bc2f74",
+          "material_read": "RESULT.md, Finding and proof, from offset 0",
+          "method": "Read indexed local mirror",
+          "title": "A first alias law for sampled resolvents with slowly varying spectra",
+          "trigger": "Closest published sampled-resolvent alias law"
+        },
+        {
+          "assessment": "Conceptual overlap, different mathematical assertion",
+          "evidence": "Continuum operator-norm and complex alias-profile limits, not a fixed sinc-spacing finite periodic update.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-alias-universality-and-one-sided-frequency-selection-for-f--33b30d8de2cf",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Read indexed local mirror",
+          "title": "First alias universality and one-sided frequency selection for fractional damping",
+          "trigger": "Distinct same-day fractional-damping alias result"
+        },
+        {
+          "assessment": "Different operator class",
+          "evidence": "The result treats periodized sampled-sinc covariances and parity, not fractional-power resolvent quadrature.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-cycle-nyquist-rescue-and-critical-band-wrap-crossover--6076636d2982",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Read indexed local mirror",
+          "title": "Exact odd-cycle Nyquist rescue and critical band wrap crossover",
+          "trigger": "Distinct same-day sinc/Nyquist result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies a useful numerical benchmark with a clear distinction: a strict maximum principle and mass conservation can coexist with a mesh-persistent high-frequency accuracy defect of either sign. The standard periodic linear-element setting and explicit signed damping constants permit a direct test of a positivity-preserving discretization. It is not a claim against methods that refine their quadrature spacing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

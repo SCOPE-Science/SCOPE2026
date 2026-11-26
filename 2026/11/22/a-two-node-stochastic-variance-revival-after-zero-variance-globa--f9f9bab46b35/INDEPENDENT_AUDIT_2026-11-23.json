@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:01:57.054111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–117, VERIFICATION.md, and verify.py",
+        "Independent exact fractions from centered Gram–Schmidt on the listed spectrum at n=3,4,8,30",
+        "arXiv:2611.18864v1, §3.1 eq. (3.3), §4.1 eqs. (4.1)–(4.3)"
+      ],
+      "rationale": "Identity-started scalar-coefficient global Lanczos uses the counting spectral measure. The inverse residual formula follows from the polynomial [1−q_m(x)²/q_m(0)²]/x and double vanishing at the Ritz nodes. For the base family, centering its eigenvalues at μ=3/2 gives sum of centered squares 7/8 and sum of centered cubes 9/32, so the monic two-node polynomial in y=x−μ is y²−(9/28)y−7/(8n), equal to the displayed q_2(x). The one-node residual on the rotated eigenpair 1 and 9/4 is 1/9 at both, giving a diagonal matrix in probe coordinates. Evaluating q_2 on the same eigenpair gives scalar residual difference Δ_n>0; the sole off-diagonal pair is therefore −Δ_n/2. Each probe's centered quadratic form is −Δ_n z_1z_2, and independent probes give exact variance Δ_n²/s. Summing scalar residuals gives the stated deficits and E_1−E_2=98n/[3(153n−49)]>0; exact Fraction evaluations at n=3,4,8,30 corroborate the symbolic computation, including Δ_3=35/15129. Trace is constant under the tridiagonal perturbation. Differentiating A^{-1}−4I/3+4A/9 gives the nonzero derivatives −2/15 at (2,3) for n=3 and −4/45 at (3,4) for n≥4. The variance is therefore positive of order t²/s at one node for small positive t, while it has a positive two-node limit. Weyl verifies κ<19/7 for 0<t<1/16. At most two spectral atoms imply exactness by two nodes or earlier breakdown, establishing dimension minimality. The exact zero is at the reducible base, not asserted for its irreducible perturbations.",
+      "residual_risks": [
+        "The proof concerns exact residual actions; no bounds on approximate inner Lanczos iterations or floating-point accuracy were verified.",
+        "The frozen script was inspected, not run. Its finite ratio-ordering test converts computed ratios to floats, whereas the asymptotic claim follows from analytic derivatives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The main paper's eq. (3.3) gives 2/s times squared off-diagonal Frobenius norm for sign probes, and eqs. (4.1)–(4.3) specify exactly which residual is probed.",
+          "Multilevel Chebyshev error correction and block-Krylov deflation have different approximants and error matrices."
+        ],
+        "reasoning": "The general formulas can evaluate any given example but do not provide a spectral matrix whose one-node residual cancels in probe coordinates while its two-node one does not. In particular scalar quadrature error control does not order the off-diagonal norms.",
+        "searches": [
+          "arXiv:2611.18864v1, §§2.6, 3.1, 4.1–4.2",
+          "Hallman–Troester arXiv:2103.10516v1, §1.1",
+          "Chen–Hallman arXiv:2205.01736v3, §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18864v1, eqs. (2.12)–(2.13), (3.3), (4.1)–(4.3)",
+        "Resultary f9f9bab46b35, 2dcf9faad8a8, 9b31e66832f2 and a6f6c2aa217b",
+        "arXiv:2103.10516v1 and arXiv:2205.01736v3, indicated sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-node cancellation multiplier 1−ab/μ² and a single off-diagonal sign construction have real antecedents; neither evaluates the two-node comparison for such a cancellation.",
+          "The frozen construction places a rotated eigenpair on the zero of that multiplier while keeping another atom, then proves the required distinct two-node residual evaluations and positive first-order loss of cancellation under irreducibility perturbations."
+        ],
+        "reasoning": "Standard identities explain the design principle but do not mechanically imply all claims: the actual positive two-node gap, exact sign error, decreasing deterministic deficit and the bounded-condition-number irreducible ratio must be checked for a suitable spectrum and perturbation, as done here.",
+        "searches": [
+          "Resultary 2dcf9faad8a8, Finding, and 9b31e66832f2, proof §§1–2",
+          "arXiv:2611.18864v1, §2.6 and eqs. (3.3), (4.1)–(4.3)",
+          "Resultary a6f6c2aa217b, exact two-node construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GLHutch is full-size identity-started quadrature plus a randomized trace of its Hermite residual, with a practical inner approximation distinguished from the idealized exact correction.",
+          "The closest one-step records compare the residual against the original inverse through ordinary Hutchinson, not against a distinct positive-node-depth residual."
+        ],
+        "reasoning": "The two-node estimator in the frozen record does not arise by reindexing the ordinary-Hutchinson-to-one-node comparison. Its residual polynomial depends on additional spectral moments and is based on a different pair of quadrature nodes.",
+        "searches": [
+          "Primary search: global Lanczos Hermite residual GLHutch Rademacher trace inverse variance zero one node positive two nodes",
+          "Resultary inverse-trace one-step variance comparisons 2dcf9faad8a8 and 9b31e66832f2",
+          "arXiv:2611.18864v1, §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match f9f9bab46b35 is the assigned finding itself.",
+          "The same-date dimension-seven theorem gives a scalar ratio for two-eigenvalue matrices versus ordinary Hutchinson; the same-date three-eigenvalue record gives ratio asymptotic 4N⁴ versus ordinary Hutchinson.",
+          "The earlier shifted-star calculation supplies a two-node sign law for single-vector Lanczos, not the present corrected estimator."
+        ],
+        "reasoning": "Neither of the same-date results is discarded or given an order based on the date. Their exact formulas have different estimators in their denominators. A two-eigenvalue identity-started measure would give exact residual zero at two nodes and cannot provide the positive numerator here.",
+        "searches": [
+          "Resultary f9f9bab46b35, 2dcf9faad8a8, 9b31e66832f2 and a6f6c2aa217b, RESULT.md Findings"
+        ]
+      },
+      "rationale": "The estimator, Hermite residual and sign-probe variance identity are prior work. The distinct result is a concrete one-to-two-node zero-to-positive reversal within that same estimator, with its exact law and an unbounded ratio on nearby uniformly well-conditioned irreducible tridiagonals. Known one-node comparisons to ordinary Hutchinson and two-node single-vector quadrature formulas do not establish this comparison.",
+      "residual_risks": [
+        "The matched date does not establish priority within the day. Undetected equivalent cross-depth examples remain possible.",
+        "The extended-global-Lanczos quadrature article was not readable through the available route; no noncoverage claim is made for that article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior estimator, Hermite error and variance formulas; no such cross-depth witness in the compared passages",
+          "evidence": "Eq. (3.3) specifies the off-diagonal norm variance; §4.1 defines the exact correction in eq. (4.2) and its second-run approximation in eq. (4.3).",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18864v1",
+          "material_read": "§2.6 eqs. (2.12)–(2.13); §3.1 eq. (3.3), PDF offset 34430; §4.1 eqs. (4.1)–(4.3), offset 41950; §4.2 theory",
+          "method": "Primary OA PDF with localized passages",
+          "title": "Global Lanczos with stochastic error correction for trace estimation of matrix functions",
+          "trigger": "Exact estimator and potential cross-depth analysis"
+        },
+        {
+          "assessment": "Overlap on one-step mechanism; different comparison and spectral support",
+          "evidence": "For two distinct eigenvalues the one-step corrected-to-ordinary sign error multiplier is 1−ab/μ²; it may vanish. Two-node residual is necessarily zero for those spectra.",
+          "identifier_or_url": "Resultary 2dcf9faad8a8",
+          "material_read": "RESULT.md, Finding and assumptions, beginning at offset 0",
+          "method": "Configured local mirror",
+          "title": "Dimension-seven variance reversal in one-step global Lanczos inverse-trace correction",
+          "trigger": "Same estimator, variance reversal and exact cancellation"
+        },
+        {
+          "assessment": "Different variance comparison, conditioning and spectrum",
+          "evidence": "One corrected node versus ordinary Hutchinson; sign error multiplier ρ_N and ratio ρ_N²∼4N⁴ at condition number 2N, contrasted with Gaussian probes.",
+          "identifier_or_url": "Resultary 9b31e66832f2",
+          "material_read": "RESULT.md, Finding, assumptions and initial proof, offsets 0–4268",
+          "method": "Configured local mirror",
+          "title": "A three-eigenvalue variance separation for Hermite-corrected global Lanczos",
+          "trigger": "Same exact Hermite correction, three levels and unbounded inflation"
+        },
+        {
+          "assessment": "Different Lanczos start and estimator",
+          "evidence": "A shifted-star calculation for single-vector Lanczos has an exact two-node identity and a sign-count representation with asymptotic chi-square law.",
+          "identifier_or_url": "Resultary a6f6c2aa217b",
+          "material_read": "RESULT.md, Finding and proof, offsets 0–3928 and 4400–7150",
+          "method": "Configured local mirror",
+          "title": "A hub-induced one-step Lanczos bias and an exact chi-square two-step law",
+          "trigger": "Earlier exact two-node stochastic Lanczos and sign-count calculation"
+        },
+        {
+          "assessment": "Assigned record, not independent prior work",
+          "evidence": "Same one-to-two-node comparison, family and variance law.",
+          "identifier_or_url": "Resultary f9f9bab46b35",
+          "material_read": "RESULT.md, Finding",
+          "method": "Configured local mirror",
+          "title": "A two-node stochastic-variance revival after zero-variance global Lanczos correction",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "No content-based coverage inference from this source",
+          "evidence": "The indexed topic is quadrature and matrix-function approximation; access limitations prevent an exact statement comparison.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0377042720303186",
+          "material_read": "Bibliographic search result only; no readable full text returned",
+          "method": "Lawful website/OA attempt",
+          "title": "The extended global Lanczos method, Gauss–Radau quadrature, and matrix function approximation",
+          "trigger": "Related global Lanczos quadrature result returned in primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, §§3–5",
+        "Compared prior one-step variance identities and GLHutch analysis"
+      ],
+      "rationale": "This is a dimension-minimal witness against using improving deterministic quadrature accuracy as a proxy for cross-depth Rademacher sampling accuracy. The effect does not require severe conditioning or disconnected sparsity: the irreducible fixed-dimension perturbations have arbitrarily large ratios with κ<3. The exact sign law makes this a concrete estimator diagnostic, not just a variance-bound comparison.",
+      "residual_risks": [
+        "No claim is made about approximate inner solves, increasing variance at all depths, or Gaussian probes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

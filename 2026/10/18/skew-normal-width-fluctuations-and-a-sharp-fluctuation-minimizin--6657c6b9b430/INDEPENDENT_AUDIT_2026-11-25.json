@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:34:02.936362Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4 and endpoint scope",
+        "VERIFICATION.md and checker.py (inspected, not run)"
+      ],
+      "rationale": "The pairwise difference and coordinate constraints jointly make the one-dimensional intervals for the diagonal shift intersect, giving the stated box-plus-segment support width. Factor a standard Gaussian as radius times uniform direction: the absolute product expectation of two projections with unit normals of correlation r is g(r)/d, since the independent squared radius has mean d. Integrating the Gaussian sign-correlation formula from r=0 gives g. The squared box term uses r=0 and 1, and the mixed term uses r=1/sqrt(d); subtracting the squared means yields all three variance coefficients. The joint CLT for (|G|-mu,G^2-1,G) has Gaussian third coordinate independent of the first two by parity; normalizing the radius changes the box term to X−mu Y/2 with variance 1−3/pi, while the diagonal tends to |H|. The gamma ratio justifies exact centering, including for varying cant and at both limiting endpoints. The ell sqrt(d) Lipschitz bound paired with the dimension factor in spherical concentration gives uniformly bounded moments of any higher order, hence uniform integrability. The convolution and third-moment identity follow from the folded normal. Expanding c_d^2 and g near r=0 gives limiting variance coefficients 1−3/pi, 1−2/pi and 0, so the quadratic converges uniformly on the closed interval. Its unique minimizer is the stated strict interior point, which also yields the eventual interior finite minimizers. The simulation is not relied on.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-direction projection result covers the cube-only component; the isocanted determinant theorem concerns volume."
+        ],
+        "reasoning": "Neither provides the joint limit of box norm and common-direction projection needed when the diagonal has positive cant.",
+        "searches": [
+          "arXiv:1709.09470v1 Cor. 2.6 and cube projection-width discussion",
+          "arXiv:2406.01565v1 Thm. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.13858v1",
+        "arXiv:2406.01565v1",
+        "arXiv:1709.09470v1",
+        "DOI:10.17398/2605-5686.40.1.1 (attempted)",
+        "local Resultary and identified mirrored RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zonotope decomposition mechanically gives the support expression and mean via rotational invariance. The cube-only CLT does not determine its limiting dependence on the diagonal projection, or the mixed spherical term at finite d. The sharp optimizer is a consequence of the distinct joint variance profile, not independent novelty."
+        ],
+        "reasoning": "The admitted standard steps do not themselves cover the claimed object-specific joint law or quantitative comparison of cants.",
+        "searches": [
+          "arXiv:1709.09470v1",
+          "arXiv:2009.13858v1",
+          "DOI:10.17398/2605-5686.40.1.1 §7 question 2 (access attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Box plus a diagonal segment is already established in both named papers. The November 22 catalogue item's b=ell−a notation gives the same exact variance and fixed-cant limit."
+        ],
+        "reasoning": "The equivalent geometric parametrizations do not distinguish the claims; the earlier geometry and the later statistical result are separate. The later result lacks the optimizer and convergent-cant extension.",
+        "searches": [
+          "local Resultary: isocanted directional width; cube plus a diagonal segment; Gaussian/folded-normal width fluctuations",
+          "arXiv:2009.13858v1 Cor. 3.16",
+          "arXiv:2406.01565v1 Eq. (21)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-spherical-width-variance-and-a-gaussian-folded-normal-limi--5715c767444e: substantial exact overlap, after October 18; 2026/11/17/SCOPE-a-complete-spherical-angle-spectrum-and-a-skew-normal-exposure-l--3a97c54a1863: exposure-angle rank, not width."
+        ],
+        "reasoning": "Neither establishes earlier coverage of the frozen result. The exact-overlap catalogue item is distinct, and the date comparison is not a determination of how the overlap arose.",
+        "searches": [
+          "local Resultary for exact spherical width variance, folded-normal/skew-normal limit, and optimal cant"
+        ]
+      },
+      "rationale": "Pass the object-specific finite variance, joint unscaled positive-cant limit and sharp limiting-variance optimizer to best checked knowledge, not the zonotope decomposition, the standard scalar identities or a cube-only fluctuation theorem. A later catalogue item duplicates substantial parts of the science and is recorded separately from priority.",
+      "residual_risks": [
+        "The cited 2025 mean-width question was not verified in readable full text. Substantially overlapping later catalogue result has no established earlier priority. Earlier equivalent general width formulas or limit theorems outside the inspected sources remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior geometric input",
+          "evidence": "Corollary represents the isocanted polytope as a box plus a diagonal segment.",
+          "identifier_or_url": "arXiv:2009.13858v1",
+          "material_read": "Corollary 3.16, PDF p. 13, extraction offset 41387",
+          "method": "primary open PDF passage",
+          "title": "Isocanted alcoved polytopes",
+          "trigger": "same geometric family and equivalent zonotope representation"
+        },
+        {
+          "assessment": "geometric identification, volume not width distribution",
+          "evidence": "The centered d+1 segment decomposition is employed for the volume formula.",
+          "identifier_or_url": "arXiv:2406.01565v1",
+          "material_read": "Theorem 3.1 proof and Eq. (21), PDF p. 7, extraction offset 23248",
+          "method": "primary open PDF passage",
+          "title": "The volume of an isocanted cube is a determinant",
+          "trigger": "same object and explicit generators"
+        },
+        {
+          "assessment": "covers cube component only",
+          "evidence": "The random projection result does not add a prescribed diagonal segment or compute its joint fluctuations.",
+          "identifier_or_url": "arXiv:1709.09470v1",
+          "material_read": "Corollary 2.6 and associated discussion, PDF p. 9, extraction offset 42956",
+          "method": "primary open PDF passage",
+          "title": "High-dimensional limit theorems for random vectors in ℓ_p^n-balls",
+          "trigger": "related random projection-width limits, possible cube component coverage"
+        },
+        {
+          "assessment": "not independently established",
+          "evidence": "The frozen record attributes a mean-width question to this section. That attribution is not a primary verification or evidence excluding other content.",
+          "identifier_or_url": "DOI:10.17398/2605-5686.40.1.1",
+          "material_read": "No readable primary passage obtained for §7 question 2",
+          "method": "DOI and journal alternate open-access attempts",
+          "title": "Isocanted cube: the lower Lebesgue volumes, incidence numbers and symmetries of this d-dimensional tile",
+          "trigger": "same family; cited mean-width question"
+        },
+        {
+          "assessment": "substantial equivalent coverage, later catalogue date",
+          "evidence": "Under b=ell−a the variance, fixed-positive-cant limit and cubic moment agree. The Finding does not state the sharp optimizer or convergence for varying cant.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-spherical-width-variance-and-a-gaussian-folded-normal-limi--5715c767444e",
+          "material_read": "Finding in mirrored RESULT.md (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "local Resultary and mirrored primary result",
+          "title": "Exact spherical width variance and a Gaussian folded-normal limit",
+          "trigger": "exact mathematical lookalike in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "arXiv:2406.01565v1 Eq. (21)",
+        "arXiv:1709.09470v1 Cor. 2.6"
+      ],
+      "rationale": "The metric question is natural for a known constant-combinatorial-type deformation. Its non-Gaussian unscaled limit and strict positive optimal cant reveal effects that are invisible to mean width and to the cube endpoint; the coefficient information makes the optimization quantitative rather than a renamed CLT.",
+      "residual_risks": [
+        "Optimality is for asymptotic variance at fixed bounding coordinate width, not fixed volume or each finite-dimensional problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

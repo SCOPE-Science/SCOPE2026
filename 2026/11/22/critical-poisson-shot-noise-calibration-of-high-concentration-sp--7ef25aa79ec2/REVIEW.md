@@ -1,15 +1,21 @@
-# Review of the critical spherical Poisson-kernel shot-noise law
+# Independent mathematical audit
 
-## Correctness — PASS
-The sphere-angle density is \(a_q\sin^{q-1}\theta\), so the close-pair scale \(n^{-2/q}\) has finite nonzero expected collision intensity. The factorial-moment graph argument excludes overlapping edge clusters, proving the limiting Poisson distance measure. Uniform integrable tail bounds justify the noncompact Poisson-kernel integral. Conditional centering removes cross-edge covariances, and the spherical Poisson semigroup gives exact all-bandwidth covariance. Poisson Laplace calculus gives the beta cumulants and the two iterated endpoint regimes. The normalization and all integer \(q\ge1\), fixed positive tuning parameters, and nonsimultaneous limits are specified. The included checker passed 202 numerical and algebraic assertions. Computation corroborates but does not replace the proof.
+## correctness
 
-## Originality — PASS with residual risk
-The 2023 Fernández-de-Marcos–García-Portugués paper supplies the spherical Poisson-kernel statistic, exact fixed-parameter moments and chi-squared-series limits. The Ding–Markatou–Saraceno study independently develops its spectral/Karhunen–Loève decomposition and fixed-tuning calibration. The present critical scale changes the limit mechanism to a Poisson shot-noise law, including a shared cross-bandwidth Poisson measure and exact log-scale correlation. The published semigroup and variance formulas imply its covariance asymptotic, but not by themselves the non-Gaussian triangular joint distribution or the boundary laws. Classical close-pair Poisson theorems provide the point-process ingredient and are explicitly acknowledged, not claimed as new. The 2010 Pycke article is related but only its accessible abstract was inspected; an unidentified historical singular-kernel theorem may already cover the exact limit.
+PASS
 
-## Value — PASS
-A published spherical goodness-of-fit statistic may be tuned increasingly close to the nonsmooth kernel boundary as samples grow. Fixed-tuning null calibration then fails to describe the critical rare-pair regime. A complete distributional limit and the explicit \(\operatorname{sech}^{q}\) correlation function give usable multiscale null calibration and sharply distinguish sparse, critical and Gaussian-dilute endpoint behaviors. The substantive gap is not a mere restatement of kernel normalization or of the Poisson limit for unweighted pair counts. No power gain is asserted.
+With b=n^(−2/q), the spherical-angle density times the number of pairs gives the limiting measure (a_q/2)s^(q−1) ds. In joint factorial moments, each distinct-edge pattern with v vertices and r components has at most O(n^v) embeddings and probability O(n^(−2(v−r))) by exposing along a spanning forest. A component of at least three vertices forces v>2r, and the surviving disjoint-edge terms give the product Poisson factorial moments. This proves the needed point-process limit, since the counts on bounded intervals are tight with the specified factorial moments. The scaled kernel converges uniformly on compact s-intervals to h_c(s)=4c/(c²+s²)^((q+1)/2). At infinity the first-moment contribution is O(1/L) uniformly for large n by the global angular lower bound on 1−cos θ; near zero one may first truncate below ε and use the bounded kernel and expected count O(ε^q). Truncation and the common close-pair process prove the joint limit, subtracting (n−1)/n. Rotation invariance gives orthogonality of distinct centered edges, and the Poisson semigroup gives the stated exact finite covariance. The corresponding integrals of h_c h_d have the same limit by the common rescaling and domination by a constant times s^(q−1)/(1+s²)^(q+1), rather than by inferring moment convergence from weak convergence alone. Integration of h_c and its powers gives mean one before centering and the beta cumulants; bounded integrable h_c gives finite exponential moments of either sign, and the positive third cumulant excludes a normal marginal. The common Poisson measure has a positive first atom almost surely, and summability of s^(−q−1) away from zero gives the almost-sure small-c endpoint. For c→∞ the normalized jump supremum tends to zero and the variance is one, so the cubic remainder of the Poisson characteristic exponent vanishes. The endpoint assertions are iterated limits, not claims about moving c at finite n.
 
-## Scientific limits
-Only finitely many fixed bandwidth constants are covered jointly; the dimension remains fixed. Independent historical-priority assessment remains necessary. No machine-assisted finite check proves the asymptotic statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded comparison supports the fixed-dimension, triangular Poisson-kernel calibration at finitely many bandwidths, with the noncompact kernel carried through the same limiting Poisson measure and its two iterated bandwidth limits. Do not credit novelty for the statistic, fixed-parameter results, the Poisson close-pair process, or covariance in isolation. A broad triangular U-statistic predecessor remains a material specialization risk; lawful retrieval did not yield its full statement, and this is not evidence of noncoverage.
+
+## value
+
+PASS
+
+At the closest-pair scale the actual test has a strictly non-Gaussian null limit, so applying the fixed-tuning calibration there would miss the operative rare-pair mechanism. The joint law is useful for comparing several bandwidths on the same sample, and the iterated endpoints distinguish sparse near-collision and Gaussian fluctuation regimes. This is a calibration result under a specified null, not an assertion about power or adaptive bandwidth selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

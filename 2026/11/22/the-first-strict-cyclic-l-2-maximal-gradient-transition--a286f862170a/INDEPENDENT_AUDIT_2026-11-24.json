@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:17:09.271422Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof",
+        "Frozen VERIFICATION.md and cycle_interval_maximal_certificate.py (inspected)",
+        "/workspace/branches/replay/cyclic.py",
+        "/workspace/branches/replay/cyclic.out"
+      ],
+      "rationale": "Here V₂ is the ℓ² norm of first cyclic differences, not a second derivative. Replacing complex f by |f| only decreases the denominator and preserves the numerator; constant modulus gives zero numerator. For nonconstant modulus, subtracting its minimum within the nonnegative cone and rescaling are legitimate because all averages shift equally and the variation kills constants. At C₃ the maximal values at (u+v,v,0) reduce to the two cases in the proof; symbolic expansion verifies the energy identities, including equality for u≥v. At C₄ rotation and reflection place a maximum 1 at zero and a minimum 0 either adjacent or opposite, covering ties as well. An independent exact calculation generates averages from intervals in a doubled list, obtains the active cells by intersecting pairs of supporting lines and testing all constraints, and minimizes the quadratic deficit over vertices, all feasible vertex-to-vertex segments, and feasible positive-definite critical points. Only closures of full-dimensional cells are needed by continuity, since nonidentical affine ties lie on finitely many lines. An interior stationary point with an indefinite Hessian cannot be a minimum; if the Hessian is positive semidefinite but singular, a null line carries the same minimum value to the boundary. Linear or concave edge restrictions take a minimum at an endpoint. Thus the candidate list is exhaustive, not a grid scan. The replay gives six and seven cells with respective minima −1/12+5√13/156>0 and 0, and directly verifies the active witness averages and the squared ratio (7+√13)/36>1/4. Hence both constants are sharp in the stated domain.",
+      "residual_risks": [
+        "Exact continuous optimization only for C₃ and C₄, with the prescribed operator and cyclic edge seminorm. No monotonicity at larger cycle sizes is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The centered complete-graph theorem has sharp constant 1−1/n, hence 2/3 at K₃. The centered C₄ theorem in §3.1 has first-variation constant 3/4. The discrete uncentered theorem gives a first-difference ℓ^p sharp constant on ℤ for characteristic functions; the real-line theorem bounds the first derivative in L^p."
+        ],
+        "reasoning": "Neither replacing arcs by graph balls nor restricting to indicators or changing the domain from a finite cycle to an infinite or continuous line gives a stronger theorem on the claimed domain. The discrete results on second differences are also not about this V₂.",
+        "searches": [
+          "González-Riquelme–Kovač–Madrid arXiv:2603.12462v1 Theorem 1 and §3.1",
+          "Liao–Madrid–Palsson–Weigt arXiv:2607.10753 Theorem 2.3",
+          "Liao–Madrid–Palsson arXiv:2610.39178v1 sharp derivative theorem"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and primary indexed records above",
+        "arXiv:2603.12462v1",
+        "arXiv:2011.02630v1",
+        "arXiv:2607.10753",
+        "arXiv:2610.39178v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the centered comparison, some suprema omit arc averages; pointwise ordering of maximal outputs does not order their edge energy. The uncentered ℤ result controls indicator inputs and a first-difference norm, not arbitrary amplitudes with cyclic averaging. At C₄, indicators have maximal squared ratio 5/18 (a singleton), strictly below the actual value achieved by a fractional signal."
+        ],
+        "reasoning": "Even an exact characteristic-function claim on C₄ would not certify the extremum among arbitrary amplitudes. Sharp finite graph-ball and sharp line constants do not imply the cyclic-arc upper bound or the fractional equality example.",
+        "searches": [
+          "Centered C₄ quadratic edge-variation RESULT.md",
+          "ArXiv:2603.12462v1 §3.1",
+          "ArXiv:2607.10753 Theorem 2.3",
+          "Uncentered graph-ball vertex-norm and indicator-variation findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quadratic cyclic edge energy is the square of V₂, so squared versus unsquared constants must be compared accordingly. On C₄ centered graph balls use one, three or four sites, and even uncentered graph balls omit two-site arcs. On C₃ centered graph balls use only one or three sites. Vertex ℓ² is not the cyclic-edge seminorm and does not annihilate constants."
+        ],
+        "reasoning": "For example, the two-site average at a neighbor of the spike (1,0,0,0) is 1/2 under cyclic arcs but no graph-ball average there exceeds 1/3. Thus using the same cycle or the same ℓ² exponent does not identify the operators or the optimization problems.",
+        "searches": [
+          "Resultary: cyclic C₃/C₄ uncentered maximal operator with quadratic edge variation or first-difference ℓ² seminorm",
+          "arXiv:2603.12462v1 graph-ball and Var_p definitions",
+          "Distinct centered-quadratic and uncentered Hilbert maximal norm records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ending a286f862170a is the assigned entry. Closest distinct hit, same day, is 2026/11/22/SCOPE-sharp-quadratic-edge-variation-for-centered-maximal-averaging-on--9c0ca5c6200b: its sharp centered C₄ constant is √((41+√1537)/144). Separate C₄ centered and uncentered vertex-norm records and an indicator graph-ball variation record also use different objectives or operators."
+        ],
+        "reasoning": "The same-day centered result is substantive overlap in graph and seminorm, not the same optimization. Its different constant is supported by the genuinely different averaging family, not evidence about relative priority. No independent same-operator, same-objective table was located.",
+        "searches": [
+          "Resultary: exact title and sharp C₃/C₄ constants",
+          "Resultary: sharp quadratic edge variation on C₄ and uncentered cyclic maximal operator",
+          "Resultary: C₄ graph-ball ℓ² and uncentered first variation"
+        ]
+      },
+      "rationale": "The nearest distinct records share the graph or the seminorm, and the line results share first differences and uncentered averaging, but none of the compared theorems gives the sharp first-difference ℓ² ratio on the full family of uncentered cyclic arcs at these sizes. Credit is for those sharp constants and their strict transition, not for the general maximal-variation program.",
+      "residual_risks": [
+        "Assessment relies on focused local indexed comparisons and retrieved primary literature, not exhaustive external coverage. An older or unindexed finite cyclic-arc result may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sharp result for centered graph-ball averaging, not cyclic arcs.",
+          "evidence": "Sharp C₄ V₂ constant √((41+√1537)/144) for the centered operator.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quadratic-edge-variation-for-centered-maximal-averaging-on--9c0ca5c6200b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp quadratic edge variation for centered maximal averaging on the four-cycle",
+          "trigger": "Strongest distinct indexed result with same cycle and seminorm"
+        },
+        {
+          "assessment": "Centered graph balls, plus different exponent in the C₄ theorem.",
+          "evidence": "K_n has centered sharp constant 1−1/n; C₄ is treated at Var₁ with constant 3/4.",
+          "identifier_or_url": "https://arxiv.org/html/2603.12462v1",
+          "material_read": "Operator and seminorm definitions and Theorem 1, offsets 0 and 5753; §3.1 C₄, offsets 28663 and 32517",
+          "method": "OA primary full-text passages",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Sharp variational inequalities on K₃ and C₄"
+        },
+        {
+          "assessment": "Uses the centered graph-ball operator; read material does not provide present arc estimate.",
+          "evidence": "Sharp complete/star results and Var₂ for stars are highlighted.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.02630v1",
+          "material_read": "PDF p. 1, operator definition and abstract",
+          "method": "OA primary PDF first page",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Earlier finite-graph sharp variational results"
+        },
+        {
+          "assessment": "Different domain and indicator restriction for the first-difference theorem.",
+          "evidence": "The first-gradient sharp norm is given by the ℓ^p sum of successive reciprocal increments on the integer line for characteristic functions.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10753",
+          "material_read": "Abstract offset 3213; Theorem 2.3 offset 21500",
+          "method": "OA primary full-text passages",
+          "title": "Sharp higher order regularity of discrete maximal functions",
+          "trigger": "Discrete uncentered first-gradient analogue"
+        },
+        {
+          "assessment": "Continuous line and differentiation, not a theorem about finite cyclic variation.",
+          "evidence": "Sharp L^p derivative inequality with constant γ_p on real intervals.",
+          "identifier_or_url": "https://arxiv.org/html/2610.39178v1",
+          "material_read": "Definition and sharp first-derivative result, offsets 0 and 11077",
+          "method": "OA primary full-text passages",
+          "title": "Sharp derivative inequalities for uncentered maximal functions",
+          "trigger": "Uncentered maximal derivative sharpness on a broader domain"
+        },
+        {
+          "assessment": "Restricted to finite indicators on the integer line.",
+          "evidence": "Quantitative deficit for nonsingletons below the discrete first-gradient constant.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-quantitative-gap-below-the-sharp-discrete-maximal-gradient-con--01a15a5b4efc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "A quantitative gap below the sharp discrete maximal gradient constant",
+          "trigger": "Closest indexed uncentered gradient inequality"
+        },
+        {
+          "assessment": "Graph balls and ℓ¹ edge variation for indicator inputs.",
+          "evidence": "A sharp indicator variation result on K_{r,r}, not arbitrary amplitudes or cyclic arcs.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-three-vertex-transition-for-uncentered-maximal-variation--1772d4c71add",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "A sharp three-vertex transition for uncentered maximal variation",
+          "trigger": "Uncentered result includes K₂,₂=C₄"
+        },
+        {
+          "assessment": "Vertex norm and graph-ball family.",
+          "evidence": "Sharp ℓ²-to-ℓ² maximal norm, not edge variation.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-uncentered-hilbert-maximal-norm-and-hidden-permutation-sym--53ac0f6da8ac",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "Exact uncentered Hilbert maximal norm and hidden permutation symmetry",
+          "trigger": "Uncentered C₄ ℓ² sharp constant"
+        },
+        {
+          "assessment": "Centered and vertex ℓ², not the claimed seminorm.",
+          "evidence": "Classifies centered strong vertex-norm extremizers.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-strong-ell-2-norm-and-all-extremizers-of-the-centered-maxi--97888c3c8e65",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result",
+          "title": "Exact strong ℓ² norm and all extremizers of the centered maximal operator",
+          "trigger": "C₄ extremizers at exponent two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md sharp constants and witness",
+        "/workspace/branches/replay/cyclic.out",
+        "Finite-graph and integer-line comparisons above"
+      ],
+      "rationale": "The sharp cyclic first-difference ratio is a natural stability quantity for uncentered maximal averaging. The first nontriangle cycle changes the arrangement of contiguity and creates a provable strict increase, with a non-indicator optimizer that improves on all indicators. The globally sharp algebraic constant and realizing pattern distinguish a genuine cyclic and amplitude effect from the previously studied centered, vertex-norm or indicator results. This is an independently useful exact small-cycle benchmark, not a claim about arbitrary cycle sizes.",
+      "residual_risks": [
+        "The result does not characterize all four-cycle maximizers or the size dependence beyond four sites."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

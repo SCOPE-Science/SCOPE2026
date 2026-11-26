@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:28.508635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a deterministic root in G(n,c n^{-alpha}), conditioning on its exact neighbor set gives the stated tilted binomial joint law, and the strictly decreasing successive ratios give exponentially small relative tails on the Lambert scale, not just mode convergence. The cost below alpha=1/2 follows by a binomial lower-tail split; uniform Stirling and exponential tightness give the critical normalization and full conditional LDP. Above alpha=1/2 a binomial relative-degree band proves the diverging-cost case, bounded expectations prove the constant-cost case, and rooted-triangle Bonferroni bounds prove the vanishing-cost equivalence. The nonroot concentration is uniform after conditioning on the neighbor set because its size is o(n) and np is larger than log n. Two minor points in the proof text do not change the conclusion: positivity of the critical minimum follows from the disjoint zero sets of the Poisson entropy and the quadratic penalty, not from the two observations at the end of Step 4 alone; the fixed root-incident edges in Step 6 are deterministic and are not among the edges left Bernoulli. The displayed marginal laws there are correct. Independent derivation: /workspace/proof_check_5.md. The bundled finite checks were inspected, not used as proofs of any limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Ruciński bound rooted-copy upper tails at t>1, not the zero event.",
+          "Fountoulakis–Kang–McDiarmid optimize a largest sparse subset; Jenssen–Perkins–Potukuchi condition the whole graph to be triangle-free.",
+          "Wormald's older global triangle-avoidance paper was not accessible in full."
+        ],
+        "reasoning": "Global optimization, global conditioning and rooted upper-tail theorems use different random quantities or event families. None of the examined statements gives the root-local tilted limits.",
+        "searches": [
+          "arXiv:0905.0972v1 §3 and Example 3.3",
+          "arXiv:1203.0132v1 p. 1",
+          "arXiv:2312.09202v1 §2.1",
+          "doi:10.1002/(SICI)1098-2418(1996)9:1/2<253::AID-RSA15>3.0.CO;2-O"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34a433cabd80",
+        "Resultary 8bb846e9efd8",
+        "arXiv:0905.0972v1",
+        "arXiv:1303.3388v1",
+        "arXiv:1203.0132v1",
+        "arXiv:2312.09202v1",
+        "Wormald 1996 bibliographic lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the stricter same-day event every outside vertex can meet the root neighborhood at most once, a restriction absent here.",
+          "The near-complete clique-neighborhood record has different parameters and a different event; the upper-tail estimates do not settle zero-copy conditioning."
+        ],
+        "reasoning": "An event inclusion gives a probability inequality, not the conditional law, asymptotic equivalence across all regimes or LDP on the larger event. The date is not evidence of precedence. General tilting tools can be used to derive parts after obtaining the correct weight; that is not an identified same-event theorem.",
+        "searches": [
+          "Resultary 34a433cabd80, Finding",
+          "Resultary 8bb846e9efd8, Finding",
+          "arXiv:0905.0972v1 Theorem 3.1 and Example 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is zero local clustering for degree at least two; Bloznelis uses random intersection models, not independent-edge G(n,p).",
+          "An independent open neighborhood becomes a clique on the original neighbors, which are root nonneighbors in the complement. The near-complete simplicial-root result instead requires a clique on the complement's neighbors.",
+          "The degree law is the independent-set size under the annealed hard-core weight on G(n-1,p) at activity p/(1-p), normalized by its annealed partition function."
+        ],
+        "reasoning": "Neither the different random-graph model nor the cliquish-neighbor event is equivalent. The exact hard-core reformulation is a genuine alternative description, but by itself does not evaluate the saddle, critical tilted law or nonroot degrees.",
+        "searches": [
+          "Resultary: fixed root triangle-free neighborhood and conditional degree",
+          "arXiv:1303.3388v1",
+          "Resultary: a rare simpliciality degree transition, 8bb846e9efd8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest returned record requires neither a triangle nor a simple four-cycle through the root, has an extra d-dependent factor B_d(p)^(n-1-d), and gives a critical degree LDP at alpha=2/3.",
+          "No exact rate/degree match appeared in the targeted results; a nonhit does not rule out unindexed coverage."
+        ],
+        "reasoning": "This is a comparison of exact conditional formulas, not a finite-table claim. The extra factor cannot be canceled in normalization and the record does not state the alpha=1/2 conditional rate for the larger event.",
+        "searches": [
+          "Resultary: fixed-root degree conditioned on avoiding triangles; Lambert scale and critical rate",
+          "Resultary: three thresholds for the degree of a vertex avoiding short cycles, 34a433cabd80"
+        ]
+      },
+      "rationale": "The exact mass is an elementary starting point; the supported distinct result is its root-conditioned phase diagram with explicit rates and uniform localization. The nearest same-day indexed result conditions on an additional forbidden cycle, which changes the weight and critical scaling. No examined theorem with the same event or a stronger theorem implying this package was identified; the verdict is bounded, not a priority determination.",
+      "residual_risks": [
+        "Same-day stricter-event work has no established relative chronology.",
+        "A more general annealed hard-core or local-clustering result could subsume components; targeted coverage was not exhaustive.",
+        "Full Wormald text not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, different conditioning; no priority order inferred",
+          "evidence": "No rooted triangles and no rooted 4-cycles; extra B_d(p)^(n-1-d) factor and critical alpha=2/3.",
+          "identifier_or_url": "Resultary 2026/10/25, 34a433cabd80",
+          "material_read": "RESULT.md opening theorem and exact weight",
+          "method": "Local Resultary mirror, offset 0",
+          "title": "Three thresholds for the degree of a vertex avoiding short cycles",
+          "trigger": "Closest same-day indexed overlap"
+        },
+        {
+          "assessment": "Different event and regime",
+          "evidence": "The constraint is a clique among the root's neighbors, not an independent set among them in a sparse graph.",
+          "identifier_or_url": "Resultary 2026/10/26, 8bb846e9efd8",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local Resultary mirror, offset 0",
+          "title": "A rare simpliciality degree transition in near-complete random graphs",
+          "trigger": "Analogous conditional degree law and localization"
+        },
+        {
+          "assessment": "Does not address the zero-copy law in the passages read",
+          "evidence": "Upper-tail theorem assumes t>1.",
+          "identifier_or_url": "arXiv:0905.0972v1",
+          "material_read": "Abstract, §3 Theorem 3.1, Example 3.3",
+          "method": "OA primary text, offsets 0, 24583, 44739",
+          "title": "Upper tails for counting objects in randomly induced subhypergraphs and rooted random graphs",
+          "trigger": "Rooted clique counts"
+        },
+        {
+          "assessment": "Different graph models",
+          "evidence": "Degree/clustering results concern two random intersection models.",
+          "identifier_or_url": "arXiv:1303.3388v1",
+          "material_read": "Abstract",
+          "method": "OA primary abstract, offset 0",
+          "title": "Degree and clustering coefficient in sparse random intersection graphs",
+          "trigger": "Zero local clustering and degree terminology"
+        },
+        {
+          "assessment": "Different sampling and observable",
+          "evidence": "Maximum size of a t-sparse vertex subset, not a specified random neighborhood.",
+          "identifier_or_url": "arXiv:1203.0132v1",
+          "material_read": "Introduction and opening theorem discussion, p. 1",
+          "method": "OA primary PDF text, offsets 0–3122",
+          "title": "Largest sparse subgraphs of random graphs",
+          "trigger": "Possible implication via independent sets"
+        },
+        {
+          "assessment": "Global, not root-local",
+          "evidence": "The conditioned graph as a whole is triangle-free; the partition function uses that event.",
+          "identifier_or_url": "arXiv:2312.09202v1",
+          "material_read": "Abstract and §2.1",
+          "method": "OA primary text, offsets 0 and 52100",
+          "title": "On the evolution of structure in triangle-free graphs",
+          "trigger": "Possible broader triangle avoidance"
+        },
+        {
+          "assessment": "Scope not ruled out beyond the global avoidance description",
+          "evidence": "No primary full-text conclusion used.",
+          "identifier_or_url": "doi:10.1002/(SICI)1098-2418(1996)9:1/2<253::AID-RSA15>3.0.CO;2-O",
+          "material_read": "Bibliographic description; full text not obtained",
+          "method": "DOI access unsuccessful; no lawful repository copy located",
+          "title": "The perturbation method and triangle-free random graphs",
+          "trigger": "Older triangle avoidance methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "No rooted triangle is the simplest nontrivial local cycle exclusion. The result resolves when its cost comes with a macroscopic relative root-degree change, identifies an explicit critical saddle and good rate function, and shows that even the maximum relative deviation outside the root vanishes. The small-cost regime is controlled at its actual scale, not only by convergence of the event probability to one. These conclusions go beyond the elementary exact mass and do not rely on a global triangle-free analogy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

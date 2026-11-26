@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The character-inner-product zero set is exactly the unit-torus zero set of the four-term polynomial. Its pairwise-zero criterion is the elementary cosine condition \(|a^2+b^2-c^2-d^2|\le2|ab-cd|\). Rank and constant-modulus row norms force four-character uniformity and provide the necessary three-character mass bound. The degenerate case splits into a one-dimensional line-zero factorization or an opposite-equal-mass form, whose full feasible interval has explicit three-frequency witnesses. Outside that locus, zeros are at most a conjugate pair or a single parity line; three differences force order-three torsion and precisely the two displayed mass resonances. The package contains the complete proof and a reproducible standard-library checker, which is supplementary rather than an infinite proof.
+## correctness
 
-## Originality
-**PASS on inspected evidence, with residual bibliographic risk.** Searched aliases include weighted square/parallelogram finite atomic measures, trigonometric Fourier-zero sets, partial orthogonal exponential families, weighted Hadamard frames, and cubic-root resonance. The closest full primary text by Fu and Song studies complete unweighted spectral sets. Li and Wang study infinite self-affine measures. The closest full published rectangle result concerns equal-magnitude **complex** coefficients and Fourier-zero counts on finite cyclic products, which neither implies nor is implied by this new positive-weight real-frequency packing classification. No matching four-mass planar classification was found in the inspected comparison literature. Earlier unindexed equivalent weighted quadrature results cannot be excluded by search alone.
+PASS
 
-## Value
-**PASS.** Four positive weights on a parallelogram provide one of the smallest nonproduct, nonuniform Fourier orthogonality problems. The complete stratification distinguishes generic pair existence, an entire continuous three-character feasibility region, two isolated types of cubic-root resonance subspaces, and four-character uniformity. The ratio-two boundary and both resonant families give exact, motivated transition data for incomplete spectral analysis; this is not merely a renaming of an unweighted Fourier basis.
+An invertible affine change preserves all attainable phase pairs, and the common translation phase cancels from orthogonality. For two normalized characters the zero condition is a+bz=-(c+dz)w with z,w on the unit circle. Equality of the two magnitudes gives H+2J Re(z)=0, also sufficient when both sides vanish. Four characters fill the four-dimensional weighted evaluation space; squared row norms are four times the masses, so four are possible exactly at uniformity. For a triple the three-column projection similarly gives 3 times each mass <=1. If H=J=0, equality of the sums and products of the positive row pairs leaves either a zero line w=-1 (if a=c and b=d with a!=b, ruling out a triple) or the opposite-equal case a=d, b=c. There the projection bound is the stated ratio-two bound; the cosine construction cancels the first two differences by C plus the reciprocal-ratio term, and the third by 2C^2-1=-r, valid including r=1/2 and after swapping the roles of a,b. Outside H=J=0 the denominator can vanish at a zero only when z=-1, a=b and c=d; its zero line likewise precludes a triple. Otherwise Re(z) is fixed and w determined, so the zeros are contained in a conjugate pair. A triple must have a nonidentity order-three difference, because both opposite points and their doubled difference must also be zeros. Strict positivity rules out either coordinate equal to 1 at order three. The only possible phase pairs then impose a=d=b+c or b=c=a+d via the real relation 1+omega+omega^2=0, each attained. Uniformity is correctly checked first. `python3 /workspace/review_replay.py 3` independently checked representative cube-root witnesses and ratio-two boundary identities in exact arithmetic; the case proof covers all real masses, not only sampled weights.
 
-## Limitations
-The classification is only for positive masses at the four vertices of a nondegenerate affine parallelogram, and counts the largest possible family, not all maximal-by-inclusion families. The nonstandard zero-count-to-torsion implication is proved in the result. The literature search is not a proof of global novelty; no independent mathematical or bibliographic audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meaningful subcases are covered or bounded by related theorems, including the existence of the two root-of-unity families from the one-dimensional classification by projection and reflection. The distinct result is the full classification on the phase-constrained parallelogram, in particular attainability throughout the opposite-equal interval under its phase constraint and the exhaustive exclusion of any other triples.
+
+## value
+
+PASS
+
+The smallest planar parallelogram carries both a nontrivial dependence among the four phases and varying positive atom masses. The exact classification distinguishes existence of one zero from packing three pairwise-orthogonal characters, and exhibits both a sharp continuous threshold and isolated types of torsion resonance. Having the exhaustion on the full torus is useful and is not a restatement of finite spectrality or either related support classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

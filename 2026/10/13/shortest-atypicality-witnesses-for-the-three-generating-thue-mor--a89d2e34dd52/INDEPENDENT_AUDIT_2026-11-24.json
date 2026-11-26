@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:25:41.420516Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof's third spelled-out image is wrong: with a mapped to a and b mapped to bab, aabbaab maps to aababbabaabab, agreeing with the frozen binary certificate 0010110100101. The complete corrected RESULT.md fixes the false equality, supplies occurrence offsets and explains a second exact factor bound; the primary minimum values and certificate are unchanged. Independent replay (/workspace/branches/check_thue_morse_factors.py, Python 3) took a different direction from the frozen verifier. In the fixed point, every factor of length at most 13 lies in one or two consecutive length-16 substitution blocks; all four adjacent pairs of block types occur in mu^3(a), so mu^7(a) suffices to cover the full language needed. For each feasible positive image-length pair (r,s) with Ar+Bs within the claimed cap, I cut actual factors in that prefix according to the pattern and recovered only consistent pairs of letter images. The procedure is exhaustive because any feasible witness has such a cut, and conversely any consistent cut determines its two images. I excluded precisely the powers of mu and their output complements. The domains contain 228, 12 and 36 possible assignments; the minima are 13, 8 and 13, and exactly the stated pair and its complement attain each optimum. The direct occurrence offsets for the three chosen images are 29, 20 and 9. All shorter candidates are accounted for; no assertion is made for other atypical words. The frozen verifier and certificate were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper classifies all atypical factors up to variants by the three generators and identifies the entire global language-preserving monoid; it also provides exact finite factor recognition. The external search did not surface an inspectable matching theorem."
+        ],
+        "reasoning": "Language recognition is an input to the new finite minimization. A classification of whether a local witness exists, or of which maps work on every factor, does not classify shortest non-global maps on a particular pattern.",
+        "searches": [
+          "Resultary: shortest nonerasing morphisms into the Thue–Morse language and finite factor recognition",
+          "Almeida–Klíma Proposition 2.1, Theorem 4.3 and Corollary 5.1",
+          "External: atypical Thue–Morse aabab Almeida Klíma shortest morphism image bbaab minimal witness"
+        ]
+      },
+      "checked_sources": [
+        "Almeida and Klíma, arXiv:1904.07137, DOI 10.46298/dmtcs.5460",
+        "Resultary Thue–Morse antidictionary record 1b68992899c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.1 reduces membership to finite words; Corollary 5.1 specifies the exclusions; Theorem 4.3 gives the three upper bounds. None states the absence of shorter images or the exact set of ties."
+        ],
+        "reasoning": "The finite recognition theorem makes the question decidable but does not settle the pattern-specific optimum by specialization; actual consistent cutting or morphism enumeration is needed. Only the verified minima and optimizing pairs receive novelty credit.",
+        "searches": [
+          "Almeida–Klíma arXiv:1904.07137, Proposition 2.1, Theorem 4.3 and Corollary 5.1",
+          "Resultary: exact local witness classification under output complement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses exactly the same global-map exclusions. Its displayed witnesses fix a and map b to bbabaab, bb and bab, giving lengths 17, 8 and 13 respectively."
+        ],
+        "reasoning": "Quotienting by output complementation or translating to a binary alphabet leaves the minima unchanged. Even in the same formulation, a witness of image length 8 or 13 proves an upper bound, not minimality or uniqueness; the claimed aabab witness has a smaller length than the displayed one.",
+        "searches": [
+          "Resultary: aabab, abaaba and aabbaab shortest local endomorphism images; minimal atypical witnesses; bbaab witness",
+          "Almeida–Klíma arXiv:1904.07137, definition of atypicality and Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source proof lists witnesses but no table of minima or ties. The indexed 4m-5 formula counts minimal absent contiguous factors of finite iterates, not shortest images of patterns under endomorphisms."
+        ],
+        "reasoning": "The factor language provides a finite search space but is not a lookup table for a morphism's effect on multiple occurrences of each letter in a pattern. The indexed exact spectrum answers a different question.",
+        "searches": [
+          "Resultary: exact aabab/bbaab image length, generating atypical witnesses and Thue–Morse factor tables",
+          "Almeida–Klíma proof of Theorem 4.3 and Proposition 2.1",
+          "Resultary Thue–Morse antidictionary record 1b68992899c3"
+        ]
+      },
+      "rationale": "The supported claim after correction is the set of exact shortest lengths and the complete minimizing sets for the three canonical generating patterns, including the genuinely shorter witness for aabab. The source already gives attaining witnesses for abaaba and aabbaab, and their existence at those lengths is not credited as new.",
+      "residual_risks": [
+        "Ranked index and focused literature searches are bounded; an unindexed pattern-specific optimization may exist. The externally returned Ellis-semigroup item was not available for inspection and is not relied on for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior witnesses and language tools; not optimization or tie classification",
+          "evidence": [
+            "Offsets 8295, 23469, 27354, 36750. The source's upper bounds are 17, 8 and 13, and the excluded monoid is generated by the morphism and complementation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.07137",
+          "material_read": "Proposition 2.1, p. 3; atypicality definition, p. 7; Theorem 4.3 and proof, p. 8; Corollary 5.1, p. 11",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Binary patterns in the Prouhet–Thue–Morse sequence",
+          "trigger": "Exact atypicality definition, canonical generators, previously given witnesses, and factor-recognition cutoff"
+        },
+        {
+          "assessment": "Different length invariant",
+          "evidence": [
+            "For m>=3 the length-2^m iterate has 4m-5 minimal absent contiguous factors; this is not a spectrum for images of atypical words."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-antidictionary-size-and-length-spectrum-of-finite-thue-mor--1b68992899c3",
+          "material_read": "RESULT.md offsets 0–2100: finding, scope and beginning of proof",
+          "method": "Local mirror",
+          "title": "Exact antidictionary size and length spectrum of finite Thue–Morse words",
+          "trigger": "Closest indexed exact Thue–Morse length spectrum"
+        },
+        {
+          "assessment": "No demonstrated claim overlap; not used as negative evidence",
+          "evidence": [
+            "Search supplied bibliographic title only; no identified alternate open copy in the result."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/405428662_When_is_the_Ellis_semigroup_a_complete_conjugacy_invariant",
+          "material_read": "No full-text passage inspected",
+          "method": "Lawful OA retrieval unsuccessful",
+          "title": "When is the Ellis semigroup a complete conjugacy invariant?",
+          "trigger": "Only hit returned by focused external search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three inputs are canonical because they generate the atypical class under variants and factors, not because they happen to make for a small search. Minimum local witness length measures how early the obstruction to global preservation can be demonstrated. Exact lower bounds and complete optimizer pairs answer that question for the full generator set, including a shorter certifiable witness for the first generator. The result does not claim a new theory of all atypical factors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

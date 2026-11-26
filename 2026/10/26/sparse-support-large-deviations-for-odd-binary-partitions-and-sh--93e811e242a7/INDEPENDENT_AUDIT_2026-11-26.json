@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:36.456393Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–101",
+        "Frozen VERIFICATION.md lines 19–23",
+        "Frozen check.py lines 7–46, inspected only",
+        "Andrews 2019, Theorem 1; Ballantine–Beck, arXiv:2303.11493, Theorem 6.1"
+      ],
+      "rationale": "Reconstructed the upper count by placing a support of size s at the s cheapest exponents, multiplying 1+floor(n/2^(j+1)) over those exponents, then allowing at most 2^(k+1) supports. This gives log_2 b_{<=t} <= tk-t^2/2+O(k) for admissible t. The matching lower bound fixes consecutive exponents 0 through s-1, draws the multiplicity parameters at j>=1 from independent boxes of total cost <=n/4, and completes the sum at j=0. Oddness of n and of the baseline 2^s-1 gives an integer nonnegative parameter at j=0, and different boxed choices give different partitions. The log volume is sk-s^2/2+O(k log(k+2)) with the error uniform in the allowed s; use s=t for fixed epsilon and s=k-O(log k) for the total. Subtraction yields exactly the two-sided tail exponent with its stated error. The support weight 2^(J-1) then gives the claimed upper bound 2^k and lower bound 2^t(1-o(1)) for the mean on odd indices only. Independently checked exact support histograms for 1<=n<=255 by direct odd-multiplicity recursion against H(2m)=H(m) and H(2m+1)=H(2m-1)+zH(m), with H(0)=1 and H(1)=z. The finite replay is python3 /tmp/opencode/frozen_independent_checks.py (line beginning 3:).",
+      "residual_risks": [
+        "The finite check tests histograms, not any asymptotic limit. Epsilon is fixed for the tail assertion. No all-integer separation or multiplicative equivalent follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The established partition and overpartition correspondences yield the exact counts and the support weight; §12 proposes comparing odd-index growth rates. The inspected Keith–Munagi passage gives the semi-Pell recurrence."
+        ],
+        "reasoning": "Correspondences or separate recurrence descriptions do not bound the joint distribution of occupied part sizes. In particular, no inspected broader theorem bounds the number of low-support configurations from below at the required scale.",
+        "searches": [
+          "Andrews 2019, Theorem 1",
+          "Ballantine–Beck arXiv:2303.11493, §6 and §12",
+          "Keith–Munagi 2023 equation (1.2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c8609e8e75b8",
+        "Andrews, Theorem 1",
+        "Ballantine–Beck, Theorem 6.1 and §12",
+        "Keith–Munagi, equation (1.2)",
+        "OEIS A030067, A129095, A129096"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-sided bound giving J/k near 1 with high probability suffices for the ratio and is already present in the closest catalogue proof. It allows the exceptional proportion to be much smaller than the frozen two-sided rate. The underlying correspondences give no control in the opposite direction."
+        ],
+        "reasoning": "Neither the existing ratio nor the upper-tail estimate gives a lower bound on the count of partitions at support t. The consecutive-support construction and parity-preserving completions give a separate bound on the rare event itself, completing an equality that does not follow from the covered claims.",
+        "searches": [
+          "Resultary c8609e8e75b8, Step 2 equations (5)–(6)",
+          "Ballantine–Beck §12 and Theorem 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c8609e8e75b8, finding and Step 2 equations (5)–(6), has precisely the same log ratio limit 1, and bounds below-typical support with exponent -epsilon^2/2 on the log-squared scale in one direction."
+        ],
+        "reasoning": "That source counts occupied sizes other than the mandatory 1; thus its statistic r is J-1. This difference and the floor used for log_2(n/2) only shift the support threshold or k by O(1) at the relevant scale. The tail upper exponents truly overlap, but the inspected estimate does not supply the sharp lower bound.",
+        "searches": [
+          "Resultary/SCOPE: semi-Pell versus semi-Fibonacci odd-index ratio and sparse supports of odd binary partitions",
+          "Primary literature lookup for the odd-index growth and support-tail asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists the exact sequences and A129096 is the odd-index semi-Pell sequence; the local Resultary record gives the exact exponent of their ratio and one-sided support asymptotics."
+        ],
+        "reasoning": "The tabulated terms and recurrences are known and not credited as new. No inspected entry supplies the fixed-epsilon, two-sided restricted-support law.",
+        "searches": [
+          "OEIS A030067, A129095 and A129096, direct entry pages",
+          "Resultary c8609e8e75b8"
+        ]
+      },
+      "rationale": "The supported distinct result is the matching lower and upper logarithmic rate for sparse support. The strongest indexed comparison gives the same ratio exponent and the same leading support upper bound, so neither is credited as independently distinct. The dates of the two records do not establish historical priority. The matching lower bound is a material additional conclusion and the main frozen claim is not covered by the compared statements.",
+      "residual_risks": [
+        "Targeted rather than exhaustive historical coverage. The ratio exponent and upper bound are independently indexed; no separate originality credit is assigned to either. A more general support asymptotic in binary partition literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage, not coverage of the two-sided rate",
+          "evidence": "Odd-index ratio exponent 1 and one-sided support probability bound with exponent -epsilon^2/2, using r=J-1.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-relative-logarithmic-growth-of-semi-pell-and-semi-fibonacc--c8609e8e75b8",
+          "material_read": "RESULT.md finding and Step 2 equations (5)–(6), offset 3369 on mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror text",
+          "title": "Sharp relative logarithmic growth of semi-Pell and semi-Fibonacci sequences",
+          "trigger": "Matching ratio and sparse-support exponent"
+        },
+        {
+          "assessment": "Exact correspondence, not two-sided support statistics",
+          "evidence": "sf(n)=ob(n) for odd occupied multiplicities; halving at even indices and summing previous two terms at odd indices.",
+          "identifier_or_url": "https://georgeandrews1.github.io/pdf/Binary%20and%20Semi-Fibonnaci.pdf",
+          "material_read": "PDF pp. 1–2, equation (1.1), Theorem 1 at offset 2508",
+          "method": "Lawful OA PDF",
+          "title": "Binary and Semi-Fibonacci Partitions",
+          "trigger": "Known partition interpretation"
+        },
+        {
+          "assessment": "Weight covered; growth comparison motivates rather than supplies the matching support rate",
+          "evidence": "Required overline on largest part implies 2^(J-1) choices; odd-index comparison is raised in §12.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.11493",
+          "material_read": "PDF pp. 20–21, definition and Theorem 6.1 (offsets 61403, 64465); p. 35 §12 (offset 104461)",
+          "method": "Lawful OA PDF",
+          "title": "Partitions enumerated by self-similar sequences",
+          "trigger": "Same weights and stated odd-index growth question"
+        },
+        {
+          "assessment": "Verifies exact recurrence",
+          "evidence": "The odd-index recurrence is 2sp(n-1)+sp(n-2); the even-index recurrence halves n.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+          "material_read": "PDF p. 2 equation (1.2), offset 2930",
+          "method": "Lawful OA PDF",
+          "title": "Power compositions and semi-Pell compositions",
+          "trigger": "Alternate exact formulation of semi-Pell counts"
+        },
+        {
+          "assessment": "Sequence identities covered",
+          "evidence": "The odd-index lookup A129096 lists sp(2n-1); the compared recurrence entries do not furnish restricted-support lower bounds.",
+          "identifier_or_url": "https://oeis.org/A030067 ; https://oeis.org/A129095 ; https://oeis.org/A129096",
+          "material_read": "Entry definitions and recurrence passages",
+          "method": "Direct public OA pages",
+          "title": "OEIS semi-Fibonacci, semi-Pell, and odd-index semi-Pell entries",
+          "trigger": "Exact recurrence or asymptotic coverage in reference entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–28 and 53–101",
+        "Ballantine–Beck §12",
+        "Resultary c8609e8e75b8"
+      ],
+      "rationale": "The two-sided law measures how rarely a uniformly chosen odd-multiplicity partition uses a given small fraction of the available sizes. It goes beyond proving concentration near full logarithmic support, and reveals the statistic connecting two established self-similar sequences. This is a meaningful distributional result even after crediting the existing ratio and one-sided bound.",
+      "residual_risks": [
+        "Only logarithmic-scale rare-event estimates are proved. Near-typical fluctuations, a local limit, and a sharp ratio equivalent are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

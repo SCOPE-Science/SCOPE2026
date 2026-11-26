@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:29.125958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A finite avoiding word either has no 11 or has a terminal run of at least two ones after a prefix without 11 ending in zero (or empty). This gives F_{k+2}+F_{k+1}-1. In the required-edge subgraph, outdegree minus indegree is 1_{begins 10}-1_{ends 11}; the positives are precisely the length-(k-1) states beginning 10 and containing no 11, so there are F_{k-1} positives and as many negatives ending 11. Extra edges of any covering closed walk decompose into directed paths from negatives to positives and cycles. A path shorter than k-2 preserves a suffix-prefix overlap of length at least two and hence carries the negative source's terminal 11 into the positive target, impossible because the target contains no 11 anywhere. This uses the stronger no-11 property from Step 2, rather than merely the first two symbols as suggested by the compressed wording in Step 3. Appending the last k-2 symbols of the target gives a path of exactly that length because both endpoints share the one-symbol overlap 1. Matching all deficits and surpluses balances the graph; required edges already weakly connect their vertices by prepending zeros, and inserted paths attach to this support. Euler traversal yields the upper bound. Reversal/complement and the Fibonacci ratio give the other assertions. The independently written `python /tmp/opencode/frozen_review_checks_3_4.py cover` solved the full minimum-cost circulation, with integer connected solutions and matching lengths 8,16,29,53,94,166,290,504,871 for k=3..11; the finite check does not prove the all-k result. The archived verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prescribed exact factor-set problem uses de Bruijn graphs and directed route inspection; the minimum forbidden-substring de Bruijn paper studies periodic admissibility and lexicographic minimality."
+        ],
+        "reasoning": "The frozen problem is a compulsory-subset route inspection on the full graph, rather than exact factor equality or exact-once traversal of a periodically admissible language. Those general frameworks are not the cause of the exact-coverage verdict.",
+        "searches": [
+          "Bernardini et al., DOI 10.4230/LIPIcs.CPM.2022.16",
+          "Moreno–Matamala arXiv:0711.1695",
+          "Burstein–Kitaev arXiv:math/0311399"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary e87a9a41d879, 0456cecb5943 and 115d2faf86fa",
+        "OEIS A023607",
+        "arXiv:0711.1695",
+        "arXiv:math/0311399",
+        "DOI 10.4230/LIPIcs.CPM.2022.16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For instance 011 is finite-admissible for 110 but not periodically admissible under repetition, so Moreno–Matamala's language is genuinely different. The complementary 001 catalogue result has the same finite admissibility and unrestricted host, implying every frozen finding after complement/reversal and the elementary Fibonacci asymptotic."
+        ],
+        "reasoning": "The fail follows from mathematical implication by the exact counterpart, not a general framework, a numerical match, the broken citation, or a guess from chronology.",
+        "searches": [
+          "Comparison with Resultary e87a9a41d879, Moreno–Matamala §2.1 and the cited Chen–Kitaev–Sun universal-cycle article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed claim gives F_{k+3}-1+(k-2)F_{k-1} for a cyclic host covering all finite length-k words avoiding 001, with extra windows allowed for every k>=3."
+        ],
+        "reasoning": "Bit complementation is a length-preserving bijection on finite words, host words, and cyclic windows, exchanging 110 and 001. It proves full equivalence, not just a resemblance or table match; reversal and complement complete the same orbit.",
+        "searches": [
+          "Resultary: shortest cyclic covers of 110-/001-avoiding binary words with Fibonacci overhead",
+          "Record e87a9a41d879 Finding, mirrored offset 352"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A023607 gives a(n)=nF_{n+1}, exactly the proposed excess after shifting by k-2. e87a9a41d879 records the matching theorem, not only the sequence. The adjacent catalogue entries concern two forbidden triples or an avoiding host for forbidden 11."
+        ],
+        "reasoning": "The OEIS match alone would not establish the combinatorial optimum. The distinct exact theorem in the indexed corpus does, up to the explicit word relabeling.",
+        "searches": [
+          "OEIS A023607 OFFSET and FORMULA",
+          "Resultary e87a9a41d879 and adjacent comparison records 0456cecb5943, 115d2faf86fa"
+        ]
+      },
+      "rationale": "The exact all-k optimum for a single forbidden triple with unrestricted cyclic hosts is fully covered by a distinct indexed record, e87a9a41d879, under bit complementation (already an explicit symmetry of the frozen claim). No distinct scientific remainder is established. This is a finding of exact equivalent catalogue coverage, not a conclusion about who obtained the theorem first. The earlier and later archive path dates and the unsuccessful primary search do not settle historical priority.",
+      "residual_risks": [
+        "No chronological priority determination is made from either record path.",
+        "The broad targeted search did not find a primary exact match; the Chen–Kitaev–Sun full text was not recovered. Neither fact drives the coverage verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT EQUIVALENT COVERAGE",
+          "evidence": "The same unrestricted cyclic host minimum for all k>=3, with finite-language admissibility and the complementary factor.",
+          "identifier_or_url": "2026/11/2/SCOPE-fibonacci-overhead-for-cyclic-covers-of-001-avoiding-binary-word--e87a9a41d879",
+          "material_read": "Mirrored RESULT.md Finding at offset 352",
+          "method": "Configured Resultary search and mirrored text inspection",
+          "title": "Fibonacci overhead for cyclic covers of 001-avoiding binary words",
+          "trigger": "Identical formula for complementary forbidden factor"
+        },
+        {
+          "assessment": "EXACT NUMERIC MATCH ONLY",
+          "evidence": "a(n)=nF_{n+1}.",
+          "identifier_or_url": "https://oeis.org/A023607",
+          "material_read": "OFFSET and FORMULA fields",
+          "method": "Read public entry",
+          "title": "Fibonacci product sequence",
+          "trigger": "Exact excess sequence"
+        },
+        {
+          "assessment": "DIFFERENT LANGUAGE AND OPTIMIZATION",
+          "evidence": "Language membership is periodic; the sequence uses each member once and minimizes lexicographic order.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+          "material_read": "Primary pp. 1–3, especially §2.1",
+          "method": "Read primary PDF passage",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Same forbidden-substring and minimum-cycle terminology"
+        },
+        {
+          "assessment": "RELATED FRAMEWORK ONLY",
+          "evidence": "Studies unavoidable sets of word patterns and their connection with universal cycles; inspected statement is not an exact repetition-allowing cover.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0311399",
+          "material_read": "Primary p. 1, abstract and introduction",
+          "method": "Read primary PDF passage",
+          "title": "On Unavoidable Sets of Word Patterns",
+          "trigger": "Prior pattern language/universal cycles citation"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK, DIFFERENT FACTOR CONSTRAINT",
+          "evidence": "Exact prescribed sets of factors, de Bruijn Eulerian walks and directed Chinese Postman; no such Fibonacci optimum in the inspected statement.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+          "material_read": "pp. 16:1–2",
+          "method": "Read published OA text passage",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "De Bruijn route-inspection equivalent"
+        },
+        {
+          "assessment": "LOCATOR INCORRECT, FULL COVERAGE NOT ASSESSED",
+          "evidence": "arXiv:2005.00165 resolves to an unrelated Davis–van Schijndel paper; title-matched abstract addresses universal cycles using each member once.",
+          "identifier_or_url": "Cited arXiv:2005.00165 is incorrect; title located separately",
+          "material_read": "Title-matched abstract only; wrong arXiv PDF p. 1",
+          "method": "Checked supplied locator and identified lawful Strathprints and MDPI sources; full text not retrieved",
+          "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Check exact-once comparison and bibliography"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The minimum unrestricted cover and its repetition overhead are natural objects, and the proof is correct. But this narrow exact invariant is entirely recovered by the already indexed complement-equivalent theorem, including the construction and its numerical dependence at the claim level. The record supplies no additional invariant, bound, or independently needed distinction that survives this overlap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

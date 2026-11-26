@@ -1,23 +1,21 @@
-# Scientific review: spectral correction to a spherical hard-edge coefficient
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement covers every real positive semidefinite trace-one matrix in dimension at least two; it does not presume inverse-profile invertibility. Gaussian polar independence gives the second, third and fourth central moments of \(X=nU^{\mathsf T}HU\) exactly. The scalar polynomial identity in the proof holds for **all** \(X\ge0\), and its fourth-order remainder kernel is positive and bounded by \(5/16\), including at the potentially singular endpoint \(X=0\). Thus expectation immediately proves the global signed bound. The fourth-moment estimate and Cauchy–Schwarz give the relative diffuse limit without assuming a bounded condition number. A positive-definite, equal-purity/opposite-cubic pair checks the sign and confirms the cubic dependence.
+PASS
 
-The included independent rational Dirichlet computation checked the Gaussian moment coefficients and boundary profiles. Periodic circle quadrature checked the complete inequality numerically in dimension two, with finite integration error explicitly allowed. 1,478 assertions passed. Finite computations support the exact algebra, not the infinite-dimensional result; no external proof certification has occurred.
+For a_i=λ_i−1/n, the normalized Gaussian square representation gives Dirichlet(1/2,...,1/2) spherical squares. Independently, E[(X−1)^j]=n^j j!/(n/2)_j times the degree-j coefficient of ∏_i(1−a_i t)^(−1/2). The linear coefficient vanishes; expanding exp(∑_(j≥2) A_j t^j/(2j)) gives exactly the second, third and fourth moments in (4). On writing r=√x, the scalar cubic residual factors as (r−1)^4(r²+4r+5)/16, including at x=0. Rewriting in powers of x−1 gives the asserted kernel; its derivative in r has sign −2r²−10r−16, hence its multiplier is in (0,5/16]. This proves both bounds in every dimension, including singular H. The fourth-moment to variance-squared ratio is at most 15n(n+2)/[(n+4)(n+6)]≤15, by A_4≤A_2². Cauchy–Schwarz then bounds the cubic by √15 v^(3/2); effective-rank divergence makes v→0, and when A_2>0 the relative error to v/8 tends to zero. The two-band positive spectra realize the leading constant, and the equal-A_2 profiles have A_3=±6δ³ and A_4=18δ⁴, giving exactly the stated difference and its sign. The supplied verifier and recorded output were inspected, not used to certify the analytic result.
 
-## Originality — PASS, with historical-priority qualifications
+## originality
 
-Häggblom's arXiv:2610.31143v1 Proposition 7.1 identifies the exact variance and gives only \(1-\vartheta_n(H)\le v/2\), while Corollary 1.3 records the qualitative diffuse limit. That source supplies neither the sharp ratio \(1-\vartheta_n(H)\sim v/8\), the signed cubic correction involving \(\operatorname{tr}(H-I_n/n)^3\), nor the globally positive fourth-order remainder. Its coefficient's universality and the basic variance identity are not claimed here. The primary article was read in its introduction, Proposition 7.1, surrounding proof, and applications.
+PASS
 
-Gusakova–Spodarev–Zaporozhets (arXiv:2206.14002v2) provides a broader exact integral representation of ellipsoid mean width, which includes the spherical square-root mean after normalization. It does not state the moment enclosure assessed here; the underlying mean-width equivalence is acknowledged. Häggblom's earlier phase-retrieval preprint (arXiv:2609.28198v1), especially Section 9, develops another inverse-tail spherical-norm coefficient and trace concentration, not an all-profile centered-spectrum cubic inequality. Hillier (2001) treats densities of spherical quadratic forms; the abstract was read but its full text was not available during the search. Mathematical-record queries for spectral cubic correction, Haar quadratic-form square-root expansion and hard-edge anisotropy did not uncover an equivalent complete statement. Absence of a matching search result is not uniqueness certification. A comprehensive historic mean-width perturbation treatment could already imply the cubic formula, and independent historical-priority checking remains necessary.
+The prior functional, exact variance and qualitative effective-rank criterion are established. The inspected prior sources do not give the signed cubic correction or a uniform two-sided quartic enclosure on the full semidefinite domain; neither their coarse variance bound nor their exact integral representations directly supply that statement. The sharper relative leading law is a consequence of the checked refinement. This is bounded distinctness, not a priority guarantee.
 
-## Mathematical value — PASS
+## value
 
-The new probability-theory application has a deterministic leading coefficient controlling extremely rare singularity events; existing results identify the coefficient by a spherical integral and give only a coarse variance-scale bound. The exact leading constant, together with a uniform explicit signed third-spectral-moment refinement and positive fourth-order error enclosure, improves quantitative calibration of that coefficient on arbitrary diffuse inverse profiles and supplies an algebraic replacement for high-dimensional spherical integration. Two profiles can have the same effective spectral purity but different coefficients already at cubic order. These distinguishable natural inverse profiles are not arbitrary numerical slices. The bound is a coefficient-level improvement, not a new universality error rate, and the quartic envelope is not asserted optimal.
+PASS
 
-## Known limitations
+This gives an explicit interval for a deterministic coefficient used in hard-edge analysis, uniform up to zero eigenvalues and without a pointwise perturbation assumption. The locality of the ordinary square-root Taylor expansion is a real issue at that boundary. The relative leading constant and signed equal-purity discrimination add spectral information beyond the earlier coarse upper bound. It is a useful refinement of the coefficient, not an improvement in the underlying universality error.
 
-The result is a deterministic spectral correction and does not improve the independently existing random-matrix probability error term, which can dominate the bias correction. For non-diffuse sequences the global inequality remains valid but its polynomial may not be a close approximation. The result relies on Haar directions and positive semidefinite forms; it does not treat singular-value distributions beyond the first hard-edge coefficient. General ellipsoid mean-width expansions remain a historical priority risk. No independent verification is claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

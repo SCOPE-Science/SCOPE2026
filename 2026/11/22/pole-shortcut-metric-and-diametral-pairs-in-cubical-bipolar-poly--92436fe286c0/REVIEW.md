@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The one-skeleton is identified from the interval-face description in Pavlík [1]: every graph edge is a cover relation in the cubical face lattice. For nonempty faces this is a Cartesian product of three-vertex paths, while the empty face joins all cube vertices. The exact distance is therefore the minimum of the coordinatewise route and a route through the empty-face vertex. The two-route formula proves the sharp diameter, self-centering, and characterizes equality. The multinomial counting and exponential-moment bound follow directly from independent coordinate types. The included pure-Python checker constructed each finite graph independently and exhaustively verified all distances for dimensions one through six. Finite verification is not substituted for the general proof.
+## correctness
 
-## Originality (PASS, provisional)
-Pavlík [1, Sections 4 and 5] proves the bipolar construction and cube realizability, not the all-pair graph metric, diameter-pair enumerator or mean-distance shortcut law. Savvidou [2, Sections 2--4] treats cubical barycentric-subdivision face numbers and \(h\)-polynomials; an interval-poset construction appears there but does not imply the claimed graph-distance enumerator. Pineda-Villavicencio [3, Section 2.3] gives the classical cube face-lattice Hasse diagram, an antecedent for the graph, not the complete metric classification. Targeted searches against published mathematical records and web literature identified no implication-equivalent theorem. Residual priority risk is historical work on the face-poset cover graph under different terminology.
+PASS
 
-## Mathematical value (PASS)
-The new bipolar-polytope family [1] has a fully determined, surprising graph metric: it is self-centered in every dimension and has nonuniform degrees when \(n\ge2\), the full set of maximally separated vertex pairs is classified, and the empty-face pole reduces typical distances from the direct-coordinate mean \(8n/9\) to \(2n/3+2+o(1)\). The exact distance enumerator supplies an all-dimensional benchmark for the combinatorics of the new polytope construction; these are not mere face-count substitutions.
+Pavlík's interval description gives one vertex per cube face and one edge per cover; the cube realization supplies the required existence. A nonempty face is a ternary word, so without the empty-face pole the graph is a product of three-vertex paths with distance 2a+b. The pole is adjacent precisely to the zero-free words, at distance f(u)+1 from u. Any geodesic either avoids it or uses it once, giving the minimum of the two stated costs. Equivalently the nonempty-pair metric is n+1−e−|a−c−1|, so equality with n+1 requires e=0 and a=c+1. Every nonpole with a fixed coordinate has a partner made by reversing one sign, freeing every other fixed coordinate, and fixing all free coordinates; the two poles partner each other. This proves all eccentricities, including n=1. The four ordered coordinate multiplicities are 2,4,1,2; deleting the 3^n diagonal pairs, halving the ordered count and adding the empty-face shells gives the enumerator, and degree-one coefficients agree with the edge count. The mean correction is 2E[(C−A+1)_+]. Only A−C≤0 contributes, and the single-coordinate exponential moment at (log 2)/2 is (6+2√2)/9, establishing the stated bound for sampling with replacement. An independently written vertex-set-inclusion graph and exhaustive BFS reproduced the metrics and all six listed diametral counts in dimensions 1–6 (/workspace/branches/independent_replay.py, cube()). The packaged checker was read but not run. The finite reproduction is not the all-n proof.
 
-## Scientific limitations
-No claim is made beyond the cubical combinatorial type; graph distance is not Euclidean distance. Prior formulae under alternate historical terminology may exist. External independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying cover graph and realization, the induced path product, and the regular-grid distance before adding the pole are antecedent or elementary. The distinct finding is the analysis of distances in the augmented graph, including all diametral pairs, full enumerator, and exponential accuracy of the pole-route mean. No separate matching statement was found in the bounded comparison.
+
+## value
+
+PASS
+
+A single additional face vertex changes typical distances by a term linear in dimension relative to the coordinatewise product, yet every vertex has the same maximal eccentricity. Exact all-distance and diametral-pair data for this natural combinatorial polytope family, together with a quantitative mean estimate, make the metric useful beyond face counting or a small-dimensional observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

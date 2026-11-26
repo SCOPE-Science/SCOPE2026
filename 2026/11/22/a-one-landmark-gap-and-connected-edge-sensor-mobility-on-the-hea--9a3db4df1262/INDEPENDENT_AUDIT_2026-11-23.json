@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:59:26.512748Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tested predicate is exactly distinct edge-distance codes plus coverage of each edge by a distance-0 or distance-1 code entry, not domination of the selected vertices or resolution of vertices. I independently recomputed the finite census using shortest paths, ternary edge codes for every mask up to size six, pairwise XOR for all possible moves, and an orbit-weighted BFS. The binary point labelling 1,2,4,3,6,7,5 in cyclic point order maps each line triple of the cyclic construction to a triple with binary xor zero; every such triple is the nonzero part of a normal's orthogonal plane. Thus the graph used is exactly the specified incidence graph. The 6,476 candidate sets give edge-resolving counts (0,0,0,0,0,168,1890); all 168 five-sets miss one coverage edge and the simultaneous minimum is six, with 1386 states. The containment counts are (574,672,84,56). Jump transitions are exactly two changed bits, with slide transitions additionally requiring that bit pair to form a graph edge. BFS reaches all states from all orbit representatives and yields jump edge count 17514, radius/diameter 6/6; slide count 5040, radius/diameter 7/9. Both full pair histograms match RESULT.md lines 38–50. A bipartition-preserving automorphism must preserve the operation taking two distinct nonzero points to the third point of their line, which is their binary sum; extending by zero makes this a linear map. The 168 choices for an ordered basis image produce all such maps, and the point/normal interchange gives all bipartition-reversing automorphisms. Orbit sizes are (14,28,28,56,84,168,168,168,168,168,336). An incidence automorphism preserves both predicates and both move rules, so weighting shortest-path results by orbit size and halving positive-distance ordered counts is exact. The independent reconstruction is reproducible from /workspace/branches/heawood-enumeration.js. The two frozen programs verify_incidence.py and verify_binary.py and their outputs were inspected, not executed. The proof and replay are for this 14-vertex graph only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abstract, definition and examined family sections of arXiv:2211.09327v1 treat paths, cycles, bipartite examples, wheels/fans and selected products.",
+          "Resultary complete-prism record 458dd571fbf7, RESULT.md offsets 150–470 and 3857–3966: combined minimum for K_n □ K_2, for which edge resolution already implies vertex-edge domination."
+        ],
+        "reasoning": "Same predicate is not enough for coverage. The complete prism family has clique layers (and for the bipartite low-order case a four-cycle); it does not include the girth-six Heawood incidence graph. The inspected general definitions and family-specific results do not yield its simultaneous minimum or reconfiguration metrics.",
+        "searches": [
+          "arXiv:2211.09327v1, graph families and Cartesian products",
+          "Resultary 458dd571fbf7, exact vertex-edge dominant edge metric bases of complete prisms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.09327v1",
+        "arXiv:1602.00291v1",
+        "Resultary d4a919fbecfd",
+        "Resultary 458dd571fbf7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every state of the known Heawood five-basis graph fails the additional coverage requirement by exactly one edge, as independently enumerated here.",
+          "574 of the six-vertex optima do not contain any five-vertex edge-metric basis."
+        ],
+        "reasoning": "Even the complete census and slide graph of the former optima do not enumerate the new family by filtering, relabeling or taking all one-vertex extensions. In particular the 574 optima prevent a reduction to an augmentation of known bases, and shortest paths through feasible six-sets must be established for the new graph.",
+        "searches": [
+          "Resultary d4a919fbecfd RESULT.md finding and slide relation",
+          "arXiv:2211.09327v1 §§2–3 joint predicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ikhlaq–Hayat–Siddiqui, §3, p. 6, OA text offset 19292: a joint set is both edge resolving and vertex-edge dominating.",
+          "Kelenc–Tratnik–Yero, pp. 1–3, offsets 1934–3275 and 9679: distinguish every edge pair by vertex-to-edge distances, without the coverage clause."
+        ],
+        "reasoning": "The new census uses the known combined invariant, with coverage equivalent to distance at most one from an edge endpoint. Fano incidence is an alias for the Heawood graph, not a change of domain. An edge generator without the domination qualification is strictly weaker here; adjacency-constrained replacement is also not a synonym for all token replacements.",
+        "searches": [
+          "arXiv:2211.09327v1 §3, vertex-edge dominant edge resolving set",
+          "arXiv:1602.00291v1, edge metric generator",
+          "Resultary d4a919fbecfd, edge-metric bases of the Heawood graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-graph table in d4a919fbecfd, RESULT.md offsets 402 and 929, gives 168 five-sets and 21 disjoint 8-cycles under token slides.",
+          "The exact joint complete-prism census concerns a different family. Neither match is a table of 1386 joint Heawood six-sets, the 5040 slide edges or diameter 9."
+        ],
+        "reasoning": "An exact table must tabulate the same graph, both predicates and the corresponding minimum-state move relation. The closest recovered counts fail that comparison. This bounded index and text comparison is not a proof of absence.",
+        "searches": [
+          "Resultary d4a919fbecfd, Heawood edge-metric bases and octagonal slide reconfiguration",
+          "Resultary 458dd571fbf7, complete-prism vertex-edge dominant edge metric basis census"
+        ]
+      },
+      "rationale": "The underlying invariant and the 168 Heawood edge-only bases are prior. The same-graph antecedent has a strictly weaker feasible-state definition and cannot provide the larger joint-predicate minima or their move graph by restriction or augmentation of its own minimum states. No compared broader statement or exact prior table covers those claims; the result is qualified by the finite source coverage.",
+      "residual_risks": [
+        "An earlier unindexed Heawood enumeration under different terminology could overlap; no comprehensive priority guarantee is inferred.",
+        "General literature comparisons are based on the relevant passages and stated graph families, not a claim to rule out all possible implicit uses of the invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent predicate; inspected family results do not cover this census",
+          "evidence": [
+            "PDF offsets 2076–2671 and 19292, distinction and coverage in conjunction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.09327v1",
+          "material_read": "Abstract p. 1, §3 p. 6 definition, relevant family passages",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+          "trigger": "Defining paper for the exact joint invariant"
+        },
+        {
+          "assessment": "Same distance distinction, no joint coverage requirement in those statements",
+          "evidence": [
+            "Offsets 1934–3275 and 9679 give edge-code distinction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.00291v1",
+          "material_read": "PDF pp. 1–3, definitions and edge generators",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Prior edge resolving condition"
+        },
+        {
+          "assessment": "Direct prior coverage for the five-basis counts and weaker slide graph only",
+          "evidence": [
+            "168 minimum edge-only bases, token-slide graph 21C8, without vertex-edge domination."
+          ],
+          "identifier_or_url": "SCOPE-20261108-d4a919fbecfd",
+          "material_read": "Published RESULT.md passages at offsets 402 and 929",
+          "method": "Published Resultary record via local mirror",
+          "title": "Edge-metric bases of the Heawood graph and octagonal slide reconfiguration",
+          "trigger": "Closest same-graph exact classification and move graph"
+        },
+        {
+          "assessment": "Different base graph family; not a specialization",
+          "evidence": [
+            "The prism edge-only predicate already implies the joint predicate there, unlike the present graph."
+          ],
+          "identifier_or_url": "SCOPE-20261102-458dd571fbf7",
+          "material_read": "Published RESULT.md offsets 150–470 and 3857–3966",
+          "method": "Published Resultary record via local mirror",
+          "title": "Exact vertex-edge dominant edge-metric bases of complete prisms",
+          "trigger": "Same combined invariant; possible broader covering family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The combined invariant and the Heawood graph are both pre-existing natural objects. The precise one-landmark cost and the contrast between disconnected old slide optima and connected new slide optima answer a motivated structural question about adding local coverage. The exact radius/diameter and the census of optima inaccessible by a one-token augmentation of an old basis give useful benchmark facts not mechanically obtained from the weaker census. No all-order claim or applied sensor performance is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

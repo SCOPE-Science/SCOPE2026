@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:08.127908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over the stated split characteristic-two ring, U=I+N+εB satisfies U²=I exactly when N²=0 and NB=BN. In a basis of im N, a complement in ker N, and a lift of the image basis, N has only the (1,3) identity block. Its commutant has independent blocks P,Q,X,Y,Z of dimensions r²,s²,rs,r²,sr, and repeats P in the last diagonal block, where s=n-2r. Invertibility requires P and Q invertible. The q^d commuting B cancel q^d in the group centralizer, leaving |GL_n|/(Φ_rΦ_s) by the unique field Jordan orbit at rank r. This includes the identity and gives q^(n²) at r=0; empty diagonal blocks give the stated boundary convention. For N₀=m+1 ranks and b=Φ_∞^-2, the deficit D=N₀b-∑w_r is at most b C_q by bounding 1-Φ_∞/Φ_k by q^-k/(q-1) and summing the two geometric series. Comparing w_r/∑w_r to w_r/(N₀b) and then to 1/N₀ gives TV≤D/(N₀b), which proves the constant, while summing gives the total asymptotic and rescaling the uniform grid gives the weak law. Over the field alone the uncancelled exponent is r²+(n-r)², penalizing a deficit j=m-r by q^(-2j²-2(n-2m)j) up to bounded product factors, consistent with the stated contrast. The supplied checker and recorded counts were inspected, not rerun; they agree with the strata and are not the proof of the general formulas. No extension to characteristic four or nonsplit rings is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two catalogue results refine residue rank by another Smith invariant; the dual-number census is not restricted to characteristic two and gives the same marginal by summation.",
+          "Fulman et al. give the field-level involution strata; Stasinski describes the length-two reduction kernel. Neither of these cited passages by itself is the rank-refined dual-number census."
+        ],
+        "reasoning": "Marginalizing the stronger square-zero count and specializing to the split ring in characteristic two subsumes the enumeration. The field-only count has an extra centralizer power and does not alone assert the uniform law.",
+        "searches": [
+          "Resultary 9ce1162ea15b, exact Smith census for split dual numbers",
+          "Resultary 6b8f1c0037a2, square-zero Smith strata over length-two chain rings",
+          "Fulman–Guralnick–Stanton arXiv:1602.03611 Prop. 3.1",
+          "Stasinski arXiv:1907.09878v2 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/check_involutions.py and verification/check_output.txt",
+        "Resultary 9ce1162ea15b and 6b8f1c0037a2",
+        "Fulman–Guralnick–Stanton arXiv:1602.03611",
+        "Stasinski arXiv:1907.09878v2",
+        "Historical Brawley–Gamble and Gazaryan access routes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states q^(n²)(n/(2Φ_∞)+O_q(1)) and P(R_n/n≤x)=2x+O_q(n^-1) for x∈[0,1/2]. It bounds individual weight deviations by O_q(q^-r+q^-(n-2r)), whose absolute sum is O_q(1)."
+        ],
+        "reasoning": "Since |GL_n|=q^(n²)Φ_n and Φ_n→Φ_∞, the total asymptotic agrees with (4), and multiplication of R_n/n by two gives exactly the same limit. TV does not follow from a CDF error bound alone, but the prior per-rank absolute errors imply TV=O_q(n^-1) by normalization. The specific nonsharp C_q is obtained by a geometric tail estimate on the same products, not by a new structural argument.",
+        "searches": [
+          "Resultary 9ce1162ea15b, Asymptotic flatness, RESULT.md offset 4140 and following"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched source gives q^(n²) times the product of (1-q^-j) over n-2r<j≤n, divided by Φ_r. This equals |GL_n(F_q)|/(Φ_rΦ_(n-2r)).",
+          "U↔X=U-I in characteristic two preserves the reduction rank being counted and sends U²=I to X²=0; the inverse I+X is automatically invertible."
+        ],
+        "reasoning": "This bijection applies rank by rank and transfers the uniform measure counting all solutions. It covers (1)–(2) including the identity, with no restriction to examples or to particular even q.",
+        "searches": [
+          "Resultary square-zero dual-number matrices, rank marginal and uniform reduction-rank law",
+          "Resultary 9ce1162ea15b exact rank marginal, RESULT.md offsets 4140–4861"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier n=2 Smith entries 1,9,6,12 and n=3 entries 1,49,294,168,336,336 sum by residue rank to (16,12) and (512,672), exactly the frozen histograms.",
+          "The mirrored dual-square-zero record also gives the full marginal formula rather than only those totals."
+        ],
+        "reasoning": "The exact table matches are explained by the rank-preserving shift; finite agreement is corroboration, while the all-size prior marginal establishes coverage.",
+        "searches": [
+          "Resultary 6b8f1c0037a2, q=2 Smith tables",
+          "Frozen verification/check_output.txt lines 1–7",
+          "Resultary 9ce1162ea15b, exact marginal and verification"
+        ]
+      },
+      "rationale": "A distinct Resultary record already states the exact residue-rank marginal, the total count asymptotic and the uniform law in a stronger square-zero dual-number Smith census. Translation by the identity gives exact equivalent coverage, not just shared terminology or matching small n. The explicit TV constant was not located verbatim, but it is a routine bound from the already established absolute summability of the rank-weight deficits and does not rescue the finding.",
+      "residual_risks": [
+        "Some historical similarity-classification literature was not available for full comparison; the demonstrated catalogue equivalence is independent of that limitation.",
+        "The explicit numerical bound C_q was not found in the inspected source; no claim of verbatim coverage of the constant is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact law and asymptotics in a stronger census",
+          "evidence": "Exact marginal q^(n²)∏_(n-2r<j≤n)(1-q^-j)/Φ_r; summed rank-weight error O_q(1) and limiting uniform distribution on [0,1/2].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-square-zero-dual-matrices-an-exact-smith-census-and-a-uniform-re--9ce1162ea15b/RESULT.md",
+          "material_read": "Exact marginal, Asymptotic flatness, and nearby verification; local mirror offset 4140–7097, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and direct local mirror reread of the decisive equations",
+          "title": "Square-zero dual matrices: an exact Smith census and a uniform reduction-rank law",
+          "trigger": "Same exact observable after U↔U-I"
+        },
+        {
+          "assessment": "Stronger refinement with exact table agreement after marginalization",
+          "evidence": "The n=2 and n=3 table marginals are (16,12) and (512,672).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-square-zero-smith-strata-are-universal-across-length-two-chain-r--6b8f1c0037a2/RESULT.md",
+          "material_read": "Opening Smith-strata statement and q=2 tables",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Square-zero Smith strata are universal across length-two chain rings",
+          "trigger": "Broader ring class and possible identical finite histograms"
+        },
+        {
+          "assessment": "Field-level count, not the lifts",
+          "evidence": "A sum over rank strata with the field involution centralizer exponents.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.03611",
+          "material_read": "Prop. 3.1, p. 12 (text offset 38038)",
+          "method": "OA primary passage comparison",
+          "title": "Asymptotics of the number of involutions in finite classical groups",
+          "trigger": "Known involution orbit counts in even characteristic"
+        },
+        {
+          "assessment": "Relevant reduction structure, not the stated census",
+          "evidence": "Identifies the reduction map and Lie-algebra kernel in the representation-theoretic problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.09878v2",
+          "material_read": "p. 1 and §2 p. 2 (offset 5016)",
+          "method": "OA primary passage comparison",
+          "title": "Representations of SL_n over finite local rings of length two",
+          "trigger": "Length-two reduction and matrix kernel"
+        },
+        {
+          "assessment": "Historical full-text coverage unresolved; not used for the failure",
+          "evidence": "Abstract-level information does not settle the split rank marginal.",
+          "identifier_or_url": "doi:10.1016/0024-3795(78)90041-1",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA lookup",
+          "title": "Involutory matrices over finite commutative rings",
+          "trigger": "Potential historical classification antecedent"
+        },
+        {
+          "assessment": "Historical coverage unresolved; not used for the failure",
+          "evidence": "No full-text inference made.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/dm600",
+          "material_read": "Bibliographic identification; no primary passage recovered",
+          "method": "Lawful OA lookup timed out",
+          "title": "Similarity of involutive matrices over a local ring of characteristic 2^k",
+          "trigger": "Potential equivalent local-ring classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The uniform law is a meaningful phenomenon, but its exact enumeration and law are already available with finer structure. In the uncovered wording the only potential increment is a nonsharp explicit constant for a TV estimate that follows from the prior absolute weight-error estimate. There is no demonstrated threshold, sharp TV asymptotic, or application requiring this constant. Isolating that estimate would not leave a worthwhile repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

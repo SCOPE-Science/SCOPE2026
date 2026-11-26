@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:09:25.765399Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof",
+        "Frozen verify_spin2.py and VERIFICATION.md",
+        "/workspace/evidence/proof_checks.md §1"
+      ],
+      "rationale": "Independent analytic check: in the frozen spin convention the equatorial raising composition on azimuthal order m is D_theta^2−2m D_theta+m^2. In x=cos(theta), the scalar associated Legendre differential equation gives the coefficient (2m^2−ell(ell+1))P(0)+2mP'(0). Exactly one of P(0),P'(0) is nonzero according to ell+|m| parity, including the extreme orders. The nonzonal equation is the Pell equation X^2−8m^2=1 with X=2ell+1. Multiplication by 3+sqrt(8) toggles both ell and |m| parity; the positive solutions satisfy |m|≤ell, with k=1 excluded at ell=1. The equatorial grid gives distinct discrete Fourier characters for all 2ell+1 orders, so the rank deductions and example ranks follow without aliasing. The frozen script was inspected, not executed; its recorded finite assertions do not prove the infinite law.",
+      "residual_risks": [
+        "Single exact degree and a fixed equatorial frame only; no mixed-degree inversion or uniform conditioning statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Habsieger–Stanton cover several neighboring binary Krawtchouk parameter families and explicitly include N−2n=4. Chihara–Stanton §4 already report the Pell-branch examples (14,47,98) and (84,286,576), with the near-central families announced jointly with Habsieger. Their low-degree classification is a distinct result and not the reason for equivalence.",
+          "The inspected spin-sampling sources give Wigner representation and multiring sampling, coherence of regular grids, or parity-summed orthogonality rather than the exact single-channel equator kernel."
+        ],
+        "reasoning": "The decisive broader source is the polynomial-zero theorem covering these variable high degrees, not the nearby spin papers and not the zeros of a fixed degree-two Krawtchouk polynomial.",
+        "searches": [
+          "Habsieger–Stanton §2, all small N−2n families",
+          "Chihara–Stanton Zeros of generalized Krawtchouk polynomials §4",
+          "Elahi et al. arXiv:1809.01321v1 §III; Bangun et al. arXiv:2010.02344; Zhong et al. arXiv:2301.08166v1 §2"
+        ]
+      },
+      "checked_sources": [
+        "Habsieger–Stanton More zeros of Krawtchouk polynomials §§1–2",
+        "Chihara–Stanton §4",
+        "Elahi et al. arXiv:1809.01321v1",
+        "Bangun et al. arXiv:2010.02344 abstract",
+        "Zhong et al. arXiv:2301.08166v1",
+        "Resultary 02ce3c9d1a73 (same record), 6ce403f5c7f0, af1002126e73, f7a6d1cb41a5",
+        "Frozen RESULT.md and verify_spin2.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior coefficient-zero conditions transport directly under (n,x,N)=(ell−2,ell−m,2ell). At 2ell+1 equally spaced longitudes the square Fourier matrix is invertible, giving one kernel vector per transported zero."
+        ],
+        "reasoning": "No new coupled mode analysis is required; the spin-two rank formula and complete kernel are the direct observation-map forms of the already solved zero classification.",
+        "searches": [
+          "Habsieger–Stanton §2 (2.1) and Theorem 1 case (1)",
+          "Elahi et al. §III Eqs. (1),(4)",
+          "Frozen Wigner factorial factor and longitude grid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By matching factorial denominators in the frozen Wigner sum with the binomial product in Habsieger–Stanton (1.1), the equatorial entry is a nonzero multiple of k_n(x,2,N) at n=ell−2, x=ell−m, N=2ell. In detail the sum term has denominator j!(ell−m−j)!(ell−2−j)!(m+2+j)!, with sign (−1)^j up to a fixed phase. Thus N−2n=4 exactly.",
+          "Habsieger–Stanton §2, both parity lists at t=4, give x=ell when x is odd and (ell−x)^2=ell(ell+1)/2 when x is even; their argument immediately following derives (2n+5)^2−2δ^2=1. Substituting δ=2|m| gives the frozen Pell relation, with k≥2 from ell≥2. Reflection x→N−x supplies the two signed orders."
+        ],
+        "reasoning": "The arithmetic classification agrees for each input degree and order, not just in its first terms. To avoid typographical ambiguity in radical extraction, the even and odd cases can be read directly from their short sum (2.1): the even-x binomial bracket has numerator 2(ell−x)^2−ell(ell+1), and the odd-x bracket has its only zero at x=ell. The nontrivial Pell branch is stated and solved in §2.",
+        "searches": [
+          "Krawtchouk integer zeros central difference N−2n=4 Pell",
+          "Habsieger–Stanton More zeros of Krawtchouk polynomials §2",
+          "Resultary equatorial rank and Pell sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 02ce3c9d1a73 hit is the bound original. Distinct 6ce403f5c7f0 uses scalar values plus meridional derivatives, af1002126e73 a cubic hypersimplex sector, and f7a6d1cb41a5 two scalar meridians.",
+          "Chihara–Stanton's finite table includes the Pell triples corresponding to (ell,|m|)=(49,35) and (288,204) up to their listed symmetry; the first (8,6) maps to a low-degree-two zero. Habsieger–Stanton supply the all-degree statement, not only those tabulations."
+        ],
+        "reasoning": "Similar sampling tables are not equivalent maps. The earlier Krawtchouk table does cover some exact entries, and the later paper by Habsieger–Stanton establishes the family and parity criterion.",
+        "searches": [
+          "Resultary spin-two equatorial Pell zeros; scalar equatorial first jet; resonant two-meridian sampling",
+          "Chihara–Stanton §4 exact integer-zero table, author OA manuscript"
+        ]
+      },
+      "rationale": "The core infinite zero classification is prior coverage under an exact change of variables. Habsieger–Stanton, More zeros of Krawtchouk polynomials (1993), §2, already handle the binary case N=2n+4 with both parities, including the identical Pell equation and its solution. In the spin sampling setting only the factorial-to-binomial identification and the distinct-character Fourier rank count are added. This is demonstrated prior implication, not a verdict based on search availability.",
+      "residual_risks": [
+        "The comparison does not determine when the sampling-language application was first written. The underlying mathematical implication does not depend on that historical wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers the crucial amplitude zeros exactly under the factorial identification",
+          "evidence": "For t=4 and even x, δ²=2n²+10n+12, so (2n+5)²−2δ²=1. The t=4 odd list gives (x−1)/2=(n+1)/2. Convert with n=ell−2 and δ=2|m|.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~stant001/PAPERS/krhab.pdf",
+          "material_read": "author manuscript pp. 1–3: definition (1.1), dualities, §2 (2.1), even/odd t=4 entries, Pell derivation and Theorem 1 (1); OA offsets 3100–8268 for §2",
+          "method": "bounded OA primary PDF text, compared against binomial and Pell algebra",
+          "title": "More zeros of Krawtchouk polynomials",
+          "trigger": "earlier binary near-central zeros at N−2n=4"
+        },
+        {
+          "assessment": "finite exact overlaps and explicit announcement of relevant extension",
+          "evidence": "Table triples (14,47,98) and (84,286,576); following paragraph explicitly includes N=2n+4 among the additional families.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~stant001/PAPERS/krlaur.pdf",
+          "material_read": "§4 Prop. 4.4, Theorem 4.6, table and paragraph following it, OA offsets 16063–20803",
+          "method": "bounded OA primary PDF passages",
+          "title": "Zeros of generalized Krawtchouk polynomials",
+          "trigger": "earlier binary tables and related exact families"
+        },
+        {
+          "assessment": "supports Wigner representation, not the same sample map",
+          "evidence": "Multiple rings; standard Wigner-d spin harmonics.",
+          "identifier_or_url": "https://arxiv.org/html/1809.01321v1",
+          "material_read": "§III equations (1),(4), OA offset about 7738",
+          "method": "OA primary HTML text",
+          "title": "An Optimal-Dimensionality Sampling for Spin-s Functions on the Sphere",
+          "trigger": "prior spin-s observation maps"
+        },
+        {
+          "assessment": "different parity-summed identities",
+          "evidence": "Even/odd Wigner orthogonality rather than locating the zero entries of a single column.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.08166",
+          "material_read": "v1 §2, pp. 3–4, Eqs. (5)–(6), OA offsets 5308–9585",
+          "method": "OA primary PDF text",
+          "title": "Even- and odd-orthogonality properties of the Wigner D-matrix and their metrological applications",
+          "trigger": "π/2 Wigner parity result"
+        },
+        {
+          "assessment": "different observation map; no order inferred from same publication date",
+          "evidence": "Scalar values and normalized meridional derivative at arbitrary grid sizes.",
+          "identifier_or_url": "Resultary 6ce403f5c7f0",
+          "material_read": "Finding of local mirror",
+          "method": "bounded statement comparison",
+          "title": "Parity-sharp equatorial first-jet sampling and exact conditioning",
+          "trigger": "closest distinct equatorial rank record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations",
+        "Habsieger–Stanton §2"
+      ],
+      "rationale": "The observation map is natural and the reformulation is useful for explaining equatorial alias-free rank loss. However, the only claimed exceptional modes are a directly transported prior exact zero classification; the rank table is its immediate diagonal Fourier count. The record adds no distinct inverse, stability, or multi-degree result that could survive as an independently new substantive finding.",
+      "residual_risks": [
+        "The pedagogical or application-facing utility of the formulation is not a claim of a new scientific theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

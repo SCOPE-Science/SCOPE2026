@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:01:31.190719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each pattern, applying a letter map sums the exact occurrence counts of its preimages since admissible position tuples are independent of the labels. A disagreement survives a map assigning its two symbols distinct labels. If a third symbol is present, preserve it as a third label; that would give a genuinely three-symbol ternary collision. The independently reproduced census excludes this and establishes the stated exact binary pairs and binary injectivity for lengths 3 through 12. At length 13 the exhaustive run finds 8188 distinct binary decks among 8192 words and 1594311 distinct ternary decks among 1594323 words. The only nonsingletons are four and twelve doubletons, respectively, and the ternary pairs are exactly the unordered two-letter embeddings of the binary pairs. Replay with Python 3 and NumPy using evidence/1/owned_deck_census.py; the exact class output is evidence/1/full_census.txt. The reproduction decodes all words by base-q digits, enumerates each allowed tuple and groups full fixed-width byte keys, not hashes; each count fits in one byte since it is bounded by max(13,66,165), and every repeated fiber was required to have size two. The frozen C++ and supplementary Python code were inspected, not executed. The four binary pairs are closed under swapping labels, and every endpoint uses both symbols, so arbitrary-q collisions form a matching with four disjoint edges per support pair. Choosing all isolated vertices and one endpoint per edge proves both codebook formulas. The lower lengths follow by binary projection at a disagreement. Literal length 2 is degenerate (01 and 10 collide), excluded explicitly by the frozen Finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gapped binomial complexity is a broader framework for counting equivalence classes of factors. The October 26 record studies the binary classification and includes contextual substitutions and symmetries."
+        ],
+        "reasoning": "A general equivalence definition or a construction of contextual binary collisions does not characterize all ternary fibers. The relation between alphabets is a pushforward; common binary image decks can arise from ternary pairs, so exclusion of three-symbol support needs further analysis, supplied here by exact exhaustion.",
+        "searches": [
+          "DOI 10.1109/ISIT54713.2023.10206676 §§I–II, gapped binomial complexity",
+          "Resultary 5d691b245815 Finding and context-substitution consequences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12671",
+        "doi:10.1109/ISIT54713.2023.10206676",
+        "Resultary 5d691b245815"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct known binary example and threshold cannot distinguish a two-letter-support ternary collision from a genuinely ternary one. The later complete binary classification does not state the support exclusion; its geometric constraints on admissible projections are not a full ternary rigidity statement."
+        ],
+        "reasoning": "Distinct words project to a distinct binary collision under suitable maps, but this alone does not say what their original support was. The reviewed finite certificate goes beyond spotting binary embeddings: it compares all exact ternary signatures and excludes all extra fibers. The resulting matching and codebook counts are straightforward consequences of that substantive classification, not independent novelty claims.",
+        "searches": [
+          "Golm et al. pp. 1,4",
+          "Rigo et al. §II",
+          "Resultary 5d691b245815, Finding and proof offsets 0–10385"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-skipped-position convention is Golm et al.'s minimum index difference s=2 and the g=1 case of gapped binomial equivalence. Golm et al.'s p. 4 example at k=3 coincides with the fourth frozen pair."
+        ],
+        "reasoning": "The binary threshold and example are exact overlap; gapped binomial equivalence aligns with the observation, but the inspected passage defines the equivalence rather than providing the first-length ternary fiber classification.",
+        "searches": [
+          "Golm et al., arXiv:2201.12671, binary gapped k-deck s=2, p. 1 and p. 4",
+          "Rigo–Stipulanti–Whiteland, gapped binomial equivalence and complexity, DOI 10.1109/ISIT54713.2023.10206676 §II",
+          "Resultary: one-gap three-deck, binary and ternary minimal collisions, all-alphabet rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The arXiv table gives a binary example and threshold, not an exhaustive ternary table. The inspected October 26 Resultary record 5d691b245815 gives all four binary pairs, 8188 as the binary optimum and 16 optimal binary codebooks. It postdates the frozen record and does not give the ternary or general-q counts."
+        ],
+        "reasoning": "The binary counts are excluded from the distinct claim. No earlier exact ternary table was identified; this is not a proof one does not exist.",
+        "searches": [
+          "arXiv:2201.12671 p. 4 example table",
+          "Resultary: exact four binary pairs, ternary census at thirteen, zero-error codebook counts"
+        ]
+      },
+      "rationale": "Pass is for the first nondegenerate arbitrary-alphabet classification and exact labeled maximum-codebook count, not the known binary threshold, the exhibited example, or a claim to priority for the four binary pairs. The ternary-support exclusion is an additional finite mathematical fact, and the aggregation argument transfers it to all finite alphabet sizes.",
+      "residual_risks": [
+        "The frozen record's asserted earlier complete binary classification lacks a separate citation in the inspected passages; no binary novelty is credited and the later catalogue date does not settle provenance.",
+        "The inspected gapped-binomial treatment and ranked catalogue results do not exclude all uninspected equivalent ternary or all-alphabet classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the binary threshold and a listed example",
+          "evidence": [
+            "Minimum index difference two; G(3)=13, with 1101111010111 / 1110101111011 as a binary example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12671",
+          "material_read": "Primary PDF pp. 1 and 4, OA offsets 3900 and 29000",
+          "method": "Read OA PDF definition and table",
+          "title": "The Gapped k-Deck Problem",
+          "trigger": "Binary shortest-collision result in the same gap convention"
+        },
+        {
+          "assessment": "Equivalent definitions; inspected passage does not supply the finite classification",
+          "evidence": [
+            "Gapped binomial coefficients and equivalence underlying sequence complexity; g=1 corresponds to this gap convention."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+          "material_read": "Introductory definitions and §II p. 2, OA offsets 3809 and 7000; further passage was not retrieved",
+          "method": "Read bounded primary OA PDF passages",
+          "title": "Gapped Binomial Complexities in Sequences",
+          "trigger": "Equivalent general gap-equivalence formulation"
+        },
+        {
+          "assessment": "Material binary overlap; later dated and not a ternary or arbitrary-alphabet classification",
+          "evidence": [
+            "Same four pairs, binary injectivity for n=3,…,12, binary code size 8188 and 16 maximizing codebooks; further binary contextual consequences."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-four-minimal-binary-one-gap-three-deck-collisions-and-universal--5d691b245815",
+          "material_read": "Resultary Finding and proof, offsets 0–10385",
+          "method": "Read local mirror",
+          "title": "Four minimal binary one-gap three-deck collisions and universal context substitutions",
+          "trigger": "Exact match to all four binary pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines every confusion at the first nondegenerate collision length, including the new exclusion of genuine three-symbol support, and gives the exact reconstruction-code optimum and number of labeled optimizers for any alphabet size. The first finite cutoff is a natural one fixed by the binary threshold; the exhaustive ternary check supplies a structural conclusion that is then uniform in the alphabet rather than a standalone tally for an arbitrary parameter choice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

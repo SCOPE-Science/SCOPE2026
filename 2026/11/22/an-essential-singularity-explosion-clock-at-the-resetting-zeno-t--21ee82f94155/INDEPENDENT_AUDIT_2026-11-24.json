@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:38:21.996925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the independent exponential waits and independent restart decisions, from a fresh state zero the probability of reaching k is s_k and that of never resetting is q_beta. The latter is positive exactly when beta>1 by the infinite-product criterion. In this case the first infinite-growth excursion occurs after a geometric number of failures; its total wait has finite mean tau/(1-r). Otherwise infinitely many fresh state-zero waits force divergence almost surely. Regeneration and Tonelli give the mean B_beta/q_beta with B_beta=tau sum r^k s_k. In log q_beta, the first log-series term -c zeta_R(beta) yields the pole and -c EulerGamma, and the m>=2 terms are dominated by zeta_R(2)c^m/m. The finite part is -log Gamma(1-c). Dominated convergence and the binomial generating function give B_beta -> tau(1-r)^(c-1). For the limit law, condition on the geometric failure count G. Failure durations can be drawn i.i.d. independently of G with the conditional failure law; their variances are bounded as q_beta->0 because each unconditioned excursion is dominated by the full geometric sequence of waits with finite second moment. Thus the centered sum of failure durations multiplied by q_beta tends to zero in L2, since q_beta^2 E[G]=O(q_beta). The conditional failure mean tends to the positive limit of B_beta, the final success cost vanishes after scaling, and q_beta G converges to Exp(1). This also independently checks the renewal Laplace proof. The support checker and VERIFICATION.md were inspected but not executed; the finite depth and numerical checks do not certify these limits. The asymptotics fix c,r,tau, and no post-accumulation continuation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang's power-law feedback section uses 1-((k+1)/(k+2))^alpha and power-law holding means, and studies mean-square displacement.",
+          "Indexed renewal-reset jump searches and synchronized Brownian search results have exponential limits from rare success."
+        ],
+        "reasoning": "A general defective-renewal or geometric-sum limit supplies the exponential shape once the excursion means and rare-success scale are checked; it supplies neither the pole and constant of this product nor the sharp mean amplitude.",
+        "searches": [
+          "Huang arXiv:2611.16383v1, §§4–5",
+          "Resultary: rare-success renewal reset and exponential limit"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check.py",
+        "Huang arXiv:2611.16383v1",
+        "Montero–Villarroel arXiv:1603.09239v2",
+        "Resultary entries 21ee82f94155, cd2993fc15c2 and e4e14c0b0be5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known geometric holding and restart ingredients allow the mean ratio to be derived by renewal. The sharp amplitude additionally uses the finite part of the hazard product and the critical generating series for the excursion cost."
+        ],
+        "reasoning": "The inspected statements do not yield the calibrated clock by substituting parameters into a previously solved model. The series and critical amplitude calculation are essential.",
+        "searches": [
+          "Huang §§4–5 and Resultary rare-success clock proofs",
+          "Montero–Villarroel arXiv:1603.09239v2 §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang §4 treats the no-reset geometric Zeno walk; Sisyphus walk §II has state-dependent renewals in discrete time."
+        ],
+        "reasoning": "A run without reset corresponds to a renewal success, but the no-reset case has no beta-dependent success product, and the discrete-time Sisyphus walk has no accumulation clock.",
+        "searches": [
+          "Resultary: resetting Zeno threshold, accumulation clock, explosion with power-law internal reset hazard",
+          "Primary literature search for power-law-reset Zeno explosion clocks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match, entry 21ee82f94155, is the frozen finding itself. The strongest distinct hits give calibration for target-search problems, not the clock in question."
+        ],
+        "reasoning": "The identity match does not count as independent coverage. Matching limiting laws in a different model do not determine the scale or amplitude.",
+        "searches": [
+          "Resultary: essential singularity explosion clock resetting Zeno threshold, Gamma prefactor"
+        ]
+      },
+      "rationale": "The inspected sources cover the Zeno-clock framework and generic renewal limits, not the power-law reset transition and sharp Gamma-prefactor asymptotic in this specific model. The contribution is the calibrated critical clock; the exponential shape alone is not new.",
+      "residual_risks": [
+        "Bounded search is not an exhaustive priority determination; a primary search produced mostly unrelated Zeno uses and is not negative evidence.",
+        "General renewal theory already explains the limiting shape; priority is assessed for the model-specific threshold and sharp singular scale, not for that mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework overlap, not the critical theorem",
+          "evidence": "§4 exhibits accumulation with no resets; §5 uses a different renewal hazard and holding means and studies spatial displacement.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16383v1",
+          "material_read": "Zeno §4 and power-law feedback §5, HTML offsets 39539–54517",
+          "method": "OA HTML passage reading",
+          "title": "Continuous-Time Random Walks with Internal Stochastic Renewal Process",
+          "trigger": "Same internal-reset and geometric holding framework"
+        },
+        {
+          "assessment": "Restart analogue only",
+          "evidence": "Discrete-time one-step reset probabilities, without continuous-time accumulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.09239",
+          "material_read": "§II, v2 HTML offsets 5952–10951",
+          "method": "OA passage reading",
+          "title": "Sisyphus random walk",
+          "trigger": "State-dependent restart chain"
+        },
+        {
+          "assessment": "Shared limiting mechanism",
+          "evidence": "Search succeeds by rare target landing across repeated reset-delimited excursions.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-narrow-target-law-for-renewal-reset-jump-searches--cd2993fc15c2",
+          "material_read": "Proof §§1 and 4, offsets 0–6721",
+          "method": "Local mirror passage reading",
+          "title": "A sharp narrow-target law for renewal-reset jump searches",
+          "trigger": "Rare-success renewal technique"
+        },
+        {
+          "assessment": "Shared renewal mechanism, not the hazard product",
+          "evidence": "r_N p_N T_N converges to Exp(1) in a Brownian search model.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-gamma-to-gaussian-phase-transition-for-synchronized-resetting--e4e14c0b0be5",
+          "material_read": "Finding and proof §4, offsets 0–9867",
+          "method": "Local mirror passage reading",
+          "title": "A Gamma-to-Gaussian phase transition for synchronized resetting of Brownian searchers",
+          "trigger": "Exact mean and exponential rare-success law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum question in an accelerating internal-renewal walk is whether its departure clock stays finite. The summability boundary answers that question and the explicit finite prefactor calibrates how long an almost-sure accumulator can look nonexplosive just above threshold. Together with the limiting law this gives a useful quantitative time scale rather than just an explosion example or an order-of-magnitude estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

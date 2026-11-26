@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is conditional on a one-dimensional positive kernel of the skew pairwise matrix and proportional demographic rates. The fully expanded three-way tensor gives the exact dissipation identity \(\dot V=-2D^*\alpha Q\); on every compact interior entropy sublevel, \(Q\) is comparable to \(V\) by positive-definite tangent quadratic forms. This proves both the necessary-and-sufficient cumulative-exposure condition and sharp finite-exposure obstruction. The time-average conclusion follows from bounded log-populations and the kernel condition, and the three-species periodic-level conclusion follows from two-dimensional entropy contours with no noncentral stationary points. A 1,200-case exact-rational standalone algebra test checked the essential identity but is not used as an infinite-time proof.
+PASS
 
-## Originality — PASS (bounded literature comparison)
+Expanding the exact tensor gives L_i=2h_i²+2[H(y⊙h)]_i. Since yᵀH=1ᵀ−hᵀ and yᵀh=1/2, yᵀL=1, so the uniformly locally Lipschitz measurable-time field is tangent to the simplex. Its bounded per-capita rates preserve positivity at each finite time and give global continuation. At y*=ker A∩{1ᵀy=1}, H y*=1/2 and (y*)ᵀH=1ᵀ/2, so both mixture vector fields vanish. The same identities give (y*)ᵀL=1+2Q for arbitrary x; d_i x_i*=D*y_i* then yields V′=−2D*αQ almost everywhere. Interior entropy sublevels are compact. Q has positive-definite quadratic leading term in tangent directions because the share map is invertible and ker A contains no nonzero tangent vector, while V has positive-definite tangent Hessian. Thus Q/V is bounded above and below by positive constants (no direction-independent limiting ratio is needed). Integrating the two comparisons proves both directions including a strictly positive finite-exposure entropy gap. In the finite case, integrating the log equation leaves bounded log-endpoint terms and an O(S(T)) perturbation, forcing every Cesàro share limit into the normalized kernel; the infinite case follows from convergence. For g=3 a positive level is a regular simple closed curve, for example by strict radial increase on rays from x*, and the pure pairwise field has nonzero speed there. Compactness proves distance to that orbit tends to zero, not phase selection. The frozen exact-fraction checker was inspected, not run, and tests finite algebra only.
 
-The closest source, Duran-Sala et al., arXiv:2501.09172, Eq. (3) and Appendix B, acknowledges conservative proportional rates and numerically observes stability for any *fixed* positive three-way contest fraction. That source does not supply the arbitrary measurable time-variable exposure criterion, two-sided finite-exposure bounds, universal time-averaged offspring shares or periodic-level classification. Grilli et al. (2017) proves neutral pairwise and stabilizing three-way effects for equal-rate scenarios but does not cover this nonautonomous proportional-demography theorem. Published research-record searches for the principal formulations, aliases and analogous higher-order systems did not reveal a theorem implying the complete claim. Unindexed sources and the possibility of general nonautonomous contraction theorems that specialize to this model remain priority risks. This is not a claim to novelty of the entropy method itself.
+## originality
 
-## Value — PASS
+PASS
 
-A genuine ecological question is whether an intervention involving rare three-way contests can maintain long-run coexistence despite unequal physiological clocks. The theorem supplies the exact *total intervention exposure* boundary, including two contest fractions both tending to zero that have opposite eventual fates, and separates convergence from long-term-average offspring balance. These are structural, measurable predictions for the specified deterministic model, not a parameter relabeling or a small perturbative bound. The global result does not extend to arbitrary birth/death ratios or stochastic populations.
+The same tensor and the relevance of proportional demography are prior. In the closest source, Eq. (B4) cancels an explicit rate-heterogeneity term under proportionality but leaves αG(x); this is not a proved globally coercive dissipation or a lower entropy bound for finite time-dependent exposure. The reviewed calculation reduces the remainder to a definite quadratic relative to the weighted equilibrium, and treats the sharp two-sided integral criterion and the offspring-average conclusion. No covering statement was identified in the strongest inspected sources or catalogue matches. This is a bounded assessment, not a historical priority certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sharp criterion distinguishes vanishing schedules such as (1+t)^−1 and (1+t)^−2, which an autonomous threshold or inspection of the limiting mixture cannot distinguish. It gives both attraction and persistence with bounds for the natural demographic subcase where pairwise dynamics is conservative. It also separates pointwise coexistence from exact average offspring balance and identifies the limiting geometric object for three competitors. No claim is made outside the model or about phase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

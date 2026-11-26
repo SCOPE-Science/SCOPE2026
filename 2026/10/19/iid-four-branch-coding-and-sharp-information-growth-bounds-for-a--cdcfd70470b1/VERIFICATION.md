@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` in an environment with Python 3 and SymPy. The script checks symbolic polynomial probability normalization for arbitrary parameters, both half-interval branch integrals, and independently evaluates the entropy and derivative-integral identity numerically for three rational parameter pairs. The expected end marker is `VERIFY_OK`.
+# Independent mathematical audit
 
-The finite numeric samples are smoke tests only. The unconditional IID and all-horizon Shannon identities follow from the branchwise change-of-variables formula and conditional entropy chain rule in `RESULT.md`; sharpness follows from strict convexity and explicit limiting families. No mathematical assertion is made about arbitrary initial distributions or ergodicity outside stationarity.
+## correctness
+
+PASS
+
+The weights are positive, k_1+k_2=1/2 and k_1 b_1+k_2 b_2=1, so the affine switching probabilities sum to one at every y. Both branch slopes have positive endpoint values b_i and 4-b_i and the maps take the half interval onto the whole interval. Integrating k_i times the branch derivative over an inverse image gives k_i times the target measure. Inductively, conditional on any past label block, the current state is uniform and the next label and next state have the same product law, proving IID and stationarity. The four weights are k_1,k_2 each repeated twice, and equality is equivalent to b_1+b_2=4. Given the initial coordinate and previous labels the present coordinate and its half are known, so only the fresh Bernoulli map choice contributes conditional entropy. Stationarity and the discrete entropy chain rule give n times the stationary mean choice entropy, with no differential-entropy subtraction. Expanding the log of k_i r_i leaves the derivative integral Lambda and the linear block identity. For amplitude a=|b-2| the sign-symmetric derivative distribution is 2+aU for U uniform on [-1,1]. Pairing U=v and U=-v in the derivative of the mean of r log r gives a strictly positive multiple of v log((2+a v)/(2-a v)) for 0<a<2 and v>0. Endpoints of the mean integral are log 2 at a=0 and (1/8) times the integral of r log r from 0 to 4, namely log 4-1/2, at a=2. Continuity uses the continuous extension of r log r at zero; the two symmetric parameter paths give both sharp limits. The attached code checks normalization and quadratures; it was inspected, not executed.
+
+## originality
+
+PASS
+
+The random-map family, the affine switching law and uniform invariance are prior. The stationary four-symbol IID law follows directly from a Jacobian rewrite of the source and is not by itself enough for the pass. The distinct part supported by the checked evidence is the exact initial-coordinate information law with its sharp strict global rate interval for the full nonlinear two-parameter family.
+
+## value
+
+PASS
+
+For a canonical explicit nonlinear example, the observable label combines location and actual random choice, but its total symbol entropy is not its information about the initial coordinate. The all-horizon identity gives that information exactly, and the sharp uniform bounds quantify how much the rate can exceed the spatial-bit baseline while separating the effect from uniform invariance. The value rests on this quantitative profile, not on rechecking the known invariant density or merely labeling four branches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

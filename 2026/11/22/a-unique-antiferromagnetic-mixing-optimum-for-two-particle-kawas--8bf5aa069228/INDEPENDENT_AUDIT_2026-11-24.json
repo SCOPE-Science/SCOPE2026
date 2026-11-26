@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:17:12.558410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, full-sector generator, block spectrum and temperature classification",
+        "Frozen VERIFICATION.md and verify_spectrum.py (inspected, not executed)",
+        "Independent exact replay: enumerate unordered pairs of 2r vertices, apply all eligible cross edges to build integer q(-L) when a=p/q, and compare its characteristic polynomial including multiplicities to the constant, paired and null factors for r=2,3,4 and p/q=1/3,1/2,2/3"
+      ],
+      "rationale": "In the two-positive-spin sector of K_{r,r}, a same-shore pair to opposite-shore pair move lowers energy by 4J, so its rate is a and its reverse has rate b=1-a. Let C be the rectangular incidence between same-shore pairs and opposite-shore cells. On functions of the latter cells, CᵀC=E⊗U+U⊗E, with U the r-by-r all-ones matrix and E=(r-2)I+U (the within-shore vertex-by-pair incidence Gram matrix). Its eigenvalues are 4r(r-1), r(r-2), and 0 on the constant, one-coordinate zero-sum, and doubly zero-sum subspaces, respectively. This verifies the positive singular pairs and both null spaces independently of a sector-average reduction. The diagonal exit rates are 2ra and 2(r-1)b. For r>2 the nonconstant positive singular pairs yield the stated quadratic, and the lower root is positive and strictly below both exit rates, hence below all unpaired eigenvalues and the constant-sector nonzero eigenvalue. For r=2 only the constant singular pair remains, yielding min(4a,2b) with its unique cusp at a=1/3. For r>2 differentiating the smaller root gives strict concavity and derivatives of opposite signs at a=0 and a=1/2. The stationarity equation 2g=c_r(1-2a) selects the smaller root t=1/(2r-1+sqrt(r(r-2))) for t=1-2a, so the antiferromagnetic logistic map yields the stated unique positive beta optimum. The gap decreases for a>1/2 (ferromagnet), and g(1/2)=r/2. The peak gain is r/[2(2r-1+sqrt(r(r-2)))(r-1+sqrt(r(r-2)))], reproducing the stated 1/(12r) asymptotic; t asymptotics yield the inverse-temperature constant. Nine independent exact full characteristic-polynomial comparisons agree for r=2,3,4 and a=1/3,1/2,2/3.",
+      "residual_risks": [
+        "Finite characteristic-polynomial checks do not replace the rank, spectrum or concavity arguments.",
+        "The result is for per-edge local clock rates and the relaxation gap, not for time to mix in total variation, unequal shores or other fillings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mendonça treats the full symmetric exclusion family on complete bipartite graphs. Caputo–Liggett–Richthammer compare random-walk and interchange gaps with graph conductances independent of the configuration and include exclusion as a projection.",
+          "Grynberg studies temperature-dependent Kawasaki relaxation in one-dimensional Ising chains."
+        ],
+        "reasoning": "The first two cover the beta=0 baseline after clock conversion but their state-independent swapping hypothesis does not give the nonlinear gap at beta>0. The one-dimensional study does not cover the complete bipartite geometry all r.",
+        "searches": [
+          "arXiv:1207.4106, §4, pp. 7–9",
+          "arXiv:0906.1238, Theorem 1.1 and §4.1.1",
+          "arXiv:1009.4511, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8bf5aa069228 (self) and 22c49846861b",
+        "arXiv:1207.4106",
+        "arXiv:0906.1238",
+        "arXiv:1009.4511"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard two-diagonal-block reduction is a reusable method, not an unknown general graph phenomenon.",
+          "The inspected prior results do not identify which nonconstant singular sector or exit-rate branch controls the full heat-bath chain across r or optimize that branch."
+        ],
+        "reasoning": "An implication would require a matching configuration-dependent incidence spectrum and its temperature-dependent branch ordering. A baseline theorem or analogous optimum for a different incidence walk does not settle those requirements.",
+        "searches": [
+          "arXiv:0906.1238, weighted-graph gap comparison",
+          "arXiv:1207.4106, §4",
+          "Resultary 22c49846861b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact mirror hit 8bf5aa069228 is the frozen record itself.",
+          "The distinct same-day star result has a related two-level bipartite configuration walk, but it is Boolean-lattice incidence with exit rates ka,(n-k+1)b and smaller-root product nab. Here the cell and within-shore-pair incidence has different singular values, exit rates 2ra,2(r-1)b and product r(3r-2)ab.",
+          "At a=b=1/2 the target is symmetric exclusion at half unit edge rate."
+        ],
+        "reasoning": "Rescaling the clock changes all eigenvalues by a common factor but cannot turn equal forward/reverse rates into Gibbs-dependent rates. Neither relabeling the star's hub and filling nor particle-hole symmetry supplies the two-shore incidence spectrum or the r=2 crossover.",
+        "searches": [
+          "Resultary two-particle balanced complete bipartite local Kawasaki spectral-gap and antiferromagnetic optimum; 8bf5aa069228 and 22c49846861b",
+          "arXiv:1207.4106, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue self-hit is not independent; its closest distinct model is the star. The published exact symmetric spectrum gives the point g_r(1/2)=r/2 under the frozen normalization, not the a-dependent spectrum."
+        ],
+        "reasoning": "Known exact spectrum entries are credited on the normalization-matched parameter slice, not extrapolated to varying temperature. No inspected distinct entry matches the heat-bath optimizing t_r and the r=2 cusp.",
+        "searches": [
+          "Resultary 8bf5aa069228 and 22c49846861b, exact gap and optimal temperature",
+          "arXiv:1207.4106, complete bipartite exact eigenspectrum"
+        ]
+      },
+      "rationale": "The exact constant-rate exclusion spectrum for complete bipartite graphs is prior coverage of the baseline. The same-day star result is a close analogue of the antiferromagnetic phenomenon and the incidence technique, but not an exact biclique gap or optimum. The supported contribution is the interaction-dependent full-chain classification in this specific nontrivial biclique sector, including selection of the active spectral branch, the cusp-to-smooth distinction and the exact optimizing temperature.",
+      "residual_risks": [
+        "Bounded literature and catalogue search does not prove historical priority or rule out equivalent incidence-spectrum computations.",
+        "Same-day records were compared by content without assuming publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact baseline coverage, not interacting rates",
+          "evidence": "The complete bipartite exclusion spectrum is for symmetric state-independent rates; unit edge rates give gap r on the balanced graph, hence r/2 with the frozen beta=0 clocks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.4106",
+          "material_read": "§4, PDF pp. 7–9, text offsets 20624 and 24804",
+          "method": "OA PDF passage inspection",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Exact exclusion spectrum on the same graph family"
+        },
+        {
+          "assessment": "Broader geometry but state-independent swaps",
+          "evidence": "Equality of interchange and random-walk gaps applies to graph conductances; the exclusion projection across occupied edges uses those same conductances rather than an energy dependent acceptance.",
+          "identifier_or_url": "https://arxiv.org/pdf/0906.1238",
+          "material_read": "Theorem 1.1, PDF p. 4 (offset 9955); §4.1.1, p. 18 (offset 54050)",
+          "method": "OA PDF passage inspection",
+          "title": "Proof of Aldous' spectral gap conjecture",
+          "trigger": "General spectral gap theorem for weighted graph swaps"
+        },
+        {
+          "assessment": "Related dynamics on a different geometry",
+          "evidence": "Studies gaps and dynamic exponents for one-dimensional Ising spin chains, not exact two-particle balanced complete bipartite spectra.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.4511",
+          "material_read": "Abstract and setup on PDF p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Revisiting Kawasaki dynamics in one dimension",
+          "trigger": "Interacting Kawasaki spectral relaxation and temperature effects"
+        },
+        {
+          "assessment": "Related exact mechanism, distinct theorem",
+          "evidence": "Star hub-flip rates and adjacent Boolean levels give the star formula, balanced sector and one-particle or one-vacancy exceptions, not the balanced biclique result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-antiferromagnetic-cooling-optimum-for-local-kawasaki-ex--22c49846861b/RESULT.md",
+          "material_read": "Finding, assumptions and incidence gap proof",
+          "method": "Resultary and full-text comparison",
+          "title": "A unique antiferromagnetic cooling optimum for local Kawasaki exchange on every interacting Ising star sector",
+          "trigger": "Same-day close claim for a different graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, full-chain spectrum, cusp exception and asymptotic constants",
+        "Mendonça §4, symmetric baseline",
+        "Resultary 22c49846861b, contrasting star sector exceptions"
+      ],
+      "rationale": "Two particles are the first sector where their arrangement on these two shores changes the exchange energy; balanced complete bipartite graphs give a natural symmetric test of interaction-dependent local relaxation. The exact result identifies a universal nonmonotone temperature response and which eigenmodes create it, including an exceptional mode crossing at r=2. The absolute gain is small for large r, but the structural classification and exact scaling of both gain and location give reusable benchmarks for spectral analysis, rather than inferring significance from a small numerical improvement.",
+      "residual_risks": [
+        "The O(1/r) absolute gain does not imply a macroscopic transition or a sizable practical mixing-time improvement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

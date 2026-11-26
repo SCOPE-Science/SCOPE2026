@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:36:41.378747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30",
+        "VERIFICATION.md, verify.py and expected_output.txt inspected, not executed; finite checks across orders 5, 6, and 8 are supporting evidence, not used to deduce the family"
+      ],
+      "rationale": "The Latin condition makes row, column and symbol adjacency types exclusive on edges. A clique containing three in a line cannot extend outside it, and a nonline four-clique has a proper three-edge-coloring with opposite edges of each color; row and column matchings yield the alternating rectangle. A mixed triangle determines at most one such completion. Descending anchor-pair removals leave the line 2-skeleton portions with every edge and only anchor triangles; a mixed facet of each intercalate tetrahedron is free. This leaves n^2 vertices, 3n binomial(n,2) edges and 3n binomial(n-1,2)+n^2(n-1)-I(M) triangles. Symbol edges can be replaced across mixed triangles by two rook edges. Rectangles with a symbol diagonal are filled by two triangles. Without a diagonal, the two auxiliary cells are distinct from the corners and each other; the six displayed faces give the rectangle as boundary, with 7 interior edges and cyclic links at both interior vertices (a subdivided disk). Mapping the two-skeleton of the product of simplices into the flag complex using these fillings contracts all rook loops, since attaching cells above dimension two does not change pi_1. The reduced 2-complex is then simply connected with free H_2 of rank chi-1; Hurewicz and homological Whitehead give the wedge. The proof's reference to a 'four-simplex' for the four-vertex intercalate is a dimension typo, not an extra coface or a failure of the collapse.",
+      "residual_risks": [
+        "Only the claimed nonequivariant homotopy type for Latin squares is verified; no conclusion for additional parallel classes or homotopy actions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "751f8adec771 gives the homotopy theorem for n>=2. The October 25 record 290c2b5f7f37 treats only cyclic odd-order tables. Cioabă–Mim give field homology for every Latin square n>=5, not a full homotopy classification in the checked results."
+        ],
+        "reasoning": "The broader November 17 theorem covers all frozen parameters by restriction; the odd cyclic theorem and homology calculations are weaker comparisons.",
+        "searches": [
+          "Resultary: arbitrary Latin squares and odd cyclic Latin-square homotopy",
+          "Cioabă–Mim arXiv:2606.27328, Theorems 3.6, 3.8 and 3.12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary arbitrary, cyclic, simple connectivity and exact formula searches",
+        "Primary matched Resultary passages and Cioabă–Mim arXiv:2606.27328",
+        "Frozen RESULT.md lines 35–42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem has no cyclicity, parity, or group-table restriction and explicitly includes non-group squares; its proof uses a line-simplex core and a nerve/join treatment of mixed triangles. The frozen record's rook-rectangle filling is a different proof path."
+        ],
+        "reasoning": "Applying the prior theorem at n>=5 immediately gives the full frozen claim. The absence of its citation in the frozen comparison and the proof difference do not change implication. No inference about authorship or provenance is made.",
+        "searches": [
+          "Resultary 751f8adec771, RESULT.md Finding and proof passage",
+          "arXiv:2606.27328, Propositions 3.7, 3.11, 3.13 and Theorems 3.12, 3.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 17 Finding specifies the full flag complex of the row/column/symbol cell graph and ordinary homotopy to the same wedge, including even and nongroup squares."
+        ],
+        "reasoning": "The graph construction, intercalate invariant, full face rule and homotopy conclusion match; 'flag' and 'clique' are interchangeable here. Merely computing H_2 would not provide equivalent coverage, but this prior Finding is an actual homotopy assertion.",
+        "searches": [
+          "Resultary: arbitrary Latin-square clique-complex homotopy with intercalates",
+          "Resultary: simple connectivity for arbitrary Latin-square clique complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 17 local mirrored Finding gives precisely the same formula, as a sphere count rather than a Betti number, under the same conventions. The distinct record 38acea0f641b gives an integral H_2 presentation with the same rank."
+        ],
+        "reasoning": "For this symbolic family classification, the equivalent indexed theorem is decisive exact database evidence. Equality of Betti numbers alone, as in the homology-module comparison, would not suffice.",
+        "searches": [
+          "Resultary: (n-1)^3-I(M) sphere count and Latin-square intercalates",
+          "2026/11/17/SCOPE-every-latin-square-clique-complex-is-a-wedge-of-two-spheres--751f8adec771"
+        ]
+      },
+      "rationale": "Demonstrated prior coverage, not lack of evidence: the distinct November 17 catalogue record with suffix 751f8adec771 gives exactly this full clique-complex homotopy equivalence for all Latin squares of order n>=2. That strictly includes the frozen n>=5 range with the same multiplicity and definition of intercalate. The new proof route does not make the stated classification new.",
+      "residual_risks": [
+        "The review compares actual recorded theorems, not the provenance of the proofs or global publication priority. Earlier unindexed results would not remove the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly broader exact prior statement",
+          "evidence": "For any Latin square n>=2 the full row/column/symbol clique complex is a wedge of (n-1)^3-I(M) two-spheres. The proof passage treats the line-simplex core, rainbow triangles and intercalate tetrahedra.",
+          "identifier_or_url": "2026/11/17/SCOPE-every-latin-square-clique-complex-is-a-wedge-of-two-spheres--751f8adec771",
+          "material_read": "RESULT.md Finding at offset 0 and proof passage at offsets 4400–7030",
+          "method": "Local mirrored source inspection",
+          "title": "Every Latin-square clique complex is a wedge of two-spheres",
+          "trigger": "Distinct earlier Resultary theorem matching entire family"
+        },
+        {
+          "assessment": "Covers homology rank and relevant clique counting, not the full homotopy in the inspected results",
+          "evidence": "For every field the positive-degree homology is zero outside degree 2 with the same rank there; also records Smith and Laplacian information.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.27328",
+          "material_read": "p. 2 summary; Theorem 3.6 p. 14, Proposition 3.7 and Theorem 3.8 p. 17, Proposition 3.11 and Theorem 3.12 p. 19; Proposition 3.13 and Theorem 3.14 pp. 19–20",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On the homology groups of clique complexes of strongly regular graphs",
+          "trigger": "Same Latin-square family and same homological rank"
+        },
+        {
+          "assessment": "Proper subclass",
+          "evidence": "Wedge of (n-1)^3 two-spheres for odd-order cyclic addition tables only.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-homotopy-type-of-cyclic-latin-square-clique-complexes-o--290c2b5f7f37",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirrored source inspection",
+          "title": "Integral homotopy type of cyclic Latin-square clique complexes of odd order",
+          "trigger": "Cited prior homotopy theorem"
+        },
+        {
+          "assessment": "Integral homology module comparison, not homotopy coverage",
+          "evidence": "Presents the integral H_2 lattice with the same rank for n>=5.",
+          "identifier_or_url": "2026/11/17/SCOPE-an-integral-autotopism-presentation-for-latin-square-clique-homo--38acea0f641b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirrored source inspection",
+          "title": "An integral autotopism presentation for Latin-square clique homology",
+          "trigger": "Same integral family and rank"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Prior Resultary theorem 751f8adec771 and proof comparison"
+      ],
+      "rationale": "The classification itself is meaningful and the elementary rectangle fills offer an alternative exposition. As a scientific finding relative to the strongest available antecedent it supplies no new range, invariant, case or homotopy consequence. It does not establish a further theorem using the alternative fillings or a distinct valuable claim beyond the known classification.",
+      "residual_risks": [
+        "The elementary proof technique might have independent applications, but none is established by this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

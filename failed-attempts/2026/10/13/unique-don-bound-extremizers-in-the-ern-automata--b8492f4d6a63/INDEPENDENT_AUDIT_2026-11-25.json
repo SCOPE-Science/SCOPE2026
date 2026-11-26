@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:08:58.421066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statement is true, but the frozen lower-bound proof (RESULT.md line 34) does not establish its greedy induction. At the first admissible inverse b step, an exact predecessor may replace 0 by n−1 without growing; the proof does not exclude following such a step and growing later from a different set. The upper bound and the strict bound for noncanonical sets both follow from the least cyclic boundary and are correct. The lower bound can be independently established by full inverse images: starting from S_k, any word reaching it exactly has full inverse image Q. Until Q is first attained, a nonempty proper cyclic interval remains an interval. An inverse a moves its first point back by one; a growing inverse b requires its first point to be 0 and moves it to n−1; a shrinking inverse b removes only its last point (and an empty set cannot return). Hence before the first growth and between each pair of growths there must be at least n−1 inverse rotations. At least n−k growths are needed, proving the asserted lower bound. The word (ba^(n−1))^(n−k) reaches S_k by the verified extension identity. Independent bit-mask BFS (python3 /workspace/branches/independent_checks.py 1) checked every nonempty subset and each unique maximizer for 2≤n≤12; this is not the all-n proof. No revision is submitted because the theorem is already covered.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Don, Theorem 12 and Proposition 15, proves the general exact-image upper bound in the relevant contracting class; no equality classification appears in those statements."
+        ],
+        "reasoning": "Don alone does not cover equality. The avoiding theorem with the normal form covers all stated n,k, not just the tightness example.",
+        "searches": [
+          "Don DOI 10.37236/5616",
+          "Ferens–Szykuła DOI 10.1145/3798283"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not run)",
+        "Resultary September avoiding-threshold theorem and November codimension-two theorem",
+        "Don Theorem 12 and Proposition 15",
+        "Ferens–Szykuła bibliographic listing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof deletes ineffective or expanding full-inverse b steps by monotonicity; hence each b step deletes exactly one forbidden state."
+        ],
+        "reasoning": "The cardinality argument shows exact reaching without any additional optimization. The distinction between reaching exactly and reaching somewhere in the complement does not save novelty here.",
+        "searches": [
+          "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md, Normal form and Uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record fixes identical transitions and gives the unique hardest forbidden m-set B_m={n−m−1,…,n−2} with threshold nm. Its normal form gives exactly m occurrences of b in any shortest avoider of any m-set P."
+        ],
+        "reasoning": "Such a word retains at least n−m states and maps into Q\\P, which has exactly n−m states. It therefore reaches Q\\P exactly. Exact-reaching and shortest-avoidance lengths coincide, and Q\\B_(n−k)=S_k.",
+        "searches": [
+          "Resultary: Černý k-avoiding thresholds and unique worst targets",
+          "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later record gives the complete rank n−2 distance spectrum, with unique maximizer Q\\{n−3,n−2} at 2n."
+        ],
+        "reasoning": "The codimension-two table/formula agrees but cannot establish general layer coverage; the earlier avoidance theorem does establish it. Finite BFS is not evidence of novelty.",
+        "searches": [
+          "Resultary: codimension-two Černý reaching-distance spectrum",
+          "2026/11/8/SCOPE-a-complete-codimension-two-reaching-distance-spectrum-for-the-er--139e56d5f521"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary theorem supplies exactly the same distances and equality cases upon complementing the target. The full inverse-action normal form, not just the similar numerical bound or a guess about avoiding vs reaching, makes the reduction valid for every target.",
+      "residual_risks": [
+        "The inaccessible Ferens–Szykuła text might contain additional coverage; the verified earlier avoiding result already decides originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact equality by a mechanical reduction",
+          "evidence": [
+            "Normal form: exactly m inverse b deletions for a forbidden m-set; uniqueness: B_m alone requires nm steps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+          "material_read": "Statement through uniqueness proof, offsets 0–4900",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Exact k-avoiding thresholds of the Černý automata",
+          "trigger": "Same automata, matching threshold, complementary worst target"
+        },
+        {
+          "assessment": "Covers upper bound, not equality in the inspected results",
+          "evidence": [
+            "Existence of an exact reaching word of length at most n(n−k); coprime excluded-to-contracting-state distance condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5616",
+          "material_read": "Theorem 12, p. 6, and Proposition 15, p. 7",
+          "method": "OA primary journal PDF, bounded passages",
+          "title": "The Černý Conjecture and 1-Contracting Automata",
+          "trigger": "General bound and standard Černý specialization"
+        },
+        {
+          "assessment": "Unresolved scope; not negative evidence",
+          "evidence": [
+            "Full text was not obtained; its exact equality statements remain unchecked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/3798283",
+          "material_read": "Bibliographic listing only; no primary theorem text available from attempted route",
+          "method": "OA DOI and lawful-copy lookup",
+          "title": "Recognizing Completely Reachable Automata in Quadratic Time",
+          "trigger": "Frozen record attributes all-layer tightness to this paper"
+        },
+        {
+          "assessment": "Exact overlap at k=n−2; narrower scope",
+          "evidence": [
+            "Unique longest rank n−2 target misses n−3,n−2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-complete-codimension-two-reaching-distance-spectrum-for-the-er--139e56d5f521",
+          "material_read": "RESULT.md opening statement at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A complete codimension-two reaching-distance spectrum for the Černý automaton",
+          "trigger": "Exact-image distances in a defeating case if general enough"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp layerwise equality classification would be useful for exact-image reachability, but here it is already mechanically available by complement and the prior shortest-avoider normal form. This restatement, with no new distance or invariant beyond the prior result, does not meet the value criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

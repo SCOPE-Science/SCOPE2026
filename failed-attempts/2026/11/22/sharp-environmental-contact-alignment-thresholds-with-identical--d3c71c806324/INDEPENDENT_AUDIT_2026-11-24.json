@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:22:17.854916Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated block matrix is irreducible and nonnegative (the final diagonal entry is zero), and has a positive Perron vector (z,w). Summing the human coordinates of the eigenvector equation gives (λ−a)Σz_i=Uw, hence λ>a; substitution in the last coordinate gives (λ−a)(λ²−Q)=aUV/n and λ²>Q. Both factors on the left are positive and strictly increasing on the claimed root interval, where the product goes from zero to infinity. Implicit differentiation there gives dλ/dQ=(λ−a)/(λ²−Q+2λ(λ−a))>0. Classical rearrangement therefore gives both extrema; ties are harmless, and comparing assignments with a strict two-pair swap when both lists are nonconstant proves strict separation. For 0<a<1 and Q<1, comparison with λ=1 yields the full trichotomy; if Q≥1 both sides are strictly above one, and if a≥1 the Perron root is strictly above one. Row sums do not depend on the permutation. The exact rational two-group products check the reversal and n=1 has only one assignment. An independent Decimal bisection of the two stated abstract cubics reproduced the quoted decimal roots to their displayed precision. RESULT.md lines 43–76, VERIFICATION.md and check.py were inspected; the packaged 5,090 finite comparisons were not rerun. The conclusion is only about the modeled spectral threshold, not realized epidemic outcomes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2003 formula applies to arbitrary complementary mixing blocks with complementary spectral radius less than one, not just rank one. The frozen model lies in this domain when a<1, and so does its λ-rescaling for every λ>a.",
+          "Caiza–Qin–Paré's layerwise 2×2 reduction assumes equal aggregates within each layer; a nonconstant exposure vector violates that assumption. Its row-sum bounds do not distinguish the two sides of the frozen example."
+        ],
+        "reasoning": "The older arbitrary complementary-block formula is decisive broader coverage despite the inapplicability of the more recent equitable-layer reduction.",
+        "searches": [
+          "DOI:10.1098/rspb.2003.2339 §2 and Appendix A",
+          "arXiv:2610.09066 §3.2 Assumption 3, Theorem 3 and Corollary 1",
+          "Resultary: local summaries and spectral threshold reversal"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1098/rspb.2003.2339 §2 and Appendix A",
+        "arXiv:2610.09066 §3.2",
+        "arXiv:1608.07327 abstract and §4",
+        "arXiv:1303.0783 abstract",
+        "DOI:10.1016/j.jtbi.2025.112186 landing page and matching public preprint",
+        "Resultary f98f14803ee1 and ce59c0969205"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For K/λ with λ>a, the general type threshold is v_πᵀ(λI−M)⁻¹u/λ = Q_π/λ² + aUV/[nλ²(λ−a)]. At λ=ρ(K) it equals one by the theorem's sign and equality property; rearranging is exactly the frozen cubic. The Perron root is above a by positivity and the block eigenvector equation.",
+          "The displayed scalar is strictly decreasing in λ>a and increasing in Q; rearrangement now immediately gives the permutation extremal comparison. The invariant row sums follow without spectral analysis. The rational minimal witness just evaluates the same threshold on the two permutations available at n=2."
+        ],
+        "reasoning": "The earlier result yields the exact root comparison and threshold without any new spectral mechanism. Sorting follows from the elementary scalar dependence and the standard rearrangement inequality; the example illustrates that known mechanism.",
+        "searches": [
+          "Roberts–Heesterbeek Eq. (2.1), Appendix A(a) and (c), applied also to K/λ",
+          "Caiza–Qin–Paré §3.2",
+          "Resultary f98f14803ee1 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roberts–Heesterbeek Eq. (2.1) gives eᵀK[I−(I−P)K]⁻¹e with P the one-coordinate projection; Appendix A(c) proves sign agreement of the deviations from 1 under the complementary spectral-radius hypothesis.",
+          "Select the last coordinate of the frozen block matrix. The complementary spectral radius is a and the earlier scalar is v_πᵀ(I−M)⁻¹u, where M=a11ᵀ/n. Since M²=aM, this is exactly Q_π+aUV/[n(1−a)]."
+        ],
+        "reasoning": "The frozen loop-gain test is the single-coordinate type reproduction threshold expressed in a rank-one basis. The check includes the equality case, not merely a qualitative analogy between risk metrics.",
+        "searches": [
+          "Roberts Heesterbeek type reproduction number formula, single selected coordinate and threshold",
+          "DOI:10.1098/rspb.2003.2339 §2 Eq. (2.1) and Appendix A(c)",
+          "Resultary: single-reservoir threshold and invariant row sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct 2026/11/8 record ending f98f14803ee1 shows differing Perron roots despite identical labeled in- and out-degrees of directed unweighted patch graphs. This overlaps with the local-summary obstruction, but is not the single-reservoir formula.",
+          "The distinct record ending ce59c0969205 addresses crossings of final attack fractions for equal-mean susceptibility mixtures, not this spectral trichotomy. No exact separate tabulation of the two-group rational values was identified."
+        ],
+        "reasoning": "The catalogue distinguishes the example from known analogous examples. The decision does not require an exact table hit because the stronger published threshold formula produces the values directly.",
+        "searches": [
+          "Resultary: single-reservoir Perron root and threshold permutation",
+          "Resultary: same labeled local degrees, row sums and global threshold",
+          "Resultary: equal-mean epidemic ranking reversals"
+        ]
+      },
+      "rationale": "The closest local-score paper does not cover heterogeneous interlayer row sums, but this is not the strongest applicable result. Roberts–Heesterbeek (2003) give the general single-selected-coordinate threshold, including equality, by a resolvent formula. Its specialization to the final block coordinate gives the exact frozen test. Applying it to the scalar-rescaled matrix also gives the cubic determining each Perron root; comparing permutations then reduces directly to classical rearrangement. The minimal rational reversal is a worked instance of this specialization, not a separate obstruction or new invariant. This is mathematical implication from verified prior full text, not a literature-access judgment.",
+      "residual_risks": [
+        "No claim about the first literal appearance of this parameter example is made.",
+        "The 2007 follow-up PDF and final full text of the stochastic correlation article were not read. Failure is based on the independently inspected 2003 theorem, not on any unavailable article or on the title of a related record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the threshold including equality for the frozen single selected coordinate. The same theorem applied to K/λ gives its exact root equation.",
+          "evidence": [
+            "Scalar T=eᵀK[I−(I−P)K]⁻¹e; Appendix A(a) gives the complementary resolvent when ρ((I−P)K)<1, and Appendix A(c) proves 1−ρ(K) and 1−T vanish together or have the same sign."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2003.2339",
+          "material_read": "University of Utrecht OA primary PDF: §2, p. 1360, Eq. (2.1) and properties (i)–(iii), extraction offsets 7990–14886; Appendix A(a), (c), printed p. 1363, near offsets 37432–45237.",
+          "method": "Located and read the exact threshold formula and proof in the lawful institutional copy; substituted the frozen block matrices directly.",
+          "title": "A new method for estimating the effort required to control an infectious disease",
+          "trigger": "General reproduction threshold relative to a selected next-generation coordinate; possible exact coverage of the reduced spectral threshold."
+        },
+        {
+          "assessment": "Not a covering uniform-layer reduction when u is nonconstant; however this difference does not defeat the separate earlier type threshold theorem.",
+          "evidence": [
+            "The theorem's aggregate interlayer regularity differs from merely keeping the row-sum vector fixed across assignments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09066",
+          "material_read": "PDF pp. 10–11, §3.2 Assumption 3, Theorem 3 and Corollary 1, extraction offsets 33887–38871.",
+          "method": "Targeted primary paper comparison of the reduction hypotheses.",
+          "title": "Local Reproduction Numbers for Analysis and Optimal Mitigation of Epidemic Processes",
+          "trigger": "The frozen result's closest cited local reproduction-score theory."
+        },
+        {
+          "assessment": "Supports conceptual precedent for the failure of local summaries, but is not the decisive exact single-coordinate threshold source.",
+          "evidence": [
+            "The same labelled in- and out-degrees can coexist with different adjacency Perron roots in directed unweighted patch graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-patch-dispersal-networks-with-identical-local-degrees-and-t--f98f14803ee1",
+          "material_read": "Primary RESULT.md Finding, local-mirror offset 0.",
+          "method": "Targeted indexed local-mirror comparison.",
+          "title": "Four-patch dispersal networks with identical local degrees and threshold differences",
+          "trigger": "Indexed local-summary-preserving global threshold obstruction."
+        },
+        {
+          "assessment": "Uses stochastic individual-based SIR outcomes, not the deterministic block-matrix threshold; the final journal wording was not verified.",
+          "evidence": [
+            "Outcomes include likelihood, size and speed of major epidemics; not the exact modeled spectral trichotomy assessed here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2025.112186",
+          "material_read": "Publisher landing material and corresponding accessible medRxiv preprint's abstract and model framing, p. 1, near offset 1030.",
+          "method": "Compared the publicly accessible matching preprint with the frozen problem scope.",
+          "title": "Heterogeneity in and correlation between host transmissibility and susceptibility can greatly impact epidemic dynamics",
+          "trigger": "Potential correlation-of-traits equivalent."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The toy model is a natural way to illustrate why row-sum scores are insufficient, but its exact threshold and root are direct reductions of an established threshold invariant. Permutation comparison adds the textbook rearrangement step, and the minimal example is an exact numerical illustration in the first dimension permitting a swap. No independently useful unknown exact fact remains in this frozen formulation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

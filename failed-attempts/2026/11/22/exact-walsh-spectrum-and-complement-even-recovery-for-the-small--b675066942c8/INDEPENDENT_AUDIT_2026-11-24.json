@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:52:54.094557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof lines 3–34",
+        "Frozen VERIFICATION.md and verify_witt.py, inspected without execution"
+      ],
+      "rationale": "Double counting five-set extensions gives λ_j=(132,66,30,12,4,1) for j=0,…,5. For a fixed hexad, binomial intersection moments and the impossibility of a five-point intersection with another hexad give counts (1,0,45,40,45,0,1), proving complement closure. The expansion of (1−2)^|B∩S| gives 132,−12,4 at weights 0,2,4 and −12+64h(S) at weight 6; complement-paired blocks cancel odd weights and the block size six gives Λ(Sᶜ)=Λ(S). Counting by weight and hexad membership gives (−12:924, 0:2048, 4:990, 52:132, 132:2). Unnormalized Walsh diagonalization gives the stated rank, inertia, and recoverable complement-even subspace; the restriction has condition number 33, and the pseudoinverse norm is 1/4. The average of identity and complement translation is a norm-one ℓᵖ projection (it fixes constants), and each nonzero singular value is 4 modulo 8, giving total valuation 4096. Conditioning is on the recoverable range, not on the singular full space.",
+      "residual_risks": [
+        "The finite checker verifies a selected ternary-Golay support model; it was not rerun. The incidence and Walsh calculations above are exact and independent of that representation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil states equality of design and full Johnson-space averages for every polynomial of degree at most the strength; Havlicek–Lenz proves W12 is a 5-(12,6,1) design of 132 blocks."
+        ],
+        "reasoning": "The lemma evaluates all components of degree ≤5. For weight 6 there is just one known monomial of higher degree, whose sum on each domain is literally a membership test. Even block weight handles every larger character. Thus the criterion covers the exact quantity, not just a bound, a handful of moments, or an analogous family.",
+        "searches": [
+          "Godsil, Finite Geometry notes §10.11.1 and §10.12.1, extraction offsets 202100 and 208091",
+          "Havlicek–Lenz, Another simple proof for the existence of the small Witt design, pp. 90, 92–94"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Godsil §§10.11–10.12",
+        "Havlicek–Lenz pp. 90, 92–94",
+        "Resultary b675066942c8, 1384cdd85f59, 270b10657346 and bca369fa8ce2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P_S has degree |S|; at 6, P_S−64 x_S has degree 5. This isolates the only term not covered directly by the prior lemma and its evaluation needs no design-specific fact other than S membership. The full-slice term is fixed by a binomial coefficient and the odd-weight terms cancel by symmetry. Ordinary Walsh diagonalization yields sharp recovery constants without further design claims."
+        ],
+        "reasoning": "The stated strength, uniform block size and number of blocks suffice under the published averaging theorem to give the whole pointwise spectrum in one computation. No unverified stronger W12 theorem or external table is assumed.",
+        "searches": [
+          "Godsil, Lemma 10.12.1, printed p. 107",
+          "Havlicek–Lenz, printed pp. 89–94",
+          "Frozen RESULT.md lines 26–34 for the non-hexad/hexad distinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh characters restricted to incidence vectors are polynomials P_S on the Johnson slice. Their slice totals are the binary Krawtchouk shell coefficients. For k=6 the lone highest-degree monomial is a point indicator, not an unknown coset statistic."
+        ],
+        "reasoning": "A weight enumerator alone does not identify pointwise values for a nonuniform support, but degree-five averaging combined with the exact point-indicator top term does; the Hamming-shell average supplies the radial component.",
+        "searches": [
+          "Resultary: small Witt design hexad Boolean Walsh spectrum and complement-even recovery",
+          "Godsil, Finite Geometry notes §§10.11–10.12, Johnson-slice polynomial averaging",
+          "Havlicek–Lenz doi-source EMS article 585"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title match is the assigned frozen record. The distinct same-day records concern the noncollinear triples of PG(2,3) and affine planes on sixteen Boolean points, respectively; the earlier complement-even recovery result concerns balanced 6×6 tables."
+        ],
+        "reasoning": "The catalogue supplies no independently verified exact W12 spectrum table in this bounded comparison. Its analogous operators do not cover W12, and no same-day priority inference is made. The failure rests instead on demonstrated implication from the established design-averaging theorem.",
+        "searches": [
+          "Local Resultary for W12/hexad spectrum and exact complement-even recovery",
+          "2026/11/22/SCOPE-exact-walsh-spectrum-and-complement-even-recovery-for-the-small--b675066942c8",
+          "2026/11/22/SCOPE-complete-walsh-spectrum-and-sharp-recovery-for-ternary-projectiv--1384cdd85f59",
+          "2026/11/22/SCOPE-eight-level-zero-free-walsh-spectrum-for-the-classical-sixteen-p--270b10657346",
+          "2026/11/16/SCOPE-exact-complement-even-walsh-recovery-for-six-by-six-balanced-bin--bca369fa8ce2"
+        ]
+      },
+      "rationale": "No separately published table of this exact Walsh spectrum was located. Nonetheless the reported table and recovery follow mechanically from the classical degree-five polynomial-averaging theorem on the Johnson slice for the known W12 5-design. In fact on J(12,6) put P_S(x)=∏_{i∈S}(1−2x_i). For k=|S|≤5 its hexad sum is 1/7 of the full-slice sum by Godsil's Lemma 10.12.1 and 132/924=1/7. For k=6, apply exactly the same theorem to P_S−64∏_{i∈S}x_i, of degree at most five. On the slice the removed monomial is simply the indicator of the single point S, with sum h(S) on the design and 1 on the slice. The full-slice sums are the elementary shell coefficients [z⁶](1−z)^k(1+z)^(12−k), namely 924,−84,28,−20 at k=0,2,4,6 and zero at odd k. Thus the only residual in the entire transform is the known hexad-membership indicator at k=6, yielding −20/7+64(h(S)−1/7)=−12+64h(S); weights above 6 are reflected because all blocks have even weight. There is no unanalyzed intersection parameter. Counting and spectral projection are immediate once this prior specialization is made. This is demonstrated implication, not an allegation that the exact Walsh table was printed or that the self-match has prior precedence.",
+      "residual_risks": [
+        "An explicitly printed earlier W12 Walsh table could remain unlocated. Its existence is not required for the demonstrated mechanical implication, and no complete historical search is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger general evaluation identity; specializes to the full W12 Walsh table as above",
+          "evidence": "For Ω=J(v,k), the row space equals the low-degree polynomial space, and Φ is a usual t-design iff its normalized averages on that space equal those on Ω.",
+          "identifier_or_url": "https://www.math.uwaterloo.ca/~cgodsil/pdfs/bigGeom.pdf",
+          "material_read": "§§10.11–10.12, Lemmas 10.11.1 and 10.12.1, printed pp. 105–107, extraction offsets 202100 and 208091",
+          "method": "OA configured alternate route, bounded offset reads",
+          "title": "Finite geometry notes: Polynomial Spaces, Averaging, Designs",
+          "trigger": "Potential theorem converting a known design to exact shell polynomial sums"
+        },
+        {
+          "assessment": "Supplies the known design needed for the general lemma; not itself a Walsh table",
+          "evidence": "The construction yields 132 complement-paired hexads and every five-subset is in exactly one block.",
+          "identifier_or_url": "https://www.geometrie.tuwien.ac.at/havlicek/pub/anothersimple.pdf",
+          "material_read": "Printed pp. 90 and 92–94, PDF extracts at offsets 0–4976, 4976–9959 and 9959–14948",
+          "method": "OA bounded primary passages",
+          "title": "Another simple proof for the existence of the small Witt design",
+          "trigger": "Same W12 design and its known premises"
+        },
+        {
+          "assessment": "Different design and spectral data",
+          "evidence": "Noncollinear triples of PG(2,3), condition number 117.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-walsh-spectrum-and-sharp-recovery-for-ternary-projectiv--1384cdd85f59",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror inspection",
+          "title": "Complete Walsh spectrum and sharp recovery for ternary projective noncollinear triples",
+          "trigger": "Distinct same-day exact Boolean spectrum and recovery"
+        },
+        {
+          "assessment": "Different design and spectral behavior",
+          "evidence": "An eight-level zero-free transform, not the W12 half-null spectrum.",
+          "identifier_or_url": "2026/11/22/SCOPE-eight-level-zero-free-walsh-spectrum-for-the-classical-sixteen-p--270b10657346",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror inspection",
+          "title": "Eight-level zero-free Walsh spectrum for the classical sixteen-point affine-plane design",
+          "trigger": "Distinct same-day exact affine design spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Godsil's Johnson-slice averaging lemma and Havlicek–Lenz W12 construction"
+      ],
+      "rationale": "The design and its spectrum are natural, and the correct table can be useful for reference, but in this narrow result the full spectrum is mechanically forced by the general polynomial-averaging identity on the known design, plus one point indicator and binomial arithmetic. The range, condition number and valuations are immediate read-offs rather than a separate recovery theorem that resolves a further mathematical gap. The record does not establish a surviving independent exact invariant or other nonroutine conclusion beyond this specialization.",
+      "residual_risks": [
+        "The failure is not because the design is finite. A different independently motivated invariant or a recovery result not mechanically implied by this diagonalization would require its own review."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

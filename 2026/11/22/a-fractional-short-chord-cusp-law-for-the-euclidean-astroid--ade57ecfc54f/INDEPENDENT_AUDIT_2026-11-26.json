@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:32:54.851669Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadrant chart is unit speed as a function of s=(3/2)sin²t, giving circumference 6. Independent uniform arclength coordinates give exactly ε/3 for S≤ε, a subset of D≤ε. On one quadrant, projecting its chord onto the mid-angle tangent direction gives D≥h cos(Δθ/2) with h the depth difference, hence h≤√2 ε and excess width at most a constant times ε times the squared increment of the tangent angle over a √2 ε interval. Integrating this squared increment gives O(ε) because the angle is monotone and has total variation π/2. Thus same-quadrant excess is O(ε²), despite cusp curvature divergence; nonadjacent quadrants have positive separation. For the two branches at one cusp, the exact vertical gap is c(a^(3/2)+b^(3/2)), so both depths are O(ε^(2/3)); the normal coordinate has derivative tending to −1, forcing |b−a|=O(ε). On a bounded support the change (a,b)=(ε^(2/3)u, ε^(2/3)u+εv) has Jacobian ε^(5/3), and the squared scaled chord converges to v²+4c²u³. For positive u the additional constraint a+b>ε is eventually automatic, equivalently losing at most ε²/2 per branch pair. Zero boundary area gives L¹ convergence of region indicators, and hence total variation after normalization. The limiting area is 2u_*/3 times B(1/3,3/2); multiplying by 8/36 gives the claimed coefficient, independently evaluated as 0.3533277500571 to the shown precision. Symmetry gives equiprobable cusp and ordered-orientation labels; the substitution w=(u/u_*)³ gives the Beta density and the normalized transverse coordinate is uniform conditional on w. The stated transformation concerns limiting coordinates; if applied at finite ε it can be defined arbitrarily off its real domain, where the conditional mass tends to zero. The uploaded numerical checker was inspected, not executed.",
+      "replay_paths": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "27c3f17c40ea gives a cycloid near-diameter 4/3 law and a general statement for a unique diametral pair of inward-facing 3/2-cusps.",
+          "f765787814e7 gives an r^(7/2) contact law and TV marks for points in tangent smooth positively curved bodies; 9d5d48c47c40 concerns area-uniform points in smooth strictly convex ovals."
+        ],
+        "reasoning": "A theorem for separated diametral endpoints does not imply the same-cusp short-distance event. Smooth positively curved bodies and planar area sampling also do not include the singular arclength-only geometry; their TV methods are analogues, not covering the present limit.",
+        "searches": [
+          "Resultary: general 3/2 cusp law, small-distance contact and total-variation marks",
+          "Resultary: short-distance asymptotics for smooth convex bodies"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 27c3f17c40ea, 99ddc2fdeba5, ec20d11d11ff, f765787814e7 and 9d5d48c47c40",
+        "Cited OA chord and geometry sources, attempted retrieval as above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Available prior descriptions cover classical parametrization, different sampling laws, near-diameter cusps, or generic small-distance dimension.",
+          "The exact excess limit localizes the same-cusp mismatch of tangential and transverse depths at different scales ε and ε^(2/3)."
+        ],
+        "reasoning": "None of the available prior statements supplies that anisotropic region, the eight ordered contributions after the intrinsic subtraction, or the limiting conditional marks. The exponent alone would not establish these claims.",
+        "searches": [
+          "Resultary 27c3f17c40ea and 99ddc2fdeba5: cusp asymptotic theorem and marked limit",
+          "Bäsel arXiv:1204.2707v2 Sections 1 and 4, as described in RESULT.md lines 87–91",
+          "Public correlation-integral search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The public result supplied generic correlation-integral definitions, not a cusp correction or conditional theorem.",
+          "Indexed 99ddc2fdeba5 includes cusped hypocycloids and near-diameter Dirichlet shape laws; ec20d11d11ff concerns near-diameter regimes for arclength chords of Lamé curves."
+        ],
+        "reasoning": "The Euclidean short-pair probability is an arclength correlation integral, but its leading dimension-one behavior does not give the secondary power or prefactor. Even with the same sampling and curve, diameter events between far-apart points are not the near-zero excess across the branches of one cusp.",
+        "searches": [
+          "Public literature: correlation integral, cusp curve, arclength random points, chord distance and small-distance asymptotics",
+          "Resultary: arclength random chords, hypocycloid/Lamé curve and cusp laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record cites MacTutor for the classical geometry, and identifies Bäsel's sampling as two area-uniform polygon points, Gille's as invariant-line chords of wedge/quadratic rod, and García-Pelayo Novo's as polygon multi-chords. No primary passage was independently obtained in the bounded retrieval attempts.",
+          "Closest exact-shape indexed statements concern the opposite extreme or different measures."
+        ],
+        "reasoning": "A shape entry yields the unit-speed chart but is not a table of iid boundary pair probabilities. Invariant random lines or uniform interior points do not induce the product of boundary arclength measures used here.",
+        "searches": [
+          "Resultary: astroid, four-cusp hypocycloid and Lamé chord statistics",
+          "MacTutor Astroid entry; Bäsel arXiv:1204.2707v2 Sections 1 and 4; Gille DOI 10.3844/jmssp.2005.106.112; García-Pelayo Novo DOI 10.12988/ams.2015.54364"
+        ]
+      },
+      "rationale": "The supported distinction is the exact secondary near-zero term for independent boundary-arclength endpoints on the astroid, with total-variation scaling and marks for the excess rather than for all short pairs. Parametrization, perimeter, and the intrinsic leading term are standard. The available strongest same-geometry and general-cusp statements are near-diameter laws, while the closest short-pair comparisons use planar area measure. This comparison is qualified by primary and mirrored access limits.",
+      "residual_risks": [
+        "Comparator summaries do not exclude an exact short-distance discussion elsewhere in their full texts, which were not retrieved.",
+        "A more general unindexed cusp-correlation theorem could imply the secondary term or marked law. No priority inference follows from same-day catalogue dates or a public keyword miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statements concern near-diameter events; full extent of overlap unverified",
+          "evidence": [
+            "General unique diametral pair of inward-facing 3/2-cusps, and near-diameter Dirichlet laws for integer-cusp hypocycloids."
+          ],
+          "identifier_or_url": "Resultary 27c3f17c40ea; 99ddc2fdeba5",
+          "material_read": "Indexed statements; no full mirrored passage obtained",
+          "method": "Local Resultary and bounded mirrored retrieval attempts",
+          "title": "Cuspidal curvature and the four-thirds rare diameter law for cyc…; Sharp cusp diameter laws and parity-dependent sample extremes of …",
+          "trigger": "Closest general cusp theorem and same-shape cusp/chord result"
+        },
+        {
+          "assessment": "Opposite tail; the summary does not establish whether p=2/3 is included",
+          "evidence": [
+            "Near-diameter regimes for arclength-random Lamé chords."
+          ],
+          "identifier_or_url": "Resultary ec20d11d11ff",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary search",
+          "title": "Five near-diameter regimes for arclength random chords of Lamé curves",
+          "trigger": "Related arclength chord law on the same curve family"
+        },
+        {
+          "assessment": "Close-pair analogues with different measures or smoothness",
+          "evidence": [
+            "Smooth positively curved tangent bodies with r^(7/2) and TV marks; area-uniform smooth oval probabilities with a seventh-order term."
+          ],
+          "identifier_or_url": "Resultary f765787814e7; 9d5d48c47c40",
+          "material_read": "Indexed scientific statements",
+          "method": "Local Resultary search",
+          "title": "Universal short-pair contact law for tangent smooth convex bodies; Seventh-order short-distance asymptotics distinguish curvature …",
+          "trigger": "Possible broader close-pair laws and limit geometry"
+        },
+        {
+          "assessment": "Available descriptions distinguish sampling and geometry; not whole-document exclusions",
+          "evidence": [
+            "Bäsel is described as polygon interior area sampling with chord tools; Gille and García-Pelayo as line/chord sampling; MacTutor provides geometry."
+          ],
+          "identifier_or_url": "arXiv:1204.2707v2; DOI 10.3844/jmssp.2005.106.112; DOI 10.12988/ams.2015.54364; https://mathshistory.st-andrews.ac.uk/Curves/Astroid/",
+          "material_read": "Frozen RESULT.md lines 87–102, including Bäsel Sections 1 and 4 as reported there; no independent primary full text recovered",
+          "method": "Bound file and bounded lawful OA retrieval attempts",
+          "title": "Random chords and point distances in regular polygons; Analysis of the Chord Length Distribution Along an Edge; Computation of the multi-chord distribution of convex and concave polygons; Astroid",
+          "trigger": "Frozen literature and classical exact-shape data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The astroid is a natural cusp model where the leading intrinsic term conceals a different population of unusually close Euclidean pairs. The first correction has a fractional exponent and exact normalization, and the conditional TV result identifies both anisotropic scales and the limit shape for those pairs. This explains a geometric effect rather than merely improving a numerical estimate for one curve.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

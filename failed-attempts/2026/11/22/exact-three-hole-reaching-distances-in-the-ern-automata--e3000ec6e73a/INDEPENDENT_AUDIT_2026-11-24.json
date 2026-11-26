@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:13:18.435374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–128; VERIFICATION.md; artifacts/verify_reaching.py inspected, not run; artifacts/verification_output.txt read as frozen evidence, not a new run.",
+        "Independent BFS and replay details: /workspace/branches/9bee72d1-c9fc-4cc7-af66-df5c0de64ba2/independent-three-hole-bfs.md",
+        "Resultary 5cdbaf373a0f, inverse letter actions and normal form, offset 0."
+      ],
+      "rationale": "The word b a^e b a^d b a^r adds three terminal holes and translates them to the requested labels; the forbidden residues in the construction prevent a plateau or relocation from substituting for a merge. For the lower bound, the stated potential is zero at the empty hole set and can increase by at most one on an admissible transition. Rotations increment positions except at terminal crossings, where the special pair/triple formulas account for the wrap; b either fixes a set, inserts a terminal hole with a unit increase, or replaces zero by the terminal hole without an increase. A target at defect three cannot have a prefix of larger defect. Counting the separated triples by their largest nonterminal hole and the adjacent triples by their pair or block position gives the histogram including its endpoint contributions. A direct independent image BFS agreed for every triple at n=4 through 30, including distances 9, 10, 11, 12 at n=4. Independently of the potential, the inverse deletion calculation in the originality comparison also gives all the claimed distances.",
+      "residual_risks": [
+        "The finite BFS corroborates the formula only through n=30. The mathematical arguments apply to the specified labeled transformations and unit letter costs, not arbitrary cyclic defect-one automata."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first indexed source proves the rotations-and-deletions normal form for arbitrary defect and gives the exact maximum kn and its unique target. The early-deficiency record gives the minimum seven at k=3 for n>=5. The literature gives general reaching bounds or Don-bound conditions."
+        ],
+        "reasoning": "The extrema alone would not cover the all-target spectrum. The material stronger than the extrema is the constructive normal form and deletion rule in the earlier proof.",
+        "searches": [
+          "5cdbaf373a0f, theorem, normal form and unique worst target",
+          "766d362d36d3, early deficiency profile",
+          "arXiv:2208.05956 pp. 4, 17; arXiv:2311.00077v2; arXiv:2402.19089v1 §1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5cdbaf373a0f, 766d362d36d3, 139e56d5f521, and the self-match e3000ec6e73a",
+        "arXiv:2208.05956 pp. 4, 17; arXiv:2311.00077v2 offsets 4134, 8955; arXiv:2402.19089v1 §1.2; Ferens–Szykuła–Vorel MFCS 2021 §§1.1–1.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the published normal form use a clock R counting inverse rotations only. A hole with original label p can be deleted exactly at times R congruent to p+1 mod n, provided its original successor is no longer present. In a maximal cyclic run of length ell and last label q, the tail can first be deleted at [q+1]_n and predecessors must follow in reverse run order, with their earliest times exactly n-1 rotations apart. These earliest times for all runs can be realized together: runs are separated by a nonhole, and different labels have different time residues. Therefore, directly from the earlier rule, the exact length is k plus the maximum of [q+1]_n+(ell-1)(n-1) over the runs."
+        ],
+        "reasoning": "At k=3 the run types are 1+1+1, 2+1 and 3. Taking the maximum gives respectively the largest singleton rotation, the pair completion time, or the sole triple completion time. A terminal tail contributes zero initially and a wrap tail contributes one or two; substituting these values yields every displayed distance case. The histogram is then just tallying singleton placements and translating the pair or run. No new shortest-path obstruction beyond the earlier normal form is required; the run-clock formula is a direct deduction here, not an explicit formula attributed to the earlier author.",
+        "searches": [
+          "5cdbaf373a0f RESULT.md from offset 0: inverse letter actions, normal form and deletion boundary; proof continued from offset 2100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier proof deletes one target state per b^{-1} in any shortest avoiding path. Starting with k forbidden states requires exactly k uses of b. Forward each b loses at most one image state, so a shortest avoiding word ends with at least n-k states; avoidance gives at most n-k. Thus for the same labeled family shortest avoidance of H equals shortest exact reaching of its complement for every proper H."
+        ],
+        "reasoning": "Avoidance and exact reaching need not be equivalent in general. The earlier normal form proves equality of the distances in this particular model, making target-dependent consequences of that proof relevant.",
+        "searches": [
+          "Resultary: exact three-hole reaching, avoidance thresholds, and codimension-two distances; 5cdbaf373a0f, inverse-action normal form",
+          "Ferens–Szykuła–Vorel, MFCS 2021 §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-hole search retrieves the frozen record itself. The distinct codimension-two record gives the target-indexed two-hole distances and their spectrum, and does not print the three-hole table. The four-state literature example gives the avoidance thresholds 4, 8, 12, not the complete three-hole histogram."
+        ],
+        "reasoning": "No exact duplicate table is relied on. A different defect, metric, or list of maxima is not itself a match to the frozen histogram.",
+        "searches": [
+          "Resultary exact three-hole histogram; 139e56d5f521 codimension-two spectrum; MFCS 2021 §1.1 four-state example"
+        ]
+      },
+      "rationale": "No distinct indexed explicit copy of the three-hole table was located, but the earlier exact k-avoidance record 5cdbaf373a0f proves a normal form for every target, stronger than its extremal statement. In this normal form shortest avoidance is exact reaching, and the rotation costs of separate cyclic runs follow immediately from the deletion rule. The frozen distance cases and histogram are the defect-three specialization and elementary tally of those costs. This is implication coverage, not a claim that the earlier record prints the same histogram.",
+      "residual_risks": [
+        "Shared-wave external search requests were deferred; the assessment uses directly inspected primary and indexed passages, not search absence. The separately cited exact-two-hole mirror file was unavailable. Neither limitation is the basis for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implication coverage via the all-target normal form, with directly stated coverage of the hardest target and its distance",
+          "evidence": "Every b^{-1} in a shortest inverse path deletes just n-1; such deletion is possible exactly when the hole has an absent cyclic successor rotated to zero. This is the clock calculation's only optimality input.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+          "material_read": "Statement, inverse letter rules and normal form at offsets 0–2325; deletion rule and worst-case proof at offsets 2100–7166",
+          "method": "Bounded reads in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact k-avoiding thresholds of the Černý automata",
+          "trigger": "Exact general defect result for the same automaton; its proof might give more than the extrema"
+        },
+        {
+          "assessment": "Covers the minimum, not the target-indexed table",
+          "evidence": "Minimum length at deficiency s is 3s-2 for s<=ceil(n/2), giving seven at deficiency three for n>=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3/RESULT.md",
+          "material_read": "Finding and proof passages at offsets 0 and 3211",
+          "method": "Bounded local mirror reads",
+          "title": "Exact early deficiency profile of the Černý automata",
+          "trigger": "Same family and smallest three-hole distances"
+        },
+        {
+          "assessment": "Parallel specialization at two omitted states, not a duplicate table at three",
+          "evidence": "The result expressly classifies d_n(u,v) and its multiplicities for two holes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-complete-codimension-two-reaching-distance-spectrum-for-the-er--139e56d5f521/RESULT.md",
+          "material_read": "Finding at offset 0; related claims beginning at offset 6300",
+          "method": "Bounded local mirror reads",
+          "title": "A complete codimension-two reaching-distance spectrum for the Černý automata",
+          "trigger": "Exact target metric, model and histogram at an adjacent defect"
+        },
+        {
+          "assessment": "Context and reaching bounds, not the defect-three table in those passages",
+          "evidence": "The text discusses the Černý family attaining the Don bound and proves a general reaching bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05956",
+          "material_read": "p. 4, offsets 17752 and 19275; §5, p. 17, offset 75988",
+          "method": "Bounded open PDF reads",
+          "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+          "trigger": "General complete reachability and potential Černý length-overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and counting proof",
+        "5cdbaf373a0f inverse-action normal form and deletion boundary; 766d362d36d3 minimum"
+      ],
+      "rationale": "An explicit labeled distance profile of this canonical automaton is a useful reference, and the potential proof is a self-contained explanation. But the frozen contribution is a fixed three-hole specialization: the earlier exact normal form leaves only the three possible cyclic run types and an elementary placement tally, with the two extrema already covered. The exact profile and its histogram are mechanically obtainable from that rule and do not establish a distinct structural or quantitative result warranting acceptance as frozen.",
+      "residual_risks": [
+        "The rejection concerns the frozen three-hole claim, not the usefulness of general reaching-distance structure or efficient computation at large defect."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

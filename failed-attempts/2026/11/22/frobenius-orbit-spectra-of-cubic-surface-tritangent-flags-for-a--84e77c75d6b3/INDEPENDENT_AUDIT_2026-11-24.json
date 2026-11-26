@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:04:02.575297Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–64; VERIFICATION.md and verify_tritangent_flags.py by inspection",
+        "Replay: python3 /workspace/review_evidence/recompute.py 5; output /workspace/review_evidence/5.txt"
+      ],
+      "rationale": "For the stipulated anticanonical embedding, tritangent triples are precisely the distinct line triples whose sum is -K. The degree patterns in the plane blowup basis are (0,1,2), giving E_i+L_ij+Q_j with i≠j, and (1,1,1), giving perfect matchings. This description uses divisor classes, not distinctness of intersection points, and hence is unchanged by Eckardt concurrency. Frobenius just relabels. A fixed first-kind triple has both indices fixed; a fixed flag of the matching kind selects a fixed pair and a fixed matching on its complement. Rational triples cannot have exactly two individually rational lines because the remaining member would also be fixed. With no fixed centres and no two-cycles the only partitions of six are (6) and (3,3). Independent enumeration from sums of divisor classes, without using the supplied tritangent or matching lists, reproduces all orbit columns and all rational-plane compositions; it confirms one and three rational planes in those two cases and no rational flags. The zeta product counts finite configurations, not their geometric unions.",
+      "residual_risks": [
+        "Conditional on the stated six-point blowup; no per-field realization or classification of all Weyl types is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-Jacobian record explicitly computes the full line and tritangent profiles over 25 Weyl types, containing the eleven pairs here. The extension-recovery record recovers the full type from line and plane counts. Das treats line and tritangent markings via W(E6), giving an aggregate tritangent count distribution."
+        ],
+        "reasoning": "The broader numerical line/plane coverage is exact in the indexed graph-Jacobian table. Das's aggregate is not itself a decorated table; the overlap verdict uses the exact adjacent-pair and endpoint orbit data rather than mere availability of a general group-action method.",
+        "searches": [
+          "Resultary 70136773ee2a and 5e55036a6d2f; Das arXiv:2002.11183 pp.4–5 and Table 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 18f91d76a1da RESULT.md and 27_line_frobenius.csv; 70136773ee2a and 5e55036a6d2f",
+        "arXiv:2002.11183 and arXiv:1006.1474 as located above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write E and B for the numbers of fixed adjacent pairs and ordered endpoints from the CSV, and T for the number of fixed tritangent planes from the broader table. For (4,1,1) the exact entries are (E,B,T)=(7,12,3)."
+        ],
+        "reasoning": "A fixed ordered pair fixes both lines, hence all three in its plane; each fully split plane contributes six ordered pairs. Thus n3=B/6, n1=E−B/2 (the fixed unordered pairs having exchanged endpoints), and n0=T−n1−n3. In the example these give (0,1,2). This derives the entire composition, not just totals. The line spectra isolate (6) and (3,3) as line-free and T gives 1 and 3; point and zeta counts are direct orbit transforms. The fixed-centre/pair/matching identities are straightforward fixed-point bookkeeping on the classical labelled sets, not an independently valuable residual theorem here.",
+        "searches": [
+          "18f91d76a1da Finding, Proof steps 1–2 and full CSV; 70136773ee2a 25-class line/plane table; compare frozen Table 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The boundary paper explicitly acts on 135 unordered adjacent line pairs and 270 ordered endpoint flags in its proof. Its CSV labels these as node_orbits and branch_orbits."
+        ],
+        "reasoning": "A flag (line, tritangent plane) is equivariantly equivalent to the other two intersecting lines in that plane: the pair spans the unique plane with that residual line. The identification also holds at an Eckardt point. The no-Eckardt assumption in the comparator is needed to read distinct graph edges as distinct geometric nodes, not to evaluate the permutations of abstract pairs or ordered endpoints.",
+        "searches": [
+          "Resultary: cubic surface line tritangent plane incidence flags 135 flag Frobenius fixed points cycle profile rational tritangent component counts 27 lines W(E6) S6; 18f91d76a1da RESULT.md §Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For all eleven partitions node_orbits equals the frozen flag vector, and line_orbits equals the frozen line vector. For example (6) has node_orbits 3³6²¹, (3,3) has 3⁴⁵, and (4,1,1) has 1⁷2²4³¹. The broader plane table has the corresponding plane profiles, e.g. class 20 has 1¹2¹3²6⁶ and class 8 has 1³3¹⁴."
+        ],
+        "reasoning": "These are evaluated coefficient tables for the same abstract finite sets, not just same-name objects. The boundary proof provides the precise interpretation of the columns even when geometric nodes are not the desired object.",
+        "searches": [
+          "Resultary 18f91d76a1da/27_line_frobenius.csv offset 0; 70136773ee2a RESULT.md Finding and Weyl-class table; exact public literature lookup for tritangent flag spectra"
+        ]
+      },
+      "rationale": "The numerical flagship is covered by exact indexed tables after a canonical equivariant identification: 135 line–plane flags are the 135 unordered adjacent line pairs, via the two residual lines. Published boundary data evaluate the permutations on those adjacent pairs and ordered endpoints for all eleven partitions, and the 25-class graph-Jacobian table gives the full plane and line spectra. Together they also mechanically give the rational-plane composition and the line-free boundary claim. This assessment is about demonstrated coverage, not the order of same-day entries.",
+      "residual_risks": [
+        "Relative priority among same-date entries was not established. The attributed Elsenhans–Jahnel involution comparison was not verified; neither limitation is the basis of the negative verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computes the label-dependent adjacent-pair and ordered-endpoint permutations; only their physical node interpretation needs no Eckardt points",
+          "evidence": [
+            "The proof explicitly describes Frobenius on 135 unordered adjacent pairs and 270 ordered endpoint flags and identifies nonsplit fixed pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eleven-frobenius-zeta-functions-of-the-27-line-boundary-on-six-p--18f91d76a1da/RESULT.md",
+          "material_read": "Finding and scope (offset 0–4659) and Proof steps 1–2 (offset 4659 onward)",
+          "method": "Local mirror passage read",
+          "title": "Eleven Frobenius zeta functions of the 27-line boundary on six-point cubic surfaces",
+          "trigger": "Node/branch computation may encode flags and components"
+        },
+        {
+          "assessment": "Exact spectra for line set and unordered intersecting pairs; endpoint data sufficient for the composition refinement",
+          "evidence": [
+            "The distinct line_orbits, node_orbits and branch_orbits columns are given for every partition. The (2,2,2) row has 9 fixed pairs and 6 fixed ordered endpoints, yielding n1=6 and n3=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eleven-frobenius-zeta-functions-of-the-27-line-boundary-on-six-p--18f91d76a1da/27_line_frobenius.csv",
+          "material_read": "All eleven rows, offset 0–854",
+          "method": "Local mirror CSV inspection and exact comparison",
+          "title": "27_line_frobenius.csv",
+          "trigger": "Can the abstract flag and composition statistics actually be extracted?"
+        },
+        {
+          "assessment": "Covers both line and plane spectra in the target",
+          "evidence": [
+            "Contains 27-line and 45-plane cycle columns for all classes, including class 8 matching (3,3) and class 20 matching (6)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-25-weyl-type-frobenius-fixed-graph-jacobians-of-cubic-surfac--70136773ee2a/RESULT.md",
+          "material_read": "Finding and 25-class table, starting offset 0",
+          "method": "Local mirror statement and row inspection",
+          "title": "All 25 Weyl-type Frobenius-fixed graph Jacobians of cubic-surface lines and tritangents",
+          "trigger": "Broader exact line/tritangent table on all W(E6) classes"
+        },
+        {
+          "assessment": "Broader exact type recovery, but not relied on for the flag/endpoint tables",
+          "evidence": [
+            "The first three extension counts on lines and planes recover the full W(E6) class."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-extension-recovery-of-cubic-surface-frobenius-from-lines-a--5e55036a6d2f",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage read",
+          "title": "Three-extension recovery of cubic-surface Frobenius from lines and tritangent planes",
+          "trigger": "Potential stronger Frobenius classification by line/plane data"
+        },
+        {
+          "assessment": "Substantial broader arithmetic precedent, not the exact composition evidence",
+          "evidence": [
+            "The W(E6) marking framework and rational-tritangent count distribution are explicit; Table 3 aggregates over surfaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.11183",
+          "material_read": "pp.4–5 offsets 13000–16994, and Table 3 p.9 near offsets 27247–27700",
+          "method": "OA PDF passage read",
+          "title": "Arithmetic statistics on cubic surfaces",
+          "trigger": "Broader smooth-surface tritangent computation"
+        },
+        {
+          "assessment": "Relevant geometry/descent; exact involution-count attribution not confirmed in inspected passages",
+          "evidence": [
+            "Explicit Steiner-trihedron action and descent precedents, distinct from the full eleven-cycle flag table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.1474",
+          "material_read": "§§1–2 and §§5.5–5.7 (offsets 0–12000 and 33000–41732, relevant passages)",
+          "method": "OA PDF passage read",
+          "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+          "trigger": "Cited descent and possible involution data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Table 1, independent replay 5, 18f91d76a1da/27_line_frobenius.csv and 70136773ee2a plane table"
+      ],
+      "rationale": "Incidence descent is a natural question, but the exact flag and residual-line composition statistics are respectively an equivariant renaming and a direct linear transform of existing evaluated incidence data, together with existing exact plane spectra. Eckardt concurrence only changes whether a pair is represented by a distinct point of the curve union, not this labelled configuration. The combined presentation and independent replay therefore do not supply a new mathematical invariant or a valuable repairable remainder.",
+      "residual_risks": [
+        "The audit does not assert that all other incidence schemes or broader marked subgroups have been numerically classified."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

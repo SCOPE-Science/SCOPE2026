@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:54:27.345191Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–40",
+        "Frozen verify_two_deleted.py and verification_output.txt (inspected, not executed)",
+        "Independent enumeration by sequential forcing and symmetric-difference adjacency"
+      ],
+      "rationale": "If three whites are in one part, no opposing vertex can make the first force into that part. A white pair in a part needs a special index, and for two white pairs an initial force exists exactly when the special-index signatures differ. For each of the resulting types the explicit two forces leave a singleton in each part, and there are at least two opposite blue vertices for each singleton, so they can both be forced. Thus the minimum sets leave four whites. A token jump on their complements fixes one pair and changes one member of the other. Within a family this means a rook move; across families the fixed pair must be {1,2} and the changed pair must retain its nonspecial member, yielding exactly the identical-boundary bridges. They restore lost puncture degrees. The punctured rook diameter is at most two and every vertex is within one step of a bridge. Interior points across copies with no shared coordinate have no common bridge label and need four steps; with one nonspecial row or column, all interior points share a bridge label and the cross-copy distances are at most three. Opposite interiors give distance at least three. The vertex and edge formulas follow directly. Independent enumeration of four-white forcing closures and every labelled adjacency confirmed the exact claimed structure and the diameter in all 36 cases 3≤a,b≤8 (1,386 vertices and 5,796 edges total).",
+      "residual_risks": [
+        "The finite check is corroboration; the proof, not the finite range, handles all part sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary theorem covers arbitrary matching deletions and, at t=2, the exact minimum complement types and count. The two primary polynomial and q-analogue passages cited here treat the undeleted biclique."
+        ],
+        "reasoning": "Credit the stronger roster classification; it does not contain an adjacency or distance analysis. The undeleted formulas do not cover the punctured-rook geometry.",
+        "searches": [
+          "Resultary dbea30a31d6d, zero-forcing polynomial and matching-deletion thresholds",
+          "Boyer et al. arXiv:1801.08910v1, §5, Theorem 14",
+          "Fallat et al. arXiv:2306.01138v1, §4.2, Proposition 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dbea30a31d6d and 56a4948a1a5b",
+        "arXiv:2009.00220, 1801.08910v1, 2306.01138v1 and 2205.09668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known roster and exchange rule determine the graph abstractly, but neither comparison gives its family decomposition or shortest paths."
+        ],
+        "reasoning": "It takes a separate adjacency analysis to find that the only common pair across families is the special pair, that its cross edges form an identity matching, and that the bridge labels force the sharp 3-versus-4 diameter. A vertex-set classification alone does not mechanically give these structural facts.",
+        "searches": [
+          "Resultary dbea30a31d6d, t=2 specialization",
+          "Geneson–Haas–Hogben arXiv:2009.00220, token-jump definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former defines the same token-jump graph on minimum zero-forcing sets. The latter permits additions or removals in the TAR model."
+        ],
+        "reasoning": "White complementation preserves single exchanges. Thus the relevant comparison is the minimum-set token-jump graph, not the distinct TAR graph; neither inspected source states the two-deletion rook model.",
+        "searches": [
+          "Geneson–Haas–Hogben arXiv:2009.00220, p. 2",
+          "Bong et al. arXiv:2205.09668, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day classification records the same minimum-set count. The later crown-graph result has the same diameter transition but uses a perfect matching deletion, not two independent deletions."
+        ],
+        "reasoning": "Equal counts or diameter values do not establish equality of the reconfiguration graphs; the indexed results either specify only the relevant vertex roster or treat a different deletion regime.",
+        "searches": [
+          "Resultary matching-deleted biclique classification, single-exchange reconfiguration, punctured rook graphs, and diameter transition",
+          "Resultary dbea30a31d6d and 56a4948a1a5b"
+        ]
+      },
+      "rationale": "The roster of minimum sets is already covered by the broader matching-deletion classification and is not credited as novel. The exact token-jump graph, including its cross-copy edge geometry and diameter transition for two deletions, survives the comparison. The frozen record's assertion that the classification was previously known would benefit from a specific citation; within-day priority is not established and is unnecessary for the claimed graph structure.",
+      "residual_risks": [
+        "A bounded search did not identify a published matching-specific classification citation; no within-day priority is inferred from Resultary dates.",
+        "Search coverage does not exclude differently indexed prior reconfiguration results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact roster and count overlap; no token-jump structure",
+          "evidence": "The full polynomial and eligible white complements are given for K_(a,b)−M_t; the four-white coefficient at t=2 is 2(ab−a−b).",
+          "identifier_or_url": "Resultary dbea30a31d6d",
+          "material_read": "RESULT.md theorem and relationship discussion",
+          "method": "Local mirror full-text passages",
+          "title": "Zero forcing polynomial and matching-deletion thresholds in dense bipartite graphs",
+          "trigger": "Broader exact classification with t=2 specialization"
+        },
+        {
+          "assessment": "Same model, different family results",
+          "evidence": "Edges are single-vertex replacements among minimum zero-forcing sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "p. 2, extracted offset 5600, definition and scope",
+          "method": "Targeted open full-text reading",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Direct prior token-jump framework"
+        },
+        {
+          "assessment": "Undeleted biclique formula only in the relevant passage",
+          "evidence": "The stated complete bipartite formula gives ab minimum sets before deletions.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910v1",
+          "material_read": "§5, Theorem 14 proof, PDF p. 12, extracted offset 37938",
+          "method": "Targeted open full-text reading",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Potential matching-specific source cited by the frozen record"
+        },
+        {
+          "assessment": "Scalar q-analogue result for undeleted bicliques",
+          "evidence": "No white-complement classification for the matching-deleted case in the inspected proposition.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.01138v1",
+          "material_read": "§4.2, Proposition 4.3, PDF p. 21, offset 55296",
+          "method": "Targeted open full-text reading",
+          "title": "The q-Analogue of Zero Forcing for Certain Families of Graphs",
+          "trigger": "Possible stronger family result"
+        },
+        {
+          "assessment": "Different edge operation",
+          "evidence": "The model uses token addition and removal, not fixed-size token jumps.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.09668",
+          "material_read": "Abstract and introduction",
+          "method": "Targeted open full-text reading",
+          "title": "Isomorphisms and properties of TAR reconfiguration graphs for zero forcing and other X-set parameters",
+          "trigger": "Alternative reconfiguration model"
+        },
+        {
+          "assessment": "Different deletion parameter",
+          "evidence": "Crown graphs are K_(n,n)−M_n, whereas the frozen theorem has two deletions and arbitrary a,b≥3.",
+          "identifier_or_url": "Resultary 56a4948a1a5b",
+          "material_read": "Finding on exact exchange metric and diameter",
+          "method": "Local Resultary comparison",
+          "title": "Exact reconfiguration distances for minimum zero-forcing sets of crown graphs",
+          "trigger": "Same diameter transition in an adjacent matching-deletion regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof of adjacency and diameter",
+        "Resultary dbea30a31d6d for the distinction between counting and reconfiguring"
+      ],
+      "rationale": "The graph structure identifies how a natural perturbation of a biclique changes the entire minimum-set exchange geometry, not just the support count. The identity bridges provide an explicit adjacency model and explain exactly why small part size changes the maximum reconfiguration distance. This is a uniform result on two unrestricted part sizes, including both boundary regimes.",
+      "residual_risks": [
+        "Does not address arbitrary matching deletions, token sliding or nonminimum sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

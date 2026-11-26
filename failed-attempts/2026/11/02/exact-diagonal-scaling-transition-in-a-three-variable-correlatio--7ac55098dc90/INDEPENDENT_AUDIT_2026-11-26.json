@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:33:00.771630Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–119",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The antisymmetric subspace gives (1−t)u and the two-dimensional block has diagonal ((1+t)u,1) and off-diagonal √2 s√u. Positive definiteness follows from 1−t>0 and the block determinant u(1+t−2s²)>0. The existence of a scaling with condition number at most K is equivalent to feasibility of W≼C≼KW for positive diagonal W, using W=λ_min(DCD)D⁻² in the forward direction. Averaging a feasible W with the first-two-coordinate interchange preserves this bound, so the block-constant minimization gives the unrestricted optimum. The largest eigenvalue is λ+ from the block. The ratio λ+/((1−t)u) strictly decreases by entrywise comparison of the positive block divided by u, while λ+/λ− decreases then increases about u₀=1/(1+t) by the trace divided by square root of determinant. Their order is determined by det(B−(1−t)u I)=2u[t−s²−t(1−t)u] since λ+>(1−t)u. There is a crossing to the right of u₀ exactly when s²<2t²/(1+t); this gives the stated unique symmetric minimizer or otherwise u₀. At the crossing the top eigenvalue is 1+2tu, giving the first formula for K; the balanced block directly gives the second. Equality at the transition and the Jacobi iff s=t follow by substitution. At t=9/10,s=4/5, u=26/9 and K=279/13, whereas the antisymmetric unscaled eigenvalue is 1/10 and the largest is (29+√593)/20. On the near-singular path, q−s²=ε(1−ε)(2−ε−2ε²)/(2−ε²)>0 throughout 0<ε<1/4, and substitution gives the displayed exact K. The unscaled block has determinant ε(2−ε) and trace 3−ε², so its smaller eigenvalue is asymptotic to 2ε/3 and the unscaled least eigenvalue is ε² for small ε. This proves the limit 3/2, not a family-wide upper bound. The frozen uniqueness claim is only within the symmetric representative class.",
+      "residual_risks": [
+        "The reported finite numerical minimizations were not rerun; correctness rests on the analytic reconstruction. The frozen result does not cover negative or zero correlations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolotilina Theorem 3.3 treats every irreducible quasireal Hermitian SPD 3×3 matrix, classifies optimal normal forms, and gives explicit scalings (3.71)–(3.72) and optimal values (3.73)–(3.74). A real matrix is quasireal with the identity unitary diagonal change. Allowing nonsingular complex diagonal congruences does not change the positive-real diagonal optimum, since phases are unitary conjugations.",
+          "Theorem 3.1 and Lemma 3.1 handle the repeated-eigenvalue form; Theorem 3.2 gives the alternative balanced form and its optimizer. Corollary 3.8 characterizes Jacobi-optimality for equal diagonal entries in this class.",
+          "The other inspected modern sources give general feasibility, approximation or optimality methods, not the decisive family-specific prior formulas."
+        ],
+        "reasoning": "The 2004 results are stronger explicit classification results on a genuinely containing family, not merely a general numerical method or existence argument.",
+        "searches": [
+          "Math-Net znsl819, original Kolotilina (2004), §3 Theorems 3.1–3.3 and Corollary 3.8",
+          "Qu et al. arXiv:2209.00809; Jambulapati et al. arXiv:2008.01722; Ghadimi et al. arXiv:2509.23439"
+        ]
+      },
+      "checked_sources": [
+        "Math-Net znsl819 and associated 2006 translation DOI",
+        "Resultary 4996ec89d4c9 and 65800581cc6b",
+        "arXiv:2209.00809, 2008.01722 and 2509.23439"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write C=diag(1−t,1−t,1−s²/t)+zzᵀ with z=(√t,√t,s/√t). When the residual is positive, normalize it to I by diagonal congruence. The normalized rank-one vector has squared magnitudes t/(1−t), t/(1−t), s²/(t−s²). Lemma 3.1 says this form is optimal iff twice each squared magnitude is at most their sum, here exactly s²≤2t²/(1+t). The squared normalized scale ratio is (t−s²)/(t(1−t)), and the eigenvalues of this identity plus rank one give the frozen first branch of K.",
+          "For the other regime, Theorem 3.2's scaling (3.45), permuting the singleton to its distinguished coordinate, has squared diagonal entries proportional to (1−t,1−t,1−t²), hence u=1/(1+t). The balanced block's extremal eigenvectors have equal coordinate magnitudes and are extremal for the full matrix iff its lower mode is at or below the antisymmetric mode, equivalently s²≥2t²/(1+t). This also directly applies the optimality criterion in Theorem 1.1 and yields the second quotient. At equality both constructions give the same representative.",
+          "Corollary 3.8 gives either a permuted 2-cyclic matrix or a scalar multiple of I plus a rank-one form with equal coordinate magnitudes. The strictly positive triangle rules out 2-cyclicity, and the rank-one alternative here is equivalent to s=t."
+        ],
+        "reasoning": "The previously explicit forms give the frozen thresholds, normalized optimizer, optimum values and Jacobi equivalence by elementary substitution, including the collision boundary. This is established prior implication, not merely concern over an inaccessible source.",
+        "searches": [
+          "Kolotilina Lemma 3.1, Theorem 3.2 eqs. (3.44)–(3.47), Theorem 3.3 and Corollary 3.8",
+          "Kolotilina Theorem 1.1, citing McCarthy–Strang"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4996ec89d4c9 gives the same positive isosceles matrices, the equivalent maximum of the two expressions for u, the same limiting path and the stronger exact family-wide upper bound with supremum 3/2.",
+          "Resultary 65800581cc6b states a paired-leaf hub theorem for m≥2, not m=1. For any admissible frozen pair choose any m≥2, set the within-pair correlation b=t and hub-to-leaf correlation a=s/√m. Its two-block quotient has off-diagonal coupling √(2m)a=√2s. The additional pair-mean contrasts at 1+t are strictly between the quotient eigenvalues and do not change the condition number. Scaling the hub by √(1/u) rather than both leaves by √u differs only by common scale."
+        ],
+        "reasoning": "Fixing the scaled coupling gives the same scalar objective from the same-date sparse theorem without substituting an excluded m. This establishes substantial exact coverage, but not priority. The later isosceles record directly matches both the pointwise and the asymptotic formulas, again without supplying earlier dating by itself.",
+        "searches": [
+          "Resultary for the isosceles 3×3 transition, Jacobi criterion and 3/2 penalty",
+          "Resultary 65800581cc6b and 4996ec89d4c9",
+          "Kolotilina DOI 10.1007/s10958-005-0488-1; Russian-language Math-Net lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The isosceles sharp-gap record has the same formula u=max{1/(1+t),(t−s²)/(t(1−t))}, with the same branch values and explicit near-singular path.",
+          "The paired-leaf record gives the same exact quotient and crossover under the dimension-preserving-in-the-quotient substitution above."
+        ],
+        "reasoning": "This is an all-parameter formula rather than a finite numeric catalogue problem. The exact indexed formula/limit comparison is positive coverage, with date-order and priority kept separate.",
+        "searches": [
+          "Resultary searches for exact transition 2t²/(1+t), Jacobi iff s=t and sharp 3/2 comparison",
+          "Resultary 4996ec89d4c9 and 65800581cc6b"
+        ]
+      },
+      "rationale": "Kolotilina's primary 2004 Russian paper (English translation DOI 10.1007/s10958-005-0488-1) explicitly supplies positive diagonal optima, the repeated-versus-simple spectral regimes and optimal condition numbers for irreducible quasireal Hermitian SPD 3×3 matrices. The entire frozen family is real, strictly positive and irreducible, so its pointwise classification and Jacobi criterion are direct specializations, verified below. The near-singular witness does not rescue the claimed classification: the exact path and limit also appear in Resultary 4996ec89d4c9 together with a strictly stronger bound, without inferring priority from that record's later catalogue date alone.",
+      "residual_risks": [
+        "Catalogue dates alone do not determine priority for the separate limiting example. The originality failure of the main classification rests on the 2004 primary theorem, not on a date assumption.",
+        "The audit does not resolve originality of the scalar proof as exposition or of bounds outside the stated family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the core classification and Jacobi criterion",
+          "evidence": [
+            "Rank-one polygon criterion gives the threshold and first branch.",
+            "Theorem 3.2 normalized in the singleton coordinate gives the balanced branch.",
+            "Corollary 3.8 yields s=t."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/znsl819 ; DOI 10.1007/s10958-005-0488-1",
+          "material_read": "Russian original, Zapiski Nauchnykh Seminarov POMI 309 (2004), p. 84 problem (1.1); p. 87 Theorem 1.1; pp. 97–98 Theorem 3.1 and Lemma 3.1; pp. 111–112 Theorem 3.2; pp. 120–121 Theorem 3.3; p. 125 Corollary 3.8. Offsets 0, 6710, 25900, 55850, 75431 and 85000.",
+          "method": "Primary full-text passage inspection through the lawful Math-Net original after the English routes failed; explicit specialization",
+          "title": "Solution of the Problem of Optimal Diagonal Scaling for Quasireal Hermitian Positive-Definite 3×3 Matrices",
+          "trigger": "Direct plausible earlier solution for a larger order-three class"
+        },
+        {
+          "assessment": "Exact overlap and stronger family-wide gap bound; later catalogue date is not evidence of earlier priority",
+          "evidence": [
+            "Matching two-branch optimum and same near-singular path to 3/2; this record lists the pointwise classification as known."
+          ],
+          "identifier_or_url": "Resultary 4996ec89d4c9",
+          "material_read": "Mirrored RESULT.md Finding, formula and prior-work passages, offsets 0, 2400 and 6500",
+          "method": "Local mirror statement/proof inspection",
+          "title": "The sharp three-halves Jacobi gap on isosceles positive definite matrices",
+          "trigger": "Same family and saturation path"
+        },
+        {
+          "assessment": "Different matrices, but matched scalar optimization within m≥2 by rescaling the coupling",
+          "evidence": [
+            "The additional eigenvalue 1+b from the pair-mean contrasts never controls the extremes, and the reduced two-mode optimum and Jacobi algebra match after (b,a)=(t,s/√m)."
+          ],
+          "identifier_or_url": "Resultary 65800581cc6b",
+          "material_read": "Mirrored RESULT.md Finding and scalar proof, offsets 0 and 2200 onward",
+          "method": "Local mirror statement and quotient-spectrum comparison",
+          "title": "A sparse pair transition in optimal diagonal conditioning of hub matrices",
+          "trigger": "Distinct same-date transition in a paired-leaf model"
+        },
+        {
+          "assessment": "General methods; not needed to establish the decisive exact earlier coverage",
+          "evidence": [
+            "Semidefinite feasibility, a general approximation bound, and extremal-vector optimality conditions, respectively."
+          ],
+          "identifier_or_url": "arXiv:2209.00809, 2008.01722 and 2509.23439",
+          "material_read": "Qu et al., pp. 1 and 8; Jambulapati et al., p. 4; Ghadimi et al., p. 4 and Theorem 2.7 p. 10",
+          "method": "Primary PDF passage inspection",
+          "title": "Optimal Diagonal Preconditioning; Fast and Near-Optimal Diagonal Preconditioning; Optimal Diagonal Preconditioning Beyond Worst-Case Conditioning",
+          "trigger": "General scaling methods and Jacobi bounds cited in the frozen result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–39 and 89–109",
+        "Kolotilina Theorem 3.3 and Corollary 3.8",
+        "Resultary 4996ec89d4c9"
+      ],
+      "rationale": "The positive three-variable family is a natural illustration of Jacobi's limitations. As a proposed research classification, however, its pointwise content merely specializes an existing explicit order-three solution. The exact limit along one path is useful as an example, but the identical path and its stronger sharp gap classification are already in the indexed isosceles record. There is no established distinct surviving scientific conclusion here beyond the covered classification and an illustrative substitution.",
+      "residual_risks": [
+        "The frozen claim does not assert the sharp family-wide bound; this review does not extend or repair it to that claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:58.121651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized integration selects exactly the signed strings with sum d_j q^j=0. Reducing successive prefixes modulo q yields unique integer carries c_(j+1)=(d_j+c_j)/q, with both terminal carries zero. The bound p+1<2q traps carries in {-1,0,1}, including p=4,q=3. Reflection folds the two nonzero states by summing their weights, which accounts for the factor 2 only on the outward transition from 0. The explicit top coefficients imply a_(p-2)+a_p>a_(p-1)>a_p. A two-step excursion followed by zero steps supplies a strictly larger contribution at each adjacent base for n>=2; no excursion leaves zero if q>=p+1. Equality for n=1 is intentional. For constant amplitude, Cayley–Hamilton and positivity give the recurrence and rate; expanding the larger eigenvalue via (Lambda-A)(Lambda-B)=2a_q a_1 and A-B→1 gives the two leading constants. Substituting the five order-four coefficients gives the displayed radicals. The independent bounded replay python /workspace/reproduce_frozen.py compares direct signed-digit sums with the matrix products for p=4..7, q=p-1..p+2 and three unequal amplitudes; this is supplemental, not a proof for all lengths/orders. The frozen checker was inspected, not executed. Here independence means factorization of the specified moments, not probabilistic independence of the trigonometric factors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 11 factors products of trigonometric factors of degree bounded by p given successive ratios at least p+1, more general than constant base.",
+          "Lemma 7 gives infinite limsup of the dependent-to-independent L^P ratio at base P for even P>2."
+        ],
+        "reasoning": "The general factorization covers the whole independent range. Qualitative even-order growth does not supply the sharp folded coefficients, nor a strict q=p-1 versus q=p comparison for all eligible amplitudes.",
+        "searches": [
+          "Bonami–Latała–Nayar–Tkocz arXiv:1805.10918, Lemmas 7 and 11",
+          "Keogh, Riesz products (1965), DOI/OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.10918",
+        "arXiv:0806.3583",
+        "Fraser §3.1",
+        "Keogh bibliographic/OA check",
+        "Resultary e02bef66608e",
+        "Resultary cf7aadc4e8b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary reduction and the degree-p specialization give actual prior implications as above. The base p-1 nonzero-state diagonal is a_(p-2)+a_p, not the base p diagonal a_(p-1)."
+        ],
+        "reasoning": "The known critical flat recurrence alone does not fix the additional signed transition at p-1 or compare it for arbitrary positive amplitudes; the exact two-regime hierarchy and distinct lambda onsets survive those implications.",
+        "searches": [
+          "e02bef66608e Finding",
+          "arXiv:1805.10918 Lemmas 7 and 11",
+          "cf7aadc4e8b8 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "|1+e^{it}|^{2p}=2^p(1+cos(t))^p, so the earlier binary critical E_{p,p}(n) is exactly 2^{pn}M_{p,n} at lambda=1.",
+          "Diaconis–Fulman give a carry chain for ordinary base-b addition; Fraser §3.1 gives signed-digit Fourier representations for infinite Riesz measures."
+        ],
+        "reasoning": "The flat critical case is an exact equivalence, not merely an analogy. The other carry representations do not give the claimed two-base inhomogeneous moment comparison.",
+        "searches": [
+          "Resultary e02bef66608e: binary lacunary Dirichlet critical carry",
+          "Diaconis–Fulman arXiv:0806.3583",
+          "Fraser DOI 10.1007/s00208-024-02843-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e02bef66608e gives an exact critical recurrence and rate that cover the base-four, order-four flat-amplitude rate after rescaling; cf7aadc4e8b8 treats optimized even moments of a three-frequency polynomial and a collision onset."
+        ],
+        "reasoning": "Credit exact critical flat values even where they follow from a recurrence rather than a quoted decimal or table. Neither indexed statement gives the neighboring-base, variable-amplitude profile.",
+        "searches": [
+          "Resultary exact/recurrent moment comparisons: e02bef66608e and cf7aadc4e8b8"
+        ]
+      },
+      "rationale": "Best of current knowledge, the supported distinct contribution is the variable-amplitude transfer law over both adjacent resonances and the strict comparison and different small-amplitude onsets. Credit the independent-range factorization and the exact q=p, amplitude-one specialization, including its recurrence and rate, to the sources below. The judgment is on the extension and comparison, not on those covered components or on carry methods generally.",
+      "residual_risks": [
+        "The full Keogh text was not read. A general transfer-operator treatment or unindexed moment calculation could cover additional portions.",
+        "Semantic index results are not an exhaustive priority census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Includes exact broader independence and critical qualitative dependence",
+          "evidence": "Ratios at least p+1 for degree p; infinite limsup at even critical order.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.10918",
+          "material_read": "PDF pp. 6–8, 11; Lemmas 7, 11 and surrounding discussion",
+          "method": "Primary OA text, offsets 22900, 25200, 38300",
+          "title": "Bounds on moments of weighted sums of finite Riesz products",
+          "trigger": "Same independent and critical ranges"
+        },
+        {
+          "assessment": "Exact special-case coverage",
+          "evidence": "Critical b=p flat recurrence and rate; E_{p,p}=2^{pn}M_{p,n} when every amplitude is one.",
+          "identifier_or_url": "Resultary e02bef66608e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "The first carry moment transition for binary lacunary Dirichlet kernels",
+          "trigger": "Plausibly equivalent two-state law"
+        },
+        {
+          "assessment": "Different optimization problem; date does not establish priority",
+          "evidence": "Three-frequency polynomial space, collision excess of order delta^k.",
+          "identifier_or_url": "Resultary cf7aadc4e8b8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "First resonance activation at every higher even Fourier moment",
+          "trigger": "Exact moment comparison, distinct same-date record"
+        },
+        {
+          "assessment": "Related representation",
+          "evidence": "Unique signed digits for Fourier coefficients of lacunary Riesz measures; Fourier dimension rather than finite moment transfer.",
+          "identifier_or_url": "https://doi.org/10.1007/s00208-024-02843-7",
+          "material_read": "Section 3.1, pp. 3905–3907, offset 43592",
+          "method": "Primary OA passage",
+          "title": "The Fourier spectrum and sumset type problems",
+          "trigger": "Riesz frequencies and digit equivalence"
+        },
+        {
+          "assessment": "Different carry law",
+          "evidence": "Random ordinary digit addition with carry states 0 through n-1.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.3583",
+          "material_read": "PDF p. 1, offset 2200",
+          "method": "Primary OA passage",
+          "title": "Carries, Shuffling and an Amazing Matrix",
+          "trigger": "General carry matrices"
+        },
+        {
+          "assessment": "Unresolved scope, not negative evidence",
+          "evidence": "No lawful repository copy identified by the lookup.",
+          "identifier_or_url": "F. R. Keogh, Proc. London Math. Soc. (3) 14A (1965), 174–182",
+          "material_read": "Bibliographic citation only; full text not available through lawful retrieval checked",
+          "method": "DOI/OA lookup",
+          "title": "Riesz products",
+          "trigger": "Potential historical equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The slice is the two nearest dependent bases next to exact factorization, not an arbitrary parameter selection. The transfer gives exact moments for nonidentical factors, separates the two bases at every eligible length, and resolves the distinct orders at which weak modulation changes the long-product growth. These are useful quantitative answers beyond the previously known flat critical recurrence and factorization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

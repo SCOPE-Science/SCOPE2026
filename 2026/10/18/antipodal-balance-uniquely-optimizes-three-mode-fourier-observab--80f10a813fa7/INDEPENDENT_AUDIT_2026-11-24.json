@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:02:16.951512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ambient Haar measure divided by 2π, the diagonal is t=2a/π and the first two off-diagonal coefficients are cu and v=d(2u²−1), respectively. Endpoint contact has no effect. In the reflection decomposition the eigenvalues are t−v and t+(v±H)/2, with H²=v²+8c²u². The lower symmetric branch is minimal: for v≤0 this is immediate, and for v>0 one has v≤d|u|<c|u| and hence H>3v. Subtracting (v+2d)² from H² yields 8u²(c²−d²), and v+2d>0. This gives the exact deficit and strictness for any nonantipodal configuration, including the endpoint-contact placement. At u=0 the spectrum is t−d,t,t+d; t−d>0, and the inverse norm is the reciprocal square root, with equality on its least-eigenvalue mode. Since u²=(θ−π/2)²+O((θ−π/2)^4) and the rationalized denominator tends to 2d, the sharp local coefficient is 4 sin³(a)/(π cos(a)) at fixed a. The small-a asymptotics follow by expanding sin(2a). The accompanying checker was inspected, not executed; its trace, determinant and finite grid checks are consistency diagnostics only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fourier concentration sources prescribe the spatial window or estimate eigenvalue counts for given domains. Wu's E-optimal design on one connected partial cycle is supported on the midpoint and endpoints."
+        ],
+        "reasoning": "Neither analysis at fixed domains nor optimization over a different class of measures determines the finite-band least eigenvalue's unique maximizer and its deficit as a function of the two-window separation.",
+        "searches": [
+          "Resultary: least eigenvalue Fourier concentration across fixed-band multiple-interval masks",
+          "Simons–Wang arXiv:1007.5226 pp. 1–3; Marceca–Romero–Speckbacher arXiv:2301.11685 p. 1; Wu (2002) Theorem 1(c)"
+        ]
+      },
+      "checked_sources": [
+        "Wu (2002)",
+        "arXiv:1007.5226",
+        "arXiv:2301.11685",
+        "Resultary 1c5e863c7cba and 900ee56c5370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant of the symmetric block after subtracting (t−d)I is 2u²(d²−c²), negative away from u=0. It is the algebra of the fixed continuous two-window moment curve that forces global strictness."
+        ],
+        "reasoning": "The eigenvalue formula is elementary and available for general symmetric designs; its availability does not give an optimizer over this nonconvex window-placement family. The later exact catalogue comparison does mechanically give the core claim, but earlier priority for it was not evidenced.",
+        "searches": [
+          "Wu (2002) pp. 1–2, 4–5; Resultary 1c5e863c7cba and 900ee56c5370"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multiplying by e^{it} is unitary on both domain and observed space and converts modes −1,0,1 to 0,1,2. Resultary 1c5e863c7cba uses those shifted modes and gives the same antipodal least Gram eigenvalue c(1−B) and an equivalent strictness identity.",
+          "First-order trigonometric information matrix eigenvalues are comparable after accounting for the normalization, but the admissible probability design in Wu is not a pair of continuously exposed equal windows."
+        ],
+        "reasoning": "Basis shift and a scalar measure rescaling do not make a result scientifically distinct. The catalogue overlap is real; the continuous-window constraint, not a change of basis, separates the frozen record from the partial-cycle E-optimal design theorem.",
+        "searches": [
+          "Resultary: antipodal maximin sampling, three Fourier modes, exact two-arc deficit and quadratic stability",
+          "Wu (2002), first-order trigonometric E-optimal designs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1c5e863c7cba evaluates the same maximin value and strictness (its displayed quadratic penalty is for frame potential); 900ee56c5370 gives wider-band narrow-arc asymptotics and repeats the exact all-width m=1 optimizer and value. The respective catalogue paths are dated 2026-11-01 and 2026-11-08."
+        ],
+        "reasoning": "The exact match on the core result must be credited. The catalogue dates and inspected text do not make either an established antecedent to the frozen 2026-10-18 entry or resolve common provenance.",
+        "searches": [
+          "Resultary: exact finite-width two-arc three-mode observability, antipodal sampling, and sharp quadratic loss"
+        ]
+      },
+      "rationale": "The supported contribution is the unique global optimizer within the two-equal-Haar-window constraint and the exact sharp loss on that family, not the Gram diagonalization. Two distinct catalogue records give the same optimizer and value; one gives equivalent exact strictness. Their catalogue paths are dated later than the frozen record's catalogue path. This is substantive equivalence, not evidence of earlier disclosure. No covering antecedent was established by the targeted primary-text comparisons.",
+      "residual_risks": [
+        "The relationship and first-public history of the equivalent catalogue statements are unresolved; dates in paths do not show independent discovery.",
+        "The targeted regression, concentration and catalogue comparisons do not exclude an older exact placement result or a broader theorem with the same admissible class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different feasible set and optimizer.",
+          "evidence": [
+            "A probability design on one connected interval; the E-optimal design in the theorem is supported on midpoint and endpoints."
+          ],
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/oldpdf/A12n314.pdf",
+          "material_read": "PDF pp. 1–2 (definitions), 4–5 (Theorem 1(c))",
+          "method": "Read relevant primary PDF passages and compared admissible measures",
+          "title": "Optimal Designs for First-Order Trigonometric Regression on a Partial Cycle",
+          "trigger": "Same first-order trigonometric E-optimal criterion"
+        },
+        {
+          "assessment": "Prescribed spatial regions; no two-arc displacement optimization in the relevant formulation.",
+          "evidence": [
+            "Concentration is formulated for a fixed target region."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1007.5226",
+          "material_read": "Abstract and pp. 2–3 on the region of interest",
+          "method": "Primary PDF passage comparison",
+          "title": "Spatiospectral Concentration in the Cartesian Plane",
+          "trigger": "Multiple-window Fourier concentration"
+        },
+        {
+          "assessment": "Core theorem equivalent; no earlier priority demonstrated.",
+          "evidence": [
+            "Unique antipodal maximizer has squared value (2a−sin(2a))/π; exact strictness follows from its algebraic identity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-antipodal-maximin-sampling-and-a-quarter-circle-tightness-bifurc--1c5e863c7cba/RESULT.md",
+          "material_read": "Finding and relevant proof in local-mirror RESULT.md",
+          "method": "Compared the shifted mode set, ambient normalization, optimizer and strictness formula",
+          "title": "Antipodal maximin sampling and a quarter-circle tightness bifurcation",
+          "trigger": "Exact two-arc optimizer"
+        },
+        {
+          "assessment": "Wider-band asymptotic is not the frozen fixed-width result, but the exact m=1 specialization agrees; later catalogue path.",
+          "evidence": [
+            "The m=1 case gives the same antipodal optimum at every width in scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-arc-fourier-observability-a-legendre-constant-and-asym--900ee56c5370/RESULT.md",
+          "material_read": "Finding and three-mode exact specialization, local-mirror offsets 0 and 4504",
+          "method": "Compared the fixed-width and narrow-width statements separately",
+          "title": "Sharp two-arc Fourier observability",
+          "trigger": "Broader Fourier band and potentially dominating two-arc result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two movable exposures of prescribed width, least squared singular value is the sharp stability objective, not a freely chosen spectral statistic. The result gives the unique acquisition geometry, an exact off-optimum performance penalty, and the reconstruction cost even for narrow arcs. Those numerical laws are useful without a higher-band extension or optimization over arbitrary masks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

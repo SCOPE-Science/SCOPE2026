@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:44:34.813348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify_square_zero.py (frozen script read, not executed)",
+        "/workspace/audit_evidence/replay_1.py and /workspace/audit_evidence/replay_1.txt"
+      ],
+      "rationale": "Leibniz determines D from f=D(t), and f descends precisely when nt^{n−1}f vanishes: automatic at even n and exactly f∈(t) for odd n. At odd n one differentiates polynomial representatives and multiplies by f; the bare derivative alone need not descend. Since squaring a derivation in characteristic two gives a derivation, D² is zero iff ff′=0. With x=t² and R=k[x]/(x^s), write f=E+tH at even n and f=xE+tH at odd n, with the two parities disjoint and each summand represented by R. Then f′=H, and the even and odd coefficient blocks of ff′ vanish independently exactly for EH=0 and H²=0 in R. To check the rank independently, restrict D to the odd input block tR (it kills the even block). On odd inputs the output coefficient pair is (Eu,Hu) for u∈R, in the appropriate two parity summands. If v=min(v_x(E),v_x(H)), the kernel in R is x^{s−v}R, hence the rank is s−v in both dimensions. The zero pair agrees with v=s. For v≥ceil(s/2) there are q^{2(s−v)}−q^{2(s−v−1)} pairs at that minimum valuation. For v below that cutoff, H cannot attain v and must lie in x^{s−v}R, giving (q−1)q^{s−v−1}·q^v pairs. Independently, H=0 gives q^s solutions, and each nonzero valuation j of H with ceil(s/2)≤j≤s−1 gives (q−1)q^{s−j−1} choices of H and q^j choices of E. This checks the total, including s=1. The independent matrix replay checked all admissible D(t), testing the square on each basis column and performing field elimination for ranks: q=2, n=2,…,8 and q=4, n=2,…,6. It matched every claimed histogram, including both n=6 and n=7 over F₂. The proof establishes the full parameters and the explicit parity correspondence.",
+      "residual_risks": [
+        "The matrix replay is finite. The all-length argument concerns composition-square zero and the linear rank on the whole algebra, not general nilpotency, conjugacy classes or unreduced scheme structures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0ca161a05327 classifies each reduced rank stratum for both truncations over any characteristic-two field. The two positive-rank types are A^(2r−2)×(A² minus the origin) and G_m×A^(m−1).",
+          "Skryabin counts all nilpotent elements of the prime-truncated Jacobson–Witt algebra, covering the one-variable p=2 count at length two but not arbitrary truncations or the rank strata.",
+          "Chen's Zassenhaus chapter assumes p>3; Premet assumes p>2 in a multivariable prime-truncated setting; restricted-Lie structure for integrable derivations does not enumerate this locus."
+        ],
+        "reasoning": "Counting rational points of the two explicit general-field rank types gives the entire proposed finite-field rank polynomial. General nilpotent theory in the cited sources is a separate comparison and does not by itself imply that polynomial; the exact indexed theorem does.",
+        "searches": [
+          "Resultary:0ca161a05327, reduced rank-locus isomorphism types",
+          "Skryabin, DOI 10.1007/s00031-014-9270-0",
+          "Chen arXiv:1910.00954 Chapter 4; Premet arXiv:1405.2426; Briggs–Rubio y Degrassi arXiv:2205.01660"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ca161a05327, 1bb3999bc902, 5a8af6896d7d",
+        "Skryabin 10.1007/s00031-014-9270-0, Chen arXiv:1910.00954, Premet arXiv:1405.2426, and Briggs–Rubio y Degrassi arXiv:2205.01660"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger rank types give (q²−1)q^(2r−2) points at low ranks and (q−1)q^(s−1) at high ranks, with one point at rank zero. The alternative total there q^(2h)+(s−h)(q−1)q^(s−1), h=floor(s/2), equals the frozen expression for either parity of s.",
+          "The second indexed record uses the very same even/odd parameter identification for the reduced loci.",
+          "In the length-two algebra of Skryabin's overlapping case, D(t)=a+bt makes D nilpotent iff b=0, so the all-nilpotent count q indeed matches that boundary case."
+        ],
+        "reasoning": "The exact rank law and consequences are both explicit and immediate from the broader geometric classification. The pair-coordinate derivation is not a new mathematical mechanism relative to the second indexed record. The older restricted Lie result supplies only a special boundary comparison, not the reason to fail the full claim.",
+        "searches": [
+          "0ca161a05327, Finding and Proof (finite fields and homology)",
+          "1bb3999bc902, Finding and first proof section",
+          "Skryabin, author manuscript p. 1 and algebra definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0ca161a05327 takes A_n=k[t]/(t^n), n=2m or 2m+1, composition D², and the same underlying k-linear rank.",
+          "1bb3999bc902, Proof §1, encodes D(t) as a(t²)+t b(t²) and t²a(t²)+t b(t²) via the same coefficient pair; its Finding says the correspondence preserves rank."
+        ],
+        "reasoning": "Renaming m to s gives the identical algebras, rank and nilpotence condition, not a restricted Lie orbit count or rank on an ideal. The coordinate-pair parity map is the same, not only an abstract bijection inferred from equal counts.",
+        "searches": [
+          "Resultary queries for characteristic-two square-zero derivation rank spectra, truncated polynomial/Witt derivations and parity-stable rank loci",
+          "Resultary:0ca161a05327 and 1bb3999bc902"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ca161a05327, Finding: exactly the same two sums in the rank polynomial at both n=2m and n=2m+1, stated explicitly with rank and square-zero conventions.",
+          "1bb3999bc902, Finding: same total q^m+floor(m/2)(q−1)q^(m−1) and rank-preserving map.",
+          "5a8af6896d7d, Finding: an exact enumerator in a valuation sum and a uniform limit law for even truncations only."
+        ],
+        "reasoning": "The first of these is exact coverage and the second checks the specific bijection and total. The third is a partial match, not evidence for odd truncations. All are distinct from the assignment; no priority assumption from path dates enters the mathematical comparison.",
+        "searches": [
+          "Resultary semantic search for parity stability, square-zero derivation rank varieties and exact rank generating polynomials"
+        ]
+      },
+      "rationale": "Verified full coverage in distinct indexed text. Resultary 0ca161a05327 states the identical rank polynomial for both truncation lengths and proves a stronger isomorphism theorem for the reduced rank loci. Independently, 1bb3999bc902 gives the very same coefficient-pair correspondence, the parity isomorphism preserving rank, and the total count. The original claim's theorem content, not merely a few parameters, is covered; these are not the frozen record returned under an alias. The indexed paths show later calendar dates than the assignment path, but do not establish historical priority or provenance. This is a present-coverage decision, not a claim that the frozen work historically followed the covering record. The narrower even-only comparator does not by itself settle the odd case. No distinct surviving central claim warrants repair.",
+      "residual_risks": [
+        "The distinct indexed records establish content coverage, not authorship, chronological priority, or dependence between works; calendar path dates cannot settle those questions.",
+        "The bounded literature search did not establish wider historical priority. The non-substantive websearch result is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage, with the stronger reduced rank-locus isomorphism theorem over arbitrary characteristic-two fields.",
+          "evidence": [
+            "1+Σ_(1≤r≤floor(m/2))(q²−1)q^(2r−2)z^r+Σ_(floor(m/2)<r≤m)(q−1)q^(m−1)z^r for both lengths."
+          ],
+          "identifier_or_url": "Resultary:0ca161a05327",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions, Proof and Relationship to prior work, offsets 0–6983 and 6983–9310",
+          "method": "Bounded exact local-mirror passage inspection and parameter comparison",
+          "title": "Parity-stable rank varieties of square-zero derivations of truncated polynomial algebras",
+          "trigger": "Distinct indexed claim apparently covering the full rank polynomial in both lengths"
+        },
+        {
+          "assessment": "Exact coefficient-pair correspondence, rank preservation and total, alongside broader reduced-component structure.",
+          "evidence": [
+            "Maps the same pair (a,b) to a(t²)+t b(t²) and t²a(t²)+t b(t²)."
+          ],
+          "identifier_or_url": "Resultary:1bb3999bc902",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions and Proof §1, offsets 0–2492",
+          "method": "Bounded exact local-mirror passage inspection",
+          "title": "Parity-stable linear components in the characteristic-two square-zero derivation cone",
+          "trigger": "Specific parity bijection and total count overlap"
+        },
+        {
+          "assessment": "Exact even-length enumerator and additional asymptotic law; does not cover the odd-length partner by its stated result.",
+          "evidence": [
+            "A_M=F_q[x]/(x^(2M)) with an exact enumerator and the Uniform[1/2,1] normalized limit, for fixed q."
+          ],
+          "identifier_or_url": "Resultary:5a8af6896d7d",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offsets 0–2373",
+          "method": "Bounded exact local-mirror passage inspection",
+          "title": "Square-zero derivations of binary-characteristic truncated polynomial algebras: exact rank spectra and a uniform limit law",
+          "trigger": "Similar rank spectra in distinct indexed record"
+        },
+        {
+          "assessment": "In one variable at p=2, matches the count q for n=2 only.",
+          "evidence": [
+            "W_n for the algebra with x_i^p=0 has q^(np^n−n) nilpotent elements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00031-014-9270-0",
+          "material_read": "Author manuscript PDF p. 1, at offset 0",
+          "method": "Bounded OA primary passage inspection",
+          "title": "Nilpotent elements in the Jacobson–Witt algebra over a finite field",
+          "trigger": "Characteristic-two finite-field nilpotent enumeration in related derivation algebra"
+        },
+        {
+          "assessment": "Studies a different characteristic and nilpotent variety, not the parity-stable rank count.",
+          "evidence": [
+            "Chapter 4 assumes p>3 and treats the minimal restricted p-envelope of W(1;n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.00954",
+          "material_read": "Chapter 4, PDF p. 104, offset about 298292",
+          "method": "Bounded OA primary passage inspection",
+          "title": "Nilpotent varieties of some finite dimensional restricted Lie algebras",
+          "trigger": "Cited Witt/Zassenhaus envelope variety comparison"
+        },
+        {
+          "assessment": "Characteristic and invariant-theoretic scope differ.",
+          "evidence": [
+            "p>2; regularity and fibers for a multivariable prime-truncated algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2426",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Bounded OA primary passage inspection",
+          "title": "Regular derivations of truncated polynomial rings",
+          "trigger": "Cited broader derivation-ring literature"
+        },
+        {
+          "assessment": "Restricted-Lie structure is background; it is not a rank-stratified count for these algebras.",
+          "evidence": [
+            "The abstract gives restricted-Lie structure for integrable derivations in characteristic p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.01660",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Bounded OA primary passage inspection",
+          "title": "On the Lie algebra structure of integrable derivations",
+          "trigger": "Potential implication from restricted-Lie squaring"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and Verification",
+        "Resultary 0ca161a05327, Finding and Proof; 1bb3999bc902, Finding and Proof §1"
+      ],
+      "rationale": "The rank law and parity symmetry are natural, potentially useful invariants. But as a contribution here they duplicate explicit rank-locus counts and the coefficient identification already present in the distinct indexed results. The low/high-rank formula and total are either stated or mechanical point counts in those results, and the finite replay is corroboration, not an independent new invariant. There is no additional mathematical result under the frozen scope that can be salvaged by narrowing.",
+      "residual_risks": [
+        "This judges added value under the verified coverage, not whether the rank enumeration itself is a worthwhile mathematical object."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

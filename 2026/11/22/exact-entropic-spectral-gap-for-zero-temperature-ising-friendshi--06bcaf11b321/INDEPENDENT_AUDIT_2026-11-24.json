@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:45:51.392658Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and Proof",
+        "VERIFICATION.md, verify.py and numerical_check.py by inspection",
+        "Independent full-Laplacian reproduction for n=2–5"
+      ],
+      "rationale": "Each triangle minimizes at one equal bond; conditional on the hub there are three peripheral states forming a unit-rate three-vertex path. The two product sectors are connected by the rate-one hub matching of mixed states, so the full chain is connected and symmetric. Global-flip-even functions orthogonal to constants and functions odd under any leaf swap have zero conditional sector means; the product path Poincaré inequality bounds their eigenvalues below by one. In the remaining global-odd, swap-even block, the lumped bits have rates 2 and 1 and hub reversal contributes a rank-one positive diagonal term of strength 2 at the all-mixed point. The normalized point mass has weights Bin(n,1/3) at 3k by tensoring constant and centered eigenvectors. The secular function increases from minus to plus infinity between 0 and 3; the constant-vector Rayleigh quotient is 2(2/3)^n, strictly greater than the bottom because the constant is not an eigenvector, and <1 for n>=2. The inverse-binomial moment is 1/n+O(n^-2): outside an exponentially small lower tail, expand the inverse around n/3 with quadratic remainder bounded using Var(K)=2n/9. The resolvent shift changes that moment by O(lambda_n). Both asymptotic expansions follow. Independently constructed full Laplacians for n=2–5, confirmed the next eigenvalue is at least one to numerical tolerance, and obtained gaps 0.627718676731, 0.413850444148, 0.278476903921, 0.189144882974, with secular-root discrepancies below 7e-15. Replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/branches/independent_reproduction.py 3 (NumPy).",
+      "residual_risks": [
+        "Numerical eigenvalues illustrate, not prove, the spectral and asymptotic claims.",
+        "The comparison uses rate-one accepted neutral moves, not the rate-one heat-bath clock."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berger et al. study bounded-degree Glauber settings and relaxation on trees and hyperbolic graphs. The K_(n,n,n) result concerns half-rate heat bath and a different low-frequency network; the triangular book concerns zero-temperature absorption and excited weak minima."
+        ],
+        "reasoning": "The unbounded-degree triangle windmill with a restricted Metropolis ground-state manifold is not contained in the stated bounded-degree tree results or the other graph-specific theorems.",
+        "searches": [
+          "Berger et al. arXiv:math/0308284",
+          "Resultary e25ed3dd7c11 and e4e34a63090a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Prior work",
+        "Resultary comparisons and arXiv source detailed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hard-core result uses a killed product sector and binomial resolvent for the empty-state connection. The K_(n,n,n) result gives a gap asymptotic n/(4·2^n), with a different graph and normalization."
+        ],
+        "reasoning": "The rank-one spectral method is shared, but the P3-sector representation, reduction by leaf swaps, eligible hub matching and resulting Bin(n,1/3) point weights and 3k energies are new inputs for this model. Neither cited formula supplies them by parameter substitution.",
+        "searches": [
+          "Resultary 1dd8911342b1, exact hard-core K_(n,n) gap",
+          "Resultary e25ed3dd7c11, frustrated K_(n,n,n) spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned self-hit is not independent evidence. Resultary 11252a0bb7b5 treats synchronous strict minority with tie retention on the same friendship graph and gives 2·3^n fixed configurations. In fact the peripheral fixed-point conditions exclude precisely triangles with both leaves equal to the hub, and the hub condition then holds."
+        ],
+        "reasoning": "This is overlap in the set/count, not in the stochastic generator: the deterministic fixed-point rule leaves these states unchanged rather than allowing neutral transitions. The exact gap is not obtained from the count.",
+        "searches": [
+          "Resultary friendship-graph spectral gap search",
+          "Web: \"friendship graph\" zero-temperature antiferromagnetic Ising ground-state dynamics spectral gap triangles shared hub Metropolis rank-one resolvent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact friendship hit is the record itself. The analogous K_(n,n) and K_(n,n,n) indexed results give exact or sharp gaps for different chains. The web hits concerned graph adjacency/extremal spectra, not ground-state generators."
+        ],
+        "reasoning": "A graph adjacency spectrum, fixed-state enumeration, or other chain's exact gap is not a table of this operator's spectral gap. This is a bounded comparison, not an exhaustive index exclusion.",
+        "searches": [
+          "Resultary exact friendship gap comparison; primary web query above"
+        ]
+      },
+      "rationale": "The distinct contribution is the explicit friendship-graph ground-state Markov spectral gap and sharp first correction, not the count of configurations, existence of an entropic bottleneck, or the rank-one formula as a general method. No inspected comparison establishes the same spectrum or implies it without the model-specific decomposition.",
+      "residual_risks": [
+        "Inaccessible cited primary texts and unindexed work limit priority confidence.",
+        "Same-day comparative records establish neither historical ordering nor independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "State-set overlap, not dynamic-gap coverage",
+          "evidence": "Synchronous strict-minority with tie retention; 2·3^n fixed states.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-recurrent-state-census-for-anti-coordination-on-friendship--11252a0bb7b5",
+          "material_read": "Finding and Assumptions, mirror offset 0 onward",
+          "method": "Local mirror",
+          "title": "Exact recurrent-state census for anti-coordination on friendship graphs",
+          "trigger": "Same windmill family and state count"
+        },
+        {
+          "assessment": "Different graph and rate",
+          "evidence": "K_(n,n,n), six-cube sector geometry, neutral rate 1/2 and gap asymptotic n/(4·2^n).",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-low-frequency-spectrum-and-phase-passage-law-for-a-frustra--e25ed3dd7c11",
+          "material_read": "Finding/Assumptions/Proof, offsets 0–4816",
+          "method": "Local mirror",
+          "title": "Sharp low-frequency spectrum and phase-passage law for a frustrated Ising chain",
+          "trigger": "Low spectrum of another ground-state chain"
+        },
+        {
+          "assessment": "Related method, not covering this formula",
+          "evidence": "The two sectors glue at the empty state and produce the hard-core gap, not the friendship-star Metropolis generator.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-phase-switching-spectral-gap-for-the-hard-core-gas-on-k-n--1dd8911342b1",
+          "material_read": "Finding/Assumptions/Proof, offsets 0–4387",
+          "method": "Local mirror",
+          "title": "Exact phase-switching spectral gap for the hard-core gas on K_(n,n)",
+          "trigger": "Binomial killed-chain resolvent"
+        },
+        {
+          "assessment": "Different graph and observable",
+          "evidence": "Triangular book with two shared vertices, excited weak minima and absorption, not a friendship ground-state gap.",
+          "identifier_or_url": "2026/11/22/SCOPE-exponential-false-metastability-but-certain-ground-state-absorpt--e4e34a63090a",
+          "material_read": "Finding and proof, offsets 0–4407",
+          "method": "Local mirror",
+          "title": "Exponential false metastability but certain ground-state absorption",
+          "trigger": "Zero-temperature Ising on triangles sharing vertices"
+        },
+        {
+          "assessment": "Bounded-degree tree and hyperbolic scope",
+          "evidence": "Polynomial relaxation results for those graph families do not supply the claimed effective generator.",
+          "identifier_or_url": "arXiv:math/0308284",
+          "material_read": "PDF pp. 1–2, offsets 0–4996",
+          "method": "OA PDF",
+          "title": "Glauber Dynamics on Trees and Hyperbolic Graphs",
+          "trigger": "General spectral-gap comparison"
+        },
+        {
+          "assessment": "Unresolved at primary-text level",
+          "evidence": "No coverage conclusion based on the inaccessible text.",
+          "identifier_or_url": "doi:10.1002/pssb.200301657",
+          "material_read": "No primary text retrieved",
+          "method": "OA DOI and Wiley routes, HTTP 403",
+          "title": "Dynamics of Ising spins with antiferromagnetic bonds on a triangular lattice",
+          "trigger": "Cited frustrated-spin comparator"
+        },
+        {
+          "assessment": "Unresolved at primary-text level",
+          "evidence": "No coverage conclusion based on the inaccessible text.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.68.066127",
+          "material_read": "No primary text retrieved",
+          "method": "OA DOI and APS routes, HTTP 403",
+          "title": "Nonequilibrium critical dynamics of the triangular antiferromagnetic Ising model",
+          "trigger": "Cited zero-temperature spin-dynamics comparator"
+        },
+        {
+          "assessment": "Unresolved at primary-text level",
+          "evidence": "No coverage conclusion based on the inaccessible text.",
+          "identifier_or_url": "doi:10.1137/22M1474734",
+          "material_read": "No primary text retrieved",
+          "method": "OA DOI and SIAM routes, HTTP 403",
+          "title": "Rapid Mixing of Glauber Dynamics via Spectral Independence for All Degrees",
+          "trigger": "Cited general mixing comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md ground-state decomposition and sharp asymptotic",
+        "Closest hard-core and frustrated-Ising comparison results"
+      ],
+      "rationale": "The frustration forces a genuine rare transition between two rapidly relaxing sectors; the exact gap and relative 1/n correction give a normalization-sensitive benchmark for entropic slow relaxation. A conductance estimate or the known ground-state count would not supply this precision. The small symmetry block gives a usable all-size calculation, not an isolated instance.",
+      "residual_risks": [
+        "No claim for positive-temperature dynamics, bounded-degree networks, or a full spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

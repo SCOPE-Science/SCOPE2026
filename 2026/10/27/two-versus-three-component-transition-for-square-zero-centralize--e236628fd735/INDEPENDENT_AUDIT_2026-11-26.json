@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:00:51.889629Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplication of the four k[t]-module blocks gives a²+t^(n−2)bc=0 in R_n, b(a+d)=c(a+d)=0 in R_2, and d²=0 in R_2 because n≥4. In particular d_0=0; the lowest nonzero coefficient of a² cannot be cancelled below t^(n−2), even in characteristic two. For n=2h this leaves the equations x²+BC=2xy+BV+CU=δB=δC=0 and h−1 free coefficients, with δ=d_1+x when n=4 and δ=d_1 otherwise. The component B=C=x=0 is affine; the branch δ=0 is a dimension-four complete intersection whose B≠0 open is irreducible (solve for C,V) and whose B=0 complement has dimension at most three (x=0, CU=0). For n=2h+1 one has BC=0, x²+BV+CU=0 and δB=δC=0, with h free coefficients; the three branches are the affine B=C=x=0 branch and the two geometrically irreducible quadratic cones with a free coordinate. The quadratic cone equations are primitive linear polynomials in one of B,C,U,V over the polynomial ring in the remaining variables, so this holds in characteristic two. The stated intersections follow as reduced varieties; this makes no scheme-theoretic assertion about the sum of the odd cone ideals. Partitioning field points by B=C=0 versus its complement gives q^(h−1)[q^4+(q²−1)q²] or q^h[q³+2(q−1)q²] as stated. A separate binary commutator-kernel calculation (python3 /workspace/branches/independent_checks.py) gave 56,64,112,128 for n=4,5,6,7, respectively. The proof, not that finite check or the reported original runs, supplies every-field and every-q validity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full nilpotent centralizer has a generic Jordan type; this does not classify reduced subloci of fixed nilpotence index.",
+          "Britnell–Wildon Theorem 4.10 uses two bounded-length partitions and gives compatibility. Bogdanić et al. investigate equal blocks. The indexed rank-at-most-one formula does not include ranks two and higher."
+        ],
+        "reasoning": "The fixed (n,2) module is not the equal-block case, and a generic type of the full centralizer need not occur on the square-zero locus. Even when a square-zero type has only two parts and is covered by a compatibility theorem, existence is not a dimension, component, or point census.",
+        "searches": [
+          "Košir–Oblak arXiv:0712.2813; Britnell–Wildon arXiv:1001.0811; Bogdanić et al. arXiv:2212.08425",
+          "Resultary: rank-one square-zero centralizers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_n2_squarezero.py (inspected, not executed)",
+        "arXiv:2305.00176, 0712.2813, 1001.0811, 2212.08425",
+        "Resultary 50a5542dfb83, ea9926724403, 608c27b8de6f, dcecf6f4a319"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hua canonicalizes indecomposable pairs with unequal block sizes, but does not determine the square-zero locus in the fixed labeled fiber. The (n,1) indexed record has a different short-block annihilator and an irreducible odd branch; the indexed nilpotent-tuple result studies a larger locus even for a single matrix."
+        ],
+        "reasoning": "The fixed-fiber count from a canonical-form classification would still require selecting all square-zero pairs, including decomposables, and computing orbit sizes. A list of isomorphism classes also does not determine their closure structure. Here the t-coefficients in the length-two block create the additional odd branches; they cannot be substituted into the length-one formula.",
+        "searches": [
+          "Hua arXiv:2305.00176, Theorem 3.1; Resultary 50a5542dfb83 and ea9926724403"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hua treats the same underlying module with unequal block lengths, but classifies indecomposable commuting pairs up to simultaneous similarity.",
+          "Resultary ea9926724403 treats commuting nilpotent tuples for the same (r,2) blocks but does not impose X²=0 on a single matrix."
+        ],
+        "reasoning": "Equivalently the target is the representation locus of a second square-zero endomorphism on a fixed k[t]-module. Neither considering only isomorphism classes of indecomposables nor removing the square relation is equivalent to this labeled geometric locus.",
+        "searches": [
+          "Resultary: fixed (n,2) square-zero centralizer / component parity",
+          "Hua, arXiv:2305.00176, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "50a5542dfb83 gives a 2-versus-1 transition for (n,1), not the 2-versus-3 transition here. 608c27b8de6f counts type (n,n) in the fixed (n+1,n−1) centralizer; dcecf6f4a319 counts the rank ≤1 part of the square-zero locus."
+        ],
+        "reasoning": "These are related exact counts in different fibers or rank strata. Their formulas do not give the full fixed-(n,2) census; a finite set of matching small counts would not be an all-n, all-q table either.",
+        "searches": [
+          "Resultary: parity geometry / rank census / exact finite-field counts in fixed two-block centralizers"
+        ]
+      },
+      "rationale": "The strongest inspected related results give Jordan-type existence, simultaneous normal forms, adjacent square-zero rank strata, or other fixed centralizer counts. None settles the reduced components and the unrestricted labeled point count for this fixed block pair. The assessment is bounded, not a publication-priority guarantee.",
+      "residual_risks": [
+        "General Hall, representation-counting, or simultaneous-similarity formulas were not exhaustively checked. A derivation of point counts via more general enumeration is possible, but no inspected result supplies this point census together with the reduced component geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related classification, not the requested locus",
+          "evidence": "The theorem is about indecomposable pairs up to simultaneous similarity over arbitrary fields.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.00176",
+          "material_read": "Abstract and Theorem 3.1, p. 6",
+          "method": "OA passage inspection",
+          "title": "Canonical forms for a class of pairs of commuting nilpotent matrices under simultaneous similarity",
+          "trigger": "Same unequal-block Jordan module"
+        },
+        {
+          "assessment": "Different locus",
+          "evidence": "Irreducibility and generic Jordan type concern the whole nilpotent centralizer.",
+          "identifier_or_url": "https://arxiv.org/abs/0712.2813",
+          "material_read": "p. 1 description of the full nilpotent centralizer and its generic partition",
+          "method": "OA passage inspection",
+          "title": "On pairs of commuting nilpotent matrices",
+          "trigger": "Geometry of centralizers"
+        },
+        {
+          "assessment": "Compatibility rather than fiber cardinality",
+          "evidence": "Classifies whether two nilpotent types with at most two parts can commute.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+          "material_read": "Theorem 4.10, p. 30",
+          "method": "OA passage inspection",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Possible finite-field classification implication"
+        },
+        {
+          "assessment": "Different block family and output",
+          "evidence": "Possible nilpotent forms with equal centralizer blocks, not the geometry or point count of the stated unequal blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.08425",
+          "material_read": "Abstract, p. 1",
+          "method": "OA passage inspection",
+          "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+          "trigger": "Two-block antecedent"
+        },
+        {
+          "assessment": "Distinct short-block length",
+          "evidence": "Uses (n,1) and has only one odd component.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-geometry-and-rank-census-in-hook-nilpotent-centralizers--50a5542dfb83",
+          "material_read": "RESULT.md Finding and limitations",
+          "method": "Local Resultary mirror",
+          "title": "Parity geometry and rank census in hook nilpotent centralizers",
+          "trigger": "Closest indexed parity geometry"
+        },
+        {
+          "assessment": "Different locus",
+          "evidence": "Counts components of commuting nilpotent tuples with no square-zero requirement; the single-matrix locus is irreducible.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-reducibility-threshold-for-nilpotent-two-block-centraliz--ea9926724403",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp reducibility threshold for nilpotent two-block centralizers",
+          "trigger": "Same block sizes"
+        },
+        {
+          "assessment": "Different classes",
+          "evidence": "Fixed type (n+1,n−1) and moving type (n,n).",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-finite-field-counts-for-commuting-balanced-two-block-nilpo--608c27b8de6f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-field counts for commuting balanced two-block nilpotents",
+          "trigger": "Exact labeled point count"
+        },
+        {
+          "assessment": "Partial rank stratum only",
+          "evidence": "The rank ≤1 restriction omits higher ranks occurring in the target.",
+          "identifier_or_url": "2026/11/2/SCOPE-rank-one-square-zero-centralizers-exact-jordan-transitions-and-a--dcecf6f4a319",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Rank-one square-zero centralizers: exact Jordan transitions and a census",
+          "trigger": "Labeled square-zero count for general fixed Jordan type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the first short block beyond the hook, the square-zero constraint results in a parity change in the number of components, not merely their coordinates. The common intersection and uniform dimensions and labeled point counts are natural exact invariants of this fixed-centralizer fiber, including in characteristic two. They answer different questions from knowing which similarity types occur.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

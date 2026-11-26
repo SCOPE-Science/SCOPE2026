@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:07:38.951560Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71; VERIFICATION.md; tournament_scan.cpp, tournament_census.cpp, tournament_extremes.cpp, tournament_witnesses.py (inspected, not executed)",
+        "/workspace/branches/06ca90aa-270d-418e-abd2-ba71965d5300/independent_tournament_census.py; independent_census_output.txt and independent_census_runtime.txt (full n=1–7 replay in 48.280 s)"
+      ],
+      "rationale": "Lexicographic bits give exactly one encoding per labeled loopless tournament, and the transition table includes all 2^n Boolean states using precisely incoming counts 2,3,5. Indegree-zero peeling removes exactly noncycle states; reverse peel order computes exact first entry depths since each removed state points either to a later removal or a cycle. An independently authored and completed enumeration gave spectra {1} for n=1–5, {1,3} for n=6, and {1,…,9} for n=7; depths were (1,1,2,2,4,9,23). The order-seven maximum-period histogram matched (1633632,30240,329840,25200,30240,21840,11040,5040,10080). Explicit relabeling of the whole extrema sets produced two size-5040 graph orbits for period nine, represented by 9393 and 9514, and one size-5040 graph–state orbit for depth 23, represented by (1721,86). Label and state transformations preserve the update by equivariance. These outputs distinguish a tournament’s maximum period from all periods coexisting in it, and distinguish graph counts from graph–state counts.",
+      "residual_risks": [
+        "Exhaustive only through n=7 and for one arc per distinct pair, with synchronous updates; no extrapolation or formal proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted maxima to order five are (1,1,1,3,9), and broader period spectra at fixed n and exact larger-n maxima are posed as open questions. Complete directed graphs have only fixed points or complement two-cycles, with entry within three updates."
+        ],
+        "reasoning": "The unrestricted maxima yield only fixed periods in orders up to three, not the remaining tournament spectra, sharp depths or nontrivial counts. The bidirected special theorem is not a broader structural theorem covering tournaments.",
+        "searches": [
+          "arXiv:2607.10453v2, p. 1 and §Conclusion p. 16"
+        ]
+      },
+      "checked_sources": [
+        "Primary-literature tournament prime-rule query above; Methawisal v2",
+        "Local Resultary, self-hit b8343ade721b discounted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two graph classes have different predecessor masks and possible local counts. In general the prime activation test toggles at 3,4,5 and cannot be written as a nondecreasing threshold test."
+        ],
+        "reasoning": "Neither the complete-directed-graph classification nor symmetric-threshold hypotheses force the observed tournament census. The first occurrence at order six and exact orbit information need the additional restriction and calculation.",
+        "searches": [
+          "Methawisal complete-directed-graph statement and concluding questions, arXiv:2607.10453v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Methawisal uses the same prime-count test and synchronous update. For the target, a tournament is an orientation of the complete undirected graph, not the complete directed graph used in the prior special case."
+        ],
+        "reasoning": "The identical transition rule under another name does not make the graph families identical. Relabeling acts on both tournament and initial activity by the same vertex permutation.",
+        "searches": [
+          "prime-activated Boolean map on tournaments in-neighbors prime periods transient entry time n=7 tournament",
+          "Local Resultary prime-activated tournament period and relaxation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ID b8343ade721b is exactly the assigned record, not a second calculation. The unrestricted finite results concern a different enumeration and do not give the tournament histogram."
+        ],
+        "reasoning": "No distinct exact database/table was identified for this one-arc graph class and prime-count invariant; the self-hit is not counted as prior evidence.",
+        "searches": [
+          "Local Resultary tournament spectra, depth and period-nine classes; Methawisal arXiv:2607.10453v2 unrestricted finite results"
+        ]
+      },
+      "rationale": "The map itself and small unrestricted-digraph maxima are prior. The exact spectrum, sharp depth, and two types of extremal orbit count for strict tournaments were not covered by the inspected prime-rule paper or a distinct exact catalogue record. In particular, the complete-directed-graph result uses arcs in both directions and cannot be specialized to one arc per pair.",
+      "residual_risks": [
+        "The bounded literature comparison does not establish historical priority against unindexed or separate tournament work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the rule and some broader/special cases, but the inspected results do not supply the tournament census",
+          "evidence": "Unrestricted maxima at n=1–5; period at most two and fast entry for complete directed graphs; the conclusion asks broader questions about attainable periods and attractor structure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10453v2",
+          "material_read": "PDF p. 1 from offset 650 and conclusion p. 16 from offset 43500",
+          "method": "OA PDF full-text passages",
+          "title": "Pulse Graphs: Prime-Activated Boolean Dynamics on Directed Graphs",
+          "trigger": "Identical update rule and finite graph period bounds"
+        },
+        {
+          "assessment": "Identical assigned record, not distinct coverage",
+          "evidence": "Same record identifier and all exact spectra and extremal orbit counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-long-cycles-and-sharp-finite-relaxation-for-prime-activate--b8343ade721b",
+          "material_read": "Catalogue statement checked against frozen Finding",
+          "method": "Local Resultary search, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "First long cycles and sharp finite relaxation for prime-activated tournament dynamics",
+          "trigger": "Exact same spectrum and extremal orbit counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and witness section; independent census output; Methawisal conclusion"
+      ],
+      "rationale": "Tournaments isolate asymmetry while fixing a single direction per pair, a natural graph restriction for the prime activation rule. The exhaustive spectra locate the first failure of fixed-point-only behavior and show that at the next order all periods up to the maximum appear. Observed sharp slowdown and the orbit counts distinguish genuinely different extremal examples from many label copies. They are useful exact benchmarks for a broader theory of attractors and transients, even without its general solution.",
+      "residual_risks": [
+        "Finite benchmark, not a general theorem bounding attractors as n grows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

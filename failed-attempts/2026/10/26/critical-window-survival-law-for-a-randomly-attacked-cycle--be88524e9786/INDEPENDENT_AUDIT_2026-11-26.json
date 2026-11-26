@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:09:49.561824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the seed by rotational symmetry and let q=1−p. For 1≤k<n the k consecutive intervals of length k containing the seed specify disjoint events: open their k−1 internal edges and close their two boundary edges. Thus Pr(K_n=k)=kq²p^(k−1), and zero or one closed edge gives Pr(K_n=n)=p^n+nqp^(n−1). Summing gives Pr(K_n≥k)=p^(k−1)(1+(k−1)q) for 1≤k≤n. Put q=λ/n and k=ceil(n(1−y)) for 0≤y<1, and take limits; at y=1 the CDF is identically one. This verifies the full law, including the atom and absence of an atom at 1. Differentiation in y and λ gives the displayed density and stochastic order (strict for 0≤y<1, not outside the support). In the record's proof, a uniformly chosen failed edge can anchor the cyclic composition before taking the Dirichlet limit. For benefit, a proper contiguous deletion leaves a connected path in the original purchased graph (not necessarily in the transmission subgraph), giving n²Y_n². By bounded convergence of moments under weak convergence and c_e=O(1), the limit is the integral of λ²x(1−x)²e^(−λx) from 0 to 1. Integration of powers 1,2,3 against the exponential gives the stated closed form; the leading coefficient at zero is ∫₀¹x(1−x)² dx=1/12, and the closed form tends to 1 at infinity. This symbolic finite-law check independently replays the finding; no computation is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allard et al. give exact iterative finite-graph component distributions, not in the inspected passages a uniformly evaluated cycle law. Chen et al. define the same uniform seeded cascade for general graphs. The ring-moment paper is known as a moments comparison; its actual proof was not accessible."
+        ],
+        "reasoning": "An algorithm on any fixed graph is not itself a limit theorem, and first and second moments do not fix this atom and density. Neither fact supports claims of new modeling or of a novel welfare functional.",
+        "searches": [
+          "arXiv:1201.4369; arXiv:1906.00241; DOI 10.1016/j.spl.2020.108714",
+          "Jevtic Lanchier La Salle exact cluster size law ring bond percolation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1201.4369",
+        "arXiv:1906.00241",
+        "DOI 10.1016/j.spl.2020.108714 (full text unavailable)",
+        "Resultary:93166b63810d",
+        "Resultary:3817b935f527",
+        "Resultary:212c966e538f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen et al., p. 2, define G[p], the uniform seed, and per-agent post-attack component utility minus edge costs. Allard et al., pp. 1–3, give an exact finite iterative method. Neither inspected comparison provides the tail p^(k−1)(1+(k−1)q) already evaluated for the cycle."
+        ],
+        "reasoning": "The model definition alone does not prove the limit. Once the tail is evaluated, the limit, stochastic ordering and bounded welfare moment follow mechanically. No inspected prior theorem or table establishes the full specialized tail or limit, and the inaccessible ring proof could matter to that conclusion.",
+        "searches": [
+          "arXiv:1201.4369 component-size distributions",
+          "arXiv:1906.00241 connectivity benefit",
+          "DOI 10.1016/j.spl.2020.108714"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On C_n the survivor fraction is the complement of the typical rooted percolation cluster fraction. The exact finite tail identifies K_n with min(n,1+G₁+G₂) for two independent geometric failure counts with Pr(G≥j)=p^j. The law is equivalently (1−Gamma(shape 2, rate λ))₊."
+        ],
+        "reasoning": "These reductions identify the whole law to compare, not just moments or no-cut probabilities. No source inspected on the same host states that distributional limit; the truncation derivation is an elementary independent check, not a citation.",
+        "searches": [
+          "critical window p=1-lambda/n cycle percolation seeded component survival fraction Poisson Dirichlet",
+          "exact finite component-size distribution bond percolation on cycle C_n uniformly rooted cluster size probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cycle-vaccination record 93166b63810d (same path date) has multiple Bernoulli seeds and an expected-infection objective. Later 3817b935f527 treats the square of a cycle at n q_n³→λ; later 212c966e538f treats independently directed arcs and strongly connected components."
+        ],
+        "reasoning": "There is no exact indexed law among these comparisons. Size-biasing the partition in the square-cycle result would match the limit law numerically but not prove the assigned ordinary-cycle theorem with the given deletion scaling.",
+        "searches": [
+          "Resultary: critical window p=1-lambda/n cycle percolation seeded component survival fraction Poisson Dirichlet",
+          "Resultary: exact finite component-size distribution bond percolation on cycle C_n uniformly rooted cluster size probabilities"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit full critical-window law as a statement, not a novelty claim for the percolation model, moments alone, or the underlying truncated two-geometric mechanism. No inspected result gives the univariate window law or an already specialized theorem that covers it. A general exact finite-graph iteration needs a cycle-specific evaluation before it can be used asymptotically; the elementary evaluation is important to the separate value decision.",
+      "residual_risks": [
+        "The ring-moment article may contain the exact finite cluster law in its proof, which would directly cover the window limit. Standard Poisson spacing references could also overlap. Bounded literature searching with an empty search response is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General finite method, not explicit cycle-window coverage in passages read",
+          "evidence": "Iterative exact component-size distributions and practical graph-size limits.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.4369",
+          "material_read": "pp. 1–3 passages at text offsets 774, 7996, 14866",
+          "method": "OA full-text passages",
+          "title": "Exact solution of bond percolation on small arbitrary graphs",
+          "trigger": "Strongest cited general finite-distribution method"
+        },
+        {
+          "assessment": "Direct model overlap, no assigned limit in material read",
+          "evidence": "Independent retention, a uniform seed, removal of its component, and post-attack connected-component benefit.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.00241",
+          "material_read": "p. 2 model and utility passage, offsets 11200–13467",
+          "method": "OA PDF",
+          "title": "Network Formation under Random Attack and Probabilistic Spread",
+          "trigger": "Same model and welfare definitions"
+        },
+        {
+          "assessment": "Unresolved whether the proof gives the finite law; do not infer a whole-paper verdict",
+          "evidence": "Directly relevant same-graph moments; publisher access denied and no repository copy recovered.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2020.108714",
+          "material_read": "Title and bibliographic information; frozen record reports abstract-level moment scope; theorem and proof not read",
+          "method": "DOI/OA recovery and identified publisher route unsuccessful for full text",
+          "title": "First and second moments of the size distribution of bond percolation clusters on rings, paths and stars",
+          "trigger": "Same rooted ring observable; proof could contain its full law"
+        },
+        {
+          "assessment": "Different observable or graph/edge model, not same-statement coverage",
+          "evidence": "Multi-seed expected infection; square-cycle Poisson walls at cubic failure scaling; and independent-arc SCC spacings, respectively.",
+          "identifier_or_url": "Resultary:93166b63810d; 3817b935f527; 212c966e538f",
+          "material_read": "Each RESULT.md opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Related indexed cycle models: vaccination, Poisson walls, and bidirected connectivity",
+          "trigger": "Possible equivalent published cycle-spacing laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The host and window are natural, but the result is a routine two-boundary-edge count followed by the geometric-to-exponential limit, truncation at one, and an elementary bounded moment. The network language does not add a constraint, an optimization result, or an equilibrium implication. The Poisson–Dirichlet derivation does not supply an independent new structural claim beyond this textbook calculation, and retaining just the elementary finite law or welfare formula would not repair the value deficit.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

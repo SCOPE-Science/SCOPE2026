@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem specifies the exact symmetric unit-conductance graph Laplacian, the completed three-stage RKL2 stability polynomial, all nonnegative stepsizes, and all integer bipartitions. The Laplacian has four explicitly identified eigenspaces. Their projectors yield the cross-class entry, two within-class entry factorizations and diagonal formulas. The scalar Legendre bound gives \(1/6\le r(t)\le1\) on \([0,5]\); strict decrease beyond five gives the sole later roots. For \(2\le p\le q\), the first sign change is the within-small-class off-diagonal. For stars, a rigorous bound \(\tau_q<45/8\) puts the hub-diagonal zero strictly before the leaf-pair zero. For \(K_{1,1}\) the scalar bound determines both transitions. A largest-eigenvalue argument gives the spectral norm threshold. The independent exact-rational matrix checker returned `VERIFY_OK 52755`, supporting but not substituting for the proof.
+PASS
 
-## Originality
+The normalized three-stage Legendre polynomial is 7/12 + (5/12)P3(1−2t/5), so r is in [1/6,1] through t=5 and strictly decreases to −∞ afterward. The quadratic in 1−r(t)=t(1−t/2+t²/15) is strictly positive. For N=p+q, the constant, class-contrast, and within-class zero-sum eigenspaces yield eigenvalues 0,N,q,p (omit zero multiplicities). For distinct vertices in the class of size p, the entry is [p+q r(Nh)−N r(qh)]/(Np) = qh²[1/2−(p+2q)h/15]. Swapping parts gives the other within-class entry, and cross-class entries are (1−r(Nh))/N. For p≥2, the smaller class's cutoff has Nh≤5, ensuring positive scalar terms in both diagonals; the smaller-class entry is negative at every larger step (both classes tie if p=q). For a star with q≥2 the hub diagonal (1+q r(Nh))/N crosses first: r(45/8)=−343/512<−1/q while the leaf-pair zero has Nh≥45/8. Leaf diagonals are positive to the hub cutoff since r(h)≥1/6 there. On K1,1 only the constant and contrast modes contribute, so positivity coincides with |r(2h)|≤1. In every case the full stability horizon follows from the largest eigenvalue N and the exact scalar interval [0,α]. This verifies all endpoints, h=0, and nonreentry. The two horizon ratios and star limit follow by scaling and continuity.
 
-**PASS, with qualification.** The 2026 source describing RKL2 proves maximum principles in a distinct one-dimensional grid context and explicitly cautions about higher-dimensional monotonicity. A published three-state RKL2 positivity analysis concerns a nonsymmetric pure-birth Markov generator and proves reentry, not any complete-bipartite cutoff. A published all-multipartition Taylor Runge–Kutta classification concerns a cubic coefficient \(1/6\), whereas the present RKL2 coefficient is \(1/15\): its cutoffs are not instances of these formulas. Searches for complete bipartite RKL2 positivity, star thresholds, and equivalent polynomial graph-heat formulations did not reveal a dominating result. Residual priority risk remains, particularly specialist literature not indexed by the searches.
+## originality
 
-## Value
+PASS
 
-**PASS.** Positivity of graph heat flow is a basic physical and maximum-principle property, while standard Euclidean stability alone cannot guarantee it. This theorem gives a *complete sharp* nonnegativity range on a natural two-class family for a recently studied stabilized explicit method, identifies two different first obstructions (stars versus nonsingleton classes), and quantifies the loss from scalar stability, with an asymptotic stability-to-positivity gap. It provides a testable exact benchmark when applying stabilized time stepping beyond one-dimensional grids.
+Best of the available evidence supports the distinct three-stage RKL2 complete-bipartite endpoint classification, not the polynomial, scalar stability calculation, or a general positivity principle. Known Taylor, directed-chain, and grid results are credited. The closest broad weighted-bipartite index result has a sharp star gain incompatible with applying its stated conclusion to RKL2; full-text coverage beyond that indexed conclusion was not established.
 
-## Limits and nearest literature
+## value
 
-Only completed steps on uniformly weighted complete bipartite graphs are covered; no nonlinear stage positivity or general-graph assertion is made. The nearest inspected papers are Tan–Aslam–Bertozzi (arXiv:2611.16238v1), its earlier related analysis (arXiv:2507.17062), the three-state RKL2 Markov result, and the complete-multipartite Taylor–Runge–Kutta result. Historical priority has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A graph-specific sharp safe-step benchmark is useful because the scalar stability condition is strictly too weak on every nontrivial member of a standard graph family. The exact star versus nonsingleton split and the balanced tie locate different constraints that a scalar criterion cannot identify; the horizon and stability gap are meaningful for timestep selection. It is not a claim about stage positivity or error at the endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

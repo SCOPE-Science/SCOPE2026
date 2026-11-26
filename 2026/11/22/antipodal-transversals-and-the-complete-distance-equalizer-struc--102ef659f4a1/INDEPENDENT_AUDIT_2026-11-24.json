@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:59:10.697295Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64, both supplied programs, and VERIFICATION.md inspected without running uploaded code.",
+        "Independent replay: python3 /tmp/opencode/frozen_combinatorial_replay.py 2.",
+        "Reassessed replacement RESULT.md and SLOGAN.txt in /workspace/repairs/2; the orbit-size and stabilizer-order claims match the replay."
+      ],
+      "rationale": "The frozen claim is mathematically correct. Independent Floyd–Warshall distances gave diameter five and the antipodal distance-complement identity. For each of all 190 pairs the witness locus was exactly two whole antipodal pairs at distances 1–4 and empty at distance 5. Marking each superset of {u,v} union W(u,v) in the omitted set gives exactly the same bad masks as omitting an antipodal pair, over all 2^20 choices. This recovers 59,049 allowed sets with polynomial (2z+z²)^10. In a separate part of the replay, backtracking over distance-preserving injections gave all 120 automorphisms (graph automorphisms are exactly the distance-preserving permutations). Partitioning the 1024 transversals under their images yielded frequencies 2,4,2,10,2 at sizes 12,20,40,60,120. The repaired Finding asserts only that exact profile; its orders 10,6,3,2,1 follow by orbit–stabilizer. The cube and absence of slides are correct background corollaries, since a one-token replacement flips exactly one pair choice and that pair has distance five.",
+      "residual_risks": [
+        "Only the specified graph, with no extrapolation. Stabilizer orders alone do not determine their subgroup conjugacy classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kratica–Čangalović–Kovačević-Vujčić Corollary 4 gives the empty-witness obstruction. The polytope and product sources cover other families; the bipartite proposition cannot apply to the inner pentagon.",
+          "Palmer–Robinson's cycle-index method enumerates symmetry classes of self-dual structures, including this case."
+        ],
+        "reasoning": "The general obstruction does not give sufficiency on its own. The strongest general counting coverage gives the total here; the repaired assertion requires determining configuration stabilizer sizes, not just computing the number of orbits.",
+        "searches": [
+          "arXiv:2107.10805; arXiv:2406.17870; arXiv:2407.15307; doi:10.1007/s40840-026-02088-4; Palmer–Robinson general self-dual enumeration."
+        ]
+      },
+      "checked_sources": [
+        "Palmer & Robinson (1984), pp. 203, 213–214",
+        "Resultary 3c3e39e438c1",
+        "arXiv:2107.10805, 2406.17870, 2407.15307, 1812.08453; doi:10.1007/s40840-026-02088-4",
+        "St Andrews ghkl-CP-2003.pdf §5.2, exact constraints paragraph."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the October record, the distance rows satisfy d(w,u)+d(w,bar u)=5, and W(u,v) is empty exactly for antipodes and comprises two whole antipodal pairs otherwise.",
+          "The published orbit count uses element cycles and hence individual fixed-coloring counts, not orbit stabilizer sizes."
+        ],
+        "reasoning": "Any candidate S must hit each antipodal pair by the empty locus. That condition gives a witness for every other outside pair using a whole pair inside its locus. Hence 3 choices per pair, the ten-bit minimum configurations and the jump/slide graph follow directly. For the size refinement, fixed counts summed over elements give the first Burnside identity but do not classify how fixes by different elements accumulate on a configuration. The repaired profile uses a further computation on the full action rather than restating the old theorem.",
+        "searches": [
+          "Resultary 3c3e39e438c1, proof steps 1–2, local mirror offset 1980 onward; Palmer–Robinson Introduction and Tables 4–5."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Palmer–Robinson, Introduction (printed p. 203): self-dual 2-colorings have opposite vertices different, with equivalence under rotation/reflection; there are 20.",
+          "A minimum equalizer marks one vertex in each pair black and the other white. This is an equivariant bijection; the geometric symmetry group acts faithfully with 120 elements, the full graph group."
+        ],
+        "reasoning": "The 1984 count is precisely the frozen orbit total in different language, not a coincidence of integers. The repair removes novelty of the total and compares the more specific size frequencies. Proper edge colorings or five distinct colors on each face are not equivalent constraints.",
+        "searches": [
+          "Local Resultary searches on dodecahedral equalizers, resolving, orbits and reconfiguration.",
+          "Public search: dodecahedron vertex colorings opposite vertices different antipodal pairs 1024 twenty orbits under full symmetry Polya dodecahedral antipodal transversals."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 explicitly gives the total 20; Table 5 gives dodecahedral symmetry element cycles for vertices, edges and faces. The inspected application has no profile per orbit size.",
+          "The earlier Resultary table gives exact witness loci but not orbit sizes. Makai–Tarnai arXiv:1812.08453 §§1–1.1 and the St Andrews symmetry-breaking paper §5.2 impose five colors around each face or unequal colors on edges, respectively."
+        ],
+        "reasoning": "Exact coverage of one scalar orbit count is genuine; total 20 and total 1024 do not determine the multiplicities at each allowed orbit size. Nothing inspected supplies the profile as an exact table for this action.",
+        "searches": [
+          "Resultary 3c3e39e438c1, witness table; Palmer–Robinson Tables 4 and 5 and continuations on pp. 213–214; public self-dual coloring query."
+        ]
+      },
+      "rationale": "Original originality decision: FAIL. The frozen claim presents the antipodal classification as distinct from prior resolving work, but the earlier witness-locus table directly implies it, the polynomial and the reconfiguration deductions. Moreover Palmer and Robinson counted exactly these same 20 orbits in 1984 under their self-dual coloring formulation. This is shown prior coverage, not failed retrieval. The repaired claim credits both and restricts the novel assertion to the distribution of sizes of the already known 20 orbits (equivalently, of stabilizer orders). No matching size profile or covering theorem for it was verified. The cited single-element cycle index gives total orbit counts but does not give simultaneous-fix or stabilizer-size statistics. This PASS is for the actual replacement only.",
+      "residual_risks": [
+        "Other computational tables, catalogues of self-dual colorings, or subgroup-stabilizer computations could already give the precise size distribution. The inspected total and single-element cycle data are not such a distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct established coverage of 20 orbits and the underlying action, but no matched size profile.",
+          "evidence": "It identifies self-dual colorings by opposite vertices having different colors, equates configurations by rotations/reflections, and says the number of self-dual colorings is 20. Table 5 is on cycle structures of symmetry elements.",
+          "identifier_or_url": "https://msp.org/pjm/1984/110-1/pjm-v110-n1-p20-s.pdf",
+          "material_read": "Introduction (printed p. 203), Tables 4–5 (p. 213), continuation p. 214; inspected offsets 0–2545 and 23930–27867 plus literal locators.",
+          "method": "Lawfully available journal PDF.",
+          "title": "Enumeration of self-dual configurations",
+          "trigger": "Exact alternate formulation as opposite-colored pairs under full symmetry."
+        },
+        {
+          "assessment": "The witness table directly implies the frozen feasibility equivalence and downstream simple consequences even though the resolving predicate is different.",
+          "evidence": "The three indexed distance rows and exhaustive Step 2 table give empty witnesses for antipodes and exactly two whole antipodal pairs for every other pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-antipodal-pair-criterion-and-complete-resolving-polynomial-of-th--3c3e39e438c1",
+          "material_read": "RESULT.md Finding and proof steps 1–2, especially mirror offsets 1980–4319.",
+          "method": "Local Resultary mirror.",
+          "title": "Antipodal pair criterion and complete resolving polynomial of the dodecahedral graph",
+          "trigger": "Same graph, antipodal criterion, and possible stronger witness-locus calculation."
+        },
+        {
+          "assessment": "General setup and necessity, not the repaired orbit profile.",
+          "evidence": "Any pair with empty equalizer locus must meet a feasible set.",
+          "identifier_or_url": "arXiv:2107.10805; arXiv:2406.17870",
+          "material_read": "Definitions and family scopes; the latter's Corollary 4 (printed p. 4).",
+          "method": "OA paper passages.",
+          "title": "The Equidistant Dimension of Graphs; Equidistant dimension of Johnson and Kneser graphs",
+          "trigger": "Foundational and broader graph-theoretic equalizer results."
+        },
+        {
+          "assessment": "Different colors, constraints and equivalence question.",
+          "evidence": "Asks for five colors, each face having all five, not two colors separated on antipodal pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08453",
+          "material_read": "Abstract and §1, offsets 0–7058.",
+          "method": "OA PDF.",
+          "title": "A colouring problem for the dodecahedral graph",
+          "trigger": "Same graph and symmetry group; plausible coloring classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and orbit-size/stabilizer-order table; independent orbit replay; Palmer–Robinson Table 4 as comparison baseline."
+      ],
+      "rationale": "The narrower result distinguishes strongly symmetric and asymmetric configurations on the natural full orbit space of minimum equalizers. For example, 240 of 1024 labeled choices have trivial stabilizer while 24 have stabilizer order ten, facts not read off from the known tally of 20 equivalence classes. The size profile is useful when converting counts or sampling weights between labeled configurations and symmetry classes. This is a motivated exact invariant of a canonical finite symmetry action; the already-covered classification, counts and cube observations are not used to justify novelty or value of the repair.",
+      "residual_risks": [
+        "Finite refinement, not a new general orbit-enumeration method or characterization of stabilizer subgroup types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

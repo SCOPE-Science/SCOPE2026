@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:11:34.850235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniformity of both marginals forces p11=p22=q/2 and p12=p21=(1-q)/2. For J=[[0,1],[-1,0]], L=J U J^T; conjugating any word by J exchanges U and L. For a word P and its exchanged word the average Gram matrix is (tr(P^T P)/2)I, by the two-dimensional identity for symmetric matrices G+J G J^T=(tr G)I. For P=U² the squared Frobenius norm is 2+4k²; for P=LU, with entries 1,k,-k,1-k², it is 2+k^4. Multiplying by the common two-step squared damping e^{-8ah} gives the claimed factor for every vector. The difference of the endpoint factors before damping is k²(4-k²)/2, so the unique minimizing q is 0 on (0,2) and 1 on (2,infinity), with all q tied at k=2. Conditioning on the entering state gives the exact N-fold recursion for independent repetitions of the same block law. This is conservation of expected energy at block boundaries, not pathwise conservation. Since both undamped endpoint factors exceed one and are distinct when k differs from 2, the open interval between their logarithms divided by 8h is nonempty and positive, and gives exactly the claimed stability separation. The explicit examples satisfy it (for k=1, 3/2<e<3; for k=3, 19<e³<83/2). Replay: the Gram calculation and conditional iteration above; supporting VERIFICATION.md and verify.py were read for scope, not executed. Does not cover arbitrary cross-block dependence, Lyapunov exponents or approximation error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sturman and Thiffeault bound Lyapunov and generalized Lyapunov exponents of random shear products, including negative shears, using blocks with independent geometric run lengths. They identify |alpha beta|=4 as the negative-shear boundary for AB hyperbolicity. Veldman and Zuazua use reciprocal-probability scaling and independent draws across time intervals."
+        ],
+        "reasoning": "Generalized exponents are related to moment growth, so this is genuine overlap rather than unrelated pathwise theory. Geometric-run bounds and independent-step splitting do not give the exact objective for every symmetric two-step coupling at fixed uniform marginals.",
+        "searches": [
+          "arXiv:1706.03398 PDF pp. 1–3, 6",
+          "arXiv:2109.13798 §2.1 pp. 5–6 and p. 16"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1706.03398, 2109.13798",
+        "Resultary b467b674b3e7, d44a5f263a5b, 98f608901237, ad4d5ccaddd9, 8f68962ed292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For LU, tr(LU)=2-k² so the undamped objective difference is (k²/2)(2+tr(LU)). The coincident numerical boundary thus reflects the same product's algebra. The independent one-step law gives (1+k²/2)² for q=1/2, just one value of an affine function of q."
+        ],
+        "reasoning": "The known trace cutoff alone does not identify either Gram factor or determine their ordering. Knowing one intermediate coupling factor likewise does not determine the slope, which gives the optimizer. The separate second moments of repeat and switch ensembles and the all-vector identity are needed.",
+        "searches": [
+          "arXiv:1706.03398 p. 6 (negative shears); b467b674b3e7 RESULT.md offset 2167; d44a5f263a5b RESULT.md offsets 285 and 6205"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b467b674b3e7 gives the q=1/2 specialization after squaring the single-step factor. d44a5f263a5b compares deterministic periodic balanced words UULL and ULUL by Floquet/spectral stability.",
+          "98f608901237 studies uniform-marginal couplings for relaxed Kaczmarz maps, with worst-direction error and a possible partial-repeat optimizer."
+        ],
+        "reasoning": "Taking a deterministic spectral radius of a balanced word does not give an expected squared norm of independently sampled blocks. The Kaczmarz maps are symmetric relaxed rank-one updates rather than nontrivial unipotent shears, so relabeling the mode indices or changing relaxation does not yield these U,L.",
+        "searches": [
+          "Resultary b467b674b3e7, d44a5f263a5b, 98f608901237",
+          "Primary literature: \"two shears\" \"mean-square\" correlated switching random products second moment threshold shear matrices uniform marginals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen 976c0931eb60 match is the record itself. The same-date ad4d5ccaddd9 optimizes ordered two-step three-row Kaczmarz laws without repetition, and 8f68962ed292 gives a fixed-marginal subset-correlation frontier in residual-tracking least squares."
+        ],
+        "reasoning": "No distinct exact table or theorem match was located for the full energy factor as a function of k and q. The compared same-date records have different updates or constraints, not a competing statement with priority inferred from their date.",
+        "searches": [
+          "Local Resultary semantic lookups and matched record identifiers b467b674b3e7, d44a5f263a5b, 98f608901237, ad4d5ccaddd9, 8f68962ed292"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact all-coupling mean-square law and sharp policy classification at fixed marginals, not for the hyperbolicity boundary k=2, basic Gram-matrix methods, or the independent-step stability law. The strongest inspected overlapping statements differ in objective or feasible dependence class.",
+      "residual_risks": [
+        "The focused web query gave unrelated hits; no inference of absence is made. A different stochastic switching reference could contain a dependent-block formula or equivalent exact optimization.",
+        "Methodological precedent and the known hyperbolicity threshold are not counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in products and a numerical boundary, different random laws and conclusion",
+          "evidence": "Moment-norm exponents and independent geometric runs; AB hyperbolicity for |alpha beta|>4.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.03398",
+          "material_read": "PDF p. 1 abstract, pp. 2–3 near offset 8620, p. 6 near offset 24467",
+          "method": "Primary OA PDF passages",
+          "title": "Lyapunov exponents for the random product of two shears",
+          "trigger": "Same opposite-sign shears, same parameter boundary, generalized exponent bounds"
+        },
+        {
+          "assessment": "Foundational independent-time scheme, no correlated block optimizer in examined statements",
+          "evidence": "Independent sampling across steps and reciprocal-probability scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.13798",
+          "material_read": "§2.1 pp. 5–6 offsets 13187 and 16191; p. 16 offset 48033",
+          "method": "Primary OA PDF passages",
+          "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+          "trigger": "Reciprocal-probability randomized subflows"
+        },
+        {
+          "assessment": "Covers q=1/2 only",
+          "evidence": "Exact squared norm multiplier e^{-4ah}(1+k²/2) for one independent selection.",
+          "identifier_or_url": "b467b674b3e7",
+          "material_read": "RESULT.md around offset 2167",
+          "method": "Local mirror result passage",
+          "title": "Sharp reentrant mean-square stability of randomized damped-shear time splitting",
+          "trigger": "Same exact subflows and same energy objective"
+        },
+        {
+          "assessment": "Deterministic four-step Floquet comparison",
+          "evidence": "Periodic UULL and ULUL with both modes used twice; not a renewal mean-square law.",
+          "identifier_or_url": "d44a5f263a5b",
+          "material_read": "RESULT.md around offsets 285 and 6205",
+          "method": "Local mirror result passages",
+          "title": "A minimal four-step reversal of stability preference for orthogonally similar damped shears",
+          "trigger": "Same shears and schedule-order reversal"
+        },
+        {
+          "assessment": "Structural analogue, not a result for the target shear family",
+          "evidence": "Relaxed Kaczmarz worst-direction error; partial repetition can be optimal.",
+          "identifier_or_url": "98f608901237",
+          "material_read": "RESULT.md around offsets 0 and 2821",
+          "method": "Local mirror result passages",
+          "title": "A sharp repeat-alternate transition for two-step relaxed Kaczmarz",
+          "trigger": "Same two-step uniform-marginal coupling optimization structure"
+        },
+        {
+          "assessment": "Different update family and sampling problem",
+          "evidence": "Three rows with a non-repeating optimizer.",
+          "identifier_or_url": "ad4d5ccaddd9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror result passage",
+          "title": "Sharp two-transition sampling law for two-step Kaczmarz on three rows",
+          "trigger": "Same-date catalogue match in two-step ordered-pair optimization"
+        },
+        {
+          "assessment": "Different statistic and dependence class",
+          "evidence": "Correlation of subset selection for residual-tracking least squares.",
+          "identifier_or_url": "8f68962ed292",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror result passage",
+          "title": "Sharp correlation frontier for fixed-marginal two-row residual tracking",
+          "trigger": "Same-date catalogue match for fixed-marginal dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two steps are the smallest block in which changing dependence while holding both marginals fixed is possible. In this exact shear benchmark the better policy reverses with shear strength, and fixed marginals and individual Hurwitz generators still permit the choice of coupling to change strict stability into strict instability, in either direction of the repeat-versus-switch preference. The result identifies when this happens for every initial direction and all block horizons, rather than presenting a selected vector or finite trajectory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

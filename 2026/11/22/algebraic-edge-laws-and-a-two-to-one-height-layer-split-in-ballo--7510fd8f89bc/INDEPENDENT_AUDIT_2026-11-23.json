@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:55:18.478356Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–73; analytical reconstruction of interval encoding, path decompositions and algebraic asymptotics",
+        "Frozen VERIFICATION.md and verification.py, inspected without executing uploaded code",
+        "Independent direct spot census at n=3,4 gives (1,0) and (3,1)",
+        "Cai et al., arXiv:2001.01376, Definition 8 and Proposition 9"
+      ],
+      "rationale": "Besides the published binary two-read criterion, one can check the key uniqueness directly. For distinct words with first and last differences L,R, a common deletion word made by deleting i in the first word and j>i in the second requires i≤L≤R≤j. Equality of the shifted substrings and equality of letters before L and after R allow these deletions to move within constant runs to L and R. The reverse orientation is the only other possibility (deleting the same index only covers a single mismatch). Both orientations when L<R force the opposite alternating phases. Mark the representative starting with D and its unique mismatch factor. The mark requires initial height h≥1; flipping raises odd intermediate heights by two, leaves even ones unchanged, and at the end either preserves height (even length) or raises it by two (odd length), preserving ballot legality. Excursion decompositions give P_h=C(z²)T^h and the first-passage exclusion F_h=(1−T^{h+1})/(1−2z). The even factors contribute z²/(1−z²) times ΣP_hF_h over h≥1 and the odd factors z³/(1−z²) times ΣP_hF_{h−1}; the geometric sums give the two displayed rational expressions in T. Expanding T at z=1/2 gives (3√2)⁻¹(1−2z)^(−3/2) and (6√2)⁻¹(1−2z)^(−3/2) for the leading terms. The only other circle singularity is z=−1/2, where 1−2z is nonzero and 1−T² vanishes at square-root order. Algebraic transfer and Γ(3/2)=√π/2 give the constants and O(2^n) total remainder; the central binomial asymptotic gives average degree n to leading order.",
+      "residual_risks": [
+        "The finite spot census does not certify all coefficients; the combinatorial proof does. The supplied direct checker compares intersections to size two, which is appropriate by the at-most-two theorem for distinct binary words. No degree distribution or optimal code claim is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 EJC work gives occurrence generating functions for fixed strings in Dyck paths; its complete non-Dyck-prefix/suffix result in Proposition 9 assumes nonperiodicity.",
+          "The inspected ballot papers count avoidance of a fixed pattern or position-based equivalence for short patterns.",
+          "The 2011 EJC bibliography lists Sullivan's ballot-occurrence abstract; the focused title lookup did not identify a readable statement."
+        ],
+        "reasoning": "Longer alternating factors are periodic, the allowable cutoff height is arbitrary, and the desired statistic is the sum over *all* alternating lengths by parity. The inspected results do not give the two marked-occurrence sums for these meanders.",
+        "searches": [
+          "Manes et al., EJC 18(1) P74, DOI 10.37236/561, §1 and §4 Proposition 9",
+          "Niederhausen–Sullivan arXiv:1004.2710, §3",
+          "Manes et al. arXiv:1510.01952, §1",
+          "Exact-title lookup: Counting strings in ballot paths Sullivan 2010 abstract pattern occurrence generating function"
+        ]
+      },
+      "checked_sources": [
+        "Cai et al. Definition 8 and Proposition 9",
+        "Resultary abb547d65c0a, 268e2a51ec42 and 3635f93f657f",
+        "Niederhausen–Sullivan §3",
+        "Manes et al. arXiv:1510.01952 §1 and EJC P74 Proposition 9",
+        "2007 article landing page and Sullivan (2010) bibliographic mention only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted formula weights all binary prefixes and suffixes, while the ballot split needs F_h for the even mark and F_{h−1} for the odd mark.",
+          "A Dyck edge count aggregates only final-height-zero paths and cannot recover the first-passage exclusion factors for an arbitrary terminal height.",
+          "The deletion criterion supplies a graph-to-pattern reduction but no boundary-conditioned occurrence enumeration."
+        ],
+        "reasoning": "Simply replacing total binary composition counts by ballot vertex counts loses the initial height of the factor and the allowable suffix. Accounting for these two boundary conditions before summing gives the specific OGFs and the asymptotic split; neither unrestricted nor Dyck-only exact statements imply that step.",
+        "searches": [
+          "Resultary abb547d65c0a, RESULT.md offsets 0–7382; 268e2a51ec42 Finding; 3635f93f657f marked Dyck bijection",
+          "Cai et al. Proposition 9",
+          "Manes et al., EJC Proposition 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two shared distinct deletion words are equivalent to an alternating mismatch interval with opposite phases over the binary alphabet.",
+          "An excess of one rise changes the final altitude by two; only odd alternating intervals create this excess."
+        ],
+        "reasoning": "The edge problem is exactly counting D-start alternating factors of the two parities in ballot prefixes. The unrestricted edge language and the excursions ending at altitude zero are different admissible vertex sets even when the interval characterization is the same.",
+        "searches": [
+          "Binary two-read single-deletion reconstruction; type-A confusability; alternating factor marking in nonnegative meanders and ballot prefixes",
+          "Cai et al. arXiv:2001.01376, Definition 8 and Proposition 9",
+          "Resultary abb547d65c0a, 268e2a51ec42 and 3635f93f657f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "abb547d65c0a gives exact same-weight and adjacent-weight counts for unrestricted binary words.",
+          "268e2a51ec42 gives a Dyck-only triangle and cumulative generating law; 3635f93f657f gives an exact Dyck-only edge count and positive-height mark."
+        ],
+        "reasoning": "The unrestricted composition tables cannot isolate height-nonnegative endpoints of an edge, and a Dyck-only graph excludes cross-layer edges by definition. The results are genuinely related independent of their dates, not an exact table for this vertex set.",
+        "searches": [
+          "Resultary: ballot and Dyck word two-read deletion graph edge counts, composition or endpoint refinements; strongest distinct matches abb547d65c0a, 268e2a51ec42 and 3635f93f657f"
+        ]
+      },
+      "rationale": "The distinct result is the edge enumeration by height change for the graph induced on all ballot prefixes and its two-to-one asymptotic split. Credit the two-read alternating characterization, the unrestricted composition-refined edge calculation and the Dyck-only edge calculations. Neither unrestricted counts by total composition nor counts for words ending at zero count legal suffixes at the two different heights arising here. The fixed-pattern Dyck and ballot sources inspected have different outcome statistics, endpoints or pattern classes.",
+      "residual_risks": [
+        "A general fixed-pattern occurrence theorem for arbitrary-final-height ballot prefixes might dominate the enumeration after summing over alternating lengths. The Sullivan abstract's actual results were not retrieved and the 2007 full text was not read; neither access limitation is negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers interval encoding, not enumeration under ballot restriction",
+          "evidence": "Two distinct common single-deletion words occur for opposite phases on an alternating binary interval.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01376",
+          "material_read": "Definition 8 and Proposition 9, p. 7; offsets 34587–37011",
+          "method": "OA PDF bounded passage",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact two-common-read characterization"
+        },
+        {
+          "assessment": "Same ambient graph, but unrestricted vertex set",
+          "evidence": "Its exact layer count uses all binary words of a given composition rather than requiring height nonnegativity.",
+          "identifier_or_url": "Resultary abb547d65c0a",
+          "material_read": "RESULT.md offsets 0–7382",
+          "method": "Local Resultary mirror",
+          "title": "Composition-refined degree and edge spectrum of the binary two-read deletion graph",
+          "trigger": "Exact same-count and adjacent-count split for related graph"
+        },
+        {
+          "assessment": "Strictly balanced Dyck vertices, not all ballot prefixes",
+          "evidence": "Dyck edge OGF zH(z)/(1−z) does not include different end heights.",
+          "identifier_or_url": "Resultary 268e2a51ec42",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A triangle-edge cumulative law for Dyck-word two-read deletion ambiguity",
+          "trigger": "Catalan-constrained exact two-read edge OGF"
+        },
+        {
+          "assessment": "Different terminal constraint despite similar bijection",
+          "evidence": "Enumerates edges between Dyck words only.",
+          "identifier_or_url": "Resultary 3635f93f657f",
+          "material_read": "Finding and scope of the marked Dyck edge count",
+          "method": "Local Resultary comparison",
+          "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection",
+          "trigger": "Earlier related positive-height mark"
+        },
+        {
+          "assessment": "Avoidance rather than summed occurrences",
+          "evidence": "s_n(x;p) counts ballot paths avoiding a selected pattern p.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2710",
+          "material_read": "p. 2 depth-zero discussion and §3 p. 6, around offset 12636",
+          "method": "OA PDF bounded passages",
+          "title": "Ballot Paths Avoiding Depth Zero Patterns",
+          "trigger": "A ballot boundary pattern-count theorem might cover the reduction"
+        },
+        {
+          "assessment": "Different equivalence and pattern lengths",
+          "evidence": "Classes use positions of occurrences of a fixed short string.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.01952",
+          "material_read": "§1 pp. 1–2, offsets about 492 and 6010",
+          "method": "OA PDF bounded passages",
+          "title": "Equivalence classes of ballot paths modulo strings of length 2 and 3",
+          "trigger": "Related equivalence graph on ballot words"
+        },
+        {
+          "assessment": "Dyck endpoint and pattern-scope limitations leave the formula here uncovered",
+          "evidence": "Bivariate occurrence GF for fixed strings in Dyck paths; Proposition 9 treats the nonperiodic case beyond Dyck prefixes/suffixes. Bibliography only identifies the separate Sullivan abstract.",
+          "identifier_or_url": "https://doi.org/10.37236/561",
+          "material_read": "Abstract p. 1; §1 p. 2 offset 3892; Proposition 9 p. 13 offset 35911; bibliography p. 21 about offset 65951",
+          "method": "OA PDF bounded passages",
+          "title": "General Results on the Enumeration of Strings in Dyck Paths",
+          "trigger": "Potential dominating fixed-pattern occurrence formula"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "Known topic is Dyck pattern counting, which does not establish what refinements the full text contains.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2007.03.005",
+          "material_read": "Landing page/abstract only",
+          "method": "Bounded OA DOI attempt did not yield full text",
+          "title": "Counting strings in Dyck paths",
+          "trigger": "Earlier general pattern occurrence work"
+        },
+        {
+          "assessment": "Possible stronger prior remains unresolved",
+          "evidence": "Referenced title explicitly concerns string counts in ballot paths; no supported inference about the formulas from the title alone.",
+          "identifier_or_url": "Sullivan (2010), cited as an abstract in EJC 18(1) P74, p. 21",
+          "material_read": "Bibliographic mention only",
+          "method": "Citation trail and exact-title primary lookup; no identifiable full statement obtained",
+          "title": "Counting strings in ballot paths",
+          "trigger": "Potential exact arbitrary-endpoint occurrence formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Cai et al. two-read criterion",
+        "Resultary unrestricted and Dyck-only edge findings"
+      ],
+      "rationale": "The constrained confusability graph is a natural object in sequence reconstruction; the equality versus adjacency of endpoint layers is not an arbitrary slice. A boundary-sensitive edge count with explicit generating functions determines an asymptotic density split and average degree for the full family. This supplies testable graph-scale constraints beyond the generic two-deletion-output criterion or the balanced Dyck-only graph.",
+      "residual_risks": [
+        "The count is global by edge type, not refined by exact terminal height; it does not determine extremal code size or the degree distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

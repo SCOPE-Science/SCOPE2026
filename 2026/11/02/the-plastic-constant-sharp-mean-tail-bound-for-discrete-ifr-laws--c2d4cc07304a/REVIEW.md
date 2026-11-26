@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact scope is an integrable integer-valued IFR law, a level no greater than the expectation, and adjacent mass dominance at that level. Writing \(t=\Pr(X\ge1)\) and \(x=t/p_0\), survival-ratio monotonicity gives \(\mathbb E(X_+)\le tx\) and \(\mathbb E((-X)_+)\ge F_t(x)\). The four-part proof of \(F_{ho-1}(x)\ge(ho-1)x\) covers every \(x\ge1\), with rational endpoint certificates and an elementary logarithm bound. The explicit geometric-tail law realizes equality and the proof identifies its unique form. The checker executed with 20,589 finite assertions; only the analytic proof establishes the general conclusion.
+PASS
 
-## Originality: PASS (qualified)
+The proof covers all integrable integer-valued laws with log-concave survival and p_(m+1) >= p_m > 0, not merely finite-support laws. After shifting m to zero, t=S_1 and x=t/p_0 >= 1. Monotonicity of the positive survival ratios, with the zero-tail case included, gives E(X_+) <= t^2/p_1 <= tx and S_(-k) <= min(1,t(1+1/x)^(k+1)). Thus the mean condition gives F_t(x)=sum_{j>=1}(1-t(1+1/x)^j)_+ <= tx. At c=a-1=a^(-4), with a^3=a+1, the first-term bound on [1,a], two-term convexity bound on [a,3], four-term convexity bound on [3,6], and decreasing Riemann-sum bound on [6,infinity) prove F_c(x) >= cx, strictly away from a. Both the endpoint values and their strict signs were checked with rational arithmetic (331/250<a<4/3; the logarithm certificate uses 402/581>175/256). Monotonicity in t excludes t<c. Equality forces t=c, x=a, p_1=p_0 and zero mean; saturation term by term forces S_(-1)=1 and a constant ratio 1-1/a to the right of S_1. The specified survival law has decreasing ratios, adjacent masses a^(-5), and positive and negative mean contributions a^(-3), proving attainment and uniqueness up to translation. This is an analytic infinite-support proof; the supplied finite examples are not used as evidence of the universal inequality. Replay from RESULT.md §§1–3 with exact rational endpoint checks and the displayed survival sequence.
 
-Ai, Karagiannis, Kuželka and Pelekis (arXiv:2610.24726v1, 2026-10-17) prove their ratio-dependent universal theorem for \(0<\gamma\le1/2\). Setting \(\gamma=1/2\) under the stronger ratio-one condition gives \(1/4\), not the sharp \(ho-1\). Nor can one substitute \(\gamma=1\) to get \(1/3\), because the displayed equality law disproves that extrapolation. Relevant published-record results concern different events, supports or assumptions. Searches for statement, numeric constant, cubic alias and broader IFR inequalities did not locate an equivalent theorem. The later sections of the motivating source were not available for complete rereading, and historical priority remains open to independent expert review.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Adjacent mass dominance is a natural local indicator that a distribution is not already decreasing to the right of the mean. The new bound gives the exact strongest universal conversion of that local shape condition into exceedance probability; its geometric-tail equality law differs fundamentally from the three-atom equality cases used in the recent theorem's small-ratio domain. This determines a motivated sharp invariant, not an arbitrary finite example.
+The closest prior theorem and its proof concern the same discrete-IFR problem, but the supported distinct claim is the sharp ratio-one constant and its unique equality law. The geometric survival comparison itself is prior technique. No matching or stronger covering statement was found in the inspected sources.
 
-## Sources and limitations
+## value
 
-Principal inspected source: https://arxiv.org/abs/2610.24726 and its available HTML through the opening proof of its main theorem. Closest published-record hit: the eight-atom log-concave half-mass failure record, which treats another distribution class and event. The checker verifies finite cases and exact algebra but is not an infinite proof. The complete later applications and older original reliability sources were not inspected; they remain priority risks. The result is not a general ratio-parameter classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal-or-increasing adjacent mass is a natural discrete threshold regime outside the sharp theorem's proved parameter range. The result resolves a strict mean-exceedance bound in that regime where formal extrapolation would be false, and the unique one-left-atom/geometric-right-tail extremizer identifies the mechanism. It makes no unsupported claim about other mass ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

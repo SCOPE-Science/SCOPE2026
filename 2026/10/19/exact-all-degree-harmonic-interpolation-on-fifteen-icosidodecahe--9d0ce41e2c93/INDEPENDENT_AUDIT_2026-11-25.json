@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:15.809430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and checker.py; uploaded checker not executed",
+        "Independent exact replay: /tmp/opencode/h3_independent.py",
+        "Bernstein's classical Legendre inequality as stated in the proof, Szegő, Orthogonal Polynomials, Theorem 7.3.3"
+      ],
+      "rationale": "The probability-measure addition theorem gives E_l E_l*=(2l+1)L_l. Independent exact arithmetic on the stated directions over Q(sqrt(5)) returned ranks (1,3,5,7,9,11,10,15,14,15,15,15,15,15,14,15) through degree 15; the row sums at 8 and 14 are exactly zero, so rank 14 identifies the full obstruction. The independently reconstructed determinants modulo 1009 for degrees 16–215 are all nonzero and agree with the 200 frozen residues; sqrt(5) maps to 244, and all coordinate and recurrence denominators are units there. The infinite range is not extrapolated. Direct dot products give two orthogonal competitors in each row and maximum off-diagonal absolute inner product (1+sqrt(5))/4. The Bernstein bound's angular factor is 1 at zero and strictly below 4/3 at every other competitor, since 1-t^2 >= (5-sqrt(5))/8 > (3/4)^4. Thus the absolute off-diagonal sum is less than 18 sqrt(2/[pi(l+1/2)]), which is below one from degree 216 using pi>3. Strict diagonal dominance proves invertibility there. The Moore–Penrose formula is E_l* (E_l E_l*)^+ y, lying perpendicular to the evaluation kernel, and its squared norm is y* (E_l E_l*)^+ y. The degree-14 defect makes the permanent cutoff sharp.",
+      "residual_risks": [
+        "The certificate's finite coverage ends at degree 215; degrees 216 onward rely on the analytic inequality. No conditioning bound is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The A5 root example has fifteen root directions but lies in S4 and reaches full rank from degree 3. The historical icosahedral harmonic papers were not available for full-text comparison."
+        ],
+        "reasoning": "Neither the same number of directions nor a symmetric-harmonic basis by itself determines evaluation ranks on this orbit. An older full-text equivalent is not ruled out.",
+        "searches": [
+          "Resultary 2026/10/25/25047f40d7df, all-degree root sampling",
+          "Cohan DOI:10.1017/S0305004100033156; Zheng–Doerschuk DOI:10.1137/S0036141098341770"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/1/320ad4e07c86, 2026/10/18/5142078e64c3 and 2026/10/25/25047f40d7df",
+        "arXiv:1308.5101",
+        "DOI:10.1017/S0305004100033156 and DOI:10.1137/S0036141098341770 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A harmonic-index design gives a vanishing evaluation sum, not the dimension of the entire sampled image. The earlier 10-node sampler computes its own ranks, not those of the 15-node orbit."
+        ],
+        "reasoning": "Even obtaining a vanishing sum on this orbit would give only an upper bound at that degree, not rule out further obstructions or determine the intervening full-rank and exceptional degrees.",
+        "searches": [
+          "Bannai–Okuda–Tagami, arXiv:1308.5101, Definition 1.1, icosahedron example, Lemma 2.1",
+          "Resultary 2026/10/18/5142078e64c3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On this orbit Gram positive definiteness is equivalent to full sampling rank. The later conditioning record gives exactly 7, 9–13 and all degrees at least 15 as its positive-definite range."
+        ],
+        "reasoning": "This exact support overlap is real; the later date and absence of a source for its use of 'known' do not establish earlier coverage. Its accessible finding focuses on condition numbers, not the full list of deficient ranks.",
+        "searches": [
+          "Resultary: H3 root directions, icosidodecahedron vertex axes, exact-degree Gram ranks",
+          "2026/11/1/320ad4e07c86, Finding, assumptions and references"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior dodecahedral table has ten lines and shares defects at 8 and 14 and a permanent threshold of 15; the later same-orbit support entries match. The primary icosahedron example has six lines and is a harmonic-index statement."
+        ],
+        "reasoning": "The node sets and target dimensions differ, so the prior analogous entries cannot supply the fifteen-line rank table.",
+        "searches": [
+          "Resultary 2026/11/1/320ad4e07c86 and 2026/10/18/5142078e64c3",
+          "arXiv:1308.5101, icosahedron example; Cohan title and bibliographic lookup"
+        ]
+      },
+      "rationale": "The bounded search identified a later catalogue record repeating full-rank support on the exact same orbit, a close earlier result on ten different axes, and primary work on the harmonic mean of six different axes. The later record is evidence of material overlap, not evidence that the exact result predates the frozen record. The supported distinct claim is the complete fifteen-line exact-degree profile and image statements, not the addition theorem, pseudoinverse principle, or eventual invertibility of a fixed separated node set by itself.",
+      "residual_risks": [
+        "The later use of 'known' is not independently attributed.",
+        "Older icosahedral tables may contain implicit low-degree overlap; their full text was unavailable. Search coverage is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct postdated overlap on support; independent earlier attribution not established",
+          "evidence": "Positive-definite degrees 7, 9–13, and every degree >=15; called known but no source for that specific rank classification was identified in the inspected passages.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-unique-worst-conditioned-exact-degree-harmonic-sampler-on-th--320ad4e07c86/RESULT.md",
+          "material_read": "Finding and assumptions from offset 0; references from offset 7699",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The unique worst-conditioned exact-degree harmonic sampler on the icosidodecahedral axes",
+          "trigger": "Exact same node set and full-rank support"
+        },
+        {
+          "assessment": "Close analogue on a different orbit",
+          "evidence": "Ten dodecahedral vertex axes, not fifteen H3 root lines.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-degree-wise-harmonic-interpolation-on-the-ten-dodecahed--5142078e64c3",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete degree-wise harmonic interpolation on the ten dodecahedral axes",
+          "trigger": "Earlier classification with same exceptional degrees and cutoff"
+        },
+        {
+          "assessment": "No coverage of H3",
+          "evidence": "Fifteen A5 directions on S4, full rank from degree 3.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-degree-uniform-harmonic-sampling-stability-on-the-a-5-root--25047f40d7df",
+          "material_read": "Mirrored Finding and assumptions at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp degree-uniform harmonic sampling stability on the A5 root directions",
+          "trigger": "Root-system all-degree spectral comparison"
+        },
+        {
+          "assessment": "Different orbit and weaker invariant",
+          "evidence": "The six-point antipodal half of the regular icosahedron is a harmonic-index 8- and 14-design; no fifteen-line rank determination follows.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5101",
+          "material_read": "Definition 1.1 p. 1, icosahedron example p. 3, Lemma 2.1 p. 4",
+          "method": "Lawful OA primary PDF",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Identical exceptional degrees and vanishing mean"
+        },
+        {
+          "assessment": "Unresolved low-degree coverage risk",
+          "evidence": "Full tables were not retrieved, so their possible implication for the orbit was not assessed.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100033156",
+          "material_read": "Publisher citation/landing material only",
+          "method": "Publisher and lawful OA retrieval attempts",
+          "title": "The spherical harmonics with the symmetry of the icosahedral group",
+          "trigger": "Prior explicit icosahedral harmonic bases could imply individual low-degree constraints"
+        },
+        {
+          "assessment": "Not assessable in full text",
+          "evidence": "Full text was not retrieved; metadata does not establish any sampling-rank claim.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036141098341770",
+          "material_read": "Citation metadata only",
+          "method": "Publisher and lawful alternate-copy attempts",
+          "title": "Explicit Computation of Orthonormal Symmetrized Harmonics with Application to the Identity Representation of the Icosahedral Group",
+          "trigger": "Potential earlier invariant-harmonic computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and all-degree proof",
+        "The ten-axis comparator and same-orbit conditioning record"
+      ],
+      "rationale": "This is an exact classification for the canonical noncrystallographic H3 orbit and a concrete invariant needed to determine which exact harmonic degrees can interpolate arbitrary data. It resolves the genuine rank reversals at degrees 8 and 14, gives the obstruction there, and sharpens a general large-degree existence argument to the precise cutoff 15. The geometry and low-degree table are not arbitrary parameters chosen after computation.",
+      "residual_risks": [
+        "No claim about noise stability or optimality among node configurations is supported by the rank proof alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

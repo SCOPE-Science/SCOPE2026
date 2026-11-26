@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:46.466292Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof Steps 1–4",
+        "VERIFICATION.md and verify.py: lattice/Fourier matrix comparison, integral/recurrence tests, and finite-size normalized density checks",
+        "arXiv:2609.03272v1, section III, equations (18) and (24–25) for the parametrization"
+      ],
+      "rationale": "The delta amplitudes have t/r=i k/gamma and |r|=cos(theta), giving the stated coin after removing a common phase. With D(q)=diag(e^(iq),e^(-iq)) and A=D(q)sigma_x, A is Hermitian with A^2=I. The two-step multiplier differs uniformly from exp(2i theta cos(q) A) by O(theta^2): the cross term is 2i sin(theta)cos(theta)cos(q) A. Telescoping the unitary products controls the even factor by O(n theta_n^2), and on odd lengths the leftover multiplier differs from A by O(theta_n). The final scaled-phase difference is at most |n theta_n-tau|. This tends to zero for every allowed sequence, implies norm convergence in the phase convention used, then trace-norm convergence of the reduced coin by contractivity. For the initial x-directed Bloch vector the limit uses an axis a=(cos q,-sin q,0); the pointwise x-component is cos^2(q)+(-1)^n sin^2(q)cos(2 tau cos q). Reflection q -> -q reverses the other two components. The weighted cosine average equals [J_0(2 tau)+J_2(2 tau)]/2=J_1(2 tau)/(2 tau), with value 1/2 at zero. Thus the normalized Bloch radii and the larger eigenvalues (3 +/- B)/4 have the claimed signs and factors. The bound |B|<=1 follows from the same integral, so strict monotonicity of h_2 on [1/2,1] gives equality exactly at B=0, with sign changes at the simple positive zeros. h_2'(3/4)=-log_2(3), and J_1(2 tau)/tau has leading cos(2 tau-3 pi/4)/(sqrt(pi) tau^(3/2)), yielding the claimed signed envelope and remainder. The endpoints are pure versus maximally mixed at tau=0, and the common entropy tends to h_2(3/4) for diverging tau on the limiting curves only.",
+      "residual_risks": [
+        "The frozen verifier was inspected, not executed; the replay path is python verify.py in the source record directory with NumPy and SciPy. Its Fourier Gram matrix uses the transpose convention of the outer-product density, harmless for this reflection-symmetric initial state because the exact reduced matrix is real symmetric. Neither the script nor the proof claims a uniform joint limit at diverging tau, a time-varying coin within one walk, or arbitrary initial states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general even-step time limit includes the effective near-swap dynamics and gives a Bessel solution for the global wavefunction on the lattice. The general fixed-coin entropy result assumes a nondegenerate fixed coin. The exact finite-step scattering integral is written using the same momentum projectors and includes the off-diagonal interference terms."
+        ],
+        "reasoning": "These cover the evolution before reduction, or different entropy limits with the coin held fixed. The finite scaled-time coin marginal does not follow by substituting a small coin angle into the limiting eigenvalues of a fixed-coin theorem. The general wavefunction formula supplies inputs to the reduced coherence, not the evaluated parity-contrast formula.",
+        "searches": [
+          "Manighalam–Kon DOI:10.1007/s11128-020-02880-6, Theorem 2 and the analytical Bessel time-evolution formula on page 10",
+          "Ide–Konno–Machida arXiv:1012.4164v2, Theorem 3.1 and Corollary 3.2",
+          "arXiv:2609.03272v1 equation (43)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "arXiv:2609.03272v1; arXiv:1012.4164v2; arXiv:quant-ph/0606050v1",
+        "Manighalam–Kon DOI:10.1007/s11128-020-02880-6; Carneiro et al. DOI:10.1088/1367-2630/7/1/156",
+        "Resultary semantic results, including 0e1a12411b1d (indexed summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In equation (43) the cross terms carry exp(+/-2i n Omega). At nonzero fixed transmission they dephase, but near the swap one has Omega=pi/2+O(theta) and the first-order momentum dependence survives under n theta -> tau. With one global phase convention cos(Omega)=sin(theta)cos(q), giving a surviving parity factor (-1)^n and a finite phase of magnitude 2 tau cos(q). The limiting spinor axis is A(q); its perpendicular overlap with the initial coin gives the weight sin^2(q)."
+        ],
+        "reasoning": "The exact scattering formula provides a route to a fresh joint-limit derivation; its fixed-k treatment drops the very term needed here, and its fixed-k n^(-3/2) statement does not supply the scaled envelope without controlling the singular small-k regime. The known stroboscopic limit and adding one swap-and-shift give the effective global propagators. The distinctive step is reducing them with the specified spinor and evaluating the nonconstant interference for both parities. No covered dynamics, endpoint or standard Bessel identity is claimed as independent novelty.",
+        "searches": [
+          "arXiv:2609.03272v1, equations (39–44) and adjacent text",
+          "Manighalam–Kon, Theorem 2 and page 10 global propagator; Strauch, equations (15–17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here |t|=sin(theta), so a finite limit of n|t| is equivalent to the stated limit of n arctan(k_n/gamma). The swap-near coin also equals i exp[-i(pi/2-theta)sigma_x], up to the chosen phase. Strauch connects a near-swap walk to continuous-time dynamics and displays a Bessel wavefunction for an entangled initial state supported at 0 and neighboring sites."
+        ],
+        "reasoning": "These reparametrizations give the same weak-transmission dynamics, so that identification by itself is not new. Strauch's explicit example is for a different initial position-coin vector and presents the wavefunction and position density, not the specified two coin entropy curves.",
+        "searches": [
+          "Resultary: weak-scattering delta coin and parity-resolved coin-position entanglement; Bessel crossover in coined quantum walks",
+          "arXiv:2609.03272v1 equations (18), (24–25), (39–43)",
+          "Strauch, arXiv:quant-ph/0606050v1, equations (15–17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed Bessel crossover concerns a random-transposition walk and a squared Bessel profile for a standard mode; its full local record was unavailable. Figure 8 of arXiv:2609.03272v1 depicts finite-time entanglement and the weak-transmission fringes; equation (44) gives the fixed-wavenumber equilibrium spectrum. Carneiro et al. state the exact 0/1 endpoint oscillation for a symmetric input."
+        ],
+        "reasoning": "The exact swap endpoint and the iterated equilibrium value are covered. Neither numerical fringes nor tables of special-function zeros supply the identity that this two-parity coin contrast is J_1(2 tau)/tau. The indexed Bessel match concerns a different observable and walk on the available evidence.",
+        "searches": [
+          "Resultary: parity-resolved weak-transmission entanglement, Plancherel–Bessel quantum-walk crossover (0e1a12411b1d)",
+          "arXiv:2609.03272v1, figures 8–9 and equation (44)",
+          "Carneiro et al., NJP 7 (2005) 156, pp. 5–6"
+        ]
+      },
+      "rationale": "Credit the explicit parity-resolved reduced-state and entropy scaling functions, not the energy-dependent coin, the swap endpoint, or the stroboscopic continuous-time dynamics or their global Bessel propagators. The source scattering paper gives an exact finite-step spectral integral for the same setup and recognizes weak-transmission nonuniformity; it takes a fixed-wavenumber long-time limit, not the joint observable crossover. General continuum theory is strong enough to recover the even limiting evolution and, with a remaining swap-and-shift, the odd one. Extracting the two reduced-state functions requires the momentum-dependent overlaps with the initial coin, retaining the oscillating term instead of averaging it out, and evaluating its weighted Bessel integral. The inspected statements do not give this reduced observable or an equivalent already evaluated contrast. The crossings and envelope are consequences of the explicit new contrast, not separate priority claims.",
+      "residual_risks": [
+        "The nearest Resultary Bessel entry was not available in full text through the local mirror. A compact coincidence or coherence formula in other continuous-time-limit literature could cover this observable; no absolute priority is asserted. The endpoint, coin, and general continuum limit are affirmatively credited as known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close precursor; exact pre-limit expression and a different, fixed-parameter asymptotic",
+          "evidence": "Equation (43) retains oscillatory projectors at finite n. The text discards them at fixed nonzero transmission, notices nondecay at zero transmission, and describes the approach via stationary phase. Equation (44) is the fixed-k spectrum; the inspected passage does not evaluate the finite-scaled-time parity contrast.",
+          "identifier_or_url": "https://arxiv.org/html/2609.03272v1",
+          "material_read": "Section III.1 and coin parametrization (18), (24–25), around offsets 18400 and 22500; section IV, equations (39–44), figures 8–9 and adjacent asymptotic discussion at offsets 38500–46020",
+          "method": "Open-access arXiv HTML",
+          "title": "Discrete-time quantum walks with energy-dependent coins",
+          "trigger": "Same physical delta coin and in-phase symmetric initial state, exact finite-step coin spectral expression, and small-transmission fringes"
+        },
+        {
+          "assessment": "Covers much of the global dynamics, not the evaluated reduced entropy contrast in the inspected passages",
+          "evidence": "The even-step theorem gives a continuous-time generator; the associated formula evolves arbitrary initial lattice spinors via Bessel coefficients. The passage is a propagation result, not a coin partial-trace formula.",
+          "identifier_or_url": "https://doi.org/10.1007/s11128-020-02880-6",
+          "material_read": "Even-power discussion on p. 5 around offset 14500, Theorem 2 on p. 8 around offset 26100, and analytic wavefunction formula on p. 10, offsets 33100–35224",
+          "method": "Open-access publisher PDF",
+          "title": "General methods and properties to evaluate continuum limits of the 1D discrete time quantum walk",
+          "trigger": "Stronger underlying two-step continuum dynamics and potential Bessel solution"
+        },
+        {
+          "assessment": "Prior dynamics and Bessel wavefunction for a different example, not a matching coin crossover",
+          "evidence": "The displayed Bessel solution starts with a positive-energy entangled state with support at 0 and +/-1; the comparison is of position densities.",
+          "identifier_or_url": "https://arxiv.org/html/quant-ph/0606050v1",
+          "material_read": "Discussion of the continuous-time limit and equations (15–17), offsets 12930–16451",
+          "method": "Open-access arXiv HTML",
+          "title": "Connecting the discrete and continuous-time quantum walks",
+          "trigger": "Earlier near-swap walk and explicit Bessel limit cited by continuum paper"
+        },
+        {
+          "assessment": "Exact endpoint overlap, no finite scaled-time formula in the inspected passage",
+          "evidence": "For the symmetric coin input with relative phase i, the paper states the 0/1 oscillation at the swap and explicitly says it is analytically verifiable; describing it as merely numerical would undercredit that prior.",
+          "identifier_or_url": "https://strathprints.strath.ac.uk/78869/1/Carneiro_etal_NJP_2005_Entanglement_in_coined_quantum_walks.pdf",
+          "material_read": "Pages 5–6, around offsets 15500 and 16950",
+          "method": "Open-access institutional PDF",
+          "title": "Entanglement in coined quantum walks on regular graphs",
+          "trigger": "Same swap endpoint and two entropy extremes"
+        },
+        {
+          "assessment": "Fixed nondegenerate coins, no claim about the singular scaling here",
+          "evidence": "The condition abcd nonzero keeps the coin away from the swap endpoint, and the infinite-time average assumes a fixed coin.",
+          "identifier_or_url": "https://arxiv.org/html/1012.4164v2",
+          "material_read": "Theorem 3.1 and Corollary 3.2, around offset 13000",
+          "method": "Open-access arXiv HTML",
+          "title": "Entanglement for discrete-time quantum walks on the line",
+          "trigger": "General long-time coin-position entropy comparison"
+        },
+        {
+          "assessment": "Summary indicates different walk and statistic; no whole-source determination",
+          "evidence": "The summary describes a squared Bessel profile for a standard mode of a random-transposition walk, not parity-resolved reduced coin entropy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-plancherel-bessel-crossover-for-the-standard-mode-of-quantum-random-transposition-walks--0e1a12411b1d",
+          "material_read": "Indexed summary only; exact local-mirror record unavailable",
+          "method": "Resultary indexed summary and attempted local-mirror retrieval",
+          "title": "A Plancherel–Bessel crossover for the standard mode of quantum random-transposition walks",
+          "trigger": "Bessel quantum-walk crossover in semantic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, two-step and reduced-state derivation, limiting-function scope",
+        "arXiv:2609.03272v1, section IV discussion of persistent fringes near zero transmission"
+      ],
+      "rationale": "The loss of uniform entanglement decay at vanishing transmission is posed by the same physical model in prior work, independently of any Bessel calculation. The two explicit state functions quantify what fixed-k equilibration and the swap endpoint cannot tell an observer working at n k/gamma of order one: how much coin coherence survives, when the parities first and repeatedly coincide, and how their contrast decays. The weighted Bessel reduction is the useful analytic output, rather than a new continuum walk or a routine check at zero transmission.",
+      "residual_risks": [
+        "The physical interpretation concerns homogeneous prescribed delta coins and the in-phase localized initial state. No broader universality or convergence rate for diverging n theta_n is inferred from the limiting envelope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

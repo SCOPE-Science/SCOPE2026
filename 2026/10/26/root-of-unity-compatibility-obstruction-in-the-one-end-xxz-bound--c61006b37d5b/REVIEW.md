@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence at \(q=i\) reduces exactly to \([x]_i=\sin(\pi x/2)\). The equations at \(j=0,1\) imply \((g^2-1/2)\sin(\pi s)=0\), and the stated nonvanishing hypothesis yields the necessary condition \(g^2=1/2\). At that value, the coefficient of \(u_2\) remains zero.
+PASS
 
-## Originality — PASS
+The source's Eq. (14), normalization and factors of 1/2 match the claim, and its Eqs. (3) and (12) specialize to Δ=0 and γ=i cot(πs/2) on the stated branch. At j=0, a0=g u1. At j=1 the forward coefficient vanishes, and eliminating u1 yields (g²−1/2)sin(πs)=0. Conversely at g²=1/2 the computed u1 solves both rows with any u2, so sufficiency is exactly for these two rows. At s=i log(3)/π the displayed relation has γ=coth(log(3)/2)=2 and sin(πs)=i sinh(log 3) is nonzero, so g=1 does give an admissible obstruction. Checked the repaired statement for scope: it does not conclude existence at resonance for the whole sequence, or nonexistence of the physical steady state away from resonance. No numerical or formal verification is required for the calculation.
 
-The closest primary source is Popkov–Prosen (2026), Eq. (14), which supplies the recurrence but does not state this free-fermion compatibility condition. Yao et al. (2025) discuss rational-anisotropy finite-bond-dimension behavior in a different construction. Root-of-unity truncation is known, so the originality claim is limited to the exact obstruction for this specific normalized recurrence; broader coverage has not been exhaustively excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The free-fermion point is a standard XXZ regime and rational anisotropies are physically and algebraically distinguished. The exact compatibility condition prevents the printed forward recurrence from being used generically at this point without a separate treatment. It leaves open, rather than denies, alternative steady-state constructions.
+Pass only for the specific compatibility test and counterexample to unrestricted forward well-posedness. The repaired relationship to prior work explicitly credits the x-field recurrence background to Yao et al. Supplemental Eq. (S.14), which Popkov–Prosen describe as the same recurrence for this special field. Neither the recurrence itself nor generic root-of-unity truncation is a contribution here. The inspected primary equation and its prose actually assert forward well-posedness except at zero or z-directed field, rather than asserting the compatibility locus. No inspected result establishes that locus; access to the older supplement remains unresolved.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The calculation diagnoses a consequential exception to a printed assertion for a standard physical anisotropy, rather than merely noting a zero denominator. It both excludes generic x-fields from the normalized construction at that point and identifies the exact fields at which the first obstruction disappears, while still not allowing forward determination there. An explicit admissible dissipation strength makes the exception usable when checking the boundary construction. The claim remains a narrow mathematical correction, not a statement about which physical steady states exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

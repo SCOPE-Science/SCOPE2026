@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete finite domain is obtained because every order-five de Bruijn cycle uniquely specifies incoming-to-outgoing bijections at sixteen vertices and yields a single 32-edge permutation cycle; conversely every such one-cycle pairing is an Euler tour. An independent unused-edge depth-first enumeration produces the same 2048 normalized words. Two square predicates agree on every circular start and half-length; the complete distribution, extrema, endpoint symmetry classes and exact moments are checked. The separate all-order occurrence/distinct identity follows from unique length-five factors and the binomial number of binary Abelian-square strings.
+## correctness
 
-**Originality — PASS under the inspected evidence, with uncertainty.** The most directly related Fraenkel–Simpson–Paterson article (1997) considers equivalence classes of circular Abelian squares by length and composition; its full text could not be obtained, so a hidden appendix/census remains a residual priority risk. Richmond–Shallit (2008), Fici–Mignosi (2015) and Kociumaka–Radoszewski–Rytter–Waleń (2016) were compared via accessible full-text HTML; their combinatorial counts, infinite-word richness and unrestricted upper bounds do not state or imply the exact de Bruijn-constrained total-occurrence distribution. Available research records and prior specialized findings were searched for aliases, cycle parameters, and implications without finding an equivalent claim. Failed searches alone are not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** Abelian squares are a standard repetition invariant; de Bruijn universality fixes every short factor but leaves its long-factor repetition structure nontrivial. This first substantial finite binary order (2048 cycles) has a broad 71-value spectrum, eleven unattainable intermediate totals, sharp extrema with unique symmetry classes, and exact moments. The shift from occurrence to distinct-factor count is additionally controlled at every order; the all-order identity is explanatory rather than the asserted new contribution. No general-order spectrum or new compression bound is inferred.
+The quantity counts labeled starts and admissible half-lengths, including both sides of the circular cut and the full circumference, with rotations used only to choose one representative per cycle. The local pairing and Euler-tour proofs exhaust the cycles rooted at edge 00000. An independent reproduction used last exits instead: prescribe the last outgoing edge at each nonroot vertex, retain the directed last-exit trees leading to the root, and traverse in the corresponding fixed edge orders, with root edge 00000 first. Every tour gives such a tree because last-exit times strictly increase up to the root; a walk stopping early would stop at the root by balance, and any vertex with unused exits would lead along unused last exits to that exhausted root, a contradiction. This yielded 2048 unique normalized strings with all 32 five-bit factors. Integer masks and population counts compared both halves at every start and half-length; the resulting full 71-row histogram matches the actual CSV, all eleven gaps, endpoint counts and exact moments. Each extremizer set is the full size-four reversal/complement orbit of the stated example. For arbitrary positive order h, each length-2d factor with 2d≤h occurs 2^(h-2d) times; the qualifying strings are counted by Vandermonde, and no repeat is possible for a longer string because of its h-prefix. This proves the bridge independently of the census and gives the shift 20 at order five.
 
-**Residual scientific risk.** An earlier unpublished/unindexed exhaustive de Bruijn computation, especially inside the inaccessible full text of Fraenkel–Simpson–Paterson, cannot be excluded. The correctness of the finite classification is computational but exhaustive, contingent on the disclosed short verifier and its independently explained completeness arguments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete finite all-occurrences census across the 2048 rotation classes is the supported distinct claim. Counting types modulo composition, counting unrestricted strings, or enumerating the exact length-six slice does not yield this histogram. No separate novelty is credited to the occurrence/distinct bridge or the standard enumeration of the cycle domain.
+
+## value
+
+PASS
+
+Total cyclic occurrence density is a natural statistic for universal cycles: every short factor is forced, so differences isolate how the cycles arrange the longer windows. This is a complete order-five classification across all labeled rotation classes and all admissible lengths, rather than an arbitrarily selected window or cycle. The 71-bin distribution distinguishes typical values from rare endpoint orbits and records internal gaps; none is obtained from the unrestricted string count or the known single-length component. The lower orders are small by comparison (the independent sweep has one attained total at orders 1–3 and four at order 4). The joint value resides in the full finite spectrum and sharp extrema, not in claiming a general higher-order law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

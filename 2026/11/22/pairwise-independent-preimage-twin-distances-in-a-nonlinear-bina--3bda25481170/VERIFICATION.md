@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the preimage-twin distance law
 
-Run `python3 verify.py` with the Python 3 standard library from the extracted directory. No installed numerical or symbolic packages are needed.
+# Independent mathematical audit
 
-The checker enumerates every input for each cyclic length \(1\le n\le11\), verifies the deck-partner and common-output equations, compares each exact Hamming-distance generating polynomial against the eight-state transfer trace, and confirms the rational moments and consecutive-triple probability for \(7\le n\le11\). It checks the defining seven-bit involution identity on every possible Boolean neighborhood, verifies the five-bit cellular-automaton factorization, and verifies single-coordinate conditional balance.
+## correctness
 
-For the characteristic polynomial, it independently constructs the matrix over integers and evaluates both the determinant and displayed factorization on the full \(9\times9\) grid \((z,t)\in\{0,\ldots,8\}^2\). Both sides have degree at most eight in each variable, so two applications of polynomial interpolation prove equality over \(\mathbb Z[z,t]\). Its output is `VERIFY_OK checks= 4403` followed by the complete histogram at length eleven.
+PASS
 
-The infinite family of mean/variance identities is established by the conditional-independence proof, not extrapolation; the asymptotic normal distribution is established by the independent-block Lindeberg argument. This package contains no independent mathematical validation.
+A trigger of K precludes triggers at each of its three guard sites; hence every old trigger persists after the simultaneous toggle. A new trigger would have a toggled guard site where an old, still present trigger precludes it. This proves involutivity even with repeated cyclic indices. Expansion gives DσK, with even-parity image and each fiber parameterized by u and its complement. Uniform u weights each fiber twice. Its distance indicators are w, whose zeros are exactly a=c≠b. For n≥7 the six directed differences of the three input offsets are distinct residues, so distinct windows share at most one bit; the probability of zero is 1/4 for either value of that bit. Three consecutive zero events would require the shared bits u_(i+1), u_(i+2), u_(i+3) to be pairwise unequal. Inclusion–exclusion therefore gives 1−3/4+3/16=7/16 for all ones. Means and variances follow. Closed walks with a specified initial step are in bijection with indexed cyclic words, for all n including n<3. An independent exact sparse-polynomial determinant expansion (/workspace/branches/6f5f3a6d-c8ab-4eac-ab99-1c807d3e5abd/charpoly_check.py) agrees coefficientwise with both quartics multiplied together. Direct fiber enumeration with /workspace/review_replay.py checks n=1–7 (n=7: 64 fibers, 28 triple successes). The CLT follows by independent length-floor(n^(1/3)) blocks separated by three indices: discarded variance is O(n^(2/3)), and at most three boundary summands change in passing to the ring. The frozen verifier evaluates the histogram/trace comparison at four z values, not coefficientwise as its verification prose might suggest; the all-length PGF identity is proved by the closed-walk argument, not those evaluations.
+
+## originality
+
+PASS
+
+Pass for the explicitly reduced eight-state distribution calculation and the exact dependence and fluctuation laws, not for discovery of the CA or two-point fibers, and not for existence of an implicit complete distance enumerator. The strongest identified predecessor actually implies a 64-state PGF on the same ring ensemble. It does not give the reduced formula or the joint indicator and limit laws. The best-of-knowledge judgment does not settle absolute priority.
+
+## value
+
+PASS
+
+The distance observable is natural for the already studied fibers. The result replaces a minimum-distance answer by a tractable reduced exact law and identifies a concrete mechanism making all pairs behave independently while triples do not. The exact linear variance and scaled limiting law distinguish typical pairs from the extremizers; the contribution is not merely a small enumeration or a fresh execution of the old collision graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

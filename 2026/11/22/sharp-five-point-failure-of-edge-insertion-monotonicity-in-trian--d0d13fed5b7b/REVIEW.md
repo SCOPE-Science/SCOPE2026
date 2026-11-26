@@ -1,11 +1,21 @@
-# Scientific review — sharp finite edge-insertion boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** Finite extension types over triangle-free named graphs correspond bijectively to independent neighbour sets and, in the adjacent-pair channel, to disjoint pairs of independent sets. This is a direct consequence of homogeneous finite extension. Exact integer comparison eliminates precision concerns. A complete enumeration checks every admissible labelled augmentation of graphs through five vertices, with canonicalization under all vertex permutations, and separately counts every full two-point adjacency diagram for the two five-point and one six-point witness. There are no unexamined labelled cases at the claimed finite cutoff. Isolate persistence is proved algebraically.
+## correctness
 
-**Originality — PASS, provisional.** The original homogeneous-graph construction and the graph-type realization criterion establish the vocabulary but not the sharp five-point monotonicity failure. The closest published Henson pair-spectrum concerns maximal multipartite bases with forbidden cliques of order at least five; this result instead concerns all triangle-free bases of the triangle-free Henson graph and a *change under adding one admissible named edge*. A distinct edge-insertion failure for random greedy adsorption concerns a dynamic jamming expectation, not uniform logical types. Searches of published records, equivalent normalizations and related graph-counting language did not identify a covering theorem. An unindexed folklore independent-set example remains possible.
+PASS
 
-**Mathematical value — PASS.** The direction of change of a natural complete-type proportion under a single *new parameter constraint* is not inferable from changes of either the one-type count or the number of compatible adjacent type pairs separately. The sharp five-point onset, complete two-orbit classification, connected six-point boundary and all-order persistence give a structural obstruction to monotonicity in a natural homogeneous model-theoretic counting invariant; these are not isolated arbitrary numerical examples.
+The original theorem and census are correct. Ordered neighbourhood assignments determine complete types by homogeneity and are realizable by the finite extension property; the adjacency channel is precisely disjoint pairs. An original replay (`python3 /workspace/independent_replay.py graph`) starts from triangle-free augmented graphs and deletes each possible marked edge. It counts extensions by three and four membership labels instead of the frozen subset-zeta procedure. For orders 1–5 it yields (decrease,tie,increase) = (0,0,0),(0,0,1),(0,0,9),(0,0,96),(80,0,1330), with two groups of 20 and 60. For the repaired connected-only result I also checked exhaustion structurally: the admissible endpoints have distance at least three, and the connected trees and possible 4- or 5-cycles give precisely the five rows in the repaired table. All five odds increase by exact cross multiplication. On six vertices insertion 03 into the given tree creates a 4-cycle, not a triangle. The hub/midpoint count and independently enumerated diagrams give 249 adjacent and 529 nonadjacent types before, 225 adjacent and 484 nonadjacent after, with exact drop 1491/551602. There is no claimed six-vertex census.
 
-The results count uniformly weighted complete types and not sampled vertices. The exhaustive classification is through five vertices, and only an example is asserted at the connected six-vertex boundary. Historical priority is provisional and independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original headline five-vertex claim fails the distinctness check: SCOPE-20261122-ceda5b31c1f9 states the same invariant, minimal order, exact two classes and counts. Same-day dates do not establish priority. The files under repairs/2 instead state only the sharp connected-base threshold and a six-vertex witness, credited against the companion theorem and proved by a small connected-only classification. This is a substantive narrowing; neither the matching same-day record nor the inspected general or analogous results gives the connected threshold.
+
+## value
+
+PASS
+
+Connectedness tests whether the first drop can be attributed only to connecting previously disconnected components. The result shows that the change of normalization can reverse the sign even with a connected initial base, at the exact first order where it can do so. Neither isolate padding nor another count of the five-vertex classes answers that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

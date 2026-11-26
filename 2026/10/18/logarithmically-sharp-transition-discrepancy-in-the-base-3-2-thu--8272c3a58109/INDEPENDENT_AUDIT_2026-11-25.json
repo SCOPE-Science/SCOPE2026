@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:51.099217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–100",
+        "VERIFICATION.md; verification/check_discrepancy.py and verification/check_output.txt (inspected, not executed)"
+      ],
+      "rationale": "XOR of adjacent letters gives y_(3m)=0, y_(3m+1)=1-y_(2m), y_(3m+2)=1-y_(2m+1). Summing exactly N-1 terms gives E(n)=-E(h(n))+c(n), with h(3m)=2m, h(3m+1)=h(3m+2)=2m+1, and c by residue (-1,0,-2), including E(1)=0 through its self-map. Composing gives the offsets c(n)-c(h(n))=(0,0,-2,1,1,-1,-1,2,0) for residues modulo nine. The bound h(n)-1<=2(n-1)/3 yields h^2 contraction by 4/9, so after at most 1+floor(log_{9/4}(n-1)) two-step reductions the distance is an integer less than one. Residue seven gives E((9u+1)/4)-E(u)=2 if u=3 mod 4. Since 5a_j+1=4^(j+epsilon_j) with even exponent and 5g(u)+1=(9/4)(5u+1), the first j inputs are successively legal modulo four, and the last is b_j. The endpoints are positive integers with a_j<b_j<9^j; their difference of 2j entails at least one absolute discrepancy of j. Taking j=floor(log_9 N) and dividing by five proves the two-sided bound as written. The displayed logarithmic quantity is a PREFIX COUNT discrepancy, not the absolute error of the normalized empirical frequency. Independent direct word generation and prefix counting through N=106288 confirmed all steps and gaps 2,4,6,8,10,12 for j=1 through 6. This is finite corroboration, not the basis for the universal proof; no frozen script was run.",
+      "residual_risks": [
+        "The theorem bounds the optimal growth order, not the optimal leading coefficient or the discrepancy of every individual prefix from below."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cassaigne et al. identify a regular (9,4)-Toeplitz difference word and its density 2/5. The exact run-statistics entry 03f7bfb4e7e7 uses the same template to obtain factor and run frequencies. d6bfcaf54f1b proves a logarithmic upper bound for D and a CRT-based logarithmic lower bound, also proving oriented-transition statements for w."
+        ],
+        "reasoning": "Limiting frequencies alone imply o(N) discrepancy, not a sharp logarithmic bound. The logarithmic paper's results do cover the order; its broader oriented-transition work does not furnish the claimed repunit jump.",
+        "searches": [
+          "arXiv:2602.21895 Proposition 11 and subsequent frequency calculation",
+          "Resultary 03f7bfb4e7e7 and d6bfcaf54f1b, original results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.21895 and 2301.13563",
+        "Resultary matched originals d6bfcaf54f1b and 03f7bfb4e7e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed CRT step is m -> (9m+6)/4 and D increases by 2 at arguments 2m. In E variables with u=2m+1 this step is u -> (9u+7)/4 and changes E by -1. The frozen residue-seven step is u -> (9u+1)/4 and changes E by +2.",
+          "The known letter recurrence is a starting point for both, but the new arithmetic identity uses a different branch and a parity-selected power of four to specify both exact endpoints and ensure all iterations are legal."
+        ],
+        "reasoning": "The known bound and exact CRT construction do not mechanically give the repunit identity by changing a scale or index; one must isolate a different discrepancy cocycle and solve its repeated congruence. A direct recurrence evaluation at fixed N is not an all-j identity. Treat catalogue overlap as scientific coverage without inferring priority from dates.",
+        "searches": [
+          "d6bfcaf54f1b RESULT.md Proof steps 1–3, local mirror offsets 2900–6427",
+          "Cassaigne et al. arXiv:2602.21895 §2.1, extracted offsets 36428–41868"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In d6bfcaf54f1b the auxiliary t_n=w_(2n) satisfies exactly the same recurrence and t_0=0. Its signed adjacency sum P(N) counts equal adjacencies positively and changes negatively, so D(N)=5P(N)-N=-2E(N+1). Dekking's x is the differently normalized sibling; its conjectured two-letter frequency is not the frozen discrepancy theorem."
+        ],
+        "reasoning": "The different title-level digit-parity word does not avoid order-level coverage: the exact index and affine normalization transfer the estimate to E. The exact claims at the stated repunit indices still require separate comparison.",
+        "searches": [
+          "Resultary transition discrepancy and rational-base word matches d6bfcaf54f1b and 03f7bfb4e7e7",
+          "Cassaigne et al. arXiv:2602.21895 §2.1; Dekking arXiv:2301.13563 Conjecture 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact matched catalogue entry constructs D(2m_k)-D(2m_0)=2k by selecting m_0 via two CRT congruences, not the stated E(a_j), E(b_j) relation. The run-frequency record tabulates a different invariant."
+        ],
+        "reasoning": "A sequence table of prefixes would only verify individual j. The exact-result catalogue is the applicable check for the universal arithmetic family, and the strongest entry examined has an order-level and method-level match but distinct exact witnesses.",
+        "searches": [
+          "Resultary exact-result matches d6bfcaf54f1b and 03f7bfb4e7e7; focused literature discovery on Cassaigne base-3/2 difference-word prefix discrepancies"
+        ]
+      },
+      "rationale": "Credit the explicit all-j repunit contrast for this normalized word. The nine-to-four Toeplitz structure and density are known, and a distinct indexed logarithmic-discrepancy result covers the sharp order even after translating to the same auxiliary word. The exact repunit endpoints and their +2j gap are not the CRT endpoints or gap of that result. The order alone would not distinguish the frozen claim from that indexed work.",
+      "residual_risks": [
+        "A bounded literature lookup and literal keyword miss do not exclude older formulas under signed-correlation or Toeplitz-summation terminology.",
+        "The 2026-11-22 entry materially covers logarithmic order regardless of priority; relative provenance is not inferred from displayed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the Toeplitz structure and density, not the displayed exact repunit contrast",
+          "evidence": "Proposition 11 gives the (9,4)-Toeplitz description and the following calculation gives the frequency of one in the difference word as 2/5.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21895",
+          "material_read": "§2.1, Proposition 11 and following computation, PDF pp. 13–14, offsets 36428–41868",
+          "method": "OA primary text",
+          "title": "Symbols frequencies in the Thue–Morse word in base 3/2 and related conjectures",
+          "trigger": "Identical normalized sequence, difference recurrence and density"
+        },
+        {
+          "assessment": "Different sibling and frequency conjectures",
+          "evidence": "Conjecture 6 concerns frequencies for x, including mu[01]=4/10; it is not an adjacent-change prefix estimate for t.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.13563",
+          "material_read": "PDF p. 3, Conjecture 6, offset 8481",
+          "method": "OA primary text",
+          "title": "The Thue–Morse sequence in base 3/2",
+          "trigger": "Earlier work with a competing normalization"
+        },
+        {
+          "assessment": "Same sharp order; related but inequivalent exact progression",
+          "evidence": "D is the signed adjacency discrepancy of the same t; the CRT chain advances D by two at each step and furnishes the matching logarithmic lower bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-logarithmic-transition-discrepancy-in-the-base-3-2-digit-p--d6bfcaf54f1b",
+          "material_read": "Mirrored Finding and Proof steps 1–3, offsets 0–6427",
+          "method": "Local result mirror",
+          "title": "Sharp logarithmic transition discrepancy in the base-3/2 digit-parity word",
+          "trigger": "Same logarithmic order and apparently equivalent word"
+        },
+        {
+          "assessment": "Frequency-limit overlap, not reviewed exact discrepancy",
+          "evidence": "States the (9,4) template and computes limiting factor and run-pattern frequencies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-all-order-rational-run-statistics-and-the-exact-five-state-run-t--03f7bfb4e7e7",
+          "material_read": "Mirrored RESULT.md opening, offsets 0–5804",
+          "method": "Local result mirror",
+          "title": "All-order rational run statistics and the exact five-state run transducer",
+          "trigger": "Shared rational-base difference word and Toeplitz recursion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 13–36 and 66–100",
+        "Resultary d6bfcaf54f1b Proof step 3"
+      ],
+      "rationale": "Adjacent changes in this one-sided rational-base word are a natural observable with established limiting density but nontrivial arithmetic fluctuations. The exact amplification on specified repunit endpoints gives reproducible deterministic witnesses at every scale and explicit uniform bounds, beyond relying on an empirical slope or on the known frequency limit. In light of the order-level overlap, the precise progression and its additive law are the independently useful content.",
+      "residual_risks": [
+        "The argument does not determine the best envelope coefficient or separate every oriented transition in every rational-base word."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

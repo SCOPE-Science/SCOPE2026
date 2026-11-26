@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:49.995674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distance differences are exactly products of the sign matrix with ternary difference vectors, every such vector being realized by two binary vertices. At most three independent rows allow at most four distinct column patterns modulo negation, so five columns force a ternary dependency. Any resolving four-row matrix has rank four by the same projection argument. Signed maximal minors span its kernel; every order-four sign determinant is divisible by eight and bounded by sixteen. Thus failure to have a minor of magnitude sixteen would give a nonzero ternary null vector. Such a minor is a Hadamard block. The remaining column has even inner products with its columns, sum of their squares sixteen and none of magnitude four (that would duplicate a column up to sign). They are all ±2, so the primitive null vector has one magnitude two and four magnitudes one. Its sign pattern and distinguished coordinate recover the complementary root and hole; the only sign rows orthogonal to it are the eight asserted representatives. One must use one from each pair, and each transversal has a nonsingular J₄−2I₄ block up to signs, so it resolves. Across distinct roots the distance between suitable representatives is one or two; a common projected neighbor would require their difference to be e_i+e_j modulo complementation. Hence at distance one there is no shared antipodal pair, and at distance two there are precisely two, not enough for one exchange. At a fixed root a move either flips a representative in one of four pairs or fills the hole with either sign while opening a new hole. The overlap lower bound is attained by correcting a differing hole first, then sign flips; shell j is binomial(4,j)+8·binomial(3,j−1). The independent direct replay `python3 audit-evidence/q5.py` tested all 4,960 triples and 35,960 four-sets by distance vectors, confirmed the exact generated family, and used all-source BFS to reproduce all components, edge counts, distance formula and shells. No smaller set resolves since it would extend to a resolving triple. The supplied artifacts were inspected, not used as independent output.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed-pentad record additionally proves that the slide graph has no edges. The Clebsch record SCOPE-20261122-638b0716df7e gives 80 four-of-five-neighbor projected bases, unique centers, and exchange graph 16K₅. The October cube–cross-polytope Finding treats support-replacement edges between signed vectors and diameter k+1 for k<d."
+        ],
+        "reasoning": "The signed-pentad claim directly contains the frozen theorem. The Clebsch result gives the projected optimizer geometry through the folded-cube reduction. The October polytope at (d,k)=(5,4) has the same signed supports as a component but omits same-support sign flips: its degree is 8 rather than 12 and diameter 5 rather than 4. Its metric does not determine cube resolvability or give the frozen distance formula for unrestricted exchanges.",
+        "searches": [
+          "SCOPE-20261122-6276e7d79e10, unrestricted jumps and constrained slides",
+          "Resultary: Clebsch graph exact 80 metric bases four neighbors folded five cube 16 K5 metric-basis reconfiguration",
+          "SCOPE-20261004-55d5baa0a495"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/direct_check.py and artifacts/algebraic_check.py",
+        "SCOPE-20261122-6276e7d79e10",
+        "SCOPE-20261122-638b0716df7e",
+        "SCOPE-20261004-55d5baa0a495",
+        "Laird et al. arXiv:1907.05974",
+        "Beardon DOI 10.1016/j.dam.2013.02.012 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed-pentad criterion and unrestricted jump theorem already imply all frozen claims. Laird et al. give the general ternary-kernel test, not the particular rank-four kernels or component structure. In the folded antipodal quotient the metric is min(d,5−d)."
+        ],
+        "reasoning": "For the Clebsch reduction, opposite-parity cube vertices are distinguished by any landmark. For same-parity vertices one can use both even representatives, complementing test vertices or individual landmarks as necessary, which preserves equality of their respective distances. The folded distance is injective on the even cube distances 0,2,4. Thus resolving the cube is equivalent to resolving the folded graph with the projected set; minimum projected sets have all antipodal lifts. Given the Clebsch optimizer geometry, exchanges preserve its center, and signs can flip at fixed support or be chosen when filling a hole. This also derives the signed structure, whereas the general ternary-kernel criterion alone does not. The exact catalogue evidence is about coverage, not historical order.",
+        "searches": [
+          "SCOPE-20261122-6276e7d79e10 Finding and Relationship to prior work (offset 10806)",
+          "SCOPE-20261122-638b0716df7e, Clebsch optimizer statement",
+          "Laird et al. arXiv:1907.05974, Corollary 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed signed-pentad Finding says a four-set is a basis iff its antipodal representatives on the even slice are four elements of one of sixteen pentads, with all representative choices permitted. It gives the same sixteen jump components, distance formula and shells."
+        ],
+        "reasoning": "Since dimension five is odd, an antipodal pair has exactly one even representative. The five even representatives of the P_j(b) are exactly the five neighbors of the projected complementary root in the distance-four graph on even words. Its pentad with one omitted element and free signs is exactly the frozen root–hole–transversal construction, not an analogy or merely a count.",
+        "searches": [
+          "Resultary: five-cube metric-basis jump components / signed pentads / antipodal pairs",
+          "SCOPE-20261122-6276e7d79e10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalogue witness gives 1280 bases, sixteen 80-vertex components, degree 12, 480 edges per component, and every shell (1,12,30,28,9), as well as the all-pairs formula. The Clebsch table is for 80 projected sets. Beardon's full text was not obtained, so any older exact Q₅ optimizer table there is unverified."
+        ],
+        "reasoning": "The full signed census including labeled representatives and graph distances is already present in the distinct exact witness; the projected census alone does not directly tabulate sign states. The older literature access limit neither supplies an exact table nor weakens the positive exact match.",
+        "searches": [
+          "SCOPE-20261122-6276e7d79e10 Finding, offsets 0–2120",
+          "Beardon DOI 10.1016/j.dam.2013.02.012",
+          "SCOPE-20261122-638b0716df7e Finding"
+        ]
+      },
+      "rationale": "There is demonstrable equivalent coverage in a distinct catalogued Q₅ result: the entire optimizer and unrestricted exchange theorem appears there, and that result additionally treats a stricter move rule not part of the frozen claim. The comparison establishes redundancy of mathematical content in the inspected corpus, not that the later-dated catalogue entry had priority or that either proof derives from the other. The inspected earlier literature alone does not establish exact coverage.",
+      "residual_risks": [
+        "The exact overlap record has a later catalogue date; mathematical redundancy is established, but historical priority and provenance are not.",
+        "Beardon's full text and the unnamed metric-basis reconfiguration thesis mentioned in the frozen limitations were not available for statement-level comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage plus an additional slide theorem; later catalogue date, priority not established by this comparison",
+          "evidence": "Sixteen pentads, 1280 signed bases and identical 16-component unrestricted jump graph with the same metric and shells; additionally no edge-constrained slide.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-signed-pentads-and-frozen-metric-basis-slides-in-the-five-dimens--6276e7d79e10/RESULT.md",
+          "material_read": "Finding, offsets 0–2120; Relationship to prior work at 10806",
+          "method": "Local indexed search and bounded mirror text",
+          "title": "Signed pentads and frozen metric-basis slides in the five-dimensional hypercube",
+          "trigger": "Direct optimizer and exchange match"
+        },
+        {
+          "assessment": "Related exact quotient theorem; lift compared explicitly",
+          "evidence": "80 four-of-five-neighborhood optimizer sets with unique centers and exchange graph 16K₅.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-complement-sensitive-mobility-switch-for-optimal-landmarks-on--638b0716df7e/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Local indexed search and bounded mirror text",
+          "title": "A complement-sensitive mobility switch for optimal landmarks on the Clebsch graph",
+          "trigger": "Optimizer classification on the folded antipodal quotient"
+        },
+        {
+          "assessment": "Support-swap subgraph, not exact coverage of jumps",
+          "evidence": "Edges satisfy inner product k−1, requiring support replacement; diameter k+1. A fixed-support sign flip is not such an edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-shortest-path-metric-of-the-cube-cross-polytope-intersecti--55d5baa0a495/RESULT.md",
+          "material_read": "Finding and edge criterion, offset 0",
+          "method": "Local indexed search and bounded mirror text",
+          "title": "Exact shortest-path metric of the cube–cross-polytope intersection balls",
+          "trigger": "Earlier same signed vertex set, but possible stronger graph metric"
+        },
+        {
+          "assessment": "Prior criterion, not the specific optimizer classification in the passage",
+          "evidence": "Resolvability iff the constrained system has no nonzero ternary kernel vector.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.05974",
+          "material_read": "p. 6, Corollary 2.4, offset 21971",
+          "method": "Bounded OA PDF passage",
+          "title": "Resolvability of Hamming Graphs",
+          "trigger": "General algebraic characterization of resolving sets"
+        },
+        {
+          "assessment": "No exact five-cube census independently verified from this paper",
+          "evidence": "Bibliographic material describes reduction to linear equations, not the optimizer tables or exchanges.",
+          "identifier_or_url": "DOI 10.1016/j.dam.2013.02.012",
+          "material_read": "Bibliographic/abstract-level material; full publisher text inaccessible",
+          "method": "Bounded lawful OA retrieval and web-mode attempts",
+          "title": "Resolving the hypercube",
+          "trigger": "Earlier work on the exact graph family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "For an otherwise natural and useful optimizer-reconfiguration question, the exact signed census, inability to change roots and full distance law are all covered in another distinct result. The alternative algebraic proof provides corroboration but no additional scientific claim beyond that coverage, and the slide-frozen extension in that other result cannot be credited to this frozen one.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

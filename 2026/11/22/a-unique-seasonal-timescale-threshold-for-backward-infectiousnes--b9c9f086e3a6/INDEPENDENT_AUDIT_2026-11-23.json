@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:50:53.344210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The infinite-past survival integral converges by a positive hazard lower bound and is the continuous periodic solution of A'=1-gamma A between switches. The period map contracts by exp(-(a+b)h), so the periodic solution is unique. Writing u=exp(-ah), v=exp(-bh), the phase-entry deviations from 1/a and 1/b are (1/b-1/a)(1-v)/(1-uv) and (1/a-1/b)(1-u)/(1-uv), giving the claimed pointwise inequalities and mean by integrating the phase transients. For Q=(1-u)(1-v)/(1-uv), the addition law for sinh also gives Q/h=2/[h coth(ah/2)+h coth(bh/2)]. Each h coth(k h) is strictly increasing for k>0 because sinh(x)cosh(x)>x for x>0. Hence the mean strictly increases for unequal hazards (constant for equal hazards). The expansion Q/h=ab/(a+b)-a^2 b^2 h^2/[12(a+b)]+O(h^4) and Q=1+O(exp(-min(a,b)h)) give both stated endpoints and corrections. Their reciprocals give the open crossover interval; its endpoint transmission rates achieve equality only as a limit, not at a positive finite h. The infection multiplier exp([2 lambda-a-b]h) gives negative per-time growth throughout that open interval, independently of the averaged kernel. Direct one-period backward-survival integration, summing past periods geometrically, reproduced the example by midpoint quadrature; closed-form substitution refines h*=1.91906667452146 and mean values 0.8985767662 and 1.0068835911 at h=1 and 2. The supplied checker was inspected, not executed. This is an index crossing, not a change in invasion stability or an inference from incidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldwasser et al. allow changing contact rates but keep underlying waiting-time parameters constant in the instantaneous/mechanistic equivalence. The seasonal predator–prey theorem gives a harmonic-to-arithmetic increasing mean and true Floquet invasion crossing, with inverse prey solving y'=-y+1/K(t). The growing-season metapopulation result concerns asymptotically unequal seasonal durations."
+        ],
+        "reasoning": "Stationary waiting-time equivalence does not cover the calendar-dependent hazards here. The prey model has constant linear relaxation in the inverse variable and averages its reciprocal; the audited model has switching relaxation and averages the linear variable itself. Its multiplier is unchanged across the index crossing, unlike the predator theorem's true invasion switch. The metapopulation setting does not subsume fixed equal seasons.",
+        "searches": [
+          "arXiv:2606.15397v1, Sections 2 and 3.1",
+          "Resultary 50f3343be6ec, Finding and inverse-linear prey-orbit construction",
+          "Resultary ca0ffaff28d1, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Greenhalgh–Dumas lawful medRxiv manuscript and published-route attempt",
+        "Goldwasser–Tibshirani–Bilinski arXiv:2606.15397",
+        "Resultary mirror records 50f3343be6ec and ca0ffaff28d1",
+        "Targeted primary web query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general forward equation supplies the method and by period-averaging gives the same statistic. The related predator theorem explicitly yields m(T)=A-2(H-L) artanh(epsilon tanh(T/4))/T for a different observable. The older instantaneous/mechanistic result is for stationary biological waiting-time distributions."
+        ],
+        "reasoning": "A square-wave forward formula, if already established, directly gives the mean formula after shifting integrals. The examined analytic smooth-family formula does not specialize to it. Phase integration is elementary from the general identity; novelty rests on the strict all-duration crossover with sharp endpoints and the resulting false threshold despite unchanged stability, not on calling a known average backward-looking or on routine Floquet integration.",
+        "searches": [
+          "Greenhalgh and Dumas Eq. 2.4 and forward mean in Eq. 2.6",
+          "Resultary mirror 50f3343be6ec, proof of the mean formula",
+          "arXiv:2606.15397v1, waiting-time scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greenhalgh and Dumas give the forward residual waiting-time identity m'=eta m-1 and explicit residual lifetime for a smooth periodic hazard constructed from a trigonometric/exponential survival distribution (Eqs. 2.4–2.6). The matched backward equation has the reverse sign."
+        ],
+        "reasoning": "Averaging forward and backward integrals in a periodic calendar gives exactly the same mean: for each lag z, shift the period integral from t to t-z, then integrate over z by positivity. For this square wave the profiles also obey M(t)=A(h-t) by reflection modulo 2h (away from immaterial point switches). Any prior exact forward result for the same schedule and duration would cover the backward-mean statement. The older inspected explicit formula is not for that two-plateau calendar; the general forward identity is credited but does not give its strict duration dependence.",
+        "searches": [
+          "Resultary: forward mean residual infectious lifetime periodic hazard backward lifetime calendar-time survival kernel",
+          "Greenhalgh and Dumas medRxiv 10.1101/2022.06.10.22276255, Section 2.2 via periodic hazard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target itself is indexed; distinct matched records use different dynamics. The primary web results were mainly general hazard or survival sources and did not identify a decisive two-phase table. The verified forward explicit formula concerns a trigonometric hazard, with time-varying shape rather than piecewise constant levels."
+        ],
+        "reasoning": "The exact object that could be covered by a table or formula is the mean over a two-rate cycle as a function of duration at fixed hazard levels. General survival formulas or a table at one pair of rates do not give the global strict inequality and its unique threshold.",
+        "searches": [
+          "Resultary: periodic removal hazard backward survival kernel switching half-season duration monotonic average threshold",
+          "Web: periodic square wave mortality alternating rates mean lifetime monotonic period average residence time harmonic arithmetic dichotomous hazard survival periodic switching",
+          "Greenhalgh and Dumas, Section 2.2, Eqs. 2.4–2.6"
+        ]
+      },
+      "rationale": "Best of current knowledge: pass the exact two-phase switching-duration classification and its separation from the invariant negative growth exponent. Neither the scalar invasion calculation nor the general periodic residual-lifetime construction is new. Forward and backward orientation differ pointwise, but cannot by themselves make the period-average result distinct. The closest inspected forward formula is for a different, smooth hazard family; the matched period-average classification and exact crossing are not established by the inspected prior statements.",
+      "residual_risks": [
+        "Published Greenhalgh–Dumas wording was not independently compared with the readable manuscript. Earlier periodic survival or reliability work may already give the exact duration monotonicity in forward form, which would also cover the backward average.",
+        "The review does not certify priority or reclassify a correctly defined invasion threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General forward equation is prior; inspected explicit periodic calendar does not specialize to two constant levels with independently variable duration",
+          "evidence": "Eq. 2.4 is eta=(m'+1)/m. Eqs. 2.5–2.6 give a smooth trigonometric hazard and time-resolved residual waiting time, starting from the stated survival distribution. No assertion about all parts of the inaccessible typeset version is made.",
+          "identifier_or_url": "https://doi.org/10.1016/j.idm.2023.11.007; lawful manuscript https://doi.org/10.1101/2022.06.10.22276255",
+          "material_read": "Lawful manuscript Section 2.2, PDF pp. 5–6, offset 15300 through Eqs. 2.4–2.6 and initial-moment formula",
+          "method": "Published PMC route did not yield usable passage; OpenAlex work locations identified same-paper medRxiv PDF, located by literal periodic hazard and opened by offset",
+          "title": "A generalized ODE susceptible-infectious-susceptible compartmental model with potentially periodic behavior",
+          "trigger": "Potentially equivalent averaged forward survival statistic"
+        },
+        {
+          "assessment": "Prior equivalence uses stationary waiting-time distributions, not contradicted by this nonstationary example",
+          "evidence": "Section 2 allows time-dependent contact while fixing waiting-time parameters; Section 3.1 states equivalence under stationary delays and homogeneous mixing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.15397",
+          "material_read": "Section 2 p. 5 (offset 14736) and Section 3.1 p. 7 (offset 21282)",
+          "method": "Lawful OA PDF passages",
+          "title": "On the Equivalence of Instantaneous and Mechanistic Reproduction Numbers",
+          "trigger": "Known equivalence result for instantaneous kernel and mechanistic measure"
+        },
+        {
+          "assessment": "Similar structure, different flow, averaging functional and meaning of threshold",
+          "evidence": "The inverse prey orbit solves constant-rate linear relaxation towards the inverse capacity, while the claimed prey mean averages its reciprocal and controls an actual transverse Floquet multiplier.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-a-sharp-seasonal-period-extinction-threshold-for-a-two-level-pre--50f3343be6ec/RESULT.md",
+          "material_read": "Mirror RESULT.md, Finding, Assumptions, and Proof steps 1–2, offsets 0–3567",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "A sharp seasonal-period extinction threshold for a two-level predator–prey flow",
+          "trigger": "Strong analogue: strictly increasing mean between harmonic and arithmetic values and unique seasonal crossing"
+        },
+        {
+          "assessment": "Distinct asymptotically varying season lengths and dynamical question; relative priority not inferred from same catalog date",
+          "evidence": "Concerns weak persistence with unequal growing seasons, not the square-wave forced survival mass in a fixed periodic calendar.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-sharp-seasonal-length-threshold-for-weak-persistence-in-a-smooth--ca0ffaff28d1/RESULT.md",
+          "material_read": "Mirror RESULT.md, Finding around offset 988",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "Sharp seasonal-length threshold for weak persistence in a smooth metapopulation model",
+          "trigger": "Indexed seasonal-length threshold in a persistence context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a precise counterexample to using a period-averaged, nonstationary kernel mass as an invasion criterion. It fixes the two rates and changes only the calendar scale, locating the entire unique crossover while true scalar decay retains the same exponent. The exact interval and asymptotes make it a useful calibration check beyond a single numerical example. The result does not give an epidemiological scheduling recommendation or establish a threshold in observed transmission data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

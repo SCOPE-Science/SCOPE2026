@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:59.276739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Comparing two deletion outputs reduces equality to agreement of all intervening lag-k pairs, so deletion-position classes are intervals and the number of distinct outputs is one plus the mismatch count. Vertex spins give independent edge signs on a forest and pairwise independence on any simple graph, proving the binomial marginals and zero covariance. At L=b+c the map v↦v+b mod L traces each undirected edge once (the return-in-two-steps case would require b=c), forming gcd(b,c) cycles. Each residue-r cycle has largest vertex L-g+r, c/g b-edges, and b/g c-edges; restricting to an initial segment leaves a forest through L-g and exactly one cycle at L-g+1. Above that threshold, the first cycle persists, and the fair-spin PGF expansion has a strictly positive even-subgraph term on 0<z,u<1, so independence fails at every larger length. At the critical length only the empty set and the full cycle have even degrees, giving precisely the two printed terms; residual exponents count edges outside the cycle. Independent direct-string tests covered lengths 3–10, 120 triples and 59,384 word/parameter cases, with exact critical PGF comparisons at 22 triples and graph-rank checks in 70 cases. Replay: /workspace/branches/3a55d7af-cecd-4dd7-8820-b0eae286b333/check_record3.py and check_record3.log. No frozen script was executed; the finite checks corroborate but do not establish the all-length statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d6154f9c908e allows a uniform alphabet of size q>=2, gives the all-length independence cutoff and zero covariance, and a joint polynomial throughout longer burst length <=n<=b+c.",
+          "a632b2b7b083 also uses shifted comparisons and a forest criterion, but on an unordered-composition read model."
+        ],
+        "reasoning": "The tandem result is genuinely broader once the word-level count identity is applied. The other forest result alone is not needed and was not treated as automatically supplying the stated critical PGF.",
+        "searches": [
+          "d6154f9c908e RESULT.md Finding and Steps 1, 4–5, local mirror offsets 0 and 4999",
+          "Resultary multiscale comparison forest criterion; matched a632b2b7b083"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (not executed); independent finite checker and log",
+        "arXiv:2506.07817 and 1602.06820",
+        "Resultary d6154f9c908e and a632b2b7b083"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If F is the tandem polynomial E[(1+x)^{Y_b}(1+y)^{Y_c}], the frozen PGF equals z^{n-b}u^{n-c}F(z^{-1}-1,u^{-1}-1). At the critical length the indexed complete-cycle count is one. The q=2 substitution sends each independent factor to H and each normalized full-cycle factor to K, with powers c/g and b/g respectively.",
+          "The Fine–Wilf period perspective can explain the graph threshold, but is not itself the inspected published full two-count PGF."
+        ],
+        "reasoning": "The affirmative coverage argument uses exact identities and all-length hypotheses of the inspected tandem result. It does not infer originality failure from an inaccessible primary text or from shared graph vocabulary.",
+        "searches": [
+          "d6154f9c908e RESULT.md Steps 4–5, offset 4999; explicit generating-polynomial substitution",
+          "Fine–Wilf period bound; primary retrieval unavailable"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tandem-duplication proof Step 1 and Xi–Sun–Ge Lemma 2.3 both give the identical word-level statistic 1+sum of lag-h mismatches, regardless of the different descendant words and lengths.",
+          "With the same inputs, the indexed equality count Y_h is n-h minus the frozen S_h."
+        ],
+        "reasoning": "This is an equality of random variables after an affine change on the same word, stronger than an analogy between distinct edit channels.",
+        "searches": [
+          "Resultary two-width joint burst/tandem-duplication descendant-count threshold; matched d6154f9c908e",
+          "Xi–Sun–Ge arXiv:2506.07817 Lemma 2.3; Schoeny et al. arXiv:1602.06820 fixed-burst run count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At (2,2,3,5) the tandem record explicitly gives (1+u/2)^3(1+v/2)^2+u^3 v^2/32 in equality-count coordinates.",
+          "The general indexed finite-length polynomial evaluates all the frozen critical cases, not just the displayed example."
+        ],
+        "reasoning": "An exact catalogue polynomial covers every coefficient of the claimed critical PGF; no matching numerical table of all triples is necessary.",
+        "searches": [
+          "d6154f9c908e exact bivariate polynomial and worked (q,k,l,n)=(2,2,3,5) case",
+          "a632b2b7b083 RESULT.md offsets 0 and 3291"
+        ]
+      },
+      "rationale": "A distinct indexed tandem-duplication theorem already covers these joint statistics in the current corpus: the counts agree word by word with burst-deletion counts, and the broader alphabet result contains the fair-binary threshold, zero covariance, and the complete first-dependent joint PGF by a change of variables. This is a demonstration of equivalent current coverage, not a determination of historical priority from the later displayed catalogue date.",
+      "residual_risks": [
+        "Mercer and Fine–Wilf primary passages were unavailable in the bounded lookup; earlier or unindexed coverage of the joint result was not adjudicated.",
+        "The later catalogue date establishes neither earlier priority nor copying; the rejection concerns current exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DETERMINISTIC_IDENTITY_COVERED",
+          "evidence": "States the general-alphabet count as one plus shifted mismatches, citing Levenshtein Lemma IV.4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.07817",
+          "material_read": "PDF p. 3, Lemma 2.3, offset 12940",
+          "method": "Primary OA PDF passage",
+          "title": "On the Fixed-Length-Burst Levenshtein Ball with Unit Radius",
+          "trigger": "Identical burst-deletion count in alternate notation"
+        },
+        {
+          "assessment": "DETERMINISTIC_IDENTITY_COVERED",
+          "evidence": "Equivalent run expression for a fixed burst, not a joint law in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+          "material_read": "PDF p. 15, offset 80000, run-count expression",
+          "method": "Primary OA PDF passage",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Earlier fixed-burst counting formula"
+        },
+        {
+          "assessment": "EXACT_CURRENT_COVERAGE_IN_BROADER_CLASS",
+          "evidence": "Same shifted-mismatch count; fair binary is q=2. The all-length threshold, covariance, and critical PGF transfer exactly.",
+          "identifier_or_url": "2026/11/8/SCOPE-joint-law-and-independence-threshold-for-two-tandem-duplication--d6154f9c908e",
+          "material_read": "RESULT.md Finding, assumptions and proof Step 1 at offset 0; Steps 4–5 and example at offset 4999",
+          "method": "Local mirror passages and word-level reduction",
+          "title": "Joint law and independence threshold for two tandem-duplication descendant counts",
+          "trigger": "Exact gcd threshold and joint polynomial for another contiguous edit operation"
+        },
+        {
+          "assessment": "PARTIAL_STRUCTURAL_OVERLAP",
+          "evidence": "Different unordered-composition read output model; not needed for exact coverage.",
+          "identifier_or_url": "2026/11/8/SCOPE-binomial-read-deletion-sphere-law-and-multiscale-forest-independ--a632b2b7b083",
+          "material_read": "RESULT.md offsets 0 and 3291",
+          "method": "Local mirror passages",
+          "title": "Binomial read-deletion sphere law and multiscale forest independence",
+          "trigger": "Nearby shifted-mismatch/forest criterion"
+        },
+        {
+          "assessment": "ACCESS_LIMIT_NOT_NEGATIVE_EVIDENCE",
+          "evidence": "Frozen source credits the one-lag independence claim; the verified exact overlap is with the separately inspected indexed theorem.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548306007589",
+          "material_read": "Frozen citation and description of Proposition 1.1 only; no readable OA primary passage retrieved",
+          "method": "Lawful OA lookup; primary passage unavailable",
+          "title": "Autocorrelations of Random Binary Sequences",
+          "trigger": "Same statistics as lag autocorrelations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The arithmetic cutoff and first positive mixed correction describe when two natural coding statistics cease to factor despite exact zero covariance. This is a meaningful joint-law statement beyond a single-burst count. Its mathematical value does not make it a distinct finding in the current catalogue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

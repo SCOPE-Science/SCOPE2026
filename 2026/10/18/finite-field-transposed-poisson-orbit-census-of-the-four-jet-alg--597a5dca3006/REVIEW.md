@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Skew-symmetry and the transposed Leibniz identity force the unique generating derivation \(D(y)=[1,y]\). In odd characteristic, the relation \(D(t^4)=0\) forces \(D(t)\in tA\). The full ring automorphism group and its explicitly computed conjugation action yield exhaustive invariants, normal forms, orbit sizes and stabilizers. The included checker verifies every conjugation for finite prime fields of orders \(3,5,7\) and bracket identities as stated; the proof handles all odd prime powers. Risk: finite samples alone do not establish the infinite-field assertion, hence the algebraic orbit calculation is essential.
+## correctness
 
-**Originality — PASS within investigated coverage.** The derivation construction and unital derivation correspondence are established prior work. The 2023 three-dimensional and 2026 four-dimensional **complex** classifications do not entail the precise finite-field square/nonsquare separation, \(2q+2\) orbit count, individual orbit sizes and stabilizers. Searches for finite-field four-jet classifications did not identify a covering primary theorem; this absence is not treated as uniqueness proof. Risk: equivalent results may occur under the older terminology of jet vector fields or formal derivation normal forms.
+PASS
 
-**Value — PASS.** The algebra is the natural length-four local jet algebra; the fixed-product moduli problem is intrinsic to classifying compatible brackets rather than an arbitrary computational slice. Explicit \(q\)-uniform orbit masses and automorphism groups supply finite-field information absent from the complex classification, with an interpretable arithmetic square-class split. The appearance of two nonzero cubic-leading forms records a concrete arithmetic distinction missed by algebraically closed-field normal forms. Risk: no downstream representation-theoretic application is claimed.
+Setting D(y)=[1,y] in the compatibility identity gives [x,y]=2xD(y)−D(xy). Adding the swapped formula yields the Leibniz rule since 2 is invertible. Conversely, in the cyclic Jacobi sum for xD(y)−yD(x), the second-derivative terms cancel in pairs and so do the products of first derivatives; the extra derivative-of-multiplier terms cancel in transposed Leibniz. The derivation condition on t^4 is 4t³D(t)=0, imposing precisely zero constant coefficient also in characteristic 3. Surjectivity of a multiplication-preserving isomorphism forces it to preserve 1; t maps to ut+vt²+wt³ with u≠0, and these are all the automorphisms. The chain rule gives the conjugate coefficient f(φ(t))/φ′(t). Multiplying out to degree three gives the stated action, with the b-dependent terms cancelling in the cubic coefficient. For a≠0, v,w remove b,c, leaving q² points per fixed a; for a=0,b≠0 the complete invariant is c/b² with q−1 points per orbit; for a=b=0,c≠0 the square action has two equally sized orbits. Orbit-stabilizer with (q−1)q² automorphisms yields every stabilizer size and the mass sums to q³. This proof applies to all stated odd prime powers independent of finite regression examples.
 
-**Closest literature and limits.** Bai–Bai–Guo–Wu (2020) supplies the derivation construction; Beites–Fernández Ouaridi–Kaygorodov (2023) treats dimension three over \(\mathbb C\); Zhang–Hao–Sun–Chen (2026) treats dimension four over \(\mathbb C\). General formal-vector-field normal forms remain the principal residual priority question. No characteristic-two or general-multiplication classification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unital derivation correspondence is prior work; the claim evaluated is the finite-field conjugacy and stabilizer census for the specified multiplication. The strongest matching indexed entries classify distinct brackets, element conjugacy, composition centralizers or linear-operator equivalence. The complex dimension-four source could overlap on normal forms but its full text was unavailable and its cited field does not establish the finite-field orbit masses.
+
+## value
+
+PASS
+
+This is an exact classification for a natural low-dimensional local algebra, not just a count of derivations or a complex normal-form list. It determines the finite-field distinction between algebraically closed and rational conjugacy in the cubic-leading stratum, identifies the quadratic-leading parameter, and gives the stabilizers needed for using the census as weighted isomorphism data, including in characteristic three.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

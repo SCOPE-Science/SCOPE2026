@@ -1,19 +1,21 @@
-# Review of a sharp mean-step reversal for adaptive Euler--Maruyama
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The conditional Gaussian second-moment equation, its exact algebraic decomposition, the monotone-covariance inequality, and uniform moment-drift arguments collectively support the theorem for every stated parameter. Strictness follows from full support. The Gaussian perturbation calculation yields the opposite sign above the threshold. `verify.py` ran 2004 exact-algebra and deterministic-kernel checks; the infinite-dimensional parameter quantifiers rest on the proof, not the tests.
+PASS
 
-## Originality: PASS (with bibliographic risk)
+The uniform step bounds imply a uniform contraction bound q<1 on |1−λh(x)| and positive uniform variance bounds. The second-moment drift and everywhere-positive transition density give an irreducible, aperiodic chain with small compact sets, a unique invariant law and full support; fourth-moment drift follows by absorbing the quadratic cross term into a coefficient strictly below one on x^4. Reflection of the transition kernel proves symmetry by uniqueness. The conditional second-moment balance is E[hY²]−(λ/2)E[h²Y²]=vH. Recenter h=H+(h−H): E[(h−H)Y²]=−Δ and E[(h−H)²Y²]=S, giving exactly the two-defect formula; the positive denominator and fixed-step AR(1) variance are as stated. Independent copies and radial monotonicity give Δ≥0; continuity and full support give S>0 if h is nonconstant, including at H=1/λ. For hε the moment drifts are uniform for small ε and the transition kernels converge on compact sets to the h0 kernel. Tightness, passing stationarity against bounded continuous functions, and uniqueness show convergence to N(0,V0); the fourth-moment bound gives uniform integrability for the quadratic terms. The Gaussian exponential tilt gives Δε/ε→2kV0²/(1+2kV0)^(3/2)>0 and Sε=O(ε²). This proves the coefficient, with strict negative sign at each fixed h0>1/λ for sufficiently small ε. The comparison is against its own Hε, not h0. It is existential above the boundary, not a universal upper bound there. Even to target any prescribed H strictly above the boundary, vary h0 in [H−ε,H]: the invariant law and mean step are continuous by the same compact-kernel argument, and the endpoint mean steps bracket H. The sign proof still applies along h0→H. These are mesh-point variances; an invariant physical-time law would be a different comparator.
 
-Wen--Huang--Li (2026) already establish the adaptive Euler chain and numerical invariant measure. Leroy--Leimkuhler--Latz--Higham (2024) already expose the uncorrected time-rescaling bias and develop a different corrected method; their Eq. (2.10) gives the same uncorrected kernel family. Neither examined primary text was found to state or dominate the sharp *fixed-at-the-invariant-mean-step* OU variance comparison, its two-defect identity, and its sign reversal. Indexed Gaussian stationary-bias results address other samplers. Basic stationarity algebra and Gaussian integration are acknowledged background. Unindexed special-case overlap remains possible.
+## originality
 
-## Value: PASS
+PASS
 
-The mean step is an equal-evaluation-rate comparator in adaptive integration. The sharp threshold separates an exact no-benefit regime from an explicit benefit regime for radially decreasing step policies, while its two nonnegative mechanisms diagnose the contribution of mesh-point residence bias and variance in step lengths. A sign reversal is more informative than a generic statement that time rescaling changes the invariant measure.
+Neither the equivalent adaptive Euler kernel, the continuous-time residence-time correction, nor the classical fixed-step OU variance is distinct here. The supported distinct result is the finite-step sign comparison to a fixed step set at the adaptive chain's own invariant mean step, with a sharp universal domain and opposite-sign witnesses beyond it. The inspected adaptive invariant-law and time-change results do not supply that comparison.
 
-## Scope and limits
+## value
 
-Scalar quadratic dynamics, continuous even radially nonincreasing steps, bounded away from zero, with maximum strictly below the Euler stability bound. Physical-time sampling, integrated autocorrelation, total simulation runtime, and general potentials are excluded. The high-step perturbative witnesses need not obey all sufficient assumptions in the motivating paper, but use its Euler update. Full-text assessment of all possible earlier specialized calculations and independent external audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Matching the invariant average step makes the variance comparison meaningful per Markov update. The identity quantifies two competing sources of stationary bias and identifies a sharp point where radial shrinking ceases to be universally worse than a fixed step. It answers a concrete sampling-design question without inferring improved autocorrelation, physical-time sampling, or runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

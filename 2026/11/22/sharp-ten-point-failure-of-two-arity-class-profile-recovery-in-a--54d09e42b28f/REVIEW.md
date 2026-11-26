@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Finite strong-extension diagrams in the equivalence-enriched tournament wreath product are counted without multiplicities by a formal labelled-block expansion. The first three coefficients were independently recomputed by integer formulas, rational formal-series products and direct canonical-coordinate enumeration. The partition recurrence is bijective and the entire 139-row certificate was compared against it; this proves the exact cutoff through ten points. The explicit profile family is algebraically valid for every nonnegative integer parameter, with a constant third-type difference of 3200. Proof assumes the equivalence relation is named and all new tuple coordinates are distinct.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The unmarked wreath-product composition is known and not claimed as new. Cameron's full accessible discussion of the imprimitive wreath product describes general orbit-series substitutions, not the finite-base 10-point reconstruction threshold or the constant-gap family. published-finding corpus semantic searches for lexicographic random tournaments, imprimitive finite-base type spectra, class-size partitions and the exact numerical collision found related grid and random-bipartite statements, but no equivalent. Those related full texts were not accessible; their summaries cannot establish noncoverage. An older specialized orbit-census table remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The minimal arity at which finite named type counts distinguish a base invariant is a natural finite-reconstruction question for oligomorphic structures. The result determines the sharp first failure of two-arity class-size recovery, exhaustively classifies its minimal fiber, and produces an infinite family on every larger base size with a uniform third-arity separator. The exact 3200 gap makes the separation stable under enlargement of a shared old class. These are more than a parameter substitution in the standard wreath-product enumerator.
+The assumed ages of both tournament factors contain every finite tournament. A diagram assigns each ordered new coordinate to an existing E-class or to a new block. Orientation choices within classes and at the quotient are independent, and the extension property and pointwise homogeneity identify the diagrams with complete types. The EGF uses exactly the correct factors for each old class and for the unordered set of nonempty new blocks. I enumerated profiles independently by taking all compositions of n and sorting the parts; a separate recursion adds one coordinate at a time, multiplying by 2^(current class size) to join a class or 2^(current number of classes) to introduce a fresh one. It matches all profiles through n=10, the unique (60,4984) collision and the t3 counts 619552 and 616352. The empty profile is unique at n=0. The CSV has 138 data rows and one header; the frozen output's '139 signatures' counts the header, not a further profile. For the all-size assertion, put h=b+u and K=c+u^2+2u. The cubic coefficient reorganizes as t3=h^3+3hK+4(d+u^3+3u^2/2+2u). For the displayed profiles h=q+58 and K=q^2+1380; subtracting the constant terms inside the last bracket gives -29056+28672+1152+32=800, independently of q. The resulting gap is 3200, not an extrapolation. Recovery concerns only class sizes over a fixed base size, with E named and ordered distinct new coordinates, not the named base's orientation or isomorphism type.
 
-## Limits and closest literature
-The theorem does not reconstruct actual orientations of named tournament bases; the class-size partition is the object recovered. General wreath-product counting is classical, and independent historical-priority verification is still required. The finite certificate establishes only the bounded sharp cutoff; the unbounded extension comes from the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported by the comparison is the exact first profile collision for this marked tournament construction and its persistent arity-three-separated family. The wreath-action counting method itself is background. The consulted results with superficially similar marked spectra or class-size collisions change the language, admissible diagrams, class profile, or counted invariant; they do not imply this result. This is a best-of-knowledge comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+The first failure of reconstruction from two natural orbit counts is an intrinsic minimality question, not an arbitrary finite cut. Classifying the entire first fibre and giving a pair at every subsequent order, with a constant third-arity separator, establishes precisely what the two counts lose and how higher arity can recover that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

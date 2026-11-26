@@ -34,7 +34,7 @@ Writing \(w_{\mathrm e}=b(1-a)/[a(1-b)+b(1-a)]\), \(D=a(1-b)+b(1-a)\), and \(t=(
 \boxed{\ w_{2q+1}-w_{\mathrm e}
 =\frac{t\,ab\,(a-b)(1-ab)}{D\,[D+t\,ab(2-a-b)]}.\ }
 \]
-Thus, for \(a\ne b\) and \(\bar x_L\ne\bar x_R\), consensus selection is genuinely nonmonotone in \(K\): every even length produces the common endpoint and every odd length lies strictly to the same side of it, approaching geometrically with factor \(ab\) per two steps. No claim is made about the sign of the difference without the initial-mean inequality.
+The difference of odd- and even-round selected consensus values equals \((w_{2q+1}-w_{\mathrm e})(\bar x_L-\bar x_R)\). It has the sign of \((a-b)(\bar x_L-\bar x_R)\) and vanishes when either factor is zero. When both factors are nonzero, consensus selection is genuinely nonmonotone in \(K\): all even lengths give the common value and the odd lengths give values on one strict side of it. The absolute odd-round deviation is of order \((ab)^q\), and the ratio of successive absolute odd-round deviations tends to \(ab\) as \(q\to\infty\).
 
 For example, take any star with one hub in \(L\), arbitrarily many leaves in \(R\), \(a=1/5\), \(b=4/5\), hub innate opinion one and all leaf innate opinions zero. Then the consensus values at peer-round lengths \(K=1,2,3,4\) are exactly \(4/5,16/17,32/35,16/17\), **independently of the number of leaves**. The hub can determine \(16/17\) of the consensus value despite being one individual against arbitrarily many.
 
@@ -89,7 +89,7 @@ x_{K,\beta}=(1-\beta)(I-\beta\Psi_K)^{-1}\Psi_K x^*.
 \]
 Multiplying its fixed-point equation by \(\pi_K\), and using \(\pi_K\Psi_K=\pi_K\), gives \(\pi_Kx_{K,\beta}=\pi_Kx^*\), the asserted exact weighted mean. Primitivity implies \(\Psi_K^t\to\mathbf1\pi_K\) as \(t\to\infty\). Accordingly the Abel limit \((1-\beta)\sum_{t\ge0}\beta^t\Psi_K^{t+1}\to\mathbf1\pi_K\) proves the consensus formula as \(\beta\uparrow1\). At \(\beta=1\), the prediction recursion is \(f^{(t+1)}=\Psi_K f^{(t)}\), so initialization \(f^{(1)}=x^*\) yields the same limit.
 
-**5. Star example.** In a star, the degree total on either side equals the number of leaves and the two degree-weighted means are exactly the hub opinion and the mean leaf opinion. Substitution of \(a=1/5\), \(b=4/5\) into the formulas gives \(w_1=4/5\), \(w_2=w_4=16/17\), and \(w_3=32/35\); these fractions do not contain the number of leaves. With innate profile one at the hub and zero at the leaves, they are the selected consensus values.
+**5. Star example.** In a star, the degree total on either side equals the sum of the edge weights. The two degree-weighted means are the hub opinion and the edge-weighted mean of the leaf opinions. Substitution of \(a=1/5\), \(b=4/5\) into the formulas gives \(w_1=4/5\), \(w_2=w_4=16/17\), and \(w_3=32/35\); these fractions do not contain the number of leaves. With innate profile one at the hub and zero at the leaves, they are the selected consensus values for any positive edge weights.
 
 ## Verification
 
@@ -103,11 +103,11 @@ A published related result [2] constructs an invariant measure and a sharp weigh
 
 ## Limitations
 
-The formula requires a connected bipartite reciprocal network with classwise constant peer susceptibility and uniform platform susceptibility. Within-class heterogeneous susceptibilities or directed edges can destroy the two-dimensional closure. The source model assumes perfect deterministic opinion observation and noiseless predictions; it is not a causal or empirical prediction about real platforms. Finite-\(\beta\) equilibria retain disagreement; the explicit consensus claim requires \(\beta\uparrow1\) (or \(\beta=1\) with specified prediction initialization). No statement is made about simultaneous limits in graph size and \(\beta\), or about general heterogeneity inside each part. Priority against unindexed or inaccessible historical publications remains open for independent review.
+The formula requires a connected bipartite reciprocal network with classwise constant peer susceptibility and uniform platform susceptibility. Within-class heterogeneous susceptibilities or directed edges can destroy the two-dimensional closure. The source model assumes perfect deterministic opinion observation and noiseless predictions; it is not a causal or empirical prediction about real platforms. At any fixed \(0\le\beta<1\), the equilibrium is consensual exactly when \(\Psi_K x^*\) is constant: the fixed-point equation for a constant equilibrium reduces to \(c\mathbf1=(1-\beta)\Psi_K x^*+\beta c\mathbf1\), and the converse follows from uniqueness. For example, on one edge at \(K=1\) with \(a+b=1\), both rows of \(\Psi_1\) are \((b,a)\), so distinct innate opinions can yield consensus even at \(\beta=0\). The high-\(\beta\) limit ensures consensus for every innate profile at fixed network and \(K\). No statement is made about simultaneous limits in graph size and \(\beta\), or about general heterogeneity inside each part. Priority against unindexed or inaccessible historical publications remains open for independent review.
 
 ## References
 
 1. J. Wu, R. Abebe, C. Mendler--Dünner, *Opinion Dynamics in Learning Systems* (v1, 2026-03-12), revised as *Reaching a Consensus in Predictive Loops* (v2, 2026-05-06), arXiv:2603.12137. https://arxiv.org/abs/2603.12137 ; https://arxiv.org/pdf/2603.12137 .
-2. *Invariant-weight polarization contraction and a minimal counterexample in predictive opinion loops*, publicly indexed mathematical finding, 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-invariant-weight-polarization-contraction-and-a-minimal-countere--1f26affbf64c .
+2. *Invariant-weight polarization contraction and a minimal counterexample in predictive opinion loops*, publicly indexed mathematical finding, 2026-10-18, https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-invariant-weight-polarization-contraction-and-a-minimal-countere--1f26affbf64c/RESULT.md .
 3. M. Boudourides, *Boundary-Value Friedkin--Johnsen Dynamics and Influence-Based Centralities on Networks*, arXiv:2602.08704, first public 2026-02-09; https://arxiv.org/abs/2602.08704 .
 4. N. Friedkin and E. Johnsen, *Social influence and opinions*, Journal of Mathematical Sociology 15 (1990), 193--205. Classical FJ mechanism.

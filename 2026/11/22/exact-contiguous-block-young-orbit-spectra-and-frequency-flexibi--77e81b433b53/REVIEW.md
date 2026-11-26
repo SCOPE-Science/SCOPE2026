@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The orbit criterion is precisely equality of each contiguous block's Parikh vector; prefix sums invert the block counts. A direct telescoping identity converts each prefix weight into a monotone indicator with threshold \(1-\{S_i\alpha\}\). The resulting interval coding gives the exact count and class measure; a rational lattice of size \(q\) hits every positive gap with the exact proportional count. Strictly increasing prefixes can approximate arbitrary prescribed threshold positions by density of irrational rotation tails, so the simplex and strict entropy endpoints follow. The two executed Python checkers returned 93,552 and 8,370 passing cases. Floating-point enumeration is not used as proof of infinite claims.
+## correctness
 
-**Originality — PASS under inspected evidence.** The July 2026 Launer–Puzynina–Voloshinova paper proves the *existence* of group complexities for Sturmian words, mainly through a single freely permuted suffix. It does not give all contiguous-block Young-group orbits, their exact frequencies, the rational-residue formula, or the full frequency-simplex flexibility. The 2017 Abelian-square-rich paper states the classical heavy/light rotation interval rule for an individual factor, which supplies an ingredient but not an explicit joint multi-block quotient or entropy classification. Searches for Young subgroup, blockwise Parikh, rotation gaps, and frequency density found no exact matching scientific claim in inspected sources or in indexed research records. The full novelty of this particular combination has not been independently established; an equivalent prior formulation remains a documented risk.
+PASS
 
-**Value — PASS.** Quotienting factors by natural disjoint block-permutation groups is a structural refinement of the 2026 universal-group-complexity problem. The theorem classifies every such group on both irrational and rational mechanical sequences, rather than only giving examples or finite parameters. It shows the unexpectedly universal orbit count \(r+1\) in the aperiodic regime alongside maximally flexible probability distributions and sharp unattained entropy extremes, giving a useful distinction between counting complexity and statistical complexity.
+A Young orbit is exactly a tuple of block one-counts, equivalent by differencing to the tuple of prefix one-counts. At starting phase x the i-th prefix count is floor(S_i alpha) plus the indicator of x >= 1-frac(S_i alpha) if the latter fraction is nonzero. These sorted half-open intervals give distinct tuples because a coordinate changes upwards at each distinct cut. At irrational slope, equidistribution gives every gap its length, and the positive prefix lengths yield r distinct nonzero cuts. At slope p/q, the phases modulo one form a size-q grid with one point per half-open mesh cell, even for boundary intercepts, giving both the length formula and the count by distinct prefix residues. For simplex density, pick strictly increasing prefix indices successively from dense tails of the irrational orbit, in disjoint neighborhoods of the desired cumulative masses. Entropy is positive because every gap is positive and there are at least two; equality at the maximum would require rational nonzero cuts. The read scripts and recorded outputs give finite corroboration, not the infinite proof. The exact checker uses selected cut sets (not exhaustive at all tested lengths as a script comment suggests); this does not affect the proof or the stated test count.
 
-The precise gap and orbit-frequency calculations, their limits, and citations are in RESULT.md and VERIFICATION.md. Stronger general position-group results are not asserted. There has been no external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass on the combined arbitrary-contiguous-partition spectrum and statistical law, not on ordinary rotation coding or the known single-permuted-suffix count. The strongest mathematical and indexed overlap has different coverage: a special family of groups in one case, and a different quotient in the other. The arbitrary block-frequency law and flexibility are not statements of those inspected results.
+
+## value
+
+PASS
+
+Contiguous position blocks are a natural class of subgroups in the prior group-complexity problem. The result gives a complete measured classification for that family, including the rational degeneration and the contrast that for fixed irrational slope the orbit count is locked while its actual probabilities approximate every positive distribution. The structural use is this joint count-versus-measure distinction, not merely applying an entropy inequality or restating equidistribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

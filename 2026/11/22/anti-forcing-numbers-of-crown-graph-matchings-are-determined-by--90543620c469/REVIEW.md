@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-order proof is reconstructed from the matching-index contraction, the alternating-cycle/acylcicity equivalence, and a sharp topological-order extremum. The absent arcs form disjoint directed cycles of the derangement. Each requires one forward missing arc; reversing every cycle attains equality, with no assumptions of independence across the original edges. Consequently the anti-forcing identity and all optimum deletion orders hold for each integer \(n\ge3\). The exponential permutation-cycle enumerator and the direct insertion recurrence independently yield the coefficient formula and endpoint cases. Finite tests are secondary verification only, not a substitute for the infinite proof.
+## correctness
 
-## Originality — PASS, publication priority provisional
-A full reading of the 2020 Zhang--Zhang source (arXiv:2009.05746v1) found general inequalities and bicliques with one edge deleted, not crown anti-forcing distributions. Full result/proof texts for two crown published enumerators were compared: one counts forcing subsets *within* a fixed perfect matching and the other counts *complete forcing* sets. Both are logically distinct from deletion subsets *outside* a fixed matching. Targeted semantic and web queries about crown aliases, derangements, directed-cycle covers, and anti-forcing polynomials returned no covering published formula. This is not an exhaustive literature guarantee; see structured residual risks.
+PASS
 
-## Mathematical value — PASS
-This all-orders statement distinguishes matchings by their entire permutation cycle structure even when the ordinary forcing number stays constant. It gives the full polynomial, exact sharp interval, labelled counts of extreme matchings, and a constructive structural classification of optimum deletion sets. The difference in invariants is mathematically natural and not a mere numeric recomputation.
+Fix a derangement π and index matched pairs by their left endpoint. A nonmatching edge a_i b_{π(j)} gives i→j; the only absent loopless arcs are π(j)→j, forming c(π) disjoint directed cycles, including possible directed 2-cycles. An alternate matching exists exactly when the surviving arcs have a directed cycle. In each topological order at least one absent arc per cycle points forward, so at most binom(n,2)−c(π) available forward arcs can survive. Reverse cyclic order in each block attains that bound. Equality forces retention of every available forward arc and exactly one absent forward arc in each cycle; this proves the deletion-set characterization without asserting unique orders or counting witnesses. Subtraction from n(n−2) gives the formula. Labelled cycles of lengths ≥2 yield the EGF; removal of n from a cycle of length ≥3 or from a transposition gives the recurrence for n≥2 and the stated bases. Taking k−1 transpositions and one remaining cycle gives every possible k, and the extreme types give the coefficient counts including n=3. The frozen checker was inspected, not executed: its direct competing-matching transversal check covers n=3,4, its order optimization n=3–6, and n=7 is a census with formula-assigned weights. The proof, not those bounds on testing, establishes all orders.
 
-## Closest sources and limitations
-- Y. Zhang and H. Zhang, *Relations between global forcing number and maximum anti-forcing number of a graph*, arXiv:2009.05746v1, first public 2020-09-12.
-- *All forcing subsets of perfect matchings in crown graphs*, public published-finding corpus record 2026-10-12, full RESULT.md inspected.
-- *The complete-forcing polynomial of crown graphs*, public published-finding corpus record 2026-10-12, full RESULT.md inspected.
-- Pyrene anti-forcing polynomial arXiv:2004.05112v1, abstract inspected only.
+## originality
 
-The result applies only to crowns, and counts perfect matchings grouped by minimum anti-forcing *number* rather than the number of witness deletion sets. It is not independently validated, and full priority clearance is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The general matching/alternating-cycle framework and the derangement cycle enumerator are established ingredients. The inspected comparators do not give the crown-specific exact optimum for each derangement, its equality conditions or its weighted matching distribution.
+
+## value
+
+PASS
+
+For the canonical dense bipartite family obtained by deleting a matching, there is a nonconstant fixed-matching optimum which global bounds cannot resolve. The cycle law identifies precisely how the omitted diagonal interacts with a chosen matching and describes all optimal deletion structures. The resulting exact spectrum with multiplicities supplies a natural family-wide benchmark, not just isolated small-order counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The edge updates are precisely specified for every \(p,q,r\in(0,1)\). The two-class reduction follows from outer-edge commutation and time reversal. Direct exact expansion of the two Gram invariants produces the positive difference \(\delta=4pq^2r(1-p)(1-r)\), and the common Gram determinant is the square of the product of the edge determinants. The resulting cubic identity is checked symbolically. A separate contraction argument locates all squared singular values below one, so the sign of the cubic difference proves the reversed strict worst-case inequality. The isolated arithmetic-average example is reproduced exactly. Numerical tests are supplementary only.
+## correctness
 
-## Originality
-**PASS on available evidence, subject to literature limitations.** The main historical comparison establishes tree-order invariance of transfer eigenvalues and the existence of a strict Euclidean disagreement contraction, but not a two-objective schedule classification for heterogeneously weighted four-site paths. Another 2012 study concerns exact finite-time consensus and interaction counts rather than the one-sweep mean-versus-worst norm reversal. An earlier unpublished result already handles unweighted isotropic ordering for arbitrary paths, so that special case is expressly excluded from novelty. The related three-leaf star result is not an implication for a path: unlike star contacts, the two outer path contacts commute, and the optimizer classes depend on edge positions rather than ranking the strengths. An unidentified equivalent result remains possible; no public priority guarantee is made.
+PASS
 
-## Value
-**PASS.** A path with three contacts is a minimal nontrivial schedule model with a commuting pair of disjoint interactions. The exact theorem proves that average-case and worst-case finite-step network synchronization prescribe disjoint, universal contact orders despite identical asymptotic eigenvalue rates. The result holds across all convex contact strengths and quantifies a concrete design conflict, rather than merely testing particular parameters.
+Reversal transposes the product and the two outer factors commute, leaving two singular-spectrum classes. In the orthonormal disagreement basis whose first two vectors are the unit outer-edge differences, the outer updates are diagonal, with only their own entries changed from 1 to α=1−2p and γ=1−2r. The central update Q is I−qvv^T, with |v_1v_2|=1/2. In the difference between the two squared Frobenius norms all terms except the interaction of those two coordinates cancel, giving Q_12²(1−α²)(1−γ²)=δ. The second Gram coefficient is the squared Frobenius norm of the three-dimensional adjugate, and the same comparison gives δ: the outer adjugate diagonals are (1,α,α) and (γ,1,γ), while adj(Q)_12=−Q_12. Adjugate identities hold also when a rate is 1/2. Gram determinants agree by multiplicativity, giving δλ(1−λ). All eigenvalues of each disagreement Gram are below 1 since norm preservation would require all three edge equalities on a mean-zero input. The batched factor β is positive since (in the batched order) some endpoint entry is zero whereas J has all entries positive. The serial polynomial is positive throughout [β,1), excluding a Gram root there, and proving W_S<W_B. The arithmetic case and common transfer polynomial agree; cyclic determinant invariance requires no nonsingularity. The proof and exact replay handle general strengths, not just the numerical grid.
 
-## Limitations
-The statement covers one use of each edge on four sites, with fixed positive convex strengths. General paths, repeated finite horizons, optimized strengths and stochastic delays remain unproved. Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known equal-strength path isotropic specialization and transfer-spectrum precedent. The stronger remaining result is the strict opposing choice of one-sweep optimum across the full open cube of strengths on the path, with the cubic identity; neither the half-strength path theorem nor the weighted star theorem covers this statement.
+
+## value
+
+PASS
+
+The shortest path with a nontrivial scheduling choice and disjoint interactions exhibits disjoint optimal schedule classes for two natural disagreement objectives for every interior strength triple. Identical periodic transfer eigenvalues cannot detect the strict, exactly quantified one-sweep design tradeoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

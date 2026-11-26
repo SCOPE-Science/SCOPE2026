@@ -1,12 +1,21 @@
-# Scientific review: sharp phase-only five-site cross moment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cross-difference decomposition gives the formula \(45+4\operatorname{Re}U+4\operatorname{Re}V+8\operatorname{Re}(U\overline V)\). Its sum-of-nonnegative-terms deficit identity proves sharp minimum \(36\) and the two optimizer phases, while elementary upper bounds give maximum \(61\). All character collisions and normalization assumptions are stated. A standard-library independent checker validated 368 finite instances; no finite experiment substitutes for the analytic argument.
+## correctness
 
-## Originality — PASS, with bibliographic limits
-Compared published-finding corpus findings by hypothesis and implication, including a geometrically different five-point Ferrers maximum, a progression-free small-support minimum inapplicable to the cross, six-point triangular minimizers, and full-axis unrestricted maxima. Materially inspected Schmidt's 2011 binary-array and 2013 unimodular-polynomial primary papers, whose autocorrelation identities are prior but do not give the exact present minimizer. An equivalent entry in older polyphase-array/filter tables remains possible; database search is not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-The complete fourth-moment range and equality strata solve an analytically motivated phase-only design problem on a canonical sparse Lee cross. The algebraic non-root-of-unity equality phases and proved binary/ternary/quaternary/six-phase penalty are structurally informative for constrained spectral arrays. Scope excludes unequal amplitudes, shorter aliasing periods and broader apertures.
+Haar orthogonality and the distinctness of all thirteen difference characters give the sum of squared autocorrelations. The zero shift contributes 25, the four singleton shifts contribute 4, and counting the axial and diagonal two-pair shifts gives E=45+4 Re(U+V)+8 Re(U conjugate(V)). Equivalently E=36+4|1/2+U+V|^2. Every pair (U,V) lifts to the five coefficients with exactly three independent free phases. The lower equality U+V=-1/2 forces conjugacy and real part -1/4; the upper equality in the triangle inequality forces U=V=1. The connected phase torus fills the interval. The nonintegral rational trace U+U^{-1}=-1/2 rules out roots of unity at equality; the stated small alphabets give integer E and attain 37 by (1,-1) or by the two nontrivial cube roots (q=1 gives 61). The product grid with m,n>=5 and the integer lacunary support with k>=4 preserve the differences. The reviewed checker corroborates finitely by pair enumeration, Fourier sampling and small-alphabet enumeration; the exact range, rigidity and no-alphabet equality use the analytic argument, not its reported count.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the sharp phase-only classification on a five-site cross, including the root-of-unity obstruction, not the autocorrelation identity or a general array design result. The centered-cross record is an exact broader match, but its catalogue date is later, not same-day or earlier. The inspected earlier results do not give the target classification. This is a best-of-knowledge decision, not a priority guarantee against unseen literature.
+
+## value
+
+PASS
+
+The nearest-neighbor cross is a natural symmetric sparse support with colliding difference representations. The exact result identifies incompatible phase cancellations and an unavoidable gap between continuous control and several common finite alphabets. It gives a reusable five-site benchmark (11 versus 12 total squared sidelobe energy) with all equality cases, not merely an application of a known normalization identity or a numerical minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

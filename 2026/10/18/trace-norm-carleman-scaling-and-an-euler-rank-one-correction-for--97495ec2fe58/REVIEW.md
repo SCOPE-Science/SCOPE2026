@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The trace-class premise follows by an exact Hilbert–Schmidt factorization and the convergent series \(\sum_{n\ge1}n^{-1}(q+2\log n)^{-\beta}\) for \(\beta>1\). The rescaling unitary gives the companion zeta-kernel operator with identical nonzero spectra, not an unsupported equivalence of spaces. The rank-one trace-norm integral, its derivative and the harmonic-number discrepancy are individually bounded by convergent gamma integrals. The elementary bounds \(0<D_q\le1/q\) and \(|qD_q-\gamma|\le4e^{-qv}\) yield the explicit \(O_\beta(q^{-2})\) nuclear estimate. Trace, summable eigenvalue, and top-simple-eigenvalue conclusions are standard consequences of that expansion. The numerical check concerns the scalar trace and is supplementary only.
+## correctness
 
-## Originality (PASS, conditional on searchable literature)
-The closest functional-analytic source, Ma–Lu–Zu (arXiv:2610.12252v1, Theorem 3.4 and Example 3.6), supplies moment realizations and a fixed-parameter trace-class threshold, but not the large-shift scaling spectrum or any Euler correction. The nearest prior zeta/Carleman results, Perfekt–Pushnitski (arXiv:1705.01959, Section 2), give a continuous spectral representation at critical exponent one, not this compact rescaling. Miheisi–Pushnitski (arXiv:1709.06326v1, Theorem 2.1, Lemmas 2.2–2.3, Theorem 3.2) include a qualitative Schatten-negligible weighted Carleman defect and different fixed-operator eigenvalue asymptotics, but no \(q^{-1}\) rank-one operator expansion with \(q^{-2}\) trace-norm remainder. The β-fixed family is a natural instance of their general framework, so the asserted novelty is deliberately restricted to its uniform quantitative spectral limit. Searches of the accessible published finding records and external literature yielded no stronger covering statement. Unindexed equivalent work remains a risk.
+PASS
 
-## Mathematical value (PASS)
-This is a natural boundary-concentration problem: gamma moment measures contract onto the critical half-line endpoint, and a family whose unscaled trace vanishes acquires a nontrivial trace-class spectral limit only after a precise power normalization. Quantitative nuclear convergence controls *all* eigenvalues rather than a finite sample or only their trace. The Euler–Mascheroni rank-one term identifies the first discrete-versus-continuum spectral defect, and its coefficient is sharp in trace norm; it also produces a strictly positive first-order shift of the leading eigenvalue. These distinctions are not consequences merely of trace-class membership or the qualitative existence of a Carleman comparison.
+The gamma moment map is Hilbert–Schmidt by summing Γ(β)/[n(q+2 log n)^β] for β>1. Its two Gram operators have exactly matching nonzero eigenvalues, with multiplicities. Rescaling x=qu on the weighted space contributes q^(−β); multiplying by q^(β−1) gives the factor 1/q in the zeta kernel. For F(v) the rank-one operator on a_β(x)e^(−vx), the companion is harmonic quadrature and the Carleman limit is the integral of F. The trace norm of F is Γ(β)(1+2v)^(−β). Using F(v)=−∫_v^∞ F′(s)ds justifies the discrepancy identity by absolute integration, including the n=1 atom at zero. The discrepancy satisfies 0<D_q≤1/q and |qD_q−γ|≤4e^(−qv). Combining this with the derivative bound 2√(Γ(β)Γ(β+2))(1+2v)^(−β−1) gives the stated remainder and its constant 8. Integrating the derivative bound without the exponential gives Γ(β)√((β+1)/β)/q and hence the ℓ¹ spectral bound. The traces of K_β and P_β are Γ(β−1)/2 and Γ(β), and q(S−K) tends in trace norm to γP, establishing both trace claims. Compactness and the strictly positive real kernel give a strictly positive top eigenvector and simplicity by the strict Rayleigh gain for any sign-changing top eigenvector; the isolated-eigenvalue first variation gives the positive first-order term with gap-controlled O_β(q^−2) remainder. This is nuclear convergence on the companion L² space, not a claim of direct matrix convergence on ℓ². The scalar script was inspected, not executed; the uniform estimate has an analytic verification.
 
-## Limitations and provenance
-The proof handles fixed real \(\beta>1\), all \(q\ge1\), and the limit \(q\to\infty\). No formula for the individual eigenvalues of \(K_\beta\), extension to \(\beta=1\), or external validation is asserted. Primary sources were read at the material relevant to the implication comparisons; no unaccessed whole paper was classified as NOT_COVERING.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known moment/trace-class framework and exact zeta companion must be credited, as must existing qualitative Carleman comparisons. The distinct supported contribution is a parameter-explicit trace-norm expansion of the rescaled continuous gamma companion with a sharp Euler rank-one first term, and its spectral consequences. None of the compared fixed-weight theorems or distinct atomic and weak-coupling records gives that expansion.
+
+## value
+
+PASS
+
+The estimate transfers the complete scaled nonzero spectrum in ℓ¹ and quantifies the leading nuclear defect, not just a pointwise kernel limit or a scalar trace. The rank-one Euler coefficient is meaningful for both trace and leading eigenvalue, and the bound explains precisely where this fixed-β trace-class comparison applies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

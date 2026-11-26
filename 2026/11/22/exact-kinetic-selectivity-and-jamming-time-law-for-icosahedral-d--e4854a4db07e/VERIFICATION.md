@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verifier.py` in the same directory as `SPECTRUM.csv` and `MATCHING_WEIGHTS.csv`, using a standard Python 3 interpreter. No external packages are needed.
+## correctness
 
-The checker reconstructs the explicit icosahedral adjacency, verifies degree and all pair distances, checks the exact independence number and 125 perfect matchings, and recomputes all terminal probabilities by independently structured forward and backward rational recurrences. It derives the completion-time exponential spectrum from the Kolmogorov equations, verifies all 17 tabulated coefficients, evaluates five first-step Laplace transforms independently, checks the exact mean, and enumerates all perfect-matching weights by a distinct restricted-edge-order sum. Numerical rounding and Monte Carlo are not involved.
+PASS
 
-The state-space proof has finite scope: 1,720 reachable occupied masks and 125 perfect matchings for this particular graph. The results concern precisely the stated independent single-arrival clocks and do not assert model robustness or a thermodynamic limit.
+Any still-eligible edge has not rung: its endpoints have always been vacant and would have accepted the edge at an earlier arrival. Conditional on the explored past its residual clock is exponential, so at a state with r eligible edges the next success is uniform among them after an independent Exp(r) holding time. The terminal vacancies form an independent set of even size; independence number three leaves only zero or two, with the pair in distance class two or three. The finite exact recurrences and uniform edge-order matching argument then give the stated outcomes. Time is the absorption time, and along each transition the number of eligible edges strictly decreases; the triangular equations consequently produce pure exponentials rather than resonant polynomial terms. Independently authored exact code reproduced 1,720 masks, all terminal fractions and the common probabilities for each distance class, all 17 coefficients, the mean 167225267/144471600, and all five individual weight classes over 125 perfect matchings. The CDF has constant coefficient one and vanishes at zero; the weighted matching totals recover the perfect-coverage mass.
+
+## originality
+
+PASS
+
+General RSA dynamics and greedy matching are known. The bounded comparison supports the distinct evaluated joint terminal-vacancy classification, all-time spectrum and individual perfect-matching weights for edge dimers on the icosahedron. The strongest same-substrate comparison uses face trimers, while exact dimer comparators are on other substrates. The unavailable Pippenger article remains a priority caveat, not a scientific finding of noncoverage.
+
+## value
+
+PASS
+
+The icosahedron is a canonical finite, symmetric, triangular substrate outside the usual high-girth regular benchmark. The law resolves how dynamics bias two geometrically distinct vacancy types and even individual perfect matchings with the same coverage, and gives an exact transient absorption benchmark rather than just a count or an average. Distinguishing matching weights is necessary for checking any claim that greedy perfect coverage samples a uniform matching. These are motivated finite observables requiring the concrete graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

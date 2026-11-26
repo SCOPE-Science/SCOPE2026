@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof independently derives the exact two-prime valuation and residue classification, uses Chinese-remainder equidistribution and a convergent geometric series to compute the conditional nine-digit law, and splits adjacent indices into five disjoint cases. Boundary cases (positive indices, equality of valuations, zero/nonzero residues, and the shared transition) are handled. The logarithmic-squared discrepancy follows from bounded numbers of congruence classes in each valuation stratum. The standalone verifier directly compares the first 300 huge-integer values and 200,000 adjacent pairs, including all 20 support edges; these are corroboration, not an infinite proof.
+## correctness
 
-## Originality
-PASS on inspected evidence, with residual bibliographic risk. Example 5.3 of Sobolewski (2022 preprint, 2023 article) supplies the exact object, its strictly automatic nature and a pointwise formula, but it does not state an adjacent-pair histogram, the complete twenty-edge language or a quantitative finite-prefix law. Related published characterizations of factorial digits and arithmetic automatic-word bigrams concern different objects. The new statement is a nontrivial complete statistical classification derived from, not an invention of, the established pointwise representation. Search coverage cannot guarantee global novelty.
+PASS
 
-## Value
-PASS. Symbol frequencies alone do not describe successor constraints of automatic arithmetic sequences. The exact sharp transition support, nonuniform rational weights and uniform logarithmic-squared discrepancy provide a natural full two-point invariant of a deliberately constructed two-prime p-adic example. They make the resulting recurrence's permitted and forbidden local patterns explicit, and give a baseline for longer-block analyses. This is a modest self-contained exact distribution theorem, not a claim to a broad new framework.
+For t=2n−1, LTE gives the exponents 2a+1 and b. The normalized integer (4^t−1)/3^(a+1) is t/3^a modulo 3, by expanding powers of 4^(3^a). Consequently the digit is 0 mod 3 if b<2a+1 and 2 mod 3 otherwise; for b≤2a+1 its mod-5 digit is 2(t/5^b)3^(−b), and for b>2a+1 it is 5. CRT gives independent valuation densities and four equiprobable 5-adic units in each stratum. Conditional on b≥1 the tail at b≥2a+1 sums to (2/3)/(1−1/75)=25/37; equality uses 4/5 of that tail and strict excess 1/5. The five residue classes for t→t+2 give three deterministic pairs and the two stars sharing exactly (6,9). For arbitrary N, count each included (a,b) stratum via at most eight congruence classes, each with O(1) discrepancy; O((1+log N)^2) strata suffice and the omitted 3- and 5-adic tails have O(1/N) total density. Shifted indices use t≤2N+1. Independent replay `python /workspace/branches/audit_arithmetic_reproduction.py 4` stripped factors of 15 from 10001 actual integers, saw exactly 20 pairs in the first 10000 trials, and found a maximum absolute deviation 47/37 from the exact rational predictions. The frozen verification script was inspected, not executed; the finite sample is only corroboration.
 
-## Closest literature and limitations
-B. Sobolewski, *On k-regularity of sequences of valuations and last non-zero digits*, Example 5.3, https://doi.org/10.1007/s11139-023-00710-8 (full relevant example inspected); B. Sobolewski, *On the last nonzero digits of n! in a given base*, https://arxiv.org/abs/1809.06947 (different sequence). The paired-word distribution is derived from the earlier pointwise digit classification; other unindexed literature may contain equivalent results. Results are for pairs only; no all-block classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sequence and its pointwise digit computation are prior art, as acknowledged. In the closest primary statement and indexed comparisons, no equivalent exact adjacency distribution, support and discrepancy statement for this sequence was found. The independent claim is the adjacency result only.
+
+## value
+
+PASS
+
+For an already studied composite-base automatic sequence, this gives its exact directed adjacency support, weights, and quantitative interval counts. In particular the value 37 and the intersecting-star structure come from competing prime valuations and not from automaticity or the marginal law alone. They are concrete invariants useful for subsequent word and correlation studies; no claim of a sharp discrepancy exponent is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact certificate verification
+# Independent mathematical audit
 
-Place `three_deletion_capacity_cert.json` and `verify_three_deletion_profile.py` in the same folder. Invoke `python3 verify_three_deletion_profile.py three_deletion_capacity_cert.json` under Python 3. The verifier uses only standard-library `itertools`, `json`, `sys`, and `fractions`.
+## correctness
 
-It checks the full \(32\times256\) exact-deletion incidence matrix, confirms each received five-bit word has exactly \(93\) compatible eight-bit supersequences, validates six rational feasible duals and their exact objective coefficients, checks one explicit optimal code for each integer list size \(1\le L\le93\), and confirms the zero and saturation endpoints. The outcome is a completely finite, reproducible proof by explicit witnesses and rational inequalities, not an infinite mathematical claim inferred from experiments.
+PASS
 
-Expected output:
+The list constraint is on distinct transmitted words per length-five output, not on deletion patterns. For each nonnegative certified vector y, set z_w=(1−Σ_u a_{u,w}y_u)_+. On any admissible code, summing Σ_u a_{u,w}y_u+z_w≥1 gives |C|≤LΣy+Σz. Integrality and |C|≤256 permit the floor of the minimum. An independent exact replay in /workspace/branches/53425eac-f557-4e76-9c2f-f492bac5ccb0/replay_capacity.py read the frozen certificate as data and reconstructed all incidence entries, checked the six nonnegative duals and rational intercepts, and checked each separately listed feasible witness for L=1,…,93 for cardinality equal to that floor. Its log is replay.log in the same directory. It reproduced transitions at 4,12,30,35,53 and the cap at 93. At L=0 every prospective word has at least one output, excluding a nonempty code. For a fixed output, greedy matching of its next bit (with an arbitrary continuation after the fifth match) is a success or failure on each of eight steps. These eight success/failure bits biject with the eight input bits, giving Σ_{j=5}^8 binom(8,j)=93 matching input words. Thus the whole set is infeasible below 93 and feasible at and above 93. The exact certificate and these endpoints prove the all-integer profile; neither continuous LP optimality nor enumeration of all optimal codes is asserted.
 
-`VERIFY_OK n=8 deletions=3 dual_lines=6 explicit_witnesses=93; exact capacity for every integer list size L>=0`
+## originality
 
-Limits: the checker proves only the declared finite-block theorem and does not evaluate originality or other lengths/alphabet sizes. Independent scientific audit has not been performed.
+PASS
+
+The supported distinct claim is the complete fixed-block all-list profile, including the six-line bound with integer attainment and the full finite witness range. The closest matching indexed result covers exactly the L=2 slice at n=8. The inspected primary results cover the model and general bounds, not the exact all-L theorem. This is bounded comparison, not a statement of absolute priority or novelty of each individual list value.
+
+## value
+
+PASS
+
+The list limit interpolates between unique three-deletion correction and inclusion of every binary 8-bit word. Determining the entire interpolation for the natural 32-output incidence problem, not just one chosen allowance, provides a concrete tight benchmark for finite list-code bounds and optimization. The successive rational bounds, saturation cutoff, and exact constructions for every allowance make the benchmark reusable without an optimizer. No asymptotic benefit or larger-block theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

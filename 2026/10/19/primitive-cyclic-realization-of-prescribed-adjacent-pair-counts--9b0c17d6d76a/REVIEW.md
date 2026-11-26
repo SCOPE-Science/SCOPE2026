@@ -1,15 +1,21 @@
-# Scientific review: primitive circular transition profiles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Balanced connected support is equivalent to existence of an Euler tour. Without branching, strong connectivity and balance force one directed cycle with equal multiplicities, and its unique symbol necklace has least period equal to the cycle length. With branching, sorting first-return excursions at a branching symbol makes their type necklace primitive. Any rotational period of the resulting symbol word would induce a rotational period on that type necklace; this implication uses the exact set of occurrences of the cutting symbol and is valid even when excursion lengths differ. The exceptional divisor count follows by choosing active symbols and a directed cycle. Exhaustive independent checks of every word over one through four symbols within the stated finite ranges verify both the direct primitive-status classification and the constructive witness.
+## correctness
 
-## Originality
-**PASS with residual literature risk.** The closest accessible full papers treat counts of cyclic Markov types, balanced frequency matrices, Eulerian circuit uniqueness, and generalized de Bruijn necklaces. Total counts of balanced profiles do not imply their partition into primitive-realizable and forced-periodic classes; uniqueness of edge-distinguished tours is logically different from primitivity of the circular vertex-symbol output. Textual searches and structured mathematical-record searches did not identify the stated all-parameter characterization or its divisor-sum corollary. A folkloric or unindexed equivalent formulation cannot be ruled out and independent review remains needed.
+PASS
 
-## Value
-**PASS.** The distinction between forced periodicity and merely the presence of a periodic solution matters for exact reconstruction from aggregate adjacent-pair observations. The result identifies the complete obstruction for every alphabet and length, gives a uniform constructive existence proof, and counts the obstruction profiles exactly, rather than giving only an algorithm or a finite table. It shows that common factors in the observed multiplicities do not generally force periodicity, and that the exceptional family stays uniformly bounded at fixed alphabet size even while the universe of observable types grows. It does not claim a formula for all primitive realizations or a higher-order analogue.
+Balance and weak connectivity of the active support give strong connectivity (a nontrivial condensation source would have an unbalanced cut) and hence an Euler tour. For branching at at least one vertex v, cut a tour at every visit to v. Permuting the resulting first returns preserves all arc multiplicities, and two distinct successor symbols guarantee two distinct vertex-sequence types. Group equal types in one block each. Any ordered boundary between adjacent distinct types occurs exactly once in the cyclic list. A symbol rotation fixing the word must carry all v-occurrences to v-occurrences and preserve their excursion types and boundaries. It therefore fixes the unique occurrence of such a boundary, hence is the identity rotation. Without branching, the strongly connected functional support is a simple directed cycle whose arc multiplicities agree by balance. The least word period is the number d of active vertices, and the obstruction is exactly repetitions r=n/d>=2. Choosing d active labels and a directed cycle gives binom(q,d)(d-1)! distinct matrices per proper divisor d<=q; this includes loops, n=1, and the prime-length consequence. No finite census or external certificate is needed for the exact proof; the supplied script was inspected but not executed.
 
-## Closest literature and limits
-Jacquet–Knessl–Szpankowski (2012, DOI `10.1109/TIT.2012.2191476`) count Markov types and their connected Eulerian matrices; Obscura Acosta–Tomescu (arXiv:2208.08522, sections 1–2) study unique Eulerian edge tours and safe walks; the MFCS 2025 generalized de Bruijn/Burrows–Wheeler paper treats a distinct restricted necklace problem. No examined result states or implies the primitive-profile dichotomy. General novelty beyond examined material is unverified. Finite tests support but cannot replace the infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the existence classification by active support and resulting divisor-sum obstruction count for a fixed adjacent-pair profile, not the Euler criterion, the general primitive-necklace census or the total count of Markov types.
+
+## value
+
+PASS
+
+The result resolves exactly which prescribed finite cyclic transition counts force periodicity, a natural realizability question about type classes. Its support-only criterion works even if all multiplicities have a large common divisor, and yields a constructive witness plus a clean exact census of exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

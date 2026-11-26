@@ -4,7 +4,7 @@
 
 Consider the discrete fear-dependent predator–prey map of Du, Han and Lei [1], with the prey reproduction parameter fixed at the neutral flip value \(r=2\) and predator intrinsic growth strictly below mortality, \(\alpha<d\). The boundary equilibrium \((K,0)\) has one neutral multiplier \(-1\) and one contracting multiplier \(q=e^{\alpha-d}\in(0,1)\). There is a neighborhood \(U\) of \((K,0)\) in the biologically nonnegative half-plane with the following properties.
 
-Every trajectory starting at \((u_0,v_0)\in U\), \(u_0>0\) and \(v_0\geq0\), remains positive in prey, nonnegative in predator, and converges to \((K,0)\). Exactly one local \(C^2\) curve \(u/K-1=h(v)\), through \((K,0)\), separates trajectories having exponentially fast prey recovery from those having critical algebraic recovery. The curve is uniquely characterized locally by exponential convergence, is tangent to the contracting eigendirection, and has the expansion
+Every trajectory starting at \((u_0,v_0)\in U\), \(u_0>0\) and \(v_0\geq0\), remains positive in prey, nonnegative in predator, and converges to \((K,0)\). The data giving exponential prey recovery form one smooth local curve \(u/K-1=h(v)\) through \((K,0)\); all other nearby data give algebraic recovery. The curve is tangent to the contracting eigendirection and has the expansion
 
 \[
  h(v)=-\frac{p}{1+q}v
@@ -15,7 +15,7 @@ Every trajectory starting at \((u_0,v_0)\in U\), \(u_0>0\) and \(v_0\geq0\), rem
  \eta=\frac a{bK+c}.
 \]
 
-For every initial condition in \(U\) outside this curve there is a finite, initial-condition-dependent real constant \(C\) such that
+For every initial condition in \(U\) outside this curve, the prey coordinate inherits the known scalar Ricker clock [4], even for positive initial predator density: there is a finite, initial-condition-dependent real constant \(C\) such that
 
 \[
  \boxed{\left(\frac{u_{2n}}K-1\right)^{-2}
@@ -58,15 +58,19 @@ The quartic term vanishes. For sufficiently small \(|z|\), \(G\) preserves sign 
 
 Shrink the initial rectangle so that the total geometric forcing is less than its trapping margin. This inequality proves the even states remain inside the rectangle; the one-step bound also traps the odd states. Summing the inequality gives \(\sum_{m\geq0}|z_{2m}|^3<\infty\), since the total forcing is summable. Therefore both parities converge to zero. No global basin property is used.
 
-**3. Exponentially accurate scalar shadowing.** Restrict \(f\) to a small interval around zero such that its local inverse has Lipschitz constant \(L>1\) with \(Lq<1\). This is possible because the inverse derivative has modulus one at zero. With \(e_n=z_{n+1}-f(z_n)\), the first-component equation gives \(|e_n|\le C_2q^n v_0\). Starting from \(z_N\), iterate the local inverse of \(f\) backward \(N\) times. Each reconstructed segment remains in the inverse interval by the trapping bounds and the geometric estimate \(\sum_{j\ge0}L^{j+1}q^j<\infty\); the inverse reconstructions are Cauchy because successive differences are at most \(C_3L^{N+1}q^N v_0\).
+**3. Exponentially accurate scalar shadowing.** Restrict \(f\) to a small interval around zero so its local inverse has Lipschitz constant \(L>1\) with \(Lq<1\). This is possible because the inverse derivative has modulus one at zero. With \(e_n=z_{n+1}-f(z_n)\), the first-component equation gives \(|e_n|\le C_2q^n v_0\). Use the weighted inverse-map argument of [4]: on sequences \(d=(d_n)_{n\ge0}\) with norm \(\sup_n q^{-n}|d_n|\), consider
 
-Their limit is an initial value \(\zeta_0\) of a true scalar orbit \(\zeta_{n+1}=f(\zeta_n)\), uniquely determined by the requirement
+\[
+(\mathcal A d)_n=f^{-1}(z_{n+1}+d_{n+1})-z_n.
+\]
+
+On the closed ball of radius \(L C_2v_0/(1-Lq)\) the arguments lie in the inverse domain: choose the trapping neighborhood of Step 2 strictly inside it and shrink the initial predator bound to fit the remaining margin. The estimate \(q^{-n}|(\mathcal A d)_n|\le L C_2v_0+Lq\|d\|\) maps the ball into itself, and \(\mathcal A\) has Lipschitz constant at most \(Lq<1\). Its fixed point yields a true scalar orbit \(\zeta_n=z_n+d_n\) with
 
 \[
  |z_n-\zeta_n|\le C_4q^n v_0\quad\text{for all }n\ge0.
 \]
 
-Uniqueness follows by backward propagation of the discrepancy, because \(Lq<1\). A standard local strong-stable-manifold theorem (the stable multiplier \(q\) is strictly dominated by the tangential modulus one) supplies a unique smooth curve of exponentially converging initial conditions. Equivalently it is the local zero set of the scalar shadowing coordinate \(\zeta_0\): if \(\zeta_0=0\) then the shadowing bound gives exponential convergence of both components; if \(\zeta_0\neq0\) then the scalar orbit has algebraic rather than exponential decay, so the original orbit cannot converge exponentially. The invariant boundary \(v=0\) maps to \(\zeta_0=z_0\), hence the curve is a local graph \(z=h(v)\). Smoothness can also be recovered by differentiating the inverse reconstruction after choosing the interval with \(qL^j<1\) for the finite derivative orders required.
+Uniqueness of the exponentially close scalar orbit follows by backward propagation of the discrepancy, because \(Lq<1\). The two-dimensional map extends analytically across \(v=0\) near the equilibrium and is a local diffeomorphism there, with determinant \(-q\). The local strong-stable-manifold theorem for the spectral splitting \((q,-1)\) gives a \(C^3\) invariant curve tangent to the \(q\)-eigenline. More precisely, for a fixed rate \(\rho\in(q,1)\), it is locally the set of forward orbits in the trapping neighborhood that decay as \(O(\rho^n)\). Equivalently it is the zero set of \(\zeta_0\): zero phase gives decay \(O(q^n)\) by the shadowing bound, and nonzero phase gives scalar algebraic decay by Step 5. The contracting eigenline has nonzero predator coordinate, so the implicit graph over \(v\) is defined locally and has the third-order Taylor remainder used below.
 
 **4. Explicit separatrix curvature.** Set \(p=\beta/(K+\gamma)\), \(\theta=K/(K+\gamma)\), and \(\eta=a/(bK+c)\). Expanding to total degree two near the equilibrium gives
 
@@ -122,7 +126,7 @@ This transfers the exact constant-order asymptotic, its sign, and the universal 
 
 Du, Han and Lei [1] introduced the exact fear-modulated system and recorded the boundary fixed point's multipliers, including the nonhyperbolic classification at \(r=2\). Their analysis addresses equilibrium and interior flip/Neimark–Sacker bifurcations, boundedness, controls and numerical diagrams; it does not provide the logarithmically renormalized critical clock or the explicit strong-stable boundary curvature in the predator-extinction regime. The closely related fear-map study [2] uses a different additive discretization rather than this exponential map and does not imply the stated exact return.
 
-The competitive planar Ricker study [3] proves global convergence and describes invariant manifolds for a distinct exponential competition map. Its identification of the classical scalar \(r=2\) convergence boundary is consistent with Step 1, but neither establishes the \(8/5\) logarithmic correction for the present fear model nor the explicit fear-dependent quadratic strong-stable graph. Existing research on simultaneous prey flip and predator neutrality addresses \(\alpha=d\), whereas the present theorem assumes \(\alpha<d\); those results therefore do not yield the exponentially forced shadowing claim. Standard normal-form and stable-manifold methods are background machinery rather than claimed as new discoveries.
+The competitive planar Ricker study [3] concerns a distinct exponential competition map. In the symmetric critical competition model, [4] computes the exact scalar clock for the invariant-diagonal map \(s\mapsto (2+s)e^{-s}-2\). Setting \(s=2z\) gives exactly the boundary map used here, not a different scalar clock: multiplying the previously derived inverse-square clock by four gives \(8n/3+(8/5)\log n+C+o(1)\). The scalar calculation is included for completeness. That prior study also uses exponential inverse-map shadowing and computes a stable curve for its own competition coupling. The contribution retained here is the local extension to positive-predator initial data of the stated fear map and its explicit fast-recovery geometry: the separatrix has a nonzero linear term and a second-order term strictly dependent on fear strength, neither determined by the diagonal clock nor by the competition model's different transverse equations. The same fear map at \(\alpha=d\) is considered in [5], but then the predator component decays algebraically and the exponential shadowing argument does not apply. Standard normal-form and strong-stable-manifold methods are not claimed as new.
 
 ## Limitations
 
@@ -135,3 +139,7 @@ The conclusion is **local** for each fixed parameter tuple; the neighborhood is 
 [2] C. Lei, X. Han and W. Wang, "Bifurcation analysis and chaos control of a discrete-time prey-predator model with fear factor," *Mathematical Biosciences and Engineering* 19 (2022), 6659–6679. https://doi.org/10.3934/mbe.2022313.
 
 [3] S. Baigent, Z. Hou, S. Elaydi, E. C. Balreira and R. Luís, "A global picture for the planar Ricker map: convergence to fixed points and identification of the stable/unstable manifolds," *Journal of Difference Equations and Applications* 29 (2023), 575–591. https://doi.org/10.1080/10236198.2023.2222855.
+
+[4] *Global critical relaxation and a logarithmic clock in symmetric Ricker competition*, especially the shadowing and scalar-clock steps. https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-global-critical-relaxation-and-a-logarithmic-clock-in-symmetric--196d57cbc210/RESULT.md.
+
+[5] *A sharp fear-controlled trichotomy at a doubly neutral discrete predator–prey equilibrium*. https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-sharp-fear-controlled-trichotomy-at-a-doubly-neutral-discrete--208b86622e28/RESULT.md.

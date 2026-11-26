@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem follows from exact pairwise intersection-support counts, valid without vertex transitivity, and the three-round back-and-forth argument. The twelve signatures are exhausted by the classical imprimitive dichotomy and four primitive triangle/complement-triangle regimes. The small-order obstruction to the ten-point cutoff is checked using the parameter equation, parity, and an exact irrational-eigenvalue multiplicity contradiction for the sole remaining candidate. The standalone verifier independently computes depth-three game types for eighteen finite examples, finding twelve distinct representative classes and the expected within-class coincidences.
+## correctness
 
-## Originality
-**PASS, subject to literature risk.** The examined first-order graph definability sources establish the game methodology but not a twelve-class strongly-regular theorem. The examined strongly-regular literature records parameter and spectrum identities and representative examples, not their complete rank-three logical quotient or the ten-point sharp bound. Earlier special-family rook/Johnson classifications address strict subfamilies; the universal primitive/imprimitive split and the sharp small-order obstruction are additional. Exact semantic and text searches did not locate a dominating theorem. A possible implicit folklore derivation is an acknowledged residual risk; a negative search is not itself proof of originality.
+PASS
 
-## Value
-**PASS.** This is the first rank at which the entire natural class can be logically separated: rank two collapses everything, while rank three yields an exact finite quotient that handles arbitrary strongly regular graphs, even without transitivity or connectivity. Six transparent intersection-support tests and a sharp ten-point representative bound make the theorem reusable for expressibility and logical comparison of highly nonisomorphic finite designs; it is a natural complete classification rather than an ad hoc parameter calculation.
+For every vertex in the specified nontrivial strongly regular family, equality, adjacency and distinct nonadjacency are all realizable for the second move. For distinct selected x,y, the four third-vertex multiplicities are (lambda,k−1−lambda,k−1−lambda,n−2k+lambda) on an edge and (mu,k−mu,k−mu,n−2−2k+mu) on a nonedge. Only existence matters at the third move; repeated selections are available on both boards. Each support bit also has a rank-three existential test. The edge double count (n−k−1)mu=k(k−1−lambda) partitions cases: mu=0 forces equal clique components by the absence of induced two-edge paths; mu=k makes nonadjacent vertices have identical neighborhoods, yielding equal independent parts of a complete multipartite graph. Each case has four signatures from whether the number and size of blocks attain the relevant thresholds. In the remaining case the complement is not a disjoint union of cliques; its nonedge common-neighbor count is positive, and the double count gives k−1−lambda>0. The four surviving free bit combinations are the triangle-existence bits in the graph and its complement. A separate adjacency reconstruction confirmed all twelve rows, including the four primitive witnesses. For the Petersen support a smaller graph would be primitive and triangle-free. With n<10 Mantel gives k≤4. The degree-two connected cases are C4/C5 (diameter at most two); neither has the support. Degree three forces n=4+6/mu and leaves no smaller even-degree-sum primitive candidate. Degree four forces n=5+12/mu and the only smaller primitive candidate is (9,4,0,3). On the eight-dimensional zero-sum subspace its adjacency matrix satisfies z²+3z−1; the rational matrix has equal multiplicities of the two conjugate roots, so the total trace would be 4+4(−3)=−8, impossible. Complementation also preserves the minimum under the corresponding signature permutation. Thus ten is the sharp uniform ceiling within the family, not a minimum claimed separately for each listed row.
 
-## Limits
-No claim extends to rank four, counting logic, or trivial graphs. Finite verification is not substituted for the symbolic proof; secondary comparisons remain exposed to unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact ordinary rank-three quotient and its sharp uniform representative bound for the entire nontrivial strongly regular family are distinct on the inspected evidence. General EF theorems, standard strongly regular parameter constraints and classifications of proper graph subfamilies cover ingredients or individual types, but not the full quotient and the minimum obstruction within this family.
+
+## value
+
+PASS
+
+Strongly regular graphs are a natural algebraic graph family and ordinary rank-three equivalence is a concrete logical invariant. The census determines exactly which parameter information survives in that language, unifies primitive and both imprimitive cases, and gives optimal finite witnesses without classifying all SRG parameter sets. The ten-vertex obstruction and realizability of all twelve types are useful exact information beyond the generic game theorem or any of the narrower family tables; the claims of novelty and value do not rest on the verification script.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

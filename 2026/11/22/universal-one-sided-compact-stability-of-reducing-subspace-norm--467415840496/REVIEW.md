@@ -1,17 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact universal equivalence is established for compact self-adjoint perturbations of positive self-adjoint operators on separable infinite-dimensional complex Hilbert space. For positive compact additions, a Schur-complement gap lemma preserves the one-sided spectral gap after a small positive remainder; a finite-rank Birman–Schwinger argument bounds the number of new eigenvalues inside each gap. Weyl essential-spectrum invariance and countability give a pure point spectrum; the gap contradiction excludes all increasing eigenvalue sequences. A subsequent finite-rank negative perturbation preserves the modulus-defined class by the published finite-rank stability theorem and by a separate self-adjoint argument included in the proof. Conversely, an infinite negative eigentail of the fixed perturbation destroys attainment on a reducing subspace of a positive scalar starting operator. No finite computation is mistaken for an infinite proof.
+## correctness
 
-The high-risk steps are the one-sided gap lemma, rank-sensitive Birman–Schwinger monotonicity, pure-point inference from countable spectrum, and the passage to the modulus after finite-rank negative correction. Each has a proof in RESULT.md. Re-running `checker.py` gives `ONE_SIDED_COMPACT_STABILITY_DIAGNOSTIC_OK 1278` as nonproof numerical corroboration.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
-Su–Zhang establish the order criterion, unconditional finite-rank stability, a test for an individual compact perturbation, and the largest starting-operator subset surviving all compact perturbations; none classifies fixed signed compact operators that preserve every positive starting operator. Golla–Osaka–Sequeira provide the closed-order and positive spectral criteria, not this perturbation classification. Nag–Ramesh establish a corresponding minimum-attainment statement for compact perturbations under a commutation condition that this result does not impose. Published records on essentially scalar Schatten repairs and scalar functional calculus were read in full; their conclusions do not imply the universal noncommuting, multiple-essential-level classification. Actual mathematical-record searches for one-sided compact stability and equivalent terminology found no matching stronger theorem. Search absence is not proof of novelty; unpublished or unindexed equivalent statements are a remaining risk.
+Reconstructed RESULT.md lines 19–46. A positive restriction attains its norm exactly when its spectral maximum is an eigenvalue. The orthogonal complement of the eigenvectors reduces the operator, and the closed span of any strictly increasing eigenvalue sequence would also be a reducing counterexample. Conversely, reducing subspaces of a pure-point operator decompose by eigenspaces, so reverse well order suffices. Closure preserves the order condition (approximate an increasing sequence by eigenvalues in disjoint ordered neighborhoods); the gaps immediately below spectral points give countability by disjoint rational witnesses. Compact invariance of essential spectrum then makes the perturbed spectrum countable, hence the spectral measures atomic. A forbidden increasing sequence of perturbed eigenvalues must converge to a common essential point with a gap immediately below it in the base spectrum. The small positive tail preserves a subgap by the signed Schur complement, and the finite-rank truncation can insert at most its rank there: the compressed resolvent has strictly positive derivative and each ordered eigenvalue crosses the relevant level at most once. For subtraction of the finite-rank negative part, the same gap count works, and the negative spectral subspace has dimension at most the subtracted rank by intersection with its kernel. Taking the modulus thus cannot introduce an increasing sequence from infinitely many negative eigenvalues. The scalar-base reducing-span obstruction works for every c > ||K||; a diagonal geometric tail gives arbitrarily small trace norm. The supplied checker was inspected, not executed, and only illustrates finite witnesses. The proof is analytic, not expert-attested or formally verified.
 
-## Mathematical value — PASS
-This is a sharp, natural universal-preserver classification in the spectral stability theory of reducing-subspace norm attainment. Its positive direction treats arbitrary compact infinite-rank noncommuting additions, rather than only small, finite-rank or commuting perturbations. Its converse distinguishes positive/negative spectral tails exactly, with arbitrarily small trace-class counterexamples. The explicit noncommuting two-essential-level example shows that the result is not a special case of the existing essentially scalar results.
+## originality
 
-## Limitations and nearest work
-The result applies to positive starting operators and compact self-adjoint perturbations only. The separate signed result concludes membership in the modulus-defined subclass, not positivity of every perturbed operator. The paper does not claim a norm-rate or extension to arbitrary compact operators. Closest works: Su and Zhang, arXiv:2609.37621, §§3–6; Golla, Osaka and Sequeira, arXiv:2610.13490, Theorem 2.2 and Lemma 2.14; Nag and Ramesh, arXiv:2608.19286, §5; and the two listed published mathematical research records.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the existing spectral criteria, finite-rank stability and scalar/trace-class obstruction. The supported distinct content is the fixed compact self-adjoint K classification for all positive bases, in particular the unconditional, noncommuting positive-compact implication across multiple essential levels. No inspected statement supplies that implication or makes it an immediate corollary.
+
+## value
+
+PASS
+
+This is a sharp operator-class stability classification, not just a compactness example. Positive tails can have infinite rank and mix distinct essential levels: showing that they nevertheless cannot fill a left-hand essential gap with a forbidden increasing sequence explains precisely what sign information controls universal stability. The scalar obstruction makes that boundary usable and sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The complete finiteness reduction is rigorous: each nonempty column subset sum is an edge difference in one of the six Kuhn tetrahedra, so all are bounded by twice the claimed radius. Every radius-below-\(3/2\) possibility is captured by the set of 24 nonzero integral vectors of \(\ell_1\)-norm at most two; the exact checker excludes them using the strict lower-radius thresholds (opposite widths at most two; parity sums at most five). The standard unit frame realizes radius \(3/2\). At the optimum, 62 possible columns, 1264 pair/triple-filter survivors, and six exact dual support tests for every permutation produce 928 frames and 23 symmetry classes, all verified in integer or exact rational arithmetic. Every finite set tested is proved complete; no sample grid is used as a substitute for the continuous covering inequalities.
+## correctness
 
-## Originality: PASS (provisional priority)
-The closest directly pertinent full texts, Xue's \(\kappa\)-minimum definition and Lian–Xue's octahedral determinant theorem, do not provide the index-resolved optimizer census. Existing indexed summaries of planar Manhattan packet optimizers and Euclidean three-dimensional Kuhn frames have different norm/lattice pairs. The new count is not implied by the determinant ceiling; it excludes an entire allowed index and classifies all minimizers up to symmetry. Related unknown tables or unindexed reports remain a publication-priority risk.
+PASS
 
-## Mathematical value: PASS
-The full finite classification answers a natural equality-structure question for an active lattice-fitting invariant. In particular, the absence of index-three minimizers despite the presence of index-four minimizers is a structurally informative phenomenon, and the exact 23-orbit list is reusable for studying optimal tetrahedral packet geometries. Results are mathematically motivated and complete, not a trivial renaming, random slice or isolated unsupported computation.
+Independently embed R^3 into R^4 by taking dot products with (+++),(+--),(-+-),(--+). This is an l1-to-linf isometry onto the hyperplane with coordinate sum zero. If the vertex coordinate ranges are [l_i,u_i], a fitting center at radius r exists exactly when each interval [u_i-r,l_i+r] is nonempty and their product meets the hyperplane, i.e. the sum of lowers is <=0<= the sum of uppers. This verifies the exact opposite-pair and parity bounds without assuming the list of dual extreme points. Each nonempty column subset sum occurs as an edge in some ordering; integrality gives a width cutoff of 2 below 3/2 and 3 at 3/2, with parity-sum cutoffs of 5 and 6 respectively. An independent bounded sweep tested three orders per frame, the other three being central reflections of these tetrahedra in the packet midpoint. Below 3/2 there were 24 necessary independent candidates, all index 2, and none fit; the unit frame fits the radius-3/2 cube ball. At 3/2 the prefilter yielded 512/408/288/56 candidates at indices 1/2/3/4, and 512/408/0/8 passed. The separate orbit regeneration matched all 23 CSV rows including sizes and representatives. Replay: python3 -I /workspace/branches/independent-checks/record2.py; output at /workspace/branches/independent-checks/record2.log. Original checker was inspected, not executed.
 
-## Closest literature and limits
-Sources: Fei Xue, *On \(\kappa\)-covering minima*, arXiv:2610.39034v1; Yanlu Lian and Fei Xue, *The lattice covering density of the regular octahedron*, arXiv:2609.23210v1/v2. The latter's determinant-four extremal example is cited, not presented as independently novel. Scope is the standard taxicab octahedron and \(\mathbb Z^3\); priority is provisional; independent mathematical assessment is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the complete optimum-frame census, index-three exclusion, and orbit classification. The value 3/2 is already an exact specialization of Xue's formula, and Lian–Xue's determinant theorem already gives the index ceiling and an index-four optimizer. Neither determines the full equality set. No distinct indexed or inspected primary claim was found that gives or implies this census.
+
+## value
+
+PASS
+
+The natural normalized octahedral Kuhn fitting problem already has an optimum and sharp determinant bound; the census answers the outstanding equality-set question. In particular, it proves a missing determinant class even while the next higher determinant occurs. The complete canonical table permits reuse in further exact geometry without rebuilding the enumeration. The point is not the prior numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

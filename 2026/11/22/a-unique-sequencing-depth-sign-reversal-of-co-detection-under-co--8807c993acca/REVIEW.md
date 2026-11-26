@@ -1,17 +1,21 @@
-# Review: A unique sequencing-depth sign reversal of co-detection under coupled occupancy
+# Independent mathematical audit
 
-## Correctness — PASS
-The full proof reconstructs the likelihood, inclusion–exclusion covariance and strictly decreasing exponential quotient for all allowed positive parameters. The critical strict inequalities are elementary and are displayed explicitly. The unique crossing, exact tie at two reads, high-prevalence limit and Poisson-thinning alternative follow without numerical extrapolation. The independent exact enumeration and checker confirm the formulas on tested instances; they are not substitutes for the proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Courtaillac et al. (2024, DOI 10.1002/edn3.70023) motivate fixed-effort metabarcoding design but give no co-detection sign theorem. Fukaya et al. (2021, DOI 10.1111/2041-210X.13732) provide a general multinomial occupancy observation model, which is a relevant broader starting model but not a published conclusion about all-depth pairwise detection covariance. Boshuizen and te Beest (2022) and Kurtz et al. (2015) explain compositional correlation artifacts without this precise one-crossing regime.
+PASS
 
-The nearest indexed published co-detection theorem, *An irreversible co-detection sign switch under incidence-based rarefaction* (2026, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c), applies to uniform **without-replacement sampling of distinct sites** from fixed incidence sets, with the reverse possible sign order. It does not subsume the **within-site fixed multinomial-read budget mixed over random occupancy**. Searches cannot exhaust historical literature; priority is therefore provisional.
+At an occupied site the one-detection probabilities are 1-u^n and 1-v^n, and the negative conditional covariance is w^n-(uv)^n. The covariance of the two conditional means is p(1-p)(1-u^n)(1-v^n). Adding these contributions with the conditional covariance weighted by p gives the exact positive-prefactor times (1-p-Theta(n)) factorization. Since uv-w=(1-u)(1-v)>0, the log derivative of Theta(t) after multiplying by (uv)^(-t) is delta/(exp(delta*t)-1) minus alpha/(1-exp(-alpha*t)) and beta/(1-exp(-beta*t)), with positive alpha=-log u, beta=-log v, delta=log(uv/w). The first term is below 1/t and each subtracted one above 1/t, giving strict decay. Theta(1)=1 and Theta tends to zero, so the threshold is unique, strictly increases from 1 with p, and diverges as p approaches 1. Dividing by (uv)^t gives a factor tending to 1; taking the logarithm yields the claimed additive o(1) error. The n=2 factorization gives p cutoff 2/[(1+u)(1+v)]; with u=2/3, v=1/2, w=1/6, p=4/5, exact arithmetic gives -8/75, 0 and positive for n=1, 2 and n>=3 respectively. Independent Poisson thinning makes conditional covariance zero and leaves strictly positive covariance of conditional means. The fixed-versus-Poisson comparison does not hold for arbitrary random depths; for instance equal probabilities of depth 1 and 2 in the witness give covariance -2/45. This is consistent with the explicit scope, which excludes other random-depth laws. The source checker and verification notes were inspected, not executed; the proof is analytic and real depth is only interpolation.
 
-## Value — PASS
-Fixed read totals induce negative short-depth co-detection even when biological occupancy is perfectly positively associated. The exact crossing quantifies when interpretation becomes reliable, while the Poissonization result isolates the dependence mechanism rather than simply restating that compositions may mislead. The narrowly specified setting provides a reproducible benchmark for broader occupancy-detection work.
+## originality
 
-## Limits
-Results concern population covariances under idealized shared Bernoulli occupancy, constant category proportions, zero false positives and iid reads. No finite-site sample power, real-world sequencing protocol, or causal interaction is inferred. Full texts of key direct sources were inspected, but no historical priority guarantee or external independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best of current knowledge: the known multinomial indicator covariance and shared-occupancy mixture mechanism are starting points. The distinct contribution is the sharp all-depth negative-to-positive one-crossing law under this coupling, with an exact threshold, prevalence asymptotic and a scoped Poisson contrast. Closely related indexed sign-switch statements are not equivalent or broader coverage; direct full-text coverage of the cited eDNA model remains an access risk.
+
+## value
+
+PASS
+
+A fixed read-budget artifact can produce a negative observed association even under perfect positive coupling. A unique, prevalence-dependent cutoff gives precise conditions under which observed covariance changes its qualitative interpretation, and the Poisson comparison separates two sampling designs. This is useful as an idealized benchmark or counterexample, not a field depth recommendation, causal inference, or a finite-sample guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

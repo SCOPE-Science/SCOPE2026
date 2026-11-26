@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Reproduce with Python 3.10 or later by installing the packages listed in `requirements.txt` and running `python verify_reentry.py`. The program uses exact integer counts and rational polynomial arithmetic for decisive comparisons; no Monte Carlo sampling or floating-point root-grid conclusions are used. Reproduced tree-shape totals for orders \(2\) to \(14\) are \((1,1,2,3,6,11,23,47,106,235,551,1301,3159)\). The only shapes requiring full root isolation after fixed-sign dominance elimination occur at orders \(13\) and \(14\), in counts \(6\) and \(17\). The \(23\) shapes have \(60\) isolated candidate-comparison root cells; winner regions over their complementary exact-rational open intervals are contiguous.
+## correctness
 
-The \(15\)-vertex witness has a difference quotient with ascending coefficients `[1,-3,1,1,1]`, corresponding to \(q(p)=1-3p+p^2+p^3+p^4\). The complete integer coefficient tests assert that origin \(1\) strictly dominates the other \(13\) origins for every \(p\in(0,1)\). The checker confirms two distinct roots of \(q\) in that interval via rational Sturm isolation. The proof gives an independent analytical root-count argument from strict convexity, endpoint positivity, and a negative midpoint. It verifies exact global winner identities at representative rational points.
+PASS
 
-The program does not prove the correctness of its external nonisomorphic-tree enumeration library, does not analyze general graphs or larger trees, and does not constitute independent verification. Literature inspection is reported separately; a 2026 related article was unavailable in full.
+By independence along the unique tree path and linearity of expectation, each origin score is its distance-count polynomial, including the common constant 1. Independently enumerated all unlabelled trees through order 14 by adjoining one leaf to every vertex of each previous representative and merging equal canonical rooted codes at the tree centers. Removing a leaf establishes completeness inductively; equal canonical codes imply isomorphism and the center set is invariant. The shape counts for orders 1–14 are 1,1,1,2,3,6,11,23,47,106,235,551,1301,3159. Checked exact score comparisons after factoring out p(1-p). A fixed strict Bernstein sign removes a globally dominated score; at most one Descartes variation makes each surviving dominance set an interval. Grouped equal score profiles so ties cannot masquerade as unique winners. For the six order-13 and seventeen order-14 exceptions, independently isolated the roots of one square-free rational polynomial per shape covering all nonidentical surviving comparisons (16 and 44 interior roots respectively), and evaluated the full set of maximum scores at exact rational points in every intervening open cell. All discrepancies near isolated roots are covered by the adjacent constant-sign cells; isolated points cannot themselves furnish an open reentry interval. No smaller tree reenters. For the specified 15-vertex witness only 1 and 2 survive, with the stated profiles. The difference quartic is positive at both endpoints, negative at 1/2 and strictly convex on (0,1), with the two indicated roots. Origin 1 beats every other noncandidate strictly on the full open domain, confirming the 1,2,1 sequence and both two-way ties.
+
+## originality
+
+PASS
+
+Existing work covers decay centrality, one top-ranked switch, prescribed pairwise crossings or full-ranking instability. The strongest inspected catalogue analogues use nonuniform source weights on paths or the same homogeneous expected-reach objective on graphs with cycles. None establishes the sharp order-15 boundary for the exact homogeneous tree model and strict global reentry. A closely related subscription article remains an explicitly unresolved source, not evidence for or against coverage.
+
+## value
+
+PASS
+
+The natural optimization problem distinguishes complete rankings or nonoptimal crossings from an actual change in the best seed. Its smallest counterexample to absence of strict global reentry is a useful sharp boundary: the exact finite lower bound rules out every smaller unweighted tree, and the explicit witness identifies the two switches rather than sampling or relying on pairwise reversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

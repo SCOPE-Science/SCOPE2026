@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact active-cone Karush–Kuhn–Tucker construction supplies an open input neighborhood on which convex regression is the weighted affine projector. Its step-response variation norm is \(L\max_jc_j\), with strict enlargement exactly when the interior knots cannot all equal the weighted centroid. The three-node projection has only identity and affine branches. The four-node equal-grid case checks all four active-set matrices, giving sharp \(6/5\), and the arbitrary-grid obstruction follows from strict positivity and distinct interior knots. The standalone exact-rational program verifies critical projector, variation and multiplier identities; finite checks do not replace these proofs.
+PASS
 
-## Originality — PASS, with explicit priority risk
+With the weighted quadratic loss written with a factor 1/2, b=-M^{-1}C^T 1 gives strict positive KKT multipliers at the zero affine fit. Since C has kernel span(1,x) and full row rank, small perturbations leave the fit in this affine subspace with a linear formula and positive multipliers. The weighted normal equations express its slope as a positive linear combination of the nodal increments with coefficients c_j. A unit step maximizes the resulting l1 gain L max c_j, and is realizable near b. The gap-weighted average of L c_j equals one by testing v=x. All c_j agree precisely if each interior knot equals the centroid, impossible with at least two distinct interior knots, and at three knots equivalent to m_1 h_1=m_3 h_2. The three-site projector has only the identity and affine pieces; four uniform sites have exactly four candidate piece operators. Integrating along a finite partition of an input segment yields the upper bound (boundaries use continuity). Independent exact arithmetic recovered the face norms (1,7/6,7/6,6/5), both positive multiplier vectors and input/output variations 1 and 6/5 for the explicit witness. Also checked 1,600 rational three-site cases, an irregular-grid gain of 902/769, and the uniform-grid formula through n=39; the affine slope summation proves the general lower bound, not the finite checks. Frozen verifier inspected, not executed. Independent replay: python3 /workspace/evidence/convex_bv_exact.py.
 
-Originality was compared by statement and implication, not by title. Guntuboyina–Sen (2013, arXiv:1305.1648) develop squared-risk bounds and convex projections (including affine projections of concave inputs), not a two-input variation coefficient. Meyer (2008, arXiv:0811.1705) treats shape-restricted regression splines and cone projection computations, but not the mass/mesh rigidity threshold. Yang–Barber (2017, arXiv:1706.01852) treat the distinct isotonic cone. The closest published finite-convex-regression record establishes coordinate maximum-norm constants, not the variation seminorm; the closest variation-rigidity record imposes first-difference isotonic constraints on cycle-shaped orders, not convex second-difference constraints. Dykstra (1983) and Hildreth (1954) have historical priority as algorithms and formulation; their complete original text was not obtained, and an equivalent, unindexed earlier statement remains possible. The checked sources do not currently provide stronger coverage of this precise theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A quadratic convex-regression estimate is known to be stable in the fitting Hilbert norm, which does not answer whether it preserves oscillation magnitude measured by first differences. The classification proves an unavoidable qualitative obstruction for *every* positive mass profile on *every* mesh with at least four knots, gives a precise three-knot exception, and computes the first sharp loss \(6/5\). It supplies realizable arbitrarily small witnesses, not merely a formal operator-norm calculation, and a quantitative uniform-grid lower bound approaching \(3/2\). These conclusions provide a natural stability diagnostic for shape-constrained fitting. The exact coefficient for larger grids remains open.
+Best of available evidence: the result concerns the deterministic two-input Lipschitz norm on the quotient by constants, using unweighted adjacent variations of nodal values. Neither the documented affine-fit ingredient, standard convex projection machinery, isotonic contractivity, nor nearby coordinate-norm constants supplies the strict all-mesh obstruction together with the sharp initial coefficient. No equivalent or dominating theorem was identified in inspected sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The deterministically relevant quantity is variation of a change in the estimate, not mean-square error or variation of a single fit. A sharp mass-balance exception at three sites, universal failure for every positive mass profile and mesh from four sites on, and an attained first failure of 6/5 give a usable shape-constrained stability boundary. The limit 3/2 applies to the constructive lower bound only; no exact longer-grid or arbitrary four-site norm is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

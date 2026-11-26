@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:01.455455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–106; REVIEW.md, VERIFICATION.md and verify.py (read, uploaded code not run)",
+        "/workspace/repairs/2/RESULT.md, REVIEW.md and SLOGAN.txt",
+        "/workspace/independent_checks.py, selection 2"
+      ],
+      "rationale": "This PASS is for the repaired finding, not the frozen assertion of an exact if-and-only-if nonlinear local asymptotic stability criterion. The frozen wording was not established on the imaginary-pair locus; Routh–Hurwitz and linearization cannot decide nonlinear stability there. The repaired RESULT.md states the exact Hurwitz criterion, exponential stability or instability for the two strict signs, and explicitly withholds a nonlinear verdict at equality. On the interior of the simplex, the reduced variables are a valid chart; stationarity gives y=1/R, I_B=z I_A, I_A=u/[R(1+z)], and p=R^2u/[z(1+z)], with the full state positive and normalized. Independent differentiation and the characteristic coefficients give a1=-tr J>0, a3=-det J>0, and a1*a2-a3=u P_z/[z^2(1+z)^3]. At H=0 the cubic factors, a2=a3/a1>0, and the roots are distinct: -a1 and ±i sqrt(a2). A nonzero imaginary root conversely forces H=0, and a zero eigenvalue is excluded by a3>0, so H<0 implies a right-half-plane root. With C(z)>0, there are exactly two distinct positive zeros of P_z if and only if A>0, B<0 and B^2>4AC; each has nonzero H' at fixed z. Taking the real part of -partial_u p_char / partial_lambda p_char at i sqrt(a2) gives -H'/[2(a1^2+a2)], verifying transversality for both simple roots. At z=3/8 the independent rational coefficients yield the stated quadratic, positive roots and sign reversal. Here a2 is positive for all u>0, so positive real eigenvalues are impossible and the unstable eigenvalues are a complex pair. Replay `python /workspace/independent_checks.py 2` independently reconstructs the Jacobian characteristic coefficients, exact determinant combination and threshold decimals.",
+      "residual_risks": [
+        "No nonlinear stability or periodic-orbit conclusion on the neutral locus; does not generalize to other model parameters or fixed-p sweeps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source analyzes a more general opinion–SIS setting but calls the third inequality fifth-order and says it skips analytic details; the journal describes it as having no simple closed form.",
+          "The indexed triadic Hopf and two-community symmetry-breaking statements concern different higher-order feedback equations and different branches."
+        ],
+        "reasoning": "The cited general setting does not give an evaluated crossing count or analytic thresholds to specialize to z=3/8. The distinct indexed model results do not reduce to the Götz simplex equations in their inspected statements.",
+        "searches": [
+          "arXiv:2512.10612v1, §3 and Figure 2 discussion",
+          "doi:10.1038/s41598-026-66686-9, Appendix A.3 offsets 67000–73459",
+          "Resultary/SCOPE 901deed28d77 and a23800dc3aee, mirrored Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.10612v1, Remark 2.1 and §3",
+        "doi:10.1038/s41598-026-66686-9, Appendix A.3",
+        "Resultary/SCOPE f89515c530da, 93114c418fa5, 901deed28d77 and a23800dc3aee, statement passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states the remaining high-degree condition but does not solve it along fixed susceptible ratio; the numerical heatmap discussion does not prove finite exactly two crossings or their derivatives.",
+          "The repaired finding retains exact sign regimes and all-ratio two-root characterization, but not a nonlinear threshold verdict, nonlinear Hopf claims, or any empirical inference."
+        ],
+        "reasoning": "The theorem is not just another rendering of the general criterion: the model-dependent sign resolution, two-root condition and transversality are the increment. A qualitative parameter-plane change, different-branch bifurcation or disease-free discrete-time result does not establish that increment.",
+        "searches": [
+          "arXiv:2512.10612v1, pp. 6–7, third Routh–Hurwitz inequality discussion",
+          "doi:10.1038/s41598-026-66686-9, Appendix A.3 around offset 70439",
+          "Resultary/SCOPE 901deed28d77, a23800dc3aee and 93114c418fa5, findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 2.1 already gives tr J*S_2(J)<det J, exactly H>0 in the audited notation. The preprint's z=alpha*x+y is not the audited z=x/y.",
+          "The source gives x*=s*-1/R and y*=1/R on the alpha=0 branch; the ratio and u coordinate are a reparameterization of it."
+        ],
+        "reasoning": "Neither changing variables nor changing the sign convention for the determinant condition is a distinct result. The comparison is with the explicit sign analysis of the fixed-ratio polynomial and crossing classification, not simply the abstract equivalent inequality.",
+        "searches": [
+          "arXiv:2512.10612v1, Remark 2.1 and §3 pp. 5–7",
+          "doi:10.1038/s41598-026-66686-9, Appendix A.3",
+          "Resultary fixed-ratio asymmetric endemic SIS Hurwitz criterion and reentrant spectral crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact f89515c530da result is the assigned entry itself.",
+          "The distinct same-date 93114c418fa5 evaluates a discrete-time disease-free invasion threshold along a commuter-fraction parameter, not this continuous-time endemic Jacobian.",
+          "The inspected source text describes numerical stability maps for transmission and opinion change, not an algebraic table of fixed-ratio crossings."
+        ],
+        "reasoning": "Qualitative prior stability changes are credited. The compared statements do not give the same pair of radicals or certificate of transversality; no within-day priority is inferred from the date of the discrete-time result.",
+        "searches": [
+          "Resultary by branch, quadratic Hurwitz sign, dual crossings and reentrance; target f89515c530da and closest distinct 93114c418fa5",
+          "arXiv:2512.10612v1, Figure 2 discussion, offsets 25518–30480",
+          "Journal Appendix A.3, discussion referencing Figures 2a and 9"
+        ]
+      },
+      "rationale": "For the repaired spectral claim the source's asymmetric branch, sign-equivalent matrix inequality, and prior numerical stability maps are credited. The distinct mathematical contribution is resolution of the source's remaining sign condition into a fixed-ratio quadratic, an exact condition for two positive spectral crossings, and a rigorously transversal algebraic example. The evidence does not support claiming a new branch, a new Routh–Hurwitz criterion, or the first observation of oscillatory instability in SIS–opinion models.",
+      "residual_risks": [
+        "Numerical heatmaps themselves were not inspected; they might visually suggest reentrance, though the relevant source text leaves the sign condition unanalyzed.",
+        "Unindexed equivalent analytic results are possible. The literature comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same branch and equivalent general condition; no exact fixed-ratio evaluation in the inspected branch analysis",
+          "evidence": [
+            "The third condition is a complicated fifth-order polynomial inequality for which the authors skip analytic details; they discuss stability regions using a heatmap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.10612v1",
+          "material_read": "Remark 2.1, p. 5 around offset 17259; §3 pp. 6–7 around offsets 18000–24176; Figure 2 discussion near 25518–30480 (not the figure images)",
+          "method": "Bounded primary PDF passages",
+          "title": "Coupling opinion dynamics and epidemiology (preprint)",
+          "trigger": "Exact source model, known branch and critical stability comparison"
+        },
+        {
+          "assessment": "Confirms branch and remaining unsimplified condition in the journal",
+          "evidence": [
+            "The Appendix describes a fifth-order inequality with no simple closed form; discusses heatmaps in Figures 2a and 9."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-026-66686-9",
+          "material_read": "Appendix A.3, PDF pp. 12–13, offsets 67000–73459, in particular around 70439",
+          "method": "Bounded primary PDF passages; prose and sign scope checked, PDF symbol extraction imperfect",
+          "title": "Coupling opinion dynamics and epidemiology (journal version)",
+          "trigger": "Could the journal revision solve the preprint's remaining inequality?"
+        },
+        {
+          "assessment": "Different system, equilibrium and spectral question; same-date ordering unknown",
+          "evidence": [
+            "Discrete-time disease-free invasion linearization in a two-city network, with a window in the commuter fraction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-convex-commuting-invasion-barrier-and-an-exact-reentrant-windo--93114c418fa5",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary and bounded local-mirror statement inspection",
+          "title": "A convex commuting-invasion barrier and an exact reentrant window",
+          "trigger": "Closest same-day exact reentrant SIS window in the index"
+        },
+        {
+          "assessment": "Distinct three-community triadic synchronous dynamics",
+          "evidence": [
+            "Supercritical and subcritical Hopf transitions in a purely triadic risk-responsive model are not the two fixed-ratio spectral crossings for Götz et al."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-opposite-hopf-criticalities-in-a-triadic-sis-opinion-model--901deed28d77",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary and bounded local-mirror statement inspection",
+          "title": "Opposite Hopf criticalities in a triadic SIS–opinion model",
+          "trigger": "Prior exact oscillatory transitions in opinion-coupled endemic dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md, Finding and Proof",
+        "Götz et al., arXiv:2512.10612v1, §3 and journal Appendix A.3"
+      ],
+      "rationale": "The repaired spectral theorem resolves a specific untreated sign question of the source model and proves that an admissible fixed-ratio family can have a finite open interval of oscillatory instability with stable open intervals on both sides. Exact boundaries and nonzero crossing slopes give more than a plotted example. The all-ratio two-root condition makes z=3/8 a witness for a structural phenomenon rather than an arbitrary isolated numerical slice. The narrowing at equality preserves this value.",
+      "residual_risks": [
+        "The significance is mathematical and local to this deterministic model and parameter curve; the result is not an empirical or single-control forecast."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

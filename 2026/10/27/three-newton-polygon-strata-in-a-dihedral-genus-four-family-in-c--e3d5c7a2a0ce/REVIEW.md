@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A direct factorization of the quintic discriminant yields the three exact smoothness exclusions; the Cartier–Manin matrix and its determinant are independently reconstructible from coefficients \([x^{3i-j}]f(x)\). Frobenius-stable ranks give \(3\)-ranks \(4,2,0\), and the Cartier kernels give \(a\)-numbers \(0,2,2\). The isolated rank-zero parameter is shown supersingular using a separable Hermitian-curve quotient, rather than assuming that \(p\)-rank zero forces supersingularity. Newton slopes and finite-field marked-parameter counts then follow. The bundled checker independently compares polynomial gcd smoothness, ranks and direct \(\mathbf F_{81}\)-point count; it returned `VERIFY_OK`. Neither a finite sample nor a timeout is used to prove the infinite statements.
+## correctness
 
-## Originality — PASS with specified residual risk
-Kudo–Nakagawa–Takagi, arXiv:2210.14822, Appendix A, and Ohashi–Kudo, arXiv:2312.16858, establish the dihedral family and study superspecial curves in larger characteristics: the family itself is prior work. Garton–Thunder–Weir, arXiv:2403.00120, addresses all-characteristic-three hyperelliptic \(a\)-number distributions, but its broad aggregates do not imply the exact dihedral two-parameter, simultaneous \(3\)-rank/Newton data and polynomial marked-parameter counts. Camacho-Navarro, arXiv:2012.08705, concerns genus-four arithmetic primarily for nonhyperelliptic canonical curves. Actual claim/equivalence/parameter comparisons against published findings and related primary literature found no implication covering the present conjunction of assertions. Residual risk: G. Sohn's 2025 paper on genus-four superelliptic \(a\)-numbers could not be inspected in full; unindexed characteristic-three arithmetic tables may exist. The failure to find a match is not a proof of global uniqueness.
+PASS
 
-## Value — PASS
-A family selected for a natural dihedral automorphism group exhibits a full geometric Newton-polygon stratification: ordinary outside one punctured line, an intermediate rank-two stratum along it, and a single supersingular non-superspecial point. The characteristic-three exceptional locus, its arithmetic point counts over every ternary finite field, and the absence of ranks one and three are naturally motivated invariants unavailable from either the dihedral normal form or ambient hyperelliptic mass statistics alone. The statement is an exact, nontrivial natural-family classification rather than an arbitrary low-degree sample or restatement of an ambient formula.
+Write f(x)=h(x²), h(t)=(t+1)t²Q(t+t⁻¹), with Q(u)=u²+(a-1)u+(b-a-1). Because h(0)=1, the only failures are repeated Q roots, ramification at t=±1, or overlap with t=-1. In characteristic 3, Q(2)=a+b+1, Q(-2)=b-1, and disc(Q)=a²-a+2-b. A repeated root lowers the genus of the double-cover normalization from four. The two displayed involutions generate a group of order eight: the square of their product is the hyperelliptic involution. On the indicated basis, the coefficient matrix consists of two 2-by-2 blocks after grouping odd and even indices; both block determinants are a(b-1). At a=0 there are two rank-one blocks, each product of its Frobenius twists retaining rank one iff b is nonzero; at b=0 both blocks square to zero. This establishes the stable ranks and a-numbers, not just ordinary matrix ranks. For rank two, a slope other than 1/2 among the four residual slopes would require denominator at least three and its complementary slope, together at least six slopes. For the origin, independently of the Hermitian argument, on F_81 the image of the tenth-power map on nonzero elements is F_9^× and each fiber has ten elements. All nonzero F_9 elements are squares in F_81, so there are ten x values with x^10+1=0, two y values at every other x, and two points at infinity. Thus #C(F_81)=154, the maximal count, giving all Frobenius eigenvalues -9 and all slopes 1/2. The forbidden b values 1,-a-1,a²-a+2 coincide pairwise only at a=1,-1,0 respectively (in the order pairs 1–2, 1–3, 2–3); no triple collision occurs. Removing the two forbidden b at a=0 and separating the origin yields all of the marked counts, including an empty rank-two row over F_3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the full characteristic-three Newton, rank and a-number stratification with all-extension marked counts, not for novelty of the automorphism family or the supersingular curve in isolation. The exact normal form is known in the inspected classification in characteristic at least seven. The closest indexed characteristic-three census is for a different pencil; it shares the origin model but neither its hypotheses nor its classification give the rank-two line or the two-parameter count.
+
+## value
+
+PASS
+
+The known dihedral locus has a simple but non-generic characteristic-three behavior: ordinary away from a line, rank two on its smooth nonzero part and supersingular but not superspecial at the origin. Identifying all three Newton strata and where they occur, including the disappearance of the rank-two stratum over the prime field, gives a usable complete classification for this standard normal form, beyond recomputing individual Cartier ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

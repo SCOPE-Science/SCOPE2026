@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:09:04.718807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–107 and 109–125; VERIFICATION.md; artifacts/verify.py and artifacts/verification_output.txt (inspected only)",
+        "repairs/2/RESULT.md, Exact census and both Proof sections",
+        "/workspace/branches/a15f683b-569a-4381-85a5-1144c027f589/independent_check.py"
+      ],
+      "rationale": "The re-audited census partitions subalgebras into all subspaces of V and cosets over split invariant intersections. Mixed closure tests the projected inside subspace for invariance; outside closure tests the quotient coset difference for lying in either eigenspace. Graph-lift and intersection factors give all ordered counts. For fixed a,b Gaussian degrees make the inside population dominate except (2,2) and (2,3)/(3,2). At those exceptions the generic allowed type counts are respectively 1+2+7 out of 25 and 4+2+1 out of 16, with nongeneric intersections lower order. The corrected swap argument uses [x,y]_D+[x,y]_(I−D)=αy−βx, for x=αh+v and y=βh+w; both brackets belong to any subspace containing x,y together or neither does. Zero and one remain distinct in characteristic two. Independently enumerating ambient subspaces by extensions and testing closure directly gave (T,P)=(188,29140),(696,337248),(935,677413) for (a,b,q)=(2,2,2),(2,2,3),(2,3,2), and the separate coordinate-class expansion agreed with the special-case polynomials.",
+      "residual_risks": [
+        "The brute-force cases are prime-field diagnostics; prime-power generality and the limiting claims rest on the field-independent structural proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rank one yields its parity-dependent 0 versus 1/4 limits only. The dimension-three result cannot reach a+b+1≥5. The Jordan-chain counting theorem treats a single block; its scalar shift lemma does not count pairs for a split projection."
+        ],
+        "reasoning": "These known formulas do not subsume the higher-rank split Gaussian sums. The new theorem is restricted to the announced a,b≥2 range.",
+        "searches": [
+          "Resultary 409c328075cb exact rank-one stabilized affine census",
+          "Resultary 0c4c7f02cc9c dimension-three plane counts",
+          "Resultary 2ca07ad52f23 Jordan-chain census"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior work; repairs/2/RESULT.md, context",
+        "Resultary 409c328075cb, 0c4c7f02cc9c, 2ca07ad52f23, 246d7542fd6a",
+        "arXiv:2609.19086v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known shift argument explains independence of actual eigenvalues but not subspace sum projections or the limiting type counts. The rank-one count does not determine how two independent collections of higher-dimensional split components intersect."
+        ],
+        "reasoning": "The prior tools do not mechanically imply either the coupled counts or the two nontrivial exceptional limits; these require the quotient-difference distribution and dominant-type analysis.",
+        "searches": [
+          "Resultary 2ca07ad52f23 scalar shift",
+          "Resultary 409c328075cb finite Gaussian formulas and limits",
+          "Muhie–Otera–Russo arXiv:2609.19086v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Commutativity degree here is the pair count for bracket-in-sum, not elementwise commutation. Scalar shifts add a linear combination of the two inputs to their bracket; rescaling the whole bracket preserves containment. Hence two distinct scalar eigenvalues (including simultaneous nonzero actions) are equivalent for this invariant to the normalized projection, though not necessarily isomorphic Lie algebras."
+        ],
+        "reasoning": "Eigenvalue normalization and interchanging multiplicities are equivalent probes, not new results. The retrieved same-invariant examples do not have both multiplicities at least two.",
+        "searches": [
+          "Resultary: two scalar eigenspaces, finite-field Lie subalgebra permutability, higher-rank central stabilizations",
+          "Muhie–Otera–Russo arXiv:2609.19086v1 pp. 2–4",
+          "2ca07ad52f23 scalar-shift argument"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact normalized (a,b≥2) record cb2f8fb8c65a is the self-match. A reported four-dimensional diagonal family (1,1,λ) has multiplicities (2,1) for λ≠1, and the dimension-three plane calculation has lower dimensions. No inspected separate table supplies the (2,2) defect or the fixed-rank census."
+        ],
+        "reasoning": "Numerical overlap such as a 1/4 law for other algebras or a low-dimensional polynomial is not exact coverage of the parameter range. The directly identified low-dimensional cases are credited.",
+        "searches": [
+          "Resultary: 2/5 and 7/16 Lie subalgebra commutativity limits and two-eigenspace Gaussian counts",
+          "409c328075cb same-invariant low-dimensional comparison"
+        ]
+      },
+      "rationale": "The checked finding is the normalized action with both eigenspaces of dimension at least two. The exact catalogue hit is the audited record itself. The best distinct prior comparisons cover rank one, total dimension three, scalar or nilpotent Jordan actions, and general invariance under scalar shifts. These do not cover the exact ordered census or the higher-rank exception classification. The proof correction does not claim the swap or scalar-shift observation as new.",
+      "residual_risks": [
+        "The cited four-dimensional diagonal predecessor could not be independently located for direct inspection; the available description gives (2,1) multiplicities, but a broader unlocated treatment remains a priority risk. Bounded comparisons do not rule out unindexed general censuses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rank-one boundary and earlier diagonal comparison, not higher-rank coverage",
+          "evidence": "aff₁ plus central summand; odd limit 0, even limit 1/4; additionally mentions a (1,1,λ) diagonal action in dimension four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-phase-transition-for-subalgebra-permutability-in-centrall--409c328075cb",
+          "material_read": "RESULT.md offsets 0–4686 and adjacent diagonal-family comparison",
+          "method": "Bounded local-mirror inspection",
+          "title": "Parity phase transition for subalgebra permutability in centrally stabilized affine Lie algebras",
+          "trigger": "Closest prior exact Gaussian census"
+        },
+        {
+          "assessment": "Covers three dimensions, not the present minimum dimension five",
+          "evidence": "Universal plane count with scalar and diagonal eigenline cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-plane-counts-control-subalgebra-commutativity-dimension-three--0c4c7f02cc9c",
+          "material_read": "RESULT.md Finding near offset 398",
+          "method": "Bounded local mirror",
+          "title": "Plane counts control subalgebra commutativity in dimension three",
+          "trigger": "Two eigenlines and exact invariant"
+        },
+        {
+          "assessment": "Shift equivalence known; census is for one Jordan block",
+          "evidence": "D→D+cI preserves the subalgebra lattice and bracket-in-sum relation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-subalgebra-permutability-and-a-rank-threshold-for-jordan-c--2ca07ad52f23",
+          "material_read": "RESULT.md offsets 0 and 2741, statement and invariance argument",
+          "method": "Bounded local mirror",
+          "title": "Exact subalgebra permutability and a rank threshold for Jordan-chain Lie algebras",
+          "trigger": "Same invariant and general shift equivalence"
+        },
+        {
+          "assessment": "Same invariant but examples and scalar-action result differ",
+          "evidence": "Bracket-based degree, Heisenberg and sl₂ examples; the scalar codimension-one action there does not split into these two eigenspaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.19086",
+          "material_read": "pp. 2–3 (offsets 7500–12452), p. 4 (offset 16236)",
+          "method": "Bounded OA primary text",
+          "title": "On the number of modular pairs in finite dimensional Lie algebras on finite fields",
+          "trigger": "Primary literature introducing the invariant and selected family counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/2/RESULT.md, Finding and proofs",
+        "Resultary 409c328075cb, rank-one parity result"
+      ],
+      "rationale": "This is an exact census for a natural next family beyond rank-one and scalar adjoint actions. It explains which higher-rank multiplicities still balance abelian-ideal subalgebras against exterior ones, and separates the two such probability limits from the full-probability range. The ordered pair formula also gives finite-field values before any asymptotic approximation.",
+      "residual_risks": [
+        "The result does not extend to varied dimensions with q, nonsplit actions, or more distinct eigenvalues."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

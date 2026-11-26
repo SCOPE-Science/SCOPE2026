@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:44.844920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the corrected presentation under repairs/2. The original boxed identity was correct, but the accompanying p(p+1) summand count at RESULT.md lines 62 and 78 was false. There are p+1 options on each side, including the no-zero sentinels. Indeed all (p+1)^2 indexed terms can be nonzero: if each class has size at least two, place one zero in each prescribed frontier class and label every other vertex two. Every nonempty monitored prefix or suffix then has weight at least two. In particular p=2 and all sizes two gives nine nonzero terms, not six. In the repaired proof the first zero in A and last zero in B uniquely specify their frontier classes. Nested neighborhoods and nonnegative weights mean defending the two tightest zero-class neighborhoods is necessary and sufficient. The polynomials U,V,W independently count named-vertex labels with, respectively, arbitrary labels, all positive labels, and at least one zero. The two truncations remove precisely the degree-0 and degree-1 choices on the required opposite-side prefix and suffix (or are omitted for absent frontiers). Multiplying disjoint side choices and summing disjoint frontier cells gives the exact all-weight polynomial, including the p=1 boundary. Independent local-rule enumeration and frontier polynomial comparison (`python3 -B /workspace/branches/bounded_review_checks.py 2`) verified 74 distinct ordered profiles, 1111 profile/frontier cells and 754254 assignments; it also independently verified both weight-four examples (minimum 4, counts 4 and 6). The frozen script was read, not executed. It has two repeated nine-vertex profiles ((1,2,1),(2,1,2)) and its reversal, explaining its 76 list entries, 1143 comparisons and 793620 assignments with repeats. The corrected RESULT.md, REVIEW.md, and verification notes distinguish these counts, preserve the original verification front matter, and leave all frozen evidence intact. Finite checks do not substitute for the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shao–Zhao treat all weights on paths, trees and cycles; their stated explicit cycle coefficient formulas are for weights 2n−j, j=0,…,5.",
+          "The related complete multipartite comparator is described in the frozen record but its full text was not accessible. A connected bipartite graph in that class is complete bipartite.",
+          "The nested chain graphs can be constructed with three clique-width labels by keeping past A vertices separate from all accumulated B vertices and temporarily introducing each next A class. A weighted finite-state approach on such a construction is algorithmic overlap."
+        ],
+        "reasoning": "The primary counting paper covers intersecting tree cases, not arbitrary twin multiplicities with cyclic subgraphs. Generic weighted clique-width counting can compute a polynomial but was not shown to yield the two-frontier factored expression. Multipartite enumeration would cover p=1 only if its described scope is accurate.",
+        "searches": [
+          "arXiv:2610.00108v1 abstract, p. 1",
+          "Related catalog record 4a62f97e627e, Roman {2} complete multipartite enumeration",
+          "Structural comparison to bounded clique-width counting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00108v1, primary p. 1",
+        "DOI:10.1016/j.akcej.2020.01.005, access attempt and frozen description",
+        "Related catalog records e846e0fa619b and 4a62f97e627e, frozen descriptions and retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen dossier describes the chain-graph theorem of Padamutham–Palagiri as computing the minimum; the publisher source was inaccessible to this review. Two actual six-vertex examples with equal side sizes and minimum weight four have four and six minimum-weight labelings, respectively.",
+          "All-weight methods for trees/cycles do not extend by simple parameter substitution to arbitrary noncomplete chain graphs; for example, the current family includes classes with several copies of the same vertices' neighborhoods and arbitrary complete bipartite subgraphs."
+        ],
+        "reasoning": "The least nonzero degree cannot determine the enumerator, even with fixed side sizes. The formula gives an explicit non-exhaustive computation on a strictly different family from the inspected counting paper. No general prior explicit identity implying this one was verified.",
+        "searches": [
+          "DOI:10.1016/j.akcej.2020.01.005 (access attempt)",
+          "arXiv:2610.00108v1, p. 1 (counting scope)",
+          "Comparison of minimum versus complete polynomial, and ordinary Roman versus Italian defense"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roman {2} is equivalent to the Italian numeric-neighbor-sum condition; ordinary Roman requires a 2-neighbor instead. The cited ordinary Roman record could not be independently opened; its description in the frozen material is consistent with this distinction.",
+          "On P4 an internal zero with all other vertices labeled one gives a strict separation between the two conditions, even on a chain graph."
+        ],
+        "reasoning": "The same family with ordinary Roman labels does not imply the Italian polynomial. Roman {2} is, however, an exact alias and its all-weight outputs would be direct competition.",
+        "searches": [
+          "Primary literature lookup for all-weight Italian / Roman {2} domination polynomial on bipartite chain / Ferrers graphs",
+          "DOI:10.1016/j.akcej.2020.01.005",
+          "Related catalog record e846e0fa619b, ordinary Roman domination polynomial of chain graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local catalog access was unavailable, and neither of the two cited related record bodies could be checked. Their available descriptions point to different labeling rules or the boundary family. The accessible primary abstract does not present a table parameterized by chain class sizes."
+        ],
+        "reasoning": "An exact boundary entry or a table of paths/cycles can cover individual members but not the all-positive-multiplicity result. No exact prior parameterized table was established; the access limits are not negative catalog evidence.",
+        "searches": [
+          "Local published-catalog resource discovery",
+          "Catalog descriptors e846e0fa619b and 4a62f97e627e",
+          "arXiv:2610.00108v1 p. 1, all-weight outputs and explicit cycle coefficients"
+        ]
+      },
+      "rationale": "PASS for the corrected explicit zero-frontier identity for arbitrary positive multiplicities and p≥2, not for the Italian condition, a minimum-weight calculation, or the general ability to count by polynomial DP. Prior all-weight trees/cycles, ordinary Roman chain graphs, and the complete-bipartite boundary are material comparisons but do not give the claimed frontier sum based on the available evidence. The related earlier-record citations are retained by identifier without presenting broken URLs as sources independently verified. The change from p(p+1) to (p+1)^2 does not alter the identity or its claimed scope.",
+      "residual_risks": [
+        "The exact chain-graph minimum theorem and the two cited catalog bodies were not accessible for independent statement inspection. The actual extent of their coverage remains a limitation.",
+        "Another all-weight chain-graph formula under Ferrers, difference graph, or Roman {2} terminology, or a more general exact factorization, could cover the claim; the bounded search does not assert priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-weight DP overlap, restricted to paths, trees and cycles in inspected text",
+          "evidence": [
+            "The abstract says ‘of each possible weight’ for paths, trees and cycles and lists explicit d_I(C_n,2n−j) for j=0,…,5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00108v1",
+          "material_read": "Primary PDF p. 1, offsets 0–3533",
+          "method": "Bounded open-access full-text passage",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Same all-weight invariant on related graph classes"
+        },
+        {
+          "assessment": "Accessible description concerns minimum value; original theorem text was not verified",
+          "evidence": [
+            "Frozen RESULT.md §Relationship to prior work and AUDIT.json describe a chain-graph minimum (Section 4 / Theorem 7)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.akcej.2020.01.005",
+          "material_read": "Frozen bibliographic and theorem description only; independent publisher retrieval denied and no lawful copy identified",
+          "method": "OA retrieval attempt and inspection of frozen citation summary",
+          "title": "Complexity of Roman {2}-domination and the double Roman domination in graphs",
+          "trigger": "Same invariant under exact alias, same graph class"
+        },
+        {
+          "assessment": "If the stated ordinary Roman scope is accurate, the polynomial is different; full overlap not verified",
+          "evidence": [
+            "Frozen RESULT.md comparison describes each zero requiring a label-two neighbor."
+          ],
+          "identifier_or_url": "e846e0fa619b",
+          "material_read": "Frozen description only; the full cited record and alternate retrieval were unavailable",
+          "method": "Catalog access and same-record retrieval comparison",
+          "title": "Roman domination polynomial of chain graphs",
+          "trigger": "Same graph family and similar polynomial name"
+        },
+        {
+          "assessment": "Described as boundary overlap only (p=1 in this class)",
+          "evidence": [
+            "The cited complete multipartite family intersects connected nontrivial bipartite graphs only in complete bipartite graphs."
+          ],
+          "identifier_or_url": "4a62f97e627e",
+          "material_read": "Frozen description only; full cited record unavailable",
+          "method": "Catalog access and same-record retrieval comparison",
+          "title": "Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs",
+          "trigger": "Same weight distribution and an intersecting family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired identity gives the entire weight distribution for a natural graph class with arbitrary class multiplicities, including many cyclic examples, where knowing a minimum is not enough. The proof reduces feasibility on potentially many zero vertices to two weight conditions and compresses the count to (p+1)^2 product-and-truncation cells. The independently checked equal-minimum but unequal-coefficient examples illustrate concrete information beyond optimization. This is valuable as a direct structural formula, not a claim to the first general automatic counting algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

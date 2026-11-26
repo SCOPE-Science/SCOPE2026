@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:29:19.635560Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–124",
+        "Frozen VERIFICATION.md and verify.py, inspected and not run",
+        "Plank et al., arXiv:2604.10995v1, Eqs. (7)–(8) and Supplement S1.1"
+      ],
+      "rationale": "The source's factorization manifold gives exactly the stated planar flow. The square is forward invariant and an interior orbit cannot hit a face. At I=0, tau<4 rules out positive B equilibria and the origin has eigenvalues 203/437 and -2. On the infection nullcline the behavior-nullcline residual has opposite endpoint signs and (1-B)^2 h'(B) >= 15185/28800, giving exactly one endemic equilibrium. The stated Jacobian there has trace 8387/52440, determinant 1075/6992 and negative discriminant. A small outward-pointing quadratic level set excludes that repeller from the omega-limit of every other orbit. For L=I exp(-30B), the logarithmic derivative is at least (R-1)-(R+60)I. If L <= epsilon exp(-30), with epsilon=(R-1)/(2(R+60)), this is strictly positive. This yields a positive trajectory-dependent lower bound on I, then a lower bound on B; the upper-face bounds keep both variables below one. Hence every nonequilibrium interior orbit has a nonempty compact omega-limit set without equilibria and Poincare–Bendixson applies. Near q_c=1 the admissible nullcline interval ends at 203/(640 q_c), its slope bound persists by continuity on a fixed neighborhood of the original interval, the endemic repeller persists by the implicit-function theorem, and the log-barrier still holds since R q_c<3/2.",
+      "residual_risks": [
+        "The compact rectangle is trajectory-dependent. The conclusion does not assert uniqueness, hyperbolicity, or period of the cycle, quantify the q_c interval, or cover general four-compartment initial conditions off the factorization manifold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The low-tau discussion describes stable endemic behavior for the studied settings, not a theorem covering alpha=2, chi=1, and q_c=1. The supplement treats nullclines and transcritical/saddle-node bifurcations.",
+          "Supplement Fig. S3 also varies alpha, but still uses chi=0.2 and q_c=0.3, not the witness settings."
+        ],
+        "reasoning": "Knowing equilibria and their transcritical/saddle-node regimes is not enough to infer signs of the endemic Jacobian here or the required interior compact omega-limits. No covering theorem emerged from the inspected material.",
+        "searches": [
+          "Focused literature query for Plank complex behavioral contagion periodic orbits and oscillations",
+          "arXiv:2604.10995v1, low-tau discussion and Supplement S1.2–S1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.10995v1 including supplement",
+        "Local Resultary/SCOPE results and mirrored logit-slope record",
+        "arXiv:2610.03173v1, p. 1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source supplies the equations and equilibrium structure, but not the simultaneous uniqueness, repeller and persistence bounds at the witness. The logit record's Plank remark does not state those properties or the global conclusion."
+        ],
+        "reasoning": "Even a previously noted periodic trajectory would not imply the stated global alternative for all positive nonequilibrium trajectories or show continuation to q_c<1 in this regime. The analytic boundary and repeller exclusions are essential here.",
+        "searches": [
+          "arXiv:2604.10995v1, Eq. (8), low-tau discussion, and Supplement S1.2–S1.3",
+          "Resultary periodic SIS logit-slope record, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I=1-S on S_B=SB gives the same two-variable source model, not a different modeling assumption.",
+          "The nearby SIS–logit result instead has L(x,I)-x as its behavioral vector field, not quadratic social uptake."
+        ],
+        "reasoning": "The record makes a new dynamical claim within an existing exact reduction. A similar phase portrait in a different response-law family does not imply it.",
+        "searches": [
+          "Resultary semantic searches for the Plank complex-behavior SIS model and the rational parameter tuple",
+          "arXiv:2604.10995v1, Eqs. (7)–(8), Supplement S1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed theorem gives a similar all-interior periodic-limit result for logit response. Its prior-work section mentions periodicity for Plank, but gives no Plank witness or all-orbit theorem. The motivating arXiv:2610.03173v1 abstract concerns logit learning.",
+          "The inspected source simulations use different parameter tuples and do not give this exact witness."
+        ],
+        "reasoning": "The exact result is not an entry in the inspected parameter displays or the related indexed finding. The logit record's public-date metadata and the date of the source it studies do not settle priority for its mention of Plank.",
+        "searches": [
+          "Resultary searches for Plank, the explicit parameter tuple, and periodic SIS omega-limits",
+          "Resultary 2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f",
+          "Plank et al., arXiv:2604.10995v1, main simulations and Supplement Fig. S3"
+        ]
+      },
+      "rationale": "The same vector field is in Plank et al., but neither the inspected low-tau analysis nor its supplement covers this repelling endemic point and global periodic omega-limit result. A later catalog record mentions periodic solutions in the Plank reduction, without supplying the parameters or global conclusion; its proved theorem is for a different SIS–logit system. This decision credits that qualitative overlap, not novelty of behavioral oscillations in general.",
+      "residual_risks": [
+        "Ranked catalogue and focused literature searches are nonexhaustive. The logit record's Plank remark leaves priority for the bare assertion that periodic solutions exist unresolved; it does not establish coverage of the audited global theorem. The GitHub parameter defaults were not independently checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "The reduction is exact on the independence manifold. The relevant equilibrium analysis and parameter examples do not give the focus-and-persistence construction for the submitted regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.10995v1",
+          "material_read": "Main pp. 4, 8, Eqs. (7)–(8) and low-tau discussion; Supplement S1.1–S1.3, pp. 19–21; Fig. S3, p. 25",
+          "method": "Lawful open-access full PDF passages with supplement",
+          "title": "How complex behavioural contagion can prevent infectious diseases from becoming endemic",
+          "trigger": "Exact model, reduction and possible prior oscillatory regime"
+        },
+        {
+          "assessment": "QUALITATIVE_OVERLAP_NOT_COVERING",
+          "evidence": "The proof is for a logit adjustment law. The remark about Plank does not give a derivation, the witness tuple, or the global conclusion.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f",
+          "material_read": "RESULT.md Finding (offset 0), Relationship to prior work (4700) and references (8960); METADATA.json date fields",
+          "method": "Local Resultary index and mirror",
+          "title": "A sharp universal logit-slope barrier for epidemic oscillations, with periodic SIS witnesses",
+          "trigger": "Similar global periodic-limit theorem and a Plank-periodicity remark"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "The code retrieval timed out. The model and discussed numerical settings were checked in the paper and supplement; no inference of absence is made from the code access failure.",
+          "identifier_or_url": "https://github.com/michaelplanknz/behaviour_and_disease_SIS_model",
+          "material_read": "Repository identifier; getPar.m and myVectorField.m not independently retrieved",
+          "method": "Attempted lawful source retrieval",
+          "title": "Plank and McCaw model code",
+          "trigger": "Potential earlier numerical regime or parameter defaults"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Plank et al., Eqs. (7)–(8) and low-tau discussion"
+      ],
+      "rationale": "The witness identifies an autonomous periodic regime in the published two-variable model even when a positive-behavior disease-free equilibrium is absent. Showing periodic omega-limits for every nonstationary interior trajectory and persistence below full protection is materially stronger than showing a locally unstable equilibrium or plotting a cycle.",
+      "residual_risks": [
+        "This is deterministic model analysis, not a calibrated disease forecast, proof of a unique cycle, or general claim for all behavioral-feedback systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

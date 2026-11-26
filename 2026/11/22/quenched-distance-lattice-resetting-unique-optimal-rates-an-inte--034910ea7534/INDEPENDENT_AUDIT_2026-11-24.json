@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:48:56.188770Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed j the bounded reset-free Laplace transform solves (r+2)h_j=h_(j-1)+h_(j+1), h_0=1, so h_j=y^(-j). A cycle succeeds with probability h_j and has mean length (1-h_j)/r; renewal gives (y^j-1)/r. Tonelli after conditioning gives M=yA(y)/(y-1) even when infinite. The unit jump rates and the positive-rate change of variable r=(y-1)^2/y agree with this normalization. On 1<y<R, differentiating gives M'=N/(y-1)^2 and N'=(y-1)(2A'+yA'')>0 unless J=1 almost surely. Also N(1)=-E[J]<0 for R>1. Divergence of M at an excluded finite convergence edge, or at infinity for R=infinity and mass beyond 1, forces an interior crossing; a divergent endpoint derivative at finite A similarly forces a crossing. With A(R),A'(R) finite, their left limits give N(R), and N(R)<=0 (including equality) gives the attained boundary minimum, otherwise the strict interior minimum. R=1 leaves no finite positive rate; J=1 gives the unattained infimum 1. For the edge example the term at j=2 in N(2)/C is -1/256. Bounding the positive terms j=3,4 exactly and j>=5 by the decreasing j^(-5) tail gives 75859933/49766400000 < 1/256. For the rare-distance mixture N=-1+epsilon*P(y), with leading coefficient (K-1)q_K at degree K. The root diverges, r/y tends to 1, and the only leading terms of M-1 are 1/y and epsilon*q_K*y^(K-1), yielding both constants and the stated K=2 root. Independent replay /workspace/replay/03.py checked the rational edge sign and 40 finite-volume mean times via direct backward equations for the mean; finite-volume checks do not prove the infinite-support classification. Frozen checker inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartmann–Majumdar state fixed-site unique minima except at nearest-neighbor distance. García-Valladares et al. allow target distributions and spatial control but in a finite Brownian interval with resetting boundaries.",
+          "Resultary 15968fd75b83 analyzes every integer moment for one exponential Brownian target law. It gives a sharp moment-finiteness threshold and an interior mean optimum that lies on the second-moment threshold."
+        ],
+        "reasoning": "Broader control or higher-moment scope does not subsume all lattice distance laws, or optimization at an attained boundary of finiteness of the mean itself.",
+        "searches": [
+          "Hartmann Majumdar 2505.19903 equation (39) fixed reset site; distributed resetting fresh reset position; random fixed target stochastic resetting",
+          "arXiv:2505.16626 §II and §III Eq. (4)",
+          "Resultary 15968fd75b83, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.19903",
+        "arXiv:2410.01941",
+        "Resultary 15968fd75b83",
+        "arXiv:2507.14483v2",
+        "arXiv:2505.16626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (39) gives the fixed-site conditional mean; pointwise expectation and the geometric-series identity mechanically give M=yA(y)/(y-1). Individual minimizers do not determine the minimizer of an arbitrary mixture. The derivative one-crossing with boundary alternatives, explicit finite-at-edge witness, and inversion at a diverging rare-mixture root are further results.",
+          "In the continuum comparison the fixed-site behavior at vanishing separation or very high resetting differs: no positive nearest-neighbor jump-time limit at a unit lattice distance. Thus its averaged exponential target example does not give the balance between this lattice baseline and a rare finitely far class."
+        ],
+        "reasoning": "The prior formula is a credited input, not the novel claim. The all-law classification, mean-edge construction and top-support exponent with coefficient are the distinct structural conclusions.",
+        "searches": [
+          "arXiv:2505.19903 §V.A Eq. (39)",
+          "arXiv:2410.01941 PDF p. 2, target sampling and exponential law",
+          "Resultary 15968fd75b83, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evans–Ray fix a sampled target throughout each Brownian search and average the conditional mean. Translation/reflection interchanges this target formulation with a once-drawn initial/reset distance in homogeneous geometry, but does not interchange the continuum and lattice generators.",
+          "Julián-Salgado et al. state that successive resetting positions are independent; their renewal averaging uses an average success transform before division, not an average of reciprocal conditional success transforms."
+        ],
+        "reasoning": "The quenched formulation is not in itself new. Fresh-reset averaging does not establish the frozen optimizer; in particular it need not have a finite-positive exponential-moment edge for the population mean.",
+        "searches": [
+          "Resultary: fixed random target sampled once and immobile during trajectory, average first passage time over target distribution, reset rate optimization",
+          "Resultary: resetting locations independently redrawn at each reset event, distributional resetting renewal law, optimize mean absorption time",
+          "arXiv:2410.01941 PDF p. 2; arXiv:2507.14483v2 §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact nearby claims are the fixed-site formula with its degenerate nearest-neighbor case, and the indexed continuum example 15968fd75b83 with m*sqrt(r/D)<lambda and r_mean=D*lambda^2/4. Neither is the general lattice criterion, the power-geometric example, or the finite-support asymptotic."
+        ],
+        "reasoning": "This is a functional theorem over arbitrary countable laws, not an invariant with a standard sequence table. The exact formulas in the nearby claim database were checked, not treated as novelty evidence just because indexed matches are few.",
+        "searches": [
+          "Resultary: Hartmann Majumdar fixed lattice reset location equation (39) optimization starting site",
+          "Resultary: initial or reset distance is sampled once per trial and held fixed, quenched population mean first-passage time lattice; exponential moment integrability edge and rare finite support tail optimization"
+        ]
+      },
+      "rationale": "The fixed-site mean and point-mass optimizer are prior, averaging that mean is immediate, and a fixed random target is an equivalent quenched-distance protocol in homogeneous translation-invariant geometry. The exact all-law lattice optimizer criterion, a mean-optimal convergence endpoint, and the sharp finite-support contamination asymptotics survive the strongest comparisons. In particular the prior Brownian exponential-target example has an interior mean optimum at a variance threshold, not at the boundary of mean finiteness. Credit the continuum antecedent and distinguish the moments; no absolute historical priority is inferred.",
+      "residual_risks": [
+        "Christophorov DOI:10.1088/1751-8121/abc765 was identified through Hartmann–Majumdar, not inspected in primary full text here.",
+        "Bounded source and index checks cannot exclude less visible work on moment-generating-function optimization for immutable random lattice targets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior fixed-site identity and optimization; not the arbitrary-law lattice classification in the inspected passages",
+          "evidence": [
+            "Fixed-coordinate mean; unique minimum for |m_1|>1 and infimum 1 for |m_1|=1; credits Christophorov for the one-dimensional formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.19903",
+          "material_read": "§V.A Eq. (39) and adjacent text, p. 7, offsets 56847–60227; Ref. 16, p. 17",
+          "method": "Match jump rates, renewal law and fixed-site optimization against population mixture",
+          "title": "Diffusion with stochastic resetting on a lattice",
+          "trigger": "Same fixed-distance lattice reset process and optimizer"
+        },
+        {
+          "assessment": "Direct model-level antecedent with averaged continuum example, not the lattice optimizer theorem",
+          "evidence": [
+            "Target is sampled at the start and held fixed; resets are to the origin; exponential target-law average is calculated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.01941",
+          "material_read": "PDF p. 2, offsets 12400–18283",
+          "method": "Compare static-target averaging, exponential example and continuum versus lattice objective",
+          "title": "Stochastic resetting prevails over sharp restart for broad target distributions",
+          "trigger": "Same quenched-distance protocol in continuum form"
+        },
+        {
+          "assessment": "Meaningful continuum counterpart, not covering an attained mean boundary or rare lattice contamination law",
+          "evidence": [
+            "For Brownian exponential target distances moment m is finite iff m*sqrt(r/D)<lambda; optimum for the mean is D*lambda^2/4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-infinite-variance-at-mean-optimal-poisson-resetting-for-an-expon--15968fd75b83/RESULT.md",
+          "material_read": "Mirrored Finding and proof up to offset 7374, references near 7300–8728",
+          "method": "Check moment order and optimizer relative to the first-moment domain",
+          "title": "Infinite variance at mean-optimal Poisson resetting for an exponential target-distance law",
+          "trigger": "Indexed quenched-distance integrability and rate threshold"
+        },
+        {
+          "assessment": "Fresh resampling does not cover quenched population",
+          "evidence": [
+            "Successive reset locations are independently sampled from the distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.14483v2",
+          "material_read": "§II, p. 2, offsets 12714–17883",
+          "method": "Compare conditioning and renewal denominator",
+          "title": "Abrupt transitions in the optimization of diffusion with distributed resetting",
+          "trigger": "Stochastic resetting with distributed locations"
+        },
+        {
+          "assessment": "Quenched but different domain, walk and competing controls",
+          "evidence": [
+            "Finite Brownian box with target distributed within it and an averaged objective; homogeneous or spatial bulk rates and resetting boundaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.16626",
+          "material_read": "§II pp. 2–3, offsets 11442–16160; §III Eq. (4), p. 3, offsets 19442–24239",
+          "method": "Compare geometry, boundary resetting, target averaging and optimizing controls",
+          "title": "How target distributions shape optimal stochastic resetting",
+          "trigger": "Fixed random target and reset optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A common reset rate for a population with fixed but heterogeneous starting distances requires optimizing the averaged objective, not selecting each site's conditional optimum. The sharp finite-domain alternative shows when the optimal rate is forced against a boundary beyond which all population means diverge, and the exact rare-class exponent quantifies how a vanishingly small farthest class controls the optimal rate. These are independently useful finite-versus-infinite and sensitivity statements, not a restatement of a fixed-site mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

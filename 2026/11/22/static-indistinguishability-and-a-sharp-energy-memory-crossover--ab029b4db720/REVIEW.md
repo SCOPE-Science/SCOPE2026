@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The diffusion and reset generators are explicitly defined for both protocols; the sign state is symmetric and ergodic, diffusivities are strictly positive, and reset rate is positive. The stationary backward-age construction proves full joint one-time equality, not merely matching moments. The exact generator equations determine the common variance and the conditional-moment semigroup. The strict difference follows from an integral of a pointwise positive kernel, and asymptotics follow by explicit integration, including the degenerate boundary \(r=2k\). The reproducible checker tests symbolic generator identities and independently exponentiates the closed moment matrix at 80 parameter points. Numerical tests support but do not replace the analytic all-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+Conditional on the stationary last-reset age a, the free sign segment from the last reset to observation starts in equilibrium for each protocol, and position starts at zero. Its law together with the independent Brownian increments is identical, including the final sign. Mixing over Exp(r) gives equality of the full position–diffusivity law; the scalar characteristic function follows from the two-state Feynman–Kac resolvent. Full reset regenerates; for P the independent sign chains can be coupled to coalesce, followed by a shared position reset. All used moments are finite since the age has exponential tails and diffusivity is bounded. Independently, write J_a=∫₀ᵃ S_u du; conditional on the segment, position is centered Gaussian of variance 2da+2hJ_a. Stationary sign correlations e^(−2k|u−v|) give E[J_A S_A]=1/(r+2k) and E[J_A²]=2/[r(r+2k)] on averaging over A. Thus E[X²]=2d/r, E[X²S]=2h/(r+2k), and its squared-position variance is V as displayed. At lag t, the original squared position contributes e^(−rt)X_0² to conditional mean, and the noise injected at time u contributes conditional mean 2(d+h E[S_u|S_0])du times e^(−r(t−u)), the probability of no subsequent reset. Future resets after u are independent of the sign history up to u in both models. The sign mean is S_0 e^(−λu), with λ=2k for P and λ=r+2k for F. Centering and averaging yields the claimed convolution coefficient B. Its P-minus-F integrand has the additional positive factor 1−e^(−ru), while V,B>0. Evaluating the convolution gives the two rates, the t e^(−rt) term at r=2k, and all ratio asymptotics for r,k>0 and d>h>0. The supplied symbolic and matrix-exponential checker was inspected, not rerun; the path calculation is exact.
 
-The closest primary source is Bressloff (2020), DOI 10.1088/1751-8121/ab97e0, whose equilibrium-redraw (F) protocol and static NESS precede this result; neither the NESS itself nor the resolvent method is claimed original. The 2018 Grebenkov full-text section 3 treats switching-diffusion propagators and first passage, but not the two Poisson reset protocols. The 2020 Kumar–Sadekar–Basu full-text article discusses orientation/position interventions on active self-propelled particles; its fixed-orientation full reset is not the equilibrium-redraw hidden-diffusivity model here, and it does not derive the all-lag squared-position comparison. Lux (2024) derives switching diffusion transition estimation, but no reset-memory phase boundary. The published run-and-tumble resetting result *Static-state blindness and a sharp temporal-memory crossover under run-and-tumble resetting* was inspected in full: it obtains a closely analogous two-mode convolution for **linear displacement** under telegraph self-propulsion. Its conclusion does not apply as stated to a Brownian particle with **switching diffusivity** and the higher-order observable \(X^2\); in the present model a fourth stationary moment and a different generator must be evaluated. The similar proof template is an explicit residual originality/value risk, not concealed. This is a qualified self-review rather than proof of first discovery. The complete 2020 Bressloff article was not accessible; uninspected related theory could cover this calculation implicitly.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The hidden-environment issue in experimental time series creates a motivated identification gap: full stationary position–diffusivity measurements cannot distinguish protocols, but temporal fluctuations of local squared displacement can. The theorem supplies an exact robust sign separation at every positive lag and a sharp kinetic threshold at which the dominant memory time switches from reset controlled to environment controlled. The conclusion is an all-parameter classification rather than a parameter substitution or isolated computation; applications to practical finite-sample discrimination are not claimed.
+The stationary framework and the general phenomenon of static blindness with temporal separation are not new. The supported distinct result is the equality for these two interventions in a switching diffusion, with exact strictly ordered squared-position covariances and a critical r=2k energy-relaxation law. The strongest prior analogue uses a different transport mechanism and observable.
 
-## Closest literature and limitations
+## value
 
-- P. C. Bressloff, *Switching diffusions and stochastic resetting* (2020), DOI: 10.1088/1751-8121/ab97e0. Only the first-page publisher preview and abstract were accessible; risk of implicit temporal calculations remains.
-- D. S. Grebenkov, arXiv:1812.07249v1 (2018), accessible full-text HTML, relevant section 3 switching diffusion propagators and moment relations, without resetting.
-- V. Kumar, O. Sadekar, U. Basu, arXiv:2008.03294v1 (2020), full HTML sections on distinct resetting protocols for active Brownian swimmers.
-- T. Lux, DOI: 10.1007/s11222-024-10397-6 (2024), full HTML read, switching-diffusion Fourier likelihood estimators.
-- *Static-state blindness and a sharp temporal-memory crossover under run-and-tumble resetting* (2026), published full RESULT.md read, a close two-mode semigroup analogue with a different physical generator and observable.
+PASS
 
-All statements require symmetric positive switching, nonzero diffusivity contrast, a positive reset rate and Brownian forcing. The result concerns stationary squared-position memory, not dissipation or statistical power.
+Two physically interpretable reset interventions cannot be distinguished even by measuring the stationary joint position and diffusivity. The exact squared-position witness works at every positive lag and tells when the reset clock ceases to set the long-lag decay under retention, including the critical polynomial prefactor. It is more informative than merely finding that some transition statistics differ, and is not a finite-sample identification claim.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

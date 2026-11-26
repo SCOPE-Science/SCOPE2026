@@ -1,93 +1,67 @@
 # Almost mutually singular Gaussian mixtures with null Mann–Whitney and niche-overlap effects
 
 ## Finding
-Let \(\Phi\) denote the standard normal CDF and let \(\mathcal N(\mu,s^2)\) denote the normal law with mean \(\mu\) and variance \(s^2\). For every \(s>0\), define
+
+Let \(\Phi\) be the standard normal CDF and let \(\mathcal N(\mu,s^2)\) be the normal law with mean \(\mu\) and variance \(s^2\). For \(s>0\), define
 \[
-q_s=\Phi\!\left(\frac{1}{\sqrt2 s}\right)-\frac12,\qquad
-r_s=\Phi\!\left(\frac{3}{\sqrt2 s}\right)-\frac12,\qquad
-w_s=\frac{q_s}{q_s+r_s}.
+q_s=\Phi(1/(\sqrt{2}s))-\tfrac12,\qquad r_s=\Phi(3/(\sqrt{2}s))-\tfrac12,\qquad w_s=\frac{q_s}{q_s+r_s}.
 \]
-Consider the two probability laws
+Set
 \[
 F_s=\tfrac12\mathcal N(-1,s^2)+\tfrac12\mathcal N(1,s^2),\qquad
-G_s=(1-w_s)\mathcal N(0,s^2)+\tfrac{w_s}{2}\mathcal N(-2,s^2)+\tfrac{w_s}{2}\mathcal N(2,s^2).
+G_{s,w}=(1-w)\mathcal N(0,s^2)+\tfrac w2\mathcal N(-2,s^2)+\tfrac w2\mathcal N(2,s^2),\qquad G_s=G_{s,w_s}.
 \]
-Both have strictly positive real-analytic densities on \(\mathbb R\), are symmetric about zero, and are distinct; their variances are \(1+s^2\) and \(4w_s+s^2\), respectively, so the latter is strictly larger for every \(s>0\). For independent \(X\sim F_s\) and \(Y\sim G_s\), the Mann–Whitney functional \(\theta=\Pr(X<Y)\) and the median-split niche-overlap functional \(I_2\) used in Beck–Langthaler–Bathke's two-sample test satisfy **exactly**
-\[
-\boxed{\theta(F_s,G_s)=I_2(F_s,G_s)=\tfrac12\quad\text{for all }s>0.}
-\]
-The reverse-oriented niche-overlap functional \(I_1\) is also \(1/2\). Within the indicated three-component family with fixed \(s\) and variable outer weight \(w\in[0,1]\), the choice \(w_s\) is the **unique** weight with \(I_2=1/2\), and \(1/4<w_s<1/2\). Nevertheless, with \(d_{\mathrm{TV}}\) denoting total variation distance,
-\[
-\boxed{1-4\Phi\!\left(-\frac1{2s}\right)\le d_{\mathrm{TV}}(F_s,G_s)\le1,\qquad
-\lim_{s\downarrow0}d_{\mathrm{TV}}(F_s,G_s)=1.}
-\]
-Thus the null-effect fiber contains pairs of everywhere-positive smooth densities arbitrarily close to the maximal possible total variation separation. At \(s=0.1\), the rigorous lower bound is \(0.9999988533937125\). For every fixed \(s>0\), the published fixed-level Gaussian-ball joint test based solely on the pair of estimated functionals is not consistent against \((F_s,G_s)\): its rejection probability does not tend to one when both sample sizes grow in a fixed positive ratio. This does **not** imply any analogous limitation of omnibus tests using the entire empirical distributions.
+These laws have strictly positive real-analytic densities and are symmetric about zero. At \(w=w_s\) they have distinct variances, \(1+s^2<4w_s+s^2\), but their Mann–Whitney effect \(\Pr(X<Y)\) and **both orientations** of median-split niche overlap are exactly \(1/2\), for independent \(X\sim F_s\) and \(Y\sim G_s\). For every fixed \(s>0\), \(w_s\) is the unique \(w\in[0,1]\) giving null overlap in either orientation, and \(1/4<w_s<1/2\).
 
-## Assumptions and scope
-The two samples are independent, with iid observations within each group; all variables are real-valued. The median-split overlap functional is the one defined for continuous \(F,G\) with \(G\)'s median \(m_G\) by
+Nevertheless,
 \[
-I_2(F,G)=2\!\left(\int_{m_G}^{\infty}F(y)\,dG(y)-\int_{-\infty}^{m_G}F(y)\,dG(y)\right).
+1-4\Phi\bigl(-1/(2s)\bigr)\le d_{\mathrm{TV}}(F_s,G_s)<1,
+\qquad \lim_{s\downarrow0}d_{\mathrm{TV}}(F_s,G_s)=1.
 \]
-Here both medians are zero and their densities are positive. The first source in the references defines the functionals and its joint test. The theorem concerns **each fixed** \(s>0\), and then the separate limit \(s\downarrow0\) for total variation. It does not interchange the small-noise and increasing-sample-size limits. The entire family of mixtures is a theoretical set of alternatives, not a model for any particular dataset.
+Thus the supremum of total variation in the joint null-effect fiber is one even when restricted to strictly positive real-analytic densities. The displayed bound is approximately \(0.9999988533937125\) at \(s=0.1\).
+
+For the joint effect vector normalized as in Section 5.1 of Beck–Langthaler–Bathke's open preprint, a test using the radial Gaussian null cutoff at a fixed level \(0<\alpha<1\) is not consistent against these pairs at any fixed \(s>0\) when both sample sizes grow in a fixed positive ratio. This assertion specifies the radial calibration and does not concern other tests or a limit with \(s\) changing with the sample sizes.
+
+## Definitions and scope
+
+For atomless CDFs \(A,B\) with unique medians \(m_A,m_B\), write
+\[
+J(A,B)=2\left(\int_{m_B}^{\infty} A(y)\,dB(y)-\int_{-\infty}^{m_B} A(y)\,dB(y)\right).
+\]
+Thus the integral is with respect to the **second** argument and split at its median. With \(X\sim F\), \(Y\sim G\), the notation of arXiv:2311.17564v1, Definition 2.2, is \(I_2=J(G,F)\) and \(I_1=J(F,G)\). The statement about both effects does not depend on these labels. This overlap is a rank functional, not the integral of the minimum of the two densities. Total variation here is \(\sup_E|F(E)-G(E)|\). For the inference claim the samples are independent and observations are iid within each sample.
 
 ## Proof
-**1. Symmetric reduction.** Let \(F,G\) be atomless and symmetric about zero with strictly increasing CDFs. Then \(X-Y\) is symmetric and continuous, so \(\theta=\Pr(X<Y)=1/2\). Since \(G(0)=1/2\), symmetry yields
-\[
-I_2(F,G)=4\int_0^\infty F(y)\,dG(y)-1.
-\]
-For \(y>0\), \(2F(y)-1=\Pr(|X|<y)\); integrating against \(2\,dG(y)\), the conditional law of \(|Y|\) on the positive half-line, gives the exact identity
-\[
-\boxed{I_2(F,G)=\Pr(|X|<|Y|).}
-\]
-This is the *median-split niche overlap*, not the density-intersection overlap coefficient. Since both medians are zero, the reverse functional satisfies \(I_1=1-I_2\), either by integration by parts on the positive half-line or the known equal-median identity.
 
-**2. Folded-normal comparison.** For independent \(U\sim\mathcal N(a,s^2)\) and \(V\sim\mathcal N(b,s^2)\), \(V-U\) and \(V+U\) are independent normals, of means \(b-a,b+a\) and variances \(2s^2\). Consequently, writing
+**Symmetry and orientation.** Let \(F,G\) be symmetric about zero with positive densities. The distribution of \(X-Y\) is symmetric and atomless, so \(\Pr(X<Y)=1/2\). Since \(G(0)=1/2\), reflecting the negative-half integral gives
 \[
-p=\Phi\!\left(\frac{b-a}{\sqrt2s}\right),\qquad
-h=\Phi\!\left(\frac{b+a}{\sqrt2s}\right),
+J(F,G)=4\int_0^\infty F(y)\,dG(y)-1
+=\int_0^\infty (2F(y)-1)\,2dG(y)=\Pr(|X|<|Y|).
 \]
-we have
+Here \(2F(y)-1=\Pr(|X|<y)\) for \(y>0\), and \(2dG(y)\) on the positive half-line is the law of \(|Y|\). The corresponding reverse probability is \(J(G,F)=1-J(F,G)\) because the magnitudes have no ties. In particular, nullity of either orientation is equivalent to nullity of both for these families.
+
+**Gaussian evaluation.** For independent \(U\sim\mathcal N(a,s^2)\) and \(V\sim\mathcal N(b,s^2)\), \(V-U\) and \(V+U\) are independent: they are jointly Gaussian and their covariance is \(s^2-s^2=0\). Put \(p=\Phi((b-a)/(\sqrt2s))\) and \(h=\Phi((b+a)/(\sqrt2s))\). Then
 \[
 \Pr(|U|<|V|)=\Pr((V-U)(V+U)>0)=ph+(1-p)(1-h).
 \]
-Since \(|X|\) for \(X\sim F_s\) has the folded \(\mathcal N(1,s^2)\) law, this formula gives, for \(Y\sim\mathcal N(0,s^2)\),
+The absolute value of \(X\sim F_s\) has the same law as the absolute value of \(\mathcal N(1,s^2)\). At \(a=1,b=0\) the displayed formula gives \(A_s=1/2-2q_s^2\), and at \(a=1,b=2\) it gives \(B_s=1/2+2q_sr_s\). The sign of the center in the symmetric pair at \(\pm 2\) has no effect on its absolute value. Consequently
 \[
-A_s=\Pr(|X|<|Y|)=\tfrac12-2q_s^2.
+J(F_s,G_{s,w})=(1-w)A_s+wB_s=\tfrac12+2q_s\big[w r_s-(1-w)q_s\big].
 \]
-For \(Y\) drawn from the symmetric outer pair \(\tfrac12\mathcal N(-2,s^2)+\tfrac12\mathcal N(2,s^2)\), it gives
-\[
-B_s=\Pr(|X|<|Y|)=\tfrac12+2q_sr_s.
-\]
-The overlap against the three-component mixture with outer weight \(w\) therefore is
-\[
-I_2(F_s,G_{s,w})=(1-w)A_s+wB_s=\tfrac12+2q_s\bigl(wr_s-(1-w)q_s\bigr).
-\]
-Both \(q_s,r_s\) are strictly positive; hence the unique zero of the final parenthesis is \(w=w_s=q_s/(q_s+r_s)\). The function \(\Phi(t)-1/2\) is increasing and strictly concave for \(t>0\), so \(q_s<r_s<3q_s\). This implies \(1/4<w_s<1/2\). The limits \(w_s\to1/2\) as \(s\downarrow0\) and \(w_s\to1/4\) as \(s\to\infty\) follow from normal tail limits and differentiability at zero. The mixture densities are strictly positive and real analytic. Distinctness for every \(s\) follows directly by evaluating their characteristic functions at frequency \(\pi\): after factoring out \(e^{-s^2\pi^2/2}\), the respective values are \(-1\) and \(1-w_s+w_s\cos(2\pi)=1\). Their variances are \(s^2+1\) and \(s^2+4w_s\); since \(w_s>1/4\), the second is strictly larger.
+Since \(q_s,r_s>0\), this has a unique crossing at \(w_s\); the reverse orientation has the same unique null weight. Since \(t\mapsto\Phi(t)-1/2\) is increasing and strictly concave for \(t>0\) and vanishes at zero, \(q_s<r_s<3q_s\), so \(1/4<w_s<1/2\). Positivity and analyticity follow from the Gaussian densities and positive weights. Symmetry gives zero means, hence the variances are \(s^2+1\) and \(s^2+4w_s\) and are distinct.
 
-**3. Sharp total-variation supremum.** Let
-\[
-E=[-3/2,-1/2]\cup[1/2,3/2],\qquad \overline\Phi(z)=1-\Phi(z).
-\]
-Each of the two components of \(F_s\) is centered in one interval of \(E\), so \(F_s(E)\ge1-2\overline\Phi(1/(2s))\). Each of the three components of \(G_s\) is centered at least \(1/2\) away from \(E\), hence \(G_s(E)\le2\overline\Phi(1/(2s))\). By the event characterization of total variation,
-\[
-d_{\mathrm{TV}}(F_s,G_s)\ge F_s(E)-G_s(E)\ge1-4\overline\Phi(1/(2s)).
-\]
-The upper bound \(d_{\mathrm{TV}}\le1\) is universal, proving convergence to one. As the two densities are everywhere positive, equality \(d_{\mathrm{TV}}=1\) is not attained for any finite \(s\); the result is a **sharp supremum** within strictly positive real-analytic pairs.
+**Total variation.** Let \(E=[-3/2,-1/2]\cup[1/2,3/2]\) and \(u_s=\Phi(-1/(2s))\). For each component of \(F_s\), the interval of radius \(1/2\) centered at its mean lies in \(E\), so \(F_s(E)\ge 1-2u_s\). Each component of \(G_s\) has its mean at distance at least \(1/2\) from \(E\); thus \(G_s(E)\le 2u_s\). The difference gives the lower bound, and the integral of the pointwise minimum of the two densities is positive for finite \(s\), giving \(d_{\mathrm{TV}}<1\). The normal tail vanishes as \(s\downarrow0\), proving the supremum.
 
-**4. Consequence for the joint test.** With \(s>0\) fixed, the Gaussian mixture densities are positive and smooth, and the ratio \(f_s/g_s\) is bounded on the inverse image under \(G_s\) of every compact subinterval of \((0,1)\). Thus the regularity hypotheses of the joint empirical-process central limit theorem in Beck–Langthaler–Bathke apply when the sample-size ratio tends to a finite positive constant. Both population coordinates equal \(1/2\), so the centered and sample-size-scaled estimated effect vector converges to a finite centered Gaussian law, rather than diverging under the alternative. The null-calibrated joint test rejects outside a fixed nonzero-radius ball in this normalized plane; a centered finite Gaussian law always assigns positive probability to that ball. Therefore its asymptotic rejection probability is strictly smaller than one. This argument does not identify the exact alternative rejection probability and does not apply to a test based on additional features of the full empirical distributions.
+**Consequence for the fixed-level radial test.** Let \(n,m\) be the sample sizes from \(F_s,G_s\), with \(n/m\to\nu\in(0,\infty)\). Theorem 3.2 in the open preprint gives an asymptotically centered Gaussian law after scaling the estimation error of the two effect coordinates by \(\sqrt n\). The ROC integral \(\int G_s\,dF_s=\Pr(Y<X)\) is the complement of \(\Pr(X<Y)\) for continuous laws; both equal \(1/2\) here. Complementing the estimated first coordinate only changes the sign of that centered coordinate and does not change the radial statistic. The theorem's ROC-slope condition uses \(g_s(F_s^{-1}(t))/f_s(F_s^{-1}(t))\) on compact subintervals of \((0,1)\). This holds: \(F_s^{-1}\) sends any such closed subinterval to a finite compact interval, where the two densities are continuous and the denominator has a positive minimum.
 
-## Verification
-The standalone `verify.py` evaluates \(w_s,A_s,B_s\), directly integrates both CDF-based functionals and both mixture densities, and numerically integrates the total-variation distance for seven or more representative noise widths. Its assertions independently compare the direct integrals to the analytic identities and check the rigorous event bound. Run with `python verify.py` using Python 3 with NumPy and SciPy. These numerical checks are supplementary; the proof above establishes all parameter values without a finite-enumeration inference.
+The Section 5.1 null normalization is \(\sigma^2=(1/n+1/m)/12\); under distribution equality the centered vector divided by \(\sigma\) has a standard bivariate normal limit. For the radial implementation, reject when this normalized vector centered at \((1/2,1/2)\) has Euclidean norm greater than \(r_\alpha=\sqrt{\chi^2_{2,1-\alpha}}>0\). At the tuned alternative the population vector is still exactly \((1/2,1/2)\), and \(\sqrt n\,\sigma\to\sqrt{(1+\nu)/12}>0\), so the normalized vector converges to a centered finite Gaussian vector. Every centered Gaussian law has positive mass inside a ball of positive radius, even if its covariance is singular; a sphere of positive radius has measure zero for such a law. Therefore the rejection probability converges to a value strictly less than one. The assertion is about the specified radial rule and does not depend on the exact alternative covariance. It does not assert the same behavior for omnibus tests or the separate adjusted test of Section 5.2.
 
-For example, at \(s=0.1\), the checker obtains an integrated total variation of approximately \(0.999999022\), compared with the rigorous lower bound \(0.9999988533937125\). The exact effect equalities and supremum proof do not rely on this numerical integration.
+## Verification and prior scope
 
-## Relationship to prior work
-Beck, Langthaler and Bathke introduced inference combining the Mann–Whitney relative effect and an asymmetric niche-overlap functional, derived their joint asymptotic theory and explicitly noted that the resulting test is not omnibus (Section 5, Remark 6). Their Theorem 1 gives the attainable two-dimensional *effect range*, not the maximal statistical distance between pairs with exactly null effects. Their journal article's examples and appendices do not exhibit the present closed-form Gaussian-mixture null-effect family or its total-variation supremum. Parkinson-Schwarz and Bathke earlier studied testing via a niche-overlap functional, including an equal-median reciprocal identity, but did not establish the present mixture family or maximal separation. The folded-normal probability reduction and simple normal comparisons used here are classical ingredients; the claim is their exact joint-test null-fiber construction and sharp distance consequence, not a new Gaussian integral identity.
+The accompanying `verify.py` uses Python 3, NumPy and SciPy. It checks numerically at six specified positive widths: it integrates both orientations in the explicit \(J\) convention, the Mann–Whitney effect, and the total variation, and compares with the formulas and the event lower bound. These are finite quadrature diagnostics. The analytic arguments above prove the claims for every \(s>0\) and do not depend on the quadrature.
 
-## Limitations
-The two effects do not characterize distribution equality; that general fact is already acknowledged in the primary source. The contribution is the explicit **all-noise Gaussian mixture** tuning rule and the **maximal total-variation failure within regular strictly positive analytic densities**. The result does not prove that a permutation or omnibus two-sample test is inconsistent, does not give a finite-sample power expression for the source test, and does not assert a simultaneous \(s\downarrow0\), sample-size-\(\infty\) limit. Historical-priority assessment is based on the listed sources and targeted record/literature searches; older general observations about rank effects may overlap with the construction's mechanism.
+Beck–Langthaler–Bathke already identify their joint effects and the test's non-omnibus nature. Their effect-region theorem constrains the achievable effect coordinates, not distances between pairs with the same coordinates; the construction in their preprint's Appendix C uses uniform distributions to establish attainability. Parkinson-Schwarz–Bathke give earlier overlap-based tests. The distinct contribution here is the explicit all-width Gaussian mixture tuning and the total-variation supremum on this null-effect fiber in the everywhere-positive analytic class; equal-median reciprocity, asymptotic normalization and general non-omnibus behavior are not claimed as new. The literature comparison is bounded and does not establish historical priority.
 
 ## References
-1. J. Beck, P. B. Langthaler, A. C. Bathke, *Combining stochastic tendency and distribution overlap towards improved nonparametric effect measures and inference*, arXiv:2311.17564 (first public preprint 2023-11-29); *Scandinavian Journal of Statistics* 52 (2025), 1138–1175. https://arxiv.org/abs/2311.17564 ; https://doi.org/10.1111/sjos.12783 .
-2. J. H. Parkinson-Schwarz and A. C. Bathke, *Testing for equality of distributions using the concept of (niche) overlap*, *Statistical Papers* 63 (2022), 225–242; first published online 2021-05-26. https://doi.org/10.1007/s00362-021-01239-y .
-3. MSC2020 62G10, *Nonparametric hypothesis testing*. https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=62G20 .
+
+1. J. Beck, P. B. Langthaler, A. C. Bathke, *Combining stochastic tendency and distribution overlap towards improved nonparametric effect measures and inference*. Open preprint: [arXiv:2311.17564v1](https://arxiv.org/abs/2311.17564v1), Definition 2.2, Theorems 3.1–3.2, Sections 5.1–5.2 and Appendix C. Journal DOI: [10.1111/sjos.12783](https://doi.org/10.1111/sjos.12783).
+2. J. H. Parkinson-Schwarz, A. C. Bathke, *Testing for equality of distributions using the concept of (niche) overlap*, *Statistical Papers* 63 (2022), 225–242. [DOI:10.1007/s00362-021-01239-y](https://doi.org/10.1007/s00362-021-01239-y).

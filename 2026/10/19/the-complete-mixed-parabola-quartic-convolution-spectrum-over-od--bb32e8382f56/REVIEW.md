@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction to a monic depressed quartic is bijective for each target and bounds multiplicity by four. The first two factorial moments are exact by unique determination of the common target from any two distinct quartic parameters. The third and fourth factorial moments are computed using the explicit ternary quadratic form of determinant \(1/2\) and a complete equality-partition sieve. Its binary restriction has determinant \(2\); the double-pair and triple-equality patterns reduce to the nonzero square equations specified in the proof. Triangular inversion yields every count, with no asymptotic step. A standalone exact finite-field verifier reproduces all five populations and moments in 16 fields, including three proper extensions. The general result rests on the written proof, not those tests.
+PASS
 
-## Originality — PASS, best-knowledge
+The first coordinate leaves t=s-u, yielding the stated monic quartic in u. Any two distinct u give a unique common (s,y) because 2 is invertible, so the first two binomial moments are q^2 and binom(q,2). Vieta on three roots determines a fourth, possibly repeated, and requires Q=-1, where Q has ternary determinant 1/2; with a specified equality the binary determinant is 2. Thus the all-tuple counts are q^2+alpha q, q-beta and, at all equal, 1+gamma. Inclusion–exclusion gives D3=q^2+(alpha-3)q+2+3beta+2gamma. For four roots elimination yields the same Q; in the partition sieve the six single pairs, three double pairs and four triple equalities have weights -1,+1,+2 and counts q-beta,1+beta,1+gamma respectively. All equal is impossible. This yields D4=q^2+(alpha-6)q+11+9beta+8gamma. The moments D3/6 and D4/24, with the normalization and first two moments, invert to the five given counts, support size and energy. The stated Fourier factor q^-2 follows by unnormalized Parseval on F_q^2. N4=0 at q=5, N4=1 at q=7, and q^2-7q-6>0 beyond the next eligible order q=11. Independently enumerated actual ordered graph sums in seven prime fields and F_125 (irreducible X^3+X+1 over F_5), agreeing with every multiplicity count, including (5844,5228,3877,61,615) over F_125. Replay: python3 /workspace/reproduction/2.py; see 2.txt. Only the written finite-field argument establishes the formulas at all orders.
 
-Comparisons with the relevant theorem statements and sections of the open-access primary texts by González-Riquelme and Oliveira e Silva (arXiv:2405.16647), Nguyen's 2019 dissertation, and Lai–Marino–Robinson–Wan (arXiv:1910.05894) distinguish this complete mixed convolution census from prior self-surface extension estimates, a zero-target two-moment subset enumeration, and a higher-moment decision algorithm, respectively. Search results for quartic self-energy and fifth-power self-convolution describe different sets. No directly equivalent five-level count or stronger statement implying it was identified. There remains a concrete bibliographic risk that an explicit nonzero-target four-subset moment count exists outside the inspected literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The parabola and quartic are the first natural even-degree graph pair for which a mixed Fourier convolution can attain four representations. Although the second moment is insensitive to the quartic curvature, the **complete fiber histogram** has three independent quadratic-character corrections. The formulas yield exact sumset coverage and the sharp transition from no fourfold fibers at order five to their presence for every permissible order at least seven. The theorem is a complete natural arithmetic classification, not an isolated computational value or a mere Fourier-normalization restatement.
+Best-of-knowledge pass for exact all-field multiplicity distribution of the stated mixed graph pair, equivalently the specified quartic coefficient family. Earlier short-interval asymptotics, subset-sum sieves and Fourier counting backgrounds are not new. The energy alone is elementary and is not the basis of this originality decision.
 
-## Scope and residual risks
+## value
 
-The classification is for unweighted ordered representations in characteristic at least five. It does not claim a sharp bilinear extension operator norm or a classification of the physical locations of the fibers. General moment-subset-sum techniques may be adaptable; no independence beyond the documented self-review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full fiber distribution is a natural arithmetic input for mixed convolution and finite-field graph incidence questions. It separates field-dependent high multiplicities invisible to the pair-collision energy and determines both exact support size and the sharp first fourfold fiber. This is a uniform classification for all eligible finite fields, not an isolated recomputation or an assertion about weighted extension norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

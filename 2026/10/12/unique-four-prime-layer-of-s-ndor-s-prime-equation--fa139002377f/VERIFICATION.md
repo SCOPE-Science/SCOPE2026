@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,6 @@
   "schema_version": 1
 }
 ---
-The proof was checked algebraically in the stated domain of distinct odd primes \(p<q<r<s\). The two normalized-product bounds are exact rational inequalities; they reduce the least two primes to \((3,5)\) or \((3,7)\). The latter branch is impossible modulo \(3\), while the former reduces to the complete integer factorization \((r-16)(s-16)=235\). The bundled verifier replays these reductions and checks the survivor.
+# Reproducible checks
 
-The finite regression scan with the first three primes below \(500\) is auxiliary and is not used to prove the unbounded theorem. No claim is made about the variable-support conjecture for \(r\ge5\).
+Run `python3 verify.py`. This checks the exact rational bounds and evaluates every positive factor pair in the reduced equation. The negative-factor case is excluded by the inequality in the proof. The script checks the surviving tuple for the right-hand side five and its failure for the separately normalized totient–divisor equation.

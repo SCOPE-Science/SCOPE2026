@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification of the Haar spectral staircase
-The proof in RESULT.md is analytic, with the complete Walnut coefficients and all-real direct-integral chain decomposition explicitly exhibited. The standalone `verify_haar.py` was run from this package. Its stored stdout is `verification_output.txt`.
+# Independent mathematical audit
 
-The script computes the coefficient sums with exact rational arithmetic, checks positive-measure maximal-chain witnesses in rational samples, and constructs independent periodic-rational grids to check the path decomposition and maximal lengths. It cannot verify uncountably many real modulation parameters; that part is proved symbolically in RESULT.md. The central assumptions are the Haar half-open support, the squared-norm Gabor frame definition, and the `1/b` Walnut normalization. The case at critical density is not inferred by numerical extrapolation.
+## correctness
 
-The self-review passed; no independent audit or external validation has been performed.
+PASS
+
+With d=1/b and a=1/2, periodization of modulation coefficients gives the Walnut factor 1/b. Exactly two translates contribute to the diagonal; the b<=1 case has no off-diagonal overlaps. When a<d<2a, only shifts +/-d overlap, and the forward shift contributes -1 precisely when the residue t of the starting point lies below a-(d-a). Residues along a fiber advance by d-a mod a; edges are exactly the advances without a wrap. Each component begins at t0 in [0,d-a) and has ceil((a-t0)/(d-a)) vertices. The maximal length L=ceil(a/(d-a)) occurs on an open interval of positive length contained in the direct-integral base [0,d), also when a/(d-a) is an integer. The sine eigenvectors of the finite Dirichlet path give the extreme spectral values on these fibers, so the two bounds are truly optimal. The jumps follow from the one-sided ceiling change, the critical limit from L~2/(2-b), and the b=2 fiber is the bilateral discrete Laplacian divided by 2, with zero spectral infimum. This proof uses no rationality hypothesis.
+
+## originality
+
+PASS
+
+Credit is limited to the exact sharp spectral endpoints for the fixed half-translation slice in the overlapping regime, and their jump and critical laws. The qualitative frame set, the painless tight branch and the Jacobi eigensolve in isolation are not credited as new.
+
+## value
+
+PASS
+
+The half-translation equals the length of one Haar step and is a natural parameter rather than a fitted slice. The exact norm and conditioning on that lattice, discontinuous thresholds at noncritical densities, and the sharp constant determining instability near b=2 provide spectral information a frame-set criterion alone cannot give.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

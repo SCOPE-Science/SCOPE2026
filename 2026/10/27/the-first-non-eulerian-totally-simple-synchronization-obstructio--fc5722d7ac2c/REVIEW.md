@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every unordered local two-arc choice is encoded, all labeled graph codes are considered, and the lexicographic permutation-orbit minimum selects exactly one representative per isomorphism class. The forward subset-automaton test is exact. An independently written checker confirms every stored primitive graph, its canonical code and orbit, its exact stationary equation, all proper lumpability partitions and each coloring with a distinct pair-merger fixed point test. It reproduces four non-Eulerian obstruction representatives and the small-order negative cases. Completeness depends explicitly on executing the enumerator over the full \(inom{n+1}{2}^n\) universes, not on merely observing finite samples.
+PASS
 
-## Originality — PASS, limited to inspected evidence
+This PASS is for the revised five-vertex joint census and Eulerian frequency spectrum in repairs/2. The frozen non-Eulerian classification is also mathematically correct. The independent replay at python3 /workspace/audit_evidence/road.py covered the full target-pair code space by marking already visited isomorphism orbits, tested strong connectivity by transitive closure and period by enumerating simple directed cycles, generated partitions by merging blocks, and checked reset capability by forward pair searches. Pair mergeability for all pairs suffices because one can repeatedly shrink the current image. All 32 masks per representative include choices at parallel arc slots. This recovers the final four joint cells 448,22,442,308, and 18 Eulerian simple types split 4,8,6 by counts 24,28,30. The Eulerian observation in the repaired text follows from alternating two matchings in the 2-regular bipartite multigraph with source and target copies, giving a nonsynchronizing permutation coloring for n>1. Independent checks at orders 2–4 also recovered the frozen counts and no non-Eulerian obstruction; the one-state graph cannot be non-Eulerian. Exact rational stationary solves and full orbit enumeration at five checked all four originally displayed vectors, masks and orbit sizes. The repaired claim does not depend on interpreting that computation as formal verification or as a result at higher orders.
 
-The 2015 complete digraph-coloring census fixes marginal five-state counts but does not give the new joint totally-simple condition (introduced in 2026), four non-Eulerian five-state classes, their two stationary-vector spectra and exact coloring multiplicities, or the first possible order. The 2026 paper supplies a non-Eulerian witness with one stationary-vector pattern, but not this four-type classification. Actual record searches for the exact counts, terminology, PF vectors and non-Eulerian obstruction order found no dominating published claim. Residual risk is unindexed enumerations or inaccessible historical sources; originality is not certified by absence of a search hit.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural finite boundary for the structural comparison explicitly posed in 2026 between graph total simplicity and universal synchronization. The first non-Eulerian order, exhaustive four-type taxonomy and exact synchronizing-coloring proportions identify distinct spectral obstruction mechanisms beyond the existence of one example. The marginal counts alone do not imply this structure. The theorem does not purport to settle the unrestricted characterization problem.
+PASS only after the repair. The original minimum and complete non-Eulerian four-type spectrum FAIL originality, not merely on an indexed title: the October 13 automaton census supplies all the requisite representatives under a different definition of primitive. Filtering its actual transition table gives precisely the frozen graph types and restores their slot frequencies. The repair removes that claim of contribution and retains only the joint total-simplicity/synchronization partition and the exact Eulerian simple-type frequency census. Neither the prior synchronization marginals, the nonsynchronizing automaton table, nor the Eulerian counting identities supplies this partition or the distribution across all simple Eulerian representatives. The revised files make the distinction explicitly.
 
-## Closest prior work and remaining risk
+## value
 
-D'Angeli–Rodaro, arXiv:2607.17335 (definition, known examples, structural question); Gusev–Szykuła, arXiv:1508.02133 (marginal five-state census); Gusev–Pribavkina, arXiv:1511.09079 (stationary eigenvectors). External independent audit and a universal literature-completeness guarantee remain absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the revised claim, total simplicity is a structural constraint studied specifically in connection with total synchronization, including D’Angeli–Rodaro's characterization problem. The first size at issue for distinguishing non-Eulerian obstructions is a meaningful finite test bed. The joint counts measure the relation in the full primitive census rather than recounting the known marginals. The Eulerian subcensus distinguishes how severe the obstruction is within a natural structural subclass: failure of total synchronization is guaranteed in that subclass, but its exact frequency varies across three values. These results are useful beyond restating the four known non-Eulerian types. They provide no general characterization, and the prior non-Eulerian extraction alone would not justify this PASS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The spin-subset definition gives a direct three-term hub-state sum. Each reciprocal reduction is a symbolic identity. For \(K_{2,3}\), two strictly separated sign intervals force both roots of its reduced quadratic below \(-2\); the remaining factor supplies \(-1\). For \(K_{2,4}\), three strictly separated sign intervals force two roots of the reduced cubic below \(-2\) and one between \(-2\) and \(2\). The elementary mapping \(y=z+z^{-1}\) then proves every asserted zero location and multiplicity. The inequalities are strict for every real \(q>1\); no numerical extrapolation is used. An independent exact spin enumeration and symbolic checker also passes.
+PASS
 
-## Originality — PASS (same-model, with literature risk)
+Grouping by the number of occupied hubs gives Z=(1+q^2 z)^m+2q^m z(1+z)^m+z^2(q^2+z)^m; spin complement gives reciprocity and the constant term is 1. A separate exact enumeration of all 96 spin subsets for the two graphs confirmed both coefficient vectors, reciprocal reductions and five sign identities. For m=3, Z=(z+1)z^2 F3(z+1/z) and the monic quadratic F3 has signs +,-,+ at negative infinity, -q^3-q^2, -2: the last two values are -(q-1)^2(3q^3+5q^2+2q+1) and (q-1)^2(q+1)^2(q^2+5). The two distinct y-roots are below -2, and F3(-2) is nonzero so z=-1 is simple. For m=4 the monic cubic F4 in Z=z^3 F4(z+1/z) has signs -,+,-,+ at negative infinity, -q^4-q^2, -2, 2, with the finite values q^2(q^2-1)^3(4q^2+5), -2(q^2-1)^4 and 2(q^8+4q^6+22q^4+4q^2+1). Each interval gives a distinct root, exhausting its degree. The map back by z^2-yz+1=0 gives negative reciprocal pairs for y<-2 and a nonreal conjugate unit-circle pair for -2<y<2; all are simple since y=±2 is excluded in the reductions. This proves the uniform statement, rather than extrapolating finite q samples. At q=1 all roots coalesce at -1, outside the claim. VERIFICATION.md and verify.py were inspected, not executed; the supplied four sample classifications use floating interval midpoints after rational isolation and are corroboration only. The all-coupling certificate is algebraic.
 
-Primary comparison is at the level of implications, not titles. Degree-bounded zero-free-sector theorems do not count all zeros on these fixed graphs. Results for Cayley trees do not cover either cyclic complete bipartite graph. The negative-real theorem for line graphs does not apply to the claw-containing \(K_{2,3}\). Known lower-degree graph cases do not entail the \(K_{2,4}\) appearance of precisely one nonreal circular pair for every coupling. Searches of public research summaries and the accessible primary manuscripts did not reveal an identical complete classification. A more general polynomial-root theorem or uncatalogued small-graph calculation could subsume the statement; negative search results do not eliminate that risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first two noncycle, width-two complete bipartite cases provide a natural sharply neighboring test of antiferromagnetic Lee–Yang zero geometry. The transition is unexpectedly coupling-independent: adding one common neighbor transforms an entirely negative-real spectrum into one with a genuinely complex unit-circle pair for *every* finite antiferromagnetic coupling. This is a complete finite-graph classification with a reproducible algebraic witness, not a recomputation of a tabulated numerical sample. Its scope is limited to two graph orders, which is a scientific limitation rather than an extrapolated infinite-family claim.
+The supported distinct result is the exact fixed-graph census at every strictly antiferromagnetic coupling and the contrasting appearance of a circular pair after adding the fourth leaf. Reciprocal reduction, spin grouping, and real-zero methods are not claimed to be new. The checked primary results either impose inapplicable graph conditions, apply only over a coupling range, or concern sets of zeros pooled over graph classes.
 
-## Closest sources and limitations
+## value
 
-Closest inspected primary literature: Sedik et al. (arXiv:2309.14562; square lattice and mean-field curves); Peters–Regts (arXiv:1810.01699; bounded-degree sectors); Bencs–Buys–Guerini–Peters (arXiv:1907.07479; trees and broad zero loci); Bencs–Csikvári–Regts (arXiv:2012.00806; line graph real-rootedness); Lebowitz–Ruelle–Speer (arXiv:1204.0558; sufficient structural conditions). Neither an exact all-coupling classification for general \(K_{2,m}\) nor a statement for heterogeneous couplings is established here. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural neighboring pair of simple antiferromagnets changes its root type under a one-leaf addition, uniformly throughout the strictly antiferromagnetic regime. The result gives a usable finite benchmark for general zero-location conjectures and distinguishes a persistent effect from a sample-temperature artifact. It does not assert a threshold theorem for all complete bipartite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

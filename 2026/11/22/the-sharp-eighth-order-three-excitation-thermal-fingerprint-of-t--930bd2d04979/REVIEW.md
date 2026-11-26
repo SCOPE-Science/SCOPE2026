@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim concerns one exact 560-dimensional finite-dimensional Hamiltonian pair. Both base adjacencies satisfy \(A^2=4I+2J\), and all 560 three-subset states are indexed explicitly. A walk-counting recurrence proves \(\mathrm{Tr}(H^j)\) is the number of closed admissible \(j\)-step exchanges; one exhaustive standard-library integer implementation and an independently constructed integer sparse-matrix implementation reproduce the complete \(j=0,\ldots,8\) table. The first seven terms coincide and the eighth differs by exactly 2,193,408; the coefficient reduction is exact. No asymptotic numerical extrapolation is used.
+PASS
 
-## Originality: PASS on examined evidence; historical-priority risk remains
+The positive unit exchange on the three-excitation block is the symmetric adjacency on 560 three-subsets: each accepted edge move flips exactly one occupied bit and one empty bit, uniquely. Independently generated both Cayley bases on Z4² and lifted undirected edges by this bit transposition; checked degree six, two common base neighbors for each distinct pair, four-clique counts 8 and 0, and symmetric zero-diagonal token adjacency with 8736 directed entries. For each root computed rows of powers only up to H^4 and used the Frobenius product of H^k with H^(k-1) and itself for traces at 2k-1 and 2k. This exhaustive arbitrary-precision integer replay returns the shared traces [560,0,8736,17472,407040,2680320,39058944,437090304] and eighth traces 6117992448 (rook), 6115799040 (Shrikhande). Their difference is 2193408. Dividing by 560 times 8! gives exactly 17/175. Finite-dimensional exponentiation gives the entire series and analytic O(z^9) remainder; (-1)^8=(-i)^8=1, so both specified substitutions have the same leading distinguishing order and coefficient.
 
-Audenaert et al. (arXiv:math/0507251) already demonstrate that three-token spectra distinguish all tested strongly regular graphs; separation itself is prior art. Rudolph (arXiv:quant-ph/0206068) already exhibits level-three separation for other graphs. The 2010 two-boson study concerns a different Hamiltonian/observable. The present result is restricted to the *first separating power trace* and its explicit 17/175 normalized Taylor coefficient for this natural 16-vertex pair, absent from the directly examined relevant sections of these primary sources and from the examined 2024 token-spectrum study. An unindexed table could still contain it; that remaining risk has not been concealed.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The first nonzero high-temperature trace/thermal coefficient is a natural quantitative measure of the earliest many-body spectral distinction of two canonical adjacency-cospectral networks. Here exactly one and two excitations are spectrally blind by established results, three excitations succeed, and the first seven three-excitation moments are *still identical*. The sharp eighth-order cutoff and rational coefficient give a reproducible finite-network benchmark for short-time coherent and high-temperature responses, rather than a renamed parameter or an arbitrary numerical sample.
+The three-token sector is a known symmetric cube, and qualitative spectral distinction in that sector is not novel. The claim that survives is the first differing normalized trace coefficient being exactly 17/175 at order eight. Neither the strongest inspected symmetric-power computations nor the earlier same-pair Ising expansion determine that coefficient or the seven preceding cancellations for this Hamiltonian.
 
-## Scientific limits
+## value
 
-Only this pair, the 560-dimensional three-excitation sector, and unit exchange are covered. The coefficient is not a universal cutoff for all strongly regular graphs, nor a claim about every individual matrix element. Priority remains provisional pending wider independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rook/Shrikhande pair is the canonical strongly regular comparison, and the symmetric-cube block is a natural common setting for its known spectral distinction. The first unequal trace fixes the earliest distinguishability for the normalized high-temperature and short-time trace observables, including seven nontrivial-order tests of cancellation through order seven with order zero fixed by dimension. The exact order and coefficient answer a sharper question than the known existence of separation, and the matched Ising order does not make the quantum conclusion redundant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary Markov generator gives an independent triangular recursion for all even mixed moments. The resulting second-, fourth-, and sixth-position moments coincide symbolically with the primary literature. A direct bivariate rational identity establishes precisely two positive kurtosis branches in an explicit interval. Exact substitution in the normalized sixth-moment ratio produces a sixth-degree residual polynomial, whose sign over the entire relevant domain follows from a strict elementary coefficient bound. The two branches therefore separate for every positive parameter; endpoints and the coincident critical branch are handled explicitly. The scale-identification and absolute-clock obstruction follow by direct algebra. The standalone checker reproduces the critical exact identities.
+## correctness
 
-**Originality — PASS (self-review, qualified).** The primary 2023 reset-Brownian study already gives all forward moments, Kesten recursions and stationary scaling. They are expressly excluded from the new claim. Its inspected §4.2, §4.3 and Appendix E do not give the two-valued inverse-kurtosis classification, rational branch involution, or sixth-moment ordering. The closest 2023 inference study treats instantaneously applied Poisson shot-noise kicks, not a Brownian signal reset independently to zero. Work on resetting the particle itself addresses another generator. Comparison with accessible related findings did not reveal the same claim; broader unexamined inverse-moment results remain a publication-priority risk, and independent external audit has not been performed.
+PASS
 
-**Mathematical value — PASS.** The natural inverse question is whether low-order stationary observables distinguish the memory-to-relaxation ratio in an established exactly solvable active-particle model. The answer is unexpectedly no for kurtosis, with a complete twofold parameter ambiguity, but yes when one additionally observes the sixth moment. The exact branch ordering and scale-recovery formula are useful for observability and experiment design. The theorem is not a relabeling of a forward-moment calculation: it proves a sharp global inverse classification and an unavoidable stationary time-scale gauge.
+The stationary generator on x^p y^q has reset loss only for q>0. Normalizing time by r and position and driver by sqrt(D/r), I recovered the three forward moments by recursive symbolic evaluation (replay: python /workspace/branches/independent_moments.py, SymPy; output /workspace/branches/independent_moments.log). The exact fourth-moment cross difference is -2(b-c)(7bc+3b+3c-27). Its derivative and K-2=b(9-b)/((b+2)(b+3)) give precisely two positive preimages for 2<K<Kmax; the lower endpoint b=0 is excluded, K=2 occurs only at b=9, and the maximum has a single preimage. As an independent sign check, on distinct positive equal-K pairs write t=b+c; then 0<t<9 and both arguments satisfy x^2-t*x+(27-3*t)/7=0. Reduce the numerator and denominator of H to linear residues. The numerator of (H(b)-H(c))/(b-c), with the original positive denominator Q(b)Q(c), is 14256(t+5)^2(307760+63141t-290t^2-51t^3)/2401. Since 290t^2+51t^3<6741t, it is strictly positive. Thus the larger branch strictly increases H. A prescribed positive variance can be matched at either branch by adjusting s, so the ambiguity is real without m6. Once the branch is known, variance gives s; simultaneous rescaling of mu,r,D changes only the clock, not the stationary distribution. Neither statistical accuracy from samples nor separate recovery of all three rates is claimed.
 
-**Limits and risks.** Results assume ideal stationary population moments, Brownian driving reset to zero, Poisson events and harmonic confinement. Absolute \(\mu,r,D\) cannot be distinguished solely from stationary position statistics. Claims of numerical statistical stability, unknown source priority, or independent verification are not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact inverse folding and separation classification is distinct from the known model, scaling, and forward moments, which are excluded from the originality claim. No inspected equivalent or dominating result supplies the same classification; this is a bounded comparison, not certification of priority.
+
+## value
+
+PASS
+
+For an established exactly solvable persistent-noise model, the result identifies where variance and kurtosis genuinely fail to distinguish a memory ratio, and which next consecutive even moment resolves it uniformly over admissible positive parameters. The global ordering is usable for choosing between two moment-matched parameter sets, not just a new parametrization of a tabulated moment. The result is about population observability, not practical estimator conditioning or absolute parameter recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-order, exact two-level counting and characterization result. Each length-limited requirement includes all shorter factors. The single-position lower bound is absolute (both single-letter factors exist). The decisive local step is the exhaustive twelve-context comparison: the six length-three factors force two positions each covering three distinct triples, and only two of the eight complementary centered length-five pairs also cover both letters and all four bigrams. The list of twelve five-factors follows rigorously from the two parity offsets of the two-uniform substitution, so the table is exhaustive at every order. Exact pair-frequency recurrences yield the closed forms; there is no induction-to-infinity extrapolation from finite data. Direct factor-coverage enumeration agrees with the local criteria at orders through ten, and the five-factor frequency formulas are checked through order fourteen.
+PASS
 
-## Originality — PASS, with residual risk
+One position cannot cover both letters. For k=2, both positions must be interior to cover all four digrams; their incident digram sets force exactly the listed two context pairings, whose center letters differ. For k=3, covering six triples with two positions forces both centers to have three distinct incident triples. The even/odd substitution images of the six triples give the exhaustive twelve length-five contexts. The independent local check found eight pairs covering the triples: four have one letter and three digrams, two have two letters and three digrams, and exactly two have two letters and four digrams. The two-letter image boundaries give the stated four digram recurrences; their base at t_2 = 0110 and substitution induction give the even/odd count table. Each relevant triple comes from a unique pair and parity, and each relevant length-five context comes from a unique triple and parity; multiplying the two disjoint context pair contributions gives the exact unordered counts. The base cases t_3 and t_4 already contain the required contexts. An independent replay using binary digit parity and direct incident-substring sets matched the context pairs and counts through order 9; it corroborates, not replaces, the all-order argument.
 
-The 2026 papers of Banbara et al. and Faro–Marino–Pavone enumerate **unrestricted** minimum attractors (four positions for the specified Thue–Morse orders), not minimum attractors limited to length-two and length-three factors. Even the general all-factor coverage antichain of the latter paper cannot imply the claimed shorter-factor optimum, since long-factor obligations are absent here. The older Fuchs–Whittington work establishes complexity of \(k\)-attractor optimization on general inputs, rather than the special all-order spectrum. Targeted research-record, prior-claim and external-literature searches uncovered no exact counterpart; indexing gaps and the lack of a full reading of some older general papers remain residual priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The count of *minimum attractor sets*, not merely optimum size, is a fine-grained repetitiveness invariant motivating recent complete classifications. The two elementary but distinct cutoffs already have different all-order spectra: both admit two-position solutions, but the \(3\)-attractor population is asymptotically one quarter as large as the \(2\)-attractor population. Both are quadratic in \(N\), while unrestricted minima for the same source words are bounded in number (32 for orders at least six). This separates short-factor coverage flexibility from rigid global coverage and supplies explicit test families for length-limited attractor algorithms. The local classification is part of the value; a numeric count alone would be less informative.
+The contribution supported here is the exact Thue–Morse counts at both cutoffs and the length-five classification for k=3, not the binary two-position k=2 context test in isolation. A distinct same-day indexed record proves that local k=2 criterion for arbitrary binary words; it does not establish the Thue–Morse counts or the k=3 classification. No earlier exact coverage of the surviving contribution was found in the examined sources.
 
-## Closest literature and limitations
+## value
 
-See arXiv:2602.16152 and arXiv:2610.10950 for the canonical unrestricted case, and arXiv:2304.06523 for the general \(k\)-attractor problem. The theorem is limited to the canonical binary Thue–Morse iterates and the first two nontrivial factor cutoffs. It does not classify larger \(k\), nor arbitrary infinite-word factors. Formal external validation and a complete publication-priority check have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact enumeration of the optimizing position sets for two natural short-factor cutoffs reveals quadratic growth, in contrast to the eventual constant unrestricted count. Cutting off at length three retains asymptotically one quarter of the length-two optima, and the exhaustive local characterization explains which pairs survive. The solution provides counts and exact witnesses rather than only a complexity bound or small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

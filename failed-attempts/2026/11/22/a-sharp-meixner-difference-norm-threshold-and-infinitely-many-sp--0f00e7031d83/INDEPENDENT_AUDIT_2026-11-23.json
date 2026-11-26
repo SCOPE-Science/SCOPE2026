@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:22:31.828406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The density argument is valid: exponential moments and Cauchy–Schwarz give holomorphy of Σ w_k f(k) z^k for |z|<c^(−1/2); orthogonality to falling factorials makes its entire Taylor jet zero at 1. This yields full density and, by boundedness of the shift, γ_n increasing to the operator norm. The unitary diagonal weight change followed by alternating signs gives the claimed Jacobi matrix, including diagonal 1 at site 0 and 1+a²_(k−1) otherwise. Since the bonds tend to a=c^(−1/2), it is compactly equivalent to constant half-line coefficients, with sine-transform range [(a−1)²,(a+1)²]. For β≥1, all shift weights are ≤a, giving Γ≤1+a, with equality by the essential band. For β<1 the sine-block Rayleigh bound has the exact minimal diagonal gain (1−β)/[c(K+L+β−2)] and a band-edge loss 2a[1−cos(π/(L+1))]. At L=⌊K^(3/4)⌋ the gain dominates uniformly at large K. At least one vacant site separates blocks, annihilating all off-block form entries; min–max yields infinitely many eigenvalues strictly above the band. The first coordinate and the three-term recurrence give simplicity. At every β<1 the top eigenvector may be taken positive: taking absolute values cannot decrease the Rayleigh quotient, and a zero then propagates to neighbors. Strict coefficient comparison yields strict monotonicity below one. The endpoint limits follow from a₀−1≤Γ≤a₀+1 at β<1 and operator-norm convergence to the limiting constant shift as β→1. Density ensures some finite degree exceeds the edge in the strict phase and all larger degrees do too. The finite checker and verification note were inspected, not executed; its finite sections are in the sequence representation, and alone cannot prove the infinite count or the polynomial limit. No result for eigenvalues of Δ rather than Δ*Δ is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luef–Teschl, §2, Theorem 2.1 constant-bond application (2.9)–(2.11): for off-diagonal −1 and diagonal 2+W_n, limsup n²W_n<−1/4 gives oscillation and hence infinitely many eigenvalues below the essential spectrum (§1). A −g/n tail meets this criterion for every g>0.",
+          "The Resultary Bergman Coulomb result, Steps 4–5 (text offsets 4953–8850), proves the general half-line comparison for form −AΣ|∇u|²+Σ g|u_n|²/n and compares variable bonds converging to A and potential g/n+O(n⁻²) via min–max. It obtains the stronger ε^(−1/2) growth of the positive counting function.",
+          "Zlatoš' Coulomb Jacobi work (Theorem 1.2, PDF p. 3) is primarily a Szegő-condition comparison; that passage is not needed for the adverse judgment."
+        ],
+        "reasoning": "Subtracting the Meixner matrix from its upper essential edge reduces to a bounded positive gradient term minus an explicit attractive Coulomb tail. The older Kneser result applies by direct scalar-form comparison and the stronger local Coulomb lemma by the indicated coefficient substitution; this is more than an analogy between two concrete coefficient families.",
+        "searches": [
+          "Luef Teschl Kneser criteria finiteness number eigenvalues Jacobi operators essential spectrum discrete limit inf n squared theorem",
+          "Jacobi matrices Coulomb coefficients α/n β/n infinitely many eigenvalues above 2 discrete Jacobi upper band edge eigenvalue criterion discrete Coulomb Zlatoš Jacobi matrix",
+          "Local Resultary: Coulomb edge laws for Bergman and negative Dirichlet Jacobi matrices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Dimitrov–Nikolov arXiv:2007.04061",
+        "Luef–Teschl original PDF §§1–2",
+        "Sasaki arXiv:2310.04968 introductory passages",
+        "Local Resultary Bergman and Dirichlet edge records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let E=(1+a)² and δ=1−β>0. In E I−B_β the gradient-form coefficient is a_n, and the diagonal potential appears with a minus sign, −V_n with V_n=(a_(n−1)²−a²)+(a_(n−1)−a)+(a_n−a) for n≥1. Direct expansion gives V_n=(a²+a)δ/n+O(n⁻²). Let g=(a²+a)δ>0 and choose a bound M on the bonds. After deleting a finite initial segment (and disregarding finite-rank endpoint terms), E I−B_β is bounded above in form by MΣ|∇u|²−Σ g|u_n|²/(2n). Dividing by M gives the constant-bond Jacobi operator of (2.11) with W_n=−g/(2Mn); hence infinitely many negative eigenvalues for the comparison operator and by min–max for E I−B_β. Equivalently the general Coulomb comparison yields even the asymptotic coefficient g/(2√a) for the upper-edge count.",
+          "Finite-degree nonincrease was known. The threshold now follows from the covered outliers and known upper bounds plus the constant-tail band. Simplicity follows from Jacobi recurrence; strictness below one follows by testing the larger coefficients against the positive isolated top eigenvector; the endpoint comparison adds no new spectral mechanism. §7 of Dimitrov–Nikolov raises polynomial density; the record gives a direct exponential-moment analytic proof rather than a new difficult density theorem."
+        ],
+        "reasoning": "The nontrivial infinite-count assertion is a mechanical instance of a stronger prior theorem, even without a printed subcritical Meixner spectrum. Explicit coefficient comparison resolves the closest broader claims, whereas a generic appeal to finite-section results alone would not have done so.",
+        "searches": [
+          "Luef–Teschl original PDF Theorem 2.1, Eqs. (2.9)–(2.11), and oscillation interpretation in §1",
+          "Bergman Coulomb original RESULT.md Steps 3–5",
+          "Dimitrov–Nikolov Theorems 1.1, 1.3 and Remark/Comments §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dimitrov–Nikolov use exactly the Meixner forward difference and sequence spaces, give equivalent finite-degree singular-value formulations through reciprocal finite Jacobi eigenvalues, and prove the β=1 limit. Theorem 1.3 gives the matching sequence upper bound at all β≥1, not a lower bound for all nor subcritical upper outliers.",
+          "The Sasaki birth–death rates β+Σ x_i and c_j^(−1)x_j define a different second-order operator; it is not a direct identity for the singular square of this first-difference operator."
+        ],
+        "reasoning": "The older finite-degree and sequence problem is exactly the same, while the two displayed Jacobi representations should not be equated entrywise. The essential band and the infinite count have to be checked at the half-line level. A different Meixner operator name alone gives no coverage.",
+        "searches": [
+          "Dimitrov–Nikolov arXiv:2007.04061, Theorems 1.1, 1.3, 4.1 and Section 7",
+          "Sasaki arXiv:2310.04968 abstract and introduction",
+          "Resultary semantic search for Meixner difference norm and equivalent Jacobi spectral outliers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Meixner match is the assigned record itself. Distinct catalogue hits include Bergman half-power 0752f3718434, Bergman Coulomb law b8745f13efaa and Dirichlet Coulomb law 15d9b643524f; the specific coefficients and cutoff parameters differ.",
+          "The published β=1 limiting constant is exactly the same, while the β<1 number of spectral outliers is not an exact table entry found for these coefficients."
+        ],
+        "reasoning": "No distinct exact same-formula index hit beyond the published β=1 equality is required for this decision. The meaningful overlap with the Bergman law is its general comparison lemma, not equality of the indexed concrete examples or their dates.",
+        "searches": [
+          "Local Resultary searches for exact threshold β=1 and infinitely many simple outliers for the Meixner difference",
+          "Dimitrov–Nikolov Theorems 1.1 and 1.3 for exact constants"
+        ]
+      },
+      "rationale": "The main measured gap is already covered by the same Meixner problem's bounds plus an established stronger Jacobi edge criterion. In particular, a concrete reduction to the constant-bond Kneser criterion of Luef–Teschl gives infinitely many upper outliers in the whole strict phase; details below. The Resultary Bergman analysis also proves a general discrete Coulomb comparison and transfer method covering even the growth of the number of such outliers, without relying on same-day order. The paper of Dimitrov–Nikolov does not itself print the exact β<1 phase classification. The analytic density bridge and elementary positivity and norm comparisons are correct, but do not supply an independent substantial finding avoiding these implications.",
+      "residual_risks": [
+        "This does not identify who first printed the complete Meixner phase diagram or the polynomial density argument.",
+        "The literature searches were bounded; the decisive evidence is a concrete reduction to an inspected stronger theorem, not search absence or same-day chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication by gradient-form comparison and sign reversal at the upper edge",
+          "evidence": "With a(n)=−1 and reference diagonal 2, a perturbation satisfying limsup n²W_n<−1/4 gives oscillation (infinitely many below the bottom edge).",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~gerald/ftp/articles/NevJac.pdf",
+          "material_read": "§1, and §2 Theorem 2.1 and its constant-bond application (2.9)–(2.11), PDF pp. 1–3",
+          "method": "Open-access author-hosted original PDF",
+          "title": "On the finiteness of the number of eigenvalues of Jacobi operators below the essential spectrum",
+          "trigger": "Stronger general discrete edge criterion covering an attractive 1/n potential"
+        },
+        {
+          "assessment": "Same norm; exact β=1 result, bounds for other parameters, finite monotonicity; no printed infinite outlier statement in examined passages",
+          "evidence": "Theorem 1.3 gives Γ≤1+c^(−1/2) for β≥1; Theorem 4.1 parameterizes finite best constants via reciprocal smallest Jacobi eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.04061",
+          "material_read": "Theorems 1.1, 1.3, 4.1; (4.5)–(4.7) and §7; PDF pp. 3–4, 8–9, 13",
+          "method": "Open-access original PDF passages",
+          "title": "A discrete weighted Markov–Bernstein inequality for polynomials and sequences",
+          "trigger": "Identical Meixner forward-difference norm and finite spectral characterization"
+        },
+        {
+          "assessment": "Different principal operator but direct general lemma and min–max transfer; no chronology inferred from date",
+          "evidence": "The comparison form with constant bond A and potential g/n has limiting count √ε N(ε)=g/(2√A); the same proof sandwiches asymptotically constant bonds and O(n⁻²) deviations from that potential.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-half-power-spectral-transition-and-coulomb-edge-law-for-berg--b8745f13efaa",
+          "material_read": "Finding and Steps 3–5, text offsets 4400–9200",
+          "method": "Local Resultary mirror",
+          "title": "The half-power spectral transition and Coulomb edge law for Bergman Toeplitz perturbations",
+          "trigger": "Closely related same-date band-edge claim with a potentially stronger transferable lemma"
+        },
+        {
+          "assessment": "Different model in inspected passages",
+          "evidence": "State-dependent birth and death rates define a second-order generator, not the constant first difference or its squared singular operator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04968",
+          "material_read": "Abstract and introductory rate formulas, PDF pp. 1–2",
+          "method": "Open-access original PDF passages",
+          "title": "Multivariate Meixner polynomials as Birth and Death polynomials",
+          "trigger": "Possible equivalent Meixner Jacobi operator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Meixner norms are a natural object and the finite-to-infinite bridge is pedagogically useful. But the asserted narrow exact cutoff and the infinite-outlier part are mechanically implied by the published Meixner bounds and the existing general edge criterion once the elementary coefficients are written down. The record supplies no outlier positions, counts beyond infinitude, new coefficient regime, or nonroutine density result that survives independently as a worthwhile unknown exact fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

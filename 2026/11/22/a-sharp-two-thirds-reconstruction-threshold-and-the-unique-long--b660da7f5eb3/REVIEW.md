@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reconstructed proof partitions marker separations at the read length. For a long separation, the one-bearing reads recover disjoint endpoint intervals. For a short separation, the two-bearing reads reveal the separation and a clipped interval; its only possible plateau is resolved by a one-bearing positional sum unless the separation equals the number of reads. The exceptional equal-gap plateau has an identical complete multispectrum, giving the exact count. A period-based construction supplies confusable words at every smaller read length, with the bigram boundary handled separately. The two included independent enumeration checks agree in all tested cases; the universal claims follow from the proof, not the experiments.
+PASS
 
-## Originality — PASS against inspected evidence
+The frozen interval argument recovers the two positions directly if their separation is at least k. Otherwise two-one reads give the separation d and force a unique position except on the stated plateau; within that plateau the sum of offsets of single-one reads changes by r−d per unit shift, and at d=r the offset multisets themselves are constant. An independent replay uses the sum over reads of the unit vectors for their (k−1)-prefixes minus those for their (k−1)-suffixes. It telescopes to the prefix-minus-suffix of the whole word. If nonzero, it gives both ordered ends, which cover the word because k>r implies 2(k−1)≥n. If zero, the word has period r. Here n≥2r, so a period-r word of weight two has one nonzero residue containing exactly two positions; those phases are precisely n−2r≤a≤r−1, and changing the phase permutes the r read starts. Thus the potential fiber has size max(0,3r−n), with a collision only when size is at least two. The injectivity cutoff is k≥ceil((2n+2)/3), within the long regime for n≥5. For all shorter k≥3, valid two-copy phases are max(0,n−2r)≤a≤min(r−1,n−r−1). There are at least two phases: if n<2r the upper endpoint is at least one, and otherwise the count is 3r−n≥2. At k=1 all words collide, and at k=2 the stated pairs (0,2),(0,3) have equal bigram counts. No monotonicity of single-length reconstruction is assumed. Replay: RESULT.md lines 31–73; inspected scripts and captured outputs corroborate only their finite test domains. The conclusion is in-class, linear, ordered within reads, and multiplicity-sensitive.
 
-The inspected contiguous-\(k\)-mer spectrum-preserving string-set article optimizes set representations and does not classify inverse multiplicity fibers. The inspected recent fixed-weight reconstruction article uses scattered-subsequence decks, not contiguous reads; the earlier periodic fragment paper likewise samples subsequences. The closest indexed exact two-marker result concerns fixed three-gram reads, and the closest all-length cyclic result concerns powers of two-run words. Neither implies the in-class linear long-read fiber theorem or sharp all-length threshold. Residual risk: an independently published general reconstruction theorem, unindexed thesis, or accessible secondary treatment may contain this special case; originality is not an independent historical certification.
+## originality
 
-## Value — PASS
+PASS
 
-The number of reads required for unambiguous reconstruction is fundamental to assembly and substring fingerprinting. The result supplies the entire nontrivial fiber structure in a natural low-weight family, the exact available zero-error code size in the long-read regime and a sharp two-thirds reconstruction transition; it also isolates the unique periodic cause of ambiguity instead of giving only a sufficient read-length bound.
+The distinct supported contribution is the exact weight-two long-read fiber and spectrum count, plus the first length that is identifying with a witness at every shorter length. Periodic phase collisions, degree balance, and the column-marginal rigidity method are not new. A closely related same-day result gives a general residue-chain observation and its application to weight three; it is strong method-level overlap but does not supply a full fiber classification or an all-shorter-length result for weight two. No containing exact theorem was established in the sources inspected.
 
-## Scientific scope
+## value
 
-Reads are contiguous and oriented, their multiplicities retained, with two ones known a priori. No general-alphabet, other-weight, or noisy-channel generalization is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact fiber tells not only when length alone permits reconstruction, but precisely which two-marker placements fail and how many indistinguishable source words each ambiguous observation represents. Separately certifying every earlier length is important for one-length observations, where longer read spectra need not directly encode the shorter multiset including its end effects. The two-thirds cutoff and recurrence of the same phase mechanism in all short ranges are structurally useful beyond a small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:08.958321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70, especially the balance and endpoint optimization; VERIFICATION.md and verify.py (read only)",
+        "Independent secant and square-identity proof of the bound and equality conditions",
+        "Adam-SHANG v1 §2 for the one-step condition's interpretation"
+      ],
+      "rationale": "Balance gives q=E p, with uniform empirical averaging, and the oppositely ordered pairwise products give (E p)(E p⁻²)≥E p⁻¹, strict for nonconstant spectra. The upper bound can be checked without the variational argument: after scaling to p∈[1,κ], fix the mean of X=1/p. Both x↦1/x and x↦x² are strictly convex. Their secants on [1/κ,1] bound their expectations by those of the same endpoint law with that mean, strictly if the spectrum has any interior mass. Both moments are positive and the denominator E X is fixed. With κ=t²>1 and smaller-p endpoint mass u, the endpoint objective is F=1+C u(1−u)/D, where D=1+(t²−1)u and C=(t²−1)²(t²+1)/t². The identity D−(t+1)²u(1−u)=[1−(t+1)u]² proves the sharp formula and unique optimizer u=1/(t+1). This u is realizable by an equal-weight finite multiset exactly if t is rational; otherwise approximate u by rational frequencies with both endpoints present to keep κ exact. At κ=1 the ratio is identically one. The stationary update identity holds with c=1/γ and α>0 for the unregularized frozen model; it establishes no stochastic trajectory claim.",
+      "residual_risks": [
+        "Sharp across finite dimensions, not necessarily in any prescribed dimension; model is unregularized and balance is assumed, not a dynamic prediction. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected operator inequality gives a first-moment times inverse-first-moment bound. The inspected majorization theorem gives products of averages of a power and a shifted inverse power. Watson's abstract presents a method for bounds on functions of three commuting quadratic forms; it could apply in principle, but no sharp formula or relevant specialization was recovered."
+        ],
+        "reasoning": "No inspected exact theorem supplies the required division by the inverse first moment and its optimizing frequency. A general methodology is not automatically an exact bound; Watson's actual examples could still matter.",
+        "searches": [
+          "Sababheh et al. arXiv:1911.12915 Eq. (1.3)",
+          "Shiy–Wang–Fu AMEN-A220907 Theorems 2 and 6",
+          "Watson 1987 commuting-Hermitian Kantorovich-type inequalities"
+        ]
+      },
+      "checked_sources": [
+        "Adam-SHANG v1 §2 and Appendix C",
+        "arXiv:1911.12915v2 Eq. (1.3)",
+        "AMEN-A220907 Theorems 2 and 6",
+        "Resultary 36648ef4c043"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adam-SHANG proves only q≥T under similar coordinate ordering. Secants give an endpoint reduction for the balanced model, but the exact result still optimizes the weighted rational function of the endpoint mass, which fixes the sharp factor and the rationality criterion."
+        ],
+        "reasoning": "The sharp loss is not a rescaling of the lower comparison or a formula from the inspected products-of-averages theorems. Neither the standard convexity tool nor the fact of an endpoint spectrum on a different objective already fixes this optimum.",
+        "searches": [
+          "Yu–Chen–Feng arXiv:2605.12878v1 Lemma 2.2 Eq. (9), Appendix C",
+          "Check direct substitutions into the classical and generalized Kantorovich statements above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With X=1/p the target is E(1/X)·E(X²)/E X, the ratio of ordinary arithmetic and negative-order Lehmer means in p. The classical Kantorovich quantity is E(1/X)E X.",
+          "At κ=4 the target's optimizer gives 9/4 versus 25/16 for the classical bound, so conflating the two constants would be false."
+        ],
+        "reasoning": "Changing to inverse moments or a tilted distribution does not turn the target into a classical Kantorovich product under one common law. The two means being ordered is standard, but the sharp upper quotient is distinct.",
+        "searches": [
+          "Resultary balanced diagonal q/T, inverse trace and condition number",
+          "Reverse Chebyshev quotient, arithmetic-to-negative-order Lehmer mean, generalized Kantorovich and normalized three moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest structural match optimizes Rademacher Hutchinson relative variance, with endpoint multiplicity near n/(κ+1), not the balanced q/T objective or its 1/(1+√κ) frequency."
+        ],
+        "reasoning": "Endpoint support and an overlapping condition-number parameter do not identify the objective or the sharp constant; date gives no priority inference.",
+        "searches": [
+          "Resultary sharp trace-ratio loss and endpoint extremizer under a prescribed condition number",
+          "Same-day exact finite-dimensional condition-number envelope for Hutchinson, 36648ef4c043"
+        ]
+      },
+      "rationale": "Credit the sharp quantitative upper loss and its optimal finite-spectrum frequencies for the balanced trace surrogate. The lower ordering, the notion of a Lehmer mean, and the method of using secants for convex moments are standard. The inspected sharp Kantorovich inequalities bound different moment expressions and the original adaptive-method analysis does not supply this upper bound. Watson's broad method is the closest remaining full-text risk; its available abstract does not establish an exact specialization, so the pass is limited to the statements compared.",
+      "residual_risks": [
+        "Watson's exact treatment of the three-moment quotient could not be checked in the full text. An equivalent bounded Lehmer-mean inequality under different terminology remains possible; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the lower ordering, not the sharp upper loss",
+          "evidence": "Gives q_k≥Tr(P_k⁻¹)/Tr(P_k⁻²) under coordinatewise similar ordering by weighted Chebyshev.",
+          "identifier_or_url": "https://arxiv.org/html/2605.12878v1",
+          "material_read": "§2 Assumption 2.2, Lemma 2.2 Eq. (9), Appendix C, offsets 15600–18167 and 67000–70499",
+          "method": "OA primary HTML passages",
+          "title": "Adam-SHANG: A Convergent Adam-Type Method for Stochastic Smooth Convex Optimization",
+          "trigger": "Source of the exact ratios and their comparison"
+        },
+        {
+          "assessment": "Different moment product",
+          "evidence": "The unital-positive-map inequality has sharp coefficient (M+m)²/(4Mm) multiplying the inverse of Φ(A), not a ratio of Φ(A⁻²) and Φ(A⁻¹).",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.12915v2",
+          "material_read": "p. 2 Eq. (1.3), offset 4496",
+          "method": "OA PDF passage",
+          "title": "A Note on Kantorovich and Ando Inequalities",
+          "trigger": "Classical or operator sharp constant as a possible substitution"
+        },
+        {
+          "assessment": "Related but not an exact quotient bound here",
+          "evidence": "Theorem 6 uses products of x_i^p averages and (λ+x_i)^(−p) averages under its parameter restrictions.",
+          "identifier_or_url": "https://www.math.nthu.edu.tw/~amen/2023/AMEN-A220907.pdf",
+          "material_read": "Theorems 2 and 6, pp. 2 and 7–8, offsets 4200–6676 and 24100–27080",
+          "method": "OA PDF passage inspection",
+          "title": "Generalizations of Kantorovich’s Inequality Induced by Majorization Theory",
+          "trigger": "Broader sharp sequence inequalities for bounded spectra"
+        },
+        {
+          "assessment": "Material unresolved antecedent; no negative inference from access failure",
+          "evidence": "Abstract describes Kantorovich-type bounds on f(z*Az,z*Bz,z*Cz) for commuting Hermitian matrices. Taking A,B,C with diagonals p,p⁻²,p⁻¹ and f(a,b,c)=ab/c fits the method's general setting; whether the sharp formula is already derived is unverified.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0024379587901509",
+          "material_read": "Indexed abstract only; no full text successfully read",
+          "method": "OA retrieval attempted from publisher page, official PDF and identified CORE mirror; access refused",
+          "title": "A Method for Discovering Kantorovich-Type Inequalities and a Probabilistic Interpretation",
+          "trigger": "General three-argument function of commuting quadratic forms includes this diagonal moment setting"
+        },
+        {
+          "assessment": "Different objective, not exact coverage",
+          "evidence": "Optimizes trace-estimator relative variance and selects endpoint count near n/(κ+1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-dimensional-condition-number-envelope-for-hutchinso--36648ef4c043",
+          "material_read": "RESULT.md Finding from offset 250",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-dimensional condition-number envelope for Hutchinson",
+          "trigger": "Structural match on condition-number-controlled endpoint spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope, and stationary-feedback realization",
+        "Adam-SHANG v1 §2, Lemma 2.2 and Appendix C"
+      ],
+      "rationale": "Perfect balance is a natural model because it is the frozen fixed-point relation of the unregularized adaptive preconditioner, not a slice chosen merely to fit a calculation. In this regime an input to a learning-rate sufficient condition can underestimate its allowable ratio by a factor growing linearly with κ; exact sharpness shows this is not an artifact of a loose auxiliary estimate. The optimizer describes the balance of spectral extremes responsible for the loss. This quantifies headroom in a sufficient bound, not a practical recommendation to multiply an optimizer's step size by that factor.",
+      "residual_risks": [
+        "Positive regularization and actual optimization dynamics are outside the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

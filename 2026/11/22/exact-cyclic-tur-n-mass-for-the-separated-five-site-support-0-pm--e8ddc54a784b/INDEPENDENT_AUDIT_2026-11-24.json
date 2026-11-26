@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:29:14.601250Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–80, check.py, VERIFICATION.md",
+        "/workspace/repairs/1/RESULT.md, including the new even face proof",
+        "python3 /workspace/branches/fb89bf3a-74e2-47e3-a57b-72f0aa617b5a/independent_lp.py (bounded independent numerical corroboration of the mass)"
+      ],
+      "rationale": "The frozen text promises all real-even optimizers but gives only one at even N; already 1+cos(3θ) is another. The value T_N=2 was not in error. The repaired RESULT.md supplies the entire even face and specifies odd-only uniqueness. In both ranges real-part averaging preserves mass and feasibility, reducing the complex value to the two real-even Fourier coefficients. For even N the j=N/2 bound forces a+b=1/2 at equality; the polynomial then factors as (1+x)[1−8b x(1−x)]. At x=±1 there is no further constraint. On all other sampled x the extrema of x(1−x) are −c(1+c), with c=cos(2π/N), and the positive grid maximum G_N. These give the necessary and sufficient b interval in the repair. For odd N the cubic roots are −C,u,w. Direct angle comparisons place u,w in consecutive grid gaps, with both endpoints sampled in the residue class N≡3 mod 6; there are no sample points strictly between u and w. This gives feasibility. The two active rows (u,4u³−3u) and (−C,−cos(3δ)) have nonzero determinant and a positive linear combination equal to (−1,−1). Thus equality is attained by the displayed polynomial and fixes its two coefficients uniquely. The strict improvement over 2 uses the positive margin of 1+cosθ, the sign and vanishing of a use the exact angle interval, and expanding uw=1/4+O(δ²) and C=1−δ²/2+O(δ⁴) yields the stated mass correction. Independent sampled LP vertex enumeration corroborated the mass for N=7 through 31; it is not the proof of the all-modulus statement or of the even optimizer interval.",
+      "residual_risks": [
+        "The full optimizer classification is in the real-even class only. The odd-mass and even-value formulas continue to cover the complex-valued maximum by averaging. The frozen script does not test the full even face."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Group Turán gives mass 2 in Z for the same odd support and broader odd-site supports. Fu et al. give a continuous union-of-three-intervals case with value 2 and a discrete approximation on Z. The pointwise theory considers individual values, not the total mass of this grid model."
+        ],
+        "reasoning": "The ambient groups and dual frequency sets differ. The continuous or infinite-integer result controls a limiting shape, not the finite odd defect T_N−2>0 or the finite optimizer. The immediate even parity bound is not the distinctive contribution.",
+        "searches": [
+          "Kolountzakis–Révész arXiv:math/0312218 §3.3 Example 3",
+          "Fu et al. arXiv:2608.15643v1 Theorems 1.2–1.3",
+          "Kolountzakis–Révész arXiv:math/0302193v1, abstract and scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0312218",
+        "arXiv:2608.15643v1",
+        "arXiv:math/0302193v1 (abstract)",
+        "Resultary e309f8e59103, b2ce368d6213"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Infinite-ambient mass 2 does not entail strict improvement on odd grids, and a first-coefficient max does not optimize the sum. The 1,4 five-site result has an eventual two-contact method but neither the stated contacts nor the modulus-three vanishing in this 1,3 model."
+        ],
+        "reasoning": "The absence of the Nyquist sample on odd grids makes the exact positive correction a separate problem. The root brackets and active inequalities must actually be determined: they are not a numeric substitution in any inspected result. The even interval is a simple equality analysis, not relied on for distinct scientific content.",
+        "searches": [
+          "Compare math/0312218 Example 3, 2608.15643v1 Theorems 1.2–1.3, and the finite-grid findings b2ce368d6213 and e309f8e59103"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The optimum is exactly the Lovász theta of the circulant graph whose edges are the differences outside Ω: average the trace-one theta matrix over translations and scale by N to get the Fourier-feasible function. Conversely a feasible function gives the circulant PSD theta matrix. Record e309f8e59103 has the same sampled positive cone, but maximizes the first coefficient, not their sum."
+        ],
+        "reasoning": "An exact theta evaluation for that graph family would cover the value, but the equivalence of optimization problems itself is not an evaluation. The Carathéodory–Fejér alternate objective selects different contacts near cosine −√3/2, rather than the odd mass contacts u>0 and −C. It also does not give the complete even equality line segment.",
+        "searches": [
+          "Resultary: finite cyclic Turán mass with support {0,±1,±3} and isolated third harmonic",
+          "Primary literature query for cyclic Turán, circulant Lovász theta and jumps 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mass hit with the same support and objective is the assigned record itself. The nearby b2ce368d6213 instead uses jumps 1 and 4, with mass √5 at moduli divisible by 5 and a different residue effect. The same-support e309f8e59103 tabulates a first-coefficient extremum."
+        ],
+        "reasoning": "No inspected distinct catalogue statement gives the same all-modulus mass or equality cases; the comparable five-site formulas apply to the wrong support or objective rather than being evaluations of this invariant.",
+        "searches": [
+          "Resultary: exact cyclic five-site Turán mass, separated support 0 ±1 ±3, five-point odd-grid defect",
+          "Resultary records b2ce368d6213 and e309f8e59103"
+        ]
+      },
+      "rationale": "For the repaired claim, the supported distinct result is the exact odd cyclic mass and residue-dependent optimizer, together with a complete real-even equality description on the same family. The even value alone is an immediate parity bound and does not establish originality. Neither the exact-support infinite-group result nor the finite coefficient-extremal result covers the odd mass or full equality formulas.",
+      "residual_risks": [
+        "An older equivalent circulant theta evaluation could be indexed under a graph-theoretic name. The inaccessible periodic comparison does not support a negative historical claim. Searches were bounded and no priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact infinite-group comparison; not the odd finite result.",
+          "evidence": "Value 2 on Z for support {0,±1,±M}, M odd, and a broader infinite-group upper bound for supports in zero plus odd integers.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312218",
+          "material_read": "§3.3, Example 3, p. 12 at offset 50497; p. 13 near offset 56617",
+          "method": "Primary open-access PDF, decisive bounded passages.",
+          "title": "Turán’s extremal problem for positive definite functions on groups",
+          "trigger": "Exact support in an established Turán theorem"
+        },
+        {
+          "assessment": "Continuous and infinite-integer settings, not cyclic quotients.",
+          "evidence": "Integer-spacing continuous value 2 and a discrete approximation through supports in Z.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.15643v1",
+          "material_read": "pp. 1–2, abstract, §1 and Theorems 1.2–1.3, offsets 0 and 6800",
+          "method": "Primary open-access PDF passages.",
+          "title": "Turán problem on the union of three intervals of equal length",
+          "trigger": "Recent exact Turán result with three intervals and discrete finite supports"
+        },
+        {
+          "assessment": "Same feasible cone, different extremal functional.",
+          "evidence": "Maximizes the first coefficient with a free third coefficient; the sampled contacts bracket −√3/2.",
+          "identifier_or_url": "Resultary 2026/10/4/e309f8e59103",
+          "material_read": "RESULT.md Finding at mirror offset 0 and related-work passage",
+          "method": "Local catalogue and mirror passage inspection.",
+          "title": "Exact discrete Carathéodory–Fejér constant for the isolated third harmonic",
+          "trigger": "Exactly the same harmonic support and the same LP domain"
+        },
+        {
+          "assessment": "Different support and exact defects.",
+          "evidence": "Jumps 1,4, with √5 mass at multiples of 5 and a modulus-five residue phenomenon.",
+          "identifier_or_url": "Resultary 2026/11/2/b2ce368d6213",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Local catalogue and mirror passage inspection.",
+          "title": "Pentagonal locking and residue-sensitive finite Turán defects for a five-point cyclic support",
+          "trigger": "Closest cyclic mass result with a five-site support"
+        },
+        {
+          "assessment": "General pointwise context.",
+          "evidence": "Concerns pointwise bounds in R^d and cases on the torus; no inspected statement determines this sum objective.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302193v1",
+          "material_read": "Page-one abstract and stated scope",
+          "method": "Primary open-access abstract; not treated as a full-text exclusion.",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Possible link between the two coefficient objectives"
+        },
+        {
+          "assessment": "Unresolved comparison, not evidence of absence.",
+          "evidence": "The naming in the related-work passage indicates a periodic Turán setting but no inspected statement of this five-site mass result.",
+          "identifier_or_url": "Bibliographic comparison in Resultary e309f8e59103",
+          "material_read": "Citation context in the Resultary record only",
+          "method": "Attempted open full-text retrieval, unavailable.",
+          "title": "Ivanov periodic Turán comparison cited in the Carathéodory–Fejér record",
+          "trigger": "Plausible periodic extremal formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired mass and optimizer statements and dual/primal proof",
+        "Group Turán Example 3 and the same-support first-coefficient comparison"
+      ],
+      "rationale": "This fixed five-site support of separated odd jumps is a natural parity-sensitive Turán test case. The continuum/infinite-group bound gives no magnitude for the odd-grid defect. The exact finite answer quantifies it for every modulus, identifies when the shorter jump is unused, and distinguishes the positive-dimensional even real-even face from the unique odd real-even optimizer. These are useful exact benchmarks for small-support cyclic optimization, beyond recovering the infinite-group limit.",
+      "residual_risks": [
+        "No claim about arbitrary support gaps, complex optimizer faces or general circulant theta is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

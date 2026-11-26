@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:42:01.800154Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant of the augmented second-moment matrix is the covariance determinant by the Schur complement and is the sum of squared minors by Cauchy–Binet. Independence makes it the product of the four variances. Independent exact reproduction (/workspace/bernoulli_reproduction.py, Python 3) subtracts the first vertex from the other four and evaluates the resulting 4-by-4 determinants by the 24-term Leibniz formula across all 4,368 subsets. It gives counts (1360,2672,320,16) and excess totals 480, 64 for each single unbalanced coordinate, and 0 otherwise. Coordinate reflection averaging after division by q_i gives q_i/2 and (1-3q_i)/2 for the two respective types, producing 4e_3-18e_4 for the loss. For z=4q, the affine-in-each-coordinate certificate has values (0,23,46,37,0)/512 by corner Hamming weight. Convex interpolation gives nonnegativity, strictness away from the fair point for positive z, and sharpness by z approaching zero, where the original ratio itself is undefined. Finally e_3>=16e_4 proves R<1 on the stated domain. The frozen checker and verification notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Averkov–von Dichter–Soprunov bound the squared-volume sum for arbitrary dimensions and arbitrary cube-vertex weights via the covariance determinant and Hadamard; the symmetric-cone finding gives 105/128 as a sharp upper ratio on its separate invariant cone."
+        ],
+        "reasoning": "The general theorem supplies the underlying upper inequality and determinant tool but not an exact product profile or reverse bias estimate. The symmetric-cone assumptions differ and meet the positive product family only at the fair law, as uniform coordinate margins force all p_i=1/2.",
+        "searches": [
+          "arXiv:2608.14909, Section 7, Eq. (25) and Remark 4",
+          "Resultary October 11 symmetric-cone record 4f3e013d18c9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7680d12cc089",
+        "Resultary 4f3e013d18c9",
+        "Resultary 6f646be1992b (catalog only)",
+        "arXiv:2608.14909 Section 7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 paper gives the identical exact profile and a sharp deficit prod_i q_i-P(x)>=46(prod_i q_i)^2; it does not state the present Euclidean squared-bias estimate. The October 11 constant 23/128 measures a different relative gap."
+        ],
+        "reasoning": "The Oct. 18 exact law—not its differently normalized deficit—mechanically yields the present sharp linear-in-squared-bias estimate: at z=4q the interpolating corner inequalities depend only on the five Hamming weights, and the z=0 corner forces 23/128. No new enumeration is required to obtain that estimate once the exact law is known.",
+        "searches": [
+          "Resultary October 18 Finding and proof",
+          "Resultary October 11 symmetric-cone Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 Finding states P(x)=e_4(q)(1-4e_3(q)+18e_4(q)) for independent Bernoulli bits, and the fair ratio 105/128."
+        ],
+        "reasoning": "On the exact same open parameter domain e_4(q)=prod_i q_i>0, so division gives the identical four-parameter R, not just a diagonal or fair specialization.",
+        "searches": [
+          "Resultary: heterogeneous independent Bernoulli four-cube simplex volume and normalized variance-product profile",
+          "Resultary October 18 record 7680d12cc089, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 proof supplies the same determinant multiplicities and a diagonal coefficient table, and identifies the five-sample determinant moment. The October 25 catalog summary concerns independent pairs with correlations inside each pair; its full text was not retrieved."
+        ],
+        "reasoning": "The earlier determinant and product-profile tables are actual overlap. The specific 480/64 weighted strata were not seen there and give a reproducible alternative calculation, not a different profile. Pair-correlation data are not evidence of identity with general biased independent marginals.",
+        "searches": [
+          "Resultary October 18 record 7680d12cc089, Proof sections 2–4",
+          "Resultary October 25 correlated-pair record 6f646be1992b catalog summary"
+        ]
+      },
+      "rationale": "The central advertised result, the exact heterogeneous product-Bernoulli profile, is stated verbatim in equivalent factored form by the earlier October 18 Resultary finding. Its absence from the frozen comparison makes the novelty claim materially incorrect. The earlier result's quantitative deficit is not the specific squared-bias inequality, but that does not restore novelty to the exact profile. The squared-bias inequality follows by multi-affine interpolation directly from the known polynomial, with the coefficient forced by the all-deterministic corner limit.",
+      "residual_risks": [
+        "October 25 full text unavailable; earlier determinant work outside the checked sources was not exhaustively surveyed. Neither caveat weakens the direct October 18 coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the exact profile",
+          "evidence": "P=e_4(q)(1-4e_3(q)+18e_4(q)); determinant counts, diagonal coefficient table and determinant moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-bernoulli-product-weight-profile-for-the-four-cube-simplex--7680d12cc089",
+          "material_read": "RESULT.md Finding and Proof sections 2–4, offsets 0–5501",
+          "method": "Local Resultary mirror full-text passage",
+          "title": "Exact Bernoulli product-weight profile for the four-cube simplex volume polynomial",
+          "trigger": "Exact object, distribution and invariant"
+        },
+        {
+          "assessment": "Different weight cone; shared fair value",
+          "evidence": "Sharp upper ratio 105/128 on weights invariant under permutations and complementation; 23/128 is the relative gap there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-symmetric-gap-for-the-first-open-hypercube-inequality--4f3e013d18c9",
+          "material_read": "RESULT.md offsets 0–4933, statement and proof scope",
+          "method": "Local Resultary mirror full-text passage",
+          "title": "Sharp symmetric gap for the first open hypercube inequality",
+          "trigger": "Same fair ratio and constant"
+        },
+        {
+          "assessment": "Broader upper bound, not exact profile",
+          "evidence": "Equation (25) and Remark 4: squared-determinant sum equals covariance determinant and gives stronger general bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14909",
+          "material_read": "Section 7, pp. 21–23, OA PDF text offsets 68914–81759",
+          "method": "OA primary full-text passage",
+          "title": "On the Log-submodularity for zonoids: from Mixed Volume inequalities to the Hypercube",
+          "trigger": "Motivating general Hypercube theorem and determinant identity"
+        },
+        {
+          "assessment": "Related domain; finer comparison unresolved",
+          "evidence": "Summary specifies two independent unbiased bit pairs, with within-pair correlations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-two-pair-correlation-law-for-the-four-cube-hypercube-ine--6f646be1992b",
+          "material_read": "Catalog summary only; RESULT.md unavailable",
+          "method": "Local Resultary search and attempted mirror passage",
+          "title": "A sharp two-pair correlation law for the four-cube hypercube inequality",
+          "trigger": "Nearby exact polynomial on a different product family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The biased simplex invariant is naturally motivated, but it is already published. The residual squared-bias estimate is a direct corner interpolation of that known profile; the all-deterministic limit forces the coefficient, and the intermediate corners settle it by elementary arithmetic. The alternative weighted determinant tabulation is useful to check correctness, but no separate scientific use for those strata is established here. No substantive surviving result warrants a repaired finding on this evidence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

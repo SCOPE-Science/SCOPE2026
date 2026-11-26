@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:59.881142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Automorphisms preserve the radical and the directed adjacency of the nonzero components of J/J², so the three diagonal idempotents are fixed modulo J. If f_i are their images then V=Σ_i f_i e_ii is congruent to the identity modulo J and f_iV=Ve_ii, yielding a conjugation back to the standard idempotents. The resulting automorphism scales e_12 and e_23 independently and scales e_13 by their product, hence is diagonal conjugation. The kernel is the q−1 scalar units. The commutator with a unit U has three upper off-diagonal equations; distinct diagonal entries give three pivots. For exactly two equal diagonals the rank drops from 3 to 2 when x=0, z=0, or y+xz/(a−b)=0 in the respective patterns a=b, b=c, or a=c. Equal diagonals give ranks 0,1,2,3 as the upper coordinates are zero, only the (1,3) coordinate is nonzero, exactly one adjacent coordinate is nonzero, or both are nonzero. Thus the unit counts R_0=q−1, R_1=(q−1)^2, R_2=2q(q−1)^2+3q²(q−1)(q−2), and the remaining rank-3 units give the stated N_i after scalar division. Burnside with q^{6−r} fixed algebra elements yields q³+3q²+q, and the computation works when q=2 because no exactly-two or three-distinct nonzero diagonal patterns occur. Independent /workspace/branches/ef6beaca-a30e-463e-914f-d4af01cd919e/independent_check.py formed the full commutator on an algebra basis, matched the spectra at q=2,3,5,7, and counted directly 22,57 orbits at q=2,3. Those checks are finite and over prime fields; the proof uses arbitrary field arithmetic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhunia §2, §4 and Appendix p. 13 give diagonal semisimple representatives, centralizer reduction, and five unipotent conjugacy representatives at n=3, respectively. Its introduction specifies an infinite field of characteristic different from two.",
+          "The catalogue proof treats every X∈T_3 at any finite q and gives each rank/dimension stratum explicitly, including the effective middle-pair coefficient and the equal-diagonal nilpotent patterns."
+        ],
+        "reasoning": "The broader set of matrices from the catalogue includes every unit conjugator; invertibility is simply a diagonal restriction. Bhunia's inspected passages are related structural coverage, not asserted as an all-finite-field theorem.",
+        "searches": [
+          "Bhunia arXiv:1901.07869, semisimple classes, Jordan decomposition and appendix",
+          "Resultary 6670047405da RESULT.md Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 6670047405da, b06cfa258395, b56a1e679f3d",
+        "Bhunia arXiv:1901.07869",
+        "Jøndrup, Ánh–van Wyk, Melnikov, Fresse DOI pages (full primary text not independently retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue gives dimension 3 for three distinct diagonal entries; split/nonsplit dimension 4/3 for each pair of equal entries; and for all equal entries dimensions 6,5,4,3 in the four explicit support strata. With a fixed exactly-two-equal word, split matrices form the unitriangular orbit of its diagonal, of size q³/q=q² (only the equal-pair entry commutes with that diagonal)."
+        ],
+        "reasoning": "Weight the split types by 3(q−1)(q−2) words and q² matrices, and the all-equal dimension-4 stratum by (q−1)·2q(q−1); the result is exactly R_2, and the scalar and sole-(1,3) strata give R_0 and R_1 immediately. All remaining units have rank 3. Dividing by q−1 and applying Burnside mechanically recovers every frozen formula, including q=2. No date-order claim is necessary for statement-level coverage.",
+        "searches": [
+          "Compare catalogue 6670047405da primary proof offsets 1356–5233 with the frozen rank strata",
+          "Check split diagonal unitriangular orbit size and apply scalar quotient and Burnside"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For unit conjugation, the fixed vector space is the entire embedded centralizer algebra C_T(U), so fixed dimension equals centralizer dimension in T, not the order of the invertible centralizer.",
+          "Resultary 6670047405da explicitly takes centralizers in the six-dimensional T and includes characteristic two."
+        ],
+        "reasoning": "Restriction of this exact algebra centralizer classification to U invertible, and division by scalar units, gives the appropriate distribution; group z-class totals alone would not be equivalent.",
+        "searches": [
+          "Resultary: T_3 finite-field centralizer dimensions, exact centralizer subalgebra census and triangular similarity",
+          "Bhunia z classes upper triangular matrices B3 centralizers finite field Bhunia upper triangular matrix conjugacy q^3 3q^2 Belitskii upper triangular similarity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed centralizer census lists codimensions 0–3 and a proof unfolding them by diagonal patterns. b06cfa258395 gives q³ cyclic orbits only at n=3; b56a1e679f3d counts fibers of the commutator map on ordered pairs."
+        ],
+        "reasoning": "Cyclic-only orbit and commutator-map fiber counts are not the complete fixed-space census. Embedded-centralizer totals are likewise not the same table, but the exact dimension stratification in the primary proof is the needed table of types.",
+        "searches": [
+          "Resultary: three-by-three triangular centralizer subalgebra census 6670047405da",
+          "Resultary: cyclic upper triangular matrices diagonal word orbits b06cfa258395",
+          "Resultary: four commutator fiber strata b56a1e679f3d"
+        ]
+      },
+      "rationale": "An indexed exact classification of all T_3 centralizers supplies the dimensions by precisely the same diagonal and nilpotent strata over all finite fields. The multiplicities here are a direct weighting of those cases by the number of unit matrices; Burnside then gives the orbit count. The distinct-centralizer totals themselves are a different invariant, but the inspected normal forms and dimension strata in that record are sufficient for this claim. This conclusion does not impute historical priority to a later catalogue date.",
+      "residual_risks": [
+        "An exact earlier finite-field table may also exist. The consulted metadata for structural or restricted-nilpotent papers is not whole-paper evidence; the originality decision rests on the verified catalogue proof, not on any inaccessible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof strata mechanically imply the full frozen result despite the different headline invariant",
+          "evidence": "Exactly-two-equal representatives are diagonal or diagonal plus a nonzero equal-pair entry with dimensions 4 and 3; all-equal case lists the coordinate patterns and dimensions 6,5,4,3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-centralizer-subalgebra-census-in-the-three-by-three-triang--6670047405da/RESULT.md",
+          "material_read": "Mirrored Finding and Proof: commutation equations, three-distinct, exactly-two-equal and all-equal cases, offsets 74–5233 across scoped passages",
+          "method": "Local mirror primary text and orbit-stabilizer weighting",
+          "title": "Exact centralizer subalgebra census in the three-by-three triangular matrix algebra",
+          "trigger": "Same algebra and exact centralizer dimensions for all elements"
+        },
+        {
+          "assessment": "Related structural classification; do not attribute the finite-field spectrum to its restricted statement",
+          "evidence": "The five unipotent representatives are given in the appendix, while the paper states that it works over an infinite field of characteristic not two.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.07869",
+          "material_read": "Introduction pp. 1–2, §2 Proposition 2.1 p. 3, §4 Lemma 4.1 and discussion pp. 8–9, §5 Appendix n=3 list p. 13",
+          "method": "Lawful OA primary passages",
+          "title": "Conjugacy classes of centralizers in the group of upper triangular matrices",
+          "trigger": "Closest primary literature beyond nilpotent orbit subsets"
+        },
+        {
+          "assessment": "Partial same-date coverage only",
+          "evidence": "One cyclic orbit per ordered diagonal word, hence q³ at n=3, expressly excluding noncyclic matrices.",
+          "identifier_or_url": "Resultary b06cfa258395",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Local mirror primary statement",
+          "title": "Cyclic upper triangular matrices: diagonal-word orbits and exact counts",
+          "trigger": "Potential exact total upper triangular orbit comparison"
+        },
+        {
+          "assessment": "Different enumerated object",
+          "evidence": "Counts ordered pairs mapping to a prescribed commutator, not the frequency of dimensions at unit conjugators.",
+          "identifier_or_url": "Resultary b56a1e679f3d",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions offsets 400–2722",
+          "method": "Local mirror primary statement",
+          "title": "Four commutator-fiber strata in T_3(F_q)",
+          "trigger": "Same ambient algebra and commutator, possible centralizer reformulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural action and complete exact spectrum would make a useful small-rank benchmark if not already determined. Here every frequency follows by elementary weighting of available exact centralizer types, and the total is their Burnside average. No independently useful uncovered classification or boundary remains for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

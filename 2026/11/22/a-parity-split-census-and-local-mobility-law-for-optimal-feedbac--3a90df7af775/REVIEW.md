@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cubic-graph edge identity \(2|S|-n=c+e(S)\) gives a universal lower bound on FVS size. A column run decomposition identifies every feasible minimum set, and an explicit one-break cycle criterion establishes sufficiency. The three even-length pattern cases give a disjoint exhaustive census, while the unique adjacent-single pair in the odd case determines every legal slide. Two independently coded exhaustive implementations reproduced the proposed classification and degree data over the documented finite ranges. The proof, not the code, establishes the result for every admissible circumference.
+PASS
 
-## Originality — PASS (qualified)
+For a minimizing deletion the complement is nonempty (deleting all but one vertex would suffice). Its edge count gives 2k−n=c+e(S), hence k≥floor(n/2)+1. Adjacent empty columns are forbidden by a square. For the candidate minima, intact rungs are isolated. Between them there can be only one connecting path, provided the surviving rail stays constant across the intervening singleton run; other surviving path segments are acyclic and attach to at most one intact rung. Contract intact rungs and suppress connecting paths, retaining possible loops and parallel edges: the surviving cyclic chain has a cycle exactly when no link is cut, including one or two intact rungs. A double deletion cuts the chain. The empty-column bound leaves just the stated odd pattern or the three even patterns; the odd pair must select opposite rails, and at least one of the two adjacent pairs in an even single-only state must do so. Both parities therefore attain the bound. For the two length-two runs, anchor one of the m−1 empty columns and choose two of its m−1 ordered cyclic gaps; dividing by m−1 gives n(m−2)/2 placements of labelled column sets. The four rail-assignment counts give the two census formulas. In odd lengths the isolated singleton flips are always legal; a horizontal slide that preserves the independent empty-column set must move from the unique paired run, and its destination pair must be oppositely selected. The two tests involve distinct unconstrained singleton rails for n≥7, the same singleton with opposite requirements for n=5, and both moves are legal for n=3. The special degrees and all-size polynomial follow.
 
-The directly relevant 2023 prism study [1] proves the previously known *minimum size*, not an enumeration of **all** minimizing sets. The 2023 graph-reconfiguration study [2] proves unrestricted exchange connectivity for planar subcubic graphs, which neither supplies the exact count nor analyzes the stricter rail/rung sliding degrees. Searches of indexed analogous findings distinguish feedback-set placement from zero forcing, domination, and dissociation on the same prisms. The risk of an unindexed combinatorial enumeration or a visually uninspected diagram in [1] remains, and independent historical confirmation is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies an all-size, labelled classification of optimal cycle-breaking choices and the exact number of distinct choices; this is not merely another construction of one known minimum FVS. The sharp odd/even formulas exhibit qualitatively different optimal-set families, and the local degree polynomial quantifies mobility of optimal deletion choices under adjacency-constrained repairs, an optimization regime distinct from the previously established unrestricted exchange connectivity. The results are reproducible and form an exact test family for enumeration and local reconfiguration algorithms. No global sliding diameter is claimed.
+The minimum size is prior; the full labelled optimum census and odd adjacent-slide degrees are not established by the identified prior results. This is a bounded best-evidence assessment.
 
-## Closest literature and limitations
+## value
 
-See references [1]–[3] in RESULT.md. Source [1] was materially read as a text extraction spanning the full six-page paper; its figures could not be inspected through the available PDF screenshot route. Source [2] was compared through its substantial accessible publisher text (abstract, results, several theorem statements, and organization); its full PDF was not available. Historic priority remains qualified accordingly. Review applies only to the stated new theorem and not to any external research inventory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These are exact natural statistics of a cubic family with known minimum deletion number. Classification distinguishes the extra even-parity patterns, and the complete degree enumerator gives quantitative information about permissible repairs that ordinary exchange connectivity misses; these are useful exact benchmarks and not a claim about global slide distances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

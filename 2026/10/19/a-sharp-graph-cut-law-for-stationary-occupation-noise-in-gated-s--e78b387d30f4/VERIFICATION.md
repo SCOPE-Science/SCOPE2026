@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The finite-dimensional proof is in `RESULT.md`. To reproduce independent exact-rational checks, install `requirements.txt` and execute `python verify.py` in this directory.
+## correctness
 
-The program explicitly enumerates full canonical occupancy configurations for small graphs, constructs the joint ON/OFF Markov generator, and independently constructs the reduced one-particle gate-modulated generator. It solves their Poisson equations by exact rational linear algebra and compares the resulting long-time variances, including the stationary susceptibility factor.
+PASS
 
-The executed checks cover a four-vertex complete graph with several gate speeds, a five-vertex cycle with disconnected OFF components at four speeds, component-orthogonal fields with no slow divergence, a connected OFF graph, and all three nontrivial particle counts on a four-vertex complete graph. Every final exact-rational comparison passed. For a two-plus-two complete-graph cut with \(k=2\), \(p=2/5\) and exchange rate \(r=3/2\), the output agrees with \(\mathcal V_\kappa=1/\kappa+5/18\). A five-cycle test has the exact rational expression printed in `RESULT.md`.
+As frozen, the auxiliary ratio at RESULT.md lines 31–41 is false as a universal statement: connected OFF is permitted, and A=V gives N_A=k, h=0 and a denominator identically zero. The complete corrected RESULT.md restricts that quotient to proper OFF components and explicitly covers the zero-variance case without a ratio. The undivided law remains valid for all allowed graphs. I reconstructed the general proof: product detailed balance and the connected ON graph give uniqueness and reversibility; exact exchange closure and canonical covariance give the weighted two-layer Poisson formula with factor 2χ. The OFF-null test (0,P₀h) has energy p(1−p)κ||P₀h||² and yields the all-rate bound. In the OFF-null/complement decomposition the complement block has an invertible limit, the cross blocks are O(κ), and the null block is pκI. The Schur complement is pκI+O(κ²), so the inverse has leading term P_D/(pκ) with bounded remainder, also covering an empty nullspace. The two-block complete-graph mode has ON eigenvalue nr and OFF eigenvalue zero; solving its two scalar Poisson equations gives the asserted exact expression. Independent exact verification of both benchmarks used the full ON/OFF chain over all k-subsets, one pinned Poisson coordinate, and the stationary variance 2Σπfu at κ=1/7, 1, 19/3. It agreed with both expressions. In the repaired quotient the denominator is χa(n−a)/n>0 for 1≤a<n, and P₀h=h, so division gives 2(1−p)/p. No other proof or scope change is needed.
 
-The code is a finite-instance cross-check, not a proof for infinitely many graphs or all parameter values. The general argument instead uses exact generator closure, canonical covariance, a variational lower bound, and a finite-dimensional singular Schur complement. No independent external validation is claimed.
+## originality
+
+PASS
+
+For the corrected claim, credit classical exclusion closure, canonical covariance, reversible Poisson theory and standard singular block inversion. The supported distinct contribution is their explicit finite canonical graph-cut classification, combining a uniform sharp lower bound, exact residue and zero-residue criterion, with an all-speed closed form. No inspected prior entails that package directly. The ratio domain correction removes an undefined expression and does not make the ratio itself the basis of the originality decision.
+
+## value
+
+PASS
+
+The surviving corrected result answers a concrete structural question: identical equal-time occupation statistics can coexist with divergent integrated noise, but only when the field sees a conserved OFF-component number. The exact residue and finite-speed bound give quantitative tests for intermittent transport; neither all fields nor all disconnected graphs give a divergence for a specified field. The proper-component ratio and complete-graph benchmark tie that mechanism to a measurable static variance and known gate probability. This value survives removal of the undefined ratio at A=V and does not depend on presenting standard resolvent tools as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:14:41.842448Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof steps 1–5",
+        "VERIFICATION.md and check.py (read only)",
+        "/workspace/review-evidence/frozen_math_replay.py 2"
+      ],
+      "rationale": "The total occupancy bound and the monotone range of binomial coefficients give limsup <=1-alpha. With m=floor((1-delta)n^alpha) and L=floor(n/m), a k<=n window meets at most k/L+2 cells, and k/L <= (n^(1-alpha)/L)k^alpha <= (1-delta/2)k^alpha for large n. Above a fixed cutoff the slack absorbs +2; below it there is at most one marker by separation, and windows longer than n have at most m markers. Thus the central-half choices give at least (L/3)^m admissible words; delta down to zero proves the sharp limit at every fixed real alpha. Monotone caps justify zero extension, arbitrary sufficiently long zero connectors give mixing, and k mu[1]<=ceil(k^alpha) forces the zero-point measure. At fine fixed cylinder resolution the orbit counts lie between p(n) and p(n+C), giving D_2=alpha, and the caps give the nested positive-scale systems. Scale zero for the singleton uses the usual zero-dimension convention for bounded counts (equivalently use log log max(e,p(n))); the raw double-log expression for X_alpha is not defined at p=1. Even under the literal unregularized expression the invariant subsystem of configurations with at most one marker has complexity n+1 and realizes zero. The separate exact finite replay tests shortest windows over every choice of cell offsets at four rational parameters, not just sampled words; it is not the all-real proof.",
+      "residual_risks": [
+        "The n-asymptotic is pointwise in alpha; no error uniform towards either endpoint. The scale-zero convention is needed only for bounded counts, not the asserted complexity limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "García-Ramos–Pavlov–Reyes §2.4 records positive entropy iff positive limiting gradient; their binary intrinsic-ergodicity sufficient condition in Theorem 1.1 requires gradient >1/2. Huang–Li Theorem 1.1 concerns compact realizers without an invariance requirement. The frozen attribution to Gangloff–Hellouin de Menibus is to zero padding and the binomial upper estimate; the independent passage attempt did not return text."
+        ],
+        "reasoning": "Zero ordinary entropy is covered, but permits many different sublinear growth laws. Compact-subset lowerability computes neither the scale of this ambient shift nor a leading coefficient, and does not select invariant realizers. The stronger published sufficient condition in Theorem 1.1 has hypotheses not met by this f.",
+        "searches": [
+          "https://arxiv.org/html/2302.07307v2 §2.4 and Theorem 1.1",
+          "https://arxiv.org/html/2611.02638v1 §1 equation (1.1) and Theorem 1.1",
+          "Gangloff–Hellouin de Menibus §§3.3.1–3.3.3 and Lemma 3.11 via lawful alternate arXiv:1602.06166 (attempted)"
+        ]
+      },
+      "checked_sources": [
+        "García-Ramos–Pavlov–Reyes, arXiv:2302.07307v2, §2.4 and Theorem 1.1",
+        "Huang–Li, arXiv:2611.02638v1, §1 and Theorem 1.1",
+        "Stanley (2013), journal abstract",
+        "Gangloff–Hellouin de Menibus (frozen attribution, access limits above)",
+        "Resultary 6c545eb386a6, aa51104dddb1, 7e8d3dcb3c47"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-gradient dichotomy already implies h_top=0. The known occupancy bound gives limsup <=1-alpha by a binomial estimate. Neither provides a liminf; Theorem 1.1 of Huang–Li concerns scales, not leading constants or invariant nesting."
+        ],
+        "reasoning": "Even fixing D_2=alpha and h_top=0 cannot fix the multiplicative coefficient of n^alpha log n. The separate central-half construction verifies every sliding-window constraint and adds the independent liminf, which is necessary for this claim.",
+        "searches": [
+          "García-Ramos–Pavlov–Reyes §2.4 and Theorem 1.1; Huang–Li Theorem 1.1; Stanley original abstract and full-text access check; Gangloff–Hellouin de Menibus zero-entropy lemma locator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stanley defines bounded-density shifts by length-dependent caps on the sum of a block. García-Ramos–Pavlov–Reyes §2.4 uses a limiting gradient f(n)/n, which is zero for this f.",
+          "Via zero extension the objects counted here are subsets of [n] obeying the same power cap on every interval, not merely all subsets with at most ceil(n^alpha) points."
+        ],
+        "reasoning": "The exact same shift definition is an earlier general construction specialized to this f. The unrestricted sparse subset count is only an upper bound for the equivalent interval-constrained counting problem; it does not yield the matching lower family.",
+        "searches": [
+          "Resultary: all-window power-ceiling density shift; sharp log p(n) coefficient; power-law bounded-density complexity",
+          "Stanley (2013) Cambridge abstract; García-Ramos–Pavlov–Reyes §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6c545eb386a6 is the assigned entry itself. Related October 26 aa51104dddb1 is a valuation-parity spacing shift with arithmetic square-root oscillations; November 17 7e8d3dcb3c47 concerns compact diagonal profiles. No matching independently indexed parameter formula, including a rational-power specialization, was located in these lookups."
+        ],
+        "reasoning": "The spacing-shift count uses a different support rule, and compact-profile examples are not these p_alpha. Neither a nearby exponent nor the target's own index entry is earlier table coverage.",
+        "searches": [
+          "Resultary: exact ceiling constraint and coefficient (1-alpha)n^alpha log n; mixing/unique ergodicity with diagonal scales"
+        ]
+      },
+      "rationale": "The supported distinct claim is the matching leading coefficient for the all-window power-ceiling shift. The general shift class, zero ordinary entropy, zero padding and the sparse binomial upper bound are not new; the sharp lower count with simultaneous window constraints is the substantive difference.",
+      "residual_risks": [
+        "Stanley's full 2013 text and the cited Gangloff–Hellouin de Menibus primary passages were not available for independent comparison; a relevant earlier quantitative specialization remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative zero entropy covered; consulted results do not determine sharp subexponential count",
+          "evidence": [
+            "§2.4: h_top>0 iff limiting gradient >0; Theorem 1.1 has binary gradient >1/2 as sufficient condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.07307v2",
+          "material_read": "§2.4 limiting-gradient definition and entropy dichotomy, §1 Theorem 1.1",
+          "method": "Primary HTML statement comparison",
+          "title": "Measures of maximal entropy of bounded density shifts",
+          "trigger": "Same shift class and potentially general complexity or ergodicity theorem"
+        },
+        {
+          "assessment": "Compact-subset scale lowerability, not invariant subshifts or exact word count",
+          "evidence": [
+            "Theorem 1.1 does not require the realizing subset of E to be invariant."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.02638v1",
+          "material_read": "§1 equation (1.1) and Theorem 1.1",
+          "method": "Primary HTML statement comparison",
+          "title": "Hereditary lowerability of diagonal entropy scales",
+          "trigger": "Possible implication for continuum of scale values"
+        },
+        {
+          "assessment": "General shift class covered; cannot exclude a specific complexity theorem in unread text",
+          "evidence": [
+            "Abstract defines the block-sum cap as a function of word length."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/abs/bounded-density-shifts/2826BAC5B623452DB8F73129E6ABF2BE",
+          "material_read": "Cambridge abstract; original full text not recovered",
+          "method": "Primary article landing-page abstract, plus comparison with later primary paper §2.4",
+          "title": "Bounded density shifts",
+          "trigger": "Foundational work could include a matching specialization"
+        },
+        {
+          "assessment": "Available attribution concerns zero extension and upper bounds, not a verified matching lower count",
+          "evidence": [
+            "Frozen locators: Lemmas 3.9 and 3.11 for zero extension and zero entropy, respectively."
+          ],
+          "identifier_or_url": "arXiv:1602.06166; cited ResearchGate 301844380",
+          "material_read": "Frozen RESULT.md and AUDIT.json description of §§3.3.1–3.3.3; independent primary passage attempts did not return text",
+          "method": "Cited-copy attempt and lawful arXiv alternative near Lemma 3.11",
+          "title": "Computing the entropy of one-dimensional decidable subshifts",
+          "trigger": "Same class and known sparse binomial upper estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and lower construction"
+      ],
+      "rationale": "The sharp asymptotic quantifies whether local constraints reduce the leading sparse-binomial count. The all-window construction shows that they do not to first order, a finer invariant than ordinary entropy zero. The nested examples also show how a full continuum of diagonal scales can coexist with mixing and a single trivial invariant probability in the ambient shift.",
+      "residual_risks": [
+        "No classification of all invariant subsystems or exact finite-length complexity is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

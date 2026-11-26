@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:57:32.562625Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–41; VERIFICATION.md; verify_cpp.cpp and verify_python.py (inspected, not executed); output_cpp.txt; output_python.txt; witness_transition.txt",
+        "Replay: python /workspace/evidence/reproduce.py 4; output /workspace/evidence/4.txt"
+      ],
+      "rationale": "The graph has four distinct open neighbors at each of its eighteen labelled vertices. I independently represented a valid code as a hitting set for the eighteen open neighborhoods and, for every distinct pair i,j, the clause {i,j} union (N(i) symmetric difference N(j)). The latter is vacuous if either vertex is selected and otherwise is equivalent to unequal signatures. This gives a different exact exhaustive predicate from the supplied programs. A row-major implementation filters all 262,144 subsets, then constructs every legal single-bit edge by removing one bit of the upper set, retaining it if the lower set passes and the upper size meets the budget. Sparse component and unweighted-distance calculations reproduce the entire degree-6-through-18 polynomial (total 103,056), the twelve alternating-column minima, and all component profiles for B=6 through 18. At B=8 there are two distinct components with six minima each; even smaller budgets cannot merge them. At B=9 there is a 22,415-state component with all minima and exactly sixty singleton states; at B=10 the 48,620 states form a single component. The clauses also show the predicate is upward closed; the independent census verifies that no inclusion-minimal code exceeds size nine. Thus a larger code can descend to size ten within the larger budget, in agreement with the explicit connectivity checks through B=18. At B=9 a state of size below nine can add a vertex, so isolates must have size nine. A size-nine isolate has no one-step deletion and, by upward closure, no valid proper subset. From each optimum the independent shortest paths give multiplicities 1,3,2,6 at distances 0,4,6,12. Same-parity minima differ by a transposition or three-cycle of omitted rows, so their symmetric difference has size four or six and a Hamming-length path through their union fits budget nine by upward closure. Opposite parities are disjoint and require at least twelve flips; the exhaustive distances attain that bound for every pair. I separately checked the provided thirteen masks for legality, capacity, the encoding, and opposite optimum endpoints; the witness alone would not prove the full profile.",
+      "residual_risks": [
+        "This is a complete exact classification of one labelled torus and the at-most-budget add/delete rule, not an asymptotic theorem for general circumferences or a result about sliding or jumping tokens."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited prior scalar theorem is for the broader family C3 square C_n, including the known optimum six. Sohn's conference abstract defines the same locating-total predicate, but describes bounds for the scalar parameter, not transitions.",
+          "Haas–Seyffarth's k-dominating graph uses the same move/budget construction with ordinary dominating sets."
+        ],
+        "reasoning": "Connectivity of a larger state graph under a weaker predicate cannot determine connectivity of the locating-total induced graph or its exact minimum capacities. A family-wide scalar bound does not by itself constrain the necessary intermediate states.",
+        "searches": [
+          "Resultary: minimum locating-total codes on C3 square C_n",
+          "Resultary: general domination reconfiguration under a budget",
+          "arXiv:1209.5138, p. 1",
+          "Xing–Sohn, Ars Combinatoria 113A, pp. 139–146, cited Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Xing–Sohn, Ars Combinatoria 113A (2014) via frozen attribution; full primary theorem passage unavailable",
+        "Sohn, ICNAO2013 abstracts p. 23",
+        "arXiv:1209.5138",
+        "Resultary: 078461c289f3, 760b51ab20d6, 70f62c95f564"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even knowing all minima does not resolve whether their components can meet through nonminimum states at budget nine, or whether size-nine nonoptimum codes are isolated. The closest same-day two-threshold result establishes a structurally similar separation for a different feasibility system, geodesic transversals on Q4."
+        ],
+        "reasoning": "The separating capacity obstructions depend on exact valid supersets and trajectories. None of the recovered broader or overlapping statements supplies those facts; novelty of the optimum structure itself is not necessary to, and is not credited in, this decision.",
+        "searches": [
+          "Cited Xing–Sohn minimum theorem and Lemma 3.1",
+          "Resultary 078461c289f3 actual Finding",
+          "Resultary 760b51ab20d6 actual Finding",
+          "Haas–Seyffarth, k-dominating graph definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record 078461c289f3 concerns minimum locating-total codes of C3 square C3 and C3 square C4 under token slides and jumps. C3 square C6 occurs as the isomorphism type of a slide component, not as the underlying detector graph in the budget classification.",
+          "Here the move permits intermediate nonminimum codes, and the vertex set is all valid configurations of size at most B."
+        ],
+        "reasoning": "An isomorphic slide component in another problem does not make its ambient graph and feasibility predicate those of the frozen problem. Simultaneous replacement at fixed minimum size is not equivalent to reachability via the stated budget and add/delete rule.",
+        "searches": [
+          "Resultary: exact C3 square C6 locating-total add/delete capacity reconfiguration",
+          "Resultary: locating-total reconfiguration by single-detector insertion or deletion",
+          "Resultary 078461c289f3, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "70f62c95f564 is the identical assigned record. The genuinely related same-day 760b51ab20d6 study gives two thresholds and 260 trapped states for geodesic transversals of Q4, at different capacities. 078461c289f3 concerns minimum-only slides/jumps."
+        ],
+        "reasoning": "The analogue is a substantive similarity in the phase pattern, not an exact table or reduction for locating-total states on this torus. The same date does not establish priority; no distinct inspected table gives the component and distance statistics of the frozen graph.",
+        "searches": [
+          "Resultary exact graph, locating-total locating codes, capacities nine and ten",
+          "Resultary published records 70f62c95f564, 078461c289f3, 760b51ab20d6"
+        ]
+      },
+      "rationale": "Accept the distinct exact add/delete capacity classification and metric on C3 square C6, not the previously known scalar minimum or any part of the alternating construction already implied by the literature. The examined close matches either change the feasible predicate, graph or move rule, or concern only a scalar optimum. The possible extent of prior coverage of the twelve-minimum structure is left open rather than being used to establish novelty.",
+      "residual_risks": [
+        "The inaccessible text of the journal proof may already imply the structure or count of the minima; those facts are not asserted as the original contribution here.",
+        "Unindexed or inaccessible coverage of the exact transition graph remains possible; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit scalar minimum as prior; exact extent of the proof's coverage of the minima structure is not established in this review",
+          "evidence": [
+            "The frozen comparison reports gamma_t^L(C3 square C_n)=n for 6 dividing n and n+1 otherwise and describes periodic restrictions. This is recorded prior evidence, not an independent reading of the theorem pages."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20113-A/volume-113-A-paper-12.pdf",
+          "material_read": "Frozen RESULT.md:43–50 and frozen AUDIT.json description of Lemma 3.1/Theorem 3.2; journal theorem passage not independently recovered",
+          "method": "Attempted publisher PDF and article route; accessible retrieval reported image-only/no extractable theorem text",
+          "title": "Bounds on locating-total domination number of the Cartesian product of cycles",
+          "trigger": "Same graph family and possible implicit coverage of the optimum census"
+        },
+        {
+          "assessment": "Confirms scope and the predicate of the related scalar study, not the exact minimum theorem or any transition claim",
+          "evidence": [
+            "Defines distinguishing open-neighborhood signatures outside the selected set and studies upper/lower bounds on the minimum size in Cartesian products of cycles or cycles and paths."
+          ],
+          "identifier_or_url": "https://icnao2013-math.nsysu.edu.tw/var/file/190/1190/img/1727/Abstracts_ICNAO2013.pdf",
+          "material_read": "PDF p. 23, offset 70870, Sohn abstract",
+          "method": "Primary OA PDF locator and bounded passage read",
+          "title": "Bounds on Locating total Domination Number of the Cartesian Product Graphs",
+          "trigger": "Identified related primary conference source for the same product family"
+        },
+        {
+          "assessment": "Ordinary domination, not locating-total codes",
+          "evidence": [
+            "States are dominating sets of size at most k, adjacent under a single addition or deletion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5138",
+          "material_read": "PDF p. 1, offset 0, definition and scope",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The k-dominating graph",
+          "trigger": "General add/delete connectivity using the same budget and moves"
+        },
+        {
+          "assessment": "Genuine related locating-total result, different moves and ambient graph",
+          "evidence": [
+            "Studies slide/jump graphs among optima for n=3 and 4; the appearance of C3 square C6 is as a slide component, not the detector placement graph under review."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8: 078461c289f3",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Local Resultary lookup and exact statement inspection",
+          "title": "First token-slide fragmentation for minimum locating-total codes on C3 square C_n",
+          "trigger": "Same code family, uses C3 square C6 in the comparison"
+        },
+        {
+          "assessment": "A different combinatorial predicate and graph despite the related obstruction",
+          "evidence": [
+            "On Q4 geodesic transversals, budget eight connects all forty minima but has 260 isolated minimal size-eight transversals; budget nine suffices for full connectivity."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22: 760b51ab20d6",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Local Resultary lookup and exact statement inspection",
+          "title": "A two-spare optimum mobility threshold and a three-spare full connectivity threshold",
+          "trigger": "Exact same-day analogue of split budget thresholds and traps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–38",
+        "Sohn, ICNAO2013 abstract, PDF p. 23",
+        "Resultary: 078461c289f3 and 760b51ab20d6"
+      ],
+      "rationale": "The first period-six tight torus in the known scalar family is a natural benchmark for incremental detector placement, not an arbitrary small graph chosen only to compute a count. The gap between universal mobility of minimum placements and full feasible-state connectivity answers two practically and mathematically different reconfiguration questions. The sixty inclusion-minimal traps witness the distinction, and the shortest-path census sharpens what is achievable at the smaller threshold. It is a useful exact finite benchmark even without an extension to larger tori.",
+      "residual_risks": [
+        "No asymptotic or operational guarantee for other detector graphs or different update rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:21.492238Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=3 and m=1 the finite sums give p_k(e^(2x))=e^(kx) sinh((k-1)x)/sinh x and p_k(e^(2x))+1=e^((k-1)x) sinh(kx)/sinh x. All exponential prefactors cancel; the resulting logarithm is even and analytic near the positive-domain center since Q_k(18/7)=-120/49, Q_k(0)<0 and its positive zero s*>18/7>2. Independently differentiated the original finite polynomials using power sums, then applied the log-derivative formulas: python -B reviews/check_potts.py verifies the exact quadratic, checks the critical quartic by polynomial remaindering modulo Q_k, verifies the slope at that root, and checks the sign identities. R_k(18/7)=3(43k^2+5k-2)>0 and dR_k/ds=7(k-2)(k+1)(2k-1)>=0, including k=2 where the slope in s vanishes. Thus c4*<0 while c2'(t*)=A_k>0. The analytic equation F_x/(2x)=c2(t)+2c4(t)y+O(y^2), y=x^2, has exactly one nearby analytic y-branch by the implicit-function theorem, y=C_k delta+O(delta^2), C_k=-A_k/(2c4*)>0. For small positive delta the two real noncentral roots have second derivative 4y times the negative y-derivative of that equation, while the center has positive second derivative. Conversion to log v multiplies x by 2, and substituting gives log height gain (A_k C_k/2)delta^2+O(delta^3). No side pair is asserted at delta=0, and none of the derivation addresses distant extrema. The frozen script was inspected, not run: it normalizes P used without definition in the prose, checks the quadratic, quartic reduction and sign certificates symbolically, and evaluates slope/branch signs at finitely many k; the slope identity and normal form were independently derived here, not inferred from that finite loop.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 2.1 concerns global uniqueness below or at the threshold. Lemma 5.3 proves the corresponding global maximizing result in that regime only for k=2,3,4; above threshold it proves the center lies below some maximum for all k.",
+          "The 2021 survey still qualifies the q=3 only-if direction by at least k=2,3,4."
+        ],
+        "reasoning": "Those statements neither specify all-order local quartic nondegeneracy nor locate and quantify the exact two local branches. In particular global uniqueness at a single order and threshold is consistent with higher even degeneracy.",
+        "searches": [
+          "arXiv:1903.11440 Conjecture 2.1, Lemma 5.3 and Appendix B; arXiv:2103.07391 Theorem 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:1903.11440",
+        "arXiv:2103.07391",
+        "Resultary entries 5fb724796467 and 1fb1751da5d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evenness and a positive crossing slope of the quadratic coefficient allow a higher-than-quartic maximum at the threshold; they do not imply exponent 1/2.",
+          "The quartic sign certificate and its exact value are the added ingredients needed by the standard implicit-function argument."
+        ],
+        "reasoning": "The source defines the function so the coefficient can be computed at any fixed k, but neither fixed-order cases nor the known second-order threshold yield the all-order sign and onset law by specialization of a prior result.",
+        "searches": [
+          "Bogachev–Rozikov same auxiliary function and local second derivative; exceptions and small-k polynomial analysis; Resultary order-five uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the same K_1 and physical domain, Appendix B derives the second-derivative threshold using v=1; the inspected calculation does not give the all-k fourth-order coefficient, nor the two amplitudes in logarithmic coordinates."
+        ],
+        "reasoning": "Using x=(log v)/2 replaces reciprocal symmetry by evenness, so a fourth-derivative or local side-root result in either coordinate would be relevant. The second-derivative sign change does not give this fourth-order information.",
+        "searches": [
+          "Three-state Potts external field Cayley/Bethe tree, Bogachev–Rozikov reciprocal K_1, quartic derivative and pitchfork/square-root onset",
+          "arXiv:1903.11440 Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 5fb724796467 proves global uniqueness on the exceptional boundary at k=5 for 3/2<theta<=sqrt(11)/2=tilde theta_1(5); no all-order quartic coefficient or post-threshold branches are supplied.",
+          "1fb1751da5d6 treats a 3/2-power separation of different scalar fold curves, not a pitchfork of the K_1 extrema.",
+          "No exact equivalent indexed normal form or coefficient table was identified."
+        ],
+        "reasoning": "The k=5 overlap is material because the model and critical value agree, but the side of the threshold, local versus global assertions, and order quantifiers differ. No inference is drawn from same-day dating.",
+        "searches": [
+          "Local Resultary: reciprocal Potts K_1, external-field boundary, exact maximizer and cusp opening",
+          "Resultary entries 5fb724796467 and 1fb1751da5d6"
+        ]
+      },
+      "rationale": "The distinct claim is the explicit nonzero quartic normal form at the known threshold for every tree order and the resulting local branch and height amplitudes. The threshold itself, reciprocal symmetry and generic bifurcation argument are not new. The global uniqueness conjecture is a different issue.",
+      "residual_risks": [
+        "Later-literature search was bounded and low-yield; unsuccessful lookups do not exclude a local calculation in other Bethe-lattice coordinates or a later covering treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main direct antecedent; threshold and some global cases, not the all-k normal form",
+          "evidence": [
+            "Second derivative changes sign at the stated threshold; the reciprocal-polynomial method is implemented for k=2,3,4.",
+            "Above threshold the all-k statement that a larger value is attained does not give exactly two nearby maxima or their heights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.11440",
+          "material_read": "Conjecture 2.1 p. 20 (offset 73797), Lemma 5.3 p. 37 (133250), Appendix B pp. 61–63 (215850–224482)",
+          "method": "OA source passages and explicit domain comparison",
+          "title": "On the uniqueness of Gibbs measure in the Potts model on a Cayley tree with external field",
+          "trigger": "Exact model, K_1 and distinguished threshold; plausible covering local/global result"
+        },
+        {
+          "assessment": "Confirms the survey's scope, not an exclusion of later work",
+          "evidence": [
+            "The q=3 only-if direction is stated at least for k=2,3,4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.07391",
+          "material_read": "Theorem 5.3 p. 18, offset 52071",
+          "method": "OA theorem passage",
+          "title": "Rozikov 2021 survey of Gibbs measures on Cayley trees",
+          "trigger": "Possible subsequent account of the exceptional boundary"
+        },
+        {
+          "assessment": "Single-order global overlap, not the local normal form",
+          "evidence": [
+            "Global uniqueness for the exceptional boundary at k=5 up to and including tilde theta_1(5); no post-threshold amplitude."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-order-five-uniqueness-on-the-three-state-potts-external-field-bo--5fb724796467/RESULT.md",
+          "material_read": "Finding, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror statement comparison",
+          "title": "Order-five uniqueness on the three-state Potts external-field boundary",
+          "trigger": "Strongest indexed overlap with the same conjecture and K_1"
+        },
+        {
+          "assessment": "Different function and bifurcation geometry",
+          "evidence": [
+            "A fold-curve width proportional to a 3/2 power does not give the K_1 reciprocal extrema."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-three-halves-opening-of-the-potts-external-field-cusp--1fb1751da5d6/RESULT.md",
+          "material_read": "Finding and fold-width claim",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact three-halves opening of the Potts external-field cusp",
+          "trigger": "Related indexed Potts bifurcation asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normal form gives a substantive uniform local classification at the source's critical external-field boundary, distinguishing quartic nondegeneracy from mere second-derivative sign change. The branch and height exponents with exact constants are useful when analyzing maximization near that threshold. The result does not require or resolve global uniqueness for high tree orders, and is not a thermodynamic phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

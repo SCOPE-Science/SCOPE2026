@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:36:12.382016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim uses zero field and independent rate-one updates at each site, not one total update per unit time. Conditional spin means are a*sigma2−b*sigma3, c*(sigma1+sigma3), and a*sigma2−b*sigma1 in site order. Global spin flip splits the eight monomials into even and odd sectors. The linear exchange-antisymmetric decay rate is 1−b; the reflection-symmetric block has rates 1+(b±sqrt(b²+8ac))/2. The cubic quotient has rate 3. Quadratics modulo constants give the three respective linear rates shifted by one; together with the constant these exhaust the spectrum, so the full gap is the lesser of 1−b and 1−rho with rho²+b*rho=2ac, rho>0. For h<1, a>c>b and rho>b, while for h>1, a<c<b and rho<b. Since b'>0 and a'≤0 (also at h=0), rho'=(2ca'−b'rho)/(2rho+b)<0. The crossing at h=1 has a=b=c, yielding the unique gap maximum 1−c; setting s=sech²(2t) for t=beta K the slopes are t(3−s)/6 and −t(1+s)/2. The fixed-h limits are zero off the optimum and 1/2 at it. In the window h=1+u/t one has a→(1−tanh u)/2, b→(1+tanh u)/2, c→1/2. The limiting positive root is a (since a+b=1 and 2c=1 in the limit), so the two branches give (1−|tanh u|)/2. Five independently constructed eight-state generators gave the same exact characteristic polynomial by rational Faddeev–LeVerrier, covering both sides and equality: /workspace/branches/5e947fd0-7b63-4359-b26d-4eea87ce2831/independent_spectrum_check.py. The uploaded code was not executed and the rational sample does not establish the real-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nacu proves monotonic slowing for a ferromagnetic cycle and treats linear spin functions; the per-site clock agrees with the normalization here. Grynberg–Stinchcombe allow arbitrary signed periodic couplings, with Glauber local rates, and derive a quadratic spectral problem on domain walls."
+        ],
+        "reasoning": "The signed-chain paper is a stronger setup at the level of rates and even observables. A configuration and its global flip share all the same wall variables. Its inspected wall equations therefore do not by themselves identify the odd spin-sector rates competing for the full gap; the ferromagnetic comparison theorem does not apply to the frustrated cycle.",
+        "searches": [
+          "arXiv:math/0305056 Theorem 1",
+          "Glauber Ising chain random couplings arbitrary bonds signed frustrated ring exact relaxation spectrum one particle heat bath free fermion boundary conditions",
+          "Grynberg–Stinchcombe Phys. Rev. E 87, 062102 (2013), Eq. (1), Eq. (16)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:math/0305056",
+        "arXiv:0707.1953",
+        "Phys. Rev. E 87, 062102 (2013)",
+        "Resultary findings identified in the four checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear spin closure and the local Glauber rates are known; comparison in the ferromagnetic theorem uses the nonnegative-sector structure. The signed-chain wall reduction identifies only the globally flip-invariant quotient in the passages read. The Ismail–Salem full text was not accessible."
+        ],
+        "reasoning": "One could use known rate formulas to build the eight-state operator, but the branch crossing, the dominance of those two modes over the even and cubic modes, strict opposite slopes, and limit on a shrinking defect scale still need evaluation and proof. These are not implications of the compared ferro-monotonicity or domain-wall results. The access issue is an unresolved risk only.",
+        "searches": [
+          "Nacu arXiv:math/0305056 pp. 2–3 (offsets 3800, 4556, 7408)",
+          "Grynberg–Stinchcombe Phys. Rev. E 87, 062102, §§II–III (offsets 9060, 12130, 21970)",
+          "Ismail–Salem DOI 10.1002/pssb.200301657"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A gauge flip of the central spin maps the bonds to (−K,−K,−hK) without changing heat-bath rates up to relabeling. The triangle with h>0 has negative bond-sign product, so it cannot be mapped to an all-ferromagnetic cycle. Pini–Rettori address driven antiferromagnetic chains and an ANNNI model, not this undriven triangle gap. The triangular-ladder search hit arXiv:2511.05948v1 is about fixed-magnetization ground states."
+        ],
+        "reasoning": "The same Markov eigenvalues occur for the gauge-equivalent all-negative triangle and after a uniform choice of time units. These equivalences can give the matched symmetric point when combined with homogeneous results but do not give the varying-defect optimum or scaled cusp. Static energies or modes of driven response are not the spectral gap of the reversible generator.",
+        "searches": [
+          "Resultary: three spin Ising triangle heat-bath Glauber spectral gap frustration negative bond exact optimum h=1 low temperature logistic window",
+          "three-spin Ising triangle continuous-time single-site heat-bath Glauber spectral gap competing antiferromagnetic bond exact eigenvalues frustration optimum",
+          "arXiv:0707.1953"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 2026/11/22/SCOPE-exact-frustration-matched-mixing-optimum-on-the-three-spin-ising--7ae335cd20e9 is the bound record. Other same-day triangle or period-three results concern a three-bath linear oscillation threshold, three-terminal heat currents/rectification and static Fisher information, respectively."
+        ],
+        "reasoning": "The self-hit provides no independent coverage. The distinct findings concern different generators or static observables; none tabulates the full reversible single-bath gap, its defect optimum or its low-temperature window.",
+        "searches": [
+          "Resultary: frustration matched defect optimum spectral gap cusp logistic low-temperature window three spin cycle",
+          "Resultary 2026/11/22 SCOPE-a-sharp-three-bath-oscillation-threshold-and-third-order-excepti--79b8554fa9c0",
+          "Resultary 2026/11/22 SCOPE-exact-three-terminal-heat-law-and-sharp-rectification-bound-on-a--e9b7e6a1abe7",
+          "Resultary 2026/11/22 SCOPE-opposite-field-probing-preserves-joint-information-in-a-frustrat--1ec2f7045240"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full signed-triangle defect law, its strict branchwise optimum and cusp, and the scaling window. The Glauber rates, linear closure and homogeneous-ring setting are prior. Neither the ferromagnetic cycle monotonicity result nor the inspected general signed-chain domain-wall spectrum gives the competition of odd spin modes that is essential here. The judgment is limited to compared statements and known implications, not absolute priority.",
+      "residual_risks": [
+        "The Ismail–Salem article was inaccessible. The old random ±J-chain lead PII 0378437180900096 also denied access; its title alone does not establish or exclude coverage. More general signed-ring spin-spectrum formulas or an unindexed finite-triangle evaluation are possible.",
+        "Same-day comparison is by mathematical content only, without date-based priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior linear method and monotonicity under nonnegative couplings, not coverage of frustration",
+          "evidence": "Increasing ferromagnetic couplings increases the relaxation time; the scaled convention is rate one per site.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0305056",
+          "material_read": "Theorem 1 and time normalization on p. 2; linear reduction on p. 3, offsets 3800, 4556, 7408",
+          "method": "OA primary PDF text",
+          "title": "Glauber Dynamics on the Cycle Is Monotone",
+          "trigger": "General cycle gap and monotonicity theorem"
+        },
+        {
+          "assessment": "Same local-rate framework up to time scaling; inspected diagonalization uses wall variables, not the full spin-sector comparison",
+          "evidence": "The model permits periodic signed couplings but the spectral equations compared here use kink creation, annihilation and hopping, insensitive to the overall spin orientation.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.062102",
+          "material_read": "Abstract, end of p. 1 and p. 2 Eq. (1) and domain-wall setup through Eq. (5), and p. 3 Eq. (16); text offsets 9060–15513 and 21970–25906",
+          "method": "OA publisher article at UNLP repository",
+          "title": "Nonuniversal disordered Glauber dynamics",
+          "trigger": "Single-temperature ring with arbitrary signs and a more general exact spectral reduction"
+        },
+        {
+          "assessment": "Different driven and competing-chain results",
+          "evidence": "Discusses driven response and a decoupling approximation, and an ANNNI model rather than complete eight-state relaxation for the signed triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.1953",
+          "material_read": "Overview p. 2 offset 10355 and Section III p. 6 offset 31763",
+          "method": "OA primary PDF text",
+          "title": "Effect of antiferromagnetic exchange interactions on the Glauber dynamics of one-dimensional Ising models",
+          "trigger": "Antiferromagnetic and competing-bond Glauber dynamics"
+        },
+        {
+          "assessment": "Unresolved; no noncoverage verdict inferred from access errors",
+          "evidence": "The frozen literature note describes a six-spin study, not independently established by the retrieval; a finite-triangle implication cannot be excluded on that basis.",
+          "identifier_or_url": "https://doi.org/10.1002/pssb.200301657",
+          "material_read": "Full text unavailable; no decisive abstract passage independently recovered",
+          "method": "Bounded OA DOI/Wiley and metadata retrieval attempts",
+          "title": "Dynamics of Ising spins with antiferromagnetic bonds on a triangular lattice",
+          "trigger": "Potential same-lattice dynamics overlap"
+        },
+        {
+          "assessment": "No implication for the full reversible gap",
+          "evidence": "The oscillation threshold is stated for the linear sector of a three-bath construction; its limitation excludes a full-spectrum claim.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-bath-oscillation-threshold-and-third-order-excepti--79b8554fa9c0",
+          "material_read": "Finding offset 0 and limitations offset 9373",
+          "method": "Resultary local mirror",
+          "title": "A sharp three-bath oscillation threshold and third-order exceptional point",
+          "trigger": "Distinct same-day spectral result with period three and opposite signs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The triangle is the smallest simple cycle carrying frustration. The exact full-gap result shows that strengthening a single negative bond first removes a relaxation bottleneck and then creates another, and quantifies the change of dominant mode. The nonzero limiting optimum versus vanishing gap at every fixed mismatched bond and the exact 1/(beta K) crossover are physically meaningful distinctions not captured by the static ground-state energies or by a mere linear-mode calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

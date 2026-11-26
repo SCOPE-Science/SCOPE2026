@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:59:28.765882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an independent support S, a wrong-parity positive trace Y can be realized iff at least one vertex outside S can join Y, since any realization must contain such a vertex and just one corrects parity. The maximal wrong-parity traces are S itself or the single deletions from S, according to parity. Removing a vertex from a maximum independent set gives a universal corrector and the lower VC bound; at maximum size the only allowed correctors for single deletions must be external private neighbors. On odd paths the unique maximum set has no such neighbors. On even P_(2k), k private witnesses would exhaust the complement and rule out every 101 pattern, requiring n>=3k-2, impossible for k>=3. The cases n=1,2,4 agree with the listed explicit trace families. Online, a depth-alpha complete tree would have a maximum independent set along the all-positive branch, so it requires matching parity. On odd paths of order at least three, flipping the last answer would require a corrector adjacent to at most the last queried vertex of that unique maximum set; every external vertex is adjacent to two, so the leaf is impossible. Endpoint querying on P_n gives P_(n-1) with the same parity and P_(n-2) with opposite parity; the base cases and the four residue classes attain the corresponding upper bounds. Independently checked direct graph traces on all 1099 labeled graphs of orders 1–5 and solved exact finite path VC and complete-tree existence for both parities through n=12 (python3 /workspace/checks/finite_review.py 4; /workspace/checks/4.txt). This finite verification corroborates rather than proves the graph and path theorems; no general-graph online formula is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-weight cycle result compares with the same-weight path dimension at fixed excess r. The antihole class is all cycle independent sets plus the full vertex set.",
+          "The 2016 Elsevier candidate had only search metadata about a graph VC parameter, including induced independent subgraphs; full text could not be accessed."
+        ],
+        "reasoning": "No inspected broader theorem supplies dimension of one parity of all weights. The unavailable graph-VC article is not treated as a negative comparison. The fact that a maximum independent set dominates outside vertices does not by itself imply the external private-neighbor condition.",
+        "searches": [
+          "Resultary 253357213fec, Finding",
+          "Resultary 3c49984c9619, Finding",
+          "S0166218X16301755 graph independent sets VC dimension author preprint pdf"
+        ]
+      },
+      "checked_sources": [
+        "Primary text: arXiv:2105.04617, arXiv:2101.06490",
+        "Resultary 253357213fec, 2c80e8096553, ab94895bb7a2, 3c49984c9619",
+        "Access attempted only: Resultary 2374d80e80d6; Elsevier PII S0166218X16301755"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic fixed-weight result records a single-weight path online dimension (r+1) log_2(k)+O_r(1) for length 2k+r, not for all weights of parity k. At length 2k the maximum-weight class has only k+1 independent sets, by distributing its one leftover zero after the k-1 mandatory internal zeros.",
+          "The cycle result includes an additional nonindependent full-set concept and does not impose parity."
+        ],
+        "reasoning": "In particular, the maximum-weight class has Littlestone dimension at most log_2(k+1), less than k for k>=3, while the parity union reaches k. Trees in the union use different weights at different leaves; individual fixed-weight dimensions and unrestricted cycle dimensions do not determine that behavior.",
+        "searches": [
+          "Resultary 253357213fec, fixed-weight path comparison in Finding",
+          "Resultary 3c49984c9619, Finding",
+          "Frozen citation to Resultary 2374d80e80d6 in RESULT.md line 66; full text unavailable in local mirror"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent sets on P_n are no-adjacent-ones words. Kovačević–Vukobratović study run and weight restrictions for information-theoretic rates. Johnson treats VC from the substrings or translates of a binary string.",
+          "The independent domination comparison Resultary ab94895bb7a2 treats minimum-size independent dominating sets."
+        ],
+        "reasoning": "The alternate runlength formulation must still use vertex-coordinate traces on all length-n words of a given parity. Neither a translate family, a capacity computation, nor restricting to minimum independent dominating sets gives the stated trace criterion.",
+        "searches": [
+          "Resultary: parity-filtered independent sets, private neighbors, and path Littlestone dimension",
+          "arXiv:2105.04617 p. 1",
+          "arXiv:2101.06490 pp. 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected same-day path polynomial result gives VC=floor((n+1)/3) for inclusion-maximal independent sets, with no exact online claim. The minimum-independent-dominating result gives a periodic shattering polynomial and an online formula at n=2 mod 3."
+        ],
+        "reasoning": "The exact statements apply to inclusion-maximal or minimum dominating hypotheses, not to all independent sets satisfying cardinality parity. Same-day dating does not establish order or priority.",
+        "searches": [
+          "Resultary: fixed-cardinality independent paths, parity and shattering",
+          "Resultary 2c80e8096553, Finding and Assumptions",
+          "Resultary ab94895bb7a2, Finding and Assumptions"
+        ]
+      },
+      "rationale": "Fixed-weight, maximal-independent, and independent-dominating path theorems handle materially different hypothesis families. The private-neighbor terminology is standard; what is distinct in the available evidence is its exact equivalence to shattering maximum supports for parity-restricted independent sets, the full support criterion, and the all-length period-four online dimension. This is not a priority certification and the inaccessible comparisons are retained explicitly.",
+      "residual_risks": [
+        "The exact fixed-cardinality path paper record and the 2016 independent-subgraph VC candidate could not be inspected in full; no negative claim about their contents is made.",
+        "Reformulations under runlength-limited coding or graph domination may be unindexed. Priority is limited to the compared statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed weight; not a parity union",
+          "evidence": "VC=min(k,r+1) on C_(2k+r) at weight k; same-weight path online comparison at fixed r.",
+          "identifier_or_url": "Resultary 253357213fec",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue and source mirror",
+          "title": "Fixed-weight cyclic independent sets",
+          "trigger": "Closest available statement also comparing exact-order path classes at one weight"
+        },
+        {
+          "assessment": "Different hypothesis set",
+          "evidence": "Inclusion-maximal independent sets have VC=floor((n+1)/3), with exact shattering polynomial.",
+          "identifier_or_url": "Resultary 2c80e8096553",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local catalogue and source mirror",
+          "title": "Exact shattering polynomial for maximal independent sets of paths",
+          "trigger": "Exact static path shattering"
+        },
+        {
+          "assessment": "Different subclass and different period",
+          "evidence": "Minimum independent dominating sets of paths; periodic polynomial and an online result at n=2 mod 3.",
+          "identifier_or_url": "Resultary ab94895bb7a2",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local source mirror",
+          "title": "A periodic shattering law for minimum independent dominating sets",
+          "trigger": "Private-neighbor and domination formulation"
+        },
+        {
+          "assessment": "All cycle weights and augmented class",
+          "evidence": "The concept family consists of the independent sets of a cycle together with its whole vertex set.",
+          "identifier_or_url": "Resultary 3c49984c9619",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local source mirror",
+          "title": "Parity-sharp VC and Littlestone dimensions of antihole geodesic convexity",
+          "trigger": "Online gaps for related cycle concepts"
+        },
+        {
+          "assessment": "Information capacity, not subset traces",
+          "evidence": "The formulation studies runlength constraints, including constant-weight regimes, and asymptotic information capacity.",
+          "identifier_or_url": "arXiv:2105.04617",
+          "material_read": "p. 1, offset 0",
+          "method": "Open-access primary text",
+          "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+          "trigger": "Equivalent no-adjacent-ones representation"
+        },
+        {
+          "assessment": "Different concept relation",
+          "evidence": "Uses substring or sliding-window families built from a binary string, including the relation P(x+y).",
+          "identifier_or_url": "arXiv:2101.06490",
+          "material_read": "pp. 1 and 3, offsets 0 and 7600",
+          "method": "Open-access primary text",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Binary word VC theory"
+        },
+        {
+          "assessment": "Exact statement not independently accessible",
+          "evidence": "The frozen citation describes single prescribed weights; the distinct cyclic record provides an independently inspected same-weight path comparison.",
+          "identifier_or_url": "Resultary 2374d80e80d6",
+          "material_read": "Frozen citation in RESULT.md line 66 only; matching local mirror absent",
+          "method": "Local catalogue and mirror lookup",
+          "title": "Fixed-cardinality independent path concepts: sharp VC rank and near-saturation online growth",
+          "trigger": "Same graph and queries at fixed size"
+        },
+        {
+          "assessment": "Unresolved, not used as evidence of noncoverage",
+          "evidence": "The search result describes a graph VC parameter for subgraph families; the precise relation to parity-restricted membership could not be determined.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X16301755",
+          "material_read": "Search metadata only; full-text requests returned HTTP 403 and an identifier lookup yielded no same-paper alternate",
+          "method": "Primary literature search and lawful OA lookup",
+          "title": "2016 graph VC candidate (title not verified)",
+          "trigger": "Search metadata referred to induced independent sets and a graph VC parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Parity is a natural global restriction on the independent-set language. The trace criterion converts shattering into an explicit graph property, with a sharp one-unit VC dichotomy. The exact path ranks separate adaptive from static querying in an infinite family and show the parity of the advantage alternating modulo four; a rank for a single weight or a mere cardinality estimate would not reveal this.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

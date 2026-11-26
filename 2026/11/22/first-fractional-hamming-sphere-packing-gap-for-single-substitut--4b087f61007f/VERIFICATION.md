@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute commands from the root of this extracted artifact. The package is self-contained for the **exact** checks and exhaustive integer proof; a separate NumPy/SciPy installation is needed only for the corroborative separate MILP check.
+## correctness
 
-```
-python3 src/verify_exact.py
-g++ -O3 -std=gnu++17 src/max_clique.cpp -o max_clique
-./max_clique 6
-python3 src/milp_crosscheck.py
-```
+PASS
 
-The first command reconstructs every Dyck word of semilength one through six, all one-bit received balls, every packed codeword list, every sparse rational primal/dual coefficient and every primal/dual constraint. Its terminating line is `EXACT_ALL_OK`. The executable separately generates the source set and checks the maximum clique by full branch-and-bound with a proper greedy coloring bound. The six-pair run reports `MAX 22 NODES 3250007 ... WORDS 132`. The optional integer-programming cross-check generates the sources by combinations and reports `MILP_ALL_OK`. The secondary solver reports exact mixed-integer optimal statuses with zero requested MIP gap, but it is not relied on as a standalone mathematical upper-bound certificate.
+Complete radius-one binary Hamming balls intersect iff center distance is at most two. Distinct Dyck centers have equal weight and hence even distance, so disjoint-ball packings are exactly distance-at-least-four codes. Independently enumerated sources by the equivalent zero-based up-step position bounds p_i <= 2i, rebuilt all balls including unaltered outputs and non-Dyck outputs, checked the integer witnesses, and verified both sparse rational LP certificates by every primal and dual inequality. The (source count, integer witness size, matching primal/dual objective) triples were (1,1,1),(2,1,1),(5,2,2),(14,4,4),(42,10,10),(132,22,26). In the sixth case there were 726 outputs, with 68 nonzero primal weights and 51 nonzero dual weights. For the crucial separate integer upper bound, a fresh bitmask decision search on the graph formed by literal disjoint balls found a 22-clique after 8716 calls and excluded a 23-clique after 137602 calls. Each reverse traversal uses the proper coloring of its remaining prefix, so the prefix color count bounds a clique extension and the skipped branches cannot attain the target. For n <= 5 the LP upper bounds already match the integer witnesses. Thus the first gap is 26-22=4 and the ratio is 13/11. The frozen C++ prefix-color logic was also inspected; neither its recorded node count nor the optional MILP result was used as evidence of the upper bound.
 
-The integer and fractional results apply to \(1\le n\le6\) only. Nothing in the finite run is a proof about larger semilengths. Each source code is a list of *bitmasks* with bit zero representing the first word position, and a one denoting an upward Dyck step. For the fractional program, the dual output masks include all one-substitution outputs even if they are not Dyck words.
+## originality
+
+PASS
+
+No distinct inspected result establishes or implies the exact constrained full-ball substitution profile. The known Catalan basis construction identifies the integer graph but does not compute this independence number or the full-ball packing LP. An indexed same-date result is not dismissed on its date: the deletion and adjacent-swap theorems are compared by their distinct channel assumptions and values. The pass applies to the exact finite profile and gap, not to the graph or LP framework, and is not a historical priority certification.
+
+## value
+
+PASS
+
+The complete ball-packing LP is the natural relaxation for unrestricted binary one-bit substitution on this structured balanced language. Determining the first instance where it overestimates the integer code size by four, including after rounding, gives a concrete limit on using that bound to certify optimality. The earlier exact equality range is part of that boundary claim rather than an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

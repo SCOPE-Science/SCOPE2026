@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:40:05.756954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6 of Proof",
+        "Frozen VERIFICATION.md, requirements.txt and verify_mobius.py (inspected; numerical tests not used as proof)"
+      ],
+      "rationale": "Averaging rotation conjugates preserves feasibility and cannot increase the operator norm on the nonconstant subspace. The circulant Fourier drops are a(2−2 cos(πj/m))+2b[j odd]. The signed modes 1−Ea, 1−Ua−2b and −1+Va+2b have positive weighted average (V−U)/(V+2E−U) with relative weights (V−U)/E, 1, 1. Equality fixes both edge probabilities. The holding numerator is E for odd m, E−U for even m. The unused even-frequency maximum drop has coefficient F; V+E−U−F is E for odd m and 4c(1−c) for even m, where c=cos(π/m), so no omitted mode violates the bound, including m=4. For the prism the endpoints are E for nonconstant symmetric layer modes and 0 and Δ in the antisymmetric layer; the same weighted argument gives Δ/(Δ+2E). The unused symmetric minimum is no smaller than its antisymmetric counterpart, and prism holding is feasible since Δ+E≥4 (for odd m use Δ=4−U and E>U). Substitution verifies the holding/rung swap, exact even advantage and its π⁴ limit. Taylor expanding E∼4π²/m² and U∼π²/m² verifies the mass and gap limits and the fourfold gain against the optimal cycle. Only rotation-invariant uniqueness follows.",
+      "residual_risks": [
+        "No claim about arbitrary optimizer uniqueness, nonreversible chains or finite-time total-variation optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8814c6f5058b applies for m≥3 and compares to the bare cycle. The separate prism formula treats a different graph."
+        ],
+        "reasoning": "Restriction of 8814c6f5058b to m≥4 covers the Möbius extremum; the Cartesian prism formula alone would not imply the extremum on the twisted graph.",
+        "searches": [
+          "Resultary match 8814c6f5058b",
+          "Prior prism finding 54a019de-aeec-4942-bf4e-79ce2da310d3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary findings ad268224b267 and 8814c6f5058b",
+        "Prism finding 54a019de-aeec-4942-bf4e-79ce2da310d3 (formula as attributed, not an independently retrieved page)",
+        "Frozen RESULT.md proof §5 and AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the matched Möbius formula the parameter in t/(t+2E) is t=V−U, while in the prism result it is t=Δ. Odd m gives Δ=4−U; even m gives Δ=4 and V−U=4cos(π/m)."
+        ],
+        "reasoning": "In odd size the denominators coincide and the explicitly tabulated probabilities swap holding and rung. In even size subtraction gives exactly 2E(1−c)/[(2+E)(2c+E)], whose leading coefficient is π⁴ by E∼4π²/m² and 1−c∼π²/(2m²). No separate optimization or sharpness step remains once the two exact optima are known.",
+        "searches": [
+          "ad268224b267 Finding",
+          "8814c6f5058b Finding",
+          "Frozen AUDIT.json lines 119–128 and RESULT.md proof §5 for the prior prism result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed finding ad268224b267, Finding: u_n=U/2, v_n=E/2, w_n=V/2 and d_n=D/2 make its SLEM and all three probabilities the frozen ones.",
+          "Indexed finding 8814c6f5058b gives the same walk and invariant uniqueness."
+        ],
+        "reasoning": "The vertex indexing, edge orbits, stochastic constraints, and objective agree, not just a shared graph or graph spectrum.",
+        "searches": [
+          "Resultary: Möbius ladders, parity-sharp fastest mixing, exact fastest mixing probabilities",
+          "Public query: Möbius ladder fastest mixing prism exact SLEM optimum parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ad268224b267 gives the exact value and orbit probabilities over the entire regime, including the holding mass."
+        ],
+        "reasoning": "The audited statement is a family formula, not a finite data census. The exact indexed family formula is stronger matching evidence than agreement on any finite table.",
+        "searches": [
+          "Resultary search for the exact Möbius minimax formula and parity law"
+        ]
+      },
+      "rationale": "Two distinct indexed findings give the same globally optimal SLEM and invariant probabilities; one includes the full m≥4 regime with equivalent notation and the other extends down to m=3. Together with the independently known prism optimum, which the frozen text acknowledges and rederives, the parity comparison is a direct substitution, not a distinct surviving extremal theorem. This is a finding of mathematical coverage in the consulted record set, not proof that the later-dated matches preceded or were the source of the frozen submission.",
+      "residual_risks": [
+        "The exact Möbius matches carry later catalogue dates; the overlap does not resolve origin or historical priority.",
+        "The opaque prism ID was not resolved to the original page; the formula is independently verified here from the frozen proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent optimizer and value; no explicit prism comparison",
+          "evidence": "Rescaling all four symbols by 2 gives U,E,V,D of the frozen result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-parity-sharp-fastest-mixing-on-m-bius-ladders--ad268224b267/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Parity-sharp fastest mixing on Möbius ladders",
+          "trigger": "Same exact optimization and parity"
+        },
+        {
+          "assessment": "Equivalent on m≥4 and extends to m=3",
+          "evidence": "Parity-dependent SLEM, positive orbit weights, uniqueness only within rotation-invariant class, and bare-cycle comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact fastest mixing probabilities on Möbius ladders",
+          "trigger": "Potential stronger parameter coverage"
+        },
+        {
+          "assessment": "Prism formula available in the frozen evidence; not a Möbius theorem",
+          "evidence": "Optimal SLEM Δ/(Δ+2E), rim weight 2/(Δ+2E) and rung weight E/(Δ+2E).",
+          "identifier_or_url": "54a019de-aeec-4942-bf4e-79ce2da310d3",
+          "material_read": "Exact optimum as quoted in frozen AUDIT.json lines 119–128 and rederived in frozen RESULT.md line 67; original record not resolved",
+          "method": "Local catalogue lookup and inspection of attributed formula in frozen materials",
+          "title": "Exact fastest mixing on prism graphs with vanishing optimal rung weights",
+          "trigger": "Exact comparison benchmark already attributed in frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§3–6",
+        "Matched exact Möbius formula and prism benchmark"
+      ],
+      "rationale": "The exact two-edge-orbit extremum across an infinite natural family and its sharply different odd and even twist behavior are meaningful mathematical information. They quantify a vanishing optimal rung mass and a fourth-order parity effect not captured by gap order alone. This assesses the content of the theorem, not the novelty of restating it from the two available optima.",
+      "residual_risks": [
+        "After accounting for coverage, the comparison algebra alone offers no substantial repair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

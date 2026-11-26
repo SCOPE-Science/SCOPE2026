@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-The theorem's proof is a local exchange classification, a formal generating-function decomposition and a sharp binomial convexity/equality argument; none relies on finite enumeration. The primary literature establishes the Dyck matroid base-polytope realization and the single-basis-exchange edge criterion.
+## correctness
 
-Run `python3 catalan_degree_checker.py` using Python 3 and its standard library. It enumerates all Dyck paths of semilength \(1\) through \(9\) (up to \(4,862\) paths at the largest size), evaluates the exact number of neighbors by independently testing all \(n^2\) unlike-symbol swaps, and compares with the depth-two forest formula. In parallel, it forms each excess-degree polynomial from the recurrence without using those path swaps. It checks polynomial coefficient equality, vertex totals, exact extremal values, and equality multiplicities; the success marker is `CATALAN_POLYTOPE_DEGREES_EXACT_PASS`.
+PASS
 
-Limitations: these are exact finite cross-checks, not an infinite proof or independent audit. The proof itself covers every integer \(n\ge1\). Historic priority is conditional on the inspected literature and indexed records, rather than exhaustive verification of all possible prior sources.
+The vertices are precisely the Dyck up-step incidence vectors, and a neighbor differs by one swapped U and D by the matroid-base edge theorem. A swap with the earlier step D always raises intervening heights; with the earlier step U it is legal iff all affected heights are ≥2. As an independent count, let t_j be the size of top-level component j. Between two components only raising swaps are possible, giving t_j t_l for j<l. Within one component its root's two steps cannot participate in a legal internal swap. Between two different depth-two blocks only raising swaps are legal, giving s_i s_h for i<h; within any one block all s_i² pairs of unlike symbols are legal. Thus the total inside component j is binom(t_j,2)+sum_i binom(s_i,2) over its depth-two blocks, using t_j=1+sum_i s_i. Adding cross-component swaps gives the stated formula. A block of size s contains C_{s−1} choices and has weight z^s q^binom(s,2); a root is z times a sequence of these blocks, and the forest is a sequence of roots. This gives (1−H)/(1−z−H) and the stated recurrence with the s=n term cancelled. Excess zero means each block has size one, i.e. path height ≤2; there is one such forest per composition of n. For n≥3, binom(sum_i s_i,2)≤binom(n−1,2), with equality in the excess iff there is one root with one block of size n−1, giving UUQDD and C_{n−2} choices. The n=1,2 cases tie as stated. The finite checker was read; its checks are corroboration only.
+
+## originality
+
+PASS
+
+The matroid, adjacency criterion, local legal-swap rule and aggregate edge count are prior. The supported distinct claim is the evaluated depth-two formula for each undirected degree, with its refined series and equality families. The best indexed near match has a different adjacency relation, despite sharing the maximum value.
+
+## value
+
+PASS
+
+In the natural basis graph of a classical matroid, the subtree reduction gives an exact local connectivity invariant without enumerating exchanges. Its distribution refines known total edge counts and identifies every extremal path. The rigid equality families and the ease of evaluating the degree can inform study of this exchange graph independently of any new mixing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

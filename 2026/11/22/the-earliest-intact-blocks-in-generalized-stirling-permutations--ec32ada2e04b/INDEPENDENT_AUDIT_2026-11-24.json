@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:16:54.590830Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–95 and CHECK.py (inspected)",
+        "python3 /workspace/reproductions/2.py; /workspace/reproductions/2.out exhausts raw multiset words for (2,3),(2,4),(3,3),(4,3), checking each subset event without the insertion enumerator"
+      ],
+      "rationale": "The largest label occupies a unique run and is deletable, so all valid words have exactly one insertion history with the same probability. For marked surviving runs the r−1 forbidden gaps per run are disjoint, so the joint product follows by conditional survival. The one-label product telescopes in Gamma ratios with exponent alpha=(r−1)/r. The bounded early-window intensity follows by summation and the uniform bound p <= C(i/n)^alpha; b_n^(1+alpha)=n^alpha. For fixed joint order, comparing logs to the product of marginals on [epsilon b_n,T b_n] costs O(sum_{ell >= epsilon b_n} ell^(-2)); at every label Bernoulli's inequality dominates joint survival by that product. Thus the small-label loss is bounded by its vanishing first moment as epsilon decreases; repeated indices cost at most a constant times max p on the compact window. The factorial majorant exchanges the limit with all orders in the Laplace expansion. This proves vague Poisson convergence, including at the origin. Interval counts converge with no fixed limit atoms, which gives joint fixed-rank convergence and tightness since the cumulative intensity tends to infinity. For the scale assertion, beyond the balancing scale pairwise nonpositive covariances also give variance at most the mean, so diverging means imply diverging counts, not merely a first-moment suggestion.",
+      "residual_risks": [
+        "The finite replay tests the survival identity only. The limit requires fixed r and the analytic proof; no uniformity in rank or growing multiplicity is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuba–Panholzer treats counts of specified block sizes and distances between occurrences.",
+          "Resultary 0a1a1c4bbf35 is for uniform recursive trees at scale sqrt(n); a8ef96fa304d likewise treats bounded fringe-subtree statistics of uniform recursive trees."
+        ],
+        "reasoning": "The available tree asymptotics use a different attachment model; the available Stirling statistics do not supply the rare-window process under their stated scopes.",
+        "searches": [
+          "Web: r-Stirling permutation intact Poisson extreme earliest leaves increasing trees",
+          "Resultary: r-Stirling permutations intact blocks birth labels Poisson point process early labels n^(r-1)/(2r-1)",
+          "Kuba–Panholzer preprintStirblock, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Primary extracts and Resultary entries above; frozen references lines 97–110"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known label-indexed polynomials and joint product allow finite subset reconstruction; the cited covariance conclusions are macroscopic. The alternate recursive-tree intensity is x dx."
+        ],
+        "reasoning": "The existing computations furnish premises, not the uniform small-window joint approximation, control at zero and Laplace passage that establish this claim. A direct parameter substitution of the recursive-tree theorem is not valid.",
+        "searches": [
+          "Resultary 2026/11/8 record b7d6e5418324; Haglund–Visontai (2012); Resultary 0a1a1c4bbf35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson–Kuba–Panholzer abstract gives increasing-tree representations; Haglund–Visontai abstracts describe value-indexed multivariate encodings and stability."
+        ],
+        "reasoning": "For r=2 this is the earliest plateau by label; for r>2 every internal copy gap has to survive. An ordinary tree leaf needs all child slots empty, not just the internal slots. Thus the tree-leaf alias requires a restricted slot interpretation rather than transferring arbitrary oldest-leaf statements.",
+        "searches": [
+          "Resultary: earliest intact labels or leaves in generalized Stirling permutation increasing (r+1)-ary trees Poisson",
+          "arXiv:0805.4084v1; Haglund–Visontai (2012) author PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match ec32ada2e04b is the reviewed record. b7d6e5418324 supplies the exact joint-survival formula and macroscopic covariance, not an indexed rare-scale limit."
+        ],
+        "reasoning": "The finite distribution record is credited, but it is not a table or statement of the new asymptotics. An exact self-match is not a separate priority result.",
+        "searches": [
+          "Resultary: r-Stirling permutations intact blocks birth labels Poisson point process early labels n^(r-1)/(2r-1)"
+        ]
+      },
+      "rationale": "The new conclusion is the rare birth-label Poisson process and its fixed-rank laws, not the finite survival product, gap representation, or plateau encodings. The strongest accessible exact identity is credited; passing from it to this scale and all local counts needs the rare-event argument.",
+      "residual_risks": [
+        "Full passages from some direct prior sources could not be retrieved. An earlier rare-event theorem encompassing the internal-slot process or deriving the same limit remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known representation and aggregate limits; no exact rare-window coverage shown",
+          "evidence": [
+            "Abstract relates generalized Stirling permutations to generalized plane recursive trees and (k+1)-ary increasing trees and studies urn parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0805.4084",
+          "material_read": "v1 abstract and §1 extract lines 11–37",
+          "method": "Bounded OA PDF extract; targeted reader timed out",
+          "title": "Generalized Stirling permutations, families of increasing trees and urn models",
+          "trigger": "Potential equivalent increasing-tree theorem"
+        },
+        {
+          "assessment": "Directly relevant finite and distributional statistics; rare-window implication not found in available passages",
+          "evidence": [
+            "Abstract lists number of blocks of specified sizes and distances between occurrences."
+          ],
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/preprintStirblock.pdf",
+          "material_read": "Abstract and §1 extract lines 7–40",
+          "method": "Bounded OA author-manuscript extract",
+          "title": "Analysis of Statistics for Generalized Stirling Permutations",
+          "trigger": "Direct block and repeated-copy statistics"
+        },
+        {
+          "assessment": "Encoding coverage credited",
+          "evidence": [
+            "Value-indexing, stability and extension to generalized Stirling permutations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2011.10.007",
+          "material_read": "Abstract, extract lines 22–43",
+          "method": "Bounded OA author-accessible PDF extract",
+          "title": "Stable multivariate Eulerian polynomials and generalized Stirling permutations",
+          "trigger": "Finite label-dependent encoding"
+        },
+        {
+          "assessment": "Finite formula already known; stated covariance scope differs",
+          "evidence": [
+            "Exact joint survival and macroscopic birth-prefix covariance."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 record ending b7d6e5418324",
+          "material_read": "Indexed summary and frozen discussion of the comparison",
+          "method": "Catalogue comparison; full record access timed out",
+          "title": "Age-resolved covariance kernel for intact blocks in random Stirling permutations",
+          "trigger": "Exact joint event identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; age-resolved covariance and recursive-tree comparison"
+      ],
+      "rationale": "The smallest surviving label is a natural birth-order statistic. The multiplicity-dependent scale separates a new regime from the bulk, and the nonhomogeneous process captures all fixed ranks rather than just an expected count.",
+      "residual_risks": [
+        "No growing-rank or quantitative approximation conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:49:22.620343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An order-five cycle uses all 32 labeled five-bit edges in the four-bit de Bruijn graph; the unique 00000 edge fixes a starting edge. The frozen DFS generates edge-label sequences, which may be rotated relative to a word written beginning with 00000, but still represent each cycle once. For an independent finite reproduction, python3 /workspace/branches/independent-05.py enumerates all 2^16 shift successors x=abcde ↦ bcde(a XOR f(bcde)). The two states with each tail must go to distinct successors in a cycle, so every order-five word induces exactly one such map; each map is a permutation, and orbit length 32 from state 0 is both necessary and sufficient. Because the first five bits of each rotation are all distinct, lexicographic row order is exactly integer state order. For each successor state y the last-column bit is the leading bit of its predecessor state, giving the full BWT without rotation sorting. This returned 20:38, 22:426, 24:840, 26:608, 28:130, 30:6, total 2048, mean 195/8 and variance 211/64. A separate literal rotation sort in that replay confirmed both printed witness words are order-five, begin with 00000, and attain 20 and 30 linear runs. The result does not quotient by reversal/complement and does not merge terminal runs. The frozen verify.py and VERIFICATION.md were inspected, not executed. The apparent published 18-run witness is not a counterexample: for L=1(0011)^7 010, direct LF calculation via LF(i)=16L_i+# earlier occurrences of L_i gives three cycles of lengths 22, 7 and 3, whereas a primitive 32-symbol cycle requires a single LF cycle.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantaci et al. prove 18≤r≤30 after specialization. Fici–Gabory biject order-(d+1) cycles with odd-weight necklaces at length 2^d but their inspected statement does not preserve this run statistic. The successor-bispecial paper treats a broader alphabet with two extensions and reuses the same disputed binary witness in its introduction; its higher-order concrete constructions are not a binary order-five histogram."
+        ],
+        "reasoning": "Neither a bound nor a bijection without transport of the statistic determines coefficients. The generalized constructions and obstructions in the inspected statements are at different alphabet sizes or orders.",
+        "searches": [
+          "Mantaci et al. §5 Theorem 5.2 and §2 inverse test",
+          "Fici–Gabory MFCS 2025 Theorem 26 and Remark 27",
+          "Web search: de Bruijn sequences Burrows Wheeler equal-letter runs histogram order five 32 binary 2048 feedback function clustering minimum 20 runs",
+          "arXiv:2602.20949v3 Introduction, Theorem 3.1 scope and §7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Higgins 2012",
+        "Mantaci et al. 2017",
+        "Fici–Gabory 2025",
+        "Lipták 2024 slides and chapter access attempt",
+        "Ruskey–Sawada–Williams access attempt",
+        "arXiv:2602.20949v3",
+        "Two exact Resultary 2026/11/2 records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mantaci et al. explicitly say the lower bound is reached by b(aabb)^(2^(n−2)−1)aba; at n=5 that binary last column has 18 linear runs but LF cycles of lengths 22,7,3 rather than 32. The later successor-bispecial preprint repeats the witness with attribution. The upper bound of 30 agrees with the new witness but does not imply its multiplicity or the total distribution."
+        ],
+        "reasoning": "The earlier equality claim has a concrete obstruction, not just an access or wording issue; the exhibited string cannot occur as the classical BWT of one primitive cycle. The independent finite census both excludes every 18-run column and verifies exact attainment of 20.",
+        "searches": [
+          "Mantaci et al. author PDF pp.6, 16–17, especially Theorem 5.2 proof at offset 36500",
+          "arXiv:2602.20949v3 Introduction at offset 4250",
+          "Higgins Theorem 3.4 and Lemmas 3.6–3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementary pair columns encode Boolean feedback tables, and LF one-cycle validity characterizes a primitive word. A pair orientation contributes one obligatory change; an interpair boundary changes iff adjacent first bits agree, so r=32 minus the number of orientation switches. The later bit-reversal table reuses that statistic."
+        ],
+        "reasoning": "The formula gives the individual statistic but does not count the one-cycle tables at each switch count. A list of linear feedback registers is only a restricted subset, not all nonlinear feedback functions.",
+        "searches": [
+          "Higgins arXiv:1901.08392 §3, Theorem 3.4 and Lemmas 3.6–3.7",
+          "Lipták SeqBIM 2024 slides 21, 23–26",
+          "Resultary feedback and bit-reversed BWT of binary de Bruijn cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/02 exact-spectrum catalog record gives the identical six cells. The same day's distinct bit-reversal transport record gives a joint table with exactly these forward marginals. The slides give the number 2048 and six LFSRs, not these run frequencies."
+        ],
+        "reasoning": "Both catalog matches are mathematically exact for the statistic, and both displayed catalog dates follow the assigned record. They are not evidence of earlier coverage by themselves. The earlier total and six LFSRs must not be mistaken for a histogram or the six maximizers.",
+        "searches": [
+          "Resultary exact order-five de Bruijn BWT run spectrum and feedback/reverse-BWT joint table",
+          "Lipták SeqBIM 2024 slides 21, 23–26",
+          "Targeted primary lookup for binary order-five BWT histogram and minimum"
+        ]
+      },
+      "rationale": "The pair-block encoding, the one-cycle test and the total 2048 are prior. The earlier 18–30 bounds do not give the table; the proposed earlier witness at 18 runs is an invalid single-word last column under the earlier inverse criterion itself. Two later dated catalog results are verified exact coverage (one by marginalization); their stated dates and contents do not establish publication of either result before this record. The pass is for the genuine run-refined census and verified minimum, not for uniqueness in today's catalog or for the previously known structural characterization.",
+      "residual_risks": [
+        "Relationship and historical priority of the later exact catalog overlaps are not established by catalog dates alone.",
+        "Full LATIN 2024 chapter and Ruskey–Sawada–Williams article were unavailable. The bounded search does not exclude an earlier equivalent encoding or table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structure and permutation, not exact run histogram",
+          "evidence": "Complementary-pair encoding and primitive single-cycle test.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.08392",
+          "material_read": "§3, Theorem 3.4 and Lemmas 3.6–3.7, pp.14–16, offsets 30433–39290",
+          "method": "OA author PDF excerpts",
+          "title": "Burrows–Wheeler transformations and de Bruijn words",
+          "trigger": "Potentially equivalent last-column characterization"
+        },
+        {
+          "assessment": "Prior bounds; asserted lower-bound witness is invalid at order five",
+          "evidence": "Proof gives b(aabb)^(2^(n−2)−1)aba, which for n=5 has correct length and 18 runs but does not satisfy the one-cycle criterion.",
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf",
+          "material_read": "§2 p.6 inverse criterion; §5 pp.16–17, Proposition 5.1 and Theorem 5.2 proof (offset 36500)",
+          "method": "OA author PDF passages plus exact LF cycle computation",
+          "title": "Measuring the clustering effect of BWT via RLE",
+          "trigger": "Earlier general bounds and claimed minimum witness"
+        },
+        {
+          "assessment": "Bijection does not transfer BWT runs in inspected statement",
+          "evidence": "Odd-weight necklace correspondence; remark discusses finding a constructive bijection.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2025.48",
+          "material_read": "Theorem 26 and Remark 27, p.16 offset 56300",
+          "method": "OA full-text excerpt",
+          "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+          "trigger": "Possible transport to an enumerated necklace statistic"
+        },
+        {
+          "assessment": "Slides show structure and total, not full run data; chapter unresolved",
+          "evidence": "16 pair blocks, single-cycle test, 2048 cycles, and six order-five LFSRs.",
+          "identifier_or_url": "https://profs.scienze.univr.it/~liptak/files/SeqBIM2024.pdf ; https://doi.org/10.1007/978-3-031-55598-5_9",
+          "material_read": "Presentation slides 21 and 23–26, offsets 24861–32720; chapter not readable",
+          "method": "OA author slide PDF and chapter access attempt",
+          "title": "A BWT-Based Algorithm for Random de Bruijn Sequence Construction (presentation and LATIN chapter)",
+          "trigger": "Order-five uniform generation and possible histogram in worked examples"
+        },
+        {
+          "assessment": "Exact scope unverified",
+          "evidence": "HTTP 403, no accessible repository copy identified; no claim of noncoverage based on that failure.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Bibliographic citation only; no full text obtained",
+          "method": "OA DOI attempt and repository lookup",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "Classical de Bruijn construction citation"
+        },
+        {
+          "assessment": "Related extremal framework, not a verified 18-run order-five binary construction or histogram",
+          "evidence": "Its binary case invokes the same 1(0011)^(2^(k−2)−1)010 witness; the new higher-order results discussed there are for alphabet size at least three.",
+          "identifier_or_url": "https://arxiv.org/html/2602.20949v3",
+          "material_read": "Abstract and Introduction offsets 200 and 4250; start of §7 near offset 37009",
+          "method": "OA HTML article passages",
+          "title": "Successor-bispecial strings with minimum Burrows–Wheeler runs",
+          "trigger": "Plausibly stronger extremal run theorem surfaced by targeted search"
+        },
+        {
+          "assessment": "Exact equivalent census; later dated",
+          "evidence": "Identical six cells; same LF orientation and Euler-circuit approaches.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-bwt-run-spectrum-of-binary-order-five-de-bruijn-cycles--1eb61f1d72f3",
+          "material_read": "RESULT.md Finding and proof, offsets 0–9023",
+          "method": "Local Resultary mirror",
+          "title": "Complete BWT run spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Exact catalog table match"
+        },
+        {
+          "assessment": "Exact marginal implication; later dated",
+          "evidence": "r=32−T(m); sum over reversed run counts yields the same forward run coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-bit-reversal-transport-of-reverse-burrows-wheeler-transforms-of--e9f4efa40f3d",
+          "material_read": "RESULT.md feedback encoding and joint-table sections, offsets 0–6755",
+          "method": "Local Resultary mirror",
+          "title": "Bit-reversal transport of reverse Burrows–Wheeler transforms of de Bruijn cycles",
+          "trigger": "Stronger joint law may imply census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order five is a natural small binary de Bruijn census at which the accepted last columns have several distinct run counts and the proposed general lower-bound witness fails. The verified minimum 20 rules out the putative 18-run optimum; the exact multiplicities quantify the real spread and how many optimal cycles there are (38). The complete benchmark is useful for testing run-sensitive construction and extending to higher orders. No general-order lower bound or encoded bit cost is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:34:53.845621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46, 50–97 and 111–113; VERIFICATION.md lines 19–25; verify_sparse_cross_hsic.py lines 14–124 (read, not executed)",
+        "Independent bounded table calculation: sample A~Bin(n,p), then independently C~Bin(A,p) and D~Bin(n-A,p), set B=C+D. Weight each count triple by the three binomial probabilities, compute the first-half norm from the four empirical-centered products, and multiply its upper/lower tail masses by the independent matching second-half signs. At p=sqrt(0.5/n), this yields 0.03031332282645024, 0.08109219386009282, and 0.17443530520705050 at n=20,40,60."
+      ],
+      "rationale": "I reconstructed the U-statistic and studentizer. Deleting observation i changes f_1 to (n f_1-2g_i)/(n-2); the jackknife for sqrt(n) f_1 f_2 gives exactly the stated factor 4(n-1)/(n-2)^2. In the no-overlap cell, the counts give Q_n=AB[(A+B)/4-AB/n]/(n-1)^2. As the margins concentrate at np_n, this is asymptotic to np_n^3/2 on zero overlap, while f_1 is asymptotic to -p_n^2. Both half-signs are negative with probability tending to one below criticality. At criticality, fixed C_1=k>0 gives Q_n=k/4+o_P(1): the joint-one cells contribute this leading term, the O_P(sqrt(n)) singleton cells have squared deviations O_P(1/n), and the joint-zero terms contribute O_P(1/n). The sign in the second half is asymptotically nonzero on each fixed count since theta is noninteger. Tightness of the overlap counts reduces extended-real convergence to these conditional limits, including the signed divergence for C_1=0. The exceptional zero denominator has vanishing probability. For theta=1/2, the Gaussian threshold is strictly between the k=3 and k=4 positive values, giving the two stated Poisson rejection events and size 0.3685686509430986. In line 86, the exact first overlap term should be n C_r/(n-1), not C_r; the omitted C_r/(n-1) is o_P(1) and the preceding exact formula and subsequent limit are correct. I also rederived the Gaussian branch: W=(X-p)(Y-p) has variance p^2(1-p)^2 and Lyapunov ratio asymptotic to 1/(np^2). In both halves sqrt(n) f_r/[p(1-p)] is asymptotically standard normal since empirical-mean product error is O_P(p/n). In the first half 2(n-1)(g_i-f_1)/n is the centered vector of empirical-centered products (X_i-A/n)(Y_i-B/n). Replacing that vector by the population-centered products costs o_P(sqrt(n)p) in Euclidean norm by binomial mean concentration. The same fourth-moment ratio bounds the relative variance of the second moment, so the rescaled studentizer divided by p(1-p) tends to one. Independence and the limiting second-half sign preserve the standard normal limit.",
+      "residual_risks": [
+        "Finite sums are numerical corroboration, not proofs of the limits. Critical integer intensity and rejection at a threshold that is a limiting atom are not established. The exact printed primary normalization and hypotheses were not reread; the audit reconstructs the stated statistic from the jackknife and gives a direct Gaussian check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits the published statistic, moment-qualified central limit theorem, and the identical critical Bernoulli example at the sign level. The moment ratio is of order 1/(np^2), outside the stated vanishing condition in the first two regimes."
+        ],
+        "reasoning": "The dense Gaussian limit is covered and not credited as new; even a moment-uniform Gaussian theorem of the stated type does not entail either breakdown regime. Printed primary hypotheses and full scope were not independently confirmed.",
+        "searches": [
+          "Shekhar–Kim–Ramdas, arXiv:2212.09108 and JMLR 24 paper 369, §3, Theorem 4(b), Example 1 and Appendix B.3; primary passage requests"
+        ]
+      },
+      "checked_sources": [
+        "Shekhar–Kim–Ramdas reference and statement comparison in frozen RESULT.md; primary access attempted",
+        "Local Resultary entries 3689c2942a3f, 8abbab3b5ed1, 1faa7f7adc80, 5730903ab8bc",
+        "Primary literature lookup produced no relevant additional statements; not evidence of absence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The credited sign law uses the signs of the two centered Poisson counts. The new limit needs the distinct conditional scales Q_n~np^3/2 at k=0 and Q_n~k/4 at k>0."
+        ],
+        "reasoning": "The outcomes k=0 and finite k may have identical signs but respectively infinite and finite magnitude; thresholds on positive finite values are invisible to the sign law. The subcritical 100% size also requires the rate of studentizer collapse, not just two negative covariance estimates.",
+        "searches": [
+          "Shekhar–Kim–Ramdas Example 1 / Appendix B.3 (bound comparison and direct access attempts)",
+          "Resultary Gaussian-linear cross-HSIC 8abbab3b5ed1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen statistic reduces exactly to two independent half-sample centered covariance counts and the first-half empirical variance of centered products. The indexed Gaussian-linear cross-HSIC record shares the linear statistic under Gaussian independence and gives a finite-sample tail obstruction."
+        ],
+        "reasoning": "The Gaussian record does not supply the sparse Bernoulli overlap/projection regime. The signed Poisson-product comparison is an unstudentized or sign-only equivalent, not an equivalent magnitude law.",
+        "searches": [
+          "Resultary sparse Bernoulli xHSIC/linear cross-HSIC comparison: 3689c2942a3f and 8abbab3b5ed1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3689c2942a3f is the identical frozen record. 1faa7f7adc80 reports a roughly 36.79% limiting rejection rate and infinite atom for an exponential-weight Stein–Chen statistic, and 5730903ab8bc reports centered-Poisson behavior for a Stein–Chen discrepancy."
+        ],
+        "reasoning": "The distinct same-day Stein–Chen entries were compared on the statistic studied, not rejected based on date. Similar Poisson behavior or numerical size does not give this cross-HSIC law.",
+        "searches": [
+          "Local Resultary exact and near matches 3689c2942a3f, 8abbab3b5ed1, 1faa7f7adc80 and 5730903ab8bc"
+        ]
+      },
+      "rationale": "Pass applies to the studentized magnitude and resulting sparse limits, not invention of cross-HSIC, the Gaussian branch, or the published critical Bernoulli Poisson-sign example. Prior sign information cannot determine the 5% size or either escaping tail mass without analysis of the studentizer. Primary-text scope beyond the reported comparison remains an access risk.",
+      "residual_risks": [
+        "The primary Example 1 and appendix and the distinct Gaussian-linear indexed full text could not be reread; an uninspected stronger result or later sparse calibration analysis could cover some magnitude or size conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the statistic, dense Gaussian branch and sign comparison as reported; exact scope remains limited by access",
+          "evidence": "Bound comparison identifies §3, Theorem 4(b), Example 1 and Appendix B.3. Direct attempts timed out; this is not primary-text evidence of noncoverage.",
+          "identifier_or_url": "https://jmlr.org/papers/volume24/23-0248/23-0248.pdf; arXiv:2212.09108",
+          "material_read": "Bound RESULT.md lines 97, 105–109 and 117; no independently retrieved primary passage",
+          "method": "Bounded OA journal and arXiv attempts including arXiv HTML Example 1 query",
+          "title": "A Permutation-Free Kernel Independence Test",
+          "trigger": "Same statistic and same critical experiment; strongest plausible overlap"
+        },
+        {
+          "assessment": "Different null model and limit question in indexed statement",
+          "evidence": "The indexed obstruction concerns finite-sample tails under Gaussian independence, rather than joint Bernoulli overlap counts with shrinking marginal probabilities.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-finite-sample-tail-obstruction-for-gaussian-linear-cross-hsic--8abbab3b5ed1",
+          "material_read": "Indexed result summary, full text not retrieved",
+          "method": "Local Resultary and bounded mirror attempt",
+          "title": "A finite-sample tail obstruction for Gaussian linear cross-HSIC",
+          "trigger": "Same linear test and a calibration obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25, 76–97, 105–113"
+      ],
+      "rationale": "Under exact independence, Gaussian calibration can reject with asymptotic probability one even though the two margins are each well populated. The diverging rate and critical magnitude law distinguish this effect from a modest normal-approximation error; the nominal 5% example quantifies an actual decision threshold. The result locates the failure in the cross-cell and the studentizer, rather than in independence itself.",
+      "residual_risks": [
+        "No conclusion for permutation calibration, other kernels, integer critical intensity, or ultra-sparse margins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

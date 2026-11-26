@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:26:23.368365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed a, let D be the edges with unequal diagonal labels, and B be those with equal labels and nonzero edge coefficient. In the centralizer equations each edge in D uniquely specifies its own off-diagonal unknown, while edges in B require equality of the diagonal unknowns on each component of (V,B). The other off-diagonal unknowns are free. This gives rank |D|+|V|−c(B) in every characteristic. Thus formal active-edge count overstates rank by one precisely when B contains the whole cycle. A separate expansion of the formal count writes the weight for a pair of diagonal colors as qz+(1−z) times the equality indicator added to qz, that is, qz+(1−z)·1_{equal}. Expanding over edge subsets F gives (qz)^(m−|F|)(1−z)^|F| q^{c(F)}. Using c(F)=m−|F| except for F containing the cycle (where it is one larger) gives U^m+(q−1)(1−z)^ℓ U^t. Exactly q(q−1)^ℓ cycle assignments need the rank correction, with independent tree factor U^t, proving the stated polynomial. Rank zero gives exactly the q scalar elements; dividing by q and extracting the linear coefficient yields the stated rank-one count because ℓ≥4. Summing q^{2m−rank} gives q^{2m}R(1/q) and simplifies to the commuting-pair formula. A separate exact check enumerated all pairs of eight-bit coefficient vectors for the four-cycle over F₂, testing the four edge commutator equalities modulo two; it yielded 10048 commuting pairs and rank counts (2,8,60,106,80). This checks one sample only; the all-field assertion is algebraic. The supplied modular-elimination script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 12 catalogue entry's Finding, equation (1), sums over graphic-matroid flats Z with factor χ_{G/Z}(q) q^(m−|Z|), and over S⊆Z with weight (q−1)^|S| T^(m−|Z|+r_G(S)); it covers any simple graph and orientation. The Nov. 2 multigraph entry states an element enumerator and commuting-pair formula for arbitrary loopless multigraph quivers."
+        ],
+        "reasoning": "For fixed diagonal labels Z is their equality-edge set, and S is the set of equal-label edges with nonzero coefficients. In a unicycle r_G(S)=|S|−1 exactly when S contains the full cycle. Thus the general theorem specializes to the same count and the same exceptional correction, not just to a related finite-field distribution.",
+        "searches": [
+          "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "2026/11/2/SCOPE-adjoint-rank-enumeration-and-the-vertex-arboricity-threshold-for--73e61818e07a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof; VERIFICATION.md and check_rank.py (read only)",
+        "All indexed statements and primary passages listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general graphic-matroid entry states the normalized commuting probability q^(−n−m)R(q⁻¹), giving the actual count after multiplication by q^{2(n+m)}. Its all-derivations companion instead counts all derivations, not inner ones. Dutta–Basnet–Nath p. 1 gives the general finite-ring centralizer count and Rossmann p. 1 concerns graphical group conjugacy classes."
+        ],
+        "reasoning": "The directly matching published enumerators imply the frozen corollaries by scalar normalization, coefficient extraction and centralizer-size summation. Neither an all-derivations total nor a graphical-group class-counting formula alone would establish that implication.",
+        "searches": [
+          "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "2026/10/12/SCOPE-derivation-rank-polynomials-of-height-two-incidence-algebras-rec--0bac557ba3bf",
+          "arXiv:1803.04111",
+          "arXiv:2107.05564"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unicyclic quiver RESULT.md Finding (mirror offset 0) gives U^(n−c)[U^c+(q−1)(1−z)^c+q(q−1)^c(z^(c−1)−z^c)] for A=F_q Q/J². The distinct-derivation record instead counts each map once, the central scalar normalization R/q for the frozen connected graph."
+        ],
+        "reasoning": "Send vertex idempotents and arrows to the diagonal and edge matrix units respectively. With no paths of length two the map respects all products and is bijective. Here n=m and c=ℓ, so the closed forms are identical without changing rank or coefficient normalization.",
+        "searches": [
+          "2026/11/8/SCOPE-the-adjoint-rank-polynomial-of-a-unicyclic-radical-square-zero-q--3547be760bfd",
+          "2026/11/2/SCOPE-graphic-matroid-adjoint-rank-spectra-in-radical-square-zero-quiv--d24c3c8c856e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed unicyclic result supplies the closed form and [z]R=q(q−1)((q+1)n−qc), not merely low-order samples. Its Finding also asserts recovery of q,n,c from the polynomial itself. The Potts entry's Finding gives q^m ∑_{F⊆E}(q−1)^|F| q^{2c(F)} for the total number of commuting pairs."
+        ],
+        "reasoning": "Dividing the indexed linear coefficient by q yields exactly the frozen rank-one multiplicity. In the Potts sum, splitting subsets on whether the whole cycle is present gives the frozen commuting-pair closed form. The checks cover the entire exact enumerator, beyond any sample table.",
+        "searches": [
+          "2026/11/8/SCOPE-the-adjoint-rank-polynomial-of-a-unicyclic-radical-square-zero-q--3547be760bfd",
+          "2026/11/2/SCOPE-commutation-of-height-two-incidence-algebras-is-a-potts-partitio--2b5935f3979e"
+        ]
+      },
+      "rationale": "This height-two incidence algebra is exactly the radical-square-zero quiver algebra of the bipartite orientation, with the same basis and products and hence the same adjoint ranks. A distinct general published catalogue result includes this all-rank enumerator; another states the identical closed unicyclic polynomial for arbitrary orientations and even allows odd cycles. The rank-one multiplicity and commuting-pair formula are immediate from that enumerator. This is mathematical coverage; catalogue path dates alone do not establish historical priority.",
+      "residual_risks": [
+        "Historical priority is not decided by catalogue dates. An unlocated broader commuting-probability theorem for square-zero extensions and the unavailable primary Fortuin–Kasteleyn text leave some external comparison incomplete, but do not affect the exact catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly broader direct coverage",
+          "evidence": [
+            "General flat/chromatic sum for this same rank on every simple graph; commuting-probability specialization."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "material_read": "RESULT.md Finding, offsets 0–2163, equations (1)–(3)",
+          "method": "Bounded mirror passage",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quiver algebras",
+          "trigger": "Potential general adjoint-rank distribution"
+        },
+        {
+          "assessment": "Identical polynomial on the frozen family, with broader orientations and lengths",
+          "evidence": [
+            "The stated bracket matches all three terms; includes linear coefficient and cycle recovery."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-adjoint-rank-polynomial-of-a-unicyclic-radical-square-zero-q--3547be760bfd",
+          "material_read": "RESULT.md Finding, scope and opening proof, offsets 0–2292",
+          "method": "Bounded mirror passage",
+          "title": "The adjoint-rank polynomial of a unicyclic radical-square-zero quiver algebra detects cycle length",
+          "trigger": "Potential exact unicyclic polynomial match"
+        },
+        {
+          "assessment": "Same distinct inner-derivation spectrum by specialization",
+          "evidence": [
+            "General simple-graph count and unicyclic specialization in the distinct-map normalization."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-graphic-matroid-adjoint-rank-spectra-in-radical-square-zero-quiv--d24c3c8c856e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded mirror passage",
+          "title": "Graphic-matroid adjoint-rank spectra in radical-square-zero quiver algebras",
+          "trigger": "Exact normalization for distinct maps"
+        },
+        {
+          "assessment": "Broader loopless multigraph formula",
+          "evidence": [
+            "Element-indexed adjoint rank and commuting-pair formulas."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-adjoint-rank-enumeration-and-the-vertex-arboricity-threshold-for--73e61818e07a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded mirror passage",
+          "title": "Adjoint rank enumeration and the vertex-arboricity threshold",
+          "trigger": "Generalization including commuting pairs"
+        },
+        {
+          "assessment": "Direct coverage of commuting-pair claim",
+          "evidence": [
+            "q²-color subset partition sum on every height-two comparability graph."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-commutation-of-height-two-incidence-algebras-is-a-potts-partitio--2b5935f3979e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded mirror passage",
+          "title": "Commutation of height-two incidence algebras is a Potts partition function",
+          "trigger": "Same algebra and commuting-pair specialization"
+        },
+        {
+          "assessment": "Not the same counting problem by itself",
+          "evidence": [
+            "Tutte-specialized enumeration of all derivations."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-derivation-rank-polynomials-of-height-two-incidence-algebras-rec--0bac557ba3bf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded mirror passage",
+          "title": "Derivation rank polynomials of height-two incidence algebras",
+          "trigger": "Same graph and algebra, different possible enumerator"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Toricity/forest criterion, not a commutator census."
+          ],
+          "identifier_or_url": "arXiv:2105.09826",
+          "material_read": "PDF p. 3, Theorem 1.3, offset 7758",
+          "method": "OA PDF passage",
+          "title": "Bilen Can's incidence-monoid study",
+          "trigger": "Possible graph criterion in incidence algebra context"
+        },
+        {
+          "assessment": "Preserver characterization rather than rank distribution",
+          "evidence": [
+            "Theorem concerns maps preserving commutativity."
+          ],
+          "identifier_or_url": "arXiv:2207.10713",
+          "material_read": "PDF p. 17, Theorem 3.35, offset 52632",
+          "method": "OA PDF passage",
+          "title": "Fornaroli–Khrypchenko–Santulo on commutativity preservers of incidence algebras",
+          "trigger": "Same algebra and commutativity"
+        },
+        {
+          "assessment": "General ingredient only",
+          "evidence": [
+            "Centralizer expression, not a graph-specific polynomial."
+          ],
+          "identifier_or_url": "arXiv:1803.04111",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "Dutta–Basnet–Nath on finite-ring commuting probability",
+          "trigger": "Centralizer sum for commuting pairs"
+        },
+        {
+          "assessment": "Different counting object",
+          "evidence": [
+            "Graph polynomials for graphical group conjugacy classes, not the height-two associative-algebra adjoints here."
+          ],
+          "identifier_or_url": "arXiv:2107.05564",
+          "material_read": "PDF p. 1, offset 616",
+          "method": "OA PDF passage",
+          "title": "Rossmann on conjugacy-class sizes of graphical groups",
+          "trigger": "Possible graph rank spectrum in equivalent language"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The adjoint rank spectrum and its ability to recover cycle length are mathematically motivated, but this specific narrow contribution recomputes a published broader invariant with an identical indexed closed form. The height-two restriction gives no independent invariant or consequence beyond specializing the graph family, dividing by the scalar-center size, extracting one coefficient, and evaluating once for the total number of commuting pairs.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

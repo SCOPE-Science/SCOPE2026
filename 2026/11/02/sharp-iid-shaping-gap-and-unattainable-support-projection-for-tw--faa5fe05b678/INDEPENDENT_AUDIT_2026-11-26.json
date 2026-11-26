@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:34.680696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89, VERIFICATION.md, and verify.py (inspected)",
+        "reproductions/2.py and reproductions/2.txt: python3 reproductions/2.py"
+      ],
+      "rationale": "All formulas concern the two symmetric endpoint maps on [0,1], 0<r<1/2, and the uniform target. Stationarity gives E[X]=p; conditioning on the digit places X on the appropriate side of 1/2 and gives E|X-1/2|=1/2-2rp(1-p), hence the dual quadratic bound including p=0 and p=1. Independently, the binary digit series for the fair quantile is increasing, and each Cantor coefficient divided by its binary coefficient is at most 2(1-r). On the lower half, the first digit is zero, and the sharper bound is Q(u)<=4r(1-r)u<=u. Reflection handles the other half. This coupling makes each displacement outward, realizing the dual difference and proving unique IID optimality. For the supported benchmark, every optimal coupling is concentrated on nearest points by the pointwise cost inequality. Ties are only countably many gap midpoints; existence of a minimizing coupling and uniqueness of the projection almost everywhere imply a unique minimizing law. The gaps of length g*r^k and multiplicity 2^k yield triangular costs and geometric sum g^2/[4(1-2r^2)]. The set itself has zero uniform mass and 1 has no projected mass, whereas r receives g/2. Since r can only be reached from 1 under these maps, no state-dependent stationary kernel on [0,1] can carry the optimizing law. Division gives the stated ratio, which diverges despite both costs vanishing. Independent finite quantile integrations with exact rational atoms checked four ratios including 127/256, with explicit coupling error r^10/2.",
+      "residual_risks": [
+        "The inequality need not be exact for biased coins. The numerical checks do not extend the theorem; the proof is for symmetric maps with separated images and a uniform target."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shafiei–Shorten–Mareček formulate IID probability optimization in W1 but their numerical benchmark in §7.2 uses three ratio-1/3 maps and a bimodal beta-mixture target.",
+          "Kloeckner studies fair Bernoulli convolution while the contraction varies, including linear response. Resultary ec57811b8333 concerns a stationary-support transition for a random-reshuffling SGD recursion."
+        ],
+        "reasoning": "These works encompass a related optimization goal or model the same type of attractor, but do not solve this parameter optimization or the support-constrained stationary feasibility question.",
+        "searches": [
+          "arXiv:2610.34172, abstract and §7.2",
+          "arXiv:1909.01655, §1.2",
+          "Resultary: Cantor-support transition of stationary laws"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE 5c6adc39dfa6 and ec57811b8333",
+        "arXiv:2610.34172 pp. 1, 39; arXiv:1401.1443v2 Corollary 2.6; arXiv:1909.01655 §1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general projection argument already gives the minimum as an integral of distance, given only fixed support, and should not be credited as a new general principle.",
+          "The inspected stationary-law formulas do not decide the fair-to-uniform distance or compare it with the projected law. The stationarity obstruction needs the concrete projected mass at r and zero mass at its only predecessor 1."
+        ],
+        "reasoning": "The benchmark's geometric series and ratio are consequences once the two costs are established, not separate claims to priority. Standard optimal transport does not alone show the fair coupling saturates the centered-distance witness or that this projected law fails stationarity for all state-dependent choices.",
+        "searches": [
+          "arXiv:1401.1443v2 §2.2 Corollary 2.6",
+          "arXiv:2610.34172 pp. 1, 39",
+          "arXiv:1909.01655 §1.2",
+          "Standard nearest-point transport and monotone rearrangement, used in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fraser gives exact W1 for two invariant laws of the same two similarity maps with different probabilities. The full-interval Lebesgue target is not one of the laws; each of those laws is supported on the same thin attractor.",
+          "The bounded primary search did not add a concrete matching theorem; this was not taken as evidence of absence."
+        ],
+        "reasoning": "Writing both problems as CDF or quantile integrals does not identify them: the target quantile here is the identity and the parameter in the source must be optimized against that identity. The r=1/2 degeneration cannot substitute for the interior g>0.",
+        "searches": [
+          "Resultary: separated two-map Cantor transport, uniform-target optimal IID weights, Cantor nearest-support projection, and diverging gap",
+          "Primary lookup: Cantor-to-Lebesgue Wasserstein optimization over Bernoulli digit weights",
+          "arXiv:1401.1443v2 §2.2 Corollary 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tent-map record compares the uniform law on finite periodic-point sets with an optimized measure supported on at most m points; its relative inefficiency converges to a finite constant. It does not give either of the fixed-Cantor formulas."
+        ],
+        "reasoning": "This all-real-r theorem is not a census. Published closed forms were still checked for possible exact coverage; optimizing over moving finite supports does not compute projection onto a fixed Cantor set, or give this ratio as the central gap closes.",
+        "searches": [
+          "Resultary: exact Cantor-to-uniform formulas and projection cost; relative transport inefficiency",
+          "SCOPE 5c6adc39dfa6, RESULT.md Finding and proof"
+        ]
+      },
+      "rationale": "The prior work establishes inverse IID shaping as a general problem, and exact transport between stationary laws and other Cantor transport results. Nearest-point projection and monotone transport are standard. The distinct supported claim is the symmetric uniform-target IID optimum with a quantitative bias inequality, contrasted with the exact, nonstationary projection benchmark. The inspected passages do not give this combination or imply it by substitution.",
+      "residual_risks": [
+        "A bounded comparison does not rule out a specialized earlier calculation of fair Cantor-to-Lebesgue transport or its projection cost. No general inverse-IFS novelty is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general problem, different benchmark",
+          "evidence": "Three ratio-1/3 maps, a bimodal beta-mixture target, and a weight grid search rather than the two-map uniform closed forms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.34172",
+          "material_read": "Abstract and formulation p. 1; §7.2 p. 39",
+          "method": "OA primary PDF passages",
+          "title": "Shaping of invariant measures of iterated function systems",
+          "trigger": "Same inverse W1 problem over IID probabilities"
+        },
+        {
+          "assessment": "Closest exact stationary-law formula; different target",
+          "evidence": "The two marginals are stationary Cantor laws for two probability vectors; the uniform law for r<1/2 is excluded.",
+          "identifier_or_url": "https://arxiv.org/html/1401.1443v2",
+          "material_read": "§2.2 Corollary 2.6, OA offset 18733",
+          "method": "OA primary HTML passage",
+          "title": "First and second moments for self-similar couplings and Wasserstein distances",
+          "trigger": "Exact W1 on precisely the same separated map family"
+        },
+        {
+          "assessment": "Contraction-parameter regularity, not weight optimization",
+          "evidence": "Perturbs the contraction for the fair law and gives a linear-response result.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.01655",
+          "material_read": "§1.2 p. 4",
+          "method": "OA primary PDF passage",
+          "title": "Optimal transportation and stationary measures for iterated function systems",
+          "trigger": "Same fair Bernoulli-convolution family and transport"
+        },
+        {
+          "assessment": "Different supports and limiting parameter",
+          "evidence": "Finite periodic-point laws compared to optimal m-point quantizers, with finite limiting ratio.",
+          "identifier_or_url": "SCOPE 5c6adc39dfa6",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp all-order transport quantization inefficiency of tent-map periodic points",
+          "trigger": "Nearest Resultary transport benchmark with dynamical competitors"
+        },
+        {
+          "assessment": "Related support geometry, not the transport or implementation theorem",
+          "evidence": "Bernoulli-convolution support transition for an epoch-scale SGD recursion.",
+          "identifier_or_url": "SCOPE ec57811b8333",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Random reshuffling has a Cantor-to-interval stationary-support transition",
+          "trigger": "Same type of Cantor stationary law and support transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–21 and 71–95",
+        "arXiv:2610.34172 p. 1 and §7.2"
+      ],
+      "rationale": "This is a benchmark for inverse invariant-measure shaping with fixed maps: the quadratic penalty distinguishes the optimizer quantitatively, while the projection comparison quantifies how much one would underestimate optimal IID cost by treating support as the only constraint. The policy-independent impossibility of attaining the unrestricted benchmark identifies a dynamical obstruction, and the divergent relative error shows it persists in a meaningful scale even when absolute costs vanish.",
+      "residual_risks": [
+        "This does not compute the best state-dependent cost or give a general shaping algorithm. The ratio compares IID sampling with a support relaxation, not two classes of realizable policies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

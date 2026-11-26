@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** An exhaustive 12-state primitive-pair transfer for each modulus gives exact integer polynomial-vector annihilation identities, independently replayable with `verify.py`. They prove the rational generating function via linear recurrences, and the distinct nonreal poles at modulus \(2^{-1/2}\) prove the signed sharp fluctuation bounds. Shell origin, residue normalization, \(r=0\), and the \(s(0)=0\) contribution were checked.
+## correctness
 
-**Originality: PASS under inspected evidence, with priority risk.** Reznick explicitly notes the 6-versus-8 inequality and shared density but does not give the stated exact difference or sharp oscillation laws in the inspected 2006/2008 full text. OEIS A002487 defines the sequence, while Defant studies bounds on values rather than these modular counts. Searches of mathematical research records and relevant accessible prior claims found no equivalent formula or stronger theorem implying it. Reznick's subsequent course notes and possible unlocated general transfer computations remain priority risks, not proofs of originality.
+PASS
 
-**Value: PASS.** The two moduli are a specific natural anomaly explicitly emphasized in a foundational paper: equal limiting densities fail to give equal finite counts. The exact small-denominator generating function and optimal signed square-root fluctuation exponent quantify that arithmetic distinction for every dyadic scale, beyond a trivial numerical discrepancy.
+Independently used all primitive residue pairs (24 for modulus 6 and 48 for modulus 8), not projective states. The two digit maps send the root pair (0,1) through all Stern pairs with indices 0≤n<2^r after r steps, including leading zero digits. Exact characteristic polynomials and the induced Cayley–Hamilton recurrences give both dyadic prefix generating functions. Their difference cancels to 2z⁵(1−z)/L(z), and each prefix series has coefficient 1/12 at the simple 1/(1−2z) term. The reduced difference has simple poles: −1 and ten distinct nonreal poles of modulus 1/√2, none cancelled by the numerator. After normalization, partial fractions give a finite sum of distinct unit-frequency exponentials with nonzero coefficients and an exponentially decaying error. Its limiting Cesàro mean is zero and its mean square is strictly positive. If either sign had no excursion bounded away from zero arbitrarily late, the corresponding positive or negative part would have vanishing Cesàro mean; the zero mean then forces both parts to vanish on average, contradicting the positive mean square by boundedness. This checks the all-index identity and both strict limits.
 
-**Limitations.** Only moduli six and eight are classified. This is self-review; no independent mathematical audit or priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equal densities, the fact that the dyadic sequences are not identical, and the finite-state recurrence framework are prior results. The supported distinction is the exact difference and its strict two-sided sharp-scale fluctuations. The inspected modulo-eight catalogue covers one of the two inputs, not their difference, and the inspected general modular distribution theorem does not give the two-sided conclusion.
+
+## value
+
+PASS
+
+The moduli are motivated by Reznick's explicit equal-density but unequal dyadic comparison, not an arbitrary pair. The calculation resolves how large that specific discrepancy is, including persistent excursions of both signs, with an exact all-index series usable for recurrences or further fluctuation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

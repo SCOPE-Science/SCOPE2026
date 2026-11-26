@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:12:45.587942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–73",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "Independent finite check: python3 /workspace/review_evidence/finite_checks.py 3; full Hamiltonian eigendecomposition and grouped zero projector on five examples returned nullities 3,1,1,0,0, including effective balance without an automorphism and removal by detuning"
+      ],
+      "rationale": "The uniform vectors on each leaf side and the hubs reduce H to the four-site Jacobi matrix with off-diagonals a sqrt(p), w, b sqrt(q). Its spectrum is simple by the three-term recurrence and has no zero, since its determinant is p q a^2 b^2. Thus the entire zero projector is the direct sum of the two leaf-contrast projectors. The Schur square of each contrast projector has eigenvalue (s-1)/s on the constant vector and 1-2/s on contrasts, so any kernel vector has no leaf component except differences for size-two sides. Those differences are also killed by all nonzero projector squares because their profiles are uniform on each leaf group. The two columns of squared hub amplitudes each sum to one, so a hub dependence is possible exactly for identical profiles, and then the direction is their difference. Equality of profiles forces equality of the diagonal first and second Hamiltonian moments, hence c=d and pa^2=qb^2. Conversely these identities give exact reflection symmetry of the four-site matrix, making all squared hub components equal even when the full graph has asymmetric leaf counts. Positive semidefiniteness prevents cancellation between projection contributions; this proves the exact basis and the positive-definiteness criterion, including the p=2, q=2 and arbitrary real detuning cases.",
+      "residual_risks": [
+        "Near-balanced small eigenvalues cannot be distinguished from zeros by arbitrary finite tolerance; the analytic argument decides exact equality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pinching/Gram formula is general. The tree-rank bound is for simple-spectrum trees; the full double-star Hamiltonian here has a repeated zero eigenvalue. The 2026 double-star theorems concern trace of Laplacian average mixing."
+        ],
+        "reasoning": "The abstract Gram characterization leaves both the leaf dark modes and the hub-Jacobi profile test to be evaluated. Laplacian trace inequalities do not identify the kernel of this adjacency-plus-onsite matrix; the Laplacian shifts degrees at leaves and hubs and trace is a different invariant.",
+        "searches": [
+          "Coutinho–Godsil–Guo–Zhan arXiv:1709.03591 Sec. 2 and Theorem 3.1",
+          "Godsil–Guo–Sinkovic arXiv:1709.07907 introduction",
+          "Mohan et al. arXiv:2608.20739 Sec. 5, Theorems 5.1 and 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3d2ed0be59c4, e385d3035560 and e5f910afa943",
+        "arXiv:1709.03591",
+        "Graph Spectra and Quantum Walks, Theorem 13.5.1",
+        "arXiv:1709.07907",
+        "arXiv:2608.20739"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At unit weight and zero onsite the balance equation reduces to p=q. With positive side-specific weights the exact null locus can occur at p≠q; an onsite difference breaks it while preserving all edge parameters."
+        ],
+        "reasoning": "One cannot replace the weighted asymmetry by the unweighted graph or infer rank merely by label symmetry or the presence of a cospectral pair. The explicit spectral-moment/reflection and leaf-projector calculations identify precisely when the general difference-vector mechanism exhausts the kernel and how balance moves with weights and detuning.",
+        "searches": [
+          "Compare 3d2ed0be59c4 and strong-cospectrality Theorem 13.5.1 with RESULT.md lines 31–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older indexed unweighted double-star record gives the same size-two leaf differences and hub difference for equal leaf counts. Theorem 13.5.1 identifies strongly cospectral pairs with average-mixing null differences."
+        ],
+        "reasoning": "The unweighted zero-onsite kernel is exactly covered, not simply similar. In the present model the hub projectors are rank one on the bright sector and zero on both hubs for the dark eigenvalue, so identical hub measures are equivalent to strong cospectrality. That equivalence is not the new parameter classification.",
+        "searches": [
+          "Resultary: exact double-star adjacency average mixing kernel",
+          "Graph Spectra and Quantum Walks, Theorem 13.5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3d2ed0be59c4 has the exact unweighted kernel, even extending to sides with one leaf. e385d3035560 treats weighted detuned one-hub stars; e5f910afa943 includes antisymmetric size-two clone-pair directions in its blow-up setting."
+        ],
+        "reasoning": "The first is substantive exact overlap on the unit-edge zero-potential slice only. The second has one hub rather than an adjacent-hub pair; the third explains the kind of clone-pair defect but does not supply unequal effective aggregate hoppings and independent onsite energies at the two hubs.",
+        "searches": [
+          "Resultary exact double-star, inhomogeneous star and blow-up kernel/rank retrieval"
+        ]
+      },
+      "rationale": "The unweighted zero-potential subcase and the strong-cospectral difference-vector mechanism are covered. The supported distinct claim is the complete simultaneous positive-weight and independent-onsite classification, including the non-automorphic defect on the effective balance locus and its removal by detuning; the inspected precedents do not give that classification.",
+      "residual_risks": [
+        "A more general weighted-tree result or earlier equivalent calculation may not have been located. The original deserves no separate credit for its known unweighted subcase or general projector tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unweighted zero-onsite specialization, not simultaneous weighted and onsite-dependent theorem",
+          "evidence": [
+            "For p,q>=2 it gives the two size-two leaf conditions and hub difference when p=q; full rank iff p,q>=3 and p≠q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-kernel-and-sharp-full-rank-boundary-for-quantum-average-mi--3d2ed0be59c4",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "Exact kernel and sharp full-rank boundary for quantum average mixing on unweighted double stars",
+          "trigger": "Exact double-star kernel and rank match"
+        },
+        {
+          "assessment": "Different one-hub graph and defect condition",
+          "evidence": [
+            "For two spokes, rank three requires nonzero central detuning and unequal spoke weights."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-full-rank-quantum-average-mixing-on-inhomogeneous-stars-an-exact--e385d3035560",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "Full-rank quantum average mixing on inhomogeneous stars",
+          "trigger": "Weighted spokes, onsite detuning and rank"
+        },
+        {
+          "assessment": "Clone antisymmetry precedent, not this balance/detuning classification",
+          "evidence": [
+            "The kernel at fibre size two has antisymmetric clone-pair vectors for specified support vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-spectral-gap-and-exact-quantum-average-mixing-rank-for-graph-blo--e5f910afa943",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "Spectral gap and exact quantum average-mixing rank for graph blow-ups",
+          "trigger": "Kernel directions from size-two clones"
+        },
+        {
+          "assessment": "General framework, not an evaluated two-hub formula",
+          "evidence": [
+            "Spectral pinching is projection onto the commutant and average mixing is the Gram matrix of average states."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+          "material_read": "Sec. 2 pp. 3–4; Theorem 3.1 and Cor. 3.2 p. 6; offsets around 7200 and 11600",
+          "method": "Lawful OA passage inspection",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General kernel and rank characterization"
+        },
+        {
+          "assessment": "The null-difference mechanism is known; the model-specific equality criterion is not asserted here",
+          "evidence": [
+            "Strong cospectrality is equivalent to M_X(e_u-e_v)=0."
+          ],
+          "identifier_or_url": "https://homepages.dcc.ufmg.br/~gabriel/assets/files/coutinho-grafspec.pdf",
+          "material_read": "Theorem 13.5.1, printed p. 221, PDF p. 233, offset around 426900",
+          "method": "Lawful OA passage inspection",
+          "title": "Graph Spectra and Quantum Walks",
+          "trigger": "General theorem about pair differences and strong cospectrality"
+        },
+        {
+          "assessment": "Simple-spectrum tree scope does not determine this repeated-zero Hamiltonian",
+          "evidence": [
+            "Bounds in the inspected passage concern trees with all eigenvalues distinct."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.07907",
+          "material_read": "Abstract and introduction, offset around 4500",
+          "method": "Lawful OA passage inspection",
+          "title": "Average mixing matrix of trees",
+          "trigger": "General tree average-mixing rank"
+        },
+        {
+          "assessment": "Laplacian trace analysis, not this kernel law",
+          "evidence": [
+            "The double-star results compare trace/laziness, including greater laziness for more unbalanced double stars."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20739",
+          "material_read": "Sec. 5, Theorems 5.1 and 5.3, pp. 14–16, offsets around 25800 and 29892",
+          "method": "Lawful OA relevant full-text passage inspection",
+          "title": "Laziness of Quantum Walks on Graphs",
+          "trigger": "Same double-star family, average-mixing literature beyond the frozen abstract comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 47–69",
+        "Unweighted Resultary 3d2ed0be59c4 and Laplacian comparison arXiv:2608.20739 Sec. 5"
+      ],
+      "rationale": "The exact balance locus describes a controllable rank defect that does not require graph symmetry, persists for arbitrary positive hub coupling, and is removed by onsite detuning alone. On this natural two-hub family the full kernel gives more information than the existence of a strongly cospectral pair or the qualitative unweighted rank law, while covering arbitrary leaf counts in the stated range.",
+      "residual_risks": [
+        "The statement requires identical pendant weights on each side and common zero leaf onsite energy; no general-tree or Laplacian conclusion is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

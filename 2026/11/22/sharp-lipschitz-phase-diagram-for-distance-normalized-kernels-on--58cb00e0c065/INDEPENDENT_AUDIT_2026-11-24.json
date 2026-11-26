@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:26:58.818313Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The path between leaves has length two so the graph seminorm is the maximum hub–leaf difference. At f(0)=0 its unit ball is the independent leaf cube; an edge row difference is maximized in absolute value by choosing matching signs on the leaves. Subtracting the two normalized rows over Z_0 Z_i gives the positive distinguished-leaf difference (1-q^2)b_i(a+qS_i), and the opposite-signed differences (1-q^2)qb_i b_j at other leaves (these are numerators, with common denominator Z_0 Z_i). The sum of magnitudes is the stated expression and the indicated sign potential attains it. Subtracting one puts q times [b_i(S_i-b_i)-a^2-2aBq-S_i(S_i+3b_i)q^2] over the positive same denominator. This bracket strictly decreases on q>=0 even for S_i=0. A nonpositive initial value gives strict contraction on every 0<q<1, including equality in the mass criterion. A positive initial value gives a unique root below one since C_i(1)=0. The maximum of the individual roots therefore gives exactly the claimed strict, boundary and expansive regimes. Equal masses give initial sign m-3, with first threshold (-4+sqrt(34))/18. Direct substitution a=1/10,b=(1,9),q=1/100 makes the first edge bracket positive, verifying expansion already with three vertices. W1 is below 2 because the diameter is at most 2 and positive rows have common mass; the stated m-to-infinity sequence q=m^(-3/4) sends mq to infinity and mq^2 to zero, so the coefficient approaches 2. The matrix q^d is the strictly positive definite covariance of an invertible linear transform of independent unit-variance variables; multiplying by the positive diagonal factors sqrt(w_i/Z_i) gives the symmetric matrix similar to K_q. Thus π proportional to wZ is reversible and all eigenvalues are positive, including in the expansive examples. These exact calculations settle the claim. The frozen rational checker was read, not executed; its finite cases would not certify the full range of real weights and bandwidths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mémoli–Smith–Wan define normalized kernel localization and its Wasserstein distance. Setting K(x,y)=q^d(x,y) and a base measure proportional to the masses gives the exact rows in the frozen statement.",
+          "The Gaussian Transform uses W2 between locally estimated Gaussians, not these actual rows and W1.",
+          "The two exact heat-star records concern continuous-time semigroups with a rate or conductance defect."
+        ],
+        "reasoning": "Credit the broad construction fully. General definitions and localization results do not give its star-specific sharp value. Heat and Gaussian operators cannot be substituted based on common geometry alone.",
+        "searches": [
+          "arXiv:1810.07793 §§3.1,3.2.1 / PMLR v97 memoli19a",
+          "arXiv:2006.11698 §§1,3",
+          "Resultary:48121e61fb36 and 20e568f24dba"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.07793 §§3.1,3.2.1",
+        "arXiv:1905.07547v5 §4 Theorem 4.2",
+        "arXiv:math/0701886 §1.1 Definition 3",
+        "arXiv:2006.11698 §§1,3",
+        "Resultary:48121e61fb36",
+        "Resultary:20e568f24dba",
+        "Resultary:742cfa015d10 (local interval record)",
+        "Resultary:fd7224d50581 (summary)",
+        "Resultary:58cb00e0c065 (assigned entry)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known W1 and tree identities reduce the question to row differences but do not supply the absolute-value signs, rational expression, or strictly decreasing obstruction bracket.",
+          "For two or more leaves K_q is not even an e^(tQ) kernel of a positive-rate star generator at t>0: the covariance representation makes H inverse have zero off-diagonal entries between distinct leaves, hence K_q inverse also has those zeros. By contrast, conjugating -Q by the diagonal vertex signs of the bipartition makes it irreducible Metzler, whose positive-time exponential has strictly positive entries. Therefore e^(-tQ) cannot have those zeros.",
+          "The strict diameter upper bound is general in the presence of common mass; showing the lower limit 2 in this specific kernel family is the additional sharpness step."
+        ],
+        "reasoning": "The strongest known formulas cover exact ingredients, not the final maximized star expression and sign frontier, and the available heat statements cannot directly cover these rows by identifying them with a star heat evolution. Credit the generic parts and the qualitative transport framework rather than treating their application as a new theorem in itself.",
+        "searches": [
+          "arXiv:1810.07793 §§3.1,3.2.1 normalization and localization distance",
+          "arXiv:1905.07547v5 Theorem 4.2 tree cut expression",
+          "Resultary:48121e61fb36 and 20e568f24dba exact heat-star amplification statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ollivier defines coarse curvature by 1-W1(m_x,m_y)/d(x,y), so the maximum edge ratio here is the complement of the minimum edge curvature.",
+          "The tree cut formula is sum_e length(e) times absolute signed mass on one side of each cut, giving the sum of leaf differences on a star."
+        ],
+        "reasoning": "These equivalent formulations supply the general norm identity; neither passage evaluates the specific row differences or their dependence on q and the masses. A sharp curvature calculation with these same Markov rows would cover the claimed norm regardless of terminology.",
+        "searches": [
+          "Web/Resultary: weighted-star exponential distance Markov kernel, exact Wasserstein amplification and graph-Lipschitz norm",
+          "Ollivier arXiv:math/0701886 §1.1 Definition 3",
+          "Montrucchio–Pistone arXiv:1905.07547v5 §4 Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "58cb00e0c065 is the assigned exact match, not corroboration or a distinct source.",
+          "The heat-star records give exact amplification or an envelope for heat. Record 742cfa015d10 (local frozen text) treats a Lebesgue interval Laplace kernel, and fd7224d50581 describes sensitivity of degree-normalized adjacency."
+        ],
+        "reasoning": "No separate exact formula with these parameters and operator was identified among the available matches. Numeric tabulation would not settle the codegree-free claim for all masses and all finite stars; the exact indexed comparison concerned the formula and quantifiers, not a few coincidences.",
+        "searches": [
+          "Resultary: exact weighted-star Lipschitz phase diagram, quadratic threshold and supremum 2",
+          "Resultary:58cb00e0c065, 48121e61fb36, 20e568f24dba, 742cfa015d10 and fd7224d50581"
+        ]
+      },
+      "rationale": "The general kernel localization and Wasserstein geometry already cover the operator's construction. The distinct supported claim is the star-specific rational norm and its exact phase boundary (including the equal-mass cutoff and sharp envelope), not tree transport duality or the general curvature interpretation. Reversibility and covariance positivity are straightforward structural facts; the notable implication is that exact expansion occurs even with positive spectrum, not that positive definitive tree kernels are new. Distinct catalogue heat-kernel records were compared at summary level, with full-text limits noted.",
+      "residual_risks": [
+        "Full texts of the two closest indexed heat-star records were not retrieved; they could contain ancillary discussions beyond the stated heat results.",
+        "An unindexed explicit computation for the same normalized distance kernel, for example in coarse-curvature language, may cover more of the star calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact construction coverage; the inspected passages do not give the coefficient or mass and bandwidth criteria.",
+          "evidence": [
+            "m_alpha^K(x)(dy)=K(x,y)alpha(dy)/int K(x,y)alpha(dy); transformed distance is Wasserstein between localized laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.07793",
+          "material_read": "Primary passages §3.1 Definition 9 and §3.2.1 kernel localization.",
+          "method": "Substitute the exponential metric kernel and weighted atomic measure into the definitions, then compare statements.",
+          "title": "The Wasserstein Transform",
+          "trigger": "Prior general formula for the identical row family and its associated Wasserstein geometry."
+        },
+        {
+          "assessment": "Covers computation of W1 from signed leaf masses, not these masses' exact phase diagram.",
+          "evidence": [
+            "Arens–Eells norm on a weighted tree is the sum over edges of their length times the absolute signed mass on one side."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.07547v5",
+          "material_read": "Primary passage §4, Theorem 4.2.",
+          "method": "Specialized the tree cut norm to one leaf per cut and compared the quantity evaluated.",
+          "title": "Kantorovich distance on a finite metric space",
+          "trigger": "Stronger general tree expression covers the edgewise duality used in the derivation."
+        },
+        {
+          "assessment": "General formalism is prior; the definition contributes no specific mass/bandwidth polynomial.",
+          "evidence": [
+            "kappa(x,y)=1-W1(m_x,m_y)/d(x,y)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0701886",
+          "material_read": "Primary passage §1.1, Definition 3.",
+          "method": "Compare curvature ratio with sharp edgewise sensitivity for the star metric.",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Alternative expression of the same operator norm via coarse curvature."
+        },
+        {
+          "assessment": "Exact heat-star result for a different transition family. No full-document negative coverage is asserted.",
+          "evidence": [
+            "W1 amplification on a unit star evolving with a single anomalous jump rate."
+          ],
+          "identifier_or_url": "Resultary:48121e61fb36",
+          "material_read": "Indexed summary only; matching full-text retrieval was unsuccessful.",
+          "method": "Mathematical comparison of the available operator and parameter claims.",
+          "title": "Exact Wasserstein amplification on a rate-defect star and its metastable peak",
+          "trigger": "Close exact amplification result on the same star geometry."
+        },
+        {
+          "assessment": "Close analogue for heat with an exceptional conductance, not direct coverage of the distance-kernel norm.",
+          "evidence": [
+            "Exact heat-Lipschitz norm and amplification envelope with a slow edge on a fixed-size star."
+          ],
+          "identifier_or_url": "Resultary:20e568f24dba",
+          "material_read": "Indexed summary only; matching full-text retrieval was unsuccessful.",
+          "method": "Compare semigroup, conductance model and envelope setting, not title or date.",
+          "title": "Two-conductance stars: exact heat-Lipschitz norm, slow-edge rigidity and a sharp fixed-size amplification envelope",
+          "trigger": "Strong overlap in exact norm, star domain and envelope questions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact norm for a natural positive Markov smoother decides all bandwidths and masses, detects the first equal-mass branching failure and explains how an unequal three-vertex example can still expand. The attainable approach to factor two gives a useful stability limit. Positive reversible spectrum despite expansion makes the precise graph-Lipschitz diagnostic substantively different from a spectral check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

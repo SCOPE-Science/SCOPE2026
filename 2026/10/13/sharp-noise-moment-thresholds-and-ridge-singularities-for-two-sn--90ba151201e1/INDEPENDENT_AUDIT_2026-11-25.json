@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:15:12.342324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, eqs. (1)–(4), proof of moment necessity and ridge asymptotics",
+        "VERIFICATION.md and verify.py (read only)"
+      ],
+      "rationale": "The scalar normal equation gives t=1/2-(h·D+epsilon/2)/(||D||^2+epsilon). The half-sum h and difference D are independent Gaussians by zero cross-covariance; D has covariance 2 sigma^2 I and the strictly positive displayed density at zero. At zero ridge the only unbounded-in-D term is -Delta (h·omega)/r, r=||D||. Its upper bound gives the radial integral r^(d-1-q), while a compact positive-probability h set and a spherical cap (a sign in d=1) give a uniform nonzero lower bound on |h·omega| and exclude cancellation by the bounded remainder. This proves both directions including the critical divergence. For epsilon>0 the singular coefficient Q is bounded by ||h||/(2 sqrt(epsilon)); the remaining vector is uniformly bounded in L^2 as epsilon decreases. In E Q^2, replacing p_D(r omega) by p_D(0) locally costs at most O(log(1/epsilon)) in d=1 and O(1) in d=2; the integral away from zero is bounded. The full-line d=1 integral is pi/(2 sqrt(epsilon)); in d=2 the angular average integral equals pi C_h and the radial integral is (1/2)log(1/epsilon)+O(1). Cauchy–Schwarz makes the cross term lower order. For d>=3, ||h||^2/||D||^2 is integrable and gives L^2 dominated convergence. These are analytic checks; the bundled quadrature was inspected, not replayed, and is not needed for the theorem.",
+      "residual_risks": [
+        "Fixed distinct noiselessly specified sites, positive isotropic Gaussian variance, unit mixing and a penalty on the single coefficient t are essential to the stated model. Nothing is inferred for adapted snapshots or repeated iterations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Resultary theorem states q<d-memory+1 and all positive moments at fixed positive Tikhonov parameter. Its regularization proof uses an upper bound 1/(2 sqrt(penalty)) for the ridge inverse operator. Toth et al. prove finite-horizon local improvement with high probability under controlled stochastic errors."
+        ],
+        "reasoning": "Memory one includes the moment threshold and ridge-finiteness assertions, but an operator norm bound is not a small-penalty second-moment equivalent. Controlled-error local convergence does not imply the fixed-snapshot Gaussian asymptotic.",
+        "searches": [
+          "Resultary 2026/10/26 record 6e96c99497d7, Finding and Tikhonov repair",
+          "Toth et al. DOI:10.1137/16M1080677, stochastic-error model and Theorem 3",
+          "arXiv:2206.03915, approximate Anderson error analysis"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 6e96c99497d7, 2a3edc5dee7a and 30f28a658eb2",
+        "OSTI 1408509",
+        "arXiv:2110.01543, 1909.03245, 2206.03915",
+        "Hinkley DOI:10.1093/biomet/56.3.635 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier stochastic/regularized methods control errors by damping or adaptation and do not identify a sharp coefficient in this Gaussian fixed-input model. Classical scalar Gaussian-ratio work is relevant to d=1; Hinkley's full passage was not accessible by reasonable lawful retrieval."
+        ],
+        "reasoning": "The planar normalization, angular numerator average and noncancelling displacement are needed to determine the precise logarithmic term. Neither the generic finiteness theorem nor the scalar ratio law mechanically yields it.",
+        "searches": [
+          "Wei–Bao–Liu arXiv:2110.01543 pp. 2, 4; Shi et al. arXiv:1909.03245 pp. 2, 5 Eq. (13); Resultary 6e96c99497d7 §4; Hinkley DOI:10.1093/biomet/56.3.635"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2 record 30f28a658eb2 contains the unregularized scalar Gaussian ratio and gives q<1 at independent coupling. Resultary 2026/11/8 record 2a3edc5dee7a gives the scalar inverse-square-root risk coefficient for penalty on the centered coefficient."
+        ],
+        "reasoning": "Centering t changes the update by a term proportional to epsilon(Delta+D)/(||D||^2+epsilon), bounded in L^2 uniformly near zero. Hence the scalar leading coefficient overlaps, despite distinct positive-penalty updates. Neither scalar result contains the planar log law.",
+        "searches": [
+          "Resultary semantic searches: two-snapshot Gaussian ridge law; Gaussian Anderson inverse moments; Gaussian scalar coupling phase diagram",
+          "arXiv:2110.01543, stochastic Anderson update and regularization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed overlaps are records 6e96c99497d7, 30f28a658eb2 and 2a3edc5dee7a, compared at their Findings. None of those inspected statements supplies the d=2 constant."
+        ],
+        "reasoning": "This is an analytic law over continuous parameters, not a finite census. The exact indexed scalar match must be credited, but does not cover an angular average in two dimensions.",
+        "searches": [
+          "Resultary searches for two-point/depth-one Gaussian Anderson moment and ridge coefficients"
+        ]
+      },
+      "rationale": "Pass for the joint exact small-ridge law of the specified update, particularly its critical planar coefficient and the dimension-dependent comparison. Credit the overlapping moment cutoff and fixed-positive-penalty finiteness in the broader indexed Gaussian Anderson record and the matching scalar leading coefficient in a centered-penalty record. These overlaps are real, not rules about priority based on calendar dates. No inspected result covers the full law; in particular a bound at each positive penalty does not supply the sharp planar log coefficient.",
+      "residual_risks": [
+        "No priority inference from catalogue dates. Unindexed equivalent planar or multidimensional Gaussian ridge-risk results may exist; limited access to Hinkley's paper is a comparison limitation, not a finding against novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers moment threshold and ridge finiteness at memory one, not the exact small-ridge law.",
+          "evidence": [
+            "Threshold d-memory+1; fixed positive penalty handled by s/(s^2+penalty)<=1/(2 sqrt(penalty))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-gaussian-moment-threshold-for-noisy-anderson-extrapolation--6e96c99497d7/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof §4, Tikhonov repair (offset about 7055)",
+          "method": "Local Resultary index and mirrored record",
+          "title": "Sharp Gaussian moment threshold for noisy Anderson extrapolation",
+          "trigger": "Broader Gaussian Anderson moment theorem"
+        },
+        {
+          "assessment": "Equivalent leading coefficient in d=1; different centered penalty; not a planar statement.",
+          "evidence": [
+            "Scalar q<1 and the matching inverse-square-root squared-risk coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a/RESULT.md",
+          "material_read": "Finding, opening passage",
+          "method": "Local Resultary index and mirrored record",
+          "title": "Sharp Gaussian ridge-risk law for two-point Anderson mixing",
+          "trigger": "Exact scalar ridge asymptotic"
+        },
+        {
+          "assessment": "Unregularized scalar overlap only.",
+          "evidence": [
+            "At correlation zero the independent ratio has finite moments precisely below one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-coupling-phase-diagram-for-depth-one-anderson-extrapola--30f28a658eb2/RESULT.md",
+          "material_read": "Finding, opening passage",
+          "method": "Local Resultary index and mirrored record",
+          "title": "Gaussian coupling phase diagram for depth-one Anderson extrapolation",
+          "trigger": "Independent-noise scalar Gaussian ratio as a special case"
+        },
+        {
+          "assessment": "The inspected theorem controls stochastic errors via sample counts and gives a high-probability finite-horizon result, not this sharp moment/risk law.",
+          "evidence": [
+            "Assumption 1.3 introduces Monte Carlo error control; Theorem 3 takes sample size sufficiently large."
+          ],
+          "identifier_or_url": "https://www.osti.gov/servlets/purl/1408509 (DOI:10.1137/16M1080677)",
+          "material_read": "Submitted-version PDF pp. 1, 3 (§1.1, Assumption 1.3) and p. 8 (Theorem 3)",
+          "method": "Lawful alternate OA copy at OSTI, targeted passages",
+          "title": "Local Improvement Results for Anderson Acceleration with Inaccurate Function Evaluations",
+          "trigger": "Plausible stochastic noisy-AA antecedent whose full text was not read in the frozen record"
+        },
+        {
+          "assessment": "Iterative convergence under damped/adaptively regularized mixing, not the fixed-input Gaussian risk law.",
+          "evidence": [
+            "Tikhonov control in the least-squares step is described on p. 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.01543",
+          "material_read": "OA PDF pp. 2 and 4, algorithm and regularization passages",
+          "method": "Targeted lawful arXiv PDF reading",
+          "title": "Stochastic Anderson Mixing for Nonconvex Stochastic Optimization",
+          "trigger": "Stochastic Anderson with regularized mixing"
+        },
+        {
+          "assessment": "Function-approximation stabilization in a different model.",
+          "evidence": [
+            "Eq. (13) uses regularization; update/restart controls are part of the method."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.03245",
+          "material_read": "OA PDF pp. 2 and 5, Eq. (13)",
+          "method": "Targeted lawful arXiv PDF reading",
+          "title": "Regularized Anderson Acceleration for Off-Policy Deep Reinforcement Learning",
+          "trigger": "Earlier Tikhonov regularization of Anderson mixing"
+        },
+        {
+          "assessment": "Approximate-calculation error bounds, not a Gaussian inverse-moment law.",
+          "evidence": [
+            "Analyzes inaccurate residual evaluations without the fixed-snapshot iid Gaussian asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.03915",
+          "material_read": "OA PDF pp. 1 and 8, error-bound passages",
+          "method": "Targeted lawful arXiv PDF reading",
+          "title": "Anderson acceleration with approximate calculations: applications to scientific computing",
+          "trigger": "Earlier inaccurate residual analysis"
+        },
+        {
+          "assessment": "Not used to conclude noncoverage; scalar ratio behavior is background.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/56.3.635",
+          "material_read": "Bibliographic identification only; no decisive full-text passage",
+          "method": "Lawful direct and VPN retrieval and lawful alternate-copy lookup; no readable copy found",
+          "title": "On the Ratio of Two Correlated Normal Random Variables",
+          "trigger": "Classical scalar ratio formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, three branches of the ridge law",
+        "Resultary 6e96c99497d7 §4",
+        "arXiv:2110.01543 p. 4"
+      ],
+      "rationale": "The dimension transition determines when mean square is even a valid performance measure for the unsafeguarded fixed-input update. The exact regularization cost, especially the critical logarithmic term with an explicit coefficient, gives information not available from positive-ridge finiteness or an upper bound on the regularized inverse. This is a motivated model of a single mixing step, not a convergence guarantee.",
+      "residual_risks": [
+        "No extension to adaptive penalties or multiple updates is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

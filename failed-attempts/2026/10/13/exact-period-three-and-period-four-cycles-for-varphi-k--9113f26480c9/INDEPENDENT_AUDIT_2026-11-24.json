@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:07.067791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:2–31",
+        "Frozen VERIFICATION.md:18–24, verify.py:94–113, verification_output.txt:2–9",
+        "Das arXiv:2312.06629, Theorem 2.7 proof and Remark 2.8, extracted offset 13460",
+        "Independent replay: python3 /workspace/branches/private-checks/cycles.py"
+      ],
+      "rationale": "The alternating classification is not well-defined as submitted: P is defined only on composites, but pt−1 and qt−1 can be prime. For k=7 the genuine exact cycle (3,10,5,12) has p=3,q=5,t=1 and P(2) is required. In addition the claimed exhaustive regression misses k=2: (3,5,7,9) is an exact four-cycle, disjoint from the orbit 2→4→2, and 2 is the only starting prime tested there. Das's arXiv Remark 2.8 likewise does not supply the claimed coverage at k=2 as printed. In my direct replay, if x is the minimum state in a cycle of length at most four, x is prime and the first composite is at most x+3k, so its successor is at least x and at most (x+3k)/2. Thus x<=3k and all states are <=6k. Exhaustion over this interval agrees with the classification after extending P to all n>=2, giving three period-three cycles and forty period-four cycles for k=1 through 180, not thirty-nine. The repaired interpretation has a sound symbolic argument: no all-prime or adjacent-composite pattern; for a one-composite cycle the opening prime divides 2k or 3k but not k, forcing 2 or 3; for the alternating pattern equate q(A+1)=p(B+1) for the composite cofactors, then apply the largest-prime-factor conditions to the products. Bertrand gives the stated infinite family. The theorem with the corrected domain is not disproved; both the literal statement and the stated finite coverage need correction.",
+      "residual_risks": [
+        "The independent replay exhausts only periods three and four through k=180 and does not establish the theorem for all k. The symbolic argument addresses the unrestricted quantifier after the indicated notation correction."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed short-period theorem covers all cycles of lengths one to four. The even-parameter locator gives bounds but not these criteria.",
+          "Das proves eventual periodicity and finite loops for fixed k. Dubickas's larger class allows general composite contractions and finite sets of prime increments; its results on boundedness or periodicity do not classify these individual cycles."
+        ],
+        "reasoning": "The indexed short-period theorem dominates the classification; the general dynamic results from the papers do not do so.",
+        "searches": [
+          "Resultary short-period classification 9c96b12d92f9 and even-parameter cycle bound 644ecc618762",
+          "Das arXiv:2312.06629, Theorems 2.5–2.7",
+          "Dubickas DOI 10.3390/axioms13020107, Theorems 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:2–8,33–41",
+        "Resultary 9c96b12d92f9 and 644ecc618762",
+        "arXiv:2312.06629",
+        "DOI 10.3390/axioms13020107"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed statement explicitly covers the main formulas, and its t=1 conditions apply to every pair of odd primes p<q<2p: all prime factors of p−1 are <q, and all prime factors of the even composite q−1 are <=(q−1)/2<p.",
+          "Bertrand supplies such q for unbounded odd p, and k=(p−1)(q−1)−1 is unbounded."
+        ],
+        "reasoning": "The absence of an explicit infinity claim from the indexed statement does not make the elementary Bertrand corollary a distinct classification or a new substantive gap.",
+        "searches": [
+          "Resultary 9c96b12d92f9, Finding and alternating t=1 corollary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finding's alternating tuple (p,q(pt−1),q,p(qt−1)) equals (p,p+k,q,q+k) when k=pqt−p−q. Its rule on every prime divisor is precisely the intended inequality on largest prime factors, even for prime cofactors.",
+          "The indexed one-composite and Fermat cases give the same cycle tuples and primality criteria."
+        ],
+        "reasoning": "The indexed p<q normalization merely chooses a rotation. Exact period in the full recurrence is the target, not period after omitting composite states.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9",
+          "Das arXiv:2312.06629, Definition 1.2",
+          "Dubickas DOI 10.3390/axioms13020107, equations (1) and (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Das gives examples including k=1 and k=15 for period three and finite numerical period data, but Section 3 still raises realization of every period as an open issue.",
+          "The separate indexed record gives exact criteria, rather than a finite list of example parameter values."
+        ],
+        "reasoning": "Finite observations do not settle all k. Here explicit catalogue coverage, not an extrapolation of examples, decides this check.",
+        "searches": [
+          "Das arXiv:2312.06629, Definition 1.2 examples and Section 3 Figure 2",
+          "Resultary exact short-period record 9c96b12d92f9"
+        ]
+      },
+      "rationale": "The intended exact three- and four-cycle classification is already covered by a distinct indexed short-period finding for the same map, which also classifies periods one and two. Its alternating t=1 corollary gives the infinite-family assertion by Bertrand and elementary smoothness. This is statement-level coverage and not a finding of chronological priority. The motivating publications give useful boundedness and examples, but do not alone give the exact criteria.",
+      "residual_risks": [
+        "Record dates do not resolve priority or provenance. A broader search was deferred and earlier unindexed coverage remains possible; the located statement is already decisive for overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the classifications and implies the Bertrand family",
+          "evidence": [
+            "Exact periods one to four, including Fermat period three, the three-prime four-cycle, and the identical alternating smoothness condition."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9",
+          "material_read": "RESULT.md, Finding, alternating t=1 corollary, limitations",
+          "method": "Local Resultary mirror",
+          "title": "Exact short-period classification for a shifted largest-prime-factor map",
+          "trigger": "Strongest exact Resultary overlap"
+        },
+        {
+          "assessment": "Same recurrence and finite examples; no general short-period classification in inspected passages",
+          "evidence": [
+            "Period-three examples at k=1,15; the printed cycle-entry bound fails at k=2 as applied here; open question concerns realization of every period."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.06629",
+          "material_read": "Definition 1.2 and examples p. 2 offset 4000; Theorems 2.5–2.7 pp. 3–5, Theorem 2.7 and Remark 2.8 at offset 13460; Section 3 open issue (2) p. 6 offset 16403",
+          "method": "Primary OA PDF bounded passages",
+          "title": "A Family of Iterated Maps on Natural Numbers",
+          "trigger": "Same map and small-prime bound cited in support"
+        },
+        {
+          "assessment": "Broader dynamics, not exact short periods for the stated map",
+          "evidence": [
+            "Deterministic full recurrence distinguished from the prime-compressed one; broader results concern contraction, boundedness and all-sequence periodicity."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms13020107",
+          "material_read": "Equation (1) p. 1; Theorem 1 and prime-compressed (3) p. 2; equations (9)–(10) and Theorems 2–3 p. 3, offsets 0, 5500, 10000–14973",
+          "method": "Primary OA PDF bounded passages",
+          "title": "A Class of Bounded Iterative Sequences of Integers",
+          "trigger": "Same full recurrence and larger class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–5,10–31",
+        "Resultary 9c96b12d92f9",
+        "Das arXiv:2312.06629, Section 3"
+      ],
+      "rationale": "The exact cycle problem is mathematically motivated and an unknown classification would be useful. Here both classifications are covered; the extra infinite-family assertion follows directly from the indexed t=1 case by Bertrand and a factor bound. Correcting notation or adding a complete finite regression remedies evidence defects, but does not create a distinct valuable theorem from the stated results.",
+      "residual_risks": [
+        "No conclusion on the value or status of classifications of longer periods."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

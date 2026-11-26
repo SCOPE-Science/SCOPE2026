@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two C++17 programs enumerate the exact same set of \(4^{12}\) possible initial states under equivalent independently constructed Frucht-graph labels; graph equivalence is checked by an explicit edge permutation. One classifies the full functional graph by indegree peeling; the other traces paths until first repeats. Both produce identical period/entry populations, sorted individual orbit basins and the sharp extremal layer. Their counting algorithms are complete for a finite map, not random samples. In particular, the per-orbit comparison is strict even at the worst endpoints \(385193>373631\). The separate initial-state witness reaches a four-cycle first at update \(27\), while the full census proves no deeper transient.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The 1991 Fisch–Gravner–Griffeath framework defines general multicolor excitation and studies planar lattice waves, not an exhaustive finite Frucht-graph basin census. Gravner–Lyu–Sivakoff analyze **three-color** arbitrary-graph excitation; their theorems do not transfer four-state orbit counts. Readable public exact finite-graph records give (a) the *three-state* Frucht spectrum and (b) *four-state* Chvátal dynamics. Neither contains or implies this same-graph, four-state, individual-basin inversion. Semantic and exact-parameter searches found no dominating prior statement, but search is not a proof of first discovery and nonindexed sources remain possible.
+PASS
 
-## Value — PASS
-The Frucht graph is the canonical smallest asymmetric cubic graph, removing all nontrivial geometric-symmetry explanations of orbit-basin populations. Its four-state excitation has a natural and complete finite orbit classification, with an unexpected ordering: each of only ten five-cycle basins is larger than every one of 1,024 four-cycle basins. The distinction is essential for interpreting random initial conditions—most likely eventual period and most common attractor period are different—and its 27-update sharp transient contrasts with established related graph/color cases. This is a meaningful whole-object classification and strict basin separation, not a merely arbitrary subset or numerical improvement.
+Independently enumerated all 16,777,216 states from the frozen edge list with the synchronous bit-plane update; checked its transition on a separate scalar implementation and verified the 18-edge relabelling to LCF. The full image of F^32 contains exactly 4,159 states and I verified that F permutes this image, proving that it consists precisely of all periodic states. Cycle tracing on the image gives least periods and orbit labels. The F^32 image of each start determines its basin; iterative preimages of the periodic set give exact first-entry layers. The replay matches all 72 nonempty histogram cells, orbit counts (1,1024,10,2) at periods (1,4,5,6), all period basin totals and maximum entry times, the listed individual sizes at periods 5 and 6, and the range from 9 to 373631 at period 4. The strict comparison is 385193>373631. Exactly 18 starts first enter at 27, all with period 4; witness 5999879 first repeats at step 31, returning to state 3222501 first reached at 27. The lcm of the periods is 60, so F^87=F^27 follows. This exhaustive method does not use either supplied C++ enumerator or its output to construct the census.
 
-## Closest prior statements and limitations
-Publicly inspected 3-state Frucht census: different color count and 21-update maximum; publicly inspected 4-state Chvátal census: different graph and 12-update maximum; general 1991/1993 and 2016 references: no exact Frucht orbit/basin table. The result is a reproducible finite exhaustive proof, not an all-graphs theorem; historical precedence and independent external assessment remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected result contains the same four-state Frucht map census or implies its sharp transient and strict per-orbit separation. The exact catalogue match is the assigned record itself. Same-graph results use a different refractory chain; same-rule results on other canonical graphs have demonstrably different directed state graphs and observables. The update rule and use of exhaustive functional-graph enumeration are prior methods, not novel claims.
+
+## value
+
+PASS
+
+The canonical asymmetric cubic graph is a motivated finite test of excitable dynamics without nontrivial graph automorphisms. The full entry-time/period law and sharp uniform cutoff are useful exact benchmarks. More specifically, period counts favor four-cycles 1024 to 10 while every period-five orbit individually beats every period-four orbit in basin weight. This is a structural separation about uniformly sampled starts that could not be read off from recurrent-state counts or an aggregate comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:43:25.318362Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–91",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (code and stored ten-case output inspected, not executed)",
+        "Independent bounded census: python /tmp/opencode/frozen_1_5_review_checks.py (record 1 block)"
+      ],
+      "rationale": "Each root direction has q−1 transvections. Equal-direction factors add their parameters, giving q−2 for each nontrivial rank-one output; independent directions give a rank-two operator by independence of their covectors. Every symplectic rank-one correction is a transvection and higher rank is impossible. For rank two, ker(g−I)=W_g^⊥ makes the Wall diagonal well-defined. For each line with Q_g(w)≠0 and w=(g−I)x, the unique first transvection with direction w cancelling the correction at x is T_{w,1/Q_g(w)}; the remainder fixes ker(g−I) and x and is nonidentity of rank one. Conversely, evaluating a factorization on a vector fixed by the second but not the first recovers this line and coefficient. A nondegenerate image yields an SL₂(q) block with no 1-eigenline, and the zero lines of the Wall diagonal correspond exactly to its eigenlines. Independently, fixing trace t counts q(q−1)+q s matrices in SL₂, where s is the number of roots of X²−tX+1: for each upper-left entry a, count pairs with bc=a(t−a)−1. Pairing distinct reciprocal eigenvalues in the split or norm-one torus gives the displayed regular counts, while t=−2 in odd characteristic yields q² matrices including scalar −I. For an isotropic image the quotient by W_g^⊥ pairs perfectly with W_g, yielding a bijection with invertible symmetric binary forms; there are q²(q−1) such forms (subtract q² singular triples from q³). For an odd-q zero line, fixing it allows q(q−1) invertible forms, with two zero lines per split form. In even characteristic there are q−1 invertible alternating forms; a nonzero diagonal is a squared linear form over the perfect field and has one zero line. Counting ordered bases of the two plane types gives D_m and I_m; unique image planes and the rank-one condition q>2 give the two support sizes. Independent complete planar enumeration included zero fibers at seven prime orders.",
+      "residual_risks": [
+        "The stored enumerator checks attained fibers and total support by type; it does not independently enumerate all zero-fiber group elements. The universal proof covers those, and the independent check enumerated zero-fiber planar targets at the prime orders tested only. Results do not specialize automatically to a single odd-characteristic transvection class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Özden treats stability of filtered class-algebra structure constants and reflection length; the inspected passages do not evaluate these rank-two constants by image-plane type.",
+          "Arias-de-Reyna et al. use the usual parametrization in subgroup classification, with characteristic at least 5 for the main theorem.",
+          "Ellers–Malzan's available abstract concerns a fixed conjugacy class at odd q."
+        ],
+        "reasoning": "General stability of coefficients gives structural control, not their values. Subgroup and length results answer different questions; minimal lengths or shortening do not on their own give the complete multiplicity distribution for all q,m.",
+        "searches": [
+          "Özden arXiv:1812.04720 abstract and §4.5",
+          "Arias-de-Reyna–Dieulefait–Wiese arXiv:1405.1258 §1 and Theorem 1.1",
+          "Knüppel §4 and Ellers–Malzan ScienceDirect abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99ad8abf2ce2 primary mirrored Finding",
+        "Knüppel §4",
+        "Özden abstract and §4.5",
+        "Arias-de-Reyna–Dieulefait–Wiese §1",
+        "Ellers–Malzan abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wall shortening leads to the line-count formula once each allowable line is shown to give one first factor. The GL overlap then handles a nondegenerate two-plane, but not an isotropic one. The fixed-class article's full formulas were not accessible."
+        ],
+        "reasoning": "Neither the change from length to count nor the verified larger general-linear scope makes the full symplectic evaluation a parameter substitution. To close the isotropic rows and all-rank support one must count the correct symmetric Wall forms, including the alternating forms that cannot arise from two nonidentity transvections in characteristic two.",
+        "searches": [
+          "Knüppel §4.1.1 and §§4.2–4.5; Ellers–Malzan 1991 abstract; Resultary 99ad8abf2ce2 and Özden arXiv:1812.04720"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 99ad8abf2ce2 gives the exact two-transvection GL_n convolution; GL₂ transvections and Sp₂ transvections are the same elements.",
+          "Knüppel, p. 407 Lemma 4.1.1, gives Wall shortening, not an evaluated unordered-image-type census of ordered pairs."
+        ],
+        "reasoning": "F(g) is the coefficient of g in the square of the sum over all nonidentity transvections; replacing fiber language with that coefficient does not change the result. The GL₂ case is direct overlap (and supplies the local nondegenerate block). In larger dimension GL factors on an image plane need not satisfy the symplectic constraints, especially when it is totally isotropic.",
+        "searches": [
+          "Local Resultary query for exact two-transvection conjugacy convolution and rank-two fibers",
+          "Knüppel DOI 10.4153/CMB-1992-053-5, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "99ad8abf2ce2 Finding has explicit all-field GL_n multiplicities including n=2; the per-plane nondegenerate rows of the frozen result can use those local values.",
+          "The class-type and length passages checked in Özden do not list the frozen evaluated isotropic image-plane rows or support count."
+        ],
+        "reasoning": "The classical SL₂ matrix populations are standard ingredients and not claimed as new. The exact external convolution covers a genuine subcase but the restriction to symplectic factors on isotropic image planes needs a different calculation; no all-rank table containing those rows was established.",
+        "searches": [
+          "Local Resultary exact convolution comparison 99ad8abf2ce2; Özden §4.5, Remark 4.21 and Lemma 4.22"
+        ]
+      },
+      "rationale": "The Wall-line shortening criterion and classical rank-two block classification are prior tools, and there is direct same-day coverage of the dimension-two case in the general-linear convolution. The supported distinct contribution is the full symplectic arbitrary-rank, all-characteristic evaluation by image-plane type, in particular the totally isotropic strata and their zero-fiber contribution to support. No priority is assigned within the same day, and no novelty is credited to the SL₂ values taken in isolation.",
+      "residual_risks": [
+        "Detailed odd-q fixed-class results in Ellers–Malzan remain a priority risk. Unlocated classical connection-coefficient tables may overlap; verified catalogue evidence does not order the same-date GL₂ result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct dimension-two overlap; same-day priority unresolved",
+          "evidence": "All-field GL_n ordered product counts via class probabilities and centralizer adjustment. GL₂ and Sp₂ transvections coincide; higher-rank isotropic symplectic cases do not follow by that equality.",
+          "identifier_or_url": "Resultary 2026/11/22 99ad8abf2ce2",
+          "material_read": "RESULT.md Finding, mirrored offset 0",
+          "method": "Local Resultary comparison and original mirrored text",
+          "title": "Exact two-transvection conjugacy convolution in finite general linear groups",
+          "trigger": "Closest exact convolution; includes n=2"
+        },
+        {
+          "assessment": "Prior Wall shortening; not the full evaluated census",
+          "evidence": "Criterion for shortening in the fixed-class factorization problem; distinction between certifying a shorter factorization and counting all ordered fibers.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1992-053-5",
+          "material_read": "Abstract, §4 especially p. 407 Lemma 4.1.1 and §§4.2–4.5",
+          "method": "Open Cambridge PDF passage inspection",
+          "title": "Factorization into Symmetries and Transvections of Given Conjugacy Classes",
+          "trigger": "Classical shortening may cover part of the pointwise formula"
+        },
+        {
+          "assessment": "Full formulas unresolved",
+          "evidence": "Abstract describes odd-q same-conjugacy-class factorization; attempted full texts returned 403, which does not establish absence of detailed overlaps.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/002437959190024Q",
+          "material_read": "Abstract only",
+          "method": "Abstract plus bounded full-text attempts on ScienceDirect and an identified CORE copy",
+          "title": "Products of λ-Transvections in Sp(2n,q)",
+          "trigger": "Same group and fixed-class transvection products"
+        },
+        {
+          "assessment": "Structural background",
+          "evidence": "Gives parametrization and classifies subgroups of GSp(V), not their prescribed-product fibers.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.1258",
+          "material_read": "§1 and Theorem 1.1, HTML offsets about 1200 and 3900",
+          "method": "Open primary passage inspection",
+          "title": "Classification of subgroups of symplectic groups over finite fields containing a transvection",
+          "trigger": "Same transvection parametrization and group family"
+        },
+        {
+          "assessment": "Relevant framework, no evaluated census in inspected passages",
+          "evidence": "Filtered stability theorem and stable symplectic types/reflection length, rather than explicit two-factor geometric strata.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.04720",
+          "material_read": "Abstract; §4.5 material around Remark 4.21 and Lemma 4.22",
+          "method": "Open primary passage inspection",
+          "title": "Stability of the center of the symplectic group rings over finite fields",
+          "trigger": "Broader class-sum multiplication framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Resultary 99ad8abf2ce2 and Knüppel §4 for the covered components"
+      ],
+      "rationale": "The square of the full transvection sum is a natural first class-algebra convolution. Beyond counting the known local SL₂ blocks, the result separates rank-two targets by the geometry of their image, gives exact multiplicities and support in all field sizes and ranks, and isolates two distinct characteristic-two failures of support: nontrivial rank one at q=2 and alternating Wall forms on isotropic planes. These are useful exact distinctions for factorization or convolution questions, not just verification of a rank bound or root-group normalization.",
+      "residual_risks": [
+        "No claim for higher powers, restriction to one odd-q conjugacy class, or general symplectic structure constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

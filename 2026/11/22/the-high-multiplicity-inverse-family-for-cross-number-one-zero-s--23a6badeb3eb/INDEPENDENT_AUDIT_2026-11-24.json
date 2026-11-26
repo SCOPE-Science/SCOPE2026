@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:59:14.331693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A term occurring at least 2p-1 times must have order 2p: otherwise order-many copies already form a forbidden subsequence. It occurs exactly 2p-1 times. Normalize it to 1; zero is forbidden by itself, and p with p copies of 1 is also forbidden. The p-1 remaining terms therefore have gcd-weights 1 or 2. For a nonempty residual submultiset U of weight D<=2p-2, precisely 2p-D available copies of 1 bring its weight to 2p, and the resulting sum modulo 2p is twice the sum of a(x)=(x-d(x))/2 modulo p. This proves both directions, since dominant copies alone cannot have weight 2p. The prime-order lemma holds: in any ordering of a zero-sum-free sequence of length p-1, all p prefix sums, including the empty prefix, are distinct and exhaust C_p. Swapping unequal neighbors would change only their intermediate prefix sum, which is impossible if both sets of prefix sums exhaust C_p. This also clarifies the manuscript's compressed subset-sum argument: saturation of C_p before the last term would allow a zero sum using one remaining term, so growth cannot stop prematurely under the avoidance hypothesis. No change to the claim is needed. The nonzero common value h lifts to 2h+1 or 2h+2, with one inadmissible lift at each of the distinct h=(p-1)/2 and h=p-1. Thus there are 2+p(p-3) residual multisets per generator, of which 2+2(p-3) have one residual type and (p-2)(p-3) have two. Uniqueness of the dominant term and its common residue establishes the labelled census, including p=3 with no support-three case. Gao–Mu Theorem 1.1 makes 3p-2 the sharp avoiding length. Independent exact replay `python3 /workspace/checks/cross.py 3 5 7` enumerates all avoiding multisets at these lengths via set-valued subset DP and gets totals 4,48,180, with support counts (4,0),(24,24),(60,120); this does not prove dominance outside these finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Mu is broader in cyclic modulus and gives the exact threshold and its upper-bound proof. Long n-zero-free Theorem 5 requires length strictly greater than 3n/2-1, above the target 3p-2 when n=2p. Long zero-free Theorem 8 gives positive representatives of total less than p for a long zero-sum-free sequence after unit scaling."
+        ],
+        "reasoning": "The threshold theorem does not provide inverse structure one below threshold. Theorem 8 does imply the repeated-residue conclusion once the residual prime-order problem has been constructed; it does not identify which residual terms lift to it under the C_(2p) weighted condition. That reduction, not the prime-group lemma, is essential to the classification.",
+        "searches": [
+          "Gao–Mu arXiv:2611.23852v1 pp. 1, 3–4",
+          "Savchev–Chen arXiv:math/0604356v1 Theorem 5; arXiv:math/0602568v1 Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Gao–Mu arXiv:2611.23852v1; Gao et al. DOI 10.4064/aa240825-15-11; Savchev–Chen arXiv:math/0604356v1 and arXiv:math/0602568v1 (targeted passages)",
+        "Resultary 23a6badeb3eb; frozen RESULT.md and verification materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier witness g^(2p-1)(-g)^(p-1) is precisely the exceptional h=p-1 singleton fiber. The other exceptional fiber, and all two-lift mixed splits for p>=5, require the full lift analysis; the prime-order theorem alone contains no such information."
+        ],
+        "reasoning": "The prior witness is part of the family and is credited. Even together with the threshold and the prime-order inverse ingredient it is not a classification of the possible dominant witnesses without a new iff reduction and a count on the labelled group.",
+        "searches": [
+          "Gao et al., Lemma 3.1, pp. 350–351",
+          "Gao–Mu Theorem 1.1 and Proposition 2.5",
+          "Savchev–Chen Theorem 8 in arXiv:math/0602568v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Mu uses the same predicate, including weight n*k(U)=sum_d d|U_d| for order n/d. Savchev–Chen's long n-zero-free theorem instead excludes zero sums of cardinality n."
+        ],
+        "reasoning": "The exact equivalent formulation uses simultaneous gcd-weight and residue-sum tests. Length and gcd-weight agree on generator-only subsequences, but not on mixed-order terms. In particular p terms of order p may have weight 2p while having cardinality only p. The ordinary length-n inverse theorem is not an equivalent statement in this domain.",
+        "searches": [
+          "Web: inverse theorem cross number 1 zero-sum subsequences maximal avoiding sequences twice prime cyclic 3p-2 multiplicity generator Gao Mu extremal classification",
+          "arXiv:2611.23852v1, Theorem 1.1 and Proposition 2.5",
+          "arXiv:math/0604356v1, Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary census is the frozen record itself. The primary search returned the sharp-threshold and foundational papers, not an independently matching census. The foundational paper explicitly gives the earlier support-two witness."
+        ],
+        "reasoning": "A generic upper bound or one multiset for each generator does not tabulate the labelled family or its support distribution. No distinct matching table is established by the available results; lack of a hit is not absence evidence.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-20261122-23a6badeb3eb",
+          "Web: inverse theorem cross number 1 zero-sum subsequences maximal avoiding sequences twice prime cyclic 3p-2 multiplicity generator Gao Mu extremal classification",
+          "Gao et al., DOI 10.4064/aa240825-15-11, Lemma 3.1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact inverse description and labelled support census in the dominant-generator regime, not the sharp threshold, its standard two-symbol witness, the prime-order inverse lemma, or an unrestricted inverse theorem. The closest primary statements contain those ingredients but do not effect the weight/sum reduction and complete this restricted classification.",
+      "residual_risks": [
+        "The literature comparison is confined to the retrieved exact passages and relevant search returns; implicit or unindexed equivalent inverse classifications are not ruled out.",
+        "The unrestricted all-prime inverse problem is outside the claim; the finite agreement offers no priority or general dominance evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes sharp length, but inspected threshold/upper-bound argument is not the inverse family",
+          "evidence": [
+            "T(C_n)=3n/2-1 for even n. Proof groups terms by exact order and computes k(T) from the weighted counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.23852v1",
+          "material_read": "Theorem 1.1, p. 1, and Proposition 2.5 and proof, pp. 3–4, with threshold proof weight formula",
+          "method": "Targeted primary text comparison; focused web query also resolved the paper",
+          "title": "Zero-sum subsequences of cross number 1 over cyclic groups",
+          "trigger": "Identical avoidance predicate and all-even-order threshold"
+        },
+        {
+          "assessment": "Covers one branch of the stated family, not the labelled inverse census",
+          "evidence": [
+            "The even-order witness is g^(n-1)(-g)^(n/2-1), exactly the h=p-1 branch at n=2p."
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/aa240825-15-11",
+          "material_read": "Lemma 3.1, pp. 350–351, institutional OA text",
+          "method": "Targeted primary passage comparison",
+          "title": "On zero-sum subsequences of cross number 1",
+          "trigger": "Foundational predicate and even-order lower-bound witness"
+        },
+        {
+          "assessment": "Different predicate and outside the asserted length range",
+          "evidence": [
+            "Excludes ordinary n-term zero sums; sequence length >3n/2-1 is required."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0604356v1",
+          "material_read": "Theorem 5, pp. 5–6",
+          "method": "Targeted primary statement; compared avoidance test and strict length range",
+          "title": "Long n-zero-free sequences in finite cyclic groups",
+          "trigger": "Candidate dominating cyclic inverse theorem"
+        },
+        {
+          "assessment": "Does imply the credited prime-order ingredient",
+          "evidence": [
+            "At length p-1, p-1 positive representatives summing to less than p must all be 1 after unit scaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0602568v1",
+          "material_read": "Theorem 8, p. 2",
+          "method": "Targeted primary statement and direct specialization",
+          "title": "Long zero-free sequences in finite cyclic groups",
+          "trigger": "Potential coverage of the reduced prime-order inverse step"
+        },
+        {
+          "assessment": "Same record, not distinct prior coverage",
+          "evidence": [
+            "Identical assigned family and labelled counts."
+          ],
+          "identifier_or_url": "Resultary 23a6badeb3eb",
+          "material_read": "Indexed statement and frozen matching finding",
+          "method": "Resultary retrieval and identity check",
+          "title": "The high-multiplicity inverse family for cross-number-one zero sums in twice-prime cyclic groups",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural threshold inverse question replaces a single known construction with a structural classification of every witness carrying the maximum possible generator multiplicity, in infinitely many orders. It identifies mixed-order and three-supported extremizers and gives the exact number in each support stratum. The weight-to-prime-group correspondence is the useful refinement, rather than the elementary algebra of the final count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:18:20.052700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The total cyclic-gap deficit from all threes is 2: either one gap 1 or two gaps 2. This precludes triple coverage and implies exactly two doubly covered sites. The closed-neighborhood operator A is injective because a kernel vector is 3-periodic and gcd(3,n)=1. Under multiplication by 3 inverse, the first gap type gives separation m-1 up to reversal, and the second gives separations j+m-1, 1<=j<=m-1. The counts agree (n(m+1)/2), so the map is onto. In both directions a transformed +1 move is the coverage change delta_(i+2)-delta_(i-1)=A(delta_(i+1)-delta_i); injectivity recovers a legal original slide. The lifted integer strip is L1-geodesic by monotone paths through a feasible coordinatewise minimum. All lifts of a target form one orbit under (a,b)->(b,a+n). A q nearest to the sum difference divided by n yields a sum residual <=floor(n/2) and gap residual <=m<=floor(n/2); other q cannot improve it (their sum residual alone is at least floor(n/2)). Standard-lift sums differ by less than 2n, so this nearest q is among the stated five. From every state one may shift the target sum by floor(n/2), adjusting its gap by one if needed for parity; all target lifts then have sum residual at least floor(n/2). Boundary pairs have exactly two legal moves and interior pairs four, including the n=4 case. This proves the exact distance, eccentricity and census, independently of any finite test. Replay: python3 /workspace/branches/independent_checks.py 1; independent bitmask enumeration and graph breadth layers at n=4,7,10,13,16 agreed for all 5,514 ordered pairs. The frozen script was inspected, not executed; its recorded larger finite run is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed bounded-gap result gives transport-optimal sliding paths; the gap-slack result gives isometry for the all-gap-at-most-U family when k<n<kU.",
+          "The retrieved Křišťan–Svoboda abstract (p. 1) concerns shortest dominating-set slide algorithms on trees and interval graphs."
+        ],
+        "reasoning": "With two tokens, both gaps at most U=2m-1 iff each is also at least d=m-1. The strip meets 2d<n<2U and 2<n<2U. General exact-distance coverage is therefore material, but it starts with the token configurations rather than with a proof that ordinary domination produces them.",
+        "searches": [
+          "Resultary edbf2b8cafb9 (circular bounded-gap token transport)",
+          "Resultary f7b2fcae2dd0 (gap slack isometry)",
+          "Křišťan–Svoboda arXiv:2307.10847v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 21ac345ac61e, edbf2b8cafb9, f7b2fcae2dd0, 9e512596be10",
+        "arXiv:2307.10847v1 abstract",
+        "Cited cycle γ-graph paper identifiers above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The transport distance in the wider gap strip is a specialization of the indexed bounded-gap theorem; the sum-coordinate and parity argument evaluates its extremum at every state.",
+          "The matching analogue employs a more restrictive separation interval according to the frozen comparison, so its numerical theorem alone does not give a result for every vertex of the wider strip."
+        ],
+        "reasoning": "Prior transport plus the ordinary-domination isomorphism and the extremal argument yields the eccentricities. No verified prior ordinary-domination reduction or all-state slide metric was found; the distinct remainder is the transfer and concrete evaluation for that state graph.",
+        "searches": [
+          "Resultary edbf2b8cafb9, f7b2fcae2dd0, 9e512596be10",
+          "RESULT.md sections 2–6 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record 9e512596be10 has the same numeric all-state eccentricity for minimum maximal matchings under edge replacement; its objects are not ordinary dominating sets.",
+          "The frozen relationship section credits the minimum-domination connectivity and overlap-position classifications to earlier work."
+        ],
+        "reasoning": "Neither a matching analogy nor knowing which coverage overlaps occur identifies how a domination slide acts; the injective coverage operator and modular scaling give the required adjacency correspondence. Do not equate nonlocal replacement with cycle-neighbor token sliding.",
+        "searches": [
+          "Resultary: ordinary minimum domination cycle slide graphs, two-token strips and minimum maximal matching eccentricity",
+          "Fricke et al., DOI 10.7151/dmgt.1562",
+          "Hernández-Gómez et al., DOI 10.3390/sym12122053",
+          "Resultary 9e512596be10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "21ac345ac61e is the identical assigned record, not independent evidence.",
+          "The matching record gives the same floor(n/2) on a different graph, and the frozen record attributes the state count to the nonlocal gamma-graph paper."
+        ],
+        "reasoning": "Coincidence of the numeric diameter or the state count is not an exact hit for the governing adjacency, metric or census of slide degrees.",
+        "searches": [
+          "Resultary exact cycle domination/Möbius metric result 21ac345ac61e",
+          "Resultary 9e512596be10",
+          "Rakhimol–Bhatt DOI 10.26524/cm178"
+        ]
+      },
+      "rationale": "Pass the identification of the ordinary minimum-domination slide graph with this particular two-token strip and its resulting uniform eccentricity/census. Do not credit generic transport optimality, already covered in broader token systems, or the old connectivity and state count. The general distance theorem plus the new code and the extremal argument gives the numerical bound; the distinction is not that prior distances could not be used to derive it.",
+      "residual_risks": [
+        "General gap and matching comparisons were limited to indexed statements and feasible-parameter reductions; strongest cycle-specific full texts not all accessible.",
+        "An earlier equivalent domination-to-defect-token graph identification could affect priority; no such passage was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General distance coverage; no verified domination reduction",
+          "evidence": "Specialize k=2, d=m-1, U=2m-1 in the bounded-gap conditions.",
+          "identifier_or_url": "Resultary edbf2b8cafb9; f7b2fcae2dd0",
+          "material_read": "Indexed mathematical summaries; full mirrored results not retrieved",
+          "method": "Local Resultary lookup and attempted passage retrieval",
+          "title": "Circular bounded-gap token systems have transport-optimal sliding paths; Gap-slack isometry and exact token-sliding distances for mutually visible triples on cycles",
+          "trigger": "General strip distance potentially already known"
+        },
+        {
+          "assessment": "Close but different object and allowed moves",
+          "evidence": "Matching edge replacement, not the closed-neighborhood ordinary-domination slide.",
+          "identifier_or_url": "Resultary 9e512596be10",
+          "material_read": "Indexed result summary, compared with frozen RESULT.md lines 61–66",
+          "method": "Local Resultary lookup; attempted passage retrieval",
+          "title": "Every minimum maximal matching of a cycle of order congruent to one modulo three has sharp eccentricity",
+          "trigger": "Same all-state numerical value and two-particle method"
+        },
+        {
+          "assessment": "Verified stated tree and interval-graph results do not state this cycle theorem",
+          "evidence": "Trees and interval graphs are the classes singled out for shortest-path results.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.10847",
+          "material_read": "v1 abstract, p. 1",
+          "method": "Preprint passage retrieval",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Same kind of reconfiguration and shortest paths"
+        },
+        {
+          "assessment": "Credit prior connectivity, overlap classifications and state count; precise additional slide-metric coverage remains uncertain",
+          "evidence": "The frozen record expressly disclaims those pieces of priority and distinguishes replacement from slides.",
+          "identifier_or_url": "DOIs 10.7151/dmgt.1562; 10.3390/sym12122053; 10.26524/cm178",
+          "material_read": "Available bibliographic evidence and the specific comparisons at frozen RESULT.md line 61, not original theorem passages",
+          "method": "Targeted published-source lookup; primary access limited (PDF failed or returned metadata/blocked)",
+          "title": "γ-Graphs of Graphs; Transitivity on Minimum Dominating Sets of Paths and Cycles; A Study on The Gamma Graph of Cycle C3K+1",
+          "trigger": "Most directly related classical cycle domination records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural reconfiguration graph whose local moves and global distance were not specified by connectivity or counting. The ordinary-domination code turns an optimization over slide sequences into a constant-size exact calculation after an input scan and produces optimal paths. Equal eccentricity despite differing degrees is a useful structural consequence. The value does not depend on re-proving generic strip geodesics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

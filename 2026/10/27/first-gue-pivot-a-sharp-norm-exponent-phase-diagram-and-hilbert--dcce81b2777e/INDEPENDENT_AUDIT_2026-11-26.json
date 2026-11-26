@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:18.796073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated normalization, row 1 stays iff its independent |N(0,1)| exceeds all n-1 copies of W=||(Y_1,Y_2)||_p/sqrt(2); ties have probability zero. Gaussian polar integration gives survival at sqrt(u) equal to the angular average of exp(-u h_p), where h_p=(|cos|^p+|sin|^p)^(-2/p). For p<2 its four diagonal minima have value lambda and curvature 2lambda(2-p); for p>2 the four axis minima have value 1 and quadratic coefficient 1, including p=infinity. Laplace's method gives the stated C_p in survival asymptotic C_p u^(-1/2) exp(-lambda u); the Euclidean survival is exactly e^(-u). With b=(log n-0.5 log log n+log(C_p sqrt(lambda)))/lambda and v=lambda(u-b), the centered survival times n tends to e^(-v), and the chi-square density contributes gamma(1/(2lambda)) e^(-b/2)/(lambda sqrt(2 pi b)). For u≥b/2 and v≤0, the survival times n is bounded below by a constant times e^(-v); below b/2 monotonicity gives a superpolynomially small contribution. For v≥0 the rescaled density has an integrable exponential bound. This establishes the exact prefactors, including pi^(1/4)/2 above two. Rotation yields the exact p=1 identity; centering the Euclidean integral at log n gives 1/sqrt(2n log n). In the critical window the derivative of log h_p at two is H(cos² theta)/2 uniformly, and bounded second derivatives yield a uniform O(1/(log n)^2) error, including at the axes. Thus at u=log n+v the survival times n tends to M(beta)e^(-v). The uniform bound |h_p-1|=O(1/log n) supplies the same integrable tail bounds and the limiting integral equals 1/sqrt(2M(beta)) with normalization sqrt(n log n). Entropy is positive almost everywhere, so M is strictly decreasing, with M(0)=1. The extra nP_n divergence follows in all stated fixed cases p>1. This is solely a first-column result; no quadrature is needed for its asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai's one-point lemma gives sharp weighted Gaussian-coordinate norm tails for all fixed p. In dimension two with both weights one and evaluating the tail at sqrt(2)t, its one-sided normal tail term is multiplied by 4/sqrt(2-p) for p<2 or 4 for p>2, giving the frozen off-diagonal constants. Huang–Tikhomirov addresses growth factors."
+        ],
+        "reasoning": "The general fixed-p tail already covers the single off-diagonal variable, not the scaled expectation of a competing Gaussian winning an iid maximum. The fixed-p asymptotics are nonuniform at two and cannot establish the window by substituting p_n into them.",
+        "searches": [
+          "Gaussian lp norm standard Gaussian vector tail asymptotics p norm p less 2 greater 2 Hashorva Korshunov Bai chi square Euclidean transition",
+          "Bai arXiv:1706.08360 Lemmas 2.1–2.2",
+          "Huang–Tikhomirov arXiv:2206.01726 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–115",
+        "Frozen VERIFICATION.md and verify_pivot_phase.py (inspected, not executed)",
+        "arXiv:2610.10481",
+        "arXiv:2301.13452",
+        "arXiv:2206.01726",
+        "arXiv:1706.08360",
+        "arXiv:1705.05052",
+        "Resultary match 3e3b827418f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published p=1 exact and p=2 asymptotic formulas agree with the corresponding frozen cases; fixed-p norm survival can be taken directly from Bai. The frozen moving-p expansion yields the entropy-dependent multiplier M(beta), which does not appear in those fixed-p statements."
+        ],
+        "reasoning": "The endpoints require no new work and the fixed-p component needs only a Gaussian-maxima transfer after the prior norm result. The varying-p limit instead needs a uniform angular expansion at a continuum of minimizers; it is not a specialization of a fixed-p statement.",
+        "searches": [
+          "arXiv:2610.10481 Proposition 6 and proof",
+          "arXiv:1706.08360 Lemma 2.2 fixed-p tail cases",
+          "arXiv:1705.05052 introduction, distinction between logarithmic windows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is diagonal retention, equivalently the no-swap event or the independent folded-normal variable beating the maximum of n-1 planar norm variables. The finite GUE(2) modulus movement probability 1/sqrt(3) in Example 3 is its complementary event at n=2 and p=2."
+        ],
+        "reasoning": "After complementing the movement event and matching entry scaling, the endpoint examples agree. The equivalent formulation does not turn QR sketch pivots into the same GUE column model.",
+        "searches": [
+          "Resultary: GUE no-swap first pivot, coordinate lp norm Gaussian maxima",
+          "Gunawan–Peca-Medlin–Zhong arXiv:2610.10481 Prop. 6",
+          "Peca-Medlin arXiv:2301.13452 Example 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed first-pivot result 3e3b827418f2 is a Gaussian-sketch QR pivot law for orthogonal deterministic columns. The closest search result about logarithmic lp norm windows, arXiv:1705.05052, treats the variance of one Gaussian vector whose dimension diverges."
+        ],
+        "reasoning": "Neither match gives an exact law or asymptotic table for the compared GUE event. In particular, p of order log(dimension) is not p=2+beta/log(number of planar samples).",
+        "searches": [
+          "Targeted Resultary queries for GUE coordinate lp phase diagram and first-pivot crossover",
+          "Gaussian vector coordinate lp norm p near 2 logarithmic window entropy Gumbel phase transition Gaussian unitary first pivot norm no swap lp asymptotic crossover"
+        ]
+      },
+      "rationale": "Pass is for the general coordinate-norm first-pivot comparison and especially the explicit varying-exponent crossover. The p=1 and p=2 GUE endpoints are published. The fixed-p off-diagonal Gaussian norm tail asymptotics are also already covered by a more general fixed-p Gaussian result, even though the pivot transfer constants are not stated there. The fixed-p law is a close application of those tails and a separate scalar-versus-maximum transfer, not a new Gaussian tail theorem. In the inspected sources the near-two triangular array and its entropy profile are not covered.",
+      "residual_risks": [
+        "A general triangular-array result for smooth angular perturbations or an unindexed pivot-norm analysis may overlap; there is no exhaustive priority claim.",
+        "The Gaussian norm tail and extreme-value transfer are classical ingredients; no independent originality is assigned to those alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of p=1, p=2 endpoints; those are not claimed as new",
+          "evidence": [
+            "Exact 1/(2n-1) for coordinate l1; asymptotic 1/sqrt(2n log n) and finite sum for l2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10481",
+          "material_read": "Prop. 6 and proof, PDF pp. 15–16 (offsets 67783 and 73399)",
+          "method": "Bounded OA PDF reading",
+          "title": "Random permutations using GEPP",
+          "trigger": "Same GUE first-column pivot and entry norms"
+        },
+        {
+          "assessment": "Covers the fixed-p Gaussian tail input, not a GUE pivot or varying-p result in inspected material",
+          "evidence": [
+            "One-point tail lemma splits p<2, p=2 and p>2, with the needed multiplicities and Gaussian exponential factors"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.08360",
+          "material_read": "pp. 2–3, setup and Lemmas 2.1–2.2 (offsets 10000 and 12400)",
+          "method": "Bounded OA full-text inspection and equal-weight two-dimensional specialization",
+          "title": "Extremes of Lp-norm of vector-valued Gaussian processes with trend",
+          "trigger": "Earlier sharp tails for Gaussian coordinate norms"
+        },
+        {
+          "assessment": "Overlap at GUE(2) with modulus comparison, not general coordinate norms",
+          "evidence": [
+            "Pivot-movement probability 1/sqrt(3) at n=2, whose complement is retention"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.13452",
+          "material_read": "Example 3, p. 4 (offset 13211)",
+          "method": "Bounded OA PDF reading",
+          "title": "Distribution of the number of pivots needed using Gaussian elimination with partial pivoting on random matrices",
+          "trigger": "Prior GUE pivot calculations"
+        },
+        {
+          "assessment": "Different pivot observable and model",
+          "evidence": [
+            "Wrong first QR pivot for deterministic orthogonal columns after a shared Gaussian sketch"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2",
+          "material_read": "Mirrored RESULT.md Finding (offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Local indexed search and statement comparison",
+          "title": "Exact Gaussian sketch first-pivot law and sharp runner-up principle",
+          "trigger": "Closest indexed Gaussian first-pivot match"
+        },
+        {
+          "assessment": "Different statistic and limit in the compared results",
+          "evidence": [
+            "Variance of the norm in diverging dimension, with p increasing on a logarithmic scale"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.05052",
+          "material_read": "Abstract and introduction (offset 1040, PDF p. 1)",
+          "method": "Bounded OA full-text reading",
+          "title": "The variance of the lp norm of the Gaussian vector, and Dvoretzky's theorem",
+          "trigger": "Gaussian coordinate-norm logarithmic transition comparison"
+        },
+        {
+          "assessment": "Growth-factor result, not this probability in the inspected material",
+          "evidence": [
+            "Bounds on Gaussian GEPP growth factors and their tails"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.01726",
+          "material_read": "p. 1, offset 1050",
+          "method": "Bounded OA PDF reading",
+          "title": "Average-case analysis of Gaussian elimination with partial pivoting",
+          "trigger": "Nearby Gaussian GEPP prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-coordinate comparison norm changes the probability of no row swap even for the same random matrix ensemble. The transition from four minimizing directions to a continuum leads to different logarithmic powers, and the explicit entropy average resolves the crossover where neither fixed-p approximation is uniform. This explains endpoint sensitivity without extrapolating to later pivots or numerical stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplicativity gives \((q+1)U=qE\) for \(U=\prod_{p\mid m}(p^2+1)\) and \(E=\prod_{p\mid m}p(p+1)\). For one prime support, integrality forces \(p=2,3\) and \(q=5\). For at least two supports, strict positivity of every Euler-factor excess bounds \(q\) relative to the least repeated prime; reductions modulo other repeated primes force \(-1\) to be a quadratic residue and hence each such odd prime to be \(1\pmod4\); three exhaustive cases then give inconsistent \(2\)-adic valuations. The elementary quadratic-residue implication and valuation computations are explicit in the proof, without reliance on finite search.
+## correctness
 
-**Originality — PASS under inspected evidence.** The 2013 source poses the general equality question but not this special-family classification; the OEIS table is not an exhaustive theorem. A complete published two-prime exponent-layer result already covers the positive cases \(20\) and \(45\), but its hypotheses have only one repeated prime, and it cannot imply exclusion for arbitrarily many repeated primes. Lelechenko's document discusses exponential-divisor behavior, not the special family. Search limitations and the partially readable 2014 meeting abstract remain risks, not proof of absolute novelty.
+PASS
 
-**Value — PASS.** The naturally defined family \(qm^2\) is the squarefree-square prime-cofactor stratum of an open equality problem. The result gives a uniform all-support obstruction rather than a finite tabulation, and the known \(3^3\cdot5\cdot7^2\) equality shows that allowing exponent three can change the three-prime outcome. The theorem is self-contained and sharply separates the solitary squared-prime case from all higher support.
+The prime-power definitions give (q+1)U=qE with U=prod(p²+1) and E=prod(p(p+1)). For one squared prime, integrality of q=p+1+2/(p−1) gives exactly (2,5),(3,5), and the original sums agree. For at least two squared primes, every omitted factor of E/U exceeds 1, so q<p+1+2/(p−1) at each p. If the least p is at least 5, this and primality give q<p at the least p and even q+1<p there (p−1 is composite). Every repeated prime consequently divides U and is 1 modulo 4, since it divides a different factor t²+1. The 2-adic valuations of U and E are then equal, incompatible with consecutive q and q+1. If the least repeated prime is 3 (respectively 2), q is forced to be 2 (respectively 3), and every other repeated prime is again 1 modulo 4. At support size k the valuations of the two sides are respectively (k,k+2) and (k+1,k), excluding both cases. Independent divisor-pair enumeration matches 4,441 tests, 2,855 with multiple squared primes, and only 20 and 45 (common sums 30 and 60). The bounded replay corroborates, but is not the proof of, the unbounded exclusion.
 
-**Scope and limits.** No conclusions for arbitrary mixed prime-exponent patterns, composite cofactors or density/infinitude of global equality solutions. No independent mathematical audit has been completed. Finite verification is corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The singleton classification is prior work. Credit is limited to the uniform exclusion when the squared support has cardinality at least two. The closest checked primary and published-result statements either give numerical examples, bound total prime multiplicity by four, or permit only one repeated prime. None establishes the multi-support exclusion.
+
+## value
+
+PASS
+
+This isolates a natural next exponent pattern in an existing equality problem and rules out solutions at every squared-support size, not just in one more enumerated layer. The interaction between the prime cofactor inequality, quadratic-residue obstruction and 2-adic comparison gives a structural explanation; the already known positive examples are not the contribution. It makes no claim about composite cofactors, higher exponents or infinitude of general solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

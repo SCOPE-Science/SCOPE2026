@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The critical response is uniquely represented by a positive, finite-memory renewal equation. Explicit lower and upper barriers are sub- and supersolutions; nonnegative Volterra comparison yields the global sharp inequality. The stochastic convolution and the Itô isometry then prove the exact two-time covariance bound. The classical uniform-renewal correction of \(2/3\) gives the subleading variance coefficient and the sharp leading pointwise coupling error by dominated convergence. Brownian rescaling plus the response barrier gives the pointwise \(L^2\) coupling; the moving-average formula for the response derivative gives Gaussian-increment tightness and continuous-path convergence. The accompanying standalone high-precision method-of-steps checker passed the reported finite diagnostics when run from the package. Risk: the result depends on a correct zero-history response normalization, explicit here; finite tests never substitute for the proof.
+PASS
 
-## Originality — PASS, qualified
+The causal response solves R=1+F*R for uniform interarrival law F on [0,τ]. The two affine barriers are Volterra sub- and supersolutions; local factorial convergence justifies comparison, and R(0)=1 gives sharpness. Independently, Wald's identity gives R(t)=2(t+E[overshoot])/τ, and conditional on the gap before the crossing the crossing increment is uniform on the permitted terminal subinterval, so the conditional mean overshoot is no larger than τ/2. The nonarithmetic key renewal theorem applied to g(t)=E[(U−t)_+] gives mean overshoot limit ∫g/E[U]=τ/3, hence response offset 2/3. Itô covariance and the barrier give precisely 4Dst/τ+2Ds and the variance coefficients. Under Brownian scaling the shared-noise kernel difference is e(Tv)/T with 0≤e≤1; the isometry and dominated convergence give 2Dt/T² and the limiting coefficient 8Dt/9 at fixed τ. For tightness, the response equation and barrier already give |R′(t)|≤3/τ for t>τ, and R=e^{t/τ} before τ, so the scaled kernels are uniformly Lipschitz. Splitting the old and fresh noise gives variance increments O(|t−s|) and Gaussian fourth moments O(|t−s|²). The finite method-of-steps checker in checks/verify.py was located and inspected, not run. No path-supremum L² estimate or nonlinear result follows.
 
-The 2022 and August 2024 Kopp–Klapp primary texts were materially inspected: they give the feedback model, deterministic threshold and heat analysis, and discuss the marginality of the linear positional process. The exact finite-sum response and its renewal asymptotic are already known in uniform renewal theory (e.g. the 2021 renewal discussion and renewal notes) and are not claimed as new. They do not supply the precise all-time critical stochastic covariance comparison or the explicit integrated-Brownian path coupling. The 2013 Lingala–Namachchivaya work addresses critical oscillatory averaging, a different regime; the 1995 Mackey–Nechaeva abstract concerns general moment stability and has not been full-text excluded. A search of published mathematical records for the critical repulsive delayed diffusion, integrated-Wiener limit, and uniform renewal envelope identified no direct covering claim; no such search proves novelty. Risk: classical uniform-renewal inequalities or general delay Green-function theorems might imply parts of the result, and a comprehensive priority audit remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact deterministic threshold is a natural point where effective diffusion predictions become singular. The result identifies the different critical universality class, the explicit cubic dispersion and its first correction coefficient, and quantitative two-time and path-distribution error control with a sharp squared-error constant for any fixed delay. These provide a physically interpretable benchmark for what the linearization can and cannot establish. The sharp subleading cubic-dispersion correction and pointwise coupling-rate constant follow from the known uniform-renewal offset, and are used only as parts of the full physical stochastic theorem; the stochastic finite-time envelope and path-scale law are more informative than a routine parameter substitution or a numerical curve fit. Risk: the nonlinear model cannot be assigned this long-time law without independent analysis.
+Credit the critical linear model, renewal representation, exact slope, second-order offset, and classical renewal implication of the response barrier. The supported distinct statement is the all-lag positional covariance comparison together with the continuous-path integrated-Brownian limit and quantitative shared-noise error, including its exact leading constant, for the zero-history critical linear equation. The strongest examined prior statements do not already yield that joint stochastic comparison by specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+At the actual feedback threshold the ordinary diffusive scale is no longer informative. The joint bounds supply a usable benchmark at every lag and a precise continuous-path scaling with finite-scale error and a sharp constant for the specified coupling. This is a quantitative result about a natural critical process rather than significance attributed to rederiving a deterministic renewal formula or extrapolating the full nonlinear dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

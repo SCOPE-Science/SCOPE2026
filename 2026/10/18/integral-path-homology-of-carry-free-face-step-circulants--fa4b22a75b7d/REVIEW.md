@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-order condition guarantees all two-step additive relations lift faithfully, while base-\(q\) expansions with \(q\ge3\) give an exact incidence-vector description of those relations. Downward closure implies all face symbols reduce to independent singleton basis elements. The newly proved integral coordinate-clamp lemma contracts every finite-support reduced cycle in the lattice digraph; the intermediate maps are valid digraph maps and successive maps are pointwise linked by allowed singleton arrows. The resulting integral, free deck-group resolution computes exterior homology without an unproved characteristic-zero or finite-to-infinite extrapolation. A standalone verifier checks three representative nontrivial families, and an explicit signed top cycle pairs nontrivially with an integral determinant cocycle.
+## correctness
 
-## Originality — PASS (qualified)
-Tang–Yau, arXiv:2602.04140v2, Sections 4.4, 5.1 and 6.1, provides a general acyclic-lift criterion and explicit collision-free and rectangular cases. It does not state or prove reduced path acyclicity for all downward-closed incidence-vector steps. Di–Ivanov–Mukoseev–Zhang, arXiv:2305.15683, Theorem 4.11 assumes no legal pair-sum shortcut, violated for every complex with an edge. The proof newly verifies the acyclic hypothesis for **every** simplicial complex, not just a rectangular box. The discrete-vertex case is already known and excluded from the novelty claim. The residual risk is that the general covering results plus a standard but unlocated homotopy lemma could already imply the statement somewhere else; no database search can prove universal novelty.
+PASS
 
-## Mathematical value — PASS
-The result is an exact integral classification of arbitrarily large families indexed by every finite simplicial complex. Higher faces may introduce dense and interacting shortcut-merge relations, yet the entire torsion-free Betti vector is invariant; this is more informative than a single rank or numerical census. The mechanism is the structural acyclicity of a broad family of lattice digraphs, and the classification identifies a clear homological invariance operation on directed circulants. No claims are made about topological homotopy type or moduli outside the two-sum stable range.
+Because sums of two incidences have digits 0,1,2 and their encodings are bounded by 2 max S < n, equality of all empty, single and two-step sums agrees before and after encoding. The merge relations reduce any face generator to singletons, and the incidence map shows there are no further singleton relations. The kernel N of the map from Z^d to Z/n is finite index, of rank d, since the first singleton step is 1. On the lattice digraph an upward threshold clamp deletes at most one coordinate from every incidence step, keeping it allowed by downward closure or making it stationary. Consecutive clamps have pointwise vertical singleton arrows or coincidences. The integral signed prism between them takes allowed paths to allowed paths modulo stationary degeneracies and induces the chain homotopy on Ω, by the prism boundary identity. Finitely many clamps in each coordinate contract the finite support of every reduced cycle; global uniform boundedness is not needed. The only forbidden terms in a boundary of an allowed word are internal two-step deletions; they preserve the start vertex, and coincidences among their increment words are exactly the short equalities already compared. Thus the same finite-rank free integer kernel W_m occurs at each start in the lift and quotient. The lifted augmented Ω is a free Z[N]-resolution (translation by N is free on starts), and its coinvariants identify with quotient Ω without assuming that coinvariants in general preserve kernels. The integral Koszul resolution of this deck group gives the claimed exterior groups, including H_0=Z and vanishing beyond d. Independently replayed pair-sum counts and signed top-cycle cancellations for the three sample graphs give pairings 150, 162 and 1752. Multilinearity of the determinant, with merged vectors equal to sums, provides the cochain identity for all parameters.
 
-## Closest sources and limits
-The strongest comparison is Tang–Yau Proposition 5.2: it supplies the general descent *after* reduced integral lift acyclicity is proved. Their Theorem 6.2 has no legal pair-sum mergers, unlike the general face-step family. Di–Ivanov–Mukoseev–Zhang Theorem 4.11 is also inapplicable when faces of size greater than one occur. Inaccessible or unindexed equivalent work remains possible. The integral group-ring argument is justified in the proof independently of field-only statements in the cited paper.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The covering mechanism, the field singleton case and the Koszul endpoint are known. The checked circulant theorems either assume no merges/unique unordered two-sums or require acyclicity of the lift over a coefficient field. These results do not prove acyclicity for a general incidence downset with legal merges and collisions. The uniform integral lift and consequent exterior groups for the full family retain a distinct scientific contribution on the inspected evidence.
+
+## value
+
+PASS
+
+These are natural families of cyclic digraphs whose shortcuts encode arbitrary incidence faces. Both legal merges and collisions can change chain constraints, so their uniform inability to alter the integral path homology (including torsion) is substantive. The integral clamp argument supplies a reusable criterion on finite-support chains and addresses a wide class beyond isolated singleton steps, not just a few numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

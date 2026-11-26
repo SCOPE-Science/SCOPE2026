@@ -1,19 +1,21 @@
-# Scientific review: six-run unbordered conjugates
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A six-run alternating word can have a proper border of two or four runs but not six; a four-run border necessarily induces a two-run border. This proves the exact two-inequality criterion for any run-boundary conjugate. The remaining shifts have a one-letter border. Two independent triples of positive run lengths have exactly thirteen weak-order patterns each. A finite, explicit \(169\)-case rational generating-function identity consequently proves the complete all-length distribution. Direct border enumeration on all \(4096\) sextuples of run lengths at most four, exact integer-polynomial identities, and direct fixed-length counts to length eighteen corroborate distinct critical steps. The limit law follows from pole orders, not experiments.
+PASS
 
-## Originality
+An internal cut has a one-letter border. At a boundary cut, a proper border of x^p y^q x^r y^s x^t y^u starts with x and ends with y; six runs would force an initially shortened suffix run, and four runs would force p<=r=t and u<=s=q, hence already imply the two-run border. The two-run border exists exactly for p<=t and q>=u. Rotating that criterion gives all six indicators, and no unbordered shift is duplicated since an unbordered word is primitive. The all-length enumeration is exact: for each weak-order type, positive level increments are independent and an increment contributes its tail multiplicity to the length. The finite exact check python3 /workspace/review_replay.py words independently classified all 169 type pairs by literal longest-border computation, regenerated the five nonzero common-denominator polynomials by formal polynomial arithmetic, and found counts (1,0,15,42,81,30,0). Ordinary compositions at lengths 6 to 11 give no U=5 before 11 and twelve at 11; (1,1,2,3,2,2) is one witness. In the proof's positivity sentence it is the reciprocal of the denominator, not the denominator itself, that has nonnegative power-series coefficients; its (1-z)^-2 factor ensures positivity at every later length. The two sixth-order leading terms at 1 are both 1/2; alternatively the 36 strict order pairs split 18/18, equally weighted by permutation symmetry, and ties occupy only O(n^4) compositions. The result counts ordered positive sextuples of linear zero-start words, not necklaces.
 
-PASS under accessible-source evidence, with a specifically identified residual risk. The inspected 2019 work of Clokie, Gabrić, and Shallit studies the global extremum, realization, and unrestricted-word mean; it does not state this six-run spectrum. The inspected 2015/2016 work of Holub and Müller characterizes the two-unbordered case, but does not classify the complete six-run distribution. Harju and Nowotka's 2004 border-correlation paper is the closest foundational source; its full text could not be accessed, and an equivalent low-run specialization there remains a risk. published-finding corpus and literature searches for equivalent inequalities, six-run conjugate counts, and rational distributions did not identify a dominating statement. Search absence is not a proof of worldwide novelty.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The six-run restriction gives a structural boundary at which an exact cyclic-border classification has a nontrivial distribution: it yields a sharp universal cap of five, the first length at which five appears, all fixed-length counts through rational generating functions, and a surprising equiprobable limiting split between four and five. These are properties of a natural condition on words, not arbitrary finite slices or incremental table entries.
+The marker-law overlap and the prior general characterization of U=2 are real special portions of the finding and are not credited as new. The surviving joint claim is the exact six-parameter criterion with arbitrary positive run lengths on both letters, its rational fixed-length distribution, and the 4/5 conditional limit. No inspected prior result supplies these; the closest exact databases cover bounded marker counts instead.
 
-## Closest work and remaining limitations
+## value
 
-The published unrestricted upper bound and fixed-length expectation do not imply the conditioned distribution without new structural calculation. The result does not cover longer run families, and conditional enumeration is over ordered run lengths, not necklaces. The inaccessible 2004 primary full text is the main originality limitation. All files report the same restricted six-run claim. Exact algebra and the border proof can be checked without trusting finite experiments as infinite proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Six runs is a natural structural regime: four-run proper borders must be considered but are subsumed by a two-run criterion, turning a word-level problem into comparisons of two independent run triples. This yields sharp finite-length thresholds and a nondegenerate conditional limiting distribution that unrestricted word statistics and marker counts do not reveal. The fixed-length rational generating functions and the threshold are exact usable enumeration results, not a finite census presented as a theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

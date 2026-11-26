@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:56:17.542747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 37–79",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "python3 /workspace/independent_checks.py 1: exact full-Laplacian checks of the reduced objective and rational example"
+      ],
+      "rationale": "The objective equals N(tr((L+11^T/N)^(-1))-1) on connected support. The trace inverse is strictly convex (its second derivative in a nonzero symmetric direction is strictly positive), and the simple-graph Laplacian is injective in edge weights. The compact budget domain and blow-up at disconnection ensure existence; rescaling exhausts the budget. Uniqueness forces orbit invariance, not vice versa. The nonzero eigenvalues are x with multiplicity m-1, x+ry with multiplicity m(r-1), and Nx once. With t=(x+ry)/x>=1 the normalized objective is alpha*A+beta*D+beta*A*t+alpha*D/t, whose unique minimum is on the boundary if alpha<=0 or beta*A>=alpha*D, and otherwise at sqrt(alpha*D/(beta*A)). The identity A+D=mr² gives the stated threshold including equality. A second check at the uniform star gives derivative -2N/x² for any leaf-to-leaf edge and -(N-1)/x² for any spoke. The gradient per unit price thus gives the same threshold regardless of peripheral candidate edges whenever at least one such edge is available. The light-price optimum tends to m²Ara/B, giving the stated ratio and divergence for fixed m and increasing r.",
+      "residual_risks": [
+        "The finite replay checks selected objectives, not optimality at all parameters; the proof establishes the latter.",
+        "If there are no peripheral candidate edges, the star is always optimal and a sharp transition is vacuous; the actual equal-clique family has r,m>=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "eaa2b980f9e3 gives explicit optimal allocation for petal-specific prices and unequal clique sizes with the same internal-price threshold.",
+          "4d675b14a64b and 66129dc90e7c treat broader heterogeneous bouquet cases."
+        ],
+        "reasoning": "Setting every petal to size r and its internal price to b, with common spoke price a, recovers the reviewed problem and support split.",
+        "searches": [
+          "Resultary records eaa2b980f9e3, 4d675b14a64b, and 66129dc90e7c, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5bb3f4f9b118, eaa2b980f9e3, 4d675b14a64b, 66129dc90e7c",
+        "Ghosh–Boyd–Saberi MTNS 2006",
+        "Sardar–Xu DOI 10.2174/0115701794299562240606054510 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The MTNS paper's unbounded improvement compares to uniform weights in other graph designs, not this spoke-only benchmark.",
+          "In 5bb3f4f9b118, as Q goes to zero from above, F goes to zero, and K_opt tends to NCE/B, while K_star=M³P/B."
+        ],
+        "reasoning": "The distinctive-looking benchmark is the ratio M³/(NCM)=mr²/[r(m-1)+1] from taking a one-term limit of the prior closed form. Its divergence is already mechanically implied; the general MTNS optimization framework alone would not yield the exact formulas.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, 2006 MTNS paper abstract and §V",
+          "Resultary 5bb3f4f9b118 light-price specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior notation: s=m, M=N-1, P=a, Q=b; prior A=m(r-1), C=mA_frozen/N, E-F=m*alpha, F=m*beta.",
+          "Its relative eigenvalue z is sqrt(D_frozen*alpha/(A_frozen*beta)), and its exact value N/B*(sqrt(C(E-F))+sqrt(A F))² reduces to the same m²/B square."
+        ],
+        "reasoning": "The old z is the frozen ratio (x+ry)/x, not the frozen absolute z. The conductance expressions coincide by the same exhausted budget and ratio. Q/P>=2N/M gives the same unique star, including equality.",
+        "searches": [
+          "Resultary semantic comparison: two-price Kirchhoff-optimal clique windmill support threshold and exact conductance allocation",
+          "Resultary 2026/11/2 record 5bb3f4f9b118, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Nov. 2 record gives the exact two-regime optimizer and value as symbolic formulas, not just a pointwise resistance table.",
+          "Sardar–Xu's bibliographic record has the same graph family, but its full contents were not established and are not used for the overlap decision."
+        ],
+        "reasoning": "Exact coverage is the symbolic indexed result on the same domain. No separate indexed statement of the light-price penalty was confirmed; equivalence of the underlying formulas establishes that implication independently.",
+        "searches": [
+          "Resultary 5bb3f4f9b118, published RESULT.md offset 0",
+          "Resultary search by exact support-cutoff and spoke-only penalty statements"
+        ]
+      },
+      "rationale": "The identical independently adjustable two-price windmill design, unique optimum, price cutoff including equality, and explicit resistance formula are already present in a distinct Resultary record. Earlier heterogeneous-petal statements also specialize to the same theorem. The ratio and unboundedness are immediate limits of the already stated formulas; there is no independent finding to preserve by narrowing to that calculation.",
+      "residual_risks": [
+        "Catalogue dates document the displayed record dates, not independently verified public-release timestamps. The finding of exact coverage does not assert an authorship or precedence dispute.",
+        "Uninspected Sardar–Xu full text does not affect the direct exact indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent unique optimizer and cutoff including equality.",
+          "evidence": [
+            "Independent nonnegative conductances; threshold Q/P=2N/M; both closed-form regimes as compared above."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-universal-edge-support-threshold-in-kirchhoff-index-design-of-cl--5bb3f4f9b118",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Universal edge-support threshold in Kirchhoff-index design of clique windmills",
+          "trigger": "Closest equal-petal two-price design"
+        },
+        {
+          "assessment": "Broader result specializes to the design.",
+          "evidence": [
+            "The internal-price cutoff is independent of petal size and covers petal-specific prices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-universal-internal-edge-price-threshold-for-resistance-optimal-c--eaa2b980f9e3",
+          "material_read": "RESULT.md Finding at offset 0 and prior-work discussion at offset 9500",
+          "method": "Published record via local mirror",
+          "title": "Universal internal-edge price threshold for resistance-optimal clique bouquets",
+          "trigger": "Potential generalization with heterogeneous prices and petals"
+        },
+        {
+          "assessment": "Optimization framework and barbell result, not the decisive exact windmill comparator.",
+          "evidence": [
+            "Studies budgeted effective-resistance minimization and explicitly analyzes a barbell; abstract compares to uniform weights."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "2006 MTNS author PDF p. 1 abstract and §V p. 9, offset 67076",
+          "method": "Lawful author-hosted primary PDF inspection",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Foundational general optimization and design examples"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not relied upon.",
+          "evidence": [
+            "The title and frozen citation identify windmill resistance calculations but do not establish a cost-allocation theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.2174/0115701794299562240606054510",
+          "material_read": "Bibliographic evidence only; full text not available after lawful retrieval attempt",
+          "method": "DOI/OA check, 403 and no located repository copy",
+          "title": "Resistance Distance and Kirchhoff Index in Windmill Graphs",
+          "trigger": "Exact graph family and Kirchhoff index"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–30",
+        "Resultary 5bb3f4f9b118 Finding and eaa2b980f9e3 Finding"
+      ],
+      "rationale": "Optimal design of clique windmills is a natural question, but the submitted explicit design and threshold re-evaluate a covered design. The remaining spoke-only penalty follows by direct substitution in the known two-regime expressions and does not establish a new bound or design phenomenon beyond them.",
+      "residual_risks": [
+        "This rejects the record as a distinct contribution, not the utility of the previously established optimum."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

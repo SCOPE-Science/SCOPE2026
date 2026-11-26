@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:28.119121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence puts total weight δ^{d(i,j)}/(n−1) in row i for each target j≠i, distributed over its allowed first hops. The cycle has identical row sums by distance counts, with two vertices at each distance below n/2 and one antipode for even n. The common row sum is both an eigenvalue and the nonnegative matrix row-norm bound. On the star the center averages the leaves with total weight δ, and each leaf updates solely from the center with coefficient [δ+(n−2)δ²]/(n−1). Reduction to the center coordinate and common leaf coordinate gives the two nonzero eigenvalues ±ρ_S as claimed. Independently, let F=(n−1)ρ_C/δ, and P=(n−1)(1+(n−2)δ)−F², with the sign of ρ_S²−ρ_C². For n=3 and 4 this is 2δ−2 and −(1−δ)² respectively. For every n≥5, F is a polynomial with nonnegative coefficients, F(0)=2, F′>0 on [0,1], and F(1)=n−1. Thus (F²)″=2(F′)²+2FF″>0, so P is strictly concave, P(0)=n−5≥0 and P(1)=0. This gives P>0 on the whole open interval, including n=5. The verification notes are consistent; the comparison is spectral, not an ordering of finite-time paths, and eigenvalues of opposite sign on bipartite graphs cause no problem for the spectral radius.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fatas et al. pp. 5–6 defines inference on general network geometries, but its explicit star lemma on p. 8 is for four agents with equal initial contributions",
+          "Same-day Resultary 7b94d926b1d4 has group-size asymptotics in a well-mixed public-goods model"
+        ],
+        "reasoning": "General availability of the recurrence is not a general spectral ordering; the explicit prior analysis is at a fixed size. The well-mixed nonlinear model lacks the shortest-path network matrix and does not subsume the claim.",
+        "searches": [
+          "Fatas et al. model, star lemma and network simulations",
+          "Resultary: Fatas recurrence and shortest-path averaging"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Fatas et al. DOI 10.1007/s13209-014-0114-x, OA institutional copy",
+        "Resultary 17ebfb940d31 and 7b94d926b1d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-player star formula/trajectory is already included in the source's star lemma",
+          "The SIS ranking reversal first occurs at 6 and compares different graph observables"
+        ],
+        "reasoning": "The general recurrence supplies the starting model. Neither its four-player consequences nor a threshold based on adjacency alone gives the sign of the squared-rate difference for arbitrary n and 0<δ<1; the global sign argument is the distinct step.",
+        "searches": [
+          "Fatas et al. pp. 5–6, p. 8 and p. 10",
+          "Resultary 17ebfb940d31, RESULT.md Finding and comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fatas et al. PDF pp. 5–6 uses the same geodesic-neighbor average and both decay factors",
+          "Resultary 17ebfb940d31 compares adjacency/degree rankings for the star and cycle at n=6"
+        ],
+        "reasoning": "The Fatas model is the same under the conversion to matrix form; averaging an inferred contribution supplies the δ-dependent edge weights. The SIS comparison uses adjacency and average degree instead, so its reversal does not translate to this matrix by a change of notation.",
+        "searches": [
+          "Resultary meaning searches for the frozen title/claim, n=5 star–cycle spectral crossover, Fatas recurrence and shortest-path averaging",
+          "Public goods and decay in networks, DOI 10.1007/s13209-014-0114-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No examined indexed assertion gives the same cutoff for this matrix",
+          "The original paper's comparative simulations are four-player cases, not a table over n or δ with the relevant spectrum"
+        ],
+        "reasoning": "The existing comparison evidence must be credited for its fixed-size scope only, and a finite simulation or threshold for a different matrix cannot give a uniform result over the open decay interval and arbitrarily large n.",
+        "searches": [
+          "Resultary meaning searches for exact star–cycle n=5 crossover and frozen result",
+          "Fatas et al. PDF p. 10, network-comparison simulations"
+        ]
+      },
+      "rationale": "Fatas et al. establish the recurrence and four-player examples, not the sharp all-group-size, all-decay-parameter crossover. The closest inspected indexed star–cycle ranking reversal uses adjacency and degree for SIS dynamics, not this updating matrix. The decision credits only the uniform size classification and its formulas where not already covered, not the model or the four-player analysis.",
+      "residual_risks": [
+        "Bounded search does not exclude an unindexed comparison for the same recurrence or an equivalent update model.",
+        "The prior recurrence and four-player examples are not independent novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the recurrence and covers fixed-size analyses, not the uniform theorem",
+          "evidence": "Distance-r inference has δ^{r−1}, the update then multiplies by δ/(n−1); the explicit star lemma assumes n=4 and equal initial contributions; simulations focus on n=4.",
+          "identifier_or_url": "https://ueaeprints.uea.ac.uk/id/eprint/50479/1/art_3A10.1007_2Fs13209_014_0114_x_1.pdf",
+          "material_read": "PDF pp. 5–6, offsets 12092–16683; p. 8, offset 21846; p. 10, offset 26274",
+          "method": "Institutional OA copy, bounded original passages",
+          "title": "Public goods and decay in networks",
+          "trigger": "Original model and possible earlier star/circle comparison"
+        },
+        {
+          "assessment": "Different threshold and matrices",
+          "evidence": "Compares average degree and adjacency spectrum as SIS indicators, first reversal between K_{1,5} and C_6.",
+          "identifier_or_url": "2026/10/12/SCOPE-six-vertices-are-the-sharp-density-spectral-epidemic-ranking-rev--17ebfb940d31",
+          "material_read": "RESULT.md offsets 0–2000 and 3013–4043",
+          "method": "Resultary search and local-mirror passage reading",
+          "title": "Six vertices are the sharp density–spectral epidemic ranking reversal",
+          "trigger": "Closest indexed same graph families and integer reversal"
+        },
+        {
+          "assessment": "Thematic overlap only",
+          "evidence": "Well-mixed nonlinear model and equilibria, rather than geodesic updating on graphs and a spectral radius.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-rare-synergy-exponent-and-two-equilibrium-boundary-layer--7b94d926b1d4",
+          "material_read": "RESULT.md offsets 0–4232",
+          "method": "Resultary search and local-mirror passage reading",
+          "title": "A sharp rare-synergy exponent and two-equilibrium boundary layer",
+          "trigger": "Same-day public-goods group-size result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a precise answer about whether hub concentration or a cyclic arrangement better preserves contributions under an established inference model. The ranking reverses at a small, sharp size and stays reversed for every larger size without a restriction on the interior decay parameter. The uniform result identifies a limit of extrapolating the four-player model comparisons, rather than just evaluating a few more instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:09.097594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67, with independent count above",
+        "Frozen VERIFICATION.md lines 19–29 and verify.py lines 13–73, inspected not executed"
+      ],
+      "rationale": "The identity block makes the message-to-codeword map injective. For sum zero the nonzero r-tuples summing to zero have count M_r=(q−1)^(r−1)−M_(r−1) for r≥1, with M_0=1, giving the stated B. To check H independently, for sum s≠0 expand the product of the per-pair factor z²+(z−z²)1_{u_i∈{0,s}}. For a specified r<k marked positions there are 2^r q^(k−r−1) messages of each fixed sum s, because an unmarked coordinate can enforce that sum. For r=k, if j positions equal s the constraint is (j−1)s=0; summing over nonzero s gives S_(k,q)−2^k. Completing the binomial expansion for r<k and adjusting its r=k term gives H as printed. The last coordinate is nonzero exactly on the second class, giving zH. Counting solutions of the cyclic congruence uses gcd, not a field property. For k≥5 the nonzero-sum part cannot contribute to weight four or below; the zero-sum part has no weight two and exactly binom(k,2)(q−1) words of weight four. These arguments cover q=2 and composite q as well.",
+      "residual_risks": [
+        "The finite grids in verify.py are corroboration, not universal proof. The 1,421 structural cases include the direct enumeration pairs, rather than forming a disjoint sample. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 explicitly counts full support for the same generator families; the resulting greatest-common-divisor sum agrees with the top coefficient.",
+          "Proposition 1.11 describes the residue-ring code enumerator via the coboundary quasi-polynomial, with trivial message kernel for these matrices, but does not give the compact specialized evaluation in the passage inspected."
+        ],
+        "reasoning": "Neither the marginal top coefficient nor a general unevaluated relationship supplies all intermediate coefficients; exact coverage instead comes from the earlier family-specific record.",
+        "searches": [
+          "arXiv:2601.21121v2 §5, Theorem 5.3",
+          "arXiv:2512.10838v3 §1.1 and Proposition 1.11",
+          "Integral spike-matroid arithmetic Tutte/coboundary evaluations"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and 520b858186e2 RESULT.md",
+        "arXiv:2601.21121v2",
+        "arXiv:2512.10838v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k≥5 the z^k and z^(k+1) terms in the earlier formulas cannot contribute through degree four. Their A has zero degree-two coefficient and degree-four coefficient binom(k,2)(q−1)."
+        ],
+        "reasoning": "Both enumerator assertions coincide outright; the remaining minimum-weight assertion is mechanical coefficient extraction from the same prior formulas, not a consequence of the full-support theorem alone.",
+        "searches": [
+          "520b858186e2, Finding and Assumptions",
+          "arXiv:2601.21121v2, Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 520b858186e2, T equals the frozen S; its A is the binomial expansion of the frozen B; its B times z^k equals the frozen H.",
+          "The coboundary specialization describes the same Hamming enumerator with convention W_C(x,1), after translating zero-position versus nonzero-position variables and accounting for the kernel size."
+        ],
+        "reasoning": "The catalogue formulas are identical in the ordinary one-variable weight convention. An unevaluated coboundary polynomial would instead be only a general encoding.",
+        "searches": [
+          "Resultary: complete Hamming enumerators of the two integral spike-code families over Z/qZ",
+          "arXiv:2512.10838v3 §1.1, Theorem 1.1 and Proposition 1.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/13/SCOPE-closed-weight-enumerators-for-two-integral-spike-code-families-o--520b858186e2, RESULT.md at offset 0, gives W_N=A+z^kB and W_Z=A+z^(k+1)B, explicitly for every k,q≥2 including composite q."
+        ],
+        "reasoning": "This is a distinct, earlier record with identical hypotheses, matrices, and closed formulas, not a table of isolated coefficient values.",
+        "searches": [
+          "Resultary and published catalogue: closed all-modulus enumerators, N_k and Z_k, integral spike code"
+        ]
+      },
+      "rationale": "The distinct October 13 catalogue result gives exactly both all-modulus enumerators for the identical matrices, not just a special modulus or a full-support term. Expanding its polynomials shows literal coefficient equality and gives the stated minimum-weight multiplicity by taking the degree-four coefficient. This is established prior coverage, not a failure of external access.",
+      "residual_risks": [
+        "Direct access to the attempted Ardila primary article yielded only a landing page, and the attempted Brändén–Moci AMS page returned HTTP 403. No exclusion of further older coverage is based on these limits; exact catalogue coverage is already established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "The same two generator matrices and k,q≥2; enumerator formula A+z^kB or A+z^(k+1)B with the identical binomial-gcd statistic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-closed-weight-enumerators-for-two-integral-spike-code-families-o--520b858186e2/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 0–2231, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, direct source passage",
+          "title": "Closed weight enumerators for two integral spike-code families over Z/qZ",
+          "trigger": "Top relevant exact family match"
+        },
+        {
+          "assessment": "Known full-support coefficients, not the distribution",
+          "evidence": "The proof says it suffices to count the number of codewords having full weight and gives the matching top coefficient.",
+          "identifier_or_url": "https://arxiv.org/html/2601.21121v2",
+          "material_read": "Abstract and §5, Theorem 5.3 at offset 104509",
+          "method": "OA primary text",
+          "title": "Periodicity of weight enumerators for codes generated by an integral matrix",
+          "trigger": "Same integral spike families"
+        },
+        {
+          "assessment": "General encoding, not the specialized evaluated expressions in passages read",
+          "evidence": "The Greene relation covers field enumerators; Proposition 1.11 expresses the residue-ring coboundary quasi-polynomial as kernel size times the weight enumerator.",
+          "identifier_or_url": "https://arxiv.org/html/2512.10838v3",
+          "material_read": "§1.1, Theorem 1.1 (offsets 11300–18100); Proposition 1.11 (offset 55200)",
+          "method": "OA primary text",
+          "title": "The Coboundary Quasi-Polynomials of Hyperplane Arrangements over Residually Finite Dedekind Domains",
+          "trigger": "Finite-field and composite-ring enumerator encodings"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–29 and 67",
+        "Earlier 520b858186e2, Finding"
+      ],
+      "rationale": "A compact spectrum over composite moduli is a useful invariant, but the record supplies the same exact spectra already available for both codes and a direct coefficient extraction from them. The extra minimum-weight sentence and notational change add no substantive mathematical result.",
+      "residual_risks": [
+        "This judgment concerns the incremental value of the frozen claim, not the usefulness of the earlier spectra."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

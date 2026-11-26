@@ -5,25 +5,22 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification
 
-## Analytic checks
+The proof in `RESULT.md` classifies the essential support of curtailment, not merely the connected components of a particular strict superlevel set. The rated-minimum equality level yields two strict open pieces with a common closure endpoint and no positive-width operating gap. The lesser-peak equality level contributes no band from that peak. Boundary ties are irrelevant to the budget integral and the optimizer's almost-everywhere uniqueness.
 
-The proof establishes endpoint behavior, both unique elasticity crossings, the sharp rated-speed location criterion, and the necessary-and-sufficient level-set topology. An elementary exchange inequality verifies global optimality and uniqueness for any positive wind-speed density, not only the displayed example. Exact rational bounds on \(e\) certify a threshold for which four distinct crossings occur.
-
-## Reproduction
-
-Run `python CHECK.py` using Python 3 (standard library only). The script checks monotone-branch crossing locations, elementary antiderivative values, comparison with a single cut-in rule, and 20,001 extra grid values. Numerical grids and floating-point calculations serve only as supplementary regression tests; the analytical proof covers the universal assertion.
-
-## Scope
-
-The risk curve is a positive mathematical proxy, not a fitted mortality distribution. A 2016 predecessor's public summary was inspected, but its complete report was inaccessible during the comparison. Historical priority and real-world applicability remain provisional. No independent audit was performed.
+`python3 CHECK.py` evaluates the stylized example with the standard library, including the four monotone-branch roots, the two budget-window endpoints, the interior example budget and power, and the best feasible single cut-in power. The numerical checks are supplementary; the analytic proof establishes the general result. No formal verification, expert attestation, or empirical validation is claimed.

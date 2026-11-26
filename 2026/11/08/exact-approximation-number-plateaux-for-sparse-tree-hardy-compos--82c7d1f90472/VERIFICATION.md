@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-For the compact sparse tree-Hardy symbol specified in `RESULT.md`, the root term is rank one; each distinct input level yields exactly \(c_{m_j}\) independent coordinate copies with common contraction factor \(\delta_j\). Keeping the rank-one root and the largest \(k-1\) copied coordinate directions establishes \(a_{k+1}\le w_k\); taking the root and the largest \(k\) input coordinates establishes \(a_{k+1}\ge w_k\) by the rank-k kernel argument. The compactness criterion is \(\delta_j\to0\), equivalently \(n_j-m_j\to\infty\), because \(q>1\).
+## correctness
 
-The exact checker `check_tree_approximations.py` uses only Python standard libraries and runs as `python3 check_tree_approximations.py`. Expected successful output: `TREE_SPARSE_COPY_EXACT_FINITE_OK 2166`. It tests 2,166 finite exact-rational identities/inequalities in several parameter configurations and a nonmonotone ordering example. No finite test establishes the infinite theorem; the explicit proof in `RESULT.md` provides the necessary quantifiers and endpoint reasoning.
+PASS
 
-No Hilbert singular-value formula, spectrum, entropy-number theorem, or result for general tree symbols is asserted. No independent audit has been performed.
+The root value is observed without loss at the output root, and on the copied output vertices the root term is absent. The full level averages are convex combinations of the p-th powers of the respective input level norm and root value; this proves contractivity and the constant function gives equality. With each level rescaled to a standard ℓ_p block, each copy is δ_j times an isometric coordinate embedding. Keeping the root term plus k−1 coordinates gives rank at most k, and deleting arbitrary coordinates within an ℓ_p block has norm at most one. Conversely on the span of the root input unit and k copied coordinates of weights ≥w_k, the norm of the output dominates w_k times the full input norm, by testing separately the root and each copied piece. Every rank ≤k map has a kernel vector there. This works even when some input and output depths coincide, since a single application does not compose those copies. Exact tails and unit vectors on distinct input levels give both directions of compactness; no weak convergence hypothesis on the ℓ∞ sum is needed. In the arithmetic case the a-index endpoints are J_{j−1}+2 and J_j+1, giving exactly the printed liminf and limsup. For arbitrary ρ the ceilings are nondecreasing and each weight is between q^(−1/p)q^(−j/ρ) and q^(−j/ρ); the cumulative block count is comparable to q^j even when weights tie. The proof, not the diagnostic, establishes these claims. The frozen checker was statically inspected: its normpower function divides two integers using `/`, so some input averages are floating-point despite the advertised exact-rational scope. This does not enter the proof; do not cite those comparisons as an exact certificate.
+
+## originality
+
+PASS
+
+Best-of-knowledge for the complete approximation-number profile and its threshold realization; the norm and qualitative compactness are prior consequences, and the general proof technique is standard.
+
+## value
+
+PASS
+
+This gives all optimal rank errors for a simple family of unweighted symbols in a setting where the general criterion is qualitative. In particular it exhibits every positive strong/weak approximation summability transition on one fixed tree Hardy space and computes the distinct endpoint constants instead of just a decay exponent. The calculation is useful independently of generalizations to other symbols; no Schatten conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

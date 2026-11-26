@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite test is reproducible by executing `python verify.py` with Python 3. It checks the exact finite overlap sum, the two-step binomial difference and complementary-distance identity for all odd dimensions from 1 through 61. Independent brute-force cube enumeration checks every mask distance through dimension 13. For the four-mask designs it checks all eight patterns of all four triples for dimensions 3, 7, 11 and 15. This execution reported 2,115 passing assertions.
+# Independent mathematical audit
 
-The derivation in RESULT.md is the proof for every odd dimension. The finite tests do not certify infinite generality or historical priority. No independent audit was performed.
+## correctness
+
+PASS
+
+For d=2m+1 all individual readouts are fair by complementation. The joint success count is the overlap K_a of equal radius-m balls and the covariance is K_a/2^d−1/4. On flipping the next prescribed coordinate, condition on the other bits: the decrement is the rectangular indicator difference at the two thresholds m,m−1, namely 1 exactly when both partial distances are m. Equal partial distances force 2s flipped coordinates with s ones there, so the decrement is binom(2s,s) binom(d−2s−1,m−s)>0 on an even-to-odd step, and zero on an odd-to-even step. Complementing a mask gives K_a+K_(d−a)=2^(d−1). The middle two distances are accordingly an equal plateau for d≡3 mod 4 and a strict drop for d≡1 mod 4. Together with strictness on the other even steps this proves exactly the stated zero and sign classification, also for d=1. Fair Bernoulli variables are independent at zero covariance. The four masks in the proof have distances 2k+1 from the zero mask and 2k+2 between nonzero masks, giving independent pairs. Global bit-complementation annihilates the triple product of centered signs, and the pair and singleton moments already vanish. Thus each triple has all seven nonconstant moments zero and is uniform; no statement about four-way independence is needed. The exact finite test was inspected, not run, and its recorded 2,115 assertions do not prove the all-dimension claim.
+
+## originality
+
+PASS
+
+Pass for the exact all-odd-dimensional sign/zero classification and its explicit four-readout consequence, on the available evidence. The general ball-overlap formula, Boolean autocorrelation formalism, three-bit special case, and antipodal moment argument are not claimed as novel on their own.
+
+## value
+
+PASS
+
+This is a full structural classification for a natural Boolean function on the same random input, with a qualitative parity distinction that independent-noise smoothing or a large-dimension approximation would miss. It gives a direct deterministic design for several exactly independent readouts in every admissible dimension, without additional randomness. The value is the exact family and design, not the isolated d=3 table or the elementary moment test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

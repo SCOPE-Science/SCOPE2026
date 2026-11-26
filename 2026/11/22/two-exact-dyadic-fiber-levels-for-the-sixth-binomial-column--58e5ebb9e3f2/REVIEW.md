@@ -1,9 +1,0 @@
-# Scientific review
-
-**Correctness — PASS.** The explicit triangular factorization of the sixth binomial polynomial reduces the problem to three polynomial branches that are isometries because their nonconstant linear terms are odd and all higher coefficients even. Exact twofold lifting and the 4-scaled odd branch establish all fibers for every power, while a valuation test at index two rules out half the displayed period. The packaged integer checker independently tests the identities, permutations, and first eleven moduli. The infinite claim depends on the algebraic proof, not computational extrapolation.
-
-**Originality — PASS on inspected evidence.** The 2023 modular-binomial study gives period formulas and relevant recursion machinery, not this sixth-column complete per-target dyadic distribution. Nguyen (2020) classifies a prime-level value-counting problem; Barat–Grabner (2016) count asymptotic prime-power distribution with both Pascal indices varying. The existing fifth-column dyadic fiber result and sixth-column ternary image result do not logically cover this theorem, since neither determines the sixth column at the prime two. Searches for equivalent degree-six / sixth-column statements did not uncover a matching published fiber law. Incomplete historical access and possible unindexed prior work remain risks; absence from search is not proof of novelty.
-
-**Value — PASS.** Exact finite-level target multiplicities for a natural Pascal column answer the mathematical refinement of modular periodicity from *when values repeat* to *how often each value occurs*. The nonuniform two-to-ten split and the exact Haar-mixture law identify a structural dichotomy that cannot be inferred from period or mod-two statistics alone. The proof exposes the special triple-isometry mechanism and supplies a complete classification without claiming a theorem about unrelated columns.
-
-Self-review: passed. Independent audit: not yet performed.

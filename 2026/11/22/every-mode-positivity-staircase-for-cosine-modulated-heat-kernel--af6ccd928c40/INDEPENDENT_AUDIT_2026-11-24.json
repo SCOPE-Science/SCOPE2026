@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:01.487441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel depends on the difference coordinate; multiplying by its first cosine shifts the Fourier coefficients by ±1. Thus λ_j=a_j(1+βF_j) with a_j>0 and F_j>0, so the largest F_j sets the only cutoff for real β. For the angular extension, the log derivative is positive up to π/2. Above π/2, dividing by sin θ gives u−v²y tanh(v√(1−y²))/(v√(1−y²)) with y=−cos θ. The subtracted product strictly increases in y, because tanh z/z strictly decreases in z>0. This proves strict unimodality and that any adjacent sampled equality is a global and exclusively two-representative tie. For consecutive upper angles the log-ratio divided by 2t is −AΔcos plus the integral of tanh(2tw) over [B sin((j+1)h),B sin(jh)]; it strictly increases from a negative limit to −2A cos(jh)>0. At the π/2 straddle the same limiting expression is nonpositive when N≡0,1 mod 4; for finite times the integral is strictly below its limit. When N≡2 mod 4 the sine factors tie and the cosine exponential favors the higher mode; when N≡3 both factors favor it. The straddle and all smaller modes are therefore excluded. At an upper adjacent tie, every comparison to its left still points upwards by strict unimodality, forcing every corresponding lower-index transition to occur later. Reversing adjacent signs in that order gives all active modes and no skipped or simultaneous transitions. The single-candidate case J=M needs none; t=0 is excluded. Reflection pairs j with N−j, except the even Nyquist singleton, proving the stated boundary nullities and strict inequalities away from the boundary. Read the frozen checker without running it. A separate stable spectral-exponential check (`python3 /workspace/independent_checks.py 3`) checked 4,851 adjacent roots in their within-cycle order for N=3–200 and direct positional DFT for N=3–25; for N=12 it gave 0.2881787753 and 0.4028304687. These bounded floating-point comparisons are not proofs of the strict all-time inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bédos–Conti treat group heat semigroups and their Fourier smoothing properties; the inspected definitions do not order modewise constraints for signed positional multiplication.",
+          "The continuous-circle exact no-skips staircase uses even-harmonic modulation of a geodesic-exponential base; the continuous-circle heat frontier uses two mask harmonics and has infinitely many facets."
+        ],
+        "reasoning": "The general heat framework supplies neither adjacent sign changes nor strict ordering. The structural analogues do not specialize to this finite Laplacian spectrum and lag mask.",
+        "searches": [
+          "Bédos–Conti DOI:10.1007/s00041-024-10103-0, Introduction and weak/strong heat properties",
+          "Resultary 3df14ed06eed, 027cc81ac50f and c564b7bcf603, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3df14ed06eed, 027cc81ac50f, c564b7bcf603, 8f259558fbec, 879b1be3a54f; identical af6ccd928c40 excluded",
+        "arXiv:2409.14344v1; Bédos–Conti DOI:10.1007/s00041-024-10103-0",
+        "Karlsson–Neuhauser and Kan–Shiraishi (access or extraction limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard heat multipliers and Fourier shift establish the maximum-ratio expression, not the angular unimodality, strictly positive crossing times or exclusion of the Nyquist-side straddling neighbor at every finite t.",
+          "The earlier spectra lead to different adjacent comparison equations. The cyclic cosine identity giving the limiting −2A cos(jh), together with the strictly increasing tanh integral and angular unimodality, is what supplies the claimed order and boundary nullities."
+        ],
+        "reasoning": "Neither a positive base heat spectrum nor earlier analogues with different index sets and multipliers mechanically imply that every integer from floor(N/2) down to floor(N/4)+1 is visited exactly in this order.",
+        "searches": [
+          "arXiv:2409.14344v1, first-page discrete kernel and cyclic heat references",
+          "Karlsson–Neuhauser 2006, DOI-linked bibliography and Geneva/KTH copies",
+          "Resultary 3df14ed06eed, 027cc81ac50f, c564b7bcf603, 879b1be3a54f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shared spectral expression is a neighboring-coefficient ratio (a_(j−1)+a_(j+1))/(2a_j). It is a comparison of e^(−2t(1−cos jh)) on cyclically indexed characters here, not of the rational-in-index geodesic-exponential coefficients, (λ+j²)^(−s) Bessel coefficients or q^(j²) continuous heat coefficients.",
+          "The geodesic-exponential first-harmonic record identifies a sharp cutoff and modes active at some parameters; the distinct same-day Bessel record fixes ±2. Neither yields the same finite cosh ratio or finite list of transitions."
+        ],
+        "reasoning": "Common Fourier shifting does not make the maximizing problem equivalent. Sampling continuous periodic heat also aliases the Gaussian Fourier coefficients and does not give these nearest-neighbor multipliers.",
+        "searches": [
+          "Resultary: finite cycle heat kernel signed first cosine, active-frequency positivity thresholds and adjacent staircase; 3df14ed06eed, 027cc81ac50f, c564b7bcf603, 8f259558fbec",
+          "Primary literature: cyclic heat kernels, signed cosine-modulated discrete heat spectra and finite-cycle trace transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "af6ccd928c40 is the identical record, excluded as prior evidence. The finite sampled two-harmonic von Mises theorem 879b1be3a54f orders a different spatial exponential family; its scope disclaims the uniqueness or count of intermediate crossings. The Bessel analogue does not give this table even for fixed finite N."
+        ],
+        "reasoning": "The expected data here are exact switching times and nullity for all orders and all positive times, not a match of cycle size or a sampled-spectrum ordering at another parameter. The finite numerical checks are not historical coverage.",
+        "searches": [
+          "Resultary exact finite-polygon thresholds and active modes: 879b1be3a54f, 8f259558fbec, af6ccd928c40"
+        ]
+      },
+      "rationale": "Best of current knowledge, the signed lag-mask Fourier cutoff follows from standard diagonalization, but the finite nearest-neighbor cycle's complete order of active modes and exact tie multiplicities are distinct. Even the closest earlier sharp first-harmonic theorem uses geodesic-exponential continuous-circle coefficients, and the other all-mode staircases use different masks or spectra. The same-day Bessel analogue has a locked mode, not the finite heat staircase; no order is inferred from the date.",
+      "residual_risks": [
+        "Karlsson–Neuhauser's old cyclic-heat PDF extracted unreadably; Kan–Shiraishi's full text was unavailable. No whole-paper negative claims for these sources.",
+        "Priority remains best of knowledge; an unlocated cyclic multiplier theorem controlling the adjacent-ratio crossing might exist. No same-day publication order is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mask concept but different base, character set and crossing conditions.",
+          "evidence": "Treats e^(−aθ)(1+b cos θ) on the continuous circle, with at most four candidates at a given a and sufficiently large modes each active at some a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-circle-covariance-modulation-threshold-and-an-unbounded-fo--3df14ed06eed",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and exact local-mirror text",
+          "title": "Sharp circle covariance modulation threshold and an unbounded Fourier-mode switch",
+          "trigger": "Closest earlier signed first-harmonic cutoff and switching modes"
+        },
+        {
+          "assessment": "Structural analogue, not a specialization.",
+          "evidence": "Uses e^(−aθ)(1+b cos(2θ)) and the continuous circle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact every-mode staircase for even-harmonic geodesic-exponential circle covariances",
+          "trigger": "Earlier exact no-skips staircase"
+        },
+        {
+          "assessment": "Different heat kernel and two harmonic parameters.",
+          "evidence": "Uses continuous-circle heat multipliers q^(k²), first and second harmonics, and an infinite-facet boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-a-countably-faceted-positivity-frontier-for-quadratically-modula--c564b7bcf603",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A countably faceted positivity frontier for quadratically modulated circle heat kernels",
+          "trigger": "Most similar heat-family positivity frontier"
+        },
+        {
+          "assessment": "Different base and no staircase; publication order not inferred.",
+          "evidence": "For the stated range the signed first cosine applied to the spectrum (λ+n²)^(−s) has only frequencies ±2 attaining equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-second-mode-locking-for-signed-circular-bessel-covaria--8f259558fbec",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Universal second-mode locking for signed circular Bessel covariances",
+          "trigger": "Distinct same-day strong first-harmonic PSD and nullity overlap"
+        },
+        {
+          "assessment": "Different spectral problem; intermediate uniqueness/count is not included.",
+          "evidence": "Samples a two-harmonic von Mises exponential rather than multiplying the inverse-DFT heat kernel by a signed mask.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-sharp-spectral-order-thresholds-for-sampled-two-harmonic-von--879b1be3a54f",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Two sharp spectral-order thresholds for sampled two-harmonic von Mises kernels",
+          "trigger": "Earlier threshold result in finite cyclic spectral order"
+        },
+        {
+          "assessment": "Inspected content establishes standard heat background, not the signed finite-cycle staircase.",
+          "evidence": "The abstract introduces the integer-line discrete heat kernel as e^(−2t)I_x(2t).",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.14344v1",
+          "material_read": "Abstract and Introduction, PDF p. 1 offset 0; cyclic heat reference p. 20 offset 70653",
+          "method": "Lawfully available arXiv preprint PDF",
+          "title": "The discrete analogue of the Gaussian",
+          "trigger": "Closest motivating discrete heat source"
+        },
+        {
+          "assessment": "Material limitation on full comparison; not negative evidence.",
+          "evidence": "The KTH synopsis describes cyclic heat kernels and theta inversion; no decisive full-text passage could be verified independently in this audit.",
+          "identifier_or_url": "https://www.unige.ch/~karlssob/heatcyclicfinal.pdf",
+          "material_read": "Bibliography identification in arXiv:2409.14344v1, p. 20; Geneva PDF extraction unreadable; KTH record indexed synopsis only",
+          "method": "Lawful Geneva open PDF and KTH institutional record attempted",
+          "title": "Heat kernels, theta identities, and zeta functions on cyclic groups",
+          "trigger": "Most relevant exact finite-cycle heat paper"
+        },
+        {
+          "assessment": "General Fourier heat properties, not specific signed lag-mask constraints in inspected portions.",
+          "evidence": "Defines weak and strong heat properties for countable groups and studies regularization by the heat equation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-024-10103-0",
+          "material_read": "Abstract and Introduction pp. 1–2 offset 0; p. 4 offset 10044",
+          "method": "Lawfully available paper text",
+          "title": "Heat Properties for Groups",
+          "trigger": "Possible general heat multiplier coverage"
+        },
+        {
+          "assessment": "No comparison based on inaccessible body.",
+          "evidence": "Search identifies heat-trace deformation as a candidate comparison, not a verified signed-modulation theorem.",
+          "identifier_or_url": "Kan–Shiraishi (2018), journal search hit",
+          "material_read": "Search metadata only; publisher returned 403",
+          "method": "Lawful primary literature search and OA retrieval attempt",
+          "title": "Free energy on a cycle graph and trigonometric deformation of heat kernel traces on odd spheres",
+          "trigger": "Possible deformation of heat spectra on cycle graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive heat spectra alone do not ensure positivity after a signed lag mask. The smallest nontrivial harmonic mask already leads to a full phase diagram in time, with sharp permissible negative coefficient and exact degeneracies. A uniform no-skips theorem gives a usable covariance-design criterion and predicts which modes lose positivity without an all-mode scan of every cycle and time; it is more than a Fourier rewrite of the cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

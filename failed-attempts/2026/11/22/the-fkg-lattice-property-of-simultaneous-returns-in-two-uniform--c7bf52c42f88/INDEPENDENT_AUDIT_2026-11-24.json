@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:50:57.335645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md and verify.py (read only)",
+        "Liu–Pego, Theorem 1 (independent stronger moment argument)",
+        "Replay: python3 /workspace/branches/independent_dyck.py; /workspace/branches/independent_dyck.out"
+      ],
+      "rationale": "Decomposition at every simultaneous zero gives the unique gap-product law, with positive first-block coefficients b_m of 1−1/A(z), A(z)=sum C_m²z^m. In the frozen Schur-complement proof, the compression of multiplication by the product of two Catalan moment variables is a bounded positive operator; its v-spectral moments are b_2,b_3,… and hence log-convex. The first missing determinant is b_1 b_3−b_2²=9. The local lattice ratio cancels when the two sites are in different gaps and is b_(y−x)b_L/(b_(L−x)b_y) when in the same gap. Log-convexity gives this inequality by consecutive ratios; local squares imply full log-supermodularity, then finite FKG implies positive association. Arbitrary positive site fields cancel from the squares. The untilted strict pair covariance follows from the explicit Catalan joint/marginal ratio and the strictly increasing Catalan ratios. Semilength 2 has only one possible site, so the pair clause is vacuous. Independent Boolean inclusion-count inversion through n=8 recovers b_1,…,b_8=(1,3,18,141,1280,12778,136374,1529713) and checks all 1023 lattice squares at those orders; the all-n argument is analytic.",
+      "residual_risks": [
+        "Step 2 is headed 'Strict log-convexity', but the displayed all-order compression proof there only explicitly proves weak inequalities beyond the first. Strictness of b actually follows from the full shifted moment argument (b_2 b_4−b_3²=99 shows the moment measure has at least two distinct positive support points).",
+        "The frozen explicit covariance computation is untilted. If the finding is read as also asserting strict covariance after every positive tilt, it holds: condition on every other site. Each conditional two-site square is nonnegative and the configuration with all other sites absent gives a strictly positive square, by strict b-log-convexity. The two conditional means are increasing in the external configuration: changing an external bit multiplies two-site weights by an increasing likelihood ratio, and conditional FKG implies expectations of increasing functions cannot decrease. Thus the covariance-of-means term is nonnegative by FKG and the mean conditional covariance is positive. This deals with the broad reading without assuming the frozen untilted formula under tilt."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin's Theorem 1 includes the Catalan square as a moment sequence (its compact support also follows by multiplying two independent Catalan variables on [0,4]). Liu–Pego identify both ordinary and upshifted Hausdorff generating functions via Pick functions. The Caputo–Martinelli–Toninelli FKG passage treats the path-height order, not the lattice of common-cut sets."
+        ],
+        "reasoning": "With F(z)=A(z/16), F is Pick and positive below 1. The fractional-linear transform B̃(z)=1−1/F(z) is again Pick, analytic on (−∞,1), and vanishes at zero. Applying Liu–Pego Theorem 1(iii) to B̃ as the upshifted generating function gives that (b_(m+1)/16^(m+1))_(m≥0) is a Hausdorff moment sequence. This is stronger than log-convexity of every b_m and is obtained just by a Möbius transformation and the published characterization.",
+        "searches": [
+          "Liu–Pego arXiv:1401.8052v4, Theorem 1 and Corollary 1, Hausdorff/Pick equivalents",
+          "Lin arXiv:1711.01536, Theorem 1 on powers of Catalan moments",
+          "Caputo–Martinelli–Toninelli arXiv:0709.2612 Eq. (2.27); log-convex renewal and polymer pinning FKG queries"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Pego Theorem 1 and Corollary 1; Lin Theorem 1; Alexander–Berger §1; Caputo–Martinelli–Toninelli Eq. (2.27)",
+        "Resultary exact and adjacent hits; Mortimer–Prellberg, Fukuda–Nechita, Janson–Thévenin",
+        "Frozen RESULT.md derivation and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every strictly positive gap distribution with log-convex weights, consecutive weight ratios bound the same-gap odds ratio b_(y−x)b_L/(b_(L−x)b_y) from below by one. Positivity and site-field invariance are immediate from the factors; strict untilted pair covariance is the standard explicit Catalan count ratio. Moment strictness (including the first indices) follows from the non-single-positive-atom test 3·141−18²=99."
+        ],
+        "reasoning": "Only the elementary two-site comparison and conventional FKG implication remain after the known renewal/generating-function facts. The full frozen property, not merely the weaker unweighted positive association, is thereby covered as a direct corollary. The verdict is not based on absence of an earlier matching title.",
+        "searches": [
+          "Liu–Pego Theorem 1(ii)–(iii) applied to B̃=1−1/F; Alexander–Berger §1 intersection renewal; Lin Theorem 1(c), c=2; frozen same-gap square test"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexander–Berger §1 explicitly identify the intersection of independent renewals as a renewal with mass function equal to the product of the original masses. A Dyck path is the endpoint-conditioned renewal of irreducible Dyck blocks (use block weights C_(m−1)4^(−m), and any missing total probability is termination). The mass of the intersection at n is C_n²/16^n, so its first-step law has coefficients b_n/16^n."
+        ],
+        "reasoning": "Independent endpoint-conditioned paths have exactly the intersection-bridge distribution conditional on a common renewal at n. The exponential normalization cancels across gaps. The no-interior-common-return statistic is exactly the first positive intersection, not a meander loop count.",
+        "searches": [
+          "Intersection of two independent renewals and first-intersection law (Alexander–Berger arXiv:1603.05531)",
+          "Resultary: Dyck contacts, simultaneous return-set FKG, renewal pinning and Fine-number return statistics",
+          "Catalan squares first common return, reciprocal generating function and shifted Hausdorff moment sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title Resultary entry has the assigned ID c7bf52c42f88 and is not separate coverage. The closest distinct Resultary summary, 363520be03a7, concerns XOR convolution and Walsh spectrum of one-path return-set counts; the exact file failed local retrieval. A bounded coefficient search supplied no usable exact table. The actual positive prior evidence is the stronger all-order moment theorem and exact renewal law, not a numerical table match."
+        ],
+        "reasoning": "The full all-n property would not be established by finite coefficient matches. Nor does a one-path XOR convolution on its own cover the law of the intersection of two return sets.",
+        "searches": [
+          "Resultary same-title and distinct one-path Fine-number spectral floor results",
+          "first-common-return coefficients 3,18,141,1280 and squared Catalan reciprocal lookup",
+          "Alexander–Berger §1, product masses rather than finite tables"
+        ]
+      },
+      "rationale": "The two pivotal items claimed as new, the first-common-return renewal decomposition and the all-order log-convexity certificate for its block weights, follow from established results. In fact Liu–Pego's Hausdorff/Pick equivalence gives the stronger assertion that the entire shifted block sequence b_(m+1)/16^(m+1) is a Hausdorff moment sequence, with no exceptional first-index argument. For the classical product-renewal law this supplies exactly the hypothesis of the elementary two-cut FKG criterion. Thus the complete claimed specialization follows by direct standard implications even without an earlier paper using its exact Dyck wording.",
+      "residual_risks": [
+        "No conclusion about the first appearance of the exact Dyck wording. The Fine-number record's full text and the Barnabei–Bonetti–Silimbani cited paper were not recovered. Neither access issue bears the coverage verdict, which comes from available stronger primary results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger theorem directly covers the shifted gap moment assertion after one Pick-preserving transform",
+          "evidence": "Equivalence of completely monotone coefficients with an upshifted Pick generating function analytic below 1 and zero at zero; F is Pick if it is an ordinary Hausdorff generating function.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.8052v4",
+          "material_read": "Theorem 1 and Corollary 1, pp. 2–3, text offset 5750 onward",
+          "method": "OA arXiv PDF text, located and read bounded passage",
+          "title": "On generating functions of Hausdorff moment sequences",
+          "trigger": "reciprocal and shifted moment transform behind the all-order claim"
+        },
+        {
+          "assessment": "Exact general product-renewal identification, with asymptotics as the paper's target rather than FKG",
+          "evidence": "The intersection is a renewal process with one-time mass equal to the product of the independent renewal masses.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.05531",
+          "material_read": "p. 1, abstract and §1 opening",
+          "method": "OA arXiv PDF text",
+          "title": "Local asymptotics for the first intersection of two independent renewals",
+          "trigger": "equivalent first-common-return model"
+        },
+        {
+          "assessment": "Covers the Stieltjes moment assertion for all positive powers, in particular c=2",
+          "evidence": "Positive-power Catalan sequences are Stieltjes moment sequences and are determinate, with displayed Mellin transform.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.01536",
+          "material_read": "p. 4, Theorem 1(a)–(c), offset 9060 onward",
+          "method": "OA arXiv PDF text",
+          "title": "On powers of the Catalan number sequence",
+          "trigger": "exact Catalan-square moment input"
+        },
+        {
+          "assessment": "Related FKG result for path heights, not exact common-cut lattice",
+          "evidence": "Conditional monotonicity for increasing observables of height configurations follows from an ordered coupling, also with the wall.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.2612",
+          "material_read": "§2.2.1, Eq. (2.27), pp. 10–11",
+          "method": "OA arXiv PDF text",
+          "title": "On the approach to equilibrium for a polymer with adsorption and repulsion",
+          "trigger": "FKG in polymer pinning"
+        },
+        {
+          "assessment": "Adjacent but different",
+          "evidence": "A contact-preserving bijection for a single path does not identify the two-path exact intersection law.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.3061",
+          "material_read": "p. 3, Theorem 1",
+          "method": "OA arXiv PDF text",
+          "title": "A Bijection on Bilateral Dyck Paths",
+          "trigger": "one-path contact statistic"
+        },
+        {
+          "assessment": "Loops and component shapes, not simultaneous cuts",
+          "evidence": "Loop enumeration and CLT for specified component shapes do not state an FKG lattice condition for cuts.",
+          "identifier_or_url": "arXiv:1609.02756 and DOI 10.1017/S0963548324000117",
+          "material_read": "Fukuda–Nechita §3 Proposition 3.1 and Janson–Thévenin p. 2 Theorem 1.2",
+          "method": "OA PDF passages",
+          "title": "Enumerating meandric systems with large number of loops and Central limit theorem for components in meandric systems through high moments",
+          "trigger": "pair-of-matching formulations"
+        },
+        {
+          "assessment": "Summary indicates different statistic; not a full-text finding of noncoverage",
+          "evidence": "One-path return-set XOR convolution and its Walsh spectral floor.",
+          "identifier_or_url": "Resultary 2026/11/22 ID 363520be03a7",
+          "material_read": "Indexed summary only; RESULT.md not recovered from local mirror",
+          "method": "Resultary search followed by exact lawful local-mirror retrieval attempt",
+          "title": "Fine-number spectral floor for Dyck return convolution",
+          "trigger": "closest distinct Resultary return-set hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and gap proof",
+        "Verified prior moment and renewal implications in originality"
+      ],
+      "rationale": "The distinction between association and the full, tilt-stable FKG lattice property is scientifically meaningful. In this frozen example, however, the hard-looking first-common-return weight property is already a direct stronger moment consequence, the lattice test is an elementary gap-factor comparison, and the strict unweighted two-point calculation is a direct Catalan ratio. No additional nonmechanical invariant or structural conclusion is established beyond those deductions.",
+      "residual_risks": [
+        "This decision is specific to the frozen specialization, not a judgment about common-return statistics for dependent or non-moment renewal masses."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

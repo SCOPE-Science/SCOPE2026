@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:40:45.227179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 37–127",
+        "Frozen VERIFICATION.md, lines 19–29",
+        "Frozen check_gap.py, lines 10–92, inspected without execution"
+      ],
+      "rationale": "The squared-weight products give the 2-isometry identity, while every initial weight exceeds 1. On positive shifts both polar isometries are the ordinary shift, so iterating the arithmetic average of weights and the arithmetic average of log weights yields the two stated binomial expressions. The gap is strict by Jensen and its singular values are the positive weights. With k fixed, h'(n+c)=-1/[2(n+c)(n+c+1)], so the leading variance is k/(16n^4) and the exponential Jensen gap is k/(32n^4), giving compactness and divergence also at p=1/4. For the joint scale, the Taylor error in L² about n+c+k/2 is O(k^-2) by the fourth binomial moment and exponentially small exceptional event; its cross term with the linear part is O(k^-7/2). On the central event the fluctuation is uniformly o(1), so its third absolute moment is o(k^-3) by the variance bound, with the exponential exceptional event again negligible. The Efron–Stein conditional one-bit variance factor is 1/4; splitting the remaining binomial at k/4 yields (107). The exponential term there can even be absorbed into C_c k/(n+k)^4 using (n+k)/(n+c)≤1+k/c, furnishing an integrable Riemann-sum domination for 4p>1 and uniform tail control for the supremum. Integration gives 1/[2^(p+1)(4p-1)] and the profile's maximum is 1/2. Individually both iterates lie between w_(n+k) and w_n, so their gaps from the ordinary shift are asymptotic to 1/(2n) at fixed k, and are not trace class.",
+      "residual_risks": [
+        "Finite checks are supplementary; no Lean or expert attestation is asserted. All estimates use fixed c>0, not uniformity as c approaches zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general iteration/mean-limit result treats each orbit separately.",
+          "The accessible description of the Schatten transform paper concerns general Schatten-norm relations; comparison of exact statements there is limited by full-text access.",
+          "The inspected Hermite–Szegő Finding covers finite-support selfadjoint perturbations of a bilateral shift under weighted arithmetic means; the compact power-law record treats generalized Aluthge iterates, not the difference of two noncompact orbits."
+        ],
+        "reasoning": "Individual convergence results and the different operator classes do not specialize to the required cancellation. A general comparison that controlled this gap on differences of non-Schatten operators would be relevant, but none was verified.",
+        "searches": [
+          "arXiv:1812.03499 Sec. 4",
+          "Altwaijry–Conde–Feki–Stanković DOI 10.3934/cpaa.2024078",
+          "Resultary: Hermite–Szegő spectral laws for finite-band mean-transform orbits; Sharp Schatten decay and a critical weak-ideal obstruction"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary target 584d3bbf84fe (self-hit) and distinct records eb2577d37a58, c463d19a6de1",
+        "arXiv:2203.15658",
+        "arXiv:1812.03499",
+        "DOI 10.3934/cpaa.2024078 (indexed scope only)",
+        "Frozen RESULT.md, lines 129–143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classification and binomial orbit formulas identify the input and the exact expression for the difference.",
+          "Finite-band bilateral mean iteration and unilateral arithmetic–geometric orbit subtraction have different tail mechanisms."
+        ],
+        "reasoning": "Taking the difference of termwise norm limits gives no sharp ideal threshold or rate. The fixed-k n^-4 variance tail, joint scale, and summable domination are additional mathematical steps not supplied by the compared results.",
+        "searches": [
+          "arXiv:2203.15658 Theorem 2.6; arXiv:1812.03499 Sec. 4; Resultary record eb2577d37a58 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chabbabi–Ostermann's index j≥1 and a>-1 give exactly the same family under j=n+1, a=c-1.",
+          "Chabbabi–Curto–Mbekhta supply the binomial arithmetic and geometric iterates; hence the shift difference is equivalently an exponential Jensen gap."
+        ],
+        "reasoning": "The reindexing and binomial rewrite are not new. Neither statement equates the Jensen gap to its leading variance with the large-k uniformity and tail control needed here.",
+        "searches": [
+          "Resultary: mean versus Aluthge iterates two-isometric weighted shifts Schatten cancellation",
+          "Primary-literature lookup for 2-isometric weighted shifts and binomial mean/Aluthge iterates",
+          "arXiv:2203.15658, Theorem 2.6; arXiv:1812.03499, Sec. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index returns the exact target record 584d3bbf84fe, not an independent source for its constants. Closest distinct formulas address bilateral finite-band or compact one-orbit models.",
+          "The primary source equation evaluates the separate finite iterates, not the orbit-gap asymptotic."
+        ],
+        "reasoning": "There is no natural finite table for this continuous p, infinite k claim; the closest analogue is an exact formula or indexed matching record. Neither the known finite formula nor the self-hit is evidence of independent coverage.",
+        "searches": [
+          "Resultary: Schatten threshold and exact constants for a mean–Aluthge 2-isometric shift gap",
+          "arXiv:1812.03499 Sec. 4, equation (4.2)"
+        ]
+      },
+      "rationale": "The natural shift family and both iteration identities are prior results. The supported distinction is the mean-minus-Aluthge orbit's sharp Schatten membership, fourth-order profile and exact joint-limit constants. No inspected source gives or directly implies that combined conclusion without the additional asymptotic and integrability argument.",
+      "residual_risks": [
+        "Full-text overlap with Altwaijry et al. could not be tested, though its indexed focus is different. Unindexed antecedents or a more general quantitative theorem not identified in this review remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Family already known; not the gap theorem in the passage checked",
+          "evidence": "The nonisometric weights are sqrt((j+1+a)/(j+a)), j≥1, a>-1.",
+          "identifier_or_url": "https://arxiv.org/html/2203.15658v1",
+          "material_read": "Section 2, Theorem 2.6, near OA text offset 12180",
+          "method": "OA original text",
+          "title": "The Aluthge and the mean transforms of m-isometries",
+          "trigger": "Exact same 2-isometry family"
+        },
+        {
+          "assessment": "Covers exact separate iterates, not their gap law in these statements",
+          "evidence": "Binomial arithmetic average and weighted geometric product give the iterates used in the audited proof.",
+          "identifier_or_url": "https://arxiv.org/html/1812.03499",
+          "material_read": "Section 4, equation (4.2) and adjacent formulas, OA offsets 32000–35477",
+          "method": "OA original text",
+          "title": "The mean transform and the mean limit of an operator",
+          "trigger": "General formulas for the same iteration operations"
+        },
+        {
+          "assessment": "Distinct statement; no priority inferred from date",
+          "evidence": "Bilateral finite-support perturbation and weighted arithmetic iteration, not a unilateral two-orbit gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-hermite-szeg-spectral-laws-for-finite-band-mean-transform-orbits--eb2577d37a58",
+          "material_read": "Finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "Hermite–Szegő spectral laws for finite-band mean-transform orbits",
+          "trigger": "Closest related catalogue Schatten-profile claim"
+        },
+        {
+          "assessment": "Related threshold problem with different hypotheses and quantity",
+          "evidence": "Generalized Aluthge iterates of compact power-law shifts; no mean-minus-Aluthge comparison in the indexed statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-schatten-decay-and-a-critical-weak-ideal-obstruction-for-a--c463d19a6de1",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary search",
+          "title": "Sharp Schatten decay and a critical weak-ideal obstruction",
+          "trigger": "Potential overlap in ideal threshold"
+        },
+        {
+          "assessment": "Limited comparison, not a whole-paper exclusion",
+          "evidence": "Indexed scope is general Schatten relations for operator transforms.",
+          "identifier_or_url": "https://doi.org/10.3934/cpaa.2024078",
+          "material_read": "Indexed description only; full text unavailable after OA attempts",
+          "method": "Literature search and attempted OA retrieval",
+          "title": "Schatten p-norm related to some transforms of operators",
+          "trigger": "Same transforms and Schatten setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Chabbabi–Ostermann Theorem 2.6",
+        "Chabbabi–Curto–Mbekhta Section 4"
+      ],
+      "rationale": "The input is the natural class of positive nonisometric 2-isometric weighted shifts and the transforms are standard competitors. The difference from the unweighted shift for each orbit separately has a harmonic tail, whereas the mutual difference has fourth-order decay; exact membership in quasi-ideals, including failure at the boundary, is a materially stronger comparison than common norm convergence. The uniform profile bridges the fixed-iteration tail and the many-iteration rate and gives exact trace, Hilbert–Schmidt, and operator-norm benchmarks.",
+      "residual_risks": [
+        "Value is a quantitative benchmark for this class and these two transforms, not a general theorem for m-isometries or arbitrary operator means."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

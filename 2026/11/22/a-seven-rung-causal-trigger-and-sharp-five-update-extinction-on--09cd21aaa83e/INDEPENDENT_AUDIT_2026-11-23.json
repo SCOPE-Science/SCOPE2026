@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:56:05.078354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently exhausted all initial states at lengths 1–7 using disjoint excited and refractory bit planes, two rail shifts and a rung swap to compute the synchronous threshold-two update. The small maxima are 2,3,3,4,4,4,5. At time three there are no excitations on lengths ≤6, and on length 7 the only time-three sites are the two middle vertices (108 initial words in each case). Projecting the actual upper words onto single rungs gives exactly the seven frozen sets; the product of their cardinalities is the observed 108, establishing equality with the Cartesian product. Rail swap proves the lower identity, and the second rung has code 3 versus code 1, proving disjointness. A time-three site's radius-three ball either matches the middle or the corresponding end site of the seven-rung graph when n≥7: neighbors outside that ball cannot enter the three-step dependency cone. If an upper target had both rail neighbors excited at time three, the two upper triggers would give conflicting upper states at column j+2 (1 versus 0 or 2). A rail neighbor and the rung neighbor would give conflicting upper states at column j (0 or 2 versus 1). Reflect across the rails for lower targets. Thus E_4 is empty, E_3 survives as refractory at time four, and tau=5 iff a trigger exists; all-rest is absorbing. Any word in a central dependency window can be embedded for sharpness at every larger length. Prefix counts by depth 0–7 are 1,5,6,12,36,72,72,216, yielding the stated 204 proper-prefix states. Longest-prefix-suffix avoidance transitions count exactly the complement, and independent inclusion–exclusion over windows gives 216,3888,52488,629856 at lengths 7–10. A top word has window probability 108/9^7=4/3^11, proving the stated lower bound using independent disjoint windows. Replay: python3 /workspace/evidence/5_ladder.py (NumPy); output /workspace/evidence/5_ladder.txt. Inspected the frozen C++, Python and output; did not execute uploaded scripts. The finite replay certifies the local cone and small maxima, not an extrapolation from sampled large ladders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The density theorem implies eventual extinction since rho≤3/2<2, with a size-dependent bound at most 4m+1, m initially excited. The three-row P_3 × P_n result bounds extinction by seven and identifies a time-five excitation cone and count at eleven columns."
+        ],
+        "reasoning": "Adding an initially resting third row leaves it identically resting (at most one neighbor outside the row), so the three-row ceiling would also give an upper bound of seven for two rows. It decides neither time-three excitations nor the absence of time-four excitations in this restricted family. Restricting the general Boolean recurrence is a method for a new computation, not a transfer of the asserted sharp result.",
+        "searches": [
+          "Resultary 352367f51e91",
+          "Resultary a4217bebbc04, Finding and Proof §§3–4 (mirror offsets 3550–5750)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_all.cpp, verify_transfer.py and verification_output.txt",
+        "arXiv:1610.07320v1",
+        "Resultary 9fa61fb1a7f9, 352367f51e91, a4217bebbc04, 58917bc0decb, eec3c1a6f6ce, b0f24b2c9d17, cae3512f5687 (mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel has a sharp fifth update from the stated wheel size; the fan has an initially excited hub plus repeated motifs 10001 or 10201; the three-row proof uses a radius-six zero-root test and eleven-column time-five witness. The density criterion yields only eventual extinction on ladders."
+        ],
+        "reasoning": "The same deadline on wheels/fans does not fix the ladder's local cones or pair conflicts. The wider strip gives a weaker clock even under the invariant embedding. The seven-rung iff and exact all-length count are separate new information over all these comparisons. Same-day different records were compared without any claim of chronological order.",
+        "searches": [
+          "Resultary 58917bc0decb (wheel), eec3c1a6f6ce (fan), a4217bebbc04 (three-row strip), 352367f51e91 (density theorem)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arbitrary-graph and open-ladder threshold-one sources require a single excited contact. The circular prism transfer calculation also uses threshold one, and its graph and event are different."
+        ],
+        "reasoning": "A one-contact trajectory and its cycle rate do not determine the two-distinct-contact ternary dynamics. Neither changing to a periodic strip nor changing the counted event to eventual extinction gives the frozen tau=5 language by relabeling.",
+        "searches": [
+          "Resultary: exact seven-rung threshold-two trigger, open-ladder extinction clock, population/transfer formula, and related threshold-two graph results",
+          "arXiv:1610.07320v1, Abstract, Introduction, Thm. 3 and Cor. 4",
+          "Resultary 9fa61fb1a7f9 and cae3512f5687"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located censuses are at 11 columns on the three-row strip, a sharp three-update clock on quadrilateral books, and a path-motif generating function on fans, respectively. No checked table has the two-row trigger populations or 204-state language."
+        ],
+        "reasoning": "The explicit transfer here counts open ladder initial configurations whose last excitation is a time-three site; neither the graph families nor the motifs and counts in those exact records match.",
+        "searches": [
+          "Resultary: seven-rung population/transfer formula and exact first-hitting census",
+          "Resultary a4217bebbc04, b0f24b2c9d17, eec3c1a6f6ce"
+        ]
+      },
+      "rationale": "The same graph at threshold one, a general threshold-two density bound, the separate threshold-two wheel and fan five-update results, and the exact three-row strip ceiling do not give the sharp open two-row clock and the complete seven-rung excitation law. No coverage of that result was found in the checked sources; absolute priority is not certified.",
+      "residual_risks": [
+        "No exhaustive chronology or literature claim. Foundational preprints arXiv:patt-sol/9303002 and arXiv:patt-sol/9304001 were requested but their full-text paths returned 404 and were not used to exclude coverage.",
+        "No statement for more rails, other thresholds or cycles; transfer-state minimality is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different contact threshold",
+          "evidence": "Resting vertex uses contact with a neighbor in the successor state; theorem and corollary concern synchronization and rates in that model.",
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "Abstract and Introduction (offset 0); Thm. 3 and Cor. 4 (offset 13400)",
+          "method": "OA HTML passage inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same model family on arbitrary graphs"
+        },
+        {
+          "assessment": "Threshold one and long-run rates, not threshold two and hitting time",
+          "evidence": "The rate counts refer to an open ladder with single-contact excitation.",
+          "identifier_or_url": "Resultary 9fa61fb1a7f9",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Exact three-rate excitation census on open square ladders",
+          "trigger": "Exact same graph and a census"
+        },
+        {
+          "assessment": "Implies non-sharp eventual extinction only",
+          "evidence": "The condition rho(G)<q is satisfied, but the upper bound depends on the number initially excited.",
+          "identifier_or_url": "Resultary 352367f51e91",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "General threshold-two extinction theorem"
+        },
+        {
+          "assessment": "Wider strip with a different sharp clock; restricted upper bound only",
+          "evidence": "Radius-six vanishing on all wider strips is lifted from length ≤13; the sharpness uses a specific three-row eleven-column word and a count of 1265544.",
+          "identifier_or_url": "Resultary a4217bebbc04",
+          "material_read": "RESULT.md Finding, offset 0; extension and sharpness proof, offsets 3550–5750",
+          "method": "OA local mirror passage inspection",
+          "title": "A seven-step extinction ceiling and an eleven-column trigger on three-row strips",
+          "trigger": "Closest same-rule wider strip"
+        },
+        {
+          "assessment": "Different graph family and sharp sizes",
+          "evidence": "The clock is sharp on wheels for the stated sizes from eight, not a strip trigger theorem.",
+          "identifier_or_url": "Resultary 58917bc0decb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Sharp five-step extinction for threshold-two excitation on wheel graphs",
+          "trigger": "Same contact rule and clock"
+        },
+        {
+          "assessment": "Structural analogue on a different graph",
+          "evidence": "The fan theorem requires an excited hub and occurrences of specified five-symbol path motifs.",
+          "identifier_or_url": "Resultary eec3c1a6f6ce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "The terminal-excitation motif law for Greenberg–Hastings dynamics on fans",
+          "trigger": "Same terminal time, motif law and count"
+        },
+        {
+          "assessment": "Different graph and clock",
+          "evidence": "The family is K_{1,m} × K_2, with a sharp three-update bound, not the open ladder family.",
+          "identifier_or_url": "Resultary b0f24b2c9d17",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "A sharp three-update extinction clock and exact first-hitting census on quadrilateral books",
+          "trigger": "Same-rule exact census"
+        },
+        {
+          "assessment": "Periodic geometry, threshold one and a different extinction event",
+          "evidence": "Counts eventual extinction on circular prisms, not time-five words on an open ladder.",
+          "identifier_or_url": "Resultary cae3512f5687",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Exact extinction law and a Gaussian winding penalty for excitation on circular prisms",
+          "trigger": "Transfer matrix on a closed two-row strip"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Eventual extinction was previously accessible from sparsity, but it does not answer whether a longer strip can sustain a longer transient. The common smallest strip width with two-contact activation along both axes yields a sharp size-independent cutoff here. The full local classification, rather than only a late witness, decides which initial data attain the cutoff and gives an exact census and a probability law for labelled random states. Both the locality horizon and the count are useful to researchers comparing transient lifetimes across strip widths.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

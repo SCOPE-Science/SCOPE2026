@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:31:11.906478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stipulated biased nearest-neighbor mutation and finite equal-mortality set, irreducibility of the stationary equation makes a nonzero nonnegative solution positive. Summing it gives tm=m−(1−d)sum_S x, hence 0<t=λ(1−m)<1. The ℓ¹ Neumann inverse on this range reduces the equation to the finite Green principal matrix, and positivity and strict increase of its Perron root give precisely one root below 1 iff d<d_*(S). At the endpoint the Green entries are δ⁻¹ times 1 for i≥j or (q/p)^(j−i) otherwise; conjugation by diag(s^(−a_i)) gives the similarity with symmetric K_S/δ. The resolvent reconstructs the unique normalized profile, and its required mass 1−t/λ is positive precisely for λ>t. Strict Perron comparison proves unique optimal clustering; principal submatrix monotonicity is strict (extending the positive eigenvector by zero cannot be a top eigenvector of the larger positive matrix). Finite row sums are strictly below the infinite geometric sum. Independently, the cosine profile cos((i−(k+1)/2)θ) is positive for θ∈(0,π/k) and the ghost condition yields tan(kθ/2)tan(θ/2)=(1−s)/(1+s), equivalent to the displayed quantization. With θ=π/k+O(k⁻²), the mortality deficit is exactly 2sδ(1−cos θ)/(1−s²), giving π²√(pq)/k² to leading order. As d approaches threshold from below, t→1 and the normalized favorable-site mass tends to zero. The endpoint Green formula is summable uniformly in t≤1 on every left half-line j≤J for each source in S, proving directed escape, not equilibrium at equality. In the two-site example the threshold condition reduces to 3^(−L/2)>1/4; for L=1 the symmetric off-diagonal Green factor is 1/2 at the root, giving t=8/(5√3) and the recorded mass. Replay: RESULT.md lines 35–100; VERIFICATION.md and checker.py inspected without executing. Finite recorded tests are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higham gives the Toeplitz matrix and tridiagonal inverse and identifies the 1953 spectral work",
+          "Mailler–Schapira abstract and introduction analyze a localization transition for stochastic catalytic branching random walks"
+        ],
+        "reasoning": "The block calculation uses classical matrix theory, and catalytic localization is an analogy; neither settles the nonlinear stationary classification including critical parameter escape.",
+        "searches": [
+          "Resultary: Kac–Murdock–Szegő block correction favorable-trait clustering",
+          "Higham: What Is the Kac–Murdock–Szegö Matrix?",
+          "Mailler–Schapira arXiv:2412.11842"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary records 8019b402a893, 537d4fc0add8, 8e3ff6ce822a",
+        "Pollett arXiv:2609.02086",
+        "Higham tridiagonal inverse note",
+        "Mailler–Schapira arXiv:2412.11842"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 8e3ff6ce822a offset 0 has a finite Green threshold for the numerical radius of a Foguel operator",
+          "Pollett §6 offset 93000 contrasts bounded and confining mortality, with the possibility of drift"
+        ],
+        "reasoning": "The resolvent method and strict comparison are standard. One must still identify the endpoint relevant to summability, prove there is a unique crossing with the correct nonlinear mass, optimize the finite geometry, and control the entire upstream mass as the crossing approaches the endpoint. The inspected statements do not imply that package.",
+        "searches": [
+          "Resultary: finite Green-matrix thresholds",
+          "Pollett arXiv:2609.02086 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pollett §2 Eq. (2) (HTML offset 10500) contains the motivating density-regulated ℓ¹ mutation–selection equation; the frozen model specializes its kernel and mortality",
+          "Resultary 537d4fc0add8 has escape along increasing finite absorbing cutoffs for symmetric discrete-Laplace mutation and an unattained mortality limit"
+        ],
+        "reasoning": "Neither the common governing equation nor the different escaping sequence gives the finite favorable-set mortality threshold or the stated fixed-set parameter limit.",
+        "searches": [
+          "Resultary: finite favorable sites biased nearest-neighbor Green threshold",
+          "Pollett arXiv:2609.02086 Eq. (2), §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading match 8019b402a893 is the identical frozen record. The earlier 537d4fc0add8 differs in equation and limiting procedure."
+        ],
+        "reasoning": "No finite enumeration table can establish an infinite family over arbitrary trait sets. The catalogue identity hit does not establish separate coverage; the illustrative two-site decimal is not the originality claim.",
+        "searches": [
+          "Resultary: finite favorable sites biased nearest-neighbor Green threshold",
+          "Resultary: critical mass escape at fixed λ>1"
+        ]
+      },
+      "rationale": "The general equation, finite-rank resolvent reduction and block matrix are known; another catalogue result proves a related qualitative escape effect. The distinct contribution supported by the inspected material is the exact finite-pattern boundary, its strict optimization with a sharp block correction, and positive-total-mass escape when mortality approaches that boundary from below at fixed geometry and fixed λ>1. The block spectral step is not an independent new matrix theorem.",
+      "residual_risks": [
+        "The original 1953 matrix paper was not retrieved; classical block spectrum is treated as background, not claimed as novel.",
+        "The bounded source passages and limited query results do not exclude an unindexed equivalent finite-defect specialization or related critical parameter escape theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General ecological framework and qualitative drift, not the frozen threshold theorem",
+          "evidence": "Equation (2) is the density-regulated convolution-mutation equation on nonnegative ℓ¹; §6 contrasts bounded and confining mortality.",
+          "identifier_or_url": "https://arxiv.org/html/2609.02086",
+          "material_read": "Abstract/intro offset 0, §2 Eq. (2) at offset 10500, and §6 at offset 93000",
+          "method": "Lawful OA HTML, bounded passages",
+          "title": "Mutation–selection balance on an infinite trait space: confinement, drift and equilibrium",
+          "trigger": "Identical general equation and drift motivation"
+        },
+        {
+          "assessment": "Established matrix and inverse; the block spectral step should not be credited as a new matrix theorem",
+          "evidence": "Entries s^|i−j| and the endpoint-corrected tridiagonal inverse are explicit; references identify the original 1953 spectral paper.",
+          "identifier_or_url": "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+          "material_read": "Public page offset 0",
+          "method": "Lawful public HTML",
+          "title": "What Is the Kac–Murdock–Szegö Matrix?",
+          "trigger": "Exact finite block kernel and spectrum"
+        },
+        {
+          "assessment": "Related stochastic transition for another model",
+          "evidence": "Tests random-walk localization through a branching catalyst and its occupation measure, not ℓ¹ equilibria under nonlinear density regulation.",
+          "identifier_or_url": "https://arxiv.org/html/2412.11842",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "Lawful OA HTML",
+          "title": "A localisation phase transition for the catalytic branching random walk",
+          "trigger": "Finitely favored states and localization"
+        },
+        {
+          "assessment": "Qualitative escape overlap, different family and limit",
+          "evidence": "Finite absorbing-boundary equilibria escape with positive mass under symmetric discrete-Laplace mutation and a mortality tail tending to an unattained limit.",
+          "identifier_or_url": "2026/10/13/SCOPE-directional-mutation-selection-has-escaping-finite-equilibria-bu--537d4fc0add8",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Directional mutation–selection has escaping finite equilibria",
+          "trigger": "Closest specific escape overlap"
+        },
+        {
+          "assessment": "Same broad method, unrelated operator invariant",
+          "evidence": "The criterion is for numerical radius of a coupled Foguel operator.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-green-matrix-threshold-for-finite-nonnegative-foguel-coupl--8e3ff6ce822a",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Exact Green-matrix threshold for finite nonnegative Foguel couplings",
+          "trigger": "Closely worded finite Green threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact feasibility boundary for a natural deterministic model, distinguishes finite favorable geometries at fixed size, quantifies the finite-size gap to the infinite-block ceiling, and explains why positive total population in the parameter limit does not produce a stationary ℓ¹ limit. The global classification and escape law are useful beyond the illustrative example, without purporting to predict transient stability or stochastic survival.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof covers every integer \(n\ge3\). Edges of the path-token graph are classified exhaustively as increments of the larger or smaller coordinate; the indexed paths \(Q_j\) are vertex-simple and partition the path-token edges. Unique wrapping edges close them into \(n-2\) edge-disjoint \(n\)-cycles. For odd \(n\), any graph cut misses at least one edge in each cycle, and the base-parity lifted cut misses exactly that many. Even \(n\) gives a bipartition crossing every edge. An independently generated checker corroborates the n-cycle partition through \(n=150\) and exact maximum cuts by exhaustive enumeration through \(n=7\).
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The eligible September 25, 2026 Rivera preprint studies vertex packing on the exact graph but not the asserted edge optimization. The November 18, 2026 *Max-Cut on Token Graphs* paper supplies a general **lower** bound using parity lifting; its other exact classes are not cycles, and it does not prove the matching upper bound. Rivera's November 17, 2026 paper classifies maximum independent sets on the same graph; earlier accessible work studies spectral radii. A full-text comparison of these sources and published mathematical records searches for maximum cuts, frustration indices, path/cycle decompositions, aliases and stronger coverage did not identify the all-order claim. Older unindexed literature remains a risk; inaccessible motivating full text is explicitly noted.
+PASS
 
-**Value — PASS.** The complete edge partition yields an exact maximum-cut answer for every two-token cycle graph and the sharp odd-cycle bipartization cost. This establishes nontrivial equality in a recent general bound and a useful structural reason for it; the claim is not a small isolated numerical computation or a parameter substitution.
+Remove the closing base edge, leaving n-2 wrap lifts w_j=(0,j)--(j,n-1) outside the path token graph. The path Q_j first decreases the smaller coordinate from j to j-1 on column n-1, then decreases the larger from n-1 to j on row j-1, then decreases the smaller to zero on column j. These runs meet only at consecutive endpoints and have 1+(n-1-j)+(j-1)=n-1 edges. Every larger-coordinate edge in row a belongs to Q_{a+1}; each smaller-coordinate edge in column b<n-1 belongs to Q_b; in column n-1 the edge between smaller coordinates a,a+1 starts Q_{a+1}. All indicated indices are legal and the three classes cover path-token edges exactly once. Appending w_j closes each path into a simple n-cycle; for n=3 the construction is just the token triangle. Each n-cycle costs at least one uncut edge when n is odd. The even-index token parity colors exactly the path-edge lifts bichromatically, plus the wrap lifts precisely when n is even. Each base edge contributes n-2 lifts, with no duplicate because the symmetric difference determines the base edge. The cut reaches the cycle upper bound, and deleting the complement of a maximum cut is equivalent to optimal edge bipartization. The standalone verify.py is the replay path for finite checks through n=150 and cut exhaustion through n=7; inspected, not executed and not needed for this proof.
 
-**Limitations.** No weighted, higher-token or general base-graph result is claimed. Direct finite checks only corroborate the all-order proof. No independent validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The parity-lift lower bound and its exactness for bipartite bases already cover the even case and predict the odd value only from below. The edge-disjoint simple-cycle partition and the resulting sharp odd upper bound are the surviving distinct claims under the comparisons made.
+
+## value
+
+PASS
+
+The cycle is a basic nonbipartite test of whether the natural token parity lift is sharp. The explicit partition answers the missing odd upper bound by providing the exact transversal cost, and gives more structural information than the cut number alone: each cycle uses exactly one lift of every base edge. Thus the result has a concrete use independent of the already known even case and lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

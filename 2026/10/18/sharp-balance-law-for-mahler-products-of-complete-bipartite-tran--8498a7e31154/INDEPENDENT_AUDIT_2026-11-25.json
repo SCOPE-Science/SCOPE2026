@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:09:01.159808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen mathematics checks, and the complete narrowed RESULT.md under repairs/4 has been rechecked. The primal lattice volume comes from h*(1), and the polar volume in anchored coordinates comes from the beta integral of p(p-1)r^(p-2)(2-r)^q (the anchored range CDF is p r^(p-1), and p=1 is a cube). Passing to the Euclidean zero-sum hyperplane gives reciprocal sqrt(N) factors, so its published normalized product is the same input to the repair. The baseline follows from binom(p-1,k)/(k+1)=binom(p,k+1)/p and Vandermonde. At fixed N the normalized adjacent difference has coefficient D_k, with zero baseline sum and a negative-to-positive sign pattern given by kN-p(q-1) for k<p. The endpoint coefficients D_0<0 and D_p>0 carry positive masses on both sides; their strictly separated weights s_p>s_0 prove strictness even when s_0=s_1. The repair makes this pairing justification explicit. Symmetry and transfers give precisely the stated maximizer and tied thin minima, with all splits thin for N<=5. The frozen fixed-p limit also checks by leading terms, but is not part of the distinct repaired claim. An independent rational reproduction checked 100 volume/normalization pairs through p,q<=10 and 169 fixed-order transfers through N=30, including R(3,3)=81/80 and the N=8 values. These are finite checks, not the proof. The attached verify.py was inspected, not executed; its exact rational tests and optional numerical hull tests are unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f86fbac7ea01 gives R(p+1,q)>R(p,q) at fixed q, plus a two-parts-growing bound; it does not assert or prove R(p+1,q-1)>R(p,q).",
+          "189623e8986a orders the directional width distribution on the same shapes for the very same transfer, even beginning from p=1. The signed-chain law 84c1d3d87a65 instead concerns a different p+q-dimensional body."
+        ],
+        "reasoning": "Fixed-q coordinatewise monotonicity trades an increase against a decrease when both coordinates change. Width is another invariant, and the signed-chain body is not the symmetric edge polytope or its polar in these coordinates.",
+        "searches": [
+          "f86fbac7ea01 Finding and Steps 5–6, offsets 0 and 5375",
+          "189623e8986a Finding and proof, same-graph fixed-order width comparison",
+          "84c1d3d87a65 signed-chain volume and imbalance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed); narrowed repairs/4/RESULT.md",
+        "arXiv:1807.07678, 1911.10642, 1910.05193; supporting passages from 1705.09579 and 2107.12315",
+        "Resultary f86fbac7ea01, 189623e8986a and 84c1d3d87a65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older formula inputs and Hanner examples explain thin ties, but not the nonthin ordering. The indexed hierarchy's density-ratio argument compares one density at a time with a fixed other density.",
+          "Stochastic width dominance orders polar volumes inversely by integrating the negative d-th width moment (P is centrally symmetric, so polar radial function is 2/width). It does not order primal volume times that polar volume.",
+          "The surviving theorem needs zero baseline mass, one sign change of the adjacent difference coefficients, and strict increase of the central-binomial relative weights beyond the first two indices."
+        ],
+        "reasoning": "The new comparison is not a mere parameter substitution into a stated monotonicity theorem. It controls competing changes in the two parts that earlier evaluations and one-variable comparisons leave unresolved.",
+        "searches": [
+          "f86fbac7ea01 RESULT.md Steps 3–6, offsets 0 and 5375",
+          "189623e8986a RESULT.md fixed-order width theorem, offsets 0–5633",
+          "arXiv:1911.10642 Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Lipschitz-free unit ball is the same symmetric edge body in the zero-sum hyperplane. f86fbac7ea01 uses its intrinsic Euclidean polar, whose volume is the anchored-coordinate polar volume divided by sqrt(N); the primal volume carries the inverse change, leaving precisely the same product.",
+          "The cited finite-space Hanner characterization includes K_{2,n-1} via the spiderweb decomposition."
+        ],
+        "reasoning": "Dual-coordinate changes do not make the existing individual volume evaluations, normalized formula, or thin equality class new. The surviving question is about the sign of a fixed-order difference of that same invariant.",
+        "searches": [
+          "Resultary: complete bipartite symmetric edge polytope Mahler volume product fixed total number of vertices p+q strict balancing adjacent (p,q) to (p+1,q-1) balanced bipartition maximizer single crossing",
+          "arXiv:1911.10642 finite Lipschitz-free volume product and spiderweb; f86fbac7ea01 RESULT.md intrinsic Euclidean formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Ehrhart formula evaluates the primal volume at every p,q. The indexed Mahler formula already evaluates the entire ordered-pair table of R values and gives the exact 3,3 example.",
+          "The targeted search surfaced width, spanning-tree asymmetry and signed-chain results as nearby fixed-size hits, rather than a matching fixed-N product maximizer in the inspected sources."
+        ],
+        "reasoning": "No finite tabulation or exact numerical entry is claimed as new. Evaluability of every entry does not give the uniform ordering across each dimension or its strict equality cases without a mathematical comparison.",
+        "searches": [
+          "arXiv:1807.07678 Theorem 4.1 h* polynomial",
+          "f86fbac7ea01 RESULT.md exact sum, overlap integral, and R(3,3)=81/80",
+          "Resultary fixed-total-size adjacent bipartition query quoted above"
+        ]
+      },
+      "rationale": "This PASS is for the narrowed fixed-order transfer theorem only. The frozen composite originality claim is not supported as stated: the distinct indexed f86fbac7ea01 demonstrably covers the polar-volume evaluation, normalized product, equality classification and fixed-part limit. Its monotonicity holds with one part fixed while the other grows, not under a transfer between parts at the same N. The strongest same-transfer comparison orders directional width, not the volume product. The repair removes standalone novelty claims for the covered results, treats them as inputs, and retains the explicit fixed-order signed-weight comparison and maximizer. The compared catalogue dates establish neither priority nor copying.",
+      "residual_risks": [
+        "There may be unindexed fixed-order comparison results in geometric or special-function language. The unavailable targeted apex/signed-chain web lookup is not negative evidence.",
+        "Current indexed overlap is established for the formula claims. Historical priority for overlapping results is not determined by displayed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMAL_FORMULA_COVERED",
+          "evidence": "Specializing the bipartite h* expansion at one gives the frozen normalized lattice volume exactly.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "PDF p. 9, Theorem 4.1, OA offset 33800",
+          "method": "Primary OA PDF passage",
+          "title": "Arithmetic Aspects of Symmetric Edge Polytopes",
+          "trigger": "Exact primal volume in lattice coordinates"
+        },
+        {
+          "assessment": "THIN_CASE_COVERED",
+          "evidence": "The K_{2,n-1} spiderweb has the stated Hanner-type decomposition; that theorem is not a fixed-order strict balancing result for general parts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.10642",
+          "material_read": "PDF p. 7, Theorem 3.6, offset 38338",
+          "method": "Primary OA PDF passage",
+          "title": "Geometry and Volume Product of Finite Dimensional Lipschitz-Free Spaces",
+          "trigger": "Closest matching primary Mahler geometry and thin equality cases"
+        },
+        {
+          "assessment": "COVERS_FORMULAS_AND_LIMIT_NOT_FIXED_ORDER_TRANSFER",
+          "evidence": "Same exact normalized finite sum, Euclidean polar-volume conversion, thin equality and fixed-part limit; strict monotonicity increases one coordinate with the other fixed.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-mahler-product-hierarchy-for-complete-bipartite-symmetri--f86fbac7ea01",
+          "material_read": "RESULT.md Finding, assumptions, and Steps 1–6, offsets 0 and 5375",
+          "method": "Local mirror passages and coordinate/quantifier comparison",
+          "title": "A sharp Mahler-product hierarchy for complete-bipartite symmetric edge polytopes",
+          "trigger": "Strongest exact product and monotonicity match"
+        },
+        {
+          "assessment": "SAME_TRANSFER_DIFFERENT_INVARIANT",
+          "evidence": "Proves stochastic and positive-moment ordering of directional widths, not an order of the primal-polar volume product.",
+          "identifier_or_url": "2026/11/8/SCOPE-balanced-bipartitions-stochastically-enlarge-euclidean-widths-of--189623e8986a",
+          "material_read": "RESULT.md Finding, assumptions, and proof, offsets 0–5633",
+          "method": "Local mirror passage and polar radial comparison",
+          "title": "Balanced bipartitions stochastically enlarge Euclidean widths of symmetric edge polytopes",
+          "trigger": "Identical fixed-order transfer and same body"
+        },
+        {
+          "assessment": "DIFFERENT_BODY",
+          "evidence": "Singleton and two-element signed-chain inequalities in dimension p+q are not those of the present volume product in dimension p+q-1.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-volume-and-strict-imbalance-law-for-two-level-signed-chain--84c1d3d87a65",
+          "material_read": "RESULT.md Finding and definition, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact volume and strict imbalance law for two-level signed-chain polytopes",
+          "trigger": "Nearby exact volume imbalance result for two part sizes"
+        },
+        {
+          "assessment": "GEOMETRIC_BACKGROUND",
+          "evidence": "Defines the polytopes and studies related face/enumerative data; inspected passages give no fixed-order Mahler maximization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.05193",
+          "material_read": "Definition 2.1 p. 3 offset 9025 and gamma-vector passage p. 20 offset 73998",
+          "method": "Primary OA PDF passages",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "Symmetric-edge geometry and possible alternate representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired statement is a strict extremal ordering over all bipartitions in each dimension, for a natural intrinsic product of primal and polar shapes. Keeping dimension fixed removes the change in normalization and pits two coordinatewise effects against one another; proving their net sign, and finding the unique maximizer and all ties, is useful beyond computing an isolated product value. It does not rank other graphs or claim a global Mahler extremum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

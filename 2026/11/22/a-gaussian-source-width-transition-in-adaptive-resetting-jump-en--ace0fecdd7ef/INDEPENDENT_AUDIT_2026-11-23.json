@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:03:08.649743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen uniqueness claim is false if read pointwise for arbitrary rate functions: changing r_R at x=0, for example adding one there, preserves the integrated hazard along every OU excursion almost surely (the transition distribution has a density at each positive time). The normalized flux, invariant law and J are unchanged. The corrected RESULT states uniqueness a.e., with exactly one continuous version. Checked the repair: the weak stationary forward equation with integrable r_R rho_v forces the rate a.e.; optimizing the negative part of f_z over the Gamma-half variable gives Y_*=(1−3z)/(2z(1−z)) for z<1/3, otherwise zero, with the stated sharp threshold. For R>R_* the rate has a positive lower bound and quadratic growth. The repaired killed-OU resolvent on L² of the free invariant Gaussian is valid by symmetry and Gaussian cutoff approximation, and identifies the stationary density as the normalized regenerative occupation measure. The stationary jump rate is covariance of h and log h with h=R+f_z; positivity and the derivative −E[f_z²/(R+f_z)]/R follow using the bounded negative part and integrable positive tail. Free diffusion gives a²v/D. For T=R/a, inversion of F=f_z/a~2z^(3/2)Y exp((1−z)Y) and Gamma-half survival give K(z)T^(−p)(log T)^(p−1/2); Potter bounds control the entropy-tail integral for 1<p<2, and integration by parts plus the beta integral give pπ/[(p−1)sin(π(p−1))]. For z>1/2, Gamma-half moments of orders 0,1,2 give the stated second moment, which is the limit of RJ. For z=1/2+lambda/L the normalized square-integrand density on 0<t<2 is z(2zt−1/L)² t^(−1/2) exp(−2 lambda t)/sqrt(π); the log factor divided by its argument tends to one uniformly in compact lambda for each such t. The negative part is O(a²/R) before normalization and the tail above 2L is O((a²/R)L^(3/2)) uniformly, giving the crossover and in particular Phi(0)=0.6383076486. Independently recomputed the second moment numerically at z=.54,.6,.9 and integrated the rescaled log integrand for lambda=−1,0,1 at L=80,320,1280; final ratios to Phi were 0.956420, 0.986075, 1.000479. These are finite checks only; the frozen checker was read, not executed. The fixed-width limits, flux normalization and compact-uniform quantifier all hold for the corrected rate class.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu gives the exact generic inverse hazard and essential-supremum criterion; its harmonic-compression example has the opposite source/target width ordering.",
+          "Mori et al. model resets to a random distribution with constant hazard; Eq. (14) gives the stationary symmetric-KL term for that model and the paper's Gaussian large-deviation result is in time."
+        ],
+        "reasoning": "The feasibility result directly covers the generic construction and the repaired text credits it. Constant-hazard entropy expressions and the adaptive identity do not by themselves establish the explicit asymptotic amplitudes or uniform crossover when a stationary Gaussian target is held fixed and its inverse-designed hazard changes.",
+        "searches": [
+          "Chu et al. arXiv:2611.22712, Supplement §§S2–S3 Eqs. (S4)–(S8), (S13)–(S14)",
+          "Mori–Olsen–Krishnamurthy arXiv:2211.15372, §II Eqs. (1)–(14)"
+        ]
+      },
+      "checked_sources": [
+        "Chu et al. arXiv:2611.22712",
+        "Farago arXiv:2605.28445v1",
+        "Mori–Olsen–Krishnamurthy arXiv:2211.15372",
+        "Resultary 08050fc52754, 31e22fdf4f67 (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chu's general formulas directly imply the model's feasibility functional and J, and permit the ordinary finite-second-moment asymptotic after Gaussian integration. Their wider reset source gives a bounded negative-ratio feasibility maximum at the trap center in their example, not the present singular high-flux behavior.",
+          "Farago compares path and endpoint KL measures across spreading and compression phases, not a source/target-width limit of a stationary adaptive jump channel."
+        ],
+        "reasoning": "The specialized threshold and the general formulas are not claimed as independently original after repair. What remains is the heavy-tail inversion, boundary log scaling, and uniform matching calculation at loss of square integrability, not a parameter substitution into a prior evaluated asymptotic theorem.",
+        "searches": [
+          "Chu et al. Supplement §S3, specifically harmonic compression after Eq. (S14)",
+          "Farago arXiv:2605.28445v1, §II harmonic resetting cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chu et al. Supplement §S2 Eq. (S8) gives the same covariance for arbitrary adaptive r.",
+          "Writing p_R=r_R rho_v/R=rho_w(1+f_z/R) makes J/R the Jeffreys divergence between the pre-reset-position law p_R and the reset draw rho_w. The quadratic perturbation is governed by the chi-square integrability threshold E_w f_z²<∞."
+        ],
+        "reasoning": "The divergence and covariance formulations are exactly equivalent. The finite-quadratic regime follows from a standard local expansion with a checked Gaussian integral, while the singular logarithmic and heavy-tail regimes and the two-sided uniform profile are not provided by that expansion; no covering result for those was identified in the inspected sources.",
+        "searches": [
+          "Primary literature: adaptive stochastic resetting entropy production Gaussian source variance half stationary Gaussian Ornstein Uhlenbeck high reset rate Chu inverse hazard entropy production covariance source width",
+          "Primary literature: Jeffreys divergence small contamination regularly varying density ratio infinite chi square logarithmic boundary small mixture asymptotic Gaussian resetting entropy production tail index two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first query returns the frozen target itself, not an independent result. Records 08050fc52754 and 31e22fdf4f67 concern a constant reset hazard with non-Gaussian source design, and Gaussian endpoint-KL comparisons for different reset clocks, respectively."
+        ],
+        "reasoning": "Neither indexed comparison computes this steady-state position-dependent jump flux nor its compact-uniform profile. The regime constants are derived analytically rather than read from a table; the limited searches do not establish historical uniqueness.",
+        "searches": [
+          "Resultary: adaptive Ornstein Uhlenbeck reset compressed Gaussian source stationary inverse hazard entropy production high flux width crossover",
+          "Resultary: Exact Gaussian stationary-state engineering by non-Gaussian stochastic resets reset cadence reversal logarithmic temperature frontier Gaussian reset cycles"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit Gaussian high-flux entropy trichotomy and its compact-uniform logarithmic crossover in the repaired record. The inverse hazard, generic feasibility formula and entropy covariance are prior results and the elementary Gaussian threshold is retained as input rather than a standalone novelty claim.",
+      "residual_risks": [
+        "A general small-perturbation divergence asymptotic with regularly varying likelihood ratios could cover part of the local analysis; no priority claim beyond the inspected comparisons. Corpus sources were compared at claim-summary level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of general stationary design, covariance and feasibility criterion; no evaluated narrow-source high-flux crossover in relevant passages",
+          "evidence": [
+            "Supplement Eqs. (S4)–(S8), (S12)–(S14), text after (S14) comparing the widths"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.22712",
+          "material_read": "Main model and harmonic compression discussion; relevant Supplemental §§S2–S3 flux covariance, constant-rate comparison, and criterion with harmonic example",
+          "method": "Read legitimate open PDF text and compared displayed formulas and source/target orientation",
+          "title": "Bypassing the Entropy Production Speed Limit of State-to-State Transitions with Adaptive Resetting",
+          "trigger": "Same adaptive jump flux, same inverse problem, and a harmonic example"
+        },
+        {
+          "assessment": "Related harmonic Gaussian cycle, different source-to-target control and entropy quantity",
+          "evidence": [
+            "§II thermodynamic cycle, staged spreading and compression, trajectory/endpoint KL formulation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.28445v1",
+          "material_read": "Abstract, §II model and spreading/compression and entropy framework passages of the specific v1 (v2 has a different title)",
+          "method": "Read legitimate versioned OA PDF text",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "Harmonic Gaussian resetting and entropy comparison"
+        },
+        {
+          "assessment": "Constant-rate resetting and longtime Gaussian-source fluctuation transition, not an adaptive high-flux stationary width crossover",
+          "evidence": [
+            "§II Eqs. (1)–(4), (6)–(7), (14); abstract states large-deviation limit as observation time grows"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.15372",
+          "material_read": "Abstract, §II reset mechanism, stationary density, and entropy decomposition through Eq. (14)",
+          "method": "Read relevant open PDF text and compared model assumptions and displayed equations",
+          "title": "Entropy production of resetting processes",
+          "trigger": "Gaussian random reset source and an entropy transition"
+        },
+        {
+          "assessment": "Different control mechanisms/observables in the summaries",
+          "evidence": [
+            "First result engineers the reset law, second compares periodic and Poisson clocks for endpoint symmetrized KL."
+          ],
+          "identifier_or_url": "Resultary: 08050fc52754; 31e22fdf4f67",
+          "material_read": "Indexed claim summaries only",
+          "method": "Local published-result search",
+          "title": "Exact Gaussian stationary-state engineering by non-Gaussian stochastic resets; A unique reset-cadence reversal and a logarithmic temperature frontier for Gaussian reset cycles",
+          "trigger": "Potential equivalents in exact Gaussian resets or Gaussian KL rate transitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half-width boundary and its compact-uniform logarithmic crossover explain when increasing flux suppresses stationary jump entropy at an ordinary inverse-rate scale and when the Gaussian tail prevents that rate. This supplies a nontrivial, quantitative design distinction while keeping the positive diffusive contribution and any device work separate. Correcting equivalence of rate versions leaves the genuine high-flux result intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

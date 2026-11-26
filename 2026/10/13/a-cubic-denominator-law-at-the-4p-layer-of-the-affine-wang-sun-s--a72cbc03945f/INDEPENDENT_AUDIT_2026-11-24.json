@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:01.335268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–125 and VERIFICATION.md lines 18–26; frozen verify.py inspected, not executed",
+        "arXiv:2610.02806v1 Theorem 5.1, Remark 5.2 and §6",
+        "Independent replay: python /workspace/branches/independent_den28.py (exact rational arithmetic, no packaged code)"
+      ],
+      "rationale": "Theorem 5.1 and Remark 5.2 give S_{4p}−C_{4p} integral: only divisors 4 and 4p contribute cotangent blocks, C₄=−2, and the multiplier count for full divisor 4p is one. Splitting the alternating sum by parity gives C_{4p}=2P_{4p}(2p)−P_{4p}(4p). Independently, E_q(t)=((1+it)^q−(1−it)^q)/(2iqt) by its cotangent roots and its constant term, giving the stated e_j. For q=2p or 4p those even-index coefficients have denominators dividing p by e_j=(−1)^{j/2}binom(q−1,j)/(j+1) and the original denominator q; only degrees p−1 and (for 4p) 3p−1 can be exceptional. Factor E=B(1+R/B), where B is p-integral with constant term one and R is the sum of exceptional terms. In degree 4p the coefficients of log B have valuation at least −1: powers of B−1 have p-integral coefficients and the log divisor k is ≤4p<p². Multiplication by −4p makes this part integral. The log(1+R/B) terms of orders 1–3 give valuation at least −2 after −4p; no order ≥5 is possible, and in order four all factors must have degree p−1 in R. The fourth-order sign and −4p give p^3P_{4p}(q) ≡ u_q^4[t^4]B^{−4}=10/9−4/5=14/45 mod p, with u_q≡(−1)^{(p−1)/2}. Thus the same nonzero residue survives in C_{4p} for every prime p≥11, with no other denominator prime by Newton identities. For p=7 an independent exact log-coefficient extraction by integer partitions gives P₂₈(14)=90379872762811458892/49 and P₂₈(28)=34695770991787218624432158970/49; their prescribed combination is the stated C₂₈, with numerator 2 mod 7.",
+      "residual_risks": [
+        "The finite p=7 extraction proves only that case. The symbolic valuation argument is needed for the universal law and does not classify composite odd parts or higher dyadic layers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former covers all even n by divisor sums and power sums; the latter gives weighted even cotangent power sums.",
+          "The external query returned unrelated results and adds no substantive evidence."
+        ],
+        "reasoning": "General evaluation allows computation at each input but does not give this uniform valuation without isolating the fourth logarithmic term and resolving cancellation at p=7.",
+        "searches": [
+          "arXiv:2610.02806v1 Theorem 5.1 and §6",
+          "arXiv:2607.29130v1 Theorem 3.1",
+          "External query: \"affine Wang-Sun\" \"4p\" denominator cotangent"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02806v1 §§3, 5, 6, 8 and numerical table",
+        "arXiv:2607.29130v1 §§2–3",
+        "Resultary ...1c2e0a9f518a, ...1d531cf7f770, ...abe0e0aab02f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agustín-Aquino proves den(S_{2p})=p for p>3, not its next dyadic multiple.",
+          "The indexed prime-square argument splits C_{2p²}+p(p−1)C_{2p}; this is not the parity split at 4p and does not give the residue 14/45 or its zero at p=7."
+        ],
+        "reasoning": "The overlap is in the affine object and evaluation machinery, not in an existing conclusion or mechanical substitution that determines the claimed reduced denominators as a function of p.",
+        "searches": [
+          "arXiv:2610.02806v1 Theorem 8.2, p. 10, offset 33400",
+          "Resultary ...1c2e0a9f518a, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Xin's Cot(a,n,k) specializes at a=m, n=k=2m to (−1)^m C_{2m}; their closed form covers the alternating sum itself.",
+          "No ranked catalogue comparison gave the equivalent reduced-denominator statement for C_{4p}."
+        ],
+        "reasoning": "After removing integer affine terms and splitting the cotangent block, the equivalent claim is the exact p-adic valuation of 2P_{4p}(2p)−P_{4p}(4p), not merely a formula evaluating that quantity symbolically.",
+        "searches": [
+          "Resultary: exact 4p affine Wang–Sun denominator and C_{4p} variant",
+          "arXiv:2607.29130v1 §2 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source's table ends at n=24, below the first claimed n=28; its n=20 entry is outside scope.",
+          "Indexed ...1c2e0a9f518a and ...1d531cf7f770 have n=2p² and p^{2p}, while ...abe0e0aab02f has n=2·3^a and 3^{3^a}."
+        ],
+        "reasoning": "These are close same-object comparisons, not a table or classification for the same moduli or exceptional prime.",
+        "searches": [
+          "arXiv:2610.02806v1 pp. 14–15, offset 47400",
+          "Resultary: affine Wang–Sun denominators at 4p and neighboring prime-power moduli"
+        ]
+      },
+      "rationale": "The source already gives machinery for exact values at any even modulus, and Liu–Xin also give a general evaluation of the cotangent block. The supported distinction is the uniform reduced denominator law at 4p, with the exceptional cancellation at p=7, not a new general formula for the sums or priority for one computed rational value.",
+      "residual_risks": [
+        "Bounded semantic and external searches cannot exclude an unindexed or differently phrased uniform classification. Exact instance evaluation using known formulas is prior capability, not the new result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reduction and general evaluation verified; existing neighboring theorem at 2p",
+          "evidence": [
+            "Multiplicity of full divisor equals one, only the odd quotient gives a cotangent block; parity-split formula confirmed; published denominator theorem is for 2p."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02806v1",
+          "material_read": "§3 p. 4 offset 14909; Theorem 5.1 and Remark 5.2 p. 7 offset 21600; §6 pp. 7–8 offsets 23900, 27400; Theorem 8.2 p. 10 offset 33400; table pp. 14–15 offset 47400",
+          "method": "OA PDF bounded passage inspection",
+          "title": "The Wang–Sun Sum over Affine Derangements",
+          "trigger": "Primary same-object source and plausibly broader exact coverage"
+        },
+        {
+          "assessment": "General evaluation using roots of unity, not a reduced-denominator classification",
+          "evidence": [
+            "For k=2m and a=m the weight is (−1)^j; the theorem evaluates the requisite block but not its uniform p-adic order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.29130v1",
+          "material_read": "§2 p. 6 offset 18700; Theorem 3.1 p. 9 offset 26600",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Root-of-unity weighted trigonometric power sums: a constant term approach",
+          "trigger": "Equivalent weighted cotangent expression"
+        },
+        {
+          "assessment": "Different moduli; no implication for 4p",
+          "evidence": [
+            "The checked findings use n=2p² or n=2·3^a, not n=4p for p≥7."
+          ],
+          "identifier_or_url": "Resultary ...1c2e0a9f518a, ...1d531cf7f770, ...abe0e0aab02f",
+          "material_read": "All three RESULT.md Findings at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror bounded passages",
+          "title": "Prime-square and ternary-power affine Wang–Sun denominator findings",
+          "trigger": "Closest indexed exact invariants of the same affine sum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–17, 90–112",
+        "arXiv:2610.02806v1 Theorem 8.2 and numerical table"
+      ],
+      "rationale": "The next dyadic layer after the published denominator-p theorem is a natural complete family rather than an isolated computation. The p-adic mechanism explains both the generic cubic denominator and the single exceptional drop, answering a uniform arithmetic question not visible in the finite table and useful in analyzing denominator growth for affine Wang–Sun sums.",
+      "residual_risks": [
+        "No classification at 8p, at composite odd parts, or comparative complexity claim about evaluation algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

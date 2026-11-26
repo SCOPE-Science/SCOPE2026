@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:21:19.457340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-derived the resistance and volume without the spanning-tree differentiation: on the zero-sum hyperplane set h=x_u−x_v and z_i=x_{w_i}−(x_u+x_v)/2, and write G=sum g_i. The energy is Gh²/2+2 sum g_i z_i². Since the edge forms are ±h/2−z_i, their squared supports are 1/(2G)+1/(2g_i). The coordinate map has squared Jacobian m+2 (row Gram blocks 2 and I+11ᵀ/2), giving det_H L=(m+2)2^{m−1}G prod g_i and the claimed intrinsic volume. The ordinary support condition fixes a=(1+1/(m−1+r))/2; the exceptional support condition gives the stated quadratic with opposite-sign roots. Thus all contacts hold, including m=2 and t=1. For arbitrary feasible centered shape matrices the positive Laplacian decomposition bounds the log-determinant gain by zero, with equality only at the proposed shape. A translation adds |edge difference of the center| to the necessary support; at the optimal shape all these differences must vanish, so the center is zero. The zero-row-sum extension of the precision matrix L recovers labeled edges from negative off-diagonals, and the covariance determines the contacting lengths. For fixed t, rationalizing the positive root gives r→t⁻² and log(a/a₀)=O(m⁻²). At fixed m, r=2/t²−(m+1)/2+O(t²), giving det_H L~(m+2)t⁻⁴ and the stated prefactor. At t=c/√m the equation for u=r/m is c²u²+(c²−2)u−(1−1/m)=0, so u→ρ; (m+1)log(a/a₀)→−ρ/(1+ρ) and r(m−1+r)/m²→ρ(1+ρ). This gives the profile and both endpoints using ρ~2/c² and ρ~1/c². The bundled NumPy and SymPy programs were read but not executed; this check is analytical and covers the full parameter range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The effective-resistance gradient gives the general optimality test. The explicit inverse-conductance path sum in the inspected Lewis-weights discussion is for trees. The Lipschitz-free references supply the transportation/graph-space description."
+        ],
+        "reasoning": "The tree resistance formula does not cover the cyclic K_{2,m} network, and the general D-optimality test does not solve the defect weights or determine the critical response.",
+        "searches": [
+          "arXiv:2302.05966v1, pp. 10–11",
+          "arXiv:1807.03814v1, p. 3",
+          "arXiv:2305.12582v1, pp. 2–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.05966v1",
+        "arXiv:1807.03814v1",
+        "arXiv:2305.12582v1",
+        "Resultary records 9d7b4790a5f3 and 10c4ee0f647e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The asymmetric-book finding has a shared hub edge, an all-contact phase and a phase-width asymptotic proportional to 1/m. The snowflaked-bipartite finding varies class distances and includes the equal-edge baseline."
+        ],
+        "reasoning": "Changing or removing a hub edge from the book model does not create a single distinguished leaf path. Varying a class distance in the bipartite model does not single out one leaf either. Neither parameterization specializes to the defect family apart from the shared baseline, irrespective of intra-day order.",
+        "searches": [
+          "Resultary record 2026/10/18/SCOPE-three-stage-contact-screening-for-the-john-ellipsoid-of-asymmetr--9d7b4790a5f3",
+          "Resultary record 2026/10/18/SCOPE-exact-john-ellipsoids-and-sharp-contact-thresholds-for-snowflake--10c4ee0f647e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Suliman–Weinstein identify the outer ellipsoid for the scaled vector set via ℓ∞-Lewis weights and D-optimal design; its polar is the corresponding inscribed ellipsoid. The relevant vectors here are (e_p−e_q)/length."
+        ],
+        "reasoning": "Passing to the polar recovers the same extremal problem in another language. The general optimizer characterization is known; it does not give the explicit optimal weights or their singular asymptotic on this family.",
+        "searches": [
+          "Resultary: one-path-defect K_{2,m} Lipschitz John ellipsoid; weighted theta symmetric-edge/Löwner ellipsoid",
+          "arXiv:2302.05966v1, pp. 3 and 10–11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The snowflaked-bipartite record includes the unperturbed K_{2,m} baseline at p=2, q=m and within-class distance 2. No inspected formula tabulates the one-exception family or its crossover."
+        ],
+        "reasoning": "The t=1 ellipsoid and baseline volume are shared exact data; they supply no numerator for the normalized response at t≠1.",
+        "searches": [
+          "Resultary: exact conductance and volume response for an exceptional two-edge path in K_{2,m}; square-root scaling",
+          "Resultary record 2026/10/18/SCOPE-exact-john-ellipsoids-and-sharp-contact-thresholds-for-snowflake--10c4ee0f647e"
+        ]
+      },
+      "rationale": "The general D-optimal certificate and the ordinary K_{2,m} baseline are not the new content. The supported distinction is the exceptional-path solution, its persistent contact when t varies, and the normalized volume scaling law. Checked related graph families do not imply this anisotropic formula and limit.",
+      "residual_risks": [
+        "Primary-text comparison was bounded to the cited graph-design and transportation sources; an uninspected weighted theta or symmetric-edge formula may overlap.",
+        "Same-day record dates do not establish relative priority; the overlapping ordinary baseline is credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimization framework and tree example, not the cyclic one-defect response.",
+          "evidence": "Outer ellipsoid characterization, log-determinant effective-resistance gradient and the inverse-conductance sum in the tree case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05966v1",
+          "material_read": "pp. 3, 10–11, OA offsets 8400 and 40000–44937",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "General graph D-optimality and potentially explicit weighted path formulas"
+        },
+        {
+          "assessment": "Background on Lipschitz-free spaces, not the claimed optimizer.",
+          "evidence": "Finite-metric Lipschitz-free and transportation setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03814v1",
+          "material_read": "p. 3, offset 8000",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Finite metric duality"
+        },
+        {
+          "assessment": "Supplies graph/cycle-space background, not a defect ellipsoid or limit.",
+          "evidence": "Transportation-space and graph representations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582v1",
+          "material_read": "pp. 2–4, offsets 6000–11449",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Graph-metric representation"
+        },
+        {
+          "assessment": "Related method and different asymptotic; different graph and defect.",
+          "evidence": "Triangles sharing a hub edge; intermediate phase width asymptotic to A²/(m√(B²−A²)).",
+          "identifier_or_url": "2026/10/18/SCOPE-three-stage-contact-screening-for-the-john-ellipsoid-of-asymmetr--9d7b4790a5f3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, bounded statement inspection",
+          "title": "Three-stage contact screening for the John ellipsoid of asymmetric book metrics",
+          "trigger": "Closest exact graph-energy/contact and scaling result"
+        },
+        {
+          "assessment": "Exact baseline overlap, no one-leaf perturbation.",
+          "evidence": "The class-symmetric family at p=2, q=m and within-class distance 2 is ordinary unit-length K_{2,m}.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-john-ellipsoids-and-sharp-contact-thresholds-for-snowflake--10c4ee0f647e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, bounded statement inspection",
+          "title": "Exact John ellipsoids and sharp contact thresholds for snowflaked bipartite Lipschitz dual balls",
+          "trigger": "Exact complete-bipartite ellipsoid formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-path defect is a minimal controlled metric perturbation, and the normalized John volume is a specific extremal invariant. The exact solution distinguishes a two-direction collapse at fixed size from the linear large-network response and gives the crossover function, not just a possible scaling exponent. This has quantitative use for sensitivity of these metric balls; it does not assert that general heterogeneous metrics have full contact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

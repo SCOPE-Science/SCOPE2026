@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is analytic. In normalized coordinates, direct line-distance formulas give \(r_2+r_3=2(h-y)/\sqrt{1+h^2}\). The horizontal second derivative of \(R_2+R_3\) is strictly positive for an interior point, and the remaining reciprocal-distance term is strictly increasing with \(|x|\), so the defect is minimized uniquely at \(x=0\). At that point, rationalization uses the exact identity
-\[
-(1+h^2)(1+y^2)-(h+y)^2=(hy-1)^2.
-\]
-The bundled checker verifies this identity at the polynomial-coefficient level and stress-tests the original and strengthened inequalities on deterministic interior grids. The grid is diagnostic only; it is not used to prove the universal statement.
+# Independent mathematical audit
 
-The proof does not cover scalene triangles. Independent audit has not been performed.
+## correctness
+
+PASS
+
+The prior independent proof check stands, using Liu's sideline convention. With t=h−y>0, the two equal-side lines give r2+r3=2t/sqrt(1+h²). The triangle inequality applied to (1+x,y) and (1−x,y) gives R2+R3≥2sqrt(1+y²), with equality only when x=0 because y>0. Also −2y/R1≥−2y/t, strictly unless x=0. At x=0 the defect has numerator sqrt((1+h²)(1+y²))−h−y over t. Rationalization gives the stated numerator (hy−1)² and positive denominator. Thus equality in the stronger bound is exactly on the altitude; equality in the original inequality is at y=1/h, interior iff h>1. This is the orthocenter since the altitude from B has slope 1/h. Restoring the half-base shows its height is (BC)²/(4h_a). The proof is analytic, not a conclusion from the supplied numerical stress test.
+
+## originality
+
+PASS
+
+Liu's original statement explicitly leaves the equality point on the isosceles altitude unidentified. The comparison found related cyclic-sum refinements and a different optimal symmetric weight, not a covering result for the exact fixed-vertex ratio, its sharp height-dependent defect, and the interior orthocenter equality. The exact catalogue hit is the audited record itself. The pass is limited to this isosceles reduction; it does not credit the conjecture itself or a solution for all triangles.
+
+## value
+
+PASS
+
+The isosceles subclass is motivated by Liu's conjectured equality, not an arbitrary slice. The sharp horizontal minimization gives the exact lower bound at each fixed height and identifies the previously unspecified altitude point as the orthocenter when it is interior. This settles the full symmetric equality regime even though it leaves the scalene case open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

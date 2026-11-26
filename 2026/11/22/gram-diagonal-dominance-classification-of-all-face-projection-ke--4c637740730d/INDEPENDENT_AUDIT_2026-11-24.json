@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:56:02.525339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–61",
+        "Frozen verify.py, read-only inspection of rational samples, normal equations and exact examples"
+      ],
+      "rationale": "For b=Uᵀ(x−p₀), the normal equation on an edge in direction i gives foot coordinate (bᵢ−Σgᵢⱼεⱼ)/gᵢᵢ. Maximizing the left endpoint and minimizing the right endpoint independently over the fixed binary coordinates gives precisely (Lᵢ,Hᵢ). Center the coordinates at 1/2: set y=b−G1/2. The edge conditions are |yᵢ|<δᵢ/2. On a face with free indices I, let zᵢ=yᵢ−Σ_{j∉I}gᵢⱼ(εⱼ−1/2); then |zᵢ|<(gᵢᵢ−Σ_{j∈I,j≠i}|gᵢⱼ|)/2. The affine Jacobi map tᵢ↦(zᵢ−Σ_{j∈I,j≠i}gᵢⱼtⱼ)/gᵢᵢ maps the closed centered half-cube strictly into its interior and is a sup-norm contraction by strict dominance. Its unique fixed point is the centered projection foot. I=[d] gives interiority; vertices are automatic. Nonpositive δᵢ makes the strict edge interval empty, including equality. The image box is centered at p₀+U1/2 with volume ratio ∏δᵢ/det G. The equiangular determinant (1−c)²(1+2c) gives both stated rational examples and the c=1/2 failure.",
+      "residual_risks": [
+        "The packaged finite verification is corroboration only and was not executed; the all-real result is established analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader polytope kernel is an intersection of open convex sets; the cited tiling equivalence is three-dimensional, and the companion studies admissible cutouts."
+        ],
+        "reasoning": "A general kernel definition and a conditional tiling theorem do not yield sharp feasibility or the shape and volume law on a particular family. No higher-dimensional tiling consequence is required here.",
+        "searches": [
+          "arXiv:2611.14277v1, §6, especially Thm. 6.6 and Conj. 6.8",
+          "arXiv:2611.13896v1, §5.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14277v1",
+        "arXiv:2611.13896v1",
+        "Resultary 108ca142f425 and a129853e89b6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general vertex-cone regrouping does not reduce the number of inequalities; the planar strips need no higher-face sufficiency argument."
+        ],
+        "reasoning": "The principal-Gram argument supplies precisely what is still needed when the face dimensions are greater than one; the resulting intervals make the determinant computation possible.",
+        "searches": [
+          "arXiv:2611.14277v1, Lem. 6.2",
+          "arXiv:2611.13896v1, Thm. 5.5 and Rem. 5.19",
+          "Resultary records 108ca142f425 and a129853e89b6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original definition matches the all-face projection object; for polygons the intersection of perpendicular open edge strips is the same edge-foot condition."
+        ],
+        "reasoning": "In dimension two the prior strips already characterize the admissible centers. This does not prove that higher-dimensional face projections are forced by those onto edges.",
+        "searches": [
+          "Resultary: all-face orthogonal kernel parallelotopes Gram matrix strict diagonal dominance exact volume edge reduction",
+          "arXiv:2611.14277v1, Def. 6.1 and Lem. 6.2",
+          "arXiv:2611.13896v1, Thm. 5.5 and Rem. 5.19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit was the assigned record. Inspected distinct same-day hits give volume formulas for regular cross-polytopes and anisotropically stretched octahedra."
+        ],
+        "reasoning": "Those different polytope families do not contain arbitrary parallelotopes. This is a continuum classification, so the material database comparison is an exact formula or covering family, not a list of isolated values.",
+        "searches": [
+          "Resultary: all-face orthogonal kernel parallelotopes Gram matrix strict diagonal dominance exact volume edge reduction"
+        ]
+      },
+      "rationale": "The all-face kernel is prior, and the edge-strip characterization in the plane is already given by Pavlík. The distinct result here is the arbitrary-dimensional edge sufficiency for skew parallelotopes, with the Gram box, exact row-dominance threshold and determinant probability. In the checked prior results none provides those higher-dimensional conclusions or an evaluated formula that subsumes them.",
+      "residual_risks": [
+        "Unindexed treatments in projection geometry or inverse matrix theory may use a different formulation; the bounded search cannot certify priority.",
+        "Same-day cataloguing is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definition and a 3D tiling equivalence, not the Gram classification",
+          "evidence": [
+            "Def. 6.1 permits an empty open convex kernel; Lem. 6.2 says its vertex regrouping does not reduce the inequality count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14277v1",
+          "material_read": "PDF pp. 16–19, Def. 6.1, Lem. 6.2, Thm. 6.6 and nearby conjecture",
+          "method": "OA text, pp. 16–17 and 18–19 opened around extraction offsets 49200 and 57100",
+          "title": "Thales’s theorem in higher dimensions",
+          "trigger": "Same all-face orthogonal-kernel object"
+        },
+        {
+          "assessment": "Covers the general planar strip description, not a higher-dimensional Gram criterion",
+          "evidence": [
+            "The polygon admissible region is the intersection of open strips perpendicular to the edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13896v1",
+          "material_read": "PDF pp. 15, 17 and 22, Thm. 5.5, Def. 5.13 and Rem. 5.19",
+          "method": "OA text, offsets 53787, 59400 and 80300–81608",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Prior projection/cutout admissibility and planar equivalence"
+        },
+        {
+          "assessment": "Different polytope family",
+          "evidence": [
+            "The regular cross-polytope kernel is defined by ||b||₁+(d−2)||b||∞<1 and has an explicit binomial volume fraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-orthogonal-kernels-of-regular-cross-polytopes-in-dimensions-at-l--108ca142f425",
+          "material_read": "Original Finding",
+          "method": "Local Resultary mirror",
+          "title": "Orthogonal kernels of regular cross-polytopes in dimensions at least four",
+          "trigger": "Near match on all-face kernel geometry and exact volume"
+        },
+        {
+          "assessment": "Different polytope family",
+          "evidence": [
+            "The input is an axially stretched 3D octahedron, not a skew parallelotope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-axial-anisotropy-induces-a-sharp-orthogonal-kernel-phase-transit--a129853e89b6",
+          "material_read": "Original Finding",
+          "method": "Local Resultary mirror",
+          "title": "Axial anisotropy induces a sharp orthogonal-kernel phase transition",
+          "trigger": "Near match on shape, emptiness and volume"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–28",
+        "Pavlík arXiv:2611.14277v1, §6"
+      ],
+      "rationale": "The result classifies admissible centers for a natural all-dimensional family, including arbitrary mixed signs and unequal generator lengths. It replaces a growing set of face checks by 2d sharp scalar inequalities and gives the exact uniform probability as the center set collapses at the shear threshold.",
+      "residual_risks": [
+        "No criterion for general combinatorial cubes or higher-dimensional orthogonal tiling is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed finite census has a rigorous exhaustiveness argument. In \(C_3\square C_8\), every geodesic consists of a shortest arc of \(C_8\), with a unique row change at an arbitrary point only if the endpoint rows differ. Both checker implementations independently generate all possible shortest-path interiors. The vertex-subset predicate tests whether each selected pair has an interior-disjoint geodesic. It is hereditary. The increasing-index recursion consequently lists each feasible subset once and excludes nothing feasible, and the one-vertex-extension criterion decides inclusion-maximality exactly. Compiled C++ BFS/path enumeration and Python Cartesian-arc enumeration agree in all ten coefficients, maximal counts, and two totals when executed from the package. No extrapolation from test widths or finite sampling is used. The specific seven-set is checked as an attaining witness.
+PASS
 
-## Originality — PASS, provisional
+In the Cartesian product, a geodesic follows a shortest cyclic arc and uses zero triangle steps for equal rows, otherwise exactly one. Both directions at antipodal columns and all positions of that step must be included. Checking existence of an interior mask disjoint from the selected set for each selected pair is therefore equivalent to ordinary mutual visibility. Heredity gives one increasing-order path per feasible set and makes maximality equivalent to failure of every one-vertex extension, including vertices smaller than the last inserted ID. Both supplied programs and their logs were inspected without executing them. An independently written BFS/distance-descent replay reproduced all labeled coefficients: from size 0 through 9, feasible [1,24,276,1952,8808,24720,40256,33000,9960,928], maximal [0,0,0,0,0,0,0,4608,4656,928], with totals 119925 and 10192. There were no larger feasible sets. Replay and saved output: /workspace/branches/7eb8e17e-a688-4029-8a64-ddcabd18ae17/independent_census.py and independent_width8.txt in the same directory. The seven-vertex witness also has a direct check: the pair of complete columns 0 and 4 can use the arc avoiding (1,0), and (1,0) can reach either complete column visibly by choosing when to change row. A new vertex on columns 5–7 is separated from (1,0) by the filled columns; on columns 1–3 its geodesics to (0,0) either use (1,0) or reach column 0 in another selected row. This verifies maximality of that witness independently of the counts.
 
-Brešar and Yero introduce the lower invariant and pose the torus problem, rather than solve this case. Korže and Vesel determine the maximum visibility number for \(C_3\square C_8\) (nine), not its minimum inclusion-maximal number or either counting polynomial. The published odd-three-row-torus result is mathematically close but expressly assumes an odd cycle of length at least five and excludes even widths. Its full available RESULT.md was read; the odd proof relies on unique shortest arcs, unlike this antipodal even case. Queries against mathematical research records using the graph, invariant and equivalent descriptions, and searches of primary literature found no covering even-width theorem or existing table of these coefficients. Exact priority remains provisional because nonindexed computations and inaccessible literature may exist. The known maximum nine is explicitly not claimed as novel.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The lower mutual-visibility invariant measures how few vertices a greedy maximal visible placement can have, distinct from its well-studied maximum. A 2023 open problem explicitly asks for toroidal Cartesian graphs, and prior work settles odd three-row circumferences at five. This natural first nontrivial larger even eight-column benchmark gives the exact lower size seven, counts all 4,608 smallest maximal sets, and finds all maximal cardinalities and multiplicities. The complete polynomial data reveal the distribution of greedy outcomes on a symmetric torus, not a cosmetic reparametrization of the known upper value. A broader even-width formula is neither asserted nor needed for this self-contained benchmark.
+The upper cardinality nine follows from published work and is explicitly credited. The minimum size among inclusion-maximal ordinary visible sets on this even torus, and the exact labeled census, are not supplied by the checked maximum-size theorem, the general lower-invariant paper, or the odd-width result. The exact catalog match is the frozen record itself.
 
-## Closest sources and limits
+## value
 
-Primary comparators are Brešar–Yero (2023, arXiv:2307.02951, concluding Problem 1), Korže–Vesel (2024, DOI:10.1007/s00025-024-02139-x, Section 3 and Proposition 3.9), and the published 2026 odd-three-row-torus theorem (https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-lower-mutual-visibility-number-of-odd-three-row-tori--543189f5b94a). A recent fault-tolerant-visibility paper was available only through a theorem excerpt; it treats maximum k-fault-tolerant configurations and not this stated minimality criterion. The result is finite and fully enumerated, with reproducible source and outputs, but not independently audited by a separate mathematician.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The lower invariant on Cartesian tori is a published problem, and the two antipodal shortest arcs make even widths a different case from the known odd-width value. Here the precise gap between the smallest inclusion-maximal size seven and the known maximum nine, together with the labeled distribution of maximal sizes, is a concrete benchmark for proposed even-width classifications and for testing maximal-set algorithms. This is not just a recomputation of the known maximum, and implies no general even-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

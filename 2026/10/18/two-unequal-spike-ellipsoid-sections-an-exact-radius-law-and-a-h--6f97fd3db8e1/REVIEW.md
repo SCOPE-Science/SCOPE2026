@@ -1,26 +1,21 @@
-# Scientific review: two-unequal-spike random section radii
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact radius identity follows from the equality of nonzero spectra of \(BB^{\mathsf T}\) and \(B^{\mathsf T}B\), with \(B\) the weighted projection of the two exceptional coordinate vectors into the random hyperplane. The \(2\times2\) determinant inequality is sufficient and necessary for the exact CDF because the lower-right diagonal entry of \(D-sI\) is positive for \(s\in(d_1,d_2)\). The first two squared coordinates of a Haar normal have the specified Dirichlet law. The coupled Gaussian strong law proves the critical and supercritical weak limits. The limiting supercritical matrix is positive definite almost surely because its determinant is \(c_2^{-2}G_1^2\). A conditional normal integral proves the precise tail constant by dominated convergence, and the layer-cake formula yields the sharp moment threshold. Bounded truncation plus weak convergence proves divergence of the normalized finite-dimensional expectations. No finite simulation is used to infer an infinite statement.
+PASS
 
-The separate standard-library checker independently restricts the full ellipsoid gauge to 420 sampled hyperplanes, diagonalizes the resulting matrix, and compares with the two-coordinate reduction (largest observed error below \(1.1\times10^{-13}\)). It also checks exact boundary normals and determinant events, and independently quadratures the tail constant. The analytical proof—not the checker—establishes the quantifiers and asymptotics.
+Both the retained finite formulas and the narrowed sharp supercritical finding are correct. The inverse squared radius is the least eigenvalue of the restricted quadratic form; it is one minus the top eigenvalue of a projected two-column Gram matrix. The fixed-normal identity thus also works at rank deficiency. Schur complementation when d₂−s>0 proves the Dirichlet CDF event; rank-one interlacing gives R≥b with equality for e₁-perpendicular. Coupling with one Gaussian sequence gives √N(U₁,U₂)→G and positivity of the scaling limit even when c₁=∞, since the determinant is c₂⁻²G₁². At t>c₂, taking the Schur complement at t⁻² and conditioning on G₂ gives the exact erf expression; t times the integrand is dominated for t≥√2 c₂ by √(2/π)√(1+2c₂²G₂²). Its limiting constant is positive and finite, so layer-cake proves the full positive-moment threshold. Bounded truncations under weak convergence prove divergence of the normalized expectations without an illicit exchange of limits. The frozen check_two_spike.py and VERIFICATION.md were inspected, not executed; the reported finite eigenvalue checks are not proofs of the limiting assertions.
 
-## Originality — PASS, with residual risk
+## originality
 
-The motivating September 21, 2026 article by Guedon, Litvak, Tatarko, and Vritsiou studies random sections of general convex bodies and \(p\)-ellipsoids. Its relevant Section 6.3 treats semiaxes taking only two values, with high-probability order bounds; this does not imply a full CDF for two **distinct enlarged** semiaxes, the rank-two Gaussian limit, or its exact tail. The earlier full-text works by Hinrichs and collaborators establish general high-probability random-radius estimates, not the claimed explicit two-unequal-spike distribution. The closest public research-index record gives an exact beta law for **one** exceptional semiaxis; an affine change of coordinates cannot turn that law into the present one while preserving both the Euclidean radius and Haar hyperplanes. Searches using exact objects, aliases, Gaussian matrices, Dirichlet distributions, and the asymptotic moment transition found no result implying the full claim. Unindexed literature on low-rank secular eigenvalues or special Wishart laws is the principal priority risk; no absolute first-discovery guarantee is asserted.
+PASS
 
-## Mathematical value — PASS
+The original attribution of a distinct exact finite-dimensional distribution FAILS: an inspected prior theorem gives the very same law, not just estimates or a methodological analogue. Assiotis–Najnudel Definition 1.1 explicitly allows repeated eigenvalues, and Proposition 1.7 identifies the real Haar compression with θ=1/2. The factorization below gives exact coverage at every assigned N. The corrected RESULT.md reclassifies the finite law as a specialization, retains the scaling calculation for context, and makes the sharp supercritical tail and its moment/optimal-radius consequences the surviving finding. That claim passes the bounded prior comparison; the cited general law does not itself carry out this large-N, then large-t, endpoint analysis.
 
-For codimension one, optimal information eliminates the longest axis and has exact radius \(b\). The theorem determines the **entire** stochastic performance of Haar/Gaussian information for the first nontrivial unequal two-spike spectrum, through an exact finite-dimensional CDF and a critical \(\sqrt N\) limit. The transition from bounded, nondegenerate fluctuations to an unbounded limit with sharp \(t^{-1}\) tail and loss of every moment of order at least one is a structural quantitative benchmark for random-section geometry. This is not a numerical refinement, a single finite example, or a restatement of general order-of-magnitude bounds.
+## value
 
-## Closest sources and limitations
+PASS
 
-- Guedon–Litvak–Tatarko–Vritsiou, arXiv:2609.24131 (2026), introduction and Section 6.3: general random radius bounds and two-valued axes.
-- Hinrichs–Krieg–Novak–Prochno–Ullrich, arXiv:1901.06639 (2019), Sections 2 and 3: random information bounds for arbitrary ellipsoid spectra.
-- Hinrichs–Prochno–Sonnleitner, arXiv:2109.14504 (2021), Sections 1–2: upper bounds for generalized ellipsoids.
-- Public record titled *Exact random-radius law for one-spike ellipsoids in every codimension*, indexed with identifier `2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae`: a distinct one-spike exact law, examined through its accessible public summary.
+The routine specialization of the exact finite kernel is not the reason for acceptance. The repaired result computes the sharp large-radius coefficient and its moment threshold in a natural critical/supercritical measurement model. An optimal one-hyperplane normalized radius stays bounded, while uniform random choice has diverging normalized mean even though each member of the sequence is bounded. The constant and this distinction complement general high-probability radius estimates.
 
-The result does not treat two or more hyperplane measurements, additional exceptional axes, or noncentral affine sections. The heavy-tail claim concerns the weak limit and should not be transferred to finite-dimensional expectations without a separate uniform-integrability argument. The generic random-matrix literature may contain an equivalent statement under different terminology.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

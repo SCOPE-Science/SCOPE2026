@@ -1,19 +1,21 @@
-# Scientific review: exact three-cube token-swapping metric
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the fully specified undirected Boolean three-cube on vertex labels 0 through 7, with distinct labelled tokens and **one** adjacent-edge exchange per move. The complete 8! finite configuration graph is reproduced by `verify_q3.py`. Its two BFS implementations use tuple/dictionary and independent Cantor-rank/array state identifiers, and compare all 40,320 distances. All states are reached and the printed shell and excess histograms sum to 40,320. Every legal edge is exactly one such swap, so the BFS induction gives the optimal shortest-swap metric, not merely an upper bound. Relabeling token identities acts transitively, extending the identity-state diameter and unique antipode to every source. An edge swap moves at most two tokens one step, proving the transportation lower bound. The exact numerical census is a finite exhaustive certificate, not an extrapolation to larger cubes.
+PASS
 
-## Originality — PASS, qualified
+I enumerated the cube vertices as binary triples and generated the twelve position swaps by counting differing coordinates. A separate packed-integer frontier enumeration, `cd /workspace && python3 q3_reproduction.py`, covered every permutation of eight labels. Besides constructing the layers it checked all legal neighbors differ in the resulting labels by one, and every nonidentity state has a descending neighbor: the first property gives a lower bound along any legal path and the second supplies a realizing path. Its outputs were the exact 13 shells (1,12,90,476,1903,5472,10388,11756,7347,2408,430,36,1), sole level-12 state (7,6,5,4,3,2,1,0), and transportation-gap counts (19064,18088,3144,24). This checks the entire finite state set independently of the supplied BFS code. A relabeling commutes with each position swap and sends the identity to any placement, so eccentricities, shell counts and the single-antipode conclusion transfer; each of the 40320 placements contributes to exactly one unordered diametral pair. The total travel is even because the numbers of tokens crossing the two parity parts in opposite directions agree, and one swap reduces travel by at most two. The claim is sequential, not a statement about matching layers. The supplied script uses int.bit_count (Python 3.10+), so its stated 3.9 minimum is a minor replay-documentation error; the independent replay does not rely on bit_count.
 
-Searches considered aliases such as adjacent transposition Cayley graph on the cube, permuting eight labels by the twelve cube-edge transpositions, Boolean-cube token routing, and hypercube sorting. General token-swapping literature develops complexity, variants and bounds, not the submitted complete radius/diameter, unique antipode, and all-shell and lower-bound-gap enumerations for Q3. In particular, the inspected 2025 hypercube-sorting section establishes general architecture bounds and a sorting algorithm, but not the exact 40,320-state shortest-swap census. A public exact-rearrangement database lists standard unrestricted permutation transpositions: its distance-one row at eight symbols is 28, whereas the present model has 12; it therefore does not imply this result. The closest indexed published-finding corpus result is an exact token-swapping census on the ten-vertex Petersen graph; it cannot imply the graph-specific three-cube profile. This is a best-knowledge originality assessment, not proof of absence from the world's literature. An unindexed or historically earlier equivalent Cayley-graph result remains a real priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The three-cube is the smallest genuine three-dimensional hypercube communication network, and sequential neighbor-swapping is a basic token-routing primitive. Unlike an arbitrary small slice, this is the entire natural finite state space of a canonical regular graph. The exact worst-case 12-swap budget, unique farthest configuration per start, and complete distance profile measure routing resilience and cost distribution. The 24 configurations requiring three extra swaps beyond the standard half-total-distance bound quantify an algorithmically important weakness of a widely used relaxation. These sharp finite facts are not implied by generic connectivity or asymptotic hypercube sorting bounds and provide an exact benchmark for algorithms, though no broad complexity breakthrough or higher-dimensional generalization is claimed.
+The supported distinct result is the exact sequential Q3 word metric census, in particular the sole opposite-vertex antipode and sharp transportation-gap law. General swap models, transportation lower bounds, recursive routing, and BFS are not new. The mathematical comparison uses the actual relevant sources rather than the frozen record's two mismatched general-literature citations.
 
-## Main limitations and closest work
+## value
 
-A. Biniaz et al., *Token Swapping on Trees* (arXiv:2103.06707; ESA 2022), develop the general operation and tree results. É. Bonnet et al., *Complexity of Token Swapping and its Variants* (STACS 2017), analyze computational complexity and restricted graph families. N. Samos Sáenz de Buruaga et al., *Fidelity decay and error accumulation in random quantum circuits* (SciPost Phys. 2025), Appendix E.2, give architecture-level bounds. These are related methodological results, not the exact finite three-cube statement. The reproducible BFS establishes correctness of the finite values; an external expert assessment of originality and significance has not occurred. Results about Q4 or Petersen graph are different objects.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Q3 is a canonical small interconnection graph; this is its full shortest-sequential-swap census, not a slice or sampled average. For evaluating routing heuristics it gives an exact worst-case cost, the geometry of its unique worst opponent, and exact failure frequencies of the ubiquitous transportation relaxation. The sharper information is not furnished by generic graph connectivity or parallel routing bounds; no higher-dimensional consequence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The even-rectangle condition is equivalent to the binary row-plus-column representation, unique up to a common flip. Fixed-point equations are reconstructed separately for the identity, class-transposition, and class-three-cycle cosets of the full wreath action. In the identity coset, the rank-one binary fixed character and cycle-index identities give the named-class count. In the transposition coset, the exchanged-edge block requires an even-cycled square permutation; the fixed third-class permutation contributes squared-cycle weights, including the all-four-divisible correction. In the three-cycle coset, two order reversals cancel, leaving a block fixed under conjugate permutations. Burnside's lemma then gives the claimed formula. The sharp modulus-four statement follows because the only modulus-four term is positive at every positive multiple of four and zero at every integer congruent to two mod four. No hidden asymptotic assumption is used.
+PASS
 
-The independent-from-formula affine fixed-point checker exhaustively covers all class permutation cosets and internal permutations through \(n=4\), and symbolic integrality is tested over more sizes. These computations corroborate but are not substituted for the infinite proof.
+The even rectangles give M(x,y)=u(x)+v(y) over F2 with one common flip gauge. For side-preserving permutations, the two differences must be the same constant, which may be 1 only when both permutations have all cycles even. Multiplying the resulting three block counts and averaging yields U_n. For a class swap, choose coordinates so the two successive maps give σ on one shore. The reversed block satisfies M(x,y)=1+M(σy,x), forcing v=u+t and u(σx)=u(x)+1; the gauge leaves 2^{c(σ)} choices when all σ cycles are even. The other blocks exchange, so one must be fixed by (σ,γ²) and determines the other. For γ, each even cycle splits under squaring, and γ² has only even cycles precisely when every γ cycle length is divisible by 4. The two cycle indices are (1−z)^(−2)(1−z²)^(−1) and (1−z⁴)^(−1), giving H_n and E_n. A class 3-cycle cycles all blocks; using cyclic orientations there is no net complement and one block is fixed under conjugate copies of the same permutation. Burnside with multiplicities 1,3,2 then gives V_n and the degree-nine leading coefficient. For any proposed period p not divisible by 4, the progression 0 mod p contains infinite subprogressions in both 0 and 2 mod 4; the two differing polynomial constituents would have to agree identically. The odd/even argument similarly gives minimal period two for U_n.
 
-## Originality — PASS, with explicit residual risk
+## originality
 
-The 2013 primary source identifies exactly the semigeneric class and supplies a Ramsey expansion, not the three-class unlabelled fixed-point orbit count. The 2019 source gives a binary equivalence-class characterization and unique ergodicity, not a finite full-wreath orbit formula. Cherlin supplies structural classification, not this counting refinement in the inspected discussion. A published published-finding corpus exact Stirling-layer profile concerns injective labelled tuple orbits, which is not equivalent to quotienting triples of rank-one binary orientation matrices by all three-class relabellings. The closest accessible prior two-part character handles only one edge block, whereas the new count explicitly requires three coupled blocks, 3-cycle cosets, and a nonzero period-four correction. Searches for the exact values and synonyms gave no covering enumeration. Highly specialized or unindexed literature may contain the same count implicitly; search failure cannot prove absolute novelty.
+PASS
 
-## Value — PASS
+The supported distinct claim is the balanced three-class quotient and especially the squared-permutation correction giving a genuine fourth residue, not the parity representation or the single-block fixed characters. The closest two-class record covers both single-block characters; those are inputs, not a theorem for coupling the exchanged blocks to the remaining class. The ordered-tuple profile concerns a different orbit problem. No equivalent three-class count or prior theorem determining the modulus-four term was found in the checked sources.
 
-The three-class balanced configuration is the first natural case where two-part semigeneric parity orientations interact under a nontrivial cycle of class labels. The theorem gives a complete unlabelled classification for every size, not isolated computed cases, and identifies a sharp period doubling caused specifically by side-exchange symmetry. The degree-nine growth and explicit first coefficients support comparisons of labelled versus unlabelled ages and of named versus unnamed equivalence classes. No broader asymptotic theorem or independently certified uniqueness is claimed.
+## value
 
-## Limits and closest literature
+PASS
 
-Primary sources: Cherlin's discussion of the imprimitive semigeneric directed graph; Jasiński–Laflamme–Nguyen Van Thé–Woodrow, arXiv:1310.6466, Section 10; Jahel, arXiv:1902.04903, Sections 1–2. Closest related published enumerator: the exact Stirling-layer profile of the semigeneric complete multipartite digraph (published-finding corpus identifier `2026/10/4/SCOPE-exact-stirling-layer-orbit-profile-of-the-semigeneric-complete-m--5135d85e91a6`), whose implication reaches labelled patterns but not the full unlabelled symmetry quotient. The two-class parity-character method is a previously established subcase. Residual risk: an indexed record or book section may implicitly contain the tripartite Burnside sum; no complete universal novelty certification is possible.
+This is a natural finite enumeration for the first number of shores at which the fixed third class under a transposition couples to a pair of exchanged blocks. The exact named and anonymous counts show a qualitative change of least period, rather than just a leading coefficient or a single enumerated case. The fourth-residue term identifies which symmetries cause the change and provides exact benchmarks for this class of finite digraphs.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

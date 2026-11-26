@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exterior supercommutativity gives the exact centralizer-rank reduction for all finite fields of odd characteristic. The nonzero degree-one stratum has rank eight by a filtered exterior-algebra automorphism. When the degree-one component vanishes, the degree-three wedge map is the alternating form defined by the five-dimensional volume pairing. Its ranks and radical counts give the complete multiplicity formula. The resulting weighted class-size sum equals the order of the group, and the characteristic-two case follows from the defining exterior relations. The standalone `verify.py` passed the stated independent finite calculations, including exhaustive ternary rank enumeration.
+PASS
 
-## Originality — PASS, with recorded residual risk
+In odd characteristic the commutation condition is exactly a_odd∧b_odd=0; the centralizer index is q^rank and all 15 even coordinates are free. Independently, for a_odd=v+α+β with v≠0, split V=⟨v⟩⊕W. The degree-two projection has rank 4. On its kernel the degree-four image is v∧Λ³W of dimension 4: b_1 is a multiple of v and the contribution α∧b_1 is already in that image. This gives rank 8 and (q⁵−1)q²⁶ elements. When v=0, the perfect top wedge pairing identifies α with an alternating form on V. The radicals of nonzero forms have dimensions 3 or 1; each quotient contributes q−1 or |GL₄|/|Sp₄|=q²(q−1)(q³−1), respectively. This gives N₂,N₄ as stated, with q¹⁶ free lifts per form. Divide element counts by 1,q²,q⁴,q⁸ to obtain each coefficient; weighted mass is q³¹. In odd characteristic positive-even units are central and every unit factors into such a unit and 1+u with u odd; u²=0 and [1+u,1+w]=1+2u∧w. Noncommuting generator pairs establish class exactly two. The squarefree alternating convention implies commutativity in characteristic two. Nonzero scalars split off centrally without altering class sizes, multiplying counts by q−1.
 
-Domokos–Zubor's Proposition 7.5 covers the regular degree-one centralizer type but not the full alternating-rank population and class-size polynomial. Bovdi–Leung concern maximal commutative subalgebras, while Rossmann's graphical-group class-size framework has a different commutator presentation. Searches in mathematical research records and related published mathematical statements found no implication giving the five-generator finite-field class-size vector. This is a best-knowledge comparison, not an assertion of exhaustive literature uniqueness. A specialized unlocated calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The group of principal units is canonical for a finite-dimensional local algebra. The five-generator exterior case is the first where higher odd-degree coefficients produce two different positive alternating ranks. The complete class-size spectrum of this order-\(q^{31}\) class-two group, including the missing exponent six and the characteristic-two collapse, answers a natural finite-group invariant problem rather than an arbitrary numerical slice.
+The known centralizer dimension in the nonzero-linear stratum, elementary even-characteristic behavior, and standard alternating-form counts are not new. The contribution is the full rank-separated size enumerator for the specific exterior principal-unit group. No earlier inspected theorem supplies the required class-size distribution. The later five-generator algebra centralizer census is a direct equivalent source of the same odd-q coefficients by scalar slicing and division by class size; this is material overlap, not genuinely different science or evidence in itself of earlier priority.
 
-## Closest literature and limitations
+## value
 
-Closest primary sources: Domokos–Zubor, arXiv:1403.2916; Bovdi–Leung, arXiv:1803.03457; Rossmann's 2021 graphical-group paper. Full text or author-supplied mathematical text of the relevant portions was inspected. The four-generator exterior-algebra commutator-fiber result is a related smaller-rank calculation, not a theorem implying the degree-three alternating-rank split. There is residual risk from unlocated specialized sources. The computation is an arbitrary-finite-field theorem only for five exterior generators; representation-degree formulas and higher-rank analogues are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural exact invariant is the ordinary class-size distribution of a principal-unit group, not an arbitrary count of vectors. Rank five is the first odd-generator case with two distinct nonzero alternating ranks for the leading cubic part; the exact polynomial locates and quantifies those strata and the conspicuous missing q⁶ size. It is directly usable for finite group centralizer and commuting probabilities without enumerating a group of order q³¹.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

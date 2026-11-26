@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:57:04.204120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–67",
+        "Frozen VERIFICATION.md, verify_exhaustive.cpp, verify_locating.cpp, verify_coefficients.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/frozen_review_replay_1to5.py 5"
+      ],
+      "rationale": "In the incidence graph, an outside cell sees the union of its two incident-edge stars, while a selected cell has d(row)+d(col)−2 selected neighbors. Opposite-part isolates obstruct domination; same-part isolates obstruct location through two cells in a common other coordinate. For distinct rows and columns equal nonempty signatures can use only the two cross edges, and any such edge is a single-edge component. One cross edge alone forces an isolated row and column; both give the ambiguity directly. Thus ordinary LD permits at most one isolate and at most one single-edge component, and totality excludes every single-edge component. This also accounts for a one-row complete graph and the zero LTD polynomial on 1×1. Two-sort labelled component removal and allowed reinstatement prove the EGFs and deletion of the unique single-edge component proves the factor mnz. For r+c nonisolated vertices, the maximum number of allowed components is min(r,c,floor((r+c)/3)); this is attained by starting with a row–column pair in each component, distributing one extra vertex to each and connecting each part as a tree. The edge lower bound is sharp for any permitted (r,c). The minimum is reached at (m,n−1), using m≤n and, when m=n, ceil(2(2m−1)/3)≥m. At any other support attaining the global minimum, equality in the edges-versus-components bound forces trees too. The bipartite tree formula then gives the exact optimum coefficient. For ordinary LD, allowing one component of size two gives floor((r+c+1)/3) in the component bound, attainable whenever it exceeds floor((r+c)/3) and r,c permit that many parts (one pair left unaugmented). This independently yields the stated one-cell penalty, including n=2m. Direct independent open-neighborhood enumeration on twelve small boards verified both predicates, coefficients in the 3×3 and 4×4 examples, and polynomial differences where both board sizes were included. For 5×5, a minimum has exactly one isolate and three 3-vertex components. The two part sizes force two stars of one type and one of the other; the count is 10·5!·4!/(2!^4)=1800.",
+      "residual_risks": [
+        "The replay checks finitely many labelled boards; the incidence, component and tree arguments establish generality. The one-row convention is for the polynomials, not the minimum formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected introductory LTD literature concerns bounds for general graph families; the Cartesian-product total multiple-domination paper does not require location. Junnila–Laihonen–Lehtilä's ordinary scalar minimum is known and used in the frozen comparison; complete text could not be obtained via the identified lawful copies."
+        ],
+        "reasoning": "The ordinary minimum cannot establish which LTD codes are valid or that all optimum LTD codes are forests, let alone count them. No general theorem in the inspected material supplies those components.",
+        "searches": [
+          "arXiv:2211.14178v2; arXiv:2001.07850v4; DOI:10.1016/j.dam.2018.03.050",
+          "Resultary: all-rectangle locating-total minimum and forest census"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b1f629e7f43d, 7f2244f74bb9, 007471c3c854",
+        "arXiv:2211.14178v2, arXiv:2401.00716v2, arXiv:2001.07850v4",
+        "DOI:10.1016/j.dam.2018.03.050 and DOI:10.1016/j.dam.2012.04.004 (full texts not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-row occupancy cases do not describe all incidences on a larger row part; the all-vertex identifying polynomial even has different minima on 4×4. Once the isolation characterization is known, the labelled exponential rule is standard. The exact minimum and census require a general sharp bound with the at-least-three-vertices component condition and equality rigidity."
+        ],
+        "reasoning": "The finding is not a claim of novelty for the exponential formula or bipartite tree count. The uniting structural and optimum statements are not mechanically supplied by the inspected prior subfamily census or ordinary scalar minimum.",
+        "searches": [
+          "Resultary b1f629e7f43d and 7f2244f74bb9, Findings; Resultary 007471c3c854, Finding",
+          "Junnila–Laihonen–Lehtilä DOI:10.1016/j.dam.2018.03.050; identified UTUPub copy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The selected-cell representation uses the line graph of a complete bipartite graph, but the relevant signatures are open and compared only outside S. The neighboring Resultary 007471c3c854 locates all vertices by closed signatures and so counts a different family. The two-row records provide an occupancy characterization only for that side size."
+        ],
+        "reasoning": "Neither identifying codes nor ordinary total or multiple domination is an alias for the pair of locating notions here. Translate via incident edge stars before comparing counts.",
+        "searches": [
+          "Resultary: rook graph locating-total bipartite incidence criterion, isolated component, all rectangles",
+          "Chakraborty et al. arXiv:2211.14178v2; Henning–Jafari Rad DOI:10.1016/j.dam.2012.04.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b1f629e7f43d and 7f2244f74bb9 both give exact complete LTD polynomials and minimum counts on two-row boards. Mertens gives an all-rectangle ordinary domination polynomial with no location condition."
+        ],
+        "reasoning": "The exact two-row counts are prior subfamily coverage, expressly excluded as novel. The ordinary domination polynomial does not count either of the target location-constrained families.",
+        "searches": [
+          "Resultary: K_2 square K_n complete prism locating-total domination polynomial and minimum census",
+          "Resultary: all-cardinality rook LD/LTD polynomials; arXiv:2401.00716v2"
+        ]
+      },
+      "rationale": "The retained distinct claim is the all-rectangle incidence structure and paired size enumerators with the polynomial difference and forest-optimum census, beyond the known ordinary minimum and the two-row LTD subfamily. Both inspected two-row polynomial records genuinely cover the two-row portion and are credited. No inspected statement supplies the needed general incidence-plus-forest classification.",
+      "residual_risks": [
+        "Junnila–Laihonen–Lehtilä and Henning–Jafari Rad full texts were not obtained; their unseen results could contain additional structure or counts. Absence of access is not noncoverage.",
+        "The verified m=2 LTD overlap is not independently original; the comparison supports only the broader all-rectangle content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the LTD specialization m=2, including minima.",
+          "evidence": [
+            "Explicit two-row all-cardinality polynomial, structural criterion and minimum census."
+          ],
+          "identifier_or_url": "Resultary b1f629e7f43d",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local-mirror passages",
+          "title": "Complete locating-total domination polynomial of the complete prism",
+          "trigger": "Same code predicate and exact counts for two rows"
+        },
+        {
+          "assessment": "Same covered subfamily; no all-rectangle conclusion in the inspected claim.",
+          "evidence": [
+            "K_n square K_2 all-set classification and full polynomial."
+          ],
+          "identifier_or_url": "Resultary 7f2244f74bb9",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local-mirror passages",
+          "title": "Full locating-total domination polynomial of complete prisms",
+          "trigger": "Second exact two-row overlap under transposition"
+        },
+        {
+          "assessment": "Different location predicate.",
+          "evidence": [
+            "K_4 square K_4 with closed-neighborhood identification for every vertex, minimum 6 with 1056 codes."
+          ],
+          "identifier_or_url": "Resultary 007471c3c854",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary local-mirror passages",
+          "title": "A total-dominating identifying-code polynomial",
+          "trigger": "Same family of rook graphs and an exact code polynomial"
+        },
+        {
+          "assessment": "Known ordinary minimum is credited; unresolved possibility of more structural content in the original.",
+          "evidence": [
+            "Frozen §E identifies the minimum as n−1 for n≥2m and ceil(2(m+n)/3)−1 for m≤n<2m. Neither lawful full-text route produced readable text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.03.050",
+          "material_read": "Bibliographic landing-level identification only, plus the minimum quoted in frozen §E; full text unavailable",
+          "method": "DOI and ScienceDirect routes; identified public UTUPub item and PDF routes attempted with OA access",
+          "title": "On regular and new types of codes for location-domination",
+          "trigger": "Exact ordinary minimum on the same product; plausible structural comparison"
+        },
+        {
+          "assessment": "Different property, ordinary domination only.",
+          "evidence": [
+            "Counts all cardinalities on the same product, but does not impose locating signatures."
+          ],
+          "identifier_or_url": "arXiv:2401.00716v2",
+          "material_read": "pp. 1–2, OA offsets 2000 and 7000",
+          "method": "Open primary PDF passages",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "All rectangular rook graph cardinality enumeration"
+        },
+        {
+          "assessment": "Related motivation and bounds, not an inspected rook enumeration theorem.",
+          "evidence": [
+            "Works on general LTD upper-bound problems."
+          ],
+          "identifier_or_url": "arXiv:2211.14178v2",
+          "material_read": "p. 1 abstract and introduction, OA offset 650",
+          "method": "Open primary PDF passage",
+          "title": "Progress towards the two-thirds conjecture on locating-total dominating sets",
+          "trigger": "Same locating-total definition and possible general bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–41 and 46–67",
+        "Exact two-row precedents Resultary b1f629e7f43d and 7f2244f74bb9"
+      ],
+      "rationale": "A complete two-parameter signature characterization gives all-size counts and a deletion bijection between the two notions, not just a minimum. The sharp tree equality class explains every optimum and yields exact labelled counts with a precise condition for paying one cell for totality. These are reusable structural and enumerative results on a canonical product, beyond the known two-row tables.",
+      "residual_risks": [
+        "Formal coefficients do not promise an efficient large-board algorithm; neither higher-dimensional rook graphs nor general graphs are classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

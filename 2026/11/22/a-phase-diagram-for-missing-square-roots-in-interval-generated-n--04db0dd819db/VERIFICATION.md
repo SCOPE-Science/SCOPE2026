@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification summary
 
-The standalone `check.py` requires Python 3.10 or later and only its standard library. From the extracted directory run:
+# Independent mathematical audit
 
-```bash
-python check.py
-```
+## correctness
 
-It compares the exact all-width formula against independent coin-change dynamic programming for 3,429 parameter pairs, checks cumulative partial counts against a separate dynamic-programming implementation in 860 instances, tests the finite uniform rounding bound and the exact plateau in 77 cases, and exercises 54 examples of the cumulative profile bound. The three numerical mesoscopic samples are illustrations, not validation of an infinite asymptotic. Reproducibility does not amount to an independent scientific audit.
+PASS
 
-The written proof independently handles all integers \(a\ge2\), \(k\ge1\), all real cutoffs \(s\in[0,1]\), open gap endpoints, and the two distinct asymptotic scaling regimes. The main premises used are elementary properties of integer-interval semigroups and square-root sums; no external code or unpublished certificate is required.
+For m=qa+r, a representation using s summands has s≤q and r≤ks≤kq; conversely the offset r can be distributed over q summands whenever r≤kq. Thus the missing squares lie in the disjoint open blocks (q(a+k),(q+1)a) for qk<a. Their integer root count is exactly isqrt((q+1)a−1)−isqrt(q(a+k)); neither perfect-square endpoint is included. Each root interval costs at most one in rounding, giving (3), also when a/k is integral or k≥a. In F the disappearing q=j term at t=1/j vanishes continuously but its derivative on the left is −j/(2√(j+1)), giving the claimed positive jump. Writing J=floor(1/t), ∑_{q=1}^J√q=(2/3)J^(3/2)+O(√J) and J=t⁻¹+O(1) give F(t)=2/(3√t)+O(√t). For a cutoff N=floor(sa/√k), the last quotient J=floor(N²/a)=s²/t+O(1) may be counted in full at a root-count error O(√a+1). Telescoping the lengths gives the leading contributions (a/√k)s and −(a/√k)s³/3, with errors O(√a+a/k), uniformly including s=0,1. Finally every missing root satisfies n²<a ceil(a/k), so its rescaled location is at most √(1+k/a). The uniform count and vanishing exterior range, together with the total count asymptotic, give weak convergence with mass 2/3 under the stated normalization. I inspected the supporting checker and used the proof, not execution of that code or its sampled inequalities, for the infinite claims.
+
+## originality
+
+PASS
+
+The membership criterion and the ordinary-gap enumeration are prior work, and the elementary exact square-root count alone is covered as a direct extraction. The part that survives is the two-scale asymptotic classification: the full phase curve and its infinite derivative-jump set, and the uniform rescaled root profile when k grows sublinearly. The closest fixed-width profile gives the same density but cannot be specialized to this moving-width family. No inspected result covers the asymptotic claim at those quantifiers.
+
+## value
+
+PASS
+
+Counting all missing-square roots refines the natural maximum-gap statistic in a distinct way. The reciprocal-width corners identify every change in the active quotient blocks, and the mesoscopic law controls the entire cumulative root population rather than simply a maximum or total. These are useful scaling statements at natural, different generator widths, not a claim of significance for a floor-sum restatement by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

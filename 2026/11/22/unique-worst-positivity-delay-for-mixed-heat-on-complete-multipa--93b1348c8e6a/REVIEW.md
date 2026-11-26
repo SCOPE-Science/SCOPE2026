@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The combinatorial Laplacian has exactly the orthogonal projector decomposition used in the proof: constants (eigenvalue zero), partwise zero-global-mean constants (eigenvalue \(N\)), and zero-sum fluctuations in each part (eigenvalue \(N-s_i\)). Substitution into the mixed exponential gives every entry directly. The only potentially negative entries are the off-diagonal entries within one part. Taking logarithms of their signed difference gives a scalar integral average \(F_p\); its integrand is strictly increasing in time and strictly decreasing in part fraction. Those two strict inequalities prove a unique positive crossing and largest-part dominance. Parameterizing the crossing by the scalar root converts the entire coupling optimization to the one-variable derivative \(1-g_p(x)\), which changes sign once. Boundary limits and all normalization factors were checked. A standalone program independently builds and exponentiates finite matrices and passed 19,560 entry comparisons plus optimization/limit tests. The proof, not the finite checks, establishes the general theorem.
+## correctness
 
-## Originality — PASS, qualified
-The closest full published statements are the exact pure-squared-Laplacian multipartite cutoff and the general scalar-filter criterion, both read and compared in full. The former already proves largest-part ordering for the pure \(L^2\) endpoint, and the latter supplies the spectral kernel formula, but neither states nor implies a unique optimal finite coupling, its closed value, or the collapse of the optimized star-to-near-clique ratio. Prior mixed heat on stars already includes the star optimizer, so that specialization is not claimed new. Prior weak-mixing theory on diameter-two graphs includes the first asymptotic term, not the full-coupling solution. The 2015 Daners–Glück–Kennedy preprints and Gregorio–Mugnolo's graph bi-Laplacian work concern qualitative eventual positivity, not the optimized multipartite shape law. The public literature may contain an equivalent unindexed computation; novelty is qualified rather than asserted exhaustive.
+PASS
 
-## Value — PASS
-The duration of transient sign failure is an intrinsic safety and positivity criterion for the mixture of second- and fourth-order graph diffusion. Unlike a routine evaluation at a fixed parameter, the theorem classifies all coupling strengths, gives their unique worst case in closed form, identifies the controlling graph statistic, and proves that optimizing the mixture changes an unbounded pure-fourth-order graph-shape disparity to a finite universal ratio. This provides a motivated graph-structure and parameter sensitivity benchmark without claiming a universal result on all graphs.
+Projecting onto constants, zero-sum partwise constants and the within-part differences gives eigenvalues 0, N and N−s, respectively. The diagonal and cross-part signs are immediate; a pair within a part of fraction p has sign given by F_p(x)−kappa with x=N(1+N eta)t. The integrand g_p increases strictly from 0 to 1/p, so its running average crosses each kappa in (0,1) exactly once; it decreases strictly with p, making the largest part decisive. At t=0 the matrix is the identity. In x coordinates the optimized quantity NT has derivative 1−g_p(x); its one zero, x*=log((2−p)/(1−p)), lies in range since the running average is less than g_p(x*)=1. Substituting p+(1−p)e^(−x*)=1/(2−p) gives the stated value. Strict ordering persists after maximization by evaluating at the attained optimizer for the smaller p. The one-deleted-edge graph is one minimizer, not the only one: all noncomplete graphs with largest part two tie. The star is the unique maximizing shape up to isomorphism. The expansion g_p(x)=x+O(x²) and continuity at the inverse level 1 give the coupling limits; taking p→0 and p→1 verifies the shape ratio. Complete graphs stay nonnegative. The nested checker was inspected, not executed; the recorded numerical checks are corroboration only.
 
-## Limitations and comparison risk
-The theorem excludes normalized, weighted, directed and nonmultipartite geometries. The earlier star exact result and pure \(L^2\) graph extremizers remain prior art. A stronger or differently indexed exponential-filter calculation may encompass this exact optimization. Numerical consistency checks are not a substitute for mathematical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the sharp finite-coupling recovery and unique optimizer on general, possibly unequal multipartitions, with strict largest-part ordering and its optimized shape comparison. Pure-generator, star and balanced multipartite overlaps are real but do not imply that content. The spectral decomposition and generic scalar-filter formulas are not counted as new.
+
+## value
+
+PASS
+
+The exact global sign boundary and unique worst strength answer a natural question not settled by eventual positivity. The reduction shows that the largest part alone governs the delay even among highly unequal shapes, resolves all extremal ties, and gives a quantitative limiting comparison of optimized delays.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The parity argument follows directly from symmetric nodes and symmetric Bernstein basis weights. Monotonicity of Bernstein polynomials on strictly monotone sampled values gives positivity of the first cosine integral. In degree four, explicit first and third derivatives give the displayed exact coefficient, and degree elevation is a convex re-expression for all smaller degrees. The near-polar family is strictly ordered at positive small \(\varepsilon\). Its limiting majority polynomial is handled by an exact degree-five integral and the sign-change/monotone-weight argument, proving a negative third cosine integral for every larger degree. The beta central moments yield the stated first-order asymptotic with a bounded fourth-moment remainder. The checker is supplementary, not a proof of quantification over all integers.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The cosine output P is antisymmetric about 1/2 by the Bernstein reflection identity, so its constant and even modes vanish. Strictly decreasing samples imply P'<0 and integration against sin(pi*u) shows positive first cosine integral. At degree 4 the coefficient vector (1,c,0,-c,-1) gives the cubic polynomial 1+(-4+4c)u+(6-12c)u^2+(-4+8c)u^3. For odd k, writing h=k*pi, integration by parts gives 8(1-c)/h^2+(-48+96c)/h^4. The endpoint minima on |c|<=1 are positive for k=1 and odd k>=3. Degree elevation preserves this vector form for n<4. In the clustered limit the central tie receives zero, S_(2r)=S_(2r-1) by degree elevation, and differentiating gives -S' equal to twice the Beta(r,r) density. For S_5 the endpoint derivatives give -240/(3*pi)^4+2880/(3*pi)^6, the claimed negative raw integral. On [0,1/2] the sine weight changes from positive to negative just at 1/3; multiplying the r=3 integrand by [u(1-u)]^(r-3), increasing on this half, bounds the new integral above by its value at 1/3 times the negative base integral. Thus the sign holds for every r>=3. Uniform limit and continuity give strictly ordered examples at positive epsilon. The beta second and fourth central moments give the stated expansion with O(r^-2), with the factor of two between a positive-frequency cosine coefficient and its raw integral accounted for. The frozen numeric script was inspected, not executed; it is supplementary.
 
-The 2026 equispaced-node theorem proves a different quantifier pattern: preservation for one prescribed grid at every degree. Published low-degree grid classifications determine complete degrees three/four or a specific one-parameter family in degree five; those do not imply an obstruction for *every* degree above four with the same input harmonic and the same output harmonic, nor its nonzero limiting strength. No stronger covering statement was found by semantic searches of positive-definite Bernstein node perturbations, binomial-majority Fourier signs, and all-degree third-harmonic leakage. The remaining risk is an equivalent classical formula or a less obviously titled node-perturbation theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical first harmonic is the simplest nonconstant positive-type circle kernel. The third output mode is the earliest admissible spectral failure: symmetry annihilates all even modes and input monotonicity keeps the first mode strictly positive. Proving the exact degree-five threshold uniformly across arbitrarily high Bernstein orders and showing a nonvanishing negative limiting coefficient explains a real structural loss from relaxed node placement. This is more than an isolated low-degree grid check; it gives one explicit, scale-independent spectral obstruction family.
+The n=5 cluster counterexample with the same input and output mode is exact prior coverage, and the cubic guarantee is a corollary of stronger prior work. The material surviving content is the uniform quantifier over every higher degree with one fixed input and first possible offending mode, together with the limiting spectral strength and the universal degree-4 fixed-input guarantee. No checked source covers that uniform statement.
 
-## Literature and limitations
+## value
 
-Otten–Nguyen–Watts, arXiv:2608.04836 (August 5, 2026), full methodological sections inspected; they assume equispaced nodes. The published degree-three, degree-four, and one-parameter degree-five circle-node classification summaries were compared on object, quantifiers and implication; no all-degree fixed-harmonic result was reported there. A hidden equivalence in older circle interpolation literature remains a bibliographic risk. The result is existential for each high degree and does not classify all passing grids.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result quantifies a concrete failure of the usual Bernstein circle-positivity theorem under symmetric perturbation: a single common input and its earliest possible offending mode provide witnesses at every eligible degree. The half-beta sign mechanism and limiting negative strength explain why the phenomenon is not confined to a special degree-five example or washed out at large degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

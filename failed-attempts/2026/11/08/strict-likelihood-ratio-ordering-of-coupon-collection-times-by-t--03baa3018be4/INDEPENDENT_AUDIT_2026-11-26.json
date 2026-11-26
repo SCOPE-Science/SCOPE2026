@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:14:46.560852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–17 and 21–54; VERIFICATION.md lines 19–25 and check.py (inspected, not executed)",
+        "Independent bounded exact check: compare normalized weights (2,1,3,5)/11 at t=4,…,8 using the coefficient recurrence and direct enumeration of the 21,824 prefixes. Also check strict cross-products up through t=m+12 for seven rational profiles (m=2,…,6); 3,354 strict determinants and the equal-weight row checks passed. No separate replay artifact was retained in the review workspace for this check; the frozen diagnostic can be inspected at check.py beside RESULT.md."
+      ],
+      "rationale": "The first t−1 draws contain all and only the labels other than i; positive occupancy counts give the exact marked mass by the multinomial formula. The coefficient sequences p^k/k! on k≥1 are log-concave with interval support. Consecutive-ratio comparison (or the automatic boundary case when the off-diagonal product vanishes) gives nonnegative 2×2 Toeplitz minors, preserved under convolution by finite Cauchy–Binet. For w=t−1<v=u−1 the determinant of the two convolution rows has the paired expansion (3). Its input determinants are positive since (p_i/p_j)^k increases, and its kernel determinants are nonnegative. For m≥3, s=m−2 is the first positive index of g. The summand k=w−s, l=k+1 has g_(w−k)>0, g_(w−l)=0 and g_(v−l)>0, ensuring strictness. For m=2, take k=w,l=v in the point-mass kernel. Positive conditional normalizations do not change the comparison; equal weights give identical rows by swapping labels and unequal weights force strictness. All comparisons are on the common positive support t≥m.",
+      "residual_risks": [
+        "Finite computations corroborate the coefficient and sign conventions; the Toeplitz proof and boundary witnesses establish the unbounded result. The domain excludes null draws and unequal quotas, and is discrete iid sampling with strictly positive normalized probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "49ad21f71f59 Finding explicitly orders posterior final-label odds for every common quota h≥1 and optional null draws.",
+          "arXiv:1504.03878 Theorem 2 compares unmarked laws when changing the sampling vector, a different comparison."
+        ],
+        "reasoning": "Choosing h=1 and p_0=0 in the earlier theorem gives the frozen hypotheses and conclusion. Comparing the unmarked law across sampling vectors is not itself broader marked-law coverage.",
+        "searches": [
+          "Resultary: strict likelihood-ratio ordering under multiple collections and null draws; record 49ad21f71f59",
+          "arXiv:1402.5245 and 1504.03878 generalized collectors"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 753b4c50a596 and 49ad21f71f59",
+        "arXiv:1209.2667, 1402.5245, 1504.03878; DOI 10.37236/3348 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier quota theorem directly supplies strictness as a special case; equal weights preserve the joint law by label symmetry. The independent exponential-clock construction yields a continuous-time ratio, but the Poisson transform of the discrete marked sequence does not invert ratio monotonicity in general."
+        ],
+        "reasoning": "Prior strict odds ordering, not just a last-label marginal or a Poissonized analogue, gives the exact implication needed. Conditional stochastic and mean comparisons follow by the usual single-crossing argument from the earlier strict order.",
+        "searches": [
+          "Resultary 753b4c50a596 and 49ad21f71f59 Finding and proof; primary lookup of heterogeneous collector and Poissonization; arXiv:1209.2667, 1402.5245, 1504.03878"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "753b4c50a596 Finding (offset 0 ff.) says that for p_i<p_j the posterior odds of i versus j as terminal label increase strictly in the completion draw count; its inspected proof has the same marked EGF and TP2 convolution method."
+        ],
+        "reasoning": "Posterior odds at T=t are exactly F_i(t)/F_j(t). Conditional time likelihood ratios differ by a positive constant independent of t. Reversing the labels gives the claimed decreasing ratio and determinant sign on exactly t≥m.",
+        "searches": [
+          "Resultary: last coupon, later completion favors rarer final coupons, posterior odds, strict likelihood-ratio order; record 753b4c50a596"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue records give exact symbolic strict-order statements over the whole parameter range, not just a table of examples. 753b4c50a596 also gives the same marked exponential generating function."
+        ],
+        "reasoning": "An exact formula with the same strict inequalities determines the scientific overlap directly; a separate finite table of the examples is not needed to establish coverage.",
+        "searches": [
+          "Resultary 753b4c50a596 and 49ad21f71f59, marked masses and exact ratio law"
+        ]
+      },
+      "rationale": "Two earlier dated Resultary findings cover the strict marked likelihood-ratio theorem. The October 26 result is the exact theorem in posterior-odds language, with the same core coefficient/determinant argument; the October 18 result contains it as quota one without null draws. Reversal of the compared labels, Bayes normalization and exchange symmetry do not leave a distinct result.",
+      "residual_risks": [
+        "The bounded primary-literature comparison does not determine the earliest publication. The original version of arXiv:1209.2667 and the Shank–Yang full text remain unverified; those retrieval limitations do not affect the demonstrated exact dated Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact coverage",
+          "evidence": [
+            "For an unequal pair, the rarer-to-common posterior odds increase strictly with t. The marked EGF and log-concavity/Toeplitz method agree."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-later-completion-favors-rarer-final-coupons-in-strict-likelihood--753b4c50a596",
+          "material_read": "Finding and indicated proof passages, RESULT.md offsets 0–3870",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Later completion favors rarer final coupons in strict likelihood-ratio order",
+          "trigger": "Exact terminal-label posterior-odds formulation"
+        },
+        {
+          "assessment": "Earlier stronger result",
+          "evidence": [
+            "All common quotas h≥1 with optional null draws include h=1,p_0=0 exactly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-strict-likelihood-ratio-ordering-for-the-last-coupon-under-mul--49ad21f71f59",
+          "material_read": "RESULT.md Finding, offset 0 ff.",
+          "method": "Resultary search and local mirror",
+          "title": "A strict likelihood-ratio ordering for the last coupon under multiple collections",
+          "trigger": "Same marked comparison under broader quotas/arrival assumptions"
+        },
+        {
+          "assessment": "Unmarked mean formulas in inspected version; exact first-version text not independently verified",
+          "evidence": [
+            "Maximum-of-geometric waiting-time representation for the unmarked collection duration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.2667",
+          "material_read": "Served PDF model/abstract, p. 1 offset 807, and pp. 4–5 offset 6454; v1 attempt timed out",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "A note on the coupon-collector's problem with multiple arrivals and the random sampling",
+          "trigger": "Cited dated heterogeneous collection anchor"
+        },
+        {
+          "assessment": "Inspected distributions and moments are unmarked",
+          "evidence": [
+            "Collection of c distinct coupons, optional null draws, and unmarked optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.5245",
+          "material_read": "pp. 1–2, offsets 291 and 2654",
+          "method": "OA PDF passage inspection",
+          "title": "New results on a generalized coupon collector problem using Markov chains",
+          "trigger": "Generalized collector with potential broader distribution coverage"
+        },
+        {
+          "assessment": "Different unmarked comparison",
+          "evidence": [
+            "Compares the CDF of T_(c,n)(p) across sampling vectors, rather than comparing two final-label-conditioned laws for one vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.03878",
+          "material_read": "Theorem 2, p. 5, OA offset 24859",
+          "method": "OA PDF passage inspection",
+          "title": "Optimization results for a generalized coupon collector problem",
+          "trigger": "Likelihood/stochastic comparison of heterogeneous waiting laws"
+        },
+        {
+          "assessment": "No statement-level exclusion from this source",
+          "evidence": [
+            "No primary passage verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3348",
+          "material_read": "Citation only; DOI attempt timed out",
+          "method": "OA retrieval attempt",
+          "title": "Coupon Collector Problem for Non-Uniform Coupons and Random Quotas",
+          "trigger": "Cited nonuniform quota analysis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and consequences",
+        "Resultary 753b4c50a596 and 49ad21f71f59 Findings"
+      ],
+      "rationale": "The distinction between marked conditional likelihood-ratio order and a weaker unconditional or mean comparison is useful. This frozen version, however, offers the same order and proof as the earlier exact record, and less scope than the earlier common-quota theorem. Bayes normalization and the usual strict single-crossing consequences add no independently useful new invariant.",
+      "residual_risks": [
+        "This FAIL concerns the contribution of the frozen record relative to verified earlier coverage, not the utility or truth of the order itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

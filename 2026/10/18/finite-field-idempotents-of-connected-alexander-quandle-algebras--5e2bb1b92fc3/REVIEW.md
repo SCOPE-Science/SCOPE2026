@@ -1,12 +1,21 @@
-# Scientific review — Finite-field idempotents of connected Alexander quandle algebras via orbit lattices
+# Independent mathematical audit
 
-## Correctness — PASS
-The result uses an explicitly invertible Fourier transform, exact Frobenius descent and an invariant-support lemma for the character permutations. Every accepted nonzero joint orbit reduces to a congruence kernel whose cardinality is determined by integer Smith invariants. Both the reconstruction direction and the necessity direction are proved. Direct multiplication over small finite fields independently checks the parametric equations; it is not used to infer the infinite family.
+## correctness
 
-## Originality — PASS with recorded risks
-Zhang, *Group-ring methods for Alexander quandle rings* (arXiv:2610.08204, Sections 2, 5), establishes the transport and a complex Fourier identity, then an **integral** midpoint idempotent theorem. Those premises do not give finite-field descent and exact all-connected Smith enumeration without further proof. Relevant earlier quandle-ring papers and targeted mathematical database searches yielded only special modular dihedral counts, integral idempotents or quandle classifications. The nearest 2026 Fourier paper (arXiv:2609.03799) was accessible only by abstract; earlier Fernando–Wu conference work lacks an accessible complete theorem. These are residual novelty risks, not evidence of absence. An equivalent unindexed character-lattice classification would supersede this originality assessment.
+PASS
 
-## Value — PASS
-The count applies uniformly to all finite abelian groups and Latin Alexander automorphisms in nonmodular characteristic, includes noncommutative quandles and nonsplit coefficient fields, and provides an exact finite algorithm rather than a few isolated examples. For five elements over \(\mathbb F_2\), changing the connected Alexander map changes the idempotent count from \(12\) to \(32\); for midpoint quandles over any binary extension field the count is always \(2^{|G|}\). This exposes meaningful arithmetic and algebraic structure in a natural classification problem.
+Fourier invertibility uses the existence of all exponent roots and invertibility of |G|. Raising the inverse Fourier sum to q proves descent. The nonzero support is forward-invariant under A,B and, by finiteness, also invariant under their inverses; Frobenius preserves it. On each orbit the logarithmic equations give the stated integer matrix, whose unimodular Smith reductions are valid modulo N even when N is composite or 1. The trivial character gives two independent choices, splitting the augmentation counts. The original midpoint proof asserted q^s−2^h is prime to the characteristic; this is false, e.g. G=C3 and q=2 with r=2,s=h=1, where it is zero. The repair proves consistency and g=gcd(2^r−1,q^s−2^h) divides N: F^L=1 implies s|L and r|hL/s, so q^L≡2^(hL/s)≡1 mod g. The cyclic splitting-field group therefore contains exactly g allowed nonzero parameters, including the example with g=3. The characteristic-two midpoint coefficient count follows separately from cancellation of off-diagonal terms and basis idempotency. All formulas and hypotheses are unchanged.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fourier multiplication itself and a full nonsplit dihedral specialization overlap with available work and are credited in the repair. The uniform Smith census for arbitrary connected Alexander actions and the closed finite-field midpoint count are not covered by the statements located.
+
+## value
+
+PASS
+
+The exact classification of these algebra idempotents gives actual elements and counts for variable finite groups and fields without searching coefficient vectors. Handling nonscalar connected actions and nonsplitting fields is essential to that uniformity, and the midpoint gcd makes the twist explicit rather than extrapolating from splitting or dihedral examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

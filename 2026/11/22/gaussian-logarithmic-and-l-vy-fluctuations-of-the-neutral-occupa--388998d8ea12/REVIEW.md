@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The same claim is reviewed in all three regimes on the exact intensity domain \(0<\alpha<1\), \(\beta\to\infty\), \(t\in[0,T]\). The mark tail and Campbell's identity give exact centering. For \(r>2\), Poisson isometry and a finite-second-moment Lindeberg argument give the stated time-changed Gaussian limit. At \(r=2\), the exact truncated second moment has logarithmic coefficient two; integrating over Poisson time and using \(\log\sqrt{\beta\log\beta}\sim(\log\beta)/2\) gives Brownian variance \(t/2\), and the large-jump probability is \(O(1/\log\beta)\). For \(1<r<2\), an exact time/size Jacobian produces the bounded density \(y^{-r-1}(1+t^\alpha/(\beta^{1/r}y))^{-r-1}\), yielding the stable Lévy limit with small-jump \(L^2\) control. The proof handles the endpoint \(t=0\), centering, and \(J_1\) convergence. The independent arithmetic checker passed 271 checks; the proof, not finite tests, establishes the all-parameter limits.
+## correctness
 
-## Originality — PASS within inspected literature
-Wang's full Theorem 1.4 and Section 8.8 derive the finite-intensity neutral-occupation process and the deterministic endpoint, but neither the centered Gaussian/logarithmic/stable high-intensity trichotomy nor the simplified exact physical-time Lévy density. Pitman–You Section 4 supplies the general Poisson hold-jump representation, not these limits for the Lomax occupation marks. Sera's occupation-time theorem concerns a different regime. Searches considered parameter aliases \(r=1/\alpha\), \(\beta=\iota\bar c/\alpha\), scale-invariant marked Poisson sums, stable approximation and classical functional limit theorems. General Poisson CLTs and regular-variation theory are essential standard ingredients, so the appropriate claim is an explicit new classification for this specific emerging dynamical limit family, not discovery of those general tools. Remaining risk: an equivalent specialized high-intensity calculation could exist outside material inspected; a generic wide-scope theorem could imply the result as a computational corollary.
+PASS
 
-## Value — PASS
-The paper introducing the occupation process supplies a deterministic infinite-intensity endpoint, leaving its fluctuation behavior unresolved explicitly. This is a natural first finer invariant of that exact object, not an arbitrary parameter slice. The result identifies the complete sharp boundary at \(\alpha=1/2\) with a different critical scale, exact variance constants, and an unexpected recovery of stationary *physical-time* increments in the stable regime. This distinction informs finite-intensity approximation and the interpretation of intermittent neutral-visit clustering. It does **not** prove a joint high-intensity and long-observation limit for the underlying maps; deriving uniform map-level error estimates would require separate analysis.
+The raw Poisson integral is finite by its first moment, including at the initial endpoint by monotonicity, and centering yields càdlàg independent-increment martingales. For r>2, integrating v E[W²] in the compensated bracket gives ((r−1)/(r−2))t^(2α) and the Lindeberg integral vanishes by domination. At r=2, truncating the raw jumps at b=(β log β)^(1/2) gives bracket t log b/log β + O_T(1/log β), uniformly including t=0. The jumps above εb have intensity O_T(1/log β), their discarded compensation is negligible for ε=1, and the variance between εb and b vanishes, giving the Brownian limit with variance t/2. For 1<r<2 the Jacobian for y=β^(−1/r)t^α w cancels the physical-time power by αr=1; independently comparing the unsimplified and displayed densities at β=37, t=.5, y=1.2, r in {1.25,1.5,1.9} gave relative differences below 5.4e−16. This density is for the stable-scaled, centered process divided by r−1 (centering does not affect jumps). Above ε it converges with its finite first-moment compensator; the Poisson cumulative sums have J1 convergence as limit jump times are distinct and avoid the endpoints almost surely. The small jump error has squared supremum bounded by 4T ε^(2−r)/(2−r), before and after taking the limit. Hence the converging-together argument identifies the stated stable process with full linear compensation, mean zero and exponent Γ(−r)(−iu)^r, on the principal branch. Standard martingale and Poisson limit tools justify the asserted J1 topology; finite checks alone would not. Supplied verification and checker examined without execution.
 
-## Sources and residual limitations
-Closest full primary materials: Wang's 2026 Theorem 1.4 and Section 8.8; Pitman–You's Section 4. Sera's 2020 occupation theorem was checked at abstract level and is less directly comparable. Classical Poisson martingale and Lévy convergence theorems underlie the proof. No guarantee of historical uniqueness or independent assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing occupation theorem exactly supplies the Poisson family, and the limit tools are classical. The supported distinct result is the centered high-intensity functional classification with its model-specific critical coefficient, physical clocks and exact stable-scaled kernel. The examined occupation and representation theorems do not cover this high-intensity statement.
+
+## value
+
+PASS
+
+The Poisson family is motivated by a specific occupation law, not chosen to restate textbook fluctuation scales. The result classifies whole paths, gives the exact critical logarithmic scale and identifies which limiting increments are stationary in physical time. These resolve behavior hidden by the known deterministic endpoint; they do not imply a joint map/intensity limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

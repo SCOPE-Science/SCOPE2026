@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:26:50.098230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–45, VERIFICATION.md and check_forest_commutators.py (inspected only)",
+        "/tmp/opencode/replay_discrete.py forests"
+      ],
+      "rationale": "The cocycle gives the alternating edge determinant with the stated commutator convention; basis brackets generate the full edge space. For each allowed nonzero vertex set U, contracting its zero-target edges gives a forest with c(U) components and r surviving edges: projective labels contribute (q+1)^c(U) q^r, and scalar propagation along the nonzero-target forest contributes (q-1)^(|U|-r). The input centers are unconstrained. The empty zero set proves attainment, including in characteristic two; empty and isolated components give the expected factors. Conditional subtree counts really depend only on whether the parent label is zero: the linear determinant equation at a prescribed nonzero parent gives q child labels, with one zero label precisely at target zero. Thus the two states suffice and the arithmetic bound is uniform in q, not a bit complexity claim. Direct enumeration independently agreed with the formula and recurrence on the empty forest, binary and F4 paths, and an F3 disconnected forest. The F2 path gives (76,36,24,24,36,12,24,24) before the central factor.",
+      "residual_risks": [
+        "Finite replay corroborates the proof and is not exhaustive over fields or forests; O(n) counts arithmetic operations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rossmann Theorem A and Proposition 2.3; Levy Theorem 2.1 and Corollary 3.2; Naik Theorem 1.4; Cocke–Ho Theorem B"
+        ],
+        "reasoning": "Rossmann’s conjugacy class sizes recover commuting-pair information. Levy treats prescribed fibers in broader odd-characteristic regimes but not the forest specialization for every q, and Naik and Cocke–Ho address different families or distribution properties. None supersedes the decisive equivalent Resultary statement.",
+        "searches": [
+          "Rossmann arXiv:2107.05564",
+          "Levy arXiv:1602.04093",
+          "Naik arXiv:1805.00091",
+          "Cocke–Ho arXiv:1807.07111"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE mirror",
+        "arXiv:2107.05564",
+        "arXiv:1602.04093",
+        "arXiv:1805.00091",
+        "arXiv:1807.07111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both earlier Lie bracket and frozen group commutator are the same determinants and ignore both inputs' central coordinates. The earlier formula has a positive full-vertex term."
+        ],
+        "reasoning": "No actual passage from a Lie result to a characteristic-two group has to use the Lazard correspondence: it is equality of two coordinate functions. Positivity and support-only dependence already follow. An explicit two-state recurrence is additional exposition/evaluation, not evidence of an original core theorem.",
+        "searches": [
+          "c92e90370f3f Finding and Proof versus frozen RESULT.md lines 6–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13 SCOPE-prescribed-bracket-fibers-of-finite-field-graphical-lie-algebras--c92e90370f3f, RESULT.md Finding and Proof"
+        ],
+        "reasoning": "For U=V minus the zero labels, the earlier term (q²−1)^c(U)(q−1)^(e(U)−r) equals (q+1)^c(U)(q−1)^(|U|−r), since e(U)=|U|−c(U). Both sum exactly over U containing the nonzero-target endpoints and multiply by q^(2m+r). This is equivalent coverage, not just the same graph parameters.",
+        "searches": [
+          "Resultary local mirror: prescribed forest graphical Lie-algebra bracket fibers, c92e90370f3f",
+          "Rossmann arXiv:2107.05564"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier forest formula applies to P4 at q=2 for each of its eight targets; the other indexed graphical-group formula treats triangles sharing a hub."
+        ],
+        "reasoning": "The small profile is already determined exactly by substituting in the earlier forest formula, regardless of whether it was displayed as a table; the friendship result has a different domain.",
+        "searches": [
+          "Resultary local mirror: c92e90370f3f and friendship graphical group record 152f534a63f7"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary forest Lie-algebra record already states the main all-target formula, with the same all-characteristic scope. The group presentation adds no new fiber information: both maps depend on the same determinants of the vertex coordinates and both input central factors are q^(2m). Width and support invariance then follow from the earlier formula. The explicit two-state recurrence is not stated in the inspected earlier finding, but that does not make the original complete fiber theorem distinct.",
+      "residual_risks": [
+        "Priority of the separately stated two-state recurrence was not established; that does not affect the demonstrated coverage of the claimed fiber formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central finding",
+          "evidence": "Same support-indexed formula including central input factors, identified by e(U)=|U|−c(U).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-prescribed-bracket-fibers-of-finite-field-graphical-lie-algebras--c92e90370f3f/RESULT.md",
+          "material_read": "Finding and relevant proof of the count",
+          "method": "local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Prescribed bracket fibers of finite-field graphical Lie algebras on forests",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Product factors for triangles with a shared hub, not arbitrary forests.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-commutator-fibers-and-commutator-width-for-friendship-grap--152f534a63f7/RESULT.md",
+          "material_read": "Finding",
+          "method": "local mirror",
+          "title": "Exact commutator fibers and commutator width for friendship graphical groups",
+          "trigger": "Prescribed fibers for graphical groups"
+        },
+        {
+          "assessment": "Background and zero-target information",
+          "evidence": "Conjugacy-class size counts and group/Lie centralizer comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.05564",
+          "material_read": "Theorem A and §2.4 Proposition 2.3, pp. 4, 8",
+          "method": "OA primary text",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Same graphical groups"
+        },
+        {
+          "assessment": "General framework in the stated class and exponent regime",
+          "evidence": "Class <p, exponent p machinery does not give the all-characteristic forest specialization in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.04093",
+          "material_read": "Introduction, Theorem 2.1 and Corollary 3.2, pp. 2, 6–7",
+          "method": "OA primary text",
+          "title": "Enumerating fibres of commutator words over p-groups",
+          "trigger": "General commutator fiber coverage"
+        },
+        {
+          "assessment": "Different group family",
+          "evidence": "Uniform nonidentity probabilities in a class-three setting under additional conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.00091",
+          "material_read": "Introduction and Theorem 1.4, pp. 1, 3",
+          "method": "OA primary text",
+          "title": "On the probability distribution associated to commutator word map in finite groups II",
+          "trigger": "Different possible fiber sizes"
+        },
+        {
+          "assessment": "General structural result, not this enumeration",
+          "evidence": "Characterizes nilpotency through uniformity for surjective word maps.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07111",
+          "material_read": "Abstract and Theorem B, pp. 1–2",
+          "method": "OA primary text",
+          "title": "The Probability Distribution of Word Maps on Finite Groups",
+          "trigger": "Broad implication risk"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–12, 25–42",
+        "Earlier forest bracket count c92e90370f3f Finding and Proof"
+      ],
+      "rationale": "The all-target invariant is mathematically meaningful, but the frozen contribution centers on an already exact forest result. The group translation and binary path specialization add no invariant; the displayed bottom-up calculation is a useful implementation note obtained directly by conditioning the same local determinant count in the earlier rooted forest argument. The submitted package does not establish a separately substantive new structural or algorithmic claim that warrants repair.",
+      "residual_risks": [
+        "This value decision concerns the contribution of this submitted finding, not the mathematical usefulness of the original all-target invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

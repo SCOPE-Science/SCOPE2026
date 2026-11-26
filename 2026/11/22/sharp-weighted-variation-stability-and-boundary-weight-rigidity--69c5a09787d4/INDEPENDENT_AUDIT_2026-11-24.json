@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:16:50.567403Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 35–67: on every strict order cell, the derivative is the half-sum of the two selector rows in each window and fixes constants. For the step basis of the input quotient the output is fixed at 0 and 1 outside the two mixed rows. At internal cut j the two mixed values lie in {0,1/2} and {1/2,1}; evaluating extremes in both triples at each of the four explicit adjacent quadruples on line 57 confirms all four profiles are jointly possible. In particular the profile is nondecreasing across the cut and the weighted variations are exactly the four expressions given. At cut 1 the endpoint response is 1/2, the second response is 1/2 or 1 according as index 1 is extreme or middle in its triple, and the later responses are 1. This yields max(w_1,w_2)/(2w_1); reflection gives the other boundary. With n=3 the two boundary columns give max(w_1,w_2)/(2 min(w_1,w_2)); with n=2 both windows are identical and the coefficient is zero, attained by any nonconstant perturbation. Weighted l1 column norms and subdivision of generic segments prove the global bound; continuity handles ties, and sufficiently small strict-order perturbations attain it. Each interior inequality F_j<=w_j forces both neighboring weights <=w_j; hence all interior weights equal c and the two endpoints lie below c. The boundary ratios then require both endpoints >=c/2; these constraints also suffice, independently at each end, including n=4. Independent replay `python3 -I /workspace/review-work/replay.py 4` calculated 34,406 exact pairs by directly reevaluating midpoint extrema at each perturbation for n=2–7, recovering the signed edge profiles. The frozen script was inspected but not executed; finite checks do not establish the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-window morphology summary states exact norms for the running min and max individually and uniform-weight contractivity of finite compositions. The same-day catalogs for convex edge-energy resolvents, greatest convex minorants, and two-site one-sided cyclic dilation concern those different maps or geometries. The frozen comparison describes the classical min-max mean and one-input LULU variation preservation."
+        ],
+        "reasoning": "A composition of erosions and dilations is not their pointwise arithmetic mean, and norms for the two individual maps give only the triangle bound unless compatible slopes of the mean are analyzed. One-input variation bounds do not control differences of two nonlinear outputs.",
+        "searches": [
+          "Resultary: weighted path variation contractivity two-input finite path midrange or morphology exact coefficient",
+          "Resultary 5f5f2cb7d7b2, 827a763dee16, 24c0d23f4c42, 5cf009af2475",
+          "doi:10.1109/ICASSP.1993.319746",
+          "arXiv:0711.1944"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md findings, proof, comparisons and limitations; VERIFICATION.md and verify.py",
+        "Resultary 69c5a09787d4, eeb4015782ac, 5f5f2cb7d7b2, 5759b99f2a42, 827a763dee16, 24c0d23f4c42, 5cf009af2475 (catalogue summaries)",
+        "Bounded retrieval attempts for the primary midrange and LULU articles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=4 and w=(1/2,1,1/2), each separate extremum has a step ratio 2: make f_1 the selected extremum in both first windows, so the step response jumps at edge 2 rather than 1. The midrange formula and direct compatible profiles give 1. In a triple, midrange is (sample sum minus median)/2, but the corresponding endpoint row averages both entries, while the cited finite median holds endpoints unchanged."
+        ],
+        "reasoning": "The sharp coefficient for the median alone gives a bound by a triangle inequality, not the signed correlation needed after subtraction; a full local median-selector analysis could partly transfer to internal rows, which is not claimed as a distinct method. The new invariant uses the complete simultaneous profiles and the clipped boundary rows. Neither the stated median norm nor separate extremum norms imply the exact nonuniform law by norm inequalities.",
+        "searches": [
+          "Resultary: finite-window morphology sharp two-input variation boundary-weight transition erosion dilation weights",
+          "Resultary 5759b99f2a42",
+          "Frozen RESULT.md lines 73–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed eeb4015782ac one-deletion moving-mean result includes unweighted cyclic three-point midrange by deletion of the median. Duplicating endpoints by reflecting (f_1,...,f_n) as (f_1,...,f_n,f_n,...,f_1) in a cycle yields exactly the clipped windows, since duplicating one endpoint does not change an extremum. Both variation seminorms double for unit weights."
+        ],
+        "reasoning": "This gives genuine known coverage of the unit-weight inequality. The reflected nonuniform problem is not covered by the stated unweighted cyclic theorem; the reflected weights would not be uniform and the sewing edges have zero differences on the reflected subspace.",
+        "searches": [
+          "Resultary: cyclic three-point midrange filter contraction total variation cycle finite path reflection",
+          "Resultary: min max mean midrange truncated finite path exact two-input weighted variation four step profiles equal interior half-weight tapered endpoints independent c/2 c Lipschitz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact half-boundary taper classification appears in the returned target 69c5a09787d4 itself. The nearest returned distinct summaries are the 5759b99f2a42 median and 5f5f2cb7d7b2 single-extremum results. Other same-day returned maximal averaging or spacing maps change the operator or the seminorm."
+        ],
+        "reasoning": "There was no independently returned exact coefficient or weight interval for the same truncated midrange. Related numerical ratios for a different filter do not supply table coverage. This is bounded catalogue evidence, not proof of exhaustive priority.",
+        "searches": [
+          "Resultary: min max mean midrange truncated finite path exact two-input weighted variation four step profiles equal interior half-weight tapered endpoints independent c/2 c Lipschitz",
+          "Resultary: midrange finite path weighted two-input bounded variation Lipschitz coefficient boundary weights"
+        ]
+      },
+      "rationale": "The mathematical contribution is the sharp weighted coefficient of the symmetric mean of the two selectors at every path length, and the exact independently tapered boundary regime. The filter itself and uniform-weight contractivity are prior or mechanically implied; neither is credited as new. The strongest distinct indexed statements provide the cyclic unweighted law, exact norms of the separate extrema, or an endpoint-preserving median law, not the stated sharp nonuniform truncated-path coefficient. The possible proof-level overlap with weighted median selector profiles remains limited by mirror access.",
+      "residual_risks": [
+        "Original-paper and decisive catalogue-mirror retrieval timed out; assessed distinctions are limited to available statements and concrete direct comparisons.",
+        "An earlier explicit nonuniform path midrange calculation or an unobserved general signed-selector theorem could be equivalent. Same-day date alone decides no coverage or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unweighted contraction via reflection; not arbitrary positive path weights",
+          "evidence": [
+            "Deletion of one order statistic on cycles; sharp cyclic three-point midrange coefficients 0 on three and 1 on larger cycles in summary."
+          ],
+          "identifier_or_url": "Resultary eeb4015782ac",
+          "material_read": "Indexed statement summary; original mirror retrieval timed out",
+          "method": "Resultary search and bounded OA attempt",
+          "title": "Cyclic variation contraction of every one-deletion moving mean",
+          "trigger": "Direct prior coverage of the unweighted subclaim"
+        },
+        {
+          "assessment": "Exact separate-component norms and composition claims do not give the norm of the symmetric mean",
+          "evidence": [
+            "Summary gives local edge-weight ratios for min and max separately. The direct n=4 taper example shows a gap for the triangle bound."
+          ],
+          "identifier_or_url": "Resultary 5f5f2cb7d7b2",
+          "material_read": "Indexed statement summary and frozen RESULT.md lines 73–75; original mirror retrieval timed out",
+          "method": "Resultary lookup and bounded OA attempt",
+          "title": "Finite-window morphology: sharp two-input variation and a boundary-weight transition",
+          "trigger": "Same finite path and constituent filters"
+        },
+        {
+          "assessment": "Separate endpoint-preserving median norm, not the new truncated mean coefficient",
+          "evidence": [
+            "Summary describes exact three-edge/one-edge ratios and absence of nonexpansivity for n>=4, unlike the clipped midrange."
+          ],
+          "identifier_or_url": "Resultary 5759b99f2a42",
+          "material_read": "Indexed statement summary; original mirror retrieval timed out",
+          "method": "Resultary lookup and bounded OA attempt",
+          "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+          "trigger": "Closest weighted location-filter analogue, related by sample sum minus median"
+        },
+        {
+          "assessment": "Reported morphology identity credited; no whole-paper noncoverage asserted",
+          "evidence": [
+            "Frozen relationship section reports bias and noise analysis of the arithmetic mean of morphological extrema."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ICASSP.1993.319746",
+          "material_read": "Frozen comparison at RESULT.md lines 73–85; original passage not independently retrieved",
+          "method": "OA query 'midrange arithmetic mean morphological erosion dilation' timed out",
+          "title": "Linear combinations of morphological operators: the midrange, pseudomedian, and LOCO filters",
+          "trigger": "Primary early midrange definition and filter analysis"
+        },
+        {
+          "assessment": "Reported single-input results for compositions are not the exact two-input seminorm coefficient",
+          "evidence": [
+            "The reported context concerns variation preservation and trend properties."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0711.1944",
+          "material_read": "Frozen comparison at RESULT.md lines 73–86; original passage not independently retrieved",
+          "method": "OA query 'variation preservation' timed out",
+          "title": "LULU operators for functions of continuous argument",
+          "trigger": "Close prior variation-preservation work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The largest amplification of perturbation variation for this classical filter is a useful stability invariant. The sharp weighted classification gives a finite factor-of-two taper freedom at independently chosen boundaries and a rigid interior, and the constituent contrast shows why separate operator bounds would give the wrong admissible weights. The contribution is this full nonuniform classification and norm, not already-known unweighted contraction or a general claim about statistical performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

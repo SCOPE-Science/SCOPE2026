@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:25:47.346236Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final result at /workspace/repairs/2/RESULT.md. The original proof's unqualified endpoint-only minimizer was false below the frontier: for example n=2, λ=1, τ=0 gives both weights u>0, so endpoint samples (1,1) produce 2u>0, whereas (0,0) realizes the minimum 0. The corrected proof sets samples to 1 on strictly negative coefficients, 0 on strictly positive coefficients, with zeros free, and distinguishes the two regimes. The original weight and negative-mass formulas do not change. The cross-covariance of the integral with Y is the original kernel mean (2−r^{i−1}−r^{n−i})/λ because the offset is independent of the integrand. The tridiagonal AR(1) inverse verified row by row (including the two endpoints for n=2) gives Qm=u(1,2,…,2,1) and Q1=(1,1−r,…,1−r,1)/(1+r). Thus w=Qm−(τ·2(n−1)u/D)Q1 and the endpoint numerator reduces to u(1−(n−2)τ), while the interior numerator is 2u(1+τ). All denominators and interior numerators are positive; this includes no offset and zero endpoints at equality, and n=2 has no finite boundary. Given h=1/(n−1), u/h→1/2 and D→1+τ(1+λ/2); separating the two endpoints from the interior Riemann sum gives the signed weak limit against every continuous function. For independent noise, (I+ηQ)w=Qm. At a nonpositive minimum coordinate, the positive row sum and nonpositive off-diagonals would give a nonpositive left-side component, contradicting Qm>0. Independent numerical replay of 136 bounded direct covariance systems matched the weights within 1.492×10⁻¹¹; 16 diagonal-nugget solves were positive; weak-limit diagnostics up to n=2000 corroborated convergence. Evidence and replay details: /workspace/branches/5012c8b8-039e-434d-beb2-406d2f93f559/independent-check.md. The submitted code was read, not run. Numerical tests are diagnostics, not uniform proofs or authority for mixed noise models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest close corpus result proves subprobability for arbitrary ordered sites, positive target measures and all diagonal nuggets. It covers nonnegativity here for independent noise and strict positivity when η>0; η=0 follows directly from Qm.",
+          "The bivariate OU design paper studies optimal designs for integrated prediction variance with a separable primary/secondary model, not the signs of the integral estimator under rank-one shared measurement error."
+        ],
+        "reasoning": "Two independent positive errors have covariance ηI, unlike τ11ᵀ with nonzero off-diagonal entries. Neither broad error rates nor sharper diagonal-positivity theorems predict where exactly two negative weights appear in the common-noise model.",
+        "searches": [
+          "Resultary: exponential kernel Gaussian quadrature common shared offset rank one correlated observation noise negative endpoint weights equispaced weak limit",
+          "arXiv:1812.08509 §2 and positivity theorem; arXiv:2202.10615 noise model and main error bounds",
+          "arXiv:2004.13967 OU cokriging model and design scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.08509",
+        "arXiv:2202.10615",
+        "arXiv:2004.13967",
+        "Resultary exponential-kernel universal subprobability weights, 22 November 2026",
+        "Resultary and Web searches specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-one update is standard and yields a Q1 correction; the new sign cancellation uses the different endpoint/interior components of Q1 and Qm as well as unchanged integral cross-covariance. In the dense limit the endpoint correction stays order one while the weight at an interior node is order h."
+        ],
+        "reasoning": "The core statement is not a synonym or direct specialization of the noiseless, diagonal-error or unconstrained design claims inspected. Providing a general posterior formula alone leaves the explicit sign, finite cutoff and limiting atoms undetermined; those computations are needed here.",
+        "searches": [
+          "arXiv:1812.08509 Bayesian quadrature weights and positivity hypotheses; arXiv:2202.10615 Theorems 1–2; Resultary universal subprobability exponential-kernel finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is equivalent to simple Gaussian block prediction of the integral of a latent OU field given noisy levels, covariance of data K+τ11ᵀ and cross-covariance m. It is also equivalent to conditioning on the observed level plus a random intercept and subtracting the inferred intercept from the observed-level integral.",
+          "Karvonen et al. use the kernel mean cross-covariance of the observed noiseless process, while ordinary unknown-mean prediction generally imposes unbiasedness rather than a finite random-offset variance."
+        ],
+        "reasoning": "If the constant term belongs to the integrated process, the cross-covariance becomes m+τ1; the difference in the weights is +τQ1/D. The fitted-integrand problem with this added term is not an equivalent proof of the offset frontier. A known GLS constant-level estimator can supply Q1, one ingredient, but not the stated finite rank-one-offset sign claim on its own.",
+        "searches": [
+          "Web: Bayesian quadrature exponential covariance common correlated measurement error shared offset negative endpoints weights positivity threshold Ornstein Uhlenbeck integral rank one",
+          "Web: ordinary simple kriging integrated Ornstein Uhlenbeck Bayesian quadrature constant observation bias correlated error shared offset negative weights endpoints exponential covariance continuous limit",
+          "Web: Bayesian estimation constant mean Ornstein Uhlenbeck correlated errors continuous time BLUE endpoint atoms exponential covariance Dette Pepelyshev Zhigljavsky exact equispaced discrete rank one calibration offset integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved related fixed site-count or diagonal-nugget closed forms and same-kernel one-contrast design, but no independently inspected table giving sign threshold, negative mass, or dense-limit atoms for the exact covariance pair (K+τ11ᵀ,m)."
+        ],
+        "reasoning": "A two-site design formula (where the present finite-n transition is absent) cannot certify the lengthscale-independent threshold for all n≥3 or the signs of the weak-limit atoms. Search absence is not a uniqueness certificate.",
+        "searches": [
+          "Resultary exponential/common offset/negative endpoint search",
+          "Web OU shared-offset sign threshold and block prediction searches above"
+        ]
+      },
+      "rationale": "The verified surviving contribution is the common-measurement-offset threshold and signed dense limit; Gaussian conditioning, AR(1) precision, and Sherman–Morrison are prior methods. The independent-noise statement is explicitly comparative in the repaired result, with the stronger diagonal-nugget finding cited. The corrected sharpness witness is not claimed as novel in isolation.",
+      "residual_risks": [
+        "Unindexed correlated-error kriging, Gaussian random-intercept prediction, or classical continuous-time regression may contain equivalent adjoint formulas or the same finite sign theorem. The comparison does not certify historical priority.",
+        "The related result about diagonal nuggets should not be counted as originality for this common-offset record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior background for ordinary quadrature, not the common-offset threshold",
+          "evidence": "Weights are computed from the noiseless Gram matrix and kernel mean. Theorem 1 provides conditions on a kernel and node set for sign counts, not a threshold in a measurement-noise variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "§2.1–2.2 defining weights and cross-covariance; abstract and positivity theorem scope",
+          "method": "Primary open PDF",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Same estimator and concern with positivity"
+        },
+        {
+          "assessment": "Specifically i.i.d. noise in decisive theorems; no direct implication",
+          "evidence": "Theorem 2 assumes independent Gaussian errors, and the paper controls average-case error, not the entries of the shared-offset posterior vector.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+          "material_read": "Noise model text, Theorems 1–2 and error-bound scope",
+          "method": "Primary open PDF",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Explicit noisy quadrature could cover the observation model"
+        },
+        {
+          "assessment": "Adjacent OU design problem, not the common-offset coefficient result",
+          "evidence": "The predictor is for the primary variable at x0; the integral is over the prediction variance and used to choose the design.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.13967",
+          "material_read": "Introduction; model description and maximum/integrated variance design goals",
+          "method": "Primary open PDF",
+          "title": "Optimal designs for some bivariate cokriging models",
+          "trigger": "OU process, prediction under correlation and equispaced designs"
+        },
+        {
+          "assessment": "Covers and strengthens the diagonal-noise comparison but excludes shared noise",
+          "evidence": "The theorem uses a diagonal D with d_i≥0, proves all weights nonnegative, and proves strict positivity for a nonzero measure when every d_i>0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-subprobability-weights-for-exponential-kernel-quadratu--43f5dd97bf96/RESULT.md",
+          "material_read": "Main theorem, strict positivity alternatives, limitations",
+          "method": "Primary Resultary text via mirror",
+          "title": "Universal subprobability weights for exponential-kernel quadrature and a sharp smoothness obstruction",
+          "trigger": "Same kernel and overlapping independent-noise comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite threshold answers when nonnegative readings can yield a negative posterior integral estimate under a simple sensor-calibration model, with a sharp worst-case magnitude and exact correlation-length cancellation. The sign effect does not disappear with arbitrarily many observations at fixed positive shared variance; the limit identifies its boundary atoms. This is a structural stability result, not a claim that positive weights guarantee lower numerical or statistical error. The minimizer repair makes the operational interpretation correct in all regimes without weakening those contributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:34:08.156506Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is correct for the first m≥2 strict lower records with separately fitted positive scales. Their joint density is f(r_m) times the product of f(r_i)/F(r_i) for i<m; profiling at lambda=m r_m^beta yields log Lambda=m log q−(beta2−beta1)S for S=sum log(r_i/r_m). Under the true shape, the exponential upper record transform gives e^(−y_m) on the ordered simplex; conditional on y_m the earlier points are ordered independent uniforms on (0,y_m). Hence beta S has the rate-one Gamma(m−1,1) law including at m=2. The exact tails at mc and md and absence of ties follow. The two error probabilities are the Poisson tails starting at m−1 and ending at m−2, respectively; Stirling at the boundary masses and geometric domination of their ratios give the stated prefactors. I(d)−I(c)=(q−1)c−log q=0 and 0<c<1<d. A fresh evaluation of the finite sums gives 0.6419052933 and 0.9208561685 at m=7, and 0.7619729099 and 0.9378307870 at m=11 for q=2. The calculation and derivation are recorded in /workspace/branches/70311bb5-dfd5-474b-a51b-00f08862b24e/record-2-independent-check.md. The frozen code was inspected, not executed. This pass is for the theorem; it does not validate the published Monte Carlo protocol or infer which statistic was implemented.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-shape pivot is proved and used for exact shape tests in the prior Weibull record source. The incomplete-Gamma reference gives full large-shape expansions at fixed argument/shape ratio on both sides of one, including the leading constants."
+        ],
+        "reasoning": "The published test levels differ in purpose, but its pivot already applies to any deterministic threshold. The fixed-ratio expansions are stronger tail estimates than the required leading equivalents. Evaluating the decision threshold is sufficient to specialize both.",
+        "searches": [
+          "Jafari–Zakerzadeh arXiv:1501.02201 §2 and §2.1",
+          "NIST DLMF §8.11(iii), Eqs. 8.11.6–8.11.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1501.02201",
+        "NIST DLMF §8.11(iii)",
+        "DOI 10.37398/JSR.2022.660144",
+        "Exact Resultary self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two errors are P(m−1,mc) and Q(m−1,md), where P and Q are regularized Gamma tails. At x=ma the published expansions and Stirling give P(m,ma) for a<1 or Q(m,ma) for a>1 with leading factor e^(−mI(a))/[|1−a| sqrt(2 pi m)]. The shape recurrence adds to P or subtracts from Q the term e^(−ma)(ma)^(m−1)/Gamma(m), with leading factor e^(−mI(a))/[a sqrt(2 pi m)]."
+        ],
+        "reasoning": "Taking a=c and d gives exactly the audited factors since 1/(1−c)+1/c=1/[c(1−c)] and 1/(d−1)−1/d=1/[d(d−1)]. The two rate values coincide by d/c=q and d−c=log q. Thus even the distinction of the off-by-one prefactors in the full finding is an elementary specialization and recurrence, not a separate surviving claim. Likewise the q=2 likelihood correction follows directly from the previously given likelihood kernels; the audited theorem does not explain the simulation discrepancy.",
+        "searches": [
+          "arXiv:1501.02201 Eq. (2.1), Theorem 2.1(i)",
+          "https://dlmf.nist.gov/8.11#iii, 8.11.6–8.11.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Y=1/X has Weibull CDF 1−exp(−lambda y^beta) and takes strict lower records of X to strict upper records of Y. The reciprocal Jacobian cancels in the model likelihood ratio. Jafari–Zakerzadeh Eq. (2.1) and Theorem 2.1(i) treat these same transformed data."
+        ],
+        "reasoning": "With m=n+1 in their notation, (2.1) profiled over the scale has log kernel m log beta−beta S plus a data-only constant. Theorem 2.1(i) gives 2 beta S~chi-square(2m−2), exactly the audited rate-one Gamma pivot after division by two. The profiled decision law is an affine transform of that pivot, not a new inverse-family distribution.",
+        "searches": [
+          "Weibull upper record values exact inference shape gamma pivot log record ratios maximum likelihood chi square Weibull shape hypothesis test record values",
+          "\"Statistical inference about the shape parameter of the Weibull distribution by upper record values\" pdf gamma Wang 2007 2015 exact shape MLE",
+          "arXiv:1501.02201"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary entry is the audited record itself. The older Table III is an exact-object match for the inverse-exponential/inverse-Rayleigh lower-record decision but reports Monte Carlo PCS and power. At m=11 its power range .7709–.7740 does not match the exact .7619729099 within the nominal one-standard-error scale of 30000 independent Bernoulli replications."
+        ],
+        "reasoning": "Neither the self-hit nor the comparison with a simulated table is independent evidence of an exact probability table. The displayed algebra in the older article is not a basis for identifying the implementation or interpreting the differences as exact confirmation. The strongest exact implication is instead from the published pivot and likelihood.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-exact-gamma-calibration-and-a-common-error-exponent-for-inverse--4a6573b527b2",
+          "Tripathi–Singh–Singh DOI 10.37398/JSR.2022.660144, Table III"
+        ]
+      },
+      "rationale": "Direct prior implication, not a claim based on unsuccessfully locating a paper. Under reciprocation the experiment and likelihood ratio are exactly those of a Weibull upper-record sample. Jafari–Zakerzadeh already give both the likelihood kernel and the identical chi-square pivot for arbitrary shape and scale. Their formulas immediately calibrate the profiled statistic for any fixed pair and cutoff. The common exponent and both sharp offsets are obtained directly from the classical incomplete-Gamma tails and the one-step shape recurrence; the comparison does not require a new asymptotic or record-process argument. The exact model comparison at q=2 was also posed previously by Tripathi–Singh–Singh, though their lower-record table is simulated, not an exact calibration.",
+      "residual_risks": [
+        "Other Weibull shape-inference leads, including DOI 10.1007/s00362-006-0318-7, were not resolved in full text; this does not affect the demonstrated prior implication.",
+        "The cause of the discrepancy with published simulation probabilities cannot be determined without the actual simulation protocol and implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage of the kernel and pivot under equivalence",
+          "evidence": "The likelihood is proportional to beta^m scale^(−m beta) exp(−(r_max/scale)^beta) times the product of r_i^(beta−1); the statistic 2 beta sum log(r_max/r_i) is chi-square with 2m−2 degrees of freedom.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.02201",
+          "material_read": "Title and abstract; p. 4 Eqs. (2.1) and (2.2) and Theorem 2.1(i); §2.1 tests on p. 5 (text offsets 8240–10733 and 12020–14559)",
+          "method": "OA primary PDF text",
+          "title": "Inference on the Parameters of the Weibull Distribution Using Records",
+          "trigger": "Reciprocal equivalent experiment and exact shape pivot"
+        },
+        {
+          "assessment": "The general expansions imply both leading constants with the elementary shape recurrence",
+          "evidence": "At z=a lambda the expansions for the lower and upper incomplete Gamma functions have leading terms z^a exp(−z)/(a−z) or z^a exp(−z)/(z−a), respectively; b_0(lambda)=1.",
+          "identifier_or_url": "https://dlmf.nist.gov/8.11#iii",
+          "material_read": "§8.11(iii), Eqs. 8.11.6–8.11.8, text offsets 5290–8169",
+          "method": "OA reference webpage",
+          "title": "Asymptotic Approximations and Expansions for Incomplete Gamma Functions",
+          "trigger": "Does standard sharp tail theory already give the two alleged new prefactors?"
+        },
+        {
+          "assessment": "Prior comparison and likelihood construction for q=2; no exact sharp law located in the compared passages",
+          "evidence": "Rule selects by maximized likelihood ratio; simulated PCS and power reported. Profiling the underlying likelihoods gives 2^m times the product of ratios r_m/r_i; printed Eq. (20) uses factor 4 and disagrees as a general formula for m>2.",
+          "identifier_or_url": "https://www.bhu.ac.in/research_pub/jsr/Volumes/JSR_66_01_2022/44.pdf",
+          "material_read": "pp. 411–412 models and abstract; pp. 413–414 likelihood derivation and Eqs. (19)–(20); pp. 415–416 simulation protocol and Table III",
+          "method": "OA publisher PDF passages",
+          "title": "Model Discrimination Based on Record Values",
+          "trigger": "Exact pair q=2 and same profiling rule"
+        },
+        {
+          "assessment": "Unresolved, not used to infer noncoverage or to justify failure",
+          "evidence": "The frozen bibliography cites scale estimation; access was denied.",
+          "identifier_or_url": "https://doi.org/10.1155/2021/6648462",
+          "material_read": "Full text not retrieved via DOI/Wiley",
+          "method": "OA attempts",
+          "title": "Bayesian Analysis of Record Statistic from the Inverse Weibull Distribution under Balanced Loss Function",
+          "trigger": "Exact inverse-Weibull lower-record estimation setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact operating probabilities are useful for applying the model-selection rule, but the claimed scientific contribution reduces to a known exact likelihood/pivot under a reciprocal change of variable and standard Gamma-tail evaluation. Neither the numerical examples nor the algebraic correction of the special-case likelihood isolates a new substantive mathematical finding under this standard. The work contains no independent result explaining the simulation discrepancy or establishing a new comparison or optimality property. No repair is justified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

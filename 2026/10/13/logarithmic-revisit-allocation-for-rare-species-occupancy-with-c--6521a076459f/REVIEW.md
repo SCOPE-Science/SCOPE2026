@@ -1,19 +1,21 @@
-# Scientific review: rare-occupancy revisit allocation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-history likelihood and Fisher information are stated with all occupancy, detection, independence, and per-visit-cost assumptions. The missing-information identity follows from the variance decomposition for the Bernoulli latent occupancy indicator and was also reconstructed by direct exact-fraction summation. For every \(0<f<p<1\), the Bernoulli log likelihood ratio has a strictly positive finite mean \(d\). Concentration above the threshold yields almost complete information; a positive fractional moment gives a **uniform** exponentially small information bound below the threshold; the complete-data Fisher bound controls all higher allocations. These three regimes imply both claimed limits for every maximizing sequence, not merely for a chosen approximate sequence. At \(f=0\), reduction to any-detection gives exact Fisher information and strict small-\(\psi\) optimality of one visit. The reproducibility script reports 72 exact identity checks, 84 exact boundary checks and four finite illustrative calculations; no finite simulation is used as a proof of the limits.
+PASS
 
-## Originality — PASS, with stated residual risk
+The variance decomposition of the latent occupancy score yields I_k=(1−R_k)/[ψ(1−ψ)], where R_k=E_P[(1−ψ+ψ L_k)^{-1}], and gives a complete-information bound independent of k. Since J_1>0 and J_k tends to zero at fixed ψ, a finite maximizing integer exists. With T=log(1/ψ), a design just above T/d has ψL_k diverging in P-probability by the law of large numbers and R_k tending to zero by boundedness. Below (1−ε)T/d, 1−R_k is bounded uniformly by (ψ/(1−ψ))^θ M_θ^k, exponentially small in T for small fixed θ because the derivative of log M_θ at zero is d. Above (1+ε)T/d, the bound from complete information gives a strictly worse leading constant than the design at (1+η)T/d with 0<η<ε. This confines every maximizer and squeezes the normalized optimum to d. At f=0, the event of any detection is sufficient, with probability ψa_k where a_k=1−(1−p)^k. For k≥2, a_k/k≤p(1−p/2), so the upper bound on J_k is strictly below J_1 for the claimed sufficient range ψ<p/(2−2p+p²).
 
-Royle and Link (2006) establish the two-state binomial-mixture occupancy likelihood, not the calibrated-detection large-budget rare-occupancy optimum. MacKenzie and Royle (2005) derive visit-allocation advice for standard occupancy without false positives, with nuisance detection parameters. Clement (2016) provides numerical fixed-parameter optimal survey counts with false positives, including a Royle–Link regime and fixed occupancy levels 0.2, 0.5, and 0.8; its nuisance-parameter estimation changes the Fisher criterion. The inspected primary articles do not imply the joint sharp conclusions \(k_\psi\sim\log(1/\psi)/d\), \(\max J_k\sim d/[\psi\log(1/\psi)]\), and the contrast with uniquely optimal one visit when \(f=0\) under known detection probabilities. Related published mathematical records address different identification, discovery, or probability-law problems. This is not a claim of certified global priority: a specialized binary-mixture optimal-design or sequential-information result may give equivalent coverage, and published search is not exhaustive.
+## originality
 
-## Value — PASS
+PASS
 
-Under controlled false-positive misclassification, the best use of visits for an *extremely rare* occupied site has a qualitatively different limit from the false-positive-free case. The precise rate and coefficient quantify the ecological trade-off between collecting enough within-site evidence to distinguish rare genuine occupancy from frequent erroneous detections, and maintaining coverage of many sites. The KL-divergence constant is an interpretable parameter-sensitive survey-design benchmark. The precise invariant is not an arbitrary count or a routine special case of the already published numerical tables. It is restricted to perfectly calibrated detection probabilities, equal marginal costs, fixed-repeat designs, a large-budget Fisher-information objective, and the order of limits specified in the theorem.
+The model and the general idea of repeating visits under false positives are not new. The inspected sources do not give the directed-KL scale for every full-history maximizer, the matched limiting information constant, or its contrast with the one-visit regime. The strongest indexed overlap already accounts for qualitative divergence by a symmetry, so qualitative divergence alone is not credited.
 
-## Limits of review
+## value
 
-Proof reconstruction and separate direct computational checks used only the displayed finite model; the two asymptotic limits are mathematical, not experimental, conclusions. The literature comparison inspected the original occupancy mixture, classical design guidance, and the full relevant design-methods article. Equivalent specialized information-theoretic optimal-block-design literature remains a concrete residual risk. No independent external review or empirical ecological validation was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves the number of repeats and the leading information payoff in a motivated sites-versus-visits problem, rather than merely detecting that repeats become desirable. The contrast with zero false positives shows which idealization changes the order of the optimal allocation even when a positive false-positive rate is small.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

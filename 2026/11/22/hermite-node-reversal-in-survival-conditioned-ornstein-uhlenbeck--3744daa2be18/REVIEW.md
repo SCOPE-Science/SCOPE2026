@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation starts from the killed OU kernel obtained by odd reflection, with drift, noise, and boundary normalization explicitly fixed. The survival factor and numerator are Gaussian integrals, so the conditional probability and the cancellation of independent Poisson no-reset factors are exact. Analytic even-power expansion of the centered truncated-Gaussian integral gives the coefficients \(w(w-3)/6\) and \(w(3w^3-38w^2+165w-180)/360\). The latter is \(9/20\) at \(w=3\). Analyticity permits differentiation of the late-time expansion, proving sign and speed of convergence. The short-time normal increment establishes initial decline and hence at least one strict interior minimum when \(0<w<3\). The proof does not claim uniqueness. The companion checker passed 56 symbolic and numerical assertions, including independent kernel quadrature, while finite checks are not substituted for proof.
+PASS
 
-## Originality — PASS, with priority limitations
+The conditioned event is endpoint exceedance for an absorbed excursion; the independent no-reset factor cancels. Multiplying the OU path by e^(κt) turns it into Brownian motion with a deterministic clock and the same absorption event, justifying the Gaussian image difference on the half-line. Integrating above a and above zero respectively gives the displayed CDF ratio. Independently, write b=√w, q=e^(−κt), and use the probabilists' Hermites He_j in the odd part of the Mehler kernel. The numerator and denominator after removing their leading terms have coefficients at q^(j−1) equal to A_j=He_j(b)He_{j−1}(b)/(b j!) and B_j=He_j(b)He_{j−1}(0)/(b j!) respectively for odd j, by integrating He_j times the standard Gaussian density. The ratio has limit e^(−w/2), c2=A_3−B_3=w(w−3)/6, and c4=A_5−B_5−B_3 c2=w(3w³−38w²+165w−180)/360. At w=3, c4=(−6)(−9)/120=9/20; analyticity in q² justifies eventual differentiation and all sign conclusions. At short times the unreflected Gaussian tail has argument √w√tanh(κt/2), and the image and survival corrections and their derivatives are exponentially small up to polynomial factors. This gives the stated square-root decrease. For 0<w<3 there are a left and a right interval on which the function falls and rises, respectively, so it attains a minimum in the interior of a suitable compact subinterval; analyticity and nonconstancy isolate such a minimum. No uniqueness or global monotonicity for w≥3 is inferred. Read RESULT.md, VERIFICATION.md and checker.py; the reported finite symbolic/numerical checks were not rerun.
 
-Dubey and Pal (arXiv:2304.05226v1, 2023-04-11), sections 2, 4, and 5, address first-passage **integrated** residence above the reset point and optimization under repeated resetting, not the age-resolved conditional exceedance and its Hermite-node sign reversal. Kishore and Kundu (arXiv:2010.06262), section 4.1.2, address survival-conditioned OU local time and generic odd-Hermite spectral methods; those formulas could be specialized in principle but no same time-resolved threshold or accelerated conditional tail relaxation was identified. Focused published-record searches on aliases, conditional quasi-stationary tails, and Hermite mode cancellation returned distinct problems without an implying theorem. The formula is indeed elementary once the absorbing Gaussian kernel is recognized; its sharp phase boundary and forced turning behavior, rather than the standard kernel or quasi-stationary law, are the assessed additions. Equivalent unindexed results or unpublished derivations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A conditional instantaneous occupancy probability is the age-resolved integrand underlying residence statistics for a partially absorbed and resetting particle, and describes the spatial selection bias among long-lived excursions. The dimensionless quantity \(\kappa a^2/D\) separates two opposite directions of late-time approach to the quasi-stationary tail, with a critical cancellation that doubles the exponential relaxation rate. Its predicted compulsory early decrease followed by late increase in the subcritical regime gives a structural, experimentally interpretable nonmonotonicity, not an arbitrary higher moment or a minor numerical improvement.
+The killed kernel, the Rayleigh limit and the vanished third mode as a property of the odd Hermite expansion are not independent originality claims. The supported distinction is the specified moving-with-start threshold event's late-time direction on both sides of the node, nonzero signed next term at the node, and the resulting forced interior turning below it. The checked primary texts give the spectral tools and related functionals, not that event-specific dynamical statement.
 
-## Scientific limits and closest literature
+## value
 
-Only fixed-parameter asymptotics are established. Uniqueness of the interior minimum and global monotonicity above threshold are open in this work. The conditional event excludes a reset and is not the unconditional full-reset process. Underlying image kernels and Hermite expansions are classical, with publication-priority uncertainty as noted above. There is no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural time-resolved counterpart of above-reset-point occupation, the result separates signed convergence regimes at an exact parameter boundary and establishes genuine nonmonotonicity throughout a full subcritical range. It shows why quasi-stationary convergence and even knowledge of the spectral gap do not describe the finite-age conditional statistic. The useful content is this dynamical classification and strict turning, not only a Taylor coefficient or a restatement of spectral theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

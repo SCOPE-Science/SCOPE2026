@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source scale-transformation formula gives the multiplier \(\lambda=(\sum_i\alpha_i/k_i)^{-1}\). Nonnegative coefficients make its denominator positive for every positive scale vector. One negative coefficient creates a unique one-task scaling threshold where the denominator crosses zero. The explicit three-task construction is full rank, has the displayed negative source coefficient and positive common projection, and direct replay of the source closed form confirms singularity at \(k=1/\sqrt2\) and all-task conflict below it.
+PASS
 
-Risk: the statement is instantaneous and uses the source coefficient-sum normalization.
+Reconstruct the normalized method with U the matrix of unit-gradient columns, B=UᵀU, and n_i=||g_i||. Full column rank makes B positive definite. The equal-projection equations are B diag(n_i k_i) α'=C'1, before imposing the sum-one condition. Thus every equal-projection coefficient vector at the new scale is a scalar multiple of (α_i/k_i)_i, since the original C is nonzero (otherwise α=0). The normalization gives the unique multiplier 1/D when D=Σα_i/k_i≠0; at D=0 there is no sum-one solution, not just a numerical failure. Nonnegative weights force D>0; one negative α_j gives the strictly increasing D(k)=1−α_j+α_j/k with the stated unique root and opposite signs on either side. In the example det(U)=r²(r−1) with r=1/√2 and the scaled gradient determinant is k times this. The displayed coefficients sum to one and give (0,0,r) and common projection 1/2. The third-scale denominator is 2+√2−(1+√2)/k, with simple zero at r and negative sign below r. Each scaled objective's derivative along −g' is −k_i n_i/(2D)>0 there. This is an algebraic reconstruction (replay via the Gram equation and these exact identities), not execution of the uploaded checker. It proves an instantaneous statement for the sum-one normalization, not a training trajectory.
 
-## Originality
+## originality
 
-PASS. The original source proves collinearity and calls the direction scale invariant without analyzing the multiplier's sign. A 2024 primary analysis already proves the broader fact that generalized IMTL-G is not linear under scaling and gives a rank-deficient negative-weight conflict example; those facts are treated as prior work. The inspected literature does not give the sharp coefficient-sign criterion or a full-row-rank source-form scale singularity followed by direction reversal.
+PASS
 
-Residual risk: the later scaling formula contains the denominator algebra, so an unindexed note may have drawn the same sign consequence.
+The multiplier itself and the threshold algebra conditional on a negative coefficient are direct consequences of known scaling formulas, not a separate originality claim. The supported contribution is the admissible full-rank three-task witness to a positive-scale singularity and an actual orientation reversal with all tasks in first-order ascent. The strongest inspected literature reproduces the normalization and even considers conflict, but supplies a rank-deficient example, not this full-rank boundary and reversal.
 
-## Value
+## value
 
-PASS. Scale invariance is a defining robustness claim for IMTL-G. The result identifies the exact condition required for same-orientation invariance and shows that a legal full-rank closed-form state can violate it catastrophically under a positive task-unit change. The boundary is structurally relevant to positivity constraints and normalization design rather than an arbitrary numerical counterexample.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positive changes of objective units are a central invariance test for a multi-task aggregator. A legal full-rank example distinguishes preservation of a line from preservation of a directed descent step: a finite singularity is followed by ascent for every task, with the exact scale separating those regimes. This supplies a concrete diagnostic for normalization design without claiming instability of a whole training run.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

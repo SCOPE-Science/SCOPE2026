@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:20:02.565076Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Meeting any selected off-diagonal atom edge with the two diagonal endpoints forces its two arms. These are the only constraints: a nonzero coordinate in a meet requires the two inputs to share that atom there, and two nonzero coordinates require the same input edge; diagonal pairs and zero-zero are already present. Counting all optional edges gives the size polynomial and summing over inclusion of each right arm gives the single sum. Symmetry ties the arms and orientations; a compatible equivalence can identify distinct atoms only inside the zero class, and every subset of atoms is possible in that class. For k missing arms, the frozen exponent deficit bound is valid; even the uniform bound Delta >= (n/2-1)k yields a relative error at most (1+2^(1-n/2))^(2n)-1=o(1). Full saturation is therefore typical and its conditional law is uniform on all directed edge subsets, so the unconditional count differs in total variation from the binomial law by at most the failure of saturation. Independent exact check `python /workspace/checks.py 3` enumerates reflexive relations for n=1,2,3, verifying all polynomial coefficients, saturated size distributions and the triples (4,2,2), (25,5,4), (322,18,8). No finite test substitutes for the proof. The verification note's Python 3.9 floor is too low for the bundled script's int.bit_count (3.10+); this documentation issue does not affect the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barber–Ruškuc's Clifford-semigroup bound uses chi(Y) for the idempotent semilattice, and the concluding discussion expressly leaves semilattice values open. The 2025 characterization is qualitative; the relation-identity work does not enumerate this family. The chain entry assumes a total order. The distinct flat-family match also classifies the inclusion lattice."
+        ],
+        "reasoning": "The Clifford bound, chain count and identities in compatible relations do not evaluate chi(F_n); the exact indexed flat-family normal form applies without change and is stronger than the census.",
+        "searches": [
+          "arXiv:2602.17286v2 §4",
+          "Barber–Ruškuc, Semigroup Congruences and Subsemigroups of the Direct Square (2025), pp. 123–124",
+          "Fioravanti 2021, Mal’cev conditions for compatible reflexive relations, abstract and §1",
+          "SCOPE-diagonal-relations-of-finite-meet-chains-a-product-of-chains-the--1403ce12a3f1",
+          "Resultary 82990a8a3d27, poset ideal theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 82990a8a3d27 and 1403ce12a3f1",
+        "Barber–Ruškuc arXiv:2602.17286v2 and 2025 Bulletin article",
+        "Fioravanti 2021 abstract and §1, compatible reflexive relations and tolerances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed arms there are |L||U|-|L intersection U| freely optional edges; the full-arm stratum has exactly 2^(n(n-1)) members and the ratio of that count to D_n tends to one."
+        ],
+        "reasoning": "Mark each arm with z and sum each optional edge with factor 1+z to obtain the frozen polynomial immediately. At full arms every directed graph has one relation, so its conditional mass is uniform and all edges are independent fair choices. The unconditional law is a mixture with leftover weight 1-2^(n(n-1))/D_n, proving the stated TV bound. Neither unstated corollary is a distinct unresolved mathematical step.",
+        "searches": [
+          "Resultary 82990a8a3d27 mirrored RESULT.md, normal form, Counting and Asymptotic (offsets 180–6755)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The match identifies the same relation triples (left arms, right arms, any allowed directed edge subset) and also views them as ideals in a height-two incidence poset."
+        ],
+        "reasoning": "The number of off-diagonal pairs is exactly the size of that poset ideal. A tolerance is just the symmetric subfamily; it cannot be used to relabel the whole relation family.",
+        "searches": [
+          "Local Resultary search: flat height-two meet semilattice, compatible reflexive relation and diagonal-subsemigroup enumeration, zero-adjoined antichain, DSC coefficient",
+          "SCOPE-diagonal-subsemigroup-lattices-and-exact-dsc-coefficients-of-fla--82990a8a3d27, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Finding gives D_n, T_n, C_n and chi(F_n) by the same formulas, gives D_n ~ 2^(n(n-1)) and lists matching exact values through six atoms."
+        ],
+        "reasoning": "This is all-n formula-level overlap on labeled relations of the same flat family, not a coincidence in small counts or inclusion of the frozen record itself.",
+        "searches": [
+          "Local Resultary indexed flat semilattice DSC census, including 4,25,322,12643",
+          "2026/10/26/SCOPE-diagonal-subsemigroup-lattices-and-exact-dsc-coefficients-of-fla--82990a8a3d27, Finding"
+        ]
+      },
+      "rationale": "A distinct exact indexed classification covers the flat family, the principal counts and the limiting coefficient; its proved normal form and asymptotic mechanically yield the additional size polynomial and random law. This is coverage, not an earlier-priority finding: the matching record's Oct. 26 date-key follows the audited record's Oct. 18 date-key and no provenance is inferred.",
+      "residual_risks": [
+        "An older flat-family tolerance or compatibility enumeration under other terminology could exist; no earlier one was established by the bounded comparison.",
+        "Catalog overlap does not resolve the two entries' provenance or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count and asymptotic overlap; polynomial and random law immediate consequences; no priority claim",
+          "evidence": "Same edge subset constraints, exact D_n, symmetric and congruence counts, and D_n ~ 2^(n(n-1)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-diagonal-subsemigroup-lattices-and-exact-dsc-coefficients-of-fla--82990a8a3d27/RESULT.md",
+          "material_read": "Finding and Proof, normal form, ideal lattice, Counting and Asymptotic, offsets 180–6755",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Diagonal subsemigroup lattices and exact DSC coefficients of flat semilattices",
+          "trigger": "Strong distinct family and formula match"
+        },
+        {
+          "assessment": "Motivation and application, not a flat census",
+          "evidence": "Gives 0<chi(S)<=chi(Y) in the Clifford case and identifies determining semilattice values as an open direction.",
+          "identifier_or_url": "arXiv:2602.17286v2",
+          "material_read": "§4 Theorem 4.2 and concluding discussion, p. 15 near OA offset 43800",
+          "method": "OA PDF passage inspection",
+          "title": "Comparing Numbers of Diagonal Subsemigroups and Congruences for Semigroups",
+          "trigger": "Closest cited DSC coefficient theory"
+        },
+        {
+          "assessment": "Same general concept but different question",
+          "evidence": "Studies when all diagonal subsemigroups are congruences rather than enumerating them for F_n.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/semigroup-congruences-and-subsemigroups-of-the-direct-square/908B89A485FCB609DF3254EF1E40A537",
+          "material_read": "pp. 123–124, definition and qualitative DSC scope",
+          "method": "OA PDF passage inspection",
+          "title": "Semigroup Congruences and Subsemigroups of the Direct Square",
+          "trigger": "Foundational compatible-relation antecedent"
+        },
+        {
+          "assessment": "Different semilattice family, no general flat coverage",
+          "evidence": "The chain classification uses an underlying total order and counts (n!)^2 relations on the n-point chain.",
+          "identifier_or_url": "Resultary 2026/10/18 SCOPE-diagonal-relations-of-finite-meet-chains-a-product-of-chains-the--1403ce12a3f1",
+          "material_read": "Finding and threshold normal form in Proof",
+          "method": "Local mirror passage inspection",
+          "title": "Diagonal relations of finite meet-chains",
+          "trigger": "Same-day diagonal relation enumerator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The flat family and DSC coefficient are well-motivated, but there is no independently needed exact invariant remaining in the audited claim after the indexed structural classification. Both the marked census and the high-probability binomial law follow mechanically from its explicit free-edge model and dominant-stratum count. No substantive extension beyond that overlap is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

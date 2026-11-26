@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-The labelled graph has vertices \(0,\ldots,19\), three edge families specified in `RESULT.md`, and exactly thirty undirected edges. In `certificate.json`, a vertex subset is an integer whose bit \(i\) marks the presence of vertex \(i\).
+## correctness
 
-The Python file `generate_certificate.py` performs exhaustive dominating-set tests and explores every collision-free simultaneous guard motion. It lists all ten size-six dominating masks and all \(780\) size-seven dominating masks, flags immediate fatal attacks, and produces one surviving destination for every attack against each of the \(760\) winning placements. The resulting certificate has \(117503\) bytes and SHA-256 `8ce3213814565ac2cf419def755809fb0d6915876e4c17262214d7a84ae9f162`.
+PASS
 
-The separate C++17 file `matching_recompute.cpp` enumerates all candidate masks independently, checks all potential ordered pairs of equal-sized dominating configurations, and decides legal moves using augmenting-path bipartite matching rather than the Python move-generation recursion. It checks complete sets of possible responses, including negative cases, as well as the twenty exact distance-sphere witnesses and the lower bound \(26\) on the number of winning responses. The file `matching_recompute_output.txt` records the actual recomputed results.
+A legal move is a matching of all source guards into distinct vertices of an equal-sized dominating destination, with closed neighborhoods giving allowed edges and the attacked vertex required in the destination. I reconstructed the labeled graph and enumerated every subset of sizes 0–7, with counts (0,0,0,0,0,0,10,780). For each unordered equal-size dominating pair A,B, an independent Hall test exhausts all nonempty X⊆A and requires |B∩⋃ₐ∈ₓN[a]|≥|X|; this tests all responses, including impossibility, and reversibility gives both directions. All 10 six-sets have two fatal attacks, and the seven-set histogram is 20 with one fatal attack, 760 with none. Independent all-pairs distances yield the sphere profile (1,3,6,6,3,1) and the trap-to-fatal-vertex bijection. Restricting targets to the 760 survivors gives a response for each of 9,880 source/attack pairs; the minimum number of distinct destination sets is 26, attained for instance at source mask 19621 and attack 8. Because the survivor set is closed under at least one response to every legal attack, choosing a safe response at every turn is a perpetual strategy; by contrast the other 20 and all six-sets can be defeated immediately. The exact 26 counts destination sets, not different bijections to a single set, as the proof specifies.
 
-The file `check_certificate.py` checks that the two output data sets coincide exactly, recomputes the graph adjacency and distance spheres, and verifies each of the \(9880\) response witnesses by an additional subset-based matching dynamic program. Its recorded output is in `certificate_check_output.txt`.
+## originality
 
-Reproduce with `python3 generate_certificate.py certificate.json`, `g++ -std=c++17 -O2 -Wall -Wextra -pedantic matching_recompute.cpp -o matching_recompute`, `./matching_recompute > matching_recompute_output.txt`, and `python3 check_certificate.py certificate.json matching_recompute_output.txt`. The generation and checking scripts use standard-library modules only. All checks are finite, and none is evidence for an infinite-family theorem or an independent external audit.
+PASS
+
+Pass for the complete viable-state classification, the geometric single-attack traps, and the sharp number of distinct safe destinations. The domination number and reportedly known seven-guard construction do not carry this originality decision.
+
+## value
+
+PASS
+
+This natural finite game instance distinguishes minimum guard budget from the exact set of viable positions. The distance-shell obstruction gives a succinct description rather than a list of masks, and the positive sharp reply count shows that every other one-step-safe configuration is indefinitely safe with multiple distinct choices. This makes it an informative exact benchmark for safety-region enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review: nonunit-stratified Davenport extrema
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem distinguishes a nonzero product from a zero product, and uses the exact deletion test in both cases, including deletion of the empty sublist, the truncated valuation of zero, and arbitrarily repeated elements. The binary unit group has independent odd-degree generators, so its exact Davenport constant is obtained with a self-contained group-algebra argument. Fixed-nonunit maxima are attained by explicit valuation-one factors plus zero-product-free unit lists at the appropriate smaller depth. The parity table follows from sharp differences of unit-group constants and explicit exceptional cases. The checker independently enumerated 81,340 finite assertions, including exact small-depth extremizers; no infinite claim relies on this enumeration.
+## correctness
 
-## Originality — PASS, with limitations
-The already-known scalar Davenport constant is expressly excluded from the novelty claim. The inspected principal results of Zhang–Wang–Qu and Deng address semigroup upper bounds and exact scalar Davenport constants, not the full prescribed-nonunit extremal law and the resulting all-depth inverse profile. Wang's earlier polynomial quotient theorem addresses larger finite fields; the prior group-inverse work motivates rather than settles this multiplicative local-ring question. Targeted mathematical-literature comparisons and available earlier claims did not identify a theorem implying these exact nonunit-stratified and parity-rigidity statements. An old or broad inverse-semigroup theorem may still imply the result; priority is not certified by absence of search hits.
+PASS
 
-## Mathematical value — PASS
-The invariant answers a natural inverse extremal question that is not recoverable from a scalar Davenport constant: how many noninvertible factors a longest irreducible product sequence can contain. The unexpected uniform parity dichotomy (all units at all odd depths at least five versus one possible nonunit at every even depth at least six), the exact exceptional depths, and the closed sharp maximum for each prescribed number of nonunits are concrete structural arithmetic information relevant to the inverse zero-sum/semigroup problem. The full classification of unit-group extremizers remains open beyond this structural reduction.
+For total nonunit valuation V<n, removing any nonunit lowers the valuation and cannot preserve the product. After cancelling the unit part and t^V at the reduced precision, a deletion is possible exactly when a nonempty unit sublist multiplies to 1 modulo t^(n-V). For V>=n the product is zero: a unit could always be deleted, and otherwise it is enough to test whether a single deletion still gives zero. This gives r<=n and forces all valuations to be one at r=n (including the case n=1, where t represents zero). The generators 1+t^j for odd j have orders 2^e_j; their binary power factors give one lowest-degree pivot at each m=1,...,n-1, proving a unique cyclic-coordinate presentation. Truncated powers of the augmentation generators then give the upper Davenport bound, while order-minus-one repetitions of each cyclic generator give the lower bound. At fixed r<n, V>=r gives the upper bound, attained by r copies of t and lifted extremal units at precision n-r. Subtracting from the all-unit maximum leaves the sum of 2^v2(m)-1 on the last r degrees: it vanishes for positive r exactly at r=1 and even n. The separate zero-product maximum n ties at depths 3 and 4, wins at 1 and 2, and loses from 5 onward. Strict growth of d_j forces V=1 in every tied one-nonunit case. Inspected verify.py and verification_output.txt: their finite checks are supplementary (all small-depth profiles only through n=4; group generation through n=12); the deletion and group arguments establish the all-depth result. The bundled code was inspected, not replayed.
 
-## Closest literature and limitations
-- Zhang, Wang, Qu (2015): universal binary polynomial-quotient Davenport bounds, not inverse profiles.
-- Deng (2016): exact scalar ring Davenport formula, which does imply the global length but does not itself supply the structural inverse result.
-- Wang (2014): finite-field polynomial-quotient constant for residue fields larger than two.
-- Schmid (2011): separate inverse zero-sum problem in finite abelian groups.
-Historical generalizations and unfinished unit-group inverse classifications are explicitly outside the conclusion. Computational verification is finite and same-model only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unrestricted scalar length is known and is not credited as new. Earlier stabilizer/relative-constant arguments supply tools for controlling unit deletions but the inspected results do not give sharp length at each exact nonunit count, or the parity classification and valuation-one equality cases. The pass is limited to that refinement, not the group constant or the use of stabilizers.
+
+## value
+
+PASS
+
+The new profile answers an inverse question left open by the scalar cutoff: precisely how much length is lost by prescribing noninvertible factors and which such strata can tie the maximum. The parity dichotomy, small-depth exceptions, and the explicit reduced-unit criterion give usable structural information without claiming a full classification of the unit lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

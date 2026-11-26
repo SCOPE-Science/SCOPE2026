@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent edge events give an exact polynomial expression for expected unrooted phylogenetic diversity with any protected subset. A two-coordinate finite difference yields the factorization of the pair interaction as the positive total-extinction product times a strictly increasing reciprocal-product expression. Positive off-path edge lengths and a third leaf force the normalized expression to range from negative infinity to the positive pair distance, proving existence and uniqueness of the sign reversal for every eligible tree and risk path. The two-leaf boundary and the exact three-leaf example were separately evaluated. The finite-state checker agrees with the derived identity in 120 configurations, 39 pairwise interactions and 369 anchored inequalities; the infinite-parameter result rests on the proof, not the checker.
+## correctness
 
-**Originality — PASS, with disclosed implication risk.** The 2007 Steel–Mimoto–Mooers unrooted HED theorem is the closest mathematical prior result and already establishes the relevant *single-species* edge-product formula for heterogeneous independent extinctions. A further finite difference derives the present pairwise identity, so neither that elementary machinery nor HED/HEDGE is claimed to be new. The specific universal, *strict exactly-one* cross-severity theorem for a pair's joint protection, with no shared extinction law, and its sharp two-taxon exception are not stated in the examined original source. Steel's 2005 theorem concerns deterministic selection; Hartmann–Steel's Noah's Ark theorem uses rooted diversity, which has an anchored objective rather than the unanchored high-risk pair-complementarity regime. Complete Jensen et al. (2016) text was unavailable; potential equivalent coverage and the proximity to Theorem 3.2 remain residual risks.
+PASS
 
-**Value — PASS.** The result gives a global structural explanation for why two guaranteed-survival interventions may be redundant under low extinction severity but synergistic under sufficiently severe extinction, regardless of the shape of heterogeneous monotone risk curves. It identifies the only possible sign-transition direction and shows why anchored optimization has different diminishing-return behavior. These distinctions matter to deciding when a one-at-a-time priority index can represent joint interventions. The conclusion is model-specific; no empirical risk estimates or policy efficacy are asserted.
+An edge contributes iff both leaf sides have a survivor. With independent risks and no protection its expected fraction is (1−Q_A)(1−Q_B), with side products set to zero if a taxon on that side is protected. The mixed protection difference is Q_AQ_B if x and y are separated and −Q_A(1−Q_B) if both are on side A. Dividing by the positive product Q over all taxa therefore yields total tree length minus the sum of positive lengths divided by their away-side risk products on off-path edges. Each away side is nonempty, strictly increasing in product risk, and tends from 0 to 1. A third leaf forces an off-path edge; the normalized interaction consequently increases continuously and strictly from −∞ to the positive x–y distance. These limits concern H/Q, not H itself. With only two leaves H=d_T(x,y)Q>0; with a protected anchor each edge is a constant plus a nonnegative weighted coverage indicator. The three-leaf star reduces to q²(3q−1). Independently enumerated natural survivors using unions of pair paths on a different weighted four-leaf tree: heterogeneous risks (t,t²,t,t³) give H_02=t⁷(21−3/t²−5/t³), with exact sign and anchored checks. Replay: python /workspace/calculations/reproduce_frozen.py (check phylo). The finite instance does not prove the general crossover.
 
-Closest literature: Steel (2005), DOI 10.1080/10635150590947023; Steel, Mimoto, Mooers (2007), DOI 10.1177/117693430700300024, Theorems 3.2 and 4.1; Hartmann–Steel (2006), DOI 10.1080/10635150600873876; Jensen et al. (2016), DOI 10.7717/peerj.2350. The Jensen full text was not inspected; a stronger overlooked pairwise theorem could subsume the contribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: credit the known heterogeneous independent-extinction edge expectation and related single-taxon protection formula, not as new results. The supported contribution is the strict and unique negative-to-positive crossover for the initial unanchored interaction of any pair along every full-range increasing heterogeneous risk path, with its two-leaf exception. The anchored coverage observation is not separately novel.
+
+## value
+
+PASS
+
+A single-protection ranking can miss complementarity in the unanchored objective. The theorem specifies exactly when the interaction changes direction without a shared risk law, and shows why a fixed anchor eliminates the positive regime. It is a structural characterization of the risk model, not evidence of particular intervention efficacy or a multi-taxon optimization guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

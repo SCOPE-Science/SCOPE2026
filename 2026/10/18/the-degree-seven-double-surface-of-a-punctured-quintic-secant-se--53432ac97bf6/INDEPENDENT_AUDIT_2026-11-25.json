@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:39:19.880711Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81",
+        "Exact independent sparse-polynomial expansions of the quadratic resultant and chart normal form",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing"
+      ],
+      "rationale": "The Hankel minors vanish on the lifted two-point moment sums. I independently expanded the two quadratic-in-y minors using the quadratic resultant identity; subtracting (ad-bc)F left zero coefficients. The independent triangular substitution on e=1 also left zero residual coefficients against h(w^2+2cz^2)-z^3. The three-parameter secant map has the indicated nonzero determinant -1/16 at (0,1,1); there ad-bc is nonzero, so the dense secant image lies in the sextic. The chart polynomial is primitive in w and irreducible over k(c,d,z) by the odd valuation at z-2ch. Its homogenization has no e factor, establishing the integral hypersurface. The chart gradient forces z=w=0: at h=0 the equation forces z=0 and F_c forces w=0, and at h!=0 the w derivative forces w=0 with the z derivative and equation incompatible for z!=0. At e=0, F_a and the restriction of F_c at d=0 force c=0, and F_b then forces b=0 or d=0. All five derivatives vanish on those two lines. Setting e=0 in the three cubics gives the same lines, and the two displayed parameter arcs of the graph approach dense subsets of each line, excluding extra boundary components. The two-cubic complete intersection has the graph closure and just the two coordinate planes as components; on the boundary their indicated transverse Jacobian determinants are -2bd^3 and -2c^4 respectively. Each plane and the chart graph occur with multiplicity one, so the graph closure has degree 9-2=7. On the open set ch!=0 at a general closed point, factor the transverse equation as h(w-z sqrt(-2c+z/h))(w+z sqrt(-2c+z/h)) in completed coordinates; the square root is a unit and the two linear terms are independent. This proves the stated ordinary node and the failure of regularity in codimension one. A split node is asserted at general closed points, or geometrically transversely; over the unextended generic residue field k(c,d) the quadratic form need not split.",
+      "residual_risks": [
+        "The reduced-support calculation is characteristic zero and does not identify the full Jacobian scheme, conductor, or degenerate transverse germs.",
+        "Finite-field checks described in the supplied file are not evidence for unrestricted characteristic or for algebraic closure of a finite test set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ranestad's degree formula gives binomial(4,2)=6 because the two endpoint branches are smooth. Cueto–Lin gives a tropical Newton-polytope method for secant hypersurfaces.",
+          "Vermeire gives normality and smoothness criteria under ampleness or the stated syzygy hypothesis; 4-very ampleness fails for this five-dimensional section space, since a nonzero section vanishing on five chosen zeros of its divisor gives a kernel on that length-five subscheme."
+        ],
+        "reasoning": "Degree-six coverage is exact and is credited. The polytope and coordinate elimination background do not give the support or singularity type. Failure of the 4-very ample sufficient condition alone proves neither normality nor nonnormality; no claim that the syzygy criterion was independently checked is made.",
+        "searches": [
+          "Ranestad, Proposition 3.1; Cueto–Lin arXiv:1005.3364 §6 Theorem 6.1; Vermeire arXiv:0712.2364 §2 Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact exponent and singular-surface searches; mirrored cab95b262783 Finding",
+        "Ranestad Proposition 3.1 and Example 3.3",
+        "Cueto–Lin §6",
+        "Vermeire Theorem 2.2",
+        "arXiv:2408.16736 introductory passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Newton-polytope computation does not determine the coefficients or the boundary singular locus. Degree of the secant itself does not determine the degree of the double surface. The frozen normal form and boundary cubic equations prove the support and exhibit the multiplicity-one residual-plane calculation."
+        ],
+        "reasoning": "Projection heuristics may suggest a divisorial double locus, but this coordinate projection is fixed rather than a general center. The absence of any additional singular components, the shape of the boundary and the precise degree require the special chart and boundary computation; they do not follow by substituting d=5 into the known secant-degree result.",
+        "searches": [
+          "Compare Ranestad §3, Cueto–Lin §6, Vermeire Theorem 2.2 and the retrieved rational-normal-curve scope against the chart and boundary proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parametrization is the projection of the complete degree-five rational normal curve from the coordinate point of t^2; projecting its rank-two Hankel secants and taking the Jacobian describes the same problem.",
+          "cab95b262783, Finding offset 84, concerns the degree-eight Han–Kwak threefold in P^5 and an affine singular line with UW+Z^3 germ. arXiv:2408.16736 p. 1 treats sufficiently positive embeddings and in its rational-normal case the complete embeddings."
+        ],
+        "reasoning": "Neither an affine A2 line on a different multisecant threefold nor an invariant of secants of the full degree-five rational normal curve identifies the double locus after this specified projection. An equivalent result would need the projected singular support rather than merely the original Hankel secant.",
+        "searches": [
+          "Resultary monomial secant exponents (0,1,3,4,5), projected quintic double surface and nodal transverse secant sextic",
+          "Primary search for the degree-five rational normal curve projected from its omitted quadratic coordinate and secant singular locus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both worked monomial examples inspected have exponent sequence (0,30,45,55,78) and degree 1820, not (0,1,3,4,5). The local mirror's closest singularity profile cab95b262783 is an exact computation for a different threefold."
+        ],
+        "reasoning": "These sources give nearby sorts of exact worked examples, not a table of the reduced Jacobian support at the target exponent sequence. The searches are bounded rather than an exhaustive catalogue.",
+        "searches": [
+          "Resultary exact exponent-sequence and degree-seven surface searches; Ranestad Example 3.3 and Cueto–Lin Example 6.2"
+        ]
+      },
+      "rationale": "The sextic degree itself is already a specialization of Ranestad's formula. The supported novelty is instead the exact global reduced singular surface for this specified incomplete quintic linear system: explicit equations, degree seven, two boundary lines and general geometric nodal transverse type. The strongest named general results determine different invariants or have hypotheses not met by this projection; the nearest retrieved indexed transverse-type example has a different variety, dimension of singular locus and germ.",
+      "residual_risks": [
+        "A prior explicit elimination calculation for this projection in unindexed algebraic-geometry literature remains possible.",
+        "Ranked search results are not exhaustive and the review does not claim definitive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies sextic degree only; its worked exponent sequence is different",
+          "evidence": [
+            "Degree equals binomial(d-1,2) minus the two endpoint delta contributions in the stated monomial-curve setting."
+          ],
+          "identifier_or_url": "https://library.slmath.org/preprints/files/2004/2004-007/2004-007.pdf",
+          "material_read": "Introduction p. 1, Proposition 3.1 p. 4, Example 3.3 p. 6; offsets 0, 9416, 15143",
+          "method": "OA original PDF passages",
+          "title": "The Degree of the Secant Variety and the Join of Monomial Curves",
+          "trigger": "General degree theorem and possible exact monomial example"
+        },
+        {
+          "assessment": "Broader tropical invariant, not the reduced double locus of the target",
+          "evidence": [
+            "Ray shooting computes Newton polytope data; the worked example uses (0,30,45,55,78)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.3364",
+          "material_read": "§6 pp. 20–21, Theorem 6.1 and Example 6.2, offsets 79116 and 82596",
+          "method": "OA primary-text passages",
+          "title": "Tropical Secant Graphs of Monomial Curves",
+          "trigger": "Algorithms and worked exact monomial secant hypersurfaces"
+        },
+        {
+          "assessment": "Its 4-very ample case cannot apply to this incomplete linear system",
+          "evidence": [
+            "Under 4-very ampleness the secant is normal and smooth away from the embedded variety; K2 is an additional sufficient hypothesis addressed there."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0712.2364v1",
+          "material_read": "§2 Theorem 2.2, offset 8655",
+          "method": "OA original HTML passage",
+          "title": "Singularities of the Secant Variety",
+          "trigger": "Possibly dominating normality and singular-locus theorem"
+        },
+        {
+          "assessment": "Different threefold and transverse singularities; same-day dating immaterial to that distinction",
+          "evidence": [
+            "Degree eight in P^5, affine singular line, complete local ring of type UW+Z^3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-equisingular-transverse-a-2-line-in-the-han-kwak-multisecant--cab95b262783/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 84–1530",
+          "method": "Local mirrored original",
+          "title": "An equisingular transverse A2 line in the Han–Kwak multisecant threefold",
+          "trigger": "Closest indexed explicit transverse-germ and singular-support match"
+        },
+        {
+          "assessment": "The inspected setup concerns positive embeddings and invariants including rational-normal-curve cases, not an exact calculation for the specified incomplete quintic projection",
+          "evidence": [
+            "States intersection-cohomology and nearby/vanishing-cycle questions; distinguishes complete rational normal curves and the even-degree hypersurface case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.16736",
+          "material_read": "Abstract and initial introduction p. 1, offset 750–2814, positivity terminology p. 4 near offset 14166",
+          "method": "Bounded OA PDF passages",
+          "title": "Invariants of the singularities of secant varieties of curves",
+          "trigger": "Primary search match involving rational normal curves and secant singularities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof, notably steps 2–5",
+        "Comparison to the known secant-degree and sufficient normality results"
+      ],
+      "rationale": "Omitting one coordinate from a rational normal quintic is a natural test of how a low-dimensional incomplete embedding changes the secant singular locus. The calculation determines the entirety of a divisorial nonnormal locus, including components at infinity, its degree as an independent projective invariant and its general transverse branching. Those data distinguish the special projection in ways the already-known hypersurface degree cannot, and give explicit equations that can be used in subsequent local or normalization calculations.",
+      "residual_risks": [
+        "The value is an exact model for this one linear system, not a general classification of projected-quintic secants or of the exceptional germs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

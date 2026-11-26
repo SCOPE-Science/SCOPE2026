@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:05:22.358832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On circle i the approaching-circle factor is ε(2r_j+ε)+2r_i(1−cos t), where t is measured from prospective contact. The other speed factors are uniformly nonzero. Scaling t by sqrt(2R_j ε/R_i) gives an integrable bound proportional to (1+z²)⁻¹ on the rescaled reciprocal-speed density, yielding both prefactors and both Cauchy laws by normalization. Circle 3 has uniformly nonzero limiting speed. Taking the radial derivative of f_i gives the stated cofactors; in the only near-singular quotient the numerator is sin(t) times a smooth factor with a uniformly bounded derivative. Pairing t and −t makes it O(t²), so the quotient is bounded by C t²/(ε+t²); positive-time orientation has constant sign and dominated convergence applies. Dividing the finite log limits by the physical periods gives the stated rate. The explicit contact values are 106/25, 4, and −3 and yield ratio 4/3. 'Two distinct clocks' means two orbits; their prefactors need not differ in general. Frozen symbolic checks and two-gap quadratures corroborate identities and examples, not the limiting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "(6.16) gives I_k=(2πκr_k²/δ_k)(B_ki/H_ki+B_kj/H_kj) for all disjoint radii with nonvanishing angular factors, including all positive gaps in the record.",
+          "40d0808ad01b concerns period tuning of separated circles; 7b4281ea0a42 has two Cauchy phase gates on one circle but divergent log multipliers."
+        ],
+        "reasoning": "The quantitative expression for all positive gaps is stronger than mere existence or hyperbolicity at positive separation. The other records do not give this expression or these two-circle limits.",
+        "searches": [
+          "Cao–Llibre arXiv:2611.05696, Proposition 6.2",
+          "Resultary: two-gate arrest and quartic three-circle periods"
+        ]
+      },
+      "checked_sources": [
+        "Cao–Llibre, arXiv:2611.05696v1",
+        "Resultary 2890d1558bbd, 7b4281ea0a42, fb7316ab495d, 40d0808ad01b",
+        "Frozen RESULT.md, VERIFICATION.md and verify_three_circle_tangency.py (inspected, not executed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At contact c_ij→2R_i and h_ij→0 for i,j=1,2, so H_12→2R_1 A_1(P), H_21→2R_2 A_2(P). These limits and δ_i are nonzero; H_i3 remains nonzero by separation and uniform periodicity through the limit, or by |ω_i|>norm of its angular coefficients and the formula H=ac+δη−b·d. All B_ij are continuous. Thus (6.15)–(6.16) already force finite limiting transverse logs.",
+          "From (6.12), the vanishing factor is exactly a positive gap constant plus 2r_i(1−cos t); rescaling the reciprocal speed immediately yields the usual Cauchy normalization and both period constants, and separation handles circle 3. Record fb7316ab495d, Proof §§1–2, is an earlier different-oval example of the same phase scaling."
+        ],
+        "reasoning": "Although tangency itself is excluded by the source hypotheses, no application at zero gap is necessary: the source evaluates the exponent at every positive gap, and its formula has nonzero limiting denominators. The period ratio and Lyapunov rate bound are direct consequences.",
+        "searches": [
+          "Cao–Llibre arXiv:2611.05696, Theorem D definitions and (6.12), (6.15)–(6.16)",
+          "Resultary: Yablonskii period divergence and Cauchy time concentration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem D, (1.7), gives precisely the same vector field and affine factors; (6.12) gives the time parametrizations, (6.14)–(6.15) the signed-angle and positive-time log multiplier formulations.",
+          "Qin record 2890d1558bbd, Finding and Proof §§1–5, has period blow-up, Cauchy time law and finite log multiplier on one circle with a scaled parameter path."
+        ],
+        "reasoning": "Time normalization is not needed to compare with the primary source. The Qin family is a substantive analogue but not the same two-circle problem.",
+        "searches": [
+          "Resultary: invariant circle tangency, Cauchy time concentration, finite Floquet crossover",
+          "Cao–Llibre arXiv:2611.05696, Theorem D and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary match was the assigned record itself; the distinct Qin and Wilson records are adjacent but differ in geometry or transverse behavior.",
+          "No separate table is needed: the exact general formula (6.16) evaluates the invariant for all the assigned positive gaps; the numerical example is parameter substitution."
+        ],
+        "reasoning": "The relevant prior exact data are an analytic expression, not a list of special numerical prefactors.",
+        "searches": [
+          "Resultary: three-circle tangency and two Cauchy time gates; Floquet limit",
+          "Cao–Llibre Theorem D explicit δ, h, H and B definitions"
+        ]
+      },
+      "rationale": "The strongest comparison is not merely a related bottleneck: Cao–Llibre evaluate the transverse exponent exactly for the identical positive-gap family. That expression has an immediate regular contact limit under the exact hypotheses of this record. Their exact angular speeds also reduce both periods and normalized phase laws to the same standard quadratic reciprocal-speed limit, with the displayed prefactors obtained by substitution. The limiting packaging is not stated verbatim by Cao–Llibre, but the result does not establish a distinct nonroutine claim beyond these implications. This is not a priority decision based on same-day indexing.",
+      "residual_risks": [
+        "The general bottleneck literature was not exhaustively searched; no ordering is inferred for same-day records. Neither issue affects the explicit prior-implication comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact exponent covers finite limit; speeds give period and phase data",
+          "evidence": "(1.7), (6.12), and Proposition 6.2 formula (6.16), including H=ac+δη−b·d.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.05696",
+          "material_read": "Theorem D and preceding definitions, PDF pp. 5–6 (OA offset 14700); §6, Prop. 6.1 and (6.11)–(6.18), PDF pp. 22–24 (OA offsets 68600, 75592)",
+          "method": "Targeted original OA PDF text",
+          "title": "Quartic polynomial differential systems with three disjoint invariant circles",
+          "trigger": "Identical normalized family and possible stronger exact Floquet result"
+        },
+        {
+          "assessment": "Same combination on one circle along a different parameter path; does not prove the two-circle result",
+          "evidence": "A unit circle and a=κ√ε path to its double-zero arrest.",
+          "identifier_or_url": "Resultary 2890d1558bbd",
+          "material_read": "Finding and Proof §§1–5",
+          "method": "Published record, local mirror",
+          "title": "A finite Floquet crossover at the double-zero arrest of Qin's invariant circle",
+          "trigger": "Period, Cauchy profile, finite log multiplier together"
+        },
+        {
+          "assessment": "Partial analogy; different transverse behavior",
+          "evidence": "Two gates on one fixed circle, and divergent logarithmic exponents.",
+          "identifier_or_url": "Resultary 7b4281ea0a42",
+          "material_read": "Finding and Proof §1",
+          "method": "Published record, local mirror",
+          "title": "Exact period minimum and two-gate critical arrest of the Wilson–Liénard circle",
+          "trigger": "Two Cauchy gates and period blow-up"
+        },
+        {
+          "assessment": "Same scaling mechanism on one different oval",
+          "evidence": "Inverse-square-root physical period and rescaled Cauchy occupation; no finite transverse log claim in Finding.",
+          "identifier_or_url": "Resultary fb7316ab495d",
+          "material_read": "Finding and Proof §§1–2",
+          "method": "Published record, local mirror",
+          "title": "Sharp period divergence and Cauchy time concentration for the Yablonskii oval",
+          "trigger": "Quadratic-bottleneck time concentration"
+        },
+        {
+          "assessment": "Period tuning, not tangency",
+          "evidence": "The parameter problem is posed at positive separations without a singular phase or transverse limit.",
+          "identifier_or_url": "Resultary 40d0808ad01b",
+          "material_read": "Finding and Proof §§1–2",
+          "method": "Published record, local mirror",
+          "title": "Two independently tunable periods with a frozen third clock in quartic circle dynamics",
+          "trigger": "Three disjoint invariant circles with two variable periods and a third clock"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Contrasting a slow physical clock with finite per-cycle transverse change at geometric contact is a meaningful question. Here the strongest prior formula already decides the transverse part by continuity, and the residue is the elementary quadratic time profile in two known angular equations. No independent cutoff, nontrivial limiting exponent evaluation beyond that prior formula, or new mechanism under weaker hypotheses is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

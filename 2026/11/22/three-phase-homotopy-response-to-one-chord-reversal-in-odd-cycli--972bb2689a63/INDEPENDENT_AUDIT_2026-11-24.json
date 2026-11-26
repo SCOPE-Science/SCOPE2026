@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:48:47.062284Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40, VERIFICATION.md, and verify.py (inspected, not executed)",
+        "Independent replay: cd /workspace && python3 audit-replay/tournament_bases.py"
+      ],
+      "rationale": "For each deleted vertex the two orientation classes are transitive, and any admissible cross pair points from incoming to outgoing. Thus a clique in the link graph orders as incoming, vertex, outgoing and gives a simplex. Directly applying the modular arc inequality verifies the four cross-neighborhood formulas in RESULT.md. The nested neighborhoods justify the displayed folds: in the first nonadjacent link fold onto column 2 except when d=2, when column 3 is used until row 0 has been removed; in the second link remove column 0 before using the nested rows. In the adjacent case the first fold leaves one column and the second removes columns 1 and 0 before using nested rows. A closed-neighborhood inclusion in a clique complex permits a simplicial collapse (pair simplices containing the removed vertex by adding the dominant vertex), and a collapsible link yields the relative star collapse. The two removed labels in each reduction are separated by m steps; every surviving vertex has exactly one removed label among its next m positions, so after relabeling its unreversed out-neighbors are the next m−1 survivors. The reversed arc becomes 0→d−1 for d≥2 and stays 0→1 for d=1. The base d=1 at m=2 collapses to a point and d=2 to a 3-edge circle. An independent score-based enumeration and free-face check for (3,2) leaves a two-dimensional core with face vector (7,21,16); a star spanning tree and successive triangle relations kill every remaining edge generator in four rounds. Its Euler characteristic 2 and simple connectivity give S² by Hurewicz and Whitehead. The reductions reach exactly these bases, including (3,3)→(2,2).",
+      "residual_risks": [
+        "The independent replay authenticates the finite bases, not an exhaustive test at all orders; the interval proof supplies the universal step. The original checker requires a Python version supporting int.bit_count, regardless of the documentation's 3.9 minimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Govc develops methods and gives finite homotopy comparisons.",
+          "The tournaplex adds cyclic tournament faces that the directed flag complex excludes."
+        ],
+        "reasoning": "These methods and frameworks allow calculation but do not furnish a parameter-uniform homotopy law for the single reversed arc.",
+        "searches": [
+          "Govc 2020, section 3; Govc–Levi–Smith 2021, introduction and construction of the flag tournaplex"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md including prior-work section; Resultary records 8f4d1ced82e2 and 568c2473dfd5; Govc 2020; Govc–Levi–Smith 2021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single length-one reversal is contractible for every odd order in scope.",
+          "Two disjoint length-one reversals have a sphere regime under different separation assumptions."
+        ],
+        "reasoning": "The former implies contractibility when d=1, not the required preservation of homotopy when m and d both drop by one. The latter does not assert such a reduction or identify the penultimate single reversal.",
+        "searches": [
+          "Adjacent reversal 8f4d1ced82e2, Finding; two adjacent reversals 568c2473dfd5, Finding; Govc 2020, section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adjacent reversal 8f4d1ced82e2 has exactly d=1.",
+          "Two adjacent reversals 568c2473dfd5 has two length-one reversals, rather than one variable-length reversal."
+        ],
+        "reasoning": "Changing which vertex starts the reversed arc is a rotation; changing one arc to two is not a relabeling of the same fault operation. Transitive sets are directed flag faces; the larger tournaplex is not the invariant in question.",
+        "searches": [
+          "Resultary: cyclic tournament one-edge or adjacent reversal and directed flag homotopy",
+          "Primary literature: \"cyclic tournament\" \"arc reversal\" directed flag complex homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected regular-tournament table enumerates through 13 vertices, not the faulted family (the arc reversal changes two degrees).",
+          "Finite tournament homotopy results can overlap individual base calculations."
+        ],
+        "reasoning": "Even exact enumeration of all small faulted tournaments would not imply that the same links collapse at arbitrarily large orders. I do not rely on the frozen discussion's specific cutoff for the nonregular census.",
+        "searches": [
+          "Govc, arXiv:2006.05333, section 3, including regular-tournament tables in section 3.1",
+          "Resultary chord-reversal and finite tournament homotopy comparisons"
+        ]
+      },
+      "rationale": "The adjacent-reversal contractibility branch is known and explicitly credited. The distinct result is the uniform stabilization under deleting a pair of vertices and the resulting sharp chord-distance trichotomy beyond d=1. A same-day S² result for two disjoint adjacent reversals does not classify the one-fault family; same-day ordering is not inferred.",
+      "residual_risks": [
+        "An unindexed classification or general collapse theorem equivalent on this family could affect priority; evidence is statement-level, not an exhaustive literature census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known d=1 branch",
+          "evidence": "Reversing only 0→1 gives a contractible directed flag complex for all odd orders n≥3.",
+          "identifier_or_url": "Resultary 2026/10/4/8f4d1ced82e2",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A single adjacent reversal contracts the cyclic tournament flag complex",
+          "trigger": "Exact adjacent subcase"
+        },
+        {
+          "assessment": "Different reversals and parameter",
+          "evidence": "Reverses both 0→1 and d→d+1, with 2≤d≤m. The sphere occurs for d<m in that two-fault family.",
+          "identifier_or_url": "Resultary 2026/11/22/568c2473dfd5",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two adjacent edge reversals create an integral two-sphere in cyclic tournaments",
+          "trigger": "Same-day S² phenomenon"
+        },
+        {
+          "assessment": "Finite context, not the uniform reversal theorem",
+          "evidence": "Section 3.1 tabulates homotopy types among regular tournament representatives of orders at most 13.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.05333",
+          "material_read": "Sections 3 and 3.1, OA HTML offsets 33000 and 41943",
+          "method": "OA primary text",
+          "title": "Computing Homotopy Types of Directed Flag Complexes",
+          "trigger": "Potential finite census coverage and general method"
+        },
+        {
+          "assessment": "General framework, different complex and question",
+          "evidence": "The tournaplex contains the directed flag complex and adds nondirected tournament cliques.",
+          "identifier_or_url": "https://doi.org/10.1007/s41468-021-00068-0",
+          "material_read": "Abstract and construction passages, OA PDF offsets 452 and 2784",
+          "method": "OA publisher PDF text",
+          "title": "Complexes of tournaments, directionality filtrations and persistent homology",
+          "trigger": "Potential broader complex and filtration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; exact adjacent-reversal comparison 8f4d1ced82e2"
+      ],
+      "rationale": "A single arc perturbation of a highly symmetric graph gives three distinct homotopy types with a sharp rule in the arc length. The two-vertex reduction gives structural control at every order and explains why the penultimate reversal can create a sphere, not just a homology count in a finite table.",
+      "residual_risks": [
+        "No assertion about multiple reversals, arbitrary tournaments or persistence maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

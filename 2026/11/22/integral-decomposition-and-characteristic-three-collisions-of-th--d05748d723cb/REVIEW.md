@@ -1,15 +1,21 @@
-# Scientific assessment: integral Penrose quartic model
+# Independent mathematical audit
 
-## Correctness
-**PASS (same-model).** The theorem identifies a specific finite scheme over \(\mathbb Z\), not only its geometric support. The four noncoordinate components are explicit, mutually disjoint copies of \(\mu_3^2\), plus four coordinate sections. The proof first shows that these components lie in the quartic zero scheme, then uses the product quartic to exhaust the geometric support and unit-multiple local equations to prove equality of local rings at every support point in every residue characteristic. Proper plus quasi-finite implies finite; flatness of the explicit closed subscheme and fiberwise Nakayama give equality over \(\mathbb Z\), precluding unobserved vertical components. The local degree-nine Hilbert function is obtained from the monomial basis of \(k[s,t]/(s^3,t^3)\). Independent finite-field checks agree, but the proof is not an enumeration.
+## correctness
 
-## Originality
-**PASS (best-knowledge, qualified).** The 2026 source's §4.1 and the 2025 Penrose example supply precisely the displayed quartic ideal in characteristic zero, but neither discusses its integral scheme, finite-flat decomposition or characteristic-three fat-point structure. The earlier quantum-geometric Penrose–Witting paper supplies forty complex rays. Published mathematical-record searches for the same ideal, modular reduction, \(\mu_3^2\), and finite-flat point collision produced no claim implying this classification. A record on arithmetic specialization of forty-eight Fermat-quartic sextactic points concerns a different ideal and collision pattern; it does not imply the present result. Partial historical indexing and potentially unpublished related computations remain risks; no search result proves priority.
+PASS
 
-## Value
-**PASS.** The forty-point Penrose configuration is an exceptional rank-four reflection arrangement's point geometry with a newly studied symbolic-power invariant. Its integral degeneration is a natural, motivated question: the full forty-point support collapses to eight points at the ramified prime, but the scheme stays finite flat of rank forty. The explicit \(\mu_3^2\) components and length-nine local Gorenstein algebras explain the collision structurally, not just numerically. The result is not asserted for other integral embeddings or for the full modular reflection arrangement.
+Verified by an integral open-cover calculation. At a point with three nonzero homogeneous coordinates, invert those three; xyzw then kills the fourth coordinate in the ring, not just on points. With x=0,y=1 the two independent relations impose (z^3,w^3)=(1,-1); with y=0,x=1 they impose (z^3,w^3)=(-1,-1); with z=0,x=1 they impose (y^3,w^3)=(1,1); with w=0,x=1 they impose (y^3,z^3)=(-1,1). In each case the remaining cubic relation is the sum or difference of the two imposed relations. Changing signs as in the four displayed embeddings yields Z[u,v]/(u^3-1,v^3-1) in each chart. At each coordinate point set its nonzero coordinate to 1 and invert the three cubic coefficients of the equations whose prefactors are the three other coordinates; the coefficients evaluate to units ±1 at the section, and these equations kill all three coordinates on that open. These four opens are copies of Spec Z. No residue-field point has precisely two nonzero homogeneous coordinates: for either surviving coordinate used as a quartic prefactor, the other contributes just its cube with coefficient ±1. Therefore the eight pairwise disjoint opens cover the entire scheme, ruling out additional vertical or infinitesimal pieces. Each rank-nine chart is free on u^i v^j, 0<=i,j<3. Away from 3 the cubic is separable; at 3 it is (u-1)^3, giving one geometric point per factor with completed local ring k[[s,t]]/(s^3,t^3), graded monomial dimensions (1,2,3,2,1) and maximal-ideal nilpotency index 5. The sign-normalized points and eight support points agree with RESULT.md. The frozen check.py inspects rational point counts for eight primes and the local monomial basis; these are finite checks only, not the proof or evidence of geometric reduction in arbitrary fibers.
 
-## Closest literature and limitations
-The closest primary treatments are Hanumanthu–Huizenga–Kettinger–Merta–Szemberg–Szpond (arXiv:2611.13108v1, §4.1), Dumnicki–Malara–Tutaj-Gasińska (*Journal of Algebraic Combinatorics*, 2025, Example 6.3), and Waegell–Aravind (arXiv:1701.06512v2). All establish complex-configuration facts, not this integral special fiber. The calculation is model-specific. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the specific arithmetic model and its scheme structure, not for the quartics, the forty complex points, or the signed cube-root parametrization. Proposition 5.17 of Chiantini et al. already treats exactly these signs over C as the d=3 case of a power family. Its proof computes the support via coordinate-plane strata and records the relevant cube relations for one plane; the new conclusion must be restricted to the integral gluing-free decomposition, flatness and nonreduced special fiber of the displayed integral ideal. The related same-day Penrose Lefschetz result concerns an Artinian quotient over Q, not this arithmetic conclusion. No ordering is inferred within the day.
+
+## value
+
+PASS
+
+The exact integral algebra and non-curvilinear characteristic-three collision are useful for specializing this standard model of a named configuration: specializing its coordinate table shows merging support, but not the multiplicity, flatness or the two independent nilpotent directions, nor absence of vertical pieces. The decomposition distinguishes a length-nine thickening of embedding dimension two from nine transverse points or one curvilinear component, and exactly identifies when the point scheme can be treated as reduced. The value is specific to this model, not a claim about the entire reflection arrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

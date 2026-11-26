@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,7 +21,7 @@
 
 # Reproducibility and scope
 
-Execute `python3 check.py` in an environment with NumPy and SciPy. The script uses a fixed pseudorandom seed and runs 443 tests across small Johnson networks, including exact expected Boolean inclusion ranks, eigenvalue classifications, projectors, nonuniform positive detector rates, long-time conditional propagators, coherent unmonitored inputs, and arbitrary Hermitian detector-sector perturbations.
+Execute the unchanged `check.py` with `python3` in an environment with NumPy and SciPy. The script uses a fixed pseudorandom seed and runs 443 tests across small Johnson networks. These include numerical comparisons with the expected exact Boolean inclusion ranks, eigenvalue classifications, projectors, nonuniform positive detector rates, long-time conditional propagators, coherent unmonitored inputs, and sampled real-symmetric detector-sector perturbations. The checks do not cover all Hermitian perturbations or measure finite-time capture with every configuration monitored; those statements follow from the analytical argument in `RESULT.md`.
 
 The final output in the checked environment was:
 

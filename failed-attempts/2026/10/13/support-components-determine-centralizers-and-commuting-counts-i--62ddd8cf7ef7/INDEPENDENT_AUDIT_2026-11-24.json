@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:42.298342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63",
+        "VERIFICATION.md, verify.py and verification_output.txt",
+        "Rossmann Lemma 3.2 and proof"
+      ],
+      "rationale": "Independent central edge coordinates give one equation a_i b_j−a_j b_i=0 per edge. On the support, ratios b_i/a_i are constant and free on each connected component; outside it, precisely the neighbors of the support must vanish. All m central coordinates are free, giving both the claimed dimension and rank by rank–nullity, including zero vertices and characteristic two. Multiplication by q^m(q−1)^|S| gives the rank enumerator. For the ordered pair of vertex-coordinate vectors, use the support of the nonzero two-coordinate columns instead: edge determinants vanish exactly when a component shares a projective line, with q+1 choices per component and q−1 amplitudes per vertex. This yields the stated specialization of Q and its normalization. The forest recurrence distinguishes zero from one fixed line at the root, correctly allowing only the same line or zero under a nonzero parent. Independent direct enumeration over F_3 checked every individual centralizer size on P_3, K_3, two disjoint edges, and C_4, with vertex-coordinate commuting totals 153, 105, 1089, 417, respectively. The supplied checker was read, not run; its recorded finite output is corroborative only.",
+      "residual_risks": [
+        "The edge equations require independent central edge generators, not shared labels. The forest complexity counts arithmetic operations, not bit operations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later f824b785aa49 gives Lie-algebra types, including the same centralizer dimension; later 897b7b3d7612 states the exact general enumerator as background to cycle results.",
+          "General commutativity-degree rank averaging alone is weaker than Rossmann's graph-specific evaluation."
+        ],
+        "reasoning": "The centralizer-type result implies the dimension but is not earlier-priority evidence. The established 2022 all-field formula already settles coverage of the fixed-support dimensions without using these later records.",
+        "searches": [
+          "Resultary: graph centralizer Lie-algebra types",
+          "Resultary: rank and commutativity laws for cycle graphical Lie algebras",
+          "Shamsaki–Erfanian–Parvizi arXiv:2406.10064 §3"
+        ]
+      },
+      "checked_sources": [
+        "Rossmann arXiv:2107.05564v3",
+        "Tittmann–Averbouch–Makowsky arXiv:0812.4147v2",
+        "Resultary 81ba4ac87b5b, 897b7b3d7612, f824b785aa49, 003c97167e0e",
+        "Frozen prior-work assessment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula f_G(q)=sum_S (q−1)^|S| q^(m+c(S)−|N[S]|) counts group conjugacy classes. Group/Lie centralizers coincide, and group order is q^(n+m).",
+          "Related truncated-path-algebra record 003c97167e0e has a different ambient algebra and is not used as exact coverage."
+        ],
+        "reasoning": "The class number times group order is the ordered commuting count. This gives q^(2m) sum_S (q−1)^|S|q^(c(S)+b(S)); the known Q weighted-coloring interpretation gives the same count. Neither this translation nor multiplying the pointwise ranks by their support multiplicities requires a new rank theorem.",
+        "searches": [
+          "Rossmann arXiv:2107.05564v3 Corollary B, Propositions 2.2–2.3 and Lemma 3.2",
+          "Resultary: support/component formulas for commutator rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rossmann §2.4 defines the exact Lie algebra and §3 Lemma 3.2 computes the dimension of K^V modulo the span of x_i e_j−x_j e_i, for any field.",
+          "Resultary 81ba4ac87b5b recovers the rank enumerator at tuple length 1; its date alone does not settle priority."
+        ],
+        "reasoning": "These vectors are the rows of the frozen vertex-to-edge map. The quotient dimension equals the vertex kernel dimension; Rossmann's n−|N[S]| is exactly b(S).",
+        "searches": [
+          "Rossmann graphical groups support connected components rank",
+          "Resultary: joint centralizer rank spectra of graphical Lie algebras"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tittmann–Averbouch–Makowsky Theorem 10 weights each active vertex by u and assigns y shared colors per active component; setting u=q−1,y=q+1 yields the frozen projective-line count.",
+          "Rossmann Corollary B supplies the exact all-graph conjugacy polynomial, not merely examples or samples."
+        ],
+        "reasoning": "The weighted-coloring realization agrees with the bracket-zero determinant condition. Prior coverage is by exact formulas, and old forest or special-graph evaluations are not new invariants.",
+        "searches": [
+          "Resultary: graph Lie commuting and adjoint-rank counts",
+          "Tittmann–Averbouch–Makowsky subgraph component polynomial weighted star model"
+        ]
+      },
+      "rationale": "Rossmann (2022) computes the exact fixed-support cokernel dimension for the transpose of this same adjoint matrix over every field. Adding the central coordinates and summing support multiplicities directly recover the claimed centralizers and rank enumerator. His class-count formula together with the equivalence of group and Lie commutation already determines the exact ordered commuting count. The Q notation is a re-expression of that count via an established weighted-coloring model; it does not rescue the asserted new explicit evaluation.",
+      "residual_risks": [
+        "Rossmann uses adjacency modules and class numbers instead of Q notation; the verified equivalence is by the explicit row-space and count translations, not title matching."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior support/rank coverage, and equivalent commuting-pair count",
+          "evidence": [
+            "Adjacency module dimension c(S)+n−|N[S]| over any field; row generators are the determinant coefficient vectors.",
+            "Group and Lie centralizers agree as sets; multiplying the exact class polynomial by q^(n+m) gives the same commuting-pair count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.05564v3",
+          "material_read": "§1 Theorem 1.2 and Corollary B (pp. 2 and 4); §2.4 Propositions 2.2–2.3 (p. 8); §3 Lemma 3.2 and proof (p. 9)",
+          "method": "OA primary PDF, matching bracket presentation and row-space comparison",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Same graphical brackets and possible equivalent support formula"
+        },
+        {
+          "assessment": "Known weighted model, applied here to the equivalent determinant count",
+          "evidence": [
+            "One nonzero color per component of the active support and a per-vertex weight give Q."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0812.4147v2",
+          "material_read": "§4.2, Theorem 10 and proof, around offset 20900",
+          "method": "OA primary-text passage",
+          "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "Known polynomial and extent of weighted-coloring coverage"
+        },
+        {
+          "assessment": "Exact rank-enumerator specialization; relative publication order not established",
+          "evidence": [
+            "At tuple length one, recovers the single-element adjoint-rank enumerator without claiming it as new."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-joint-centralizer-rank-spectra-of-graphical-lie-algebras--81ba4ac87b5b",
+          "material_read": "Single-element specialization of the tuple enumerator and its novelty qualification",
+          "method": "Local mirrored Resultary text",
+          "title": "Joint centralizer rank spectra of graphical Lie algebras",
+          "trigger": "Material Resultary rank-spectrum match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Rossmann Lemma 3.2 and Corollary B",
+        "Tittmann–Averbouch–Makowsky Theorem 10",
+        "Frozen RESULT.md lines 36–63"
+      ],
+      "rationale": "These are natural invariants, but the frozen contribution gives no new structural information about them beyond the known fixed-support dimensions and exact class polynomial. Expressing the same count in Q notation and including the previously established tree-evaluation method are useful exposition, not a distinct mathematical advance by themselves. No surviving new claim was established for repair.",
+      "residual_risks": [
+        "A genuinely new centralizer invariant would need separate proof and comparison; none is asserted here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

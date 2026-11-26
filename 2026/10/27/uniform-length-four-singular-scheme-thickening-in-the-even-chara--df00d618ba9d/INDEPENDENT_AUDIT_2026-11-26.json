@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:03:21.281285Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and verification; frozen VERIFICATION.md, body",
+        "repairs/4/RESULT.md",
+        "repairs/4/VERIFICATION.md"
+      ],
+      "rationale": "The frozen proof and verification omit a required inclusion: Euler identifies the chart ideal with (f,f_t,f_s), not (f_t,f_s). The frozen theorem is not false; the replacement result and verification prove f=(t+t^q)f_t+(s+s^q)f_s directly, closing the gap. The ideal is then (A²,B²). The homogeneous partials exclude x=0. Elimination gives H(s)=s^(r+1)+κs^r+1 with r=q(q+2)/4 even, H'=s^r and H(0)=1, hence r+1 simple roots. At each root the Jacobian of (A,B) has nonzero determinant s^(q/2), yielding the claimed completed local algebra. As a separate length check the full quotient is free of rank two over K[s,s^{-1}]/(H²). This applies also at q=2 and k=0.",
+      "residual_risks": [
+        "Symbolic Jacobian calculation, not formal proof-assistant verification; no conclusion about branch or conductor invariants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The more general C_{k,r} specializes to this family at exponent r=2 and classifies its F_q-rational singularities; these are ordinary triple points in this specialization."
+        ],
+        "reasoning": "The earlier trichotomy covers the rational part of the support; local Jacobian length there can be recovered from its local analysis. Its rationality hypothesis excludes non-rational support, so it does not give the full geometric result.",
+        "searches": [
+          "2026/10/12/SCOPE-frobenius-valuation-trichotomy-for-rational-singularities-of-pla--07ef9547766e, Finding and Assumptions and scope",
+          "arXiv:2307.03072v1, Theorem 1.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.03072v1",
+        "2026/10/12/SCOPE-frobenius-valuation-trichotomy-for-rational-singularities-of-pla--07ef9547766e",
+        "Focused Resultary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known singularity obstruction asserts existence only; the geometric claim uses a one-variable separable equation and independent formal parameters at its roots."
+        ],
+        "reasoning": "The old equation supplies the object to study, but obtaining the exact geometric answer requires eliminating and checking the Jacobian equations over K, not substituting q or k into an existing rational-point theorem.",
+        "searches": [
+          "arXiv:2307.03072v1, equation (1) and the remark after Conjecture 1.5",
+          "2026/10/12/SCOPE-frobenius-valuation-trichotomy-for-rational-singularities-of-pla--07ef9547766e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (1) matches the repaired claim exactly; the replacement D_k has z²+kxy rather than z²+kx².",
+          "Theorems 1.2 and 1.8 address smoothness at rational points, not the finite scheme over the algebraic closure."
+        ],
+        "reasoning": "Neither the rational-point smoothness criterion nor a calculation for D_k is equivalent to the Jacobian scheme of this C_k.",
+        "searches": [
+          "arXiv:2307.03072v1, equation (1), Theorems 1.2 and 1.8, remark after Conjecture 1.5",
+          "Resultary: geometric singular support and length-four Jacobian algebra for the original even-characteristic Asgarli–Ghioca C_k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed exact classification is the rational trichotomy; the primary article's even-q remark reports singularity, not the numerical geometric invariants."
+        ],
+        "reasoning": "Neither checked source contains a table or formula evaluating both geometric Jacobian invariants in these parameters. The bounded index search does not exclude other tables.",
+        "searches": [
+          "Resultary: original even-characteristic plane-filling C_k, geometric singular-point count 1+q(q+2)/4 and Jacobian length q(q+2)+4",
+          "arXiv:2307.03072v1, Theorem 1.2 and post-Conjecture 1.5 discussion"
+        ]
+      },
+      "rationale": "The repaired claim retains the full geometric count and uniform completed Jacobian algebra. The inspected earlier statements cover qualitative singularity and the rational-point part of a related classification, but not the non-rational support or the lengths and algebras on that support. The family equation is not new.",
+      "residual_risks": [
+        "Bounded comparison; an unlocated treatment of geometric singularities of Frobenius plane curves could contain an equivalent computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family and qualitative singularity covered; rational smoothness results do not supply geometric counts or algebras.",
+          "evidence": [
+            "Even-q remark at OA text offset 6918; D_k starts near 6984; Theorem 1.8 near 9159."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.03072v1",
+          "material_read": "Introduction: equation (1), Theorems 1.2 and 1.8, Conjecture 1.5 and following even-q discussion",
+          "method": "Lawful OA HTML, bounded relevant passages",
+          "title": "Plane-filling curves of small degree over finite fields",
+          "trigger": "Defines the exact C_k and states its even-characteristic degeneration."
+        },
+        {
+          "assessment": "Substantial partial overlap, limited to F_q-rational singularities.",
+          "evidence": [
+            "Exponent 2 in characteristic two gives the family here, with ordinary triple points at the rational singularities."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-frobenius-valuation-trichotomy-for-rational-singularities-of-pla--07ef9547766e",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Local mirror",
+          "title": "Frobenius-valuation trichotomy for rational singularities of plane-filling curves",
+          "trigger": "Contains the given curve as a specialization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Asgarli–Ghioca, post-Conjecture 1.5 discussion",
+        "repairs/4/RESULT.md: Finding and Proof"
+      ],
+      "rationale": "This is the singular Jacobian scheme of the specific family whose even-characteristic failure motivated a change of construction. The result determines both the number of distinct geometric singularities and the same four-dimensional nilpotent algebra at each, for every parameter even without irreducibility. These answer different questions about the degeneration from existence or rational smoothness alone.",
+      "residual_risks": [
+        "The invariant is specific to this family and does not classify the curve germs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

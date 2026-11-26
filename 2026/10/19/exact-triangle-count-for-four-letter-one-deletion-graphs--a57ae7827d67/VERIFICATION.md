@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python 3 with no external packages or input files. The program constructs the pairwise alignment automaton from explicit transitions, determinizes it and takes a triple product. It checks the following properties using exact integers: pair-state count \(27\), triple-state count \(1549\); annihilator \((E-4)^3(E-1)\) on \(27\) consecutive pair outputs; annihilator \((E-4)^4(E-1)^3\) on \(1549\) consecutive triple outputs; the complete closed forms for those transfer terms; and direct deletion-ball graph counts at lengths one through four.
+## correctness
 
-The proof uses the Cayley–Hamilton theorem to extend these recurrence identities beyond the finitely checked range; it does not infer an infinite statement from sampling. Direct graph enumeration is an independent semantic check, not the infinite argument. The certificate establishes the stated four-letter radius-one triangle count only; it does not establish optimal code sizes or general-alphabet formulas. Independent assessment has not been performed.
+PASS
+
+Between the first and second deleted positions in a pair of words, there is exactly one pending letter in the other word; when the alignment closes, only equality is allowed. This verifies the frozen recognizer and product semantics. Equality is intentionally accepted when calculating P_n and A_n. Each of the three pair-equality events contains P_n ordered triples, and every intersection of two or three events contains 4^n all-equal triples. Inclusion–exclusion and division by six give T_4(n)=(A_n−3P_n+2·4^n)/6, and substitution gives the asserted polynomial and leading coefficient 405/288=45/32. Independently reconstructed the original 27- and 1549-state dimensions and verified exactly the corresponding annihilator checks through lengths 31 and 1556 without running the frozen script. A separate check used a different recognizer: discard the common equal prefix (an equal first symbol can be retained in a longest common subsequence), start the three possible deletion paths at the first mismatch, then quotient pair and triple machines by simultaneous alphabet relabeling. This gave dimensions 6 and 159 and reproduced the formulas and all required consecutive zeros for those dimensions using exact arithmetic. In either computation Cayley–Hamilton applied to uM^nQ(M)f extends d consecutive zeros from n=1 to every positive n; matching the initial positive indices uniquely identifies the two closed forms. In particular the formula need not hold at n=0. Independent direct deletion-set enumeration gives T_4(n)=4,172,2484,23968,187648 at n=1,…,5.
+
+## originality
+
+PASS
+
+The supported distinct assertion is the exact radius-one triangle count and leading constant for the four-letter deletion graph. The general deletion graph and triangle-bound program are prior, as is the finite-state method and exact count for two symbols. The inspected stronger-domain bound does not fix this exact invariant, and the inspected exact indexed formulas count different objects.
+
+## value
+
+PASS
+
+Triangles are an established invariant for assessing sparsity in deletion-confusability graphs. Four letters are a natural fixed nonbinary alphabet, and radius one is the first deletion regime. The exact count supplies a reusable reference, removes the logarithmic loss of the relevant broad upper bound for this fixed graph, and gives an explicit leading constant and finite-size corrections rather than an unproved extrapolation. No new coding-rate implication is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

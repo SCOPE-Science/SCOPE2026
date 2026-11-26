@@ -2,7 +2,7 @@
 
 ## Finding
 
-Temporal correlation alone can reverse the optimal order of learning rates, even when **every stochastic gradient has the same marginal variance**. For scalar quadratic stochastic gradient descent with a fixed positive finite horizon, the optimal schedule has at most one increase, and its position is determined sharply by the *sign* of the noise correlation.
+Temporal correlation alone can reverse the optimal order of learning rates, even when **the additive oracle errors all have the same marginal variance**. This equality concerns the errors, not the unconditional variances of the stochastic gradients evaluated along the random iterates. For scalar quadratic stochastic gradient descent with a fixed positive finite horizon, the optimal schedule has at most one increase, and its position is determined sharply by the *sign* of the noise correlation.
 
 Fix an integer \(N\ge3\), \(-1<\rho<1\), \(D,\sigma>0\), and let \(t=D^2/\sigma^2\). Define
 \[
@@ -88,7 +88,7 @@ If \(\rho<0\), only the first sign can be negative; if \(\rho>0\), only the last
 
 ## Verification
 
-Run `python3 verify.py` (Python standard library only) to recompute exact rational covariance moments and rate reconstruction, verify optimality first-order identities, strict risk gaps for sampled feasible competitors, check every adjacent-order sign including ties, and confirm both rational witnesses. The verifier prints `VERIFY_OK` with an assertion count. It is a finite diagnostic; the global uniqueness and the infinitely many parameter cases are established by the preceding positive-definite quadratic argument.
+Run `python3 verify.py` (Python standard library only) to recompute exact rational covariance moments and rate reconstruction, verify optimality first-order identities and strict risk gaps for sampled coordinate perturbations of the unconstrained weight quadratic (which need not stay in the simplex), check the adjacent-order formulas on the test grid including a start-boundary tie, and confirm both rational witnesses. The verifier prints `VERIFY_OK` with an assertion count. It is a finite diagnostic; the global uniqueness and the infinitely many parameter cases are established by the preceding positive-definite quadratic argument.
 
 ## Relationship to prior work
 
@@ -96,14 +96,16 @@ Grimmer and Shen (2026) prove exact worst-case last-iterate SGD guarantees for *
 
 Classical generalized least squares already gives the AR(1) inverse-covariance endpoint/interior weight structure; Hermans and collaborators (2018), equation (5), explicitly record the corresponding weights for estimation of a common mean. That structure and linear-quadratic covariance optimization are **not claimed as new**. The contribution assessed here is the complete finite-horizon *sequential gradient-step* optimum including prior initial-error bias and its sharp two-ended, sign-dependent phase diagram, with explicit necessity, uniqueness and examples. Distinct published analyses of AR(1) noise in heavy-ball momentum concern stationary variance at fixed steps rather than finite-horizon optimization of every gradient step. A separate published theorem for descending permutations of fixed steps assumes independence of oracle noise across time; it does not imply the present comparison. These differences do not exclude older equivalent derivations in estimation/control literature.
 
+The [same-date result on three-step order](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-three-exact-noise-correlation-phases-for-the-optimal-order-of-a--3db9e0ceb6be) uses the same scalar quadratic and AR(1) covariance, but optimizes the permutation of a prescribed three-rate multiset rather than the rates themselves. Its correlation boundaries therefore do not give the signal-to-noise thresholds for the full schedule class here. The common date does not establish precedence.
+
 ## Limitations
 
-The result concerns a single fixed scalar quadratic, known curvature normalized to one, exogenous stationary AR(1) *second moments*, a fixed finite horizon, and deterministic nonnegative nonovershooting steps. It does not cover data-adaptive steps, unknown noise correlations, vector Hessians, nonlinear objectives, long-run stationary steps, or a minimax worst-case stochastic-gradient class. The absolute noise scale enters only through \(t\). Classical GLS supplies essential ingredients and may make related sequential formulations easier to derive; independent historical-priority and mathematical audit are not performed.
+The result concerns a single fixed scalar quadratic, known curvature normalized to one, exogenous stationary AR(1) *second moments*, a fixed finite horizon, and deterministic nonnegative nonovershooting steps. It does not cover data-adaptive steps, unknown noise correlations, vector Hessians, nonlinear objectives, long-run stationary steps, or a minimax worst-case stochastic-gradient class. The absolute noise scale enters only through \(t\). Classical GLS supplies essential ingredients and may make related sequential formulations easier to derive; historical priority is assessed only against the compared sources.
 
 ## References
 
 1. B. Grimmer and Q. Shen, *Exact Theory and Optimal Stepsizes for Stochastic Gradient Descent in Smooth Convex Minimization*, arXiv:2610.42048v1, first public 2026-10-30, https://arxiv.org/abs/2610.42048 .
 2. L. Hermans, V. Nassiri, G. Molenberghs, M. G. Kenward, W. Van der Elst, M. Aerts and G. Verbeke, *Fast, Closed-form, and Efficient Estimators for Hierarchical Models with AR(1) Covariance and Unequal Cluster Sizes*, Communications in Statistics - Simulation and Computation 47 (2018), 1492–1505, doi:10.1080/03610918.2017.1316395 .
-3. *Exact minimax SGD schedules with heterogeneous oracle noise and a sharp step-order reversal criterion*, published published-finding corpus research record, 2026-11-08, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f .
-4. *Sign-reversed optimal momentum and the one-ninth antipersistent noise floor*, published published-finding corpus research record, 2026-11-08, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc .
-5. *Descending spectral steps minimize every terminal quadratic noise risk*, published published-finding corpus research record, 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384 .
+3. *Exact minimax SGD schedules with heterogeneous oracle noise and a sharp step-order reversal criterion*, Resultary, 2026-11-08, record b6e07361803f.
+4. *Sign-reversed optimal momentum and the one-ninth antipersistent noise floor*, Resultary, 2026-11-08, record 6f3da69dd7fc.
+5. *Descending spectral steps minimize every terminal quadratic noise risk*, Resultary, 2026-10-18, record 2f7a38830384.

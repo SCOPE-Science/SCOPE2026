@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:51:25.262414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–44",
+        "Frozen VERIFICATION.md:19–25 and check.py:8–83 (static inspection)",
+        "Independent replay.py, replay_full.json and full_run.log"
+      ],
+      "rationale": "Counting convolution on the full binary group has one eigenvalue per Walsh character, with no scaling. For forbidden run length r, splitting at zeros into runs shorter than r gives the generating series R/(1-zR), where R=sum_{j=0}^{r-1}(uz)^j and u marks ones. At u=1 modulo 2, counts are odd exactly for n congruent to 0 or r modulo r+1; then all Walsh coefficients are odd. At u=-1 the same series gives an exact zero of the full-support Walsh coefficient in every other residue. For r=3 the independent integer replay, with indicator/butterfly and prefix-state checks agreeing on all 16,382 coefficients through n=13, confirms minimum zero degrees 1,1,2,2,2,2,3 at the singular orders 1,2,5,6,9,10,13. It confirms 3,136 allowed words, nullity 1,296, rank 6,896 and the complete stated degree histogram at n=13. The absolute minima in degrees one and two are 274 and 2. The cubic zero supports are exactly (1,7,9), (1,9,11), (3,5,13), (5,7,13). The minimum zero degree is undefined at the nonsingular orders.",
+      "replay": "python3 /workspace/branches/e04a1256-d95b-4172-987c-2a13732a3ecd/replay.py --max-n 13 --out /tmp/opencode/walsh-audit-1.json",
+      "residual_risks": [
+        "The first-minimum-degree and nullity census is finite, for open boundaries. Only the singular-residue criterion has the stated all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The formula covers every open 1^k-avoiding family for k>=2 and n>=1 and every support. Its sharp global minimum nonzero magnitude specializes to 2 at k=3,n=13. Its parity generating function also encodes the full-support coefficient, up to the factor (-1)^n."
+        ],
+        "reasoning": "The earlier global gap alone would not decide degree-two or cubic zeros; the all-support formula does determine all those values, and the earlier parity calculation also gives the auxiliary singularity test.",
+        "searches": [
+          "2026/11/16/SCOPE-run-factor-m-bius-rigidity-and-sharp-walsh-gaps-for-forbidden-on--128b4ab6f77f, RESULT.md, Finding and proof steps 1–4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary run-factor and Lucas-cube matches and their mirrored results",
+        "Earlier verify_walsh.py",
+        "Rho–Vesel, DOI 10.46298/dmtcs.2165",
+        "Kurmaev, arXiv:1001.4334"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Limitations declines a full enumeration of the zero set or an all-remaining-residues classification; its proof still gives each coefficient explicitly and its verifier constructs the exact arrays on all required instances."
+        ],
+        "reasoning": "At each already covered n and k, mark the indices with value zero and count them by Hamming weight. The least occupied degree, rank/nullity, four masks and degree-wise absolute minima are direct reductions of those arrays. This is not an implication from the prior gap alone or a precedence inference from a similar title. No additional structural cancellation law was shown by the finite restatement.",
+        "searches": [
+          "Run-factor record 128b4ab6f77f, RESULT.md steps 2 and 4, Limitations at offset 7347; verify_walsh.py offsets 764–2146"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Run-factor record 128b4ab6f77f, proof steps 1–4: the coefficient of the multilinear monomial J is the product of run weights q_l, and the Walsh coefficient at S is (-1)^|S| times the sum over J containing S of those products times 2^(n-|J|). Lucas record b571f7746b7c studies analogous low-degree transfer-matrix cancellation but for cyclic independent sets."
+        ],
+        "reasoning": "The run-factor coefficient formula is an exact equivalent description of the full target transform, not a per-word Fourier transform or a different graph spectrum. The Lucas-cube analogue alone would not cover this object.",
+        "searches": [
+          "Resultary: open forbidden-one-run Walsh coefficients and low-degree Walsh cancellation",
+          "Primary search: \"generalized Fibonacci cubes\" \"Q_h(111)\" Walsh spectrum Fourier characters transfer matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact array is constructed by spectrum=walsh(a) for every k=2..7 and n=1..15. Zero-count summaries are printed for selected k,n; n=13 at k=3 is not one of the printed summaries."
+        ],
+        "reasoning": "This is directly available exact array generation on dominating parameters, not evidence of a preprinted n=13 table. One pass selecting zeros, grouping by mask cardinality and listing the cubic masks yields the new summary.",
+        "searches": [
+          "Run-factor record 128b4ab6f77f, RESULT.md Verification and verify_walsh.py offset 764"
+        ]
+      },
+      "rationale": "The main finite census is a mechanical extraction from stronger earlier same-family coefficient coverage, not a demonstrated new cancellation theorem. The November 16 run-factor record gives an explicit signed superset sum for every Walsh coefficient in exactly this normalization and boundary convention. Its accompanying verification actually constructs all the full spectrum arrays for k=3,n=1..15, including the entire assigned domain, and already summarizes zero counts for selected members. The exact n=13 histogram and support list are not claimed to have been printed there. The covered operation is evaluating or filtering the already supplied spectra, independent of exact wording.",
+      "residual_risks": [
+        "No claim that the exact n=13 zero histogram was separately published. The basis of the verdict is demonstrable stronger existing formula and exact-array coverage, not an empty web search or a priority inference from a near match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material covering implication",
+          "evidence": "Proof gives the run-factor signed superset formula for every mask, and verifier explicitly builds the full array for k=3 through n=15; only selected summaries are printed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-run-factor-m-bius-rigidity-and-sharp-walsh-gaps-for-forbidden-on--128b4ab6f77f",
+          "material_read": "RESULT.md Finding, Proof and Verification (offset 2169 onward), Limitations at 7347; verify_walsh.py at offset 764 to end",
+          "method": "Local Resultary and mirror, bounded direct passages; static code inspection",
+          "title": "Run-factor Möbius rigidity and sharp Walsh gaps for forbidden-one-run words",
+          "trigger": "Same family and normalization, exact all-support formula on dominating parameters"
+        },
+        {
+          "assessment": "Analogue, not equivalent",
+          "evidence": "The underlying admissibility condition is independence on a cycle, not open avoidance of three consecutive ones.",
+          "identifier_or_url": "2026/11/16/SCOPE-complete-low-degree-walsh-cancellation-classification-for-lucas--b571f7746b7c",
+          "material_read": "Finding at offset 0 and proof passage at offset 1297",
+          "method": "Local Resultary and mirror",
+          "title": "Complete low-degree Walsh cancellation classification for Lucas cubes",
+          "trigger": "Degree-three signed-transfer classification in a forbidden-pattern cube"
+        },
+        {
+          "assessment": "Same object, different theorem in inspected passages",
+          "evidence": "The passages define open no-111 words and characterize graph structure for recognition.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2165",
+          "material_read": "PDF pp. 349–351, offsets 689 and 4439",
+          "method": "OA primary PDF, targeted passages",
+          "title": "Linear recognition of generalized Fibonacci cubes Q_h(111)",
+          "trigger": "Same vertex set in primary graph literature"
+        },
+        {
+          "assessment": "Different spectrum in inspected passages",
+          "evidence": "The paper addresses per-sequence DFT and digital-charge spectral shaping, not the Walsh transform of the admissible-set indicator.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.4334",
+          "material_read": "PDF p. 1, offsets 0 and 2242",
+          "method": "OA primary PDF, targeted passages",
+          "title": "An Enumerative Method for Encoding Spectrum Shaped Binary Run-Length Constrained Sequences",
+          "trigger": "Run constraint and possible spectral equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–44",
+        "Run-factor record 128b4ab6f77f proof steps 1–4 and verify_walsh.py main loop"
+      ],
+      "rationale": "Low-degree visibility despite noninvertibility is a natural question. In this submission, however, the exact numerical threshold and support list are routine summaries of already covered full spectra, with no new structural explanation of that threshold or cancellation pattern. A reproducible summary is useful as a check but does not add a distinct exact invariant beyond routine extraction under the scientific standard.",
+      "residual_risks": [
+        "This verdict concerns the finite reported census, not the potential value of a structural zero-set or minimum-degree theorem beyond the prior exact calculation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

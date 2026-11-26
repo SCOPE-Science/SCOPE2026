@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:41:39.174435Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed k≥2 a labeled tree can be injected into the host in n d_n^(k−1)(1+O_k(1/d_n)) ways by choosing a root and then fresh neighbors; excluding a fixed number of vertices changes the count only relatively o(1). Dividing the summed Cayley count by k! counts distinct edge-trees. For a tree with h extra possible internal host edges, exactly kd_n−2(k−1)−h edges must be closed and its k−1 edges retained. Thus the first moment is asymptotic to (k^(k−2)/k!) n (d_np_n)^(k−1) exp(−L_n), yielding e^(−c)/(k k!). Exact events for different trees on overlapping vertex sets are incompatible; every fixed ordered disjoint tuple contributes the product times q_n^(−b), where b≤k² binom(r,2) counts double-closed cross-edges. This factor tends to one uniformly, and all factorial moments tend to the corresponding Poisson moments. A cyclic component has a spanning-tree witness with closed boundary and at least one additional open internal edge; the mean number of boundary-only witnesses is bounded, and the extra independent-edge factor is O_k(p_n). Cyclic components hence vanish in probability. At k=1, the joint isolation probability is q_n^(rd_n−b), giving the same moments directly. The k=2-window isolate count has mean e^(−c/2) sqrt(n/log n), and summing covariances only over adjacent vertex pairs gives relative variance at most 1/mean+d_np_n/(nq_n)→0. Weak convergence on integer counts gives the stated zero-count probability. The window concerns marginal counts at fixed c and k; it does not assert a connectivity threshold, a monotone last-occurrence event, or growing-k uniformity.",
+      "replay": "python3 -B /workspace/review_replay.py 4: exhaustive, exact first and second tree-count factorial moments for k=1,2,3 on K4, C6 and the disconnected 2K3 at p=2/5; incident-edge, cross-set and isolate-variance formulas agree. Frozen CHECKS.txt and verify_regular_components.py were inspected, not executed. Finite checks do not establish the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose samples random points in a connection model; his theorem uses its hypotheses and convergence of the mean.",
+          "Penrose–Yang study fixed-order geometric components from sampled points; the compared high-intensity regimes have diverging I_(n,k).",
+          "Diskin–Krivelevich use expansion assumptions and p=(1+epsilon)/d for giant/other-component size statements."
+        ],
+        "reasoning": "Sampling vertices from a population is not the same as retaining all vertices of a prescribed host. No direct specialization establishes the theorem across disconnected or nonexpanding regular hosts, and the giant-component scale does not give the logarithmic windows here.",
+        "searches": [
+          "Penrose arXiv:1507.07132, §2 Theorem 2.2",
+          "Penrose–Yang arXiv:2209.14758, §1.2",
+          "Diskin–Krivelevich arXiv:2408.04597, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt",
+        "arXiv:1507.07132, 2209.14758, 2610.42107v1, 2408.04597",
+        "Resultary a56fa41a9da4, 7b2dab547465, 2c5facc9a2eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ER implication supplies even the same constant on K_n with this centering. The indexed k=3 shape-marked law is stronger as to shape on a subclass and explicitly references the present result. The cycle-power isolation theorem adds connectivity conclusions on its subclass only."
+        ],
+        "reasoning": "A statement stronger in marks or in connectivity on cycle powers is not stronger in the host quantifier. The extension is supported by tree-injection uniformity from regularity and asymptotically negligible joint-event cross-edge effects for every fixed tuple, not by matching the complete-host normalization.",
+        "searches": [
+          "Penrose arXiv:1507.07132, Theorem 2.2(b), one-type specialization",
+          "Resultary a56fa41a9da4, Finding and related work",
+          "Chakraborty–Luh–Singh arXiv:2610.42107v1, Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Penrose's one-type fixed-size model gives G(n,p_n). On the complete host at the exact proposed p_n, the fixed-k mean tends to e^(−c)/(k k!), and connection probability is o(n^(−1/2)).",
+          "Chakraborty–Luh–Singh match k=1 on cycle powers with 1−p=exp(−(log n+t)/(2m))."
+        ],
+        "reasoning": "G(n,p_n) is exactly bond percolation on K_n, and the matched isolate theorem is the same k=1 window on its subclass. These are actual restrictions of the claim, not comparable merely by scaling. Neither includes arbitrary regular host sequences at fixed component sizes k≥2.",
+        "searches": [
+          "Local Resultary: disappearing fixed-size percolation components on regular graphs, isolated vertices and isolated edge components",
+          "Penrose arXiv:1507.07132, Theorem 2.2(b) with a one-type space",
+          "Chakraborty–Luh–Singh arXiv:2610.42107v1, Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a56fa41a9da4: same k=3 window and e^(−c)/18 mean on growing cycle powers, with a shape mark; cites this assigned result in its related-work passage.",
+          "Resultary 7b2dab547465: fixed-bandwidth cycle powers at high retention, with n q^(m(m+1))→lambda.",
+          "Resultary 2c5facc9a2eb: exact finite covariance of isolates and isolated edges, not a fixed-k Poisson formula."
+        ],
+        "reasoning": "The checked exact statements do not encode the entire limiting family on arbitrary deterministic regular hosts. The theorem is asymptotic, not an entry in a numerical component-count table.",
+        "searches": [
+          "Local Resultary searches on exact Poisson windows, isolated-vertex/edge covariance, and fixed-component counts in bands or regular hosts"
+        ]
+      },
+      "rationale": "Pass for the fixed-order finite-mean windows over all prescribed high-degree regular hosts, with no expansion, connectivity or codegree requirement. The complete-host case already follows from fixed-component Poisson theory, and the k=1 cycle-power case is directly covered. The known finite covariance formula and indexed shape-marked cycle-power specialization do not give all factorial moments on arbitrary hosts. The checked nearby random-position models and graph-expansion regimes do not supply the claimed host-independent centering and constants under these assumptions.",
+      "residual_risks": [
+        "A more general independent-edge Poisson theorem might handle prescribed hosts under translated assumptions; no such exact implication was established in the bounded comparison.",
+        "The ER and cycle-power overlaps are credited; no exhaustive historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete-host implication; not fixed arbitrary regular hosts",
+          "evidence": "Its fixed-size random-point model and Poisson criterion include the one-type ER model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.07132",
+          "material_read": "§2, Theorem 2.2(b), p. 5, extraction offset 12356",
+          "method": "Open primary-text passage",
+          "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+          "trigger": "General fixed-order Poisson approximation"
+        },
+        {
+          "assessment": "Different random-position model and compared mean regime",
+          "evidence": "Fixed-order counts with Poisson/normal approximation in settings with diverging I_(n,k).",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.14758",
+          "material_read": "§1.2 pp. 3–5, extraction offset 10555",
+          "method": "Open primary-text passages",
+          "title": "On k-clusters of high-intensity random geometric graphs",
+          "trigger": "Earlier fixed-component Poisson results"
+        },
+        {
+          "assessment": "Direct k=1 cycle-power overlap",
+          "evidence": "Poisson(e^(−t)) isolates for cycle powers at q=exp(−(log n+t)/(2m)).",
+          "identifier_or_url": "https://arxiv.org/html/2610.42107v1",
+          "material_read": "Theorem 4, HTML extraction offset 11040",
+          "method": "Open primary-text passage",
+          "title": "Band Random Graphs: Connectivity, Geometry, and Transport",
+          "trigger": "Same exact k=1 window on a regular graph family"
+        },
+        {
+          "assessment": "Different window and stronger host assumptions",
+          "evidence": "Giant and small-component sizes at p=(1+epsilon)/d with expansion assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.04597",
+          "material_read": "Abstract p. 1, Theorem 1 p. 3, extraction offset 11047",
+          "method": "Open primary-text passages",
+          "title": "Components, large and small, are as they should be I",
+          "trigger": "Percolation on regular graphs of growing degree"
+        },
+        {
+          "assessment": "Exact subclass overlap and shape refinement; references the assigned result",
+          "evidence": "Growing cycle powers, fixed k=3, mean e^(−c)/18, with marks.",
+          "identifier_or_url": "Resultary 2026/11/22 a56fa41a9da4",
+          "material_read": "Finding at mirror offset 0 and related work at 9828",
+          "method": "Local Resultary and mirrored passages",
+          "title": "A marked Poisson shape law for disappearing three-vertex components",
+          "trigger": "Strongest exact indexed overlap"
+        },
+        {
+          "assessment": "Different degree and retention regimes",
+          "evidence": "Fixed bandwidth with n q^(m(m+1))→lambda.",
+          "identifier_or_url": "Resultary 7b2dab547465",
+          "material_read": "Finding and asymptotic regime",
+          "method": "Local Resultary comparison",
+          "title": "Poisson plateau of fixed-size components in high-retention finite-band hosts",
+          "trigger": "Same-day fixed-size component Poisson claim"
+        },
+        {
+          "assessment": "Exact finite covariance, not equivalent to the distributional limit",
+          "evidence": "Joint covariance for isolation and isolated edges, a finite second-order statistic.",
+          "identifier_or_url": "Resultary 2c5facc9a2eb",
+          "material_read": "Finding",
+          "method": "Local Resultary comparison",
+          "title": "Triangle-controlled covariance of isolated percolation components",
+          "trigger": "Same percolation observables and regular hosts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the same explicit centering the component-order count has the same nondegenerate Poisson law on complete, disconnected and otherwise arbitrary growing regular hosts. This identifies separate observable windows and quantifies the coexistence of two-vertex-component extinction with a diverging isolate population. Exact q-centering matters because replacing it by a linear approximation can shift the exponent by order (log n)²/d_n, not necessarily o(1). The result gives a usable extinction probability without claiming anything about overall connectivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

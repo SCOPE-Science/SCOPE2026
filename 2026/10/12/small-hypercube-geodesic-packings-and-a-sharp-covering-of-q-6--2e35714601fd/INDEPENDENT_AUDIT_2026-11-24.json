@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:06:09.679290Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A shortest cube path flips distinct bits; a missing bit extends it, so maximal paths are exactly diameter geodesics with d+1 vertices. The elementary floor/ceiling volume bounds follow. The independent checker reconstructs Q4 from all five-vertex subsets with connected induced path and antipodal endpoints, then tests disjoint pairs and triples: 192 paths up to reversal, 31 disjoint from the canonical path, 2976 pairs and zero triples. This exhausts the path sets, since a shortest path in the cube is induced and its vertex set determines it up to reversal. The check separately validates the stated Q4/Q5/Q6 paths and uncovered sets {8,9,10,11,12,14}, {10,19}, {47}; the extra Q6 path includes 47 and completes the ten-path cover. The Q1–Q3 bounds are attained, including the two explicit Q3 paths. Independent replay: /workspace/branches/c3876b29-a911-49f0-b4d0-8230a63c51d0/qpack_independent_check.py and qpack_independent_check.out in the same directory. The frozen verifier was read, not executed; replay is bounded finite evidence, not Lean or expert attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General packing bounds apply to cubes; edge decomposition and high-dimensional subcube density results do not address this vertex packing. The frozen record reports a general diameter-cover interval of 10–16 at d=6; its primary passage could not be independently retrieved."
+        ],
+        "reasoning": "The known upper bound permits three disjoint paths in Q4 and does not construct the positive sharpness cases. The reported cover lower bound, also elementary, is attained by the new witness, not certified by the reported general upper bound.",
+        "searches": [
+          "arXiv:2210.15325v3 Lemma 2.3, Corollary 2.8",
+          "arXiv:1308.4949v1",
+          "arXiv:2009.09037v1 §5",
+          "DOI:10.13140/RG.2.2.13477.36320"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Independent bounded qpack checker and output",
+        "arXiv:2210.15325v3, arXiv:1308.4949v1, arXiv:2009.09037v1",
+        "Local Resultary matches listed above",
+        "Sharma–Guragain–Srivastava and 2019 routing paper (bounded retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product family yields Q3 but not Q4–Q6; the upper bound alone admits a false value at Q4. The Q6 cover follows from nine disjoint diameter paths plus an extension from the only unused vertex."
+        ],
+        "reasoning": "No checked stronger packing solution supplies the decisive nonexistence/count in Q4 or the required sharp witnesses in Q5/Q6. The cover is credited at the level of the distinct Q6 construction.",
+        "searches": [
+          "arXiv:2210.15325v3",
+          "Resultary 2026/11/2/SCOPE-parity-and-even-cycle-structure-of-perfect-geodesic-packings-in--1457c456238a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal cube geodesics are unoriented shortest paths joining antipodes. Manuel–Brešar–Klavžar define the same packing invariant. The older routing full text was not extractable in the bounded attempt."
+        ],
+        "reasoning": "The equivalence to an antipodal shortest-path family is exact only for unrestricted, pairwise vertex-disjoint paths with no prescribed terminal list. Fixed-terminal routing, edge decomposition, and vertex-covering with allowed intersections have different quantifiers or resources.",
+        "searches": [
+          "Resultary: vertex-disjoint maximal geodesics and antipodal paths in small cubes",
+          "arXiv:2210.15325v3 §1",
+          "Disjoint and Shortest Paths Routing in Hypercubes, Congressus Numerantium 233"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed K2 square K2 square Kn family includes Q3 at n=2. Indexed complete multipartite packing values and polynomial formulas are for a different graph class."
+        ],
+        "reasoning": "The checked exact-format records do not tabulate or imply these cube values. Absence of a hit is not evidence of a complete census.",
+        "searches": [
+          "Resultary: Q4/Q5/Q6 exact geodesic packings, Q6 covers, and the 192/2976 coefficients"
+        ]
+      },
+      "rationale": "Credit the established invariant, volume bounds and Cartesian-product framework. The checked comparisons support the exact small-cube results, particularly the Q4 obstruction and polynomial, and the Q6 packing witness; the covering upper bound is a consequence of that witness, not a separate general theorem. No mathematical coverage of those claims was established in the inspected sources.",
+      "residual_risks": [
+        "The exact statements in the covering preprint and the full 2019 routing paper were not verified. Equivalent antipodal-path formulations in other literature are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition and upper-bound framework, not the checked exact profile",
+          "evidence": [
+            "Lemma 2.3 gives a vertex-volume upper bound; Corollary 2.8 applies to Cartesian products."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.15325v3",
+          "material_read": "§1, Lemma 2.3, Corollary 2.8; OA offsets 0, 8888, 16684",
+          "method": "OA HTML targeted passages",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Same invariant and general bounds"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The decomposed resource is the edge set, not the vertex set."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1308.4949v1",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "OA HTML",
+          "title": "Edge Decompositions of Hypercubes by Paths",
+          "trigger": "Equivalent path-packing terminology"
+        },
+        {
+          "assessment": "Subcube configuration densities instead of packings in a fixed cube",
+          "evidence": [
+            "Counts configurations induced by one chosen set in subcubes as the ambient dimension grows."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.09037v1",
+          "material_read": "Abstract/§1 and §5, offsets 0 and 47350",
+          "method": "OA HTML",
+          "title": "Maximum density of vertex-induced perfect cycles and paths in the hypercube",
+          "trigger": "Perfect path terminology in hypercubes"
+        },
+        {
+          "assessment": "Named residual risks, not exclusions",
+          "evidence": [
+            "The frozen record attributes a 10–16 bound interval for Q6 and identifies prescribed-terminal routing as the historical comparison."
+          ],
+          "identifier_or_url": "DOI:10.13140/RG.2.2.13477.36320; https://combinatorialpress.com/cn-articles/volume-233/disjoint-and-shortest-paths-routing-in-hypercubes/",
+          "material_read": "Frozen RESULT.md lines 84–90 for the reported relationship; no independently readable decisive primary passage",
+          "method": "Lawful DOI/ResearchGate and alternate OA attempts for covering returned 403; linked routing PDF did not yield extractable text",
+          "title": "On k-geodetic vertex traceable graphs; Disjoint and Shortest Paths Routing in Hypercubes",
+          "trigger": "Most relevant covering bounds and historical routing overlap"
+        },
+        {
+          "assessment": "Other graph families or only the Q3 specialization",
+          "evidence": [
+            "The indexed product formula is 2 floor(n/2) for K2 square K2 square Kn."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-parity-and-even-cycle-structure-of-perfect-geodesic-packings-in--1457c456238a; 2026/10/13/SCOPE-geodesic-packings-of-complete-multipartite-graphs-three-sharp-ca--483fcd9cfba1; 2026/11/8/SCOPE-geodesic-packing-polynomials-of-complete-multipartite-graphs-and--e3ceab8f39fe",
+          "material_read": "Matching findings, product RESULT.md offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Parity and even cycle structure of perfect geodesic packings; exact geodesic packings and packing polynomials of complete multipartite graphs",
+          "trigger": "Exact values and polynomial catalogue search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the first strict dimension for a natural bound, an exact count at that obstruction, and subsequent sharp constructions. The one-vertex deficit in Q6 connects two motivated packing and covering invariants and resolves the minimum cover there. These are small exact cases but not arbitrary instances or repeats of the volume calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

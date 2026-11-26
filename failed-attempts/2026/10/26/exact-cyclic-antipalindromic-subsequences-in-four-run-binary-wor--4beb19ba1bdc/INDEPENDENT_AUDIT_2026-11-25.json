@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:45:28.607206Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md and verify.py, including the interval recurrence and the independent finite mask check"
+      ],
+      "rationale": "Any nonempty antipalindromic subsequence has opposite end bits and equal-length complementary mirror runs. A cut of the circle has at most five runs, so the subsequence has two or four. In the two-run case both colors cannot use both of their source runs: those four source runs alternate in circular order. Thus one color contributes at most one run, and all four candidate capacities are achieved by choosing a boundary cut and skipping the intervening unwanted run. A four-run subsequence uses all four source runs: omission leaves at most two circular color transitions. With all four used, the circular runs of the subsequence correspond one-to-one to the original ones; a split source run cannot contribute at both linear ends, since those ends are opposite. The two possible adjacent pairings give the two terms of Q. In the balanced case the exact half-length is max(s/2+U,s-U+V), where U and V are respectively the larger and smaller absolute deviations of a and b from s/2. Averaging gives 3s/4+V/2, and integrality gives the ceiling. In the stated construction s=4m+r, U=m+r/2 and V is 0 or 1/2, so both terms are at most 3m+r and the first equals it. The s=2,3 cases attain s. For 4 dividing s, equality forces V=0 and U=s/4, giving exactly the stated cyclic run profiles.",
+      "residual_risks": [
+        "The archived finite checks were inspected, not rerun; correctness is established by the run and equality arguments rather than finite testing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At k=2 the run-restricted conjecture has the same 3/4 leading coefficient but is conjectural and asymptotic. The Lyngsø–Pedersen conjecture quoted by Müllner and Ryzhikov has an unrestricted run count and a different 2/3 coefficient."
+        ],
+        "reasoning": "These primary antecedents do not give the finite formula or equality classification. The exact catalog overlap nonetheless covers those claims.",
+        "searches": [
+          "Kynčl–Pach–Tóth, concluding k-configuration conjecture, printed p. 348",
+          "arXiv:1901.07502, Conjecture 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and mirrored 4394f4a6b188",
+        "Kynčl–Pach–Tóth, DOI 10.1007/978-3-540-31843-9_34",
+        "Müllner–Ryzhikov, arXiv:1901.07502"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lemma's k=2 profile rotates to (s/4,s/2,3s/4,s/2) and has at most 3s/2 matched vertices. The exact catalog theorem additionally yields the formula and lower bound for all assigned inputs."
+        ],
+        "reasoning": "The old example alone gives no uniform lower bound or rigidity. The distinct indexed theorem does give both, without imposing any additional hypothesis.",
+        "searches": [
+          "Kynčl–Pach–Tóth, Lemma 2.2, printed pp. 342–344",
+          "Resultary 4394f4a6b188, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A line separating the two arcs of a convex-circle matching gives reverse pairing order between arcs. Opposite colors at each pair give precisely the reverse-complement subsequence condition, with the matching size counted in participating vertices."
+        ],
+        "reasoning": "Separated red–blue matching is an equivalent formulation for this comparison. Alternating paths have a different objective and cannot be substituted for the matching theorem.",
+        "searches": [
+          "Kynčl–Pach–Tóth, Long Alternating Paths in Bicolored Point Sets, Lemma 2.2",
+          "Müllner–Ryzhikov, arXiv:1901.07502, Conjecture 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching RESULT.md explicitly takes the maximum of the same six min or sum-of-min terms, states 2 ceil(3N/4) for the balanced minimum, and gives exactly the same equality profiles for 4 dividing N."
+        ],
+        "reasoning": "This is theorem-level overlap, not just a shared sequence of examples: the domain, rotation convention, formula, minimum and rigidity agree after setting N=s.",
+        "searches": [
+          "Local Resultary semantic lookup for cyclic four-run reverse-complement subsequence lengths; matching mirrored record 2026/11/8/SCOPE-a-sharp-three-quarter-antipalindromic-subsequence-law-for-four-r--4394f4a6b188"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives the same six-term exact formula for arbitrary positive four-run lengths, the same rounded balanced minimum, and the same equality profiles. Splitting its maximum into four two-run terms and two four-run terms recovers the frozen P and Q verbatim up to order. No distinct mathematical remainder was identified. This is confirmed catalog coverage, not a finding of chronological priority: the matching path is dated later than the assigned path, and derivation or publication priority is unresolved. Earlier primary literature also explicitly gives the divisible-by-four upper-bound example, as the frozen record acknowledges.",
+      "residual_risks": [
+        "The provenance relationship between the two Resultary records is unresolved; the path dates do not establish independent discovery or priority. Literature comparison is bounded to material inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT_COVERAGE",
+          "evidence": [
+            "Same general six-term maximum, sharp balanced finite minimum, and rigidity at multiples of four."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-three-quarter-antipalindromic-subsequence-law-for-four-r--4394f4a6b188",
+          "material_read": "RESULT.md, Finding at offset 0 in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror; compare term by term and align the balanced length conventions",
+          "title": "A sharp three-quarter antipalindromic subsequence law for four-run binary circles",
+          "trigger": "Exact same four-run cyclic statistic in the Resultary index"
+        },
+        {
+          "assessment": "KNOWN_EXTREMIZER_AND_CONJECTURAL_BROADER_BOUND",
+          "evidence": [
+            "Lemma gives the upper-bound example; conjecture supplies no exact finite theorem."
+          ],
+          "identifier_or_url": "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf",
+          "material_read": "Lemma 2.2 and related definitions, printed pp. 342–344 (offsets 6000 and 9600); concluding conjecture, p. 348 (offset 25500)",
+          "method": "Open primary PDF passages; convert separated matching size to selected endpoint count",
+          "title": "Long Alternating Paths in Bicolored Point Sets",
+          "trigger": "Cited original extremizing configuration and run conjecture"
+        },
+        {
+          "assessment": "ADJACENT_NOT_EQUIVALENT",
+          "evidence": [
+            "The unrestricted necklace conjecture and its discussed example have different hypotheses and target ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1901.07502v1",
+          "material_read": "Conjecture 1 and accompanying example, HTML offset 3200",
+          "method": "Open primary text passage and compare hypotheses",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Cited circular antipalindromic-subsequence formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–20 and 36–63",
+        "Kynčl–Pach–Tóth, Lemma 2.2 and concluding conjecture"
+      ],
+      "rationale": "As mathematics the complete four-run invariant is useful: it resolves the first nontrivial fixed-run case of the separated matching problem exactly, including the finite rounding and classification of divisible-by-four extremizers. This assessment is of the result's mathematical utility, not a claim that duplicating it adds a new contribution.",
+      "residual_risks": [
+        "The proof is specific to four runs and does not resolve larger run counts or the unrestricted necklace problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

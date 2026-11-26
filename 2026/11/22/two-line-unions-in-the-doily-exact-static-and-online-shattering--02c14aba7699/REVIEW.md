@@ -1,19 +1,21 @@
-# Scientific review — two-line unions in the doily
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof treats an exactly specified 15-point incidence space and all 105 unions of two distinct three-point lines. The S6 orbit partition covers all 455 three-, 1365 four-, and 3003 five-point supports and computes the exact trace multiplicities; absence of shattered five-sets excludes higher dimensions. The independently constructed symplectic and one-factor verifiers agree on all face coefficients, on the 15 exceptional triangular facets, on binary boundary ranks 14, 91 and 269, and on Littlestone depth five. The explicit depth-five tree has 32 consistent leaves; the exact recurrence exhausts all relevant 58598 hypothesis restrictions.
+PASS
 
-## Originality (PASS within inspected literature)
+Each pair of lines can be recovered from its union, since any third line contains at most one point on each, and so is not contained in the union. My exact recreation using disjoint pair blocks in vertex permutations gives 60 six-point concepts and 45 five-point concepts. Direct set traces on every support of size ≤5 give [1,15,105,375,495,0], which excludes larger supports by heredity. Comparing every face with the next cardinality gives precisely the 15 line triangles and all 495 quadruples, no smaller facets. Adjacent-swap orbit generation matches the 3-, 4-, 5-support orbit/trace multisets in RESULT.md 34–46, in particular the three 4-facet orbits of size 45, 90 and 360. Boundary row reduction by symmetric difference gives ranks 14,91,269 and hence reduced Betti (0,0,15,226) over F₂. A separate depth feasibility search prunes only branches with fewer than 2^remaining-depth possible concepts; it accepts depth five and rejects depth six. Unpruned reachability yields 58598 nonempty states, and the frozen JSON tree (labeled in the symplectic model, not the matching order) has all 32 distinct, consistent leaves. Replay with python3 /workspace/reproductions/doily.py followed by the frozen depth5_tree.json path as argument. The original programs were inspected, not run. The classification is finite, with no integral homology claim.
 
-The closest related prior work is the generic exact-two-coordinate OR shattering report, which establishes a columnwise criterion on an unrestricted Boolean query domain but does not determine the doily-restricted polynomial, facet types, homology or adaptive depth. The projective-plane double-line classification requires every two lines to intersect, while the doily has 60 disjoint line pairs. The primary geometric source is Bishnoi's 2021 minicourse, Example 3.3; Iosevich et al. (2023) studies finite incidence VC applications without this classification. Full published scientific comparisons and residual priority risks appear in `AUDIT.json`.
+## originality
 
-## Value (PASS)
+PASS
 
-The smallest thick generalized quadrangle is a natural finite incidence model. Its exact Boolean trace census supplies a genuine VC-versus-online gap, a nonpure complex whose lower-dimensional facets are precisely the 15 geometric lines, and two nonzero mod-two Betti groups. These structural statements are not explained by concept cardinality alone and provide a benchmark for restricted-OR learning on incidence structures.
+The restricted doily census and the topology and online depth are distinct from the strongest inspected OR and plane-union overlaps; retain residual risk for differently indexed finite calculations.
 
-## Limitations
+## value
 
-The result concerns only this 15-point geometry and mod-two homology; no integral or all-order generalized-quadrangle assertion is made. Computation is exhaustive finite verification with standalone replay instructions, not independent external certification. An equivalent earlier result under different terminology may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete classification for a canonical smallest thick generalized quadrangle, not a selected numerical slice. The Boolean trace and online-query thresholds differ, and the lower-dimensional facets recover exactly the original incidence lines. The two nonzero reduced mod-two ranks and the orbit census make a reproducible benchmark for learning on restricted incidence designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

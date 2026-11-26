@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The included `verify.py` was run with Python 3 from its final package directory. Its output was:
+## correctness
 
-```
-n 2 recursive trees 1 joint probabilities verified
-n 3 recursive trees 2 joint probabilities verified
-n 4 recursive trees 6 joint probabilities verified
-n 5 recursive trees 24 joint probabilities verified
-n 6 recursive trees 120 joint probabilities verified
-n 7 recursive trees 720 joint probabilities verified
-n 8 recursive trees 5040 joint probabilities verified
-PASS 210 exact joint probabilities; matching conditional law and beta-binomial tail
-```
+PASS
 
-The program enumerates every rooted recursive tree through size eight, computes fringe sizes and child counts, and compares exact rational joint laws against the conditional root-degree generating function and exact Pólya-urn fringe tail. This is finite exhaustive checking of a finite identity, not an infinite proof. The proof in `RESULT.md` independently gives an all-size conditioning argument, a uniform moment-generating-function bound, exact tail estimates, and the probabilistic limiting argument, relying on the clearly named earlier maximum-degree and maximum-label theorems. Historical novelty is qualified by incomplete access to some older full texts. Independent mathematical audit has not been performed.
+At each step, entry into a fixed vertex's fringe has probability given by the fringe size divided by the current tree size; conditional on entry, its parent is uniform within the fringe. Conditioning on the full entry history does not bias these internal parent draws because the entry probabilities depend only on sizes. Thus given final size s the child count is a sum of independent Bernoulli variables with probabilities 1/r for 1<=r<s. The Pólya urn from initial counts (1,j-1) has beta-binomial mass equal to the difference of the two successive products in (2), yielding the stated upper tail. Choose the label tolerance delta positive and smaller than both mu and epsilon. The upper tail excludes sizes at least n^(a+epsilon) uniformly over the candidate labels j>=n^(mu-delta), by n times a stretched-exponential bound. For small fringes, the conditional exponential moment and H_(s-1)<=1+log(s) give a uniform Chernoff bound O(n^(-I(b,a-epsilon))) for the joint event of small fringe and degree >=b log n. At c=1/log 2, a=c/2, I(c,a)=c log 2-c+a=mu; decreasing a strictly increases the rate, so b<c and delta may be chosen with I(b,a-epsilon)>mu+2delta. The union over j<=n^(mu+delta) then vanishes. The root cannot violate the lower size bound; localization excludes it from the maximizers with probability tending to one. The two prior theorems have the required hypotheses at constant weight 1 and one attachment per step, and localization holds for the first and last maximum-degree labels. The intersected high-probability events prove the claim for all tied maxima at once. The finite checker was inspected, not executed; it checks the two finite identities through size eight, not the limiting exponent.
+
+## originality
+
+PASS
+
+The distinct claim is the simultaneous fringe-size exponent at the first maximum-child-count cut in the uniform recursive tree. The strongest inspected prior work supplies label and degree limits, and poses the original first-cut size question, but does not give this conclusion. The result addresses its logarithmic-size aspect only.
+
+## value
+
+PASS
+
+This supplies a quantitative answer to a stated gap about the first targeted cut, distinguishing a mesoscopic polynomial-sized deletion from either a logarithmic or linear one. Uniformity over tied maximum-degree vertices makes it intrinsic to the cutting rule; the conditional extreme-degree lower bound is the substantive step beyond a typical-size heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

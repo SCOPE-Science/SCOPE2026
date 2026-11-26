@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:36:30.890010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–3; VERIFICATION.md and checker.py inspected, not executed.",
+        "Independent modular unit-pivot replay on the original root-count matrices at p=3,5,7,11, through modulus p⁵: /workspace/branches/independent_smith_checks.py roots."
+      ],
+      "rationale": "At prime level the Legendre-character correlation gives K_p=J+Q, QJ=JQ=0 and QQᵀ=pI−J, hence absolute determinant p^((p+1)/2). In F_p[t]/(t^p) the generating function has first nonzero coefficient at r=(p−1)/2, by the polynomial sums for binomial(x²,j); the coefficient there is −1/r!. This gives exactly r positive p-valuations. Their total is r+1, so precisely one is 2 and the rest are 1; these data suffice since all valuations counted are positive integers. Also (K_p−I)/2 is invertible modulo p because its polynomial has nonzero constant term. At depth two simple-root lifting of units and the count of p roots of zero give K_(p²)=pI+2H_p⊗J_p in coset order. The lift-reference/difference basis splits off pI of size p(p−2) and leaves the submitted two-by-two block matrix. Local pivoting on 2H_p gives Schur complement −p²K_p(2H_p)^−1, hence I_p⊕p²K_p over Z_(p). The original triangular form has determinant p^(p²) det K_p, ruling out other primes. The factors, rank and exponent are therefore valid for every odd p, including the empty p³ block at p=3.",
+      "residual_risks": [
+        "Bounded numerical checks concern local valuations; the algebraic determinant proves the absence of torsion at all other primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ducey–Jalil's elementary-divisor theorem assumes the torsion prime does not divide |G|. This matrix's torsion prime p divides |G|=p².",
+          "The nearby quadratic local root-law record 6ab7ccee525b classifies a root-count distribution for varying polynomials, not the integral convolution operator.",
+          "General polynomial-circulant methods were plausible; the two Essex works were not available in lawful full text in the retrieval attempts, so no full-document exclusion is claimed."
+        ],
+        "reasoning": "The explicitly verified general Cayley theorem excludes precisely the difficult prime here. The polynomial methods remain an access limitation, not evidence against originality.",
+        "searches": [
+          "Ducey–Jalil arXiv:1308.2335 Thm. 3.2; Chandler–Sin–Xiang arXiv:1401.8260 Thm. 2.1; Williams and Telloni–Williams Essex repository items 8578 and 9703",
+          "Resultary search for general exact quadratic root laws and Smith classifications on cyclic prime squares"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1224a9eb3aed (self), 6ab7ccee525b, 6bac5dc6cda2, 71c380dd0362",
+        "arXiv:1308.2335, arXiv:1401.8260, arXiv:1410.6179; Essex 8578 and 9703 public material/access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Fourier/Gauss-sum spectrum implies the absolute determinant but does not determine p-divisibility profile at a prime dividing the order of the cyclic group.",
+          "The gcd record's p-local Schur argument is related, but its kernel is constant across distinct residue classes, and the remaining high p-valuations are all equal. Here the weighted between-class block 2H_p and its shifted matrix K_p require separate analysis; the mod-p order of the group-ring element fixes the prime-level Smith list used in lifting."
+        ],
+        "reasoning": "Known root lifting gives the entries and classical sums give some spectral data. The localized Smith equivalence to a scaled K_p and its exact mod-p rank are not obtained just by inserting p² in any of the inspected results.",
+        "searches": [
+          "arXiv:1308.2335 Theorem 3.2; arXiv:1401.8260 definition and Theorem 2.1; arXiv:1410.6179 prime-power Gauss-sum passages; local mirror 6bac5dc6cda2 Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix is the coefficient matrix of multiplication by the square-root generating polynomial Σ_x X^(x²) in Z[X]/(X^(p²)−1), up to the choice of orientation.",
+          "H_p is the residue adjacency, but K_p=I+2H_p, and K_(p²)=pI+2H_p⊗J_p. The published Paley adjacency result is over F_q, q≡1 mod 4, not this weighted matrix on the cyclic group Z/p²Z."
+        ],
+        "reasoning": "Neither a change from Cayley language to group-ring multiplication nor replacing the coefficient field by F_(p²) gives the same integral problem. Transposition preserves the Smith form; adding the diagonal weights generally does not.",
+        "searches": [
+          "Resultary: quadratic root convolution Smith, prime-square weighted quadratic Cayley and depth-two circulant Smith",
+          "Primary literature on Smith groups of Abelian Cayley graphs, Paley graphs and polynomial circulants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 1224a9eb3aed is the assigned record. Independent indexed 6bac5dc6cda2 gives the full Smith form for cyclic power-gcd kernels; 71c380dd0362 concerns a unit-indexed Ramanujan Gram matrix."
+        ],
+        "reasoning": "The closest cyclic power-gcd list shares the p(p−2) size tier, but has p factors of valuation a+1 for kernel power a, rather than the three higher p-valuation tiers of this matrix. No priority is inferred from same-day dates.",
+        "searches": [
+          "Resultary exact-object search for the square-root convolution integral Smith factors at p², and neighboring all-residue prime-square circulants"
+        ]
+      },
+      "rationale": "The available Paley and weighted Cayley theorems and the exact indexed neighbors do not give this integral classification for all odd p on the cyclic ring at depth two. The relevant p divides the group order, the adjacency/weight matters, and the new calculation needs a genuine localized block reduction and the integral prime-level invariant rather than only the characteristic-zero Gauss sums. The indexed exact hit is this assignment, not corroboration.",
+      "residual_risks": [
+        "Lawful full text of the Telloni–Williams polynomial-circulant article and Williams adjacency article was not obtained; a subsuming theorem remains possible.",
+        "No historical priority conclusion follows from bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not apply to the p-primary part",
+          "evidence": "The elementary-divisor result assumes p∤|G|, contrary to |G|=p².",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2335",
+          "material_read": "OA PDF p. 1 and Thm. 3.2 p. 4, offsets 0 and 10500",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Integer Invariants of Abelian Cayley Graphs",
+          "trigger": "General cyclotomic/Cayley elementary-divisor theorem possibly covering the weighted kernel"
+        },
+        {
+          "assessment": "Different group and/or matrix entries",
+          "evidence": "Finite-field Paley graph with q≡1 mod 4 and unweighted graph adjacency; no pI shift on cyclic depth-two ring.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.8260",
+          "material_read": "OA PDF definition p. 1 (offset 700) and Thm. 2.1 p. 3 (offset 8840)",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "The Smith and Critical Groups of Paley Graphs",
+          "trigger": "Closest classical quadratic-residue adjacency Smith results"
+        },
+        {
+          "assessment": "Spectral context, not integer cokernel coverage",
+          "evidence": "Evaluation of character sums does not give lattice equivalence at the ramified prime.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.6179",
+          "material_read": "OA PDF pp. 1, 3–5, definitions and evaluated sums",
+          "method": "Lawful OA PDF passages",
+          "title": "Evaluating Prime Power Gauss and Jacobi Sums",
+          "trigger": "Prime-power character eigenvalue formulas"
+        },
+        {
+          "assessment": "Unresolved full-text overlap risk",
+          "evidence": "Abstract describes a class of circulant polynomial matrices with a no-repeated-roots hypothesis; it does not establish that the exact square-root kernel is evaluated.",
+          "identifier_or_url": "https://repository.essex.ac.uk/9703/",
+          "material_read": "Public abstract, no full text retrieved",
+          "method": "Repository and identified lawful alternate/publisher attempts, including direct and VPN OA retrieval",
+          "title": "Smith Forms of Circulant Polynomial Matrices",
+          "trigger": "Possible general theorem in polynomial-circulant formulation"
+        },
+        {
+          "assessment": "Abstract-level scope only",
+          "evidence": "Selected graph adjacency matrices; no exact claim identified for this weighted convolution in the material read.",
+          "identifier_or_url": "https://repository.essex.ac.uk/8578/",
+          "material_read": "Public abstract, no full text retrieved",
+          "method": "Repository and lawful alternative retrieval attempts",
+          "title": "Smith Forms for Adjacency Matrices of Circulant Graphs",
+          "trigger": "Potential overlapping circulant Smith classification"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Distribution of root counts as polynomial coefficients vary; no Smith form of the fixed kernel.",
+          "identifier_or_url": "Resultary 6ab7ccee525b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact quadratic local root law modulo a prime square",
+          "trigger": "Quadratic roots at the exact modulus"
+        },
+        {
+          "assessment": "Related block technology, not the same eigenvalue or Smith data",
+          "evidence": "On the same full residue set the weights are gcd(x−y,p²)^a; its p-primary valuations are a and a+1 with multiplicities p(p−2) and p, respectively.",
+          "identifier_or_url": "Resultary 6bac5dc6cda2",
+          "material_read": "RESULT.md Finding; Proof §§1–4, offsets 1710–5763",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Complete Smith factors of cyclic power-GCD matrices at odd prime squares",
+          "trigger": "Closest distinct complete cyclic prime-square Smith list"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and coset-lifting proof",
+        "Prime-field Paley contrast and prime-square cyclic power-GCD comparison above"
+      ],
+      "rationale": "This is the natural integral convolution operator for the square map on the first nonfield cyclic prime-power ring, not an arbitrary graph or choice of matrix entries. Its complete primary profile, notably the single p⁴ factor and the different p² and p³ multiplicities, is not accessible from the determinant or field case alone. The depth-two integral decomposition explains these specific invariants rather than extrapolating examples.",
+      "residual_risks": [
+        "No general classification at depths three and higher or for other quadratic operators is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

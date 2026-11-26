@@ -1,11 +1,21 @@
-# Scientific review: comparison shattering of permutations
+# Independent mathematical audit
 
-**Correctness — PASS.** The object is the complete class of strict total orders on a labeled set, queried solely through pair comparisons. Every comparison transcript corresponds exactly to the linear extensions of a strict partial order; the displayed recurrence exhausts all possible remaining queries. A second implementation independently works with bitsets of all permutations rather than partial orders. Both implementations give the Littlestone profile \((0,1,2,4,6,9,11)\), verify a complete depth-eleven certificate at seven labels, and reject depth twelve. The hypothesis-count upper bound settles every smaller size once a matching certificate is verified. The all-size VC identity has a direct forest-orientation proof. Risks: finite software enumeration must be replayed from the supplied code, and no classification beyond seven labels is asserted.
+## correctness
 
-**Originality — PASS, subject to historical-priority uncertainty.** Actual searches included total-order comparisons, online-ranking shattered trees, Shelah's \(2\)-rank, and the first factorial-bound failure. Relevant primary full text distinguishes noisy pairwise ranking/regret (Jia et al., arXiv:2103.00368) and general optimal online mistake bounds (Filmus et al., arXiv:2302.13849) from this exact finite comparison-class computation. The nearest known general cardinality upper bound alone cannot imply the strict seven-label shortfall. A prior specialized sorting or stability-rank analysis could nevertheless preempt novelty; no claim of exhaustive global priority is made.
+PASS
 
-**Mathematical value — PASS.** This is the smallest comparison-order instance at which a natural information-theoretic bound ceases to be tight, with exact minimality across all smaller sizes and a reproduced obstruction. The distinction between a balanced shattered tree and a sorting decision tree matters for the optimal realizable online mistake bound. The accompanying VC identity isolates the difference between static and adaptive order-comparison shattering; the precise cutoff is motivated rather than an arbitrarily selected finite case.
+Each binary response path constrains the candidate permutations to the linear extensions of the comparisons' transitive closure. A depth-d tree has 2^d mutually disjoint, nonempty leaf classes, and each feasible root split must leave two depth-(d−1) classes. I independently decoded every stored certificate by response-path bits, using direct position comparisons in the lexicographic permutations (not the supplied split code). The numbers of checked leaves were 1,2,4,16,64,512,2048 and all were distinct within each tree. To exclude depth 12, it suffices by relabeling to test depth 11 for one oriented first response. I exhaustively split tuples of ranks in the 2520-permutation half-class, allowing every unordered comparison and pruning only if either child lacked 2^(d−1) permutations; depth 11 failed (766 memoized states). Thus the profile is (0,1,2,4,6,9,11), strictly below the factorial leaf bound first at seven labels. For VC shattering every graph orientation must extend to a total order, equivalent to having no undirected cycle; a forest on n vertices has at most n−1 edges and spanning trees attain this. Replay: python3 /workspace/review-replay.py 5 with the frozen comparison_certificates.json path. Only the VC identity is all-n.
 
-Both exact verifiers use standard-library Python. The one-sided cardinality pruning removes only states that cannot have the requested depth. Each positive certificate lists all internal queries and a distinct consistent permutation for every leaf. The supplied reproducibility transcript records all tested sizes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model and linear-extension bookkeeping are established, with closer prior art than the frozen bibliography: Goldman–Rivest–Schapire studied adversarial comparison mistakes on total orders in 1993, and Feng et al. treat the same one-pair case within a broader feedback model. Neither inspected treatment derives the exact seven-label deficit or its minimality. Two later-listed catalogue entries explicitly cover the seven-label result, and one covers the whole profile. These are real overlaps, not evidence of an earlier source for the frozen record or of any particular provenance. This pass is limited to the exact finite result, not the model, cardinality argument, or an absolute priority claim.
+
+## value
+
+PASS
+
+The first non-tight cardinality upper bound is the motivated stopping criterion, not a selected example size. The positive trees and exhaustive seven-label exclusion locate the first time the constraints of realizable comparisons reduce the optimal mistake bound below what a count of concepts suggests. This is useful for the comparison model independently of the accompanying VC observation and is not a claim about optimal sorting comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

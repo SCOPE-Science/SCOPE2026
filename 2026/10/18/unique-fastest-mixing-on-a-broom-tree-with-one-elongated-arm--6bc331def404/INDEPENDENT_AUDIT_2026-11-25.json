@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:11:18.597437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging over the n leaves preserves stochastic feasibility and cannot increase the centered operator norm. For invariant weights, the leaf-contrast eigenvalue gives the lower bound 1−c. The zero-sum vector in RESULT.md lines 26–46 gives a competing Rayleigh bound 1−E/N; saturating the two hub inequalities bounds E by an affine function strictly decreasing in c for n≥3. Its value at c* is Nc*, forcing c=c* and saturation of both hub rows at any invariant optimum. At the candidate the quotient has eigenvalues 1 and μ* and a real-rooted quadratic factor; its vertex lies inside (−μ*,μ*) and the polynomial is positive at both endpoints. The leaf-contrast modes are exactly μ*, proving attainment. For an arbitrary optimizer the permutation average fixes the bridge, single spoke, and mean of the remaining spokes. One may either use the zero-trace positive semidefinite compression in lines 69–77 or apply the active Rayleigh equality to the same zero-sum vector: its energy is unchanged under the averaging, so it is an actual μ* eigenvector, and its nonzero leaf values and zero w coordinate force each remaining spoke weight to be c*. At n=2 the rational proposal has SLEM 4/5. For the alternative weights (1/2,1/2,1/4), the leaf-contrast eigenvalue is 3/4 and the transverse quotient polynomial is t³−t²/4−t/2+1/16; its signs at −4/5, 0, 1/4, 4/5 alternate, placing all three roots strictly inside. The separate exact check at /workspace/branches/21e5bd8a-9811-478f-985a-116b91d9270d/independent_record4.py corroborated the quotient identities and the boundary witness. The frozen verifier was inspected, not run. The result does not solve the n=2 optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bistar formula is conditional; the violated inequality is not a proof that every formula in the paper fails, but it excludes the asserted result in the inspected bistar passage.",
+          "The indexed general rational regime requires p>q≥2; the separate frontier theorem requires both branch counts at least two."
+        ],
+        "reasoning": "A general semidefinite program or symmetry reduction applies, but is not an evaluated optimum. The indexed spectral-norm argument relies on both branches having at least two leaves and cannot simply be specialized.",
+        "searches": [
+          "arXiv:2501.02421v1 §6.7 Eqs. (56)–(60)",
+          "arXiv:0709.0955 §4.3",
+          "Resultary mixed-regime double stars"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_broom.py",
+        "arXiv:2501.02421v1",
+        "Boyd–Diaconis–Xiao, SIAM Review 46 (2004)",
+        "arXiv:0709.0955",
+        "The two distinct Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general criterion N(p,q) specializes to n³(n−2)−(2n−1)² at q=1, exactly the sign used in the frozen positive-gap certificate. The common Rayleigh argument and weights can be specialized.",
+          "The general proof uses signless Laplacian row-ratio bound 3c(b)≤(3+b)/2 when q≥2. At q=1, b=b*→0 and c(b*)→1 as p grows, so that bound fails on the desired family. The indexed result expressly does not classify all optimizers."
+        ],
+        "reasoning": "The frozen quotient-root check supplies the missing negative-eigenvalue control, and the active-eigenspace argument supplies unrestricted uniqueness. The formal substitution alone is insufficient; at n=2 the frozen claim gives a strict witness, not a competing classification.",
+        "searches": [
+          "Same-day double-star RESULT.md, proof steps 1–4, mirrored offsets 0 and 4894",
+          "Frozen RESULT.md lines 26–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jafarizadeh §6.7 treats bistars under Eq. (60). For uniform stationarity and exactly n leaves on the large side the relevant inequality reduces to n≤1, excluding the frozen regime.",
+          "Boyd–Diaconis–Parrilo–Xiao §4.3 treats other symmetric examples, including joined cliques and a complete binary tree."
+        ],
+        "reasoning": "The topology is a singleton-side bistar, and the comparison is for nonnegative transitions with loops, not for signed consensus. Same topology without the same stochastic constraints does not give equivalent optimal weights.",
+        "searches": [
+          "broom as double star D(n,1), bistar or star with one elongated arm",
+          "arXiv:2501.02421v1 §6.7",
+          "arXiv:0709.0955 §4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day catalog result gives K=p²+p−q, long-side spoke (p−q)/K, short-side spoke p(p−q)/(qK), and bridge (p(q+1)−q)/K. Substituting p=n,q=1 gives exactly the frozen weights; its tables of first optimal integers start at q=2.",
+          "The second indexed frontier entry also excludes singleton sides."
+        ],
+        "reasoning": "The strongest same-day hit is not dismissed on date. The candidate is common, but the indexed conclusions and finite thresholds do not report the SLEM or classify optimizers at q=1.",
+        "searches": [
+          "2026/10/18/SCOPE-sharp-rational-fastest-mixing-regime-for-unbalanced-double-star--0a07e6cc4d90",
+          "2026/11/2/SCOPE-a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d"
+        ]
+      },
+      "rationale": "The distinct same-day double-star record supplies the identical rational candidate and its positive spectral-gap argument after formal singleton substitution; those are genuine overlaps. It does not establish the signed-end spectral bound at q=1 or uniqueness among all stochastic kernels. The exact SLEM and unrestricted uniqueness on that boundary survive the comparison, and neither same-day date establishes priority.",
+      "residual_risks": [
+        "A different indexed or unindexed extension to singleton bistars may exist; the bounded search is not an absence proof.",
+        "The co-dated rational double-star statement is a substantial overlap in construction and argument. No chronology within that date is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bistar hypothesis excludes the focal branch",
+          "evidence": [
+            "Eq. (60) includes π_(−1)Π⁺≤π_1²; uniform stationarity on the singleton-side bistar makes it n≤1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.02421v1",
+          "material_read": "§2 and §6.7 Eqs. (56)–(60), bistar passage around HTML offset 87855",
+          "method": "OA full-text passage comparison",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Same bistar topology and stochastic optimization"
+        },
+        {
+          "assessment": "General formulation, not an evaluated singleton bistar optimum",
+          "evidence": [
+            "Requires symmetric elementwise nonnegative stochastic matrices on the graph."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§1.1.1–1.1.2, printed pp. 668–669",
+          "method": "OA PDF passage comparison",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Exact feasible class and objective"
+        },
+        {
+          "assessment": "Generic symmetry methods, different exact examples",
+          "evidence": [
+            "Examples inspected cover joined cliques and the complete binary tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "§4.3, PDF pp. 18 and 20",
+          "method": "OA PDF passage comparison",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Orbit reduction and known exact graph examples"
+        },
+        {
+          "assessment": "Exact candidate and gap logic overlap; SLEM bound and uniqueness do not cover the singleton branch",
+          "evidence": [
+            "Explicit domain p>q≥2; negative-eigenvalue estimate uses q≥2."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-rational-fastest-mixing-regime-for-unbalanced-double-star--0a07e6cc4d90",
+          "material_read": "RESULT.md finding, assumptions, and proof steps 1–4, offsets 0 and 4894",
+          "method": "Resultary followed by local mirror passage inspection",
+          "title": "Sharp rational fastest-mixing regime for unbalanced double-star trees",
+          "trigger": "Matching rational optimum on neighboring bistar parameters"
+        },
+        {
+          "assessment": "Both branch counts are at least two",
+          "evidence": [
+            "The stated domain excludes one leaf on either side."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror statement comparison",
+          "title": "A sharp imbalance frontier for fastest symmetric mixing on double stars",
+          "trigger": "Potential bistar boundary result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes a natural boundary case of symmetric stochastic optimization on trees. The degree-one side defeats the available neighboring spectral bound, so the exact SLEM is not obtained by quoting the adjacent threshold. The proof also rules out all leaf-asymmetric optima rather than merely exhibiting one symmetric solution, and shows by exact comparison that the same construction ceases to be optimal at five vertices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

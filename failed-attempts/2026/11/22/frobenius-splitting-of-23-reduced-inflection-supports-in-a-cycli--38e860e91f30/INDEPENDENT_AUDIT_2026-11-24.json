@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:44:09.589606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79, VERIFICATION.md, and inspected verify_flex.py",
+        "Independent replay: python3 /workspace/branches/independent_evidence/check_2_4.py (check2)"
+      ],
+      "rationale": "In characteristic >=5, the partial derivative test gives exactly r=±2 as singular. The point at infinity has contact order four and Hessian weight two. In the affine chart, a direct tangent-line expansion at x≠0 gives the condition f'(y)^2−3f(y)(6y^2+r)=−Phi_r(y)=0 for a flex; the symbolic Hessian restriction also equals 54xPhi_r(y). Independent symbolic calculations confirm the discriminant and resultant in all allowed characteristics. The exclusions make the six y roots distinct and nonzero and keep f(y) nonzero on them; each yields three distinct x roots. At x=0 the four points are simple flexes, with x a local parameter by separability of f; at x≠0 the parameter y and the squarefree Phi show simple Hessian zeros. Over a y residue field the possible cycle structures of x^3=−f(y) are exactly (1,2), (1,1,1), (3) under the stated tests, and base-field orbit lengths multiply by the y orbit degree. The independent replay counted points directly over extensions of degrees 1,2,3, and certified full splitting by degree six, confirming all four F7 rows. The r=3 and r=4 counts are (7,17,13) and (7,17,7) respectively, so the geometric twist is not an F7 isomorphism.",
+      "residual_risks": [
+        "The result describes cycle type, not a preferred labeling of Frobenius. It makes no classification of excluded fibres or the curve zeta function."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 proof uses the same normalized family and all p>=5. It states that x=0 gives order-three tangent contact, y=0 gives order-two contact for r≠0, and infinity is the permanent hyperflex.",
+          "The Ohashi–Kudo–Harashita model and isomorphism results and Kulikov's generic monodromy concern distinct or weaker aspects; they are not the decisive coverage."
+        ],
+        "reasoning": "The earlier exact equations are valid whether or not E_3 vanishes, so they apply throughout the frozen open locus. Together with ordinary and hyperflex contact orders and the degree-24 Hessian, they already determine its geometric support size. Arithmetic descent of the explicit residues requires no additional family-specific geometry.",
+        "searches": [
+          "SCOPE-20261102-58a8a42d90ca, full relevant Proof passage",
+          "Ohashi–Kudo–Harashita arXiv:2111.09777 §2",
+          "Kulikov arXiv:1703.10430 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and AUDIT.json",
+        "Resultary exact-family tangent proof 58a8a42d90ca; catalogue matches on Weil data and other flex spectra",
+        "Ohashi–Kudo–Harashita §2; Kulikov Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier equations give exactly one rational singleton, the roots of g(y) at x=0, and the pairs y satisfying E_2(y^2,r)=0 and x^3=−g(y). These equations are over the base field; geometric comparison does not require any change of coordinates."
+        ],
+        "reasoning": "For each residue field of a y-root one factors a binomial of degree three. Its cycle test is determined by the cyclic multiplicative group and the presence of third roots of unity; field extension lengths and Euler products are formal. In particular the F7 twist pair is a direct four-parameter-size evaluation of the already explicit equations, despite being a correct example of unequal degree-three counts.",
+        "searches": [
+          "SCOPE-20261102-58a8a42d90ca, RESULT.md offsets 1500–5126",
+          "Frozen factorization and F7 results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier proof gives 3xm^2+6u+r as the tangent t^2 coefficient, where m=-g'(y)/(3x^2), and E_2(u,r)=3(6u+r)(u^2+ru+1)-4u(2u+r)^2. Expanding E_2 gives 2u^3+5ru^2+(18−r^2)u+3r exactly."
+        ],
+        "reasoning": "Setting only the t^2 coefficient to zero is equivalent to the affine ordinary-or-higher flex condition wherever xy≠0. E_3 is needed for a hyperflex but irrelevant for the reduced flex support. Thus all new-looking sextic labels were already given by the earlier tangent equations.",
+        "searches": [
+          "Resultary: cyclic-six quartic hyperflex jumps and flex-support Frobenius",
+          "SCOPE-20261102-58a8a42d90ca/RESULT.md, Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9cf487dbfcc5 gives Weil/Jacobian/Prym data of the same curve family over F17, not flex-support arithmetic. The two other flex-splitting findings treat the Klein quartic and a different order-nine quartic, respectively. No distinct matching explicit F7 table was found in the bounded searches."
+        ],
+        "reasoning": "The exact-table check is not the basis for failure; the earlier tangent equations give the precise data to derive all entries by routine factorization.",
+        "searches": [
+          "Resultary: flex cycles, reduced-support zeta, and same-family finite-field splitting",
+          "SCOPE-20261122-9cf487dbfcc5, Finding",
+          "SCOPE-20261122-1b8d3c6d03f9 and SCOPE-20261122-eb1adda28080, Findings"
+        ]
+      },
+      "rationale": "The exact earlier same-family positive-characteristic proof contains the ordinary-flex equation, not just the hyperflex jump locus. It writes the tangent expansion and derives E_2 from the t^2 coefficient alone. E_2(y^2,r) is exactly Phi_r(y), and the earlier proof also treats x=0, y=0, and infinity. The frozen support classification is therefore mechanically implied by those equations and elementary finite-field factorization, including the F7 twist example. No earlier verbatim zeta table is needed for this implication.",
+      "residual_risks": [
+        "No assertion that the same Euler factors had appeared verbatim or that unindexed literature was exhausted. The unavailable November 8 record does not enter the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact flex-coordinate equations are present in the prior hyperflex proof and mechanically imply the frozen rule",
+          "evidence": [
+            "Coefficient of t^2 is 3xm^2+6u+r, with E_2 the corresponding eliminated polynomial; x=0 is handled separately and the permanent hyperflex is fixed at infinity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-hyperflex-jumps-in-characteristic-at-least-five-on-the-cyclic-si--58a8a42d90ca/RESULT.md",
+          "material_read": "Finding and assumptions; Proof offsets 1500–5126, especially the separate tangent coefficients and E_2,E_3",
+          "method": "Resultary search and local-mirror bounded passage inspection",
+          "title": "Hyperflex jumps in characteristic at least five on the cyclic-six plane-quartic locus",
+          "trigger": "Same exact family, hypotheses and jump polynomial"
+        },
+        {
+          "assessment": "Geometric and Hasse–Witt antecedent, not the flex spectrum",
+          "evidence": [
+            "Normal form and isomorphism criteria establish the same curve, but a-number/p-rank are different invariants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.09777",
+          "material_read": "Abstract and §2, Theorems A–B, pp.1–3",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "The a-numbers of non-hyperelliptic curves of genus three with large cyclic automorphism group",
+          "trigger": "Earlier exact cyclic-six normal form and arithmetic on it"
+        },
+        {
+          "assessment": "Generic monodromy rather than explicit finite arithmetic of the given pencil",
+          "evidence": [
+            "Theorem 1 concerns generic monodromy in characteristic zero, not the finite-field fiber classification here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.10430",
+          "material_read": "Abstract and Theorem 1, pp.1–2",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "On the monodromy of the inflection points of plane curves",
+          "trigger": "Earlier general work on flex permutations"
+        },
+        {
+          "assessment": "Not used as decisive evidence; the November 2 proof suffices",
+          "evidence": [
+            "Frozen comparison points to the same jump locus; no inference about uninspected text."
+          ],
+          "identifier_or_url": "SCOPE-20261108-fcd5318ad1a5",
+          "material_read": "Frozen AUDIT.json identification only; exact external RESULT.md was unavailable in the local mirror",
+          "method": "Read frozen comparison and attempted configured local-mirror retrieval",
+          "title": "Hyperflex jumps on the cyclic-six genus-three quartic locus",
+          "trigger": "Second earlier record identified by the frozen comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Findings and F7 examples",
+        "Earlier tangent expansion and E_2 coefficients in SCOPE-20261102-58a8a42d90ca"
+      ],
+      "rationale": "The reduced flex scheme and distinguishing twists by geometric support over extensions are natural. However, the frozen finding does not establish a distinct worthwhile exact invariant beyond routine descent of the complete earlier flex equations; the F7 witness is an immediate small illustration of those equations rather than a new obstruction or substantive classification independent of them.",
+      "residual_risks": [
+        "This does not prejudge a broader new twist classification or a result about boundary fibres not claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

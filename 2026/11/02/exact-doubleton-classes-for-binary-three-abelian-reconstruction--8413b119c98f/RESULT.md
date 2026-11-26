@@ -20,7 +20,7 @@ Equivalently the complete generating function is
 &+\frac{2z^{10}}{1-z^2}+\frac{6z^{11}+4z^{12}}{(1-z)^2}+\frac{2z^{13}}{1-z^3}.
 \end{aligned}
 \]
-The growth is linear, even though the number of distinct binary three-abelian classes grows as a polynomial of degree six.
+The doubleton count grows linearly, while the total number of binary three-abelian classes has order \(n^6\).
 
 ## Assumptions and scope
 
@@ -59,14 +59,15 @@ Run `python3 verify.py` with a C++17 compiler. It compiles and executes `enumera
 
 ## Relationship to prior work
 
-The 2016 conference paper by Cassaigne, Karhumäki, Puzynina and Whiteland proves rationality for the *total* class-count sequence and for singleton classes, and explicitly evaluates their binary three-abelian formulas (Propositions 14 and 15). In particular, the singleton law is known and is **not** claimed here. The May 11, 2016 preprint of Karhumäki, Puzynina, Rao and Whiteland studies class cardinalities primarily through singleton structure and general bounds. Neither inspected primary text establishes the count of classes of cardinality **exactly two** for every length. The total number of classes together with the singleton number does not determine the number of doubletons because classes of three or more words coexist. The result refines, rather than rederives, those earlier statistics.
+Cassaigne, Karhumäki, Puzynina and Whiteland studied rationality of class-counting sequences and gave explicit binary three-abelian formulas for the total and singleton counts in their 2016 conference paper. The union of the classes of size two is already known to be regular: Karhumäki and Whiteland [4, §4] attribute this case to the expanded journal paper, and their Theorem 1 covers every fixed class size. Their Corollary 2 gives rationality of the sequence counted here after setting the alphabet size to two, \(k=3\), and class size to two. Rationality and the existence of an algorithmically constructible automaton are thus not claims of this note. The distinct calculation is the explicit census and resulting coefficients, including the onset at length fourteen and both periodic corrections. Karhumäki, Puzynina, Rao and Whiteland [2, Proposition 4.7] give an exact formula for the size of an individual equivalence class; that is not an enumeration of how many classes have size two. The total count and the singleton count do not determine that statistic.
 
 ## Limitations
 
-The theorem concerns binary, linear, exact three-abelian equivalence only; it does not provide complete class-size distributions, noisy observation results, or analogous formulas for other factor lengths. An expanded 2017 journal version of the 2016 conference paper was not fully accessible; this leaves a historical-priority risk despite the direct 2016 comparison. The proof relies on a finite exhaustive calculation of the 316 canonical profiles, reproduced in the standalone source and explicit certificate; the boundary reduction is necessary to make that finite step cover every input length.
+The theorem concerns binary, linear, exact three-abelian equivalence only; it does not provide complete class-size distributions, noisy observation results, or analogous formulas for other factor lengths. The detailed formulas in the expanded 2017 journal version were not fully checked; [4, §4] documents its two-element regularity result. The proof relies on a finite exhaustive calculation of the 316 canonical profiles, reproduced in the standalone source and explicit certificate; the boundary reduction is necessary to make that finite step cover every input length.
 
 ## References
 
 1. J. Cassaigne, J. Karhumäki, S. Puzynina, M. A. Whiteland, *k-Abelian Equivalence and Rationality*, Developments in Language Theory (DLT 2016), LNCS 9840, 77–88. DOI: 10.1007/978-3-662-53132-7_7.
 2. J. Karhumäki, S. Puzynina, M. Rao, M. A. Whiteland, *On cardinalities of k-abelian equivalence classes*, arXiv:1605.03319, first posted 2016-05-11.
 3. OEIS A289657, count of all binary three-abelian classes, a different statistic.
+4. J. Karhumäki, M. A. Whiteland, *Regularity of k-Abelian Equivalence Classes of Fixed Cardinality*, LNCS 11011, 49–62 (2018), DOI: 10.1007/978-3-319-98355-4_4.

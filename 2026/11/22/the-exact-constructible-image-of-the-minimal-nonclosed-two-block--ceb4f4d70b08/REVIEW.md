@@ -1,19 +1,21 @@
-# Scientific review: exact constructible image of the minimal two-block rank-one map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified over **all fields**, including characteristic two. The proof gives both a necessary obstruction and an explicit construction in all remaining cases. Its critical linear-algebra lemma is elementary: a nonscalar two-by-two operator has a cyclic vector, so the linear functional satisfying two prescribed evaluations exists. Scalar operators force the exact quadratic obstruction \(\lambda(\lambda-1)=0\). All geometric claims follow from a rank-one \(4\times2\) determinantal cone, and the finite-field counts follow from multiplying \(q-2\) by \(\#\operatorname{GL}_2(\mathbb F_q)\). The accompanying exact-arithmetic checker exhausts fields of orders two, three and four, but the proof, not the experiments, establishes the infinite-field theorem.
+PASS
 
-## Originality — PASS, qualified
+Two singular outputs are attained with C=0; otherwise exchange the outputs if necessary and normalize the invertible one to I. For T=X^(-1)Y, the determinant identity for a rank-one subtraction gives v^T u=1 and v^T Tu=tr(T)-det(T). If T is nonscalar, some u makes (u,Tu) a basis: invariance of the two basis lines and their sum line would force the same scalar on both basis vectors. Prescribe the two evaluations of the linear form on that basis. If T=lambda I, the first equation forces tr(C')=1 and the other determinant is lambda(lambda-1); for either allowed lambda=0,1 an elementary rank-one projector works. No field-size or characteristic assumption is needed. The exceptional set is the open subset of the rank-one 4-by-2 cone given by invertible X and Y neither zero nor X. Its scalar parameter is recovered regularly wherever X is invertible. The irreducible cone has 5-dimensional smooth pivot charts off the origin, full 8-dimensional tangent space at the vertex, and Segre degree binom(4,1)=4. Off the cone the image contains a dense open; rational density follows over infinite fields and geometric density follows on base change. Counting independent columns gives the stated finite-field count. An independent full-complement enumeration over F2, F3 and F4 gave (attained, missing)=(256,0),(6513,48),(65176,360). This is finite corroboration only. Replay: python3 /workspace/branches/9bd7fb60-5b6f-4f54-8ac3-c16fcf4803ea/independent_image_check.py. The supplied finite_field_check.py was inspected rather than executed.
 
-Alexandr, Grillo, Holleben, Montúfar and Yu, arXiv:2611.23846v1, Theorem 1 characterize the Zariski closure; Example 3 proves one pair is omitted; Proposition 4 decides when the entire image is closed. None states all missing points in the minimal three-neuron case. The original paper explicitly leaves pointwise representability as a separate question. Closest comparisons include Alexandr–Montúfar (arXiv:2508.03867v2), Finkel–Fu–Wu (arXiv:2611.20346v1), and public nearby low-rank completion records. The new if-and-only-if is not a logical consequence of knowing a closure and one excluded point. Searches and actual source inspections are recorded in `AUDIT.json`. Residual publication-priority risk persists from unindexed simultaneous rank-one perturbation or pencil literature; originality here is best knowledge, not established uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The selected \((2,3,2)\) architecture is the first possible nonclosed one under the known closure criterion. Its closure has no equations, yet precise parametrization misses a structured codimension-three set. Characterizing exactly that discrepancy supplies a natural and complete algebro-geometric invariant of the motivating example. The geometry of the missing set and all finite-field attainment counts follow with no further conjectures or numerical assumptions.
+The supported distinct claim is the exact all-field shared rank-one-summand image, not the known dense closure, the cited single obstruction over C, or the classical Segre geometry in isolation. The comparison is provisional with respect to unresolved primary-text access.
 
-## Boundaries
+## value
 
-This is a theorem about the formal algebraic two-pattern parameter map, not about real activation-cell feasibility. The standard Segre cone is not claimed as a new variety; its exact role as the complete missing-locus closure is the contribution. The result does not classify larger architectures or assert independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivating example is a minimal formal model where closure equations give no membership test and a known obstructed pair gives no sufficiency criterion. The exact omitted locus answers realizability for every pair, also explaining the characteristic-two phenomenon that F2 has no rational omissions although the geometric map is not closed. These distinctions matter when using pattern varieties to infer actual compatibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

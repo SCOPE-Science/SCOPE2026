@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the explicit two-dimensional space \(E_r\), rather than an unconstrained rational class. The coefficient splitting bounds the infinite Wiener sum by three linear forms, and exact Hilbert duality reduces sharpness to three phase variables. Directly computed Gram pairings show the maximizing pattern is uniquely \((1,-1,-1)\) for \(0<r\le1/2\), by a factored nonnegative derivative condition. The corresponding rational function has aligned coefficient tails, making the triangle inequality exact; this proves the sharp infinite-dimensional coefficient norm, not merely a finite truncation. Endpoint and equality cases are handled separately. An exact symbolic checker confirms nontrivial identities. Residual risk: symbolic implementation and proof are subject to independent review.
+PASS
 
-## Originality — PASS relative to examined evidence
+The Taylor coefficients are c_0=a and c_k=r^(k-1)[(2ra+b)+(k-1)(ra+b)] for k>=1. Summation bounds their absolute total by the three covectors v_0,v_1,v_2 in the record, with equality when the two tail combinations point along the same ray. Summing squares/cross-products of the two numerator columns gives equal Hardy Gram diagonals (1+r^2)/(1-r^2)^3 and off-diagonal 2r/(1-r^2)^3; its determinant is (1-r^2)^(-4) and inversion gives the displayed matrix. The squared majorant norm is the maximum inverse-Gram norm squared of the sum of three unimodularly phased covectors by duality and Hilbert Cauchy–Schwarz. After fixing the first phase and optimizing the last, the off-diagonal objective becomes At+sqrt(B^2+C^2-2BCt) with A,B,C as in (69)–(72). Here A,B,C>0 and C/B>=2 on the positive stated interval; the objective is strictly concave. Its right derivative at t=-1 is A-BC/(B+C)<=0 by the factorization involving (1-2r)(1+2r); strict concavity gives the unique maximum even when the endpoint derivative vanishes at r=1/2. The last phase then must be -1 as well. Multiplying v_0-v_1-v_2 by the inverse Gram yields (1-r^2)(1+2r^2,-1-4r), and pairing gives the squared constant. Both tail combinations for that vector have strictly negative real sign after rescaling, so the majorant is exact and all extremizers arise from that unique phase choice and the Hilbert equality condition. At r=0 two coefficient magnitudes give the elementary equality criterion; at r=1/2 the unscaled extremizer has Wiener norm 9 and Hardy norm squared 12, consistent with 3sqrt(3)/2.
 
-The closest primary results are the 2023 Wiener–Hardy rational embedding bound of Baranov–Zarouf and the 2026 large-degree sharpness result of Auxemery–Borichev–Zarouf. Neither theorem states a finite two-dimensional fixed double-pole sharp norm or its equality family. The exact formula, dual-phase mechanism and parameter endpoint are not implied by their order-of-growth statements. Mathematical-index searches for the same model space, rational norm and equivalent coefficient formulations did not identify matching claims. The investigation cannot rule out an unindexed older exact computation; see the originality comparisons in the structured review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The double-pole model space is the first nontrivial coalescing-pole case of rational Wiener-to-Hardy embeddings. Unlike an isolated coefficient evaluation, it determines a sharp operator norm over a continuous parameter range and classifies every extremizer. The proof identifies why a three-phase cancellation mechanism stays optimal exactly through the meaningful radius \(1/2\); it supplies finite-degree information not contained in asymptotic general bounds. The open remaining-radius and general-pole cases are not claimed.
+The exact full-subspace norm and equality vectors on 0<r<=1/2 were not established by the inspected general rational Wiener–Hardy inequalities or asymptotic lower-test results. The repeated model space itself is classical, r=0 is elementary, and the sharp endpoint vector is proportional to a published test function at n=2, rather than a new test function in isolation. The new assertion is the global exact norm and uniqueness at that endpoint and across the positive range, best of current knowledge.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A repeated pole is the first nontrivial coalesced-zero model for the rational Wiener/Hardy embedding, and its exact sharp constant and uniqueness are information not delivered by the large-degree rate. The range is motivated by an explicit global phase criterion, not by an arbitrary numeric sample; the half-radius case includes a prior test function but answering whether that test is a global optimizer is a distinct exact question. The result gives a reusable finite-degree benchmark for extensions to larger radii or distinct poles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

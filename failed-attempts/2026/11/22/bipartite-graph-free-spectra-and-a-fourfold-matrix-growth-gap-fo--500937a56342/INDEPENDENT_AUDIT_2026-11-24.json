@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:59:07.954247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–56 and 58–83",
+        "Frozen VERIFY documentation and verify_free_spectrum.py, read without execution",
+        "Jiao, arXiv:2611.14551v1, §4.2 Lemmas 4.5–4.6",
+        "/workspace/review_evidence/check_3.py"
+      ],
+      "rationale": "The scalar quadratic terms with non-top value are graph homomorphisms to the product path a-b-c-d. A bipartite graph admits such a map, and a missing edge can be separated even when its endpoints have opposite colours: label those endpoints by the two nonadjacent ends of the path, and map the remaining vertices in each colour class to their compatible middle label. Same-colour and disconnected endpoints can be assigned one common colour. Different linear sets separate by evaluating the second form at omega while the first includes a term taking an incomparable value. The excluded empty support is replaced in the count by the absorbing cube. Jiao's exact normal-form and separation lemmas prove the same cancellation for ordered matrix supports, including loops, at every size k>=2. As a direct check, at matrix entry (1,2) and intermediate index 1, choose the (1,1) entry to be a for the first offending variable and c otherwise, and the shared (1,2) entry to be d for the second offending variable and b otherwise. Only the selected ordered pair gives top there; at intermediate 2 the (2,2) entries c make all products omega, and any further indices can use b,c. This also separates a missing loop. The formal EGF follows from the labelled exponential formula, and the upper/lower bounds give the ratio of logarithms, not a ratio of dimensions. Independent closure under the operations on projection signatures gives scalar ranks 1–4 as 2,5,17,86 without using the graph normal form. Replay: python3 /workspace/review_evidence/check_3.py.",
+      "residual_risks": [
+        "Numerical closure is scalar and bounded; the exact proof is for all positive ranks, and the matrix proof only for full matrices of size at least two. F_0 is formal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.5 classifies every valid nontrivial monomial inequality for S_R6 in its proof, and the matrix lemmas classify all regular polynomials for k>=2. Jiao–Shao studies a different triangular Boolean matrix semiring."
+        ],
+        "reasoning": "Scalar support separation follows from the stronger monomial inequality classification; matrix separation is already stated for the entire parameter range.",
+        "searches": [
+          "arXiv:2604.18588, Lemma 4.2 and Proposition 4.5",
+          "arXiv:2611.14551v1, Lemmas 4.5–4.6",
+          "arXiv:2609.32356, Theorem 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Lyu–Ren–Yue §4 and Jiao §§4.1–4.2",
+        "OEIS A047864 and A033995",
+        "Resultary indexed match adjudicated as the assigned finding, not a separate antecedent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Case 4 is explicitly ruled out for S_R6 using the two exceptional endpoint labels and compatible default colours, witnessing failure of the missing-edge inequality. Cases 1–3 are exactly long words, overlap of linear/quadratic supports, and an odd cycle including a loop. The earlier matrix lemma gives distinct functions for all (L,E) with ordered E."
+        ],
+        "reasoning": "If regular sums u and v were equal, any monomial in u missing from v would yield a forbidden nontrivial inequality q<=v. This gives the exact bijection after collapsing absorbing supports, followed by a direct count on complements. Both leading log rates and their ratio follow immediately from the counts, with no surviving independent theorem.",
+        "searches": [
+          "Proof of Proposition 4.5, Cases 1–4, arXiv:2604.18588; Lemma 4.2 (i)–(iv)",
+          "Lemma 4.6 arXiv:2611.14551v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiao §4.1 identifies the same six-element semiring as S_R6 up to relabelling. Lyu–Ren–Yue's variables and graph G_u encode linear monomials and unordered quadratic edges, including loops before normalization."
+        ],
+        "reasoning": "Their polynomial inequality description uses the same objects as equality of term functions after reversing the translation from joins to support inclusions.",
+        "searches": [
+          "Resultary searches for scalar bipartite-graph free spectra and matrix growth; only the assigned result was materially returned",
+          "Lyu–Ren–Yue arXiv:2604.18588 §4 under the alias S_R6",
+          "Jiao arXiv:2611.14551v1 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A047864 gives the same base counts 1,1,2,7,41,376,... and its Formula section gives the square-root EGF, including the exact ordered-colour sum in Mathematica. A033995 instead starts 1,1,2,3,7 and is not the labelled object. No separate semiring cardinality table was identified in the inspected records."
+        ],
+        "reasoning": "The graph input and its generating function are already tabulated; multiplying by e^z is the standard independent choice of labels. The prior structural theorems imply the free spectra whether or not separately tabulated.",
+        "searches": [
+          "OEIS A047864 (labelled bipartite graphs), A033995 (unlabelled comparison)",
+          "Resultary free spectra and labelled bipartite graphs",
+          "Frozen spectrum table, ranks one through eight"
+        ]
+      },
+      "rationale": "The scalar bijection itself, not merely the abstract equational theory, is a direct corollary of the proof of Lyu–Ren–Yue Proposition 4.5. Lemma 4.2 lists all possible nontrivial monomial inequalities in an embedded subsemiring, and Proposition 4.5 imports that list for the same six-element semiring then eliminates its sole non-absorbing case (a missing quadratic joining an odd-path pair). Thus a nonempty regular bipartite support admits no additional monomial in a valid inequality. Equality of two such polynomials implies both inclusions of their monomial supports, while the other cases are exactly the absorbing expressions. Counting these scalar supports is the immediate binomial transform of a known labelled graph count. The matrix supports are already completely classified by Jiao, as acknowledged. The scalar EGF then multiplies a known square-root EGF by e^z, and elementary counting bounds give the growth ratio. Lack of an exact previously printed semiring sequence does not undo this coverage.",
+      "residual_risks": [
+        "The bounded search does not establish who first printed the two cardinality sums. The rejection is based on a demonstrable implication of the inspected prior results, not on unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication of the claimed scalar normal form and separation",
+          "evidence": "The proof imports four cases from the embedded semiring and explicitly shows ‘Hence Case 4 cannot occur’; the other cases are absorbing and the Case 4 assignment also verifies the regular form can take value 3 (omega).",
+          "identifier_or_url": "https://arxiv.org/html/2604.18588",
+          "material_read": "Lemma 4.2 at OA extraction offset 28918, conditions (i)–(iv); Proposition 4.5 and proof Cases 1–4 at offsets 38647–46647",
+          "method": "OA full-text HTML, targeted passages",
+          "title": "A new limit variety of additively idempotent semirings",
+          "trigger": "Exact same scalar semiring and graph inequalities"
+        },
+        {
+          "assessment": "Covers matrix formula by direct counting",
+          "evidence": "Regular polynomials have disjoint linear and quadratic contents; ordered supports allow loops, and all regular forms are separated when matrix size is at least two.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14551v1",
+          "material_read": "§4.1 around extraction offset 20700, §4.2 Lemmas 4.5–4.6, offsets 24500–32229",
+          "method": "OA HTML targeted passages",
+          "title": "Finite bases for matrix semirings: transfer theorems and nilpotent counterexamples",
+          "trigger": "Same semiring and explicit earlier matrix normal forms"
+        },
+        {
+          "assessment": "Different algebra",
+          "evidence": "T_2 consists of upper-triangular Boolean matrices, not the six-element scalar semiring or its full matrix semirings.",
+          "identifier_or_url": "https://arxiv.org/html/2609.32356",
+          "material_read": "Section 6 Theorem 6.2, extraction offsets 61000–65964",
+          "method": "OA HTML targeted passages",
+          "title": "The finite basis problem for 2×2 triangular Boolean matrix semirings and incidence semirings",
+          "trigger": "Potential competing free-spectrum growth result"
+        },
+        {
+          "assessment": "Covers B_n and the square root",
+          "evidence": "EGF is square root of A047863 EGF; the explicit binomial sum with 2^(k(n-k)) is given. The cross-reference identifies A033995 as the unlabelled variant.",
+          "identifier_or_url": "https://oeis.org/A047864",
+          "material_read": "Terms and Formula/Mathematica sections, OA website extraction from offset 0",
+          "method": "Public sequence entry",
+          "title": "Number of labeled bipartite graphs with n nodes",
+          "trigger": "Exact underlying graph count and EGF"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 40–56",
+        "Lyu–Ren–Yue Proposition 4.5 proof",
+        "Jiao Lemmas 4.5–4.6",
+        "OEIS A047864"
+      ],
+      "rationale": "Free spectra are a useful invariant and the scalar–matrix comparison is intelligible, but the claimed addition here is only direct enumeration of fully determined normal forms, a standard labelled EGF transform, and elementary growth bounds. No new needed classification, obstruction or structural consequence survives the exact prior coverage; the ratio is immediate once the prior supports are counted.",
+      "residual_risks": [
+        "This is a judgment of the claimed incremental finding, not of the usefulness of the existing structural results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

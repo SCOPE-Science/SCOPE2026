@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`. The executable check in `verify.py` is a bounded regression test, not an infinite certificate.
+## correctness
 
-The checker constructs the predicted \(\Omega(n)\le2\) solution set from the three theorem branches: the linear prime condition, the quadratic prime-square condition, and signed divisor pairs of \(T=ab-(a-b)k\). It treats \(T=0\) by the exceptional prime family. It then compares that set with direct evaluation of \(b\sigma(n)=an+k\) for every tested parameter triple and every tested \(n\).
+PASS
 
-The saved output in `verification_output.txt` was produced by running the bundled program from this package. The final ledger row is also re-extracted after serialization and the same program is replayed from the extracted package path.
+Prime factorization gives exactly p, p² and pq with p≠q. Substituting their divisor sums gives cp=b−k, cp²−bp+k−b=0, and cpq−b(p+q)=b−k, respectively. Multiplication by c and addition of b² gives the signed product T; reconstruction by u↦(u+b)/c is injective and reversible, with order removed and equal primes excluded. At T=0, c divides ab and is coprime to both a and b, so c=1 and k=b(b+1). The prime candidate is then −b² and the square discriminant is −3b². One of the two distinct primes must equal b, so there are no solutions when b is composite or 1, and precisely bq with q prime and q≠b when b is prime. Removing q=b gives the exact counting function; the prime number theorem gives the fixed-base asymptotic. Independently enumerated 49,770 coprime triples with 2≤a≤16 and 0<|k|≤315 against 593 eligible n≤1300, using positive-divisor and prime-power sieves for the direct side. No mismatches; both signs of T, all 15 zero-T cases, and six exceptional triples were covered. The frozen verifier and its saved output were inspected, not executed; their original test domain and replay are documented in VERIFICATION.md. Neither finite test establishes the unbounded conclusion, which follows from the algebra.
 
-Limits: finite enumeration can detect implementation or algebra mistakes in the tested range but cannot prove the theorem for unbounded parameters. The proof in `RESULT.md` supplies the infinite argument.
+## originality
+
+PASS
+
+Pass for the exact all-parameter classification in Ω≤2, including the finite sporadic classes, not for introducing the regular family or its prime-number-theorem asymptotic. Kwan and Miller's regular-solution formula already gives the exceptional family and its exact low-multiplicity count on restricting the regular part. The material additional assertion is exhaustion in that layer and a reversible signed-divisor classification outside it.
+
+## value
+
+PASS
+
+The natural cutoff is the first layer admitting distinct-prime multiplicativity. Solving it exactly closes a gap left by asymptotic counting: it converts the finite search to factoring a specific integer and handles the degenerate boundary without mistaking the older regular-family construction for an exclusion of sporadics. The proof is elementary; the useful result is the complete classification, not the individual linear or quadratic substitutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:00:28.637576Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; verify.py; VERIFICATION.md"
+      ],
+      "rationale": "A fixed matching on m residual vertices and a uniformly chosen a-subset have the same cut-count law as a random matching and a fixed cut. The coefficient of u^a z^k in (1+2uz+u²)^(m/2), divided by binom(m,a), gives the displayed factorial mass after expansion: each pair contributes zero, one, or two selected endpoints, with two choices in the crossing case. The a inside vertices each contribute crossing probability b/(m−1), so the increment in the mean is (m−2a−1)/(m−1)>0. In a uniform nested sequence of subsets, a cut with x crossings loses one crossing if the new vertex is one of x outside partners, and otherwise gains one. If t is the least positive integer of parity a, only X_a=t can change the tails at the two thresholds t and t+1; differences are −t p_a(t)/b and (b−t)p_a(t)/b, respectively. Both are nonzero for 1≤a<n−1. At a=0 the adjacent pair is instead deterministically ordered. The ratio of coefficients at cut sizes a+2 and a is (a+2)(a+1)/(b(b−1)) times (b−k)/(a+2−k); the latter increases on the common support since b>a+2. The new maximal mass makes the LR order strict even when the common support is a singleton. Transitivity orders each parity class. This analytic replay covers all sizes; the frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Does not classify all nonadjacent pairs of opposite parity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9a5798d3e263 covers every positive adjacent pair and both same-parity families; 48fe8ff3ae08 gives strict LR order for all pairs of the same parity."
+        ],
+        "reasoning": "All-pairs same-parity order includes the frozen two-step statements. The extra adjacent-incomparability assertion is already covered separately by the first match, not by extrapolating from the second match's example.",
+        "searches": [
+          "Resultary: 9a5798d3e263, Finding and Proof",
+          "Resultary: 48fe8ff3ae08, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9a5798d3e263",
+        "Resultary 48fe8ff3ae08",
+        "Acan arXiv:1501.01489 §2",
+        "Flajolet–Noy Theorem 3",
+        "Chen et al. arXiv:math/0501230 p.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Acan's moment and asymptotic laws encode some consequences for the marked degree, not its finite stochastic order. Chen et al. treat different whole-matching cross/nesting statistics. The exact two comparisons occur together in 9a5798d3e263."
+        ],
+        "reasoning": "Means alone cannot establish tail inequalities, and an asymptotic degree law does not decide this finite parity distinction. The distinct indexed theorem directly supplies it.",
+        "searches": [
+          "arXiv:1501.01489 §2, (2.1)–(2.2), Theorem 2.1",
+          "arXiv:math/0501230 p. 1",
+          "Resultary: 9a5798d3e263, exact statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The degree of the conditioned chord equals the number of cut pairs; if J_a counts internal pairs of the small side, X_a=a−2J_a. Both Resultary statements use the former variable under uniform conditional matchings."
+        ],
+        "reasoning": "The translation maps the exact distribution and ordering questions to the same variable, with identical parity and arc-size restrictions.",
+        "searches": [
+          "Resultary: 9a5798d3e263 and 48fe8ff3ae08, RESULT.md",
+          "Acan arXiv:1501.01489 §2, internal-pair formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed matches reproduce the factorial probability mass. Flajolet–Noy counts crossings over the whole diagram, not crossings of the marked chord."
+        ],
+        "reasoning": "The exact indexed match is a finite-law theorem, stronger evidence than agreement of enumerated examples. The aggregate table/generating function does not supply the marked-chord law as stated.",
+        "searches": [
+          "Resultary: 9a5798d3e263 and 48fe8ff3ae08",
+          "Flajolet–Noy, Analytic Combinatorics of Chord Diagrams, Theorem 3"
+        ]
+      },
+      "rationale": "Distinct Resultary record 9a5798d3e263 states the same conditional law, mean monotonicity, positive-adjacency stochastic incomparability and within-parity strict likelihood-ratio ordering on the same cut domain. Record 48fe8ff3ae08 independently overlaps the exact same-parity ordering and formula but gives a narrower opposite-parity example. The conclusion is substantive duplicate coverage, not an inference from catalogue dates or from Acan's earlier moment formulas.",
+      "residual_risks": [
+        "Acan's 2013 dissertation Chapter 3.1 was not inspected; the identified OhioLink full-text link returned 404 on both routes.",
+        "No historical-priority claim is made; there may be earlier equivalent paired-population sampling formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finding",
+          "evidence": "Same factorial masses and increasing mean, all positive adjacent cuts incomparable, strict same-parity two-step LR order.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-separated-likelihood-ratio-ordering-and-adjacent-incompar--9a5798d3e263",
+          "material_read": "RESULT.md, exact-law and ordering statements",
+          "method": "Local mirror, statement comparison",
+          "title": "Parity-separated likelihood-ratio ordering and adjacent incomparability",
+          "trigger": "Closest match to both parts of the ordering dichotomy"
+        },
+        {
+          "assessment": "Covers the within-parity theorem; does not state the general adjacency result in this scope",
+          "evidence": "Same ratio and strict LR order for every same-parity pair.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-resolved-likelihood-ratio-ordering-of-crossings-of-a-mark--48fe8ff3ae08",
+          "material_read": "RESULT.md, factorial law, LR ratio and opposite-parity example",
+          "method": "Local mirror, statement comparison",
+          "title": "Parity-resolved likelihood-ratio ordering of crossings of a marked chord",
+          "trigger": "Distinct match of the same-day record set"
+        },
+        {
+          "assessment": "Covers moment calculations and asymptotic degree law, not the exact order comparison in the passages inspected",
+          "evidence": "Degree k−2J_k for internal pair count J_k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "§2 pp. 4–7, (2.1)–(2.2) and Theorem 2.1",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same marked-chord object and conditioning"
+        },
+        {
+          "assessment": "Different aggregate observable",
+          "evidence": "Theorem 3 distributes the total number of crossing pairs of chords.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Introduction p. 5 and Theorem 3 p. 10",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Classical exact crossing enumerator"
+        },
+        {
+          "assessment": "The identified distribution concerns whole matchings, not an ordering of marked-chord degrees",
+          "evidence": "Crossing/nesting distributions of matchings and set partitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0501230",
+          "material_read": "p. 1 introduction and scope passage",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Crossings and Nestings of Matchings and Partitions",
+          "trigger": "Related crossing-enumeration reference of a matching record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between increasing means, contrary adjacent tails, and increasing same-parity likelihood ratios is mathematically useful for the cut model. The frozen finding, however, repeats that exact distinction; after removing the existing statement and classical matching count there is no separate quantitative invariant or order comparison here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

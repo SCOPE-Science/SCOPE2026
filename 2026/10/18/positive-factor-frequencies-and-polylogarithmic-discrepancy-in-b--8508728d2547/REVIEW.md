@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact occurrence accounting across the deleted prefix and the new block boundary establishes the recurrence \(C_{i+1}=2C_i-e_i+c_i\), where \(e_i\le i\) and \(c_i\le |v|-1\). This yields an absolutely convergent series and an explicit tail bound. The all-prefix decomposition shortens the argument to at most two-thirds, proving \(O_v((\log N)^2)\) discrepancy. Every admissible factor occurs arbitrarily late by the source paper's proved recurrence and language theorems, and its copies double long enough to force strictly positive limiting frequency. All finite boundary identities were checked independently by the packaged program. The program is corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS within examined evidence.** The closest primary work, Shallit's *Brik's sequence: a strange recursion* (arXiv:2605.07542v1), establishes factor-language membership, recurrence, and the limiting density of ones; it does not state existence and strict positivity for every finite pattern with a polylogarithmic additive discrepancy. Searches for alternative names of the recursion, factor frequencies, cylinder measures, and equivalent quantitative claims did not locate a prior covering theorem. Research-record hits for different automatic words, coded shifts, and generic measures do not imply this particular recursion's all-cylinder theorem. Residual risk: an unindexed or differently formulated general prefix-copying theorem might imply some or all of the claim.
+PASS
 
-**Value — PASS.** The source word is nonuniformly recurrent yet has exponential factor complexity. Recurrence alone allows zero-frequency factors, and a letter density does not control higher-order cylinders. The theorem proves full-support statistical regularity at all scales, together with an effective discrepancy bound and an explicit convergent frequency formula. The result determines a qualitative invariant of the natural dynamical system, not an arbitrary short numerical slice.
+At a complete block join exactly the starts at most i are lost from the copied block, while at most |v|-1 occurrences cross the new join. The normalized recurrence therefore has an absolutely summable tail bounded by (i+|v|)/2^(i-1). For L_i<=N<L_(i+1), the two boundary-crossing counts enter with opposite signs, so their difference has absolute value at most |v|-1. The reduced prefix length i+N-L_i is at most 2N/3, by L_i>=2i; adding O(i+|v|) at each of O(log N) reductions gives the claimed all-prefix bound, rather than just convergence along block lengths. For an allowed factor, Shallit's recurrence and language theorems give arbitrarily late starts r. The least block index t containing that occurrence is O(log r), and the occurrence and all designated copies double at each join through stage r because their starts are at least r. The normalized lower bound at stage r has numerator 2^(r-t)-(r+1)>0 for large r, even after subtracting all possible later losses. Forbidden factors never occur. Left and right extension counts differ from the parent count by only endpoint errors; these give consistency, invariance and full support, and cylinder averages give genericity. Independent finite replay checked 62 patterns at 14 joins and 1,017,482 prefix inequalities including endpoints.
 
-**Limitations.** The error bound may not be optimal and gives no assertion of ergodicity. Positive frequencies of very long blocks can be tiny. The priority assessment is limited to the inspected primary source and available scientific searches. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shallit's exact factor language, recurrence and one-letter density are prior. The distinct contribution is positive limiting frequency for every permitted cylinder with an all-prefix discrepancy estimate. A later indexed Brik record has equivalent frequency/discrepancy claims plus an entropy result; the intervening block-entropy record explicitly attributes the positivity and genericity result to this very frozen record, so the overlap is not evidence of antecedent coverage. This is not a claim of exclusive historical priority.
+
+## value
+
+PASS
+
+For this natural non-uniformly recurrent recursion, the theorem gives an actual fully supported empirical frequency law, replaces bare recurrence by positive asymptotic density, and quantifies convergence for every prefix. The convergent dyadic formula makes individual frequencies approximable; the later block-entropy result exemplifies a use of the frequency law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

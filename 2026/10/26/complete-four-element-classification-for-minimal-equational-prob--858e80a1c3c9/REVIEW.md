@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The row/column collision argument exhausts the nonquasigroup cases. For the quasigroup case, complete recursive enumeration covers 576 Latin tables, verifies the 35 simultaneous-isomorphism classes, applies four necessary equation tests, and identifies all five survivor orbits with explicit affine models. In every affine model the value of an arbitrary term is linear, hence the difference of two terms is either zero or a nonzero linear form with a kernel of index four. The independent mathematical step required beyond finite enumeration is established by induction for terms of unrestricted depth. A complete standalone enumerator is included.
+## correctness
 
-## Originality — PASS, qualified
-The closest 2026 primary work is Cardó, arXiv:2603.19487v1, Theorem 3.8 and Section 6, which supplies the prior groupoid reduction and explicitly gives six four-point examples, without an exhaustive quasigroup classification. The present ten-class completeness result includes four further affine quasigroup classes, with precise orbit and labeled-table counts. The companion arXiv:2604.08446 addresses probabilistic primality and approximation rather than this order-four classification. Semantic searches of published mathematical records and the accessible earlier research claims found no corresponding result; this is not proof of absolute novelty. Classical order-four quasigroup results may entail the Latin-square enumeration but do not by themselves impose the infinitely many equational-probability constraints. The residual risk is an equivalent classification under unindexed terminology.
+PASS
 
-## Mathematical value — PASS
-The classification completes the first unresolved finite size explicitly raised in recent work and reveals that all allowed quasigroups in this size are affine over the four-element field. The exact count of labeled structures and the short four-equation filter are useful mathematical invariants and a reproducible entry point for extension to larger orders. The finding is a natural complete classification, not an arbitrary computational slice.
+Row cancellation has 16 forced solutions among 64 and can satisfy the spectrum restriction only if no row has an extra collision or all rows are constant; the column version is symmetric. Crossing these conditions leaves Latin squares, constants, or one-coordinate permutations. The fixed-point equation for a one-coordinate permutation permits only identity or one fixed point and a 3-cycle. Every term in these permutation tables is an iterate applied to one of its variables, giving the claimed probabilities. In an independent Latin census I filled the interior of each normalized square cell by cell and undid normalization by 24 output permutations and six row permutations fixing the first row. This exhausts 4×24×6=576 tables in 35 isomorphism classes. The four exact necessary tests leave precisely the disjoint union of the five GF(4) model orbits, with sizes 4,8,8,8,2 in the stated order. Each model gives homogeneous GF(4)-linear term forms at all depths, so every equation is either identically true or cuts out the kernel of a nonzero functional. Both probabilities occur, with x=y and x=x as witnesses. The five other orbits of sizes 4,1,1,8,8 give 52 total tables and ten classes.
 
-## Limits
-The result concerns binary-only signatures on four elements. The complete finite enumeration relies on an inspectable Python program, not an independent proof assistant; the unrestricted equation argument is separate. Equivalence with an unindexed publication is a remaining literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The entire ten-class classification and 52-table count are distinct on the inspected evidence. Cardó v1 already gives six classes, and a distinct same-date indexed theorem also covers the idempotent GF(4) quandle. The latter is demonstrable partial overlap, not evidence of which result came first. No separate originality credit is assigned to those shared examples, the cancellation reduction, or affine linear sufficiency in isolation.
+
+## value
+
+PASS
+
+Order four is the next case after the small orders completed in Cardó v1 and is the first case in that discussion with an explicitly incomplete list. The census identifies nonassociative affine models besides the group example and proves that no other tables qualify even when arbitrarily deep terms are allowed. The exact orbits make this a structural completion rather than a broad but inconclusive finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

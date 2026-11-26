@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any finite two-agent \(\mathsf{S5}\) frame the iteration of the fixed formula is identified exactly with existence of walks in a static directed dependency graph. At maximal extinction the distinct deletion times satisfy explicit maximum-neighbour recurrences. These force alternating atomic types, while equivalence-class uniformity forbids branching or extra links. Conversely every alternating zigzag extinguishes one world in each round. The bijection with an ordering and its initial color proves the count \(2n!\) for every \(n\geq1\); the two color choices give two nonisomorphic structures. Direct classwise reasoning proves the single-agent one-update boundary. `checker.py` independently tests 145,796 finite models across the stated sample domains, plus 3,840 equal-relation models. Infinite-\(n\) correctness comes from the proof rather than enumeration.
+PASS
 
-## Originality — PASS within examined evidence
+With the two named S5 relations and exactly the two atoms, worlds satisfying both atoms survive by reflexivity, and worlds satisfying neither survive vacuously. For an exclusive-type world that eventually disappears, its deletion round is one plus the greatest deletion round of an opposite-type witness in the relevant class (zero if none). At n singleton deletions the witness of maximal round for wᵢ, i>1, is necessarily wᵢ₋₁, so types alternate. In an a-class, different P worlds have the same Q witness set and would have equal deletion times. Every Q except a possible terminal Q is paired in its a-class with the next P, and a terminal Q cannot share an a-class with any P, since it would give that P a later deletion time. Thus all a-classes are precisely the required pairs or singletons; the b case exchanges P and Q. The constructed pairings give the deletion order by induction on surviving suffixes. The order and first type are recovered from the model, giving 2n! labelled models and two nonisomorphic types with agent and atom names fixed, also at n=1. If the relations coincide, any class containing both a p-world and a q-world remains intact and other classes lose only exclusive-type worlds at the first update, so the next update changes nothing.
 
-Yamada, *Eventual and Strong Eventual Notions in Public Announcements* (arXiv:2609.24006v1), treats a different, general eventuality/strong-eventuality program with believed announcements and includes an alternating two-peeling construction; it does not state the quantified exact \(2n!\) classification of maximal finite \(\mathsf{S5}\) truthful-announcement chains for the fixed formula. Yamada's *Classification of \(\sigma\)-Validity* (arXiv:2607.04685v3) classifies validity of temporal truth patterns, rather than counting finite labelled frames. Sadzik (2006) studies general iterated epistemic updates; Miller–Moss (2005) proves undecidability results on modal relativization. The general upper bound of one strict deletion per world is established independently in the literature and is not claimed as new. The contribution is the rigidity theorem, exact census, and single-relation collapse. Queries using direct operator descriptions, alternating-path and peeling terminology, and exact-count aliases identified no covering statement; this is evidence of a gap, not proof of historical uniqueness.
+## originality
 
-**Residual risk:** The full primary text of the 2026 \(\sigma\)-validity paper and of the earlier iterated-relativization paper could not be compared exhaustively here. A corresponding extremal classification under graph-pruning or partition terminology might exist. The statement has not received independent priority assessment.
+PASS
 
-## Mathematical value — PASS
+The elementary n-round size bound and the general ideas of directed-walk peeling and alternating-agent examples are not credited as new. The supported distinction is the complete equality classification and labelled census for this particular operator, with its exact equivalence-class rigidity. The strongest available indexed comparisons alter the update formula, the update semantics, or the counted object; the inspected primary results do not supply this fixed-formula model census.
 
-Repeated truthful announcements are a basic operation of dynamic epistemic logic, and the shortest failure conditions here enforce a natural two-agent mutual-witness process. The result classifies *all* extremal finite epistemic structures for this fixed low-complexity formula, rather than just giving a path example or restating a generic cardinality cutoff. The exact labelled count and two orbit types quantify a rare, rigid boundary, and the collapse with a single equivalence partition isolates an essential multi-agent phenomenon. No broader universal extremal claim is made.
+## value
 
-## Limits
+PASS
 
-Only finite nonempty models with exactly two designated atoms, two labelled \(\mathsf{S5}\) agents, and standard truthful world-restricting announcements are included in the enumeration. The empty terminal carrier is bookkeeping only. The complete graph-walk normal form is valid for the same formula on arbitrary finite frames with the stated equivalence assumptions; the extinction classification is conditional on \(n\) strict rounds. Finite checker outputs cannot establish the infinite theorem without its proof.
+The sharp n-round bound by itself would be trivial, but identifying and counting all models attaining it is a genuine structure question. The proof links the maximum-height deletion order to paired equivalence classes and explains exactly how distinct epistemic partitions allow longer dynamics than a single common partition. This makes the fixed operator a useful explicit example of extremal announcement behavior.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

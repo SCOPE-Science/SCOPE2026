@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:40:15.564199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on T and write x_v=2^(-d_v). Distinct nonadjacent indicators have product probability x_u x_v. On an edge a source–sink pair has probability 2x_u x_v, a same-type pair has probability zero, and no vertex can be both. The Prüfer word gives means a_n/2 and distinct-pair weights b_n/4. To check the incidence factor, use product edge weights z_i z_j, equivalent to the Prüfer tilt up to a common factor. In trees containing uv, contract it: incident connections from the merged vertex have combined weight (z_u+z_v)z_j and the forced edge contributes z_u z_v. The weighted tree totals before and after contraction give ratio (z_u+z_v)/∑z_i, or 1/(n−1) at the two half-weights. Ordered-pair summation gives n²b_n/4 for the mixed moment and n(n−2)b_n/4 for the factorial moment. At n=2 both counts are one; otherwise the base for a_n² exceeds that for b_n by 1/(4n²). The covariance and variance per n from the expansions are −1/(16e) and (8√e−9)/(16e); finite variances are nonzero for n≥3. On the path, the diagonal sum is 1/2+(n−2)/16 and the unordered edge sum is 1/4+(n−3)/16, giving (n−4)/16. The finite checker was inspected, not rerun; it is supplementary to these identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernardi–Morales give the multidegree tree enumerator, without the joint constraints of the source–sink problem.",
+          "The indexed fixed-tree results give the same path value and a general fixed-tree degree formula or extremality result; they do not give annealed moments.",
+          "The cited 2015 preprint Counting labelled trees by sources, sinks and indegree sequences was not available in full text."
+        ],
+        "reasoning": "Neither dropping orientation constraints nor proving bounds on the conditional covariance supplies the aggregate covariance; the latter also contains variance of the shared conditional mean. A joint enumerator in exactly the independent-edge measure could cover it, but the inaccessible preprint title does not establish that measure.",
+        "searches": [
+          "Weighted Cayley and oriented-tree degree enumeration literature; arXiv:1206.0598 p. 1",
+          "Okoth–Wagner EJC 22(3) #P3.36 bibliography",
+          "Resultary db5fdb9d6d6f and 2469f7d4f0dd"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–36 and 38–113; VERIFICATION.md; verify_oriented_trees.py",
+        "arXiv:1206.0598, 0906.0240, 1609.01003",
+        "doi:10.37236/5164 and its bibliography",
+        "Resultary 6d3984824953, db5fdb9d6d6f, 2469f7d4f0dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Cayley identity has no indicators for an adjacent pair whose orientation requirements coincide or conflict; the degree tilt and marked-edge incidence are needed jointly.",
+          "The exact later Resultary overlap includes the strict finite-size sign, path comparison and limiting correlation, not just related terminology."
+        ],
+        "reasoning": "The older inspected results are ingredients or different statements, not a stronger result specialized to these moments. The later result would cover the frozen comparison as a mathematical statement, but does not establish earlier priority.",
+        "searches": [
+          "arXiv:1206.0598 p. 1, weighted Cayley identity",
+          "arXiv:0906.0240 tree/forest passage; arXiv:1609.01003 Theorem 1.1",
+          "Resultary 6d3984824953, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting indegree-zero and outdegree-zero vertices of a uniform oriented labeled tree is equivalent to this two-stage model because each tree admits the same 2^(n−1) edge assignments.",
+          "The compared noncrossing joint enumerator uses directions induced by vertex labels. The reachability papers concern two specified directed path events, not the global source/sink counts."
+        ],
+        "reasoning": "Random uniform labels do not produce independent orientations around a vertex (orders of adjacent edges share the vertex mark). A pair of path events is also not a pair of global count variables.",
+        "searches": [
+          "Resultary search on global source–sink covariance, Cayley trees, and fixed paths",
+          "Okoth–Wagner EJC 22(3) #P3.36, abstract and Theorem 1.1",
+          "arXiv:0906.0240; arXiv:1609.01003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6d3984824953 gives the same aggregate covariance, negativity, correlation constant and path comparison, and adds distinct-label pairwise covariance. Its displayed date is November 22, after the frozen October 18 record.",
+          "The October 27 and November 8 records match the fixed-path specialization in fixed-tree settings."
+        ],
+        "reasoning": "The November 22 record is exact substantive coverage of the aggregate result in the current catalog, not evidence of a source predating this record; the two fixed-tree matches cover just one component.",
+        "searches": [
+          "Local Resultary index and records 6d3984824953, db5fdb9d6d6f, 2469f7d4f0dd"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit joint-moment and sign/correlation comparison for independently fair orientations of uniform Cayley trees versus a fixed path, not the Cayley enumerator or generic edge-pair calculation. The inspected literature did not establish earlier equivalent aggregate coverage. Later indexed statements materially overlap, and their dates warrant no inference of independent discovery or authorship.",
+      "residual_risks": [
+        "The 2015 labelled-trees preprint was identified through the published article's bibliography but not retrieved; its model and claims are unverified.",
+        "The focused searches did not exhaust all earlier orientation enumerators. Exact catalog overlap is documented without certifying historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical input, not a joint fair-orientation enumerator",
+          "evidence": [
+            "Sum of ∏z_v^(d_v−1) over labeled trees equals (∑z_v)^(n−2)."
+          ],
+          "identifier_or_url": "arXiv:1206.0598",
+          "material_read": "p. 1, multidegree enumeration",
+          "method": "bounded primary PDF passage",
+          "title": "Counting Trees Using Symmetries",
+          "trigger": "Possible broader weighted tree enumerator"
+        },
+        {
+          "assessment": "Different orientations and tree class; cites an unresolved 2015 lead",
+          "evidence": [
+            "Directions are set by endpoint labels; theorem counts simultaneous degree sequences for noncrossing trees.",
+            "Bibliography gives Counting labelled trees by sources, sinks and indegree sequences, listed as a 2015 preprint; its scope was not inferred from its title."
+          ],
+          "identifier_or_url": "doi:10.37236/5164",
+          "material_read": "Abstract p. 1, Theorem 1.1 p. 3, proof p. 4, bibliography p. 15",
+          "method": "bounded primary passages",
+          "title": "Locally Oriented Noncrossing Trees",
+          "trigger": "Genuine simultaneous in/outdegree counting comparison and preprint lead"
+        },
+        {
+          "assessment": "Different events",
+          "evidence": [
+            "The events a→s and s→b are directed reachability events, either independent or mutually exclusive on a forest."
+          ],
+          "identifier_or_url": "arXiv:0906.0240",
+          "material_read": "p. 10, tree/forest passage",
+          "method": "bounded primary PDF passage",
+          "title": "A counter-intuitive correlation in a random tournament",
+          "trigger": "Independent orientations of fixed trees and sign of correlation"
+        },
+        {
+          "assessment": "Fixed-graph same-source reachability, not counts",
+          "evidence": [
+            "Positive association for s→a and s→b."
+          ],
+          "identifier_or_url": "arXiv:1609.01003",
+          "material_read": "p. 2, Theorem 1.1",
+          "method": "bounded primary PDF passage",
+          "title": "Connections in randomly oriented graphs",
+          "trigger": "Correlation theorem in the same edge orientation law"
+        },
+        {
+          "assessment": "Substantive same-result overlap in a later dated record",
+          "evidence": [
+            "The same exact covariance, strict sign, path comparison and limiting correlation; also a distinct-label covariance profile."
+          ],
+          "identifier_or_url": "Resultary:6d3984824953",
+          "material_read": "RESULT.md Finding and model at offset 0",
+          "method": "local search and mirrored primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Pairwise source–sink attraction and aggregate repulsion in uniformly oriented Cayley trees",
+          "trigger": "Exact same-model aggregate overlap"
+        },
+        {
+          "assessment": "Same fixed-path formula, not the random-Cayley covariance theorem",
+          "evidence": [
+            "C(P_n)=(n−4)/16 under fair independent orientations; no annealed covariance identity in these compared claims."
+          ],
+          "identifier_or_url": "Resultary:db5fdb9d6d6f; Resultary:2469f7d4f0dd",
+          "material_read": "RESULT.md statements of fixed-tree degree formula, path value and extremality",
+          "method": "local index and mirrored record statements",
+          "title": "Sharp path–star bounds for source–sink covariance in randomly oriented trees; Sharp path extremality and a universal source–sink covariance gap",
+          "trigger": "Indexed overlap on conditioned paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a canonical random directed tree, the exact joint moments determine both a strict finite-size aggregate sign and a nonzero limiting correlation. The positive covariance on every sufficiently long path is a motivated contrasting fixed-shape family and prevents interpreting the aggregate sign as a local or shape-independent rule. The precise effect is useful beyond a finite check without requiring a full joint law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run the included \(\texttt{verify\_f4\_tangent.py}\) under Python 3 with no third-party packages. It generates each of the \(349525\) nonzero ternary cubics modulo \(\mathbf F_4^\times\) by unique first-nonzero-one normalization, evaluates every form and gradient on every one of the \(21\) rational projective-plane points, computes all rational tangent-line covers, and checks the independent \(512\)-Hermitian-matrix census.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```text
-total projective cubic equations: 349525
-tangent filling (all cubics) by (points,smooth rational points): [((9, 8), 5040), ((9, 9), 280), ((10, 10), 6048)]
-smooth cubic candidates: 280
-non-Hermitian or singular Hermitian candidates: 0
-nonsingular Hermitian matrices: 280
-smooth non-filling nine-point cubic: 9 9 18
 PASS
-```
 
-The finite census has explicit coverage of all normalized equations, and its correctness can be inspected/replayed. The geometric-smoothness conclusion uses the independent symbolic identity \(\nabla F_A=A^{\mathsf T}\mathbf X^{[2]}\) and invertibility of \(A\), not finite-degree point searches. Hasse–Weil for genus one bounds the rational-point number for smooth cubic candidates. Projective orbit and stabilizer use the standard nondegenerate Hermitian congruence theorem and finite unitary-group order. These are not independent external validations. No independent audit has been performed.
+Independently enumerated every nonzero coefficient vector modulo scalar by normalizing the last nonzero coefficient, with 21 normalized projective points and exact F4 arithmetic in a multiplicative exponent encoding. The complete tangent-filling census by (rational zeros, nonsingular rational zeros) is (9,8):5040, (9,9):280, (10,10):6048. Hasse excludes the 10-point class for geometrically smooth plane cubics and the 8-of-9 class is rationally singular. The remaining 280 are scalar Hermitian; their coefficient matrices have no nonzero F4 kernel by the independent gradient check on all projective points, hence are invertible over the closure. This proves geometric smoothness, not just nonsingularity over finite test extensions. Conversely all nonsingular Hermitian forms are congruent to the diagonal form. Its rational isotropic vectors have exactly two nonzero coordinates, giving nine points. The unitary group has order 2^3(2+1)(2^2−1)(2^3+1)=648, and its projective image has order 216. There is no extra F4 projective similitude factor: a nonzero scalar carrying a Hermitian form to another must be fixed under conjugation, and F2 has only one nonzero element. The independent census checks the indicated non-Hermitian cubic gives (9,9,18); its gradient forces all three coordinates to vanish if it vanishes, proving geometric smoothness. The frozen verifier's shortcut for fewer than five rational zeros is legitimate: four lines cover at most 1+4·4=17 points.
+
+## originality
+
+PASS
+
+Credit the converse for geometrically smooth embedded cubics and the nine-point non-filling distinction, not the Hermitian construction, standard orbit/stabilizer or Hermitian point count. Checked later catalogue records substantially overlap, including one which explicitly gives the same smooth classification, but do not establish earlier priority. An unsourced attribution of earlier computation remains unresolved.
+
+## value
+
+PASS
+
+The property is motivated by the Hermitian tangent-filling construction and smallest nontrivial Hermitian plane cubic. This is a complete intrinsic incidence criterion in the specified plane embedding, not a count for an arbitrarily selected coefficient slice. The maximal non-filling example is useful because it rules out just testing the abstract elliptic point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

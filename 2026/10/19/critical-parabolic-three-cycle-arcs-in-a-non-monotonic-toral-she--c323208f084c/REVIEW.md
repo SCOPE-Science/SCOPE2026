@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement classifies the entire third-iterate fixed set on the unit torus, including boundary points. Direct exact formulas prove each asserted interval and each isolated orbit is periodic, and identify the two fixed points. The exhaustive polyhedral checker partitions the unit square at each of three iterations with rational boundary lines, checks area coverage exactly, solves every affine torus fixed equation including all boundary wrap differences, and classifies every solution. The verified finite output consists of 128 full-dimensional third-step cells, 32 overlapping point representatives and 12 rank-one segment pieces; all lie in the stated union. The asserted reverse inclusion is established analytically on the whole intervals, not by sampled points. The length formula follows from the three exact tangent-vector norms and lack of positive-length overlap. A separate mathematical validation has not been performed.
+## correctness
 
-## Originality — PASS, subject to remaining historical priority risk
-The 2021 preprint arXiv:2112.07346v1 and its full 2022 journal version (DOI:10.1007/s00332-022-09790-0) discuss the critical loss of three-step hyperbolicity and nearby period-three islands, but the inspected model, theorem, relevant proof sections, final remarks and accessible appendix do not state the full critical third-iterate fixed set, the two closed neutral intervals, the distinct hyperbolic saddle cycles or their one-dimensional measure. The historical Adler--Kitchens--Tresser piecewise-affine maps concern other systems. Related mathematical records on neutral periodic fibers concern unrelated transformations; none of the inspected claims implies this complete toral shear classification. Matching or equivalent results in nonindexed literature remain a priority risk; unsuccessful search alone is not treated as proof of originality.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete periodic-point classification precisely at the parameter highlighted by the original mixing study as its loss-of-hyperbolicity boundary. It identifies coexistence of a positive-length parabolic period-three set with two isolated hyperbolic saddle cycles, resolves the branch-boundary endpoints rigorously, and determines an exact geometric invariant. This is not a generic fixed-point substitution or numerical orbit sample; completeness depends on a global piecewise-affine classification.
+Independently recovered exhaustiveness without executing the polygon checker. On a 3-periodic orbit with y-coordinates y_i in [0,1), x_i≡y_i−y_(i−1) (mod 1); conversely the orbit equations reduce to S≡3y_i+f(y_i) (mod 1) for each i, with S=Σy_i. Split at 2/3, assigning the switching point to the upper interval. With an upper coordinate, S is integral and every lower coordinate is 0, 2/9 or 4/9. Three uppers force S=2 and y_i=2/3. Two uppers force S=2: the lower coordinate cannot be 0, and 2/9 and 4/9 give respectively the open J₁ interval and closed J₂ interval in the unique lower phase. One upper forces S=1 and the triple to be a permutation of (0,2/9,7/9); the two cyclic orders are precisely the two endpoints of J₁ and their images. With no upper coordinate, write (9/2)y_i=S+k_i for integers k_i. Then S=2Σk_i/3<2, so S is 0, 2/3 or 4/3. The last two cases force k multisets (0,0,1) and (0,1,1), respectively, using 0≤S+k_i<3. They give y multisets (4,4,10)/27 and (8,14,14)/27, i.e. the two isolated cycles with the stated seeds. The all-zero tuple gives the other fixed point. The congruences are sufficient as well as necessary, so no boundary points or primitive cycles are missed. Direct branch multiplication gives B²A=[[1,9/2],[0,1]] on both smooth interval interiors; the other phases are conjugate. All-lower isolated cycles have derivative A³, hyperbolic since det A=1 and trace A=7/2. Length uses the three phase tangents (1,0),(1,1),(−2,−1), with no positive-length overlap; each base interval is 2/9 long. The finite points do not affect the measure. Frozen checker.py and VERIFICATION.md were inspected, not executed; the congruence calculation is an independent exact exhaustion including wrap edges.
 
-## Scope and limitations
-The result is specific to the critical parameter, treats periods dividing three rather than all periods, and does not establish mixing or nonlinear stability near singular lines. The code uses exhaustive exact rational arithmetic to verify a finite polyhedral certificate, not floating-point enumeration of a continuum. Earlier writings under unsearched terminology may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier primary work fixes the map, the loss of hyperbolicity, and the period-three islands above threshold. The closest exact indexed result is dated later than the frozen record and establishes the same non-isolated locus and length but not the isolated-cycle census. No inspected earlier statement covers the full critical classification. This is not a claim of exclusive or absolute priority.
+
+## value
+
+PASS
+
+Period three is the itinerary responsible for loss of hyperbolicity at the authors' natural threshold. The exact all-orbit critical census identifies the parabolic geometry, distinguishes isolated saddles at the same critical parameter, and measures the neutral locus. These are specific useful data at a motivated boundary, not an arbitrary small-period sample or a general ergodicity claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

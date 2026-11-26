@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:18:16.852995Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic sum is multiplication by 1+x after a choice of shift orientation. Writing n=qh with h odd, the factors x^q−1 and Q=sum_{j=0}^{h−1}x^(jq) are comaximal modulo 2 (Q(1)=1 there), hence modulo 4. The Q factor is invertible for the dynamics and has 4^(n−q) elements, including the one-element factor if h=1. On the other factor, with y=1+x, v₂(binom(q,j))=v₂(q)−v₂(j) gives y^q=2y^(q/2). The monic quotient has basis y^0 through y^(q−1). Its higher powers fold to 2y^(q/2+j) for 0≤j<q/2 and vanish thereafter. The ideal y^t A has q−t free coordinates up to t=q/2, then q−t free and t−q/2 order-two coordinates up to t=q, then only 3q/2−t order-two coordinates up to t=3q/2. Thus the kernel fraction is the reciprocal of the asserted image size, including both transition points and t=0. First differences give the exact counts and the final mass 1/2; y^(3q/2−1)=2y^(q−1) is nonzero. The bounded tests described in VERIFICATION.md and verify.py were inspected, not replayed; the result is proved by the coordinate calculation in RESULT.md §§1–3. The Dular section-number error is bibliographic, not mathematical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2(3) bounds the time for a prime-power setting at general even length; the first catalogue record gives a broader exact maximum. The other catalogue record counts depths modulo odd prime squares and assumes odd p."
+        ],
+        "reasoning": "A theorem about larger ranges of moduli or lengths but only the maximum does not dominate the population counts. The odd-prime-square census cannot be specialized to modulus four within its hypotheses.",
+        "searches": [
+          "arXiv:2410.18204v1 Theorem 2(3)",
+          "Resultary 8221ed9a0ac0",
+          "Resultary c15db882c0b2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.01765v2",
+        "arXiv:2401.17502v2",
+        "arXiv:2410.18204v1",
+        "Resultary 8221ed9a0ac0",
+        "Resultary c15db882c0b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 3q/2 maximum for lengths q was proved previously; the same-day broad maximum specializes to 3q/2 for all even lengths at modulus four. An unnamed separate modulo-four distribution is mentioned but no equivalent formula or identifiable distinct source is supplied there."
+        ],
+        "reasoning": "The prior endpoint determines when |y^t A| first becomes one, not the cardinalities at intermediate t. The independent image calculation and the two resulting phases are the distinct contribution; no order is inferred from the same date.",
+        "searches": [
+          "arXiv:2401.17502v2 Theorem 2 and its proof",
+          "arXiv:2410.18204v1 Theorem 2(3)",
+          "Resultary 8221ed9a0ac0 Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Periodic points and vanishing or stabilization times were examined as possible equivalent statements. The earlier articles describe cycles or the maximum, while the same-day 8221ed9a0ac0 expressly does not count all transient lengths."
+        ],
+        "reasoning": "In the Fitting split the equivalent invariant is the full kernel index sequence of powers on the nilpotent factor. Neither the stable periodic subgroup nor one maximum specifies this sequence.",
+        "searches": [
+          "Dular arXiv:1905.01765v2 §§6–7",
+          "Lewis–Tefft arXiv:2401.17502v2 and arXiv:2410.18204v1",
+          "Resultary 8221ed9a0ac0 and c15db882c0b2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue entry for the same dynamics gives the maximum alone; the other tabulates a different modulus regime. No all-t modulo-four table was identified in the passages compared."
+        ],
+        "reasoning": "The exact data target is the vector of counts indexed jointly by even n and by t (or by v₂(n) after normalization), not a table of periods, maximum t, or individual small-n examples.",
+        "searches": [
+          "Local Resultary comparison, especially 8221ed9a0ac0 and c15db882c0b2",
+          "Dular §§6–7 and Lewis–Tefft Theorem 2 proofs"
+        ]
+      },
+      "rationale": "Pass for the full entrance-time profile, not for the already covered maximum. The available primary and catalogue statements do not supply the sequence of images of powers needed for the CDF. A same-day comparison confirms coverage of the maximum but does not establish equivalent coverage of the census.",
+      "residual_risks": [
+        "An earlier all-power Smith form or image-cardinality theorem for these circulants would mechanically give the counts; none was identified in the bounded comparison.",
+        "The unnamed modulo-four result noted in 8221ed9a0ac0 could be this finding; neither a distinct equivalent theorem nor publication order is established by the note."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related cycle results; no equivalent entrance-time counts in the inspected statements",
+          "evidence": "§7 asks for the maximum preperiod. The frozen citation says §8; for v2 it is §7.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.01765",
+          "material_read": "v2 §6 pp.12–14 and §7 p.14, offsets near 45080 and 54250",
+          "method": "Primary OA PDF passages",
+          "title": "Cycles of Sums of Integers",
+          "trigger": "Same cyclic operator and periodic-point structure"
+        },
+        {
+          "assessment": "Covers the maximum when h=1, not the all-t count",
+          "evidence": "L_(2^ℓ)(2^k)=(ℓ+1)2^(k−1); evaluates vanishing and sharpness, not sizes of all images.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.17502",
+          "material_read": "v2 Theorem 2, p.2; proof pp.13–15",
+          "method": "Primary OA PDF passages",
+          "title": "The Period of Ducci Cycles on Z_(2^ℓ) for Tuples of Length 2^k",
+          "trigger": "Exact power-of-two maximal vanishing time"
+        },
+        {
+          "assessment": "Relevant upper bound only in this passage",
+          "evidence": "Specializing the bound gives 3q/2; equality is presented as believed with finite confirmation, not the full entrance-time law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.18204",
+          "material_read": "v1 Theorem 2(3), p.2, offset near 5800",
+          "method": "Primary OA PDF passage",
+          "title": "The Maximum Length for Ducci Sequences on Z_m^n when n is Even",
+          "trigger": "Potential stronger all-even-n theorem"
+        },
+        {
+          "assessment": "Covers maximum but not distribution; same-day order unresolved",
+          "evidence": "The all-m,n maximum gives 3q/2 at m=4. The record expressly excludes the full distribution and does not identify the separate finer result mentioned in its notes.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-maximal-transient-lengths-for-cyclic-neighbour-sum-dynamic--8221ed9a0ac0",
+          "material_read": "Finding, related-work note and limitations",
+          "method": "Local catalogue and mirror",
+          "title": "Exact maximal transient lengths for cyclic-neighbour sum dynamics",
+          "trigger": "Distinct same-day record including the same n,m"
+        },
+        {
+          "assessment": "Different hypotheses",
+          "evidence": "Odd p is explicit and excludes modulus four.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-entrance-depth-census-for-cyclic-neighbour-sums-modulo-odd--c15db882c0b2",
+          "material_read": "Finding and scope",
+          "method": "Local catalogue and mirror",
+          "title": "Exact entrance-depth census for cyclic-neighbour sums modulo odd prime squares",
+          "trigger": "Same count for another prime-square modulus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete transient population census for the standard modular Ducci operator, not just an improvement of a stopping-time bound. It distinguishes the early and late contraction scales, makes the exact frequency of worst-case vectors available, and shows which part of the tuple length matters for the entire normalized law. These facts are useful for the dynamics even when its maximum is known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

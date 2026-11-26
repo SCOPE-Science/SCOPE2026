@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:20.678008Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 108–308; VERIFICATION.md lines 18–48",
+        "Independent replay checks/frozen_replay.py, option 4"
+      ],
+      "rationale": "The factorial degree is the rectangular tableau hook product, and the even-dimensional Schubert cells give the ordinary Euler characteristic binom(n,k). Duality preserves both. For k=2 the degree is Catalan(n−2); the successive degree/Euler ratio multiplier is 2(2n−3)(n−1)/(n(n+1))>1 for n≥4. The consecutive ratios 14/15 and 42/21 prove the edge threshold. For fixed n and r=n−k≥k+2 the adjacent degree quotient is the product of (kr+j)/(k+j) for 1≤j≤r−k−1, all >1. The degree in three rows starts at 42>20 for n=6 and grows by a factor >2, since (3r+1)/(r+1)>2 for r=n−3≥3 and each of the other two quotient factors exceeds 1. The central binomial maximum grows at most by 2 by Pascal's rule. This proves all interior cases; the projective-space edge and dual cases exhaust the domain. Independent replay `python3 /workspace/checks/frozen_replay.py 4` verified 4950 comparisons via exact cellwise hook lengths, not the factorial expression in the frozen proof; finite regression only. Frozen support describes a checker but supplies no script for this record.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e57efdec9789 covers every complex Gr(k,n) with 2≤k≤n−2.",
+          "Resultary c8ae207d01b9 concerns symplectic isotropic Grassmannians and counts a different variety.",
+          "Sottile §§4.2–4.3 gives classical Plücker/chain input rather than a broader comparison theorem."
+        ],
+        "reasoning": "The earlier classification is already exhaustive in the non-projective domain. Type C and results on Grassmannian complements do not extend this coverage to other varieties with the same notation.",
+        "searches": [
+          "Resultary: Grassmannian degree Euler characteristic inequality equality degree",
+          "Web: complex Grassmannian Plücker degree versus binomial(n,k) Euler characteristic rectangular standard Young tableaux comparison all k threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e57efdec9789 (primary overlap)",
+        "Resultary c8ae207d01b9 (different type)",
+        "arXiv:math/0108133",
+        "arXiv:math/0107179"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "e57efdec9789 asserts the same two signs and no equality for 2≤k≤n−2. In the remaining cases Gr(1,n) and Gr(n−1,n) are Plücker projective spaces P^(n−1)."
+        ],
+        "reasoning": "Add degree 1 and Euler characteristic n for these projective spaces to the earlier theorem; this implies the whole frozen claim, including strictness at every allowed endpoint.",
+        "searches": [
+          "Resultary e57efdec9789, Finding and Proof",
+          "Eremenko–Gabrielov Theorem A; Sottile Eq. (4.8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e57efdec9789 gives the same classification, and expresses the invariants as saturated chains and elements of the rectangular Bruhat interval.",
+          "Eremenko–Gabrielov Theorem A and Sottile Eq. (4.8) identify the degree formula with the rectangular-tableau or chain count."
+        ],
+        "reasoning": "Rectangular tableaux, saturated Bruhat chains, and Plücker degree are the same count here. Transposing the rectangle accounts for the k↔n−k symmetry, so the parameters and signs in the two classifications coincide.",
+        "searches": [
+          "Resultary: Plücker degree versus Euler characteristic Grassmannian degree binomial(n,k)",
+          "Resultary: rectangular standard Young tableaux count compare number Schubert cells Grassmannian binomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact exception list (min(k,n−k),n)=(2,4),(2,5),(2,6) occurs in the indexed record; it includes no equality and the strict opposite sign outside those exceptions in its domain."
+        ],
+        "reasoning": "An exact classification entry is stronger than a table of sample ratios and matches the entire nontrivial sign classification.",
+        "searches": [
+          "Local Resultary e57efdec9789, Finding and Proof",
+          "Web: complex Grassmannian Plücker degree versus binomial(n,k) Euler characteristic rectangular standard Young tableaux comparison all k threshold"
+        ]
+      },
+      "rationale": "The complete non-projective-space classification and exclusion of equality are explicitly covered by a distinct indexed record. The only added cases are projective spaces, with degree 1 and Euler characteristic n, so they give no distinct threshold.",
+      "residual_risks": [
+        "Unindexed exercises and earlier sources were not ruled out; the directly inspected same-classification record is sufficient for the overlap finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the non-projective claim",
+          "evidence": "For 2≤k≤n−2, exactly (min(k,n−k),n)=(2,4),(2,5),(2,6) have degree below Euler; all other cases are above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-pluecker-degree-overtakes-euler-characteristic-beyond-three-line--e57efdec9789/RESULT.md",
+          "material_read": "Finding and Proof, offset 0 (6253 characters)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Plücker degree overtakes Euler characteristic beyond three lines",
+          "trigger": "Exact object and invariant match in the index"
+        },
+        {
+          "assessment": "Classical input, not the threshold",
+          "evidence": "The factorial quotient is the degree and counts rectangular standard Young tableaux.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0108133",
+          "material_read": "PDF p. 3, Theorem A and rectangular tableaux passage (OA offset 4700)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Degrees of real Wronski maps",
+          "trigger": "Primary reference for complex degree"
+        },
+        {
+          "assessment": "Degree identity, not the full comparison",
+          "evidence": "Degree counts saturated Bruhat chains.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0107179",
+          "material_read": "PDF pp. 20–22, including Eq. (4.8), OA offsets 57500–64000",
+          "method": "Open-access PDF passage inspection",
+          "title": "Enumerative Real Algebraic Geometry",
+          "trigger": "Equivalent comparison in Bruhat chains"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Resultary e57efdec9789 Finding"
+      ],
+      "rationale": "The non-projective crossover is a meaningful classification, but the frozen submission does not add a new scientifically useful instance to it. The only scope expansion is the routine comparison 1<n on the projective-space edge, and the frozen claim supplies no further invariant or result supported by that addition.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

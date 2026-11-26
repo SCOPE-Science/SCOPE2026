@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:45:01.546312Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59; VERIFICATION.md lines 3–27 and checks scripts/logs",
+        "Independent bounded reproduction described above"
+      ],
+      "rationale": "The theorem holds under the stated q≥3, d≥1 and distinctly named-anchor assumptions. Symbol relabellings and coordinate permutations normalize the anchors; the subgroup preserving equal and unequal coordinate blocks is transitive at fixed (s,r,t). A uniquely marked vertex's distance layers are determined by the refinement colours by round d, by induction on distance. In the next round the count of neighbours decreasing both distances is precisely s: a simultaneous decrease needs a replacement by the common anchor symbol. Then r=s+b−dist(x,u) and t=s+b−dist(x,v). Invariance under anchor-fixing automorphisms prevents splitting the triple classes and proves full orbit recovery and stability. Choosing the coordinate categories and their free symbols gives the stated sizes and class count, including a=0 and d=1. The explicit H(3,3) witness has distances (2,2) on both vertices and simultaneous-decrease counts 0 and 1. Independent exact refinement checked whole classes, sizes and T=s on 22 anchor cases and 1,084 vertex instances (q=3,d≤4; q=4,5,d≤3; all b). Largest observed depth was 3. Replay: python3 /workspace/branches/72b5ccc9-6b51-4cf6-a3fe-257f65dbda55/record5_reproduction.py. These tests corroborate rather than prove the universal statement. The original VERIFICATION.md and its two scripts/logs are finite evidence, not formal verification or attestation.",
+      "residual_risks": [
+        "The finite reproduction does not independently exhaust untested dimensions or determine sharp refinement depth."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "63c3d45d7be9 includes the binary alphabet and proves the exact boundary for metric-pair orbit-exactness.",
+          "The primary colour-refinement papers give the general invariant and complexity setting, not this particular orbit formula in the passages inspected."
+        ],
+        "reasoning": "The nonbinary result is a restriction of the distinct broader Resultary statement.",
+        "searches": [
+          "Resultary: Hamming graphs 1-WL colour refinement two marked vertices pointwise stabilizer orbit partition class sizes",
+          "arXiv:1502.01255 §2; arXiv:1606.04383 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 63c3d45d7be9",
+        "arXiv:1502.01255",
+        "arXiv:1903.12333",
+        "arXiv:1606.04383",
+        "arXiv:1307.5697"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact match gives one round from the ordered distance partition and an equivalent H(3,3) collision, but does not state the claimed absolute round bound from three colours."
+        ],
+        "reasoning": "At round d ordinary refinement from singleton colours refines the ordered distance partition, since every vertex has both anchor distances at most d. One further ordinary round refines the result of one round on the coarser distance partition; orbit invariance rules out any extra splits. Thus the explicit bound requires no new combinatorial input.",
+        "searches": [
+          "63c3d45d7be9 RESULT.md offsets 2800, 5200, 9000",
+          "arXiv:1502.01255 §2 Eq. (2); arXiv:1307.5697 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 63c3d45d7be9, RESULT.md offsets 0 and 2800: (δ,α,β,γ) is exactly (s,r,t,w), for ordered distinguished roots; the local statistic is the same count of simultaneous decreases."
+        ],
+        "reasoning": "The change of labels and normalization of coordinates leave the partition and orbit action unchanged.",
+        "searches": [
+          "Resultary: two individualized vertices Hamming graph colour refinement orbits (s,r,t) stable classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "63c3d45d7be9 Finding gives the same number of classes and the identical multinomial class sizes for q≥3. Equation types in arXiv:1903.12333 are equitable partitions with two cells and a specified eigenvalue."
+        ],
+        "reasoning": "There is an exact formula match in the indexed record, not in the compared two-cell classification; no numerical lookup or matching small instance is the basis of the decision.",
+        "searches": [
+          "Configured Resultary queries above; exact matching linked RESULT.md",
+          "arXiv:1903.12333 §§1–2 beginning"
+        ]
+      },
+      "rationale": "A distinct Resultary record covers the same orbit classification, coordinate labels, nonbinary census and class sizes, and simultaneous-decrease statistic; it treats q≥2 and also gives the exact metric-pair obstruction. The frozen d+1 bound, though not explicitly given there from the three-colour initialization, follows mechanically by combining one-round repair from the distance-pair partition with ordinary distance propagation from the two named anchors. Coverage is demonstrated without attributing priority from the shared date.",
+      "residual_risks": [
+        "Relative priority of the two indexed statements is undetermined; the evidence establishes equivalent coverage only.",
+        "Boutin's full text and broader specialized Hamming-scheme work were not exhausted; neither limitation defeats the positive coverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core result in broader scope; absolute d+1 bound is an elementary consequence, not an explicit statement there.",
+          "evidence": "q≥2; δ,α,β,γ coordinate profile; same class-size product for q≥3; exact metric obstruction and one-round repair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-two-root-counting-refinement-of-hamming-graphs-orbit-exactness-a--63c3d45d7be9",
+          "material_read": "RESULT.md Finding/assumptions at offset 0, local statistic and orbits at 2800, metric boundary at 5200, limitations at 9000; verification notes",
+          "method": "Indexed record and bounded local mirror passages",
+          "title": "Two-root counting refinement of Hamming graphs: orbit exactness and the distance-pair boundary",
+          "trigger": "Strongest match on both exact-topic queries"
+        },
+        {
+          "assessment": "Supplies the general definitions and invariance used in the implication, not the exact special-family classification in the inspected material.",
+          "evidence": "Eq. (2) retains old colour and neighbour-colour multiset; Lemma 1 gives colour invariance under colour-preserving isomorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Introduction on refinability and §2 Eq. (2), Lemma 1",
+          "method": "Primary open PDF, pp. 3–5, located and read by offset",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Refinability and vertex-coloured graphs"
+        },
+        {
+          "assessment": "The explicit classification problem in the inspected passage is different.",
+          "evidence": "Equitable two-cell partitions with a specified eigenvalue, not stable partitions induced by two singleton roots.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.12333",
+          "material_read": "Abstract and introduction, pp. 1–2",
+          "method": "Primary open PDF, located and read by offset",
+          "title": "Equitable 2-partitions of the Hamming graphs with the second eigenvalue",
+          "trigger": "Same graph family and equitable partitions"
+        },
+        {
+          "assessment": "Complexity question, not an orbit-class formula in the inspected passages.",
+          "evidence": "Find minimum individualization sets attaining refinability or related properties on input graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.04383",
+          "material_read": "Abstract and §1 beginning",
+          "method": "Primary open PDF, bounded read",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "Individualization to attain refinability"
+        },
+        {
+          "assessment": "General refinement mechanism, not an exact two-anchor theorem in the inspected passage.",
+          "evidence": "Old colours are split by counts, giving a coarsest equitable partition.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.5697",
+          "material_read": "§1, p. 1",
+          "method": "Primary open PDF, bounded read",
+          "title": "Dimension Reduction via Colour Refinement",
+          "trigger": "General equitable-refinement mechanism"
+        },
+        {
+          "assessment": "No conclusion about paper-wide coverage; not a basis for failure.",
+          "evidence": "Only the cited determining-number topic was available in the frozen record.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20368",
+          "material_read": "No passage obtained in attempted retrieval",
+          "method": "Lawful OA lookup by DOI timed out",
+          "title": "The determining number of a Cartesian product",
+          "trigger": "Stabilizers of Cartesian powers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–23 and 38–59; Resultary 63c3d45d7be9 Finding and proof"
+      ],
+      "rationale": "The classification is useful as an explicit invariant, but the matching broader result already supplies it and the obstruction. The only apparent additional assertion is a nonsharp absolute bound obtained by appending the already-covered repair step to routine distance propagation. No independently useful new depth threshold or other mathematical contribution is established for this frozen record.",
+      "residual_risks": [
+        "No assessment of a sharper or exact absolute-depth theorem is made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

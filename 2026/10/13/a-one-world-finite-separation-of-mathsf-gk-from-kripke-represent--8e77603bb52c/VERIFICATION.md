@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,12 +21,6 @@
 
 # Verification
 
-The final claim was replayed directly from the definitions in arXiv:2610.01433v1.
+By Definitions 2.2–2.3 and 2.5 and Figure 1 of arXiv:2610.01433v1, \(W=\{w\}\) and \(G(w)=\varnothing\) satisfy the finiteness requirement. The closure value \(H=b^{-1}(1)\) need not be finite. The frame conditions concern \(H=\operatorname{cl}(G(w))\), not the raw generator. At the valuation matching \(b\) on atoms, the Boolean clauses and the modal membership clause give truth exactly when \(b=1\), proving \(\mathsf G\). Boolean modus ponens within \(H\) proves \(\mathsf K\).
 
-1. **Domain and finiteness.** \(W=\{w\}\) and \(G(w)=\varnothing\). The closure is the constant map with value \(H=b^{-1}(1)\). This meets the source's finite-model definition because only \(W\) and the generators are required to be finite.
-2. **Condition \(\mathsf G\).** At the valuation matching \(b\) on atoms, induction on formula complexity gives semantic truth exactly when \(b=1\). Any frame-valid formula is therefore in \(H\).
-3. **Condition \(\mathsf K\).** If \(b(\varphi)=b(\varphi\to\psi)=1\), Boolean semantics gives \(b(\psi)=1\), so \(H\) is closed under modus ponens.
-4. **Failure of \(\mathsf{KRep}\).** Flip one atom \(p\) to true in the model valuation. Then \(p\notin H\), while \(\neg p\in H\) is false at the only world. Hence the intersection of the truth sets of all formulas in \(H\) is empty, so the right side of the source's \(\mathsf{KRep}\) equivalence holds for \(p\) although the left side fails.
-5. **Sharp world bound.** Closure frames have nonempty world sets, so one world is minimal.
-
-No finite search, exhaustive enumeration, or external certificate is used. The proof does not establish any claim under an identity, monotone, extensive, or idempotent closure restriction.
+Under the changed valuation with \(p\) true, \(\neg p\in H\) is false at the sole world, so the intersection in Definition 4.22 is empty. Since \(p\notin H\), the equivalence in that definition fails. The frame is nonempty and has minimum possible cardinality. The constant map is monotone and idempotent, but the construction does not impose extensivity or identity. No finite search or external certificate is used.

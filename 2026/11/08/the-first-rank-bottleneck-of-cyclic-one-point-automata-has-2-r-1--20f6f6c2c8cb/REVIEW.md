@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The word model, rank threshold, and quantifiers are specified. Direct set-image dynamics give a co-moving hole update rule; in fewer than \(2r\) rotations at most one hole can lie in each of the \(r\) residue-class timestamp chains, even if extra ineffective merge letters occur. At exactly \(2r\) rotations, the timestamp-conflict graph is a three-vertex path plus \(r-1\) independent edges, proving both the sharp cost and the \(2^{r-1}\) count. An independent subset-automaton computation checked 130 rank threshold/word-count cases and 6,138 explicit witnesses. The finite checks are not the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The closest published framework is Behague–Johnson on \(k\)-set rendezvous (arXiv:2008.12166, first public 2020-08-27), which treats general automaton bounds and different starting-subset questions. Martyugin (2009) treats general compression complexity, rather than the stated cyclic family and exponential optimal-word language in inspected portions. Relevant known examples (Černý and Wielandt automata) and a codimension-two cyclic-defect result do not imply the precise first-bottleneck optimizer classification under the given transition map. Previously recorded complete-reset uniqueness for a related family determines only the last rank threshold, not the intermediate frontier. Unindexed equivalent results and incompletely inspected older general sources remain risks.
+PASS
 
-**Mathematical value — PASS.** Rank-time frontiers are a natural refinement of automaton synchronization, and the theorem provides a complete first-bottleneck classification across an infinite two-parameter family. Its transition from uniquely forced shortest words to exponentially many optimizers, with a sharp cost jump, makes the particular exact count structurally motivated. The timestamp-graph model also gives a concise, reusable description of the optimal labels rather than merely a witness or isolated numerical gain.
+With t rotations elapsed, co-moving holes are obtained by translating the complement of the current image by −t. A b at time t is inert if 0 is missing, and otherwise adds the hole labeled t while deleting the existing label t−r, if present. Up to 2r rotations, n>2r means no timestamp alias and no other possible deletion. Each effective b reduces rank by exactly one and makes 0 absent, so j effective b's need at least j−1 intervening a's. At equality the unique string is alternating; its timestamps 0,…,j−1 have no distance-r pair for j≤r. For T<2r each class modulo r has at most two timestamps, and adding the second displaces the first or is inert. The count of holes stays at most r even when ineffective letters occur. Therefore the next threshold needs at least 2r a's and r+1 b's. At length 3r+1 every b must add a new hole without deleting any; equivalently all b times are distinct and avoid distance-r pairs. The conflict graph on times 0,…,2r has a path 0–r–2r and r−1 disjoint edges. A maximum independent set must use both endpoints of the path and exactly one endpoint per edge; in particular there are no unaccounted leading or trailing a's. This proves existence, the exact literal-word enumeration, and the gap r+2 also at n=2r+1, without a synchronization hypothesis.
 
-**Scientific limits.** The theorem does not cover \(n\le2r\) or later rank thresholds. Finite verification is supportive, not certification of an infinite result. Bibliographic exclusion of all equivalents is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No verified stronger result covers the exact first rank bottleneck and shortest literal-word census for this cyclic jump family. The examined same-family theorem gives terminal reset behavior; comparable early-rank and count theorems concern different generators, objectives or both.
+
+## value
+
+PASS
+
+The rank threshold of a fixed alphabet is a natural exact invariant even for nonsynchronizing parameters. Beyond the elementary alternating lower bound, the timestamp argument explains the first non-linear cost and the shift from one literal optimizer to 2^(r−1), uniformly over the full cyclic family. It gives a meaningful explicit boundary and a complete optimizer classification not supplied by terminal reset bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

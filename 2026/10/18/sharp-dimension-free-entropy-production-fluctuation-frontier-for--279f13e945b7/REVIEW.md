@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** After whitening, the Gaussian likelihood ratio has independent quadratic-plus-linear components with entropy contributions \(k_i=[u_i-1-\log u_i+u_im_i^2]/2\) and variance contributions \(v_i=(u_i-1)^2/2+u_i^2m_i^2\). Eliminating the mean at fixed \(k_i\) yields a strictly increasing scalar function of the precision \(u_i\). Strict concavity and convexity of its two endpoint functions give the global inequalities, equality rigidity and exact attainment of every intermediate variance. All hypotheses, the equality cases and the \(K=0\) boundary are explicit. The actual embedded checker was executed with 1,585 passing tests; the analytic proof, not those tests, establishes the general theorem.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The closest physical paper [1] identifies mean/variance with the endpoint KL/relative-entropy-variance pair under exact-score and long-time hypotheses; its Supplement IV proves only an asymptotic variance-vanishing statement. The closest Gaussian extremal paper [2], including its appendices, finds rank-one Gaussian extrema for **reverse KL** given forward KL, rather than the present fixed-forward-KL **log-likelihood variance** interval and its entire set of intermediate values. Standard Gaussian KL formulae, the one-dimensional Lambert roots and rank-one spectral allocation are prior mathematical machinery, not claimed as new. Targeted literature and indexed scientific-result searches did not establish that a broader theorem states or immediately implies this whole interval; potential implicit coverage by more general information-spectrum extremal theory remains a risk.
+PASS
 
-**Value — PASS.** In the motivated thermodynamic regime of [1], equal mean entropy production can coexist with a tightly prescribed but extraordinarily wide set of fluctuation magnitudes. The exact frontier (not merely examples or an asymptotic) determines the entire set of physically interpretable Gaussian endpoint mean–variance pairs in any dimension, and identifies the unique structural way to saturate both boundaries. The result distinguishes distributional heterogeneity from average mismatch and supplies a rigorous benchmark for Gaussian diffusion-model diagnostics.
+For finite-dimensional positive-definite Gaussian pairs, whitening P and diagonalizing the relative precision gives log(p/q) as a constant plus the sum of (u_i−1)Z_i^2/2−u_i m_i Z_i under P. The normal quadratic and linear terms have zero cross covariance, yielding k_i=[h(u_i)+u_i m_i^2]/2 and v_i=(u_i−1)^2/2+u_i^2 m_i^2. At fixed k_i>0 the feasible u are exactly the two-root closed interval, with m_i^2=(2k_i−h(u))/u. The derivative of the resulting v with respect to u is 2k_i−h(u), strictly positive in the interior; endpoints have m_i=0. The endpoint functions have derivative 2u_±(k) and strict concavity/convexity on k>0. By continuity at zero and strict subadditivity of the lower endpoint function (superadditivity of the upper), equality at K>0 requires a single nonzero k_i. All other modes have u_i=1,m_i=0, so the means coincide. Varying the one nontrivial mode across its interval constructs every V in every dimension; K=0 forces P=Q. Direct bisection of h(u)=2K reproduced the displayed numerical V intervals at K=1 and 8. Inspected RESULT.md, VERIFICATION.md, verify.py and requirements.txt; the frozen checker and its sampling assertions were not rerun. The entropy-production rescaling is conditional: Ding–Quan–Tu §3.3 eqs. (35)–(40) require exact score and infinite forward time, and use X sampled from P at the endpoint.
 
-**Limits.** All Gaussians must be nonsingular; the time-asymmetry interpretation requires exact score and infinite forward evolution. Generic learned-score trajectories and finite-time process entropy production are not covered. The calculation is self-reviewed only, with residual novelty uncertainty under wider Gaussian divergence frameworks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+In the compared work, the endpoint entropy-production identity and unconstrained Gaussian moments are prior ingredients, and the scalar allocation strategy and one-exceptional-eigenvalue pattern closely resemble reverse-KL results. The supported distinction is the fixed-forward-KL attainable interval for forward log-likelihood-ratio variance, including equality and no gaps, not the general methodology or the physical identity.
+
+## value
+
+PASS
+
+A fixed mean log-likelihood ratio does not constrain the variance to one value even within full-rank Gaussians. The result gives sharp, dimension-free extremes, exact extremizers and realizability of all intermediate variances; these let researchers benchmark Gaussian fluctuation comparisons without arbitrary dimensional or conditioning cutoffs. The physical application is limited to the cited endpoint assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

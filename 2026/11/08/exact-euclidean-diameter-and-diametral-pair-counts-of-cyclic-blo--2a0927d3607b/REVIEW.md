@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns all integers \(m\ge4\) and \(a\ge1\), in the standard ambient Euclidean metric. The proof independently reconstructs the vertex classification by block-simplex extremality and cycle path total unimodularity, then uses strict convexity to reduce all diametral pairs to vertices. Nonnegative coordinates and a sharp vertex norm cap give squared diameter \(2\lfloor m/2\rfloor\). The equality criterion enforces two maximum independent sets with disjoint coordinate supports. Distinct- and equal-support pairs are counted separately; the overlap spectrum of odd-cycle maximum independent sets is derived explicitly. The independent exact-arithmetic checker tests 973,988 unordered candidate vertex pairs across sixteen cases and 111 additional support-count assertions. Finite checks are corroborative, not an infinite proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The primary inspected source, Jiang–Yang–Zhong, arXiv:2607.22008v1, defines the cyclic block polytopes and proves their half-integral vertex structure, but its contributions concern transfer matrices, Ehrhart enumeration, and Gorenstein properties; no Euclidean diameter or complete diametral-pair enumeration was found in the manuscript. The most directly relevant independently inspected same-object mathematical record classifies *minimum enclosing balls* of unblocked cycle fractional stable-set polytopes; its statement does not entail all maximum Euclidean distances or any colored-block contact-pair multiplicities. Circuit-diameter results address a different metric. Searches of related equivalences, record titles and content, colored stable-set terminology, and related published claims identified no covering theorem. The general norm upper bound and earlier vertex theory are not claimed as novel; an unknown independent enumeration remains possible.
+PASS
 
-## Mathematical value — PASS
-The result is a complete, two-parameter equality-case classification for a canonical polytope family recently studied through lattice-point geometry. It makes visible a parity-sensitive count, including a unique diametral pair when the block size is one and the cycle length is even, versus exactly \(m\) when it is odd, and describes how coloring introduces same-support diametral pairs. The nonintegral odd-cycle vertices are rigorously excluded. These exact counts are a natural extremal invariant, not a parameter renaming or a small numerical improvement.
+Two positive coordinates in one block permit a signed transfer, excluding vertexhood. A singly supported vector in each positive block is a vertex exactly when its block sums are a vertex: decompositions project downward and can be lifted in the chosen coordinates. A zero block breaks the residual cycle into paths with totally unimodular bipartite edge constraints, including boundary singleton rows. With all blocks positive every edge constraint must be active; the edge equations have the unique all-half solution on an odd cycle and deficient rank on an even one. Integral vertices have squared norm at most r=floor(m/2), with equality only at maximum independent sets, and odd half-integral endpoints have squared norm m/4<r for m≥4. Nonnegativity gives the upper bound 2r on squared separation; two shifted disjoint alternating supports of size r attain it on either parity. Strict convexity in each endpoint forces vertexhood, and equality requires disjoint coordinate (not block) supports. The even cycle has two alternating supports; the odd cycle has one gap of length three and all others length two, giving m rotations. The shifts by 2j and 2j+1 intersect a fixed support in r−j and j blocks respectively, using the stated disjoint shift ranges. Hence each overlap t<r supplies m unordered distinct-support pairs. The distinct-label condition yields a(a−1) choices per shared block, and only identical block supports require a division by two at the color-count stage. This verifies both closed counts including a=1. The frozen code was inspected, not executed. Independent /workspace/branches/eca80989-28de-4482-bb5b-efd421654a49/independent_check.py and its log cover 655,187 exact unordered distances at 15 (m,a) points using doubled coordinates. This corroborates the analytic result but assumes the candidate vertex list.
 
-## Sources and limitations
-Jiang, Yang, and Zhong, *Transfer Matrices and Ehrhart Theory for Path and Cyclic Block Polytopes*, arXiv:2607.22008v1 (2026-07-24), equation (2), Lemma 3.4 and Section 4, inspected in full HTML; *Cycle fractional stable-set polytopes have a parity-split minimum sphere*, public research record (2026-10-11), full RESULT.md inspected; Kafer, Pashkovich and Sanità, arXiv:1709.09642, circuit metric discussed separately. The claimed result does not extend to unequal block capacities or general graphs. Independent mathematical and historical-priority reviews have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the equality structure and full colored diametral-pair enumeration, not the known cyclic block polytope, its half-integral vertices or the independence-number norm bound. In the inspected primary and indexed sources the close statements concern different domains, a different distance, or a vertex classification that does not supply pair multiplicities. The cited unblocked enclosing-sphere result could not be inspected and remains a risk for that special case, not evidence against the full count.
+
+## value
+
+PASS
+
+This is a natural Euclidean extremal invariant of a previously defined polytope. The diameter alone uses an elementary norm bound, but the complete two-parameter equality count distinguishes coordinate from block disjointness and resolves the odd rotation overlaps, including same-block-support pairs invisible in the unblocked model. It gives reusable equality and multiplicity information, not merely an isolated small-size or normalization calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

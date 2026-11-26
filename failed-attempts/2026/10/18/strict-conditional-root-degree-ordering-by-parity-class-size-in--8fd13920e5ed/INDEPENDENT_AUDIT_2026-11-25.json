@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:58:49.940606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the root-containing color class. Its trees are exactly the spanning trees of K_(a,b), since a tree has a unique bipartition once the root class is specified. For edge weight x_i y_j let X=Σx_i and Y=Σy_j. Delete y_b in the weighted Laplacian. The Schur complement of Y diag(x_i) is X diag(y′)−(X/Y)y′(y′)^T. The rank-one determinant factor is y_b/Y, giving the full determinant (Πx_i)(Πy_j) X^(b−1)Y^(a−1), also valid when a or b is one (empty determinant convention). Dividing out vertex factors gives the excess-degree polynomial, and normalizing gives the independent multinomial profiles conditional on the actual partition. The fixed-root marginal is identical for each partition of that size, so averaging gives the shifted binomial given size only. The binomial successive-mass ratio (n−a−d)/(d(a−1)) decreases in a on the common nondegenerate support. Shrinking upper supports keep all LR cross-products weakly ordered, with at least one strict comparison for every pair of sizes; the concentrated a=1 law is at the overall top. This is strict LR in the sense of ordered but unequal laws, not strict inequality on every zero/zero comparison. Hence strictly increasing score expectations fall strictly and the independent-copy covariance identity gives a strict negative sign. The rare-events limit uses (n−a−1)/a→(1−θ)/θ. Independent replay `python3 /workspace/review_reproduction.py 1` enumerated connected edge subsets of n−1 edges for n=3..6, recovering the size/degree counts, partition profiles and 146 LR cross-products. The determinant and ordering argument, not the finite replay, establish the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical two-sided excess-degree enumerator is X^(b−1)Y^(a−1), the product of the two normalized multinomial PGFs after division by its value at one. Janson studies the unconditional Gaussian depth-congruence profile for fixed modulus, including Poisson(1) conditioned Galton–Watson as the labeled-tree case."
+        ],
+        "reasoning": "The full weighted enumerator mechanically supplies both conditional degree vectors once a bipartition is fixed. The Janson CLT is a different, unconditional asymptotic result and is not used as evidence of exact finite conditional coverage.",
+        "searches": [
+          "Complete bipartite weighted degree enumerator; Hartsfield–Werth DOI 10.1007/978-3-642-46908-4_38",
+          "arXiv:math/0509471v1 §2.3 and Theorem 2.12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 583db0512595 (local mirror)",
+        "arXiv:math/0509471v1",
+        "Scoins DOI 10.1017/S0305004100036173 (excerpt only)",
+        "Hartsfield–Werth DOI 10.1007/978-3-642-46908-4_38 (lookup; full text not inspected)",
+        "Classical weighted matrix-tree identity independently expanded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalizing X^(b−1)Y^(a−1) gives independent multinomial vectors; the root binomial's trial count tends to infinity and its success probability to zero with their product converging to the displayed mean."
+        ],
+        "reasoning": "The conditioning and Poisson recasting do not constitute a new independent result. The central strict inequality is not just implicitly suggested by a tree enumeration: it is expressly stated in the exact Resultary hit.",
+        "searches": [
+          "Resultary 583db0512595 Finding and proof",
+          "Classical bipartite Prüfer/matrix-tree degree identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 583db0512595 uses B_n for the root-containing parity class size and D_n for the root degree; its finding states the same conditional binomial law and strict reverse ordering."
+        ],
+        "reasoning": "These random variables coincide with A and D, respectively, not a degree conditioned on distance to a single marked vertex. Variable renaming changes none of the events or class-size range.",
+        "searches": [
+          "Resultary: reverse likelihood-ratio ordering, root degree given the even-depth class in labeled trees, and residual degree/parity correlation",
+          "Scoins DOI 10.1017/S0305004100036173"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "583db0512595, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Finding at offset 455 and proof at offset 2814 onward: shifted binomial law, reverse LR order, strict covariance for strictly increasing functions."
+        ],
+        "reasoning": "A materially distinct record, not the frozen record being reviewed, gives the same exact ordering and sign. Its additional residual-correlation analysis does not undo the overlap.",
+        "searches": [
+          "Resultary local semantic lookup of strict root degree versus parity class under the uniform Cayley measure"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record states the same root conditional law, reverse likelihood-ratio order, and strict covariance result. The remaining two-sided conditional profile is a mechanical normalization of the classical full weighted K_(a,b) tree enumerator; the Poisson limit is the ordinary binomial rare-events limit of the covered law. There is no substantiated distinct contribution left in the frozen claim. This is a finding of mathematical coverage, not a claim of which same-day record was first or an inference from date alone.",
+      "residual_risks": [
+        "Full Scoins and Hartsfield–Werth texts were not recovered for this review. This limits historical assessment, not the established indexed mathematical overlap.",
+        "No direction of priority is inferred from the matching dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same finite conditional law, likelihood-ratio order and strict covariance",
+          "evidence": [
+            "D_n | B_n=k has law 1+Bin(n−k−1,1/k), and the stated reverse order yields strict covariance under the same monotonicity assumptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-reverse-likelihood-ratio-ordering-and-residual-degree-parity-cor--583db0512595",
+          "material_read": "RESULT.md Finding (around offset 455), proof (from offset 2814), prior-work discussion (around 8330)",
+          "method": "Local mirror full statement and matching proof passages",
+          "title": "Reverse likelihood-ratio ordering and residual degree–parity correlation",
+          "trigger": "Exact stochastic ordering overlap"
+        },
+        {
+          "assessment": "Class-size Gaussian limits, not finite conditional root-degree LR",
+          "evidence": [
+            "Theorem 2.12 gives the depth-congruence vector limit for fixed modulus; the setup includes labeled trees through Poisson(1) offspring."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0509471v1",
+          "material_read": "§2.3 and Theorem 2.12, pp. 8–9",
+          "method": "Primary OA theorem and setup",
+          "title": "Congruence properties of depths in some random trees",
+          "trigger": "Unconditional root-parity class statistics"
+        },
+        {
+          "assessment": "Relevant enumeration background; no whole-article coverage judgment",
+          "evidence": [
+            "Opening excerpt assigns nodes to two alternating parity sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100036173",
+          "material_read": "Publisher search excerpt and bibliographic material only, not article full text",
+          "method": "Publisher excerpt; direct and VPN OA retrieval did not yield a readable text",
+          "title": "The number of trees with nodes of alternate parity",
+          "trigger": "Historical enumeration of the same bipartite structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local-versus-global dependence question is mathematically natural, but its strongest result here is already represented by an exact matching theorem. Apart from it, normalizing a product of powers and taking the standard binomial limit do not address another gap or leave a useful new invariant to repair and pass.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

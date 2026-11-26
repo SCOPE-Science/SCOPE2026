@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:20:55.783587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing",
+        "/workspace/replay/runoff_benchmark.py"
+      ],
+      "rationale": "The three runoff onsets satisfy a_y<a_z<a_x, including a_y=0 for y=1. After a_y and through a_z the gap is strictly positive. From a_z through a_x, it has the sign of 1-w-q_p(z)/q_p(y); both factors of that ratio increase strictly and the ratio starts at zero. In the wet region the reciprocal-difference identity gives the displayed cubic factorization, with p=1-lambda handled by continuity. To check its sole positive root independently, divide its bracket by d_x d_y d_z and write the subtracted term as (1-gamma/p)/prod_v(1+gamma s_v/p), where s_v=1/v-1 and gamma=1-lambda. For p<=gamma the bracket is positive at every p>0; above gamma the subtracted term increases strictly from zero to one, while lambda^2 is between zero and one. The piecewise gap is continuous and the wet algebra matches at a_x (the low-zone numerator vanishes there), so the two single-switch tests join even when the zero is at a_x. For p<=1/(1+lambda), the active curvature is positive in the interior (possibly zero at c=1 at equality), and the dry branch joins with zero slope; strict Jensen follows as soon as there is an active subinterval of [x,y]. For any fixed p just above 1/(1+lambda), the active curvature at c=1 is negative and remains negative sufficiently near 1, giving the sharp infimum by choosing x,y there. To make p_* exceed any prescribed M>0, set y=1, choose x small, and take w close enough to one that z<lambda/(M+lambda); at M only the high zone contributes. Independent rational arithmetic directly from the piecewise law confirmed the benchmark gaps 59/117480 and -13123/2701440, and bracketed p_* between 1.1001452368125 and 1.1001452368135 (about 279.44 mm).",
+      "residual_risks": [
+        "The wet cubic determines the physical crossover only if both zones are wet at that root; the other branch or the boundary must otherwise be used. The theorem addresses a deterministic runoff-depth formula, not peak flow or physical storm feasibility."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed arbitrary-mixture theorem has the same positive-abstraction law, arithmetic composite curve number, complete bias reversal and arbitrary non-point-mass support compactly inside (0,1).",
+          "It implies uniqueness for any interior two-atom law without a cubic; its stated domain excludes c=1 and it does not state the frozen sharp bounds or root formula."
+        ],
+        "reasoning": "This is real broader mathematical coverage of the interior uniqueness component, not an unrelated near hit. Its provenance does not establish antecedence, so the overlap is separated from priority and from components absent in that statement.",
+        "searches": [
+          "unique two-zone SCS curve number runoff aggregation bias exactly one rainfall crossover sharp lower bound cubic",
+          "Resultary 4ea127307d38, Finding and equivalent-retention proof"
+        ]
+      },
+      "checked_sources": [
+        "Paudel et al. DOI 10.1061/(ASCE)HE.1943-5584.0000100",
+        "Jena et al. DOI 10.1061/(ASCE)HE.1943-5584.0000651, abstract only",
+        "Resultary 4ea127307d38"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior zero-abstraction theorem gives the boundary case lambda=0; its proof or formula is not a substitution to positive abstraction, where runoff onsets differ by zone.",
+          "The standard-abstraction comparisons show reversal in the reported setup but do not establish at-most-once across all wet/dry stages. The indexed arbitrary-law theorem, taken as a mathematical statement, does give uniqueness on the interior two-zone subdomain."
+        ],
+        "reasoning": "Compare exact implications, not shared terminology. Existing runoff equations and sign-reversal comparisons supply inputs and examples. The strongest alternate theorem directly implies one component on a narrower endpoint domain but has no established prior priority over this frozen result, and the sharp threshold range and cubic are not its consequences by mere parameter specialization.",
+        "searches": [
+          "Paudel et al. PDF pp. 6–9; zero and standard abstraction comparisons",
+          "Jena et al. DOI 10.1061/(ASCE)HE.1943-5584.0000651, accessible abstract",
+          "Resultary 4ea127307d38, equivalent retention monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paudel's distributed-minus-composite difference is the same gap after P=S_0 p and CN=100c under uniform rainfall.",
+          "For two zones the gap divided by w(1-w)(y-x)^2 is the second divided difference at x,z,y. The curvature at c=1 switches at p=1/(1+lambda), while an inflection at a single c does not determine general finite-spread crossings."
+        ],
+        "reasoning": "The underlying comparison is equivalent, not a new runoff law. A local small-spread estimate or curvature sign is not equivalent to global uniqueness of the finite-spread piecewise gap.",
+        "searches": [
+          "two zone Curve Number model single crossover area weighted mean runoff composite bias unique crossing convexity inflection",
+          "SCS runoff curve number universal divided difference curvature Jensen strictly convex bias threshold",
+          "Paudel et al. DOI 10.1061/(ASCE)HE.1943-5584.0000100, Eqs. (2)–(5) and (8)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Paudel reports numerical standard-abstraction transitions and an exact 254 mm transition for zero abstraction. The conditional 8-inch small-spread statement is not the sharp 8 1/3-inch infimum here at lambda=1/5.",
+          "Jena's accessible abstract concerns a cell-grid hypothetical example and a field watershed. The closest catalogue item is a theorem about effective retention, not a table of two-zone crossover roots or exact extremal thresholds."
+        ],
+        "reasoning": "Neither a reported numerical transition interval nor a matching rainfall example can establish the uniform statement. In the frozen model the small-spread probe x=0.99, y=1 at p=0.8 has strictly positive exact bias, and the x=0.4,y=0.5 benchmark crosses above 254 mm, so those older numerical boundaries must not be imported as exact universal bounds.",
+        "searches": [
+          "Jena Tiwari Pandey Mishra distributed composite curve number techniques two-zone runoff average",
+          "Paudel et al. figures and transition passages, pp. 1105–1106",
+          "Resultary 4ea127307d38"
+        ]
+      },
+      "rationale": "Credit the SCS aggregation procedure and qualitative reversal to prior work. Paudel et al. also gave an exact unique threshold for zero initial abstraction, which is outside the claim's positive-abstraction range. Their standard-abstraction transition discussion is not an exact all-parameter uniqueness and sharp-bound result for this model. A distinct indexed result gives a stronger crossover theorem in mixture size for interior curve numbers and directly overlaps uniqueness on that domain, but the checked evidence does not establish it as prior to this frozen result. It also does not give the sharp fixed-lambda infimum and unbounded supremum, endpoint allowance, or exact wet/dry criterion. The supported contribution is the full positive-abstraction two-zone classification, not the existence of a reversal in representative examples.",
+      "residual_risks": [
+        "Jena full text remains unexamined. A prior broader runoff-aggregation theorem or earlier underlying version of the indexed arbitrary-mixture result would narrow credit for uniqueness. Neither a search miss nor a catalogue date certifies priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact zero-abstraction antecedent and positive-abstraction transition comparisons, not the frozen global positive-abstraction classification",
+          "evidence": [
+            "With zero abstraction the exact crossing is 254 mm independent of CN variation.",
+            "The small-variation discussion and experiments report (1-M_Ia) times 10 inches as a lower transition limit. This is not the sharp infimum under the present unrestricted mathematical hypotheses."
+          ],
+          "identifier_or_url": "https://ce531.groups.et.byu.net/syllabus/notes/ModClarkCNPaper.pdf (DOI 10.1061/(ASCE)HE.1943-5584.0000100)",
+          "material_read": "Printed pp. 1103–1106 (PDF pp. 6–9), Eqs. (2)–(5), (8)–(9), the transition and conclusion passages; OA offsets 35950, 44450, 47300, 53800 and 60765",
+          "method": "Bounded public full-PDF reading; separate exact probe in the frozen model",
+          "title": "Comparison of Lumped and Quasi-Distributed Clark Runoff Models Using the SCS Curve Number Equation",
+          "trigger": "Exact equation-level distributed/composite antecedent and published reversal"
+        },
+        {
+          "assessment": "Abstract supports empirical and hypothetical comparison, not a whole-document originality exclusion",
+          "evidence": [
+            "The snippet describes a 100 by 100 cell hypothetical watershed and the Tarafeni agricultural watershed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1061/(ASCE)HE.1943-5584.0000651",
+          "material_read": "Accessible abstract snippet only; publisher full text inaccessible; no lawful alternate copy recovered in bounded lookup",
+          "method": "Publisher, DOI and alternative public-copy checks",
+          "title": "RS and Geographical Information System–Based Evaluation of Distributed and Composite Curve Number Techniques",
+          "trigger": "Directly overlapping comparative methods"
+        },
+        {
+          "assessment": "Directly implies the interior two-zone uniqueness result; distinct catalogue entry, no established earlier priority, no stated sharp threshold range or cubic",
+          "evidence": [
+            "For 0<lambda<1 and any compact non-point-mass C-law in (0,1), effective retention strictly increases and crosses the arithmetic-CN composite retention once.",
+            "The proof uses a strictly concave function of runoff giving its rainfall derivative, rather than the two-zone cubic and onset-stage join."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-monotonicity-theorem-and-unique-composite-bias-rever--4ea127307d38/RESULT.md",
+          "material_read": "RESULT.md Finding and proof opening, offsets 0–4852, including response-speed concavity",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "A universal monotonicity theorem and unique composite-bias reversal for spatially heterogeneous curve numbers",
+          "trigger": "Strongest matching exact uniqueness theorem in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–43 and 49–95",
+        "Paudel et al. transition discussion, printed pp. 1105–1106"
+      ],
+      "rationale": "The result turns an established qualitative sign reversal into an exact bias decision over the entire two-zone parameter space and handles thresholds with either one or both zones active. The sharp lower limit and lack of any upper limit explain why field-study transition ranges cannot be treated as universal model bounds. The finite example above 254 mm gives a concrete witness at ordinary curve numbers, not merely a low-CN limiting pathology.",
+      "residual_risks": [
+        "Mathematical domain classification only; no calibration, real-storm bound or inference about flood peaks is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

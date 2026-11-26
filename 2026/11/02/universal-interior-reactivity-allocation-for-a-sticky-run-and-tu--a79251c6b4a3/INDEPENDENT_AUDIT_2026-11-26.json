@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:48:59.464144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–69",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Independently solving the sticky-state equations in midpoint coordinates gives an allocation-dependent part of M/T equal to 2(1+eta)((lambda+1)h^2+wh)/(4eta+F(1-h^2)), up to an h-independent constant. In detail, take l=beta(1+h)/2, r=beta(1-h)/2, delta=(m_+(L/2)-m_-(L/2))/T, and Q the mean of the two dimensionless wall orientation averages minus 1/2. The boundary equations are lQ-[eta+(lambda+1)l/2]delta=1+eta and rQ+[eta+(lambda+1)r/2]delta=1+eta. Their determinant is eta beta+(lambda+1)lr>0 even at zero allocation to one wall. Differentiating the resulting mean gives the asserted prefactor and P(h)=2(lambda+1)Hh+w(H+Fh^2). Its derivative is at least 8eta(lambda+1), and its two endpoint signs are strictly negative/positive even at |w|=lambda+1. The displayed stable root, strict interiority, oddness and monotonicity follow. Finite mean at zero allocation on one side follows from a uniform positive chance in bounded time to reach and be killed at the active wall: use runs without tumbles and, if needed, a bounded wait for release from the opposite sticky state. The frozen proof and checker support the model; the script was inspected, not run, and the recorded simulation is not used.",
+      "residual_risks": [
+        "The conclusion is confined to common positive release, a fixed sum of constant exponential killing rates, and interior initial position. It does not assert an optimum for unequal release rates, other wall models, or arbitrary survival objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two treat broader boundary parameters or first-passage distributions; the last varies the bulk tumble rate, not the wall-rate split"
+        ],
+        "reasoning": "A parametrized mean or transform provides ingredients but does not establish endpoint opposition and a unique global minimizer for all orientations. No inspected broader result yields the signed derivative and bias law.",
+        "searches": [
+          "Angelani DOI 10.1088/1751-8121/ad009e, Appendix A",
+          "Bressloff arXiv:2302.01158, separate wall rates in §5",
+          "Angelani arXiv:2311.11873, optimal escape control"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.01158",
+        "DOI 10.1088/1751-8121/ad009e",
+        "arXiv:2311.11873",
+        "Resultary 64d37101341a and 61f92a1dbbba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-sum differentiation and uniform endpoint signs are absent in the inspected primary passages",
+          "The unbiased result does not assert behavior at polarized headings or a single preparation-bias formula"
+        ],
+        "reasoning": "The proof needs the special fixed-budget cancellation and a parameter-uniform sign comparison, not just a re-labeling of a mean-time formula or interchanging absorbing boundaries.",
+        "searches": [
+          "Bressloff Eq. 2.25 and §5",
+          "Angelani Eq. A1",
+          "ArXiv:2311.11873, bulk-rate optimum",
+          "Resultary 64d37101341a Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff permits two different killing rates and, in the relevant specialization, a common release rate",
+          "Angelani's arbitrary interior position in Appendix A corresponds to asymmetrically placed endpoints with equal starting-direction weights"
+        ],
+        "reasoning": "Writing the boundaries relative to the start or rescaling the orientation-switch convention yields compatible first-passage inputs, but does not itself prove an optimization theorem under a sum constraint.",
+        "searches": [
+          "Resultary search for allocation of two sticky reactive walls and fixed total wall killing",
+          "Bressloff arXiv:2302.01158 §§2,5",
+          "Angelani DOI 10.1088/1751-8121/ad009e Eqs. 6–8, 47 and A1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "64d37101341a gives a positive fixed-budget optimizer for an unbiased heading under common positive release; its catalogue date is later than the frozen record's",
+          "61f92a1dbbba instead fixes the sum of capture probabilities per instantaneous reflection"
+        ],
+        "reasoning": "The exact symbolic optimizer, not a numeric table, is the item searched. The later result materially overlaps the unbiased subcase, and the other record has different transition dynamics and budget; neither is prior coverage of the full stated claim.",
+        "searches": [
+          "Resultary search for fixed-sum sticky-wall killing rates and optimal allocation",
+          "Resultary local mirror inspection of 64d37101341a and 61f92a1dbbba"
+        ]
+      },
+      "rationale": "The published primary sources inspected give the stochastic model, asymmetric boundary first-passage formulas, or optimization of a different control. The closest catalogued fixed-budget result has unbiased headings and is later-dated. The full fixed-budget sign and interiority theorem for all initial orientations with the effective bias and closed optimizer remains distinct on the inspected evidence.",
+      "residual_risks": [
+        "The bounded review does not certify priority. More general first-passage formulas may permit a different derivation, and an unlocated allocation result could cover it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and first-passage machinery, not the fixed-budget optimum",
+          "evidence": [
+            "Common wall release in §2.1 and §5",
+            "Centered equal-rate MFPT at Eq. 2.25; §5 permits separate rates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01158",
+          "material_read": "PDF pp. 5–9, 19–21; Eqs. 2.25 and §5",
+          "method": "Lawful author PDF, targeted passage comparison",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Same sticky-boundary process and distinct wall reactivities"
+        },
+        {
+          "assessment": "Prior MFPT formula with unbiased preparation; no fixed-budget optimization asserted in these passages",
+          "evidence": [
+            "Equal initial direction densities",
+            "Appendix A handles different distances to the two boundaries"
+          ],
+          "identifier_or_url": "10.1088/1751-8121/ad009e",
+          "material_read": "Eqs. 6–8, 47, Appendix A Eq. A1, pp. 4, 8, 13",
+          "method": "Lawful institutional PDF, equations inspected",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "General exit times with independent wall parameters"
+        },
+        {
+          "assessment": "Different design parameter",
+          "evidence": [
+            "Optimizes the bulk tumbling rate"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.11873",
+          "material_read": "PDF pp. 2, 6, passages near offsets 11737 and 32666",
+          "method": "Lawful author PDF",
+          "title": "Optimal escapes in active matter",
+          "trigger": "Closely related escape optimization"
+        },
+        {
+          "assessment": "Later-dated substantial overlap for equal-probability initial headings",
+          "evidence": [
+            "Positive split, common release, unbiased starting directions"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-optimal-allocation-of-two-sticky-reactive-walls-a-finite-speed-a--64d37101341a",
+          "material_read": "RESULT.md opening Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Optimal allocation of two sticky reactive walls",
+          "trigger": "Top catalogued overlap with fixed-sum allocation"
+        },
+        {
+          "assessment": "Distinct capture budget and wall dynamics",
+          "evidence": [
+            "Instantaneous reversal with per-collision capture, not exponential sticky holding and release"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-boundary-capture-allocation-transition-and-variance-selection-fo--61f92a1dbbba",
+          "material_read": "RESULT.md Finding and model assumptions",
+          "method": "Resultary local mirror",
+          "title": "Boundary capture allocation transition and variance selection",
+          "trigger": "Same-day two-boundary allocation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and derivative proof",
+        "Bressloff and Angelani first-passage formulations"
+      ],
+      "rationale": "A fixed amount of wall reactivity is a natural design constraint and makes all-at-one-wall choices plausible for strongly polarized or off-center starts. The theorem excludes both extreme allocations uniformly, gives an explicit optimum, and identifies how location and heading compensate. This is a complete design answer rather than an enumeration or a relabeled exit-time formula.",
+      "residual_risks": [
+        "No practical claim under anisotropic or non-exponential wall physics, and no finite-horizon ordering, is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-The attached `verify.py` is standalone and uses only the Python 3 standard library. Run `python3 verify.py` in the extracted directory. In the recorded run it reported `PASS: 18430 exact assertions`.
+## correctness
 
-Direct checks: for each \(0\le n\le12\), recursively enumerate every legal Motzkin excursion (including those of zero length), aggregate its exact horizontal-position mask, compare every multiplicity to the Catalan deletion formula, apply the integer fast Walsh transform to the resulting length-\(2^n\) vector, and compare every Fourier coefficient with an independently implemented nonnegative half-line transfer. Further checks verify thirteen initial Riordan counts and the symmetry, sign/monotonicity and minimum-gap properties of the transfer for every \(n\le60\).
+PASS
 
-The proof's infinite part is the exact identity \((A+I)(A-I)=A^2-I\), the entrywise nonnegativity of \(A^2-I\), and the central Riordan-path interpretation. Finite checks cannot certify an all-length result by themselves. No external independent audit, formal proof assistant certification, or analytic continuation of numerical observations is claimed.
+Deleting horizontal steps gives Catalan multiplicities depending only on profile weight, so weights index the entire spectrum. The half-line adjacency A counts the signed walks via factors A+I and A-I, which commute. Pairing opposite signs gives B=A^2-I, entrywise nonnegative including at height zero, and W_n(r) is the (0,0) entry of (A+I)^(n-2r)B^r. The difference W_n(r)-W_n(r+1)=2W_(n-1)(r) in the lower-half range is nonnegative by the same representation. B on even heights, with heights divided by two, forbids only the ground-level loop, so the central moment is R_floor(n/2); the extra factor A in odd length contributes zero by height parity. Every allowed profile has weight congruent to n modulo 2, proving complement sign reflection. R_0=1, R_1=0, and an up step, internal level steps and down step give R_m>0 for m>=2. The weight lists at n=0,1,2,3 are (1), (1,-1), (2,0,2), (4,0,0,-4), which give the claimed ranks and nullities by binomial multiplicity. At n=10 the Catalan count is 2188 and at m=5 the Riordan count is 6 (one internal three-level-step path and five paths with two up steps). Walsh orthogonality and comparison with the total mass give the signs, inverse norm and condition number in counting normalization. Inspected but did not run verify.py; python3 verify.py replays the reported finite checks, not the all-size proof.
+
+## originality
+
+PASS
+
+The supported distinct content is the monotone lower-half Walsh spectrum with a sharp central Riordan gap, the exact singular-length classification and counting recovery on ordinary Motzkin horizontal profiles for all lengths. Classical counts and a diagonal restriction at one length are credited. The strongest compared local findings either treat only length ten on a larger group, change the underlying path class, or change the statistic and the spectrum. This is a best-of-knowledge assessment.
+
+## value
+
+PASS
+
+Recoverability from natural count profiles is not settled by parity of the total count. The theorem identifies every exceptional length and gives the sharp noise amplification in the invertible cases, not merely a finite list of computed spectra. The link between a central Walsh mode and a different classical excursion class explains the entire spectral minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

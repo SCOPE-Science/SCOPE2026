@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
-Run `python verify.py` from the same directory with Python 3, NumPy and SymPy. The program prints `VERIFY_OK 1072` on success. Actual checks include exact SymPy identities for the inverse resistance envelope, its maximizer and near-optimal exponent derivatives; complete transition-matrix row-sum, symmetry, nonnegativity, spectrum and upper/lower bound comparisons for 121 integer order pairs; 225 randomized feasible non-orbit-invariant edge-weight assignments; and finite-dimensional convergence checks for perturbed bridge or gateway holding.
+# Independent mathematical audit
 
-The proof in RESULT.md establishes all quantifiers and inequalities analytically; floating-point eigenvalue checks cannot certify an infinite family. Checkable external inputs are the cited published papers, and no external training data or private infrastructure is needed.
+## correctness
 
-**Unproved limits:** No exact optimizer-face enumeration is supplied. The literature comparison is not an independent novelty certificate. No external independent mathematical audit has been performed.
+PASS
+
+For any admissible P, the centered spectral progress is no greater than the infimum Rayleigh quotient of I−P on 1⊥. A vector constant on each bulk has energy only at the three effective links A,c,B; minimizing over the gateways gives R(U−V)², while the centered norm squared is at least the bulk-only variance (U−V)²/s. A zero link gives a disconnection and zero progress, so the bound extends to boundary weights. The inequalities A,B≤1−c and (g−f(c))(1+c)=(c−c*)² give the bridge bound; the resistance difference 1/R−1/f(c) is at least the gateway holding sum, giving its claimed bound. The proposed stochastic kernel has two bulk zero-sum eigenvalues −x/n and −x/r and the given four-state quotient. Testing its variance at the bulk barycenter yields a Poincaré constant ≤1/(gs)+2/x+2/g≤1/(gs)+C/g. For n,r≥4 the quotient perturbation norm relative to the isolated bulks plus central block is ≤3x/4; the second eigenvalue is ≥1−gs from the same path test and lies strictly above all negative magnitudes and the other nontrivial modes. This verifies the finite sandwich for SLEM rather than just a one-sided gap. Compactness ensures attainment; substituting the sandwich gives the bounds for every optimizer. With balanced growing sizes the same comparison gives d(P)/s→R(c,h), and α=2g/(1−c*)²=1 gives R(c*,h)/g=1−h+O(h²), while the vanishing-holding loss is exactly quadratic from the displayed identity. Taking size large before sending the perturbation to zero establishes exponent sharpness, not tight finite constants.
+
+## originality
+
+PASS
+
+Pass is for the finite, uniform inverse stability theorem over all admissible kernels and its sharp exponents. It is not for obtaining an optimal SLEM or a bridge weight for an exact optimizer, for the limiting balanced bridge constant, or for a generic bottleneck estimate.
+
+## value
+
+PASS
+
+The result certifies robustness of actual bottleneck weights in arbitrary nearly fastest matrices rather than only producing one familiar optimizer. Constants uniform in both clique sizes and their ratio force an entry-level constraint even for nonsymmetry-reduced near optima, and the separate perturbations establish the best possible exponents in the stated regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

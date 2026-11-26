@@ -58,7 +58,7 @@ E_\lambda(\theta)=\frac{(\theta-\lambda)^2}{\lambda(\theta^2+t\lambda)}.
 \]
 Thus \(E_1=(\theta-1)^2/(\theta^2+t)\), \(E_{t^2}=(\theta-t^2)^2/[t^2(\theta^2+t^3)]\). Weighting these by \(1/(t+1)\) and \(t/(t+1)\) proves the risk formula.
 
-**3. Exact minimax certificate and strict derivative sign.** Put
+**3. Exact minimum certificate and strict derivative sign.** Put
 \[
 q_t(\theta)=\theta^2-t(t-1)\theta+t^2.
 \]
@@ -77,7 +77,7 @@ The sign on \(\theta>t\) is consequently the sign of \(q_t\). Its discriminant i
 
 For \(1<t<3\), this discriminant is negative, hence \(q_t>0\) everywhere. For \(t=3\), it is zero and \(q_3(\theta)=(\theta-3)^2>0\) for \(\theta>3\). Thus \(R_t\) strictly increases on \((t,\infty)\), and its infimum is the boundary value \(R_t(t)\), corresponding to \(\alpha\to\infty\), rather than a finite regularization.
 
-For \(t>3\), \(q_t(t)=t^2(3-t)<0\). Its two positive roots satisfy \(\theta_-<t<\theta_+\) and are \(t(t-1\mp\sqrt{(t-3)(t+1)})/2\). The derivative is strictly negative on \((t,\theta_+)\) and strictly positive on \((\theta_+,\infty)\), giving a unique minimizer. The square decomposition vanishes at \(\theta_+\), proving its exact attained risk. Evaluating the boundary value gives \(R_t(t)=2(t-1)^2/[t(t+1)^2]\), and subtraction yields the claimed positive gain.
+For \(t>3\), \(q_t(t)=t^2(3-t)<0\). Its two positive roots satisfy \(\theta_-<t<\theta_+\) and are \(t(t-1\mp\sqrt{(t-3)(t+1)})/2\). The derivative is strictly negative on \((t,\theta_+)\) and strictly positive on \((\theta_+,\infty)\), giving a unique minimizer. The square term vanishes at \(\theta_+\), proving its exact attained risk. Evaluating the boundary value gives \(R_t(t)=2(t-1)^2/[t(t+1)^2]\), and subtraction yields the claimed positive gain.
 
 **4. Condition-number obstruction.** The eigenvalues of \(F_\alpha A_t/\alpha\) are \(1,\theta,\theta,t^2\). Therefore
 \[
@@ -86,15 +86,15 @@ For \(t>3\), \(q_t(t)=t^2(3-t)<0\). Its two positive roots satisfy \(\theta_-<t<
 For \(t>3\), \(q_t(t^2)=t^2(t+1)>0\), while \(q_t(t)<0\), so \(t<\theta_+<t^2\), and equality holds at the unique risk optimum.
 
 ## Verification
-The independent direct-PCG computation in the accompanying \(\texttt{verify.py}\) checks the unnormalized energy identity for both right-hand sides across thousands of exact rational parameter choices; it also verifies four symbolic identities using polynomial/rational simplification and numerical instances of the unique minimizer. Execute \(\texttt{python verify.py}\) using Python 3 and SymPy. These computations check the algebra and implementation; the proof above, rather than finite sampling, establishes the theorem for all real \(t>1\).
+The accompanying \(\texttt{verify.py}\) checks the unnormalized energy identity for both right-hand sides on exact rational parameter examples, and checks the symbolic identities and numerical instances described in the script. It can be run using Python 3 and SymPy. These computations check the algebra and implementation; the proof above, rather than finite sampling, establishes the theorem for all real \(t>1\).
 
-For example, with \(t=10\), the initial squared risk is \(81/605\), the sharp optimized risk is \(4/45\), and the spectral condition number remains \(100\) at the risk optimum. The associated \(\theta_+\) equals \(45+5\sqrt{77}\).
+For example, with \(t=10\), the expected squared energy error at the initial guess is \(2/t=1/5\). After one step of ordinary conjugate gradients it is \(R_{10}(10)=81/605\). The sharp optimized one-step risk is \(4/45\), at \(\theta_+=45+5\sqrt{77}\), and the spectral condition number at that optimum is \(100\).
 
 ## Relationship to prior work
-Fan, Hu, and Zhang introduce Type-I additive reduced-basis preconditioning using the same \(\widetilde M+\alpha I\) inverse-preconditioner construction, chiefly analyzing nonsingularity, Richardson bounds, and FGMRES; their paper does not supply this two-query PCG risk classification. Diouane, Gürol, Mouhtal, and Orban already motivate choosing spectral cluster locations by finite-budget PCG energy error for a fixed system; that single-right-hand-side objective and its general analysis are prior work, not a claim of this result. Work on deflation across multiple right-hand sides likewise supplies context but not the stated balanced-workload threshold. The new assertion is the exact \(t=3\) division and unique risk optimum for the specified fixed Type-I regularization shared by two systems, including its sharp mismatch with spectral condition-number tuning.
+Fan, Hu, and Zhang introduce Type-I additive reduced-basis preconditioning using the same \(\widetilde M+\alpha I\) inverse-preconditioner construction, chiefly analyzing nonsingularity, Richardson bounds, and FGMRES; their paper does not supply this two-query PCG risk classification. Diouane, Gürol, Mouhtal, and Orban already motivate choosing spectral cluster locations by finite-budget PCG energy error for a fixed system; that single-right-hand-side objective and its general analysis are prior work, not a claim of this result. Work on deflation across multiple right-hand sides likewise supplies context but not the stated balanced-workload threshold. The assertion assessed here is the exact \(t=3\) division and unique risk optimum for the specified fixed Type-I regularization shared by two systems, including its sharp mismatch with spectral condition-number tuning.
 
 ## Limitations
-The two-query probability weights balance initial energy by design, and the matrix is a four-dimensional, exactly invariant, diagonal benchmark. It is a structural example, not a theorem about general large-scale preconditioner performance. The classical one-step PCG minimization formula is not claimed as new. Equal-weight or continuously distributed workloads can have other optima; no such extension is proved. A matching theorem under a different name in older spectral-preconditioning or average-case Krylov literature remains a possible bibliographic overlap until independently checked.
+The two-query probability weights balance initial energy by design, and the matrix is a four-dimensional, exactly invariant, diagonal benchmark. It is a structural example, not a theorem about general large-scale preconditioner performance. The classical one-step PCG minimization formula is not claimed as new. Equal-weight or continuously distributed workloads can have other optima; no such extension is proved. A matching theorem under a different name in older spectral-preconditioning or average-case Krylov literature remains a possible bibliographic overlap.
 
 ## References
 1. X. Fan, Q. Hu, S. Zhang, *Additive Reduced Basis Preconditioners for Large-Scale Parametrized PDEs*, arXiv:2609.11097v1, September 10, 2026, especially §3.1–3.5. https://arxiv.org/html/2609.11097v1

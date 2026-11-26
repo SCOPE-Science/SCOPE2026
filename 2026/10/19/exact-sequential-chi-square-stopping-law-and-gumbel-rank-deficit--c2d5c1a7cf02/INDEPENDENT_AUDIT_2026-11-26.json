@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:32.678037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–104; VERIFICATION.md; verify.py",
+        "/workspace/branches/independent_checks.py (case 5)"
+      ],
+      "rationale": "Conditional on the history at residual rank m, an orthogonal change of coordinates turns the fresh projected block into bm independent N(0,1/b) entries. Hence its squared Frobenius norm times b is chi-square with bm degrees of freedom, irrespective of basis orientation and prior failures. A failed test has full block rank almost surely for m>=b; rank zero terminates surely. Multiplying conditional failures and then the final success yields the claimed all-grid law, including q_n=0 if it occurs at small n. With q=q_n, j=m-q, and s=sqrt(b/(2q)), Stirling expansion of the standardized gamma density gives relative normal-tail accuracy uniformly for 0<=j<=C sqrt(q log q): choose the density truncation constant sufficiently large that the discarded Chernoff tail is smaller than the smallest normal tail in that range. Also chi-square stochastic ordering in m and the Chernoff bound at C sqrt(q log q) make the far-rank sum o(1) for C sufficiently large. The standardized mesh bs=b^(3/2)/sqrt(2q) makes the relevant hazard sum asymptotic to sqrt(2q)/b^(3/2) times the integrated normal tail at z=β+x/β. That tail is asymptotic to φ(z)/z²; requiring the leading hazard at β to be 1 gives exactly β²+4 log β=log(q/(π b³)). The hazard tends to e^(-x), its largest term tends to zero, and the no-success product limits to exp(-e^(-x)), with the stated cutoff and sign. The rank shortfall law then follows by tightness; bounded last-block deletion changes the Gumbel-scaled rank by at most bβs=o(1), not preserving the finite distribution. Independent replay: python3 /workspace/branches/independent_checks.py 5; 8,000 actual Gaussian QR stopping trajectories for n=12,b=3,q=6 agree with the exact PMF within test tolerance, and bounded incomplete-gamma products at b=1,4,16 show the predicted direction of finite-size convergence. The analytic hazard argument, not the latter comparison, establishes the limit.",
+      "residual_risks": [
+        "The derivation is limited to exact orthogonality, exactly flat spectrum, a fixed width for the limiting theorem, and the specified absolute threshold. The known bias at stopping does not contradict conditional unbiasedness before each test."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorman et al. derive rotational-invariance and Chernoff bounds for a single Gaussian estimator, allowing arbitrary singular values. Liu–Qu give certification guarantees for one validation batch reused through an independently constructed nested path. The targeted external query returned no matching result."
+        ],
+        "reasoning": "The general marginal bounds lack the relative lower-tail constants and sequential aggregation needed for the limit. Reused validation along a path has a different dependence structure and objective; its confidence guarantees do not entail the fresh uncalibrated extreme-value law.",
+        "searches": [
+          "Gorman et al., arXiv:1810.04125 §2.5, Theorem 2.2",
+          "Liu–Qu arXiv:2610.03321v1 abstract and certification setting",
+          "Focused primary-literature query for Gumbel sequential Gaussian Frobenius/sketch rank deficit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.06758v1, 1810.04125, 2610.03321v1 (passages above)",
+        "Local Resultary 8c50fd5eebb7, unresolved exact UUID and targeted primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original explicitly disclaims novelty of reported unit-block relative false acceptance and leading scale. The later inspected relative result states another first-success product and leading scale. The primary QB paper motivates and defines the individual inspection and offers relative thresholding via a cumulative RMS estimate."
+        ],
+        "reasoning": "A product of independent hazards is an elementary framework, not the sole contribution. A leading sqrt(n log n) result allows a wide range of lower-order centerings and fluctuation laws. A separate relative moderate-deviation calculation and integrated-tail normalization are needed to obtain the specified Gumbel order and constant. A prior first-passage result with a different normalization and no second-order limit does not yield them by substitution.",
+        "searches": [
+          "Frozen RESULT.md relationship paragraph at line 114",
+          "arXiv:2607.06758v1 Algorithm 3.1 and Remark 3.1",
+          "Resultary 8c50fd5eebb7, Finding plus Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith–Do–Chen Algorithm 3.1 draws normalized fresh Gaussian blocks and tests the matrix-free sketch before orthogonalization. The indexed exact beta first-passage result instead compares a residual sketch with a total sketch from the same fresh block."
+        ],
+        "reasoning": "Adopting the primary test with A=I and an absolute threshold gives the model, not its stopping distribution. Dividing by a fresh random total norm changes the rank-specific success law (beta versus chi-square); the cumulative relative normalization in Remark 3.1 is different from both and can depend on history. Neither is equivalent to the fixed deterministic denominator.",
+        "searches": [
+          "arXiv:2607.06758v1, Algorithms 2.1 and 3.1, Remarks 3.1 and 3.3",
+          "Resultary 8c50fd5eebb7, Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The UUID could not be resolved in the returned results; the frozen record describes it as unit-block estimated-relative tolerance with a leading sqrt(n log n) law. The closest verified mirror hit is 8c50fd5eebb7 with a fresh-batch relative beta first-passage law and leading deficit scale."
+        ],
+        "reasoning": "The target is a symbolic distribution and limit, not a numerical table entry. The cited UUID and the mirrored hit cannot be identified with one another. The inspected mirrored statement does not give the absolute chi-square law or the Gumbel centering.",
+        "searches": [
+          "Local Resultary exact UUID 88fc5e21-b8ad-4125-8a76-f940bc870968 and semantic searches for sequential QB and rank deficit"
+        ]
+      },
+      "rationale": "The raw Gaussian estimator and blocked inspection are antecedents. Qualitative false acceptance and the leading one-block deficit scale are expressly not claimed as new in the original. The supported distinct result is the exact all-grid absolute-threshold stopping law combined with fixed-width, second-order Gumbel asymptotics and the corresponding explicit centering. No verified equivalent or stronger claim covering this law was identified.",
+      "residual_risks": [
+        "The opaque earlier record was not independently resolved, and the searches were not exhaustive. A general rare-event theorem for drifting chi-square thresholds could provide an antecedent not identified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same underlying inspection, not the stopping-law theorem",
+          "evidence": [
+            "Normalized fresh block and test before orthogonalization in Algorithm 3.1; with the relative option, the tolerance uses a cumulative RMS estimated norm. Algorithm 2.1 is the explicit residual version, so the frozen Algorithm 2 citation is imprecise for the matrix-free version."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.06758v1",
+          "material_read": "pp. 6–8, Algorithm 3.1 and Remarks 3.1, 3.3 (offsets 22725 and 25064); p. 5 Algorithm 2.1 (offset 16990)",
+          "method": "Bounded OA PDF text",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Primary method supplying the tested Gaussian sketch and stopping rule"
+        },
+        {
+          "assessment": "Material overlap in method and leading order; distinct stopping statistic and law",
+          "evidence": [
+            "Fresh-batch residual-to-total ratio gives beta hazards and sqrt(r log r) leading deficit. The assumptions exclude a cumulative practical denominator; this is not the target's absolute threshold or second-order limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sequential-gaussian-frobenius-stopping-has-a-sharp-premature-ran--8c50fd5eebb7/RESULT.md",
+          "material_read": "Mirrored Finding, assumptions and Relationship paragraphs; offsets 0 and 8500",
+          "method": "Local semantic search and bounded mirror reading",
+          "title": "Sequential Gaussian Frobenius stopping has a sharp premature-rank law",
+          "trigger": "Closest verified indexed stopping-law result on flat spectra"
+        },
+        {
+          "assessment": "Treat qualitative and leading-scale overlap as credited by the original; exact earlier scope not independently confirmed",
+          "evidence": [
+            "Described as a unit-block estimated-relative threshold and leading sqrt(n log n) deficit including pruning; no proven identity with the other mirrored hit."
+          ],
+          "identifier_or_url": "88fc5e21-b8ad-4125-8a76-f940bc870968",
+          "material_read": "Only the description in frozen RESULT.md line 114; independent result not resolved",
+          "method": "Exact identifier and focused local semantic searches",
+          "title": "Earlier unit-block relative-tolerance result cited in the frozen record (title unresolved)",
+          "trigger": "Explicit earlier novelty limitation in the original"
+        },
+        {
+          "assessment": "Single-estimator distribution and probabilistic bounds; not the sequential limit",
+          "evidence": [
+            "Squared Gaussian probe norm equals a weighted sum of independent squared normals; averages have a Chernoff bound about the Frobenius error."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.04125",
+          "material_read": "pp. 12–13, §2.5, (2.22)–(2.26), Theorem 2.2",
+          "method": "Bounded OA PDF text at offset 44015",
+          "title": "Matrix-free construction of HSS representation using adaptive randomized sampling",
+          "trigger": "Broader adaptive Gaussian estimator and stopping context"
+        },
+        {
+          "assessment": "Different dependence and criterion",
+          "evidence": [
+            "The main result reuses one validation batch for an independently constructed nested path and controls erroneous decisions at a gap; not a new independent probe at each rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03321v1",
+          "material_read": "Abstract and introduction opening, offset 0",
+          "method": "Bounded OA PDF text",
+          "title": "Information Limits of Low-Rank Approximation Certification",
+          "trigger": "Plausibly broader guarantees across many certification checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–50, 96–118",
+        "arXiv:2607.06758v1 Algorithm 3.1 and Remark 3.3"
+      ],
+      "rationale": "On an exact flat-spectrum benchmark, the rule uses individually unbiased estimates but stops outside tolerance with probability tending to one. The complete finite law quantifies that risk across block widths, and the Gumbel centering gives a second-order rank calibration beyond the already known leading-scale failure. Showing that bounded last-block pruning cannot reverse the effect addresses the practical algorithmic distinction. This is a benchmark for sequential inspection, not a claim that identity matrices are compressible or that relative norm errors are large.",
+      "residual_risks": [
+        "The relative error in the residual tends to zero; extrapolation to decaying spectra, growing block widths, or a calibrated sequential rule is not justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

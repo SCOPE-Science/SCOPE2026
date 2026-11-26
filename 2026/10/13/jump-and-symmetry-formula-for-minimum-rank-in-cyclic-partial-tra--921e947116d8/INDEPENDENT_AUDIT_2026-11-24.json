@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:34:13.533064Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both letters commute with H translations, so every word image is a union of entire H orbits and its size is s times the quotient rank. Any period of the quotient pattern would lift to a period in H, so it has no nonzero period. The quotient residue partition modulo d=gcd(m,h) is preserved by b and permuted by a, bounding the quotient rank below by d. Independently of the interval proof, if two quotient states in the same class have gap jh, 1<=j<m/d, choose a translate of the active set containing the first but not the second. Such a translate must exist: otherwise equal cardinalities make the quotient pattern invariant by jh. The corresponding conjugate of b reduces the gap to (j-1)h. Iterating merges the pair. Successively merging two current image points in any nonsingleton residue class reduces its cardinality without ever undoing an earlier merger or crossing classes. This gives exactly d image points. If d=m the lower bound already gives equality; in particular m=1 (empty/full active sets) yields original rank n. Thus rank one is exactly s=1 and gcd(n,h)=1. The bundled finite exhaustive checks and word-witness code were inspected, not executed; the independent symbolic argument establishes arbitrary size, not shortest word length.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Volkov studies synchronization of primitive automata",
+          "Rystsov–Szykuła Theorem 25 concerns primitive automata with permutational or semiconstant letters",
+          "Kari–Ryzhikov–Varonka cover circular automata but do not compute rank in their length theorem"
+        ],
+        "reasoning": "The target includes imprimitive and nonsynchronizing automata, where exact rank is not a synchronization criterion. The general active-set letter is not required to be semiconstant; a length bound conditional on rank does not supply its value.",
+        "searches": [
+          "arXiv:2306.13317v1 Theorem 1",
+          "arXiv:2307.01302v1 Section 4 and Theorem 25",
+          "Kari–Ryzhikov–Varonka Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:740d35a02fd8",
+        "DOI:10.1007/978-3-030-24886-4_5",
+        "arXiv:2307.01302v1",
+        "arXiv:2306.13317v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h=1 the formula reduces exactly to the published stabilizer count",
+          "When gcd(m,h)>1 each quotient +h-cycle is a separate class that cannot be merged with another"
+        ],
+        "reasoning": "Unit-jump synchronization/rank cannot be invoked on a quotient jump cycle without further argument: shifts can induce several restricted patterns there, each with a period even though the full quotient pattern has none. The proof uses the ability to translate across all classes to merge within them while maintaining the lower bound; the checked prior statements do not provide that step.",
+        "searches": [
+          "Statement comparison with Resultary:740d35a02fd8 and arXiv:2307.01302v1 Theorem 25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE:740d35a02fd8 states r(n,A)=|H(A)| for h=1",
+          "Theorem 3 of Kari–Ryzhikov–Varonka is a minimum-rank word length bound with rank as input"
+        ],
+        "reasoning": "When h is invertible modulo n, rescaling states by h inverse and replacing a by a generating power of its cycle gives the same transformation monoid in the unit-jump model. The quotient number of +h cycles is gcd(m,h); for noninvertible h the cycle count and phase partition can be nontrivial, so the unit-jump equivalence does not extend to the whole claim.",
+        "searches": [
+          "Resultary: partial successor rank, necklace stabilizer, cyclic partial translations and jump gcd",
+          "Kari–Ryzhikov–Varonka: circular deterministic automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 740d35a02fd8, RESULT.md Finding, includes rank-distribution enumerators for the h=1 family"
+        ],
+        "reasoning": "Those enumerators cover only the unit-jump slice. A finite table of individual small automata would not determine this universal all-A, all-h classification.",
+        "searches": [
+          "Resultary: necklace stabilizer classification of rank in partial successor automata"
+        ]
+      },
+      "rationale": "The indexed unit-jump classification overlaps exactly and is credited; the passing contribution is the additional gcd obstruction and its simultaneous attainability for noncoprime jumps and arbitrary active sets. No inspected minimum-word or primitive-automaton theorem gives that classification. The overlapping record's displayed date does not decide priority.",
+      "residual_risks": [
+        "A general graph, circular-automaton, or pair-merging result under different terminology might yield the mixed-regime formula. The scoped comparison does not rule that out; deferred follow-up queries supply no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the h=1 specialization, not the noncoprime jump formula",
+          "evidence": "Minimum rank equals stabilizer order for every active set in the partial successor automaton.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-necklace-stabilizer-classification-of-rank-in-partial-successor--740d35a02fd8",
+          "material_read": "RESULT.md Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local-mirror comparison",
+          "title": "Necklace stabilizer classification of rank in partial successor automata",
+          "trigger": "Exact unit-jump specialization"
+        },
+        {
+          "assessment": "Length bound conditional on minimum rank",
+          "evidence": "The theorem's rank is specified as input; it is not a rank formula for these letters.",
+          "identifier_or_url": "https://hal.science/hal-02942499/file/DLT2019.pdf",
+          "material_read": "Theorem 3, p. 11, around offset 33200",
+          "method": "Lawful OA full-text passage",
+          "title": "Words of Minimum Rank in Deterministic Finite Automata",
+          "trigger": "Minimum-rank theorem for circular automata"
+        },
+        {
+          "assessment": "Restricted primitive/letter hypotheses and a different conclusion",
+          "evidence": "Theorem 25 treats permutational or semiconstant letters in primitive automata.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.01302v1",
+          "material_read": "Section 4 pp. 6–7 and Theorem 25 p. 11",
+          "method": "OA full-text passages",
+          "title": "Primitive Automata that are Synchronizing",
+          "trigger": "Synchronization for classes of transformation letters"
+        },
+        {
+          "assessment": "Synchronization conditions, not this exact minimum rank",
+          "evidence": "Theorem concerns primitivity, unlike the all-active-set all-jump scope.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13317v1",
+          "material_read": "Theorem 1 pp. 2–3",
+          "method": "OA full-text passage",
+          "title": "Synchronization of primitive automata",
+          "trigger": "Structural synchronization precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum image size is intrinsic to this natural two-letter automaton family. The theorem resolves exact ranks even when rank-one synchronization is impossible, and separates the cost of rotational symmetry from jump connectivity on its quotient. E.g. with n=24, a single active residue modulo 8 repeated three times, and h=4, the two factors give 3*4=12; neither the unit-jump symmetry count nor the jump residue count alone gives that value. This is a uniform structural classification, not a subset-graph computation or a shortest-word claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

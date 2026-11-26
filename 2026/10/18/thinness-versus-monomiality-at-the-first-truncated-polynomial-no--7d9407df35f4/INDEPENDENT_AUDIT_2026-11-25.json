@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:26:08.452841Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 39–73; independent check of arbitrary base ring points",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 4–129 (inspected, not executed)"
+      ],
+      "rationale": "In the valuation filtration each occupied order contributes one dimension. Orders 5 and 7 are absent, so the next coefficients of the two monic lifts are independent of the lifts. Modulo t^14 their only collision is u^3-v^2=(3α-2β)t^13. If it is nonzero the seven surviving monomials are independent; otherwise v²=u³ and the independent order-13 socle vector is needed. Order 11 is an additional independent annihilator in E8. The presentations and embedding dimensions follow, and choosing α=β=1 or α=β=0 realizes both types in every characteristic. In the thin algebra the independent coefficients of u² and z=u³=v² force the u and v coordinates of any square-zero element to vanish, whereas v becomes square-zero in the radical grading. The projected dimensions differ by one with or without the extra socle vector. This rules out standard-graded monomial quotients over every field. For the scheme claim there is an omitted step worth making explicit: over any test ring A, the constants of generator images generate a finitely generated nilpotent ideal J. Reduce modulo J² and write U,V,W for the augmentation-free image parts. In B_M the degree-two relations from u²v=uv²=0 give sU²+2rUV=0 and rV²+2sUV=0 with r,s the constants in J/J². The three displayed degree-two products of the reduced images form a basis since the reduced automorphism acts invertibly on the first layer and its symmetric square. Thus r=s=0 in J/J². In B_T, uw=vw=0 in degree one similarly give rW+tU=0 and sW+tV=0; independence on the first layer gives r=s=t=0 there. In both cases J=J² and nilpotence gives J=0. After this augmentation step, preservation of the rank-one third layer gives a a unit, u²v=0 kills v's u-coordinate, and in B_T the socle and v²=u³ give exactly the stated w-image and e²=a³. The inverse s=e/a needs no extraction of roots. This proves the normal forms, smoothness and point counts on the full functors, not just on field-valued points.",
+      "residual_risks": [
+        "The frozen write-up compresses the nonreduced-base augmentation step; field-point enumeration does not test it. The argument above checks it directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The power-series collision example concerns reduced bases in a subring of K[[x]], not abstract Artin algebras or group schemes.",
+          "The seven-dimensional algebras here have socle dimension three, so the Gorenstein classification excludes them.",
+          "The Segre criterion assumes J³=0 and first radical layer dimension two; both types here have J³≠0."
+        ],
+        "reasoning": "These candidate general results do not specialize to the desired classification and schemes.",
+        "searches": [
+          "arXiv:1412.4089, reduced-basis and value-semigroup collision at orders 4 and 6",
+          "arXiv:1511.08007, low-dimensional local Artinian Gorenstein classification",
+          "Resultary monomiality criterion 0eb926948571"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.03576 pp. 13 and §6",
+        "arXiv:1412.4089 pp. 5–6",
+        "arXiv:1511.08007 p. 1",
+        "Resultary 8b02a92d5c8e and 0eb926948571"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The order-12 collision and the first non-thin example are already supplied by Franco. That information gives the starting products but not a prohibition on every abstract monomial presentation.",
+          "The square-zero-lift obstruction and the full normal forms over nonreduced base rings are additional arguments; finite-field embedded counts do not control either."
+        ],
+        "reasoning": "The meaningful distinction is the intrinsic structure and its automorphism functor, not a reassertion of the older thinness test.",
+        "searches": [
+          "arXiv:1812.03576 Theorem 6, Propositions 7–8; arXiv:1412.4089 reduced-basis example",
+          "Resultary 8b02a92d5c8e and 0eb926948571"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Franco's 3a=2c is exactly the frozen δ=0 condition in its basis notation.",
+          "An ambient reparametrization restricts to an abstract isomorphism, but abstract isomorphism need not extend to an ambient change of parameter. The orbit catalogue counts the former and does not compute full abstract automorphism schemes."
+        ],
+        "reasoning": "Embedded, ambient-orbit and abstract classification are not equivalent; the shared coefficient equality must not itself be credited as original.",
+        "searches": [
+          "Franco Muñoz arXiv:1812.03576 §6",
+          "Resultary: reparametrization orbits at first non-thin truncation, 8b02a92d5c8e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Franco's exact q^7-q^6, q^6, q^5-q^4 and q^4 counts enumerate embedded subalgebras by stratum and thinness.",
+          "Catalogue 8b02a92d5c8e gives 11 and 29 ambient orbits over F2 and F4, and embedded totals 80 and 13,056. Its 11 is an orbit count, not an abstract scheme dimension."
+        ],
+        "reasoning": "Exact matches in ambient objects and a numerical coincidence do not give the four abstract types or the 11/13 functor dimensions.",
+        "searches": [
+          "Local Resultary: first non-thin truncated-polynomial subalgebras and monomiality of short local algebras",
+          "arXiv:1812.03576 Propositions 7–8"
+        ]
+      },
+      "rationale": "Credit is limited to the intrinsic four-type classification, the monomiality reversal and the two full seven-dimensional automorphism schemes. The valuation strata, equation for thinness, minimum truncation and embedded finite-field counts are already in Franco Muñoz. The closest ambient-orbit catalogue result uses a different equivalence relation; the inspected monomiality and local-algebra classifications do not have hypotheses covering these types. No exact prior coverage of the distinct intrinsic package was established in the bounded evidence.",
+      "residual_risks": [
+        "The broader search did not yield a useful match; this is not evidence against unindexed finite-algebra classifications or automorphism calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of embedded strata, thinness and counts; no intrinsic scheme in the inspected passages",
+          "evidence": [
+            "a³-b²=x^13 in the first example; thin iff 3a=2c in the parameterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.03576",
+          "material_read": "§6.1–6.2, Theorem 6 and Propositions 7–8, PDF p. 13, OA text offsets 46232–50983",
+          "method": "Original lawful OA PDF passage",
+          "title": "The existence of non-thin subalgebras of K[x]/x^n and related numerical monoids",
+          "trigger": "Identical truncation, strata and prior thinness test"
+        },
+        {
+          "assessment": "Method antecedent in a power-series setting",
+          "evidence": [
+            "Generators begin in orders 4, 6 and 13; the example analyzes coefficient-dependent reduced bases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.4089",
+          "material_read": "Reduced basis example 2.15, pp. 5–6, OA text offset 24662",
+          "method": "Original lawful OA PDF passage",
+          "title": "Bases of subalgebras of K[[x]] and K[x]",
+          "trigger": "Matching valuation generator and collision patterns"
+        },
+        {
+          "assessment": "Fails the required Gorenstein hypothesis in both examples",
+          "evidence": [
+            "The classification concerns Artinian Gorenstein algebras; the two seven-dimensional types here have three-dimensional socle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08007",
+          "material_read": "PDF p. 1, abstract and scope, OA text offset 0",
+          "method": "Original lawful OA PDF passage",
+          "title": "Classifying local Artinian Gorenstein algebras",
+          "trigger": "Potential broad classification antecedent"
+        },
+        {
+          "assessment": "Same embedded families, distinct orbit invariant",
+          "evidence": [
+            "11 and 29 ambient-reparametrization orbits; not the number of abstract classes or an automorphism scheme dimension."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-reparametrization-orbits-of-the-first-non-thin-truncated-polynom--8b02a92d5c8e",
+          "material_read": "RESULT.md at offset 205, finding, equivalence and counts",
+          "method": "Configured local Resultary mirror",
+          "title": "Reparametrization orbits of the first non-thin truncated-polynomial subalgebras over F2 and F4",
+          "trigger": "Strongest catalogue match on the same embedded families"
+        },
+        {
+          "assessment": "Different radical length",
+          "evidence": [
+            "Requires J³=0 and dim J/J²=2."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-segre-quadric-monomiality-two-generated-short-local-algebras--0eb926948571",
+          "material_read": "RESULT.md at offset 0, hypotheses and finding",
+          "method": "Configured local Resultary mirror",
+          "title": "Segre-quadric monomiality criterion for two-generated short local algebras",
+          "trigger": "Plausible general intrinsic monomiality test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Franco Muñoz Theorem 6 and Propositions 7–8",
+        "RESULT.md Finding and §§2–5"
+      ],
+      "rationale": "These are the natural first non-thin strata, not arbitrary low-dimensional examples. Turning their valuation condition into a complete intrinsic classification shows concretely that minimal generators in a valuation set do not detect abstract monomiality, even when the valuation set is unchanged. Smooth automorphism schemes in every characteristic and exact dimensions characterize the internal symmetries separately from the known embedding counts.",
+      "residual_risks": [
+        "The classification is restricted to E7,E8, and automorphism schemes are only asserted for the seven-dimensional types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

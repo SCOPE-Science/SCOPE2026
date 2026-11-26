@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:37:41.556868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three ordered distinct targets the witness-weighted product D_i D_j D_k sums exactly over one incoming comparison per target. A constraint pattern on v involved points has probability p^d, with p the linear-extension fraction for one uniform coordinate. I independently generated witness identifications by restricted-growth labels and counted extensions by a subset recursion (replay: python3 /workspace/branches/verify4_private.py). The three-edge maxima for v=3,4,5,6 are 0, 1/4, 1/6, 1/8; only the single external common predecessor achieves 1/4 at v=4, and all other v=4 patterns have p≤1/8. The disjoint-pair and common-predecessor terms have exactly (n)_6 and (n)_4 embeddings for ordered targets. They give λ³ and λ². In removing extra choices, D−1_{D≥1}≤binom(D,2), and telescoping the product bounds the difference by the four-edge pattern count with two distinct predecessors at one target. Its maxima are 0, 1/8, 3/20, 1/9, 1/12 at v=3 through 7, all with 2^v p²<1. Thus every error tends to zero when d=2 log₂ n+O(1). The advertised counts 51 and 124 reproduce for the script's relabelled keys; if one takes a full quotient by external relabelling there are 37 and 62 classes instead. This convention does not affect coverage or maxima. Continuous common marginals can be reduced coordinatewise with no ties almost surely. Weak convergence plus the different limit of E(N)_3 establishes failure of uniform integrability of the third factorial powers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1(ii) of Ilienko–Jin gives critical Poisson convergence for the non-Pareto count and convergence of mean and variance. Bhattacharjee et al. establish the Poissonized law in Theorem 2.6 and the binomial law in Corollary 10.3(iii).",
+          "The identified JSTOR and Cambridge routes for Bollobás–Brightwell did not yield readable primary full text; no section-level conclusion about that paper is asserted."
+        ],
+        "reasoning": "Even weak convergence plus convergence of second moments does not control third factorial powers. The inspected Poisson results therefore do not supply the claimed asymptotic.",
+        "searches": [
+          "Critical Poisson law, moments and high-dimensional random orders: Ilienko–Jin Theorem 2.1(ii); Bhattacharjee et al. Theorem 2.6 and Corollary 10.3(iii); Bollobás–Brightwell Random high-dimensional orders"
+        ]
+      },
+      "checked_sources": [
+        "Ilienko–Jin, arXiv:2603.18698v1",
+        "Bhattacharjee–Ilienko–Jin–Molchanov, arXiv:2611.01096v1",
+        "Bollobás–Brightwell, bibliographic record only",
+        "Resultary mirror: c663d8d03f4e, c37e0156932e and identical 309360c39979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the edge count, three disjoint pairs and both uniform orientations of the three-leaf star have the critical powers; the out-star and the in-star each contribute λ². On four vertices every other feasible three-edge pattern is a nonuniform star or a path, with single-coordinate probability below 1/4. At five vertices the bound is (1/3)(1/2), and on three vertices the bound is 1/6. This independently checks the distinct λ³+2λ² edge normalization without assigning its priority.",
+          "The vertex proof keeps only stars with a common predecessor; it still needs the separate four-edge bound to justify pruning extra choices in an unbounded moment."
+        ],
+        "reasoning": "Neither the different edge moment nor high-probability agreement is an implication for the vertex moment. The extra witness-control step is essential.",
+        "searches": [
+          "Ilienko–Jin §3 on the distinction between weighted and unweighted comparison counts; Resultary Pareto covariance and three-chain records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ilienko–Jin §3 separately defines S=ΣD_i and T=Σ1_{D_i≥1}; the unweighted statistic is T, also n minus the minima count. Equality of zero-event probabilities does not give equality of the third moments.",
+          "SCOPE-exact-pareto-frontier-comparability-covariance-and-three-high-di--c663d8d03f4e is a mixed covariance, including a fixed-n expansion not uniform in growing n."
+        ],
+        "reasoning": "Counting nonmaximal instead of nonminimal vertices by reflecting all coordinates would be equivalent. Switching from vertices to edges is not: large in-stars contribute multiple edges but only one target.",
+        "searches": [
+          "Resultary: third factorial moments of unweighted non-Pareto points at the critical comparable-pair threshold",
+          "Ilienko–Jin arXiv:2603.18698v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-a-third-moment-defect-for-non-pareto-point-counts-at-the-sparse--309360c39979 (Finding at mirror offset 594) is the identical frozen record. SCOPE-sharp-three-chain-cluster-correction-at-the-critical-high-dimens--c37e0156932e studies a second factorial cumulant of three-element chains, with correction 2n^5 20^{-d}.",
+          "The frozen record's related-work passage at offset 6712 asserts an earlier edge-count formula, but no distinct source for that priority claim was verified."
+        ],
+        "reasoning": "This all-sequence asymptotic is not a finite database entry. The exact indexed match is not independent prior evidence and the chain correction is about a different observable and moment order.",
+        "searches": [
+          "Resultary: exact sparse non-Pareto third factorial moment λ³+λ²; comparable-pair third-moment defect; high-dimensional chain corrections"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the inspected evidence is the exact third-factorial defect for the unweighted vertex statistic. Its known Poisson law and first two moment limits, and a separate calculation for ordered comparable pairs, do not imply it. No distinct exact indexed record was verified. The old random-order paper was inaccessible and remains a genuine historical-priority limitation, not evidence against coverage or a reason to stop the audit.",
+      "residual_risks": [
+        "No readable full text of Bollobás–Brightwell was retrieved; equivalent older moment asymptotics cannot be ruled out.",
+        "The edge-count coefficient is separately checkable, but a distinct historical source for the stated edge-count precedent was not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the Poisson law and two lower moments; distinguishes edge and vertex counts.",
+          "evidence": [
+            "Theorem 2.1(ii) is for n−K_{n,d_n}; Section 3 distinguishes ΣD_i from Σ1_{D_i≥1}."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.18698v1",
+          "material_read": "Theorem 2.1(ii), OA text offset 11214; §3 definitions at offsets 16400–16957",
+          "method": "Open primary HTML bounded passages",
+          "title": "Pareto points in growing dimensions",
+          "trigger": "Same vertex statistic and critical regime"
+        },
+        {
+          "assessment": "Poisson and binomial convergence statements in the critical window do not give the third moment.",
+          "evidence": [
+            "Corollary 10.3(iii) gives the binomial non-Pareto count limit Poisson(2^{-x}) at the critical shift x."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.01096v1",
+          "material_read": "Theorem 2.6 at offset 20820 and Corollary 10.3(iii) at offset 117128",
+          "method": "Open primary HTML bounded passages",
+          "title": "From Gaussian to stable and back: Non-Pareto points in growing dimension",
+          "trigger": "Stronger phase diagram in the same model"
+        },
+        {
+          "assessment": "Historical-priority risk remains; content not characterized from a landing page.",
+          "evidence": [
+            "Advances in Applied Probability 27 (1995), 161–184. Accessible route did not deliver the article body."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1428102; https://www.jstor.org/stable/1428102",
+          "material_read": "Bibliographic identification only; no usable full text in the accessed routes",
+          "method": "Attempted lawful JSTOR and identified Cambridge/OA routes",
+          "title": "Random high-dimensional orders",
+          "trigger": "Plausible older comparison-poset asymptotics"
+        },
+        {
+          "assessment": "Distinct statistics, orders or limits; neither covers the unweighted third factorial moment.",
+          "evidence": [
+            "The covariance record is mixed and its fixed-size expansion is not uniform in n; the three-chain record addresses the second factorial cumulant of the chain count."
+          ],
+          "identifier_or_url": "SCOPE-exact-pareto-frontier-comparability-covariance-and-three-high-di--c663d8d03f4e; SCOPE-sharp-three-chain-cluster-correction-at-the-critical-high-dimens--c37e0156932e",
+          "material_read": "Published mirror findings and scope at offsets 993 and 35, respectively",
+          "method": "Local Resultary discovery and local published record mirror",
+          "title": "Resultary Pareto/comparability covariance and high-dimensional three-chain cluster correction",
+          "trigger": "Closest distinct indexed comparison-count moments and diagram corrections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The defect is at the first higher factorial moment not controlled by the known two-moment Poisson approximation. It identifies a concrete rare three-target configuration and distinguishes the vertex count from the apparently interchangeable edge count. This explains a natural limitation of sparse-limit approximations, rather than adding only a numerical coefficient to a known convergence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

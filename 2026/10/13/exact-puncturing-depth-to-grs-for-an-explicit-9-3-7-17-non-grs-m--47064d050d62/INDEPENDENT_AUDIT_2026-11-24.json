@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:57:54.073750Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Exact independent modular enumeration"
+      ],
+      "rationale": "The generator matches Example 1. An exact independent finite reproduction confirmed all 84 three-column subsets are independent. On each surviving subset, evaluate the six quadratic monomials modulo 17 on (1,t^3,t^4). Rank below six detects a conic; no three points are collinear, so a singular conic (two lines over the algebraic closure, possibly coincident) cannot contain five of them. A smooth conic can be projectively parametrized with an unused rational point at infinity, giving an ordinary GRS code up to monomial equivalence; GRS columns conversely lie on such a conic. The independent enumeration of all 256 surviving sets gave rank-(5,6) counts (0,1),(0,9),(0,36),(6,78),(126,0) in descending size order. The six deletion triples matched exactly: {4,10,16}, {3,7,9}, {3,5,16}, {2,5,9}, {2,4,7}, and {0,2,3}. Hence the least puncturing depth is three. Replay: the frozen verify.py specifies the finite instance; independently, enumerate the subsets of S and row-reduce the rows (1,t^6,t^8,t^3,t^4,t^7) modulo 17.",
+      "residual_risks": [
+        "The census concerns puncturing this exact code with at least five surviving coordinates, not shortening or other members of the family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdukhalikov–Verma Proposition 3.6(a) has k<(n-2)/2; at k=3 this covers n>=9, not the size-seven, -eight or -six outcomes.",
+          "Wang–Liu–Luo Example 6.1 concerns a [7,4,4] code over F_11 and a specified position for both puncturing and shortening.",
+          "The indexed deleted-cubic result gives a six-point e_1 or e_5 test and a non-GRS cutoff at seven, for its different spans."
+        ],
+        "reasoning": "The original obstruction, the example in another field/dimension, and the separate deleted-cubic theorem do not decide the exceptional six-sets for this arc.",
+        "searches": [
+          "arXiv:2512.13429v2, Proposition 3.6",
+          "arXiv:2512.02325v1, Problem 6.3 and Example 6.1",
+          "Resultary: SCOPE-sharp-grs-recovery-by-puncturing-two-degree-deleted-cubic-evalua--a2a23d6dbfb6"
+        ]
+      },
+      "checked_sources": [
+        "Abdukhalikov–Verma, arXiv:2512.13429v2",
+        "Wang–Liu–Luo, arXiv:2512.02325v1",
+        "Local Resultary/SCOPE deleted-cubic recovery finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Five surviving points are GRS by the standard arc/conic argument. The full nine-column code is already known to be non-GRS. The primary proposition's length hypothesis is not preserved by even one deletion."
+        ],
+        "reasoning": "A general recognition procedure evaluates a specified puncturing; it does not state or specialize to the classification and exact cutoff without doing the new finite calculation. The distinct claim is the size-six and size-seven/eight profile and the resulting least depth, not the end cases alone.",
+        "searches": [
+          "Abdukhalikov–Verma Proposition 3.6(a) and Example 1",
+          "Wang–Liu–Luo Example 6.1",
+          "Indexed SCOPE deleted-cubic recovery theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem handles evaluation spans <1,x,x^3> and <1,x^2,x^3>, each on a cubic with a rational cusp (Y^3=X^2 Z or Y^3=X Z^2).",
+          "Exact cubic evaluation on the nine Example 1 columns has rank 9; in the monomial order X^3,X^2Y,X^2Z,XY^2,XYZ,XZ^2,Y^3,Y^2Z,YZ^2,Z^3 a generator of the nullspace is (0,6,4,12,8,5,4,2,6,1). None of its three-gradient zeroes is a point of PG(2,17), as checked on (1,y,z), (0,1,z), and (0,0,1)."
+        ],
+        "reasoning": "A monomial equivalence of the full codes would induce a projectivity taking their arcs to one another, hence would supply a rationally singular cubic containing this arc. The unique cubic through it has no rational singular point, ruling out that reduction. The conic and dimension-three Schur-square formulations give the same tested invariant, not distinct novelty.",
+        "searches": [
+          "Resultary: GRS recovery by puncturing; SCOPE-sharp-grs-recovery-by-puncturing-two-degree-deleted-cubic-evalua--a2a23d6dbfb6",
+          "arXiv:2512.13429v2, Proposition 3.6 and Example 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed comparison is the deleted-cubic recovery finding cited above, not a table for this F_17 example.",
+          "Example 1 lists the exact evaluation set and generator and states that it is non-GRS MDS; no deletion profile is in that example."
+        ],
+        "reasoning": "No inspected exact table supplies the 84-case six-survivor census or the six triples. The related indexed record's date alone has no bearing on priority.",
+        "searches": [
+          "Local Resultary/SCOPE semantic lookup for this puncturing-to-GRS profile",
+          "arXiv:2512.13429v2 Example 1"
+        ]
+      },
+      "rationale": "Credit the original construction, the general conic test, and the automatic five-point GRS case. The minimum depth and six successful deletion triples are a distinct unreported profile in the checked sources. The nearest indexed recovery theorem is not a special-case cover even after allowing a projective equivalence of the full arc.",
+      "residual_risks": [
+        "No claim of exhaustive novelty; an unindexed computation or alternate finite classification of this same arc may exist.",
+        "Ball–Lavrauw is background on arcs, not directly inspected for an exact table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unpunctured code and a length-restricted non-GRS theorem, not the new profile",
+          "evidence": "Example 1 gives q=17, n=9, k=3 and the identical powers 3 and 4; Proposition 3.6(a) requires k<(n-2)/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.13429v2",
+          "material_read": "Proposition 3.6(a), p. 11; Example 1 and context, p. 14 (offset 45367 onward)",
+          "method": "Lawful OA PDF, literal locators and bounded passages",
+          "title": "Two Families of Linear Codes Containing Non-GRS MDS Codes",
+          "trigger": "Exact generator and potentially stronger family statement"
+        },
+        {
+          "assessment": "Related phenomenon, not the assigned code",
+          "evidence": "Example 6.1 gives a non-GRS [7,4,4] code over F_11 for which its seventh-coordinate puncturing and shortening are GRS.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.02325v1",
+          "material_read": "Introduction, p. 3; Problem 6.3 and Example 6.1, p. 29 (offsets 103694–104676)",
+          "method": "Lawful OA PDF and literal locators",
+          "title": "New Constructions of Non-GRS MDS Codes, Recovery and Determination Algorithms for GRS Codes",
+          "trigger": "Prior explicit recovery of GRS by puncturing"
+        },
+        {
+          "assessment": "Different arc family; no monomial equivalence to the nine columns in this record",
+          "evidence": "The theorem treats (1,x,x^3) and (1,x^2,x^3), with six-point tests involving e_1/e_5.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-grs-recovery-by-puncturing-two-degree-deleted-cubic-evalua--a2a23d6dbfb6",
+          "material_read": "Finding and its recovery criteria for both polynomial spans",
+          "method": "Local Resultary lookup and local mirror full-text passages",
+          "title": "Sharp GRS recovery by puncturing two degree-deleted cubic evaluation codes",
+          "trigger": "Strongest matching indexed invariant and method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Example 1 and its non-GRS context",
+        "Independent exact census"
+      ],
+      "rationale": "Puncturing to GRS is a natural recovery invariant of the published explicit non-GRS MDS example. Knowing that three punctures are necessary and sufficient, and which six choices work, tells a reader how robust its non-GRS property is under deletion; neither the general recognition test nor the automatic five-point case gives that information. The contribution is finite and example-specific.",
+      "residual_risks": [
+        "No family-wide threshold or broader application is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

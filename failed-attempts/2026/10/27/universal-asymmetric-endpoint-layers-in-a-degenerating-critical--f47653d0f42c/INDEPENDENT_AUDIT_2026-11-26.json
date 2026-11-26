@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:54.105659Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1<ϑ<2 the two inverse branches are 1/2±u² and both absolute derivatives are w=u/(K+ϑu), with w(1)=0 and w(0)=λ=(1+ϑ/2)^-1. Applying the fixed-point equation to the W^{2,1} representative gives zero endpoint values; w(x)/(1-x)→1/(2K²) gives the derivative at one, and differentiation at zero gives h'(0)=λ²[h'(0)-h'(1)]. The uniform BV step can be made explicit: on a rank-n cylinder the inverse-iterate weight is a product of n monotone factors, each of sup norm and variation at most λ, so the product has sup ≤λ^n and variation ≤nλ^n. The product inequality followed by sup_C|φ|≤Var_C φ+||φ||_{1,C}/|C| gives a variation coefficient (n+1)λ^n and a weak-norm coefficient at most nλ^n/min_C|C|. Choose a fixed large n and restrict ϑ near two; fixed-rank cylinder lengths tend to 2^-n and the variation coefficient is strictly below one. Compactness then gives L¹ subsequential limits. Invariance passes to the limit: the weights converge in L¹ to 1/2, and the inverse branches converge uniformly; for BV test inputs, the L¹ composition error is bounded by a constant times the inverse-branch displacement times the variation (integrate the variation measure against the affine limiting branch). The unique tent-map density is one: for BV inputs the affine cylinder average differs from the integral by at most 2^-n Var. The disjoint-cylinder sup inequality in RESULT.md then gives locally uniform interior convergence. At x=1-K²s the scaled weight and interior preimages give U uniformly for bounded s. At x=K²s, left-preimage rescaling tends uniformly to s/2, the symmetric right-preimage term uses U, and iteration leaves a uniformly geometric remainder, giving V and slopes 1 and 1/3. Both profiles tend to one at large s by bounded convergence; no global uniform rescaled claim follows. The frozen verify.py and check_output.txt check samples of inversion, weights and profile recursion/slope sum, not the actual density's uniform BV bound or finite-parameter derivative equation; the supplied script was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 4.2 of 2610.23180 gives the same map's fixed-parameter density, and Thm. 6.1 varies Bernoulli weights at fixed maps. The second paper has strict exponent range −1<β<−1/2. The Nov. 1 record includes additional derivative-norm consequences."
+        ],
+        "reasoning": "Neither probability-law perturbation theorem covers the critical deterministic parameter limit. The exact indexed result does, on precisely the frozen family and with extra consequences.",
+        "searches": [
+          "Web: (\"endpoint layer\" OR boundary layer) invariant density cusp map parameter degeneration tent map critical cusp profile",
+          "arXiv:2610.23180v1 §§3–6",
+          "arXiv:2608.26969v1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, check_output.txt",
+        "Resultary Nov. 1 exact endpoint-layer record; Oct. 26 maximal-entropy record (6361762d8fbd)",
+        "arXiv:2610.23180v1 and arXiv:2608.26969v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop. 5.1 already specializes to h'_ϑ(1)=−h_ϑ(1/2)/K². The Nov. 1 statements include the other endpoint identity and both profile and bulk limits."
+        ],
+        "reasoning": "The first derivative trace is already known separately. The other record covers the entire remaining claim through direct substitution of scales, including the layer width. A different calculation of the same limits does not establish a distinct result.",
+        "searches": [
+          "arXiv:2610.23180v1 Prop. 5.1 and Thm. 6.1",
+          "2026/11/1/SCOPE-distinct-universal-endpoint-layers-when-a-square-root-cusp-disap--101c84be4744/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct Nov. 1 record, mirrored RESULT.md, offsets 0–7922 and 7900–11191: ε=2−ϑ scale, L¹ and interior-uniform convergence, both profiles, and both exact endpoint slopes."
+        ],
+        "reasoning": "K²=ε²/8. Substitute z=s/8 in its ε²z profiles: 1−(1+16z)^−1/2 becomes U(s), and the dyadically weighted left profile becomes V(s); its profile slopes 8 and 8/3 become 1 and 1/3. These are identical spatial asymptotics, not merely nearby cusp exponents.",
+        "searches": [
+          "Resultary: invariant density critical cusp map theta approaches 2 tent map boundary endpoint layer profile",
+          "Resultary: Oltiboev Vafoyev cusp invariant density parameter degeneration theta 2 boundary profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching theorem was available in the Nov. 1 mirror. An Oct. 26 same-family entry is about maximal entropy, not the absolutely continuous invariant density's asymptotics."
+        ],
+        "reasoning": "This is a continuum theorem, not a tabulated constant; theorem lookup is decisive. Different invariant measures are not interchangeable, whereas the Nov. 1 result uses the identical physical density.",
+        "searches": [
+          "Resultary: invariant density critical cusp map theta approaches 2 tent map boundary endpoint layer profile",
+          "Resultary: critical cusp family complex analytic continuation complex singularity locations endpoint density"
+        ]
+      },
+      "rationale": "A distinct inspected Resultary record, 2026/11/1/SCOPE-distinct-universal-endpoint-layers-when-a-square-root-cusp-disap--101c84be4744, covers the complete frozen finding: the same invariant densities, both modes of bulk convergence, both limiting endpoint profiles, and both slope identities. Rescaling distance by the fixed factor eight converts the statements exactly, and the other record also has stronger derivative-norm conclusions. This is demonstrable equivalent indexed coverage, not a finding about who derived it first. The earlier Oltiboev–Vafoyev article also already supplies the right endpoint derivative; its fixed-parameter and random-response theorems do not by themselves give the profiles.",
+      "residual_risks": [
+        "Catalogue dates do not establish priority or provenance; the negative decision concerns exact coverage, not copying or historical order.",
+        "The separate complex-continuation result mentioned without an identifier was not located; this does not affect the decisive equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen theorem and includes further derivative-norm statements.",
+          "evidence": "ε²z layers with slopes 8 and 8/3, both endpoint slope identities and interior-uniform and L¹ convergence.",
+          "identifier_or_url": "2026/11/1/SCOPE-distinct-universal-endpoint-layers-when-a-square-root-cusp-disap--101c84be4744/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–7922 and 7900–11191",
+          "method": "Local Resultary mirror; statement-level rescaling",
+          "title": "Distinct universal endpoint layers when a square-root cusp disappears",
+          "trigger": "Exact indexed match for deterministic tent limit"
+        },
+        {
+          "assessment": "Provides fixed-map regularity and right trace, not deterministic parameter layers.",
+          "evidence": "Eq. (3.1) has the same K and map; Thm. 6.1 varies mixing weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23180v1",
+          "material_read": "Eq. (3.1) p. 3, Prop. 4.2 p. 4, Prop. 5.1 pp. 5–6 and Thm. 6.1 p. 6; offsets 7500, 14368, 17528",
+          "method": "OA PDF passage location and offset review",
+          "title": "Critical cusp cancellation and analytic response for a Bernoulli random interval map",
+          "trigger": "Identical map and cited regularity/trace"
+        },
+        {
+          "assessment": "Different exponent range and perturbation.",
+          "evidence": "Strict −1<β<−1/2 and random probability-law perturbation exclude the frozen critical deterministic limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26969v1",
+          "material_read": "p. 1 exponent range and abstract",
+          "method": "OA paper passage review",
+          "title": "Linear response for random systems with a cusp",
+          "trigger": "Related cusp-parameter response"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement, bulk statistical stability alongside different profiles at the two endpoints gives quantitatively useful information that cannot be read from L¹ convergence. The layer width and asymmetric slopes describe the singular limit of the invariant measure. This scientific interest does not make the equivalent indexed result original again.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

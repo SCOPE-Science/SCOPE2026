@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Reconstructing the normalized Thomas–Fermi parabolic mass integral gives the stated \(F_a\). The expansion ODE yields \(\lambda(t)\sim\sqrt2\omega t\), making the weak-reset product integrable while the individual means decay like \(O(r\log(1/r))\). Thus the positive \(rC_0\) term dominates. At the first shell-entry time the shell mass has an explicitly positive quadratic onset, so Laplace asymptotics give the negative \(e^{-rt_c}/r^2\) term with the asserted coefficient. There is no reliance on finite enumeration for the universal quantifiers; the 269 numerical checks merely probe the formulas.
+## correctness
 
-**Originality — PASS, with residual risk.** The initiating arXiv paper was examined across its model, hydrodynamic derivation, renewal steady state, single-window counting section and appendices. Its formulas for density, age mixture, and single-window count are explicitly treated as prior results. The new claim is the sign-changing cross-covariance of disjoint core and shell counts, for every \(0<u<1<c<v\), together with both sharp rate asymptotics and independence of the large-rate leading coefficient from \(v\). Related Brownian-gas reset and general emergent-correlation work was compared, and no explicit counterpart was identified in the accessible examined material. A general conditional-mixture theorem or an unexamined full text may implicitly cover the result; independent priority evaluation remains necessary.
+PASS
 
-**Value — PASS.** This supplies a measurable multi-window statistic absent from a one-window marginal count: two disjoint, physically distinguished spatial regions can switch from correlated to anticorrelated as the reset rate changes, even while the reset environment is common to both. The result separates core depletion from onset of shell occupation and provides the exponential and algebraic scale of the anticorrelation. It is not a mere reformatting of the known stationary one-window density.
+Integrating the normalized parabola over the symmetric windows gives the displayed fractions. The stationary age of the common Poisson clock is Exp(r), so the covariance is over one shared scalar, not over separate reset ages. Integrating the scale equation yields lambda'^2=2 omega^2(1-1/lambda), with the increasing branch lambda(t) asymptotic to sqrt(2) omega t. A and B are bounded with O(1/t) tails, and B is zero through t_c and positive afterward. AB is integrable and positive on a set of positive measure. Dominated convergence gives E[AB]/r -> C0; splitting each marginal mean at t=1/r gives O(r log(1/r)), so their product is negligible at order r. For strong resetting, shift the entire covariance integral to t_c, writing its integrand as B(t)(A(t)-E[A]) times the exponential-age density. For t just above t_c, let z=c/lambda(t); then B=(1-z)^2(z+2)/2, so it starts as (3/2)(lambda'(t_c)/c)^2(t-t_c)^2. The factor A(t)-E[A] tends locally to A(t_c)-A(0), strictly negative because A decreases and t_c>0. Scaling t-t_c by 1/r gives the factor 2 from the exponential second moment; the rest of the age integral is exponentially negligible. This yields the negative coefficient and its independence of fixed v>c. The Laplace integrals are real analytic for r>0, so opposite endpoint signs ensure a sign-changing zero, without implying uniqueness. The benchmark prefactor is 89/486 for omega=1; a separate high-precision quadrature in the scaled edge-speed variable reproduces the benchmark C0 and signs, as corroboration only.
 
-**Limitations.** The result is for the large-particle Thomas–Fermi hydrodynamic approximation, not microscopic quantum shot noise. Crossing existence does not imply uniqueness; every spatial parameter is held fixed in the asymptotic limits. An implicit-prior-coverage risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the integrated core–exterior-shell covariance, with weak-to-strong reset sign reversal for every stated geometry and both sharp asymptotics. The common-age mechanism and one-window mass fractions are established inputs. Neither the inspected one-window FCS nor the closest indexed spatial covariance result gives these disjoint-window rate limits. Searches and source access are bounded, not a historical priority guarantee.
+
+## value
+
+PASS
+
+Disjoint windows in a reset condensate probe joint spatial behavior that single-window counting does not reveal. The theorem shows opposite signs for every admissible core/exterior-shell geometry and identifies a sharp activated decay at strong resetting, with the onset set by the inner radius but not the outer radius. This distinguishes late-age overlap from rare shell entrance, rather than just supplying a numerical example or a new name for the common-age representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

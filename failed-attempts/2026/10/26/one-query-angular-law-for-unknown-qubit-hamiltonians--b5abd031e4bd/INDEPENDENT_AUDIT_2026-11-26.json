@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:12:10.485062Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the ordinary single query of RESULT.md lines 5–48, averaging the squared sine and cosine gives 1/2 each and the sine-cosine cross term integrates to zero. Thus the alternatives are the channels E_j=(Id+Ad(H_j))/2, with an untouched ancilla allowed. For a pure input (sufficient by convexity), the shared branch cancels, and the trace norm of the output difference is √(1−|⟨H_0 H_1⟩|²), with expectation taken in the reduced qubit state. The Pauli product gives c+i(n_0×n_1)·r for its Bloch vector r. Its squared modulus is at least c² and a maximally entangled probe attains c² (a pure qubit in the plane of the axes also suffices). Equal-prior Helstrom then gives exactly 1/2+√(1−c²)/4; c=0 yields 3/4 and |c|=1 gives identical channels. VERIFICATION.md records an analytic derivation and boundary checks, not numerical or formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acín gives the minimized overlap squared |tr(U_0†U_1)|²/4 for arbitrary single-use qubit gates, over all probes with ancillas.",
+          "Sacchi's cited Pauli-channel formula uses fixed Pauli mixtures; Rexiti et al. compare strength at a fixed dephasing basis."
+        ],
+        "reasoning": "The decisive broader result is the arbitrary gate pair via cancellation, not an assumption that the two averaged dephasing channels are diagonal in a single Pauli basis.",
+        "searches": [
+          "arXiv:quant-ph/0102064 p. 3",
+          "arXiv:quant-ph/0506072 Eq. (17)",
+          "arXiv:2201.00388 §4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0102064",
+        "arXiv:2412.13067",
+        "arXiv:1408.0934",
+        "arXiv:quant-ph/0506072",
+        "arXiv:2201.00388",
+        "Resultary 94c0779f0fb6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let U_j=iH_j. Then |tr(U_0†U_1)|²/4=(n_0·n_1)² by the Pauli trace identity. Acín's optimal overlap gives fixed-gate output trace distance in trace-norm convention 2√(1−c²).",
+          "The common identity component halves the output difference for every probe, so the optimized norm is √(1−c²), with Helstrom success 1/2+√(1−c²)/4."
+        ],
+        "reasoning": "This specializes a published stronger theorem after an exact linear reduction, with the same probe/ancilla optimization. The corollary does not require a new discrimination bound.",
+        "searches": [
+          "arXiv:quant-ph/0102064 p. 3, Eqs. (16)–(17), text offset 14050",
+          "Frozen RESULT.md lines 17–25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "E_0−E_1=(Ad(iH_0)−Ad(iH_1))/2, and iH_j lies in SU(2). This equality persists on every ancilla extension.",
+          "Labeled projective-measurement discrimination in Sedlák–Ziman instead outputs a classical label; it is not the same experiment."
+        ],
+        "reasoning": "For the actual dephasing alternatives the shared branch cancels without access to a flag. Their diamond norm distance is exactly half the fixed-gate distance by homogeneity, not merely bounded by it.",
+        "searches": [
+          "arXiv:quant-ph/0102064 Eqs. (16)–(17): single-use qubit gate overlap",
+          "Resultary: discrimination of nonorthogonal qubit dephasing channels and Hamiltonian axis angle",
+          "arXiv:1408.0934 Eq. (1) and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zhu et al. give 3/4 for one query with equal priors in their exact orthogonal-axes theorem; the cited nonorthogonal discussion reports numerical optimization.",
+          "The closest inspected topical mirror optimizes a Liouvillian spectral gap over one dephasing-axis direction, not binary channel distinguishability."
+        ],
+        "reasoning": "The exact orthogonal value is directly recorded; a generic-angle table is neither needed nor relied on because the formula follows from a stronger theorem.",
+        "searches": [
+          "arXiv:2412.13067 Theorem 1 and p. 7 nonorthogonal discussion",
+          "Resultary: single-use qubit dephasing and angular law",
+          "Resultary 94c0779f0fb6 Finding and Assumptions"
+        ]
+      },
+      "rationale": "The generic-angle law is a direct consequence of Acín's published one-use result for arbitrary pairs of fixed SU(2) gates. The averaged channels are not themselves unitary gates, but the common identity branch cancels in their difference, so the optimized Helstrom advantage is precisely half the one for the corresponding fixed gates. This gives the complete frozen formula, not only its orthogonal endpoint.",
+      "residual_risks": [
+        "This comparison does not determine where the same angle law may have been printed explicitly, nor assess multi-query nonorthogonal recognition; neither issue changes the exact prior implication for this single-query claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger result after shared-branch cancellation",
+          "evidence": [
+            "Eqs. (16)–(17) give optimal fidelity |tr(U_1†U_2)|²/4 and an entangled extremizer; the text also identifies optimal unentangled probes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0102064",
+          "material_read": "p. 3, Eqs. (15)–(17), text offset 14050",
+          "method": "OA PDF passage",
+          "title": "Statistical distinguishability between unitary operations",
+          "trigger": "Potential stronger optimum for arbitrary fixed gates plus exact cancellation"
+        },
+        {
+          "assessment": "Exact orthogonal all-query special case; not decisive by itself for arbitrary axes",
+          "evidence": [
+            "Orthogonal optimum (k+max(p,1−p))/(k+1); nonorthogonal discussion is numerical."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.13067",
+          "material_read": "Theorem 1, p. 3, offset 22750; p. 7 nonorthogonal discussion, offset 45200",
+          "method": "OA PDF passages",
+          "title": "Optimal Hamiltonian recognition of unknown quantum dynamics",
+          "trigger": "Same unknown-time Hamiltonian model"
+        },
+        {
+          "assessment": "Different output channel",
+          "evidence": [
+            "The classical output reveals the measurement label rather than leaving the input qubit dephased."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.0934",
+          "material_read": "Eq. (1), Section IV, Theorem 3 and Eq. (35)",
+          "method": "OA PDF passages",
+          "title": "Optimal single shot strategies for discrimination of quantum measurements",
+          "trigger": "Projective-qubit measurement as an apparent alternate formulation"
+        },
+        {
+          "assessment": "Fixed common Pauli mixtures do not directly evaluate the generic pair",
+          "evidence": [
+            "Generic nonorthogonal dephasing axes are not jointly diagonal in that basis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0506072",
+          "material_read": "Eq. (17), p. 5, offset 13800",
+          "method": "OA PDF passage",
+          "title": "Minimum error discrimination of Pauli channels",
+          "trigger": "Cited earlier exact qubit-channel result"
+        },
+        {
+          "assessment": "Varies dephasing strength, not axis at fixed strength",
+          "evidence": [
+            "Uses fixed-basis Fock dephasing; qubit formula treats two strength values."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00388",
+          "material_read": "Eqs. (2)–(5), p. 2; §4.1, Eqs. (28)–(29), p. 6",
+          "method": "OA PDF passages",
+          "title": "Discrimination of dephasing channels",
+          "trigger": "Possible earlier exact dephasing-channel formula"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Optimizes real parts of Bloch-block eigenvalues for a semigroup; not one-query hypothesis discrimination."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-three-regime-dephasing-axis-control-of-the-single-qubit-li--94c0779f0fb6/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror full-text excerpt",
+          "title": "Exact three-regime dephasing-axis control of the single-qubit Liouvillian spectral gap",
+          "trigger": "Same-day topical indexed match on Pauli dephasing axes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The angular formula is a useful check on the unknown-time model, but the precise invariant is mechanically implied by the earlier arbitrary-qubit-gate optimum and a common-branch cancellation. The submission does not establish a distinct discrimination result beyond that corollary; the unrestricted larger-query problem is outside the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

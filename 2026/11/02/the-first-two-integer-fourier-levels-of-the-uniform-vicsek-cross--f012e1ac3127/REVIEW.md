@@ -1,15 +1,21 @@
-# Review of the two leading Fourier levels of the Vicsek cross measure
+# Independent mathematical audit
 
-## Correctness
-PASS. The self-similar digit law gives an exact product of five-term Fourier masks. The first nonzero ternary digit restricts contenders to an axis; the second digit leaves only signed residues of sizes \(1\) and \(2\). At every later level, the first deviation from either residue branch has a mask factor strictly below \(3/5\), forcing its total modulus below \(6/25\). A rational lower certificate establishes that the claimed second level is strictly above this threshold. The product comparison proves distinctness and all equality cases. The convolution-norm assertions are standard Fourier diagonalizations. The packaged finite checker supplies supplementary checks, not the infinite proof.
+## correctness
 
-## Originality
-PASS under bounded comparison, not a claim of global uniqueness. The 1983 Vicsek work introduces the self-similar geometry; Dutkay–Jorgensen's affine-IFS Fourier treatment addresses orthogonal exponential bases and general transform recursions, not ordered integer Fourier moduli. Cherny et al. study three-dimensional generalized Vicsek scattering and angular averages; Anitas et al. study two-scaling-factor Vicsek-like scattering. Jayanthi–Wu's similar-sounding frequency-spectrum paper concerns vibration eigenfrequencies, not measure Fourier coefficients. Earlier work on Cantor and Sierpiński-carpet coefficient extrema has different digit masks and does not imply this result. Detailed searches and source-material comparisons are recorded in `AUDIT.json`. An older exact lattice-diffraction computation could conceivably cover this theorem; no decisive matching statement was found.
+PASS
 
-## Mathematical value
-PASS. For a canonical five-map planar self-similar measure, the ordered Fourier magnitudes are natural spectral invariants of convolution on \(\mathbb T^2\). The result fixes the sharp first two norms and complete infinite equality families and separates the entire remainder by a universal explicit gap. This is a nontrivial frequency rigidity result, not a general-purpose elementary mask identity or a finite numerical census. It can be used in exact Fourier truncation and spectral-gap analyses of this singular convolution model, although no downstream theorem is asserted.
+Independence gives the five-digit mask product up to unit phase; stripping common 3-powers preserves modulus. For primitive pairs the first factor is at most 2/5, and is 1/5 if both coordinates are units mod 3. At level two a transverse nonzero lift gives factor at most 2/5, and axial residues ±4 mod 9 give factor strictly less than 3/5. The only other primitive paths are signed axial residues ±1 and ±2 mod 9. At the first later departure, a transverse lift again gives factor at most 2/5. For a purely axial departure the angle is, up to cosine symmetry, 2π/3 ± δ with δ=2πa/3^j≤4π/27<π/6 for j≥3 and a≤2. This last bound uses the explicit 3^j≥27 in the proof; the weaker inequality 3^j>6a by itself would not justify the stated angle interval. The factor is then strictly below 3/5, giving a product below 6/25. A path that never departs is the corresponding ordinary signed axial integer. The positive products at a=1 and 2 are strictly ordered termwise and the chord and geometric-tail bounds give B>4466/18225>6/25. Fourier diagonalization gives the two asserted norms on the stated subspaces. An independent decimal product and analytic tail estimate reproduce the reported decimals; no finite frequency box is used in the classification.
 
-## Limitations and risks
-The model and integer-lattice scope are precise. The third level is not optimized, and arbitrary real frequencies or other Vicsek measures are not classified. The 1983 original paper and the 1993 vibration paper were available only through abstracts/index metadata; those are residual access risks. The 2006 affine-IFS and 2011 scattering preprints were examined in substantial primary text, and the 2019 article's substantive sections and conclusions were inspected in its lawful open full text. Historical claims in accessible research records were checked for mathematical implication, without re-auditing them. The self-review does not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordered extrema and strict gap for this equal-weight planar cross measure are distinct from the inspected related theorems. The IFS Fourier product, the geometric construction, and ternary residue pruning as a technique are not credited as new.
+
+## value
+
+PASS
+
+The canonical equal-weight planar cross and its torus-convolution norms are natural. The first two moduli and all their infinite dilation families identify extremal eigenmodes, and the rigorous uniform cutoff separates them from every remaining mode. The residue calculation is model-specific, not a substitution into a formula already ranking all such measures. The separator is not claimed optimal as a bound on the third level.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is obtained by determining the anti-involution action on the diagonal quotient and the square-zero radical. Every basis arrow must go to its reversed edge multiplied by a nonzero scalar. The involution equations pair scalars along edge orbits: fixed edges contribute \(q+1\) norm-one possibilities and two-edge orbits contribute \(q^2-1\). The image family of primitive idempotents determines a unique radical twist; squaring forces that twist into the \(q^m\)-element fixed-radical space. Edge rescaling plus additive Hilbert 90 establishes conjugacy. The proof works for all prime powers, including characteristic two. Three independently organized finite verification scripts passed their stated exhaustive domains; the general claim is proved symbolically rather than inferred from those domains.
+## correctness
 
-## Originality — PASS relative to checked material
-The 2023 full-text work of Fornaroli establishes existence, decomposition, and conditional equivalence criteria, not this explicit all-characteristic height-two edge-orbit cardinality or complete conjugacy statement in the presence of outer multiplicative automorphisms. The 2019 Gargate–Gargate full text addresses square-one **elements** instead of anti-automorphism maps. Relevant mathematical database searches for the formula, including semilinear and unitary aliases, identified no directly covering result. The 2023 general decomposition is foundational prior art and its consequences are not misrepresented as new. Residual publication-priority risk remains because not every specialist source is available or searchable.
+PASS
 
-## Mathematical value — PASS
-This is a natural, complete counting and conjugacy classification for the entire infinite family of connected height-two posets, not a single ad hoc example. The count separates genuine graph/poset reversal data from field-size data; fixed-edge statistics affect labeled counts, whereas the equivalence classes depend only on duality conjugacy. Characteristic two is covered without the usual odd-characteristic classification hypotheses. The complete bipartite and crown specializations show distinct behavior and provide useful benchmarks for incidence-algebra involution problems.
+The radical is square zero; reduction modulo it and the nonzero edge bimodules force the induced permutation to be an order-reversing involution and the restriction to each edge to be the claimed Frobenius-semilinear map. In a lifted complete idempotent family, an edge coordinate may occur only at its endpoints, and the two coordinates are negatives. It is therefore obtained by a unique Ad(1+v), v in J; translations central in J are zero since they commute with all vertex idempotents. After this change, each fixed edge has q+1 norm-one coefficients and each paired orbit has q^2−1 choices; the square of the twisted reversal is Ad(1+v−rho_c(v)). Its fixed-twist space has q choices on a fixed edge (rescale via finite-field Hilbert 90) and q^2 on a pair. Independent edge scaling is multiplicative because J^2=0; it normalizes the coefficients. The remaining conjugation equation x+rho_c(x)=v is surjective onto the fixed space by field trace on each fixed edge and the one-free-coordinate construction on each pair. In characteristic two the trace is still nonzero: the kernel of x+x^q is exactly F_q. An automorphism permutes the quotient vertices preserving the same edge bimodules, and every poset automorphism lifts, giving the claimed orbit quotient. For the six-vertex crown, label the missing edges by equal indices. A duality is then an involution of the three indices: the identity fixes no actual edges, and a transposition fixes two; conjugation is ordinary S_3 conjugation. For the complete bipartite poset, all matchings are admissible, fix one edge per lower vertex and are conjugate.
 
-## Limitations
-The claim does not extend automatically to taller posets, disconnected incidence algebras, or other coefficient rings. Results of Fornaroli on general existence/decomposition are prior art; the count and strengthened family-specific equivalence assertion are the only asserted contributions. Completeness of external publication-priority verification is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general existence and structural decomposition to Fornaroli. The exact finite-fiber cardinality and unrestricted height-two conjugacy are the distinct conclusions supported by the checked literature: they use the unique square-zero twist, orbit-by-orbit norm and fixed-space counts, and rescaling plus trace in all characteristics. The prior equivalence theorem does not apply in characteristic two or to every height-two incidence algebra.
+
+## value
+
+PASS
+
+This is a complete finite-map census and conjugacy classification for a natural infinite family of algebras. The fixed-edge statistic determines actual map counts even when the quotient by algebra automorphisms retains only duality orbits. The all-characteristic result covers cyclic comparison graphs and characteristic two excluded by the most relevant earlier equivalence hypotheses; it is not just a small triangular example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

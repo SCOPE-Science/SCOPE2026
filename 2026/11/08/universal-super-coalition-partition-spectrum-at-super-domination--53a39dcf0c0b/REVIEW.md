@@ -1,15 +1,21 @@
-# Scientific review: super-coalition spectrum at defect two
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is isolate-free finite graphs of order \(n\ge6\) with \(\gamma_{\mathrm{sp}}(G)\ge n-2\). All super dominating sets leave exactly zero, one, or two omitted vertices, with the allowed pairs forming an auxiliary graph. This complement criterion is proved using the literal selected-witness rule. The partition proof exhaustively separates two, three, four, and at least five blocks; the only nontrivial overlap correction arises from six-vertex partitions into three feasible pairs, explaining the subtraction of twice the perfect-matching count. The three-singleton argument supplies a bijection for four blocks and the sharp triangle criterion. An independent implementation of the witness rule and direct set-partition census verifies all eligible labelled six-vertex graphs and additional larger examples, and the pair-graph derivation is symbolic for arbitrary order. The finite verifier cannot independently certify infinitely many instances.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The preprint *Super Coalition Number in Graphs* (Alikhani–Ghanbari, arXiv:2607.22686, first public 2026-07-15) introduces the invariant and treats selected scalar graph families. The prior public result *All super dominating sets of complete multipartite graphs* establishes the feasible-pair classification for that family, but not super-coalition partition counts or coalition-graph topology; it is cited and not renamed as new. The universal partition-spectrum formulas and triangle criterion were not identified in searches over mathematically equivalent language, the named preprint abstract, or the complete inspected prior result. Direct examples having the same full super-domination cardinality polynomial but different coalition number demonstrate that the new spectrum is not a numerical restatement of the earlier size polynomial. The 2026 motivating full text was inaccessible, so an overlap possibility remains and the priority assessment is provisional.
+PASS
 
-## Mathematical value — PASS
-This gives an exact and structurally motivated classification of every super-coalition partition across a broad, mathematically natural defect-two class, not just a graph-family scalar. It isolates the role of triangles in an auxiliary graph, gives a sharp dichotomy between three and four classes, identifies all maximizing partitions and their coalition graphs, and yields an explicit infinite family of multipartite spectra. The contrasting six-vertex graphs show why the exact coalition fact cannot be recovered from the known super-domination size polynomial. The result is neither a finite-census-only assertion nor an arbitrary local parameter slice; it explains a general structural transition.
+The original complement and block arguments are correct: every possible successful pair leaves at most two vertices, forcing the large block and triangles for four classes. At three classes the feasible omitted one-block sizes give profiles (1,1,n-2), (1,2,n-3), and (2,2,n-4), with an n=6 perfect matching counted three times and thus a subtraction of twice its count. The genuine repaired claim concerns nondetermination and minimality rather than these formulas. The size bound from distinct witnesses excludes omissions of size at least three for n=5. Direct pair tests give six feasible pairs in both P5 and K2,3, but a triangle only in the former. A four-block partition at order five is precisely one doubleton with the other three vertices singleton, and the three partner unions require the three corresponding omitted pairs; K2,3 also explicitly has a valid three-block partition. On three vertices all singleton classes can partner; the exhaustive six connected isomorphism types on four vertices give (number of feasible pairs, C_s) equal to (0,3), (2,4), or (4,4); the polynomial therefore still determines C_s. The original six-vertex pair has no feasible triple, with identical omitted-set counts but distinct spectra; the witness and partition computations independently match all stated coefficients.
 
-## Limitations and verification
-The hypotheses, exceptional six-vertex perfect-matchings, and non-sharpness outside defect two are explicit. The verifier checks finite cases by a different algorithm; full correctness rests on the symbolic proof. The 2026 motivating full manuscript and some alternative nomenclature remain unverified priority risks. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired statement is the first connected obstruction to recovering the coalition number from the size-only super-domination polynomial, with an additional six-vertex obstruction even to recovering the three-block coefficient. The earlier enumerator results are credited and not claimed afresh. Their dependence on more than |E(H)| does not by itself exhibit a realizable collision, let alone its first order; matching source checks did not establish an earlier exact collision and cutoff.
+
+## value
+
+PASS
+
+A natural inverse question is whether the previously computed set enumerator already determines coalition data without tracking vertex labels. Finding the smallest connected obstruction makes the precise loss of information usable, and the six-vertex pair shows loss not only of the maximum but also of the three-block frequency. This is a realizability counterexample and a motivated exact cutoff, not a small-table recomputation of the prior general census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

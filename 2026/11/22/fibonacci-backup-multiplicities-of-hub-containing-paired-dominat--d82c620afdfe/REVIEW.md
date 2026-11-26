@@ -1,19 +1,21 @@
-# Review of Fibonacci backup multiplicities of hub-containing paired domination in wheels
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every labelled \(W_{n+1}=K_1\vee C_n\), \(n\ge3\), and only for paired-dominating subsets containing the hub. The structural lemma proves that any proper selected rim subset must have precisely one odd-length selected path component; its \(2a+1\) vertices permit exactly \(a+1\) possible partners for the hub, and every even selected path component has a unique perfect matching. This yields the whole bivariate distribution with the matching *count* as the second exponent. Coefficient extraction gives the exact distinct-set and unique-pairing Fibonacci counts; an independent bijection using the hub's matched edge gives the witness total \(nF_n\). Both a direct recursive Python checker and an independently coded C++ subset-DP checker passed from current artifact paths. Boundaries \(n=3,4\), all-rim exceptional states, labelled rotations and matching-count normalization were explicitly checked. Finite tests supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+The hub supplies domination but must use exactly one matching edge. For a proper rim selection, its endpoint lies in the sole odd path, and it must be at an odd position so the residual pieces have even orders. The even pieces each have one matching, giving a+1 choices on a run of length 2a+1. Full rim yields n choices if n is odd, zero otherwise; a hub singleton has no matching. The labelled starting point of the distinguished odd run is unique, so no rotation quotient occurs; the odd run with a positive following gap gives A and each subsequent even run with positive gap gives E. The geometric series yields the whole bivariate census, with y raised to the per-set count. At z=y=1 the proper factor simplifies to x²/(1−x−x²); for y-degree one its factor is x²(1−x²)/(1−x−x²). Counting witnesses by the spoke followed by arbitrary matchings of the remaining path gives nF_n; this is not a third count of vertex sets. Ratios and multiplicity support follow, including n=3,4. Independently enumerated global matchings projected to their endpoint sets and compared every joint coefficient through rim size 17: python3 /workspace/evidence/3-matchings.py. Reviewed VERIFICATION.md, the two supplied checkers and their recorded output without executing them; the recorded Python totals include hub-free sets, whereas the independent check groups only hub-containing sets. The proof is all-order, not an extrapolation.
 
-The closest earlier exact paired-domination polynomial of a cycle (recoverable earlier claim, not reproduced) covers *hub-avoiding* sets only; this theorem expressly excludes those sets, and additionally records the nontrivial multiplicity of pairings for hub-containing selected subsets. The fully inspected wheel sections of Eakawinrujee's 2023 dissertation state the paired domination number and the optimum exchange graph, without classifying all hub-containing subsets by backup multiplicity. Inspected published results for generalized windmills have clique blades, and for circular ladders address a different graph and count witnesses by separate objects; these do not imply the wheel formula. The original Haynes–Slater definition provides only the general concept. An abstract-only 2016 paired-domination polynomial publication says some standard families were computed without naming them: its unavailable full exposition and unindexed literature remain historical risks, not evidence of novelty. Specific statement-level and alias searches in mathematical records and general literature identified no covering result.
+## originality
 
-## Value — PASS
+PASS
 
-The number of available perfect matchings is a natural fault-tolerance parameter of paired domination: two vertex sets of the same cardinality can have different numbers of admissible backup assignments. The full joint counting polynomial determines *every* multiplicity stratum, while the three sharp Fibonacci identities distinguish distinct deployments, uniquely paired deployments and all backup witnesses. They imply a limiting unique-pairing fraction \(\varphi^{-1}\) and mean backup redundancy \(\varphi\), a precise reliability phenomenon on a canonical infinite graph family. A prior all-cardinality polynomial without the multiplicity marking cannot answer these questions. The result is not a claim of a general graph algorithm or independent publication priority.
+The supported distinct result is the complete joint distribution by size and per-set perfect-matching multiplicity in labelled hub-containing wheel sets. Existing paired-domination minimums and matching counts by witnesses are partial information only. The elementary nF_n witness bijection is not a separate priority claim about the wheel matching polynomial.
 
-## Limitations and closest work
+## value
 
-Labelled, hub-containing wheel deployments only; no assertion about all hub-avoiding cycle solutions or minimal-set reconfiguration. Historical uncertainty persists for the 2016 abstract-only paired-domination polynomial and unindexed literature. The analysis includes the relevant substantive sections of the 2023 dissertation and the complete publicly available related mathematical-result statements. The two verifiers test finite wheel sizes; all orders depend on the symbolic proof and matching bijection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a fixed selected set, alternative perfect pairings are a physically interpretable redundancy count distinct from either selected-set size or total witness count. The exact joint distribution separates uniquely paired deployments from those with alternatives over a natural infinite family, with explicit exception, support and limiting proportions. It does not establish resilience to an arbitrary specified edge or vertex failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

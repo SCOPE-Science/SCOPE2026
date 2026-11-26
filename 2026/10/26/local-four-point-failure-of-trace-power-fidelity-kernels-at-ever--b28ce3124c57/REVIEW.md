@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The qubit trace/determinant calculation gives three explicit power-kernel entries; four-point circulant diagonalization reduces the claim to one alternating eigenvalue. A rational resolvent identity has exactly one sign change, while equality of the logarithmic integrals makes its positive weighted moment strict for every fractional exponent. A block embedding proves all dimensions, and the generalized binomial expansion gives the quartic coefficient. Exact rational checks and independent numerical 2-by-2 matrix products reproduce the necessary identities. All relevant assumptions, strict endpoints, and normalization have been checked. Finite tests are not taken as infinite proofs.
+## correctness
 
-## Originality — PASS with priority risk
-Vuong--Osaka (2026), Theorem 1.1 and Remark 2.4, prove three-point positivity and a boundary-purity, four-point counterexample. They do not establish failure for arbitrarily small nonzero Bloch purity, the complete faithful-state parameter range, or the quartic coefficient. Fannes et al. (2011) establish the classical fidelity context and four-point counterexamples, but not this all-exponent local-isospectral theorem. Classical fractional entrywise-power results do not automatically compare to the noncommutative trace-power kernel on four strictly positive states. Targeted indexed comparisons did not reveal an implication covering the present exact local law. Equivalent results in unindexed literature remain possible.
+PASS
 
-## Mathematical value — PASS
-The result determines whether the recently established order-three positivity phenomenon can persist locally at four points near the maximally mixed state. It shows no positivity neighborhood exists even under a common-spectrum, full-rank constraint, in every matrix dimension, and identifies the first nonvanishing quantitative defect at fourth order. This is a motivated stability boundary, not merely a new arbitrary numerical example.
+The Finding itself is correct. Independently, write c=1−q² and F(x)=cosh(r arcosh x). The two-dimensional product spectra, after extracting their common geometric mean, give x=1, 1/c, (1+q²)/c for opposite, adjacent, and identical states. These x are equally spaced. The alternating eigenvalue is the corresponding second difference of F times 2(c/d²)^r. F is strictly concave for 0<r<1: at x=cosh t, F′=r sinh(rt)/sinh t decreases because z coth z is strictly increasing. Its expansion F(1+v)=1+r²v+r²(r²−1)v²/6+O(v³) gives exactly the claimed quartic term. The other nonconstant eigenvalues are strictly positive by strict AM–GM; the inactive block affects only the positive constant eigenvalue. The frozen resolvent proof also checks: writing V=s²+2s+c², the product polynomials have quotient (V²−4q⁴s²)/V², giving the stated logarithmic derivative and single crossing. Fresh matrix spectra (18 cases, replay: python3 /workspace/evidence/review_checks.py 4) agreed to 1.0e−15; finite corroboration only. The frozen RESULT.md line 87 overclaims every strictly positive common spectrum, which includes the all-scalar spectrum where the only state is I/d and the Gram matrix is constant. repairs/4/RESULT.md corrects the quantifier to the stated Pauli-corner spectra and clarifies the pure-state overlap; the proof and Finding are unchanged and the three axes are assessed for that corrected text.
 
-## Limits
-The theorem gives an explicit witness family but does not optimize over all four-state ensembles. The proof is self-reviewed; no independent audit or full priority certification is claimed. An inaccessible complete version of the original 1977 Hadamard-power paper remains an external-literature risk, but its stated object is different.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pure-state nonpositivity, including the pure Pauli square, is already known; the supported contribution is the strict faithful-square obstruction for every interior q and every fractional r, with exact inertia and a quartic small-q law. The strongest compared statements do not give those features.
+
+## value
+
+PASS
+
+This determines whether the three-point positivity phenomenon survives locally at four points even with full rank and a common spectrum. Exact inertia for the entire faithful square family and the first nonzero q⁴ defect are substantive stability information beyond a numerical example or continuation near pure states. The repair removes an unsupported generalization without diluting that contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

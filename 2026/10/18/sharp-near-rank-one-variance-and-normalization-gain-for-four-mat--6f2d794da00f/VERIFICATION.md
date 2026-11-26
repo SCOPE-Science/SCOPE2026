@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The executable `verify.py` uses only Python, NumPy and SciPy. From the directory containing the file, run `python verify.py`; versions and minimal dependencies are specified in `requirements.txt`. The saved output is `verification_output.txt`.
+## correctness
 
-The checker reconstructs the two original XTrace trace estimates using direct vectors, orthogonal projections and quadratic forms, rather than evaluating only the asymptotic formulas. It also computes the independent one-probe conditional-variance integrals through the beta distribution \(X^2/(X^2+R^2)\sim\operatorname{Beta}(1/2,(n-1)/2)\), checks the \(\varepsilon\)-scaled singular coefficient, and computes rare-event probabilities from the exact folded-Gaussian interval condition. The tested dimensions are \(2,3,4,6\), with positive \(\varepsilon\) values down to \(0.001\); six simulation configurations use 600,000 paired Gaussian samples each, with seeded random generation. All programmed assertions passed in the recorded execution.
+PASS
 
-**Interpretation:** Finite quadrature and Monte Carlo corroborate the derived finite-parameter identities. They do not prove the \(\varepsilon\downarrow0\) limit or exclude all alternative literary sources. The proof in `RESULT.md` supplies dominated convergence, the exact spherical conditional variance, and an analytic bound on the dependence of the two leave-one-out terms. No separate expert or independent audit has been performed. Numerical values may vary slightly with the installed floating-point library and random generator, within the stated assertion tolerances.
+For each fixed opposing sketch, the residual restriction is εI+(1−ε)vvᵀ in dimension d=n−1 with ||v||²=H=ε²R²/(X²+ε²R²). Both basic estimates have conditional mean tr A. Gaussian and uniform-direction moments give conditional variances 2[S²+(d−1)ε²] and 2(d−1)(1−ε)²H²/(d+2), with S=ε+(1−ε)H. The |X|/R density is K(1+a²)^{−n/2}, K=2Γ(n/2)/(√π Γ((n−1)/2)); scaling a=εu gives E H²/ε→Kπ/4=c_n and E H=O(ε). The mixed product is O(ε²) because each direction determines its own S and is independent of its Gaussian radius, independently for the two sketches. Thus averaging halves the leading individual variances. When n=2 the normalized residual uses the exact Rayleigh value on the one-dimensional complement for every defined probe. The repaired tail uses a<ε√((1−t)/(t−ε)), whose scaled probability tends to K√((1−t)/t). For equal means and equal basic variances v, E V̂=(v−c)/2 and Var(T)=(v+c)/2; hence the repaired difference is exactly −c=O(ε²). Those identities independently establish the affected proxy and tail statements.
+
+## originality
+
+PASS
+
+Neither the original estimator, its residual normalization, nor the general expected-proxy identity is claimed new. The surviving claim determines sharp constants for the two original Gaussian estimators on the spiked family, proves that correlation does not affect the leading term, and measures the rare high-residual events. The inspected sources give general bounds or different probing and residual constructions, not these coefficients or an implication for them.
+
+## value
+
+PASS
+
+In a natural numerical-linear-algebra stress family the error is driven by rare failed sketches, not typical residuals. The result quantifies the exact gain of an existing normalization and distinguishes the two-probe dependence from leading single-probe noise. The budget is below dimension for n≥5. This remains useful without a claim of algorithmic optimality or universal normalization benefit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

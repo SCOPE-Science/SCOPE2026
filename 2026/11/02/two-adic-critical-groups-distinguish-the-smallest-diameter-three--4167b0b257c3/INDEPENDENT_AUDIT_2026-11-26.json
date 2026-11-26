@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:05:05.119645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The base graphs have A^2=4I+2J, degree six and adjacency eigenvalues 6,2,-2 of multiplicities 1,6,9, respectively. Products with K4 give Laplacian eigenvalues 0,4,8,12 of multiplicities 1,9,27,27; the reduced determinant is 2^147*3^27 by the matrix-tree theorem. Independent exact replay python3 -B /workspace/reproduce_frozen.py 4 regenerates both adjacency relations, checks intersection numbers from every basepoint (9,6,3;1,2,3), the full characteristic polynomials, both integer reduced determinants, and all local factors of the cofactor deleting the first vertex. The independent algorithm splits off an entire unit rank block, clears it, then divides the complementary block by p and repeats. This extracts the multiplicity of each p-adic valuation; all factors are recovered with no truncated final block. For exponents 0–6 the two-primary lists are (28,3,4,2,6,14,6) and (28,1,8,0,6,14,6); for 3 they are (36,27) at 0,1. The determinants rule out further primes, and the 28 unit factors give rank 28 mod two. The sum of min(e,2) is 67 and 69, respectively, so the two groups are distinct. This proves the finite computations, not a formula for other Doob graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JNR Theorem 2 evaluates primes coprime to all complete-graph factor sizes and therefore the Hamming 3-part; Theorem 13 covers Hamming at 2 as well via blocks. For three factors all of size four, Definition 10 and Theorem 13 give M(12; 4 repeated r times) with multiplicity 8,12,6,1 for r=0,1,2,3. The small block Smith lists are [12], [1,96], [1,1,16,192], [1,1,1,1,2,32,96,0]. This produces exactly the Hamming lists after omitting the free zero.",
+          "Proposition 9(iv)–(v) applies to arbitrary G times K4 but gives a block reduction, not general diagonal factors in terms of the spectrum or p-rank of G."
+        ],
+        "reasoning": "The complete-factor theorem subsumes the Hamming computation, but not the Doob computation. Applying Proposition 9 with M=L(S)+4I and T=I still leaves two copies of M and a coupled block involving L(S) and M; prime-field ranks and even the unshifted critical group of S do not specify the Smith forms of these blocks.",
+        "searches": [
+          "Jacobson–Niedermaier–Reiner doi:10.1002/jgt.10139, Theorems 2–3 and 13; Proposition 9(iv)–(v), Definition 10",
+          "Peeters doi:10.1023/A:1013842904024, Theorem 3.4 and Remark 3.1"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/jgt.10139",
+        "doi:10.1023/A:1013842904024",
+        "arXiv:1410.6294v2",
+        "SCOPE-20261102-5b5b97d22ccf",
+        "SCOPE-20261102-21397493d707",
+        "SCOPE-20261102-8afb15d5017b",
+        "SCOPE-20261102-eac28edae5e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal p-ranks and common spectra are known; the earlier counterexample is the 16-vertex base pair; the explicit complete-factor decomposition also gives the entire Hamming benchmark."
+        ],
+        "reasoning": "The 4-torsion exponent is twice the mod-two nullity minus the number of exponent-one factors. Neither the mod-two nullity, the tree order, nor the JNR complete-factor theorem determines the Doob exponent-one multiplicity. The 3-part is not the distinctive feature: after splitting off constants over Z_3 using 1/64, the roots 4,8,12 are pairwise distinct modulo 3 on the complement, so the 12-eigensummand alone gives (Z/3)^27 in both cases.",
+        "searches": [
+          "Peeters Remark 3.1, p. 141",
+          "Van Dam–Koolen–Tanaka §15.2.2",
+          "JNR Proposition 9 and Theorem 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peeters defines the Doob factors and common Hamming intersection parameters. Van Dam–Koolen–Tanaka explicitly identify the Shrikhande and H(2,4) critical-group example. The critical group is also the torsion part of the full Laplacian cokernel; the cofactor version removes its free summand."
+        ],
+        "reasoning": "D(1,1) is exactly one Shrikhande and one K4 factor; H(3,4) is three K4 factors. Using p-rank alone recovers the number of unit factors (L=A modulo 2 here), but not the number of order-2 summands among the remaining factors. The 16-vertex example does not determine the factors on the Cartesian extensions.",
+        "searches": [
+          "Resultary: Doob D(1,1), Shrikhande square K4, Hamming H(3,4), sandpile, Jacobian and two-adic reduced Laplacian Smith factors",
+          "Peeters doi:10.1023/A:1013842904024, §§3.1–3.2",
+          "arXiv:1410.6294v2, §15.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Schur quartic record gives the Smith form of the 64-vertex line-intersection graph (18, not 28, unit factors; the subsequent factors also differ). The other same-day exact groups concern 28-vertex two-token graphs, the Coxeter graph, or (9_3) Levi graphs."
+        ],
+        "reasoning": "These are different natural graphs, despite overlap in invariant and, for Schur quartic, vertex count. None gives a table of Doob factors or the specific two graphs' four-torsion separation.",
+        "searches": [
+          "Resultary: exact critical groups and 4-torsion for the 64-vertex Doob and Hamming pair",
+          "SCOPE-20261102-5b5b97d22ccf",
+          "SCOPE-20261102-21397493d707",
+          "SCOPE-20261102-8afb15d5017b",
+          "SCOPE-20261102-eac28edae5e2"
+        ]
+      },
+      "rationale": "The retained contribution is the two-primary determination on D(1,1) and the exact four-torsion separation from H(3,4). The common intersection array, spectrum, prime-field ranks, and the base-pair counterexample are known. The Hamming factors alone are covered by specialization and small-block Smith reduction of Jacobson–Niedermaier–Reiner's Theorem 13; they are not counted as new. The arbitrary-product method in their Proposition 9 leaves the noncomplete Shrikhande factor to be analyzed. No compared statement supplies the missing Doob factors or the order-four torsion distinction at this product level.",
+      "residual_risks": [
+        "The earlier Biggs report itself was not retrieved; the survey passage confirms the base-pair credit but not the report's full scope.",
+        "Exact 64-vertex Doob data could exist in unindexed distance-regular graph tables or other computations. The accessible JNR passages resolve the frozen limitation about that paper but do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Hamming exact factors, supplies a general block reduction but no corresponding Doob diagonal factors",
+          "evidence": [
+            "Theorem 13 gives the direct sum coker M(N;n_S) with multiplicities product(n_i-2) outside S. Proposition 9 gives two shifted copies and a triangular coupled block in the K4 case."
+          ],
+          "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/Papers/CritComplete.pdf (doi:10.1002/jgt.10139)",
+          "material_read": "Abstract and Theorems 2–3 (pp. 1, 3–4); Proposition 9(iv)–(v), Definition 10, and Theorem 13 (pp. 10–11, PDF text offsets 38865, 41712, 43150)",
+          "method": "Lawful full author PDF; inspected relevant passages and specialized Theorem 13 to Smith blocks of sizes at most 8",
+          "title": "Critical Groups for Complete Multipartite Graphs and Cartesian Products of Complete Graphs",
+          "trigger": "Primary Smith group result for Hamming graphs and possible arbitrary Cartesian product coverage"
+        },
+        {
+          "assessment": "Provides common Hamming data and p-rank comparison, not integral higher invariant factors",
+          "evidence": [
+            "Matching relevant p-ranks for Hamming and Doob graphs."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JACO/Volume15_2/v121065651493101.fulltext.pdf (doi:10.1023/A:1013842904024)",
+          "material_read": "Section 3.1 p. 136 and §3.2 Theorem 3.4 pp. 138–140, Remark 3.1 p. 141",
+          "method": "Published full-text PDF, relevant passages",
+          "title": "On the p-Ranks of the Adjacency Matrices of Distance-Regular Graphs",
+          "trigger": "Same named families and same modulus rank"
+        },
+        {
+          "assessment": "Credits an earlier distinction for Shrikhande and H(2,4), different from their diameter-three extensions",
+          "evidence": [
+            "The survey cites Biggs, Chip firing on distance-regular graphs, LSE-CDAM-96-11 (1996)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1410.6294v2",
+          "material_read": "Section 15.2.2 (HTML text offset 338248)",
+          "method": "Primary full survey HTML passage",
+          "title": "Distance-regular graphs",
+          "trigger": "Closest known example of nonisomorphic critical groups for shared intersection parameters"
+        },
+        {
+          "assessment": "Exact data on distinct objects, not equivalent coverage",
+          "evidence": [
+            "Schur quartic line-intersection graph: 18 unit factors and nonunits headed by 4^2,16^32; remaining records name separate graph classes."
+          ],
+          "identifier_or_url": "SCOPE-20261102-5b5b97d22ccf; SCOPE-20261102-21397493d707; SCOPE-20261102-8afb15d5017b; SCOPE-20261102-eac28edae5e2",
+          "material_read": "Mirrored RESULT.md findings",
+          "method": "Resultary lookup and bounded primary record passage comparison",
+          "title": "The integral critical group of the 64 lines on the Schur quartic; critical groups of two-token graphs, Coxeter graph and (9_3) Levi graphs",
+          "trigger": "Same-day exact critical-group records, including a 64-vertex graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are a canonical first diameter-three Doob–Hamming comparison, not an arbitrary 64-vertex sample. Their order-four torsion gives a specific integral separation where the common spanning-tree count and parity rank cannot. The exact two-primary Doob factors supply reusable benchmark data, with the sequence of lower invariants agreeing before the difference at order four. The Hamming factors serve as the known benchmark, not a separate scientific gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

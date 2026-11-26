@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:44:55.735908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A ball with center x satisfies each linear inequality a·x<=b with inward margin r||a|| in the native Frobenius metric, including valid redundant inequalities. In the coordinates u,v the normal lengths for nonnegativity, first-row differences, column-total differences, first-row cap and total cap are respectively 1, sqrt(2), 2, 1 and sqrt(2). Telescoping from u_m>=r and u_m+v_m>=2r gives sharp upper bounds r<=rho_m and r<=sigma_m(t); the baseline profiles in the record realize both lower margin chains and are feasible whenever those caps allow r. In the lower regime saturation fixes every column sum and both final entries. Nonnegativity and first-row differences then give precisely the displayed ordered z, per-coordinate bounds and z_1 cap. With positive slack the z-region has relative interior in m-1 dimensions (a point for m=1). At equality both margin chains saturate, leaving one point; above equality only the first-row profile is forced, and the remaining v-slacks are exactly the stated order simplex, whose volume is its containing cube's volume divided by m!. At t=0 the z_1 cap equals c(m-1), and reversal and scaling give 0<=Z_1<=...<=Z_(m-1) with Z_k<=k. Each constant run at a vertex is anchored either at zero or at the first index's cap, since an unanchored run can be perturbed. Conversely choosing equality with the previous index or equality to the cap at each index gives full-rank triangular constraints and distinct feasible vertices. For the volume one may sort points in [0,n]^n with n=m-1 and use ceilings on unit cells: the condition on the sorted ceilings is exactly that of n-car parking words. The circular argument gives (n+1)^(n-1) words and sorting divides volume by n!. Scaling each free direction by c and embedding it as (1,-1) gives the extra (sqrt(2)c)^n factor. Finally the original t=0 order polytope has just its binary threshold configurations as vertices (threshold decomposition; each binary point is extremal in the enclosing cube). These checks are analytic, including m=1 and the exact threshold; the supplied finite verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "90db80da3ebc is broader in row count but fixes the supply vector at all ones and gives the shifted margins and rigid first row.",
+          "The flow theorem is an integral equivalence, without a Frobenius-radius statement."
+        ],
+        "reasoning": "Specializing the predecessor to two rows gives the complete t=1 slice. The different value of the total cap at t=0 or t near the crossing is not allowed by its supply hypothesis; the active total chain, center dimensions and boundary locus do not follow from its statement.",
+        "searches": [
+          "Resultary 90db80da3ebc, generalized staircase all-ones Euclidean inradius and full center set",
+          "Dugan et al. arXiv:2307.09925 §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 90db80da3ebc, 53d2c657716a, e452a0872d16",
+        "arXiv:2307.09925, math/9908029; DOI 10.1007/s00026-023-00671-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t=1 the shifted margins in 90db80da3ebc reduce to the fixed first row and 0<=w_m<=...<=w_1<=1-tau_m.",
+          "Knowing classical parking-polytope volume yields the center volume only after identifying the zero-supply center set and its intrinsic metric factor."
+        ],
+        "reasoning": "Credit the exact t=1 consequence and the imported volume theorem. The second radius bottleneck, change of active chain at a variable cap, and projection to a parking-function locus require the new saturation analysis.",
+        "searches": [
+          "90db80da3ebc complete incenter margin statement under all-ones assumptions",
+          "Pitman–Stanley Theorem 11",
+          "Dugan et al. Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dugan et al. identify an integral equivalence to flow coordinates.",
+          "53d2c657716a concerns a convex hull of parking-function vectors with a unique incenter; Hanada et al. distinguish that object from the region used here."
+        ],
+        "reasoning": "Neither naming nor an integral-affine coordinate change is a Euclidean isometry. Here the parking-function region occurs as a set of optimal centers for a different original polytope, not as the original convex hull or that convex hull's inball.",
+        "searches": [
+          "Resultary: two-row generalized Pitman–Stanley native Euclidean inball variable supply and parking-function center locus",
+          "Resultary 53d2c657716a",
+          "Hanada–Lentfer–Vindas-Meléndez DOI 10.1007/s00026-023-00671-1 pp. 1–2",
+          "Dugan et al. arXiv:2307.09925 Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact known t=1 radius and centers in 90db80da3ebc; no variable-t formula asserted there.",
+          "Theorem 11 supplies the exact classical unit-parameter volume numerator, not an incenter theorem.",
+          "Same-day e452a0872d16 counts second vertex-distance shells for a different convex hull, not a center locus."
+        ],
+        "reasoning": "The prior exact data give one slice and a known volume formula. They do not list the crossing or identify the variable-family center polytopes in the native metric.",
+        "searches": [
+          "Resultary 90db80da3ebc, 53d2c657716a, e452a0872d16",
+          "Pitman–Stanley arXiv:math/9908029 Theorem 11"
+        ]
+      },
+      "rationale": "The variable-second-supply phase transition and the zero-supply identification of the optimal-center locus survive. The all-ones predecessor mechanically gives not just the common radius but the entire t=1 high-regime slice; that slice is credited, rather than counted as an independent discovery. The parking-function volume itself and the defining flow geometry also have prior sources.",
+      "residual_risks": [
+        "A general weighted native-coordinate theorem or exact variable-supply case not located in the bounded comparisons could subsume the transition. Known t=1 coverage is established, not a residual risk.",
+        "No universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PRIOR_COVERAGE_AT_T_EQUALS_ONE",
+          "evidence": [
+            "All-ones radius rho_m, rigid first row and shifted margin characterization give the full two-row t=1 center set."
+          ],
+          "identifier_or_url": "Resultary 90db80da3ebc (2026-10-11)",
+          "material_read": "Mirrored RESULT.md offset 0, Finding and Assumptions and scope",
+          "method": "Local mirror",
+          "title": "The generalized Pitman–Stanley staircase has dimension-free Euclidean inradius",
+          "trigger": "Exact same-metric all-ones case"
+        },
+        {
+          "assessment": "DIFFERENT_CONVEX_BODY",
+          "evidence": [
+            "Its polytope is a convex hull of parking-function vectors, with unique center."
+          ],
+          "identifier_or_url": "Resultary 53d2c657716a (2026-10-11)",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "Generalized parking-function polytopes have a two-phase Euclidean inball",
+          "trigger": "Similar title and two-phase Euclidean phenomenon"
+        },
+        {
+          "assessment": "INTEGRAL_EQUIVALENCE_NOT_METRIC",
+          "evidence": [
+            "Theorem identifies the matrix polytope with a flow polytope by integral equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.09925",
+          "material_read": "§3, p. 5, Theorem 3.4, PDF offset 21800",
+          "method": "Bounded primary PDF passage",
+          "title": "Generalized Pitman–Stanley polytope: vertices and faces",
+          "trigger": "Possible flow-coordinate implication"
+        },
+        {
+          "assessment": "KNOWN_VOLUME_USED_NOT_CENTER_IDENTIFICATION",
+          "evidence": [
+            "n! V_n(x) counts x-parking functions, giving (n+1)^(n-1) for the all-ones volume numerator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/9908029",
+          "material_read": "§5 Theorem 11 p. 21, PDF offset 47800",
+          "method": "Bounded primary PDF passage",
+          "title": "A polytope related to empirical distributions, plane trees, parking functions, and the associahedron",
+          "trigger": "Exact boundary volume formula used by the record"
+        },
+        {
+          "assessment": "DISTINGUISHES_CONVEX_HULL_FROM_PITMAN_STANLEY_REGION",
+          "evidence": [
+            "Explains the use of parking-function terminology through volume in the Pitman–Stanley case."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00026-023-00671-1",
+          "material_read": "Primary pp. 1–2, offsets 0 and 4500",
+          "method": "Bounded primary PDF passages",
+          "title": "Generalized Parking Function Polytopes",
+          "trigger": "Distinguishes nearby terminology and polytope models"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_AND_INVARIANT",
+          "evidence": [
+            "Studies second-largest distinct squared distances among vertices of a different parking-function polytope."
+          ],
+          "identifier_or_url": "Resultary e452a0872d16 (2026-11-22)",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Exact second vertex-distance shells of generalized parking-function polytopes",
+          "trigger": "Same-day exact metric result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two competing margin chains give more than an isolated inradius: they explain a dimension collapse of the optimal-center set at a critical supply and different geometries on either side. At zero supply the known parking-function polytope appears in a new metric role, with an intrinsic volume conversion and an exponential center-vertex count against the original polytope's quadratic count. The meaningful content is the family and its full center loci, not the already known fixed all-ones value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

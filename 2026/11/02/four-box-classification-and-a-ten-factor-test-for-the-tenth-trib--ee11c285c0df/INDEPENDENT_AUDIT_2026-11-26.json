@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:46:24.628018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–5; VERIFICATION.md, certify.py and independent_replay.py (inspection)",
+        "/workspace/branches/bba18398-08a7-4056-87f2-a4136d78192b/tribonacci_replay.py (fresh exact replay)",
+        "/workspace/repairs/3/RESULT.md, Finding, factor/witness table and proof (reassessed)"
+      ],
+      "rationale": "The revised word, positions, factor-hit predicate and restriction to exactly three distinct positions match the replay. Of 80,559 nonempty factors with 79,983 distinct support masks, the twelve inclusion-minimal masks suffice since each support contains one. The full test and the listed ten tests accept 416 triples apiece, so their solution sets are equal by inclusion. The count groups signature classes with binomial weights for repeated classes, not repeated positions. Witness W_i misses support i and hits the other eleven. Each original support contains a minimal support, so if W_i misses an original support, support i is the only possible minimal support it contains. A single factor predicate thus cannot reject two witnesses; ten predicates are necessary even when nonminimal supports are allowed. The fresh replay confirmed these assertions and the original four-box and T_9 counts; the repaired table's twelve factors and ten witnesses were checked exactly against the tested certificate.",
+      "residual_risks": [
+        "The verification is exact on this finite candidate domain, not formal proof-assistant certification and not an assertion on other words or set sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The twelve-stage exact census reduces support inclusion globally, then enumerates minimum triples. The episturmian and simple-Parry results concern optimal sizes or constructions for larger classes of words."
+        ],
+        "reasoning": "A broader family of words with computed attractor sets, or a general theorem about their sizes, does not answer predicate minimization on a fixed-size domain. The older support reduction gives a twelve-predicate test, not the sharp ten-predicate test.",
+        "searches": [
+          "Resultary 1c390833d969, twelve-stage Finding and Proof",
+          "arXiv:2211.01660, Theorem 10; arXiv:2302.13647, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Relationship to prior work",
+        "Resultary 1c390833d969 original statement, proof and exact stage-10 list",
+        "arXiv:2012.06840; arXiv:2211.01660; arXiv:2302.13647; arXiv:2602.16152"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof uses all minimal masks for a fixed-pair intersection computation of possible third positions. The new result proves an equality of solution sets after dropping two predicates and supplies ten obstructions that no chosen factor can cover twice."
+        ],
+        "reasoning": "Knowing every valid triple gives the target truth set, but not the coverage of invalid triples by individual omitted or retained predicates. Neither optimal attractor size nor full enumeration by twelve supports implies a sharp lower bound of ten. The new obstruction property establishes a separate extremal fact.",
+        "searches": [
+          "Resultary 1c390833d969 Proof and Verification, offset 1585",
+          "arXiv:2012.06840 Theorem 6 and arXiv:2211.01660 Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact earlier census uses the identical word, zero-based indexing and support-hit definition. Schaeffer–Shallit prove a minimum attractor size of three for sufficiently long Tribonacci prefixes. Dvořáková's episturmian theorem gives size equal to the number of distinct letters."
+        ],
+        "reasoning": "The repaired invariant is the number of factor predicates in an equivalent conjunction on triples, not the number of chosen positions or an inclusion-minimal family on unrestricted sets. Both the word definition and candidate-domain parameters were compared.",
+        "searches": [
+          "Resultary: Tribonacci T10 attractor triples test minimum number of factor occurrence constraints equivalent to attractor property ten factors nine insufficient witness minimal support basis",
+          "arXiv:2012.06840 §5 Theorem 6; arXiv:2211.01660 Example 8 and Theorem 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed T_10 word hash matches; its explicit 416 triples were compared with the four boxes and found identical. The index also records 224 at T_9 and twelve essential masks at T_10. The certificate contains the exact list and mask count, not the minimum predicate number. Banbara et al. consider the exact minimum sets of other named words."
+        ],
+        "reasoning": "The prior table fully covers the frozen census even in its factored presentation. Its mask count measures a different quantity from cardinality-minimal tests on triples. The revised theorem is not a new claim about the known table.",
+        "searches": [
+          "Resultary 1c390833d969, RESULT.md table and certificates/attractors.json, stage 10 at offset 7714",
+          "Resultary focused search on exact predicate number and nine-factor lower bound",
+          "arXiv:2602.16152 introduction"
+        ]
+      },
+      "rationale": "This decision applies only to the revised extremal theorem about the minimum number of factor-hit predicates. The strongest indexed match already gives the full attractor list and even the underlying twelve-mask count, so those are credited, not relabelled as novelty. That prior method does not show that ten predicates suffice on triples or that nine arbitrary factor predicates cannot suffice. No covering result for the revised theorem was identified in the bounded comparison.",
+      "residual_risks": [
+        "A primary literature query yielded no useful match; that is not evidence of absence. The priority of the predicate minimum is not certified globally, and unindexed earlier tests remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fully covers the census; no sharp predicate-size theorem in the inspected result and certificate",
+          "evidence": "Same morphism and word hash, minimum size three, all 416 triples identical and essential_mask_count=12; the proof intersects all relevant minimal supports for each pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-smallest-string-attractor-census-for-twelve-tribonacci-mor--1c390833d969",
+          "material_read": "RESULT.md Finding/table and Proof/Verification from offsets 0 and 1585; certificates/attractors.json definition and full stage 10 at offset 7714",
+          "method": "Resultary search, bounded local-mirror reads, and exact set comparison of stage 10 against the boxes",
+          "title": "Exact smallest-string-attractor census for twelve Tribonacci morphic words",
+          "trigger": "Exact same canonical words, indexed counts and complete sets"
+        },
+        {
+          "assessment": "Covers the three-position existence/size baseline, not the minimum number of factor predicates",
+          "evidence": "Every Tribonacci prefix of length at least four has minimum attractor size three; gives an explicit optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+          "material_read": "p. 1 convention, OA offset 2250; §5 Theorem 6 p. 8 at offset 18046",
+          "method": "OA bounded primary PDF passages",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Identical infinite Tribonacci word and sharp minimum size result"
+        },
+        {
+          "assessment": "Broader minimum-position result, not predicate minimization",
+          "evidence": "The directive sequence (012)^omega gives Tribonacci; factors with d symbols admit d-position attractors.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.01660",
+          "material_read": "p. 4 convention, Example 8 p. 5 and Theorem 10 p. 6 (offsets 10001, 13602, 15690)",
+          "method": "OA bounded primary PDF passages",
+          "title": "String attractors of episturmian sequences",
+          "trigger": "Broader size theorem including Tribonacci"
+        },
+        {
+          "assessment": "Different output in the passages inspected",
+          "evidence": "Constructions of attractors for other morphic families, not the sharp ten-predicate result for the tenth Tribonacci iterate.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13647",
+          "material_read": "Abstract at offset 1473 and introduction p. 2 at offset 4020",
+          "method": "OA bounded primary PDF passages",
+          "title": "String attractors of some simple-Parry automatic sequences",
+          "trigger": "Generalized k-bonacci attractor constructions"
+        },
+        {
+          "assessment": "Enumerates different words in the stated results",
+          "evidence": "Classifies optima for Fibonacci, period-doubling and Thue–Morse; cites the size-three Tribonacci baseline.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "Introduction, OA offsets 4000–10949",
+          "method": "OA bounded primary passages",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Closest primary work giving exact minimum-attractor classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, theorem and two sharp bounds",
+        "Prior exhaustive Resultary census 1c390833d969, proof and certificate"
+      ],
+      "rationale": "The remaining question asks for the smallest exact factor test at a canonical morphism iterate. It distinguishes support minimality from indispensability on the fixed-size domain, and provides a usable optimal test together with a reusable obstruction argument against arbitrary factor choices. The usefulness is in the extremal test size, not in repeating the known census or just recertifying a known count.",
+      "residual_risks": [
+        "No claim about arbitrary Boolean tests, arbitrary-size attractors or a recurrence for the predicate minimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

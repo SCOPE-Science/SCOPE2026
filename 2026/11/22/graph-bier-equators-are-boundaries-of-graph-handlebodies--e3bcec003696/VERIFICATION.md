@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `check_bier_midsection.py` constructs exact signed integer cellular boundary matrices and confirms \(\partial^2=0\) using integer arithmetic. Modular ranks are calculated over \(\mathbf F_2\) and \(\mathbf F_{101}\), testing paths, cycles and complete graphs on five and six vertices, twelve tests in total. All twelve passed when the program was run from its standalone source.
+# Independent mathematical audit
 
-For five vertices, the tested Betti vectors are \((1,0,1)\), \((1,2,1)\), \((1,12,1)\); for six, \((1,0,0,1)\), \((1,1,1,1)\), \((1,10,10,1)\). These finite arithmetic verifications support boundary normalization and the theorem's consequences but are not an infinite proof or a PL-homeomorphism certificate. The general proof relies on the Bier PL-sphere theorem, the full-subcomplex regular-neighborhood lemma and classification of orientable PL one-handlebodies. No independent mathematical audit has been conducted.
+## correctness
+
+PASS
+
+In the (N−2)-dimensional Bier PL sphere, the full red subcomplex is the unfilled graph. Each mixed simplex intersects the half-height hyperplane in the affine product obtained by giving each color half the mass; these identifications agree on all common faces. To check the regular-neighborhood step, take a derived subdivision by coning each original face from an interior point, at height 1/2 for each mixed face. Its simplices represent nested nonempty faces. A chain cannot contain pure faces of both colors. A chain of all mixed faces extends by a nonempty pure-red subface of its smallest face, and likewise by a pure-blue subface. Thus the half-height superlevel is exactly the closed derived star of the derived full red subcomplex and the color level is its frontier, by the full-subcomplex PL regular-neighborhood theorem. The connected graph neighborhood has a ball per vertex and a 1-handle per edge. Amalgamating along a spanning tree leaves one ball and g=|E|−N+1 orientable 1-handles, since the ambient sphere is orientable. The boundary is the asserted connected sum, with a sphere at g=0; for N=5 this is the usual surface case. For K_(q+4) the dual is precisely the q-skeleton, and the cycle rank is binomial(q+3,2), for q≥1 only.
+
+## originality
+
+PASS
+
+The evaluated PL frontier for every graph–dual pair, and in particular the complementary simplex-skeleton cases with p=1 and q≥3, are not supplied by the compared statements. Prior work already covers mixed-skeleton manifoldness, closed orientation, the genus-six surface, the free fundamental group for q≥2, and the q=2 TOP classification (which also determines its PL type by three-dimensional PL uniqueness). No distinct novelty is assigned to those consequences.
+
+## value
+
+PASS
+
+This is a structural PL classification of an infinite family, including different noncomplete graphs with the same cycle rank. It explains that only the graph rank controls the frontier and settles the positive-q, p=1 instances in PL type, rather than only checking low case homology or computing another invariant of them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

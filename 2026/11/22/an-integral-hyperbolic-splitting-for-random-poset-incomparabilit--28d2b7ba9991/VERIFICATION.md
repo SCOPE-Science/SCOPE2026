@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-The theorem is proved for every finite parameter poset by an explicit unimodular basis, not by finite extrapolation. The independent finite checks in `verify.py` enumerate natural-linear-extension posets through four points and fourteen five-point patterns; compare the proposed incomparable-realization predicate with a direct finite-poset transitivity test for two distinct new points; and verify all entries of the transformed Gram matrix, the zero-block basis and the zeta-matrix triangularity. Run `python verify.py` with Python 3 (standard library only). The bundled `verification_output.txt` records `FINITE_EXTENSION_AND_CONGRUENCE_OK`, 90 input patterns and 45,913 checked entries.
+## correctness
 
-Separate exact integral Smith reductions on the named antichain of three points, three-point fork, four-point two-level complete order, four-point diamond and two disjoint two-point chains gave only invariant factors equal to one, with nullities respectively 0, 3, 9, 7 and 2. Those additional reductions were inspection checks, not a required dependency and not an all-size proof.
+PASS
 
-Scope: nonalgebraic one-point types in the homogeneous generic partial order, finite individually named parameter posets, and existential incomparability of two *distinct* realizations. The theorem does not determine counts of all ordered pair types or ordinary eigenvalue values. Historical novelty has not been independently certified.
+Each unary type is an admissible ideal–filter pair. Keeping the two distinct new points incomparable, the only potential new failures of strict transitivity are the paths through an old point in one of the two opposing cross intersections. Their simultaneous nonemptiness, for individually admissible types, would force both u<l and l<u. Thus the product of cross-disjointness indicators is also their sum minus one. This makes every proposed four-term mixed vector radical, and their coefficient-one mixed pivots make the replacement unimodular. Subtracting the neutral vector from each pure vector leaves the cross block -Q and neutral norm 1. On complementing filters, subtracting the full-ideal row and expanding along the empty-ideal column identifies det Q up to sign with the zeta determinant on nonempty proper ideals, which is 1 in an inclusion-compatible order. Multiplying the second pure basis by the inverse cross block then gives the asserted integral hyperbolic planes. This proves the full radical basis, Smith form, rank over all fields and real inertia, including the empty-base matrix [1]. The included script and its output were inspected, not executed; its helper checks the zeta triangular pattern rather than computing det Q numerically, and the finite tests do not prove the all-base claim.
+
+## originality
+
+PASS
+
+Credit the exact chain-specialized congruence and primitive radical to the distinct matching named-chains record; the shared date is not used to infer precedence. The supported distinct claim is the integral congruence and explicit radical for every finite named base. The chain statement, the adjacent exact scalar type-counts, the generic-poset realization theorem and classical zeta machinery do not establish this general form.
+
+## value
+
+PASS
+
+For an intrinsic finite-base feasibility invariant, the theorem identifies all integral dependencies and gives a canonical indexed basis for the mixed part of the radical. The integral form determines all modular ranks and real inertia from ideal and type counts, beyond chain or scalar pair counts. The contribution is the general structure, not zeta inversion by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

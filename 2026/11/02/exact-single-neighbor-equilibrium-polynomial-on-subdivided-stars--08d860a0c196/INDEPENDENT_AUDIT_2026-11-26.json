@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:54.720234Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the strict unique best response specified in the assumptions, an internal arm vertex satisfies x[j+1]=x[j−1] XOR x[j]. With hub value c and first-arm value a the arm repeats c,a,c XOR a. The leaf equation x[ℓ]=x[ℓ−1] forces a=0, a=c, or c=0 for residues 0, 1, or 2 respectively, including a one-edge arm. For c=0 only residue-two arms can activate, each with exactly 2(ℓ+1)/3 producers; the hub excludes singleton activated-arm subsets and no others. For c=1 no residue-two arm is allowed and the hub requires exactly one residue-one arm. Then the determined words and the hub contribute 2+2Σ⌊ℓᵢ/3⌋ producers in total. This exhausts labeled equilibria, including equal arm lengths or equal subset weights; setting z=1 gives the count and the nonzero criterion. An independent bitmask enumeration checked 398,160 profiles over 125 arm multisets with at most 13 vertices and degrees 3–5 (/workspace/branches/frozen_math_replay.py, argument 4); the uploaded script was inspected, not executed. Finite tests corroborate the coefficients without establishing the unbounded formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bounded-treewidth PSNE search includes spiders; the exact-one response is represented by unit cost and closed-count benefit g(j)=0 for j<2, 2 otherwise. Theorem 7 returns an equilibrium or No, not its multiplicity or a producer histogram. General-graph hardness concerns existence of a nontrivial equilibrium."
+        ],
+        "reasoning": "Finding an equilibrium, here trivially the all-zero one, does not give the explicit weighted family classification. A treewidth DP framework is not itself the evaluated residue-and-weight polynomial.",
+        "searches": [
+          "Yang–Wang arXiv:2012.02916 BNPG definition; Theorem 7, Networks with Bounded Treewidth",
+          "Gilboa–Nisan arXiv:2207.04238 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_spiders.py",
+        "arXiv:2207.04238 §3",
+        "arXiv:2012.02916 Theorem 7 and model",
+        "Resultary b1c5caed74ae and 304b66b95af5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path/cycle criterion establishes mod-three periodicity but has no common variable hub boundary. The wheel uses the different active-neighbor set {0,r}; the search theorem supplies no producer count."
+        ],
+        "reasoning": "Counting allowed arm subsets by weights depends on the extra coupled hub condition and on the arm contributions conditional on the hub; none of the inspected results already implies that exact expression as a stated case.",
+        "searches": [
+          "Gilboa–Nisan §3, discussion of path and cycle equilibria",
+          "Yang–Wang Theorem 7 and computation definition",
+          "Resultary b1c5caed74ae Finding and proof model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-one rule on a degree-two vertex is XOR with a period-three word. A path equilibrium is a local ingredient, while the closest one-neighbor catalogue entry (304b66b95af5) concerns relocation stability of occupancies on cycles."
+        ],
+        "reasoning": "Open-neighbor fixed-profile best response, path-boundary behavior and agent relocation are not interchangeable; only the former with a common hub yields the submitted subset constraints.",
+        "searches": [
+          "Resultary: one-neighbor equilibria, subdivided stars, spiders and producer-count spectra",
+          "Gilboa–Nisan arXiv:2207.04238 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The b1c5caed74ae finding counts equilibria on wheels for response counts in {0,r}; its r=2 case has period three. The 304b66b95af5 finding considers occupancy sets on cycles stable under relocation."
+        ],
+        "reasoning": "These actual indexed statements do not reproduce the all-spider exact-one polynomial; the requested object is a parametric generating function, not an entry in a finite table.",
+        "searches": [
+          "Resultary: exact equilibrium polynomial, spider arms and period-three responses",
+          "Indexed records b1c5caed74ae and 304b66b95af5"
+        ]
+      },
+      "rationale": "The result's distinct content is the all-arm-length, labeled producer-weight polynomial and its hub residue restriction, not the exact-one rule or the period-three path recurrence. Closest inspected primary results cover the local path structure or algorithms for finding one equilibrium; closest indexed results differ in graph, response, or equilibrium notion. The pass is for the bounded comparison, not proof of literature priority.",
+      "residual_risks": [
+        "Bounded relevant searches do not rule out an uncatalogued equivalent weighted enumeration under another formulation. The known local recurrence is explicitly excluded from the originality pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact-response and path periodicity prior, not the spider polynomial",
+          "evidence": "The general-graph nontrivial-existence result and mod-three nontrivial-equilibrium descriptions on paths and cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.04238",
+          "material_read": "§3, PDF p. 3 (offset 7962) and p. 6 (offset 16680)",
+          "method": "Lawful OA PDF passages",
+          "title": "Complexity of Public Goods Games on Graphs",
+          "trigger": "Exact-one response and path/cycle recurrence"
+        },
+        {
+          "assessment": "A search algorithm applicable to the model; no matching exact weighted count in the inspected statement",
+          "evidence": "Tree-decomposition dynamic program returns one PSNE or reports none.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.02916",
+          "material_read": "Model and problem definition p. 2; Theorem 7 and algorithm discussion p. 8",
+          "method": "Lawful OA PDF passages",
+          "title": "A Refined Study of the Complexity of Binary Networked Public Goods Games",
+          "trigger": "Polynomial equilibrium search on graphs of treewidth one or bounded treewidth"
+        },
+        {
+          "assessment": "Different graph and response",
+          "evidence": "Wheel rule T(k)=1 iff k is 0 or r; not the spider open-neighbor exact-one rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-wheel-network-equilibrium-spectrum-for-two-level-public-go--b1c5caed74ae",
+          "material_read": "RESULT.md model, finding and proof, offsets 0–5479",
+          "method": "Local mirror",
+          "title": "Exact wheel-network equilibrium spectrum for two-level public goods",
+          "trigger": "Adjacent indexed equilibrium spectrum, including period three"
+        },
+        {
+          "assessment": "Different game and equilibrium notion",
+          "evidence": "Counts occupancy subsets on cycles stable against relocations, not binary Nash actions on a fixed spider.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-family-equilibrium-classification-for-one-neighbor-preferenc--304b66b95af5",
+          "material_read": "Finding and equilibrium notion",
+          "method": "Local mirror",
+          "title": "Two-family equilibrium classification for one-neighbor preferences on cyclic networks",
+          "trigger": "Nearest indexed one-neighbor classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The spider is a natural next tree family beyond paths, where a genuine branching constraint appears. The exact distribution by number of producers, not just feasibility or the total count, distinguishes families with repeated/unbalanced arms and shows how the hub can forbid an otherwise viable single arm or enable a uniquely hub-active profile. It provides an explicit classification without enumerating profiles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

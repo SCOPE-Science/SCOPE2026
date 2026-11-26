@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:50:50.814236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–61",
+        "Frozen VERIFICATION.md:19–29",
+        "Frozen verify.py:6–68"
+      ],
+      "rationale": "For j<p, either the maximizing mean at j is at most f(j+1), or it uses r≥1. The ball at j+1 of radius r−1 has the same clipped right endpoint; the only removed sites lie at or to the left of j and have values below the old mean. Hence Mf cannot decrease before p; reflection gives the other branch. Singleton values and the global maximum give Mf(p)=f(p), including every permissible p on a plateau. Both variations then telescope. The prefix and suffix through p lift the endpoint values by at least A/(p+1) and B/(n−p). Subtracting (A+B)/n gives the exact claimed lower bound on the deficit. For nonconstant data an interior p makes that lower bound strictly positive. If the peak is the first endpoint, equality forces the global mean at the opposite endpoint to attain its baseline-plus-one-spike lower bound, which forces every nonpeak value to be the baseline; reflection handles the last endpoint. A spike realizes equality. A decrease followed by an increase prevents unimodality and yields separated boundary or interior peaks (allowing plateaux). For signed inputs apply the inequality to the modulus and use the reverse triangle inequality, without extending the equality classification. The exact finite checker was inspected, not executed; it selects the first maximum, so the all-permissible-index assertion rests on the proof.",
+      "residual_risks": [
+        "The argument is confined to counting-measure paths, centered graph balls and edge 1-variation; it does not prove the unrestricted conjecture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 5 proposes the same factor for arbitrary finite-path input, reporting evidence only through length 10; it does not prove it.",
+          "Bilz–Weigt treat indicators or attachment assumptions on the line and integer lattice.",
+          "2ffb5fd973e3 additionally gives the optimal fixed-peak bound for zero endpoints."
+        ],
+        "reasoning": "Neither the broader conjecture nor the line theorems provide the claimed finite theorem. The stronger fixed-peak refinement occurs in an entry which already directly gives the main claim.",
+        "searches": [
+          "arXiv:2603.12462v1, §1 and Conjecture 5",
+          "arXiv:2107.12404, Theorems 1.1, 1.2, 1.3, 1.5",
+          "Resultary 2ffb5fd973e3, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 12b332db5c97",
+        "Resultary 2ffb5fd973e3",
+        "Resultary 2ae83e2401fb",
+        "Resultary 0238b85542de",
+        "arXiv:2603.12462v1",
+        "arXiv:2107.12404"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2ae83e2401fb, Finding offsets 359 and 842: monotone inputs, exact endpoint-minus-mean formula and same extremizers in that class.",
+          "0238b85542de, Finding offset 0: single-trough profiles, not peaks.",
+          "The two direct unimodal entries cover nonmonotone single-peak input. The web query did not supply useful additional evidence."
+        ],
+        "reasoning": "The monotone result does not imply the hump statement by reflection, and sign reversal of a valley does not preserve maximal averaging. The direct matching statements, not the neighboring results or a keyword miss, establish coverage.",
+        "searches": [
+          "Resultary 2ae83e2401fb, 0238b85542de, 12b332db5c97 and 2ffb5fd973e3",
+          "Web literature: unimodal variation finite path centered maximal operator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "12b332db5c97, Finding offsets 1229–1464: same sharp factor, explicit deficit and endpoint-spike equality.",
+          "2ffb5fd973e3, Finding offsets 664–1344: same peak preservation, inequality and rigidity."
+        ],
+        "reasoning": "Replace the one-indexed peak k by p+1. Then 1/k and 1/(n-k+1) become the two reciprocals in the frozen theorem, with the same endpoint heights and counting-measure balls.",
+        "searches": [
+          "Resultary: centered Hardy-Littlewood maximal operator finite path unimodal variation sharp constant monotone path",
+          "Resultary: unrestricted sharp 1-variation inequality centered maximal operator every nonnegative input finite unweighted path P_n all lengths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Findings 12b332db5c97 and 2ffb5fd973e3 contain all-size formulas, whereas the Conjecture 5 discussion reports finite-size evidence."
+        ],
+        "reasoning": "A finite table is not decisive for arbitrary lengths and real data; the direct exact formulas in the catalogue are decisive.",
+        "searches": [
+          "Configured Resultary comparison for the sharp unimodal variation factor and deficit",
+          "Conjecture 5, arXiv:2603.12462v1, p. 4"
+        ]
+      },
+      "rationale": "Distinct Resultary entries 12b332db5c97 and 2ffb5fd973e3 already cover the full unimodal factor and the exact peak-location deficit and rigidity; the latter also expressly preserves the peak and gives a stronger zero-endpoint fixed-peak result. Their indices 1 through n are equivalent to indices 0 through n−1. Thus the main finding is not distinct in the compared catalogue. Historical publication order and derivation are not established by the paths, which in fact carry later dates than the frozen source path. The monotone-only precursor is a proper restriction, not the basis for this failure.",
+      "residual_risks": [
+        "No claim about historical priority, dependence, or the exact public timestamp is made from path dates.",
+        "Bounded searches do not exhaust all possibly equivalent literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent numerical theorem and extremizers",
+          "evidence": [
+            "After peak reindexing both deficit coefficients agree."
+          ],
+          "identifier_or_url": "Resultary 12b332db5c97",
+          "material_read": "Finding offsets 1229–1464 and relationship passage at 5298",
+          "method": "Resultary search and local-mirror passages",
+          "title": "A sharp peak-location variation bound for centered maximal averages on finite paths",
+          "trigger": "Exact peak-dependent deficit"
+        },
+        {
+          "assessment": "Equivalent main claim, plus a stronger zero-endpoint refinement",
+          "evidence": [
+            "Peak preservation and explicit deficit on the whole weakly unimodal class."
+          ],
+          "identifier_or_url": "Resultary 2ffb5fd973e3",
+          "material_read": "Finding offsets 664–1344 and fixed-peak refinement at 1344; relationship passage at 6316",
+          "method": "Local-mirror passages",
+          "title": "Sharp peak-location variation bounds for unimodal data on finite paths",
+          "trigger": "Same input class, peak behavior and sharpness"
+        },
+        {
+          "assessment": "Proper restriction",
+          "evidence": [
+            "Both monotone orientations, sharp coefficient and endpoint-spike extremizers; no nonmonotone hump theorem."
+          ],
+          "identifier_or_url": "Resultary 2ae83e2401fb",
+          "material_read": "Finding offsets 359, 842; scope",
+          "method": "Local-mirror passages",
+          "title": "Monotone data attain the conjectured path-graph variational constant",
+          "trigger": "Frozen record cites the monotone precursor"
+        },
+        {
+          "assessment": "Different input class",
+          "evidence": [
+            "Statement concerns valleys rather than humps."
+          ],
+          "identifier_or_url": "Resultary 0238b85542de",
+          "material_read": "Finding offset 0",
+          "method": "Local-mirror passage",
+          "title": "Sharp centered maximal variation for valley profiles on finite paths",
+          "trigger": "Related profile decomposition on the same path"
+        },
+        {
+          "assessment": "Conjectural broader coverage, not an established stronger theorem",
+          "evidence": [
+            "All-input path factor conjectured; finite evidence through 10."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.12462v1",
+          "material_read": "§1, p. 2 at offset 3300; Conjecture 5, p. 4 at 12016",
+          "method": "OA PDF passages",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Defines the same operator and states full path target"
+        },
+        {
+          "assessment": "Distinct domains and hypotheses",
+          "evidence": [
+            "Indicator or attachment assumptions, not finite-n arbitrary-height single-hump data."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.12404",
+          "material_read": "Theorems 1.1–1.3 and 1.5, pp. 1–3",
+          "method": "OA PDF passages",
+          "title": "The one-dimensional centred maximal function diminishes the variation of indicator functions",
+          "trigger": "Centered discrete and continuous variation analogues"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–21 and 26–61",
+        "arXiv:2603.12462v1, Conjecture 5"
+      ],
+      "rationale": "A peak-preserving structural lemma makes the variation telescope, proves a meaningful all-length case of the full path conjecture, and excludes any unimodal modulus from counterexample searches. The explicit dependence on peak location and rigidity explain quantitatively why interior peaks cannot attain the conjectured constant. This is intrinsic value despite equivalent catalogue coverage.",
+      "residual_risks": [
+        "The reasoning does not control profiles with multiple separated peaks or settle the full conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The output-bit transfer matrices were derived from the complete local truth table and checked against direct simulation. The exact identities \(A^3=A^2\), \(B^4=B^2+B\), \(B^3\ge BAB\), the factorization \(A^2=UV\), the \(35\) nonexceptional two-factor merge bases and the strict final-isolated-zero comparison bases were all checked by the packaged integer-arithmetic verifier. The recurrences propagate each finite base to every parameter in the claimed domain. Separate full direct simulation for cyclic sizes eight through sixteen validates output fibers and all equality cases. In particular no finite simulation is substituted for the induction proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Jen (1989, Proposition 2) supplies a Rule-54 noncyclic-string preimage formula, a stronger methodological antecedent but with different boundary conditions and without a cyclic max/runner-up classification. Martínez–Adamatzky–McIntosh (2014) analyze the Rule-54 structure and de Bruijn diagrams but do not assert this inverse-fiber ordering. Semantic research-record searches for Rule-54 preimage multiplicity, the one-versus-two-zero equality cases, Padovan/Perrin recurrences and related aliases returned no covering claim. The closest indexed Rule-54 result concerns a stripe subsystem, not cyclic fiber maxima; existing distinct findings address cyclic image counts (not inverse multiplicities) and Rule 18 (not Rule 54). The search cannot establish absolute historical priority; earlier specialized or unindexed work remains a residual risk.
+PASS
 
-## Value — PASS
-The result answers the natural extreme-inverse-probability problem for a structurally rich elementary rule on every cyclic ring above a fixed cutoff. It provides both the exact largest and second-largest preimage counts, a complete structural characterization of attaining outputs, and a direct bridge to distinct Perrin and Padovan recurrences. Those are stronger statements than a short numerical census or a renamed standard counting identity and may inform inverse uncertainty and random-predecessor distributions.
+The Rule 54 truth table gives the stated four pair-state matrices and indexed cyclic trace, without quotienting rotations. The active one-bit block satisfies B_active^3=B_active+I and has Perrin traces at positive exponents; C_k has the Padovan traces from k=1 onward. Idempotence after two zeros reduces longer zero-runs to pairs. A cyclic list with a non-C1 factor can always choose a nonexceptional neighboring pair for the next merge; an all-C1 list of length >=3 starts with the triple merge. A strict trace gain at the final merge suffices even when earlier entrywise gains are masked. Two C1's alone give 3, below P_(n-2) for n>=8. For a single zero-run, fewer than n sites after truncation gives strictness by Padovan growth. Filling isolated zeros is nondecreasing by B^3>=BAB. For a last fill reaching the double-zero target, the strict gap g(a,b) applies, and when there was never an adjacent pair the single-zero comparison suffices. Recurrence reductions with a reduced coordinate >=4 stay in the appropriate positive/base domains, in particular a+b>=5 for g. All-zero has fiber 2. Independent `cd /workspace && python3 review_replay.py 3` derived the matrices from the truth table, checked 35 pair bases (minimum trace gain 1) and 30 singleton-removal bases (minimum gap 3), verified the three comparison seeds (10,4,1), (12,5,2), (17,7,2), and exhaustively checked indexed fibers through n=18 starting at n=8. The proof carries the infinite claim; the frozen checker was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected literature gives finite-block preimage enumeration, periodic Rule 54 structure, and standard transfer machinery. The relevant indexed findings cover Rule 54 image size or singleton fibers and exact rankings for other rules. None gives or implies the all-n Rule 54 runner-up with its Padovan value and precise adjacent-zero equality class. Conventional homogeneous counting is not itself the contribution.
+
+## value
+
+PASS
+
+Reachable outputs can differ greatly in probability under a uniform predecessor. Exact first and second ranks and the complete tie set answer a natural inverse-count question beyond reachability; the adjacent pair rather than isolated-zero patterns matters for that ranking. The all-length strict classification is useful as a benchmark and the merge inequalities explain the mechanism rather than just tabulating it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

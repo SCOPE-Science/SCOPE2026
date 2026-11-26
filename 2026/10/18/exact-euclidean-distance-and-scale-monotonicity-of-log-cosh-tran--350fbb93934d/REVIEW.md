@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-Facet pairing yields \(\Phi_K(2Tz)=V\sum_i\log\cosh z_i\) for every centered parallelotope. Strict concavity in the squared radius identifies exact contact directions, finite-group averaging excludes a better tilted ellipsoid, and a strictly decreasing elasticity average proves strict volume monotonicity. These analytic arguments cover all integer dimensions \(n\ge2\), all \(V>0\), and every invertible \(T\). The standalone numerical checker is supporting regression, not an infinite proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The closest primary paper is Haddad, Jiménez, Resende, arXiv:2610.11700v1 (October 8, 2026). It introduces the critical log-cosh integral and smooth-body convergence but does not derive an exact parallelotope Banach--Mazur law. Grundbacher and Kobos, arXiv:2603.18268, address distinct ell-p-sum and cone models. Semantic published-mathematics queries for log-cosh transition bodies, exact Euclidean distance, diagonal/axis contacts, and Orlicz balls found no identical statement. Generic signed-permutation averaging is well known and is not claimed as original. Older unindexed Orlicz-norm literature may contain equivalent computations; novelty is therefore a reasoned assessment, not a literature-completeness certificate.
+PASS
 
-## Value: PASS
-The result computes the exact full-dimensional affine shape of a canonical new critical transition body for all centered parallelotopes, not merely a finite test instance. Its sharp contact classification and strictly varying distortion trace the full Euclidean-to-crosspolytope interpolation and give a baseline for quantitative geometry of the integral.
+For each pair with normals ±T^{-transpose}e_i/||T^{-transpose}e_i|| and distance h_i, area times h_i is V/2 on each face. Thus in coordinates y=2Tz the sum is V times the log-cosh modular. This uses the facet definition, not a smooth covariogram limit. For f(t)=log cosh t, a↦f(sqrt(a)) has decreasing derivative tanh(sqrt(a))/(2sqrt(a)), since tanh t-t sech²t starts at zero and has positive derivative for t>0. Jensen and strict subadditivity (concavity plus vanishing at zero) give the exact diagonal and axis radii and contact directions. Averaging the squared comparison form between the gauge-square bounds over signed permutations leaves a scalar form and cannot enlarge distortion, proving optimum over arbitrary ellipsoids. For H=tf'/f and κ=tf''/f'=2t/sinh(2t), H is a weighted mean of 1+κ over (0,t) with positive weight f', so H>1+κ(t), and tH'/H=1+κ-H<0. Hence sF'/F=1/H(F(s)) is increasing, which gives the strict derivative sign of F(s)/F(s/n) for n≥2. The inverse asymptotics F(s)~sqrt(2s) and F(s)=s+log 2+o(1) give the endpoints and the open range by continuity and strictness. The frozen script samples normalized modular directions and ratios only, not the physical facet geometry despite the broad description. An independently written direct skew parallelogram facet sum and 18 ratio checks agreed; replay python3 /workspace/branches/independent_finite_checks.py (check 1).
 
-## Scientific limitations
-The functional is evaluated by facet integration on nonsmooth parallelotopes; the initiating paper's smooth-body level-set convergence theorem is not extended here. No result is claimed for general convex bodies or noncentrally positioned boxes. The scientific comparisons are necessarily nonexhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior smooth critical functional and its Orlicz interpretation, and the general tools of symmetry and modular concavity. Earlier inspected results do not give the parallelotope profile with strict scale dependence. The strongest exact catalogue overlap is the later November log-cosh record: the assigned distance, endpoint limits, and strictness are demonstrably equivalent, not a different formulation with only superficial similarity, but that later dated statement supplies no evidence of earlier priority over the assigned record.
+
+## value
+
+PASS
+
+For the natural polyhedral test case of a previously defined transition functional, the result answers which ellipsoidal distortion is attainable, including exact strict change across every scale rather than just the cube and ball limits. The sign of the inverse-elasticity comparison is an essential quantitative fact, beyond restating the Orlicz form. This supplies a usable nonsmooth model without asserting covariogram convergence on it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

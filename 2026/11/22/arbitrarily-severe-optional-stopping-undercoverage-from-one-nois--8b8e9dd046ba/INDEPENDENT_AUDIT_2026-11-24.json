@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:07:16.829711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized vector c is the first row of the symmetric Householder reflection taking e₁ to c. A has eigenvalues q^(−2i)>0, and ωB has eigenvalues t_i=q^(−4(i−1))/2 in (0,1/2]. For x†=Bw, ||w||≤1, the bias bound is the maximum of 2q^(−4)t(1−t)^k over [0,1/2], bounded by the stated b_k for each positive k. The Gaussian quantile plus this absolute bias bound gives the marginal guarantee over the whole source class. Solving the modal recursion, at the null the coefficient of ξ_i=(Vᵀε)_i in iterate k_j is q^i[1−(1−t_i)^{k_j}]/C_q. Because k_j t_j=1, its diagonal filter is at least 1−e^(−1); older modes relative to this coefficient are bounded by q^(−(j−i))/(1−e^(−1)), and later ones by q^(−3(i−j))/(1−e^(−1)) using 1−(1−t)^k≤kt. Each standardized row thus tends to e_j and b_{k_j}/sd_{k_j}→0. Coupling all q with the same standard normal vector gives convergence of the interval intersection indicator off null-probability boundaries. The selected interval covers zero exactly when all candidates cover zero, including the fallback; hence for fixed r coverage tends to (1−α)^r and for each positive target one can first choose r and then finite q to go below it. One observation means one r-dimensional noisy vector; different iterations need not be independent at finite q. Read VERIFICATION.md and check_landweber.py as text; the Monte Carlo is diagnostic, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abhishek–Holman give the quoted bias and interval but choose K(σ) independently of the realization Y.",
+          "Blanchard–Hoffmann–Reiß analyze adaptive early stopping for weak and strong squared-error risk. Batlle et al. calibrate simultaneous regions for multiple functionals."
+        ],
+        "reasoning": "The fixed-index interval is covered by prior work, but risk and joint calibration address different claims, neither establishing asymptotic independence across times in this Landweber family.",
+        "searches": [
+          "arXiv:2610.00882v1 §§3.4–3.5",
+          "arXiv:1606.07702v2 PDF pp. 1 and 6",
+          "arXiv:2510.11708v1 abstract and §1.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact and adjacent matches above",
+        "arXiv:2610.00882v1",
+        "arXiv:1606.07702v2",
+        "arXiv:2510.11708v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior UQ formula supplies the marginal guarantee, not a cross-time covariance structure; the prior spectral-order results concern individual-time eigendirections, not asymptotic orthogonality of the time-indexed first-coordinate weight rows.",
+          "The (1−α)^r product follows from asymptotic independence, not from having marginal coverage at each candidate time."
+        ],
+        "reasoning": "The nontrivial prior-implication test is whether Gaussian independence can be realized under the Landweber filter and fixed-coordinate constraints. None of the inspected results establishes it; changing the stop to first exclusion also is not a criticism of the prescribed noise-level rule.",
+        "searches": [
+          "Compare Abhishek–Holman Lemma 3.4 and Eqs. (3.20)–(3.21) with local covariance-order claims and the first-exclusion construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two Landweber notes respectively prove single-crossing covariance variance order and a sharp spectral threshold for leading covariance-optimal normal modes.",
+          "The HulC reuse note proves vanishing Gaussian leave-one-fold-out hull coverage, with asymptotic 2√(log B/(πB))."
+        ],
+        "reasoning": "Within-iterate variance rankings do not establish joint standardized directions across times at the same coordinate. Leave-one-fold-out hull coverage uses different estimators and a different event; it does not reduce to the proposed single-coordinate spectral construction.",
+        "searches": [
+          "Local Resultary semantic search: Landweber multiscale covariance, optional stopping, single-coordinate coverage collapse",
+          "Resultary IDs 1ab03774ff37, f4e7bf8f5d76, e62c8893668a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-day result retrieved was the assigned record itself; distinct exact indexed overlaps are covariance-ranking and HulC coverage laws described above."
+        ],
+        "reasoning": "The claimed limit is a parametric theorem, not a numerical table value. The inspected exact formulas use different observables or estimators and do not encode this coverage law.",
+        "searches": [
+          "Local Resultary checks for exact Landweber past records and same-day overlap; comparison with earlier covariance-rank notes and Gaussian HulC reuse"
+        ]
+      },
+      "rationale": "Neither marginal intervals nor the danger of selecting among them is new. The warranted distinction is an explicit family of Landweber operators and deterministic times that makes standardized noise at a single common coordinate from a common observation asymptotically independent while retaining fixed-index source-class guarantees. The examined spectral and coverage results do not supply that construction or imply the limit under the stated reuse and coordinate restrictions.",
+      "residual_risks": [
+        "Bounded comparisons do not establish first priority. An unindexed temporal spectral-regularization counterexample could overlap; the additional literature search yielded no decisive comparison and that is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct interval overlap and different stopping",
+          "evidence": "K(σ) is based on the forward problem and noise level, not the realization of Y.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+          "material_read": "§§3.4–3.5, Lemma 3.4 and Eqs. (3.18), (3.20)–(3.21), offsets 28779 and 35903",
+          "method": "Primary OA HTML passage reading",
+          "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+          "trigger": "Same bias bound and UQ algorithm"
+        },
+        {
+          "assessment": "Single-iterate ordering, not a joint time law",
+          "evidence": "Covariance modes exchange variance order exactly once; optimal rank block moves toward smaller normal eigenvalues.",
+          "identifier_or_url": "2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Single-crossing covariance spectrum and moving optimal ranks for Landweber iteration",
+          "trigger": "Closest spectral-mode overlap"
+        },
+        {
+          "assessment": "Rank criterion, not first-coordinate joint coverage",
+          "evidence": "Gives a spectral ceiling for when leading normal-operator eigenvectors remain covariance-optimal.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp covariance-rank frontier for finite-step Landweber iteration",
+          "trigger": "Exact Landweber covariance law"
+        },
+        {
+          "assessment": "Distinct data-reuse mechanism",
+          "evidence": "Reused hull shrinks by 1/(B−1) relative to the independent-fold hull, with coverage tending to zero.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-gaussian-coverage-collapse-law-for-leave-one-fold-out-hulc-reu--e62c8893668a",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A Gaussian coverage-collapse law for leave-one-fold-out HulC reuse",
+          "trigger": "Adjacent exact Gaussian data-reuse collapse"
+        },
+        {
+          "assessment": "Controls risk rather than selected marginal coverage",
+          "evidence": "Defines a residual-based stopping statistic with weak/prediction and strong squared-error risk objectives.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.07702",
+          "material_read": "PDF p. 1 abstract and p. 6 Eq. (1.11), offsets 1161 and 16835",
+          "method": "Primary OA PDF passage reading",
+          "title": "Optimal adaptation for early stopping in statistical inverse problems",
+          "trigger": "Possible broader theorem for data-dependent stopping"
+        },
+        {
+          "assessment": "Different inferential target, relevant general motivation",
+          "evidence": "Uses joint test statistics to calibrate multiple functionals under structural constraints.",
+          "identifier_or_url": "https://arxiv.org/html/2510.11708v1",
+          "material_read": "Abstract and §1.2, offsets 655 and 11935",
+          "method": "Primary OA HTML passage reading",
+          "title": "Simultaneous Frequentist Calibration of Confidence Regions for Multiple Functionals in Constrained Inverse Problems",
+          "trigger": "Broader simultaneous inverse-problem calibration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the extent to which exact fixed-index uncertainty quantification can fail under first exclusion even without changing the coordinate or collecting new data. The useful mathematical witness is that ordered, increasingly saturated Landweber spectral filters can behave like independent standardized tests when viewed on widely spaced time scales. The example deliberately varies dimension and conditioning; it does not impugn observation-independent stopping or every adaptive rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

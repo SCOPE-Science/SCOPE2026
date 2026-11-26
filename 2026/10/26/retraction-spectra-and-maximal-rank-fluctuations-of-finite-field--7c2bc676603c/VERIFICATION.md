@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-Execute `python3 verify.py`. The program requires only Python's standard library and prints `VERIFY_OK` after all assertions.
+## correctness
 
-Its prime-field checks enumerate every pair of images of the two standard generators of \(\operatorname{UT}_3(\mathbb F_p)\) for \(p=3,5,7\), use the explicit group multiplication to test idempotence, and count actual image sizes. The resulting histograms are \(\{1:1,3:36,27:1\}\), \(\{1:1,5:150,125:1\}\), and \(\{1:1,7:392,343:1\}\). These are boundary-calibration cases, not a claim of novelty for prime fields.
+PASS
 
-In the nonprime field \(\mathbb F_9=\mathbb F_3[\xi]/(\xi^2+1)\), the program constructs and deduplicates all projections onto \(\mathbb F_3\)-subspaces of \(\mathbb F_9\)-lines. It gets \(1080\) rank-one projections and \(810\) rank-two projections and thus \(9720\) and \(65610\) nontrivial proper retractions after central-coordinate choices. It also directly verifies 20,000 multiplication-preservation and idempotence instances for sampled maps using field arithmetic.
+Independently, for a retraction with image J and kernel K, H_q=JK and J∩K=1. If K is contained in the center Z, J surjects onto H_q/Z and its commutators fill Z; hence Z⊆J and K=1, giving the identity. Otherwise K contains a noncentral element, whose commutators with H_q fill Z, so Z⊆K. Then J is abelian, is disjoint from Z, and projects to an F_p-subspace U with zero determinant pairing; any nonzero vector in U forces all of U into its unique F_q-line. In the stated odd-characteristic coordinates a lift is a linear graph, and for each lift the retractions are exactly compositions of projection modulo Z and an F_p-linear projection onto U with that graph embedding. Each U has p^(er) lifts and p^[r(2e−r)] complementary subspaces; the unique containing line gives (q+1)[e choose r]_p choices of U. A nontrivial such graph cannot be normal since commutators of one noncentral element fill Z. For s=e−r, the Gaussian binomial contributes p^[s(e−s)] and the normalized projection-and-graph factor contributes p^[−es−s²], giving p^(−2s²) times the displayed product ratio. The product denominator has a strictly positive infinite limit, giving summable domination and the normalized defect law. This verifies all ranks, including the two exceptional maps and fixed-p limit. VERIFICATION.md and verify.py report prime-field calibration and a projection census plus sampled group identities over F_9, not exhaustion of all extension-field maps; no replay is necessary for the independent analytic proof. For example the formulas give 40 possible rank-one U and 10 rank-two U at q=9, leading to 9720 and 65610 retractions, respectively.
 
-The exact formulas for arbitrary \(p,e\), the absence of other retracts, the normality restriction, and the limiting distribution are established by the proof in `RESULT.md`. The enumerations are not exhaustive over all extension-field group maps, and no computational result is claimed as an independent audit.
+## originality
+
+PASS
+
+The in-scope result is the census of group idempotents, not F_q-linear Lie idempotents, and the defect law as the extension degree grows at fixed characteristic. The prime-field calibration and the general projection-counting technique are not credited as new. The closest inspected literature and indexed findings do not give the in-scope result or a stronger theorem implying it directly.
+
+## value
+
+PASS
+
+This is a complete census of the split quotients of a natural nonextraspecial finite p-group family, distinguishing subgroups from maps realizing them and proving the absence of normal proper retracts. The rank law quantifies how uniform splitting idempotents behave when extension degree rather than prime grows; the bounded but nondegenerate rank defect is useful information not supplied by just the leading total count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

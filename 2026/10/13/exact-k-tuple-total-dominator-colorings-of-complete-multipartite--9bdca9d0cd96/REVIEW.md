@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** In a proper coloring of a complete multipartite graph, each color is confined to one part. If part \(i\) uses \(c_i\) colors and \(q\) colors are used in total, every vertex in that part totally dominates exactly the \(q-c_i\) color classes supported on other parts. Hence the \(k\)-tuple condition is exactly \(q-c_i\ge k\) for every \(i\). This gives the feasibility boundary \(k\le N-L\), and after writing \(t=q-k\), the optimization is exactly \(r\le k+t\le\sum_i\min\{n_i,t\}\). The converse construction realizes every admissible optimal color-count vector. The labeled counting formula follows from allocating colors to parts and using Stirling numbers to count surjections. The packaged checker verifies the minimum and enumerator independently on exhaustive small instances.
+PASS
 
-## Originality
+A proper color class lies in a single part. If c_i classes lie in part i and q is the total, a vertex in part i wholly dominates exactly q-c_i classes. This never exceeds N-n_i and singleton coloring attains N-n_i for every i, giving feasibility k≤N-L. For fixed t=q-k the exact integer multiplicity constraints are 1≤c_i≤min(n_i,t) and sum c_i=k+t. Every integer total between r and the sum of the caps is attained by starting at all ones and adding units within the caps. Thus the least feasible t gives exactly the optimum, and all and only the indicated per-part partitions attain it. Each unordered partition into q blocks has q! distinct labelings by [q], giving the displayed Stirling sum. The one-color-per-part and two-shore cases reduce respectively to r for k≤r-1 and 2k for feasible k on K_{m,n}; singleton parts and k=N-L pose no exception. The frozen verifier and output were inspected, not executed. A separate finite census of canonical set partitions covered 40 profile–k cases on ten profiles with 2≤N≤5 and matched the minima, counts and feasibility. The unbounded claim follows from the argument, not the census.
 
-**PASS.** The recent Beggas–Marweni paper defines and studies the general \(k\)-tuple total dominator chromatic number, but its accessible abstract advertises general bounds, corona products, edge-corona products, and graph modifications rather than a complete-multipartite classification. Targeted database and web searches using the general name, the abbreviation kTD, the older double-total-dominator specialization, complete-bipartite and complete-multipartite aliases, and the exact biclique value \(2k\) found no statement implying the all-parameter water-filling formula or optimal-coloring enumeration. The \(k=1\) specialization is explicitly treated as prior-known. The main residual risk is that the inaccessible body of the 2025 initiating article could contain a complete-multipartite result not visible in its abstract or indexing.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives a complete existence, optimization, structural, and enumerative classification on a canonical graph family for a recent multi-class domination-coloring invariant. It covers all part-size profiles and all feasible \(k\), exposes a sharp minimum-degree boundary, and reduces the parameter to a one-dimensional threshold. The exact biclique law \(2k\) and the count of all optimizers are useful corollaries rather than isolated finite cases.
+The supported distinct contribution is the simultaneous arbitrary-k complete multipartite optimum, characterization and enumeration; not the established k=1 or k=2 definitions, or the general minimum-degree existence observation on its own. No inspected source covers the combined evaluation. The initiating k-tuple paper and double-TDC paper could not be fully inspected and remain explicit risks.
 
-## Closest literature and limitations
+## value
 
-The closest source is Beggas–Marweni, DOI 10.1007/s40314-025-03466-7, whose abstract defines the same invariant and reports general bounds and graph-operation results. Beggas–Kheddouci–Marweni, DOI 10.1142/S1793830921501548, treats the \(k=2\) specialization, while Kazemi, DOI 10.22108/TOC.2015.6171, is foundational for \(k=1\). The accepted claim is the arbitrary-\(k\) complete-multipartite classification and enumeration; it does not claim novelty for these definitions or the \(k=1\) special case. The principal limitation in the originality review is incomplete access to the initiating article's body.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The feasibility observation is routine, but the natural family is fully evaluated in the nontrivial k>r−1 regime, including exactly which part splits attain the optimum and how often. The capacity criterion and exact counts give researchers a usable benchmark for the general k-tuple coloring invariant, without enumerating proper colorings or relying on the elementary special cases for significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

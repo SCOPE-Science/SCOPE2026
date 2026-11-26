@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:41.049659Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The marginal Poisson zero probabilities and linearity give the stated exponential difference, without requiring joint independence. The one-taxon sign is immediate. For two discordant taxa, divide Δ(v) by v and express it as the Laplace transform of 1_[b1,a1]−1_[a2,b2]. Nested intervals give one sign (or identity). Otherwise cancel their overlap: the two remaining intervals have opposite signs and are ordered. The ratio of the left to the right interval's Laplace masses is strictly increasing, by differentiating its log and comparing the two mean rates; thus any positive root is unique and transverse. Its existence is exactly opposite strict signs of the length difference at v=0 and of the leftmost surviving contribution at large v. Unequal minima give the latter sign; equal minima imply nesting. Equal total lengths give no interior zero. The concordant case is termwise. An independent exact check (python /workspace/branches/independent_frozen_checks.py 2) confirms the factorization for the six rates. Each of the two factors has one simple root in (0,1), and their roots are r and sqrt(r), so the signs and efforts follow. Simple crossings persist locally; compact subintervals away from the two roots retain their signs, and the positive total difference and separated smallest rate preserve the two tails uniformly for nearby rates. Appending identical rates cancels them exactly. No field validation or equal-total threshold is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3d789b92bf80 gives a single-crossing theorem for three species in equal-census, without-replacement rarefaction. Chase et al. report observed multiple crossings. Chao et al. relate crossing counts under size and coverage indexing."
+        ],
+        "reasoning": "These are different kernels, empirical observations, or re-indexing results, not a threshold over arbitrary Poisson rates. General majorization and Laplace sign techniques supply methods, not the exhibited arbitrary-rate boundary with exact efforts.",
+        "searches": [
+          "Resultary: majorization / Laplace order / single crossing in rarefaction",
+          "Chase et al. doi:10.1111/ele.13151, accessible PDF p. 4",
+          "Chao et al. 2014, Rarefaction and extrapolation with Hill numbers, accessible PDF p. 19"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (read only)",
+        "Resultary 4a0966e867d7 and 3d789b92bf80",
+        "Chase et al. 2018, p. 4",
+        "Chao et al. 2014, p. 19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-species theorem works with normalized abundance vectors sampled by the same fixed number of iid individuals. The single-crossing catalogue result concerns the without-replacement kernel."
+        ],
+        "reasoning": "The earlier statements do not imply the unrestricted Poisson impossibility at two or sharp sufficiency at three; a shared exponential-polynomial proof method does not erase the different endpoint constraints.",
+        "searches": [
+          "4a0966e867d7 exact four-species theorem versus frozen RESULT.md lines 4–17",
+          "3d789b92bf80 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized with-replacement expression is m−sum exp(−a_i n) with a_i=−log(1−p_i); hence sum exp(−a_i)=m−1 on each side. Poissonizing normalized sampling instead gives a_i proportional to p_i and equal total intensities."
+        ],
+        "reasoning": "Neither normalized representation gives the arbitrary two profiles at the same nominal effort; the two profiles of the frozen witness do not have equal total intensities. Reparameterizing each curve separately would change the comparison.",
+        "searches": [
+          "Resultary: equal-weight exponential sums, Poisson richness reversals, order by total and minimum rate",
+          "4a0966e867d7 RESULT.md, Finding and proof (mirror offsets 0 and 5216)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest related witness has four species and uses (1,5,5,11)/22 versus (2,2,9,9)/22 as normalized probabilities. No separate indexed statement or table supplying the frozen exact three-rate witness or criterion was identified."
+        ],
+        "reasoning": "This is not merely a different numerical solution in the same parameter regime: it changes the minimum dimension allowed by the comparison. The search does not certify absence from the wider literature.",
+        "searches": [
+          "Resultary: two-taxon sum/minimum sign criterion and (2,3,11) versus (1,6,8) reentrant witness",
+          "4a0966e867d7 exact witness in the proof"
+        ]
+      },
+      "rationale": "Supported distinct claim: the minimum of three for two reversals at common nominal effort with unrestricted positive capture rates, together with the exact two-taxon criterion and the three-rate witness. Expected-richness formulas, multiple ecological crossings in general, and the underlying exponential-sign tools are not original here. The closest theorem imposes a normalization constraint on the exponentials and does not cover the witness or arbitrary rates.",
+      "residual_risks": [
+        "Earlier exact arbitrary-rate comparisons may appear in broader Laplace-order or accumulation literature not located by the bounded search.",
+        "Bounded access attempts did not recover full texts for Colwell et al. 2012, Chao–Jost 2012, Lande et al. 2000, Thompson–Withers 2003, or Kirtane et al. 2024. No blanket noncoverage is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact theorem under normalization; not coverage of arbitrary positive Poisson rates",
+          "evidence": "Same sample size and unit-sum probability profiles; four-species construction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7/RESULT.md",
+          "material_read": "Finding and proof passages at mirror offsets 0 and 5216",
+          "method": "Resultary search and local-mirror full-text passages",
+          "title": "Four species are necessary and sufficient for two reversals in expected species accumulation rankings",
+          "trigger": "Closest formal sharp threshold"
+        },
+        {
+          "assessment": "Different kernel and equal-census hypothesis",
+          "evidence": "Without-replacement rarefaction; majorization and kernel argument for at most one crossing.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80",
+          "material_read": "Finding and proof from mirror offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "A single-crossing law for three-species individual-based rarefaction",
+          "trigger": "Three-species prior crossing bound"
+        },
+        {
+          "assessment": "Qualitative precedent, not the minimum theorem",
+          "evidence": "732 of 2203 pairwise comparisons crossed, some more than once.",
+          "identifier_or_url": "https://doi.org/10.1111/ele.13151",
+          "material_read": "Open PDF p. 4, text offset 21032",
+          "method": "Lawful open full-text passage",
+          "title": "Embracing scale-dependence to achieve a deeper understanding of biodiversity and its change across communities",
+          "trigger": "Earlier empirical multiple crossings"
+        },
+        {
+          "assessment": "Not decisive for either priority or noncoverage",
+          "evidence": "DOI access returned 403 and identified repository copies timed out.",
+          "identifier_or_url": "https://doi.org/10.1093/jpe/rtr044",
+          "material_read": "No full text obtained",
+          "method": "DOI access and lawful repository recovery attempts",
+          "title": "Models and estimators linking individual-based and sample-based rarefaction, extrapolation and comparison of assemblages",
+          "trigger": "Poisson accumulation-model background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question arises when two methods have different total capture intensities but are compared at a common effort. The complete two-rate rule identifies when an endpoint reversal is possible, while the explicit robust three-rate example establishes where endpoint signs cease to determine the interior ranking. This is a sharp, interpretable boundary for the expectation model, not an empirical performance claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

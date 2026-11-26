@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:01:34.377478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coordinatewise min and max preserve strict index increase, so the only two embeddings must be comparable. If different at two indices j<k, splicing the lower prefix through j and the upper suffix after j gives a third embedding. For the one differing coordinate, an occurrence can be altered if either adjacent selected symbol is inserted into its ordinary gap, or if the fork symbol or one of its existing target neighbors is inserted into its fork gap. Conversely the gap exclusions force greedy first and last occurrences to be precisely the designated tuples, which agree off the fork; the interval between them contains exactly two admissible choices at the fork. Thus the restrictions count all hosts once. For each fork there are two exterior gaps with q−1 letters, m−1 ordinary gaps with q−2, and a fork gap with q−2 in exactly 2+t cases and q−3 otherwise. Multiplying their geometric factors gives the full series, including when q=3 and a fork gap has no allowed letters. At length m+2 the coefficient differs by one per unit of t; for m=2 there is only one class. The labeled target count follows by independent choices of copying the penultimate letter or using a letter distinct from the last two. At z=1/(q−1), evaluation after removing the double pole gives (m+2+t)/(2(q−1)); other poles have strictly smaller exponential bases, and only the leading n term is retained. Independent bounded replay enumerated all hosts for (q,m,n)=(3,2,2),(3,2,3),(3,3,5),(3,4,7),(4,4,6),(3,5,7), aggregated each target's complete list of increasing index tuples per host, and matched every target and fork to the coefficient of its gap product. In particular 108 quaternary length-four targets against length-six hosts gave 5904 exact-two target-host pairs. These are finite checks; the greedy argument proves all lengths. The equivalence is equinumerosity, not equality of the labeled languages, and does not extend here to adjacent repeats or other multiplicities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruda's general-alphabet Proposition 4.1 gives an eventual-polynomial expression at multiplicity one; the general positive-frequency shape is Conjecture 1, with an automaton proof listed as in preparation. Its Proposition 3.4 is a per-host binary run formula.",
+          "Tian provides per-word binary occurrence counts and explicitly does not give general exact-frequency host counts."
+        ],
+        "reasoning": "An eventual polynomial-exponential shape and upper bound on its leading polynomial degree would not fix its coefficients or identify equivalence classes. No checked theorem supplies the asserted full nonbinary enumerator.",
+        "searches": [
+          "arXiv:2607.02578 Proposition 3.4, §§4.1 and 4.3, Appendix A.2",
+          "arXiv:2507.03205 §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1f976e548caa",
+        "Resultary 9f3da85d996d (self-match)",
+        "arXiv:2306.07870v1",
+        "arXiv:2607.02578",
+        "arXiv:2507.03205",
+        "arXiv:1905.05646"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For adjacency-distinct patterns ℓ=r, Bruda's proposed degree bound allows a degree-one dominant term, but specifies neither its prefactor nor the lower poles. Binary alternating patterns always have t=m−2; the ternary all-distinct length-three sequence has t=0."
+        ],
+        "reasoning": "Neither one-occurrence nor the exact special cases force the two-embedding fork law, all-length nonbinary coefficients, or variability in t. The precise covered special case is excluded from the novelty verdict.",
+        "searches": [
+          "arXiv:2607.02578 Conjecture 1 versus degree and one-occurrence statements",
+          "arXiv:2306.07870 Proposition 3.4 versus Resultary 1f976e548caa Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Menon–Singh's binary formula r_1 binomial(n−r,ℓ−r+1) specializes to ℓ(n−ℓ) for alternating length-ℓ targets. This matches the binary analogue, where every interior triple is a palindrome.",
+          "Mansour–Rastegar–Roitershtein count order-isomorphic subsequences, while literal indexed embeddings are required here."
+        ],
+        "reasoning": "The binary specialization is equivalent only in its regime. Switching to ordinal matching does not count the same literal occurrences; neither comparison determines the nonbinary fork split.",
+        "searches": [
+          "arXiv:2306.07870v1 §3.1 Proposition 3.4",
+          "arXiv:1905.05646 occurrence definition and Theorem 2.9",
+          "Resultary indexed scattered occurrences: 1f976e548caa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Aside from the self-match, the distinct same-day record explicitly gives z^4(3−z)/[(1−z)^3(1−2z)^2] for ternary target 012 and alphabet permutations, exactly q=m=3,t=0."
+        ],
+        "reasoning": "This covers that entire count sequence, not merely its first few entries. It does not cover palindromic targets such as 010, larger alphabets, or the complete class theorem. No same-day precedence is inferred.",
+        "searches": [
+          "Resultary 9f3da85d996d and 1f976e548caa; fixed-pattern exact-two ternary indexed subsequences"
+        ]
+      },
+      "rationale": "The distinct contribution is the all-length fork-sensitive formula and complete t-classification for nonbinary adjacency-distinct literal targets. An equivalent ternary all-distinct specialization is independently indexed on the same date and is explicitly not claimed as new in the frozen result. Priority between the two catalog entries is not established.",
+      "residual_risks": [
+        "Bruda's in-preparation automaton proof was not available to compare; a stronger or equivalent result may exist under different terminology.",
+        "The outbound literature query did not produce reliable search evidence; the assessment rests on the concrete primary and indexed source comparisons, not absence of hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for q=m=3,t=0. Date alone does not order the two results.",
+          "evidence": [
+            "Counts two positional scattered occurrences of 012, giving z^4(3−z)/[(1−z)^3(1−2z)^2]."
+          ],
+          "identifier_or_url": "Resultary 1f976e548caa",
+          "material_read": "Local RESULT.md Finding and derivation, offsets 0 and 3861",
+          "method": "Published full-text passage via local mirror and GF specialization",
+          "title": "Two scattered copies of a three-distinct-letter pattern: exact ternary enumeration",
+          "trigger": "Strongest distinct exact match"
+        },
+        {
+          "assessment": "Covers binary targets only.",
+          "evidence": [
+            "Formula in terms of number of runs r and singleton runs r_1 specializes to ℓ(n−ℓ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.07870v1",
+          "material_read": "§3.1 Proposition 3.4, HTML offsets 10930 and 11150",
+          "method": "Primary OA passage comparison",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Explicit earlier literal two-occurrence host count"
+        },
+        {
+          "assessment": "Binary structural formulas and a general-alphabet one-occurrence result. General-alphabet shape at arbitrary positive multiplicity is posed as a conjecture in this text.",
+          "evidence": [
+            "At one occurrence the two bases are alphabet size minus one and minus two; at arbitrary positive frequency a proposed shape bounds the degree of the leading polynomial but does not resolve exact t-classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+          "material_read": "PDF p. 12 Prop. 3.4, offset 45105; p. 18 §4.1 Prop. 4.1 and Conjecture 1, offsets 71104–73867; p. 19 §4.3, offset 76620; bibliography offset 83900",
+          "method": "Primary OA passage comparison",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Possible arbitrary-frequency and alphabet extension"
+        },
+        {
+          "assessment": "Not a general alphabet exact-two host enumerator.",
+          "evidence": [
+            "§5 states a general formula for arbitrary host length and multiplicity is absent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.03205",
+          "material_read": "PDF p. 1 abstract and p. 6 §5 at offset 20519",
+          "method": "Primary OA passage comparison",
+          "title": "Counting occurrences of a pattern in a binary word",
+          "trigger": "Literal per-word occurrence count and possible exact-frequency extension"
+        },
+        {
+          "assessment": "Different occurrence convention and an exponential-root limit, not the requested literal GF.",
+          "evidence": [
+            "Selected letters are order-isomorphic to the pattern, not necessarily equal to the corresponding target letters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.05646",
+          "material_read": "PDF p. 5 occurrence definition near offset 17099 and p. 11 Theorem 2.9 near offset 40891",
+          "method": "Primary OA passage comparison",
+          "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+          "trigger": "Possible general alphabet exact-frequency precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing multiplicity two exposes a complete statistic that is invisible at multiplicity one and degenerate in the binary case. Fork rigidity plus the gap factorization proves an exact classification across a natural infinite family, determines when classes first separate and their populations, and explains the dominant coefficients. The contribution is not a recomputation of 012 or a selection of small empirical differences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

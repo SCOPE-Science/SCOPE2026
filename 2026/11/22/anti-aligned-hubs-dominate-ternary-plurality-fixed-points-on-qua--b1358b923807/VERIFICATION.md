@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The source files require only Python 3 and use exact integers for all finite-state counts. From the folder containing this document run:
+# Independent mathematical audit
 
-```sh
-python verification/count_fixed.py
-python verification/bruteforce.py
-python verification/large_deviation.py
-```
+## correctness
 
-`count_fixed.py` implements the five- and six-page-type multinomial recurrences. It returned the three columns \((U_m,V_m,E_m)\) below:
+PASS
 
-| Pages \(m\) | \(U_m\) | \(V_m\) | \(E_m\) |
-|---|---:|---:|---:|
-| 1 | 5 | 4 | 39 |
-| 2 | 13 | 9 | 93 |
-| 3 | 61 | 58 | 531 |
-| 4 | 293 | 705 | 5109 |
-| 5 | 1001 | 2996 | 20979 |
-| 6 | 4885 | 19446 | 131331 |
-| 7 | 22765 | 152426 | 982851 |
-| 8 | 88485 | 811901 | 5136861 |
-| 9 | 421369 | 5036368 | 31482315 |
-| 10 | 1999493 | 35037414 | 216222963 |
+The exact leaf test is y=u implies x=u and x=v implies y=v. Its five/six allowed page pairs give the displayed coefficient formulas after adding the opposite hub to the count vector; color relabelling gives factors 3 and 6. With hubs (0,1), the first hub's failure differs from A2>A0 only when A1>=A0 (including a tie of the two challengers), with Chernoff rate (2+2 sqrt(3))/6. The hub-swapped event has the same rate of error, and the six bivariate increments give diagonal MGF (2r+r^2+2+r^(-2))/6<rho for simultaneous lower tails. Tilting the single-coordinate walk at log r makes +/-1 symmetric, with variance 2 sqrt(6)/(1+2 sqrt(6)) and a positive atom at zero. Lattice Fourier inversion gives the centered local Gaussian limit at each fixed -j and a uniform O(m^(-1/2)) bound; undoing the tilt gives summable weights r^j for j>=1, yielding the stated c. Inclusion-exclusion and the six ordered distinct hub pairs produce the negative 12c correction. The agreeing sector is bounded by 5^m, and division by 3^(2m+2) gives the already-fixed probability, not any basin probability.
 
-`bruteforce.py` independently constructs the \(2m+2\)-vertex graph, tests all \(3^{2m+2}\) configurations, and counts hub-agreement classes. For \(m=1,2,3,4,5\) it found total counts \(39,93,531,5109,20979\). The largest direct enumeration covered 531441 configurations. Both programs printed their `OK` completion markers.
+## originality
 
-`large_deviation.py` independently computes the exact integer recurrence for the random-walk left tail with step multiplicities \((3,1,2)\) for \((+1,0,-1)\). Its normalized values \(\sqrt m\,\Pr(S_m\le-1)/\rho^m\) were approximately 1.37511, 1.56865, 1.71561, and 1.81499 at \(m=50,100,200,400\), respectively, approaching the theoretically derived constant \(c\approx1.94785\). The convergence is slow and those finite values do not prove the limit.
+PASS
 
-The proof of the asymptotic uses a separate exponential tilt and a standard aperiodic lattice local central limit theorem; it does **not** rely on extrapolating finite-state simulations. No computational checks were performed for every \(m\), and no statement is made about the eventual fate of nonfixed states.
+The exact count and sharp first correction for labelled square books under the specified tie rule were not found in the inspected comparisons. Same-graph results change the process; same-rule results change the hub/leaf structure and do not specialize to this count. This is a bounded assessment, not a historical-priority guarantee.
+
+## value
+
+PASS
+
+The book graph isolates two interacting hubs with simple repeated pages, a useful comparison problem for finite-state network dynamics under explicit tie retention. Opposite hubs ultimately dominate, and the first loss from the full six-choice page ensemble has a computed exponential rate and lattice prefactor; a count bound or leading growth rate would not identify that rare-event mechanism. The result is meaningful without claims about basins or other plurality rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

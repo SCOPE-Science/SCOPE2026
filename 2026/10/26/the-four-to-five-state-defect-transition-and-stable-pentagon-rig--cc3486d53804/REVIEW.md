@@ -1,19 +1,21 @@
-# Scientific review: support-constrained planar quadratic defects
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives complete quantifiers and normalizations: all positive finitely supported planar laws matching degrees one through three, the trace-free Frobenius norm, and an exact five-atom stability threshold. The four-atom rank-one-line classification follows from one-dimensional orthogonality of centered quadratics; the defect spectrum is computed directly. The universal lower bound is rederived, and the regular pentagon realizes it. The quantitative assertion follows from fourth-moment excess control, four angular harmonics, square Vandermonde near-unitarity, distinct fifth-root assignment, and individual radial control. The checker confirms exact sample identities but is not substituted for the universal proof.
+PASS
 
-## Originality — PASS with residual priority risk
+The frozen exact claims are mathematically sound: 1, ξ₁, ξ₂ are orthonormal and the centered quadratics are perpendicular to them. At m=3 those quadratics would vanish at all atoms, contradicting rank; at m=4 their one-dimensional span forces xxᵀ=I+hB, with two distinct roots of det(I+hB)=0. Neither associated rank-one matrix is zero and their lines span the plane by isotropy, so each line carries precisely ±x with equal masses. Normalizing the two directions gives the orthogonal pair family and defect 1/[8p(1−p)]; regular polygons attain the universal 1/4 from five atoms on. In the narrowed final RESULT, the square-matrix argument gives both rigidity at zero and quantitative stability: tr K=(1/2)E s² for s=|ξ|²/2, so E(s−1)²≤4ε and both eigenvalues of K are within ε of 1/4. Moment cancellation and the complex fourth-moment identity give angular moments bounded by 7√ε; the row and column Gram deviations of the square weighted Vandermonde are at most 28√ε. The diagonal gives w_j≥0.19 and weight error ≤5.6√ε; the off-diagonal bounds the five-term geometric sums by 150√ε and fifth-power residuals by 300√ε. Nearest-root assignments cannot collide (a collision would force geometric-sum modulus ≥4.4, instead of ≤0.015), so all five roots occur. Adding the ≤5√ε radial error in s yields position error ≤305√2√ε<440√ε for ε>0, with the non-strict estimate also valid at zero. The exact five-atom assumption is necessary for the square Gram transfer. The final proof is analytic. The frozen checker was inspected, not executed; the 200 perturbed matrices do not in general satisfy the theorem's moment constraints. The repaired result makes no assertion about attaining the same stability at higher support or about optimal constants or exponent.
 
-Tanaka (arXiv:2610.20880v1, Sections 6 and 10) proves the unrestricted operator bound and design characterization, and explicitly asks about the support-size tradeoff. Cools (1997, Sections 7–8) summarizes the older minimal cubature and central-symmetry results; these established ingredients are not claimed independently new. The reviewed contribution combines a support-constrained defect frontier with a *quantitative node-and-weight stability theorem* at five points. Searches over cubature, BSDE defect, weighted spherical designs and available mathematical research records did not identify this exact quantitative implication. General positive-quadrature stability, the unavailable unpublished companion, and unindexed results remain possible coverage risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Support cardinality directly measures finite-state cost in the numerical schemes motivating the defect functional. The sharp four-to-five jump means adding a single state halves the best achievable worst-direction quadratic defect. The near-optimality estimate additionally makes the five-state design robust: a small spectral-defect excess forces every atom and weight close to the regular-pentagon design, rather than merely bounding a scalar moment. This is a structural, falsifiable, model-specific statement, not a numerical re-tabulation.
+PASS is for the narrower theorem in repairs/3/RESULT.md, not a novelty pass for the original dual headline. The repair removes the exact support frontier and classifications as independent findings and credits the universal bound and exact five-node angular characterization as background. The older degree-three cubature bounds apply to these low moments, and the five-node equality classification follows directly from Tanaka and classical positive trigonometric quadrature. The distinct remaining result controls both masses and the full planar positions from energy excess, with no initial circle, separation, or lower mass hypotheses. No inspected result implies those bounds for this class.
 
-## Sources and scientific limitations
+## value
 
-The originating source is Tanaka, arXiv:2610.20880v1 (14 October 2026). Historical cubature context is Cools, Acta Numerica 6 (1997), including Möller's classical symmetry result. The proof does not optimize its stability constants, does not address more than five atoms in the stability conclusion, and remains subject to independent priority evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired theorem answers a robustness question not settled by knowing the exact minimizer: whether an actual nearly optimal five-state increment rule must use almost equal probabilities and place each atom near a different pentagon vertex, despite no imposed radial or separation condition. The defect-to-geometry estimate gives explicit atomwise control of both quantities and a usable small-error range. It is a quantitative result for genuinely planar laws, not a certificate or relabeling of the classical exact cubature rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

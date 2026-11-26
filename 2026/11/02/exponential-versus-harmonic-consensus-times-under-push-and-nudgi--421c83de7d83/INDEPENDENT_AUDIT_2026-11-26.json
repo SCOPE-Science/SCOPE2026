@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:10:49.731873Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read VERIFICATION.md and verify_media.py; did not execute the frozen script. Its reported comparisons use finite rational instances and sample convergence; the uniform limit is analytic.",
+        "Independent exact replay: on all 15 transient binary configurations at N=4, α=1/2 and E=1/3, for each configuration and each selected vertex tally its three neighbors, add flip probability divided by 4 to the diagonal of I−P and subtract it at the bit-flipped column if transient. Rational elimination with right side 1 gave means by starting count (196/3,178/3,148/3,32) for push and (24,18,12,6) for nudge. These match the contextual finite formula and satisfy the repaired nudge inequalities. This does not test the infinite limit."
+      ],
+      "rationale": "Van Santen et al. Eqs. (1)–(3) and the uniform one-vertex clock give the displayed kernels exactly on a loopless clique. All p_j>0 for j<N and N is absorbing, so finite blocks give a geometric absorption bound at fixed N. With v=N−j the active nudge down transition exactly cancels the two social terms in p_j−q_j and leaves h; when it is clipped to zero p_j≥hv/N. The conditional drop of H_v is p_j/v−q_j/(v+1)≥h/N. Deterministic-time telescoping followed by the tail-sum formula bounds the mean by NH_v/h. Any successful trajectory must select all initial B vertices, which gives the coupon-collection lower bound; α=1 is pure death at probability Ev/N, giving equality at the upper bound. Rechecked the contextual push proof: the first-step difference products give the full finite formula; all factors above one are precisely those after floor((N−1)E), and they form one summand available for every start. The lower and polynomial-times-upper sandwiches use the same positive-part Riemann sum. The alternative prior-theory comparison changes each fixed-profile positive product term by a bounded factor uniformly (one inverse death rate and at most N−1 ratios), and the Poisson clock changes means by N, so neither changes the log rate per vertex. The endpoint v=N has mean extra wait 1/(Nh) in the comparison chain. All parameter and time-unit hypotheses and the exclusion of initially unanimous A from the logarithmic statement are retained.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doering et al. provide the exact birth–death product and superthreshold potential plus uniform boundary-layer formula. The push profiles have positive crossing 1−E, with 1−(c+h)^v bounded away from zero for v≥1. That superthreshold formula is not a nudge bound: for nudge the opponent count drifts toward zero for all v>0."
+        ],
+        "reasoning": "The push exponent is covered, not independently novel; the repair credits the specialization. General extinction-time machinery does not directly supply this pair of finite harmonic inequalities for the clipped kernel. The nudge-specific uniform drift bound requires exploiting exact cancellation or clipping, with a separate lower bound on update attempts.",
+        "searches": [
+          "arXiv:q-bio/0401016 §§2.1–2.2, Eqs. (10)–(20)",
+          "arXiv:2404.02689v1 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.02689v1",
+        "arXiv:q-bio/0401016",
+        "arXiv:1910.01200 (abstract)",
+        "Resultary 9ac99b94a870 and 21e594f1243c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the push opponent count v the fixed-profile birth/death quotient is (1−x)/[c(1−x)+h] for x=v/N, so the cited superthreshold law gives the exact action integral and uniformity. Finite-N denominators perturb each rate ratio by at most N/(N−1), and the prior nonnegative exact sum therefore absorbs this with at most a bounded factor. For nudging, q_j can vanish on an entire interval and is never large enough to balance p_j at a positive opponent count."
+        ],
+        "reasoning": "The prior exact formula and asymptotic do imply the push part even though the exact model was not named there. The repaired claim is not that corollary: it uses the model's per-attempt harmonic drift and a necessary coverage time for all initial dissenters, giving explicit finite constants and all-start uniformity.",
+        "searches": [
+          "arXiv:q-bio/0401016 PDF pp. 5–7, OA offsets 12879 and 15300, Eqs. (10)–(20)",
+          "arXiv:2404.02689v1 PDF pp. 5–6, Eq. (3), and pp. 8–9, §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating paper's symmetric per-selected-agent rule is exactly this nudge chain when f_A=j/(N−1) for a selected B and f_B=(N−j)/(N−1) for a selected A. The same paper's asymmetric rates give the contextual push comparator. The opposing-source model is reported to have algebraic scaling and uses different source interactions."
+        ],
+        "reasoning": "Equivalence requires matching the two one-step transition probabilities (including clipping), absorption boundary and update-attempt clock, not just favoring the same opinion. The motivating paper establishes the model, not the finite harmonic sandwich in its inspected results.",
+        "searches": [
+          "arXiv:2404.02689v1 §2.2, Eqs. (1)–(3)",
+          "Exact complete-graph push/nudge consensus times or equivalent external-field voter birth–death process",
+          "arXiv:1910.01200"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first catalogue result has two permanent opposed zealots and a different response, yielding m(m+1)H_m at its critical parameter as well as a different action law. The second studies a δ→0 near-zealot lifetime on graphs. Van Santen et al. §3.1 reports empirical prevalence rather than a finite-N table of expected absorption times."
+        ],
+        "reasoning": "Neither a harmonic quantity for different dynamics nor a small-parameter law controls the fixed-parameter nudge mean over all nonconsensus starts. No inspected source supplies an equivalent exact table or formula for the retained inequalities.",
+        "searches": [
+          "Resultary fixed-parameter complete-graph media push/nudge absorption-time bounds",
+          "2026/11/8/SCOPE-flat-criticality-boundary-layers-and-exponential-consensus-passa--9ac99b94a870",
+          "2026/10/25/SCOPE-the-largest-dissenting-component-determines-near-zealot-consu--21e594f1243c"
+        ]
+      },
+      "rationale": "Only the finite harmonic bounds uniformly over starts for the actual nudging rule, which identify the fast side for this pair, are credited in the repair. The verified prior push implication is explicitly excluded from new claims. The work on this exact pair's update rules located in the bounded comparison reports simulation-based prevalence rather than these nudging absorption-time estimates.",
+      "residual_risks": [
+        "An unindexed finite-time analysis of the exact clipped kernel or a more specialized hitting-time comparison may overlap the repaired bounds. The search does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rule provenance; inspected results are simulated stationary prevalence, not this nudging bound",
+          "evidence": [
+            "Uniform vertex selection, clipped symmetric flip formula and unmodified asymmetric A→B formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.02689v1",
+          "material_read": "§2.2 Eqs. (1)–(3), PDF pp. 4–6, OA offsets 8500 and 13482; §3.1 pp. 8–9 offset 19198",
+          "method": "Primary OA PDF targeted equation and results passages",
+          "title": "Social clustering reinforces external influence on the majority opinion model",
+          "trigger": "Same two influence mechanisms and their reported results"
+        },
+        {
+          "assessment": "Implies the push application; does not supply the model-specific nudge harmonic sandwich",
+          "evidence": [
+            "Effective potential −∫log(λ/μ), uniform boundary-layer factor 1−ρ(0)^(−v), reflecting endpoint increment and nonnegative product sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/q-bio/0401016",
+          "material_read": "§2.1 exact formula/boundaries (10)–(15), §2.2 potential and superthreshold law (16)–(20); PDF pp. 5–7, offsets 12879 and 15300",
+          "method": "Primary OA PDF, decisive formulas rechecked with explicit termwise rate comparison",
+          "title": "Extinction times for birth-death processes: exact results, continuum asymptotics, and the failure of the Fokker-Planck approximation",
+          "trigger": "General fixed-profile extinction theorem plausibly subsumes push"
+        },
+        {
+          "assessment": "Related but different reported source model; not used to assert whole-text absence",
+          "evidence": [
+            "Reports algebraic N^α time scaling for opposing news sources."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.01200",
+          "material_read": "Abstract, p. 1, offset 1623",
+          "method": "Primary paper's abstract only",
+          "title": "Polarization and Consensus by Opposing External Sources",
+          "trigger": "Complete-graph external-source consensus-time precedent"
+        },
+        {
+          "assessment": "Later, different zealot rules, hitting target and harmonic scale",
+          "evidence": [
+            "Two permanent opposed zealots; critical m(m+1)H_m, not NH_v in the clipped single-field process."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-flat-criticality-boundary-layers-and-exponential-consensus-passa--9ac99b94a870/RESULT.md",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Resultary and local source mirror",
+          "title": "Flat criticality, boundary layers, and exponential consensus passages in a nonlinear two-zealot opinion model",
+          "trigger": "Catalogue result giving both harmonic and exponential times"
+        },
+        {
+          "assessment": "Different limiting parameter and graph setting",
+          "evidence": [
+            "Power-law lifetime as δ→0, not fixed-parameter complete-graph population growth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-largest-dissenting-component-determines-near-zealot-consu--21e594f1243c/RESULT.md",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Resultary and local source mirror",
+          "title": "The largest dissenting component determines near-zealot consensus times",
+          "trigger": "Earlier catalogue result on consensus times with stubborn individuals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count kernel includes possible reversions before consensus, so the coupon lower bound alone does not determine their cost. The matching finite upper scale shows that, for this concrete clipped rule and uniform selection, reversions do not change the coupon-collection order from any start, including one dissenter. This supplies a useful quantitative comparison with the known birth–death barrier for the other originally paired rule, in the same time units and for the same field parameters. No independent new value is assigned to the prior push law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

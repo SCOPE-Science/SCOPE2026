@@ -1,19 +1,21 @@
-# Scientific review: a four–six obstruction dichotomy for splitting independence from dependence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the necessary-and-sufficient shared-column intersection criterion directly from the definition of an independent rectangle and the at-most-one-remainder-per-row functional constraint. Failure selects an active row with two witnesses outside the intersection, then two active rows missing those witnesses. If the latter coincide, their 2-element neighborhoods yield disjoint stars; otherwise the elementary three-2-sets lemma forces either disjoint stars or a triangle. Each pattern is independently verified as inclusion-minimal using the exact criterion. The coefficient formula counts disjoint ordered-by-row neighbor pairs and missing-column permutations. The checker directly enumerates lax splitting on 848 teams and validates all minimal teams on 74,576 teams. All universal statements are covered by the proof, not finite computation.
+PASS
 
-## Originality — PASS within inspected evidence
+In any lax split, all rows of degree at least two must meet the independence part. This part is a rectangle, so its column set lies inside the intersection of the active rows. Each active row must therefore have at most one cell outside that intersection. Conversely, taking all active rows times their common columns leaves a partial function in the complement, including the separate no-active-row case. For a failure choose two neighbors of one row outside the intersection and an active row missing each; retain two neighbors in each witness row. If there are disjoint selected pairs they give two stars. Otherwise the distinct pairwise-intersecting pairs have empty total intersection and must be the three edges of a triangle on columns, giving the six-cycle as a subteam, not necessarily induced in the original team. Every proper subteam of either example is satisfying: at most two rows remain active, and if two survive in the cycle case their original common neighbor is still present. The labelled count chooses ordered-by-label rows and disjoint unordered column pairs, or a missing-column bijection on three rows and three columns. The first term is zero for q<4, including q=1. The edge-list algorithm counts degrees, active-column incidences, and exceptional cells in linear time. A complete 3-by-3 rectangle is satisfying and contains a false cycle; this is one-way local refutation, not hereditary satisfaction. VERIFICATION.md's phrase 'either side' should be read as assigning overlap to the unchanged independent rectangle and shrinking the functional part; shrinking the rectangle arbitrarily is not valid, but neither RESULT.md nor the checker relies on that. AUDIT.json's 'column-centered' description should read 'row-centered'. These supporting-text slips do not affect the theorem or checks.
 
-Primary full text from Fröhlich–Kolaitis–Meier (arXiv:2508.16146v1) and Barlag et al. (arXiv:2605.31269v1) concerns two functional dependence atoms and dependence-only coherence. The closest published complete restricted-determinant and inverse-dependence results likewise retain two functional atoms and have fundamentally different graph criteria and obstruction polynomials. The graph partition study arXiv:2412.12664 considers broad biclique, matching and Ferrers partition numbers, not the specified one-biclique/one-sided-star-forest mixed pair. Actual semantic, equivalent-name and numerical-table searches detected no implication covering this particular criterion and complete 4/6 polynomial. Earlier or unindexed equivalent formulations are a residual historical-priority risk; search absence is not proof of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The fixed binary mixed-atom split is motivated by independence/dependence database constraints and requires handling an independence disjunct that is not downward closed. The exact global criterion, complete two-shape minimal-refutation classification, sharp bounded refutation threshold for unbounded alphabets and labelled generating polynomial settle a natural structural question. The explicit counterexample to two-sided hereditary local testing distinguishes the result from routine downward-closed coherence facts. The value is in this complete natural classification, not in a small finite experiment.
+Best of checked knowledge. The mixed split is not a dependence-only coherence example or the inverse-dependence pseudoforest problem. The intersection test and its complete two-pattern minimal-falsifier census were not covered in the inspected material.
 
-## Limitations and closest comparisons
+## value
 
-The result does not give an equivalence between team satisfaction and satisfaction of all small subteams; even a full rectangle can contain a false six-cycle. It does not treat multiteams, extra attributes or arbitrary two mixed atoms. Full-text source comparisons reduce but cannot eliminate prior-priority risk. No independent mathematical or historical-priority review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A basic mixed two-variable split has a precise recognition rule, sharp refutation bound and complete labelled obstruction census across unbounded finite alphabets. The failure of downward closure makes the distinction between bounded refutations and hereditary testing substantive. This is useful as a small exact comparison case for the established two-dependence-atom classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

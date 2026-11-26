@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary conditional mean and risk follow from reflection symmetry and the classical uniform law for the Brownian-bridge positive occupation time. The critical nonstandard step is strict midpoint maximality for any independent symmetric additive noise: conditional Gaussian signs give a correlation that is strictly increasing in the latent correlation coefficient and nonincreasing in the noise scale; log-odds coordinates turn the bridge's correlation into an exponential distance kernel and physical time into a symmetric strictly unimodal logistic density. A layer-cake rearrangement establishes strict decrease under nonzero shifts; the standardized-noise-minimum condition then reduces every variable-noise design to the midpoint-calibrated constant-noise comparison. Direct integration independently gives the Gaussian risk formula and noiseless constants. The script's 116 comparisons are supplementary, not substitutes for these infinite-domain arguments.
+PASS
 
-## Originality — PASS (priority-qualified)
+Symmetry makes the sign balanced with zero tie probability at each interior time, so the conditional mean is 1/2 + C(t)Y_t and the risk is 1/12 - C(t)^2 by the uniform occupation law. Conditional on a positive standardized bridge value z, the expected noisy sign at scale r is P(|N|<z/r) except on a Gaussian-null set, and equals 1 at r=0. This is nonincreasing in r and positive on a positive-measure tail for every finite r. Integrating it against the conditional Gaussian sign expectation gives a positive kernel for rho>0, strictly increasing on [0,1] in rho (it is zero at rho=0). In log-odds coordinates the correlation is exp(-|x-z|/2), and the time measure is an even logistic density strictly decreasing away from zero. Each centered-interval layer of the kernel gives a strictly decreasing shifted integral since w(z+v)<w(z-v) for z,v>0. Its nonzero positive mixture is also strictly decreasing. Applying the fixed scale r(1/2) to every candidate is an upper bound for C(t) because the standardized scale has a global midpoint minimum; this proves uniqueness even for atomic noise and discontinuous scales. For Gaussian noise the arcsine integrand follows from correlation attenuation. Integrating by parts with u=sqrt(s/(1-s)), then setting au=sin(theta) and taking tan(theta), gives the stated arctangent. At zero noise the two arcsine integrals give C(t)=(sqrt(t)+sqrt(1-t)-1)/2 and the risk and explained fraction follow exactly.
 
-The closest mathematically applicable published antecedent is Godrèche (2017), section 5.4: it already supplies the bridge's exact two-time sign correlation, and its section 6 supplies the uniform occupation law. Integrating this known correlation yields the noiseless single-bit covariance, which is accordingly **not** claimed in isolation as new. The point of the final theorem is a universal optimal observation time under *arbitrary symmetric* non-Gaussian additive noise and a time-dependent standardized-noise dominance condition, plus a finite-Gaussian-noise risk formula. The full-text inspected noisy Brownian-motion application of Pozdnyakov et al. (2014) retains unquantized readings and does not optimize the sign-only observation location. High-frequency occupation estimation papers of Ivanovs–Podolskij (2020) and Altmeyer–Le Guével (2021) do not imply the one-bit, one-site result. published-finding corpus and accessible prior claims were compared by mathematical objects and implications, not just keywords. No covering statement was identified, but absence of a retrieved paper is not proof of historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-A location decision under a one-bit communication constraint is not the same as the usual noiseless/full-value kernel quadrature problem. The result provides a complete *distribution-free* sensing-time prescription even when measurement noise is heavy-tailed or discrete and when absolute rather than variance-scaled noise is fixed; the optimal location does not depend on its distribution. The exact Gaussian Bayes-risk curve calibrates information captured with a single bit and quantifies the approximately 51.47% variance reduction without noise. This is a natural finite-information stochastic numerical-integration question, not a parameter re-labeling, and its robust strict-optimality lemma is the main contribution.
+The supported distinct claim is a unique global one-bit placement law for arbitrary symmetric finite noise under the global standardized-scale condition. The bridge sign correlation, Lévy's occupation law and the directly obtained noiseless covariance are not new. The strongest same-day comparisons either change the process and restrict noise to Gaussian, or change the experiment to two noiseless signs; neither supplies the distribution-free noisy bridge theorem.
 
-## Closest literature and residual risks
+## value
 
-Godrèche (2017) contains the sign correlation; classical bridge occupation uniformity is long known; Pozdnyakov et al. (2014) concern noisy full-location observations; Ivanovs–Podolskij (2020) and Altmeyer–Le Guével (2021) concern high-frequency observation schemes. A historical information-design paper might contain a stronger one-bit theorem under different terminology. Noise symmetry, known bridge law, fixed single bit and standardized-noise midpoint minimum are necessary scope qualifications; general asymmetric channels are excluded. Independent mathematical and literature-priority checks remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp decision result for a natural information-constrained experiment: one observed bit for a global path functional. Exact midpoint uniqueness robust to discrete, heavy-tailed or degenerate symmetric noise removes a noise-density assumption, and covers both constant absolute and constant relative amplitude. The explicit risks give a quantitative benchmark; neither numerical design tuning nor a noiseless formula alone would give this conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

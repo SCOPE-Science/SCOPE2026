@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses real, pairwise-distinct rates strictly between \((\beta-1)/2\) and \(\beta\), a fixed finite number of channels, and nonzero complex coefficients. The transformed Hardy kernel is integrable, so the operators are bounded. The exact adjoint applied to each shifted-Jacobi polynomial has one \(x^{-\delta}\) term plus a polynomial; orthogonality forces each cross-cutoff block to have rank one. Rodrigues and beta integrals give exact coefficients. Two independent rescalings cancel identically and the low/high Gram matrices converge entrywise to the same positive Cauchy matrix. Finite-dimensional singular-value continuity proves all \(m\) limits and eventual rank. The two-rate example follows from exact trace and determinant. The checker provides supplementary finite tests, not the infinite proof.
+PASS
 
-## Originality — PASS with historical-priority qualifications
+The declared interval implies alpha>-1, delta=beta-alpha>0 and c=beta-2delta+1>0. Under x=exp(-s) and multiplication by exp(-(beta+1)s/2), the operator is f(s) mapped to the integral of exp(-cu/2)f(s+u) for u>=0, whose norm is at most 2/c. Monomials are eigenvectors, hence only the low-output/high-input block of the commutator can be nonzero. The adjoint applied to a polynomial p is x^(-delta) times the scalar integral of t^(delta-1)p(t), minus a polynomial of the same degree; x^(-delta) is square integrable precisely here because c>0. In the stated shifted Jacobi basis, Rodrigues integration by parts gives the unnormalized moment of P_k at x^(s-1) as (-1)^k Gamma(s) (beta+1-s)_k/Gamma(k+s+1). For s=delta and s=alpha+1, endpoint terms vanish (order at least x^s at zero and a positive order at one); reinserting the square-root normalization yields both stated factors with the correct signs. Thus after removing basis signs each rate contributes one outer product. The Gamma constants cancel between the two factors. With degree-dependent rescaling n^(-c_j) and n^(c_j), the two Gram entries have limits given by the low partial sum of powers and the high tail sum of inverse powers at d=c_i+c_j>0, both 2/d. The exact limiting matrix 2C follows for each Gram; the exponentials exp(-c_j t) prove C positive definite for distinct rates. Polar decomposition and continuity of the finite matrix square roots and singular values give all m limits, eventual rank m, and positivity, including for complex lambda. The example is Hermitian with trace 1/6 and determinant -1/150 and hence eigenvalues 1/5 and -1/30. Polynomial density and boundedness give strong convergence to zero, while the norm tends to a positive number. The optional checker was inspected but not run; its finite tail cutoff is not the proof.
 
-Agler–McCarthy (arXiv:2205.01856) treat Hardy eigenvectors, Hilbert-space distances and asymptotic polynomial approximation; their Beurling treatment (arXiv:2206.03462) classifies invariant subspaces. Chalendar–Partington (arXiv:2212.02172; *Archiv der Mathematik*, 2023) address monomial-operator boundedness and compactness. Their inspected results do not provide a multirate simultaneous Gram-limit spectral formula for polynomial projection commutators. Related published work on Hardy commutators with multiplication or diagonal multipliers concerns different operator pairs and asymptotics; it does not imply the rank-\(m\) Cauchy–Gram limit. An unindexed formula or specialized finite-section paper remains a historical-priority risk; absence from searches is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The natural problem is the stability of the polynomial Galerkin representation of a finite linear combination of weighted Hardy averages. The formula gives the **entire** persisting finite-rank singular spectrum, including all interactions and cancellations between arbitrarily many fixed rates. It distinguishes strong convergence from norm convergence and demonstrates a nontrivial smaller leakage channel with an exact second singular value. It is a structural finite-section result, not a small perturbative improvement or a renamed single-rate bound.
+The inspected monomial/Hardy and approximation literature supplies eigenvectors, operator theory and distance tools, but not the joint off-diagonal block limit at these polynomial cutoffs. The closest distinct catalogue singular-system results concern different commutators and different spectral regimes. The supported distinct claim is the complete coupled finite-multirate singular spectrum for this specific weighted space and polynomial flag, not a priority claim for any of those tools.
 
-## Limits and references
+## value
 
-The conclusion is limited to the stated strict real-rate region and fixed finite \(m\). Historical priority is qualified by possible unindexed or inaccessible specialized approximation results. See the three source references and exact proof in `RESULT.md`. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural polynomial approximation scheme of a monomial-diagonal operator, the exact off-diagonal leakage is a meaningful obstruction to norm-convergent finite sections. The theorem gives all leakage channels and their interaction, not merely nonconvergence or the one-rate norm. The rate-induced Cauchy matrix explains what can be lost if leakage from distinct averages is treated separately; it remains meaningful for complex coefficients and cancellations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

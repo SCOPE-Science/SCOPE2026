@@ -1,19 +1,21 @@
-# Scientific review: four-marker circular prefix normality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses oriented binary necklaces of weight four and compares all length-matched circular factors against the chosen prefix, including wrapping factors. The proof first restricts extremal windows to ones as starting positions and characterizes all simultaneous maximizing roots by their three successive-one thresholds. Requiring the immediately following gap to be minimum and the immediately preceding gap to be maximum automatically minimizes every two-gap sum when there are exactly four gaps. The forbidden necklace generating series follows from a complete enumeration of the four possible weak-order multiplicity types, with exact rotation-orbit size four for every forbidden tuple. Burnside's formula and the leading poles yield the stated asymptotic proportion. The direct circular-window checker matched root sets on 14,950 gap tuples and the first 23 exact generating-series coefficients, without using the proof's thresholds. The five-marker example is checked directly. Finite tests alone do not establish the all-length claim; the symbolic arguments do.
+PASS
 
-## Originality — PASS, qualified
+A maximizing circular window of positive length can be shifted to its first one without losing any ones. A simultaneous maximizing root is exactly a one-root minimizing each first-attainment length for two, three and four ones. The second and fourth thresholds force the outgoing gap to be a minimum and the incoming gap a maximum. With four gaps those extrema compare the candidate two-gap sum to each of its three rivals, so the third threshold is automatic, including ties. For counting failures, nontrivial stabilizers would give constant or alternating gaps and hence a root. For increasing multiplicity patterns (2,1,1), (1,2,1), (1,1,2), (1,1,1,1), fix the unique appropriate extremum when counting circular arrangements to get 1, 2, 1, 4 forbidden orders. Counting positive successive increments gives the four terms in RESULT.md; their combined numerator over (1-z^4)(1-z^3)(1-z^2)(1-z) is z^3(1+z)^2 before shifting from gap sum to length. The first failure is the gap class of (0,0,2,1), and the leading cubic coefficients are 1/36 for failures and 1/24 for all necklaces. At any weight at least five the stated examples meet the extremum test at only one root, whose length-three prefix 110 loses to 111. At smaller weights 2 and 3 no unaccounted threshold remains. Whole periods add the same number of ones in every window. A fresh direct-window reproduction at /workspace/branches/d53ddb98-0eba-402e-b669-8b5e51e67d51/ordinal1_direct_check.py independently checked the exact sets of roots and counts for all 1,820 tuples of gap sum at most 12, not the universal claim by enumeration. The uploaded checker was inspected, not executed.
 
-The 2016 prefix-normal form study and the 2018/2021 infinite-word study define the underlying property but do not state this four-marker cyclic rotation criterion and forbidden-necklace series. The closest indexed three-one result gives the same extreme-gap condition for three gaps, but its proof has no additional consecutive-two-gap comparison and its generating function is different. The four-run cyclic result applies to only two one-runs, whereas this theorem includes four isolated ones. The sharp linear-cut obstruction is a different, weaker nonwrapping condition. The run-rearrangement extremality theorem permits reordering, not merely rotating, the original circle. Search coverage cannot rule out unindexed equivalent work. Primary full-text and related result comparisons are summarized in the structured audit.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a complete all-length root-existence test for circular streams with four markers, including all ties and zero gaps, and an exact rational enumeration of nonreconstructible phase representatives. The limiting failure probability is \(2/3\), compared with the established three-marker value \(1/2\). The explicit family of counterexamples at every marker weight at least five identifies the sharp limit of adjacent extreme-gap control, a structural boundary relevant to circular jumbled indexing and canonical rotation selection. These are exact natural invariants, not a numerical parameter increment or an arbitrary finite slice.
+No inspected distinct record establishes the weight-four circular root criterion, forbidden count, and sharp universal boundary. The strongest same-day comparison is mathematically close: it classifies finite linear cuts for the same necklaces, and its singleton-cut series is exactly z times the circular failure series. Direct comparison of the rank counts explains that shift without equating the underlying properties. This is a best-of-evidence comparison, not a priority certification.
 
-## Limitations and references
+## value
 
-The theorem does not characterize all five-marker words or unrestricted-weight circles. The asymptotic is conditional on weight four. An independent historical-priority review and independent mathematical audit have not been performed. Background: Burcsi et al., *On Prefix Normal Words and Prefix Normal Forms*, arXiv:1611.09017v1; Cicalese, Lipták and Rossi, *On Infinite Prefix Normal Words*, arXiv:1811.06273. Comparators: *First circular prefix-normal obstructions and the complete three-one classification*; *Prefix-normal rotations of four-run binary cycles*; and *The sharp cyclic prefix-normal representative obstruction*.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The extremal adjacency rule turns a simultaneous test against all wrapping factors into a local test even for ties and imprimitive periods. Weight four is the first case where there is an intervening multi-gap obstruction to rule out and the last weight where that simplification works universally. The exact failure census and limiting positive fraction show how often rotation fails even in a sparse, natural family. This identifies a sharp boundary and is stronger than listing initial necklaces or reapplying a generic recognizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

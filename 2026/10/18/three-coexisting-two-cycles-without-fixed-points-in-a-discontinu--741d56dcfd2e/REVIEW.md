@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The global three-two-cycle bound follows from a complete two-branch inverse reduction and a Rolle argument: the derivative of the resulting scalar function has at most two zeros for any exponent other than one. Four exact witness signs prove three distinct cycles. A derivative identity proves two repellers and one attractor, and independent one-sided inequalities exclude every fixed point. The included high-precision program tests the stated exact signs and physical orbit identities, but infinite claims rest on the written analytical proof.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** The originating Lawnik–Moysis–Volos (2023) full-text presentation establishes the family and focuses on fixed points and numerical chaotic behavior; it does not state the global primitive-two bound or the rational triple-coexistence witness. A relevant same-family mathematical finding counts fixed points, which does not imply two-cycle counts. Hogan–Higham–Griffin concerns piecewise-linear gap maps; Gaivão–Nogueira requires contracting branches, contradicted by the witness. Broader antecedents in alternate formulations remain possible. The complete 2007 piecewise-linear paper was not inspected, but its explicit hypotheses do not cover these nonlinear power maps.
+PASS
 
-**Mathematical value — PASS.** Three is a structurally sharp global cap for a nonlinear discontinuous family. The exhibited open region has no equilibria but does have a stable primitive two-cycle together with two unstable two-cycles, resolving a motivated issue left by analyses centered on fixed-point absence. The exceptional continuum at the linear exponent shows the necessity of the restriction. No claim is made about global chaos, entropy, or cryptographic security.
+A strictly increasing branch cannot interchange two of its own points. In a crossing cycle the left state satisfies 0<x≤min(b,c), and the strictly increasing right inverse forces a unique right state y=b+(1-b)(x/c)^(1/d). The scalar difference D between L and this inverse is therefore exact, including a possible zero at x=b=c and excluding x=0. Differentiation on the open domain reduces D'=0 to a level of [x^(1/d)(1-x/b)]^(1-d). The base increases to b/(d+1) and then decreases, so d≠1 yields at most two critical points; Rolle applies also between interior roots and an included endpoint. At the rational witness, an independent fraction check confirms D(0)=-1/20, D(3b/4)=-67/1960, D(b)=41/490 and the positive squared gap 168613/3841600 for D(b/4)>0. The three brackets give all roots and force all three to be simple, since two inter-root critical points already exhaust the bound. At a root the positive two-step multiplier satisfies μ-1=R'(L(x))D'(x); the signs +,-,+ give two repellers and an attractor. L(x)-x≥1/20, and y²≥4b(y-b) gives R(y)/y≤7/40 on the right. Both inequalities have a uniform positive fixed-point exclusion margin on their compact rescaled branch domains, using the continuous extension of the right formula at b only for that margin. The root brackets and margins persist on an open parameter set. At d=1,a=b=c the two branches are exact inverses on the listed crossing states, yielding the stated continuum.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The underlying map and known fixed-point statements are prior. The inspected literature and catalogue do not establish the full all-parameter d≠1 primitive-two-cycle upper bound or the open fractional-power witness with two repellers and one attractor. Later strictly alternating cycle censuses are substantive overlaps in a restricted regime, not the same theorem.
+
+## value
+
+PASS
+
+The family is an established model introduced to study dynamics without equilibria. A sharp global census for its first nontrivial period, proved even when fixed points exist, and an open fixed-point-free realization with both attracting and repelling primitive cycles provide structural information absent from a fixed-point or numerical chaos study. The unrestricted affine exponent degeneration explains why the exponent hypothesis matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:24:31.295406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding is correct with the stated normalization. The Walsh transform of the weight N−2ʲ−k on block j has support on the zero and one-bit prefixes, so cells with first two one-bits a<b have no later contribution. Summing gives 3A_N/2ᵃ=3·2ᵃ−2^(2(b−a)−1)−1. For a≥1 the expression is strictly negative exactly when 2(b−a)−1≥a+2; for a=0, b=1 the expression is zero and for b≥2 it is negative. This yields the stated strict threshold. Each cell has measure 2^(−b−1), and the kernel has integral one, so its absolute integral is one plus twice its negative mass. Independent symbolic summation checked the all-m≥1 phase expressions and direct weighted character sums checked n=1,…,9. The frozen proof's intermediate evaluation ∑_{b=2}^{n−1}2ᵇ=2ⁿ−4 only holds for n≥2, not n=1. At n=1 the two kernel values are 3/2 and 1/2, so L₁=1 and the stated m=0 formula separately gives deficit 1/3; n=2 also gives L₂=1. Thus the written derivation needs this boundary qualification, but the Finding itself holds. Positive phase limits give the asserted sharp uniform exponent.",
+      "replay_paths": [
+        "/workspace/branches/independent-review/replay1.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 and Lemma 9 express the norm exactly for every n≥2 in terms of Eₙ=2^(−n)∑qⱼ, j=1,…,n−1; the base n=1 is already known to have norm one. Lemma 10's proof explicitly lists the three residue-class formulas for qⱼ."
+        ],
+        "reasoning": "A limit, global supremum, or monotonicity alone would not determine the rate. This stronger exact representation does.",
+        "searches": [
+          "Blahota §4.1 Theorem 1, §4.2 Lemmas 9–10 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.13684v1",
+        "Resultary f36205c70500",
+        "Nagy (2008) citation and access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Here q₁=1/2. In 4/3−Lₙ=2^(−n)−(2/3)4^(−n)+2^(−n)∑qⱼ, insert qⱼ=(Rⱼ−2^(−j))/3 for j≥2. Summing the dyadic terms gives exactly (4+∑_{j=2}^{n−1}Rⱼ)/(3·2ⁿ) for n≥2. The geometric products in the replay produce all the displayed closed forms."
+        ],
+        "reasoning": "The three positive leading coefficients and the 2/3 exponent then follow immediately from the same three sums, whether or not the source prints the final simplified norm or uses the term 'sharp fractional exponent'.",
+        "searches": [
+          "Blahota Theorem 1, Lemma 9 and Lemma 10 proof, pp. 9–11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blahota uses the same standard ordering and Fejér normalization and writes Lₙ=1+Tₙ−Eₙ, Tₙ=(2ⁿ−2)(2ⁿ−1)/(3·4ⁿ). The Resultary compression comparison instead concerns a matrix norm approaching 1+1/√2."
+        ],
+        "reasoning": "The prior dyadic norm is the same quantity, not a Walsh–Paley variant, a maximal kernel, or a finite Walsh compression.",
+        "searches": [
+          "arXiv:2607.13684v1 definitions and §4.1 Theorem 1",
+          "Resultary Walsh–Kaczmarz Fejér L1 exact dyadic phase deficit and Walsh compression f36205c70500"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen entry itself is not a distinct comparator. The decisive exact table is in Blahota: 3q_{3r}=2^(r+1)−2^(−r)−2^(−3r); 3q_{3r+1}=5·2^(r−1)−2^(−r−1)−2^(−3r−1); 3q_{3r+2}=3·2ʳ−2^(−r−1)−2^(−3r−2)."
+        ],
+        "reasoning": "Although tabulated as summands rather than collapsed norm values, the three formulas translate exactly to the frozen residue-class coefficients under the relation Rⱼ=3qⱼ+2^(−j) for j≥2.",
+        "searches": [
+          "Resultary exact Walsh–Kaczmarz norm comparisons",
+          "arXiv:2607.13684v1 §4.2 Lemma 10, printed p. 11"
+        ]
+      },
+      "rationale": "Blahota's accessible July 2026 full text gives an exact dyadic norm representation and exactly the mod-three summands needed to obtain all three displayed formulas. The difference is an elementary geometric summation, not the derivation of a new quantitative invariant. This goes beyond the qualitative overlap acknowledged in the frozen record.",
+      "residual_risks": [
+        "The comparator need not state the closed forms verbatim; this review establishes implication, not priority for any particular wording.",
+        "No whole-document conclusion is drawn about inaccessible classical texts. They are not needed for the demonstrated prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior implication",
+          "evidence": "Same Tₙ and Eₙ formula and all three explicit qⱼ classes. The change of variables yields the same finite sum before geometric summation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.13684v1",
+          "material_read": "Definitions p. 3; §§4.1–4.2, Theorem 1 and Lemmas 9–10, pp. 9–11 and Theorem 2 through p. 12",
+          "method": "Lawful arXiv PDF; decisive equations and residue-class formulas checked at text offsets 33000 and 35800",
+          "title": "The exact L1-norm supremum of Walsh–Kaczmarz–Fejér kernels",
+          "trigger": "Identical kernel, index range and exact norm problem"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Specified compression matrix with a tridiagonal polynomial law and an N⁻² deficit, not a Fejér kernel.",
+          "identifier_or_url": "Resultary f36205c70500",
+          "material_read": "Finding and object definition",
+          "method": "Resultary discovery and local-mirror read",
+          "title": "Sharp finite-size norm deficit for the dyadic Walsh compression",
+          "trigger": "Closest distinct corpus hit on phase/rate of a Walsh norm deficit"
+        },
+        {
+          "assessment": "Not used to decide exact coverage",
+          "evidence": "Full-text access attempts did not succeed; no noncoverage inference made.",
+          "identifier_or_url": "https://delphi.icm.edu.pl/packages/EMIS/journals/JIPAM/images/170_07_JIPAM/170_07.pdf",
+          "material_read": "Citation and access paths only; no new full-text inspection",
+          "method": "Cited mirror and alternate EMIS retrieval attempts",
+          "title": "On the L1 norm of the weighted maximal function of Fejér kernels with respect to the Walsh–Kaczmarz system",
+          "trigger": "Classical source on this kernel"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A three-phase law would be informative if the qualitative limit were all that was known. Here the precise phase behavior is obtained by summing the prior explicit geometric terms; independent verification and a more compact presentation add no distinct scientific result. Correcting the n=1 proof boundary would not repair this.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

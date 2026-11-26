@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:57:37.773512Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–33",
+        "Frozen VERIFICATION.md:19 and VERIFY.py:23–100 (static inspection)",
+        "Independent replay_record4.py and replay_full.log (CHECK_OK)"
+      ],
+      "rationale": "Roots-of-unity orthogonality gives orthonormal columns and u_j has squared norm 3/n; a nonzero degree-one trigonometric polynomial cannot vanish at four distinct grid points, so all Grams are positive definite. Summing the row outer products gives the displayed Gram; dihedral symmetry acts by orthogonal conjugation. The independent replay exhausts 1,3,4,8,10 orbits for grids 5 through 9 and certifies all winner comparisons by rational enclosures, Sylvester minors and Rayleigh bounds. The full n=4 set gives identity. The coincident representatives at n=5,6,7,8 are {0,1,2,3}, {0,1,2,4}, {0,1,3,5}, {0,2,4,6}. Grid 9 has distinct winning orbits of sizes 18 and 9, represented by {0,1,3,6} and {0,2,4,6}. In the complex basis the equally spaced triple {0,3,6} contributes I/3, and the extra row contributes a rank-one matrix of trace 1/3, giving {1/3,1/3,2/3}. The other orbit's independent exact bounds are 31701/100000 < lambda_min < 31708/100000 and 51693/100000 < lambda_max < 51700/100000. The ratio of the extreme squared singular values is strictly below 51700/31701 < 2, despite a strictly smaller minimum. All comparisons concern unweighted, distinct grid points, not designs with replacement.",
+      "replay": "python3 /workspace/branches/61ad4a84-0e4f-437e-baa9-4873a24a1f6a/replay_record4.py --min-n 4 --max-n 9",
+      "residual_risks": [
+        "No classification beyond grid 9 is checked. In the source checker a rational enclosure for a quadrantal angle can straddle pi/2; monotonicity of sine alone then does not justify the upper endpoint expression. The independent replay reduces exact quadrantal cases to angle zero before Taylor enclosure, avoiding this issue and verifying the published bounds independently. Numerical estimates in that replay propose certificates only; exact rational tests decide them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier two-row Krylov result requires two columns. The four-sample cyclic result uses two consecutive complex modes, not three, and proves coincidence. Wu's equal-weight equispaced full-cycle support is a continuous-design result."
+        ],
+        "reasoning": "Fixed trace forces the two extreme eigenvalues to move oppositely with each other in dimension two, making both criteria equivalent. With three eigenvalues the middle one can vary. The two-column assertions do not dominate the target dimension even when the budget and grid match.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-dimension-free-leverage-control-of-e-optimal-two-row-krylov-sket--4a7f7106cd4e, Theorem and Proof",
+          "Resultary 2026/11/22/SCOPE-sharp-four-sample-two-mode-cyclic-fourier-designs-and-their-pari--3754c9ae0870, Finding and Proof 1",
+          "Wu, OA pp. 1–2 and Section 5"
+        ]
+      },
+      "checked_sources": [
+        "Wu, Statistica Sinica OA PDF A12n314",
+        "Local Resultary comparisons 4a7f7106cd4e and 3754c9ae0870"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two Fourier modes the variable Gram spectrum is determined by one complex phase sum. For the target three columns it depends on phase sums at both orders 1 and 2. The equal regular square of the continuous full-cycle design is not a feasible square subset of a grid of size nine."
+        ],
+        "reasoning": "Neither the two-mode coincidence nor the continuous regular-support solution can supply a split, its first grid order, or the two optimal dihedral orbits when the second phase sum is also present and the grid is fixed.",
+        "searches": [
+          "Two-column equal-leverage theorem 4a7f7106cd4e",
+          "Two-mode cyclic design theorem 3754c9ae0870, Proof 1",
+          "Wu, pp. 2 and 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is discrete first-order trigonometric regression in the normalized real basis, equivalently a complex band {-1,0,1}. Wu's eigenvalue criterion is comparable, but his exact design chooses interval points not necessarily distinct and his information matrix uses a different conventional scaling."
+        ],
+        "reasoning": "A uniform change of normalization would preserve the optimizer sequences, but an arbitrary change of column scaling need not. Neither basis equivalence within the target nor the continuous-design reformulation removes the fixed-grid four-subset constraint.",
+        "searches": [
+          "Primary search for Wu's Optimal designs for first-order trigonometric regression on a partial cycle; OA pp. 1–2 and Section 5",
+          "Resultary: four samples, E-optimal versus condition-number-optimal cyclic Fourier and equal leverage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close tabulation/optimizer comparison 3754c9ae0870 concerns the two-mode Gram. Wu's exact design domain is an interval with repetition allowed. Neither read passage lists the two three-column dihedral optimizers on the grid of nine."
+        ],
+        "reasoning": "The objective tables depend on the Gram dimension and admissible sets, not just on matching sample count or trigonometric frequencies. The evidence does not rule out an unindexed finite design table.",
+        "searches": [
+          "Resultary: sharp four-sample cyclic Fourier design optimizer tables, n=9, three frequencies",
+          "Wu, Section 5 on exact designs"
+        ]
+      },
+      "rationale": "Equal leverage and the E criterion have relevant antecedents. The supported distinct claim is the first split, with exact optimizer sets and enclosures, for four distinct unweighted samples of the three-column band on the prescribed grids. The nearest equal-leverage coincidence theorems use two columns or allow a different design class.",
+      "residual_risks": [
+        "Priority is assessed only against the inspected exact-design and sampling sources; a separate grid-constrained three-mode optimizer table could affect coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant model and comparison of design domains, not this grid-restricted two-objective classification",
+          "evidence": "Uses 1, cos x, sin x; defines E-optimality via the minimum eigenvalue and allows equal-weight exact-design points not necessarily distinct on an interval.",
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/oldpdf/A12n314.pdf",
+          "material_read": "PDF pp. 1–2 offsets 600 and 2450; Section 5 p. 8 offset 22425",
+          "method": "OA primary PDF, targeted passages",
+          "title": "Optimal designs for first-order trigonometric regression on a partial cycle",
+          "trigger": "Same trigonometric regression family and E criterion, exact design section"
+        },
+        {
+          "assessment": "Narrower dimension and budget; useful antecedent",
+          "evidence": "Coincidence for two-row choices from a two-column orthonormal matrix at equal leverage.",
+          "identifier_or_url": "2026/10/18/SCOPE-dimension-free-leverage-control-of-e-optimal-two-row-krylov-sket--4a7f7106cd4e",
+          "material_read": "Theorem and Proof",
+          "method": "Local Resultary and mirror",
+          "title": "Dimension-free leverage control of E-optimal two-row Krylov sketches",
+          "trigger": "Equal-leverage coincidence of the two criteria"
+        },
+        {
+          "assessment": "Close comparison, not equivalent; exact optimizer sets for two modes only",
+          "evidence": "Two consecutive complex modes, for which the four-point E, D, A, and condition-number optimizers coincide.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-sample-two-mode-cyclic-fourier-designs-and-their-pari--3754c9ae0870",
+          "material_read": "Finding, Assumptions and Proof 1",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp four-sample two-mode cyclic Fourier designs",
+          "trigger": "Same four-point cyclic sampling budget and both criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–30 and 35–39",
+        "Independent exact optimality replay",
+        "Two-column Resultary comparison theorems"
+      ],
+      "rationale": "Equal row leverage can make worst-direction performance and conditioning seem interchangeable, and in dimension two fixed trace really does couple them. The first real Fourier band is a natural symmetric three-column test. The sharp order-nine split and globally optimal witness orbits isolate the failure under equal leverage without changing weights, row budget or basis. The definite cutoff is useful for sampling/design comparisons rather than merely showing two arbitrary matrices with different spectra.",
+      "residual_risks": [
+        "No performance claims for a particular algorithm, or general classification of equal-leverage matrices, follow."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

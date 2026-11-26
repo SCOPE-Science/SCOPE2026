@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The anti–Rota–Baxter identity on the coordinate idempotents is equivalent to the explicit cubic-index coefficient equations \(r_{is}r_{it}+r_{it}r_{ts}+r_{is}r_{st}=0\). The diagonal and repeated-input specializations force zero outside characteristic three and force binary support patterns inside characteristic three; the pairwise equations force identical or disjoint supports, proving necessity and sufficiency of the weighted-block form. The rank, strong-identity, and square-zero criteria follow directly, and the Stirling counts have a bijective construction. The included finite-field checker exhaustively validates the original identity and resulting enumerators on stated small fields; those checks do not replace proof.
+## correctness
 
-## Originality — PASS relative to inspected work
-Gao–Liu–Bai, arXiv:2209.08962, Section 2.2, introduces the original and strong anti–Rota–Baxter identities without a split-field all-dimensional classification. Gubarev, arXiv:1811.08219, studies usual Rota–Baxter operators on the same underlying algebra; the different operator equation makes the usual weight-zero vanishing and nonzero-weight rooted-tree enumeration inapplicable. The published characteristic-three dual-number calculation concerns a nonreduced algebra, and published splitting Rota–Baxter counts concern ordinary nonzero-weight operators. No matching all-dimensional weighted-block/rank census was identified in consulted records. A general averaging-operator classification, if found, could provide prior coverage; this remains a material priority risk, not a proof of global novelty.
+PASS
 
-## Value — PASS
-The characteristic-three phenomenon replaces complete rigidity on a canonical reduced semisimple algebra by a rich finite-field family admitting every rank. The theorem recovers all such operators in every dimension, produces complete rank and square-zero enumerators, and determines precisely which operators are strong and invertible. These invariants clarify how a nonstandard operator identity interacts with primitive idempotents and the anti-dendriform construction, beyond a single small-degree calculation.
+Testing on coordinate idempotents gives r_is r_it+r_it r_ts+r_is r_st=0 at every row i and input pair s,t. Repeated input yields r_is(r_is+2r_ss)=0, in particular 3r_ss²=0. Thus outside characteristic three the diagonals, then the columns, vanish. In characteristic three each nonzero column s has entries 0 or d_s=r_ss≠0. For active s,t, the equations at rows s and t force the two cross entries to be either both nonzero or both zero. In the first case the polynomial forbids a row in exactly one support; in the second it forbids a shared row. This partitions the active coordinates into equal-support classes with disjoint supports, and any inactive coordinate can be in at most one support. Conversely equal supports give three identical summands, disjoint supports give zero terms, and any pair involving a zero column contributes zero. Each support has an active column, so its indicator contributes one to rank. Multiplication inside each support verifies the averaging identities. The strong identity on (e_s,e_s,e_i), i≠s, forces r_is²=0, and diagonals satisfy it. At rank n all coordinates must be active singleton blocks. For the counts, choosing the active set, an unordered partition, weights and assignments of inactive points gives the Stirling formula. One block contributes e^z(e^((q−1)z)−1) and unassigned labels contribute e^z; expanding rank coefficients gives the alternating formula. R acts on each image indicator by its block weight sum. Zero-sum nonzero c-tuples satisfy W_(c+1)=(q−1)^c−W_c and W_1=0, which gives the stated square-zero EGF. These are exponential generating functions over rational coefficients with integral labeled counts.
 
-## Limits and closest prior sources
-The result counts labeled operators on split products of fields, not conjugacy classes or nonsplit étale algebras. Small-field experiments check the classification but do not justify it for arbitrary fields. Sources: https://arxiv.org/pdf/2209.08962 (Section 2.2), https://arxiv.org/pdf/1811.08219 (Introduction and Section 3), and the two published results named in RESULT.md. Independent external assessment has not been performed; publication priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The anti and strong identities, the two-sided averaging terminology, characteristic-three nontriviality in a different algebra, and a substantial idempotent-averaging subfamily are credited. The distinct contribution supported here is the all-operator classification on split products, including blocks of arbitrary weight sum, its characteristic restriction for the anti identity, and the exact unrestricted and square-zero rank enumerations.
+
+## value
+
+PASS
+
+The theorem answers a complete operator-classification question on the basic split reduced algebra, with a stark characteristic dependence. The weighted blocks capture both operators with projection-like behavior and nilpotent operators absent from the projection census. They give all attainable ranks, identify strong and invertible operators, and permit a separate rank census of the square-zero subfamily, a natural exact structural distinction beyond a low-dimensional example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:35.145968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson convolution rewrites the normalized variance as sum_{i,j} P_u(theta_i-theta_j) minus 16, where u=r^2. Independently differentiating the pair potential gives weights A=P_u''(pi/2)=8u^2(1-u^2)/(1+u^2)^3 and B=P_u''(pi)=2u(1-u)/(1+u)^3. The quadratic form is A times the square-edge Laplacian plus B times the opposite-pair Laplacian: the first Fourier plane has coefficient 2A+2B, the alternating line 4A, and rotation is null. Both weights are positive and their difference gives the stated reciprocal polynomial after removing positive factors. Dividing by u^3 and writing v=u+1/u gives f(v)=v^3-4v^2-16v-16; f decreases on (2,4), is negative there, and increases from -80 to infinity on (4,infinity). This establishes the unique crossing, with u*=0.152011526727727... and r*=0.389886556228510.... Expanding the weights gives the two claimed minimum-coefficient endpoint regimes. The square variance follows from the Fourier modes divisible by four; either analytic pair energy at fixed 0<r<1 or summable Fourier derivatives justify the cubic remainder. L_1 and L_2 are Taylor coefficients, so actual Hessian eigenvalues are 2L_1 and 2L_2; read the proof's endpoint wording in that normalization. Independently computed Poisson convolutions, circulant matrices and deformation differences corroborate the formulas; the frozen checker was inspected, not executed. This is angular and local, not a global or radial optimality assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finding of f101e09ba9b4 gives the general fixed-radius polygon variance spectrum via residue sums on n>=5, with opposite endpoint modes and at least one change, but no uniqueness or root location. Its proof computation for the spectrum is readily specialized at n=4.",
+          "The Hardy means primary chapter could not be retrieved in the attempted lawful copies; the same-day record describes interior circle means of 1-|B|^2 for degrees 2–3, which is secondary evidence only."
+        ],
+        "reasoning": "A specialized Fourier quadratic spectrum or the existence of some switch is not the defensible distinct part. Neither the theorem's stated domain nor a straightforward specialization of its endpoint statements proves a unique crossing in radius. The elementary but separate sign analysis of the explicit curvature difference provides it.",
+        "searches": [
+          "Resultary f101e09ba9b4, untangling its Finding, Proof and Relationship to prior work",
+          "Gluchoff–Hartmann DOI 10.1007/978-1-4614-5341-3_9 (cited Hardy means comparator)"
+        ]
+      },
+      "checked_sources": [
+        "Kovalev–Yang, arXiv:2007.09760v1",
+        "Resultary f101e09ba9b4 and 7f6938cc64a3",
+        "Gluchoff–Hartmann DOI 10.1007/978-1-4614-5341-3_9 (primary retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known pairwise/Poisson machinery supplies the representation; the same-day large-degree result supplies a Fourier-residue formula and only an existence argument; the closest separate unique result varies a Bergman exponent."
+        ],
+        "reasoning": "The equality B=A yields a particular reciprocal sextic and exactly one sign change by the cubic monotonicity argument; neither endpoint dominance, positive Hessian nor a change under a different kernel implies that classification. The nonspecific reference to earlier degree-four work is not established coverage by a separate record.",
+        "searches": [
+          "Kovalev–Yang §4 and §7",
+          "Resultary f101e09ba9b4, Finding and Relationship, local mirror beginning and offsets 6200–8383",
+          "Resultary 7f6938cc64a3, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boundary derivative is a sum of Poisson kernels (Kovalev–Yang equations 4.3–4.4). Its squared centered integral exactly equals the two-body energy for K(x)=(1-u^2)/(1-2u cos x+u^2), up to a constant.",
+          "The squared-radius reciprocal sextic and the cubic at v=u+1/u encode the same crossing; the weighted Bergman four-pole analogue uses an unrelated parameter and a different pair kernel."
+        ],
+        "reasoning": "Neither rephrasing as a Poisson circular energy nor changing r to u makes a new problem by itself. The inspected pointwise boundary derivative extrema are not this integrated Hessian; the weighted Bergman kernel does not give the same curvature equality.",
+        "searches": [
+          "Pairwise circular Poisson energy/circulant Hessian literature search",
+          "Kovalev–Yang, arXiv:2007.09760v1, §4 Lemma 4.3",
+          "Resultary search for angular variance stiffness and soft-mode crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close exact-functional indexed record f101e09ba9b4 explicitly excludes degree four; the indexed four-pole result 7f6938cc64a3 concerns a power-weighted Bergman norm, not the same kernel. No independent table of this exact squared-radius root was verified."
+        ],
+        "reasoning": "Same geometry and the label 'soft-mode transition' do not identify an equivalent number: the relevant equation is equality of the second derivatives of one specific Poisson kernel at pi/2 and pi. Search limits do not establish absence.",
+        "searches": [
+          "Resultary search for Blaschke square boundary-speed variance and exact crossover",
+          "Focused web lookup for four-node Poisson interaction and circulant Hessians"
+        ]
+      },
+      "rationale": "Credit the Poisson boundary identity and general circular-energy machinery. The strongest same-day Resultary comparator is the very same functional and Fourier computation, but restricts its Finding to n>=5 and obtains existence, not a unique explicit transition. Its reference to previous degree-four work has no separate identifier in the inspected comparison or references and does not establish a distinct duplicate or chronological priority. The supported distinct contribution is the exact unique degree-four soft-mode crossing, not the general residue method, square symmetry or coexistence of Fourier modes.",
+      "residual_risks": [
+        "An older four-point circular Poisson interaction could state the same curvature equality under another name.",
+        "The same-day general record references previous degree-four work without identifying an independent prior source; the date alone does not resolve that linkage.",
+        "The cited Hardy-means chapter's relevant primary full text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known boundary identity and pointwise speed problem, not the audited local variance crossover",
+          "evidence": [
+            "The angular derivative is the sum of the Poisson kernels; extremal comparisons are pointwise minimum/maximum speeds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.09760v1",
+          "material_read": "§4 Lemma 4.3, equations (4.3)–(4.4), printed p. 11, OA offset 24438; §7 printed p. 19, offset 43019",
+          "method": "OA PDF passage inspection",
+          "title": "Extreme values of the derivative of Blaschke products and hypergeometric polynomials",
+          "trigger": "Same derivative and kernel"
+        },
+        {
+          "assessment": "The same functional and residue computation; a distinct result on n>=5. No uniquely located switch; unresolved reference to previous degree-four work does not identify a second covering result.",
+          "evidence": [
+            "States n>=5, explicitly says existence not uniqueness, and excludes degree four as previously recorded; no separate degree-four URL is provided in the inspected References."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-strict-angular-stability-and-universal-soft-mode-reversal-for-eq--f101e09ba9b4/RESULT.md",
+          "material_read": "Finding and scope at offset 0; endpoint proof and Relationship at offsets 6200–8383; limitations and references after 8383",
+          "method": "Resultary discovery and local mirror passages",
+          "title": "Strict angular stability and universal soft-mode reversal for equiradial finite Blaschke products",
+          "trigger": "Strongest same-day exact-functional match"
+        },
+        {
+          "assessment": "Different interaction, and a weight-exponent rather than zero-radius variation",
+          "evidence": [
+            "Four boundary Cauchy poles under a weighted Bergman energy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-unique-soft-mode-transition-for-four-boundary-poles-in-power-wei--7f6938cc64a3/RESULT.md",
+          "material_read": "Finding and adjacent proof, mirror offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Unique soft-mode transition for four boundary poles in a power-weighted Bergman norm",
+          "trigger": "Four-point exact unique transition analogue"
+        },
+        {
+          "assessment": "Unresolved primary access; not counted as evidence of noncoverage",
+          "evidence": [
+            "The f101e09ba9b4 comparison describes degree-two/three interior means, but this was not independently verified against the chapter."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-5341-3_9",
+          "material_read": "No independently retrieved primary passage; related record's statement about §4 read as secondary context only",
+          "method": "OA lookup and direct PDF attempt; timeout/redirects",
+          "title": "Hardy Means of a Finite Blaschke Product and Its Derivative",
+          "trigger": "Possible exact or encompassing angular means result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observable is the integrated dispersion of boundary speed on a fixed-radius Blaschke covering, and the two angular mode types describe materially different displacements of its most symmetric degree-four configuration. This result identifies the least costly direction at every radius, rules out recrossings, and identifies an isotropic configuration. The exact threshold and proof of uniqueness are useful even with general existence and known Fourier machinery; merely computing the square value or one Hessian would not supply that information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

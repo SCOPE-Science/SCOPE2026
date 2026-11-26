@@ -1,56 +1,54 @@
-"""Reproducibility checks for projected Beta-convolution caustics.
-Requires Python 3 and mpmath. Run: python CHECK.py
-The proof is analytic; quadrature checks are finite diagnostics only.
-"""
+"""Finite checks of projection geometry and density asymptotics (Python 3, mpmath)."""
 import mpmath as mp
-mp.mp.dps = 55
 
-def projected_density(z, a, b, beta):
-    z, a, b, t = map(mp.mpf, (z, a, b, beta))
-    assert a > b > 0 and t > 0
-    lo = max(-1, (z-b)/a)
-    hi = min(1, (z+b)/a)
-    if lo >= hi:
-        return mp.mpf('0')
-    norm = b * mp.beta(mp.mpf('0.5'), t)**2
-    def integrand(u):
+mp.mp.dps = 65
+
+
+def projection_geometry(R, c, s):
+    assert mp.almosteq(c*c+s*s, 1)
+    a, b = sorted((R*abs(c+s)/2, R*abs(c-s)/2), reverse=True)
+    corners = sorted((R*c, -R*c, R*s, -R*s))
+    low, high = a-b, a+b
+    for u, v in zip(corners, (-high, -low, low, high)):
+        assert mp.almosteq(u, v)
+    assert mp.almosteq(mp.sqrt(low*low+high*high), R)
+    return a, b
+
+
+def density(z, a, b, beta):
+    l, r = max(-1, (z-b)/a), min(1, (z+b)/a)
+    if r <= l:
+        return mp.mpf(0)
+
+    def integrand(t):
+        u = l+(r-l)*t
         v = (z-a*u)/b
-        prod = max(mp.mpf(0), 1-u*u)*max(mp.mpf(0), 1-v*v)
-        return (prod**(t-1)/norm) if prod > 0 else mp.mpf(0)
-    return mp.quad(integrand, [lo, (lo+hi)/2, hi], method='tanh-sinh')
+        rad = (1-u*u)*(1-v*v)
+        return rad**(beta-1) if rad > 0 and abs(u) < 1 and abs(v) < 1 else mp.mpf(0)
 
-def coefficients(a,b,t):
-    scale = 2**(2*t-2)/(a*b)**t/mp.beta(mp.mpf('.5'),t)**2
-    return scale*mp.beta(t,t), scale*mp.beta(t,1-2*t)
+    return (r-l)*mp.quad(integrand, [0, mp.mpf('0.5'), 1])/(b*mp.beta(mp.mpf('0.5'), beta)**2)
 
-checks = 0
-for a,b,t in [(mp.mpf('.8'),mp.mpf('.6'),mp.mpf('.25')),
-              (mp.mpf('.9'),mp.mpf('.2'),mp.mpf('.3')),
-              (mp.mpf('.7'),mp.mpf('.4'),mp.mpf('.25'))]:
-    outer, inner = coefficients(a,b,t)
-    assert mp.almosteq(inner/outer,1/(2*mp.cos(mp.pi*t)))
-    checks += 1
-    eps = mp.mpf('.0001')
-    for z,c in [(a+b-eps,outer),(a-b+eps,inner),(a-b-eps,inner),
-                (-a+b+eps,inner),(-a-b+eps,outer)]:
-        val = projected_density(z,a,b,t)*eps**(1-2*t)/c
-        assert abs(val-1) < mp.mpf('.075'), (a,b,t,z,float(val))
-        checks += 1
 
-# At the logarithmic threshold the increment per decimal scale tends to K log 10.
-a,b,t = mp.mpf('.8'),mp.mpf('.6'),mp.mpf('.5')
-h = a-b
-K = 1/(2*mp.pi**2*mp.sqrt(a*b))
-p1=projected_density(h+mp.mpf('.0001'),a,b,t)
-p2=projected_density(h+mp.mpf('.00001'),a,b,t)
-assert abs((p2-p1)/(K*mp.log(10))-1) < mp.mpf('.015')
-checks += 1
-
-# The four singular locations algebraically determine scale and absolute view angle.
-for aa,bb in [(mp.mpf('.8'),mp.mpf('.6')),(mp.mpf('.9'),mp.mpf('.1'))]:
-    outer, inner = aa+bb,aa-bb
-    ra, rb = (outer+inner)/2,(outer-inner)/2
-    assert mp.almosteq(ra,aa) and mp.almosteq(rb,bb)
-    assert mp.almosteq(mp.sqrt((outer**2+inner**2)/2),mp.sqrt(aa**2+bb**2))
-    checks += 2
-print('PASS:', checks, 'local-asymptotic, logarithmic, Beta-identity, and geometry assertions')
+if __name__ == '__main__':
+    for R, c, s in [(mp.mpf(1), mp.mpf(4)/5, mp.mpf(3)/5),
+                    (mp.mpf(3)/2, -mp.mpf(5)/13, mp.mpf(12)/13)]:
+        a, b = projection_geometry(R, c, s)
+        h, S = a-b, a+b
+        eps = b*mp.mpf('1e-6')
+        for beta in (mp.mpf('0.2'), mp.mpf('0.3')):
+            scale = 2**(2*beta-2)/((a*b)**beta*mp.beta(mp.mpf('0.5'), beta)**2)
+            co = scale*mp.beta(beta, beta)
+            ci = scale*mp.beta(beta, 1-2*beta)
+            assert mp.almosteq(ci/co, 1/(2*mp.cos(mp.pi*beta)))
+            for z, coefficient in ((S-eps, co), (-S+eps, co),
+                                   (h+eps, ci), (h-eps, ci),
+                                   (-h+eps, ci), (-h-eps, ci)):
+                numerical = density(z, a, b, beta)*eps**(1-2*beta)
+                assert abs(numerical/coefficient-1) < mp.mpf('0.01')
+        beta = mp.mpf('0.5')
+        critical_outer = 1/(2*mp.pi*mp.sqrt(a*b))
+        assert abs(density(S-eps,a,b,beta)/critical_outer-1) < mp.mpf('1e-5')
+        for sign in (-1, 1):
+            slope = (density(h+sign*eps/10,a,b,beta)-density(h+sign*eps,a,b,beta))/mp.log(10)
+            assert abs(slope*2*mp.pi**2*mp.sqrt(a*b)-1) < mp.mpf('1e-4')
+    print('PASS: two physical projection geometries, four Beta-ratio checks, 24 subcritical density checks, six critical checks')

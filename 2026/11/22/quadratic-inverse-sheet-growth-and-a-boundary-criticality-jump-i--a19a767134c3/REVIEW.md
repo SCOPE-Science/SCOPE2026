@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact inverse-state-count theorem on the full real plane. Eliminating the memory coordinate reduces the problem to \(\sin(bx\cos(V-x))=(U-c)/a\). For fixed \(V\), the phase has at most one stationary point on each tangent continuity band outside a compact interval, so there are \(O(R)\) monotonicity pieces. On each piece, counting sine-level crossings differs from density times phase variation by at most a constant. Total phase variation is \(2bR^2/\pi+O(R)\) by the bounded primitive of the centered periodic function \(|\sin|\). This proves the two interior/exterior phase-level densities and their sharp constants with absolute \(O(R)\) remainders. The determinant formula supplies the critical-versus-regular distinction. The result is not inferred from numerical observations. The accompanying finite checker gives diagnostic agreement for three parameter/target samples.
+PASS
 
-## Originality — PASS within inspected evidence
+The second coordinate uniquely imposes y=V−x. The phase bx cos(V−x) ranges over R and is analytic and nonconstant. Its derivative is b√(1+x²) cos(V−x−arctan x); the angle decreases at speed between 1 and 2, so there are O(R+1) monotonicity pieces. Counting distinct phase levels on each piece costs a bounded error including shared endpoints. There are two disjoint levels per 2π in the interior and one at either edge. The variation is b∫|x sin(V−x)|dx+O(bR)=2bR²/π+O(b(R+1)), using a bounded periodic primitive of |sin|−2/π separately on each half. This yields the stated coefficients and no solutions outside the strip. Each nonempty full fiber is infinite and its analytic zeros are locally finite. The determinant along the fiber is a cos(phase) times the phase derivative: every edge preimage is critical, and at most O(R+1) interior ones are. Removing only bounded-length end portions for the square window costs O(R+1) by the same count. O(R) is an assertion for R tending to infinity, not a bound down to zero. The frozen Python code uses floating-point sign changes and generic endpoints; its recorded finite samples do not certify exact tangencies or the square window. No frozen code was executed.
 
-The exact model is equation (5) of Ramadoss et al. (DOI: 10.3390/sym14102110), publicly dated 11 October 2022. Its readable sections on general construction, fixed points, bifurcations, symmetry and implementation do not present global image-strip inverse multiplicities or sharp quadratic inverse growth. Han et al. (DOI: 10.3389/fphy.2022.911144) study a different discretized-memristor cosine map. Zhang et al. (DOI: 10.1088/1674-1056/ac7294) study a different map whose first coordinate is affine in its current state with a cosine multiplier. The comparable inverse-valence results located for other nonlinear maps have different defining formulas and do not imply this coefficient or boundary transition. Search results are evidence of comparison, not a proof of mathematical uniqueness. A historical or unindexed equivalent result is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-One-step predecessor multiplicity is a natural mathematical observable for state reconstruction of a noninvertible map. Here the distinction is substantial: the exact image is a strip, each attainable state has infinitely many possible predecessors, regular inverse sheets proliferate quadratically with window radius, and the entire inverse relation becomes critical at the image boundary, with the leading coefficient halved. This gives an explicit geometric invariant absent from qualitative forward-attractor studies and distinguishes this map from other models with finite or merely linearly growing inverse valence. No claim about chaotic strength or security follows.
+The known map and standard level counting are not credited as novel. The supported distinct claim is its exact global inverse growth with a boundary transition and a regular-sheet count. The closest same-day comparisons substantially overlap in method and transition but do not cover this map; their date is not taken as scientific priority evidence.
 
-## Limits and literature risk
+## value
 
-The classification is for real inputs with fixed real target; it is not a finite-domain or modulo-\(2\pi\) state reconstruction statement. No claims concern forward stability or more than one inverse iteration. Accessible scientific full-text comparisons do not eliminate the possibility of equivalent work elsewhere. The finite computational run is not an infinite proof and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural published real-plane map, the result distinguishes infinite ambiguity from quantitative inverse multiplicity and shows that a boundary target has half as many ancestors to leading order yet no regular ancestor at all. The symmetric-window statement makes the comparison meaningful for bounded observations of both coordinates. The analytic proof is elementary, but the coefficient and the regular/critical contrast are global features not supplied by the forward dynamics or by computing the determinant alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:31:37.626211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An added cut splitting lengths a,b removes ab inversions and adds two fixed cards just when both lengths are odd. Conditional on all other gaps, the one-bit covariance is nonpositive and is strictly negative on the all-other-gaps-cut event; the covariance of the conditional expectations is nonpositive by product-measure monotonicity. At common fixed p the complete packet lengths are geometric, and the centered rewards W have E[W]=0 and finite second moments. The complete packet count divided by n tends to p; Kolmogorov maximal bounds for centered sums over a deterministic window around np justify random-index substitution without requiring independence of the index and rewards. For the covariance limit, let M be the first renewal strictly past n. The stopped sum has mean zero and second moment E[M]E[WWᵀ] by the stopped martingale identities; M≤n+1 and E[M]=1+np. The omitted crossing length is the sum of backward age and forward residual, both uniformly geometrically bounded in tail. Replacing its reward by the unfinished packet reward is thus a uniformly L²-bounded error, giving covariance convergence by Cauchy–Schwarz. The rational covariance entries follow by differentiating the full and odd-length generating functions, with determinant positive for 0<q<1. The derivative and endpoint limits of the normalized correlation check. Neither endpoint is a nondegenerate Gaussian regime.",
+      "replay": "python3 -B /workspace/review_replay.py 1 (SymPy): exact permutations over 12 small inhomogeneous/homogeneous deck designs and symbolic agreement of all three covariance entries. The frozen check.py was inspected, not executed. These diagnostics are not a CLT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bender–Canfield give a joint normal limit with asymptotic covariance nB for composition statistics in their framework. Jiang specifies the same homogeneous kernel but studies many-step mixing."
+        ],
+        "reasoning": "General composition CLTs supply methodology, not the checked explicit matrix or strict sign. The exact-statistic overlap, not mixing theory, determines the verdict.",
+        "searches": [
+          "Bender–Canfield, Locally Restricted Compositions I, DOI 10.37236/1954, abstract and pp. 6–7",
+          "Jiang arXiv:2610.00137, abstract, §1.2 and Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Proof and prior-work comparison",
+        "Resultary f30d3de5d0f1",
+        "Jiang arXiv:2610.00137",
+        "Bender–Canfield DOI 10.37236/1954",
+        "Pemantle DOI 10.1007/BF01048267 via Jiang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier common-p correlation is −(1+q²)/(1+q)², and the normalization and all entries of the homogeneous matrix coincide. The earlier statement restricts to common p; the heterogeneous finite statement is not literally covered by that hypothesis."
+        ],
+        "reasoning": "The endpoint and derivative claims are calculus consequences of the published indexed formula. Arbitrary nonidentical interior cut probabilities preserve Bernoulli product association and preserve the strict one-gap witness; this is a routine extension, not another quantitative dependence law.",
+        "searches": [
+          "Resultary f30d3de5d0f1, Finding, Assumptions and Proof §1",
+          "Jiang arXiv:2610.00137, §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f30d3de5d0f1, Finding and Assumptions: the independently cut contiguous packets are reversed in place, and the common-p strict covariance sign and centered joint normal law are stated explicitly."
+        ],
+        "reasoning": "In-place packet reversal is precisely the one-pass shuffle under both statements. Substituting q=1−p into the earlier covariance and centering gives equality, not merely a similarity of models.",
+        "searches": [
+          "Local Resultary fixed points/inversions of a packet reversal; conditional sign reversal for fixed points and inversions",
+          "Jiang, Cutoff for the Overhand Shuffle, arXiv:2610.00137, §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct indexed record f30d3de5d0f1 directly gives the homogeneous joint covariance and correlation formulas in its Finding (mirror offset 0)."
+        ],
+        "reasoning": "The indexed result is an exact match to the central quantitative law, including its parameter dependence; separate lookup of a numerical table is not needed for this symbolic family.",
+        "searches": [
+          "Local Resultary search for fixed points, inversion count, negative covariance and packet reversal"
+        ]
+      },
+      "rationale": "A distinct earlier-dated Resultary record f30d3de5d0f1 states the homogeneous all-n strict sign and the very same fixed-p joint CLT, full covariance matrix and limiting correlation in the same shuffle. Its cross-entry uses p²−2p+2=1+q². Monotonicity in p and the endpoint correlation values follow immediately from that known formula. The strict sign for heterogeneous independent cuts is not stated in the indexed match; it follows from the same kernel's elementary split monotonicity and the standard correlation inequality for independent Bernoulli variables at arbitrary rates. This is not a failure due to access to historical papers or a claim about precise public posting order.",
+      "residual_risks": [
+        "Pemantle full text was not retrieved.",
+        "Indexed date does not establish public chronology. The statement-level overlap is decisive without that chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the central fixed-p theorem",
+          "evidence": "The same one-pass shuffle has the same strict homogeneous sign, center, covariance and normalized correlation.",
+          "identifier_or_url": "Resultary 2026/11/2 f30d3de5d0f1",
+          "material_read": "Finding, Assumptions, Proof §1 (mirror offsets 0–3888 and 3626–6731)",
+          "method": "Local Resultary record and mirrored passages",
+          "title": "Conditional sign reversal for fixed points and inversions in a packet-reversal shuffle",
+          "trigger": "Direct joint law match"
+        },
+        {
+          "assessment": "Same homogeneous kernel; different statistic and timescale in inspected results",
+          "evidence": "Independent gap cuts and in-place reversals; many-step total variation cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00137",
+          "material_read": "Abstract, §1.2 p. 3, Theorem 1.1",
+          "method": "Open primary-text passages",
+          "title": "Cutoff for the Overhand Shuffle",
+          "trigger": "Same shuffle kernel"
+        },
+        {
+          "assessment": "Method-level predecessor",
+          "evidence": "Joint normal composition statistics with covariance nB; no explicit matching joint formula in inspected theorem.",
+          "identifier_or_url": "https://doi.org/10.37236/1954",
+          "material_read": "Abstract and CLT on pp. 6–7",
+          "method": "Open primary-text passages",
+          "title": "Locally Restricted Compositions I. Restricted Adjacent Differences",
+          "trigger": "Plausible broader CLT for random compositions"
+        },
+        {
+          "assessment": "Comparison limited to cited account",
+          "evidence": "Cited mixing-time bounds of order n² and n² log n; full scope unverified.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01048267",
+          "material_read": "Bibliographic reference and cited result in Jiang §1.1 only",
+          "method": "Read Jiang's text; no lawful full text retrieved via the identified DOI/publisher routes",
+          "title": "Randomization time for the overhand shuffle",
+          "trigger": "Earlier same-model literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit quantitative joint law would be useful for diagnosing one-pass shuffles, but it is already covered. The uncovered extension only lifts a sign from equal rates to arbitrary product rates via textbook product-measure monotonicity and an elementary strictness witness. There is no new sharp dependence law or meaningful boundary case in that remainder, so no substantive repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

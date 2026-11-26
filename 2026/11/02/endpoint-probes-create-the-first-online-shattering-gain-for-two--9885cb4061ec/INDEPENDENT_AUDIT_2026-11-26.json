@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:17:16.142384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_lattice_paths.py and depth6_tree.json",
+        "/workspace/branches/audit_finite_reproduction.py"
+      ],
+      "rationale": "Encoding the two east-step heights by u<=v gives three columns with predicates y<=u, u<=y<=v, v<=y. At b=1 there are three distinct concepts and a nonconstant query. For b>=2 the two middle queries at heights 0 and 1 are shattered using three nonempty intervals meeting those queries and the point interval at height 2. If a triple cannot be visited in increasing coordinate order, all-positive already fails. For comparable triples, repeated outer columns give nested events, three middle points have interval convexity, and for two middle points a negative outer query plus the appropriate positive middle query forces the other middle point. A triple with one vertex per column cannot have three negatives: the middle height lies between u and v when both outer queries are negative. For the uniform online lower bound, restricting to u<=t<=v gives an independent rectangle; binary threshold trees on the two coordinates concatenate, yielding the sum of floored logarithms. The 2^d leaf count gives the upper bound. An independent bounded depth-feasibility recursion on paths enumerated by step positions, for both languages, matched every tabulated rank through b=10. It rejects a split unless both conditioned spaces can realize the remaining depth; cardinality pruning only removes branches with fewer hypotheses than leaves. It separately parsed the frozen tree as data, checked exactly six decisions per leaf against the actual visited-vertex sets, and verified 64 distinct witnesses. The hand upper bound for middle-only b=10 also holds: root heights 4–6 give positive endpoint rectangles with rank 4 (threshold rank is additive by the sum-of-floored-logs potential), 3 and 7 leave blocks of 3 and 7 points, and the sole split there with >=16 positives leaves three 3-point blocks, insufficient for depth 4. All other roots fail the initial 32-per-side test. Replay: python3 /workspace/branches/audit_finite_reproduction.py.",
+      "residual_risks": [
+        "Ranks are classified exactly only through b=10; the all-height statements are VC dimension and logarithmic online bounds, not an extrapolation of the table."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhaskar and Walker provide general adaptive tree-rank definitions/results; the Chase–Freitag–Reyzin interval example uses disjoint intervals of rank one.",
+          "Janardhanan–Reyzin's query tests existence of a path between queried vertices in a hidden graph, not point incidence on a single hidden path."
+        ],
+        "reasoning": "The rank definition and general tree-count bounds provide tools but not the exact full ranks in the triangle u<=v. The other query-learning problems have different label maps.",
+        "searches": [
+          "arXiv:1702.03956 Definition 3.6",
+          "arXiv:2203.12211 Definition 1.9",
+          "arXiv:2310.04812 interval example",
+          "arXiv:2002.11541 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary da5ce6428f51, 105f31d7b4be and 8f87b8e9beef",
+        "arXiv:1702.03956",
+        "arXiv:2203.12211",
+        "arXiv:2310.04812",
+        "arXiv:2002.11541"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For b=10 the full class has 66 concepts and the three-column upper bound 6; its stated lower bound max(2,2 floor(log2 floor((b+1)/2))) is only 4. The interval table improves the full lower bound by monotonicity only to 5.",
+          "For b=7 the full count bound is 5; middle rank 4 is only a lower bound for the full class."
+        ],
+        "reasoning": "These are the decisive gaps: no cited bound determines which side of them the full ranks take. The depth-six certificate and complete finite full-language rank computation fill them; the general recurrence is standard but does not provide the instance-specific optimum without that check.",
+        "searches": [
+          "da5ce6428f51, Finding and block recurrence",
+          "105f31d7b4be, Finding and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With n=b+1, middle queries test membership in a nonempty chain interval; the indexed interval class is exactly that restricted query language.",
+          "The other indexed path result uses exactly the same full vertex-incidence class and proves its VC dimension and logarithmic online growth."
+        ],
+        "reasoning": "The two height tests on the outer columns are endpoint thresholds and are not simply relabeled interval-membership tests. Both exact equivalences for the comparison classes were recognized; they do not by themselves specify the online gain.",
+        "searches": [
+          "Resultary finite-chain intervals / endpoint tests / three-column monotone grid paths",
+          "2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51",
+          "2026/11/8/SCOPE-shattering-polynomial-and-an-unbounded-online-gap-for-three-colu--105f31d7b4be",
+          "Littlestone dimension finite chain intervals monotone grid paths two east steps lattice path vertex membership endpoint threshold complete binary mistake tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact thresholds in the all-interval table are n=2,3,4,6,9,13 for depths 1–6; this supplies the entire middle-only table through b=10.",
+          "The three-column shattering-polynomial result explicitly does not determine exact Littlestone dimensions for each height. The fixed-width table is for intervals of a single length, not the whole endpoint triangle."
+        ],
+        "reasoning": "Credit the exact table where it matches, rather than treating a translated sequence as new. The all-query row and the first strictly different entry are not given in those sources.",
+        "searches": [
+          "Resultary da5ce6428f51 exact finite-chain thresholds",
+          "Resultary 105f31d7b4be three-column Littlestone bounds",
+          "Resultary 8f87b8e9beef fixed-width interval ranks"
+        ]
+      },
+      "rationale": "Two distinct indexed results cover the middle-only ranks and the full-language VC/asymptotic results, respectively, and those components are not credited with separate novelty. Neither establishes the finite full-language ranks or the first gain on adding outer-column queries. That exact query-language comparison, with first gain at b=10 and earlier failure of the full cardinality bound at b=7, is the supported distinct finding. Same-day index dates do not establish record priority.",
+      "residual_risks": [
+        "The catalogue overlap is material but not a priority determination. The focused public search did not locate a precise full-language table; an unindexed result for equivalent triangular endpoint queries remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the restricted rank table, not the added-query gain",
+          "evidence": [
+            "Variable-length nonempty intervals and thresholds (2,3,4,6,9,13,19,27,39,55)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51/RESULT.md",
+          "material_read": "Finding and exact block recurrence, offsets 0 and 4790",
+          "method": "Resultary index and local mirror (36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Exact initial online-shattering thresholds for finite-chain intervals",
+          "trigger": "Potential duplicate of middle-only exact ranks"
+        },
+        {
+          "assessment": "Covers VC and asymptotic order; not the decisive finite comparison",
+          "evidence": [
+            "Exact shattered-support polynomial; online lower and upper bounds only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-shattering-polynomial-and-an-unbounded-online-gap-for-three-colu--105f31d7b4be/RESULT.md",
+          "material_read": "Finding and limitations, offsets 0 and 4755",
+          "method": "Resultary index and local mirror",
+          "title": "Shattering polynomial and an unbounded online gap for three-column monotone grid paths",
+          "trigger": "Identical full concept class and invariants"
+        },
+        {
+          "assessment": "Framework, not an instance computation",
+          "evidence": [
+            "Identifies thicket and Littlestone dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.03956",
+          "material_read": "§1 and Definition 3.6, pp. 1, 4",
+          "method": "OA primary PDF passages",
+          "title": "Thicket Density",
+          "trigger": "General adaptive tree theory"
+        },
+        {
+          "assessment": "General definitions and growth dichotomy",
+          "evidence": [
+            "Tree-labeling definition does not specify the two languages' ranks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12211",
+          "material_read": "Abstract and Definition 1.9, pp. 1, 3",
+          "method": "OA primary PDF passages",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Potential general tree-dimension implication"
+        },
+        {
+          "assessment": "Different interval family",
+          "evidence": [
+            "The cited example uses pairwise disjoint intervals with Littlestone dimension one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04812",
+          "material_read": "Introduction and interval example, pp. 1, 6",
+          "method": "OA primary PDF passages",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "Learning/query paper with an interval example"
+        },
+        {
+          "assessment": "Different oracle",
+          "evidence": [
+            "Queries ask reachability between vertices, not whether a vertex lies on a hidden path."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.11541",
+          "material_read": "Abstract, p. 1",
+          "method": "OA primary PDF passage",
+          "title": "On Learning a Hidden Directed Graph with Path Queries",
+          "trigger": "Possible query-language match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact finite comparison and tree",
+        "Independent direct-path rank computation",
+        "Indexed interval thresholds and full-class asymptotic bounds"
+      ],
+      "rationale": "The cutoff is the first height at which a natural oracle enrichment increases the realizable online mistake bound without increasing VC dimension, not an arbitrary sampled height. The full class nearly saturates its counting bound there, whereas the interval restrictions cannot; the explicit binary-tree witness and the obstructions supply a usable small benchmark for query-language comparisons. The already-covered restricted table and asymptotic order are context, not the basis for the value judgment.",
+      "residual_risks": [
+        "No claim is made about persistence or growth of the difference once b>10."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

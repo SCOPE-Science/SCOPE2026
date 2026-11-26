@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:56:48.234746Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 1–5",
+        "Frozen VERIFICATION.md and check_degree_six.py (read only)",
+        "Replay: python3 -B /workspace/review_evidence/cyclotomic_exact.py"
+      ],
+      "rationale": "The prime-power totient formula gives exactly 7, 9, 14, 18. The integer resultant belongs to the ideal of a polynomial and its translate, so every consecutive-value gcd divides it. An independent exact calculation for all four indices confirmed resultants 53824, 253783, 53824, 253783 and all the stated common residues; exhaustive residues modulo each candidate prime square ruled out every common square, and recovered the listed individual lift digits for 7 and 9. This gives the formulas for all integers, not only the input range of a checker. Reflection n→−n−1 yields the last two profiles; their relevant classes are disjoint from their partners. Each prime indicator has a nonempty proper support, so any period is divisible by its prime; CRT gives each least period. The independent count over all CRT tuples gives the eight frozen frequencies and verifies the 8839 witness.",
+      "residual_risks": [
+        "Only the degree-six layer and shift one are classified. The modular exhaustion is justified by the nonzero integer resultants, not by the integer sample size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4a51b51b3c2d proves squarefreeness at every index 1 through 28, and gives certified complete resultant factors and an exhaustive loop identifying each common root modulo each candidate prime. The other inspected sources give exponent-growth bounds, multiplicative index identities, and existence of non-coprime pairs in long quadratic/cubic blocks, respectively."
+        ],
+        "reasoning": "All four degree-six indices lie within the fully certified range; unlike an upper bound alone, a squarefree result with these exhaustive root sets determines the gcd at every argument.",
+        "searches": [
+          "4a51b51b3c2d/RESULT.md, proof and verification",
+          "Cohen–Sonn, Theorem 3.1",
+          "De Nápoli, Theorem 1.1",
+          "Sanna–Szikszai, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 4a51b51b3c2d, 5a00ad14fbc8 and fd091d3f2946",
+        "Cohen–Sonn, De Nápoli and Sanna–Szikszai original theorem passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof restricts all primes to divisors of R_m and establishes squarefreeness for m≤28. The code loops over every such p and every a mod p, retaining precisely the a satisfying both root congruences, then certifies no common lift. Restrict m to 7, 9, 14, 18 and set D_m(n) to the product of the p for which n lies in a retained class. At each prime the two nonempty supports for paired indices are disjoint; translating a proper nonempty prime-modulus support forces any period to be divisible by that prime. Count selected and unselected tuples by CRT."
+        ],
+        "reasoning": "This deduction requires only reading the exact finite certificate and elementary CRT arithmetic. The different stated purpose of the indexed certificate does not prevent its covering these profiles. Its unattributed reference to an earlier degree-six classification is not needed for the FAIL.",
+        "searches": [
+          "4a51b51b3c2d/RESULT.md offset 1500",
+          "4a51b51b3c2d/checker.py offset 1250"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical 09bce3505fd1 hit is a self-match. The main distinct hit 4a51b51b3c2d treats the same gcd of the same polynomial and shift; 5a00ad14fbc8 treats the degree-two Φ_3 at arbitrary shift. The Cohen–Sonn theorem compares fixed bases raised to variable powers."
+        ],
+        "reasoning": "The squarefull-threshold certificate works with exactly the same consecutive-value gcd; the shifted quadratic and exponent-growth results do not give equivalent degree-six profiles.",
+        "searches": [
+          "Resultary: gcd of consecutive values of cyclotomic polynomials Φ_m(n) and Φ_m(n+1), degree six profiles and periodic histogram",
+          "Literature search: gcd Phi_m(n) Phi_m(n+1) cyclotomic consecutive values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct squarefull certificate identifies all relevant common roots internally before incrementing its total root counter. Reading or recording those indices in its loop gives the profile truth tables without new mathematics. The degree-four eighth-cyclotomic hit is an LCM-quotient frequency table, not this gcd invariant."
+        ],
+        "reasoning": "An independently written aggregate histogram was not identified, but the public exact computation already determines all the underlying finite tables; the requested histogram is a direct CRT product.",
+        "searches": [
+          "Resultary exact period, histogram and gcd profile query above",
+          "4a51b51b3c2d/RESULT.md, finite certificate; checker.py, offset 1250",
+          "fd091d3f2946/RESULT.md, Finding"
+        ]
+      },
+      "rationale": "The distinct indexed first-squarefull result has an exact certificate that already enumerates all common residue classes at every candidate prime and proves no common prime-square lifts at all four requested indices. Its theorem and certificate together mechanically give the complete four profiles. The aggregate entries are the direct CRT product of those classes. No relative historical priority is inferred from the shared date, and the identical record is not used as evidence against itself.",
+      "residual_risks": [
+        "The distinct indexed record refers to an earlier degree-six classification without identifying it; priority is unresolved. The FAIL rests on demonstrable indexed coverage, not on that reference or a negative search. Its checker was read but not run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader certificate mechanically gives every degree-six profile",
+          "evidence": [
+            "The loop traverses all resultant primes and all a mod p, retaining exactly the common residues and verifying absence of simultaneous p² lifts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-first-squarefull-gcd-of-neighboring-cyclotomic-values-occurs--4a51b51b3c2d",
+          "material_read": "RESULT.md proof, verification and prior work at offset 1500; checker.py common-root loop at offset 1250",
+          "method": "Bounded original indexed text and source code inspection, not execution",
+          "title": "The first squarefull gcd of neighboring cyclotomic values occurs at index 29",
+          "trigger": "Same invariants over a larger range"
+        },
+        {
+          "assessment": "Different cyclotomic degree",
+          "evidence": [
+            "Exact spectra, periods and densities for shifted Φ_3; Φ_3 has degree two."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-spectra-and-three-point-stabilization-for-shifted-third-cy--5a00ad14fbc8",
+          "material_read": "Indexed Finding at offset 0",
+          "method": "Bounded original indexed record inspection",
+          "title": "Sharp spectra and three-point stabilization for shifted third-cyclotomic gcds",
+          "trigger": "Closest parameterized shifted GCD analogue"
+        },
+        {
+          "assessment": "Different degree and quotient invariant",
+          "evidence": [
+            "Gives frequencies for product/LCM quotients for Φ_8, not the degree-six product of adjacent gcds."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-first-five-window-lcm-quotient-spectrum-of-the-eighth-cycl--fd091d3f2946",
+          "material_read": "Indexed Finding at offset 0",
+          "method": "Bounded original indexed record inspection",
+          "title": "Exact first-five-window LCM quotient spectrum of the eighth cyclotomic polynomial",
+          "trigger": "Closest periodic cyclotomic histogram analogue"
+        },
+        {
+          "assessment": "Distinct quantifiers and conclusion",
+          "evidence": [
+            "GRH-conditional lower bounds concern fixed bases and growing exponent."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.5802/jtnb.893.pdf",
+          "material_read": "Theorem 3.1, journal p. 60",
+          "method": "Original OA PDF passage",
+          "title": "A cyclotomic generalization of the sequence gcd(a^n−1,b^n−1)",
+          "trigger": "Closest primary query hit on GCDs of cyclotomic values"
+        },
+        {
+          "assessment": "Index identity, not neighboring-value profiles",
+          "evidence": [
+            "Factors Φ_n(X^m) for relatively prime indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.02668",
+          "material_read": "Theorem 1.1, PDF p. 3",
+          "method": "Original OA PDF passage",
+          "title": "An Identity involving the Cyclotomic Polynomials",
+          "trigger": "Cited cyclotomic index structure"
+        },
+        {
+          "assessment": "Existence rather than exact gcd classification",
+          "evidence": [
+            "Studies relationships within long blocks for quadratic and cubic polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.01738",
+          "material_read": "Theorem 1.1 at offset 5330",
+          "method": "Original OA PDF passage",
+          "title": "A coprimality condition on consecutive values of polynomials",
+          "trigger": "General consecutive polynomial gcd comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and CRT argument",
+        "4a51b51b3c2d proof and exact checker loop"
+      ],
+      "rationale": "The complete degree-six layer is a natural finite object, but its exact invariants are mechanically available from the broader certificate. The least-period and histogram calculations use only the independent prime supports, and the chosen product contributes no separately substantive new fact beyond this routine CRT conversion.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

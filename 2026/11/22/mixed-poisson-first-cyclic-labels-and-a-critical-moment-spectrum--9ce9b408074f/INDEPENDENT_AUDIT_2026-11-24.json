@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:12:44.717352Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–96",
+        "Frozen check.py, exact enumeration and diagnostic calculations (read, not executed)"
+      ],
+      "rationale": "For a specified cyclic k-set, the cyclic permutation and rooted forest count gives k!·k·n^{n−k−1}, also n! when k=n. Thus p(k)=(k/n)Q_{n,k}, with conditionally uniform labels. The log-product estimate on bounded k/√n ranges and a Gaussian tail bound give the Rayleigh limit. For the Cox claim, expand the conditional Laplace functional for any nonnegative continuous compactly supported f in elementary symmetric sums of b_v=1−exp(−f(v/√n)), weighted in order ℓ by (k)_ℓ/(n)_ℓ. On bounded k/√n ranges the absolute terms are bounded by C^ℓ/ℓ!; Riemann sums and omission of repeated indices give exp(−r∫(1−exp(−f))) for k/√n→r, including r=0. Mixing then gives the asserted vague limit. The conditional no-hit probability is hypergeometric, giving E exp(−tR), and scaling the Rayleigh integral shows the t^{−2} tail. Independently, the k+1 gaps around the ordered sample are a uniform weak composition of n−k; M−1 is the first gap. Weighting that gap j by s!·binom(j+s,s) gives s!·binom(n+s,k+s)/binom(n,k) by convolution, the claimed conditional rising moment even when k=n or s>n. The mean follows by Gaussian Riemann summation. For s=2, the sum of kQ_{n,k}/[(k+1)(k+2)] up to √n differs from the harmonic sum by O(1) using 1−Q≤k(k−1)/(2n); the tail contributes O(1). The prefactor is 2n+O(1), so the variance has coefficient one. For s>2, fixed-k dominated convergence is justified by k^{1−s}; summing via the beta integral yields s/[(s−1)(s−2)]. Lower-order terms in the rising polynomial have strictly smaller scale, including n log n for order two.",
+      "residual_risks": [
+        "The finite checks corroborate exact identities only; the bounds and limits were checked analytically. The higher-moment statement fixes an integer order before n tends to infinity; no uniformity or point-process error rate is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Odlyzko's inspected passages cover cyclic-point expectations and Rayleigh or Gaussian limit forms for mapping parameters; the latter passage notes applications of the methods to variances and higher moments. The Hansen–Jaworski full texts were not usable in bounded attempts."
+        ],
+        "reasoning": "Neither an unlabeled cyclic count result nor a general statement that a method can evaluate moments gives the minimum label distribution and its large-moment regimes by substitution. The accessible passage-level comparison credits enabling classical inputs and does not take unavailable sources as negative evidence.",
+        "searches": [
+          "Flajolet–Odlyzko, Random Mapping Statistics, Theorem 2 and §3.3",
+          "Hansen–Jaworski, Random mappings with exchangeable in-degrees and Random mappings with a given number of cyclical points"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet–Odlyzko Theorem 2 and §3.3",
+        "Resultary thematic match 7b69e39a8610 (summary)",
+        "Hansen–Jaworski cited papers (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact count law combined with a uniform k-subset gives the finite negative-hypergeometric law. The typical k≈√n scale determines the Cox limit by a standard conditional sampling argument. The variance needs the full logarithmic range k≤√n, and the moments of order greater than two are controlled by the fixed-k probabilities of order 1/n."
+        ],
+        "reasoning": "The point-process step is a standard but explicit consequence of more than the count limit. The weak Rayleigh limit alone does not control rare cores: the second and higher finite moments need the exact low-k weights, a uniform tail estimate and a distinct asymptotic analysis. The comparison work did not locate a stronger label-order theorem supplying those conclusions.",
+        "searches": [
+          "Flajolet–Odlyzko, Theorem 2 and §3.3",
+          "Frozen RESULT.md, exact core law, conditional label law and moment proof",
+          "Resultary overlap-law entry 7b69e39a8610 (catalogue summary)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue matches were the assigned record itself. The strongest distinct thematic hit 7b69e39a8610 is summarized as counting common periodic vertices across independent maps, with Rayleigh-weighted Poisson limits; full text was unavailable in the local mirror."
+        ],
+        "reasoning": "The minimum numerical label is the first arrival in a scan through a fixed natural ordering, and is not the first repeat in an orbit, the count of cyclic points, or the size of an intersection of independent cyclic sets. A shared Rayleigh/Poisson mixing form alone does not identify these processes.",
+        "searches": [
+          "Resultary: minimum natural cyclic label, first cyclic label Cox process, random mapping Rayleigh label process",
+          "Focused literature lookup for earliest/minimum periodic label in uniform random mappings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact formula or catalogue match for the minimum-label n log n variance or s/[(s−1)(s−2)] constants was identified; the exact hit was the assigned record. The distinct overlap-law entry has only catalogue-level evidence."
+        ],
+        "reasoning": "A table or theorem for moments of the number of cyclic vertices would not be a table for the least numerical label. The search miss does not establish absence of a historical table.",
+        "searches": [
+          "Resultary targeted checks for cyclic label point processes, minima, critical variance and higher moments",
+          "Single focused literature lookup for the fixed-label statistic"
+        ]
+      },
+      "rationale": "The classical distribution and Rayleigh limit for the core count and exchangeability of the core labels are not new. The supported claim is their use in a single-map fixed-label point-process and minimum-label theorem, particularly the exact critical variance and higher-moment spectrum. The strongest inspected comparisons do not supply that statistic and spectrum together or cover the asymptotic content by specialization.",
+      "residual_risks": [
+        "Older or inaccessible work may analyze the same first-label statistic or a stronger label-order theorem. The catalogue and inspected passages do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical input and methodological background, not a located minimum-label theorem",
+          "evidence": "Theorem 2 includes the expected number of cyclic points; §3.3 describes Gaussian or Rayleigh forms and notes that the methods also address variance and higher moments. Some formulas were garbled in extraction, so only the topical scope of these passages is used.",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+          "material_read": "Springer PDF Theorem 2 at offset 26300, PDF p. 8 (printed pp. 336–337), and §3.3 at offset 33250, PDF p. 11 (printed p. 339)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classical source with expectations and moment methods for cyclic points"
+        },
+        {
+          "assessment": "Related as described in the summary; whole-record comparison unresolved",
+          "evidence": "The indexed observable is the overlap of periodic sets across independent maps, not the naturally ordered labels in one map.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-rayleigh-mixed-poisson-overlap-law-for-periodic-vertices-of-independent-random-mappings--7b69e39a8610",
+          "material_read": "Catalogue summary; mirror could not supply the source",
+          "method": "Local Resultary lookup and bounded mirror attempt",
+          "title": "A Rayleigh-mixed Poisson overlap law for periodic vertices of independent random mappings",
+          "trigger": "Closest distinct same-day thematic catalogue hit"
+        },
+        {
+          "assessment": "No full-text conclusion possible",
+          "evidence": "The cited scope motivates comparison but the retrieval outcomes do not decide what either paper proves.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20187; https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "No decisive passage available; 2008 publisher returned 403; 2010 PDF yielded no searchable text",
+          "method": "Bounded lawful OA attempts",
+          "title": "Random mappings with exchangeable in-degrees; Random mappings with a given number of cyclical points",
+          "trigger": "Cited conditioning results that might contain label-order coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and critical/higher moment proofs",
+        "Classical cyclic-count comparison above"
+      ],
+      "rationale": "The earliest cyclic vertex in a deterministic ordering is a natural statistic for scanning a random functional graph. The result separates the typical √n label scale from a finite variance dominated by a logarithmic range of core sizes and higher moments dominated by rare small cores. The coefficient of the logarithm and the full fixed-integer moment constants quantify this distinction; neither reporting a weak limit alone nor restating the cyclic-core distribution does so.",
+      "residual_risks": [
+        "Scope is uniform random self-maps and this particular ordered statistic, not exchangeable in-degree models in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

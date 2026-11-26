@@ -1,41 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For distinct primes with base-\(B\) digit lengths \(a,b\), the product
-lies between \(B^{a+b-2}\) and \(B^{a+b}\), so it has exactly \(a+b-1\) or
-\(a+b\) digits, while its squarefree factorization has exactly \(a+b\) digits.
-This gives the exact threshold
-\[
-pq\ge B^{a+b-1}.
-\]
-The prime number theorem gives uniform limiting empirical measure on each
-normalized digit block \([1,B]\). Product measure then gives uniform area on
-the square, the boundary \(uv=B\) has area zero, and the area integral is
-\[
-B(B-1-\log B).
-\]
-When the two blocks coincide, deleting \(p=q\) is asymptotically negligible.
+## correctness
 
-## Originality
-PASS. The foundational Pinch paper contains the product digit inequalities,
-general constructions of squarefree economical/extravagant numbers, and
-finite global distribution data, but no semiprime statement or prime-block
-limit. The complete De Koninck--Luca 2005 paper concerns consecutive economical
-strings and contains no semiprime, squarefree, or density statement. The later
-full distribution paper proves a Gaussian law over all integers and contains
-no semiprime occurrence. Exact-database and semantic searches found no
-equivalent squarefree-semiprime phase law.
+PASS
 
-The principal residual risk is the 2006 global counting paper, whose abstract
-was available but whose full text was not inspected here; an unindexed short
-observation in recreational-number literature is another residual risk.
+The retained claim is the ordered distinct-prime two-block limit. Independently rescaling each input gives the event uv≥B. PNT on fixed intervals [sX,tX) yields mass (t−s)/(B−1) after division by the block count; the Cartesian product gives the limiting rectangle probabilities without assuming anything about primes in short intervals. The hyperbola has zero limiting area, and the diagonal exclusion costs at most reciprocal block size in equal blocks and nothing otherwise. The section length B−B/u integrates to the announced constant. The elementary finite criterion is true but is now background, not a separate contribution. The rounded constants agree with direct evaluation.
 
-## Value
-PASS. Squarefree semiprimes are the first nontrivial multiplicative layer
-beyond primes, and digit blocks are intrinsic to the definition of
-equidigitality. The theorem converts the qualitative digit comparison into a
-base-dependent limiting law with an explicit constant. It also separates the
-semiprime layer sharply from the frugal constructions that dominate much of
-the economical-number literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the repaired claim only. The exact finite criterion is an immediate specialization of Pinch and is no longer presented as a contribution. No exact two-complete-prime-block asymptotic was found in inspected comparisons. The global-count papers were not all available for statement-level comparison, so this is not a comprehensive priority determination.
+
+## value
+
+PASS
+
+After excluding the already covered finite digit observation as a standalone result, the asymptotic answers a natural prevalence question: with the input lengths prescribed, how often does a squarefree semiprime occupy the larger of the two possible product lengths? It gives a precise base-dependent benchmark for this conditional sample, rather than counts in an arbitrary finite slice or an assertion of a global density. It combines the finite criterion with a genuinely different distributional calculation, even though the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:37.264120Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A generic vertical shift exposes exactly one integer-height section, at an independent uniform original height h. In the horizontal lattice the variables are k_i≥0 and their sum is bounded by 1+ch−sum(1−u_i). Decompose 1+ch=K+T: integrality of c makes K discrete uniform independent of T and of the horizontal phases. With W=sum(1−u_i)+(1−T), taking the floor of the bound gives K−floor(W) off a null set. Ordinary Eulerian cube slabs give the weights for floor(W), and weak compositions give B_r. The mass bounds follow by K=m+J and by counting K<J. At m=0 there is a positive contribution from K=J=1, at c from J=0, and at N=0 from K=1,J=2, so no listed support points are spurious; the plateau range includes the entire Eulerian row. Tiling by integer translates gives the mean as the integral of section volume (1+cz)^r/r!. For example r=2,c=1 gives masses 1/6, 2/3, 1/6 at 0,1,3 and mean 7/6. The LLN and K/r's uniform limit give the macroscopic threshold, including the equality case because the limiting uniform has no atom at 1/2. In the critical window the clipped positive part differs from the unclipped one only at J=0 by one. The centered floor-of-uniform-sum variable has CLT variance 1/12 on scale √r and uniformly bounded second moments; uniform integrability and r/c→2 give the stated Gaussian positive-part moment. At fixed r the scaled count differs from (K/c)^r/r! by a uniformly vanishing term, which gives moment convergence and the stated coefficient of variation. Smoothness also follows directly: at either horizontal level the active primitive facet normals are a horizontal signed coordinate basis (at the origin), or that basis with one row replaced by the sloping-facet normal (at a nonzero vertex), together with the level normal; the determinant is ±1. The supplied verification notes and verify_eulerian.py were inspected, not rerun; the finite checks are supplementary. The cube-slab attribution is correct in substance, but the cited Schmidt–Simion section for ordinary slabs is §3 rather than §2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schlie gives a general randomized lattice-point count setting, including expectation, discrepancy and variance; Freyer–Hofstätter study the translation-count function and its general properties.",
+          "Tokmachev gives an exact independent-discrete-uniform convolution for planar integer triangles under the coprime-length hypothesis."
+        ],
+        "reasoning": "The general frameworks explain the statistic and mean but do not evaluate the new count distribution. The planar triangle formula has different hypotheses even before the dimension–shear limit and gives no encompassing theorem for these higher-dimensional frusta.",
+        "searches": [
+          "Primary search: uniformly shifted simplex frusta / sheared simplex prisms and Eulerian rounding laws",
+          "arXiv:2611.16769v1, pp. 1, 3",
+          "arXiv:2407.09878v1, §4 Theorem 3",
+          "arXiv:2610.26523v2, Abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary translated-polytope and covering records e93dafa92de7, 315df84a038b, 144458c7c9ab",
+        "arXiv:2610.27819v1",
+        "DOI:10.37236/1333",
+        "arXiv:2611.16769v1",
+        "arXiv:2407.09878v1",
+        "arXiv:2610.26523v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The integer-dilation formula sums deterministic section counts and does not average a random fractional offset; the classical cube-slab result supplies Eulerian weights without the independent uniform section layer.",
+          "The occupancy probability here is the truncated expectation of (c−J+1)_+/c, unlike the hypersimplex's probability of a fixed-width interval event in an Eulerian index."
+        ],
+        "reasoning": "The prior Ehrhart and cube-slab results supply a shape and an input distribution but not the pairing of the uniform layer with the rounding phase, exact atom push-forward, or the integrated Gaussian window. The mean is a standard volume computation and is not credited as distinct.",
+        "searches": [
+          "arXiv:2610.27819v1, exact definition and Ehrhart count in Proposition 5.1",
+          "Schmidt–Simion, ordinary cube-slab identity",
+          "SCOPE-e93dafa92de7, exact mixture and critical limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hypersimplex mixture is a count of bounded digits with intrinsic Haar translation and no independent discrete layer. Its edge occupancy probabilities have Gaussian CDF limits without the r^−1/2 prefactor.",
+          "Reversing a uniform shift makes covering-overlap multiplicity equivalent to a random-translate lattice count for the same body. The analyzed Reeve body is a tetrahedron thickened by a segment, not the simplex frustum."
+        ],
+        "reasoning": "The change of terminology from overlap to translated count is a true equivalence of statistics, not of these different bodies. The hypersimplex record shares a rounding method but not the measure space, count map, or critical law; same-day dating proves no priority.",
+        "searches": [
+          "Resultary: Eulerian cube slabs, shifted simplex/prism counts, torus occupancy and lattice-covering overlap multiplicities",
+          "SCOPE-eulerian-translation-multiplicities-and-two-fluctuation-transiti--e93dafa92de7",
+          "SCOPE-cubic-overlap-spectrum-of-minimal-reeve-prism-lattice-coverings--144458c7c9ab"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu–Tang–Tao–Zhang give the exact Ehrhart sum ∑_{j=0}^t binom(t+cj+r,r) for this very body, with integer dilations t and an integer height sum.",
+          "Schmidt–Simion give exact Eulerian slab probabilities (the weights of J).",
+          "The closest height-one square-pyramid record gives square/pronic atoms, invariant under horizontal apex displacement, for a different section shape."
+        ],
+        "reasoning": "The existing tables give integer-dilation counts, marginal Eulerian weights, or exact laws of different bodies. None is the probability table of the frustum count in the bounded catalogue/reference check. In particular Ehrhart counts do not sample generic torus translations.",
+        "searches": [
+          "arXiv:2610.27819v1, §5 Proposition 5.1",
+          "Schmidt–Simion, DOI:10.37236/1333, §3",
+          "SCOPE-a-square-and-pronic-lattice-count-law-for-uniformly-translated-s--315df84a038b"
+        ]
+      },
+      "rationale": "The frustum, its smoothness and its integer-dilation enumerator are prior work, as are cube-slab weights and general translation-count averaging. Distinct claims supported here are the explicit all-atom law for translations of this frustum and its dimension–shear occupancy limits, including the vanishing critical probability with an exact r^−1/2 prefactor. The nearest catalogue and primary sources inspected do not provide these claims for this family; this is not a certification of historical priority.",
+      "residual_risks": [
+        "Primary and catalogue searches were bounded. An equivalent formula under a different prism or rounding terminology may be unindexed; the absence of a primary search hit is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same body, smoothness and integer-dilation counts, not a random-translation law",
+          "evidence": [
+            "Q_{r,c} defined by the same inequalities; Ehrhart count is a sum over the integer sections j=0,…,t."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.27819v1",
+          "material_read": "§5 Proposition 5.1, printed pp. 10–11, OA offset 39702",
+          "method": "Bounded OA PDF text",
+          "title": "Ehrhart positivity of smooth polytopes with few facets",
+          "trigger": "Exact same polytope family and a potentially encompassing prior enumerator"
+        },
+        {
+          "assessment": "Classical marginal law, not the independent layer and frustum count",
+          "evidence": [
+            "The ordinary slab between coordinate sums i−1 and i has volume A(n,i−1)/n!; §2 concerns the hyperoctahedral problem."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1333",
+          "material_read": "Introduction (offset 6876) and §3 ordinary cube slabs, PDF pp. 8–9, offset 25820; §2 comparison",
+          "method": "Bounded OA PDF text",
+          "title": "Some geometric probability problems involving the Eulerian numbers",
+          "trigger": "The precise Eulerian slab law behind the new count weights"
+        },
+        {
+          "assessment": "General context; no matching law in inspected passages",
+          "evidence": [
+            "Translation/rotation randomization and scope of survey in expectation, discrepancy and variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16769v1",
+          "material_read": "PDF pp. 1, 3, offsets 590 and 9103",
+          "method": "Bounded OA PDF text",
+          "title": "On the randomized lattice-point count problem",
+          "trigger": "Relevant survey of random translation counts and limits"
+        },
+        {
+          "assessment": "Different planar triangle law",
+          "evidence": [
+            "Convolution U_a+U_b+U_c+U_2 for the specified coprime affine side lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.09878v1",
+          "material_read": "§4 Theorem 3, PDF pp. 6–7, offset 13197",
+          "method": "Bounded OA PDF text",
+          "title": "Lattice points inside a random shifted integer polygon",
+          "trigger": "Prior exact random-shift count by rounding in a related simplex setting"
+        },
+        {
+          "assessment": "General machinery; not evidence of exact specialized coverage",
+          "evidence": [
+            "Translation-count function and decomposition and uniqueness scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26523v2",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Bounded OA PDF text",
+          "title": "Counting Lattice Points in Translations: Uniqueness and Existence Results",
+          "trigger": "General exact translation-count function"
+        },
+        {
+          "assessment": "Structural analogy with different family and critical regime, no priority inference",
+          "evidence": [
+            "Intrinsic hypersimplex translation gives an Eulerian mixture of bounded-composition coefficients and fixed-t rank thresholds."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eulerian-translation-multiplicities-and-two-fluctuation-transiti--e93dafa92de7",
+          "material_read": "Finding and relationship section, local text offsets 0 and 7936; frozen Finding and Assumptions",
+          "method": "Resultary and local mirror/frozen text",
+          "title": "Eulerian translation multiplicities and two fluctuation transitions for hypersimplices",
+          "trigger": "Strongest distinct Resultary overlap in both Eulerian law and occupancy"
+        },
+        {
+          "assessment": "Different body and multiplicity law",
+          "evidence": [
+            "Square/pronic atoms with horizontal apex displacement invariance."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-square-and-pronic-lattice-count-law-for-uniformly-translated-s--315df84a038b",
+          "material_read": "Finding, local text offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "A square and pronic lattice count law for uniformly translated square pyramids",
+          "trigger": "Closest height-one section method in another shape"
+        },
+        {
+          "assessment": "Same statistic after reversing the shift, different prism body and result",
+          "evidence": [
+            "Reeve tetrahedron plus a segment gives a cubic overlap law."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-cubic-overlap-spectrum-of-minimal-reeve-prism-lattice-coverings--144458c7c9ab",
+          "material_read": "Finding, local text offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Cubic overlap spectrum of minimal Reeve-prism lattice coverings",
+          "trigger": "Potentially equivalent multiplicity statistic under a covering terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A standard smooth family of growing dimension provides an exact example where the complete translate-count law and the probability of finding any lattice point carry information beyond the volume or the Ehrhart polynomial. The closed atom probabilities and plateau enable direct comparisons, and the rare critical-window probability has a useful explicit scaling function distinct from a usual occupancy CDF. These are substantive exact features of the motivated random-translate problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:45:38.799113Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38 and VERIFICATION.md lines 19–25",
+        "Frozen verify.py inspected, not executed: exhausts labelled small graphs and checks the finite barbell examples. The all-order proof was checked directly; no reliance on the recorded atlas census."
+      ],
+      "rationale": "Reconstructed the canonical projection independently. Write d(ai,aj)=li+lj+e with e the perimeter parity and li nonnegative integers. For e=0, send the positive interiors d(v,ai)<li to levels li−d(v,ai) on arm i and everything else to the tree centre. The interiors are disjoint and cannot share an edge, and across their boundaries the level drops by at most one. For e=1 the closed balls of radii li are disjoint; map each to its arm by the same level formula and send unassigned vertices to a fixed triangle vertex. Any edge between balls or from a ball to unassigned vertices meets the affected ball at level zero. The arms are covered by geodesics to the feet and the odd triangle edges by the consecutive boundary points on each foot-to-foot geodesic. Hence this is a nonexpanding surjection to a model of size ceil(p/2)+1 with edge coverage. At p=2n−2 and, for n≥4, p=2n−3 the map is bijective and the model has a leaf. At p=2n−4 the model is a tree with n−2 edges and there is one doubled fibre z. For each leaf x, singleton fibres at x and its neighbour would force its preimage to have degree at most one, so z lies within distance one of every leaf. A path with ≥4 edges, or a tripod with three positive arms totalling ≥4, has two leaves at distance ≥3. This excludes p=2n−4 for n≥6. Two triangles joined by a path of length n−5 give perimeter 1+2(n−3)=2n−5 by taking two non-attachment vertices in one and one in the other. The small witnesses K3, C4 and K2,3 attain the stated 3,4,6; the n≥4 bijective exclusions give the matching small upper bounds.",
+      "residual_risks": [
+        "No classification of all attaining graphs or determination for higher minimum degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The packing result yields tr(G)≤6 floor(n/(δ+1)); for δ=2 this is 6 floor(n/3). Proposition 5.2 yields n=(j+1)(δ+1), tr(G)=6j+1 for fixed δ≥2.",
+          "The exact connectivity theorem includes the biconnected bound 2 floor((n+1)/2), with cycle/theta extremal cases described in §6.1."
+        ],
+        "reasoning": "For n≥6 the degree bound exceeds 2n−5 in every residue class. Exact vertex connectivity does not encode minimum degree: the extremal examples here have a bridge, and the connectivity-one class also admits leaves. These covering results do not settle this degree slice.",
+        "searches": [
+          "Hak–Kozerenko §5 Corollary 5.1 and Proposition 5.2; §1 Theorem 1.3 and §6.1"
+        ]
+      },
+      "checked_sources": [
+        "Hak–Kozerenko arXiv:2611.17259v1, primary passages above",
+        "Frozen comparison with Das–Abdioğlu (2025)",
+        "Local Resultary c903c4a62571 and ab79ffff8626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously published projection fixes the model size; Proposition 5.2 specializes to tr(G)=2n−5 on n divisible by three, with the same barbell shape.",
+          "The earlier article explicitly leaves the exact minimum-degree extremum open as Question 2."
+        ],
+        "reasoning": "A witness proves only a lower bound even at its own orders. The projection with one surplus vertex needs the new simultaneous leaf-neighbour obstruction to exclude 2n−4; neither the previous degree bound nor the bare model size entails that obstruction.",
+        "searches": [
+          "Hak–Kozerenko §3 canonical projection, §5 Proposition 5.2, §7 Question 2; adjacent Das–Abdioğlu Theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 2 asks for the exact maximum at fixed order n and exact minimum degree δ. Das–Abdioğlu's Theorem 4.3 is described by the frozen source as characterizing the neighbouring 2n−3 layer."
+        ],
+        "reasoning": "All the displayed witnesses have minimum degree exactly two, so the result answers δ=2 as well as the formally broader δ≥2 question. Excluding 2n−3 alone cannot exclude 2n−4.",
+        "searches": [
+          "Triameter / perimeter of three distinct vertices with δ≥2 and δ=2; Hak–Kozerenko arXiv:2611.17259v1, §7 Question 2; Das–Abdioğlu 2n−3 extremal graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Self-match c903c4a62571 states the same all-order formula. Strongest distinct same-day triameter hit ab79ffff8626 treats strong products of paths and their maximizing triples."
+        ],
+        "reasoning": "The identical assigned record is not independent coverage. A census inside strong products of paths does not cover the order-constrained class of all minimum-degree-two graphs. No distinct located exact table evaluates the all-order degree-constrained extremum.",
+        "searches": [
+          "Local Resultary semantic comparison for minimum-degree-two extremal triameter and double-triangle graph witnesses"
+        ]
+      },
+      "rationale": "The canonical projection and the lower-bound shape are not new in themselves. Hak–Kozerenko's Proposition 5.2 already attains 2n−5 by the barbell specialization for n≡0 mod 3, n≥6. It is a witness result, not the extremal upper bound. The distinct claim supported here is the sharp uniform maximum via the new one-double-fibre exclusion, including orders beyond the prior witness subsequence.",
+      "residual_risks": [
+        "The full adjacent Das–Abdioğlu theorem was unavailable for inspection.",
+        "The conclusion is a bounded coverage assessment, not priority certification; the earlier barbell specialization should be credited when using this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap of method and witness subsequence, not located coverage of exact upper bound",
+          "evidence": [
+            "Degree upper bound 6 floor(n/(δ+1)); n=(j+1)(δ+1) examples with tr=6j+1; exact prescribed minimum degree posed in Question 2; exact connectivity result uses a different constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17259v1",
+          "material_read": "§5 Corollary 5.1 and Proposition 5.2; §7 Question 2; §1 Theorem 1.3; §6.1 Proposition 6.3 and Corollary 6.6",
+          "method": "Primary public HTML after attempted OA passage retrieval",
+          "title": "Triameter, distance packings, and vertex connectivity",
+          "trigger": "Same degree question, projection and potentially exact theorem"
+        },
+        {
+          "assessment": "As described, addresses 2n−3 rather than the decisive layer; stronger content not ruled out",
+          "evidence": [
+            "Frozen RESULT.md lines 46–48 attributes a 2n−3 characterization."
+          ],
+          "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/4516837",
+          "material_read": "Frozen summary of Theorem 4.3 only; exact theorem not retrieved",
+          "method": "OA and lawful public article/PDF attempts timed out",
+          "title": "On Triameter of a Graph",
+          "trigger": "Nearby high-perimeter classification"
+        },
+        {
+          "assessment": "Assigned self-match",
+          "evidence": [
+            "Same all-order formula and double-triangle construction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-triameter-at-minimum-degree-two--c903c4a62571",
+          "material_read": "Indexed statement and frozen original proof",
+          "method": "Local Resultary and frozen source",
+          "title": "Sharp triameter at minimum degree two",
+          "trigger": "Exact formula match"
+        },
+        {
+          "assessment": "Different graph class and census objective in available statement",
+          "evidence": [
+            "Optimizes triples on strong products of paths, not over all graphs at fixed order and prescribed minimum degree."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-triameter-and-a-complete-extremal-triple-census-for-strong-products-of-paths--ab79ffff8626",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary",
+          "title": "Triameter and a complete extremal triple census for strong products of paths",
+          "trigger": "Strongest distinct same-day exact triameter entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hak–Kozerenko Corollary 5.1, Proposition 5.2 and Question 2",
+        "Frozen RESULT.md, exact maximum and proof"
+      ],
+      "rationale": "The result settles the first nontrivial fixed-degree slice of an explicit earlier extremal question. It replaces a packing upper bound and a sparse family of lower witnesses with the exact maximum at every order. The method isolates a simple structural obstruction in the near-bijective regime; its value is the sharp upper bound, not novelty of the triangle barbell.",
+      "residual_risks": [
+        "No equality classification or higher-degree implication established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

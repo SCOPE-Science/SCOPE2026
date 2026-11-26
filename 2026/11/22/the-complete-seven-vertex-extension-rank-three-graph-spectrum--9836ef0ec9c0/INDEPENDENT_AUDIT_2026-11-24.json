@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:54:26.496714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–61, VERIFICATION.md, rank3_burnside.cpp, rank3_recursive.py, graph6 atlas input inventory and CENSUS_OUTPUT.txt (source not executed)",
+        "Private check2.py and check2.txt (independent standard-library replay, not dependent on atlas data or Burnside code)"
+      ],
+      "rationale": "Rank is the induced, named one-point extension game, not matrix rank. Unrolling three rounds gives a root with full adjacent and full nonadjacent partners: fullness requires two other neighbors when the partner is adjacent, and two other nonneighbors when it is not. There must be three of each kind. On seven vertices the pair profiles are full precisely when each partner meets exactly one of the other two vertices on its own side, and one or two of the three on the opposite side. A fourth round would require a rank-one triple and eight distinct exterior witnesses, impossible here. The Burnside derivation counts fixed graphs as unions of edge cycles under one representative per vertex cycle type; the fixed subset counts are weighted by conjugacy-class size, with identity yielding labelled counts. An independent program instead partitions all 2^21 edge masks into vertex-relabeling orbits by adjacent swaps and tests one representative of each using the original game recursion on named base masks. It finds all 1044 unfiltered orbits and 372 qualifying, with labelled total 1,163,358 by orbit sizes. From e=6 to 15 the unlabelled coefficients are 1,10,31,61,83,83,61,31,10,1 and the labelled coefficients are 5040,31500,99540,191520,254079,254079,191520,99540,31500,5040, with no others. Complementation swaps the two roles at the root and reverses edge counts.",
+      "residual_risks": [
+        "The independent replay tests the whole stated census through a different route, not each of the 15 auxiliary fixed-element totals individually. No claim for higher orders or the universal forcing cutoff is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary rank paper proves a general rank property for suitable free amalgamation classes, including graphs, by constructing structures of specified rank.",
+          "The colored-pair theorem's Finding explicitly specializes at q=2 to 7 vertices, 6 edges and one rooted certified extremizer. The tournament census concerns directed tournaments, not undirected graphs."
+        ],
+        "reasoning": "Existence in a broad class and enumeration of certified extremizers are not enumeration of all unpointed hosts in the first rank-three layer. No cross-category implication arises from using seven vertices in the tournament case.",
+        "searches": [
+          "arXiv:2604.14461v1 offset 5880 for Theorem 4.18/Corollary 4.19 comparison",
+          "Resultary same-day e2773954132c and bcdcae21fe8a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary including exact self-match, a3c35b6162f1, e2773954132c, and tournament comparison bcdcae21fe8a (catalogue summary for latter)",
+        "López-Callejas and Navarro-Castillo arXiv:2604.14461v1",
+        "Read–Wilson atlas via igraph documentation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof already forces at least three neighbors and three nonneighbors at a root; tightness gives the 3+3 split immediately.",
+          "The earlier graph theorem explicitly limits its classification to edge-minimal cases. The colored-pair count concerns rooted-and-certified support minimizers only."
+        ],
+        "reasoning": "The earlier criterion and minima imply the local rule and endpoint entries, not the distinct intermediate coefficients e=7..14 and their sums; these require a complete new filtered count. The same display date of distinct hits supplies no priority ordering.",
+        "searches": [
+          "Actual Finding, One-step rank test, Minimum number of vertices and Limitations of Resultary a3c35b6162f1",
+          "Actual Finding of same-day e2773954132c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier graph record gives exactly the same rank>=3 if-and-only-if via two full extension profiles, with finite/countable scope."
+        ],
+        "reasoning": "Rewriting a full-pair condition as degree constraints on the two three-element sides is a specialization, not a different rank. This prior test recognizes graphs individually; it does not supply a tally across graph isomorphism classes.",
+        "searches": [
+          "Resultary: seven-vertex one-point-extension rank-three graph census, full/shattered pair and edge polynomial lookup",
+          "arXiv:2604.14461v1 graph contexts and Resultary a3c35b6162f1 One-step rank test"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit 9836ef0ec9c0 is this assigned finding. igraph documents 1253 graphs through seven vertices, sorted by graph statistics, without an extension-rank filter in its documentation.",
+          "The earlier sharp-extremum record explicitly gives 5040 labelled qualifying graphs at e=6 on seven vertices and no such graph below e=6."
+        ],
+        "reasoning": "The atlas makes a filtered calculation possible, but no unfiltered enumeration is the claimed filtered polynomial. The exact known endpoint coefficients are credited, not counted a second time.",
+        "searches": [
+          "Resultary exact numerical search for 372 types and 1,163,358 labelled rank-three graphs",
+          "igraph graph_from_atlas documentation and frozen atlas role"
+        ]
+      },
+      "rationale": "The complete rank-filtered edge distributions and totals are the supported distinct contribution. The full-pair criterion and vertex/edge minima are prior work; the degree-three local reformulation follows immediately on specializing that prior criterion, rather than constituting an independently new structural theorem. The six-edge coefficients and, by complement, their fifteen-edge counterparts should not be counted as new.",
+      "residual_risks": [
+        "No general priority proof; an older independent filtered atlas calculation could exist. Statements inspected are identified by section rather than claims about unread entire documents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers general test, onset, sparse extremum, not full census",
+          "evidence": [
+            "Boxed full-pair equivalence; six-edge graph unique, 5040 labelled at order seven; limitations expressly restrict to edge-minimal graphs."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-rank-three-onset-and-six-edge-extremum-for-finite-graphs--a3c35b6162f1",
+          "material_read": "RESULT.md Finding and proof through Minimum number of vertices, offsets 0–3899; Limitations, offset 9360",
+          "method": "local mirror",
+          "title": "Sharp rank-three onset and six-edge extremum for finite graphs",
+          "trigger": "identical invariant and natural boundary"
+        },
+        {
+          "assessment": "general existence, not a boundary census in the inspected result",
+          "evidence": [
+            "Rank property via finite universal kernels and free amalgamation; graphs included."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.14461v1",
+          "material_read": "p. 2 discussion of Theorem 4.18 and Corollary 4.19, offset 5880",
+          "method": "OA PDF passage",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "primary rank source, broader existence theorem"
+        },
+        {
+          "assessment": "specializes to known sparse graph extremum, not full unpointed layer",
+          "evidence": [
+            "q^2+q+1 vertices and q^3-q(q-1)/2-1 nonzero pairs; labelled certificates designate root and partners, not a census of all structures."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-round-thresholds-and-certified-extremizers-for-colou--e2773954132c",
+          "material_read": "RESULT.md Finding and scope, offsets 0–3259",
+          "method": "local mirror",
+          "title": "Sharp three-round thresholds and certified extremizers for coloured-pair structures",
+          "trigger": "same-day broader rank-three result including graphs"
+        },
+        {
+          "assessment": "unfiltered exact catalogue, not a rank table",
+          "evidence": [
+            "Graphs numbered 0–1252 and ordered by vertex count, edge count, degrees and automorphisms."
+          ],
+          "identifier_or_url": "https://r.igraph.org/reference/graph_from_atlas.html",
+          "material_read": "introduction and Usage, offset 0",
+          "method": "public documentation",
+          "title": "Create a graph from the Graph Atlas",
+          "trigger": "underlying exact database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, independent labelled/unlabelled tables, prior sharp extremum Finding and Limitations"
+      ],
+      "rationale": "The order is forced by the least possible size of a three-round host, not a freely chosen graph slice. The full counts answer how common rank three is at each edge count, where the prior extremal result only answered whether a sparsest witness exists. They give an exact boundary benchmark for future comparisons of existence rank and universal forcing, and distinguish labelled probabilities from isomorphism types.",
+      "residual_risks": [
+        "Does not give asymptotics, a census at larger order, or a new forcing bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

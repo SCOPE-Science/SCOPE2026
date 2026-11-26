@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:51.071744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the first-root threshold. For z≥1/a the expression is positive, so all z>1 roots come from solving z^β=((1+a)z−2a)/(1−az) on 1<z<1/a. This gives a continuous exponent with endpoint value (1+2a)/(1−a) at z=1 and divergence at z=1/a. With δ=1−a and z=1+δs, the scaled exponent is Gδ(s) as claimed; its right derivative at s=0 is −a(1+2a)/2, so its minimum is interior. Along δ→0, Gδ(s)→3 when s→0 by the uniform first-order logarithm expansions, and Gδ(s)→∞ when s→1 within the varying domain, using δ/log(1+δs)≥1/s. The trial value at s=2/5 tends to (5/2)log 3<3, so minimizing sequences stay in a common interior compact set, where convergence is uniform. For f(s)=log((1+2s)/(1−s)), the derivative of sf′−f is sf″, with sign changing from negative to positive at 1/4; sf′−f starts at zero and tends to +∞. Thus the unique interior zero yields the unique minimizer. Independent bisection gives s≈0.37720062726944 and f′(s)≈2.745643576732724. Frozen verify.py was inspected, not run; its bisection only checks the decimal, while the argument above checks the limit. The onset is for stationary roots, not a dynamical or trajectory threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The urn proposition gives the finite-a phase threshold and divergence with coarse bounds; its auxiliary lower bound has scaled limit 2+log 2, not λ*. The Potts definition covers general q but has no finite-a urn parameter."
+        ],
+        "reasoning": "Neither the established urn phase classification and bounds nor specialization of the general Potts spinodal classifies the sharp singular scaling of the urn threshold.",
+        "searches": [
+          "Costa and Jordan, arXiv:2006.02685, Proposition 3.3 and proof",
+          "Cuff et al., arXiv:1204.4503, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Costa–Jordan arXiv:2006.02685",
+        "Cuff et al. arXiv:1204.4503",
+        "Resultary: SCOPE-a-logarithmic-strong-drive-fold-and-complete-stationary-state-ce--cc3a3169f81d",
+        "Resultary: SCOPE-an-exact-quadratic-interaction-threshold-and-nine-equilibrium-ph--9df91013f774"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior finite-a bounds do not meet at λ*. The Potts equation gives the limiting objective, but does not exclude minimizers escaping toward either end of the changing finite-a domain."
+        ],
+        "reasoning": "The exact rescaled onset and control of both endpoint regimes are additional arguments; neither substitution into known Potts formulas nor the prior urn bounds implies convergence of the infima without that analysis.",
+        "searches": [
+          "arXiv:2006.02685, Proposition 3.3 proof including equation (28)",
+          "arXiv:1204.4503, §1.1 equation (1.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For q=3, setting x=(1+2s)/3 in the Potts fixed-point equation gives x=(1+2 exp(−2βs))^−1, hence 2β=s^−1 log((1+2s)/(1−s)). Their spinodal is exactly half the displayed urn limit."
+        ],
+        "reasoning": "The minimization, stationary equation and numerical constant as Potts quantities are covered; the parameter-dependent urn threshold and its approach to this constant are a different assertion.",
+        "searches": [
+          "Resultary semantic lookups on the near-neutral urn threshold, Potts spinodal, and numerical constant",
+          "Cuff et al., arXiv:1204.4503, §1.1 equation (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-a-logarithmic-strong-drive-fold-and-complete-stationary-state-ce--cc3a3169f81d concerns cyclically driven Potts flow in a strong-drive regime. Same-day SCOPE-an-exact-quadratic-interaction-threshold-and-nine-equilibrium-ph--9df91013f774 concerns two two-colour urns with quadratic reinforcement. No match to the finite-a scaling was returned in the targeted lookups."
+        ],
+        "reasoning": "The inspected catalogue neighbours have different model and threshold parameters, not alternative tables or exact instances of this limit. A query on the constant alone cannot distinguish the Potts result from urn convergence.",
+        "searches": [
+          "Resultary semantic lookups on near-neutral urn scaling, Costa–Jordan β1 and equation (28), three-state Potts spinodal and the displayed constant"
+        ]
+      },
+      "rationale": "Credit the limiting variational problem and constant to the known three-state mean-field Potts spinodal under rescaling. The supported distinct claim is convergence of the finite-interaction Costa–Jordan urn threshold to that constant, not a new spinodal or a new phase diagram. The inspected sources and catalogue comparisons do not state or already supply that convergence.",
+      "residual_risks": [
+        "Other literature on singular limits in interacting urns may contain an equivalent matching result; the targeted search does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers polynomial, finite-a threshold and divergence, not the displayed sharp limit",
+          "evidence": "The auxiliary lower bound scales to 2+log 2, and the explicit upper threshold scales to 3.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.02685",
+          "material_read": "Proposition 3.3 and proof, including the finite-a bounds and equation (28), OA HTML offsets 28200–36189",
+          "method": "Bounded reading of primary OA text",
+          "title": "Phase transitions in non-linear urns with interacting types",
+          "trigger": "Original definition and strongest candidate for the same urn threshold"
+        },
+        {
+          "assessment": "Exact equivalent constant, not coverage of the urn-to-limit statement",
+          "evidence": "At q=3 and x=(1+2s)/3, the fixed-point onset occurs at 2β=min s^−1 log((1+2s)/(1−s)).",
+          "identifier_or_url": "https://arxiv.org/abs/1204.4503",
+          "material_read": "§1.1, equation (1.1) and spinodal definition, OA HTML offsets 0–6991",
+          "method": "Bounded reading of primary OA text with normalization comparison",
+          "title": "Glauber Dynamics for the Mean-Field Potts Model",
+          "trigger": "Potentially identical variational constant and saddle-node"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp coefficient quantifies the divergence of the first nontrivial stationary branch where published urn bounds leave a finite leading-order gap. The identification with the Potts spinodal gives a meaningful comparison between stationary thresholds of the two models; merely recomputing the Potts constant would not supply this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

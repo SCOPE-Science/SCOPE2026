@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproduction of the finite homotopy certificate
+# Independent mathematical audit
 
-Place `verify.py` and `cancellation_certificate.json` in the same directory and run:
+## correctness
 
-```
-python3 verify.py
-```
+PASS
 
-The program reconstructs the finite set of 40 proper noncrossing partitions on five labels and the tenfold complement action. It enumerates the original 40/150/125 simplices, the 315/1050/750 barycentrically subdivided simplices, and the quotient's 36/110/75 orbit simplices, retaining stabilizers and parallel edges. It builds the signed oriented attaching words, constructs the lexicographically canonical spanning tree of 35 edges, and verifies each of 74 single-generator two-cell cancellations against the included JSON certificate. The final CW model has one zero-cell, one one-cell and one two-cell, with attaching word five positive copies of the surviving generator.
+The exact right complement w↦w⁻¹c squares to rotation by conjugation and reverses refinement. Independent enumeration reproduced order ten, the 40/150/125 simplices of the proper part, the 315/1050/750 subdivided simplices and the 36/110/75 actual orbit cells. In a flag of nonempty faces the face sizes strictly increase, so a stabilizer fixes each flag vertex and hence the whole simplex, not just the orbit of its interior. Its quotient attaching maps are obtained by taking the orbits of its boundary flags, with the face-size orientation retained. Contracting a 35-edge spanning tree is a homotopy equivalence of CW complexes. For a relator containing a generator just once, cyclically start there; the boundary of that 2-cell traverses the corresponding open loop edge once and otherwise lies in the graph of other loops. The subcomplex consisting of that graph and the chosen pair retracts up to homotopy onto the graph; the other 2-cells attach by the transported maps, precisely substitution and free reduction. Thus this operation preserves the presentation complex's homotopy type, not just its fundamental group. The independent flag/word replay made 74 such eliminations and left [71,71,71,71,71] in its indexing, one loop and one 2-cell. The end model has cellular differential multiplication by five and fundamental group C5, proving the exact ordinary geometric quotient claim. It is not a free-action or homotopy-orbit assertion.
 
-Expected terminal lines:
+## originality
 
-```
-KREWERAS_NC5_QUOTIENT_MOORE5_OK
-vertices=36 edges=110 triangles=75; tree_edges=35; generator_eliminations=74
-last generator= 105 last relator= [105, 105, 105, 105, 105]
-```
+PASS
 
-All code requires only Python 3 standard-library modules and uses exact finite combinatorics. It checks explicit cell identifications and the complete homotopy-preserving elimination sequence. As a separate consistency check, modular boundary ranks of the orbit complex are \(35,75\) outside characteristic five and \(35,74\) in characteristic five. The latter is a homology check; the actual homotopy conclusion depends on the complete checked attaching-word cancellation. No assertion about any larger complex or unverified external computation is made.
+The closest comparisons give fixed-point and orbit counts for related or identical actions, nonequivariant topology, or actual quotients by other group actions. The ordinary quotient by the full order-ten complement action and its one-relator homotopy model are not covered by the statements inspected. This is bounded to available evidence, with no day-level priority inference.
+
+## value
+
+PASS
+
+The full Kreweras action is a natural nonfree order symmetry on the classical proper complex, and here the exact ordinary quotient distinguishes it both from the rotation subgroup, whose quotient has two extra spheres, and the dihedral relabeling quotient. A degree-five model supplies actual homotopy data beyond a torsion homology calculation, including usable attaching data and a small test case for other methods studying quotients of noncrossing complexes. The evidence supports this finite exact contribution, not a general theorem in n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

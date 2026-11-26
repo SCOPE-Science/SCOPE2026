@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,10 @@
   "schema_version": 1
 }
 ---
-
 # Reproduction
 
-From the directory containing these files, run `python verify.py` with Python 3. No downloaded data, external libraries or remote services are needed. The checker performs 7,264 comparisons and prints `PASS`. It covers angular normalizations, global extrema for a sample of exponents, sign tests on the three strict intervals, and two elementary lower-bound test directions for random admissible weighted rules.
+From the directory containing these files, run `python3 verify.py`. The script uses the Python standard library. Its 7,264 finite comparisons give numerical diagnostics for the angular normalization, extrema, signs at selected exponents and geometric witnesses. These checks do not prove a result for a continuum of exponents and weights.
 
 # Analytic checks
 
-The infinite quantifiers rely on the proof rather than on samples. In particular, (i) a heaviest-node test yields \(\max F\ge1/2\); (ii) the longest empty projective gap yields \(\min F\le2^{-p/2}\); (iii) the orthogonal rule saturates both bounds by convexity; (iv) the arcsine third-order Lobatto identity and cubic Hermite remainder control the exact sign for all real exponents; and (v) degenerating rectangles realize the geometric supremum over convex bodies. Numerical experiments cannot establish uniqueness or the signs for untested real \(p\); these follow from the analytic arguments.
-
-Historical priority remains contingent on literature completeness. No independent mathematical audit has been performed.
+The exact minimax proof uses the heaviest-node and largest-empty-gap witnesses, both attained by the equal orthogonal rule. Strict worsening of both extremes at every other rule proves uniqueness. The norm reduction follows by integration and a thin-rectangle limit. The polarity statement is a corollary of the prior order-four phase-moment comparison via the axis value and uniform phase mean. The cited moment analysis, not the finite samples, controls its strict signs.

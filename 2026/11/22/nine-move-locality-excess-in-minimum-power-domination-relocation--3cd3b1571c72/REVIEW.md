@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The theorem is a complete finite exhaustive classification. The duad–syntheme and symplectic incidence models are checked against each other by an explicit 30-vertex isomorphism. Every subset of size at most four is tested by the exact propagation closure. Every legal optimal replacement and edge-local slide is generated. Two independent programs reproduce every claimed invariant, including all-pairs shortest paths and the 1,440 pairs of maximum locality excess. The symmetry-reduced calculation verifies all 1,440 explicit automorphisms before using representative BFS; the independent C++ all-pairs calculation does not rely on orbit reduction. Scope is exactly one 30-vertex graph, with no generalization asserted.
+## correctness
 
-**Originality: PASS, qualified.** The January 2022 primary paper on power-domination reconfiguration establishes general terminology and constructions but has no inspected result yielding the Tutte eight-cage enumeration or local slide distances. The September 2022 cubic-graph paper provides bounds, not an exact four-set census, and its stronger claw-free bound is inapplicable. Published search hits for the same graph cover different predicates (metric bases, majority dynamics, controllability). Direct semantic-index searches for the present graph, all principal aliases, exact counts, and the distance/excess statement found no implication-equivalent claim. No absence-of-result search proves uniqueness; unindexed historical literature is a residual priority risk. The previously reported Coxeter graph with 28 vertices is not the 30-vertex Tutte–Coxeter graph.
+PASS
 
-**Value: PASS.** The Tutte–Coxeter graph is the canonical smallest cubic graph of girth eight, with strong symmetry and an operationally natural minimum-sensor problem. The complete feasible-state graph is a substantive benchmark for relocation algorithms: although all optimal configurations remain locally reachable, enforcing physical adjacency increases the sharp worst-case relocation distance from four to thirteen and produces ten distinct symmetry types and an exact locality-penalty distribution. The 1,440 extremal pairs show a precise structural obstruction rather than a single unmotivated number.
+The construction is the duad–syntheme incidence graph. A fresh enumeration used sequential forcing: an enabled still-unobserved target remains enabled as observation grows, so iteration to a fixed point gives the same least closure as synchronous rounds. Exhaustive testing at sizes 0 through 4 yielded counts 0,0,0,0,6540. Bucketing the four-sets by a shared triple generates exactly all jumps without duplicates; filtering the two differing vertices by incidence generates exactly the slides. I checked all 1440 permutations used for orbit reduction against the base graph. The induced side-preserving action is full: two duads have a common syntheme iff disjoint, and in the complementary intersection graph on duads the size-five cliques are exactly the six stars; fixing the stars fixes the duads and hence the synthemes. A checked duality supplies the other coset. Orbit BFS reaches all 6540 states in both graphs; weighting source histograms by orbit size and halving distinct ordered counts gives the exact unordered histograms. This independently reproduced the ten orbit rows, 126240 and 23040 edges, the jump radius and diameter 4, slide radius 11 and diameter 13, and slide eccentricity counts 1680,3420,1440 at 11,12,13. The penalty histogram agrees at every entry. Its largest entry index is 9, attained by 1440 pairs, all at (jump,slide)=(4,13); I also checked legality and geodesicity of the recorded 13-slide path.
 
-**Closest sources and limits.** See arXiv:2201.01798 (Sections 1, 4, 5) and arXiv:2209.03931 (Introduction and Section 2) and the detailed evidence in `AUDIT.json`. The result is exact and reproducible, but historical priority is qualified and independent audit is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest inspected work supplies the general minimum-sensor reconfiguration framework, cubic bounds, or the same comparison on different named cages. It does not imply the exact optimum family and complete sharp joint distance census on this cage. The indexed exact hit was the assigned record itself. This is a best-of-knowledge comparison, not historical priority certification.
+
+## value
+
+PASS
+
+This canonical small cage is a natural fixed-budget benchmark: connectedness survives local moves, yet imposing physical adjacency forces a sharp nine-move overhead on a nontrivial class of pairs. The exact pair census and orbit profiles separate typical from extremal behavior and let a researcher verify a relocation algorithm on a symmetric instance with genuine obstructions. This is more informative than an isolated optimum count or diameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

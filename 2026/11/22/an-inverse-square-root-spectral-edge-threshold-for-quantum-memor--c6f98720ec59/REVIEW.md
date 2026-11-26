@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The state is normalized for every fixed \(0\le\alpha<1\); the exact rank-one density kernel and purity reduction follow from the known uniform-memory resetting solution. The singular autocorrelation integrals have three proven regimes, including an exact antiderivative at critical exponent. The Kummer response has a width \(r/\sqrt{2\log(rt)}\), and its uniform near-zero asymptotic and Gaussian majorant justify the rescaled integral. The beta/gamma prefactors and factor \(1/8\) at the logarithmic critical edge were independently reconstructed. Finite mpmath checks corroborate kernel identities without standing in for asymptotic proof.
+PASS
 
-## Originality
+The bounded Hamiltonian Volterra equation reduces in the energy representation to the stated scalar Kummer solution, with f(0 frequency,t)=1. The evolved self-adjoint kernel has squared Hilbert–Schmidt norm equal to purity, and integrating along equal gaps gives the factor 2 and the autocorrelation G. The essential uniformity check is not implied by the fixed-gap limit alone. Set z=(r+iω)t and a=iω/(r+iω). For ω≠0 the Euler integral has weight u^(a−1)(1−u)^(−a) and prefactor 1/[Γ(a)Γ(1−a)]. Subtract the leading Laplace integral of u^(a−1) on [0,∞). On [0,1/2] the weight correction (1−u)^(−a)−1 is uniformly O_r(u); on the other half the exponential dominates, since sup Re a<1 for fixed r on |ω|≤1. The reciprocal gamma prefactor stays bounded even as a tends to zero. This gives uniform relative O_r(1/t) to z^(−a)/Γ(1−a), also at ω=0 by the exact constant response. Its modulus squared has the Gaussian limit on the scale σ=r/√(2 log(rt)) and a uniform Gaussian envelope after rescaling. For α<1/2, dominated convergence gives G(0+)=(1−α)²/(1−2α). At α=1/2 the exact inverse hyperbolic sine integral gives G(δ)=(1/4)log(1/δ)+O(1); dividing by log L after rescaling leaves 1/8, with an integrable 1+|log y| bound against the Gaussian. For α>1/2, u=δv gives the beta coefficient and an integrable rescaled y^(1−2α) Gaussian envelope; integrating contributes Γ(1−α)/2, canceled by the factor 2 in purity. These checks recover all three constants for fixed r and α. The supplied finite diagnostics were inspected, not executed.
 
-**PASS, with stated search limitations.** The closest prior mathematical result proves the ordinary coefficient for bounded energy density. At and above the critical singularity, that prior hypothesis fails and its coefficient \(\int w^2\) is infinite, so it does not imply the new law. The originating quantum-memory paper furnishes the scalar response and related dynamics, but no inspected claim provides the singular-edge critical factor. Semantic searches for van Hove density, square-root edge, memory-reset purity, spectral singularities and logarithmic crossover returned the bounded-density paper as closest; searches cannot establish absence of unindexed equivalents. A relevant part of the originating full text was accessible but not every section, making independent priority checking necessary.
+## originality
 
-## Value
+PASS
 
-**PASS.** An inverse-square-root singularity is the natural one-dimensional band-edge density-of-states exponent. The critical extra \(\log\log(rt)\) and the sharp supercritical exponent determine when the bounded-density purity approximation fails, creating an exact classification of a motivated physical spectral boundary rather than an arbitrary parameter sample. No claim is made about other observables or arbitrary multi-band Hamiltonians.
+The reset equation, its scalar response, and the ordinary logarithmic law for bounded densities are known. The subcritical branch is an elementary L² extension. The distinct claim is the critical log-log enhancement and the supercritical exponent and amplitude, which require control of the divergent energy autocorrelation. Inspected overlaps did not cover these branches.
 
-## Closest literature and limitations
+## value
 
-- G. de Mauro, M. Kulkarni and S. N. Majumdar, *Quantum resetting with memory*, arXiv:2608.02297v1 (August 3, 2026), source of the response kernel.
-- *A Schatten threshold and a logarithmic purity law for quantum resetting with memory* (October 25, 2026), source of the bounded-density purity law, which has a distinct hypothesis and no finite coefficient at the singular boundary.
-- DLMF §13.7 is used for the standard special-function asymptotic; it does not establish the singular spectral autocorrelation theorem.
+PASS
 
-The result is fixed-parameter, exact for the stated pure-state family and does not assert independent novelty certification. Unindexed literature remains a residual risk.
+A natural integrability boundary changes a physical observable in an already studied channel. The result gives the exact log-log correction at that boundary and a continuously varying decay exponent and explicit coefficient beyond it. These are substantive distinctions not captured by the square-integrable formula or pointwise gap decay.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

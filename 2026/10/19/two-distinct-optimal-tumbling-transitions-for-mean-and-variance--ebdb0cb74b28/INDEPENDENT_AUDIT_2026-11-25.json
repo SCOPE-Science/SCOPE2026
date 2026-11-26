@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:50.169641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With time scaled by R/v, the bulk reversal and wall release rates are a/2 and (a+g)/2, not a and a+g. A uniformly positive probability of no bulk flip and release within one unit if needed gives absorption within five units and a geometric tail bound. The first two backward moment equations therefore apply, with outgoing absorption at the right endpoint and the independent exponential waiting-time identity at the left. In the coordinate y=x+1, with h=a+g, the difference of first moments is -2/h-2y and the sum is S-2ay/h-ay^2, S=4+4a+(2+4a)/h. Integrating the second difference with left value -2(S+2/h)/h and then the second sum from the right gives, after subtracting the squared mean, V=5a^2/2+16a/3+1+((14/3)a^2+8a+2)/h+3(a+1)^2/h^2, equivalent to the stated polynomial fraction. Independently, expanding the specialized prior boundary Laplace transform at zero gave the same two moments. Differentiation gives the stated quartic and its constant term 2[(2g+1)^3-10]. Below the zero of that constant the descending coefficient list has exactly one sign change, so there is one simple positive root and the variance decreases then increases. At or above the threshold all coefficients are nonnegative (the a coefficient is already positive at g=1/2 and increases), yielding strict increase for a>0 and the unique minimum at zero. The g=0 case uses a>0 only. The mean derivative gives the lower threshold. At the positive mean minimizer set t=a+g=sqrt(2(1-g)/3)>1/2; the variance derivative is -3t^2-(17/2)t-2+4/(3t^2), strictly negative since the equivalent numerator 18t^4+51t^3+12t^2-8 is increasing and positive at 1/2. Thus the variance root is to its right; above the mean threshold but below the variance threshold it remains positive while the mean optimizer is zero. At the variance threshold the a derivative of the quartic is positive and the g derivative of the constant is 12 times 10^(2/3), confirming the implicit-function coefficient and its sign. The frozen symbolic and sampled checker was read but not executed; those samples cannot prove global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-boundary transform gives broader distributional coverage, including the variance by differentiation.",
+          "Jeon–Go–Kim compute escape moments for a partially absorbing interior target between hard walls."
+        ],
+        "reasoning": "The transform covers the law and its moment coefficients, which are prior in that sense. It is not a theorem comparing global rate optimizers. Different target or initial conditions can change the number and meaning of variance extrema.",
+        "searches": [
+          "DOI:10.1088/1751-8121/ad009e, general boundary transform and mean",
+          "arXiv:2310.04016, geometry and Appendix A",
+          "Resultary: generic sticky boundaries and variance optimization"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1088/1751-8121/ad009e",
+        "arXiv:2311.11873",
+        "arXiv:2310.04016",
+        "Resultary findings 4cc6a1bceac3, 1e2912e30fb8 and 216270416969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiate the exact prior transform to recover both moments, and specialize the reviewed formulas at g=0 to recover the later indexed slice. The known mean optimum supplies one side of the rate comparison."
+        ],
+        "reasoning": "The moment extraction is mechanical; it is not the originality basis. Showing a unique global variance optimizer for every admissible enhancement, checking its boundary transition and linear collapse, and proving the variance derivative strictly negative at the positive mean optimum require further sign and root arguments not supplied by the inspected results.",
+        "searches": [
+          "DOI:10.1088/1751-8121/ad009e, Eq. (45)",
+          "arXiv:2311.11873, mean optimization",
+          "Resultary exact findings 4cc6a1bceac3 and 1e2912e30fb8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angelani's general-boundary transform specializes to the same midpoint-start law, and the later optimal-escape paper uses the same enhanced wall reorientation rate.",
+          "Indexed record 1e2912e30fb8 concerns similar detachment but starts at the left wall moving right."
+        ],
+        "reasoning": "Release reverses the heading from toward the left wall to into the interval; it is not absorption. Scaling the interval and rates aligns Angelani's two formulations with the present model but does not produce a variance optimization statement. The alternative start law yields deterministic escape at zero bulk rate and is not equivalent to the symmetric midpoint start.",
+        "searches": [
+          "Resultary: sticky-wall release/reversal, run-and-tumble escape variance, and mean–variance optimal tumbling",
+          "DOI:10.1088/1751-8121/ad009e, Eqs. (17), (22), (37), (45)",
+          "arXiv:2311.11873, Eqs. (7)–(8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 4cc6a1bceac3 gives the exact g=0 mean and variance and a unique absolute-variance optimum. Record 1e2912e30fb8 gives a sharp change in the number of interior variance turning points for a wall-start law. The primary optimal-escape paper gives the mean threshold."
+        ],
+        "reasoning": "The catalogue slice is an exact overlap, not independent novelty in that slice. It does not vary g, and the wall-start stationary-point threshold is not a threshold for a positive global midpoint-start minimizer. No inspected formula table covers the two-threshold comparison.",
+        "searches": [
+          "Resultary: exact variance optimum and mean–variance Pareto frontier for run-and-tumble escape",
+          "Resultary: sticky-wall parameter transitions in run-and-tumble escape-time variance",
+          "arXiv:2311.11873, Eqs. (7)–(8)"
+        ]
+      },
+      "rationale": "The distinct result is the all-enhancements global variance optimization and its comparison with the mean, including the higher threshold and the continuous linear collapse of the interior optimizer. The model, law, mean threshold, and moments obtainable by differentiating the law are not credited as new. The strongest indexed overlap gives exactly the zero-enhancement slice but not the transition as enhancement varies.",
+      "residual_risks": [
+        "The prior transform makes the optimization accessible by differentiation followed by analysis; an earlier explicit calculation under different parameter names could have escaped the bounded comparison. The exact cutoff, global order and collapse are not established as historically first by this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the law and thereby the moments",
+          "evidence": "Bulk/wall convention, sticky case and exact transform; expansion reproduces both frozen moments.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ad009e",
+          "material_read": "OA PDF pp. 3–7, Eqs. (1)–(2), (17), (22), (37), (45), (47)",
+          "method": "OA primary PDF passages and specialization",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "General exact transform potentially covering the model and its variance"
+        },
+        {
+          "assessment": "Direct prior coverage of mean optimization",
+          "evidence": "Same enhanced reversal rate, mean formula and mean-optimality threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.11873",
+          "material_read": "p. 3, Eqs. (7)–(8) and wall reorientation definition",
+          "method": "OA primary passage",
+          "title": "Optimal escapes in active matter",
+          "trigger": "Same enhanced-wall parameter and explicit optimization threshold"
+        },
+        {
+          "assessment": "Exact g=0 overlap, not a result for varying g; catalogue date later",
+          "evidence": "For b=a it gives M=3+3b/2+1/b and V=5b^2/2+10b+12+8/b+3/b^2 with a unique absolute-variance optimum.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-mean-variance-pareto-frontier-and-relative-risk-optimum-in--4cc6a1bceac3",
+          "material_read": "RESULT.md, offsets 0, 582, 1302",
+          "method": "Local catalogue mirror",
+          "title": "Sharp mean–variance Pareto frontier and relative-risk optimum",
+          "trigger": "Exact same mean and variance objective at no wall enhancement"
+        },
+        {
+          "assessment": "Different initial law and extremum classification",
+          "evidence": "Starts at the left endpoint pointing inward; variance is zero at zero bulk rate and the reported transition concerns interior stationary points.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-two-turning-point-transition-in-run-and-tumble-escape-ti--1e2912e30fb8",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A sharp two-turning-point transition in run-and-tumble escape-time variance",
+          "trigger": "Closely matching wall enhancement and a variance transition"
+        },
+        {
+          "assessment": "Different geometry and objective",
+          "evidence": "Semi-infinite resetting/adsorption with Laplace-order comparison, not finite-interval variance optimization.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-laplace-order-reversal-between-sticky-wall-desorption-p--216270416969",
+          "material_read": "Indexed finding on protocol and geometry",
+          "method": "Resultary catalogue comparison",
+          "title": "A unique Laplace-order reversal between sticky-wall desorption protocols",
+          "trigger": "Earlier indexed sticky-wall protocol comparison"
+        },
+        {
+          "assessment": "Different target and boundary mechanism",
+          "evidence": "Partially absorbing interior target between hard walls, with moment calculations rather than the claimed enhanced-wall variance optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04016",
+          "material_read": "pp. 2 and 9–10, Appendix A Eqs. (A26)–(A28)",
+          "method": "OA primary passages",
+          "title": "Searching for a partially absorbing target by a run-and-tumble particle in a confined space",
+          "trigger": "Related confined search with exact exit-time moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The models' mean and variance embody different practical objectives: optimizing average escape can prescribe zero bulk tumbling even though strictly positive tumbling gives a smaller variance. The exact nonempty enhancement interval, uniqueness of both choices, and persistence of their ordering resolve that distinction globally, rather than at chosen samples. This does not claim an improvement of all quantiles or a new first-passage law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

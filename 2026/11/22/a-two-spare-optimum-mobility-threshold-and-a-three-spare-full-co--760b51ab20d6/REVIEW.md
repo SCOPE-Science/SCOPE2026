@@ -1,11 +1,21 @@
-# Scientific review: four-cube geodesic-transversal spare capacity
+# Independent mathematical audit
 
-**Correctness: PASS.** A maximal geodesic in the four-cube is exactly a four-flip antipodal path. Exhaustive evaluation of all 192 distinct five-vertex paths against all 65,536 subset masks yields 22,499 transversals and the recorded cardinality and inclusion-minimal polynomials. Explicit one-bit-toggle graphs, complete component searches and shortest-path searches give the claimed four budget transitions and 780-pair distance profile. Two stand-alone checkers use different shortest-path construction and component algorithms and both replayed successfully. This is a finite exhaustive proof, not an inference from sampled configurations.
+## correctness
 
-**Originality: PASS, provisional priority.** The forty six-vertex minimizers, their structural families, and the optimum cardinality six are prior results, explicitly credited. The new theorem concerns the entire inclusion-minimal size spectrum, exact budgeted addition/removal component partitions, the distinct optimum/full-connectivity thresholds, and the full shortest relocation distance histogram. Statements in the 2019 path-cover reconfiguration literature concern all fixed-length paths rather than maximal geodesics; the 2021 geodesic-transversal papers concern scalar optimization and other networks; recent four-cube work classifies minimizers but not the current reconfiguration graph. Search-index and published-record comparisons found no implication of this complete claim. Unindexed literature and terminology equivalences remain a priority risk.
+PASS
 
-**Mathematical value: PASS.** The previously classified 40 optimal hitting sets allow a natural, precise new question: what temporary sensor capacity is necessary for fault-free relocation? This exact canonical-network answer distinguishes two spare sensors for mobility of all optimal configurations from three for connectivity of every feasible configuration. The 160 seven-set and 260 eight-set minimal obstacles explain the initially increasing component counts. The exact twelve-move maximum and minimality census are useful further constraints for this concrete reconfiguration problem, not arbitrary slices unrelated to the invariant.
+A shortest cube path flips each used coordinate once; a path of length less than four extends along an unused coordinate. Thus the maximal geodesics are exactly the 192 unoriented antipodal paths. I generated their masks and marked every subset contained in a path complement by a Boolean subset transform; the unmarked masks are exactly the transversals. In ascending cardinality I marked the whole upset of each newly found inclusion-minimal set; the complete census and minimal census agree coefficient by coefficient with the frozen T and M, including totals 22499 and 460. For components I used the cover of the budgeted graph by upper stars of its inclusion-minimal sets: a star is connected by adding vertices from its root; two stars intersect exactly if their root union fits the cap; and every legal edge lies in a star because the smaller endpoint contains a minimal set. This independent component computation gave exactly 40 singleton components at 6, 160 singletons and 40 size-11 components at 7, 260 singletons and one size-3250 component at 8, and one component of size 9430 at 9. The budget-seven minima have ten neighbors each, and no two share a seven-set, so those components are stars. At budget eight, the singleton components are precisely the minimal eight-sets, so all forty six-sets connect. There are no minimal sets larger than eight, so any additional states at higher budgets can delete down into the connected budget-nine graph without violating feasibility. For optimum distances, I removed the eight-set vertices and replaced each feasible 7–8–7 segment between distinct seven-sets by an edge of weight two, keeping six–seven edges at weight one; this preserves distances between six-sets by expansion of the edges. Exact shortest paths in that graph reproduce the histogram (4:60, 6:160, 8:480, 12:80).
 
-This result is restricted to sixteen labelled cube vertices and unit-cost addition/removal. It does not claim an infinite-dimensional formula or exhaustive historical priority. Both checkers are self-reviewed; no independent scholarly audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known minimum six and the forty optima in two families. The distinct contribution is the full transversal and minimality data, the first connected budgets for optima and for all feasible states, and constrained shortest distances. The checked literature and related records do not supply that joint census and dynamics.
+
+## value
+
+PASS
+
+The four-cube is a standard small benchmark with already classified minimum covers. Under the natural detector addition/removal constraint, this result shows a real difference between mobility among the most economical configurations and mobility among all admissible configurations: isolated saturated minimal covers persist after the optima connect, and allowed relaxation of the cap first increases the component count. The exact constrained optimum metric quantifies the necessary detours; neither that metric nor the distinct thresholds is just a relabeling of the prior optimum census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

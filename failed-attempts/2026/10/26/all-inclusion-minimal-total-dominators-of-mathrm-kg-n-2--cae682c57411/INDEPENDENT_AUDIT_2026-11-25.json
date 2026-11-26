@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:33.476007Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A ground-set pair has no selected Kneser neighbor exactly when it covers the selected edges; smaller covers extend to a pair. Thus inclusion-minimal total domination is edge-minimality for cover number at least three, and deletion lowers cover number by at most one. The frozen cross-intersecting edge/cover pairs give the six-edge bound by pairwise disjoint ordering events of probability 1/6. There is also a code-independent exhaustion: in a bipartite graph use König's theorem to obtain three disjoint edges. In a triangle-free nonbipartite graph an odd cycle either has length five or already contains a three-edge matching. If there is a triangle T, an edge outside T gives K₃ disjoint K₂. Otherwise every cover of size two would have to be two vertices of T, so cover number at least three forces every vertex of T to have an outside neighbor. An outside vertex adjacent to all three gives K₄. An outside vertex x adjacent to just two creates a new triangle with those two; an edge from the third vertex of T to its outside neighbor y≠x is disjoint from that triangle. If all outside vertices have at most one neighbor in T there is a three-edge matching. Each of the four obtained subgraphs has cover number three and loses that property upon deletion of an edge, so minimality forces equality up to isolates. The labeled factors on their supports are 15, 10, 12 and 1, and K₄ is available for every n≥4. The frozen edge classifier's endpoint augmentation and exact canonicalization were inspected, with the recorded four survivors; the direct checker and recorded output corroborate n=4–8. No uploaded script was run; the independent exhaustion avoids making the theorem depend on a recorded run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kanté et al. connect total domination to transversal enumeration; Gorodezky connects Kneser total domination to covering designs. Neither inspected passage supplies the all-minimal four-case classification.",
+          "Ivančo–Zelinka Theorem 3 and Brešar et al. Theorem 5 concern minimum total domination and the three-edge matching case, not all inclusion-minimal sizes.",
+          "The matching Resultary Finding contains the full frozen result and additional coefficient-shape thresholds."
+        ],
+        "reasoning": "General reduction and minimum results are partial antecedents; the stronger Resultary statement is already full coverage.",
+        "searches": [
+          "arXiv:1407.2053v1, open-neighborhood transversals",
+          "arXiv:2312.15464v1, minimum k-tuple total domination",
+          "Gorodezky thesis, §4.3 covering-design interpretation",
+          "Resultary 944543e08525, coefficient transitions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, two Python verifiers and both recorded outputs",
+        "Resultary 944543e08525 and 0911d0775271",
+        "Ivančo–Zelinka DOI 10.21136/MB.1993.126050",
+        "arXiv:1407.2053v1",
+        "arXiv:2312.15464v1",
+        "Gorodezky thesis §4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all n≥4, the matching record explicitly lists 3K₂, K₃ disjoint K₂, C₅ and K₄ with isolated unused labels, the same polynomial with the same binomial convention, and upper total domination number six."
+        ],
+        "reasoning": "Renaming K(n,2) to KG(n,2) and P_n to the frozen polynomial yields every assertion with no extra assumptions or exceptions. The frozen code-backed proof does not add a residual theorem.",
+        "searches": [
+          "Resultary 944543e08525, Finding and edge-critical proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary record defines total domination using a selected neighbor also for selected vertices, and minimality by inclusion; its K(n,2) is the frozen KG(n,2).",
+          "The edge-critical formulation is alpha-criticality with τ=3 because α=|V|−τ and every edge deletion raises α by one. Ordinary domination and merely minimum total domination are different."
+        ],
+        "reasoning": "The translation fixes the neighborhood convention and the quantifier over deletions. No historical result on alpha-critical graphs is asserted from the alias alone.",
+        "searches": [
+          "Resultary: KG(n,2) inclusion-minimal total domination and the four edge obstructions",
+          "edge-deletion-critical vertex cover three; alpha-critical graphs with independence number |V|−3",
+          "Ivančo–Zelinka, Domination in Kneser graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/18/SCOPE-minimal-total-domination-of-two-element-kneser-graphs-four-obstr--944543e08525 displays the complete identical polynomial and four types.",
+          "A further matching catalogue entry, 2026/11/8 record 0911d0775271, also states the classification; the same-date ordinary-domination record 5d12bf126372 does not."
+        ],
+        "reasoning": "The decisive catalogue match is the full polynomial and classification, not a numerical coincidence for bounded n.",
+        "searches": [
+          "Resultary: four obstruction types and 15 binom(n,6), 10 binom(n,5), 12 binom(n,5), binom(n,4)"
+        ]
+      },
+      "rationale": "A distinct Resultary record states the identical all-n classification, polynomial, and upper parameter, and goes further to characterize log-concavity and unimodality. The different proof organization does not change the frozen mathematical claims. The exact match suffices without assigning historical priority from the date keys.",
+      "residual_risks": [
+        "The search did not settle whether an older alpha-critical graph theorem also supplied the exact four classes. That question does not change the direct catalogue overlap, and no provenance priority is inferred solely from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by a distinct record, with additional theorems",
+          "evidence": [
+            "Identical open-neighborhood definition, all n≥4, four types, polynomial, and maximum six."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-minimal-total-domination-of-two-element-kneser-graphs-four-obstr--944543e08525/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 0–2420, and edge-critical proof passages from offset 5497",
+          "method": "Resultary search followed by local-mirror full text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Minimal total domination of two-element Kneser graphs: four obstructions and two sharp coefficient transitions",
+          "trigger": "Exact Resultary match on the four obstructions and enumerator"
+        },
+        {
+          "assessment": "Minimum numbers and total-dominating triples, not all inclusion-minimal types",
+          "evidence": [
+            "Minimum numbers 6, 4, 3 for n=4, n=5, n≥6 respectively."
+          ],
+          "identifier_or_url": "doi:10.21136/MB.1993.126050",
+          "material_read": "Theorem 3, printed p. 151, PDF text offset 11980",
+          "method": "Open DML full-text PDF",
+          "title": "Domination in Kneser graphs",
+          "trigger": "Early primary Kneser total-domination classification"
+        },
+        {
+          "assessment": "Minimum result, including the three disjoint selected pairs when r=2 and k=1",
+          "evidence": [
+            "The minimum sets in the indicated case are cliques in the Kneser graph."
+          ],
+          "identifier_or_url": "arXiv:2312.15464v1",
+          "material_read": "Theorem 5, PDF p. 4, offset 14761",
+          "method": "Open arXiv full text",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Same metric of total domination and same two-subset case"
+        },
+        {
+          "assessment": "General translation, no specific polynomial in the inspected passage",
+          "evidence": [
+            "Total dominating sets are transversals of the open-neighborhood hypergraph."
+          ],
+          "identifier_or_url": "arXiv:1407.2053v1",
+          "material_read": "Open-neighborhood transversal equivalence, PDF p. 7, offset 23290",
+          "method": "Open arXiv full text",
+          "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+          "trigger": "General enumeration potentially subsuming the claim"
+        },
+        {
+          "assessment": "Covering-design interpretation and minima, no all-minimal formula in the inspected passage",
+          "evidence": [
+            "The thesis relates total domination in K(n,k) to (n,n−k,k) covering designs."
+          ],
+          "identifier_or_url": "https://uwspace.uwaterloo.ca/items/162bbbfc-6952-4188-8d4a-e403b81807c4",
+          "material_read": "Thesis §4.3, printed pp. 28–29, offset 61499",
+          "method": "Open university thesis full text",
+          "title": "Dominating sets in Kneser graphs",
+          "trigger": "Kneser specialization and potential covering-design equivalent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-size total-domination census would be a useful exact invariant if uncovered. Here the precise objects, counts, and extremum are already present together in a stronger catalogue result. The frozen finite checks and set-pair bound add no independently useful unresolved case or new mathematical invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

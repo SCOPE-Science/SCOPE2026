@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:15.986211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired finding, the epoch convention Z_k=(x_{2k},x_{2k-1}) and unreset momentum give P=[[1/5,7],[-1/20,-1/2]], Q=[[1/5,1/40],[-14,-1/2]]. Their common characteristic polynomial is s^2+3s/10+1/4 with simple roots of modulus 1/2. Exact independent reconstruction gives leading principal minors 58833/800 and 1643697/2560000 for (P^T P+Q^T Q)/2-(49/2)I. Positivity and independence give the one-step bound for every state, iterated by the tower property for any deterministic start. The Euclidean norm is of the full two-iterate state; the certificate does not assert almost-sure divergence. Replay: python3 /workspace/reproductions/independent_checks.py 3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The OpenReview abstract claims an interval of instability with individual component maps Schur stable; full theorem unavailable.",
+          "Qiu et al. analyze convergence under controlled step sizes. Wu et al. compare shuffle protocols with batch normalization; Tran et al. fix momentum within the epoch."
+        ],
+        "reasoning": "The indicated stronger frozen stability hypothesis does not subsume the repaired lower bound. If both individual steps are Schur stable, |d_c|<1+beta and the conditional norm amplification on (0,1)^T is beta^2[1+(d_a^2+d_b^2)/2]<5. Thus the abstract's stated regime cannot realize a uniform factor of 49/2 in this norm.",
+        "searches": [
+          "OpenReview:tQwrBw2Lcm",
+          "arXiv:2404.18452v3",
+          "arXiv:2302.12444",
+          "PMLR:v139:tran21b"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 60f51dc1b1a2",
+        "OpenReview tQwrBw2Lcm (abstract only)",
+        "arXiv:2404.18452v3",
+        "arXiv:2302.12444",
+        "PMLR v202/chen23b",
+        "PMLR v139/tran21b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier cyclic result implies the fixed-order frontier; its trace framework and the determinant floor mechanically give the optimal bands.",
+          "The OpenReview abstract supplies no all-state bound or matching rational data. Chen–Bruna analyze single-objective two-step dynamics."
+        ],
+        "reasoning": "Do not promote the reused update, deterministic endpoints, or qualitative frozen-vs-fresh contrast. The quantitative uniform certificate involves the singular values of the average squared-norm form and does not follow as a special case of the inspected results.",
+        "searches": [
+          "arXiv:2404.18452v3 Algorithm 1",
+          "Resultary 2026/10/13 SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2",
+          "OpenReview:tQwrBw2Lcm",
+          "PMLR:v202:chen23b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary Finding and Proof solve the identical deterministic trace/determinant problem for the two cyclic products.",
+          "Qiu, Ma and Milzarek give the same componentwise update and iid epoch permutations in a specialization.",
+          "The OpenReview abstract describes a frozen/fresh separation with Schur-stable component maps."
+        ],
+        "reasoning": "A deterministic spectral-radius calculation is not a bound on the minimum eigenvalue of the averaged transpose-square form. Likewise, second-moment instability does not imply uniform conditional norm growth from every state in the given metric.",
+        "searches": [
+          "Resultary: 2026/10/13/SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2",
+          "arXiv:2404.18452v3 Algorithm 1",
+          "OpenReview:tQwrBw2Lcm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cyclic catalogue match is positive evidence of deterministic overlap. Its inspected Finding/Proof provides exact stable endpoints and resonances, not the stochastic witness."
+        ],
+        "reasoning": "This is a constructive inequality about switched dynamics, not a tabulated constant or a completeness claim over an enumerated database. The relevant exact catalogue comparison is with the published cyclic claim; absence there alone would not establish priority.",
+        "searches": [
+          "Resultary: 2026/10/13/SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2",
+          "OpenReview:tQwrBw2Lcm"
+        ]
+      },
+      "rationale": "Only the simultaneous spectral factor 1/2 and uniform quantitative conditional norm bound at the specified rational witness survives. Neither the qualitative phenomenon nor the deterministic phase diagram is retained as a contribution. The available prior claims do not give the all-state conditional gain in this setting.",
+      "residual_risks": [
+        "No verified full-text comparison for OpenReview tQwrBw2Lcm; its abstract cannot exclude a broader witness elsewhere in the paper.",
+        "Unlocated periodic linear system and stochastic momentum literature may have a quantitative equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of deterministic frontier, not of the quantitative reshuffling witness in the inspected statement",
+          "evidence": "Identical strict Schur frontier and threshold; same two optimal resonances.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2/RESULT.md",
+          "material_read": "Finding and Proof, text offsets 0–6348",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp disconnected stability diagram for cyclic two-component heavy-ball",
+          "trigger": "Same two-curvature cyclic model"
+        },
+        {
+          "assessment": "Apparent qualitative overlap, exact instability theorem not verified",
+          "evidence": "Indexed abstract describes an open step-size interval with both individual component maps and both frozen orders Schur stable.",
+          "identifier_or_url": "https://openreview.net/forum?id=tQwrBw2Lcm",
+          "material_read": "Indexed abstract only; PDF and attachment attempts did not yield the paper",
+          "method": "Literature search and bounded OA attempts",
+          "title": "Stable Stationary Orders, Unstable Fresh Reshuffling (indexed title truncated)",
+          "trigger": "Same scalar heavy-ball frozen versus fresh separation"
+        },
+        {
+          "assessment": "Algorithm overlap, convergence analysis rather than the repaired witness",
+          "evidence": "No-Nesterov specialization, batch size one and iid epoch permutations; revised authors Qiu, Ma and Milzarek.",
+          "identifier_or_url": "arXiv:2404.18452v3",
+          "material_read": "Abstract and p.4 Algorithm 1 / sampling (offsets 15765, 17690)",
+          "method": "OA PDF passages",
+          "title": "Random Reshuffling with Momentum: Complexity Bounds and Last-iterate Convergence",
+          "trigger": "Same algorithm"
+        },
+        {
+          "assessment": "Different update",
+          "evidence": "The reported stability direction is opposite and involves batch normalization.",
+          "identifier_or_url": "arXiv:2302.12444",
+          "material_read": "Abstract, p.1 offset 809",
+          "method": "OA PDF passage",
+          "title": "On the Training Instability of Shuffling SGD with Batch Normalization",
+          "trigger": "Comparison of one shuffle with fresh reshuffling"
+        },
+        {
+          "assessment": "Different dynamics in the available passage",
+          "evidence": "Nonconvex single-objective analysis, not iid switching of componentwise heavy-ball epochs.",
+          "identifier_or_url": "https://proceedings.mlr.press/v202/chen23b.html",
+          "material_read": "Abstract, p.1 offset 0",
+          "method": "OA PDF passage",
+          "title": "Beyond the Edge of Stability via Two-step Gradient Updates",
+          "trigger": "Two-step stability mechanism"
+        },
+        {
+          "assessment": "Different momentum recursion",
+          "evidence": "Momentum is set at the start of an epoch and a separate gradient average is accumulated for the next epoch.",
+          "identifier_or_url": "https://proceedings.mlr.press/v139/tran21b.html",
+          "material_read": "Abstract and introduction, pp.1–2, offset 6992 for epoch momentum",
+          "method": "OA PDF passages",
+          "title": "SMG: A Shuffling Gradient-Based Method with Momentum",
+          "trigger": "Momentum plus shuffling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The retained witness separates rapid asymptotic frozen stability from immediate large conditional average expansion, uniformly over every input direction in the natural two-coordinate state. At the same gradient budget and momentum coefficients, even the best direction cannot avoid the one-epoch expected norm penalty. That is stronger than merely identifying one divergent example or a moment-operator instability, and is useful for stress-testing order-dependent momentum rules. The result does not suggest that individual component stability also holds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

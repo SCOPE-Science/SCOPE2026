@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:43:30.682735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Invertibility is detected modulo the radical. A commuting residue partner of a nonscalar lift is a polynomial of degree at most one in the residue matrix and lifts by lifting the coefficients; the remaining choices form a 2d-dimensional kernel. For a scalar reduction the simultaneous commutant of the radical coefficients controls all lifts, with fiber size q^{4d}. A nonscalar 2×2 coefficient generates its two-dimensional commutant. Distinct such algebras meet only in scalars; a noncommuting pair has scalar common commutant. This gives the five scalar-lift rows by counting coefficient tuples and the three nonscalar rows by field conjugacy types, also when q=2 or d=1. Weighting by centralizer order divided by |G| gives the class count. The exceptional row contributes D/[q(q+1)] classes; its exact complement is q^{2d+2}−q^d, so dominance is asymptotic at fixed q, not asserted at every d≥2. The argument does not require a coefficient field. Independent bounded arithmetic (python3 /workspace/independent_arithmetic_checks.py) checked totals, weighted orbit counts and the complement for 48 parameter pairs. The frozen checker and its recorded five small-ring runs are corroboration only and were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PSS Theorem 10.3 and Corollary 10.4 give the equivariant lift description for general square-zero radicals, explicitly including arbitrary simultaneous tuples at scalar reduction, and ring-independence; Table 7 gives q^4−q in the principal case.",
+          "Sharma p. 1 restricts to pairwise commuting tuples; its 2×2 generating function on p. 9 does not enumerate noncommuting tuples."
+        ],
+        "reasoning": "PSS covers the structural reduction, but neither this general statement alone nor Sharma's commuting-only count is the decisive overlap. The broader full-ring proof already does the dimension-two tuple classification and counts the same residual stratum.",
+        "searches": [
+          "Prasad–Singla–Spallone arXiv:1212.6157, §10 and Table 7",
+          "Sharma arXiv:1409.2698, simultaneous similarity of pairwise commuting tuples"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary finding 2026/11/22/SCOPE-four-centralizer-strata-and-a-saturation-law-over-square-zero-lo--683b481bb505",
+        "Prasad–Singla–Spallone arXiv:1212.6157",
+        "Sharma arXiv:1409.2698"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-ring result has q^{2d} lifts per commuting residue partner at nonscalar reduction and q^{4d} per scalar-lift commutant partner. For a nonscalar residue the algebra is k[A]; for scalar reduction it is either M₂(k), one of the regular quadratic algebras, or kI. Each regular algebra contributes q^{2d}−q^d tuples; the scalar residual case is exactly D.",
+          "Its §4 proves the commuting-pair lift weights q^{8d} for scalar-scalar and q^{6d} for all other commuting residue pairs."
+        ],
+        "reasoning": "The unit orders of the three standard quadratic algebras k×k, F_{q²}, and k[t]/(t²) are (q−1)², q²−1, q(q−1). Split the regular algebras by the standard counts q(q+1)/2 (unordered eigenline pairs), q(q−1)/2 (quadratic field normalizer index), q+1 (nilpotent image lines); then restrict the q scalar residues to q−1 choices. This gives the five scalar-reduction rows, including the same D. For nonscalar reductions, standard GL₂(k) rational canonical types give the exact M_s,M_i,M_j populations; multiply by the known q^{4d} lift count and the known centralizer fiber size q^{2d}. For K, use the known lift weights but replace the total and scalar-scalar residue-pair counts by U(q²−1) and (q−1)²; dividing by Uq^{4d} gives the frozen formula. Dividing the already counted exceptional population by its class size and subtracting from K gives the complement and share. This is a unit restriction and standard field-type refinement of the established census, not a new square-zero classification.",
+        "searches": [
+          "Local mirror of the distinct full-ring finding, RESULT.md offsets 2350–7088, proof §§1–4",
+          "PSS arXiv:1212.6157 §10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct full-ring record, proof §§1–3, describes nonscalar commutants as R[A], scalar-lift commutants as all lifts of the common coefficient commutant, and gives the same noncommuting tuple count D. The target's own catalogue entry is not independent evidence."
+        ],
+        "reasoning": "A ring commutant and a group centralizer are not the same counting object. But the residue-algebra description, not just the ring cardinalities, survives the passage to the unit group: invertibility depends only on the residue, so each residue unit contributes a full fiber of the already known size.",
+        "searches": [
+          "Resultary semantic search: GL2 conjugacy and centralizer spectra over square-zero local rings; scalar and nonscalar lift strata",
+          "2026/11/22/SCOPE-four-centralizer-strata-and-a-saturation-law-over-square-zero-lo--683b481bb505"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct record tabulates four additive-commutant sizes, with the exact D in its §3; it does not literally print the eight unit-centralizer rows. PSS tabulates the class number only for d=1 in the inspected table."
+        ],
+        "reasoning": "A literal table match for general d is not what establishes coverage; it is the explicit proof data underlying the coarser table.",
+        "searches": [
+          "Resultary catalogue: four centralizer strata over square-zero local rings, ID 2026/11/22/SCOPE-four-centralizer-strata-and-a-saturation-law-over-square-zero-lo--683b481bb505",
+          "PSS arXiv:1212.6157 Table 7"
+        ]
+      },
+      "rationale": "The distinct indexed full-matrix-ring result proves the exact lift fibers and the identical tuple census, not just four numerical ring-centralizer sizes. Passing to invertible matrices and invertible commuting partners in those proofs, with the standard split/field/Jordan counts over k, mechanically gives the eight rows and all subsequent displayed group counts. The two records have the same displayed date; this is a coverage judgment, not a claim about order of discovery or publication on that day.",
+      "residual_risks": [
+        "No temporal priority is inferred from same-day catalogue dates.",
+        "The inspected literature is not an exhaustive historical survey; the rejection is based on a direct mathematical implication from a distinct inspected record, not on a search omission."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the group refinement when its proof data, not just the four ring sizes, are used",
+          "evidence": "C(A)=R I+R A at nonscalar reduction; common residue coefficient algebra at scalar reduction; exactly q^{2d}−q^d tuples per quadratic subalgebra and exactly D with scalar commutant; exact two lift-pair weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-four-centralizer-strata-and-a-saturation-law-over-square-zero-lo--683b481bb505/RESULT.md",
+          "material_read": "Finding and proof §§1–4, especially offsets 2350–7088; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded reading of the original file in the local mirror",
+          "title": "Four centralizer strata and a saturation law over square-zero local rings",
+          "trigger": "Distinct same-day indexed record with the same dimension-two square-zero problem and matching D"
+        },
+        {
+          "assessment": "Structural overlap and exact principal-case overlap; no explicit general-d group table in these passages",
+          "evidence": "Equivariant extension-space fiber, dependence only on k and radical dimension, arbitrary tuples at A=0; q^4−q in principal length two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1212.6157",
+          "material_read": "§10, pp. 43–44, Theorem 10.3 and Corollary 10.4, arbitrary tuple specialization, Table 7",
+          "method": "Bounded lawful OA original reading",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Cited arbitrary square-zero structural and principal-case antecedent"
+        },
+        {
+          "assessment": "Different scope; excludes the exceptional stratum",
+          "evidence": "Pairwise commuting tuples, h₂(t)=1/((1−qt)(1−q²t)).",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2698",
+          "material_read": "Definition on p. 1 and the 2×2 generating function on p. 9",
+          "method": "Bounded lawful OA original reading",
+          "title": "Simultaneous Similarity Classes of Commuting Matrices over a Finite Field",
+          "trigger": "Closest cited tuple enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The group class-size census is a natural invariant and useful as a corollary, but the exact square-zero counting work is already contained in the full-ring proof. Restricting to units, substituting the standard three field types, and converting centralizer weights to class counts leaves no independently substantive exact invariant under the stated value criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

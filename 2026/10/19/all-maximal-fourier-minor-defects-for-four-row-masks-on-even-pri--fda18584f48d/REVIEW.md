@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generalized Vandermonde factorization gives the exact necessary polynomial condition. For odd \(d\), reduction at the prime \((1-\xi)\) excludes every pattern except the two explicitly singular exponents. For even \(d\), the proof separates parity-pure (Chebotarev), \(3+1\) (nonzero cubic cyclotomic coefficient), \(2+2\) (cubic then quartic coefficient), and the central \(d=p+1\) determinant factor. The exact incidence formulas follow from parity and finite-field pair-sum counting. Standalone cyclotomic and symbolic scripts were executed successfully. A finite range alone is not used to prove the unrestricted statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The relevant prime-power full-spark theorems and general cyclic Fourier sampling methods do not directly classify all maximal minors of the family for every even semiprime size. The published result for \(\{0,1,2,4\}\) gives a special case, and the published complete order-14 classification concerns one modulus rather than a uniform all-prime minor census. A separate fixed \(\{0,1,2,5\}\) family partially overlaps but does not imply the varying-fourth-row theorem. An IEEE work on coprime sufficient conditions could only be assessed from its abstract, leaving a residual risk for prior coverage of portions of the invertibility criterion. The new claim is a complete incidence classification, not a claim that the determinant factorization or Chebotarev's theorem is original.
+PASS
 
-## Value — PASS
-The complete incidence pattern for every fourth-row index exposes a sharp arithmetic transition at three exceptional indices, including the additional pair-sum mechanism at \(p+1\). It gives the number, rank, and geometry of all bad maximal minors across infinitely many composite Fourier orders and sharpens full-spark yes/no results to an erasure-by-erasure classification. The family is canonical in harmonic frame theory and not an arbitrary isolated matrix instance.
+The frozen proof's degree-four coefficient for mixed signs has an incorrect factor d-4; the frozen symbolic checker expands nodes epsilon*(1+a*u), not the required epsilon*(1+u)^a. For p=7, d=6 and (A,B,C,D)=(1,6,2,5), direct integer binomial expansion of the required determinant gives coefficient -4800, or 2 modulo 7, whereas the frozen formula gives 5 modulo 7. This is a proof and checker defect, not a false incidence statement. The replacement derives the true factor d-1 by formal log/exponential reparametrization with invertible denominators through degree four. For even d the cubic two-pair term forces equality of sums; for d other than p+1 the quartic term is a unit unless the unordered exponent pairs agree, while the cubic term has valuation at least p+2>4. The two pairs that do agree are precisely antipodal pairs. The repaired proof handles d=4 in the same argument. The three-plus-one cubic term is a unit, same-sign columns reduce to prime-order Fourier minors except the repeated row residues, and for odd d the Schur polynomial reduction gives exactly the two parity-pure exceptions. At d=p+1 the direct two-pair determinant is, up to sign, 2(a-b)(c-e)(ab-ce), with the expected equality of sums; the count follows since a fixed sum admits (p-1)/2 distinct unordered pairs in each parity. The first three Vandermonde rows give rank at least three for all column sets. This rechecks the unchanged finding including p=5, the counts and the uniformity equivalence. The new exact symbolic script at /workspace/repairs/5/verify_expansions.py was run successfully, and the direct binomial example independently checks the corrected coefficient. Neither check substitutes for the all-prime proof; the uploaded scripts were not executed.
 
-## Limitations
-The proof applies only to \(N=2p\), \(p\ge5\), with the four indicated Fourier rows. It does not establish the equivalent result for prime powers with exponent above one. Novelty depends on presently accessible primary literature and record comparisons; independent priority assessment is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired proof does not change the mathematical statement. Credit the fixed d=4 incidence and the order-14 full-spark dichotomy as existing coverage. The distinct content is the uniform variable-d incidence and rank/count classification at order 2p, including the central equal-sum mechanism and count. The strongest inspected exact and general matches do not supply that content. This is a best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The row mask is a natural one-row extension of the ordinary three-row Vandermonde mask. An exact incidence theorem identifies the failure mechanism of each non-full-spark case (parity, antipodal pairs, or equal sums), including how the central mask differs from other even masks. It gives structure and ranks, not merely a computation of deficiencies for selected primes. The repaired proof preserves all of this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

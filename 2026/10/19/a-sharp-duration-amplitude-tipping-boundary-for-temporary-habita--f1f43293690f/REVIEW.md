@@ -1,25 +1,21 @@
-# Scientific review: fast habitat-pulse tipping boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the precise singular regime of a rectangular shock of length \(\varepsilon s\) with fixed \(s\), followed by restoration. The postshock limit is the scalar fast equation at the initial predator density. Its unstable frozen-layer root is \(w=a+1/\phi_0-1\), and its shock fold is the unique solution of \(F(\phi)=v_0\), where \(F(\phi)=(1-a\phi)^2/(4\phi)\). The critical duration is the exact strictly-positive travel-time integral from prey density \(1\) to \(w\). Compact separation from this unstable root gives a robust basin conclusion for sufficiently small \(\varepsilon>0\). The inverse-square-root law follows from an interior quadratic bottleneck with a calculated coefficient. Symbolic and high-precision computations reconstruct the algebra and exact example, while optional finite-\(\varepsilon\) ODE simulations are supplementary. No conclusion is asserted for the singular equality \(s=s_c\) or for finite \(\varepsilon\) uniformly approaching the threshold.
+PASS
 
-## Originality — PASS (self-review; residual risk)
+Reassessed the unchanged theorem with the corrected proof. The frozen extinction bound u'<=-(a/2)u on u<a/2 does not follow and is false on that region at sufficiently small v near its upper prey edge. The replacement gives the valid bound u'<=-(a/2)(1-phi_0 a/2)u. It also supplies an explicit recovery argument instead of presuming a uniform attracting neighborhood from local stability. On fixed fast intervals the pulse converges to the v=v_0 scalar solution with predator displacement O(epsilon). After restoration the baseline factorization -phi_0(u-1)(u-w) implies that the limiting scalar orbit tends to 1 above w or 0 below. A bounded additional fast transient above w puts the full solution in the entropy sublevel E<epsilon h(w), h=u-1-log u, since its predator entropy is O(epsilon^2). There the energy derivative is -phi_0(u-1)^2(u-w); the compact invariant sublevel has the coexistence point as the only invariant zero-dissipation set. Below w the transient puts the full solution in the invariant low-prey region and both coordinates decay. The quadratic's maximum decreases up to the physically relevant fold; its vertex cannot reach w before or at that fold, since q_phi(w)<v_0 for phi>phi_0. This proves the subthreshold result and the immunity region from F(1) versus v_0. Above the fold the denominator is positive, the layer solution crosses w exactly once, and separation of variables gives s_c. Its derivative is strictly negative because the denominator derivative is u^2(u-a)>0. Completing the square at the interior fold and rescaling by sqrt(phi_1-phi_c) yields the stated prefactor. An independent symbolic derivative verifies the example's antiderivative and independent quadrature gives 13.421142615246071 between the two pulse lengths. No argument takes the long-time limit inside the fast-time convergence step.
 
-The central recent paper [1] uses the identical frozen biological flow, establishes bistability and fold geometry, and studies a *linearly ramped* environmental parameter and its critical ramp rate. A materially read public full-text version and appendix do not present the rectangular temporary shock, return to baseline, its amplitude–duration phase boundary, baseline immunity condition, or the displayed exact divergence constant. Earlier press/pulse ecological literature [2,3] demonstrates qualitative timing effects, including simulations and recovery, but uses different settings and does not present this model-specific full classification. The nearest accessible published mathematical results about Allee extinction, periodic intervention, and fold slowing have different dynamical statements and do not imply the present formula as stated. Generic scalar quadrature and geometric singular perturbation theorems remain plausible sources of stronger abstract coverage; originality is not independently certified. The current contribution is the combined sharp classification, not the previously known fact that pulse length can matter.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Temporary habitat deterioration followed by restoration is a distinct, ecologically motivated forcing protocol from indefinite ramping. The result computes the exact minimum damaging duration at every admissible damaging amplitude, identifies a previously unseparated baseline regime with no admissible fast-pulse tipping, and quantifies the bottleneck divergence with its coefficient. Such a complete boundary is a useful analytical benchmark for duration-sensitive resilience; it is neither an arbitrary numerical slice nor a claim of universal ecological applicability.
+The repaired claim is the exact rectangular fast-pulse-and-restoration phase diagram starting at baseline coexistence, with a fold amplitude, explicit immunity range, scalar travel time and its exact divergence coefficient. The same-model ramp result and same-model autonomous certificates establish model and basin ingredients, not this classification. In particular the autonomous entropy function used in the repair is credited and is not claimed as new.
 
-## Closest sources and scientific limits
+## value
 
-[1] Hennessy, Popović, and Sattar (2026), arXiv:2610.12319v1: source model, frozen bistability and fold; linear-ramp dynamics rather than temporary shock.
+PASS
 
-[2] Ratajczak et al. (2017), DOI:10.1002/ecm.1249: ecological press/pulse strength-duration effects; openly inspected abstract, full paper not materially inspected.
+The same restored habitat leads to distinct asymptotic states determined by a calculable joint amplitude/duration boundary. The result makes the sharp difference between outright immunity and a finite-time transition explicit, and the bottleneck coefficient quantifies the pulse duration near the minimal tipping amplitude. These are useful mathematical distinctions from a ramp-rate threshold and from separate autonomous basin certificates.
 
-[3] Karakoç et al. (2017), DOI:10.1186/s12898-017-0123-2: materially inspected full public HTML of a different predator–prey/resource model under pulses and presses.
-
-There remains a possible generic fast–slow theorem or uninspected specialist result subsuming the specific formula, and the outcome on the equality boundary or for joint small-parameter limits is unproved. All conclusions are local to the stated deterministic model, initial state, and fast-pulse regime.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

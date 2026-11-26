@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:59:32.808792Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient counts sum spanning trees on each retained vertex set (the singletons must be included), not equally weighted vertex sets. In the balanced case the log coefficient correction in units of 1/m is 3k/2-(i-j)^2: the two binomial falling factorials contribute -(i(i-1)+j(j-1))/2, and the retained-size powers contribute i(j+1)+j(i+1)-(i²+j²)/2. At fixed k the binomial weights average (i-j)^2 to k, leaving k/2, precisely the first-order correction of θ^k. The log remainders and exponentiation cost O((k+1)^4/m²) uniformly up to m^(1/9). The analogous proportional-size log remainder is O((k+1)^2/N) without a second-order match. Re-expanding the three balanced terms in R₂-θ²/2 gives second-order coefficients (-2/3,35/6,-2×5/6) in units e^(-2)/m², totaling 7/2. For unequal proportional sides let A and B be the two contributions to θ. The same-side terms divided by A²/2, B²/2 are respectively 1-N/a²+O(N^-2), 1-N/b²+O(N^-2); the cross term divided by AB is 1+N/(ab)+O(N^-2). This gives -N(A/a-B/b)^2/2 to first order and the claimed squared limiting constant; equality of the two limit terms would require log(a/b)+a/b-b/a=0 in the limit, possible only at balance. The extension/leaf-deletion double count gives factorial domination up to half the minimum degree; every smaller tree extends up to that cutoff, and a larger tree has at most one subtree per fixed subset of its vertices, giving a super-polynomial remaining tail. Summed coefficient error controls the normalization, and the Poisson-vanishing statistic p₂/p₀-(p₁/p₀)^2/2 supplies the matching lower bound since both zeroth masses stay bounded below. Replay: frozen RESULT.md lines 35–102 (all-scale estimates) and verify.py (inspected only; finite checks are not a proof of the TV orders). The result does not give a uniform transition for near-balanced unequal parts or extreme imbalance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner proves a positive spanning probability bound for linear minimum degree and a factorial coefficient bound by extension and leaf deletion. Wagner–Wang prove the more general prelimit-matched approximation for all connected graphs with linear minimum degree."
+        ],
+        "reasoning": "These stronger graph-family scopes cover the first approximation and much of the tail method, not the requisite signed expansion through order N^-2 in the balanced family or a TV lower bound there.",
+        "searches": [
+          "arXiv:1910.07349 Theorem 1 and proof",
+          "arXiv:2605.03583v1 Theorem 2 and its Poisson-limit framework"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5db98f94e1fd and ed0d38ad37f2",
+        "arXiv:1910.07349",
+        "arXiv:2605.03583v1",
+        "DOI 10.1002/jgt.22359 (retrieval and indirect corroboration only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general error already permits convergence to the same Poisson comparison but does not identify its leading deviation. The split graph has edges within one part and gives a joint limiting law for omissions of the two classes."
+        ],
+        "reasoning": "Passing to the sum of omission counts in the split-graph theorem does not change its host to a complete bipartite graph. The known finite bipartite coefficient identity permits expansions, but proving their uniform cancellation and a separate sharp lower bound takes the additional analysis audited here.",
+        "searches": [
+          "Wagner–Wang Theorem 2 with β(G) substituted",
+          "Wagner Theorem 1 proof",
+          "Resultary ed0d38ad37f2, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wagner–Wang's β(G)=s_(n-1)/s_n is exactly this θ and their coefficients concern the same random-subtree model. Their relative error is O(k n^(-1/3)) uniformly on the stated small-k range."
+        ],
+        "reasoning": "The parameter and asymptotic Poisson principle are not new. A coarser coefficient bound does not specify the balanced cancellation, the unequal case's first-order defect, or sharp TV orders.",
+        "searches": [
+          "Resultary: prelimit-matched missing vertices of uniform complete-bipartite subtrees; balanced second-order Poisson cancellation",
+          "arXiv:2605.03583v1 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 5db98f94e1fd is the assigned result. Distinct same-day ed0d38ad37f2 gives exact Poisson limit parameters in a complete split graph, not bipartite rates. Wagner p. 1 expressly attributes the balanced spanning probability limit exp(-2/e) to Chin et al.; the attributed exact enumeration starting formula is independently reconstructible by the retained vertex set count."
+        ],
+        "reasoning": "An exact finite counting sum and a limiting mass at zero do not tabulate the TV-error orders or residual constants. The split-graph catalogue match is not a table of the same law for K_(a,b). Direct verification of the Chin et al. proposition's full scope remains unresolved.",
+        "searches": [
+          "Resultary: bipartite sharp TV errors and second-coefficient constants; Poisson omission counts",
+          "DOI 10.1002/jgt.22359, Proposition 3.1 and balanced limit; arXiv:1910.07349 p. 1"
+        ]
+      },
+      "rationale": "The tree enumeration, spanning-probability limit and prelimit-parameter Poisson framework have prior coverage. The checked claims do not supply the sharp rates or the second-coefficient residuals, and the refinement is supported by model-specific higher-order cancellation and a lower bound.",
+      "residual_risks": [
+        "Cannot assess uninspected refinements in the inaccessible Chin et al. article beyond the known enumeration and corroborated spanning limit. Bounded searches do not exclude an unindexed sharp-rate treatment; same-day dates do not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "credit exact counting starting point and previously reported balanced limit; no claim to have excluded stronger refinements from the inaccessible primary text",
+          "evidence": "Wagner attributes lim P(K_(n,n))=exp(-2/e) to Chin et al. Publisher and author-posted access did not return the primary article.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.22359",
+          "material_read": "Primary full text not obtained; Proposition 3.1 identified by frozen citation. Balanced limiting mass corroborated by Wagner's p. 1 discussion, arXiv:1910.07349 offset 3170.",
+          "method": "lawful DOI/publisher and identified author-posted ResearchGate routes attempted; corroborating open PDF read",
+          "title": "Subtrees of graphs",
+          "trigger": "same exact complete-bipartite enumeration and balanced limit"
+        },
+        {
+          "assessment": "essential prior context and tail bound, not the claimed rates",
+          "evidence": "Attributes balanced spanning limit to Chin et al.; gives the coefficient bound n^k/((δ-k)^k k!) by double counting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.07349",
+          "material_read": "p. 1 around offset 3170; Theorem 1 p. 2 and pp. 3–4 proof around offsets 5668 and 9600",
+          "method": "open PDF passage inspection",
+          "title": "On the number of subtrees in graphs with large minimum degree",
+          "trigger": "prior spanning-subtree bounds in dense graphs, including the balance example"
+        },
+        {
+          "assessment": "direct prior broader Poisson framework with strictly coarser error",
+          "evidence": "Relative O(k n^(-1/3)) error for k=o(n^(1/3)), uniform up to n^(1/3-ε), but no second-coefficient residual for the balanced/unequal pair.",
+          "identifier_or_url": "https://arxiv.org/html/2605.03583v1",
+          "material_read": "§1, Theorem 2, offset 3000–5095",
+          "method": "open article passage inspection",
+          "title": "Subtrees in dense graphs",
+          "trigger": "same prelimit parameter and general dense-host Poisson theorem"
+        },
+        {
+          "assessment": "real broad overlap, but different host and no matching sharp rates",
+          "evidence": "Uses K_a join with an independent b-set and gives joint TV convergence to independent Poisson laws, not the signed balanced/unbalanced complete-bipartite residuals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-independent-poisson-omission-counts-in-uniform-subtrees-of-compl--ed0d38ad37f2/RESULT.md",
+          "material_read": "Finding and graph assumptions, offset 0",
+          "method": "local mirror",
+          "title": "Independent Poisson omission counts in uniform subtrees of complete split graphs",
+          "trigger": "strongest distinct same-day result on Poisson subtree omissions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Improves an already established Poisson phenomenon in a natural structural family: balanced parts remove an entire leading order, unlike fixed unequal proportions, and a residual diagnostic gives real distribution-level sharpness and explains the sign change. This is more than recomputing limiting masses. The comparison specified is to θ=R₁, not a fixed limiting law or a claim of an exactly optimal TV parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

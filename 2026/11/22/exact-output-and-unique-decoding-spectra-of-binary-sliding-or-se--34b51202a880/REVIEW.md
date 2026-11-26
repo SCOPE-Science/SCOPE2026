@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The proof in `RESULT.md` establishes forced first and last markers of every bounded output one-run, independence of the resulting binary input blocks, and the exact compositions/zero-run-avoidance inverse factors. Counting the output-run grammars proves the two generating functions. The strictly ordered positive roots yield the exponential ratio. Executing `verify.py` tests all 50 width/length instances with input lengths at most 16; it is supporting finite evidence, not a replacement for the proof.
+## correctness
 
-## Originality (O): PASS, subject to the stated risks
-The 2020 binary sliding-window constrained-code paper counts admissible source words under window-weight bounds, not Boolean OR measurement image populations. The 2022 local-histogram reconstruction paper retains integer local counts, so it does not directly supply the coarsened binary observation image or singleton counts. Jen (1989) already provides generic CA preimage recurrences and explicit Rule 254 preimage expressions; these earlier results are credited and are relevant prior coverage for the width-three per-output problem. The distinct contribution assessed here is the all-width, all-length exact image and singleton-output rational generating functions and a strict asymptotic gap, neither found as an explicit statement in those inspected sources. Other unindexed formulae remain a priority risk.
+PASS
 
-## Value (V): PASS
-The measurement map is a natural noise-free sliding binary event detector. Exact attainable-output counts determine optimal noiseless codebook size, and exact singleton-output counts measure when reconstruction is intrinsically unique. Their strict exponential separation and the full runwise inverse-list formula expose a nontrivial distinction between the two notions for every finite sensor width.
+Each source one covers a clipped interval of output positions. For an interior one-run [a,b], the preceding and following output zeros force the first and last markers at a+h-1 and b, so L=b-a+1>=h is necessary. In between the markers the criterion is gaps at most h, giving the composition count c_h(L-h), including the coincident-marker case. A leading one-run of length a followed by a zero forces the source one at a; the preceding a-1 bits must avoid h zeros, and reversal handles the trailing run. Output-zero windows fix the other bits and separate the choices. An all-one output has exactly the source words with no h zeros and always at least two such words; all-zero has a single source. Therefore singleton outputs have boundary lengths 0 or 1 and interior lengths h or h+1, since compositions of d>=2 include both all ones and a part 2. For outputs with a zero the unambiguous grammar is E Z (I Z)* E, with Z=z/(1-z); use E=1/(1-z), I=z^h/(1-z) for reachability, E=1+z, I=z^h+z^(h+1) for uniqueness. Adding all-one outputs and the empty convention yields the claimed series. The source's shortcut from eventual coefficient positivity to a unique dominant pole is insufficient in isolation. Here the exact denominators suffice: at |z|<=rho_R, |1-z|>=1-|z|, with strict inequality at other points of |z|=rho_R, so (1-z)^2=z^(h+1) cannot vanish elsewhere in that disk. For U, equality in |z+z^(h+1)+z^(h+2)|<=rho_U+rho_U^(h+1)+rho_U^(h+2)=1 at a root forces z positive. Both positive roots are simple and give positive leading coefficients by the local simple-pole formula. The U denominator at rho_R is rho_R^2(1-rho_R)>0 and decreases strictly to its positive zero. Thus the claimed strict exponential ratio holds at every fixed h, with no width uniformity asserted.
 
-## Limits
-The linear, ordered, finite noiseless Boolean-OR model and fixed-width asymptotic are essential; circular/noisy/thresholded or multidimensional models are not analyzed. The verification checks small instances only. There has been no independent mathematical or priority audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Boolean dilation interpretation, standard run grammars and exact nearest-neighbor cellular-automaton preimage counting are known ingredients. Credit the all-width finite-linear unrestricted image and singleton spectra together with their strict growth-rate comparison, not the generic idea of preimage enumeration or the width-three count. The strongest distinct indexed match uses a different domain and boundary, and the closest inspected primary preimage formula covers the width-three special case, not the full pair of spectra.
+
+## value
+
+PASS
+
+The exact enumerations distinguish two operationally different notions for a natural ordered sensor: a largest noiseless distinguishable codebook can select one representative per reachable output, but a singleton fiber decodes without imposing a codebook. The uniform-in-length formulas and strict fixed-width exponential gap explain why those two populations differ substantially; the full run-dependent list sizes make the result useful even when neither count alone suffices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

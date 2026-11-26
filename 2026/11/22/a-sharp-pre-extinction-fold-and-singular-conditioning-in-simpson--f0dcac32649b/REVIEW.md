@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** Starting from the exact circle energy and dissipation, division by \(2\pi R_0\) leads to the quadratic endpoint equation. The arithmetic–geometric mean inequality and the strictly decreasing function \(F\) prove the complete positive-root count. Simpson's fourth-derivative remainder proves strict over-dissipation for every pre-fold step, not merely perturbatively. Factoring the normalized residual proves the exact square-root Jacobian singularity, and constant sphere dissipation proves the contrasting exact step. The standalone standard-library checker evaluates the formulas on a dense grid and verifies high-precision constants; numerical sampling is supplementary, not an infinite proof. The theorem makes no claim about the nonlinear fully coupled geometric solver.
+## correctness
 
-**Originality — PASS, with priority risk.** Pan–Jiang–Jia (arXiv:2611.01593v1, Sections 2.3, 4, 6 and conclusion) present the energy-increment Simpson rule, a necessary positive-energy condition (2.15), and conditional solvability remarks, but not the sharp circle scalar positive-root fold or its inverse-square-root conditioning, nor the contrasting exact sphere closure. Relevant numerical-analysis and published mathematical-record searches for exact nonlinear Simpson radial solvability, aliases and stronger coverage did not identify these combined statements. The Simpson remainder itself is classical and is not claimed. An unindexed equivalence remains possible, and there is no claim that the published algorithm is unsolvable.
+PASS
 
-**Value — PASS.** A natural exact-data benchmark exposes a strictly pre-extinction loss of positive solutions and a precisely quantified Newton conditioning catastrophe despite formal energy decay of any solved step. The sharp threshold can inform step-size safeguards and scalar-regression tests. The sphere contrast identifies a geometric mechanism, not an arbitrary numerical slice. The result is deliberately confined to the scalar energy-increment subproblem and does not imply loss of coupled BDF solvability.
+In the exact-data scalar model the perimeter is 2πR and the curvature-squared integral is 2π/R. Dividing by 2πR₀ gives Hξ(y)=y+ξ/(6y)−B(ξ), so the positive-radius domain excludes the spurious y=0 introduced by multiplying through at ξ=0. For ξ>0 the first two terms have unique minimum 2sqrt(ξ/6), diverge at both ends, and decrease then increase; subtracting B gives the two/one/no-root classification. F=B−2sqrt(ξ/6) is strictly decreasing from 1 to a negative value at 1/2. The stronger bound ξ*<9/20 puts the exact-flow radius on the increasing side of Hξ. Simpson overestimates the exact dissipated energy because g⁽⁴⁾>0 for g(s)=(1−2s)^(−1/2), so Hξ at the exact radius is positive and y₊ lies strictly below it. The one-panel residual at the exact radius is (105/2880)ξ⁵+O(ξ⁶), and the y derivative there tends to 1; this independently recovers the −7/192 coefficient. Factoring Δ=F(F+4sqrt(ξ/6)) gives the root-gap constant, and Hξ′(y₊)=(y₊−y₋)/y₊ gives the stated normalized inverse Jacobian. Round two-sphere dissipation is the constant 16π, yielding the unique exact positive radius throughout its lifetime.
 
-**Primary literature and limitations.** Z. Pan, W. Jiang, J. Jia, *Energy-Dissipative, High-Order BDF Schemes for Simulating Geometric Flows via Energy Increments*, arXiv:2611.01593v1, https://arxiv.org/abs/2611.01593 (first public 2026-11-01). Classical Simpson quadrature error is well known. Priority risk: equivalent earlier scalar implicit-integration calculations may be unindexed. Accuracy assumptions on midpoint and endpoint curvature, polygonal geometry, and BDF histories are not analyzed here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior flow identities, Simpson formula and generic double-root behavior are not the contribution. The supported distinct claim is the sharp branch and conditioning classification for the specified exact-data positive-radius closure. No examined independent source provides this classification or a stronger result that specializes to it.
+
+## value
+
+PASS
+
+The exact-data reduction is motivated as a diagnostic for geometric integrators rather than an arbitrary example: even removing numerical start and midpoint error, an energy-decreasing scalar design can have no positive-radius solution while the exact circle still exists. Its exact cutoff and inverse sensitivity inform whether a failed or ill-conditioned scalar solve can be blamed on input errors. The exact sphere contrast identifies constant versus increasing dissipation as a useful distinction, without a claim about the coupled algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

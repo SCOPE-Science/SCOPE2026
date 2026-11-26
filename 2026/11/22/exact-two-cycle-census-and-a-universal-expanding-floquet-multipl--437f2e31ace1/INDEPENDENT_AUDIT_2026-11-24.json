@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:35:03.553868Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–81; VERIFICATION.md and check.py inspected, not executed",
+        "Replay: python3 /workspace/branches/independent_replay.py 4 (SymPy)"
+      ],
+      "rationale": "The second component forces a primitive orbit to alternate (p,q) and (q,p), with p≠q. Subtraction of the two update equations fixes p+q=(1+a−v)/u; addition fixes the product as [uS²+(v+a−1)S+2d]/(2u). Their discriminant is the claimed Δ, and the sum and the difference reconstruct both updates, so Δ>0 is necessary and sufficient and gives one unordered orbit. The two alternating derivatives have trace of their product a²+f′(p)+f′(q)=1+(1+a)² and product determinant (1+a)²−u²(p−q)². Hence the characteristic polynomial is negative at 1 and (1+a)², has two distinct real roots, and its sign at −1 is the sign of H−K. This gives the stated three regions, using hyperbolicity for endomorphisms even if the contracting multiplier vanishes, and instability also in the nonhyperbolic case. Even if attraction is taken to mean convergence without Lyapunov stability, a small closed ball in eigen-coordinates of the return map has a nowhere dense trapped set: differences initially along the expanding direction stay in an expanding cone while both trajectories stay there, since μ+>max(1,|μ−|). The determinant of the return derivative is the nonzero polynomial f′(r)f′(s), so the return map is locally open on a dense set; preimages of those closed nowhere dense trapped sets are nowhere dense. A countable union of such preimages for both phases cannot fill a neighborhood. The invertible map (x,y)↦(ax+3y/2,x) gives the specialization with u=−3b/2; K factors as (c−1−a)(c−1+3a), giving both bounds and the orbit formula. An independent exact replay checked six prescribed cycles (including a zero multiplier and −1 boundary) and recomputed in the original coordinates the rational witness (4/79,−14/395) ↔ (−5/79,2/79), whose return polynomial is λ²−41λ/25+6319/10000.",
+      "residual_risks": [
+        "The count is for primitive period two over the reals only. A multiplier −1 is not by itself a higher-period bifurcation claim. No global basin classification or conclusions for u=0 are implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bektešević–Kulenović–Pilav DOI 10.1016/j.amc.2013.10.048 identifies its regime in the accessible abstract as nonnegative coefficients and states. The related Resultary records treat positive cycles of a modified Lorenz Euler map and a different three-dimensional quadratic map, respectively."
+        ],
+        "reasoning": "Broad positive-cone dynamics does not imply an all-real signed-coefficient period-two census; the original-map witness already has negative a and mixed polynomial coefficients. The related catalog maps do not furnish a matching reduction or dominating classification.",
+        "searches": [
+          "Primary search: quadratic second-order difference equation complete real period-two cycles Floquet multipliers all real parameters delay recurrence classification",
+          "Resultary: all-real quadratic second-order difference equation primitive period-two cycle Floquet stability classification",
+          "Resultary items 6a07d0e40d18 and 9d694fa2e0cd"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Zhong OA PDF, passages above; Bektešević–Kulenović–Pilav abstract only",
+        "Resultary catalog queries and two distinct nearby records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=−1/5, the theorem's flip location is b_f=8/15=80/150; the witness lies strictly below by 1/150 and is not an excluded parameter. More decisively, at fixed a=−1/5 and c=1+a−ε for all sufficiently small ε>0, K=ε(−4a+ε)>0 and tends to zero, so the exact branch approaching the origin from the left consists of saddles."
+        ],
+        "reasoning": "There is a discrepancy arbitrarily near the flip, not just at a rational point that could be outside an unspecified local neighborhood. The equilibrium crossing can still be correct, and stability restricted to a center manifold does not imply full-plane stability. The comparison does not depend on a claim about a genuine primitive cycle at the critical parameter itself.",
+        "searches": [
+          "Liu–Zhong Theorem 5, pp. 12–13 and proof pp. 14–15",
+          "DOI 10.1016/j.amc.2013.10.048, accessible abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper uses exactly F(x,y)=(ax+3y/2,b(x−x²)), ab≠0. Its Theorem 5 labels the left period-two branch of the origin flip stable for negative a in the listed intervals, including (−1,0). The catalog's exact match is the assigned record itself."
+        ],
+        "reasoning": "The scalar lag formulation and the original full state are linearly conjugate, so their full-plane return spectra agree; renaming the state is not a novelty. The computed expanding multiplier is incompatible with full-plane stability, rather than a reformulation of the stable-branch statement.",
+        "searches": [
+          "Resultary: Liu Zhong two-dimensional two-parameter squared discrete dynamical systems Theorem 5 period two stable negative a",
+          "Resultary: real two-cycle stability of Liu Zhong system x next a x plus three-halves y, y next b(x minus x squared), flip branch",
+          "Liu–Zhong DOI 10.3390/math12152423, p. 3 and Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent matching catalog classification surfaced. Liu–Zhong illustrate a=−0.2 and b=0.5333, near the rounded critical parameter, not the exact off-threshold return spectrum at b=79/150."
+        ],
+        "reasoning": "The general target is a continuum formula, not a finite database object; figures and isolated numerical cases can at most cover particular values. The inspected illustration is not an equivalent exact witness or source of the uniform Floquet polynomial.",
+        "searches": [
+          "Resultary: quadratic delay recurrence complete real primitive two-cycle Floquet universal expanding multiplier period-two classification",
+          "Liu–Zhong Theorem 5 and numerical illustration p. 17"
+        ]
+      },
+      "rationale": "Liu–Zhong already study the same special family and locate an equilibrium flip, but their period-two stability assertion for negative a is not the audited full-plane result. The universal expanding multiplier, all-real census, exact saddle-to-repeller boundary, and witnessed full-plane correction constitute the supported distinct contribution. The census proof does not claim to supersede earlier equilibrium or one-dimensional restricted calculations.",
+      "residual_risks": [
+        "The arbitrary-sign delay classification may have an inaccessible or unindexed antecedent. The first-quadrant paper's full text was unavailable, and no whole-document exclusion is asserted. The audit concerns full-plane stability; center-manifold stability by itself is a different assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior equilibrium flip and local branch discussion; does not establish the audited full-plane stability claim",
+          "evidence": [
+            "Origin flip at b=2(1+a)/3 with a≠−2,−1,0. Theorem calls the left branch stable in particular for −1<a<0. Its proof uses a center-manifold calculation."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12152423",
+          "material_read": "p. 3 model; pp. 12–13 Theorem 5; pp. 14–15 proof; p. 17 illustration",
+          "method": "OA PDF bounded passages at offsets 10891, 74318, 89646 and 96500",
+          "title": "Research on Stability and Bifurcation for Two-Dimensional Two-Parameter Squared Discrete Dynamical Systems",
+          "trigger": "Exact same specialized map and conflicting period-two statement"
+        },
+        {
+          "assessment": "Positive-cone overlap only as far as inspected; other primary details unresolved",
+          "evidence": [
+            "The abstract states nonnegative parameters and initial conditions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2013.10.048",
+          "material_read": "Accessible abstract; primary full text not obtained",
+          "method": "Indexed primary abstract; lawful OA record and PDF attempts denied",
+          "title": "Global dynamics of quadratic second order difference equation in the first quadrant",
+          "trigger": "Plausible general quadratic-delay classification"
+        },
+        {
+          "assessment": "Different map and restricted positive state domain",
+          "evidence": [
+            "Strictly positive cycles of a modified Lorenz Euler map."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-positive-two-cycle-threshold-with-no-attracting-two-cycl--6a07d0e40d18",
+          "material_read": "RESULT.md Finding in local mirror",
+          "method": "Resultary search and mirror",
+          "title": "A sharp positive two-cycle threshold with no attracting two-cycles",
+          "trigger": "Same-day candidate with similar classification"
+        },
+        {
+          "assessment": "Different three-dimensional quadratic map",
+          "evidence": [
+            "Its stated family can have two-cycle sinks and is not the two-dimensional delay theorem."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-parameter-floquet-rigidity-and-a-sharp-two-cycle-sink-window--9d694fa2e0cd",
+          "material_read": "RESULT.md Finding in local mirror",
+          "method": "Resultary search and mirror",
+          "title": "Two-parameter Floquet rigidity and a sharp two-cycle sink window",
+          "trigger": "Related exact Floquet calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and 51–81",
+        "Liu–Zhong Theorem 5, including the negative-a branch"
+      ],
+      "rationale": "The theorem gives an exhaustive signed-parameter real cycle and stability classification rather than a single simulation. Its universal expanding direction settles whether an apparently stable period-two branch can be a full-plane attractor; the exact witness and analysis arbitrarily close to the flip give an actionable correction. The exact −1 boundary further distinguishes saddles from repellers.",
+      "residual_risks": [
+        "No claim of global convergence, higher-period onset or normal-form resolution at the nonhyperbolic boundary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

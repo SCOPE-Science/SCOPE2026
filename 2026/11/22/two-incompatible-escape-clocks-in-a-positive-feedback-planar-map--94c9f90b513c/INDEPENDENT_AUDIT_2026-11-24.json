@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:23:32.097894Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–83",
+        "VERIFICATION.md and verification/escape_clock_check.py (inspected; not executed)"
+      ],
+      "rationale": "The exact identity y_(n+1)+r y_n=c x_n gives |y_n|+|y_(n+1)|≥|c||x_n|/r since r>1. Multiplying the two positive x-update factors gives the stated quadratic lower bound with equality when y_n=cx_n/r and y_(n+1)=0. For a≥1 and x_0≠0 each parity subsequence is bounded below by iteration of Z↦Z+qZ² with q=ab|c|/r>0, so it diverges. Eventually qZ>1, after which log(qZ) at least doubles per two steps, giving a common positive lower constant for the √2 base. When x_0=0, |y_n|=r^n|y_0|. Escape leaves every compact set, so stationarity and dominated convergence for compactly supported test functions force an invariant Borel probability to be supported at zero. For 0<a<1 the two points with |y|=(1−a)/b and x=(1+r)y/c are nonzero fixed points, proving sharpness. At a=r, b,c>0 the update gives x'≥rx and 0≤y'≤cx≤cx'/r, strictly in the cone interior, with the two boundary rays exchanged. Substitution yields y_(n+2)=(r²+bc x_n)y_n there. On the zero-ray subsequence the x return map is r²z+rbc z²; t=rbc z has t' = t²+r²t. The normalized log(t)/2^m has positive summable increments 2^(−m−1)log(1+r²/t_m) and is eventually positive, giving a finite positive limit. In the interior both parity sequences of y diverge, so x_n/x_(n−1)→∞; the previous y is at most cx_(n−2), making y_n/(cx_(n−1))→1. Hence log(bc x_n) obeys a Fibonacci recurrence with a bounded forcing tending to zero. Dividing the exact Fibonacci convolution by φ^n gives termwise limits dominated by a summable geometric sequence in forcing index; a lower homogeneous comparison for log((bc/2)x_n) from two eventually positive consecutive terms makes the limit positive. At odd times on the boundary x is r times the previous zero-ray value once that subsequence starts, so the √2 base is genuinely sharp in original time.",
+      "residual_risks": [
+        "Fine asymptotic limits concern only the specified forward-invariant cone at resonance. The exact rational script checks identities on a finite set of examples and does not establish escape or the logarithmic limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Silverman discusses Fibonacci degree growth giving φ in Example 5 for a different map and general arithmetic/canonical-height bounds in Proposition 19. On the present branch the coordinate degrees themselves obey a Fibonacci recurrence: each new x degree is the sum of the previous two coordinate degrees, while the new y degree is the previous x degree once x has strictly larger degree."
+        ],
+        "reasoning": "Thus φ as the branch dynamical degree can be obtained in a standard way. A maximum over polynomial degrees or a normalized arithmetic height statement does not give a pointwise lower bound and finite positive real limit for all interior real sequences, nor determine the slower growth on the two alternating exceptional rays.",
+        "searches": [
+          "Silverman, arXiv:1111.5664, Example 5 and Proposition 19; compare the polynomial branch on y≥0"
+        ]
+      },
+      "checked_sources": [
+        "Zhou et al. DOI 10.3390/sym13061047",
+        "Silverman arXiv:1111.5664",
+        "Resultary 7b5d143a6371 and identical hit 94c9f90b513c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed points give the obstruction for 0<a<1, not the converse about all real initial states. A polynomial degree exponent controls algebraic growth of iterates but permits special orbits with cancellation; indeed on y=0 the present two-step restriction is quadratic."
+        ],
+        "reasoning": "The global result requires the quantitative two-step triangle estimate at the marginal gain a=1 as well as for a>1. The two clocks require actual cone invariance, positive orbit recursion, treatment of boundary cancellation, and limits as opposed to a formal degree exponent. These implications are not supplied by the strongest inspected prior results.",
+        "searches": [
+          "Zhou Eq. (1)–(2) and Fig. 10 versus sharp escape inequality; Silverman Example 5 and Proposition 19 versus alternating rays and real orbit limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou's Eq. (1) exactly equals the printed recurrence, and Eq. (2) gives the fixed-point existence condition b(1−a)>0. In Fig. 10(b) the printed parameters a=2.35,b=1,c=−1 actually force |x'|≥2.35|x| if x≠0. The focused web query returned no results, which is not negative evidence."
+        ],
+        "reasoning": "The recurrence and fixed points are existing input, not equivalent formulations of the full claim. The figure and its bounded-appearing attractor interpretation cannot certify an orbit of the printed map at those parameters; the comparison does not determine the authors' implementation.",
+        "searches": [
+          "Zhou et al., DOI 10.3390/sym13061047, Eq. (1)–(2), positive-feedback discussion and Fig. 10",
+          "Zhou Li Lu Lei Zhao 2D hyperchaotic map 1047 positive feedback escape Fibonacci growth invariant cone absolute value 1.25 dynamical degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "94c9f90b513c is the frozen work. The distinct result 7b5d143a6371 describes a rational positive-quadrant map with an equilibrium-line capture boundary, √(2n) critical coordinate growth and ballistic escape."
+        ],
+        "reasoning": "There is no numerical table in this claim. The nearest separately indexed exact escape classification is for a different map and its √n rate is a coordinate rate, not the base of a normalized logarithm in this recurrence.",
+        "searches": [
+          "Resultary: positive-feedback planar absolute-value map, sharp escape boundary, resonant clocks; compare 7b5d143a6371 and 94c9f90b513c"
+        ]
+      },
+      "rationale": "Zhou et al. give the exact recurrence and fixed points, so neither is new. The sharp all-state positive-feedback escape (including the resonant equality cases) and two distinct positive finite normalized logarithmic limits do not follow from their fixed-point or numerical analysis. The polynomial branch's golden-ratio degree growth is a meaningful general-dynamics antecedent, not a real-orbit limit theorem.",
+      "residual_risks": [
+        "The bounded literature search does not exclude a prior result on this particular branch or its period-two exceptional rays. Same-day dates and an empty search do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and fixed-point obstruction covered; not sharp global escape or the resonance limits",
+          "evidence": "b(1−a)>0 for nonzero fixed points; the Fig. 10(b) caption at a=2.35,b=1,c=−1 is incompatible with bounded nonzero orbits of the printed formula.",
+          "identifier_or_url": "https://doi.org/10.3390/sym13061047 ; https://pdfs.semanticscholar.org/672a/71704179de6ae9d20d731f1fc0bd17a1a82e.pdf",
+          "material_read": "p. 2 Eq. (1)–(2), sign and stability discussion; pp. 7–8 Fig. 10 context and caption; OA offsets 6850–10803, 55500–62693",
+          "method": "Bounded original OA PDF passages",
+          "title": "A 2D Hyperchaotic Map: Amplitude Control, Coexisting Symmetrical Attractors and Circuit Implementation",
+          "trigger": "Exact recurrence and fixed points; possible positive-feedback coverage"
+        },
+        {
+          "assessment": "General background and meaningful Fibonacci analogy, not the asserted real positive-feedback orbit quantifiers",
+          "evidence": "Example 5 gives φ for the degrees of a different iterated map; the canonical-height setup uses arithmetic heights under algebraic hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.5664 ; https://doi.org/10.1017/etds.2012.144",
+          "material_read": "p. 9 Example 5, pp. 11–13 arithmetic degree, pp. 13–16 canonical height and Prop. 19; OA offsets near 21500, 26000, 31500–39436",
+          "method": "Bounded original OA PDF passages",
+          "title": "Dynamical degree, arithmetic entropy, and canonical heights for dominant rational self-maps of projective space",
+          "trigger": "Potential general degree/height theorem covering the two growth bases"
+        },
+        {
+          "assessment": "Different dynamics, not covering",
+          "evidence": "Rational map on a positive quadrant, equilibrium-line capture, and critical coordinate growth √(2n).",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-hyperbolic-escape-boundary-with-square-root-critical-mo--7b5d143a6371",
+          "material_read": "RESULT.md Finding and recurrence, offset 0",
+          "method": "Published-record mirror passage",
+          "title": "An exact hyperbolic escape boundary with square-root critical motion",
+          "trigger": "Strongest separate indexed exact escape comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhou et al., printed recurrence, sign regimes and Fig. 10(b)",
+        "RESULT.md, escape, invariant measure, and resonance proof"
+      ],
+      "rationale": "The positive-feedback chamber in an existing map has a sharp global escape criterion that matters for interpreting attractor diagrams and excludes all nontrivial invariant probabilities there. At one set of resonant parameters the generic cone interior and exceptional rays have incompatible superexponential clocks; an algebraic degree alone would miss the ray growth. The exact lower growth base and its sharp witness are structural, not a finite simulation or an arbitrary parameter slice.",
+      "residual_risks": [
+        "The result does not classify negative feedback, behavior below threshold other than failure of universal escape, or precise rates outside the resonant cone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

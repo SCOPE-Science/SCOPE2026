@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:10:54.915660Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is the unital k-algebra substitution monoid, and the linear operator is on (t), not on the unit line. The linear coefficient detects invertibility and is multiplicative under composition, so the vanishing-linear-coefficient substitutions form a two-sided ideal of size q^(N-2), with augmentation as its absorbing element. Below truncation, the leading term of a composition of orders d,e is a_d b_e^d t^(de), nonzero in every allowed characteristic. This proves the sharp universal vanishing length (iterate t^2 for sharpness). For each fixed nonzero f, the surviving images of t^i under T_f^r have distinct lowest degrees i d^r<N, giving exactly floor((N-1)/d^r) independent images; rank at r=0 is N-1 and f=0 gives only one-blocks. Two rank differences give the block counts, and the leading and free coefficient counts give the stated enumerator including coincident profiles. For the limit, couple the finite substitutions as successive truncations of one series with independent uniform coefficients from degree 2 onward. Its first nonzero degree D is almost surely finite with mass (q-1)q^(1-d), and eventually the scaled index is ceil(log_D N)/log N, converging almost surely to 1/log D. Zero is an accumulation point but not an atom. Inspected the frozen checker and its captured prime-field output without executing source code. The separate bounded probe `python3 -B /workspace/review_evidence/small_field_checks.py` checked all 340 substitutions over F4 for N=3 through 6, comparing actual matrix-power ranks and order counts; this is corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Enochs–Jenda–Ozbek classify strongly closed supports for the untruncated composition monoid.",
+          "The multivariable setting of the cubic-jet result is wider in the number of variables but fixed to the cubic truncation and composition-square-zero condition."
+        ],
+        "reasoning": "Untruncated support closure is not a rank theorem for substitution matrices on finite quotient ideals. The cubic-jet result does not dominate the truncation length or composition depth.",
+        "searches": [
+          "arXiv:1510.05984v1, Introduction and Theorem 2.1",
+          "Resultary: adcd520f51ed"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.05984v1",
+        "Resultary: 6b81699a8630",
+        "Resultary: adcd520f51ed",
+        "Resultary: bb8c934f4813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary text uses x^s composed with x^t = x^(st) in analyzing possible supports.",
+          "The evolution-algebra depth depends on a first support index through 1+floor((n-1)/(s-1)), for a different multiplication."
+        ],
+        "reasoning": "Grant the elementary leading-order rule and its immediate implication for composition depth. To recover the claimed stronger census one must analyze independence of all surviving monomial images in the finite quotient, invert the power ranks, and weight the strata by their finite-field frequencies. The limiting atom masses depend on that distribution, not on support closure alone.",
+        "searches": [
+          "arXiv:1510.05984v1, Introduction and Theorem 2.1",
+          "Resultary: bb8c934f4813, Proof §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6b81699a8630, Finding and scope: skew-derivation power ranks on k[x]/(x^N).",
+          "adcd520f51ed, Finding: composition-square-zero multivariate cubic-jet endomorphisms and radical ranks.",
+          "bb8c934f4813, Proof §5: depth of noninvertible endomorphisms of chain evolution algebras."
+        ],
+        "reasoning": "Compared both linear ranks of iterates on the maximal ideal and the order/nilpotency of iterated substitutions. Neither fixed-scaling skew differentiation nor the nonassociative evolution algebra is an equivalent formulation. Cubic-jet substitutions address a bounded square-zero setting rather than arbitrary univariate truncations and all iterates.",
+        "searches": [
+          "Resultary: 6b81699a8630",
+          "Resultary: adcd520f51ed",
+          "Resultary: bb8c934f4813"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned-record hit is the same record; the distinct same-day Taft and cubic-jet findings were compared at the statement level.",
+          "None of the inspected distinct entries gives the finite-field histogram indexed by the ranks floor((N-1)/d^r) and the corresponding fixed-q depth distribution."
+        ],
+        "reasoning": "Neither a matching record identity nor a related finite-field rank table for another operator establishes independent equivalent coverage. The date shared by distinct entries was not used to infer priority.",
+        "searches": [
+          "Resultary comparisons: 748cf1f7f8fb, 6b81699a8630, adcd520f51ed, bb8c934f4813"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the finite-truncation all-power Jordan census and fixed-q scaled depth law, not composition-order multiplication. The closest inspected statements cover the basic input, a different operator on the same algebra, or a different truncation or algebra; no equivalent coverage of the full claim was found in the inspected material.",
+      "residual_risks": [
+        "The primary-literature query returned no results; that is not evidence of absence. Equivalent classifications under another formal iteration or representation-theoretic formulation may exist beyond the bounded statement-level checks. No priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the formal-order/support antecedent, not the complete finite-rank and probability claim",
+          "evidence": [
+            "Order and composition are defined for xR[[x]]; the monomial composition identity motivates multiplicatively closed support sets. Theorem 2.1 classifies strongly closed supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.05984",
+          "material_read": "Introduction p. 1 (OA offset 0), Theorem 2.1 p. 2 (offset 5188)",
+          "method": "Targeted lawful OA primary-text reading",
+          "title": "Submonoids of the Formal Power Series",
+          "trigger": "Same composition monoid before truncation; potential stronger theorem"
+        },
+        {
+          "assessment": "Different linear maps on a related algebra",
+          "evidence": [
+            "Fixed cyclotomic scaling, skew Leibniz, and valuation of D(x) give residue-dependent ranks, not substitution powers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-jordan-rank-rigidity-for-taft-compatible-skew-derivations-of-tru--6b81699a8630",
+          "material_read": "RESULT.md, Finding and scope, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Jordan-rank rigidity for Taft-compatible skew derivations of truncated polynomial algebras",
+          "trigger": "Closest same-day Jordan-profile analogue"
+        },
+        {
+          "assessment": "Restricted square-zero cubic setting does not cover arbitrary nilpotent iterates or the limit in N",
+          "evidence": [
+            "The counted maps satisfy f squared equal to augmentation on a multivariate cubic jet; the count is a radical-rank enumerator in that setting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-rank-gaps-and-finite-field-spectra-of-square-zero-cubic-jet-subs--adcd520f51ed",
+          "material_read": "RESULT.md, Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Rank gaps and finite-field spectra of square-zero cubic-jet substitutions",
+          "trigger": "Closest same-day direct substitution analogue"
+        },
+        {
+          "assessment": "Different nonassociative algebra and depth law",
+          "evidence": [
+            "The composition depth is 1+floor((n-1)/(s-1)); no truncated-polynomial substitution Jordan or scaled-depth law follows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-endomorphism-monoid-and-reduced-endomorphism-variety-of-chain-ev--bb8c934f4813",
+          "material_read": "RESULT.md, Proof §5, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Endomorphism monoid and reduced endomorphism variety of chain evolution algebras",
+          "trigger": "Composition depth classified by first support index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank sequence eliminates dependence on all higher coefficients and gives exactly the type and its weight on the natural maximal-ideal representation of the full nonunit stratum, for every truncation. This supplies a usable count for any Jordan statistic in this monoid, not just an order-of-vanishing calculation. The same exact stratification identifies an infinite atomic law rather than a deterministic log-depth scale. The elementary order calculation alone is not the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

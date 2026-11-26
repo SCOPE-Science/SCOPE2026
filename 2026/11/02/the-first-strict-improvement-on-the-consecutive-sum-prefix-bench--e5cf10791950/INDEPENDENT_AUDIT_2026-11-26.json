@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:00:51.251353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34; VERIFICATION.md lines 19–23; verify_interval.cpp",
+        "Independent replay: python3 /workspace/branches/a2153c01-8c39-4998-9a9e-6c8a7ecb6518/reproduce.py (NumPy); count, comparator and ties checked at each N."
+      ],
+      "rationale": "Each nonempty subset of [1,N] defines exactly one admissible sequence in increasing order. Each nonempty contiguous block is represented by a positive prefix difference, and all such differences are between 1 and N(N+1)/2. In the supplied code, nonzero mask stamps are unique within each N and their array is reset between domains, so they mark exactly one occurrence of each distinct sum per candidate. The maximizer counter is reset on improvement and incremented on ties. Independently implemented NumPy enumeration instead uses packed bit flags for the positive differences of prefixes at all original boundaries, dropping zero differences from empty blocks; repeated boundaries cannot add a new positive difference. It exhausted all 33,554,406 nonempty masks across N=1 through 24. Through 23 the maximum equals the full-sequence count; at 24 it found maximum 188, full-sequence count 186, and exactly one winner with mask 16776191, which is the full mask with bit 10 removed. This verifies minimality, the exact maximum and the claimed uniqueness without any inference about N>24.",
+      "residual_risks": [
+        "The finite result relies on exact exhaustive computation; no formal proof-system certification or classification for larger N is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beker gives extremal asymptotic results for increasing sequences bounded by N, with the all-integers sequence as a benchmark. The nearby distinct-multiple matching and prefix-normality records study different objects."
+        ],
+        "reasoning": "Asymptotic separation is not a finite result for the least improvement or a classification of every optimizer at 24. An exact formula valid at all small N would subsume the claim; none was evidenced.",
+        "searches": [
+          "Focused literature search for the Erdős–Graham consecutive-sums problem and finite extremum",
+          "Resultary finite extremal formulation",
+          "Beker Section 1"
+        ]
+      },
+      "checked_sources": [
+        "Beker arXiv:2311.10087v1 Section 1",
+        "OEIS A234813 and exact-vector search",
+        "Four bounded Resultary semantic checks, including adjacent distinct-multiple matching and prefix-normality topics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior asymptotic results address improvement at large scale. The exact comparator permits comparison to a given witness once its value is checked, but does not bound the other subsets or determine when strict improvement first occurs."
+        ],
+        "reasoning": "The independent finite maximization supplies missing upper bounds for all N<=24 and verifies uniqueness, neither of which is a consequence of the comparator table or the asymptotics.",
+        "searches": [
+          "Beker arXiv:2311.10087v1, Section 1",
+          "OEIS A234813, definition and values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beker uses the same consecutive-sum statistic as positive partial-sum differences. Ordering subsets or specifying their omissions are equivalent descriptions of the admissible sequence, not new extremal problems."
+        ],
+        "reasoning": "The reformulation is already standard; the distinction is the finite first threshold and complete optimizing-subset classification, not the sum-to-difference reduction.",
+        "searches": [
+          "Resultary: exact first strict crossover claim; [1,N]-subset and omission formulation",
+          "Beker arXiv:2311.10087v1, Section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A234813 tabulates distinct sums of the full initial interval through 50 and gives 186 at N=24. The bounded search for the optimizing vector found no exact table match."
+        ],
+        "reasoning": "Credit A234813 for the comparator, not the optimum over subsets. Even though its values agree with the maxima through 23, the table alone cannot establish that no subset improves them.",
+        "searches": [
+          "OEIS exact maximizing-value vector 1,3,5,9,12,16,21,27,33,40,47,55,63,70,77,89,101,110,123,134,146,159,171,188",
+          "OEIS A234813",
+          "Resultary maxima-sequence check"
+        ]
+      },
+      "rationale": "The benchmark sequence's values and the general extremal question are prior. The least N where the benchmark fails, the exact maximum there, and the unique optimizer are not covered by the strongest inspected material.",
+      "residual_risks": [
+        "A bounded search cannot exclude unindexed tables or other equivalent descriptions not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objective and asymptotic results, not the finite classification in the examined statements",
+          "evidence": [
+            "Consecutive sums are represented by partial-sum differences, and a_i=i is the natural full-sequence comparator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.10087v1",
+          "material_read": "Section 1, OA offsets approximately 500–4059",
+          "method": "Original OA text",
+          "title": "On a problem of Erdős and Graham about consecutive sums in strictly increasing sequences",
+          "trigger": "Same extremal problem and full-sequence benchmark"
+        },
+        {
+          "assessment": "Covers |S(T_N)|, not M(N)",
+          "evidence": [
+            "The n=24 entry is 186 for the full sequence; the sequence is not defined as an optimization over subsets."
+          ],
+          "identifier_or_url": "https://oeis.org/A234813",
+          "material_read": "Entry definition and values for 1 through 50, around offset 400",
+          "method": "Original public database entry",
+          "title": "Number of distinct integers of the form i+(i+1)+...+j, for 1<=i<=j<=n",
+          "trigger": "Exact comparator table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Beker's formulation and comparator, Section 1",
+        "Frozen RESULT.md and independent enumeration of all optimizers at N=24"
+      ],
+      "rationale": "The full initial interval is the canonical benchmark for an established extremal problem. Its sharp first failure, after 23 domains of exact optimality, is a natural finite boundary independent of the size of the gain. The unique maximizing deletion shows precisely what changes at that boundary and gives an exact reference point for future structural or computational analyses.",
+      "residual_risks": [
+        "This is a finite threshold result, not a general optimizer structure or a sharper asymptotic bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

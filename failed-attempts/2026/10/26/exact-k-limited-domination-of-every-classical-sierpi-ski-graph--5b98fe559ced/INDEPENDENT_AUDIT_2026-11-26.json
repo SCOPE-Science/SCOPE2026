@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:11.497081Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 13–48",
+        "Assigned VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/independent_checks.py, recursive_edges and domination"
+      ],
+      "rationale": "For r=m-k, any nonempty base clique needs at least r selections, since its selected vertices see every omission in the clique. In a block of m cliques, an empty clique a forces the selection of each bridge endpoint pba for b≠a: pab has unequal last two symbols and its only external neighbor is pba. Each forced endpoint spends one unit of the k budget on the bridge, so each other clique has at least r+1 selections. This gives a block bound mr+k−1 in the empty case and mr otherwise. Hence at equality for k≥2 no clique is empty and all have cardinality r. The upper bound uses r residues invariant under negation: the last-pair difference either changes sign across a last-coordinate-pair bridge or is zero at both endpoints of an earlier bridge. Thus selected vertices see exactly k omissions, all within their clique. The one-coordinate case is K_m; m=2 and k=1 are included without requiring strict block excess. In VERIFICATION.md line 19, ‘exactly k−1’ means the excess in the lower bound, not the realized excess for an arbitrary set. Independently generated graphs recursively and exhaustively checked minima on six small graphs and balance of all relevant minima using `python3 /workspace/independent_checks.py`. The proof, not that finite sample, covers all n,m,k.",
+      "residual_risks": [
+        "Finite corroboration does not enumerate all optimizers at arbitrary depth."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Božović’s Theorems 10 and 11 prove k=1 and m=3 slices; Conjecture 12 states but does not prove the full range. The October 12 Resultary theorem proves the full range.",
+          "The Cartesian-product work and indexed complete-multipartite record 1c4ae0b1465b concern different host families."
+        ],
+        "reasoning": "The preprint special cases do not settle the general case; the exact October 12 theorem does.",
+        "searches": [
+          "arXiv:2610.01584 §§5–6",
+          "arXiv:2606.22428, p. 1",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 023a3f7ea943 full statement and decisive proof",
+        "arXiv:2610.01584",
+        "arXiv:2606.22422",
+        "arXiv:2606.22428",
+        "Resultary index a700d19c9c6e, 9efdac7d121b, 1c4ae0b1465b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier-indexed proof bounds the contribution of a block with an empty clique by (m−1)(r+1)=mr+(k−1), whereas all others contribute at least mr."
+        ],
+        "reasoning": "The proven optimum is the sum of the mr bounds, so for k≥2 an empty clique is impossible at equality and each clique has exactly r. Not stating this corollary in words does not make it new.",
+        "searches": [
+          "023a3f7ea943, RESULT.md, proof, offsets 0–6051",
+          "arXiv:2610.01584, Conjecture 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The regular-graph equivalence with (1,d−k)-domination in arXiv:2606.22422 does not cover the nonregular n≥2 graphs. The October 12 record uses the identical word adjacency and limited-domination definition.",
+          "November 2 record a700d19c9c6e and November 8 record 9efdac7d121b use symmetric binary matrices and complement matrices, respectively, at depth two only."
+        ],
+        "reasoning": "The exact matching record is not a neighboring parameter or a different graph under a similar name. Matrix reinterpretations at depth two and regular-graph dualities are not needed for the overlap.",
+        "searches": [
+          "Resultary: exact k-limited domination classical Sierpiński graph formula (m-k)m^(n-1) Bozovic Conjecture 12 base cliques minimum sets",
+          "arXiv:2606.22422, §4 Propositions 8–9 and Corollary 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact all-parameter match 2026/10/12/SCOPE-exact-limited-domination-of-every-sierpi-ski-graph--023a3f7ea943, verified in its actual RESULT.md, not inferred from the index title."
+        ],
+        "reasoning": "The decisive exact coverage is an indexed theorem; no numerical database is needed. The primary query's irrelevant results are not negative evidence.",
+        "searches": [
+          "Resultary: exact k-limited domination classical Sierpiński graph formula (m-k)m^(n-1) Bozovic Conjecture 12 base cliques minimum sets",
+          "Primary lookup: \"gamma_k\" \"S(n,m)\" \"m-k\" k-limited domination Sierpiński Conjecture 12 Božović"
+        ]
+      },
+      "rationale": "The distinct Resultary record indexed under October 12 states and proves exactly the same formula on exactly the same graph family and parameter range. Its block lower bound already yields the claimed base-clique balance by the equality case. This is demonstrated coverage, not an inference of authorship or publication priority from path dates.",
+      "residual_risks": [
+        "Index dates alone establish neither priority nor authorship; that uncertainty does not change demonstrated mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers theorem directly and optimizer balance by immediate equality case",
+          "evidence": [
+            "Same (m−k)m^(n−1), n≥1, m≥2, 1≤k≤m−1; empty-clique block costs mr+k−1 in the lower bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-limited-domination-of-every-sierpi-ski-graph--023a3f7ea943/RESULT.md",
+          "material_read": "Finding, definitions and full block lower-bound and symmetric relation construction, offsets 0–6051",
+          "method": "Resultary search and bounded local-mirror reads",
+          "title": "Exact limited domination of every Sierpiński graph",
+          "trigger": "Exact index match"
+        },
+        {
+          "assessment": "Same conjectured formula and exact proven subranges, not a proof for the full range",
+          "evidence": [
+            "k=1 for all m; m=3 for k=1,2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01584",
+          "material_read": "Theorems 10–11 and Conjecture 12, HTML offsets about 25554, 28861, 32184",
+          "method": "Open primary HTML passages",
+          "title": "On k-limited domination: complexity and Sierpiński graphs",
+          "trigger": "Conjecture attribution and proven special cases"
+        },
+        {
+          "assessment": "Regular equivalence and k=1 bound, not the all-k irregular family",
+          "evidence": [
+            "The (1,d−k)-domination identity assumes connected d-regular graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22422",
+          "material_read": "§4 pp. 8–9 and §5 p. 9",
+          "method": "Open PDF passages",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Possible equivalence with constrained domination"
+        },
+        {
+          "assessment": "Product families are related but no identified theorem covering the word-defined Sierpiński family",
+          "evidence": [
+            "Paper’s stated setting is the Cartesian product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22428",
+          "material_read": "Abstract and scope, p. 1",
+          "method": "Open PDF",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Possible graph product coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 19–48",
+        "Resultary 023a3f7ea943, exact theorem and proof"
+      ],
+      "rationale": "The full conjecture is a worthwhile mathematical question, but the exact solution and the bound driving this proof are already in the matching record. The residue choice is a realization of the same symmetric last-pair construction, and the balance clause just notes equality in the same block bound. The frozen record does not give a new classification, enumeration, or otherwise independently useful remainder.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

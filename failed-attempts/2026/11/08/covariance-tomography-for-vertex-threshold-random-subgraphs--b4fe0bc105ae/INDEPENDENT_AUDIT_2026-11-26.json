@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:41:56.951297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent analytical reconstruction: reflect labels to reduce moments to the rare event with conditional probability (x−1+r)_+, whose first and second moments are r²/2 and r³/3. Thus v=r²/2−r⁴/4 and c=r³/3−r⁴/4, giving a=v−2c>0. The diagonal, incident and disjoint edge cases give Cov(Z)=aI+c BᵀB and hence the claimed polynomial in Q=BBᵀ. The positive square root of (aI+2cQ)² gives the inverse; the kernel is the space of vectors alternating on each component. At τ=2 absence is almost sure. For empirical PSD matrices with shifted roots A,B≥aI, solve A X+X B=4c(S−T) by the integral of e^(−sA)4c(S−T)e^(−sB), giving the stated 1/a Lipschitz bound for the inverse even without commutation. For h as in the proof the Hoeffding failure sum is 2(n²+n)e^(−2mh²)≤δ, the first-moment product error is ≤2Δ²h, and 3nΔ²h<a/2 follows from the strict bound. This verifies the all-graph theorem and finite-sample guarantee; the supplied finite script was inspected, not executed. Replay: RESULT.md lines 31–77 with these moment and Sylvester computations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ICALP samples contain induced adjacency submatrices, not just degrees",
+          "In the prior proof, only v and c depend on the specific label threshold"
+        ],
+        "reasoning": "For every channel with common edge variance v, common adjacent-edge covariance c and disjoint covariance zero, unsigned incidence yields (v−2c)Q+cQ². For v−2c>0 and c>0 the same positive-root and rounding arguments apply. This broader implication follows directly from the earlier proof; a separate published theorem stating it was not verified.",
+        "searches": [
+          "McGregor–Sengupta ICALP 2022 Article 96, Introduction",
+          "4f959cf417db §Proof: incidence and Sylvester derivations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4f959cf417db",
+        "arXiv:2207.13651",
+        "arXiv:2108.02685",
+        "DOI:10.4230/LIPIcs.ICALP.2022.96",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof separately computes the three classes of edge pairs, squares I+2Q, and solves a Sylvester equation with positive roots",
+          "Threshold change preserves the three classes; a one-dimensional ramp integration updates v,c"
+        ],
+        "reasoning": "The prior proof plus these scalar substitutions gives the interior-threshold identity, nullity, inversion and stability. The explicit sample bound follows from entrywise Hoeffding and rounding, not a new noisy reconstruction mechanism. Graph recovery from random induced adjacency samples does not by itself imply this result.",
+        "searches": [
+          "4f959cf417db §Proof, offset 0–5554",
+          "Frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4f959cf417db §Finding gives 12Σ=Q+Q² and Q=((I+48Σ)^(1/2)−I)/2",
+          "Fox–Luo–Pham use the same τ=1 vertex labels but estimate degree multiplicities on regular hosts"
+        ],
+        "reasoning": "The earlier catalogue theorem uses the same labelled observations and arbitrary simple hosts, and matches exactly at τ=1; the degree-histogram theorem is not a covariance inversion.",
+        "searches": [
+          "Resultary: threshold vertex-sum random subgraphs, degree covariance signless Laplacian reconstruction",
+          "Fox–Luo–Pham arXiv:2207.13651 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored RESULT.md offset 0 gives exact τ=1 coefficients, stable reconstruction and nullity on arbitrary finite labelled graphs"
+        ],
+        "reasoning": "Direct exact catalogue overlap, not merely a similar title or a finite graph table. The earlier statement at this locator does not list the two varying-threshold coefficient functions.",
+        "searches": [
+          "Resultary: host-graph reconstruction from degree covariance in vertex-threshold subgraphs; exact record 4f959cf417db"
+        ]
+      },
+      "rationale": "An October 18 Resultary record already gives the exact threshold-one quadratic law, principal-root recovery, bipartite kernel and stable rounding from repeated degree-only observations via the same incidence and Sylvester steps. The all-interior-threshold coefficients and explicit probability bound are not literally supplied there. They are, however, a direct substitution of the new two scalar moments into the existing incidence inversion, with routine concentration; the purported central quadratic-reconstruction mechanism is covered. No claim of publication priority is made.",
+      "residual_risks": [
+        "One focused literature query returned no useful match; no absence-of-literature inference.",
+        "The original Frieze–Gould–Karoński–Pfender article was not directly inspected; its role is reported by Fox–Luo–Pham.",
+        "Earlier catalogue overlap resolves the mathematical comparison, not journal priority or precedence for the exact off-center coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact central-threshold overlap; same proof mechanism for extension",
+          "evidence": [
+            "12Σ=Q+Q² and Q=((I+48Σ)^(1/2)−I)/2",
+            "Frobenius perturbation constant 12 and exact rounding when covariance error is below 1/24"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-host-graph-reconstruction-from-degree-covariance-in-vertex-thres--4f959cf417db/RESULT.md",
+          "material_read": "Finding, assumptions, entire incidence and stability proof, offsets 0–5554",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Host-graph reconstruction from degree covariance in vertex-threshold subgraphs",
+          "trigger": "Exact degree-only inverse in the local catalogue"
+        },
+        {
+          "assessment": "Same channel on regular hosts, different observable and objective",
+          "evidence": [
+            "Retains uv when x(u)+x(v)≥1; considers numbers of degree-k vertices"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.13651",
+          "material_read": "Abstract and Introduction, p. 1, OA offset 150",
+          "method": "OA primary PDF text",
+          "title": "On random irregular subgraphs",
+          "trigger": "Same threshold-one random sampling mechanism"
+        },
+        {
+          "assessment": "Existence results on degree multiplicities, not an established earlier covariance inverse",
+          "evidence": [
+            "The stated goal is a subgraph with prescribed upper control on degree multiplicities"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02685",
+          "material_read": "Abstract, p. 1",
+          "method": "OA primary PDF text",
+          "title": "Irregular subgraphs",
+          "trigger": "Attribution of prior threshold sampling work"
+        },
+        {
+          "assessment": "Different observation channel",
+          "evidence": [
+            "Ordered samples are principal adjacency submatrices; unordered ones are sampled induced subgraphs up to isomorphism"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2022.96",
+          "material_read": "Abstract and Introduction, p. 1",
+          "method": "OA Dagstuhl primary PDF",
+          "title": "Graph Reconstruction from Random Subgraphs",
+          "trigger": "Potential broader reconstruction theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The already established degree-only inversion is mathematically useful. The distinct remainder is the elementary moment update under a threshold shift and a conservative sufficient sample count from entrywise Hoeffding plus the established square-root perturbation argument. The record gives no nonroutine new stability regime, sharp recovery rate, or unknown-threshold inference. There is no independently valuable surviving claim here to repair under the stated standard; this does not dispute the validity of the formulas.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

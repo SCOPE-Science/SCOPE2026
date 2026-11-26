@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:23:13.738013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated Fourier convention the pole at -iu gives -2 pi i exp(-2 pi u xi) for xi>0 and zero for xi<0. Bochner integration is justified by the positive lower cutoff and finite mass. The physical lattice dilation gives the squared normalization alpha^(-1). On the unit Zak cell the Fourier series is a positive mixture of r^omega/(1-r exp(2 pi i x)), apart from a common phase and 2 pi. The modulus is bounded above by the integral of 1/(1-r). The real-part inequality follows by clearing denominators, with numerator r(1-r)(1+cos(2 pi x)); together with r^omega>=r it gives the integral of r/(1+r) below. The corner limits (0,0+) and (1/2,1-) come from positive-measure neighborhoods by dominated continuity, verifying essential sharpness. The identity for the ratio follows exactly by completing the square in [1+r-kappa r(1-r)]/(1-r^2). Positivity makes the integral vanish precisely at the given single height. The universal barrier is sharp allowing any positive lower cutoff; for a prescribed cutoff above the optimizer it remains valid but equality is excluded. The frozen checker and its recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier causal theorem requires just int 1/s dmu(s)<infinity, covering the image of the stated height-cutoff class and allowing mass to approach zero with integrable inverse moment.",
+          "Belov–Kulikov–Lyubarskii give finite positive-pole frame existence and a Zak representation, a restricted infinite-discrete extension, and sharp constants for one Cauchy pole in their later paper."
+        ],
+        "reasoning": "The earlier causal theorem, unlike the rational existence theorem alone or the single-pole formula alone, is a stronger sharp-bound theorem that directly covers every proposed mixture.",
+        "searches": [
+          "Resultary 38e7591b1260 assumptions and §3",
+          "arXiv:2103.08959v1, §§1.4–1.7",
+          "arXiv:2212.08915v1, §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 38e7591b1260, 88f19fd53b3a",
+        "arXiv:2103.08959v1",
+        "arXiv:2212.08915v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier sharp formulas the ratio of amplitudes is U/L, a weighted average of the scalar ratio (1+r)/[r(1-r)] with weight r/(1+r). Equivalently U-kappa L integrates [1+r-kappa r(1-r)]/(1-r^2).",
+          "At kappa=3+2 sqrt(2), that numerator is exactly kappa(r-(sqrt(2)-1))^2, so the deficit and strict equality statement are immediate algebra from the earlier two bounds."
+        ],
+        "reasoning": "The scalar completion of a quadratic neither requires a new estimate nor extends the stronger mixture theorem. Even though the checked earlier record does not separately print this deficit, the frozen remaining claim is mechanically implied.",
+        "searches": [
+          "Resultary 38e7591b1260 Finding and Proof §§2–3; 88f19fd53b3a Finding and Proof §§1–3",
+          "arXiv:2212.08915v1 sharp one-pole formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a=1/alpha, Fourier transform sends translations alpha and modulations 1/alpha to modulations -alpha and translations 1/alpha, preserving optimal bounds by unitarity and reindexing.",
+          "The Fourier window is -2 pi i times the causal completely monotone window with positive measure the push-forward by s=2 pi u; its required inverse moment is finite by u>=u0. Then exp(-as)=r(u), so the earlier A_a and B_a are exactly the frozen bounds after multiplying by 4 pi^2."
+        ],
+        "reasoning": "The two published window representations are Fourier-dual descriptions, not disjoint classes for this comparison. The same positive-real-part inequality and the same sharp corners occur in the earlier proof.",
+        "searches": [
+          "Resultary: exact critical Gabor bounds for positive Cauchy and exponential mixtures",
+          "Resultary 38e7591b1260, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 record states exact general optimal constants (not just existence or a table of samples). The November 2 record separately states the exact Cauchy mixture bounds and universal barrier/equality for compactly supported positive measures.",
+          "The single-pole source gives explicit A,B as functions of exp(2 pi u/alpha)."
+        ],
+        "reasoning": "The exact earlier Fourier-dual match, rather than the separately later compact-support overlap, is decisive for prior coverage.",
+        "searches": [
+          "Resultary 38e7591b1260 and 88f19fd53b3a",
+          "arXiv:2212.08915v1, §1 exact critical constants"
+        ]
+      },
+      "rationale": "The stronger October 25 causal completely monotone theorem already gives exactly the two sharp bounds by the unitary Fourier transform, with the same hypothesis on the image and even weaker decay assumptions allowed. The remaining universal optimum and quadratic deficit are mechanically obtained by completing the square in the ratio of those known formulas; there is no independent sharp mixture-conditioning classification beyond this scalar identity. This is verified coverage plus a direct algebraic implication, not an inaccessible-source verdict.",
+      "residual_risks": [
+        "This review does not establish the historical first discovery of the Fourier-dual result; the verified October 25 coverage suffices for the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified earlier stronger sharp-bound theorem for the Fourier image of every proposed window.",
+          "evidence": [
+            "Lower amplitude is sqrt(a) times integral exp(-as)/(1+exp(-as)); upper is sqrt(a) times integral 1/(1-exp(-as)). Hypothesis is finite inverse first moment of the positive rate measure."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-critical-density-gabor-constants-for-causal-completely-mon--38e7591b1260/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof §§1–3 from offset 0",
+          "method": "Local mirror primary full-text passages",
+          "title": "Sharp critical-density Gabor constants for causal completely monotone windows",
+          "trigger": "Cauchy mixtures become causal completely monotone windows under the Fourier transform"
+        },
+        {
+          "assessment": "Finite-pole existence and representation; constrained infinite discrete existence, not stated exact general bounds.",
+          "evidence": [
+            "Theorem 1.1 gives frame set alpha beta<=1 for a finite positive-pole sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.08959v1",
+          "material_read": "§§1.4–1.5 and §1.7, offsets around 7635 and 14192",
+          "method": "OA primary HTML",
+          "title": "Gabor frames for rational functions",
+          "trigger": "Positive finite Cauchy mixtures and infinite extension"
+        },
+        {
+          "assessment": "The point-mass specialization is already known.",
+          "evidence": [
+            "Both sharp critical constants agree exactly after reflection and inserting the scalar mass."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.08915v1",
+          "material_read": "§1, offsets 5958–6790",
+          "method": "OA primary HTML",
+          "title": "Gabor frame operator for the Cauchy kernel",
+          "trigger": "Exact critical one-pole constants"
+        },
+        {
+          "assessment": "Later-dated overlap for compactly supported measures, not the decisive earlier source.",
+          "evidence": [
+            "Exact same bounds, universal barrier and optimizer; the quadratic deficit is not separately stated there."
+          ],
+          "identifier_or_url": "Resultary 88f19fd53b3a",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Local mirror primary full-text passages",
+          "title": "Sharp critical Gabor bounds and a universal conditioning barrier",
+          "trigger": "Direct Cauchy-mixture catalogue match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp reconstruction bounds for a class of windows are useful, but here the two bounds and their full generality are transferred from earlier bounds by a standard unitary symmetry. The proposed remaining invariant is ratio optimization by one scalar quadratic completion of those bounds, without an additional independent technical result. This does not supply a valuable distinct repaired remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

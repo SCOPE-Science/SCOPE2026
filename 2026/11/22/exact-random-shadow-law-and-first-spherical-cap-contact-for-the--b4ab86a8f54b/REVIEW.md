@@ -1,11 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The facet geometry gives exactly twelve equal-area rhombi, and the Cauchy factor \(1/2\) yields \(B=4(2a+b)\). The extremal inequalities have explicit equality cases. The spherical Jacobian, one-dimensional CDF, exact disjoint-cap law, and 36-pair local overlap coefficient are reconstructed in `RESULT.md`. The standalone checker tests independent convex-hull computations and asymptotic constants, without claiming that finite calculations prove asymptotics.
+## correctness
 
-**Originality — PASS, provisional.** The 2007 polyhedral metric notes, Finch's 2012 projection-moment paper, and Horváth's 2020 brightness/projection-body survey were examined. The 2020 survey describes a rhombic dodecahedron **as the projection body of the tetrahedron**; it does not compute the projection body or area law **of the rhombic dodecahedron**. Other nearby results on truncated-octahedron shadows and rhombic-dodecahedron sections use different input bodies or observables. No equivalent full-CDF and first-overlap statement was identified. This is a bounded comparison, not a guarantee of historical priority. A plausible broad 2026 projection-density preprint could not be obtained in full text and remains a priority risk; the core special-case constants do not automatically follow from an abstract existence/coarea assertion.
+PASS
 
-**Value — PASS.** The exact entire distribution concerns a classical face-transitive Catalan solid, not an arbitrary parameter slice. The geometric identification of its projection body with a familiar Archimedean solid converts a shadow problem to a finite spherical-cap arrangement. The first disjointness threshold coincides exactly with the classical mean brightness, and the sharp \(3/2\) cap-lens singularity and quadratic lower-end law give nontrivial distributional information not obtainable from the known mean alone.
+The representative facet x+y=2 has perpendicular diagonals 2 and 2sqrt(2); summing over the 12 signed-pair facets by Cauchy's formula gives 4(2a+b). The minimum inequality has equality only at a=b=c, and the upper Cauchy–Schwarz equality gives (2,1,0)/sqrt(5). The chamber's solid-angle density in (s,t) is s/(1+s²+s²t²)^(3/2); clipping in t is correct up to null boundaries. The first-order excess at (s,t)=(1,1) is 4((1-s)+(1-t))/sqrt(3); the density is constant to leading order, giving the triangular area, the coefficient sqrt(3)/(8pi), and the normalized uniform simplex limit. For the cap count, (2,1,0) has exactly the three neighbors (2,0,±1) and (1,2,0) at dot product 4; they do not neighbor one another. Thus there are 36 first pairs and no local triple intersections. For a nearest pair put the centers at (C,±S,0), with C=3/sqrt(10), S=1/sqrt(10), R=4sqrt(5). In the chart U=(sqrt(1-y²-z²),y,z), at height x=RC-h the lens is C sqrt(1-y²-z²)-S|y|≥C-h/R. Setting d=h/R, its half-width in z is asymptotically sqrt(2(d-S|y|)/C), for |y| up to d/S+O(d²). Factoring the squared half-width at its simple zero and rescaling gives area 8 sqrt(2/C) d^(3/2)/(3S)+O(d^(5/2)). Multiplying by 36/(4pi) gives the claimed correction. Above contact the caps have disjoint interiors, and just below they overlap on positive area, proving maximality. The mean is 12(2sqrt(2))/4=6sqrt(2), exactly the contact value. An independent height–azimuth quadrature and center enumeration reproduced the cap count, linear tail, endpoint scaling and numerical median.
 
-**Scientific limits.** No classification is claimed for subsequent cap overlaps or nonregular affine deformations. The global CDF is an exact one-dimensional integral. Historical priority is provisional. No independent mathematical audit was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the full directional area law at this rhombic-dodecahedron normalization, including the marked minimum limit and first contact coefficient. The strongest inspected comparisons supply an underlying projection framework, moments, or related laws for different input solids. No inspected statement covers this combination or determines the displayed law without the body-specific chamber and cap geometry.
+
+## value
+
+PASS
+
+For a canonical space-filling polyhedron, the full orientation law gives quantiles beyond the classical mean and extrema. The exact first cap-contact at the mean and the corresponding loss of second-order smoothness describe a geometric change in the law; neither is just a numerical normalization check. The marked lower limit also describes which local orientation deviations realize near-minimal shadows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

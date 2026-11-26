@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:22:13.220078Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, model and exhaustive clique argument",
+        "Frozen verify.py, alternate.cpp, VERIFICATION.md and all four equality/orbit TSVs (scripts inspected, not executed)",
+        "/workspace/checks/05.py, 05-small.log and 05-six.log (replay: python /workspace/checks/05.py 1 2 3 4 5 6)"
+      ],
+      "rationale": "Each singleton must be unbordered; for two words, both directed prefix–suffix overlap tests and Hamming distance at least three are exactly the remaining compatibility constraints. Thus codes are precisely the cliques, and maximal-clique enumeration suffices for the maximum and all its equality cases. The supplied pivot recursion maintains extendible candidates and already-visited extensions. The second checker stops at depth nine, which suffices: a larger clique would contain a nine-clique. Independently I used ternary integer quotient and remainder to form prefix and suffix fingerprints, rebuilt all compatibility edges, and enumerated increasing cliques with a second, unrestricted common-neighbour mask to recognize maximality. For lengths 2–6 this independently gives capacities (1,1,2,4,8), labelled totals (6,18,108,300,528), both stated maximal-clique histograms, and the exact sets in all four TSV files. At length five every pair in each optimal code has Hamming distance three. Recomputing the simultaneous relabeling and reversal action gives size-6/size-12 orbit counts (8,21) and (10,39) at lengths five and six. For length one, two distinct words have distance one, so a singleton is optimal; six is therefore the first length for eight messages. Radius-one balls meet exactly when two centres have distance at most two. The guarantee is aligned correction and uncorrupted non-overlap, not correction of a frame boundary under corruption. For reproduction the frozen Python uses int.bit_count, which requires Python 3.10+ rather than the stated 3.9+; the independent replay used 3.12.",
+      "residual_risks": [
+        "The finite census does not address longer words or synchronizing an already corrupted stream."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al. abstract gives general non-overlap constructions and near-optimal bounds; Blackburn abstract states optimality in certain unrestricted parameters, general bounds, and exact unrestricted capacities through length three.",
+          "The frozen comparison identifies the Wang–Fang–Feng paper as Hamming-constrained partial overlap; DOI metadata was retrieved, but the publisher page and legal OA passage attempts did not yield a decisive theorem."
+        ],
+        "reasoning": "Broader alphabets or lengths alone do not add the missing pairwise separation constraint. A result controlling only selected overlap lengths could imply this exact answer if its upper bound and equalities specialized suitably; no such implication was established from accessible Wang material.",
+        "searches": [
+          "Blackburn, Non-overlapping codes; Chee et al., Cross-Bifix-Free Codes Within a Constant Factor of Optimality; Wang–Fang–Feng, DOI 10.1016/j.disc.2024.114236"
+        ]
+      },
+      "checked_sources": [
+        "Public arXiv preprint passages 1209.0236 and 1303.1026",
+        "Resultary e8e2fd1a9e7a, d72ce427d800, 0189e09c44ac and exact same-record hit",
+        "DOI 10.1016/j.disc.2024.114236 (bibliographic/access evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum distance two prevents one substitution mapping one codeword to another, but still permits overlap of two radius-one balls. A previously known size-nine detecting optimum therefore supplies at most an upper bound for the five-symbol correcting optimum.",
+          "The unrestricted exact length-three bound is not the constrained answer: distance three forces a pair to differ at every coordinate, while the independent tests give no two mutually compatible words."
+        ],
+        "reasoning": "Filtering larger-family optimizers can miss constrained optima altogether; the class with capacity four is a proper subclass of the length-five detecting family. General bounds without the extra hypothesis or matching witnesses do not imply capacity eight and the 528 classified length-six optima.",
+        "searches": [
+          "Compare joint substitution detection d72ce427d800, general non-overlap arXiv:1303.1026, and substitution-restricted partial overlap DOI 10.1016/j.disc.2024.114236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn p. 1 and Introduction define non-overlap using proper prefixes and suffixes, including for equal words. Chee et al. p. 1 use the corresponding cross-bifix-free synchronization condition with individually bifix-free words.",
+          "The exact retrieved capacity and orbit census is the assigned record itself, not an independent precedence match."
+        ],
+        "reasoning": "Cross-bifix-free and non-overlapping refer to the same two-sided restriction here; it is its conjunction with disjoint radius-one Hamming balls that determines the feasible class. The comma-free catalog neighbours use different streaming conditions.",
+        "searches": [
+          "Resultary: ternary cross-bifix-free, non-overlap, distance three, one-substitution correction, length six eight words and 528 labeled maxima",
+          "Chee–Kiah–Purkayastha–Wang arXiv:1209.0236; Blackburn arXiv:1303.1026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e8e2fd1a9e7a published record gives the unrestricted length-five optimum 17 and 12 labeled maxima; d72ce427d800 gives detection optimum 9, 24 labeled maxima and two symmetry classes.",
+          "0189e09c44ac gives length-five single-deletion correction optimum 6, with 72 labeled codes and seven orbits, in its summary."
+        ],
+        "reasoning": "Neither a table of maxima of a weaker constraint nor the table for a different error channel classifies codes with distance at least three. The same-day deletion result is compared by error model, not by its date.",
+        "searches": [
+          "Resultary e8e2fd1a9e7a, d72ce427d800, 0189e09c44ac and the exact target record"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint distance-three non-overlap boundary, especially the complete five-/six-symbol equality census and shortest eight-message length. Earlier exact results on unrestricted non-overlap and on distance-two detection give different feasible families and do not imply that classification. General cross-bifix-free bounds and the standard clique encoding are not claimed as new. The closest partial-overlap distance-constrained article remains an access risk, not proof of noncoverage.",
+      "residual_risks": [
+        "The Wang–Fang–Feng full theorem statements could not be compared; a specialization of partial-overlap results, or an unindexed short-code table, could cover part of the census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational for synchronization, not the inspected joint classification",
+          "evidence": "New constructions of cross-bifix-free codes for arbitrary alphabet size and bounds by a constant factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+          "material_read": "p. 1 abstract and introduction excerpt",
+          "method": "Public arXiv PDF passage",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Classical name and construction of the overlap constraint"
+        },
+        {
+          "assessment": "Same overlap model, unrestricted by Hamming distance",
+          "evidence": "All words, not necessarily distinct, must avoid the proper prefix–suffix coincidence; exact short results advertised through length three.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+          "material_read": "p. 1 abstract and §1 definition",
+          "method": "Public arXiv PDF passage",
+          "title": "Non-overlapping codes (S. R. Blackburn)",
+          "trigger": "Prior exact short-length results and universal non-overlap bounds"
+        },
+        {
+          "assessment": "Weaker constraint",
+          "evidence": "17 codewords at optimum and 12 labeled maximal-size codebooks before enforcing any distance restriction.",
+          "identifier_or_url": "Resultary e8e2fd1a9e7a",
+          "material_read": "Published finding as retrieved by local search",
+          "method": "Resultary comparison",
+          "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+          "trigger": "Direct exact ternary length-five census"
+        },
+        {
+          "assessment": "Detecting, not correcting",
+          "evidence": "Distance two, optimum nine, 24 labeled equality cases, two symmetry classes.",
+          "identifier_or_url": "Resultary d72ce427d800",
+          "material_read": "Published finding as retrieved by local search",
+          "method": "Resultary comparison",
+          "title": "Exact ternary length-five non-overlapping codes detecting one substitution",
+          "trigger": "Same non-overlap and substitution channel but possible differing distance"
+        },
+        {
+          "assessment": "Unresolved possible exact overlap",
+          "evidence": "Only the bibliographic match and the frozen description identify the paper as relevant; no claim about noncoverage of its full contents is inferred.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+          "material_read": "Bibliographic record and frozen source's description of preview, not a primary theorem passage",
+          "method": "DOI, publisher and lawful OA attempts; alternate search identified publisher abstract page, which returned 403",
+          "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+          "trigger": "Strongest partial-overlap distance-constrained paper candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, length and channel scope, explicit optimal codebooks and orbit tables",
+        "Independent complete small-code census and table comparisons"
+      ],
+      "rationale": "There is an operational reason to combine the two constraints and target eight messages: the code must mark uncorrupted boundaries and recover a three-bit message after an aligned single substitution. The sharp length bound, and especially all feasible optimal designs modulo the actual symmetries, are useful exact benchmarks. The distance-three rigidity at five symbols is additional structure, not just an optimum number.",
+      "residual_risks": [
+        "The design interpretation does not claim that noisy frame boundaries can be recovered, and provides no asymptotic guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

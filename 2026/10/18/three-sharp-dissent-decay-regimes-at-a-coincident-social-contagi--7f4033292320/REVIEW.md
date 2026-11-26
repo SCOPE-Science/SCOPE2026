@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The precise claim is a three-regime theorem for the deterministic three-compartment mean-field equations at \(\beta=\eta=\mu\) with strictly positive rates and \(i(0)>0\). Invariant-simplex and positivity arguments, the comparison \(\dot i\le-mi^2\), the forced logistic denier equation, and a contradiction based on the exact integrated reciprocal-infected identity prove global convergence and divergence of the denier clock. The exact transformed system for \(r=i/d^2\) supplies all three sharp limits, including the positive initial-condition-dependent amplitude for \(\delta>\mu\). Each reduction was checked symbolically and numerically; numerical finite-time agreement was not substituted for a proof.
+PASS
 
-## Originality
+The unit simplex is invariant, i remains positive, and s and d are positive at every positive time even for admissible boundary data (at s=0 the derivative is m; with s,i>0 the source for d is positive). The bound i'<=-mi² and scalar comparison for d imply convergence to (s,i,d)=(1,0,0). If the integral of d were finite, solving the first equation for i would give i~1/(mt), whereas d'+md>=asi with s tending to 1 would force an unbounded integral on the right. Direct independent differentiation gives, for r=i/d² and dτ=d dt, r_τ=r[(m-k)-r(2as+(2k-m)d)] and (log d)_τ=-m+r[as+(k-m)d], equivalent to RESULT.md (2)–(3). The quadratic coefficient tends to 2a. Thus for k<m, logistic comparison gives r→(m-k)/(2a); for k=m the reciprocal of r has slope tending to 2a in τ. The d equation then yields the stated limits of td and, in the marginal case, τ~(log t)/m, giving the exact physical-time infected constants. For k>m the exponentially decaying r makes both logarithmic corrections integrable, yielding positive finite limits R=lim r e^{(k-m)τ} and D=lim d e^{mτ}, and t~e^{mτ}/(mD). For example, starting the clock at zero with fixed d(0)>0 gives R<=i(0)/d(0)² and D>=d(0), so the positive physical-time amplitude is at most m^(-p)i(0)d(0)^(-p) for p=1+k/m; hence it cannot be universal. The checks are analytic and specific to the frozen ODE and its initial-data domain. The supplied verify.py and requirements.txt were inspected but not executed; finite trajectory diagnostics would not establish the limits, and the frozen metadata records no formal verification or expert attestation.
 
-**PASS, subject to historical-priority uncertainty.** Crokidakis–Sigaud (2026, arXiv:2601.19806v1, Section 3.1 and Appendix A) derive the mean-field ODEs and the coincident steady-state threshold, and explicitly state that critical exponents were not computed. Their source therefore does not supply the asserted time-asymptotic trichotomy, logarithmic marginal case, or positive large-conversion constant. The related five-variable SERDC model of Mamo (2021) has different transition terms and no implication-equivalent theorem. Published mathematical-record summaries on critical decay in other epidemic systems concern different vector fields and do not subsume the displayed model-specific limit identities on their stated evidence. Broader asymptotic dynamical-systems methods may give abstract derivations and historical priority requires independent review; absence of an indexed match alone is not a proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating source identifies two intersecting phase boundaries and notes its lack of critical exponents. The newly calculated exact physical-time decay hierarchy distinguishes three regimes, including the marginal \(t^{-2}/\log t\) law and continuous dependence of the fast-regime exponent on the conversion-to-renewal ratio. The change occurs at the source model's natural conversion threshold, not at an arbitrary parameter choice. Global initial-state scope and explicit coefficients make the fact an interpretable benchmark for critical slowing in deterministic social contagion; it is not claimed to predict finite-population or network exponents.
+The compartment equations and threshold coincidence are supplied by the original model and receive no novelty credit. Inspection supports the distinct claim of global, sharp relaxation on that coincident surface, particularly the marginal logarithmic law and the positive high-conversion amplitude with variable power.
 
-## Closest literature and limitations
+## value
 
-Primary source: N. Crokidakis and L. Sigaud, *Nonequilibrium phase transitions in a racism-spreading model with interaction-driven dynamics*, arXiv:2601.19806v1 (January 27, 2026), journal DOI 10.1140/epjb/s10051-026-01127-0 (March 11, 2026). Related source: D. K. Mamo, *Modeling the transmission dynamics of racism propagation with community resilience*, *Computational Social Networks* 8 (2021), DOI 10.1186/s40649-021-00102-2. Historical mathematical records were compared by scientific object and implication, not keyword identity. The result excludes an initially empty infected class, finite stochastic agents, heterogeneous networks, empirical calibration, and claims of independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical surface is determined by coincident transitions in a published dynamical model, not an arbitrary parameter slice. It supports distinct long-time laws even though the limiting state is the same. The quantitative borderline between universal quadratic relaxation and an initial-data-dependent power law is scientifically useful; the theorem does not extrapolate to stochastic networks or claim empirical validity of the compartments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

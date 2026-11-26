@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The threshold polynomial is taken from Proposition 3.3 of Costa–Jordan. On the only interval where the additional roots responsible for the lower threshold can appear, \(1<z<1/a\), the derivative with respect to \(\beta\) is strictly negative. Solving the root equation and rescaling \(z=1+(1-a)s\) gives an exact infimum representation. The compact-interior convergence and endpoint controls justify the limit of the infima. The derivative-sign argument establishes a unique minimizer, so the limiting constant is well-defined. The numerical script checks only the reported decimal approximation.
+PASS
 
-## Originality — PASS (best-evidence assessment)
+Reconstructed the first-root threshold. For z≥1/a the expression is positive, so all z>1 roots come from solving z^β=((1+a)z−2a)/(1−az) on 1<z<1/a. This gives a continuous exponent with endpoint value (1+2a)/(1−a) at z=1 and divergence at z=1/a. With δ=1−a and z=1+δs, the scaled exponent is Gδ(s) as claimed; its right derivative at s=0 is −a(1+2a)/2, so its minimum is interior. Along δ→0, Gδ(s)→3 when s→0 by the uniform first-order logarithm expansions, and Gδ(s)→∞ when s→1 within the varying domain, using δ/log(1+δs)≥1/s. The trial value at s=2/5 tends to (5/2)log 3<3, so minimizing sequences stay in a common interior compact set, where convergence is uniform. For f(s)=log((1+2s)/(1−s)), the derivative of sf′−f is sf″, with sign changing from negative to positive at 1/4; sf′−f starts at zero and tends to +∞. Thus the unique interior zero yields the unique minimizer. Independent bisection gives s≈0.37720062726944 and f′(s)≈2.745643576732724. Frozen verify.py was inspected, not run; its bisection only checks the decimal, while the argument above checks the limit. The onset is for stationary roots, not a dynamical or trajectory threshold.
 
-The inspected primary source proves divergence and gives bounds but does not state the sharp scaled limit. Semantic searches using the source polynomial, the threshold name, and the near-neutral parameter limit returned no same-claim result; the closest indexed records concern other phase transitions and do not imply this constant. The related binary feedback-urn paper has a different stochastic model and order parameter. This is a focused asymptotic refinement, not a novelty claim for the underlying urn model. Unindexed literature on bifurcation asymptotics remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The threshold separates the one-stationary-point regime from the regime with additional asymmetric stationary points. Its divergence as interaction becomes neutral was known, but the exact coefficient in the natural scale \((1-a)^{-1}\) determines the leading reinforcement cost of that phase onset. The minimization and uniqueness proof supply a precise, reproducible constant rather than only another qualitative bound.
+Credit the limiting variational problem and constant to the known three-state mean-field Potts spinodal under rescaling. The supported distinct claim is convergence of the finite-interaction Costa–Jordan urn threshold to that constant, not a new spinodal or a new phase diagram. The inspected sources and catalogue comparisons do not state or already supply that convergence.
 
-## Closest literature and limitations
+## value
 
-Costa and Jordan, Proposition 3.3, give \(\beta_1(a)\to\infty\), coarse scaled bounds with endpoints \(2\) and \(3\), and an auxiliary lower bound \(\beta_0(a)\) defined by equation (25). The latter has scaled limit \(2+\log2\approx2.693147\), below the new constant, so it does not identify the threshold asymptotic. Nakayama–Mori analyze a binary feedback urn's critical autocorrelation scaling, not the same three-colour stationary-point threshold. No second-order term, finite-\(a\) closed form, or extension to more colours is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp coefficient quantifies the divergence of the first nontrivial stationary branch where published urn bounds leave a finite leading-order gap. The identification with the Potts spinodal gives a meaningful comparison between stationary thresholds of the two models; merely recomputing the Potts constant would not supply this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -17,7 +17,7 @@ Both constants are finite and strictly positive. As \(L\to\infty\),
 \boxed{\quad C_L^2=\frac1{2L}+\frac{e^{-3L/2}}{2L^2}+o\!\left(\frac{e^{-3L/2}}{L^2}\right),\qquad
 C_L^{\mathrm{loc}}\sim\sqrt{2\pi}\,e^{-L}.\quad}
 \]
-Moreover, for every choice of invariant measures achieving \(C_L\), their marker frequencies \(t_L^*\) obey
+Moreover, \(C_L\) is attained by an invariant measure for all sufficiently large \(L\), and for every choice of such maximizers their marker frequencies \(t_L^*\) obey
 \[
 \boxed{\quad t_L^*=\frac12-\frac34 e^{-3L/2}(1+o(1)).\quad}
 \]
@@ -25,7 +25,7 @@ The equilibrium marker frequency obeys \(\rho_L\sim (\pi/2)e^{-2L}\). Thus the o
 
 ## Assumptions and scope
 
-All logarithms are natural, entropy is per spatial coordinate, and invariant probabilities may be nonergodic or have an atom at the all-zero fixed point. The shift is the closure of bi-infinite concatenations of \(10^{j^2}\); return lengths are \(R_j=j^2+1\). The observable is the single marker cylinder \(\mathbf1_{[1]}\); the theorem does not claim the same sharp constant for arbitrary Hölder observables. The asymptotics concern \(L\to\infty\) in a fixed shift, and no claim is made of uniqueness of the global maximizing density at finite \(L\). An *attaining measure* is one of maximum entropy among measures at its density.
+All logarithms are natural, entropy is per spatial coordinate, and invariant probabilities may be nonergodic or have an atom at the all-zero fixed point. The shift is the closure of bi-infinite concatenations of \(10^{j^2}\); return lengths are \(R_j=j^2+1\). The observable is the single marker cylinder \(\mathbf1_{[1]}\); the theorem does not claim the same sharp constant for arbitrary Hölder observables. An attaining measure must have maximum entropy among measures at its density. The theorem concerns \(L\to\infty\) in a fixed shift and does not assert uniqueness of the global maximizing density or attainment for every \(L>0\).
 
 ## Proof
 
@@ -60,7 +60,7 @@ with equality for the constrained-entropy renewal measures. Consequently
 C_L^2=\sup_{0\le t\le1/2,\,t\ne\rho_L}
 \frac{(t-\rho_L)^2}{D_L(t)},\tag{4}
 \]
-where the quotient is continuously extended to \(t=\rho_L\) by the value \(2/(-H''(\rho_L))\). This extension is finite; thus (4) has a maximizer. For \(t\in(0,1/2)\), the maximizing ratio is attained by the renewal measure with that density.
+where the quotient extends continuously to \(t=\rho_L\) by the value \(2/(-H''(\rho_L))\). The extended quotient has a finite positive maximum on \([0,1/2]\), equal to the supremum in (4). If a maximizing density differs from \(\rho_L\), its entropy-maximizing measure attains (4): the renewal measure at an interior density, or the indicated invariant measure at an endpoint. The extension value at \(\rho_L\) is only a limit of the quotient and does not itself give an attaining measure.
 
 **2. Equilibrium scale and the exact local stability coefficient.** Jacobi's Gaussian transformation yields
 \[
@@ -134,15 +134,15 @@ Run `python verify.py` with `mpmath` installed. The checker evaluates the Gaussi
 
 ## Relationship to prior work
 
-Haydarov, Kadyrov, Makhmudov and Mamayusupov (arXiv:2606.17031, first public 2026-06-15) prove effective intrinsic ergodicity with an unspecified potential-dependent square-root coefficient for renewal-type potentials on \(S\)-gap shifts, together with the induced renewal description. Their theorem does not compute the globally optimal coefficient or its zero-marker-field asymptotics. A separately published square-gap calculation, *A theta-cubic law for sparse-marker entropy in the square-gap shift* (published-finding corpus, 2026-10-25), determines the constrained-entropy curve and its near-zero theta expansion; those results are treated as prior mathematics here. They do not determine the global maximizer's second exponential scale or the refined coefficient in the present global-defect problem. The Legendre-renewal setup and local susceptibility identity are classical tools; the claimed addition is the **simultaneous, sharp, global-versus-infinitesimal stability law and its nonlocal extremizer asymptotics**, not the renewal formulas themselves.
+Haydarov, Kadyrov, Makhmudov and Mamayusupov (arXiv:2606.17031, first public 2026-06-15) prove effective intrinsic ergodicity with an unspecified potential-dependent square-root coefficient for renewal-type potentials on \(S\)-gap shifts, together with the induced renewal description. Their theorem does not compute the globally optimal coefficient or its strong-marker-penalty asymptotics. *A theta-cubic law for sparse-marker entropy in the square-gap shift* determines the constrained-entropy curve and its near-zero expansion. The local susceptibility asymptotic follows from that curve by pressure maximization and differentiation. The claimed addition is the **sharp global stability law, including its nonzero correction and the nonlocal extremizing-density asymptotics**, contrasted with this local benchmark.
 
 ## Limitations
 
-This is a scalar observable-specific result; it neither improves the all-Hölder-observables constant nor establishes independent validation. The global optimizing measure exists but its uniqueness for each fixed field is not claimed. The asymptotic remainder is qualitative, rather than an explicit finite-field error bar. The novelty comparison covers the identified relevant public sources and indexed findings, but cannot rule out unpublished or unindexed equivalent estimates. Numerical checks are independent finite diagnostics, not an infinite certificate.
+This is a scalar observable-specific result; it does not improve the all-Hölder-observables constant. Attainment of the global supremum is proved in the large-field regime, without uniqueness. The asymptotic remainder is qualitative, rather than an explicit finite-field error bar. The novelty comparison covers the identified relevant public sources and indexed findings, but cannot rule out unpublished or unindexed equivalent estimates. Numerical checks are finite diagnostics, not an infinite certificate.
 
 ## References
 
 1. F. Haydarov, S. Kadyrov, M. Makhmudov and K. Mamayusupov, *Effective Intrinsic Ergodicity for renewal-type potentials on S-gap shifts*, arXiv:2606.17031 (first posted 2026-06-15), Sections 1--6, https://arxiv.org/abs/2606.17031.
-2. *A theta-cubic law for sparse-marker entropy in the square-gap shift*, published-finding corpus, published 2026-10-25, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-theta-cubic-law-for-sparse-marker-entropy-in-the-square-gap-sh--1db74ef026b2.
+2. *A theta-cubic law for sparse-marker entropy in the square-gap shift*, 2026-10-25, https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-theta-cubic-law-for-sparse-marker-entropy-in-the-square-gap-sh--1db74ef026b2.
 3. V. Climenhaga and D. J. Thompson, *Intrinsic ergodicity beyond specification: beta-shifts, S-gap shifts, and their factors*, arXiv:1011.2780 (2010), https://arxiv.org/abs/1011.2780.
 4. Classical Kac--Abramov inducing identities and the Jacobi theta transformation, used as standard preliminaries.

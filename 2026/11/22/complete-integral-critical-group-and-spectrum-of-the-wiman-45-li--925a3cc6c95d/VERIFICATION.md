@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Use `python3 verify_wiman.py` with Python 3 and NumPy. It requires no network, external data files or nonstandard computer-algebra software. A successful run prints `WIMAN_45_STABLE_BOUNDARY_FULL_SMITH_AND_SPECTRUM_OK`.
+## correctness
 
-The script reconstructs the 45 lines by projective orbit from the generators in arXiv:1609.08648, reduces modulo 19 with the specified square root of five and cube root of unity, exhausts all 990 line pairs, reconstructs 201 intersection points, and checks their 120/45/36 multiplicity census and each line's 16 incidences. Against the independently documented 201 complex points (arXiv:1407.2966), equality of the reduced distinct-point count makes this a certificate of the complex incidence data.
+PASS
 
-All Laplacian entries are explicitly constructed. For the integer Schur matrix the script checks five spectral eigenvalues and multiplicities by an exact annihilating polynomial and trace moments, together with integral projector identities identifying all triple/quadruple/quintuple incidence eigenvalues. It checks the Schur polynomials and exact determinant, evaluates the 44-by-44 fraction-free minor, and computes 24 prime-local Smith reductions (six relevant primes, four deleted vertices). Reported valuations give an integral finite critical group whose product is the exact tree count.
+Reduction acts on the projective dual via invertible generators, and the finite orbit is the image of the complex orbit under reduction at the specified prime. The independent reconstruction gave 45 distinct reduced lines. Every reduced pair-intersection is the specialization of its generic pair-intersection, so the classical and reduced censuses both being 201 give a bijection preserving all incidences. Ordinary points blow up to distinct transverse branches on exceptional rational components. This gives 246 rational components and 720 nodes in a connected graph with minimum degree three, hence stability and arithmetic genus 475. Exact recomputation verifies the joint eigenblocks by the annihilating polynomial, traces, and projectors. The Schur numerator uses all three point degrees on 27 line eigendirections and degrees 3 and 4 on the other 18, leaving (t−3)^75 and (t−5)^9 as the pure factors; the checked numerators give the claimed characteristic polynomial with simple zero. The matrix-tree formula yields the stated order. Local Smith reduction uses unit row/column operations with minimum valuation pivots, so over Z/p^h each pivot's residue valuation gives the exponent when less than h. Four distinct rooted cofactors yielded the same positive valuations at all six primes. The valuation totals match the independently reproduced tree order, so no other primes can occur; aligning the valuations gives all 76 nonunit factors and the stated exponent. For a regular unit-thickness semistable model the component intersection matrix is the negative graph Laplacian, and the usual degree-zero quotient gives the stated conditional Jacobian Néron component group.
 
-The finite-field construction is not treated as a proof about characteristic zero without the 201-point reduction argument. The program proves a finite numerical certificate, not an infinite-family statement or historical novelty. It does not independently establish existence of a chosen smoothing. The geometric Néron-group identification invokes the classical theorem and assumes regular split semistability with unit thickness at all nodes. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The supported distinction is the complete invariant-factor group and full Laplacian polynomial for the full resolved 246-vertex boundary. The Wiman configuration and its characteristic-19 dual coordinates already exist. The related Smith calculation for the quintuple-only incidence graph solves a different graph and is expressly limited to it. The known Néron correspondence is interpretation, not an originality claim. No distinct full-graph equivalent calculation was established in the bounded review.
+
+## value
+
+PASS
+
+Resolving every singularity is geometrically intrinsic to the stated boundary. The resulting critical group controls a semistable Jacobian component group under the specified hypotheses, and gives invariant factors not recoverable from its order or from the better-known restricted incidence graph. The compact joint spectral decomposition clarifies the same graph's structure and yields its spanning-tree count. The precise data are useful beyond a raw computation on an arbitrary graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

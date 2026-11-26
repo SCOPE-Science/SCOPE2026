@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact half-Cauchy coordinate is obtained by an explicit Jacobian, while circle Poisson moments give an independent proof of invariance for every fixed integer degree. The leading parameter constant follows from a finite binomial identity. All three moment regimes follow by dominated convergence or a controlled logarithmic split; a uniform error estimate, not just a pointwise limit, proves the critical crossover. The checker independently confirmed symbolic coefficients and selected integrals; its finite tests are not infinite proofs.
+## correctness
 
-**Originality — PASS (subject to historical priority risk).** The original 2000 paper already contains the stationary density and parameter relation; the 2002 composition paper concerns other parameter families and entropy. Neither inspected primary text presents the complete stationary-moment classification, the degree-dependent parameter calibration, or the locally uniform logarithmic crossover. General half-Cauchy and beta-prime formulas can imply distribution-level pieces, so the contribution is the coupled dynamical critical-response theorem, not a new distribution. Targeted mathematical-finding and literature comparisons did not identify an equivalent or strictly stronger theorem. Further historical priority checking remains desirable.
+PASS
 
-**Value — PASS.** The endpoint loss of an absolutely continuous stationary state is an intrinsic bifurcation of this hierarchy. The exponent \(q=1/2\) separates observables governed by the shrinking boundary core from observables controlled by rare macroscopic excursions. The exact crossover and coefficients provide reproducible, degree-calibrated predictions for stationary statistics near the neutral endpoint and demonstrate a quantitative failure of differentiable mean response. This is a complete natural moment-response classification, rather than a selected arbitrary value of one integral.
+The normalized stationary law follows from U=√[β(1−X)/X] being standard positive half-Cauchy. For its symmetric signed version of scale τ=β^(−1/2), the Cayley coordinate has Poisson pole p=(1−τ)/(1+τ); the Nth power has pole p^N by its Fourier coefficients. The Chebyshev map acts by absolute tangent multiplication followed by division by α. The resulting scale ratio is precisely the binomial quotient for α, including either sign of p. Expanding that quotient gives β(N−α)→K_N. For the low moments, domination by U^(2q) gives the secant constant; for the high moments, in g=1−x the rescaled density is bounded by g^(−3/2)(1−g)^(−1/2)/π, and the limit is the asserted beta integral. Independently, for q=1/2+s/log β, π√β M_q is the integral of g^(s/log β)(1−g)^(−1/2)/[g+(1−g)/β] on (0,1). The part below β^(−1) is O(1) uniformly for bounded s by integrating βg^(s/log β). Above β^(−1), replacing the denominator by g costs O(1) by the bound β^(−1)/g² away from the integrable endpoint g=1; dropping the (1−g)^(−1/2) factor also costs O(1) since its difference from 1 is O(g) at 0. The integral left is (log β)∫₀¹ exp(−st)dt, proving uniformity including s=0. The exact M₁=1/(1+√β) also follows by partial fractions in the Cauchy integral (at β=1 by continuity). This is a fixed-N stationary result, not a statement about temporal correlations or uniqueness. Frozen check.py and VERIFICATION.md were inspected, not executed.
 
-**Limitations and risks.** Source [1] owns the density and entropy; the asymptotic law is restricted to fixed degree and one parameter boundary. Related general probability facts might have been implicitly recognized elsewhere. This is not a statement about mixing rates or universal behavior of all intermittent maps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known map, density and parameter branch, the standard half-Cauchy transform, and the fixed-order hypergeometric endpoint regimes. The supported distinct part is the calibrated compact-uniform moving-order gap-moment asymptotic for this stationary family. The exact connection formula provides an alternative route but is not itself a uniform moving-order asymptotic. No inspected statement establishes that joint asymptotic for this law.
+
+## value
+
+PASS
+
+At the natural stationary concentration endpoint, the typical gap is order β^(−1), but the mean gap is order β^(−1/2). The normalized critical window quantitatively joins the typical-scale and rare-excursion observables, including the logarithmic enhancement, rather than merely renaming the known invariant density. The moving-order uniform estimate and calibrated comparison of observables are the contribution; this is not a claim of a general response theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

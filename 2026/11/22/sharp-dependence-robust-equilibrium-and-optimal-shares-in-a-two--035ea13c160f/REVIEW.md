@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The monotone self-consistency equations \(x=Q(a(2x-1))\) and \(y=Q(2a(2y-1))\) follow from individual choices and welfare marginal cost, respectively. Uniform-marginal event inclusions bound each root strictly inside its stated interval. A rotation copula puts its difference support on exactly two values; circular-noise smoothing and mixing exactly realize every intermediate root without losing uniform marginals, smoothness, or positive density. For any fixed copula, strict decrease of \(Q\) proves the planner share lies closer to \(1/2\). These constitute proofs rather than inference from finite simulations. The 721 numerical checks in \(\texttt{verify.py}\) are supplementary.
+## correctness
 
-## Originality — PASS within inspected literature
-Su–Mehr–Sastry (arXiv:2607.03625) already give a general given-joint-distribution equilibrium/optimality framework, and Bhattacharya–Makiranta (arXiv:2611.07787) give general pointwise uniqueness under relative congestion dominance. Makarov's classic fixed-marginal tail bounds and Zhang–Richardson's modern discussion (arXiv:2405.08806) are credited. The present theorem identifies all attainable **endogenous** equilibrium/planner shares with only marginals fixed and supplies exact positive-smooth realization plus planner ordering, which is not stated by the inspected references. Relevant indexed mathematical findings concern distinct noisy-resource models or fixed-marginal sum distributions; negative queries alone are not proof of novelty. The original Makarov full text was not inspected, and unindexed equivalent work remains a residual priority risk.
+PASS
 
-## Value — PASS
-The complete partial-identification intervals quantify exactly what is unknowable about a congested market from two known marginal valuation distributions. Their widths shrink with congestion strength, and the planner's possible aggregate shares are always more tightly bounded around balanced allocation. Strong regularity of the joint valuation distribution does not remove the identification uncertainty. The result is a structural application, not simply a textbook pointwise equilibrium derivation.
+For D=U−V the unique scalar root z=Q(b(2z−1)) exists by continuity, monotonicity and opposite endpoint signs. The private payoff difference gives b=a; sorting the largest D first and differentiating a[z²+(1−z)²] gives b=2a for the planner. The sorted intrinsic-value derivative is the strictly decreasing upper quantile of D on the interior, with limiting derivatives ±1, so the planner's root gives the unique maximizing share. For a root above one half, t=b(2z−1) is in (0,1) and Q(t)<1−t, since {D>t} is contained in {U>t} with positive mass in the omitted open part. Reflection gives Q(−s)>s for the lower half. For a target in the upper half of the open interval, t<1−z. Choose z−<z<z+ so close that t lies strictly between both rotations' two support values −z± and 1−z±; these laws have tail masses z± at t. Adding independent wrapped noise gives positive smooth densities uniform in both margins, with limiting tails at t by a.s. convergence off a zero-probability wrap boundary and no atom at t. Mixture now attains the exact tail z. Reflection and independence fill the remaining shares. For the same law, doubling b keeps the root on the same side of one half (the sign at one half is unchanged) and moves it strictly inward, including if the doubled threshold is outside (−1,1). The identified sets are separate, not a Cartesian product claim.
 
-## Limitations
-Only two symmetric linear-congestion destinations, standard-uniform valuation marginals and strictly positive smooth joint densities are covered; the joint attainable set of the Nash/optimum pair is not classified. Endpoint values are not attained. No independent audit or empirical test has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct statement is exact smooth-positive attainment of every interior endogenous share, strict endpoint exclusion, and the resulting dependence-robust identification for both private and social shares. Neither the congestion threshold characterization nor fixed-marginal tail bounds are new. The same-copula balancing is an elementary but useful comparative-static consequence, not the sole basis for originality.
+
+## value
+
+PASS
+
+With only two known valuation marginals, point predictions for congestion allocation need not be identified. Exact open ranges answer how large the ambiguity is, show that requiring everywhere-positive smooth density does not reduce the attainable interior, and distinguish what is robustly true of planner balance for a fixed law from the separately attainable shares. This is a complete, motivated identification calculation, not simulation or a general welfare claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: A wildfire-hazard reversal in the optimal fire deadline for maturing canopy seed banks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is a continuous single-cohort fire-deadline yield-rate problem, not demographic persistence. Maturation is strict age \(m>0\), viable-seed loss is \(\delta>0\), wildfire hazard is \(\mu>0\), and production scale is \(r>0\). The stock and expected reward/duration are derived from the same first-fire time. The exact critical equation \(Q(T)=0\) has a single global root because \(Q'\) changes sign once and \(Q\) ultimately tends to minus infinity. The strict global signs of deadline derivatives follow from the negative derivative \(g_T=-\delta\ell\) and increasing auxiliary function \(H\); all boundary regimes and the limiting deadlines are handled separately. Replay of `check.py` passed 91,091 deterministic numerical assertions, supplementing rather than replacing the proof. Model normalizations and the impossibility of inferring regeneration or ecological safety from this proxy are stated.
+PASS
 
-## Originality — PASS, with historical priority risk
+For the same stock released at either fire, integrate the marginal stock B'(t) against survival up to T and divide by the survival integral for elapsed time. This gives the reviewed ratio, with zero reward for T<=m and positive limiting rate at infinity. The sign of its derivative is the sign of Q, with Q(m)>0, Q increasing up to bm/delta and strictly decreasing thereafter to minus infinity. This proves global uniqueness including comparison with no planned fire; dividing the root equation by mu exp(mu T) proves the bracket. At the root the common logarithmic derivative ell gives g_T=-delta*ell. The derivative of L(k,z) in k is negative and strictly increasing in kz, since the derivative sign of that auxiliary function is controlled by (u-2)exp(u)+u+2 whose second derivative is u exp(u)>0. The bracket orders b(T-m)>mu T, giving the hazard, decay and maturity signs with the implicit derivative. As a cross-check on the hazard sign, J is the exp(-mu t)-weighted average of B'(t). At the maximizer the weighted mean of B'(t)-B'(T) is zero, with negative sign before m and positive sign between m and T, so increasing mu decreases that average at fixed T and moves the crossing later. The positive-parameter bracket gives the high-hazard and zero-decay limits. The critical log-derivative equality gives exp(-b(T-m))/exp(-mu T)=(mu+ell)/(b+ell)>mu/b, proving the upper bound on the relative gain. At zero hazard Q/mu converges locally uniformly to 1+delta T-exp(delta(T-m)) and brackets its unique root on either side. At zero maturity the rate decreases; at zero decay and positive maturity it increases after m; with both zero the rate is constant. No survival, population optimization or real-world fire prescription follows. The frozen check.py and VERIFICATION.md were read, not executed; numerical checks are corroboration, not proof.
 
-The relevant primary sources are McCarthy, Possingham and Gill (2001), DOI 10.1046/j.1365-2664.2001.00617.x, on state-dependent prescribed-fire management under stochastic wildfire; Enright et al. (1998), DOI 10.1046/j.1365-2745.1998.00312.x, on serotinous population growth and variable fire cycles; and Lamont and Enright (2000), DOI 10.1046/j.1442-1984.2000.00036.x, on aerial seed storage and viability. Their available full texts were examined, including substantive methods/results. Reed's scanned 1986 forest-rotation and protection report was inspected on representative pages, but not in complete searchable text; its objective is discounted commercial timber returns with protection spending. General renewal reward calculations are established prior art and are not claimed as new. The nearest related historical mathematical claim concerns power-law timber value under Weibull disaster risk and salvage, rather than a bounded post-maturity canopy seed-stock reward, and does not imply the new hazard-sign statement. The 1997 Boshuizen age-dependent replacement study was accessible only at abstract level, leaving a priority risk. No full-corpus historical uniqueness claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-Maturation delay and seed decay are meaningful opposing mechanisms in serotinous canopy seed stocks. The result gives one global optimizer, an explicit root bracket, strong hazard and decay comparative statics, and sharp disappearance of the finite optimum if either mechanism is removed. It explains a counterintuitive competition between premature wildfire and deliberate release. These exact outcomes are valuable as a transparent model diagnostic, while not justifying real prescribed burning without demographic and field calibration.
+Credit existing renewal-reward and quotient-oscillation machinery, and overlapping random rotation models. The supported distinct bundle is the strict hazard reversal for a delayed, exponentially saturating reward with equal payout at either type of event, together with the explicit bracket, other strict comparative statics and singular limit. No universal planning-heuristic reversal or priority over all replacement-policy models is asserted.
 
-## Boundaries and independent validation
+## value
 
-The theorem assumes exponential wildfire arrival and viability loss, perfect complete fire release, constant post-maturity production, and an expected-yield-per-expected-time proxy; demographic persistence, recovery from premature fire and operational feasibility remain unproved. General age-replacement literature may contain broader results. An independent audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The hazard sign answers a natural comparison for a delayed replenishing but saturating reward at a random event or a chosen deadline. The rate can fall and a scheduled fire become less useful while the optimal elective age rises; the bracket and vanishing relative gain make that distinction quantitative. The zero-loss boundary explains why finite scheduling is specific to positive viability loss and delay. This is an interpretable result about the stated proxy, not a management recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

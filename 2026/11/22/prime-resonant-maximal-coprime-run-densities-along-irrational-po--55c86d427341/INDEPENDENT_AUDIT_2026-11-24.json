@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:36:28.654314Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96, VERIFICATION.md, checker_output.txt and verify_prime_resonance.py (inspected)",
+        "Holdridge arXiv:2611.02223v1, p. 4, Theorem 1.3",
+        "/workspace/branches/fb714907-a702-4840-a443-dc43c18d9d4d/independent_residue_check.py (bounded independent reproduction)"
+      ],
+      "rationale": "If j is the highest index of an irrational nonconstant coefficient, the coefficient of degree j in f(Dm+u)/D is that coefficient times D^{j−1} plus a rational. Weyl therefore applies separately in every n-residue class. The half-open floor-residue intervals are correct also for negative floors. Exactly min(p,k) pairs fail at p, out of p². Theorem 1.3 of Holdridge has the required degree and irrationality hypotheses and bounds the large-common-prime exceptional set separately for every f+j; the finite union bound justifies taking the prime cutoff to infinity for each fixed k. Inclusion-exclusion at offsets −1 and r then gives the stated second difference, with shifted blocks covered by replacing f by f−1. Positivity follows by specifying two distinct primes greater than r+1, one per endpoint and neither conflicting with the interior, and sieving the interior at the other primes using the same tail bound. For the asymptotics, the tail in C_r has log O(r∑_{p>r}p^{−2})=o(1); Mertens gives its main term. In Q_r=C_{r+1}/C_r, the sum of (p²−r)^{−1} differs from ∑_{p>r}p^{−2} by O(r∑p^{−4})=O(r^{−2}), so PNT gives 1−Q_r∼1/(r log r). In δ_r/C_r=(1−Q_r)²+Q_r(Q_{r+1}−Q_r), changes of the common factors are O(∑p^{−4})=O(r^{−3}). With composite r+1 this is negligible against the square; with prime r+1=p the disappearing factor gives a positive ∼p^{−2} term that dominates the square. Both constants and the stated order of the limits follow. Finite CRT reproduction at moduli 30 and 210 confirms only the finite counting step.",
+      "residual_risks": [
+        "Relies on the cited large-prime theorem; no uniform-in-r sampling estimate is proved or needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holdridge supplies the needed large-prime tail for a single input polynomial",
+          "The same-day translate and coupled-floor records concern different joint gcd events; the same-day prime-window spectrum is a cyclic sieve on a different predicate"
+        ],
+        "reasoning": "These statements supply analytic background or related correlation structures but do not contain the large-r two-scale maximal-run claim as a specialization.",
+        "searches": [
+          "Holdridge arXiv:2611.02223v1, Theorem 1.3",
+          "Resultary 25bb71fd06de, 69ba4f4e8a13, 09de38d271fb"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02223v1, Theorem 1.3",
+        "Resultary bcbc904e31ef, ff65dda93828, f1ff76c679ca, 25bb71fd06de, 69ba4f4e8a13, 09de38d271fb",
+        "Frozen RESULT.md, lines 98–117"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-class tail theorem and a fixed-block finite-prime CRT computation imply the block law",
+          "The known leading Mertens asymptotic for C_r cannot be subtracted termwise to obtain the scale of δ_r"
+        ],
+        "reasoning": "The known product provides the arithmetic input, and the maximal-run identity uses classical inclusion-exclusion. The extra assertion uses comparative factor variation at consecutive indices and separates the disappearing-prime contribution from genuine two-endpoint correlations. No inspected prior statement gives that controlled second difference.",
+        "searches": [
+          "arXiv:2611.02223v1",
+          "Resultary bcbc904e31ef and the finite maximal-run comparators",
+          "Frozen RESULT.md lines 98–108, noted generalized Schemmel/Jacobsthal comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For consecutive H, bcbc904e31ef gives ρ_H(p)=min(p,k) for gcd(∏_{h∈H}(n+h), floor f(n))=1",
+          "The same factors arise for gcd(n,∏_j(floor f(n)+j))=1 by interchanging the two residue coordinates in the finite CRT model"
+        ],
+        "reasoning": "The product sequence is numerically identical; residue transposition is not a transformation carrying the underlying integer sequence and its tail estimate into the claimed event. The known finite run identities similarly transfer as techniques rather than as the precise natural-density result.",
+        "searches": [
+          "Resultary: coprimality densities for split integer polynomials and equidistributed integer parts (bcbc904e31ef)",
+          "Resultary: regular-residue and square-gcd maximal runs (ff65dda93828, f1ff76c679ca)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact block product is present for the split-n event",
+          "The inspected exact run spectra attach to regular residues, square-gcd totatives or a prime-window finite sieve"
+        ],
+        "reasoning": "Credit the exact product overlap; no distinct inspected record or table contains the matching varying-modulus maximal floor-run density with its resonance.",
+        "searches": [
+          "Resultary exact/maximal run spectrum under coprimality predicates",
+          "Resultary bcbc904e31ef, ff65dda93828, f1ff76c679ca and 09de38d271fb"
+        ]
+      },
+      "rationale": "The closest published comparator supplies the same numerical Euler-product sequence but for the transposed residue event, and finite run-sieve results supply the second-difference technique. Neither is credited to this record as new. The checked distinction is the exact maximal-run law on consecutive shifts of an irrational floor at the varying modulus n, and especially the leading-order prime/composite dichotomy for its density. This is a best-of-knowledge statement-level assessment, not a historical priority guarantee.",
+      "residual_risks": [
+        "The bounded public literature lookup was non-probative; an equivalent second-difference asymptotic in older generalized Schemmel or Jacobsthal formulations remains possible. The inspected overlap in the product and the classical run-count transform is real and explicitly excluded from the originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the tail, not the joint run dichotomy in the inspected statement",
+          "evidence": "The degree and irrational-nonconstant hypotheses match, and common prime divisors at least R contribute vanishing upper density as R grows.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.02223",
+          "material_read": "v1 p. 4, Theorem 1.3, extracted offsets 10600–12452, theorem near 10847",
+          "method": "OA PDF offset read",
+          "title": "On the probability that the integer parts of polynomials are coprime",
+          "trigger": "Decisive large-prime dependency and possible broader density theorem"
+        },
+        {
+          "assessment": "Same exact product for a distinct event",
+          "evidence": "The shifts are applied to n, not floor f(n), and consecutive shifts give ρ_H(p)=min(p,k).",
+          "identifier_or_url": "Resultary bcbc904e31ef",
+          "material_read": "RESULT.md theorem for distinct shifts H, including the local factor",
+          "method": "Local Resultary mirror",
+          "title": "Coprimality densities for split integer polynomials and equidistributed integer parts",
+          "trigger": "Exact Euler-product overlap"
+        },
+        {
+          "assessment": "Same counting technique, different predicate",
+          "evidence": "Regular residues at fixed modulus, not floor values at the sampling modulus.",
+          "identifier_or_url": "Resultary ff65dda93828",
+          "material_read": "RESULT.md finding on correlation differences and runs",
+          "method": "Local mirror comparison",
+          "title": "Exact higher-order correlations and maximal runs of regular residues",
+          "trigger": "Exact maximal-run formula"
+        },
+        {
+          "assessment": "No matching density/asymptotic in inspected statement",
+          "evidence": "Spectrum for the square-gcd residue predicate at fixed modulus.",
+          "identifier_or_url": "Resultary f1ff76c679ca",
+          "material_read": "RESULT.md finding on the finite-modulus spectrum",
+          "method": "Local mirror comparison",
+          "title": "Exact cyclic run-length spectrum of square-gcd totatives",
+          "trigger": "Exact cyclic run spectrum"
+        },
+        {
+          "assessment": "Different event",
+          "evidence": "Separate gcds of polynomial translates rather than a consecutive shifted-floor run with two noncoprime endpoints.",
+          "identifier_or_url": "Resultary 25bb71fd06de",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror comparison",
+          "title": "Sharp translate threshold and joint GCD laws for irrational polynomials",
+          "trigger": "Same-day translates with joint GCD laws"
+        },
+        {
+          "assessment": "Different event",
+          "evidence": "Uses a coupled extra floor, not the claimed run through consecutive integer shifts.",
+          "identifier_or_url": "Resultary 69ba4f4e8a13",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror comparison",
+          "title": "Exact GCD spectra of rationally coupled polynomial floors",
+          "trigger": "Same-day exact floor GCD law"
+        },
+        {
+          "assessment": "Different sieve",
+          "evidence": "Exact cyclic runs in a prime-window sieve, not the natural-density limit over f(n) and n.",
+          "identifier_or_url": "Resultary 09de38d271fb",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror comparison",
+          "title": "Prime-gap cutoff and complete run spectrum for a prime-window sieve",
+          "trigger": "Same-day prime and exact run spectrum comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete positive distribution of exact run lengths for a natural coprimality predicate; the effect is not just an Euler-product rewrite. It identifies the boundary coincidence when the endpoint separation is prime and quantifies the resulting two-log enhancement against other large lengths. An undifferentiated coprimality density or finite-sieve run count does not answer that question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

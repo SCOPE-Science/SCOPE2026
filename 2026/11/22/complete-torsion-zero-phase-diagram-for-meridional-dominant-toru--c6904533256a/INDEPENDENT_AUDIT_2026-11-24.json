@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:51:45.298756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent Cartesian Taylor expansion and exact polynomial reduction (python /workspace/branches/replay_torsion_algebra.py) reproduced the normalized torsion numerator, endpoint factorizations and decisive curvature components. Because R>1, the radial cross-product component forces sin(qt)=0 at a curvature zero; the other components exclude the outer equator and give exactly R=1+x at the inner equator. The cubic is strictly convex on [-1,1] and negative at zero. On each half interval it has one simple interior root iff the remote endpoint is positive; the signs are those of R-R_- and R_+-R respectively. The endpoint root at +1 has positive derivative in c and therefore order two in t, with nonvanishing curvature. The endpoint root at -1 is excluded even when a separate regular root survives. Each interior root gives 2q parameters and each endpoint q; coprimality ensures these are distinct points. The thresholds cannot coincide because x is rational and the crossing ratio squared is 1+sqrt(3). The argument checks all parameters analytically, not just the frozen test samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuller's Theorem 2.1 gives exactly q vanishing-curvature points at b=p²/(p²+q²), cos(qt)=-1; Remark 2.2 attributes the nonvanishing torsion interval to Costa.",
+          "Costa's actual proposition/proof was not independently readable from the tested routes."
+        ],
+        "reasoning": "Neither the directly inspected curvature theorem nor the indirectly documented qualitative torsion criterion subsumes the complete regular-zero counts.",
+        "searches": [
+          "Costa, On Closed Twisted Curves, Proposition 1 via cited Academia copy, DOI/JSTOR and AMS",
+          "Fuller Theorem 2.1 and Remark 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9803021",
+        "DOI:10.2307/2048380 (primary text not reached)",
+        "Resultary records c6904533256a and 2897dd654772",
+        "Academia record 94106375 (page not readable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fuller's theorem accounts for the exclusion at R_-. The pre-existing zero-free interval accounts for the middle zero count when R_+<R_-. It cannot distinguish two interior cosine roots from one in other regimes.",
+          "The additional calculation uses strict convexity and the endpoint signs to count each half-interval separately, plus the cosine expansion at +1 to determine multiplicity."
+        ],
+        "reasoning": "A cubic or existence criterion is not the count by itself; the decisive root-location and endpoint-multiplicity analysis was not found in inspected coverage.",
+        "searches": [
+          "Fuller arXiv:math/9803021 pp. 3–4 and two-threshold comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Fuller's parameter b=1/R the interval p²/(p²+q²)<b<(q²-p²)/(2q²+p²) is precisely R_+<R<R_- when nonempty. It tests existence, not distinct regular cardinality or order of vanishing.",
+          "The surfaced Nowhere Vanishing Torsion Closed Curves Always Hide Twice page did not yield readable text; no overlap inferred from title."
+        ],
+        "reasoning": "Comparison uses normalized winding and inverse minor-to-major radius, and distinguishes torsion zeros from loss of rank due solely to vanishing curvature.",
+        "searches": [
+          "Focused literature lookup on canonical torus-knot torsion zeros and counts",
+          "Fuller arXiv:math/9803021, Remark 2.2, and cited Costa DOI:10.2307/2048380"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c6904533256a is the very same record, not separate coverage.",
+          "Distinct record 2897dd654772 concerns extrema of curvature on the (2,3) trefoil and a vertex threshold, not zeros of torsion."
+        ],
+        "reasoning": "Neither self-matching nor the distinct curvature-bifurcation record accounts for the torsion phase table; same-day dating is not priority evidence.",
+        "searches": [
+          "Resultary searches for standard torus-knot torsion phases, zero counts and curvature degeneracy"
+        ]
+      },
+      "rationale": "Credit Costa for the established torsion-existence regime and Fuller for the exact curvature singularities. The supported distinct claim is the full count of regular zeros, including the 4q regime, the surviving regular zeros where applicable at the curvature-singular radius, and multiplicities at the outer collision. No actual inspected distinct source supplied or implied this classification as a stated result. Costa's earlier proof remains an important access limitation.",
+      "residual_risks": [
+        "Costa's Proposition 1 and proof could give more explicit counts than Fuller's summary; no primary passage was accessible from the tested lawful routes.",
+        "Unindexed or inaccessible explicit root-count analyses cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers curvature clause and documents Costa's qualitative interval, not the full count",
+          "evidence": "Theorem 2.1 gives b=p²/(p²+q²) and q points; the remark states nowhere-vanishing torsion for p²/(p²+q²)<b<(q²-p²)/(2q²+p²).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9803021",
+          "material_read": "Theorem 2.1, proof, and Remark 2.2, pp. 3–4; remark at text offset 11800",
+          "method": "OA full text, locate then read by offset",
+          "title": "Torus Curves With Vanishing Curvature",
+          "trigger": "Same canonical family and singular radius"
+        },
+        {
+          "assessment": "Known qualitative overlap via Fuller; scope of original proof beyond this unresolved",
+          "evidence": "The tested routes did not supply primary full text.",
+          "identifier_or_url": "https://doi.org/10.2307/2048380",
+          "material_read": "Landing/bibliographic information only; related description in Fuller Remark 2.2",
+          "method": "DOI/JSTOR and JSTOR PDF route, cited Academia copy and AMS route",
+          "title": "On Closed Twisted Curves",
+          "trigger": "Same family; strongest plausible existing cubic and root analysis"
+        },
+        {
+          "assessment": "Different invariant and narrower winding family",
+          "evidence": "Curvature extrema for the (2,3) trefoil, not Frenet torsion zeros.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-curvature-vertex-bifurcation-for-the-standard-circular-t--2897dd654772",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary comparison",
+          "title": "A sharp curvature-vertex bifurcation for the standard circular torus trefoil",
+          "trigger": "Same-day match with sharp torus thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact count for the canonical torus family resolves more than existence: the trefoil has six, twelve, and six regular zeros in the three open regimes, whereas a different winding ratio can yield a middle zero-free window. Multiplicity and loss of Frenet regularity separate two geometrically different transitions. This is a useful extrinsic classification, not claimed to be a knot-type invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

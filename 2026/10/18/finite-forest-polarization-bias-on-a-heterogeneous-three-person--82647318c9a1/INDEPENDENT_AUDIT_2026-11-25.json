@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:12:30.161101Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and assumptions",
+        "Frozen VERIFICATION.md and forest_polarization_check.py, inspected without execution",
+        "Xu–Zhang arXiv:2310.05689v1, equations (2), (4), (12)–(13) and Algorithm 1"
+      ],
+      "rationale": "For a three-person edge Xu–Zhang Eq. (4) gives destination weights hγ_j. Since 1γᵀ is idempotent and centering kills its image, P(z)=P(x)/(1+h)², with P(x)=2/3 in the example. The root-oriented forests have total weight 1+2h+h²: for each tree root r the three trees sum to h²γ_r. Only the empty forest and the four one-arc forests other than 3→1,3→2 give nonconstant binary root opinions, of weight 1+h(1+γ_3). Each such vector has polarization 2/3. Expanding the squared norm of the iid centered mean gives the stated single-draw centered second moment divided by T and no assumption of independence within one forest. The pairwise kernel is unbiased for T≥2. Centered sampled vectors have norm at most √m/2; changing one draw changes 2(T−1) ordered kernel terms by at most m/2 each, giving the stated McDiarmid bound. Bias is strictly positive for the specified h, shares and finite T; the large-h divergence is only relative expected bias.",
+      "residual_risks": [
+        "The source theorem explicitly assumes fresh independent complete forests. The printed Xu–Zhang Algorithm 1 initializes forest state before its sample loop and shows no reset; a literal implementation may reuse roots and would not justify the 1/T bias term. This is not a counterexample under the frozen sampling hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al., sections 4 and 5.1–5.2, use partial forests and additive error bounds; Neumann et al., pp. 2–3, use walk/PageRank approximations."
+        ],
+        "reasoning": "The stated additive error results do not evaluate exact expectation or the singular relative factor in the one-group directed model.",
+        "searches": [
+          "Sun et al., NeurIPS 2025, partial rooted-forest polarization",
+          "Neumann–Dong–Peng arXiv:2404.16464v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.05689v1",
+        "arXiv:2404.16464v1",
+        "Sun et al., NeurIPS 2025",
+        "Resultary ba795ad1b64f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-edge Laplacian and equilibrium are an elementary specialization of Eq. (4), and immediately give contribution invariance after centering. The root-opinion variance depends on joint forest outcomes not given by the opinion expectations or the mean-neutrality criterion."
+        ],
+        "reasoning": "The equilibrium reduction alone is not a novelty basis. Exact weighting of the nonconstant joint root vectors is the step that determines γ_3 and the h/T relative overstatement rather than a direct substitution in previous error or mean formulas.",
+        "searches": [
+          "Xu–Zhang arXiv:2310.05689v1, Eq. (4) and complete converging forests",
+          "Resultary ba795ad1b64f, one-edge specialization of the mean-neutrality criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Zhang Algorithm 1 squares the centered mean estimated opinion; their equations (12)–(13) establish mean correctness of the opinion coordinates. The frozen cross-product kernel averaged over distinct sample pairs is directly an order-two U-statistic; the attempted archival full-text retrieval did not succeed."
+        ],
+        "reasoning": "The plug-in and generic unbiased correction are not original, and coordinate unbiasedness alone neither yields quadratic unbiasedness nor determines the model-specific centered second moment.",
+        "searches": [
+          "Xu–Zhang arXiv:2310.05689v1, sample root opinions and polarization",
+          "Hoeffding 1948 via Project Euclid, order-two U-statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest local hit gives a total equilibrium opinion criterion and polarization comparisons for two overlapping groups. No exact one-edge bias expression was surfaced in ranked local results; the web query was uninformative."
+        ],
+        "reasoning": "Total opinion uses a sum, not centered squared norm, and cannot substitute for this claim; the uninformative search is not a novelty proof.",
+        "searches": [
+          "Resultary title, exact finite-sample three-person rooted-forest bias and contribution-invariance concepts",
+          "Resultary ba795ad1b64f",
+          "Web search for the exact bias factor"
+        ]
+      },
+      "rationale": "The directed model and plug-in, the generic quadratic-mean bias identity and the order-two cross-product correction are antecedent or standard. The distinct bounded result is the exact model-specific separation, including the contribution-dependent factor and strong-coupling expectation scaling, not a claim of priority for U-statistics or generic bias analysis.",
+      "residual_risks": [
+        "A prior exact special-case expectation calculation or more general joint-root moment formula may exist; the exact-factor web lookup added no evidence and the archival U-statistics full-text retrieval failed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, first moment and plug-in prior; no exact three-person bias in inspected passages",
+          "evidence": [
+            "Eq. (4) uses 2h(e)γ_e(j)/(|e|−1). Algorithm 1 describes averaged forest root opinions and a squared centered polarization, but its printed state reset is ambiguous."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.05689",
+          "material_read": "v1 HTML Eq. (2), Eq. (4) at offset about 20000, Eq. (12)–(13), Algorithm 1 at offsets 40000–43500; PDF p. 7 pseudocode",
+          "method": "OA HTML and PDF passages",
+          "title": "Linear Opinion Dynamics Model with Higher-Order Interactions",
+          "trigger": "Exact model and forest plug-in predecessor"
+        },
+        {
+          "assessment": "Different invariant and no forest expectation result",
+          "evidence": [
+            "Main statement concerns preservation of total equilibrium opinion; example polarization comparisons involve overlapping groups."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/...ba795ad1b64f",
+          "material_read": "RESULT.md, finding and comparisons with the uniform-contribution model",
+          "method": "Local mirror",
+          "title": "Incidence-cycle classification of mean-neutral heterogeneous groups",
+          "trigger": "Same heterogeneous directed projection and equilibrium polarization"
+        },
+        {
+          "assessment": "Methodological overlap, not the exact expectation law",
+          "evidence": [
+            "Partial forests and high-probability additive nε accuracy."
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/3660799b242a69dbc9cb8685cdf5ad64-Paper-Conference.pdf",
+          "material_read": "Sections 4, 5.1–5.2, pp. 3,5, offsets 9867–23743",
+          "method": "OA PDF passages",
+          "title": "Fast Computation and Optimization for Opinion-Based Quantities of Friedkin–Johnsen Model",
+          "trigger": "Forest polarization estimation and error analysis"
+        },
+        {
+          "assessment": "Different estimator and guarantee",
+          "evidence": [
+            "Uses local-query/random-walk and personalized PageRank methods with additive approximations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.16464",
+          "material_read": "PDF pp. 2–3",
+          "method": "OA PDF passages",
+          "title": "Sublinear-Time Opinion Estimation in the Friedkin–Johnsen Model",
+          "trigger": "Related approximate FJ opinion estimation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact factor and limitations",
+        "Xu–Zhang arXiv:2310.05689v1, Algorithm 1"
+      ],
+      "rationale": "This minimal heterogeneous example is a concrete warning for a published type of estimator: varying influence can change estimated polarization in expectation even when the centered equilibrium is invariant, and strong interaction can make the expected relative distortion arbitrarily large at fixed T. The exact factor quantifies that failure rather than merely asserting Jensen bias.",
+      "residual_risks": [
+        "The contribution-dependent formula is specific to the one-edge example and does not imply empirical error, typical large relative error, or a concentration theorem on the relative scale."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

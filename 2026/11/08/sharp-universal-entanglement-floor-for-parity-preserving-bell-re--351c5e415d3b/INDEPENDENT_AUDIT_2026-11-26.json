@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:15:33.320866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74 (independent spin-flip, rotation and clock calculation)",
+        "Frozen VERIFICATION.md and checks/verify.py (inspected; finite-support and geometric-truncation checks, not executed)"
+      ],
+      "rationale": "On the even sector the spin-flip product for a density matrix with diagonal entries a,b and coherence c has nonzero square-root eigenvalues sqrt(ab)±|c| (using |c|²≤ab), so concurrence is 2|c|. In logical Bloch coordinates this is the length of the averaged xy projection. The x projection after m applications of a rotation about n is n_x²+(1−n_x²)cos(mθ), so its age average is at least min f_w, since min f_w≤1. A y-axis rotation removes the y projection and gives C=|f_w(θ)|; it extends by the identity on the odd space. Uniform convergence for arbitrary probability weights gives continuity and a minimum; if min f_w≤0, f_w(0)=1 ensures a zero. For p∈(0,1), the geometric transform p(1−q x)/(1−2q x+q²), q=1−p, is increasing in x=cosθ, giving p/(2−p) at x=−1, also valid at p=1. Uniform phase with period k≥2 has f_w(2π/k)=0 by the roots-of-unity sum. The matched quantity is the mean inter-reset interval, not the mean age.",
+      "residual_risks": [
+        "Only ideal parity-preserving gates and exact Bell reset; concurrence is taken after averaging. A synchronized deterministic clock is not asserted to converge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald gives the general age/history-weighted state and discusses deterministic resetting that can remain periodic.",
+          "Murauer gives the Bernoulli stationary state p∑(1−p)^mU^mρ₀(U†)^m and treats concurrence of an averaged state."
+        ],
+        "reasoning": "The general state formulas supply the input to the optimization, not a bound uniform over logical rotation axes or a proof of attainability. Periodicity from a fixed phase is compatible with the invariant uniform-phase mixture under review.",
+        "searches": [
+          "arXiv:2410.11497 p. 3 Eqs. 1–6",
+          "arXiv:2610.40638 pp. 4–6 Eqs. 7, 10–11, 20–24"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.40638",
+        "arXiv:2410.11497",
+        "Resultary 4532bc9cfbd9",
+        "Resultary 9a26edde5420",
+        "One topical web lookup (no relevant hit; not negative evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier phase-gate example gives concurrence of one specified orbit; the opposite clock-optimization result uses E[1−cos(ΩT)]/(Ωμ) for a product-state reset."
+        ],
+        "reasoning": "Minimizing a fixed-axis complex Fourier modulus need not minimize over other axes: the logical y-axis allows a nonzero averaged z component while eliminating the imaginary quadrature of the coherence. The projection inequality valid for every axis makes this construction an exact global optimizer, not a direct substitution into either prior result.",
+        "searches": [
+          "arXiv:2610.40638 pp. 4–6",
+          "arXiv:2410.11497 p. 3",
+          "Resultary 4532bc9cfbd9 and 9a26edde5420"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Murauer pp. 4–6, Eqs. 7, 10–11 and 20–24: geometric mixture and model-specific Bell diagnostics.",
+          "Record 4532bc9cfbd9: |P_t(cos(θ/2))| for a specified hazard and a phase gate; record 9a26edde5420: optimizes recurrence laws at fixed mean for a fixed entangling interaction and a product-state reset."
+        ],
+        "reasoning": "Rephrasing in terms of the characteristic function of age or stationary renewal sampling does not equate minimization over gates at fixed w with these fixed-gate evaluations or with minimization over clocks. Nor are the latter product and Bell resets the same input.",
+        "searches": [
+          "Murauer et al. arXiv:2610.40638",
+          "Wald et al. arXiv:2410.11497",
+          "Resultary records 4532bc9cfbd9 and 9a26edde5420"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected entries give an exact Legendre-node formula or an exact fixed-mean clock phase diagram, not the arbitrary-age gate-wise floor."
+        ],
+        "reasoning": "Resultary is the relevant exact-result index here; a numeric table cannot catalogue the functional on all age laws. The materially matching earlier and same-day entries were compared by statement, not excluded by date.",
+        "searches": [
+          "Local Resultary search for Bell-reset phase and stationary concurrence results; inspected records 4532bc9cfbd9 and 9a26edde5420"
+        ]
+      },
+      "rationale": "The inspected primary and Resultary sources establish age mixtures, fixed-model Bell-reset concurrence or complementary optimizations; they do not cover the attained all-gate infimum as a functional of an arbitrary fixed age law. The universal projection bound and attaining rotation are both needed. This is a bounded statement-level decision, not a priority certification.",
+      "residual_risks": [
+        "Bounded search; an earlier formulation of the logical-qubit gate optimization outside the compared sources is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior fixed-model and state formulas, not all-gate guarantee in inspected sections",
+          "evidence": "Constant-probability age weights and a Bell-reset construction for a specified model.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.40638",
+          "material_read": "PDF pp. 4–6, Eqs. 7, 10–11 and 20–24",
+          "method": "Lawful arXiv PDF passage inspection",
+          "title": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+          "trigger": "Same Bell reset, geometric ages and concurrence diagnostic"
+        },
+        {
+          "assessment": "Framework overlap",
+          "evidence": "Age/history weighted state and distinction between fixed-phase periodic and convergent dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11497",
+          "material_read": "PDF p. 3, Eqs. 1–6 and periodicity discussion",
+          "method": "Lawful arXiv PDF passage inspection",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "General discrete-time reset framework"
+        },
+        {
+          "assessment": "Specific clock and phase-gate class",
+          "evidence": "Finite-horizon |P_t(cos(θ/2))| for hazard 1/[2(n+1)] and U=I⊗diag(1,e^{iθ}).",
+          "identifier_or_url": "Resultary 2026/10/26, 4532bc9cfbd9",
+          "material_read": "RESULT.md finding at offset 352",
+          "method": "Local Resultary mirror",
+          "title": "Exact Legendre entanglement nodes and Bessel scaling under a critical discrete reset clock",
+          "trigger": "Earlier Bell-reset concurrence and phase nodes"
+        },
+        {
+          "assessment": "Complementary optimization, no priority assumed",
+          "evidence": "Fixes interaction, resets to a product state, optimizes renewal law at fixed mean.",
+          "identifier_or_url": "Resultary 2026/11/8, 9a26edde5420",
+          "material_read": "RESULT.md finding at offset 119",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fixed-mean stationary concurrence phase diagram for a renewal-reset entangling pair",
+          "trigger": "Same-day stationary concurrence and renewal optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–34, 63–74; originality comparisons above"
+      ],
+      "rationale": "This gives an exact robustness criterion for a reset experiment when the evolution is known only to preserve parity. The transform determines whether every permitted gate retains ensemble entanglement and yields a gate attaining the floor. Two clocks with identical mean inter-reset intervals can give strictly different worst-case guarantees, a meaningful distinction not supplied by fixed-gate diagnostics.",
+      "residual_risks": [
+        "Does not give a quantitative noise tolerance or a guarantee for imperfect resets or leakage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

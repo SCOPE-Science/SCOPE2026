@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:29.254722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding's open interval is exact for hyperbolic attraction but false for local asymptotic attraction. It conflicts with its own limitation excluding nonlinear endpoint stability. In the repair the interval is 1/2<h<=pi/4, with a nonhyperbolic upper endpoint. On the alternating invariant line g(x)=x-4h sin(x); H(a)=a/(2 sin a) strictly increases from 1/2 to infinity, and a in (0,pi) gives two distinct phase configurations. Both quotient Jacobians are I-h cos(a)L; the spectrum and repulsion above pi/4 follow. At h=pi/4 in edge displacements the two steps are u+Q(u) and u-Q(u) with quadratic part Q2=(h/2)L(s*u^2), componentwise. Both returns have cubic increment -DQ2(u)Q2(u). For W=u^T L_E^(-1)u/2, the leading difference is -(h^2/2)(s*u^2)^T L(s*u^2). The only constant vector of the form s*u^2 is zero, because the signs alternate. Hence the quartic decrease is uniformly definite on the mean-zero unit sphere; a small sublevel is invariant and summability of ||u||^4 gives u->0. This is a full-quotient stability proof, not an inference from an invariant line. Convexity of |1-t lambda| in lambda puts the worst spectral factor at lambda_min and 4; balancing them gives the unique t*=1/[2(1+b_n)]. The neutral endpoint cannot minimize. For local uniqueness at the flip, the w derivative of F^2-I on the complement of the alternating eigenspace is invertible and invariance makes w=0 its unique solution. On the line the divided second return has leading terms 8(h-1/2)-(2/3)x^2, giving a unique positive squared-amplitude branch and the stated onset scaling. Expanding a cot(a) and H(a) gives the large-n constants. The supporting finite checker was inspected only; it does not test the neutral endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The biregular theorem has Lambda=r+s, stable window 2/Lambda<h<pi/Lambda for strict spectral contraction, and optimum ((Lambda-lambda_2)/(Lambda+lambda_2))^2. Set r=s=2, lambda_2=4 sin^2(pi/n) to recover the frozen spectrum and optimum.",
+          "The model-identical paper recognizes the -1 flip at 1/2 and leaves larger strengths untreated; the reciprocal-network Morse–Smale criterion is confined to h<1/lambda_max."
+        ],
+        "reasoning": "The later biregular statement is demonstrable broader coverage of the spectral claim, regardless of what the ordering establishes about priority. None of these theorems establishes full nonlinear attraction of the alternating branch at the upper endpoint.",
+        "searches": [
+          "Resultary bd570f026995 full return spectrum and optimizer",
+          "arXiv:2610.10993v1 abstract and diffeomorphism interval",
+          "arXiv:2610.19953v1 conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, METADATA.json, VERIFICATION.md and checker.py; complete affected replacements under /workspace/repairs/1/",
+        "Resultary 690fe2013b5e, da59163e9d68 and bd570f026995",
+        "arXiv:2610.19953v1, arXiv:2610.10993v1 and doi:10.1088/1674-1056/acc062"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest upper-endpoint treatment has scalar cubic return x-(pi^2/2)x^3+O(x^4), then explicitly says it cannot infer transverse nonlinear attraction. The earlier lower-endpoint proof relies on one neutral mode and strictly contracting transverse modes.",
+          "The circle-map paper describes qualitative period doubling and cluster splitting but not a quartic stability criterion for this homogeneous nearest-neighbor ring."
+        ],
+        "reasoning": "A scalar cubic or one-neutral-direction center-manifold argument does not work by substitution at the upper endpoint, where all modes are neutral. The sign-definite Lyapunov decrement for arbitrary edge displacements is the surviving distinct claim.",
+        "searches": [
+          "bd570f026995 Parabolic return on the two-colour subsystem, offsets 3750–7841",
+          "690fe2013b5e Proof §§3–5, offsets 4500–8304",
+          "doi:10.1088/1674-1056/acc062 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shifting one bipartition by pi conjugates the repulsive ring at opposition to the attractive weighted-bipartite sign convention. The earlier theorem gives the local onset at 2/lambda_max and critical relaxation at the fixed point.",
+          "The balanced mean-field two-cluster scalar equation kappa sin(u)=2u coincides with the ring equation at kappa=4h; its transverse representation is different."
+        ],
+        "reasoning": "These are genuine local or scalar equivalents, so the onset or its phase convention is not a new result. They do not control arbitrary displacements from the cycle when its entire quotient return derivative is the identity.",
+        "searches": [
+          "Resultary 690fe2013b5e weighted bipartite critical decay",
+          "Resultary da59163e9d68 alternating Kuramoto clusters",
+          "arXiv:2610.19953v1 §2.3 and phase-opposition discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 690fe2013b5e contains local onset and uniqueness; same-date da59163e9d68 shares the balanced scalar equation; later bd570f026995 is an exact spectral and optimizer match under specialization.",
+          "The later record also gives a scalar parabolic return at pi/Lambda, not a full-dimensional result, and mentions related earlier exact cycle work without identifying it in the cited passage."
+        ],
+        "reasoning": "Exact overlaps are credited, not discarded by date. Priority is not inferred between same-day records or from the unnamed earlier work. The closest indexed nonlinear conclusion is restricted to the two-colour ansatz.",
+        "searches": [
+          "Resultary: repulsive Huygens even-ring period doubling, optimal transverse contraction, and parabolic alternating cycles",
+          "Resultary 690fe2013b5e, da59163e9d68, bd570f026995"
+        ]
+      },
+      "rationale": "The genuinely distinct repaired claim is nonlinear asymptotic attraction at the upper endpoint in the full common-phase quotient. The local flip overlays earlier weighted bipartite results; the scalar branch has indexed overlap; the spectrum and optimizer are covered by a later general theorem with the same cycle specialization. Those parts provide context and a self-contained classification, not separate novelty credit. The closest endpoint treatment proves a cubic scalar return and explicitly does not infer transverse attraction. The quartic decrease proved here supplies the missing implication when every multiplier is 1.",
+      "residual_risks": [
+        "An exact full-quotient nonlinear stability result in a more general coupled-map theorem may exist. The focused literature query was unavailable and no absence is inferred from it.",
+        "The biregular record's unnamed reference to prior exact even-cycle work leaves some historical provenance unresolved; no separate priority claim is made for the branch, onset or spectral optimizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader spectral coverage and restricted nonlinear coverage",
+          "evidence": "At alpha=pi, obtains a cubic scalar return and explicitly disclaims any transverse inference. Top and bottom Laplacian eigenvalues give the same optimizer for C_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-stable-window-and-optimal-decay-of-alternating-cycles--bd570f026995/RESULT.md",
+          "material_read": "Finding; return spectrum, minimax and scalar parabolic proof, offsets 3750–7841; opening prior-work discussion",
+          "method": "Local mirror bounded passages",
+          "title": "Universal stable window and optimal decay of alternating cycles in biregular Huygens networks",
+          "trigger": "Strongest exact branch, spectrum and optimizer match and closest upper-endpoint calculation"
+        },
+        {
+          "assessment": "Earlier weighted-bipartite coverage of local flip and lower critical decay; not upper endpoint",
+          "evidence": "Local checkerboard birth and uniqueness at h*=2/lambda_max; a simple -1 multiplier and cubic critical relaxation at the fixed point.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-two-cycle-threshold-and-critical-decay-on-weighted-biparti--690fe2013b5e/RESULT.md",
+          "material_read": "Finding; Proof §§3–5 offsets 4500–8304",
+          "method": "Local mirror bounded passages",
+          "title": "Sharp two-cycle threshold and critical decay on weighted bipartite phase networks",
+          "trigger": "Plausibly covers local onset and critical attraction"
+        },
+        {
+          "assessment": "Exact balanced scalar branch after rescaling, but all-to-all rather than cycle connectivity",
+          "evidence": "kappa sin(u)=2u, with kappa=4h recovering the ring's branch equation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-cluster-size-threshold-for-alternating-two-cycles-of-the--da59163e9d68/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Local mirror bounded passage",
+          "title": "A sharp cluster-size threshold for alternating two-cycles of the discrete Kuramoto map",
+          "trigger": "Distinct same-date scalar equation"
+        },
+        {
+          "assessment": "Pre-flip convergence and onset multiplier only",
+          "evidence": "Even cycle top eigenvalue is 4, and -1 is reached at h=1/2; larger-strength bifurcations untreated.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19953",
+          "material_read": "§2.3 offsets 10900–15900; opposition multiplier around 34400; conclusion around 65100",
+          "method": "OA HTML passages",
+          "title": "Almost-global convergence to twisted states in discrete Huygens rings",
+          "trigger": "Identical primary ring model"
+        },
+        {
+          "assessment": "Different stability regime",
+          "evidence": "Criterion h<1/lambda_max does not reach the two-cycle regime.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10993",
+          "material_read": "Abstract and diffeomorphism discussion around offset 18825",
+          "method": "OA HTML passages",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Broader graph theorem could subsume local claims"
+        },
+        {
+          "assessment": "Qualitative period doubling in different network models; no compared full-quotient endpoint theorem",
+          "evidence": "Mean-field and heterogeneous-frequency settings report doubled periods and cluster splitting.",
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/acc062",
+          "material_read": "Abstract; §2 around offset 15700; §5 around offset 36600",
+          "method": "OA publisher passages",
+          "title": "Synchronization–desynchronization transitions in networks of circle maps with sinusoidal coupling",
+          "trigger": "Prior sine-map synchronization bifurcations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the physically and mathematically distinguished upper bifurcation parameter, the derivative is the identity on the entire phase quotient and Floquet stability is inconclusive. Showing full nonlinear attraction decides the actual parameter interval and explains why it is closed at that end even though spectral contraction is lost. A scalar attraction result cannot answer the transverse question. The ring minimax formulas retain their role as a quantitative comparison in the interior but are not the basis of the repaired claim's value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

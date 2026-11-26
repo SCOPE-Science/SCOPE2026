@@ -1,21 +1,21 @@
-# Scientific review: three-word shortest-absent-subsequence law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal claim concerns every full-support word \(U\) over \(L\), every block count \(m\ge2\), and every tail avoiding the distinguished letter \(a\). The proof supplies an explicit unique greedy arch factorization, counts exactly \(2m\) occurrences of \(a\), and proves universality through length \(2m\). Prefixes just before the successive occurrences of \(a\) give the exact rightmost-embedding recurrence; the base missing-pair set is \(\{aa,ba,bb\}\). This reconstructs all three missing words without extrapolating from experiments. The ruler-word recursion proves both morphic identities, and direct word-level arguments handle the earlier two iterates. The standalone checker evaluated 630 morphic/generic instances, with 22 direct exhaustive comparisons at the shortest-absent length; these are corroborating checks, not the proof.
+PASS
 
-## Originality — PASS against inspected sources
+For m>=2 and full-support U on nonempty L, the displayed greedy factorization starts with two UaUb arches, then bUa and UbUa, followed by UbbUa and UbUa pairs as needed; the remainder UbbZ contains all non-a letters and no a. One letter per arch embeds every length-2m word. The 2m copies of a exclude a^(2m+1). Before the second a the prefix is UaUbU and the only missing pairs are aa,ba,bb. Before the jth a for j>=3 (or in the whole word at j=2m+1), there are j-1 complete arches followed by a piece containing all non-a symbols. Thus a missing length-j word must end in a, and matching at the last available a is equivalent to embedding its prefix before that a. Induction gives exactly the stated three words; only the specified fixed alphabet and tails in (L union {b})* are used. For d>=3 the ordinary ruler recursion until the first b gives W_(d-1)=UaUb and phi(U)0=UaU. The exceptional b image gives W_d=RRb and W_(d+1)=(RRb)^2 0bb. For R the only a cannot be paired with itself and the only b is terminal. For RRb all pairs embed, terminal b can follow any pair, final a gives the three missing initial pairs above, and before the last occurrence of each L-letter only bb fails among the pairs. This gives the two d+1 counts at lengths 2 and 3 and the stable three-word case at length 5. Independent direct enumeration on 82 bounded hosts agreed with the stable theorem; the all-parameter proof does not rely on this finite test. The supplied checker and recorded output were inspected, not executed. No claim for all subsequent morphic iterates is established.
 
-Dvořáková, Mol and Pelantová's 2026 paper introduces the exact rich-word morphism and develops a repetition-threshold structure theorem, not a scattered-subsequence or shortest-absent-language theorem. Kosche, Koß, Manea and Siemer give general arch-based criteria and algorithms for shortest absent subsequences; their Theorem 3.4 does not give the parameter-uniform three-word language or the first-full-alphabet transition. The 2025 paper by Manea, Ringleb, Siemer and Winkler concerns generic optimal enumeration, a different type of claim. Related morphic shortest-absent results concern other substitutions or objects; a published all-multinacci arch factorization uses another morphism. Comparison used the actual displayed statements and implications, not title difference alone.
+## originality
 
-The strongest remaining risks are an unindexed closed-form specialization of the general arch theory and incomplete inspection of the 2025 enumeration paper's full text. Searches and full-text checks have not established global uniqueness. The novelty assessment is correspondingly a same-model, evidence-based assessment rather than independent verification.
+PASS
 
-## Mathematical value — PASS
+Credit the exact substitution to Dvořáková–Mol–Pelantová and the general structural characterization of shortest absent subsequences to Kosche et al. The supported distinct result is the explicit stable three-word classification uniform in full-support U, m and the allowed tail, and its three-level transition for this particular morphism. Neither a new general SAS characterization nor historical priority is claimed. The strongest prior characterization indeed applies, but does not give the family-specific prefix and morphism identities that resolve all its constraints uniformly.
 
-The first three iterates of the newly prominent rich-word family to use its entire alphabet have a sharp, uniform shortest-absence transition in size \(d+1,d+1,3\). The three-value collapse is not simply a one-parameter numerical example: the stronger theorem proves that it persists across all alphabet sizes, arbitrary full-support internal blocks and all later block counts with a-free tails. This gives an exact complete missing-language invariant and a constructive explanation from the positions of rare letters. The object and invariant are motivated independently by the 2026 rich-word construction and established scattered-subsequence theory; no external application is asserted.
+## value
 
-## Scope and outstanding risks
+PASS
 
-The conclusion is restricted to the specifically factored block family and the first three full-alphabet morphic iterates, not every later iterate. Finite tests do not establish the infinite quantifiers. General algorithms can compute individual instances and may hide an equivalent symbolic formulation; that publication-priority question needs independent literature review.
+Shortest forbidden scattered words directly measure where universality breaks, and the substitution is independently motivated by rich-word structure. The exact boundary and complete languages distinguish that family from other substitutions, without merely reporting three finite runs. The uniform extension explains why arbitrary internal multiplicity/order and a-free tails from the specified alphabet do not perturb the three obstructions; the length and count alone would miss this structural information. The claim remains limited to the three morphic levels and the stated block class.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

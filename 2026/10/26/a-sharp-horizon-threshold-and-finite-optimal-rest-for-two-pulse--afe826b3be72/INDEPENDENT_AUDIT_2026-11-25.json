@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:52:58.327845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Composing the wet and dry flows gives k[U−f_c(T−δ)]/A = 2−b−bac−(1−b)(a+c), with a=exp(−kt₁), c=exp(−kt₂), b=exp(−hδ). At fixed internal gap ac is fixed and the arithmetic–geometric mean inequality uniquely gives a=c. Define B(z)=z(1−z)+r(1−z)². The reduced objective has G′/A=−η−z+bB and G″/A=−(kz/2)(1−bB′)−hbB<0 because B≥0 and B′<1 on the feasible z-range. G′(T)=−f_c−A; the left slope divided by A is r(1−z₀)²−z₀²−η, strictly increasing from −1−η to r−η as T grows. Its root for r>η rationalizes to the stated z_c, including r=1; equality at T_c still gives a unique zero gap. A zero gap has arbitrary bookkeeping splits of one physical wet interval. For the interior solution, ∂_T G′=(Akz/2)(1−bB′)>0 and stationarity implies η=bB−z≤b(B−z)<br. This proves monotonicity and the strict bound; hence z tends to 0 and stationarity gives the stated limiting rest. At onset the ratio ∂_T G′/(−G″) reduces to the displayed coefficient after using 1−B′=2[z+r(1−z)]. The exact logarithmic benchmark follows by substitution. This is a fixed clock horizon with capacity-saturating weather, initially recovered capacity and no carried ponding or fixed dose. The frozen verification notes and script were inspected, not executed; the result is obtained analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "OpenSWMM §4.2.2, equations (4-6)–(4-9), gives exponential recovery in true dry weather without ponding",
+          "dc0a9d01824e includes general concavity for allocations of fixed total dry time at fixed wet durations"
+        ],
+        "reasoning": "The established flow model contains the frozen dynamics but does not optimize its controls. Fixed-wet-length concavity does not cover the present curve along which increasing a gap shortens both wet intervals. The intermittent-sprinkler full-text comparison remains limited by access.",
+        "searches": [
+          "OpenSWMM Chapter 4 §§4.2.1–4.2.2",
+          "Gençoğlan et al., DOI 10.1016/j.agwat.2004.08.001",
+          "Resultary: dry recovery gap increasing horizon limit log(r eta) infiltration pulse schedule"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Relationship to prior work; VERIFICATION.md; verify.py",
+        "OpenSWMM §4.2.2",
+        "Resultary records dc0a9d01824e, 955c7a9f5dc3, 5766f0fbf310, 0b80c2838f31",
+        "Gençoğlan et al. (2005), Karmeli–Peri (1974), Dadhich et al. (2012), access-limited as documented"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SWMM computes the recovered state after a prescribed dry step, not an optimal rest",
+          "0b80c2838f31 optimizes dates of two fixed water additions under saturating uptake rather than trading wet duration against inactivity",
+          "Accessible Gençoğlan description concerns ponding time and on–off cycle count with Horton/Kostiakov capacities; exact optimization assumptions were not independently read"
+        ],
+        "reasoning": "Prescribed-step state evolution or optimal dates for fixed inputs do not give the stationarity test for spending part of a fixed horizon on recovery. No checked implication supplies the simultaneous threshold and rest law.",
+        "searches": [
+          "OpenSWMM §4.2.2 (4-6)–(4-10)",
+          "Resultary record 0b80c2838f31",
+          "Gençoğlan et al., DOI 10.1016/j.agwat.2004.08.001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four-equal-Horton-burst record dc0a9d01824e holds wet lengths and total dry budget fixed",
+          "Green–Ampt sequencing record 955c7a9f5dc3 orders intensity histories using wetting-front dynamics"
+        ],
+        "reasoning": "Neither fixing a dry budget nor reordering intensity at fixed input is a reparameterization of choosing both the wet split and how much of T to spend recovering.",
+        "searches": [
+          "Resultary: Horton two-pulse infiltration equal wet durations fixed dry rest",
+          "Resultary: Horton infiltration fixed horizon optimal rest threshold r eta critical T"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected closest indexed Horton threshold dc0a9d01824e is a middle-to-three-gap switch at a fixed dry budget",
+          "Inspected moisture-delay record 5766f0fbf310 has finitely limiting delay but uses instantaneous inputs and Hill-two response"
+        ],
+        "reasoning": "No inspected indexed statement has the same cutoff, optimizer and onset for this model; no relevant numerical table could by itself supply their continuous-parameter classification.",
+        "searches": [
+          "Resultary: Horton infiltration fixed horizon optimal rest threshold r eta critical T",
+          "Resultary: Horton infiltration optimal rest onset coefficient critical horizon exponential recovery"
+        ]
+      },
+      "rationale": "The wet and recovery laws are established, as is pulse irrigation. The supported distinct result is the global one-gap optimization with both wet durations free under a fixed clock horizon, including the activation, increasing bounded rest, and one-sided onset. The closest examined catalogue results and available source passages do not yield that optimization. This is a best-of-current-knowledge judgment, not a priority certification.",
+      "residual_risks": [
+        "Full-text coverage of the closest cited intermittent-irrigation papers could not be established; related results in those papers or other historical sources remain possible.",
+        "The wet and dry laws, empirical framework and general pulse concept are not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recovery ingredient covered; no scheduling optimizer in inspected section",
+          "evidence": "(4-6)–(4-9) give exponential return toward maximum capacity from the capacity at drying onset, during no precipitation or ponding.",
+          "identifier_or_url": "https://www.hydrocouple.org/openswmm.engine/d9/de6/hydrology_ref_ch4_infiltration.html",
+          "material_read": "§4.2.2, offset 9130 onward, equations (4-6)–(4-10)",
+          "method": "Public original page, literal locate then bounded reading",
+          "title": "OpenSWMM Engine: Chapter 4 — Infiltration",
+          "trigger": "Established recovery model"
+        },
+        {
+          "assessment": "Related gap activation, different constraint and objective tradeoff",
+          "evidence": "Four prescribed equal wet lengths and fixed total dry time; activation of outer gaps past a threshold. General gap concavity there fixes wet lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-dry-gap-activation-threshold-for-four-equal-horton-infil--dc0a9d01824e",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary search and local-mirror reading",
+          "title": "A sharp dry-gap activation threshold for four equal Horton infiltration bursts",
+          "trigger": "Closest indexed model and threshold"
+        },
+        {
+          "assessment": "Adjacent optimization questions, not broader coverage of the frozen model",
+          "evidence": "The first uses Green–Ampt wetting-front dynamics; the latter two optimize instantaneous or fixed additions with other uptake laws.",
+          "identifier_or_url": "955c7a9f5dc3; 5766f0fbf310; 0b80c2838f31",
+          "material_read": "Each RESULT.md Finding from offset 0",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Indexed Green–Ampt sequencing and two-input timing results",
+          "trigger": "Possible same-day equivalent model or identical delay law"
+        },
+        {
+          "assessment": "Potential overlap not excluded by access-limited evidence",
+          "evidence": "Accessible description identifies Horton/Kostiakov ponding and cycle count. The frozen record describes a fixed dose and runoff avoidance; this detail was not confirmed from the primary paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.agwat.2004.08.001",
+          "material_read": "Accessible search description; no primary full text",
+          "method": "Publisher/DOI and identified lawful alternate copy attempted",
+          "title": "Determination of ponding time and number of on–off cycles for sprinkler irrigation applications",
+          "trigger": "Closest cited intermittent-Horton primary paper"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": "The titles and frozen record descriptions alone cannot exclude a related special case.",
+          "identifier_or_url": "10.1061/JRCEA4.0000988; 10.1002/ird.1674",
+          "material_read": "Bibliographic evidence; no full text",
+          "method": "DOI and repository access attempted",
+          "title": "Basic Principles of Pulse Irrigation; Saving Time in Sprinkler Irrigation Application through Cyclic Operation",
+          "trigger": "Historical pulse irrigation and theoretical cyclic scheduling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A practical modeling choice becomes an exact mathematical decision: when an interruption is worth sacrificing capacity-saturating wet time. The threshold replaces a continuous timing search, proves when no rest can ever pay, and gives quantitative onset and saturation of the unique rest when it does pay. This is useful within the two-pulse model, without implying anything about fixed-dose irrigation, richer soils, or schedules with more pulses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

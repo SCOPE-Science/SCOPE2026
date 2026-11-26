@@ -1,15 +1,21 @@
-# Review of the \(GP(25,2)\) strong metric dimension
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex and edge definitions specify a 50-vertex cubic graph uniquely. The three distance rows and the MMD comparison yield exactly two disjoint circulant components with forbidden cyclic distances \(\{5,7,9,11,12\}\) and \(\{9,11\}\). The five displayed cliques cover all fourteen possible additional outer vertices after fixing one omitted vertex, proving at most six outer omissions. The five explicitly indexed disjoint five-cycles cover the inner ring, proving at most ten inner omissions. The sixteen omitted vertices in the concrete construction satisfy all nonadjacency conditions. Their thirty-four-vertex complement strongly resolves all pairs by the established strong-resolving-graph theorem, and direct distance verification independently checks every one of the 1225 unordered pairs. The exact conclusion is \(\operatorname{sdim}(GP(25,2))=34\).
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary source is Kratica–Kovačević-Vujčić–Čangalović, arXiv:1507.00881, published in *Applicable Analysis and Discrete Mathematics* 11 (2017), 1–10. Section 2 proves only the bound \(\operatorname{sdim}(GP(4k+1,2))\le5k+5\), and its exact-value table ends at \(n=19\); the conclusion explicitly proposes equality for every \(k\ge5\). The value \(34\) at \(n=25\) contradicts that proposal, rather than repeating an already established special case. Oellermann–Peters-Fransen's general strong-resolving-graph theory does not compute the graph-specific independence number. Raza–Ji's 2020 full-text paper addresses the distinct mixed metric dimension. Targeted exact-parameter, alias, general-coverage and published-research-record searches identified no prior determination of \(\operatorname{sdim}(GP(25,2))=34\). Searches are not a proof that no unindexed result exists; that is the remaining originality risk.
+PASS
 
-## Value — PASS
-This answers a naturally specified parameter instance in a named conjecture from directly relevant archived research and gives a genuine counterexample at its sixth-index case, not a cosmetic modification of a known example. The new value follows from a transparent structural decomposition into a fourteen-vertex clique cover and five five-cycles, plus an explicit optimal resolving set. It pinpoints an obstruction to a proposed all-parameter equality and motivates revisiting its correct range. No claim is made about other orders or the complete set of exceptions.
+Independent distance-layer construction on the stated 50-vertex graph and testing endpoint neighborhoods gives 175 mutually maximally distant pairs, with outer offsets {5,7,9,11,12}, inner offsets {9,11}, and no mixed pairs. An MMD pair can only be strongly resolved by one of its endpoints: otherwise a geodesic through that endpoint continues to a neighbor farther from the other endpoint. Thus any omission set is independent in the MMD graph. Translating an outer omitted vertex to 0 leaves five cliques partitioning its permissible companions, so at most six outer omissions are possible. Five disjoint pentagons give at most ten inner omissions. I independently computed both maxima by maximum-clique search in the component complements; they are six and ten. I also checked the proposed complement of the 16 omissions directly against all 1225 shortest-path betweenness tests, so the upper bound does not rely on the converse MMD theorem. At k=6 the proposed equality predicts 35, so exactly 34 is a counterexample without contradicting the proved upper bound.
 
-## Closest literature and limitations
-The applicable sources are Kratica et al., DOI:10.2298/AADM161110032K and arXiv:1507.00881; Oellermann and Peters-Fransen, DOI:10.1016/j.dam.2006.06.009; and Raza and Ji, DOI:10.3389/fphy.2020.00211. The finite proof does not extend automatically to other generalized Petersen graphs. A matching result could exist in an unindexed computation or table. The published conjecture was checked directly in its full open-access paper. The provided verifier is deterministic and library-free.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defining source gives the upper bound 35 at this order and explicitly conjectures equality, not 34. Its exact computations do not reach this order. A distinct later-dated Resultary record substantially overlaps and extends the result, but does not establish earlier coverage of this frozen finding.
+
+## value
+
+PASS
+
+The graph order and invariant are motivated by an explicit published family conjecture. An exact counterexample outside the published computational range determines that the conjecture is false, with a structural optimality certificate and a reproducible witness. The claim does not need a corrected family formula to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

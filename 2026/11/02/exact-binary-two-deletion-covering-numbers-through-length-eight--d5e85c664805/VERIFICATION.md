@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 (standard library only). `verification_output.txt` is the recorded replay output. The source `verify.py` contains every claimed length, every witness word and every positive orbit weight, with no external data files.
+## correctness
 
-For all source lengths \(2\le n\le8\), the checker forms each source's complete set of retained length-\(n-2\) subsequences by choosing every pair of deleted positions. It independently checks the same relation via greedy subsequence matching for every possible source/target pair. It then checks every proposed cover, including the full 64-word target space at length eight.
+PASS
 
-For lengths six, seven and eight it expands the positive integer weights to reversal/complement orbits, rejects overlapping orbit specifications, calculates the total target weight, and checks the weighted sum for every possible source. The computed \((\text{total},\text{maximum single-source})\) pairs are \((8,3)\), \((10,3)\), and \((74,12)\). Therefore no smaller covering set can exist. All 21,844 incidence decisions were independently cross-checked. This is a finite exhaustive proof for the listed fixed lengths, not an infinite-length extrapolation or external certification.
+At length n the targets are precisely the 2^(n-2) binary words of length n-2, including the empty word at n=2. Incidence is ordinary subsequence containment: any length-n embedding of a target leaves exactly two positions unselected. I reconstructed this entire incidence relation independently via leftmost symbol matching, checked each cover printed in RESULT.md, expanded the weight prescriptions by canonical reversal/complement representative, and computed the exact total and per-source maximum. The pairs at lengths 6,7,8 are (8,3),(10,3),(74,12). For nonnegative weights, a cover must account for every target's weight at least once, so k members account for at most k times the cap, even if there are overlaps. The three ceilings are 3,4,7, matching the witnesses. At n=5 one word cannot contain both 000 and 111; at n=2..4 the nonempty-cover lower bound is sharp. The finite profile is (1,1,1,2,3,4,7). Replay: /workspace/review-work/small_checks.py deletion; output deletion_results.txt. No optimization tolerance, inference beyond the seven specified lengths, or classification of optimal covers is needed.
 
-The checker does not establish originality or any optimum outside the stated finite range. No independent audit was performed.
+## originality
+
+PASS
+
+The complete initial binary arbitrary-two-deletion covering profile, particularly exact length-eight optimality, is distinct on inspected evidence. Existing deletion-covering definitions, general bounds, packing results, and a ternary two-deletion profile do not certify this result. The problem, set-cover bound and similar certificate methods are prior art.
+
+## value
+
+PASS
+
+Minimum deletion covers are a standard directed covering invariant. The complete initial binary radius-two table includes a nontrivial 64-target optimum with a lower certificate stronger than generic volume bounds. The seven-word matching cover and small verifiable dual weights give an exact benchmark for finite deletion-cover constructions and bounds; the value does not rest on the trivial small lengths or on a claim to have invented the dual method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

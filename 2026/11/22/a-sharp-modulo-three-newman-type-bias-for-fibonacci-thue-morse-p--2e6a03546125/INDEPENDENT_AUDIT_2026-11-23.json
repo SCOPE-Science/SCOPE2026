@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:45:17.950478Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–76; VERIFICATION.md and verify.py, inspected without execution",
+        "Independent finite replays: signed-word concatenation for the first three phase-seven cutoffs, and exact cubic-ring matrix and signed residue counts"
+      ],
+      "rationale": "The zero word is included, and legal length-L words cover the half-open cutoff: those with a leading zero represent [0,F_(L+1)), and those with a leading one force the next digit to be zero and shift [0,F_L) by F_(L+1); the length zero and one cases start the induction. Weighting by digit parity therefore yields Q_L=Q_(L-1)-z^{F_(L+1)}Q_(L-2) with Q_0=Q_(-1)=1. At a primitive cubic root omega, modulo-three Fibonacci weights are 1,2,0,2,2,1,0,1, repeating since the Fibonacci pair returns. Exact arithmetic with omega^2=-1-omega gives M=[[8+omega,-1-3omega],[3+omega,-omega]], trace 8 and determinant 1. Each phase is a fixed prefix of the periodic transfer times M^t, so Cayley–Hamilton gives the same second-order recurrence; the phase-seven first values 3 and 23 make that subsequence real and strictly positive (the recurrence preserves strict increase). At z=1 the values repeat 1,0,-1,-1,0,1, giving b_t along L=8t+7. Fourier inversion of (b_t,q_t,q_t) gives the exact signed histograms and strict signs. The two distinct eigenvalues 4±sqrt(15) bound all eight phases by a constant times (4+sqrt(15))^t, and F_(L+2) is comparable to phi^L. The positive coefficient (23-3(4-sqrt(15)))/(2sqrt(15)) at phase seven gives a matching positive-order term in D_L(0), excluding every smaller exponent on Fibonacci cutoffs. Independent signed-word concatenation gave (2,-1,-1), (15,-8,-8), (121,-60,-60) at L=7,15,23; independent ring arithmetic and a residue DP also reproduced the matrix and base/phase checks. The unbounded result uses the proof, not the table.",
+      "residual_risks": [
+        "The optimality statement is explicitly for Fibonacci cutoffs. No all-prefix exact formula or sign statement is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drmota–Müllner–Spiegelhofer, Theorem 1, gives o(N) for the same Zeckendorf sign against every bounded multiplicative weight.",
+          "Drmota–Steiner studies normalized digit sums on polynomial sequences or primes, and Popoli–Stipulanti study correlation measures of automatic words."
+        ],
+        "reasoning": "Apply the orthogonality theorem to 1, the principal mod-three character, and the nonprincipal mod-three character. The class-zero indicator is 1 minus the principal character, and the two other indicators are its half-sum and half-difference with the nonprincipal character. Thus sublinear cancellation in each class for arbitrary prefixes is already implied. This gives neither the exact class signs and histogram nor a sharp numerical power exponent along Fibonacci cutoffs.",
+        "searches": [
+          "arXiv:1706.09680, Theorem 1; Numdam JTNB_2002__14_2_439_0, abstract; arXiv:2408.14059, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2e6a03546125 (self-match), a376371772be and 41041c609d2c",
+        "arXiv:1706.09680; arXiv:2203.10504; arXiv:2408.14059; doi:10.37236/948; Numdam JTNB_2002__14_2_439_0",
+        "doi:10.2307/2036455, attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact same-character qualitative cancellation follows from the inspected theorem as above. Fixed-weight two-term asymptotics use constants depending on the fixed weight. The cited binary Newman article's original full text was not available on the bounded attempt."
+        ],
+        "reasoning": "The distinct work is computing the cubic-root period transfer with trace 8 and determinant 1, the exact phase and real initial values, and the matching growth lower bound. Neither qualitative cancellation nor fixed-weight asymptotics yields these. No implication is asserted based on inaccessible Newman full text; binary digit parity and Fibonacci summand parity are different weights.",
+        "searches": [
+          "arXiv:1706.09680, Theorem 1; Resultary a376371772be, Finding and scope; doi:10.2307/2036455, access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shallit defines the same parity word but studies its factors/complexity. Ferrand's inspected abstract discusses the analogous self-similar word and matrices.",
+          "Resultary a376371772be concerns nonnegative counts on the identical cutoff convention but at fixed summand count k, not the alternating sum over all k."
+        ],
+        "reasoning": "An exact cubic additive-character block sum would be equivalent via finite Fourier inversion. Merely defining the parity word or giving its complexity is not such a sum. Fixed-k asymptotic errors are allowed to depend on k and cannot be summed through the growing full range to infer the parity law.",
+        "searches": [
+          "Resultary: Zeckendorf digit-weight parity modulo three, Fibonacci–Thue–Morse rarefied sums and exact Fibonacci-cutoff recurrence",
+          "arXiv:2203.10504; Ferrand doi:10.37236/948; Resultary a376371772be"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match 2e6a03546125 is the frozen item itself.",
+          "41041c609d2c tabulates a ternary-block bias for central quadrinomial coefficients, not the Zeckendorf sign word. a376371772be gives exact rational asymptotic coefficients on fixed-weight slices, not phase-seven signed counts."
+        ],
+        "reasoning": "Same modulus or a named recurrence for a different underlying sequence is not coverage. A digit parity word can supply finite entries by enumeration but this is not an all-cutoff formula or the spectral growth rate.",
+        "searches": [
+          "Resultary 2e6a03546125 (same frozen record), 41041c609d2c, a376371772be"
+        ]
+      },
+      "rationale": "The same parity word and sublinear arbitrary-prefix cancellation in each residue class are already covered. The distinct result supported here is the exact phase-seven histogram and sign law and the sharp explicit Fibonacci-cutoff exponent. Neither the inspected multiplicative-orthogonality theorem nor a fixed-weight conditional count determines them. The exact Resultary search self-match is excluded as independent evidence.",
+      "residual_risks": [
+        "Some primary comparisons were abstract-level; original Newman full text was not accessible. An exact earlier calculation in other numeration-system or rarefied-word literature could change the originality assessment. No inference about historical priority from search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative arbitrary-prefix cancellation in each class by characters, not the exact recurrence or exponent",
+          "evidence": [
+            "o(N) against every bounded multiplicative m; includes the two needed Dirichlet characters and the constant 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.09680",
+          "material_read": "PDF p. 3, Theorem 1, extracted offset 5848",
+          "method": "Bounded open primary PDF passage",
+          "title": "Möbius orthogonality for the Zeckendorf sum-of-digits function",
+          "trigger": "Potential broader arbitrary-prefix classwise cancellation for the identical signs"
+        },
+        {
+          "assessment": "Fixed-weight unsigned slice asymptotics; not the alternating all-weight sums",
+          "evidence": [
+            "k,m are fixed; second-order error O_(k,m)(L^(k-2)); no uniformity in k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-term-residue-distributions-on-fixed-weight-zeckendorf-slices--a376371772be/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0 through 2699",
+          "method": "Bounded local-mirror text",
+          "title": "Two-term residue distributions on fixed-weight Zeckendorf slices",
+          "trigger": "Same numeral system, residue counts and Fibonacci cutoff"
+        },
+        {
+          "assessment": "Identifies the sign sequence but studies complexity",
+          "evidence": [
+            "Parity of Zeckendorf digit sum and properties of special factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.10504",
+          "material_read": "PDF pp. 1–3, definition and complexity/factor discussion, extracted offsets 0 and 5080",
+          "method": "Bounded open primary PDF passages",
+          "title": "Note on a Fibonacci Parity Sequence",
+          "trigger": "Exact same Fibonacci parity word"
+        },
+        {
+          "assessment": "Structural analogue in the part read; no exact residue claim inferred from the abstract",
+          "evidence": [
+            "Self-similar word and incidence and Möbius matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/948",
+          "material_read": "Open journal PDF abstract, p. 1, offset 0",
+          "method": "Bounded primary PDF extract",
+          "title": "An analogue of the Thue–Morse sequence",
+          "trigger": "Original Fibonacci analogue and matrix methods"
+        },
+        {
+          "assessment": "The inspected assertion is about normalized digit sums, not exact signed residue laws",
+          "evidence": [
+            "Limit laws for polynomial subsequences or primes."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/JTNB_2002__14_2_439_0/",
+          "material_read": "Abstract, extracted PDF offset 1731",
+          "method": "Bounded open primary PDF extract",
+          "title": "The Zeckendorf expansion of polynomial sequences",
+          "trigger": "Distribution results on Zeckendorf weight in arithmetic settings"
+        },
+        {
+          "assessment": "Binary analogue as cited in the frozen text, not proof of novelty or prior coverage",
+          "evidence": [
+            "The frozen comparison identifies binary digit parity as the relevant classical statistic; the present result uses Fibonacci summands."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2036455",
+          "material_read": "Original full text not independently accessible (HTTP 403); no substantive full-text claim made",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "On the number of binary digits in a multiple of three",
+          "trigger": "Classical Newman analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 51–76",
+        "arXiv:1706.09680, Theorem 1, for the qualitative comparison"
+      ],
+      "rationale": "The classical parity word and the first Newman-style modulus motivate the statistic independently of its numerical value. The exact conditional sign pattern contrasts with the bounded total cancellation, and the established exponent is an optimal order along a natural numeration cutoff family rather than a fitted or finite asymptotic constant.",
+      "residual_risks": [
+        "The exact histogram is phase-specific; results for other moduli or arbitrary prefix sign patterns are not established here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

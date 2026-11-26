@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:02:34.435774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27; VERIFICATION.md, verify_s3.py and recorded verification_output.txt (inspected, not executed)",
+        "Independent rational replay for (n,r)=(1,1),(1,2),(2,1),(2,2) gave 3,18,6,54 diagrams; /workspace/branches/c797bfe5-a65b-4186-a6a9-2559e6e5bb34/independent_replay.py and independent_replay.txt"
+      ],
+      "rationale": "Under the frozen no-third-displacement hypothesis the 3n cuts are distinct. A unary relation to a named parameter selects one open one-third arc, and intersections of such short arcs are connected when nonempty. Thus the unary diagram uniquely determines a lift of one of the n projected gaps. Cut the quotient at the projection of a named vertex and consistently label its three lifts. For two coordinates in one gap, their arc/nonedge relation distinguishes the sign of the projected difference at each of the three possible lift differences; across different gaps that sign is predetermined. This makes the gap/color/order encoding bijective on finite diagrams. Any such diagram is realized by choosing small disjoint ordered projected subintervals and using density of D on each indicated lift. Homogeneity then makes the diagrams exactly the complete tuple types over the individually named base. Each fixed occupancy admits r! label assignments and within-gap orders combined, times 3^r independent colors. Stars and bars gives the claimed total, including the unique empty tuple at r=0. Uniform occupancy on these weak compositions is the Dirichlet-multinomial with all parameters one. The proof is correct for the stated pure digraph, named nonempty base and injective nonparameter tuples.",
+      "residual_risks": [
+        "The finite replay is not an all-arity proof. Neither metric sampling of points nor the empty-base or unnamed-base orbit count is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen Van Thé's profile is a bi-definability result for the entire expanded infinite structure; Prop. 13 also discusses partitions with a possible extremity point in S(3).",
+          "Resultary d80a1c925594 concerns full-automorphism orbits in a chain-ultrametric expansion; 05f42adf13ff concerns colored cyclic-order extension ranks."
+        ],
+        "reasoning": "The primary bi-definability gives a stronger reduction than agreement of orbit counts. The other indexed gap-counting analogues are distinct and not the reason for the originality failure.",
+        "searches": [
+          "arXiv:1201.1270v3, pp. 20–22, S(3)* definitions, Propositions 12–13",
+          "Resultary: colored gap orbit profiles, cyclic order and finite-base lifting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1201.1270v3 §8 and arXiv:1310.6466v3 §2 item 7",
+        "Bodirsky–Nešetřil §7",
+        "Resultary IDs 9b2f1054f6d4, d80a1c925594 and 05f42adf13ff; self-match 716bb6bdcb6c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose a₀ in A and delete it. Its forward, nonedge and backward classes are the three colors. Thus fixing a₀ is equivalent to preserving the digraph and these three colors on its complement, which by the prior bi-definability is equivalent to preserving the folded order and colors. The other n−1 named points cut that dense order into n intervals. Each interval contains all three colors densely; finite color-preserving order isomorphisms extend by back-and-forth. For a weak composition (c_i), distributing the r labels gives r!/∏c_i!, ordering them within intervals gives ∏c_i!, and colors give 3^r. The result is 3^r r! for every composition and 3^r r! binom(n+r−1,r) overall."
+        ],
+        "reasoning": "This is an immediate application of the prior complete colored-order description and a routine labeled-order count. Equal masses, and their Dirichlet-multinomial notation, follow from that same count; they do not require any additional model-theoretic theorem.",
+        "searches": [
+          "Nguyen Van Thé Proposition 12 proof (sector folding), together with the frozen assumption of a nonempty pointwise named base"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jasiński–Laflamme–Nguyen Van Thé–Woodrow §2, item 7, describes S(3)* by three unary sector relations and cites the definable linear order in Nguyen Van Thé, Prop. 12.",
+          "The proof of Prop. 12 explicitly keeps the unary colors, transforms cross-color arc/nonedge relations into a linear order and identifies the result with Q₃ by rotating the two non-base sectors. It states that the order is dense and all three parts are dense."
+        ],
+        "reasoning": "Apply the same folding with the origin at a chosen named vertex. After that vertex is removed the sector cut has no endpoints in the remaining domain by the frozen boundary hypothesis. Rotating the sectors preserves their density, and both the digraph relations and projected order are recoverable from each other with the colors. The frozen marked-base problem is precisely the colored order orbit problem in this coordinate system.",
+        "searches": [
+          "Resultary: S(3) tuple types, named-base stabilizer orbits, colored quotient gaps",
+          "Primary search: Ramsey Precompact Expansions of Homogeneous Directed Graphs, S(3), three-colored linear order",
+          "arXiv:1201.1270v3, §8, Proposition 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 716bb6bdcb6c Finding is the assigned record. Distinct same-day 9b2f1054f6d4 counts n(n+1)(n+2) ordered triples of unary types admitting directed-triangle lifts in a dense local-order tournament, not t₃ for S(3).",
+          "The primary article prints 3^|A|/|Aut(A)| for the Ramsey degree of a finite digraph A, not the precise named-base tuple-type formula."
+        ],
+        "reasoning": "No independent exact table is needed to show coverage. Neither the related triangle count nor the printed Ramsey degrees is the asserted invariant; the actual coverage is the structural result of Prop. 12.",
+        "searches": [
+          "Resultary: uniform weak-composition law for S(3) finite-base tuple types; dense-local-order three-cycle lifting",
+          "arXiv:1201.1270v3, start of p. 22, exact Ramsey-degree calculation"
+        ]
+      },
+      "rationale": "This is a direct counting corollary of the stronger structural description in Nguyen Van Thé, More on the Kechris–Pestov–Todorcevic correspondence: Precompact expansions, §8, proof of Proposition 12. That proof explicitly makes the sector-colored S(3) bi-definable with the dense three-colored linear order Q₃ by folding the three arcs. With a named vertex as the cut and that vertex removed, the same colored expansion is available: each of the three colors is exactly one of the ternary relations to the cut vertex, so the named-vertex stabilizer is precisely the automorphism group of the folded three-colored order. Any additional named vertices are just fixed labeled points of that order. Their n−1 distinct projections create n intervals. The labeled tuple orbits over those points are determined by the interval, color, and within-interval order of each new coordinate. Thus the prior structural result yields all the asserted types, not just the total, by counting colored orders in n intervals. The exact formula need not be printed in that paper to be covered.",
+      "residual_risks": [
+        "An even earlier source may print the exact named-base formula; that historical question is immaterial to the demonstrated structural coverage. The differing S(3) angle in the inspected Hamann passage and the unavailable Macpherson passage are not used for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage: the proof identifies sector-colored S(3)* with Q₃ by a simple bi-definability. Placing the sector cut at a named vertex and removing it gives the required pointed version by the same construction.",
+          "evidence": "Proof of Prop. 12: keep the partition relations, change cross-color edges and nonedges, equivalently rotate the two sectors into the same base arc. The resulting total order and each color are dense. The proof explicitly concludes that the result is Q₃.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.1270",
+          "material_read": "arXiv v3 header; §8 pp. 20–22, S(3) and S(3)* definitions, proof of Proposition 12, Prop. 13 and exact Ramsey-degree paragraph (OA offsets 69350 and 70500 onward; Prop. 12 at 72376)",
+          "method": "Lawful arXiv primary PDF; literal locate followed by bounded passage reads",
+          "title": "More on the Kechris–Pestov–Todorcevic correspondence: Precompact expansions",
+          "trigger": "Stronger descriptions of S(3) as a colored order, cited by the primary Ramsey-expansions paper"
+        },
+        {
+          "assessment": "Directly confirms three sector colors and the definable order, pointing to the decisive Prop. 12",
+          "evidence": "Item 7 uses the (0,2π/3) arc rule, three equal angular arcs without extremity points, and the definable order in S(3)*.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.6466v3",
+          "material_read": "§2, item 7, p. 6 at OA offset 14300 onward; preceding S(2) passage and bibliography entry [NVT13]",
+          "method": "Lawful arXiv primary PDF, bounded passages",
+          "title": "Ramsey Precompact Expansions of Homogeneous Directed Graphs",
+          "trigger": "Potential prior colored-order expansion of precisely S(3)"
+        },
+        {
+          "assessment": "Background circular and three-part constructions; not needed to establish the counting implication once Prop. 12 was read",
+          "evidence": "Uses the arc rule with angular range (0,2π/3).",
+          "identifier_or_url": "https://iti.mff.cuni.cz/series/2005/244.pdf",
+          "material_read": "§7, PDF p. 18, OA offset 38345",
+          "method": "Author-hosted OA PDF passage",
+          "title": "Constraint Satisfaction with Countable Homogeneous Templates",
+          "trigger": "Source cited for the circular model and other presentations"
+        },
+        {
+          "assessment": "Distinct graph and invariant; the counting resemblance is not coverage",
+          "evidence": "Counts triples of unary types in a tournament that admit a directed triangle, rather than all ordered injective tuple types in S(3).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-cycle-lifting-criterion-for-finite-base-types-in-t--9b2f1054f6d4",
+          "material_read": "Original RESULT.md at offsets 0 and 5166",
+          "method": "Resultary local mirror",
+          "title": "A sharp three-cycle lifting criterion for finite-base types in the dense local order",
+          "trigger": "Most similar indexed count and finite-base geometric encoding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27",
+        "Nguyen Van Thé, arXiv:1201.1270v3, proof of Proposition 12"
+      ],
+      "rationale": "The exact tuple count is natural and the exposition could be useful, but as a new finding it is mechanically implied by the known folding to Q₃. Naming one actual vertex exposes the three already known colors; fixing the other points only cuts an order into intervals. The constant mass for each occupancy is then precisely the cancellation of the labeling multinomial with within-interval factorials. The Dirichlet-multinomial restatement adds no distinct invariant or new premise. No nonroutine surviving original claim is established.",
+      "residual_risks": [
+        "This verdict concerns the frozen finding as a research contribution, not the correctness or pedagogical usefulness of stating its corollary explicitly."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

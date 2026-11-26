@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:26:15.432259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix a derangement π and index matched pairs by their left endpoint. A nonmatching edge a_i b_{π(j)} gives i→j; the only absent loopless arcs are π(j)→j, forming c(π) disjoint directed cycles, including possible directed 2-cycles. An alternate matching exists exactly when the surviving arcs have a directed cycle. In each topological order at least one absent arc per cycle points forward, so at most binom(n,2)−c(π) available forward arcs can survive. Reverse cyclic order in each block attains that bound. Equality forces retention of every available forward arc and exactly one absent forward arc in each cycle; this proves the deletion-set characterization without asserting unique orders or counting witnesses. Subtraction from n(n−2) gives the formula. Labelled cycles of lengths ≥2 yield the EGF; removal of n from a cycle of length ≥3 or from a transposition gives the recurrence for n≥2 and the stated bases. Taking k−1 transpositions and one remaining cycle gives every possible k, and the extreme types give the coefficient counts including n=3. The frozen checker was inspected, not executed: its direct competing-matching transversal check covers n=3,4, its order optimization n=3–6, and n=7 is a census with formula-assigned weights. The proof, not those bounds on testing, establishes all orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Zhang study global and maximum anti-forcing relations, including a complete bipartite graph and a single-edge-deleted biclique; Deng–Liu–Zhou quote the fixed-matching compatible alternating-cycle maximum for planar bipartite graphs."
+        ],
+        "reasoning": "Neither the bound nor the single-edge deletion evaluates individual matchings in a perfect-matching-deleted biclique. The planar theorem characterizes a different optimization and does not cover all crowns (for n≥5 the planar bipartite edge bound fails).",
+        "searches": [
+          "arXiv:2009.05746v1, Thms. 3.5–3.6 and Prop. 3.9",
+          "arXiv:2004.05112v1, Thm. 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 37–90; VERIFICATION.md; checker.py lines 1–61",
+        "Resultary comparator findings, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2009.05746v1 and arXiv:2004.05112v1, bounded passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-matching forcing polynomial uses the number of transpositions; the audited optimum uses the total number of cycles. For example, at n=6 an n-cycle and two 3-cycles have the same transposition count and different anti-forcing numbers."
+        ],
+        "reasoning": "The forcing-polynomial formula cannot recover the asserted matched-pair law by a change of statistic, and the maximum bounds do not specify the distribution over matchings. Once the exact law is supplied the polynomial is a standard labelled-cycle specialization, not a separate new enumerative method.",
+        "searches": [
+          "Resultary: crown forcing subsets and complete-forcing polynomial",
+          "arXiv:2009.05746v1, pp. 6–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anti-forcing deletes outside the selected matching and hits alternating cycles; the two nearby crown records instead choose forcing edges inside a matching or require simultaneous forcing for all matchings."
+        ],
+        "reasoning": "Even on the same graph the feasible sets and quantifiers differ. Contraction to a feedback arc problem is standard in spirit; the exact forward-arc bound and equality conditions for a missing directed cycle cover are the audited specialization.",
+        "searches": [
+          "Resultary: crown graph fixed-matching anti-forcing, derangement cycles and anti-forcing spectrum",
+          "arXiv:2009.05746v1, definitions and §§2–3",
+          "arXiv:2004.05112v1, pp. 3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned crown hit is the record itself; the Nauru spectrum uses complementary 2-factors in GP(12,5), and the pyrene polynomial uses a different graph family."
+        ],
+        "reasoning": "No compared census gives the crown weights or equality conditions. The nonresponsive search alone gives no negative literature evidence.",
+        "searches": [
+          "Resultary anti-forcing spectrum and crown polynomial lookup",
+          "Targeted external primary search for a crown anti-forcing derangement cycle-count formula (nonresponsive results)",
+          "arXiv:2004.05112v1, pyrene anti-forcing enumeration"
+        ]
+      },
+      "rationale": "The general matching/alternating-cycle framework and the derangement cycle enumerator are established ingredients. The inspected comparators do not give the crown-specific exact optimum for each derangement, its equality conditions or its weighted matching distribution.",
+      "residual_risks": [
+        "An unindexed crown computation or treatment under a general feedback-arc extremal formulation could overlap; the external targeted query did not return usable evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Extremal relations involve Af over all matchings; the deletion example removes one edge, not an entire matching.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.05746v1",
+          "material_read": "pp. 6–10, Thms. 3.5–3.6 and Prop. 3.9 (offsets 16484–29691)",
+          "method": "OA full-text passages",
+          "title": "Relations between global forcing number and maximum anti-forcing number of a graph",
+          "trigger": "General and biclique anti-forcing coverage"
+        },
+        {
+          "assessment": "Known general ingredient, not crown formula",
+          "evidence": "The planar compatible-cycle theorem does not evaluate the crown and the enumerated family is pyrene systems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.05112v1",
+          "material_read": "pp. 3–5, especially Thm. 2.4 (offsets 9537–15525)",
+          "method": "OA full-text passages",
+          "title": "Forcing and anti-forcing polynomials of perfect matchings of a pyrene system",
+          "trigger": "Same polynomial invariant and general anti-forcing results"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": "An internal forcing-subset polynomial uses the number of 2-cycles.",
+          "identifier_or_url": "2026/10/12/SCOPE-all-forcing-subsets-of-perfect-matchings-in-crown-graphs--2c97788f0907",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "All forcing subsets of perfect matchings in crown graphs",
+          "trigger": "Same graphs and fixed matching"
+        },
+        {
+          "assessment": "Different quantifier and counted objects",
+          "evidence": "The sets counted force every perfect matching, not the deletion minimum for a chosen matching.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-complete-forcing-polynomial-of-crown-graphs--1d11197e01f2",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The complete-forcing polynomial of crown graphs",
+          "trigger": "Same graphs and polynomial enumeration"
+        },
+        {
+          "assessment": "Different graph and cycle statistic",
+          "evidence": "Finite GP(12,5) complementary 2-factor types, not derangement cycles of crowns.",
+          "identifier_or_url": "2026/10/26/SCOPE-nauru-graph-anti-forcing-spectrum-and-the-hidden-split-of-two-fa--7dd6a167fbed",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Nauru graph anti-forcing spectrum and the hidden split of two-factor types",
+          "trigger": "Related cycle-type anti-forcing spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical dense bipartite family obtained by deleting a matching, there is a nonconstant fixed-matching optimum which global bounds cannot resolve. The cycle law identifies precisely how the omitted diagonal interacts with a chosen matching and describes all optimal deletion structures. The resulting exact spectrum with multiplicities supplies a natural family-wide benchmark, not just isolated small-order counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

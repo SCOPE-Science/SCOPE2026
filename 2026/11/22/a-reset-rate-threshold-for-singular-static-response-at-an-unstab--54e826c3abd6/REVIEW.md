@@ -1,11 +1,21 @@
-# Scientific review: singular static response under resetting
+# Independent mathematical audit
 
-**Correctness (PASS).** The renewal representation follows from the exponential stationary reset age and the monotone flow. All three regimes are independently justified by dominated convergence or a local squeeze. The subcritical beta-function amplitude is obtained by a convergent integral, the critical logarithm by a uniform near-origin comparison, and the supercritical coefficient by an integrable scaled limit. The critical crossover is proved locally uniformly for the scaled rate detuning. The standalone checker passed 31 numerical normalization/asymptotic consistency tests; experiments do not replace the proof.
+## correctness
 
-**Originality (PASS, with residual priority risk).** The 2026 Wang et al. source studies finite-frequency periodic amplification, provides the general renewal framework and a coarse-grained phase-dependent well-selection time; none of these statements is equivalent to the precise static-response classification and crossover at fixed \(r/a\). The known general renewal identity is not asserted as original. Rose et al. 2018 and Evans–Sunil 2024 address general reset processes, without an identified exact version of this nonlinear weak-field threshold. Indexed comparisons found no covering statements for the same flow and parameters. A stronger implicit formulation in older nonlinear response theory remains a possibility requiring independent review.
+PASS
 
-**Value (PASS).** The threshold \(r=a\) is governed by competition between resets and the local unstable escape rate, and separates finite and divergent static susceptibility in a natural double-well amplification model. The exact amplitude and the finite critical crossover give quantitative information absent from a simple logarithmic escape-delay estimate. This matters specifically when assessing weak *constant* signals rather than periodic resonance.
+With x_s=√(a/b), s=at and h=A/(ax_s), the post-reset flow is y′=h+y−y³ and the age has exponential rate ρ=r/a; the chance of no reset in time s is e^{−ρs}, so the age mixture is stationary and unique. For h>0 the positive path increases to the stable root 1+O(h). The tail identity is m=∫₀^{y_+}e^{−ρτ_h(y)}dy. Subtracting log(1+y/h) from the hitting time leaves R_h≥0, with R_h(y)≤y²/[2(1−y²)] for y<1 and fixed-y limit −(1/2)log(1−y²), by domination of the positive remainder integrand. For ρ<1, y^{−ρ} dominates the rescaled integrand, and the interval above 1 contributes O(h)=o(h^ρ); substituting y² in the limiting integral gives the asserted beta coefficient. For ρ>1, y=hv makes (1+v)^{−ρ} an integrable majorant, and R_h(hv)→0, giving 1/(ρ−1). Independently, for λ in a fixed compact set and ρ=1+λ/L, the integral differs from ∫₀¹(1+y/h)^{−ρ}dy by O(h) uniformly: on [0,1/2] the integrand difference is bounded by C y²(1+y/h)^{−ρ}; on the rest each integral has O(h^ρ)=O(h) mass. With t=log(1+y/h)/L the comparison integral divided by hL is ∫₀^{log(1+1/h)/L}e^{−λt}dt, giving local uniformity and the log law at λ=0. Reflection gives oddness, and the susceptibility uses the difference quotient m/h, not differentiation through a divergent integral. This proof replays directly from the scalar hitting-time identity and the stated bounds. The supplied SciPy checks are finite corroboration only and were inspected, not run.
 
-**Limits.** The inter-reset dynamics are deterministic; point resetting, fixed positive rates and weak static forcing are essential. No noise robustness or finite-frequency claim follows. At the critical point the static derivative is infinite, not a finite linear-response coefficient.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same deterministic reset system with periodic forcing and its exponential-age renewal relation are prior. In fact freezing Wang et al.'s drive in the renewal equation gives the exact static mean integral. The new claim is the explicit weak-static-field trichotomy and the compact-uniform moving-rate profile, not that integral or the logarithmic escape-time mechanism. No distinct matching indexed or primary conclusion was established in the bounded comparison.
+
+## value
+
+PASS
+
+Separates regimes in which differentiating a stationary response through a reset-age average is valid from those where rare long growth intervals dominate. The exact beta amplitude and compact-uniform crossover quantify more than the instability exponent or escape scale; they give a sharp boundary between singular and ordinary static response in a natural model already used for periodic gain. The result does not claim noise robustness or finite-frequency predictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

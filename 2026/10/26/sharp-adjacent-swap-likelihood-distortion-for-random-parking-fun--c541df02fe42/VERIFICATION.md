@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The extracted standalone file `checker.py` requires Python 3 and only the standard library. Run `python3 checker.py`. It compares the exact combinatorial mass \(L(\sigma)=\prod_{j}\ell_j(\sigma)\), all rising adjacent swaps through \(n=8\), the factorization formula, sharp envelopes, and extremizing witnesses at every position. Exact normalization is checked by summing masses, not by floating-point approximations. A separate direct simulator enumerates all preference tuples for \(2\le n\le5\), performs the actual parking process, and checks the complete output-permutation preimage count. The observed result is `PASS: 475272 exact assertions; independent preference enumeration through n=5`.
+## correctness
 
-General validity for all \(n\ge2\) comes from the proof in `RESULT.md`, not from testing finitely many values. No symbolic proof assistant or outside certification is claimed. The mathematical record has undergone self-review only. The literature evidence is substantive but not a proof of absolute historical priority.
+PASS
+
+For a fixed spot order, when car sigma_j arrives, the smaller-labeled cars occupy exactly their designated spots; the allowed preferences for sigma_j run from one past the nearest larger label on its left up to j. This proves the fiber product by induction over arrivals. For a rise a<b at i,i+1, the two old distances A,B satisfy A+1<=B<=i+1 and the two new distances are B-1,1. A later nearest larger predecessor changes only for a value strictly between a and b with no larger entry in the intervening suffix; then its distance increases from j-i-1 to j-i. Thus the local factor is between 1/(i+1) and i/(i+1), and the later factors lie between 1 and their full telescoping product n-i. The increasing order and the stated (2,...,i,1,n,i+1,...,n-1) order realize the respective extremes, including empty prefix or suffix. For the global maximum, t+(n+1)/t-2 sqrt(n+1)=(t-sqrt(n+1))^2/t gives the rounding error; the endpoint and small-n inequalities follow from the exact envelopes. Independent raw preference enumeration through n=5 confirmed both extrema at each position, checking 1, 6, 36 and 240 rising swaps respectively.
+
+## originality
+
+PASS
+
+The mass identity and global atom extrema are known and are not credited as new. The supported distinct claim is the exact mass-ratio envelope on rising adjacent covers, the positionwise witnesses and the resulting global maximum over covers. None of the closest inspected statements gives this optimization; the affected suffix factors must be located and bounded with simultaneous attainment. This is a best-of-knowledge decision.
+
+## value
+
+PASS
+
+Knowing the increasing outcome is the most likely does not tell whether a single new inversion makes a nearby outcome less likely. The exact positionwise envelope gives the first size allowing an increase, distinguishes the last position from all earlier positions for n>=4, and shows a single local move can amplify mass by order n at positions of order sqrt(n). These are quantitative features of the classical permutation law not supplied by its global mode or an isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

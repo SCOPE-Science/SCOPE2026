@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:46:41.549826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–51, VERIFICATION.md lines 3–14, COUNTS.tsv lines 2–9",
+        "census_pentagons.cpp lines 6–49 and census_fano.cpp lines 5–60 (source-level inspection)",
+        "/workspace/branches/review3-recount.py; review3-recount-0-2.txt, review3-recount-2-6.txt and review3-recount-6-50.txt (fresh disjoint chunk outputs)"
+      ],
+      "rationale": "The modular model was independently checked for symmetry, no loops, degree seven, and 0 or 1 common neighbor for adjacent or distinct nonadjacent pairs, respectively, identifying the specified strongly regular graph. Initial observation is N[S] at t=1. During a wave an observed vertex contributes its sole unobserved neighbor if there is exactly one; the mask is updated only after scanning all contributing vertices. No-change states fail; every changing step strictly shrinks the missing set, so the process terminates. An independent batched recount exhausts all sets of sizes 1 through 6 (empty trivially fails), split by the smallest selected label into [0,2), [2,6), and [6,50). It visits 50, 1225, 19600, 230300, 2118760, and 15890700 sets respectively, with no successes below size six. For six, the only nonzero (round, induced edges):count cells are (2,0):12950, (3,0):448000, (3,1):63000, (4,0):378000, (4,1):630000, (4,2):294000, (5,1):378000, (5,2):126000. Their sum is 2329950, with the given probability 317/2162. Round one cannot observe all fifty because at most 48 neighborhood incidences are available. The two bundled C++ programs were inspected: they implement the stated graph constructions, compositional iteration, synchronous forcing and edge count under the same convention. The proof only concerns this graph.",
+      "residual_risks": [
+        "Bundled code was not run and no saved bundled run output was present; the independent recount covers the whole finite claim rather than relying on that output. The round index shifts by one under conventions that omit the initial observation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fort set covering and regular-graph bounds are the relevant broader approaches. The two cited papers could not be checked in full. Inspected exact findings on the Heawood graph and the point-line graph of PG(2,4) concern different graphs."
+        ],
+        "reasoning": "General methods or existence bounds are not a theorem yielding the table; the possibility of a Hoffman–Singleton benchmark in the computational article remains open.",
+        "searches": [
+          "Smith–Hicks DOI:10.1002/net.22056",
+          "Dorbec et al. DOI:10.1137/120891356",
+          "Resultary: finite symmetric graph power-domination censuses and obstruction complexes"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md prior-work discussion",
+        "Resultary findings identified above",
+        "Lawful retrieval attempts for 10.1002/net.22056 and 10.1137/120891356"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An optimizer can identify a minimum size, but even an exact size statement would not determine the family cardinality or its distribution by synchronous time and induced edges. Counts on the Heawood and PG(2,4) graphs cannot specialize to the Hoffman–Singleton graph."
+        ],
+        "reasoning": "An independently established optimizer result could cover the size subclaim; complete overlap would require an actual stronger classification or table. Neither was established in the available comparisons.",
+        "searches": [
+          "Smith–Hicks DOI:10.1002/net.22056",
+          "Bound RESULT.md lines 67–73, prior comparison and limitations",
+          "Inspected Resultary findings identified below"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two constructions are of the same (50,7,0,1) graph; this is not two graph results. The general fort-neighborhood approach targets the same optimization, and any time comparison must align the initial observation convention. The graph-specific search returned no usable independent match."
+        ],
+        "reasoning": "A different graph representation or solver does not distinguish novelty. A matching static optimization certificate alone would not establish the joint synchronous-time census.",
+        "searches": [
+          "Primary web search: \"Hoffman-Singleton graph\" \"power domination\"",
+          "Resultary: Hoffman–Singleton power domination, optimum census, propagation time and induced edges",
+          "DOI:10.1002/net.22056, fort-neighborhood set covering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit states the number six and the same 2329950 and eight cells, but is the bound original itself. Separate PG(2,4) and Heawood exact records have different graphs and counts. No distinct exact table was verified."
+        ],
+        "reasoning": "The self-hit is not coverage by another result. The unproductive literature query does not show that no benchmark database exists.",
+        "searches": [
+          "Resultary graph-specific searches on the Hoffman–Singleton graph and the optimum/time census",
+          "\"Hoffman-Singleton graph\" \"power domination\""
+        ]
+      },
+      "rationale": "The graph and algorithm are classical; the complete joint census on minimum sets, including sharp rounds and induced-edge restrictions, is distinct on the inspected evidence. No independent prior coverage of this count or table was demonstrated. The pass is for the exact finite census, not for a new general power-domination method or a priority guarantee for every subclaim.",
+      "residual_risks": [
+        "The methods article's experiments, appendices and benchmark data remain uninspected; an indexed or unindexed exact computation under fort/zero-forcing terminology may exist. The search does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "States gamma_P=6, 2329950 optima, eight joint cells and initial observation as round one.",
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-and-exact-propagation-time-census-of-th--85c4d9c9ba8e",
+          "material_read": "Finding offset 0 and proof offset 3048",
+          "method": "Resultary local mirror",
+          "title": "Minimum power domination and exact propagation-time census of the Hoffman–Singleton graph",
+          "trigger": "Exact catalogue match including graph and values"
+        },
+        {
+          "assessment": "Potential coverage unresolved; no negative assertion from retrieval failure",
+          "evidence": "Title identifies general set-cover and fort-neighborhood formulations. No benchmark text was accessible.",
+          "identifier_or_url": "https://doi.org/10.1002/net.22056",
+          "material_read": "Title and bibliographic/subject information only; article unavailable",
+          "method": "DOI and Wiley OA direct and VPN attempts returned 403",
+          "title": "New computational approaches for the power dominating set problem: Set covering and the neighborhoods of zero forcing forts",
+          "trigger": "Possible same-graph computational benchmark"
+        },
+        {
+          "assessment": "General bounds as reported; exact coverage not checked in the inaccessible text",
+          "evidence": "The original comparison describes bounds for generalized power domination in regular graphs, not a joint enumeration.",
+          "identifier_or_url": "https://doi.org/10.1137/120891356",
+          "material_read": "Citation and scope as described by bound RESULT.md; primary text not retrieved",
+          "method": "Lawful OA attempt and original record review",
+          "title": "Generalized Power Domination in Regular Graphs",
+          "trigger": "Broader regular-graph theorem cited in the original"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "PG(2,4), 566160 optima and a two-to-three round profile.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-power-domination-mobility-in-the-quaternary-projective-p--6eb72fcfab10",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Optimal power-domination mobility in the quaternary projective plane",
+          "trigger": "Related exact finite census"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Heawood closed-neighborhood obstructions and 28 minimum pairs.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-power-domination-obstruction-complex-of-the-heawood-graph--338a55d19206",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact power-domination obstruction complex of the Heawood graph",
+          "trigger": "Related fort/closed-neighborhood obstruction classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and full recount above"
+      ],
+      "rationale": "The Hoffman–Singleton graph is a canonical highly symmetric test case. The joint distribution answers a natural question left open by sensor minimization: how time-to-observe and the adjacency pattern of minimum sensor sets vary together. The exact cells give sharp time extremes, the exclusion of three induced edges, and an optimum-set density; none is mechanically fixed by the strongly regular parameters or by the optimum size alone. These data can serve as a benchmark for graph-specific structural or computational accounts of power domination.",
+      "residual_risks": [
+        "A finite benchmark, not a structural description of every optimum or a law for other graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

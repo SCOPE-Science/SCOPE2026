@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact two-opportunity cycle decomposition yields Bernoulli gap steps and specifies both coalescence boundaries. The honest cycle clock has mean \(n/p+O(1)\) and variance \(O(n)\). Coupling to a lazy gambler's ruin walk shows that early terminal phases shift the hitting count by \(O(n)\) in expectation; Donsker's principle and a uniform law of large numbers supply the distributional limit. Brownian exit ODEs yield the Laplace transform, moments, and optimal bias. Exhaustive macro-case checks and a separate full-state finite Markov solution support the proof but cannot establish the infinite limit.
+## correctness
 
-## Originality
-**PASS against inspected accessible literature, with residual risk.** Gusev's arXiv:1404.6731 Section 3 studies the same Černý automaton with biased random input, but gives expected synchronization lengths rather than an all-gap Brownian first-exit law or its Laplace transform. Gonze--Jungers arXiv:1410.4034 studies a different game-theoretic probability function and deterministic triple rendezvous. The accessible finite-pair fair-input variance result does not determine an entire probability law. Targeted mathematical-record and primary-literature searches identified no equivalent claim; indexing gaps and alternate formulations remain possible.
+PASS
 
-## Mathematical value
-**PASS.** The limiting first-passage law is a natural latency invariant of random-input automata, where higher fluctuations and upper quantiles are not determined by mean synchronization time. The diffusion constant \(p^2(1-p)\) provides a structural stochastic scaling theorem and identifies the same optimal input bias for every limiting quantile. This goes beyond numerical approximations or a routine parameter restriction.
+Keep the state labels fixed and cut into cycles at the times the first label returns to zero. Starting with clockwise gap d, the second label reaches the reset state at first-label phase n-1-d. A reset on the first letter there pushes the gap up by one; once pushed it cannot return to the reset state within that unabsorbed cycle. At the final first-label phase a fresh reset pushes the gap down by one. The two Bernoulli(q) first-letter flags are independent conditional on the past, since their sampled phases are distinct; one may hypothetically complete a truncated terminal cycle. The reflected labeling of coalescence as gap 0 or n is consistent: the only mismatch with macro-increment gambler's ruin is early killing at n-1 if both flags equal 1. The remaining expected lazy-walk lifetime on this mismatch is (n-1)/(2pq), negligible on the n^2 cycle scale. The invariance principle yields the Brownian exit limit because the limiting paths cross the hit boundary immediately. Cycle durations have mean 1+(n-1)/p and variance (n-1)q/p^2; a maximal bound at deterministic O(n^2) horizon and tightness justify the clock despite within-cycle dependence on the gap flags. The terminal-cycle truncation and arbitrary initial partial passage are negligible. The physical-time generator is therefore p^2q times the second derivative. Solving the boundary problems for the Laplace transform and the first two moments reproduces the displays. Since the exit law is a positive time scale times one fixed nondegenerate law with positive mass in every nonempty subinterval of (0,infinity), maximizing p^2(1-p) uniquely minimizes its positive-time tails and interior quantiles. A separately written true pair-state calculation checked representative finite means and discounted transforms; the uploaded script was inspected, not executed.
 
-## Sources and limits
-Sources: V. V. Gusev, *Synchronizing automata with random inputs*, arXiv:1404.6731 (2014); F. Gonze and R. M. Jungers, *On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata*, arXiv:1410.4034 (2014). Standard Donsker and gambler's ruin results supply known probabilistic ingredients. The theorem assumes fixed \(0<p<1\) and a normalized gap with limit inside \((0,1)\); it concerns pair coalescence only, with no finite-size convergence-rate claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete first-exit distribution for every fixed bias and macroscopic starting gap, with exact physical-time scale and distribution-wide bias optimality. Credit Gusev's exact finite midpoint-pair means and the corresponding leading optimizer, and credit the independent catalogue's exact second-moment coverage in fair-input cases. Neither comparison gives the full exit law or the reduction needed to pass from pair transitions to it. No priority is asserted for the shared mean or the optimizer regarded as a mean optimizer.
+
+## value
+
+PASS
+
+A mean for a distinguished pair does not predict tail risk, quantiles or dependence on the starting separation. The cycle reduction explains the cubic time scale and isolates the exact bias-dependent constant, yielding a single explicit model for all macroscopic separations and a stochastic-order result. These are substantive additions beyond standard moment or worst-case synchronization calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

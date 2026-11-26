@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify.py` and `python3 verify_orbits.py` with a standard Python 3 interpreter. Neither program needs external packages.
+# Independent mathematical audit
 
-`verify.py` builds finite-field product multiplication tables, enumerates every nonzero rank-one linear map (with a normalized image vector), directly checks the original associative Nijenhuis identity on all pairs of standard basis vectors, and compares the **full sets** of valid maps with the stated character/idempotent normal forms. It checks fields of orders two and three, split products of up to three factors, pure quadratic extensions, and mixed split/quadratic products. The output ends with `VERIFY_OK`.
+## correctness
 
-`verify_orbits.py` constructs the complete canonical family for selected products, computes the actual orbits of permutations of equal-degree field factors, and checks the orbit-count formula for multiple degrees, multiplicities, and field sizes. Internal Galois automorphisms act trivially on the classified maps because rational projections and primitive factor idempotents are fixed; the proof explains why this suffices. The output ends with `VERIFY_OK`.
+PASS
 
-**Scientific limits.** These are finite enumerations and do not certify the universal theorem independently. The full proof of arbitrary field size and arbitrary extension degrees is in `RESULT.md`. No independent mathematical audit has been performed.
+Write the nonzero rank-one N as uφ and apply the identity to inputs with φ=1: u² must be a scalar multiple of u. Reducedness ensures the scalar is nonzero, and each nonzero coordinate of u equals that scalar, so the image has a unique normalized generator e_S. Write N=e_S φ after rescaling and set c=φ(e_S). On the two orthogonal summands e_S A and (1−e_S)A the identity reduces to ψ(x)ψ(y)=cψ(xy) and η(x)η(y)=−cη(xy), respectively; the mixed equation is automatic. Setting x=y rules out c=0 because the target of each functional is a field. Thus ψ/c and, when nonzero, −η/c are unital characters. Orthogonal primitive idempotents show that a character selects one field factor, which must have degree one by injectivity on that factor. These conditions are also sufficient and give unique ordered inside/outside parameters even in characteristic two. For the labeled count the support is free on r−1 or r−2 indices after selecting the marked split factors. Equal-degree permutations act transitively at each fixed support-size pattern and respect the inside/outside roles; internal field automorphisms fix all displayed operators. At fixed c there are s split-support sizes in the first family and s−1 in the second, with independently r_d+1 choices for each higher degree. This includes the no-operator case s=0 and the r=1 split count q−1. Finally, N²=cN excludes nilpotence.
+
+## originality
+
+PASS
+
+Credit the rank-one instances in the existing split complex three-factor calculation and the standard character structure of products of fields. The supported distinct claim is the full finite-field étale classification with the split-factor obstruction, parameters in every characteristic, and uniform labeled and conjugacy counts. None of the strongest inspected statements provides this arbitrary product result or implies it by restricting a stronger covered theorem.
+
+## value
+
+PASS
+
+The rank-one class is the smallest nonzero operator stratum on a natural class of semisimple commutative algebras. Its exact shape identifies which factors can detect an input, which can participate only in the output, and why no nonzero nilpotent rank-one operator exists there. The orbit count adds a complete classification up to algebra symmetries rather than a basis-dependent census or one small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

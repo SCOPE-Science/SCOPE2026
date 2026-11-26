@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification
 
-The reproducible standalone file `verify_mixed_feedback.py` uses no external packages. Run `python3 verify_mixed_feedback.py` in the same directory to independently enumerate every selected directed arc subset and test its indegrees, outdegrees and the absence of directed cycles. It independently compares the full face set to the model in the proof and computes the full reduced mod-two homology via exact bitset Gaussian elimination for twelve finite parameter choices. All twelve runs passed and the recorded output is embedded in `verify_mixed_feedback_output.txt`.
+The corrected one-long-arm simplicial decomposition in `RESULT.md` excludes every two-edge diagonal that is a whole short arm. For example, with two forward arms of lengths 3 and 2, the short diagonal, that diagonal with the long arm's private arc adjoined, and the full long arm are exactly the three excluded faces in the forward degree complex. For one return arc, the count is 33 faces, including the empty face.
 
-These finite checks do not establish a uniform or integral homotopy theorem. That theorem follows from the cofiber decomposition and the contractible-union calculations in `RESULT.md`. No external independent audit was performed.
+The supporting program `verify_mixed_feedback.py` and the recorded `verify_mixed_feedback_output.txt` are unchanged. Using Python 3, `python3 verify_mixed_feedback.py` enumerates arc subsets, checks the degree and cycle conditions against the global gluing model, and computes reduced mod-two Betti numbers for twelve examples. Neither the enumeration nor the homology checks constitute a general homotopy proof. The all-parameter classification uses the simplicial pushout and the two closed stars described in `RESULT.md`.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact algebraic identity \(B_p=R_p^{\mathsf T}R_p-I\) and the factorized determinants yield necessary and sufficient conditions for Euclidean nonexpansivity. The proof establishes the unique positive root \(\alpha\) by monotone polynomial shifts, checks the singular boundary cases, and excludes all larger steps using a negative determinant or a positive diagonal entry. The rational witness and spectral-radius comparison are reconstructed directly. `verify.py` independently reproduces the algebraic identities; finite samples supplement rather than replace the analytic sign proofs.
+## correctness
 
-**Originality — PASS (self-review; priority uncertainty remains).** The full-text sections relevant to hypocoercivity and strong stability were inspected in Sun–Shu (arXiv:1811.10680), Achleitner–Arnold–Jüngel (arXiv:2308.05689), and the 2023 note (arXiv:2310.19758). These supply generic local stability theory and identify the canonical generator family, but the inspected passages do not contain the exact three-polynomial finite-step classification or its strict third-versus-fourth-order reversal on the same matrix. Related exact planar stability calculations for different Runge–Kutta polynomials do not imply the present sharp intervals. Equivalent specialized calculations remain a priority risk; failure of targeted searches is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The benchmark is the minimal nontrivial rank-one-damped hypocoercive system used in the primary literature. Its exact semigroup is strictly energy dissipating, and three standard methods are compared on equal physical and norm conventions. The sharp cutoff for order three exceeds that for order four by about 19%, despite fewer stages; the rational witness exhibits norm growth under spectral stability. This gives a motivated and fully classified limitation on using method order or scalar stability to select an energy-safe step, not an arbitrary isolated test number.
+For the given real generator, L²+L+I=0, so each Taylor polynomial reduces to R=aI+bL. With δ=a²−ab+b²=det R and tr(RᵀR)=2δ+b², the largest singular value is (sqrt(4δ+b²)+|b|)/2. Thus the two signs 1−δ±b≥0 characterize contraction exactly. I reconstructed their factors: RK2 gives −h³(h−2)/4 and −h(h−2)(h²+4)/4; RK3 gives −h³[(h−1)³−5]/36 and −hE(h)/36; RK4 gives −h³(h−2)Q(h)/576 and −hF4(h)/576 in the record's notation. These yield the full intervals including h=0 and endpoint inclusion: E is negative up to its sole positive root, by the derivative bound on [0,2] and the strictly increasing shift beyond 2, and the cubic factor is negative up to that root (<5/2). For RK4, Q>0 and F4<0 on [0,2] and the Q factor alone rules out all h>2. Exact determinant and trace at 9/4 confirm strict RK3 contraction, RK4 norm growth, and RK4 spectral radius squared 1949353/4194304. Independent exact arithmetic: python /workspace/branches/math_checks.py 3; the printed decimal root is only a rendering. The frozen verify.py and recorded verification notes were inspected, not rerun. This is a Euclidean one-step result, not a nonlinear energy or accuracy claim.
 
-The result is confined to one linear two-coordinate benchmark. It does not assert accuracy superiority, higher-dimensional behavior, or independent novelty certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the global same-matrix RK3/RK4 threshold comparison and spectral-versus-energy witness, with RK2 as a baseline. The canonical matrix, qualitative strong-stability phenomena, and the RK2 slice found separately in a broader catalogue record are not credited as distinct discoveries here. No inspected stronger statement implies the RK3 and RK4 thresholds on this matrix.
+
+## value
+
+PASS
+
+The minimal rank-one-damped hypocoercive benchmark occurs in strong-stability theory, and its exact semigroup strictly dissipates energy. Matching all step sizes rather than finding one failure exposes a roughly 19% larger safe step for RK3 than RK4, while 9/4 separates norm stability from eigenvalue stability in exact arithmetic. This is a meaningful fixed-matrix benchmark independent of the already covered RK2 slice, not a general method-order or accuracy claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

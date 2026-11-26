@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The scientific argument proves the theorem for every integer \(n\ge3\) by an exact distance classification, exhaustive *symbolic* clique-family classification, relative cone collapses, and a simply-connected homotopy-pushout decomposition. In particular the wedge assertion is integral; it does not follow merely from a mod-prime homology test.
+## correctness
 
-To check the finite instances independently, run `python3 verify.py` from the directory containing this document. The executable uses Python's standard library only, generates the unrescaled signed root configurations directly, enumerates geometric maximal cliques using Bron–Kerbosch search, and compares them exactly with the four proposed facet families. It enumerates the induced simplices and computes all boundary-matrix ranks over \(\mathbb F_2\) by exact bit-vector elimination. The tests for \(n=3,4,5,6\) returned `VERIFY_OK`.
+PASS
 
-At \(n=3\) the computed Betti vector in degrees \(0,1,2\) is \((1,0,9)\). At \(n=4\), in degrees \(0,1,2,3\), it is \((1,0,32,1)\); at \(n=5\) it is \((1,0,80,0,1)\); at \(n=6\) it is \((1,0,160,0,0,1)\). The complete maximal-facet counts are respectively \(52,136,312,668\). The finite computations are confirmation of combinatorics and boundary matrices, not a proof for unbounded \(n\) and not an independent audit. There are no numerical approximations in the verifier.
+Each long root is the sum of one edge of the short-root crosspolytope graph G; the two summands are its only short neighbors at distance 1 or at squared threshold 2. Distinct short roots are joined at squared distance 2 exactly when they have different supports. The distance-one graph is therefore the once-subdivided G, with rank |E|-|V|+1=2n(n-2)+1; nothing is joined below 1. For long roots, squared distance 2 means exactly one shared coordinate with matching sign. Pairwise-intersecting distinct two-element supports either form a star or the three edges of a triangle. In a star, antipodal choices of the other signed summand cannot be adjacent; the allowed faces form the stated crosspolytope base. The triangles on three supports have matching signs and give precisely 8 binom(n,3) exceptional long triangles. This leaves only the short crosspolytope boundary and the mixed bridge triangles in addition to the short-vertex cones. Each cone collapses relative to its radial edges by pairing nonvertex base faces with their cones, in descending dimension; separate cones meet only at untouched long vertices. Under this collapse, each side of an exceptional triangle retracts to the radial two-edge path in its cone, up to homotopy relative to endpoints. Thus the cones plus exceptional triangles form, up to homotopy, the short boundary's two-skeleton. It is simply connected and its Euler characteristic gives H_2 of rank 8 binom(n,3)-q, with q=2n(n-2)+1. Hurewicz and the simply connected homology Whitehead theorem give a wedge of that many 2-spheres. The bridge triangles give a mapping cylinder between the once-subdivided graph and the short graph, so the final gluing is the homotopy pushout over G. Both graph maps are null because the targets are simply connected, and the additional summand is the suspension of G, a wedge of q two-spheres. This proves the integral wedge with S^{n-1}, including the coincident dimensions giving nine 2-spheres at n=3. Coordinate integrality excludes squared pair distances strictly between 2 and 3, and the endpoints are inclusive as claimed.
 
-No code asserts a complete filtration beyond radius \(\sqrt3\), and no certificate for integral symmetry modules or later homotopy transitions is claimed.
+## originality
+
+PASS
+
+Credit the established line-graph clique/two-skeleton mechanism and the exact B_3 overlap. The distinct supported statement is the uniform all-rank metric result and the short-sphere/bridge gluing that produces genuinely different homology dimensions for every n>=4; neither the known two-skeleton result nor the n=3 classification determines it.
+
+## value
+
+PASS
+
+The two unequal Euclidean root shells form a canonical metric point cloud, and the first nontrivial thresholds are intrinsic rather than arbitrary. The mixed gluing yields a rank-uniform, torsion-free example with homology in both a fixed degree and a rank-dependent degree; knowing the long roots or a field Betti table would not explain the additional sphere or the integral attaching type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

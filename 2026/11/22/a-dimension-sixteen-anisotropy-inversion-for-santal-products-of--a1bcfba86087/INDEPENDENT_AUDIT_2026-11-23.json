@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:41:07.846086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The vertex and orthant formulas give vol(K_t)=2^n/[n!∏(1−t_i²)]. The projective change y↦y/(1−s·y) has inverse x↦x/(1+s·x) on the translated polar and Jacobian (1−s·y)^−(n+1), giving the uniform-box expectation. Its Hessian in s is positive definite throughout the feasible interior because the box law has full-dimensional support and the differentiated integrand is a positive weight times (U+t)(U+t)ᵀ. The Hessian at zero is (n+1)(n+2)I/3; the mixed s,t derivative is (n+1)I, so the analytic stationary branch is globally minimizing and starts at s_0=−3t/(n+2). Independent reflection gives the cubic error. For replay of the Taylor coefficients let c=n+1, A=c(c+1)/6, B=c(c+1)(c+2)(c+3)/24, b=s·t, v=∑s_i², w=∑s_i⁴. Factoring (1−b)^−c out of the expectation before taking logs yields cb+Av+(c/2)b²+2Abv+(B/3−A²/2)v²−2Bw/15+O_n(‖t‖⁶) for s=O(t). This uses E[(s·U)^4]=v²/3−2w/15 and evenness. Completing the square in cb+Av shows that replacing s(t) by s_0 in the minimum changes it only by order six; quartic terms change by order six as well. Substituting s_0 and adding −∑log(1−t_i²) gives all three displayed coefficients (separately simplified by exact symbolic arithmetic). Analyticity and separate reflection yield a real-analytic symmetric function of q on a full neighborhood, so derivative differences have analytic factors q_i−q_j, even on coordinate faces. The quotient is 2β_n+O(‖q‖₁); its numerator test gives p(15)=−118 and p(16)=180, with just one positive turning point of p between 9 and 10 and p(2)<0. The sign therefore persists on a sufficiently small fixed-dimension simplex. Along a nontrivial averaging transfer of unequal q_i,q_j the derivative is strict until equality, yielding strict Schur comparison (up to permutations) and exactly the two stated extremal classes. At zero imbalance they coalesce, and no claim is made at larger radii. See RESULT.md (1)–(6). check_anisotropy.py was inspected, not executed; its truncated moment series and finite samples are supporting evidence only, not a certified radius.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives convexity of reciprocal centered polar volume along common-direction shadows. The coordinatewise shifted axial model above is such a shadow when all other shifts are fixed; its primal volume is constant.",
+          "Pavlov–Telen §1 Eq. (2) and Proposition 2.1 concern rational translated-polar volume and adjoints.",
+          "Theorem 8.6 minimizes a data-weighted support-function objective subject to a primal-volume constraint."
+        ],
+        "reasoning": "Reflection and shadow convexity already give a coordinatewise nonincreasing product as a single |t_i| increases. Comparing equal total squared shifts requires increasing one and decreasing another, for which this theorem gives no derivative-difference sign. Rationality provides an alternative representation, not the evaluated mixed Taylor coefficient. The regularizer optimum is not a Santaló-center or fixed-shift allocation optimum.",
+        "searches": [
+          "Meyer–Reisner arXiv:math/0606305v1, definition and Theorem 1",
+          "Pavlov–Telen arXiv:2402.18955v1, §§1–2",
+          "Metya–Leong–Soh, (79)–(80), Theorem 8.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16142v1",
+        "arXiv:2402.18955v1",
+        "arXiv:math/0606305v1",
+        "2026/11/8/SCOPE-universal-santal-displacement-and-sharp-mahler-response-of-unequ--d98e8b7c23bd",
+        "Resultary related Cayley and two-apex summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t=(δ,0,…,0) the relative apex asymmetry of K_t is −δ; affine rescaling gives the earlier family's normalization and the same coefficient −(n−1)/(2(n+2)).",
+          "The term S_2²−S_4=2∑_{i<j}t_i²t_j² is zero on all axial restrictions but not on balanced shifts."
+        ],
+        "reasoning": "Adding any multiple of S_2²−S_4 leaves all axial formulas unchanged while changing the Schur derivative quotient and potentially flipping its sign. Thus the one-axis theorem cannot imply β_n. Single-coordinate shadow convexity is compatible with either quartic sign near zero because the same negative quadratic term dominates changes of the squared norm. The fixed-norm quotient requires the actual mixed moment computation.",
+        "searches": [
+          "Earlier bipyramid RESULT.md (2)–(4) and §§1–4",
+          "Meyer–Reisner Theorem 1 versus RESULT.md (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing the lengths of the sides of the shifted parallelotope (80) gives the shifted-cube model; the dual linear map preserves the Santaló product.",
+          "Alternatively the linear rescaling diag(1−t_i²) of the cross-polytope makes its vertices (±1−t_i)e_i, an axial translation of each vertex pair."
+        ],
+        "reasoning": "The equivalent descriptions expose two genuine overlaps: the regularizer body itself is not new, and varying just a single coordinate has a classical shadow-system description. Neither equivalent model removes the interaction between different axial shifts at fixed squared norm.",
+        "searches": [
+          "Resultary: shifted cube polar asymmetric cross-polytope Santaló point Mahler volume product anisotropy unequal-height bipyramid fourth order Schur",
+          "Web: Santaló point volume product polar of translated cube asymmetric coordinate cross polytope local Taylor expansion majorization fourth order Mahler product",
+          "Metya–Leong–Soh arXiv:2611.16142v1, §8.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier bipyramid record gives an exact one-variable product via J_d and the normalized axial quadratic deficit in (3)–(4).",
+          "Indexed related Cayley and two-apex records concern layer drift or opposite symmetric apices, not independent shifts of all opposite axial pairs."
+        ],
+        "reasoning": "On one axis, the two fourth-degree invariants coincide and one can obtain their sum from J_d. Continuation of the axial formula therefore gives the entire axial restriction, but not the independent coefficients or the comparison with the balanced point. The search did not identify an explicit multiaxial Taylor table; this alone establishes no priority.",
+        "searches": [
+          "Resultary: Universal Santaló displacement and sharp Mahler response of unequal-height bipyramids",
+          "Resultary: shifted cube polar asymmetric cross-polytope Santaló point Mahler volume product anisotropy unequal-height bipyramid fourth order Schur"
+        ]
+      },
+      "rationale": "The geometry, rational polar-volume machinery and the exact one-axis response are established. The surviving contribution is the fourth-order separation of distinct allocations and the dimension-16 change of the strict fixed-squared-shift Schur order. Neither the axial formula nor coordinatewise shadow monotonicity gives the mixed fourth-order coefficient. Best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "Older affine perturbation or cross-polytope literature may contain the same fourth variation in different coordinates. No exhaustive historical priority claim is made.",
+        "The relevant shadow-system theorem was inspected, not every application in that paper; the comparison concerns its common-direction hypothesis and the stated fixed-norm constraint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the body and an optimization in a different objective, not a fixed-shift Santaló comparison",
+          "evidence": "(79) weighted support-function objective, (80) translated parallelotope, Theorem 8.6 polar vertices.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16142v1",
+          "material_read": "Introduction and §8.2 up to and including Theorem 8.6 and KKT setup",
+          "method": "Primary arXiv HTML",
+          "title": "Gradient Flows over Convex Bodies for Learning Optimal Regularizers",
+          "trigger": "Defines the exact geometry up to linear normalization"
+        },
+        {
+          "assessment": "Covers the entire axial restriction, not the interaction or the fixed-squared-shift ordering",
+          "evidence": "Exact J_d product with a single scalar critical center and universal axial quadratic coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-santal-displacement-and-sharp-mahler-response-of-unequ--d98e8b7c23bd",
+          "material_read": "Full RESULT.md including (2)–(4) and body/normalization assumptions",
+          "method": "Primary public GitHub contents API text",
+          "title": "Universal Santaló displacement and sharp Mahler response of unequal-height bipyramids",
+          "trigger": "Exact overlap along a coordinate axis"
+        },
+        {
+          "assessment": "General computation framework, not an evaluated multiaxis quartic sign in these sections",
+          "evidence": "Eq. (2), Proposition 2.1, and Definition 3.1.",
+          "identifier_or_url": "https://arxiv.org/html/2402.18955v1",
+          "material_read": "Introduction, §§2–3 through the adjoint formulas and Santaló patchwork construction",
+          "method": "Primary arXiv HTML",
+          "title": "Santaló Geometry of Convex Polytopes",
+          "trigger": "General rational formula and Santaló parameter dependence"
+        },
+        {
+          "assessment": "Gives one-coordinate monotonicity by the indicated affine model; no fixed-norm exchange implication from the theorem",
+          "evidence": "Shadow velocities parallel to one direction; convexity of the reciprocal polar volume about the Santaló point.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0606305v1",
+          "material_read": "Abstract, shadow-system definition in §1 and statement of Theorem 1 in §2",
+          "method": "Primary PDF text",
+          "title": "Shadow systems and volumes of polar convex bodies",
+          "trigger": "Potential stronger monotonicity covering coordinate moves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed squared imbalance the entire quadratic variation cancels. The first informative comparison is therefore the signed quartic anisotropy, and its dimension threshold reverses the optimizing geometry. The proof gives a strict order between all locally majorization-comparable allocations, not just two numerical examples. This is useful for the natural coordinate cross-polytope family; the proved neighborhood is fixed-dimension and existential, not a global optimization result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

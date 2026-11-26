@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3 and no external dependencies. The checker builds the five-regular Clebsch graph on four-bit binary labels with XOR step set \(\{1,2,4,8,15\}\). It checks the symmetric design incidence conditions: \(16\) blocks of size \(6\), each pair of distinct blocks meeting in \(2\) points, each point in \(6\) blocks, and every two points in exactly \(2\) blocks. It generates all \(96\) distinct punctured blocks and verifies their signature patterns.
+## correctness
 
-The checker then tests all \(2^{16}=65,536\) vertex subsets directly against the definition of an identifying code; the smallest feasible size is \(5\), its feasible sets exactly match the \(96\) punctured blocks, and they partition into \(16\) independent open neighborhoods and \(80\) induced four-leaf stars. As a strengthened finite consistency check, the program compares the full identifying-code size distribution with independently fixed exact counts.
+PASS
 
-This is a finite exhaustive confirmation of the **graph** specialization only. The statement for every symmetric \(2\!-(16,6,2)\) design follows from the universal point-pair incidence proof in `RESULT.md`; scanning one graph does not prove it. No independent mathematical audit has been performed.
+Sixteen distinct nonempty traces need at least five points. The symmetric design parameters imply each point has replication six and distinct blocks intersect in two points. For five points the trace-size counts obey sum a_j=16, sum j a_j=30 and sum binom(j,2) a_j=20. The displayed equation 2a_3+6a_4+12a_5=12 is correct, although the prose just before it misdescribes the linear combination: take twice the pair count minus twice the first moment plus twice the zeroth moment. If a_5=0, the three possibilities (a_3,a_4)=(6,0),(3,1),(0,2) require respectively 8,7,6 singleton traces, impossible on five points. Thus one block contains C. Conversely, every pair in that block occurs in exactly one other block, so puncturing gives the sixteen distinct traces of sizes 5 (one), 2 (ten) and 1 (five); uniqueness follows from block intersection size two. For the Clebsch graph, sums of distinct XOR generators are the ten distinct vectors of weights 2 and 3. This proves triangle-freeness and the two common neighbors for nonadjacent pairs. Adjacent pairs share just their endpoints in their closed neighborhoods. Symmetric adjacency then gives the stated design and the code split into independent open neighborhoods and four-leaf stars.
+
+## originality
+
+PASS
+
+No inspected theorem supplies the universal punctured-block characterization or the corresponding exact Clebsch census. The classification of the designs and the standard incidence identities are inputs, not new. The statement-level evidence supports a distinct exact identification result, without establishing absolute priority.
+
+## value
+
+PASS
+
+This is a parameter-only exact solution to a natural discrimination and coverage problem on the classical sixteen-point biplanes; it describes every optimizer without choosing an isomorphism class. The explicit Clebsch code sizes and two induced types give a small benchmark for distinguishing neighborhoods, not just another lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

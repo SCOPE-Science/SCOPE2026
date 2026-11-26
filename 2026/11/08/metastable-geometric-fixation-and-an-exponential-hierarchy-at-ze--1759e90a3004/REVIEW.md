@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support count is exactly Markov with transition \((k)_j{n\brace j}/k^n\). The proof derives one-level holding times, a uniformly small probability of skipping the two-survivor state, and a coupling to its exactly geometric holding time. For the expectation hierarchy, fixed-level hitting probabilities are proved to approach one exponentially fast, while inclusion-exclusion controls each fixed-level exit rate and the entire remaining upper tail. These are analytic arguments valid for all integer \(n\ge2\) and every fixed truncation order \(r\ge2\). An independent finite-state checker passed 2,501 assertions, including complete small ballot enumerations. It does not replace the proof.
+PASS
 
-## Originality — PASS (qualified historical priority)
+Counting maps from the n ballots onto j of k active labels yields the stated Stirling kernel; first-step conditioning gives the PGF. Each visited k has one geometric holding block with exit probability a_k at least ((k-1)/k)^n. At entry into {1,2}, the conditional ratio P(k,2)/P(k,1)=(k-1)(2^n-2)/2 gives the shortcut bound uniformly, and the post-entry time from 2 is an independent positive geometric. A deterministic shift u costs exactly 1-(1-q_n)^u in total variation, giving the displayed bound after averaging the entrance delay, including the empty delay for k=2. For fixed k, at first entry into {1,...,k}, the ratio of probabilities below and at k is O_k(((k-1)/k)^n) uniformly over the preceding state, by surjection count bounds. The resulting missing-visit probability changes h_k/a_k by O_k(1). The two-empty-bin term in a_k is O_k(((k-2)/k)^n); the reciprocal correction is bounded since k(k-2)/(k-1)^2<1 (and is zero at k=2). The tail above fixed r is bounded by the first remaining hold-time bound plus n times the next, giving the claimed exponential remainder. These analytic arguments do not rely on extrapolating the checker.
 
-The motivating July 2026 paper analyzes power weights with \(\alpha>0\); the new endpoint uses positive-support-only weights, not covered by those assumptions. Standard occupancy theory has the one-step Stirling formula, but it does not by itself state the iterated extinction-time geometric approximation or all fixed-order exponential corrections. Relevant repeated-balls-into-bins processes differ by allowing bins from a fixed location set. Targeted literature and published-finding corpus queries found no directly covering claim. Risk: a prior general theorem about iterated restricted occupancy could subsume the statements; only part of the motivating full text could be retrieved for material inspection.
+## originality
 
-## Value — PASS
+PASS
 
-The zero-reinforcement endpoint is a mathematically natural boundary of the reinforced voting model. The theorem establishes not just an exponential order but a full distributional law with an explicit total-variation bound, and identifies an unlimited hierarchy of exponentially separated expected-time contributions. This describes the mechanism of delayed consensus through successive small active sets. The exact recursion makes the finite laws reproducible.
+Credit is for the quantitative full-process comparison and especially the complete subleading fixed-level expectation hierarchy, not the Stirling kernel, binary metastable mechanism, leading expectation, or scaled exponential limit. The strongest matching indexed theorem explicitly includes the same zero-reinforcement endpoint and those leading conclusions. Its initial-contraction and two-label estimates are close predecessors (and readily recover a geometric comparison in this specialization); they do not give the frozen explicit uniform bound or the hierarchy of contributions from all fixed higher survivor levels.
 
-## Limits and evidence
+## value
 
-No fixed-positive-exponent result is claimed. The motivating paper's later sections and some potentially relevant occupancy articles were not fully available for examination. The originality assessment is therefore conditional on that material and can be revised by independent historical review. The standalone checker is `check.py`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A leading metastable clock does not determine the transient contribution to the mean. Here each fixed survivor level has a distinct exponential contribution with a controlled remainder at the next rate. The first correction, (3/2)^n/3, is exponentially large in absolute terms and identifies a separate three-survivor timescale; the complete hierarchy makes this quantitative beyond the leading overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

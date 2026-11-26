@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-step cellular rule, indexed cyclic boundary condition, output-weight statistic and ordered-pair normalization are fixed explicitly. The paired de Bruijn trace identity counts all equal-output ordered predecessor pairs and subtracts the diagonal ones. Both determinant polynomials are certified exactly by the 17 integer specializations of a polynomial whose output-weight variable has degree at most 16 in each coefficient. The off-diagonal graph has 12 vertices, 20 edges and exactly ten simple cycles of weights zero, three or four; a canonical exhaustive enumeration checks this. Cycle decomposition proves the exclusion of weights one, two and five, while two explicit cycles sharing a vertex prove attainability and the exact minimum circumference. An independent forward-map enumeration confirms all bivariate coefficients through length 14. The proof does not mistake the finite experiments for a general theorem: the finite graph and polynomial-degree arguments supply the all-length implications.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+A based closed de Bruijn walk determines the indexed input and vice versa, also at n=1 and n=2: closure enforces the repeated bits. Matching one common output label per edge gives the pair weight, not twice the weight. The local equation determines the preceding bit from the next two and the output, so agreement on one pair-state forces equality around the ring. Thus distinct-input pairs correspond exactly to the off-diagonal closed walks, and their enumerator is the logarithmic derivative of the off-diagonal determinant. A separate exact polynomial calculation on all 12 off-diagonal states and 20 edges reproduced R=1-2z+z^2-2u^3z^3+2u^3z^4+(u^6-u^4)z^6. It reproduced all ten simple cycles and the two minimizing cycles with a common vertex, verifying the finite inputs of the proof. Independently, using a=z^3/(1-z), R=(1-z)^2(1-a(u^3+u^2))(1-a(u^3-u^2)). The log expansion adds the two signed m-th powers, leaving exactly an even number 2b of u^2 choices. Writing m=c+2b gives positive weight k=3c+4b with first exponent n=3m=k+2b. Minimizing over b congruent to k mod 3 gives the stated formula and excludes exactly 1,2,5. The factor (1-z)^2 gives two zero-weight collisions at each n>=1, starting with the ordered pair 0,1 and its reverse.
 
-The 1989 rule-matrix literature supplies general preimage methods. The complete directly accessible 2002 Rule 30 note gives a backward inversion procedure and qualitative/unweighted predecessor frequencies; the directly accessible circular-inversion discussion gives examples of multiply represented outputs. The 2010 homogeneous-preimage article addresses a restricted target family. A previously recorded unweighted all-length image-size identity concerns the number of outputs, not the distribution of ordered equal-output pairs according to output Hamming weight and not their sharp first circumference. No inspected source establishes the complete 0-or-3/4-semigroup collision-weight support, the exact forbidden weights 1, 2, 5, or the stated factored two-variable series. Full inspection of an older thesis and some early technical-report pages was unavailable; an earlier equivalent cannot be ruled out.
+## originality
 
-## Value — PASS
+PASS
 
-The output-weight distribution of one-step collisions is a natural exact inverse-channel invariant. The finding gives a complete structural support criterion, a sharp finite-width threshold for every permitted output weight, and a compact factored generating function for all ring lengths and weights. The isolated missing weight five and the sharp modulo-three circumference defect are not a renamed total image count or a finite numerical increment. These facts can inform composition-constrained inverse ambiguity analyses without any unsupported security claims.
+Credit the explicit evaluated two-variable ordered-collision series and the sharp global support law, not the use of backward pair propagation, trace methods, per-target predecessor counts, or the unweighted image law. A same-day exact Rule 30 image record includes the labelled transformation automaton: its fixed-point counts allow a weighted terminal-state calculation, but the stated image recurrence and unevaluated automaton do not give the explicit reduced polynomial or the all-weight support/minimum without further analysis. The later signed-block record goes further: its theorem entails the positive-weight support law, and its actual proof gives the signed quotient from which the exact R can be evaluated. This very strong later overlap is not credited as an independent corroboration of priority or as evidence of coverage before the frozen entry.
 
-## Closest literature and limitations
+## value
 
-Stephen Wolfram, *A New Kind of Science* (2002), note on cryptographic properties of Rule 30; Erica Jen, *Rule matrices, degree vectors, and preimages for cellular automata* (1989); Edward J. Powley and Susan Stepney, *Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata* (2010); *Global Reversibility of Cellular Automata* (MathPages, undated). The earlier general inverse methods and qualitative collision observations are not claimed as new. Access limitations on related long-form historical sources remain a priority risk. Only indexed periodic one-step binary Rule 30 outputs are covered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The output weight makes the indexed predecessor ambiguity sensitive to density instead of only image size or total degree. The compact exact series and its support detect a global weight-five obstruction on all ring lengths, and determine the first possible circumference for every attainable weight. These structural consequences are not read off from a generic per-target counting method, one homogeneous example, or the known unweighted image law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

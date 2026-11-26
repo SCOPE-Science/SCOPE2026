@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:05:08.998149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated subcritical mean-field chain the stationary polynomial moments are finite, e.g. by comparison to the same linear birth/immigration and death process without resets. Applying the generator to N(N-1) gives the birth contribution 2N(ℓN+u), the death contribution -2(1+ζ)N(N-1), and one whole-site reset contribution -rN(N-1). This gives 2(ℓ+u)u/[(a+r)(2a+r)] with a=1+ζ-ℓ. Multiplication by the level multiplicity leaves the displayed ℓ-times-input term as v grows. At fixed ζ the linear mean equation on the grid has positive denominator for large L by Riemann convergence and βB_0<1, and the bulk normalized sum tends to the displayed integral. The original grid prescription has q(1)=r(1)=0 and v_L=1, giving an extra 2/(Lζ²), negligible only at fixed ζ. The first moment converges to A_0/(1-βB_0)>0 by domination. Uniform near-endpoint numerator convergence to 2 and r(1-ε)~Cε^ν give an integrable ε^{-2ν} bound for ν<1/2. For ν>1/2, rescale by ε=(ζ/C)^{1/ν}x; on the endpoint region a constant times (1+x^ν)^{-2} dominates the scaled integrand, and the rest is bounded before rescaling. With p=1/ν, the integral after t=x^ν involves t^{p-1}/[(1+t)(2+t)]; writing the denominator factor as ∫_1^2(t+s)^{-2} ds and integrating in t gives Γ(p)Γ(2-p)∫_1^2 s^{p-2}ds/ν, exactly π(1-2^{p-1})/[ν sin(πp)]. At ν=1/2, integrate between M(ζ/C)^2 and fixed small h: the integrand is uniformly within arbitrarily small relative error of 2/(C²ε) when M is large and h small, while both omitted regions contribute O(1) for fixed M,h. This yields 4C^{-2} log(1/ζ). Grange's ν=1 result is the onset, already logarithmically divergent there; the frozen comparison does not assert that the mean stays finite at ν=1. RESULT.md, VERIFICATION.md and checks/checker.py were inspected; the reported 32 finite numerical consistency checks were not rerun and do not establish the limits. No claim is made about a finite interacting network outside the one-site closure or about different-site covariances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected original local paper gives the mean equation and first-moment transition, not the integrated pair law. The earlier global model resets all sites together at a constant rate.",
+          "The exact overlapping record allows continuous nonnegative r, gives the same condition βB_0<1, and states both pair and diagonal variance thresholds.",
+          "The 2016 catastrophe-process paper was not retrieved in readable form. The matching catalogue cites its §5.3 for pointwise moments; not treated as a verified full theorem here."
+        ],
+        "reasoning": "Local-vs-global clocks and pointwise-vs-fitness-integrated quantities are decisive scope differences for the older leads. The catalogue coverage itself does not depend on confirming the 2016 moment reference.",
+        "searches": [
+          "arXiv:2311.12414 §§3.4–3.5, 5.1–5.2",
+          "arXiv:1910.05991 §§5.1–5.2",
+          "10.1017/S0269964815000297 (possible catastrophe-process moment theorem)",
+          "Resultary b88c55090541"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b88c55090541 and 8e4c1a3f8009",
+        "arXiv:2311.12414",
+        "arXiv:1910.05991",
+        "DOI:10.1017/S0269964815000297 (access attempted, cited passage unverified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlap proves the same factorial-moment generator identities, same limiting integrand, and asymptotic classification under the same physically defined model, and includes an extra variance identity.",
+          "The Grange multiplicity convention fixes exactly one maximally fit site; at fixed ζ its normalized contribution vanishes, so retaining that site in the finite grid does not alter the matching continuum law."
+        ],
+        "reasoning": "The comparison directly covers the scientifically material content; it is not just a claim inferred from a similar title or threshold. The catalogue path dates establish neither derivation nor priority. The bounded finite-grid endpoint accounting does not change the theorem or create a distinct substantive result.",
+        "searches": [
+          "b88c55090541 RESULT.md offsets 0–4185",
+          "arXiv:2311.12414 §2 Eqs. (6)–(11), §5 Eqs. (41)–(59)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b88c55090541 defines the integrated ordered co-occupation intensity as ∫lim_v v E[N(N-1)] dℓ under the identical linear birth/death and total local reset rates.",
+          "Its displayed pair integral agrees factor by factor. Its J_ν gives the same A_{ν,C}, since sin(π(1/ν-1))=-sin(π/ν).",
+          "The indexed logarithmically modified reset result 8e4c1a3f8009 is instead for first moments with r(1-x)~cx[log(1/x)]^θ and is not the matching pair theorem."
+        ],
+        "reasoning": "‘Co-occupation’ and the within-site ordered factorial pair are the same observable; neither is full population variance. The differing trigonometric form and normalization notation do not change the claim.",
+        "searches": [
+          "Resultary: site-local resetting zero-range process same-site pair factorial second moment",
+          "Resultary: fitness-dependent local resetting zero-range condensation pair density second moment",
+          "Resultary: non-conserving zero-range process resetting pair density crowding threshold 1/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The publicly indexed theorem b88c55090541 explicitly gives the full piecewise law, including 4/C², ζ^{1/ν-2} and the equal power-law amplitude."
+        ],
+        "reasoning": "A finite numerical database is not an appropriate exact check for this continuum theorem with free parameters and rate functions. The exact applicable catalogue comparison supplies the entire symbolic law, not just a matched numerical exponent.",
+        "searches": [
+          "Resultary: non-conserving zero-range process resetting pair density crowding threshold 1/2",
+          "b88c55090541, Finding and Assumptions and scope"
+        ]
+      },
+      "rationale": "Distinct catalogue record b88c55090541 covers the substantive frozen result at statement level: same local stationary marginal model, same input and mean closure, identical ordered pair integral, same parameter domain for the frozen physical profiles, and the same finite/log/power regimes and constants. It additionally gives a diagonal variance identity, not a result retained from the frozen claim. This is demonstrated equivalent coverage in the available catalogue, not an attribution or assertion that the later-dated comparison preceded the frozen record. The finite-grid endpoint omission in the comparison is only a fixed-cutoff Riemann-limit detail of the equivalent continuum theorem, not a separate substantive pair-threshold contribution.",
+      "residual_risks": [
+        "No claim about priority or independent provenance between the frozen theorem and the distinct later-dated exact match.",
+        "Older pointwise catastrophe moment coverage was not verified in full text; the originality decision is based on exact equivalent catalogue coverage, not that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage with additional diagonal variance law; distinct later-path-date record, not evidence of priority",
+          "evidence": "Identical pair integral and three regimes; J_ν converts to the frozen trigonometric coefficient. Same cutoff and stationary mean, same whole-site reset generator, plus diagonal variance identity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-hidden-co-occupation-threshold-below-fitness-condensation--b88c55090541",
+          "material_read": "RESULT.md Finding, Assumptions and scope, first stationary moment proof, offsets 0–4185; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and local mirror passage inspection",
+          "title": "A hidden co-occupation threshold below fitness condensation",
+          "trigger": "Exact potential duplicate of local pair integral and threshold"
+        },
+        {
+          "assessment": "Prior model and first-moment transition, not cited here as the integrated pair theorem",
+          "evidence": "One site at ℓ=1; exact reset master equation; stationary mean finite for ν<1 and logarithmically divergent at ν=1, with a maximum-fitness atom in the normalized profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.12414",
+          "material_read": "§2 Eqs. (6)–(11), §§3.4–3.5 Eqs. (24)–(25), §§5.1–5.2 Eqs. (41)–(59), pp.5–16 in bounded passages",
+          "method": "OA original PDF passage inspection",
+          "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+          "trigger": "Original model, grid endpoint and density threshold"
+        },
+        {
+          "assessment": "Global reset, different rate profile",
+          "evidence": "Entire configuration resets at a common constant rate; no vanishing local r(ℓ) profile or corresponding ν=1/2 threshold in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.05991",
+          "material_read": "§§5.1–5.2, Eqs. (54)–(64), pp.14–15, text offsets 47000–52973",
+          "method": "OA original PDF passage inspection",
+          "title": "Non-conserving zero-range processes with extensive rates under resetting",
+          "trigger": "Possible earlier resetting analogue"
+        },
+        {
+          "assessment": "Unverified pointwise comparison; immaterial to established catalogue overlap",
+          "evidence": "The reported setting includes binomial catastrophe moments, potentially covering total clearing as a special case, not shown to include the fitness-integrated critical theorem.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964815000297",
+          "material_read": "Bibliographic description; the matching record cites §5.3/Eq. (5.2); no readable primary passage obtained",
+          "method": "Lawful DOI and OA retrieval attempts",
+          "title": "Linear birth/immigration-death process with binomial catastrophes",
+          "trigger": "Possible broader exact formula for pointwise moment under catastrophe"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematically meaningful content is an integrated fluctuation threshold with sharp coefficients in a regime where the mean stays finite, not the elementary stationary moment identities by themselves. It distinguishes physically different local observables and identifies a genuine earlier singularity under the specified order of limits. That intrinsic utility does not overcome exact equivalent coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

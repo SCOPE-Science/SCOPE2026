@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:19:37.688346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; VERIFICATION.md lines 19–25; verify_dgda.py lines 8–56 and frozen verification_output.txt line 1; arXiv:2403.09090v1 Section IV and Theorem 2."
+      ],
+      "rationale": "The real skew matrix J=M/a squares to −I and has conjugate complex eigenspaces, so the Euclidean product-norm computation splits into identical-norm B and conjugate B blocks. The real induced norm equals the complexified norm: writing a complex input as x+iy splits both squared norms into sums of real squared norms. Direct subtraction of λ=(1−i)/2 from B gives a nonzero rank-one N with N²=0, trace zero and Frobenius square 1. Thus B^k=λ^k(I+kN/λ), and the latter parenthesized matrix has determinant 1 and squared Frobenius norm 2+2k². Solving the quadratic for its squared singular values gives 1+k²+k√(k²+2), proving the exact power norm and the asymptotic coefficient 2. The finite candidates 0,1,2 are smaller than k=3; in particular 99>96 verifies the k=3 versus k=2 radical comparison. For k≥4 the monotone upper bound 2^(−k)(2k²+2) starts at 34/16, below the k=3 value. On a synchronized modal vector (w,w), the two components of N(w,w) are (λw, conjugate(λ)w); dividing by λ gives the stated primal and auxiliary powers, and the consecutive primal squared-gain ratio drops below 1 exactly when k≥2. The weak 3/4 bound from the DGDA reference is compatible. The sharper general inequality printed in the same reference, at its repeated-root endpoint, is not compatible; the frozen statement carefully refers to the weaker bound only.",
+      "residual_risks": [
+        "The uploaded script was inspected, not executed. Its frozen 209-check output is not an all-dimension or all-horizon certificate. The analytical modal reduction and tail bound establish those quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Montbrun–Renault abstract concerns OGDA, with optimal geometric ratio in its zero-sum setting, not the DGDA update. The nearest indexed Ritt result analyzes normalized differences of powers for a direct sum, and the indexed Jordan cascade result considers weighted logarithmic norms for continuous-time cascades. Wider targeted search led back to author-hosted papers, not an independently identified competing result."
+        ],
+        "reasoning": "None of those inspected statements covers these DGDA-specific product-space singular norms or the synchronized primal observable. The classical rank-one Jordan power formula supplies a method to compute them, not an identification of the peaks and their distinct maximizing integers in this algorithm.",
+        "searches": [
+          "arXiv:2208.03085 optimal geometric ratio for bilinear games; local Resultary 4598a5930ece and 667886489945; web query: dissipative gradient descent ascent defective eigenvalue Jordan block transient amplification bilinear DGDA norm powers condition number convergence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.09090v1, Section IV and Appendix B",
+        "arXiv:2208.03085 abstract",
+        "Resultary 4598a5930ece and 667886489945"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mode discriminant 4ρ²−η²σ_j² vanishes with the assigned parameters. The general displayed Theorem 2 base 1−2ρ+2ρ²+(1−ρ)√(4ρ²−η²σ_min²) becomes 1/2; its separately displayed weaker base 1−1/(4κ) becomes 3/4. In the frozen result, even synchronized full-state error has ratio (k²+k+1)2^(−k), ruling out a finite constant at the first base but not at the second."
+        ],
+        "reasoning": "Once the nonzero rank-one Jordan part of the already-known mode is recognized, the polynomial factor is classical. The sharper printed estimate cannot supply that factor, and its condition-number-one endpoint is refuted by it. The exact finite peaks still require taking the singular norm, extremizing over the integers, and analyzing the separate synchronized observable; they are not consequences of the weaker rate bound.",
+        "searches": [
+          "arXiv:2403.09090v1 Section IV definition of V_k, Theorem 2's two displayed bounds, and Appendix B mode discriminant and rate argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general update in Eq. (10) is the same product-space matrix after setting ρ=1/2 and η=1/σ_max=1/a. Theorem 2 bounds V_k, the same squared Euclidean error. Appendix B reduces to scalar singular-value modes, but evaluates eigenvalues rather than the exact squared induced norm of every power or synchronized original-variable gains."
+        ],
+        "reasoning": "The published error observable is not a different norm that would obscure an equivalent formula. The spectral values constrain the asymptotic base but do not equal singular gains. A bound with a weaker base cannot be re-expressed as either sharp peak.",
+        "searches": [
+          "arXiv:2403.09090v1 Eq. (10), Theorem 2 and Appendix B; local Resultary critical DGDA Euclidean transient gain and nilpotent powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected indexed Finding treats normalized power differences and limit points, not DGDA. The primary Theorem 2, in its discussion of Table I, compares convergence rates, not exact finite-horizon gains."
+        ],
+        "reasoning": "No inspected table or indexed statement reports (10+3√11)/8 or 9/4 for the stated respective observables with the claimed optimizing iterations. A general table of rates is not a table of peak Euclidean amplification.",
+        "searches": [
+          "Local Resultary search DGDA condition number one exact gain k=3 synchronized k=2; nearest indexed Finding 4598a5930ece; arXiv:2403.09090v1 Section IV-A and Table I reference"
+        ]
+      },
+      "rationale": "The algorithm, chosen steps and spectral mode analysis are prior. The strongest inspected DGDA source does not give the exact Euclidean norm of every power, the two distinct sharp discrete peaks, or a correct pure-rate estimate at the defective boundary. Its displayed general rate would in fact imply the false pure 2^(−k) estimate there, even though its separately stated weaker rate is valid. The distinct contribution is the sharp amplification and finite-time contrast, not Jordan calculus or the spectral eigenvalues alone.",
+      "residual_risks": [
+        "Classical general matrix-power identities are prior ingredients. Other algorithm-specific applications or revised versions of the primary theorem may exist; no historical priority certificate is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior matrix and spectral analysis; exact transient results absent from inspected statements; weaker rate compatible, general displayed bound fails at critical equality in v1",
+          "evidence": [
+            "V_k is explicitly the sum of squared Euclidean errors of x,y and both auxiliaries. Substituting the critical parameters gives 1/2 in the first bound and 3/4 in the second. The spectral proof then estimates the weaker base separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.09090v1",
+          "material_read": "Section IV energy and Eq. (10) offset 29900; Theorem 2 p. 5 offset 33672; Appendix B spectral reduction and rates, pp. 8–9, offsets 57904, 61718, 64600, 65600 and 67180",
+          "method": "Bounded primary OA PDF passages, including direct check of both displayed bounds and the energy definition",
+          "title": "Dissipative Gradient Descent Ascent Method: A Control Theory Inspired Algorithm for Min-max Optimization",
+          "trigger": "Identical algorithm, parameter choice and energy bound"
+        },
+        {
+          "assessment": "Abstract supports different update/goal; no whole-paper noncoverage verdict based on the abstract",
+          "evidence": [
+            "The reported geometric-ratio result is for optimistic gradient descent ascent."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.03085",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Optimistic Gradient Descent Ascent in Zero-Sum and General-Sum Bilinear Games",
+          "trigger": "Closest cited alternative algorithm in bilinear games"
+        },
+        {
+          "assessment": "Different operators and observable",
+          "evidence": [
+            "Concerns normalized power differences of Ritt blocks rather than the full power norm or a synchronized DGDA trajectory."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-nonnormal-ritt-power-difference-plateau-and-a-four-neighbor-sp--4598a5930ece",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "A nonnormal Ritt power-difference plateau and a four-neighbor spectrum",
+          "trigger": "Closest indexed comparison for nonnormal powers of two-dimensional modes"
+        },
+        {
+          "assessment": "Unavailable from the attempted author URLs; no comparison of alternate editions inferred",
+          "evidence": [
+            "The rate discrepancy stated here is only for arXiv:2403.09090v1, not attributed to uninspected versions."
+          ],
+          "identifier_or_url": "https://mallada.ece.jhu.edu/pubs/2024-LCSS-ZLYM.pdf",
+          "material_read": "No passages recovered at the author URL; primary arXiv v1 passages inspected separately",
+          "method": "OA recovery attempted on the author-hosted LCSS and related CDC PDF links",
+          "title": "Author-hosted 2024 versions surfaced by the DGDA literature search",
+          "trigger": "Possible author-hosted journal version of the cited work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26 and 39–58; arXiv:2403.09090v1 Theorem 2."
+      ],
+      "rationale": "This is the critical boundary of the recommended step choice at best conditioning, not an artificial slice. Exact gains quantify how much transient error is missed by asymptotic spectral reasoning, and the synchronized peak shows the effect can reach original variables under a standard initialization, not merely an adversarial auxiliary state. The formula identifies why one printed rate cannot hold at boundary equality and precisely separates it from the weaker valid one.",
+      "residual_risks": [
+        "Nothing is inferred about ill-conditioned games, other parameter choices, or convergence in other norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

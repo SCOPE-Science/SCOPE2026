@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:26:53.512439Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–66, VERIFICATION.md, check.py (inspected, not executed)",
+        "Independent diagnostic: python3 /workspace/review_checks.py 5 checks the different complex two-rate example F(x)=i e^(−x)(1−e^(−2x)), p=2. The critical grid count at level 0.1, trace and norm agree with a two-root interval, the exact three-term integral and analytic peak; the separated scale approaches normalized trace 1 and norm 2/e."
+      ],
+      "rationale": "The monomial basis yields the diagonal entries e^(−delta n)F(epsilon n); since the operator is normal and compact their absolute values give precisely the positive singular values with multiplicity. On the epsilon grid the profiles converge locally uniformly with an exponential envelope from min(t_j)>0, including when delta/epsilon tends to zero. Mesh sums of p-th powers therefore converge for every p>0, and compact convergence plus uniform tail control justifies grid suprema. For the moving strict indicators at s>0, all significant grid points stay in a common compact interval; sandwich between the limiting indicators at s±eta and let eta decrease to zero. The squared limiting profile is real analytic and nonconstant (it decays and is not identically zero), so equality at s is a null set even at a profile maximum. In the separated regime the Taylor quotient F(y)/y^m has a continuous extension and is bounded on the positive half-line. On the delta grid the scaled entries then tend to a constant times x^m e^(−x) with the same shape as an integrable bound. The Gamma integral and maximum give the constants, with m=0 handled at x=0. Lagrange interpolation proves the barycentric cancellation vector and the maximum possible order N−1. The beta integral and peak in the three-rate example follow by u=e^(−x).",
+      "residual_risks": [
+        "Finite grids test only the specified example. The published bounds are two-regime asymptotics, not a uniform error estimate for moving coefficient/rate vectors. No separated-regime counting statement is ascribed to the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin et al. Theorem 1.3 gives finite-sum Schatten membership and two-sided fixed-symbol estimates whose constants may depend on the symbols. Peng–Jiang Theorem 3 and Corollary 5 treat order-boundedness and compactness. Chalendar–Partington Theorem 2.2 studies powers of a single affine operator. The polynomially weighted boundary law proves all-p and counting limits for a fixed polynomial weight and one radial contraction."
+        ],
+        "reasoning": "Fixed-symbol comparison does not control moving conditioning. Affine iteration and qualitative difference criteria do not supply the critical profile. The polynomially weighted proof has the same scalar-envelope method, but its theorem is specifically about weighted shifts whose top-degree monomial sets one polynomial-exponential shape.",
+        "searches": [
+          "arXiv:2611.19948v1",
+          "doi:10.3390/math12213360",
+          "arXiv:2106.00427",
+          "SCOPE-021f2c0bee79"
+        ]
+      },
+      "checked_sources": [
+        "Lin–Lu–Yang–Zu, Peng–Jiang, Chalendar–Partington original full-text passages",
+        "Local Resultary mirrors c1d3f2c1e01a, 021f2c0bee79, d5150b8e2957 and 0783dd6010b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general quadratic Gram identity mechanically gives the critical p=2 limit by multiplying K by epsilon and taking entrywise limits 1/(2tau+t_i+t_j). The known one-scale x^gamma e^(−x) profile matches the separated shape for gamma=m and C=A_m, but contains no parameter tau or general complex coefficient cancellation. The interior optimizing theorem fixes a away from the unit circle and does not have the uniform error control needed to substitute a drifting center."
+        ],
+        "reasoning": "The p=2 overlap and standard spectral-grid methods are credited. The inspected statements do not give the arbitrary-coefficient finite-ratio counting, norm and all-p profile or its transition to the first nonzero moment at the stronger-contraction scale. This uses the stated assumptions, not absence of matching vocabulary.",
+        "searches": [
+          "SCOPE-c1d3f2c1e01a Proof Step 1 and collision assumptions",
+          "SCOPE-021f2c0bee79 Proof Steps 1–2",
+          "arXiv:2611.19948v1 Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct collision comparison optimizes a normalized squared S_2 norm at fixed interior center and obtains order 2(N−1) and a barycentric direction. The affine comparison uses a common contraction and distinct fixed centers and yields a single sqrt(x)e^(−x) profile. The moment-filtration result uses integral shifts with polynomial tails."
+        ],
+        "reasoning": "A fixed-base dilation collision is not a two-parameter boundary limit; fixed shifts of centers do not encode distinct radial slopes. A scalar finite difference in the number-operator functional calculus recasts the present operator but does not identify it with the different integral shift or affine family. No priority is inferred from same-day dating.",
+        "searches": [
+          "Local Resultary/SCOPE: Fock dilations, collision conditioning, semigroup differences and operator moments",
+          "SCOPE-c1d3f2c1e01a",
+          "SCOPE-d5150b8e2957",
+          "SCOPE-0783dd6010b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The collision paper gives the exact Gram table K_ij=(1−conjugate(b_i)b_j)^−1 for arbitrary slopes in the disk. The polynomially weighted record gives the Gamma integral and norm/counting constants for C x^gamma e^(−x)."
+        ],
+        "reasoning": "There is exact coverage at the level of the quadratic trace expression and a formal match of separated-profile constants. Neither is a table of level sets or nonquadratic trace and operator-norm data for the general critical exponential-polynomial family.",
+        "searches": [
+          "Local Resultary/SCOPE: exact singular spectra and Schatten limit constants for radial Fock sums",
+          "SCOPE-c1d3f2c1e01a Proof Step 1",
+          "SCOPE-021f2c0bee79 Proof Step 2"
+        ]
+      },
+      "rationale": "Pass is for the coupled boundary/coalescence classification with arbitrary fixed finite exponential-polynomial profile, positive-level counting at finite ratio, and a matching moment-order law across Schatten exponents and the operator norm. Neither basic diagonalization, exact Hilbert–Schmidt traces, the polynomial–exponential separated shape by itself, nor the Vandermonde interpolation identity is treated as a distinct new result.",
+      "residual_risks": [
+        "Historical priority is not resolved by the compared dates; equivalent general dilation/semigroup results may be unindexed. No broader primary web-search wave was run; comparisons use the identified primary papers and local indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-symbol bounds and membership; not the moving profiles",
+          "evidence": "Distinct entire symbols; two-sided comparisons for nonconstant symbols with constants depending on the symbols.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.19948v1",
+          "material_read": "Theorem 1.3, p. 3, PDF offset 11111",
+          "method": "OA original PDF passage",
+          "title": "Finite Sums of Weighted Composition Operators on the Fock Space",
+          "trigger": "Direct finite-sum Schatten comparison"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Order-boundedness of differences, and an affine specialization connected to compactness.",
+          "identifier_or_url": "https://doi.org/10.3390/math12213360",
+          "material_read": "Original PDF Theorem 3, p. 11 offset 67000, and Corollary 5, p. 17 offset 99100",
+          "method": "OA original PDF passages",
+          "title": "Order-Bounded Difference in Weighted Composition Operators Between Fock Spaces",
+          "trigger": "Difference between nearly coincident Fock symbols"
+        },
+        {
+          "assessment": "Single-operator iteration, not collision spectra",
+          "evidence": "Powers of a strict affine contraction converge in norm to a rank-one evaluation operator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.00427",
+          "material_read": "Theorem 2.2, p. 5 offset 8675",
+          "method": "OA original PDF passage",
+          "title": "Weighted composition operators on the Fock space: iteration and semigroups",
+          "trigger": "Possible semigroup functional calculus coverage"
+        },
+        {
+          "assessment": "Exact quadratic Gram coverage and overlapping barycentric mechanism; different limit and optimization",
+          "evidence": "Interior center fixed, normalized S_2 minimization and N−1 order; exact Gram valid for general disk slopes.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-schatten-two-collision-conditioning-for-fock-dilations--c1d3f2c1e01a",
+          "material_read": "Mirrored collision theorem and assumptions offset 500; exact Gram proof Step 1 offset 2270",
+          "method": "Local Resultary and bounded mirror passages",
+          "title": "Sharp Schatten-two collision conditioning for Fock dilations",
+          "trigger": "Closest actual radial sum and sharp collision exponent"
+        },
+        {
+          "assessment": "Same universal profile shape, different operator and one scale",
+          "evidence": "Gamma-ratio weights of monomial shifts, not a diagonal finite sum; profile x^gamma e^(−x) and all-p Riemann sum.",
+          "identifier_or_url": "2026/10/25/SCOPE-universal-singular-value-boundary-law-for-polynomially-weighted--021f2c0bee79",
+          "material_read": "Mirrored scope and Proof Steps 1–2, offsets 2520–4896",
+          "method": "Local Resultary and bounded mirror passage",
+          "title": "Universal singular-value boundary law for polynomially weighted Fock dilations",
+          "trigger": "Separated-profile and singular-grid method overlap"
+        },
+        {
+          "assessment": "Different perturbation and range of exponents",
+          "evidence": "Same slope q, fixed distinct centers; profile |u−v| sqrt(x)e^(−x), with Schatten asymptotics for p≥1.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-critical-schatten-boundary-layer-for-differences-of-affine-foc--d5150b8e2957",
+          "material_read": "Mirrored Finding at offsets 0–1448 and adjacent scope",
+          "method": "Local Resultary and bounded mirror passages",
+          "title": "A critical Schatten boundary layer for differences of affine Fock composition semigroups",
+          "trigger": "Analogous counting and norm profile for composition differences"
+        },
+        {
+          "assessment": "Analogous cancellation, different operator",
+          "evidence": "Finite sums of integral shifts have polynomial-tail asymptotics and a finite-rank alternative.",
+          "identifier_or_url": "2026/11/17/SCOPE-moment-filtration-and-rank-one-synthesis-in-critical-gaussian-fo--0783dd6010b8",
+          "material_read": "Mirrored Finding on integral shifts and moment order",
+          "method": "Local Resultary and mirror passage",
+          "title": "Moment filtration and rank-one synthesis in critical Gaussian Fock integral shifts",
+          "trigger": "Moment cancellation as alternative spectral formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–41 and 43–66",
+        "Lin–Lu–Yang–Zu Theorem 1.3; local collision theorem, scope and Gram reduction"
+      ],
+      "rationale": "This gives a quantitative failure mode for fixed-symbol control in a natural limit: at finite contraction-to-separation ratio the entire exponential-polynomial shape persists, and at large ratio only one moment remains visible. The change yields sharp multipliers for quantities sensitive to very different parts of the spectrum, including the quasi-Schatten traces and positive-level counts. Its usefulness is the combined classification, not another membership characterization or the known quadratic Gram computation.",
+      "residual_risks": [
+        "The method relies on a common diagonalization and is not a classification of varying rates/coefficients, weighted compositions, or general affine symbols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

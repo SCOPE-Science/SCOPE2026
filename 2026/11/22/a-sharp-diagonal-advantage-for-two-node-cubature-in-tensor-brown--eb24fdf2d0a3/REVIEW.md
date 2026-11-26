@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The kernel-mean and Gram calculations reduce worst-case squared integration error to an exact two-node matrix projection. The entire one-axis design class tensor-factorizes into a one-dimensional bridge interpolation problem, for which strict convexity gives the unique trisection nodes, and independent one-coordinate factors force the shared coordinates to the midpoint. The reflected-family objective has an explicit logarithmic derivative with a unique sign change. Strict convexity of log-cosh establishes the cross-dimensional monotonicity; a constructive scaling proves the limiting constant. The asymptotic node separation follows from the root equation. The verifier confirms 379 finite exact-arithmetic identities and 150 numerical root/trend instances. The continuum and all-dimension conclusions are proved, not inferred from experiments.
+PASS
 
-## Originality — PASS (qualified)
+The integrated kernel is v(x)/2 in one coordinate, v(x)=x(1−x), with total one-dimensional representer energy 1/12. Completing the square in the weights gives capture gᵀG⁻¹g; distinct interior sites give a nonsingular Gram matrix since the kernel correlation in at least one coordinate is strictly less than one. For the one-axis family the capture factorizes, with each shared coordinate contributing v(c)/4≤1/16, uniquely at c=1/2. Independently, the 1D subspace vanishing at both sites splits into three Dirichlet intervals. On an interval of length h the integral representer u(s)=s(h−s)/2 has energy ∫u=h³/12, proving the residual formula. Strict Jensen gives trisection and Q₁=2/27; optimal weights are 1/3 times 1/2 per shared coordinate. Degenerate pairs give at most the best one-site capture 16^(−d) and are strictly worse. For the diagonal pair, equal kernel means p/2^d and Gram correlation s^d give the stated weights and capture; the log derivative has the sign of 1−s−2s^(d+1), which decreases through zero exactly once. Under s=exp(−ℓ/d), normalized capture is 2 sech^(2d)(ℓ/(2d))/(1+exp(−ℓ)). Strict convexity of log cosh makes it strictly increasing at each fixed ℓ>0 with d; comparing attained maxima at the earlier maximizer gives strict increase. At d=1 the normalized maximum is 32/27. Its upper bound is 2, attained in the limit by ℓ=d^(1/4), so the ratio tends to 27/16. Writing α=−d log s_d gives α→∞, α/d→0 and α exp(α)~2d; inversion gives α~W₀(2d) and 1−2t_d~W₀(2d)/(2d). Independent numerical substitution gives t₂=0.3709720637607637, capture 0.005050140888736467 and error 0.001894303555707977. Symmetry here means reverse the same chosen coordinate orientation for both nodes (as in the stated equivalent-diagonal class), not reflecting one node alone. The claim does not extend to unrestricted site pairs. The supplied script and output were inspected, not run.
 
-The 2017 kernel-quadrature sampling paper is about selecting random-node distributions and convergence constants, not comparing the fixed two-point one-axis class with reflected tensor-diagonal nodes. The 2018 Frolov-lattice paper gives the full general tensor-kernel and error-norm framework, not the present exact budget-two optimizer, equality cases or dimensional limit. The 2022 Brownian bridge interpolation paper optimizes one-dimensional sup-norm interpolation power rather than tensor-product integration worst-case error. Targeted comparisons also distinguish a nearby one-dimensional iid random-node result, which optimizes *expected* fixed-node uncertainty rather than deterministic tensor-design geometry. Broader historical tensor cubature literature can still contain an equivalent statement; no claim of exhaustive priority is made.
+## originality
 
-## Value — PASS
+PASS
 
-Two evaluations form the smallest nontrivial tensor-product cubature budget. The theorem provides the exact optimum over every one-axis configuration and a constructive, unique, strictly better two-node diagonal alternative in every dimension, with a precise monotone efficiency law and a sharp limiting factor. It is a motivated structural boundary for designs that expend their extra sample along only one axis, rather than an arbitrary coordinate slice. No global all-pairs optimum, total-error factor or practical speedup is claimed.
+The one-dimensional fixed-pair error and the general tensor-kernel cubature machinery are already available; the independent increment is the exact restricted-family tensor comparison including the optimizing diagonal separation and strict dimensional law. No compared statement covers that conjunction or demonstrably implies it without the geometry-specific optimization. This is provisional as to historical priority.
 
-## Scope and residual risks
+## value
 
-The result concerns exact noiseless evaluations and the anchored mixed-Sobolev tensor norm. The asymptotic gain is in captured representer energy; the fraction of total variance captured declines exponentially. An uninspected historical exact two-point tensor-product result could subsume the classification. Full independent mathematical and publication-priority review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One extra evaluation is the smallest budget for choosing between a one-coordinate split and a genuinely multivariate placement. Optimizing both classes proves a strict loss for every one-axis design, even with arbitrary weights, and the separation and monotone gain quantify the mechanism as more coordinates are used. The 27/16 factor is for captured representer energy, not total-error improvement or practical speedup; both captured fractions decay exponentially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

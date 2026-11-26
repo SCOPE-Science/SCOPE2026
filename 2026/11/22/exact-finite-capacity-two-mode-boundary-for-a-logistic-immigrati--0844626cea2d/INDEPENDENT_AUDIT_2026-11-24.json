@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:30:20.642363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–101",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact replay: /workspace/branches/2339bef9-05b1-4bbf-a58b-3a6e1e7511ab/record2_independent.py and record2_independent.log"
+      ],
+      "rationale": "Irreducibility and detailed balance give a unique positive stationary count law and R_1=Na. For t=j-1, the sign of R_j-1 is that of (N-t)(a+bt/(N-1))-(t+1), a concave quadratic in t. The positive ratios relative to 1 lie in a single interval, so the pattern is descent, ascent, descent with absent phases or ties allowed, giving at most two separated modal components. A strict initial descent plus a later rise is precisely a<1/N and b>min_t b_t(a); at equality all later ratios are at most one. To verify the envelope, write b_t=(N-1)/N*[delta/t+(N+1)/(N-t)]. Minimizing by Cauchy–Schwarz gives the displayed t_c and B_c; the numerator of b_t-B_c is a quadratic with leading coefficient B_c and a double zero at t_c. The function decreases on one side of t_c and increases on the other, so the two clipped bracketing integers suffice. The affine lines have slopes -(N-1)/t, ensuring strict decrease, concavity and motion toward smaller minimizing integers. For fixed eta<1 the minimizing integers equal sqrt((1-eta)N)+O_eta(1); bounded rounding displacement over denominator of order N^(3/2) contributes O_eta(N^(-3/2)), and the expansion of B_c gives the stated two correction terms. In the independent rational example with b=8/5 the first four ratios are 1/5, 89/100, 676/675 and 581/600; the unique threshold 639/400 makes R_3 exactly 1 and gives no rise. A separate exact finite replay checked 44,550 threshold/ratio comparisons at and near the transition.",
+      "residual_risks": [
+        "A weak plateau at a=1/N is not a strict vacant-state mode. The asymptotic is not uniform as eta tends to 1. The eta=0 expression extends the threshold continuously, not the positive-immigration invariant-law claim. The exact replay is bounded and does not prove the general estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The higher-order imported SIS strict-mode bound covers the at-most-two strict modes of the pairwise setting. The related exact triadic onset uses an i(i-1) contact term rather than i. Xu's mate-limitation and immigration mechanism is different. Matis–Kiffe full text was not retrieved."
+        ],
+        "reasoning": "A maximum number of strict modes does not decide where the count sequence actually has a strict second rise, or yield the exact discrete correction. The triadic positive-contact threshold with a different rate polynomial does not yield the pairwise threshold by just renaming parameters.",
+        "searches": [
+          "Resultary 37decc4c34a8, Finding; Resultary 9db1c6e6196c, Finding",
+          "Xu arXiv:1605.06084, pp. 3, 5–6",
+          "Matis–Kiffe DOI:10.1016/j.tpb.2003.08.003"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.27100 and arXiv:1605.06084",
+        "Local Resultary 2a6ad2f00da6, d786aa12e5ba, 9db1c6e6196c and 37decc4c34a8",
+        "Matis–Kiffe bibliographic/abstract evidence only",
+        "Frozen proof, assumptions and discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier clique law gives R_1=Na and setting R_(t+1)=1 yields the same individual affine cutoffs immediately. Brugevin–Zanette treat finite-alpha stationary histograms numerically and Eq. (8) is a small-alpha approximation; §II.C concerns a different active-duration observable."
+        ],
+        "reasoning": "Credit direct prior implications for the stationary ratios and the unoptimized inequality. The distinction is an exact quantitative description of the entire threshold curve: closed real envelope with normalized square lattice correction and clipped search, monotone switches of the active index, and the first two finite-size corrections with the onset occupancy on the fixed-eta path. Neither an old expression for the count law nor the cited growth/active-duration results evaluate this optimization. No priority is inferred merely from the dates of indexed findings.",
+        "searches": [
+          "arXiv:2605.27100 p. 3 Eq. (3), Fig. 2, Eq. (8), §II.C",
+          "Resultary 2a6ad2f00da6 exact clique law; d786aa12e5ba finite law; 37decc4c34a8 strict-mode bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SIS on a uniform N-clique, with each pair coefficient nu/(N-1), importation alpha and recovery mu, has exactly the submitted count generator. The old clique law's adjacent ratio is the submitted R_j, and Fig. 2 of the population-model paper already shows a distinct vacant peak."
+        ],
+        "reasoning": "The equivalence is exact for the generator and stationary law, not just similar notation; those objects cannot support originality. Stationary count modes are not modes of active spell duration.",
+        "searches": [
+          "Complete-graph spontaneous SIS and finite logistic immigration count modes; Resultary 2a6ad2f00da6 and d786aa12e5ba",
+          "Brugevin–Zanette arXiv:2605.27100, Eq. (3) and Fig. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact stationary-law entry 2a6ad2f00da6 already covers the distribution, not the optimized onset. Same-date d786aa12e5ba gives the finite law on b=(N-1)/N and a logarithmic-importation limit. Exact threshold 9db1c6e6196c uses a different contact degree."
+        ],
+        "reasoning": "These are relevant exact findings rather than unrelated tabulation. The fixed b<1 path of the logarithmic-importation record cannot encode the onset over both parameters: for delta>0, the submitted continuum lower bound alone exceeds 1-1/N^2, which is greater than (N-1)/N.",
+        "searches": [
+          "Local Resultary: 2a6ad2f00da6, d786aa12e5ba, 9db1c6e6196c and 37decc4c34a8; exact stationary distributions and finite mode onset"
+        ]
+      },
+      "rationale": "The same stationary count law and its ratio are genuinely prior, and the at-most-two strict-mode observation has broader prior coverage. The finite inequality is a direct consequence of the old law. What supports this pass is the explicit real-envelope/integer-discrepancy boundary, optimizer geometry and fixed weak-immigration asymptotic of the modal onset, not a new model, invariant law, or observation of two peaks. The closest inspected sources do not give this boundary geometry, and moving from the law to it requires optimizing the discrete onset locus and controlling its rounding in a joint scaling regime.",
+      "residual_risks": [
+        "Earlier exact logistic-immigration or SIS-importation work may cover the optimized boundary; the older Matis–Kiffe full text was not inspected. This is a statement-level best-of-knowledge comparison, not a claim of first stationary bimodality or of priority over same-date work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and observed count behavior; different duration analysis and no exact boundary in passages read",
+          "evidence": "Equation (3) has the same rates. Fig. 2 discusses a distinct P_0 peak; active-time runs in §II.C turn off immigration during a single active spell.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.27100",
+          "material_read": "p. 3 Eq. (3), stationary discussion, Fig. 2 and small-immigration Eq. (8); pp. 5–6 §II.C",
+          "method": "OA PDF passage reading",
+          "title": "Logistic dynamics of small populations with demographic stochasticity",
+          "trigger": "Same finite birth–death generator and observation of a vacant peak"
+        },
+        {
+          "assessment": "Exact prior coverage of distribution and directly equivalent ratios",
+          "evidence": "Uniform clique infection nu/(N-1) per neighbor and external infection alpha reproduce the submitted adjacent count ratios; the finding classifies reversibility, not integer onset geometry.",
+          "identifier_or_url": "2026/10/18/SCOPE-reversibility-of-spontaneous-sis-epidemics-a-weighted-clique-cla--2a6ad2f00da6",
+          "material_read": "Mirrored RESULT.md Finding and exact stationary law for complete components",
+          "method": "Local Resultary lookup and mirror",
+          "title": "Reversibility of spontaneous SIS epidemics: a weighted clique classification",
+          "trigger": "Exact prior stationary law for the same process after count lumping"
+        },
+        {
+          "assessment": "Same model on a special rate path; different asymptotic invariant",
+          "evidence": "pi_k proportional to binomial(n,k)*(alpha_n)_k/n^k; studies log(1+K_n)/log n, not two-mode onset.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-importation-window-and-random-infection-exponents--d786aa12e5ba",
+          "material_read": "Mirrored RESULT.md Finding and exact finite stationary law",
+          "method": "Local Resultary lookup and mirror",
+          "title": "A logarithmic importation window and random infection exponents",
+          "trigger": "Same count-law family and same-date weak-importation comparison"
+        },
+        {
+          "assessment": "Parallel threshold question for different generator",
+          "evidence": "Triadic contact is quadratic i(i-1), not pairwise linear i.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-finite-size-onset-of-stationary-bimodality-in-a-triadic-si--9db1c6e6196c",
+          "material_read": "Mirrored RESULT.md Finding and mechanism",
+          "method": "Local Resultary lookup and mirror",
+          "title": "Sharp finite-size onset of stationary bimodality in a triadic SIS model",
+          "trigger": "Distinct exact finite stationary count onset"
+        },
+        {
+          "assessment": "Covers strict global mode-count bound in the pairwise case; not the optimized pairwise parameter boundary",
+          "evidence": "Nonnegative contact terms of pairwise and three-person order together allow at most two strict stationary modes.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-body-contagion-is-the-first-interaction-order-permitting-th--37decc4c34a8",
+          "material_read": "Mirrored RESULT.md Finding, pairwise and three-person passage at text offsets 367–1015",
+          "method": "Local Resultary and bounded mirror reading",
+          "title": "Four-body contagion is the first interaction order permitting three stationary modes",
+          "trigger": "Broader strict-mode bound for related count chains"
+        },
+        {
+          "assessment": "Different rates and mechanism",
+          "evidence": "Bimodal positive stationary distribution in a model with mate limitation and state-/size-dependent immigration.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.06084",
+          "material_read": "pp. 3, 5–6, OA offsets approximately 7600 and 11700",
+          "method": "OA PDF passage reading",
+          "title": "Strong Allee Effect in A Stochastic Logistic Model with Mate Limitation and Stochastic Immigration",
+          "trigger": "Earlier stationary logistic bimodality"
+        },
+        {
+          "assessment": "Potential stronger exact coverage unresolved",
+          "evidence": "No claim about full-text noncoverage is made from the abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2003.08.003",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful OA lookup; full text unavailable",
+          "title": "On stochastic logistic population growth models with immigration and multiple births",
+          "trigger": "Older logistic immigration comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–6",
+        "Brugevin–Zanette, Fig. 2 and §II.C",
+        "Earlier exact clique law and strict global mode-count bound"
+      ],
+      "rationale": "Observed vacancy and occupied peaks make the finite stationary count onset a natural invariant separate from active-time or metastability approximations. The continuous minimum alone can wrongly predict a finite-integer rise; the explicit lattice discrepancy, exact tie rule and candidate indices make the boundary usable at any capacity. The weak-immigration expansion identifies both the magnitude and immigration dependence of a meaningful finite-capacity offset from b=1 and the occupancy where it first occurs. This is more useful than re-reporting the stationary ratio or a particular numerical peak plot.",
+      "residual_risks": [
+        "This is local modality, not evidence for peak weights, switching kinetics, deterministic multistability or active-duration bimodality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

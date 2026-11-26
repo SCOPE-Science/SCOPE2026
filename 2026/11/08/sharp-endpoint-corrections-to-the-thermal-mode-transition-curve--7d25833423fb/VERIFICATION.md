@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,6 @@
 }
 ---
 
-The exact stationary decomposition and all relevant normalizations are written in RESULT.md. The uniqueness proof uses the confluent-hypergeometric differential equation and the exact sign of each root crossing. The modality proof uses the Gaussian variation-diminishing theorem with bounded-variation approximants. The endpoint expansion is obtained by uniform Laplace estimates, not empirical curve fitting.
+The endpoint corrections follow from the endpoint-subtracted beta integral at small shape and a uniform Laplace estimate near shape one. The unique transition and its identification with the curvature zero are prior results cited in `RESULT.md`. The latter also derives the upward root crossing needed for the asymptotic sign brackets.
 
-Run `python -m pip install mpmath` and `python check_phase.py`. The checker performs 67 independent deterministic special-function and asymptotic diagnostics; it is not an exhaustive proof or independent certification. All quoted limitations, including the previously known curvature equation and leading asymptotic, remain in the main statement.
+The unchanged companion `check_phase.py` uses `mpmath`: run `python check_phase.py` in an environment with that dependency. It tests the two endpoint expansions at selected parameters, as well as identities for the previously known phase boundary. These are finite numerical diagnostics, not proofs of the asymptotic error bounds.

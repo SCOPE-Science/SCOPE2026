@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For finite nonempty simple graphs of maximum degree at most two, the forbidden-induced-subgraph characterization leaves precisely isolated vertices together with at most one edge-containing component, of type \(P_2\), \(P_3\), or \(C_3\). The path run count treats lengths one and two separately, computes the one-defect coefficient \(2n-3\), and evaluates the two-defect floor sum to \(2(n-3)^2\). The cycle argument counts marked cyclic run boundaries with a justified \(2k\)-to-one quotient and isolates \(C_3\). Truncating by \(x^2=y^2=0\) is equivalent to the global prohibition on two distinct edge-containing components of a single color. Finally, two named colors can absorb defects from at most two odd-cycle components; explicit choices attain this limit, while a proper three-coloring always exists. The separate direct forbidden-four-set verifier passed on 26 individual component families and 134 disconnected unions, plus symbolic formulas through order 1000. These tests corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS (historically qualified)
+At degree at most two, the forbidden induced graphs leave just isolates and at most one edge-bearing component, which must be P2, P3 or C3. On a path, fixing the start of a unique long monochromatic run of length 2 or 3 uniquely determines the rest, yielding n-1 and n-2 choices. With two long runs the number at k total runs is 2 floor(k^2/4) for each ordered pair of lengths. Summing at k=n-2,n-3,n-4 with multiplicities 1,2,1 gives 2(n-3)^2; the inactive terms at n=3 are zero. On a cycle, one long run has parity-forced length and n choices of first vertex. With two, an admissible pair of excesses e1,e2 has 2k=n-e1-e2 runs; boundary double counting gives nk and the permissible excess pairs give n(n-3), including C4. C3 has four assignments activating each color, counting the two monochromatic assignments. Forbidden cross-component 2K2s are precisely the x^2 and y^2 terms. Each odd cycle consumes one color's defect budget; two odd cycles can use distinct colors and three cannot. Proper three-colorability supplies the upper bound. The alternating reformulation is about acyclicity within each color class, not the stronger cross-class requirement. Independently corroborated by branches/d46b48ce-6757-4165-9f07-a40aaa9e5096/independent_threshold_check.py: 26 single graphs, 134 disconnected unions, 24 triangle/5-cycle mixtures and arithmetic formula checks through order 1000. Finite checks do not establish the general result; the argument in RESULT.md lines 63–86 does. The source verifier was inspected, not executed.
 
-The full HTML version of Bang-Jensen, Bessy and Reinald, arXiv:2610.32954v1, was inspected for its alternating chromatic number definition, Theorem 1.5 and Corollary 4.2, which prove NP-completeness of two threshold parts in general and identify the equivalent edge-colored model. Neither states an all-component exact two-palette formula for graphs of maximum degree two or the three-odd-cycle threshold. Relevant mathematical-record searches for the invariant, graph family, equivalent formulation, polynomial coefficients, and component parameters returned only neighboring studies, such as a proper-color-class-size classification at maximum degree two and threshold-class enumeration of complete multipartite graphs. Their claims do not imply this classification: proper colorings require independent classes, while complete multipartite hypotheses do not cover long paths or cycles. Older sources on cograph/star partitions and robotics coloring were inspected only at abstract/bibliographic level. Different terminology and those access limits remain priority risks; a negative search is not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding supplies a complete, explicitly evaluable enumeration of all two-class threshold partitions of every union of paths and cycles, not just the minimum partition number. Its four-state factorization accounts for a genuinely global induced \(2K_2\) obstruction across disconnected components, and the sharp threshold of three odd-cycle components separates a polynomially solvable sparse class from the general NP-complete decision problem. This is a natural full-class classification directly tied to recent graph coloring complexity, with meaningful structural content beyond individual small counts.
+The exact count of named two-color threshold partitions on arbitrary degree-two graphs, and the associated two-defect budget criterion, are distinct from the strongest checked results. The equivalence to the alternating chromatic number is already known and is not credited as new. Complete multipartite graphs overlap only in small or edgeless cases; general hardness and proper-coloring results do not imply the classified family.
 
-## Scope and risks
+## value
 
-The claim concerns only two named classes in the enumerator and graphs of maximum degree at most two. Historical priority remains provisional, especially for differently named threshold-partition invariants and older full texts not obtained. The result has not received independent mathematical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-state exact invariant solves a natural disconnected counting problem where locally valid restrictions need not combine: two disjoint edges in one color invalidate the union. The path and cyclic counts give reusable factors, and the single budget per named color explains why the third odd-cycle component, not the first, forces a third class. This is more informative than the known equivalence, proper coloring, or decision feasibility alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

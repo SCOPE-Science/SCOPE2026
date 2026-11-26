@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python CHECK.py` with Python 3, using only its standard library. The code generates all eligible attachment histories for several small clique sizes, constructs adjacency sets directly, and computes exact degree moments and common-face counts as rational numbers. It then checks the mathematical formulas independently and tests strict signs for additional finite parameter ranges, plus a numerical limiting-correlation check. The recorded successful run returned `PASS: 2645 independent exact or numerical assertions`.
+## correctness
 
-The checker does not prove an infinite statement; the independent argument in `RESULT.md` establishes the precise general recurrences, the strict negative forcing condition and the gamma-product asymptotics. The historical originality comparison examines Gao's full accessible draft and the same-process Darrasse–Hwang–Bodini–Soria paper and the distinct Panholzer–Seitz model, with additional search evidence detailed in `AUDIT.json`. No independent external mathematical validation has been performed.
+PASS
+
+Counted all cliques directly: each insertion adds k new cliques, exactly k−1 through a marked selected vertex, and k−2 through a selected pair. The increments for the marked counts therefore have conditional joint success probability B/M and marginal A/M. Expanding their products gives the two moment recurrences; substituting the P_s solutions verifies both forcing terms using 2a−b=k and 2a−a=a, and the seed values verify the integration constants. After centering, covariance forcing has sign β−μ²/M. The ratio μ²/(Mβ) starts above 1 and multiplies at each insertion by 1+1/[(M+k)(M+b)] because a lies exactly between b and k with spacing 1. Thus all forcing terms are strictly negative; the first-step law is equivalently omission of one uniform seed vertex and gives −1/(k+1)^2. Normalizing the centered recurrences by P_(2a), the covariance forcing summands are O((j+1)^−2), all negative, while the variance summands are positive and O((j+1)^(-1−a/k)). The latter sign follows also from the deterministic presence of an initial clique missing each seed vertex. This rules out zero leading coefficients; taking gamma-product ratios gives the stated constants. Substitution of k=2 gives the displayed finite formulas and (3−π)/(4−π), including its numerical sign. The k=2 example of late positive conditional covariance is consistent with the unconditional proof. The checker enumerates actual graphs for finite inputs and is not the proof for all k,m.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the all-size strict sign and explicit strictly negative limiting correlation in the stated growth model. One-vertex degree histograms and root limit results are credited and do not give these joint quantities. The general urn representation is not claimed as new.
+
+## value
+
+PASS
+
+A resolved dependence question for two natural distinguished vertices of a standard growth process. Simultaneous attachment is possible and conditional covariance can even be positive, so the strict unconditional sign at every size is not a one-step exclusion argument. The nonzero limiting correlation distinguishes persistent dependence from a transient initialization effect and gives a usable baseline for pair moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

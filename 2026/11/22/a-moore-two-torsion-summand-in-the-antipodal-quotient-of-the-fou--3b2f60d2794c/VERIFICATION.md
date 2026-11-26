@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` in a Python 3.10+ environment. No third-party packages or external input are needed. The supplied program constructs the entire finite combinatorial quotient from the graph definition, checks that all simplicial images are present and that no simplex is inverted, recomputes the signed cellular boundaries and their square-zero identity, and verifies each genuine free face before removal.
+## correctness
 
-It then obtains finite-field ranks \((9,39,56)\) in characteristic two and \((9,39,57)\) in characteristics three and five, performs exact integral unit-pivot cancellations to reach the differential \((2,2,0,0)\), and independently checks that 73 valid presentation substitutions kill all fundamental-group generators of the original complex. The result relies additionally on the stated applications of Armstrong's theorem and the standard classification argument for simply connected three-dimensional CW complexes. The terminal marker and recorded output are in `verification_output.txt`.
+PASS
 
-The numerical computation checks a single finite complex exhaustively. It does not establish a universal statement for other dimensions or groups. No independent mathematical audit has been performed.
+The fixed set is exactly two tetrahedra: an invariant support is a union of opposite pairs, and opposite pairs of different parity cannot coexist since the cross distances are 1 and 3. The frozen proof correctly distinguishes orbit cells after removing inversions, geometric free-facet removal, and purely algebraic integral chain contraction. In its quotient Δ-complex, a facet occurring once in the attaching boundary of its unique maximal coface permits a deformation of the characteristic simplex onto the other facets, relative to them; this descends even if other boundary faces have identifications. A unit matrix coefficient alone would not establish that. The final three-dimensional argument is sound: a simply connected 2-skeleton is a wedge of S² by Hurewicz and Whitehead, the 3-cell attachments are vectors in π₂, and unimodular basis changes are realized by self-equivalences of the domain and target sphere wedges of the attaching map. Thus the Smith factor two and three excess 3-cells give the claimed wedge. An independent proof of the homotopy conclusion is given in the evidence below; it does not rely on the transcript of the large collapse or integer computation.
+
+## originality
+
+PASS
+
+The exact nonfree quotient homotopy type adds to the known upstairs invariants, including the already implied rational third Betti number. The relevant literature provides useful general tools but not the essential identification of this geometric orbit space. No equivalent or covering result was identified in the checked statements; not a definitive priority judgment.
+
+## value
+
+PASS
+
+Bit complement is the canonical central involution on the four-cube, with real fixed points in its independence complex. Its ordinary geometric quotient is a natural object already motivated by the contrast with the free Rips action and with the upstairs rational character. Identifying the degree-two Moore summand and the entire three-dimensional splitting is substantive integral information unavailable from a rational rank calculation; the small-dimensional quotient model gives a precise comparison for other cubical actions without making a generalization claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

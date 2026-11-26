@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:42:26.044732Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connectedness and B>0 give positive definiteness throughout the unrestricted simplex. The logdet second variation in any nonzero diagonal direction is the negative squared Frobenius norm of the conjugated direction. Existence by compactness and strict uniqueness justify using the two induced automorphism orbits rather than imposing a symmetry constraint. The leaf-block Schur complement is L_H+(s−y+y/(1+y))I and the eliminated determinant contributes (1+y)^m. The derivative at y=0 is m; at y=s it is R_H(a)−m, a=s/(1+s), with the zero Laplacian eigenvalue included in deriving this identity. R_H decreases strictly from 2(m−1)>m to a value below m; strict concavity puts equality B=B_H in the unique leaf-only regime and gives a unique interior stationary point above it. The complement Laplacian bounds the core spectrum by m with at least one strict inequality unless the core is complete; the clique root is (m−2)/m. Strict edge inclusion gives a nonzero PSD difference of resolvents in the reverse Loewner order, hence strict growth of the trace defining R_H, and therefore of the root under the stated transitivity hypotheses. For C₄ the equation reduces to 3a²+8a−4=0, yielding B=8√7/7. The supplied verifier was inspected, not run; the stated finite verification is supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The corona paper computes spectral/coherence quantities; the pinning paper uses the smallest eigenvalue of a principal submatrix after deleting selected nodes. Only a landing page/abstract was accessible for the discrete-choice paper."
+        ],
+        "reasoning": "Coherence and the smallest grounded eigenvalue are different criteria; neither inspected theorem governs the determinant optimum with continuous independent root weights. The uninspected full text is a residual risk, not negative evidence.",
+        "searches": [
+          "Du et al., DOI 10.3389/fphy.2022.948247, abstract and section 4",
+          "Liu et al., arXiv:1804.10818, PDF p. 1",
+          "Optimal Designs for Discrete Choice Models Via Graph Laplacians, PMC12274245"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–90",
+        "Frozen VERIFICATION.md and verify_corona.py, inspected without executing",
+        "Configured Resultary search and matching mirror passages",
+        "Chebotarev–Shamis, Khosoussi et al., Du et al., Liu et al., inspected passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matrix-forest result interprets det(I+L); the corona work supplies spectral reductions for coherence; general graph D-optimal design uses a determinant objective."
+        ],
+        "reasoning": "Neither concavity nor an eigenvalue reduction alone decides the active support or gives the cutoff. The derivative sign change requires the resolvent identity at the leaf-only endpoint with the zero mode accounted for, and the clique equality and edge-addition comparison require strict spectral arguments specific to this threshold.",
+        "searches": [
+          "Chebotarev–Shamis, arXiv:math/0602575, sections 1 and 3",
+          "Du et al., DOI 10.3389/fphy.2022.948247, section 4",
+          "Khosoussi et al., arXiv:1604.01116, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A vertex gain can be viewed as the conductance of an edge to a new common ground; the reduced Laplacian determinant has the corresponding spanning-tree interpretation. The inspected edge-design paper focuses on graph/edge selection and synthesis."
+        ],
+        "reasoning": "Changing representation to a ground edge does not remove the restrictions that original corona edges are fixed at one and only the spoke conductances vary continuously on a simplex. General determinant interpretation or edge selection gives no orbit-support formula under these constraints.",
+        "searches": [
+          "Chebotarev–Shamis, arXiv:math/0602575, weighted matrix-forest theorem",
+          "Khosoussi et al., arXiv:1604.01116, D-optimal weighted spanning-tree design",
+          "Resultary search for determinant-optimal grounding on coronas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-reentrant-clique-grounding-and-a-three-quarter-power-imbalance-l--0b9d2b9aa8a6 studies trace of the inverse on a split graph; 2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e studies smallest eigenvalue; 2026/10/25/SCOPE-price-threshold-deletion-of-a-perfect-matching-in-determinant-op--1ae0e33a18ed is summarized as edge-conductance allocation on a complete bipartite graph."
+        ],
+        "reasoning": "Two gain orbits and a support threshold are relevant analogies, but a change of objective or of underlying graph and decision variables does not preserve this threshold function. The perfect-matching comparison is summary-level only.",
+        "searches": [
+          "Configured Resultary queries on corona grounding, optimum support and logdet thresholds"
+        ]
+      },
+      "rationale": "The inspected sources establish the determinant interpretation, graph-design framework, corona spectral reductions, and other grounding transitions. None of the compared statements reduces to the exact unrestricted vertex-conductance support threshold and its sharp core-graph comparison for the one-leaf corona.",
+      "residual_risks": [
+        "The perfect-matching catalogue hit was compared only at summary level because the mirror file was unavailable.",
+        "The discrete-choice paper full text was not inspected; a broader published or unindexed exact design result is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports interpretation, not budget optimization",
+          "evidence": "det(I+L) counts spanning rooted forests, including the weighted setting.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0602575",
+          "material_read": "Section 1 p. 1 and section 3 pp. 4–5, offsets 0 and 12083",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Matrix-Forest Theorems",
+          "trigger": "Rooted-forest determinant equivalence"
+        },
+        {
+          "assessment": "Different decision variables and design setting",
+          "evidence": "Weighted tree count maximization via edge selection and graph synthesis.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "Abstract p. 1 and introduction p. 3, offsets 1069 and 5349",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "D-optimal Laplacian determinant allocation"
+        },
+        {
+          "assessment": "Coherence formula, not the threshold for diagonal gains",
+          "evidence": "Derives first-order coherence for weighted corona networks.",
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2022.948247",
+          "material_read": "Abstract and section 4, offsets 1500 and 35000",
+          "method": "Lawful OA, bounded passages",
+          "title": "Consensus analysis of the weighted corona networks",
+          "trigger": "Same corona graph spectral structure"
+        },
+        {
+          "assessment": "Different objective and discrete decision variable",
+          "evidence": "Uses smallest eigenvalue after deleting the pinned-node rows and columns.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.10818",
+          "material_read": "PDF p. 1, offset 6372",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Optimizing Pinning Control of Complex Dynamical Networks Based on Spectral Properties of Grounded Laplacian Matrices",
+          "trigger": "Grounded-Laplacian optimization"
+        },
+        {
+          "assessment": "Related but non-equivalent",
+          "evidence": "Minimizes trace of the inverse on K_p joined to an independent set.",
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-clique-grounding-and-a-three-quarter-power-imbalance-l--0b9d2b9aa8a6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Reentrant clique grounding and a three-quarter-power imbalance law",
+          "trigger": "Two-orbit continuous diagonal grounding support transition"
+        },
+        {
+          "assessment": "Different family and objective",
+          "evidence": "Optimizes the smallest eigenvalue of a diagonally grounded complete bipartite Laplacian.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e",
+          "material_read": "RESULT.md around offset 355",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact heterogeneous-price pinning on complete bipartite networks",
+          "trigger": "Explicit grounding budget threshold"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "No passage-level comparison of the full result was available.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12274245/",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful OA lookup",
+          "title": "Optimal Designs for Discrete Choice Models Via Graph Laplacians",
+          "trigger": "Plausible broader determinant-design coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies when a continuous unrestricted design must assign exactly zero conductance to the whole core, and when gains must move to both orbits. The zero-set decision is exact at the boundary, not just numerical, and the sharp clique extremum and strict edge-addition law reveal how the core graph controls the budget range of the sparse optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

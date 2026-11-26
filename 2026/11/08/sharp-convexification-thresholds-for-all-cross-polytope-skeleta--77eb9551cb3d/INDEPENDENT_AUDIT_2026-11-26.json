@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:22:21.309158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen proof and narrowed repair checked. Every point of the skeleton is supported on at most s non-antipodal signed coordinate vertices. On a fixed nonempty support I match signs and adjust magnitudes monotonically to mass one; the triangle-inequality bound |t_I−1| within I is then attained, and the off-support cost is q−t_I. Maximizing t_I chooses the largest s coordinates. The origin at distance one and the balanced boundary vector with top-s sum below one give the separate sharp obstructions. Sufficiency follows by bounding the distance by q+1−2min(1,sq/d), affine up to d/s with endpoint values 1 and d/s−1, then equal to q−1≤λ. Equality has the correct ≥ endpoint by compactness. Convex hull and affine covariance follow from containing all coordinate vertices and the (1+λ)b translation term. The frozen supporting code and notes describe expected, not recorded, finite results; not replayed. The enumerated support test shares the face-wise distance lemma and cannot certify it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer's criterion uses bounded exposed-set covering radii for finiteness.",
+          "The product-of-simplices theorem gives a ceiling-sum condition for continuously adding the body to its skeleton; the simplex averaging theorem uses an integer number of copies of the skeleton."
+        ],
+        "reasoning": "The general finiteness or vertex-generation criteria do not evaluate this radius. Products of simplices cover the square degeneracy but not the repaired dimensions; simplex averaging is a different summation operation.",
+        "searches": [
+          "arXiv:2610.26744v1 Theorem 1.1",
+          "arXiv:2407.20604v1",
+          "Resultary f2144e0cf323, 92b027220722"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cross_skeleton.py; corrected RESULT.md",
+        "Resultary 7c478cf9bf62, 92b027220722, f2144e0cf323 and f44f2d6b8e58 (last, summary only)",
+        "arXiv:2610.26744v1 and arXiv:2407.20604v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vertex theorem concerns one-coordinate mass; the balanced point exposes rank dependence only after computing distance to a positive-dimensional face.",
+          "The general covering criterion leaves the exposed radii to evaluate; the product formula concerns a different face lattice."
+        ],
+        "reasoning": "The proof of necessity and endpoint coverage for intermediate ranks needs the fixed-support mass adjustment and the full top-s average estimate. Neither prior special case nor general finiteness statement supplies the switch at s=ceil(d/2).",
+        "searches": [
+          "Full finding and distance proof, Resultary 7c478cf9bf62",
+          "Meyer Thm. 1.1 and product-of-simplices f2144e0cf323"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the vertex-only record 7c478cf9bf62 the distance to V_d is q+1−2min(1,max|x_i|) and c(V_d)=d−1.",
+          "For an intermediate rank, fixed-support normalization amounts to projecting magnitudes onto the mass-one simplex; the ensuing error is minimized by maximizing the top-s magnitude sum, not by the largest single coordinate."
+        ],
+        "reasoning": "The vertex overlap is exact, not just a shared norm or choice of witness. For an intermediate face one can redistribute mass arbitrarily across its support; the prior distance to isolated vertices does not identify the error to those faces. A possible prior sparse-approximation equivalent remains a scoped risk.",
+        "searches": [
+          "Resultary: exact cross-polytope l1 sparse skeleton, vertex distance, convexification",
+          "Sparse l1 approximation and skeleton support covering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact vertex threshold and distance specialization found in 7c478cf9bf62.",
+          "The assigned 77eb9551cb3d hit is a self-match. None of the inspected distinct catalogue statements gives the same intermediate-cross-polytope thresholds."
+        ],
+        "reasoning": "For this formula-valued classification an equivalent catalogue law, rather than a numerical data table, is the relevant exact lookup. It invalidates the vertex-case novelty and is separately credited in the repair.",
+        "searches": [
+          "Resultary catalogue: cross-polytope vertex spline 7c478cf9bf62, simplex-skeleton thresholds 92b027220722, products f2144e0cf323"
+        ]
+      },
+      "rationale": "As submitted the stated all-rank novelty did not account for exact prior vertex-case coverage. The repaired claim is restricted to the genuine intermediate ranks 2≤s≤d−1, with explicit attribution of s=1 and the elementary full-boundary limit separated. The inspected closest results do not state or imply the intermediate-rank distance and sharp phase diagram without a new computation over actual positive-dimensional faces.",
+      "residual_risks": [
+        "An equivalent intermediate-support distance or covering calculation may appear under sparse l1 approximation terminology.",
+        "The original Schneider paper and exact text of the simplex staircase record were not successfully inspected; no historical priority claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at s=1; not a formula for intermediate faces",
+          "evidence": "Threshold d−1 and the max-coordinate formula match both s=1 specializations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62",
+          "material_read": "RESULT.md offsets 0–2492 and 2450–4167, finding and vertex distance",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Complete volumetric convexification spline for cross-polytope vertices",
+          "trigger": "Same body and exact Schneider index for its vertices"
+        },
+        {
+          "assessment": "General criterion for finiteness, not the evaluated intermediate index",
+          "evidence": "Bounds on radii for exposed-set translates of K_u characterize finiteness.",
+          "identifier_or_url": "arXiv:2610.26744v1",
+          "material_read": "PDF pp. 1–3, definition near offset 1200 and Theorem 1.1 offsets 4100–7451",
+          "method": "Open-access paper passage inspection",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "Relative finite-convexification index and exposed-face criterion"
+        },
+        {
+          "assessment": "Vertex setting, not intermediate skeleton theorem",
+          "evidence": "Covers relation to Schneider's c and notes non-vertex-generation of cross-polytopes for d≥3.",
+          "identifier_or_url": "arXiv:2407.20604v1",
+          "material_read": "PDF p. 1 offsets 3200–5869; cross-polytope discussion p. 12 near offset 38428",
+          "method": "Open-access paper passage inspection",
+          "title": "Vertex generated polytopes",
+          "trigger": "Schneider index of cross-polytope vertices"
+        },
+        {
+          "assessment": "Distinct family except the dimension-two square, excluded in the repair",
+          "evidence": "Criterion is Σ_i ceil((d_i+1)/(1+t))≤k+r for a product of r simplices.",
+          "identifier_or_url": "Resultary f2144e0cf323",
+          "material_read": "RESULT.md offsets 0–3809",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Central-witness convexification thresholds for every skeleton of a product of simplices",
+          "trigger": "Same continuous skeleton-plus-body operation and balanced witness"
+        },
+        {
+          "assessment": "Equal-weight repeated sum of the nonconvex skeleton, not dilation of the body",
+          "evidence": "Integer condition kr≥d for the simplex skeleton averaging problem.",
+          "identifier_or_url": "Resultary 92b027220722",
+          "material_read": "RESULT.md offsets 0–3896",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Sharp finite convexification thresholds for every skeleton of a simplex",
+          "trigger": "Indexed skeleton threshold for Minkowski operations"
+        },
+        {
+          "assessment": "Potential methodological comparison unresolved, no noncoverage inference from access",
+          "evidence": "Search scope describes simplex topology and a terminal void-volume law, not a verified cross-polytope statement.",
+          "identifier_or_url": "Resultary f44f2d6b8e58",
+          "material_read": "Search summary only; decisive full passage unavailable",
+          "method": "Local mirror lookup",
+          "title": "The full topological staircase and exact terminal void volume for a simplex skeleton",
+          "trigger": "Continuous addition of a body to its own skeleton"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The intermediate-rank theorem gives an exact geometrically natural covering invariant. It identifies the rank where the sharp obstruction switches from the balanced outer boundary to the missing origin, and determines feasibility at equality, not just a dimensional bound. The top-s distance provides quantitative membership for any point as well. These parts remain useful after removing the known vertex case and the elementary full-boundary case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

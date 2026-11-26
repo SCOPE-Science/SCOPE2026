@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:25:57.813644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every positive m, parity forces odd m, and m=1 fails. For an odd prime power the finite reciprocal geometric sum is strictly below 3/2. With two distinct primes p<q and p>=5 the abundancy is strictly below (5/4)(7/6)=35/24, so p=3. Writing T=3^(a+1), exact multiplication by q-1 gives (T-q)(q^b-1)=4(q-1); thus T-q is a positive integer equal to 4/(1+q+...+q^(b-1)). For b>=2 this is less than 1; b=1 gives q=T-4. Conversely (T-1)(q+1)=Tq+3 when q=T-4, and the prime cofactor is >=5. This proves the unrestricted classification by distinct support, independently of the cutoff. The independently checked large q=10460353199 has no trial divisor through 102275; the corresponding m=36472996363223648799 satisfies the exact identity and 102461 divides (m-1)/2. The frozen VERIFICATION.md lines 23–29 report the 1,000,000 sieve, three hits and 367461 eligible integers; verify.py lines 23–66 implement it. That recorded sieve was inspected, not run or taken as the universal proof. The original expert, independent-audit, and Lean fields were not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The adjacent-equality construction requires both q and the neighbor's cofactor (m-1)/2 prime.",
+          "Resultary 997f17a15100 assumes an integer additive shift r, whereas k=2 here gives r=3/2.",
+          "Resultary 1ea62e4a9301 restricts both adjacent numbers by Omega counted with multiplicity."
+        ],
+        "reasoning": "These domains do not dominate the standalone distinct-factor layer. The same-day shifted-ratio record was compared by assumptions, not presumed later.",
+        "searches": [
+          "Guy–Shanks 1974 p. 299",
+          "arXiv:0707.2190 pp. 1–2",
+          "Resultary: shifted-ratio divisor-sum escape families and Erdős–Sierpiński two-almost-prime classification"
+        ]
+      },
+      "checked_sources": [
+        "A063906",
+        "Guy–Shanks 1974",
+        "Bege–Fogarasi 2009 / arXiv:1008.0155v1",
+        "Benito / arXiv:0707.2190v1",
+        "Resultary 1ea62e4a9301",
+        "Resultary 997f17a15100"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The included family gives the sufficiency direction, not rigidity.",
+          "The checked large m has composite (m-1)/2 and a large exponent of 3, so it is outside the adjacent prime construction and the two-almost-prime pair restriction."
+        ],
+        "reasoning": "None of the inspected statements implies the needed universal exclusion, which follows here from the two-prime abundancy bound and positive-integer obstruction.",
+        "searches": [
+          "A063906 family comment; Guy–Shanks p. 299; Benito pp. 1–2; Resultary 1ea62e4a9301 and 997f17a15100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A063906 defines precisely m=2 sigma(m)/3-1 and includes the parametric family.",
+          "Bege–Fogarasi §3.4 tabulates the exact equation, but its §4 two-hyperperfect equation is (3m+1)/2, not (3m+3)/2."
+        ],
+        "reasoning": "Recognizing the equation or listing instances is not a converse by distinct prime support; changing the additive constant changes the equation.",
+        "searches": [
+          "OEIS A063906",
+          "arXiv:1008.0155 §3.4 and §4",
+          "Primary-literature search for equivalent low-prime-support classifications of 2 sigma(m)=3(m+1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A063906 lists the identified family when 3^k-4 is prime among solutions, including solutions with greater support; it does not state an iff for the restricted support.",
+          "The historical table lists 15, 207, and 19359 without a classification by support."
+        ],
+        "reasoning": "Neither list certifies absence of all other low-support solutions beyond its entries.",
+        "searches": [
+          "OEIS A063906 definition, terms and comments; A058959 as cited there",
+          "Bege–Fogarasi §3.4 p. 78",
+          "Local Resultary exact equation/support comparison"
+        ]
+      },
+      "rationale": "The equation and included parametric family are prior art, not discoveries here. The supported distinction is the unbounded necessity of that family under distinct prime support at most two for the standalone equation. The strongest available comparisons do not already establish that necessity.",
+      "residual_risks": [
+        "Older or unindexed exact classifications were not exhaustively ruled out. The general literature search produced no decisive additional passage, which is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equation and included family; no restricted exhaustion in those passages",
+          "evidence": "3^(k-1)(3^k-4) with the cofactor in A058959",
+          "identifier_or_url": "https://oeis.org/A063906",
+          "material_read": "Definition, terms, and formula comment, page offset 0",
+          "method": "OA public page",
+          "title": "Numbers m such that m=2 sigma(m)/3-1",
+          "trigger": "Exact sequence and family"
+        },
+        {
+          "assessment": "Covers a strict construction subfamily",
+          "evidence": "n=2p, n+1=3^a q with p and q prime and q=3^(a+1)-4",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/12-3/guy.pdf",
+          "material_read": "p. 299 (offset 0)",
+          "method": "OA original PDF",
+          "title": "A Constructed Solution of sigma(n)=sigma(n+1)",
+          "trigger": "Strongest prior parametric construction"
+        },
+        {
+          "assessment": "Exact-equation examples, not support classification",
+          "evidence": "Lists 15, 207, 19359 for sigma(m)=3(m+1)/2; §4 has a different constant",
+          "identifier_or_url": "arXiv:1008.0155v1",
+          "material_read": "§3.4 p. 78 (offset 11500) and §4 equation",
+          "method": "OA original PDF",
+          "title": "Generalized perfect numbers",
+          "trigger": "Exact equation under a different label"
+        },
+        {
+          "assessment": "Adjacent divisor-sum problem and constructions, not the standalone converse",
+          "evidence": "Treats sigma(n)=sigma(n+1) and repeats Guy–Shanks constructions",
+          "identifier_or_url": "arXiv:0707.2190v1",
+          "material_read": "pp. 1–2 (offset 0)",
+          "method": "OA original PDF",
+          "title": "Solutions of the problem of Erdős–Sierpiński",
+          "trigger": "Potential strengthened construction"
+        },
+        {
+          "assessment": "Different equation and stronger restrictions on both arguments",
+          "evidence": "Omega(n), Omega(n+1)<=2; only (14,15)",
+          "identifier_or_url": "Resultary 2026/10/4/1ea62e4a9301",
+          "material_read": "Finding and scope",
+          "method": "Local mirror",
+          "title": "Unique two-almost-prime solution of the Erdős–Sierpiński equation",
+          "trigger": "Near match on support"
+        },
+        {
+          "assessment": "Shift hypothesis excludes the audited equation",
+          "evidence": "sigma(n)=(k+1)n/k+r with integer r",
+          "identifier_or_url": "Resultary 2026/10/13/997f17a15100",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror",
+          "title": "Exact escape families and a sharp cubic cutoff for shifted ratios",
+          "trigger": "Same-day potential broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact natural low-support boundary for an established Diophantine equation replaces a list of examples and a sufficient family with a full characterization at arbitrary exponents. The composite-neighbor witness concretely separates the standalone question from the older adjacent-pair construction. The contribution does not purport to classify higher support or predict infinitely many prime cofactors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

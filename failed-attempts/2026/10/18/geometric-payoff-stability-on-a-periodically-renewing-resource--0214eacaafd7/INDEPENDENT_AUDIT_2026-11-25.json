@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:03:36.757610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At x=0 the positive-fitness type-II map has defector fitness 1, so its first row in coordinates (x,n) is (S(n),0). Multiplying the triangular Jacobians gives the stated product for every resident period. Factoring g(g(n))−n by the fixed-point factors for g(n)=An(1−n) gives the two-cycle quadratic with roots (A+1±sqrt((A−3)(A+1)))/(2A); the two resource derivatives multiply to 4+2A−A². The affine payoff gives the variance correction by the product-of-sum-and-difference identity. In the witness A=16/5, the two payoffs are m±sqrt(21)/16, making the product m²−21/256; this is below one with mean above one exactly on the claimed open interval. The longitudinal multiplier is 4/25, and at m=403/400 the transverse multiplier is 37321/40000. The square is preserved because the resource update is nonnegative with maximum at most 4761/5120, and both fitnesses are positive. Strict contraction follows from the return Jacobian; for the reverse inequality the continuous factor x_return/x exceeds one locally on the interior side of the boundary. The equality case is not decided. The distinction from the arithmetic mean is a general nonidentity, not a claim of strict inequality for constant payoffs. The frozen script was inspected, not executed; these are analytical checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mondal–Ray–Chakraborty introduce the specified normalized map and describe replacement by the mean resource as an ansatz in §III.B; Table I treats four game scenarios.",
+          "The indexed correction treats both update types on its payoff domain. The Mukhopadhyay–Chakraborty abstract concerns strategy-only discrete replicator dynamics, not this coupled model."
+        ],
+        "reasoning": "The original map and heuristic are genuine background, not prior proof of their correction. The indexed finding is broader in update type but more restricted in payoffs. The compared Jacobian uses no payoff bound other than well-definedness of the derivative at x=0, so its argument entails the overlapping threshold on the wider type-II region.",
+        "searches": [
+          "arXiv:2401.12245, Eq. (2), Eqs. (14a,b), (16), §III.B and Table I",
+          "SCOPE-exact-two-cycle-invasion-threshold-and-the-failure-of-mean-game--5c4b6a7d5d9c, assumptions and proof",
+          "arXiv:2102.11034, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.12245",
+        "SCOPE-exact-two-cycle-invasion-threshold-and-the-failure-of-mean-game--5c4b6a7d5d9c",
+        "arXiv:2102.11034 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected indexed proof explicitly states that at every boundary state the derivative in x is S(n), with resource-to-strategy entry zero; the two matrices therefore multiply on the transverse diagonal. Its restrictions alpha<2 and T_1<3 do not literally include the frozen witness, but do not enter this derivative or the cycle polynomial."
+        ],
+        "reasoning": "The same multiplication for p rather than two steps gives the entire periodic product with no additional stability mechanism. In the frozen slice S_1−S_0=−2 at A=16/5, substitution into the common threshold yields the claimed m endpoint. The square-invariance check makes this a valid alternative example, not an independent unanswered question.",
+        "searches": [
+          "SCOPE-exact-two-cycle-invasion-threshold-and-the-failure-of-mean-game--5c4b6a7d5d9c, local-mirror Proof Steps 1–3",
+          "arXiv:2401.12245, strategy update equations and fixed normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finding sets mu=A, alpha=S_0, sigma=S_1 and gives [alpha²+(mu+1)(mu−2)alpha sigma+(mu+1)sigma²]/mu². It derives this from S(n_−)S(n_+) for the identical type-II update and also treats type I."
+        ],
+        "reasoning": "Writing S(n_±)=mean(S)±(S_1−S_0)sqrt(V_n) turns precisely the same product into the variance expression. Neither a different formula nor a different stability criterion remains.",
+        "searches": [
+          "Resultary: exact two-cycle invasion threshold and mean-game disagreement in harvested-resource evolutionary games (focused model/claim lookup)",
+          "SCOPE-exact-two-cycle-invasion-threshold-and-the-failure-of-mean-game--5c4b6a7d5d9c, RESULT.md Finding and Proof Steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original Table I is a table of mean-resource scenario criteria, not exact two-cycle multiplier values. The indexed correction exhibits mean 81/80 with actual multiplier 1593/1600 and an open admissible disagreement region with the same mechanism."
+        ],
+        "reasoning": "The frozen 403/400 witness and exact one-parameter interval are not the same data. These are alternative choices on the already characterized sign discrepancy rather than new instances of a motivated unresolved lookup or classification.",
+        "searches": [
+          "arXiv:2401.12245, §III.B and Table I",
+          "SCOPE-exact-two-cycle-invasion-threshold-and-the-failure-of-mean-game--5c4b6a7d5d9c, explicit counterexample and threshold"
+        ]
+      },
+      "rationale": "The same exact two-cycle correction to the same mean-game heuristic in the same map, including an admissible open disagreement region and rational witness, is covered by a distinct indexed finding. The payoff restrictions and numerical families are not identical, but the transverse identity is algebraically identical and its proof extends immediately to the frozen positive type-II setting. The unrestricted-period product repeats the same scalar Jacobian multiplication. No priority inference is made from dates.",
+      "residual_risks": [
+        "The date of the indexed overlap does not fix priority or provenance.",
+        "The targeted literature lookup did not return usable results; no absence inference was made.",
+        "The cited Ito–Yamamichi full text and the attempted Mylius–Diekmann source were not retrieved; the verdict relies on positive evidence from the inspected items."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the model and explicitly presents the mean-resource substitution as an ansatz; no exact periodic correction in the inspected passages",
+          "evidence": "The normalized resource equation reduces on x=0 to the logistic map. The type-II payoffs have defector resident fitness 1. The mean substitution assumes a uniform distribution of phase points.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.12245",
+          "material_read": "PDF pp. 3–6, Eqs. (2), (14a,b), (16); pp. 8–9, §III.B and Table I, decisive mean-state passage near offset 53500",
+          "method": "OA primary PDF passages",
+          "title": "Hypochaos prevents tragedy of the commons in discrete-time eco-evolutionary game dynamics",
+          "trigger": "Primary source for the model and mean-resource heuristic"
+        },
+        {
+          "assessment": "Equivalent core result; witness families differ and the indexed statement is period two only",
+          "evidence": "Proof Step 2 obtains precisely the product of the two S values, with either update rule, and the finding gives an admissible open disagreement region.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-cycle-invasion-threshold-and-the-failure-of-mean-game--5c4b6a7d5d9c/RESULT.md",
+          "material_read": "Finding, assumptions, proof and witness, offsets 0–7206",
+          "method": "Local mirror passage inspection",
+          "title": "Exact two-cycle invasion threshold and the failure of mean-game prediction in a harvested-resource evolutionary game",
+          "trigger": "Same exact threshold and proposed heuristic failure"
+        },
+        {
+          "assessment": "Inspected abstract concerns strategy-only dynamics",
+          "evidence": "It does not specify the harvested logistic resource map or its mean-game threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.11034",
+          "material_read": "Abstract, p. 1",
+          "method": "OA abstract inspection; no whole-paper absence claim",
+          "title": "Periodic orbit can be evolutionarily stable: Case Study of discrete replicator dynamics",
+          "trigger": "Potential broader periodic replicator stability antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Correcting a published mean-resource heuristic with a physical stable counterexample is a worthwhile problem. The exact criterion and that counterexample mechanism are already covered. The surviving differences are scalar period-product bookkeeping and a sharp interval on an alternate parameter slice, with no independent motivation for that slice. Neither supplies a distinct valuable result as submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

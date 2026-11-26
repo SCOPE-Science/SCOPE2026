@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The group law is composition modulo \(t^6\). The proof independently expands every square to its degree-four and degree-five coefficients, exhibits generators for the central square-generated subgroup, reduces every nonzero-target root equation to a separable cubic, and counts its rational splitting types without making an unproved independence assumption. The four nonnegative histogram frequencies sum to \(q^2\), and the sum of the frequencies weighted by their root multiplicities is \(q^4\), the size of the group. The independent finite-field polynomial-composition checker exhaustively validated all \(q^4\) elements for \(q=2,4,8,16\) and checked all target fibers. These tests corroborate but are not substitutes for the symbolic proof.
+## correctness
 
-## Originality — PASS, with priority qualifications
-York's full archival paper on truncated power-series groups classifies exponents, and Pálfy's full paper classifies conjugacy rather than square fibers. Chinburg–Symonds concerns a genuine order-four element; the later full-text power-commutator presentation does not provide the present all-extension-field fiber histogram. Closely related public results for the same degree-five group determine a conjugacy partition and the degree-one involution lifting locus; the latter contributes information about the identity fiber, but neither supplies all nonidentity square fibers, the cubic split/irreducible conditions, or sharp onset of failed surjectivity onto the square-generated subgroup. Ordinary unitriangular-group square-map results concern a different group and do not imply this result. Residual risk: an unlocated equivalent finite Nottingham quotient power-word enumeration, or a derivation hidden in deeper literature, could supersede the present calculation. Failed searches cannot prove global novelty.
+PASS
 
-## Value — PASS
-This gives an exact power-word image and complete prescribed-square-root fiber spectrum for the first truncation where squares no longer fill the subgroup they generate. That first obstruction is an intrinsic group-theoretic distinction, not an arbitrary small-case statistic. The uniform formula across all characteristic-two extension fields and the precise cubic splitting mechanism make the answer useful to comparisons of power maps, finite quotients, and word distributions.
+Composition mod t⁶ gives the coefficient pair (A,B)=(a(a²+b),b(a²+b)), with the last two input coordinates free. The degree-4/5 subgroup is central and additive; the squares from a=0 generate its vertical axis and those from a=1 give every first coordinate. For A≠0 setting u=a²+b makes the fibers exactly q² times the number of rational roots of u³+Bu+A², with inverse formulas a=A/u, b=u+a². The derivative test excludes multiple roots. The distinct rational-root triples are {r,s,r+s}, yielding (q−1)(q−2)/6 such targets; there are (q−1)² target-root incidences, giving q(q−1)/2 one-root targets and (q²−1)/3 unattainable ones. On A=0 the identity has q³ roots and each B≠0 has q² by bijectivity of Frobenius. Truncation to N≤3 annihilates squares, and at N=4 a=1 gives every possible fourth coefficient. At q=2 the candidate 3q² is numerically distinct but occurs zero times, as the table says. The frozen script and recorded exhaustive outputs at q=2,4,8,16 corroborate only those cases; the uploaded script was not executed.
 
-## Limits
-No general formula is asserted for higher truncation degrees or odd characteristic. The root counts are in the finite quotient, not among genuine formal-series lifts. Human historical-priority assessment and independent mathematical checking remain outstanding. The cited oldest fully dated public source is 2010-09-26, while other older comparison literature is separately credited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the uniform extension-field square-image and nonidentity fiber theorem, not novelty of the q=2 case, the identity fiber in isolation, the coefficientwise root equations as a method, or the depressed-cubic split-type count. Earlier Riordan-matrix calculations explicitly cover the prime-field slice. The strongest inspected statements do not give the all-field histogram or its group-image consequence by specialization alone.
+
+## value
+
+PASS
+
+The first failure of the square image to fill the square-generated subgroup is an intrinsic cutoff of the characteristic-two substitution filtration. The full nonidentity-fiber profile over extension fields, including the governing cubic test and the precise fraction of missing squares, is a reusable invariant beyond an exponent, a conjugacy census, or the F₂ calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

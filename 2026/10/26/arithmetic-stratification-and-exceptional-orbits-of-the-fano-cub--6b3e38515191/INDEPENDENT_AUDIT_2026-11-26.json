@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:14:18.190184Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; checks/fano_cubic_check.py and checks/expected_counts.txt (inspected)",
+        "Independent replay: python /workspace/review_checks/fano_points.py"
+      ],
+      "rationale": "The Fano evaluations have rank seven: the pure coefficients are set by the three coordinate points, each pair of mixed two-variable terms gives a further independent condition at the corresponding coordinate sum, and the all-ones point sets the XYZ coefficient. The gradient equations of the resulting net have the unique solution [√b:√c:√a]: their matrix on coordinate squares has rank two (there is a nonzero 2-by-2 minor using the square of any nonzero coefficient); Euler's identity gives membership in the cubic. A geometric line not defined over F₂ meets at most one base point, so its residual conic contains at least six, including a full Fano line; Bézout forces an F₂-line factor. Restricting to each of the seven Fano lines gives the seven binary parameter lines. They intersect only in the seven binary points with triple incidence, leaving q−2 points unique to each line and (q−2)(q−4) off them. In the one-factor case a split residual would need another binary line to cover the four off-line base points; the smooth residual is tangent at the unique rational singular point. With no line factor the cubic is geometrically integral and has a repeated tangent line: expansion at the singularity has a square quadratic term, which is nonzero since multiplicity three would force geometric splitting. In coordinates with cusp [0:0:1] and tangent y=0 the model is Zy² plus a binary cubic with nonzero x³ term (otherwise y divides it). Projection from the cusp is birational, and only the tangent direction lies over the cusp, proving the bijection of rational points with the normalization P¹. The two reducible point counts follow by their rational intersections. For the orbit step I checked distinctness and stabilizers directly: off the arrangement the singular-point coordinates are an F₂-basis of a 3-dimensional F₂-subspace W of F_q. A projective stabilizer corresponds bijectively to a nonzero scalar λ with λW=W via its action on that basis. The multipliers preserving W, with zero included, form a subfield and their degree over F₂ divides three. If it is three, W is a scaled F₈, and all such ordered bases are a single orbit, with stabilizer seven and size 24; this exists iff 3 divides m. Otherwise the stabilizer is trivial. Uniqueness of the singular point gives equivariance under G, so the count is for the cubic equations. Independent direct point counts for all forms over q=2,4,8,16 and multiplier checks agree.",
+      "residual_risks": [
+        "Finite field enumeration only corroborates the all-extension argument. Orbits classify equations under the marked Fano-plane group, not abstract curve types or equivalence under PGL₃(F_q)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kettinger's inspected passages give characteristic-two interpolation geometry and generic cusps. Akesseh's repository abstract gives the Fano interpolation criterion; its dissertation full text was not available. The indexed Singer-pencil partition applies to smooth quartics rather than cubics."
+        ],
+        "reasoning": "Generic cuspidality is not a statement of the full reducible strata or the finite-field orbit census. No inspected stronger statement was found that classifies all marked-net strata and projective stabilizers over all extensions.",
+        "searches": [
+          "Kettinger arXiv:2510.06365, unexpected-cubic classification",
+          "Akesseh repository 80",
+          "Resultary and primary literature lookup for binary-plane degree-three points and Singer cycles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked and exact-neighbor comparisons; Kettinger, Akesseh and the two indexed quartic results above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Singer eigenpoints over F₈ and generic cuspidality are prior facts. The finite-extension theorem uses the exact reducibility arrangement, its relation to the unique singular point, and the exclusion of every additional nontrivial stabilizer via subfield multipliers."
+        ],
+        "reasoning": "The exceptional eigenpoints themselves should not be claimed new. Knowing their existence and the generic cubic type does not provide the curve point-spectrum census or identify precisely which cubic parameters they represent and show no further exceptions. The supported distinction is the combined arithmetic classification, not the underlying Singer calculation in isolation.",
+        "searches": [
+          "Kettinger p. 21; both published quartic records, Singer and eigenpoint passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kettinger identifies the identical sheet spanned by xy(x+y), xz(x+z), yz(y+z), and identifies the generic cusp. The prior eight-quartic-pencils record identifies three F₈ eigenpoints of each Singer cycle."
+        ],
+        "reasoning": "The basis equivalence is exact; the arithmetic and full marked-net classification are not in those statements. Off the binary lines the unique cusp map identifies the relevant parameters with projective triples of F₂-independent coordinates, which explains the Singer overlap.",
+        "searches": [
+          "Resultary: Fano cubic net cusp strata and degree-three points, PGL₃(2) Singer orbits",
+          "Kettinger arXiv:2510.06365, pp. 3 and 21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched same-day record has 24 smooth plane-filling quartics partitioned into eight Singer-indexed pencils; a pencil has stabilizer order 21. The earlier record has eight all-smooth binary quartic pencils. Neither inspected catalogue is of cuspidal cubic equations."
+        ],
+        "reasoning": "The shared size 24 is geometrically related, not evidence of an exact duplicate census. The quartic partition does not count cusp equations at q≥16 or establish the cubic stratification. No priority order inferred from the same-day date.",
+        "searches": [
+          "Resultary: extension-field Fano cubic type counts and cusp-parameter orbits; 24 Singer-indexed objects"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the finite-extension stratification with point counts and the induced orbit census on this cubic cusp locus. The Fano-point net, its generic cuspidality and the underlying Singer eigenpoint geometry are prior, not original parts of this claim.",
+      "residual_risks": [
+        "Full Akesseh dissertation was not inspected. A more general earlier arithmetic census of small-degree projective points or of this cubic net under different terminology is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct geometric antecedent; quantitative extension classification not stated in inspected passages",
+          "evidence": "Characteristic-two Fano unexpected cubic result attributed to Akesseh, and the three identical generators with generic cusps.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.06365",
+          "material_read": "pp. 3 and 21, OA offsets about 9800 and 71300",
+          "method": "OA PDF passages",
+          "title": "The classification of quasi-elliptic fibrations and unexpected plane cubics in characteristics 2 and 3",
+          "trigger": "Same Fano cubic net and expected geometry"
+        },
+        {
+          "assessment": "Earlier Fano interpolation antecedent; full scope unresolved",
+          "evidence": "Abstract states the Fano-plane interpolation criterion.",
+          "identifier_or_url": "https://digitalcommons.unl.edu/mathstudent/80/",
+          "material_read": "Repository metadata and abstract only",
+          "method": "Lawful repository page; full text inaccessible",
+          "title": "Ideal Containments under Flat Extensions and Interpolation on Linear Systems in P²",
+          "trigger": "Earlier Fano unexpected cubic interpolation"
+        },
+        {
+          "assessment": "Known Singer geometry; different objects counted",
+          "evidence": "Singer C₇ is regular on the binary projective plane and has three eigenpoints forming one degree-three Frobenius orbit over F₈.",
+          "identifier_or_url": "2026/10/18/SCOPE-eight-all-smooth-binary-plane-filling-quartic-pencils-and-their--4918e9c3bc9a",
+          "material_read": "RESULT.md, offset about 5770",
+          "method": "Local published-record mirror",
+          "title": "Eight all-smooth binary plane-filling quartic pencils",
+          "trigger": "Singer fixed points and order-seven subgroups"
+        },
+        {
+          "assessment": "Genuine overlap in finite geometry, not the same classification",
+          "evidence": "24 smooth quartics in eight Singer-indexed pencils; order 21 for the stabilizer of a pencil.",
+          "identifier_or_url": "2026/10/26/SCOPE-eight-singer-pencils-partition-the-smooth-plane-filling-quartics--6b7a42d673bd",
+          "material_read": "RESULT.md Finding, offset about 450",
+          "method": "Local published-record mirror",
+          "title": "Eight Singer pencils partition the smooth plane-filling quartics",
+          "trigger": "Indexed 24 objects, same symmetry group and Singer geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; independent singularity, reducibility and stabilizer arguments; Kettinger p. 21 and Singer-pencil comparisons"
+      ],
+      "rationale": "The fixed Fano seven-point net is an intrinsic interpolation object and extensions are its natural arithmetic base changes. The result resolves its full finite-field type and point-count distribution, then explains exactly when a nonfree marked-plane symmetry occurs in the cuspidal locus. The simultaneous arithmetic classification is useful even where the underlying line and Singer geometry is standard; it is not a new result about the existence of unexpected cubics alone.",
+      "residual_risks": [
+        "No claim about coarse moduli up to the full projective group over an extension or about extensions beyond characteristic two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The exact geometric incidence matrix is \(35\times28\), with a row for each unordered four-four partition of the eight Cayley-octad labels and a column for each unordered two-label bitangent. An entry is one precisely when both labels of that bitangent lie in the same half of the partition. This follows from the standard theta-refinement criterion for Steiner complexes.
+## correctness
 
-For exact reproduction, place `verify.py` and `certificate.json` in the same directory, and execute `python3 verify.py certificate.json` (Python 3, standard library only). The verifier enumerates every row and column, checks two equivalent constructions of the entries and their row and column sums, computes the full Gram matrix, verifies the seven rational kernel witnesses, checks adjacent-transposition equivariance, and applies all \(474\) elementary integer operations from the certificate to the original matrix. It checks that the result is exactly the rectangular diagonal matrix with nonzero factors \(1^{\times7},2^{\times13},6\), followed by seven zero diagonal factors. It also verifies ranks modulo \(2\), \(3\), and \(5\) are \(7,20,21\), respectively.
+PASS
 
-All recorded elementary operations are invertible over \(\mathbb Z\); their exact replay proves the claimed Smith form independently of any floating-point calculation or experimental extrapolation. The rational-kernel argument in RESULT.md supplies an independent structural rank proof. An additional exact calculation using SymPy's Smith-form routine agreed with the certificate.
+The marking is geometric and fixed. In the even-subset model, a nonzero isotropic class is a complementary pair of four-sets. Adding this class to the odd theta characteristic of an octad pair preserves odd parity exactly when that pair lies in one of the two blocks. This is exactly membership in the Steiner complex, so the map is the 28-by-35 internal-edge incidence (not the crossing incidence). I inspected the frozen verification and elementary-operation logic and reproduced the Smith form with a fresh matrix and exact integer Smith algorithm, without replaying the uploaded program. Every column has weighted degree three at each octad label. The seven degree differences are independent, their kernel is saturated, and the Smith rank is 21, so their kernel is exactly the saturation. The Smith factors give seven free directions, torsion index 49152 and exponent 6; a degree-one perfect matching witnesses the obstruction modulo three. This does not assert quartic divisor-class or Galois-module information.
 
-Limitations: the certificate proves a finite integer matrix claim, while applicability to each smooth even-theta-marked quartic relies on the classical, cited geometric identification. These checks are not a formal proof-assistant development, independent professional audit, or determination of historical priority. No external validation of a submitted artifact is claimed.
+## originality
+
+PASS
+
+The classical theta marking and the selected incidence entries are established prior work. The supported distinct result is the integral structure of the 35-complex sublattice, not the incidence model or the full 63-complex computation. The closest inspected sources do not cover or determine that structure. The judgment is bounded, not a priority guarantee.
+
+## value
+
+PASS
+
+Choosing an even theta characteristic naturally selects the 35 Steiner complexes, rather than an arbitrary matrix slice. Their exact integral span answers which formal bitangent weights can be reconstructed from these generators: equal degrees are the only rational constraints, and six is the least uniform multiplier. This is specific integral information useful for marked incidence questions and absent from the full-63 reconstruction invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

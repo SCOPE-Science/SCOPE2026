@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The claim is the exact positivity-horizon and sharp ratio theorem for degree-two and degree-three exponential Taylor steps on finite directed cycles with at least four vertices and strictly positive rates. The proof in `RESULT.md` treats all finite dimensions, all positive rates and all nonnegative timesteps. It needs no random sampling or limiting computational enumeration.
+## correctness
 
-Execute `python3 verify.py` with standard Python 3. The checker independently builds each generator matrix, uses exact rational arithmetic to form powers, and compares all formula entries for cycle lengths four through nine. Its recorded successful output in `verification_output.txt` includes 52,032 entry comparisons, 7,488 row-sum checks, a cubic-root bracket, 2,240 floating-point tests straddling sharp horizons, and explicit rate-family checks. Supplementary numerical checks are not a proof of infinitely many dimensions or rate values; the entry enumeration and monotonicity/sign arguments in `RESULT.md` establish that result.
+PASS
 
-Exact hypotheses: the rates are finite positive real numbers, the generator has exactly one directed outgoing edge per state and the chain is homogeneous in time. Positive rates in the two limiting families tend to zero but remain positive at every tested instance; the universal bounds themselves are strict. The numerical check uses finite precision only for root bracketing and supplementary boundary stress tests. The endpoint result does not imply positivity of intermediate Runge–Kutta stages, improved accuracy or nonlinear strong-stability preservation.
+For n≥4, zero through three forward moves cannot reach the same column. In row i, a walk with k jumps contributes the product of the first k rates; the stays are distributed over the k+1 visited vertices, contributing the complete homogeneous polynomial in the negative rates. The quadratic diagonal is strictly positive; the one-hop entry changes sign at 2/(r_i+r_{i+1}). In the cubic, the diagonal is strictly decreasing in r_i h to and beyond its unique zero ρ, the one-hop bracket has discriminant −(5a²+2ab+5b²)/12 for a=r_i,b=r_{i+1}, and the two-hop constraint is h≤3/(r_i+r_{i+1}+r_{i+2}). The last hop is positive. Thus the horizons are exact, with no later reentry and row sums one. The inequalities M<A<C≤A+M<2A and ρ>3/2 give strict bounds. On the alternating and adjacent-fast four-cycles the triple constraint is active as the slow rates tend to zero, yielding the two distinct endpoints of the range. On the single-fast-state family the two constraint ratios cross 1 at R=1 and R=ρ/(2−ρ), respectively, giving precisely the stated ties and strict inequalities. An independent rational bisection gives ρ≈1.596071637983321523 and switch ≈3.951373035591441433. The prose's last printed digit in ρ is a rounding slip; the defining cubic, frozen check output and exact comparisons determine the result.
 
-No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The exact quadratic horizon has stronger local coverage, and both the walk-expansion technique and the general principle of finding a positivity threshold are known. The distinct contribution is the sharp two-sided RK3/RK2 comparison for every positive rate profile, including both sharpness configurations and the contrast switch. The checked general step-size constructions do not yield this optimized comparison; related exact results change the order, graph, or wraparound regime.
+
+## value
+
+PASS
+
+The largest completed positive step is a natural constraint on integration of a transition network. A strict sharp range showing that the higher-order method can win or lose, with a cheap local decision rule and a one-site contrast switch, is more informative than positivity of one method or examples at selected rates. The different spatial arrangements of fast rates explain the two limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

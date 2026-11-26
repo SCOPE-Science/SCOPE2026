@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:23:31.438951Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two directed path types through a large-shore vertex cannot coexist: any simple directed cycle must alternate through the two small-shore vertices and thus use both types. Inclusion–exclusion on the allowed words gives 2(z+2)^n−(z+1)^n before adding the small-shore sinks: among the 2^(n+1)−1 words with no large-shore sink, the all-outward large-shore word has two small-shore sinks, the others one. The formula has positive nonconstant coefficients and simple zero at 0. For z=−u, 0<u≤2, the geometric sum bound 1−(1−u)^n≤nu and (2−u)^n≤2^n give S_n(−u)≤u[n+u−(2^(n+1)−2)]<0. After z=−x−2, the even n≥4 polynomial has just one positive leading coefficient, all lower coefficients negative; the odd n≥5 polynomial has negative leading, positive middle and negative linear and constant coefficients. Descartes bounds the respective positive-root totals counting multiplicities by one and two. The signs at x=0 and infinity and, for odd n, the strict witness F_n=Q_n(3)>0 force exactly those counts and simplicity. Independently checked F_5=190 and F_{n+1}−4F_n=2·3^n+24·2^n−108>0 for n≥5. At n=2 the polynomial is 2z(z+6), and at n=3 the factor z²+10z+35 is strictly positive on the real line. The closing phrase ‘smallest parameter’ should be read as smallest odd parameter; the exact census is unambiguous. Replay: python3 /workspace/reproduce_reviews.py 1 independently compared the full coefficient histogram for n=2..8, using directed reachability to reject cycles, and confirmed the sampled odd witnesses. The all-n argument is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 3.1 and 4.3 establish chordal claw-free acyclic and claw-free all-orientation real-rootedness, respectively.",
+          "The sink theorem applies to arbitrary graphs but its conclusion is a coefficient sum."
+        ],
+        "reasoning": "K_{2,2} is an induced four-cycle, so not chordal; larger members are also nonchordal and have induced claws. The all-orientation polynomial is distinct because directed four-cycles exist. The coefficient identity alone provides no root bounds.",
+        "searches": [
+          "arXiv:2610.41502 Theorems 3.1 and 4.3",
+          "arXiv:1910.10920 Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: identity hit 4c497236087f; distinct comparisons 191f2d3ed047 and dc10569b3cdd",
+        "arXiv:1910.10920",
+        "arXiv:2010.11236",
+        "arXiv:2610.41502"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem could yield the enumerator after computing the e-expansion; the unique-sink theorem gives just its linear contribution after summing over allowed sink vertices. The double-star root theorem instead includes −1 as a double root."
+        ],
+        "reasoning": "Even given the closed form, the odd witness and Descartes analysis are needed to discriminate the n=3 exception and locate both simple roots for all larger odd n. There is no implication of that conclusion in the inspected statements.",
+        "searches": [
+          "arXiv:1910.10920 Theorem 4.5 plus arXiv:2010.11236 §5",
+          "published double-star result 191f2d3ed047 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record was the exact catalogue hit. The distinct double-star result has a multiple root at −1 and an odd-parameter transition at 15. The assigned two-edge spider record has degree m+1 and formula (1+3z)^m+(z−1)(1+z)^m.",
+          "The elementary symmetric expansion X_G=∑ c_λ e_λ yields the entire sink sequence by grouping c_λ by ℓ(λ)."
+        ],
+        "reasoning": "This identifies the chromatic-symmetric-function specialization as an equivalent encoding. The compared trees cannot be biclique members containing a four-cycle, and their stated root geometries differ.",
+        "searches": [
+          "Resultary claim search, complete bipartite K_{2,n} acyclic sink polynomial real-zero parity",
+          "arXiv:1910.10920 Theorem 4.5, equations (22)–(23)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed entry is the same record, not a separate source. The accessible bipartite enumeration gives fixed-unique-sink orientation counts."
+        ],
+        "reasoning": "A table or formula for the unique-sink coefficient, even with the total orientation count, does not specify the polynomial or locate its zeros. No distinct exact census was identified in these checks.",
+        "searches": [
+          "Resultary exact formula and family-wide parity census",
+          "arXiv:2010.11236 Theorem 2.5 and §5, complete-bipartite AUSO enumeration"
+        ]
+      },
+      "rationale": "Bounded comparison supports the specific all-order real-zero census, not a claim to originate sink enumeration. The closest inspected parity-census records concern different graph families, and the general sink-sequence identity or single-sink formulas supply enumerative inputs, not this root classification.",
+      "residual_risks": [
+        "The bounded primary-literature web query did not surface a relevant additional comparison; this does not establish absence.",
+        "Older poly-Bernoulli or chromatic-symmetric-function specializations could encode the formula or contain unindexed equivalent root analyses; the positive verdict is limited to the supported census on the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known equivalent encoding of the full polynomial, not this family’s root theorem",
+          "evidence": [
+            "The number of j-sink acyclic orientations is ∑_{ℓ(λ)=j}c_λ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10920",
+          "material_read": "Theorem 4.5, p. 18, eqs. (22)–(23), OA offset 53500",
+          "method": "OA PDF mathematical passage",
+          "title": "Acyclic Orientation Polynomials and the Sink Theorem for Chromatic Symmetric Functions",
+          "trigger": "General equivalent sink sequence"
+        },
+        {
+          "assessment": "Covers unique-sink counting, not the distribution across sink numbers or root geometry",
+          "evidence": [
+            "Theorem 2.5 relates the permutation model to acyclic orientations of a complete bipartite graph with a fixed unique sink."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.11236",
+          "material_read": "Theorem 2.5 p. 7, offset 16827, and §5 p. 18 onward",
+          "method": "OA PDF relevant mathematical passages",
+          "title": "Toppleable Permutations, Excedances and Acyclic Orientations",
+          "trigger": "Same graph family orientation enumeration"
+        },
+        {
+          "assessment": "Acyclic theorem requires chordal claw-free graphs; broader claw-free theorem counts all orientations",
+          "evidence": [
+            "K_{2,n} contains induced C4 for all n≥2; n≥3 also has an induced claw."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41502",
+          "material_read": "Abstract and Theorems 3.1 and 4.3, pp. 7 and 19, OA offsets 18700 and 54705",
+          "method": "OA PDF relevant mathematical passages",
+          "title": "Sink Polynomials of Line Graphs and Weighted Matching Polynomials",
+          "trigger": "General results about real-rootedness of the same graph polynomial"
+        },
+        {
+          "assessment": "Different graphs and root conclusion, irrespective of any within-day ordering",
+          "evidence": [
+            "D_{2,b} is a tree, with a double root at −1 and a transition at odd b=15."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-parity-dependent-real-zero-transition-for-sink-polynomia--191f2d3ed047/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "A sharp parity-dependent real-zero transition for sink polynomials of double stars",
+          "trigger": "Same-day closest parity-census hit"
+        },
+        {
+          "assessment": "Different tree family and different zero intervals and counts",
+          "evidence": [
+            "It has long-root and bounded-root branches at negative values relative to −1, not the biclique witnesses at −2 and −5."
+          ],
+          "identifier_or_url": "/workspace/source/2026/11/22/parity-rigid-real-zeros-of-the-acyclic-sink-polynomial-of-two-ed--dc10569b3cdd/RESULT.md",
+          "material_read": "Finding lines 3–20 and assumptions lines 22–24",
+          "method": "Original frozen record, matched to the indexed summary",
+          "title": "Parity-rigid real zeros of the acyclic sink polynomial of two-edge spiders",
+          "trigger": "Second same-day semantic match, also assigned here"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete nontrivial shore-size-two biclique family, with a growing-degree sink polynomial outside the chordal claw-free theorem. The exact count and placement of all simple real roots, including the n=3 exception and separating negative witness, are useful boundary information not provided by standard orientation totals or real-rootedness criteria. The result does not need a claim about arbitrary bicliques.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:45:25.339705Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstruct the normalized method with U the matrix of unit-gradient columns, B=UᵀU, and n_i=||g_i||. Full column rank makes B positive definite. The equal-projection equations are B diag(n_i k_i) α'=C'1, before imposing the sum-one condition. Thus every equal-projection coefficient vector at the new scale is a scalar multiple of (α_i/k_i)_i, since the original C is nonzero (otherwise α=0). The normalization gives the unique multiplier 1/D when D=Σα_i/k_i≠0; at D=0 there is no sum-one solution, not just a numerical failure. Nonnegative weights force D>0; one negative α_j gives the strictly increasing D(k)=1−α_j+α_j/k with the stated unique root and opposite signs on either side. In the example det(U)=r²(r−1) with r=1/√2 and the scaled gradient determinant is k times this. The displayed coefficients sum to one and give (0,0,r) and common projection 1/2. The third-scale denominator is 2+√2−(1+√2)/k, with simple zero at r and negative sign below r. Each scaled objective's derivative along −g' is −k_i n_i/(2D)>0 there. This is an algebraic reconstruction (replay via the Gram equation and these exact identities), not execution of the uploaded checker. It proves an instantaneous statement for the sum-one normalization, not a training trajectory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Quinton–Rey already prove nonlinearity under scaling and give the denominator for the generalized method. They say full-row-rank AIMTL-G seems non-conflicting, not that they have a full-rank example to the contrary."
+        ],
+        "reasoning": "Broader nonlinearity and collinearity statements are covered and do not prove that positive rescaling can cross a pole in a concrete independent-gradient example. The identified defining paper was not retrievable in full; the related source gives the actual full-rank equations used in the comparison.",
+        "searches": [
+          "arXiv:2406.16232v1 Appendix B.6, pp. 22–23: full row rank, scaling and conflict",
+          "OpenReview IMPnRXEWpvr, identified ResearchGate mirror 354436676"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.16232v1 Appendix B.6",
+        "OpenReview IMPnRXEWpvr and ResearchGate 354436676 (access attempts)",
+        "Resultary 9fdac9a3d23e",
+        "Resultary d252c075eeee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-coordinate root and nonnegative-coefficient sign test follow directly from the known denominator. A singularity and reversal in the stated domain require realization of negative coefficients by independent gradients; the prior conflict example fails that domain test."
+        ],
+        "reasoning": "Credit the implied algebra and generic scaling behavior. The new part is existence with a verified full-rank realization and exact ascent boundary, contradicting the suggestion for full rank rather than merely reiterating the generalized method's rank-deficient pathology. The defining paper's exact prose and hypotheses were not independently established by an accessible primary copy.",
+        "searches": [
+          "arXiv:2406.16232v1 Appendix B.6 scaling factor, conflict example, and full-rank comment",
+          "OpenReview IMPnRXEWpvr paper and attachments; ResearchGate mirror 354436676"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-rank AIMTL-G specialization has the same equal-projection coefficient normalization and the same scaling denominator. Its explicit negative-weight conflict example is rank deficient."
+        ],
+        "reasoning": "One must compare the full-row-rank specialization of the Jacobian method, not merely the name. Its general scaling expression is equivalent algebra, but its exhibited conflict does not preserve rank through a positive scale singularity.",
+        "searches": [
+          "Local Resultary: IMTL-G reversal, positive-rescaling threshold, full-rank conflict and normalization singularity",
+          "arXiv:2406.16232v1 Appendix B.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 9fdac9a3d23e is a two-task Aligned-MTL conflict window; record d252c075eeee is a RotoGrad task-unit law."
+        ],
+        "reasoning": "The methods have different aggregation rules; the conflict and scale effects in those entries neither specify nor imply this IMTL-G example. No direct match was located in the bounded search, not a proof of absence.",
+        "searches": [
+          "Local Resultary: IMTL-G, scale invariance, full-rank conflicts and task-unit laws"
+        ]
+      },
+      "rationale": "The multiplier itself and the threshold algebra conditional on a negative coefficient are direct consequences of known scaling formulas, not a separate originality claim. The supported contribution is the admissible full-rank three-task witness to a positive-scale singularity and an actual orientation reversal with all tasks in first-order ascent. The strongest inspected literature reproduces the normalization and even considers conflict, but supplies a rank-deficient example, not this full-rank boundary and reversal.",
+      "residual_risks": [
+        "The defining paper's exact wording and theorem assumptions could not be compared directly; exact attribution rests on the frozen quotation context and corroborating full-rank equations, not firsthand access.",
+        "Other analyses of normalized Jacobian aggregation could contain a full-rank witness to the same pole and reversal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scaling algebra; no covering full-rank example in the inspected treatment",
+          "evidence": "The full-rank weight normalization specializes to the same denominator; the explicit conflict example is rank deficient and the full-rank case is described as seemingly non-conflicting.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.16232v1",
+          "material_read": "Appendix B.6, pp. 22–23, extracted offsets approximately 85600–89500",
+          "method": "OA full-text passage inspection",
+          "title": "Jacobian Descent for Multi-Objective Optimization",
+          "trigger": "Stronger Jacobian aggregation, full rank, and conflict"
+        },
+        {
+          "assessment": "Full text unavailable on attempted routes; no inference of noncoverage from this",
+          "evidence": "OpenReview routes returned a challenge or landing page; the mirror returned HTTP 403. The full-rank equations were independently corroborated by Quinton–Rey.",
+          "identifier_or_url": "https://openreview.net/forum?id=IMPnRXEWpvr ; ResearchGate publication 354436676",
+          "material_read": "Landing/access responses only; theorem and appendix not independently read",
+          "method": "Lawful OA attempts at OpenReview forum, PDF and attachment routes and ResearchGate identified mirror",
+          "title": "Towards Impartial Multi-task Learning",
+          "trigger": "Defining primary method and Appendix scale-invariance theorem"
+        },
+        {
+          "assessment": "Different aggregator",
+          "evidence": "The conflict window is for two-task Aligned-MTL in gradient norms and cosine.",
+          "identifier_or_url": "Resultary 2026/10/13/9fdac9a3d23e",
+          "material_read": "RESULT.md claim",
+          "method": "Local search and mirror inspection",
+          "title": "Uniform Aligned-MTL has a sharp full-rank conflict window",
+          "trigger": "Closest full-rank conflict record"
+        },
+        {
+          "assessment": "Different aggregator",
+          "evidence": "Its task-unit law concerns RotoGrad, not the IMTL-G sum-one singularity.",
+          "identifier_or_url": "Resultary 2026/10/13/d252c075eeee",
+          "material_read": "RESULT.md claim",
+          "method": "Local search and mirror inspection",
+          "title": "RotoGrad has an exact arithmetic-mean task-unit law",
+          "trigger": "Closest scale-law analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive changes of objective units are a central invariance test for a multi-task aggregator. A legal full-rank example distinguishes preservation of a line from preservation of a directed descent step: a finite singularity is followed by ascent for every task, with the exact scale separating those regimes. This supplies a concrete diagnostic for normalization design without claiming instability of a whole training run.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

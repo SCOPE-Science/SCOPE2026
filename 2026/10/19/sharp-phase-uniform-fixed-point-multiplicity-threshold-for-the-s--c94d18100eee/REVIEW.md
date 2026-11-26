@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-point problem reduces bijectively to a scalar radius equation. The derivative at its zeros has a universal sign bound controlled by a single explicitly minimized function. Below the exact minimum every zero crosses upward; above it a chosen phase gives a negative-crossing zero and two additional roots by endpoint signs. The quadratic optimization and boundary cases were independently reconstructed. The packaged script verifies core symbolic identities and supplies numerical witnesses; those experiments are not substituted for the proof.
+## correctness
 
-## Originality — PASS, qualified
-The exact phase-uniform threshold and its converse were compared with the original 1979 optical bistability mechanism and Osipenko's treatment of the same rational-phase map. Optical multistability itself is established prior art and is not claimed as new. The inspected original 1979 equations include absorber dynamics and a different stationary relation; they do not yield this exact expression directly. The available book text gives numerical fixed-point multiplicity, not the sharp parameter-wide minimum in the theorem. A complete book chapter and all historical optical studies were not inspected, leaving explicit residual historical-priority risk. Search failure alone was not counted as proof of novelty.
+PASS
 
-## Value — PASS
-The number of cavity steady states is a natural observable because phase-controlled multistability underlies switching and hysteresis. The theorem gives a necessary-and-sufficient bifurcation-onset *possibility* threshold across all phase offsets and contraction strengths, not just isolated examples, and constructs the three-state side. It distinguishes loss of uniqueness from a merely conservative derivative contraction criterion. The threshold is exact in radicals, with a unique optimization point and no arbitrary parameter slice.
+Independently parametrize fixed points by their intracavity phase φ: z=(1−u exp(iφ))⁻¹, with t=1+u²−2u cos φ>0 and κ congruent to K(φ)=φ+η t/(1+t) mod 2π. Distinct phases modulo 2π give distinct points since u>0. The lift has K′(φ)=1+2uη sin φ/(1+t)². Thus uniform strict increase holds for |η| below min_t M_u(t) with M_u as in the record. Its derivative has sign of 8u²−v²−(2+u²)v, v=1+u²−t; evaluation at v=−2u,0,2u locates the only in-domain root at v_*, with the other root below −2u. Divergence of M_u at both endpoints and the derivative signs give the explicit minimum. The lift shifts by 2π across each period, so below the threshold it has exactly one preimage modulo 2π. Above it the sine sign opposite to η at t_* gives K′<0. Choose a level strictly between the lift values at the endpoints of a short decreasing interval; besides the preimage inside, K(φ)−φ bounded gives one to the left and one to the right. They cannot be congruent modulo 2π since they map to the same real level. This proves the symmetric sharp result including all offsets in the uniqueness regime. Independent numerical substitution agrees with all three stated E values.
 
-## Limitations
-No assertion about stability or global attraction of any fixed point, nor about equality at the critical strength. Prior published work is not exhaustively excluded and requires independent literature evaluation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Multiplicity and optical response folds are not new, nor is phase-uniform uniqueness in the known nonexpansive region for the same family. The supported distinction is the offset-optimized necessary-and-sufficient threshold separating uniqueness for every offset from at least three fixed points for some offset, quantified for all 0<u<1. The inspected closest results do not yield this threshold; there is a specific remaining access risk for analyses of the identical rational-phase model.
+
+## value
+
+PASS
+
+An exact offset-uniform transition distinguishes inability to produce multiple equilibria anywhere in phase space from guaranteed achievable multiplicity at each stronger nonlinearity. It materially sharpens contraction-based uniqueness and provides a parameter/phase construction rather than a plot or one instance. This is a natural boundary of the original map, irrespective of dynamical stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

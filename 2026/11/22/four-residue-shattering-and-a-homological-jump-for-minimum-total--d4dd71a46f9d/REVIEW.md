@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every cycle, meeting both neighbors' edge constraints is exactly vertex covering of the step-two auxiliary graph. Complementing identifies all minimum total dominating sets with all maximum independent sets; this is a bijection of concept vectors that preserves shattered supports. The auxiliary graph is one odd cycle or two equal parity cycles. On an even auxiliary cycle, the maximum independent sets are the two alternating words, giving just singleton supports. On an odd auxiliary cycle, every maximum independent word contains exactly one `00` cyclic edge, which permits precisely the singleton and nonadjacent-pair supports: direct alternating-arc constructions realize four pair labels, while a parity-consistent assignment across three arcs would demand at least three such edges. Component products imply polynomial multiplication and simplicial joins. The graph and join homotopy computations account for all small exceptions, including the three-cycle, four-cycle and six-cycle. The standalone executable was run using the embedded code and returned `MINIMUM_TOTAL_DOMINATION_CYCLE_PASS 93592 60 11`; finite tests are corroboration, not a substitute for the unrestricted proof.
+## correctness
 
-## Originality — PASS, with qualified priority
-Earlier total-domination and independence-polynomial literature gives size/number data, not the queried-coordinate support polynomial or integral homotopy type. A closely related published fixed-weight cyclic-independent-set theorem already implies the scalar VC values and is fully credited; it does not claim the complete shattering polynomial. The published all-coefficient theorem for inclusion-maximal independent sets is about a larger, not optimizer-only, class. The detailed implication comparisons and material primary-source inspections appear in `AUDIT.json`. The exact optimiser shattering profile and mod-four homotopy change were not identified in those sources or in semantic records. Priority remains uncertain under alternative extremal-cyclic-word or graph-transversal terminology.
+PASS
 
-## Value — PASS
-The contribution is an explicit complete classification of every Boolean support for a standard optimum-solution family, not merely a count of optimum sets or a scalar learning dimension. The topological conclusion yields a sharp transition from graph-like complexes to wedges of three-spheres and an exact quartically growing integral Betti rank. These natural invariants are not specified by previously known total domination numbers or independence-polynomial coefficients and give a structural benchmark for optimum-concept learning complexes.
+Every open-neighbor constraint is an edge-covering constraint on the step-two graph, so complementing the minimum vertex covers gives the maximum independent sets and preserves shattering. Maximum sets split by component. On an even component the only choices are the two alternations, also true of the single-edge components at n=4. On an odd cycle of length m, a maximum word has exactly one 00 edge and no 11 edge. For a nonadjacent pair, prescribed endpoint bits force odd 00 parity on exactly one arc. Use alternation on the other and insert a duplicated zero in an alternating word shortened by one edge on the odd-parity arc (it has length at least two). Adjacent pairs fail the 11 trace. For three queried vertices, the mod-two endpoint differences L_i-1 are consistent because the three arc lengths sum to odd m; they force at least one 00 on each arc, impossible. This proves the full support test, not just the degree bound. The odd-component complex is the graph complement of the cycle, with no filled triangles: it is connected for m>=5 (minimum degree m-3 precludes disconnectedness for m>=5), and a spanning tree gives wedge rank E-V+1. The triangle is discrete. For two components the support counts multiply and the complexes join; collapsing the based contractible part of the join gives suspension of the smash and hence the claimed sphere dimensions and squared ranks, including n=6. The supplied brute force checker was inspected, not executed; its finite traces and Euler data are not the proof of unrestricted homotopy.
 
-## Scope and risk
-The theorem is confined to finite labelled cycles and minimum total domination. Historical-priority searches are incomplete in principle. The standalone checker is exhaustive only within its documented finite range. Independent mathematical verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar fixed-weight VC result is prior coverage and expressly excluded from the contribution. Best of the inspected statement-level evidence, the exact optimum-only support criterion and ensuing support polynomial and homotopy are distinct. Counting and homotopy once the support lemma is proved are elementary, not claimed as new general techniques.
+
+## value
+
+PASS
+
+For a standard optimization family, the all-support invariant answers every query feasibility question; cardinality counts of optimizers and a scalar VC bound cannot do that. The support graph and its parity joins explain a concrete jump from circles to three-spheres and give their exact integral ranks. The value lies in this complete description, not a claim about an arbitrary graph or unrelated domination notions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

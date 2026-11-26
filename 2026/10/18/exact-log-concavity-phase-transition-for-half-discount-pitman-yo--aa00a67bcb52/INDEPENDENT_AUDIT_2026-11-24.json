@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:53.368762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For θ>−1/2 the CRP has positive probabilities on the stated support. Iterating its recurrence factors the probabilities into the half-discount coefficients and the block-creation weights. The exponential block series is 2(1−sqrt(1−z)); applying Lagrange inversion to z=u(2−u) gives the stated coefficient and the neighboring ratio R_{n,k}=2(n−k)(k+2θ)/[k(2n−k−1)]. The ratio difference has a positive denominator and a numerator proportional to H_{n,k}, affine strictly increasing in θ since the θ coefficient is 2[(n−k)(2n−k)+k(n−1)]. At θ=−1/[2(n−1)], H factors as n(k−2)[k(n−2)+n]/(n−1); thus k=2 is the sole equality and below the boundary it is the failure witness. This covers all interior k, with no test for n=1,2, and yields the stated fixed-negative-strength size bound. An independently written exact-fraction recurrence replay found agreement over n=1–80, 554 strength/size cases and 66,909 checks, including the boundary and neighbors. Replay: /workspace/branches/6824cf16-da55-4984-a1e2-40e624044285/crp_recurrence_audit.py, pilot.log, chunk_11_40.log and chunk_41_80.log. Finite cases corroborate rather than prove the classification. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhao studies nonnegative first-kind rows from products of linear factors and a second-kind result in n for fixed k; neither is the weighted curvature in k here",
+          "Dolera–Favaro use a compound-Poisson representation and study block-count asymptotics",
+          "The covariance sign transition is a local discount window at θ>1, not a strength transition at fixed discount 1/2"
+        ],
+        "reasoning": "The known model/representation, different curvature direction, and different parameter or observable do not yield a necessary-and-sufficient finite-n weighted shape theorem.",
+        "searches": [
+          "Zhao DOI:10.37236/2228, Sec. 2 and Thm. 2.5",
+          "arXiv:2111.02731",
+          "Resultary 5f1aa6cfc47a and cb22e90cc85a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:math/0406378",
+        "DOI:10.37236/2228",
+        "arXiv:2111.02731 (abstract)",
+        "Resultary 5f1aa6cfc47a and cb22e90cc85a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even at admissible θ=−1/4 and n=4 the weighted PMF is (40,20,12,5)/77 and the k=2 determinant is −80/5929, although the Bessel row is log-concave",
+          "The known row formula yields individual ratios but identifying the same worst interior k=2 for every n and proving strictness at all other k uses the uniform factorization at the candidate strength"
+        ],
+        "reasoning": "The result is not the older unweighted log-concavity theorem nor a constant rescaling of it; the weighted ratios require a separate sharp all-index comparison. No stronger inspected statement supplied that comparison.",
+        "searches": [
+          "arXiv:math/0406378, Thm. 4.2",
+          "DOI:10.37236/2228, Thm. 2.5",
+          "arXiv:2111.02731, compound-Poisson block-count representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han–Seo define a(n,k)=(2n−k−1)!/[2^{n−k}(n−k)!(k−1)!] and prove ordinary log-concavity of this row. Frozen S_{n,k}=2^{−(n−k)}a(n,k)",
+          "Resultary cb22e90cc85a treats richness–Simpson covariance, and 5f1aa6cfc47a treats singleton–doubleton covariance"
+        ],
+        "reasoning": "Geometric rescaling preserves curvature of the unweighted row, but the extra rising product of θ+i/2 is not geometric. Neither covariance identity is equivalent to log-concavity of the marginal law of K_n.",
+        "searches": [
+          "Resultary: Pitman–Yor / Ewens–Pitman block-count log-concavity, half-discount, generalized Stirling and Bessel terminology",
+          "arXiv:math/0406378, Secs. 1 and 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Bessel array gives exact base coefficients, but no table of weighted θ thresholds or equality indices is supplied by it or the matching indexed entries"
+        ],
+        "reasoning": "This is a uniform classification over a continuous strength and all sample sizes, not an unknown cell of the tabulated unweighted array. Small-size values cannot determine the controlling inequality uniformly.",
+        "searches": [
+          "Resultary: half-discount weighted block-count threshold and generalized Stirling arrays",
+          "Han–Seo arXiv:math/0406378, exact coefficient formula"
+        ]
+      },
+      "rationale": "The inspected exact Bessel coefficient theory and generalized-Stirling log-concavity results do not cover the θ-weighted block-count shape boundary; the other matching partition records treat distinct observables. The support is a statement-level comparison, not a claim of exhaustive novelty or historical priority.",
+      "residual_risks": [
+        "A weighted Bessel, occupancy, or transformed Pitman–Yor formulation not located in the bounded searches could overlap. One literature query was unavailable; that is not negative evidence. The conclusion is best-of-knowledge, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unweighted statement only",
+          "evidence": [
+            "Exact factorial formula for a(n,k); its rows are log-concave without the strength weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0406378",
+          "material_read": "Sec. 1 p. 2, Sec. 4.2 Thm. 4.2 p. 8",
+          "method": "Primary OA PDF text",
+          "title": "Combinatorial proofs of inverse relations and log-concavity for Bessel numbers",
+          "trigger": "Exact same unweighted coefficients and a row-log-concavity theorem"
+        },
+        {
+          "assessment": "Different coefficients or curvature index",
+          "evidence": [
+            "First-kind product-of-linear-factors row result and second-kind log-concavity in n for fixed k under stated hypotheses."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/2228",
+          "material_read": "Sec. 2 pp. 3–5 including Thm. 2.5",
+          "method": "Publisher OA PDF text",
+          "title": "On log-concavity of a class of generalized Stirling numbers",
+          "trigger": "Possible general formulation for shape of weighted generalized Stirling arrays"
+        },
+        {
+          "assessment": "Inspected abstract addresses representation and asymptotics, not finite weighted curvature; no whole-text exclusion based on it",
+          "evidence": [
+            "Compound-Poisson perspective and block-number asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.02731",
+          "material_read": "Abstract",
+          "method": "Primary OA text",
+          "title": "A compound Poisson perspective of Ewens–Pitman sampling model",
+          "trigger": "Same Ewens–Pitman block count"
+        },
+        {
+          "assessment": "Different observable and varying parameter",
+          "evidence": [
+            "Singleton–doubleton covariance transition with fixed θ>1 in a discount window of scale n^{-2}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-quadratic-discount-window-reverses-singleton-doubleton-covaria--5f1aa6cfc47a",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Resultary match and local mirror",
+          "title": "A quadratic discount window reverses singleton–doubleton covariance",
+          "trigger": "Same partition family and sharp sign transition"
+        },
+        {
+          "assessment": "Different claim irrespective of shared date",
+          "evidence": [
+            "Covariance of richness with Simpson concentration; not shape of the block-count marginal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-time-richness-simpson-covariance-kernel-for-pitman-yor-par--cb22e90cc85a",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary match and local mirror",
+          "title": "A two-time richness–Simpson covariance kernel for Pitman–Yor partitions",
+          "trigger": "Same family and K_n observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp, motivated change in the finite-sample shape of a standard partition statistic in its natural half-discount case. Negative strengths remain admissible but eventually lose log-concavity; the exact size cutoff and the unique witnessing triple distinguish this from a coefficient-array calculation or a single counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

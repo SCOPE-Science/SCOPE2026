@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:00:01.503041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 38–82",
+        "Frozen VERIFICATION.md lines 3–21",
+        "Frozen verify.py lines 46–73"
+      ],
+      "rationale": "Averaging edge payoffs gives (r−1)s_i+(r/d)∑_{j≠i}m_ij s_j. In a singleton-cooperator state, equality among defectors determines the off-diagonal row of the pair-count matrix up to a constant; doing this for each row and using symmetry makes the constant global, positive since d>0 and g≥2. Conversely pair balance with d(g−1)=λ(v−1) gives the stated payoff gap, independent of the mixed state. In either strict regime only the disfavored action can change, and one chosen opposite-action pair is jointly incident to an edge, giving at least |γ|/(vdΔ) probability of progress in every mixed state. Hence fixation is almost sure with finite mean, and at zero gap every update is null. The normalization rg−1 at r>1 bounds the payoff range: cooperators earn between r−1 and rg−1, defectors between 0 and r(g−1). On the complete hypergraph the no-opposite-type edge fraction is the binomial ratio, so exchangeability gives the count chain and geometric holding times. For an independent check of the coefficient, set m=v−1, p=g−1, and C equal to the hit probability among p draws. Bonferroni gives 0≤pk/m−C≤binom(p,2)k(k−1)/(m(m−1)) and C≥k/m; thus 1/C=m/(pk)+O_g(1). Splitting v/((v−k)C) into v/(v−k) and v(1−C)/((v−k)C), the second term equals m/(pk)+O_g(1) uniformly for k≤v/2, and also for k>v/2 because 1−C≤(m−k)/m there. The sum is [v+m/p]H_m+O_g(v), which yields the declared leading constant after multiplying by Δ/γ. In the Fano example the line triple leaves six mixed lines with two defectors each; the nonline triple has three mixed lines with one defector each and three with two, and one all-defector line. The incidence totals 12 and 9 give the asserted rates and disprove strong lumpability. The uploaded finite checker was inspected, not executed.",
+      "residual_risks": [
+        "The Fano example rules out a single count transition law valid for all underlying configurations, not every possible special initialization. The asymptotic is in single updates at fixed g and fixed r>1 and is not uniform near the fixation threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Wang–Su network model uses Fermi comparison and weak selection. Liu–Masuda's hypergraph models have constant type fitness and edge-wide replacement. The PLOS article uses exactly the same payoff formula but exponential fitness and two-stage probabilistic update rules, studying a weak-selection advantage over neutral fixation.",
+          "The Wei et al. model includes environmental transitions and uniform random hypergraphs; the inspected passages give the mechanism, not the all-configuration incidence theorem."
+        ],
+        "reasoning": "A broader admissible hypergraph class is not by itself broader coverage: these different rules permit different transitions and do not establish monotone probability-one fixation or its exact hitting-time constant.",
+        "searches": [
+          "arXiv:2411.00398 model and Eq. (2)",
+          "arXiv:2301.05343 §2",
+          "PLOS Comput Biol 10.1371/journal.pcbi.1012891 pp. 5–6",
+          "arXiv:2603.22967 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and adjacent hits inspected above",
+        "arXiv:2603.22967",
+        "arXiv:2001.10313",
+        "arXiv:2411.00398",
+        "arXiv:2301.05343",
+        "DOI:10.1371/journal.pcbi.1012891"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rules and well-mixed or constant-fitness comparisons supply antecedents but do not provide the singleton-profile converse, the finite-size gap correction, the two-end harmonic coefficient, or a tested difference of Fano escape rates."
+        ],
+        "reasoning": "These conclusions require evaluating pair incidences and conditional mixed-edge counts under the prior mechanism. A well-mixed threshold cannot imply the finite-v correction or exact absorption time; fixation direction alone cannot imply strong lumpability.",
+        "searches": [
+          "arXiv:2001.10313 HI rule; arXiv:2603.22967 §2; arXiv:2301.05343 §2; Resultary expanded loose-hyperstar and incidence-kernel records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source models use the same normalized benefits and gap-based imitation of the highest earner. The frozen model fixes the game state and uses common synergy.",
+          "The earlier indexed incidence-kernel result is about ordinary/reversed payoff equivalence with heterogeneous contributions under Fermi pairwise comparison, not same-action equality across every strategy profile."
+        ],
+        "reasoning": "The update rule is equivalent after the game-state restriction and is not original. Pair balance is an exact structural result about the restricted model, not a reparameterization of an incidence-kernel test for reversed games.",
+        "searches": [
+          "Resultary: pair-incidence payoff equivalence; balanced-design fixation threshold",
+          "arXiv:2603.22967 §2; arXiv:2001.10313 pp. 5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant expanded entries were the incidence-kernel equivalence item and the loose three-uniform hyperstar fixation item. Their Findings use different transition laws. No matching Fano probability or complete-hypergraph timing formula appeared in the returned ranked hits."
+        ],
+        "reasoning": "The Fano plane is classical but its incidence table alone does not analyze the selected update. The exact rates are for two count-equivalent configurations under this particular payoff comparison; the loose-hyperstar result is not an exact table covering them.",
+        "searches": [
+          "Resultary: Fano line versus nonline cooperator triples and strong lumpability; exact complete-uniform-hypergraph hitting time for best-earner public goods; design/payoff equivalence and fixation threshold"
+        ]
+      },
+      "rationale": "The payoff and best-earner mechanism are prior work. The supported distinct contribution is the exact incidence necessity and sufficiency with its fixation consequences for this update, plus the finite complete-hypergraph timing and the witness that this balance alone does not close the count dynamics. The closest same-model primary passages and adjacent indexed records do not provide that analysis.",
+      "residual_risks": [
+        "This is a bounded comparison of the strongest retrieved claims, not proof of historical priority. An unindexed exact block-design analysis of the same best-earner rule could remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent, not the exact incidence/fixation analysis in the inspected passages",
+          "evidence": "Random focal and incident edge, averaged payoff, and linear payoff-gap copying of the highest earner; includes game transitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.22967",
+          "material_read": "§2, Eqs. (2.2)–(2.3), p. 3 offsets 15700 and 17900; Fig. 1 description, p. 4 offset 22600",
+          "method": "OA PDF",
+          "title": "Cooperation in Public Goods Games over Uniform Random Hypergraphs with Game Transitions",
+          "trigger": "Same payoff and exact best-earner update"
+        },
+        {
+          "assessment": "Earlier update mechanism",
+          "evidence": "Uniform focal and hyperedge sample with best-earner gap copying; retrieved uniform-hypergraph discussion does not give the design theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.10313",
+          "material_read": "Model p. 5 offset 15100; HI rule p. 6 offset 17800",
+          "method": "OA PDF",
+          "title": "Evolutionary dynamics of higher-order interactions in social networks",
+          "trigger": "Earlier higher-order imitation and well-mixed comparison"
+        },
+        {
+          "assessment": "Different selection rule and criterion",
+          "evidence": "Weak selection using random-neighbor Fermi pairwise comparison.",
+          "identifier_or_url": "https://arxiv.org/html/2411.00398",
+          "material_read": "Model and update including Eq. (2), offsets 8000–13656",
+          "method": "OA HTML",
+          "title": "Public goods games on any population structure",
+          "trigger": "Possible broader network cooperation theorem"
+        },
+        {
+          "assessment": "Distinct update and fitness definition",
+          "evidence": "Fitness-proportional parent and replacement of other members of an edge, with a majority variant; not a single focal player's best-earner comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05343",
+          "material_read": "§2 Models, pp. 2–3 offsets 10300–14478",
+          "method": "OA PDF",
+          "title": "Fixation dynamics on hypergraphs",
+          "trigger": "Earlier exact fixation and analogous count reduction"
+        },
+        {
+          "assessment": "Same averaged benefit payoff, but a distinct class of strategy dynamics and different threshold objective",
+          "evidence": "Computes exponential fitness and probabilistically samples groups and/or peers; the threshold compares fixation against 1/N under weak selection, not exact monotone absorption under deterministic choice of the best earner and linear gap copying.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1012891",
+          "material_read": "Eq. (2), fitness and the five update definitions (pp. 4–5, offset 21750); weak-selection fixation criterion (p. 6, offset 28800)",
+          "method": "Lawful publisher printable OA PDF after PMC full-text attempts failed",
+          "title": "Emergence of cooperation promoted by higher-order strategy updates",
+          "trigger": "Primary search surfaced a potentially overlapping public-goods model"
+        },
+        {
+          "assessment": "Distinct equivalence and update",
+          "evidence": "Incidence-matrix kernel criterion for ordinary/reverse payoff equivalence with heterogeneous player factors and Fermi pairwise imitation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-incidence-kernel-classification-of-heterogeneous-reverse-public--732562b788a4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Incidence-kernel classification of heterogeneous reverse public-goods equivalence",
+          "trigger": "Earlier indexed incidence characterization"
+        },
+        {
+          "assessment": "Different class and update",
+          "evidence": "Single-mutant fixation under fitness-proportional parent selection and simultaneous hyperedge replacement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-fixation-and-selection-scale-asymptotics-on-loose-three-un--06bbb4fef2a9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact fixation and selection-scale asymptotics on loose three-uniform hyperstars",
+          "trigger": "Earlier indexed hypergraph fixation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 46–82",
+        "arXiv:2603.22967 §2",
+        "arXiv:2001.10313 pp. 5–6"
+      ],
+      "rationale": "The result identifies precisely when two payoff levels suffice for a structural explanation of selection and fixation, yet supplies a small symmetric design showing that payoff sufficiency is not stochastic count sufficiency. The finite-population threshold and the leading exact-update absorption time on complete hypergraphs are useful analytic baselines for the existing imitation model. These comparisons go beyond recalculating a single finite example or importing a well-mixed replicator threshold.",
+      "residual_risks": [
+        "The theorem treats identical synergy and fixed game state, not the prior models' environmental feedback, and does not deliver a common fixation-time law for all designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

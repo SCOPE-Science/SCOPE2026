@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:04:08.449198Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent equal-variance scalar observations with phase-registered cosine and endpoints 0,K, the endpoint-interpolation contrast cancels position and proper motion. Its parallax coefficient is cos(2πt)−1 and its normalized noise variance is 3/2+2(t−K/2)²/K². The common lower bound 3σ²/8 is attained exactly at the center for odd K; for even K the center is singular. In the even case folding each positive offset to its distance from the nearest integer preserves the cosine and strictly reduces the noise multiplier for offsets above 1/2. The derivative of log inverse variance on (0,1/2) is four times the difference of the decreasing π cot(πv) and increasing v/(3K²/2+2v²); the endpoint signs prove a unique positive optimum and reflection gives exactly two. At each positive offset the variance strictly decreases with K along even baselines; the half-integer benchmark tends to the lower bound. With δ=1/2−v, the stationarity equation first gives δ=O(K⁻²) by tan(πδ)≥πδ and then δ=1/(3π²K²)+O(K⁻⁴). The joint information determinant is proportional to K²[1−cos(2πt)]², hence all half-integers maximize it, and none is variance-optimal at even K. A fresh scalar bisection for K=2 gave v=0.492309377828065 and V/σ²=0.405769566440672, versus 0.40625 at the half-integer. Replay by bisecting the strictly decreasing stationarity difference on (0,1/2) and evaluating the contrast variance. The frozen verify.py was inspected, not executed; its assertion count is record evidence, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michalik et al. abstract and introduction address five astrometric parameters and prior regularization for few observations, not placement of a single interior time.",
+          "The cited Banks–Rehm article was not available in full text on attempted lawful routes."
+        ],
+        "reasoning": "The inspected sparse-astrometry framework is not a stronger optimization result. General least squares supplies a variance formula, not the global parity classification; a stronger inaccessible design theorem remains a risk, not evidence against the finding.",
+        "searches": [
+          "Resultary: sparse Gaia astrometry and c- versus D-optimal trigonometric designs",
+          "Michalik et al., arXiv:1507.02963",
+          "Banks–Rehm, Experimental design for vector output systems"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary exact and adjacent design records listed above",
+        "Riess et al. arXiv:1401.0484",
+        "Michalik et al. arXiv:1507.02963",
+        "AllWISE supplement §II.6",
+        "Banks–Rehm (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AllWISE discusses confusion of parallax and motion, and three-epoch coadd motion limits; it does not solve an epoch-placement problem.",
+          "At even K the frozen marginal-variance optimum is strictly inside the nearest half-year offset although the joint determinant always prefers a half-integer."
+        ],
+        "reasoning": "Opposite phase maximizes the raw contrast but does not minimize its noise after elimination of a fitted slope. The strict displacement, its uniqueness up to reflection and K-dependence require the constrained optimization and do not follow from opposite-phase or joint-D prescriptions.",
+        "searches": [
+          "Riess et al., arXiv:1401.0484, §2.6",
+          "NASA/IPAC AllWISE Explanatory Supplement §II.6.b.i",
+          "Resultary: optimal-three-epoch-radial-velocity-phase-design-under-ornstein"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riess et al. describe extrema at half-year intervals as effective for discriminating parallax and proper motion; their actual setup uses extra registration parameters and more than three epochs.",
+          "SCOPE-optimal-three-epoch-radial-velocity-phase-design-under-ornstein--de0b4ee9f64a uses three freely placed sinusoidal radial-velocity epochs, OU noise and a joint determinant."
+        ],
+        "reasoning": "Neither replacing parallax by a sinusoidal radial-velocity model nor reading opposite-phase guidance as an optimization theorem preserves the fixed endpoints, equal noise, linear-trend nuisance or marginal variance criterion that cause the even-baseline shift.",
+        "searches": [
+          "Resultary: fixed-endpoint three-epoch parallax parity and c- versus D-optimal design",
+          "Riess et al., arXiv:1401.0484, §2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index hit SCOPE-integer-year-parity-and-criterion-discordance-in-three-epoch-par--2c44eb4db16d is the assigned finding itself.",
+          "The closest distinct catalogued Finding is SCOPE-optimal-three-epoch-radial-velocity-phase-design-under-ornstein--de0b4ee9f64a and has a different criterion and feasible set."
+        ],
+        "reasoning": "The relevant index was checked for exact formulas and classifications; the identical entry is not independent coverage, and the distinct entry does not give the K-indexed schedule or its parity. Its same-day date is not a reason to discount it.",
+        "searches": [
+          "Resultary: exact fixed-endpoint three-epoch parity and parallax c-optimal versus D-optimal",
+          "Resultary: HST half-year and sparse Gaia observing schedules"
+        ]
+      },
+      "rationale": "The supported distinction is the global fixed-endpoint marginal-parallax parity law, including the strict even-baseline displacement and disjoint joint-D optima. The linear model, opposite-phase sensitivity and elementary determinant criterion are not themselves novel. No inspected distinct source states or supplies the full constrained classification; this is a bounded comparison, not a historical priority finding.",
+      "residual_risks": [
+        "Broader optimal-design literature may contain an equivalent constrained c-optimal design; Banks–Rehm full text was unavailable.",
+        "Priority is not inferred from indexed dates or negative bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but different statistical design and objective",
+          "evidence": "Free times and OU-correlated errors with a joint D determinant, not an integer-baseline fixed-endpoint parallax contrast.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-three-epoch-radial-velocity-phase-design-under-ornstein--de0b4ee9f64a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Optimal three-epoch radial-velocity phase design under Ornstein–Uhlenbeck noise",
+          "trigger": "Strongest distinct Resultary three-epoch sinusoidal design hit"
+        },
+        {
+          "assessment": "Anticipates opposite-phase practice but not the constrained parity result",
+          "evidence": "Approximately half-year cadence chosen near extreme parallax phases; three epochs insufficient in that registration model.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.0484",
+          "material_read": "§2.6 pp. 16–17, text near offset 54500",
+          "method": "Bounded OA paper reading",
+          "title": "Parallax Beyond a Kiloparsec from Spatially Scanning the Wide Field Camera 3",
+          "trigger": "Closest cited historical opposite-phase schedule"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Five-parameter solutions stabilized by Bayesian priors, not schedule optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.02963",
+          "material_read": "Abstract and p. 1, text near offset 1450",
+          "method": "Bounded OA paper reading",
+          "title": "Gaia astrometry for stars with too few observations",
+          "trigger": "Sparse-epoch astrometry precedent"
+        },
+        {
+          "assessment": "Context only",
+          "evidence": "Discusses six-month sampling and motion measurement limits, not minimizing variance over a free epoch.",
+          "identifier_or_url": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec2_6.html",
+          "material_read": "§II.6.b.i near offsets 1651–2700; three-epoch passage near 20496",
+          "method": "Bounded OA website reading",
+          "title": "AllWISE Explanatory Supplement",
+          "trigger": "Parallax-motion aliasing and three-epoch observing reference"
+        },
+        {
+          "assessment": "Unresolved scope; no coverage conclusion from access failure",
+          "evidence": "HTTP 403 on attempted routes.",
+          "identifier_or_url": "Banks and Rehm, 2013",
+          "material_read": "Citation; no decisive full text",
+          "method": "Attempted direct and identified alternate retrieval",
+          "title": "Experimental design for vector output systems",
+          "trigger": "Potential broader design-theory precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the smallest identifiable scalar design the classification separates information about one parameter from joint design quality. It gives an exact aliasing boundary and a structural counterexample to either opposite-phase or longer-baseline prescriptions for marginal precision with fixed endpoints. The small numerical gain over a half-year excursion is not the main value. This is an idealized design theorem, not a scheduling rule for real astrometric instruments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

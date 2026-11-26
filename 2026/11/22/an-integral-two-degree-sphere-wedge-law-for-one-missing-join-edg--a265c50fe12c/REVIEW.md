@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The face trichotomy for a join with one missing cross-edge and the exact link decomposition are proved in RESULT.md. The old deletion complex is a wedge of \(S^2\) and \(S^m\); the link is a wedge of one \(S^1\) and \((2m-2)(b-2)\) copies of \(S^2\). Explicit four-cycles in \(K_{2m,b-1}\) give a primitive basis for the attaching map on integral second homology, and the homotopy cofiber then gives the full asserted sphere wedge for all \(m,b\ge2\). The independent enumerator checks 11 finite examples only; no infinite proof is inferred from those tests.
+## correctness
 
-**Originality (PASS against inspected evidence).** The nearest strong published theorem is Carnero Bravo's graph-join splitting, which indeed implies the intact-join formula and is therefore explicitly credited. It does not cover deletion of an edge between the two join factors; in particular the damaged graph has triangles from its internal matching and is not a complete multipartite graph. Barton–Brown–Pike's polynomial theorem treats face enumeration rather than damaged-join integral homotopy. Published results for deleted cross-edges in bicliques or multipartite graphs address objects with different induced cycles and do not imply the present two-degree classification. No exact covering result was located in inspected literature or indexed comparisons, but unindexed equivalents remain possible.
+PASS
 
-**Value (PASS).** The problem has a natural robustness interpretation: a single missing cross-edge in an otherwise complete attachment of a matching to an independent shore causes the previously large second-homology multiplicity to collapse to a parameter-independent count \(b-1\), while leaving \(b-1\) higher-dimensional sphere classes. This is an exact integral homotopy classification across two unbounded parameters, with a primitive-attachment mechanism explaining the abrupt change. The result is not merely a polynomial count or a small-case recomputation.
+For m,b≥2 let a=2m and c=b−1. In deleting z0, the intact join admits the cover Q∪Z in the proof: an allowed face with one B' vertex requires an independent A set (or else a triangle), and a face with at least two B' vertices permits at most one A vertex (or else a square). Q is a simplex with c cones attached along the independence sphere S^(m−1); Z is contractible and J=Q∩Z=K_(a,c). All inclusion maps from the connected graph J to the simply connected Q are nullhomotopic, giving the claimed deletion wedge. For the link the only additional mixed faces beyond Z are the triangles [a0,x,z] with x outside {a0,a1}: omitting the exceptional a0 creates a square; taking x=a1 creates a triangle; taking a third A vertex or a second B' vertex also creates a square. With no B' vertex, the link is the cone-like simplex on {a0,a1} joined with the remaining matching independence complex. Its union with Z has a free circle basis indexed by A minus a0. The triangle for each x and a fixed z1 kills one such circle, and the other triangles attach along null loops. More explicitly, the differences [a0,x,z]−[a0,x,z1] are capped by a disk chain in Z; the relative homology sequence for the triangle attachments shows these give a basis for H2 of the link. The Mayer–Vietoris connecting map in the deletion sends this basis to the corresponding rectangular fundamental cycles in J. These form a subset of a spanning-tree basis, so the composite splits and the link H2 image is primitive in the full deletion H2, including m=2. In the simply connected deletion, Hurewicz classifies each sphere attachment and a unimodular basis change is realized by a self-equivalence of the wedge (identity on any higher sphere summands). The S¹ contributes one new S²; canceling the primitive S² summands leaves c spheres in each indicated degree. The empty-basis case c=1 and coincident-degree case m=2 are both covered.
 
-**Scientific limitations.** Only one cross-edge defect and full induced-forest complexes are covered; no equivariance, further edge faults, or persistence map theorem is asserted. Novelty is assessed against indexed and materially inspected sources, not proven globally.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact wedge is a known join-formula specialization and is not credited as novel. The strongest inspected one-edge and partial-matching deletion laws concern complete bipartite or multipartite bases, not a matching-plus-independent-set join. The edge-pattern distinction prevents substituting their formulas; no applicable stronger theorem was identified which already determines the claimed unrestricted damaged-graph homotopy type.
+
+## value
+
+PASS
+
+A single missing edge is the first natural fault of the known intact-join splitting. Internal matching edges already create triangles but give an independence sphere of variable dimension, so this family tests both the low-degree changes seen in pure bipartite fault laws and the fate of a genuinely higher homotopy summand. The primitive rectangular attaching-map argument settles the integral two-degree homotopy response for the whole family and cannot be replaced by the intact type or face enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

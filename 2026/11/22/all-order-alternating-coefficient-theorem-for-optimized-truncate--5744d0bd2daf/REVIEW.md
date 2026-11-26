@@ -1,19 +1,21 @@
-# Review of the alternating-coefficient theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The proof reconstructs the optimal trigonometric polynomial from the printed Fejér-extremal Fourier coefficients, with no positivity assumption on the shifted-basis coefficients. The product-to-sum identity yields a positive sine-vector spectral factor; multiplication by the fourth-order boundary factor produces the autocorrelation formula for every ordinary polynomial coefficient. All correlations are strictly positive, so the complex triangle inequality proves every-radius sharpness and uniqueness; a finite sine sum gives the exact endpoint. The independent expansion checker returned `VERIFY_OK 5394`, but the universal theorem depends on the proof, not these finite checks.
+PASS
 
-## Originality
+Let x=pi/(J+1) and set q_j=sin((j+1)x) with support 0 through J-1. For lag k<J, product-to-sum gives the sine-vector correlation: the sum of cos((2j+k+2)x) has central angle (J+1)x=pi and is -sin((J-k)x)/sin x. This gives precisely Ferrari's Eq. (30) after multiplying by 2(-1)^k and dividing by S=(J+1)/2. Lag one gives S cos x and agrees with -4c_2^J/(4-2c_2^J); Eq. (30) is vacuous at J=2, so the constant and first cosine coefficients already suffice there. Multiplying the spectral factor by (1-z)^2 with the normalization sin^4(theta/2)=|1-z|^4/16 yields C_J=1/[2(J+1)(1+cos x)]. The new factor P_J has strictly positive coefficients at every index 0 through J+1, including the two endpoints. Comparing the real-part cosine coefficients of the real analytic symbol with the autocorrelations proves strict alternation. Triangle equality against the positive constant and negative linear term forces z=-r on every disk of positive radius. At r=1, C_J(4 cot(x/2))^2 is the stated value. The optional mpmath script was inspected, not run; its sampled contours and finite orders do not establish the theorem. No operator-valued or general A-stable-family assertion was verified.
 
-**PASS, with historical-priority risk.** Ferrari (2026), Section 5.1 footnote 3, explicitly states the all-order supremum as a conjecture and verifies it only for orders two through six via a nonnegative-shifted-coefficient lemma. The present claim proves the full conjecture and stronger radial/alternating-coefficient statements by a different route. Banjai (2022), Section 6, gives the original truncated family and a finite numerical parameter choice; earlier related numerical work does not give the all-order optimized symbolic norm. The nearest mathematical-record hits concern positivity of convolution weights for specific low truncation orders, rather than the polynomial's maximum modulus. Search nonappearance alone is not evidence of uniqueness; unindexed or simultaneous proofs cannot be ruled out.
+## originality
 
-## Value
+PASS
 
-**PASS.** This resolves an explicit, naturally posed question about an A-stable multistep generator, and identifies a sharp worst-case contour location for every truncation order. The result matters to CQ symbol-range and perturbation estimates and is stronger than recomputing finite coefficient tables. The alternating-coefficient law supplies an independently useful structural explanation even when the original shifted coefficients change sign. No claim is made about sharp solution-error estimates.
+The distinct result is the all-order strict sign property of ordinary symbol coefficients and the exact unique maximizer at every radius. The parent paper supplies the optimized family and enough Fourier data to derive it, but leaves the unit-disk supremum explicitly open outside J=2 through 6. The autocorrelation argument closes that gap, not a separate claim on the already known endpoint value.
 
-## Scope and limitations
+## value
 
-All-order proof covers only the uniquely optimal real TTR family with Ferrari's normalization. Finite computational checks cannot establish the theorem alone. No independent mathematical verification has been performed; historical priority has the usual unindexed-literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the explicitly posed unit-disk extremum problem and gives a stronger ordinary-coefficient theorem and unique extremum on every circular contour. These are precise scalar symbol bounds for the optimized family, not claims about CQ operator convergence or numerical stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

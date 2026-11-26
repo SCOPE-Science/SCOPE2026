@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:18.337488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponentiating one season gives scalar e^(bh) times the block with favorable factor s=e^((a−b)h) and symmetric unfavorable diagonal p=(1+e^(−2mh))/2. With P advancing the favorable patch, E_3 E_2 E_1=(P^(−1)E_1)^3 follows by expanding the product and using P^3=I. Thus in the co-moving frame Λ=b+h^(−1) log R. Expansion of det(λI−B) gives f=λ³+(p−1)λ²+(p−1)sλ+(1−2p)s. The three directed cycle edges are positive for the entire parameter range. The positive Perron root is simple even at p=1, where the frame matrix is imprimitive; no simplicity of the full monodromy at zero is assumed. Its polynomial derivative is positive (other real roots are smaller; complex roots pair to a positive factor). With x=s^(1/3)>1, f(x,p)=x²(p−1)(x−1)²≤0; continuity to positive infinity gives R≥x, with equality only when p=1. Then f_p=R²+sR−2s≥x²(x−1)²>0. Implicit differentiation and p′=−h e^(−2mh) give the displayed positive derivative at all finite positive m and from the right at zero. At p=1, f_λ=3x², reducing the derivative to (x−1)²/(3x) with h=T/3. At a=b, scalar growth times column-stochastic migration gives Λ=a, including m=0; at m>0 the period product is positive since the three pair links all occur and the season matrices have positive diagonal. Independent replay `python3 /workspace/review_reproduction.py 4` computes the season exponentials and spectrum of the full period product without using the cubic. Three parameter sets corroborated strict finite comparisons and endpoint slopes (e.g. 0.0133778366 observed versus 0.0133778371 predicted); the equal-growth case also agreed. The replay is numerical and bounded; the algebra above proves the full quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BLSS describes earlier period monotonicity theorems under time-independent symmetric migration. The network paper studies the same moving unfavorable pair but derives sufficient growth criteria."
+        ],
+        "reasoning": "Varying T is a different comparison and the time-independent migration hypothesis fails here. An existence condition for positive growth does not establish the order of all real exponent values at distinct rates. No statement of a general monotonicity theorem covering this same parameter and dynamics was identified.",
+        "searches": [
+          "arXiv:2407.07553v2 introduction and §3.2.1",
+          "arXiv:2411.07821 three-season example and growth criteria",
+          "Liu–Wang DOI 10.1007/s00285-025-02325-7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 03045c39af8a, local mirror",
+        "arXiv:2407.07553v1/v2",
+        "arXiv:2311.04706",
+        "arXiv:2411.07821",
+        "Liu–Wang DOI 10.1007/s00285-025-02325-7 (bibliographic context only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older Proposition 18 states the previously attributed upper bound. The exact seasonal product and asymptotic limits are inspected in v2 Appendix A.6. The earlier sink-habitat work studies the same dynamics with numerical examples."
+        ],
+        "reasoning": "A common upper bound and endpoint limits allow nonmonotone interior behavior. An explicit period matrix gives a route to evaluate the exponent but does not by itself order its eigenvalues across values of m: entries change in both directions. The strict sign requires the lower bound on the positive root and the positivity comparison for f_p, and the endpoint derivative must handle the degenerate full monodromy.",
+        "searches": [
+          "arXiv:2407.07553v1 Proposition 18; v2 Proposition 25 and Figure 8",
+          "arXiv:2311.04706 §4.5.2; arXiv:2411.07821 matching three-season example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BLSS v2 model (38) is the same sequence of symmetric pair-exchange matrices. Its Fig. 8 illustrates increasing growth for a=1,b=−0.8. The closest catalogued seasonal-growth match 03045c39af8a has two sites and two seasons with reversing one-way migration."
+        ],
+        "reasoning": "Strict increase in m here is equivalent to strict decrease of the positive co-moving Perron root in p; this requires the three-state cyclic frame. The two-state asymmetric model has neither that cubic nor the rotating favorable-triple dynamics.",
+        "searches": [
+          "Resultary: strict migration monotonicity, rotating favorable patch, cyclic co-moving Perron root, weak migration sensitivity",
+          "arXiv:2407.07553v2 §3.2.1 and Appendix A.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogued exact survival-frontier theorem is for model (37), not (38). Figure 8 provides plotted growth curves rather than a tabulated exact derivative. The inspected BLSS limits and monodromy passages do not state the coefficient (x−1)²/(3x)."
+        ],
+        "reasoning": "A visual trend in a numerical parameter slice is not the finite-m sign theorem and cannot certify the exact weak-rate coefficient. This check found no exact entry that evaluates the target sensitivity; it is not an exhaustive originality guarantee.",
+        "searches": [
+          "Resultary exact cyclic three-patch weak-dispersal coefficient and related seasonal survival frontier",
+          "arXiv:2407.07553v2 Proposition 25, Figure 8, Appendix A.6"
+        ]
+      },
+      "rationale": "The distinct contribution is a proof of strict migration-intensity monotonicity for the exact model and all a>b, with its explicit weak-dispersal response. The rotating model, plotted trend, earlier upper bound, endpoint values and Perron–Frobenius tools are not the contribution. The motivating text illustrates the trend in a particular source–sink regime but does not prove it for all growth-rate contrasts or give the one-sided slope in the inspected passages.",
+      "residual_risks": [
+        "Liu–Wang DOI 10.1007/s00285-025-02325-7 full text was not recoverable on the attempted lawful paths. Its available description is two-patch, but theorem coverage is not ruled out from the title alone.",
+        "The Liu–Lou–Song period-monotonicity comparison relies on BLSS's characterization; the original full text could not be recovered. The checks do not settle absolute priority or rule out other general rate-response results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same structural system; weak derivative and global strict sign not established by the stated limits or numerical observation",
+          "evidence": [
+            "Model (38) couples only the unfavorable pair in each season; p. 28 contrasts rates in the Figure 8 plot; Appendix A.6 evaluates the seasonal product and limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.07553v2",
+          "material_read": "Introduction p. 4; §3.2.1 pp. 25–28 model (38), Proposition 25 and Figure 8; Appendix A.6 pp. 42–43",
+          "method": "Primary OA passage comparison of parameter assumptions, exact matrices, and conclusions",
+          "title": "Dispersal-induced growth or decay in a time-periodic environment. The case of reducible migration matrices",
+          "trigger": "Exact source model, numerical monotonicity observation and possible proof in appendix"
+        },
+        {
+          "assessment": "Prior upper bound, no ordering of all finite dispersal rates as a consequence",
+          "evidence": [
+            "Proposition 18 states Λ(m,T)≤(a+b)/2; a rate-independent ceiling does not imply the sign of a rate derivative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.07553v1",
+          "material_read": "§3.2.1, pp. 13–15, Proposition 18 (offset 67200)",
+          "method": "Primary OA proposition and scope comparison",
+          "title": "Dispersal-induced growth or decay in a time-periodic environment (first version)",
+          "trigger": "Earlier same model and stronger-sounding proposition"
+        },
+        {
+          "assessment": "Relevant exact model context, not its all-rate weak response",
+          "evidence": [
+            "The first uses a=1 and b=−0.8 or −1 for examples; the second provides growth criteria for a time-varying network and numerical DIG examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.04706 ; https://arxiv.org/pdf/2411.07821",
+          "material_read": "First §4.5.2, p. 31; second three-site example (29), pp. 21–22, and surrounding growth criteria",
+          "method": "Primary OA model passages and conclusions",
+          "title": "When can a population spreading across sink habitats persist?; Population growth on a time varying network",
+          "trigger": "Earlier and later formulations of the same migrating pair example"
+        },
+        {
+          "assessment": "Different two-season two-patch geometry and directed transfers",
+          "evidence": [
+            "Treats one-way migration whose direction reverses across the two seasons; compares BLSS (37), not the symmetric unfavorable-pair model (38)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-survival-frontier-for-seasonally-reversing-one-way-dispers--03045c39af8a",
+          "material_read": "RESULT.md Finding through proof (mirror offsets 0–7176)",
+          "method": "Local mirror comparison of season matrices and rate theorem",
+          "title": "Exact survival frontier for seasonally reversing one-way dispersal",
+          "trigger": "Closest catalogue analogue of an exact monotonicity proof in seasonal migration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rate derivative solves a concrete qualitative gap explicitly suggested by the source's figures in a motivated rotating network, where the effect of migration intensity need not follow fixed-network intuition. The sharp initial coefficient gives a usable sensitivity without repeatedly simulating period maps and quantifies exactly the vanishing response as the growth-rate contrast tends to zero. This is not merely reevaluation of the known ceiling or endpoint growth, and makes no claim about monotonicity in the period or other season graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

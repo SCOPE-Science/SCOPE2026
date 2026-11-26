@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The six spatial intervals are derived by comparing the three successive doubling-map observations. Their images are unions of complete cells, which makes the symbolic process exactly stationary first-order Markov (not merely approximated by a transition network). The conditional current coordinate is uniform even after a specified entrance. The first-entrance path decomposition yields the five-state resolvent formula, and matrix elimination yields the three stated rational probability-generating functions. Differentiation at one gives precisely the stated means and variances. Independent exact-rational coordinate-interval enumeration checks all six laws for entrance delays through ten iterations; this finite confirmation is not treated as an infinite proof.
+## correctness
 
-## Originality
-PASS, subject to a genuine historical priority risk. Shahriari, Algar, Walker and Small (2023), arXiv:2303.00383, introduce ordinal Poincaré sections and entrance-based entropy comparisons but focus their first-return reconstructions on continuous-time physical series; the inspected available full-text transcription does not supply exact six-state doubling-map entrance distributions. Sakellariou, Stemler and Small (2021), DOI:10.1103/PhysRevE.103.022214, analyze entropy via ordinal partition networks; the accessible abstract does not state these laws, but full text was unavailable. Bandt and Shiha (2007), DOI:10.1111/j.1467-9892.2007.00528.x, address order-pattern probabilities rather than entrance-time laws. General finite-state Markov renewal theory implies rationality but does not alone provide these map-specific three rational functions, their complete six-cell classification, or the overdispersion distinction. Equivalent return-word or Markov-hole computations may predate this analysis; no exhaustive claim of priority is made.
+PASS
 
-## Mathematical value
-PASS. The smallest ordinal window with six distinct symbols is a natural canonical benchmark for ordinal event sections. The theorem determines *every* successive-entrance interval probability, not merely one low-order moment, and proves the qualitative splitting into rare overdispersed versus common underdispersed symbolic events. The complete exact finite-state law supplies a reproducible calibration case for entry-based Poincaré-section reconstruction and ordinal-network statistics. The proof does not claim that these numerical values transfer to noisy observations, other maps, or longer ordinal windows.
+Solving affine pairwise equalities on the four quarter-intervals gives exactly the stated six ordered cells (ignoring null ties). Each cell maps linearly to entire cells, so each admissible cylinder maps bijectively onto its last cell with constant Jacobian. Thus even conditional on the previous symbol differing, the current point is uniform in the cell; the resulting Markov chain uses overlap length divided by twice the starting cell length. A first entrance back requires an initial string of self-loops, an exit, an excursion avoiding the target, and a final step back. The frozen five-state formula counts precisely these paths. Independently, if Aᵢ(z)=[(I−zP)⁻¹]ᵢᵢ, the positive-time unrestricted entrance series from state i is Uᵢ=(1−zPᵢᵢ)Aᵢ−1, subtracting the self transitions from all arrivals. By renewal at each actual entrance, Gᵢ=Uᵢ/(1+Uᵢ). A fresh exact symbolic cofactor calculation reconstructs P from interval intersections and matches all six rational functions and the derivative pairs (8,24), (12,188), (6,22). Finite irreducibility and nontrivial exit probability from each cell give exponential tails and justify the boundary |z|=1 and the finite moments. Entrance flux reciprocals give the same means; positive-integer geometric variances are 56, 132 and 30.
 
-## Evidence and limitations
-The primary 2023 paper's public full-text transcription was inspected for the ordinal convention, entrance events, examples, and appendices. The 2021 and 2007 comparisons are limited to accessible bibliographic abstracts. The general renewal formula is classical; novelty is restricted to the complete map-specific distribution and dispersion trichotomy. The standalone checker is a finite independent arithmetic consistency check, not a substitute for the infinite-time proof. No independent audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of checked evidence: the distinct output is the complete model-specific table of entrance-conditioned laws and the resulting dispersion split. Prior sections and return-time machinery formulate similar questions but neither supply the six laws nor yield them by a parameter substitution into an evaluated theorem.
+
+## value
+
+PASS
+
+The fair doubling map and shortest ordinal window giving six order types are natural calibration choices for exact return statistics. The three rational functions resolve all delays, not just means, and their variance comparison shows markedly different departure from a matched geometric law in different cells. This gives an analytic benchmark for ordinal entry statistics with a verifiable distinction from plain visits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

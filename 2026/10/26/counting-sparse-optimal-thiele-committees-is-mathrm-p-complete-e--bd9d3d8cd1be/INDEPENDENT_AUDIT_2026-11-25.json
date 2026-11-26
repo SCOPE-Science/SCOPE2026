@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:37:25.019755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the corrected RESULT.md in /workspace/repairs/3/ only. The frozen headline asserted completeness by the two local degrees, but its membership proof covers only cubic bipartite incidence elections with k equal to the shore size; the score-equality test is not valid on the degree-only domain. Even a simple cubic incidence graph can have no perfect matching, e.g. join a new central vertex to each subdivision vertex of three disjoint copies of K4 in each of which one edge was subdivided. Each five-vertex component would force its attachment edge into a perfect matching, which is impossible at the center. Also, the cited wider winner-determination theorem uses nonnegative, nonincreasing marginal weights, not every utility satisfying the two strict inequalities. This is a scope/membership gap, not a proof of nonmembership. The repaired family is recognizable in polynomial time. Independently checked the sharp score argument: every local score is at most c times the selected degree, strictly below it for degrees two and three, while the total selected degree is 2n; equality means all 2n degrees are one. Hall's condition follows by cubic edge counting, so this equality is attained. The exact one-to-one reduction and guessing each incidence subset once with the degree-one test establish hardness and membership with the known optimum. The repair specifies polynomial-time Turing hardness and keeps parsimony only for the graph-to-election map. The simple-graph convention is harmless even with a multigraph source: the added K3,3-minus-edge gadget has four completions with neither attachment used, two with both used, and zero with only one by bipartite balance. Replacing every edge gives the same factor 4^(M−n)2^n for every original matching, and all degrees and simplicity are preserved. Inspected CHECK.py and VERIFICATION.md without executing the supplied script; their finite rational diagnostics support the score claim on the same subclass.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ai proves unrestricted #OptimalPAV complete for #·OptP under metric reductions; Janeczko–Faliszewski previously give general exact-PAV hardness.",
+          "Lassota–Sornat solve finding one optimum for at most two approvals received per candidate for their class of rules."
+        ],
+        "reasoning": "General-profile hardness need not persist under the two exact degrees. Winner determination is not tie counting, and its available algorithm cannot be used for arbitrary nonconcave utilities as though they were covered by its hypotheses.",
+        "searches": [
+          "arXiv:2609.08884, §1.1",
+          "Lassota–Sornat, doi:10.1609/aaai.v40i20.38757, rule definitions and Theorem 10",
+          "arXiv:2305.01769, exact and greedy tie counting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Repaired /workspace/repairs/3/RESULT.md",
+        "arXiv:2609.08884 and 2305.01769",
+        "doi:10.1609/aaai.v40i20.38757",
+        "doi:10.1016/0304-3975(92)90234-7 with open Okamoto–Uehara corroboration",
+        "Resultary 63dca58972b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted exact-PAV reductions do not supply the required fixed degrees or known score. The earlier graph incidence reduction is for greedy committees and counts size-k matchings via two instances. The winner-finding algorithm can justify membership for covered rules, not exact counting hardness."
+        ],
+        "reasoning": "The sharp strict sublinearity/equality test plus Hall's theorem is the substantive link to exact tie counting with a preannounced score; it distinguishes the claim from a restatement of either winner determination or unrestricted counting.",
+        "searches": [
+          "arXiv:2305.01769, Theorem 4.3",
+          "arXiv:2609.08884, §1.1",
+          "Lassota–Sornat, Theorem 10",
+          "Okamoto–Uehara, p. 1, cubic bipartite source theorem attribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge-candidate, vertex-voter incidence is the same construction as in Janeczko–Faliszewski, but the cited construction counts outputs of greedy rules on graphs of arbitrary degree using a subtractive reduction.",
+          "The established source graph count is the permanent of the appropriate bipartite adjacency matrix."
+        ],
+        "reasoning": "Recognize and credit the graph-counting equivalent once the score condition is proved. The existing greedy encoding does not by itself establish the exact optimum or the set of all exact winners on the sparse family.",
+        "searches": [
+          "Resultary: sparse optimal Thiele/PAV tie counts, incidence elections and cubic bipartite perfect matchings",
+          "arXiv:2305.01769, Theorem 4.3",
+          "doi:10.1016/0304-3975(92)90234-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact three-approval tie-count record treats consecutive cyclic windows, with three approvers per candidate and explicit counts, not two approvers or a hardness assertion."
+        ],
+        "reasoning": "There is no single invariant table that decides the complexity classification; the relevant exact lookup is for tied-optimum theorems and reductions on this family. The nearest retrieved counting record has a different incidence regime.",
+        "searches": [
+          "Resultary: exact sparse Thiele/PAV tie count and approval-degree restrictions",
+          "Resultary 63dca58972b3, Finding and §§3–4"
+        ]
+      },
+      "rationale": "The surviving claim is completeness on cubic bipartite incidence elections, with a fixed explicit optimum and an exact winner–perfect-matching correspondence throughout the stated utility family. This credits the known incidence encoding, the known counting source problem, and available single-winner algorithms. No inspected theorem supplies that exact optimum-counting classification on the specified family.",
+      "residual_risks": [
+        "Dagum–Luby full text was not retrieved, so no exact original reduction label is ascribed; the checked corroboration gives the standard completeness theorem and the repair uses polynomial-time Turing reductions. Historical priority of the elementary optimal-committee reduction is not guaranteed by the bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted exact counting, not the repaired sparse family.",
+          "evidence": "Metric reduction yields f(x)+1 in general; exact preservation is discussed if the source always has a witness.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.08884",
+          "material_read": "§1.1 pp. 2–3, OA offset 6800.",
+          "method": "Original OA PDF passage comparison.",
+          "title": "The Complexity of Membership, Uniqueness, and Counting for Optimal Proportional Approval Voting Committees",
+          "trigger": "Closest exact-counting classification for PAV."
+        },
+        {
+          "assessment": "Graph construction overlap, but greedy rules in the specific theorem; other exact-PAV work is on general profiles.",
+          "evidence": "Uses graph-edge candidates and graph-vertex voters, counts matchings by subtracting two greedy winner counts, and imposes no uniform degree-three condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.01769",
+          "material_read": "Theorem 4.3, pp. 11–12, OA offset 43200, and relevant exact rule hardness discussion.",
+          "method": "Original OA PDF passage comparison.",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Same edge-candidate encoding and known exact PAV hardness."
+        },
+        {
+          "assessment": "Polynomial-time winner selection for this paper's generalized Thiele model, including PAV, but does not extend to all fixed utility tables allowed in the frozen record.",
+          "evidence": "Thiele marginals are defined as nonincreasing, and the generalized per-voter marginals lie in [0,1]. Theorem 10 is for GENERALIZED THIELE in that sense.",
+          "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/38757/42719",
+          "material_read": "Definitions, printed p. 17086 and following text (OA offsets 17334 and 23100); Theorem 10 and proof, printed pp. 17089–17090 (offsets 47200 and 49890).",
+          "method": "Original OA PDF statement and definition inspection.",
+          "title": "Algorithms for Structured Elections under Thiele Voting Rules",
+          "trigger": "Whether the broader sparse profile class has a polynomial optimum test for all stated utilities."
+        },
+        {
+          "assessment": "No assertion based on unread proof about the exact reduction notation or simple-graph convention.",
+          "evidence": "The standard cubic bipartite matching hardness is explicitly attributed to this work by the inspected corroborating source. The repair supplies a simplification reduction even if parallel edges were allowed.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90234-7",
+          "material_read": "Accessible abstract/landing page only; full text not recovered lawfully.",
+          "method": "OA DOI retrieval and publisher attempt; compared open corroboration separately.",
+          "title": "Approximating the Permanent of Graphs with Large Factors",
+          "trigger": "Classical cubic bipartite perfect-matching hardness and reduction convention."
+        },
+        {
+          "assessment": "Confirms #P-completeness for 3-regular bipartite perfect-matching counting; does not specify parsimony or simplicity.",
+          "evidence": "Explicit statement attributing the 3-regular bipartite case to Dagum–Luby.",
+          "identifier_or_url": "https://dopal.cs.uec.ac.jp/okamotoy/PDF/matchchordal.pdf",
+          "material_read": "p. 1, OA offset 2200.",
+          "method": "Original OA PDF passage inspection of the attributed known theorem.",
+          "title": "Counting the Number of Matchings in Chordal and Chordal Bipartite Graph Classes",
+          "trigger": "Open corroboration of the invoked Dagum–Luby theorem."
+        },
+        {
+          "assessment": "Different family and conclusion; not an antecedent or equivalent sparse hardness result.",
+          "evidence": "Cyclic consecutive windows, three approvers per candidate, with an explicit winner count (e.g. 174 at n=12,k=6).",
+          "identifier_or_url": "2026/11/2/SCOPE-balanced-window-law-and-exact-three-approval-tie-counts-for-prop--63dca58972b3",
+          "material_read": "RESULT.md Finding and §§3–4.",
+          "method": "Original local-mirror passage comparison.",
+          "title": "Balanced-window law and exact three-approval tie counts for proportional approval voting",
+          "trigger": "Closest bounded Resultary tie-count match."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem exhibits a meaningful search-versus-counting separation on a natural class of approval profiles where an optimum can be found by matching and the score is known from the input size. Hardness is attributable to ties, not to searching for or certifying an optimal score, and persists across the indicated utility family, including PAV. The bounded degrees and exact matching characterization are independently useful even though the proof is short.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

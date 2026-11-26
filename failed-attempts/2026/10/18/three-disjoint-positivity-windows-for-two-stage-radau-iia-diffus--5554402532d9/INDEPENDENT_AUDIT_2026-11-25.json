@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:10:43.728338Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–96; VERIFICATION.md, lines 19–25; verify.py, lines 8–87."
+      ],
+      "rationale": "The stiffly accurate tableau gives scalar numerator 1+z/3 and denominator 1−2z/3+z²/6. On the star the constant vector, the hub-versus-leaf contrast and the zero-sum leaf vectors have Laplacian eigenvalues 0, m+1 and 1 respectively (the last subspace is zero for m=1). The spectral formula gives positive off-diagonals for h>0: the hub-to-leaf numerator is proportional to 1−r((m+1)h), and the leaf-to-leaf numerator is h²[(m+1)h²+(6m+12)h+18]. The two diagonal numerators are the stated quadratic and quartic with positive denominators. Both diagonals are bounded below by [1+m(5−3√3)/2]/(m+1), positive through m=10, including m=1. For m≥11 the hub quadratic is positive at 0 and 2, nonpositive at 1, has distinct roots, and has its vertex below 1. The leaf diagonal is positive on [0,3] since r(h)≥0 there and r((m+1)h)>−1. The quartic value at 8 is −4(160m²−1392m−2593)<0 for m≥11, and its leading term is positive. Descartes' two sign changes force exactly the two simple positive roots located by these signs. The failure intervals are disjoint and their endpoints are included in the safe set. At m=11, the hub roots are 1/2 and 1, and numerical bisection on the frozen reduced quartic gives 6.068411604176 and 11.764257595354, consistent with the stated digits. This proves endpoint preservation for the full orthant, not stage positivity.",
+      "residual_risks": [
+        "The supplied rational matrix check was read, not run; its reported 192 cases are supplementary. The sign proof does not depend on its output or on the numerical approximations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hairer–Lubich bound the norm of R(−hA) for the dissipative problem. Blanes et al. give the graph-Laplacian formulation and describe general positivity barriers. Horváth distinguishes threshold and cone questions, including selected smooth data, and explicitly names Radau IIA with two stages."
+        ],
+        "reasoning": "These primary passages alone do not determine all entry signs for all timesteps on unit stars. The distinct indexed findings, in contrast, cover both windows of failure and give further asymptotics for all four thresholds.",
+        "searches": [
+          "Hairer–Lubich, Energy-diminishing integration of gradient systems, p. 5; Blanes–Iserles–Macnamara, arXiv:2102.08242, pp. 2 and 5; Horváth, NUMDIFF-10, printed pp. 25–26."
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and AUDIT.json; indexed Findings 17146a0a41df and 3d0ba37aabda; Horváth NUMDIFF-10; Hairer–Lubich preprint; arXiv:2102.08242."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first record's (h_m^−,h_m^+,α_m,β_m) are exactly the frozen (a_m,b_m,c_m,d_m); the second uses (α_m^−,α_m^+,β_m^−,β_m^+). Their domain is m≥2 and all real h≥0, for the same unit edges and endpoint update."
+        ],
+        "reasoning": "For m≥2 the implication is exact. At m=1 the update entries are (1±r(2h))/2, and |r(t)|≤1 for t≥0 follows from the quadratic denominator. Neither this boundary case nor the first failing-star example adds a distinct structural result.",
+        "searches": [
+          "Resultary 17146a0a41df, Finding and Assumptions and scope; 3d0ba37aabda, Finding and Assumptions and scope."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first record writes P_m(h)=R(hL_m) with R(z)=(6−2z)/(z²+4z+6); the second writes (6I−2hL_m)(h²L_m²+4hL_m+6I)⁻¹. Both equal the frozen T_m(h)."
+        ],
+        "reasoning": "Stochasticity of this conservative endpoint map on the star is precisely entrywise nonnegativity; neither an alternate sign convention for R nor a renamed threshold changes the claim.",
+        "searches": [
+          "Resultary: two-stage Radau IIA unit-star endpoint positivity, disconnected timestep windows; Resultary records 17146a0a41df and 3d0ba37aabda, Finding."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Findings give the exact quadratic roots, identical quartic coefficients and the three closed windows. The first gives the m=11 bands (1/2,1) and (6.0684116042,11.7642575954) to the shown precision."
+        ],
+        "reasoning": "These are exact families of roots and sign sets, not merely method coefficients, positivity radii or floating-point test tables.",
+        "searches": [
+          "Resultary records 17146a0a41df and 3d0ba37aabda: exact m=10/11 transition, star size twelve, roots of the diagonal quartic."
+        ]
+      },
+      "rationale": "Distinct indexed findings substantively cover the complete window classification for m≥2, not merely its general positivity setting or its first counterexample. They give identical polynomials, thresholds, endpoint quantifiers and first failing star, and give further size-asymptotic information. The unused m=1 case is an immediate two-state computation and leaves no material distinct theorem. This is a finding of present equivalent coverage, not a historical priority or authorship judgment inferred from catalogue paths.",
+      "residual_risks": [
+        "Horváth journal full texts could contain additional coverage; access did not decide this verdict.",
+        "The catalogue date labels on the two equivalent findings are later than the frozen record path label; they do not establish historical publication priority or lineage. The equivalence of statements is directly established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent on m≥2 and adds asymptotic data",
+          "evidence": [
+            "Exact classification, first failing star paragraph and large-size scales."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df/RESULT.md",
+          "material_read": "Finding and scope, from offset 0 through the scope paragraph",
+          "method": "Original record in the lawful local mirror; direct comparison of rational function, quartic and domain",
+          "title": "Three disjoint positivity windows for two-stage Radau IIA on star networks",
+          "trigger": "Same method, generator, windows and exceptional size"
+        },
+        {
+          "assessment": "Equivalent on m≥2; includes first-order threshold asymptotics",
+          "evidence": [
+            "Displayed endpoint rational map, definition of P_m, ordered roots and boxed nonnegativity set."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-disconnected-positivity-windows-for-radau-iia-diffusion-on--3d0ba37aabda/RESULT.md",
+          "material_read": "Finding and scope, from offset 0 through the scope paragraph",
+          "method": "Original record in the lawful local mirror; checked whitening of notation by multiplying the matrix numerator and denominator by six",
+          "title": "Three disconnected positivity windows for Radau IIA diffusion on star networks",
+          "trigger": "Potentially identical mathematical statement with alternate endpoint notation"
+        },
+        {
+          "assessment": "Relevant threshold/cone framework, not the exact star classification in the inspected pages",
+          "evidence": [
+            "Maximal-step threshold, Radau IIA with s=2, and discussion of smooth input and positivity relative to an invariant cone."
+          ],
+          "identifier_or_url": "https://sim.mathematik.uni-halle.de/numdiff10/heft.pdf",
+          "material_read": "Conference abstract, printed pp. 25–26",
+          "method": "Lawful original proceedings PDF, targeted passage read",
+          "title": "On the positivity step-size threshold of Runge-Kutta methods",
+          "trigger": "Explicitly names two-stage Radau IIA in diffusion positivity work"
+        },
+        {
+          "assessment": "Norm and damping statement, not entrywise positivity",
+          "evidence": [
+            "y₁=R(−hA)y₀ and norm bound; R(∞)=0 for Radau IIA."
+          ],
+          "identifier_or_url": "https://www.unige.ch/~hairer/preprints/gradientflow.pdf",
+          "material_read": "Author preprint p. 5, rational operator and damping discussion",
+          "method": "Lawful author PDF, targeted passage read",
+          "title": "Energy-diminishing integration of gradient systems",
+          "trigger": "Same stability-function operator approach"
+        },
+        {
+          "assessment": "General framework and alternative integrators do not supply the claimed sharp window calculation",
+          "evidence": [
+            "Graph-Laplacian form and mass conservation; standard high-order methods do not generally preserve positivity unconditionally."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08242",
+          "material_read": "Pp. 2 and 5 on probability distributions and order barriers",
+          "method": "Lawful original arXiv PDF, targeted passages read",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Graph-Laplacian and stochastic interpretation"
+        },
+        {
+          "assessment": "Journal full texts not independently inspected; no noncoverage inference",
+          "evidence": [
+            "Author's abstract in the proceedings states a related problem, not a substitute for either journal text."
+          ],
+          "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6; doi:10.1016/j.apnum.2004.08.026",
+          "material_read": "Bibliographic information only for the journal texts; related conference abstract inspected separately",
+          "method": "DOI, publisher and lawful repository retrieval attempts",
+          "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods; On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Possibly stronger positivity thresholds and test cases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact cutoff and separate hub and leaf obstructions would be a useful benchmark beyond A/L-stability, but these concrete contributions are already supplied by the indexed findings. The only extension of the stated graph domain, K₁,₁, is a routine two-state positivity calculation; no additional substantive benchmark, structural statement or worthwhile repaired remainder is supplied.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated quantum channel and Poisson-age integral give a unique positive normalized stationary state. All exact partial-transpose characteristic polynomials are reconstructed in `checker.py`, independently of the claimed closed eigenvalue lists. The only candidates for negative eigenvalues are identified by strict positive polynomial identities in the proof, and the critical quadratic has exactly one positive zero. Two independent normalization limits reproduce the correct Dicke-state bipartite negativities. Numerical checks of thirteen parameter choices are supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For independent local depolarization the Pauli string of weight j decays at j*gamma. On trace-one states the full Poisson reset adds r(rho_D-rho); solving each coefficient gives x/(x+j), including the preserved identity, and uniqueness for r>0. Independent symbolic reproduction (independent_pt.py, Python 3 and SymPy) sums signed Pauli expectations on the six computational Dicke components; only weights 0, 2 and 4 survive. Partial transpose on the leading k qubits negates precisely the strings with an odd number of Y factors there. With Q=(x+2)(x+4), automatic component factorization of the two exact matrices scaled by 12Q gives all factors and multiplicities in RESULT.md §§2–3. In particular, for k=1 the possibly negative scaled roots are 6-9x-6x^2=3(x+2)(1-2x) once and 6-x twice; the remaining linear roots and both roots of the quadratic are positive for x>0. For k=2 the possible negative scaled roots are 6-7x-4x^2 twice and 6-4x-2x^2=2(1-x)(x+3) once. In each sector the residual quadratic has two real roots (Hermiticity), positive root sum and strictly positive product for x>0. Dividing by 12Q and summing negative magnitudes checks both negativity laws. Negative counts are 0/1/3 on (0,1/2], (1/2,6], (6,infinity), and 0/2/3 on (0,beta], (beta,1], (1,infinity), where 1/2<beta=(sqrt(145)-7)/8<1. This verifies the half-open cut-dependent window, including the zero eigenvalues at transition points. Symmetry gives four cuts of type 1|3 and three of type 2|2. The unreset limit is I/16 and the pure-state limits give negativities 1/2 and 5/6. This proof establishes PPT and NPT, not separability of PPT cuts or a multipartite entanglement classification.
 
-Actual claim-and-equivalence searches were made against related published research, and the most relevant accessible mathematical documents were materially read. Earlier static Pauli-spectrum results do not evaluate the resetting resolvent, and earlier two-qubit global-reset bit-flip work concerns a different input and noise model. The full Kulkarni–Majumdar quantum-resetting article develops the general renewal resolvent, not this four-qubit noisy Dicke classification. Nawareg's full noisy-Dicke work studies white-noise mixtures with one admixture parameter, rather than the multiple local Pauli-weight attenuation factors here. Chen and Jiang (2020) and Campbell, Tame, and Paternostro (2009) establish substantial prior Dicke-noise results. The former's full text was unavailable, creating a real risk of implicit coverage by its more general entanglement criteria. No unconditional novelty or independent priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-All six one-versus-three and balanced bipartitions of a physically motivated four-qubit resource are distinguished by an exact finite-rate PPT/NPT hierarchy, not just by a single witness or numerical sample. The interval where smaller cuts are NPT but balanced cuts PPT and the distinct inertia changes at two later rates provide actionable structural information for interpreting how different bipartitions retain entanglement indicators under repeated state re-preparation. The result does not claim that PPT cuts are separable or that the state is genuinely multipartite entangled throughout the interval.
+The checked nearest results share the noise-plus-reset model for other initial states, or the Dicke state for other noise or invariants. The supported distinct claim is the pair of complete stationary cut spectra and their distinct exact PPT and inertia transitions. Neither generic renewal weights nor a Dicke witness gives those eigenvalues. Chen–Jiang full-text coverage remains unresolved; the verdict is bounded by the sources actually inspected.
 
-## Prior literature and limitations
+## value
 
-The closest relevant references are Chen–Jiang (2020), DOI 10.1103/PhysRevA.101.012308; Campbell–Tame–Paternostro (2009), arXiv:0903.3939; Kulkarni–Majumdar (2023), arXiv:2307.07485; Nawareg (2025), DOI 10.1007/s11128-025-04994-1; and the published two-excitation Dicke Pauli-spectrum result (2026). Full source access was incomplete for Chen–Jiang; publication priority remains subject to further inspection. The proof is confined to the named physical channel and perfect full-state resets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal noise on all sites need not produce the same PPT behavior on cuts of different sizes. This exact stationary example identifies the sharp interval where all one-versus-three cuts are NPT but every balanced cut is PPT, and locates additional inertia changes invisible to a single witness. The resource state and channel are independently motivated; the full cut-resolved profile is useful for comparing robustness in this reset model without claiming separability or multipartite entanglement beyond the spectral conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

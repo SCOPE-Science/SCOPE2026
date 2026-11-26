@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification notes
 
-The self-contained Python 3 program `verify.py` enumerates each two-plane in \(\mathbb F_q^6\) exactly once via canonical reduced-row-echelon generator pairs. It evaluates the three commutator coefficients, projection rank, both proposed components, and their intersection without using geometric-component conclusions as code assumptions. The program tests all \(651\) planes for \(q=2\), all \(11011\) for \(q=3\), and all \(508431\) for \(q=5\). Measured commuting projection-rank multiplicities are respectively \((7,100,32)\), \((13,549,243)\), \((31,5275,3125)\). Their totals are \(139\), \(805\), \(8431\). Component, second-component, and intersection cardinalities are \((75,107,43)\), \((400,562,157)\), \((4056,5306,931)\), respectively. The characteristic-three elementary-variety check uses ordinary matrix cubes and verifies the rank multiplicities \((13,405,243)\), total \(661\). All assertions passed and the program printed `VERIFY_OK`.
+The characteristic-three claim in `RESULT.md` uses the commutator and cube coordinate formulas, followed by projective incidence and lift bundles for each projection rank. Every plane is in one of the ranks zero, one or two. The rank-one incidence and the Heisenberg Lagrangian bundle, together with explicit specializations of their boundaries, yield the four geometric components. The proof counts each stratum over any finite extension of characteristic three.
 
-The infinite-field assertions instead rest on the bracket minor identity, the classification of projection rank two, the Lagrangian Grassmannian and incidence-bundle irreducibility arguments, and explicit projective degenerations in `RESULT.md`. The characteristic-three refinement rests on the exact identity \(x^3=x_a x_b x_c f\), the characterization of rank-one projection lines by \(u_a u_b u_c=0\), and a complete count of their projective incidence fibers. Neither a finite test nor a numerical zeta formula is used as a substitute for geometric completeness. The conclusions are confined to reduced varieties and the stated characteristics.
+The bundled standard-library `verify.py` provides an auxiliary check over the prime field. It generates all 11,011 two-planes over \(\mathbb F_3\) in reduced row-echelon form. For a commuting pair of generators in characteristic three, the cube of each linear combination is the same linear combination with cubed coefficients of the respective cubes. Thus testing both generator cubes suffices. The expected elementary counts by projection rank are \((13,405,243)\), total \(661\); other printed counts pertain to the ordinary abelian-plane baseline. A finite RREF check does not establish a geometric component statement or a point formula over extensions.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The counterfactual measure is specified precisely and the direct-vote and delegated-vote outcomes are separated in the two exact Poisson-binomial identities. The bounded triangular-array CLT gives the first threshold. A self-contained exponential-tilt and Fourier inversion argument supplies a local limit **uniform in heterogeneous probability arrays** on the moderate-deviation range, and Hoeffding's bound treats the complementary range. The normalization and all three limits follow with no assumption that the individual probabilities are equal. The accompanying standard-library checker reproduced 120 complete heterogeneous exact probability profiles and 540 root/leaf pivotality values. The finite computations corroborate the formulas and are not substituted for the infinite proof.
+PASS
 
-## Originality — PASS, subject to priority risk
+When the root is NO only direct leaf YES ballots count; when it is YES only direct NO ballots oppose it. Root monotonicity makes the two failure events disjoint. A counterfactually direct leaf needs exactly h_m−1 other YES ballots; conditioning on the root's two possible votes gives the two point probabilities, including when p_j=1 and at both threshold parities. B_m>0: a direct ballot replaced by a delegation can only enlarge the root's switching interval, compared with the no-delegation case which has positive pivotality. The sum's variance is (m−∑p_j²)/4 with ∑p_j²≤S_m, so the bounded triangular-array CLT gives 2Φ(s)−1 for S_m/√m bounded and convergent. Both tails vanish by Hoeffding for S_m/√m→∞. For the leaf masses, both targets lie S_m/2+O(1) above the omit-j means, uniformly in j. If S_m≤m^{3/5}, all but O(S_m+1) Bernoulli parameters stay bounded away from the lattice-degenerate endpoints. The tilt making the target the exact mean is O((S_m+1)/m), its tilted variance is m/4+O(S_m+1), and the exponent is −S_m²/(2m) with error O((S_m+1)/m+(S_m+1)³/m²)=o(1) uniformly. Fourier inversion on |θ|≤m^{−2/5} gives the Gaussian local prefactor √(2/(πm)), since the cumulant remainder is O(m|θ|³); on the complementary part of [−π,π] the many nondegenerate Bernoulli factors give exp(−c m sin²(θ/2)). Summing the relative-error estimate gives √(2/π) exp(−Δ_m/2)(1+o(1)). For S_m>m^{3/5}, a uniform Hoeffding bound controls the whole leaf sum by m exp(−c m^{1/5}). These estimates give all three regimes, including a diverging leaf sum for Δ_m→−∞ when the root power might not approach one.
 
-The 2023 work of Colley, Delemazure and Gilbert provides the pivotality definition and broad finite computational formulations. Its equal-outdegree proxy submodel uses a common propensity, and its computations do not establish the new heterogeneous, two-scale asymptotic theorem or critical normalized profile. Thus the finite specialization is treated as prior framework, not as the novelty claim. Zhang and Grossi, and D'Angelo, Delfaraz and Gilbert, analyze fixed delegation structures; Boratyn and coauthors study random continuous voting weights. Searches using the alternate descriptions “liquid-democracy power,” “stochastic proxy voting,” “Poisson-binomial pivotality” and “heterogeneous Banzhaf star” did not identify a statement covering both universal asymptotic scales and the limit constant. A mathematically equivalent result under another power-index or probability-model terminology could remain unlocated; literature-search absence is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a sharp distinction between a proxy being almost surely decisive under counterfactual ballot changes and having almost all *relative* voting power. The precise transition from total expected delegation order \(\sqrt m\) to order \(\sqrt{m\log m}\) is natural for proxy concentration, and the critical profile remains unchanged by arbitrary individual heterogeneity. This universal normalized phase law is more informative than finite power computation or a qualitative concentration statement. The independence and single-proxy assumptions are explicit limitations, not hidden generalizations.
+The distinct result is the two-scale asymptotic theorem under arbitrary leaf-by-leaf delegation propensities, particularly the universal normalization window and constant. The frozen text correctly credits pivotality definitions, finite computation and the homogeneous-star special case rather than asserting those as new. The strongest inspected matches cover different asymptotic observables or a narrower finite model.
 
-## Closest literature and limits
+## value
 
-The principal comparison is Colley–Delemazure–Gilbert, arXiv:2301.02462, including the complete preprint's definitions, proxy-voting section and appendix; Zhang–Grossi, arXiv:2010.07070; D'Angelo–Delfaraz–Gilbert, arXiv:2104.03692; and Boratyn and coauthors, arXiv:1905.04261. The present theorem does not assert a new absolute pivotality definition, does not cover random correlated ballots or more than one proxy, and has no independent external priority certification. The asymptotic proof is a mathematical derivation; experimental checks only validate finitely many cases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The random-star model isolates the difference between a proxy being almost surely pivotal and holding almost all of the normalized power. The aggregate of many individually small leaf pivotalities produces a second scale with a nontrivial sharp profile. Uniformity under arbitrary heterogeneity (including deterministic delegation on some leaves) identifies when only total propensity matters asymptotically, a useful result beyond a finite index evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

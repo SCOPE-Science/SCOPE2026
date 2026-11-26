@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_quadratic.py` in the directory containing `nine_trace_witnesses.json`. It builds all rank-four binary alternating forms, generates the 896 candidate Boolean functions, checks the weight distribution, full proper-subset covering counts, affine-orbit transitivity of the 4480 nine-point facets, all 512 traces on the representative nine-set, and the seven- and eight-point obstruction descriptions. Success prints `QUADRATIC_BENT_FACE_CERTIFICATE_PASS`.
+## correctness
 
-Compile `verify_walsh.cpp` with `c++ -O2 -std=c++17 verify_walsh.cpp -o verify_walsh`, then run `./verify_walsh`. It independently enumerates 65536 Boolean truth tables and uses the exact fast Walsh–Hadamard transform, not the polar-rank formula. It verifies all 65536 query supports against the complete bent truth-table class and the proper ten-block criterion. Success prints `INDEPENDENT_WALSH_TRACE_ENUMERATION_PASS`.
+PASS
 
-The witness JSON specifies the 512 binary trace labels on points \(\{0,1,2,4,5,6,8,9,10\}\), with a corresponding 16-bit truth-table mask for each label. The Python verifier decodes and checks every label. No external packages are required, and no probabilistic test is substituted for an exhaustive one.
+The direct exact Walsh test is wt(f+u·x) ∈ {6,10} for each u, since W=16−2wt. An independent enumeration obtains 896 functions, 448 of each support size, and confirms by binary Möbius inversion and polar-radical tests that each is a nonsingular affine quadratic. For every support, the exact trace set is {S ∩ supp(f)}; its cardinality reaches 2^|S| precisely on the proper ten-block subfaces. Independent checks validate all 512 witness entries, the entire f-vector, the seven-/eight-point exclusions, and the affine orbits of sizes 4480 for the nine-faces and 30, 840, 1920 for the unshattered eights. Both dimensions equal nine: the nine-face supplies a fixed-order tree, and any depth-ten complete tree needs 1024 distinct concepts, one per leaf.
 
-The finite calculation proves nothing about Boolean bent classes in six or more variables. Exactness of this finite result remains subject to independent audit beyond these two checked implementations.
+## originality
+
+PASS
+
+The supported distinction is the classification of surjective coordinate projections of the full bent-function class, not the 896-concept census or the eight-point geometric orbit partition in isolation. The prior spectral classification shares the geometry and counts, but no inspected source establishes that the partition classifies traces of bent functions or supplies the nine-facet complex and its complete shattering counts.
+
+## value
+
+PASS
+
+Four variables are a natural small setting for full-rank quadratic bent functions. The classification replaces all Boolean trace tests by an affine-block containment criterion, distinguishes two different small obstruction mechanisms, and explains why all maximal supports have one orbit even though many seven- and eight-supports fail. That is independently useful for studying projections of this canonical nonlinear code, beyond publishing a known concept count or a dimension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

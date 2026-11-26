@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone file `verify_superdom.py` builds the graph with exactly two internal cliques and the cross matching of cardinality \(t\). For every \(n=3,4,5,6,7\) and \(t=0,\ldots,n\), it loops through every omitted set, tests directly whether each omitted vertex has a selected witness with exactly one omitted neighbor, compares the resulting truth values with the theorem, and computes independently the coefficient dictionary for super dominating sets and the inclusion-minimal members.
+## correctness
 
-Run `python verify_superdom.py` from the directory containing this file and the program. The output includes `PASS total 167424 subsets, 30 parameter pairs.` The program uses the Python standard library only. A finite exhaustive test is not a proof for larger graphs; the proof is provided in `RESULT.md`.
+PASS
 
-Boundary behavior: \(n=3\) and \(t=0,1,2,n\) are included. The general theorem is not asserted for \(n=2\), and all counts refer to labeled subsets. The Cartesian-prism minimum-number specialization was previously known. A relevant 2024 super-domination-polynomial chapter was not inspected in full, leaving an explicit literature-priority limitation.
+If both sides have omissions and one side has at least two, selected witnesses on that side see at least two omissions; any opposite-side neighbor of an omitted vertex on that side also sees an omission in its own clique. Thus only a mixed pair is possible, and an index different from the two omitted indices gives witnesses on both sides when n≥3. With at least two omissions on just one side, in-clique witnesses are impossible and the opposite matching mates are necessary and sufficient. Single omissions and the empty omission always work. The resulting omission generating polynomial is 2(1+w)^t−1+2(n−t)w+n²w²; mapping omitted size k to selected size 2n−k gives the asserted polynomial. Maximal omissions are exactly mixed pairs and, when t≥2, the full matched subset on either side. Smaller unmatched or matched singletons can be extended to mixed pairs; proper matched subsets of size at least two can be extended within their side. This yields the inclusion-minimal polynomial, min/max, and minimum multiplicities, including addition at the coincident exponent when t=2.
+
+## originality
+
+PASS
+
+The verified distinct claim is the entire admissibility classification and the two labelled enumeration polynomials. The familiar scalar minimum for the full prism is credited; the strongest matching enumerators located concern graph complements or minimum sets only.
+
+## value
+
+PASS
+
+The partial matching interpolates between disconnected cliques and a standard prism. The classification explains the competition between within-clique and cross-clique witnesses, giving a sharp transition at t=3 between equal cardinalities of maximal omissions and an unbounded spread of sizes of inclusion-minimal sets, even on connected prisms. This structural outcome is not captured by the known scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

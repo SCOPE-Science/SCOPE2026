@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact generator balances for the position and position-spin moments imply the displayed stationary variance and fourth-moment identities. Jensen's fourth/second moment inequality reduces the global problem over all centered reset distributions to unique equiprobable two-atom laws; differentiation of the resulting rational one-variable expression establishes strict finite-radius optimality below the threshold and nonattainment at or above it. The critical expansion is a direct expansion of the exact optimizer. The standalone checker independently reproduced generator identities, algebraic limiting behavior, and regenerative simulations (2,932 assertions). The infinite-dimensional minimization is justified by analytical inequalities, not sampling.
+## correctness
 
-**Originality — PASS in the scoped self-review, with priority risk.** Olsen's arXiv:2310.04840v1, Sec. IV, gives the full forward stationary moment hierarchy for this exact physical model and so subsumes the second/fourth moment recurrence. The assessed new claim is specifically the all-centered-law kurtosis optimum, unique two-point design, sharp phase line, nonattained regime, and square-root radius divergence. The paper's Sec. IV and conclusion explicitly treat forward moments and selected Gaussian reset examples, rather than that global optimization. Garcia-Millan and Pruessner (arXiv:2012.02900v1) treat harmonic run-and-tumble motion without distributed resetting, and Evans and Majumdar (J. Phys. A 51, 475003) treat unconfined fixed-location resetting. Related abstract moment-design theorems may already imply the optimization after specializing the published moment hierarchy; such a mathematical-priority risk persists. Search absence is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The stationary kurtosis is a motivated dimensionless non-Gaussian shape measure for confined active-matter experiments with distributed resets. The sharp result determines whether a **finite** optimal design exists under unrestricted centered reset laws, identifies that design uniquely, and proves how the optimal distance diverges at a tunable parameter boundary. These are physically meaningful global feasibility and boundary facts, not a numerical scan or a fixed arbitrary parameter slice. Kurtosis alone is not a precise tail probability, and the result is restricted to independent fair spin reset, no thermal noise, and harmonic confinement.
+The backward age of the last reset is exponential, gives the unique stationary state, and bounds its fourth moment. In units of v/kappa for position and 1/kappa for time, the mixed balances are (1+q+g)E[XS]=1 and (3+q+g)E[X^3S]=3V, since the new sign has zero mean and is independent of reset position, even for asymmetric centered reset laws. Consequently V=(2/(q+g+1)+qx)/(q+2) and F=(12V/(q+g+3)+qy)/(q+4), where x,y are the scaled reset moments. At fixed x, variance is positive and Jensen gives y>=x^2, with equality exactly for equally weighted endpoints (point mass at zero for x=0). Writing V0=2/[(q+2)(q+g+1)] and s=1/V produces the strictly convex quadratic A+Bs+AV0^2s^2 on 0<s<=1/V0, with A=(q+2)^2/[q(q+4)] and B=12/[(q+4)(q+g+3)]-2AV0. With Delta=3-(q-1)(q+g), B has sign -Delta. For Delta>0, its vertex is interior: V_star/V0=(q+2)(q+g+3)/(2 Delta)=1+3q(q+g+1)/(2 Delta), giving x_star=3/Delta and the stated completed-square minimum. For Delta<=0, every positive s gives a value strictly above A, including at equality Delta=0. Only s tending to zero realizes the limit. Fixed-x three-point mixtures realize every larger value when x>0, and Delta=(2q_c+g-1)(q_c-q)-(q_c-q)^2 gives the claimed divergence. Frozen verify.py was inspected, not executed; several reset-balance residuals reuse the tested formulas, while the regenerative sampler is a separate finite diagnostic. No part of the proof needs those checks or a numerical certificate.
 
-**Residual limitations.** The original all-moment formula supplies algebraic starting ingredients, an independently discovered general inequality could dominate the present optimization, and an external mathematical priority audit remains to be done. Numerical checks are supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the global kurtosis optimization (including attainment and its critical boundary), not to the arbitrary-reset moment hierarchy. No inspected prior result covers the optimization or its threshold; the hierarchy is a starting point and does not by itself decide which admissible distributions attain the quotient minimum.
+
+## value
+
+PASS
+
+This is a physically interpretable sharp design boundary, not just a forward calculation of kurtosis: for every allowed trap and switching/reset scale it determines whether finite optimal reset positions exist, identifies the unique admissible law when they do, and quantifies its loss at the threshold. The full range explains what can be achieved beyond the optimum. No claim is made about individual tail probabilities, different reset protocols, or support-constrained designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

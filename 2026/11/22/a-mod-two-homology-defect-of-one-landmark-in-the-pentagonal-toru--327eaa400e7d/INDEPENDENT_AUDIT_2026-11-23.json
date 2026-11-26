@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:29:07.732360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify_result.py (inspected, not run).",
+        "Independent BFS, face census, F_2 elimination and direct inclusion replay: python3 /workspace/branches/360516c2-0893-4fcc-b097-5195c26da151/reproduce_gp_homology.py; output in reproduction_output.txt beside the script. Both inclusion methods agree; connecting rank from relative degree four is eleven."
+      ],
+      "rationale": "The graph is the intact 25-vertex Cartesian product, with sum of cyclic coordinate distances. A three-point set is forbidden exactly when its largest pair distance is the sum of the other two; the no-forbidden-triple property is hereditary. Increasing extensions exhaust every admissible set, and the absence of seven-vertex faces rules out all greater sizes. In X and Y the ordinary boundary columns delete one vertex over F_2; the relative basis consists of faces containing the discarded vertex, and deletion of that vertex gives zero in the quotient. The fresh exhaustive calculation gives f_X=(25,300,1400,2450,1360,50), f_Y=(24,276,1232,2058,1088,38), f_rel=(1,24,168,392,272,12), and positive-degree boundary ranks X=(24,276,1074,1290,50), Y=(23,253,935,1038,38), and relative=(1,23,139,241,12). Subtract adjacent ranks (and the degree-zero augmentation when reduced) to get all displayed Betti numbers and the other vanishing. To cross-check the natural-map ranks without choosing coordinate cycles, exactness gives b_rel(j)=b_X(j)-rank(i_j)+b_Y(j-1)-rank(i_(j-1)). Starting from degree zero gives 44,74,12 in degrees 2–4 and forces zero outside. This matches the independent direct quotient-of-cycle-span computation. The degree-three kernel and cokernel have dimensions 85-74=11 and 86-74=12. Translations of the intact graph give the identical result for any deleted landmark.",
+      "residual_risks": [
+        "This is exhaustive for the stated finite complex and coefficients, not evidence for integral torsion, a homotopy type, larger products, or a graph-vertex deletion that recomputes shortest paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cartesian-product paper treats the maximum cardinality of a general-position set on cylinders and tori. General Position Polynomials counts faces of each size, and its Cartesian-product formulas examined concern products of paths.",
+          "The integral ladder result deals with P_n square K_2, whose faces in the theorem have size at most three; it does not encompass a product of two pentagons."
+        ],
+        "reasoning": "A general-position polynomial, even one giving the whole f-vector, contains chain dimensions but not boundary ranks or the relative attaching map. Integral homology on a different graph family is stronger in coefficients, not in graph coverage.",
+        "searches": [
+          "Klavžar–Patkós–Rus–Yero arXiv:1907.04535v4 §4 toroidal products",
+          "Iršič–Klavžar–Rus–Tuite arXiv:2401.05696 General Position Polynomials, Cartesian product section",
+          "Resultary Integral homology of general-position complexes of ladder graphs"
+        ]
+      },
+      "checked_sources": [
+        "Klavžar–Patkós–Rus–Yero arXiv:1907.04535v4, §4.",
+        "Iršič–Klavžar–Rus–Tuite arXiv:2401.05696, §3.",
+        "Resultary 5fa650315627 and c309644767f6, respectively ladder general-position homology and pentagonal-grid scale-two Vietoris–Rips homotopy."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General-position cardinality can bound the chain range. It does not fix the span of the degree-four simplex boundaries or its intersection with punctured degree-three cycles. Here even the individual Betti values 85 and 86 would allow very different inclusion ranks.",
+          "The long exact sequence can compute the ranks from all three Betti profiles, but no prior relative profile was found in the compared sources; it requires the new vertex-link/relative calculation."
+        ],
+        "reasoning": "The substantive finite calculation is exhaustive exact rank of the full and relative chain matrices, not applying exactness to already tabulated data. Prior topology on a different complex does not imply those ranks.",
+        "searches": [
+          "Klavžar et al., On General Position Sets in Cartesian Products, toroidal section",
+          "General Position Polynomials, product subsection",
+          "Resultary ladder general-position-complex homology and pentagonal-grid Rips comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X is the independence complex of the 3-uniform hypergraph of graph-geodesically collinear triples; Y is the induced deletion in that same hypergraph. For its vertex link L, adjoining the missing vertex amounts to adjoining the cone on L; relative homology is the shifted reduced homology of L.",
+          "Related studies found for geodesic general-position sets concern extremal sizes or other graph products, and the nearby indexed Vietoris–Rips result concerns a pairwise distance bound rather than this forbidden-triple condition."
+        ],
+        "reasoning": "There are no missing edges in X, but there are forbidden triples, so this is not a nontrivial Rips complex at any scale (Rips complexes are flag). Computing only the full space up to homotopy, or the maximum-size sets, also would not specify the inclusion with this fixed induced deletion.",
+        "searches": [
+          "pentagonal torus C5 Cartesian product general position complex homology vertex deletion (Resultary)",
+          "general position complex graph simplicial geodesic homology toroidal grid Cartesian cycle C5 vertex link deletion metric noncollinear magnitude homology",
+          "C_5 general position torus homology simplicial complex graph geodesic forbidden triple independence complex modular toroidal general position hypergraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact-title match is the source under review. The product-size and face-enumeration literature and the indexed pentagonal-grid Rips result did not furnish a same-complex rank table for X, Y, and their inclusion."
+        ],
+        "reasoning": "An extremal cardinality, f-vector, Euler characteristic, or Betti table alone would not give the exact natural-map ranks; the compared indexed topological graph complexes have different simplices.",
+        "searches": [
+          "pentagonal torus C5 Cartesian product general position complex homology vertex deletion (Resultary)",
+          "general position polynomial cycle Cartesian torus C5 C5 Iršič Klavžar graph general position exact table Euler characteristic"
+        ]
+      },
+      "rationale": "The contribution is the exact mod-two homology and actual induced map for the vertex-deletion pair in one fixed geodesic general-position complex. The maximum face size and general-position framework are not treated as new. The stronger-looking enumerative and ladder-homology sources examined do not supply the puncture ranks, and no exact matching homology table was located apart from the assigned record.",
+      "residual_risks": [
+        "Geodesic collinearity hypergraphs sometimes appear under different names; a nonindexed computation of this fixed pair could exist. Neither the bounded search nor a new replay proves absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant same-family extremal-cardinality theory, not a homology/map theorem in the examined material.",
+          "evidence": "The toroidal theorems bound or identify gp(C_r square C_s), a maximum number of points, not the boundary matrices of the complex of all those sets.",
+          "identifier_or_url": "https://arxiv.org/html/1907.04535v4",
+          "material_read": "Toroidal product discussion in §4, including Theorem 4.5 and concluding discussion of the cardinality-six bound; also preceding product setup.",
+          "method": "OA primary article text, corroborated from arXiv PDF excerpts.",
+          "title": "On General Position Sets in Cartesian Products",
+          "trigger": "Same graph-geodesic general-position notion and direct treatment of Cartesian tori."
+        },
+        {
+          "assessment": "Counts by face size; the inspected product formulas are not a homology or inclusion computation on C_5 square C_5.",
+          "evidence": "The general-position polynomial generates the cardinality counts; exact thin-grid product formulas do not encode mod-two boundary ranks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05696",
+          "material_read": "Abstract and introduction, and §3 Cartesian product subsection with products of paths.",
+          "method": "OA primary PDF.",
+          "title": "General Position Polynomials",
+          "trigger": "Possible earlier complete face table or stronger Cartesian-product enumerator."
+        },
+        {
+          "assessment": "Distinct ladder graphs and no puncture inclusion claim for the torus.",
+          "evidence": "The graph is P_n square K_2 and the integral reduced homology is concentrated in degrees one and two; the proof uses the special triangular faces of that ladder.",
+          "identifier_or_url": "Resultary 5fa650315627",
+          "material_read": "Finding, scope, face dimension and boundary-rank proof sections.",
+          "method": "Local mirror full result.",
+          "title": "Integral homology of general-position complexes of ladder graphs",
+          "trigger": "Identical complex construction with a complete homology theorem on Cartesian grids."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen full, punctured and relative homologies; independent direct ranks and exact-sequence reconstruction.",
+        "Prior toroidal general-position cardinality and distinct ladder topology."
+      ],
+      "rationale": "The graph is a small nontrivial symmetric toroidal grid; retaining the ambient metric while removing one site is the natural induced vertex-deletion operation on the geodesic complex. The result quantifies an actual failure of homological persistence: a change from 85 to 86 in the middle Betti number hides eleven lost independent classes and twelve new ones. Knowing the complete inclusion and relative data is materially more informative for this example than an isolated Betti census or the already studied maximum face size.",
+      "residual_risks": [
+        "One fixed metric and one field; general robustness or geometric conclusions beyond this exact example remain unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

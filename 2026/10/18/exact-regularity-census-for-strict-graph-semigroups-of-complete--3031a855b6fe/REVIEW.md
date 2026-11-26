@@ -1,15 +1,21 @@
-# Review of the multipartite strict-semigroup census
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The nontrivial step is the exact inner-inverse criterion: any inner inverse selects independent endpoints of every fiber edge, and conversely a common-part transversal extends to a strict inner inverse because any matching supplies sufficient vertices outside the part containing the image. The matching multiplicity formula uses ordered part-wise vertex choices divided by type-permutation factorials. Two-term inclusion-exclusion counts matchings with a common incident part, and idempotents are counted by selecting their fixed image endpoints. The regularity classification follows from the possible edge-type patterns in three versus at least four parts; the fixed-block asymptotic follows from counting forbidden within-part edges and dominance of top rank. All claims concern finite multipartite graphs with at least three nonempty parts. Fifteen exhaustive small-profile comparisons passed, and four additional direct tests enumerated inner inverses.
+## correctness
 
-## Originality
-**PASS, qualified by bibliographic risk.** The crucial general matching/transversal criterion is **prior work**, Margolis–Rhodes arXiv:2609.39370, Theorem 7.1. Its graph-wide necessary-and-sufficient criterion is not presented as new here. The manuscript also recognizes Margolis–Rhodes arXiv:2005.02606, Example 2.11, on strict singular maps of equal-size complete bipartite graphs. The new statement is the evaluated **all-part-profile, rank-refined exact census of regular, total and idempotent strict elements**, its complete multipartite regularity trichotomy outside the prior bipartite setting, and its explicit asymptotic constant and exponent. Full relevant primary text, targeted literature searches, and accessible historical claim statements showed no covering formula. Residual risk: an equivalent census may exist in unindexed transformation-semigroup literature. A failed search alone would not prove novelty.
+PASS
 
-## Value
-**PASS.** The cited work explicitly poses graph regularity as a structural classification problem. The complete multipartite family gives a natural sharp three-part/four-part transition with an exceptional nonbipartite regular graph \(K_{2,2,2}\). Exact rank coefficients permit comparison of semigroup sizes and idempotent frequencies for arbitrary part sizes. Fixed part size at increasing number of parts gives a proved \(r^{-(n-1)}\) decay with explicit constant, which is distinct from mere numerical examples or a one-off finite count.
+A strict composite stays strict because each edge fiber of the second map meets the first image in at most one point; hence a nonempty composite fiber is an unchanged original edge. For fixed edge-type occupancies, injectively assign labeled endpoints in each part and divide by the simultaneous edge permutations of each type; multiplying by the independent-image and labeling choices gives T_k. The equation fgf=f forces distinct selected preimages of the image labels into one part. Conversely these preimages form an independent image for g, and its domain pairs can cover the image of f because the k domain edges of f already show that at least k vertices lie outside the part containing that image. This proves the regularity test. Inclusion-exclusion stops at pairwise intersections even at k=1; for idempotents each output must be its own chosen endpoint. The empty map and rank bound agree. For three parts, a bad matching must use all three edge types and needs two vertices in each part and a rank-three image. For four or more parts the two disjoint part pairs give a rank-two witness whenever a part can support that image. For fixed n≥2 the leading terms of the total and regular counts are n^(2n) r^(2n+1)/2^n and n! n^n r^(n+2): the forbidden-edge correction loses one power of r, the pair-intersection term in b_n is O(r^2)=O(r^n), and lower ranks are smaller. The stated ratio follows. A fresh bounded enumeration of all strict maps, direct composition f², and search through all g for fgf=f reproduced (253,253,61) and (1021,877,133) for K_(2,2,2) and K_(2,2,3), respectively. Frozen verification notes and verify.py describe a separate replay and were read, not executed; the two direct samples do not prove the general theorem. The verifier's checks for at most two parts are outside the theorem's stated scope.
 
-## Limitations and closest work
-The result relies on the published definition of the edge-fiber strict subsemigroup; it does not count the full graph monoid or the different strict convention including graph automorphisms. The general criterion and the equal-size bipartite formula remain prior results. Independent literature auditing could uncover an earlier equivalent multipartite enumeration. The asymptotic does not address growing part sizes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general strict-map description and regularity criterion to Margolis–Rhodes. The supported distinct result is the evaluated strict multipartite rank census and its global classification and sharp fixed-part-size rarity law, not a new map-by-map criterion. No inspected matching statement supplies that combined result or a stronger evaluated census specializing to it.
+
+## value
+
+PASS
+
+The rank-refined counts distinguish regular and nonregular behavior in a natural non-bipartite test family for the general semigroup regularity problem. The classification exhibits a regular K_(2,2,2) and the immediate loss at K_(2,2,3); the census explains the exact proportion and yields a sharp polynomial scarcity law over a growing family, which the structural test alone does not quantify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

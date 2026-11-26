@@ -1,15 +1,21 @@
-# Scientific review of the first-slack Lyndon rigidity theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. Both possible second letters of a binary Lyndon word are treated separately, after establishing the first and last letters and the minimum arch length. The start-\(01\) case uses the exact number of zeros and a rotation that moves the unique double-one run to the last gap. The start-\(00\) case forces an initial length-three arch; a precisely specified rotation at the final \(10\)-to-\(01\) boundary excludes all other arch sequences. The two remaining words are separately checked for Lyndon status and universality. The exact unrestricted count and \(k=1\) boundary follow by unique greedy factorizations. Exhaustive and independently implemented finite checks through \(k=9\) support, but do not replace, the written infinite proof.
+## correctness
 
-## Originality
-PASS on the inspected evidence, with an unresolved possibility of unindexed earlier work. The closest references are Barker et al. (2020), which gives universal spectra and circular operations but not this constrained Lyndon class; Adamson (2023), which counts unrestricted universal words; Bannai et al. (2022), which finds Lyndon subsequences of a host; and Adamson et al. (2023), which counts universal members of regular languages. The theorem concerns words simultaneously Lyndon and linearly universal at the first length beyond the binary minimum, something not stated by those inspected results. A prior circular-necklace count cannot directly determine whether a Lyndon orbit representative retains linear universality. No independence or external novelty certification is claimed.
+PASS
 
-## Mathematical value
-PASS. The first-slack layer of maximally rich binary subsequence supersequences is large (\((k+2)2^k\)), but its intersection with the canonical primitive rotation representatives has exactly two elements for *every* order. The proof identifies a structural rigidity principle and a sharp one-letter threshold, which is more informative than an isolated enumeration or a restatement of universal-word counting. This natural conjunction of full subsequence coverage and Lyndon canonicality can guide restricted supersequence constructions and boundary analysis; no broader application is asserted as proved.
+The greedy arch criterion gives the length bound: the last letters of successive arches are matched first at the successive arch ends, so appending a symbol absent from the remainder gives a missing subsequence. A binary Lyndon word containing both symbols starts with 0 and ends with 1 (a trailing zero-run would extend its leading zero-run under rotation). At length 2k the arches are pairs; the initial 01 forbids all 00, so the only candidate is (01)^k, strict only for k=1. At length 2k+1 an initial 01 likewise forbids 00, hence k zeroes delimit k positive one-runs with one doubled run. Lexicographic minimality puts the doubled run last. An initial 00 forces a first arch 001 and pair arches thereafter, ending in 01. If any 10 occurs, rotate from the second letter of the last 10; with b trailing 01 arches the new prefix is 001(01)^(b-1)00. Compare with the original prefix 001(01)^a10 up to its first 10: the rotation wins whether b-1<a or b-1>=a. Thus all suffix arches are 01. Both resulting words pass the strict rotation comparison, are reverse-complements, and contain k arches. The disjoint arch/remainder counts are 2^(k+1) and k2^k, including k=1. Inspected RESULT.md §§1–5 and the finite-check design in CHECK.py; no supplied code was executed.
 
-## Scope and risks
-Only binary ordered words and lengths \(2k\), \(2k+1\) are classified. General-length Lyndon enumeration is open here. The general arch criterion and unrestricted count are prior background. The scientific novelty judgment rests on inspected full texts plus searches and may be revised if an equivalent unindexed result is located.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact classification of lexicographically least strict rotations that are themselves linearly universal, not arch theory, unrestricted counting, circular counts, or priority for the related unbordered threshold and witnesses. The strongest indexed comparisons materially overlap but do not supply the two-word Lyndon filter.
+
+## value
+
+PASS
+
+There is a natural extremal question: for a canonical primitive rotation representative, what is the least length that can carry the full linear subsequence spectrum, and which representatives attain it? The result eliminates all but two out of an exponential first-slack linear family. It separates a genuine least-cut constraint from merely counting admissible rotation classes, and gives exact test cases for that distinction at all k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

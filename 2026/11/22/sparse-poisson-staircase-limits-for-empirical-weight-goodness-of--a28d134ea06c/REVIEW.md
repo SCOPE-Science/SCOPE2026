@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the fitted-to-true mean ratio by exact Poisson variance, finite common-cell weight ratios by binomial Chebyshev bounds, the unique critical rare-cell count by a binomial-to-Poisson probability-generating-function limit, and the simultaneous absence of higher cells by an exact union bound. An exact decomposition of the *entire infinite weighted tail*, not a truncated approximation, produces the fixed-weight limits. Small fitted/empirical weights at the critical cell and on the unseen tail prove the adaptive-weight limits. The same argument proves all plateau regimes. The complete standalone checker passed 367 supplementary assertions. All requirements are finite fixed count indices, positive summable deterministic weights, and explicitly stated triangular-array hypotheses.
+PASS
 
-## Originality — PASS, qualified
+Under either stated regime nλ→∞, so the Poisson sample mean is relatively consistent by Var(λhat/λ)=1/(nλ), and its all-zero event has probability exp(−nλ)→0. For each fixed k with n p_λ(k)→∞, binomial concentration and p_λhat(k)/p_λ(k)→1 give W_n(k)→1. In the critical regime this handles k<r; at r the binomial count converges to one Z~Poisson(c/r!), while n p_λhat(r)→c/r!, giving the asserted rare-cell ratio. The union bound n P_λ(X≥r+1)=O(nλ^(r+1))→0 makes every later ratio zero simultaneously with high probability. Thus the fixed-weight tail is exactly the sum or weighted supremum in the formulas on that event; no unjustified exchange of an infinite sum and limit is needed. Finite collections share the one rare coordinate by continuous mapping. For either adaptive mass weight the critical cell has O_P(1/n) weight times a tight discrepancy, the empirical tail is identically zero on the same event, and the fitted tail has total weight tending to zero (which also bounds its supremum). At a plateau k=r is concentrated too, including the r=1 plateau. The fixed positive tail bounds the limiting distances away from zero. The e^(−k) example at r=2,c=2 leaves e^(−3)/(1−e^(−1))+e^(−2)|Z−1| for Poisson(1) Z, with minimum about .07876198246 attained when Z=1 (mass e^(−1)). Inspected VERIFICATION.md and verify.py without executing uploaded code: finite histogram and rare-cell checks corroborate but do not establish these limits. The result is for the exact distances defined in RESULT.md, in particular g inside the weighted supremum.
 
-The closest paper is Kirui et al., arXiv:2402.12866v1 (2024-02-20), especially §2, formulas (2.2)–(2.7), §3 and Appendices A–B. Kirui's 2023 dissertation, Chapters 3–5 and numerical appendix, presents the underlying statistics and fixed-mean computational study. Neither inspected work derives the rare-cell critical distribution, nonvanishing full-tail floor, simultaneous limit across the three fixed-weight distances, deterministic plateaus, or the six-adaptive-versus-three-fixed asymptotic separation. Published Stein–Chen Poisson tests use different statistics. Standard rare-event Poisson convergence is acknowledged, not presented as novel. Searches for aliases (sparse intensity, triangular array, empirical histogram ratios, weighted \(L_p\) distances and occupancy thresholds) found no direct coverage; absence in search is not proof of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies a concrete calibration boundary for all nine members of a published test family under a *correct* but increasingly sparse null. It distinguishes nonvanishing discrete sampling residuals caused by weights assigned to unobserved count cells from vanishing adaptive-weight residuals, and supplies an exact null distribution for every rare-cell transition. For example, at \(n\lambda_n^2\to2\) the fixed exponential \(L_1\) score has a positive, discontinuously distributed limit even though the fitted and empirical counterparts go to zero. This structural distinction is useful when analyzing the validity and calibration of sparse-count diagnostics, though it does not by itself prove bootstrap miscalibration.
+The empirical-weight testing construction is credited as prior. The supported distinct claim is the joint shrinking-mean asymptotic law for the explicitly defined infinite-support distances: an exact unseen-tail contribution plus a shared Poisson coordinate at each critical cell, deterministic plateaus between them, and separation of fixed from adaptive weights. Neither the rare-event limit in isolation nor a new version of the test statistic is credited.
 
-## Residual risks and scope
+## value
 
-The MSc thesis was inspected in its relevant construction and conclusion chapters, not subjected to a complete line-by-line historical review. General sparse-multinomial literature might contain equivalent asymptotic formulations without naming these particular tests; no such implication was identified. This work does not establish a bootstrap rejection-probability theorem, local power, or uniformity in growing count indices. Independent external assessment has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The analysis distinguishes two kinds of behavior for existing goodness-of-fit distances even under a true null: a positive floor and a discrete law from weighting unseen cells versus vanishing distances when mass weights adapt. It explains why changing an apparently secondary weight changes the sparse null limit, and identifies exactly when the floor drops to the next plateau across sample-size scales. This is not a claim of bootstrap size distortion or a result for growing r.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

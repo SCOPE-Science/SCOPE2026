@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete finite check is `verify.py`, a standalone Python 3.10+ standard-library program. Executing it on the package files gives the exact output:
+## correctness
 
-```
-VERIFY_OK counts= [(1, 1, 1, 0), (2, 40, 8, 0), (3, 400, 33, 5), (4, 2306, 103, 48)] feature_comparisons= 53 witness_union_histograms= ((0, 1, 2, 7, 0), (0, 0, 6, 2, 2))
-```
+PASS
 
-For every \(m\le4\), every multiset of \(m\) nonempty four-bit plant neighborhoods covering all four primary vertices is visited. The per-guild degree multisets determine a conservative equivalence key: comparing within those broad keys detects any counterexample with exactly fixed labeled margins. The sign-changing criterion \(a(a+b)<0\) follows from the exact double-root factorization, not a numerical grid. The witness is also checked by direct enumeration of all \(16\) independent-loss outcomes at \(19\) exact rational probabilities. Separately, exhaustive iteration over labeled matrices found \(1,79,2161,41503\) nonisolated matrices for plant counts \(1,2,3,4\), respectively, and no sign reversal.
+Independence gives E[X_i]=q^|N_i| and E[X_i X_j]=q^|N_i∪N_j|. Same plant margins cancel the mean terms; same pollinator margins fix the total pair-intersection size by summing binom(deg(j),2). Thus the difference of pair-union polynomials has zero constant term, value and derivative zero at q=1, and degree ≤r. For r≤3 it is a constant times q(1−q)^2, ruling out an interior strict sign reversal without a plant-count bound. For r=4 one residual factor is linear, a+bq, with a switch exactly when a(a+b)<0. Independently enumerated ordered positive-margin incidence matrices and expanded their exact E[X²] polynomials from the 16 loss outcomes rather than forming pair unions. The admissible counts for m=1–4 were 1,79,2161,41503, with 1,8,33,103 margin classes and 0,0,5,48 distinct polynomial comparisons. There were no switches. The displayed witness has the claimed matching labeled margins, equal mean 2q+3q² and the variance difference with coefficients (0,2,−8,10,−4), giving the strict switch at q=1/2 and ties at the stated three points. This proves the nested minimum: four pollinators, then five plants at exactly four pollinators.
 
-The unrestricted three-pollinator assertion is analytic. The small-network certificate is complete **only** for four pollinators and at most four plants. The checker does not establish any ecological causal identification, nor does it independently audit novelty. Originality comparisons and model limitations are in the scientific review.
+## originality
+
+PASS
+
+The supported distinct claim is the sharp pollinator-first minimum (four regardless of plant count, five plants at that pollinator minimum). A separate indexed nine-total-species theorem in the same iid model subsumes the finite non-reversal statement at four pollinators and at most four plants, and contains the same covariance identity. It does not bound three pollinators at unrestricted plant count or exhibit reversal with four pollinators. Its displayed five-pollinator witness does not become the frozen witness by transposition: the two degree-multiset pairs differ, and swapping the guilds changes the loss variable. No inspected source supplies the full nested minimum. This is not a determination of historical priority.
+
+## value
+
+PASS
+
+Equal degree margins fix the expectation and constrain pair intersections, yet can leave even the direction of the variance comparison sensitive to the risk parameter. The sharp number of independently lost primary species needed for this phenomenon isolates a model-specific boundary, and the unconditional three-pollinator obstruction explains why no larger plant guild can lower it. This is more informative than another nine-total-species example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

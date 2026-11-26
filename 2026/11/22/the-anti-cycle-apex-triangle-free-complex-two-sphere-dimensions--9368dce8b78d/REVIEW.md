@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-complement and graph-join conventions are fixed unambiguously. The apex link is exactly the unfilled original cycle, and the deletion has exactly the disjoint-edge-pair facets of the cyclic four-polytope boundary for every \(n\ge6\). The two endpoint ranges \(n=3\) and \(n=4,5\) are separated. Since maps from the circle to the three-sphere are nullhomotopic, the actual mapping cone has integral homotopy type \(S^2\vee S^3\). The integral dihedral signs follow respectively from the natural Mayer--Vietoris boundary and an explicit primitive oriented top chain. The standalone checker corroborates facets and top-chain symmetries for \(6\le n\le12\) and independently computes small mod-two ranks; it does not replace the all-length argument.
+## correctness
 
-## Originality — PASS with residual risks
-Moradi (2017, arXiv:1712.00583v1, Lemma 2.10 and Theorem 2.11) already establishes pure shellability of the *deletion* for all clique thresholds; this is credited and not rebranded as new. Ghosh--Selvaraja (2026, arXiv:2602.09623v1) provides the recent clique-free graph-operation setting but does not state this apex-joined family or its precise dihedral modules. The previously published triangle-free graph join theorem requires a triangle-free non-apex factor, which is false here for every \(n\ge6\). The new statement combines the exact apex cofiber classification, sharp length transition and two distinct integral symmetry characters; none was located as an equivalent or an already stated special case. The very natural construction could have an unindexed equivalent treatment, and this absence cannot be independently guaranteed.
+PASS
 
-## Mathematical value — PASS
-It completely identifies a natural infinite family under a graph operation emphasized in current clique-free-complex research. Adding one universal graph vertex to a base whose clique-free complex is a sphere creates a *new lower-dimensional integral sphere*, while the pre-existing sphere keeps a different reflection character. The sharp transition at six cycle vertices and the distinct integral \(D_n\)-module structures expose behaviour beyond the established shellability of the deletion. The classification is a structural statement with exact all-length scope, not merely a small numerical census.
+Checked RESULT.md lines 4–33. At n=3 there are no forbidden triples, even with h. At n=4,5 the deletion is a simplex and the link is the cycle. For n≥6 each selected proper cycle subset induces a union of paths; five vertices force an independent triple and four avoid one exactly when matched by two disjoint cycle edges. All smaller admissible faces extend to those facets. Gale evenness gives exactly those facets of the cyclic 4-polytope, including wraparound. The simplicial pushout along the actual link is the mapping cone of a null map S¹→S³. The natural exact sequence identifies H₂ with the link's orientation line and H₃ with the deletion's. For the asserted integral top cycle, a ridge consisting of an edge and an isolated vertex has the two completions at the predecessor/successor of the isolated vertex, which delete opposite positions of the oriented second edge. A ridge consisting of three consecutive vertices has the predecessor/successor completions deleting the first/last position of the oriented four-vertex string. In both cases the coefficients cancel. Each facet occurs once with unit coefficient; reflection reverses both edge blocks, so fixes the generator, whereas it reverses the link. This proves the actual signs without any claim about equivariant wedge equivalence. The recorded finite checker was inspected, not executed; its dimension/rank checks do not certify the all-n proof or the H₂ action.
 
-## Scope and limitations
-No higher thresholds, equivariant homotopy splitting, or non-cycle bases are covered. The full research-priority search is necessarily incomplete, and the published index summaries of some nearby graph-join results were not equivalent to a full-text comparison. Independent external audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the natural cone-over-anti-cycle clique-avoidance classification with both integral dihedral characters, not the shellability of the deletion or the general Gale facet description. Small n overlaps the triangle-free-base regime and is not a separate originality claim.
+
+## value
+
+PASS
+
+The natural universal-vertex operation on a cycle-complement avoidance complex exposes two consecutive sphere dimensions and distinguishes the actual reflection characters even though the ordinary wedge gives no such information. The equivariant homology calculation for the entire family is reusable, beyond recomputing a cyclic-polytope boundary or a finite list of Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

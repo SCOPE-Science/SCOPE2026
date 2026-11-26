@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-affine-branch Markov proof applies to arbitrary finite sign histories, not only single-step frequencies. Independence produces the precise two-state equal-parity substochastic matrix. Cayley–Hamilton yields the recurrence, and the explicitly positive initial Hankel defect propagates with multiplier \(-ab\), proving strict nonzero alternation at all lengths and hence infinite Markov order. Positive hidden paths give full symbolic support and the primitive finite hidden transition proves exponential mixing. A standalone rational inverse-interval checker independently reproduced 84 calculations. This check cannot substitute for the all-parameter proof, which is supplied.
+## correctness
 
-## Originality — PASS within investigated sources
-The 2026 initiating article concerns general permutation entropy rather than coupled binary sign factors. The 2026 published all-parameter skew-tent three-point ordinal Markov result is a related single-stream theorem, not a treatment of parity fusion. The 2017 Riechers–Crutchfield paper proves general hidden-Markov infinite-memory mechanisms and discusses Golden–Parity processes, but its examples and parameters do not yield the explicit two-skew-tent XOR theorem by stated implication. Semantic searches of published-finding corpus and general literature did not locate the same construction, exact alternating Hankel formula, or all-interior-parameter classification. General hidden-Markov non-Markovity is explicitly acknowledged as prior. Risk: an unindexed golden-mean XOR calculation may subsume the finite matrix algebra; no claim of complete literature exhaustiveness.
+PASS
 
-## Value — PASS
-A natural two-sensor ordinal fusion converts two order-one observed dynamical processes into a full-support, exponentially mixing observable of infinite memory, for **all** nondegenerate input parameters. The exact run law and alternating conditional continuation probabilities quantify why no finite Markov surrogate is exact even when every finite binary word is permitted. This separates mixing speed, symbolic admissibility, and finite-order statistical predictability in a parameter-uniform model, beyond a routine one-point Markov estimate.
+Solving T_t(x)=x gives the internal threshold u=1/(2−t)>t. Each allowed sign-to-sign branch covers its entire destination interval affinely. Thus a uniform distribution on the current interval conditioned on any positive-probability finite history pushes, on conditioning on the next sign, to uniform there again. State 0 forces a rise, and the ascending-to-ascending probability is (tu)/u=t. This gives the claimed stationary Markov matrix with genuinely nonconstant transition rows. Independence gives the product law; restrict to hidden states 00 and 11 for parity-zero runs, with Q=[[0,1],[ab,cd]], and stationary row (ab,1)/D. In scaled notation s=ab, h=cd, the first determinant times D² is (1+s)[h(2s+h)+s(1+s)]−(2s+h)²=s(1−s−h)² with 1−s−h=c+d−2cd>0. The recurrence propagates it by −s; the two simple eigenvalues have distinct moduli, with the positive Perron component nonzero by positivity. Hence r_n varies for arbitrarily long prefixes, impossible under the finite-order conditional definition. All words are legal as hidden 11 can persist, both one-parity states can alternate, and either connects back to 11. The product hidden transition is primitive, and exponential strong mixing passes to the parity factor. For the trajectory maps themselves, exponential decay for Lipschitz versus bounded observables follows because every length-j product branch maps affinely onto the whole square and has diameter O(max(c,1−c,d,1−d)^j); averaging a Lipschitz observable on each cylinder and changing variables bounds its covariance with any bounded observable at time j. This is a regular-observable dynamical mixing claim, not uniform probabilistic strong mixing of the exact real-valued trajectories. Independent finite reproduction by forward affine partitioning at preimages of t and u, tagging each affine cell by its sign word and summing cell lengths, gave F_1,…,F_6=(5/9,1/3,2/9,5/36,13/144,11/192) at c=d=1/2 and (23/40,3/10,141/800,783/8000,279/5000,25137/800000) at c=2/5,d=3/4. All parity words at those lengths had a path and all adjacent available recurrence/defect equalities checked exactly. The frozen inverse-interval checker was inspected rather than executed; neither finite check proves the all-length real-parameter assertion.
 
-## Independent verification and limits
-The proof assumes independent stationary full-branch skew tent inputs and no ties except null sets. An independent audit has not been performed; priority is a best-knowledge comparison and unresolved historical coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified pass for the two-source XOR theorem with its all-interior order obstruction and run law, not for general hidden infinite memory or single-map ordinal coding.
+
+## value
+
+PASS
+
+The natural ordinal coarse-graining distinguishes full symbolic support, exponential loss of dependence with lag, and exact finite-order prediction. The all-parameter alternating difference and its explicit asymptotic predictability rate give more than the existence of a hidden Markov counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific assessment: tunable wheel trapping
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies the adjacency Hamiltonian, strictly positive sink rates and all ranges. Fourier decomposition leaves a two-dimensional hub/uniform sector and cyclic nonuniform modes; its characteristic roots are derived directly. The only possible level intersections come from a negative lower hybrid eigenvalue, and the map from the negative rim eigenvalue to positive spoke strength is injective. The rank count is performed using absorber-evaluation dimensions in degenerate eigenspaces, not naive eigenvector counting. The localized hub overlap is calculated by orthogonal projection in the collision plane. The limit is justified by the dissipative spectral argument, and the near-one scaling follows from a sine bound. The embedded finite numerical tests are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with limitations
-Solenov–Fedichkin (arXiv:quant-ph/0506096) study an unaugmented cycle with monitoring, not a weighted hub-and-rim sink. Razzoli–Paris–Bordone (arXiv:2011.13794) provide the antecedent spectral-support transport principle and graph examples, but not this evaluated wheel resonance classification. Known wheel adjacency eigenvalues are explicitly treated as background. Searches for wheel trapping, weighted spoke spectral collisions, hub survival and two-sink repair found no matched prior theorem. A broader unlocated calculation could nevertheless imply the formulas, and independent publication-priority checking is outstanding.
+PASS
 
-## Value — PASS, with limitations
-The exact coupling set identifies when a directly connected absorbing rim vertex completely fails to capture a hub-started excitation in the infinite-time limit. The exceptionally protected hub survival can approach one, even though every nearby nonresonant positive coupling has zero eventual hub survival; a second hub sink removes precisely the rank defect. This supplies a complete nontrivial control boundary and state-specific trapping weight for a natural quantum network, rather than only the generic statement that dark states may exist. Infinite-time exact tuning and the ideal adjacency model limit physical robustness.
+For K=H−iΓ the dark space is the orthogonal sum of the H-eigenspace kernels of the site evaluations. It reduces K because H preserves it and Γ annihilates it. The imaginary-part eigenvalue identity leaves no real eigenvalue on its complement, so the latter decays even if K is defective. The surviving weight is therefore tr(P_dark ρ), and the bright rank adds the separate evaluation ranks. In the hub/uniform block the roots are 1±√(1+ng²); the upper root exceeds 2 and the lower one encounters each distinct negative nonuniform rim energy exactly once. Every bare rim eigenspace has a vector nonzero at the sink, so merging loses exactly one rank, and adding the hub evaluation gives rank two on the merged eigenspace. At a collision write a=ng² and M=a+λ². With only the rim sink, the bright vector of the merged energy is the spectral projection of the rim site. Its squared norm is (λ²/M+d)/n; the hub's squared overlap with its normalized direction is (a/M)λ²/(λ²+dM). Subtraction from the hub's weight a/M in this eigenspace gives da/(da+(d+1)λ²). The other hybrid level is fully captured. The exact boundary checks include n=3 (λ=−1,d=2,S_h=2/3) and the even singleton at n=4 (λ=−2,d=1,S_h=1/2); a zero rim energy never collides for g>0. For n≥5 the first negative rim mode has d=2 and ε=−λ≤4π/n, giving 1−S_h=3ε/(4+5ε)≤3π/n and g²=ε(2+ε)/n. The discontinuity is only in the eventual limit. The frozen NumPy checker groups numerical eigenspaces at absolute tolerance 2e−8 for n=3,…,30; I inspected its scope and recorded results, not executed it. Exact claims follow from the independent spectral argument, not the bounded sample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The bare weighted-wheel collision locus and eigenspace projectors are already stated in a distinct same-day average-mixing record; they are not credited as new here, and no priority between the two is inferred. The supported distinct result is absorber-specific: a drop at every collision even when the average-mixing rank is unchanged, restoration with the second absorber, and an exact local survival weight and near-total resonant protection from the hub. The strongest inspected results give the spectral input and the general absorption method, but do not classify or quantify these effects for the weighted wheel.
+
+## value
+
+PASS
+
+A complete one- and two-sink classification for this weighted network shows how exact degeneracy can protect an excitation initially adjacent to a lossy site even though arbitrary detuning eventually captures it. The explicit survival probability, rate independence, and the sequence approaching unit protection give usable quantitative content beyond listing level crossings; the result does not imply robustness to detuning or finite-time discontinuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

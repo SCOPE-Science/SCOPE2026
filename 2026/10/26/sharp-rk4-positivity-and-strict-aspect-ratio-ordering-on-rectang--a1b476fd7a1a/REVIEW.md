@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-entry-type spectral-projector formula is reconstructed directly from the eigenprojections of two complete-graph Laplacians. Exact expansions show that the first-coordinate entry is a cubic times the timestep and is always smaller than the other off-diagonal edge type. A negative quadratic discriminant makes the both-coordinate entry positive for every positive timestep; positive spectral scalar factors ensure positive diagonals. The cubic's derivative is strictly negative by the displayed positive polynomial certificate, so one root determines the complete interval with no reentry. Fixed-sum differentiation has a positive quadratic certificate giving strict ordering. The standalone exact checker validates the identities and full matrix entries. No numerical sampling is used as a substitute for the all-size proof.
+## correctness
 
-## Originality — PASS, residual historical risk
-The classical positivity and SSP literature supplies sufficient restrictions, not the exact distinct-size rook-graph necessary-and-sufficient criterion or strict fixed-total aspect ordering. The closest graph-product positivity results concern the different [2/2] Padé/Gauss integrator or balanced/other graph classes; their implications do not cover this method/parameter region. Search variants included rook, Cartesian complete-graph, Markov polynomial, Hamming dimension two, and asymmetric product. The accessible full text of two relevant methods papers was inspected, whereas the full 1998 Horváth general-method article could not be obtained. Originality is judged against identifiable accessible coverage, not as a statement that everything has been searched.
+PASS
 
-## Mathematical value — PASS
-The result provides a sharp graph-dependent allowable-step law and a structural design comparison for the same number of coordinate categories. The proof explains which transition type first breaks positivity and why it cannot return; it gives a strict balancing principle plus a continuous large-network profile. These are useful exact benchmarks for positivity-preserving diffusion time discretization on product state spaces and not just a renamed scalar RK4 stability bound.
+The tensor projectors for the two complete-graph Laplacians have joint eigenvalues 0,p,q,p+q and give the four entry classes. Exact symbolic replay with python3 /workspace/checks/rk4_algebra.py verified A=h f, A−B, C, both quadratic discriminants, 3ac−b², and the fixed-sum derivative and its discriminant. For h>0, B>A and C>0; the scalar RK4 polynomial is positive on the nonpositive real axis by the exponential Taylor remainder, giving positive diagonals. The positive certificate 3ac−b² forces f′<0, giving a single crossing, A=0 at H and A<0 thereafter, with stochastic row sums where all entries are nonnegative. At fixed N=p+q, the derivative quadratic has positive leading term and negative discriminant bounded away from zero by the endpoint p=N/2 estimates, hence f grows with p at every h>0 and its zero moves strictly right. In the scaled limit N→∞ and p/N→r, dividing the derivative certificate by N⁴ leaves at least the strictly positive term 36(1−r)⁴ in 144(3ac−b²)/N⁴, so the limiting cubic is strictly decreasing and compact-interval convergence brackets the limiting root. The Euler-endpoint polynomial in I−hL verifies the strict improvement. 'Fixed-vertex-count' in the proof heading is a wording slip: the theorem and calculation fix p+q (degree plus two), not pq. The supplied verifier was inspected, not executed.
 
-## Limits
-Unweighted, undirected, unequal complete-graph factor pairs and the completed classical RK4 polynomial only. The limit profile is for varying finite graphs. Other stochastic maps, internal RK stages and nonlinear positivity are not assessed. The inaccessible general positivity publication and specialized graph-diffusion literature are residual originality risks. No independent scientific validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest checked earlier RK4 archive result has complete multipartite, not Cartesian-product, graphs; the checked same-day rook-graph results study different operators. The later balanced strongly regular graph result does not cover unequal rectangles. The exact controlling entry, the strict comparison at fixed sum, and the resulting nontrivial scaled root are not established by these comparisons. This assessment is bounded by the general-theory access risks below.
+
+## value
+
+PASS
+
+Fixing p+q fixes the graph degree and thus the forward-Euler threshold. Along that natural comparison the exact classical RK4 endpoint detects anisotropy that the Euler criterion cannot distinguish. The all-step comparison of transition classes identifies the first failure and rules out reentry; the scaled root gives a quantitative asymptotic version beyond finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

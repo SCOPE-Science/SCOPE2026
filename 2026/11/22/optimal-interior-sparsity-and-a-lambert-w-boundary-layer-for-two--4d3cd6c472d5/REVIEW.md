@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four projective lines exhaust all nonzero two-entry signed rows, and their pairwise intersection consists of the zero row. Inclusion-exclusion gives the exact probability. The derivative argument proves strict global uniqueness for every integer \(m\ge2\); the bound \(\delta_m\le W(m-1)/(3(m-1))\) justifies the asymptotic logarithm expansion. The standalone exact-rational enumerator checks 15 finite parameter combinations without assuming the formula. The proof covers all stated finite row counts; the finite experiments alone do not.
+PASS
 
-## Originality — PASS, with priority uncertainty
+For a row, the four real projective lines containing its nonzero outcomes have inclusive masses a,a,b,b; all line-event intersections for the full matrix are the all-zero matrix, which is counted four times instead of once. This proves the law, also at p=1. Below 2/3 use b>a² to bound F′/(2m) by −a^(m−1)+a^(2m−2)<0; at 2/3 the derivative is still negative. Above 2/3, b/a increases and the normalized derivative H has H′≥3(1−m/3^(m−1))>0 and diverges at 1, proving the unique interior root. The square case expands to 1−2p²+3p⁴/2. For δ=p_m−2/3, the root equation bounds 3δ by exp(−3(m−1)δ), so mδ²→0. Its logarithm gives x+log x=log m+o(1) with x=3mδ; the derivative of the left side is ≥1, proving x=W(m)+o(1). Then (3a)^m→0 and (3b)^m→1, giving 2·3^(−m) and both comparisons. Independently enumerated all 9^m signed/zero row configurations with rational weights for m=2,3,4 and each of p=1/3,2/3,1; all nine masses matched. The frozen check.py lines 10–86 were inspected, not run; its wider reported finite checks are distinct from the audit proof.
 
-Actual searches compared sparse signed two-column rank failure, its four-direction projective formulation, density optimization, geometric versus Bernoulli rank laws, and Lambert-\(W\) sparsity boundaries. The accessible source articles focus on generic embedding guarantees, random matrix rank in joint large dimensions, or different entry models. Closest searchable research records about rank-two pure Rademacher Nyström, signed CountSketch, two-block SparseStack, and stochastic-rounding rank restoration do not imply the independent-entry ternary density optimum. The dense \(p=1\) endpoint can be recovered from pure-sign results; novelty is not claimed for that endpoint. Several specialized results were available only by summaries, and possible unindexed exact two-column formulas remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-A rank-deficient sketch cannot preserve an exact two-dimensional coordinate space or yield a full-column-rank sketched QR factor. The exact all-row-count density optimizer makes precise a consequential design choice: dense signs can have exponentially worse **exact rank-survival** failure probability than a sketch using fewer expected nonzeros. The universal limiting density and Lambert-\(W\) correction reveal the finite-budget adjustment needed to halve the leading failure coefficient. This does not assert superiority for numerical stability, conditioning or generic subspaces.
+The distinct result is the exact signed-ternary law and its unique interior optimum, including the shift from 2/3 and optimized coefficient. Binary rank restoration already exhibits a close two-column Lambert-W mechanism; neither that mechanism in general nor the dense Rademacher endpoint is credited as new. The inspected stronger-looking sources do not give the signed result or entail it by rescaling or changing parameters.
 
-## Limitations
+## value
 
-The application is a model benchmark in exact arithmetic, not a uniform oblivious embedding theorem. Independent publication-priority checks may find a stronger source; no independent validation was carried out. No experiments are presented as infinite proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed dimension two is the first nontrivial exact rank-loss benchmark with competing vanishing-column and proportional-column mechanisms. Optimizing this natural obstruction gives exponential improvement over dense independent signs and a factor of two over plugging in the limiting optimal density. The scale of that difference makes the boundary-layer calculation useful beyond the elementary line count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

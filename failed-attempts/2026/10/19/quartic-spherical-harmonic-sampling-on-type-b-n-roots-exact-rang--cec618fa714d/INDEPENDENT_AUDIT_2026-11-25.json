@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:36.201361Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a harmonic quartic, the x_i² coefficient in its Laplacian is 12a_i+2Σ_{j≠i}b_ij, and only the indicated pure, pair-even and pair-odd monomials can affect the samples. Substitution gives (1). Conversely the pair-odd term in (5) is harmonic, since Δ[x_i x_j(x_i²+x_j²)]=12x_i x_j and Δ[r²x_i x_j]=2(n+4)x_i x_j, and its difference on its own samples is (n−2)/(n+4); the even part is harmonic by (1). Independence of the equations follows from q_i+q_j=0 for each pair, which forces q=0 for n≥3. For the spectrum, the degree-four zonal kernel normalized to dimension at equal points gives (6). A difference of the sign samples cancels all cross-pair entries and contributes k_1−k_0. For the sum samples, distinct edges sharing one vertex give 2k_q and disjoint edges 2k_0, giving exactly (7). The incidence decomposition MM*= (n−2)I+J gives the pair sector and the standard and constant 2×2 blocks. Those blocks each have one zero eigenvalue in every copy, by the already proved rank and their positive short-root diagonal; their traces factor as stated in (2). For the collision and extremum checks write c=n(n+6)/24. In units of c the differences std−odd, pair−odd, std−pair, triv−pair and triv−std factor as (n+2)(n−8)²/8, (n+2)(20−n)/4, (n+2)(n−12)(n−2)/8, (n+4)(n−1)(n−6)/4, and n(n+10)(n−4)/8, respectively. The remaining difference triv−odd is (n³−4n²−4n+64)/4>0 for n≥3. These give the asserted collisions and active extrema with the absent pair sector at n=3. The ratios at n=3,4,5,6 are 33/8, 3, 9/4, 15/8; the next ratio at n=7 is 121/60. The two rational formulas in the proof are strictly increasing on their subsequent intervals by their given derivatives and agree at n=20. Thus the sharp minimizer and normalization are correct. Replay: RESULT.md equations (1)–(7) and steps 3–4. The supplied symbolic/finite diagnostic code was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed all-degree theorem includes degree four explicitly in its hypotheses and includes the same pair, standard and constant decompositions. Dunkl examines Gram matrices of invariant-harmonic bases, while Bajnok gives weighted Euclidean design conditions for orbit unions. The Delsarte–Goethals–Seidel full text was not available in the bounded inspection."
+        ],
+        "reasoning": "The classical sources supply relevant machinery, not evidence by themselves of this rank or condition number. It is the all-degree two-shell theorem that directly covers the same evaluation operator.",
+        "searches": [
+          "Resultary 31bca29d501b, all-degree spectrum",
+          "Dunkl math/0207122",
+          "Bajnok arXiv:2406.04023v1, Theorem 3",
+          "Delsarte–Goethals–Seidel, DOI 10.1007/BF03187604"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, check_bn4.py and VERIFICATION.md",
+        "Resultary 31bca29d501b",
+        "Dunkl math/0207122",
+        "Bajnok arXiv:2406.04023v1",
+        "Delsarte–Goethals–Seidel bibliographic record",
+        "IEEE 720545 search identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the three degree-four Gegenbauer values into the indexed scalars and matrices gives the same four eigenvalue polynomials and two rank-one block types. Writing B_ij=(y_ij^++y_ij^-)/√2, the two rank-one image lines give 2√2 MB=(n−8)s in the centered sector and 2√2 MB=(2n−8)s in the constant sector. This is exactly (1) after combining sectors; ker M contributes no constraint. A pseudoinverse of the Gram already gives a harmonic interpolant via the reproducing kernel. The differences and ratios in the correctness assessment then give the collisions and unique n=6 minimizer by direct algebra."
+        ],
+        "reasoning": "These are direct consequences of the stronger exact matrices, not just similar looking samples or a large formula search. The particular sparse polynomial right inverse in the frozen proof is not quoted in the other record, but the Finding asserts no separately motivated sparsity, optimality, or other property of that right inverse. Its formula results by solving the same harmonic coefficient equations.",
+        "searches": [
+          "Resultary 31bca29d501b, even blocks and incidence decomposition",
+          "Replay of the ℓ=4 normalized blocks against frozen equations (1), (2), and (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized full-root Gram in 31bca29d501b uses the diagonal-one Gegenbauer kernel. In even degree, antipodal evaluations coincide. In a basis of normalized antipodal sums, the nonzero full Gram block is 2K_n/d_4, where d_4 is the harmonic dimension; the antisymmetric block vanishes."
+        ],
+        "reasoning": "Counting measure versus diagonal-one normalization changes every eigenvalue by the same scalar, and the antipodal quotient changes only the forced zero block and that scalar. It does not produce a different finite sampling problem.",
+        "searches": [
+          "Type-B spherical-harmonic evaluation, two root orbits, exact degree four, Gram spectrum and interpolation",
+          "Resultary 31bca29d501b, Finding and even-degree blocks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "31bca29d501b gives two even-degree scalars with multiplicities C(n,2), C(n,2)−n, and the standard and constant 2×2 blocks with multiplicities n−1 and 1. Their entries agree term by term with the frozen blocks when rescaled by d_4/2 and evaluated at ℓ=4."
+        ],
+        "reasoning": "Although the catalogue does not tabulate all quartic coincidences or single out n=6, it gives the exact data needed without further sampling geometry. The absence of those phrases is not evidence of an independent result.",
+        "searches": [
+          "Local Resultary semantic lookup for exact type-B two-shell harmonic sampling and degree-four eigenvalue branches"
+        ]
+      },
+      "rationale": "The strongest distinct indexed record gives all-degree unweighted sampling on precisely the same two normalized root orbits. Its parity reduction and dimension normalization account for the apparent differences in the Gram matrices. At degree four its sectors are exactly those underlying this Finding; the spectrum, rank and range relations follow by elementary specialization, and the collision and minimizer reduce to comparison of the resulting four polynomials. The monomial interpolant is a convenient explicit implementation, but in the stated scope it does not establish a separate invariant or interpolation guarantee beyond the known blocks. The frozen result is mathematically correct; substantial coverage and direct implications, not dates or inaccessible papers, dispose of the originality claim. No priority or derivation order is asserted.",
+      "residual_risks": [
+        "Older association-scheme and design sources may also contain equivalent block information; lack of access does not settle that issue.",
+        "No priority or provenance of the overlapping records was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage; quartic numerical and image assertions follow by specialization",
+          "evidence": "The positive sectors and their matrices are explicit and the incidence maps identify their subspaces; the full-root normalization and even-degree parity are specified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-all-degree-spherical-harmonic-spectra-on-the-two-root-shel--31bca29d501b/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3214; even-block proof and rank arguments, offsets 4326–7941",
+          "method": "Local mirror",
+          "title": "Exact all-degree spherical-harmonic spectra on the two root shells of type B",
+          "trigger": "Same two shells with a theorem for every harmonic degree"
+        },
+        {
+          "assessment": "Different Gram matrix",
+          "evidence": "The inner products are of basis polynomials in the invariant harmonic space, not root-node evaluation vectors.",
+          "identifier_or_url": "arXiv:math/0207122",
+          "material_read": "p. 1 and p. 14 (OA offset 58110 for the Gram discussion)",
+          "method": "Lawful primary OA passage inspection",
+          "title": "Symmetric Functions and B_N-invariant Spherical Harmonics",
+          "trigger": "Same signed-permutation group and candidate quartic Gram formulas"
+        },
+        {
+          "assessment": "Weighted cubature/design questions, not the unweighted range and all sectors",
+          "evidence": "The theorem investigates orbit-union weights and moment/design conditions.",
+          "identifier_or_url": "arXiv:2406.04023v1",
+          "material_read": "Theorem 3, p. 4 (offset 13500)",
+          "method": "Lawful primary OA passage inspection",
+          "title": "Orbits of the hyperoctahedral group as Euclidean designs",
+          "trigger": "Design conditions on the same symmetry orbits"
+        },
+        {
+          "assessment": "Unresolved as a potential older source, not the basis of the verdict",
+          "evidence": "No statement-level conclusion drawn from unavailable text.",
+          "identifier_or_url": "DOI:10.1007/BF03187604",
+          "material_read": "Bibliographic identification; no primary full-text passage obtained",
+          "method": "Bounded lawful retrieval",
+          "title": "Spherical Codes and Designs",
+          "trigger": "Foundational design and association-scheme equivalences"
+        },
+        {
+          "assessment": "Unresolved; not evidence for or against exact coverage",
+          "evidence": "No exact type-B quartic assertion was verified from this source.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/720545",
+          "material_read": "Search identification only; no primary passage obtained",
+          "method": "Lawful OA retrieval did not return readable full text",
+          "title": "Association schemes and coding theory",
+          "trigger": "Nearest association-scheme search result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact image constraints and spectral conditioning matter for solvability and noise amplification on a natural two-orbit sample set. The family-specific n=6 comparison is useful as an interpretation of the spectrum, not a global design optimum. The covered formulas and direct specializations remain useful mathematics, but the narrower monomial recipe alone does not supply a distinct contribution worth proposing as a repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:52:24.373526Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Najafian–Vermeire arXiv:2401.14508v1, equations (2.12)–(2.15)",
+        "Independent replay: python3 /workspace/branches/frozen_review_algebra.py (record 4 block)"
+      ],
+      "rationale": "The two stages give z_i^+=(1-cv_i)z_i+hω_iJz_i, and orthogonality reduces conservation to M_1-2cM_1+c²M_2=0. Both moments are strictly positive; the source's plus-root for ε gives the smaller c root, valid up to the double root M_2=M_1. At each successful step the active set is unchanged because F_i>=v_i>0. Writing r=M_2/M_1, the top factor exceeds each lower factor by c²(v_*-v_i)(v_*+v_i-r)>=(v_*-v_i)v_i/4. For v_*<=1, F_*<=2 on the near branch, so every lower-to-top ratio contracts uniformly, and total energy conservation implies the stated geometric concentration; the top group grows strictly whenever a lower group is active. For v_*>1, r<=1 forces F_*>=1+v_*(v_*-1)/4 at each successful step, giving the floor bound and ruling out indefinite feasibility. The exact example has initial M_1-M_2=3/256 and strictly negative next gap; independent symbolic reconstruction checks the discriminant scaling and witness.",
+      "residual_risks": [
+        "Exact arithmetic, fixed step and finitely many orthogonal linear oscillator modes only. No assertion for general nonlinear equations, roundoff, or adaptive steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed finite-step result proves the identical logarithmic bound even with arbitrary switching between both roots and includes the sharp initial-energy feasibility frontier for two modes.",
+          "The source's Fourier advection examples concern RF/R-RK(4,4). Resultary 3016d962c708 instead treats RK4 with a quasi-orthogonal projection."
+        ],
+        "reasoning": "Only the finite-loss comparison has the same underlying scheme and strictly broader branch quantification; the other methods are context, not substitutes.",
+        "searches": [
+          "Resultary 2b21777e5740, Finding and Proof §§4–5",
+          "Najafian–Vermeire arXiv:2401.14508v1 §2.3 and §4.1",
+          "Resultary 3016d962c708, Finding and Proof §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2b21777e5740",
+        "Najafian–Vermeire arXiv:2401.14508v1",
+        "Resultary 3016d962c708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed record's multiplier is 1+b²r_j(r_j−μ). With μ<=r_* its top-minus-lower difference is at least r_j(r_*−r_j)/4. The near root is at most 1 and r_*<=1, so the top multiplier is at most 2. This gives the frozen ratio contraction directly.",
+          "The foundational primary paper specifies (1,−1) and the small-step branch but illustrates modal transfer for other examples, not this oscillator iteration theorem."
+        ],
+        "reasoning": "The indexed exact update and perpetual feasibility yield the unstated geometric concentration by a one-step ratio estimate and conservation. Narrowing to this immediate corollary or the changed witness is not a substantive repair.",
+        "searches": [
+          "Resultary 2b21777e5740, Finding modal update and all-step classification",
+          "Najafian–Vermeire arXiv:2401.14508v1 §2.3 equations (2.12)–(2.15) and §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "That record uses r_j=v_j, (U,V)=(M_1,M_2), μ=V/U and b=c, and states exactly μ<=1 for a step and r_*<=1 for perpetual feasibility."
+        ],
+        "reasoning": "This is the same stage direction, equivalent scalar real root condition, and same absolute active-frequency boundary, not a similar method on different equations.",
+        "searches": [
+          "Resultary: fixed-step relaxation-free SSPRK(2,2) oscillator real-solvability frequency boundary and energy cascade",
+          "Resultary 2b21777e5740, Finding and Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For h=1 and frequencies (1/2,3/2), the indexed record exhibits (E_1,E_2)=(27,1), initial real near root, and next discriminant −108, while the frozen example uses (1,1/16)."
+        ],
+        "reasoning": "The numerical tuples differ, but the indexed exact example already demonstrates the same one-success phenomenon at exactly the same two frequencies. The frozen tuple is another substitution into the known exact update and criterion.",
+        "searches": [
+          "Resultary 2b21777e5740, Proof §§5–6, exact frontier and witness"
+        ]
+      },
+      "rationale": "The indexed October 25 Resultary record gives the same one-step formula and global sharp feasibility boundary, identical finite-failure bound, and a one-success witness at the same frequencies; it strengthens the loss-of-feasibility result to arbitrary real-root switching. The date-coded ordering does not establish priority. The subcritical geometric cascade is not separately stated there, but follows directly by comparing factors in that record's exact modal update and using its all-step feasibility theorem. The differing energies in the witness do not supply a distinct obstruction.",
+      "residual_risks": [
+        "Relative priority and provenance cannot be inferred from the dated paths. The comparison is mathematical coverage, not a priority or attribution finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong theorem-level coverage and stronger branch quantification",
+          "evidence": "Same modal formula and logarithmic bound, either root, an exact two-mode frontier and one-success witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-finite-step-loss-of-an-energy-conserving-runge-kutta-correction--2b21777e5740/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–6; introductory passage and offset 5200 onward rechecked",
+          "method": "Resultary index and local mirror",
+          "title": "Finite-step loss of an energy-conserving Runge–Kutta correction on skew oscillators",
+          "trigger": "Exact scheme and finite-step breakdown at the same active-frequency threshold"
+        },
+        {
+          "assessment": "The method and branch are prior; the numerical modal examples use different schemes/systems",
+          "evidence": "Zero-sum output perturbation, plus-square-root branch, prescribed (1,−1) direction; high-mode damping examples for RF/R-RK(4,4).",
+          "identifier_or_url": "arXiv:2401.14508v1",
+          "material_read": "§2.3 pp.4–6, equations (2.12)–(2.15); p.10 direction choice; §4.1 p.11 modal examples",
+          "method": "OA PDF passages",
+          "title": "Energy Conservative Relaxation-Free Runge-Kutta Schemes",
+          "trigger": "Origin of the SSPRK(2,2) correction and branch"
+        },
+        {
+          "assessment": "Distinct algorithm and boundary",
+          "evidence": "RK4 quasi-orthogonal projection, modal transfer controlled by Q(ωh), not RF-SSPRK(2,2) positivity and feasibility.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708/RESULT.md",
+          "material_read": "Finding and Proof §2",
+          "method": "Resultary index and local mirror",
+          "title": "A unique symplectic timestep and sharp modal energy reversal",
+          "trigger": "Exact modal energy transfer on oscillators"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Resultary 2b21777e5740, Finding"
+      ],
+      "rationale": "The combination of exact conserved total energy, systematic loss of lower-modal invariants, and sharp eventual loss of the correction above the spectral boundary is an informative warning about long integrations. The scientific usefulness of those results does not make the rederived boundary or the alternate witness an incremental contribution.",
+      "residual_risks": [
+        "No evidence for extrapolation to nonlinear systems, general PDE integrators or practical finite-precision failure times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

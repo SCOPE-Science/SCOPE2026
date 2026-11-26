@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:21:57.989402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45 and 53–55",
+        "VERIFICATION.md",
+        "verify_matching_skeletons.py",
+        "verify_small_posets.py",
+        "verify_stabilizers.py"
+      ],
+      "rationale": "Every equitable class in any finite strict poset is an antichain, since a minimal element of the induced order has zero internal predecessors. Thus the target and any matching competitor have only singletons and doubletons. In the target, two doubletons must have a cross-comparison by width. If both directions occurred, regularity would force indegree and outdegree one on the full bipartite four-cycle, impossible. The profile therefore gives either a directed matching or a complete order between each pair, in the competitor as well. Any two successive directed relations between doubletons compose to a nonempty relation, hence the quotient order is total. A matching from i to k forces both legs through every intermediary j to be matchings, since a complete leg composes with a regular nonempty leg to a complete comparison. Transitivity also forces the long matching to equal the composition. Consequently each interval spanned by a matching edge is a matching clique, and one may choose labels along consecutive matched pairs so that every longer matching is label-preserving. This gives reconstruction even if the competing strict poset has no width promise. It also yields a perfect elimination order and shows that the only flips are independent simultaneous flips on connected matching components, so that stable classes are precisely orbits. To make the logical bound explicit, use one-variable colour definitions of quantifier rank ≤t for t≤|P|−1, include the rank-≤t+1 coverage conjunct that each vertex has some listed colour, and enforce class sizes and interclass counts up to rank t+2. Coverage rules out extra, unlisted colours. Initial named unary colours cost rank zero and are preserved. The empty matching graph and n=1 both satisfy the formulas. The three checkers and verification record were inspected statically, not replayed; the finite counts are not premises of the proof.",
+      "residual_risks": [
+        "The partition argument uses the semantic strict-poset promise. In the source's short description of the characteristic sentence, coverage by the listed colour classes should be explicit; this adds no rank and does not change the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer–Schweitzer–Selman ec-POG characterization requires a forest skeleton in the unrestricted-identification setting.",
+          "Gajarský et al. bound parameterized first-order model-checking time on bounded-width posets.",
+          "The forest-order theorem has all finite strict posets as competitors but restricts the target to forest orders."
+        ],
+        "reasoning": "An unrestricted characterization of globally identified targets does not settle reconstruction for targets with nontransitive equivalent competitors. A model-checking algorithm gives no identification theorem. The exact all-size forest-order result does not dominate width two as a target hypothesis.",
+        "searches": [
+          "arXiv:1503.08792 Theorem 27 and Corollary 29",
+          "arXiv:1504.04115 Abstract",
+          "Resultary 15f31fa75c06"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 15f31fa75c06, 01bf6e8789db, 39e17b148bc6",
+        "arXiv:1503.08792 §5 and Corollary 6",
+        "arXiv:1502.01255",
+        "arXiv:1504.04115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kiefer–Schweitzer–Selman give an orbit consequence for globally identified graphs and a characterization of unrestricted identification.",
+          "The forest-order result gives stable orbit recovery and a height-dependent rank bound, but no matching graph for general width-two targets.",
+          "Two disjoint three-element chains admit the nontransitive stable-profile twin formed by crossing only the bottom-to-top matching."
+        ],
+        "reasoning": "The twin witnesses a failure of the unrestricted premise: crossing this matching preserves directed equitable counts and changes transitivity. Width-two rigidity needs the transitive composition condition that constrains long matchings; neither a general orbit theorem with the global premise nor the forest-order result supplies that condition for this class.",
+        "searches": [
+          "Kiefer–Schweitzer–Selman Corollaries 6 and 29 and Theorem 27",
+          "Resultary 15f31fa75c06 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The forest-order Finding gives relative identification by directed refinement and stable orbit classes.",
+          "Kiefer–Schweitzer–Selman define identification across all structures of the signature; Arvind et al. report the general graph refinement/counting correspondence."
+        ],
+        "reasoning": "Replacing the logic formulation by directed refinement exposes the genuine class distinction. A width-two diamond has a principal ideal containing an incomparable pair, so is not a forest order; a forest order can have width greater than two. Duality does not put the self-dual diamond in either forest-order orientation.",
+        "searches": [
+          "Resultary relative counting identification for width-two posets; closest Resultary 15f31fa75c06",
+          "arXiv:1503.08792 §5",
+          "arXiv:1502.01255 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "01bf6e8789db concerns degree-pair collisions through six points.",
+          "39e17b148bc6 concerns height-two dimension-at-most-two posets through ten points."
+        ],
+        "reasoning": "A degree-pair profile is coarser than the full stable profile, and finite, bounded-height coverage does not determine the all-size strict-poset statement or matching graph structure. Neither finite scope dominates the assigned parameters.",
+        "searches": [
+          "Resultary 01bf6e8789db, 39e17b148bc6"
+        ]
+      },
+      "rationale": "The strongest indexed overlap gives relative counting-logic identification and orbit recovery for forest orders. This class intersects but does not contain width-two posets, and the report does not give the width-two matching rigidity, chordality or flip group. The general C² literature treats identification among arbitrary relational structures, which fails for some frozen targets and so cannot simply be applied. The supported distinction is the all-size width-two reconstruction under the strict-poset promise coupled with the explicit automorphism structure, not the general connection between refinement and C².",
+      "residual_risks": [
+        "A specialized earlier poset rigidity result could remain unlocated; the focused external lookup furnished no useful additional passage and does not establish absence.",
+        "No same-day priority is inferred for the forest-order result. The Immerman–Lander chapter itself was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not relative identification within the semantically restricted class",
+          "evidence": "Global sentence uniqueness and forest skeleton characterization; orbit consequence for globally identified graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "Definition p. 4; Corollary 6 p. 9; Theorem 27 p. 26 and Corollary 29 p. 27; offsets 13218, 27198, 79000, 84959",
+          "method": "Primary OA PDF passages",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "Closest general C²-identification characterization"
+        },
+        {
+          "assessment": "Material nonnested overlap",
+          "evidence": "All finite forest-order targets, all finite strict-poset competitors, rank bound max{2,h+1} and stable colour classes equal orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-height-bounded-counting-logic-identification-of-finite-forest-or--15f31fa75c06/RESULT.md",
+          "material_read": "Finding and assumptions at mirror offset 0",
+          "method": "Resultary and primary local mirror",
+          "title": "Height-bounded counting-logic identification of finite forest orders",
+          "trigger": "Closest distinct indexed result with the same comparator class"
+        },
+        {
+          "assessment": "Established background, not poset rigidity",
+          "evidence": "Reports the graph refinement/C² correspondence and identifies the original chapter.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "p. 2, offset 5736; bibliography p. 23, offset 72867",
+          "method": "Primary OA PDF; original Immerman–Lander chapter attempt returned 404",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Standard equivalence between refinement and counting logic"
+        },
+        {
+          "assessment": "Different task",
+          "evidence": "Parameterized model-checking bound f(phi,w)n², not an identification or orbit classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.04115",
+          "material_read": "Abstract p. 1, OA offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "FO Model Checking on Posets of Bounded Width",
+          "trigger": "Same bounded-width target family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof steps 1–7",
+        "arXiv:1503.08792 Theorem 27 and Corollary 29",
+        "Resultary 15f31fa75c06 Finding"
+      ],
+      "rationale": "The result identifies a natural bounded-width family from a weak invariant even against unbounded-width strict-poset competitors, and identifies precisely which automorphisms remain after refinement. The transitivity-induced composition rule explains why matching ambiguities that obstruct unrestricted identification disappear. It yields a full reconstruction and elementary abelian symmetry group, not merely a fixed-size collision count or an invocation of generic C² machinery.",
+      "residual_risks": [
+        "No claim of optimal logical rank or extension to width three or to arbitrary directed structures is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

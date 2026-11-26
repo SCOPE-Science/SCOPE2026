@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:51:30.615512Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–92",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt; uploaded script inspected, not executed",
+        "Independent replay: generate records from 5 by r←r+λ(r−1) up to p_15=47, count each residue in [p_k,p_{k+1}) for k=4,…,14, and iterate w_k=p_k w_{k−1}−s_k from (5,4); exact integer certificate reproduced"
+      ],
+      "rationale": "The prior turning-point recurrence starts at 5. A skipped prime would give a smaller integer greater than 1 coprime to r−1 than its least missing prime, impossible. Inside each length-P_n translate, λ(t+jP_n)=λ(t) for 0<t<P_n; at a block endpoint λ(jP_n)=p_{n+1} for 1≤j<p_{n+1}. Starting from 31 this gives exact copies and the residue recurrence because 6 divides P_n. The odd spacing and Bertrand's bound give s_k(a)<p_k/2, so e_n(a)=P_n∑_{k>n}s_k(a)/P_k lies in [0,1). For t complete primorial lengths the accumulated tail satisfies t e_n≤s_{n+1}+1, not an uncontrolled error per block. The prefix agrees with t w_n+C_a(u) for u≥p_{n+1}; below that it is constant except for the record at tP_n+1. Counting the endpoint at u=0 with that record excluded gives the displayed two-case discrepancy recurrence. Since s_{n+1}≤(p_{n+2}−p_{n+1})/2 and the gap is at least 2, E_n≤2p_{n+1} follows by induction, and the prime number theorem gives O(log X). An independent short recurrence reproduces P_14=13082761331670030 and w_14(1)−w_14(5)=379045337581045; the two tails differ by strictly less than 1, and 35 times the lower numerator minus P_14 is 183825483666510>0.",
+      "residual_risks": [
+        "The replay certifies the finite numerators and rational comparisons, not the unbounded recurrence, discrepancy, or equivalence to turning points. Those rest on the proof and the prior characterization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The squarefree theorem includes residues 1 and 5 modulo 6 and gives the same series. Its prefix error is O(P_{n−1}+p_{n+1}²) relative to the level n−1 approximant on P_n≤X<P_{n+1}. The shift theorem concerns two-point densities Q(t)."
+        ],
+        "reasoning": "The squarefree theorem dominates density existence and adds irrationality, but its stated quantitative estimate does not give logarithmic discrepancy for all prefixes. A six-shift pair density is not the difference of one-point densities in classes 1 and 5. Both overlapping indexed records are later-dated; no external priority is inferred.",
+        "searches": [
+          "Indexed 2026/10/18/SCOPE-irrational-record-densities-in-every-reduced-squarefree-progress--4f8d1952a8f1, Finding and Proof 1–3",
+          "Indexed 2026/10/18/SCOPE-effective-six-shift-record-correlations-for-the-greedy-coprime-p--868f71ed2b6c, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Basistha–Ionascu, published version and arXiv:2302.02838v5",
+        "Indexed records 4f8d1952a8f1 and 868f71ed2b6c, actual result passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader indexed proof supplies a tail bound T_n≤(p_{n+2}−p_{n+1})/(2p_{n+1})+1/[2(p_{n+1}−1)], already <1 for n≥3, so inserting the two w_14 values would give the same strict enclosure. Its proof for general prefixes truncates the block analysis and retains an error of order P_{n−1}+p_{n+1}²."
+        ],
+        "reasoning": "The tail certificate alone is largely arithmetic once that recurrence and estimate are available; it is not treated as a distinct general theorem. The all-prefix logarithmic bound instead uses the exact prefix identities with boundary corrections and the amplification identity p_{n+1}e_n=s_{n+1}+e_{n+1}. It is not obtained by specializing the larger indexed theorem's error bound.",
+        "searches": [
+          "Published Basistha–Ionascu, Theorem 2.24 and Eq. (9)",
+          "Indexed 4f8d1952a8f1 Proof 2–3, local-mirror offset 1786",
+          "Frozen RESULT.md, lines 68–92"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Definition 2.23 gives the least prime nondivisor recurrence for the same records. Theorem 2.24 and Eq. (9) concern the aggregate count and its total-count recurrence. Indexed 4f8d1952a8f1 uses the same recurrence residue by residue."
+        ],
+        "reasoning": "Turning-point and least-prime-nondivisor formulations are the same object, not independent novelty. The aggregate density is the sum of the two residues and does not give either the signed bias or two individual prefix errors.",
+        "searches": [
+          "Resultary: greedy coprime records, residue-specific primorial densities and counting error",
+          "Basistha–Ionascu, arXiv:2302.02838v5 and published DOI 10.59277/RRMPA.2025.235.255"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A261271 indexes the record sequence; the checked indexed theorem verifies finite block recurrences and describes numerical truncations modulo 3. The explicit modulo-six inequality is verified by the level-14 computation, not by appealing to a sequence listing or fitting its values."
+        ],
+        "reasoning": "A sequence listing or finite table of records can reproduce part of the arithmetic but does not certify the limiting signed difference without the tail bound, nor the uniform asymptotic without prefix control.",
+        "searches": [
+          "Resultary 4f8d1952a8f1, verification and residue-tail formulas",
+          "OEIS A261271, sequence identifier cited in the frozen record",
+          "Frozen level-14 certificate and independent finite replay"
+        ]
+      },
+      "rationale": "Prior work has the aggregate density and the primorial mechanism. A distinct, later indexed theorem covers classwise density existence and the same series for a larger family; the signed enclosure can be read out of its general tail bound after a finite calculation. What survives these comparisons is the uniform classwise O(log X) discrepancy, which is much stronger than the indexed prefix estimate, together with its application to this exact biased pair of densities.",
+      "residual_risks": [
+        "A sharper prefix estimate in other sequence or discrepancy literature may remain unlocated; a bounded search cannot rule it out. Broad density existence is explicitly shared, not claimed original on its own."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Aggregate prior, not a residue-wise logarithmic theorem",
+          "evidence": [
+            "Same record recurrence; total counts w_{n+1}=p_{n+1}w_n−s_{n+1} and aggregate natural density κ."
+          ],
+          "identifier_or_url": "https://imar.ro/journals/Revue_Mathematique/pdfs/2025/3-4/4.pdf",
+          "material_read": "PDF p. 16, Definition 2.23, Theorem 2.24 and Eq. (9); arXiv:2302.02838v5 pp. 14–15, Theorems 2.12–2.13",
+          "method": "Published OA PDF and preprint",
+          "title": "Permutations of ℕ and primorial numbers",
+          "trigger": "Original same-sequence primorial-copy and density theorem"
+        },
+        {
+          "assessment": "Covers density existence, series and tail principle for both classes, but not the target prefix-error bound",
+          "evidence": [
+            "Reduced squarefree classes include modulus 6; the prefix error uses P_{n−1}+p_{n+1}², and the displayed tail bound implies the finite enclosure when supplied with the target counts."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-irrational-record-densities-in-every-reduced-squarefree-progress--4f8d1952a8f1",
+          "material_read": "RESULT.md Finding, proof of counting and tails (offset 1786), and relationship to prior work",
+          "method": "Resultary and local mirror",
+          "title": "Irrational record densities in every reduced squarefree progression",
+          "trigger": "Strongest indexed match; includes the target modulus"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Q(t) counts pairs of records at distance t, not records in fixed modulo-six classes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-effective-six-shift-record-correlations-for-the-greedy-coprime-p--868f71ed2b6c",
+          "material_read": "RESULT.md Finding, offset 0–2600",
+          "method": "Resultary and local mirror",
+          "title": "Effective six-shift record correlations for the greedy coprime permutation",
+          "trigger": "Same sequence and distinguished step six"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 39–92",
+        "Published aggregate density theorem",
+        "Indexed 4f8d1952a8f1, Full natural density proof"
+      ],
+      "rationale": "Modulo six is the natural first split because the record recurrence forces records into precisely its two reduced classes. The signed result resolves persistent asymmetry rather than describing a short numerical fluctuation, and the logarithmic absolute error makes that distinction quantitative for all cutoffs. The essential gain is that prefix error, not the number of digits in the finite enclosure.",
+      "residual_risks": [
+        "The theorem does not show optimality or a lower bound for the order of discrepancy, and does not claim this sharp upper bound for every modulus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:17:34.005787Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniform labelled GL_n matrix at fixed q, multiplying an ideal vector by e_i puts e_i^2 in the ideal whenever its i-coordinate is nonzero. The squares are independent, so the ideal equals the coordinate span of its union of supports. The zero-cut block count is |GL_r||GL_(n-r)| q^{r(n-r)}. For r=1 or n-1 the exact probability is (q-1)/(q^n-1). Two of the 2n row/column cut events impose at least 2n-3 distinct zeros. Conditioning an independent uniform matrix on invertibility costs at most the reciprocal of the positive infinite product of (1-q^{-j}). Bonferroni gives the stated singleton-union error. In the middle-cut sum the successive term ratio tends uniformly to zero up to n/3; beyond n/3 through n/2 the sum is bounded by 2^n q^{-2n^2/9+O(n)}. The r=2 term dominates this error bound by symmetry. Row-only and column-only masses are each asymptotic to n(q-1)/(q^n-1); the intersection is negligible, not identically empty. Reviewer replay `python3 /workspace/review-evidence/1.py` verified every fixed cut at q=2, n=2,3,4 and the nonsimple counts 3, 88, 8502 by independent enumeration of ordered row bases. It tests neither all ideals as subspaces nor the asymptotic; those follow from the proof. The ensemble is not uniform over isomorphism classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem gives |S_(n,q)-2n nu_(n,q)| <= 6 kappa n^2 q^{-2n+4} for n>=16 uniformly in q, plus a strong-connectivity conclusion for the remaining vertices.",
+          "Salmond et al. consider independent entries subject to zeros and bound the probability of full rank; that alone is not the conditioned law."
+        ],
+        "reasoning": "The uniform bound implies the frozen fixed-q error for every fixed q. The rank estimates and graph-theory precedents are weaker comparisons, not the reason for failure.",
+        "searches": [
+          "SCOPE-sharp-simplicity-indecomposability-gap-for-random-perfect-evolut--bb82dbd74a4d, RESULT.md, offsets 0 and 4300",
+          "arXiv:1404.3250, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected, not run",
+        "SCOPE-sharp-simplicity-indecomposability-gap-for-random-perfect-evolut--bb82dbd74a4d",
+        "arXiv:2605.12672v1",
+        "arXiv:1312.4685",
+        "arXiv:1404.3250"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compared theorem gives one off-diagonally zero row or column with high conditional probability and a strongly connected complement. The law on GL_n and the failure event are transpose invariant. Opposite-direction overlaps are negligible by its unique-cut structure or directly by the 2n-3 zero bound."
+        ],
+        "reasoning": "Swapping row and column exchanges the exclusive mechanisms exactly. Their union has limiting conditional probability one, so each has limiting probability one half, without requiring that the other text print the number one half. The graph/indecomposability precedent alone would not imply this.",
+        "searches": [
+          "SCOPE-sharp-simplicity-indecomposability-gap-for-random-perfect-evolut--bb82dbd74a4d: conditional Finding and proof of one-vertex law",
+          "arXiv:1312.4685, Proposition 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed theorem uses labelled uniform GL_n and writes its leading term as 2n nu_(n,q), with nu_(n,q)=(q-1)/(q^n-1), algebraically the same coefficient."
+        ],
+        "reasoning": "The graph failure event is exactly nonsimplicity by the ideal dictionary. The leading term is not merely asymptotically comparable under a different ensemble; it is the same exact finite-n expression.",
+        "searches": [
+          "Resultary: uniform GL_n perfect evolution algebra coordinate cuts sharp nonsimplicity and row/column witnesses",
+          "SCOPE-sharp-simplicity-indecomposability-gap-for-random-perfect-evolut--bb82dbd74a4d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked catalogue RESULT gives exact one-way U_S and two-way V_S cut counts. Its one-way count is the same block-triangular count; the two-way count goes beyond the frozen claim."
+        ],
+        "reasoning": "This is an exact formula match, not a comparison based on the handful of small-field totals.",
+        "searches": [
+          "Resultary: exact fixed coordinate cut probabilities under GL_n; singleton ideal counts"
+        ]
+      },
+      "rationale": "A distinct checked catalogue result covers the headline law with a stronger uniform estimate and structural witness. Its coefficient and cut formula are identical, and its unique one-vertex mechanism logically implies the stated equal directional weights by transpose symmetry. This is an equivalent-coverage decision, not a historical priority determination or a finding of impropriety. The elementary ideal dictionary is not a separately substantial surviving claim.",
+      "residual_risks": [
+        "The catalogue dates October 18 and November 8 establish neither proof priority nor dependence. No priority verdict is asserted.",
+        "Scope of earlier ideal-dictionary literature was not exhaustively reconstructed; duplication of the main contribution suffices for the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the headline law and the directional split by implication; does not explicitly claim the entire ideal-lattice bijection in the inspected passages",
+          "evidence": "Uniform n>=16 bound with leading term 2n(q-1)/(q^n-1), one-way U_S count, and unique singleton obstruction with strongly connected remainder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-simplicity-indecomposability-gap-for-random-perfect-evolut--bb82dbd74a4d/RESULT.md",
+          "material_read": "Finding and cut bounds at offsets 0 and 4300, related work at 10355",
+          "method": "Read actual RESULT.md in local catalogue mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp simplicity–indecomposability gap for random perfect evolution algebras",
+          "trigger": "Strongest same-ensemble sharp probability hit"
+        },
+        {
+          "assessment": "Graph background; the inspected statements are for structured expander algebras, not the conditional probability calculation",
+          "evidence": "Connectivity via expansion; simplicity for symmetric expanders.",
+          "identifier_or_url": "arXiv:2605.12672v1",
+          "material_read": "Abstract and introduction around offsets 739 and 3197, including references to Theorems 3.6 and 3.8",
+          "method": "Primary OA HTML",
+          "title": "Expander Evolution Algebras",
+          "trigger": "Graph simplicity precedent"
+        },
+        {
+          "assessment": "Foundational graph/indecomposability result, not the probabilistic law",
+          "evidence": "With zero annihilator, indecomposability iff the graph is connected.",
+          "identifier_or_url": "arXiv:1312.4685",
+          "material_read": "Abstract and Section 2 Proposition 2.8, offset about 8000",
+          "method": "Primary OA HTML",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Graph dictionary precedent"
+        },
+        {
+          "assessment": "Related rank bounds, not equal-ensemble rare-event coverage in the inspected statements",
+          "evidence": "Adding forced zeros does not increase full-rank probability; block-diagonal zeroing yields bounds.",
+          "identifier_or_url": "arXiv:1404.3250",
+          "material_read": "Abstract and Theorems 1–2 with zeroing discussion, offset about 8500",
+          "method": "Primary OA HTML",
+          "title": "On the rank of random matrices over finite fields",
+          "trigger": "Predetermined zero constraints may enable rank conditioning"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the conditioning-dependent coefficient and concentration on one-vertex ideal mechanisms give a useful exact benchmark for random labelled perfect algebras that independent-edge heuristics miss. The isolated ideal dictionary or a replay of small labelled counts would not independently justify a repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

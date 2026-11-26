@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:44:24.256383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Original RESULT.md line 16 and proof §§2–4",
+        "Corrected /workspace/repairs/4/RESULT.md, Finding, scope, §§1–4 and verification notes",
+        "VERIFICATION.md and verify_ternary_pencil.py (inspected, not executed)",
+        "Independent replay: python /workspace/branches/finite_math_replay.py, ternary_pencils()"
+      ],
+      "rationale": "Re-audited the full corrected RESULT.md with geometric smoothness defined by the simultaneous vanishing of the equation and all partials. The brief blocking-size double-count excludes blocking sets of size ≤5 containing no full line; a smooth cubic has no full line by Bézout. All four rational fibers have points by Hasse and their rational point sets partition the 13 points when there is no rational base point, so two blocking fibers are impossible. An independent exact replay computed 29524 scalar classes, verified injective cubic point evaluation, recovered exactly 936 smooth blocking equations in the model's PGL orbit, and enumerated distinct pencils through it directly as sets of the three complementary scalar-normalized forms. The replay used a separate geometric-smoothness criterion: reject a rational line component, an empty rational point set or a rational singularity. A geometrically integral singular cubic has exactly one singular point by its genus defect, hence a rational one. A geometrically reducible cubic with no rational line must be three conjugate lines; any rational point common to its support then lies on all conjugates and is singular. Thus the alternative test is exact, and no finite extension cutoff is needed. The result is 312 pencils with profile frequencies 24, 132, 42, 114 as stated; the example belongs to the 132 class. Transitivity transfers this to each of the 936 blocking equations. Uniqueness gives 936·312=292032 without multiple counting. The repaired statement, proof and retained Gröbner verifier consistently use C=0 along with the partials; no verification-file edit is required.",
+      "residual_risks": [
+        "Exact finite classification only over F3 with all four rational members smooth; the geometric base locus need not be empty and nonrational members are not tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General blocking-pencil bounds imply at least two nonblocking members over F3, without demanding that all members be smooth; the all-nonblocking constructions treat a different condition. The pair-intersection literature counts pairs with prescribed common rational point count, regardless of the smoothness of all members of their span. The geometrically irreducible linear system literature treats existence and maximum dimension, and the one-base-point classification has a different base-locus and smoothness condition."
+        ],
+        "reasoning": "These broader statements do not test the simultaneous geometric smoothness of each rational member together with a marked blocking member, and they do not specify the distribution of the other three members' rational point counts.",
+        "searches": [
+          "arXiv:2301.06019v1 Thm. 1.4, Prop. 3.2 and its proof",
+          "arXiv:2301.09215v1 Thm. 1.1",
+          "arXiv:2003.13944v3 §1",
+          "arXiv:2407.18104v2 Thms. 2–5",
+          "arXiv:2407.04569v3 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.13299, 2301.06019, 2301.09215",
+        "arXiv:2003.13944v3, 2407.18104v2, 2407.04569v3",
+        "local Resultary and the three relevant mirrored findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blokhuis's size bound for nontrivial blocking sets over a prime field gives at least six points in each blocking fiber; disjointness in a pencil with no rational base point and Hasse for the remaining smooth members take the minimum with two blocking fibers to 6+6+1+1>13. The single-cubic orbit supplies transitivity and converts a count of blocking incidences per fixed cubic to the global count, but not the incidence count. Pairwise intersection counts likewise do not test G+F and G−F."
+        ],
+        "reasoning": "The upper bound is mechanically implied and is used accordingly in the repair. The global count is a product, not a second independent novelty. The exact 312 and its four frequencies survive as the distinct calculation, not forced by an earlier aggregate count or orbit size.",
+        "searches": [
+          "arXiv:2301.06019v1 pp. 1–2, 5–6",
+          "Resultary 7961baef95c0 and 5121735a6258 Findings",
+          "arXiv:2003.13944v3 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projective line of forms through [F] can be counted by normalized G with G,G+F,G−F smooth and G nonzero on the blocking point set; each pencil contributes three eligible choices. The same-day 7961baef95c0 result already classifies the same 936 single blocking equations without a rational line factor. The later 76ee7066ac40 result also gives the same orbit and describes a (6,3,4) profile of line-intersection counts, not point counts on three complementary pencil fibers."
+        ],
+        "reasoning": "The equivalent pencil-incidence and generator formulations make it possible to compare coverage beyond literal terms. The orbit and line-intersection profile classify a single member, not the four-member configurations counted by the repaired finding.",
+        "searches": [
+          "local Resultary for a unique smooth blocking plane cubic over F3, pencil incidence through a fixed blocking cubic, and rational base-point counts",
+          "arXiv:2208.13299v1 Ex. 3.5",
+          "arXiv:2301.06019v1 disjoint fiber formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7961baef95c0 is a demonstrable exact overlap in the 936 single-cubic count. The same-day 5121735a6258 counts 2577744 pencils with no rational base points out of 7279038 all-smooth pencils, but does not select those with a blocking member or give the other three members' profiles. The targeted searches did not yield an earlier exact table of those selected incidences."
+        ],
+        "reasoning": "The all-smooth census is relevant broader coverage but the sum over all pencils with zero rational base points does not determine a selected subcount or its distribution. Exact same-day single-cubic overlap is credited without assigning chronology.",
+        "searches": [
+          "local Resultary for 936, 312 and 292032, the blocking-fiber restriction and the four complementary profiles",
+          "plane cubic pencils F3 292032 312 smooth blocking cubic no rational base points exact census over finite fields point distributions Asgarli Ghioca Yip"
+        ]
+      },
+      "rationale": "For the repaired finding credit only the exact pencil incidence census and complementary-fiber profile frequencies. The numerical upper bound on blocking fibers is a routine corollary of earlier facts; the identical single-cubic classification is present in a separate same-day indexed result. Neither provides the count or profiles of pencils through a specified cubic, and the separately indexed base-point census does not mark blocking members. Their date supplies no ordering.",
+      "residual_risks": [
+        "No priority ordering inferred from same-day catalogue dates. Coverage of an older incidence table with other indexing remains possible. Comparisons of external papers are limited to the recorded material read, not negative claims about every passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior existence of a smooth blocking cubic, no comparable pencil incidence statement in passages",
+          "evidence": "Example 3.5 gives an F3 smooth blocking cubic; Thm. 1.3 treats the field-size boundary.",
+          "identifier_or_url": "arXiv:2208.13299",
+          "material_read": "Thm. 1.3, PDF p. 2 offset 7400; Ex. 3.5 p. 10 offset 37190",
+          "method": "primary OA PDF passages",
+          "title": "Plane curves giving rise to blocking sets over finite fields",
+          "trigger": "existence or classification of smooth blocking plane cubics over F3"
+        },
+        {
+          "assessment": "general bounds and ingredients for the repaired count's uniqueness lemma, not the census",
+          "evidence": "Theorems give lower bounds on the number of nonblocking members, and the proof invokes the minimum size of a nontrivial blocking set over prime fields.",
+          "identifier_or_url": "arXiv:2301.06019",
+          "material_read": "Introduction p. 1, Thm. 1.4 p. 2 offset 7350, Prop. 3.2 p. 5 offset 17600 and its p. 6 proof offset 20750",
+          "method": "primary OA PDF passages",
+          "title": "Proportion of blocking curves in a pencil",
+          "trigger": "same type of blocking pencil and no rational base point"
+        },
+        {
+          "assessment": "different all-nonblocking condition",
+          "evidence": "The theorem constructs pencils with all rational members nonblocking; no incidence through a blocking member is asserted.",
+          "identifier_or_url": "arXiv:2301.09215",
+          "material_read": "Thm. 1.1 p. 2 offset 5800",
+          "method": "primary OA PDF passage",
+          "title": "Existence of pencils with nonblocking hypersurfaces",
+          "trigger": "related pencil construction possibly covering existence or count"
+        },
+        {
+          "assessment": "exact single-cubic overlap, same day with unresolved order",
+          "evidence": "Exactly 936 blocking equations without a rational linear factor, one projective class of six-point smooth curves with stabilizer S3.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-nontrivial-blocking-cubic-over-the-ternary-projective-p--7961baef95c0",
+          "material_read": "Mirrored RESULT.md Finding offset 100",
+          "method": "local Resultary search and mirrored claim",
+          "title": "A unique nontrivial blocking cubic over the ternary projective plane",
+          "trigger": "exact 936-cubic classification"
+        },
+        {
+          "assessment": "broader unmarked census, same day with unresolved order",
+          "evidence": "2577744 of 7279038 all-smooth pencils have no rational base point. The reported census does not separate those with a blocking member.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-rational-base-point-census-of-all-smooth-plane-cubic-pe--5121735a6258",
+          "material_read": "Mirrored RESULT.md Finding offset 100",
+          "method": "local Resultary search and mirrored claim",
+          "title": "Complete rational-base-point census of all-smooth plane cubic pencils",
+          "trigger": "apparent exact broader ternary pencil census"
+        },
+        {
+          "assessment": "later single-cubic orbit, different type of profile",
+          "evidence": "The (6,3,4) counts concern lines categorized by size of intersection with one cubic.",
+          "identifier_or_url": "2026/10/26/SCOPE-unique-projective-class-of-smooth-blocking-plane-cubics-over-mat--76ee7066ac40",
+          "material_read": "Mirrored RESULT.md Finding, orbit and line-incidence refinement",
+          "method": "local Resultary and mirrored claim",
+          "title": "Unique projective class of smooth blocking plane cubics over F3",
+          "trigger": "936 orbit and possibly equivalent profile"
+        },
+        {
+          "assessment": "counts pairs, not pencil profile distribution with blocking and simultaneous smoothness",
+          "evidence": "Counts pairs of cubics with no common component and k rational intersection points for 0≤k≤9, with no all-members smoothness restriction in that question.",
+          "identifier_or_url": "DOI:10.1007/s40879-021-00472-x; arXiv:2003.13944v3",
+          "material_read": "OA arXiv PDF p. 1 Abstract and §1 Question 1, offsets 352–2746",
+          "method": "identified same-paper OA alternative to publisher redirects",
+          "title": "Counting plane cubic curves over finite fields with a prescribed number of rational intersection points",
+          "trigger": "exact tables of rational intersection counts for spans of pairs of cubics"
+        },
+        {
+          "assessment": "dimension and existence focus differs from census",
+          "evidence": "Theorem 2 cited there addresses maximal all-smooth system dimension; Theorem 5 gives a dimension-three system with at most one geometrically reducible rational member, not the marked-pencil census.",
+          "identifier_or_url": "arXiv:2407.18104v2",
+          "material_read": "HTML Introduction around offsets 3830–6747, Thms. 2–5 and objective",
+          "method": "primary OA HTML passage",
+          "title": "Linear system of geometrically irreducible plane cubics over finite fields",
+          "trigger": "could classify systems with all smooth rational members"
+        },
+        {
+          "assessment": "different base-locus and smoothness assumptions",
+          "evidence": "A single base point, general member smooth, and further constraints on all members, with classification up to projective transformation. This is not a count over F3 of all four smooth rational fibers and no rational base point.",
+          "identifier_or_url": "arXiv:2407.04569v3",
+          "material_read": "HTML Abstract and §1 Questions 1.1–1.2, offsets 0–1382",
+          "method": "primary OA HTML passage",
+          "title": "Pencils of plane cubics with one base point",
+          "trigger": "complete classification of smooth-related cubic pencils with controlled base locus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/4/RESULT.md Finding and limitations",
+        "arXiv:2301.06019v1 introduction and bounds",
+        "Resultary 5121735a6258 broader base-point census"
+      ],
+      "rationale": "The census is a motivated refinement of blocking-versus-nonblocking behavior in pencils, not an arbitrary coefficient slice: it simultaneously controls all four fibers over the first odd prime field, with no rational base points. The exact incidence count and its four complementary profiles tell which rational fiber configurations are realized around the exceptional blocking class and their frequencies. They can be used in finite-field pencil constructions and in comparing counts with and without incidence restrictions. The value is in this independently useful distribution, not in recomputing one cubic orbit or the simple upper bound.",
+      "residual_risks": [
+        "No asserted downstream theorem or larger-field analogue; the distinction is the exact census and not novelty of the blocking-set bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

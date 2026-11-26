@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:35:52.540731Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient polynomial extends the integer sequence without assuming that the tuple count is defined at arbitrary 5-adic parameters. I checked the logarithmic derivative b_m=σ₁(m)−25·1_{5|m}σ₁(m/5) and the coefficient recurrence. The decisive finite certificate was independently replayed by truncated Euler-product multiplication, not by executing the frozen verifier or reusing its recurrence: set K=111+125X, start with 1, and for m=1,...,39 multiply by sum_{0≤j≤floor(39/m)} (−1)^j binom(M,j) q^{mj}, with M=4K if 5|m and M=−K otherwise; discard q-powers above 39 at each step. Use binom(M,0)=1 and binom(M,j+1)=binom(M,j)(M−j)/(j+1) in exact rational polynomials. The replay found v₅(c₀)=5, v₅(c₁)=v₅(c₂)=4, residues c₁/625=c₂/625=3 mod 5, and v₅(c_j)≥6 for 3≤j≤39. Hence P is in Z₅[X] with reduction 3X(X+1); the derivative residues at 0 and 4 are 3 and 2. Hensel gives exactly one root in each of those discs, and none in the three other discs. On a root disc the difference quotient at the root is a unit, so the full integer valuation law follows, not merely a pattern at finitely many moduli. For i≥0 the count is positive by placing 39 single-box cores in distinct components. The two disjoint root classes give density 2/5^t for excess valuation at least t≥1; successive subtraction gives 3/5 at valuation 4 and 8/5^(e+1) at 4+e. This establishes only the one coefficient at n=39, not sufficiency for lifting the whole progression.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maity proves 5⁴ divides A_{5,111+125i}(125n+r) for n,i≥0 and r=39,64,89,114. Maity credits the congruences to Tang and describes proving Tang's (4.4)–(4.6).",
+          "The Liang–Tang publisher abstract describes congruence families for 4≤k≤25; full text was not obtained through the DOI or the identified publisher PDF.",
+          "Tang's journal landing page/abstract and Maity's reference locate the iterative method paper; no lawful full-text alternative was obtained in the bounded title search."
+        ],
+        "reasoning": "The broader known progression bound establishes the starting level but gives neither the derivative residues nor simplicity of any branch at higher levels. The scope asserted in the Liang–Tang abstract does not include k=111+125i; this is not an exclusion based on its entire text.",
+        "searches": [
+          "Maity arXiv:2611.00693v1 Introduction and Theorem 3.3",
+          "\"An iterative approach for proving congruences of partition\" Tang arxiv pdf \"t-cores\" 2025 JRMS 245",
+          "\"Congruences modulo powers of 5 for partition k-tuples with 5-cores\" Liang Tang arxiv preprint"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.00693v1",
+        "Tang JRMS 40(3) 245–256 (2025), landing page and citation in Maity",
+        "doi:10.1017/S0013091525000215, abstract",
+        "Resultary:230d76668728",
+        "Resultary:ba3d8a96ff84 (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known generating function determines the coefficient polynomial but does not itself identify its reduction after dividing by 625. Maity's value divisibility modulo 625 does not certify coefficientwise integrality of the normalized polynomial, let alone its reduction 3X(X+1).",
+          "The nearby uniform lift is tied to k≡21 modulo 125."
+        ],
+        "reasoning": "Hensel lifting is routine conditional on the actual polynomial reduction; that reduction and the simple-root count require object-specific exact computation not supplied by the stated stronger progression result. In general, integer-valued polynomial divisibility by 625 at all integers does not imply coefficientwise divisibility, and even coefficientwise divisibility does not distinguish among possible reductions.",
+        "searches": [
+          "arXiv:2611.00693v1 §3 Thm. 3.3 Eq. (3.6), OA offset 16431",
+          "Resultary local mirror 230d76668728, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Maity progression 125n+39 specializes to index 39 at n=0, so its baseline divisibility on this coefficient is exact prior overlap.",
+          "230d76668728 gives common exponents 3/4/5 across four progressions at k=21+125i, including a uniform lift for i≡13 mod 25."
+        ],
+        "reasoning": "The k residues 21 and 111 modulo 125 are distinct, so integer reparameterization cannot equate the families. A common progression exponent is not the single-coefficient valuation, which may exceed it. Exact nested residue-class counts and the branch formula are alternate formulations of the additional information checked here.",
+        "searches": [
+          "Local Resultary: two branches, 5-adic saturation, and 5-core tuple progressions; ba3d8a96ff84 and 230d76668728",
+          "Maity arXiv:2611.00693v1 §3 Theorem 3.3 Eq. (3.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue hit is the assigned result, not independent priority evidence. The nearest exact saturation entry is 230d76668728 and has the distinct order-family and target described above.",
+          "The exact congruence list in Eq. (3.6) has four progression residues at threshold 5⁴, not a higher-lift table or root count by parameter."
+        ],
+        "reasoning": "The relevant exact lookup is for this coefficient's valuation function or the two compatible root branches; any finitely many A-values alone would not constitute the infinite law. No independently listed equivalent branch table surfaced in the bounded check.",
+        "searches": [
+          "Local Resultary: exact 5-adic saturation / first high-order 5-core-tuple coefficient; ba3d8a96ff84 and 230d76668728",
+          "arXiv:2611.00693v1 Eq. (3.6) exact progression residues"
+        ]
+      },
+      "rationale": "The qualified distinct claim is the exact parameter-wise valuation law and simple two-root structure of the index-39 coefficient for k=111+125i. Published progression divisibility at exponent four is prior; the exact shape at every higher level is not implied by that statement. The nearby saturation result concerns another k-family and a different invariant. Tang's full paper remains a priority risk, not a reason to assume coverage or absence.",
+      "residual_risks": [
+        "Tang's full text is the strongest unresolved historical source; the baseline attribution is known but exact higher-lift coverage was not settled by inspecting Tang directly.",
+        "Liang–Tang full text was also unavailable through the bounded attempts; the stated abstract scope is narrower than this family.",
+        "The search is not exhaustive and same-day catalogue dates do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of divisibility baseline but not higher exact law",
+          "evidence": [
+            "The theorem asserts A_{5,111+125i}(125n+r)≡0 mod 5⁴ for r=39,64,89,114.",
+            "The introduction attributes the congruence statements to Tang and explains Maity's proof scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.00693v1",
+          "material_read": "Introduction; §3 Theorem 3.3 and Eq. (3.6), OA offset 16431; Tang reference at offset 22667",
+          "method": "OA primary full-text passages",
+          "title": "On Certain Congruences for Partition k-Tuples with 5-Cores",
+          "trigger": "Exact matching parameter and progressions"
+        },
+        {
+          "assessment": "Different k-family and common rather than per-index exponent; same date establishes no priority",
+          "evidence": [
+            "Studies k=21+125i and common exponents across four progressions; a 5⁵ uniform lift occurs for i≡13 mod 25."
+          ],
+          "identifier_or_url": "Resultary:230d76668728",
+          "material_read": "Finding and scope in local mirror",
+          "method": "Resultary discovery and local-mirror text",
+          "title": "Exact 5-adic saturation for four 5-core-tuple progressions",
+          "trigger": "Closest exact saturation result in the same partition model"
+        },
+        {
+          "assessment": "Baseline attributed in Maity; exact root-law coverage unresolved",
+          "evidence": [
+            "Identified as JRMS 40(3), 245–256 (2025); Maity's introduction credits the statements, not an exact parameter-wise root count."
+          ],
+          "identifier_or_url": "https://www.mathjournals.org/jrms/2025-040-003/2025-040-003-004.html",
+          "material_read": "Journal landing information and Maity's description of Tang's (4.4)–(4.6); no Tang full text",
+          "method": "Journal retrieval and exact-title alternate search",
+          "title": "An iterative approach for proving congruences of partition k-tuples with t-cores",
+          "trigger": "Maity's prior source for congruences in this exact family"
+        },
+        {
+          "assessment": "Abstract says k from 4 to 25; not a whole-text determination",
+          "evidence": [
+            "The publisher summary describes a fifth-order modular-equation recurrence giving many congruence families for 4≤k≤25."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0013091525000215",
+          "material_read": "Publisher abstract scope; no full text",
+          "method": "Publisher abstract, DOI OA recovery and identified lawful publisher PDF attempt",
+          "title": "Congruences modulo powers of 5 for partition k-tuples with 5-cores",
+          "trigger": "Broader high-power congruence method for 5-core tuples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Index 39 is the first coefficient in the natural Maity congruence family, not a freely selected numerical example. Its exact valuation law eliminates every other parameter class as a possible full-progression lift at each higher power of five. The nontrivial two-branch certificate gives all levels at once and sharp frequencies for the obstruction. No sufficiency for a full-progression lift is needed or claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

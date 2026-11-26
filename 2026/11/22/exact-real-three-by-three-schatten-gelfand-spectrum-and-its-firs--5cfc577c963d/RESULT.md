@@ -2,8 +2,7 @@
 
 ## Finding
 
-For every \(0<p\le1\) and \(2\le q\le\infty\), all nine Gelfand numbers of the identity from the **real** three-by-three Schatten \(p\)-class to the Schatten \(q\)-class are exactly
-
+For real three-by-three matrices and every \(0<p\le1\), \(2\le q\le\infty\), the Gelfand numbers of the Schatten embedding are
 \[
 c_k(\mathcal S_p^3(\mathbb R)\hookrightarrow\mathcal S_q^3(\mathbb R))=
 \begin{cases}
@@ -12,104 +11,60 @@ c_k(\mathcal S_p^3(\mathbb R)\hookrightarrow\mathcal S_q^3(\mathbb R))=
 3^{1/q-1/p},&k=9.
 \end{cases}
 \]
-
-The first strict decrease occurs at **index five**, where the codimension-four test space of traceless symmetric matrices attains the sharp bound. The new first-transition and interior-plateau values are \(k=4,5,6,7\); the penultimate value at \(k=8\) and terminal value at \(k=9\) follow also from previously published endpoint results [4]. The result is a fixed-dimension **exact** refinement of the asymptotic up-to-constants theorem of Prochno [1].
+The key sharp bound is at the first drop, \(k=5\): the five-dimensional space of real traceless symmetric matrices attains \(2^{1/q-1/p}\). The subsequent plateau follows by monotonicity from this bound and the known \(c_8\). The initial plateau through \(k=4\) also follows from the two-row result [6] by padding with a zero row. The penultimate and final values are covered by [4]; \(c_7\) can also be recovered by combining the classical real skew-symmetric normal form with \(c_8\). The full sequence is given for context, not as nine independent novelty claims.
 
 ## Assumptions and scope
 
-Matrices, subspaces, codimensions, and linear measurements are all **over \(\mathbb R\)**. For a nonzero real three-by-three matrix \(A\), write its three singular values \(s_1\ge s_2\ge s_3\ge0\) and set
-
-\[
-\|A\|_{\mathcal S_t}=\left(\sum_{j=1}^3s_j^t\right)^{1/t}\quad(0<t<\infty),
-\qquad\|A\|_{\mathcal S_\infty}=s_1.
-\]
-
-The exact convention is \(1/\infty=0\), and for each integer \(1\le k\le9\)
-
+All matrices, measurements and linear subspaces are real. Denote the singular values by \(s_1\ge s_2\ge s_3\ge0\) and let \(\|A\|_{\mathcal S_t}=(\sum_j s_j^t)^{1/t}\) for \(0<t<\infty\) and \(\|A\|_{\mathcal S_\infty}=s_1\). Set \(1/\infty=0\). For \(1\le k\le9\),
 \[
 c_k=\inf_{\substack{F\le\mathbb R^{3\times3}\\\operatorname{codim}F<k}}
-\ \sup_{0\ne A\in F}
-\frac{\|A\|_{\mathcal S_q}}{\|A\|_{\mathcal S_p}}.
+\sup_{0\ne A\in F}\frac{\|A\|_{\mathcal S_q}}{\|A\|_{\mathcal S_p}}.
 \]
-
-Only nonzero test subspaces occur in this index range. The case \(0<p<1\) is quasi-Banach; the definition and arguments do not rely on norm convexity. The theorem is stated in the recent paper's parameter range, although some individual algebraic ingredients apply more broadly.
+Only nonzero test subspaces occur. The case \(p<1\) uses a quasi-norm; no norm convexity for \(\mathcal S_p\) is assumed.
 
 ## Proof
 
-**1. Singular-value bounds.** For any nonzero matrix of rank at most \(r\), with \(1\le r\le3\), the ordinary finite-dimensional power-mean inequality gives
-
+**Singular-value bounds.** If \(A\ne0\) has rank at most \(r\), then by the power-mean inequality applied to its singular values padded with zeros to length \(r\),
 \[
-r^{1/q-1/p}\le\frac{\|A\|_{\mathcal S_q}}{\|A\|_{\mathcal S_p}}\le1.
-\tag{1}
+r^{1/q-1/p}\le \frac{\|A\|_{\mathcal S_q}}{\|A\|_{\mathcal S_p}}\le1.
 \]
+The lower bound is attained at rank \(r\) with all positive singular values equal; the upper bound is attained at rank one. The bounds also hold for \(q=\infty\).
 
-Both endpoint values for a fixed rank are attained when its positive singular values are all equal. In particular a rank-one matrix has ratio one; a matrix of rank at most two has ratio at least \(2^{1/q-1/p}\), and an arbitrary nonzero matrix has ratio at least \(3^{1/q-1/p}\). These inequalities hold also when \(q=\infty\).
+**Initial plateau.** Let \(F\subset\mathbb R^{3\times 3}\) have codimension at most three. Choose Hilbert–Schmidt annihilators \(B_1,B_2,B_3\), padding with zero matrices if necessary. The matrix \(D(u)\) with rows \(u^{\mathsf T}B_i\) has determinant odd in \(u\). This continuous determinant vanishes somewhere on the unit sphere by connectedness and the antipodal sign change. At such a unit vector \(u\), choose a nonzero \(v\) in the kernel of \(D(u)\). Then \(uv^{\mathsf T}\ne0\) and \(\langle B_i,uv^{\mathsf T}\rangle=u^{\mathsf T}B_iv=0\), so \(F\) contains a rank-one matrix. Thus every admissible space at \(k\le4\) has restriction norm one.
 
-**2. Every codimension-three subspace contains rank one.** Let \(F\subset\mathbb R^{3\times3}\) have codimension \(m\le3\). Choose Hilbert–Schmidt annihilators \(B_1,\ldots,B_m\) and pad them with zeros up to three matrices. For \(u\in\mathbb R^3\), form the real three-by-three matrix \(D(u)\) whose \(i\)-th row is \((B_i^{\mathsf T}u)^{\mathsf T}\). The map \(u\mapsto\det D(u)\) is continuous and odd, because every row depends linearly on \(u\). On the connected unit sphere it must vanish at some unit vector \(u\): either it vanishes everywhere, or a path from a point to its antipode crosses zero. Hence \(D(u)\) has a nonzero real kernel vector \(v\). The nonzero rank-one matrix \(uv^{\mathsf T}\) satisfies
+**Lower bound through index eight.** In any real matrix space of dimension at least two, choose linearly independent \(U,V\). The determinant of \(\cos\theta\,U+\sin\theta\,V\) is continuous and odd under \(\theta\mapsto\theta+\pi\), so it vanishes for some \(\theta\). The matrix is nonzero by linear independence, and its rank is at most two. All admissible spaces through \(k=8\) have dimension at least two, giving \(c_k\ge2^{1/q-1/p}\) for those indices. This is also the odd-determinant argument behind the known penultimate lower bound [4].
 
-\[
-\langle B_i,uv^{\mathsf T}\rangle_{\mathrm{HS}}=u^{\mathsf T}B_iv=(B_i^{\mathsf T}u)^{\mathsf T}v=0
-\]
-
-for all \(i\), and thus belongs to \(F\). If \(1\le k\le4\), every admissible test subspace has codimension at most three, so its restriction norm is one by (1), proving \(c_k=1\) for these indices.
-
-**3. Every real matrix two-plane contains a singular matrix.** Let \(F\) have codimension at most seven, so \(\dim F\ge2\). Choose independent \(U,V\in F\). The continuous scalar function
-
-\[
-h(\theta)=\det(\cos\theta\,U+\sin\theta\,V)
-\]
-
-satisfies \(h(\theta+\pi)=-h(\theta)\), because determinants of real three-by-three matrices change sign under multiplication by \(-1\). Hence \(h\) vanishes for some \(\theta\). Linear independence ensures the corresponding matrix is **nonzero**, and its rank is at most two. Applying (1) proves
-
-\[
-c_k\ge 2^{1/q-1/p}\quad(1\le k\le8).
-\tag{2}
-\]
-
-**4. A sharp five-dimensional witness.** Let
-
-\[
-F_0=\{A\in\mathbb R^{3\times3}:A=A^{\mathsf T},\ \operatorname{tr}A=0\}.
-\]
-
-It is a five-dimensional real subspace, hence \(\operatorname{codim}F_0=4\). For every nonzero \(A\in F_0\), real symmetry permits orthogonal diagonalization. Its eigenvalues can, after a simultaneous change of sign and permutation, be written \(M,-a,-b\), with \(M>0\), \(a,b\ge0\), and \(M=a+b\). Thus the singular values are \(M,a,b\). Since \(q\ge1\) and \(0<p\le1\), respectively,
-
+**Sharp upper bound at index five.** The real symmetric traceless subspace has dimension five and codimension four. For every nonzero matrix in it, the eigenvalues, after permutation and an overall sign change if needed, are \(M,-a,-b\) with \(a,b\ge0\) and \(M=a+b>0\). Its singular values are \(M,a,b\). Because \(q\ge1\) and \(p\le1\), for finite \(q\) we have
 \[
 \|A\|_{\mathcal S_q}^q=M^q+a^q+b^q\le 2M^q,
 \qquad
 \|A\|_{\mathcal S_p}^p=M^p+a^p+b^p\ge2M^p.
 \]
+For \(q=\infty\) the numerator is exactly \(M\). Thus the restriction norm is at most \(2^{1/q-1/p}\), and \(\operatorname{diag}(1,-1,0)\) attains equality. This space is admissible at \(k=5\) and at all larger indices, proving the middle plateau together with the preceding lower bound.
 
-At \(q=\infty\), the corresponding statement is \(\|A\|_{\mathcal S_\infty}=M\). Therefore
-
-\[
-\sup_{0\ne A\in F_0}\frac{\|A\|_{\mathcal S_q}}{\|A\|_{\mathcal S_p}}
-\le2^{1/q-1/p}.
-\]
-
-Equality is realized by \(\operatorname{diag}(1,-1,0)\in F_0\), so the restriction norm is exactly \(2^{1/q-1/p}\). As \(F_0\) is admissible for every \(k\ge5\), combine this bound with (2) to obtain all middle values \(5\le k\le8\).
-
-**5. Final index.** By (1) every nonzero matrix gives ratio at least \(3^{1/q-1/p}\). For \(k=9\), the real one-dimensional subspace \(\mathbb R I_3\) is admissible and every nonzero element has three equal positive singular values. Hence \(c_9=3^{1/q-1/p}\). This finishes the classification. \(\square\)
+**Final index.** Every nonzero matrix has ratio at least \(3^{1/q-1/p}\). The admissible line \(\mathbb R I_3\) attains that bound at \(k=9\).
 
 ## Verification
 
-The two nonstandard incidence assertions are proved **for every allowed subspace** by odd real determinants: the auxiliary annihilator determinant in Step 2 forces rank-one intersection at codimension at most three, while the matrix-pencil determinant in Step 3 forces rank at most two in any two-plane. Both vanishing arguments are continuous real-variable arguments, not finite tests. The witness in Step 4 has dimension five, trace zero and explicit equality matrix; the final witness is one-dimensional. No external computation is needed to establish the theorem. The inequalities and all endpoint conventions have been checked analytically, including \(p=1\) and \(q=\infty\).
+The proof addresses all admissible subspaces analytically. Both determinant vanishing arguments use continuous real odd functions and produce nonzero witnesses. The symmetric witness has exact codimension four, and equality in the ratio is explicit, including at \(p=1\) and \(q=\infty\). No finite experiment is required.
 
 ## Relationship to prior work
 
-Prochno [1] establishes the complete **asymptotic order up to constants**, not fixed-size exact Gelfand numbers, for \(0<p\le1\) and \(2\le q\le\infty\). The works [2,3] give earlier comparison bounds, likewise not the above exact three-by-three sequence. A published parity theorem [4] already proves the real three-by-three **penultimate** value \(c_8=2^{1/q-1/p}\), as well as the known final-index value; these are credited, not presented as independently novel. A published first-drop theorem [5] proves the complex three-by-three plateau through index five, and determines both scalar fields at size two, but does not give the **real** three-by-three initial threshold or interior middle plateau. A related published two-row classification [6] concerns matrices with two rows, not the square three-row subspace geometry. The principal contribution is thus the real size-three **first drop at index five** and exact values at indices five through seven, yielding the first complete odd-size real spectrum.
+Prochno [1, Theorem A and Remark 1.1] gives asymptotic order up to constants in this exponent range. The earlier works [2,3] likewise provide comparison bounds, not the sharp first-drop value here.
 
-The rank and power-mean arguments are classical ingredients, not independent discoveries. Searches do not establish mathematical publication priority; equivalent formulations could be hidden in historical matrix-space or Gelfand-width work.
+The exact rectangular theorem [6] gives \(c_4=1\) for real \(2\times3\) matrices. Inserting a zero row embeds that space into the square space, isometrically for both quasi-norms. Intersecting an admissible square test subspace with the rectangular copy cannot increase codimension measured in the copy. Therefore its restriction norm is at least the rectangular \(c_4\), giving \(c_4=1\) for the square space by the upper bound one. The rectangular theorem does not give the opposite, sharp upper bound at square index five. The odd-size result [4] gives \(c_8=2^{1/q-1/p}\) and \(c_9=3^{1/q-1/p}\); monotonicity already gives the lower bound \(2^{1/q-1/p}\) for \(k\le8\). In addition, the real skew-symmetric three-dimensional subspace is admissible at \(k=7\): each nonzero element has singular values \((s,s,0)\) by the real skew-symmetric block form. This gives \(c_7=2^{1/q-1/p}\) together with the known lower bound.
+
+The distinct supported claim is the sharp value at the first drop, \(c_5=2^{1/q-1/p}\), with the symmetric traceless space as an explicit optimizer. In particular \(c_6\) follows from \(c_5\), \(c_8\) and monotonicity, without a new argument at index six. The complex size-three plateau instead includes index five [5], so the first drop gives a genuine scalar-field contrast. No claim of historical priority for the individual matrix-space ingredients is made.
 
 ## Limitations
 
-The theorem applies only to real three-by-three matrices in the stated exponent range. It does not determine the complex three-by-three interior numbers, larger real matrix sizes, nonlinear measurement widths, or extremizer classification beyond the exhibited sharp subspace. The literature comparison is best-knowledge, not exhaustive, and no independent mathematical audit has been performed.
+The exact sequence is for real \(3\times3\) matrices in the stated exponent range. No claim is made about complex interior values beyond the cited comparison, larger real sizes, nonlinear measurements or the classification of all optimizers. The literature comparison is bounded; older work under alternative terminology may contain an equivalent sharp upper bound.
 
 ## References
 
-1. J. Prochno, *Gelfand numbers of Schatten class embeddings in the quasi-Banach range*, arXiv:2611.08448v1 (first public 2026-11-05), https://arxiv.org/abs/2611.08448.
-2. A. Hinrichs, J. Prochno, J. Vybíral, *Gelfand numbers of embeddings of Schatten classes*, arXiv:2011.06554v1 (2020), https://arxiv.org/abs/2011.06554.
-3. J. Prochno, M. Strzelecki, *Approximation, Gelfand, and Kolmogorov numbers of Schatten class embeddings*, arXiv:2103.13050v1 (2021), https://arxiv.org/abs/2103.13050.
-4. *A parity law for the penultimate Gelfand number of real Schatten embeddings*, published result, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-parity-law-for-the-penultimate-gelfand-number-of-real-schatten--fc1996e343be.
-5. *First strict Gelfand-number drop for complex Schatten embeddings and a real–complex two-by-two gap*, published result, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-first-strict-gelfand-number-drop-for-complex-schatten-embeddings--7a7fcb96fc42.
-6. *Parity and scalar-field thresholds for two-row Schatten Gelfand numbers*, published result, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-parity-and-scalar-field-thresholds-for-two-row-schatten-gelfand--184ac32d0d8a.
+1. J. Prochno, *Gelfand numbers of Schatten class embeddings in the quasi-Banach range*, [arXiv:2611.08448v1](https://arxiv.org/abs/2611.08448v1).
+2. A. Hinrichs, J. Prochno and J. Vybíral, *Gelfand numbers of embeddings of Schatten classes*, [arXiv:2011.06554](https://arxiv.org/abs/2011.06554).
+3. J. Prochno and M. Strzelecki, *Approximation, Gelfand, and Kolmogorov numbers of Schatten class embeddings*, [arXiv:2103.13050](https://arxiv.org/abs/2103.13050).
+4. *A parity law for the penultimate Gelfand number of real Schatten embeddings*, [Resultary](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-parity-law-for-the-penultimate-gelfand-number-of-real-schatten--fc1996e343be).
+5. *First strict Gelfand-number drop for complex Schatten embeddings and a real–complex two-by-two gap*, [Resultary](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-first-strict-gelfand-number-drop-for-complex-schatten-embeddings--7a7fcb96fc42).
+6. *Parity and scalar-field thresholds for two-row Schatten Gelfand numbers*, [Resultary](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-and-scalar-field-thresholds-for-two-row-schatten-gelfand--184ac32d0d8a).

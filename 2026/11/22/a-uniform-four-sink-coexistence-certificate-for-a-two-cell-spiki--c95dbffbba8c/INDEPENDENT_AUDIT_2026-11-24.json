@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:16:26.534850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At T=1 the published Euler map gives exactly the displayed residual after subtracting (x,y). The changes of coordinate u=tanh(αx), v=tanh(αy) are continuous and strictly increasing for every α≥6. Positive exponential Taylor sums and the monotonicity of tanh and artanh give uniform endpoint bounds. The independent rational vertex-of-interval calculation in /workspace/review-evidence/replay.py 5 (output 5.txt) verifies all 36 prescribed strict face signs, with minimum certified margin 3/1000, and pairwise separation of the physical rectangles using enclosing intervals. Poincaré–Miranda gives interior zeros; no uniqueness or census is needed. For both possible orientations of a corner box, the two absolute Jacobian row sums are less than one, using the two thresholds 0.34 and 0.90 and monotonicity of αe^(−2αt). For mixed boxes, 1.7−3.89d_tiny>0, and det(I−J)≤1−(1.7−3.89·24/1999)·6(1−0.94²)<0; the eigenvalues are real and straddle 1. The positive determinant makes the smaller eigenvalue positive, so its modulus is less than 1. The inverse row norm in the central box is less than one, proving repulsion. Hyperbolic sinks have nonempty open basins, which cannot intersect since an orbit has at most one limit. The inequalities include α=6 and hold for the entire unbounded interval. The type counts are lower bounds and apply only to step T=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin–Gupta's bounds 3^n and 2^n for the nonzero-diagonal class are upper bounds in a general continuous-time setting. For two dimensions the numbers are nine and four, but upper bounds do not show attainment here.",
+          "Duncan et al. give an unspecified steepness bound under regular switching hypotheses. Distinct positive input thresholds are assumed; the common zero-centered thresholds here do not directly satisfy this setup. Their stability results are continuous-time."
+        ],
+        "reasoning": "Neither theorem implies an effective gain-six lower bound and the three discrete-time types on the entire α interval.",
+        "searches": [
+          "Jin–Gupta, Equilibrium Capacity of Analog Feedback Neural Networks, Section III",
+          "Duncan et al. arXiv:2103.17184v2, Theorem 3.13 and Theorems 5.14–5.15"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11071-023-08897-7",
+        "Jin and Gupta 1996, Section III",
+        "arXiv:2103.17184v2",
+        "Resultary 8539bd511b04",
+        "Resultary 0d05b29a9914"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The model and nullcline equations are prior. The uniform 36 face inequalities and the sink/saddle/repeller multiplier bounds are not given by the source-map paper or the exact-map inverse-fiber results.",
+          "A qualitative small-steepness theorem with an unspecified threshold would not locate the interval endpoint even if the regularity hypotheses were satisfied."
+        ],
+        "reasoning": "The claim goes beyond using known model equations, upper capacity, inverse-fiber geometry or generic persistence. The decisive mathematical step is a gain-uniform certified lower bound.",
+        "searches": [
+          "Buscarino–Famoso–Fortuna, eqs. (4)–(7), Fig. 4, Section 4",
+          "Duncan et al., Theorem 3.13",
+          "Resultary 0d05b29a9914"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Euler map at T=1 and (μ,s,i₁,i₂)=(0.7,1,−0.3,0.3) is precisely the assigned map. The equilibrium equations are step-independent, but discrete multiplier tests are not.",
+          "The distinct same-map record 0d05b29a9914 gives an open parallelogram image at T=1 and reentrant invertibility at other T, not fixed-point stability or count."
+        ],
+        "reasoning": "Writing the same equilibrium equations in tanh or artanh variables or describing the inverse fibers does not provide nine disjoint zero witnesses or their discrete-time type.",
+        "searches": [
+          "Buscarino–Famoso–Fortuna DOI 10.1007/s11071-023-08897-7, Section 3 equations (4)–(7)",
+          "Resultary: Buscarino two-cell map, tanh and four sinks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original map's Fig. 4 shows one, three and five nullcline intersections at gains 1, 1.666 and 1.8; these numerical examples are outside the claimed interval.",
+          "8539bd511b04 attains nine fixed points and four hyperbolic sinks for a heterogeneous six-dimensional Chialvo–Rulkov–Chialvo network, not this asymmetric two-dimensional map."
+        ],
+        "reasoning": "Matching type counts in another network or finite lower-gain data for this one are not this exact threshold certificate.",
+        "searches": [
+          "Resultary: nine equilibria and four sinks for a biased two-cell sigmoid spiking map",
+          "Resultary 8539bd511b04",
+          "Buscarino–Famoso–Fortuna, Fig. 4 and Section 4"
+        ]
+      },
+      "rationale": "The supported distinct increment is a simultaneous rigorous lower certificate for nine hyperbolic equilibria, including four sinks, at every α≥6 for this exact published discrete map and Euler step. The original numerical examples and the continuous-time capacity/steepness results do not supply these quantifiers and stability conclusions. The same-day catalogue reflection is the assigned record, not separate priority evidence. This is a bounded comparison.",
+      "residual_risks": [
+        "Unindexed equivalent effective bounds for the same map might exist. The source comparisons do not establish optimality or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model; inspected equilibrium examples do not show the asserted regime",
+          "evidence": "Euler step cancels from the equilibrium equations. Nullcline intersections at α=1, 1.666, 1.8 give one, three and five equilibria; numerical bifurcation studies nearby do not give the uniform gain-six lower bound.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-023-08897-7",
+          "material_read": "Sections 3–4, pp. 20363–20366, eqs. (4)–(7), Fig. 4; relevant text offsets 10500–22519",
+          "method": "Springer open-access primary text; alternate institutional copy returned 403",
+          "title": "Bifurcations in a new two-cell spiking map: a numerical and experimental study",
+          "trigger": "Exact source model and potential prior equilibrium regime"
+        },
+        {
+          "assessment": "Upper capacity, not attainment at an explicit gain for this map",
+          "evidence": "Upper bounds 3^n and 2^n in the relevant nonzero-diagonal case concern continuous-time equilibrium capacity.",
+          "identifier_or_url": "https://madangupta.com/pages/info/mmg/paper/RJ/RJ-092.pdf",
+          "material_read": "Section III, pp. 783–784, offsets 7900–13446",
+          "method": "Lawful open PDF",
+          "title": "Equilibrium Capacity of Analog Feedback Neural Networks",
+          "trigger": "General bounds with matching numbers"
+        },
+        {
+          "assessment": "Qualitative and used under different hypotheses",
+          "evidence": "Requires positive distinct thresholds and ε<A for an unspecified A>0; stability results concern continuous-time models.",
+          "identifier_or_url": "arXiv:2103.17184v2",
+          "material_read": "§3 threshold hypotheses, Theorem 3.13, Theorems 5.14–5.15; pp. 7, 10 and 23",
+          "method": "Open-access primary PDF",
+          "title": "Equilibria and Their Stability in Networks with Steep Sigmoidal Nonlinearities",
+          "trigger": "Potential general steep-gain implication"
+        },
+        {
+          "assessment": "Capacity analogue for a distinct dynamical system",
+          "evidence": "Six-dimensional Chialvo–Rulkov–Chialvo map attains the two bounds in a positive-feedback class.",
+          "identifier_or_url": "Resultary:2026/11/17/8539bd511b04",
+          "material_read": "RESULT.md Finding and parameter scope",
+          "method": "Local mirror",
+          "title": "Sharp nine-equilibrium and four-sink bounds in a heterogeneous network",
+          "trigger": "Matching count and stability bounds"
+        },
+        {
+          "assessment": "Same map, different invariant",
+          "evidence": "T=1 image is an open parallelogram and there is a global-diffeomorphism boundary for T>1; no uniform equilibrium count follows.",
+          "identifier_or_url": "Resultary:2026/11/22/0d05b29a9914",
+          "material_read": "RESULT.md Finding and step-size conditions",
+          "method": "Local mirror",
+          "title": "Sharp reentrant invertibility and open triple inverse fibers",
+          "trigger": "Distinct record for the exact two-cell map, including T=1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit uniform sufficient threshold establishes four open basins of attraction for a particular published discrete model, beyond the low-gain numerical examples and the bare possibility of high capacity. The robust coexistence regime and verified type composition are useful constraints on higher-gain bifurcation studies even without a full census or sharp threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

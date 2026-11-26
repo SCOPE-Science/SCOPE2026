@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:39:32.409762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With per-edge unit jump rates and killing at the two sites, the positive definite killed Laplacian yields the vector of lifetimes x by solving (L+D)x=1. If t and u are the trap rates times their local lifetimes, then t+u=n. Applying L^+ gives x=T*1-t L^+ e_a-u L^+ e_b for the uniform mean over all sites. Constant diagonal g and off-diagonal g-d give (1/kappa_a+d)t=(1/kappa_b+d)u, hence T/n=g+(1-d^2 P)/(K+2dP). For distinct sites d=R_eff/2>0; the derivative with respect to P is strictly negative at fixed K. AM–GM gives the unique equal split, at which T=n/K+ng-n R_eff/4, proving the placement and budget conclusions. For the 3-by-3 torus, using the zero and nonzero eigenspace projectors of the three-cycle in each factor gives Green diagonal 2/9 and Green off-diagonals 0 and -1/18 for adjacent and diagonal sites, respectively; the example follows. The supplied verify.py and VERIFICATION.md were inspected, not run. The sampled solves are corroboration, not proof of optimality over all graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 of Jacobsen–Tien supplies the explicit pseudoinverse transform and Theorem 5 the exact all-z resolvent, not only a small-killing expansion. They apply to arbitrary positive absorption vectors on strongly connected graphs. The cited hitting-time and effective-resistance works treat other questions."
+        ],
+        "reasoning": "Restrict to symmetric L, put z=1, and extend by continuity to two nonzero rates. The broader formulas then require only evaluation of the constant-diagonal two-site Green block.",
+        "searches": [
+          "Jacobsen Tien Graphs with absorption the absorption inverse and applications arxiv Laurent expansion L zD absorption mean time numerical methods absorption inverse 2019 S0024379519301338",
+          "arXiv:1611.02233, Theorems 4–5",
+          "arXiv:1505.06989v1; arXiv:1209.6165v1; doi:10.1137/050645452"
+        ]
+      },
+      "checked_sources": [
+        "Jacobsen–Tien, arXiv:1611.02233",
+        "Learning with Partially Absorbing Random Walks, Theorem 2.1",
+        "arXiv:1505.06989v1",
+        "arXiv:1209.6165v1",
+        "doi:10.1137/050645452",
+        "Resultary and published record 1d0b240643bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two active sites make W_SS a scalar times q q^T, and q^T D_S q=P/K. Substitution yields the exact rational lifetime stated in the finding (details in the originality rationale). Its strict derivative in P gives the unique rate split, and the optimized expression ranks placements by resistance.",
+          "The same-day cycle result does not supply this implication; its start distribution differs."
+        ],
+        "reasoning": "The older full resolvent theorem in terms of L^+, followed by a one-dimensional update with the uniform averaging vector, gives the full lifetime over the stipulated parameters. No additional phenomenon beyond the scalar optimization of this specialization is required.",
+        "searches": [
+          "arXiv:1611.02233, Theorem 4 equation (15) and Theorem 5 at z=1",
+          "Resultary record 1d0b240643bd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous-time absorption fundamental matrix in arXiv:1611.02233 section 2.3 is (L+D)^(-1), whose entries are mean residence times before killing. Uniform starting law and sum of residence times give exactly 1^T(L+D)^(-1)1/n. Its Theorems 4 and 5 explicitly express that same fundamental matrix using the unkilled Laplacian pseudoinverse."
+        ],
+        "reasoning": "The proper equivalence is residence-time sum for the same continuous-time killed process, not a discrete-time MFPT or the eventual probability of absorption at a specified site. The PARW theorem uses the related inverse for absorption probabilities of an embedded jump process and is not needed for the rejection.",
+        "searches": [
+          "random walk multiple partially absorbing sites graph Green matrix mean first passage time trapping imperfect targets uniform initial distribution resistance killing exact formula",
+          "arXiv:1611.02233, sections 2.3, 3.1 and 3.2",
+          "Learning with Partially Absorbing Random Walks, Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue entry has an exact two-reactive-trap cycle law and antipodal placement, but starts at a reactive site and generally has an unequal optimal split. No exact lookup entry for the uniform-start formula was identified in the inspected records."
+        ],
+        "reasoning": "The change in starting distribution matters. The catalogue overlap alone neither establishes prior coverage nor disposes of priority; the rejection relies on the mathematically stronger primary-source formula.",
+        "searches": [
+          "Resultary ranked comparisons for two partial traps, lifetime, allocation and placement; inspected 1d0b240643bd",
+          "graph optimal placement two partially absorbing nodes equal killing rates effective resistance uniform mean absorption time optimally allocate traps grounded Laplacian all ones inverse"
+        ]
+      },
+      "rationale": "The exact two-trap formula and its optimizer are direct specializations of a prior arbitrary-rate killed-resolvent formula in terms of the unkilled pseudoinverse, not just comparable to a one-perfect-trap result. In Jacobsen–Tien, sections 2.3 and 3.1–3.2, combine Theorems 4 and 5 at z=1. Write G=L^+, v=(kappa_a e_a+kappa_b e_b)/K, W=(I-1 v^T)G(I-v 1^T). The prior formula is (L+D)^(-1)=11^T/K+(I+WD)^(-1)W. If positivity of all rates is required, let positive rates at other sites tend to zero: L+D remains positive definite in the limit and I+WD stays nonsingular, as W is positive semidefinite and D is nonnegative. For alpha=kappa_a/K, beta=kappa_b/K and q=(beta,-alpha)^T, the trap block is W_SS=2d q q^T, W_S,: 1=-n d (alpha-beta)q, and 1^T W 1=n^2(g-2d alpha beta). Substituting these into the prior resolvent by the rank-one inverse formula gives T/n=1/K+g-2dP/K^2-d^2(1-4P/K^2)P/(K+2dP)=g+(1-d^2P)/(K+2dP). The claimed rate optimization is then immediate from monotonicity in P and AM–GM; at equal rates its resistance dependence is affine with negative slope, giving the placement rule. This is demonstrated prior implication, not a claim that the exact wording appears in the prior paper.",
+      "residual_risks": [
+        "The comparison does not determine who first wrote the resulting scalar two-trap expression. A related lattice article, ScienceDirect PII S0378437118309348, was not available in full text and is not relied on for the disposition. The rejection rests on the displayed implication of the accessible Jacobsen–Tien theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger published resolvent formulas mechanically imply the finding, with the zero-rate cases reached by continuity",
+          "evidence": [
+            "Section 2.3 identifies (L+D)^(-1) as mean residence times. Theorem 4 gives L^d=(I-UD)Y(I-DU) with Y=L^+ allowed. Theorem 5 gives (L+zD)^(-1)=U/z+(I+z L^d D)^(-1)L^d for all z>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.02233",
+          "material_read": "Section 2.2 pp. 4–5, PDF-text offsets 12400–15835; sec. 2.3 pp. 5–6, offsets 16150–19536; sec. 3.1 Theorem 4 and equation (15), offset 24800; sec. 3.2 Theorem 5, p. 10, offset 34050",
+          "method": "Located candidate passages; read original OA PDF at bounded offsets",
+          "title": "A generalized inverse for graphs with absorption",
+          "trigger": "Prior exact fundamental matrix for arbitrary absorption rates and graph topology"
+        },
+        {
+          "assessment": "Same inverse occurs for absorption probabilities; not the decisive lifetime theorem",
+          "evidence": [
+            "For rate parameter lambda_i the discrete absorption probability is lambda_i/(lambda_i+d_i); Theorem 2.1 gives the entire eventual absorption probability matrix (Lambda+L)^(-1)Lambda."
+          ],
+          "identifier_or_url": "https://www.ee.columbia.edu/~zgli/papers/NIPS2012_PARW.pdf",
+          "material_read": "Section 2.1 eq. (2) and Theorem 2.1 and sections 2.2–2.3, PDF-text offsets 8940–17911",
+          "method": "Located absorption passages and read bounded OA PDF sections",
+          "title": "Learning with Partially Absorbing Random Walks",
+          "trigger": "Exact finite graph formula for arbitrary partial traps"
+        },
+        {
+          "assessment": "Background identities, different hitting problem",
+          "evidence": [
+            "Relates the unkilled discrete walk’s ordinary hitting times to its Green function."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.06989v1",
+          "material_read": "Introduction eq. (1) and Theorem 1 eq. (2), PDF-text offsets 0–4987 and 6796–9728",
+          "method": "Targeted original OA PDF inspection",
+          "title": "A Hitting Time Formula for the Discrete Green’s Function",
+          "trigger": "Cited Green function and hitting-time antecedent"
+        },
+        {
+          "assessment": "One perfect target and another starting average",
+          "evidence": [
+            "Uses discrete time and averages initial sites other than the trap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.6165v1",
+          "material_read": "Section II, p. 2, equations (1)–(2), PDF-text offsets 9360–13518",
+          "method": "Targeted original OA PDF inspection",
+          "title": "Mean first-passage time for random walks in general graphs with a deep trap",
+          "trigger": "Cited mean trapping time comparison"
+        },
+        {
+          "assessment": "Background identities and different optimization target",
+          "evidence": [
+            "Uses the pseudoinverse resistance identity and optimizes edge weights for total resistance, not two trap sites for uniform lifetime."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/050645452",
+          "material_read": "Sections 2.4–2.5, pp. 42–44, equations (9)–(10), (13)–(15), Stanford OA PDF text offsets 21150–26289",
+          "method": "Targeted inspection of lawful author-hosted copy",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Cited resistance optimization antecedent"
+        },
+        {
+          "assessment": "Material comparison but not interchangeable because the start law differs",
+          "evidence": [
+            "A walk on a cycle starts at a trap site; the optimal split is generally unequal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-antipodal-placement-and-a-three-quarter-allocation-limit-for-two--1d0b240643bd",
+          "material_read": "RESULT.md finding, local-mirror offsets 0–4954",
+          "method": "Resultary search and local published source inspection",
+          "title": "Antipodal placement and a three-quarter allocation limit for two reactive traps",
+          "trigger": "Strongest local two-reactive-trap design hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Placement and allocation of finite-rate traps are naturally motivated and the resistance form is a useful presentation. As a standalone scientific finding, however, the lifetime is mechanically obtained from the existing general absorption-resolvent theorem, and the two optimization statements reduce to strict monotonicity of one scalar rational function, AM–GM, and a linear ranking. The submitted record does not establish a distinct non-routine invariant or design principle beyond this specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

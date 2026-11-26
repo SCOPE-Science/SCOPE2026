@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:15.812962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated finite resonant nondegenerate ladder, each interior total-energy block contains just |g,k> and |e,k-1>; the final excited population from the block is a convex combination of its two initial diagonal probabilities, maximized at the larger via an independent swap or identity. The upper isolated level contributes (1-p)w_(d-1). Because w_k=q w_(k-1), the maximizing choice is the same in each block. The reduced qubit stays diagonal by total time-translation invariance and covariance of partial trace, yielding ergotropy Delta*[2E_d-1]_+. E_d is the maximum of two affine functions of p, hence maximized at an endpoint of [1/2,1]; p=1/2 gives 1/2 for q<=1, while p=1 gives 1-w_0. Activation is strict and equivalent to Z_d>2; d=2 is impossible, q=1 first works at d=3, and for 0<q<1 the condition becomes q^d<2q-1, which forces q>1/2 and the stated strict integer rounding. The swap branch has positive slope for d>=3 and intersects the identity branch at p=1/(1+q), where E_d<=1/2. Its 1/2 crossing therefore gives the stated strict p threshold when activation is possible. The defining sum is strictly increasing in q and brackets 1 between q=1/2 and 1 when d>=3. The root near 1/2 obeys 2 delta=2^(-d)(1+2 delta)^d; bracketing by delta=0 and C*2^(-d) for a fixed C>1/2 first bounds delta=O(2^(-d)), and expansion then gives both remainder estimates. Direct subtraction from the infinite endpoint pq yields the stated positive penalty in the swap branch. Independent bounded replay (python3 /workspace/branches/d5a2cf82-2e5f-4e1c-b8a9-02e04ae63138/replay_ladder.py) returned REPLAY_OK 1042 checks; these are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scharlau–Müller give the whole reachable qubit population segment, not only the ergotropy maximum on passive inputs.",
+          "Singh–Saha–Sen's equispaced resonant qutrit example gives exactly the d=3 ground-input threshold. Łobejko's finite-bath correction concerns a work storage system and a separate work extraction problem."
+        ],
+        "reasoning": "The reachability theorem dominates the frozen objective after applying the diagonal-qubit ergotropy function. The qutrit example is overlapping special-case evidence, and the work storage theorem neither rescues nor replaces the decisive fixed-bath coverage.",
+        "searches": [
+          "arXiv:1605.06092v4 Section IV.1 fixed-bath state reachability",
+          "arXiv:2609.04457v1 equations (54)–(57)",
+          "10.1038/s41467-021-21140-4 Work extraction with a finite bath"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_ladder.py",
+        "arXiv:1605.06092v4, arXiv:2609.04457v1, arXiv:1807.02942v1",
+        "DOI 10.1038/s41467-021-21140-4",
+        "Resultary 1216b97c8d8e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite reachability parameter has maximum 1-w_0 and its infinite-ladder limit at 0<q<1 is q. The energy-diagonal ergotropy criterion is just whether excitation exceeds 1/2."
+        ],
+        "reasoning": "On passive inputs no positive ergotropy is achievable unless r(1;alpha_max)>1/2: at p=1/2 every allowed alpha gives r<=1/2 and all outputs are affine in p. Thus the prior endpoint gives Z_d>2 immediately, and summing the geometric progression gives q^d<2q-1, the strict floor formula and the equality cases. Solving the affine endpoint for p gives p_crit; subtracting it from the known infinite endpoint gives the penalty. Rewriting equality as q_d^d=2q_d-1 and expanding its root near 1/2 gives the threshold asymptotics. The facts need not be explicitly named in the earlier paper to be covered as direct corollaries.",
+        "searches": [
+          "arXiv:1605.06092v4 Section IV.1, equations (8)–(9) and reachable-set conclusion",
+          "arXiv:1807.02942v1 Section III.1, Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scharlau–Müller use m equally spaced nondegenerate bath levels with the qubit gap as spacing and obtain the reachable segment from identity to alpha_max=1-(1-q)/(1-q^m).",
+          "In qubit excitation coordinates the segment is r(alpha)=1-p+alpha[p-(1-p)/q]. For m=d, 1-alpha_max/q=w_(d-1), so its maximum is precisely the frozen two-branch E_d for all p in scope."
+        ],
+        "reasoning": "The change from a Gibbs-preserving transition parameter to the excited population is an affine reparametrization. Neither the fixed finite bath nor the optimality against all energy-preserving unitaries is missing from the prior result. The infinite-mode result is a different comparison, not the basis for the fail.",
+        "searches": [
+          "arXiv:1605.06092v4 Section IV.1, equations (8)–(9): truncated harmonic ladder and maximal qubit transition",
+          "arXiv:1807.02942v1 single-mode bosonic bath, Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Catalan Resultary record calculates the optimum for n identical bath qubits, with binomial degeneracy, and a ground-state system input. The exact all-m closed expression on the assigned undegenerate ladder is in Scharlau–Müller rather than a table."
+        ],
+        "reasoning": "The indexed Catalan result alone is not the same fixed spectrum or resource count. The closed formula from the primary paper eliminates any need for an exact threshold table or matching numerical entries to establish coverage.",
+        "searches": [
+          "Resultary: exact finite thermal-bath qubit ergotropy activation and minimum resource",
+          "2026/10/12/SCOPE-catalan-activation-law-for-ergotropy-from-a-finite-thermal-qubit--1216b97c8d8e",
+          "arXiv:1605.06092v4 equation (9) exact all-m endpoint"
+        ]
+      },
+      "rationale": "Actual prior coverage, not just a possible overlap: Scharlau and Müller (2018), Section IV.1, solve the fixed finite resonant ladder qubit reachability problem and give the same maximal transition parameter 1-w_0. The frozen all-d optimum is their result in the excited-population variable; the other claimed contributions are routine consequences of that same endpoint. The paper is not identified in the frozen prior-work discussion.",
+      "residual_risks": [
+        "The search was bounded; it does not establish the earliest appearance of each explicit corollary. The demonstrated 2018 coverage suffices for disposition and does not depend on inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finite-ladder optimum exactly, with the whole population segment",
+          "evidence": "alpha_max^(m)=1-gamma^B_1=1-(1-q)/(1-q^m); general energy-preserving unitaries do not exceed it.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.06092v4 (DOI 10.22331/q-2018-02-22-54)",
+          "material_read": "Section IV.1 pp. 6–7, equations (8)–(9) and reachable-set conclusion; PDF offsets 38000–48982",
+          "method": "Bounded OA PDF passages",
+          "title": "Quantum Horn’s lemma, finite heat baths, and the third law of thermodynamics",
+          "trigger": "Primary exact qubit reachability for the same truncated harmonic bath"
+        },
+        {
+          "assessment": "Covers d=3, p=1, not the family on its own",
+          "evidence": "Equispaced qutrit and gap 2h give x+x^2>1, x=e^(-2 beta h).",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.04457v1",
+          "material_read": "pp. 8–9, equations (54)–(57), PDF offsets 54000–62996",
+          "method": "Bounded OA PDF passages",
+          "title": "Towards minimal conditions for ergotropy injection in open quantum systems",
+          "trigger": "Same ergotropy objective and resonant three-level instance"
+        },
+        {
+          "assessment": "Infinite, not finite, ladder; supplies the infinite endpoint",
+          "evidence": "Geometric Gibbs weights over n>=0, with an untruncated oscillator and reachable endpoint max(1-p,pq).",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.02942v1",
+          "material_read": "Equation (8), Section III.1 Lemma 1, pp. 3 and 6; offsets 9500–14436, 20300–24997, 39500–43661",
+          "method": "Bounded OA PDF passages",
+          "title": "Thermal Operations Involving a Single-mode Bosonic Bath",
+          "trigger": "Resonant single-mode qubit population bound and beta-swap"
+        },
+        {
+          "assessment": "Separate finite-bath framework with work storage",
+          "evidence": "Finite-bath correction to a work bound, not the fixed-ladder reduced population optimum.",
+          "identifier_or_url": "https://www.nature.com/articles/s41467-021-21140-4",
+          "material_read": "Abstract; p. 3, equations (5), (11); offsets 0–4962 and 12800–19192",
+          "method": "Bounded OA passages",
+          "title": "The tight Second Law inequality for coherent quantum systems and finite-size heat baths",
+          "trigger": "Finite-bath ergotropy/work correction literature"
+        },
+        {
+          "assessment": "Different reservoir and input scope",
+          "evidence": "The bath of n thermal qubits has degenerate energy shells with binomial multiplicities; it is not the resonant nondegenerate ladder.",
+          "identifier_or_url": "2026/10/12/SCOPE-catalan-activation-law-for-ergotropy-from-a-finite-thermal-qubit--1216b97c8d8e",
+          "material_read": "RESULT.md offsets 0–6848 and 6840–10284",
+          "method": "Resultary search and local mirror",
+          "title": "Catalan activation law for ergotropy from a finite thermal qubit bath",
+          "trigger": "Exact finite-bath activation and minimum-resource question in Resultary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The physical question of minimum bath dimension is motivated, but this finding does not supply a distinct scientific increment over the existing complete finite-ladder solution. The switch to ergotropy, the threshold rounding and finite-cutoff subtraction are routine inactive/active-branch and geometric-series consequences. The asymptotic expansion of the same scalar root does not establish another motivated gap or boundary beyond the already exactly characterized parameter. A useful exposition or separately checked derivation is not a surviving distinct research finding under this review.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

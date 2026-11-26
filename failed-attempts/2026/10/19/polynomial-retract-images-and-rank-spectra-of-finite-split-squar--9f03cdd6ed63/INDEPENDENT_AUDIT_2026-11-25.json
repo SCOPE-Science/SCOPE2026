@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:06:28.822000Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof",
+        "Frozen VERIFICATION.md and check.py (read only)",
+        "review_checks/finite_checks.py, case 3"
+      ],
+      "rationale": "Square-zero Taylor evaluation and CRT modulo (X−a)² prescribe the residue and scalar derivative independently, and ordinary interpolation prescribes translations. The resulting functional data are unique because V is nonzero. Idempotence forces the residue map onto its fixed residues. There the fiber map is b v+w with b²=b and bw=0, hence identity (b=1,w=0) or constant (b=0). Every image point of an idempotent is fixed, so no unused fiber can add other points to that target. Each unused residue can send to a specified full fiber in q^(d+1) ways, or to a specified singleton in one way. Multiplying independently gives the fixed-image multiplicity and, by choosing k residues, s full fibers, and k−s singleton values, the rank polynomial. The image cardinality is k+s(q^d−1), with unique maximum at k=s=q and unique proper maximum type k=q,s=q−1; its coefficient is q^(d+1). A separate exact check (`python3 review_checks/finite_checks.py 3`) built the span of monomial evaluation tables by direct square-zero ring multiplication and recovered the image counts 15, 35, 99 and idempotent totals 21, 49, 129 for q=2,d=1,2,3, including the fixed-image multiplicities. The finite check is not a substitute for the CRT proof.",
+      "residual_risks": [
+        "This is a count of unary polynomial functions with full-ring coefficients, not polynomial representatives, ring endomorphisms or multivariate functions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aichinger's theorem addresses ranges that are N-subgroups of tame near-ring groups under chain assumptions, via a condition on join-irreducible ideals. Al-Ezeh–Al-Maktry–Frisch provide polynomial evaluation/derivative formulas and discuss total polynomial-function counts."
+        ],
+        "reasoning": "The arbitrary subset images here may not be subgroups or even contain zero, and Aichinger's statement supplies no action count per prescribed set. An overall count of polynomial functions without their transformations does not fix idempotent rank counts.",
+        "searches": [
+          "doi:10.1017/S0013091599001418, §1, Theorem 1.1",
+          "arXiv:1910.00238, Lemma 2.7 and local-ring count discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.01304",
+        "arXiv:1910.00238",
+        "doi:10.1017/S0013091599001418",
+        "Resultary 256249efd1a0 and 4d39f7ca58cd",
+        "Assigned record 4, distinct cubic chain ring"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published parametrization yields independent affine fiber maps here. With it, the entire classification follows by imposing b²=b on a fixed fiber and choosing a map independently on every unused fiber. No inspected source states the target idempotent classification or provides a stronger theorem doing that count."
+        ],
+        "reasoning": "There is no evidence of an earlier source stating or directly specializing an idempotent-rank theorem to this class. The elementary mechanics from the earlier normal form are nevertheless all that the new calculation adds; the exact invariant does not clear the distinct value threshold.",
+        "searches": [
+          "arXiv:2002.01304, Theorem 3.4, Corollary 3.6, Proposition 3.7",
+          "Aichinger, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Al-Maktry studies the same split dual-number algebras but states conditions for equality and counts of functions. The close indexed characteristic-two result counts unital algebra endomorphism retractions by linear rank; even its one-generator dual-number case counts a different transformation class."
+        ],
+        "reasoning": "Nonadditive and nonunital unary functions are allowed here, including all constants; algebra endomorphism rank enumeration is not an equivalent formulation. Equality/count results concern polynomial functions without the idempotence constraint.",
+        "searches": [
+          "Resultary semantic search for unary composition-idempotent polynomial functions and rank counts on split square-zero/dual-number rings",
+          "arXiv:2002.01304, Theorem 3.4, Corollary 3.6 and Proposition 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected related indexed records concern algebra endomorphisms on characteristic-two square-truncated coordinates and order-preserving retractions of weak orders. The separate assigned cubic ring result has nonzero radical square and a different local count even at equal ring size."
+        ],
+        "reasoning": "No distinct indexed exact match to the fixed-image or rank formulas was identified. Neither the weak-order poset classification nor the linear-rank tables can be relabeled as this exhaustive unary-function count. No same-day priority inference is made.",
+        "searches": [
+          "Resultary semantic search for split square-zero polynomial retract images, ranks and exact fixed-image multiplicities",
+          "Resultary 256249efd1a0",
+          "Resultary 4d39f7ca58cd"
+        ]
+      },
+      "rationale": "Within the bounded comparison, no earlier retract-specific theorem or exact enumeration of these subset images and ranks was identified. The polynomial-function normal form itself is established prior work; the new presentation only applies it to composition-idempotents. The routine nature of that deduction is evaluated separately under value.",
+      "residual_risks": [
+        "A general transformation-monoid or finite-local-ring idempotent enumeration could overlap. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the principal normal form and function count; no retract census in the inspected statements",
+          "evidence": "Uses values and derivatives and counts all polynomial functions for the many-direction dual-number extension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.01304",
+          "material_read": "PDF pp. 5–6, Theorem 3.4, Corollary 3.6, Proposition 3.7",
+          "method": "Primary PDF bounded passages",
+          "title": "Polynomial functions over dual numbers of several variables",
+          "trigger": "Same split square-zero ring family and polynomial functions"
+        },
+        {
+          "assessment": "Relevant background, not a covering retract theorem",
+          "evidence": "First-order evaluation and polynomial-function enumeration, without an idempotent image census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00238",
+          "material_read": "PDF pp. 1, 3–5, Lemma 2.7, Theorem 3.5, Corollary 3.7 and discussion of suitable rings",
+          "method": "Primary PDF bounded passages",
+          "title": "Polynomial functions on rings of dual numbers over residue class rings of the integers",
+          "trigger": "First-order Taylor formulas and related finite local-ring counts"
+        },
+        {
+          "assessment": "Does not cover the arbitrary subset and count claim",
+          "evidence": "The theorem characterizes N-subgroup ranges under tame-group and chain assumptions; it does not count maps onto the prescribed residue-fiber sets.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091599001418",
+          "material_read": "PDF p. 2, §1, Theorem 1.1",
+          "method": "Primary full-text theorem passage",
+          "title": "On near-ring idempotents and polynomials on direct products of Omega-groups",
+          "trigger": "Plausible broad range theorem for near-ring idempotents"
+        },
+        {
+          "assessment": "Different transformations and rank; also different ring for multiple generators",
+          "evidence": "Counts unital algebra endomorphisms with linear rank; mixed products survive with more than one variable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-automorphism-orbits-and-rank-counts-of-characteristic-two-square--256249efd1a0",
+          "material_read": "RESULT.md finding, beginning of file",
+          "method": "Semantic lookup and bounded mirrored article passage",
+          "title": "Automorphism orbits and rank counts of characteristic-two square-truncated algebra retractions",
+          "trigger": "Closest indexed square-truncated retraction enumeration"
+        },
+        {
+          "assessment": "Different object and constraint",
+          "evidence": "Singleton gates constrain omitted antichain levels for order-preserving maps, not polynomial functions with independent residue data.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-singleton-gap-criterion-for-retracts-and-eventual-images-of-fini--4d39f7ca58cd/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Bounded mirrored article passage",
+          "title": "Singleton-gap criterion for retracts and eventual images of finite weak orders",
+          "trigger": "Indexed overlap in singleton-fiber retract terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(2) and counting proof",
+        "arXiv:2002.01304, Theorem 3.4, Corollary 3.6 and Proposition 3.7"
+      ],
+      "rationale": "The object and image-rank question are natural, and the exact identities are correct. But here the known independent affine-fiber parametrization already reduces the entire problem to scalar idempotence over a field. Each fixed block is identity or constant by b²=b and bw=0, and the unused blocks impose no further constraint beyond independently choosing one of the already parametrized affine maps or one forced constant. The image count, rank support, enumerator and extremal gap are the same immediate product count and the size of one lost fiber minus a singleton. No additional structural obstruction, distinct mechanism, or application separates the claimed exact invariant from that mechanical calculation. The failure is routine derivation, not a counterexample to any formula or a claim that a prior table lists every coefficient.",
+      "residual_risks": [
+        "A downstream use could motivate studying this count, but none is established by the frozen record and the stated formulas are all the same direct consequence of the normal form."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

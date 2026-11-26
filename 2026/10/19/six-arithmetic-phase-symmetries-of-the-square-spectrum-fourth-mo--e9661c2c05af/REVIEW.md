@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The fourth-moment convolution/Parseval formula reduces equality to all equal-two-square phase relations. Strictly positive coefficients guarantee each triangle-inequality equality step is reversible. Six residue features are checked using squared sums modulo 16, 3, and 5, the initial-feature matrix has determinant 120, five explicit small equal-square identities settle indices 7–11, and a universal integer three-four-five descent settles all subsequent indices by strong induction. The predecessor N=10 has exactly three independent relations and phase dimension seven. An executable exact-arithmetic checker reproduces these finite prerequisites, but the infinite statement is supported analytically.
+## correctness
 
-## Originality (O) — PASS with residual priority risks
-The source motivating the question, Vasilyev, *Norm bounds on Fourier series with polynomial spectra and constrained coefficients* (arXiv:2608.19132, first public August 19, 2026), proves L4 norm bounds for polynomial/square spectra subject to magnitude conditions, not this all-weight phase equality classification. Related published results on random-phase fourth-moment variance, triangular six-mode rigidity, and finite-field Paley residues concern different implications or objects. Searches for equivalent Freiman two-homomorphism, sum-of-two-squares, and phase-majorant formulations found no covering statement. Full text of related indexed records was not retrievable, and unindexed earlier priority remains possible; the claim is not presented as independently certified.
+PASS
 
-## Value (V) — PASS
-The result completely identifies the equality structure of a natural fourth-moment square-spectrum inequality, revealing four extra continuous arithmetic phase symmetries, an exact finite stabilizing index, and the 120-fold coordinate redundancy. These structural facts are neither the standard majorant inequality itself nor a recomputation of a fixed numerical table; the proof turns a finite collision phenomenon into an all-index classification.
+Parseval applied to the square of the polynomial and equality in each complex triangle inequality give exactly the equal-two-square relations, since all ordered-pair magnitudes are positive. Modulo 16 the unordered pairs of classes 0 mod 4, 2 mod 4, and odd have disjoint squared-sum residue sets. Modulo 3 the count of nonmultiples of 3 is fixed. Modulo 5 the sole ambiguity among unordered pairs of square residues is {0,0} versus {1,4}, both with character sum zero. The matrix of the resulting six features on indices 1–6 has determinant 120 (independently computed by the signed permutation formula). Independent grouping of unordered pairs with repetition found exactly the collisions 50, 65, 85 at N=10 and additionally 125, 130 at N=11. They solve with unit pivots for 7,8,9,11,10. For k≥12 take the representative a of 3k mod 5 in {1,...,5}, then ((3k+4a)/5,(4k−3a)/5) is integral, positive, and strictly below k in each coordinate. The orthogonal identity replaces k by earlier indices with unit pivot. Thus the full torus is the graph over the first six phases, without extra torsion components; the determinant is the degree of the specific parameter map. The N=10 group instead has seven free coordinates. The supplied checker was inspected, not executed; its documented replay is `python3 verify.py` from the package directory, and its large-index and numerical tests are not needed for the infinite conclusion.
 
-## Limitations
-Strict positivity is essential for phase rigidity. Only positive-square frequencies, fourth moments and fixed magnitudes are treated. A complete literature-priority guarantee and independent mathematical audit are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full integral equal-two-square relation classification in the positive-square truncations, hence the stable connected equality torus, with onset and degree. The classical even-moment majorant argument and the isolated first collision are not credited as new. The closest available moment and collision results do not cover this statement.
+
+## value
+
+PASS
+
+Squares are a natural sparse Fourier spectrum with collisions, so the classical majorant inequality does not describe its equality geometry. The exact result determines when rigidity stabilizes, shows the four additional arithmetic phase directions, and gives a usable six-coordinate parametrization for every larger truncation and positive weight vector. The all-truncation classification, not the isolated determinant or a small-instance computation, is the useful result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

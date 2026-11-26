@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional Poisson no-alarm probabilities establish the objective exactly; its strict monotonicities reduce global search to the efficient convex boundary. Strict concavity of the log criterion proves a unique effective-rate optimizer, the explicit edge derivative gives logarithmic transition budgets, and one-sided derivatives prove every nonempty vertex interval. The three-point rational example has strictly increasing slopes and five correctly ordered phases. A standalone executable independently checked 9,409 phase and optimum comparisons. Arithmetic samples do not replace the all-budget, all-mode proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual priority risk.** The primary 2024 ecological acoustic paper uses false-positive Poisson abundance models but does not optimize a pooled OR alarm's Youden index. Clement's false-positive survey design estimates occupancy by MSE, and Fahad–Fuhrmann optimize richer Poisson-count decisions and mutual information, not the same thresholded pooled statistic. Generic convex-hull geometry and standard Youden definitions are recognized prior mathematics. Published related records on first-alarm stopping or two-mode convex testing have different objectives; no direct covering multi-mode staircase and closed switching thresholds were identified. Priority could still be affected by unindexed earlier sensor-design results, particularly classical false-target search literature with limited accessible material.
+PASS
 
-**Value — PASS.** Distinguishing genuine and spurious calls is essential to ecological acoustic monitoring. The result gives all budget-dependent optimal detector choices from measured mode-specific true and false rates, caps active detector diversity at two, and shows genuine intermediate-range mixed designs and a nonempty pure intermediate phase. These are structural planning facts, not an arbitrary single numerical instance, and the model's restrictive assumptions are stated.
+Conditional independence multiplies the no-call probabilities; subtracting the two gives J=e^{-Bb}(1-e^{-Ba}). Budget fractions yield exactly the convex hull of modality points. Since J increases strictly with a and decreases strictly with b, its optimum lies on the efficient lower increasing chain between the highest-signal minimum-background point and the lowest-background maximum-signal point. After merging collinear segments the slopes are strictly increasing. On the chain, log J is strictly concave (the log signal term has second derivative -B^2 e^{Ba}/(e^{Ba}-1)^2 and -Bf is concave). Its derivative divided by B is 1/(e^{Ba}-1)-s_j on edge j. Thus Ba=c_j on a mixed edge, and the one-sided derivatives at a vertex give exactly the displayed closed interval. Because c_j decreases strictly and a_j increases, the positive-length pure and mixed regimes join in order without skipping a vertex or producing a tied effective optimum at a boundary. Two adjacent retained vertices suffice, while equivalent allocations involving duplicate or collinear rates need not be unique. The singleton hull is immediate. For the example the slopes are 3/10 and 3/4; a_j=j, b_j=j^2 produces strictly increasing slopes and realizes the claimed sharp count for any r.
 
-**Limits.** Assumes known positive independent Poisson rates, pooled any-call threshold, divisible common-cost effort, one binary state, and the unweighted population Youden objective. It does not justify field use without validation and does not resolve global historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is the sharp ordered schedule of exact pure and mixed effort regimes for this Poisson OR/Youden objective, not two-point convex-hull reduction, Youden scoring, or Poisson allocation in general. The closest actual allocation and false-positive design objectives differ in observables, losses or feasible controls. Abstract-level historical comparisons have the limitations noted below.
+
+## value
+
+PASS
+
+For a specified detector rule and meaningful false-alarm tradeoff, the result answers a design question across all budgets rather than just writing optimality equations or identifying a two-mode upper bound. It tells a planner when mixing is strictly needed in the reduced representation, proves every exposed vertex has a positive-length pure regime, gives the widths of those regimes, and supplies an exact benchmark for testing adaptations of sensing-time optimization. The sharp schedule is the substantive contribution, not routine differentiation of one fixed objective.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

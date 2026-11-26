@@ -1,61 +1,45 @@
-# Universal cycle–triangle covariance and a common fluctuation mode in random tournaments
+# The five-vertex fluctuation shared by directed cycles in fair tournaments
 
 ## Finding
-Let \(T_n\) be the number of cyclic triangles and \(C_{k,n}\) the number of directed simple cycles of length \(k\) in a uniformly random tournament on \(n\) labeled vertices. For all integers \(n\ge k\ge3\),
+
+Orient the edges of the labeled complete graph on \(n\) vertices independently and fairly. Let \(C_{k,n}\) count directed simple cycles of length \(k\), identifying cyclic rotations but not reversal, and let \(T_n=C_{3,n}\). For each fixed \(k\ge5\),
 \[
-\operatorname{Cov}(T_n,C_{k,n})=\frac{(n)_{\underline{k}}}{2^{k+2}}=\frac{k}{4}\mathbb E C_{k,n},\qquad
-\operatorname{Var}(T_n)=\frac{(n)_{\underline3}}{32}.
+1-\operatorname{Corr}(T_n,C_{k,n})=\frac{1}{2n^2}+O_k(n^{-3}).
 \]
-Here \((n)_{\underline{k}}=n(n-1)\cdots(n-k+1)\). In particular, the exact second-order Walsh projection is
+For any two fixed lengths \(k,\ell\ge5\), the faster bound
 \[
-C_{k,n}-\mathbb EC_{k,n}=\frac{(n-3)_{\underline{k-3}}}{2^{k-3}}(T_n-\mathbb ET_n)+R_{k,n},
-\quad \mathbb E R_{k,n}=\operatorname{Cov}(R_{k,n},T_n)=0.
+1-\operatorname{Corr}(C_{k,n},C_{\ell,n})=O_{k,\ell}(n^{-3})
 \]
-For each fixed \(k\ge3\), \(\operatorname{Var}(R_{k,n})=O_k(n^{2k-4})\) as \(n\to\infty\). Thus
+holds. The extra cancellation occurs because the same signed sum of four-edge paths on five vertices is the entire next fluctuation shared by these cycle counts after division by their triangle coefficients. More precisely, define \(a_{k,n}=(n-3)_{\underline{k-3}}/2^{k-3}\), where \((m)_{\underline j}\) is the falling factorial. Write \(Y_{uv}=1\) for an arc \(u\to v\) and \(-1\) otherwise. Let
 \[
-\operatorname{Corr}(T_n,C_{k,n})=1-O_k(n^{-1}),
+W_{5,n}=\sum_{p}\prod_{i=0}^3Y_{v_i v_{i+1}},
 \]
-and for fixed \(k,\ell\ge3\), \(\operatorname{Corr}(C_{k,n},C_{\ell,n})=1-O_{k,\ell}(n^{-1})\). The residual is identically zero for \(k=3\).
+where the sum is over undirected four-edge paths \(p=(v_0,\ldots,v_4)\) on distinct vertices, each taken once modulo reversal. Then for all \(n\ge k\ge5\),
+\[
+\frac{C_{k,n}-\mathbb EC_{k,n}}{a_{k,n}}
+=T_n-\mathbb ET_n+\frac{W_{5,n}}{4(n-3)(n-4)}+U_{k,n}.
+\]
+The centered residual \(U_{k,n}\) is orthogonal in \(L^2\) to both displayed terms, vanishes for \(k=5\), and has variance \(O_k(1)\) as \(n\to\infty\). In particular, for every \(n\ge5\),
+\[
+\operatorname{Corr}(T_n,C_{5,n})=\left(1+\frac{1}{(n-3)(n-4)}\right)^{-1/2}.
+\]
 
 ## Assumptions and scope
-Every unordered edge of the complete graph is oriented independently and fairly. A directed simple \(k\)-cycle is a cyclically ordered sequence of \(k\) distinct vertices with all successive arcs present. Rotation identifies representations; reversal is *not* identified. All covariance statements concern this non-induced directed-cycle count. The finite identities hold for all integers \(n\ge k\ge3\). The variance remainder and correlation estimates keep \(k\) (and \(\ell\)) fixed as \(n\to\infty\); no uniformity as cycle length grows with \(n\) is asserted.
+
+The cycle count is non-induced: edges outside the selected cyclic word are unrestricted. The exact identities apply over the full stated range of \(n\) and \(k\); the variance and asymptotic correlation estimates keep lengths fixed. No joint limiting law or growth-in-length estimate is asserted.
 
 ## Proof
-There are \((n)_{\underline{k}}/k\) possible directed cyclic vertex orders, each present with probability \(2^{-k}\). Therefore \(\mathbb E C_{k,n}=(n)_{\underline{k}}/(k2^k)\) and \(\mathbb ET_n=\binom n3/4\).
 
-Condition on the event that one fixed directed \(k\)-cycle is present. If \(k\ge4\), precisely its \(k\) triples formed by consecutive triples of vertices have two specified arcs along a directed path. Their probability of a cyclic orientation changes from \(1/4\) to \(1/2\). Every other triple has zero or one specified arc, and its cyclic probability remains \(1/4\). Consequently \(\mathbb E(T_n\mid\text{fixed cycle})-\mathbb ET_n=k/4\). For \(k=3\), the forced triangle changes its cyclic probability from \(1/4\) to \(1\), also giving \(k/4\); every other triple has at most one fixed arc. By summing the indicator covariance for all directed cyclic orders,
-\[
-\operatorname{Cov}(T_n,C_{k,n})=\mathbb E C_{k,n}\cdot\frac{k}{4}=\frac{(n)_{\underline{k}}}{2^{k+2}}.
-\]
-Taking \(k=3\) gives \(\operatorname{Var}(T_n)=(n)_{\underline3}/32\), and dividing the covariance by this variance gives the stated coefficient \(\alpha_{n,k}=(n-3)_{\underline{k-3}}/2^{k-3}\).
+Use the independent Rademacher signs \(Y_{uv}\) for \(u<v\) as coordinates. Products over subsets of the unordered edges, with each edge in a fixed orientation, are an orthonormal Walsh basis. A directed cyclic word has indicator \(2^{-k}\prod_{uv\text{ along the word}}(1+Y_{uv})\), so its contribution to a Walsh coefficient is zero unless its underlying undirected cycle contains the support. Pairing a directed word with its reversal shows that odd coefficients of the count vanish.
 
-To prove that this is the entire second-order projection and control its residual, independently encode edge \(a\to b\), for \(a<b\), by \(X_{ab}\in\{-1,+1\}\), and put \(Y_{uv}=X_{uv}\) if \(u<v\), \(Y_{uv}=-X_{vu}\) if \(u>v\). Walsh monomials in the independent edge signs form an orthonormal basis. Reversing all arcs preserves every simple directed-cycle count, so all odd Walsh coefficients vanish. A permutation swapping the ends of one edge while fixing a second *disjoint* edge changes the sign of their product but leaves the count invariant, hence all disjoint-edge quadratic coefficients vanish. By vertex relabeling, the invariant quadratic space supported on adjacent pairs is one-dimensional, generated by the wedge sum
-\[
-W_n=\sum_v\sum_{\{a,b\}\subseteq[n]\setminus\{v\}}Y_{va}Y_{vb}.
-\]
-For outdegrees \(D_v\), every transitive triangle has exactly one source with two outward edges, whereas a cyclic triangle has none. Thus
-\[
-T_n=\binom n3-\sum_v\binom{D_v}{2},\qquad
-T_n-\mathbb ET_n=-\tfrac14W_n;
-\]
-the second identity follows by substituting \(D_v=(n-1+\sum_{u\ne v}Y_{vu})/2\), with linear terms canceling because \(\sum_v\sum_{u\ne v}Y_{vu}=0\). Hence the entire nonconstant Walsh expansion of \(C_{k,n}\) through degree two is exactly \(\alpha_{n,k}(T_n-\mathbb ET_n)\); its orthogonal complement is \(R_{k,n}\).
+For an adjacent pair of edges directed along a two-edge path, the sum of the two possible path orientations gives coefficient \(2^{1-k}(n-3)_{\underline{k-3}}\) in the sign convention of the path: choose its \(k-3\) other vertices and arrange them in order after the oriented path, then close the cycle. This holds also for \(k=3\). For disjoint edges the coefficient is zero: exchanging the endpoints of one edge while fixing the other preserves the count and reverses that monomial's sign. Consequently the entire degree-two component is \(a_{k,n}(T_n-\mathbb ET_n)\). There are \((n)_{\underline 3}/2\) adjacent-pair supports, giving \(\operatorname{Var}(T_n)=(n)_{\underline3}/32\) by squaring the triangle coefficient \(1/4\). This triangle projection is used as groundwork, not claimed as new.
 
-Every surviving nonconstant Walsh set in this residual contains at least four edges and therefore spans at least four vertices. If a set \(S\) spans \(v\) vertices, only directed \(k\)-cycles containing all its edges contribute to its coefficient; their number is at most \(O_k(n^{k-v})\). The total number of edge sets of bounded size on exactly \(v\) vertices is \(O_k(n^v)\). Since a \(k\)-cycle indicator has Walsh degree at most \(k\), Parseval's identity bounds the remaining variance by
-\[
-\operatorname{Var}(R_{k,n})\le \sum_{v=4}^{k} O_k(n^{v})O_k(n^{2k-2v})=O_k(n^{2k-4}).
-\]
-When \(k=3\), this sum is empty. Meanwhile \(\alpha_{n,k}^2\operatorname{Var}(T_n)=\Theta_k(n^{2k-3})\), hence the residual-to-leading variance ratio is \(O_k(n^{-1})\). Orthogonality gives the claimed correlation with \(T_n\). For two fixed cycle lengths, Cauchy–Schwarz applied to their residual covariance and the same variance estimates gives the pairwise limit and rate. Positive variances follow, for all \(n\ge k\), by comparing a transitive tournament with a tournament containing a directed \(k\)-cycle.
+For \(k\ge5\), a subset of edges of the underlying cycle cannot have a cycle component unless it is the full cycle. No residual Walsh support on four or fewer vertices can contribute: a residual support has at least four edges, and the only degree-at-most-two graph with four or more edges on at most four vertices is a four-cycle. On five vertices the only contributing even residual support is a four-edge path; a five-cycle is odd and there cannot be six edges. For a four-edge path, fixing its orientation and ordering the remaining \(k-5\) vertices counts \((n-5)_{\underline{k-5}}\) directed cyclic words containing the path in that orientation. Reversal contributes the same Walsh coefficient because there are four edges. Hence the coefficient of the path's oriented monomial is \(2^{1-k}(n-5)_{\underline{k-5}}\), whose ratio to \(a_{k,n}\) is \(1/[4(n-3)(n-4)]\). This proves the displayed exact projection onto supports of at most five vertices.
 
-## Verification
-The accompanying `verify.py` independently enumerates all \(2^{\binom n2}\) tournaments for \(3\le n\le6\), constructs directed cycles directly from ordered cyclic words, and checks exact means, covariances, score formulas, orthogonal residual moments, and degree-two Walsh coefficients using integer and rational arithmetic. It reports 101745 passing assertions. Run `python3 verify.py` with the Python standard library. These finite checks corroborate but do not replace the general proof above.
+Every remaining support has \(v\ge6\) incident vertices and at most \(k\) edges, and its coefficient before division by \(a_{k,n}\) is \(O_k(n^{k-v})\) by counting possible containing cyclic words. There are \(O_k(n^v)\) such supports at each \(v\le k\), so Parseval bounds their squared sum by \(O_k(n^{2k-6})\). Dividing by \(a_{k,n}^2=\Theta_k(n^{2k-6})\) proves the stated variance bound. For \(k=5\) this support class is empty. The sign product on a four-edge path is unchanged by reversal and defines a distinct Walsh monomial up to its fixed sign for each of the \((n)_{\underline5}/2\) undirected paths, so \(\operatorname{Var}(W_{5,n})=(n)_{\underline5}/2\).
 
-## Relationship to prior work
-Linial and Morgenstern, *On the number of 4-cycles in a tournament* (arXiv:1405.1576), study the feasible densities of cyclic triangles and four-cycles across deterministic tournaments, including their nontrivial deterministic relations; they do not provide the uniform random-tournament mixed covariance for every length or its Walsh remainder bound. Komarov and Mackey, *On the number of 5-cycles in a tournament* (arXiv:1410.6828), study cycle counts and extremal identities in deterministic tournaments, likewise without the present joint fluctuation theorem in the inspected text. These counts are closely related, and a deterministic algebraic identity can imply certain special cases after averaging, so priority for short lengths is not asserted solely from terminology. Andersson, *On the asymptotic distributions of subgraph counts in a random tournament* (1998), is a potentially stronger general asymptotic predecessor. Its inaccessible full text prevents ruling out equivalent implications for the asymptotic component. The explicit universal finite covariance formula and exact common Walsh mode are therefore presented with a historical-priority qualification.
+Let \(V=(n)_{\underline3}/32\) be the triangle variance. The variance of \(W_{5,n}/[4(n-3)(n-4)]\) is exactly \(V/[(n-3)(n-4)]\); this term and \(U_{k,n}\) are both orthogonal to triangles. Hence the triangle–cycle correlation is \((1+[(n-3)(n-4)]^{-1}+\operatorname{Var}(U_{k,n})/V)^{-1/2}\). Taylor expansion proves the sharp coefficient \(1/2\), and setting \(U_{5,n}=0\) proves the exact five-cycle case. For two lengths at least five, the normalized counts share the same first two terms, whose total variance is \(B=V(1+[(n-3)(n-4)]^{-1})\). Their covariance is \(B+O_{k,\ell}(1)\) by Cauchy–Schwarz, and their variances are each \(B+O_{k,\ell}(1)\); since \(B=\Theta(n^3)\), the other correlation bound follows.
 
-## Limitations
-The asymptotic estimates fix cycle lengths. No independence, Gaussian limit, or new limiting distribution is asserted. The exact finite covariance may be obtainable by specializing general earlier subgraph-count formulas; a broader historical comparison remains necessary for definitive attribution, especially to the 1998 random-tournament subgraph-count work. The proof is analytic; exhaustive checks cover finite sizes only.
+## Relationship to prior work and limitations
 
-## References
-- N. Linial and A. Morgenstern, *On the number of 4-cycles in a tournament*, arXiv:1405.1576 (first version May 2014), https://arxiv.org/abs/1405.1576.
-- M. Komarov and J. Mackey, *On the number of 5-cycles in a tournament*, arXiv:1410.6828 (first version October 2014), https://arxiv.org/abs/1410.6828.
-- P. Andersson, *On the asymptotic distributions of subgraph counts in a random tournament*, Random Structures & Algorithms **13** (1998), https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V.
+The exact triangle coefficient and its orthogonal projection onto the linear span of the score-profile counts are already present in *Score-profile projection rigidity and square-root covariance phases for directed cycles*, Resultary record `4b9c5be28426`. The distinct four-cycle decomposition in Resultary record `3b4b1b16fef5` has a residual supported on four vertices and gives an exact correlation gap of order \(n^{-1}\). The present comparison starts at length five, where that support cannot occur and the five-vertex term contributes order \(n^{-2}\) relative to the triangle variance. Komarov and Mackey, arXiv:1410.6828, give a deterministic formula for the five-cycle count in terms of edge scores; no priority is claimed for the isolated five-cycle identity independently of the all-length result. Andersson, *On the asymptotic distributions of subgraph counts in a random tournament* (1998), is a potentially encompassing comparison whose full text was not available for a decisive historical comparison. The proof here is exact and analytic; it does not rely on finite enumeration.

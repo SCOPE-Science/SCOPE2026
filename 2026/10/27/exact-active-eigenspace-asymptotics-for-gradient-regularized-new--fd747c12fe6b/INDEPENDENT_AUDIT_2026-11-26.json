@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:10:01.950845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–82",
+        "Frozen VERIFICATION.md, line 19",
+        "Frozen verify_asymptotic.py inspected, not executed"
+      ],
+      "rationale": "Set r_k=√(H‖Qx_k‖). The exact update is r_k(Q+r_k I)^−1 x_k; each spectral projection is multiplied by the positive scalar r_k/(λ+r_k). Thus x_k stays nonzero, and its norm is nonincreasing. Bounding r_k by R=√(H λ_max ‖x_0‖) gives the uniform strict norm contraction R/(λ_min+R), so r_k→0. For any active μ>λ_* the ratio of the μ component to the λ_* component contracts by at most (λ_*+R)/(μ+R)<1, while the vector within the λ_* eigenspace stays a positive multiple of its original projection. This covers ties, inactive lower modes and a single active eigenspace. With y_k=x_k/‖x_k‖ the normalized iterate quotient is √(H‖Qy_k‖)‖(Q+r_k I)^−1 y_k‖; the normalized gradient quotient is √H‖Q(Q+r_k I)^−1y_k‖/‖Qy_k‖. Their limits by the spectral-direction result and continuity are √(H/λ_*) and √H/λ_*. Both are positive and finite, so the exponent is exact under the stated hypotheses, not just an upper bound.",
+      "residual_risks": [
+        "The packaged check is a single finite diagonal example; the proof does not rely on it. Exact arithmetic, fixed H>0, Euclidean norm and SPD quadratic structure are essential to the stated scope. No claim about behavior under roundoff or about H=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bregman gradient-regularization theorem delivers another 3/2 upper bound. The adaptive family contains the square-root exponent at q=3."
+        ],
+        "reasoning": "These results broaden the algorithms or objectives treated by rate bounds. Neither inspected statement is a direction-sensitive local asymptotic equality for the fixed update.",
+        "searches": [
+          "arXiv:2112.02952v1 scheme (3.1) and Theorem 4",
+          "arXiv:2208.05888v1 Algorithm 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and prior-work section",
+        "arXiv:2112.02089v1, 2112.02952v1, 2208.05888v1",
+        "Resultary …737f754c4cc5, …70ce85b504e2 and …80f835ec743a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published argument bounds norms; replacing a global strong-convexity bound by λ_* on the invariant subspace would still yield only an upper estimate. The exact ratios here depend on convergence of all higher-mode amplitudes relative to the lowest active projection."
+        ],
+        "reasoning": "Dominance requires the exact positive mode multipliers and their relative contraction; the 3/2 upper bound alone also allows faster rates or a smaller quotient and carries no directional information. The mode argument is elementary, but the exact calibrated trajectory statement is not the known rate bound with renamed parameters.",
+        "searches": [
+          "Mishchenko Theorem 2 and its appendix proof; compare contraction on the active subspace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 uses the same λ_k=√(H‖∇f(x_k)‖). The same-method local theorem bounds the gradient quotient from above by 2√H/μ in a stated neighborhood."
+        ],
+        "reasoning": "Taking f quadratic identifies the iteration exactly; it does not make the inequality an asymptotic equality or identify which component dominates. An initially inactive low mode cannot influence the exact leading constant.",
+        "searches": [
+          "Public query: Mishchenko Regularized Newton Method with Global O(1/k^2) Convergence Theorem 2 local gradient bound 3/2 and exact quadratic asymptotics eigenspace direction",
+          "arXiv:2112.02089v1 Algorithm 1 and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8 …737f754c4cc5 gives a one-step objective envelope for nonnegative Gauss–Newton; 2026/10/4 …70ce85b504e2 uses a residual-ratio gradient method; 2026/11/8 …80f835ec743a concerns BB1 gradient-norm asymptotics."
+        ],
+        "reasoning": "Exactness, SPD structure or spectral behavior in another update do not give the spectral projector selection or quotients for this iteration. No claim of novelty from search misses.",
+        "searches": [
+          "Resultary semantic queries for exact active-eigenspace asymptotics, Mishchenko's update, SPD spectral direction and the exact 3/2 gradient law; exact-title follow-up"
+        ]
+      },
+      "rationale": "The update and upper-bound order 3/2 are established. The supported distinct claim is the exact positive leading constants for every nonzero quadratic trajectory and their selection by the initially active spectral subspace, including when it excludes the global bottom of the spectrum. The inspected known upper bounds or more general convergence classes do not yield those equalities.",
+      "residual_risks": [
+        "This is a bounded comparison; an unindexed exact quadratic calculation could overlap. No historical-priority claim or novelty for the iteration, exponent as an upper bound, or underlying spectral argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact update coverage and established exponent as an upper bound",
+          "evidence": [
+            "Theorem 2 has the local gradient inequality with constant 2√H/μ; no active-direction or positive asymptotic equality in that theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.02089v1",
+          "material_read": "Algorithm 1, PDF p. 4; Theorem 2, p. 8; appendix bound proof",
+          "method": "OA PDF passages",
+          "title": "Regularized Newton Method with Global O(1/k^2) Convergence",
+          "trigger": "Same fixed update and local 3/2 convergence theorem"
+        },
+        {
+          "assessment": "Upper-bound result for a related scheme",
+          "evidence": [
+            "The regularization parameter contains √g_k; the bound is not a spectral limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.02952v1",
+          "material_read": "Scheme (3.1), PDF p. 6, and Theorem 4, p. 9",
+          "method": "OA PDF passages",
+          "title": "Gradient Regularization of Newton Method with Bregman Distances",
+          "trigger": "Broader square-root regularization and superlinear rate"
+        },
+        {
+          "assessment": "Related family with square-root dependence at q=3",
+          "evidence": [
+            "Algorithmic coverage, not the asserted directional limit and leading constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05888v1",
+          "material_read": "Algorithm 1, PDF p. 9",
+          "method": "OA PDF passage",
+          "title": "Super-Universal Regularized Newton Method",
+          "trigger": "Adaptive generalization of gradient regularization"
+        },
+        {
+          "assessment": "Different update and statistic",
+          "evidence": [
+            "Exact worst one-step objective envelope, not a limit on fixed gradient-regularized Newton trajectories."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two sharp regularization transitions for nonnegative Gauss–Newton",
+          "trigger": "Closest indexed SPD quadratic regularization result"
+        },
+        {
+          "assessment": "Different optimizer",
+          "evidence": [
+            "Residual-ratio gradient recurrence, not the fixed shifted inverse update."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact alternating identification on two endpoint spectra",
+          "trigger": "Indexed exact spectral recurrence"
+        },
+        {
+          "assessment": "Different optimizer and asymptotic law",
+          "evidence": [
+            "Two-mode BB1 descent, not the Newton iteration under review."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+          "trigger": "Indexed exact gradient-norm asymptotic on a spectral model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact spectral limits and assumptions",
+        "Mishchenko arXiv:2112.02089v1, Theorem 2"
+      ],
+      "rationale": "The result resolves a natural sharpness question for an established method on its canonical quadratic test class. It rules out a faster asymptotic order on each nonzero trajectory, and identifies which curvature controls both measured constants. For example, the global lowest eigenvalue can be held fixed while changing the initial invariant subspace, changing the asymptotic constants despite keeping the algorithm and problem fixed. The link between direction, invariant subspace and exact positive leading coefficient is the useful content; geometric convergence alone or the single scalar mode would not suffice.",
+      "residual_risks": [
+        "Modest scope: no nonquadratic extension, inexact-solve robustness, or finite-precision stability established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

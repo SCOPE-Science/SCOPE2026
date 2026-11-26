@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:49:59.298824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/reproductions/trace_and_commutant.py (fresh finite witness)"
+      ],
+      "rationale": "A witness at two cuts crosses a marked segment iff exactly one cut puts the segment before it, giving the symmetric difference of prefixes. All cut pairs can be realized together with distinct endpoints. Two cells have the same trace iff the two strips between their cuts contain the same marked set, a common interval; each such interval gives two diagonals. The singleton-edge components are straight monotone chains: two edges meeting use consecutive top positions and consecutive ranks of the same slope. A positive full edge joins opposite corners on j−i=0, and a negative full edge on i+j=m; no corner connects to the other slope. A cycle in either line would require the entire intervening singleton chain, hence a monotone permutation. Thus in nonmonotone diagrams the 2m+2 baseline edges form a forest; for simple π they exhaust the equality edges and give (m+1)²−(2m+2). For a nonmonotone proper interval, neither of its diagonals can follow singleton edges through the interval; to be redundant its diagonal must use the corresponding full edge, with prefix and suffix following that slope. If both diagonals were redundant and a>1 the first value would have to be simultaneously 1 and m; if a=1 the two endpoints force c=1,d=m, contradicting properness. For an increasing bond at top a and lower minimum c the negative diagonal could be redundant only on i+j=m, so a+c=m and its prefix/suffix are descending extreme runs. Adjacent increasing bonds cannot both satisfy this sum, as it changes by two. For an isolated bond in that exceptional placement a descending extreme run has length at least two unless both outside parts have length one; an extreme descending bond has positive diagonal off j−i=0 for m≥4 and causes a new collapse. The leftover case is (4,2,3,1), whose initial triple is a nonmonotone interval. Lower-order reversal handles decreasing bonds by complementing all traces. Fully monotone diagrams have 1+m(m+1)/2, which is below m²−1 for m≥4. The explicit simple families have no interval inside a parity part. A block crossing the parity boundary contains 1 and 2k; in odd size it cannot contain all ranks up to 2k without also containing 2k+1 before the final 2k−1, so a crossing interval must be full in both parities. Prepending a common minimum to a simple tail adds 2m−2 traces containing it, from two chains meeting only in their endpoints, to (m−1)²−1 traces without it. This gives m²−2; the m=4 example (1,3,4,2) freshly yields 14 by enumerating the 25 cut pairs via python3 /workspace/reproductions/trace_and_commutant.py. Frozen code was inspected, not run.",
+      "residual_risks": [
+        "Scope is a specified two-line representation and distinct external open traces, not graph isomorphism, ambient order optimization, or other neighborhood conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest distinct same-day grade-envelope catalogue summary counts one-point disagreement types over named permutations with (n+1)² total types before trace identification. The colored-permutation summary is for universal one-point orbit profiles."
+        ],
+        "reasoning": "The present T is a quotient of the gap-pair extension data, and its collisions, not the number of available extensions, determine the bound and equality criterion. An envelope for a grade or a universal colored profile does not determine simultaneous equality or optimize nonsimple diagrams without additional reasoning.",
+        "searches": [
+          "Resultary:5c6744671985; 33e2bbb0da78",
+          "Foucaud et al. arXiv:1507.08164v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.08164v1 abstract and introduction opening",
+        "Resultary:5c6744671985; 33e2bbb0da78",
+        "Frozen RESULT.md lines 59–86 and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen comparison credits tight marked-path witnesses and prior simple extremizers, and cites Brignall for classical simple permutations. The decisive additional argument is the independent collapse beyond the singleton/full collisions in every nonsimple diagram, with a construction giving just one extra collapse."
+        ],
+        "reasoning": "Neither existence of simple permutations nor equality on those examples guarantees a loss on every proper common interval. Even if a prior argument already gave the loss, sharp attainability on the nonsimple stratum still requires a witness or an equivalent stronger statement. The available source statements do not give both.",
+        "searches": [
+          "Foucaud et al. arXiv:1507.08164, Theorem 13 and Proposition 14",
+          "Brignall, A Survey of Simple Permutations",
+          "Resultary:5c6744671985; 33e2bbb0da78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The locating-domination article's abstract distinguishes vertices by neighborhoods and gives sharp bounds on set size; the frozen comparison at lines 71–75 credits the sharp numerical capacity and simple witnesses."
+        ],
+        "reasoning": "Choosing a witness per distinct nonempty outside trace gives a locating-dominating set on the resulting induced diagram; adding the empty trace accounts for the numerical translation. A sharp bound and one construction do not classify all marked orders or optimize the nonsimple stratum.",
+        "searches": [
+          "Foucaud et al., arXiv:1507.08164v1",
+          "Resultary: Sharp open-neighborhood trace complexity of permutation graphs simple marked representations m squared minus one maximum trace capacity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The focused catalogue lookup found the frozen record itself and analogous exact trace results for line, block and circle graphs, not the separately titled predecessor in ref. 4. The finite tables through m=8 are recorded checks from the frozen package, not independent historical coverage."
+        ],
+        "reasoning": "Other graph classes have different admissible trace families; agreement in selected sizes or some counts would not give the all-order representation-level criterion. No claim is made that external exact tables do not exist.",
+        "searches": [
+          "Resultary: Sharp open-neighborhood trace complexity of permutation graphs simple marked representations m squared minus one maximum trace capacity",
+          "Frozen VERIFICATION.md lines 21–23"
+        ]
+      },
+      "rationale": "The sharp unrestricted numerical capacity and sufficiency of simple extremizers are credited, as is classical common-interval theory. The supported addition is necessity of simplicity in every maximal marked representation and the sharp maximum over nonsimple ones. The closest literature and catalogue statements available do not establish these two restrictions; the unidentified earlier trace-complexity citation and inaccessible exact passages limit the comparison.",
+      "residual_risks": [
+        "Exact text of the cited earlier permutation trace-complexity result was not located; the locating-domination theorem passage and the same-day profile mirrors were unavailable.",
+        "Older equality-case or projection results in permutation-pattern literature could overlap; failed access does not exclude this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms sharp bounds and related setup at abstract level; exact permutation-graph theorem and construction not independently retrieved",
+          "evidence": [
+            "Abstract advertises tight lower bounds for solution-set sizes on (bipartite) permutation graphs. Frozen lines 71–75 credit numerical capacity, not necessity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08164v1",
+          "material_read": "Abstract and introduction opening, extracted lines 11–31; frozen attribution at lines 71–75, 84",
+          "method": "Lawful arXiv alternate version; targeted arXiv and author-PDF attempts",
+          "title": "Identification, location-domination and metric dimension on interval and permutation graphs. I. Bounds",
+          "trigger": "Same graph class, sharp locating-domination scale and possible equality analysis"
+        },
+        {
+          "assessment": "Exact source not located; give credit as reported and leave its precise scope unresolved",
+          "evidence": [
+            "The frozen record describes a numerical bound, sufficient simple witnesses, and the VC threshold. The focused query's exact matching hit was only the reviewed record."
+          ],
+          "identifier_or_url": "Frozen RESULT.md reference 4, line 86 (no stable identifier supplied)",
+          "material_read": "Frozen descriptions at lines 15, 73 and 86",
+          "method": "Focused title/statement lookup in the local catalogue",
+          "title": "Sharp open-neighborhood trace complexity of permutation graphs",
+          "trigger": "Exact object and previously credited simple extremizers"
+        },
+        {
+          "assessment": "Relevant neighboring claims; exact trace quotient and nonsimple boundary not covered in material read",
+          "evidence": [
+            "One summary gives (n+1)² extension types with grade-wise bounds; the other treats universal colored one-point orbit profiles. Full mirror retrieval timed out; no priority inferred from the dates."
+          ],
+          "identifier_or_url": "Resultary:5c6744671985; Resultary:33e2bbb0da78",
+          "material_read": "Catalogue summaries",
+          "method": "Local catalogue and targeted mirror attempts",
+          "title": "Sharp all-grade envelopes for one-point disagreement types; Sharp universal colored-permutation profiles",
+          "trigger": "Same-day structural overlap on permutation extension profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–15, 29–65, 71–79"
+      ],
+      "rationale": "An upper bound and a family of extremizers do not describe every equality configuration. Simplicity gives a representation-level certificate for extremality, and the m²−2 construction identifies the nearest possible failure of that certificate at every size. The common-interval collision argument explains why the condition is necessary; this is not a numerical recheck or a graph-isomorphism claim.",
+      "residual_risks": [
+        "No statement about graph-level uniqueness, minimum realizing graph order, or closed-neighborhood traces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

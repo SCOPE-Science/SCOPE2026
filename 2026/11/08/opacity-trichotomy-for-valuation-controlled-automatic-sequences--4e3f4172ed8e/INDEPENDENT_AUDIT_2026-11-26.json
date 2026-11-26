@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:03:31.850227Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adding one in base b verifies the trailing-(b−1) interpretation of ν_b(n+1), including n=0 and composite b. The declared automaton advances on b−1 and resets on any smaller digit; its lasso starts with a transient positions and ends with a p-cycle. Its initial state is fixed by zero. All states are reached by a suitable string of maximal digits; two states merge only if their entire controller tails agree, since a suffix of t maximal digits tests the t-th entry of the tail. If i<j<a+p and the tails coincide, d=j−i is a period from i onward. Every eventual period of the p-periodic primitive tail is divisible by p (translation by d on residues modulo p would otherwise give period gcd(p,d)). For i≥a this contradicts 0<d<p. For i<a, transfer the p-period identity to every index from i by adding sufficiently many multiples of d to both terms; this contradicts minimal onset a. Thus there are exactly a+p states. With the input-alphabet prefix metric, a word's best state relabeling matches until the first arrival at a state by a different digit than an earlier arrival. Thus earliest conflict at the ℓ-th edge gives raw opacity 2^(1−ℓ), normalized by M_b=1/2, as in Allouche–Yao Theorems 1–2 (no conflict gives zero). For b≥3, 01 is a length-two conflict at the common reset state. For binary a>0 the reset destination is distinct from every advance destination and there is no conflict. For binary a=0 only state 0 can conflict; a one-arrival requires at least p ones since the previous reset or start. If a zero-arrival precedes it, at least p+1 edges are needed, and if the one-arrival comes first, at least one subsequent edge is still needed. 01^p realizes the bound including p=1. A period-p single 1 per period, a constant controller, and a nonperiodic initial entry followed by a constant tail realize all published levels as stated. For arbitrary Y the reviewed invariant is the input-prefix opacity of the intrinsic transition graph as explicitly scoped in RESULT.md line 18; no distance between Y-valued outputs and input digits is asserted. This proof is valid for the whole declared domain. The supplied finite checker and its counts were inspected as recorded evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 reduces sequence opacity to the intrinsic automaton, and Theorem 2 computes opacity from the shortest conflicting path on a given graph.",
+          "The digit-block work gives qk plus a leading-digit correction for state size and a base-dependent opacity split for counts of occurrences of a fixed block, not terminal run lengths."
+        ],
+        "reasoning": "The general criterion is applicable, but to get these values one still needs the lasso quotient for all controllers and graph-specific first-conflict lengths; the cited block-counting formula uses a different transition family.",
+        "searches": [
+          "Allouche–Yao arXiv:2404.13601v1, Theorems 1–2; DOI 10.1007/s00236-026-00521-6 lawful access attempt",
+          "Local Resultary 233c89867ede, digit-block counting"
+        ]
+      },
+      "checked_sources": [
+        "Allouche–Yao arXiv:2404.13601v1",
+        "DOI 10.1007/s00236-026-00521-6 (journal full text not retrieved)",
+        "Resultary 85eda8f4468b, 233c89867ede, 1d3c5b46bcba and identical assigned record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalized opacity in the prefix metric is 2^(2−ℓ) in the conflict case; the prior criterion does not supply ℓ for the arbitrary valuation-controller machines or prove their minimality.",
+          "A trailing-run controller forgets earlier digits at reset, unlike integer residues or persistent counts of fixed blocks."
+        ],
+        "reasoning": "Recovering the full trichotomy from the prior metric theorem requires identifying the quotient via distinguishable tails and analyzing two reset labels or the binary cycle return. The distinct result is that explicit parameter law, not a new general metric or criterion.",
+        "searches": [
+          "Allouche–Yao arXiv:2404.13601v1, Theorems 1–2 and Example 6",
+          "Local Resultary 85eda8f4468b and 233c89867ede, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-08 exact top match is the assigned record itself.",
+          "Example 6 is exactly f(t)=t mod 2 applied to the terminal-run length for b=2: a=0, p=2, ℓ=3 and normalized opacity 1/2. The constant case p=1 is also prior."
+        ],
+        "reasoning": "Terminal maximal-digit run and valuation of n+1 are equivalent formulations; the cited examples cover exact specializations, not arbitrary ultimately periodic controllers.",
+        "searches": [
+          "Local Resultary: valuation-controller sequence, trailing maximal digit runs, intrinsic lasso, prefix opacity",
+          "Allouche–Yao arXiv:2404.13601v1, Section 3 and Example 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first source concerns n mod m and uses modulus-dependent conflict lengths. The second enumerates 256 parity counters of selected length-three factors including levels 0, 1, 1/2 and 1/4.",
+          "Neither catalog entry tabulates opacity for arbitrary valuation controllers with least onset a and period p."
+        ],
+        "reasoning": "Matching isolated numeric levels across differing transition families does not give an exact table or the attainable infinite spectrum for this family.",
+        "searches": [
+          "Local Resultary exact opacity spectrum: 85eda8f4468b (residue clocks), 1d3c5b46bcba (three-block parity counters), and assigned record"
+        ]
+      },
+      "rationale": "The retained contribution is the intrinsic size and complete base/onset/period classification of valuation-controlled words. Allouche–Yao's framework, the path criterion, the constant and period-doubling examples, and the generic DFAO minimization principle are prior. The adjacent catalog hits classify genuinely different inputs to these methods. No distinct full valuation-controller classification was verified in the bounded comparison.",
+      "residual_risks": [
+        "The journal version might contain material absent from the inspected v1 passages.",
+        "A reset-lasso or equivalent valuation classification could be indexed under other terms; the bounded search does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational criterion and specific prior examples; no verified general valuation trichotomy in these passages.",
+          "evidence": [
+            "Theorems 1–2 identify the intrinsic graph and give 2^(1−ℓ) with M_b=1/2; Example 6 gives 011 and normalized 1/2 for period-doubling.",
+            "Section 3 specializes the sequence discussion to Y=Σ_b. For general output Y the present statement explicitly evaluates the graph via input-digit relabelings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.13601v1",
+          "material_read": "PDF pp. 2, 5–9; Theorems 1–2 and Example 6; arXiv text around offsets 16700–20488 includes the Section 3 specialization.",
+          "method": "Versioned primary arXiv PDF, bounded passages.",
+          "title": "Opacity complexity of automatic sequences. The general case",
+          "trigger": "Original invariant, normalization and an exact valuation special case."
+        },
+        {
+          "assessment": "Unresolved coverage in the journal revision; not used as negative evidence.",
+          "evidence": [
+            "The bounded route did not recover the journal full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00236-026-00521-6",
+          "material_read": "Bibliographic identification only; version of record not read.",
+          "method": "Bounded lawful publisher retrieval attempt; arXiv v1 inspected separately.",
+          "title": "Opacity complexity of automatic sequences. The general case (journal version)",
+          "trigger": "Plausible expanded coverage of the same topic."
+        },
+        {
+          "assessment": "Different automatic sequence family.",
+          "evidence": [
+            "u(n)=n mod m; the vanishing case is b dividing m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-radix-period-opacity-and-level-spectrum-for-residue-clocks--85eda8f4468b",
+          "material_read": "Finding, local-mirror offset 0.",
+          "method": "Bounded published-record inspection.",
+          "title": "Exact radix-period opacity and level spectrum for residue clocks",
+          "trigger": "Exact radix opacity formula in an adjacent family."
+        },
+        {
+          "assessment": "Counts occurrences of a specified digit block modulo q, not length of a terminal run followed by an arbitrary controller.",
+          "evidence": [
+            "State count qk+1_{w_0=0} in that setup."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-opacity-phase-transition-and-minimal-automata-for-digit-block-co--233c89867ede",
+          "material_read": "Finding, local-mirror offset 0.",
+          "method": "Bounded published-record inspection.",
+          "title": "Opacity phase transition and minimal automata for digit-block counting",
+          "trigger": "Adjacent base-dependent classification and exact state counts."
+        },
+        {
+          "assessment": "Different count automata and finite table.",
+          "evidence": [
+            "Classifies the 256 selections of parity contributions of length-three blocks, not valuation tails of arbitrary period."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-prefix-opacity-classification-of-binary-three-block-parity--1d3c5b46bcba",
+          "material_read": "Finding, local-mirror offset 0.",
+          "method": "Bounded published-record inspection.",
+          "title": "Exact prefix-opacity classification of binary three-block parity counters",
+          "trigger": "Exact finite opacity table that shares levels."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Valuation-controlled sequences extend familiar automatic words such as period-doubling. The exact minimization and opacity together explain how one transient segment can make a binary automaton transparent despite the same eventual period, whereas adding a second reset digit makes graph opacity maximal. The full infinite dyadic binary spectrum follows for even just binary-valued controllers. This is useful structural classification beyond any individual known example, within the input-prefix metric only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

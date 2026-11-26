@@ -1,41 +1,61 @@
-#!/usr/bin/env python3
-"""Standalone exact-rational algebra tests for PoiTG canonical jump sequence.
-
-This code checks formulas and examples, not the universal k-quantifier,
-which is proved in RESULT.md by an analytic beta-density inequality.
-"""
+"""Exact rational regressions for the innovation formulas in RESULT.md."""
 from fractions import Fraction as F
-import sympy as s
-z,q,a,L=s.symbols('z q a L',real=True)
-r=q*(q+a)/(1+a*q)
-pgf_mix=(1-a)*(1-q)/(1-q*z)+a*(1-q*q)/(1-q*q*z)
-assert s.factor(pgf_mix-(1-q)*(1+a*q)*(1-r*z)/((1-q*z)*(1-q*q*z)))==0
-assert s.factor(1-r-(1-q*q)/(1+a*q))==0
-assert s.simplify(r-q*q-a*q*(1-q*q)/(1+a*q))==0
-assert s.simplify(q-r-q*(1-q)*(1-a)/(1+a*q))==0
-assert s.factor(pgf_mix.subs(z,0)-(1-q)*(1+a*q))==0
-for Q in (F(1,5),F(1,2),F(3,4),F(9,10),F(99,100)):
- for A in (F(0),F(1,10),F(1,2),F(9,10),F(1)):
-  R=Q*(Q+A)/(1+A*Q)
-  assert Q*Q<=R<=Q
-  B=lambda k:Q**k+Q**(2*k)-R**k
-  assert B(1)>0
-  assert all(B(k)>B(k+1)>0 for k in range(1,90))
-  for lam in (F(0),F(1,3),F(2)):
-   jump1=lam+B(1)
-   assert jump1>B(2)
-# A generic, equally weighted two-geometric mixture lacks the property.
-lo,hi=F(1,6),F(5,6)
-R=(lo*(1-hi)+hi*(1-lo))/((1-lo)+(1-hi))
-assert R==F(13,18)
-B=lambda k:lo**k+hi**k-R**k
-assert B(3)-B(2)==F(35,5832)>0
-# First three power coefficients of logarithmic PGF at a rational parameter.
-Q,A=F(3,4),F(2,5)
-R=Q*(Q+A)/(1+A*Q)
-for k in range(1,6):
- zz=s.symbols('zz')
- P=((1-Q)*(1+A*Q)*(1-R*zz)/((1-Q*zz)*(1-Q*Q*zz)))
- formal=s.diff(s.log(P),zz,k).subs(zz,0)/s.factorial(k)
- assert s.simplify(formal-(Q**k+Q**(2*k)-R**k)/k)==0
-print('PASS: exact rational PGF, canonical jumps, strict DSD checks, and a counterexample for unrelated geometric rates')
+
+
+def mul(a, b):
+    out = [F(0)] * (len(a) + len(b) - 1)
+    for i, x in enumerate(a):
+        for j, y in enumerate(b):
+            out[i + j] += x * y
+    return out
+
+
+def thinned(x, c):
+    return x * c / (1 - (1-c)*x)
+
+
+def ratio_polynomials(q, a, c):
+    r = q*(q+a)/(1+a*q)
+    l = lambda x: [F(1), -x]
+    lc = lambda x: [1-(1-c)*x, -c*x]
+    return mul(l(r), mul(lc(q), lc(q*q))), mul(lc(r), mul(l(q), l(q*q)))
+
+
+q, a, c = F(1, 2), F(1, 2), F(2, 5)
+n, d = ratio_polynomials(q, a, c)
+rates = [F(1, 2), F(1, 4), F(4, 19)]
+weights = [F(39, 110), -F(3, 10), F(6, 11)]
+ds = [[F(1), -x] for x in rates]
+den = mul(ds[0], mul(ds[1], ds[2]))
+num = [c * x for x in den]
+for i, (rate, weight) in enumerate(zip(rates, weights)):
+    j, k = [j for j in range(3) if j != i]
+    for t, x in enumerate(mul(ds[j], ds[k])):
+        num[t] += weight * (1-rate) * x
+assert mul(num, d) == mul(n, den)
+r = F(-4, 11)
+assert q**3 + q**6 - r**3 - (q**2 + q**4 - r**2) == F(719, 85184)
+
+cases = 0
+for q in (F(1, 50), F(1, 5), F(1, 2), F(9, 10)):
+    for a in (F(0), F(1, 5), F(1, 2), F(4, 5), F(1)):
+        for c in (F(1, 10), F(2, 5), F(1, 2), F(99, 100)):
+            n, d = ratio_polynomials(q, a, c)
+            r = q*(q+a)/(1+a*q)
+            # The logarithmic derivative is n'/n - d'/d, independently
+            # of the exponential Poisson summand (which adds only at j=1).
+            nd = [i*n[i] for i in range(1, len(n))]
+            dd = [i*d[i] for i in range(1, len(d))]
+            numer = [x-y for x, y in zip(mul(nd, d), mul(dd, n))]
+            denom = mul(n, d)
+            logder = []
+            for j in range(1, 15):
+                rhs = numer[j-1] if j <= len(numer) else F(0)
+                rhs -= sum(denom[i]*logder[j-1-i] for i in range(1, min(j, len(denom))))
+                v = rhs / denom[0]
+                logder.append(v)
+                v0 = lambda k: q**k + q**(2*k) - r**k
+                expected = v0(j) - (thinned(q,c)**j + thinned(q*q,c)**j - thinned(r,c)**j)
+                assert v == expected >= (v0(j)-v0(j+1))*(1-c**j) > 0
+                cases += 1
+print(f"PASS: exact witnesses and {cases} innovation coefficient checks")

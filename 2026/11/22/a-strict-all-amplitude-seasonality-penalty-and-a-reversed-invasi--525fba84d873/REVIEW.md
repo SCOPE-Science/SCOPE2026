@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The linear infection equations are explicitly stated and are the no-vertical, linear-incidence restriction of the cited model. The period evolution matrix is strictly positive. The positive Perron Floquet mode yields a positive periodic Riccati variable, and averaging its differential equation proves the claimed variance identity and strictness. The sinusoidal estimate uses integration by parts, periodic extrema, and Cauchy–Schwarz; the admissible example reverses the sign by exact rational inequalities, not numerical evidence. The positive infected Floquet eigenmode is sufficient to classify linear invasion.
+## correctness
 
-## Originality
-**PASS to the extent of accessible literature.** The claim is restricted to the all-positive-waveform, fixed-loss host–vector system and includes an exact universal variance formula and fully analytic seasonality-induced stability reversal. The main 2026 source concerns prescribed abundance and frozen-time indices, not this all-amplitude temporal-mean comparison. Bacaër (2007) and Khong–Carmona–Gandon (2023) already establish the *direction* of small-amplitude seasonal changes, not the exact nonperturbative generality. Clairambault–Gaubert–Perthame (2007) gives a geometric-mean lower bound, not the claimed arithmetic-mean upper bound. The closest research database entries concern seasonal schedules, spatial movement or mosquito demography and do not imply the precise theorem. The Bacaër full text could not be inspected; its abstract is an explicit remaining priority risk.
+PASS
 
-## Value
-**PASS.** The exact sign-reversing smooth vector-abundance witness separates two policy-relevant and mathematically distinct invasion verdicts even when the total mean vector abundance is unchanged. The all-waveform theorem is nonperturbative, and the exact variance defect quantifies the mechanism while the rational certificate establishes a genuine local stability reversal without simulation. This is a motivated extension of a recent prescribed-vector epidemic model, not simply a textbook renaming or an arbitrary parameter slice.
+With both couplings positive, the evolution over a positive period is strictly positive and its Perron mode has positive components. Integrating each component's logarithmic derivative gives Λ>max(−a,−d). Eliminating the second component and shifting by e^((a+d)t/2) gives y''=Qy with positive Floquet exponent γ, positive y, and Q>0. Hence y' strictly increases and satisfies y'(t+T)=e^(γT)y'(t), so r=y'/y is positive and periodic. Averaging r'=Q−r² gives γ²+Var(r)=mean Q with γ=mean r. Rationalization gives the exact defect; variance zero holds exactly for constant V. For a sine, r_max≤√(Q₀+q) by the periodic extremum condition. Testing the Riccati equation against the sine and integrating by parts gives q/2 bounded above by (ω+2r_max)√(Var(r)/2), yielding the stated penalty after dividing by √Q₀+mean r≤2√Q₀. For the frozen witness, positivity and V'+V>0 follow from 1001/1000>√2/4, and the exponent of the mean lies strictly between 0 and 1/2000. In the penalty, √(Q₀+q)<9/8 and √Q₀<1001/1000 give a strict penalty exceeding 250/(169·1001); subtracting gives −330831/338338000<−9/10000. These are analytic local invasion claims, not limits on nonlinear endemic persistence. Replay the scalar reduction and exact inequalities at RESULT.md lines 31–68; the frozen RK4 checker was inspected, not executed, and is not the sign proof.
 
-## Limits and nearest prior results
-The mathematical result concerns local invasion of the standard linear-incidence, no-vertical host–vector system with time-varying abundance only; not the source's low-infection shrinking adjustment, global epidemic burden, or co-seasonal transmission/mortality. Bacaër's full paper was not available for full-text comparison, and broader historical priority is not guaranteed. Numerical monodromy computations are corroboration rather than proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-day predator-cycle result is material overlap in the exact Riccati variance method, all-amplitude suppression and a reversal interval on its ecological orbit family. Its proof of the integrated identity uses no further structure of N after the mean normalization, so the underlying calculation and the qualitative suppression mechanism cannot be credited as independently new. The frozen contribution that survives comparison is treatment of arbitrary prescribed profiles together with the frequency- and amplitude-explicit nonperturbative sine penalty and a source-admissible exact sign certificate employing that bound. Neither the overlapping formula, the perturbative evidence nor the geometric-mean lower bound supplies this penalty. Same-day indexing establishes overlap, not chronology.
+
+## value
+
+PASS
+
+The arithmetic mean can give the wrong sign even for a smooth prescribed seasonal profile with an admissible source. The explicit harmonic floor controls the discrepancy across finite amplitudes and frequencies and certifies the sign with exact inequalities, beyond a numerical monodromy run or qualitative continuity argument. Its use is model-specific: fixed losses, one varying coupling, and local invasion only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

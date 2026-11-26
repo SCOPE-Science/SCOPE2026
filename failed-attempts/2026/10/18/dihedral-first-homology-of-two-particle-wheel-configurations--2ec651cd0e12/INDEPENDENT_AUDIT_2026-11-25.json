@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:28.369397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The continuous unordered two-point space is modeled by disjoint-closure cubical cells: the Prue–Scrimshaw bounds for two points are one edge between essential vertices and three edges around an essential loop, valid for the simple wheel. Its inclusion is equivariant, so the homology isomorphism is equivariant regardless of the retraction used. For the quotient conclusion one can make a two-particle equivariant strong retraction explicitly: in a common edge order the coordinates x<y and interpolate to (0,1); in two adjacent edges with coordinates x,y measured from the common vertex interpolate to (x,y)/max(x,y); on disjoint closed edges keep configurations fixed. These formulas respect edge reversals, particle exchange and overlaps (when one particle is on the common vertex, push the other to its far endpoint; when max=1 the relevant configurations are fixed). They therefore glue and pass to both quotients. The cubical 1-skeleton is the connected two-token graph; the cell counts give Euler characteristic −n. For the top boundary, normalize every square in the e-fiber using e as its first oriented factor (with coefficient negated when this requires switching). The coefficient sum at the one-cells (e,v) is then the boundary on the vertex-deleted graph up to a single overall sign. The spoke fibers live on paths, killing their square coefficients, and the remaining rim-only fibers also live on paths. This resolves the proof's implicit orientation normalization and forces injectivity. Orient fixed edge factors and multiply by minus one when they are exchanged. Nontrivial rotations have no fixed cells unless a half-turn, for which the n/2 paired vertices and n/2 negative swaps cancel. For reflections, fixed spoke and rim factors or disjoint swapped rim pairs give the stated signed table; in the even vertex-axis case two swaps at fixed vertices are not disjoint, while in the even edge-axis case the two fixed reversed rim edges form one positive square. H_0 is trivial as a representation, so Hopf trace gives 1−T_0+T_1−T_2 and exactly the reflection-sign twist of the rim-edge module plus a line. The constant rim-edge vector and extra line survive rotations and both change sign under reflections. Subdivide the finite cubical complex equivariantly and average rational chains for the orbit homology. Independent replay python3 /workspace/review-evidence/reproduce.py 1, log /workspace/review-evidence/1.txt, verifies all 260 signed characters and mod-two rank/connectedness checks for 4≤n≤16, including both even axes at n=4. The computations are finite checks only; the supplied nested verification/check_wheel.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maciążek–Sawicki give wheel configuration homology, including β_2=0 for two particles; Prue–Scrimshaw give the applicable stable discrete model.",
+          "22dcab72e63f gives a stronger homotopy result for the five-rim wheel: cyclic rotations yield a bouquet of two circles and the full dihedral quotient has point homotopy type."
+        ],
+        "reasoning": "The primary tools alone do not settle the dihedral character. The indexed small-wheel result improves the homotopy information only in its family size, and is not the basis for uniform coverage.",
+        "searches": [
+          "Maciążek–Sawicki DOI 10.1007/s00220-019-03583-5 §5.3–5.3.2",
+          "Prue–Scrimshaw arXiv:0909.5511 Theorem 3.2",
+          "Resultary 22dcab72e63f five-rim-wheel subgroup quotients"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 84359f9fd52d exact Finding",
+        "Resultary 22dcab72e63f subgroup quotient table",
+        "Maciążek–Sawicki DOI 10.1007/s00220-019-03583-5",
+        "Prue–Scrimshaw arXiv:0909.5511"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable model and known ranks alone leave multiple inequivalent group representations possible. The indexed module and trace computation determine the frozen module by the explicit basis change and rational character equality.",
+          "The indexed theorem already states that rotation-quotient H_1 is Q^2 and the full ordinary quotient is reduced-rationally acyclic."
+        ],
+        "reasoning": "There is no extra rational invariant in the frozen result beyond the statement-level equivalence, even though a different exposition or proof of it can be mathematically correct. No independence or historical order is inferred from the dates.",
+        "searches": [
+          "84359f9fd52d module/quotient assertions",
+          "Maciążek–Sawicki §§5.3–5.3.2",
+          "Prue–Scrimshaw Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed statement uses W_(n+1)=C_n*K_1 and two unordered particles with the same dihedral action. It gives H_1(X_n;Q)=H_1(|W_(n+1)|;Q)⊕ε_s as rational D_n-modules.",
+          "The n hub–rim triangles form a basis of H_1 of the wheel graph: the spokes form a spanning tree and each triangle contains one distinct rim edge. Rotate their cyclic orientations and reflect to reverse them."
+        ],
+        "reasoning": "The triangle basis identifies graph H_1 with ε_s tensored with the rim-edge permutation module, yielding exactly the frozen module after adding ε_s. Both notations refer to the same graph with n rim vertices.",
+        "searches": [
+          "Resultary exact competition for two-particle wheel rational D_n module and cyclic/full quotient",
+          "84359f9fd52d RESULT.md Finding, mirror offsets 0 and 410"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "84359f9fd52d gives identity trace n+1, nonidentity rotation trace 1, odd reflections −2, even vertex- and edge-axis reflections −1 and −3, respectively. It explicitly gives the two ordinary orbit-space results, not just fixed-vector counts.",
+          "22dcab72e63f gives stronger quotient homotopy information at n=5 only."
+        ],
+        "reasoning": "Every rational character value and both quotient conclusions in the frozen range are verified exact matches in the uniform record. The indexed theorem also lists the corresponding complex irreducibles.",
+        "searches": [
+          "84359f9fd52d exact character and orbit conclusions, RESULT.md Finding at offset 410",
+          "22dcab72e63f subgroup quotient table, RESULT.md offset 621"
+        ]
+      },
+      "rationale": "Distinct indexed record 84359f9fd52d gives the exact same all-n character, rational module and ordinary cyclic/full-dihedral quotient conclusions. Its wheel subscript counts total vertices rather than just rim vertices. This establishes equivalent coverage, not a historical priority or derivation claim; its catalogue path date is later. The original graph configuration homology ranks and stable discretization are independently established in the literature and are not claimed as new here.",
+      "residual_risks": [
+        "The later catalogue path of the matching result does not settle historical priority, provenance, or independence. The scientific decision here is based on verified equivalence.",
+        "The nonequivariant source comparisons do not exclude additional earlier equivariant coverage outside the inspected passages; this is not needed for the exact indexed comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact uniform overlap, including the quotient distinction.",
+          "evidence": [
+            "H_1(X_n;Q)≅H_1(|W_(n+1)|;Q)⊕ε_s; rotations preserve two dimensions while the full group has no invariants and its ordinary quotient is rationally acyclic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-complete-dihedral-first-homology-characters-for-two-particles-on--84359f9fd52d/RESULT.md",
+          "material_read": "Finding including character and rational/complex module and quotient claims, and Assumptions, at mirror offsets 0 and 410",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; compare signed graph basis and all classes",
+          "title": "Complete dihedral first-homology characters for two particles on wheel graphs",
+          "trigger": "Exact wheel model and natural dihedral action"
+        },
+        {
+          "assessment": "Stronger homotopy information for the five-rim wheel only.",
+          "evidence": [
+            "For the rotation subgroup C_5 the quotient is a bouquet of two circles, while for D_5 the quotient has point homotopy type."
+          ],
+          "identifier_or_url": "22dcab72e63f",
+          "material_read": "Local mirror RESULT.md subgroup quotient table near offset 621",
+          "method": "Exact table passage comparison",
+          "title": "Integral homotopy classification of all dihedral subgroup quotients",
+          "trigger": "One-wheel stronger ordinary-space quotient statement"
+        },
+        {
+          "assessment": "Covers nonequivariant wheel homology, not the group action in the inspected passages.",
+          "evidence": [
+            "Wheel configuration homology groups are free; β_2(D_2(W_m))=0 for two particles."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00220-019-03583-5",
+          "material_read": "§5.3–5.3.2 pp. 950–954 near OA offsets 92834, 96990, 101163",
+          "method": "Open-access paper passages compared for particle count and graph family",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Published calculation of same wheel-graph homology"
+        },
+        {
+          "assessment": "Supports unordered discretization; does not explicitly give the wheel's dihedral equivariant retraction.",
+          "evidence": [
+            "The bounds are n−1 and n+1 edges for n particles and the conclusion also holds for unordered spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.5511",
+          "material_read": "Theorem 3.2 p. 6 near OA offset 25425",
+          "method": "Open-access PDF passage compared against one-edge essential paths and three-edge closed loops",
+          "title": "Abrams's stable equivalence for graph braid groups",
+          "trigger": "Discretization premise and need to justify its use for ordinary quotients"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact signed action and the cyclic/full-dihedral quotient contrast are meaningful invariants. But the submitted scope is an exact restatement of the indexed all-length result via the natural hub-triangle basis. Ranks, signs on both reflection classes, and both quotient conclusions are already covered, so there is no distinct invariant or scope left to credit as a separate finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

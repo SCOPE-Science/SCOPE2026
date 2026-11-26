@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The unique minimum-weight path is the infection genealogy in the exponential Richardson exploration. The finite, terminating, 289-state depth-label recurrence computes each path-length probability exactly in the parameter. Symbolic cancellation proves the three stated rational functions, the strictly signed derivative, and normalization for every positive rate. A separately formulated 265-state Boolean geodesic recursion reproduces the main probability, and 7,368 explicitly enumerated elementary histories reproduce all three probabilities at six rational rates. The finite enumeration supports the general algebraic certificate; the all-rate statement is proved by exact symbolic algebra and polynomial positivity, not extrapolation.
+PASS
 
-## Originality
+In Dijkstra exploration with independent exponential edge lengths, active cut-edge waiting times conditional on the exploration history are independent rate-assigned residual exponentials, by memorylessness. A chosen edge has probability its rate divided by the total cut rate, and the winning predecessor gives the true shortest-path depth. Positive continuous weights imply uniqueness and a simple path; bipartite parity and cube order restrict its length to 3,5,7. I separately enumerated vertex arrival orders, expanded compatible parent assignments, and grouped all 7368 histories by their multiset of cut-rate factors and number of third-axis transmissions. Exact polynomial arithmetic verifies all three full rational identities, normalization and the derivative factorization. The derivative's positive remaining numerator coefficients prove the sign change only at 1; substitution gives (6973/7200,7/225,1/2400), and the constant and leading coefficients give the two limiting geodesic probabilities. Under the common exponential coupling, every antipodal path uses the third axis. Testing the minimizer at the old rate in the new, strictly faster environment proves strict decrease of the passage time.
 
-PASS on examined evidence, subject to priority risk. The closest primary literature develops exponential Richardson growth on the hypercube and proves high-dimensional time/path-length asymptotics, but neither examined theorem determines the finite anisotropic three-cube path-length law or its strict unique rate optimum. Results on anisotropic bootstrap percolation do not involve the same stochastic passage law. Relevant indexed research concerning hypercube random walks and infection on bicliques does not imply the statement. The source comparison does not establish absolute historical uniqueness; unindexed tables remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The three-cube is the first member of the cube family for which a fastest first-passage path can be longer than graph distance, so the invariant is naturally selected rather than arbitrarily sliced. The full exact detour distribution and unique isotropic optimizer quantify a kinetic geometry tradeoff: faster transmission along an axis improves first-arrival time but, beyond equal rates, makes the route less likely to be topologically shortest. The calculation provides an exact benchmark for small-system Richardson/Eden-type growth models, complementary to established large-dimension asymptotics.
+Credit the established exponential first-passage representation, Richardson exploration and asymptotic interest in optimizing path length. The verified distinction is the full exact finite-cube length law and its unique isotropic maximizer of three-edge probability along the specified directional family. The inspected sources address different regimes or path measures.
 
-## Closest literature and limitations
+## value
 
-Fill–Pemantle (1993; accessible arXiv 2004) and Martinsson (arXiv 2014) treat same graph family and exponential growth but address high-dimensional first-passage and typical path lengths, not this fixed-size anisotropic optimization. The current theorem does not claim optimality for three independently variable rates, larger dimensions, or nonexponential weights. A closely related source not accessible in full could change the novelty assessment; no independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Q3 is the first cube with detours between antipodes; Q2 cannot separate passage speed from geodesicity this way. The exact law explains a concrete tradeoff: increasing the third-axis rate always speeds passage, but above the isotropic point it lowers the chance of a shortest-in-hops route. An all-rate sign theorem and full finite law are more informative than an isotropic census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

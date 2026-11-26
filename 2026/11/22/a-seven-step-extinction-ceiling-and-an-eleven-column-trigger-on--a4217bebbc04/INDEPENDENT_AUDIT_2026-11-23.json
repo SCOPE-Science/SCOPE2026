@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:15:09.034942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–56 and supporting BDD, optional SMT and verification files; supplied scripts were not executed",
+        "Independent replay: python3 /workspace/branches/bcca8da0-a0bf-4588-8153-4d32d10b3670/gh_strip_replay.py; output gh_strip_replay.out. Includes direct ternary enumeration of each time slice for n<=3, and direct replay of the width-11 witness."
+      ],
+      "rationale": "For t>=1 the refractory set at t equals the excited set at t-1, so the two Boolean layers and the initial resting test encode the stated synchronous rule with distinct neighbors exactly. Independent ordered ternary diagrams, with skipped variables weighted by their numbers of three-way completions, reproduce the latest excitation times for n=1..13: 1,1,2,2,3,3,4,4,4,4,5,5,5. All time-six roots vanish. Restricting to the original columns within horizontal distance six of a site preserves its time-six state: the update cannot use a site outside this window before time six. Such a restriction is an open strip of at most 13 columns, including all boundary cases. If a last excitation occurs at t, it leaves refractory sites at t+1 and the strip is first all-rest at t+2. If there is no excitation at any time, tau is 0 or 1, so this case does not affect a maximum. On width 11 the only possible time-five excitations are at the top and bottom of column 6 (one-based); the exact event sizes are 632,772 each and disjoint. In particular, their union size is 1,265,544; a time-five center-column excitation has the same dependency window after any extension of the block. Direct witness counts at times 0..6 are 11,12,7,4,2,1,0, and disjoint eleven-column blocks have independent trigger events of probability 1736/3^27. These facts give the asserted maximal times and probability lower bound for every n.",
+      "residual_risks": [
+        "The verified finite lemma is only for windows n<=13; the deduction to longer strips uses deterministic radius-six locality. The probability bound is not an exact formula for n>11 and its per-block parameter is approximately 2.28e-10."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff equation (1) triggers a resting site when there exists one excited neighbor. Durrett–Griffeath's planar Theorems 1.2–1.3 concern stable objects and eventual local periodicity under range/threshold hypotheses and random initial states; Theorem 1.1 uses threshold one."
+        ],
+        "reasoning": "An arbitrary-graph result for one-contact dynamics does not give the stated two-contact sharp times. Planar asymptotic claims do not specialize to all colorings of the open strip with its missing boundary neighbors; even deleting edges changes update times.",
+        "searches": [
+          "arXiv:1610.07320 v1, equation (1), p. 2",
+          "Durrett–Griffeath Theorems 1.1–1.3, printed p. 187, author-hosted PDF offset 13600"
+        ]
+      },
+      "checked_sources": [
+        "Durrett–Griffeath author PDF §1 and stated Theorems 1.1–1.3, not the entire article",
+        "Gravner–Lyu–Sivakoff equation (1)",
+        "Resultary mirror ladder and wheel findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ladder theorem has the identical two-distinct-neighbor local transition, but P_n Cartesian K_2 instead of P_3 Cartesian P_n. The wheel uses K_1 joined to C_n. The planar paper uses stable periodic objects and large-range regimes."
+        ],
+        "reasoning": "Neither a substrip cutoff nor a witness for another graph determines the exact contact dynamics in three rows; the extra vertical adjacency changes excitation and refractory histories. The separate zero-root lemma and exact center-column count are mathematical information not supplied by those results.",
+        "searches": [
+          "Resultary ladder RESULT.md offset 0–6939 and wheel RESULT.md offset 0–6814",
+          "Durrett–Griffeath Journal Experimental Mathematics 2(3), pp. 183–187, model and theorem passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first Resultary hit was the reviewed finding itself. The primary rule in Durrett–Griffeath §1 advances each nonzero state modulo the number of colors and excites a resting state by a threshold contact test, on the planar lattice. Their cyclic cellular automaton instead uses a contact test at every color."
+        ],
+        "reasoning": "Nilpotency of the synchronous three-color two-contact rule on the open 3-by-n grid is equivalent to a time bound on the same graph. Counting B_(11,5) under universal extinction at seven is equivalent to counting first all-rest time seven. Neither changing to a cyclic threshold rule nor changing to periodic boundaries is an equivalent formulation.",
+        "searches": [
+          "Resultary (limit 20): three-state threshold-two Greenberg Hastings dynamics open three-row strip P3 Cartesian Pn extinction time seven eleven-column trigger",
+          "Primary web: two-contact threshold two three-state Greenberg Hastings \"three-row\" open strip extinction sharp \"Durrett Griffeath\" three rows OR P3xPn PDF",
+          "Durrett–Griffeath author-hosted PDF, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-rule published records retrieved and read cover width-two open ladders (seven-rung onset of time five) and wheels (maximum five). No distinct matching width-three table was identified in that search."
+        ],
+        "reasoning": "Neither table counts initial colorings of P_3 Cartesian P_11. The exact reviewed 1,265,544 count is not a relabeling of an entry for either of those graphs.",
+        "searches": [
+          "Resultary exact object/time query above; inspected mirror of ladder record 09cd21aaa83e and wheel record 58917bc0decb"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp length-dependent extinction clock and exact minimal-width trigger count. The strongest inspected comparisons either change the contact threshold, change the graph, or address a large-range probabilistic planar limit, rather than the all-initial-states open width-three rule.",
+      "residual_risks": [
+        "An unindexed exact width-three result or stronger same-threshold open-strip classification could dominate. Material was compared by rule, graph and theorem scope; neither the search results nor limited inspection establishes absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule framework, materially different geometry and quantified conclusions in passages read",
+          "evidence": [
+            "Nonzero states advance automatically; threshold contact updates apply only at zero for GHM. Theorems 1.2–1.3 use large-range behavior of random configurations on the plane."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10586458.1993.10504277",
+          "material_read": "Introduction and update definition, printed pp. 183–184; stable-periodic-object theorem statements, p. 187",
+          "method": "OA author copy https://sites.math.duke.edu/~rtd/reprints/paper79.pdf, opened offsets 3800 and 13600 after locate",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Same parametric threshold model and possible planar theorem"
+        },
+        {
+          "assessment": "Different contact threshold",
+          "evidence": [
+            "The activation condition in (1) is existence of a single excited neighbor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Abstract and equation (1), p. 2, offset 4500–9483",
+          "method": "OA PDF literal neighbor locate at offset 5081, then passage read",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Plausible broader graph result"
+        },
+        {
+          "assessment": "Width-two result, with different sharp times and onset",
+          "evidence": [
+            "Open P_n Cartesian K_2 has maximum first extinction time five beginning at n=7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-seven-rung-causal-trigger-and-sharp-five-update-extinction-on--09cd21aaa83e/RESULT.md",
+          "material_read": "Finding, graph, rule, and proof passages, offsets 0–6939",
+          "method": "Local published mirror",
+          "title": "A seven-rung causal trigger and sharp five-update extinction on open ladders",
+          "trigger": "Closest same-rule strip theorem"
+        },
+        {
+          "assessment": "Different graph and finite-window geometry",
+          "evidence": [
+            "The wheel is K_1 joined to C_n and the stated uniform maximum is five updates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-five-step-extinction-for-threshold-two-excitation-on-wheel--58917bc0decb/RESULT.md",
+          "material_read": "Offsets 0–6814",
+          "method": "Local published mirror",
+          "title": "Sharp five-step extinction for threshold-two excitation on wheel graphs",
+          "trigger": "Same-rule short-time exact theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-input collapse clock on a natural infinite family of strips is useful as a boundary-sensitive test of finite-width excitability. The five sharp length regimes, the finite radius needed to prove the exclusion, and the exact count of the first local trigger jointly resolve more than existence of extinction. The count provides a quantitative explanation of why maximum delay becomes typical without sustained activity; it is not claimed to be a large probability on modest lengths or to generalize to other widths.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

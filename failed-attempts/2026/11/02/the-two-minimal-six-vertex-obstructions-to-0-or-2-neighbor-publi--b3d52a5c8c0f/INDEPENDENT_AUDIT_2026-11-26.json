@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:34.258329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a graph of maximum degree three the rule is the even-count rule. Over F_2 the symmetric matrix M=I+A has z^TMz=sum z_i for all z, so the all-ones vector is orthogonal to ker M and hence belongs to im M. A universal vertex by itself is an equilibrium; absence of a universal vertex through order five gives maximum degree at most three. Disconnected graphs split componentwise, and the empty graph has the vacuous equilibrium. For the eight-edge graph, the internal path equations force the two hub actions equal. The two common degree-two neighbors are then active; active hubs see at least three, while inactive hubs would require both internal path vertices active in contradiction to the path equations. The nine-edge graph is the 3-sun. Zero active hubs, or one or two active hubs, forces at least one inactive hub with two active neighbors; three active hubs gives degree-four active counts incompatible with activity. In a fresh exhaustive run (`python3 /workspace/reproductions/1.py`), for every labeled graph through six vertices the set of putative active vertices was compared to the defining set of strict best responses. The census (connected, failing) was (1,0),(1,0),(4,0),(38,0),(728,0),(26704,300). The two display graphs' full relabeling orbits were disjoint and their union was exactly the failing set; their sizes and minimum masks were (180,957) and (120,1915). The supplied checker was inspected, not run. Its Python 3.8 compatibility note is inaccurate because int.bit_count requires Python 3.10+, and the nonzero-equilibrium remark applies only to nonempty graphs. Neither affects the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 1a57f409f1af covers all labeled graphs through order six, including disconnected graphs",
+          "Gilboa §3 classifies the complexity of the response pattern; the cactus census 32cd3b9692ae instead restricts to a different graph class"
+        ],
+        "reasoning": "Complexity, a cactus threshold and a forest existence theorem do not imply a six-vertex all-graph census, but the distinct Resultary all-graph classification does contain it.",
+        "searches": [
+          "Resultary 1a57f409f1af and same-rule cactus, forest and degree-four hits",
+          "Gilboa and Nisan 2207.04238v1; Klimm and Stahlberg 2301.11849v1; Gilboa 2301.11580v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 1a57f409f1af; related catalog hits 32cd3b9692ae, 120596a33cd8 and 92cd7298de4c",
+        "Gilboa–Nisan 2207.04238v1",
+        "Klimm–Stahlberg 2301.11849v1",
+        "Gilboa 2301.11580v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior catalog states the cutoff, exact representatives and multiplicities, not just failure of existence",
+          "The papers provide the 3-sun and a nine-vertex chain-of-triangles witness, respectively"
+        ],
+        "reasoning": "No new implication connects the earlier catalog theorem to the frozen central classification; they coincide. An isolated witness alone would not establish minimality or uniqueness of the two classes.",
+        "searches": [
+          "Resultary 1a57f409f1af RESULT.md Finding and completeness",
+          "Klimm–Stahlberg Lemma 5.3 and Gilboa Fig. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1a57f409f1af Finding gives the same response function and both identical edge sets",
+          "Klimm–Stahlberg Fig. 1a caption and Lemma 5.3 identify the operand-free gadget as the 3-sun and show it has no equilibrium"
+        ],
+        "reasoning": "The triangle with one independent degree-two vertex over each edge is exactly the bound nine-edge graph. The separate catalog record also matches the eight-edge graph, with no change of game or isomorphism convention.",
+        "searches": [
+          "Resultary semantic search for strict zero-or-two neighbor equilibrium obstructions and graph census",
+          "Primary literature on binary public goods under the exact response pattern and its 3-sun witness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior catalog census gives 300/32768 labeled six-vertex graphs, the 180/120 class multiplicities, and zero failures at orders one through five",
+          "Gilboa–Nisan Table 1 lists complexity questions, not small-graph counts"
+        ],
+        "reasoning": "The prior census denominator is all labeled graphs; the frozen result separately quotes the connected count 26704. All failures are connected in either statement. The two orbit counts and the classification match exactly.",
+        "searches": [
+          "Prior Resultary 1a57f409f1af completeness/verification sections",
+          "Gilboa–Nisan Table 1"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record explicitly states the same rule, sharp cutoff, two edge lists and orbit counts. The printed literature also already contains the nine-edge 3-sun witness, though the inspected papers do not give the full census. Exact coverage by the distinct catalog record is established; historical timestamp authentication and who reached the result first are separate questions.",
+      "residual_risks": [
+        "The bounded literature search is not a worldwide priority determination. The earlier-dated catalog path is not independently authenticated evidence of publication order; its scientific content is demonstrably equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of finding",
+          "evidence": "The two edge lists, 180/120 multiplicities, lower-order existence and total 300 match.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-sharp-six-vertex-obstruction-census-for-strict-zero-or-two-n--1a57f409f1af/RESULT.md",
+          "material_read": "Finding from offset 0, completeness and verification sections",
+          "method": "Bounded local mirror RESULT.md at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The sharp six-vertex obstruction census for strict zero-or-two neighbors",
+          "trigger": "Exact rule, cutoff and census"
+        },
+        {
+          "assessment": "Context only",
+          "evidence": "Asks for the complexity of the exact rule, not the first-obstruction census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.04238v1",
+          "material_read": "Open Problem 2, p. 3, PDF text offset 9078, and Table 1, p. 4",
+          "method": "Primary PDF passages",
+          "title": "Complexity of Public Goods Games on Graphs",
+          "trigger": "Identical best response"
+        },
+        {
+          "assessment": "Exact overlap on one witness",
+          "evidence": "The operand-free 3-sun has no pure equilibrium.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.11849v1",
+          "material_read": "Fig. 1a caption and Lemma 5.3, pp. 10–11, offsets 37320 and 39853",
+          "method": "Primary PDF passages",
+          "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+          "trigger": "Nonexistence gadget for the same response"
+        },
+        {
+          "assessment": "Related complexity theorem and different witness",
+          "evidence": "NP-completeness with a nine-vertex chain of four triangles as a nonexistence example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.11580v1",
+          "material_read": "§3 Definition 3.1 and Theorem 3.2, p. 5, offset 12878; Fig. 4 p. 6, offset 16020",
+          "method": "Primary PDF passages",
+          "title": "A Characterization of Complexity in Public Goods Games",
+          "trigger": "Same rule and known nonexistence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp minimum graph order and exact first obstruction set are naturally useful beyond a single gadget, but the separate catalog record already supplies both and the same census. Rechecking that census adds no new graph boundary, structure or independent exact invariant to the stated finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The feasible three-gap simplex is compact. At a face with a zero gap, the first variation toward the interior strictly reduces the logarithmic denominator. All interior critical points have either equal gaps or reciprocal gap values; the only possible asymmetric global minimum consists of two equal short gaps and one reciprocal long gap. A tangent Hessian test eliminates the other stationary branch. The derivative of the log-cost difference between equal and stable asymmetric branches is strictly negative on \((2\sqrt2,3)\), with exact opposite signs at the endpoints, proving one and only one global switch. The direct two-gap denominator identity proves the claimed minimality of a three-hop discontinuity. Supplementary reproducibility: 76,359 assertions by `verify.py`. Risk: the transition only concerns a fixed three-hop independent success model, not actual dispersal success measured over many generations.
+PASS
 
-## Originality — PASS on inspected evidence
+The compact simplex has a minimum of the log-denominator. Moving length into any zero gap from a positive gap strictly lowers that cost. Equal derivatives at an interior stationary point give equal or reciprocal gap lengths. Two long gaps have a negative transfer-direction curvature, so a nonuniform minimum has two short gaps x and one long gap 1/x. The mixed tangent direction (1,1,-2) excludes x>1/sqrt(2) on the two-short branch. At the merged branch the unequal denominator exceeds the equal one by 31/2916; at s=3 the unequal value is 125/16 against 8. On (sqrt(8),3), the stationary log-cost difference has derivative g'(a)-g'(s/3)<0 because 0<a<s/3<1. Beyond 3 the equal point has negative tangent curvature. These arguments account for all minimizers, including both endpoint values of the crossing bracket. For two gaps, the denominator is s^2+(uv-1)^2 and the attainable products range continuously from 0 to s^2/4, giving continuous onset at s=2. Independently, setting u=a^2 gives the crossing equation 729u^2(1+u)^3=(4u^2+13u+1)^3. Exact rational sign bisection on [1/4,1/2] reproduced 2.8475678593462526382177 and short gap 0.6294894794440552583894.
 
-Lapin et al. (2024) provide a forest stepping-stone prioritization framework, not this continuous three-gap optimal-spacing theorem. Saura, Bodin and Fortin (2014; available online 2013) already develop maximum-product stepping-stone connectivity ideas; those ideas are credited as existing work, while their inspected mathematical analysis does not classify the present exact reciprocal-gap transition. Chapman et al. (2007; available online 2006) and Skelsey et al. (2013; available online 2012) study dispersal kernels or landscape patterns, with different optimization variables. Direct searches for the reciprocal-gap threshold, related constrained-product inequality, and comparable route designs did not identify a mathematically stronger covering theorem. The special two-hop case is explicitly contrasted rather than recycled. Residual risk: general mathematical inequalities in older literature may yield the same formula; search and inspected evidence do not certify universal first discovery.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete global classification, with exact ties and a first-order transition despite persistent local stability, of a minimal continuous conservation-connectivity placement model. It clarifies when a uniform-spacing heuristic is globally incorrect and how network movement kernels can favor a widely spaced route segment rather than uniform links; this provides a self-contained analytic benchmark for richer spatial restoration models. Its value is the structural threshold and shortest-chain boundary, not a claim to predict an actual field placement.
+The supported distinct result is the global three-gap inverse-quadratic switch, its coexistence configurations, and the contrast with the continuous two-gap onset. The closest available connectivity and allocation statements do not supply the same objective or its global crossing. This is a bounded comparison, not a claim of absolute priority.
 
-## Closest sources and limits
+## value
 
-- Lapin et al. (2024), https://doi.org/10.1111/csp2.13161 — full article methods and results inspected; regional multi-indicator conservation prioritization, not exact optimized three-hop spacing.
-- Saura, Bodin and Fortin (2014), https://doi.org/10.1111/1365-2664.12179 — full article mathematical connectivity and implications inspected; maximum product of dispersal probabilities is prior work; no corresponding inverse-quadratic gap optimization identified.
-- Chapman, Dytham and Oxford (2007), https://doi.org/10.1111/j.1365-2656.2006.01172.x — full article methods inspected; fitted dispersal kernels and emigration probabilities rather than free location optimization.
-- Skelsey, With and Garrett (2013), https://doi.org/10.1007/s12080-012-0171-3 — full accessible article text inspected; scale of heterogeneity and other model objectives.
-- General abstract-level related source: da Rocha et al. (2021), https://doi.org/10.1007/s10980-021-01310-x; not used for decisive negative coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three is the first route length in this model where an unequal global optimum appears discontinuously while the equal solution remains a strict local optimum. This supplies an exact counterexample to using loss of local stability as the onset criterion in simple serial placement models. Giving the crossing, multiplicities and minimal number of hops makes the result useful as a benchmark; the significance is not an assertion about actual habitat design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

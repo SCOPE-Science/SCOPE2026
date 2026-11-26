@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof in `RESULT.md` is algebraic for all fields and all indicated dimensions. The script `verify.py` independently builds actual Lie brackets from defining matrices and counts joint-adjoint ranks and commuting tuples by exhaustive iteration over small prime fields. Run `python3 verify.py` in a directory containing this file; the expected terminal marker is `VERIFY_OK`.
+# Independent mathematical audit
 
-Checks performed: the two distinct five-dimensional Lie algebras over fields of orders 2 and 3 for tuples of length two, and over the field of order 2 for length three; a four-dimensional rank-two instance over the field of order 3 for tuples of length two. The script also verifies the rank discrepancy of the squared defining endomorphisms. The finite computations cannot establish the arbitrary-field assertions or any publication priority. The irreducible-component proof uses the rank-one outer-product parametrization, not experimental enumeration.
+## correctness
+
+PASS
+
+For any k, choose complements to ker D and bases of im D. The bracket of inputs (a_i,v_i),(a_h,v_h) has coordinates a_i Dv_h−a_h Dv_i in im D. This identifies defining ideals under a linear input change, with c independent kernel coordinates per input; it is not merely a pointwise match. If a is nonzero, every row of Y is a multiple of a, so the support is the union of a=0 and the rank-at-most-one stacked matrix locus. The irreducible rank-one cone has dimension equal to number of rows plus number of columns minus one, and neither locus contains the other for r,s≥2. This proves the stated dimensions, intersection and unique equidimensional case. For finite fields, counting on a=0 and a≠0 gives N_s and hence the displayed zeta function. On all tuples the joint map is (b,u)↦(a_i u−b y_i)_i: when a=0 it has rank 0 or 1; otherwise the u-block has rank r and the b-column adds one precisely when Y is not of the form ua. This gives the claimed four frequencies, including in characteristic 2. For the nilpotent rank-two example D_{31}²≠0 and D_{22}²=0; γ_{j+1}=D^jV, and the central quotient is abelian exactly when D²=0. For d≤3, rank fixes the nilpotent partition. Independent direct simultaneous-centralizer enumeration used two invertible rank-two matrices over F₂ and one rank-two singular matrix over F₃, checking both the rank frequencies and commuting counts (python3 /workspace/reviews/evidence/reproduce.py 1).
+
+## originality
+
+PASS
+
+The common ideal is exactly a known generalized binomial edge ideal after transpose, and its decomposition and the component formulas are covered. Credit that prior result rather than treating the geometry of this model as new. The distinct contribution is the Lie-theoretic identification of all-arity commuting schemes and joint-adjoint rank distributions for same-dimension, same-rank almost-abelian algebras, including the sharp nonisoclinic class-two/class-three collision. No checked source covers that conclusion or the full joint-adjoint enumerator.
+
+## value
+
+PASS
+
+The value is the sharp failure of Lie reconstruction even if every ordered-tuple commuting scheme and every joint-adjoint rank frequency is supplied. The pair changes nilpotency class and isoclinism at the first possible dimension, so it isolates a real loss of structure. The known determinantal component geometry alone is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

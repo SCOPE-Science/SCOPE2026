@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each rim forest component must contain exactly one spoke. The explicit two-bit cyclic transfer lists every admissible local transition and isolates exactly two extra cyclic histories for the invalid full-rim/no-spoke set. Weighted inclusion-exclusion gives the exact trace identity. The Perron root is simple, the correction operators have smaller spectral radii, and implicit differentiation of the cubic factor yields the exact positive Gaussian variance. Independent exhaustive enumeration checks every overlap coefficient through eight rim vertices, totalling 5,688,628 ordered pairs.
+## correctness
 
-**Originality — PASS (bounded literature priority).** Comparisons are at statement and implication level. Published wheel complementary-tree enumeration gives only the distance-diameter coefficient, while published wheel vertex-covariance results give only low moments. The inspected signed-wheel Walsh papers classify zero and minimum multipliers but do not provide the complete overlap polynomial or the CLT constants. The inspected independent-tree intersection paper covers dense complete, multipartite and Erdős–Rényi families, not wheels. The 2020 lead paper develops matroid polytope reconstruction rather than this Euclidean metric invariant. Possible unindexed equivalent cyclic partition functions or multivariate Tutte evaluations remain a genuine risk.
+PASS
 
-**Mathematical value — PASS.** An all-chord distance spectrum is a canonical metric invariant of an infinite family of graphic-matroid base polytopes. The formula captures all finite Euclidean distance multiplicities and an explicit positive-variance Gaussian regime, contrasting with the already established extremal complementary-pair count and with Poisson overlaps in dense graphs. It goes beyond calculating a known endpoint or merely restating a covariance identity.
+In a tree, each path component of the chosen proper set of rim edges needs exactly one spoke. With a missing rim edge the cyclic scan resets at the next vertex, establishing a unique state history; with none missing, a closed scan permits no spoke and has two constant histories. Re-summing the pairs of local transitions with monomial q^(ss'+rr') gives M; weighting overlap with the all-rim set gives A. The ordered one-invalid contributions have multiplicity four overall; both-invalid contributes 4q^m, giving the displayed correction after eliminating the one-copy term. Each incidence vector is exposed by its own dot product, and since all trees have m edges, the squared pair distance equals 2(m-X). On antisymmetric pair states M acts by q; its symmetric three-dimensional block gives the stated cubic. A symbolic determinant and implicit differentiation independently reproduce the characteristic polynomial, mean and positive variance constants. At q=1 the positive M has a simple strict Perron modulus gap, also dominating the corrections from A and q^m. Continuity and analyticity give a uniform complex-neighborhood gap with a nonvanishing leading branch. Taylor expansion of the log of the normalized moment generating function at the imaginary scale m^(-1/2) gives the standard normal limit; Cauchy bounds control derivatives of the uniform exponential error for the moment limits.
 
-**Limitations.** This concerns labelled, unweighted wheel base polytopes with independent uniform vertex sampling; no local limit theorem or arbitrary-graph universality is asserted. Exhaustive small-size tests are supplementary, not a substitute for the proof. Priority is limited to inspected literature and records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the fixed four-state exact transfer expression, including its cyclic corrections, and the wheel-specific nondegenerate limit in distribution. Bare computability of the full histogram by general spanning-tree formulas, the disjoint and diagonal endpoints, the wheel tree count, and moments derivable from prior covariance information are not credited as new. The inspected sources neither give the transfer reduction nor imply the wheel CLT.
+
+## value
+
+PASS
+
+The chord distribution is a natural geometric invariant and an exact random-spanning-tree overlap law. A fixed-width transfer computes the full distribution without summing over all forests or all tree pairs, and quantifies nontrivial Gaussian fluctuations in a sparse structured family. The exact cyclic correction and the limit in law, rather than the standard Perron theorem or already computable moments, make the result useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

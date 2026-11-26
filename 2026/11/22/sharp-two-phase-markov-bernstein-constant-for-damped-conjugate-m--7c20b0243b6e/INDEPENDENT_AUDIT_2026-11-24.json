@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:51:23.010046Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–141",
+        "VERIFICATION.md",
+        "check.py lines 21–99",
+        "repairs/3/RESULT.md, Finding and Proof steps 1–5",
+        "Independent scalar evaluation at r=0.1 of the negative-time extension"
+      ],
+      "rationale": "Pass applies to the corrected package. The frozen uniqueness assertion is false below r_*: right-translation contractivity equates the sharp constants for the initial derivative and the full derivative norm, not their extremizer sets. In unit frequency let F(x)=g_r(u_*−x) be the canonical norm-one initial-derivative extremizer. When r<r_*, g_r(u_*) is strictly between −1 and 1, so F(x−d) for small d>0 keeps sup norm one and has derivative C(r) at d, but is not proportional to F. For example at r=0.1 the directly evaluated F(0) is about −0.23519 and F(−0.1) about −0.35376. The replacement gives a complete analytic classification: an extremizer's derivative attains its supremum at some d≥0 by continuity and decay; its right translate must have norm one and is the unique initial extremizer up to sign. Extending the formula back to −d is admissible if and only if d≤u_c−u_* because g_r decreases through −1 at u_c. This also determines the norm contacts, including the two-contact maximal shift below the switch. The other claims survive: phase reduction gives a stationary-envelope branch increasing then decreasing with maximum at u_1, and a decreasing endpoint-envelope branch after u_c. Their selection yields the stated constant and unique switch. Complexification follows by phase rotation and real part at each derivative evaluation. At the crossing W_u=0, u_c'=−R^(−2)−u_*/W, and the second-derivative gap is W_uu(u_c'−u_1')²<0. For large r the equation in x=ru_c converges uniformly on [1,2] with strict endpoint brackets to the Lambert equation, yielding the asserted ratio. The uploaded finite checker tests the canonical witness, not all extremizers, and was not executed.",
+      "residual_risks": [
+        "Uniqueness is of the initial-velocity extremizer for all r, and of the full-norm real extremizer only at and above r_*. No classification of complex extremizers or zero damping is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Protasov’s retrieved abstract concerns Markov–Bernstein inequalities for complex exponential polynomials. Frozen RESULT.md lines 151–153 describes previous finite-dimensional constrained approximation and a numerical damped harmonic example with another e^(−t) mode. The cited primary passages beyond the abstract could not be inspected."
+        ],
+        "reasoning": "A general approximation setup or numerical larger-span example does not itself evaluate the two-mode norm or establish the threshold and switch in its exact form. The abstract alone does not decide stronger theorem coverage.",
+        "searches": [
+          "Protasov arXiv:2209.12250",
+          "Kamalov–Protasov arXiv:2403.16330, damped harmonic example §9.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed finding 7c20b0243b6e (identical frozen finding)",
+        "Protasov arXiv:2209.12250 abstract",
+        "Frozen RESULT.md lines 149–163 as attribution and limitation",
+        "Repaired RESULT.md, prior-work and limitations section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited context concerns general complex exponential polynomials and uniform approximation. The available statements do not give the explicit min(u_1,u_c) law, the meeting of the branches, or the admissible shift interval."
+        ],
+        "reasoning": "A general constrained optimization reduces the question but does not determine when the endpoint becomes active or the sign of the curvature jump. If an older source has the same exact initial-phase optimizer, the extension classification must be evaluated for potential mechanical implication; that antecedent was not established in the available evidence.",
+        "searches": [
+          "Protasov arXiv:2209.12250 abstract",
+          "Kamalov–Protasov arXiv:2403.16330 and frozen RESULT.md lines 149–163"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rescaling gives unit frequency, and right translations identify the global norm constant with the optimal initial slope for a bounded damped oscillator. This reduction does not identify the extremizer sets. No alternate oscillator formula was obtained from the focused lookup."
+        ],
+        "reasoning": "An exact maximum initial velocity with this unweighted half-line bound would already cover the constant. It would not imply uniqueness for the full derivative norm without testing permitted backward extensions.",
+        "searches": [
+          "Resultary: damped conjugate modes and sharp derivative norm",
+          "Literature search: exact damped two-mode Markov–Bernstein inequality or oscillator maximum initial velocity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 7c20b0243b6e is the same assignment record. No distinct indexed exact evaluation was found in these targeted results."
+        ],
+        "reasoning": "The identical finding is not independent evidence. A table for more modes or only isolated damping ratios would not determine the whole function or its equality family.",
+        "searches": [
+          "Resultary: two-phase damped conjugate modes, threshold and norm formula"
+        ]
+      },
+      "rationale": "The distinct repaired claim is an exact two-mode norm evaluation with a contact switch, differentiability loss, and the actual real equality family. General exponential-polynomial Markov–Bernstein setup and initial-evaluation reduction are not claimed as new. Available comparisons support this narrow distinction, with explicit residual risk for older oscillator results stated in initial-velocity terms.",
+      "residual_risks": [
+        "Decisive theorem or example pages in both primary works were not available. An earlier exact damped-oscillator initial-velocity result could imply part or all of the formula; neither access failure nor an empty exact catalogue search rules it out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential broad coverage; exact conjugate-pair formula not established by the abstract",
+          "evidence": "Abstract addresses Markov–Bernstein inequalities for complex exponential polynomials; no inspected theorem gives this explicit r-dependent first-derivative norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.12250",
+          "material_read": "Abstract as surfaced by primary-literature search; frozen RESULT.md line 151 for attribution",
+          "method": "Primary-literature search; targeted lawful OA text retrieval timed out",
+          "title": "Generalized Markov–Bernstein inequalities and stability of dynamical systems",
+          "trigger": "Broad primary source on exact constants for exponential polynomials including complex exponents"
+        },
+        {
+          "assessment": "Plausible related prior work, not a verified whole-paper noncoverage comparison",
+          "evidence": "Frozen comparison describes a numerical example using the sine and cosine modes plus e^(−t), not solely the conjugate pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.16330",
+          "material_read": "Section §9.4 description in frozen RESULT.md line 153 only; no primary passage obtained",
+          "method": "Targeted lawful OA attempt timed out",
+          "title": "Chebyshev approximation by non-Chebyshev systems",
+          "trigger": "Damped harmonic example and a general method for computing norm constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–43",
+        "Repaired RESULT.md, Finding and Proof steps 2–5"
+      ],
+      "rationale": "One conjugate pair is the minimal damped oscillatory system, and the exact first-derivative norm quantifies the largest derivative compatible with a fixed amplitude bound throughout the half-line. The contact transition, its nonzero curvature jump and the collapse of the nontrivial translated equality family distinguish two actual regimes. The equality repair preserves and strengthens that useful classification rather than simply removing a failed assertion.",
+      "residual_risks": [
+        "The example does not settle larger-spectrum comparison conjectures or address finite observation windows or higher derivatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:57:10.548407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–78; VERIFICATION.md; artifacts/verify.py (inspected, not run)",
+        "/workspace/branches/ffe31edf-9154-470c-be1c-c7814e762e78/record3_support_replay.py and record3_support_replay.txt"
+      ],
+      "rationale": "Triangles characterize feasibility of the labelled finite diagram, and the disjoint finite-extension property realizes each diagram and arbitrarily many copies of each unary profile. For a unary profile the four states in {2,3}² and the three states (1,1),(1,2),(2,1) exhaust the allowed choices in an old pair. Cross-pair distance 3 prohibits two 1s in the same new profile from different pairs. On a block with just an x witness the three supported profiles admit 1,2,2 choices for the witness-free y profile at s=1 and four each at s=2,3. On a block with both witnesses there are nine assignments at s=1,2 and just the two ordered disjoint singleton-witness assignments at s=3. Thus the four weights (no witness, x only, y only, both) are (16,5,5,9), (16,12,12,9), (16,12,12,2), also independently replayed. The only global possibilities are zero supported blocks, one, or an ordered choice of two distinct blocks with disjoint singleton supports, proving every channel, including the m=1 boundary without a negative power. Subtraction gives strict ordering. Leading coefficients sum to 313, and the squared unary count has corresponding coefficient 144, yielding both the distance law and the mean feasible-distance count. The replay checks the local certificate; the triangular-constraint argument proves all m.",
+      "residual_risks": [
+        "Probability statements use uniform counting on finite types, not sampling from the metric limit. The proof does not cover arbitrary bases or higher tuple arity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mubayi–Terry use a matching of short edges to count ambient labelled metrics, allowing a range of distances off the matching.",
+          "The Widom–Rowlinson interpretation counts unary types over graph-metric bases using old distances 1 and 2."
+        ],
+        "reasoning": "Neither result gives a general two-point conditional enumeration for all fixed old metrics. In particular neither resolves the compatibility of two ordered unary profiles as a function of their prescribed mutual distance across old distance-three constraints.",
+        "searches": [
+          "Mubayi–Terry arXiv:1502.01212, §7",
+          "Local Resultary ec80747a5989, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6e891113d557, bb334aca00ca, ec80747a5989",
+        "Mubayi–Terry arXiv:1502.01212 §7",
+        "Frozen statement and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old distance three forbids witness reuse in different blocks of a single unary type, but an ordered pair still has locally s-dependent tests. The two distinct supported blocks yield coefficient products 25,144,144, rather than quantities supplied by the prior counts."
+        ],
+        "reasoning": "Equilateral formulas cannot be factored into independent pairs because cross-pair constraints are active; aggregate counts and unary partition functions do not determine the three distinct pair-channel counts. The new support calculation is necessary on the inspected evidence.",
+        "searches": [
+          "Resultary equilateral 6e891113d557 and unary ec80747a5989",
+          "Mubayi–Terry §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary 6e891113d557, RESULT.md at local-mirror offset 0: the distance-one two-point base gives (35,49,42); the three laws over growing equilateral bases differ from the matching-base law.",
+          "Resultary bb334aca00ca uses equilateral bases in a different metric class with omitted triangle patterns. The general literature search did not supply a relevant equivalent."
+        ],
+        "reasoning": "The m=1 base is an exact equivalent instance. For m≥2 the two old distances coexist; the named ordered-extension family is not converted to an equilateral base or the different age by relabelling.",
+        "searches": [
+          "Local Resultary: matching-base two-point spectra and equilateral extension counts",
+          "Primary-literature search: conditional two-point extension counts over three-valued matching metrics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equilateral formulas reproduce the m=1 row exactly but do not tabulate the 1-within, 3-between family; the global matching construction does not give the three ordered-extension counts."
+        ],
+        "reasoning": "Exact evidence of overlap is credited for the boundary; no inspected table supplies the all-m matching family or its quadratic channel coefficients.",
+        "searches": [
+          "Local Resultary: matching and equilateral distance-channel spectra; strongest hit 6e891113d557",
+          "Mubayi–Terry §7 matching-edge construction"
+        ]
+      },
+      "rationale": "The exact all-m spectrum and limiting distance law for a named 1-within, 3-between matching base are distinct on the inspected evidence. The m=1 triple is already covered by the equilateral distance-one calculation; neither priority nor novelty is assigned to that overlap.",
+      "residual_risks": [
+        "No historical order is inferred among same-day records. A differently named or unindexed conditional-extension enumeration may exist; unrelated results from the broad search are not evidence against it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact boundary overlap, not all matching bases",
+          "evidence": "For base distance 1 and size 2 the counts are (35,49,42); sizes 2m for m≥2 in the present base are not equilateral.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-distance-resolved-pair-type-phase-diagram-over-equilateral--6e891113d557",
+          "material_read": "RESULT.md, local-mirror offset 0: base assumptions, formulas and laws",
+          "method": "Local indexed result and mirrored statement",
+          "title": "Exact distance-resolved pair-type phase diagram over equilateral bases",
+          "trigger": "Closest exact spectrum in the same homogeneous metric structure"
+        },
+        {
+          "assessment": "Different base and age",
+          "evidence": "Equilateral parameters and omitted triangle patterns do not describe the matching base in the unrestricted three-distance age.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-distance-channel-spectra-and-stochastic-ordering-over-equi--bb334aca00ca",
+          "material_read": "Base and age assumptions in the indexed result",
+          "method": "Local Resultary statement comparison",
+          "title": "Exact distance-channel spectra and stochastic ordering over equilateral bases",
+          "trigger": "Similar distance-channel parameter"
+        },
+        {
+          "assessment": "Unary and different old distances",
+          "evidence": "Counts profiles over old distances 1 and 2; no prescribed mutual-distance compatibility of two new coordinates.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "RESULT.md, local-mirror offset 0: unary invariant and graph-metric assumptions",
+          "method": "Local mirrored statement comparison",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Potential logical-type counting reduction"
+        },
+        {
+          "assessment": "Global counts, not conditional two-point spectrum",
+          "evidence": "Short-distance matching edges and a range of other distances are used to count ambient labelled metrics, not extensions of a specified old diagram.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01212",
+          "material_read": "§7, PDF p. 27, OA extraction offset 107242",
+          "method": "Lawful OA passage inspection",
+          "title": "Discrete metric spaces: structure, enumeration, and 0–1 laws",
+          "trigger": "Prior short-edge matching construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–29, 44–78",
+        "Equilateral spectrum Resultary 6e891113d557"
+      ],
+      "rationale": "A disjoint union of short pairs is a natural first non-equilateral case with dilution by long cross distances, not an arbitrary list of old vertices. The full compatibility spectrum exposes the dominance of separated witnesses, a strict finite channel ordering that becomes a tie of two channels in the limit, and a quantitative change from the equilateral distance-three law. These are useful exact benchmarks for how old geometry affects extension-type statistics; the unary enumeration alone would not reveal them.",
+      "residual_risks": [
+        "Value is the motivated exact family and its comparison law, not a classification of arbitrary bases or a claim about global random metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

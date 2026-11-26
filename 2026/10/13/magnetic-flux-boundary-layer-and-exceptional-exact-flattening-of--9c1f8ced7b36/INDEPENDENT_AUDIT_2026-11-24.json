@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:48:56.529509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Fourier vectors with entries exp(2πikj/n), the forward shift has eigenvalue exp(−2πik/n), so the signs in the stated H give eigenvalue E_k=2cos(2π(k+α)/n). The normalized finite-window probability is the double sum with kernel G(−T(E_k−E_l)); l=k contributes 1/n and the only extra zero-flux degeneracies are distinct l=−k. Their signed gap is −4 sin(2πk/n) sin(2πα/n), giving the displayed argument. All other gaps stay nonzero for fixed n and contribute O_n(1/T) by |G(z)|≤2/|z|. Since |G′|≤1/2, the replacement error of the resonant arguments is O_n(|αT−τ|+Tα³); the last term is O_K(T⁻²) on the stated window. Reality, positivity and normalization follow by the probability-vector limit. Fourier uniqueness separates nonzero frequencies 2k for odd n, requiring z_k∈2πZ minus zero; for even n the frequency collides with k+n/2 and the kernel sum is 2 sin(z_k)/z_k, requiring z_k∈πZ minus zero. For odd n≥5 and even n≥8 the ratio of the k=2 and k=1 arguments would be the rational algebraic integer 2cos(2π/n). This is in (0,2), equals 1 only for n=6, and hence is impossible there. Direct substitution for n=3,4,6 yields the three stated time lattices. At τ=0 the starting-vertex deviation counts a nonempty set of modes; as τ→∞ every retained argument diverges in magnitude. At fixed generic flux, distinctness of E_k follows from k+l+2α not being a multiple of n, leaving only the diagonal in the infinite-time limit. All estimates are for fixed n; exact flattening is asserted for the limiting profile only. The supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The half-flux proof gives the same all-entry finite-time spectral integration and separates near-degenerate from other pairs, but the critical approximation it evaluates is antipodal and uses a different pair map.",
+          "Adamczak gives the nonuniform undetuned infinite-time endpoint, Levine the uniform simple-spectrum endpoint; neither endpoint controls the scaling window. Zanoli and Luppi study estimation and sequential measurement respectively, not this window-averaged position distribution."
+        ],
+        "reasoning": "The existing spectral machinery applies, but a generic rate bound or endpoint theorem is not an all-vertex near-degenerate limit with an exact zero classification.",
+        "searches": [
+          "Resultary half-flux detuning result, proof §§1–5",
+          "Adamczak et al. arXiv:0708.2096v1 §4",
+          "Levine et al. arXiv:2605.04414v1 Theorem 5 and Corollary 5",
+          "Zanoli et al. DOI 10.3389/frqst.2026.1894991",
+          "Luppi arXiv:2608.12519v1 §III"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary half-flux detuning record listed above",
+        "Adamczak, Levine, Zanoli and Luppi papers as located above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior half-flux proof has the same integrated window kernel and excludes its nonresonant pairs. In the present limit the pairs are instead (k,−k), with self-opposite pairs excluded and frequency 2k coincident in even dimension, not the half-flux proof's odd frequencies 2k+1.",
+          "The prior antipodal estimate and the infinite-time endpoint criteria do not test simultaneous disappearance of the resulting Fourier coefficients."
+        ],
+        "reasoning": "The profile shares a readily adapted spectral argument. The jointly sufficient exact zeros require the odd/even coefficient analysis and the irrationality obstruction for the ratio of split gaps, not merely a detuning or window parameter substitution into the earlier closed result.",
+        "searches": [
+          "Resultary half-flux proof at mirrored offsets 2780–6243",
+          "arXiv:0708.2096v1 §4",
+          "arXiv:2605.04414v1 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest indexed result is 2026/10/12/SCOPE-detuning-bottleneck-and-sinc-crossover-for-quantum-mixing-on-hal--10f1e5181e0b. Its actual critical-window formula is for the antipodal entry near half total flux on an even cycle, with resonant pairs (k,n−1−k).",
+          "Levine et al. analyze infinite-time Cesàro average with nondegenerate spectrum, not indefinite averaging at vanishing splitting. The separate targeted primary query surfaced unrelated results only."
+        ],
+        "reasoning": "After converting per-edge phase to total flux, half and zero flux still differ modulo one flux quantum. Neither replacing the flux convention nor conjugating G turns the half-flux antipodal crossover or the fixed-flux infinite-time result into the joint-limit formula and classification.",
+        "searches": [
+          "Resultary: detuning, sinc crossover and quantum mixing on a flux-threaded cycle",
+          "Primary query: weak magnetic flux / time average / continuous-time quantum walk cycle / inverse flux / finite-time distribution / uniform n=3 n=4 n=6",
+          "arXiv:2605.04414v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed half-flux result gives a formula for one entry, not a zero-flux all-entry resonance table. The inspected chiral uniformity criteria concern a different time limit; no table or theorem identifying these zero-flux time lattices was found in the bounded searches."
+        ],
+        "reasoning": "A list of exceptional sizes for instantaneous or fixed-flux infinite-time uniformity would not be equivalent to the claimed complete classification of finite positive αT in the joint limit.",
+        "searches": [
+          "Resultary: inverse-detuning sinc crossover",
+          "Primary weak-flux time-average query with exceptional sizes 3,4,6",
+          "arXiv:2605.04414v1 §5"
+        ]
+      },
+      "rationale": "The distinct result is the zero-total-flux, all-vertex weak-flux limit together with its complete finite-parameter flattening classification. The Fourier spectral formula, inverse-detuning scale and kernel-suppression mechanism are prior (especially the indexed half-flux result); the inspected statements do not settle the zero-flux coefficient coincidences or the n=3,4,6 classification.",
+      "residual_risks": [
+        "Search coverage is bounded, and a direct antecedent under spectral dephasing or small-twist terminology may have been missed. No novelty is claimed for the sinc mechanism or spectral integration on their own."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in mechanism; not the all-vertex zero-flux theorem or classification",
+          "evidence": [
+            "Pairs (k,n−1−k) are all distinct at half flux for even n; the evaluated sinc profile is for the antipodal entry and the all-entry result concerns a tolerance bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-detuning-bottleneck-and-sinc-crossover-for-quantum-mixing-on-hal--10f1e5181e0b/RESULT.md",
+          "material_read": "Finding at offset 0 and proof spectral integration, gap bound, critical window at offsets 2780–6243",
+          "method": "Resultary and local-mirror statement and proof passages",
+          "title": "Detuning bottleneck and sinc crossover for quantum mixing on half-flux even cycles",
+          "trigger": "Closest indexed precursor using the same window and near-degenerate flux mechanism"
+        },
+        {
+          "assessment": "Covers the undetuned infinite-time nonuniformity",
+          "evidence": [
+            "Section 4 excludes average uniformity for ordinary cycles other than C₂."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0708.2096v1",
+          "material_read": "Introduction and §4, offsets 5165 and 26300",
+          "method": "Primary OA HTML passages",
+          "title": "Non-uniform mixing of quantum walk on cycles",
+          "trigger": "Zero-flux endpoint for cycles"
+        },
+        {
+          "assessment": "Covers simple-spectrum infinite-time uniformity, not the scaling window",
+          "evidence": [
+            "The average is defined by T→∞ for a fixed Hamiltonian; the theorem assumes distinct eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.04414v1",
+          "material_read": "Abstract and §5 Theorem 5 and Corollary 5, offset 28770",
+          "method": "Primary OA HTML passages",
+          "title": "Uniform Mixing in Chiral Quantum Walks",
+          "trigger": "Uniformity theorem for chiral circulants"
+        },
+        {
+          "assessment": "Relevant model, different output and protocol",
+          "evidence": [
+            "The paper compares static and dynamical sensing of metrology parameters, including quantum Fisher information and position measurements, not the studied spectral-window profile."
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/frqst.2026.1894991",
+          "material_read": "PDF pp. 1–3, offset 0 and 10819–19362",
+          "method": "Primary OA PDF passages",
+          "title": "Quantum walks on a ring as a versatile single-parameter sensor",
+          "trigger": "Same physical phase-threaded ring setting"
+        },
+        {
+          "assessment": "Different measurement and averaging problem",
+          "evidence": [
+            "The treated observable arises from sequential two-time return-versus-complement measurements with back-action."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.12519v1",
+          "material_read": "Abstract; measurement definitions around offset 12700; §III Proposition 1 around offset 16350",
+          "method": "Primary OA HTML passages",
+          "title": "Flux control of measurement back-action and Leggett–Garg correlations in chiral quantum walks",
+          "trigger": "Same chiral-ring weak-flux context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed size the limiting distribution resolves the two incompatible orders of limits quantitatively. The classification answers a finer natural question than the known inverse-detuning scale: whether the entire time-averaged profile can equal uniformity already at finite scaled observation time. The odd/even frequency coincidences change the exact kernel zeros, and the algebraic gap-ratio obstruction explains why only the three specified sizes can realize them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

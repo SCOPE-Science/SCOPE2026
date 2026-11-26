@@ -1,19 +1,21 @@
-# Scientific review: stationary energy-correlation tomography
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary stochastic convolution has environment-conditioned variance \(Y_t=(\bar D/\kappa)(1+\delta Z_t)\). The exact filtered-telegraph covariance yields \(K=3\delta^2\kappa/(\kappa+\lambda)\) and \(C=2a+(K/3)(2a+F(\lambda))\). The kernel derivative is strictly negative for every positive known lag, and the constraint \(0<\delta<1\) gives the exact finite open interval for \(\lambda\). These steps prove necessity, sufficiency and uniqueness throughout the theorem's quantified parameter domain. The packaged standalone checker agrees with independent Markov-moment equations in 600 tests; those finite cases are not used as infinite proofs.
+PASS
 
-## Originality — PASS, subject to priority limitations
+An independent generator calculation gives V=bar D/kappa, M=E[S X²]=bar D delta/(kappa+lambda), and E[X^4]=3(V²+bar D delta M/kappa), by applying stationarity to X², SX² and X^4. For g(h)=Cov(X_0²,X_h²)/V², conditioning on the current bath state gives g'(h)=-2 kappa g(h)+2 bar D delta M exp(-2 lambda h)/V² with g(0)=2+K. Solving gives exactly C=2a+(K/3)(2a+F(lambda)). Differentiation of the integral for F gives a strictly negative derivative for every h>0, including at lambda=kappa. At fixed 0<K<3 the physical contrast constraint is exactly 0<lambda<kappa(3/K-1); the endpoints yield F=1 and F=F(kappa(3/K-1)) with contrast reaching 1 at the latter. The intermediate-value theorem and strict monotonicity give necessity, sufficiency and uniqueness of the unordered diffusivity pair and rate. Ordinary two-point positional covariance only uses V and kappa. The bound VERIFICATION.md and check_claim.py were inspected, not executed; the reported 600 finite tests are not the basis for the universal result.
 
-Huang et al. (arXiv:1412.7952v1, Sections 3–4) provide general forward Markov-modulated Ornstein–Uhlenbeck moment and transform machinery, not the stated complete three-observable inverse range and bijection. Miyaguchi et al. (arXiv:1605.00106v1) study unconfined fluctuating diffusivity and temporal displacement statistics. Lanoiselée et al. (arXiv:2207.14068v1) consider a harmonically confined *continuous-diffusivity* mechanism; their stationary kurtosis does not establish inverse identification of a telegraph bath from a lagged square covariance. The known unconfined diffusion-inference and switching-stiffness results use different dynamics or measurement sets. The exact inverse theorem is not an identified immediate implication of these inspected full texts, although the forward moment identities follow by specialization of Huang et al. Additional specialized work could contain an equivalent inverse, and one nearby two-state stationary-distribution source was accessible only by abstract.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Unknown switching rate and temperature contrast produce the same positional covariance at all lags, making second-order fitting fundamentally non-identifying. A measurable fourth-order energy autocovariance and stationary excess kurtosis repair that information loss with a constructive global inverse. The exact open feasibility inequalities offer a model-falsification criterion for noiseless statistics and identify two distinct excluded physical boundaries; this is a natural parameter-identification problem, rather than an arbitrary evaluated moment.
+Pass is limited to the exact three-scalar inverse and its strict physical realizability region at a known positive lag, not the forward Markov-modulated OU moment framework or the general idea of diffusivity tomography. The inspected primary and indexed statements do not cover this inverse from these observables.
 
-## Limitations and priority
+## value
 
-The result assumes exact stationary expectations, known trap rate and lag, independent Brownian forcing, symmetric switching, and strictly positive unequal diffusivities. It infers an unordered pair of bath diffusivities. No stability under measurement noise, experimental realization, or general switching model is proved. The exact forward components are covered by established literature. Full-text coverage of every related inverse study cannot be guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Every positional covariance at every lag is blind to contrast and rate. The exact inverse shows that excess kurtosis plus one lagged energy measurement restores identifiability and gives a sharp compatibility test separating the no-switching and zero-diffusivity boundaries. This is useful for deciding whether ideal stationary data can come from the model; it is not a claim of noise robustness, practical estimability or identification for asymmetric switching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

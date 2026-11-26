@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional-expectation identity for a two-state continuous-time Markov chain gives exact exponential autocovariances. The Bernoulli-square identity gives exact third centered joint moments at three equally spaced times. Independence eliminates all mixed-index terms. The covariance Hankel matrix factors through an invertible Vandermonde matrix with strictly positive weights, hence is positive definite; its matrix pencil recovers every distinct decay. A second Vandermonde inverse using squared decays recovers each signed skew coefficient and therefore both positive transition rates. The two-patch example has equal means and entire covariance curves but distinct triple moments, and extra identical independent patches preserve this obstruction. Exact finite-state and rational-algebra checks in `verify.py` corroborate critical identities and an example but are not used to prove the universal theorem.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+Conditioning on the middle time and using Y_i^2=c_i+(1-2*pi_i)Y_i for each centered Bernoulli Y_i gives c_i(1-2*pi_i)z_i^(2j); independence cancels every term with a singleton site index. This also gives the correct coincident-time moment at j=0. H_0 and H_1 factor through the same invertible Vandermonde matrix, and positive c_i give nonsingular H_0; the pencil recovers the distinct z_i with H_1 using at most C_(2n-1). The covariance and squared-node Vandermonde systems recover the positive c_i and signed d_i, respectively, hence pi_i and both rates for each z_i (known h>0). In the witness, complementing each pi_i leaves c_i=3/16 and the mean invariant and reverses T_1=(3/32)(1/4-1/9)=5/384, without permuting the fixed distinct turnover rates. Identical added patches with new rates preserve the obstruction. For n=1 the mean fixes pi_1 and C_1/C_0 fixes z_1. The mean is supplied and defines centering, not claimed minimal as a separate datum. The exact-rational finite forward examples and alias were independently checked by `python3 /workspace/branches/check_patch_examples.py`; the two certificate annihilators are the products of the stated linear factors. The universal proof is algebraic, not a finite-trajectory inference or numerical conditioning result.
 
-The known general exponential-sum inversion is explicitly excluded from the novelty claim. The assessed contribution is the complete moment-order boundary for **aggregate** independent occupancy counts, including finite third-cumulant recovery of hidden colonization/extinction orientation and a sharp nonidentification example at second order. Royle–Kéry (2007) concerns patch-resolved dynamic occupancy modeling. Fukaya–Royle (2013), whose accessible article's introduction, models, simulations and discussion were examined, infers ecological transition matrices from gridpoint state observations, rather than aggregate count autocovariance and third moments. O'Cinneide (1991) studies superposed renewal event streams; only its abstract was accessible. Published mathematical records on two-time-law aliasing and paired reversible-chain covariance were compared: neither statement implies the finite third-order reconstruction here. Other signal-processing or factorial hidden-Markov literature could contain an equivalent unlocated specialization; this is a residual bibliographic risk, not a claim of globally certified novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-There is a real observational distinction between patch-resolved field records and aggregate occupancy time series. The theorem shows precisely when perfect aggregate temporal summaries can reconstruct the underlying colonization/extinction mechanism, identifies the moment order needed, and provides an explicit fixed finite collection of lags and inversion method. Its sharp two-patch obstruction prevents an incorrect conclusion from complete second-order agreement. The result is a structurally motivated inverse-identification theorem, not a renamed elementary formula or an arbitrary small numerical slice. The cost is restrictive independence, stationarity, distinct turnover and exact-measurement assumptions; practical statistical stability is not addressed.
+The distinct contribution supported here is the explicit uniform finite design and rate reconstruction at arbitrary site count with distinct turnovers. The earlier two-patch blind spot, its sharp third-order resolution, and the resulting general lower bound by padding must not be credited as new; neither is the Prony step.
 
-## Principal limitations
+## value
 
-No claim extends to dependent patches, heterogeneous measurement errors, nonstationary processes, equal turnover rates or finite-sample inference. The cited 1991 renewal-superposition article was not available beyond its abstract. Independent specialist bibliographic review remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform exact finite experiment design for any prescribed number of independent heterogeneous sites is useful when site labels are unavailable: it specifies how many lags, how they should be arranged, and how to associate signed occupancy orientation with each estimated decay in the exact model. The known two-patch obstruction motivates the design but does not solve the multi-component assignment. This is a structural identifiability result, not a new general interpolation algorithm or a stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:35:36.512573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both equations match the displayed primary models, allowing the stated coordinate names and the affine reciprocal convention for one fiber parameter. I recomputed both discriminants from the binary-quartic invariants I,J using (4I^3-J^2)/27 over F7 and factored the results, independently of the supplied verifier. The finite factor degrees with multiplicities are seven (1,2) and two (4,1) for BT, and seven (1,2) and two (2,2) for AEKS; each degree-22 polynomial adds order two at infinity in the degree-24 section. I checked the nonsquare times irreducible quadratic square at all eight rational parameters for both surfaces, and checked the two residual AEKS square identities with coefficient norms 2 and 4; their common quadratic discriminant is 5, so its roots and both components are defined over F49. A simple discriminant zero has precisely one double root: after splitting coprime root clusters in a strict henselian DVR, a cluster of multiplicity m contributes at least m−1 to the discriminant order (all its root differences have valuation at least 1/m). The simple zero thus gives an irreducible nodal I1. At each double-square fiber the two distinct double-root clusters give two transverse intersections of the rational components, an I2. The models are smooth by the cited constructions; this also follows locally since the discriminant order equals the number of double-root clusters, forcing each quadratic cluster's constant term, after centering at its double root, to have a simple base zero. I evaluated every pair of normalized projective points using a square lookup in two presentations of F49. For BT, the numbers of base pairs lifting to 0, 1 and 2 points are (936,88,1476); for AEKS, (768,144,1588). Thus the counts are 3040 and 3320; both F7 counts are zero. The unequal extension counts obstruct an F7-isomorphism, not necessarily a geometric one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AEKS Proposition 8.1 already gives the nonsplit I2 classification over all rational base parameters for its construction. The inspected BT specialization gives its pointless K3 model."
+        ],
+        "reasoning": "The AEKS parameter quantifier is P1(Fq), not the geometric base; this does not cover the additional split I2 orbits over F49 for the specified F7 model. The BT construction does not provide the nodal quartic orbits in its inspected passage.",
+        "searches": [
+          "Auel–Engel–Kedlaya–Shaikh Proposition 8.1 and Remark 8.2",
+          "Brandhorst–Takada Section 9.2, q=7 specialization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, requirements.txt and audit comparison notes",
+        "arXiv:2611.06366v1 Section 9.2",
+        "arXiv:2611.08356v1 Proposition 8.1, Remark 8.2, Table 6",
+        "Resultary d77ecbb1ed41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited constructions and rational fiber assertions leave both higher-degree discriminant factorization and quadratic-extension point counting to be done. No zeta polynomial for these two inputs was identified in the decisively inspected passages."
+        ],
+        "reasoning": "The equations make the invariants computable, but the stated primary results do not specialize to the complete nonrational fiber comparison or numerical extension counts without the new computations.",
+        "searches": [
+          "BT Section 9.2 and AEKS Proposition 8.1 with the q=7 table, compared to the discriminant and extension-count claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BT's equation has F=0 and G=F_C, and its q=7 coefficient matrix matches. AEKS writes F−R1Q1^2=R2Q2^2, which gives the same equation as the frozen model after renaming."
+        ],
+        "reasoning": "These equivalences identify the same inputs, so construction and pointlessness have full prior coverage; they do not themselves state the compared fiber orbits or point counts.",
+        "searches": [
+          "Resultary searches for BT and AEKS F7 pointless K3 double covers, full singular-fiber orbits, and F49 counts",
+          "arXiv:2611.06366v1 Section 9.2 and arXiv:2611.08356v1 Proposition 8.1, Remark 8.2, Table 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact hit was d77ecbb1ed41, the assigned record itself. AEKS Table 6 lists equations, not the compared F49 counts. The literal lookup returned no hits in either paper."
+        ],
+        "reasoning": "No distinct indexed exact comparison was found; keyword misses alone do not exclude differently encoded counts or zeta data.",
+        "searches": [
+          "Resultary searches centered on 3040 and 3320 over F49 and the two singular-fiber configurations",
+          "AEKS Table 6",
+          "Literal 3040 lookup in both primary HTML texts"
+        ]
+      },
+      "rationale": "The claimed novelty is the complete residual singular-parameter data in the two specified projections and the explicit quadratic-extension comparison, not either construction, pointlessness, or the rational-base AEKS fibers. No independent covering claim was located in the focused catalogue and primary-text comparison.",
+      "residual_risks": [
+        "Unindexed arithmetic tables, zeta data under different presentations, or unpublished computations may cover some invariants; a literal miss or bounded catalogue search cannot exclude them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes first model and pointlessness; inspected passage does not give complete fiber orbits or the compared F49 count",
+          "evidence": "Sets F=0 and G=F_C and prints the matching 5-by-5 matrix for q=7.",
+          "identifier_or_url": "https://arxiv.org/html/2611.06366v1",
+          "material_read": "Section 9.2, q=7 construction; HTML passage beginning near offset 119500",
+          "method": "Targeted primary HTML comparison",
+          "title": "Pointless K3 surfaces over finite fields (Brandhorst–Takada)",
+          "trigger": "Exact first model and possible prior arithmetic invariants"
+        },
+        {
+          "assessment": "Prior coverage of the model and nonsplit rational-base fibers only, among the compared fiber claims",
+          "evidence": "Table 6 gives the matching Q1,Q2,R1,R2. Proposition 8.1 gives nonsplit I2 at every rational base parameter.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08356v1",
+          "material_read": "Proposition 8.1, Remark 8.2 and Table 6, q=7 row; HTML offsets about 61268–67268",
+          "method": "Targeted primary HTML comparison",
+          "title": "Pointless K3 surfaces over finite fields (Auel–Engel–Kedlaya–Shaikh)",
+          "trigger": "Exact second model and prior fiber theorem"
+        },
+        {
+          "assessment": "Assigned record itself, not independent coverage",
+          "evidence": "Same 8I2+8I1 versus 12I2 orbit comparison and the 3040 versus 3320 counts.",
+          "identifier_or_url": "Resultary d77ecbb1ed41",
+          "material_read": "Returned statement, matched to frozen RESULT.md Finding",
+          "method": "Local Resultary search and bound-source comparison",
+          "title": "Two pointless characteristic-seven K3 surfaces have different singular-fiber spectra and quadratic point counts",
+          "trigger": "Top hit for the exact comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The models are independently published examples over the same small field, so comparing their natural projections and arithmetic over the first nontrivial extension is motivated independently of the outcome. The geometric fiber types and Frobenius degrees are complete, and the extension counts separate the surfaces over F7 rather than merely separating their marked fibrations. Neither result requires a claim about arbitrary projections, geometric nonisomorphism, or a full zeta function.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

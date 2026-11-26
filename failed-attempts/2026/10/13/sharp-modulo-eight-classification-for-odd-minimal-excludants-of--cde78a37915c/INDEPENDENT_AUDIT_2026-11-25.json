@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:24.595569Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, exact series and congruences (1)–(2)",
+        "VERIFICATION.md and artifacts/verify.py (read only); recorded artifacts/verify_output.txt",
+        "arXiv:2609.32207v1, Theorem 1.1",
+        "Independent replay: python3 /workspace/checks/review13_exact.py; /workspace/checks/review13_output.txt"
+      ],
+      "rationale": "Independently, prescribed mex k has forced factors 2q^m/(1-q^m) for m<k, no factor for the absent k, and optional factors (1+q^m)/(1-q^m) for m>k. This gives the stated exact series for odd k=2j+1. Modulo 8, j>=2 vanish and j=1 reduces to 4q^3/((1-q)(1-q^2)); its coefficient is floor((n-1)/2) after removing the factor 4, including n=1,2. For j=0, Jacobi gives (1+2A)/(1+2S), where A=-q/(1+q) and S=sum_{k>=1}(-1)^k q^(k^2). The inverse gives 1+2(A-S)+4(S^2-AS) modulo 8. In characteristic two the quadratic term S^2 counts twice-squares, while AS counts positive k^2<n. At n=k^2 the signed terms cancel, n is not twice a square, and k-1 plus floor((k^2-1)/2) is even for both parities of k. Nonsquares therefore give exactly one of 2,6. By independent direct enumeration of ordinary partitions, weighting each by 2^(number of distinct sizes) times its odd-filtered mex, I obtain F(36)=852984, with remainders 56 mod 64 and 8 mod 16; the check also matches the mod-8 formula for n=1..40. The formal power series proof, not the finite check, gives the all-index classification.",
+      "residual_risks": [
+        "The coefficient formula is for positive indices; F(0)=1 separately. No all-index modulo-16 classification is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives the identical exact generating series; Theorem 1.4 gives the square-zero criterion at modulus four. Theorem 1.7 classifies a self-convolution modulo eight, not F(n) itself. The Resultary match gives the same coefficientwise classification plus asymptotics for residue counts."
+        ],
+        "reasoning": "The mod-four criterion does not itself give divisibility by eight on squares. The convolution statement is a different assertion, while the indexed statement with residue counts genuinely includes the frozen all-index theorem.",
+        "searches": [
+          "Veena–Fathima arXiv:2609.32207v1 Theorem 1.1, Corollary 1.2, Theorems 1.4 and 1.7",
+          "Resultary bee256e63339, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bee256e63339 and 061a63000c81",
+        "arXiv:2609.32207v1, 2609.21649v1, 2309.04398v1 and 2507.04402v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem literally contains the main mathematical result. The mod-16 obstruction does not follow from a mod-8 residue alone, but is a fixed finite coefficient of the published exact series; at modulus 16 only the first two j terms can contribute."
+        ],
+        "reasoning": "The principal claim is already stated, not merely guessed from coincident coefficients. The finite sharpness witness is correct and has a natural role in the frozen proof, but is a routine extraction once divisibility by eight is already identified; no further classification survives as an independent result.",
+        "searches": [
+          "Resultary bee256e63339, Finding and proof onset",
+          "Veena–Fathima Theorem 1.1, modulus-16 coefficient at n=36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record bee256e63339 uses least absent part from full support, then filters on its parity, exactly as in the frozen record. Its two indicator terms and two floors are identical. Record 061a63000c81 instead finds the least absent odd part, whether or not a smaller even part is absent."
+        ],
+        "reasoning": "Reordering summands and renaming a(n) as F(n) leave the congruence identical. Least missing odd part and odd-filtered ordinary mex are genuinely different, as are statistics restricted to non-overlined parts.",
+        "searches": [
+          "Resultary search for complete mod-8 odd-mex overpartition sums and mod-16 neighbors",
+          "Veena–Fathima arXiv:2609.32207v1 pp. 3–4; Sarkar–Thejitha–Fathima arXiv:2609.21649v1 pp. 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula is stronger than a finite table: it gives every coefficient's residue, including the all-index zero set. The arXiv:2609.32207v1 table gives 0,2,14,16 for n=1–4 and is consistent with the formula. No F(36) mod-16 value is asserted in the inspected Finding of the indexed match."
+        ],
+        "reasoning": "A short table cannot certify every n. The exact indexed statement can and does cover the central classification, independent of whether it reports the extra single coefficient at modulus 16.",
+        "searches": [
+          "Resultary bee256e63339, RESULT.md opening, offsets 0–2420; Veena–Fathima p. 3 small-n table; Sarkar–Thejitha–Fathima early odd-mex table"
+        ]
+      },
+      "rationale": "The main claim is demonstrably covered by distinct indexed Resultary record bee256e63339: definition, all-index mod-8 expression, and its complete square-zero classification coincide after renaming, and that record also counts residue classes. Same-day dates do not establish order or priority and the decision makes no such inference. The only substantive difference in the frozen Finding is the single mod-16 witness, obtainable by finite coefficient extraction from the already published exact series. It does not turn the covered all-index classification into a distinct finding.",
+      "residual_risks": [
+        "No priority order between the same-day records is established. The earlier ambiguous definition and unidentified related citation affect historical attribution, not the direct mathematical match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage by a distinct indexed record; same date does not decide priority. The residue count asymptotics go beyond the frozen theorem.",
+          "evidence": [
+            "Same signed square indicator and 4 times the sum of the twice-square indicator and the two floors, mod 8.",
+            "Same square iff zero assertion, with nonsquare residues 2 or 6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-modulo-eight-residues-of-the-odd-mex-overpartition-sum--bee256e63339/RESULT.md",
+          "material_read": "Finding, Assumptions, proof onset (offsets 0–2420) and prior-work passage around 5080",
+          "method": "Local Resultary search and public-record mirror",
+          "title": "Complete modulo-eight residues of the odd-mex overpartition sum",
+          "trigger": "Exact same-statistic, same-modulus indexed record"
+        },
+        {
+          "assessment": "Same statistic, exact series and mod-4 criterion; its stated mod-8 theorem is a self-convolution, not the individual residue formula.",
+          "evidence": [
+            "Theorem 1.1 gives the odd-filtered mex generating series with the 4^j coefficient factor.",
+            "Theorem 1.7 states the convolution residue 4n+d_1(n)-d_3(n) modulo 8."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32207v1",
+          "material_read": "pp. 3–4 (offsets about 10700, 13282 and 14413), definition, table, Theorems 1.1, 1.4, 1.7, Corollary 1.2",
+          "method": "Targeted lawful arXiv PDF inspection",
+          "title": "On the sum of odd minimal excludants over overpartitions",
+          "trigger": "Source of the exact generating function and closest primary literature"
+        },
+        {
+          "assessment": "The definition mixes two distinct readings, with the table matching the odd-filtered interpretation in inspected values. The stated congruences concern all-mex and even-mex. The frozen first-introduces attribution is not established.",
+          "evidence": [
+            "Definition 1.3 first describes least absent odd part, then uses ordinary mex if odd and zero otherwise."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21649v1",
+          "material_read": "pp. 2–4, Definition 1.3, table, and Theorems 1.6–1.9 (offsets around 6350, 7750, 10700)",
+          "method": "Targeted lawful arXiv PDF inspection",
+          "title": "A Note On Certain Minimal Excludants Over Overpartitions",
+          "trigger": "Earlier odd-mex alias and table for the target sequence"
+        },
+        {
+          "assessment": "Different least-absent-odd-part statistic despite the support-based convention.",
+          "evidence": [
+            "Positive odd squares give 6 mod 8 under its statistic, not zero as in the assigned theorem."
+          ],
+          "identifier_or_url": "Resultary record 2026/11/1, 061a63000c81",
+          "material_read": "Finding and definition of the statistic",
+          "method": "Local Resultary search and mirror",
+          "title": "A modulo-16 correction and sparse modulo-8 spectrum for support-based odd mex",
+          "trigger": "Similar name and a higher modulus"
+        },
+        {
+          "assessment": "Non-overlined-part convention; not the same object.",
+          "evidence": [
+            "Overlined parts do not count toward presence in its definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04398v1",
+          "material_read": "p. 1 definition",
+          "method": "Targeted lawful arXiv passage",
+          "title": "Minimal Excludant over Overpartitions",
+          "trigger": "Earlier similarly named statistic"
+        },
+        {
+          "assessment": "Overlined-only and unfiltered all-parts sums are different statistics.",
+          "evidence": [
+            "The all-parts sum does not omit overpartitions with even mex."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.04402v1",
+          "material_read": "p. 1 definitions",
+          "method": "Targeted lawful arXiv passage",
+          "title": "On Minimal Excludant over Overpartitions",
+          "trigger": "Earlier use of full overpartition support"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary bee256e63339, Finding",
+        "arXiv:2609.32207v1, exact series",
+        "Independent exact value F(36)=852984"
+      ],
+      "rationale": "An exact mod-8 classification of this natural statistic would be worthwhile, but the indexed theorem already answers it. The remaining F(36) check illustrates sharpness and is mathematically correct; on its own it is a routine coefficient calculation from the available series, not a new congruence classification or a substantive surviving theorem.",
+      "residual_risks": [
+        "No claim is made about whether a systematic 2-adic analysis beyond modulus eight would be new or valuable."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

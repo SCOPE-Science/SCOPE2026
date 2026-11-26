@@ -1,11 +1,21 @@
-# Scientific review of sharp single-substitution trigram-profile capacity
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The claim has exact domain \(q\ge2,n\ge5\), distinguishes ordered multiplicity profiles from words, and uses the signed three-window change formula. The bounded-support argument reduces every possible equality of local-change vectors to six abstract letters, where a terminating exhaustive certificate verifies that exactly seven orbit types of double-fiber collisions occur and that all four boundary vector types are pairwise disjoint and outside the interior set. Counting the collision orbits proves the universal capacity. An order-five de Bruijn construction realizes every interior context, and direct full-profile checks support sharpness. Risk: the finite template lemma depends on the provided executable enumeration, not a hand-derived canonical normal-form proof.
+## correctness
 
-**Originality (O): PASS against checked evidence.** Material examined from Kiah–Puleo–Milenkovic (2016) discusses DNA profile codes and local corruption models; it does not state this exact capacity. Sections of En Gad's 2026 preprint address linear hashing of substring counts for mixed-edit codes, not the seven-class trigram substitution sphere. Exact previously encountered two-gram substitution capacity is a different read length; global trigram-profile counting is a different quantifier and channel. Direct searches for substitution-profile balls, synonymous terminology, and de Bruijn local-change collisions found no equivalent or dominating theorem. Risk: comprehensive priority cannot be guaranteed, and any unindexed or unread appendix may contain a relevant result.
+PASS
 
-**Value (V): PASS.** The maximum number of distinct outputs of a noisy three-mer measurement channel is a natural exact invariant, not a selected arbitrary numerical slice. The sharp closed form is valid for every alphabet size, gives a new nontrivial seven-template overlap classification, and the witness length is within \(O(q^2)\) of the shortest possible length while the main scale is \(q^5\). It can inform profile-observation ambiguity bounds; no downstream coding-theoretic improvement is asserted.
+For all q≥2 and n≥5, profile equality from a fixed source is equality of the signed local trigram changes. A fresh exhaustive six-letter calculation by full local histogram subtraction reproduced 38,880 input operations, 38,580 distinct interior differences, 38,280 singleton fibers and 300 double fibers in seven orbits (six of size 30 and one of size 120), and checked that every input symbol remains visible after cancellations. Equal differences therefore share their entire symbol set, and no collision or larger fiber over any alphabet escapes by using more than six letters. The three slot marginals, each e_f−e_c in the interior, identify the ordered change even in a double fiber. They fix the two letters of every two-letter template and the two edited letters of the three-letter template, leaving no orbit stabilizer. The loss is consequently 6q(q−1)+q(q−1)(q−2) globally. At the four ends the nonzero slot-marginal sets are respectively {1}, {1,2}, {2,3}, {3}, giving exactly q−1 results per boundary position and no intertype or interior collision. Adding these to the interior inventory gives the stated capacity. An order-five Euler/de Bruijn linearization covers every context, and right padding preserves it; n(q−1) gives the stated lower bracket. The exact first length is not claimed. Independent certificate: /workspace/branches/63d13ad0-20fd-4ad1-9e9d-8854ad43c2df/audit_local_changes.py. The supplied scripts and recorded verification were inspected, not executed.
 
-**Scientific limitations.** The exact minimum length attaining the bound and classification of all maximizers are open in this work. The cited material was inspected to the extent stated, not exhaustively across all literature. The first public motivating source is the September 16, 2026 arXiv posting; later revisions do not determine that date.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported advance is the exact q-ary, fixed-source, one-change image cardinality for oriented trigrams, with the seven collision types and global sharpness. The histogram identity and existence of de Bruijn words are established tools. No inspected equivalent or stronger result covers the collision census or capacity.
+
+## value
+
+PASS
+
+The raw number of single substitutions does not measure the number of distinguishable short-read histogram observations. The result measures the loss exactly via collision classes and gives optimal sources at every sufficiently large length. The all-alphabet finite-support argument and sharp construction make this a useful benchmark beyond a small-alphabet census; no code cardinality, reconstruction theorem, or exact first length is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

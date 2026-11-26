@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:44.003114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–93; VERIFICATION.md lines 19–23; checker.py lines 9–129 (inspected, not executed)",
+        "/workspace/review_replay.py, ratchet(), independently run"
+      ],
+      "rationale": "For fixed positive D, the stationary tilted flux gives the stated u(F;D), including its sign. For the switched generator, project the Poisson equation onto the two subspaces centered in the respective frozen invariant densities. Sectorwise constants, even when their difference is of order 1/gamma, are killed by this projection. The centered coupling is a bounded perturbation of the two invertible elliptic operators, so both centered correctors are bounded in C^1 as gamma tends to zero. Integrating against the two frozen densities and summing cancels the divergent constants, giving the average frozen velocity plus O(gamma); their difference then sets the jump amplitude to the frozen velocity gap divided by 2 gamma (up to sign) plus O(1). The thermal martingale bracket stays bounded, while half the jump bracket has leading coefficient gap^2/(8 gamma); the bounded-in-time corrector does not affect the variance rate. Jensen is strict for shifts that are not periods of a nonconstant continuous U, a set of positive measure. Comparing with the flat denominator bounds each signed frozen velocity strictly by its force magnitude, and uniform convergence of the spatial exponential average at high D proves sharpness. In the locked triangle, lift the endpoints to x,y=x+s: the tilted potential rises on only one segment per period and falls on the other, so on an interval of length at most L the unique maximizing endpoint pair modulo translation is the full rising segment. Its four one-sided integrals give D^2 times the squared reciprocal-slope sum for each tilt. For the negative tilt, the numerator exp(vL/D) changes the exponent h+va to the reverse activation h-v(L-a). The gap adds the two signed magnitudes, so equal barriers yield four times a single-branch square. Independently, exact integration of the piecewise-linear phase at apex locations 0.35, 0.50 and 0.65 with L=h=1, v=0.5 agreed with both signed leading velocities within 0.1% for the three tested D values; at D=0.025 the exact-to-leading K ratio was 1.00944 at the off-center locations and approximately 1 at the center. These finite comparisons are separate from the rare-flip proof.",
+      "residual_risks": [
+        "The centered inverse bounds are at fixed positive D, not uniform down to D=0. Geometry is held fixed in the cusp asymptotics. The zero-noise sentence about the original period is understood as confinement in the well bounded by neighboring repelling cusps; an initial cusp may select an adjacent well. Bounded displacement, not membership in a particular half-open coordinate cell, is what the zero-diffusivity conclusion uses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reimann et al. provide exact current and diffusivity for one static tilt at general noise strength and periodic potential; their inspected piecewise-linear asymptotics address critical tilt. The later flashing calculation gives switching diffusivity but for potential-sign flipping. The full text of the same-additive-drive Kłosek–Cox paper was not accessible."
+        ],
+        "reasoning": "The general single-tilt formulas contain neither the switching contribution to the Poisson bracket nor the frozen-velocity contrast term. The telegraph result for literally constant speeds gives the prospective factor 1/8, but using frozen effective speeds in a process with a spatial state needs a control of the spatial corrector, which is supplied here.",
+        "searches": [
+          "Reimann et al., Phys. Rev. E 65 031104, Section II and Eqs. (18), (21)–(22)",
+          "Kłosek–Cox, Phys. Rev. E 60 3727, DOI 10.1103/PhysRevE.60.3727",
+          "arXiv:cond-mat/0510170, Section III and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.07880",
+        "arXiv:cond-mat/0510170",
+        "Phys. Rev. E 65 031104",
+        "Phys. Rev. E 60 3727 (indirect only)",
+        "Resultary 6c976d620f6d, 91b2e07d37fd and 17ab3f27ab93",
+        "arXiv:2407.10813v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Confinement and vanishing zero-noise current in the locked regime already occur in the same-model work. The fixed-tilt current integral is known. The earlier amplitude theorem is at fixed positive rate and to second order only."
+        ],
+        "reasoning": "The known integral does permit the convexity comparison and the one-sided cusp calculation once the velocity-gap identity is established. These are credited as consequences for the switched dispersion, not as independent inventions of the tilted current or locking threshold. A fixed-rate mean or low-amplitude diffusivity result does not give the velocity-gap identity, its strict all-potential ceiling, or the geometry-selected activated prefactor by direct specialization.",
+        "searches": [
+          "arXiv:2303.07880, Section VIII",
+          "Resultary 6c976d620f6d, Finding and Assumptions",
+          "Reimann et al. 2002, Eq. (18) and critical-tilt discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roberts–Zhen include the same piecewise-linear ratchet with an optional counterforce; setting it to zero gives the same model. Their conclusion describes steady currents, confinement and first-passage observables, not the long-time displacement variance law.",
+          "Spagnolo–Dubkov flip the sign of the potential and study a zero-current symmetry class. In the frozen result each sector has a nonzero directed frozen velocity of opposite sign."
+        ],
+        "reasoning": "Model equivalence in the former case does not imply equality of the observables; stationary means and mean first-passage observables do not supply the singular variance by substitution. In the latter case the difference of the two drift fields is spatially varying with zero spatial average, unlike the constant 2v here, and the frozen-state current contrast is missing.",
+        "searches": [
+          "arXiv:2303.07880, run-and-tumble motion in a linear ratchet; Section VIII",
+          "arXiv:cond-mat/0510170, exact diffusion in dichotomously flashing periodic potentials",
+          "Effective diffusion coefficient, adiabatic slow switching, additive dichotomous Markov force, and periodic ratchet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier same-model record displays exact second-order amplitude coefficients at fixed D,v,gamma and explicitly disclaims uniformity as gamma tends to zero. The inspected same-day dissipation record takes a linear-tailed trap and a different observable. The later reversals entry changes the forcing to potential-sign flipping."
+        ],
+        "reasoning": "The exact indexed formulas are not tables for the present limit. A fixed-rate expansion with an amplitude remainder that is not uniform in rate does not control the arbitrary-amplitude rare-flip coefficient, and cannot give the locked low-temperature barrier.",
+        "searches": [
+          "Resultary 6c976d620f6d, weak-potential diffusion suppression in thermally diffusing run-and-tumble",
+          "Resultary 91b2e07d37fd, rare-tumbling dissipation threshold; 17ab3f27ab93, diffusion reversals in potential-sign flipping"
+        ]
+      },
+      "rationale": "The fixed-tilt flux and bare telegraph variance factor are standard inputs, and the exact sawtooth model has prior steady-current analyses. The supported distinction is the rare-flip variance coefficient for additive symmetric forcing in the thermally diffusing periodic model at arbitrary fixed D, with a strict sharp bound for every nonconstant potential and locked triangular activation including the symmetric prefactor. The strongest available comparisons change the forcing mechanism, describe only means at the same parameters, or use a fixed-rate weak-amplitude expansion. None of those gives the arbitrary-amplitude singular variance limit and its consequences.",
+      "residual_risks": [
+        "Kłosek–Cox full text was inaccessible. The inspected evidence does not exclude a theorem in older additive dichotomous transport or broader switching-diffusion homogenization. The pass is for the supported distinction, not historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model after setting external counterforce to zero; retrieved results do not supply the claimed variance coefficient",
+          "evidence": "The conclusion describes separate stationary species currents and total current, power and efficiency, and notes confinement under v-f<h/a and v+f<h/(L-a), discussing current in the low-noise limit rather than long-time dispersion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.07880",
+          "material_read": "Abstract p. 1 and Section VIII conclusion pp. 14–15, including exact observables and the locked regime, text offset 116605–121668",
+          "method": "Primary OA PDF, literal locator followed by passage read",
+          "title": "Run-and-tumble motion in a linear ratchet potential: Analytic solution, power extraction, and first-passage properties",
+          "trigger": "Same thermally diffusing additive-force ratchet, including confinement"
+        },
+        {
+          "assessment": "Substantial topic overlap but different noise coupling and frozen sector currents",
+          "evidence": "The diffusivity calculation uses switching between U and -U in a supersymmetric landscape with zero current, not constant opposite forces in a fixed U.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0510170",
+          "material_read": "Abstract p. 1, Section III p. 4 offset 11800, conclusion p. 10 offset 23500",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Diffusion in flashing periodic potentials",
+          "trigger": "Exact dichotomously modulated diffusivity and sawtooth rare switching"
+        },
+        {
+          "assessment": "Known fixed-tilt input, does not cover the two-state rare-flip claim",
+          "evidence": "Eq. (18) gives the fixed-tilt current; Eqs. (21)–(22) concern one tilted process. The cited small-noise value for a critically tilted piecewise-linear potential is outside strict locking.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.65.031104",
+          "material_read": "Section II, Eqs. (18), (21)–(22), pp. 2–3, text offsets 9000, 19350 and 24600; p. 5 critical-tilt discussion at offset 35500",
+          "method": "Primary PDF from the University of Barcelona institutional repository",
+          "title": "Diffusion in tilted periodic potentials: Enhancement, universality, and scaling",
+          "trigger": "Broader fixed-force current and diffusion formulas and piecewise-linear asymptotics"
+        },
+        {
+          "assessment": "Plausible closer source; its full scope remains unresolved and is not negative evidence",
+          "evidence": "The frozen comparison describes a steady-current calculation, mainly in a depinned regime; no independent full-text statement is inferred from that description.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.60.3727",
+          "material_read": "Bibliographic locator and the frozen citation's description; full text not recovered",
+          "method": "Lawful APS and OA retrieval attempts; publisher HTTP 403 and no repository copy surfaced",
+          "title": "Steady-state currents in sharp stochastic ratchets",
+          "trigger": "Same additive dichotomous drive and sharp periodic ratchet"
+        },
+        {
+          "assessment": "Perturbative suppression at fixed rate, not coverage of the rare-flip theorem",
+          "evidence": "Its O(amplitude^3) error is explicitly for fixed rate, and its assumptions disclaim uniformity in the vanishing-flip limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-universal-weak-potential-diffusion-suppression-for-thermally-dif--6c976d620f6d/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 0–2777",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal weak-potential diffusion suppression for thermally diffusing run-and-tumble particles",
+          "trigger": "Exact indexed diffusivity claim in the same stochastic model"
+        },
+        {
+          "assessment": "Different effective-diffusion problem",
+          "evidence": "The spatial diffusion coefficient is heterogeneous; the generalization of Lifson–Jackson described in the abstract is not an internal Markov switching law.",
+          "identifier_or_url": "https://arxiv.org/html/2407.10813v1",
+          "material_read": "Abstract and start of introduction, text offsets 0–3100",
+          "method": "Primary OA article inspection",
+          "title": "The effective diffusion constant of stochastic processes with spatially periodic noise",
+          "trigger": "Literature hit on general periodic-diffusivity formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations; Roberts–Zhen Section VIII; Resultary 6c976d620f6d"
+      ],
+      "rationale": "The leading long-time dispersion is a natural transport observable not fixed by the stationary drift, and it diverges as the flip rate vanishes at fixed positive noise. The formula quantifies it using measurable frozen currents, identifies a strict free-particle ceiling beyond the weak-amplitude regime, and distinguishes the two activated directions and the equal-barrier prefactor in a standard locked geometry. This supplies a useful boundary law rather than another finite-parameter current calculation.",
+      "residual_risks": [
+        "No claim about finite-rate dispersion ceilings, joint limits of rate and temperature, or crossover uniformity near the symmetric apex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

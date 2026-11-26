@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:03:56.270327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A failing set is contained in a bisector of an unresolved pair, so a maximum failure must fill a largest bisector. On the set of differing axes, normalized bisector size is the zero atom of an independent sum, with masses 1/q_i at each sign and (q_i−2)/q_i at zero. For q_i>=4, its unique maximum atom bounds the convolution, and equality requires the remaining sum to vanish surely, impossible with any other active axis (all remaining signs can be positive). For q_i=3, the bound is 1/3 with equality exactly when the remaining sum is supported on −1,0,1, i.e. at most one other active axis. Binary-only even supports of size 2s yield binom(2s,s)/4^s, strictly decreasing for s>=1, and odd supports give zero. These observations give each of the five rows and all maximizing supports. Each bisector depends essentially on exactly its listed support, so distinct supports cannot collide. Within a pair of ternary axes every permutation projection is realized by assigning one matched row/column zero and opposite signs on the other rows/columns. The binary–ternary case allows any ordered distinct ternary values in its two binary rows. The singleton and binary-pair counts follow by excluded letters and parity, respectively. Thus the table counts distinct sets, not vertex pairs. Independent enumeration over symbol pairs and relative orientations verified each regime, e.g. (2,2,3,5,5) gives max size 180 and 20 sets, (2,2,4,4) gives 32 and 14 and (2,3,3) gives 6 and 24. Replay: python3 /workspace/review-evidence/replay.py 4. The recorded 61-profile run is separate evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first is graph-general but leaves a maximization over all vertex pairs.",
+          "Laird et al. give an iff linear-system test for a specified set in fixed-alphabet H_{k,a}. Their object has a single common alphabet size."
+        ],
+        "reasoning": "Neither stated theorem gives the mixed-alphabet optimization or an equality classification. The latter needs concentration and its equality conditions with unequal zero-atom masses.",
+        "searches": [
+          "arXiv:1309.0252, Proposition 2.1",
+          "arXiv:1907.05974, Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.0252",
+        "arXiv:math/0507527",
+        "arXiv:1907.05974",
+        "DOI 10.1155/2022/1838719 (not retrieved)",
+        "Resultary 3f2d90a64012 (self), b7e691bfae67, 6c82fc864f93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing max-bisector size equals the last failing size leaves both the optimization and identification of equal attaining sets unsolved.",
+          "Uniform set verification and ordinary minimum-cardinality results do not classify this extremal size or the supports in mixed factors. Even having the threshold would not give the number of distinct attaining bisectors."
+        ],
+        "reasoning": "What is added is an evaluation and equality analysis of the zero-sum obstruction plus a projection count; neither rebranding the old parameter nor substituting a value into the old max identity yields that result.",
+        "searches": [
+          "arXiv:1309.0252 Proposition 2.1",
+          "arXiv:1907.05974 Theorem 2.2",
+          "arXiv:math/0507527 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.1 equates the resolving number to one plus the largest set R(x,y) of vertices not distinguishing a pair, exactly the bisector reduction.",
+          "Cáceres et al. use β(H) for the minimum size of a resolving set, not the smallest size at which every set resolves."
+        ],
+        "reasoning": "Use resolving number and metric-dimension threshold as aliases; do not conflate them with ordinary metric dimension or count the bisector reduction as new.",
+        "searches": [
+          "arXiv:1309.0252, introduction and Proposition 2.1",
+          "metric dimension threshold of graphs, DOI 10.1155/2022/1838719",
+          "arXiv:math/0507527, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact mixed-Hamming record 3f2d90a64012 is the assigned record. The distinct b7e691bfae67 counts largest failures in KG(n,3), and 6c82fc864f93 characterizes radius-one neighborhood shattering rather than distance bisectors."
+        ],
+        "reasoning": "The distinct indexed comparisons share either the invariant or the graph object, not both. Neither of the stated scientific summaries supplies a mixed-alphabet count.",
+        "searches": [
+          "Resultary: mixed Hamming graph resolving number, maximum bisectors and largest nonresolving landmark sets",
+          "3f2d90a64012; b7e691bfae67; 6c82fc864f93"
+        ]
+      },
+      "rationale": "The graph-general maximum-bisector identity is prior, and a criterion for testing individual landmark sets in uniform Hamming graphs is also prior. The distinct content is the sharp mixed-alphabet evaluation, with its exact equality supports and deduplication into a count of distinct critical failures. In particular the binary/ternary competition and the four-symbol versus two-binary tie are not ordinary metric-dimension facts or direct evaluations of a uniform-alphabet theorem.",
+      "residual_risks": [
+        "Exact uniform-alphabet results or a mixed-alphabet classification could occur under alternative terminology in uninspected literature. The 2022 threshold article was not accessible in this review; its family-specific claims remain unchecked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior reduction; not the mixed evaluation in the inspected proposition",
+          "evidence": [
+            "res(G)=1+max_{x≠y}|R(x,y)| with R(x,y) the non-distinguishing vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.0252",
+          "material_read": "PDF p. 1 introduction (offset 1900) and p. 3 Proposition 2.1 (offset 8520)",
+          "method": "Primary OA passage inspection",
+          "title": "The resolving number of a graph",
+          "trigger": "Equivalent terminology and graph-general reduction"
+        },
+        {
+          "assessment": "Ordinary metric dimension, different invariant",
+          "evidence": [
+            "H_{n,k}=K_k to the n-th Cartesian power; β(H_{n,k}) minimizes size of a resolving set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0507527",
+          "material_read": "§6, PDF pp. 7–8, offset 17400",
+          "method": "Primary OA passage inspection",
+          "title": "On the Metric Dimension of Cartesian Products of Graphs",
+          "trigger": "Same uniform graph object including binary cube"
+        },
+        {
+          "assessment": "Uniform-alphabet criterion for verifying a set; not an extremal mixed-alphabet census",
+          "evidence": [
+            "One alphabet of size a and word length k; necessary-and-sufficient linear-system criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.05974",
+          "material_read": "PDF pp. 1, 3, 4 (offsets 2450, 10800, 15200), Theorem 2.2",
+          "method": "Primary OA passage inspection",
+          "title": "Resolvability of Hamming Graphs",
+          "trigger": "Possible stronger set characterization"
+        },
+        {
+          "assessment": "Family-specific coverage not verified; no negative inference",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1155/2022/1838719",
+          "material_read": "Bibliographic identification; no decisive passage retrieved",
+          "method": "Lawful OA retrieval attempt (403, no identified alternate repository copy)",
+          "title": "Metric Dimension Threshold of Graphs",
+          "trigger": "Same invariant under alternate terminology"
+        },
+        {
+          "assessment": "Similar type of classification, different graph and distance structure",
+          "evidence": [
+            "Threshold and count for KG(n,3), by its maximizing bisector supports."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-largest-nonresolving-landmark-sets-in-three-subset-kneser-graphs--b7e691bfae67",
+          "material_read": "Indexed scientific statement",
+          "method": "Resultary comparison",
+          "title": "Largest nonresolving landmark sets in three-subset Kneser graphs",
+          "trigger": "Distinct closest index match by invariant and counting task"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact worst-case guarantee makes a different prediction than ordinary metric dimension. Its dependence on the alphabet mix is structural: two binary axes can dominate ternary axes, and they can tie four-symbol axes. The additional characterization and count specify which landmark choices attain failure at the sharp boundary, not just the existence of such failures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

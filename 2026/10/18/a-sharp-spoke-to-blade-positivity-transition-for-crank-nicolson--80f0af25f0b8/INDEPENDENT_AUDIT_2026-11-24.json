@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:07:18.174953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the completed step T=2R-I and the orthogonal constant, hub contrast, blade contrast and intrablade spaces. With M=rs, N=M+1, the diagonal weights at the hub are (1/N,M/N,0,0), at a leaf (1/N,1/(MN),(r-1)/M,(s-1)/s), with rates (0,Nb,b,b+sa). The positive resolvent for h>0 follows from the irreducible Markov semigroup integral. Thus only the two strictly decreasing diagonals matter; both have unique roots at level 1/2 and the smaller root is included. At z=bh/2=1/(M-1), putting x=a/b, the leaf excess is (M-1)[r(M-1)-(r(s-2)+1)x]/[2M^2(r+x)]. This proves the switch, simultaneous equality and strict decrease in the leaf regime since its last resolvent term decreases strictly in a. For s>=3 the rescaling z=y/x gives limiting leaf level 1/s+(s-1)/(s(1+sy)); at y=1/(s-2) its derivative is nonzero. For s=2 the slow contribution is 1/2-z/2+3z^2/2+O(z^3). With eps=x^(-1/2) and z=eps*y, the rescaled residual is -y/2+1/(4y)+eps*(3y^2/2-1/(8y^2))+O(eps^2). The simple root yields y=1/sqrt(2)+eps/2+O(eps^2), including the claimed 1/a term after converting to h. Analytic checks prove the stated family. The inspected verify.py implements useful direct rational inversions and leading-order asymptotic probes; its 1290 groups are frozen reported evidence, not a new run and not a check of the second triangle coefficient.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal-vertex and bounded-degree sharp bounds inspected concern unit-weight graphs. Higueras–Roldán analyze a Dirichlet heat grid; Jin et al. analyze finite elements for subdiffusion."
+        ],
+        "reasoning": "Neither unweighted graph results nor the spatial-discretization results give heterogeneous windmill thresholds. The frozen comparison to the bounded maximum edge conductance theorem credits the a<=b saturated-hub case; it does not account for the whole interval a/b<=Xi or leaf control beyond it.",
+        "searches": [
+          "SCOPE 2026/10/25/00c118bf4f45 and 2026/11/1/01f56608d0de, findings",
+          "arXiv:2301.01066v1 abstract and conclusion; arXiv:1510.02825v1 opening"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary/SCOPE records d475df91cd2a, a8ca5b261d22, 00c118bf4f45 and 01f56608d0de, material specified above",
+        "arXiv:2301.01066v1",
+        "arXiv:1510.02825v1",
+        "DOI:10.2478/cmam-2010-0025 (access limitation)",
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reversible-chain theorem gives a root algorithm for all such graphs but no evaluated windmill diagonal comparison or conductance expansions in the inspected passages."
+        ],
+        "reasoning": "The phase law requires orbit-specific projector coefficients, a sign comparison at the hub root and, for s=2, a cancellation in the singular scaling; it is not an indicated parameter substitution into a prior evaluated horizon.",
+        "searches": [
+          "SCOPE 2026/10/4/d475df91cd2a versus RESULT.md proof of the orbit comparison and rescaled roots",
+          "DOI:10.2478/cmam-2010-0025 lawful access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reversible Markov-chain result states C_h=2R_{h/2}-I and the diagonal test R_{vv}>=1/2, with reversible spectral expansions and unique thresholds."
+        ],
+        "reasoning": "The windmill qualifies for this equivalent generic return law, which is already credited. Evaluating and comparing its two vertex-orbit returns and resolving their singular limits are the distinct content.",
+        "searches": [
+          "Resultary: weighted generalized windmill / friendship graph, completed Crank–Nicolson positivity threshold",
+          "SCOPE 2026/10/4/d475df91cd2a, finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The near-match in the same graph family evaluates a quartic positivity cutoff for a different rational map, the fourth-order Gauss–Legendre step, on unweighted windmills."
+        ],
+        "reasoning": "An exact cutoff for that integrator is not a tabulation of the CN diagonal root. No exact matching lookup was identified in the searches; this does not rule out unindexed evaluations.",
+        "searches": [
+          "Resultary: weighted windmill / generalized friendship graph positivity cutoff and strong internal conductance regimes",
+          "SCOPE 2026/11/8/a8ca5b261d22, finding"
+        ]
+      },
+      "rationale": "The reversible resolvent-diagonal criterion and generic graph positivity bounds are covered. The supported distinct contribution is the explicit two-conductance windmill crossover, including its extended hub plateau and the sharp singular scales with coefficients. No equivalent or dominating evaluated classification was established in the closest available sources.",
+      "residual_risks": [
+        "The 2010 theta-method paper could not be inspected in full.",
+        "An unlocated weighted-windmill resolvent or update classification could give equivalent evaluations; public search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic reduction covered",
+          "evidence": [
+            "C_h=2 R_{h/2}-I, with diagonal positivity criterion and return-root spectral characterization."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "RESULT.md finding and reversible spectral law, offsets 284 and 846–941",
+          "method": "Local published record mirror",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Same integrator and graph-wide criterion"
+        },
+        {
+          "assessment": "Distinct integrator and weights",
+          "evidence": [
+            "Unweighted windmills, fourth-order Gauss–Legendre method, quartic cutoff and within-blade off-diagonal failure."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-gauss-legendre-positivity-horizon-on-windmill-graphs--a8ca5b261d22",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "A sharp Gauss–Legendre positivity horizon on windmill graphs",
+          "trigger": "Same graph family and positivity horizon"
+        },
+        {
+          "assessment": "Unweighted overlap only",
+          "evidence": [
+            "Sharp 2/(N-2) and universal-vertex equality for unweighted graphs."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-universal-vertices-exactly-attain-the-worst-crank-nicolson-posit--00c118bf4f45",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local published record mirror",
+          "title": "Universal vertices exactly attain the worst Crank–Nicolson positivity horizon",
+          "trigger": "Potential hub cutoff coverage"
+        },
+        {
+          "assessment": "Unit-weight class bound",
+          "evidence": [
+            "Uniform bound for a bounded-degree class, not two-orbit conductance classification."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-maximum-degree-crank-nicolson-positivity-via-regular-tree--01f56608d0de",
+          "material_read": "RESULT.md finding, offsets 332–725",
+          "method": "Local published record mirror",
+          "title": "Sharp maximum-degree Crank–Nicolson positivity via regular trees",
+          "trigger": "Potential sharper graph-wide formula"
+        },
+        {
+          "assessment": "Different matrix structure",
+          "evidence": [
+            "Homogeneous Dirichlet one-dimensional heat diffusion, with grid-dependent bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.01066v1",
+          "material_read": "Abstract (offset 395) and conclusion (offset 29972)",
+          "method": "Open primary text",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Explicit CN positivity cutoff"
+        },
+        {
+          "assessment": "Different equation and discretization",
+          "evidence": [
+            "Finite elements for subdiffusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+          "material_read": "Page 1, offset 33",
+          "method": "Open primary PDF",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Related discrete diffusion nonnegativity"
+        },
+        {
+          "assessment": "Residual source risk; no whole-document exclusion",
+          "evidence": [
+            "Publisher access attempts did not yield the primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/cmam-2010-0025",
+          "material_read": "Bibliographic identification only; full text not recovered in the independent comparison",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "On positivity and maximum-norm contractivity in time stepping methods for parabolic equations",
+          "trigger": "General theta-method positivity literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The switch identifies the actual limiting vertex orbit on a natural hub-and-community diffusion network. It extends the exactly flat step range beyond homogeneous/saturated spokes, and explains why triangles require a different power-law timestep reduction than larger blades. This is an evaluated family law with practical step-selection meaning, not merely the generic resolvent test or a finite sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

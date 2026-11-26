@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:02:45.531351Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63 (update rule, row table, Cramer identities, coefficients)",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 26–100 (alternative exact replay; inspected, not executed)",
+        "Independent ordered-pair kernel and modular coefficient replay described above"
+      ],
+      "rationale": "I reconstructed the one-step matrices by enumerating ordered parent-neighbor pairs and lumping masks by the hub type and number of mutant leaves. The uniform single-mutant average weights a leaf twice and the hub once. With row probabilities the periodic product is S^tau K^tau, not its reverse. From each transient configuration a sequence of at most two resident reproductions can extinguish the mutants, with strictly positive probability along the prescribed schedule because both graphs are connected. For fixed r>0 the finite state/phase space then gives a uniform positive absorption chance over a bounded block, justifying the inverse. The Moran comparator is the gambler's-ruin formula for bias r and equals 1/3 at neutrality. For independent exact replay I formed the integer kernels scaled by d=2(r+2)(2r+1), used Laplace expansions of the four-by-four Cramer determinants, and checked every coefficient of (N(1+r+r²)-Dr²)D_tau-D Delta_tau, where N/D is the single-mutant average and Delta_tau is the signed numerator in Finding. All coefficients vanish modulo each of 100003, 100019, 100043, 100049, 100057, 100069, 100103, 100109. The scaled row polynomial l1 norms sum to d(1)=18; each entry of the Cramer matrices has l1 norm at most 2·18^4, so each cross-identity coefficient has magnitude at most 3·24·(2·18^4)^4·(4·2e8+2e6), below the modulus product. This is an integer identity check, not fitness sampling. The listed positive polynomials and factors give opposite strict signs at tau=1 and matching strict signs at tau=2 relative to r-1, proving the first amplifying integer dwell and the neutral equality.",
+      "residual_risks": [
+        "The argument covers tau=1,2 for the specified star-first phase and uniform single-mutant start, not longer dwells, reverse/random starts, or other update rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The switching paper gives the general periodic-chain fixed-point/averaging algorithm, not a theorem giving the sign of the fixation difference at tau=2.",
+          "De Souza–Neves treats the static star, even when varying fitness/update type, rather than the periodic star/K3 pair."
+        ],
+        "reasoning": "Having a general system to solve is not an all-fitness sign bound; the sign changes with dwell even for the same graphs.",
+        "searches": [
+          "arXiv:2304.00170 §3.2 eqs. (5)–(8)",
+          "arXiv:2003.05462v2 p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact record e658fb661de7 and nearby primary RESULT.md 92ee4731e62a",
+        "arXiv:2304.00170",
+        "arXiv:2003.05462v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper uses all-fitness terminology but describes confirmation over a range of r; reversal by tau=10 or 50 does not bound the first amplifying dwell at 2.",
+          "The sign of the tau=2 difference follows here from a new coefficient-wise identity and positive factors, not from setting N=3 or extrapolating fitness samples in a prior sign theorem."
+        ],
+        "reasoning": "The known qualitative results overlap, but they do not establish the highlighted exact minimum or fitness-uniform proof.",
+        "searches": [
+          "arXiv:2304.00170 §4.2.1, App. B and §3.2",
+          "Frozen RESULT.md Finding and exact certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Star and complete graph on three vertices are exactly the path on three vertices and K3. The prior model has the same birth–death order, G1 first, uniform initial single mutant and neutral comparator.",
+          "The distinct indexed moving-hub finding switches between two paths; its tau=2 suppressor is not this tau=2 amplifier."
+        ],
+        "reasoning": "Checked both the graph aliases and the initialization and sign quantifier; nearby dwell facts with a different second graph are not equivalent.",
+        "searches": [
+          "arXiv:2304.00170, pp. 2–3, §4.2.1 and App. B",
+          "Resultary record 2026/11/8/SCOPE-minimal-moving-hub-suppressors-and-a-three-step-fitness-crossove--92ee4731e62a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the identical frozen record; the distinct moving-hub record was compared at statement level.",
+          "Figure 7(a) reports tau=1,10,50 for star/K3 and plots a bounded fitness range, not tau=2."
+        ],
+        "reasoning": "No exact prior table entry for the new dwell and quantifier was found in the examined sources; the same-day date is not evidence of priority or nonoverlap.",
+        "searches": [
+          "Resultary exact match 2026/11/8/SCOPE-a-two-update-reversal-of-selection-on-the-smallest-switching-pop--e658fb661de7 and distinct nearby record 92ee4731e62a",
+          "arXiv:2304.00170 Appendix B, Figure 7(a) and caption"
+        ]
+      },
+      "rationale": "Credit Bhaumik–Masuda with the exact model and phase order, the general periodic-chain method, the reported tau=1 suppression and the reported later reversal. Their range calculations do not give the all-fitness certificate or classify tau=2. The supported distinction is the sharp onset at the second update, with strict signs on the entire nonneutral fitness domain, not the observation that a reversal can occur.",
+      "residual_risks": [
+        "The broader literature lookup produced no useful hits and is not evidence of absence; an unlocated exact computation or equivalent sign theorem remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap, not sharp onset coverage",
+          "evidence": "Star first and complete second on N=3; tau=1 suppressor and tau=10,50 amplifiers reported; no tau=2 in the pertinent comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.00170",
+          "material_read": "pp. 2–4, amplifier definitions and model, §3.2 eqs. (5)–(8); §4.2.1 p. 14 and App. B pp. 23–24, Fig. 7(a) and caption (PDF text offsets 6088, 8054, 10817, 14966, 52658, 92096, 97491)",
+          "method": "Targeted OA primary-PDF passage inspection",
+          "title": "Fixation probability in evolutionary dynamics on switching temporal networks",
+          "trigger": "Same graph pair, start order, fitness criterion and switching model"
+        },
+        {
+          "assessment": "Different graph pair and signs",
+          "evidence": "Two labeled paths with different hubs; suppression at 1 and 2, crossover at 3, amplification at 4.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-moving-hub-suppressors-and-a-three-step-fitness-crossove--92ee4731e62a",
+          "material_read": "Primary RESULT.md Finding and Assumptions, offsets 0–4877",
+          "method": "Resultary lookup and local mirrored primary text",
+          "title": "Minimal moving-hub suppressors and a three-step fitness crossover",
+          "trigger": "Distinct near indexed record on three-vertex dwell and fitness"
+        },
+        {
+          "assessment": "Static-graph antecedent",
+          "evidence": "The star topology is fixed; the exact fixation statements there are not for alternating star and K3.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.05462v2",
+          "material_read": "p. 3 model/scope, text offset 7991",
+          "method": "Targeted OA primary-PDF inspection",
+          "title": "Exact fixation probabilities for the Birth-Death and Death-Birth frequency-dependent Moran processes on the star graph",
+          "trigger": "Plausible exact analytic star comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Bhaumik–Masuda arXiv:2304.00170 Appendix B Fig. 7(a)"
+      ],
+      "rationale": "The motivating literature had already found reversal but left a gap between the first dwell and the displayed later dwells. The array of possible schedules starts at integer 1, and the exact boundary at 2 identifies what one extra update per phase can do on this minimal graph pair. The result controls both disadvantageous and advantageous mutants, including fitness extremes and arbitrary proximity to neutrality; it is not a numerical refinement at one chosen fitness.",
+      "residual_risks": [
+        "A minimal exact benchmark, not a dwell-monotonicity theorem or a rule for larger/other temporal networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

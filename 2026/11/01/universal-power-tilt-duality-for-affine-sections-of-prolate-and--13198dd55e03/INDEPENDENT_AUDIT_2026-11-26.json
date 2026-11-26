@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:43:13.690264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the finite densities and the sharp limit in RESULT.md lines 5–109. Completing the quadratic form at x0=tQ⁻¹n/(nᵀQ⁻¹n) makes the offset a common scale, so it cancels from the semiaxis ratio. Compressing each rank-one perturbation to n⊥ gives d−2 equatorial eigenvalues 1 and the indicated special eigenvalue. For u=|n_d|, conditioning on hitting weights Haar orientation by h_i(u); the absolute inverse Jacobians are κ²/(√b r²√(κ²−r²)) and r/(√b√(κ²−r²)). Substitution gives the asserted f_p,f_o, whose ratio is proportional to r^(d+2). Its normalized, increasing single crossing is interior, gives strict survival ordering, and minimizes equal-prior classification error among ratio-based rules, uniquely up to a null set. At fixed κ the orientation reweightings differ from Haar by O_κ(1/d) in total variation, since |h_i(u)−1|≤C_κu² and E_Haar u²=1/d. Thus d u² converges under each to χ²₁ and the quadratic Taylor expansions give the two claimed scales. The exact threshold satisfies log(r*/κ)=(log(J_o/J_p)−log κ)/(d+2), with J_o/J_p→1. Applying the continuous limiting CDFs at d(κ−r*)→κ log κ yields exactly the difference of error functions; weak convergence alone is not taken as TV convergence. There are no atoms at the shape endpoints. In lines 95–96 ν_p and ν_o are an unambiguous notation slip for the inverse maps u_p and u_o defined in lines 82–83; the quadratures and Finding are sound on that reading. The finite script was inspected, not run, and is not the justification for the all-dimension result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary e99f37d3b7ae Finding and Proof give a Beta transform for the central section radius of one-long-axis ellipsoids under Grassmannian Haar sampling; its proof compresses the rank-one quadratic form. Van der Jagt et al., Definition 1, give the joint IUR law, hence width-biased orientation. The Jensen–Møller article could not be inspected through lawful OA."
+        ],
+        "reasoning": "At codimension one and d≥3 the known prolate central largest radius equals its shape ratio (the smallest radius is one); IUR then simply reweights it by κ/r. Reversing the sign of the rank-one perturbation obtains the oblate restricted spectrum, but the central circumradius theorem as stated has one long axis and does not itself compare the two width-weighted laws or their TV. The exact spectrum and the change of sampling are routine ingredients, not the distinctive output.",
+        "searches": [
+          "Resultary: ellipsoid hyperplane section semiaxis ratio random affine sections high dimensional",
+          "arXiv:2305.02864v2, Definition 1",
+          "Jensen and Møller DOI 10.2307/3214477"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–125, VERIFICATION.md, verify.py",
+        "arXiv:2305.02864v2 and 1609.06697v2",
+        "Resultary a318f23c4103, e99f37d3b7ae, 0aa27401f799, 038ccdc297f9 and 18ef4d5b280b",
+        "DOI 10.2307/3214477 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest inspected statements give a central one-spike radius law, both central spheroid laws in d=3, and a width weight. None of those passages concerns a fixed-κ statistical separation as d grows."
+        ],
+        "reasoning": "Even with known angular laws and widths, the paired result requires matching normal directions that yield the same section shape, accounting for the change of angular measure, and controlling the crossing on a shrinking scale in d. For example, the matched normal map n↦A n/||A n|| for A=diag(1,…,1,κ) preserves the ratio by inverting the restricted section map on the matched planes; its angular Jacobian gives a factor ||A n||⁻ᵈ and the relative widths add ||A n||⁻². This explains the exact d+2 exponent but is not a stated paired implication in the inspected sources. Concentration of both ratios at κ does not mechanically determine a nonzero TV limit.",
+        "searches": [
+          "Resultary a318f23c4103 Proof §7 and e99f37d3b7ae Finding/Proof",
+          "arXiv:2305.02864v2 Definition 1",
+          "arXiv:1609.06697v2 pp. 2, 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary a318f23c4103, Proof §7, gives the two exact central-Haar spheroid eccentricity CDFs in d=3. Baaske–Ballani–Illgen, arXiv:1609.06697v2 pp. 4–5, uses a stationary spheroid process sampled by a vertical uniform random section and an unfolding equation for joint size, shape, and orientation."
+        ],
+        "reasoning": "Eccentricity e and axis ratio r are equivalent via e²=1−r⁻², so the central-Haar CDFs give central ratio laws for the d=3 pair, not merely allied quantities. However, IUR weights orientations by h_p=κ/r and h_o=r/κ, respectively; converting both CDFs, differentiating and applying those weights mechanically recovers the finite d=3 specialization. The cited stereology and the d=3 result do not supply the all-dimension TV limit.",
+        "searches": [
+          "Resultary: universal power tilt duality affine sections prolate oblate spheroids",
+          "Resultary: spheroid stereology section axis ratio invariant random affine hyperplanes",
+          "Literature search: ‘spheroid’ stereology ‘axis ratio’ random planar sections section shape distribution IUR hyperplane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0aa27401f799, Finding, gives the exact d=3 IUR section area density and cusp for the prolate body. a318f23c4103 gives central-Haar spheroid eccentricity. Same-date 038ccdc297f9 gives a projection half-diameter law; 18ef4d5b280b concerns extremizing expected circumradius for central planar sections of balanced four-dimensional ellipsoids."
+        ],
+        "reasoning": "The IUR prolate area includes offset-dependent scale and is not a table of intrinsic ratio laws. Neither projection nor expected radius gives the paired tilt or the TV formula. No inspected exact entry matched those claims; the ranked search is not exhaustive.",
+        "searches": [
+          "Resultary: prolate oblate spheroid section shape ratio likelihood ratio dimension total variation",
+          "Resultary: spheroid stereology section axis ratio invariant random affine hyperplanes"
+        ]
+      },
+      "rationale": "Pass is for the paired affine-hyperplane power tilt and the exact persistent discrimination limit for fixed κ, not for the rank-one sectional eigenvalue formulas, the IUR width reweighting, or the use of likelihood-ratio testing itself. Checked sources cover those ingredients and some individual section laws, but do not establish the matched paired relation with its all-dimensional TV limit. This is a best-of-knowledge judgment, not a historical priority guarantee.",
+      "residual_risks": [
+        "The cited Jensen–Møller and Møller stereological papers were not available at the relevant passages; an older general law could subsume some individual densities or transformations.",
+        "Cruz-Orive, J. Microscopy 107 (1976), 235–253, was bibliographically identified in the Baaske paper, but its original formulas were not inspected; additional three-dimensional overlap is plausible.",
+        "The judgement credits known finite special cases and applies only to the paired all-dimensional claim and sharp discrimination limit, not priority of each ingredient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sampling measure, not the paired ratio law",
+          "evidence": "Constant joint density on hitting planes integrates to directional width; the cited work treats section volume.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.02864",
+          "material_read": "v2 abstract, p. 1, and Definition 1, p. 3",
+          "method": "Bounded OA PDF passages",
+          "title": "Existence and approximation of densities of chord length- and cross section area distributions",
+          "trigger": "Same IUR affine-hyperplane convention"
+        },
+        {
+          "assessment": "Related unfolding problem with a different observation model",
+          "evidence": "The joint distribution concerns size, shape and orientation under vertical sections of a stationary spheroid process, not fixed matched IUR ellipsoids in varying d.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.06697",
+          "material_read": "v2 pp. 2 and 4–5; bibliography on p. 20",
+          "method": "Bounded OA PDF passages",
+          "title": "On the estimation of parameters of a spheroid distribution from planar sections",
+          "trigger": "Closest spheroid shape stereology found in external search"
+        },
+        {
+          "assessment": "Mechanically overlaps finite d=3 after adding the IUR weights; does not cover the varying-d comparison",
+          "evidence": "Explicit eccentricity CDFs for α=β<γ and α<β=γ, with central Haar normal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-quartic-near-circular-section-tails-and-a-sharp-two-statistic-am--a318f23c4103/RESULT.md",
+          "material_read": "Assumptions and Proof §7, mirror offset 6660 onward",
+          "method": "Indexed search and direct local-mirror passages",
+          "title": "Quartic near-circular section tails and a sharp two-statistic ambiguity",
+          "trigger": "Both spheroid ratio laws as eccentricity CDFs"
+        },
+        {
+          "assessment": "Exact central prolate ingredient for codimension one",
+          "evidence": "One long axis, central Haar subspace, and radius (a⁻²+(b⁻²−a⁻²)T)^−1/2; no conditioned affine oblate comparison or fixed-κ TV limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae/RESULT.md",
+          "material_read": "Finding, assumptions, first rank-one proof passage, mirror offset 0 onward",
+          "method": "Indexed search and direct local-mirror passage",
+          "title": "Exact random-radius law for one-spike ellipsoids in every codimension",
+          "trigger": "Possible all-dimensional coverage by the rank-one central-section theorem"
+        },
+        {
+          "assessment": "Unresolved, not evidence of noncoverage",
+          "evidence": "The title establishes plausibility but supplies no statement about section eccentricities, paired tilts or TV.",
+          "identifier_or_url": "https://doi.org/10.2307/3214477",
+          "material_read": "Bibliographic identification only; no full text recovered",
+          "method": "Lawful OA attempt; no readable repository copy located",
+          "title": "Stereological versions of integral geometric formulae for n-dimensional ellipsoids",
+          "trigger": "Potential stronger n-dimensional stereological result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A section axis ratio is an intrinsic observable unaffected by unknown cutting depth. The exact comparison for reciprocal families gives a population classification rule and shows, with a sharp positive TV constant, that two laws concentrating at the same aspect ratio do not become statistically indistinguishable. This is a substantive conclusion about the natural sampling model, not merely a new expression for a central section radius.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

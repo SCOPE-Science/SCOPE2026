@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:27:19.245100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–69; VERIFICATION.md; checks/cyclic_check.py",
+        "Independent replay: python3 -B /workspace/reproductions/4.py; output /workspace/reproductions/4.out"
+      ],
+      "rationale": "The block shift of an idempotent must be zero, so its local maps are identities or constants. At prescribed shift k a commuting local map intertwines the two local idempotents. The rank enumerators for source/target types II, IC, CI, CC are 2z(1+z), z, 2z, z(1+z), independently of constant values. The two mixed type populations coincide, both d_k, because the shift preserves the total number a of identity blocks. Multiplication gives 2^a z^m(1+z)^(m−2d_k). The coefficient of z^m in the sum is m2^a; the shifted powers have distinct degrees and thus recover the histogram. Unit conjugation rotates blocks and independently changes constant values, giving exactly the stated orbit count. Summing choices of constants leaves 2^m per binary type, and the two eigenvalues 2+z,z of the binary cycle transfer give the divisor expression for every m≥1, including the identity shift. At z=1 the latter shift contributes 8^m; for L≥2, (3^L+1)^(1/L)≤√10 by monotonicity of log(1+3^−L)/L, giving the stated bound. The rank excess at identity shift is exactly binomial by its normalized generating function, and the mass of the other shifts is R_m/(1+R_m), giving the TV inequality. A fresh point-map enumeration checked all idempotents and each prescribed shift through m=5, recovering total counts 8,104,960,8320,64000; the total coefficients were checked against the divisor expression via m+1 positive evaluations after factoring z^m. Difference-set enumeration through m=8 confirmed the three cutoffs 5,6,8, the ordered vectors and distinct orbit conditions. The m=6 example is a reflection, not a rotation; the m=8 example has size 5504 and is genuinely non-dihedral.",
+      "residual_risks": [
+        "Enumeration is finite; the all-m conclusions use the algebraic proof. The probability statements sample uniformly from E_m and M_m, not uniformly from two copies of M_m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarkar–Singh Proposition 3.9 gives the structural premises for idempotents in semigroups with prescribed block characters. In the broader regular-action setting, d8e52ca92e37 obtains the polynomial by cycle order for arbitrary finite groups, not just cyclic ones.",
+          "The distinct same-day cabfb16a59f1 proves the root/fiber description and counts full-transformation centralizer ranks for arbitrary kernel sizes. It does not impose that each board block maps to its particular cyclic translate; its aggregate numbers cannot recover the placement of identity blocks."
+        ],
+        "reasoning": "A broader centralizer theorem without the cyclic-character constraint is not interchangeable with the target polynomial. The demonstrated coverage instead uses a different, earlier rank enumeration with the same rank patterns and explicitly related multiplicities.",
+        "searches": [
+          "Local Resultary d8e52ca92e37, all regular finite group actions",
+          "Local Resultary cabfb16a59f1, rank spectra in full transformation centralizers",
+          "arXiv:2310.19414v1 §3 Proposition 3.9",
+          "DOI 10.1007/s00233-012-9424-0"
+        ]
+      },
+      "checked_sources": [
+        "Mirrored Resultary d8e52ca92e37 and cabfb16a59f1",
+        "arXiv:2310.19414v1 §3",
+        "arXiv:1304.6608v1 pp. 1–2,6,8",
+        "DOI 10.1007/s00233-012-9424-0, direct inspection unsuccessful"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier per-shift cycle kernel is exactly ((2+z)^L+z^L)^(m/L), the same totient-weighted divisor sum, except that it corrects for (m−1)2^m duplicate (partial identity, empty map) pairs. In the frozen problem those shifts are correctly distinct even when all local maps are constant. The normalized aggregate polynomial identity holds for every m, not just even m or an inspected sample.",
+          "The earlier order-two dominance estimate also uses the decreasing (3^L+1)^(1/L); the new conditional interpretation weights that order sum by the rank-excess mixture."
+        ],
+        "reasoning": "Keeping a marked translation for B=∅ and choosing a bit on every identity target gives the fixed-shift formula, and summing the uniform multiplicity yields the entire aggregate law. The hypotheses and ranks have been aligned explicitly, so the earlier result mechanically supplies the central exact census. The TV bound after normalization and the known Z8 pair cannot restore originality of that census.",
+        "searches": [
+          "d8e52ca92e37 mirrored RESULT.md, Finding, Commutation criterion, Cycle calculation, Empty-restriction correction and Cyclic and asymptotic specializations",
+          "cabfb16a59f1 mirrored RESULT.md, Finding and centralizer normal form",
+          "arXiv:1304.6608v1 Example 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In d8e52ca92e37, the marked translation by k restricted to B commutes with the partial identity on A exactly if for every i∈B, i∈A iff i+k∈A. This is exactly the compatibility of local rank-2 choices in the frozen model.",
+          "d_k=a−|A∩(A−k)|, so at fixed a the indexed spectral equivalence is the Patterson/autocorrelation equivalence."
+        ],
+        "reasoning": "The main rank grades differ just by the baseline m, and each allowed grade pattern has the uniform multiplicity 2^a. The polynomial equivalence follows even though the underlying monoids are not isomorphic. Indexed homometry is a translation of a known invariant; it is not itself new.",
+        "searches": [
+          "Local Resultary: idempotent commutants and rank polynomials for cyclic regular and partition-preserving actions; d8e52ca92e37",
+          "arXiv:1304.6608v1 Patterson function and interval content"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jedrzejewski–Johnson Example 1 gives the exact Z8 pair {0,1,2,5} and {0,1,3,4}; their Table 1 catalogs other homometric chords.",
+          "d8e52ca92e37 explicitly gives the polynomial for C4, namely 16+160y+176y²+96y³+24y⁴. Adding 48 and multiplying by 16z^4 at y=z recovers the newly verified aggregate 1024z^4+2560z^5+2816z^6+1536z^7+384z^8."
+        ],
+        "reasoning": "The m=8 witness is already tabulated up to an exact conversion of invariant. The earlier transfer table also agrees after the correct normalization. No matching m=5 and m=6 first-collision table for the frozen fingerprint distinctions was established in the checked sources.",
+        "searches": [
+          "arXiv:1304.6608v1 Example 1 and Table 1 for exact Z-related set classes",
+          "Local Resultary: cyclic commutant exact polynomials and rank tables; d8e52ca92e37"
+        ]
+      },
+      "rationale": "The earlier exact partial-translation commutant calculation in Resultary d8e52ca92e37 covers the central rank counts by an explicit rank-preserving reduction. At fixed type A and marked shift k its commutation condition is exactly B⊆{i:w_i=w_(i+k)}, where B is the domain of the partial translation. In the frozen model take B to be the blocks where the local map has rank 2. For a fixed e and k, there are independently two choices at each identity TARGET block for each allowed B, one choice at the other target blocks: for an identity source and identity target the rank choice leaves two maps; for a constant source and identity target the map is constant with two possible values; for a constant target the rank and intertwining force the map. Thus every old choice of B lifts to exactly 2^a commuting maps, with rank increased from |B| to m+|B|. Summing constant values across e replaces 2^a by 2^m uniformly. The earlier polynomial P_(C_m)(z) counts every empty partial map only once per A, whereas the frozen count keeps its m shifts distinct. Consequently F_m(z)=2^m z^m[P_(C_m)(z)+(m−1)2^m]. This is exact equivalence after the known empty-map correction, not just a similar counting method or a shared numerical sample. The commute-probability and binomial TV estimates follow by the same transfer summands and their identity-shift mixture. The Z8 pair is also explicitly known. There may be distinct finite fingerprint cutoffs at 5 and 6, but those do not make the frozen central rank/transfer claim original. The FAIL is demonstrated published coverage of that claim, not an access failure or a mathematical error.",
+      "residual_risks": [
+        "The positive coverage decision does not require the inaccessible journal article. The m=5 and m=6 separation cutoffs were verified mathematically, but this does not establish their historical originality in all catalogs or set-class literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier demonstrated equivalent coverage of the normalized fixed-shift enumerator and the aggregate rank polynomial, via the marked-shift and lift reduction.",
+          "evidence": [
+            "Partial domain B must select only edges constant in A-membership; each L-cycle contributes (2+y)^L+y^L; cyclic order multiplicity is φ(L); subtract 2^m for each nonidentity translation to identify empty maps. These are exactly the terms in the displayed relation between F_m and P_(C_m)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-idempotent-commutant-rank-polynomials-recover-the-element-orders--d8e52ca92e37/RESULT.md",
+          "material_read": "Finding, assumptions, proof of commutation criterion, cycle calculation, empty-map correction, asymptotics and displayed C4 example; mirrored range 0–6993, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary discovery and direct comparison of decisive mirrored primary statements and proof",
+          "title": "Idempotent-commutant rank polynomials recover the element orders of finite regular groups",
+          "trigger": "Same per-order cycle kernel and exact cyclic divisor sum before empty-map correction"
+        },
+        {
+          "assessment": "Material same-day overlap on image-rank enumeration, but different admissible maps; its date alone implies no priority, and its unrestricted polynomial does not determine the cyclic placement fingerprint.",
+          "evidence": [
+            "Each kernel fiber maps into a target fiber with roots fixed to prescribed images; summation permits every root map, not a common cyclic shift of the original two-point blocks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1/RESULT.md",
+          "material_read": "Mirrored Finding, hypotheses and centralizer normal form and rank counting, range 0–5121 in the same snapshot",
+          "method": "Local Resultary and direct primary mirror comparison",
+          "title": "Rank spectra of centralizers of finite transformation retractions",
+          "trigger": "Complete rank enumeration for centralizers of full transformation idempotents"
+        },
+        {
+          "assessment": "Covers characterization of idempotents; does not give the target rank polynomial in that result.",
+          "evidence": [
+            "The character of an idempotent is idempotent, which for the cyclic character group forces shift zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.19414v1",
+          "material_read": "§3 Proposition 3.9 around offset 27000",
+          "method": "Bounded primary OA HTML inspection",
+          "title": "Semigroups of transformations whose characters belong to a given semigroup",
+          "trigger": "General semigroup construction with a prescribed set of characters"
+        },
+        {
+          "assessment": "Unresolved direct comparison; not used as evidence that it lacks an enumeration, and not needed for the equivalence shown from d8e52ca92e37.",
+          "evidence": [
+            "The frozen record cites this for full-transformation centralizer membership, not cyclic rank weights."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00233-012-9424-0",
+          "material_read": "No direct primary passage recovered here; the frozen record attributes the fiber criterion to Corollary 5.2.",
+          "method": "Attempted lawful publisher article and PDF; the redirects did not deliver readable text.",
+          "title": "Centralizers in the Full Transformation Semigroup",
+          "trigger": "General known full-transformation commutation criterion"
+        },
+        {
+          "assessment": "Covers the autocorrelation criterion and exactly the non-dihedral example used by the frozen finding.",
+          "evidence": [
+            "Patterson A(x)A(x^−1) modulo x^N−1 describes interval content; Example 1 lists the only Z-related pair at N=8 as the very same sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.6608v1",
+          "material_read": "PDF pp. 1–2, offsets 3800–8935; Example 1 p. 6 around 15000; Table 1 p. 8 around 19400",
+          "method": "Bounded primary OA PDF passages and table inspection",
+          "title": "The Structure of Z-Related Sets",
+          "trigger": "Exact prior binary homometry and catalogued strict collisions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–38,45–69",
+        "Resultary d8e52ca92e37, commutation and rank formula",
+        "Jedrzejewski–Johnson, Example 1",
+        "Independent reproduction /workspace/reproductions/4.out"
+      ],
+      "rationale": "Rank and loss of conjugacy information are natural observables here. But the frozen result's principal exact invariant and infinite-family census amount to a fixed grade shift, multiplicity, and empty-map correction to a known commutant count. The probability normalization and mixing bound then follow directly; the prominent m=8 witness is a translation of a tabulated Z-related example. The remaining m=5 and m=6 cutoff differences correctly locate loss of information from forgetting shift indices or reflections, but as presented are small checks of the inherited difference pattern and do not establish independent scientific value of the combined result beyond that conversion. A separately posed finite classification or more general nontrivial fiber result would require its own assessment. No narrowed or repaired claim is delivered.",
+      "residual_risks": [
+        "The limited negative value judgment is about the result as presented and does not deny the usefulness of autocorrelation, cyclic monoids, or exact finite classifications in other settings."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

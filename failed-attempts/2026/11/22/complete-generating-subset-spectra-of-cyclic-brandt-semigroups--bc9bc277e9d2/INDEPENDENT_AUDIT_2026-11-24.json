@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:45:29.536444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥2 a product with nonzero result is a positive walk with accumulated gain, so producing every index pair requires strong support. At the root the positive closed-walk gains form a nonempty additive subsemigroup of a finite group and hence a subgroup, with zero gain attained by a positive power. For any ordered pair an insertion of root loops produces an entire coset, so a full root gain group suffices; a nonloop arc exists and its square produces zero. Containment of root gains in H_d is equivalent to the normalized potentials modulo H_d, by appending a return path to compare gains; a normalized potential is unique on a strong support. Each present ordered pair then has a nonempty choice from a d-label coset, giving the factor (1+z)^d−1; divisor inversion selects the full group. Strong connectivity is equivalent to avoiding every empty outgoing cut, giving the stated inclusion–exclusion including loops. With n arcs there must be one spanning directed cycle, so choosing n−1 labels freely and forcing the total gain to be primitive gives the claimed minimum coefficient, including m=1. Adding zero leaves generation unchanged. A bounded independent multiplication-table closure census (procedure and full vectors at /workspace/branches/9109661c-36a7-428c-b4d5-c2e9caffd0c9/independent-check.md) agreed coefficientwise with separately expanded formulas for (2,1), (2,2), (2,3), (2,4) and (3,2). It found totals 4, 136, 3124, 57312 and 189504. The uploaded checker was not run; these tests do not establish the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.3 gives all cell cosets for any normalized regular finite Rees 0-matrix semigroup meeting every H-class, and Lemma 2.5 and the paragraph that follows give the coset-transversal parametrization and uniqueness for arbitrary V≤G. Proposition 2.7 is the separate maximal-subgroup specialization."
+        ],
+        "reasoning": "For a Brandt semigroup these unrestricted lemmas apply with n singleton row/column components and no nontrivial component-group constraints. Thus they give the subgroup-parametrized containment count, even for nonmaximal divisor subgroups.",
+        "searches": [
+          "Donoven Mitchell Wilson maximal subsemigroups finite semigroups Rees matrix arxiv Graham Gray Ruskuc Generating sets completely 0-simple semigroups open pdf permutation Brandt",
+          "arXiv:1606.05583 all-full-H-class classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker evidence",
+        "Resultary bc9bc277e9d2 (same frozen work)",
+        "arXiv:1606.05583",
+        "arXiv:1307.8280",
+        "Gray BMC 2004 slides",
+        "Rybnikov–Zaslavsky gain-graph paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each V=H_d, the earlier list has (m/d)^(n−1) distinct full-cell subsemigroups T. Each has d labels at each ordered pair. For a strongly supported A, its generated semigroup U has one root coset parameter at each index and exactly one supersemigroup on the list with root group H_d iff its root group is contained in H_d: enlarge each cell of U to the unique containing H_d coset. This follows from the prior coset description."
+        ],
+        "reasoning": "Sum over T by assigning a nonempty subset of its cell labels to each arc of a strong support: this gives (m/d)^(n−1) S_n((1+z)^d−1) with no overlap on strong supports for fixed d. Divisor inversion gives (1) verbatim. Outgoing cut inclusion–exclusion is routine, and the n-arc single-cycle argument immediately yields (3). The bare older rank theorem would not have sufficed; the all-subgroup structural classification does.",
+        "searches": [
+          "arXiv:1606.05583 v4 Lemmas 2.3–2.5, offsets 24400–28692 and 29640–33680",
+          "arXiv:1307.8280 Corollary 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A strong support is exactly the requirement that the positive-word closure meet each nonzero H-class of the Brandt semigroup. Donoven–Mitchell–Wilson classify subsemigroups that meet every H-class; the quotient gain potential is exactly their coset parameter in this Brandt specialization."
+        ],
+        "reasoning": "In the cyclic case the cell in row i and column j is −g_i+H_d+g_j, identical to the frozen potential condition. Comparing with an arbitrary tuple-generation probability is weaker and not needed.",
+        "searches": [
+          "Brandt generating subsets, gain graph balance and generation probability",
+          "arXiv:1606.05583 Lemmas 2.3–2.5",
+          "Rybnikov–Zaslavsky closed-walk gain and switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The literal closed-form hit bc9bc277e9d2 is the assigned record itself, not independent evidence. A distinct same-day maximal-commutative-subsemigroup hit concerns a different invariant. The full-cell Rees classification is an exact structural list, not a published coefficient table."
+        ],
+        "reasoning": "Although no distinct printed coefficient table was identified, its absence is not decisive because the exact classification gives the target symbolically. No same-day publication ordering is inferred.",
+        "searches": [
+          "Resultary: cyclic Brandt generating-subset size spectra, subgroup Möbius and strong directed supports",
+          "Resultary bc9bc277e9d2"
+        ]
+      },
+      "rationale": "The decisive antecedent is Donoven–Mitchell–Wilson’s full-H-class subsemigroup classification, not merely their maximal-subsemigroup statement or the earlier rank result. For the Brandt identity sandwich matrix, its Graham–Houghton components are single diagonal edges and the component groups are trivial. Lemmas 2.3–2.5 therefore classify exactly the full-cell subsemigroups used in the frozen proof, with root subgroup H_d and one coset potential at each nonroot index; there are (m/d)^(n−1) and each cell is a d-label coset. The target polynomial follows directly by counting strongly supported subsets inside these subsemigroups and applying ordinary divisor inversion. This recovers all coefficients uniformly; the verdict is not based on a failure to fetch the older rank article or on the target’s own catalogue entry.",
+      "residual_risks": [
+        "The Gray–Ruškuc journal article and earlier original sources were not fully inspected. There may be a still earlier explicit formula; that issue does not weaken the demonstrated implication from the inspected Rees classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger antecedent: all full-cell subsemigroups and the uniqueness of their coset parameters, for arbitrary subgroup V.",
+          "evidence": "Lemma 2.3 gives cell labels g_k^(-1) V g_l; Lemma 2.5 identifies the parameters exactly by V and the cosets Vg_k. The following paragraph explicitly parametrizes the subsemigroups for any fixed V.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.05583",
+          "material_read": "v4 §2 Lemmas 2.3 and 2.5 and following discussion, pp. 5–7; Proposition 2.7 and Corollary 2.8, pp. 7–8; extraction offsets 24400–28692, 29640–33680 and 36289–40237",
+          "method": "Targeted web discovery and OA PDF passage reading",
+          "title": "Computing maximal subsemigroups of a finite semigroup",
+          "trigger": "Potential stronger classification of the subsemigroups containing a strongly supported generated set"
+        },
+        {
+          "assessment": "Gives the classical rank endpoint, not the size distribution in the inspected passage.",
+          "evidence": "Brandt rank formula credited to Gomes–Howie.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.8280",
+          "material_read": "v1 §2.3 Corollary 9, p. 6",
+          "method": "OA PDF passage",
+          "title": "The minimal number of generators of a finite semigroup",
+          "trigger": "Brandt rank and possible count of minimum generating sets"
+        },
+        {
+          "assessment": "Publisher PDF unavailable; distinct slides provide historical rank context, not evidence of the original article’s full coverage.",
+          "evidence": "Slides distinguish the Brandt inverse rank and give a general Rees rank theorem.",
+          "identifier_or_url": "https://doi.org/10.1080/00927870500276676",
+          "material_read": "Original article full text not retrieved; separate publicly hosted Gray BMC 2004 slides at https://robertdgray.github.io/BMC2004.pdf, slides 20–23, and Gray’s accessible later Corollary 9 were inspected",
+          "method": "Lawful publisher request, author materials and OA comparison",
+          "title": "Generating Sets of Completely 0-Simple Semigroups",
+          "trigger": "Cited prior generation characterization and rank theorem"
+        },
+        {
+          "assessment": "Standard gain framework for the quotient potentials, not the decisive enumeration source.",
+          "evidence": "Closed-walk identity gains and switching by a function on vertices.",
+          "identifier_or_url": "https://people.math.binghamton.edu/zaslav/Tpapers/ccb.pdf",
+          "material_read": "pp. 2–3, definition of balance and vertex switching",
+          "method": "OA PDF passages",
+          "title": "Cycle and Circle Tests of Balance in Gain Graphs: Forbidden Minors and Their Groups",
+          "trigger": "Established closed-walk gain reformulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Generating-subset reliability is natural, and the formula is a useful way of presenting its cyclic Brandt evaluation. But this frozen claim is a direct weighted count on the previously classified coset cells, followed by textbook divisor inversion and cut inclusion–exclusion. The minimum count is the elementary single-cycle case, and no independent structural or enumerative contribution remains in the submitted scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

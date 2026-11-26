@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:09:06.049900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both the frozen numbers and the narrowed carousel claim were independently verified. The 23-bit update uses eleven offsets and cutoff six, with Paley offsets generated as the nonzero squares and carousel offsets consecutive. Replay: python /workspace/audit-evidence/frozen3.py (Python with NumPy providing bitwise_count). After comparing two update computations on a 65,536-state slice, it builds each 8,388,608-state successor array in chunks and compares F^t(x) to F^(t+p)(x) simultaneously for every x. Every carousel input agrees by t=4 with p=23; since 23 is prime and only all-zero and all-one entries are fixed, every other entry has least period 23. For Paley all agree by t=10 with p=4, and the p=2 check excludes period two. The independent first-agreement method reproduces every frozen table entry, including carousel totals 4,482,196 and 3,906,412, 60,858 depth-four inputs all reaching consensus, and 47,012 wave inputs first entering at time three. It directly checks carousel mask 171551 (depth 4, eventual period 1) and 63 (least period 23); Paley masks 23807 and 15611 give depth 10 and period 4 respectively. Hence F^27=F^4 but F^26≠F^3 on the carousel. The repaired recurrence explanation is also valid: F=S^6M_5 and commuting with S of order 23 gives the same periodic configurations as M_5, via taking a 23-fold multiple of an iterate. Theorem 1 then leaves constants and two homogeneous runs of at least six sites, because on the prime ring any nontrivial shift symmetry would force constancy and four such runs would need at least 24 sites. This gives one orbit of length 23 for each block length 6 through 17. Both frozen C++ programs and outputs were inspected, not executed. Nothing establishes a census outside this rule and graph size.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakar–Ron Theorem 1 and the discussion immediately after it describe stability and a strictly decreasing unstable-cell count for transient inputs, not the sharp order-23 depth or labelled distribution.",
+          "Benjamini et al. p. 2 discusses the symmetric undirected convergence result; Jørgensen's Paley construction is structural, not an attraction calculation."
+        ],
+        "reasoning": "The general centered theorem is exact coverage for the readily derived recurrent set. General restrictions on transient stability or undirected period bounds do not calculate the quantitative table for the specified shifted directed map. The catalogue and primary searches did not produce a covering basin theorem; search results alone are not evidence of noncoverage.",
+        "searches": [
+          "Primary literature: synchronous one-dimensional centered majority cellular automaton exact transient time basin size radius 5 23-site ring carousel tournament cyclic binary majority 23 Nakar Ron 3906412",
+          "arXiv:1405.2486 and arXiv:2205.08972",
+          "arXiv:1410.8424 for the Paley structure"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both C++ programs and both data files; repaired RESULT.md, SLOGAN.txt and scientific METADATA.json",
+        "Nakar–Ron exact theorem and definitions; Resultary Paley-23, carousel-19 and Paley-19 findings; Benjamini et al. and Jørgensen passages; Goles DOI/access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At length 23 the centered theorem excludes nonconstant spatially periodic words and allows exactly one pair of long runs. With S^6 acting transitively on rotations, this proves the entire nonconstant carousel spectrum and count twelve.",
+          "The Paley-23 record proves precisely the four-only nonconstant spectrum and the whole corresponding census. The carousel-19 source already uses equal-degree Paley comparison, but at 19 the nontrivial spectra are not disjoint."
+        ],
+        "reasoning": "The main frozen qualitative contrast follows from the sources, and preference in novelty is not inferred from chronology. The retained sharp depths and initial counts by eventual type and entry time instead require computing inverse iterates or otherwise counting the labelled basins; the recurrence theorem identifies the targets but does not count their preimages, and the separate Paley table is not a preimage count for this orientation.",
+        "searches": [
+          "Nakar–Ron Theorem 1 and Definitions 8–9",
+          "Paley-23 --200a56a85158 Finding and Assumptions",
+          "Carousel-19 --caf7069a6706 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered majority uses offsets −5 to 5, so shifting six positions gives precisely the carousel rule; by shift-equivariance every iterate differs from the same centered iterate by a shift.",
+          "Definitions 8–9 require spatial periodicity strictly below the ring size. Theorem 1 gives only long homogeneous runs or a spatially periodic weakly stable configuration for a recurrent input."
+        ],
+        "reasoning": "The shift preserves entry time and which type of recurrent configuration is reached (uniform or nonuniform). Thus an exact centered radius-five 23-site basin census would cover the repair. The theorem does give the carousel's twelve waves on this prime-size ring, which is credited, but it does not give how many inputs first reach each recurrent type after one, two, three, or four updates.",
+        "searches": [
+          "Resultary: carousel cyclic regular tournament of order 23 clockwise 11 out-neighbor binary majority complete labelled first periodic entry histogram sharp four updates 3906412 4482196 60858",
+          "Nakar–Ron arXiv:2205.08972 §§1.1–1.3 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Paley-23 Finding states the same full Paley table row-for-row, the same basin totals and sharp order-23 Paley identities, and additionally an affine orbit classification.",
+          "Carousel-19 Finding has a sharp four-update depth, but an order-19 wave basin of 248,482 and only 3,306 entrants at depth four. The exact title hit with the order-23 carousel values was the assigned record itself."
+        ],
+        "reasoning": "The Paley part is demonstrably covered, regardless of unresolved priority. The order-19 carousel cutoff matches the numerical depth but not graph, rule radius, or table, and its calculation does not extend to order 23. No distinct inspected exact table covers the retained claim.",
+        "searches": [
+          "Resultary: exact carousel-23 entry histogram, depth and basin populations",
+          "SCOPE-paley-23-majority-fourteen-affine-oscillator-families-and-a-shar--200a56a85158",
+          "SCOPE-a-ten-wave-nineteen-clock-and-exact-majority-basins-on-the-cycli--caf7069a6706"
+        ]
+      },
+      "rationale": "This pass applies to the actual repaired finding in /workspace/repairs/3/RESULT.md, not to the frozen originality claim. The original headline claim of a new disjoint recurrent-period census fails originality: the complete Paley component is exactly covered in a distinct same-day record, and the carousel recurrent counts are a direct corollary of Nakar–Ron Theorem 1. Together the two sources imply the disjoint nontrivial period sets. The same-day exact match demonstrates coverage, not prior time, direction of dependence or misconduct. The replacement narrows the finding to the labelled carousel attraction and first-entry profile, including its sharp four-update global clock; it credits both sources for the recurrent spectrum and uses Paley only as an explicitly cited comparator. Neither those sources nor the order-19 analogue determines the narrowed quantitative claim. The replacement result, slogan and scientific metadata have been aligned with that scope; the frozen evidence and the unchanged reproducibility materials are preserved.",
+      "residual_risks": [
+        "No relative priority is established for the exact same-day Paley overlap; it is credited regardless.",
+        "Goles (1985) full text was not retrieved. A distinct unindexed radius-five length-23 transient computation could still overlap the repaired claim; the bounded comparison is not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Carousel recurrence follows; exact first-entry profile not provided by the inspected theorem and discussion",
+          "evidence": "Recurrent states are strongly stable long-run words or weakly stable spatially periodic words, where 'spatially periodic' means minimum spatial period less than n. Transient discussion gives monotonic behavior of unstable cells, not exact basin masses.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "§1.1 p. 3/offset 4512; Definitions 8–9 p. 4 at offset 8800; stability p. 5 from 11000; Theorem 1 and transient discussion p. 6 from 13946",
+          "method": "Open primary PDF, relevant passages",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Potentially equivalent centered majority via shift"
+        },
+        {
+          "assessment": "Exact coverage of Paley half, without carousel",
+          "evidence": "Same masks and threshold, 3,542 primitive four-cycles, oscillator/unanimity 69,828/8,318,780, sharp depth 10, full first-entry table agrees; same-day priority unresolved.",
+          "identifier_or_url": "2026/11/22/SCOPE-paley-23-majority-fourteen-affine-oscillator-families-and-a-shar--200a56a85158",
+          "material_read": "RESULT.md Finding and Assumptions offsets 0–3581; prior-work passage offset 8709",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Paley-23 majority: fourteen affine oscillator families and a sharp ten-step consensus tail",
+          "trigger": "Identical order, orientation and update"
+        },
+        {
+          "assessment": "Different order and radius, closely analogous",
+          "evidence": "Ten period-19 waves, sharp four updates on order 19, spectrum and basin comparison to Paley-19; distinct basin and depth table.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-ten-wave-nineteen-clock-and-exact-majority-basins-on-the-cycli--caf7069a6706",
+          "material_read": "RESULT.md Finding and introductory assumptions, offsets 0–2790",
+          "method": "Local published-record mirror",
+          "title": "A ten-wave nineteen-clock and exact majority basins on the cyclic tournament of order nineteen",
+          "trigger": "Closest same-family basin and entry census"
+        },
+        {
+          "assessment": "Covers other orders and a general no-two-cycle result, not the carousel-23 basin profile",
+          "evidence": "Paley orders 3, 7, 11, 19; order 19 has 342 four-cycles and 18 nineteen-cycles.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published-record mirror",
+          "title": "A forbidden two-clock and the Paley-19 revival of majority oscillations",
+          "trigger": "Exact Paley majority census and general period constraint cited by the frozen finding"
+        },
+        {
+          "assessment": "Undirected setting does not cover directed tournament maps",
+          "evidence": "Cites fixed-point or two-cycle behavior for symmetric finite-graph majority.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "PDF p. 2 at offset 4320",
+          "method": "Open primary PDF, relevant passage",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Potential general period bound"
+        },
+        {
+          "assessment": "Graph structure, not a majority-dynamics census",
+          "evidence": "Constructs the Paley tournament with nonzero square Cayley offsets.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8424",
+          "material_read": "PDF §1 at p. 7/offset 14126",
+          "method": "Open primary PDF, relevant passage",
+          "title": "Normally Regular Digraphs",
+          "trigger": "Exact Paley tournament construction"
+        },
+        {
+          "assessment": "Priority risk; no verdict inferred from its unavailability",
+          "evidence": "The retrieved evidence does not resolve whether it contains relevant asymmetric or shifted-map transient results.",
+          "identifier_or_url": "10.1016/0304-3975(85)90057-X",
+          "material_read": "DOI metadata only; no primary full-text passage",
+          "method": "Lawful OA recovery attempted; no readable repository copy found",
+          "title": "Dynamics of positive automata networks",
+          "trigger": "Historical majority-network scope and possible transient coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Retained value is the labelled attraction and depth census on a canonical directed orientation, not a known recurrent classification. At the same order, threshold and out-degree as Paley, the carousel draws nearly half the inputs into oscillation while the cited Paley census draws fewer than one percent, yet the carousel has the shorter relaxation tail. The supplied table resolves how attraction accumulates, including that all final-layer inputs are consensual and all waves are reached earlier. Those are precise benchmarks a researcher comparing attraction in degree-matched threshold systems can use; no general claim about tourney order or time-to-consensus is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

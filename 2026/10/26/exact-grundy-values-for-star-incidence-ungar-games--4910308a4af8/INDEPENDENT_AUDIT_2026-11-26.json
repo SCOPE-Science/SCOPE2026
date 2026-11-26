@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:46:50.732573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–56",
+        "VERIFICATION.md lines 19–21",
+        "verify.py lines 7–99"
+      ],
+      "rationale": "The moves in F remove i chain tops and j original singletons, leaving (a−i,b+i−j) with decreased weight 2a+b. At a≤T_b, no successor can have the current weight as nimber. Deleting a fixed singleton alone or with any move from (a,b−1) supplies the initial interval through F(a,b−1). If T_{b−1}<a≤T_b, that last value is a−1; the all-chain-top moves supply a through a+b, and extra-singleton-free moves on i chain tops stay in the high branch and give 2a+b−i. The cases a=0 and b=0 are consistent (for b=0 no positive a is in the high branch). In the low branch, write the proposed nimber T_b+r. High-branch options have weight ≥a>T_b+r. For low-branch options, larger b' gives a higher triangular band, smaller b' a lower band, and equal b'=b forces 1≤i=j≤b so the residue changes. For every b'<b, the moves j=i+b−b' for 0≤i≤b' have a−i>T_{b'} and sweep the entire lower band; the moves i=j=1,…,r reach the missing part of the current band and stay low. Thus the claimed mex is exact. For H, omitting the centre leaves H(a−i,b+i); removing it leaves F(a−i,b+i), with no newly exposed edge deleted in that same move. For b≥1 these classes fill 0,…,a−1 and exclude a, including the base a=0. For a=n,b=0 the F high branch condition is n−i≤T_i, equivalently n<T_{i+1}, so precisely i≥κ(n) fill n through 2n−κ(n). This also verifies the triangular breakpoints where n=T_k. The original labelled star is H(n,0) in the edges-below-vertices convention. The finite replay path is the standard-library verify.py (compressed recurrence plus separately represented labelled posets); it was inspected, not executed, and the infinite claim follows from the induction.",
+      "residual_risks": [
+        "The proof applies to the specified residuals and the full star with the stated orientation, not arbitrary graphs or ordinary disjunctive sums of components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graded-poset theorem specifies second-player wins, while Hashimoto analyzes decision complexity.",
+          "Gurvich–Ho Proposition 11 characterizes P-positions for n=k as all heaps even; here that covers precisely b=0, including the all-empty case."
+        ],
+        "reasoning": "These results cover zero nimbers or restricted small heap counts but not all nonzero values or the star formula.",
+        "searches": [
+          "arXiv:2509.02959v1 Theorem 1.3",
+          "arXiv:2610.11017 Theorems 7–8",
+          "arXiv:1508.05777v1 Propositions 10–11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6803de11ff95 and 6c54ef06a12b",
+        "arXiv:2302.06552v2",
+        "arXiv:2509.02959v1",
+        "arXiv:2610.11017",
+        "arXiv:1508.05777v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior all-even theorem implies the b=0 zero case, but does not constrain the triangular cutoff for positive b or the subsequent residues.",
+          "The closest graded-poset characterization only tests zero; the rowmotion result concerns a permutation of ideals, not mex over allowable removals."
+        ],
+        "reasoning": "The full values in the arbitrary (a,b) family and at the full star do not follow as a parameter substitution into any inspected theorem. No priority is inferred from catalogue dates.",
+        "searches": [
+          "arXiv:1508.05777v1 §§3.1–3.2",
+          "arXiv:2509.02959v1 Theorem 1.3",
+          "Resultary 6803de11ff95 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paltrowitz identifies the distributive-lattice rule with subset deletion from current maxima.",
+          "F(a,b) is exactly unrestricted slow Moore Nim with a height-two and b height-one heaps, not the disjunctive sum of chains.",
+          "Resultary 6803de11ff95 uses vertices below incident edges and the classical rowmotion map."
+        ],
+        "reasoning": "The slow-Nim reduction is immediate at the move level, so results for it must count; duality and rowmotion alone do not preserve the oriented game and its mex.",
+        "searches": [
+          "Resultary ranked searches on star incidence, Ungar, Grundy; star formula and F(a,b) and H(a,b) separately",
+          "arXiv:2302.06552v2 Definition 1.1; arXiv:2509.02959v1 pp. 1–2; arXiv:1508.05777v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct exact formula in the ranked Resultary returns. The same-day 6803de11ff95 table counts rowmotion cycles, and 6c54ef06a12b counts regular elements over finite fields, not nimbers.",
+          "Proposition 10 explicitly covers the two-heap slice n=k=2."
+        ],
+        "reasoning": "Credit the exact small slice. Neither catalogue table is indexed by the same game invariant. A ranked hit list does not establish that no matching entry exists.",
+        "searches": [
+          "Local Resultary star/Ungar/nimber search and separate exact star, F(a,b) and H(a,b) searches (top 50 or top 30 ranked hits)",
+          "arXiv:1508.05777v1 §3.1 Proposition 10"
+        ]
+      },
+      "rationale": "The checked outcome and small-heap theorems cover meaningful parts, but do not determine the arbitrary-size exact star and two-parameter residual nimbers. The strongest same-object Resultary match computes classical rowmotion periods for the dual order, not game nimbers. Pass is limited to the full exact nimbers in the stated orientation and unrestricted residual parameters, not the already-known win/loss or small-heap slices.",
+      "residual_risks": [
+        "An uninformative external search is not negative evidence. Other selective-compound or slow-Nim terminology may hide an equivalent theorem; noncoverage judgments here are limited to inspected passages and ranked indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent rules; exact small cases and a broader outcome-only result",
+          "evidence": "Exact n=k=2 nimbers; for n=k, P iff all heap sizes are even.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.05777",
+          "material_read": "v1 §2 pp. 2,6; §3.1 Proposition 10 p. 7; §3.2 Proposition 11 p. 9",
+          "method": "Lawful OA PDF passages (text offsets 3600,14800,17200,20200)",
+          "title": "Slow k-Nim",
+          "trigger": "Exact move-equivalence for the auxiliary F positions"
+        },
+        {
+          "assessment": "Framework match",
+          "evidence": "Meet-semilattice move using lower covers; the ideal formulation is consistent with simultaneous maximal deletion.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.06552",
+          "material_read": "v2 Definition 1.1, pp. 2–3",
+          "method": "Lawful OA PDF passage (offset 6700)",
+          "title": "The Ungar Games",
+          "trigger": "Original definition and move conventions"
+        },
+        {
+          "assessment": "Outcome coverage, not general SG values",
+          "evidence": "Ideal move deletes a subset of maxima; the theorem characterizes second-player wins recursively.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.02959",
+          "material_read": "v1 abstract and introduction pp. 1–2 and Theorem 1.3",
+          "method": "Lawful OA PDF passages (offsets 0,2400, around 5400)",
+          "title": "The Ungar Games on Graded Posets",
+          "trigger": "Broader theorem for graded posets including the star"
+        },
+        {
+          "assessment": "Decision complexity, not the closed values under review",
+          "evidence": "Nonempty subset of maxima can be removed; results concern the winner decision problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11017",
+          "material_read": "pp. 1–2 including rule and results described in Theorems 7–8",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The Computational Complexity of the Ungar Games on Distributive Lattices",
+          "trigger": "Same distributive-lattice game"
+        },
+        {
+          "assessment": "Different invariant and dual convention",
+          "evidence": "Classical rowmotion cycle counts with c<e_i and leaf_i<e_i, not normal-play nimbers with edges below vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-rowmotion-cycle-profile-for-star-incidence-posets--6803de11ff95/RESULT.md",
+          "material_read": "Finding and incidence convention, offset 0",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete rowmotion cycle profile for star incidence posets",
+          "trigger": "Strongest same-object indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–25, 29–52, 58–64",
+        "arXiv:1508.05777v1 Propositions 10–11",
+        "arXiv:2509.02959v1 Theorem 1.3"
+      ],
+      "rationale": "A star is a natural first test of this incidence-poset game: the centre couples otherwise separable edge–leaf pairs, and deciding the winner loses almost all the information in the initial positions. The triangular breakpoint gives the exact invariant uniformly in the number of leaves without expanding the game tree. The auxiliary result also gives a reusable high-branch/periodic classification for a natural infinite restricted slow-Nim family. These values are not a recomputation of the known outcome theorem or an unmotivated finite slice.",
+      "residual_risks": [
+        "No broader graph-family result or general slow-Nim solution is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

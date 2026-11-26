@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:19.972265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With D=1/(xy^2), the weighted components are (x/(x+M)-y)/y^2 and (r/x)(1/y-1/x). Their divergence is [Mx/(x+M)^2-r]/(xy^2). The numerator is bounded above by 1/4-r by the identity (x+M)^2-4Mx=(x-M)^2. At r=1/4 it is negative off one line; an interior periodic Jordan curve, whose enclosed region lies in the positive quadrant, would have zero flux and strictly negative integrated divergence. At M=1/2 the trace is 1/4-r and the critical determinant is 1/16; the real parts cross with slope -1/2. Independent exact replay `python3 /workspace/review-evidence/4.py` checks the critical linear part after u=x-1/2 and v=2(y-1/2)-u and gives cubic radial coefficient -1/32 in these real coordinates and original time. This corroborates the sign and is consistent with the different complex-amplitude and time normalization in the frozen formula. The smooth supercritical Hopf theorem gives a small attracting positive cycle for r just below 1/4, enough to rule out any smaller uniform cutoff. No conclusion is drawn about global convergence, the boundary, or existence of cycles for arbitrary r<1/4. Frozen SymPy checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 paper announces a necessary and sufficient nonexistence criterion for a Leslie–Gower class. No lawful formula/theorem passage was obtained from the DOI, publisher, or the Helsinki metadata route."
+        ],
+        "reasoning": "One must check the prey growth and carrying capacity hypotheses and non-strict endpoint before asserting subsumption. The title, metadata and abstract-level scope do not establish or exclude it. No accessible claim in these comparisons derives the reviewed cutoff.",
+        "searches": [
+          "Zhang–Yan DOI:10.1016/j.aml.2017.03.008, article and repository routes",
+          "Leslie Gower predator prey limit cycle absence Dulac Zhang Yan 2017 x f'(x) r weak Allee x/(x+M) nonexistence exact model theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check.py",
+        "arXiv:2607.19422v1",
+        "DOI:10.1016/j.aml.2017.03.008 (limited access)",
+        "SCOPE-an-optimal-power-dulac-certificate-extends-the-global-two-cycle--50f7b9fa53d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating Theorem 5.1 implies the lower-side witness. The reviewer-checked weighted divergence instead bounds every positive-amplitude orbit by a statewise inequality, independently of equilibrium stability."
+        ],
+        "reasoning": "Neither local Hopf nor stable equilibrium above the local threshold rules out remote cycles. The classical Dulac theorem alone requires supplying a global sign-controlled weight; the specific bound and equality case are the contribution. Possible implication from Zhang–Yan is unresolved, not discounted.",
+        "searches": [
+          "Demetrian–Zimka, arXiv:2607.19422v1 §5 Theorem 5.1",
+          "Zhang–Yan DOI:10.1016/j.aml.2017.03.008, accessible material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Demetrian–Zimka equation (5.1) is exactly the reviewed vector field; Theorem 5.1 locates local supercritical Hopf at r=M(1-M) for 0<M<1."
+        ],
+        "reasoning": "This includes the M=1/2 sharpness witness, already credited. The extremal global period-orbit exclusion is not equivalent to a curve of local bifurcations, even though the maximal local threshold is also 1/4.",
+        "searches": [
+          "Resultary: weak-Allee liquidity–profit equations and sharp positive-cycle exclusion r>=1/4",
+          "arXiv:2607.19422v1 §5 (5.1), Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest method-level indexed hit checked in its RESULT.md: SCOPE-an-optimal-power-dulac-certificate-extends-the-global-two-cycle--50f7b9fa53d4 gives a power-Dulac certificate for two periodic circles in a three-dimensional polynomial flow. No exact same-system cutoff was identified among checked returns."
+        ],
+        "reasoning": "Different dimension, dynamics and periodic-orbit conclusion; no transfer to this planar family or its all-M interval is exhibited. The search nonmatch is not priority evidence.",
+        "searches": [
+          "Resultary: exact vector field x'=x[x/(x+M)-y], y'=r y(1-y/x), 1/4 sharp cutoff; power Dulac no-cycle threshold"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the global, equality-inclusive, all-M no-cycle boundary. The same-model Hopf result already gives the sharpness witness; neither that witness nor Bendixson–Dulac is claimed as new. Checked statements do not establish the global bound; a plausible broader 2017 theorem remains an explicit access risk.",
+      "residual_risks": [
+        "Zhang–Yan's unavailable theorem text or another generalized Leslie–Gower result could subsume the global bound after a parameter or orbit-preserving transformation.",
+        "The catalogue and OA comparisons are not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local sharpness witness; inspected theorem not an all-M global cycle exclusion",
+          "evidence": "Same two equations and local supercritical bifurcation at r=M(1-M).",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.19422v1",
+          "material_read": "PDF p. 10, §5 Eq. (5.1) and Theorem 5.1, offset 29100",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Aggregate models of liquidity-profit dynamics",
+          "trigger": "Exact motivating model and matching Hopf boundary"
+        },
+        {
+          "assessment": "Plausible subsumption unresolved; no whole-document noncoverage finding",
+          "evidence": "The available description does not give the hypotheses of the necessary and sufficient conditions. Publisher returned 403 and the repository links only the DOI.",
+          "identifier_or_url": "https://doi.org/10.1016/j.aml.2017.03.008",
+          "material_read": "Bibliographic record and abstract-level scope only; Helsinki repository metadata including access-to-document section",
+          "method": "OA DOI lookup, Helsinki repository page and publisher article/PDF routes; no usable lawful full text found",
+          "title": "Necessary and sufficient conditions for the nonexistence of limit cycles of Leslie–Gower predator–prey models",
+          "trigger": "Strongest plausible broader generalized-Dulac theorem"
+        },
+        {
+          "assessment": "Method-level precedent, not a matching dynamical model",
+          "evidence": "Different three-dimensional polynomial system with a two-periodic-circle classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-optimal-power-dulac-certificate-extends-the-global-two-cycle--50f7b9fa53d4/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror primary statement",
+          "title": "An optimal power-Dulac certificate extends the global two-cycle classification",
+          "trigger": "Closest catalogue match using a sharp Dulac boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equality-inclusive boundary rules out even remote cycles in the exact motivated subsystem, filling a question not resolved by the local phase portrait. Maximizing the local Hopf curve alone would not provide this result. Sharpness is uniform over M, not a claim of optimality for each M.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

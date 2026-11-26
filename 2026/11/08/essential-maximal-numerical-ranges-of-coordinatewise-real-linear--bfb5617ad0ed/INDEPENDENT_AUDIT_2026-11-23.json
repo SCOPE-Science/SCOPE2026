@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:16:25.496536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–6; VERIFICATION.md; verify_examples.py (static inspection only)"
+      ],
+      "rationale": "For each unit phase the local numerical value is z=a+bw and the local squared image norm is |z|². The two quantities for a full unit vector are the corresponding probability averages using squared coordinate magnitudes. A compact weak limit of the distributions has support in F×𝕋: for each finite cutoff the weight before it tends to zero, so the limit is supported on the intersection of closed coefficient tails. The essential norm equals the tail limsup of |a_j|+|b_j| by comparing truncations with weakly null single-coordinate norming vectors against any compact real-linear perturbation. Since r²−|z|² is nonnegative on the limit support, its vanishing integral under norm saturation confines the measure to Γ. Every finite mixture on Γ is realized with squared magnitudes equal to its weights at distinct indices beyond a growing cutoff (each cluster point has infinitely many approximating indices). Without saturation this yields the convex hull of the scalar circles, equivalently of their disks. Equality on the norm-circle forces every positively weighted summand to be that boundary point, so the reconstruction is valid. The realness of the weights' square roots makes the argument valid for real-linear maps. The compact-net construction realizes E; for r=0, coefficients tend to zero and both ranges are {0}, with no eventual zero assumption. Independently, writing x=u+iv with real u,v, the perturbation sends it to u+i(2ε−1)v, so its squared-norm deficit on the unit sphere is 4ε(1−ε)||v||². For ε>0 saturation forces v→0 and numerical value→1, realized by real coordinate vectors. At ε=0 all vectors norm, and disjoint remote phased coordinates give the disk. The disks for the ordinary range are nested inside the unit disk, and the leftmost point gives exactly 2ε; the norm of I−C and the maximal range jump are both checked on the opposite axis directions. The frozen numerical checker only supplies local diagnostics (including a float conversion in the difference-norm test), not the general argument.",
+      "residual_risks": [
+        "The phrase ‘all tail coefficients vanish’ at r=0 must be read as convergence to zero, not eventual vanishing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 5 gives general real-linear compact convexity, inclusion in the ordinary essential numerical range and invariance under compact perturbations. The antilinear-only specialization is a disk by Corollary 5.4, and Theorem 5.8 is adjoint invariance for antilinear operators.",
+          "Example 5.6 supplies a rank-one real-part map with ordinary maximal range {1}, not the essential-infinite repetition or the sharp mixed perturbation family."
+        ],
+        "reasoning": "The broader operator-domain theorem specifies necessary general properties but not the mixed diagonal classification or quantitative sharp jump. The already covered pure conjugation endpoint alone is not a new result.",
+        "searches": [
+          "arXiv:2610.16823v1, Definition 5.1, Theorem 5.2, Proposition 5.3, Corollary 5.4 and Theorem 5.8",
+          "Literature query: essential maximal numerical range block diagonal real-linear conjugation discontinuity diagonal Fong Majumdar Müller norming sequences pure antilinear (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.16823v1 full text at the cited sections",
+        "Resultary ranked comparisons; frozen bibliography used for additional leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cauchy–Schwarz and the uniform tail bound already show any point of W_e on the norm circle belongs to W_e,max, and general convexity includes its convex hull. The reverse inclusion here needs concentration of mass at scalar outer contacts.",
+          "A collapse from disk to singleton is consistent with upper semicontinuity but fails lower semicontinuity. The complex-linear ordinary block-diagonal invariant does not encode the mixed norming constraint."
+        ],
+        "reasoning": "Work whose conclusion is convexity, ordinary-range convexification, or upper semicontinuity does not directly force the mixed scalar equality-locus formula. The reverse outer-contact inclusion is the class-specific result.",
+        "searches": [
+          "arXiv:2610.16823v1 §§3–5; compare cited arXiv:2212.11659v1 ordinary block-diagonal invariant",
+          "Fong 1979, cited upper-semicontinuity comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under realification the block is a real 2×2 matrix, but its ordinary complex numerical value still retains the imaginary part from the complex structure. The desired result is the top squared-norm face of the joint essential limit of both these coordinates and squared image norm, not just a complex-linear numerical range of the block.",
+          "Theorems 3.2–3.4 and Definition 5.1 cover the relevant weakly-null definitions and limit formalism."
+        ],
+        "reasoning": "Compact convexity of the projected range does not make all its extreme points norm-circle contacts; the identification needs the coordinate scalar identity and saturation before projection.",
+        "searches": [
+          "Resultary: essential maximal numerical range real-linear diagonal coordinatewise conjugation cluster points boundary discontinuity",
+          "arXiv:2610.16823v1 §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The diagonal formula/discontinuity hit is the frozen record itself, not a second antecedent. The same-date shift-plus-conjugation hit (suffix 6b61d27fa234) treats a mixing unilateral shift and the ordinary numerical range/support function."
+        ],
+        "reasoning": "Those search results identify relevant comparison objects, not full-text noncoverage. A fixed nondiagonal ordinary essential range does not classify every coordinatewise norm-saturating range.",
+        "searches": [
+          "Resultary: essential maximal numerical range real-linear diagonal coordinatewise conjugation cluster points boundary discontinuity"
+        ]
+      },
+      "rationale": "Best-of-knowledge for the exact coefficient-cluster formula for mixed scalar blocks and its geometric consequences jointly. The definition, compact convexity, and the pure conjugation endpoint are already consequences of prior work. The possible shapes can already be realized by complex-linear diagonal examples; the informative direction is that no other shapes occur throughout this mixed diagonal class.",
+      "residual_risks": [
+        "External literature search unavailable; this is not a negative search result.",
+        "Amara–Liu–Zhu (DOI 10.1016/j.jmaa.2025.130116) is reported in the frozen package as abstract-only and about ordinary maximal ranges for pure antilinear operators; full-text comparison not made in this review. Other unlocated joint-range or direct-sum work may give a general criterion. Scoped comparison, not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general properties and the pure conjugation case, not norm-circle rigidity for the full mixed diagonal class",
+          "evidence": [
+            "Definition 5.1; Theorem 5.2; Proposition 5.3; Corollary 5.4; Example 5.6; Theorem 5.8"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.16823v1",
+          "material_read": "Primary HTML definitions and §§3–5 relevant statements, phase/disk, compact perturbations and the rank-one example",
+          "method": "Compare exact sequence definitions, hypotheses and conclusions; test specialization to coordinate conjugation",
+          "title": "Some Generalized Numerical Ranges of Real-linear Operators on Hilbert Spaces",
+          "trigger": "Defines the same invariant for a larger operator class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; arXiv:2610.16823v1 §5"
+      ],
+      "rationale": "The classification computes a recently defined invariant for arbitrary bounded coefficient sequences, establishes which extremal geometries are ruled out in a basic mixed real-linear model, and identifies exactly what can be recovered from ordinary essential-range contacts. The sharp collapse at fixed unit essential norm distinguishes two otherwise closely related invariants in operator norm; neither the old fact that the range is convex nor the endpoint disk alone gives this comparison.",
+      "residual_risks": [
+        "This is a scalar diagonal structural theorem; it does not assert the converse outer-contact inclusion for nondiagonal maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

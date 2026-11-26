@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:12:56.591343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–90; VERIFICATION.md and source of verify_pentagon_hessian.py inspected, not executed"
+      ],
+      "rationale": "The 25 tetrahedral facets of the orthogonal free sum have strict slack at all nonincident vertices, so each persists with its orientation. Every ridge of these retained facets is already paired and the facet adjacency graph of a convex polytope is connected; thus there is no missing facet. The interior origin also persists, giving the sum of signed simplex determinants divided by 24. For the angular contribution, an in-plane component has angle shift t*alpha_i+O(t^3) and radius 1-t^2*||u_i||^2/2+O(t^3). Expanding adjacent wedge areas cancels the angular first-order terms and gives the five-cycle Laplacian. The mixed derivative of the first cycle is sum_i u_i wedge (a_{i+1}-a_{i-1})=2 sin(theta) sum_i u_i wedge J a_i, so only its first-harmonic projection U contributes; similarly only W contributes for the second cycle. The mixed cross sign and scale follow by expanding det([[I,tW],[tU,I]])=1-t^2 tr(UW)+O(t^4), multiplied by the product (5 sin(theta))^2. With the sphere normalization the off-plane loss is exactly the square in RESULT.md; its antisymmetric mixed directions are orbit directions. The factors 5 sin^2(theta)/48 on the angular Laplacian eigenvalues and 5 sin^2(theta)/24 and 5 sin^2(theta)/12 on residual and symmetric mixed modes give precisely the listed half-Hessian bands and multiplicities 6,4,12,4,4. After nearest-orthogonal alignment the displacement is orthogonal to the orbit tangent, so its leading sphere-chart tangent displacement is normal and its squared norm is asymptotic to D. The uniform quadratic expansion and the first angular harmonic give the lower estimate and its matching limiting ratio. These are analytic checks, independent of the recorded numerical tolerances.",
+      "residual_risks": [
+        "The bound is local and uses labelled chordal squared distance to the common orthogonal orbit. The ordinary Hessian is twice the quadratic coefficient, not the same operator normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen result's prior-work comparison credits Medgyes with the global maximum and uniqueness in the ten-point case and the signed-volume/exterior-square method in the nine-point work. Independent primary retrieval timed out; the literature query returned no usable candidate."
+        ],
+        "reasoning": "A global optimizer and its uniqueness do not by themselves give a quantitative gap: the same zero set may have higher-order vanishing. The available descriptions of the global and exterior-square results do not make the sharp local coefficient redundant, but the distinct exact local indexed statement does.",
+        "searches": [
+          "arXiv:2611.14674v1, Theorem 4.5",
+          "arXiv:2611.10078v1, Sections 3–5",
+          "Literature query: inscribed 4-polytope local stability Hessian ten vertices pentagons 25/192"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed statements cc3d1c18417d, 52fa6031286c, and assigned self-hit d61b7796b7ba",
+        "Frozen RESULT.md lines 98–109 for bibliographic evidence; retrieval limits documented above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both records give the same sharp local volume-loss limit after minimization over a common orthogonal orbit. The independent matching statement specifies the six-dimensional rotation kernel, usual-Hessian gap, and completeness of the spectrum at the orthogonal pentagons."
+        ],
+        "reasoning": "The constrained volume-deficit Hessian at this configuration is intrinsic. A complete spectrum of that same Hessian, divided by two, is the claimed half-Hessian spectrum, not a new invariant; the sharp stability coefficient is also explicitly covered. The argument does not rely on deducing the result from a global maximum or on inferring which same-day record came first.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-exact-local-volume-spectrum-of-the-maximal-ten-vertex-spherical--cc3d1c18417d",
+          "Frozen RESULT.md lines 14–30 and 83–90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-local-volume-spectrum-of-the-maximal-ten-vertex-spherical--cc3d1c18417d states orthogonal regular pentagons, usual-Hessian gap 25/96 and labelled sharp squared-orbit-distance ratio 25/192.",
+          "The frozen RESULT.md lines 22–30 explicitly say to double its half-Hessian eigenvalues to obtain the usual Hessian."
+        ],
+        "reasoning": "Rescaling by two is mandatory when comparing Hessian conventions; it removes the apparent discrepancy, without changing eigenspaces, multiplicities, or the sharp deficit coefficient. Both statements concern the same labelled sphere product and unit-sphere metric.",
+        "searches": [
+          "Resultary: 25/192 sharp quadratic volume deficit ten points sphere orthogonal pentagons",
+          "Resultary: local constrained half-Hessian labelled inscribed 4-polytope orbit distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-scope hit cc3d1c18417d is not the assigned d61b7796b7ba. Its available statement calls its result an exact five-level spectrum on 30 dimensions, names the rotation-kernel dimension and the spectral gap, and states the same sharp ratio. Resultary 52fa6031286c concerns a nine-point square–pentagon optimizer, not the frozen configuration."
+        ],
+        "reasoning": "The distinct ten-point hit covers the central result, unlike the self-hit and the different nine-point invariant. The complete alternate spectrum table could not be read, so the available evidence is the explicit statement and shared invariants, not a checked transcription of every value.",
+        "searches": [
+          "Resultary: sharp local volume stability ten-vertex inscribed four-polytope complete constrained Hessian",
+          "Resultary: exact local volume spectrum 25/96 25/192 maximal ten vertex spherical 4 polytope cc3d1c18417d"
+        ]
+      },
+      "rationale": "A distinct indexed record already states the central same-configuration sharp labelled-orbit coefficient 25/192 and the complete five-level 30-dimensional spectrum with the same six-dimensional rotational kernel and usual-Hessian gap 25/96. The latter gap is exactly twice the frozen half-Hessian gap. This demonstrates claim-level overlap and the frozen record establishes no distinct scientific increment over that coverage. This conclusion is about insufficient demonstrated distinctness, not a determination of chronology, authorship, or proof duplication. The full alternative spectrum table was not accessible; no claim of a verified entry-by-entry table match is needed to identify coverage of the sharp theorem and the complete spectrum of the same operator.",
+      "residual_risks": [
+        "No ordering or priority is inferred from the same-day date. The overlapping full text and primary passages were not retrievable, so no judgment of proof identity or broader priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping central result and spectral invariant; provenance and complete contents not independently resolved",
+          "evidence": [
+            "Exact five-level 30-dimensional volume-deficit Hessian spectrum, six-dimensional rotation kernel, least positive eigenvalue 25/96, sharp unit-sphere labelled ratio 25/192."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-local-volume-spectrum-of-the-maximal-ten-vertex-spherical--cc3d1c18417d",
+          "material_read": "Local Resultary scientific statement; decisive RESULT.md passage requested but mirror retrieval timed out",
+          "method": "Compare the statement, orbit/distance, and exact factor-of-two normalizations",
+          "title": "Exact local volume spectrum of the maximal ten-vertex spherical four-polytope",
+          "trigger": "Same maximizer and the exact sharp coefficient and Hessian gap"
+        },
+        {
+          "assessment": "Credit global theorem; no independent whole-text noncoverage inference",
+          "evidence": [
+            "Frozen comparison credits the value V_*, the orbit, and facets."
+          ],
+          "identifier_or_url": "arXiv:2611.14674v1",
+          "material_read": "Theorem 4.5 as reported in frozen RESULT.md line 100; primary OA attempt timed out",
+          "method": "Compare reported global maximum/uniqueness with the local normalized statement",
+          "title": "The inscribed 4-polytope of maximal volume with ten vertices",
+          "trigger": "Same optimizer; potential quantitative bound"
+        },
+        {
+          "assessment": "Credit the determinant identity and Fourier method; no independent whole-text noncoverage inference",
+          "evidence": [
+            "Frozen comparison describes the signed-volume identity and Fourier area-vector inequalities."
+          ],
+          "identifier_or_url": "arXiv:2611.10078v1",
+          "material_read": "Sections 3–5 as described in frozen RESULT.md line 100; primary OA attempt timed out",
+          "method": "Separate the method and ambient class from the asserted local spectrum",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "Same exterior-square and Fourier methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–30 and 76–90, independently reconstructed"
+      ],
+      "rationale": "As a mathematical result the sharp quotient and complete mode decomposition answer a natural quantitative question at a volume maximizer. They distinguish the softest angular perturbations from transverse directions and rule out other infinitesimal flat modes; qualitative uniqueness alone cannot do this. This assessment is of the mathematical content, not an assertion of additional value from republishing an overlapping result.",
+      "residual_risks": [
+        "No quantitative global estimate or conclusion for another metric or vertex count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

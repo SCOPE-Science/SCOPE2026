@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:39:15.190244Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–42,44–63",
+        "VERIFICATION.md:19–23; verify.py:52–106",
+        "Independent replay: python3 -B /workspace/replays/frozen_math.py 1"
+      ],
+      "rationale": "For distinct nonempty rectangles, equality of nonzero products would force both supports equal, so commuting means both cross-products vanish. At a coordinate, simultaneous left/right membership can therefore only be the private overlap of a single idempotent. Inclusion–exclusion on missing nilpotent supports and missing private overlaps gives F_n(k,h); the partition-lattice Möbius sum from the discrete partition gives the signed first-kind Stirling coefficient, then division by k!j! unlabels both classes. For maximality, an unused coordinate admits a new diagonal rectangle; under full aggregate coverage the only possible additions have left support in L=U\\V and right in R=V\\U. All those rectangles are mutually compatible and mandatory. The shared coordinates partition into nonempty private idempotent overlaps, and the support decorations give exactly the two nontrivial W cases. If either one-sided region is empty, coverage must come from idempotents; the k=0 exception gives no spurious empty facet for n>=1. The empty clique and the zero-adjunction correspondence are valid in the stated semigroup.",
+      "residual_risks": [
+        "Replay exhausts n=1–4, checking refined coefficients including internal zero coefficients and maximal histograms; n=4 reproduces 6042 cliques and 725 facets. The all-n conclusion uses the proof, not extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paulista §3 gives the commuting criterion/center; §5 Theorem 5.4 gives the clique number."
+        ],
+        "reasoning": "With sandwich entry 1 exactly for intersecting supports and trivial group the Boolean semigroup is covered by this general setup. The theorem controls the largest cardinality but not the mixed spectrum or the number and sizes of all inclusion-maximal cliques.",
+        "searches": [
+          "Resultary: Rees 0-matrix commuting graph clique number Paulista completely 0-simple classification",
+          "arXiv:2510.23871v1, §§3,5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a2f16599b2ee, 94c0c7748dc5, 6d5929aba2c6",
+        "Paulista arXiv:2510.23871v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula equals the frozen j=0 specialization; the Rees theorem subsumes the scalar optimum for n>=2."
+        ],
+        "reasoning": "The prior scalar optimum and idempotent slice cannot determine the remaining coefficients. It takes additional coordinate-level inclusion–exclusion, equality removal and maximal-support saturation to obtain them. No priority order is assumed for distinct same-day records.",
+        "searches": [
+          "Resultary a2f16599b2ee and 6d5929aba2c6, Findings",
+          "arXiv:2510.23871v1, Lemma 3.2, Proposition 3.3, Theorem 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary a2f16599b2ee gives exactly the j=0 polynomial and maximality in the idempotent-induced graph only.",
+          "Same-day 6d5929aba2c6 concerns rank-one partial transformations, not arbitrary Boolean rectangles."
+        ],
+        "reasoning": "Dropping square-zero vertices restricts both the domain of the clique count and the allowable extensions for testing maximality. Also a rank-one function graph has singleton image support, unlike the Boolean rectangles here.",
+        "searches": [
+          "Resultary: mixed cliques idempotent square-zero rank-one Boolean relations full maximal clique enumerator",
+          "Web: rank-one Boolean relations commuting graph clique polynomial square-zero mixed cliques maximal cliques Rees 0-matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local enumerator a2f16599b2ee is idempotent-only. Same-day 94c0c7748dc5 counts centralizer sizes by type."
+        ],
+        "reasoning": "Neither is a tabulation of joint clique or maximal-clique sizes on the stated full vertex set; a centralizer-size census does not encode simultaneous compatibility.",
+        "searches": [
+          "Resultary: rank-one Boolean relations square-zero cliques Stirling enumeration mixed commuting families",
+          "Resultary: rank-one idempotent Boolean relations clique polynomial maximal clique enumerator"
+        ]
+      },
+      "rationale": "The supported distinction is the full mixed enumeration and full-graph inclusion-maximal distribution, not the pure-idempotent specialization, the general commutation criterion or the clique number. The strongest comparisons found do not supply or mechanically yield these enumerators. This is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "Focused web search did not yield a usable matching primary source beyond the identified comparison; this is not evidence of absence. Unindexed general Rees or Boolean enumerators could contain an equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pure-idempotent slice only",
+          "evidence": [
+            "The graph is explicitly idempotent-only; support coverage suffices for maximality there."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Clique and maximal-clique enumerators for rank-one idempotent Boolean relations",
+          "trigger": "Same Boolean objects and two enumerators"
+        },
+        {
+          "assessment": "Covers criterion and clique number, not the inspected enumeration targets",
+          "evidence": [
+            "Lemma 3.2 and Proposition 3.3 give adjacency/center; Theorem 5.4 gives clique number under the relevant zero-entry hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.23871v1",
+          "material_read": "OA full-text passages §3 pp. 9–10, offsets 31000–34532; §5 pp. 41–45, offsets 146900 and 152050",
+          "method": "Targeted primary text",
+          "title": "Commuting graphs of completely 0-simple semigroups",
+          "trigger": "General Rees 0-matrix setting contains source semigroup"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Counts centralizer sizes, including the two square types, not sets of pairwise commuting vertices."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-one-centralizer-spectra-in-finite-boolean-relation-mo--94c0c7748dc5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact rank-one centralizer spectra in finite Boolean relation monoids",
+          "trigger": "Same-day same object and refined spectrum"
+        },
+        {
+          "assessment": "Different vertex set and multiplication setting",
+          "evidence": [
+            "Rank-one partial transformations have nonempty domain and singleton image, not arbitrary nonempty right support."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-clique-and-maximal-clique-spectra-of-rank-one-partial-t--6d5929aba2c6",
+          "material_read": "RESULT.md Finding, offsets 0–2400",
+          "method": "Local mirror",
+          "title": "Complete clique and maximal-clique spectra of rank-one partial transformations",
+          "trigger": "Same-day mixed clique and facet claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:15–39,61–63",
+        "Paulista §5 and the idempotent-only comparison"
+      ],
+      "rationale": "The statistics are intrinsic to commuting families in a natural semigroup; the square-type refinement and full-graph maximality both matter for commutative subsemigroups. Exact support saturation explains missing intermediate maximal sizes and provides all coefficients, not just recomputation of the known optimum or the pure-idempotent slice.",
+      "residual_risks": [
+        "No claim for larger rank or the entire Boolean relation monoid."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

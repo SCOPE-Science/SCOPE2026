@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:10:06.210757Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sharp constant is correctly imported from the affine variational formula with exponent m=n-2. The objective is variance divided by mean, so reflection strictly improves increasing profiles. Integrating (t²w)' and using -w'≥sw proves F_m(s)≤2/s, which keeps all large-m maximizers in a fixed compact interval. Independently, with A=e^s−1 and B=A−s the limiting objective simplifies to 1/s+1/A−s/B; its derivative gives the displayed numerator with denominator s²A²B² and the opposite sign. The Taylor coefficients vanish through order 7, are negative in orders 8–13, and are positive starting at 14 by the stated induction (the cubic in that induction becomes h³+24h²+155h+264 at k=14+h). Therefore the derivative of P(s)/s^13 is positive on s>0 and the unique positive zero is nondegenerate. The uniform C² expansion of the affine-power weights gives strict concavity near that zero and a displacement O(m^-1) of the sole eventual scalar maximizer; stationarity then leaves the displayed first-order correction in its value. Independent replay: python3 /workspace/centroid_independent_certificate.py, using exact rational geometric and alternating Taylor tails rather than the supplied moment enclosure, verified the signs at 2.353317385 and 2.353317386 and obtained 0.038267059667≤C≤0.038267062326. This certifies positivity, not an explicit finite-dimensional threshold. Uniqueness refers to the normalized affine profile, not a convex body.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal sharp boundary-centroid theorem gives the exact finite-n scalar maximum and attainment. The projection proof establishes monotone convergence and describes equality profiles using scalar maximizers."
+        ],
+        "reasoning": "Existence and a general geometric equality description do not imply uniqueness of the scalar maximizer or the sharp convergence rate; the latter require nondegeneracy and uniform perturbation after localizing global maxima.",
+        "searches": [
+          "arXiv:2611.11635v1, equations (1)–(2), Theorem 1.1",
+          "arXiv:2212.14456v1, Theorem 1 and Steps 6–7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.11635v1",
+        "arXiv:2212.14456v1",
+        "Resultary: 862b94b2293c, 7a4a7c5bc5c9, 6976d4bee83b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projection proof uses a single test sequence t_n=c0/n to establish the limit. Its limiting numerical optimizer and monotonicity of D_n do not give order-sharp lower and upper corrections."
+        ],
+        "reasoning": "A pointwise expansion along the test sequence could give a one-sided estimate, not equality of the optimized first-order coefficient with second-order control. Nor does monotone convergence itself imply a strictly positive first-order coefficient.",
+        "searches": [
+          "arXiv:2212.14456v1, Step 6: limiting exponential expression and test sequence",
+          "arXiv:2611.11635v1, sharp characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projection paper uses the same moment-ratio sharp constants and reports an exponential maximizer near -2.35332 with the opposite sign convention."
+        ],
+        "reasoning": "The projection and body-boundary formulations identify the identical constants. Neither the numerical maximizer nor a limit result specifies a positive coefficient of 1/n (equivalently of 1/(n-2) to this order), its error bound, or uniqueness.",
+        "searches": [
+          "Resultary search for asymptotic centroid displacement and its projection formulation",
+          "arXiv:2212.14456v1, Theorem 1 and Steps 4 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "862b94b2293c is the identical catalog entry, not independent coverage. The distinct same-day record 7a4a7c5bc5c9 gives an algebraic D4 and a unique normalized optimizer in that one dimension."
+        ],
+        "reasoning": "An exact single-dimensional value and scalar uniqueness in dimension four do not supply the limiting optimization or a first-order asymptotic; no priority ordering is inferred from the shared date.",
+        "searches": [
+          "Resultary and local mirror for centroid displacement constants, exact D4, and large-dimensional gap"
+        ]
+      },
+      "rationale": "The sharp inequality, variational constant, limit and approximate optimizing argument are prior. The inspected results do not give the explicit positive first-order gap with quadratic-order remainder or the continuous and eventual scalar optimizer uniqueness proved here. This is a bounded comparison, not a claim of universal priority.",
+      "residual_risks": [
+        "The targeted external search was nonresponsive, not negative evidence. Earlier unindexed quantitative analyses may exist.",
+        "The simplex record was only compared at catalog-summary level; no priority or whole-document noncoverage is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the known sharp reduction and states the known limit; no first-order asymptotic in these passages.",
+          "evidence": [
+            "Maximum of I2/I1−I1/I0 over nonnegative affine profiles raised to n−2; compact normalization gives attainment."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.11635v1",
+          "material_read": "Section 1, equations (1)–(2) and Theorem 1.1; HTML offsets 3200–7261",
+          "method": "OA full-text passage inspection",
+          "title": "The sharp bound on the distance between the centers of mass of a convex body and its boundary",
+          "trigger": "Exact sharp body-boundary inequality and its variance/mean reduction"
+        },
+        {
+          "assessment": "Covers variational reduction, monotonicity and limiting constant; the inspected optimization gives a numerical maximizing argument, not the rate or scalar uniqueness.",
+          "evidence": [
+            "Step 6 calls c0≈−2.35332 a numerical maximizer and uses t_n=c0/n for convergence. Step 7 parametrizes finite-dimensional equality profiles by maximizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.14456v1",
+          "material_read": "Theorem 1 (p. 2), Step 4 (p. 7), Steps 6–7 (pp. 9–10)",
+          "method": "OA PDF passages",
+          "title": "How far apart can the projection of the centroid of a convex body and the centroid of its projection be?",
+          "trigger": "Equivalent sharp constants, same exponential limiting optimizer"
+        },
+        {
+          "assessment": "Dimension four only; no asymptotic coverage established.",
+          "evidence": [
+            "An algebraic D4 and a unique maximizing normalized affine profile in dimension four are asserted."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-algebraic-four-dimensional-centroid-displacement-const--7a4a7c5bc5c9",
+          "material_read": "Mirrored RESULT.md, finding and dimension-four conclusion",
+          "method": "Local catalog and mirror",
+          "title": "The exact algebraic four-dimensional centroid displacement constant",
+          "trigger": "Distinct same-day result, same sharp constants and optimizer"
+        },
+        {
+          "assessment": "Restricted simplex comparison from the summary; full implications remain unverified.",
+          "evidence": [
+            "The summary concerns facet-area weights and the degenerating simplex supremum, not an identified expansion of the universal D_n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-surface-volume-centroid-separation-and-two-facet-concentration--6976d4bee83b",
+          "material_read": "Catalog summary only; mirror text unavailable",
+          "method": "Local catalog and attempted mirror read",
+          "title": "Sharp surface–volume centroid separation and two-facet concentration in Euclidean simplices",
+          "trigger": "Same-day centroid displacement in a restricted family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the dimensional deficit of a natural sharp geometric bound, beyond a known limiting value. The positive exact coefficient distinguishes a genuine 1/n gap from faster convergence, and the nondegenerate unique profile controls how the optimizing affine shape approaches its limit. This does not claim new extremizing bodies or a bound for every small dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

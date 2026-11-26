@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The calculation covers every one of the 32,767 nonzero quartic coefficient vectors and partitions them by the 168 actual projective-coordinate substitutions. Each of the 279 orbit representatives is tested in all three affine charts via the exact characteristic-two unit-Jacobian-ideal criterion, so the 78 smooth representative classes and their 10,920 equations are exhaustive over an algebraic closure. The local tangent restriction has its first nonzero term in degree two, three or four by smoothness and Bézout. The table is reconstructed from complete group orbits, and a second symbolic line-substitution implementation agrees at every smooth representative. Its 34 frequencies sum to 10,920. Computational reproducibility requires SymPy, but no finite field extension search is used as an infinite-geometric proof.
+## correctness
 
-## Originality — PASS, qualified
-The full quartic moduli classification and the 78 curve classes are already in Nart--Ritzenthaler; they are not new claims. Pacini--Testa's reconstructibility theory concerns inflection-line configurations generally and excludes characteristic two in its main result; the 2020 special-characteristic work concerns schemes of inflections and theta-hyperplanes. The inspected statements and data do not exhibit this exact 34-cell joint distribution by rational ordinary-flex and hyperflex contacts, nor the particular mean-one ordinary-flex incidence count. Unindexed historical tables and numerical extraction from earlier complete quartic normal models remain explicit priority risks; a literature search alone is not proof of global uniqueness.
+PASS
 
-## Value — PASS
-Rational inflection contact is a classical intrinsic invariant of a genus-three canonical plane curve, different from rational point count and theta-line splitting. The 34-cell table classifies the exact small-field arithmetic possibilities, yields sharp and attained extrema, and gives the nontrivial mean-one ordinary-flex incidence identity. Complete natural finite classifications are valuable as arithmetic test cases even without a uniform extension-field theorem.
+The projective action exhausts the nonzero 15-bit forms. On each affine chart the ideal of the equation and its two derivatives detects geometric singularity exactly. A smooth plane quartic has no line component, and the first nonzero coefficient of the tangent restriction in a local parameter gives the claimed contact order. Independent replay: run python3 /workspace/reproductions/audit_quartics_f2.py with the frozen quartic package directory as its argument. It enumerates all masks directly by binary linear conditions for singularity at points over fields of orders 2, 4, 8 and 16. This cutoff is exact: an absolutely irreducible singular quartic has sum of geometric delta invariants at most three by the genus formula; a reduced reducible quartic of component degrees (3,1) or (2,2) has a Frobenius-stable intersection scheme of length at most four, of degrees (2,1,1) has a rational intersection of its two lines, and of degrees (1,1,1,1) has Frobenius orbits of pair intersections of size at most four. In the nonreduced case a unique repeated component is a rational line or conic with a rational point, or the two repeated lines intersect rationally. A separate elementary-generator orbit traversal and a 21-flag tangent-restriction calculation matched all 34 histogram rows and all 78 representative masks, sizes and contact data in both the TSV and JSON, with 279 orbits in the ambient nonzero space and 10,920 smooth equations. The stated weighted totals, extrema, and the two exceptional single orbits all match.
 
-## Scope and limitations
-This is the exact two-element field only; nonrational flexes and higher-field classifications remain uncomputed. A known complete classification of quartics underlies the setting. Numerical novelty may not survive an unpublished database search, and no independent human review has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the joint ordinary-flex-sensitive 34-profile classification, not the previously classified set of curves, the hyperflex bound, the 28-equation orbit, or the joint point-count/hyperflex marginal. Prior work that counts theta contacts does not determine the ordinary-flex count even at a fixed full theta profile. The full enumeration after refining by ordinary tangent contact was not found in the compared earlier results.
+
+## value
+
+PASS
+
+This is a complete joint distribution of natural local tangent contacts on the smallest-field smooth canonical quartics. The ordinary-flex refinement separates examples that have identical theta profiles and supplies exact simultaneous possibilities and incidence totals, useful as small-field arithmetic benchmarks beyond the known hyperflex extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

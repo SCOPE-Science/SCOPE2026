@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:05:40.701683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "Independent exact graph and partition enumeration: python3 /workspace/audit_checks/check.py 2"
+      ],
+      "rationale": "In a unilateral move all affected valuations of the mover's friends change via their pair with the mover, by +n or -n per affected pair. Thus the changes in the friends' sum and own value are n times the change in friend count and that quantity minus the change in enemy count, respectively. The frozen symmetric within-block pair potentials have exactly the three utility increments. For min-EQ an independent set-of-blocks partition enumerator and topological acyclicity test exhaust all 75 labeled graphs of orders 1–4, with all moves to other blocks or a singleton. It reproduced the 3068 improving mover-labeled transitions, all potential comparisons in those orders, and the cyclic counts (0,0,0,16), split 12 of type (0,1,1,2) and 4 of type (0,2,2,2). These degree types uniquely force the stated graphs. The explicit order-four path-plus-isolate cycle checks directly. In the connected family, the core personal valuation vectors in the four states A,B,C,D are (-2,0,n-1,n-1,0), (-1,-1,n,n,0), (-2,n-1,0,n-1,0), and (-1,n,-1,n,0). The friend-inclusive minima therefore give -2 to -1 for each move by 0, and -1 to 0 for each move by 3. Extra leaves are singletons and do not change those comparisons. This proves the unbounded family and, with the exhaustive small-order result, the sharp connected threshold.",
+      "residual_risks": [
+        "The moves establish strict improvements, not best responses; they do not establish absence of a Nash-stable partition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The global ACFG Nash-stability statement gives existence. The history-dependent dynamics in Boehmer–Bullinger–Kerkmann can cycle for distinct utilities. Wiechers–Rothe treat existence for coalition-local minimization."
+        ],
+        "reasoning": "Existence of a sink at some partition does not rule out a directed cycle elsewhere. History-dependent actions or coalition-local altruism cannot supply the static global graph classification without an applicable reduction.",
+        "searches": [
+          "arXiv:2301.05674v1, Section 4.2",
+          "arXiv:2211.17169, Section 1.1",
+          "ceur-ws.org/Vol-2655/paper3.pdf, Proposition 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records listed above",
+        "arXiv:2301.05674v1",
+        "IJCAI 2020 /0049.pdf",
+        "CEUR Vol. 2655 paper 3",
+        "arXiv:2211.17169"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For summation, the all-friend definition leads to the standard weighted sum over symmetric within-coalition pairs as an exact potential. Taking a minimum instead changes the active friend valuation and does not preserve these utility increments. The prior existence theorem gives no transition-by-transition constraints."
+        ],
+        "reasoning": "Treat the sum potentials as background comparison. The threshold and two finite graph types require additional obstruction examples and an exhaustive lower-bound argument; the inspected model and existence results do not mechanically imply them.",
+        "searches": [
+          "arXiv:2301.05674v1, Sections 2.3 and 4.2",
+          "IJCAI 2020 /0049.pdf, Section 2",
+          "Frozen RESULT.md, exact-potential derivation and sharp cycle comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The global model in Kerkmann–Cramer–Rothe includes the values of friends outside the mover's coalition and agrees with the frozen setup. Wiechers–Rothe's minimum is coalition-local. Improvement-path acyclicity is equivalent to FIP in this finite static model."
+        ],
+        "reasoning": "The original global ACFG model is the exact comparison; the same aggregation name on the local variant does not identify its move digraph.",
+        "searches": [
+          "'global altruistic coalition formation' minimum-based improvement cycles FIP friend-oriented",
+          "arXiv:2301.05674v1, Sections 2.2–2.3",
+          "Stability in Minimization-Based Altruistic Hedonic Games, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day multipartite record studies own-coalition friend counts, Nash partitions and blocking thresholds. The global perfection record treats sum-EQ on K_(a,b). The induced-P3 record concerns binary public-goods actions. None gives the two cyclic graph types on the frozen global min-EQ partition state space."
+        ],
+        "reasoning": "These are statement-level exclusions of the returned near matches, not proof of absence from all catalogues or publications.",
+        "searches": [
+          "Resultary semantic searches for static global min-EQ cycles, small-order cyclic graph types and the connected threshold",
+          "Resultary SCOPE-arithmetic-rigidity-and-sharp-blocking-thresholds-in-complete-mu--4cbcfc887659",
+          "Resultary SCOPE-sharp-global-altruism-perfection-threshold-on-complete-bipartite--21b782804aab",
+          "Resultary SCOPE-the-induced-p-3-boundary-for-alternating-public-goods-improvemen--161ecf1795f2"
+        ]
+      },
+      "rationale": "The novelty-bearing claim is the sharp static global min-EQ cycle classification and connected-tree boundary. The model and Nash-stable existence are prior, and the sum-based comparisons are a routine exact-potential application, not credited as a standalone contribution. No checked stronger or equivalent result supplies the min-EQ boundary.",
+      "residual_risks": [
+        "A bounded literature comparison does not establish priority across all static global minimum-based dynamics literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same utility; different conclusion",
+          "evidence": "Aggregation over all friends matches the frozen definition. Section 4.2 addresses Nash-stable existence, not acyclicity of all strict moves.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.05674",
+          "material_read": "v1 Sections 2.2–2.3, pp. 3–4, and Section 4.2, p. 10",
+          "method": "Public primary PDF, localized utility and Nash-stability passages",
+          "title": "Altruism in Coalition Formation Games",
+          "trigger": "Primary model paper on the same global min-EQ utilities"
+        },
+        {
+          "assessment": "Prior sum models; routine symmetric pair-increment application",
+          "evidence": "The SF/EQ/AL utilities use an all-friend sum, as in the frozen comparison.",
+          "identifier_or_url": "https://www.ijcai.org/Proceedings/2020/0049.pdf",
+          "material_read": "Section 2, offsets 9000–14948",
+          "method": "Public proceedings PDF, model passage",
+          "title": "Altruism in Coalition Formation Games (IJCAI 2020)",
+          "trigger": "Predecessor for the three sum models"
+        },
+        {
+          "assessment": "Coalition-local aggregation and equilibrium existence",
+          "evidence": "Min-EQ only evaluates friends in the player's coalition; Proposition 2 gives a Nash-stable outcome in that model.",
+          "identifier_or_url": "https://ceur-ws.org/Vol-2655/paper3.pdf",
+          "material_read": "Section 2, p. 2, and Proposition 2, p. 4",
+          "method": "Public proceedings PDF, definitions and theorem",
+          "title": "Stability in Minimization-Based Altruistic Hedonic Games",
+          "trigger": "Similar minimum-aggregation terminology and stability question"
+        },
+        {
+          "assessment": "History-dependent utilities, not the same state graph",
+          "evidence": "Resentment/appreciation can change preferences with coalition history; the cited cycling examples use different utilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.17169",
+          "material_read": "Section 1.1, p. 2, offset near 7000",
+          "method": "Public primary PDF, dynamics setup",
+          "title": "Causes of Stability in Dynamic Coalition Formation",
+          "trigger": "Improvement paths and cyclic dynamics in a nearby coalition model"
+        },
+        {
+          "assessment": "Different utility and stability invariant",
+          "evidence": "Own-coalition lexicographic friend counts and sizes of core blockers do not describe global min-EQ improvement paths.",
+          "identifier_or_url": "2026/11/2/SCOPE-arithmetic-rigidity-and-sharp-blocking-thresholds-in-complete-mu--4cbcfc887659",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local mirror",
+          "title": "Arithmetic rigidity and sharp blocking thresholds in complete-multipartite friend-appreciation games",
+          "trigger": "Same-day indexed friend-oriented partition model"
+        },
+        {
+          "assessment": "Sum-EQ perfection, not min-EQ cycles",
+          "evidence": "Perfectness threshold on complete bipartite networks uses the sum aggregation.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-global-altruism-perfection-threshold-on-complete-bipartite--21b782804aab",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Sharp global-altruism perfection threshold on complete bipartite graphs",
+          "trigger": "Indexed claim on global altruism with equal treatment"
+        },
+        {
+          "assessment": "Different action space",
+          "evidence": "Binary public-goods actions are not unilateral relocations among coalition partitions.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-induced-p-3-boundary-for-alternating-public-goods-improvemen--161ecf1795f2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "The induced-P3 boundary for alternating public-goods improvements",
+          "trigger": "Improvement cycles and the P3 obstruction in an indexed graph model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, small-order classification and tree construction",
+        "arXiv:2301.05674v1, Section 4.2",
+        "Independent exact enumeration"
+      ],
+      "rationale": "This is a sharp failure-of-convergence boundary for a standard altruistic utility, not just a sampled cycle. It distinguishes unrestricted from connected networks, gives a full finite obstruction classification at the first size, and extends the mechanism to trees of every larger order. A stable outcome can exist even though strict unilateral dynamics cycle, so the question is not settled by stability existence.",
+      "residual_risks": [
+        "No convergence statements for all best-response paths, or recognition result for large graphs, follow."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

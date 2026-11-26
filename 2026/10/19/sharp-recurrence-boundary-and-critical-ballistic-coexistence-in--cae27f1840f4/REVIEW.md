@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The coboundary is a direct exact computation from the source map. The two transverse coordinates become bounded after two steps, so signed monotonicity of that observable proves global escape outside the exact equilibrium threshold. On the critical boundary, summability of a nonnegative cosine defect forces convergence of each nonescaping trajectory. Stationarity of that same defect pins all compact invariant probabilities to equilibria. The critical center-manifold reduction is justified by the Jacobian spectrum \(\{0,0,1\}\) and its computed quadratic graph jet; the standard parabolic reciprocal argument establishes \(n(z_n-\zeta)\to-2/\alpha\) only on the appropriate branch. The supplementary symbolic checker passed 411 checks, including exact identities and a long trajectory diagnostic. The global and asymptotic conclusions are proved analytically rather than inferred from these checks.
+## correctness
 
-## Originality — PASS with priority uncertainty
-The full accessible 2023 source study presents the sine map, parameter sweeps, Lyapunov exponents, symmetry plots and network synchronization phenomena; it does not develop the unit-feedback monotone observable, exact stationary/escape boundary, critical stationary-measure rigidity or universal parabolic coefficient. Comparisons with related published stationary-balance findings concern different continuous-time or neuron systems and do not imply the map-specific identity. No equivalent result was found in targeted semantic and exact-source searches. An unindexed or differently formulated antecedent is still possible, and the historical 3D sine-map antecedent cited by the source was not fully examined.
+PASS
 
-## Mathematical value — PASS
-The result supplies a parameter-sharp global distinction between compact recurrent and necessarily escaping dynamics for a published family studied largely through bifurcation plots. At the nonhyperbolic boundary, it obtains a complete bounded-or-escape orbit alternative, a classification of compact stationary measures, and a universal algebraic relaxation coefficient. Exact coexistence of equilibrium and a linearly traveling solution at strictly positive coefficients distinguishes the full real lift from its angular projection. These statements are structurally motivated and address natural invariant dynamics, rather than a selected numerical orbit or arbitrary parameter sample.
+For the repaired claim, expanding U after one update cancels both old transverse coordinates, and from n=2 the current transverse values are two past sines, so |U_n−z_n|≤|β|+|β+γ|. Outside the threshold, each signed increment is at least |α|−|κ|; inside or at the threshold solving x=y=sin z and α+κ sin z=0 gives the stated fixed points (and invariant point masses), including α=κ=0. Compactly supported invariant probability would have forward-invariant support for a continuous map. At nonzero equality the signed drift is |α|(1−cos(z−ζ)), so signed U either diverges or has finite limit. In the latter case its increments vanish, giving sin z_n→s, then x_n,y_n→s, and the exact relation with U gives convergence of z_n on the real lift. Integrating the drift forces an invariant compact probability onto sin z=s and invariance of the shifts forces x=y=s; compactness allows only finitely many lattice atoms. The derivative has simple center eigenvalue 1 and nilpotent stable block. Theorem 2.1 of van den Berg–Hetebrij–Rink applies for any specified finite k≥3 via cutoff and a stable-block norm smaller than one, without invertibility of the stable block. Local graph invariance at r'=r+O(r²) forces both graph jets to be −s r²/2+O(r³). Hence r'=r+αr²/2+O(r³). On αr<0 sufficiently small, sign is preserved, |r| decreases to zero, and the reciprocal variable −2/(αr) has increments tending to one, giving the exact limit. For the coexistence replay the two choices x=y=sin z=−1 or +1 give third-coordinate increments 0 or 2π at α=β=γ=δ=π. No frozen code was executed or needed for these exact checks.
 
-## Scope and remaining scientific risk
-The statement is solely about the uncoupled unit-feedback slice, and it does not determine subcritical attractors or all velocities at critical escape. The local rate does not apply to every convergent trajectory. General center-manifold theory is prior mathematics. Exhaustive priority against unindexed literature is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the full real-lift compact existence boundary and dynamics at its nondegenerate equality, including the complete orbit dichotomy, center coefficient and sharp approach on the indicated branch. The parent map and general center reduction are known, and the degenerate κ=0 identity is materially covered by a same-map indexed record; do not count that slice as a distinct contribution.
+
+## value
+
+PASS
+
+Unit feedback is the natural slice where affine drift can balance periodic kicks and where local observations cannot distinguish compact motion from translation of the real lift. The global dichotomy, exact coexistence at the same positive parameters, and center-branch rate resolve different aspects of that ambiguity. This is more than a fixed-point census or a trajectory simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

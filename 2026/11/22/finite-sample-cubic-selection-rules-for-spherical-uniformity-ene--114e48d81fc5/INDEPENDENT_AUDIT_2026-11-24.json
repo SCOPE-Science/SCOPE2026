@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:35:00.400924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under normalized probability measure on S^2 the degree-l projector kernel has diagonal 2l+1 and vanishing one-point mean. Centering leaves 2/n times the unordered sample-edge sum. In the second moment only repeated edges remain, with integral delta_(l,m)d_l. In the cubic expansion a degree-one vertex kills a term; three identical edges and triangles on three distinct sample points are the only surviving multigraphs. There are binomial(n,2) of the former and 6 binomial(n,3) labeled edge assignments of the latter. A repeated edge integrates to d_l d_m d_k times the Gaunt square since X dot Y is uniform on [-1,1]; the triangle is the trace of the product of three harmonic projections, nonzero only for all equal degrees and then equal to d_l. These quantities and (2/n)^3 recover the stated normalization. The zero-row Wigner factorial has precisely the parity and triangle support, including degenerate triangles. Direct integration of the two low-degree products gives G_123=9 and G_112=6. The covariance of the squared centered energy with another energy is the corresponding repeated-degree cumulant. Its strict positivity, like the mixed selection statement, is for n>=2; at n=1 all centered moments vanish. The package checker was inspected, not run: its icosahedral samples check selected degree-1/2 moments only (degree at most four per sample coordinate), with floating tolerance, not arbitrary harmonic degrees or n. The general proof does not rest on that evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2304.04519 Proposition 4 gives null means and variances for specified kernels and follows with asymptotic results",
+          "Resultary b0242623025d gives the exact weighted circular energy cubic moment driven by a+b=c"
+        ],
+        "reasoning": "A generic canonical-kernel cubic expansion, if explicitly available, would cover the combinatorial coefficients but still needs the projection triangle and joint on-edge integration. The compared statements do not provide a general identity covering the claimed full joint law. Polarization of the circular formula would only recover circular mixed moments, whose resonance is not the S^2 triangle/parity rule.",
+        "searches": [
+          "Fernández-de-Marcos and García-Portugués arXiv:2304.04519, Proposition 4 and null discussion",
+          "Resultary: degenerate U-statistic third cumulants and circular Sobolev cubic resonance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_harmonic.py (inspection only)",
+        "arXiv:1411.4031, arXiv:2304.04519, arXiv:1804.00286",
+        "NIST DLMF §34.3(vii)",
+        "Resultary 04149a4bcc12, b0242623025d and ef72097d56bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chord result has the same graph counting factors but one fixed scalar kernel with a nonzero evaluated chord triangle",
+          "Circular exact cubic law counts additive frequency resonances; spherical G_222 is positive even though 2+2 is not 2",
+          "Inspected angular-power and uniformity-test passages concern second moments"
+        ],
+        "reasoning": "The graph method and harmonic integrals must be combined for these different kernels; no inspected earlier theorem has the bound joint statement as a direct specialization. Same-day circular work is material overlap but has a different space and selection rule; its ordering was not inferred.",
+        "searches": [
+          "Compare original Resultary chord and circular cubic findings with harmonic projector normalization and cross-degree mixed quantities",
+          "Campbell finite-count angular spectra and Fernández-de-Marcos–García-Portugués null moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell arXiv:1411.4031 abstract gives exact power-spectrum variance for unbinned iid observations",
+          "Resultary 04149a4bcc12 gives the repeated-edge and triangle decomposition for scalar spherical chord energy"
+        ],
+        "reasoning": "The same observable can be viewed as squared harmonic sample means, null angular power with a fixed normalization, or centered canonical edge statistics. The inspected variance theorem is second order; the chord result fixes a different single radial kernel, so does not give the mixed tensor of harmonic moments.",
+        "searches": [
+          "Resultary: spherical harmonic joint third cumulants; finite-count angular power cross-moments; cross-degree spherical uniformity",
+          "Literature: finite-count isotropic angular power and degenerate U-statistic third cumulants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF Eq. 34.3.21 gives the complete Legendre triple integral (two times the squared zero-row 3j), so the exact one-edge coefficients and their zero pattern are already known",
+          "Resultary ef72097d56bd gives circular second-moment correlations"
+        ],
+        "reasoning": "Exact Gaunt data are not novel. An exact table of those coefficients alone does not tabulate cumulants for every n or account for the different triangle term. The reviewed contribution is the finite-n combination, not a recomputation of the tabulated coefficients.",
+        "searches": [
+          "NIST DLMF §34.3(vii), Eq. 34.3.21; exact Legendre triple integrals; Resultary finite harmonic moments"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact finite-sample joint cubic dependence law on S^2 and its cross-degree selection rule. The harmonic test framework, Gaunt integral and repeated-edge/triangle proof skeleton are not new. The strongest inspected overlaps give a scalar spherical chord moment, a circular resonance law, or finite-count angular-spectrum variances, not the stated joint cumulants.",
+      "residual_risks": [
+        "An earlier general finite-n joint cubic expansion coupled to spectral projectors may be indexed under degenerate U-statistics or exact angular-power cross-moments. Bounded checks do not exclude it.",
+        "The graph skeleton and the complete one-edge Gaunt integral are known; no priority is claimed for them or inferred from same-day metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest finite-count variance comparison; the inspected result is not a cross-spectrum third cumulant",
+          "evidence": [
+            "Exact variance and its estimator for a source skymap; higher-order effects in variance do not themselves establish a third cumulant of estimators"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.4031",
+          "material_read": "Abstract, PDF p. 1, offsets 975–2663",
+          "method": "Original open PDF passage",
+          "title": "Angular Power Spectra with Finite Counts",
+          "trigger": "Nearly equivalent finite-count angular-power observable"
+        },
+        {
+          "assessment": "Exact first/second null moments, not the compared mixed cubic formula",
+          "evidence": [
+            "Expectation and variance given in terms of kernel Gegenbauer coefficients"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04519",
+          "material_read": "§3.1, Proposition 4, Eq. (8), PDF p. 5, offsets 20980–22006",
+          "method": "Original open PDF passage",
+          "title": "On new omnibus tests of uniformity on the hypersphere",
+          "trigger": "Kernel uniformity tests and possible general null-moment coverage"
+        },
+        {
+          "assessment": "Same repeated-edge/triangle combinatorial skeleton, scalar chord observable only",
+          "evidence": [
+            "Centered kernel ||x-y||-4/3, binomial(n,2) repeated-edge term and 6 binomial(n,3) triangle term"
+          ],
+          "identifier_or_url": "Resultary 2026/11/1, 04149a4bcc12",
+          "material_read": "Finding context and proof §§1–2, offsets 2110–4300",
+          "method": "Local mirror original passages",
+          "title": "Exact finite-sample cubic moment of random spherical chord energy",
+          "trigger": "Closest earlier spherical graph-expansion precedent"
+        },
+        {
+          "assessment": "Real cubic overlap but for S^1, not a theorem over S^2 or all homogeneous spaces",
+          "evidence": [
+            "Centered weighted energy cube contains sum_(a,b) w_a w_b w_(a+b)"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, b0242623025d",
+          "material_read": "Finding and assumptions, offsets 0–2743",
+          "method": "Local mirror original passages",
+          "title": "Cubic resonance and sharp skewness-optimal truncation for circular Sobolev tests",
+          "trigger": "Closest same-day harmonic cubic claim"
+        },
+        {
+          "assessment": "Covers the exact repeated-edge integral, not the interpretation as a finite-sample joint statistic",
+          "evidence": [
+            "Legendre triple integral with sin(theta) weight equals twice the squared zero-row 3j"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/34.3.E21",
+          "material_read": "§34.3(vii), Eqs. 34.3.20–21, offsets 12800–14646",
+          "method": "Original online formula inspection",
+          "title": "NIST DLMF §34.3: Wigner 3j symbols",
+          "trigger": "Exact integral and possible tabulated coefficient coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct harmonic energies are uncorrelated, but this exact all-degree law identifies which pairs and triples still have cubic dependence before the asymptotic independent chi-square regime. Finite-sample null dependence is naturally relevant to combining harmonic uniformity tests. The scope is cubic moments, not the full distribution, new critical values, or a power claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

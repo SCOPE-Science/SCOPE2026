@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement is for one explicitly given twelve-vertex graph. Its partition family is exhaustive because all 4,096 subsets were evaluated, and the seven-subset induced-edge minimum rules out a longer forest. The induced-forest and complementary-path assertions use the complete six-subset enumeration. Every exchange and every metric claim follows from complete 60-state adjacency construction and 60 independent-source shortest-path computations; all pair counts sum to 1,770. The Python and C++ programs use different graph encodings and different acyclicity criteria and agree on the main invariants, including the 420 excess pairs. A known induced-forest face vector independently corroborates the sixty-state count. All computations were replayed from the supplied program files. Limit: the calculation is a finite certificate rather than an infinite-family theorem.
+## correctness
 
-## Originality
-**PASS, with a residual derivability risk.** The exact 60-face census is already established by the published icosahedral induced-forest complex work and is expressly credited. The primary mathematical difference is the exchange graph of those facets and two-path partitions, its bipartite four-regular structure, and the exact complementary-antipode and Johnson-distance comparison. The inspected source texts on equitable forest partitions, induced path factors, icosahedral forest topology, and icosahedral zero-forcing exchange do not state or mathematically imply these distances from their theorems. The closest forest-complex source completely enumerates the facets, so an unreported computation from that data could overlap; unindexed or alternative descriptions remain a genuine priority risk.
+PASS
 
-## Value
-**PASS.** Equitable induced-forest partitions are a classical graph-coloring problem and this finite graph is a canonical, highly symmetric planar test case at the minimum palette size of two. The new metric determines whether two valid optimal partitions can be transformed while maintaining both forests and quantifies the exact detour cost. Unique complements as antipodes and the equality between unrestricted feasible swaps and original-edge-local swaps describe nontrivial structure not encoded in the previously known count or homology. The result is a motivated complete finite reconfiguration classification, not a universal algorithm or a new value for an already tabulated scalar invariant.
+Independent finite checks rebuilt the graph, both from the pentagonal rims and from the cyclic permutations of (0, ±1, ±φ) with edge length 2. Testing all 4,096 subsets by the edge/component forest identity reproduced the forest vector (1,12,66,200,345,300,60), no larger forest, and induced-edge minima 5 and 8 at sizes 6 and 7. The local five-cycle excludes an induced forest vertex of degree three, so every size-six forest is a connected P₆. All sixty have forest complements. For all named masks, exchange means popcount(A XOR B)=2, and every such replacement uses an original edge. Exact BFS gives a connected four-regular graph with 120 edges, 30+30 bipartition, girth 6 by deletion of each edge and shortest alternative paths, and common shells (1,4,12,17,16,9,1). The joint (Johnson distance, exchange distance, unordered count) entries reproduced are (1,1,120), (2,2,360), (2,3,150), (3,3,360), (3,4,120), (4,4,360), (4,5,150), (5,5,120), (6,6,30). All thirty distance-six pairs are complements; exactly 420 pairs take one extra move. This exhausts the fixed graph, not arbitrary polyhedra. Frozen replay paths: verify_partition.py, verify_partition.cpp, verify_python.out and verify_cpp.out in the record directory; uploaded code was inspected, not executed in the independent check.
 
-## Closest prior work and limitations
-The 2014 Esperet–Lemoine–Maffray paper proves general equitable induced-forest results. Two published icosahedral forest-complex studies enumerate the sixty top-dimensional faces and classify their homotopy/symmetry, but not this facet exchange metric. Published icosahedral zero-forcing and dodecahedral bipartization exchange graphs concern mathematically different feasible families. One full induced-path-factor paper treats regular graphs in general; no icosahedral exchange calculation was found in the searchable text. Publication priority remains contingent on unindexed computations; independent scholarly validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published icosahedral induced-forest complex gives the sixty size-six faces and an algorithm that generates them. That census is prior and not credited here. The inspected proof then treats the face-poset Morse matching and homology character, not the full complement feasibility, exchange adjacency, or simultaneous Johnson and intrinsic distance distribution. Deriving the reviewed result requires imposing the complementary constraint, forming the swap graph and testing its intrinsic distances against ambient distances. No accessed statement supplies this metric or a theorem forcing it; the closest one-detour results use nonisomorphic base graphs or different feasible families.
+
+## value
+
+PASS
+
+Equitable induced-forest bisections of a canonical Platonic graph give a specific constrained reconfiguration problem. The complete intrinsic-versus-ambient distance classification tells which pairs cannot use a shortest Johnson path and how many require one extra move; the local-edge rule and unique complement antipodes also distinguish the exchange geometry. These facts are useful beyond the known face census, for example as exact small benchmarks for constrained path-partition reconfiguration. No generalization beyond this graph is needed for that use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

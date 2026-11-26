@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:10:03.271857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel calculation (RESULT.md, lines 43–52) gives reciprocal circles centered at s=(1−r²)^−1 of radius R(s); the angle covers every point since m−1 is positive, and the denominator cannot vanish. Recomputing R′ and R″ gives R′²+RR″<α² by the positive tail of the expansion of (1−1/s)^−2(β−1); with D=1−R′²−RR″, the two contact derivatives are D and R′D/sqrt(1−R′²). At height y>0 the right branch covers from s_0=R^−1(y) to infinity in abscissa, while the left branch has derivative with the sign of Y(s)−y. Thus an attained interior minimum gives the entire closed slice, or a decreasing left branch with unattained limit gives the open slice. At y=0 the minimum is s=1. At α=1, R=s−β+β(β−1)/(2s)+O(s^−2) gives the claimed threshold; even at equality the derivative is strictly negative at every finite admissible s. The envelope slope is sqrt(1−R′²)/R′ and strictly decreases. At s=1+t, X−1 is asymptotic to t and Y to αt^β, so inversion gives the stated cusp with its coefficient. At α<1 the expansions give X−(sqrt(1−α²)/α)Y=β+O(s^−1). Inversion gives the limiting angles (at α=1 the limit is vertical) and maps x=β to the claimed diameter circle except for the zero endpoint, which comes only from infinity. All conclusions follow analytically; checker.py was inspected as a finite floating-point diagnostic and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In Bourdon–Le–Thompson Proposition 3.7, take n=m−1 and ψ(ζ)=aζ to obtain the circle description with interior inclusion. Theorem 3.11 and Remark 3.12 give a qualitative corner at 1. Resultary 59256d6d94a8, cataloged November 1, gives a sharp local width law for general superattracting symbols."
+        ],
+        "reasoning": "Proposition 3.7 does cover the symbols here and the basic range mechanism. It does not solve the global extremum or distinguish extremizers at finite s from limits at infinity. The later local law covers the leading monomial cusp as a special case but neither establishes earlier priority nor yields the global envelope.",
+        "searches": [
+          "arXiv:2610.17634v1, Proposition 3.7 and Theorem 3.11",
+          "Resultary: superattracting Hardy composition cusp width"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.17634v1",
+        "Resultary fbc1f1d02fd1",
+        "Resultary 59256d6d94a8",
+        "arXiv:2109.12095",
+        "arXiv:2302.12547"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Circle filling does not compute min_s(s−sqrt(R(s)^2−y²)); the corner theorem gives neither the leading coefficient nor the exponent. The older convexity work compares different symbol families or asks different questions."
+        ],
+        "reasoning": "The prior circle description is a starting point; finding and proving the unique minimizing contact locus, determining the threshold for escape of the minimizer, and handling equality there are additional steps, not direct consequences of a prior boundary formula.",
+        "searches": [
+          "arXiv:2610.17634v1, Proposition 3.7 and Theorem 3.11",
+          "arXiv:2109.12095, introduction",
+          "arXiv:2302.12547, introduction and stated scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 claim gives an exponent-independent circular lens and, at unit modulus, an open diameter disk plus 1. Its calculation uses λt at t=r², not λt^((m+1)/2). The disk has square-root width near 1; the proven m=2 width has exponent 3/2."
+        ],
+        "reasoning": "The same object and exact-range goal strongly overlap, but the two assertions disagree and the older kernel calculation identifies the error. A union of parameter circles is an implicit description, not the evaluated boundary or its ownership.",
+        "searches": [
+          "Resultary: reciprocal horns, monomial Berezin ranges, cusp laws and circle/preimage ranges",
+          "arXiv:2610.17634v1, Proposition 3.7",
+          "Resultary 2026/10/18, fbc1f1d02fd1, Finding and kernel calculation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-classification search identified the earlier circular-lens record fbc1f1d02fd1, which gives an incompatible range. The ranked same-day search identified no distinct exact match."
+        ],
+        "reasoning": "There is no natural finite table for these continuous ranges. The closest exact indexed classification was read and compared on the defining radial factor; it does not supply the same curve, even at m=2. Ranked search is not exhaustive.",
+        "searches": [
+          "Resultary ranked comparisons for the same-day monomial horn, missing arcs, and cusp law",
+          "Resultary: exact nonlinear monomial Berezin ranges"
+        ]
+      },
+      "rationale": "Credit the circle description and qualitative corner to prior results, including an exact specialization of Proposition 3.7. The distinct, verified contribution is the evaluated envelope with exact ownership at α=1, including the threshold, the sharp cusp law, and the far-field geometry. The closest earlier exact monomial range claim uses a wrong kernel factor and is not an equivalent result.",
+      "residual_risks": [
+        "A corrected earlier version of the circular-lens claim or an equivalent evaluated envelope under different terminology was not located; priority is not certified.",
+        "Exact retrieval of later Resultary 2f4349030bb4 timed out; a summary suggests additional local overlap, not evidence of an earlier evaluated global range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the circle/interior representation and qualitative cusp, not the evaluated envelope",
+          "evidence": [
+            "ψ(ζ)=aζ is nonconstant linear-fractional for a≠0. The corner theorem does not quantify the cusp."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17634v1",
+          "material_read": "PDF p. 14, Proposition 3.7; p. 19, Theorem 3.11 and Remark 3.12",
+          "method": "Specialize ψ and compare exact range formulations and strength of the local law",
+          "title": "Berezin Ranges of Composition Operators on H²",
+          "trigger": "Same operator and covered monomial symbol via a special case"
+        },
+        {
+          "assessment": "Not reliable coverage; the older statement is inconsistent with the kernel calculation",
+          "evidence": [
+            "Its factor λt for t=r² omits the power (m+1)/2."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, fbc1f1d02fd1",
+          "material_read": "RESULT.md, Finding and kernel calculation, offset 0 onward",
+          "method": "Compare the explicit ranges and recompute the radial factor from the Hardy kernel",
+          "title": "Circular-lens Berezin ranges of nonlinear monomial composition operators",
+          "trigger": "Earlier exact range claim for the same family"
+        },
+        {
+          "assessment": "Later overlap on the local law only",
+          "evidence": [
+            "Section heights are ±|a_m|δ^((m+1)/2)+O(δ^((m+2)/2))."
+          ],
+          "identifier_or_url": "Resultary 2026/11/01, 59256d6d94a8",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Set the leading Taylor coefficient equal to a and compare widths",
+          "title": "Sharp Berezin cusp width law for superattracting Hardy composition operators",
+          "trigger": "Broader evaluated local law"
+        },
+        {
+          "assessment": "Automorphism and convexity setting in inspected passages",
+          "evidence": [
+            "Composition-operator results are framed in terms of automorphic symbols and convexity, not an evaluated monomial horn."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.12095",
+          "material_read": "PDF p. 1, introduction and scope of composition-operator results",
+          "method": "Compare symbol hypotheses and invariant",
+          "title": "Convexity of the Berezin range",
+          "trigger": "Earlier geometric results for composition operators"
+        },
+        {
+          "assessment": "Different symbol families in inspected results",
+          "evidence": [
+            "Convexity results are described for elliptic and selected automorphic symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.12547",
+          "material_read": "PDF p. 2, account of results",
+          "method": "Compare symbol hypotheses and invariant",
+          "title": "Composition operators, convexity of their Berezin range and related questions",
+          "trigger": "Potentially covering older Berezin-range results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical monomial family tests the difference between a filled range, its closure and pointwise attainment. Knowing precisely where the left contact radius escapes at unit modulus, and hence which entire arcs (including endpoints) are missing after inversion, answers a question not settled by qualitative cusp or circle filling theorems. The cusp reads off the degree and modulus and the far-field description gives the limiting directions at zero. This is a useful complete range classification, not a resampling of the circles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:45:02.717457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–44; VERIFICATION.md; finite_betweenness_certificate.json; generate_certificate.py; verify_betweenness.py; verification_output.txt (frozen scripts not executed)",
+        "Independent replay: python /workspace/branches/fa0fe458-656c-47cd-ab76-d0eeab5e5bcf/independent_betweenness_enum.py; paired independent_betweenness_enum.log"
+      ],
+      "rationale": "An undirected labeled path induces strict order betweenness modulo reversal; its edges can be recovered as endpoint pairs with no vertex in between. Endpoints of a query may be reversed without effect. Independent exhaustive enumeration of the local truth tables and exact version-space recursion confirmed (VC,Ldim)=(0,0),(0,0),(1,1),(2,3),(4,5). In particular all 220 three-query supports at size four and all 142506 five-query supports at size five failed to shatter; heredity excludes all larger supports. For an arbitrary number of blocks with fixed supports, the VC lower and upper bounds are exactly the union and projection of shattered query sets. For the online upper bound any root of a positive-depth shattered subtree must have two nonempty branches and acts in exactly one local factor of the current product. At least one branch decreases that local factor's Littlestone dimension by at least one by the maximum-minimum splitting rule, while every other factor stays fixed. This bounds depth by the sum. Concatenating local trees attains the sum. Constant cross-block queries cannot assist either kind of shattering.",
+      "residual_risks": [
+        "Local enumeration covers sizes 1–5 only. Arbitrarily many blocks are handled by a product proof, not by extrapolating the finite enumeration. No claim for variable supports or larger block sizes is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue Finding extends the local Littlestone classification to eight labels and VC classification to six and states a general upper bound.",
+          "The hierarchical odd-one-out learner and abstract query-learning/compression results do not supply the same exact profiles in inspected passages."
+        ],
+        "reasoning": "The broader local result really specializes, since the strict total order hypotheses and binary query semantics coincide. In contrast, rooted hierarchical three-way labels would require a reduction that preserves the dimensions, not a parameter match.",
+        "searches": [
+          "Resultary 2026/11/2/…1e4f6396f49e Finding",
+          "arXiv:2302.04492v1 Introduction and Littlestone discussion",
+          "arXiv:2310.04812v1 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/2/…1e4f6396f49e",
+        "arXiv:2004.10127v4",
+        "arXiv:2302.04492v1",
+        "arXiv:2310.04812v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All local inputs are in the indexed table; the frozen text explicitly identifies dimension additivity as general background. A four-label factor gives the exact gap of one."
+        ],
+        "reasoning": "VC projection and union, and online tree concatenation plus splitting-potential summation, give the dimensions for any disjoint product of such factors. m independent four-label factors immediately give gap m. The product formulation requires no new local exact fact or handling of variable supports.",
+        "searches": [
+          "Resultary …1e4f6396f49e Finding and exact table",
+          "Frozen RESULT.md Proof §3 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reading labels along a path gives a strict total order up to reversal. The mirror Finding for …1e4f6396f49e uses this order concept class and identical unordered-endpoint Boolean queries.",
+          "Courcelle supplies the same path relation in a structural/logical setting, not a matching dimension statement in the inspected passage."
+        ],
+        "reasoning": "Modulo reversal these are the same single-block concepts, not just related order-learning tasks. A miss in literature search is not evidence of novelty.",
+        "searches": [
+          "Resultary 2026/11/2/…1e4f6396f49e, sharp adaptive betweenness shattering",
+          "arXiv:2004.10127v4",
+          "Web query: betweenness Littlestone dimension VC dimension ternary path shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table gives rows n=3,4,5 with (1,1),(2,3),(4,5), and the Finding explicitly calls n=4 the first static/adaptive separation."
+        ],
+        "reasoning": "Match the objects as well as the numbers. Sizes one and two have no ternary queries and do not constitute missing table information.",
+        "searches": [
+          "Resultary 2026/11/2/…1e4f6396f49e exact dimension table, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "A distinct Resultary result (…1e4f6396f49e) states all the nontrivial local values, on exactly the same ternary query concept class, and the four-label static/adaptive threshold. It also extends the dimensions to larger single-block sizes. The forest formulas combine these values by ordinary additivity over disjoint independent query domains, which the frozen record does not claim to invent. Thus the formula and unbounded-gap corollary are covered by direct product implication. This comparison does not infer priority from dates.",
+      "residual_risks": [
+        "The closest catalogue record is dated November 2, 2026, later than the October 26, 2026 frozen record label. The verdict is about scientific equivalence and implication, not temporal or authorial priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local coverage and direct product implication",
+          "evidence": "Same Boolean triple query, exact rows through size five, explicit first separation at size four, and extensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-adaptive-betweenness-shattering-dimensions-through-eight-l--1e4f6396f49e/RESULT.md",
+          "material_read": "Finding, dimension table, assumptions; offset 0, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror text and concept-class equivalence proof",
+          "title": "Sharp adaptive betweenness-shattering dimensions through eight labels",
+          "trigger": "Same predicate, exact local dimensions and threshold"
+        },
+        {
+          "assessment": "Structural precedent without a covering dimension statement in inspected material",
+          "evidence": "Ternary path membership in structural and logical axiomatization.",
+          "identifier_or_url": "https://arxiv.org/html/2004.10127v4",
+          "material_read": "Abstract, offsets 0–1389; term locations checked",
+          "method": "OA HTML",
+          "title": "Axiomatizations of betweenness in order-theoretic trees",
+          "trigger": "Same path-betweenness relation on trees"
+        },
+        {
+          "assessment": "Different query semantics",
+          "evidence": "Rooted hierarchical odd-one-out labels and Θ(n log n) dimension for that model.",
+          "identifier_or_url": "https://arxiv.org/html/2302.04492v1",
+          "material_read": "Introduction offsets 1900–3580; Littlestone discussion offsets 11750–13780",
+          "method": "OA HTML primary passages",
+          "title": "Tree Learning: Optimal Sample Complexity and Algorithms",
+          "trigger": "Triplet tree queries and exact learning dimensions"
+        },
+        {
+          "assessment": "Background only in inspected passages",
+          "evidence": "General query-learning and compression, not an exact ternary path dimension calculation.",
+          "identifier_or_url": "https://arxiv.org/html/2310.04812v1",
+          "material_read": "Abstract and introduction, offsets 0–1601; betweenness lookup",
+          "method": "OA HTML primary passages",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "General query-learning dimension theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–20 and 39–41",
+        "Resultary …1e4f6396f49e, Finding and table"
+      ],
+      "rationale": "The first separation is a motivated exact benchmark, but it and the small-block profiles are already covered. After removing those, the new presentation consists only of a Cartesian product over prescribed supports with no coupling between local learning problems. The unbounded gap is immediate multiplication of the same covered four-label gap, not a surviving structural result.",
+      "residual_risks": [
+        "No assessment is made of the unconstrained forest class where a query might convey component-membership information; it is outside the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

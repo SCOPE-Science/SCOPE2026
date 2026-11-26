@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:33:31.472133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The season generators implement exactly the conservative uniform clockwise cycle and the isolated-patch averages are (-1/2,-5,-1/2,-9/2). Each exponential is strictly positive for T>0 by the directed paths in powers of the nonnegative shifted generator. Shifting by 16I gives H(T)=exp(16T)M(T). For each scaled generator the max row sum is at most 144/5; the k=81 scalar Taylor term divided by 1-r/82 therefore bounds each entry of the omitted tail. Positivity permits ordered multiplication of the entrywise bounds. A fresh exact Fraction replay at /workspace/branches/03d20474-ccd7-4f85-a58b-b7be5e0da5f1/independent_certificate.py confirmed the componentwise Perron certificates: rho(H(2/5))<263, 7.5e9<rho(H(8/5))<8e9, and rho(H(16/5))<5.5e19. Since 263^4<7.5e9 and (7.5e9)^2>5.5e19, the period ratios 4 and 2 give the stated strict interior high value. Independent scalar Taylor lower bounds on exp(16T) exceed the corresponding Perron upper thresholds, proving negativity at those three periods only. One constant season has exponent equal to the generator's spectral abscissa independently of T; no patch-minimality claim is tested. The frozen checker and notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The papers establish or acknowledge failure of general monotonicity for directed cycles; the example described in §4.2 matches seasons to patches, with d=3 in Fig. 4.",
+          "The catalogue's minimality discussion is for a wider class allowing unequal rates."
+        ],
+        "reasoning": "Existence in the broader asymmetric class and in the three-season uniform subclass does not establish existence in the intersection of the uniform-rate and two-season subclasses.",
+        "searches": [
+          "arXiv:2408.11179v1 §4.2",
+          "arXiv:2407.07553v2 introduction",
+          "Resultary c0a5c849bd97 Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c0a5c849bd97",
+        "arXiv:2408.11179v1",
+        "arXiv:2407.07553v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both prior comparisons are attached to their own coefficients and regime. The catalogue already uses shifted generators, Taylor enclosure and Collatz–Wielandt."
+        ],
+        "reasoning": "The proof machinery and broad counterexample are covered. Neither forces an interior high value for a two-season uniform clockwise cycle with isolated sinks; the bound inequalities for the new witness do that.",
+        "searches": [
+          "arXiv:2408.11179v1 §4.2",
+          "Resultary c0a5c849bd97 proof steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior uniform directed-cycle example uses three seasons on three patches.",
+          "c0a5c849bd97 uses two equal seasons but cycle rates 12,2,2; isolated averages are -1/2,3/2,9/2. It certifies Lambda(2)>Lambda(8)."
+        ],
+        "reasoning": "Population extinction here means negative principal growth exponent at the test periods. Relabeling seasons or patches and scaling time cannot change the number of distinct environmental states or make rates 12,2,2 uniform.",
+        "searches": [
+          "Resultary semantic search for exact two-season directed-cycle Floquet nonmonotonic growth",
+          "arXiv:2408.11179v1 §4.2 and Fig. 4",
+          "Resultary c0a5c849bd97 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue uses different exact generators, durations of the tested periods, and nonuniform migration. The paper's explicit example uses three states."
+        ],
+        "reasoning": "Neither supplies the four-patch uniform all-sinks witness or its two opposite comparisons.",
+        "searches": [
+          "Resultary semantic search; exact leading record c0a5c849bd97",
+          "arXiv:2408.11179v1 Fig. 4 example"
+        ]
+      },
+      "rationale": "Pass the simultaneous uniform-cycle, two equal seasons, isolated-sinks witness with both directions certified at three periods, not generic failure of monotonicity or the rational Perron technique. A closely matching catalogued two-season failure of nondecreasingness uses nonuniform rates, is not all isolated sinks as stated, and its displayed comparison is in one direction only. Calendar order is not used as a coverage test.",
+      "residual_risks": [
+        "The targeted literature search produced no stronger usable match; it was not exhaustive. No priority claim for two seasons in the wider asymmetric class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers broad nonmonotonicity, not the two-season uniform witness",
+          "evidence": "Unit-rate d-patch directed cycle with d environmental states; Fig. 4 takes d=3.",
+          "identifier_or_url": "https://arxiv.org/html/2408.11179v1",
+          "material_read": "§4.2 and Fig. 4 discussion, HTML offsets about 49000 and 51000",
+          "method": "OA passage inspection",
+          "title": "Impacts of Tempo and Mode of Environmental Fluctuations on Population Growth",
+          "trigger": "Cited uniform directed-cycle nonmonotonicity"
+        },
+        {
+          "assessment": "Confirms prior refutation in the wider class",
+          "evidence": "Credits Monmarché–Schreiber–Strickler for the counterexample.",
+          "identifier_or_url": "https://arxiv.org/html/2407.07553v2",
+          "material_read": "Introduction, HTML offset about 8351",
+          "method": "OA passage inspection",
+          "title": "Dispersal-induced growth or decay in a time-periodic environment",
+          "trigger": "Follow-up on the monotonicity question"
+        },
+        {
+          "assessment": "Covers failure of nondecreasingness under two equal seasons and the same proof method, not the simultaneous constraints and strict three-period ordering",
+          "evidence": "Migration has rates 12,2,2 and the proof certifies Lambda(2)>Lambda(8).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-two-season-nonmonotonic-growth-in-a-minimal-three-patch-me--c0a5c849bd97/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–2, mirror offsets 0–3627",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Exact two-season nonmonotonic growth in a minimal three-patch metapopulation",
+          "trigger": "Strongest indexed two-season exact overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a witness at a natural control boundary: minimal number of seasonal states even when the migration rates are forced equal, while all isolated patches are sinks. The exact interior increase and decrease at negative exponents show that period can change the rate of extinction nonmonotonically without any of the three comparisons being a persistence switch. That constrained counterexample is useful independently of a classification or a minimal patch count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

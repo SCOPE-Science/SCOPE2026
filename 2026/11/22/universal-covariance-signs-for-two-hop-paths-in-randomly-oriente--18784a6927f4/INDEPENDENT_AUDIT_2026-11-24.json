@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:25:58.458521Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For paths of one or two edges let s=p/2, A=1−s, q=1−s². Complementing both indicators preserves covariance; the common failure marginal is Aq^(n−2). Each external vertex contributes a factor independent of the others and of endpoint edges: 1−2s² for reverse/chain (opposite arc demands), 1−2s²+s³ for a fork (one shared arc), q² for disjoint requests. Endpoint reverse failure requires no edge; a fork needs just its two direct failures. For the chain, conditioning on the two direct failures makes the two interior witnesses have probabilities s²/A each and overlap s³/A², giving endpoint factor A²−2As²+s³. For the disjoint case the two direct failures leave four candidate two-step paths; two witness pairs conflict, two have probability s³ and two have probability s⁴, and every triple contains a conflicting pair. Its endpoint factor is A²(1−4s²+2s³+2s⁴). The chain deficit relative to A²q² is s³[1−2s+s(1−s)²]>0; the disjoint conditional surplus relative to q⁴ is s³[2(1−2s)+s³(4−s²)]>0. Reverse strictness follows from 1−2s<A², and fork strictness already holds on three endpoints (q<1). These checks cover the minimum vertex counts and p=1; p=0 is degenerate and identical requests have positive variance for p>0. Independently counted all orientations/absences for n=2,3,4,5 using adjacency bit sets and integer counts by number of edges, and compared joint laws and signs at p=0,1/9,1/2,5/7,1: python /workspace/branches/twohop_replay.py (3, 27, 729, 59049 configurations respectively). This is corroboration, not the all-order argument. Theorem 2.1 of Alm–Janson–Linusson establishes the stated unrestricted asymptotic contrast, including fixed p=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Narayanan gives same-source unrestricted positive association for independent orientations on a fixed graph; Leander–Linusson give unrestricted disjoint-endpoint positive correlation for tournaments and large binomial/fixed-count graphs; Alm–Janson–Linusson give an unrestricted asymptotic chain theorem."
+        ],
+        "reasoning": "Those results have broad graph or density hypotheses but lack the required two-step event restriction; monotonicity of the individual events as the path horizon increases does not transfer covariance signs.",
+        "searches": [
+          "Narayanan arXiv:1609.01003v2 Theorem 1.1",
+          "Leander–Linusson arXiv:1303.3961v2 page 1",
+          "Alm–Janson–Linusson arXiv:0906.0720v2 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; read-only inspection of check.py",
+        "Local Resultary exact match 18784a6927f4 and related 85bdb53849a3, b3fab112a807",
+        "arXiv:0906.0720v2",
+        "arXiv:1303.3961v2",
+        "arXiv:1609.01003v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 yields positive unrestricted chain covariance for fixed p>1/2 at sufficiently large n; its relative limit (2p−1)/3 does not settle p=1/2.",
+          "The earlier K_{2,n} same-source result and fixed-host unrestricted association are partial analogues, not implications of the other four finite signs."
+        ],
+        "reasoning": "Only the unrestricted half of the horizon contrast is inherited; the uniformly negative finite chain covariance supplies the other half and is incompatible with simply transferring the prior sign.",
+        "searches": [
+          "arXiv:0906.0720v2 Theorem 2.1, HTML offset 11895",
+          "arXiv:1609.01003v2 Theorem 1.1",
+          "Resultary b3fab112a807 equation (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed 18784a6927f4 hit is this record; the distinct 85bdb53849a3 counts sources and exactly length-two paths, while b3fab112a807 gives rooted same-source probabilities in K_{2,n}.",
+          "Alm–Janson–Linusson's failure events are simultaneous complements of the reachability indicators but have unrestricted horizon."
+        ],
+        "reasoning": "Complementation, simultaneous reversal and relabeling do not bridge a change of horizon, counted observable, or host law.",
+        "searches": [
+          "Local Resultary: two-hop reachability covariance and oriented graphs; biased biclique path counts and directed reachability",
+          "arXiv:0906.0720v2 Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned item itself. The distinct catalogue files have different statistics or host graphs; the cited unrestricted disjoint result does not give the five-type finite law."
+        ],
+        "reasoning": "No distinct inspected table supplies the endpoint polynomials or ordered request-type signs for all admissible n and p.",
+        "searches": [
+          "Local Resultary comparisons: 18784a6927f4, 85bdb53849a3, b3fab112a807",
+          "Leander–Linusson arXiv:1303.3961v2 page 1"
+        ]
+      },
+      "rationale": "The evidence distinguishes the exact annealed classification for reachability in at most two steps from both unrestricted small-subgraph correlation theorems and biased biclique count results. No examined distinct result supplies the finite all-order sign pattern or its polynomial joint laws. The positive unrestricted side of the contrast is explicitly prior work.",
+      "residual_risks": [
+        "Bounded priority search; one focused general primary-literature lookup returned no results, which is not evidence of absence. Unindexed exact finite-horizon work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observables and host",
+          "evidence": "Covariance of source count and exactly two-step path count in biased K_{2,b}.",
+          "identifier_or_url": "2026/11/8/SCOPE-reentrant-source-two-step-path-covariance-in-biased-biclique-ori--85bdb53849a3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original",
+          "title": "Reentrant source two-step path covariance in biased biclique orientations",
+          "trigger": "Two-step covariance match"
+        },
+        {
+          "assessment": "Narrow analogue only",
+          "evidence": "Positive rooted same-source reachability covariance on the biased biclique.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-signed-binomial-correction-for-directed-reachability-on-k-2-n--b3fab112a807",
+          "material_read": "RESULT.md Finding and equation (5)",
+          "method": "Local mirror original",
+          "title": "A signed binomial correction for directed reachability on K_{2,n}",
+          "trigger": "Same-source reachability covariance"
+        },
+        {
+          "assessment": "Covers unrestricted asymptotic comparison, not two-hop finite law",
+          "evidence": "Fixed p in (0,1]; relative chain covariance tends to (2p−1)/3, giving strict eventual sign away from p=1/2.",
+          "identifier_or_url": "https://arxiv.org/html/0906.0720v2",
+          "material_read": "Theorem 2.1, HTML offset 11895",
+          "method": "OA original HTML",
+          "title": "Correlations for paths in random orientations of G(n,p) and G(n,m)",
+          "trigger": "Same annealed model and chain sign"
+        },
+        {
+          "assessment": "Disjoint unrestricted comparison",
+          "evidence": "Four distinct endpoints, unrestricted reachability, positive in random tournaments and in sufficiently large oriented G(n,p), G(n,m).",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3961",
+          "material_read": "Page 1, abstract and event setup",
+          "method": "OA PDF",
+          "title": "Correlation of paths between distinct vertices in a randomly oriented graph",
+          "trigger": "Disjoint request positives in related ensembles"
+        },
+        {
+          "assessment": "Unrestricted correlation, not the bounded-horizon result",
+          "evidence": "Unrestricted common-source reachability events on a fixed host with independent biases satisfy the non-strict positive-association inequality.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.01003",
+          "material_read": "Page 1, Theorem 1.1",
+          "method": "OA PDF",
+          "title": "Connections in randomly oriented graphs",
+          "trigger": "Broader fixed-host common-source correlation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The five symmetry classes form a natural complete classification, with exact probabilities as well as strict signs down to the smallest allowed order. The all-density negative chain law gives a specific threshold-horizon contrast with the known unrestricted result: short competing witnesses are insufficient for the positive high-density correlation. No priority or value is claimed for the unrestricted theorem itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

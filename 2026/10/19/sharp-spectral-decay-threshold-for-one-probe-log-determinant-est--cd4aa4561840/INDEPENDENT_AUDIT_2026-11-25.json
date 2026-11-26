@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:48:02.751087Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired power-law claim take L>0 and p>1: e^{a_j}−1≤e^L a_j ensures trace class. The residual is a sum of independent real Gaussian squares, finite almost surely by the finite expectation, and its centered version converges in L². The exact risk is 2L²/N times the j^{−2p} tail. Integral upper and lower bounds at k and k+1 give the same B^{2p}-scaled objective uniformly in k/B on interior compact sets. The lower bound alone gives divergence at both endpoints, including bounded or zero deflation rank and bounded or sublinear probe counts. The admissible spacing c/B lets a sequence approach the unique minimizer x=(2p−1)/(2p) of x^{1−2p}/(1−x); every discrete minimizer approaches it. Evaluating there gives the repaired leading constant and the claimed probe budget share; holding N fixed gives the stated slower rate. The proof is self-contained in the repaired RESULT.md and does not rely on the inspected but unrun frozen script. The rejected threshold is mathematically supported by tail shifting and the geometric witness; its rejection is for coverage, not falsity. The original strictness argument with trailing zeros can use the last positive coefficient as the effective tail endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier theorem holds for nonincreasing nonnegative weights in finite dimension n≥B≥2m. It gives single crossing but no minimizing allocation fraction or limiting risk for polynomial weights. Later look-ahead regret hit 2026/11/22/SCOPE-unbounded-oracle-look-ahead-regret-in-gaussian-log-determinant-b--98b88ae517dd was compared only at catalogue level: its stated witnesses use two levels at specific look-ahead fractions, not asymptotic optimal planning for trace-class power-law operators."
+        ],
+        "reasoning": "At fixed B the finite theorem can be applied along larger truncations, but this is not a uniform localization estimate in B. The repaired theorem determines the optimizer and risk at the simultaneous growing deflation and sampling scales, which the general shape of the objective alone does not determine.",
+        "searches": [
+          "Earlier Resultary single-crossing record, assumptions and theorem",
+          "Configured Resultary query: Exact Gaussian trace log determinant ideal eigenpair deflation under fixed budget k+cN power law log-eigenvalues polynomial tails regular variation optimal probe fraction N/B=1/(2pc) asymptotic optimal risk"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–126 and frozen verification/support, inspected without executing",
+        "Corrected RESULT.md and VERIFICATION.md under repairs/3",
+        "Earlier Resultary single-crossing result through the mirror",
+        "Cortinovis–Toni, section 2",
+        "Configured Resultary search specific to the repaired power-law asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem: F₁≤F₂ iff one probe is globally optimal. Pad the spectrum with zeros if necessary to meet n≥B, and use w_{j+c}≤q^{2c}w_j to get F₁≤2q^{2c}F₂. Thus q^{2c}≤1/2 suffices under the prior theorem. The earlier geometric finite criterion yields strict failure above that constant for sufficiently large finite dimension at B=2c. The earlier sources do not give the polynomial budget limit."
+        ],
+        "reasoning": "The frozen headline threshold is mechanically implied despite its different wording. For the repaired claim, even a finite adjacent-risk criterion would need additional tail and block asymptotics, exclusion of endpoint splits, and evaluation of the limiting risk. The proof gives those estimates directly uniformly over the competing asymptotic splits; it does not claim the Gaussian risk identity or the single-crossing argument as new.",
+        "searches": [
+          "Earlier single-crossing RESULT.md, offsets 0–4907 and 4907–8451",
+          "Cortinovis–Toni PDF pp. 3–4, exact risk and allocation comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record has cost m=c and uses w_j=a_j², so its geometric ratio is the square of the frozen ratio. The exact risk is the same after this change of variable. Its geometric optimizer and finite limiting threshold are therefore already covered."
+        ],
+        "reasoning": "The repaired claim does not restate the same allocation in alternative notation. Its power-law tails are not geometric, and the optimal probe count diverges linearly with B instead of remaining bounded for each fixed geometric ratio.",
+        "searches": [
+          "Earlier Resultary single-crossing record, Finding and geometric specialization",
+          "Cortinovis–Toni, arXiv:2601.05778v1, section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact geometric optimizer and q^m≤1/2 limit appear in the earlier record; no polynomial asymptotic was found in the inspected result or among the ranked catalogue comparisons."
+        ],
+        "reasoning": "The geometric criterion resolves the frozen finite witness as B=2c and dimension tends to infinity. It does not tabulate either the repaired fraction 1/(2pc) or the corresponding optimal B^{-2p} risk coefficient. Ranked search does not establish absence elsewhere.",
+        "searches": [
+          "Configured Resultary search for power-law/regular-variation ideal Gaussian deflation and optimal probe fraction",
+          "Earlier single-crossing RESULT.md, offsets 4907–8451"
+        ]
+      },
+      "rationale": "Originality FAIL for the frozen headline and geometric claims: an earlier Resultary theorem on the same exact risk makes the sharp uniform threshold a direct corollary, and its geometric allocation law is the same under reparameterization. The corrected files remove these claims. PASS is for the distinct power-law asymptotic of every exact optimal budget split and its leading risk; the inspected exact finite criterion and primary risk comparison do not themselves furnish this interior large-budget limit.",
+      "residual_risks": [
+        "Searches for the exact power-law cost split were bounded. Follow-up OA term retrieval for polynomial tails and a spectral-decay passage in XTrace did not complete, so no whole-paper negative comparison is asserted.",
+        "An equivalent allocation asymptotic for more general regularly varying tails could subsume the power-law claim if present outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial deterministic coverage of the frozen headline; not the repaired power-law limit",
+          "evidence": "For ordered squared log-eigenvalues w_j, uses k_N=B−mN and F_N=2Σ_{j>k_N}w_j/N. One probe is globally optimal iff no worse than two. Geometric finite criterion q^{-m}+q^{n-B+m}≥2 and limiting threshold q^m≤1/2 use the squared log-eigenvalue ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-single-crossing-optimality-of-gaussian-probe-allocation-after-id--63138f0a4092/RESULT.md",
+          "material_read": "Finding and proof offsets 0–4907; geometric limit, optimizer and limitations offsets 4907–8451",
+          "method": "Configured Resultary search and local mirror text",
+          "title": "Single-crossing optimality of Gaussian probe allocation after ideal spectral deflation",
+          "trigger": "Same estimator, same cost budget, exact criterion and geometric threshold"
+        },
+        {
+          "assessment": "Prior risk framework and pairwise optimization; no power-law interior budget limit in inspected passages",
+          "evidence": "Gives ideal one-sample and multi-probe risks and compares one probe against a fixed mixed allocation. Repaired work cites the section rather than reusing the frozen equation numbering.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.05778v1",
+          "material_read": "Section 2, PDF pp. 3–4, offsets 13300 and 16400; retrieved PDF equations (2.4), (2.6), (2.7)",
+          "method": "Lawful OA PDF, bounded passage inspection",
+          "title": "Preconditioned Log-Determinant Approximation: One Gaussian Probe Vector Is Almost Always Enough",
+          "trigger": "Primary ideal exact Gaussian deflation variance and same allocation question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result identifies a regime where spending essentially all growing budget on exact deflation and using a bounded number of probes is asymptotically suboptimal by a factor of order B. It quantifies the unique limiting split and the optimal leading error for a canonical slow spectral decay, a meaningful contrast to the known geometric allocation law. The endpoint analysis makes the conclusion about true integer optimizers rather than just a stationary point of a continuous relaxation. It has no claimed transfer to approximate randomized deflation or Lanczos.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

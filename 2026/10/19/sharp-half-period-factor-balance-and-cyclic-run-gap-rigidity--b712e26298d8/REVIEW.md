@@ -1,15 +1,21 @@
-# Scientific review: sharp half-period factor balance
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified over every primitive nonconstant period and every finite comparison factor. The circular start-residue reduction preserves overlapping occurrences exactly. The circular arc counting inequality gives the sharp upper bound; its four small parity cases yield a necessary-and-sufficient single-interval extremality criterion. Two consecutive occurrence starts force a monochromatic pattern when the half-period is at least two, translating interval extremality into the run-gap inequality. Periods two and three are handled directly. Separate brute-force computations verify 974 binary and 3222 ternary primitive periods and independently count pattern occurrences in comparison windows. The finite checks corroborate but do not replace the infinite proof.
+## correctness
 
-## Originality — PASS within searched evidence
-The closest 2026 primary paper on factor-balancedness states general boundedness criteria but not the explicit sharp period-only constant or the equality iff run-gap classification. Adamczewski's earlier substitutive-word theory supplies background, not an identified equivalent extremal result. Searches for periodic uniform factor balance, circular-window discrepancy and run-gap extremizers, plus comparison with accessible earlier claims, produced no matching or dominating theorem. Residual risk: this short cyclic combinatorial inequality may be recorded in older or differently worded literature; novelty has not been independently certified.
+PASS
 
-## Value — PASS
-Uniform factor-balancedness is measured by an optimal worst-case count difference across every possible tested factor and every window size. The result gives the best possible universal conversion from primitive period length to this intrinsic invariant, and classifies **all** extremal words by a simple cyclic run-length gap. It is not a recomputation of finite examples: it is a complete all-alphabet, all-period structural extremal theorem that separates the sharp and nonsharp cases without factor enumeration. It provides a calibrated periodic benchmark for quantitative factor-balancedness.
+For a nonempty pattern the relevant window has L-|v|+1 possible starts when L>=|v|, including overlaps. Complete periods contribute the same count; the residual arc of length r has range at most min(r,p-r,t,p-t) for t occurrence residues. Reaching k=floor(p/2) forces t and r into {k,p-k}; for every even or odd case a maximizing arc must be exactly the starts or a minimizing arc exactly their complement, and a block of either permitted size attains the bound. For k>=2 adjacent starts force a one-letter power, and its start block comes from a single cyclic run, with the second run too short to contribute. Conversely c^(R1-k+1) realizes a start block of size k when the run gap is at least k. The singleton-letter argument covers p=2,3. A two-run word is primitive by its single cyclic 0-to-1 transition. The proof covers all pattern lengths. In line 33 'exceeds' should read 'is at least'; even equal runs are covered by the displayed non-strict criterion, so this wording does not invalidate the theorem. Independent direct overlapping-window counts passed for 1508 primitive binary/ternary periods (replay: python /workspace/branches/independent_replay.py 2); these finite checks are not the proof. The frozen checker and output were inspected, not executed.
 
-## Scope and residual limitations
-There is no claimed exact constant for nonextremal periodic words or for arbitrary eventually periodic words. Related older cyclic-discrepancy formulations could potentially contain an equivalent inequality or corollary. Independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the sharp universal bound and full run-gap classification, not for qualitative periodic boundedness or the definition of factor balance. The closest actual claims concern sufficient boundedness criteria or different cyclic discrepancies. They do not supply the asserted optimal constant or its two-way rigidity statement.
+
+## value
+
+PASS
+
+Uniform factor balance is an established invariant. The theorem makes least period a calibrated sharp benchmark across alphabets and gives a direct cyclic-run test for exactly when no smaller uniform constant works. The classification applies even though the definition ranges over all lengths and patterns; it is stronger than a routine proof that a periodic word is uniformly factor-balanced.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

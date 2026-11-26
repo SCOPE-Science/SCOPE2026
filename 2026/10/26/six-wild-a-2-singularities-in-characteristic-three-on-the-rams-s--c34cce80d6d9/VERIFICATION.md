@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and scope of checks
+# Independent mathematical audit
 
-Run `python3 verify_z3.py` using only a standard Python 3 interpreter. The verifier implements the field \(\mathbb F_{27}=\mathbb F_3[t]/(t^3-t-1)\), enumerates all projective points and evaluates the homogeneous quartic and four characteristic-three gradient polynomials. It checks exactly six geometric singular points over this field, three in each coordinate plane, their non-rationality over \(\mathbb F_3\), the two Artin–Schreier cubics, and the nonzero local coordinate Jacobians. It also tests the displayed polynomial identities on \(\mathbb F_3\) inputs.
+## correctness
 
-For the infinite-field assertion, the independent mathematical steps required are: (i) \(F_x=yq\), \(F_y=xq\), so outside \(q=0\) singularity would require a multiple root of \(g\); (ii) at \(q=0\), division of \(F-w^3\) by the transverse coordinate \(s\) gives \(H\); (iii) separability of the monic \(P_r=H(0,X,0)\) yields exactly three singular points per root and an invertible completed coordinate change; (iv) \(F=s\xi+w^3\) implies the Jacobian singular algebra \(k[[w]]/(w^3)\) in characteristic \(3\). The finite-field program does not replace steps (i)–(iv), nor does it test the full parameter family.
+PASS
 
-Observed output:
+In characteristic 3 the x and y derivatives are yq and xq. On the base line u=v=0 the other derivatives are x^3 and y^3, so no point there is singular. Off the base line and q=0, a singular point would require x=y=0 and a multiple projective zero of g. In a chart at a simple root r of q, write s=t-r and w=ax+y+b. The restriction is w^3, and the coefficient of s on w=0 is exactly the stated monic P_r; the other derivatives vanish at s=w=0, giving three singular points per root. The same argument works with the variables reversed and covers infinity. Since P_r' is nonzero at each root, replacing x by H=(F-w^3)/s gives an invertible formal coordinate change there. Thus the exact completed equation is sξ+w^3, and the hypersurface Fitting ideal is (s,ξ) in its coordinate ring, giving the length-three local algebra and length 18 total. Blowing up this model at the origin gives smooth charts (for example in the w chart the strict transform is s'ξ'+w=0) and two transverse exceptional lines; discrepancy is zero by ambient adjunction and multiplicity two. These are the A2 rational double points also in characteristic 3. Finite singular support excludes both intersecting hypersurface components and multiplicities; S2 and R1 give normality. Quartic adjunction and the hypersurface exact sequence give trivial canonical bundle and H^1(O)=0, preserved on the crepant resolution by rationality of the singularities. Independently expanding the two example charts gives the two cubics T^3-T+2 and T^3-T+1. The quartic has derivative (t-1)^3, value 2 at 1, and nonzero value at infinity. Both cubics are separable with no F3 root; Frobenius acts on their roots by translation by 1 and 2 respectively. This verifies the witness and the two orbits directly, without inferring geometric support from an F27 census. Separability is open by the discriminant on the simple root cover and its purely inseparable base change. No all-degenerations or smooth-characteristic line characterization is claimed.
 
-`VERIFY_OK: exact gradient witness and F27 singular support, local normal-form identities, 6 points / 2 Frobenius triples; each wild A2 Jacobian scheme length 3`
+## originality
 
-No independent audit has been performed.
+PASS
+
+Credit the equation, standard A2 local and resolution theory, and the known triple-line fiber pattern. The supported distinct contribution is to classify the actual singular points and their Fitting schemes on this coefficientwise characteristic-three specialization under the stated open conditions. A later record contains substantial geometric overlap but is not earlier coverage.
+
+## value
+
+PASS
+
+The classical equation comes from a family whose source expressly excludes characteristic three. A concrete open-locus classification in that omitted characteristic gives both the resolved K3 configuration and the embedded distinction between six geometric points and length eighteen. This is useful for recognizing the bad-characteristic specialization and interpreting a Jacobian scheme, beyond a single quartic census or a general A2 derivative observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

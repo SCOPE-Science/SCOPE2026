@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:14:01.235468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every feasible loading, positive definiteness follows from a>0. For fixed hub load, let the comparison matrix have the mean load on every leaf. Its extreme eigenvectors can be chosen in the hub/uniform-leaf space: the symmetric 2-by-2 quotient eigenvalues strictly straddle the repeated leaf diagonal (the quotient characteristic polynomial evaluated there is -m). Each such vector has exactly the same Rayleigh value on the original loading. The bottom eigenvector has a nonzero uniform leaf coordinate, so equality in the minimum Rayleigh bound forces every original leaf load to equal its mean, by the leaf equations. This proves strict improvement for every asymmetric loading, not just existence of a symmetric minimizer. Put D=m-1+B-(m+1)x and K=a(m+1)+2m+B. The quotient trace is (2K+(m-1)D)/(m+1); the derivative of (D²+4m)/trace² in D has the sign of 2KD-4m(m-1) throughout the feasible interval. This recovers the stated x_free and its one-sided clipping, with x_free>0. At x=B/m the zero of that derivative yields B²+[a(m+1)+3m-m²]B-am(m-1)(m+1)=0, with exactly one positive root. At equality the unique optimum still has zero hub load, and B=0 is a singleton. The exact example gives B_c=1 and, at B=2, loads (8/27,23/27,23/27). The proof relies on neither a grid nor an eigensolver. VERIFICATION.md and verify.py were inspected only; the frozen package's optional replay path is python3 verify.py from its directory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greif–Varah eq. (1.1) permits free rank-k UV^T and the introduction notes possible nonuniqueness. For the current affine family a trial condition bound t admits the generic LMI test sI ≤ A(d) ≤ tsI for s>0. The frozen comparison attributes such convex optimization methodology to Lu–Pong; independent access to that article's body was unavailable."
+        ],
+        "reasoning": "Unconstrained matrix updates may not lie in the fixed trace nonnegative diagonal simplex. A feasibility representation covers numerical solvability but does not itself determine the analytic optimum, uniqueness, or support transition.",
+        "searches": [
+          "Greif–Varah DOI:10.1137/050647554, eq. (1.1)",
+          "Lu–Pong DOI:10.1137/100795097 and cited author-text route"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, AUDIT.json",
+        "DOI:10.1137/050647554",
+        "DOI:10.1137/100795097 (access limited)",
+        "PMLR 32 kurras14",
+        "arXiv:2209.00809",
+        "Resultary a2818e5de4a3, bd015dfc5cdd, 2a376f6167cd, d350c417a5ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path has a reflection-symmetric endpoint-only to interior-loading threshold, but for four sites it is not K_{1,m} for any m in scope. The A-optimal star minimizes tr[(L+diag(g))^-1] and reports a positive–zero–positive hub pattern, not minimizing the ratio of the extremes."
+        ],
+        "reasoning": "Neither overlapping statement implies this optimizer on its unrestricted star simplex or its one positive activation boundary.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-a-sharp-endpoint-to-interior-loading-transition-for-spectral-con--a2818e5de4a3",
+          "Resultary 2026/11/22/SCOPE-reentrant-hub-grounding-in-a-optimal-noisy-star-consensus--bd015dfc5cdd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qu et al. p. 1 studies row and column scaling; Resultary 2026/11/2/SCOPE-sharp-dimension-dependent-diagonal-scaling-of-one-hub-equicorrel--2a376f6167cd uses DAD, not an additive diagonal. Kurras et al. pp. 1–2 reweight graph geometry and modify a normalized, not positively shifted combinatorial, Laplacian."
+        ],
+        "reasoning": "Congruence changes off-diagonal conductances, whereas these vertex loads leave every off-diagonal fixed; the normalized geometric operator has a different construction and objective. One cannot recover the additive simplex result by renaming either control.",
+        "searches": [
+          "Resultary: fixed-budget diagonal loading, star Laplacian condition number and positive hub activation",
+          "Qu et al., arXiv:2209.00809",
+          "Kurras et al., PMLR 32 (2014)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned hit 7eae57d4d0a9 is the same record. Distinct local-mirror matches a2818e5de4a3 and bd015dfc5cdd were inspected at their optimization statements, as was the edge-budget comparison d350c417a5ce."
+        ],
+        "reasoning": "The matching formulas concern a four-site path, a trace-inverse star objective, or edge weights, respectively; they are not exact optimizer data for this star condition-number problem. A common record date gives no priority ordering.",
+        "searches": [
+          "Resultary: additive vertex-load condition-number minimum on a positively shifted unit star; hub-versus-leaf support threshold"
+        ]
+      },
+      "rationale": "No equivalently strong solution was identified in the inspected sources. The close four-site path result has the same additive budget and objective but not the star feasible spectral family; a star trace-inverse result has the same graph/budget but a different objective and a different support law. Generic spectral feasibility does not supply strict leaf equality, the minimizer, or the hub threshold. Historical priority remains provisional.",
+      "residual_risks": [
+        "The Lu–Pong article body was not independently accessible; no exact external edge-design threshold was identified in bounded checks. An earlier equivalent star/arrowhead loading theorem may exist under other terminology. No historical-priority certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_FEASIBLE_SET",
+          "evidence": [
+            "Free rank-k matrix modification UV^T; a family of minimizers can occur."
+          ],
+          "identifier_or_url": "https://www.cs.ubc.ca/~greif/Publications/gv2006.pdf",
+          "material_read": "Abstract and equation (1.1), p. 82; rank-one solutions pp. 88–89",
+          "method": "Lawful author PDF, bounded passages",
+          "title": "Minimizing the Condition Number for Small Rank Modifications",
+          "trigger": "Primary additive condition-number optimization"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "No whole-paper noncoverage inference drawn. The generic LMI comparison above is mathematical, not an attributed quotation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/100795097",
+          "material_read": "No independently accessible full text; publisher and author-text routes unsuccessful",
+          "method": "Lawful access attempts; claims in the frozen audit distinguished from independent reading",
+          "title": "Minimizing the Condition Number via Convex Programming",
+          "trigger": "Potential general spectral optimization coverage"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR_AND_OBJECTIVE",
+          "evidence": [
+            "Normalized Laplacian, cut/volume geometry and spectral clustering, rather than fixed-budget additive conditioning."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v32/kurras14.pdf",
+          "material_read": "Abstract and discussion on pp. 1–2, offsets 0 and 5000",
+          "method": "Lawful proceedings PDF",
+          "title": "The f-Adjusted Graph Laplacian: a Diagonal Modification with a Geometric Interpretation",
+          "trigger": "Primary diagonal graph-Laplacian modification"
+        },
+        {
+          "assessment": "DIFFERENT_CONTROL",
+          "evidence": [
+            "Row/column scaling and quasiconvex algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+          "material_read": "p. 1 abstract, offset 2674",
+          "method": "Open primary PDF passage",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "Potential multiplicative equivalent"
+        },
+        {
+          "assessment": "RELATED_BUT_DIFFERENT_GRAPH",
+          "evidence": [
+            "Reflection symmetry, a fixed budget and endpoint-to-interior loading on a four-site path."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-endpoint-to-interior-loading-transition-for-spectral-con--a2818e5de4a3",
+          "material_read": "RESULT.md finding, offsets 502–1046",
+          "method": "Resultary local mirror",
+          "title": "A sharp endpoint-to-interior loading transition for spectral conditioning of a four-site diffusion path",
+          "trigger": "Closest distinct indexed additive-loading theorem"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "Trace of the inverse, and reentrant hub support for m≥4."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-hub-grounding-in-a-optimal-noisy-star-consensus--bd015dfc5cdd",
+          "material_read": "RESULT.md finding, offsets 376–1260",
+          "method": "Resultary local mirror",
+          "title": "Reentrant hub grounding in an optimal noisy star consensus",
+          "trigger": "Same star and diagonal-budget motif"
+        },
+        {
+          "assessment": "DIFFERENT_CONTROL_AND_OBJECTIVE",
+          "evidence": [
+            "Edge-conductance allocation maximizing the algebraic connectivity."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-priced-star-spectral-gap-allocation-and-the-polygon-thresh--d350c417a5ce",
+          "material_read": "RESULT.md finding, offset 711",
+          "method": "Resultary local mirror",
+          "title": "Exact priced star spectral-gap allocation and the polygon threshold",
+          "trigger": "Closest catalogued star spectral budget with edge design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact boundary answers when hub stabilization first pays off under a fixed additive budget. The explicit optimizer and strict dominance over asymmetric designs provide a useful check of numerical diagonal-loading solvers and cannot be replaced by generic SDP solvability. This is a unit-star theorem only; it makes no claim for weighted stars, general graphs, or other objectives.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

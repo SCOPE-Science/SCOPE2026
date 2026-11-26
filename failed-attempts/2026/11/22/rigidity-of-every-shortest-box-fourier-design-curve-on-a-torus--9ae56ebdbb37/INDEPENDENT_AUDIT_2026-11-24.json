@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:20:18.666853Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Taking the spectral bound through equality, Steps 1–4 (lines 27–59); VERIFICATION.md; CHECK.py, inspected not executed",
+        "Independent replay: python3 -B /workspace/review_reproduction.py box; 13 cases, 545 sphere vectors, 86 minimizers, using sum-of-squares recursion and digit-sum collision testing"
+      ],
+      "rationale": "For d≥2 and t≥1, the centered product characters are orthonormal by box exactness and their isotropic second moment fixes the trace of the arclength derivative energy. The endpoint phase is common to the family; Parseval in its periodic or antiperiodic basis gives occupancies in [0,1] summing to N=(t+1)^d. Periodic even N has strictly higher minimum trace. In the other cases there is a strict squared-frequency gap beyond the lowest N modes, so equality leaves no occupancy outside this band. The extreme nonzero exponents in a constant-modulus finite Fourier series would yield a unique nonzero coefficient at their difference in the squared modulus; thus each character is a single mode. Ratios at adjacent indices and continuity force each real lift coordinate to be affine. The full band then gives distinct consecutive digit sums after sign changes. In increasing order a next weight below the length of the already filled interval duplicates a sum, and a larger one leaves a gap. This forces the radix powers. Reduction modulo t+1 proves the converse; nonzero distinct absolute coordinates give the stated signed-permutation census.",
+      "residual_risks": [
+        "The winding census is diagnostic only. The analytic argument applies to normalized arclength and the standard flat metric, not weighted designs or other frequency sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tensor-product record, Finding and Assumptions: d≥1, t≥1",
+          "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d; 2026/11/22/SCOPE-the-sharp-parallel-geodesic-parseval-trajectory-frontier-on-the--1e546c6b5465, Findings"
+        ],
+        "reasoning": "Restricting the tensor-product theorem to d≥2 gives the claim. Neither positive mixtures of complete loops nor Parseval sampling by prescribed parallel loops are broader results about arbitrary single rectifiable curves.",
+        "searches": [
+          "Resultary: arclength torus design curve Korobov winding shortest minimizer",
+          "Resultary: Ehler optimal bounds for design curves on the torus equality cases Kunis quadrature"
+        ]
+      },
+      "checked_sources": [
+        "Frozen torus RESULT.md records ...--9ae56ebdbb37 and ...--7b4e3de78ee6",
+        "Four Resultary queries and the indexed Finding passages cited above",
+        "Frozen comparisons to Ehler Theorem 2.1/Proposition 2.4 and Kunis Section 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen comparisons attribute the sharp bound and an example to Ehler, Theorem 2.1 and Proposition 2.4; a bound and an example alone would not imply rigidity.",
+          "The indexed tensor-product proof follows the same strict trace gap, monomial rigidity, coordinate ratios and consecutive digit-sum argument, with an equivalent digit lemma."
+        ],
+        "reasoning": "The full indexed theorem, not merely the prior sharp bound, implies the whole finding including the census by counting sign choices and permutations.",
+        "searches": [
+          "Ehler, arXiv:2611.03362; Kunis, arXiv:2608.11915; Resultary: Ehler optimal bounds for design curves on the torus equality cases Kunis quadrature",
+          "Tensor-product record, RESULT.md Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-rigidity-of-every-shortest-tensor-product-torus-design-curve--7b4e3de78ee6, RESULT.md lines 5–24 and 43–72"
+        ],
+        "reasoning": "The box characters are precisely the tensor-product characters with each |m_j|≤t. Exact integration means the same normalized arclength moments. Signed, permuted Korobov windings and the affine lift are identical in the two formulations.",
+        "searches": [
+          "Resultary: shortest box-Fourier design curve torus rigidity",
+          "Resultary: shortest tensor-product torus design curve equality rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index returns both ...--9ae56ebdbb37 (self) and the distinct ...--7b4e3de78ee6; the two available RESULT.md Findings and proofs were compared."
+        ],
+        "reasoning": "This is an indexed theorem match, not an overlap inferred from title, length value or finite tables. The self hit is excluded from the coverage verdict.",
+        "searches": [
+          "Resultary: shortest tensor-product torus design curve equality rigidity",
+          "Resultary: shortest box-Fourier design curve torus rigidity"
+        ]
+      },
+      "rationale": "The distinct indexed tensor-product record states and proves the entire classification under the same metric, arclength measure and character set, with the slightly broader domain d≥1. This is demonstrable coverage, not an assertion of chronological priority between same-date records.",
+      "residual_risks": [
+        "Neither the same index date nor the mathematical overlap identifies chronology or priority. Primary-source retrieval limits leave earlier equality antecedents unresolved, but do not affect the decisive indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claim, including straightness and the entire winding classification",
+          "evidence": [
+            "RESULT.md lines 5–24, 49–72"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-of-every-shortest-tensor-product-torus-design-curve--7b4e3de78ee6",
+          "material_read": "Finding, assumptions and analytic proof Steps 1–5",
+          "method": "Frozen source and indexed local-mirror passages",
+          "title": "Rigidity of every shortest tensor-product torus design curve",
+          "trigger": "Near-identical indexed classification"
+        },
+        {
+          "assessment": "Different admissible objects; not coverage of arbitrary single curves",
+          "evidence": [
+            "Finding assumes positive mixtures of complete primitive geodesic loops."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Rigidity and sharp arclength of positive multi-direction geodesic designs",
+          "trigger": "Strong related torus search hit"
+        },
+        {
+          "assessment": "Different optimization and hypothesis",
+          "evidence": [
+            "Finding concerns Parseval sampling by prescribed parallel loops."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-parallel-geodesic-parseval-trajectory-frontier-on-the--1e546c6b5465",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Sharp parallel geodesic Parseval trajectory frontier",
+          "trigger": "Strong related length and trajectory hit"
+        },
+        {
+          "assessment": "Credits the bound and Korobov example; no independent whole-paper exclusion",
+          "evidence": [
+            "Frozen RESULT.md line 67 cites Theorem 2.1 and Proposition 2.4, pp. 3–7."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03362",
+          "material_read": "Recorded comparison only, not the original text in this review",
+          "method": "OA abstract and PDF attempts timed out; read frozen RESULT.md prior-work comparison",
+          "title": "Optimal bounds for design curves on the torus",
+          "trigger": "Primary sharp-bound citation and possible earlier equality statement"
+        },
+        {
+          "assessment": "No independent whole-paper exclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 67 and 76 attribute construction, exactness, covering and length results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11915",
+          "material_read": "Frozen account of Section 4; not the original paper in this review",
+          "method": "OA attempt timed out; read frozen citations and comparison",
+          "title": "Positive quadrature and mobile sampling of multivariate trigonometric polynomials",
+          "trigger": "Potential Korobov equality antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof lines 27–59; tensor-product RESULT.md Finding"
+      ],
+      "rationale": "As a mathematical statement the equality classification is structural: it excludes genuinely curved minimizing paths and selects a finite, explicitly described set of windings from an infinite-dimensional admissible family. This is more than recomputing the sharp length. It has no separate originality as this indexed record.",
+      "residual_risks": [
+        "No stability or near-equality statement is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

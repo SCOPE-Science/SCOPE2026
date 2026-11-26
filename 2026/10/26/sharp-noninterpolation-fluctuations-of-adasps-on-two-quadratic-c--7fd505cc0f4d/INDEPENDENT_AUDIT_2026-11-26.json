@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:05.014049Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–134; VERIFICATION.md and verify_adasps.py inspected, not executed",
+        "Jiang–Stich arXiv:2308.06058v1, p. 4, exact gain definition",
+        "Independent finite consistency check: all 2¹² sign paths at each of c=1,1.5,3, comparing the loss/gradient/minimum update with the reduced recursion over 12 steps; maximum observed discrepancy ≤1.2×10^−16 in floating point"
+      ],
+      "rationale": "For independent fair signs, zero component lower bounds, x₀=0, η₋₁=∞ and fixed c≥1, the loss-to-gradient-square ratio is 1/2 and S_t increases; η_t=1/(2c√S_t)<1 then preserves the open interval by convexity. In S_{t−1}=t/2+½Σx_s²−Σx_sξ_s, the last sum is a bounded-difference martingale, hence P(S_{t−1}<t/4)≤exp(−t/32). The true gain is not predictable. Lagging S_t by one step makes the gain predictable, with an L¹ change O(t^−3/2) by the good event and the increment bound 2. The lagged gain lies in (0,1) and is at least d/√t by S_{t−1}≤2t. Conditional expansion of squares and fourth powers gives successive contractions 1−d/√t with forcing O(t^−1) and O(t^−3/2); for the fourth moment use O(t^−1) times the already controlled second moment on the good event plus an exponential tail. This gives E x_t²=O(t^−1/2) and E x_t⁴=O(t^−1). Markov on dyadic times and monotonicity imply the Cesàro mean of x_t² vanishes almost surely; the martingale average also vanishes. Thus S_t/(t+1)→1/2 and √(t+1)η_t→γ. In L² the loss remainder is even O(√t) by summing ∥x_s²∥₂ and using martingale orthogonality. The inverse-root Lipschitz bound on the good event gives ∥η_t−γ/√(t+1)∥₂=O(t^−1). Coupling to the deterministic-gain process on the same signs, the propagated error has exponentially small old weights and a recent window with geometrically summable mass O(√n), giving ∥x_n−z_n∥₂=O(n^−1/2), sufficient to transfer both limits. For the deterministic process, V_{n+1}=(1−a_n)²V_n+a_n²; √(n+1)V_{n+1}−γ/2 contracts the preceding scaled error by 1−2γ/√(n+1)+O(n^−1), with residual O(n^−1), so tends to zero. The coefficients of n^{1/4}z_n tend uniformly to zero (old weights exponentially small, new ones O(n^−1/4)); bounded-sign Lindeberg gives the asserted normal law. The objective gap is x_n²/2, yielding γ/4. The proof confirms the limits rather than extrapolating from samples.",
+      "residual_risks": [
+        "Finite consistency checks do not establish the asymptotics. The proof uses the fixed-scale, scalar, independent fair-sign, exact-arithmetic model only; it gives no uniformity in c or general minimax lower bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original AdaSPS paper gives the same update and O(T^−1/2) noninterpolation bounds, not an exact instance constant or CLT. DecSPS uses a different decay rule and Theorem 4 concerns the average. MomAdaSPS includes AdaSPS at zero momentum but its inspected conclusion is a rate bound. b6e07361803f is a Huber-attained worst-case terminal-risk formula for deterministic schedules and a general oracle class."
+        ],
+        "reasoning": "None of those upper bounds, different algorithms or minimax guarantees gives the strictly positive coefficient for the true last iterate of the stated random-gain process.",
+        "searches": [
+          "arXiv:2308.06058v1, original AdaSPS",
+          "arXiv:2205.04583, DecSPS",
+          "arXiv:2406.04142, Remark 2.4 and Theorem 3.7",
+          "Resultary minimax SGD terminal risk: b6e07361803f"
+        ]
+      },
+      "checked_sources": [
+        "Jiang–Stich 2308.06058v1",
+        "Orvieto et al. 2205.04583",
+        "Oikonomou–Loizou 2406.04142",
+        "Lauand–Meyn 2405.17834v3",
+        "Resultary 6e87af5006ee, 184d2704942d and b6e07361803f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lauand–Meyn prescribe α_n=α₀ n^−ρ; their inspected results include moment bounds and covariance analysis for averages. The AdaSPS gain here is computed using ξ_t in S_t, so it is not a prescribed gain and is not even predictable as written."
+        ],
+        "reasoning": "The constant γ/2 for the deterministic comparison is standard once γ is known. Neither mere rate control nor replacing the adaptive step by its asymptotic deterministic equivalent justifies a Gaussian limit or convergence of the second moment. The loss concentration, predictable comparison and quantitative coupling establish the missing implication for the actual AdaSPS iterates.",
+        "searches": [
+          "arXiv:2405.17834v3, prescribed power-law gains, Theorems 2.2–2.4",
+          "arXiv:2308.06058v1, AdaSPS definition and noninterpolation results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6e87af5006ee concerns fixed-cap, constant-step SPS on scalar quadratics and computes stationary mean and variance. 184d2704942d treats a nonsmooth absolute-value objective, with deterministic gains and risk scale (log n)/√n."
+        ],
+        "reasoning": "A stationary distribution for fixed-cap SPS does not identify a rescaled shrinking law for AdaSPS. The nonsmooth deterministic-gain result does not use a cumulative-loss step. A common scalar setting or limiting distribution terminology does not make the problems equivalent.",
+        "searches": [
+          "Resultary comparisons for scalar quadratic SPS stationary laws, AdaSPS last-iterate fluctuations and deterministic SGD terminal risk",
+          "2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+          "2026/11/2/SCOPE-soft-thresholded-gaussian-last-iterate-law-for-anytime-stochasti--184d2704942d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The AdaSPS summary table gives O(1/ε²) complexity for the strongly convex noninterpolating squared-distance metric, not an exact scaled mean square. The two catalogue comparisons tabulate a different stationary law or deterministic-schedule worst case."
+        ],
+        "reasoning": "No exact table for this instance's self-normalizing last-iterate law was identified. The known variance formula after prescribing the gain is not an exact datum for the random gain itself.",
+        "searches": [
+          "Jiang–Stich arXiv:2308.06058v1, p. 2 summary table and pp. 5–6 results",
+          "Resultary closed-form scalar SPS: 6e87af5006ee",
+          "Resultary deterministic minimax schedules: b6e07361803f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact fluctuation law and positive expected-risk coefficient for the original sample-dependent cumulative-loss AdaSPS on this fixed instance, together with its self-normalization. The strongest inspected sources give rate upper bounds, stationary laws for other SPS rules, or fluctuation results for prescribed gains. They do not identify the AdaSPS gain and control its sample dependence to the precision needed here. This is a bounded best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "The literature and catalogue checks were bounded; equivalent random-gain SA analyses under different names or an unindexed scalar AdaSPS example may exist. No universal priority claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same cumulative-loss, nonincreasing rule and proves upper rates, not the frozen exact law",
+          "evidence": "Noninterpolating strongly convex complexity O(1/ε²) for squared distance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.06058v1",
+          "material_read": "Definition p. 4 (offset 18000); rate table p. 2 (offset 9150); results/discussion pp. 5–6 (offsets 24350 and 30200)",
+          "method": "OA PDF passage comparison",
+          "title": "Adaptive SGD with Polyak stepsize and Line-search: Robust Convergence and Variance Reduction",
+          "trigger": "Original version defining exactly this algorithm"
+        },
+        {
+          "assessment": "Different algorithm and averaging target",
+          "evidence": "DecSPS uses a prescribed 1/√(k+1) factor and its O(K^−1/2) theorem is for the averaged iterate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.04583",
+          "material_read": "Table 1, p. 4 (offset 14700), and Theorem 4, p. 8 (offset 38900)",
+          "method": "OA PDF passage comparison",
+          "title": "Dynamics of SGD with Stochastic Polyak Stepsizes: Truly Adaptive Variants and Convergence to Exact Solution",
+          "trigger": "Similar decreasing stochastic Polyak rule"
+        },
+        {
+          "assessment": "Inspected bound is not a CLT or an exact risk constant",
+          "evidence": "β=0 reduces to AdaSPS; theorem gives an O(1/T+σ/√T) bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04142",
+          "material_read": "Remark 2.4 p. 6 (offset 28500), Theorem 3.7 p. 9 (offset 42924)",
+          "method": "OA PDF passage comparison",
+          "title": "Stochastic Polyak Step-sizes and Momentum: Convergence Guarantees and Practical Performance",
+          "trigger": "Momentum generalization contains AdaSPS at zero momentum"
+        },
+        {
+          "assessment": "Relevant standard comparison process but not the AdaSPS random gain",
+          "evidence": "Prescribed gain α₀ n^−ρ and Polyak–Ruppert covariance conclusions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.17834v3",
+          "material_read": "Assumptions p. 6 (offset 25000), abstract and Theorems 2.2–2.4, pp. 1, 8–9 (offsets 0 and 31200)",
+          "method": "OA PDF passage comparison",
+          "title": "Revisiting Step-Size Assumptions in Stochastic Approximation",
+          "trigger": "Candidate general stochastic-approximation asymptotics"
+        },
+        {
+          "assessment": "Different gain and stationary rather than vanishing-gain asymptotics",
+          "evidence": "Stationary mean and variance include cap-induced bias.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+          "material_read": "RESULT.md statement, fixed-cap regime and stationary law",
+          "method": "Local mirror passage comparison",
+          "title": "Exact curvature-clipping phase diagram for capped SPS on scalar quadratics",
+          "trigger": "Closest same-family scalar quadratic exact law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and adaptive-gain coupling proof",
+        "Jiang–Stich original noninterpolation rate results"
+      ],
+      "rationale": "This is a simple noninterpolating optimization problem with valid lower bounds and the unmodified algorithm. Its positive γ/4 identifies an actual instance that realizes the known error order for the last iterate, and the Gaussian law distinguishes quantitative fluctuations from a rate bound. The gain analysis is necessary: this witness cannot be obtained by merely prescribing a deterministic decay schedule or computing a stationary variance. The exact coefficient is useful for comparisons of last-iterate rates and scales without claiming general minimax optimality.",
+      "residual_risks": [
+        "Scientific value is for a fixed-instance witness, not a lower bound uniform over problems, initial conditions, or scale choices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

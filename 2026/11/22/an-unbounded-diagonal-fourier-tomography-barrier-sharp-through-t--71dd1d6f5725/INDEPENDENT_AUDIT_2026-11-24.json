@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:39:47.907449Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine conversion x_e=(1-χ_e)/2 gives equality of the real degree filtrations. In the fan at 0, the diagonal (0,2j) separates the two triangles in the quadrilateral with cyclic vertices (0,2j-1,2j,2j+1); the r=floor((n-2)/2) such quadrilaterals have disjoint interiors. Simultaneous independent flips therefore give 2^r distinct valid triangulations, with each indicator depending on at most one flip bit. A monomial of degree <r omits a bit, so its alternating sum cancels by pairing that bit. The uniform parity measures differ on the event that all replacement diagonals occur, since exactly one bit pattern qualifies. For finite sharpness I independently generated size-(n−3) compatible subsets by the alternating-endpoint crossing test and retained all size-≤r compatible subsets as features; no use of the frozen recursion or flip traversal. Exact row elimination modulo 3 gave (rows,features,rank) for n=4,…,10 equal to (2,3,2), (5,6,5), (14,31,14), (42,71,42), (132,441,132), (429,1078,429), (1430,7351,1430). Replay: python3 -I independent_polygon_rank.py from the review workspace root; equivalently recursively take each next higher-ordered diagonal from those compatible with all previously taken, set the row entries for the subsets of that triangulation, and eliminate over F_3. The row counts agree with Catalan enumeration, and full rank over F_3 certifies a nonzero integral minor, hence full real row rank. This does not assert that intermediate modular ranks equal the real ones. Full rank gives unique measures. More generally a nonzero real left-kernel vector sums to zero since the empty monomial is present; normalizing its positive and negative parts gives two equal-data measures. The explicit parity vector specifically certifies degrees <r, not possible larger deficient degrees for n>10. No general equality for n≥11 is needed or established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devadoss et al. identify the associahedron face poset. Dochtermann analyzes a free resolution of the cycle Stanley–Reisner ideal and the associahedron f-vector. De Loera et al. establish affine-span equations for simplex-incidence triangulation polytopes."
+        ],
+        "reasoning": "Face counts count feature columns, not their independent evaluations; simplicial Stanley–Reisner data are not the filtered finite-point evaluation ring. Affine constraints in simplex coordinates do not give all higher diagonal-observation ranks.",
+        "searches": [
+          "arXiv:0903.2848 Theorem 2; arXiv:1503.06243 pp. 1 and 3; de Loera et al. DOI 10.4171/DM/4 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0903.2848, arXiv:1503.06243, DOI 10.4171/DM/4",
+        "Resultary bd8b6ff286b5, e73d48554b89, b7fd08090662, 66429c48a810; 71dd1d6f5725 (identical entry)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known associahedron face model supplies quadrilateral flip faces as geometric background, but the stated probability witness uses an explicit product of independent binary choices and cancellation of all lower-degree monomials. The stated earlier full Walsh and Dyck results address different matrix operations or embeddings."
+        ],
+        "reasoning": "A flip or face-poset theorem by itself does not state the annihilator contrast or the global interpolation threshold. In particular the prior results do not supply the finite full-row-rank certifications through 10.",
+        "searches": [
+          "Resultary originals bd8b6ff286b5, e73d48554b89 and b7fd08090662; Devadoss et al. Theorem 2; Dochtermann original definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical Resultary entry 71dd1d6f5725 is not an independent result. The evaluation matrix is the face-to-facet containment matrix for partial triangulations. Record e73d48554b89 uses the same diagonal vectors but studies the full transform and convolution. Record b7fd08090662 studies diagonal-query shattering for crossing-free spanning trees."
+        ],
+        "reasoning": "Neither full-cube convolution nor shattering directly computes the low-degree restriction rank. The concept class must also be the triangulations, not the noncrossing spanning trees.",
+        "searches": [
+          "Resultary: restricted Walsh evaluation on polygon triangulations; joint diagonal-presence degree; Catalan coordinate recovery",
+          "Primary literature: associahedral face–facet incidence ranks, degree-filtered Boolean coordinate rings and shattered sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record bd8b6ff286b5 reports degree-two rank 13 and degree-three rank 14 on semilength-four Dyck paths in eight up-step coordinates. The triangulations of the hexagon have degree-two rank 14 in nine diagonal coordinates."
+        ],
+        "reasoning": "Even when the two Catalan sets are bijective the coordinates need not preserve polynomial degree; the different degree-two ranks show directly that the Dyck-path table is not this table. No matching exact table independent of the submitted item was identified in the bounded search.",
+        "searches": [
+          "Resultary: exact Walsh sampling degrees for Catalan sets and six-gon triangulations; face–facet rank table through ten vertices"
+        ]
+      },
+      "rationale": "The result concerns the saturation degree of the finite Boolean evaluation ring of triangulations in the labelled diagonal coordinates. Structural associahedron results, compatible-face counts, full Walsh transforms in the same coordinates, and filtered ranks in a different Catalan encoding do not cover the actual degree cutoff. The lower bound uses a specific independent-flip family, and the finite cutoffs are genuine exact ranks rather than face counts.",
+      "residual_risks": [
+        "The older paper The Associahedron and Triangulations of the n-gon, https://www.sciencedirect.com/science/article/pii/S0195669889800721, was identified but the full text was not accessible through the lawful OA routes tried. Historical or more general incidence/interpolation theorems could still imply a cutoff; no priority conclusion follows from unavailable text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kind of rank, materially different coordinates",
+          "evidence": [
+            "Degree-two rank 13 and degree-three rank 14 on 14 Dyck paths encoded by eight up-step bits."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-quadratic-and-cubic-walsh-sampling-spectra-at-the-first-ca--bd8b6ff286b5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, compare encoding and ranks",
+          "title": "Sharp quadratic and cubic Walsh sampling spectra at the first Catalan obstruction",
+          "trigger": "Close degree-filtered Walsh ranks on a Catalan family"
+        },
+        {
+          "assessment": "Full Walsh/convolution spectrum, not low-degree restriction ranks",
+          "evidence": [
+            "Explicit zero Fourier coefficients for the full transform of the triangulation indicator."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-fourier-rigidity-and-cancellation-for-convex-polygon-triangulati--e73d48554b89",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, compare Fourier operators",
+          "title": "Fourier rigidity and cancellation for convex polygon triangulations",
+          "trigger": "Identical triangulation incidence vectors"
+        },
+        {
+          "assessment": "Different concept class and invariant",
+          "evidence": [
+            "Classifies shattered supports as noncrossing forests and gives VC dimension n−3 for the spanning-tree class."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-diagonal-query-shattering-of-noncrossing-spanning-trees-and-a-po--b7fd08090662",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, compare concepts and invariant",
+          "title": "Diagonal-query shattering of noncrossing spanning trees",
+          "trigger": "Diagonal queries and shattering"
+        },
+        {
+          "assessment": "Structural interpretation only in the inspected theorem",
+          "evidence": [
+            "The convex-polygon associahedron has dimension n−3 and polygon diagonalizations describe the face poset."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.2848",
+          "material_read": "p. 2, Theorem 2, offset 3685",
+          "method": "Primary PDF passage, compare face poset to evaluation-rank claim",
+          "title": "Visibility graphs and deformations of associahedra",
+          "trigger": "Exact underlying associahedron and diagonal faces"
+        },
+        {
+          "assessment": "Does not supply the filtered evaluation ranks in the inspected passages",
+          "evidence": [
+            "The Betti numbers for the cycle ideal's free resolution are compared to the associahedron f-vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.06243",
+          "material_read": "p. 1 abstract, p. 3 definitions and resolution discussion at offset 9155",
+          "method": "Primary PDF passage, distinguish resolutions/face counts from evaluations",
+          "title": "Face rings of cycles, associahedra, and standard Young tableaux",
+          "trigger": "Face ring and f-vector as possible sources of a rank formula"
+        },
+        {
+          "assessment": "Different coordinate embedding and affine-linear conclusion",
+          "evidence": [
+            "The affine-span equations concern incidence vectors of simplices, not the degree hierarchy of joint diagonal indicators."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/DM/4",
+          "material_read": "pp. 1–2 including Theorem 1.1, offsets 337 and 4810",
+          "method": "Primary PDF passage, compare incidence coordinates and degree",
+          "title": "The Polytope of All Triangulations of a Point Configuration",
+          "trigger": "Potential affine-rank theorem covering interpolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum joint observation degree is a natural invariant for exact recovery of arbitrary mixtures on a standard combinatorial family. The independent-flip construction supplies explicit indistinguishable probability laws for a degree growing linearly with n; the exhaustive calculation settles the matching threshold through the nontrivial 1430-state case. It is not an enumeration of triangulations, a single-state identification algorithm, or a noise-conditioning claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

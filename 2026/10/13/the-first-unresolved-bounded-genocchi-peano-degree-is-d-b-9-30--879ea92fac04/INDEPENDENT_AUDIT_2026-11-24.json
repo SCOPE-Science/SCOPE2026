@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:25:15.402315Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 1(iii) in the author-hosted 2018 text requires distinct even β_i and Σα_i/β_i=1 for bounded GPEs (continuity on every hyperplane, not just every line). The preceding paragraph excludes odd β_i. The denominator degree is max β_i; there is no common variable factor with the monomial numerator. The frozen witness has distinct positive even β_i, max 30 and the sum is exactly 1. For degree≤28 put d_i=β_i/2. The 2002 nine-subsets of {1,…,14} are exhaustive. The bundled bitset proof is valid: positivity bounds α_i by 2d_i−1, the shifts encode all increments x_i=α_i−1, and truncating above target cannot discard a future solution because increments are nonnegative. Independently, for any integer sum Σα_i/d_i, the reduced denominator of α_i/d_i divides lcm(d_j:j≠i), so its allowed values are exactly positive integer multiples of 1/gcd(d_i,lcm(d_j:j≠i)). Tightening all denominators this way preserves the existence equation and can be repeated to stability. An exact rational census of all 2002 sets leaves only 13 with tightened all-ones sum ≤2. A separate recursive rational enumeration of nonnegative increments up to the residual exhausts those 13 and finds no solution. The independent replay also confirms the witness: python3 -B /workspace/audit-evidence/2_prime_constraints.py; /workspace/audit-evidence/2_replay.txt. Degree 29 is excluded by evenness, so the bound is exact.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 6 gives D(n)≤D_b(n)≤min(2^n,n(n+1)); the stated additional upper-bound improvements do not apply to n=9. Problems 3–5 ask for better bounds, the equality set, and monotonicity.",
+          "With the table's D(9)=22 these inequalities give only 22≤D_b(9)≤90. The 2017 paper's bounded exact degree 12 is specifically for n=4."
+        ],
+        "reasoning": "No inspected broader bound pins down 30 or excludes all smaller even degrees. No stronger later theorem on the sequence was identified.",
+        "searches": [
+          "2018 author-hosted paper, Proposition 6, footnote and Problems 3–5",
+          "2017 author-hosted predecessor, degree examples",
+          "Resultary: bounded GPE exact degrees"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.14321/realanalexch.43.2.0281 (lawful author manuscript and WVU repository abstract)",
+        "doi:10.4169/college.math.j.48.3.205 (author-hosted PDF)",
+        "Targeted Resultary query for the bounded invariant and dimension"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorems reduce the problem to arithmetic and give general constructions, but their bounds and examples neither supply the given degree-30 witness nor rule out each possible degree≤28.",
+          "The independently checked gcd and residual calculation supplies the exclusion beyond what follows from the prior estimates."
+        ],
+        "reasoning": "An exact characterization gives a procedure to test a candidate; obtaining the exact nine-variable optimum still requires substantial feasible-set exclusion and a witness. It is not a parameter substitution in a closed formula or recomputation of a known table entry.",
+        "searches": [
+          "2018 author-hosted paper, Theorem 1, Proposition 6 and §Numbers D_b(n)",
+          "2017 predecessor, least-degree examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bounded GPE problem is exactly the minimum largest even β in a nine-term positive integer-multiple unit-fraction sum 1 with distinct denominators. The equivalent halved-denominator version has sum 2.",
+          "Both papers provide the criterion; the inspected four-variable exact result of the 2017 paper concerns fewer variables."
+        ],
+        "reasoning": "The criterion and a reformulation as unit fractions determine the feasible-set description, not its first attainable nine-variable maximum denominator. The claimed number is not D(9) or a general Egyptian-fraction bound without the distinctness and numerator conditions.",
+        "searches": [
+          "doi:10.14321/realanalexch.43.2.0281, bounded GPE and Theorem 1(iii)",
+          "Resultary: D_b(9), Ciesielski and Minimal Degrees of Genocchi-Peano Functions",
+          "doi:10.4169/college.math.j.48.3.205, sufficient condition for GPEs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 prints bounded values 4,8,12,16,18,20,24 for n=2,…,8. The n=9 row has k_n=1, 2(k_n+n)=20, D(n)=22 and no D_b(n) value.",
+          "The repository abstract notes that improving bounded estimates is open, and the targeted Resultary search returned no materially relevant exact entry."
+        ],
+        "reasoning": "The missing entry is not a case where the unrestricted number was mislabeled or where an exact bounded degree was already printed. The author's table is the directly relevant exact-value source.",
+        "searches": [
+          "2018 author-hosted paper, Table 3 (PDF p. 11)",
+          "WVU repository faculty_publications/853",
+          "Resultary exact D_b(9)"
+        ]
+      },
+      "rationale": "The author-hosted primary text itself distinguishes unrestricted D(9)=22 from the blank bounded D_b(9) in Table 3. Its defining arithmetic characterization, general bounds and proposed questions do not resolve this exact case. The predecessor reaches the bounded n=4 value; no later materially matching result was identified in the targeted literature and Resultary checks.",
+      "residual_risks": [
+        "The comparison of Table 3 is to the lawful author manuscript; the publisher's paginated full text was not accessible for edition comparison.",
+        "Targeted searches cannot exclude an unindexed enumeration under different unit-fraction terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correct criterion and strictly partial table; n=9 bounded entry blank in the inspected copy",
+          "evidence": "Theorem 1(iii) states equality of the reciprocal-weighted sum and distinctness; Table 3 separates D from D_b; Proposition 6 bounds D_b rather than determining it.",
+          "identifier_or_url": "https://community.wvu.edu/~kciesiel/ProfessionalStuff/prepF/135.OnDegreesOfGPEs.pdf",
+          "material_read": "Author manuscript dated 2018-02-28, p. 3, odd exponent paragraph and Theorem 1; pp. 10–12, Proposition 6, its footnote, Table 3 and open problems",
+          "method": "Lawful WVU PDF, bounded passages around offsets 5660 and 33750",
+          "title": "Minimal Degrees of Genocchi-Peano Functions: Calculus Motivated Number Theoretical Estimates",
+          "trigger": "Primary exact bounded-degree table and criterion; lawful alternate for inaccessible publisher full text"
+        },
+        {
+          "assessment": "Earlier criterion and bounded n=4 result, not a nine-variable optimum",
+          "evidence": "Bounded GPEs meet the equality and distinctness test; least degree in the bounded four-variable case is 12.",
+          "identifier_or_url": "https://community.wvu.edu/~kciesiel/ProfessionalStuff/prepF/127.GenocchiPeano_Hyperplane/127.GenocchiPeano_Hyperplane.pdf",
+          "material_read": "PDF p. 4 sufficient-condition section and p. 6 four-variable degrees",
+          "method": "Lawful author-hosted PDF passages",
+          "title": "On a Genocchi-Peano Example",
+          "trigger": "Prior characterization and possible exact computations"
+        },
+        {
+          "assessment": "Bibliographic and scope confirmation, not full-text coverage",
+          "evidence": "Distinguishes D and D_b and calls for better bounded estimates; does not give D_b(9).",
+          "identifier_or_url": "https://researchrepository.wvu.edu/faculty_publications/853/",
+          "material_read": "Repository abstract",
+          "method": "Lawful public webpage",
+          "title": "Minimal Degrees of Genocchi-Peano Functions (WVU repository record)",
+          "trigger": "Publication metadata and independent statement of scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nine is the first dimension with a blank bounded value in the initiating table, not a dimension chosen after searching. The exact minimum fills one gap in the published bounded sequence and resolves both feasibility at 30 and exclusion below it; it also distinguishes the bounded degree from the known unrestricted value 22. This is a useful exact finite benchmark, not a general asymptotic, monotonicity, or classification theorem for all dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

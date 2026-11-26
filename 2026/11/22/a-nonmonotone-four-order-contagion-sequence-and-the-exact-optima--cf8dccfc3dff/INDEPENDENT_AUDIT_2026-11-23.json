@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:38:40.222141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently generated the affine lines as cosets of the one-dimensional direction spaces and exhausted the eight candidate spaces using synchronous frontier neighbor-count waves, not the submitted bitmask routines. At the beginning of a wave the active frontier is already fixed; only after accounting for its edges can newly qualified vertices form the next frontier. This preserves exact completion times, unlike immediate in-wave activation. The zero counts immediately below the claimed minima exclude every smaller set by monotonicity under seed extension. The minima are (4,5,5,4) and their counts are (8,4572,142176,70000). The point-seed vectors at those minima are (3,4,0,0,1), (396,1224,1404,1080,396,72), (8448,32640,46080,36480,15840,2688), and (9000,32000,0,24000,5000). The q=5 round counts at 7 through 11 are (5000,23000,18000,12000,12000), with no other completion times. These are counts of unordered sets of actual vertices. The two supplied programs were inspected, not executed. Independent replay: python3 /tmp/opencode/affine_contagion_independent.py (captured output /tmp/opencode/affine_contagion_independent.out).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freund–Poloczek–Reichman uses exactly the synchronous graph rule, but its density guarantees do not apply to the sparse affine incidence graph so as to give these thresholds or stratified counts.",
+          "The projective record gives a prime-versus-extension classification and an exact q=4 census in PG(2,q)."
+        ],
+        "reasoning": "The projective graph includes auxiliary directions at infinity; a projective activation path can use them even with affine initial vertices. Its theorem, even though all-order, is not a broader affine theorem.",
+        "searches": [
+          "arXiv:1503.00158, Definition 1 and stated density/time results",
+          "Resultary projective-plane threshold record 3f253c08718f, Finding and geometric closure proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.00158",
+        "arXiv:1608.00531",
+        "Resultary affine target cf8dccfc3dff and projective comparison 3f253c08718f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding infinity vertices may create activations that were impossible in the affine graph. For example, two active parallel affine lines can activate their shared projective point at infinity but have no such common affine neighbor.",
+          "The projective theorem says m=4 at q=3, whereas the affine census gives m=5 there."
+        ],
+        "reasoning": "The projective classification provides comparative context and may constrain some seed types, but deleting the infinity vertices does not preserve percolating configurations or times. The exact affine totals and nonmonotone sequence require separate analysis.",
+        "searches": [
+          "arXiv:1608.00531, §1 recurrence",
+          "Resultary projective-plane threshold record 3f253c08718f, prime-field seed classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex closure can equivalently be stated as joining active affine point pairs and meeting active nonparallel affine line pairs. Parallel line pairs do not activate an affine point.",
+          "Gerbner et al., §1, starts with points only and infects every point on a qualifying line, rather than activating a line vertex."
+        ],
+        "reasoning": "Neither the alternate geometric wording nor the incidence-structure context makes the line-saturation rule equivalent. The lack of an affine point-line duality of this graph is already visible in the different shore degrees q+1 versus q.",
+        "searches": [
+          "affine plane/order five AG(2,5) bootstrap percolation two-neighbour minimum optimal seed census 70000 (Resultary)",
+          "(affine plane OR affine incidence OR Levi graph) bootstrap percolation contagious point line 2 finite affine incidence graph percolating sets (web)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index retrieved the target itself and an exact projective-plane neighbor, whose q=4 total 334656 is for a different graph; the web comparison retrieved general graph or point-line saturation work."
+        ],
+        "reasoning": "No independent matching affine seed/completion table was identified in these comparisons. The target's own index entry is not corroboration or earlier coverage.",
+        "searches": [
+          "bootstrap percolation incidence graphs affine planes two neighbour exact minimum percolating sets AG(2,5) 4 affine G5 nonmonotone 70000 (web)",
+          "affine plane order five AG(2,5) bootstrap percolation two-neighbour minimum optimal seed census 70000 (Resultary)"
+        ]
+      },
+      "rationale": "The finite result concerns two-neighbor vertex closure in a graph with two independently seedable shores and no line or points at infinity. Neither ordinary-graph density results, line percolation, nor the inspected exact projective-plane classification covers the affine minima and census. This is a finding within the inspected record, not a priority certification.",
+      "residual_risks": [
+        "Unindexed finite-geometry/graph-convexity calculations or unpublished affine enumeration may predate the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General methods and definitions, not a covering affine census",
+          "evidence": [
+            "The displayed minimum-degree threshold for forcing m(G,2)=2 is at least half the number of vertices, far above q here; the paper's stated main result concerns density thresholds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.00158",
+          "material_read": "Abstract, §1 synchronous rule and Definition 1, stated degree/density theorems",
+          "method": "Open primary PDF text",
+          "title": "Contagious Sets in Dense Graphs",
+          "trigger": "Same graph process and objective"
+        },
+        {
+          "assessment": "Different state space and update rule",
+          "evidence": [
+            "The recurrence puts a point into A_s when it lies on a line with enough previously infected points, including every point on that line."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.00531",
+          "material_read": "Abstract and §1, including recurrence and table of main results",
+          "method": "Open primary PDF text",
+          "title": "Line Percolation in Finite Projective Planes",
+          "trigger": "Closest primary geometric percolation terminology"
+        },
+        {
+          "assessment": "Exact but projective; not a restriction theorem for affine activation",
+          "evidence": [
+            "Coordinate generation explicitly uses directions at infinity to transport coordinates and form parallel lines; those points are missing in AG(2,q)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-prime-field-threshold-and-minimum-seed-speed-spectrum-for-two-ne--3f253c08718f/RESULT.md",
+          "material_read": "Finding, scope, join–meet equivalence, coordinate-generation lemma and lower-bound cases",
+          "method": "Published-record text via local mirror",
+          "title": "Prime-field threshold and minimum-seed speed spectrum for two-neighbor bootstrap on projective-plane incidence graphs",
+          "trigger": "Same rule and dimension; nearby exact census and a plausible reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four orders are the first consecutive admissible orders, not a selected sample engineered around unrelated graphs. The minimum drops from five to four despite an increase in order; the q=5 exact counts show that this is compatible with four nonempty seed-composition strata but not the balanced stratum, and delimit the exact time spectrum of a canonical small geometric graph. This supplies a benchmark for affine join–meet generation with no access to directions at infinity, without implying a formula for larger fields.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

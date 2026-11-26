@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:58:39.574967Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, Proof and Verification (lines 3–241)",
+        "Frozen VERIFICATION.md and verify_shannon_simpson_minimal_reversal.py, inspected, not executed",
+        "/workspace/repairs/2/RESULT.md",
+        "Independent replay: python3 /tmp/opencode/frozen_boundaries.py, Simpson rows; the multiset method is described above for standalone reproduction"
+      ],
+      "rationale": "The literal original N≤5 domain included N=1, at which the specified Simpson score is 0/0; a singleton comparison set is not a defined index. The replacement states N≥2 and distinguishes the lone unscored N=1 profile. For fixed N, entropy decreases with the product of n_i^n_i, and both Simpson conventions decrease with sum n_i² (D_pop = (N−1)D/N). I independently generated sorted multisets of entries 1,…,N of all lengths 1,…,N, retained sum N, and compared integer signs on every unordered pair. For N=2,…,7, the partition counts are 2,3,5,7,11,15; disagreements 0,0,0,0,2,4; strict reversals 0,0,0,0,0,2. At N=6 the keys (entropy product, collision sum) are (256,12) vs (729,12), and (27,6) vs (64,6). At N=7 the reversing keys are (3125,20) vs (6912,18), and (256,12) vs (432,10). The replacement states those exact results, with the correct Simpson fractions and directions. The existing support already uses N≥2 and remains applicable.",
+      "residual_risks": [
+        "This exhausts N≤7 in the stated domain, not larger census sizes. The source verifier prints rather than independently asserts the identities of the two N=6 pairs; exact keys and the independent replay check them directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper's equal-N=100 communities (33,29,28,5,5) and (42,30,10,8,5,5) reverse the same two indices, using variable richness."
+        ],
+        "reasoning": "The existence and rationale of reversal are already known; this comparison furnishes no bound below 100, much less the exact two small-census layers. The broad lookup was noisy and is not negative evidence.",
+        "searches": [
+          "Tóthmérész (1995), pp. 283–286; primary-literature lookup for Shannon/Simpson ranking and first integer-census reversal"
+        ]
+      },
+      "checked_sources": [
+        "Tóthmérész 1995",
+        "Hill 1973",
+        "Resultary 65515a01f0ac mirror",
+        "Liu et al. DOI access check only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue restricts to equal richness and begins strict reversals at N=10 even for k=3; the submitted N=7 examples compare richness 3 vs 2 and 4 vs 3.",
+          "Majorization preserves both orders where applicable, but the reported pairs lie outside that order."
+        ],
+        "reasoning": "Neither restricting the fixed-richness theorem nor applying the majorization implication produces a census result for mixed-richness pairs. The decision credits only sharp onset and the exact first layers, not general rank reversal.",
+        "searches": [
+          "Resultary fixed-richness comparator, Finding, Assumptions and finite catalogue",
+          "Tóthmérész (1995), main counterexample and majorization definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hill's diversity numbers of orders 1 and 2 are exp(H) and reciprocal Simpson concentration. At fixed N all three Simpson conventions in this comparison give the same ordinal rankings.",
+          "Tóthmérész's cumulative-rank majorization compares sorted partial sums; all four boundary pairs are incomparable by that criterion after zero padding."
+        ],
+        "reasoning": "These aliases preserve the target rankings and must be considered in the prior-art check. The known common partial order does not decide the incomparable pairs or their first feasible census.",
+        "searches": [
+          "Hill (1973), DOI 10.2307/1934352",
+          "Tóthmérész (1995), DOI 10.2307/3236223, diversity profiles and majorization",
+          "Resultary semantic lookup for Shannon–Simpson/Hill-1 vs Hill-2 small integer census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching indexed table fixes both k≥3 and N and gives a unique strict reversal at excess 7, (1^{k−3},1,4,5) vs (1^{k−3},2,2,6). It also tabulates order-2 ties at excess 6.",
+          "The frozen tables are over absolute N and all richnesses at that N; both N=7 reversal pairs have unequal richness."
+        ],
+        "reasoning": "The table domains and crossing pairs differ. The date of the separate indexed record was not treated as evidence of implication or priority.",
+        "searches": [
+          "Resultary local index and mirrored 2026/11/22/SCOPE-seven-excess-individuals-first-permit-shannon-simpson-diversity--65515a01f0ac/RESULT.md (offsets 0 and 4500)",
+          "Frozen RESULT.md, census table at lines 145–159"
+        ]
+      },
+      "rationale": "Best of current knowledge, the supported contribution is the exact first weak and strict disagreement layers for integer censuses without a fixed-richness constraint. Neither the order-1/order-2 reparametrization, known majorization comparisons, a size-100 reversal, nor the closest fixed-richness Resultary theorem supplies those layers. The domain correction removes only an undefined endpoint and preserves this claim.",
+      "residual_risks": [
+        "A small-census table in unindexed exercises or inaccessible literature could anticipate the result; the unavailable Liu paper has not been assessed for full-text coverage.",
+        "No priority claim rests on dates or a noisy/unsuccessful lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED; broad reversal and partial-order framework already known",
+          "evidence": "Exact N=100 example uses richnesses 5 and 6; cumulative rank characterization and Rényi orders 1 and 2 supply equivalences, not small-census counts in the inspected passages.",
+          "identifier_or_url": "https://doi.org/10.2307/3236223",
+          "material_read": "OA PDF pp. 283–286 and Rényi profile passage (offsets 1700–7770, 15400, 19000)",
+          "method": "Targeted OA PDF reads",
+          "title": "Comparison of different methods for diversity ordering",
+          "trigger": "Same index conventions and equal-census reversal"
+        },
+        {
+          "assessment": "COVERS ordinal reparametrization, not the exact count in the inspected passage",
+          "evidence": "exp(H) and inverse Simpson concentration.",
+          "identifier_or_url": "https://doi.org/10.2307/1934352",
+          "material_read": "OA PDF order-1 and order-2 definitions, PDF pp. 2–3, offsets 6800 and 14000",
+          "method": "Targeted OA PDF reads",
+          "title": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+          "trigger": "Equivalent Hill-number formulation"
+        },
+        {
+          "assessment": "DISTINCT DOMAIN",
+          "evidence": "k fixed and excess measured as N−k; exact pair is not one of the first absolute-census witnesses and the fixed-richness theorem excludes both strict pairs at issue.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-seven-excess-individuals-first-permit-shannon-simpson-diversity--65515a01f0ac/RESULT.md",
+          "material_read": "Finding, assumptions, proof and table continuation, offsets 0 and 4500",
+          "method": "Local Resultary search and bounded mirrored-file read",
+          "title": "Seven excess individuals first permit Shannon–Simpson diversity reversal",
+          "trigger": "Strongest matching distinct indexed boundary"
+        },
+        {
+          "assessment": "ACCESS LIMITATION, no coverage judgment",
+          "evidence": "DOI route returned 403 and no readable repository copy was obtained.",
+          "identifier_or_url": "https://doi.org/10.1007/s10144-006-0026-0",
+          "material_read": "No full text inspected",
+          "method": "OA DOI route and repository-copy check",
+          "title": "Liu et al., comparator identified by DOI",
+          "trigger": "Potential comparison under diversity-ordering terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and exact comparison census",
+        "Tóthmérész 1995, equal-N disagreement and diversity ordering context"
+      ],
+      "rationale": "The two classic diversity scores answer different concentration questions but cannot disagree at every discrete resolution. The exact first tie-only layer and first opposite strict layer, with all minimal witnesses, give usable small benchmark cases for comparative rankings or counterexamples and separate genuinely opposite judgments from ties. The domain fix does not change either boundary or its witnesses. The gain is a motivated finite classification, not a claim of deep or practical ecological significance.",
+      "residual_risks": [
+        "The result is intentionally small and does not establish reliable sample sizes, statistical robustness, or downstream ecological effects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

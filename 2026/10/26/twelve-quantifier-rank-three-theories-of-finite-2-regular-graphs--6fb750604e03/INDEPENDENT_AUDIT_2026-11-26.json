@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:25:06.372299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a named ordered pair x,y, equality and adjacency together with the realized adjacency patterns of a third distinct vertex are the full one-round extension data (repeated choices are forced). Taking first the set of pair data at each root and then the set of rooted types gives precisely three-round equivalence. Independently, for every graph of order at least 7, a third distinct vertex with pattern (0,0) always exists: the union of x,y and their neighbors has size at most 6. For distinct x,y and j common neighbors, the (1,1) pattern occurs iff j>0, and both exclusive patterns occur iff 2-E(x,y)-j>0. At every root there is a nonadjacent second vertex with j=0 (use another component, or distance 3 in the sole cycle), and the root's adjacent type and possible extra nonadjacent type are determined by whether its component is C3, C4, or C_n with n>=5. Thus the set of rooted types is determined by the nonempty set of these three categories. All seven sets occur with order at least 7; in that range I is true (sum of floor(n/2) at least order/3), while D and U are false. The only smaller nonempty graphs are C3, C4, C5, C6, and two C3s, giving five different signatures, each with D true. Here 'exactly one/two triangles' in the table describes the entire graph in those rows. T,Q,F are respectively the three category tests, and all six formulas have rank at most three. This proves correctness even without the cycle citation or enumeration. I inspected checker.py, game_crosscheck.py and enumeration.txt without executing the packaged scripts. Independent replay: python3 /workspace/replay_rank_three.py constructs full atomic triple diagrams including repetitions and computes both partitions on all 1023 reduced cases; it matches the twelve populations in enumeration.txt. The replay checks the finite cases only; the rooted-type argument above handles arbitrary sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dawar, lecture 22 p. 10, states the general compositional congruence: componentwise equivalence at rank p implies equivalence of the disjoint sums.",
+          "The frozen Brown–Hoshino citation concerns comparisons of connected cycles; the scanned original could not independently be read via the available extraction."
+        ],
+        "reasoning": "Composition and the single-cycle cutoff reduce the domain, but do not identify mergers of heterogeneous component multisets, e.g. C7 and C5 disjoint union C5. These require additional equivalence analysis.",
+        "searches": [
+          "connected cycles rank-three Ehrenfeucht Fraisse plus disjoint union composition catalogue",
+          "https://simons.berkeley.edu/sites/default/files/docs/5233/lecture22.pdf",
+          "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Brown–Hoshino (2007), bibliographic/attribution only",
+        "Dawar (2016), lecture 22 p. 10",
+        "Resultary records --6ffa74c2d1c0 and --9624ad907a63",
+        "Targeted external rank-three-cycle query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dawar's composition implication is sufficient for component substitution, not an if-and-only-if recovery of graph types from components.",
+          "The directed catalogue's stated 19-point bound and 143 count classify directed equivalence, not the quotient after forgetting directions; the unrestricted-depth multiplicity test likewise supplies sufficient but nonnecessary conditions for rank-three equivalence."
+        ],
+        "reasoning": "The new content is the exact evaluated coarsening and its six tests; the common proof infrastructure and the connected special case are not new.",
+        "searches": [
+          "Dawar lecture 22 Composing Strategies",
+          "rank-three theory disjoint union of undirected cycles component multiplicities truncated cycles",
+          "connected cycles rank-three Ehrenfeucht Fraisse plus disjoint union composition catalogue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unrestricted-depth cycle-union catalogue requires agreement of each cycle-length multiplicity truncated at k for k>=3; C7 and C8 already differ there but agree here.",
+          "The bounded external query returned no relevant comparison passage."
+        ],
+        "reasoning": "Undirected cycle multisets, rank-three adjacency logic, and the three-round EF game are equivalent descriptions of the target; finite-variable logic at unrestricted depth is not.",
+        "searches": [
+          "twelve quantifier-rank-three theories finite 2-regular graphs cycle unions six sentences",
+          "finite 2-regular graphs rank three elementary equivalence disconnected cycle components twelve classes",
+          "\"quantifier rank\" \"disjoint unions of cycles\" rank 3 first-order equivalence catalogue cycle graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed unrestricted-depth undirected-cycle result (`--6ffa74c2d1c0`) tabulates a finer invariant.",
+          "The indexed same-day directed permutation-digraph result (`--9624ad907a63`) gives 143 classes in a different language, allowing loops and directed 2-cycles."
+        ],
+        "reasoning": "Neither is the twelve-class table. The two oriented arcs needed to interpret an undirected cycle do not make directed rank-three equivalence on all permutation digraphs the undirected equivalence; even formal symmetrization would require evaluating the induced coarsening on the restricted directed classes. Dates are not used to dismiss an overlap or establish priority.",
+        "searches": [
+          "rank-three theory disjoint union of undirected cycles component multiplicities truncated cycles",
+          "twelve quantifier-rank-three theories finite 2-regular graphs cycle unions six sentences"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the evaluated rank-three equivalence classes and explicit signature on all nonempty finite undirected 2-regular graphs, not for the connected-cycle cutoff, the EF recurrence, or disjoint-sum composition. Neither the finer unrestricted-depth finite-variable classification nor the directed rank-three catalogue determines this exact quotient as a stated or immediate specialization.",
+      "residual_risks": [
+        "Brown–Hoshino's publisher scan could not be independently read by text extraction; no whole-document exclusion is claimed.",
+        "An unindexed exact classification of three-round adjacency equivalence on 2-factors could change priority; search misses do not prove novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible connected-cycle antecedent, not counted as independently inspected full text; correctness confirmed without it",
+          "evidence": [
+            "Scanned original did not yield extractable text for either theorem locator."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Bibliographic identity and frozen attribution to Theorems 4.1 and 4.9; no independent full-text passage extracted",
+          "method": "Targeted lawful publisher scan retrieval and theorem queries",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Direct cycle cutoff antecedent"
+        },
+        {
+          "assessment": "Covers composition but no exact thirteen-or-fewer or twelve-type census is inferred from it",
+          "evidence": [
+            "If both component pairs are equivalent at rank p, their disjoint sums are equivalent at rank p."
+          ],
+          "identifier_or_url": "https://simons.berkeley.edu/sites/default/files/docs/5233/lecture22.pdf",
+          "material_read": "Composing Strategies, p. 10, offsets 3400–4740",
+          "method": "Targeted open PDF text",
+          "title": "Finite and Algorithmic Model Theory II: Automata-Based Methods, lecture 22",
+          "trigger": "General disjoint-sum equivalence transfer"
+        },
+        {
+          "assessment": "Same structures but a genuinely finer unrestricted-depth equivalence",
+          "evidence": [
+            "FO^k for k>=3 retains each truncated length multiplicity, in contrast to the three long-cycle-blind categories for large graphs here."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-finite-variable-theories-of-finite-unions-of-undirected-cy--6ffa74c2d1c0/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–6880",
+          "method": "Published catalogue search and local exact-record reader",
+          "title": "Exact finite-variable theories of finite unions of undirected cycles",
+          "trigger": "Same undirected graph family and exact logical catalogue"
+        },
+        {
+          "assessment": "Distinct directed observable and class; no equivalent classification in the inspected finding",
+          "evidence": [
+            "Finite bijections in a directed binary relation, loops and 2-cycles allowed; 143 theories with a 19-point bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-143-rank-three-theories-of-finite-permutation-digraphs-and-a--9624ad907a63/RESULT.md",
+          "material_read": "Finding, offsets 0–2607",
+          "method": "Published catalogue search and local exact-record reader",
+          "title": "The 143 rank-three theories of finite permutation digraphs",
+          "trigger": "Same-day exact three-round catalogue for cycle-like structures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-three boundary is natural: it detects triangle, true square-twin and longer-cycle common-neighbor behavior yet collapses arbitrarily many and long components. The result gives the complete expressive-power quotient, says exactly where small size still matters, and lets a researcher decide indistinguishability or exhibit a separating formula for any pair of finite 2-factors without playing a game on those inputs. This is more than extending the connected cutoff by a parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

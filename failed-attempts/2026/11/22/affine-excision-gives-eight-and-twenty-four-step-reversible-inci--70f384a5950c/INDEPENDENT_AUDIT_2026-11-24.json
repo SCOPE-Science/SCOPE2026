@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:14:15.973809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For even s, the incidence Gram matrices are J_(s^2) and (J_(s+1)+I) tensor J_s, of ranks 1 and s. The even column sum kills J_(s^2)B, giving A^3=0. Thus ranks 2rho and s+1 of A and A^2 give exactly the three zero-primary multiplicities. For odd s the Gram matrix on points is I+J and its sole kernel direction is not killed by B^T, so rho=s^2. The zero-sum point space paired by B^T with its image gives s^2-1 copies of J_2(1). A concrete length-three zero chain starts at the indicator of one parallel class of lines, maps to the all-ones point vector, then to the all-ones line vector, then to zero. The line kernel of B has dimension s; after its all-ones direction in that chain, the remaining s-1 directions are singletons. This independently accounts for the full adjacency dimension. A zero Jordan block of length j gives one wave block of length 2j because the wave block has characteristic polynomial (X+1)^(2j) and one fixed direction. For J_2(1), h(T)=(I+diag(A,A))T, h=X^2+X+1, has square zero and rank two, including after scalar extension; it gives h^2. The gcd with X^t-1 gives the displayed time census, cyclic generators attain the maximum period in each required primary part, and Möbius inversion gives orbit counts. One fixed wave state satisfies u=v and Au=0, proving rank recovery without any assumption of Desarguesian coordinates. Replay using RESULT.md Steps 1–5. Inspected the scripts and four saved examples, not running the scripts; the examples agree with the formulas and the adjacency script shares construction/elimination code with the wave script. No experimental universality is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The partial-geometry order theorem gives 8 for even alpha and opposite parities of its first two parameters, and 24 for odd alpha with at least one even parameter and not a projective plane. With (s-1,s,s), these two branches apply for even and odd s, respectively. The field and state assumptions are the same, and every affine plane is realized as the required incidence structure.",
+          "Vlasov supports the second-order reversible construction, not the incidence-specific values. The inspected projective incidence-code paper supplies context rather than an affine adjacency-Jordan computation."
+        ],
+        "reasoning": "The broader independently indexed theorem directly gives both advertised orders, including all abstract affine planes. The partial-geometry result, not the update construction or projective comparison, is decisive.",
+        "searches": [
+          "Local Resultary 914535ff5fe5 Finding, Assumptions and scope, Proof",
+          "Vlasov arXiv:1311.4297 §3",
+          "Lavrauw–Storme–Van de Voorde arXiv:1201.3290"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_matrix.py, check_jordan.py, matrix_results.txt, jordan_results.txt",
+        "Resultary 914535ff5fe5, fe075b4d8619, addc32219e63",
+        "Named primary sources at the locators above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the even-order specialization, A^3=0 and ranks A=2rho and A^2=s+1 come immediately from the two binary incidence products. Using d_r=N-rank(A^r) in the broader formula yields exactly (a_1,a_2,a_3,a_4)=(n_1,n_2,n_3,0), b_j=0.",
+          "For odd order, the identity I+J on points gives s^2-1 paired 1-primary blocks of length two; the remaining rank-two zero part has the one parallel-class length-three chain and s-1 singletons. Substitution yields (a_1,a_2,a_3,a_4)=(s-1,0,1,0) and (b_1,b_2)=(0,s^2-1), exactly the frozen formula. The broad fixed-time result at k=1 already gives E(1)=dim ker A=N-2rho. Sharp periods of individual states follow by taking a cyclic generator on each required primary summand of the same decomposition."
+        ],
+        "reasoning": "The useful closed affine form is a direct kernel evaluation for the included parameters, not a separate uncovered invariant. The difference from the projective order law also cannot rescue the claim: the broader theorem gives the affine branch, and the separately indexed projective result provides the comparison.",
+        "searches": [
+          "Resultary 914535ff5fe5, RESULT.md offsets 0–3818 and Proof continuation",
+          "Frozen RESULT.md Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine-plane axioms give the partial geometry pg(s-1,s,s): a line has s points, a point has s+1 lines, and the s lines joining a nonincident point to each point on a fixed line are distinct connecting flags. The two binary Levi adjacency operators and two-time-layer updates in these formulations are identical.",
+          "The projective-plane predecessor gives 6 and 12 rather than 24 and 8, and the multipartite predecessor is on a different graph family. Neither negates the exact affine-plane embedding in the partial-geometry statement."
+        ],
+        "reasoning": "The parameter match follows from a genuine inclusion of the entire class, not a title or parity match. Both constructions use the same operator on the same space, not a quotient.",
+        "searches": [
+          "Resultary: reversible incidence-wave clocks on affine planes and finite partial geometries",
+          "Resultary 914535ff5fe5, fe075b4d8619, addc32219e63"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same all-iterate census is encoded by the partial-geometry formula E(k) using the successive kernels of A and A+I; it also performs the same Möbius transform and phase division. Explicit affine kernels and their consequences are specified in the implication check.",
+          "The frozen logs are numerical examples for orders 2, 3, 4, 5, not a competing independent database. The closest exact coverage is an analytic formula rather than a numerical table."
+        ],
+        "reasoning": "The covered exact observable is a function of arbitrary iterate, geometry and field, not a finite table of small examples. Writing it using rho or s without evaluating kernels numerically does not change the resulting counts.",
+        "searches": [
+          "Resultary 914535ff5fe5 kernel-based fixed-state and primitive-orbit formula",
+          "Frozen matrix_results.txt and jordan_results.txt"
+        ]
+      },
+      "rationale": "There is demonstrable broader coverage by the distinct indexed Resultary record 914535ff5fe5 on finite partial geometries. It concerns the same update, labeling and extension fields, includes every affine plane with no further hypothesis, and gives the exact orders and the same all-iterate and primitive-orbit formula through adjacency kernels. The affine formulas are its direct specialization using the incidence Gram matrices. This is a finding of equivalent mathematical coverage, not an inference of chronological priority or copying from the shared publication date.",
+      "residual_risks": [
+        "Exact chronological priority between the distinct records dated 2026-11-22 is not determined by the available dates.",
+        "Further historical overlap is possible; the Clark–Jungnickel–Tonchev full text was not available. The decision rests on the positive partial-geometry comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematical coverage for all assigned orders and exact census",
+          "evidence": "Exact period branches and E(k) for realized pg(s,t,alpha) over every F_(2^f); affine plane parameter identification and kernel substitution recover the original.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-exact-reversible-wave-clocks-on-incidence-graphs-of-finite--914535ff5fe5",
+          "material_read": "RESULT.md Finding, scope, cubic incidence identity and transfer/census proofs; offsets 0–3818, 3650–7339 and 5000–8200",
+          "method": "Local Resultary mirror",
+          "title": "Four exact reversible-wave clocks on incidence graphs of finite partial geometries",
+          "trigger": "Strongest distinct Resultary match, same operator and broader geometric class"
+        },
+        {
+          "assessment": "Nearby projective theorem, not a direct affine formula",
+          "evidence": "Orders 6 odd and 12 even, using square projective incidence with different adjacency blocks.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-incidence-rank-clock-of-reversible-waves-on-finite-projectiv--fe075b4d8619",
+          "material_read": "RESULT.md Finding offset 0–4025, proof 4270–7125",
+          "method": "Local Resultary mirror",
+          "title": "The incidence-rank clock of reversible waves on finite projective planes",
+          "trigger": "Named same operator and rank census on the projective analogue"
+        },
+        {
+          "assessment": "Same operator, different graph family",
+          "evidence": "Exact order depends on part parities rather than affine point-line Gram ranks.",
+          "identifier_or_url": "2026/11/8/SCOPE-twenty-four-step-resonances-in-reversible-waves-on-complete-mult--addc32219e63",
+          "material_read": "RESULT.md Finding offset 0–4153 and proof 3820–7823",
+          "method": "Local Resultary mirror",
+          "title": "Twenty-four-step resonances in reversible waves on complete multipartite graphs",
+          "trigger": "Named order-24 and temporal-census overlap"
+        },
+        {
+          "assessment": "Known update framework",
+          "evidence": "Standard second-order reversible update given by applying the rule to one state and combining with the previous state; no affine incidence census there.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.4297",
+          "material_read": "§3, PDF p. 3, extracted offset near 5000",
+          "method": "Lawful OA source PDF",
+          "title": "On generalization of reversible second-order cellular automata",
+          "trigger": "Named general wave construction"
+        },
+        {
+          "assessment": "Background only, not decisive for any verdict",
+          "evidence": "Concerns projective-space incidence codes, not temporal blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.3290",
+          "material_read": "Abstract, PDF p. 1, extraction offsets 575–2349",
+          "method": "Lawful OA source PDF",
+          "title": "On the code generated by the incidence matrix of points and hyperplanes in PG(n,q) and its dual",
+          "trigger": "Background modular incidence codes"
+        },
+        {
+          "assessment": "Full-text overlap unresolved, not part of the adverse evidence",
+          "evidence": "No inaccessible result was assumed to cover or exclude the claim.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.20256",
+          "material_read": "No substantive passage obtained; DOI and Wiley HTML/PDF attempts returned 403",
+          "method": "Lawful published-source access attempts",
+          "title": "Exponential bounds on the number of designs with affine parameters",
+          "trigger": "Named background on affine design incidence ranks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp rank-sensitive census would be valuable if uncovered. Relative to the already indexed general classification, however, the remaining contribution is a pedagogically useful direct kernel evaluation with elementary incidence identities and parity substitution. The record does not classify the unknown even binary ranks or provide a distinct new excision theorem beyond juxtaposing the already covered affine and projective orders. No substantive surviving claim in the frozen record warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

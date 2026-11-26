@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:47:21.786096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reconstruction: adjacent start columns always conflict, so the start support bounds the cardinality by floor(n/2), attained by alternating rungs. In a locally untwisted three-column window a gap of two allows R→R, R→H, and opposite-rail H→H, but not H→R; a gap of at least three gives no conflict in that direction. For n=4 test the two directions of the same pair, rather than discarding one. An even optimum uses an alternating support; the all-horizontal phase must alternate, and the single seam reversal closes it exactly for an odd number of selected edges. Distinct even supports or rail phases cannot differ by just one edge. Odd supports have one long gap and an R-prefix/H-suffix; one initial rail bit fixes a nonempty H-suffix, giving n choices per support. Changing the first H to a rung stays feasible, and all-rung supports are joined by the shift of two. For degree, deletion of an interior start merges two gaps of two, allowing only reinsertion at that start. Deletion next to the long gap merges gaps two and three, allowing exactly one genuinely new start on that side; the n=5 case has one surviving start and the same two insertions into its cyclic gap of five. Applying the transition rules gives unchanged-support counts 2,3,2,1 and changed-support counts 4,2,2,3 for h=0, h=1, 2≤h<m, h=m. Summing yields precisely the stated polynomial and edge count. The size, connectivity, and degree arguments respect the seam without defining a global untwisted rail.",
+      "status": "PASS",
+      "verification": "Inspected both bundled Python verifiers without executing them. An independent exhaustive edge-conflict clique-cover search with direct endpoint validation and exchange adjacency by symmetric difference of size two checked n=4 through 16. At n=15 it found 225 optima in one component with degrees 4/5/6 occurring 180/30/15 times and 480 exchanges; at n=16 it found two isolated optima. Replay: python3 /tmp/opencode/mobius_exchange_replay.py; output /tmp/opencode/mobius_exchange_replay_n4-16.txt. This finite check is corroboration, not the all-order argument."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal–Basak pp.2–3 specify independence and ordinary perfect-matching complexes of Möbius and circular ladders; their same-graph object is not the exchange graph of maximum induced matchings.",
+          "The McSorley abstract states a general counting technique for structures of Möbius ladders, without identifying induced matching or exchange results."
+        ],
+        "reasoning": "Known general vertex-token results and topology of the ordinary complexes do not specialize to the stated exchange graph. McSorley's full scope cannot be resolved from its abstract.",
+        "searches": [
+          "arXiv:2111.13476v2",
+          "arXiv:2608.30601v2",
+          "doi:10.1016/S0012-365X(97)00086-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index: 31a272059515, 55d236e46c67, 6240a7fb625f",
+        "arXiv:2111.13476v2 §1.1",
+        "arXiv:2608.30601v2 pp.2–3 and reference [27]",
+        "McSorley 1998 OpenSIUC abstract and DOI landing evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decisive extra statements are isolation of every optimum in even order, odd connectivity, and the exact multiplicities of degrees 4,5,6 under one whole edge exchange."
+        ],
+        "reasoning": "Even an earlier enumeration of the optima would leave adjacency, degree, and component structure undetermined. The accessible literature examined does not give an implication to these joint assertions.",
+        "searches": [
+          "Eto et al. §1.1; Agarwal–Basak pp.2–3 and reference [27]; indexed Resultary 55d236e46c67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent independent-set problem is maximum independent sets of L(M_{2n})² with one-token replacement, not independent sets of M_{2n} or of the unsquared line graph.",
+          "Eto et al., arXiv:2111.13476v2, §1.1 p.2, represent d=1 by vertex subsets and move one vertex."
+        ],
+        "reasoning": "A one-vertex move on endpoint sets does not allow every one-whole-edge exchange, and ordinary matching does not impose edge-induced endpoint separation. Related Resultary whole-edge reconfiguration on triangular graphs uses a different graph family and a different optimal-configuration model.",
+        "searches": [
+          "Resultary: Möbius ladder maximum induced strong matching reconfiguration whole edge token jumping exact degree distribution enumeration edge conflict prism ladder",
+          "Primary search: Möbius ladder maximum induced matching strong matching enumeration reconfiguration one edge exchange strong independence McSorley Counting Structures in the Möbius ladder"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned result and the indexed Maximal-matching size polynomial and twisted saturation law for Möbius ladders, 55d236e46c67. The latter tabulates inclusion-maximal ordinary matchings by size, not maximum induced matchings or their exchanges.",
+          "The exact graph's historical enumeration article is confirmed but no applicable degree table was available in the passages read."
+        ],
+        "reasoning": "An ordinary maximal-matching generating function cannot identify the optimum one-edge-exchange degrees of the stricter feasible sets, even if some counts coincide. No matching earlier degree table was located in this bounded comparison.",
+        "searches": [
+          "Resultary: Möbius ladder maximum induced strong matching reconfiguration whole edge token jumping exact degree distribution enumeration edge conflict prism ladder",
+          "OpenSIUC math_articles/93; DOI 10.1016/S0012-365X(97)00086-1"
+        ]
+      },
+      "rationale": "Bounded evidence supports the whole-edge optimum-exchange dichotomy and exact odd degree classification as distinct from known move rules, matching-complex invariants, and ordinary matching enumeration. Priority for the scalar size and enumeration alone is not established.",
+      "residual_risks": [
+        "McSorley full text was inaccessible; equivalent pure counting or stronger comparison within it cannot be excluded.",
+        "Unindexed strong-matching or squared-line-graph reconfiguration work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved for historical enumeration and possible stronger coverage",
+          "evidence": "Abstract says many structures are counted using a unifying technique, but does not list the structures or specify exchange results.",
+          "identifier_or_url": "https://opensiuc.lib.siu.edu/math_articles/93/; doi:10.1016/S0012-365X(97)00086-1",
+          "material_read": "Repository bibliographic record and abstract; publisher landing/abstract only",
+          "method": "OA exact-source lookup; repository PDF article=1099 returned HTTP 403 via both access routes",
+          "title": "Counting structures in the Möbius ladder",
+          "trigger": "Exact object and plausible earlier enumeration"
+        },
+        {
+          "assessment": "Different adjacency rule",
+          "evidence": "TJ and TS are defined on regular induced vertex subsets by replacing one vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.13476v2",
+          "material_read": "p.2, §1.1, OA offset 0",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Reconfiguration of Regular Induced Subgraphs",
+          "trigger": "Equivalent feasible sets when d=1"
+        },
+        {
+          "assessment": "Different complexes; relevant historical citation",
+          "evidence": "The complexes are vertex independence and ordinary perfect matching, and their homotopy types are the targets; McSorley is cited for broader combinatorial structures.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601v2",
+          "material_read": "Abstract, pp.2–3; p.18 ref. [27]",
+          "method": "Bounded primary PDF text inspection",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same ladder family and matching structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical twisted cubic family the exact optimum move structure changes from complete immobility to connectivity, with the full one-step branching profile. This is information not contained in an optimal size or configuration count and is useful when comparing whole-edge move rules on ladder graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

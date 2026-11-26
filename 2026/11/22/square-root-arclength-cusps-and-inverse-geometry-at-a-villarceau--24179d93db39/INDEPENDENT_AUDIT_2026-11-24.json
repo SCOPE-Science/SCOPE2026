@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:33:10.767854Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:14–31,40–105 (in particular (3), the transfer paragraph and (6))",
+        "Frozen VERIFICATION.md:19–23 and checks/torus_section_checker.py:11–88",
+        "Repaired RESULT.md, exact node coordinates, metric transfer and (6)",
+        "Repaired VERIFICATION.md (scientific notes; front matter unchanged)",
+        "Fresh bounded radial-quadrature computation as described"
+      ],
+      "rationale": "The frozen proof does not establish the Finding as written: equation (6) contains an extra factor a on both sides, inconsistent with the stated angular coefficients for general radii. The transition from a truncated node equation to the uniform length defect is also only sketched. This is a defect in the written proof, not evidence that the stated angular coefficients are false. The repaired proof has the same claim and derives the normalization from exact smooth node coordinates U=√(r²+k)u, V=(u²+v²−a²)/2+k. Direct substitution yields Q/4=V²−U²+a²k−k², with smooth metric having node weights 1/r, 1/a. With η=√|a²k−k²|, each quadrant is a half-hyperbola, with longitudinal weights exchanged across k=0. Subtracting the critical ray and its lost vertex segment and rescaling gives ηJ, with integrable lower singularity and quadratic tail. The stated elliptic change of variable and F′(t)=tK(t) give J=−mF(p/m). In the fixed chart squares, varying k in the metric costs O(|k|); the spatial metric correction for the difference of the smoothed and critical lengths is bounded by integrating Cη²(1/x+1/√(x²−η²)), including an O(η²) missing-segment correction. The regular complementary arcs have O(|k|) changes with one-sided smooth cutting points. There are eight half-branches total and mη∼(R/r)√|k|, with no additional factor a. The angular conversion k∼2ra(β−β*) then agrees with both original coefficients. Positivity and the side comparison follow from monotonic F; the ratio is strictly decreasing with endpoints ∞ and 0, and the recovered scale follows by substitution. Both endpoint sections and zero length of the two isolated crossings are consistent with the chosen measure. Fresh exact-radial-quadrature spot checks (not execution of the uploaded checker) at (R,r)=(2,1) predicted C_−≈6.04965949 and C_+≈20.00955644; approach ratios (4πR−L)/√ε at ε=10⁻³, 3·10⁻⁴, 10⁻⁴, 3·10⁻⁵ were respectively 5.70191, 5.86004, 5.94045, 5.98994 from below and 20.31699, 20.18700, 20.11469, 20.06806 from above. To replay, integrate both positive radial branches with the derivative density in (1), using quadrant symmetry and a quadratic substitution from the upper angular endpoint on the plus side. The repaired verification notes distinguish chord sums on the same radial parametrization from an independently derived contour; the original numeric source was inspected, not run.",
+      "residual_risks": [
+        "The numerical comparison is bounded and does not establish the limit; that is the role of the exact hyperbola and metric comparison.",
+        "The estimates are not asserted uniformly near horn or vanishing-minor-radius limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed sphere–cylinder transition ending b35556e4cf39 has two square-root length cusps, a coefficient-equality threshold and inverse geometry using ratio and nodal length. The classical geometry citations in frozen RESULT.md:110–123 discuss conic-generated sections, circular factorization or toric sections; independent OA passage attempts timed out."
+        ],
+        "reasoning": "The sphere–cylinder record supports the existence of a nearby mechanism, not an available theorem for this ring-torus family or a general result dominating it. Classical geometry at the critical angle supplies the critical circles but not the off-angle length expansion. Full-source general coverage is not ruled out by excerpts.",
+        "searches": [
+          "Resultary: inverse geometry torus radii from two one-sided arclength singularity coefficients",
+          "Villarceau torus section boundary perimeter length arclength cusp at critical inclination square root coefficients elliptic integral",
+          "Hirsch (2002), García Monera–Monterde (2011), Moroni (2017), literal Villarceau"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:110–123",
+        "Repaired RESULT.md, relationship to prior work and (2)–(6)",
+        "Resultary records ending b35556e4cf39 and 3f2e0b5e194a (indexed statements)",
+        "Hirsch, García Monera–Monterde, Moroni (frozen citations and access-bounded comparisons)",
+        "Targeted primary-literature query (returned geometry snippets, not decisive full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest analogue describes inverse radii from amplitude ratio and nodal length in another intersection of quadrics. The repaired torus derivation supplies a specific chart, the scale mη, the count of two nodes and the conversion k′(β*)=2ra; the absolute normalization allows inversion from the amplitude pair alone."
+        ],
+        "reasoning": "Even a shared constant-metric half-hyperbola integral does not by itself identify these torus parameters and observable. No torus corollary of a retrieved statement was established. Treat the generic mechanism and classical background as common inputs, not as novel claims.",
+        "searches": [
+          "Resultary sphere–cylinder nodal length record ending b35556e4cf39",
+          "Resultary Villarceau area record ending 3f2e0b5e194a",
+          "Frozen RESULT.md:110–116 versus repaired RESULT.md, (2)–(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact torus arclength result in the index is the assigned record, not independent evidence. The distinct Villarceau area record ending 3f2e0b5e194a gives a (β−β*)log|β−β*| singularity for solid-section area, with coefficient 4(R²−r²) in the indexed statement."
+        ],
+        "reasoning": "Perimeter/arclength aliases do not change the claim. The area result has a different observable, order of singularity, and normalization, so it is not the boundary-length cusp or the two-amplitude reconstruction.",
+        "searches": [
+          "Resultary: Villarceau torus boundary total arclength one-sided square-root cusp coefficients",
+          "Resultary: Villarceau section perimeter length at transition cusp inverse radii elliptic coefficients",
+          "Resultary: torus plane section arclength perimeter near Villarceau angle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K and E are classical tabulated functions. The checker samples the present coefficient formula and boundary quadrature, not an external table. The exact-claim indexed hit is the frozen finding itself."
+        ],
+        "reasoning": "A table of elliptic-integral values evaluates F after the specific modulus and prefactor are established; it cannot determine node multiplicity, which modulus belongs to which angular side, or the scale reconstruction. No independent exact cusp-coefficient table was identified in the bounded search.",
+        "searches": [
+          "Resultary: Villarceau section perimeter length at transition cusp inverse radii elliptic coefficients",
+          "Frozen RESULT.md:8–21,74–89; checks/torus_section_checker.py:12–19,56–85"
+        ]
+      },
+      "rationale": "The repaired proof preserves the precise torus-specific boundary-length coefficients and the inverse determination of both radii from those coefficients alone. The distinct contribution is not the classical Villarceau circles, the elliptic functions, or square-root length behavior from general nodal smoothing. The closest indexed nodal-arclength paper is a genuine conceptual overlap; its available statement does not provide this torus normalization or recovery law. The plausible older geometry sources remain a bounded access risk.",
+      "residual_risks": [
+        "The closest same-day nodal-length record could not be assessed formula by formula from full text. General nodal arclength results or older toric-section studies may narrow the distinct claim; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material conceptual overlap; different objects and measured inverse data in the available statement. Same-day dating does not determine priority.",
+          "evidence": [
+            "Sphere–cylinder singularity, equality threshold and reconstruction using the amplitude ratio and nodal length"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-sided-square-root-length-cusps-and-inverse-geometry-at-the-g--b35556e4cf39",
+          "material_read": "Indexed statement; full mirrored passage unavailable",
+          "method": "Resultary search and attempted targeted mirror request",
+          "title": "Two-sided square-root length cusps and inverse geometry at the grazing sphere–cylinder transition",
+          "trigger": "Closest two-sided nodal length and inverse geometry claim"
+        },
+        {
+          "assessment": "Different observable and nonanalytic order",
+          "evidence": [
+            "Solid-section area term (β−β*)log|β−β*|, not length term √|β−β*|"
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-logarithmic-area-cusp-and-haar-topology-law-at-the-villarceau-tr--3f2e0b5e194a",
+          "material_read": "Indexed statement and frozen comparison at RESULT.md:113,123; mirror not retrieved",
+          "method": "Resultary search and attempted mirror text access",
+          "title": "Logarithmic area cusp and Haar topology law at the Villarceau transition",
+          "trigger": "Exact same torus transition with a section-measure asymptotic"
+        },
+        {
+          "assessment": "Classical geometry credited; cannot make a full-paper noncoverage claim from access failure",
+          "evidence": [
+            "The frozen statement describes tangent-plane geometry and construction from circular sections"
+          ],
+          "identifier_or_url": "https://www.heldermann-verlag.de/jgg/jgg15/j15h1mone.pdf",
+          "material_read": "Frozen attribution at RESULT.md:110–112 and reference at 120; no independent retrieved passages",
+          "method": "Literal Villarceau OA lookup",
+          "title": "Building a Torus with Villarceau Sections",
+          "trigger": "Same exact critical planes and circles"
+        },
+        {
+          "assessment": "Known algebraic section framework; no decisive accessible arclength passage",
+          "evidence": [
+            "Attributed coverage is algebraic forms and special circles"
+          ],
+          "identifier_or_url": "https://www.lucamoroni.it/toric-sections/",
+          "material_read": "Frozen scope description at RESULT.md:111,121; web text not independently retrieved",
+          "method": "Targeted OA website-mode lookup",
+          "title": "The toric section: intersection of a torus with a plane",
+          "trigger": "General algebraic toric sections could encode off-critical behavior"
+        },
+        {
+          "assessment": "Broader geometric context; no full-text negative finding",
+          "evidence": [
+            "Frozen attribution concerns Villarceau-type sections on surfaces generated by conics"
+          ],
+          "identifier_or_url": "https://www.heldermann-verlag.de/jgg/jgg06/jgg0610.pdf",
+          "material_read": "Frozen description at RESULT.md:111,119; full text unavailable",
+          "method": "Targeted OA PDF lookup",
+          "title": "Extension of the ‘Villarceau-Section’ to Surfaces of Revolution with a Generating Conic",
+          "trigger": "Generalization of the classical critical sections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:14–38",
+        "Repaired RESULT.md, Finding, exact length defect and reconstruction"
+      ],
+      "rationale": "At the classical change of topology the perimeter need not follow the area cusp. The exact torus coefficients quantify the two-sided loss, detect a particular equal-loss shape, and recover both geometric radii from local length observations alone. A mere square-root exponent or the classical circle configuration would not supply this inverse geometry. Repair preserves that motivated precise invariant.",
+      "residual_risks": [
+        "No global extremum or stability of the inverse problem in noisy observations is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

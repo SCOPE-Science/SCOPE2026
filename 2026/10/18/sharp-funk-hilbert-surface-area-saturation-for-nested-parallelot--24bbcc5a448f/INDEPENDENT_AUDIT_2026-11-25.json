@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:43:20.048402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–22,24–82,84–85",
+        "VERIFICATION.md",
+        "VERIFY.py",
+        "Arya–Mount, arXiv:2601.16468, Lemma 2.2"
+      ],
+      "rationale": "Under simultaneous affine transformation the induced cotangent densities pull back, so one can work on the inner cube. Projection onto each facet yields the asymmetric axial cross-polytope P_m(z); its orthant simplices give density 2^m/[m!∏(1−z_j²)] before the Holmes–Thompson factor. The substitution z_j=tanh(u_j) cancels that weight, yielding the formula for F_d and a uniform cube average of the difference-body ratio. At finite z all 2m vertices survive, ruling out the simplex equality case. Central symmetry would pair the axial vertices with a common midpoint: a midpoint with one nonzero coordinate is incompatible with the vertices on another axis; one with two is incompatible with both signs on either of those axes, and a pair cannot supply three nonzero coordinates. Thus the center must be zero, and the axial lengths agree only at z=0. Near each corner, coordinate reflections and diagonal rescaling give a nondegenerate simplex limit. Equivalently take U=aV with V fixed uniform on [−1,1]^m; tanh(U) approaches a corner almost surely, so the bounded local ratios converge in mean to β_m. For m=2 the sum of the absolute pairwise edge determinants gives the difference-body area, since the oriented edge segments sum to a zonotope with the polygon's width as support function. Dividing by the original area gives 1+max(|y|,|w|)/2. The maximum of the two absolute logarithmic coordinates has density 2u/a²; the resulting integral has positive derivative, and expanding 1−tanh u as 2/(1+e^(2u)) gives the π²/24 coefficient. The uploaded checker was inspected, not executed; the argument checks the decisive formula analytically.",
+      "residual_risks": [
+        "The comparison factor is a supremum approached as t increases to one, not an attained ratio. Monotonicity is established only in d=3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 5.1 already bounds the ratio by β(d−1) and notes exactness in the planar and ellipsoidal cases. The local inequality and its factor are not new.",
+          "The inspected comparison does not supply the approach to the upper endpoint for centrally symmetric homothetic parallelotopes, nor the d=3 profile."
+        ],
+        "reasoning": "The broad inequality controls each section but gives no distributional statement that the near-simplex sections asymptotically dominate a whole facet.",
+        "searches": [
+          "Arya–Mount arXiv:2601.16468, Lemmas 2.2–2.3 and Corollary 5.1",
+          "Resultary: Faifman and Rogers–Shephard sharpness"
+        ]
+      },
+      "checked_sources": [
+        "Resultary queries and exact entries a90277a6c35e, f40114c4b4e6",
+        "arXiv:2601.16468",
+        "arXiv:2012.12159v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deriving the family limit uses the exact facet weight, its logarithmic flattening and the concentration at rescaled simplex corners. The known cotangent identity and upper comparison do not directly give any of these weighted assertions or the d=3 rate."
+        ],
+        "reasoning": "The proof computes a new family-specific profile from published geometric tools; it does not merely substitute dimension into an earlier exact result.",
+        "searches": [
+          "Arya–Mount arXiv:2601.16468 p. 7 Lemma 2.2, p. 8 Lemma 2.3, p. 18 Corollary 5.1",
+          "Faifman arXiv:2012.12159v3 pp. 4, 22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faifman's planar boundary-length duality concerns one-dimensional induced volume and says nothing about the m≥2 parallelotope profile.",
+          "The indexed Hanner-polytope comparison concerns Funk-ball volumes, not induced hypersurface area."
+        ],
+        "reasoning": "Affine equivalence reduces all the pairs here to nested cubes, but neither a planar duality nor Funk volumes of metric balls gives the resulting facet integral.",
+        "searches": [
+          "Resultary: Funk/Hilbert hypersurface areas of parallelotopes; nested cubes and arctanh(t)",
+          "Faifman arXiv:2012.12159v3, Corollaries 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-day a90277a6c35e is a reflected mixed-volume and difference-body profile for triangular bipyramids. Record f40114c4b4e6 concerns Funk-ball volumes for ellipsoids and Hanner polytopes. No exact profile match was identified among the ranked results checked."
+        ],
+        "reasoning": "Neither known invariant identifies an induced surface-area ratio in the family here; the same-day catalogue date does not imply priority.",
+        "searches": [
+          "Resultary: Funk/Hilbert hypersurface areas of parallelotopes; Arya–Mount difference-body comparison; nested cubes and arctanh(t); Faifman/Rogers–Shephard sharpness",
+          "Resultary records a90277a6c35e and f40114c4b4e6"
+        ]
+      },
+      "rationale": "The cotangent-ball identity and the general numerical comparison are already known. The distinction supported here is strict finite-radius comparison and saturation within the restricted homothetic parallelotope family, the exact Funk area, and the dimension-three integrated ratio and gap. A sharp local bound on each cotangent section does not determine this integrated saturation, because the weighted distribution of facet positions must also be analyzed.",
+      "residual_risks": [
+        "No claim of bibliographic priority. The source comparisons are bounded; earlier treatments of cube or parallelotope Hilbert geometry could contain related weighted profiles. The classical Rogers–Shephard paper was not separately retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known cotangent identity and overall factor, not the inspected family's profile",
+          "evidence": "Hilbert cotangent ball is half the Funk difference body; Corollary 5.1 compares hypersurface areas and notes planar and ellipsoidal exactness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.16468",
+          "material_read": "PDF p. 7 Lemma 2.2 (offset 24762), p. 8 Lemma 2.3 (28662), p. 18 Corollary 5.1 (59910)",
+          "method": "OA primary PDF",
+          "title": "Cauchy’s Surface Area Formula in the Funk Geometry",
+          "trigger": "Closest prior hypersurface comparison and normalizations"
+        },
+        {
+          "assessment": "Adjacent volume and planar duality results",
+          "evidence": "The inspected claims include a dual Hilbert-volume inequality and the identification of Hilbert length with one-dimensional Funk Holmes–Thompson volume.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.12159v3",
+          "material_read": "Corollaries 1–2, PDF p. 4 offset 12400; proof of Corollary 2, p. 22 offset 71320",
+          "method": "OA primary PDF",
+          "title": "A Funk perspective on billiards, projective geometry and Mahler volume",
+          "trigger": "Source for the comparison and possible sharp family"
+        },
+        {
+          "assessment": "Different bodies and invariant",
+          "evidence": "The reflected mixed-volume and difference-body profiles are for triangular bipyramids, without the nested Funk/Hilbert hypersurface setting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-reflected-mixed-volume-profile-and-flat-minimum-for-triang--a90277a6c35e/RESULT.md",
+          "material_read": "RESULT.md, findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact reflected mixed-volume profile and flat minimum for triangular bipyramids",
+          "trigger": "Indexed same-day difference-body overlap"
+        },
+        {
+          "assessment": "Different Funk-ball volume invariant",
+          "evidence": "The compared Holmes–Thompson volumes are Funk-ball volumes for ellipsoids and Hanner polytopes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-ellipsoids-satisfy-the-funk-hanner-ratio-conjecture-in-every-dim--f40114c4b4e6/RESULT.md",
+          "material_read": "RESULT.md, findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Ellipsoids satisfy the Funk–Hanner ratio conjecture in every dimension",
+          "trigger": "Funk ratios for a class of symmetric polytopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–18,38–82",
+        "Arya–Mount arXiv:2601.16468, Corollary 5.1"
+      ],
+      "rationale": "This gives a concrete sharpness family for a surface-area comparison inside the restrictive setting of two concentric, homothetic and centrally symmetric bodies, even though local symmetry of the ambient cube does not force equality at the lower endpoint. The exact radius dependence and gap in dimension three quantify the comparison rather than merely exhibiting a limiting local simplex.",
+      "residual_risks": [
+        "The contribution is a family-specific sharpness and profile result, not a new universal bound or a classification of other sharpness families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

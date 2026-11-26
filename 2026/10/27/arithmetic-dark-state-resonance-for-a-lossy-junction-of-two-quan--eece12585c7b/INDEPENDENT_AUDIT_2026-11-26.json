@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:22.795916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–20 and proof §§1–4, lines 23–50",
+        "VERIFICATION.md lines 3–23; verify.py lines 50–86; requirements.txt",
+        "python3 /workspace/audit-work/independent_checks.py 4"
+      ],
+      "rationale": "For self-adjoint H the span of its hub-zero eigenvectors and its orthogonal complement reduce H and the loss projector. Taking the imaginary part of each eigenvector equation gives Im λ≤0 and equality only in the hub-zero sector. After restriction to the complement all generalized eigenmodes decay, so the limiting norm squared really is the initial orthogonal dark-projection weight for any γ>0. Deletion of the hub leaves path sine modes; for the Laplacian the principal blocks retain nonhub degree 2, so L=2I−A+2P_v implies the same dark vectors. The two endpoints of a mode cancel exactly for even indices. A coincidence at k/m=ℓ/n means (k,ℓ)=r(m/d,n/d), 1≤r<d. At mixed parity the even mode already exhausts the kernel; at even/even both are already counted. Only odd/odd adds a direction, with normalized coefficients proportional to (√m,−√n), giving precisely 2/(m+n) in the first-loop projection. This produces the floor and parity factor, and the r=1 term checks the stated strictness, including d=1, equal loops, and sites divisible by d. Tracing the projection gives the uniform-vertex mixture. The two triangles give 1/2+1/4. Independently computed modular hub-observability ranks for eight pairs (both H, two primes, e.g. 12,20 gives 16 dark directions, 6,10 gives 7, 4,6 gives 3); finite rank checks corroborate, not prove, the all-size result. The frozen script was inspected, not executed.",
+      "residual_risks": [
+        "The proof applies to finite unweighted cycles, exactly one absorbing hub, and γ>0; no rate or finite-time monotonicity claim is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous-walk trap model uses H₀−iΓ. The stroboscopic paper proves a finite dark-space projection law for a different evolution. The rose characterization treats the exact graph family but its theorem is about global Laplacian spectrum determining isomorphism."
+        ],
+        "reasoning": "These cover the framework or the object, not the rooted projector and its arithmetic site weights. Global eigenvalues alone are not a statement about e_j and hub-zero eigenspace overlaps.",
+        "searches": [
+          "arXiv:1309.2827v1 p. 2 Eq. (3)",
+          "arXiv:1906.08112v1 §V",
+          "arXiv:1607.05466v1 p. 2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 55–65",
+        "Resultary records 0b8034f94b14, 3fb35c3a1ace, 0b79f725d099, 3245390fc987, fb94c6855248",
+        "OA PDFs arXiv:1607.05466v1, 1309.2827v1 and 1906.08112v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the spider proof all common modes obey one nontrivial rank-one constraint; in a two-cycle wedge both rows can already have zero endpoint sum or exactly one can have zero before any cross-loop cancellation. The rose spectral theorem does not give these rooted mode weights."
+        ],
+        "reasoning": "The known proof technique adapts, but the prior hypotheses and formulas do not mechanically specialize to this parity-sensitive classification. The critical extra step is the two-end cancellation and its combination with common Dirichlet fractions.",
+        "searches": [
+          "Resultary mirror 0b8034f94b14 RESULT.md offsets 0–2955 and 3860–6866",
+          "He–van Dam arXiv:1607.05466v1 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a fixed Dirichlet frequency the spider record projects against weights proportional to m_i^(−1/2). For the wedge the equivalent rooted problem instead has entries proportional to (1+(-1)^(k+1))/√m_i."
+        ],
+        "reasoning": "The shared spectra and rank-one projection form are genuine overlaps, but changing one endpoint to the sum of two changes which entries vanish. A graph with two hub neighbors per path is not the indexed unweighted spider, even though deleting the hub gives paths in both.",
+        "searches": [
+          "Resultary: 0b8034f94b14, 3fb35c3a1ace, 0b79f725d099; cycle wedges, rooted hub-zero eigenvectors and site survival",
+          "arXiv:1607.05466v1, rose graph = one-vertex union of cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The spider predecessor gives an exact divisor/Ramanujan-sum table for those trees; the indexed two-cycle wedge entry concerns finite-field rank/strata. The later parity record concerns a distinct two-absorber topology."
+        ],
+        "reasoning": "No inspected exact formula tabulates the rank and site projector of the wedge (including the parity of m/d and n/d); matching topology or arithmetic terms alone is not coverage.",
+        "searches": [
+          "Resultary: 0b8034f94b14, proof §§3–5",
+          "Resultary: 3245390fc987, two-cycle wedge rank polynomials",
+          "Resultary: fb94c6855248, parity-resolved two-terminal transport"
+        ]
+      },
+      "rationale": "Pass for the two-cycle parity-filtered resonance and exact local projection law. The hub-zero projection argument, Dirichlet sine basis and gcd matching are closely related to prior results and are not separately credited. The closest actual spider theorem uses one coupled endpoint per arm and never has a zero single-arm endpoint amplitude; the cycle attaches both endpoints and changes the rank by parity.",
+      "residual_risks": [
+        "Rooted observability and cycle-attachment spectra have terminology variants and may contain additional priority evidence. Bounded searches do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same basic projector method and common-spectrum mechanism, different boundary condition and graph",
+          "evidence": "§3 uses only the first-site sine of an open arm; its projection removes one dimension at every common frequency. The wedge additionally has hub-invisible even modes and only odd/odd cross resonance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-arithmetic-dark-state-and-site-selective-absorption-laws-on-uneq--0b8034f94b14/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2955; proof §§2–5, offsets 3860–6866",
+          "method": "Configured Resultary search and mirror read",
+          "title": "Arithmetic dark-state and site-selective absorption laws on unequal-arm quantum spiders",
+          "trigger": "Continuous hub loss, gcd matching and exact local projector; strongest methodological overlap"
+        },
+        {
+          "assessment": "Global isospectral characterization, no implication for the exact local survival claim there",
+          "evidence": "The theorem concerns determination by Laplacian spectrum, with exceptions R(3,4) and R(3,5), not survival from a rooted vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.05466v1",
+          "material_read": "PDF p. 2, Theorem 1.1 (offset about 5880)",
+          "method": "Lawful OA PDF passage",
+          "title": "Laplacian spectral characterization of roses",
+          "trigger": "Same rose graphs and Laplacian"
+        },
+        {
+          "assessment": "Overlap of continuous absorber framework, not an arithmetic wedge result",
+          "evidence": "The Hamiltonian is H₀−iΓ with Γ supported at absorbing sites.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.2827v1",
+          "material_read": "PDF p. 2 Eq. (3) and nearby survival model; offset 9026",
+          "method": "Lawful OA PDF passage",
+          "title": "Geometrical aspects of quantum walks on random two-dimensional structures",
+          "trigger": "Continuous CTQW absorption using imaginary diagonal potential"
+        },
+        {
+          "assessment": "Finite dark-projection principle in stroboscopic dynamics, not continuous wedge classification",
+          "evidence": "The evolution uses (1−D)U(τ), and the limiting survival is the initial dark projection.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.08112v1",
+          "material_read": "PDF §V, p. 5, offset 42435",
+          "method": "Lawful OA PDF passage",
+          "title": "Dark states of quantum search cause imperfect detection",
+          "trigger": "General dark projector and spectral overlap for localized detection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§3–4",
+        "Unequal-arm spider mirror, proof §§3–5"
+      ],
+      "rationale": "A two-loop hub is a natural minimal graph for quantifying how attaching a second loop can increase trapping-resistant survival. The exact parity/gcd and site-divisibility conditions specify when that effect exists, and the local projector gives its magnitude; the total dark dimension alone is insufficient to answer this transport question.",
+      "residual_risks": [
+        "The graph-family result is narrow and does not establish transfer to arbitrary cactus graphs, sink placement or sampling protocols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: rank-optimal edge-collapse word spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact source and target conventions agree with the flow-monoid definition of Assem–Derets–Nehaniv (arXiv:2608.24239, Definition 2.1). The critical equivalence is an elementwise rank drop: \(\tau_{ab}\) removes \(a\) from the current image exactly when both \(a,b\) are present. It forces each source to be used once and every arrow to point forward in the removal order; these facts establish a rooted-forest/linear-extension bijection without assuming an unproved normal form. Root choices for an \(\ell\)-vertex path are counted by two-chain shuffles. The multinomial theorem handles path forests, and a marked-cut argument handles cycles with the factor \(n/k\), including \(k=1\). The empty word, one-vertex path and triangle-cycle boundaries are explicit. Direct transformation enumeration for ten graph sizes and independent subset-DP enumeration for 22 graph sizes agree with all closed formulas; 65 ratio checks also passed. Finite tests corroborate but do not substitute for the infinite argument.
+PASS
 
-## Originality — qualified PASS
+A strict drop takes the image S to S minus the letter's source, and occurs exactly when both endpoints lie in S. Sources cannot recur, and each arrow points to a surviving or later-removed vertex. There are no repeated undirected edges or undirected cycles: an undirected cycle would require that every vertex of that cycle use its sole outgoing arrow on the cycle, giving a directed cycle. Thus the words are rooted spanning forests with descendant-before-ancestor edge orders, and any such order realizes all its drops. In a path component with a edges, pruning either endpoint until one vertex remains yields 2^a internal words; fixing the survivor at position j instead gives binom(a,j-1). For a path, the k=n-m components have ordered nonnegative edge counts of sum m. Shuffling their orders gives the multinomial sum 2^m k^m. For a cycle, marking one omitted edge gives n cuts and counts each forest-word pair k times, yielding the ratio n/k. At m=n-1 the path binomial row and the uniform cycle reset counts follow by choosing the survivor, with each possible path position appearing once per fixed cycle vertex across the omitted edges. The empty word, P1, and C3 are included in these arguments. A separate bounded transformation-based DFS also matched the spectra and per-vertex reset counts through n=6 for both families; no replay artifact from that check was retained. The unrestricted proof does not depend on the finite check.
 
-The 2026 paper gives the generators, constant-map reachability and the known \(n-1\) reset threshold, but not word multiplicities or the uniform path/cycle ratio. Cameron et al. (2016/2017) study shortest **lengths of particular transformations** rather than the aggregate number of minimum-length rank-loss words across all transformations. East–Gadouleau–Mitchell (2019) study structural and Green-type properties of the same arc-generated semigroups. Search comparisons in published mathematical records found related shortest-reset-word enumerations for different sparse automata, including a Wielandt-type family, not for the flow semigroup of paths or cycles. The object, alphabet, quantifiers and word-versus-element distinction prevent those results from implying the new formula as stated. Historical priority remains qualified because equivalent formulations under sequential graph contraction, pruning orders or automata reset-word enumerators may have escaped the searched literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Multiplicity of minimum-rank-loss factorizations is a natural enumerative complexity invariant of an explicitly generated finite monoid. The formulas solve all possible target ranks in two infinite, basic graph families, not just an arbitrary parameter slice. Their sharp rank-by-rank ratio \(n/(n-m)\) records the effect of closing one edge into a cycle; root-refined reset counts provide a further structural check. Both value and limitations are specific: the result counts labeled **words**, not distinct maps, and does not assert a classification for general graphs.
+The supported distinct claim is the all-rank multiplicity of literal minimum-length words in the alphabet of both orientations of every edge, including the ratio and reset-image specialization. The inspected statements on reset thresholds, individual element lengths and nearby collapse-schedule counts do not cover it.
 
-## Principal sources and residual risks
+## value
 
-Primary sources: Assem–Derets–Nehaniv, arXiv:2608.24239 (2026-08-25); Cameron–Castillo-Ramirez–Gadouleau–Mitchell, DOI 10.1007/s10801-016-0703-9 (first online 2016); East–Gadouleau–Mitchell, DOI 10.5802/alco.56 (2019). The first source is the recent motivation. Earlier shortest-word enumerations elsewhere are the main novelty risk. Characterization of all minimal rank-loss words of arbitrary connected graphs is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rank and word length are natural observables for this generating alphabet. The formulas give the exact number of fastest compression sequences at each attained rank and quantify the contribution of closing the path into a cycle. For instance, normalizing by alphabet size to the m-th power gives the probability that m independent uniform letters achieve the largest possible rank loss. Neither reset threshold nor enumeration of monoid elements supplies that statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

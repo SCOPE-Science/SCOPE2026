@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:30.746087Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a specified triangle, its three vertices contribute no leaves; the other n−3 vertices each have an n−1 edge star disjoint from the triangle. Given the triangle, sampling m−3 of the M−3 remaining edges gives the leaf probability by requiring one selected and n−2 unselected star edges. Dividing by the unconditioned leaf probability leaves the factor (m−3)/m times (M)_{n−1}/(M−3)_{n−1}; the outside-vertex fraction (n−3)/n then reduces the latter factor to Q_n in the result. Summing over triangle indicators gives the covariance. Its bracket is increasing, with real zero strictly between n and n+1 for n≥5 and at 15/4 for n=4. The excluded strata have no leaves or no triangles, and for n≤3 the fixed-edge triangle count is deterministic. For independent edges, only the three triangle vertices' leaf probabilities change under conditioning, yielding the negative factor −3/n. For m/n→c, the absent-edge product in the leaf expectation tends to exp(−2c), giving E L∼2cn exp(−2c), while E T→4c³/3 and the rescaled bracket n[Q_n(1−3/m)−1]→3−3/c; the product also gives the zero limit at c=1. The supplied enumeration code and captured output were inspected, not run; the argument does not depend on the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "81c56545debd, Finding and Proof, gives finite exact covariance for any fixed non-induced motif of minimum degree at least two, which includes K₃.",
+          "Janson gives asymptotic joint degree frequencies, not this finite mixed covariance; Goldstein gives degree-count normal approximation in G(n,p). Indexed 56a6bcddd2ed instead treats triangles and four-cycles; 7537caf0e7d0 includes D₁ but at only m=n−1."
+        ],
+        "reasoning": "The leaf–motif generalization actually specializes to the desired statistic and range. Joint degree counts and other pairs of subgraph observables alone do not.",
+        "searches": [
+          "Resultary: G(n,m) fixed-edge random graph mixed moments subgraph counts triangle cycles covariance",
+          "Resultary: Janson conditioning vertex degree statistics G(n,m) degree counts asymptotic normality Goldstein Berry Esseen",
+          "Janson arXiv:math/0605642, Theorem 4.1; Goldstein arXiv:1005.4390, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary records 81c56545debd, b49fbe58c486, 5a7db6ac7681, 56a6bcddd2ed, 7537caf0e7d0 and 6c2dd1be4f3b",
+        "Janson arXiv:math/0605642 and Goldstein arXiv:1005.4390"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier-path leaf–motif result specializes at K₃ to the same n/n+1 transition and the same covariance in each ensemble and in the sparse limit.",
+          "The functional-limit and triangle-count papers could not be inspected in full; no coverage inference rests on them."
+        ],
+        "reasoning": "Taking the same triangle in the general exact result is a direct specialization, leaving no separate threshold or sparse coefficient to establish.",
+        "searches": [
+          "81c56545debd, mirrored RESULT.md, Finding and Proof, from offset 0",
+          "DOI 10.1002/rsa.3240010103; DOI 10.1002/rsa.10113"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed leaf–motif result 81c56545debd counts degree-one vertices including endpoints of isolated edges and non-induced motif copies; K₃ is precisely the triangle observable here.",
+          "The indexed isolated-edge result 5a7db6ac7681 counts components isomorphic to K₂, not leaves in arbitrary components, and has a different cutoff."
+        ],
+        "reasoning": "Using the motif and degree-count aliases identifies an exact match, while replacing L by isolated-edge component counts does not preserve the statistic.",
+        "searches": [
+          "Resultary: exact conditional covariance degree-one vertices leaf count triangle count G(n,m) sign cutoff n+1",
+          "Resultary: fixed-edge random graph covariance triangle count isolated edge component count sign reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct records are catalogue entries, not a numerical graph table. The leaf–motif entry covers the exact covariance and sign boundary at K₃; the leaf–cycle entry also states the exact triangle result."
+        ],
+        "reasoning": "The evidence is exact symbolic coverage in the registry. Enumeration alone would cover only the tested edge strata and not establish prior coverage.",
+        "searches": [
+          "Resultary: exact conditional covariance degree-one vertices leaf count triangle count G(n,m) sign cutoff n+1",
+          "Mirrored RESULT.md files for 81c56545debd and b49fbe58c486, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The distinct indexed SCOPE leaf–motif theorem 81c56545debd already gives this exact result at the motif K₃, including the finite fixed-edge expression and integer sign change, the negative independent-edge expression, and the sparse limit. Differences from degree-count CLTs, isolated-edge counting, and ordinary subgraph covariance do not distinguish the result from that exact coverage. This is a statement-level coverage finding, not a claim about discovery order.",
+      "residual_risks": [
+        "No full-text copy was recovered for Janson's 1990 functional limit paper (DOI 10.1002/rsa.3240010103) or the Kim–Vu triangle paper (DOI 10.1002/rsa.10113) after access attempts; this leaves external historical priority unresolved and does not weaken direct indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen claim as a special case",
+          "evidence": [
+            "Minimum degree at least two allows K₃, with the same covariance formula, sign boundary, independent-edge contrast and sparse limit."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-motif-universal-sign-transition-for-leaf-covariance-in-fixed-e--81c56545debd",
+          "material_read": "Mirrored RESULT.md, Finding and Proof, from offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local mirror inspection",
+          "title": "A motif-universal sign transition for leaf covariance in fixed-edge random graphs",
+          "trigger": "Closest exact indexed result; same leaf observable and a motif class containing triangles"
+        },
+        {
+          "assessment": "Also overlaps; its path date alone does not establish priority",
+          "evidence": [
+            "States the exact triangle case and its generalization."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-leaf-cycle-covariance-sign-transition-in-fixed-edge-ran--b49fbe58c486",
+          "material_read": "Mirrored RESULT.md, Finding, from offset 0",
+          "method": "Resultary search and bounded local mirror inspection",
+          "title": "An exact leaf–cycle covariance sign transition in fixed-edge random graphs",
+          "trigger": "Exact leaf–triangle hit under the cycle alias"
+        },
+        {
+          "assessment": "Related degree-frequency covariance, not this mixed finite count theorem",
+          "evidence": [
+            "Theorem 4.1 concerns joint limits of degree counts N_k, without the triangle observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605642",
+          "material_read": "§4, pp. 959–960, Theorem 4.1, OA offset 25814",
+          "method": "Bounded primary PDF inspection",
+          "title": "Monotonicity, asymptotic normality and vertex degrees in random graphs",
+          "trigger": "Fixed-edge conditioning and degree-one statistics"
+        },
+        {
+          "assessment": "Related degree-count marginals, no finite mixed covariance in the inspected result",
+          "evidence": [
+            "The result bounds normal approximation for a degree-d count in G(n,p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.4390",
+          "material_read": "§2, pp. 624–625, Theorem 2.1, OA offset 23363",
+          "method": "Bounded primary PDF inspection",
+          "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+          "trigger": "Independent-edge degree counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite sign split and the sparse coefficient quantify how conditioning on the edge count changes dependence between a local degree observable and a motif count. The threshold is informative beyond an isolated numerical witness; the failure is that the statement is already covered, not that the mathematical phenomenon is of no interest.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

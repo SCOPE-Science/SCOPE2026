@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:04.307450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof; VERIFICATION.md; CHECKS.txt; verify_affine.py and verify_affine.cpp (inspected, not executed)",
+        "Independent replay: python3 /workspace/reproduce_frozen_reviews.py 1"
+      ],
+      "rationale": "For a dominating set with a points and b lines, a(q+1)+b ≥ q(q+1) and a+qb ≥ q². If a+b≤2q−1 these force a=q and b=q−1. The selected points must meet at least q²+1 lines. Counting the first point's q+1 lines and at most q new lines for each later point gives exactly that number only in the collinear case: reorder any noncollinear triple first, and its third point contributes at most q−1 new lines. Thus the selected points are a whole line B, and the remaining q−1 selected vertices must be its parallel mates. Conversely these sets dominate. Two parallel base lines give intersection q−2; two intersecting base lines give intersection 1. Subtracting from the common size gives q+1 and 2q−2 respectively (one-sided replacements, not symmetric difference). Hence the reversed ordering for q=2 gives the connected K_{2,2,2} at budget 2, equality of costs gives K_12 at budget 4 for q=3, and for q≥4 each parallel class is a clique before the cross-class threshold. This proves the full phase diagram without a field assumption. An independent closed-neighborhood covering search at orders 2, 3, 4 found 6, 12, 20 optima; unordered pairs by cost were {2:12,3:3}, {4:66}, {5:30,6:160}.",
+      "residual_risks": [
+        "Independent enumeration used coordinate planes of orders 2–4; the proof, not enumeration, covers arbitrary finite affine planes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Zhou cover the same arbitrary finite affine planes. Goldberg et al. and Héger–Nagy's major cited results are for projective incidence, and the indexed edge-guard record changes the domination constraint."
+        ],
+        "reasoning": "The affine-plane results, not projective results or edge domination, provide the relevant antecedent. The finite-order exceptions are not outside that coverage.",
+        "searches": [
+          "arXiv:1603.07398, Theorems 4.2–4.3",
+          "arXiv:1405.3436, Theorem 5.2 and Example 6.4",
+          "arXiv:1603.02933, Theorem 1.5",
+          "Resultary 2026/11/22/SCOPE-seventy-two-minimum-edge-guards-and-a-four-swap-mobility-thresho--1a2a97eb3abe"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1603.07398",
+        "arXiv:1405.3436",
+        "arXiv:1603.02933",
+        "Resultary ac05b66faede, 1a2a97eb3abe and identical target 9ca05a02f1ba",
+        "DOI 10.1016/j.amc.2019.124600 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known size 2q−1 and known line-indexed optimum family; two lines in an affine plane are either disjoint parallel mates or meet in a single point."
+        ],
+        "reasoning": "For parallel lines only the q−2 shared selected line vertices overlap; for nonparallel lines only their junction point overlaps. The at-most graph and all thresholds are the immediate comparison of 2q−1 minus these two intersection sizes. No printed prior exchange theorem or priority ordering of same-day records is asserted.",
+        "searches": [
+          "arXiv:1603.07398, pp. 4, 8",
+          "Resultary ac05b66faede, Finding and All optimum sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recovery Finding (mirror offset 0) identifies exactly the sets consisting of a whole line and its q−1 other parallel-class lines.",
+          "Tang–Zhou's neat form is P together with every line disjoint from P."
+        ],
+        "reasoning": "Under the exact classification, relabel each minimum set by its base line. Adjacency in the at-most-budget graph then depends only on parallelism or intersection of two lines; the precise concept of move does not introduce further degrees of freedom.",
+        "searches": [
+          "Resultary affine-plane minimum dominating sets and exchange/recovery: 2026/11/22/SCOPE-uniform-first-order-recovery-of-affine-planes-from-minimum-domin--ac05b66faede",
+          "arXiv:1603.07398, p. 4 and Theorems 4.2–4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue is the line-parametrized family in ac05b66faede (mirror Finding and proof, offsets 0 and about 1750); CHECKS.txt tabulates only the three finite checks on the target."
+        ],
+        "reasoning": "The exact symbolic catalogue for all orders is more informative here than a numeric table of budgets. The finite table is corroboration, not a separate prior-coverage finding.",
+        "searches": [
+          "Resultary ac05b66faede: Finding and All optimum sets",
+          "Frozen CHECKS.txt"
+        ]
+      },
+      "rationale": "The published affine-plane optimum size and super-neatness already hold in Tang–Zhou. An independently indexed record with the same date explicitly supplies the identical family of optima. The batch-exchange phase diagram is not quoted verbatim in the inspected literature but is a direct distance readout of that family and the standard affine incidence axioms, with no new reconfiguration lemma. This is a coverage assessment, not a claim that the same-day record is earlier or that the graph was previously printed.",
+      "residual_risks": [
+        "Same-day ordering cannot be inferred; the 2019 article's precise coverage remains unverified. The comparison is not an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established antecedent for optimum size and super-neatness; no verbatim exchange statement found in these passages",
+          "evidence": "Value 2q−1; all optima have neat form P plus the lines missing P.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.07398",
+          "material_read": "Neat and super-neat definitions, p. 4, offset about 7800; Theorems 4.2–4.3, p. 8, offsets about 21000–21500",
+          "method": "Open primary PDF passage inspection",
+          "title": "Domination number in block designs",
+          "trigger": "Cited antecedent on the same incidence graph for all finite affine planes"
+        },
+        {
+          "assessment": "Exact static family overlap; same-day ordering unestablished",
+          "evidence": "q(q+1) optima, one for each base line, with the other q−1 parallel-class lines selected.",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-first-order-recovery-of-affine-planes-from-minimum-domin--ac05b66faede",
+          "material_read": "Mirrored RESULT.md Finding, offset 0; All optimum sets, about 1750",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Uniform first-order recovery of affine planes from minimum dominating sets",
+          "trigger": "Strongest distinct Resultary match"
+        },
+        {
+          "assessment": "Projective result and affine example only in the checked passages",
+          "evidence": "The affine order-two example is computationally super-neat.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3436",
+          "material_read": "Theorem 5.2, p. 6; Example 6.4, p. 7",
+          "method": "Open primary PDF passage inspection",
+          "title": "Domination in designs",
+          "trigger": "Early incidence domination source"
+        },
+        {
+          "assessment": "Different incidence structures",
+          "evidence": "The theorem concerns small minimal sets in projective planes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02933",
+          "material_read": "Theorem 1.5, p. 3",
+          "method": "Open primary PDF passage inspection",
+          "title": "Dominating sets in projective planes",
+          "trigger": "Related geometrical classification"
+        },
+        {
+          "assessment": "Exact coverage unverified; not a reason for rejection",
+          "evidence": "The frozen record attributes super-neatness to this paper; no independent content claim is made from the failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2019.124600",
+          "material_read": "No primary text usable from the inspected routes",
+          "method": "OA DOI and lawful publisher page retrieval attempts",
+          "title": "Domination number of incidence graphs of block designs",
+          "trigger": "Later paper possibly covering the precise affine classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and pair-intersection proof",
+        "Resultary ac05b66faede Finding"
+      ],
+      "rationale": "Batch reconfiguration is a natural question, but here the only incremental claim is a mechanically implied two-distance readout of the exact optimum family. No new obstruction, path construction, or separately useful structural invariant is needed to obtain the thresholds. The rising interval length is a comparison of the same two costs. This does not meet the standard for a distinct valuable finding.",
+      "residual_risks": [
+        "Other reconfiguration models or incidence graphs were not reviewed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

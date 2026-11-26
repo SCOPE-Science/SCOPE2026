@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite quotient-collapse argument
+# Independent mathematical audit
 
-Execute `python3 verify_m7_dihedral.py` using Python 3. The program uses only its standard library and builds the entire original matching complex, barycentric chains, and full fourteen-element dihedral action from first principles. It derives canonical orbit cells, their attaching faces, and every proposed collapse pair without reading a saved answer table.
+## correctness
 
-The run checks \(231,840,630\) original subdivision cells, \(26,72,48\) orbit cells, and the exact 18 two-dimensional and nine one-dimensional elementary collapses. The remaining complex has \(17,45,30\) cells. It also checks that the core is connected, all edges have exactly two incident triangles, all 17 vertex links are connected cycles as multigraphs, and Euler characteristic is two. The exact success marker is `M7_D7_QUOTIENT_COLLAPSES_TO_SPHERE_OK`.
+PASS
 
-These are exhaustive, finite checks for this exact object. No extension to other graph sizes is asserted. A homology-only calculation could not establish simple connectivity; the collapse to a classified closed surface does establish it. This is a reproducible mathematical certificate reviewed under the stated same-model status, not an independent audit.
+In the barycentric subdivision face cardinalities distinguish every vertex of a chain; all stabilizers act pointwise on their chain simplex. No two points in one simplex are identified by the quotient: the cardinalities and barycentric coefficients of their supports must agree. Thus triangle sides and edge endpoints are embedded and distinct within each cell, even when distinct cells have identical vertex sets. Free incidences therefore yield actual elementary collapses of the ordinary quotient. An independent bounded enumeration verified the original and orbit counts (231,840,630) and (26,72,48), the fixed-chain counts (19,24,6) for reflections, and all 27 ordered pairs, with 18 triangle–edge and 9 edge–vertex collapses. It verified the core counts (17,45,30), connectivity, exactly two triangles per edge and connected 2-regular multigraph links (including parallel edges, with length counts 2:3, 4:6, 6:5, 10:3). The core is a closed connected surface of Euler characteristic 2; classification gives S². Hence the homotopy and integral homology assertions hold. Replay from the review root: python3 reproductions/3/independent_m7_dihedral.py; output: reproductions/3/independent_check.txt. The original checker was inspected, not run. No claim of formal verification or homeomorphism of the original orbit space is made.
+
+## originality
+
+PASS
+
+Statement-level comparison found exact computations for the cyclic matching quotient (including a separate same-day result) and full dihedral quotients of other heptagon complexes. None supplies the reflection action and attaching data for this matching quotient. The distinct contribution is the full-dihedral ordinary orbit homotopy type and its surface collapse.
+
+## value
+
+PASS
+
+The seven-label complex is a natural early torsion example, and full polygonal symmetry is a canonical action. The exact quotient shows what adjoining fixed-point-bearing reflections does to the torsion-bearing rotation quotient, retaining one sphere. A surface collapse is stronger evidence than homology ranks alone and gives a replayable description of this natural orbit space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

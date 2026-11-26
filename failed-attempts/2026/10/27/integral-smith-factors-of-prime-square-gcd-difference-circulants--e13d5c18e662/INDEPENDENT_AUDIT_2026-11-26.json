@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:06:25.538337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ring is Z; residue classes index the rows and columns, not the entries' arithmetic. Grouping indices modulo p gives G_p=cI+b(I_p⊗J_p)+J_{p²} with b=p−1 and c=pb. In the presentation, subtracting the first relation in each block leaves c times each difference generator; the primitive sum of these differences is the only coupled coordinate. This splits off p(p−2) copies of c. In the integral basis consisting of e_1, the primitive kernel vector Σ_{i>1}(e_i−e_1), and a kernel complement, J_p acts by the displayed 2×2 block plus zero. It gives p−2 blocks with entry gcd b and determinant 2c², hence factors b and 2p²b. Pivoting on the 1 in the 4×4 block leaves bT_p; T_p has entry gcd 1, every 2×2 minor a multiple of p² with one equal to p², and determinant 2p⁴(3p−2). The resulting factors combine in the asserted divisibility order, with p=2 giving 1,1,4,32. A separate exact Smith computation on the full integer matrices agrees at p=2,3,5; replay: python3 /workspace/branches/f355b5e8-f250-4436-ba9a-0e5e54520ac2/independent_snf.py. These finite cases corroborate the integral proof; they are not an argument for arbitrary primes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed power-GCD theorem gives all positive integral factors for every odd prime and every positive integer exponent a. Lei–Zhang consider gcd-closed sets with entries gcd(x_i,x_j)^a; Noferini–Williams give companion-ring results, including the last nonzero determinantal divisor."
+        ],
+        "reasoning": "It is the power-GCD theorem, not the gcd-closed-set results or general companion machinery, that supplies the whole claimed odd-prime list by substitution. Its scope expressly excludes p=2.",
+        "searches": [
+          "Resultary 6bac5dc6cda2, RESULT.md Finding and proof",
+          "arXiv:2609.07352, Theorem 4.1",
+          "arXiv:1908.07331, Theorem A and Corollary B"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6bac5dc6cda2",
+        "arXiv:1201.3139",
+        "arXiv:2609.07352",
+        "Telloni–Williams OA preprint (2014)",
+        "arXiv:1908.07331"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the broader theorem the factors are 1, v repeated p−1 times, u repeated p(p−2) times, pu, uc repeated p−2 times, and (X/p)αβ. For a=1 its parameters are X=p, v=b, u=pb, c=2p, α=2pb, β=p(3p−2)."
+        ],
+        "reasoning": "Substitution gives exactly 1,b,pb,p²b,2p²b,2p²b(3p−2) with the frozen multiplicities. The general companion or polynomial theorems inspected are not treated as evaluated integral formulas. The one remaining matrix at p=2 is checked separately by elementary exact operations.",
+        "searches": [
+          "Resultary 6bac5dc6cda2, parameter definitions, diagonal and Limitations",
+          "Telloni–Williams, Smith forms of circulant polynomial matrices, introduction",
+          "arXiv:1908.07331, Theorem A and Corollary B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The broader Resultary record uses integer entries gcd(x−y,p²)^a on the same complete residue set. At a=1 it is the very same integer matrix, not a divisibility-indexed gcd matrix or a matrix over a finite ring."
+        ],
+        "reasoning": "Simultaneous permutations of the residues do not change the Smith form. The broader record's normal form therefore matches the invariant in the frozen statement in the shared parameter range; a Fourier spectrum is not an equivalent integral formulation.",
+        "searches": [
+          "Resultary: Smith forms of prime-square gcd-difference circulants and cyclic power-GCD matrices",
+          "Resultary 6bac5dc6cda2, Finding and assumptions",
+          "arXiv:1201.3139, Fourier transform of the gcd function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record gives a parametric exact diagonal, not merely a determinant or one invariant factor. Its displayed a=1,p=3 example is 1,2,2,6,6,6,18,36,252."
+        ],
+        "reasoning": "This provides actual exact coverage (uniformly in odd p), stronger than agreement of a finite table. A different proof and inclusion of a fixed even-prime example do not change the overlap.",
+        "searches": [
+          "Resultary: cyclic gcd matrix modulo p² Smith invariant factors",
+          "Resultary 6bac5dc6cda2, displayed Smith diagonal and p=3 example"
+        ]
+      },
+      "rationale": "The nontrivial infinite family is exactly a specialization of a distinct indexed theorem for the full integral Smith form of cyclic power-GCD matrices at odd prime-square order. The residual p=2 case gives only one fixed 4×4 example. This is a demonstrated coverage failure to the best of current knowledge, not a finding that the broader record appeared first or that the original proof is wrong. The broader record's path is dated later; its text does not establish historical priority or dependence. The original's integral basis reduction is a different proof, but the finding asserts the invariant factors, not a new general equivalence theorem.",
+      "residual_risks": [
+        "The dated catalogue paths do not establish historical priority or dependence. The directly compared indexed theorem supplies mathematical coverage, not an attribution decision. The Ilmonen–Haukkanen paper cited in the frozen record was not directly inspected; broader historical coverage is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage at every odd prime; no coverage of p=2 and no priority inference",
+          "evidence": [
+            "The statement gives (X/p)αβ as the last factor with X=p^a and α=(X−1)(X+p), β=α+p²; see the direct substitution above. Limitations expressly exclude p=2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-smith-factors-of-cyclic-power-gcd-matrices-at-odd-prime--6bac5dc6cda2",
+          "material_read": "RESULT.md Finding, assumptions and proof (offsets 0–7183); relationship to prior work and limitations (offsets 7184–9442), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Complete Smith factors of cyclic power-GCD matrices at odd prime-square order",
+          "trigger": "Identical kernel at exponent one and potential full general-theorem coverage"
+        },
+        {
+          "assessment": "Contains Fourier and convolution data, not the full integral invariant",
+          "evidence": [
+            "The calculations give the discrete Fourier transform of the gcd function. Fourier changes of basis are not in general unimodular over Z."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.3139",
+          "material_read": "PDF pp. 1–2, OA offsets 2500–5930",
+          "method": "OA PDF passage inspection",
+          "title": "On the Fourier transform of the greatest common divisor",
+          "trigger": "Spectral calculation on the same cyclic gcd function"
+        },
+        {
+          "assessment": "Different matrix kernel",
+          "evidence": [
+            "Entries use gcd(x_i,x_j)^a on a gcd-closed set rather than gcd(x_i−x_j,p²)^a on a cyclic group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.07352",
+          "material_read": "Abstract p. 1, OA offsets 0–3264; Theorem 4.1 p. 12, offsets 50344–54784",
+          "method": "OA PDF passage inspection",
+          "title": "Lei–Zhang, power-GCD matrices on gcd-closed sets",
+          "trigger": "Broader-looking power-GCD terminology"
+        },
+        {
+          "assessment": "Polynomial-ring results; no concrete integer family established here",
+          "evidence": [
+            "The scope is a class of circulant polynomial matrices, not the integral cokernel at the stated cyclic gcd parameters."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+          "material_read": "Abstract and introduction pp. 1–2, OA offsets 0–5156",
+          "method": "OA preprint passage inspection",
+          "title": "Smith forms of circulant polynomial matrices",
+          "trigger": "Smith form for circulant matrices"
+        },
+        {
+          "assessment": "Relevant general reduction, not the explicit invariant-factor family",
+          "evidence": [
+            "The inspected statement provides a companion-ring reduction and a resultant for the last nonzero determinantal divisor, not the six classes in this finding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.07331",
+          "material_read": "Abstract p. 1, OA offsets 0–3257; Theorem A and Corollary B p. 2, offsets 5591–8131",
+          "method": "OA PDF passage inspection",
+          "title": "Matrices in companion rings, Smith forms, and the homology of 3-dimensional Brieskorn manifolds",
+          "trigger": "General integral tools for circulant/companion-ring Smith calculations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full integral cokernel of this natural circulant would be worth knowing and is not obtainable merely from its determinant. But the exact infinite family is already available from the checked odd-prime power-GCD formula. The uncovered claim is one routine 4×4 Smith form, without a motivated even-prime phenomenon beyond that instance. The record does not state a new general reduction theorem as a separate surviving result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

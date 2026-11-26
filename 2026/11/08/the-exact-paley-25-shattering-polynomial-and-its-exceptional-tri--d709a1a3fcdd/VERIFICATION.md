@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The included file `paley25_verify.py` is the complete exact finite certificate. Run `python3 paley25_verify.py` on an ordinary Python 3 interpreter. It uses only standard-library `itertools` and `math` and asserts (i) all field residue counts, (ii) direct versus bitset shattering for zero-containing supports at sizes 1–4 in each of five fields, (iii) the full 12,650-support four-set census over F25, (iv) all 2,300 triples and the exact 100-element square-equilateral exception set, (v) closure and partition into eight group orbits, and (vi) first-order dimensions for P5/P9/P13/P17. On success it prints `PALEY25_SHATTERING_PASS` with all profiles. This is fully exhaustive for the stated finite cases but not independent external audit; no claim concerning higher field orders or closed neighborhoods is checked.
+Run `python3 paley25_verify.py` (standard library only). The script constructs the adjacency table by the norm test, tests all 12,650 four-element supports, partitions the 3,600 shattered supports by all 600 specified maps, and checks the exact representatives, orbit sizes and stabilizer orders. It prints each orbit and ends with `VERIFY_OK supports=12650 shattered=3600 orbits=8`. The analytic bound of 25 centers rules out supports of size five or larger. The program does not assess historical priority, other notions of shattering, or other field orders.

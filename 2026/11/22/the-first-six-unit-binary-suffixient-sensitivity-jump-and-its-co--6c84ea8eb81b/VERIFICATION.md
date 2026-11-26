@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Compile and run `verify_suffixient.cpp` under C++17. It computes the minimum suffixient-set size by two independent factor-enumeration methods for each of the 32,766 nonempty binary source words of lengths one through fourteen. It checks exact agreement of the two measurement methods for every source, then exhaustively checks all 425,986 directed one-bit flips, outputs the full maxima profile and all sixteen length-fourteen extremal directed pairs.
+## correctness
 
-Execute `verify_positions.py` under Python 3. Its separate prefix-suffix-set hitting test directly enumerates all nonempty subsets of positions in terminated witness strings. It confirms the minimum positions and the number of minimizers for four displayed positive witness pairs, obtaining size five for each source and size eleven for each target.
+PASS
 
-The files `verify_suffixient.out` and `verify_positions.out` record outputs from actual successful executions. The calculations prove only the explicitly finite range. The mathematical justification for equivalence of the measured statistic and minimum suffixient cardinality is provided in RESULT.md; the output files are not a substitute for that justification. No external audit or independent validation has been performed.
+On the uniquely terminated word every required extension is a suffix of a suffix-maximal one, and two distinct suffix-maximal ones cannot both end at one position; this proves the minimum-set formula. The one-letter domination test is justified because deleting symbols from the left of a right-maximal factor preserves its two distinct followers; the preceding symbol cannot be the terminator. Independently, adjacent LCPs of sorted suffixes recover every branching prefix, including the empty one, and the extension ending-position sets are laminar: if two intersect then one extension is a suffix of the other. Counting distinct inclusion-minimal ending-position sets therefore computes the minimum directly. Enumerating all 32,766 source words and 425,986 directed bit flips by this procedure reproduces (0,1,1,1,2,2,3,4,4,4,4,5,5,6); the 16 length-14 extrema all have values 5 to 11, with exactly the listed one-based positions and source words. No inference is made beyond length 14.
+
+## originality
+
+PASS
+
+The same measure, its right-extension characterization and the substitution-sensitivity question are already known. The supported distinct claim is the exact binary profile through 14 and its complete maximizing-pair classification, not the measure or general sensitivity.
+
+## value
+
+PASS
+
+This resolves the first length at which the edit effect exceeds five for a published compression measure, but the value does not rest on choosing the number six alone: the complete initial profile and all equality cases show exactly how extreme changes emerge in the smallest alphabet. At the first gain of six every source has measure five and the only extremizers are four highly structured words with four flip positions each. This supplies exact short-input benchmarks and concrete constraints on prospective sharp sensitivity bounds; it is not a new asymptotic estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

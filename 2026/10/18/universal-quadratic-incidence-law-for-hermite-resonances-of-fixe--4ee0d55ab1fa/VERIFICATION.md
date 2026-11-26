@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The eigenvalue identity is derived using the normalized Gaussian and Hermite basis. The pairwise ratio is a conditional moment of a strictly increasing power; differentiation of both moving endpoints supplies strict positivity for every finite inner radius. Poisson tails at the zero inner radius and the divergent large-radius ratio supply existence. The exact adjacent difference forbids triple resonance. The lattice count is rigorously sandwiched between two identric-mean geometric-mean counts differing only by a fixed horizontal shift; the limiting planar area is evaluated by a two-variable substitution.
+## correctness
 
-Numerical check (not an infinite proof): `python check_annulus.py` with Python, NumPy and SciPy. The checker solves 15 crossing equations across three widths and five index pairs, checks strict brackets and nearby ratio signs, integrates the limiting constant and reports geometric-mean incidence lower/upper brackets for radii 20, 40, 80, 160 and 300. It prints `All specified finite checks passed; infinite theorem proved analytically.` when all assertions hold.
+PASS
 
-The script's incomplete-gamma and floating-point operations are not a proof or certified enclosure of the universal constant. The exact analytic integral is the theorem's authoritative constant, and the decimal digits are approximate. No claim concerning distinctness of unrelated pair-crossing radii, an effective error term, or arbitrary non-Gaussian symbols has been established. Independent mathematical audit has not been performed.
+The radial Hermite formula uses the area coordinate t=π(x²+ξ²). The ratio q_n/q_m is a positive constant times the conditional mean of t^(n−m). Differentiating both moving endpoints expresses its derivative as the sum of two nonnegative terms, the upper-end term strictly positive. At a=0 this is a right derivative, and the ordered Poisson tails give q_n<q_m; the ratio diverges as a→∞. The strict endpoint bounds on the conditional mean give a<B<a+w. The adjacent differences change sign at most once, with at most one zero, excluding a triple equality; a nonadjacent crossing has larger intervening values. For the limit, M(R)≤N_w(R)≤M(R+w) exactly and B≥n/e. To justify the lattice count, use step indicators formed by m=floor(Tx), n=floor(Ty): their integrals are M(T)/T², they are supported in a fixed bounded region, and Stirling gives convergence off the axes, diagonal and the curve I(x,y)=1. This curve has zero area by the parametrization y=e·t^(t/(1−t)), x=ty. Dominated convergence and the Jacobian y yield precisely the stated integral. The width is fixed in area coordinates, and different pairs at one radius are counted separately.
+
+## originality
+
+PASS
+
+The radial formula is established, and the same-date Resultary source contains the adjacent switches and a rising/falling structure that already implies no triple equality. This review does not credit those pieces as distinct. The contribution that survives comparison is the fixed-area-width census of crossings of all Hermite pairs and its common quadratic coefficient; even the entire adjacent staircase supplies only an O(R) subcount. The conditional-moment transversality argument is elementary, but the all-pair census exploits strict area brackets and a two-variable limit not found in the compared statements.
+
+## value
+
+PASS
+
+The incidence count is an exact leading spectral invariant of a natural one-parameter deformation. It measures all mode-pair resonances, including non-maximal ones invisible to the top eigenvalue, and quantifies their growth and independence of fixed width. Width independence and the leading constant are not obtainable from the adjacent-switch census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

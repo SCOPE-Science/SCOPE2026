@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:38:42.894911Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the unordered labelled-cut convention and edge count. With rows of length L, the increment partitions into L−1 edge-disjoint triangles on (x_i,y_i,y_{i+1}) and leftover edges x_Ly_L and x_{i+1}y_i. At equality the leftover edges are cut: the two constraints from x_L make y_{L−1}=y_L, so the last triangle makes x_{L−1}=x_L, and backward induction forces opposite constant rows. For alternating x the exact increment is L plus the number of interior disagreements and the number of changes in the agreement bits. For L≥3 both costs vanish only for y=x; for L=2 either constant agreement bit works. A monochromatic boundary therefore costs at least r(L−1) on an r×L board with equality exactly in row stripes. On an a×a square the prefix costs at least a(a−2); a final-row increment of a−1 forces a constant boundary and hence row stripes, while any other increment must be exactly a and the prefix must be the unique shorter-side column stripe. Appending a column to a narrower optimal prefix must pay exactly a−1, which propagates the unique column stripe from the square. K4 has three balanced cuts and only one has a monochromatic final column. I also checked the scalar formula directly: in the same induction the square either has constant-boundary lower bound a(a−1), or prefix plus increment at least a(a−2)+a. The rectangular extension and explicit stripes then give (a−1)b uncut edges without an external hypothesis. Inspected verification/check_king_cuts.py and VERIFICATION.md without executing them; the anchored enumeration and integer transfer recurrence are corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For connected bipartite G, Theorem 5.10 gives min{eℓ,v(ℓ−1)} uncut edges in G⊠P_ℓ, and the discussion after Corollary 5.11 gives existence of an alternating optimum."
+        ],
+        "reasoning": "This strictly broader scalar theorem covers the numerical maximum and shows the claimed stripes attain it, but the stated theorem does not exclude other optimal cuts.",
+        "searches": [
+          "Diester et al., arXiv:2611.13917v1, Theorem 5.10, proof and Corollary 5.11"
+        ]
+      },
+      "checked_sources": [
+        "Diester et al., arXiv:2611.13917v1, pp. 16–18",
+        "Resultary exact self hit and nearby rook-graph Ising entry",
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_king_cuts.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the packing to P_a⊠P_b gives a−1 copies of K4 and (a−1)(b−2) triangles. Equality forces balanced packed cliques/triangles and no uncut leftovers. The source does not analyze the resulting global equality constraints.",
+          "The frozen proof supplies the additional backwards forcing lemma, an alternating-boundary increment identity, and joint square/rectangle induction."
+        ],
+        "reasoning": "The prior proof gives a latent equality certificate, which might admit a different rigidity proof; this is stronger overlap than just a scalar value, but deriving the exact optimizers requires analyzing constraints, not substituting parameters or reading off the certificate's value.",
+        "searches": [
+          "The tree-case packing proof of arXiv:2611.13917v1, pp. 16–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For equal antiferromagnetic couplings on all horizontal, vertical and diagonal edges, energy is affine in the cut size. The spin degeneracy counts 6, 4, 2 rather than 3, 2, 1 when global spin reversal is counted separately.",
+          "Resultary 2026/11/2/SCOPE-exact-field-staircase-degeneracies-and-correlations-for-anisotro--9141f8f0a51e concerns field-dependent ground states on rook graphs, not free strong products of paths."
+        ],
+        "reasoning": "Any earlier finite free-boundary equal-coupling classification would be equivalent. Periodic or bulk stripes alone do not imply the boundary-selected orientation or the 2×2 exception. The focused external lookup was unavailable, so no negative inference is made from it.",
+        "searches": [
+          "Focused strong-path grid / king-grid antiferromagnetic Ising ground-state degeneracy lookup",
+          "Resultary search for rectangular strong-path-grid all maximum cuts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 2026/11/22/SCOPE-all-maximum-cuts-of-rectangular-strong-path-grids--5c83ef12f807 matches the frozen source's own nonsquare/square/2×2 cases."
+        ],
+        "reasoning": "The exact hit is the same record, not an independent prior theorem. The nearest identified Ising record has a different underlying graph.",
+        "searches": [
+          "Resultary all maximum cuts of rectangular strong path grids"
+        ]
+      },
+      "rationale": "The scalar optimum and existence of an alternating optimum are established prior results. Pass applies only to the equality-case classification for free rectangles with labelled vertices, modulo side exchange. The verified primary source supplies optimality certificates, not the rigidity analysis; the available evidence does not establish an earlier covering classification.",
+      "residual_risks": [
+        "Focused external literature retrieval unavailable; an older equivalent finite free-boundary Ising rigidity result remains possible.",
+        "The prior scalar packing is a potential starting point for an alternative equality proof; no global priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar optimum and attainment; no full equality-case theorem in the inspected passages",
+          "evidence": [
+            "γ(G⊠P_ℓ)=min{eℓ,v(ℓ−1)}",
+            "The packing lower bound is the sum of 2 per K4 and 1 per triangle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13917v1",
+          "material_read": "Theorem 5.10 and its tree-case packing proof, pp. 16–18, OA offsets 56785–63856, and following alternating-optimum statement",
+          "method": "Lawful OA PDF passage retrieval, specializing both theorem and certificate to a path",
+          "title": "Feedback Vertex Set, Max Cut, and Edge Coloring on the Strong Product of a Graph and a Path",
+          "trigger": "Cited exact scalar theorem and strongest plausible broader coverage"
+        },
+        {
+          "assessment": "Same record, not independent prior coverage",
+          "evidence": [
+            "Identical aspect-ratio split and labelled-cut convention."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-maximum-cuts-of-rectangular-strong-path-grids--5c83ef12f807",
+          "material_read": "Indexed description compared against frozen RESULT.md Finding and proof, lines 5–55",
+          "method": "Local Resultary match and frozen full result",
+          "title": "All maximum cuts of rectangular strong path grids",
+          "trigger": "Exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete ground-state/optimal-partition description identifies when a free boundary selects one stripe orientation and accounts for the exceptional K4. This is a structural result for a natural graph family that beyond the known optimum supplies a useful rigidity and degeneracy criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

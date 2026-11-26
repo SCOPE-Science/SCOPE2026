@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The spectral coordinates give an exact parameterization of all three heat orbits. The maxima of the two endpoint cubics and the center cubic yield a locally Lipschitz map of two scalar modes. Every possible derivative is bounded in the quotient path-variation norm by \(4/3\), using two elementary polynomial inequalities for arbitrary active maximizers. Rademacher's theorem and mollification justify a global bound across nonsmooth switching sets. Strictly positive integer data attain the factor, and the two-vertex case is exactly \(1/2\). The standalone checker confirms the rational witness, the analytic formula against time-grid evaluation, and numerical stress tests; it is supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+For the combinatorial P3 Laplacian the constant, odd (1,0,−1), and even (1,−2,1) modes have eigenvalues 0,1,3. For mode coefficients m,u,v and z=e^(−t), the three coordinates are m+uz+vz^3, m−2vz^3, m−uz+vz^3. Including z=0 does not change the supremum. In the input quotient V=2 max(|u|,3|v|). On any segment, each coordinate supremum is Lipschitz as a maximum of affine functions of the segment parameter. Where its segment derivative exists, it equals the slope of any active affine function (that function supports the maximum there); this proves the segment argument even on exceptional lines. With active endpoint parameters x,y in [0,1], and beta in [0,1] for the middle branch max(0,−2v), the two oriented edge derivatives are x du+(x^3+2 beta)dv and y du−(y^3+2 beta)dv. Dualizing the output l1 norm gives two cases: (3(x+y)+|x^3−y^3|)/6 ≤ 1, and (3|x−y|+x^3+y^3+4 beta)/6 ≤ 4/3. For x≥y both increase in x, so set x=1 and use 3y−y^3≤2 and y^3≤3y respectively; the reverse ordering is symmetric. Absolute continuity along the segment gives the global estimate. At the two positive rational inputs the first endpoint cubic is strictly increasing and the last strictly decreasing; the maxima are exactly (13,12,10) and (15,11,10), with input/output variations 3 and 4. For P2 the output edge difference is half the input edge difference, from clipping both coordinates at their mean. For a fixed P3 heat step the odd and even quotient modes decay by e^(−t) and e^(−3t), so its norm is exactly e^(−t), attained on the odd mode. Replay of exact witness: python3 /workspace/checks/frozen_exact.py 2. The submitted checker was inspected, not executed: its numerical witness tests and time grids are supplementary. For signed data the proof only extends to a supremum without taking input absolute values.
 
-Carneiro–Svaiter, arXiv:1309.1529 (Theorem 3 and its proof), treats one-input variation of the heat-maximal map on the infinite lattice and therefore does not determine finite-graph two-input stability. González-Riquelme–Madrid, arXiv:2005.03146 (Theorems 1–3), and Liu–Zhang (2022, introduction and principal theorems), use Hardy–Littlewood graph-ball averages, not heat-time suprema, and chiefly assess one-input variation. Closely indexed results on graph-ball maximal operators similarly use different kernels and norms. Searches for the two-input finite heat-maximal coefficient and equivalent three-site descriptions did not locate coverage. This is a qualified originality assessment, not a claim that every historical publication has been exhaustively searched.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The parameter-free three-site boundary is the first graph size where pointwise maximalization turns a collection of strictly variation-contracting heat operators into a two-input variation-expansive nonlinear map. A complete sharp constant and a finite nonnegative extremizer separate one-input smoothing from perturbation stability in the elementary graph case, providing a minimal benchmark for maximal-semigroup stability. The result is deliberately limited to the natural first nontrivial path and makes no broader dimension claim.
+The checked comparison supports a distinct coefficient for the nonlinear supremum over time on P3, not a known bound on a linear heat step or a one-input smoothing bound. The P2 identity by itself is elementary and is treated as the boundary comparison, not the main novelty.
 
-## Risks and limitations
+## value
 
-Theoretical derivation assumes the ordinary three-vertex combinatorial heat generator and nonnegative inputs. Equivalence with the signed-data heat maximal convention is not claimed. Broader graph families may have other behavior. An unindexed equivalent result remains possible; independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-site result is a minimal nontrivial example in which maximizing over a contractive heat family makes perturbations expand. Its exact coefficient and strictly positive witnesses are a useful benchmark for nonlinear maximal-semigroup stability. The P2 comparison shows this is a genuine onset for unit open paths, not an arbitrary three-site parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is an exact statement about the defined parallel-coset map and full helical state space, not all Yang–Baxter solutions. The pair map is a simultaneous common increment depending only on the pair-sum quotient. The quotient of every update increment is fixed, so the site and carrier quotients evolve deterministically. Explicit flags alternate with period at most two, giving a universal four-sweep identity and a two-sweep identity for odd lengths. Fixed-point conditions are necessary and sufficient and count independently over site cosets for a fixed carrier. Complete primitive-orbit counts then follow by the fixed sets of powers. A uniqueness argument avoids counting parameter duplicates. The standalone program independently checks the Yang–Baxter relation and enumerates complete small-dimensional systems; 1,760,824 verified assertions are supporting finite evidence rather than a substitute for the arbitrary-dimensional algebraic proof.
+## correctness
 
-## Originality — PASS
-Araoka–Tokihiro (arXiv:2602.17148v1, read Sections 2–3, original propositions, and Table 1) supplies the functional equation and small-field period information, and treats additive-linear and selected low-cardinality transposition families, but does not establish the arbitrary \(2^m\) parallel-coset-mask theorem or its exact primitive-cycle and distinct-map census. Veselov's monodromy theory and Etingof–Schedler–Soloviev's Yang–Baxter theory give foundational mechanisms, not the stated family-dependent enumerations. Direct literature and mathematical-record searches found no equivalent statement; an earlier special-case reduction or an unindexed equivalent description remains a priority risk. The affine subfamily is not claimed to be new.
+PASS
 
-## Mathematical value — PASS
-This is a natural, structurally motivated infinite-dimensional partial resolution of a published finite-field helical periodicity question, and yields finer full-state orbit data than a period upper bound. It identifies \(q(q-1)(2^{q/2-1}-q/2)\) non-affine solutions and an explicit non-affine \(q=8\) example with both 2- and 4-cycles, elucidating how local transpositions generate nonlinear but rigid global dynamics. Unlike a finite table extension, the proof covers every field size and chain length. Scope is deliberately limited to the stated parallel-coset family and full carrier-inclusive system.
+The normalized mask either swaps or fixes each two-element coset, so its translated f is bijective. R adds the same increment K(s) to both arguments, preserving s and squaring to the identity. K depends only on the quotient and its quotient is the constant h. In the quantum identity each extreme pair uses its original sum quotient (zero or two shifts by h), and the middle pair uses its sum shifted by h on both sides, so the total increments match. This is the unbraided identity: for h≠0 the two sides of the unswapped braid relation have different first-coordinate shifts on the quotient. In the sweep the quotient of the mask argument shifts by (N+1)h each time. Thus four sweeps cancel, and for odd N two cancel. Given the carrier, each site's initial mask argument in W is independent with two lifts; matching consecutive flags is exactly the even-N two-sweep fixed-state test. The carrier displacement is the sum of the site displacements, so no extra fixed-state constraint is lost. The normalization recovers c as the unique preimage of zero, and a nonzero mask determines d by its nonzero displacement relative to translation. Linear masks here mean F₂-linear on W; there are q/2 of them, with q/4 noninvariant for each nonzero h. Counting normalized shift-invariant flags on W/<h> and excluding the duplicate unmasked translations gives all the stated distinct-map counts. A fresh disjoint-orbit traversal recovered (C₁,C₂,C₄)=(0,64,96) in the given q=8, N=2 example and (0,2048,0) for N=3. A different multiple-coset mask at q=16, N=2 gave (0,128,960).
 
-## Closest literature and scientific limits
-The most pertinent source is Araoka–Tokihiro's February 2026 preprint, particularly Propositions 4–6 and 19–27, Conjecture 9, and Table 1. Other sources concern general set-theoretic Yang–Baxter and monodromy constructions. An equivalent general orbit formula in another presentation remains possible. Independent review, evaluation of every Yang–Baxter solution, and projected-site orbit enumeration are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the all-dimension full-state and distinct-rule census for arbitrary masks in the translated single-direction family, especially genuinely nonlinear shifted masks with h≠0. The functional identity, helical update, affine census, single-transposition census and unshifted common-displacement sector have substantial existing coverage and are not independently credited.
+
+## value
+
+PASS
+
+For helical Yang–Baxter automata, maximal period alone does not determine the prevalence of short orbits. Here the explicit dependence on mask equality across a quotient shift gives an exact distribution for an unbounded, genuinely nonlinear family, and the rule census quantifies when even widths actually have order four. This adds scientifically useful information beyond the affine and single-transposition cases or a finite table of maximal periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

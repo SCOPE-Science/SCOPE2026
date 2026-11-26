@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:22:00.859076Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed retention schedule η_j, the cluster grows at stage j+1 with conditional probability η_j C_j/j. The rising factorial is multiplied in conditional expectation by 1+rη_j/j. Iterating from r! and averaging the uniform schedules of N−h retained positions gives (1), including h=0 (size n) and h=N (size 1). This independently checks the marked transform and its normalization. At n=3, direct averaging over the two recursive trees gives moments 7/4 and 5 at h=1 for orders 1 and 2. Equations (4)–(7) correctly use Bernoulli parameters (1−p_n)/(1+rp_n/j), variance Np_n(1−p_n)+O_r(log n), and a shift from h_n of order log n. The characteristic function bound controls all off-central frequencies, so both point probabilities have the same leading term; a weak CLT alone would not suffice. Uniform gamma ratios, lower-order moment estimates, uniform integrability from higher moments and Carleman's criterion give (2), only for fixed orders and interior limiting retention, with n raised to the actual p_n. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 4.1 is an exact, all-n, all-retention PGF, stronger than the canonical limit alone. Thm. 2.9 gives the familiar Mittag–Leffler law and moment sequence.",
+          "Kürsten's equations (13), (17) are exact canonical low-order moments; Baur studies a retention-to-one genealogy and Zheng treats root-cluster leadership, not the present fixed-count theorem."
+        ],
+        "reasoning": "The exact family, not the fixed-p canonical weak convergence nor the other observables, makes the exact coefficient and triangular-array implications possible.",
+        "searches": [
+          "arXiv:2110.15050v1 Prop. 4.1 and Thm. 2.9",
+          "arXiv:1512.05275v1 §IV",
+          "arXiv:1407.2508v1 Thm. 1",
+          "arXiv:2606.01881v1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, supporting verification, audit, metadata and finite checker",
+        "Desmarais–Holmgren–Wagner 2110.15050v1; Kürsten 1512.05275v1; Baur 1407.2508v1; Zheng 2606.01881v1",
+        "Resultary 19dd2436af96 (self-match), 3992334979d1, ba4f1c497f72, c15d28dd041a, db57e606bc39"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write M_h for the conditional rising moment. The canonical polynomial is ∑_h binom(N,h)p^{N−h}(1−p)^h M_h. Each known product factor is (1−p)+p(1+r/j). Expanding and equating the unique binomial-basis coefficients gives M_h=r!∏_j(1+r/j)e_h(j/(j+r))/binom(N,h) verbatim, for all h, including endpoints.",
+          "Use a common uniform deletion order and binomial counts at retentions p_n±N^{−1/3}; with probability 1−exp(−Ω(N^{1/3})) the counts bracket h_n and cluster sizes are ordered oppositely. The moments of either canonical bracket follow uniformly from the exact gamma ratios; n^{±N^{−1/3}}→1 and X≤n makes the exceptional event negligible for each fixed order. The moments identify the same weak limit. The tilted-mark identity itself follows by replacing p in the canonical polynomial with p/[p+(1−p)z] and multiplying by [p+(1−p)z]^N."
+        ],
+        "reasoning": "These are direct algebraic extraction and standard monotone deconditioning, not extrapolation from an unrelated limit. They cover the exact finite identity and the entire stated asymptotic range and normalization, even though the proof in the record instead analyzes a tilted success-count local limit.",
+        "searches": [
+          "arXiv:2110.15050v1 Prop. 4.1, p. 26, OA offset 87700",
+          "Resultary 3992334979d1 Finding",
+          "Comparison of canonical and fixed-count retention through a uniform edge order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior PGF summed with x^{n−1} weights is ∂_x R(x,u), where R(x,u)=−log(1−u+u(1−x)^p)/p. It is also the z=1 specialization of the earlier Resultary joint transform.",
+          "Substituting u=1/(1−t) in ∂_x R gives (1−x)^{−1}/[1−t(1−x)^{−p}]. Thus r! times the x^N t^r coefficient is precisely r!∏_{j=1}^N(1+rp/j), at every p."
+        ],
+        "reasoning": "The exact unconditioned root-cluster law as a polynomial family in the retention parameter contains its fixed-count version, not just a weak-limit analogue. The rest of the prior implication is explicit below.",
+        "searches": [
+          "Resultary fixed-count deletion and canonical root-cluster transforms",
+          "Desmarais–Holmgren–Wagner arXiv:2110.15050v1 Prop. 4.1",
+          "Resultary 3992334979d1 root-degree/root-cluster joint transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 19dd2436af96 is the frozen self-match. The root-degree record 3992334979d1 predates it and contains the decisive transform; the frontier and singleton covariance findings use other marks. The Palm record db57e606bc39 was reachable only as catalogue metadata, describing individual-vertex membership rather than total deletion count."
+        ],
+        "reasoning": "No sequence table is needed: the prior exact transform encodes all requested moment values. The inaccessible Palm full text is not used as evidence against the claim.",
+        "searches": [
+          "Resultary exact frozen title and uniform fixed-size deletion / microcanonical random recursive tree percolation",
+          "Resultary 3992334979d1, ba4f1c497f72, c15d28dd041a, db57e606bc39"
+        ]
+      },
+      "rationale": "Both stated results are mathematically covered by the exact canonical transform already published by Desmarais–Holmgren–Wagner, Prop. 4.1, also available as the root-cluster marginal of Resultary 3992334979d1. The finite conditional moments are literally the coefficients of this known canonical moment polynomial in its binomial basis. The moving-fraction limit then follows from the same known product and monotonicity, without the paper's tilted local-limit strategy. The failure is demonstrated prior implication, not a claim that the older papers explicitly state the same formula with deletion-count notation, and not a judgment that the frozen result is false.",
+      "residual_risks": [
+        "This is a demonstrated implication from prior exact statements, not a claim to have located the historically first explicit fixed-budget formula.",
+        "The same-day Palm record's full text could not be retrieved from the local mirror; the decisive prior full-text PGF already proves coverage independently of it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage via substitutions and coefficient extraction; canonical weak and moment limit also stated",
+          "evidence": "R(x,u)=−log(1−u+u(1−x)^p)/p gives every canonical moment exactly; the published limit moments are k!/Γ(1+pk).",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15050v1",
+          "material_read": "Prop. 4.1 and its proof, OA offset 87700, pp. 25–26; Theorem 2.9, offset 30150, p. 9; factorial-moment proof pp. 26–27, offset 90800",
+          "method": "OA PDF bounded passages",
+          "title": "Broadcasting-induced colorings of preferential attachment trees",
+          "trigger": "Exact canonical PGF makes the fixed-count law identifiable"
+        },
+        {
+          "assessment": "Same exact canonical root-cluster marginal at root-degree mark 1",
+          "evidence": "Explicit joint series u(1−x)^{−z(1−p)}[1−u+u(1−x)^p]^{−z}; z=1 gives ∂_x R.",
+          "identifier_or_url": "Resultary 3992334979d1",
+          "material_read": "RESULT.md Finding, offset 0; transform specialization in Proof §1",
+          "method": "Local mirror passages",
+          "title": "Exact root-degree–percolation-cluster dependence and asymptotic decoupling in recursive trees",
+          "trigger": "Earlier exact canonical joint transform in the same process"
+        },
+        {
+          "assessment": "Partial related coverage",
+          "evidence": "Exact first and second root-cluster moments under independent retention.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.05275v1",
+          "material_read": "§IV equations (13), (17), offsets 18185, 22798",
+          "method": "OA passages",
+          "title": "Random Recursive Trees and the Elephant Random Walk",
+          "trigger": "Known canonical moments"
+        },
+        {
+          "assessment": "Different limit regime",
+          "evidence": "Genealogy studied with p(n) tending to one.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2508v1",
+          "material_read": "§2 Theorem 1, offset 11200",
+          "method": "OA passage",
+          "title": "Percolation on random recursive trees",
+          "trigger": "Possible broader cluster limit"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Eternal largest-cluster event in independent fixed-p percolation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01881v1",
+          "material_read": "p. 1, offsets 650 and 2820",
+          "method": "OA passages",
+          "title": "Can the root cluster remain largest forever in random recursive tree percolation?",
+          "trigger": "Same canonical model"
+        },
+        {
+          "assessment": "No strongest overlap shown; not used for verdict",
+          "evidence": "Summary conditions on individual vertex membership; mirror retrieval gave no file.",
+          "identifier_or_url": "Resultary db57e606bc39",
+          "material_read": "Catalogue summary only; no full passage available",
+          "method": "Catalogue and local-mirror retrieval attempt",
+          "title": "Age-monotone lag-free Palm amplification in recursive tree percolation",
+          "trigger": "Same-day related conditioning record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-budget interpretation is natural and the closed form is convenient, but neither the exact invariant nor its claimed asymptotic consequence is distinct from the exact canonical transform under a direct change of basis and routine monotone concentration. The tilted Bernoulli argument is a valid alternative proof but the frozen claim gives no new local-limit regime, joint law, error rate or other independent result beyond the mechanically recovered conclusions. No distinct valuable remainder is established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

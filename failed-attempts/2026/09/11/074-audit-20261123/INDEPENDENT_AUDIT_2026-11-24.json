@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:38:13.055463Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–29, 38–72 and 79–92",
+        "Frozen VERIFICATION.md",
+        "Mouhot–Neumann, arXiv:math/0607530, pp. 31–32, gain and loss kernel formulas"
+      ],
+      "rationale": "The frozen mixed-space bounded-perturbation proof is invalid. Free transport is not strongly continuous on the stated space with L∞ in x: for a spatial step times a nonzero velocity factor supported at positive first velocity, the essential-supremum difference across the transported step does not vanish as t→0. Also the full K is not E→E bounded. For homogeneous data the two hard-sphere gains have a positive kernel proportional to r⁻¹ exp(−(r+w·ω)²/2), where v=w+rω. On a fixed angular band −w·ω∈[|w|/3,|w|/2], integrate r from −w·ω to −w·ω+1. There |v| is comparable to |w| and the weighted gain column has mass at least c|w|¹³, while the nonlocal loss column has weighted mass O(⟨w⟩). Nonnegative smooth inputs localized near large w contradict an E→E bound. In addition, the projection formula needs a spatial average in the coefficients if dx is the unnormalized measure used for H. These are errors in the frozen definitions and the premises of its Duhamel estimate, not counterexamples to the negative bound. In fact, the obstruction on smooth homogeneous data is true: in Y=L²(μ⁻¹dv), after conjugation by μ⁻¹/² the gain kernel is bounded by C r⁻¹ exp(−r²/8), and the nonlocal loss has Gaussian factors. Schur's bound gives K bounded on Y, and the corresponding column L² bounds give K:L¹(B₁)→Y. Reverse Duhamel, ∫₀ᵗ S(t−s)K e^(−sν)ψ ds, is uniformly bounded in Y for unit-mass smooth bumps supported in Bε. The bare term has L² norm ≥c(t) ε⁻³/², and the true hydrodynamic projection is stationary with bounded norm on these inputs. Thus no evolution agreeing with the conventional homogeneous solution on smooth data can satisfy the conjectured estimate. This does not validate the claimed C₀ realization or the proof on E.",
+      "residual_risks": [
+        "No ambient semigroup realization on all of E is claimed by this audit. The referenced numerical ledger would only check constants, not the false boundedness and continuity premises."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Factorization separates an operator smoothing component from a dissipative one for spectral/decay estimates; it does not assert full short-time L¹→L² smoothing. Mouhot–Neumann derive linearized hard-potential kernels. Mouhot–Villani give a regular-plus-decaying-remainder decomposition for the nonlinear cutoff solution with L² input."
+        ],
+        "reasoning": "These decay and decomposition theorems do not assert the exact infinite norm. The established collision kernel is the broader ingredient that makes the localized linear fixed-time implication routine.",
+        "searches": [
+          "Gualdani–Mischler–Mouhot, Theorem 2.1, Proposition 7.8",
+          "Mouhot–Neumann, Theorem 1.1, pp. 31–32",
+          "Mouhot–Villani, Theorem 5.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and SCOPE074 local mirror",
+        "Gualdani–Mischler–Mouhot",
+        "Mouhot",
+        "Mouhot–Neumann",
+        "Mouhot–Villani"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the published gain formula, in N=3 for hard spheres the speed factor cancels the angular Jacobian factor except for |V|. The Gaussian plane integral gives a kernel bounded by C|V|⁻¹ exp(−|V|²/8) in the Maxwellian-conjugated variable. Both this kernel and the Gaussian loss have uniformly bounded L² columns on compact input velocities."
+        ],
+        "reasoning": "From those columns, reverse Duhamel gives a bounded correction on the compactly supported bumps, while multiplication by e^(−tν) on the same compact ball preserves the L² blowup. The projection has finite-dimensional equilibrium range. Neither larger weights nor a different finite prefactor change the implication. No new full-space regularity theorem is required.",
+        "searches": [
+          "Mouhot–Neumann, arXiv:math/0607530, pp. 31–32, first gain kernel formula and loss kernel",
+          "Mouhot–Villani, eq. (5.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mouhot–Villani eq. (5.1) writes the classical attenuated initial term plus gain integral; §5.3 explicitly identifies propagation of singularities for cutoff kinetics. Mouhot gives the corresponding homogeneous linearized collision gain–loss split."
+        ],
+        "reasoning": "The known nonlinear propagation result is not literally the projected torus operator-norm theorem. Its mechanism is the same: the no-collision term damps but does not diffuse the velocity spike. Homogeneous data make the torus transport irrelevant to disproving the bound.",
+        "searches": [
+          "Mouhot–Villani arXiv:math/0607539, cutoff propagation of singularities, Duhamel and decomposition",
+          "Mouhot arXiv:math/0605688, eqs. (1.12)–(1.14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading exact match, 2026/9/11/SCOPE074, is identified in the local mirror's SOURCE.md as the import of SCOPE-20260911-074, with the same velocity-ball, moment projection and smooth approximation argument."
+        ],
+        "reasoning": "This is self-coverage, not independent priority evidence. A finite table of constants cannot decide a fixed-time unboundedness result; the exact indexed statement was compared instead.",
+        "searches": [
+          "Resultary semantic search for weighted L¹-to-L² cutoff hard-sphere torus transport-loss semigroup obstruction"
+        ]
+      },
+      "rationale": "No distinct source read states the exact mixed-space inequality with its target constants. But the scientifically valid obstruction is a routine consequence of the classical hard-sphere kernel and Duhamel formula, and survival of unsmoothed initial data is explicitly established as the cutoff mechanism in prior work. The erroneous full-space bounded-perturbation assertions are not distinct valid content.",
+      "residual_risks": [
+        "Whether the exact projected mixed-norm nonestimate appears verbatim elsewhere remains unresolved; the finding of coverage is by the explicit classical kernel and the Duhamel implication, not by an alleged verbatim precedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decay theorem is not the claimed operator bound; kernel formulas yield the decisive routine localization estimate.",
+          "evidence": "The gain kernel is a Gaussian plane integral with |V|⁻² prefactor in 3D and the transformed angular factor; the loss contains two square-root Maxwellians.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607530",
+          "material_read": "Theorem 1.1 and H1–H3 pp. 5–7; pp. 31–32 loss kernel and first Carleman gain kernel formula, offsets 84500 and 86980",
+          "method": "Bounded open arXiv PDF passages",
+          "title": "Quantitative perturbative study of convergence to equilibrium for collisional kinetic models in the torus",
+          "trigger": "Closest linearized torus framework and exact kernel"
+        },
+        {
+          "assessment": "Explicit prior cutoff singularity mechanism, in a nonlinear setting with different hypotheses.",
+          "evidence": "Eq. (5.1) separates the attenuated original datum from the gain integral; §5.3 states that cutoff propagates both smoothness and singularities.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607539",
+          "material_read": "§3 gain estimates and pp. 29, 32–33, eq. (5.1), §5.3 and Theorem 5.5",
+          "method": "Open arXiv PDF, located and read decisive passages",
+          "title": "Regularity theory for the spatially homogeneous Boltzmann equation with cut-off",
+          "trigger": "Possible earlier no-smoothing or bare-flow result"
+        },
+        {
+          "assessment": "Spectral factorization and decay; not full short-time smoothing.",
+          "evidence": "The cutoff application uses C−v·∇ₓ and splits C, with a weighted L¹ to velocity H¹ component.",
+          "identifier_or_url": "https://hal.science/hal-00495786v1/file/spectreFP21.pdf",
+          "material_read": "Theorem 2.1, Remark 2.2, §§7.1–7.4 and Proposition 7.8",
+          "method": "Open HAL PDF passages",
+          "title": "Factorization for non-symmetric operators and exponential H-theorem",
+          "trigger": "The motivating enlargement result"
+        },
+        {
+          "assessment": "Known generator split, not an explicit projected torus norm result.",
+          "evidence": "Writes L=Lc−Lν with Lc=L⁺−L*.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605688",
+          "material_read": "p. 6, eqs. (1.12)–(1.14); Proposition 2.5, pp. 26–27",
+          "method": "Open arXiv PDF passages",
+          "title": "Rate of convergence to equilibrium for the spatially homogeneous Boltzmann equation with hard potentials",
+          "trigger": "Homogeneous linearized gain–loss splitting"
+        },
+        {
+          "assessment": "Same underlying record.",
+          "evidence": "Same claimed infinite norm and witness; SOURCE.md records origin SCOPE-20260911-074.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/11/SCOPE074",
+          "material_read": "RESULT.md and SOURCE.md",
+          "method": "Local publication mirror",
+          "title": "Published record SCOPE074",
+          "trigger": "Exact semantic match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–13 and 31–77",
+        "Mouhot–Villani, eq. (5.1) and §5.3"
+      ],
+      "rationale": "The valid obstruction is the standard non-diffusive cutoff term tested on a velocity concentration. It is a useful caution in reading factorization estimates, but it does not isolate a new boundary for enlargement, establish a sharp estimate for the regularizing remainder, or identify a velocity weight at which the known mechanism changes. The constants 60, 5/2 and weight exponent 12 play no scientific role in the obstruction.",
+      "residual_risks": [
+        "This assessment does not address the value of bounds for the collision-containing remainder or of non-cutoff dynamics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

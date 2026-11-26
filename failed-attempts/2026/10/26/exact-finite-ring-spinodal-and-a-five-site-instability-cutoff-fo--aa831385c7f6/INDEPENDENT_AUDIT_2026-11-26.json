@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:23:03.944979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finding line 14 says a nonconserved zero eigenvalue occurs precisely at a_c. This is false: take L=12, rho=3/4, t=0, a=32r. For m=2, cos(k)=1/2; the Fourier block has exact determinant 0 and trace -22r. Yet a_c=32r/(3 sqrt(3)-2)<32r, and the m=1 block has determinant (480-288 sqrt(3)) r^2<0. There can thus be neutral shorter modes in an already unstable state. Independently derived the blocks from the flow, and checked this counterexample in exact symbolic arithmetic. The determinant divided by positive h is affine increasing for rho>1/2, so the stated first onset, two-dimensional real neutral space at first onset, five-site cutoff, t=0 optimizer and finite-size expansion are otherwise valid. It is the fixed-mass spectral abscissa, not the presence of any zero eigenvalue, that is zero precisely at a_c. Inspected frozen VERIFICATION.md and verify.py: the sampled growth-rate and root-straddling tests do not check the claimed absence of higher-mode zeros; the uploaded code was not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hawthorne et al. give an exact Bloch Jacobian before long-wave expansion and prescribe discrete k on finite periodic lattices. The hydrodynamic works give related continuum spinodals or different orientation models."
+        ],
+        "reasoning": "The narrow discrete claim is not a consequence of continuum spinodals by substituting the smallest k into a small-k asymptotic. The stronger exact mean-field symbol in the same model does cover the ingredients for the finite calculation.",
+        "searches": [
+          "arXiv:2606.07823, Bloch matrix, Eq. 19 and finite-lattice discussion",
+          "arXiv:1801.08952, Eqs. 5–7",
+          "arXiv:2307.11673",
+          "Neville 2025, Eqs. 24–27"
+        ]
+      },
+      "checked_sources": [
+        "Resultary feb965488439",
+        "arXiv:2606.07823",
+        "arXiv:1801.08952",
+        "arXiv:2307.11673",
+        "10.1088/1742-5468/adbefe",
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the finite 1D ring the exact 2-by-2 block has negative real trace and det/h=2rA-2C+(AB+C)h. If rho<=1/2 positivity is immediate from the unexpanded sign formula; if rho>1/2 its slope AB+C is positive. Substitute the minimum nonzero h, and the leading activity coefficient is positive exactly if c_L>0 is attainable at some rho<1. At t=0 the density optimization is just maximizing the concave quadratic (1-rho)((1+c_L)rho-1)."
+        ],
+        "reasoning": "Although the primary paper says finite-lattice stability proceeds numerically in its general discussion, in this specialization the decisive minimization is of an affine function on the exact discrete spectrum, followed by solving a quadratic. It adds no independent spectral theorem. Completing the square and Taylor expanding the resulting closed expression are routine consequences.",
+        "searches": [
+          "arXiv:2606.07823, exact Bloch Jacobian and periodic wave-number discussion",
+          "Resultary feb965488439, determinant criterion and threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched result uses s=sin^2(pi/L) and diffusion d=t; h_L=2s and its coefficients C_N,L_N,H_N are G_L/2,b_L/2,d_L/2. The quadratics are identical up to the factor 2; both are for the same two-orientation hard-core finite-ring mean field."
+        ],
+        "reasoning": "This is statement-level equivalence of threshold, critical modes and five-site barrier, not just coincident parameters or titles.",
+        "searches": [
+          "Resultary: exact finite-ring spinodal, five-site cutoff and periodic active exclusion",
+          "Resultary feb965488439, mirrored RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored finding gives the same Fourier block, exact onset threshold, minimum L=5, five-site example and L^{-2} shift. Its visible catalogue date differs from the frozen source path date; ancestry or priority is not established."
+        ],
+        "reasoning": "There is actual exact catalogue coverage, independent of uncertainty about provenance. The continuous-density optimum is not in the matched finding.",
+        "searches": [
+          "Resultary: one-dimensional exact finite-ring cutoff and longest-mode activity spinodal",
+          "Resultary 2026/11/2 feb965488439"
+        ]
+      },
+      "rationale": "The central finite-ring formulas are materially covered by a distinct exact Resultary record and are a direct determinant-sign corollary of the primary source's exact all-wave-number Jacobian. No historical priority claim is made from the two dates. The additional continuous-density optimization is not stated in the exact matching record but only completes the square in its same zero-diffusion threshold.",
+      "residual_risks": [
+        "No lineage or chronological priority follows from the record dates.",
+        "The related continuum comparisons are not a global survey of active-lattice-gas results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially equivalent core result; date does not establish priority or derivation",
+          "evidence": [
+            "s=h_L/2, and threshold coefficients are exactly halved. Same five-site example and finite-size shift."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 feb965488439",
+          "material_read": "Mirrored RESULT.md, offsets 0–11314",
+          "method": "Mapped trigonometric and rate notation, checked the exact threshold and asymptotic statements",
+          "title": "Exact finite-ring spinodal and a five-site barrier in active exclusion",
+          "trigger": "Direct exact finite-ring match"
+        },
+        {
+          "assessment": "Exact source of the block; no printed finite-ring analytic classification in the inspected passage",
+          "evidence": [
+            "Gives exact Bloch Jacobian, infinite-lattice spinodal and discrete finite-lattice k; reports numerical finite-lattice analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.07823",
+          "material_read": "PDF pp. 2–4, extracted offsets 12500–23569 and 26450–27606; Eq. 19 and finite-lattice discussion",
+          "method": "Reduced the exact symbol to the two-orientation one-dimensional blocks and compared all-wave-number and small-wave-number claims",
+          "title": "Exact mean-field phase diagram for self-avoiding active particles in a lattice",
+          "trigger": "Same mean-field model and its exact symbol"
+        },
+        {
+          "assessment": "Related continuum limit, not this discrete finite threshold",
+          "evidence": [
+            "Pe^2(1-rho)(2rho-1)>2 is the large-wavelength condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.08952",
+          "material_read": "PDF pp. 2–3, Eqs. 5–7 and surrounding scaling",
+          "method": "Compared wave-number regime and model",
+          "title": "Exact Hydrodynamic Description of Active Lattice Gases",
+          "trigger": "Earlier one-dimensional spinodal"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": [
+            "Two-dimensional geometry and continuous orientation diffusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.11673",
+          "material_read": "PDF p. 3, offsets 6500–11496",
+          "method": "Compared geometric and orientation degrees of freedom",
+          "title": "Exact hydrodynamics and onset of phase separation for an active exclusion process",
+          "trigger": "Related exclusion spinodal"
+        },
+        {
+          "assessment": "Related continuum linear stability, not an exact finite lattice result",
+          "evidence": [
+            "Fourier growth rates for the rescaled hydrodynamic PDE."
+          ],
+          "identifier_or_url": "10.1088/1742-5468/adbefe",
+          "material_read": "Open PDF pp. 12–13, Eqs. 24–27",
+          "method": "Compared the continuum PDE symbol and parameter assumptions",
+          "title": "Hydrodynamic equations and near critical large deviations of active lattice gases",
+          "trigger": "Related one-dimensional dispersion relation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A genuinely new exact minimum ring size would be a useful finite-size benchmark, but it is the same cutoff in the matching exact finding and a routine corollary of the known symbol. After removing the equivalent central content and the false restriction on neutral eigenvalues, the continuous-density optimizer and expansions are elementary substitutions into the existing threshold, not a substantial independent remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

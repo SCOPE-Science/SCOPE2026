@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:59:15.109235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding Eq. (22) with y=e^(−κℓ) and s=sin(2μ) gives the exact normalized Q term 4Qκ(1+κ²)(y−y³)/s and the Q-independent coefficients F, −2(1+κ²)², B at y powers 0, 2, 4. Independently, F=(1+κ²)² sin(2μ−4 arctan κ)/s, so the only positive roots are t,u and their slopes are −4(1+t²)/s and +4(1+u²)/s. On a fixed small neighborhood of each positive root r the perturbation tends to zero in C¹ uniformly in Q. To sharpen the root estimate, bracket it at r±K e^(−rℓ) with fixed sufficiently large K; on that bracket y=e^(−rℓ)+O(ℓe^(−2rℓ)), uniformly. Taylor expansion yields the stated shifts +tQe^(−tℓ) and −uQe^(−uℓ). The exact ∂Q term is positive, so implicit differentiation fixes the signs of the energy slopes and the endpoints are Q=±2. Squaring and subtracting gives both leading constants 8r². For completeness, in each Bloch fiber the vertex boundary condition is equivalent to an inward-edge derivative equal to minus the Hermitian matrix of phase half-angle tangents times the endpoint vector. At the fixed interior phase no Cayley eigenphase is singular, and exactly two tangents are positive. The metric-graph quadratic form is nonnegative on the kernel of the corresponding two endpoint coordinates, so a fiber has at most two negative eigenvalues. The two continuous root images are disjoint for large ℓ, hence there are no further negative bands. For fixed nonzero Q the normalized Eq. (26) error is already order e^(−κℓ), not merely a failure of uniformity across Q; at Q=0 the leading term cancels. No endpoint-phase uniformity is inferred. The packaged floating-point checker was inspected, not executed; its single-phase finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exner–Tater's star formula gives levels from U eigenphases and thus the two limiting centers. Exner–Pekař find exponentially narrow negative bands for a hexagonal −R graph near the common level −1/3."
+        ],
+        "reasoning": "A decoupled star eigenvalue alone cannot determine the dispersion coefficient. The hexagonal example is not this coupling/lattice and has a common negative center, not two separated centers with the claimed distinct decay exponents. No matching stronger asymptotic was established.",
+        "searches": [
+          "Literature search: preferred-orientation square quantum graph, negative-band width, large edge length and tunnelling",
+          "Exner–Tater Eq. (11)",
+          "Exner–Pekař arXiv:2409.03538v1 Sections 3 and 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_asymptotics.py",
+        "Exner–Tater arXiv:2108.04708v1",
+        "Exner–Pekař arXiv:2409.03538v1",
+        "Resultary 3c084f970a58 and eefafa7116be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (22) supplies the exact input, and Eq. (26) and its text supply the limit and the claim of at most two bands. Direct retention of the Q terms in (22) instead gives an e^(−κℓ) term and changes the effective first-order dispersion."
+        ],
+        "reasoning": "The exact equation implicitly defines the bands, but to obtain the new asymptotic invariant one must correct its published truncation, resolve the two root shifts separately with a uniform moving-exponential estimate, and identify the extrema. The published shrinking theorem and its stated asymptotic do not give the corrected coefficients or error estimates.",
+        "searches": [
+          "Exner–Tater arXiv:2108.04708v1, equations (22), (26) and accompanying negative-spectrum discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact negative-energy source polynomial uses Q=cos θ1+cos θ2. Its displayed asymptotic uses O(e^(−2κℓ)); the frozen Q splitting is explicit one order larger, with different signs at the two roots."
+        ],
+        "reasoning": "Comparing momentum roots versus energies requires E=−κ²; neither rescaling the coupling length nor switching this parameter turns the printed remainder or limiting centers into a nonzero width coefficient. The correction is in the asymptotic evaluation, not a new exact determinant.",
+        "searches": [
+          "Resultary: phase-rotated square graph, large-edge negative Bloch bands, exponential widths and tunnelling",
+          "Exner–Tater arXiv:2108.04708v1, equations (22) and (26)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-operator record analyzes positive high-energy windows near (nπ/ℓ)² and excludes negative energies. The other matching square-graph record concerns high-energy band fraction in an endpoint double scaling, also excluding the negative regime."
+        ],
+        "reasoning": "Neither exact asymptotic database match concerns long edges at fixed phase and the two isolated negative levels. No separate exact band-width entry with the required scope was established.",
+        "searches": [
+          "Resultary: square phase-rotated graph band asymptotics; records 3c084f970a58 and eefafa7116be"
+        ]
+      },
+      "rationale": "Credit the exact secular equation, centers, and qualitative shrinking to Exner–Tater. The supported distinct claim is the corrected leading quasimomentum term, the oppositely signed uniform dispersions, and the two explicit leading widths at fixed interior phase. The printed leading-order asymptotic neglects the term that produces these widths; the closest inspected literature and indexed records do not supply the splitting for this graph and regime. This is a best-of-knowledge decision, not an absolute novelty claim.",
+      "residual_risks": [
+        "An unindexed correction to Eq. (26) or an exact specialization of a more general tunnelling result could exist. A focused literature search returned no additional result; that is not proof of absence. A catalog analogy on Kronig–Penney widths was not available in full text and is not used as evidence of coverage or noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains exact determinant and qualitative limiting spectrum, but not the corrected asymptotic or leading widths",
+          "evidence": [
+            "Eq. (22) has positive Q terms in both c1 and c3 when expanded.",
+            "Eq. (26) prints O(e^(−2κℓ)) and supplies both roots of the limiting quartic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.04708v1",
+          "material_read": "Eq. (11) around OA offsets 22162–24162; Eq. (22) around 33126; Eq. (26) and adjacent text around 37781–39053",
+          "method": "Bounded OA PDF passages",
+          "title": "Quantum graphs: self-adjoint, and yet exhibiting a nontrivial PT-symmetry",
+          "trigger": "Same operator, exact negative secular equation, potential earlier width evaluation"
+        },
+        {
+          "assessment": "Different lattice, coupling and limiting levels; does not yield the two square-band widths",
+          "evidence": [
+            "Two exponentially narrow negative bands around −1/3 in the large-edge hexagonal model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.03538v1",
+          "material_read": "Sec. 3, OA offsets 15200–19160; Sec. 4.3 around 42374",
+          "method": "Bounded OA PDF passages",
+          "title": "Spectral properties of hexagonal lattices with the −R coupling",
+          "trigger": "Closest inspected negative-band tunnelling analogue"
+        },
+        {
+          "assessment": "Positive high-energy windows only",
+          "evidence": [
+            "Analyzes bands near (nπ/ℓ)² and excludes the negative spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-two-band-high-energy-scaling-for-the-phase-rotated-square--3c084f970a58/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3470",
+          "method": "Resultary local full-text mirror",
+          "title": "Sharp two-band high-energy scaling for the phase-rotated square quantum graph",
+          "trigger": "Same graph and coupling; plausible spectral overlap"
+        },
+        {
+          "assessment": "Other regime and other invariant",
+          "evidence": [
+            "An endpoint-phase/high-energy band-fraction scaling, excluding negative spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-double-scaling-band-fraction-pinch-in-an-interpolating-square-qu--eefafa7116be/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2587",
+          "method": "Resultary local full-text mirror",
+          "title": "Double-scaling band-fraction pinch in an interpolating square quantum graph",
+          "trigger": "Similar square graph with phase dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The resolved splitting is a natural quantitative invariant of the two distinct localized vertex levels, not another presentation of their already-known centers. It determines which fiber extrema occur at Q=±2, gives two physically distinct tunnelling scales and their coefficients, and corrects an error that would otherwise suppress the leading band dispersion. This is a substantive refinement even though it starts from an exact known secular equation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

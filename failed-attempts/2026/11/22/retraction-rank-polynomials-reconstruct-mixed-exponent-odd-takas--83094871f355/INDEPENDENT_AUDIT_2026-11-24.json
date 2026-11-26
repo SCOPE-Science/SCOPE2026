@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:07:34.514437Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71 and verify.py, inspected without executing",
+        "Replay: python3 /workspace/branches/independent_repro.py 4, which enumerates subgroups by closure and ordered complements by trivial intersection and full order (not additive generator maps), checks five nontrivial examples and the trivial group, and verifies the aggregated coefficients."
+      ],
+      "rationale": "For g=F−F(0), the quandle law gives g(2y−x)=2g(y)−g(x); setting x=0 and y=0 and using the bijection 2:A→A proves additivity. The idempotence equations for F=e+c are e²=e and e(c)=0. An additive projection corresponds to an ordered internal decomposition A=U⊕W. Relative to the exponent blocks, the action modulo p is block triangular because maps from the elementary summand into the exponent-p² block have image in its p-multiples; the two diagonal blocks must be invertible and suffice by the finite p-group lifting criterion. Counting lifts and off-diagonal entries gives Γ_p, and the block-diagonal stabilizer gives the ratio of Γ_p factors. The p^{|exponent|} factor in the formula counts the elements of W, one affine shift per element. Translation removes c by conjugacy and linear conjugacy classifies the ordered decompositions by image type. Only type (0,1) contributes at size p; the ratio of the general-linear factors gives [T^p] as stated, including zero when b=0. The identity is the only full-rank term. Together these recover b and a from any nontrivial polynomial; T identifies the trivial case, and the support assertions follow from the intervals [2r,2r+b].",
+      "residual_risks": [
+        "Counts and reconstruction are for odd p and the stated exponent bound. The finite replay is corroboration of the group-theoretic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dihedral enumeration applies to arbitrary finite abelian A of odd order and all tuple lengths; elementary-divisor allocations resolve the summands including the image type at t=1. The Saki–Kiani abstract describes the different invariant of subquandle/coset lattices. The semisimple Alexander census covers elementary-abelian additive groups, not general p²-torsion."
+        ],
+        "reasoning": "The larger family and type-resolved compatible-tuple formula of the dihedral result, rather than the lattice or semisimple comparison, cover this affine retraction enumeration.",
+        "searches": [
+          "Resultary b7a82eb41d67, Assumptions and Proof Step 3",
+          "Saki–Kiani DOI 10.1080/00927872.2020.1797065, public abstract",
+          "Resultary 117335b68a3e, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b7a82eb41d67, 3e67e5c96d80, 117335b68a3e, e6805a355e92, 50ead9bc45af",
+        "DOI 10.1080/00927872.2020.1797065 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 3 counts each prescribed Boolean type allocation by the automorphism-group ratio times |A|/|A_1| at t=1. For mixed exponent p², the t=1 image A_1 with type (r,s) has order p^{2r+s}. The order-p selection requires A_1=C_p."
+        ],
+        "reasoning": "No additional census is needed to read the result as the polynomial. In particular the GL_b/GL_{b−1} factor for selecting C_p gives the rank-p coefficient, whose normalized geometric sum is injective in b. The particular phrasing of reconstruction is not literal in the comparison, but it follows by direct selection and elementary inversion.",
+        "searches": [
+          "Resultary b7a82eb41d67, RESULT.md from offset 3250 through 7250, Proof Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dihedral record proves the correspondence F_{P,u} ↦ (x↦P(x)+u) with P²=P and P(u)=0, preserving composition. The Takasaki homomorphism equation over odd A identifies exactly these affine idempotents. The core automorphism record alone would not cover noninvertible idempotents."
+        ],
+        "reasoning": "Discard only the trivial dihedral homomorphism, which has no associated affine map in this bijection. The other dihedral retractions and the frozen quandle retractions are two realizations of the same affine idempotent maps. The dihedral image would have twice the affine image size, so the variables can equally be related by rescaling that image cardinality.",
+        "searches": [
+          "Resultary b7a82eb41d67, Proof Steps 1–3",
+          "Resultary e6805a355e92, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No literal identical univariate polynomial was required: the first record already gives its summands by image type. The additive idempotent clique count does not mark affine image sizes. The exponent-four core-quandle polynomial is for (Z/4)^r and different hypotheses."
+        ],
+        "reasoning": "The closest result is stronger than a table for the sample cases: its array of elementary-divisor types provides the exact all-parameter coefficients after direct marking. The other two databases of counts would not suffice.",
+        "searches": [
+          "Resultary b7a82eb41d67, t=1 specialization",
+          "Resultary 3e67e5c96d80 and 50ead9bc45af, Findings"
+        ]
+      },
+      "rationale": "A distinct same-day generalized-dihedral result already gives a type-resolved census for the same affine idempotents, in greater generality. Its nontrivial group retractions correspond composition-preservingly to affine idempotents over the odd abelian group. For t=1 its Boolean summands are A_0=ker P and A_1=im P; every term is |Aut(A)| |A|/(|Aut(A_0)| |Aut(A_1)| |A_1|). Giving that term the formal mark T^{|A_1|} is precisely the frozen polynomial, not a reconstruction from an unrefined total. Full order and order p single out the same decomposition types; the existing automorphism factor reduces at p to p^{2N−2}(p^b−1)/(p−1). The recovery via prime-power factorization and strict monotonicity is then routine. This is demonstrable coverage by a stronger statement; no publication order is inferred from the common date.",
+      "residual_risks": [
+        "The common date does not resolve priority. The Saki–Kiani full text was not inspected; the demonstrated coverage does not rely on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mechanical implication at t=1, without asserting chronology",
+          "evidence": "Step 2: the correspondence attaches f(x)=P(x)+u and preserves composition. Step 3: every Boolean type allocation receives the automorphism quotient and |A|/|A_1| factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-affine-retraction-compatibility-over-odd-generalized-dihedral-gr--b7a82eb41d67/RESULT.md",
+          "material_read": "Finding; scope and proof Steps 1–3, offsets 3250–7250",
+          "method": "OA reader, matched source through local mirror",
+          "title": "Affine retraction compatibility over odd generalized dihedral groups",
+          "trigger": "Same odd-order affine-idempotent parameterization and type-resolved enumeration"
+        },
+        {
+          "assessment": "Lattice antecedent, with unconfirmed full-text scope",
+          "evidence": "The accessible description characterizes subquandles and relates the lattice for odd groups to cosets. It does not state the low affine-idempotent coefficient in the passage read.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2020.1797065",
+          "material_read": "Public abstract and the frozen finding's attribution only",
+          "method": "Abstract review; publisher and identified alternatives attempted without full-text access",
+          "title": "On the lattice of subquandles of a Takasaki quandle",
+          "trigger": "Recovery of the underlying abelian group via a different quandle invariant"
+        },
+        {
+          "assessment": "Neighboring invariant, not the affine size-refined census",
+          "evidence": "Counts compatible additive idempotents and treats an invisible-exponent phenomenon for those statistics.",
+          "identifier_or_url": "Resultary 3e67e5c96d80",
+          "material_read": "Finding at offset 0",
+          "method": "Matched local mirror",
+          "title": "All-arity idempotent clique spectra of finite abelian p-groups",
+          "trigger": "Idempotent group endomorphism census on the same underlying objects"
+        },
+        {
+          "assessment": "Covers elementary-abelian semisimple cases, not mixed exponent",
+          "evidence": "The underlying group is a vector space over a prime field and the operator is semisimple.",
+          "identifier_or_url": "Resultary 117335b68a3e",
+          "material_read": "Finding and Assumptions at offset 0",
+          "method": "Matched local mirror",
+          "title": "Semisimple Alexander-quandle retractions: a transformation–affine factorization and exact image ranks",
+          "trigger": "Exact retraction image ranks for a related quandle family"
+        },
+        {
+          "assessment": "Automorphisms, not the retraction census",
+          "evidence": "Classifies invertible maps of finite abelian core quandles.",
+          "identifier_or_url": "Resultary e6805a355e92",
+          "material_read": "Finding at offset 0",
+          "method": "Matched local mirror",
+          "title": "Affine-rigidity classification and automorphism counts for finite abelian core quandles",
+          "trigger": "Affine classification on the same quandle family"
+        },
+        {
+          "assessment": "Different prime and group family",
+          "evidence": "Counts the image sizes of idempotents on homocyclic exponent-four cores; only powers of four occur.",
+          "identifier_or_url": "Resultary 50ead9bc45af",
+          "material_read": "Finding at offset 0",
+          "method": "Matched local mirror",
+          "title": "Endomorphism image spectra and power-of-four retraction rigidity",
+          "trigger": "Same-day exact retraction-rank polynomial in another core-quandle family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–31 and 63–68",
+        "Resultary b7a82eb41d67, Steps 2–3"
+      ],
+      "rationale": "The invariant is natural and the characterization is correct. But the exact coefficient data are mechanically supplied by the existing stronger type-allocated census on the identical affine idempotents. In the frozen exponent-at-most-p² range the proposed surviving distinction, top degree plus a geometric sum for the multiplicity of C_p, amounts to elementary inversion of that existing count. This does not establish a separate nonroutine increment to retain as a repair.",
+      "residual_risks": [
+        "This assessment is for the assigned mixed-exponent family, not for potential reconstruction problems for general finite abelian groups."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

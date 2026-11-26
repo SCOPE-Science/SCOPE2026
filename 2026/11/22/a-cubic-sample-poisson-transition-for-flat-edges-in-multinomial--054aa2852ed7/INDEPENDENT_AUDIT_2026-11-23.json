@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:51:04.686123Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact fixed-total experiment is the sum of N independent incidence-column increments. Their means vanish, and their covariance is BB^T/n, where the edge Gram block of a run of length L has diagonal 2 and off-diagonal -1 and determinant L+1. The zero columns have positive mass uniformly for fixed k, and the endpoint and successive-difference phases force every edge phase to vanish modulo 2pi at a peak. This supplies Gaussian domination on the rescaled torus with no lattice multiplicity. Taylor expansion and dominated convergence give (1), uniformly since only finitely many run shapes occur. The constants for one edge, two touching and two disjoint are respectively (4pi lambda)^(-1/2), (2pi lambda sqrt(3))^(-1) and (4pi lambda)^(-1). Direct word counting at n=5,N=4 gives respectively 195, 64 and 61 admissible assignments out of 625, consistent with the finite marginal formulas. At criticality the O_k(n^(k-1)) tuples with touching edges contribute o(1), and mixed falling factorial moments give independent interval Poisson counts; bounded total mass on the compact interval gives tightness. The zero-count conclusion follows by testing the integer-valued mass at a half-integer cutoff. Above criticality Markov suffices; below it the covariance bounds for touching and disjoint pairs give relative variance o(1). Inspected the frozen finite checker without executing it; it does not purport to prove a limiting result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Part 4 of Banić–Elezović treats lattice Edgeworth and folded moment formulas for fixed n followed by an iterated large-n limit. Its stated variance concerns absolute contrasts. Eaton et al.’s direct occupancy comparison addresses sparse load, and the corpus roughness record concerns proportional load and a variance."
+        ],
+        "reasoning": "Fixed-dimension moment results and sparse occupancy Poisson approximations do not give uniform point probabilities for every fixed edge-constraint pattern in the diverging-load fixed-total array. Standard general LLT plus factorial moments are techniques, not a located antecedent theorem stating or immediately encompassing the joint result.",
+        "searches": [
+          "arXiv:2611.09592v1 abstract and PDF introduction and §2",
+          "arXiv:0806.1007 Theorems 1–3",
+          "Resultary: same-model query; Conditioning removes a leading variance term from multinomial histogram roughness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09592v1",
+        "arXiv:2610.13366v1",
+        "arXiv:0806.1007v1",
+        "Resultary flat-edge/roughness hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trinomial walk and 2-, 3-, 4-bin marginals are available ingredients. The cited old iid-score Stein bound requires independence away from shared observations; nonoverlapping pairs of counts in the fixed-total array are not exactly independent."
+        ],
+        "reasoning": "The contribution that survives is the uniform run determinant and matching joint rare-event asymptotics under conditioning, which imply spatial Poisson and concentration. Fixed-n lattice expansions do not automatically give a uniform diagonal regime with n growing.",
+        "searches": [
+          "arXiv:2610.13366v1 §2; arXiv:2611.09592v1 §§1–2 and abstract",
+          "arXiv:0806.1007 Theorem 1 and model before Theorem 3",
+          "Resultary adjacent equality versus absolute roughness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A tie here is a zero lazy symmetric lattice walk contrast of two adjacent counts, not a tie of two iid ball labels. Eaton–Godbole–Sinclair’s W counts equal iid observations, and their Y_r counts bins with exactly r balls."
+        ],
+        "reasoning": "Switching from ball-label ties to adjacent occupancies changes the dependence, the Gaussian local scaling and the spatial index set. Conditioning independent Poisson bins on their sum yields the correct model but retaining a Poisson rare-event limit after conditioning still needs proof.",
+        "searches": [
+          "Resultary: multinomial histogram flat edges ties Poisson local equal counts cubic sample limit",
+          "Web: multinomial occupancy Poisson limit equal adjacent cell counts flat edges tie histogram ordered bins n cubed equal frequencies growing number bins lattice local limit",
+          "arXiv:0806.1007 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Part 1 gives exact central-trinomial formulas for mean absolute adjacent counts, and the same two-bin conditioning gives the exact single-flat-edge probability. In fact if W_N=E|D_N| for the adjacent lazy walk, W_(N+1)-W_N=(2/n)P(D_N=0). No exact multi-run or spatial-limit table was identified among examined sources."
+        ],
+        "reasoning": "The exact isolated marginal is closely tied to published identities and is not a separate originality claim. It determines a mean but not dependence, no-flat-edge probability, or the spatial Poisson limit.",
+        "searches": [
+          "arXiv:2610.13366v1 abstract and PDF introduction and §2",
+          "Resultary same-model query",
+          "arXiv:2611.09592v1 abstract and introduction"
+        ]
+      },
+      "rationale": "The one-edge lattice marginal is classical in substance and the exact finite formula follows immediately from prior two-bin conditioning. Credit is due for the uniform fixed-total joint run law and spatial cubic threshold, not for the marginal identity by itself. No covering all-run or spatial theorem was identified in inspected material.",
+      "residual_risks": [
+        "A general conditioned rare-event process theorem in unindexed probability literature could imply a broader result; the comparison is best-of-knowledge, not a priority certificate.",
+        "The present result does not supply a uniform finite-n Poisson approximation rate or extend beyond uniform bin probabilities and the path."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same contrasts and low-dimensional ingredients; stated variance coefficients are not a joint flat-edge process",
+          "evidence": [
+            "Introduction explicitly states the fixed-n remainder and order N then n; Lemma 2.4 covariance cited there; §2.2 pooling of two to four bins"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09592v1",
+          "material_read": "Abstract, PDF pp. 1–4 introduction, hypotheses, summary of main theorem and lattice/coset regime, §2 exact marginals",
+          "method": "Primary arXiv text and formula/scope comparison",
+          "title": "Discrete total variation under the multinomial, Part 4: variance under a general distribution",
+          "trigger": "Same fixed-total contrasts and lattice asymptotics"
+        },
+        {
+          "assessment": "Provides immediate marginal ingredients but treats first moments of absolute differences",
+          "evidence": [
+            "Central trinomial representation and recurrence for W_N in abstract; §2.2 Eq. (2.5) and Prop. 2.3; stated scope at end of introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13366v1",
+          "material_read": "Abstract, PDF introduction, §§2.2–2.3 onset of marginal and two-stage split",
+          "method": "Primary arXiv text, compared statistics and used lazy-walk identity",
+          "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+          "trigger": "Same uniform two-bin marginal and exact computable formulas"
+        },
+        {
+          "assessment": "Different tie events; no directly applicable path-indexed conditioned array theorem",
+          "evidence": [
+            "Theorem 1 iid scores and all unordered pairs; Theorem 2 strict r-fold ties; multivariate occupancy development assumes balls/boxes tends to zero"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0806.1007",
+          "material_read": "Full primary HTML §§1–2 definitions and Theorems 1–3 and their regimes",
+          "method": "Compared what is counted, independence assumptions and load scaling",
+          "title": "Competition between Discrete Random Variables, with Applications to Occupancy Problems",
+          "trigger": "Tie-driven Poisson and joint occupancy laws"
+        },
+        {
+          "assessment": "Indexed claim describes absolute roughness variance at proportional load, not zero gradients at cubic sample size",
+          "evidence": [
+            "The corpus entry states a variance per bin under N/n tending to a positive finite value"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb",
+          "material_read": "Resultary indexed statement only",
+          "method": "Corpus semantic lookup",
+          "title": "Conditioning removes a leading variance term from multinomial histogram roughness",
+          "trigger": "Fixed-total corrections for adjacent uniform multinomial statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact ties are a natural degeneracy of the discrete gradient, complementary to absolute variation. A single marginal suggests the cubic balance, but cannot decide concentration, clusters or the limiting locations. The fixed-total joint law and complete three-regime description make the result useful for understanding when an ordered histogram has no flat edge.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

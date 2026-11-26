@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:43:10.515713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4 (lines 35–98)",
+        "Frozen VERIFICATION.md and checker.py (read only)"
+      ],
+      "rationale": "Reconstructed the strict insertion test: adding the absent pair changes S=sum d_i^2 by 2(D+1) and m to m+1, so increase is equivalent (m>0) to D>1+2W/m+1/m+W/m^2. D is Binomial(2n-4,p_n) after conditioning; W/m tends to c. Expanding W-cm in centered edge indicators gives orthogonal linear and quadratic parts, with variance/n tending to c^3/2+c^2/2 and mean/sqrt(n) to c beta/2. For each fixed cumulant of order j>=3, only edge-overlap-connected motif tuples survive; each union has e>=v-1 and joint-cumulant bound O(p_n^e) by the partition formula, giving O(n) in total. This establishes the stated normal limit by moments. Deleting the two endpoints costs O_P(1) edges and O_P(1) wedges (the wedge expectation is bounded), and leaves a background independent of D. On the sole critical atom D=2c+1 the inequality is W-cm<-(m+W)/(2m); the scaled correction tends to zero, and the continuous Gaussian sign test gives Phi(-beta/sqrt(2(1+c))). The Poisson atom counts, beta=0 midpoint and c=1 values agree. The m=0 convention has vanishing weight. The bundled checker.py was inspected, not executed; the cumulant proof, not its finite/simulation checks, establishes the limit.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abe characterizes the concentration index and studies other voting settings; Hof et al. define graphic games but address thresholds for distance from weighted games.",
+          "The bounded wedge-CLT lookup supplied no decisive passage; the DOI attempt did not return full text."
+        ],
+        "reasoning": "A marginal wedge CLT alone would not specify the insertion event, the joint local/global limit or the strict-boundary probability. No claim that the sparse count CLT itself is new.",
+        "searches": [
+          "arXiv:2606.05655v2",
+          "arXiv:1805.02192v1",
+          "Bounded literature lookup for sparse wedge/two-star count CLTs; DOI 10.1007/BF00319185 retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Abe arXiv:2606.05655v2",
+        "Hof et al. arXiv:1805.02192v1",
+        "Local Resultary exact mirror of the assigned item"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The squared-index representation yields the deterministic threshold by algebra; it does not supply the two-endpoint deletion argument, the centered W-cm fluctuation or the boundary-atom weighting."
+        ],
+        "reasoning": "The exact probabilistic law requires real additional derivation from these ingredients; the inspected broader material is not a direct theorem or numerical substitution for the claim.",
+        "searches": [
+          "Abe Proposition 4.1 and overlap identity",
+          "Hof et al., graphic games passage",
+          "Local exact-record comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same concentration can be written using overlap of minimal winning coalitions or the squared power vector; in a graph it equals (m+W)/(2m^2).",
+          "The exact matching indexed formulation was the frozen record itself."
+        ],
+        "reasoning": "Changing representations does not create novelty. The audited distinction is the probability of a strict before/after comparison and its two-scale Poisson/Gaussian law.",
+        "searches": [
+          "Local Resultary semantic search on Deegan–Packel concentration after decisive pair insertion",
+          "arXiv:2606.05655v2, Proposition 4.1 and overlap identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local hit contains the same Poisson and critical Gaussian formulas and is the identical record, not separate priority evidence."
+        ],
+        "reasoning": "The checked index shows self-coverage only for this exact law. An isolated finite graph or Poisson-tail table does not encode the beta-dependent boundary law.",
+        "searches": [
+          "Local Resultary semantic search and mirror comparison for 2026/11/8/SCOPE-the-lattice-window-law-for-concentration-after-adding-a-decisive--6c4230e73303"
+        ]
+      },
+      "rationale": "Passes on the exact sparse one-pair insertion law, in particular the atom-weighted Gaussian transition; not on the index, the graph-game encoding, or a general subgraph central limit theorem. No distinct inspected prior statement covers the insertion comparison and its critical window.",
+      "residual_risks": [
+        "The classical count-CLT comparison is not exhaustive; exact priority against unlocated literature is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the index and overlap representation, not the random insertion event in those statements",
+          "evidence": [
+            "Proposition 4.1 characterizes concentration by a scalar multiple of the squared Deegan–Packel vector; the overlap formula re-expresses it by coalitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.05655",
+          "material_read": "Proposition 4.1, PDF p. 6, and overlap identity, p. 8",
+          "method": "Open-access passage inspection",
+          "title": "Measuring Concentration of Power in Approval Voting Games",
+          "trigger": "Potential broader Deegan–Packel concentration theorem"
+        },
+        {
+          "assessment": "Graph encoding overlap only",
+          "evidence": [
+            "Winning pairs are edges and the objective is distance from weighted games, not concentration change."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1805.02192v1",
+          "material_read": "Graphic-simple-game discussion, HTML offset 8857",
+          "method": "Open-access passage inspection",
+          "title": "Simple Games versus Weighted Voting Games",
+          "trigger": "Prior framework for size-two winning coalitions"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": [
+            "The formula and record identifier match the frozen item."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-lattice-window-law-for-concentration-after-adding-a-decisive--6c4230e73303",
+          "material_read": "Mirrored finding with Poisson limit and Gaussian transition",
+          "method": "Local Resultary search and mirror passage",
+          "title": "The lattice-window law for concentration after adding a decisive pair",
+          "trigger": "Exact indexed hit"
+        },
+        {
+          "assessment": "Unresolved as a source for background count normality; not negative originality evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/BF00319185",
+          "material_read": "No passage obtained from this retrieval",
+          "method": "Attempted lawful open-access retrieval",
+          "title": "When are small subgraphs of a random graph normally distributed?",
+          "trigger": "Potential broader count normality result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and insertion proof"
+      ],
+      "rationale": "The result quantifies a natural sensitivity of a voting power index to an added decisive partnership. The one local degree sum has a discrete limit while the global concentration threshold has a continuous fluctuation; resolving their interaction gives discontinuities and a precise critical window not supplied by first-order approximations or by the separate marginal limits.",
+      "residual_risks": [
+        "This has the stated scope of sparse graphic games and fixed exogenous absent pairs, not arbitrary coalition additions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

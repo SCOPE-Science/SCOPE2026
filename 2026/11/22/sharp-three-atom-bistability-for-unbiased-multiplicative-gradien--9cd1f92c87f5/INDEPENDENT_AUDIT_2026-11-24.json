@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:08.587700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the first clipping knot the value is μ times the knot, and at the last it is cS. With at most two nonzero magnitudes positivity follows by interpolation; an atom at zero contributes nothing. With three distinct magnitudes a zero requires a nonpositive middle value. If the largest multiplier is negative, μ>0 makes the middle value strictly positive; if the smallest is negative, S>0 does the same. The remaining negative case has signs (+,−,+); the middle value c(p1−p2+p3a3/a2) gives the strict and touching cases, and solving on the two adjacent affine pieces gives the stated roots and stability by the drift sign. In the sample, scaling x by c gives successive positive-half slopes 7/5, −1, 1/5 and 0, with the claimed zeros. The complete clipped mean is globally 7/5-Lipschitz, so the mean update with η≤5/7 is nondecreasing, preserves intervals bounded by fixed points, and the signs give monotone convergence to the stated endpoints. For the sample recursion stopped at distance c/2 from c, the conditional drift is −η_n(X_n−c)/5 and the square increment budget is c²η_n²; the square and deterministic tail budget form a nonnegative supermartingale. Exit probability is at most 4 sum η_n²=π²/24 and the finite accumulated negative drift forces convergence on nonexit since sum η_n diverges. In the unclipped recursion E[A²]=65/2 and eventual squared-error contraction is at most 1−(7/5)η_n, yielding zero expectation limit and hence an almost-sure zero limit by supermartingale convergence. The frozen verifier is supplemental rational testing, not a stochastic proof; it was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available broader literature concerns bias and nonconvergence or convergence near stationary points. The frozen discussion identifies a two-atom signed-multiplier divergent example and additive examples; the decisive appendix passages were not retrieved."
+        ],
+        "reasoning": "A general bias or neighborhood bound does not classify the signs at the ordered saturation scales, nor does instability in the far field cover a bounded attracting basin with S>0.",
+        "searches": [
+          "arXiv:2610.28107 Appendix H.4–H.5",
+          "arXiv:2305.01588 §§3.1, C.5",
+          "arXiv:2609.12119 search result",
+          "RESULT.md lines 75–87"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 9cd1f92c87f5 and b944eb52abb2 (index)",
+        "arXiv:2610.28107 (title/abstract)",
+        "arXiv:2609.12119 (search snippet)",
+        "arXiv:2305.01588 and arXiv:2302.06570 (frozen comparative account; OA attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof exploits the interior saturation sign and constructs a stopped attracting interval. Standard bias, stationary-law or escape examples do not supply those ingredients."
+        ],
+        "reasoning": "Generic stochastic-approximation machinery helps once an attracting basin exists, but does not imply the atom-minimality result or yield this explicit exit bound without the signed drift and bounded-increment construction.",
+        "searches": [
+          "RESULT.md lines 37–69 and 75–87",
+          "arXiv:2609.12119 snippet; Resultary b944eb52abb2 summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the frozen record itself; the adjacent indexed entry studies centered two-atom noise and a constant-step stationary law. The adjacent arXiv:2609.12119 snippet concerns additive noise and a nonvanishing neighborhood."
+        ],
+        "reasoning": "Rescaling c normalizes an equivalent instance to c=1; the meaningful distinctions are state-dependent signed multiplicative noise, two inward regimes, the interior pair of drift roots, and actual decreasing-step attraction, not the naming of the clipping cap.",
+        "searches": [
+          "Resultary 9cd1f92c87f5 and b944eb52abb2",
+          "Focused literature lookup for bounded-noise clipped SGD wrong-limit examples; arXiv:2609.12119",
+          "arXiv:2610.28107, 2305.01588, 2302.06570"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned distinct record gives the stated three-atom oracle and nonexit bound; the available comparison is to a described two-point oracle. No census or precomputed probability table is part of the claim."
+        ],
+        "reasoning": "The numerical masses, roots, and bound are a designed witness for the support theorem, not a table lookup. Similar constants or a different clipped two-point example do not duplicate the root pattern and wrong-limit event.",
+        "searches": [
+          "Resultary 9cd1f92c87f5 and b944eb52abb2",
+          "arXiv:2610.28107 Appendix H.5 cited comparison"
+        ]
+      },
+      "rationale": "Credit prior clipping bias and divergence examples. The distinct conjunction supported here is the minimal nonzero support classification with inward mean descent at both ends, and a concrete bounded wrong-limit event for diminishing steps with an almost-sure unclipped contrast. The available comparisons support this distinction provisionally, not publication priority.",
+      "residual_risks": [
+        "Uninspected full-text passages may contain an equivalent bounded-noise construction or classification. In particular the closest cited appendices and neighboring Resultary full record were not available for comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close model; exact passage comparison limited by access",
+          "evidence": "The frozen record reports that Proposition H.6 is a two-atom large-state escape construction and H.4 is additive. These appendix statements were not independently read.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28107",
+          "material_read": "PDF extraction lines 1–37 (title and abstract); frozen lines 75–77 and reference 1",
+          "method": "OA PDF, followed by attempts to retrieve the specific appendix",
+          "title": "Weak-Lα Noise, Strong Guarantees: Gradient Clipping under Affine Heavy Tails",
+          "trigger": "Plausible same-model precedent in Appendix H.5"
+        },
+        {
+          "assessment": "Prior bias/examples credited; no passage-level exclusion",
+          "evidence": "The frozen record describes additive Bernoulli shifts in the first and an antecedent two-point example in the second.",
+          "identifier_or_url": "arXiv:2305.01588; arXiv:2302.06570",
+          "material_read": "Frozen comparison lines 75–87",
+          "method": "Read source discussion; OA passage retrieval attempted",
+          "title": "Revisiting Gradient Clipping; Beyond Uniform Smoothness",
+          "trigger": "Earlier clipping bias and two-point examples"
+        },
+        {
+          "assessment": "Adjacent based only on returned statement",
+          "evidence": "Snippet discusses additive noise, clipping bias and a nonvanishing neighborhood, not the given wrong-point limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12119",
+          "material_read": "Search-result snippet",
+          "method": "Primary-literature search; full text unresolved",
+          "title": "Almost Sure Convergence Analysis of Stochastic Gradient …",
+          "trigger": "Potential earlier bounded-noise nonconvergence"
+        },
+        {
+          "assessment": "Materially different regime in available summary",
+          "evidence": "Centered two-atom noise, curvature-normalized cap, and a constant-step stationary law.",
+          "identifier_or_url": "Resultary b944eb52abb2",
+          "material_read": "Indexed summary",
+          "method": "Resultary search; mirror passage retrieval attempted",
+          "title": "A sharp skewness window and a mixing penalty in two-atom clipped optimization",
+          "trigger": "Closest indexed small-support comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp support minimality under positive curvature and positive signed mass separates transient clipping bias or far-field divergence from a genuine competing bounded attraction basin. The explicit same-oracle clipped/unclipped comparison makes the failure relevant even for a strongly convex true objective and decreasing steps. The signed sample curvature and specified oracle/steps are essential scope restrictions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:52:38.162991Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen definition is reachability FROM an independent set. A sink cannot cover a cycle vertex; selected cycle vertices must be separated by 2 or 3 steps, with the same rule for a singleton selection around the entire cycle. In each gap the first omitted vertex's k sinks are already reached and optional; at a second omitted vertex its k sinks are unreachable and compulsory. Counting choices of a distinguished selected vertex gives n/(a+b)*binom(a+b,b) and the exact weighted polynomial. The smallest exponent increases by 2k-1 with each step in the allowed parity of b, so the smallest classes have multiplicities 2 (even) and n (odd). Independently recovered the cubic power-sum coefficient via -log(1-x^2-q*x^3)=sum_m T_m(q)x^m/m. On q=-i*s*(1+s^2), factor the cubic to get is and the two roots with common modulus sqrt(1+s^2) and opposite-sign real parts. The even cosine at integer-pi phases and odd sine at half-integer-pi phases have strictly alternating signs as 2R^m>s^m. For n modulo 6 equal to 0,1,2,3,4,5, the resulting sign-change counts on the negative w-axis, including the leading-coefficient sign at -infinity in classes 0 and 3, are respectively r,r-1,r,r,r,r for n=6r+residue (n=3 is constant). These equal the auxiliary degrees, proving distinct negative roots. Each factor after substitution is (1+z)^k+z^(2k-1)/c, c>0. At k=1 it is linear. At k>=2 its unique root on (-1,0) is simple by the strictly increasing t^(2k-1)/(1-t)^k for t=-z. There are no other real roots for odd k, and for even k at most two on (-infinity,-1) counting multiplicity: the logarithmic derivative on t>1 has a single simple zero, hence an ordinary quadratic minimum. This excludes full reality for k>=3. For k=2 the minimum is 27/4, and the stated A_1/A_0 formulas give at least one c<=3 whenever the auxiliary degree is positive. Its cubic has a nonreal pair. The auxiliary degree is zero precisely for 3,4,5,7. Exact replay /workspace/replay/02.py passed eight direct directed-graph censuses, 64 auxiliary Sturm counts with squarefreeness tests and the -876 discriminant check. These are finite supplements; the all-parameter proof uses the phase and factor arguments. Frozen checker inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spiro constructs the same k outward leaves at every base vertex in an extremal transfer. The inspected argument uses a smallest quasi-kernel and inequalities, with a general base digraph.",
+          "Ai–Gutin–Liu–Meng p. 1 describes weighted closed-out-neighborhood hypotheses and independent blow-up transfer for size bounds, not a zero or size-polynomial theorem."
+        ],
+        "reasoning": "Broader classes of digraphs in existential size bounds do not determine the full enumerator or monotone-substitution root obstruction.",
+        "searches": [
+          "\"Equivalence of Small and Large Quasi-kernels\" Spiro outward pendant leaves exact cardinality polynomial real-rootedness cyclic compositions",
+          "arXiv:2611.22881v1 PDF p. 5",
+          "arXiv:2610.23487v1 PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.22881v1",
+        "arXiv:1808.07369",
+        "arXiv:2610.23487v1",
+        "Resultary ecfb9abc4a49 (self-match)",
+        "Resultary f197eecc1b6c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2/3-composition count mechanically gives the cyclic coefficient once gaps and pendant rules are known. It does not by itself yield the real-zero result. Even knowing negative auxiliary roots would leave the question whether the map z^(2k-1)/(1+z)^k preserves reality; for k=2 the answer depends on crossing the 27/4 threshold for at least one auxiliary root parameter.",
+          "The extremal amplifier proof does not control compulsory versus optional independent leaf choices across all sizes; the undirected sunlet result concerns a different choice structure."
+        ],
+        "reasoning": "The strong surviving fact is the sharp all-order transition for the directed weighted polynomial, not novelty of the amplification gadget, elementary composition formula, or Newton identities.",
+        "searches": [
+          "Spiro arXiv:2611.22881v1, proof on p. 5",
+          "Jahari–Alikhani arXiv:1808.07369, Cor. 3.11 and Example 3.13",
+          "Resultary: cyclic 2/3 compositions and pendant amplification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bare cycle projections have gaps 2 or 3, exactly the maximal independent sets of the undirected cycle. Their independent-domination size polynomial is x^h F_n(1/x), with h=floor(n/2). This alternative form concerns the auxiliary polynomial, not the weights of the added sinks.",
+          "Jahari–Alikhani arXiv:1808.07369, p. 8 Cor. 3.11 and Ex. 3.13, prove real-rootedness for the independent-domination polynomial of the undirected sunlet and variants. That graph requires an independent dominating choice at each pendant edge. At n=3 its one-leaf polynomial is 4z^3, whereas the directed frozen one-leaf polynomial is 3z^2(1+z)."
+        ],
+        "reasoning": "The usual independent-domination alias helps locate the underlying gap polynomial. The claimed pendant polynomial is not the undirected sunlet polynomial under the same parameters; the existing undirected zero theorem does not give this classification.",
+        "searches": [
+          "independence domination polynomial of cycles real rooted independent domination polynomial roots cycles Jahari Alikhani 2 3 cyclic composition",
+          "Resultary: directed cycle uniform private outward leaves quasi-kernel size spectrum zero classification weighted cyclic 2 3 compositions independent domination polynomial cycle Padovan negative real roots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula and exact exceptional set returned under ecfb9abc4a49 are the assigned record itself, not independent existing coverage. Distinct f197eecc1b6c, mirrored Finding, has an exact real-zero classification for a named palette dichromatic polynomial on cyclic doublets, not the quasi-kernel size polynomial or the same underlying directed graph."
+        ],
+        "reasoning": "The local index was checked for formula-level matches under both graph and cyclic-composition descriptions. No distinct exact table or claim covering the classification was found in these bounds; this is not evidence of global absence.",
+        "searches": [
+          "Resultary: quasi-kernel cardinality size polynomial outward pendant-amplified directed cycle cyclic gap lengths two and three real-rootedness",
+          "Resultary: quasi-kernel exact cardinality polynomial directed cycle outward pendant leaves",
+          "Resultary: directed cycle uniform private outward leaves quasi-kernel size spectrum zero classification weighted cyclic 2 3 compositions independent domination polynomial cycle Padovan negative real roots"
+        ]
+      },
+      "rationale": "The outward-leaf amplifier is a known construction, the cycle projection is an independent dominating set on the undirected cycle, and cyclic composition coefficients can be expressed with ordinary cubic power sums. The distinct result supported here is the complete size polynomial with the directed optional/compulsory sink rule and the exact k=1 versus k>=2 real-rootedness boundary. The strongest primary and indexed comparisons inspected do not give or mechanically imply that boundary. Priority is provisional.",
+      "residual_risks": [
+        "Earlier theorems about cubic power-sum zeros or independent-domination polynomials of bare cycles may cover the auxiliary root lemma. That would not alone identify or establish the weighted directed boundary.",
+        "Bounded source and table lookup cannot exclude an exact earlier directed enumeration under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Amplifier prior; does not establish this full polynomial or root boundary in the inspected proof",
+          "evidence": [
+            "Attach k new directed leaves to each original vertex; use a smallest quasi-kernel in the size transfer."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.22881",
+          "material_read": "Version 1 abstract p. 1 and the proof passage at p. 5, offsets 13456–13567 and surrounding argument",
+          "method": "Compare the construction, then compare the object evaluated in the transfer argument",
+          "title": "Equivalence of Small and Large Quasi-kernels",
+          "trigger": "Identical directed leaf amplification operation"
+        },
+        {
+          "assessment": "Undirected corona/sunlet real-rootedness, not the two-step outgoing pendant quasi-kernel spectrum",
+          "evidence": [
+            "Ex. 3.13 gives only real roots for D_i(C_n corona K_1,x) by Cor. 3.11; ordinary undirected domination instead of directed reachability within two steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.07369",
+          "material_read": "Corollary 3.11 and Examples 3.12–3.13, PDF p. 8, extracted offsets 20700–22672",
+          "method": "Check hypotheses and compare exact small polynomials, not only real-zero language",
+          "title": "On the independent domination polynomial of a graph",
+          "trigger": "Natural alternative via maximal independent-set cycle polynomials, with a real-root theorem for pendant cycles"
+        },
+        {
+          "assessment": "Related bound, not a statement-level match in the inspected passage",
+          "evidence": [
+            "Weighted closed-out-neighborhood size implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.23487",
+          "material_read": "Version 1 p. 1, extracted passage at offset 1300",
+          "method": "Compare weighted size bound and independent blow-up with exact polynomial and uniform leaf parameters",
+          "title": "Small and large quasi-kernels: a weighted transfer theorem",
+          "trigger": "General extremal transfer for quasi-kernels"
+        },
+        {
+          "assessment": "Different graph and counted objects",
+          "evidence": [
+            "Counts acyclic colorings of cyclic doubles by palette size; the root cases depend on parity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-determines-every-real-dichromatic-root-of-cyclic-doublet--f197eecc1b6c",
+          "material_read": "Mirrored Finding, assumptions and initial proof, offsets 0–2470",
+          "method": "Compare arc graph, counted objects, polynomial variables and exceptional conditions",
+          "title": "Parity determines every real dichromatic root of cyclic doublet digraphs",
+          "trigger": "Near Resultary match for a directed cyclic family and complete real-zero classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known extremal amplification operation is a natural setting in which to ask about the complete size spectrum, not just its smallest member. The result supplies an exact parameter boundary for the loss of real-rootedness, distinguishes the exceptional small cycles from the general case, and includes an explicit minimal obstruction. These control a genuine whole-polynomial feature absent from existence and size bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

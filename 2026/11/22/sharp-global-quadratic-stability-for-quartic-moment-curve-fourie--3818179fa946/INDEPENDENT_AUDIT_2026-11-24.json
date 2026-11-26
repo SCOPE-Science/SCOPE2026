@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:24:12.353219Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed support multiset the coefficient of its monomial in F_4 is the square of its rearrangement count. The five multiplicity profiles give coefficients 1,16,36,144,576; expanding in elementary symmetric polynomials with e_1=1 gives 1+12e_2+6e_2^2+60e_3+132e_4. When averaging coordinates i,j at fixed sum, write v=theta_i*theta_j and z for the remaining coordinates. Then e_2=e_2(z)+(theta_i+theta_j)e_1(z)+v, and e_r=e_r(z)+(theta_i+theta_j)e_(r-1)(z)+v*e_(r-2)(z). The derivative of e_r/e_2 in v has numerator (6), nonnegative by inclusion of squarefree monomials in the products. Repeatedly averaging a maximum and a minimum decreases squared distance to uniform by half the squared range, so it converges to uniform. Thus (F_4-1)/(2e_2)=6+3e_2+30e_3/e_2+66e_4/e_2 attains its maximum only at uniform for e_2>0; the 3e_2 term ensures strictness. Using 2e_2=1-s_2 yields the displayed c_q=(A_q-1)/(1-1/q), with point masses the only other equality cases and forcing sharpness. In characteristic >4, the four power sums determine the multiset via the invertible Newton recursions. Character orthogonality contributes q^4 to the q^-8 expansion, giving q^-4*(sum |f|^2)^4 F_4=N^4 F_4. The alternative amplitude remainder follows by direct rescaling. This is an analytic check, also covering q=2,3 and zero coordinates; the archived exact rational and complex numerical sanity checks were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gonçalves gives a componentwise permutation-match majorization comparison.",
+          "The all-degree remainder in e3a60ec2aa94 specializes to coefficient 6 at d=4; 49b4f93ca348 gives local Hessian information at uniformity."
+        ],
+        "reasoning": "The componentwise comparison compares permutation-match vectors without a sharp quantitative slope against squared simplex distance. A valid coefficient 6 and a local expansion cannot certify the larger sharp global c_q or boundary saturation.",
+        "searches": [
+          "arXiv:2609.31979v1 §1 Theorem 1",
+          "Resultary e3a60ec2aa94 and 49b4f93ca348"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29882v1",
+        "arXiv:2609.31979v1",
+        "Resultary 3818179fa946, e3a60ec2aa94, 49b4f93ca348, 291dfc58a474, 3c25c0192069, 6abb4e9679f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once F_4 is known, the point-mass test forces an upper bound c_q on any global coefficient, not a lower bound on the deficit over the simplex. The prior general quantitative lower bound is strictly weaker; the cubic analogues are exact for a different functional."
+        ],
+        "reasoning": "Identifying the candidate endpoint ratio does not make its validity routine from extremality. Proving the four-draw ratio is dominated by its value at uniformity via e_3/e_2, e_4/e_2 and strict e_2 monotonicity supplies the missing global inequality.",
+        "searches": [
+          "arXiv:2609.29882v1 Theorems 2–3",
+          "arXiv:2609.31979v1 Theorem 1",
+          "Resultary e3a60ec2aa94, 291dfc58a474 and 3c25c0192069"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biswas et al. have exactly the same counting-measure endpoint Fourier reduction and uniform maximizer for the rearrangement expectation.",
+          "Squared probability distance equals the normalized amplitude variance divided by q*N^2. Thus a prior sharp quartic amplitude coefficient c_q/q would be equivalent, not a different claim."
+        ],
+        "reasoning": "The inspected primary theorem gives the baseline A_q and uniform maximization, not the best linear lower bound on its deficit as a function of amplitude variance or collision excess.",
+        "searches": [
+          "arXiv:2609.29882v1 §1.1, Theorems 2–3",
+          "Resultary quartic extension and four-draw permutation-match stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact quartic hit is the frozen record itself. Other exact coefficients found are 5-4/q for three draws and 6 for the fourth-draw specialization of the weaker bound.",
+          "The distinct same-day parabolic finding treats fixed four-point supports, sixth moments and collision strata on the parabola."
+        ],
+        "reasoning": "The number of draws, ambient curve, remainder and scope are substantive distinctions. There is no independent entry covering the checked quartic formula among these hits.",
+        "searches": [
+          "Resultary exact quartic coefficient/eighth-moment comparison: 3818179fa946, e3a60ec2aa94, 291dfc58a474, 3c25c0192069, 6abb4e9679f8",
+          "Indexed exact-string search for the quartic coefficient, no relevant hit"
+        ]
+      },
+      "rationale": "Best of current knowledge: the exact all-simplex fourth-draw quadratic coefficient and its sharpness are distinct. The baseline uniform extremality, Fourier reduction, and polynomial tools receive no originality credit.",
+      "residual_risks": [
+        "The exact-string literature lookup was unproductive, not proof of absence. An older equivalent quantitative majorization inequality remains a bibliographic possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers normalization and qualitative extremality but not this remainder",
+          "evidence": "Normalized curve measure, counting target and uniform unique maximizer.",
+          "identifier_or_url": "arXiv:2609.29882v1",
+          "material_read": "§1.1, Theorems 2–3, pp. 1–2, PDF text offsets 0 and 3864",
+          "method": "Primary OA PDF passages",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields II: an extremal property of the uniform distribution",
+          "trigger": "Identical endpoint model and rearrangement expectation"
+        },
+        {
+          "assessment": "Broader qualitative comparison, no quartic global coefficient established",
+          "evidence": "Componentwise majorization inequality for permutation-match vectors.",
+          "identifier_or_url": "arXiv:2609.31979v1",
+          "material_read": "§1 Theorem 1, p. 1, PDF text offset 400",
+          "method": "Primary OA PDF passage",
+          "title": "A component-wise inequality for permutation matches",
+          "trigger": "Potential stronger quantitative permutation comparison"
+        },
+        {
+          "assessment": "Weaker coefficient",
+          "evidence": "d(d-1)/2 with no general sharpness claim beyond d=2.",
+          "identifier_or_url": "Resultary e3a60ec2aa94",
+          "material_read": "RESULT.md finding, offset 500",
+          "method": "Local mirrored exact record",
+          "title": "Quadratic stability for endpoint finite-field moment-curve extension",
+          "trigger": "All-degree bound could cover the quartic remainder"
+        },
+        {
+          "assessment": "Local, not sharp global coverage",
+          "evidence": "Hessian at the uniform extremizer.",
+          "identifier_or_url": "Resultary 49b4f93ca348",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirrored exact record",
+          "title": "Isotropic quadratic stability at the uniform finite-field moment-curve extremizer",
+          "trigger": "Related curvature invariant"
+        },
+        {
+          "assessment": "Different moments",
+          "evidence": "Lower coefficient 5-4/q and uniform/point-mass remainder equality for three draws.",
+          "identifier_or_url": "Resultary 291dfc58a474 and 3c25c0192069",
+          "material_read": "Both RESULT.md findings, offset 0",
+          "method": "Local mirrored exact records",
+          "title": "Sharp two-sided quadratic stability for three-draw rearrangement; Sharp global quadratic stability of cubic moment-curve Fourier extension",
+          "trigger": "Closest sharp probability and Fourier analogues"
+        },
+        {
+          "assessment": "Different support geometry and moment",
+          "evidence": "Sixth moments and collisions for four-point supports on the parabola.",
+          "identifier_or_url": "Resultary 6abb4e9679f8",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirrored exact record",
+          "title": "Cubic resonance strata and sharp four-point parabolic Fourier inequalities",
+          "trigger": "Distinct same-day hit with four-point data and Fourier moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the strongest global quadratic quantitative rigidity at a natural endpoint beyond the cubic case, improving the known coefficient 6 to an exact field-size-dependent one. The global constant is fixed by one-point-supported amplitudes rather than infinitesimal deviations at uniformity, and the complete equality cases distinguish remainder saturation from extremizers. The matching dimension-free-in-form probability theorem also covers alphabet sizes without a field interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

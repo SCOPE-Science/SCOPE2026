@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:44:18.406089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify_multipartite.py (read, not run)",
+        "Replay: python3 /workspace/audit-evidence/frozen_checks.py 2"
+      ],
+      "rationale": "A nonempty feasible bundle occupies one part; if goods remain, maximality requires every bundle to be nonempty and every used part to be completely colored. Unit EF1 is exactly a class-size spread of at most one. If m≤n, singleton assignment is complete; if the largest part has at least n items, dividing that entire part evenly works. Otherwise choose the first prefix that reaches n, with previous sum B<n and last part size t≤a1. The sum of lower class quotas is B−Σ_{before last}⌊a_i/2⌋+⌈t/2⌉≤B+1≤n, while the upper quotas sum to at least n. Integer quotas totaling n therefore exist and each used part splits into exactly that many singletons and pairs. B+t≤2n−2; at m=n the bound also holds under a1<n (thus n≥2). The claimed time is valid by scanning explicit part lists, sorting r sizes, and writing the bundles. In K_{3,3,3}, a complete equitable split among four classes requires sizes 3,2,2,2, but each three-item part would need a class of size three. Two split parts do give a maximal partial coloring. Independent bounded replay checked 9,570 graph/agent instances via a direct search for pair quotas, including unsorted part lists and n=1.",
+      "residual_risks": [
+        "The finite replay does not prove arbitrary sizes; the quota inequality does.",
+        "The complexity is for the construction on part lists, not a benchmark of the uploaded finite checker (which recomputes prefix sums in its input preparation)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equbal et al. Theorem 5.6 covers trees at any color count and leaves general graphs open.",
+          "Hummel–Hetland Proposition 5 and Haviv Theorem 1.2 provide sufficient complete-allocation regimes.",
+          "The sharp three-agent record allows shared normalized monotone valuations but fixes the agent count at three."
+        ],
+        "reasoning": "Each earlier scope extends in some direction or overlaps a subcase but none contains arbitrary complete multipartite graphs for the additional agent range, including instances with no complete equitable outcome.",
+        "searches": [
+          "Equbal et al. arXiv:2605.09930v1 §5.3",
+          "Hummel–Hetland DOI 10.1007/s10458-021-09537-3",
+          "Haviv arXiv:2607.01059v1",
+          "Resultary sharp three-agent frontier record"
+        ]
+      },
+      "checked_sources": [
+        "Resultary lookup and the two identified mirror entries",
+        "Equbal et al. arXiv:2605.09930v1",
+        "Hummel–Hetland DOI 10.1007/s10458-021-09537-3",
+        "Haviv arXiv:2607.01059v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_{3,3,3} is not a tree and Δ=6; n=4 does not meet n>Δ, and a theorem requiring complete allocation cannot cover this instance.",
+          "The n=3 result does not supply a construction for n≥4. The later catalogue result does cover the central existence and algorithm."
+        ],
+        "reasoning": "Earlier complete-coloring sufficient conditions cannot imply the partial-only cases, and the graph/agent restrictions rule out the other earlier implications. Do not credit the overlap of these earlier results as novel. Later equivalent coverage is reported separately from priority.",
+        "searches": [
+          "Equbal et al. Theorem 5.6",
+          "Hummel–Hetland Proposition 5",
+          "Haviv Theorem 1.2",
+          "Sharp three-agent frontier Finding and Proof",
+          "Later exact catalogue match Finding and constructive proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equbal et al. §5.3 defines the same maximal equitable partial coloring notion.",
+          "Resultary 2026/11/8/SCOPE-maximal-ef1-on-complete-multipartite-conflicts-existence-exact-c--14997c3ab492 supplies an equivalent later-dated prefix construction.",
+          "The targeted primary-literature lookup added no relevant result."
+        ],
+        "reasoning": "A color is an agent, an uncolored vertex is an unassigned unit good, and proper coloring plus nonextendability and spread at most one is exactly the frozen condition. This equivalence was used to assess coverage, not treated as a new result.",
+        "searches": [
+          "Resultary semantic lookup for maximal EF1 unit goods and equitable partial coloring on complete multipartite graphs",
+          "Primary-literature lookup using both fair allocation and maximal equitable partial coloring terms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/8 entry's Finding/Proof gives the same existence and O(m+r log r+n) regime; a prefix of total size S is split into S−n pairs and 2n−S singletons.",
+          "The 10/26 entry covers exactly three agents. The claim under audit is algorithmic, not a numeric table identity."
+        ],
+        "reasoning": "The quota sum in the frozen proof forces exactly the same numbers of pairs and singletons as the later catalogue entry. This is a material match, not a title-based comparison. The November 8 catalogue path is later than November 2; independence or any earlier appearance of the November 8 statement was not established.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-maximal-ef1-on-complete-multipartite-conflicts-existence-exact-c--14997c3ab492",
+          "Resultary 2026/10/26/SCOPE-the-sharp-three-agent-frontier-for-maximal-ef1-on-complete-multi--59465652dd67"
+        ]
+      },
+      "rationale": "The exact notion is prior; the evidence supports the extension to all complete multipartite graphs in the additional agent range, not priority for EF1 or equitable coloring. A distinct later-dated catalogue record materially matches existence, time and the prefix pair/singleton construction. It is equivalent coverage of those results, but no evidence places it before the frozen result. The checked earlier statements cover trees, stronger valuation assumptions at three agents, or conditions for complete allocation, not the arbitrary-part unit-good case with four or more agents.",
+      "residual_risks": [
+        "The later catalogue match could share a source or antecedent; the inspected passages do not establish independence or rule out older equivalent quota arguments.",
+        "The primary-literature search was bounded; lack of another hit does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for the definition and trees",
+          "evidence": "Theorem 5.6 proves existence on trees; the paragraph leaves extension to general graphs open.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.09930",
+          "material_read": "v1 §5.3, pp. 28–29, offsets ~101000–102000",
+          "method": "OA PDF passages",
+          "title": "Fair Allocation under Conflict Constraints",
+          "trigger": "Same maximal equitable partial coloring problem"
+        },
+        {
+          "assessment": "Covers high-agent complete outcomes; heterogeneous-unit distinction is essential",
+          "evidence": "Proposition 5 requires more agents than maximum degree; the negative examples use nonuniform weights.",
+          "identifier_or_url": "10.1007/s10458-021-09537-3",
+          "material_read": "PDF Proposition 5 p. 10; Example 1 and Proposition 3 pp. 6–7",
+          "method": "OA PDF passages",
+          "title": "Fair allocation of conflicting items",
+          "trigger": "Possible earlier equitable-coloring implication"
+        },
+        {
+          "assessment": "Sufficient conditions for complete allocations, not the partial-only case",
+          "evidence": "Thresholds include 3Δ−1 and the 1-strong chromatic number for EF1 in the stated valuation class.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.01059",
+          "material_read": "v1 abstract p. 1 and Theorem 1.2 p. 5",
+          "method": "OA PDF passages",
+          "title": "Fair Allocation under Conflict Constraints via Strong Colorability",
+          "trigger": "Possible general covering theorem via strong coloring"
+        },
+        {
+          "assessment": "Earlier exact n=3 overlap only",
+          "evidence": "Exactly three agents, shared normalized monotone valuation and O(|M|) value queries.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-sharp-three-agent-frontier-for-maximal-ef1-on-complete-multi--59465652dd67",
+          "material_read": "RESULT.md at offsets 0 and 3394",
+          "method": "Local catalogue mirror inspection",
+          "title": "The sharp three-agent frontier for maximal EF1 on complete multipartite graphs",
+          "trigger": "Same family and maximal EF1 under broader common valuations"
+        },
+        {
+          "assessment": "Material same-claim coverage, later catalogue date; earlier priority unestablished",
+          "evidence": "All agents and positive part sizes; identical unit goods; O(m+r log r+n); prefix total S with S−n pairs and 2n−S singletons.",
+          "identifier_or_url": "2026/11/8/SCOPE-maximal-ef1-on-complete-multipartite-conflicts-existence-exact-c--14997c3ab492",
+          "material_read": "RESULT.md Finding at offset 0 and constructive proof at offset 4140",
+          "method": "Local catalogue mirror inspection",
+          "title": "Maximal EF1 on complete multipartite conflicts: existence and exact counts",
+          "trigger": "Strongest exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Equbal et al. §5.3",
+        "Hummel–Hetland Proposition 5"
+      ],
+      "rationale": "The result solves the maximal equitable partial coloring problem for a natural unrestricted family beyond trees and includes cases where complete equity is impossible. It yields an explicit efficient construction and a bound on the number of colored goods in a nontrivial regime. The motivating four-agent K_{3,3,3} case separates the task from a mere application of a complete coloring theorem.",
+      "residual_risks": [
+        "The theorem assumes unit values; it does not promise to optimize the number of assigned goods or generalize to nonuniform weights or general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

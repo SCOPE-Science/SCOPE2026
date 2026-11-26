@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:57.094720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The path 4–5–6 is bare, the off-path edge 6–7 becomes 4–7, and the number of leaves increases from four to five. Conditioning on the first vertex of a uniform permutation gives the stated exact generating-function recursion because the remaining order after removing its closed neighborhood is uniform. Independent exact verification instead uses i.i.d. uniform priorities and a rooted branch survival polynomial A_v(t): with the parent absent, conditional on priority u at v, its child branches are independent, so A_v(t)=1−integral_0^t product_w A_w(u) du. Summing 1−A_v(1) over root choices gives the mean. An independent rooted-child multiset generation followed by minimum code over all roots covers all unrooted types; every bare path with two nonleaf endpoints is checked in both directions, precisely the proper cases. Reproduced the means 73/15, 34/7, the two 9! histograms, and the census: tree counts 1,1,1,2,3,6,11,23,47; oriented move counts 0,0,0,2,8,26,70,186,470; strict-loss counts zero through eight and four at nine (two losses each of 1/105 and 1/420). Replay: python /workspace/branches/independent_kc.py; output /workspace/branches/independent_kc.log. The stated loss and ratio loss are −1/105 and −1/945. A clarification of the scope prose: uniform selection among unblocked surviving vertices with closed-neighborhood deletion is distributionally equivalent to the specified random order, not a different law. This does not alter the finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv paper proves the global path minimum of the actual expectation and monotonicity of a different functional ν. Resultary a56df40f18c5 strengthens the former to a strict global comparison, expressly excluding strict proper-KC monotonicity.",
+          "e9c71afd7c39 covers the complete lower-order exclusion and tabulates strictly positive minimum increases at orders 4 through 8."
+        ],
+        "reasoning": "Neither path minimality theorem controls the comparison of two arbitrary shifted non-path trees, but the sharp KC obstruction is already fully covered by the directly matching indexed theorem.",
+        "searches": [
+          "arXiv:1907.07216, Theorems 1.4 and 8.3, and Resultary a56df40f18c5",
+          "Resultary e9c71afd7c39, Theorem and minimality proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.07216 v1 and revised full text",
+        "DOI 10.4230/LIPIcs.AofA.2020.20",
+        "Resultary e9c71afd7c39 and a56df40f18c5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary text says it is likely that the actual expected ratio is monotone and strictly monotone under proper moves, separately from its proved ν inequality.",
+          "The indexed theorem gives a negative difference for exactly this proper move and excludes every smaller order."
+        ],
+        "reasoning": "The frozen result genuinely refutes the proposal and not either proved result; this is the same refutation and sharp threshold as the indexed theorem, not a novel implication of the proved global path bound.",
+        "searches": [
+          "Krivelevich–Mészáros–Michaeli–Shikhelman, 2019 v1 closing remarks, AofA 2020 closing remarks, and revised arXiv §§8.1,9",
+          "Resultary e9c71afd7c39, Finding, Assumptions and minimality proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e9c71afd7c39 gives shift 56 to 16 along 1–0–5 on 0-based labels, the same means and minimum order nine.",
+          "The bijection sending frozen vertices (1,2,3,4,5,6,7,8,9) to (3,2,4,1,0,5,6,7,8) sends both displayed edge sets and the oriented move to the indexed witness."
+        ],
+        "reasoning": "Not merely a witness with the same numbers: it is the same pair and same transformation under relabeling. Comparing mean sizes or ratios is equivalent on each fixed order.",
+        "searches": [
+          "Resultary comparison for sharp first proper Kelmans–Csikvári tree-shift reversal of the random-order greedy independent-set mean",
+          "arXiv:1907.07216v1 p. 20 and revised full text §§8.1,9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its exact histograms coincide entry for entry with those submitted: (25984,139776,53760,143360) and (35200,127680,53760,146240).",
+          "Its counts of unordered bare paths through order eight are exactly half the frozen oriented counts, and its minimum-increase table verifies no strict decrease there."
+        ],
+        "reasoning": "The different enumeration and orientation convention do not distinguish the main claim or exact witness laws. The ancillary oriented count at nine is extra supporting data, not a separately motivated result in the submission.",
+        "searches": [
+          "Resultary e9c71afd7c39, mirrored RESULT.md offsets 0 and 2997"
+        ]
+      },
+      "rationale": "The major claim, including its witness, exact laws, and minimum order, is covered by a distinct indexed record, e9c71afd7c39. The later catalogue date does not make it earlier work, and this review does not ascribe priority or dependence. It finds exact extant coverage, not a materially independent theorem beyond it; the supporting extension of the census to the number of oriented decreasing moves at order nine does not give a stated structural classification of these moves. The 2019/2020 primary literature does motivate the obstruction but only conjectures the contrary monotonicity.",
+      "residual_risks": [
+        "The publisher copy was not independently retrieved; lawful arXiv and conference versions supplied the cited passages.",
+        "Catalogue dates and relabeling establish neither relative discovery priority nor whether the two accounts obtained the result independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjectural KC assertion on actual expectation, proved results on ν and on global path optimality",
+          "evidence": "The closing ‘likely’ monotonicity statement follows the proof of a different inequality; a proper transformation adds one leaf.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "2019 v1 p. 20 closing remarks; revised arXiv §§1.1.3,8.1,9, pp. 7,20–21,27, including Theorems 1.4 and 8.3",
+          "method": "Primary OA arXiv versions; publisher DOI lacked full-text access",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Origin of proposed monotonicity and closest rigorous comparisons"
+        },
+        {
+          "assessment": "Same proposed strict proper-move monotonicity, not a proved claim",
+          "evidence": "The expected greedy independence ratio is described as likely monotone, strictly for proper shifts.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2020.20",
+          "material_read": "Article 20, p. 13 closing remarks",
+          "method": "Primary OA conference PDF passage",
+          "title": "Greedy Maximal Independent Sets via Local Limits",
+          "trigger": "Conference formulation of the suggestion"
+        },
+        {
+          "assessment": "Direct equivalent coverage; distinct catalogue entry dated later, not proof of historical priority",
+          "evidence": "Identical witness by explicit relabeling, 9! histograms agree, and exhaustive Prüfer search excludes all smaller proper shifts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-nine-vertex-counterexample-to-kc-monotonicity-of-random-greedy--e9c71afd7c39",
+          "material_read": "RESULT.md at mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0 and 2997; Finding, scope, and exact expectation, histogram and minimality sections",
+          "method": "Catalogue search followed by bounded local-mirror reading and direct edge-list comparison",
+          "title": "A nine-vertex counterexample to KC-monotonicity of random greedy independent sets",
+          "trigger": "Matching witness, exact expectations and minimum-order assertion"
+        },
+        {
+          "assessment": "Not equivalent to KC monotonicity",
+          "evidence": "Uses the auxiliary ν to prove strict global path optimality and excludes a per-move strictness claim.",
+          "identifier_or_url": "Resultary a56df40f18c5",
+          "material_read": "Mirrored RESULT.md Finding and limitations",
+          "method": "Catalogue search and local-mirror reading",
+          "title": "The path uniquely minimizes the expected random greedy independence ratio",
+          "trigger": "Strict version of the related global path theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp finite counterexample to an explicit conjectural strengthening of a theorem is a meaningful obstruction. Its strict sign matters, irrespective of the small magnitude: it rules out substituting actual expectation for the auxiliary monotone functional in the proposed tree-shift argument. This significance does not remove the exact indexed coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

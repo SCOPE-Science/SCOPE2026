@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:57:00.717305Z",
+  "axes": {
+    "correctness": {
+      "rationale": "D consists exactly of subsets containing no complete closed cross, hence is the fixed-ground-set Alexander dual of the open-neighborhood complex of the complement. In fact that open-neighborhood complex consists directly of subsets with both coordinate supports proper. On its nonempty face poset the support map has an equivariant section (A,B)↦A×B with T⊆r(T)×c(T). These maps give a homotopy equivalence by poset order homotopy, natural also under transpose. The product of simplex-boundary face posets realizes the corresponding sphere product; Künneth gives two sign lines and their product. For duality, the boundary connecting map identifies reduced homology of D with relative homology of the ground simplex modulo D shifted by one. In that relative complex a basis face has complementary face in the open-neighborhood complex. Pairing their orientations by exterior product into the determinant line on all cells gives the complementary cochain differential, up to a degree sign, and the determinant twist under every cell permutation. This yields N−i−3, the row exponent q, the column exponent p, and transpose determinant (−1)^binom(n,2). On the top product line the flip adds (−1)^((n−2)^2); the two other lines are exchanged. The maximal cliques of the rook graph are its rows and columns; the two size/parallel classes yield the stated full group and the only extra square symmetry. After barycentric subdivision there are no simplex inversions, quotient rational chains are coinvariants, and averaging gives the graded invariants. The only square invariant candidate under the coordinate subgroup is the lower line for odd n, and its transpose is +1 precisely at n≡3 mod 4. Independent closed-cross-mask enumeration gave the specified face counts and all 72, 144, and 1152 elementwise reduced Lefschetz traces on the three test boards, with means 1, −1, 0 (python3 -B /workspace/repro/1.py; /workspace/repro/1.log). This checks alternating traces, not each graded representation on its own.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "89367a150c4b gives the exact underlying integral wedge for p,q≥2 and explicitly leaves coordinate actions outside its scope.",
+          "The general dominance/open-neighborhood duality in arXiv:2312.02639 does not evaluate the equivariant product action or quotient for rooks."
+        ],
+        "reasoning": "The prior all-parameter result contains the ordinary homology claim but need not distinguish any actions on the same homology groups; the graded group calculation is extra.",
+        "searches": [
+          "Resultary: three-sphere homotopy types of rook-graph dominance complexes",
+          "Primary literature: rook dominance homology, neighborhood complex and combinatorial duality"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:1a37eaa243d0 (identical record)",
+        "Resultary:89367a150c4b",
+        "Resultary:bd50464fc17f",
+        "Resultary:3db3b8efc98c",
+        "arXiv:2312.02639",
+        "arXiv:2401.00716",
+        "arXiv:0710.1172"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-sphere wedge gives exactly the reported Betti ranks, also for square boards.",
+          "The rook domination polynomial counts sets and supplies the row-or-column criterion.",
+          "Ordinary Alexander duality provides the degree reversal, not by itself the displayed characters."
+        ],
+        "reasoning": "Credit the ordinary classification and the classical constructions; neither nonequivariant homology nor face counts determine the induced group action. Only after computing it can rational averaging determine these quotient groups.",
+        "searches": [
+          "89367a150c4b, Finding and Limitations",
+          "arXiv:2401.00716, Eq. (2) and introduction",
+          "arXiv:2312.02639 and arXiv:0710.1172, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matsushita–Wakatsuki identifies the dominance dual with the open-neighborhood complex of the graph complement.",
+          "Björner–Tancer gives the underlying complementary degree shift.",
+          "Resultary 3db3b8efc98c treats closed-neighborhood graph-geometric Čech homology, not the open-neighborhood complex of the complement."
+        ],
+        "reasoning": "The true duality reformulation requires tracking the ground-set determinant and the product flip. The nearby graph-geometric Čech character, even with the same symmetry group, concerns different faces and does not implement this duality.",
+        "searches": [
+          "Resultary: rook graph dominance, open-neighborhood Alexander dual, coordinate action and transpose",
+          "arXiv:2312.02639, Theorem 1.1",
+          "arXiv:0710.1172, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title/character match 1a37eaa243d0 is the same record.",
+          "bd50464fc17f concerns complements of disconnected triples as facets, with coordinate permutations only.",
+          "3db3b8efc98c includes transpose, but on a closed-neighborhood Čech complex, identifying a different coordinate-fixed line."
+        ],
+        "reasoning": "The two independent exact-character entries are for different complexes, not a table covering the claimed character or mod-four sequence.",
+        "searches": [
+          "Resultary: square rook transpose, equivariant rook homology, orbit-space period-four law",
+          "Resultary: 1a37eaa243d0, bd50464fc17f, 3db3b8efc98c"
+        ]
+      },
+      "rationale": "The earlier all-board three-sphere classification covers the ordinary ranks and degrees completely. The supported distinct results are the integral graded action, in particular the determinant-twisted flip, and the quotient law. Neither the prior ordinary equivalence nor the adjacent equivariant rook-complex results give these as stated or by ordinary homotopy invariance.",
+      "residual_risks": [
+        "An earlier treatment of the same invariant under complement-graph or Hom-complex terminology may be unindexed.",
+        "The evidence does not establish historical priority exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary coverage, not action coverage",
+          "evidence": "Wedge of spheres of degrees pq−p−1, pq−q−1 and pq−p−q+1 for p,q≥2; explicitly leaves coordinate permutation actions undetermined.",
+          "identifier_or_url": "Resultary:89367a150c4b",
+          "material_read": "RESULT.md Finding, Relationship to prior work and Limitations",
+          "method": "Local open mirror",
+          "title": "Three-sphere homotopy types of rook-graph dominance complexes",
+          "trigger": "Exact same complex with stronger ordinary invariant"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "Uses closed-neighborhood graph-geometric Čech faces; one coordinate-fixed homology line is reversed by interchange.",
+          "identifier_or_url": "Resultary:3db3b8efc98c",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local open mirror",
+          "title": "Full rook-graph Čech homology character under coordinate permutations and interchange",
+          "trigger": "Same full group and possible transpose overlap"
+        },
+        {
+          "assessment": "Different complex and no transpose evaluation",
+          "evidence": "Facets complement disconnected triples; the specified character concerns row and column permutations.",
+          "identifier_or_url": "Resultary:bd50464fc17f",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local open mirror",
+          "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+          "trigger": "Equivariant rook graph homology by a different formulation"
+        },
+        {
+          "assessment": "Known structural identity, no evaluation in these passages",
+          "evidence": "D(G)^∨ equals the open-neighborhood complex of the complement.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02639",
+          "material_read": "Abstract and Theorem 1.1, PDF pp. 1–2",
+          "method": "Open-access PDF passage",
+          "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+          "trigger": "General duality could reformulate or imply result"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts dominating sets via whether every row or every column contains a member.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.00716",
+          "material_read": "Abstract, Introduction and Eq. (2)",
+          "method": "Open-access PDF passages",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Prior same-graph domination invariant"
+        },
+        {
+          "assessment": "Background degree shift",
+          "evidence": "Ordinary complementary-degree homology/cohomology correspondence on a fixed vertex set.",
+          "identifier_or_url": "https://arxiv.org/abs/0710.1172",
+          "material_read": "Theorem 1.1, PDF p. 1",
+          "method": "Open-access PDF passage",
+          "title": "Combinatorial Alexander Duality—A Short and Elementary Proof",
+          "trigger": "General theorem underwriting degree reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete symmetry invariant for a natural family. The transpose sign produces a genuine rational orbit-space distinction even though the ordinary Betti pattern has the same three-line form; the formula also resolves all subgroup quotient rational Betti numbers without computing their separate chain complexes. It does not classify integral quotients or equivariant homotopy types.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

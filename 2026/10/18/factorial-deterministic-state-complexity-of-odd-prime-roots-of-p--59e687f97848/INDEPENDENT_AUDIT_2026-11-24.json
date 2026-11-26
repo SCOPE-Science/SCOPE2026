@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:58:02.794707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a complete permutation DFA the word transformations form a subgroup G of S_n since the inverse of each generator is one of its nonnegative powers. For Root_p track g in G by left multiplication and accept if g^p(q_0) is final. For the witness the n-cycle and adjacent transposition generate S_n; with initial and sole final state 0 the input states are reachable and separated by permutations sending just one of a distinct pair to 0. In the root let B be the permutations with 0-cycle of size 1 or p. For h nonidentity fixing 0, choose a moved point a and b=h(a), and take a p-cycle g starting 0,a and ending b; p-3 filler points exist even at n=p. Then gh has 0-cycle of size 2, so g is in B and gh is not. If h moves 0 and is outside B take g=e; if h moves 0 and is in B take g=(h(0) h^{-1}(0)), which fixes 0 and makes gh have 0-cycle of size 2. Oddness excludes both failures from B. For any distinct u,v, h=u^{-1}v and the continuation realizing gu^{-1} sends them to g and gh, so every reachable state in S_n is separated. Unary minimal input has a single n-cycle and at most n group states. This covers n=p=3 and the full stated range, not composite exponents or primes above n. Frozen prime_root_checker.py was inspected, not executed; frozen checks.txt reports 137,778 stabilizer tests and exact finite minimizations through n=6. The symbolic proof, not those recorded results, establishes the unbounded finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader modifiers paper explicitly includes fixed k-th roots and the union over exponents, and gives a general n^n-n+1 upper bound for unary friendly operations on unrestricted DFAs. The deterministic square-root paper gives the unrestricted exponent-2 bound. The permutation-automata operations text treats concatenation squares."
+        ],
+        "reasoning": "The general modifier framework supplies the upper-bound method, not a sharp restriction to permutation DFAs at fixed odd p. Neither the unrestricted lower bounds nor the concatenation-square results imply this lower bound. Here 'unary friendly operation' means one language argument, not one input letter.",
+        "searches": [
+          "Caron–Hamel-de-le-Court–Luque arXiv:2004.12958 §§4.4, 5.1",
+          "Caron et al. arXiv:1807.00663 §5",
+          "Hospodár–Mlynárčik DOI 10.1007/978-3-030-48516-0_10 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks.txt and prime_root_checker.py (static inspection)",
+        "Caron–Hamel-de-le-Court–Luque arXiv:2004.12958",
+        "Caron et al. arXiv:1807.00663",
+        "Hospodár–Mlynárčik DOI 10.1007/978-3-030-48516-0_10",
+        "Onishchenko arXiv:2605.02957",
+        "Local Resultary records 087cc2ea55ea and 1f4f06cc0df8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using all transformations bounds the unrestricted problem; tracking only reachable permutations gives the factorial upper bound. For a permutation input with initial state also final, the union over positive exponents accepts every word since every orbit returns to its starting point. In the fixed-p witness it is essential that a 2-cycle is rejecting. The NFA square-root bound is n^3 on a different model and at p=2."
+        ],
+        "reasoning": "There is no transfer of the known union, square-root, or unrestricted bounds to trivial right stabilizer for the accepting subset of S_n. The explicit membership-changing multiplication supplies that additional lower-bound argument.",
+        "searches": [
+          "Caron–Hamel-de-le-Court–Luque arXiv:2004.12958 fixed-root and union-Root constructions",
+          "Onishchenko arXiv:2605.02957 §1",
+          "Caron et al. arXiv:1807.00663 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected parity square-root Finding gives n^3-n^2+n for F_2 XNFAs at exponent 2; the binary permutation right-quotient result concerns accepting-state complexity of right quotients. Neither is the deterministic state count of a fixed-exponent root."
+        ],
+        "reasoning": "Positive power-root preimages test g^p, not concatenation powers L^p or right quotients. A parity state dimension is not deterministic state complexity; changing the exponent also changes the membership stabilizer.",
+        "searches": [
+          "Permutation/group DFA fixed odd-prime power-root deterministic state complexity",
+          "Resultary 087cc2ea55ea and 1f4f06cc0df8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual Findings of the related indexed parity-root and binary right-quotient records use different automaton models or invariants. No bounded match established the n! formula as the minimal root-DFA size in the stated regime."
+        ],
+        "reasoning": "Factorial size of the reachable group is immediate, but does not show n! inequivalent states. Finite values or a table of group sizes would not give the required sharp state-complexity theorem.",
+        "searches": [
+          "Resultary: permutation automata power-root complexity; parity square roots; binary permutation accepting-state complexity"
+        ]
+      },
+      "rationale": "The transformation-monoid root construction and unrestricted root complexity work are established. No compared result covers the sharp odd-prime bound with a binary minimal permutation input or mechanically supplies the needed separations of the group states. The credited novelty is the permutation-restricted sharp lower bound and the exact alphabet threshold, not the root construction itself.",
+      "residual_risks": [
+        "A specialized fixed-power theorem for permutation groups could have escaped the bounded literature and catalogue comparisons. No historical priority claim follows from the dated indexed records.",
+        "No extrapolation to even or arbitrary composite exponents is established by this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the root framework and general unrestricted upper bound; inspected results do not establish the permutation-witness theorem",
+          "evidence": [
+            "The §4.4 constructions naturally extend to any k-th root operation; the union Root is separately defined. §5.1 uses all functions Q^Q and a general equivalence merge."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.12958",
+          "material_read": "§4.4 p. 9, offsets 29704–31217; §5.1 pp. 13–14, offsets 45300–46722 and upper-bound text",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The state complexity of a class of operations involving roots and boolean operations",
+          "trigger": "Broad fixed-exponent root work cited as unresolved in the frozen manuscript"
+        },
+        {
+          "assessment": "Different exponent and unrestricted input class",
+          "evidence": [
+            "Deterministic square-root complexity is n^n minus binom(n,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.00663",
+          "material_read": "§5, Theorem 3",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "New tools for state complexity",
+          "trigger": "Established sharp deterministic root complexity"
+        },
+        {
+          "assessment": "Concatenation power rather than root",
+          "evidence": [
+            "Square is defined as L^2."
+          ],
+          "identifier_or_url": "10.1007/978-3-030-48516-0_10",
+          "material_read": "§2, p. 123, offset about 5298",
+          "method": "Lawful OA passage inspection",
+          "title": "Operations on Permutation Automata",
+          "trigger": "Same input automaton class and the term square"
+        },
+        {
+          "assessment": "Nondeterministic square root, not the stated witness or class",
+          "evidence": [
+            "The exact NFA square-root bound is n^3; the deterministic exponent-2 result is distinguished from it."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.02957",
+          "material_read": "§1, offset about 2241",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Nondeterministic state complexity of square root",
+          "trigger": "Recent exact analogous bound"
+        },
+        {
+          "assessment": "Different root exponent and parity automaton dimension",
+          "evidence": [
+            "Theorem gives n^3-n^2+n for square roots on parity/XNFAs; the uniform witness uses three letters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-parity-automaton-square-root-state-complexity-n-3-n-2-n--087cc2ea55ea/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1280",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Exact parity-automaton square-root state complexity",
+          "trigger": "Exact root complexity indexed match"
+        },
+        {
+          "assessment": "Different operation and measured quantity",
+          "evidence": [
+            "The invariant is the accepting-state complexity spectrum of right quotients, not the deterministic state size of power roots."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-binary-alphabet-suffices-for-every-positive-right-quotient-accep--1f4f06cc0df8/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary index and mirrored text",
+          "title": "Binary alphabet suffices for every positive right-quotient accepting-state complexity",
+          "trigger": "Exact binary-witness result on permutation inputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Permutation automata are a natural reversible subclass, and tight membership-state complexity sharply tests whether the reachable group-state construction collapses under minimization. The two-letter witness uses standard generators but requires separation of every pair of permutations. The trivial right-stabilizer criterion and the concrete p-cycle/2-cycle construction explain both the factorial blowup and why unary input cannot attain it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

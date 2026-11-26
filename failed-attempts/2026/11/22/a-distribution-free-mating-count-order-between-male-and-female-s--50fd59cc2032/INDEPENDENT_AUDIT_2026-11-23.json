@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:41:57.992446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both count laws follow from independence of the latent Poisson streams: given male lifetimes the number is Bin(n,1−Y), Y=exp(−a sum T_i), while female search gives Bin(n,1−q), q=E exp(−naT). E[Y^n]=q^n proves the exact tie. For an independent strictness check, let H_k(s)=P(Bin(n,1−s^(1/n))≥k). Differentiating the binomial tail and cancelling adjacent terms gives H'_k(s)=−choose(n−1,k−1)[(1−s^(1/n))/s^(1/n)]^(k−1) on (0,1). H_1 is affine, and H_k is strictly convex on [0,1] for k≥2 by continuity and the strictly increasing derivative. Apply Jensen to Y^n; it is nonconstant when T is nonconstant, since the independent bounded positive factors Y_i=exp(−aT_i) satisfy E[Y_i²]>(E[Y_i])² and Var(product Y_i)>0. This also covers mass at T=0. Deterministic T and n=1 give the claimed equal laws. The tilted probability-mass ratio in the source also proves the result: positive moments are log-convex, R_0=1, R_1<1 by strict power-mean, normalization forces R_n>1, and either the upper sum contains only nonnegative terms with a strictly positive last term or its complement after zero contains only nonpositive terms with the strictly negative first term. The n=2 exponential example follows from E[Y]=1/4 and E[Y²]=1/9. The frozen script was inspected, not executed; it covers finite rational examples but contains no explicit exponential example despite the supporting review's description. The analytic review does not use that script. This is a count comparison only in the stated idealized Poisson system.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu allows an arbitrary mixing distribution, gives an if-and-only-if criterion, and proves hazard-rate order as well as usual stochastic order."
+        ],
+        "reasoning": "Products of iid nonencounter probabilities are a special case, not an additional obstacle requiring a new order theorem. The source's ratio-log-convexity method specializes the relative log-concavity argument in the prior paper.",
+        "searches": [
+          "mixed binomial stochastically dominates binomial equal probability zero stochastic order maximum order statistics power mean binomial mixture thresholds concavity exceedance",
+          "Yu, arXiv:0909.4570v1, Theorem 2 and Example 2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT, AUDIT, REVIEW, VERIFICATION, METADATA, SLOGAN and check.py",
+        "Yu, arXiv:0909.4570v1, Theorem 2 and Example 2",
+        "Byers (2012), DOI 10.1111/eea.12006",
+        "Resultary target and neighboring founder-allocation results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yu's prior argument is the relative log-concavity and one-crossing mechanism. For the matched zero mass the ratio at one is strictly below one in the mixture-to-fixed orientation by E[Y^(n−1)] < (E[Y^n])^((n−1)/n). Normalization then gives strictly higher tails at every remaining threshold."
+        ],
+        "reasoning": "The textbook one-line conditional Poisson reduction, equality of zero masses and strict power-mean refinement suffice; an exact same-model formulation need not already be printed for the core mathematical result to be covered. Byers's correlated-walk comparison supplies the applied motivation, not the prior implication.",
+        "searches": [
+          "https://arxiv.org/html/0909.4570, Theorems 1–2 and Section 2 Example 2",
+          "https://www.chemical-ecology.net/pdf/Byers_2012_EEA.pdf, abstract and methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu, arXiv:0909.4570v1, Section 2 Example 2(i): Bin(n,p) is stochastically smaller than a mixture of Bin(n,t) exactly when integral (1−t)^n dμ(t) ≤ (1−p)^n, equivalently the corresponding zero-mass comparison."
+        ],
+        "reasoning": "Set p=1−q and let μ be the law of 1−Y. The general criterion becomes E[Y^n]≤q^n, with exact equality in the case under review. Any mass of μ at 0 from zero lifetimes is allowed by the underlying finite-support ratio argument (or continuity of all probabilities in the mixing law).",
+        "searches": [
+          "Resultary: male versus female searching mating trap numbers distribution free binomial mixture matched zero probability stochastic order",
+          "Yu stochastic ordering exponential family distributions their mixtures binomial stochastic order zero mass probability log concavity mixture Theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Byers 2012, pp. 230–232: simulation design, percentages mated and confidence limits, not a tabulation of the universal Poisson count law. Resultary's finite-founder / fragmentation neighbors vary other objects; the exact match was the assigned record itself."
+        ],
+        "reasoning": "The claim is symbolic over all n and lifetime distributions, not an entry in a simulation table. Positive prior coverage instead comes from the binomial-mixture theorem.",
+        "searches": [
+          "Byers 2012 male female searching mating trap models Poisson lifetime mating percentages Barclay 1983 effect mating disruption stochastic order",
+          "Resultary retrieved the target record and finite-founder allocation / sex-ratio fragmentation comparators"
+        ]
+      },
+      "rationale": "The prior coverage is mathematical, not a duplicate insect title. Yu's Example 2 gives the exact stochastic-order criterion for a fixed binomial versus an arbitrary same-size binomial mixture, and also gives a stronger hazard-rate order. In the frozen model its criterion is the equality E[Y^n]=q^n. Strictness is a routine endpoint refinement of the same prior single-crossing proof (or a direct strict Jensen inequality). The sex-search interpretation is not claimed in Yu, but the frozen record does not identify a new stochastic law beyond the elementary Poisson reduction to this covered case.",
+      "residual_risks": [
+        "No independent priority conclusion about first use in the insect-specific Poisson model; the negative originality disposition rests on positive mathematical coverage.",
+        "Misra–Singh–Harner (2003) is credited by Yu, but was not needed or independently relied on for the coverage determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger mathematical coverage of the stochastic-order mechanism; no insect application claimed",
+          "evidence": "Theorem 2(1) and Example 2(i) are the zero-mass if-and-only-if criterion. Section 2 derives relative log-concavity from the convex logarithm of a mixture of exponentials.",
+          "identifier_or_url": "https://arxiv.org/html/0909.4570",
+          "material_read": "Definition 2, Theorems 1–2 and Section 2 through Example 2; reference to Misra, Singh and Harner (2003)",
+          "method": "Open primary preprint HTML, cross-checked introductory definitions and Theorem 2 against PDF text",
+          "title": "Stochastic Ordering of Exponential Family Distributions and Their Mixtures",
+          "trigger": "General comparison of ordinary binomial with a mixture at fixed mass zero"
+        },
+        {
+          "assessment": "The compared design uses spatial correlated random walks, finite movement and pheromone encounters; the reported percentage comparisons are not the binomial-mixture theorem",
+          "evidence": "Authors require 1:1 sex ratio and reusable males, remove mated females, and simulate trajectory intersections with attraction circles and traps.",
+          "identifier_or_url": "https://www.chemical-ecology.net/pdf/Byers_2012_EEA.pdf",
+          "material_read": "Abstract and methods pp. 228–231, beginning of results p. 232",
+          "method": "Open primary PDF text",
+          "title": "Modelling female mating success during mass trapping and natural competitive attraction of searching males or females",
+          "trigger": "Same sex-role and removal comparison in the applied literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The tie at any mating versus differences at higher thresholds is a clear illustrative interpretation, but the frozen finding applies an already available general zero-mass criterion once elementary conditional Poisson laws are written down. The exact strictness requires only the usual power-mean strictness or convexity of a binomial tail under the zero-mass coordinate. It does not establish an additional invariant, resolve the spatial trapping problem, or justify a new research result as distinct from a useful applied example.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

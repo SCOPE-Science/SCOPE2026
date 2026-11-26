@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:38:26.770201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the fixed-tree proof in RESULT.md lines 40–55. A queried edge witnesses its own empty singleton trace, and in a tree with ≥2 edges it has a neighbor. For a support of two edges incident at u, the two own-edge witnesses realize the singleton traces, an extra edge at u is required for the full trace, and the empty trace requires either a second edge in an unchosen branch or a third edge in any branch. When no branch extends three edges, precisely those pairs containing every depth-two branch fail the empty-trace condition, giving B_u. For a disjoint pair, the middle edge of their unique three-edge connecting path is the only possible joint witness, and another edge is needed at an endpoint of each outer edge for each singleton, giving the two degree-sum tests. Any all-support witness splits the support among its endpoints. For a mixed support of size ≥3, choosing one edge from each side gives a disjoint pair whose only common neighbor is the all-support witness, so the pair trace is missing. The remaining triples are stars: the omitted support edge gives each doubleton, each singleton requires extension on its chosen branch, and the same branch test gives the empty trace. Four-edge stars have no two-element trace, excluding them and all larger supports by heredity. Eight distinct witnesses are necessary for a shattered triple; the four length-two arms supply them on nine vertices and give four shattered triples. The attached Prüfer verifier was inspected, not executed; the separately reported unlabeled census is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3519bee5e97b states the maximal open-neighborhood trace count for block graphs is 2^m for m≤3 and 3m−2 for m≥4. Tree line graphs are block graphs.",
+          "The rank-width-one record bounds the four-point profile by 12; the Johnson-graph source gives VC dimension at most four for induced subgraphs, including tree line graphs."
+        ],
+        "reasoning": "The block-graph bound is genuine implication coverage of no four-point shattering here. It does not count how many two- or three-supports of any fixed tree attain the full trace set, nor give the first such tree order. The earlier Johnson bound is weaker.",
+        "searches": [
+          "Resultary 3519bee5e97b and bd9f724b9520, mirrored Findings",
+          "arXiv:2007.16042, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md, verify.py",
+        "Resultary 3519bee5e97b, 7808a20ef634, bd9f724b9520, 43076c96fc46 and identical bce7d7b3acb1",
+        "arXiv:2007.16042 p. 1, arXiv:2607.16889 p. 3, arXiv:1610.01475 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A class maximum of eight traces on three points says neither which individual trees achieve eight nor how many supports in them do so.",
+          "The external-neighbor result optimizes over marked sets; distance-VC in arXiv:1610.01475 is based on balls, not this counting rule."
+        ],
+        "reasoning": "Credit the broader VC upper-bound implication; the exact per-tree counts and the nine-vertex threshold need the incident/disjoint witness analysis. Same-day dates alone do not order results.",
+        "searches": [
+          "Resultary 3519bee5e97b and 7808a20ef634, Findings",
+          "arXiv:1610.01475, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rephrasing witnesses as edges of T meeting the queried edges, with the witness itself excluded from its trace, gives the same family as open line-graph neighborhoods.",
+          "7808a20ef634 restricts witnesses to edges outside the marked support; arXiv:2607.16889 uses closed neighborhoods and a trace-complexity statistic."
+        ],
+        "reasoning": "The witness convention matters: in the present family a support edge itself supplies the complementary doubleton in a three-edge star and singleton in an adjacent pair. An external-witness law is not equivalent.",
+        "searches": [
+          "Resultary line-graph open-neighborhood and marked-edge trace searches",
+          "Resultary 7808a20ef634",
+          "arXiv:2007.16042, p. 1",
+          "arXiv:2607.16889, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored bce7d7b3acb1 is the same finding, not independent matching evidence.",
+          "The earlier exact polynomial at 43076c96fc46 concerns L(K_n)=J(n,2). The distinct same-day entries give class-level trace bounds or external trace capacities."
+        ],
+        "reasoning": "The inspected exact formulas do not give the requested coefficients on arbitrary trees. Shattering with witnesses from L(K_n) does not specialize by restriction to witnesses from a chosen tree.",
+        "searches": [
+          "Resultary exact tree-line coefficient census",
+          "Resultary 43076c96fc46",
+          "Resultary same-day 3519bee5e97b, 7808a20ef634, bd9f724b9520"
+        ]
+      },
+      "rationale": "Pass for the explicit branch/degree formulas enumerating shattered supports of each tree line graph and their sharp nine-vertex threshold. The same-day block-graph theorem already implies the degree-three upper bound as a statement, irrespective of unresolved relative priority. The upper bound alone is not credited as distinct. The relevant broader results count traces on a prescribed support, not how many supports in a fixed tree attain all traces.",
+      "residual_risks": [
+        "Same-day relative priority is unresolved; the block-graph implication is credited regardless.",
+        "Older graph-defined VC set-system literature cited by the record was not fully inspected; an equivalent support census under different terminology may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the upper bound; does not give individual support coefficients",
+          "evidence": [
+            "Maximum 2^m at m≤3 and 3m−2 at m≥4 for open neighborhoods in block graphs."
+          ],
+          "identifier_or_url": "Resultary 3519bee5e97b",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp neighborhood-trace complexity of finite block graphs",
+          "trigger": "Strongest same-day broader result for a superclass"
+        },
+        {
+          "assessment": "Different witness rule and invariant",
+          "evidence": [
+            "Only witnesses outside the marked edge set are allowed; maximizes the number of traces rather than counting shattered supports."
+          ],
+          "identifier_or_url": "Resultary 7808a20ef634",
+          "material_read": "Mirrored Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp external neighbourhood-trace capacity and extremal marked-edge rigidity in finite line graphs",
+          "trigger": "Same-day line-graph trace analysis"
+        },
+        {
+          "assessment": "Class-level profile bound, not a census",
+          "evidence": [
+            "Four marked vertices have at most 12 profiles."
+          ],
+          "identifier_or_url": "Resultary bd9f724b9520",
+          "material_read": "Mirrored Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp four-parameter neighborhood-profile spectrum in rank-width-one graphs",
+          "trigger": "Same-day open-neighborhood dimension three"
+        },
+        {
+          "assessment": "Different host graphs and witnesses",
+          "evidence": [
+            "Counts shattering in L(K_n)=J(n,2) through degree four."
+          ],
+          "identifier_or_url": "Resultary 43076c96fc46",
+          "material_read": "Mirrored Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact open-neighborhood shattering profiles of triangular graphs",
+          "trigger": "Earlier exact open-neighborhood polynomial for line graphs"
+        },
+        {
+          "assessment": "Provides upper bound four, not the exact tree result",
+          "evidence": [
+            "Open-neighborhood VC dimension is at most four on Johnson graphs and their induced subgraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "p. 1, open-neighborhood set system and dimension bound",
+          "method": "OA primary PDF passage",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Tree line graphs embed in the induced Johnson class"
+        },
+        {
+          "assessment": "Closed-neighborhood complexity, not open line-graph censuses",
+          "evidence": [
+            "Forest result concerns closed neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.16889",
+          "material_read": "p. 3, neighborhood convention and forest result",
+          "method": "OA primary passage",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Similar forest trace-counting result"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Uses distance-VC dimension for graph order bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.01475",
+          "material_read": "p. 1, invariant and objective",
+          "method": "OA primary PDF passage",
+          "title": "Bounding the order of a graph using its diameter and metric dimension",
+          "trigger": "Graph VC notion in cited literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact per-tree census gives structural information not furnished by a sharp class maximum: it identifies separate depth-two and depth-three branch effects and counts supports for every tree without enumerating all witnesses against all supports. The nine-vertex witness and counting lower bound fix a meaningful first occurrence of the top-degree term. The result is restricted to open line-graph neighborhoods with internal witnesses allowed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

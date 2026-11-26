@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:46:30.217638Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify_local_sign.py inspected, not run",
+        "Replay: python /workspace/independent_checks/ou.py (mpmath)"
+      ],
+      "rationale": "Condition on B: X_T is Gaussian with integrating-factor mean and variance. Under the scaling B_{Tv}=sqrt(T) times a unit-time Brownian path in law, physical backward lag y/T becomes y/T² in that path. For G≠0 the last fixed fraction of the unit path is bounded away from zero, giving an integrable exponential majorant on the corresponding y-range and a negligible T²-exp(-const*T²) tail. This yields TV_T→D/(bG²) and vanishing scaled initial mean on the scaling coupling, including a=0. Future W increments form a standard Brownian driver independent of the initial data; the environmental increment divided by sqrt(T) has squared uniform norm O_P(T^-2). With nonnegative drift, integration by parts bounds the convolution by twice the driver supremum. The drift difference bound can be taken as H times the uniform coefficient error times the tight solution supremum. The resulting continuous frozen solution map proves convergence in C([0,H]), not just of marginals. The conditioned Gaussian pair is stationary with correlation exp(-bG²u); no axis atoms obstruct weak convergence of the sign product, including u=0. Rescale g by sqrt(bu), use dominated convergence, and integrate the nonnegative arcsine series termwise. Independent 60-digit quadrature, integrating by parts after exp(-y²)=sin(theta), reproduces K=0.5388516236620413677555756… . The heavy tail and nonintegrability concern the sequential limiting sign process only.",
+      "residual_risks": [
+        "No moment or growing-window convergence; the limiting spatial Cauchy marginal has no variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta–Klapp use exactly the same Brownian-square coefficient after unit changes; §5 conditions on stiffness and treats positional moments at one time. The OU-squared confinement result concerns stationary OU stiffness and positional correlation, not an unreset Brownian environment at large age."
+        ],
+        "reasoning": "The known stochastic-stiffness setup supplies the exact conditional law; it does not establish uniform drift freezing or the joint path limit.",
+        "searches": [
+          "arXiv:2609.33751v1 §§2, 5, 7",
+          "Resultary: same Brownian-square trap microscopic multitime path local stationarity sign process"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33751v1",
+        "Resultary 0700df2bd162, ac0f8defa0e9 and 1d48885a89d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the joint endpoint law as input, the path theorem still requires controlling the rescaled coefficient and the future independent driver. The arcsine formula then applies conditional on—not averaged over—the random rate. The rate distribution near zero controls the long-lag asymptotic."
+        ],
+        "reasoning": "The prior marginal theorem plus the Gaussian sign identity alone is insufficient; the needed same-path coupling and window limit are supplied here.",
+        "searches": [
+          "arXiv:2609.33751v1 Eqs. (26)–(35)",
+          "Resultary 0700df2bd162 and ac0f8defa0e9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Brownian-power record supplies the same ratio at a single time; the rare-excursion result uses a fixed displacement threshold and only one-time probabilities. A random-rate mixture here chooses one rate per sample path, not resampling across lags."
+        ],
+        "reasoning": "Neither the ratio marginal nor a fixed-threshold excursion law determines dependence on a shared environment and independent fresh thermal increments.",
+        "searches": [
+          "Resultary: Brownian squared harmonic confinement Brownian-powered stochastic trap Cauchy scaling microscopic time frozen Ornstein Uhlenbeck sign correlation power tail",
+          "Resultary: same Brownian-square trap microscopic multitime path local stationarity sign process"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary calculations are one-time moment formulas and the closest corpus hits other than the audited record give endpoint or excursion formulas. The decimal K is not a standalone novelty claim."
+        ],
+        "reasoning": "A table of one-time moments, even in the same model, is not a formula for the sign correlation as a function of elapsed microtime.",
+        "searches": [
+          "Resultary: Brownian squared harmonic confinement Brownian-powered stochastic trap Cauchy scaling microscopic time frozen Ornstein Uhlenbeck sign correlation power tail",
+          "arXiv:2609.33751v1 §5 and summary"
+        ]
+      },
+      "rationale": "The exact model, the one-time Cauchy result, and the Gaussian quadrant formula are prior ingredients. The specific temporal weak limit and sign law are distinct from those ingredients and not found as a covered result in the sources inspected.",
+      "residual_risks": [
+        "One external literature lookup was unavailable; it gives no negative novelty evidence. A general path-level quasi-static theorem or an unindexed exact law could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strong overlap at model and conditional Gaussian machinery; identified results not same temporal limit",
+          "evidence": [
+            "Eqs. (2), (26)–(35), (44)–(46). The stiffness covariance in Eq. (7b) is not a particle-sign covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.33751v1",
+          "material_read": "Model equations and stiffness correlation; conditional propagator and positional moments in §5; stated scope and summary",
+          "method": "public arXiv HTML",
+          "title": "Non-stationary Statistics and Energetics of Brownian Motion under Stochastic Harmonic Confinement",
+          "trigger": "exact same model"
+        },
+        {
+          "assessment": "one-time results, not a temporal process in the statements inspected",
+          "evidence": [
+            "Gaussian-ratio scaling and fixed-threshold excursion intensity, respectively."
+          ],
+          "identifier_or_url": "Resultary 0700df2bd162 and ac0f8defa0e9",
+          "material_read": "indexed result statements and overlapping statements cited in frozen record",
+          "method": "Resultary search",
+          "title": "Brownian-powered stochastic traps have sharp heavy-tailed scaling laws; Rare-excursion intensity in Brownian-squared harmonic confinement",
+          "trigger": "same coefficient and large-age regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact path law and sequential sign limit, compared with one-time model results"
+      ],
+      "rationale": "The inverse-age window is set by the model’s typical stiffness, not an arbitrary lag choice. The result specifies observable temporal dependence unobtainable from the Cauchy marginal and identifies how very small but positive frozen rates create nonintegrable sign memory without any conditionally slow algebraic decay.",
+      "residual_risks": [
+        "Does not assert a physical-time stationary law or a uniform simultaneous long-lag limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

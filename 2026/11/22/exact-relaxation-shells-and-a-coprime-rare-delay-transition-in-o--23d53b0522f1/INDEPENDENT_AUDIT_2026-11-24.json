@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:51:10.540056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 15–62",
+        "VERIFICATION.md: no recorded expert attestation, independent audit or Lean check",
+        "Independent replay method: iterate the update map in lines 37–42 from each labelled state, store its first-visit index, and at the first repeat bin that stored index; compare cumulative counts with lines 21 and 31–33. No uploaded code executed."
+      ],
+      "rationale": "For initial downstream position j, gate times s are b-1-j modulo b, and the source index at that crossing is -s modulo a. The first L updates therefore test precisely the a/g source positions congruent to j+1 modulo g, once each; erasure at gate time s enters the state at time s+1. If an active downstream bit has any future erasure, the state is not periodic because its downstream population will drop. Otherwise both words simply rotate, returning within L steps. Hence the last erasure is exactly first periodic entry, with zero for the empty maximum. At any t an initial downstream bit is free if already scheduled to be erased by t or immune forever; otherwise it must be zero. Summing the resulting weights independently over source residue classes gives C_t and the stated C_0 and C_L. For 0 <= r <= b, only bits j<r can first die after L-r, and their last encounter has source index j+1 modulo a. A death there requires precisely one zero in that source class, at that index. Grouping those singleton-zero source patterns gives the late product; the other 2^(a/g)-a/g patterns in each class have all downstream choices free. At r=1 exactly one position incurs a half weight, giving 2^(a+b-a/g-1) terminal states and sharpness; substituting equal and consecutive lengths gives the reported probabilities. Independent direct simulation of all states for 2 <= a,b <= 5 matched the products and terminal counts in all 16 cases (236 cumulative/tail comparisons). The finite replay corroborates the indexing, not the general proof.",
+      "residual_risks": [
+        "The one-bridge directed synchronous conjunctive update is essential. The census is for labelled binary states and uniform probability is obtained by dividing by 2^(a+b)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The elementary-digraph projection implies that tau <= L, and Jarrah et al. give general height bounds and cycle structure examples.",
+          "The two-arc Resultary transfer computes gcd-sensitive recurrence and basin quantities, including F^L, for a different graph."
+        ],
+        "reasoning": "The general bounds and period/cycle formulas do not specialize to a time-resolved census. A projection at a single time says all states are periodic by that time, not which earlier iterate first reached a periodic state.",
+        "searches": [
+          "arXiv:1708.01975 §IV-A, Lemma 8",
+          "arXiv:0805.0275 Example 2.9, Theorems 2.11 and 4.1–4.3"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 67–76",
+        "arXiv:1708.01975",
+        "arXiv:0805.0275",
+        "Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "x(ell L)=omega(x(0)) for ell>0 supplies an upper bound but not the terminal population.",
+          "The reported 2^(a+b-a/g-1) requires classifying which encounter is the first zero at the gate and which downstream bit was initially one. The last-b product separates all immune/already erased patterns from each possible singleton-zero source class."
+        ],
+        "reasoning": "The positive exact terminal count, late product, and general census require additional transport and counting arguments. The review does not assign novelty to the LCM upper bound or the eventual state formula.",
+        "searches": [
+          "arXiv:1708.01975 Lemma 8",
+          "arXiv:0805.0275 Example 2.9 and Theorems 4.1–4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Gao–Başar's elementary digraph has two cycle SCCs joined by one directed edge, the same topology up to cyclic relabelling. Lemma 8 is a projection at L, not the distribution of first equality with the periodic part.",
+          "The relevant equivalence here is first periodic entry = last irreversible AND erasure, not first visit to the zero state or period length."
+        ],
+        "reasoning": "Topology and Boolean monomial update agree in the one-bridge prior, but the observable differs; basin population, eventual periodic projection and entry-time shells should not be conflated.",
+        "searches": [
+          "Primary literature: \"Asymptotic Behavior of Conjunctive Boolean Networks Over Weakly Connected Digraphs\" Lemma 8 time L transient distribution elementary digraph",
+          "Resultary queries targeting the one-bridge first-entry census, C_(L-r) tail and terminal exponent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "23d53b0522f1 is the identical frozen record, not independent coverage.",
+          "69663e16f4ca gives exact late extinction shells for consecutive cycles sharing a hub, with polynomial (2k-1)z+(k-1)z²; it counts a different event on a different graph.",
+          "d0c5055727e8 gives recurrent and basin counts for two feed-forward arcs, not one-bridge periodic-entry shells."
+        ],
+        "reasoning": "Neither distinct same-day match covers the required graph and observable together. No inference about priority is made from the date.",
+        "searches": [
+          "Resultary: one-bridge first-entry shell census, late C_(L-r) product, terminal count",
+          "Resultary record suffixes 23d53b0522f1, 69663e16f4ca and d0c5055727e8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full first-periodic-entry census, the arithmetic late-tail product and the exact terminal population. Eventual projection by the LCM, periodic-orbit counting and general transient bounds have antecedents and are not credited as new. Neither the matching one-bridge projection nor the closest alternative-topology shell or basin records establishes these counts. Priority is bounded by the statements inspected.",
+      "residual_risks": [
+        "A bounded priority check cannot exclude an unindexed or unretrieved equivalent first-entry theorem.",
+        "The same-day distinct indexed records were compared on statements, not presumed earlier or later."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same topology; exact time-L projection, not a first-entry census",
+          "evidence": [
+            "x(ell N_J)=omega(x(0)), ell>0, with N_J=lcm(p_-,p_+)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.01975",
+          "material_read": "§IV-A Lemma 8, printed p. 9",
+          "method": "Read the OA primary passage",
+          "title": "Asymptotic Behavior of Conjunctive Boolean Networks Over Weakly Connected Digraphs",
+          "trigger": "Matching elementary digraph and LCM bound"
+        },
+        {
+          "assessment": "Cycle structure and transient bounds, not the exact shell distribution",
+          "evidence": [
+            "The one-edge loop-number 2,3 example counts 3 fixed cycles, one 2-cycle and two 3-cycles, not first-entry counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+          "material_read": "Example 2.9 pp. 7–8 near OA offset 23100; height Theorem 2.11; Theorems 4.1–4.3 and example continuation near offsets 34500–40500",
+          "method": "Read bounded OA passages",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "Published one-edge example, exact cycle counts and transient bounds"
+        },
+        {
+          "assessment": "Different topology and target",
+          "evidence": [
+            "Shared hub and extinction to zero, not a single bridge and general periodic entry."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-state-late-extinction-shells-on-consecutive-directed-cycle--69663e16f4ca",
+          "material_read": "RESULT.md offset 0",
+          "method": "Read local mirror statement",
+          "title": "Three-state late extinction shells on consecutive directed cycles",
+          "trigger": "Closest indexed late-shell formula"
+        },
+        {
+          "assessment": "Recurrent spectra and basin counts are not transient shells",
+          "evidence": [
+            "Two feed-forward arcs and F^L projection."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-gcd-sensitive-transfer-law-for-recurrent-spectra-and-attractio--d0c5055727e8",
+          "material_read": "RESULT.md offset 0",
+          "method": "Read local mirror statement",
+          "title": "A gcd-sensitive transfer law for recurrent spectra and attraction",
+          "trigger": "Similar gcd-sensitive counts and discrete dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–34 and 45–62",
+        "Time-L projection comparison in arXiv:1708.01975 Lemma 8"
+      ],
+      "rationale": "First periodic entry is a natural transient statistic not captured by a period census or worst-case upper bound. The formula quantifies every shell on all pairs of lengths and resolves a sharp arithmetic contrast, with the worst case frequent for equal lengths but exponentially rare for consecutive lengths. The terminal population and the late-tail product supply exact information beyond a generic finite state enumeration.",
+      "residual_risks": [
+        "The general finite sum need not be an efficient elementary formula, and the proof does not extend by assertion to multiple bridges or other Boolean rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

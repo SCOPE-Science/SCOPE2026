@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:33:51.849980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–83; VERIFICATION.md lines 19–23; verify.py inspected, not executed.",
+        "Independent replay: python3 /workspace/review-evidence/exact_checks.py 34; output /workspace/review-evidence/check-34.txt (reachability on profile plus final symbol to n=15, rational identity and polynomial division)."
+      ],
+      "rationale": "The stated all-length series and leading coefficient are correct. A nonzero matrix is realized exactly when the active support is weakly connected and the degree imbalance is zero or one ordered source/sink pair. Around the oriented triangle the differences are (h,h,h) in the balanced sector, giving (1+z³)/(1−z³) with three independent opposite-arc pair factors and three loop factors. For an ordered endpoint pair, adjoining one sink-to-source arc gives a balanced matrix with that arc count positive; subtracting the forbidden-arc sector and dividing by z gives (z+z²)/[(1−z)³(1−z²)³(1−z³)]. The disconnected balanced supports are multiple loop-only vertices, or a positive two-vertex arc pair plus a positive third loop; a disconnected open sector must have the ordered pair in one component and a positive third loop. These give exactly the stated subtractions. Loop-only one-vertex matrices and the length-one zero matrix are retained. The linear count has leading pole coefficient 7/12 at order seven, hence leading coefficient 7/8640; each code fiber contributes at most one word. The proof's quasipolynomial remark should be read as eventual: the rational function has polynomial part −2, so the quasipolynomial extrapolated to n=1 takes value 3, not the actual value 1. This does not alter the Finding's all-length generating function, asymptotic or code-size assertion.",
+      "residual_risks": [
+        "Finite reachability confirms coefficients, not the all-length formula. The explanatory quasipolynomial remark needs the n≥2 restriction if used as a theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact published balanced ternary series has numerator 1−z+z² over the same denominator; it is not the count of all linear profiles. The noncyclic endpoint-set decomposition and asymptotic factor 7 give the linear leading constant but not the finite connectivity corrections as a stated full formula."
+        ],
+        "reasoning": "Balanced/cyclic and unmarked linear matrices are different objects. Broad noncyclic asymptotics do not by themselves cover the exact coefficients; the exact match comes from distinct corpus records.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski, doi:10.46298/dmtcs.2768",
+          "Drmota–Szpankowski Ch. 11 §11.2.2 Eqs. (11.39)–(11.42) and Cor. 11.2.8",
+          "arXiv:1502.00517 Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 3 and 4",
+        "Resultary exact comparison files 87bc1f36ef2d and f0497779133f",
+        "Primary literature passages and access notes above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On adding the single zero matrix where needed, equality of series gives identical counts for every n. The optimal code size is immediately the number of nonempty fibers, and the leading term follows both from the same series and prior Markov-type asymptotics."
+        ],
+        "reasoning": "Neither the code-size phrasing nor the decomposed expression is a surviving independent exact claim. Coverage is established regardless of unresolved priority among catalogue dates.",
+        "searches": [
+          "SCOPE-20261019-a50ad3d9ea60 Finding",
+          "SCOPE-20261108-87bc1f36ef2d Finding",
+          "SCOPE-20261102-f0497779133f Finding",
+          "Drmota–Szpankowski Cor. 11.2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261019-a50ad3d9ea60: B_ij(w)=c_ij(w), identical P(z)/D(z) with coefficient index n−1.",
+          "SCOPE-20261108-87bc1f36ef2d states the identical full series; SCOPE-20261102-f0497779133f states G(z)−1 with the m≥1 pair-count convention."
+        ],
+        "reasoning": "Relabeling the matrix or replacing n−1 by m leaves every fiber unchanged. Adding one empty profile to the positive-length edge series is a boundary convention, not a distinct formula. These are separately identified records; same-day metadata is not a priority ordering.",
+        "searches": [
+          "Resultary: exact ternary adjacent-pair profile generating function distinct linear profiles ternary Markov type rational series period six",
+          "Frozen record 4, RESULT.md lines 5–29"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed series agree coefficientwise, not just on a finite table. Chang et al. give linear counts 9 and 24 at n=2,3; their exact short-range theorem does not enumerate all lengths. The Markov-type table concerns the balanced function's poles. The web lookup was unavailable, not a negative result."
+        ],
+        "reasoning": "The exact database hit is demonstrable full finite-length coverage; neither matching initial terms nor a balanced pole table alone would be decisive.",
+        "searches": [
+          "Same Resultary query and exact matching Finding passages",
+          "arXiv:1607.02279 §3 Theorem 3.3 and Eq. (1)",
+          "Counting Markov Types Table 2",
+          "Web: \"exact ternary\" \"adjacent-pair profile\" generating function distinct linear profiles ternary Markov types rational generating function 7/8640 period six"
+        ]
+      },
+      "rationale": "Distinct corpus records demonstrably give exactly the same principal finding. In frozen record 4, B(w)=C(w) entry by entry, with the same linear, directed, labeled, multiplicity-preserving convention and the same length-one value; the reduced numerator and denominator are identical. Independent catalogue comparisons add a full identical series and an equivalent series shifted only by excluding the empty matrix. The decomposed proof and displayed presentation differ, but not the counted class, exact series, leading constant or fiber capacity. A distinct mathematical result is not established against the corpus. This is not a finding that any of the other entries is earlier or that any was copied. Earlier literature accounts for balanced components and the leading constant, not for the full claim in the passages inspected.",
+      "residual_risks": [
+        "Temporal priority and dependence among distinct corpus records are unresolved; the verdict concerns substantive equivalent coverage, not priority or attribution.",
+        "Expanded IEEE version not confirmed from the inspected HAL file; literature search availability is not evidence of novelty or absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same main finding; no established priority.",
+          "evidence": "Identical matrix observation map and rational generating function, with same capacity and growth.",
+          "identifier_or_url": "SCOPE-20261019-a50ad3d9ea60",
+          "material_read": "RESULT.md lines 5–29, proof lines 33–73",
+          "method": "Read exact frozen source",
+          "title": "Exact ternary length-two multispectrum enumeration and reconstruction code size",
+          "trigger": "Distinct same-day assigned record"
+        },
+        {
+          "assessment": "Identical full series and observation convention.",
+          "evidence": "Linear ternary full directed pair-count matrices and same rational series and leading term.",
+          "identifier_or_url": "SCOPE-20261108-87bc1f36ef2d",
+          "material_read": "RESULT.md Finding, offsets 0–3912",
+          "method": "Read local published-corpus mirror",
+          "title": "Exact ternary adjacent-pair spectrum enumerator for linear words",
+          "trigger": "Exact semantic catalogue match"
+        },
+        {
+          "assessment": "Same series for positive edge count.",
+          "evidence": "Published series equals G(z)−1 due only to omitted m=0 profile.",
+          "identifier_or_url": "SCOPE-20261102-f0497779133f",
+          "material_read": "RESULT.md Finding, offsets 0–2400",
+          "method": "Read local published-corpus mirror",
+          "title": "Exact ternary ordered bigram multispectrum counts",
+          "trigger": "Pair-indexed equivalent linear profiles"
+        },
+        {
+          "assessment": "Exact for balanced counts, not full linear series.",
+          "evidence": "Cyclic closure imposes zero imbalance; ternary balanced numerator is 1−z+z².",
+          "identifier_or_url": "https://dmtcs.episciences.org/2768",
+          "material_read": "PDF pp. 2–3 and 8–9, Eq. (22) and Table 2, text offsets 6000–10000 and 28000–30551",
+          "method": "Lawful OA full-text passages",
+          "title": "Counting Markov Types",
+          "trigger": "Exact ternary Markov-type series"
+        },
+        {
+          "assessment": "The inspected passages safely establish the balanced calculation only, not exhaustive coverage of the expanded journal article.",
+          "evidence": "The HAL passages give the balanced series and asymptotic; the differing pagination is not proof that the final journal text was inspected.",
+          "identifier_or_url": "doi:10.1109/TIT.2012.2191476",
+          "material_read": "HAL candidate dmAM0127.pdf, printed pp. 394–395, text offsets 24500–30551; journal pagination/version not confirmed from that copy",
+          "method": "Lawful OA candidate and bounded passages",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Expanded journal version may address noncyclic types"
+        },
+        {
+          "assessment": "Covers decomposition and leading asymptotic.",
+          "evidence": "Noncyclic endpoint sets and asymptotic factor q²−q+1, not the displayed all-length rational expression in these passages.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/temp/ait22.pdf",
+          "material_read": "Ch. 11 §11.2.2, printed pp. 325–326, Eqs. (11.39)–(11.42), Cor. 11.2.8; offsets 839000–844974",
+          "method": "Lawful OA manuscript passages",
+          "title": "Analytic Information Theory",
+          "trigger": "Explicit treatment of noncyclic Markov types"
+        },
+        {
+          "assessment": "Asymptotic coverage only in the passage.",
+          "evidence": "Linear pair-profile factor q²−q+1 relative to cyclic counts.",
+          "identifier_or_url": "arXiv:1502.00517",
+          "material_read": "Theorem 3.5, PDF p. 8, offset 42553",
+          "method": "Lawful OA PDF passage",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Same profile counting model"
+        },
+        {
+          "assessment": "Exact short range, not all lengths.",
+          "evidence": "The condition ℓ≤n<2ℓ restricts the pair case to n=2,3.",
+          "identifier_or_url": "arXiv:1607.02279",
+          "material_read": "§3 Theorem 3.3 and Eq. (1), PDF pp. 5–6, offsets 22200–27426",
+          "method": "Lawful OA PDF passages",
+          "title": "Rates of DNA Sequence Profiles for Practical Values of Read Lengths",
+          "trigger": "Related exact finite-profile enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; earlier balanced and noncyclic asymptotic comparisons."
+      ],
+      "rationale": "As a mathematical result, the all-length enumeration is a meaningful exact benchmark for linear ternary profile counting: it quantifies finite endpoint and connectivity effects at every length and gives the noiseless observation capacity. This is value of the theorem, not a separate contribution by this record in the face of exact duplicate coverage. The asymptotic alone or choosing arbitrary representatives would not be independent value beyond the count.",
+      "residual_risks": [
+        "The cardinality benchmark does not give an efficient encoder or noisy reconstruction guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

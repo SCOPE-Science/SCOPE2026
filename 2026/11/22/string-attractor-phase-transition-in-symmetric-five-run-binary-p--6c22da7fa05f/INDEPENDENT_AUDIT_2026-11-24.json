@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:18:57.958417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:30–80",
+        "Frozen VERIFICATION.md, verify_exhaustive.py, verify_independent.py and their .out files"
+      ],
+      "rationale": "I checked the all-length proof in RESULT.md:30–80. Every occurrence avoiding the proposed marks lies inside one of the listed gaps. For c≥a the two kinds of mixed gap factors 0^i1^j and 1^i0^j relocate across the right and left boundaries of the central run, respectively. For c<a and b=1 the only mixed gap factors are 10^i, which relocate to the selected second 1. For c<a and b≥2 the sole potentially mixed gap is 0^(c−1)1^(b−1), and its mixed factors relocate to the first boundary. The selected runs accommodate all pure gap factors, including when a gap is empty. For necessity in the third case, 0^a1 and 10^a must cross the outer boundaries, while 1^(b−1)0^c1 must cross both central boundaries. Their unique intervals [0,a], [a+1,a+b+c], [a+2b+c−1,2a+2b+c−1] are disjoint also at b=2. In every case the two single letters require two different positions. The substitution c=1+r, a=c+1+t, b=2+s is bijective and yields length 9+3r+2s+2t, proving the exceptional generating function and the two shortest exceptions. Comparing the order-three poles at 1 gives leading coefficients 1/6 and 1/2 there; all other poles give O(n) coefficients. Hence the density is 1/3.",
+      "residual_risks": [
+        "The frozen script outputs report bounded checks only (216 exhaustive triples, 305 witness cases, generating coefficients through length 110). The code was inspected, not run for this review; correctness rests on the independently checked proof. The exhaustive checker stops at the first successful pair in the regime where a pair exists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7e2d386038d9 and 0020a8b06c9c: all four-run words; the latter also classifies all size-two attractors.",
+          "199f2b51eb0f: 0 1^B 0^C 1 0^E, with γ=4 iff B≥4, C≥3, E>C, and otherwise 2≤γ≤3.",
+          "1bf4d16be1fa: singleton marker ones separated by strictly increasing zero gaps."
+        ],
+        "reasoning": "Appending the final run changes the set and occurrence intervals of factors, so the four-run classification does not apply. The other five-run result intersects this symmetric family only when both a and b are 1. The increasing-gap pattern does not dominate the repeated-run family.",
+        "searches": [
+          "Resultary: four-run binary word minimum string attractor 0^a1^b0^c1^d classification",
+          "Resultary: five-run binary word string attractor four positions 0 1^b 0^c 1 0^e",
+          "Resultary: minimum string attractor finite tables binary word census by length run count palindrome exact attractor number"
+        ]
+      },
+      "checked_sources": [
+        "721addc2bb68",
+        "0ea5ed9577a7",
+        "7e2d386038d9",
+        "0020a8b06c9c",
+        "199f2b51eb0f",
+        "1bf4d16be1fa",
+        "7d9ddd4b7925",
+        "arXiv:1709.05314v2",
+        "arXiv:1907.04660v1",
+        "arXiv:2602.16152",
+        "arXiv:2610.10950v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prezza introduces the invariant and general compression connections.",
+          "Mantaci et al. §5.1 use palindrome decompositions in the specific Sturmian setting.",
+          "Banbara et al. and Faro et al. characterize minima for specific recursively generated families, not all symmetric five-run words."
+        ],
+        "reasoning": "General attractor bounds and these restricted classifications do not supply either the two-position witness cases or the three-position obstruction for the full parameter range. The unproductive web query is not negative evidence.",
+        "searches": [
+          "Web: \"string attractor\" \"four-run\" binary word 0^a1^b0^c1^d classification five-run palindrome",
+          "arXiv:1709.05314v2, 1907.04660v1, 2602.16152, 2610.10950v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact search hit 6c22da7fa05f is this record, not independent evidence of prior coverage.",
+          "The distinct result 721addc2bb68 classifies maximal closed substrings for these same words; 0ea5ed9577a7 classifies palindromic defect for general five-run words."
+        ],
+        "reasoning": "Neither closed-substring counts nor palindromic defect specifies the minimum number of positions meeting representative occurrences of all factors.",
+        "searches": [
+          "Resultary: symmetric five-run binary palindrome string attractor 0^a1^b0^c1^b0^a",
+          "Resultary: palindromic strings minimum string attractors classification parameterized words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7d9ddd4b7925 gives a complete length-12 binary census."
+        ],
+        "reasoning": "A fixed-length census cannot establish the arbitrary-triple classification or its counting series and density.",
+        "searches": [
+          "Resultary: minimum string attractor finite tables binary word census by length run count palindrome exact attractor number"
+        ]
+      },
+      "rationale": "The strongest available close statements concern all four-run words, a different restricted five-run family, or a different invariant of exactly the same words. None gives the five-run threshold or thereby implies the exception count. This is a bounded assessment, not a priority guarantee.",
+      "residual_risks": [
+        "The focused primary-literature search was unproductive. An unindexed general theorem on attractors of few-run words could cover this classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classifies and counts maximal closed-substring occurrences, not minimum hitting sets for factors.",
+          "identifier_or_url": "721addc2bb68",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Maximal closed substrings of symmetric five-run binary words",
+          "trigger": "Same full parameter family"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "For 0^a1^b0^c1^d, γ=3 iff (a>c and d>b) or (c≥a+2 and b≥d+2). The current word has a fifth run.",
+          "identifier_or_url": "7e2d386038d9",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Two-versus-three string attractors for every four-run binary word",
+          "trigger": "Closest shorter-run classification"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Describes all optimal pairs in the four-run setting only.",
+          "identifier_or_url": "0020a8b06c9c",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Sharp size-two string attractor phase diagram for four-run binary words",
+          "trigger": "Stronger witness classification for shorter words"
+        },
+        {
+          "assessment": "Different parameter family",
+          "evidence": "First and fourth runs have length one; its four-position obstruction does not meet the symmetric three-position regime.",
+          "identifier_or_url": "199f2b51eb0f",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Sharp four-position attractor criterion for a five-run binary family",
+          "trigger": "Same run count and invariant"
+        },
+        {
+          "assessment": "Different run pattern",
+          "evidence": "γ=ceil(k/2)+1 for k strictly increasing zero gaps separated by singleton ones.",
+          "identifier_or_url": "1bf4d16be1fa",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Exact minimum string attractors of increasing-gap binary words",
+          "trigger": "Potential broader run-pattern theorem"
+        },
+        {
+          "assessment": "Limited overlap",
+          "evidence": "Distribution for length 12, not a formula for the symmetric family across lengths.",
+          "identifier_or_url": "7d9ddd4b7925",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Complete length-12 binary string-attractor census",
+          "trigger": "Potential finite tabulation"
+        },
+        {
+          "assessment": "Not an applicable palindrome classification",
+          "evidence": "Standard Sturmian palindrome decomposition does not extend the stated result to these five-run words.",
+          "identifier_or_url": "arXiv:1907.04660v1",
+          "material_read": "Abstract, PDF p. 2; §5.1, PDF p. 6 (offset 16982)",
+          "method": "OA primary PDF passage inspection",
+          "title": "String Attractors and Combinatorics on Words",
+          "trigger": "Natural word families and palindromic constructions"
+        },
+        {
+          "assessment": "Different families",
+          "evidence": "The inspected version treats Fibonacci, period-doubling and Thue–Morse words.",
+          "identifier_or_url": "arXiv:2602.16152",
+          "material_read": "PDF p. 2, offset 6968",
+          "method": "OA primary PDF passage inspection",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Exact minima and all optimal sets for named families"
+        },
+        {
+          "assessment": "Different family in the stated scope",
+          "evidence": "Characterizes attractors for finite Thue–Morse words.",
+          "identifier_or_url": "arXiv:2610.10950v1",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary PDF passage inspection",
+          "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+          "trigger": "Coverage certificates in a structured binary family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:36–80",
+        "Related four-run and restricted five-run findings above"
+      ],
+      "rationale": "This gives a complete boundary, with optimal certificates, for an unbounded natural family of binary palindromes. It identifies exactly when three disjoint compulsory factors defeat a two-position attractor. The density is a useful consequence, not the sole contribution.",
+      "residual_risks": [
+        "No claim for arbitrary five-run words or for all optimal position sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

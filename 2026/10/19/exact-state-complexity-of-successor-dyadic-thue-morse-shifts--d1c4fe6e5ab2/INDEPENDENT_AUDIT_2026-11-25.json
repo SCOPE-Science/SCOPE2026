@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:23:31.994178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original Step 4 misindexed the base as 2F₃=6, although F₃=2. The repaired proof uses r=1 in N(2^r)=2F_{r+3}, giving H₀=N(2)=2F₄=6. This fixes the false proof equality without changing the theorem or the checked values. Reconstructed minimality: for each continuation length the carry yields precisely the available floor and ceiling offsets, and chosen suffixes recover each available high-order bit by XOR, including t(n+c) from the empty suffix. Thus the reachable fingerprints are exactly the residual classes. For the dyadic count, adding a power of two reads off the run parity at its position; neighboring run parities cannot both be one, and any nonadjacent pattern is realized as the low digits with a separating zero and an independent high bit fixing total parity. For c=2^k+1, the floor and ceiling images of I_c give exactly I_{2^(k−1)} and I_{2^(k−1)+1}, including k=1 with images {0,1} and {0,1,2}. If an odd fingerprint shared an even fingerprint then the pairs at (0,1) and (2,3) would force three consecutive equal bits in the halved Thue–Morse word, impossible as one of its even/odd pairs lies in every length-three interval. Summing the exact recursion from the corrected base gives 2F_{k+4}. The bundled finite checker and recorded output were inspected, not executed; they do not replace the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The relevant primary paper gives general bounds and leaves exact counts as an open formula problem.",
+          "The indexed binary and generalized digit-sum results give all-shift exact LSD counts; e.g. the former gives N_LSD(3)=6 while the present MSD count is 10."
+        ],
+        "reasoning": "The LSD theorems cover a larger shift set, and one a larger output family, but minimize a different continuation equivalence. Reversing input changes the minimized state count, even at the first successor-candidate shift.",
+        "searches": [
+          "arXiv:2512.10017v5 §4.2",
+          "Resultary mirrors 11fc25e0cd30 and e6401767e080"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt; repaired RESULT.md",
+        "OEIS A382296/internal",
+        "arXiv:2512.10017v5",
+        "Resultary local index and mirrors 11fc25e0cd30, e6401767e080"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known dyadic count both determines the rightmost equality and supplies the benchmark in the recursion.",
+          "The frozen successor law requires that the two halved-offset fingerprint images realized at even and odd prefix values are disjoint; the distinct counts for c=3 give a concrete non-equivalence to LSD exact minima."
+        ],
+        "reasoning": "A dyadic count by itself imposes no relation to successor shifts. General automaton construction, including reversing an automaton and then minimizing, could compute particular cases but does not mechanically give exact cardinalities of the successor parity classes over all k. The known right-hand count is credited separately.",
+        "searches": [
+          "arXiv:2512.10017v5 Open Problem 2",
+          "OEIS A382296 pure-dyadic attribution and Biswas source link",
+          "Resultary mirrors 11fc25e0cd30 and e6401767e080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS describes the MSD Thue–Morse shift state-count sequence and credits Biswas with a proof of a(2^n)=2F(n+3).",
+          "Moradi–Rampersad–Shallit ask for a general exact MSD formula. The closest indexed 'one above a power of two' hit on correlations does not concern automata."
+        ],
+        "reasoning": "The same counting sequence includes pure and successor shifts, but the successor recurrence is a further assertion about distinct indices. A correlation of two positions is not the cardinality of the family of residual fingerprints.",
+        "searches": [
+          "Resultary local index for successor-dyadic Thue–Morse MSD and Fibonacci recurrence",
+          "OEIS A382296/internal",
+          "arXiv:2512.10017v5 §4.2, Open Problem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A382296 links a table for 0≤c≤12000 and states the pure-power formula; the inspected entry does not give the infinite successor-dyadic relation.",
+          "All eight finite examples lie in the tabulated range."
+        ],
+        "reasoning": "Credit the available individual counts; a finite table and an exact identity on the distinct pure-power indices do not establish the successor family beyond the table.",
+        "searches": [
+          "OEIS A382296/internal, formula and links",
+          "Resultary local index for exact successor-MSD law"
+        ]
+      },
+      "rationale": "The distinct supported claim is the infinite successor-dyadic MSD equality and exact parity-disjoint recurrence. Neither the known pure-dyadic formula nor the tabulated individual values are new. The proof correction leaves the scientific scope and novelty assessment unchanged.",
+      "residual_risks": [
+        "The cited Biswas full proof was not accessible by the attempted lawful routes; its scope beyond the credited dyadic statement could not be checked directly.",
+        "A differently formulated successor-shift theorem outside the inspected literature is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds and open exact-formula problem",
+          "evidence": "Points to A382296 for exact small-shift counts and asks for a formula as a function of c; the quoted passage does not independently specify the full empty/padding convention.",
+          "identifier_or_url": "https://arxiv.org/html/2512.10017v5",
+          "material_read": "§4.2 Open Problem 2, OA passage around offset 61542",
+          "method": "OA primary HTML passage",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Direct literature on MSD shifted Thue–Morse complexity"
+        },
+        {
+          "assessment": "Exact finite examples and prior pure-dyadic formula; no successor-dyadic formula in the inspected entry",
+          "evidence": "Says the conjecture a(2^n)=2F(n+3) is proved and refers to Biswas; links the table through 12000.",
+          "identifier_or_url": "https://oeis.org/A382296/internal",
+          "material_read": "Internal entry and links (OA offset 0, Fibonacci statement near 1696)",
+          "method": "OA entry inspection",
+          "title": "OEIS A382296",
+          "trigger": "Exact database and credited formula"
+        },
+        {
+          "assessment": "Credit the verified attribution, do not infer the full contents of the proof",
+          "evidence": "OEIS names Biswas's proof for the pure-power formula, not for successor shifts.",
+          "identifier_or_url": "https://github.com/rnbguy/proofs/blob/main/A382296/A382296.typ",
+          "material_read": "Title and OEIS theorem attribution; direct proof not obtained",
+          "method": "Attempts on cited source and identified raw copy; OA and text retrieval failed",
+          "title": "State Complexity of Thue–Morse Shifts by Powers of Two",
+          "trigger": "Closest credited proof for the dyadic benchmark"
+        },
+        {
+          "assessment": "Different reading order and different minimality problem",
+          "evidence": "Explicit LSD all-shifts formula, with 6 states at c=3 and reverse padding convention.",
+          "identifier_or_url": "11fc25e0cd30",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and start of Proof, offset 0–2700",
+          "method": "Configured local mirror",
+          "title": "Exact binary-digit formula for least-significant-digit-first Thue–Morse shift automata",
+          "trigger": "Exact formula for the same shifted word family"
+        },
+        {
+          "assessment": "Exact 2-kernel/LSD size, not MSD count",
+          "evidence": "Includes the ordinary binary parity case at modulus 2 but gives 2k+3 for shifts 2^k under LSD reading.",
+          "identifier_or_url": "e6401767e080",
+          "material_read": "Mirrored RESULT.md Finding and scope, offset 0–2405",
+          "method": "Configured local mirror",
+          "title": "Exact least-significant-first state complexity of shifted binary digit-sum words",
+          "trigger": "Exact broader formula for modular digit sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact unbounded subfamily of a stated general MSD complexity problem is substantive, not a list of small counts. The result pinpoints why one extra shift past a power of two reaches the state count of the next pure power, and the disjoint parity decomposition supplies a reusable structural comparison for shifts. It does not claim a general-shift solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

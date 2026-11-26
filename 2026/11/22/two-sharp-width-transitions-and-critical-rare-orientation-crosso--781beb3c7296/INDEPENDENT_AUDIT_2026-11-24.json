@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:07:08.330698Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct support over the five vertices gives a+max(a,h|u_z|), a=|u_x|+|u_y|. Spherical area disintegrates into independent uniform |u_z| and folded azimuth, and imposing both support inequalities gives (2) with the stated angular CDF. The arbitrary convention at t=1 does not affect the integral. Minimization at c=1 for t<1 reduces to the crossing of a decreasing base branch with a concave apex branch or the pole, giving exactly the two candidate values in (3). Strict concavity of the apex branch rules out intervening equal minima. At each pole the width excess is |x|+|y|+O(x²+y²); its tangent diamond has area 2ε². At an oblique minimum use t=t_0+εδ and azimuth displacement εv>=0. The limiting sublevel obeys δ>=h*s_0*v-h/2 and δ<=(1-s_0*v)/(h-1/h); its height at v=0 is h(h²+1)/(2(h²-1)), and its v-intercept is (1+h²)^{3/2}/(2h³). The folded density times the two angular endpoints gives 4/π times the triangular area. These linear excesses control distance from their centers uniformly for h near sqrt(3), since both oblique slopes are nonzero with opposite signs and s_0 stays positive. Compactness excludes all directions outside separated neighborhoods. The lower coefficients add at equality and their ratio is 3:8. For the upper endpoint, width is the support of all directed vertex differences. Near the largest norm only the four length-2sqrt(2) base diagonals or eight length-sqrt(h²+2) apex differences can contribute; the shorter base edges are strictly below threshold. Each qualifying difference gives an exact spherical cap of probability ε/(2M) at its own maximum M. The caps stay disjoint near the transition because the attaining unit directions are separated. This gives (5), the upper split 1:2 and the exact critical coefficient. The competing value gaps have slopes 3/4 and sqrt(3)/2 at the respective switches. In the moving regimes each family uses the positive part of the tolerance after subtracting its gap; the same uniform tangent expansion or exact cap formula applies, and a gap equal to ε at first order gives a vanishing normalized contribution. Thus (6) and (7) hold for every fixed real λ, including clipping boundaries. Read RESULT.md lines 53–81, VERIFICATION.md and verify.py. The documented finite checker is supplemental and was not executed; the localizations and limits were checked analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general minimum formula is the lesser of h and min_e h[a(e)+a(-e)]/sqrt(h²+a(e)²). For a centered square a(e)=a(-e) in [1,sqrt(2)], and evaluation at a(e)=1 gives the exact minimum in (3).",
+          "Finch's abstract treats regular tetrahedron and cube random widths and their moments."
+        ],
+        "reasoning": "Specialization of the stronger minimum formula is verified exact prior coverage for the endpoint. It does not evaluate the mass in shrinking neighborhoods of the competing directions, at either endpoint, or give the CDF.",
+        "searches": [
+          "Resultary 5011fb3c7815, general minimum-width formula for all convex pyramids",
+          "Finch arXiv:1110.0671, directional-width context"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary mirror: 5011fb3c7815, c1e6aa54ecb2, d2f25b7ec7c9, 4d135c65c64a, 2273575e8a0a",
+        "arXiv:1110.0671 and arXiv:1512.07289, front-page scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum formula gives the competing minimum values but no solid-angle weights. The cube cap transition and the circular-frustum law use different sets of extremizers. The brightness article has a different lower threshold despite sharing the upper one."
+        ],
+        "reasoning": "Moving-height probabilities need both first-order competition and separate local sublevel or cap masses for this body. Those are not consequences of the known endpoint, of a single width law on another body, or of a projection-area threshold.",
+        "searches": [
+          "5011fb3c7815, c1e6aa54ecb2, d2f25b7ec7c9 and 4d135c65c64a Findings",
+          "Finch arXiv:1110.0671 and Kim–Yaskin–Zvavitch arXiv:1512.07289, front-page scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Line caliper width equals the length of the orthogonal projection onto a line (equivalently support of the difference body), not the area of a plane projection.",
+          "4d135c65c64a uses the same body and has a maximum brightness switch at sqrt(6), but its minimum switch is sqrt(14), and the random quantity is plane-projection area. 2273575e8a0a counts visible vertices after plane projection."
+        ],
+        "reasoning": "The common height and common spherical direction distribution do not identify these distinct observables. The same-body results neither normalize nor transform directly into the line-width probability law.",
+        "searches": [
+          "Resultary: Haar-random directional width of varying-height right square pyramid; exact endpoint probability laws and moving-height switches",
+          "Resultary 4d135c65c64a and 2273575e8a0a; Kim–Yaskin–Zvavitch arXiv:1512.07289"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cube entry gives an exact directional width CDF and cap transition for a different solid; the circular-frustum entry gives an exact line-width CDF for circular end disks.",
+          "The close same-pyramid entry is a brightness law, not a width profile."
+        ],
+        "reasoning": "The same observable in these other bodies and the same parameters for a different observable do not supply an exact indexed law for the independent folded azimuth and competing contacts of the square pyramid. The search is bounded.",
+        "searches": [
+          "Resultary: exact line-width distributions and caliper orientation thresholds; c1e6aa54ecb2, d2f25b7ec7c9 and 4d135c65c64a"
+        ]
+      },
+      "rationale": "The earlier general pyramid width theorem covers the minimum value, including the switch in its square-base specialization, and that coverage is credited. Exact width results on the cube and circular frustum and a close brightness law on the same square pyramid do not give its line-width CDF or the paired endpoint laws, contact splits and moving-height probability profiles. The pass applies to that distinct probabilistic content.",
+      "residual_risks": [
+        "The wider lookup gave no useful lead and is not negative evidence. An unindexed directional-width computation could cover part of the law.",
+        "Date alone does not establish relative priority with the same-day brightness record. The observable and stated formulas, not the date, distinguish it here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower endpoint value exactly, not its probability law",
+          "evidence": "General support formula minimizes h[a(e)+a(-e)]/sqrt(h²+a(e)²) against the vertical candidate h.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-minimum-width-formula-for-convex-pyramids-and-a-partial-pl--5011fb3c7815",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact minimum-width formula for convex pyramids and a partial-plank consequence",
+          "trigger": "Stronger same-object minimum-width theorem"
+        },
+        {
+          "assessment": "Inspected scope is regular tetrahedron and cube, not the varying-height square pyramid",
+          "evidence": "The abstract studies random widths and their mean and second moments for the regular tetrahedron and cube.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "OA PDF p. 1, abstract, offset 0",
+          "method": "Open-access front-page passage located by title",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Primary directional-width distribution precedent"
+        },
+        {
+          "assessment": "Same observable but another polytope",
+          "evidence": "The exact probability law is for line projection of the unit cube.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact directional width law of the cube and its first spherical-cap transition",
+          "trigger": "Exact width CDF and cap transition on a square-based solid"
+        },
+        {
+          "assessment": "Circular geometry excludes the square-base setting",
+          "evidence": "The exact CDF and thresholds use circular end disks, with no independent square-base azimuth.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-threshold-random-width-law-for-every-proper-right-circul--d2f25b7ec7c9",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "A three-threshold random-width law for every proper right circular frustum",
+          "trigger": "Potentially related general height-dependent directional law"
+        },
+        {
+          "assessment": "Different observable despite a coinciding upper critical height; date alone does not determine priority",
+          "evidence": "Orthogonal plane-projection area, with switches at sqrt(14) and sqrt(6), rather than line width.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-independent-brightness-switches-and-sharp-rare-orientation-l--4d135c65c64a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Two independent brightness switches and sharp rare-orientation laws for right square pyramids",
+          "trigger": "Strong same-day same-body threshold and rare-orientation resemblance"
+        },
+        {
+          "assessment": "Different projection statistic",
+          "evidence": "Counts the vertices of a planar shadow.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact five-vertex shadow law and unique height optimum for right square pyramids",
+          "trigger": "Same body and directional probabilities"
+        },
+        {
+          "assessment": "Inspected scope concerns section and projection areas",
+          "evidence": "The distributions refer to areas of central sections and hyperplane projections, not caliper lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.07289",
+          "material_read": "OA PDF p. 1, abstract, offset 0",
+          "method": "Open-access primary front-page passage",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Potentially broader projection-distribution literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square pyramid is a natural anisotropic five-vertex test body, and widths near its endpoints distinguish geometric contact types rather than merely recovering extremal values. The result gives an exact CDF, characterizes how the optimal contacts exchange dominance, and resolves the competition on the tolerance scale with explicit masses and clipping thresholds. The quadratic lower law and exactly linear upper law are useful together for quantifying rare projection directions; the already-known minimum endpoint alone would not have this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:42:25.035908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four prime-power rows and the integral finding hold. Independent exact norm/elimination recovers the 22-degree affine polynomial, absolute discriminant 2^42*7^77, the linear subresultant D y+N, and the unit denominator resultants at every factor (including x). Substitution of -N/D satisfies both equations modulo the eliminant. The norm belongs to the affine ideal by the multiplication-matrix adjugate; the linear subresultant then makes the affine Hessian intersection over Z[1/42] exactly the graph over its projection. At the two infinity vertices the local linear parts of the curve and sextic are the two chart parameters in opposite roles, so the sections are étale and separate components of the finite intersection. The fiberwise 24 simple intersections are ordinary, since tangent contacts 3 and 4 give Hessian orders 1 and 2 in the allowed characteristics. Orbit products of the stated cyclotomic generators give degrees 3,6,6,6, with discriminants 7^2,-7^5,-2^6*7^5,-2^6*7^5, so the order indices are units on the base. This proves the relative decomposition and makes q-Frobenius the stated regular actions and quotient action. The standard monic-f resultant is +x times the four factors, not minus as printed; at x=1 the Sylvester determinant is -232 and SymPy 1.14.0 gives +232. Only the unit-normalized eliminant matters. Reproduction: python /workspace/flex_and_octic_reproduction.py (SymPy 1.14.0); frozen VERIFY.py only inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sibling's integral coordinates include all conjugates with simple pairwise distinct projections after inverting 2 and 7.",
+          "Poonen–Schaefer–Stoll use Z[1/42] for a smooth quartic but their explicit flex projection is on C4, a twist.",
+          "Dimca et al. count the Klein flexes in their complex pencil; the nearby explicit coordinates are for the 12 order-two flexes on the distinct C3.",
+          "332d2be7d5dd covers 28 bitangent lines, not 24 points."
+        ],
+        "reasoning": "The sibling provides the scheme's integral arithmetic and fiber information, not merely an isolated specialization. Methods for twists or complex arrangements and a different finite scheme do not supply the claimed decomposition.",
+        "searches": [
+          "e6c7b4b6a579 RESULT.md lines 59–73",
+          "arXiv:math/0508174 pp. 5, 21, 26, 31–32",
+          "arXiv:2301.01117 pp. 17–18",
+          "Resultary: 332d2be7d5dd"
+        ]
+      },
+      "checked_sources": [
+        "e6c7b4b6a579",
+        "07295989c49b",
+        "332d2be7d5dd",
+        "arXiv:math/0508174",
+        "arXiv:2301.01117",
+        "Elkies §§1.3, 2",
+        "Egan symmetry sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the sibling all coordinates are integral and solve the Hessian equations, and no two sections collide in any permitted fiber. The Hessian intersections are transverse in every fiber. Its cubic coordinate has real-subfield order and the three sextic coordinates have full cyclotomic order after localization."
+        ],
+        "reasoning": "There is a canonical map from the three constant sections, the real cyclotomic orbit, and the three full cyclotomic orbits to the relative flex intersection. The correct discriminants make the source finite étale over Z[1/42]; in every geometric fiber this is an isomorphism by separation and Bézout. The target is finite étale by properness, finite fibers and the relative Jacobian criterion (transversality). Thus the map is an isomorphism. This mechanically gives the claimed decomposition from the sibling, without a new arithmetic theorem. The classical symmetry passages inspected are related but do not themselves print the four arithmetic rows.",
+        "searches": [
+          "e6c7b4b6a579 RESULT.md lines 59–73 and its orbit-product discriminants",
+          "Elkies §2",
+          "Egan, Klein's Quartic Equation, symmetries and inflection sections",
+          "Poonen–Schaefer–Stoll §§11.1–11.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e6c7b4b6a579 RESULT.md lines 8–28 and 69–73 gives all rows, zeta factors and all extension-field counts on the literal model.",
+          "07295989c49b gives the identical p=5 specialization; the Elkies proposition gives the same geometric orbit as weight-one Weierstrass points."
+        ],
+        "reasoning": "Indexing by q modulo seven adds no new cases to a p-Frobenius action and its powers. The geometric orbit statement and the p=5 result alone are narrower.",
+        "searches": [
+          "Resultary and frozen e6c7b4b6a579",
+          "Resultary: 07295989c49b",
+          "Elkies pp. 64–65"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e6c7b4b6a579 RESULT.md lines 10–21 is the same exact cycle and zeta table. The 07295989c49b row is the p=5 match, while the 28-line table is a different representation."
+        ],
+        "reasoning": "The matching full table is in a distinct record, not this record's own indexed copy. The matching public date alone does not establish order.",
+        "searches": [
+          "Resultary: Klein quartic 24 flex Frobenius; e6c7b4b6a579 and 1b8d3c6d03f9",
+          "Resultary: 07295989c49b and 332d2be7d5dd"
+        ]
+      },
+      "rationale": "The same-date distinct record e6c7b4b6a579 gives the exact uniform Frobenius law and supplies integral point representatives and separation certificates that imply this record's abstract finite étale decomposition. Its omission of the displayed scheme isomorphism does not leave a separate arithmetic finding. The explicit projection formula is a different certificate, not a new invariant in the Finding. No chronological priority between the two copies is inferred.",
+      "residual_risks": [
+        "No relative priority is established by the same-day dates.",
+        "An earlier derivation from classical explicit symmetries may exist; the conclusion rests on demonstrable sibling coverage, not a claim of historical exhaustiveness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent Frobenius law; same separated integral orbits imply the abstract relative decomposition",
+          "evidence": [
+            "Lines 10–28 and 59–73"
+          ],
+          "identifier_or_url": "Frozen record 1, e6c7b4b6a579",
+          "material_read": "Finding, assumptions, all proof steps and coordinate certificates",
+          "method": "Frozen primary RESULT.md and Resultary comparison",
+          "title": "Cyclotomic Frobenius law for the 24 flexes of the Klein quartic in every good odd characteristic",
+          "trigger": "Exact same arithmetic flex set and potential integral implication"
+        },
+        {
+          "assessment": "Characteristic-five specialization, explicitly not uniform",
+          "evidence": [
+            "1^3 3^1 6^3 for the flexes"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-frobenius-splitting-of-the-characteristic-five-klein-quartic-s-f--07295989c49b",
+          "material_read": "Finding and scope, mirror offsets 0–4978",
+          "method": "Local published mirror",
+          "title": "Frobenius splitting of the characteristic-five Klein quartic's flex triangles",
+          "trigger": "Exact overlapping field"
+        },
+        {
+          "assessment": "Different arithmetic object, 28 bitangents",
+          "evidence": [
+            "1^4 2^12 in residue 6, not 1^6 2^9"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-cyclotomic-frobenius-classification-of-the-klein-quartic-bitange--332d2be7d5dd",
+          "material_read": "Finding and opening proof, mirror offsets 0–5439",
+          "method": "Local published mirror",
+          "title": "Cyclotomic Frobenius classification of the Klein quartic bitangents in odd characteristic",
+          "trigger": "All-characteristic splitting on the same curve"
+        },
+        {
+          "assessment": "The same smooth integral curve and geometric triangles, but the printed resultant and triangle fields concern a different model C4",
+          "evidence": [
+            "§11.1: eight triples and tangent contact 3W_i+W_{i+1}; §11.2.1: degree 6 and 18 flex-projection factors of C4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0508174",
+          "material_read": "PDF p. 5, Table 2 at p. 21, §§11.1–11.2.1 at pp. 26, 31–32",
+          "method": "OA full-text passages",
+          "title": "Twists of X(7) and primitive solutions to x²+y³=z⁷",
+          "trigger": "Integral model, flex arithmetic and logic of twist transport"
+        },
+        {
+          "assessment": "Only geometric Klein flex count in passage; explicit coordinates are for a different member",
+          "evidence": [
+            "Klein condition lambda^2+3lambda+18=0; the following 12 flexes of order 2 belong to lambda=3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01117",
+          "material_read": "PDF pp. 17–18 near offset 47850",
+          "method": "OA full-text passages",
+          "title": "Construction of Free Curves by Adding Lines to a Given Curve",
+          "trigger": "Exact Klein inflection configuration in construction"
+        },
+        {
+          "assessment": "Classical 24 weight-one flex orbit, no four-row table in inspected passages",
+          "evidence": [
+            "§2 Proposition (i): 8 times 3 fixed points of the 7-Sylows"
+          ],
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "Printed pp. 59 and 64–65",
+          "method": "OA full-text passages",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Geometric orbit and arithmetic symmetry antecedents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The flex divisor and its integral arithmetic are naturally useful inputs to descent, but the proposed second finding is a restatement plus immediate scheme-theoretic translation of the already supplied separated integral orbits. The rational coordinate-recovery formula is useful verification data; the submitted Finding does not claim a new independent application or invariant supported by that formula.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

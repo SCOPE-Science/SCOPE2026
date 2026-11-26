@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:34:21.062781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen formulas are mathematically correct. In the replacement the claim is narrowed to the labelled packing multiplicities. Diameter is two, so the maximal paths are exactly the clique edges and the three-vertex paths with two independent endpoints and a clique center; single vertices extend, and every cross edge extends because s≥2. A type (t,u) uses 2t independent vertices and t+2u clique vertices. Choosing t centers, assigning unordered pairs from the independent set to these distinct centers, and choosing a size-u matching on unused clique vertices gives exactly A_{r,s}(t,u) with no extra t! divisor. This counts each packing once and includes the empty one. At fixed t the greatest size is floor((r+t)/2), so the leading coefficient only receives contributions from t=h and, for odd r+h, t=h−1, with u fixed in each case. In the saturated case h=r the coefficient reduces to the stated factorial ratio. The formal exponential generating function counts singleton unused vertices and the two types of path blocks. The retained comparison facts are correct: a maximal safe complement is I or one independent vertex with one clique vertex, including at r=1 and at the coincident degrees when s=2; comparison with the packing maximum gives the stated gap. The replacement marks those facts, feasible types, and optimum size as known specializations.",
+      "status": "PASS",
+      "verification": "The frozen verification script and recorded output were inspected, not executed. Independent replay /workspace/branches/818e8382-a12a-4a0b-967f-8ed7efc089fe/replay_record4.py constructs shortest paths, checks contiguous-subpath maximality, enumerates disjoint families by vertex-mask recurrence and tests subsets for minimal hitting. It matched the full packing and transversal distributions on 15 profiles with 1≤r≤4, 2≤s≤5, r+s≤8. For (r,s)=(3,4), it gives P=1+21z+36z² and T=z³+12z⁵; the leading 36 splits into 18 of each of the two predicted types. The existing archived output documents 22 exhaustive profiles and 5,000 scalar arithmetic profiles separately. Neither check proves the unbounded formulas."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-multipartite packing theorem is valid for positive part sizes, including singletons, and gives necessary and sufficient capacities by type plus the scalar optimum. The complete-multipartite transversal theorem classifies all valid complements and counts the minimum cases. The primary articles inspected give the general problem frameworks; the exact Peterin–Semanišin join passage was not accessible."
+        ],
+        "reasoning": "The broader matching and complement results genuinely contain much of the frozen claim. The restricted result is kept only where counting every labelled packing is additional to feasibility and maximum size.",
+        "searches": [
+          "Resultary 483fcd9cfba1 Finding and Proof §§1–4",
+          "Resultary e5c4e05a4d10 Finding and Proof",
+          "arXiv:2210.15325 and arXiv:2101.08042 introductory results",
+          "Targeted primary-literature lookup for complete split maximal-geodesic packings/transversals and the join theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 483fcd9cfba1",
+        "Resultary e5c4e05a4d10",
+        "Resultary e3ceab8f39fe",
+        "arXiv:2210.15325",
+        "arXiv:2101.08042",
+        "DOI 10.1007/s40314-022-01834-1 (retrieval attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With e=u, N=r+s, M=s and P=floor(s/2), the capacity conditions reduce to 2u+t≤r and 2t≤s; the remaining total-vertex inequality follows. The complement theorem specializes to subsets of I or at most one from I and one from C. The directed-array count is for triples only."
+        ],
+        "reasoning": "Optimizing the resulting capacities gives the frozen packing size and odd-parity type alternative, and selecting maximal complements gives the entire minimal-transversal census. These are actual corollaries. The feasibility and maximum results do not provide multiplicities. The exact retained coefficient requires counting distinct assignments to labelled centers and the residual matching, with a second block type absent from the all-parts-at-least-two counting theorem.",
+        "searches": [
+          "Resultary 483fcd9cfba1 capacity theorem and Hall construction",
+          "Resultary e5c4e05a4d10 valid complement classification",
+          "Resultary e3ceab8f39fe directed-array count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The labelled split graph K_r joined to an independent s-set is K_{s,1,…,1} with r singleton parts. Both multipartite records use the same maximal-subpath geodesic and vertex-disjointness or hitting conditions."
+        ],
+        "reasoning": "The relation is graph isomorphism with an identified part partition, not just a similar title. Every clique edge is an edge between singleton parts, and an independent-endpoint triple is a geodesic with endpoints in the unique nonsingleton part.",
+        "searches": [
+          "Resultary: complete split graph complete multipartite geodesic packing and transversals",
+          "Resultary 483fcd9cfba1 and e5c4e05a4d10: Finding and maximal-path definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e3ceab8f39fe gives a directed-array formula for complete multipartite graphs with all part sizes ≥2. Its proof explicitly uses the absence of maximal one-edge geodesics. e5c4e05a4d10 already gives an exact complement enumerator for transversals."
+        ],
+        "reasoning": "The transpose from complements to minimal hitting sets is immediate from maximal valid complements, so the exact transversal subclaim is covered. A mere specialization of the packing-polynomial formula would omit the clique-edge matching contribution and is not a census of this domain.",
+        "searches": [
+          "Resultary: geodesic packing polynomials of complete multipartite graphs",
+          "Resultary e3ceab8f39fe Finding and Assumptions and scope"
+        ]
+      },
+      "rationale": "The frozen novelty claim fails in material part: the packing number and existence-side maximum-type classification follow from 483fcd9cfba1, and the inclusion-minimal transversal census and minimum cases follow from e5c4e05a4d10. Combining those results gives the gap and equality boundary. A complete replacement at /workspace/repairs/4/RESULT.md credits those implications and claims only the surviving labelled packing polynomial and multiplicities, including the exact number of maximizers. Those counts are not supplied by the inspected capacity or transversal classifications, and the closest counting theorem excludes singleton parts and hence the maximal clique-edge blocks. The pass applies to the narrowed replacement, not the frozen originality claims.",
+      "residual_risks": [
+        "The primary join theorem was not retrieved; no negative coverage claim relies on this. Further factorial enumerators expressed as hypergraph matching polynomials may escape the focused search.",
+        "The bibliographic comparison does not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of packing support and optimum, not labelled coefficients",
+          "evidence": [
+            "For e two-vertex paths, the sharp bound on t is min(floor((N−2e)/3),N−M−2e,P)."
+          ],
+          "identifier_or_url": "483fcd9cfba1",
+          "material_read": "RESULT.md Finding and Proof §§1–4; verified exact Finding and Hall construction in mirrored offsets 0–4893",
+          "method": "Resultary and bounded local mirror text",
+          "title": "Geodesic packings of complete multipartite graphs: three sharp capacity constraints",
+          "trigger": "Stronger family with singleton parts and type constraints"
+        },
+        {
+          "assessment": "Direct coverage of the full frozen transversal census by maximal complement specialization",
+          "evidence": [
+            "A valid complement is contained in one nonsingleton part, or takes at most one per nonsingleton part and at most one singleton vertex in total."
+          ],
+          "identifier_or_url": "e5c4e05a4d10",
+          "material_read": "RESULT.md Finding and complement proof, mirrored offsets 0–3788",
+          "method": "Resultary and bounded local mirror text",
+          "title": "All geodesic transversals of complete multipartite graphs",
+          "trigger": "Exact transversal classification of the same graphs in multipartite form"
+        },
+        {
+          "assessment": "Exact polynomial but excludes this family; does not count clique-edge blocks",
+          "evidence": [
+            "Every part has at least two vertices; the proof then identifies maximal geodesics exclusively as triples."
+          ],
+          "identifier_or_url": "e3ceab8f39fe",
+          "material_read": "RESULT.md Finding through offset 2545 and Assumptions and Proof §§1–2, offsets 2548–4148",
+          "method": "Resultary and bounded local mirror text",
+          "title": "Geodesic-packing polynomials of complete multipartite graphs and reentrant purity for doubleton parts",
+          "trigger": "Catalogue formula for the same invariant on a neighboring multipartite domain"
+        },
+        {
+          "assessment": "Framework and other results; no relevant exact labelled split count in inspected material",
+          "evidence": [
+            "Results summarized include complexity, trees and strong products of paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.15325",
+          "material_read": "v3 PDF pp. 1–2, offsets 0–5976, and targeted complete-bipartite passage",
+          "method": "Bounded OA PDF inspection",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Original packing problem and nearby family results"
+        },
+        {
+          "assessment": "Problem framework; not relied on for exact coverage",
+          "evidence": [
+            "The inspected pages introduce the scalar problem and give complexity, tree and cactus results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042",
+          "material_read": "v1 PDF pp. 1–2, offsets 0–5985",
+          "method": "Bounded OA PDF inspection",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Earlier transversal problem and scope"
+        },
+        {
+          "assessment": "Access limitation; actual transversal coverage established separately from the multipartite theorem",
+          "evidence": [
+            "Author-preprint retrieval timed out and no repository copy was obtained via the DOI route."
+          ],
+          "identifier_or_url": "10.1007/s40314-022-01834-1",
+          "material_read": "No theorem passage retrieved",
+          "method": "Lawful OA author-preprint attempt and DOI route",
+          "title": "Geodesic transversal problem for join and lexicographic product of graphs",
+          "trigger": "Frozen record credits Theorem 3.5 for the scalar transversal number on joins"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The retained result counts solutions of the natural geodesic packing problem by size and path type on the standard split family, rather than rederiving the known feasible sizes. Multiplicities measure how many optima are available: at fixed r throughout s≥2r the optimal size is constant while the number of maximizing packings varies with s. The exact coefficients also describe how the two possible types share the optimum in the odd-parity regime. This is a useful exact invariant in its own right; previously implied transversal and maximum-size results are not credited as the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

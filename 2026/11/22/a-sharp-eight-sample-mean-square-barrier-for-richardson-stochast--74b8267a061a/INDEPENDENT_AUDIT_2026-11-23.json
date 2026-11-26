@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:20:39.876414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stationary OU generator, Lx²=2−2x² and L²x²=−2Lx², so a_m=−2+2S₂/S₄ and b_m=−2a_m. The Gram S₄/m is positive almost surely and iid sample averages give a_m→−4/3 almost surely. With R²~χ²_m independent of U=ΣΘ_i⁴∈[1/m,1], a_m+2=2/(R²U). Its qth absolute moment is finite exactly for m>2q, and χ² small-ball normalization gives P(a_m>z)~E[U^(−m/2)]z^(−m/2)/Γ(1+m/2). The multipliers are polynomials of degrees 1,2,1 (degree 0 for generator-Taylor when h=1), with leading coefficients h,h²/2,h−h². The integrated squared loss against e^(−2h)x²+1−e^(−2h) is 3Q²−2(1+2e^(−2h))Q+1+2e^(−4h). Hence Q's second moment controls the loss, and a leading monomial k a_m^d in Q yields P(loss>z)~C_m(3k²)^(m/(4d))z^(−m/(4d)); there is no unbounded negative branch for a_m. This proves all thresholds, tail constants, and logarithmic divergence at exponent one. At h=1 the Taylor loss is the deterministic 2(1−e^(−2))². The frozen verify.py was inspected, not run; its exact finite algebra cannot establish integrability or asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu Theorem 3.3 assumes controlled matrix perturbations, Proposition 3.6 is high probability, and Remark 3.7 uses Markov bounds for unbounded dictionaries.",
+          "Llamazares-Elias et al. analyze almost-sure convergence via a Gram pseudoinverse; their explicit-rate assumptions include bounded features and generator images."
+        ],
+        "reasoning": "A norm bound on a good event, or almost-sure convergence as m grows, does not settle unconditional moments at fixed m. Neither controls exactly the omitted contribution from the rare near-zero Gram event in this unbounded-feature benchmark.",
+        "searches": [
+          "Xu arXiv:2611.00793v1 Thm. 3.3, Prop. 3.6, Rem. 3.7",
+          "Llamazares-Elias et al. arXiv:2405.00539v3 empirical operator convergence and Assumption 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.00793v1",
+        "arXiv:2405.00539v3",
+        "Resultary 2026/11/22/...--68075464f3ef",
+        "Resultary 2026/11/2/...--e31f3f81d896"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source scheme definition immediately implies the degree-two dependence on the fitted generator; it does not establish its distribution under the frozen training model. The angular scaling and positivity of the specific loss leading term are required to compare unconditional thresholds.",
+          "The same-day anti-dissipativity result varies propagation horizon at fixed m; even an exponentially growing norm in that setting does not imply nonintegrability of the present one-step random loss."
+        ],
+        "reasoning": "This is not a contradiction of the prior conditional accuracy claims, nor a new inverse-chi-square lemma. The exact scheme-to-scheme risk distinction is the claim not shown by the compared prior results.",
+        "searches": [
+          "Xu arXiv:2611.00793v1 Eqs. (2.6)–(2.8), §5.2; Resultary ...--68075464f3ef and ...--e31f3f81d896"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu Eqs. (2.6)–(2.8) give the same empirical ratio and Richardson polynomial when scalarized. The equivalent statistical formulation here asks for exact inverse moments of the radial term in S₂/S₄ and their transfer to three specific loss polynomials.",
+          "Resultary ...--68075464f3ef shares the Richardson polynomial but is for fixed sample and increasing horizon, with bounded 2+cos x on the circle. Resultary ...--e31f3f81d896 shares a five-sample variance boundary but concerns a reused Gaussian regression control variate."
+        ],
+        "reasoning": "A common estimator pattern or sample count does not identify the random variable, loss or quantifier. Neither inspected record spells out the same one-step comparison.",
+        "searches": [
+          "Resultary: reused Gaussian SDMD inverse Gram and one-step moment thresholds; same-day scalar SDMD anti-dissipativity",
+          "Xu arXiv:2611.00793v1 §§2.2–2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xu Table 6 is based on finite repetitions at m=400–25,600 using the five-function trigonometric OU dictionary, not an exact unconditional risk table for the single feature x².",
+          "Closest distinct corpus results were the long-horizon bounded dictionary and Gaussian regression control variate records; no exact matching sample/tail table was identified among those results."
+        ],
+        "reasoning": "Numerically estimated errors for another dictionary and sample regime cannot determine the exact small-m integrability boundary.",
+        "searches": [
+          "Xu §5.2 and Table 6, arXiv:2611.00793v1",
+          "Resultary: OU Richardson one-observable moment/tail cutoffs and same-sample Gaussian variance analogues"
+        ]
+      },
+      "rationale": "The update maps, Gaussian polar decomposition and inverse-chi-square moments are prior; the surviving contribution is their exact unconditional one-step risk comparison for this noninvariant OU dictionary, including the finite sample budgets, tail constants and Taylor cancellation. Closest inspected results do not cover this conjunction. Priority is bounded by the inspected evidence.",
+      "residual_risks": [
+        "General random rational-estimator or inverse Gram theory may offer an earlier equivalent specialization not seen here. The prior dates alone do not resolve order for the distinct same-day Resultary record.",
+        "Proposition and remark locators refer specifically to Xu v1; they are renumbered in v2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method overlap, but not unconditional moment classification",
+          "evidence": [
+            "Eq. (2.8) is the Richardson polynomial. Thm. 3.3 and Prop. 3.6 use controlled perturbations or high-probability conditioning. The OU features are 1, sin x, cos x, sin 2x, cos 2x, and Table 6 reports simulations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00793v1",
+          "material_read": "§§2.2–2.4, pp. 4–5; Thm. 3.3 p. 7; Prop. 3.6 and Rem. 3.7 pp. 10–11; §5.2 and Table 6 pp. 18–19",
+          "method": "Read and compared relevant OA original definitions, hypotheses and numerical table",
+          "title": "A Second-Order Stochastic Dynamic Mode Decomposition by Richardson Extrapolation",
+          "trigger": "Defines the three methods and includes an OU benchmark"
+        },
+        {
+          "assessment": "No exact inverse-moment implication in sections checked",
+          "evidence": [
+            "Almost-sure convergence is a different property; explicit rates here use bounded basis functions and generator images."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.00539v3",
+          "material_read": "Abstract p. 1; Gram pseudoinverse and convergence p. 7; Assumption 5 p. 16",
+          "method": "Read relevant full-text passages of OA paper",
+          "title": "Data-driven approximation of Koopman operators and generators: Convergence rates and error bounds",
+          "trigger": "Possible broader result about integrability of the empirical Gram estimator"
+        },
+        {
+          "assessment": "Distinct claim; same-day ordering not established",
+          "evidence": [
+            "Positive growth lower bound at increasing horizon for the bounded feature 2+cos x under circle Brownian motion, not exact fixed-h integrability for x² under OU."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/...--68075464f3ef",
+          "material_read": "Local mirror RESULT.md, scalar method and long-horizon claim",
+          "method": "Compared source formula, dictionary and quantifiers",
+          "title": "Universal finite-sample anti-dissipativity in scalar stochastic dynamic mode decomposition",
+          "trigger": "Same-day directly related scalar SDMD-R comparison"
+        },
+        {
+          "assessment": "Distinct claim",
+          "evidence": [
+            "The threshold concerns a same-sample regression control variate, not a Koopman predictor or the Richardson polynomial."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/...--e31f3f81d896",
+          "material_read": "Local record finding and estimator scope",
+          "method": "Compared estimator and expected loss",
+          "title": "A five-pair variance threshold for reused Gaussian quadratic control variates",
+          "trigger": "Same inverse-moment terminology and first-order cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp mismatch at m=5,…,8 identifies a real statistical tradeoff for higher-order extrapolation: even an almost surely invertible Gram and negative population generator do not guarantee finite unconditional risk. The rare-error rates and exact budget needed to recover square integrability are useful design diagnostics, and the separate Taylor action isolates the cause. Scope is one unregularized, reused-sample step with the stated dictionary, not typical numerical accuracy or long-horizon behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

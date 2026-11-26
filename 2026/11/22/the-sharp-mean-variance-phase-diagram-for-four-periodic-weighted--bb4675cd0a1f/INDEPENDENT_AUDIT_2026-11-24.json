@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:28:54.773968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any half-line unit vector, grouping the coordinates into the four residue classes and applying Cauchy–Schwarz bounds the numerical-range modulus by the weighted cyclic quadratic form of their four norms. Conversely, take a long constant repetition of a nonnegative maximizing vector of the four-cycle form, normalized in the half-line space; the fractional endpoint loss tends to zero. This verifies the reduction including zero weights, without requiring an irreducible Perron eigenvector. The bipartition gives w(T)=s/2 for s=||B||, B=[[a,d],[b,c]]. With mean one, sum 4 and squared sum Q=4(1+v), uniform test vectors give s>=2; equality forces both row sums and both column sums to be 2. Thus the only first-branch minimizers are alternating 1±sqrt(v). For the second branch, each entry is at most s and 2<=s<=4; maximizing the sum of squares of four entries in [0,s] of sum 4 gives Q<=s²+(4-s)². Indeed a maximum is at an extreme point of the capped simplex, with at most one entry not at an endpoint, and strict convexity excludes non-extreme equality. When two entries are positive at equality one equals s, and they cannot share a row or column (the row or column Euclidean norm would exceed s). Opposite edges therefore give all equality cases, and the diagonal examples realize the bound. Sum and square-sum bounds force 0<=v<=3 and the two families realize the entire interval. For 1<=v<3 set (a,b,c,d)=(2-e+D,e,2-e-D,e) with D²=2(v-1)+4e-2e². For sufficiently small e>0 this is positive, preserves both moments, and converges to the extremizer; v=3 itself permits only one positive entry. Thus the claim about positive weights is an infimum on the feasible range v<3, and both endpoints are accounted for. RESULT.md lines 17–36 and VERIFICATION.md lines 19–27 are consistent with this reconstruction; finite-section approximations or numerical replay are not needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharif quotes Ridge's all-period variational formula and evaluates the period-two value as the arithmetic mean.",
+          "Alternating four weights reduce to period two, realizing the flat branch only; their variance is at most one under nonnegativity."
+        ],
+        "reasoning": "The period-two evaluation does not show uniqueness among arbitrary four weights or supply an optimizer beyond the alternating feasibility bound. The general variational formula supplies the objective, not the sharp constrained comparison.",
+        "searches": [
+          "Sharif arXiv:2303.00876 pp. 3, 5 and bibliography p. 18",
+          "Ridge and Stout original periodic-weighted-shift papers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2303.00876",
+        "Resultary bb4675cd0a1f, 722309e917f5 and 191526c15335"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three-period weighting has a different finite norm reduction and constraints; it does not specialize to the bipartite four-cycle with two independent moments.",
+          "Schatten fourth depends on both singular values and the inspected result uses a different constraint, whereas this optimization minimizes the largest singular value at fixed entry sum and squared sum."
+        ],
+        "reasoning": "Sharpness here requires a matching simultaneous-moment inequality and equality with opposite-edge support beyond the alternating range. Neither prior exact optimization provides that conclusion.",
+        "searches": [
+          "Sharif periodic and two-period formulas",
+          "Resultary 722309e917f5 Finding",
+          "Resultary 191526c15335 Finding and constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodic variational formula is a cyclic quadratic form including the modulus of the weights.",
+          "For period four the form is bipartite and reduces to the spectral norm of B/2. Thus the exact equivalent problem is the lower spectral-norm envelope of nonnegative two-by-two matrices under simultaneous entry sum and Frobenius-norm constraints."
+        ],
+        "reasoning": "The established reduction solves evaluation at given entries, not the lower envelope or its equality cases. The analysis credits the norm reduction to prior work.",
+        "searches": [
+          "Fixed-mean and variance minimization of four-periodic weighted shifts and nonnegative two-by-two spectral norm (primary literature)",
+          "Sharif arXiv:2303.00876 p. 3, periodic weighted-shift variational formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match bb4675cd0a1f is the frozen record itself, not independent earlier evidence.",
+          "The closest distinct period-three record reports a different envelope and optimizer regimes; the finite four-cycle record concerns a Schatten-fourth objective under a squared-weight sum."
+        ],
+        "reasoning": "The visible exact match has the identical record identity. The distinct records' formulae and tables do not give the numerical-radius lower envelope in this four-period two-moment class.",
+        "searches": [
+          "Resultary four-periodic weighted-shift mean–variance phase diagram",
+          "Resultary three-periodic mean–variance envelope 722309e917f5",
+          "Resultary weighted Schatten-fourth four-cycle sparsification 191526c15335"
+        ]
+      },
+      "rationale": "The established periodic numerical-radius formula and the two-period value are not new. The supported distinct claim is the exact constrained four-period minimum, including the change from alternating full support to opposite-edge support and its positive-weight nonattainment. The strongest inspected comparisons either evaluate the norm for a specified sequence without optimizing the two moments, optimize a different period, or optimize a different functional.",
+      "residual_risks": [
+        "The original Ridge and Stout texts were unavailable. Other results framed as constrained nonnegative matrix norm inequalities may not be indexed as weighted-shift results. The bounded search does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers norm reduction and the two-period value, not the two-moment four-period optimization",
+          "evidence": "Periodic cyclic maximum formula and period-two arithmetic mean.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.00876",
+          "material_read": "p. 3 at offset 11031; p. 5 at offset 18154; bibliography p. 18 at offset 73079",
+          "method": "Bounded original OA text inspection",
+          "title": "On the numerical radius of weighted shifts on ℓ² as a norm on ℓ∞ and connections to Banach limits",
+          "trigger": "Established periodic variational formula and mean comparison"
+        },
+        {
+          "assessment": "Different optimization; no implication at period four",
+          "evidence": "Three weights, a different phase transition and different equality families.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-mean-variance-envelope-for-three-periodic-weighted-shift--722309e917f5",
+          "material_read": "RESULT.md Finding and constraints, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A sharp mean–variance envelope for three-periodic weighted-shift numerical radii",
+          "trigger": "Identical motivation and adjacent period"
+        },
+        {
+          "assessment": "Different objective and moment constraints",
+          "evidence": "Optimizes a Schatten-fourth objective under a fixed squared sum; it does not claim the norm envelope here.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-three-regime-sparsification-of-the-weighted-schatten-fourt--191526c15335",
+          "material_read": "RESULT.md Finding and constraints, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp three-regime sparsification of the weighted Schatten-fourth radius",
+          "trigger": "Same four-cycle support geometry and sparse sharp optimizers"
+        },
+        {
+          "assessment": "Scope of originals beyond the quoted reduction is unresolved",
+          "evidence": "DOI requests did not provide lawful full text; no negative inference about the inaccessible portions.",
+          "identifier_or_url": "Ridge (1976); Stout, Proc. Amer. Math. Soc. 88 (1983), 495–502",
+          "material_read": "Sharif's citation and quoted periodic formula only; originals not obtained",
+          "method": "Identified DOI access attempts and Sharif's original full text",
+          "title": "Numerical range of a weighted shift with periodic weights; The numerical range of a weighted shift",
+          "trigger": "Foundational periodic norm sources might include special fixed-moment comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the exact two-moment envelope in the first even period where an arbitrary sequence is not necessarily alternating. It determines when the mean alone stays sharp, when increasing variance strictly raises the optimum, and when positive weights can only approach it. The distinction between attainable equality and a boundary infimum is useful information not supplied by the norm formula alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

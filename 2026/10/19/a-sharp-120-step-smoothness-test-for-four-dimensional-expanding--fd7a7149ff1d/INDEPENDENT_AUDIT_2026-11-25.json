@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:31:36.250420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonzero algebraic integer, two integral powers make the gcd power rational by Bézout, hence integral. Exponents are therefore the multiples of the least one and matrix exponents are lcms over the irreducible factors. All conjugates of a root with an integer power have common modulus r. In degree two the ratio of the two conjugates is a root of unity in the quadratic field, and the power is rational exactly when this ratio raised to that power is 1. Thus degrees of cyclotomic fields give exactly the allowed orders 2, 3, 4, 6. An irreducible cubic has exactly one real root ±r, with norm ±r³, hence least exponent 3. For a quartic, complex conjugation takes α to q/α with q=r². If there are real roots, either all four of the same modulus would be impossible or the real pair is ±r, which forces an even minimal polynomial. In the nonreal case reciprocity pairs the cubic and linear coefficients and the constant is q². When the polynomial is even, β=α² has degree two and rational powers of α must be even by conjugacy with −α, giving {4,6,8,12}. Otherwise the nonzero cubic coefficient gives rational q via the linear coefficient c=qa, hence integer q since q² is integral. Now α=√q ζ_m, and in Q(√q,ζ_m) its stabilizer has size at most two because ζ_m can go only to ±ζ_m. Degree four gives φ(m)=2,4,8. The φ=2,4 lists only give exponents from {2,3,4,5,6,10}, according as m/gcd(m,2) is taken alone or with the required factor 2 for nonsquare q. For φ=8 the only orders allowing the necessary automorphism ζ↦−ζ are 16,20,24 (φ(m)=8 implies m uses only the primes 2,3,5). In the 16 and 20 cases the maps ζ↦ζ⁹ or ζ↦ζ¹¹ fix the unique real quadratic subfields Q(√2) and Q(√5), respectively, so cannot also flip √q. Order 24 gives only index 12. Combining linears, cubics and two quadratics gives no additional indices. Witnesses for 2,3,4,6 have roots ±√2 or the conjugate pairs 2e^{±iπ/3}, √2e^{±iπ/4}, √3e^{±iπ/6}; indices 5 and 10 follow from 2ζ₅ and √5ζ₅ (the latter has degree four by its trivial stabilizer and the displayed polynomial by its four signed cyclotomic conjugates). For the even quartics of indices 8 and 12, squaring the root gives −1±i and (3±i√3)/2 respectively, with quadratic exponents 4 and 6; Eisenstein proves the quartic degree. All witnesses are expanding and semisimple. Their lcm is 120 and divisibility is necessary for any candidate universal exponent. Nonzero Jordan blocks retain their defect under powers because the first superdiagonal scales by jλ^{j−1}≠0. Over Q, a rational semisimple matrix with integral eigenvalues has a rational eigenbasis, so the cited smooth-Markov theorem gives precisely the claimed test. The frozen exact diagnostic script was inspected, not executed; the finite totient range in that script is not used as the upper bound proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.3 proves finiteness by separating common moduli from normalized cyclotomic factors. Capelli's criterion, in Koley–Reddy, tests reducibility of an entire binomial X^n−a, not the minimal exponent of a selected quartic factor. The accessible Smyth presentation gives structural forms for irreducible polynomials with a root of positive rational modulus."
+        ],
+        "reasoning": "These are meaningful precursors. Finiteness and reducibility do not select all attainable orders for quartic factors. A rational modulus alone does not force angles to be rational multiples of π, and nonrational moduli occur among the reviewed quartics.",
+        "searches": [
+          "Hughes–de Jong arXiv:2604.00257v2 Theorem 1.2, §§5–7; Koley–Reddy arXiv:2006.03787 Theorem 1; Dilcher–Noble–Smyth DOI 10.4064/aa148-3-5 and author presentation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Hughes–de Jong arXiv:2604.00257v2",
+        "Koley–Reddy arXiv:2006.03787",
+        "Dilcher–Noble–Smyth author presentation; journal full text attempted",
+        "Resultary 9318dd22f8ba and 7d65d8707715"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hughes–de Jong already reduce the index to the modulus exponent times the lcm of the normalized root-of-unity real-power exponents, and already give the Markov equivalence. In dimension four the coarse φ≤4 bound for the normalized cyclotomic factors, with modulus exponent possibly four, leaves extraneous possibilities; e.g. that numerical bound alone does not rule out 4·4 from modulus exponent 4 and normalized order 8."
+        ],
+        "reasoning": "The older general method narrows candidates, but a quartic compatibility analysis is needed to discard inadmissible bins and prove attainability of the optimal set. The even quartic reduction and the real quadratic subfield checks supply that missing information. Once the exact set is known, 120 and the equivalence obtained from Theorem 1.2 are indeed corollaries.",
+        "searches": [
+          "Hughes–de Jong Theorem 1.2 and §5.2, Proposition 5.3 proof; Dilcher–Noble–Smyth author presentation rational-modulus class C3; Koley–Reddy Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An algebraic integer has a rational power exactly when that power is integral. An irreducible factor has such an exponent exactly when all root ratios have finite order, by conjugacy and invariance of the common powered value. This is also the condition of dividing X^n−k for some integer k. The closest inspected rational-power Resultary entry 9318dd22f8ba instead studies two powers after an algebraic additive shift, and does not give least single power indices by degree."
+        ],
+        "reasoning": "Classifying least binomial exponents for irreducible factors of degree at most four would be equivalent after combining factors; the checked shift problem is not such a classification. The focused search did not identify an exact equivalent external statement, which is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: expanding tori smooth Markov partitions H(4) and exponent 120; algebraic integers of degrees two to four with some rational power; radical and power-index classifications",
+          "Primary literature searches for least integer-power exponents and for degenerate quartics with root-of-unity ratios or binomial factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "§5.2 presents the exact two-dimensional set {1,2,3,4,6} and expanding witnesses; the later sections treat dimension-two applications and dimension bounds rather than a four-dimensional index table. The checked catalog entries deal with shifted rational powers and enhanced-radical degree pruning respectively, not the index set or the 120 test."
+        ],
+        "reasoning": "The two-dimensional exact table covers the quadratic pieces and associated witnesses, not the quartic pieces. Finite witness computations by themselves could not establish completeness for unbounded integer coefficients. No matching exact four-dimensional table was established in the checked sources.",
+        "searches": [
+          "Hughes–de Jong §5.2 exact index and sharp-power examples; Resultary H(4), 120 and binomial-exponent searches; 9318dd22f8ba and 7d65d8707715"
+        ]
+      },
+      "rationale": "The Markov criterion, finiteness of the possible indices in each dimension, the factor-lcm reduction, and the full quadratic spectrum are prior. The checked distinct addition is the dimension-four exact index set with attained witnesses and the optimal single exponent; this requires the quartic exclusions, not just selecting 120 from a finite bound. The exact power criterion follows from the arithmetic result and the existing dynamical theorem, rather than constituting a new Markov existence theorem on its own.",
+      "residual_risks": [
+        "A more general older classification of low-degree factors of binomials or a detailed table of rational-power elements may subsume this result; none was established in the bounded check.",
+        "The Dilcher–Noble–Smyth journal text was unavailable, so the author presentation supports a structural comparison only and not a whole-paper exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the dynamical criterion, finiteness/normalization method and exact two-dimensional classification, not the checked four-dimensional refinement",
+          "evidence": "Some power similar over Q to a diagonal integer matrix; finite H(d); proof reduces using irreducible factors and common modulus, followed by the exact H(2) examples.",
+          "identifier_or_url": "https://arxiv.org/html/2604.00257v2",
+          "material_read": "Theorem 1.2 PDF p. 2; §5.2 pp. 23–25, including Proposition 5.3 and proof at HTML offsets 86700–93100; §5.1 opening and section outline for §§6–7",
+          "method": "Primary PDF and HTML passages",
+          "title": "Smoothness of Markov Partitions for Expanding Toral Endomorphisms",
+          "trigger": "Exact originating criterion and a plausible dimension-by-dimension classification"
+        },
+        {
+          "assessment": "Slides establish structural precursor; potential extra results in the journal paper unresolved",
+          "evidence": "C3 uses Q(z/R+R/z) with R>0 rational, and a real root of Q in (−2,2), to characterize the stated root-modulus situation. This does not test the least exponent with a rational or integral power.",
+          "identifier_or_url": "https://doi.org/10.4064/aa148-3-5",
+          "material_read": "Journal article not read: publisher/link recovery, author-shared PDF and EuDML attempts did not obtain a readable full text. Inspected associated author presentation, https://webhomes.maths.ed.ac.uk/~chris/papers/New_Orleans_beamer1210.pdf, class C3 in the PDF passage at offsets 5650–6948.",
+          "method": "Bounded lawful alternate-copy attempts for the same paper; comparison to separately available author slides, not a substitute for unread pages",
+          "title": "Minimal polynomials of algebraic numbers with rational parameters",
+          "trigger": "Reciprocity and candidate rational-modulus classifications might supply broader exact coverage"
+        },
+        {
+          "assessment": "Tests whole-binomial reducibility, not index classification",
+          "evidence": "Reducible iff a is an appropriate proper power for a divisor of n or 4|n and a=−4b⁴.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.03787",
+          "material_read": "Theorem 1, p.1, text offsets 1460–2484",
+          "method": "Primary PDF passage",
+          "title": "Irreducibility of X^n−a",
+          "trigger": "General binomial result in cited proof context"
+        },
+        {
+          "assessment": "Different arithmetic invariant",
+          "evidence": "Two distinct powers with an additive algebraic shift give rational values and constrain signatures, not the index of a single element with integer powers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-real-signature-spectrum-for-algebraic-shifts-with-two-rational-p--9318dd22f8ba/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirrored record",
+          "title": "Real-signature spectrum for algebraic shifts with two rational powers",
+          "trigger": "Closest indexed power/arithmetic overlap"
+        },
+        {
+          "assessment": "Different radical objective",
+          "evidence": "Prunes a degree search for a numerical enhanced-radical objective on abc triples, not a power-index spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-quotient-breakpoint-reduction-for-minimizing-real-enhanced-radic--7d65d8707715/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirrored record",
+          "title": "Quotient-breakpoint reduction for minimizing real enhanced radicals",
+          "trigger": "Indexed degree/radical optimization terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit optimal single-power test replaces an open-ended search over powers for a motivated geometric existence criterion. The complete dimension-four arithmetic list, including its less predictable indices 8 and 10 and counterexamples to every smaller universal exponent even in semisimple cases, is a useful finite classification, not merely a loose complexity bound or a recomputed dimension-two table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

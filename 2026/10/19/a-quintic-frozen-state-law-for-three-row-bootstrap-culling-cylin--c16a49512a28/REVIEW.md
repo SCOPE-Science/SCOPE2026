@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-length physical fixed-state predicate is derived from distinct nearest neighbors in the graph \(C_3\square C_n\) for all \(n\ge3\), with the forbidden one-particle columns excluded. A 25-state local transfer gives an exact cyclic-word trace. The 13 recurrent pair states admit a seven-dimensional symmetric quotient and two three-dimensional standard-color components; their exact characteristic determinants yield the fugacity quintic and quadratic. The recurrent nonnegative transfer is primitive for positive weights, proving the entropy and analytic limit law. The fluctuation variance is strictly positive since the empty-column and full-column loops have different additive rewards. Exhaustive independently implemented physical-state enumerations for lengths three through six agree with the full fugacity coefficients; exact symbolic determinants independently verify the critical matrix identities. The proof, rather than these finite experiments, establishes statements for arbitrary length.
+## correctness
 
-**Originality — PASS with residual risk.** The 1979 foundational bootstrap-culling paper analyzes a Bethe lattice, and a 1981 paper reports simulation of square and other bulk lattices (only abstracts accessible). The inspected full texts of Hartarsky–Lichev (2026) and Gao–Zhou–Hu (2015) treat respectively growing two-dimensional torus hitting times and spatial-network activation, neither this uniform fixed-state cylinder ensemble. Targeted mathematical database, exact-sequence, characteristic-polynomial, and transfer-matrix searches yielded no equivalent all-length polynomial, entropy, occupation fractions, or CLT. Classical transfer methods and generic computability are not claimed as discoveries. An inaccessible older paper, an unpublished width-three enumeration, or an overlooked equivalent k-core transfer table could limit novelty; no uniqueness of literature is asserted.
+PASS
 
-**Mathematical value — PASS.** Threshold-three culling on the smallest genuine degree-four periodic square-lattice strip produces a natural exactly countable frozen ensemble with an unexpected extensive population of half-filled columns (limiting proportion about \(0.42056\)). An explicit fugacity polynomial simultaneously supplies all finite particle-number counts and thermodynamic entropy, occupied density, and fluctuations; those are useful reference invariants for finite-width caging and differ from Bernoulli-start survival statistics. Exact confined model values need not establish the infinite-width critical transition.
+Reconstructed the local predicate from the actual graph: singles cannot survive, a double requires both adjacent columns to contain its rows, and a full column requires their union to cover all rows. For n≥3 a trace walk counts a labeled cyclic word once with one weight per column; the two shorter powers are formal only. The 13 possible recurrent pairs connect both ways to FF and FF has a self-loop. In the symmetric sector the rows for EE/FE and DD/FD coincide; on their equal-coordinate image the five coordinates EE,EF,FF,DD,DF give the matrix with rows (1,1,0,0,0), (0,0,b,0,0), (b,0,b,3b,0), (0,0,0,a,a), (0,0,b,2b,0). Direct symbolic determinant gives P. In each of the two sum-zero color sectors the two double-center rows coincide and the image matrix has rows (a,a), (−b,0), giving Q. All other eigenvalues are zero. An independent direct four-neighbor bitmask enumeration matched every bivariate coefficient at n=3 through 6; trace powers also give 831 and 2145 at n=7 and 8. The primitive spectral gap persists locally under complex fugacity perturbation; the trace then gives analytic quasi-powers and the joint column proportions concentrate by the same first/second derivative argument as for occupation. The EE and FF self-loops have different rewards, so occupation variance cannot vanish by a coboundary. Independent high-precision evaluation gives α≈2.6074909962041324, σ²≈0.4451251123536428 and full-column fraction ≈0.5411126234832437; the corresponding frozen decimals have tiny final-digit errors, not errors in the exact characteristic or derivative definitions. No uploaded code was executed.
 
-**Limitations.** The finite width is fixed at three; no claim covers initial-condition-dependent culling endpoints, culling times, or larger widths. The 1979 and 1981 relevant primary texts could not be inspected in full. Scientific novelty is assessed against the accessible record, and further human bibliographic review may change that assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-fugacity characteristic factor and the resulting uniform-ensemble law concern a different local predicate from the nearest indexed enumerations. Three-core/bootstrap duality and transfer/Perron methods are not new; the exact strip-specific census is not supplied by those methods without solving its recurrent-state structure.
+
+## value
+
+PASS
+
+The bivariate exact law gives all labeled frozen-state counts, including partial-column contributions that an all-full/empty approximation would miss, and supplies a usable benchmark for uniform core ensembles, including an entropy, concentration and a nondegenerate CLT. It does not describe the much different endpoint distribution from Bernoulli initial conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

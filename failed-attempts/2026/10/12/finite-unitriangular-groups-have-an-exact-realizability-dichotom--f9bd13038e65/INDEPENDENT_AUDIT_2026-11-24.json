@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:47.405855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 15–91 and 93–170; VERIFICATION.md lines 18–43; artifacts/verify.py",
+        "Chebolu–Lockridge arXiv:1901.10081v1 p. 1 and Prop. 7.4",
+        "Swartz–Werner arXiv:1904.07901 Theorem 2.6 and its proof on pp. 5–6"
+      ],
+      "rationale": "The realizability dichotomy and the characteristic-two local normalization specified in the proof are correct. For q=2^f, restricting scalars on the nilpotent strictly upper triangular algebra N gives an F₂-algebra. In R=F₂I⊕N only the elements I+X can be units, and their inverses are the finite geometric sums in X; N is nilpotent, the nonunits are exactly N, R/N=F₂ and |R|=2q^(n(n−1)/2). More generally a finite characteristic-two local realization of a 2-group has residue a finite field of characteristic two whose unit group is an odd-order quotient of the 2-group; thus that field is F₂ and |R|=2|R×|. This is the scope of the bound in the proof (line 140), not an unrestricted minimum over local rings of arbitrary characteristic: UT₂(2)=C₂ already has the smaller local realization F₃. For odd p and n≥3 the factors I+E₁₂ and I+E₂₃ fail to commute by the E₁₃ term. The odd-order theorem rules these groups out; at n=2 the additive field is C_p^f and Ditor's criterion applies, with explicit realization (F_{2^a})^f for p=2^a−1. Independently, an odd-order unit group forces −1=1, hence characteristic two; the subgroup 1+J(R), of 2-power order, must be trivial. The finite semisimple ring is then a product of matrix rings over fields of characteristic two, with no matrix block of size at least 2 since its units would contain an involutory transvection. If every factor has unit group of p-power order, a nontrivial factor satisfies 2^a=p^e+1, which forces e=1: even e gives 2 mod 8, and odd e>1 produces a proper odd divisor (p^e+1)/(p+1). Thus the relevant unit group is elementary abelian at a Mersenne prime. The n=1 case is trivial as stated. The bundled finite checker was inspected, not executed; the proof is symbolic.",
+      "residual_risks": [
+        "The Finding's phrase 'general local-ring bound' needs the characteristic-two qualification made in the proof. This is not a minimum over arbitrary finite rings, a classification over arbitrary coefficient rings, or a full-realizability claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebolu–Lockridge state Ditor's odd-order classification and the elementary abelian/Mersenne consequence for odd p-groups. Swartz–Werner give a local realization of size 2|G| for a 2-group realizable in characteristic 2^m, with units 1 plus the maximal ideal. Lockridge–Terkel focus on other linear families; their narrower coverage is not needed for the implication."
+        ],
+        "reasoning": "Odd UT groups fall literally within the stated prior classification. The explicit even construction guarantees realizability, but its normalizing order and local residue are not additional classification facts. Swartz–Werner do not imply even-case realizability by themselves.",
+        "searches": [
+          "Chebolu–Lockridge arXiv:1901.10081v1 p. 1 and Prop. 7.4",
+          "Swartz–Werner arXiv:1904.07901 Theorem 2.6 and proof",
+          "Lockridge–Terkel arXiv:2401.11583v1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked search and nearby record 0240d15e6f42",
+        "André–Freitas–Neto arXiv:1502.01512",
+        "Chebolu–Lockridge arXiv:1901.10081",
+        "Swartz–Werner arXiv:1904.07901",
+        "Lockridge–Terkel arXiv:2401.11583",
+        "Diaconis–Isaacs access attempts; Ditor DOI 10.1080/00029890.1971.11992797 access attempt, theorem verified via Chebolu–Lockridge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any finite nilpotent F₂-algebra, the ordinary unitization has units 1+J, and radical quotient F₂. Apply this without further conditions to strict upper triangular matrices. For q odd, n=2 gives exactly C_p^f and n≥3 gives a nonabelian p-group. The cited odd-p theorem returns the asserted Mersenne exception and excludes the rest."
+        ],
+        "reasoning": "Both directions for every parameter, including the order normalization, follow by routine direct specialization. The negative originality judgment is based on these material implications and standard construction, not on an assertion that some older source expressly wrote the same combined theorem.",
+        "searches": [
+          "ArXiv:1502.01512 pp. 1–2, algebra-group setup",
+          "ArXiv:1901.10081v1 p. 1 and Prop. 7.4",
+          "ArXiv:1904.07901 Theorem 2.6 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "André–Freitas–Neto use the standard group P=1+J of a nilpotent algebra J, and identify finite unitriangular matrices as the originating example. The even construction in the record is just the F₂-unitization of this same strict upper triangular algebra."
+        ],
+        "reasoning": "The equivalent formulation as an algebra group is decisive: after scalar restriction there is no extra group or ring to construct. Quotienting the unitization by its nilpotent ideal leaves F₂, with no additional units. The formula in the record is exactly this standard operation.",
+        "searches": [
+          "Local Resultary: unitriangular groups, ring unit groups, Fuchs' problem",
+          "Algebra group / unitriangular / nilpotent algebra / unitization literature; arXiv:1502.01512 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed unitriangular entry consulted classifies p-th-power images for UT_{p+3}(K), not finite-ring unit group realizability. No exact matching family table was found in the relevant ranked hits."
+        ],
+        "reasoning": "Power-image information does not give this classification. No finite database is needed to decide the symbolic implication, and lack of a matching table does not overcome prior mathematical coverage.",
+        "searches": [
+          "Local Resultary ranked searches on UT_n(q), group of units and finite-ring realization",
+          "Resultary 2026/10/25/SCOPE-a-uniform-first-nonsurjective-power-image-theorem-for-unitriangu--0240d15e6f42"
+        ]
+      },
+      "rationale": "The classification is covered by standard algebra-group/unitization and odd-primary realizability results applied directly to the defining matrix algebra, even though the bounded search did not find this exact family statement word for word. On the even side, UT_n(q) is its defining algebra group 1+N; viewing N as a nilpotent F₂-algebra, its ordinary unitization has that group as its entire unit group because F₂× is trivial. The local residue and factor of two are the usual normalization. On the odd side, the published classification applies immediately once n=2 and n≥3 are distinguished by one matrix-product check. No new obstruction or realization beyond these direct implications is shown.",
+      "residual_risks": [
+        "The exact earlier presentation of the concrete even matrix ring and of the combined all-parameter formulation is not established. The negative judgment rests on the demonstrated standard implications; unavailable papers are not the basis for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the standard algebra-group starting point, not an assertion that the paper states a finite-ring realization theorem",
+          "evidence": [
+            "Defines P=1+J for a nilpotent algebra; introduction traces the theory to finite UT_n(k)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.01512",
+          "material_read": "Abstract and beginning of §1, pp. 1–2, OA offsets 0–5785",
+          "method": "Bounded primary PDF passage",
+          "title": "A supercharacter theory for involutive algebra groups",
+          "trigger": "Lawfully available primary algebra-group formulation connected to the exact UT family"
+        },
+        {
+          "assessment": "Exact wording or presentation not verified; no negative inference from inaccessibility",
+          "evidence": [
+            "Algebra-group formulation is independently supported by the checked alternate primary paper on the subject."
+          ],
+          "identifier_or_url": "Diaconis–Isaacs, Trans. Amer. Math. Soc. 360 (2008), 2359–2392",
+          "material_read": "Bibliographic/search-level identification, not primary full text",
+          "method": "Bounded AMS/JSTOR OA access attempts; related arXiv:1502.01512 inspected separately",
+          "title": "Supercharacters and Superclasses for Algebra Groups",
+          "trigger": "Canonical algebra-group paper and possible explicit unitization example"
+        },
+        {
+          "assessment": "Directly covers every odd-field case after checking abelianness and n=2",
+          "evidence": [
+            "Reports Ditor's odd-order result and explicitly states elementary abelian and Mersenne as the criterion for odd p-groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.10081",
+          "material_read": "v1 p. 1 and p. 13 Prop. 7.4, offsets 3652 and 46813",
+          "method": "Bounded primary PDF passages",
+          "title": "Fuchs' problem for p-groups",
+          "trigger": "Exact prior odd-primary classification"
+        },
+        {
+          "assessment": "Prior normalization in characteristic a power of two; no inference of an unrestricted minimum",
+          "evidence": [
+            "If a finite 2-group is realizable in characteristic 2^m for m≥1, it has a local realizing quotient of Z_(2^m)[G] of size 2|G| with units 1+M."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.07901",
+          "material_read": "Opening scope and §2 Theorem 2.6 with proof on PDF pp. 5–6, offset 15750 onward",
+          "method": "Bounded primary PDF passages",
+          "title": "Fuchs' problem for 2-groups",
+          "trigger": "General local-ring and order normalization used by the Finding"
+        },
+        {
+          "assessment": "Related linear groups; not required for the decisive novelty rejection",
+          "evidence": [
+            "Notes that GL groups are matrix-ring unit groups; focuses on degree-two special linear and degree-one affine general linear groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.11583",
+          "material_read": "v1 opening scope p. 1, offset 485",
+          "method": "Bounded primary PDF passage",
+          "title": "Fuchs' problem for linear groups",
+          "trigger": "Potential same-family result for finite linear groups"
+        },
+        {
+          "assessment": "Same family but different invariant",
+          "evidence": [
+            "p-th-power image condition and count for UT_{p+3}(K), not ring-unit realizability."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-a-uniform-first-nonsurjective-power-image-theorem-for-unitriangu--0240d15e6f42",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Bounded local Resultary mirror passage",
+          "title": "A uniform first-nonsurjective power-image theorem for unitriangular groups in every prime characteristic",
+          "trigger": "Closest distinct indexed unitriangular record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md proof, lines 93–170",
+        "Chebolu–Lockridge arXiv:1901.10081v1 p. 1",
+        "Swartz–Werner arXiv:1904.07901 Theorem 2.6"
+      ],
+      "rationale": "A unit-group classification of a natural linear family is a reasonable question, but here the defining algebra is already the even-field realization after ordinary unitization, and the complete odd-field answer is an immediate case of the known odd-order theorem. The characteristic-two size is standard normalization, and the small replay tests add no fact about the general family. This is a useful example collecting known mechanisms, not a distinct structural result or a non-mechanically implied classification warranting a validated finding.",
+      "residual_risks": [
+        "No judgment is made about a stronger theorem on arbitrary coefficient rings, unrestricted minimum realizing order, or full realizability; none is proved in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:34.226254Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<p<1, the invariant measure is normalized Lebesgue measure on R_p, not on the whole torus including the untwisted complement. Starting on the overlap, the horizontal iterates stay outside the vertical strip until the first horizontal return; the last horizontal shear and first vertical shear count as one full step. Subsequent vertical iterates stay outside the horizontal strip until the first full return. This gives T=G_S∘F_S, τ=a+b−1 and derivative V_{b/p}U_{a/p}. Conditional rotation Kac gives E a=E b=1/p, with preservation of overlap measure under F_S needed for the second equality. The cone v≥u/p≥0 is invariant since v′−u′/p=(b−1)u/p+[1+a(b−1)/p²]v. Within it the mass fraction on v is at least 1/(1+p), yielding expansion both by ab/[p²(1+p)] and by the minimal-matrix column bound 1+p^(−2)+1/(1+p). Positive products tested on (1,1) give the top ℓ¹ growth up to a factor 2. For each j≥1, conditioning on x makes x+j(y/p) mod 1 uniform; the probability of a horizontal hit at that time is p, whether or not other hit events are dependent. Union bounding the integers j<e^(−t)/p gives P(pa<e^(−t))≤e^(−t), and integrating proves E log a≥log(1/p)−1; symmetry gives the same bound for b. The two shear norms bound expansion above by (1+a/p)(1+b/p); Jensen and the Kac means give the stated upper bound. Ergodicity on the invariant union is the imported hypothesis verified for this family in the primary literature. Return-time normalization follows directly along the return subsequence from Birkhoff and the full-time almost-sure exponent. After division by 2/p−1, the lower thin-width branch has error −p+O(p²log(1/p)) and the upper error is O(p²log(1/p)), proving the claimed coefficient; the other lower branch proves positivity at every fixed p. verify.py was inspected as supplementary evidence, not run or used to prove the infinite-parameter inequality. No claim is made at the degenerate endpoint p=0 or for exceptional orbits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 uses p≥p_* with p_*³+p_*−1=0; Theorem 3 uses a still larger minimum width, approximately 0.8562.",
+          "The correlation-decay theorem and general annulus remarks supply no quantitative control of the exponent as equal widths vanish."
+        ],
+        "reasoning": "Hyperbolicity or mixing at each fixed width is weaker than a matching asymptotic as p tends to zero. The strongest explicit prior partition bounds do not reach that limit.",
+        "searches": [
+          "doi:10.1088/1361-6544/acb397 Theorems 2–3 and return partition",
+          "arXiv:1212.0889 Theorem 1.1 and §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary linked-twist search",
+        "Wright–Niesen–Sturman doi:10.1088/1361-6544/acb397",
+        "Springham–Sturman arXiv:1212.0889"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimizing Wright–Niesen–Sturman's pointwise cone expansion ψ₁(a,b) at a=b=1 recovers the first lower branch, with leading coefficient 1 for p log(1/p). Their separate entropy/periodic-orbit upper estimate is O(log(1/p)), not a thin-width matching upper bound.",
+          "The additional logarithmic return-size estimate supplies 2 log(1/p)−O(1) in the induced lower bound; Kac alone controls the arithmetic mean and does not provide that logarithmic lower bound."
+        ],
+        "reasoning": "Credit the implicit known first branch; neither that branch nor the cited stronger-width results mechanically imply the second branch or the leading coefficient 2.",
+        "searches": [
+          "doi:10.1088/1361-6544/acb397 pp. 1701, 1703–1704 cone and entropy estimates",
+          "arXiv:1212.0889 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wright–Niesen–Sturman use equal strip widths p and the same full shears, return derivative, and mean return time (2−p)/p.",
+          "Springham–Sturman identify H_S=G_S∘F_S and j+k−1 at the overlap, matching the frozen return convention; their worked half-width case rescales to p=1/2."
+        ],
+        "reasoning": "Compare per-original-iterate and per-induced-return exponents after applying the same Kac factor. The change of units does not yield the missing thin-width control.",
+        "searches": [
+          "Resultary: linked-twist maps and small-overlap Lyapunov law",
+          "Wright–Niesen–Sturman doi:10.1088/1361-6544/acb397 §1",
+          "arXiv:1212.0889 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching prior explicit formulas and return cells have a positive lower width cutoff, while the reviewed claim is uniform over 0<p<1 and asymptotic at p=0.",
+          "The Resultary lookup yielded no materially matching result among the returned records; this is only a limited lookup."
+        ],
+        "reasoning": "A finite table of exponents or return cells at widths bounded away from zero cannot establish the leading coefficient or all-width enclosure. The most plausible tabulated/partition evidence was checked at its domain boundary.",
+        "searches": [
+          "Resultary: linked-twist wording and small-overlap Lyapunov law",
+          "Wright–Niesen–Sturman 2023, pp. 1703–1707"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp thin-strip law and matching all-width enclosure, not the return formalism, Kac factor, positivity, or the pointwise minimal-cone bound alone. The prior paper treats exactly the same family, but its partition-based estimators stop at positive widths and the available pointwise-minimum estimate loses a factor of two in the leading lower coefficient.",
+      "residual_risks": [
+        "Not an exhaustive priority determination. Width-dependent estimates in other thin-annulus literature, or a prior independent use of the same rotation hitting-time bound for this exponent, could change the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known return normalization and pointwise cone estimates; no matching small-width law",
+          "evidence": "The same family is Lebesgue-ergodic by the cited linked-twist result; the return partition used in the bounds imposes p³+p−1≥0.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/196140/7/Wright_2023_Nonlinearity_36_1699.pdf",
+          "material_read": "§1, pp. 1700–1701; Theorems 2–3 and cone estimates, pp. 1703–1704; partition discussion, p. 1707",
+          "method": "Bounded OA PDF passages",
+          "title": "Rigorous bounds on Lyapunov exponents of linked twist maps",
+          "trigger": "Exact family and computable Lyapunov bounds"
+        },
+        {
+          "assessment": "Supports the return convention and related ergodic theory, not the claimed asymptotic",
+          "evidence": "With S=P∩Q explicitly, H_S=G_S∘F_S and the full-map return time is j+k−1; the theorem's quantitative conclusion is correlation decay.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.0889",
+          "material_read": "Theorem 1.1, p. 3; §3, pp. 7–8; scope remarks concerning general annuli",
+          "method": "Bounded OA text passages",
+          "title": "Polynomial decay of correlations in linked-twist maps",
+          "trigger": "Possible arbitrary-annulus bounds and exact overlap-return convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The law determines the actual rate of vanishing of the typical full-time exponent even though the individual shears diverge. The all-width enclosure is usable below the earlier return-partition cutoff, and the leading coefficient distinguishes typical return-size growth from the weaker estimate based only on the smallest possible return.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

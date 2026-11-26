@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:48:12.226921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The leaf deletion in a strip of width at most three is a sequence of valid closed-neighborhood dominations. In width three, the two endpoint leaf copies are dominated by the middle parent copy; after those deletions the middle leaf copy is also dominated by it. In width two the opposite parent copy dominates each leaf copy in the specified order; in width one the parent suffices. Distances of surviving vertices are unchanged. For n≥7, the common radius-two neighborhoods of columns at distance two give exactly the intervening three consecutive columns, so the cover catches every simplex. Its nonempty intersections are strips of widths one, two or three; the nerve consists of consecutive triples and their faces, with a unique triangle incident on each distance-two edge. The resulting collapse proves S¹. The cellular product C_n×T has the scale-one graph as its 1-skeleton and one 2-cell per square. Its H₂=0 and H₁=Z imply the square boundaries are independent and primitive in the graph cycle lattice. Each square spans a tetrahedron in X₂, and the projection to the cycle Rips complex and any fixed-tree-coordinate section show that an ordinary rim cycle maps to a generator. This proves the exact split integral kernel. At n=6 with T a point the clique complex is the octahedral boundary. The frozen checks report 20 finite cases with mod-two homology, not an integral or universal proof; the support was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.11 gives a homotopy equivalence from the union of the two Rips complexes along the common Rips complex to the Rips complex of the metric gluing, when each diameter-bounded simplex meeting both outside parts has a unique nonempty maximal extension in A.",
+          "In this leaf gluing, any cross simplex must have all outside vertices in one column i, all one tree edge from p. Indeed, opposite-side distances already cost at least two in the tree. Its entire allowable subset in A is the closed radius-one cycle neighborhood of i at height p; it is nonempty and has diameter at most two. It is the required unique maximal extension."
+        ],
+        "reasoning": "Theorem 3.11 applies directly at the inclusive scale (or at any strict scale between 2 and 3 for these integer distances). All inclusions are simplicial cofibrations. Gluing on the prism along a rim inclusion that is a homotopy equivalence preserves the old homotopy type. Remove leaves to reach the one-vertex fiber. This is actual coverage, not just a resemblance to path gluing. Hypercube results are a different family and are not used to obtain coverage.",
+        "searches": [
+          "Adamaszek et al., arXiv:1712.06224v5 Theorem 3.11, p. 10",
+          "Resultary 4061be6b33be and c8f696aa7300 for high-girth product theorems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.06224v5 Theorem 3.11",
+        "Resultary ccd7a360a668, 4061be6b33be, c8f696aa7300, e28e5da49d34, 7ba15afb5db2",
+        "arXiv:2103.01040",
+        "arXiv:2302.14664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Repeating the verified leaf gluing yields S¹ for every finite nonempty T. This requires no new contractible-strip lemma.",
+          "The invariant at scale one follows once this target is known: the cellular product gives the quotient of the cycle lattice by the independent square boundaries as Z, and the inclusion kills precisely that sublattice because it maps a fixed-tree-coordinate cycle onto a generator. The n=6 point-fiber obstruction is the standard octahedral flag complex of C₆²."
+        ],
+        "reasoning": "The earlier sources need not print the arbitrary-tree result or the lattice basis verbatim: the gluing hypothesis is immediate from the distance sum, and the stated integral kernel then is forced by the usual product cellular boundary and the rim section.",
+        "searches": [
+          "arXiv:1712.06224v5 Theorem 3.11 plus Resultary circular ladder ccd7a360a668 and high-girth prism 4061be6b33be, compared to frozen Proof §§1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent construction of the cylinder is a tree of metric prisms glued along copies of C_n. At a leaf ℓ with parent p, glue the old cylinder C_n×(T−ℓ) and C_n×{p,ℓ} along A=C_n×{p}. The sum metric across the gluing is the metric amalgam, since every tree path from ℓ to the old side passes through p and the base-coordinate triangle inequality is attained by choosing an endpoint column on A.",
+          "The mirror of ccd7a360a668 states collapse of the radius-two Rips complex of the circular ladder onto a rim cycle for n≥7. The mirror of 4061be6b33be states the corresponding high-girth prism theorem."
+        ],
+        "reasoning": "The tree-of-prisms description keeps the vertex metric and inclusive scale intact. The rim inclusion into a prism Rips complex is a homotopy equivalence: both are circles up to homotopy and projection to the rim is a retraction.",
+        "searches": [
+          "Resultary: Cartesian cycle×tree radius-two Rips, circular ladder/prism, clique-fiber Rips stability",
+          "Primary-literature search: gated subspace and Cartesian graph product Rips metric gluing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7ba15afb5db2 is the submitted theorem itself. No distinct mirror inspected explicitly states the arbitrary-tree result.",
+          "ccd7a360a668 and 4061be6b33be cover the two-vertex tree; c8f696aa7300 and e28e5da49d34 treat clique fibers, the former with an integral persistence analogue and the latter at multiple scales over cycles."
+        ],
+        "reasoning": "Clique fibers of size at least three do not contain the stated arbitrary trees as cases. Coverage of that family instead comes from the gluing argument using the exact one-edge fiber case.",
+        "searches": [
+          "Resultary and local mirrors for 7ba15afb5db2, ccd7a360a668, 4061be6b33be, c8f696aa7300, e28e5da49d34"
+        ]
+      },
+      "rationale": "The exact arbitrary-tree wording was not located independently, but its homotopy conclusion follows by direct iteration of the published metric-gluing theorem of Adamaszek et al., Theorem 3.11, with the already established circular-ladder prism result. The gluing applies along an entire rim, not merely a point or short path. Its unique-maximal-common-simplex condition is automatic for a leaf-edge gluing at radius two. The integral conclusion then follows from the cellular product cycle quotient and from filling its squares. The alternative strip-and-nerve proof is correct but does not leave a distinct finding as written.",
+      "residual_risks": [
+        "An earlier source explicitly naming arbitrary tree fibers could exist; exact historical priority is not needed for the coverage decision.",
+        "The published gluing theory was compared on its decisive theorem, not on every product-metric discussion in the paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly applies to the leaf-prism decomposition at scale two",
+          "evidence": [
+            "Unique nonempty maximal A extension of every cross simplex suffices for the desired union equivalence. The one-column calculation verifies that condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.06224",
+          "material_read": "v5 §3.3, Theorem 3.11 and opening proof, p. 10, offset 36690",
+          "method": "Primary PDF, literal theorem lookup then bounded passage",
+          "title": "On Homotopy Types of Vietoris–Rips Complexes of Metric Gluings",
+          "trigger": "Possible general metric gluing theorem for gated rim slices"
+        },
+        {
+          "assessment": "Prism case is already established and supplies the induction step with the gluing theorem",
+          "evidence": [
+            "Circular ladder collapses to a rim for n≥7; high-girth prism result collapses to a triangulated cylinder for girth at least seven."
+          ],
+          "identifier_or_url": "Resultary ccd7a360a668; 4061be6b33be",
+          "material_read": "Mirrored findings at offset 0",
+          "method": "Local catalogue and mirror reads",
+          "title": "Scale-two Rips homotopy types of finite circular ladders; A uniform scale-two Vietoris–Rips collapse for prisms over graphs of girth at least seven",
+          "trigger": "Exact one-edge tree fiber"
+        },
+        {
+          "assessment": "Analogues for clique fibers, not independently sufficient for arbitrary tree fibers",
+          "evidence": [
+            "High-girth clique fibers give a split integral map and primitive kernel. Cyclic clique fibers give S¹ for n>3r and a wedge at n=3r."
+          ],
+          "identifier_or_url": "Resultary c8f696aa7300; e28e5da49d34",
+          "material_read": "Mirrored findings at offset 0; integral first-scale persistence at offset 3700 in c8f696aa7300",
+          "method": "Local catalogue and mirror reads",
+          "title": "Clique-fiber Rips stability for every high-girth base graph; A sharp one-circle-to-sphere-wedge transition for clique-fiber cyclic Rips complexes",
+          "trigger": "Closest other fiber homotopy and integral map claims"
+        },
+        {
+          "assessment": "Inspected passages concern different metric families; not relied on for coverage",
+          "evidence": [
+            "Hypercubes have wedges of 3-spheres at scale two; the extension treats selected symmetric-difference subset families."
+          ],
+          "identifier_or_url": "arXiv:2103.01040; arXiv:2302.14664",
+          "material_read": "Primary abstracts, p. 1 of each PDF",
+          "method": "OA PDF opening passages",
+          "title": "On Vietoris–Rips complexes of hypercube graphs; On Vietoris–Rips complexes of finite metric spaces with scale 2",
+          "trigger": "Potential wider scale-two Cartesian product formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A tree-fiber persistence computation is a natural question, and the strip proof is a useful explanation. But the stated homotopy type already follows from the finite metric gluing criterion and the known prism case by leaf induction, and the stated kernel follows routinely from the usual product cellular boundary. The finding does not claim a new structural feature beyond those consequences, such as a distinct scale regime or a stronger map or collapse theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

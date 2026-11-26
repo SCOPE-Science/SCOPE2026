@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:34:51.978095Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three pairwise intersecting two-sets without a common key, the sets must be the three distinct edges on three keys; this yields the exact probability 6 binom(m,3)/binom(m,2)^3 for an ordered sample triple. The respective union bounds for such a cycle, a key with at least four appearances, and three identical sets are O_b(m⁻¹), O_b(m⁻¹ᐟ³), and O_b(m⁻²). On the complement the triangle/third-key bijection holds simultaneously for every prefix, with the same birth index. In the iid two-slot coupling, resampling collisions within pairs changes a prefix of n vertices with probability at most n/m. A rate-two labelled clock splits into independent rate-2/m clocks; the third-time CDF at t m^(2/3) is 4t³/(3m)+O_b(m⁻⁴ᐟ³), uniformly for bounded t. The independent Laplace products and label-grid sums give intensity 4t² dt du. A hit at slot k is assigned to vertex ceil(k/2), so the uniform maximal discrepancy from the corresponding Poisson arrival over O_b(m^(2/3)) slots is o_P(m^(2/3)). Near zero, the expected number of original keys hitting three times by εm^(2/3) is at most m binom(floor(εm^(2/3)),3)(2/m)³ ≤4ε³/3; thus the locally finite limit loses no initial jumps. The limit has no fixed boundary atoms or time ties, so convergence on [0,b] transfers to J1 for the counts. The first-event assertion follows by taking b large, since the limiting survival at b is exp(−4b³/3), and the intensity factors in time and label. For the quantitative claim, comparing a=2n iid slots with K of law Poisson(a) changes the third-hit count with probability at most m⁻² E[|K−a| binom(max(K,a),2)] ≤ O(m⁻²√a(1+a)²)=O_b(m⁻¹ᐟ³) by Cauchy–Schwarz, also valid at a=0. The Poissonized count is binomial with success q=Pr(Poisson(a/m)≥3)=O_b(m⁻¹); Le Cam gives O_b(m⁻¹), and expansion of mq plus integer rounding gives a mean mismatch O_b(m⁻¹ᐟ³). These errors combine with the graph and pair couplings and bound one-time TV uniformly in t, not path TV. The frozen VERIFICATION.md and verify.py were inspected without execution; their finite checks do not certify the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arratia–Garibaldi–Kilian analyze the process of total repeat draws and its inverse hitting times, with a related embedding and explicit time errors.",
+          "Rybarczyk–Stark approximate counts of fixed induced subgraphs including cliques in a binomial inclusion model, in a different hypothesis set.",
+          "Dong–Hu is a close subject-title match; full-text retrieval did not yield readable theorem passages."
+        ],
+        "reasoning": "Total repeats include second hits and repeated occurrences after the third, so the count is not the point process of third-hit keys. Conditioning each binomial key set to have exactly two keys changes the distribution; the reported binomial-graph approximation is not a direct dominating theorem for this model.",
+        "searches": [
+          "Arratia–Garibaldi–Kilian arXiv:1310.7055v1, process and Theorem 8",
+          "Rybarczyk–Stark arXiv:1609.01699v1, Theorem 2",
+          "Dong–Hu DOI 10.1007/s40304-021-00270-7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary 1ed58ae3b3ee and identical record 8622adbff924",
+        "Yağan–Makowski arXiv:0910.0499v1",
+        "Arratia–Garibaldi–Kilian arXiv:1310.7055v1",
+        "Rybarczyk–Stark arXiv:1609.01699v1",
+        "Dong–Hu bibliographic lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle existence scale follows from the prior threshold; the first-time survival is birthday content. The point-process mechanism in iid slots uses standard splitting, which already makes keywise third-hit clocks independent, not a new embedding.",
+          "None of the inspected statements gives a direct fixed-two-keys process transfer, clean witness guarantee for all prefixes, or the stated finite-size TV rate. The quantitative estimates of Arratia–Garibaldi–Kilian bound different hitting-time variables."
+        ],
+        "reasoning": "The fixed-size graph claim additionally needs the no-common-key cycle and duplicate/fourth-hit control, pair-resampling and third-hit de-Poissonization at the required rate. These are verified mathematical steps, not consequences of merely substituting K=2 in a threshold or binomial clique theorem.",
+        "searches": [
+          "Yağan–Makowski Theorems 3.1–3.3",
+          "Arratia–Garibaldi–Kilian process result and Theorem 8",
+          "Resultary collision-lineage finding and Rybarczyk–Stark Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest distinct catalogue match gives the Weibull first time that an iid uniform category reaches occupancy s. For s=3, two draws per graph vertex match the time constant here after the within-pair collision coupling.",
+          "Yağan–Makowski work in the same fixed-size random-key-graph family and include the common-key order and triangle threshold."
+        ],
+        "reasoning": "The first birthday time is a genuine equivalent marginal after negligible coupling and time conversion; it is not all third-hit times with their labels, and iid slots are not literally distinct-within-vertex samples.",
+        "searches": [
+          "Resultary: two-key triangle births, third-hit marks, common-key witnesses, TV rate",
+          "Resultary 1ed58ae3b3ee, repeated birthday occupancy",
+          "Yağan–Makowski arXiv:0910.0499v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact graph probability and birthday first-time formulas are related known statistics. The exact catalogue hit for the quantitative marked claim is the assigned record itself, not independent prior evidence."
+        ],
+        "reasoning": "The evaluated finite three-set probability is not the originality target. A table of triangle probabilities or a formula for a first occupancy event does not encode the simultaneous triangle/key birth bijection or an error bound for the full one-time count law over a growing range of vertex counts.",
+        "searches": [
+          "Resultary: exact two-key triangle witness laws and finite approximation bounds",
+          "Yağan–Makowski pp. 4–6, triangle probability and existence comparison",
+          "Resultary 1ed58ae3b3ee, first-occupancy formula"
+        ]
+      },
+      "rationale": "The scale and the common-key contribution are already in random-key-graph theory, and the first-third-hit Weibull law is inherited birthday theory after changing from draws to vertices. The supported increment is the transfer to the full key-marked graph birth process with a simultaneous unique witnessing key and the explicit uniform bounded-horizon one-marginal TV estimate in the fixed-two-distinct-keys graph. The elementary Poisson embedding or the first-event time law in isolation is not the novelty claim.",
+      "residual_risks": [
+        "Dong–Hu's full text could not be lawfully retrieved; its precise theorem scope is unresolved.",
+        "An unlocated marked occupancy theorem may supply more of the third-hit process than the inspected first-time source. Priority is not exhaustive; the graph-level distinction and rate are the assessed increment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent of the first-event time marginal after time conversion",
+          "evidence": "For s=3 the first-category limit matches after replacing toss count by twice vertex count; no full key-marked graph birth process or graph-count TV estimate is stated there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-collision-lineage-identity-and-equilibrium-weibull-law-for-rep--1ed58ae3b3ee",
+          "material_read": "Mirrored RESULT.md, Finding on T_s and same-category lineage",
+          "method": "Local Resultary search and mirrored primary statement",
+          "title": "A collision-lineage identity and equilibrium-Weibull law for repeated birthdays",
+          "trigger": "Equivalent first-third-hit scale and survival law"
+        },
+        {
+          "assessment": "Related method and rate for a different collision variable",
+          "evidence": "The repeat-draw count weights occupancy k by k−1; its inverse hitting times are not the third-hit time process indexed by keys.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.7055v1",
+          "material_read": "Original PDF pp. 1–4 and 7–10, offsets 0, 8500, 21400 and 29200; definitions, process result and Theorem 8",
+          "method": "OA original PDF, targeted passages",
+          "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+          "trigger": "Birthday-process embedding and quantitative de-Poissonization"
+        },
+        {
+          "assessment": "Same model; direct prior for the scale and common-key contribution",
+          "evidence": "The zero–one law uses n³τ and its fixed-K common-key term is order m⁻² at K=2; these statements do not specify critical-window labelled births or a one-time count error of the claimed order.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.0499v1",
+          "material_read": "Original PDF pp. 4–6, offsets 9000, 12000, 13600; model, Theorems 3.1–3.3 and intensity comparison",
+          "method": "OA original PDF, targeted passages",
+          "title": "A zero-one law for the existence of triangles in random key graphs",
+          "trigger": "Exact fixed-key-ring graph model and potentially inherited scale and mechanism"
+        },
+        {
+          "assessment": "Model-adjacent marginal Poisson approximation",
+          "evidence": "Each object is included independently in each vertex's set; induced subgraph approximation under balance/sparsity does not fix the key-set size or state the marked or quantitative conclusion here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.01699v1",
+          "material_read": "Original PDF pp. 1–2 and 6–7, offsets 0, 13500 and 17000; G(n,m,p) and Theorem 2",
+          "method": "OA original PDF, targeted passages",
+          "title": "Poisson approximation of counts of subgraphs in random intersection graphs",
+          "trigger": "General Poisson clique count theorem"
+        },
+        {
+          "assessment": "Unresolved theorem-level comparison",
+          "evidence": "The source record describes binomial subsets, but unread full text cannot be used to rule out stronger triangle-count coverage.",
+          "identifier_or_url": "https://doi.org/10.1007/s40304-021-00270-7",
+          "material_read": "Bibliographic reference and frozen record's abstract-level model comparison; no readable primary theorem after DOI and Springer attempts",
+          "method": "Bounded lawful public retrieval attempts",
+          "title": "The Number of Triangles in Random Intersection Graphs",
+          "trigger": "Direct triangle-count subject match and possible stronger approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result turns a triangle threshold into a process law and explains which triangles cause it and when they appear. The simultaneous witness property rules out extra motifs and multiple witnesses throughout a bounded critical history. The one-time error estimate quantifies performance in the original fixed-size graph, rather than only for an occupancy proxy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

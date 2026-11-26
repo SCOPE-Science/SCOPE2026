@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:41:47.870668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–65",
+        "Frozen VERIFICATION.md, requirements.txt and verify.py"
+      ],
+      "rationale": "At any nonzero stationary ℓ¹ state, a=λ(1−m)>0. Irreducibility gives strictly positive coordinates, and summing yields μ−δ<a<μ. Thus the free resolvent of the mutation operator exists in ℓ¹ by a norm-convergent geometric series. Write Δ=√(μ²−4a²pq), r=(μ−Δ)/(2aq), s=(μ−Δ)/(2ap), z=√(rs). The free resolvent kernel at displacement i is r^i/Δ for i≥0 and s^(−i)/Δ for i≤0, which follows from the off-origin recurrence and the unit jump at zero. Hence one refuge requires δ=Δ. The two adjacent refuges have matching matrix (δ/Δ)[[1,s],[r,1]], whose unique positive eigenvector has ratio x₁/x₀=√(r/s)=√(p/q). Its Perron matching equation δ(1+z)=Δ is equivalent to μ+Δ−2δ=2a√(pq). The left side minus the right side decreases strictly in a; at a=μ its sign is that of μ(1+v−w)−2δ, so the root is admissible exactly at δ>δ₂. Squaring gives the stated positive a₂; the unsquared sign holds since √(μ²+4δ(μ−δ))>|μ−2δ|. The one-site condition a₁<μ is δ>μv. Both tail ratios are strictly less than one when a<μ, and at a=μ at least one is one, with both one in the unbiased case. The mass and geometric-sum normalization give exactly the unique positive profile for λ>a₂ or λ>a₁ as applicable. At the birth threshold mass is zero; at the localization threshold no positive summable state has a=μ. For 0<v<1, 1−v<√(1−v²) proves the strict rescue gap; the given example has t=4/5 and a₂=8√3/15. Supplied numerical/symbolic diagnostics were inspected but not run; these analytic checks cover the infinite lattice.",
+      "residual_risks": [
+        "Neither deterministic stability nor stochastic survival follows from stationary ℓ¹ existence; the rescue language is interpreted solely as equilibrium existence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 8019b402a893 treats every finite set S of favored coordinates for nonzero drift, establishes the strict threshold 1−v/ρ(K_S), and reconstructs the unique ℓ¹ equilibrium from its positive Perron vector.",
+          "Pollett's confining result assumes mortality tends to infinity; Liu et al. use a single impurity in finite periodic lattices."
+        ],
+        "reasoning": "The general finite-set theorem includes both S={0} and S={0,1} and therefore the same comparison. Pollett's compactness assumption and the finite periodic impurity setting do not supply that classification.",
+        "searches": [
+          "Resultary: exact localization thresholds for finite favorable trait islands",
+          "arXiv:2609.02086v1, confinement and principal eigenvalue passages",
+          "arXiv:2106.03420v1, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8019b402a893",
+        "Resultary 6579965f42ff (summary only)",
+        "arXiv:2609.02086v1",
+        "arXiv:cond-mat/9603165",
+        "arXiv:2106.03420v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general reconstruction requires positive Perron matching, followed by normalization to mass 1−t/λ in its dimensionless units. Substituting one site gives Δ=δ; substituting adjacent sites gives δ(1+√(rs))=Δ and x₁/x₀=√(r/s).",
+          "These are the scalar equations yielding a₁ and a₂ and the geometric shape of the frozen record; the example follows by substitution."
+        ],
+        "reasoning": "This is an exact specialization of a stronger theorem for the directional regime, including strict birth and localization boundaries and normalized profile. The catalogue date is later; demonstrating an implication does not establish that the frozen authors obtained the result from the broader one.",
+        "searches": [
+          "Resultary 8019b402a893, Proof §§1–2 and limitations, offsets 2000–6386 and 8840–10978"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Divide the stationary rates by μ: the comparison record uses d=1−δ/μ and effective reproduction t=a/μ. Reflection exchanges p and q and preserves the one-site or adjacent-pair geometry.",
+          "Hatano–Nelson's imaginary gauge maps symmetric localized profiles to exponentially tilted profiles; a localized symmetric state alone does not ensure ℓ¹ for the tilted profile."
+        ],
+        "reasoning": "The finite-set record is the same nonlinear stationary problem after a rate rescaling and, if needed, reflection. The physics comparison supplies a familiar linear mechanism but is not on its own exact nonlinear equilibrium coverage.",
+        "searches": [
+          "Resultary: adjacent favorable traits and infinite-chain ℓ¹ logistic equilibrium",
+          "Resultary 8019b402a893, Assumptions and Proof §§1–2, offsets 2000–6386",
+          "arXiv:cond-mat/9603165, pp. 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For p>q the catalogue threshold uses K_ij=(√(q/p))^|a_i−a_j|. The two Perron roots are 1 and 1+√(q/p), so the resulting critical advantages are μv and μv/(1+√(q/p))=μ(1+v−w)/2.",
+          "Search-summary-only hit 6579965f42ff concerns multi-impurity threshold emergence; the exact text was unavailable for comparison and is not used for the verdict."
+        ],
+        "reasoning": "A separate table displaying precisely the two radical expressions is unnecessary: the general threshold evaluates directly at these sets and gives the exact strict rescue interval.",
+        "searches": [
+          "Resultary: one-refuge threshold, adjacent-pair threshold and profile",
+          "Resultary 8019b402a893, threshold and finite-matrix kernel statements",
+          "Resultary: nonreciprocal multi-impurity threshold"
+        ]
+      },
+      "rationale": "The central biased one-versus-two result is mechanically covered by the distinct published finite-favorable-set equilibrium theorem, Resultary 8019b402a893. Its strict mortality threshold, effective birth equation, uniqueness, kernel reconstruction and mass normalization specialize to the frozen claims, not just to a similar physical model. The displayed radical and numerical example are direct evaluations of its 1×1 and 2×2 conditions. The general record is dated 2026-11-22, after the frozen record's 2026-10-18 date: this establishes coverage in the inspected catalogue, not earlier priority, and does not call the frozen result false. The zero-drift endpoint is not within that record's stated assumption p>q; at subcritical effective birth the same elementary kernels extend to it and it does not furnish the claimed directional rescue distinction.",
+      "residual_risks": [
+        "Historical priority is not resolved by a later overlap. Still older equivalent double-defect matching results under other terminology remain possible, but are not needed for the catalogue-coverage conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the frozen directional equilibrium classification; later catalogue date",
+          "evidence": "Bounded mortality equals d on S and 1 outside. The finite restriction of the free Green matrix determines existence and a unique profile by a strict Perron condition, and its codomain is stationary nonnegative ℓ¹ states with the same logistic mass normalization.",
+          "identifier_or_url": "Resultary 8019b402a893",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1–2, offsets 407–6386; related work and limitations at 8840–10978",
+          "method": "Published record mirror, targeted passage reads",
+          "title": "Sharp clustering and critical escape for favorable trait islands",
+          "trigger": "Same equation and a stronger arbitrary finite-set threshold theorem"
+        },
+        {
+          "assessment": "Relevant general framework outside this bounded-mortality regime",
+          "evidence": "The inspected compact-operator criterion uses μ_i→∞, not mortality constant off finitely many traits.",
+          "identifier_or_url": "https://arxiv.org/html/2609.02086v1",
+          "material_read": "Confinement and principal spectral criterion, offsets 6844–8839 and 15253–17053",
+          "method": "Lawful OA primary text, targeted passage reads",
+          "title": "Mutation–selection balance on an infinite trait space: confinement, drift and equilibrium",
+          "trigger": "Same population equation and principal-eigenvalue criterion"
+        },
+        {
+          "assessment": "Linear spectral background, not a covering ecological theorem",
+          "evidence": "The gauge transformation tilts a localized eigenfunction and the critical drift is given by its inverse decay length. It does not supply the adjacent-pair matching or logistic normalization.",
+          "identifier_or_url": "arXiv:cond-mat/9603165",
+          "material_read": "PDF pp. 1 and 3, text offsets 3900 and 18150",
+          "method": "Lawful OA PDF, targeted passage reads",
+          "title": "Localization Transitions in Non-Hermitian Quantum Mechanics",
+          "trigger": "Gauge-equivalent drift-induced localization mechanism"
+        },
+        {
+          "assessment": "Different defect count, boundary and equilibrium question",
+          "evidence": "The single-impurity Hatano–Nelson/SSH calculation concerns finite periodic lattices and impurity-induced skin effects.",
+          "identifier_or_url": "arXiv:2106.03420v1",
+          "material_read": "PDF pp. 1–2, including setup near offset 12600",
+          "method": "Lawful OA PDF, targeted passage read",
+          "title": "Exact solution of single impurity problem in non-reciprocal lattices",
+          "trigger": "Plausible recurrence alias for one-defect comparison"
+        },
+        {
+          "assessment": "Unresolved and not used as evidence of absence or coverage",
+          "evidence": "The summary mentions at least four impurities and bound-state threshold emergence, not a logistic ℓ¹ equilibrium classification.",
+          "identifier_or_url": "Resultary 6579965f42ff",
+          "material_read": "Ranked search summary only; matching mirror file unavailable",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "Sharp quadratic emergence of localized states from arbitrary multi-impurity thresholds",
+          "trigger": "Potentially broader multi-impurity localization result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–42 and Limitations",
+        "Resultary 8019b402a893, finite-set threshold and clustering scope"
+      ],
+      "rationale": "As an equilibrium theorem, an exact parameter interval in which two adjacent favorable sites permit a summable population while one fails for all birth rates is a meaningful mechanism and an informative boundary case of the infinite-trait problem. This assessment credits the scientific question and classification, not the already covered algebraic presentation as a separate contribution. The distinctness failure is decisive.",
+      "residual_risks": [
+        "There is no dynamical or stochastic persistence claim, and displaying a quadratic radical is not itself evidence of additional value beyond the compared theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

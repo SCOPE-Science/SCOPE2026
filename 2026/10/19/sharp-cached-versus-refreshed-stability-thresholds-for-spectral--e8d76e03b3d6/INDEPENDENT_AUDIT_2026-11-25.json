@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:16:33.755283Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions and scope and Proof",
+        "VERIFICATION.md and VERIFY.py (read, not executed)",
+        "Independent exact rational witness and second-moment recurrence",
+        "SketchySGD arXiv:2211.08597v5, Algorithm 1 and equation (3)"
+      ],
+      "rationale": "A nonzero projection of the exact rank-one sketch onto e_S recovers H_S; P_S is diagonal and the independently sampled spectral estimator gives eta=alpha(P_S)_{TT}. For each coordinate the four equiprobable environments yield gains alpha, alpha, alpha t, alpha/t. Conditioning on the held environment and averaging the gradient sample gives Q(g)=(1+(1−g)^2)/2. With independent gradients over time the cached law therefore averages Q(g)^k, whereas fresh environments average Q(g) before the kth power. Summing the two coordinate squares requires no coordinate independence and includes k=0 and zero initial coordinates. Only alpha/t can reach 2, giving the cached boundary rho=alpha/(2−alpha) with residual weight 1/4 there. For alpha=1/2 the refreshed factor is (s²−4s+24)/32 with s=t+1/t>2; monotonicity on t in (0,1) yields the stated unique cutoff and its equality/divergence cases. Independently, at rho=1/4, alpha=1/2 the exact Q-values are 5/8, 181/200, 13/8, with fresh weighted average 189/200. The cached divergence is consistent with decaying conditional means since the mean multipliers 1−g/2 have modulus below one. This is conditional mean decay, not an absolute first-moment or almost-sure claim.",
+      "residual_risks": [
+        "The result applies only to the stated ideal exact two-example scheme. It does not analyze arbitrary periodic refresh intervals, finite-precision sketching or an approximate spectral estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SketchySGD §4 specifies a different fixed-learned-rate stage-averaging scheme, not a direct analysis of Algorithm 1.",
+          "The subsampled-Newton theorem gives expected Q-linear objective convergence under its own step and sampling assumptions.",
+          "The exact IHS formula assumes step sizes independent of the embeddings and analyzes full-gradient IHS."
+        ],
+        "reasoning": "Neither the convergence bounds under other updates nor the exact independent-stepsize IHS recurrence applies directly to a spectral step jointly determined by the independent T sample and the same preconditioner P_S, and an independent stochastic-gradient update.",
+        "searches": [
+          "SketchySGD arXiv:2211.08597v5 §§2, 4, Theorem 16, Corollary 17",
+          "Meng et al. arXiv:1910.04920v2 §3.1 Theorem 1",
+          "Lacotte–Pilanci arXiv:1911.02675 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md §§Relationship to prior work, References",
+        "Resultary ranked catalogue and indexed Gaussian IHS record",
+        "arXiv:2211.08597v5, 1911.02675, 1910.04920v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 resamples the stochastic gradient each iteration, reusing a learned preconditioner and step between refreshes; equation (3) uses an independent Hessian sample for the step. This documents the design being idealized, not its mean-square phase law.",
+          "The earlier Gaussian IHS construction establishes a different stability separation; it has no transition in the two-component rho parameter described here."
+        ],
+        "reasoning": "Knowing the sampled update does not give the exact boundary without computing the environment-dependent squared multipliers and deciding when they can be averaged before iteration. The distinct claim is the sharp law and counterexample for the independently sampled spectral step, not reuse instability in general.",
+        "searches": [
+          "SketchySGD §1.1 Algorithm 1, §2 equation (3), §4 Algorithm 3 and Theorem 16",
+          "Faster Least Squares Optimization §1, §3, Theorem 4.1",
+          "A sharp refresh-run moment clock for Gaussian iterative Hessian sketches, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Gaussian IHS refresh-run record studies x_(t+1)=(1−eta/W_t)x_t with inverse chi-square curvature factors. At sketch dimension 6 and eta=1/3, always refreshing has squared-factor mean 1/4 while partial reuse leads to an infinite moment by step two.",
+          "Lacotte–Pilanci distinguishes S_t=S from iid embeddings and analyzes fixed and refreshed IHS, including exact refreshed error moments."
+        ],
+        "reasoning": "Cache versus refresh can be expressed as averaging powers versus powering averages of a random contraction/amplification factor. The Gaussian IHS laws involve continuous inverse-sketch tails, exact gradients and a deterministic step, not a four-environment gain distribution arising from a distinct random spectral step and gradient batch. The qualitative phenomenon overlaps, not the sharp finite-moment theorem.",
+        "searches": [
+          "Resultary: ranked check for fixed versus refreshed Hessian sketches and moment stability",
+          "Lacotte–Pilanci arXiv:1911.02675 §1 and Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact moment result gives inverse-chi-square cases, not the categorical rho, alpha phase law.",
+          "The original rule supplies the default alpha=1/2, not a table of exact finite-system thresholds. No matching exact tabulation was identified in the inspected material."
+        ],
+        "reasoning": "The constants come from the parameterized update, not a generic numerical table; these checks targeted the relevant algorithm and known exact model computations. The catalogue coverage is bounded.",
+        "searches": [
+          "Resultary: fixed/refresh sketch moment and stability comparisons",
+          "SketchySGD arXiv:2211.08597v5 Algorithm 1, equation (3), §4"
+        ]
+      },
+      "rationale": "The exact finite-environment phase boundaries for this particular spectral-step/gradient-sampling mechanism are distinct in the inspected material. The qualitative principle that sampling reuse can change second-moment stability is already known and is not credited as new.",
+      "residual_risks": [
+        "An unindexed exact-law analysis for the same small independent batches may exist. The earlier related stability separation limits conceptual novelty and the review does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The design is prior; inspected convergence theorems analyze a different update",
+          "evidence": [
+            "Algorithm 1 updates the preconditioner and learned step every nu iterations.",
+            "Equation (3) uses independent Hessian S' and default alpha=1/2.",
+            "Section 4 explicitly does not directly analyze Algorithm 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2211.08597v5",
+          "material_read": "HTML §1.1 Algorithm 1, offset 8100; §2 equation (3), offset 16021; §4 Algorithm 3, Theorem 16 and Corollary 17, offsets 32201 and 57500",
+          "method": "Lawful OA primary HTML passages",
+          "title": "SketchySGD: Reliable Stochastic Optimization via Randomized Curvature Estimates",
+          "trigger": "Source algorithm, refresh interpretation and potential exact coverage"
+        },
+        {
+          "assessment": "Material conceptual overlap but no implication of the finite categorical theorem",
+          "evidence": [
+            "For scalar Gaussian IHS with W distributed as normalized chi-square, sketch dimension 6 and eta=1/3, always-refresh contracts and Bernoulli reuse causes an infinite moment; a bounded-reuse criterion is also given."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-refresh-run-moment-clock-for-gaussian-iterative-hessian--53f4487a6dcc",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local indexed full-text mirror",
+          "title": "A sharp refresh-run moment clock for Gaussian iterative Hessian sketches",
+          "trigger": "Exact and earlier reuse-versus-refresh second-moment separation"
+        },
+        {
+          "assessment": "Related IHS update; not a theorem for the separate spectral and stochastic-gradient samples",
+          "evidence": [
+            "Theorem 4.1 assumes step sizes independent of embeddings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.02675",
+          "material_read": "PDF p. 2 §1 (offset 6324), p. 6 §3 (21862), p. 11 Theorem 4.1 (46401)",
+          "method": "Lawful OA primary PDF extraction",
+          "title": "Faster Least Squares Optimization",
+          "trigger": "Fixed/refreshed sketch regimes and exact refreshed error identity"
+        },
+        {
+          "assessment": "Related sufficient convergence result, not the exact cache/fresh cutoff",
+          "evidence": [
+            "Expected Q-linear objective convergence for regularized subsampled Newton under its adaptive step and minibatch assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1910.04920v2",
+          "material_read": "§3.1 Theorem 1, offset 14100",
+          "method": "Lawful OA primary HTML passages",
+          "title": "Fast and Furious Convergence: Stochastic Second Order Methods under Interpolation",
+          "trigger": "Regularized stochastic Newton under interpolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Limitations",
+        "SketchySGD Algorithm 1 and equation (3)",
+        "Exact rational witness and phase boundaries"
+      ],
+      "rationale": "The two-coordinate interpolating system isolates a specific pitfall of the existing spectral-step design: perfect conditioning of the full Hessian and decaying mean iterates do not preclude mean-square divergence when both sampled quantities are reused. The exact nonempty stability gap supplies a useful counterexample and quantitative boundary for the prescribed comparison, rather than an arbitrary finite table.",
+      "residual_risks": [
+        "The phenomenon does not establish failure for production batch sizes, finite spectral estimates, other preconditioners or general least-squares data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite reproduction and limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses only Python 3's standard library. Running `python3 verify.py` deterministically prints a single JSON object; its actual output is stored byte-for-byte as `verification_output.json`.
+## correctness
 
-The program constructs \(Q_3\) as the graph on 3-bit words, tests every one of the 4096 edge subsets against all 44 three-matchings, and counts 601 augmented faces, including 12 vertices, 66 edges, 176 triangles, 222 tetrahedra, 108 4-simplices and 16 5-simplices. The explicit pivot order is `(2,10,11,5,0,4,9,6,7,3,8,1)`. After removing the augmented empty-face match, the ordinary matching has 295 pairs, one critical vertex and nine critical three-simplices; a complete directed Hasse sort reaches all 600 nonempty faces. This finite acyclicity certificate, together with the ordinary discrete-Morse theorem, proves the integral homotopy classification.
+PASS
 
-A distinct exact mod-two boundary rank calculation yields `(11,55,121,92,16)` for the boundary maps in dimensions 1 through 5. Direct signed simplicial Lefschetz calculations for all 48 automorphisms agree with the rational representation character; the observed character histogram is `{-1:6,0:16,1:15,3:10,9:1}`. Rational character uniqueness supplies the representation identification. These are exhaustive checks for one graph, not sample-based extrapolation to a larger family.
+Independently enumerated the 4096 edge subsets and 44 forbidden disjoint triples. Verified 601 augmented faces, 295 ordinary Morse pairs and exactly one critical vertex and nine critical 3-cells. Traversed the entire oriented ordinary Hasse graph by depth-first cycle detection on 600 faces. Hence the ordinary Morse CW model implies the integral wedge and supports degree-three concentration. Recomputed Lefschetz traces by summing over unions of edge-permutation cycles rather than by scanning signed stable faces; the contribution is minus one to the power of the number of cycles selected. Compared with the proposed character on each of the 48 elements, obtaining identical character values and hence the same rational module. The antipodal case has counts (1,6,12,4), trace 3, and multiplicities 6 and 3 by rank and involutivity. Replay: python3 /workspace/branches/audit_cube.py.
 
-The result is not an integral representation-theoretic classification, and it does not cover larger crown graphs. Literature discovery cannot formally guarantee that no equivalent prior account exists. The file supplies neither an independent external audit nor experimental evidence for infinite cases.
+## originality
+
+PASS
+
+Pass applies only to the repaired full rational B3 module. The later filtration record explicitly covers the nonequivariant topology. Ambient comparison and the complete-bipartite hook theorem identify the part-preserving restriction via inclusion and equality of ranks; that restriction alone does not identify the part-exchanging action. The cube character determines both cosets, including a nonzero antipodal trace fixing the actual rather than part-swap-twisted action.
+
+## value
+
+PASS
+
+The first cube beyond a cycle is a natural crown graph on which the full symmetry genuinely exchanges the two bipartition classes. The exact action distinguishes modules with the same ordinary homology and even the same part-preserving restriction; the antipodal splitting gives concrete equivariant information not encoded by the wedge type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

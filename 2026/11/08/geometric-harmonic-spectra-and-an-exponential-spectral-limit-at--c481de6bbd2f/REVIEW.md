@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The angular equation is independently obtained from the original cubic field, and invariance of the unit circle is exact. The Riccati half-angle conjugacy yields a rigid original-time rotation; the Möbius boundary expansion then determines all Fourier coefficients, not just finitely many tested lags. Parseval confirms the variance. The geometric-to-exponential argument proves weak convergence at both parameter endpoints. The independent finite quadrature checker supports, but does not replace, these analytical steps. The stochastic interpretation is solely uniform sampling of a deterministic periodic phase.
+PASS
 
-## Originality — PASS (within inspected evidence)
+Writing Q=a(x²+y²)+xy, the radial identity is d(r²−1)/dt=−2Q(r²−1), and the on-circle angular equation is Q−sin²θ=(a−1/2)+R cos(2θ−φ). For b>R it has a constant sign; integrating inverse speed gives least orbit period 2π/Δ. The observable e^{2iθ} itself has half that period, consistent with frequency spacing 2Δ. After the respective shifts of v=2θ−φ, its Ode is v̇=2ε(b−R cos v). Writing h=tan(v/2) gives ḣ=ε[(b−R)+(b+R)h²]; scaling h by β=sqrt((b−R)/(b+R)) and taking arctangent gives uniform phase ẇ=εΔ modulo π. Consequently ζ=e^{2iw} is uniform under physical-time sampling, and U=−ε e^{iφ}(ζ+k)/(1+kζ), with k=(1−β)/(1+β)=R/(b+Δ). Expanding the Möbius factor, the constant coefficient is k and nonzero centered coefficients are (1−k²)(−k)^{j−1}, times the unit-modulus prefactor. Orthogonality squares their moduli in the centered covariance and gives exactly the claimed one-sided atoms and correlation with the stated Fourier convention. Their total mass is 1−k². With p=1−k²=2Δ/(b+Δ), the variance-normalized frequency is ε(b+Δ)pJ where J has geometric(p) law on the positive integers. The exact geometric tail gives pJ⇒Exp(1), hence the signed scale εR and the characteristic-function limit. The unnormalized mass tends to zero and neither endpoint is a periodic parameter. The form-feed typo in the displayed period line of the proof does not affect the correctly stated result or the integral evaluation.
 
-The full text of Gasull–Giacomini, Section 7.1, describes this cubic family, periodicity regions, bifurcations and limit-cycle counting, but does not contain a physical-time harmonic spectral law. Giacomini–Grau supplies a general cofactor/Floquet identity, which neither implies nor calculates the present correlation. The classical theta-neuron/SNIC normal form makes the phase conjugacy itself standard; originality is confined to the complete geometric spectrum for the specified cubic observable and its variance-normalized exponential frequency limit. External indexing and priority remain incomplete, especially for generalized harmonic-output treatments of this standard Riccati flow.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural second angular harmonic is distinguished by the cubic field's twofold angular modulation. The exact spectral weights identify how deterministic periodic power redistributes over arbitrarily many harmonics as the orbit's period becomes infinite. The finite, nonzero limiting spectral frequency distribution after variance normalization is not implied by the known existence and multiplicity of the periodic orbit. This is a precise quantitative observable-level result, not a new classification of limit cycles or a claim of noisy oscillations.
+The cubic family's invariant circle and periodic regime, the fixed-sign Adler/Riccati dynamics and the elementary tangent clock are background. The supported distinction is the original-time power of this specified complex second harmonic and its variance-normalized signed limit. The closest related indexed calculation in a different oscillator is in fact equivalent at the level of phase dynamics after shifting and scaling, but its Fourier series is for a one-time angular density, not a temporal power spectrum. No covering temporal spectral statement or limit was verified in the strongest accessible comparisons.
 
-## Closest literature and limitations
+## value
 
-A. Gasull–H. Giacomini, *Number of Limit Cycles for Planar Systems with Invariant Algebraic Curves*, arXiv:2210.15803v1, Section 7.1, equation (15). H. Giacomini–M. Grau, *On the Stability of Limit Cycles for Planar Differential Systems*, arXiv:math/0505027v1. B. Ermentrout (2008), standard theta-model normal form. Classical normal-form derivations and unindexed spectral analyses may precede this computation. This is an internal self-review, not an independent check.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The doubled-angle observable is the natural complex coordinate on the antipodal phase quotient. Its exact covariance and full signed power give a useful temporal invariant beyond one-time angular statistics or the period. They quantify a concrete singular effect: every fixed harmonic collapses toward zero frequency as the period diverges, but increasing harmonic indices on the variance scale retain a nondegenerate distribution at physical frequencies of order R. The endpoint sign and scale and the vanishing raw variance distinguish this from merely interpolating a line spectrum or tabulating phase densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

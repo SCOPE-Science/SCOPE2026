@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:56:18.822008Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–88",
+        "Frozen VERIFICATION.md",
+        "verification/check_xdiag.py: inspected, not executed"
+      ],
+      "rationale": "For the sign pair, put t_i=x_i y_i. The rank-one projector gives the error −a_i t_i Σ_{l≠i}a_l²t_l/T in either order. The t_i are independent signs, so a covariance term survives exactly for l=m on the diagonal or the crossed pair (l,m)=(j,i) off it. Summing the diagonal yields the claimed risk; with w_i=a_i²/T, its normalized value is the w_i-weighted average of w_i(1−w_i). Equality forces both positive weights to be 1/2. For Gaussian probes the endpoint ranks give exactness. In the middle phase, rotation invariance of the independent omitted sketch gives P_ii strictly between 0 and 1 almost surely, so the off-diagonal row of P has positive squared norm P_ii(1−P_ii). Its contraction with the other coordinates of the omitted probe has a nondegenerate Gaussian law conditional on P. When its i-th coordinate s tends to zero the other leave-one-out terms stay bounded: at zero their sketch contains one almost surely nonzero vector in the coordinate hyperplane and k−2 independent full Gaussians, hence is full column rank, and continuity holds nearby. Thus the pole cannot cancel and the conditional absolute moment diverges for p≥1. For p<1, subadditivity and the absolute moment of a Gaussian ratio suffice. For n=k=2 the Cauchy pair reduces the error to −aF/2 with F=UV[(1+U²)⁻¹+(1+V²)⁻¹]. On |U|≥|V| at fixed V=v the limiting one-signed coefficient is |v|/[π(1+v²)], and a constant multiple of this bounds the scaled tail uniformly by the Cauchy tail inequality. Integrating against the Cauchy density gives 1/π² per region, hence a/π² in each tail after scaling and sign symmetry.",
+      "residual_risks": [
+        "Analytic verification, not a replay of the finite checks or a numerical-stability guarantee. Gaussian threshold applies to positive scalar matrices and literal coordinate division; the exact tail constants apply only to n=k=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad trace-estimation and Gaussian XNysTrace discussion is not a moment bound for coordinatewise XDiag.",
+          "FLEXTRACE and XNysTrace covariance/diagnostic laws concern unnormalized trace contributions and different observables."
+        ],
+        "reasoning": "Exchangeability of terms neither supplies their pointwise equality nor guarantees absolute integrability for a termwise quotient.",
+        "searches": [
+          "arXiv:2301.07825 §§1.2.1, 2.3, 2.4",
+          "arXiv:2202.02887 introduction and §5.3",
+          "Resultary:2a86145c3a4b and 4aed760e42f3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.07825",
+        "arXiv:2202.02887",
+        "Resultary:b584102acacc",
+        "Resultary:2a86145c3a4b",
+        "Resultary:3ac2429e030f",
+        "Resultary:4aed760e42f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base formula allows the sign covariance to be calculated, but the earlier displayed identity does not give the sharpened all-diagonal risk or equality cases.",
+          "A Gaussian quotient alone has Cauchy moments, but the leave-one-out average can have correlated singularities; the isolated-pole and rank arguments are needed to rule out cancellation or identify exact recovery."
+        ],
+        "reasoning": "Neither general probe formulas nor a single Cauchy quotient mechanically give the two-probe covariance, all-k phase, and exact signed constant.",
+        "searches": [
+          "arXiv:2301.07825 §2.4; arXiv:2202.02887 §5.3; comparison with the frozen absolute-moment proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The XDiag residual in the earlier paper uses componentwise division by ω_i² after multiplying by ω_i, equivalent to the literal coordinate quotient for nonzero entries.",
+          "The normalized Gaussian alternative divides sums of products by sums of squares and is exact for scalar matrices; it is not an average of projected coordinate quotients."
+        ],
+        "reasoning": "The estimator itself is prior; neither the BKS aggregate ratio nor product probing is equivalent to the termwise XDiag residual on Gaussian inputs.",
+        "searches": [
+          "arXiv:2301.07825 §2.4, Eqs. (15)–(16)",
+          "arXiv:2202.02887 §5.3, Eq. (5.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b584102acacc, later catalogue date, covers n=2 two-sign risk in a wider planar SPD comparison with BKS; not the all-diagonal covariance or the Gaussian phase.",
+          "Same-day 2a86145c3a4b and 3ac2429e030f give Gaussian trace-calibration and generalized-Nyström diagnostic results, respectively, with no coordinate-quotient formula."
+        ],
+        "reasoning": "The planar diagonal overlap is real; catalogue dates alone do not establish priority. The other matched statements have genuinely different estimators or observables.",
+        "searches": [
+          "Local Resultary: two-sign XDiag covariance and component equality; Gaussian leave-one-out quotient moments and signed tails; normalized Gaussian quotients"
+        ]
+      },
+      "rationale": "The established contributions are the exact sign-probe all-diagonal covariance and sharp risk with zero component dissent, and the scalar Gaussian moment phase and smallest-case signed tails for the literal estimator. The XDiag definition, standard Gaussian-ratio moments, and normalized-probe scalar exactness are not new. Whether any specific software implementation accepts Gaussian probes was not checked and is not needed by the theorem.",
+      "residual_risks": [
+        "One external search did not yield relevant results; no negative inference was made. Earlier exact specializations under other diagonal-estimator names may exist. The published formula alone does not verify implementation behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the literal estimator generically, distinguishes BKS, and does not establish the reviewed risks or tails in the inspected statements.",
+          "evidence": [
+            "Coordinatewise factor ω_i in the numerator over ω_i² in the residual; distinct ratio-of-sums BKS expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "§2.4, printed p. 12, especially Eqs. (15)–(16); probe discussion in §§1.2.1 and 2.3",
+          "method": "Primary PDF passage comparison",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Original estimator and probe scope"
+        },
+        {
+          "assessment": "Different estimators; not a remedy or contradiction for the literal XDiag law.",
+          "evidence": [
+            "The normalization is a quotient after aggregation over samples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02887",
+          "material_read": "Introduction; §5.3 p. 19, Eq. (5.3)",
+          "method": "Primary PDF passage comparison",
+          "title": "Monte Carlo Methods for Estimating the Diagonal of a Real Symmetric Matrix",
+          "trigger": "Gaussian diagonal estimator and scalar exactness"
+        },
+        {
+          "assessment": "Overlaps the two-dimensional sign risk, not the all-diagonal or Gaussian laws; later catalogue date.",
+          "evidence": [
+            "Analyzes exact Rademacher XDiag versus BKS risk for every planar SPD input."
+          ],
+          "identifier_or_url": "Resultary:b584102acacc",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Statement and diagonal-specialization comparison",
+          "title": "A sharp planar risk crossover for exchangeable diagonal sketching",
+          "trigger": "Closest matching XDiag risk law"
+        },
+        {
+          "assessment": "Distinct from coordinatewise XDiag.",
+          "evidence": [
+            "FLEXTRACE and XNysTrace analyze trace components; generalized-Nyström treats squared residual diagnostics with chi-square ratios."
+          ],
+          "identifier_or_url": "Resultary:2a86145c3a4b; Resultary:3ac2429e030f; Resultary:4aed760e42f3",
+          "material_read": "Findings in mirrored RESULT.md files",
+          "method": "Estimator and observable comparison",
+          "title": "Gaussian trace covariance and generalized-Nyström moment results",
+          "trigger": "Closely related leave-one-out risk and Gaussian-moment claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2301.07825 §2.4"
+      ],
+      "rationale": "The sharp sign example separates zero component disagreement from true risk, and even shows that moving from one probe to two need not improve this estimator. The Gaussian calculation identifies a real rank-dependent failure of a natural but formal probe-law substitution: nonintegrability persists for every intermediate count and disappears at full omitted-sketch rank. These can be used as exact estimator and diagnostic benchmarks without claims about software or performance outside the stated model.",
+      "residual_risks": [
+        "No claim about published uncertainty diagnostics, arbitrary Gaussian diagonal estimation, finite precision, or nondiagnonal inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

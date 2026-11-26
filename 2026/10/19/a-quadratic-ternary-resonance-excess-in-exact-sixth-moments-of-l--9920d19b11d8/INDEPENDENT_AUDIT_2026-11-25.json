@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:40:49.041274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen RESULT.md line 28 and SLOGAN.txt are false: at n=2 the actual moments are 1301 and 1001, giving 300, not 540. The complete replacement files in /workspace/repairs/5/ retain the correct moments and give E_3(n)-E_6(n)=60(4n^2-5n-1) for n>=2, with zero excess at n=1. Independently, six-term zero sums have net digits m_j=q k_j-k_{j-1} with initial and terminal carry zero. Their l1 cost is at least (q-1) times the sum of absolute carries plus twice the sum of absolute closing carries of nonzero blocks. Thus q>=6 permits only zero carries; q=4,5 permit one signed unit carry, of cost 5,6, giving 60 and 12 ordered tuples per adjacent pair, respectively. At q=3 the only possibilities are one signed unit carry of cost 4 or two consecutive same-sign unit carries of cost 6. For a singleton, the remaining slots comprise two zeros or an opposite-sign pair: for each sign the weights are 60 (zeros), 30 and 60 (pair at the carry's two positions), and 120 per other position. The two-carry block gives 60 tuples per sign. For n>=2 this totals 2(n-1)(120n-90)+120(n-2), exactly the repaired excess. Zero carries give 120n^3+20n+1 by multinomial counting of up to three cancelling pairs and zeros. The frozen top-frequency expansion and initial conditions agree with these identities. Ordered triple-sum multiplicities were also directly squared and summed for q=3 through 8 and n=1 through 6 (python3 /tmp/opencode/frozen_math_reproduction.py); that finite check is corroboration only. The supplied verifier was inspected, not executed, and its separate moment checks do not test the erroneous frozen subtraction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The P(h) statement for q>=2h gives the stable q>=6 pattern for h=3; Example 5 classifies ratio-four and ratio-five exceptions.",
+          "The more recent extension inequality assumes ratios strictly greater than 3."
+        ],
+        "reasoning": "The stable and q=4,5 branches are natural counts from known resonance structures and are not the supported novelty. Neither result supplies a finite all-length ternary count.",
+        "searches": [
+          "arXiv:2208.09441v2, Example 2 and Theorem 1",
+          "arXiv:2510.20934, Theorem 1 and Example 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 66a6b286e118 (local mirror)",
+        "arXiv:2510.20934",
+        "arXiv:2208.09441v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary theorem bounds the number of primitive unordered terms; the primary papers exhibit ternary resonances including 1+1+1=9−3−3=3+0+0 and the family 3+3^j−3^j.",
+          "The corrected six-slot count requires both the allowed adjacent carry and the entire padded single-carry contribution, with both signs and finite boundaries."
+        ],
+        "reasoning": "The cited examples explain the presence and potential growth of ternary excesses, but neither the primitive bound nor the classification of the cited mixed type counts all ordered six-term zero sums. The complete quadratic is not a substitution into the cited results.",
+        "searches": [
+          "66a6b286e118 RESULT.md, Finding and Assumptions and scope",
+          "arXiv:2510.20934, §1.2, p. 4",
+          "arXiv:2208.09441v2, §2.1, p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target equals the squared l2 norm of the ordered triple-sum multiplicity function of the finite signed geometric ladder.",
+          "The planar six-Bessel-product expression is not that unweighted integer count."
+        ],
+        "reasoning": "The equivalence between finite additive energy and circle moment follows from Fourier orthogonality but does not identify either with planar extension.",
+        "searches": [
+          "Resultary: sharp threefold collision law and symmetric ternary lacunary spectra",
+          "arXiv:2510.20934, equations (4)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact saturation table for r(D)=3 has D=±5·3^v and ±7·3^v for infinite unordered noncancelling triples. It does not tabulate finite ordered energy."
+        ],
+        "reasoning": "An exact primitive saturation table is not an exact finite unrestricted energy table; cancellations, permutation factors and truncation affect the latter.",
+        "searches": [
+          "Resultary: finite signed geometric ladder ordered triple-sum counts and sixth moments; nearest record 66a6b286e118, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "Pass is for the repaired exact ternary ordered-energy law and its quadratic excess, not priority for the known exceptional carries, the stable collision pattern, or the related Fourier-extension problem. The inspected prior results do not give the weighted-by-permutations count with all cancellations and finite endpoints included.",
+      "residual_risks": [
+        "Older or unindexed exact unweighted lacunary-moment calculations may overlap; the search is not proof of priority.",
+        "There is an apparent difference in the printed ratio-four exception lists of the two primary preprints. The independent carry count does not rely on either list."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic, relevant arithmetic",
+          "evidence": "Unordered noncancelling triples in the infinite ladder; exact saturation set for multiplicity 3, with explicit exclusion of permutation-weighted and cancelling representations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-threefold-collision-law-for-symmetric-ternary-lacunary-spe--66a6b286e118/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, two-summand lemma and three-adic reduction (local mirror, offsets 0–3188)",
+          "method": "Bounded local-mirror text inspection",
+          "title": "Sharp threefold collision law for symmetric ternary lacunary spectra",
+          "trigger": "Closest Resultary overlap on triple-sum collisions in the same ternary ladder"
+        },
+        {
+          "assessment": "Prior resonance patterns, not the corrected ternary energy law",
+          "evidence": "Theorem 1 has a strict ratio>3 condition and concerns the planar integral; the discussion gives a ternary mixed resonance and Example 5 gives the ratio-four and ratio-five exceptional orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.20934",
+          "material_read": "Theorem 1 p. 2; equations (4)–(5) p. 3; §1.2 p. 4; Example 5 p. 5",
+          "method": "OA primary preprint section inspection",
+          "title": "On a Sharp Fourier Extension Inequality on the Circle with Lacunary Spectrum",
+          "trigger": "Same spectra and closest exceptional collision classifications"
+        },
+        {
+          "assessment": "Covers stable arithmetic, not the ternary moment",
+          "evidence": "Example 2 gives P(h) for q>=2h and lists examples of failures at lower ratios; Theorem 1 is a planar estimate for P(3) spectra.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.09441v2",
+          "material_read": "Theorem 1 p. 3 and Example 2, §2.1 p. 5",
+          "method": "OA primary preprint section inspection",
+          "title": "Sharp Fourier Extension on the Circle Under Arithmetic Constraints",
+          "trigger": "P(3) and exceptional geometric spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite ordered count measures precisely the unweighted collisions in the critical integer-ratio ternary spectrum already identified in sharp Fourier-extension work. The repaired excess remains positive and quadratic for n>=2, unlike the linear excess for four and five, and its exact constant and boundary correction give a useful comparison for truncations. This is not a claim about the weighted extension conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

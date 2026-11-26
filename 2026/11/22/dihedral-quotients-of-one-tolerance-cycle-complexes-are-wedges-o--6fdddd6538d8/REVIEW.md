@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph-edge tolerance convention and the genuine quotient are explicit. The one-skeleton is the complete graph, whose dihedral orbit is a star: each edge has a reflection swapping its endpoints, so its quotient is a radial interval. Every triangular orbit has either trivial stabilizer (one two-cell attached along the tree, giving a two-sphere) or a mirror stabilizer (one mirror edge canceled by its half-triangle). Nontrivial rotational stabilizers are impossible because their triangles have no cycle edge. The unique-adjacent-edge normalization reduces the orbit count to a length-\(n-4\) reflection involution with one fixed point for odd orders. No finite-case extrapolation is used.
+PASS
 
-An independent exact barycentric-quotient integral-chain checker passes at every \(4\le n\le20\): zero first homology, torsion-free second homology with the predicted rank, zero chain composition, and matching direct stabilizer orbit counts. The checker is not needed for the infinite proof.
+The tolerance complex has complete graph as one-skeleton and exactly the triples containing a cycle edge as triangles. The geometric quotient of that graph is a tree: one arm per unoriented cyclic distance, with the endpoint-swapping reflection halving each representative edge. No nonidentity rotation stabilizes a triangle, since a rotation-invariant triple would have equal gaps and contain no cycle edge for n≥4; two different stabilizing reflections would give such a rotation. For a reflection-stabilized triangle, take the half-triangle with two inherited boundary edges. It strongly deformation retracts onto their union, relative to that union, so the retraction descends even when the inherited edges are identified in the quotient tree. The other triangle orbits are disks attached along their entire boundaries to the tree. Collapsing the tree, a contractible CW subcomplex, gives one S² for each of these disks. Three-consecutive-vertex triangles are reflection-fixed. For every other triangle normalize its unique cycle edge to {0,1}; the third vertex k ranges from 3 to n−2 and the edge reflection pairs k with n+1−k, fixing exactly one permitted k for odd n. The resulting count is floor((n−4)/2), including zero at n=4,5. This proves the integral homotopy classification without using finite calculations.
 
-## Originality — PASS, with residual risk
+## originality
 
-Kim–Lew (2023) develops tolerance and Leray bounds. Selvaraja (arXiv:2611.14384, first public 2026-11-10) proves symbolic-power and collapsibility/Leray theorems; the inspected introduction, definitions, and homological results do not state an equivalent integral dihedral quotient classification. An existing nonequivariant classification of one-tolerance complexes for arbitrary graphs covers the underlying cycle complex, which is explicitly excluded as new content. It does **not** determine a geometric symmetry quotient because stabilizer data and cell attachments are absent. Other published comparisons considered dihedral quotients of different cycle complexes (two-independence, matching, and neighborhood complexes); their objects and face conditions differ and no implication of this theorem was identified.
+PASS
 
-Search-based priority assessment is not proof of global uniqueness. The remaining risk is an unindexed equivalent statement or general quotient lemma already applied to these same cycle-tolerance faces.
+The same-object unquotiented classification, the same-action second-tolerance quotient, and the distinct octagonal first-tolerance quotient do not give this geometric full-dihedral quotient. The identified tolerance-complex literature supplies definitions and collapsibility/Leray results rather than this stabilizer-dependent integral homotopy classification.
 
-## Mathematical value — PASS
+## value
 
-The dihedral symmetry quotient is a canonical topological object, rather than an arbitrary finite slice. Its complete homotopy type, fundamental group, integral torsion statement and exact sphere count are simultaneously determined for every order. The quotient retains only a linearly growing number of spheres compared with quadratically many for the original space; rational character averaging alone would not establish its integral homotopy type.
+PASS
 
-## Boundaries
+This is an integral, all-order homotopy classification for the natural full symmetry quotient of the simplest cycle tolerance enlargement. It identifies exactly which orbit cells survive and why reflection-stabilized faces do not contribute, distinguishing a linearly growing orbit-space sphere count from the quadratic unquotiented count. The fold cancellation is a reusable explanation, not just a finite Betti-number computation.
 
-No formula is supplied for proper cyclic subgroup quotients, general graph automorphism quotients or higher tolerance parameters. The independent audit remains outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

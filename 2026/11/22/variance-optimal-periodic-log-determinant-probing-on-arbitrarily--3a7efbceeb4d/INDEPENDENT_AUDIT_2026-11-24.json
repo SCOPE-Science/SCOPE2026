@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:48.720065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pairwise uncorrelated products of independent signs give variance 4 times the sum of same-class squared off-diagonal entries. Leading/trailing continuants give positive Green factors u_s(i), v_s(j); the flux recurrence at the ends and in the interior gives strictly increasing u_s and decreasing v_s. The product of the two factors at s,t has the same monotonicities, so its two telescoping sums have strictly positive interval coefficients. Finite integral of the positive Green entry for one pair also ensures σ-finiteness of the mixture measure by level sets of that entry. Integrating against the product measure gives the squared mixture certificate, not the mixture of individual variances. Balancing minimizes the number of pairs in each interval; length-k windows force period k and the first window uses all k classes. k=1 and k=n are trivial. Resolvent representations give log A and A^(−α). For the homogeneous density I independently checked localization by polynomial approximation: the expansion of log about μ+2 in powers of (A_n−(μ+2)I)/(μ+2) has geometric tail ratio 2/(μ+2); below degree d all entries at distance d vanish. The bilateral symbol factors as r^(−1)(1−r e^{iθ})(1−r e^{−iθ}), giving coefficient −r^d/d. Bulk averages at each d converge and the geometric bound allows summing multiples of fixed k. The private check python3 /workspace/independent_checks.py (section 1) verifies strict positivity and uniqueness in an independent, nonuniform six-vertex two-shift instance. The analytic certificate covers all n and allowed measures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 3.1, (3.1)–(3.3), minimizes number of colors under prescribed distance separation for deterministic indicator probing."
+        ],
+        "reasoning": "A minimum number of colors subject to a hard distance constraint does not imply a minimum of weighted stochastic variance over all partitions at fixed k.",
+        "searches": [
+          "Resultary: heterogeneous-path exact log-determinant probe partition optimization",
+          "Benzi–Rinelli–Simunec arXiv:2212.09642v2 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-42513c3dc5b2",
+        "arXiv:2212.09642v2 / doi:10.1007/s00211-023-01368-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse-only proof uses Δu_aΔv_b with u and v built from squares of one shift's Green factors; it gives exact variance gaps and window uniqueness. Distance-coloring proof uses graph separation."
+        ],
+        "reasoning": "The single-factor telescoping mechanism can be adapted to u_su_t,v_sv_t. It is the uniform positivity for those mixed products and their integration that supplies the log/mixture theorem; averaging single-resolvent optimalities would not do it.",
+        "searches": [
+          "42513c3dc5b2, Finding and proof §§2–4 on interval decomposition and balance",
+          "Benzi–Rinelli–Simunec §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-universal-variance-optimal-periodic-probing-on-killed-weighted-p--42513c3dc5b2 proves exactly the same estimator/partition optimizer for G=A⁻¹."
+        ],
+        "reasoning": "This is the single point-mass case; any other single shift is absorbed into the killing. An integral of Green matrices need not itself have the single-factor Green structure.",
+        "searches": [
+          "Resultary: fixed-budget variance-optimal periodic probing on killed weighted paths, inverse and log, resolvent mixtures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The specific 4 Li₂(r^(2k))/k² density was located in the assigned record, not in a distinct indexed entry or the inspected §3.1 probing passages."
+        ],
+        "reasoning": "The density is for the exact independent-class optimal log variance, not deterministic approximation error or generic distance decay. The search is bounded, not a negative priority proof.",
+        "searches": [
+          "Resultary: homogeneous-path optimal logdet probing variance density dilogarithm",
+          "Targeted general search for heterogeneous path log-determinant probing, resolvent mixture, and exact homogeneous dilogarithm variance"
+        ]
+      },
+      "rationale": "Bounded to positive resolvent mixtures with mixed-shift products (including log and nontrivial fractional inverses), and the fixed-k homogeneous log density. Exact fixed-budget all-partition optimization and the interval proof for a single Green matrix are already in a distinct same-date indexed record; no chronology is inferred. That proof makes the cross-product extension short but does not give a variance comparison for the square of an integral: the squared integral contains every cross product. The extension proves all the cross products have the requisite interval certificate, not merely that the separate variances are optimized at each shift.",
+      "residual_risks": [
+        "Possible wider theorem on interval-decomposable kernels or prior exact homogeneous formula not located.",
+        "Single-resolvent subcase and interval balance mechanism are credited; same-date catalogue listing alone gives no chronological ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact inverse-trace subcase and closely antecedent mechanism; not the full mixture or log density",
+          "evidence": [
+            "G_ij²=u_min v_max, strict Δu_aΔv_b decomposition, exact colored-window gap and uniqueness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-variance-optimal-periodic-probing-on-killed-weighted-p--42513c3dc5b2/RESULT.md",
+          "material_read": "Finding and Assumptions; proof §§2–4, offsets 3070–5623",
+          "method": "Resultary index and local mirror",
+          "title": "Universal variance-optimal periodic probing on killed weighted paths",
+          "trigger": "Identical weighted path, estimator, budget and partition; possible coverage by interval certificate"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Deterministic indicator probes and optimal count dβ+1 under the band and distance assumptions; no all-partition stochastic variance comparison in the inspected statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.09642v2",
+          "material_read": "§3.1 pp. 8–9, (3.1)–(3.3), OA offsets 28200–33648",
+          "method": "Lawful OA primary full-text passages",
+          "title": "Computation of the von Neumann entropy of large matrices via trace estimators and rational Krylov methods",
+          "trigger": "Periodic coloring optimality in matrix-function probing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete fixed-budget estimator-design classification survives arbitrary heterogeneity, unequal groups and a non-single-resolvent target such as log A. The mixed-shift closure identifies a concrete structural mechanism for extending exact probe design, and the log variance law gives a quantitative benchmark. This is not a runtime or determinant-speed claim: a tridiagonal determinant is already available in linear time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

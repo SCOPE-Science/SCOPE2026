@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:43.927288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–78; VERIFICATION.md lines 19–25; verify_entropy.py lines 11–245 inspected, not executed"
+      ],
+      "rationale": "An interior marker makes exactly the restriction not(s≥a and t≥b) on adjacent zero gaps. Anchored words with legal pairs extend using the common short gap s_* at both ends, so one-sided-zero limits cannot inflate their growth: the remaining padding and words with at most one marker contribute only the factor bounded by (1−z)⁻². For the displayed two-state transfer matrix, det M=−B_a(F−B_b) when a≥b and −B_b(F−B_a) otherwise, strictly negative in either case. Both off-diagonals are positive; as z→1 the first-row long-tail entry diverges and its return entry stays bounded below, proving the Perron root diverges. It increases strictly from 0, and det(I−M(r))>0 makes it less than 1 at r. This proves exact root uniqueness and the anchored-series radius. An independent symbolic check using three classes (below both thresholds, between thresholds, at least both), filling the transition entries with the target-class weights except precisely for forbidden pairs, gave det(I−T)=(1−F)(1+B_max)+B_a B_b in both threshold orders. On a fixed closed interval about r within (0,1), tails and derivatives vanish uniformly as min(a,b) grows by geometric domination. The scalar signed-root identity and mean-value theorem thus divide the exact positive defect B_a(r)B_b(r) by F'(r)+o(1), with no comparison between the two tails needed. Logarithm conversion gives 1/(rF'(r)). The plateaus use literally identical gap restrictions and the squared leading tail ratio at the jump gives r^(2^(j+1)).",
+      "residual_risks": [
+        "Joint relative limit for fixed S, not uniform additive control over gap sets; only holes with exactly one marker and a,b>min S. No finite-state numerical test proves the infinite-tail claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dillon's S-graph framework gives the Perron entropy equation after a finite-state gap recoding. Haydarov et al. already obtain strict entropy loss for positive-measure cylinders on arbitrary infinite S by Prop. 7.2, via a cylinder-dependent pressure gap.",
+          "Ferguson–Pollicott require a topologically mixing SFT and technical conditions including nested cylinder unions about a limiting point. Ramirez–Somers give an ambient (S,w)-gap entropy equation, not the moving-hole asymptotic."
+        ],
+        "reasoning": "Credit Dillon with the fixed-graph transfer method and Haydarov et al. with strict loss. None of these sources as stated implies the sharp relative equivalent for arbitrary S and any disparity of threshold growth; the exact defect at the unperturbed root and uniform derivative control address that gap.",
+        "searches": [
+          "Dillon arXiv:2010.06031 Thms. 1.2, 4.13; arXiv:2606.17031v1 Thm. 1.1, Prop. 7.2; arXiv:1009.0086v2 §§3, 5; arXiv:2501.08438v1 Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.20750v1, 2010.06031, 2606.17031v1, 1009.0086v2, 2501.08438v1; Resultary 1fd88ee11f52 and 16c74f282d59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-cutoff entropy calculation is a direct application of the earlier transfer framework. The joint asymptotic also needs exact factorization of the perturbation at r and a first-derivative bound uniform across unequal tails. Cheriyath's local escape formulation in §5.1.1 uses the full shift and structured nested cylinders.",
+          "The staircase needs both the unchanged short/long partitions and the moving-cutoff relative equivalent; an absolute entropy-gap bound does not give its jump ratio."
+        ],
+        "reasoning": "The extra ingredients are elementary but provide the claimed uniform relative information even if one cutoff advances arbitrarily faster; the reviewed statement is not just a renaming of the general fixed-graph determinant or the full-shift consistency test.",
+        "searches": [
+          "Dillon arXiv:2010.06031, matrix definition and Thm. 4.13; Cheriyath arXiv:2506.20750v1 §4 and Cor. 5.6; RESULT.md lines 39–72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheriyath's general gap-shift estimate expressly excludes words 0u0 with a 1 in u, apart from the stated arithmetic-gap exception; powers-of-two zero gaps are not in that exception.",
+          "The renewal measure at an origin marker uses independent adjacent gap lengths weighted by r^(s+1), with marker density 1/(rF'(r)); the coefficient times B_a B_b is therefore exactly the cylinder measure. Ferguson–Pollicott Cor. 5.4 supplies the entropy-loss/cylinder-measure formulation under mixing SFT and shrinking-neighborhood hypotheses."
+        ],
+        "reasoning": "Writing the product as cylinder mass exposes the substantive relationship to local escape theory. It does not identify arbitrary nonmixing, sparsely supported renewal shifts and independently moving cutoffs with mixing SFTs and prescribed nested neighborhoods. Symbol reversal merely swaps a,b and adds no separate novelty.",
+        "searches": [
+          "Web: \"A note on the perturbations of subshifts\" S-gap shifts cylinder escape rates shrinking holes Cheriyath; arbitrary S-gap renewal nonmixing moving cylinders entropy perturbation theorem",
+          "arXiv:2506.20750v1 Theorems 1.3, 4.1; arXiv:1009.0086v2 §3 and Cor. 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1fd88ee11f52 gives exact roots, normalized corrections, and plateau criteria for canonical finite-type covers with geometric return distances {1,b,b²,…}. Here the perturbation is avoidance of one word; powers-of-two zero gaps give return distances 2^j+1, and the ratio compares two cutoff holes.",
+          "16c74f282d59 compares equal-measure holes in iid Bernoulli shifts, not symmetric and asymmetric cutoff holes for a general S-gap shift."
+        ],
+        "reasoning": "The genuine staircase analogue precludes a broad staircase novelty claim but supplies neither this product-of-tails law nor its centered-hole jump ratio. This is a real comparison of structured results, not a lookup of a finite numerical instance.",
+        "searches": [
+          "Resultary 1fd88ee11f52, strongest inspected prior-dated entropy staircase match",
+          "Resultary 16c74f282d59, inspected Bernoulli cylinder hole match"
+        ]
+      },
+      "rationale": "Passes for the sharp joint moving-cutoff law for arbitrary fixed infinite S and the derived lacunary jump ratio for these one-marker holes. The general generating-matrix root is credited prior machinery; neither the existence of positive cylinder entropy gaps, rare-hole scaling in general, nor the bare idea of powers-of-two plateaus is a distinct contribution.",
+      "residual_risks": [
+        "Targeted literature and indexed-record checks do not exclude every renewal or open-system perturbation theorem. No novelty claimed for a generic product-of-measures heuristic, the fixed-cutoff transfer framework or the full-shift test."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General gap perturbation estimate explicitly leaves this hole class out beyond arithmetic exception",
+          "evidence": "Both endpoints zero and an interior one trigger its exclusion. Full-shift local escape result is more restricted in ambient system.",
+          "identifier_or_url": "https://arxiv.org/html/2506.20750v1",
+          "material_read": "Theorem 1.3 and adjacent exception; §4 and Thm. 4.1; §5.1.1 / Cor. 5.6",
+          "method": "Primary OA bounded passages, offsets 6500, 56200–63200, 97000–103972",
+          "title": "A note on the perturbations of subshifts",
+          "trigger": "Most direct prior gap-shift forbidden-word comparison"
+        },
+        {
+          "assessment": "Covers fixed-graph root method via recoding; not the stated joint relative asymptotic",
+          "evidence": "A weighted finite graph with allowed length sets gives entropy via its Perron root; the matrix determinant for the two specific cutoffs supplies a separate perturbation calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.06031",
+          "material_read": "Theorem 1.2 p. 2, matrix definition p. 8, Theorem 4.13 p. 12",
+          "method": "Primary OA PDF passages at offsets 3572, 24564, 42000",
+          "title": "Dynamics and entropy of S-graph shifts",
+          "trigger": "General transfer entropy theorem could imply the claimed fixed-cutoff equation"
+        },
+        {
+          "assessment": "Covers qualitative strict loss, not the sharp loss equivalent",
+          "evidence": "Prop. 7.2 bounds the pressure gap away from zero for a given positive-measure cylinder; does not yield this moving-family coefficient or ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17031v1",
+          "material_read": "Setup and Theorem 1.1 pp. 3–4; Prop. 7.2 p. 18",
+          "method": "Primary OA passages at offsets 7900 and 47000",
+          "title": "Effective Intrinsic Ergodicity for Renewal-Type Potentials on S-Gap Shifts",
+          "trigger": "Broader arbitrary infinite gap sets and pressure loss for cylinders"
+        },
+        {
+          "assessment": "Genuine analogous sharp result but not under the frozen general domain",
+          "evidence": "Mixing SFT with nested cylinder unions and further constraints; Cor. 5.4 gives normalized entropy loss 1 at a nonperiodic limit point. This does not directly handle arbitrary renewal gaps or general unbalanced moving cutoffs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.0086",
+          "material_read": "§3 technical conditions, p. 7; §5 ambient setting; Thm. 5.3 and Cor. 5.4, pp. 19–20",
+          "method": "Primary OA PDF passages around offsets 21138, 51475 and 54302",
+          "title": "Escape rates for Gibbs measures",
+          "trigger": "General entropy-gap/cylinder-measure asymptotic in an equivalent observable"
+        },
+        {
+          "assessment": "Ambient separator-word generalization, not centered-hole perturbation",
+          "evidence": "Entropy equation for an ambient (S,w)-shift does not impose the two-adjacent-gap avoidance.",
+          "identifier_or_url": "https://arxiv.org/html/2501.08438v1",
+          "material_read": "Theorem 1.1",
+          "method": "Primary OA passage offset 4348",
+          "title": "(S,w)-Gap Shifts and Their Entropy",
+          "trigger": "Related general gap-shift entropy equation"
+        },
+        {
+          "assessment": "Real prior analogue with a different perturbation and different return distances",
+          "evidence": "Canonical finite-type covers of geometric return distances, not one-marker forbidden words or the two-tail jump ratio.",
+          "identifier_or_url": "Resultary 1fd88ee11f52",
+          "material_read": "Mirrored RESULT.md theorem on entropy roots and plateau criterion",
+          "method": "Resultary comparison and local mirror passage",
+          "title": "A countable entropy phase spectrum in finite-type covers of geometric gap shifts",
+          "trigger": "Closest exact staircase and normalized entropy-correction match"
+        },
+        {
+          "assessment": "Different ambient process and observable",
+          "evidence": "Compares iid Bernoulli holes of equal measure, not cutoff tails of an arbitrary infinite renewal set.",
+          "identifier_or_url": "Resultary 16c74f282d59",
+          "material_read": "Mirrored finding on equal-measure holes",
+          "method": "Resultary comparison and local mirror passage",
+          "title": "A logarithmic bias phase law for equal-measure Bernoulli cylinder holes",
+          "trigger": "Closest indexed cylinder-hole asymptotic analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–29 and 66–86",
+        "Cheriyath Theorem 1.3 and exception; Haydarov et al. Prop. 7.2"
+      ],
+      "rationale": "Handles a natural missing case in the motivating gap-shift perturbation theorem and gives a quantitative equivalent where mere strict positivity is much weaker. The two-cutoff form handles sparse supports and very unequal thresholds, for which exponential-in-word-length estimates can miss which gap is the next available one. The lacunary example turns that distinction into exact entropy plateaus and a quantitative jump ratio.",
+      "residual_risks": [
+        "No claim that holes with several ones have the same two-state description or asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

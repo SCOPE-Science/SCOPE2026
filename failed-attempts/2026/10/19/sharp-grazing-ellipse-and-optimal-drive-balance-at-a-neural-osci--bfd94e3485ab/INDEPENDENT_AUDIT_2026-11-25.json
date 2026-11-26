@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:25.984410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The active affine equilibrium gives p,q and the stated open feasibility interval. After shifting to this equilibrium and rescaling the second neuron's deviations by 1/σ, the symmetric and antisymmetric modes decouple. The symmetric 2×2 block has negative trace and positive determinant; the antisymmetric block has trace zero and determinant ω²>0. A nonzero stable component cannot return after a positive period, and this argument applies even when a nonnegative periodic orbit touches the thresholds, where the affine and rectified vector fields agree. On the center plane u=v+τ_y v̇, with v harmonic of amplitude ρ, so max |u|=Kρ. Both firing inequalities hold iff Kρ<=min(p,q/σ), which excludes nonconstant orbits at either endpoint or outside the interval. The projected map from harmonic coordinates has constant Jacobian ωτ_y, and the two orthogonal embedding columns give intrinsic area multiplier 1+σ². The two positive affine bounds increase and decrease respectively, crossing only at r=σ, so radius and area have a unique maximum there; both threshold contacts occur at opposite phases. The exact primitive period follows from any nonzero harmonic component. Independent rational block/threshold checks at (τ_x,τ_y,b,σ,s_1)=(2,3,2,3/2,7/5) give R²=3/400,3/100,3/400 for r=7/6,3/2,21/10 and the predicted graze multiplicities (python /workspace/branches/independent_replay.py 1). Those checks supplement the argument; the frozen SymPy script was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched record analyzes outer one-sided attraction in addition to explicitly giving the exact neutral center family and cutoff. Its linear symmetric block is strictly stable on the full active cell.",
+          "Muramatsu–Kori derives the center and describes an outermost orbit grazing one or both switching boundaries. The accessible Matsuoka abstract describes frequency and amplitude formulas from a rough linear approximation."
+        ],
+        "reasoning": "The additional rate theorem has a local exterior scope, but its exact inner-family calculation and stable block apply to all interior-equilibrium parameters of the frozen theorem. The 2011 abstract alone neither establishes nor rules out additional exact coverage.",
+        "searches": [
+          "Resultary b24f77cdacfa, Finding and Proof §1",
+          "Muramatsu–Kori arXiv:2405.08409v1 §§IV.4,V.1",
+          "Matsuoka 2011 DOI:10.1007/s00422-011-0432-z / PMID 21562853"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b24f77cdacfa",
+        "Muramatsu–Kori arXiv:2405.08409v1",
+        "Matsuoka 2011 PMID 21562853 (abstract, full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable P,Q equations exclude all further active periodic states. The sign of the equilibrium components excludes nonconstant fully active states outside the feasible interval, since each firing coordinate then has nonpositive period mean (with equality incompatible with nonzero amplitude).",
+          "The known cutoff yields projected area π ω τ_y a12 L_c²/K². With s2=r s1 the two arguments of L_c have opposite slopes, and L1=L2 reduces in the indexed equilibrium equations to r=σ, giving p=s1/(1+b+c) and the frozen maximum. The minimum of the two affine caps gives the endpoint collapse; opposite U extrema give the two contacts."
+        ],
+        "reasoning": "The remaining fixed-first-drive optimizer and area maximum are not explicit in the comparison entry, but follow by a constant Jacobian and one affine intersection, with no additional scientific lemma or choice of parameters. Thus the ostensibly separate area optimization does not survive as a substantive distinct claim. The catalogue chronology does not establish who obtained the result first.",
+        "searches": [
+          "Resultary b24f77cdacfa, equilibrium equations and Proof §1",
+          "arXiv:2405.08409v1 §IV.4 Eqs. (33g),(33i), §V.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In b24f77cdacfa write kappa=K, h1=p, h2=q and u=sqrt(a12)U, v=sqrt(a12)V on P=Q=0. Its invariant I=(U−V)²+(K²−1)V² equals (K²−1)ρ²/a12. Its amplitude L satisfies L²=I/(1−K^(-2)), hence L=Kρ/sqrt(a12).",
+          "Its L_c=min(h1/sqrt(a12),h2/sqrt(a21)) is exactly the frozen Kρ<=min(p,q/σ) cap including grazing equality, one/two contacts and the common period.",
+          "The earlier primary preprint's weighted sums x2+σx1=y2+σy1=s1(r+σ)/(1+b+c) express the same plane."
+        ],
+        "reasoning": "The annulus and projected ellipse have a fixed linear correspondence preserving the all-time nonnegative firing condition. This is a formula-level match of the family, not just a title match or shared equilibrium.",
+        "searches": [
+          "Resultary: Matsuoka fully active center, exact grazing cutoff and island area",
+          "Resultary b24f77cdacfa, Assumptions and Proof §1",
+          "Muramatsu–Kori arXiv:2405.08409v1 §IV.4 and §V.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed entry specifies the full parameterized action I, amplitude L and L_c without assuming symmetric coupling or equal input. Its formulas are symbolic, not a numerical table."
+        ],
+        "reasoning": "Although projected areas are not listed, the entry supplies exactly the action sublevel set. Area multiplies the square of L_c by a fixed coordinate factor, so this symbolic data determines the whole area curve, not only a few examples.",
+        "searches": [
+          "Resultary b24f77cdacfa, normal-form invariant and threshold formulas at offsets 1130–4287"
+        ]
+      },
+      "rationale": "The distinct indexed grazing-circle result b24f77cdacfa establishes the identical active-center invariant and exact two-threshold cutoff under the same assumptions, with the stable complementary block and the period explicit. The frozen radius and area are its direct affine-coordinate rewrite and Jacobian, and maximizing that area is mechanically the intersection of the two affine thresholds already specified there. This is demonstrable equivalent coverage, not an assertion of chronological priority: the matching record carries a later catalogue date than the frozen record. Muramatsu–Kori provides earlier center and qualitative-grazing coverage, but is not needed to infer priority for the exact formulas. The inaccessible 2011 full text is not the reason for failure.",
+      "residual_risks": [
+        "Chronological priority and provenance of the overlapping indexed claims are not determined by this comparison.",
+        "The full 2011 Matsuoka paper was not readable in the bounded lawful retrieval; its exact coverage remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent action-domain and stable-block coverage; area and optimum are direct corollaries. Indexed date is later; no finding of earlier priority.",
+          "evidence": [
+            "h1,h2 solve the same active equilibrium equations.",
+            "The center action I fixes L, with L_c=min(h1/sqrt(a12),h2/sqrt(a21)).",
+            "All inner amplitudes up to L_c are periodic; at the cap the membranes touch but do not cross."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-sided-quadratic-rate-capture-by-a-grazing-circle-in-the-two--b24f77cdacfa/RESULT.md",
+          "material_read": "Finding; Assumptions and Proof §§1–2 at offsets 1130–4287; final limitations and references at offsets 8200–9677",
+          "method": "Bounded local published-record mirror inspection",
+          "title": "One-sided quadratic-rate capture by a grazing circle in the two-neuron oscillator",
+          "trigger": "Distinct same-system record with exact primitive period and first-grazing cutoff"
+        },
+        {
+          "assessment": "Direct coverage of center and transverse modes and qualitative outermost grazing; no explicit optimized area in the inspected passages.",
+          "evidence": [
+            "Weighted-sum equations identify the same affine center plane.",
+            "The outermost periodic orbit grazes either or both switching boundaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.08409v1",
+          "material_read": "§IV.4 Eqs. (33g),(33i) near HTML offset 41400, §V.1 near offset 51800",
+          "method": "Bounded OA HTML text inspection",
+          "title": "Bifurcation analysis of a two-neuron central pattern generator model for both oscillatory and convergent neuronal activities",
+          "trigger": "Earlier derivation of the same model, center threshold and grazing family"
+        },
+        {
+          "assessment": "Abstract presents approximate relations; no full-text verdict",
+          "evidence": [
+            "Frequency and amplitude relations are derived using a rough linear approximation."
+          ],
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/21562853/",
+          "material_read": "NCBI MEDLINE abstract; OA availability and attempted publisher full-text retrieval",
+          "method": "Lawful abstract inspection and bounded OA retrieval attempt",
+          "title": "Analysis of a neural oscillator",
+          "trigger": "Potential historical amplitude/frequency equivalent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The active excursion envelope is a natural quantity for models of firing-threshold contact. However the same envelope, period and contact multiplicity are already supplied by the exact indexed center family. The remaining area and optimum simply measure that known ellipsoid by a fixed Jacobian and maximize the square of its known piecewise-affine cutoff. They do not supply an independently unknown invariant or a substantive residual boundary classification under the scientific value criterion. No repair is proposed; a different switching or optimization problem would require a new result, not an edit to this one.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

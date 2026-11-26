@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:42:43.802959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The operator is the normalized sum of two cyclic shifts and their inverses in each coordinate. The horizontal Fourier dimensions are 1 and 2, the vertical dimensions 1 at zero and 2 elsewhere. Each horizontal branch has strictly descending eigenvalues in the vertical level, so a coincidence uses precisely one level per branch. A coincidence gamma=3/(mu_t-mu_s) has s>t and dimension 2+2 at t=0 and 2+4 otherwise. Equality of two coupling ratios cannot concatenate more than two blocks at any eigenvalue. Any spatial set with fewer sites than the maximal eigenspace dimension has a permanently invisible eigenvector. In an unmixed block, adjacent vertical samples resolve the two Fourier characters (z differs from z^(-1) by oddness) and x=0,1 resolve the two horizontal characters. At t=0, taking differences at the two horizontal sites cancels the y-constant terms; the equations have determinant (z-1)(z^(-1)-1)(z^(-1)-z), nonzero even at N=3. The six-site rectangle separates each horizontal character by the full three-point transform and resolves an adjacent vertical pair for each. The distinct-eigenvalue time Vandermonde needs at most N+1 time samples, starting at zero. Independent physical shift matrix tests (evidence/3/reproduce.py and replay.txt) give full stipulated ranks at ordinary and both collision types, including N=3 at gamma=1 and the six-dimensional N=5 collision at 3/sqrt(5). They are floating-point representative tests, not the justification for all odd N. The guarantee is exact noiseless recovery, not uniform conditioning or a shortest time horizon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Structural product observability allows almost all numerical link weights; the frozen theorem varies one positive parameter under repeated weight constraints.",
+          "General finite-graph eigenspace criteria are broad tests, not an applicability theorem for the four fixed sites."
+        ],
+        "reasoning": "Generic results need not apply at an exact collision. Even knowing eigenspace dimensions does not ensure their simultaneous separation by a prescribed set; the staggered mixed-block determinant is additional.",
+        "searches": [
+          "arXiv:2001.04699 Theorem 1 and genericity discussion",
+          "arXiv:2609.25472 Theorem 4.1",
+          "arXiv:2511.10769 p. 21"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/8/SCOPE-sharp-four-six-eight-sensor-resonance-law-for-an-anisotropic-5-t--89a42efe6679",
+        "2026/11/8/SCOPE-exact-resonance-resolved-minimum-coordinate-controllability-of-w--17a8333c0dda",
+        "2026/11/8/SCOPE-exact-sensor-multiplicity-and-krylov-volume-for-multipartite-gra--27e97ba18005",
+        "2026/11/16/SCOPE-drift-induced-recovery-and-exact-temporal-resonances-in-cyclic-f--025cacc01543",
+        "2026/11/16/SCOPE-arithmetic-gradient-curl-resonances-and-sharp-damping-on-triangu--84d46f877f7f",
+        "arXiv:2609.25472",
+        "arXiv:1702.03384",
+        "arXiv:2001.04699",
+        "arXiv:2511.10769"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier torus work uses the same program of cosine-level grouping and Fourier ranks but has three versus four levels in the two factors and does not prove an all-size layout.",
+          "At N=3, gamma=1, a 2 × 2 unstaggered rectangle misses a direction in the merged space of additive functions of x and y, despite having four sites."
+        ],
+        "reasoning": "The known framework plus frequency multiplicities explains necessity, but not exact attainment at dimension-four collisions by a single size-independent physical layout.",
+        "searches": [
+          "arXiv:2609.25472 §4.2 Theorem 4.1",
+          "2026/11/8/SCOPE-sharp-four-six-eight-sensor-resonance-law-for-an-anisotropic-5-t--89a42efe6679, Finding and four-sensor construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The orbit frame condition is full rank on each eigenspace; coordinate actuator controllability is the dual viewpoint for this symmetric operator.",
+          "The closest actuator-count catalog finding is for C_m × K_2, not C_N × K_3."
+        ],
+        "reasoning": "A two-layer graph has two one-dimensional horizontal spectral subspaces, not the 1+2 multiplicities here, so its layouts and arithmetic strata cannot carry over by duality.",
+        "searches": [
+          "arXiv:1702.03384 Theorem 4.1",
+          "arXiv:2609.25472 §4.2 Theorem 4.1",
+          "2026/11/8/SCOPE-exact-resonance-resolved-minimum-coordinate-controllability-of-w--17a8333c0dda"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier 5 × 7 finding catalogs 18 positive resonances and layouts for that single torus; off resonance it uses a rectangle and at four-sensor resonances a separate pattern.",
+          "The distinct same-date findings concern a directed even-cycle temporal resonance and an edge Hodge operator, respectively."
+        ],
+        "reasoning": "None of these tables or formulas outputs all odd 3 × N resonance sets and a single four-site pattern; the same-date results are excluded by mathematical object, not by assigned date.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-four-six-eight-sensor-resonance-law-for-an-anisotropic-5-t--89a42efe6679",
+          "2026/11/16/SCOPE-drift-induced-recovery-and-exact-temporal-resonances-in-cyclic-f--025cacc01543",
+          "2026/11/16/SCOPE-arithmetic-gradient-curl-resonances-and-sharp-damping-on-triangu--84d46f877f7f"
+        ]
+      },
+      "rationale": "The exact operator, infinite odd-cycle family, and universal staggered four sites surviving every benign collision are not covered by the strongest inspected fixed-torus, two-layer ladder, or abstract observability results. The max-eigenspace-dimension lower bound and orbit-frame criterion are not new.",
+      "residual_risks": [
+        "Bounded ranked catalog and literature searches are not exhaustive; equivalently formulated product-grid coordinate controllability results could have been missed.",
+        "The earlier closely analogous 5 × 7 calculation and general spectral method limit methodological novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method, different fixed graph and nonuniform layouts; no implication of the all-odd theorem",
+          "evidence": [
+            "18 couplings on Z_5 × Z_7 and a 4/6/8 law"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-four-six-eight-sensor-resonance-law-for-an-anisotropic-5-t--89a42efe6679",
+          "material_read": "Finding and four-sensor resonance layout, offsets 0 and approximately 5600",
+          "method": "Local mirror passages after Resultary similarity search",
+          "title": "Sharp four-six-eight sensor resonance law for an anisotropic 5 × 7 Fourier torus",
+          "trigger": "Closest explicit product-torus sensor classification"
+        },
+        {
+          "assessment": "Two layers C_m × K_2, not the multiplicity-two horizontal branch of K_3",
+          "evidence": [
+            "Exact coordinate actuator counts and nested layouts for the ladder"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-resonance-resolved-minimum-coordinate-controllability-of-w--17a8333c0dda",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact resonance-resolved minimum coordinate controllability of weighted ladders",
+          "trigger": "Controllability dual and product structure"
+        },
+        {
+          "assessment": "Supplies the eigenspace frame criterion, without these collision or spatial rank calculations",
+          "evidence": [
+            "Projected sensor vectors must frame each diagonal eigenspace"
+          ],
+          "identifier_or_url": "arXiv:2609.25472",
+          "material_read": "§4.2 Theorem 4.1, pp. 22–23",
+          "method": "OA PDF passage around offset 69900",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Potential general finite-graph coverage"
+        },
+        {
+          "assessment": "An abstract reduction rather than a uniform minimum site theorem",
+          "evidence": [
+            "The projections of the sensor-vector span govern finite-dimensional sampling"
+          ],
+          "identifier_or_url": "arXiv:1702.03384",
+          "material_read": "Theorem 4.1, p. 18",
+          "method": "OA PDF passage near offset 63000",
+          "title": "Dynamical Sampling on Finite Index Sets",
+          "trigger": "Established spectral version of finite-orbit sampling"
+        },
+        {
+          "assessment": "Its generic link-weight hypothesis does not resolve exact resonances of the tied-weight family",
+          "evidence": [
+            "Structural conclusion holds for almost all numerical link weights"
+          ],
+          "identifier_or_url": "arXiv:2001.04699",
+          "material_read": "Theorem 1 and genericity discussion pp. 2 and 6",
+          "method": "OA PDF offsets 12100 and 46200",
+          "title": "Recovering the Structural Observability of Composite Networks via Cartesian Product",
+          "trigger": "Potential stronger theorem for product networks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact physical sensor budget over an infinite natural graph family is a motivated design invariant. It separates benign from sensor-costly coincidences and gives one implementable optimal four-site choice for all benign parameters. The stagger matters: the ordinary rectangle fails already at the benign N=3 collision, although the dimension lower bound remains four. This is not just a spectral multiplicity table or a generic rank criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

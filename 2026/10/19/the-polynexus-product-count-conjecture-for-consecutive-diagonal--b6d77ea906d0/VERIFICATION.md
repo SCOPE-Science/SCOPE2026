@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` in the same directory as this document. The script uses only the Python standard library and is self-contained.
+## correctness
 
-The direct check constructs each nonzero partial translation on \(\{1,\dots,n\}\) for \(1\le n\le9\), then computes the nonzero-product indicator by image membership under genuine partial-map composition. Independent length-based summation and the two closed formulas are compared through \(n=100\). The expected output is `CHECKER_OK: direct maps n=1..9, length sums n=1..100`.
+PASS
 
-The infinite-parameter proof is the interval bijection plus the bounded-degree polynomial identity in `RESULT.md`. Finite computations independently test those steps but do not substitute for the degree bound or the disjointness argument. Mathematical record and source comparisons are detailed separately in `AUDIT.json`; no independent audit has been performed.
+For each block its row and column intervals have the same length; ordinary matrix multiplication is nonzero exactly when the first column interval and second row interval meet. The zero-product gap count has two left/right orders, three slack gaps, and independent unused interval starts. The resulting sum is polynomial of degree at most six by expansion into monomials and summation in s, so the seven exact values in RESULT.md really prove the identity. Independently, classify nonempty intersections by their first position i. The weighted count of intervals starting at i is A=(n-i+1)(n+i)/2; the weighted count containing i is C=(n+1)i(n-i+1)/2, since the free other start contributes n+start-end and averaging over the rectangle of endpoints gives (n+1)/2. At least one interval starts at i, so sum A(2C-A) over i=1..n. Expanding and using power sums gives n(n+1)(7n^4+14n^3+21n^2+14n+4)/120, the claimed expression. Subtracting 2Q_n-1 removes identity pairs exactly; leading terms (7/120)n^6 and (1/9)n^6 give 21/40. The n=1 extension also gives 1 for the product count, without asserting a ratio on an empty nonzero set. Independent replay `python3 /workspace/reproductions/review_2.py` checks explicit interval sets and first overlaps at n=1..10 (17, 118, 514 for n=2,3,4). This finite run supports, not replaces, the symbolic count.
+
+## originality
+
+PASS
+
+The polynomial and its monoid interpretation as a conjecture are prior. The supported distinct contribution is the all-size proof of their equality, not the sequence or the statement of the conjecture. No equivalent proof was found in the matched statements inspected. The exact conjecture is §7 in the early record reference and §8 in the inspected later author version.
+
+## value
+
+PASS
+
+Settles a stated all-size enumeration conjecture for a natural inverse monoid. The interval count explains the algebraic obstruction and turns a conditional proportion into an exact one, rather than improving a finite test cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

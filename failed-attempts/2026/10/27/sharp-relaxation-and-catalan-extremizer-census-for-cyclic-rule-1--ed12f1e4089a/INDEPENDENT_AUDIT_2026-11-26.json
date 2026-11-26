@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:45.512933Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–60; VERIFICATION.md; verify.py"
+      ],
+      "rationale": "In the unrolled sparse regime the parallel exclusion rule is P_i(t+1)=min(P_i(t)+1,P_{i+1}(t)−1). Subtracting t+2i yields a sliding minimum of initial B_i=p_i−2i, whose drift over k particles is n−2k≥0. At t=k−1 the appended endpoint cannot lower the old minimum, so every empty-cell gap is at least one. At t=k−2 a zero gap occurs exactly when the added endpoint is strictly below the entire old window; its drop is at most one because B increments are ≥−1. Two such records would force B_(ell+k)<B_(ell')<B_ell for ell<ell'<ell+k, contradicting the drift. In reverse gap order the record condition is that the first q gaps sum to at most q−1. A bijection with Dyck paths writes each gap as that many down-steps followed by one up-step, then appends down-steps until the height is zero; the nonnegative condition just before each up-step is the displayed inequality. The omitted physical gap is set by the hole count and is at least two, so each choice of record particle site and Catalan path gives one distinct labeled input. For k=1 all n sparse states are already relaxed, and at half filling gap separation forces alternation. Complement-reflection commutes with the update and handles the dense bound and census. The source verifier and its recorded run were inspected; the general argument is analytic.",
+      "residual_risks": [
+        "The unique adjacent-ones-pair statement is scoped to 2≤k≤n/2. The uploaded checker detects the existence of a near-final blockage from relaxation time rather than separately counting the number of actual adjacent pairs; uniqueness is justified by the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fukś characterizes all n-step local preimages of 00 by a ballot criterion; complement-reflection gives 11. 60e2f7c2a588 supplies the entire fixed-mass relaxation distribution, but dates later. The other papers treat exact mean traffic flow, infinite-lattice measures/convergence, or a stochastic sequential ring, respectively."
+        ],
+        "reasoning": "The preimage criterion is more general in time than the two terminal times and applies unchanged to cyclic windows of length at most n. The other exclusion-process comparisons do not provide the same deterministic parallel census.",
+        "searches": [
+          "Fukś arXiv:comp-gas/9703001, p. 2 Proposition 1 and path count",
+          "Resultary 60e2f7c2a588 §§Finding and Relationship to prior work",
+          "Fukś arXiv:comp-gas/9902001; Belitsky–Ferrari arXiv:math/9811103; Brankov et al. arXiv:cond-mat/0509736"
+        ]
+      },
+      "checked_sources": [
+        "Fukś arXiv:comp-gas/9703001, Proposition 1 and equations (2)–(3)",
+        "Resultary 59fbc93a8b51 and 60e2f7c2a588",
+        "arXiv:2605.19023v2; comp-gas/9902001; math/9811103; cond-mat/0509736; 2602.08991"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A qualifying window at time t has length 2t+2 and positive even terminal height, so contains at least t+2 particles. Both windows used here fit on the ring when 2k≤n. At t=k−1 there are no such windows. At t=k−2 each contains exactly k particles and has endpoint height two."
+        ],
+        "reasoning": "There cannot be two qualifying backward window starts: each start is a particle and is contained in the other window since each window contains all k particles. The two backward arcs from one start up to but excluding the other are then both nonempty proper prefixes of admissible windows, so have positive height sums; together they cover the cycle, of sum 2k−n≤0. Thus counting the n positioned windows times the prior Catalan count counts distinct extremizers. The prefixes just before the second through kth particles give exactly the inequalities sum of the first q backward gaps ≤q−1. Conversely those inequalities place all k particles in the window and keep every prefix positive (after the kth particle, the all-hole remainder ends at height two). This proves the classified strict record as well. Complement-reflection and the single-particle case finish every stated parameter.",
+        "searches": [
+          "Fukś arXiv:comp-gas/9703001 p. 2, Proposition 1 and equations (2)–(3), checked against frozen equations (3)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "59fbc93a8b51 states the exact same maximum and indexed census, with a distinguished car and plane-tree encoding. 60e2f7c2a588 explicitly gives the same extremal layer in a larger distribution. Both catalogue records postdate this frozen record. Biham et al. connect the last stop to walk records for individual cars, with random-ensemble stopping-time formulas. Fukś gives the exact finite-block preimage criterion with positive prefixes."
+        ],
+        "reasoning": "Use particle–hole reflection and read a local preimage backward with +1 for a particle. The first two steps must be positive increments and the height must remain strictly positive throughout. At time k−2 this window contains every particle; positivity before each next particle is exactly the initial reversed gap strict-record inequality. Thus the proof's record language encodes the same admissibility criterion. The later online records confirm overlap, not earlier priority.",
+        "searches": [
+          "Resultary: Rule 184 cyclic traffic, Catalan extremizers, sharp relaxation; 59fbc93a8b51 and 60e2f7c2a588",
+          "Biham et al. arXiv:2605.19023v2, last-stopping time / record height",
+          "Fukś arXiv:comp-gas/9703001 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For a walk of length 2t starting at height two and ending at y, the prior count is N_(2t,y−2)−N_(2t,y+2), with N_(a,b)=binom(a,(a+b)/2). At y=2 this is binom(2t,t)−binom(2t,t+2)=C_(t+1). Both later Resultary records print n C_(m−1)."
+        ],
+        "reasoning": "For time t=k−2 at fixed sparse mass k, y=2 is the only possible final height of an admissible length-2k−2 window; no exterior particles remain to choose. The exact count per cyclic position is therefore a specialization of the existing formula, not a new table.",
+        "searches": [
+          "Fukś arXiv:comp-gas/9703001 p. 2, equations (2)–(3), ballot path counts by endpoint",
+          "Resultary 59fbc93a8b51 and 60e2f7c2a588, exact labeled counts"
+        ]
+      },
+      "rationale": "Fukś's earlier local preimage theorem and exact ballot count already imply the fixed-mass sharp bound, labeled Catalan census and unique final blockage, including the stated initial strict gap-record characterization. This is concrete prior implication, not just reuse of a general technique, nor a priority inference from the later catalogue matches. The min-plus proof is an alternate derivation of a mechanically covered claim.",
+      "residual_risks": [
+        "The comparison establishes coverage by implication, not where the extremal statement was first printed. The 1998 ultradiscrete paper's text was unavailable, which does not affect the decisive preimage comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage by direct specialization plus the cyclic prefix-sum observation",
+          "evidence": "00 preimages begin with 00 and maintain a strictly positive walk; the count with prescribed terminal height is given by reflection.",
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9703001",
+          "material_read": "PDF p. 2 Proposition 1 and equations (2)–(3), offsets 11650–14023; p. 3 periodic full-block argument passage",
+          "method": "OA PDF locus inspection and decisive formula read",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Exact preimage characterization and weighting by number of particles"
+        },
+        {
+          "assessment": "Close last-stop mechanism, but inspected distribution is for a random individual car",
+          "evidence": "Parallel periodic Rule 184; individual stopping/record correspondence; finite-size effects left for future study in the summary.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.19023",
+          "material_read": "PDF p. 4 model, pp. 6–7 record mapping, p. 25 eqs. (55)–(59), p. 41 summary",
+          "method": "Bounded OA primary passages",
+          "title": "First-passage processes in a deterministic one-dimensional cellular automaton model of traffic flow",
+          "trigger": "Earlier same-rule last-stop and record analysis"
+        },
+        {
+          "assessment": "Same extremal layer, both records later than the frozen source",
+          "evidence": "The first has the sharp time, Catalan census and unique distinguished car; the second recovers the exact same count from the distribution.",
+          "identifier_or_url": "Resultary 59fbc93a8b51 and 60e2f7c2a588",
+          "material_read": "First record §Finding; second offsets 0–6455 and 6400–9620",
+          "method": "Configured local mirror, bounded reads",
+          "title": "Catalan extremizers for cyclic traffic relaxation under Rule 184; A complete Catalan-logarithm census of relaxation layers in cyclic Rule 184",
+          "trigger": "Exact indexed overlap and stronger all-layer theorem"
+        },
+        {
+          "assessment": "Relevant background or genuinely different update/geometric regime",
+          "evidence": "Exact deterministic gap update and flow; infinite lattice convergence; stochastic backward-ordered sequential ring, respectively.",
+          "identifier_or_url": "arXiv:comp-gas/9902001; arXiv:math/9811103; arXiv:cond-mat/0509736",
+          "material_read": "Fukś p. 2, Belitsky–Ferrari p. 1, Brankov et al. pp. 1–2",
+          "method": "Bounded OA primary passages",
+          "title": "Exact results for deterministic cellular automata traffic models; Invariant Measures and Convergence for Cellular Automaton 184 and Related Processes; The totally asymmetric exclusion process on a ring: Exact relaxation dynamics and associated model of clustering transition",
+          "trigger": "Exclusion and min-plus aliases for the traffic rule"
+        },
+        {
+          "assessment": "Prior height and Dyck-jam representation; not used for the decisive implication",
+          "evidence": "Initial height walk, balanced paths and jam excursions in a statistical-mechanics analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.08991",
+          "material_read": "Abstract and pp. 3–4",
+          "method": "Bounded OA primary passages",
+          "title": "Equilibrium-like statistical mechanics in space-time for a deterministic traffic model far from equilibrium",
+          "trigger": "Dyck/height representation for the same automatic traffic update"
+        },
+        {
+          "assessment": "Unresolved full-text coverage; not used to fail the record",
+          "evidence": "Retrieval did not supply the article.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/31/24/006",
+          "material_read": "No primary text retrieved",
+          "method": "Lawful OA retrieval attempt; no available copy found",
+          "title": "Analytical properties of ultradiscrete Burgers equation and rule-184 cellular automaton",
+          "trigger": "Closest cited ultradiscrete comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Fukś arXiv:comp-gas/9703001, Proposition 1 and equations (2)–(3)"
+      ],
+      "rationale": "Worst-case time and first extremal multiplicity are naturally motivated for synchronous traffic. But the exact invariant here reduces to evaluating the published preimage count at its smallest possible height, together with one additive cyclic prefix argument. The min-plus reformulation reads well as an alternate proof; it does not supply a separate unknown or non-mechanically-implied scientific invariant of the system.",
+      "residual_risks": [
+        "The negative assessment is about a distinct scientific contribution in this record, not about the usefulness of the traffic question or its exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:41.015266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a proposed fort with original part A and edge-vertex part Q, the exact tests are δ(A)⊆Q and deg_Q(v)≠1 at all v∉A. With A empty, any nonempty eligible Q contains a cycle, and no proper nonempty subset of a cycle has minimum nonzero degree at least two. With A all originals, the original set is itself minimal by the cut test. If both shores of δ(A) have at least two vertices then it contains a 4-cycle; if |A|=1 then the exterior degree test adds a leaf-to-leaf edge to its star, creating a triangle. The remaining case |A|=n−1 gives the stated star fort, which is minimal: cutting any proper nonempty subset of its originals would require an edge inside the leaves, and no subfort without originals fits inside a star. Forcing is equivalent to hitting the minimal forts by the first-entry and terminal-white-set arguments. With nonempty U, the white edge set must be a forest; a singleton U={v} fails the special-fort test exactly when that forest contains the entire star at v, in which case it equals the star. Forest rank n−1−|R| in the Tutte exponent difference gives the displayed identity, and Cayley's formula counts the minimum sets after subtracting one star for each singleton. These arguments include n=3. Independent literal tests exhausted 64, 1024 and 32768 initial sets at n=3,4,5 and matched the exact fort families, forcing sets, and coefficients. Fort totals were 5,12,43; forcing totals 46,566,9016; minimum-set counts 6,60,620. Replay: python3 /workspace/reproductions/check_subdivision.py 3 4 5. The frozen n=6 sample was not independently replayed and is not exhaustive. The bundled script's Python 3.8 compatibility guidance should say 3.10 or later because of int.bit_count(); this does not affect the theorem or independent check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barrett et al. already give the minimum value by their general complete-subdivision theorem, together with a single selected original for a minimum set of a 2-edge-connected base.",
+          "Cameron et al. provide the general fort-transversal description. The inspected Becker et al. passages cover other graph families; Menon–Singh's p. 15 discusses edge subdivision as a further direction."
+        ],
+        "reasoning": "The scalar parameter and general duality are established, but these particular passages do not supply the graph-specific all-set claim. The exact overlap is established separately.",
+        "searches": [
+          "Barrett et al. (2014), Theorem 1.3 and Remark 3.4",
+          "Cameron et al., arXiv:2310.17904",
+          "Becker et al., arXiv:2404.05963; Menon–Singh, arXiv:2405.01423"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; companion frozen RESULT.md c1670e0d0c71",
+        "Resultary 43a4c9836292, 8cde40182533 and c09a6254ab6b",
+        "Barrett et al. (2014); arXiv:2310.17904, 1801.08910, 2404.05963, 2405.01423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the indexed forest formula, replacing the forest sum by the standard y=1 Tutte expansion gives the frozen formula term-for-term.",
+          "The indexed fort classification and minimum multiplicity are also stated explicitly; the Barrett passages alone do not give them."
+        ],
+        "reasoning": "There is no separate nonroutine remainder in changing to the Tutte specialization. This records equivalence independently of who first derived it.",
+        "searches": [
+          "Companion frozen RESULT.md and Resultary 43a4c9836292; Barrett et al. Theorem 1.3 / Remark 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The companion states exactly the three minimal families and rejects a singleton original paired with the centered star as its white forest.",
+          "For T a forest, containing the full star at v is equivalent to being that star, so that exclusion is precisely the frozen requirement that some chosen edge-vertex is incident with v.",
+          "For connected K_n, z^{m−n+1}T_{K_n}(1+z,1)=z^m F_n(z^−1) with F_n the edge-count spanning-forest polynomial. Both enumerators have the same nonempty-original factor and subtract n z^{m−n+2}."
+        ],
+        "reasoning": "The formulas count the very same labeled vertex subsets; the variable reversal and prefactor just change the forest summation notation.",
+        "searches": [
+          "Companion frozen subdivision result c1670e0d0c71, RESULT.md lines 5–24, 47–55",
+          "Resultary: once-subdivided complete graphs, incidence graphs, minimal forts, Tutte/forest forcing enumerators; exact hit 43a4c9836292"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched 43a4c9836292 RESULT.md offsets 0–2286 gives the same n-domain, three families, forest forcing polynomial and minimum-set count. Repeat hits are this same identifier, not independent publications.",
+          "8cde40182533 classifies forts in L(K_n), a different graph; c09a6254ab6b counts induced-forest facets in the same subdivision, a different object."
+        ],
+        "reasoning": "The exact indexed hit is a statement-level parameter and object match. The related-looking titles are not matches.",
+        "searches": [
+          "Local Resultary exact result 43a4c9836292; near matches 8cde40182533 and c09a6254ab6b"
+        ]
+      },
+      "rationale": "The companion frozen result and the exact indexed Resultary statement cover the same fort families, all-set test and full labeled enumerator. The specialization of the Tutte polynomial is the same forest sum, not a different invariant. This is demonstrable equivalent coverage, without inferring any publication ordering from directory dates.",
+      "residual_risks": [
+        "The proof of overlap is mathematical, not a finding about derivation or public priority. Other unindexed incidence-graph or forest formulations may exist; the literature check was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact substantive overlap; directory dates do not determine public priority or identity provenance",
+          "evidence": [
+            "Cycle, centered star-cut and all-original forts; same forest enumerator and n(n^{n−2}−1) minimum count."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-minimal-forts-and-the-complete-zero-forcing-polynomial-of-fully--43a4c9836292",
+          "material_read": "RESULT.md snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 offsets 0–2286, 10360–12409",
+          "method": "Local Resultary search and matched-mirror bounded passage inspection",
+          "title": "Minimal forts and the complete zero-forcing polynomial of fully subdivided complete graphs",
+          "trigger": "Exact graph family and purported complete enumerator"
+        },
+        {
+          "assessment": "Equivalent core with explicit cycle counts added",
+          "evidence": [
+            "The sole singleton exception is the full centered star; the forest polynomial is evaluated at reciprocal z."
+          ],
+          "identifier_or_url": "Frozen c1670e0d0c71/RESULT.md",
+          "material_read": "Finding and proof, lines 5–24 and 31–62",
+          "method": "Frozen statement and algebraic comparison",
+          "title": "Minimal forts and the zero forcing polynomial of subdivided complete graphs",
+          "trigger": "Same graph and all-cardinality claim in assigned evidence"
+        },
+        {
+          "assessment": "Covers scalar Z and number of selected originals at a minimum, not the inspected all-set result",
+          "evidence": [
+            "Specialization to K_n gives m−n+2; for a 2-edge-connected base a minimum set has exactly one original."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1381/1381/",
+          "material_read": "Theorem 1.3, pp. 447–448, OA offset 12715; Remark 3.4, p. 457, offset 44385",
+          "method": "Original OA PDF passage inspection",
+          "title": "The Maximum Nullity of a Complete Subdivision Graph is Equal to its Zero Forcing Number",
+          "trigger": "General complete-subdivision theorem covering scalar Z"
+        },
+        {
+          "assessment": "Established general fort-transversal characterization",
+          "evidence": [
+            "Zero forcing sets are transversals of forts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+          "material_read": "p. 2, around text offset 7732",
+          "method": "Bounded OA passage inspection",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Fort-to-forcing reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full obstruction theorem for a natural subdivision family would be useful in isolation, but the same full labeled answer is already present in the compared results. The Tutte notation mechanically repackages the forest enumerator without a distinct result or new class of graphs.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

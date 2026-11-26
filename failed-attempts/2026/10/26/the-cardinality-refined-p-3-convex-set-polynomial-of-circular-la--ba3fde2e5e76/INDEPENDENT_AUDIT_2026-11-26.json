@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:48.476304Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a labeled simple prism with n>=3 the two neighboring columns are distinct even at n=3. In each row of a missing vertex, the left and right row bits plus its rung bit give exactly the number of selected neighbors. Adjacent distinct nonzero codes would force a missing vertex with two such neighbors, so no ignored pair is used by any valid cyclic word. Conversely the overlap transitions among the ten retained pairs impose exactly these row tests. A closed walk with fixed initial column is one labeled word and each selected vertex contributes one z, so the trace counts subsets without a rotation factor. Independent exact integer-polynomial subset expansion and direct adjacency enumeration at n=3,4 in /workspace/branches/95334656-7bb5-4b48-89fb-d50f7e87acdf/check_prism_independent.py (output check_prism_output.txt beside it) reproduced det(I-tM)=q2 q5 and both stated base polynomials. Jacobi's formal determinant differentiation gives the trace series. The first two formal traces are (1+2z+z^2) and (1+2z^2+z^4), which are not graph cases and are removed. The order-seven recurrence is for the entire polynomial sequence, so fixed-weight coefficients can couple to other weights under coefficient extraction. Independently, any nonempty complement has induced minimum degree two or more and contains a cycle; shortest-cycle vertex sets attain the lower bound on complement size. The only triangles are the two n=3 rims. For n>=4 a four-cycle either is a rim (only at n=4) or uses two adjacent rungs; no four-cycle can use four distinct rung edges. This gives maxima 3,4,2n-4 with counts 2,6,n. Large-n validity is proved by the local trace and girth arguments, not inferred from either bounded script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al. give the same convexity criterion and an unweighted recurrence for paths. Brešar–Valencia-Pabón factor connected convex sets of products; that statement is not about all possibly disconnected sets.",
+          "The torus bound concerns cycle products with every factor length at least four, not the K2 factor in the prism. The indexed prism finding does cover the requested family and adds small-complement coefficients through size nine for n>=10 and a growth asymptotic."
+        ],
+        "reasoning": "The general algorithms, connected factoring, and torus rigidity were not treated as equivalent. The distinct prism result itself supplies the stronger coverage.",
+        "searches": [
+          "arXiv:2603.04706 pp. 2 and 7–8",
+          "Brešar–Valencia-Pabón, Theorem 1",
+          "Resultary a0bfacf5bbf2, Finding and Proof",
+          "Resultary 88b1eb2ea04a, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Resultary 88b1eb2ea04a and a0bfacf5bbf2",
+        "Dourado et al. arXiv:2603.04706, Brešar–Valencia-Pabón Theorem 1, and partition proceeding access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all n>=3 the full complementary polynomial is already given. Its first positive coefficient after y^0 is at y^3 for n=3 with value 2; at y^4 with value 6 for n=4 and value n for n>=5. The large-n first coefficients are also stated directly there."
+        ],
+        "reasoning": "The extremal table is extracted from the matching full distribution, and its description of extremizers as complements of shortest cycles follows from the minimum-degree-two equivalence and the elementary cycle structure of the prisms. It does not supply a substantially distinct surviving theorem.",
+        "searches": [
+          "Resultary 88b1eb2ea04a, all-size all-length log-derivative and n>=10 first-ten-coefficient tuple"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same all-path condition defines closed infected sets for the two-neighbor rule. In a cubic graph the complement must induce minimum degree at least two (including the empty complement). This is not just counting the unique maximal 2-core or minimal obstructions.",
+          "The matched prism finding explicitly sets C_n(y)=y^(2n)F_n(1/y). With frozen circumference variable t=y^2u and frozen weight z=1/y, each factor q_i(t,z) becomes exactly the indexed P_i(u,y)."
+        ],
+        "reasoning": "The change reverses the full cardinality distribution for every valid circumference. Both records use the same labeled simple graph and count all subsets, and the formal n=1,2 trace terms account for the different starts.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-size-refined-p-3-convex-sets-on-cyclic-prisms--88b1eb2ea04a, RESULT.md Finding",
+          "Resultary 2026/10/26/SCOPE-extremal-two-neighbor-nonpercolation-is-rigid-on-multidimensiona--a0bfacf5bbf2",
+          "arXiv:2603.04706 p. 2, P3-convexity definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result states exactly the complete distribution for the same labeled prisms and lists the same unrefined initial totals 13,32,69,157,361,824. It has a different record and run identifier."
+        ],
+        "reasoning": "The agreement of the two determinant factors under substitution proves exact correspondence beyond the matching total table; no inference of priority is made from dates.",
+        "searches": [
+          "Resultary 88b1eb2ea04a, RESULT.md Finding and scope; METADATA.json"
+        ]
+      },
+      "rationale": "A distinct, inspected Resultary finding gives the same complete labeled-prism enumeration in complementary variables. The generating factors agree identically under the weight reversal, not just at z=1 or in a few small cases. Its full polynomial entails both exceptional and general extremal counts; it also derives additional coefficients and an asymptotic. Catalogue dates and the distinct record identities do not establish priority or the relation between the two derivations. This decision records equivalent existing mathematical coverage, not earlier authorship.",
+      "residual_risks": [
+        "The relationship and priority between the distinct catalogue records are not established. The strong mathematical overlap does not depend on their dates.",
+        "The partition proceeding and the separate product hull-number paper DOI:10.1016/j.dam.2018.04.024 were not inspected in full. This does not affect the exact formula match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed record with equivalent full formula and additional consequences",
+          "evidence": [
+            "Same C_n square K2 for n>=3, same definition, C_n(y)=y^(2n)F_n(1/y), exact P2P5 factors. Also first ten complement counts for n>=10 and the exponential asymptotic."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-size-refined-p-3-convex-sets-on-cyclic-prisms--88b1eb2ea04a",
+          "material_read": "RESULT.md Finding, assumptions and beginning of proof at offsets 0–2603; METADATA.json",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Size-refined P3-convex sets on cyclic prisms",
+          "trigger": "Exact labeled-prism cardinality query and complementary variables"
+        },
+        {
+          "assessment": "Related extremal parameter but different factor hypotheses",
+          "evidence": [
+            "All factors are cycles of length at least four, not K2. This result does not cover the prism family."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-extremal-two-neighbor-nonpercolation-is-rigid-on-multidimensiona--a0bfacf5bbf2",
+          "material_read": "RESULT.md Finding and proof beginning at offset 0",
+          "method": "Configured local mirror",
+          "title": "Extremal two-neighbor nonpercolation is rigid on multidimensional tori",
+          "trigger": "Largest proper convex sets via nonpercolation"
+        },
+        {
+          "assessment": "Same convexity but the inspected recurrence is for paths and unweighted",
+          "evidence": [
+            "It uses all three-vertex paths and the at-most-one-neighbor test; the scalar path recurrence is not a full cyclic-prism polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+          "material_read": "p. 2, OA offset 5000 and pp. 7–8, offset 19280",
+          "method": "Lawful OA PDF passages",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Potential general or exact enumeration"
+        },
+        {
+          "assessment": "Connectivity restriction prevents implication of the full distribution",
+          "evidence": [
+            "The product structure is for connected convex sets; hull number is a minimum generating-set statistic rather than the largest proper closed set."
+          ],
+          "identifier_or_url": "https://lipn.univ-paris13.fr/~valenciapabon/papers/P_3-convexity-RV2.pdf",
+          "material_read": "Theorem 1, p. 3, OA offset 7060",
+          "method": "Lawful OA PDF passage",
+          "title": "On the P3-hull number of Hamming graphs",
+          "trigger": "Product convexity and potential structural implication"
+        },
+        {
+          "assessment": "Unresolved beyond abstract; not the basis of failure",
+          "evidence": [
+            "The stated partition problem requires convex blocks of a partition, not counting individual subsets with arbitrary complement."
+          ],
+          "identifier_or_url": "https://proceedings.science/sbpo-2026/papers/p3-convex-partitions-in-cartesian-product-and-strong-product-of-graphs?lang=en",
+          "material_read": "Frozen abstract comparison only, no decisive full-paper passage retrieved",
+          "method": "Lawful publisher access attempted; HTTP 403",
+          "title": "P3-convex partitions in Cartesian product and strong product of graphs",
+          "trigger": "Possible prior product structure result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete cardinality enumerator for a natural family would be useful if distinct, but the matched record already gives this one for every circumference and size. Reversing weights and extracting the largest proper sizes contributes no distinct enumerative invariant. The direct extremizer description follows by the elementary shortest-cycle argument and does not rescue the overall claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The group-theoretic core follows from the irreducibility of the elementary-abelian kernel: the only normal subgroups are trivial, the kernel, and the whole group; every proper nontrivial endomorphism consequently factors through a cyclic prime-order quotient. Distinct order-prime complement subgroups cannot have commuting nontrivial images. This gives the exhaustive two-branch local form. The automorphism normalizer is semilinear of order \(d(p^d-1)\), and there are \(p^d\) possible images of the complement generator. One-dimensional scalar Laurent entropy is given by the explicitly cited Theorem 4 of Castronuovo et al. (2026). Direct coefficient-support counting then proves all multiplicities. Independent finite-group enumeration and finite Laurent-vector tests passed for the cases described in `VERIFICATION.md`; no infinite claim is inferred from enumeration.
+## correctness
 
-**Originality — PASS on the inspected comparisons, with historical priority risk.** The 2026 general entropy paper supplies computability and the scalar formula but not a uniform classification over all irreducible Frobenius groups, or the closed full entropy multiplicity distribution at each radius. Dennunzio, Formenti and Margara (2024) treat \(A_4\) and odd dihedral groups for dynamical decision properties, not these count distributions; these named groups are acknowledged special cases. The 2025 divide-and-conquer preprint offers a general structural algorithm; its full text was not inspected, so the abstract alone cannot exclude an equivalent theorem. Searches for equivalent finite-group-semigroup and radius-entropy formulations found no direct matching statement, which is evidence of limited scope, not a proof of priority. The most material residual risk is that earlier group-endomorphism counts plus later scalar entropy formula make the classification a straightforward combination.
+PASS
 
-**Value — PASS.** The result is a complete parameter-uniform entropy spectrum and frequency table over an infinite natural family of nonsimple nonabelian group alphabets. The two entropy logarithmic scales, the exact maximum-radius range, and the number of rules at every entropy are meaningful structural measurements not supplied by individual entropy computability. It distinguishes positive entropy carried by the cyclic quotient from shift entropy carried by the full nonabelian alphabet and includes tetrahedral, odd dihedral-prime and larger irreducible Frobenius examples.
+An irreducible nontrivial action of prime order has field algebra F_(p^d), with d = ord_q(p); each nonidentity complement element is fixed-point-free on V. A normal subgroup disjoint from V centralizes V, hence is trivial; a nontrivial intersection contains V by irreducibility. Thus factor endomorphisms are trivial, automorphisms, or quotient maps with complement image. Images of different coordinate restrictions commute, forcing either one automorphic coordinate or a single common complement. The inverse of the quotient restricted to a given complement fixes the identification for counting; the zero rule is counted once. Automorphisms have d Frobenius exponents, v-1 choices of field multiplier, and v choices of image for the complement generator at each exponent. For the automorphism branch a finite iterate removes the coordinatewise automorphism. For the quotient branch time iteration after one step occurs in the complement shift; the initial observation contributes at most a bounded factor to the number of orbit names for each fixed observation window. The scalar Laurent width counts the added coordinates per time step: on a contiguous observation window at least as long as the width, the two extreme nonzero coefficients recover the newly exposed left and right coordinates by triangular elimination (omitting a side when its reach is zero). Thus the entropy is the width times log q, including the width-zero case. At positive width k the one-sided supports have 2(q-1)q^k choices when k<=R; two-sided supports have c_R(k) possible pairs of endpoints and (q-1)^2 q^(k-1) choices per pair. Unique factorization separates the positive entropy branches. The normalization at zero and the total follow from the two classes of local rule.
 
-**Scope and risk.** All claim components refer to one family and one local-rule census. No result for composite complements, reducible actions, arbitrary cellular automata or conjugacy classes is asserted. The priority comparison is based on the actual inspected source sections and the stated inaccessible-material limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported contribution is the family-wide rule classification and explicit centered-radius entropy multiplicities. The S3 classification and the general scalar entropy identity are not credited as new. Relevant general algorithms provide per-rule computation, not this family-wide closed census.
+
+## value
+
+PASS
+
+This is a natural nonabelian family where the local homomorphism constraint can be solved exactly. The dichotomy identifies which entropy-generation mechanisms are possible, and the radius multiplicities count their prevalence without enumerating all finite local maps. That is information not supplied by per-rule entropy computability or by the spectrum alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

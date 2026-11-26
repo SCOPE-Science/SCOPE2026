@@ -1,21 +1,21 @@
-# Review of Sharp diagonal-purity frontier for depolarization-resistant qudit entanglement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global-depolarization partial transpose splits into independent pair blocks with eigenvalues q/d²±(1−q)√(x_ix_j), so NPT survival depends monotonically on m=max√(x_ix_j). For s≥1/2, identity s+2m²=t²+Σremaining x_j²≤t²+(1−t)²≤1 is sharp precisely for two-level input. For s≤1/2, AM–GM on top two and Cauchy on remaining d−2 give s≥2m²+(1−2m)²/(d−2) whenever m≥1/d, and solving the increasing function yields the claimed sharp branch; m<1/d is automatically bounded. Equality cases are explicitly realized and normalized. Checks of 8,016 equality/population cases completed. The proof, not finite tests, covers all real s and all integer d≥3.
+PASS
 
-## Originality — PASS
+For the repaired statement, the pair blocks give a negative eigenvalue iff q/d^2 < (1-q)m, where m is the geometric mean of the top two populations. For low s, a centered Cauchy–Schwarz bound on their sum and AM–GM give the first branch, attained only by equal leaders and a constant tail (with the uniform endpoint). For high s, with leader sum t>0, s+2m^2 <= t^2+(1-t)^2 <= 1; equality requires t=1. The two roots (1±sqrt(2s−1))/2 attain the bound, including the single occupied level and empty NPT set at s=1. The two branches meet at s=1/2 and q=q_* is always PPT. Inspect RESULT.md proof and frozen verify.py lines 3–24 for formulas and finite witness construction. The original recorded 8,016 finite checks were not rerun and are not used for the continuum theorem.
 
-Ali et al. 2606.16695 explicitly derives the pairwise global-noise NPT criterion and equal-population threshold, which is credited. The new claim is the *all diagonal-purity strata* sharp optimization and complete equality cases, including a nonmonotone robustness frontier peaking at s=1/2, not a derivation of the already known pairwise spectrum. Independent local-noise flat-support optimization addresses a different channel and restricted input class, so it does not imply this global-noise all-spectrum problem. Targeted public-record and literature queries for collision purity, extremal largest pairs, and two-level optimality found no covering statement; search failure is not proof of novelty. Primary whole-text access limited; priority risk remains.
+## originality
 
-The strongest source is Ali, Rostom, Al-Kuwari, Kuniyil, Rahim and Haddadi, High-dimensional coherence to entanglement transduction under canonical noise, arXiv:2606.16695v1 (15 June 2026). Its full text was accessed only in indexed extracts, not as a continuous downloaded document. This is an explicit priority uncertainty rather than a claim of full-paper exclusion. Independent local noise is scientifically distinct from the present global-depolarization channel. The classical possibility of an earlier moment-inequality equivalent remains.
+PASS
 
-## Value — PASS
+The pass is confined to the all-d, all-s fixed-collision-purity envelope and its equality spectra. The fixed-output white-noise threshold, uniform example, and unconstrained optimum are known or direct consequences of earlier work and are not credited as original. The endpoint repair does not enlarge the scientific claim.
 
-Diagonal purity Σ|c_j|⁴ is the experimentally meaningful collision probability/inverse participation ratio of input basis measurements. A device choosing coherent populations under a fixed participation budget needs a sharp NPT survival noise guarantee. This theorem supplies the complete exact frontier, all extremizers, a dimension-independent support-changing threshold s=1/2, and the counterintuitive fact that equal occupation of only two levels outlasts an equal-population d-level input under global depolarization. This is a natural full-parameter optimization rather than an arbitrary numerical slice or a claimed improvement in unrelated channel models.
+## value
 
-## Limits
+PASS
 
-The scope is ideal converted pure states, global depolarization, fixed computational-basis collision purity and NPT survival; not all forms of quantum entanglement or alternative local noise models. The verification program tests finite instances and does not substitute for the proof.
+A collision probability constrains how strongly a pure input can populate the two levels that control white-noise entanglement survival. The full attained continuum boundary and equality spectra show exactly when the population tail is necessary and when it must disappear; this is a natural optimization at a measurable constraint. The known unrestricted peak is not the basis for the pass.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

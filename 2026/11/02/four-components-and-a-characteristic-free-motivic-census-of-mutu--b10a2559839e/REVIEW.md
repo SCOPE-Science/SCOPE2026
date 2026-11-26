@@ -1,19 +1,21 @@
-# Scientific review: simultaneous zero products in split octonions
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument works with the explicit Zorn multiplication in every characteristic. The quadratic norm identity and its polarization give a complete four-case annihilator classification. The nonstandard rank-three claim is proved, not inferred from computation: \(x^2=0\) bounds the left-multiplication rank by \(4\); polarized alternativity and nondegeneracy of the norm force equality; a concrete vector \(xy\) in the kernel has nonzero trace. Geometrically irreducible cones and constant-rank kernel bundles then prove exactly four reduced irreducible components. A disjoint scissor decomposition gives the motivic class; finite-field specialization and zeta follow. Exhaustive direct-algebra row-reduction checks cover the three fields recorded in `verification_output.txt`.
+PASS
 
-## Originality
+The quadratic and trace polarizations give xy+yx=tr(x)y+tr(y)x−B(x,y)1 and tr(xy)=tr(x)tr(y)−B(x,y) without division by two. For nonzero norm, L_x is invertible by L_bar(x)L_x=N(x)I, since bar(x) is a linear combination of 1 and x and the algebra is alternative. For zero norm and nonzero trace, the two identities force y proportional to bar(x), which indeed annihilates x in both orders. For a nonzero pure null x, the polar identity forces tr(y)=0 since x and 1 are independent (a nonzero scalar has nonzero norm); then conjugation gives the reverse product from xy=0. The nilpotent L_x has rank at most 4; choosing B(x,z)=1 in L_bar(x)L_z+L_bar(z)L_x=I gives rank at least 4 because bar(x)=−x, also in characteristic two. Trace is nonzero on ker L_x by evaluation at xz, with trace −1. The mutual kernel therefore has dimension 3. The two quadrics are geometrically irreducible by polar ranks at least 8 and 6, and the punctured pure cone is smooth even in characteristic two: zero derivative forces u=v=0 and then its equation forces a=0. The rank-1 and rank-3 kernels over the two null strata are bundles of dimensions 8 and 9 respectively; the closures and two axes are incomparable (test a nonnull coordinate on each axis and nonzero first trace off both axes). This proves the component assertion for the reduced variety. The u=0 versus u≠0 affine-fiber strata give [Q]=L^7+L^4−L^3 and [P]=L^6; in the u=0 pure slice use its reduction a=0, not the nonreduced a²=0 scheme. Summing the four mutually exclusive first-factor strata gives 2L^8−[Q]+L([Q]−[P])+L^3([P]−1), which is the stated polynomial. Counting over extensions and applying the defining zeta exponential gives the stated rational function with the negative coefficients placed in the numerator. The inspected Python field/rank checker and recorded totals 1024, 35073, 426496 corroborate the three stated fields, not the geometry over arbitrary fields. No radicality of the original equations is assumed.
 
-PASS under the documented best-knowledge comparison, with an explicit priority risk. The pure-null three-dimensional annihilator and its incidence geometry are already present in Baez–Huerta (2012), Proposition 7 and Theorem 10, so they are **not** standalone novelty. Baez (2001) supplies composition-algebra foundations. The combined characteristic-free four-component classification in the full split algebra and the specific Grothendieck class/finite-field census are not stated in these inspected sources. Relevant searches did not surface a published equivalent or stronger point-count theorem. Guterman–Zhilina (2020/2023) describes real zero-divisor graphs and annihilators; its full text was unavailable and might contain overlapping real geometric statements. The present result does not claim exhaustive priority certification.
+## originality
 
-## Value
+PASS
 
-PASS. Mutual annihilation, unlike one-sided zero multiplication, is a natural invariant for a noncommutative alternative algebra and encodes two-sided zero-divisor adjacency. The four-component geometry distinguishes the pure nilpotent incidence component from nonzero-trace isotropic partners and coordinate axes, and the motivic formula gives all finite-extension point counts uniformly, including the usually exceptional characteristic two. The package supplies an exact zeta function, not merely finite examples.
+The retrieved Guterman–Zhilina original supplies effectively all mutual-annihilator fibers over the reals, not just selected graph examples. The real pointwise rank/fiber classification is therefore prior, as is the real projective pure-null incidence of Baez–Huerta. The supported distinct contribution is the characteristic-free geometric component and motivic classification of the full reduced affine pair variety, with the characteristic-two case and resulting extension counts and zeta formula. The earlier inspected arbitrary-field annihilator work excludes characteristic two and its closest formula has a component-norm hypothesis.
 
-## Limits and source risk
+## value
 
-The original equation scheme may be nonreduced; only its reduction is classified. The real split-algebra graph paper by Guterman–Zhilina could not be fully compared; the finite-field and motivic statements were not identified in accessible material. Neither the geometric proof nor the computations certify complete publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full simultaneous zero-product locus is a natural invariant of the split algebra, including beyond its classical pure-null geometry. A uniform decomposition detects a unique larger component and exhibits the distinct nonzero-trace component; characteristic two tests genuinely different algebraic behavior. The motivic class packages all finite-extension counts, with a short field-independent proof not requiring group-orbit analysis. This is a structural result, not a numerical rerun of a real relation graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

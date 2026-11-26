@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The response probability is well-defined for the stipulated parameters, the infinite-past Poisson memory is finite almost surely, and the compensation/Laplace-functional and geometric-series calculations give exact rate formulas. The strictly decreasing function \(y/(e^y-1)\) proves exactly one crossing and the correct two opposite sides. A separate derivative minimum proves the sharp \(e^{-2}\) threshold, with its equality case treated correctly. Asymptotic expansions and a separate standard-library checker corroborate the derived expressions. The checker supplies finite numerical corroboration only; the mathematical proof is analytical.
+PASS
 
-## Originality — PASS on inspected evidence
+With unit increments and λ>0, the pre-event Poisson memory is finite almost surely by its finite mean λ/γ, and the reduced Palm past is an ordinary Poisson past. The Laplace functional and substitution u=κ exp(−γt) give the exponent −λJ(κ)/γ. For periodic arrivals it is the pre-jump geometric sum, not the uniform-phase arbitrary-time memory, that gives the exponent −κ/(exp(γ/λ)−1). Compensation and stationary intensity respectively give the two expected count rates; no independence between response marks is needed beyond the stipulated conditional mean and no feedback. The log ratio of the positive memory-dependent components has the sign of κh(γ/λ)−J(κ), and h(y)=y/(exp(y)−1) strictly decreases from 1 to 0 while 0<J/κ<1. This proves the unique crossing and both strict orderings. J/κ is strictly decreasing by its integral over [0,1]; its expansion 1−κ/4+O(κ²) and h(y)=1−y/2+O(y²) give the small-κ limit. For κ large, J=log κ+O(1) and h((1±ε)log κ) bracket J/κ since h(y)~ye^(−y). The derivative α+β(1−x)exp(−x), x=λJ/γ, has a unique minimum α−βe^(−2) and gives the claimed Lambert W zeros; equality gives an isolated horizontal tangent, not a decreasing interval. This is an expectation theorem for stipulated responses, not an empirical or sample-path claim. The frozen checker.py and VERIFICATION.md were inspected, not executed; quadrature, finite test cases and truncated-history simulations corroborate but do not prove the result.
 
-The main 2024 shorebird study and the related 2019/2020 field study establish frequency dependence, predictability observations, and disturbance-rate motivation, but neither gives the stated stochastic-versus-periodic exact comparison. Classical Poisson shot-noise Laplace transforms, explicit in the 2024 Olson–Andrews paper, already imply the Poisson expectation and are credited; they do not themselves state or settle the cadence reversal or the ecological positive-response-floor boundary. A full-text comparison to the older 2010 statistical-habituation work was not possible; available portions show a power-law renewal/linear-response formulation rather than the present model, but priority remains provisional. Relevant published mathematical records concerning periodic-versus-Poisson resetting, shot-noise transforms, and animal survey calendars were also compared by implication rather than titles. None of the inspected sources establishes the combined theorem; this is a bounded evidence judgment, not proof of global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The question is prompted by observed frequency-dependent tolerance and predictable/irregular disturbance. Equal mean event frequency does not fix predicted response burden: a single mathematically sharp crossover separates two opposite rankings, and the baseline-response threshold determines whether adding events can lower the number of responses per time. These features supply explicit timing-sensitivity benchmarks for evaluating phenomenological habituation assumptions, rather than merely restating the familiar decrease in response probability with familiarity. No field-calibrated management recommendation or general biological law is implied.
+The result does not originate the Poisson Laplace functional, habituation, or the general idea that equal-intensity calendars can differ. The distinct result supported here is the sharp cadence crossing and its dependence on the memory sensitivity, together with the exact positive-floor classification for expected event-response counts, in the specified event-conditioned memory model. The strongest located same-day reversal concerns a different state and objective and is not equivalent.
 
-## Closest literature and residual risks
+## value
 
-Van der Kolk et al. (2019/2020; 2024) address field response patterns; Olson and Andrews (2024) provides an underlying general stochastic tool; West and Grigolini (2010) analyzes different renewal habituation, but its complete source was inaccessible through lawful channels. Other older event-history response models could produce equivalent thresholds without the same keywords. The model excludes event-type heterogeneity, individual learning and selection feedback, so extrapolation to real conservation decisions is unsupported.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives a natural equal-intensity benchmark that distinguishes what happens at arrivals from what happens at arbitrary times, shows that neither schedule uniformly minimizes expected flight counts, and identifies exactly when increasing events paradoxically decreases expected total responses under the model. The asymptotics delineate the sensitivity range of the crossover. This is a useful exact model classification, not a validated ecological intervention or a new Laplace identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

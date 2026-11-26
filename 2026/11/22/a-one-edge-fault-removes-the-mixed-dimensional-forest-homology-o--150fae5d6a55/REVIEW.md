@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim concerns every threshold of a single edge-transitive eight-vertex graph family. Complete face enumeration uses two independently implemented acyclicity predicates and yields explicit face vectors. The ordinary sequential-vertex matching is explicitly reconstructed, with every reversed Hasse arrow tested for acyclicity, leaving one vertex and only two circles, one two-cell, or three four-cells, respectively. Because these are the only positive-dimensional cells, the full integral homotopy types follow directly from discrete Morse theory. An explicit ten-pair relative collapse proves the stabilization inclusion. The source script and recorded output were replayed in the package workspace. No infinite-family extrapolation or unsupported persistence map is asserted.
+## correctness
 
-## Originality: PASS against inspected evidence
-The closest paper, Carnero Bravo arXiv:2307.13271 (2023), has a stronger **intact** crown-graph theorem, but deleting an edge changes its graph input outside that theorem's isomorphism class; its statements and proof give no explicit homotopy classification for a faulty crown. The 2026 published-finding corpus bipartite edge-deletion result concerns missing edges from complete bicliques and low-degree connectivity, not this fault and its integral three-four-sphere transition. The 2026 equivariant crown classification also assumes an intact crown. Actual published-finding corpus aliases searched include `cube graph Q3 one edge deleted full forest filtration`, `crown graph K2 times K4 one extra absent edge forest filtration`, `graph Q3-e maximum induced degree 2 acyclic subset complex wedge three 4 spheres`, and `partial edge deletion K2 times K_n forest complexes homotopy`; no direct or stronger covering statement was identified. Open web searches for edge-deleted cube forest filtration likewise produced no equivalent classification. Residual risk: alternative terminology or an unindexed finite computation.
+PASS
 
-## Value: PASS
-The graph is the canonical minimal three-dimensional cube with exactly one damaged edge; cube edge transitivity makes this a complete edge-fault classification rather than an arbitrary enumeration. The damaged cube has no third-degree homology at the degree-two forest threshold, whereas the intact cube, covered by Carnero Bravo's original theorem, has one third-sphere together with four fourth-spheres. Exactly three fourth-spheres remain after the fault; the result gives the full threshold profile and a genuine ten-step simple-homotopy stabilization, not a mere Euler characteristic or routine normalization check. The scope is deliberately finite, with no claim of a uniform higher-cube theorem.
+The cube's translations and coordinate permutations act transitively on edges, so the graph with edge {0,1} deleted represents all faults. The independent bounded check enumerated all 255 nonempty vertex masks by two cycle tests and confirmed the exact face vectors (8,17,10,2), (8,28,36,14), (8,28,56,60,30,2), (8,28,56,66,40,6) in threshold order. Each sequential-vertex pairing was a matching of codimension-one incidences; topological sorting accepted all vertices of the full oriented Hasse graph at each stage (37,86,184,204 face nodes, respectively). Critical masks in hexadecimal: 01 and {18,24} at degree bound zero; 01 and {2c} at bound one; 01 and {3e,7c,bc} at bounds two and three. The latter three masks each have five vertices. The discrete-Morse CW models have one vertex and cells only in a single positive dimension, making their attaching maps constant and giving the stated wedge homotopy types without relying on field homology. All ten listed collapse pairs were checked in order for codimension one, unique strict coface and exclusion from the target; the 184-face residual is exactly the degree-two subcomplex. Maximal degree three makes this the last transition, and the collapses prove the actual inclusion is a simple-homotopy equivalence. Carnero Bravo's intact formula at n=4 gives one S³ and four S⁴. No map from the intact cube is inferred from the two types.
 
-## Sources and limitations
-Carnero Bravo (2023), arXiv:2307.13271; the two identified 2026 published-finding corpus statements linked in RESULT.md; full published-finding corpus semantic searches and open web queries described in the structured audit. The full mathematical text of the strongest intact-crown statement and related 2026 published findings was inspected. The absence of a search match is not a proof of novelty. Independence from unindexed work and independent audit are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact crown classification and missing-edge biclique connectivity are known. The precise nonregular crown fault's degree-bounded filtration and the relative ten-collapse certificate are not supplied by the inspected statements. The claim is provisional with respect to unindexed exact computations.
+
+## value
+
+PASS
+
+The three-cube is a canonical small crown and already has a mix of sphere dimensions; its unique edge-fault orbit is a natural complete experiment in stability of that classification. The exact disappearance of degree three, decrease in degree four, and genuine inclusion-level collapse answer distinct questions beyond a single Betti number. This is useful as a benchmark for a larger fault theory without claiming one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

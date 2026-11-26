@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:00:04.639174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the precise smooth scalar recurrence, the companion Jacobian has trace (1+beta)q and determinant beta*q. Its strict Schur region is -1/(1+2*beta)<q<1 for 0<=beta<1. At zero q=1-a; at criticality the roots are -1 and beta/(1+2*beta), and above criticality the characteristic polynomial is negative at -1, so a real root lies below -1. Adding the equations for any two-cycle and using odd injectivity of the smooth sign forces the two entries to be negatives; then solving the single remaining equation gives exactly the claimed amplitude and square-root coefficient. On this cycle q=1-a_c^3/a^2 lies strictly in the Schur interval for every finite a>a_c, and the return derivative is the square of the one-step derivative. For beta=0 the magnitude strictly decreases to zero when a<=2; at a=2 the increment of its inverse square tends to 2 off the finite-hit set. For a>2 magnitudes enter (0,sqrt(a^2-1)) unless they hit zero; the magnitude map g preserves that interval by its explicit maximum. There g+r is strictly increasing and g-r changes sign at h, giving strict contraction of distance to h off h. Above 2h iterates must eventually cross into (0,2h) or converge to a forbidden fixed point there; then strict contraction on a compact set separated from zero yields convergence to h. No global result for positive momentum follows. Read the frozen RESULT.md proof, VERIFICATION.md, and artifacts/verify_scalar_soft_muesterov.py; the recorded finite run is not a fresh execution, and the proof does not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 3 and 4 provide sufficient small-step convergence under preconditioning or objective assumptions; Fig. 2 reports oscillations. They do not establish an all-step periodic branch on the scalar map.",
+          "The Polar-Express model is fourth-root smoothing and beta=0; the exact Signum record uses nonsmooth sign and EMA, with neutral cycles rather than an isolated attracting cycle."
+        ],
+        "reasoning": "General local spectral or flip criteria can explain the onset but do not yield global uniqueness among two-cycles and attraction at all amplitudes; the narrower alternative surrogate is not a dominating theorem.",
+        "searches": [
+          "arXiv:2609.30546v1 Eq. (13), Theorem 3, Eq. (16), Theorem 4 and Fig. 2",
+          "Resultary Polar-Express sharp flip frontier; scalar Signum neutral cycles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify_scalar_soft_muesterov.py",
+        "arXiv:2609.30546v1",
+        "arXiv:2602.11948",
+        "Resultary 0ffcf56c8fe7, 5f6e926df82f, 5eb1801a903e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sufficient step regime implies neither instability beyond its endpoint nor the existence, uniqueness or attraction of a 2-cycle outside it.",
+          "Exact scalar EMA results specialize to the same beta=0 onset and local cycle but not to its complete global dichotomy; the positive-beta thresholds are mathematically different."
+        ],
+        "reasoning": "Credit prior coverage of part of the local picture. The strong nonlinear conclusion needs injectivity across arbitrary pairs and strict Schur inequalities on the entire new branch, not just near the bifurcation.",
+        "searches": [
+          "arXiv:2609.30546v1 Theorem 4 and Eq. (16)",
+          "arXiv:2602.11948 exact-sign scalar dynamics",
+          "Resultary Soft Muon and Polar-Express RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (16) of arXiv:2609.30546v1 is exactly the matrix update giving the audited model on scalar quadratic specialization.",
+          "The indexed Soft Muon recurrence filters gradients by EMA before its soft-sign step; this differs from reevaluating at the Nesterov extrapolate, despite identical beta=0 scalar maps. Its threshold rises as 2(1+beta)/(1-beta); the audited threshold falls as 2(1+beta)/(1+2*beta).",
+          "The scalar exact-sign map in arXiv:2602.11948 is discontinuous and is not the smooth map under rescaling."
+        ],
+        "reasoning": "Equivalence is conceded for the motivating model itself and for the zero-momentum EMA specialization; it does not extend to the positive-momentum dynamical classifications. Equivalently this map is Nesterov gradient iteration for the scalar pseudo-Huber potential sqrt(1+z^2), so the local Schur calculation is not a new stability method.",
+        "searches": [
+          "arXiv:2609.30546v1 §§2.1, 4–4.1",
+          "arXiv:2602.11948 scalar perturbation model",
+          "Resultary: scalar smooth-sign Muesterov and Soft Muon momentum cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 indexed Soft Muon result has a different positive-momentum state update and exact threshold; it recovers the zero-momentum cycle only as a local result. The October 4 scalar surrogate record has a different preconditioner and critical exponent."
+        ],
+        "reasoning": "These exact catalogue formulas are material overlap, but no inspected indexed formula tabulates or classifies the same positive-momentum branch.",
+        "searches": [
+          "Resultary: exact soft-sign scalar Muesterov/Nesterov threshold and two-cycle",
+          "Resultary: sharp flip threshold and unique attracting two-cycle for scalar Soft Muon",
+          "Resultary: Polar-Express surrogate on scalar quadratics"
+        ]
+      },
+      "rationale": "Credit the same scalar model, the Nesterov linearization mechanism and analogous already-known oscillations. The supported distinction is the complete nonlinear period-two branch for this exact positive-momentum recurrence, including uniqueness and attraction for every finite supercritical step, with a global scalar zero-momentum endpoint classification. The reviewed sources and indexed comparators do not supply that result; this is not an absolute priority claim.",
+      "residual_risks": [
+        "Four targeted broad public-web lookups returned deferred status without results; that is not negative evidence. Primary and closest indexed comparisons above were accessible.",
+        "An unindexed nonlinear-dynamics or exact pseudo-Huber/Nesterov treatment could cover the branch. No extension to the matrix algorithm or global positive-momentum dynamics is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same update; no covering sharp nonlinear cycle classification in the inspected passages.",
+          "evidence": [
+            "Eq. (16b) uses (G_k G_k^T+epsilon^2 I)^(-1/2)G_k at the extrapolated point.",
+            "Theorem 4 begins with equal initial iterates and gives a sufficient parameter region, not a sharp bifurcation classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.30546v1",
+          "material_read": "PDF §§2.1, 4–4.1, Eqs. (6)–(8), (13), (16), Theorems 3–4 and Fig. 2; decisive text extraction offsets 24550–28533.",
+          "method": "Specialized Eq. (16) to a scalar quadratic and compared theorem quantifiers and oscillation evidence.",
+          "title": "Convergence guarantees for Muon: New parameter regimes and generalizations",
+          "trigger": "Defines the exact matrix parent of the audited scalar update."
+        },
+        {
+          "assessment": "Related nonsmooth cycles, not the audited update.",
+          "evidence": [
+            "The scalar update uses exact sign and discusses a typical two-cycle without noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.11948",
+          "material_read": "PDF pp. 1, 8–9, exact-sign scalar perturbation discussion (extraction offsets 2947, 42000, 46227).",
+          "method": "Compared scalar step, smoothing and the described oscillation.",
+          "title": "Insights on Muon from Simple Quadratics",
+          "trigger": "Earlier quadratic sign-normalized oscillations."
+        },
+        {
+          "assessment": "Material overlap, not the same positive-momentum result; no global zero-momentum cycle attraction there.",
+          "evidence": [
+            "EMA followed by the soft-sign step, with c_*=2(1+beta)/(1-beta)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-flip-threshold-and-unique-attracting-two-cycle-for-scalar--0ffcf56c8fe7",
+          "material_read": "Mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, finding and recurrence.",
+          "method": "Matched zero-momentum parameters and compared the positive-momentum state equations and thresholds.",
+          "title": "Sharp flip threshold and unique attracting two-cycle for scalar Soft Muon",
+          "trigger": "Closest indexed match in smoothing, threshold, and nonlinear branch."
+        },
+        {
+          "assessment": "Variant, not a broader theorem.",
+          "evidence": [
+            "Fourth-root smoothing, zero momentum, critical k^(-1/4), local supercritical attraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+          "material_read": "Mirrored RESULT.md finding and formula.",
+          "method": "Compared surrogate power, momentum, critical rate, and local versus global attraction.",
+          "title": "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics",
+          "trigger": "Earlier indexed sharp flip for a smooth scalar surrogate."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact threshold tells when increasing step size destroys local convergence in a natural scalar specialization of a published optimizer. The isolated cycle exists and stays locally stable arbitrarily far past onset, which does not follow from the threshold or a local flip theorem. The zero-momentum global result and critical rate also locate the scope of the stability analysis. The contribution is model-specific rather than a general optimization theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

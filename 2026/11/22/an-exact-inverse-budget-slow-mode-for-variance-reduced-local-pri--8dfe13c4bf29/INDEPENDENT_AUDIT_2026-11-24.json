@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:53:31.098956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the pre-draw state including the table: the two table terms cancel under uniform sampling. The affine conditional gradient then closes the expectation recurrence exactly, giving local map Hx+(I−H)c−Ky with H_ii=(1−αa_i)^τ and K=(I−H)T/τ. Invariants are zero-sum duals and the unique consensus fixed point u_* with dual τ α diag(a)(c−u_*1); the proof's symbol ν_* at line 67 is the u_* defined in line 29. The centered block map on R^N⊕1^⊥ is the stated Mτ. Compare with the upper-triangular map obtained by H=0, K=T/τ. Its fast block is zero, its slow block is I−LT/τ restricted to 1^⊥, and the off-diagonal block is O(1/τ). The two blocks can be decoupled by a uniformly bounded shear for large τ, and LT on 1^⊥ is diagonalizable with precisely the positive spectrum of T^(1/2)LT^(1/2). The discarded blocks are exponentially small, hence o(1/τ), including relative to the separations between distinct slow groups; the spectral-radius expansion follows, also for repeated smallest positive eigenvalues. The exact witness has H=0 and K=I/τ; Wc=λc gives E[x_{t+1}]=λr_τ^t c. At τ=2 the four local endpoints for agent i are c_i[1±(1+δ)/2], c_i[1±(1−δ)/2], equiprobable; they give the reported positive variance. Indeed repeated first-component versus repeated second-component paths differ for every τ≥2, while τ=1 itself is deterministic. The exact relative-round formula gives Θ(τ²) sampled steps for a fixed reduction; gradient-table setup/refresh can add component evaluations but does not change this order for two components. No second-moment assertion follows. I inspected check.py, not executed it: its spectral sampler at lines 28–45 does not enforce positive definiteness (positive entries and diagonal normalization are insufficient), so the claimed SPD diagnostic characterization is not established by that code. The analytic proof does not depend on those diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu bounds expected squared error at a sufficient stepsize of order 1/τ.",
+          "LED Appendix A, equations (33)–(37) and the block form immediately after (37), decomposes graph disagreement using a W-only coefficient block and separate gradient-deviation terms.",
+          "Yang's communication rule is not W applied to the full local endpoint in the same way; Nguyen analyzes local gradient tracking with gradient-difference tracker updates."
+        ],
+        "reasoning": "A bound in a shrinking-α regime does not cover fixed α asymptotics. A graph-only block with gradient deviations still as forcing is not the exact closed Hessian-dependent matrix. No checked broader theorem yields the stated coefficient or the exact witness law by substitution.",
+        "searches": [
+          "Liu et al. arXiv:2610.41927 Theorem 3",
+          "Alghunaim arXiv:2302.00620 Appendix A.2–A.3",
+          "Yang et al. arXiv:2407.02689 §4.1 Algorithm 3",
+          "Nguyen et al. arXiv:2210.04757 Algorithm 1 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "arXiv:2610.41927",
+        "arXiv:2302.00620",
+        "arXiv:2407.02689",
+        "arXiv:2210.04757",
+        "Resultary 7115b8c3d980, 2f3e8a3114f6 and frozen self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source updates imply that the quadratic conditional expectation can be evaluated, but no closed H,K weighted operator and no multiplicative constant are supplied by the cited rate theorem.",
+          "The LED weighted graph is W alone in the extracted linear disagreement term; unrestricted gradients still appear. Closing those terms on quadratic expectations and taking the singular budget limit produce a different spectrum."
+        ],
+        "reasoning": "An algorithm specification is not an existing stronger asymptotic theorem for its exact state map. The novel content is the solved spectrum in the excluded fixed-α limit and an attainable exact disagreement rate, rather than the raw expectation identity alone.",
+        "searches": [
+          "Liu arXiv:2610.41927 Eqs. (3)–(7), (11)–(12), Theorem 3",
+          "LED arXiv:2302.00620 Appendix A.3, equations (33)–(37) and block form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu's algorithm resets the table each round, samples uniformly with the same selected-entry replacement and imposes β=1/τ. It initializes both variables at zero; the extension to arbitrary deterministic x_0 at y_0=0 does not change the mean matrix.",
+          "LED supplies the same exact-gradient network iteration when β=1/τ, and an affine first-moment reduction of the stochastic algorithm really does equal that deterministic quadratic map."
+        ],
+        "reasoning": "Do not credit a renamed exact-gradient skeleton as novel. The equivalence narrows the question to whether the exact fixed-stepsize spectral law of that map was already obtained; the examined LED passages do not establish it.",
+        "searches": [
+          "Resultary: local SAGA/variance-reduced primal–dual, fixed α and β=1/τ, weighted graph Laplacian slow mode",
+          "Liu et al. arXiv:2610.41927 §III-B and Algorithm 1",
+          "Alghunaim arXiv:2302.00620 Algorithm 1 and network form (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8dfe13c4bf29 is the identical frozen self-match. Distinct indexed records 7115b8c3d980 and 2f3e8a3114f6 concern standard SAGA mean-square stability on identical components, in two-component and all-component-count settings respectively."
+        ],
+        "reasoning": "No dedicated exact table for this spectral coefficient was identified. The closest adjacent SAGA entries have neither the communication/dual budget nor the first-moment operator being compared.",
+        "searches": [
+          "Resultary: exact inverse-budget slow mode, variance-reduced local primal–dual, exact SAGA stability, quadratic disagreements"
+        ]
+      },
+      "rationale": "The established distinct claim is the sharp fixed-α first-moment slow coefficient for possibly unequal agent curvatures and the exact stochastic-quadratic budget witness, not the primal–dual iteration, table unbiasedness, zero dual sum, or an assertion that local steps can generally hurt. Liu's shrinking-stepsize second-moment theorem and LED's graph-only comparison blocks are not exact weighted-Hessian slow-spectrum results in this regime. The same arithmetic mean map is obtainable from exact-gradient LED on the quadratic class, but the checked LED result is not a stronger theorem already determining its spectrum.",
+      "residual_risks": [
+        "An unindexed exact quadratic analysis of an equivalent LED/primal–dual iteration could cover the coefficient. The pass is bounded by checked sources and is not a worldwide priority assertion.",
+        "The exact rate concerns expectations, not the possibly different observable rates for every initialization or mean-square stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same stochastic iteration with a sufficient shrinking-α expected-square guarantee, not fixed-α sharp moments.",
+          "evidence": [
+            "Algorithm 1 has β=1/τ and x(0)=y(0)=0.",
+            "Strong-convexity sufficient stepsize scales at most as O(μ(1−λ)/(τL²))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41927",
+          "material_read": "§III-B Eq. (7), Algorithm 1 and network updates pp. 3–4 (OA 21800–32652); introduction p. 2 (8800); Theorem 3 p. 10 (93200, 96200)",
+          "method": "Primary OA PDF passages indexed by algorithm, equations and theorem",
+          "title": "Variance Reduction for Decentralized Stochastic Optimization with Multiple Local Updates",
+          "trigger": "Exact cited algorithm and possible rate coverage"
+        },
+        {
+          "assessment": "Equivalent update skeleton, zero-sum dual structure and a distinct graph-only block, not exact weighted-Hessian slow spectrum.",
+          "evidence": [
+            "Equations (35)–(37) retain gradient deviations as separate terms even after diagonalizing W.",
+            "The block following (37) uses Λ and βτ, without the heterogeneity matrix T."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00620",
+          "material_read": "Algorithm 1, (2a)–(2c) p. 4 (OA 15300); (5a)–(5c) p. 5 (17900); Appendix A.2–A.3 pp. 18–20 (93400–106315)",
+          "method": "Primary OA PDF with direct comparison of decisive appendix passages",
+          "title": "Local Exact-Diffusion for Decentralized Optimization and Learning",
+          "trigger": "Earlier exact-gradient equivalent local primal–dual iteration and graph diagonalization"
+        },
+        {
+          "assessment": "Different dynamical updates.",
+          "evidence": [
+            "Inner primal stepping and outer dual ascent do not furnish the same communication rule used by Liu and LED."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.02689",
+          "material_read": "§4.1 Eq. (5), Algorithm 3, pp. 10–11 (OA 52000–60148)",
+          "method": "Lawful OA PDF passages",
+          "title": "Accelerating Distributed Optimization: A Primal-Dual Perspective on Local Steps",
+          "trigger": "Plausible analogous local primal–dual asymptotic"
+        },
+        {
+          "assessment": "Different state and tracker recursion.",
+          "evidence": [
+            "Gradient differences update the tracker; the result is not an exact SAGA-table primal–dual first-moment spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.04757",
+          "material_read": "Algorithm 1 and Theorem 1 pp. 2–3 (OA 9300–17907)",
+          "method": "Lawful OA PDF passages",
+          "title": "On the Performance of Gradient Tracking with Local Updates",
+          "trigger": "Nearby local-step tradeoff analysis"
+        },
+        {
+          "assessment": "Standard SAGA second moments on identical components, materially different from distributed mean disagreement.",
+          "evidence": [
+            "No graph-dual round in either statement; the local-sample budget is not the parameter of those results."
+          ],
+          "identifier_or_url": "Resultary SCOPE 7115b8c3d980 and 2f3e8a3114f6",
+          "material_read": "Indexed theorem summaries and parameter scope for standard SAGA",
+          "method": "Configured local Resultary search",
+          "title": "Exact mean-square SAGA stability corpus records",
+          "trigger": "Closest distinct indexed exact quadratic SAGA hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this established decentralized iteration, the weighted Laplacian coefficient identifies precisely how curvature heterogeneity and graph bottlenecks control the budget-induced slow mode, rather than just giving an order bound. The nonzero-mean disagreement of the stochastic two-agent witness makes the deterioration observable from the usual zero initialization: more local steps strictly worsen communication contraction and force quadratic total sampled work for the comparison. This isolates a concrete first-moment failure mode at fixed stepsize, not a rejection of local steps in the original shrinking-stepsize regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

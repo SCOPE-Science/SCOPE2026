@@ -1,9 +1,21 @@
-# Review of minimum local identifying codes of rectangular rook graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** Closed-neighborhood symmetric differences give the exact pair-separation constraints; those force at most one empty column and at most one singleton column per row. For \(s\ge3\) this proves the lower bound and characterizes every equality case. The leaf arguments localize all possible nonadjacent collisions; inclusion-exclusion counts exactly the sequences of two-cell columns covering all but at most one row. Direct and occupancy-based exhaustive verifiers agree on all boards through \(4\times5\), and a separate optimal-template verifier checks both formulas on boards through \(5\times7\). Risks: programs test finitely many boards only; the unrestricted result rests on the supplied proof.
+## correctness
 
-**Originality — PASS, provisional.** The 2023 foundational treatment of local identifying codes covers binary cubes and infinite grids, not the present complete labeled minimum-code family for two-dimensional mixed-alphabet Hamming graphs. The 2018 rook-graph coding study and earlier identification results concern ordinary identifying or locating-dominating codes; their global conditions are logically stronger or differently quantified. The known Goddard–Wash same-shore expansion lemma is an earlier necessary pair-separation ingredient, which is credited rather than presented as new. A previously published rook-graph total resolving result has similar row/column exclusion constraints but an additional structural restriction instead of the present domination condition, so its optimum and set family do not imply this theorem. No searched source directly counted the local optima or their globally identifying subfamily. Risk: priority searches and accessible full-text readings do not exclude all unindexed manuscripts or small-board tables.
+PASS
 
-**Mathematical value — PASS.** This completes an infinite and standard graph-family case for a recently introduced local sensing invariant, identifies every optimizer, and explains a sharp boundary between optimal local sensing and ordinary global identification. It adds full multiplicities and structural information not implied by a scalar optimum or a finite exhaustive computation. Risk: the ordinary-identification scalar cutoff is not by itself new, and the result does not extend to three or more Cartesian factors.
+For two vertices in row i, their closed-neighborhood symmetric difference consists exactly of their two columns off row i, so at most one column can have all its selected cells confined to row i. The transposed condition is necessary and sufficient for the other adjacent pairs; non-domination requires an empty row and an empty column. With an empty column, every other column must have at least two selected cells, giving the strict bound 2(l−1)>2l−s; with no empty column the singleton columns have distinct occupied rows and at most s of them exist. Equality in 2l−s forces exactly one singleton per row and double occupancy elsewhere. Every template meets both adjacency conditions and dominates, and its row-to-singleton injection is unique, giving the stated labelled product count. For nonadjacent vertices with equal traces, each row's singleton must appear in the other trace, forcing the crossed singleton positions. Their traces agree exactly when neither row is touched by a double column. Inclusion-exclusion therefore counts both full coverage and coverage with exactly one untouched row. At q=l−s=0 no code is globally identifying for s≥3. For q>0 the threshold 2q≥s−1 is sufficient by taking disjoint pairs until at most one row remains, using one further pair if necessary and repetitions for surplus columns; it is necessary by capacity. Inspected VERIFICATION.md, CHECKS.txt, the two C++ verifiers and the Python occupancy verifier without executing them; finite checks corroborate both the unrestricted minimum proof and global-subcount reasoning, without exhausting larger boards.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The credited contribution is the exact local-minimum family for all labelled rectangles and its two counts. The ordinary-identification criterion on these templates is an instance of established line-graph results, and the ordinary transition agrees with (and given the local minimum follows from) the previously reported ordinary size formula; neither is credited as a separate novelty. The strongest inspected prior sources do not determine the local extremizers or produce the count over that family.
+
+## value
+
+PASS
+
+Local identification on a natural graph family can behave quite differently from ordinary identification. The proof explains exactly how the local optimum avoids ordinary constraints, and the exact two counts quantify that gap across every labelled rectangle, not just a numerical coincidence or a few boards. Inclusion-exclusion in isolation is routine; the useful result is the exhaustive minimum family to which it applies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

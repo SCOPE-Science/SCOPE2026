@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The independent-from-formula diagnostic program `check.py` integrates two floor-defined carry indicators by subdividing the unit interval at every jump of each function. All integrations and kernel arithmetic use Python `Fraction` objects, not floating-point approximations. For every \(3\le d\le35\), it compares the direct two-variable covariance with the exact gcd-kernel formula for all \(1\le j\le k<d\); it also checks positivity and a necessary central-index condition for any observed zero. It reports 7,139 matches and 86 zero cases all involving the center. The analytic Fourier-sign certificate, not the finite program, proves positivity for all integers.
+## correctness
 
-Run in the directory containing the attached source as `python3 check.py`. Python 3's standard library is the only dependency. Source code is complete and self-contained; no external binary, remote service, paper PDF or dataset is needed.
+PASS
 
-Scope limit: this evidence says nothing about higher-order positive association, independence between all coordinates, or the actual joint arithmetic distribution of prime-adic valuation sums. A separate independent mathematical audit has not been performed.
+For a shared uniform phase, the fractional-part carry is 0 or 1, and subtracting 1/2 gives the sum of two centered sawtooths minus the common slope-d sawtooth. The Fourier coefficient at nonzero n equals -W_j(n)/(2π i n); taking the conjugate in Parseval gives the positive factor 1/(2π²) on the sum over n>0. When d does not divide n all W are nonnegative; when d divides n the two positive terms total at most d, so all are nonpositive. At n=d both positive terms occur iff j and d-j divide d, equivalent to d/j=d/(d-j)=2. Therefore any pair with both indices noncentral has a strictly positive contribution from n=d, and no opposite-sign term. Summing over common multiples of a,b recovers gcd(a,b)^2/(12ab); expanding produces the eight gcd terms plus the unit term. Marginals 1/2 then determine all four cells. The diagonal and equal complementary coordinates are valid special cases, and discontinuities have probability zero. Independent exact right-continuous integration on 968 pair instances across 3≤d≤18 agreed, including 22 zero cases all involving the center; replay `python3 /workspace/audit_checks/frozen_reconstruction.py`. The finite test does not prove the sign theorem. Nothing here transfers to sums of actual prime-adic valuations.
+
+## originality
+
+PASS
+
+Credit the classical sawtooth identity, the known individual carry law, and the distinct same-day exact classification of the central slice. The remaining general-pair statement, especially the common Fourier sign mechanism and uniform strictness for two noncentral indices, is distinct in the inspected evidence. The expanded kernel by itself is a short consequence of the classical covariance identity and is not the main originality basis.
+
+## value
+
+PASS
+
+The shared-phase Kummer carries occur naturally when multiple binomial lower ratios are probed simultaneously. A uniform positive-pair law (strict unless a center can intervene) rules out the independence heuristic throughout the noncentral family, and gives all pair probabilities with a small exact arithmetic kernel. This does not establish higher-order association or a distribution theorem for integer-valued valuation sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

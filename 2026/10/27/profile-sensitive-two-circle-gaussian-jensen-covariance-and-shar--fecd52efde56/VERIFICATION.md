@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and analytic verification
+# Independent mathematical audit
 
-The derivation of the exact finite covariance, the compact-uniform \(n\to\infty\) convergence, the strict radial monotonicity and the large-separation asymptotic is contained in RESULT.md. No external certification is claimed.
+## correctness
 
-Run `python circular_covariance_check.py` with NumPy and SciPy. The implemented executable checks exact finite polynomial kernels by a discrete Fourier transform and evaluates limiting covariance integrals for three strictly positive affine weight profiles. The run reported 34 passing numerical checks, including finite-to-limit convergence, strict fixed-midpoint separation, large-distance coefficients, profile-reversal identities and the exact \(n=1\) logarithmic Gaussian variance \(\pi^2/24\). The numerical limiting integrals are truncated at \(|x|=1000\). The proof establishes integrable tail control; the numerical program alone does not prove the limits. The strict monotonicity and asymptotic constant require analytic arguments valid at every real parameter, supplied in RESULT.md.
+PASS
 
-Scientific limits: continuous differentiability and strictly positive endpoints are assumed; no non-Gaussian coefficient law, simultaneous large-\(n\)/large-separation theorem, distributional central limit or independent historical-priority audit is supplied.
+Reconstructed the finite integral: for standardized circular complex Gaussians the squared moduli have unit exponential margins, and their joint Laguerre generating function is 1/(1−|ρ|²uv). The log-squared-modulus coefficients are −1/k, so dividing by four gives the log-modulus covariance, including perfect correlation. The two angular averages then leave the factor 1/(8π). Cauchy–Schwarz bounds the normalized argument by one. Discrete summation by parts after x=nθ gives the uniform integrable bound C(1+|x|)^−2, while Riemann sums converge on bounded x uniformly in compact parameter sets. The integral is positive near x=0. At fixed midpoint m the numerator is independent of separation and the log of the denominator is strictly increasing for d>0 by positive variance under exponential tilting; symmetry gives evenness. Endpoint Laplace asymptotics give the denominator w(0)w(1)e^(2m+2d)/(4d²) to leading order. The integrated linear dilogarithm term is (1/4) times the weighted squared-profile integral divided by that denominator; the quadratic remainder is integrable and lower order by boundedness and Plancherel. Profile reversal cancels the real exponential factors and conjugates the numerator. At n=1 the exact formula gives π²/24 as a normalization check.
+
+## originality
+
+PASS
+
+The Gaussian log-covariance identity and the uniform unit-circle variance are prior inputs. The evidence supports as distinct the weighted two-radius microscopic limit together with its sharp fixed-midpoint decorrelation law; the closest inspected results do not already determine that law.
+
+## value
+
+PASS
+
+The two-circle covariance measures dependence between microscopic radial levels of the same random polynomial. The sharp coefficient resolves how endpoint weights and the bulk profile separately control radial decorrelation, information lost in the uniform single-circle variance or a generic decay bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

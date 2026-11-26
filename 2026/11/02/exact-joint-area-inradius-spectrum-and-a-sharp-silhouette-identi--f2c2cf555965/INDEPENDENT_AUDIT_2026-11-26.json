@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:27:34.794238Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify_octa_joint.py and VERIFICATION.md; complete /workspace/repairs/4/RESULT.md and verify_octa_joint.py"
+      ],
+      "rationale": "The frozen deterministic area intervals and threshold are correct, but the claimed positive Haar measure at each fixed interior q is false and the boundary counts are underspecified. The complete repaired RESULT and diagnostic classify this boundary and distinguish positive arc length, zero Haar area on the exact fiber, and positive Haar area in open q-neighborhoods of either strict chamber. Re-audit: Cauchy's facet sum gives max(a+b+c,2c) for sorted nonnegative unit-normal coordinates. Central symmetry permits centering the inball, and polarity makes r^{-1} the greatest norm on the central cube section. Intersecting the section with the cube edges yields q=(a+b)/c in the dominant chamber and q=(c−a)/b in the triangle chamber (the two displayed cross-products establish the latter ratio is greatest). The continuous parameter intervals are exhaustive. The quadrilateral area decreases with its imbalance, giving Q_− and Q_+; the triangle area has derivative sign q²−q−2t+2, maximum at 1+(q²−q)/2 and smaller endpoint at t=1−q. The cross-band squared difference Q_−²−H_+² has numerator 2(1−2q²−q⁴); the other squared comparisons order the exterior endpoints. Equality is at q=r=√(√2−1), area 2^(3/4). The two orientations at q=0 give the asserted two areas (up to symmetry). The projected relation a p_1+b p_2+c p_3=0 proves which points are extreme; at q=1 one signed pair lies on the diamond boundary and the remaining four points are extreme, including the coincident-pair endpoint. Smooth one-dimensional q-fibers establish the corrected Haar statement. The changed diagnostic explicitly uses the dominant formula at equality and tests the symmetric boundary normal; the proof is independent of this diagnostic.",
+      "residual_risks": [
+        "Numerical hull and sampling diagnostics were inspected, not replayed. Floating point cannot reliably distinguish normals arbitrarily close to exact triangle equality; the theorem and boundary correction use exact geometry. No conditional law is inferred from attainable fibers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch includes area and perimeter moments including their mixed moment; faf057c3e230 computes a law given M=max |U_i| using azimuth; f66062b8d2d1 optimizes area at fixed diameter for central sections."
+        ],
+        "reasoning": "A joint moment with another metric is not a feasible set. Fixed M and fixed r do not select the same directions: even in the dominant chamber r^{-2}=2+((a+b)/c)^2, so fixing c does not in general fix a+b. A section is geometrically different from a projection.",
+        "searches": [
+          "Finch arXiv:1203.2464 §2.3; Resultary conditional brightness octahedron; Resultary central octahedron area diameter spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5fbcddcea5e5, faf057c3e230, ee7a93325dd3 and f66062b8d2d1; arXiv:1203.2464 §2.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radius paper supplies both ratios, and Cauchy's projection formula supplies the brightness. The triangle branch still requires optimizing F_q(t) over a moving interval with an interior extremizer and then comparing it with the quadrilateral endpoint."
+        ],
+        "reasoning": "These ingredients allow rederivation, but the classification is not a parameter substitution into an existing fixed-radius theorem; the change in connectivity comes from the additional exact range optimization and cross-band comparison.",
+        "searches": [
+          "5fbcddcea5e5 proof §§2–3; faf057c3e230 proof §§1–3; ee7a93325dd3 proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5fbcddcea5e5 gives the pointwise radius of the shadow as the reciprocal circumradius of the polar central cube section; inradius and brightness jointly are evaluated by the frozen optimization."
+        ],
+        "reasoning": "The polar formulation is equivalent, but existing cube projected diameter is not the circumradius of a cube section. Similar words do not imply the same scalar fiber.",
+        "searches": [
+          "Regular octahedron projected area at fixed inradius; cube section circumradius and octahedral brightness; Resultary exact inradius law for random planar projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day ee7a93325dd3 provides an exact joint law of cube projected diameter and octahedron-shadow vertex count. The Oct. 11 radius record provides an exact marginal CDF."
+        ],
+        "reasoning": "No inspected exact table gives the claimed pair of continuous observables or the deterministic contact A_*=2^(3/4). Same-day ordering is not used as a reason to dismiss the comparison.",
+        "searches": [
+          "Resultary octahedron area inradius sharp range silhouette; joint exact diameter and silhouette random cube octahedron; conditional brightness sharp phase transitions"
+        ]
+      },
+      "rationale": "The prior two-branch pointwise radius formula and classical brightness formula are explicit inputs, not claimed as new. The closest earlier computed area law conditions on the size of the largest absolute normal coordinate; the same-day cube-shadow joint law changes both observables. Neither computes the fixed-inradius extrema or the exact boundary-overlap polynomial. Finch gives, in addition to marginals, a mixed area–perimeter moment, not the claimed area–inradius feasible set. The repaired literature paragraph accurately credits this. The surviving content is the evaluated pair of area ranges and exact classification transition, not the availability of a coordinate representation from which one can optimize them.",
+      "residual_risks": [
+        "Bounded source comparison cannot exclude an older unindexed equivalent geometric-tomography inequality. The earlier pointwise radius and brightness formulas are credited, not treated as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the complete radius input but not the fixed-radius area range",
+          "evidence": [
+            "Two sorted-coordinate branches and exact marginal radius CDF."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+          "material_read": "Finding and proof §§2–3, mirror offsets 0–6598",
+          "method": "Resultary search and local mirrored passages",
+          "title": "Exact inradius law for random planar projections of the regular octahedron",
+          "trigger": "Same body, exact pointwise inradius and strongest equivalent polar reduction"
+        },
+        {
+          "assessment": "Fixed largest normal coordinate, not fixed inradius",
+          "evidence": [
+            "Conditions on M=max |U_i| and uses azimuth."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-conditional-brightness-law-and-two-sharp-phase-transitions-for-a--faf057c3e230",
+          "material_read": "Finding and proof §§1–3, offsets 0–5622",
+          "method": "Local mirror",
+          "title": "Conditional brightness law and two sharp phase transitions for octahedron shadows",
+          "trigger": "Earlier exact area laws at fixed geometric parameter"
+        },
+        {
+          "assessment": "Different observables; same date gives no order information",
+          "evidence": [
+            "Cube projection diameter paired with octahedron-shadow vertex count."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-joint-exact-diameter-and-silhouette-law-for-random-cube-octahedr--ee7a93325dd3",
+          "material_read": "Finding and proof §§1–2, offsets 0–4647",
+          "method": "Local mirror",
+          "title": "Joint exact diameter and silhouette law for random cube–octahedron projections",
+          "trigger": "Same-day indexed same-plane law for dual cube/octahedron and silhouette type"
+        },
+        {
+          "assessment": "Different geometric operation and second measurement",
+          "evidence": [
+            "Section O∩H, with section diameter rather than projection inradius."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-area-diameter-spectrum-of-central-sections-of-the-regular--f66062b8d2d1",
+          "material_read": "Finding, offsets 0–2475",
+          "method": "Local mirror",
+          "title": "Sharp area–diameter spectrum of central sections of the regular octahedron",
+          "trigger": "Closest analogue of a deterministic metric-pair spectrum"
+        },
+        {
+          "assessment": "Relevant area/perimeter and silhouette analysis does not cover the inradius–area fibers",
+          "evidence": [
+            "Area and perimeter moments, their mixed moment, and probabilities of four/six extreme vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.2464",
+          "material_read": "Primary PDF §2.3, p. 5, OA offset 11900",
+          "method": "Lawful OA PDF passage (HTML offset unavailable)",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Octahedron shadow metrics and joint-moment evidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, sharp feasible set, proof and gap contact; comparison with the exact radius and conditional-brightness results"
+      ],
+      "rationale": "The exact joint constraints answer a natural inverse question about identifying a silhouette with two Euclidean measurements. A genuine forbidden interval and its sharp contact give a simple limit to identification; beyond the contact, both polygon types realize the same measurements. This requires the full attainable set, not a conjectured bound, separate moments or a few arbitrary fibers. The repaired Haar clarification does not add an unproved probabilistic contribution.",
+      "residual_risks": [
+        "Value is for this regular polytope and deterministic pair of metrics only; no statistical inference model or robust classification under noise is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

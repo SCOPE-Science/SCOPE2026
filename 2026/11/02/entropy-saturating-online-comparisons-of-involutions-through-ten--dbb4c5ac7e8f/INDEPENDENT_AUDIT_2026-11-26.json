@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:27:57.556400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A graph of statically shattered queries has no cycle: a consistent label choice on the cycle would force cyclic strict inequalities. Consecutive descending blocks, each reversed and using only its own values, give involutions realizing all adjacent labels, proving VC=n−1 even at n=1. Fixed-or-transposed status of the largest letter gives the involution recurrence, and distinct permutations induce distinct strict rank comparisons. Each hypothesis follows one path through a complete tree, so cardinality gives the depth upper bound. Independent replay (python3 /workspace/branches/ec09e412-d310-43a9-af98-389cbfbd9ed6/verify_involutions_independent.py --max-n 10 --output /workspace/branches/ec09e412-d310-43a9-af98-389cbfbd9ed6/independent_check_n1-10.json) validated the frozen JSON under its sorted involution catalogue and explicit query/branch indexing. All paths and distinct witnesses passed; n=10 had 8191 queries and 8192 leaves. The depths are 0,1,2,3,4,6,7,9,11,13. Disjoint contiguous ten-letter blocks with their own shifted value sets allow independent involutions, hence concatenation yields 13s and a gap at least 3s+1. No exact adaptive value beyond n=10 is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-2687562ef4ab studies all 321-avoiding permutations and gives an 8s construction.",
+          "Theorem 3.10 of Guingona et al. addresses linear zero-set families, not order comparisons of involutions."
+        ],
+        "reasoning": "The 321-avoiding permutation class is incomparable with all involutions (321 is an involution and not avoiding; 231 is avoiding and not an involution). General permutations or generic Littlestone bounds cannot transfer a lower-bound tree to this proper subclass.",
+        "searches": [
+          "Resultary: comparison shattering in permutation classes",
+          "arXiv:2109.04805"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE index and the two distinct catalogue findings above",
+        "arXiv:2009.00079",
+        "arXiv:1710.03896",
+        "arXiv:2109.04805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The avoiding involution result, a subset bound, supplies at most depth six by its exact n=10 result. The avoiding permutation block bound uses a depth-nine tree on eight letters in its own class."
+        ],
+        "reasoning": "Neither tree establishes depth thirteen on ten letters in the full involution class. Direct sum is an elementary consequence after, not before, obtaining the finite witnesses.",
+        "searches": [
+          "SCOPE-2687562ef4ab Finding",
+          "SCOPE-b0b828e4ea30 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-b0b828e4ea30 uses globally complemented comparison labels, which preserve both dimensions, but restricts to 321-avoiding involutions. At n=10 it gives VC=5 and Ldim=6, not VC=9 and Ldim=13.",
+          "Kim studies fixed-point-free involutions under a matching interpretation, so does not include the present fixed-point-allowed class."
+        ],
+        "reasoning": "Neither a label convention change nor the matching formulation makes these restricted classes equivalent to all involutions.",
+        "searches": [
+          "Resultary: involutions, inverse-symmetric permutations, adaptive comparison shattering; 321-avoiding involution comparisons",
+          "arXiv:1710.03896"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-2687562ef4ab has the same adaptive numbers through eight but for a different class; SCOPE-b0b828e4ea30 has a different table for the avoiding subclass.",
+          "Theorem 1.4(a) of Fang–Hamaker–Troyka counts 321-avoiding involutions, not adaptive trees."
+        ],
+        "reasoning": "Exact cardinalities yield only floors as upper bounds. Neither matching dimension numbers for another class nor a counting table supplies the target witnesses.",
+        "searches": [
+          "Resultary dimension sequences for comparison shattering and involutions",
+          "arXiv:2009.00079 Theorem 1.4(a)"
+        ]
+      },
+      "rationale": "The comparison framework, cardinalities and direct-sum technique are not the contribution. The supported distinct result is adaptive saturation for the full involution class through ten, together with the resulting static/adaptive gap for this family; the closest catalogue records concern different hypothesis classes.",
+      "residual_risks": [
+        "Bounded comparison, not global priority certification. Equivalent specialized work could be indexed under ranking or matching terminology.",
+        "The shared catalogue date of the restricted involution result does not establish order of first publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different, incomparable hypothesis class",
+          "evidence": "All 321-avoiding permutations have the same Littlestone values through eight and a depth-nine block construction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-comparison-shattering-in-321-avoiding-permutations-the-first-two--2687562ef4ab/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Comparison shattering in 321-avoiding permutations: the first two gaps",
+          "trigger": "Same query model and overlapping finite dimension table"
+        },
+        {
+          "assessment": "Material overlap but different dimensions and hypotheses; no priority inference from shared date",
+          "evidence": "Avoiding involutions, with complemented comparison labels; VC=5 and Ldim=6 at n=10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-two-unit-vc-littlestone-separation-in-comparisons-of-321-a--b0b828e4ea30/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "First two-unit VC–Littlestone separation in comparisons of 321-avoiding involutions",
+          "trigger": "Same notion on a restricted subclass"
+        },
+        {
+          "assessment": "Counting, not online comparison shattering",
+          "evidence": "Central-binomial count for 321-avoiding involutions.",
+          "identifier_or_url": "https://arxiv.org/html/2009.00079",
+          "material_read": "Title and authors at offset 0; Theorem 1.4(a), offset 10458",
+          "method": "Bounded OA HTML",
+          "title": "On pattern avoidance in matchings and involutions",
+          "trigger": "Potential exact count or implication for restricted classes"
+        },
+        {
+          "assessment": "Fixed-point-free and distributional",
+          "evidence": "Matching descents are studied; the stated problem is not adaptive shattering of all involutions.",
+          "identifier_or_url": "https://arxiv.org/html/1710.03896",
+          "material_read": "Abstract and Definition 1.3, offset 0",
+          "method": "Bounded OA HTML",
+          "title": "Distribution of descents in matchings",
+          "trigger": "Alternative formulation of involution comparisons"
+        },
+        {
+          "assessment": "Different concept construction",
+          "evidence": "Dimension formula for linear zero-set families.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+          "material_read": "Abstract p. 1 and Theorem 3.10 p. 9, offset 22000",
+          "method": "Bounded OA PDF",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Structural dimension formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Involutions are a natural inverse-symmetric restriction on total orders, and static shattering does not decide whether a full adaptive tree saturates the information bound. Exact witnesses through ten pin down the first separation and a depth ratio strictly larger than one that can be amplified, rather than just reporting a small numerical improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

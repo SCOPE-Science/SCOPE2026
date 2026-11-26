@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:35.056676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–74; VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "Writing R=u⊗phi and testing a vector in ker(phi) gives phi∘L_u=lambda phi; testing two vectors with phi value 1 gives u^2=2lambda u. A unit u would be the scalar 2lambda and then lambda=2lambda, impossible. Thus u is in J, L_u is nilpotent, and lambda vanishes. Testing the other input also gives phi(Au)=0. Conversely both ideals uA and Au are kz for u in kz and span(u,z) otherwise; u^2=0 in all characteristics. This gives exactly phi(z)=0 and a beta+b gamma=0. The separately defined reduced projectivization is the rank-two bilinear incidence hypersurface under the Segre embedding; the bilinear polynomial is geometrically irreducible. Its only singular chart point occurs at the radical entry on each side, with tangent cone the smooth split-quadric cone a beta+b gamma=0, also in characteristic two by the partial derivatives. The automorphism matrices are the full GL2 action with two arbitrary z-shears. In the z-image case the determinant rescales the constant coefficient and the special linear group is transitive on nonzero covectors. Off the socle, normalize the image to x; independent diagonal units act on the constant and remaining linear coefficient by (s,s/v). These are actions on actual tensors, not merely projective pairs. For closures, the two special sections phi=epsilon and alpha=0 are respectively a projective plane and a projective-line bundle over the covector line; each missing socle fiber is exactly as claimed. Over z the whole projective plane is the closure of its mixed open piece, and the full mixed nonsocle stratum is dense in X. Counting nonzero covectors after fixing an image-line generator gives the six cardinalities, and division by q-1 gives the projective count.",
+      "replay_paths": [
+        "For a separate F2 check, encode basis monomials by masks 0,1,2,3. Products of intersecting masks are zero, otherwise multiply by mask union and add modulo 2. Test each of the 15 nonzero u and 15 nonzero phi on all sixteen ordered basis pairs via R(e)=parity(phi & e)u in the bit-vector coordinate representation. All 225 were checked, with 25 solutions, no disagreements with the incidence test, and the six type counts 3,1,3,6,6,6. The arbitrary-field proof above is needed for the geometric and transitivity conclusions.",
+        "Frozen verify.py is a candidate-side check, together with finite orbit enumeration and a symbolic Hessian check; it is not a proof that no nonincident rank-one tensor works."
+      ],
+      "residual_risks": [
+        "Only the reduced scheme is classified. Closure means closure of the algebraic strata, not the closure of the finite set of rational orbit points over a finite field. The proof's switch from phi(uA)=0 to phi(Au)=0 is valid here because these ideals agree for radical u (or by testing the other input)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2018 arXiv version uses §5.2 Proposition 1 (PDF p. 17), not §5.4 for the Grassmann-plane normal slice, and assumes characteristic not two. Shakoor–Noor-ul-Ain v2 Theorem 4.1 gives all real operators in matrix families. Neither passage alone states the six arbitrary-field strata with projective closures."
+        ],
+        "reasoning": "These genuinely broader rank-all normal forms bear on recognition and parameterization; the exact conjugacy overlap is established separately by catalogue findings and their proof.",
+        "searches": [
+          "Benito–Gubarev–Pozhidaev arXiv:1801.07037 rank-one Grassmann normal form",
+          "Shakoor–Noor-ul-Ain arXiv:2609.07377 Theorem 4.1",
+          "Hua–Liu 2013 exterior-algebra classification lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 13284c465566, ffdda9af9406, 6ed2dc859a4a",
+        "arXiv:1801.07037 and arXiv:2609.07377v2",
+        "Frozen RESULT.md lines 79–89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof forces radical image using u^2 in ku, (c1+w)^2=c^2 1+2cw, and 1≠2, then uses nilpotence of multiplication to get phi(uA+Au)=0. For radical u=ax+by+cz this is precisely phi(z)=0 and a phi(x)+b phi(y)=0. The same proof gives the GL2-and-shears group and the determinant twist on the z-image case and independent diagonal rescalings off the socle. None requires characteristic two. Projectivizing the two factors gives the submitted rank-two bilinear incidence equation; its partials and the zero/nonzero conditions on the same coordinates immediately give the node and closures."
+        ],
+        "reasoning": "The added arbitrary-field quantifier is supported mathematically, but the decisive old proof specializes to or extends verbatim across those fields. The node and closure listings are not claimed as explicitly written in the older source; they follow directly from the locus and strata it describes.",
+        "searches": [
+          "Resultary 13284c465566, Proof §§1–4, offsets 1775–6150"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The real catalogue entry has the same representatives with pure constant, pure linear, and mixed covectors on each of z and x. These are actual conjugation classes; they do not come from conflating conjugacy with scalar equivalence."
+        ],
+        "reasoning": "Identify the socle J^2 and compare actual rank-one tensors or the four images on (1,x,y,z); the only change is order of representatives.",
+        "searches": [
+          "Resultary: rank-one weight-zero Rota–Baxter conjugacy classes on two-generator exterior/Grassmann algebra",
+          "Resultary real orbit classification ffdda9af9406"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13284c465566 states the same six orbit sizes and total q^4+2q^3-q^2-q-1 for q=2^e, e>=2. 6ed2dc859a4a explicitly covers the remaining F2 case: 25 rank one and sizes 1,3,3,6,6,6."
+        ],
+        "reasoning": "This is exact symbolic overlap for the characteristic-two finite-field subclaim, not interpolation or just close numerical values.",
+        "searches": [
+          "Resultary finite fields of characteristic two, six rank-one classes, 13284c465566 and 6ed2dc859a4a"
+        ]
+      },
+      "rationale": "The original submission claims a combined rank-one normal form, six actual orbits, counts, and projective geometry. The six real orbits and all characteristic-two finite-field orbit sizes and counts are directly covered by distinct earlier Resultary records. More decisively, the earlier characteristic-two record's actual proof of the rank-one form and the group action is characteristic-independent: it already supplies the same linear conditions, determinant-covector action and independent rescalings, not merely sampled values. The geometric observations are a correct explicit reformulation and elementary consequences after Segre projectivization, not a new rank-one equation or new conjugacy mechanism. No independently supported original central finding survives in this submitted combination.",
+      "residual_risks": [
+        "Full text of the Hua–Liu 2013 possible antecedent was not retrieved, and the wider literature search is not exhaustive. The originality failure rests on positive prior overlap and implication, not that retrieval limit. No old source inspected explicitly calls the projectivization a nodal incidence threefold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct finite characteristic-two match and characteristic-independent proof of the normal form and transitivity",
+          "evidence": "Explicit phi(uE+Eu)=0, split of annihilator dimensions, determinant-covector action and diagonal scalings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-six-rank-one-rota-baxter-symmetry-classes-over-characteristic-tw--13284c465566/RESULT.md",
+          "material_read": "Finding and Proof §§1–4 (offsets 1775–6150)",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Six rank-one Rota–Baxter symmetry classes over characteristic two",
+          "trigger": "Exact characteristic-two match with possible field-independent proof"
+        },
+        {
+          "assessment": "Exact real subcase",
+          "evidence": "Three covector types for each of image z and image x.",
+          "identifier_or_url": "2026/10/12/SCOPE-automorphism-orbits-of-weight-zero-rota-baxter-operators-on-the--ffdda9af9406",
+          "material_read": "Rank-one orbit finding and representatives",
+          "method": "Local mirror",
+          "title": "Automorphism orbits of weight-zero Rota–Baxter operators",
+          "trigger": "Prior real six-orbit result"
+        },
+        {
+          "assessment": "Exact F2 subcase",
+          "evidence": "80 total, 25 rank one, with six rank-one orbit sizes as above.",
+          "identifier_or_url": "2026/10/4/SCOPE-weight-zero-rota-baxter-operators-on-the-four-dimensional-exteri--6ed2dc859a4a",
+          "material_read": "Classification finding and ranks",
+          "method": "Local mirror",
+          "title": "Weight-zero Rota–Baxter operators on the four-dimensional exterior algebra",
+          "trigger": "Exact F2 table"
+        },
+        {
+          "assessment": "Characteristic-not-two normal slice; the cited numbering differs in the inspected version",
+          "evidence": "Up to automorphism R(1),R(e1) are in span(e2,e1 wedge e2) and R(e2)=R(e1 wedge e2)=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07037",
+          "material_read": "Characteristic hypothesis p. 2; §5.2 Proposition 1 p. 17; §5.4 p. 19",
+          "method": "Open primary PDF passages",
+          "title": "Rota–Baxter Operators on Quadratic Algebras",
+          "trigger": "Cited Grassmann normal form"
+        },
+        {
+          "assessment": "Real matrix parameterization, not the arbitrary-field census",
+          "evidence": "The field is R; the theorem gives matrix families with parameter conditions for weight zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.07377",
+          "material_read": "v2 abstract and Theorem 4.1",
+          "method": "Open primary PDF passages",
+          "title": "The Classification of the Rota-Baxter Operators on Four-dimensional Grassmann Algebra",
+          "trigger": "Cited real classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–48 and 55–74",
+        "Resultary 13284c465566 Proof §§1–4"
+      ],
+      "rationale": "The natural classification and count are worthwhile questions, but the prior rank-one proof already gives their mechanism and complete invariants. The added projective census, single split bilinear node, and closure diagram are immediate geometric readings of the same rank-two equation and coordinate vanishings. As submitted they do not isolate a new nonmechanical exact invariant that would justify a separate finding.",
+      "residual_risks": [
+        "The conclusion does not extend to a study of scheme structure, higher ranks, or another geometry not included in the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

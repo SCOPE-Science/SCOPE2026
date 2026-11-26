@@ -1,19 +1,21 @@
-# Review of the unit-base random-direction inradius theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The angle gaps form the normalized three-gap Dirichlet law relative to a predesignated direction, giving the stated triangle-angle density. The base-tangency identity determines the inradius exactly; direct integration of the level sets gives its survival function. Differentiation and two explicit elementary primitives yield the proposed normalized density. Strict decrease of the mode equation follows from \(A''<0\) and \(A>0\), and the two endpoint exponents and conditional-shape descriptions follow from controlled boundary scalings. Independent numerical integrations and fixed-seed sampling agree with these formulas. Scientific risk: conditional convergence outside the stated model has not been proved, and numerical comparisons cannot replace the analytic arguments.
+PASS
 
-## Originality: PASS, subject to stated source-access risk
+Fixing the base direction leaves two independent uniform relative directions, so the two gaps incident to the base have density 2/pi^2 on the angle simplex. The tangent-length identity gives R=(cos v-cos u)/(2 sin u); slicing at fixed u gives the stated survival integral and 0<R<1/2. Its lower-limit singularity on differentiation is integrable (inverse square root in u-u0); the integrand of the survival itself vanishes there. The rotated integral separates into the two stated primitives. The mode equation has derivative (1+4r^2)A''-8A<0 and opposite endpoint signs; independent bisection gave r=0.07648419736581347 and density 2.8664645227022154. The expansions of the density at zero and 1/2 give the stated logarithmic correction and 3/2 tail. For the upper mark, the admissible scaled sets are bounded and converge pointwise off the boundary to a+b^2<1, a>=0, of area 4/3. For the lower mark, R is at least half the smaller of tan(alpha/2) and tan(beta/2), so the smaller angle is at most 4t. With the smaller angle divided by 2t, each label's rescaled admissible set lies in a fixed rectangle and converges almost everywhere to (0,1)^2 using R=alpha/2+O(alpha^2) for each interior value of the other angle. This proves equal weights and total variation for the product marks. Endpoint continuity at zero is from within the support, not continuity of the zero extension across zero. The supplied numerical checker was read, not executed; the proof does not depend on it.
 
-The closest same-normalization source, Daley–Ebert–Swift (2014), reports side ratios, extremal sides and triangle area in its accessible abstract, not the evaluated inradius density. Its complete text could not be inspected; this is explicitly a residual historical-priority risk. Edelman–Strang (2014) supplies the already-known uniform-angle law, rather than the evaluated inradius pushforward. The 1994 Gates general line-based shape distribution provides a potentially broader shape framework but is not, on accessible evidence, an exact evaluation of this normalized radius. Kórus (2020) and the nearest public inradius record use a fixed circumradius, whose random scaling relative to the base makes the target law different. Neither a negative title search nor this model distinction alone proves novelty. The narrower explicit density, unimodality, endpoint corrections and marked conditional laws are the tested scope.
+## originality
 
-## Value: PASS
+PASS
 
-Inradius is a canonical quantitative measure of triangle thickness. Fixing a side and drawing independent directions is a standard natural stochastic-geometry model, but its incircle radius is neither a side-length statistic nor the already-computed area distribution. The nontrivial elementary transformation provides the complete density rather than a numerical moment, proves one well-defined most-probable radius, and separates a linear thin-triangle tail from a \(3/2\)-power near-supremal tail with a parabolic local configuration law. The latter explicitly characterizes the exceptionally tall, near-right base-angle shapes. These details are reusable as exact benchmarks for directional random triangles, rather than arbitrary parameter slices or known-table recomputations.
+Pass for the evaluated unit-side inradius density and its analytic and conditional shape consequences, not the uniform-angle model, existence of an integral pushforward, or fixed-circumradius results. No equivalent or dominating evaluated result was established in the inspected sources.
 
-## Closest literature and limits
+## value
 
-Daley, Ebert and Swift (2014), DOI https://doi.org/10.1239/jap/1417528481; Edelman and Strang (2014), https://math.mit.edu/~edelman/publications/random_triangle.pdf; Gates (1994), DOI https://doi.org/10.2307/1427438; and Kórus (2020), DOI https://doi.org/10.33401/fujma.692916. The original 2014 paper's full text and Gates's full text were inaccessible in this review. Independent mathematical verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model is a standard fixed-scale directional sampling problem and the inradius measures thickness. An elementary normalized density, an analytic unique mode, and two different conditional shape laws give more than a moment or an unevaluated pushforward. In particular the upper tail identifies the distinct linear and quadratic shape scales of triangles near the maximal radius, while the lower tail is a mixture of two thin strips.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

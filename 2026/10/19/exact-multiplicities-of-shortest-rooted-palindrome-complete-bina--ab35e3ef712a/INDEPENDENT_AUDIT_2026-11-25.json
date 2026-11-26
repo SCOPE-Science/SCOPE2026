@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:57.487820Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–54",
+        "VERIFICATION.md and both bundled C++ checkers (inspected, not executed)",
+        "/workspace/branches/60bbc232-55ca-482a-b147-950be97f7cf0/independent_eval.py",
+        "/workspace/branches/60bbc232-55ca-482a-b147-950be97f7cf0/full_results.txt, lines 2–9"
+      ],
+      "rationale": "The cyclic factor sequence is a closed walk on (k−1)-bit de Bruijn vertices; placing its 0^k edge first fixes the required prefix. In the frozen BFS each continuation has one edge word and unique state path of suffix and seen-palindrome mask. The shortest-distance layer recurrence adds all arrivals at the same minimum length and cannot double-count a rooted string. For an independent exact check, choose one occurrence of each compulsory edge in any covering walk. Their cyclic order gives a tour whose costs, one compulsory edge plus the shortest de Bruijn connector, total at most the walk's length; conversely any such tour realizes a covering walk. Connector length is k−1 minus the maximal suffix-prefix overlap of the adjacent vertices. Held–Karp therefore certifies the minimum length. The independent counter does not use optimal-tour multiplicities: it fixes the first k zeros, counts all free suffixes of that minimum length by a layered suffix/mask DP, then appends the k−1 fixed leading zeros to account for precisely the windows across the join. A fixed state after t free bits has at most 2^max(0,t−(k−1)) contributing prefixes, at most 2^59 here, so the nonnegative uint64 state additions are exact; the final sum uses unbounded integers. The independent run returned CHECK_OK and (L_k,R_k)=(4,1),(8,2),(12,2),(22,8),(32,40),(60,6272),(74,768). The equality of the two frozen algorithms' output counts is not assumed to make every optimal tour a unique word.",
+      "residual_risks": [
+        "Exact census only for k=2 through 8. Replay by running python3 independent_eval.py 8 (NumPy required) in the directory containing the independent evaluator. No inference is made about higher orders or the number of optimal tours for other instances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anisiu et al. address generation and obstructions to consecutive palindrome windows. Blondin Massé et al. have a linear reconstruction problem with the entire palindromic-factor set prescribed. The later order-three theorem gives a length for general alphabets; the later order-nine result gives length 142 without a multiplicity."
+        ],
+        "reasoning": "Broader alphabet size at fixed k=3 and a higher-order minimum length do not yield rooted minimizing word counts through k=8. Neither palindrome-generation obstructions nor the exact-factor-set reconstruction theorem supplies this census.",
+        "searches": [
+          "arXiv:1002.2723v1 §2",
+          "10.1007/978-0-387-09680-3_7, pp. 112–113",
+          "Resultary 18d0cf3a4b8f and 8ec65607618f"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A330022, A390882, A057148, A291633",
+        "Resultary 18d0cf3a4b8f, 4d85b3092272, 8ec65607618f",
+        "arXiv:1002.2723v1",
+        "10.1007/978-0-387-09680-3_7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The linear witnesses and length table concern whether at least one covering string exists. An indexed count for k=3 does recover R_3 by unique rooting. Neither the reverse-complement count nor the order-nine ordinary length yields the required two higher-order counts."
+        ],
+        "reasoning": "An existence threshold or a count under a different window constraint does not imply the exact number of minimizing ordinary cyclic words. By contrast the indexed-to-prefix reduction does give a specific small-order overlap and is credited. Exact enumeration of covered cyclic windows at the certified minimum length is still needed for the full frozen census in the evidence examined.",
+        "searches": [
+          "OEIS A330022 and A390882",
+          "arXiv:1002.2723v1 §2",
+          "Resultary 18d0cf3a4b8f, 4d85b3092272 and 8ec65607618f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later ordinary order-three source gives L_3=8 and counts 16 indexed strings over all initial windows, not 16 with prefix 000; the reproduced prefix-conditioned count is 2. The earlier reverse-complement source has length 67 and 1,232 indexed optima at k=8, for a different required pattern set and root 00001111."
+        ],
+        "reasoning": "A shortest ordinary cycle has exactly one 0^k edge occurrence, since a redundant traversal of this self-loop could be removed. Thus the all-indexed count divided by L_k gives the prefix-fixed count, making the order-three indexed calculation genuinely equivalent after normalization, though later in date. A reverse-complement constraint is not ordinary palindrome coverage; a position-alternating flip of a single window is not a cyclic cover bijection, and the optima here even have different lengths. No equivalent larger count surfaced in the bounded catalog comparison.",
+        "searches": [
+          "Resultary exact rooted cyclic palindrome cover wording and numeric pair 6272, 768",
+          "Resultary ordinary length-three cyclic covers, 18d0cf3a4b8f",
+          "Resultary binary reverse-complement palindrome covers, 4d85b3092272"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A330022 lists 60 and 74 with linear witnesses, but its comments qualify those entries as upper bounds. A390882 lists 960 and 176 shortest linear strings at k=7 and k=8. Related A057148 and A291633 have different palindrome objects. The closest indexed order-eight count concerns reverse complements."
+        ],
+        "reasoning": "A linear cover gives a cyclic cover of the same length; thus the checked cyclic lower bounds plus the known linear witnesses certify the shared lengths at 7 and 8, whereas the A330022 comments alone do not prove those minima. Linear counts require no wrapped factors and are not all-indexed cyclic counts subject to a simple rooting rescaling. The exact larger rooted cyclic multiplicities are the part not supplied by the inspected tables.",
+        "searches": [
+          "OEIS A330022, A390882, A057148, A291633",
+          "Resultary numeric search for 6272 and 768 and ordinary cyclic palindrome-cover terminology"
+        ]
+      },
+      "rationale": "The supported distinct claim is the census of shortest cyclic words with an all-zero window fixed at the first position, especially R_7=6272 and R_8=768. This is not a claim to have first tabulated the matching linear lengths or to introduce de Bruijn or overlap methods. The closest exact ordinary cyclic overlap is order three and is documented with its normalization; it does not cover the larger counts.",
+      "residual_risks": [
+        "Ranked catalog and bounded source checks do not rule out other indexed or unindexed cyclic enumeration results. The Orenstein cited full text was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known linear upper bounds/examples and shared listed lengths, not cyclic counts",
+          "evidence": "Lists 60 and 74 with linear examples; comments describe the corresponding inequalities as upper bounds rather than proving tightness.",
+          "identifier_or_url": "https://oeis.org/A330022",
+          "material_read": "Entry terms, comments and example material, from HTML offset 429",
+          "method": "Lawful OA website passages",
+          "title": "Length of shortest binary string containing all palindromes of length n as substrings",
+          "trigger": "Matches the reported lengths"
+        },
+        {
+          "assessment": "Different population, not a cyclic-rooted table",
+          "evidence": "Counts linear strings, including 960 and 176 at orders 7 and 8; a cyclic covering is allowed to use factors across the join.",
+          "identifier_or_url": "https://oeis.org/A390882",
+          "material_read": "Sequence definition and terms, HTML offset 0",
+          "method": "Lawful OA website passage",
+          "title": "Number of shortest strings containing all binary palindromes of length n as substrings",
+          "trigger": "Closest exact number table in a different normalization or setting"
+        },
+        {
+          "assessment": "Later exact overlap at k=3, including equivalent indexed count after conversion",
+          "evidence": "Binary optimum length 8. The loop over all length-eight tuples returns 16 indexed optima; of these, exactly 2 start with 000.",
+          "identifier_or_url": "18d0cf3a4b8f",
+          "material_read": "2026-11-22 RESULT.md and mirrored palindrome_cover_check.py enumeration",
+          "method": "Resultary search and local mirror; independent binary length-eight count",
+          "title": "Shortest cyclic covers of all length-three palindromes",
+          "trigger": "Exact ordinary-palindrome cyclic cover at an overlapping order"
+        },
+        {
+          "assessment": "Different pattern set and specified root",
+          "evidence": "Length 67 and 1,232 indexed optima at window length eight with root 00001111 for reverse-complement palindromes.",
+          "identifier_or_url": "4d85b3092272",
+          "material_read": "2026-10-18 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact shortest cyclic covers of binary reverse-complement palindromes",
+          "trigger": "Closest earlier exact cyclic count-spectrum result"
+        },
+        {
+          "assessment": "Different window length and no multiplicity claim",
+          "evidence": "Both linear and cyclic optimum lengths are 142 at order nine.",
+          "identifier_or_url": "8ec65607618f",
+          "material_read": "2026-11-02 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "An exact length-nine binary palindrome superstring: 142 symbols",
+          "trigger": "Potential broader ordinary-palindrome covering result"
+        },
+        {
+          "assessment": "Related covering-generation obstruction, not the minimizing-word counts",
+          "evidence": "Discusses why the desired palindromes generally cannot all appear as consecutive de Bruijn-style windows.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.2723",
+          "material_read": "§2, PDF page 2 around text offset 4382",
+          "method": "Lawful OA PDF passage",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Generation of all fixed-length palindromes via de Bruijn words"
+        },
+        {
+          "assessment": "Different linear reconstruction requirement",
+          "evidence": "The prescribed palindrome set must be exactly the factor set in the constrained problem; the frozen problem only requires cyclic coverage at one fixed length.",
+          "identifier_or_url": "10.1007/978-0-387-09680-3_7",
+          "material_read": "Opening and printed pp. 112–113, PDF offsets 0 and 29977",
+          "method": "Lawful OA PDF passages",
+          "title": "Reconstructing words from a fixed palindromic length sequence",
+          "trigger": "Potentially stronger palindrome optimization literature"
+        },
+        {
+          "assessment": "Access limitation; no negative originality inference from it",
+          "evidence": "Both routes returned HTTP 403. The passage-level comparison is unresolved, distinct from the directly inspected reverse-complement Resultary record.",
+          "identifier_or_url": "https://academic.oup.com/bioinformatics/article/29/13/i71/195654",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful publisher retrieval attempted directly and via the configured alternate route",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers",
+          "trigger": "Cited comparison for reverse-complement covering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, definitions and census",
+        "Independent exact replay output",
+        "OEIS A330022 and A390882 for the distinct linear problem"
+      ],
+      "rationale": "Fixed-length palindrome coverage is a natural constrained de Bruijn problem and the minimum length alone cannot distinguish a rigid optimum from a family with many optimal covers. Counting those covers under a uniform rooting convention captures that distinction. Orders 7 and 8 have the same number of required patterns yet the number of optimal rooted covers drops by more than a factor of eight, a concrete comparison unavailable from the linear tables or the length optimum. The exact finite sweep goes through both sixteen-pattern orders and is useful on its own as an enumeration benchmark.",
+      "residual_risks": [
+        "The drop is an exact finite observation, not a prediction of a general trend, or a structural classification of all shortest covers at arbitrary order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: clique-windmill idempotent rank laws
+# Independent mathematical audit
 
-## Correctness — PASS
-The counted object is the full inverse-simplex-continuous partial transformation monoid (not graph partial automorphisms). The proof first restates the established idempotent fiber criterion and checks its necessity and sufficiency. A disjoint partition by whether the hub is fixed, undefined, or assigned to one fixed leaf yields an explicit independent-blade product and a single-hub correction. The equal-blade formula follows by substitution; the total-variation estimate follows by normalizing the dominant nonnegative polynomial term, and the classical iid central limit theorem gives the Gaussian limit. The coefficient formula agrees with independent exhaustive generation and literal continuity testing on nine graph sizes. Boundary values \(s_i=1\), \(m=1\), empty rank and full rank are included. Finite checks are not used as infinite proofs.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-The general idempotent-fiber lemma is **already published** in the double-star census and is treated as prior theory, not a new discovery. The star rank enumerator is known and appears as a specialization. Published windmill Green-class counts concern the inverse monoid of induced-subgraph partial isomorphisms; idempotents there are just partial identities, and the rank law does not imply this one. The motivating primary work gives the definition, general structure, paths/cycles, but not this windmill polynomial or its Gaussian rank law. Searches of semigroup research records, general windmill / friendship aliases, idempotent enumeration, and Gaussian rank laws found no matching explicit result. An independent historical literature survey has not been performed; older unindexed graph-semigroup enumerations are residual risk.
+PASS
 
-## Mathematical value — PASS
-The family smoothly interpolates from the already solved stars (one vertex per blade) to clique windmills and friendship graphs. The all-size polynomial gives the complete natural image-rank statistic, and its product-plus-shared-hub decomposition isolates the effect of finite local cliques on a graph-continuous semigroup. For friendship graphs, the new explicit rank fluctuations are asymptotically normal at \(\sqrt m\) scale with variance \(m/3\). This is a motivated quantitative structural refinement, not a new name for the universal fiber criterion.
+An idempotent partial function fixes every element of its image F. The inverse image of a singleton may consist of an adjacent pair, so each extra source must neighbor its fixed target and be unique for that target. An adjacent fixed pair forbids extras on either vertex, by the inverse image of the target edge. Conversely these conditions suffice for all vertex and edge faces of the one-dimensional complex. With hub undefined, the independent blade contribution is (1+z)^s+s(s−1)z; only a singleton fixed set in a blade allows an extra source. If the hub is sent to a fixed point in blade i there are s_i choices at rank one for that blade and no other extra source may map to that target. When the hub is fixed there are z(1+z)^S partial identities and Sz extra one-source maps with the hub alone fixed. These cases are exhaustive and disjoint, cover size-one blades, and include the empty map. For equal fixed s≥2 the term mszB_s^(m−1) has mass msb_s^(m−1); the remaining mass divided by it is O_s(1/m), yielding the stated total-variation bound to the discrete iid-sum law. Differentiation gives the asserted moments with positive variance, and the center differs by only a constant from that of the discrete comparison, enabling the iid CLT. In the friendship case the distribution on 0,1,2 has weights 1,4,1 out of 6, giving mean 1 and variance 1/3.
 
-## Limits and closest sources
-The result assumes one common hub, pairwise disjoint peripheral complete blades and the full inverse-simplex-continuous monoid. It does not apply to arbitrary graph endomorphisms, arbitrary graphs or varying-size asymptotics. Closest inspected work: Margolis–Rhodes arXiv:2609.39370; published star enumeration; published double-star idempotent theorem; generalized-windmill partial automorphism theorem. Earlier results on the fiber lemma and stars are fully credited. No independent mathematical audit or priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arbitrary-graph fiber criterion and the all-size-one star special case are established and excluded from the novel contribution. The retained claim is the explicit heterogeneous clique-blade polynomial and the consequent equal-blade rank law. The strongest inspected statements do not provide these windmill counts for noninjective partial maps or that rank law.
+
+## value
+
+PASS
+
+The image-rank invariant is meaningful for the noninjective idempotents of this monoid. The exact formula treats arbitrary heterogeneous clique sizes and isolates the hub's role both combinatorially and asymptotically. The leading term is not the naive independent-blades contribution: the moving hub dominates and yields the discrete rank law to first order, from which the Gaussian scaling follows. This is useful beyond re-evaluating the known star counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:10:00.411691Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md and check_four_row.py, inspected as evidence; not executed",
+        "Independent reproduction: /workspace/branches/03-fourier-gaps.py (Python 3 standard library, executed); certifies the small orders via alternating cosine sums and rational π bounds on the unordered cyclic gaps"
+      ],
+      "rationale": "The full four-row Fourier synthesis matrix is Parseval. Subtracting the erased-column contribution gives λ_min(S_E)=1−λ_max(Φ_E*Φ_E). Removing the diagonal phases gives NΦ_E*Φ_E=4I+B_E up to conjugacy, where the off-diagonals are the signed r_d evaluated on actual increasing-label differences. For the consecutive candidate, the odd eigenvector gives −b_N and the even sector gives x²−b_N x−2a_N²=0. Its positive root is the largest: b_N≥0 for N≥8, and at N=7 the independent certificate gives −b_N<2.91<β_N. For N≥11, r_2>6/5 by the cosine bounds in the proof; the positive main-lobe product 4 cos t cos(2t) decreases up to π/4, and the magnitude in the sidelobe is at most 8/(3√6), obtained by maximizing 4u(1−2u²). At N=10, r_2=1 and the remaining circular distances have magnitudes <1, 1, 0 for d=3,4,5 respectively. A nonconsecutive triple has at most one adjacent pair. Taking entrywise magnitudes in the Rayleigh quotient and comparing with the positive-off-diagonal matrices with entries (a,b,b) and (a,a,b) proves a strict Perron inequality since a>b>0. For N=7,8,9 an independent rational computation on unordered cyclic gap triples certifies s<6.34,8.01,10 and β_N>2.91,3.69,4.34 respectively. Here s is the sum of the three squared off-diagonals; trace zero and Cauchy–Schwarz on the other two eigenvalues give λ_max(B_E)²≤4s/3. The three strict rational gaps verify uniqueness in those orders. The Vandermonde property of any four retained columns proves the bound is positive, and the consecutive triple has exactly N distinct translates.",
+      "residual_risks": [
+        "No claim for other row choices, erasure counts, or the whole erased spectrum as a function of the mask. Numerical enumeration in the frozen evidence was not used to prove the all-N comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barnett treats bounds on condition numbers of contiguous DFT blocks; Dirckx et al. compute singular values for such blocks. Batenkov et al. give clustered-node singular-value estimates under cluster and separation assumptions; Marshall–Waldron count harmonic-frame equivalence classes. The two-character Resultary result can use arbitrary erasure counts but fixes the dimension at two."
+        ],
+        "reasoning": "Knowing how ill-conditioned a contiguous block can be, computing its spectrum, or bounding clustered-node singular values does not prove that it is the strict maximizer of the largest erased-block eigenvalue among all three-site supports. Arbitrary erasure size for two frequencies does not dominate four frequencies.",
+        "searches": [
+          "Barnett arXiv:2004.09643v3, Theorem 2",
+          "Dirckx–Huybrechs–Ongenae arXiv:2208.12583v1, §1.1",
+          "Batenkov et al. arXiv:1909.01927v2, Theorem 2.2",
+          "Marshall–Waldron arXiv:1611.07121v1, abstract",
+          "Resultary e1e03f96b6f0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary b647927b49e8, 2b0922c7bba9, 486de14133a7, 1b09479ce727 and e1e03f96b6f0",
+        "Vaezi–Labeau, Barnett, Dirckx–Huybrechs–Ongenae, Batenkov et al. and Marshall–Waldron open passages",
+        "Rath–Guillemot and Cheng–Lv–Sun retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1b09479ce727 optimizes the same lower retained bound for modes 0,1,2 and lists the full spectrum only at that extremizer; it explicitly does not assert an upper-bound extremal theorem. At N=7 the four-mode frequency complement has three modes, but the complementary identity on the erased block changes maximum eigenvalue of the four-mode Gram to one minus minimum eigenvalue of the three-mode Gram. That is not the three-mode lower retained bound theorem."
+        ],
+        "reasoning": "Even the promising complement transformation at N=7 requires the opposite edge of the three-mode erased Gram spectrum to be optimized over all masks, not the winning-mask spectrum. For general N the complementary dimension also changes. The prior contiguous-block results evaluate the candidate or other objectives, not the needed off-candidate domination.",
+        "searches": [
+          "Compare frozen RESULT.md with Resultary 1b09479ce727 Finding and Assumptions and scope",
+          "Vaezi–Labeau arXiv:1207.6146v2, §VII; Barnett and Dirckx et al. contiguous submatrix scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimizing retained λ_min is exactly maximizing the squared operator norm of the erased 4×3 partial DFT block; it also maximizes concentration on three sites in the four-mode subspace. The indexed three-mode records formulate their analogous result via lower frame bound, retained energy, or singular values, all with three rather than four fixed frequencies. Vaezi–Labeau find adverse consecutive rows/erasures for MSE or determinants, not this extremal singular value."
+        ],
+        "reasoning": "Changing language or transposing the DFT block does not remove the extra frequency while keeping the same fixed-band/arbitrary-erasure problem. An MSE trace-of-inverse or determinant ordering need not order a single eigenvalue.",
+        "searches": [
+          "Local Resultary search for four consecutive Fourier characters, three erasures, worst masks; records b647927b49e8, 2b0922c7bba9, 486de14133a7, 1b09479ce727, e1e03f96b6f0",
+          "Partial DFT spectral-concentration, singular-value and lowpass DFT codes with erasures searches; arXiv:1207.6146v2 and 2004.09643v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sole exact four-row catalogue hit found is this assigned result itself. The separate local exact entries are for two or three frequencies. Vaezi–Labeau Table I gives finite MSE/systematic-frame examples; it directs readers to Rath–Guillemot Table I for adverse consecutive erasures. That latter table was not accessible; its exact contents have not been checked."
+        ],
+        "reasoning": "A same-record hit is not independent coverage, and finite MSE examples do not certify the exact all-N singular-value optimization. The unavailable Rath–Guillemot table cannot be ruled out as overlapping some cases.",
+        "searches": [
+          "Local Resultary exact-mask comparisons, IDs above",
+          "Vaezi–Labeau arXiv:1207.6146v2, Table I and §VII",
+          "Rath–Guillemot DOI:10.1109/TSP.2003.821106, cited Table I and lawful alternate copy lookup"
+        ]
+      },
+      "rationale": "The checked evidence supports a distinct exact all-N comparison of the top erased-block singular value for four fixed consecutive frequencies and three arbitrary cyclic sites. Earlier or separate sources cover closely related erasure criteria, contiguous blocks, or the same minimax lower-bound theorem with fewer frequencies; none of the checked statements supplies this four-frequency optimization with its signed sidelobes and exact equality cases. The most plausible inaccessible finite erasure table is a named remaining risk, not evidence of either coverage or noncoverage.",
+      "residual_risks": [
+        "Rath–Guillemot Table I is a specific unresolved risk; the accessible related citation mentions MSE, but the table itself was not inspected. Cheng–Lv–Sun primary full text was also not recovered.",
+        "The bounded comparison does not certify global priority. Same-day catalogue records were compared for scientific coverage, not ordered by their path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Three-frequency analogue, not a dominating theorem",
+          "evidence": "N≥6 with three fixed frequencies; sharp lower squared singular value and full spectrum only at consecutive masks. No upper-bound extremal characterization claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-three-erasure-stability-of-a-cyclic-three-mode-fourier-fra--1b09479ce727/RESULT.md",
+          "material_read": "Finding, scope, and first proof reduction, offsets 0–2416",
+          "method": "Local indexed mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp three-erasure stability of a cyclic three-mode Fourier frame",
+          "trigger": "Closest indexed lower-row analogue and possible frequency-complement implication"
+        },
+        {
+          "assessment": "Conceptual overlap; different objective and optimization domain",
+          "evidence": "Circularly consecutive rows maximize MSE in the n=10,k=5 example; §VII treats MSE/determinant of square selected-row matrices and cites Rath–Guillemot Table I for rapidly increasing MSE with consecutive erasures.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.6146v2",
+          "material_read": "p. 5 around offset 43000; p. 7 §VII and discussion around 56500–57766 and 60750–62433; p. 9 Table I around 67000",
+          "method": "Lawful OA primary PDF passage inspection; located consecutive-erasure citation by literal query, then opened its passage",
+          "title": "Systematic DFT Frames: Principle, Eigenvalues Structure, and Applications",
+          "trigger": "Adverse consecutive erasures in a lowpass DFT frame"
+        },
+        {
+          "assessment": "Unresolved overlap risk; not ruled out",
+          "evidence": "The accessible abstract concerns lowpass DFT codes with erasures and the secondary citation refers to the MSE effect. No verdict about the contents of Table I itself.",
+          "identifier_or_url": "https://doi.org/10.1109/TSP.2003.821106",
+          "material_read": "Accessible abstract and the specific secondary citation; primary Table I not retrieved",
+          "method": "Lawful DOI and identified alternate-copy lookup; no accessible repository copy recovered",
+          "title": "Frame-theoretic analysis of DFT codes with erasures",
+          "trigger": "Explicit earlier Table I citation for consecutive-erasure behavior"
+        },
+        {
+          "assessment": "Bound for contiguous blocks, no all-support optimization in inspected theorem",
+          "evidence": "Gives condition-number lower bounds for cyclically contiguous p×q blocks, not inequalities comparing top singular values with noncontiguous three-site sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.09643v3",
+          "material_read": "Abstract p. 1 and Theorem 2 p. 3, offsets 0 and 11782",
+          "method": "Lawful OA primary text",
+          "title": "How Exponentially Ill-Conditioned Are Contiguous Submatrices of the Fourier Matrix?",
+          "trigger": "Same DFT submatrices and all-order comparison lead"
+        },
+        {
+          "assessment": "Contiguous-block computation in inspected sections",
+          "evidence": "Defines contiguous Fourier blocks and notes unitary diagonal scalings under shifts; provides SVD methodology rather than optimization over supports.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.12583v1",
+          "material_read": "p. 1 and §1.1 p. 2 near offsets 0 and 4500",
+          "method": "Lawful OA primary text",
+          "title": "On the Computation of the SVD of Fourier Submatrices",
+          "trigger": "Frozen citation with plausible exact Fourier-block comparison"
+        },
+        {
+          "assessment": "Estimates under cluster assumptions, not this exact optimum",
+          "evidence": "The estimates depend on cluster-size and separation conditions; the inspected theorem does not select extremal supports on a fixed finite cyclic grid.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.01927v2",
+          "material_read": "Theorem 2.2 p. 6 near offset 21812",
+          "method": "Lawful OA primary text",
+          "title": "The spectral properties of Vandermonde matrices with clustered nodes",
+          "trigger": "Clustered-node Fourier singular-value inequalities"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "A landing page is not evidence about theorem scope; no distinct claim of coverage or noncoverage based on this attempt.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.025",
+          "material_read": "Landing page only; exact primary passages unavailable",
+          "method": "Lawful OA retrieval and alternate-copy check",
+          "title": "Frames of uniform subframe bounds with applications to erasures",
+          "trigger": "Frozen citation on erasure bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Independent worst-mask proof and small-order certificate",
+        "Closest three-mode and systematic DFT comparisons"
+      ],
+      "rationale": "This gives a sharp adversarial stability guarantee for a natural lowpass sampling frame: an exact lower squared singular value usable under three arbitrary losses, and a characterization of every worst mask. The normalization and the equality cases matter for comparing sample geometries. The four-frequency sidelobe and the separately certified small cyclic orders make this more than replacing a parameter in a three-frequency result or computing a single known contiguous block.",
+      "residual_risks": [
+        "The usefulness is restricted to four consecutive frequencies and three losses. No general optimality claim for all frame designs or recovery objectives is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

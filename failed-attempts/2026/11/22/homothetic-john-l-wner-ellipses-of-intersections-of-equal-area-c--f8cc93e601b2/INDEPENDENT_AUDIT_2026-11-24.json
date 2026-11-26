@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:10:29.691388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let D=(A-B)/2 and C=M^(-1/2)DM^(-1/2). In dimension two det(I+C)-det(I-C)=2 tr C, so equal determinants give tr C=0 and eigenvalues ±s with 0<=s<1 by positivity. The normalized intersection has quadratic gauge ||z||^2+s|z_1^2-z_2^2|. By uniqueness, quarter-turn symmetry fixes each unrestricted optimizer; its center must be the origin and its symmetric quadratic matrix scalar. The radial minimum and maximum are 1/sqrt(1+s) and 1, so pulling the disks back gives the two claimed ellipses. For s>0 equality occurs at the four axial inner contacts and four diagonal outer contacts; each rescaled four-point set has zero first moment and second moment 2I. When s=0 the body is a disk in these coordinates and the boundary contact set is continuous, as allowed by the Finding. Expanding det(A+B)/4 gives det M=d(1+delta^2/4), while det A=det M(1-s^2), yielding the spectral formula. Area scales as radius squared, so the ratio and its inverse follow; diagonal input matrices diag(t,t^(-1)) and diag(t^(-1),t) give the strict sharp limit. The frozen checker is numerical corroboration only and was not executed. The analytic proof is valid for all stated inputs and imposes no restriction on the competing centers or orientations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahan gives the convex-combination family for tight circumscribing ellipsoids of two centered ellipsoids.",
+          "Seeger provides an exact intersection calculus with support/shape matrices, not the joint optimizing formulas in the inspected theorem.",
+          "Classical unrestricted optimizers are unique, and Henk's symmetric-body estimate already gives the universal planar area-ratio bound 2."
+        ],
+        "reasoning": "For equal determinants, the determinant in Kahan's family equals d[1+lambda(1-lambda)(tr(A^(-1)B)-2)], maximized at the midpoint. Thus Kahan gives the entire outer formula including nonaligned inputs, but does not supply the inner formula alone. Uniqueness supplies that inner formula once combined with the earlier exact radial profile and symmetry.",
+        "searches": [
+          "Kahan, DOI 10.4153/CMB-1968-050-2, theorem p. 437 and expanded version p. 3",
+          "Seeger, DOI 10.1017/S0004972700012211, Theorem 2.4",
+          "Henk, DOI 10.4171/DMS/6/15, pp. 97–98"
+        ]
+      },
+      "checked_sources": [
+        "10.4153/CMB-1968-050-2",
+        "10.1017/S0004972700012211",
+        "10.4171/DMS/6/15",
+        "SCOPE-20261018-ff4feeef7ef8",
+        "SCOPE-20261101-24e4e421284e",
+        "SCOPE-20261122-17d8a80a21a8",
+        "SCOPE-20261122-978be5722785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness plus the prior square symmetries make each extremal ellipse of K_t a disk.",
+          "The prior sector profile increases strictly for t>1: its squared radius is 1 on the axes and 2/(1+t^(-2)) on the diagonals.",
+          "In the November coordinates the midpoint of the input precision matrices is ((1+t^(-2))/2)I; the precision matrices and their mean transform by congruence."
+        ],
+        "reasoning": "The squared radii are 1 and 2/(1+t^(-2)), with their contact directions exactly axes and diagonals respectively (and the full circle at t=1). The two normalized contact sets therefore already give the isotropic certificates. Pulling back, the outer is x^T M x<=1 and the inner is x^T M x<=(1+t^(-2))/2. Since delta=t-1/t, (t^2-1)/(t^2+1)=delta/sqrt(4+delta^2), hence (1+t^(-2))/2=1/(1+s). The area ratio, strictness, sharp limit and inversion are immediate arithmetic consequences. No additional geometric classification is required beyond the earlier exact affine reduction and radial extrema.",
+        "searches": [
+          "SCOPE-20261018-ff4feeef7ef8, affine reduction and trace relation",
+          "SCOPE-20261101-24e4e421284e, Proof §1",
+          "Henk pp. 97–98, uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October reduction for equal-area ellipse pairs gives the unit disk and x^2/t^2+t^2 y^2<=1, with t>=1 and mismatch delta=t-1/t (shape convention; passing to precision matrices inverts the relative eigenvalues without changing this trace in dimension two).",
+          "The November lens is the intersection of x^2/t^2+y^2<=1 and x^2+y^2/t^2<=1."
+        ],
+        "reasoning": "After the October reduction, put X=x and Y=t y. The two inequalities become X^2+Y^2/t^2<=1 and X^2/t^2+Y^2<=1, exactly the November family for every t>=1. Congruence and perpendicularity of the normalized input ellipses therefore do not restrict the affine result, even when the original pair is noncongruent and not aligned.",
+        "searches": [
+          "Resultary: equal-area centered ellipse intersection, affine mismatch and perpendicular lenses",
+          "SCOPE-20261018-ff4feeef7ef8, affine reduction at local offset 2000",
+          "SCOPE-20261101-24e4e421284e, Finding and Proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November Mahler-product record explicitly gives the square symmetries and exact squared radial function (cos^2 theta+t^(-2) sin^2 theta)^(-1) on 0<=theta<=pi/4.",
+          "The distinct same-day orbitope record concerns three dimensions; the congruent-lens record optimizes perimeter rather than fitting ellipses."
+        ],
+        "reasoning": "No exact separate table of both fitted ellipses was identified. The older exact radial profile is stronger data for calculating them in this symmetric family; different same-day results were not treated as prior by their dates.",
+        "searches": [
+          "Resultary: equal-area ellipse convex-hull and intersection invariants",
+          "SCOPE-20261101-24e4e421284e, Proof §1, local offset 0 onward",
+          "SCOPE-20261122-17d8a80a21a8 and SCOPE-20261122-978be5722785, Findings"
+        ]
+      },
+      "rationale": "The full result is mechanically implied by exact earlier catalogue passages together with the classical uniqueness/affine equivariance of extremal ellipses. The October equal-area two-ellipse reduction supplies the complete affine class and mismatch; the November perpendicular-lens calculation supplies the exact sector radial function and square symmetries for that same class. These already fix both radii and all their equality directions. Kahan also directly covers the outer matrix. This finds equivalent mathematical coverage by implication, not a previously printed verbatim statement of the joint pair or a claim of absolute historical priority.",
+      "residual_risks": [
+        "The first explicit literature statement of the pair was not established; the decision rests on demonstrable implication from available earlier scientific passages, not a claim of verbatim duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Outer matrix is a direct corollary; theorem does not give the inner optimizer",
+          "evidence": [
+            "The tight circumscribing family has precision matrix lambda A+(1-lambda)B with 0<=lambda<=1 in the expanded statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1968-050-2",
+          "material_read": "Primary theorem p. 437, OA offset 1449; author-expanded copy https://people.eecs.berkeley.edu/~wkahan/Ellipint.pdf p. 3, offset 7600",
+          "method": "Open-access primary theorem passages",
+          "title": "Circumscribing an Ellipsoid about the Intersection of Two Ellipsoids",
+          "trigger": "Same centered intersections; possible exact outer optimizer"
+        },
+        {
+          "assessment": "Intersection calculus, not a stated joint optimizer in the read material",
+          "evidence": [
+            "Theorem 2.4 describes intersections using the source's ellipsoid support/shape convention."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700012211",
+          "material_read": "Abstract p. 1 and Theorem 2.4 p. 7, OA offset 17223",
+          "method": "Open-access primary PDF passages",
+          "title": "Calculus Rules for Combinations of Ellipsoids and Applications",
+          "trigger": "General intersection theorem and possible known exact pair"
+        },
+        {
+          "assessment": "The general criteria alone do not give this family-specific ratio; uniqueness with the known radial data gives both disks",
+          "evidence": [
+            "The symmetric sandwich uses dilation sqrt(n), so n=2 gives the universal area-ratio bound 2."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/DMS/6/15",
+          "material_read": "Existence and uniqueness, contact criteria and symmetric sandwich, pp. 97–99",
+          "method": "Open-access mathematical exposition",
+          "title": "Löwner–John Ellipsoids",
+          "trigger": "Classical unique optimizers, symmetry reduction and universal bound"
+        },
+        {
+          "assessment": "Convex-hull theorem with a normal form valid for the same input pairs before taking any hull or intersection",
+          "evidence": [
+            "Reduces to a disk and x^2/t^2+t^2 y^2<=1 with t>=1, and mismatch t-1/t."
+          ],
+          "identifier_or_url": "SCOPE-20261018-ff4feeef7ef8",
+          "material_read": "RESULT.md, Finding and proof of affine normal form and trace relation, local offsets 0 and 2000 onward",
+          "method": "Local Resultary mirror",
+          "title": "An affine-invariant exact convex-hull area law for equal-area ellipses",
+          "trigger": "Same pairs and spectral parameter; possible equivalent normalization"
+        },
+        {
+          "assessment": "The exact sector profile and symmetry determine the two optimizers directly",
+          "evidence": [
+            "States both coordinate sign symmetries and coordinate swap, and rho_t(theta)^2=(cos^2 theta+t^(-2)sin^2 theta)^(-1) on the fundamental sector."
+          ],
+          "identifier_or_url": "SCOPE-20261101-24e4e421284e",
+          "material_read": "RESULT.md, Finding, assumptions, and Proof §1, local offsets 0–3297",
+          "method": "Local Resultary mirror",
+          "title": "Exact Mahler-product profile for intersections of perpendicular ellipses",
+          "trigger": "Exact affine-equivalent family and possible immediate extremizers"
+        },
+        {
+          "assessment": "Different body and dimension",
+          "evidence": [
+            "A 3D trigonometric orbitope with dilation 2 and volume ratio 8."
+          ],
+          "identifier_or_url": "SCOPE-20261122-17d8a80a21a8",
+          "material_read": "Finding",
+          "method": "Frozen copy and local Resultary mirror",
+          "title": "Homothetic John and Löwner ellipsoids of a three-dimensional trigonometric orbitope",
+          "trigger": "Distinct same-day homothetic pair"
+        },
+        {
+          "assessment": "Perimeter versus rotation, not John/Löwner approximation",
+          "evidence": [
+            "Congruent centered inputs; objective is the perimeter of their intersection."
+          ],
+          "identifier_or_url": "SCOPE-20261122-978be5722785",
+          "material_read": "Finding, local offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Strict angular perimeter minimization for intersections of congruent ellipses",
+          "trigger": "Distinct same-day intersection geometry on a related ellipse family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family and fitting problem are natural, and this is a useful explicit exposition. As an independent new finding, however, the whole exact pair, contact pattern, sharp profile and inverse follow mechanically from already known affine normalization and exact radial data: uniqueness gives disks, and two endpoints of a one-variable sector formula give their radii. The invariant inversion adds only algebra. No distinct surviving mathematical claim beyond that covered consequence is established; a broader new theorem would be a different finding, not a bounded repair of this one.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

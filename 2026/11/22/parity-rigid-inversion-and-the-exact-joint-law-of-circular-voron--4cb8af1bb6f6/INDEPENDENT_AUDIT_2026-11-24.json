@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:01:33.923493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One can select a uniformly random sampling label and rotate its angle out. The other n-1 angles are still iid uniform, and the order-statistic gap chart has constant density (n-1)!. On any gap, the nearest competitors are its two incident sites (the first sites along the two directions); this proves the midpoint rule even for a gap longer than a semicircle. Odd n: the geometric series for I+P gives the signed inverse with the stated factor; the cyclic map (I+P)/2 fixes the all-ones direction and has sum-zero determinant 2^(1-n). Positive inverse gaps sum to one and form an exact realization up to rotation. Even n: nullspace is the alternating vector, the two parity sums are 1/2, and recursion gives spacings affine in T=S_0. The alternating identity ensures the omitted closing equation, and positivity of every gap is exactly the open interval stated. The mixed coordinates (T,l_1,...,l_(n-2)) give a triangular change of variables with absolute determinant 2^(-(n-2)); its constant density on the feasible set gives both normalization and the uniform conditional law. Boundaries are null for the stated density convention. The covariance check follows by restricting the scalar Dirichlet covariance to the sum-zero subspace and multiplying by the squared Fourier multipliers. Independent replay: python3 /workspace/review_checks/voronoi.py computed exact chart determinants and parity/inverse checks through n=20; at n=4 it independently checks Delta=2 min_i l_i and integrates the resulting density 48 min_i l_i to 1 on the half-unit square. The frozen nested tools/verify.py was also inspected, not treated as a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Boor pp. 4–5 defines the shadow weight by simplex slice volume and gives convex-hull support and piecewise-polynomial form. In codimension one on the input affine hull the slice volume is length.",
+          "The Springer chapter snippet states the simplex shadow and B-spline relation; full text retrieval through the chapter and an identified alternate was not successful."
+        ],
+        "reasoning": "The density-as-fiber-volume principle is not novel; uniform conditional affine slices also follow from the uniform input and constant linear Jacobian. The general principle leaves open which parity has a kernel, the alternating feasibility conditions, the full inverse formula, the explicit endpoints and the coordinate normalization for this circle statistic.",
+        "searches": [
+          "Dirichlet linear image simplex spline, simplex shadow fiber volume",
+          "de Boor, The way things were in multivariate splines, §3",
+          "Springer, Simplex splines chapter"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package, including VERIFICATION.md and tools/verify.py; Resultary 2133366397a2 and 11efb3c3fbdc; Rao (1976) §1; Rao–Sobel (1980) §§1–2, pp. 603–605; de Boor §3; arXiv:cond-mat/0406116 §2; arXiv:1512.04267v1 Theorem 2; Springer Simplex splines chapter access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary typical-cell papers address respectively the infinite line single-cell Gamma law and a single-cell large-sample limit. Neither concerns a fixed n ordered vector.",
+          "Obtaining the supplied result from simplex shadows requires a cycle-specific calculation: invert I+P in odd order and calculate the alternating nullspace, positivity interval and chart Jacobian in even order."
+        ],
+        "reasoning": "The older results identify inputs and imply abstract pushforward descriptions or selected observable laws. The inspected statements do not yield the explicit inverse geometry and normalized supported density by a direct match of formulas or parameters; those are the acceptance scope.",
+        "searches": [
+          "Resultary 2133366397a2 and 11efb3c3fbdc actual findings and spacing sections",
+          "arXiv:cond-mat/0406116 §2; arXiv:1512.04267v1 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rao §1 uses Dirichlet circular arc-lengths under uniformity and discusses linear combinations.",
+          "Resultary 2133366397a2 uses exactly 2L_i=S_(i-1)+S_i with Dirichlet spacings, but computes statistics of threshold pairs."
+        ],
+        "reasoning": "This is the law of a cyclic two-entry linear transform of a uniform simplex vector. The same input and same linear map occur in the earlier circle result, but it determines pair observables rather than every coordinate or reconstruction from those coordinates.",
+        "searches": [
+          "Finite circular Voronoi ordered joint lengths, cyclic averages of Dirichlet spacings, parity inverse fibers",
+          "Rao, Some Tests Based on Arc-Lengths for the Circle, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 2133366397a2 gives exact neighboring/nonneighboring threshold laws and 11efb3c3fbdc gives a marked extreme-value limit and an exact tagged-cell split law.",
+          "The exact parity-law record 4cb8af1bb6f6 is the assigned target, not an independent precedent."
+        ],
+        "reasoning": "Even the same-day marked-extremes theorem was compared on its assumptions and observable. An exact Beta marginal and uniform independent local split do not provide a conditional inverse law for the complete ordered vector.",
+        "searches": [
+          "Resultary exact joint law circular Voronoi cells ordered lengths reconstruction conditional gaps and parity"
+        ]
+      },
+      "rationale": "The Dirichlet spacing law, cyclic midpoint averaging and the general slice-volume principle are prior. The supported distinct finding is the parity-resolved, explicit inversion and chart-normalized finite joint law on the full clockwise cell vector, including its conditional inverse family. Neither local statistics nor the generic simplex law computes that particular inverse family and its endpoints in the inspected sources.",
+      "residual_risks": [
+        "Historical priority for an equivalent ordered finite-cell law in the literature on moving averages of uniform spacings is not certified.",
+        "The Springer chapter text was inaccessible; the accessible de Boor section supplies the relevant general framework, not a negative conclusion about the unavailable chapter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in model and map, not the full law or inverse fiber calculation.",
+          "evidence": [
+            "The cyclic two-gap rule is explicit; the exact probability results are one-cell and two-cell threshold observables."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-neighbor-threshold-dependence-phase-diagram-for-circular-v--2133366397a2/RESULT.md",
+          "material_read": "Finding and spacing and threshold derivation in mirrored RESULT.md",
+          "method": "Published-result primary text comparison",
+          "title": "Exact neighbor threshold-dependence phase diagram for circular Voronoi cells",
+          "trigger": "Same finite circular model and cell map"
+        },
+        {
+          "assessment": "Local split and asymptotic extreme statistics, not whole-vector conditioning.",
+          "evidence": [
+            "A tagged cell's left-gap fraction is uniform independent of its Beta-distributed length."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-marked-extremes-of-circular-one-dimensional-voronoi-cells--11efb3c3fbdc/RESULT.md",
+          "material_read": "Finding, scope and exact finite tagged-cell statement",
+          "method": "Published-result primary text comparison",
+          "title": "Marked extremes of circular one-dimensional Voronoi cells",
+          "trigger": "Exact tagged split and same-day full record in same sampling model"
+        },
+        {
+          "assessment": "General density principle covers the slice-volume interpretation; not a parity-explicit result for the Voronoi cycle.",
+          "evidence": [
+            "The simplex shadow is the fiber volume on the projected hull and is piecewise polynomial."
+          ],
+          "identifier_or_url": "https://ftp.cs.wisc.edu/debooron/dahmen.pdf",
+          "material_read": "§3 pp. 4–5, searchable text offsets about 10200–12100",
+          "method": "OA PDF passage comparison",
+          "title": "The way things were in multivariate splines: A personal view",
+          "trigger": "General simplex projection formula may dominate the joint density"
+        },
+        {
+          "assessment": "Spacing input and generic statistics, not the stated cyclic inverse.",
+          "evidence": [
+            "Under uniformity the circular arc-lengths have a Dirichlet law."
+          ],
+          "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/1976_ArcLengthsCircle-Sankhya.pdf",
+          "material_read": "§1 pp. 330–331, offset about 8500",
+          "method": "OA PDF passage comparison",
+          "title": "Some Tests Based on Arc-Lengths for the Circle",
+          "trigger": "Uniform circular spacing law and linear combinations"
+        },
+        {
+          "assessment": "Do not cover the finite joint law in inspected passages.",
+          "evidence": [
+            "First gives 4y exp(-2y) for a typical line cell; second gives (E_1+E_2)/2 as a one-dimensional typical-cell limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0406116 and https://arxiv.org/abs/1512.04267v1",
+          "material_read": "First: §2 pp. 5–6, offset about 12100; second: Theorem 2 and d=1 discussion pp. 4–5, offsets about 9900–11200",
+          "method": "OA PDFs, comparison of actual probability models and stated observable",
+          "title": "On the size-distribution of Poisson Voronoi cells; On the measure of Voronoi cells",
+          "trigger": "Closest cited exact and asymptotic one-dimensional Voronoi measure laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All ordered cell lengths are a natural observable of a point pattern. The exact law and inverse distinguish full identifiability from a positive interval of unrecoverable gaps, and in the latter case quantify that uncertainty and the marginal density in the correct dimension. Unlike the projection principle alone, the normalized closed chart formula is directly usable for finite joint probabilities and feasible reconstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

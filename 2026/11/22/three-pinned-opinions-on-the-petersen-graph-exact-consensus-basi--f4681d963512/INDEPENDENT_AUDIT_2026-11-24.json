@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:58:16.399252Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, bitmask_results.json and tuple_results.json; check_bitmask.py and check_tuples.py inspected without execution",
+        "Repaired /workspace/repairs/5/RESULT.md, Finding and Proof",
+        "Independent replay: cd /workspace && python3 audit-replay/petersen.py; all 15,360 triple and 11,520 pair start/pin instances"
+      ],
+      "rationale": "The repaired RESULT.md preserves the update map and all census statements. The four shapes exhaust three-edge sets on five labels; permutations of the five labels act on their placements and intertwine the update. A pinned update is monotone, and its least initial state S maps above itself. Its iterates therefore increase and obey exactly the bootstrap recurrence, since adding the previously active sites to the next state is then redundant. This proves the newly stated equivalence and the sufficiency of checking S for universal forcing. The four explicit least-state trajectories were checked by open-neighbor threshold counting; the star takes exactly three steps and the others stop short. For independent verification of the arbitrary-start census, construct the pinned functional digraph, peel indegree-zero vertices to isolate periodic states, verify F² fixes every periodic vertex, and traverse backward to assign basin and first-entry depth. The complete independent calculation gives (one, two-cycle, other fixed, max entry) = (128,0,0,3), (98,28,2,2), (124,0,4,5), (94,30,4,4) for star, triangle, path and wedge-plus-edge. Pair counts give 141 and 188 consensus starts respectively in the adjacent and nonadjacent types. The minimum is also verified without the prior scalar theorem by these pair obstructions and monotonicity in added pins.",
+      "residual_risks": [
+        "The exhaustive calculation is for the specified finite graph and all-one pin rule; it does not address alternative dynamics. It is not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Odd-graph exact minimum specializes at k=2 to ceiling((4+6+2)/4)=3.",
+          "Benjamini et al. state the finite-graph eventual-period-two bound, credited to Goles and Olivos."
+        ],
+        "reasoning": "Credit the scalar minimum, which is directly implied. General period constraints do not determine which arbitrary inputs fall in the allowed attractors, or how long each pin class can take to enter one.",
+        "searches": [
+          "arXiv:2606.03687v3, Theorem 1.2; P3-hull number of Kneser graphs, publisher PDF; arXiv:1405.2486v1, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md and frozen prior-work comparison; arXiv:2606.03687v3; Grippo et al. 2021; arXiv:1202.1146v1; arXiv:1405.2486v1; Resultary b8bcbb0b4dff, 9090c4dd259d and 101acf869621"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the least start S, order preservation makes F_S^t(S) increasing and equal to the iterative two-neighbor closure.",
+          "The preexisting exact odd-graph minimum precludes priority for the numerical pin budget. The prior unpinned projection does not commute with resetting pins at every step by any result in the inspected passages."
+        ],
+        "reasoning": "Universal forcing is determined by the least compatible start, hence the older percolation theorem transfers. A least-state closure or a scalar threshold cannot imply oscillatory basins or worst entry times from all compatible states, as shown already by the triangle and wedge-plus-edge pinned dynamics.",
+        "searches": [
+          "arXiv:2606.03687v3, abstract and Theorem 1.2 (not the less general v1 theorem); arXiv:1202.1146v1 abstract and introduction; Resultary b8bcbb0b4dff Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Petersen is the odd graph on disjoint 2-subsets of five labels (O₂ in arXiv:2606.03687v3).",
+          "The bootstrap paper's introductory recurrence and Khoshkhah et al.'s irreversible monopoly definition require activations to persist."
+        ],
+        "reasoning": "With fixed-one pins, a universal forcing test is equivalent to two-neighbor percolation (P3-hull closure) from the pins alone. For an arbitrary state with free ones, those ones can turn off, so its majority basin and entry time are not equivalent to those of any bootstrap initialization with all active sites retained.",
+        "searches": [
+          "Resultary: Petersen majority, fixed/stubborn pins, exact basin and forcing placement",
+          "Primary literature: Petersen graph synchronous majority dynamics stubborn fixed pin vertices consensus basin two cycles minimum irreversible dynamo P3 hull number Petersen",
+          "Primary literature: Grippo Pastine Torres Valencia Pabon Vera \"On the P3-hull number of Kneser graphs\" Petersen graph minimum hull sets theorem PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-step projection record gives 14 fixed points and 55 primitive two-cycles of the unpinned map, with recurrent fibers.",
+          "The plurality comparison uses unpinned Petersen dynamics, and the same-day pin-placement analysis concerns the Franklin graph."
+        ],
+        "reasoning": "A restricted pin-compatible set does not in general inherit the unpinned map: forcing coordinate outputs can change recurrence and preimages. Neither inspected exact Petersen table computes the map with specified fixed-one outputs; the Franklin table is for a different graph.",
+        "searches": [
+          "Resultary, same-graph unpinned census b8bcbb0b4dff and same-day entries 9090c4dd259d, 101acf869621",
+          "Primary literature search for pinned Petersen basins and cycles"
+        ]
+      },
+      "rationale": "The frozen treatment of the scalar minimum as part of a new forcing result fails the prior-implication check: arXiv:2606.03687v3 Theorem 1.2 already gives three at k=2, and the least-state equivalence transfers that number exactly to fixed-one pinning. The repaired RESULT.md removes the scalar threshold from the contribution, credits it as background, and proves the precise reduction. The surviving claim is the exact arbitrary-start basin and sharp periodic-entry profile by pin shape, including which triples have a full consensus basin and the two nontrivial basin sizes for pairs. Neither irreversible hull closure nor the published unpinned Petersen map supplies those profiles. The repaired claim, not the original attribution, passes.",
+      "residual_risks": [
+        "The targeted searches and inspected exact profiles do not rule out unindexed pin-specific tables or a general theorem specializing to the profiles. The minimum itself is positively covered, not a search uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified prior coverage of the scalar minimum; not a pinned basin table",
+          "evidence": "The v3 PDF dated 18 October 2026 states the exact two-neighbor odd-graph minimum ceiling((k²+3k+2)/4) for positive k. The v1 theorem only bounds it for k≥10.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.03687v3",
+          "material_read": "v3 first page and Theorem 1.2 on p. 3, offsets 0–2579 and 8100–10382; compared with v1 Theorem 1.2",
+          "method": "OA arXiv PDF text and version-specific statement comparison",
+          "title": "2-Neighbor Bootstrap Percolation on Odd Graphs",
+          "trigger": "Stronger exact minimum with equivalent least-state dynamics"
+        },
+        {
+          "assessment": "Same least-state closure, different invariant from full reversible basins",
+          "evidence": "Infection by at least two infected disjoint k-sets; abstract distinguishes exact cases for n>2k+1 from bounds for the odd-graph family.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i3p32",
+          "material_read": "Publisher PDF abstract and §1 beginning, p. 1 (offsets 0–2437)",
+          "method": "OA publisher PDF after remote alternate copy did not supply full text",
+          "title": "On the P3-hull number of Kneser graphs",
+          "trigger": "Earlier same-family irreversible closure framework"
+        },
+        {
+          "assessment": "Irreversible framework applies to least-start forcing, not to arbitrary-start dynamics",
+          "evidence": "Defines increasing layers of active vertices and gives bounds for their minimum seed size under strict majority.",
+          "identifier_or_url": "https://arxiv.org/html/1202.1146v1",
+          "material_read": "Abstract and introduction, offsets 0–4899",
+          "method": "OA arXiv HTML",
+          "title": "On dynamic monopolies of graphs: the average and strict majority thresholds",
+          "trigger": "Possible implication from strict-majority seed results"
+        },
+        {
+          "assessment": "General period limitation, no pinned exact basin sizes",
+          "evidence": "Theorem 1.1 states eventual two-step periodicity on finite graphs for synchronous majority.",
+          "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+          "material_read": "§1 majority update and Theorem 1.1, offsets 1550–4745",
+          "method": "OA arXiv HTML",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Could general majority results imply basin outcomes?"
+        },
+        {
+          "assessment": "Unpinned map and its double cover",
+          "evidence": "The unmodified Petersen map has 124 recurrent states and is analyzed via its four-step projection fibers.",
+          "identifier_or_url": "Resultary 2026/11/17/b8bcbb0b4dff",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A four-step Petersen majority projection and the Desargues double-cover basin spectrum",
+          "trigger": "Closest exact census on the same graph"
+        },
+        {
+          "assessment": "Different scope; no publication order inferred",
+          "evidence": "The binary comparison is unpinned; the main result concerns ternary plurality.",
+          "identifier_or_url": "Resultary 2026/11/22/9090c4dd259d",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Ternary plurality separates two binary-indistinguishable generalized Petersen graphs",
+          "trigger": "Same-day same-graph recurrent census"
+        },
+        {
+          "assessment": "Different graph; no publication order inferred",
+          "evidence": "The classifications concern the Franklin graph, not KG(5,2).",
+          "identifier_or_url": "Resultary 2026/11/22/101acf869621",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Six symmetry types and two sharp consensus clocks for minimal pinning",
+          "trigger": "Same-day fixed-one majority placement and clock classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/5/RESULT.md, Finding and Relationship to prior work; comparison to unpinned census b8bcbb0b4dff and arXiv:2606.03687v3"
+      ],
+      "rationale": "The revised contribution measures how stubborn placements alter the fixed-point and oscillation basins and worst transients of a natural symmetric test graph. The census distinguishes two pin shapes with the same number of other-fixed starts but dramatically different oscillatory basins, and separates the shapes that can exhibit oscillation from those that cannot. Exact basins and sharp clocks are useful finite benchmark data for reversible majority under interventions, not a recomputation of the already known minimum.",
+      "residual_risks": [
+        "Value is for this complete natural finite classification; no general family claim or significance for noisy or asynchronous voting is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

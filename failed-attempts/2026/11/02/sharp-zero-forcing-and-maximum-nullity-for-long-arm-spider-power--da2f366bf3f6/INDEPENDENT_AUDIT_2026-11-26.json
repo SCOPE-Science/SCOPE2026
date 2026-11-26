@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:09:58.415856Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent branch replay: record5_independent_check.py and record5_independent_check.out; (m,k,ℓ)=(3,3,4),(4,3,4),(3,4,5),(3,5,7)"
+      ],
+      "rationale": "The forcing sequence uses (m−1)k seeds. The k distinct path eigenvalues each give an (m−1)-dimensional space of center-zero arm contrasts. In increasing eigenvalue order the kth root is at most 1 by 2(ℓ+1)≥3k, every positive root has its negative partner among the roots, and the smallest root is unpaired because k<ℓ. The resulting factors A, A+dI and A²−c²I are nonnegative entrywise. For distance r with 1≤r≤k, write r−z=2j+s for z∈{0,1} the number of zero roots, j the number of traveling quadratic factors and s the number of traveling shifted linear factors. The available intervals [2j,2j+a] cover the needed integers because a≥1 shifted linear factor exists. Place unused quadratic factors at a nonleaf endpoint for strictly positive diagonal entries even at c=1; two leaves are farther than k. This gives exact off-diagonal support, and M≤Z closes the bound. Both k=3 and k=4 meet the length restriction throughout ℓ≥k+1.",
+      "residual_risks": [
+        "The independent numerical support, residual and forcing checks are finite corroboration, not the proof. No assertion about the short-arm strip follows from the nonnegative-factor argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 13 Finding and Proof: equal arms, m≥2, k≥1, ℓ≥k+1, with Z=M=(m−1)k by a block-matrix construction.",
+          "October 18 Theorem and Proof: unequal lengths ℓ_i≥k+1, same equality and corresponding minimum rank via an explicit nonnegative integer matrix."
+        ],
+        "reasoning": "Both prior parameter regions contain every instance in the Finding; equality of all the ℓ_i is permitted, and neither requires 2(ℓ+1)≥3k.",
+        "searches": [
+          "2026/10/13/SCOPE-exact-zero-forcing-and-maximum-nullity-of-powers-of-equal-leg-sp--8e9d1cb373f9",
+          "2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03892, Proposition 9, Conjecture 10, Theorem 20",
+        "Resultary/local mirror: 8e9d1cb373f9, 5580508bfee7, 9b56bd0ac1b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 9 alone gives only the forcing bound; Theorem 20's polynomial method requires extra nonvanishing at smaller positive distances.",
+          "The two earlier indexed proofs give the equality itself without using this polynomial certificate."
+        ],
+        "reasoning": "The motivating paper alone does not imply the submitted equality, but the earlier complete indexed theorems imply it immediately on restriction. The distinction in the new argument is the explicit adjacency-polynomial witness, not the theorem stated in the Finding.",
+        "searches": [
+          "arXiv:2610.03892, pp. 6–7 and 14–15",
+          "Resultary 8e9d1cb373f9 and 5580508bfee7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 10 uses the ordinary distance-at-most-k power and predicts the same equality.",
+          "The October 13 record gives both M and Z for the same graph family, not merely a statement about exact-distance graphs."
+        ],
+        "reasoning": "Identifying leg length with the number of noncentral arm vertices gives the same graph. In the minimum-rank formulation M is the vertex count minus minimum real symmetric rank under the exact off-diagonal support convention.",
+        "searches": [
+          "Resultary: equal-leg spider powers, ordinary zero forcing and maximum nullity",
+          "arXiv:2610.03892, Proposition 9, Conjecture 10, Theorem 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These are distinct earlier indexed theorem records with proofs, rather than the frozen record itself or isolated tabulated values."
+        ],
+        "reasoning": "The exact invariant on every target input is already available from the indexed formula; matching individual parameter values is unnecessary.",
+        "searches": [
+          "Resultary searches by equal-leg spider, unequal-arm spider, powers, and nullity/forcing; decisive records 8e9d1cb373f9 and 5580508bfee7 read in the local mirror"
+        ]
+      },
+      "rationale": "The stated equality is already covered by two earlier constructive results. The proof is different, but cannot make the narrower exact equality a new resolution of the conjecture.",
+      "residual_risks": [
+        "Priority or standalone novelty of a theorem specifically about this adjacency-algebra witness was not established. The earlier coverage of the headline equality does not depend on resolving that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound and conditional method, not the asserted unconditional equality in those passages",
+          "evidence": "Proposition 9 gives (m−1)k as an upper bound; Theorem 20 requires smaller-distance entries to be nonzero.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+          "material_read": "Proposition 9 and Conjecture 10, pp. 6–7; Theorem 20, pp. 14–15",
+          "method": "Lawful OA original passage inspection",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Named motivating conjecture and potentially covering general polynomial method"
+        },
+        {
+          "assessment": "Strictly broader earlier coverage of the Finding",
+          "evidence": "Equal lengths ℓ≥k+1 and m≥2, k≥1, with the formula (m−1)k and an explicit realizing block matrix.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-zero-forcing-and-maximum-nullity-of-powers-of-equal-leg-sp--8e9d1cb373f9",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Resultary search and statement/proof inspection in the local mirror",
+          "title": "Exact zero forcing and maximum nullity of powers of equal-leg spiders",
+          "trigger": "Same graph power and exact invariants"
+        },
+        {
+          "assessment": "Strictly broader earlier coverage, including unequal arms",
+          "evidence": "For all arms ℓ_i≥k+1 the exact maximum nullity and zero forcing are (m−1)k; the realizing matrix is nonnegative integral.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7",
+          "material_read": "RESULT.md, Theorem and Proof",
+          "method": "Resultary search and statement/proof inspection in the local mirror",
+          "title": "Sharp zero forcing and minimum real rank of spider powers with unequal arms",
+          "trigger": "Potentially dominating spider-power theorem"
+        },
+        {
+          "assessment": "Later related construction, not evidence of earlier coverage",
+          "evidence": "Uses a different root choice and a distance-dependent sign pattern for ℓ≥2k−1.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-signed-adjacency-polynomial-certificate-for-long-arm-spider-po--9b56bd0ac1b9",
+          "material_read": "Polynomial root choice, length restriction and sign assertion",
+          "method": "Resultary search and local mirror inspection",
+          "title": "A signed adjacency polynomial certificate for long-arm spider powers",
+          "trigger": "Closest certificate-level match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof steps 2–4",
+        "Earlier constructive solutions 8e9d1cb373f9 and 5580508bfee7"
+      ],
+      "rationale": "These are natural graph invariants and the positive-factor proof is mathematically useful as an alternative construction. But the submitted exact invariant resolves no remaining parameter case of the predicted equality and supplies no improved bound or classification beyond the earlier complete solutions. The more structured adjacency-algebra witness would need to be the subject of a distinct, independently assessed finding, not a justification for accepting the equality as a new result.",
+      "residual_risks": [
+        "A separately posed question about minimum rank under an adjacency-polynomial constraint could change the value assessment of a different claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

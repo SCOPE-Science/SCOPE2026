@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:34:13.661867Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79; VERIFICATION.md; verify.py inspected, not executed",
+        "Independent bounded replay: python /workspace/reproductions/independent_checks.py 5"
+      ],
+      "rationale": "Shattering four points would put all four in one radius-one ball. A coordinate line has only full-line, singleton or empty intersections with such balls, so a shattered four-set must use more than one line through the all-positive center. There are then three arms across at least two coordinates. If two share a line, their common centers lie on that line and only the all-positive center also reaches the third. If three use different coordinates, the first two have exactly two common centers, and the third excludes the double-change center. Thus the three-arm proper trace is impossible. The binary-cube triple realizes all eight traces, including the empty one via a triple-coordinate change; fixing other coordinates preserves all distances. In a rectangle all-positive triples lie in a row/column cross; a collinear triple loses pair traces and an L loses the corner singleton. The remaining shape occupies two rows and three columns (up to transpose), so the empty trace forces one spare row and column. The explicit witnesses work at 3x4 and above, and the same-row pair works outside 2x2 whenever the formula needs dimension two. The one-coordinate and 2x2 degeneracies follow from constant and co-singleton concepts respectively.",
+      "residual_risks": [
+        "Independent unanchored finite checks verified the boundary rectangles 3x3 and 3x4 and representative products, including binary cubes in dimensions three and four. Universal coverage instead rests on the exact intersection and cross arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rook-graph result classifies and counts all shattered supports in two coordinates, not just the maximum sizes. Coudert–Csikós–Ducoffe–Viennot give general closed-graph algorithms and size, degree, degeneracy and matching bounds. Housholder–Mangiapanello–Senger address open-neighborhood shattering in subsets."
+        ],
+        "reasoning": "The rook specialization yields the full two-factor part. Generic closed bounds or open results alone do not give the heterogeneous closed classification.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-closed-neighborhood-shattering-of-unequal-rectangular-rook-graph--cba8fc708d0d",
+          "arXiv:2405.07588v1",
+          "arXiv:2505.14641v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and proof; exact mixed-alphabet table and the comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There is a direct statement-level static match in the mixed table. Taking the largest size represented in the rook support classification gives its VC dimension, and the rook result also states these dimension data. The radius-two Boolean result 2026/10/26/SCOPE-exact-vc-dimension-of-radius-two-balls-in-every-boolean-hamming--a9528fa90607 concerns a genuinely different ball family."
+        ],
+        "reasoning": "No adaptive-to-static equality assumption is needed (indeed it fails for 3x3). The distinct November catalogue records are dated after the frozen October record; their coverage does not determine historical priority, and the mixed record's general reference to earlier availability is not a verified attribution.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0",
+          "Resultary 2026/11/22/SCOPE-closed-neighborhood-shattering-of-unequal-rectangular-rook-graph--cba8fc708d0d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed radius-one Hamming balls are exactly closed graph neighborhoods of the full mixed-alphabet Cartesian product, and exactly rook crosses in two coordinates. Both catalogue records use actual vertex centers.",
+          "Adler–Benediktsson–Macpherson Theorems 4.6–4.7 concern open neighborhoods, with a different answer on the binary three-cube."
+        ],
+        "reasoning": "Sorting factor sizes only renames coordinates, so the full mixed-alphabet closed static column is equivalent. Open neighborhoods are not an equivalent formulation.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0",
+          "Resultary 2026/11/22/SCOPE-closed-neighborhood-shattering-of-unequal-rectangular-rook-graph--cba8fc708d0d",
+          "arXiv:2007.16042v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mixed table uses pairs (v_closed, ell_closed); its first components give 0 for d=1; 1 for 2x2; 2 for 2xq with q>=3 and for 3x3; 3 for both coordinates at least 3 and one at least 4, and for all d>=3. The narrower catalogue matches concern equal alphabet sizes."
+        ],
+        "reasoning": "The first components match every case, not just finite sample graphs. The second components are adaptive ranks and are not needed for the equivalence.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0, Finding table",
+          "Resultary 2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "Resultary 2026/11/2/SCOPE-exact-static-and-adaptive-shattering-of-closed-hamming-neighborh--09da1f15171b"
+        ]
+      },
+      "rationale": "The distinct catalogue result 'Exact online neighborhood dimensions of mixed-alphabet Hamming graphs' tabulates the very same static closed-neighborhood VC dimension for every admissible product. The entries are there as established context, not the online theorem's novelty claim. The same two-coordinate classification is also contained in the stronger catalogue theorem on rectangular rook graph shattered supports. There is no distinct uncovered parameter case or quantitative invariant in the frozen finding. This establishes catalogue coverage at review time, not who obtained or published the result first.",
+      "residual_risks": [
+        "The verified equivalent coverage does not resolve historical chronology or the original source for the mixed table's statement of earlier availability. The limited primary-literature comparison does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact static table match for the whole theorem; later catalogue date",
+          "evidence": "Same full products, same distance<=1 concepts, same definition of shattering and every v_closed entry as in the frozen formula. Online entries are claimed separately.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 0–3218",
+          "method": "Published catalogue search and local mirror passages",
+          "title": "Exact online neighborhood dimensions of mixed-alphabet Hamming graphs",
+          "trigger": "Strong exact mixed-alphabet coverage candidate"
+        },
+        {
+          "assessment": "Covers all two-factor cases with stronger support information",
+          "evidence": "Complete shattered-support polynomial and support classification; the same dimensions as comparisons.",
+          "identifier_or_url": "2026/11/22/SCOPE-closed-neighborhood-shattering-of-unequal-rectangular-rook-graph--cba8fc708d0d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published catalogue search and mirror passage",
+          "title": "Closed-neighborhood shattering of unequal rectangular rook graphs",
+          "trigger": "Same rectangular crosses"
+        },
+        {
+          "assessment": "Open uniform-alphabet version only",
+          "evidence": "Open-neighborhood VC dimension at most three; the binary three-cube has no open-shattered triple.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "material_read": "Accepted manuscript p. 22, offset 54686, Theorems 4.6–4.7",
+          "method": "OA PDF passage",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Exact Hamming graph VC results"
+        },
+        {
+          "assessment": "Generic closed bounds and computational framework",
+          "evidence": "Bounds in terms of order, maximum degree, degeneracy and matching number do not give the stated exact formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "Definitions p. 1; p. 5 Lemma 2, offset 13972",
+          "method": "OA PDF passages",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Broader exact closed-graph work"
+        },
+        {
+          "assessment": "Different open-neighborhood parameter and subset setting",
+          "evidence": "Size thresholds for open VC dimension three, not the full closed mixed product.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.14641",
+          "material_read": "pp. 2–3, offset 4932; Theorem 1.3, Corollary 1.4",
+          "method": "OA PDF passage",
+          "title": "VC-dimension of subsets of Hamming graphs",
+          "trigger": "Hamming neighborhood shattering including subgraphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; mixed-alphabet table and rectangular shattered-support classification"
+      ],
+      "rationale": "The distinction between open and closed shattering and the rectangular cutoff are meaningful combinatorial facts. But this submittted exact classification supplies the already tabulated closed invariant, with no new parameter regime, strengthened theorem or separately motivated structural result beyond that classification.",
+      "residual_risks": [
+        "Value assessed for the frozen contribution as submitted, not for the importance of the invariant or of an unclaimed support census."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

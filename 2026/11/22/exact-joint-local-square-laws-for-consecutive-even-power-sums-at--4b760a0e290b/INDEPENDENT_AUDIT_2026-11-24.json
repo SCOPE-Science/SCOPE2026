@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:36:21.150061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd p, in a full p^e-block the first-order correction from lifting an e-1 block vanishes modulo p^e because sum b=p(p-1)/2, and higher corrections are divisible by p^e. Fermat gives the initial block -1, so for two indices differing by p^e times a unit, e>=1, the power-sum difference has valuation e-1. This induces bijective isometries in the rescaled variable on each index branch and p-to-one uniformity for each coordinate. On the n=-1 mod p branch, the continuous value at -1 is zero (also the limit of sums up to p^j-1 by the block congruence). Thus S_p(n) has valuation v_p((n+1)/p), strictly below that of the adjacent increment for n!=-1; both square statuses coincide including zero at finite precision. On other branches the shift is 1 modulo p, not necessarily 1 at higher precision. The unit/unit count follows from sum chi(x(x+1))=-1, or counting (2x+1-2y)(2x+1+2y)=1; at x=0 and x=-1 the possible higher-valuation coordinate is individually uniform by its own isometry. Counting square units, even-valuation squares and zero yields all four finite counts. The geometric valuation sum gives the densities; direct algebra verifies both strict signs. For arbitrary cutoffs, truncate at depth K with p^(K+1)>N and K=O(log(2N)). Each positive-valuation square stratum below K uses O_p(1) single congruence classes per branch and depth, as does the unit/unit part. The two possible high-valuation tails are supported on at most two congruence classes per branch modulo p^(K+1), giving O_p(1) error and omitted expected count; the same argument for both marginals and the joint cell proves the other cells by subtraction. Fresh replay: python3 -B /workspace/reviews/reproduce.py 1; direct integer power sums check 102601 indices in nine complete periods, both marginals, all four cells and exceptional-branch valuations and leading digits. These are bounded checks, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Power-sum congruences and complete periods, including p^(k+1) for the present exponent, are known; the frozen Finding does not assert minimality.",
+          "Mittou counts adjacent nonzero quadratic-character patterns modulo a prime. Seraj counts distinct power residues at prime powers, which gives one-point square counts. Baoulina–Moree address integer ratios of adjacent sums."
+        ],
+        "reasoning": "None of these ingredients as stated evaluates the coupled status of two power sums at all depths, proves the exceptional-branch status identity, or gives the natural-density covariance and arbitrary-cutoff count.",
+        "searches": [
+          "Newsome–Nogin–Sabuwala arXiv:1801.01542 Theorem 9",
+          "MacMillan–Sondow arXiv:1011.0076 Theorem 1; Baoulina–Moree arXiv:1510.06064",
+          "Mittou arXiv:2607.11068v1 Theorem 4; Seraj Integers 23 A62 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 1 RESULT.md, VERIFICATION.md and verify.py (read, not run)",
+        "Resultary fe145761546d and bcf343e46bd8",
+        "arXiv:2607.11068v1, arXiv:1801.01542, arXiv:1011.0076, arXiv:1510.06064",
+        "Seraj Integers 23 A62",
+        "DOI 10.1155/2023/5253261 (abstract/access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched ring law supplies the term multiplied by p-1 in J=H+(p-1)A_(p^k)(1). The term H arises from special-branch valuation identity and isometry, not from h=1 on the residue ring. Even on nonexceptional branches one must handle the two endpoint lifts with the corresponding separate output isometries.",
+          "The matched reversal compares two classes of shifts as precision increases for fixed p; the target compares the sign of a covariance across the two prime congruence classes and concerns adjacent indices. The cutoff conclusion here also uses the index congruence cylinders."
+        ],
+        "reasoning": "The prior component is a direct specialization, but transferring it to the stated paired process and bounding the truncated index preimages are additional structural arguments, not regrading an already counted family of power-sum index fibers.",
+        "searches": [
+          "fe145761546d unit-shift formula and shift-character reversal versus frozen RESULT.md proof §§2–4",
+          "Mittou Theorem 4 and Newsome–Nogin–Sabuwala Theorem 9 compared with the all-depth count and cutoff error"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p=3 the power sum is the square-pyramidal sequence. bcf343e46bd8 implies its uniform marginal with three preimages per residue in a block of size 3^(k+1).",
+          "The regular branch counts coincide with the ordered cyclic square-pair count A_(p^k)(1) of fe145761546d, but the adjacent power-sum increment is only fixed modulo p and is divisible by p on the exceptional branch."
+        ],
+        "reasoning": "The cyclic two-point problem shares a class-count component but samples a different pair of outputs than the consecutive-index statistic. The p=3 alias recovers a marginal, not an equivalent joint law.",
+        "searches": [
+          "Resultary: adjacent power-sum squares and consecutive two-point square-residue patterns at odd prime powers, including zero and nonunits",
+          "fe145761546d exact Finding; bcf343e46bd8 exact Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fe145761546d gives A_n(h) for every shift on odd residue rings, including zero and nonunit squares. For a shift h=1 at p^k its exact value is Rp^(k-1)+(1+eta)Z_(p,k).",
+          "bcf343e46bd8 tabulates single-output fibers of square-pyramidal numbers, not adjacent square classifications."
+        ],
+        "reasoning": "The regular-branch count is already evaluated in the broader cyclic table and is not credited separately. Neither table incorporates the special power-sum branch or states the ordered index census.",
+        "searches": [
+          "Resultary power-sum square-status tables; strongest distinct hits fe145761546d and bcf343e46bd8",
+          "fe145761546d local mirror Finding at offsets 0–3000"
+        ]
+      },
+      "rationale": "Pass the unequal-branch power-sum index law, strict covariance sign reversal and cutoff bound, not the ordinary residue-ring pair-count formula, the p=3 marginal, or classical power-sum block congruences. The strongest published catalogue overlap covers the regular-branch count exactly, but is not equivalent to the index law: applying it requires proving the isometric lift behavior for the variable increment and identifying the exceptional branch with identical statuses. The same-date evidence is used for coverage, not priority.",
+      "residual_risks": [
+        "The Wiley full text was unavailable and older arithmetic-correlation/Fourier formulations flagged by the cyclic-count record were not fully resolved. They could anticipate the ring-count component or a stronger transfer formulation.",
+        "No priority ordering is inferred from the shared date of the cyclic-count and power-sum records. The originality decision credits only the distinct power-sum joint-index statement and its consequences on the evidence inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial exact component coverage but a different count and reversal",
+          "evidence": "All odd-modulus shifts A_n(h); at h=1 gives exactly the regular index branch count. Its reversal compares square and nonsquare shifts as prime-power precision increases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-point-square-residue-correlations-on-odd-residue-rings--fe145761546d/RESULT.md",
+          "material_read": "Finding and beginning of scope, local-mirror offsets 0–3000",
+          "method": "Resultary search and OA local mirror exact passage",
+          "title": "Exact two-point square-residue correlations on odd residue rings and a prime-power reversal",
+          "trigger": "Strongest exact same-modulus square-pair match"
+        },
+        {
+          "assessment": "Covers p=3 marginal only",
+          "evidence": "Three index preimages per target modulo 3^k in its period 3^(k+1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-residue-fibers-of-square-pyramidal-numbers-over-all-moduli--bcf343e46bd8/RESULT.md",
+          "material_read": "Finding at local-mirror offsets 0–2999",
+          "method": "Resultary search and OA local mirror",
+          "title": "Exact residue fibers of square-pyramidal numbers over all moduli",
+          "trigger": "Square-pyramidal alias of S_3"
+        },
+        {
+          "assessment": "Finite-field antecedent",
+          "evidence": "Prescribed sign patterns for chi(x),chi(x+1) with signs ±1, excluding zero endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11068v1",
+          "material_read": "Theorem 4, PDF p. 3 offset about 6500",
+          "method": "OA PDF theorem passage",
+          "title": "Exact Frequencies of Consecutive Quadratic Residue and Nonresidue Patterns Modulo a Prime",
+          "trigger": "Primary adjacent two-point residue count candidate"
+        },
+        {
+          "assessment": "Covers period infrastructure",
+          "evidence": "Period q^(a+1) when q-1 divides the exponent; no adjacent status law in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01542",
+          "material_read": "Theorem 9, pp. 7–8 offset about 14500",
+          "method": "OA PDF theorem passage",
+          "title": "Congruences of Power Sums",
+          "trigger": "Prior prime-power congruence and period for the same exponent"
+        },
+        {
+          "assessment": "One-point support counts only in the inspected results",
+          "evidence": "Counts distinct k-th power residue classes modulo prime powers.",
+          "identifier_or_url": "Integers 23 (2023), A62",
+          "material_read": "Theorems 1–2, PDF p. 2 offset about 1750",
+          "method": "OA PDF theorem passages",
+          "title": "Resolution of Mathar's Conjectures on Counting Power Residues",
+          "trigger": "General prime-power square counts"
+        },
+        {
+          "assessment": "Known initial block input",
+          "evidence": "Fermat-type power-sum congruence used to lift the p-block.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.0076",
+          "material_read": "Theorem 1, p. 1",
+          "method": "OA PDF theorem passage",
+          "title": "Proofs of power sum and binomial coefficient congruences via Pascal's identity",
+          "trigger": "Classical base congruence"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Concerns integer ratios of consecutive power sums rather than p-adic square indicators.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06064",
+          "material_read": "p. 1, problem statement",
+          "method": "OA PDF passage",
+          "title": "Forbidden integer ratios of consecutive power sums",
+          "trigger": "Prior joint adjacent-power-sum question"
+        },
+        {
+          "assessment": "Full scope unresolved; no negative whole-document conclusion",
+          "evidence": "HTTP 403 on the article; abstract alone does not establish stronger coverage.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/5253261",
+          "material_read": "Indexed abstract on residue/nonresidue progressions modulo a prime; full paper not read",
+          "method": "Public search and lawful Wiley OA retrieval attempt",
+          "title": "The Distribution Properties of Consecutive Quadratic Residue Sequences",
+          "trigger": "Plausible older consecutive residue-pattern comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent p-1 is singled out by Fermat's congruence, and adjacency joins a single exceptional same-status branch with p-1 regular branches. The equal marginals therefore hide a strict correlation sign reversal with p modulo four. The exact four-cell law at every depth and the logarithmic error for unrestricted integer cutoffs quantify how the branch structure affects integer sampling, rather than supplying only another formula for square residues on a ring.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

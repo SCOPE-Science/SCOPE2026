@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The full calculation starts from the occupation-density normalization and Gaussian regression, derives a nonnegative and convergent information series with explicit coefficients, and uses derivative signs plus uniform \(C^2\) asymptotics to prove eventual uniqueness. A separate numerical integral checks the central nonstandard coefficient identity. The two-term sampling expansion is obtained by a controlled perturbation of the leading first-chaos equation. No uniqueness at arbitrary small noise is asserted.
+## correctness
 
-**Originality: PASS (qualified).** The earlier conditional-mean literature studies high-frequency grids and stable-process local-time errors, and does not imply the noisy one-point placement law. Relevant historical mathematical results on local-time covariance and Brownian bridges have different processes and quantities. The present exact rank-one information series and high-noise location boundary are not direct restatements of those high-frequency results. The comparisons do not establish universal historical priority; older one-point design sources may still exist.
+PASS
 
-**Value: PASS.** Brownian local time is a natural occupation-density functional for which exact data are unavailable under sparse observation. The result gives an explicit all-noise design objective and the sharp interior-to-endpoint boundary layer with a next-order correction and explained-variance scale. These facts govern exactly what a single expensive noisy measurement can recover; they are not merely an arbitrarily selected numerical constant or a textbook polynomial substitution.
+For occupation-density normalization, the standard local-time law gives Var(L)=1−2/π. Gaussian projection gives conditional mean q_s y/(t+η) and conditional variance s−q_s²/(t+η), where q_s=min(s,t). The latter is at least ηs/(1+η), justifying integration of the conditional density via local-time mollification and L² conditional-expectation contraction. Two copies conditionally independent given the observation have off-diagonal covariance q_s q_u/(t+η), giving the stated second moment after integration. The binomial expansion and explicit s-integral give exactly A_k and the 1/(2π) factor; the series extends to t=0. Near t=1, all required derivatives are dominated by a polynomial in k times a geometric factor at every fixed η>0, using q_s²/s≤t and the explicit A_k derivatives. Since A_k'(1)=0, the denominator derivative alone gives I_η'(1)<0; I_η(0)=0<I_η(t) for t>0. The termwise lower bound makes I_η increasing for t≤1/2 at high noise; η² I_η converges in C² on [1/2,1] to A_1²/(4π). Its derivative is strictly positive through 3/5, and its second derivative is strictly negative on [3/5,1] (16−35√t+18t has no zero there). This gives exactly one high-noise maximum. The proof's short bootstrap in Step 5 can be made explicit without assuming the desired order: the endpoint formula gives I_η'(1)=O(η^−3), while −I_η''≥cη^−2 on [3/5,1] for large η. The mean-value theorem between the maximizer and 1 gives δ=1−t_η=O(η^−1). Now A_k'(1)=0 makes the k≥2 derivative tail O(η^−5). Near 1 the derivative of the leading information term has slope bounded away from zero on the η^−2 scale, so removing that tail moves the root by O(η^−3). Setting u=√t in the leading equation gives 2η(1−u)=u²(u−2/3); matching powers yields u=1−1/(6η)+5/(36η²)+O(η^−3) and the stated t_η. The leading squared term has A_1=2/3+O(η^−2) there, so its denominator supplies −2/(9πη³) and the other terms are O(η^−4). This closes the expositional bootstrap without changing the claim. An independent analytic check is recorded in /workspace/branches/cc46b511-15b3-4a7d-ba4e-6a7b7a9b5a9b/ordinal-2-verification.md. The frozen checker and numerical output were inspected, not rerun; its low-noise stationary-point bisection cannot prove uniqueness there.
 
-Closest literature: Ivanovs–Podolskij (2020), Altmeyer–Le Guével (2021), Amorino–Jaramillo–Podolskij (2022). Limits include fixed-known Brownian dynamics, one nonadaptive point, Gaussian noise, and high-noise uniqueness only. The standalone tests are supportive finite checks, not proof certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Conditional expectation and Gaussian conditioning are existing tools. The exact noisy single-time risk and its endpoint optimizer address a different design question from dense noiseless sampling of local time or noisy sampling for a linear Gaussian path target. No checked source gives the same risk or implies the optimizer expansion.
+
+## value
+
+PASS
+
+Estimating a realized nonlinear path functional from a sparse noisy observation is a natural design problem distinct from estimating a mean or reconstructing a linear Gaussian path. The exact finite-noise risk and strict endpoint exclusion show that the practical terminal-reading heuristic is never exactly optimal, even though it becomes asymptotically close. The high-noise uniqueness and explicit placement gap give a quantitative prescription in this regime, not merely a numerical optimum. The theorem deliberately stops short of all-noise uniqueness or optimal adaptive sensing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

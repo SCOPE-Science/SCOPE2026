@@ -1,20 +1,21 @@
-# Scientific review: equilibrium staircase and repeated sink windows
+# Independent mathematical audit
 
-## Correctness
-PASS. The stationary equations reduce exactly in both directions to \(z=k\sin z\). For positive net gain, positivity of sine restricts positive roots to separated lobes. The derivative numerator of \(z/\sin z\) has strictly positive derivative on each lobe, yielding exactly one minimum and the exhaustive zero/one/two root classification. On the pure-feedback line the characteristic spectrum is exactly \(\{0,0,k\cos z\}\); strict monotonicity of \(z\cot z\) proves the exact attractor windows and the nonattraction of all other nonzero fixed points. The fold/flip transcendental equations yield the inverse-lobe window-width asymptotics, and hyperbolicity yields genuine open three-dimensional parameter persistence. The accompanying diagnostic bisection checker tests specific transcendental calculations but is not used to infer infinitude.
+## correctness
 
-## Originality
-PASS within inspected sources and indexed comparisons. Almatroud et al. (2024) give the same map, the scalar fixed-point equation, origin stability and numerical multistability, but not the exact complete positive-gain stationary-state census, infinite fold thresholds, sharp repeated stable-window widths, or persistence of paired sinks in nonzero-delay parameter regions. Closely related indexed results for this or other sine-delay maps concern primitive two-cycles, extra linear feedback, or reciprocal sine nonlinearities, which do not imply the full fixed-point claim. Scalar sine-map roots and the basic implicit-function theorem are classical tools and are not individually claimed as new. The potential for unindexed prior equivalent calculations remains an originality risk.
+PASS
 
-## Value
-PASS. The exact phase diagram addresses a concrete omission in a published three-dimensional map emphasizing symmetry and multistability: the number of stationary states and the gain intervals over which pairs are *genuinely attracting*. It supplies all positive-gain fold counts and identifies infinitely many disjoint and increasingly narrow sink windows with a sharp, useful leading coefficient. Persistence off the singular slice makes the windows relevant for the original full-dimensional family, rather than a degenerate computational curiosity. This is a motivated complete classification and not an arbitrary isolated numeric correction or a claim about chaotic security.
+A fixed point must be (sin z,sin z,z) with z=k sin z, and every such point is fixed. For k>0 positive roots are confined to the sine-positive lobes and bounded by k. The derivative of z/sin z has numerator sin z−z cos z whose derivative is z sin z. This proves strictly increasing behavior from 1 on the first lobe and exactly one minimum on every later lobe. Thus a later-lobe threshold counts one positive double-root location, not two distinct equilibria there; doubling the positive census accounts for signs and adding one accounts for the origin. K_m=2mπ+O(1) gives the claimed growth. On the pure-feedback line the eigenvalues are 0,0,k cos z. On the nonzero branches w=z cot z strictly decreases because z−sin z cos z=2∫_0^z sin²t dt>0; a later lobe's smaller root has w>1, whereas the increasing-gain branch traverses w=+1 to −1 at the stated thresholds. At K_0 the +1 multiplier is at the origin, not a nonzero fold. The exact interval ordering follows from the ordering of the critical locations. Expanding cot about 0 gives A_m−ζ_m and η_m−A_m both equal to A_m^−1+O(A_m^−3); the common 1/(2A_m) term in the square-root expansions cancels in the width. Finally I−DF is invertible at each strict sink, so openness of the multiplier condition and implicit continuation establish the two symmetry-related sinks in three parameters. Neutral endpoints are excluded by the stipulated definition of attraction. The Finding's 'unique positive root already present' refers to the first lobe; higher lobes contribute exactly as in the census.
 
-## Inspected literature and limitations
-- Almatroud et al., 2024, https://doi.org/10.3390/sym16081093: full open-access HTML introduction, §2 fixed-point derivation and Jacobian, §3 numerical bifurcations, and later discussion.
-- Indexed comparisons included other published sine-delay-map two-cycle analyses, which study different invariants and restrictions and do not dominate the fixed-point phase diagram.
-- Wilczak, Serrano and Barrio, arXiv:2504.04887 (2025): indexed discussion reports recurring scalar-sine saddle-node pairs; only abstract and an indexed passage were available, not full text. Qualitative sine-map folds are therefore acknowledged as known background.
-- Classical scalar sine iteration provides the elementary tangent conditions and is background, not an originality claim.
+## originality
 
-Residual risks: possible unindexed equivalent fixed-point-fold and stability-window results; extrapolation from the pure-feedback line to an arbitrary nonzero-delay parameter triple is not justified and is explicitly not claimed. The negative-net-gain region, boundary nonlinear stability and global attraction basins remain unclassified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The originating article already derives the scalar stationary equation and analyzes the origin; the qualitative saddle-node-to-flip scenario is also prior. The inspected statements do not supply the complete lobe-by-lobe census and all-index strict window geometry (with sharp width) for this equation. A distinct catalogue result on period-two orbits does not give those fixed-point claims. The local continuation is standard, not by itself the novelty.
+
+## value
+
+PASS
+
+The natural pure-feedback member isolates the effect of the gain in a published 3D family. The result pinpoints all locations where nonzero fixed-point attraction is possible on that line, proves infinitely many such disjoint but vanishing-width intervals, and quantifies the width. It also identifies equilibria missed by any discussion restricted to the origin. The continuation ensures the sinks are not confined to an exactly triangular Jacobian. Together these features have more use than the standard local fold or flip test alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

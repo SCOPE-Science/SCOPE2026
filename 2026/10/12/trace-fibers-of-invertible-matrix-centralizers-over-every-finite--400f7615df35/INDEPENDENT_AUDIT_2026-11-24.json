@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:29.270588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For cyclic primary summands the Hom dimension is deg(f) times the shorter length; distinct primaries have zero Hom. In each primary component order summands by length and reduce the action on V/fV. Maps from a shorter length into a longer length have image in fV, so the induced matrix is block triangular with the stated same-length diagonal residues. These coordinates are a surjective algebra map onto the product of matrix algebras. Invertibility is equivalent to invertibility of all these residues: a surjection modulo fV is a surjection on V by iterating the nilpotent f-action. Thus each invertible residue tuple has q^r lifts without needing an unproved assertion about the kernel. Trace counts each diagonal residue s times in the f-adic layers, with field trace back to F_q; off-diagonal blocks have trace zero. In the GL_m additive trace sum, subspace-lattice inversion of ker=0 leaves only the whole-space kernel: on each proper-kernel constraint space the trace functional is onto, as seen by scaling a rank-one operator of trace one. This gives (-1)^m Q^(m(m−1)/2). For p not dividing s, surjectivity of the separable finite-field trace (also when p divides deg f) makes every nonzero base-field frequency nontrivial in that factor; p-divisible s contributes the entire factor order. Orthogonality gives both trace fibers and the all-inactive concentration at zero. Independent python3 /workspace/reproductions/5.py checks eight exact examples by testing all ambient matrices and using permutation determinants, including equal and mixed lengths, distinct primaries, a squared irreducible, and an irreducible over F4. These are finite cross-checks, not an all-types enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The centralizer papers give length multiplicities, block descriptions, determinant images, dimensions and conjugacy of centralizers. Li–Hu Theorem 3.1 gives full-GL prescribed-trace counts."
+        ],
+        "reasoning": "None of those results counts ordinary trace on arbitrary unit centralizers as a special case of a broader prescribed-trace theorem. The classical structure does closely constrain the answer; the trace functional and its mixed-characteristic-length factorization must be applied to the unit tuples to get the count.",
+        "searches": [
+          "arXiv:1001.0811 Propositions 3.5–3.6",
+          "arXiv:1909.06198 Theorem 6.1, §§6.1–6.2",
+          "arXiv:1310.5261 Theorem 1.1",
+          "arXiv:1105.4513 Theorems 2.1 and 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1105.4513",
+        "arXiv:1001.0811",
+        "arXiv:1909.06198",
+        "arXiv:1310.5261",
+        "Resultary edb32b2267f0, 0a136f3e3ee7, 25753dbc08fc",
+        "Resultary d41760781158 (different group-algebra orbit question; indexed summary only, exact mirror unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For A scalar the formula has B=(-1)^n q^(n(n−1)/2) and is exactly Li–Hu. Britnell–Wildon Prop. 3.5 also supplies the multiplicities needed for the trace identity by additivity, although they apply it to determinants in Prop. 3.6."
+        ],
+        "reasoning": "Credit both antecedents rather than asserting independent novelty of the trace multiplicities or the character identity. The full formula requires accounting for the radical lifts, taking the relative-field trace on each primary block, dropping p-divisible lengths only at nontrivial frequencies, and combining all remaining factors before inversion. It is an explicit new invariant from known ingredients, not an unexplained claim of priority based on an exact-title search.",
+        "searches": [
+          "Li–Hu Theorems 2.1 and 3.1 versus Britnell–Wildon Propositions 3.5–3.6",
+          "Mingueza–Montoro–Roca §§6.1–6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Hu's trace problem is on the full GL group, equivalent to scalar A only. Britnell–Wildon's centralizer invariant is the determinant on units; their composition-series computation includes s as an exponent there.",
+          "Resultary 25753dbc08fc concerns conjugacy orbits of operators parametrized by trace-one similarity classes."
+        ],
+        "reasoning": "A trace restriction on the similarity class parameter A is not a trace restriction on the commuting unit X. Determinant images and trace distributions are not equivalent: the s multiplicity in additive trace is reduced modulo p and can vanish altogether.",
+        "searches": [
+          "Resultary: trace-biased unit centralizers and Fourier trace counts by similarity type",
+          "arXiv:1105.4513 §§2–3",
+          "arXiv:1001.0811 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary edb32b2267f0 gives Fourier data for binary ambient GL trace-parity slices, overlapping q=2 scalar A at frequency zero. Record 0a136f3e3ee7 counts regular nilpotent centralizing elements. SageMath API identifiers concern dimensions and cardinalities, not prescribed trace fibers."
+        ],
+        "reasoning": "The binary GL slice data only cover a credited special case. The regular nilpotent subset of a centralizer is not its unit group; a total centralizer order cannot determine the trace bias. No applicable exact all-type table was established.",
+        "searches": [
+          "Resultary: arbitrary similarity-type centralizer units exact trace fibers",
+          "Resultary trace-parity slices and regular-nilpotent centralizer fibers",
+          "SageMath similarity class type API, centralizer_algebra_dim and centralizer_group_cardinality (frozen comparison)"
+        ]
+      },
+      "rationale": "The distinct claim is the exact ordinary-trace fiber formula for units of arbitrary finite-field matrix centralizers. The quotient dimensions, composition-length multiplicities and full-GL Gauss sums are known inputs, and the scalar-A case is prior work. The arbitrary-type formula is a short synthesis, not a new centralizer structure theorem or new scalar-A Gauss sum.",
+      "residual_risks": [
+        "A differently phrased finite-field character-sum or centralizer enumeration could state this synthesis; the known ingredients make that plausible. The check establishes the distinction from located statements, not bibliographic uniqueness.",
+        "The indexed group-algebra orbit result d41760781158 could only be assessed from its summary, not its full statement; it was not the closest match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ambient-GL and thus scalar-A overlap",
+          "evidence": "Character sums on the full general linear group and uniform nonzero-trace fibers there.",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.4513",
+          "material_read": "Theorem 2.1 p. 5; §3 p. 7 equations (3.1)–(3.3), Theorem 3.1",
+          "method": "Lawful OA paper",
+          "title": "Gauss sums over some matrix groups",
+          "trigger": "Exact trace-fiber and additive sums precedent"
+        },
+        {
+          "assessment": "Strong structural antecedent; not a trace enumeration",
+          "evidence": "The constituent S_h occurs h times; determinant then factors as the product of det(Y_h)^h in the nilpotent primary calculation.",
+          "identifier_or_url": "https://arxiv.org/html/1001.0811",
+          "material_read": "§3.1, Proposition 3.5 and following Proposition 3.6; extracted offset 43070 and following; §3.2 comparison",
+          "method": "Lawful OA paper, bounded statements and proofs",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Closest centralizer filtration and determinant invariant"
+        },
+        {
+          "assessment": "Block structure, determinants and dimensions, not the fiber counts in inspected sections",
+          "evidence": "Theorem 6.1 centralizer block description, §6.1 determinant, §6.2 dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.06198",
+          "material_read": "Theorem 6.1 pp. 20–21; §§6.1–6.2 pp. 22–23",
+          "method": "Lawful OA paper",
+          "title": "The centralizer of an endomorphism over an arbitrary field",
+          "trigger": "All-types centralizer structure"
+        },
+        {
+          "assessment": "Structural comparison not prescribed-trace counts",
+          "evidence": "Theorem 1.1 characterizes conjugacy of centralizers via type data, not counts of elements of a given trace.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.5261",
+          "material_read": "Introduction and Theorem 1.1 pp. 1–2",
+          "method": "Lawful OA paper",
+          "title": "Conjugacy of centralizers in general linear groups",
+          "trigger": "Potential broader structural result on unit groups"
+        },
+        {
+          "assessment": "Binary ambient-GL special case; no inference of earlier priority from the catalogue",
+          "evidence": "The trace-parity slice Fourier spectra include cardinality at zero frequency; domain is all binary invertible matrices.",
+          "identifier_or_url": "Resultary 2026/11/8 edb32b2267f0",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Trace-parity slices of binary invertible matrices",
+          "trigger": "Closest indexed exact trace/Fourier count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Refining the classical full-GL trace census by a commuting constraint is natural for counting invertible commuting pairs with a prescribed trace. The closed formula covers all types without enumerating individual matrices, exposes the boundary where trace is identically zero, and gives the signed zero-versus-nonzero bias when types and lengths are mixed. This is an exact invariant of a natural family rather than a lone finite calculation; no joint determinant-and-trace formula is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

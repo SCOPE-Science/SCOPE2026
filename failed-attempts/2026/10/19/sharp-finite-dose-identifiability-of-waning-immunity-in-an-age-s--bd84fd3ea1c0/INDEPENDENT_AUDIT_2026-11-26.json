@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:18.271555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Yang–Saldaña–Scoglio's Eq. (4) matches the forward map with R=R_0 and a,b the two known means. Indeed the endemic susceptible level is 1/R, the infected and recovered levels are Phi/R times a and K(v), and the vaccinated level is b v times the sum of susceptible and recovered levels. Mass conservation gives the stated transform inversion on the strict subcritical range. For normalized hyperexponentials the Stieltjes-transform difference is O(v^-2); clearing denominators of degree at most 2k gives numerator degree at most 2k-2. Thus 2k-1 distinct samples force equality and poles/residues identify the actual component count, rates and weights. At an interior exactly-k mixture, a dependence of the normalization-and-panel Jacobian would give a Cauchy rational combination with k distinct double zeros and, after clearing denominators, degree at most 2k-2; it must vanish and its coefficients then vanish. The implicit-function theorem yields a nontrivial local fiber of distinct positive mixtures with ordered rates. At k=1 one sample suffices and zero cannot identify the rate. For general densities L=1-vK is analytic on Re v>0; equality on an open subinterval determines the compact moment sequence of e^-T and hence the law. For a finite panel, normalization, first moment and panel Laplace samples are finitely many linear functionals on smooth compactly supported bumps; a nonzero kernel perturbation of the unit exponential, small on its compact support, preserves positivity, finite mean and a smooth positive hazard. This is an analytic proof of the smooth-law case: the archived check.py was inspected, not executed, and its rational example uses atomic durations, illustrative only. All claims are structural under fixed known R,a,b, not stability statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Gauss–Christoffel formula takes the zeros of the monic orthogonal polynomial p_k and positive interpolatory weights, and is exact for polynomial degree <=2k-1. At degree <=2k-2 its elementary one-parameter variant uses p_k+c p_{k-1}: for small c the k nodes stay simple in a fixed positive compact interval and interpolation weights stay positive by continuity."
+        ],
+        "reasoning": "Take a positive base density for eta on an interval strictly inside the positive rate axis, scaled so integral Q d eta=1. The modified polynomial remains orthogonal through degree k-2; dividing any polynomial of degree at most 2k-2 by it leaves an interpolated remainder of degree <=k-1 and an orthogonality-discarded quotient of degree <=k-2. Consequently these varying k-node rules share all needed moments; reweighting their atoms by Q gives the requisite continuous ambiguity for any chosen m=2k-2 panel. This shows the sharpness implication using standard quadrature, rather than attributing an epidemiology theorem or the perturbation wording to DLMF.",
+        "searches": [
+          "NIST DLMF, https://dlmf.nist.gov/3.5, §3.5(v), equations 3.5.18–3.5.20_1 and adjacent text"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Yang–Saldaña–Scoglio arXiv:2303.15326v3 Eq. (4)",
+        "DLMF §3.5(v)",
+        "Resultary 317027b179a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact forward map preserves all information in the sampled Laplace values under the known constants, and normalization plus those Stieltjes samples become polynomial moments by the positive denominator change. For a general duration law, L=1-vK and analyticity gives Laplace uniqueness; adding the mean constraint to a finite panel only adds one linear functional on the infinite-dimensional space of compactly supported smooth density perturbations."
+        ],
+        "reasoning": "There is no nonmechanical additional inverse step, statistical recovery principle, or new model constraint in the exact noiseless setting. The classical finite-moment argument yields both directions for arbitrary panels, and the general-law extensions follow without further model-specific estimates.",
+        "searches": [
+          "Compare arXiv:2303.15326v3 Eq. (4) and DLMF §3.5(v) with the frozen arbitrary-panel theorem and smooth-law boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (4) is pointwise invertible to the stated K. For arbitrary fixed distinct nodes v_j, put Q(x)=product_j(x+v_j). The functions Q and Q/(x+v_j) form a basis of polynomials of degree at most the panel size m (evaluate a linear relation at -v_j, then remove the remaining Q term). Thus matching the normalization and panel means exactly matching polynomial moments up to degree m of the reweighted rate mixing measure d eta=d mu/Q."
+        ],
+        "reasoning": "This is a two-way equivalence with a classical moment problem, not just analogy to Prony methods. Q>0 on positive rates, so supports and positive masses survive reweighting and normalization is included. For m=2k-1, the signed difference of two such eta measures has at most 2k nodes; Vandermonde interpolation forces each coefficient to vanish.",
+        "searches": [
+          "Yang–Saldaña–Scoglio arXiv:2303.15326v3 Eq. (4)",
+          "Resultary: hyperexponential waning, finite observation panel and inverse equilibrium response",
+          "NIST DLMF §3.5(v), Gauss–Christoffel quadrature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored two-moment endemic-incidence envelope claim bounds responses at a fixed realized dose budget under support and moment constraints; it notes possible equal equilibria, but does not give a prescribed-panel sample threshold or smooth equal-mean nonidentification."
+        ],
+        "reasoning": "No retrieved index result was an exact statement match. Parameter-specific tables would not settle this arbitrary-node theorem; the stronger classical moment reduction supplies affirmative scientific coverage independently of the index search.",
+        "searches": [
+          "Resultary: inverse endemic vaccination response and sharp finite-dose identifiability; closest inspected record 317027b179a6"
+        ]
+      },
+      "rationale": "The sharp sample boundary is mechanically equivalent to the classical polynomial-moment information boundary for k-node Gaussian quadrature. Combined with the exact, already published forward equilibrium formula, this covers the mathematical core without needing a separately worded epidemiology theorem. The full-curve and equal-mean finite-panel extensions are direct Laplace determination and finite-rank kernel arguments, respectively. This is a finding of mathematical implication and no established distinct remainder, not a claim that the combined SIRVS wording has been previously published.",
+      "residual_risks": [
+        "No specific published occurrence of the composite finite-dose SIRVS statement was located; the decision rests on the displayed equivalence and routine deductions, not on historical priority, incomplete search, or inaccessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT FORWARD COVERAGE",
+          "evidence": "Eq. (4) gives the same endemic numerator and denominator with the mean recovered sojourn under the added vaccination hazard, exactly K(v). The inspected equation is forward, not a finite-panel inverse theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.15326v3",
+          "material_read": "OA PDF text offset 20600 for duration definitions and offsets 25700–26028 for Eq. (4)",
+          "method": "Read the primary OA equation and surrounding exposition",
+          "title": "Generalized epidemic model incorporating non-Markovian infection processes and waning immunity",
+          "trigger": "Exact model and equilibrium response"
+        },
+        {
+          "assessment": "CLASSICAL MOMENT RESULT WITH MECHANICAL REDUCTION",
+          "evidence": "Zeros of p_k and positive weights give degree 2k-1 exactness; the interpolation/orthogonality argument retains degree 2k-2 when p_k is perturbed along p_{k-1}.",
+          "identifier_or_url": "https://dlmf.nist.gov/3.5#v",
+          "material_read": "§3.5(v), text from offset 13710, formulas 3.5.18–3.5.20_1 and positivity",
+          "method": "Located Gauss–Christoffel passage in public reference and read bounded surrounding text",
+          "title": "NIST Digital Library of Mathematical Functions, Gauss Quadrature",
+          "trigger": "Classical exactness and degree threshold after positive reweighting of Stieltjes data"
+        },
+        {
+          "assessment": "DISTINCT EQUILIBRIUM BOUND",
+          "evidence": "Uses support/mean/variance limits and a fixed realized budget; does not give arbitrary sampling-panel identification.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-two-moment-endemic-incidence-envelopes-under-a-fixed-reali--317027b179a6",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and mirror inspection",
+          "title": "Sharp two-moment endemic-incidence envelopes under a fixed realized dose budget",
+          "trigger": "Closest indexed model-specific match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A finite sample boundary for waning is a natural inverse question. However, in the frozen setting the known forward map exactly deconvolves each noiseless measurement, the cutoff is a classical quadrature information boundary in a reweighted basis, and the smooth ambiguity is the usual finite-dimensional kernel obstruction. No substantive new inference phenomenon, stability result, or model constraint beyond these routine consequences is established. The decision is not based on requiring noisy-data results in general.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

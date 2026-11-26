@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:50.344668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, likelihood, Fisher projection, timing regimes and witness",
+        "Frozen VERIFICATION.md and verify.py read as supporting evidence, not executed"
+      ],
+      "rationale": "At θ=0 the derivative of the Poisson means in θ is odd on the two wings, whereas both nuisance derivatives and the Fisher weights are even. The center and wing derivatives in A differ strictly, so the nuisance block is positive definite and the Schur complement is the position Fisher diagonal a²g²/[2D²t²(b+g)]. With z=log t the derivative of its logarithm is −2+(2−p)L′ with L=log g and L′=h/t−κt−1/2. Its second derivative is (2−p)L″−p(1−p)(L′)²<0 because L″=−h/t−κt. Both time tails have zero information even without loss. Independently inverting the root: for s=h/t−κt the unique stationary solution satisfies b=g(t)(5/2−s)/(2(s−3/2)), necessarily on T₅/₂<t<T₃/₂. There s strictly decreases, g strictly increases, and the rational factor strictly increases from zero to infinity. The inverse therefore gives strict background monotonicity and both actual endpoint limits, without assuming that an optimizer can be interchanged with a limit. With u=T₅/₂ and r=T₃/₂/u, the time equations give (5−3r)/2=κu(r²−1); hence r≤5/3 with equality iff κ=0. The root has L′>0, so it occurs strictly before the wing signal peak. For the illustrative instance at t=1/2, s=2, g=2b and (2−p)L′=2 as stated.",
+      "residual_risks": [
+        "Result is local at the centered release, with fixed common exposure and known transport coefficients. The zero-background conclusion is a limit from b>0, not a regularity claim for nuisance inference on the statistical boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poisson photon-localization scan designs choose positions of maximum slope of square-root beam intensity; Gaussian-plume Bayes-linear design chooses sensor locations under wind uncertainty.",
+          "Newman et al. use continuous emissions with Gaussian errors; Pomareda et al. study concentration-likelihood maps with background for mobile sensors."
+        ],
+        "reasoning": "These are different data or design families, not a general result specifying the optimum of the frozen one-parameter age trajectory. Known Poisson Fisher identities are inputs rather than an optimal-time theorem.",
+        "searches": [
+          "Gallatin–Berglund, Optimal Laser Scan Path, pp. 1 and 8",
+          "Jones et al., Bayes linear analysis for Bayesian optimal experimental design, pp. 1–2",
+          "Newman et al., arXiv:2408.01298 pp. 5 and 7",
+          "Pomareda et al., DOI:10.3390/s17040904 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 79a14601ec93, 16d9481aa028, 77c8e1a52763",
+        "Gallatin–Berglund 2012, Jones et al. 2015, Newman et al. arXiv:2408.01298, Pomareda et al. DOI:10.3390/s17040904",
+        "Ristic et al. and Chrapkiewicz et al. accessibility checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the spacing result the localization information varies as y e^{-2y}/(b+S e^{-y}) for fixed S. With fixed wings and lossless diffusion the temporal information instead varies as y³e^{-2y}/(b+S₀ y^{1/2}e^{-y}). Even the zero/high-background stationary y values differ: 1 versus 1/2 for spacing, 5/2 versus 3/2 for time.",
+          "The Poisson temporal D-optimum compares three snapshot means and estimates the decay rate; the background shift is earlier there, not later."
+        ],
+        "reasoning": "A substitution into the earlier Fisher formula transfers the objective, but does not transfer its optimizer or the delay law. The age result uses the decay/broadening trade-off and a fresh age derivative and boundary comparison. It claims no novelty for odd/even information projection itself.",
+        "searches": [
+          "Fixed-width c-optimal comparator 79a14601ec93 Finding and Assumptions",
+          "Same-day temporal Poisson comparator 16d9481aa028 Finding",
+          "Chrapkiewicz et al. DOI:10.31223/X52T22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact fixed-width spacing theorem uses y=d²/(2σ²) and stationarity 1/y=2−p, with p the wing signal fraction. It treats the same three-Poisson geometry at a fixed Gaussian width and height.",
+          "At zero loss, setting y=h/t in the time theorem gives stationarity (3−p/2)/y=2−p, not the spacing equation."
+        ],
+        "reasoning": "The objectives agree as pointwise statistical formulas under the matching width and amplitude, but differentiating along an age trajectory changes both the diffusion prefactor and the spatial gradient. Thus neither the earlier optimal spacing nor its limiting roots are equivalent to the time optimum.",
+        "searches": [
+          "Resultary symmetric Gaussian Poisson unknown-background placement or timing; 79a14601ec93",
+          "Ristic–Gunatilaka–Gailis DOI:10.1016/j.inffus.2014.10.007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "16d9481aa028 provides an exact D-optimal middle date for an exponential signal observed at three times. 77c8e1a52763 classifies numbers of noiseless diffusion snapshots for structural calibration. Neither tabulates or gives the limiting optimal ages for a local source-coordinate Fisher problem."
+        ],
+        "reasoning": "The exact overlapping records optimize a different objective and different observation coordinates, or concern identifiability rather than design. No consulted exact catalogue result gave this endpoint ratio for fixed symmetric counters.",
+        "searches": [
+          "Resultary one-shot Gaussian diffusion Poisson optimal age/unknown background; matching records 79a14601ec93, 16d9481aa028, 77c8e1a52763"
+        ]
+      },
+      "rationale": "The closely matching spatial-transect record already covers nuisance orthogonality and the fixed-width location information. For the temporal claim the width and the height both change; its spacing optimum cannot be substituted for the timing optimum. No actual inspected theorem subsumes the distinct time equation, monotonicity and sharp endpoint factor. This is a best-of-knowledge judgment, not historical priority certification.",
+      "residual_risks": [
+        "Broader search was unavailable on this branch; this is not evidence of absence. Ristic et al. and Chrapkiewicz et al. were not fully read. Specialized transient Poisson optimal-design work could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the pointwise symmetry and spacing objective but not transient age optimality",
+          "evidence": [
+            "Optimizes d at fixed Gaussian width, with 1/y=2−p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-strict-separation-between-joint-parameter-and-location-only-op--79a14601ec93/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; prior-work comparison around offset 7400",
+          "method": "Published record via local mirror",
+          "title": "A strict separation between joint-parameter and location-only optimal Gaussian-plume transects",
+          "trigger": "Same three-Poisson-counter model, nuisance parameters and local c-optimality"
+        },
+        {
+          "assessment": "Different observation and criterion",
+          "evidence": [
+            "Middle snapshot D-optimality with three time points and exponentially fading intensity; background shifts the optimum earlier."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-middle-snapshot-design-for-poisson-fading-signals-with--16d9481aa028/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Published record via local mirror",
+          "title": "An exact middle-snapshot design for Poisson fading signals with unknown background",
+          "trigger": "Exact Poisson time-design result with background"
+        },
+        {
+          "assessment": "Structural identifiability, not Fisher-optimal age",
+          "evidence": [
+            "Minimum number of noiseless concentration snapshots depends on geometry and mass calibration."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-one-two-three-snapshot-calibration-law-for-gaussian-poll--77c8e1a52763/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Published record via local mirror",
+          "title": "A sharp one-two-three-snapshot calibration law for Gaussian pollutant pulses",
+          "trigger": "Same diffusion model and snapshot design vocabulary"
+        },
+        {
+          "assessment": "Does not supply this timing trajectory",
+          "evidence": [
+            "Fluorescent-particle imaging via scan positions of maximal square-root-intensity slope."
+          ],
+          "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910609",
+          "material_read": "pp. 1 and 8, offsets 0 and about 17094",
+          "method": "OA PDF passages",
+          "title": "Optimal Laser Scan Path for Localizing a Fluorescent Particle in Two or Three Dimensions",
+          "trigger": "General optimal design for Poisson localization"
+        },
+        {
+          "assessment": "Different design variable and statistic",
+          "evidence": [
+            "Bayesian sensor placement for Gaussian plume under wind uncertainty."
+          ],
+          "identifier_or_url": "https://www.lancaster.ac.uk/~jonathan/JGJR15_OptDsg.pdf",
+          "material_read": "pp. 1–2, offsets 915, 6231 and 8924",
+          "method": "OA PDF passages",
+          "title": "Bayes linear analysis for Bayesian optimal experimental design",
+          "trigger": "Gaussian-plume source-location design"
+        },
+        {
+          "assessment": "Different likelihood and continuous-release model",
+          "evidence": [
+            "Time-series measurements of continuous emissions with Gaussian background and error, not independent Poisson counts at one chosen diffusion age."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.01298",
+          "material_read": "pp. 5 and 7, offsets 14165 and 23387",
+          "method": "OA PDF passages",
+          "title": "Probabilistic Inversion Modeling of Gas Emissions: A Gradient-Based MCMC Estimation of Gaussian Plume Parameters",
+          "trigger": "Joint source/background Gaussian-plume inference"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": [
+            "Binary-sensor estimation is the stated observation model; no full-text inference about coverage made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.inffus.2014.10.007",
+          "material_read": "Landing page and abstract only",
+          "method": "OA retrieval attempt",
+          "title": "Achievable accuracy in Gaussian plume parameter estimation using a network of binary sensors",
+          "trigger": "Plausible coverage of information-optimal Gaussian-plume design"
+        },
+        {
+          "assessment": "No independent exclusion of prior coverage from this source",
+          "evidence": [
+            "The frozen record attributes spatial sampling design to this source; that attribution was not rechecked from full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.31223/X52T22",
+          "material_read": "Landing page, not full text",
+          "method": "OA attempt; full PDF unavailable in readable form",
+          "title": "Apportioning sources of chemicals of emerging concern along an urban river with inverse modelling",
+          "trigger": "Cited monitoring-design motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, age optimization and bounds",
+        "Resultary fixed-width comparator 79a14601ec93"
+      ],
+      "rationale": "The age of a single synchronized measurement, rather than only where to place counters, is a motivated design choice for transient monitoring. A saturating, sharp multiplicative delay bound quantifies sensitivity to an unknown background without conflating signal peak and localization-information optimum. The strict monotonicity and exact equality regime are useful even without numerical parameter search.",
+      "residual_risks": [
+        "Not a finite-sample performance guarantee, a global estimator risk result, or a field validation. Transport uncertainty and nonsymmetric release/design points can break the information projection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

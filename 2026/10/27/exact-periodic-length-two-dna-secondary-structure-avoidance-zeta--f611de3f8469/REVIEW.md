@@ -1,11 +1,21 @@
-# Scientific review: exact periodic length-two DNA secondary-structure avoidance
+# Independent mathematical audit
 
-**Correctness — PASS.** The key equivalence between infinite-periodic 2-SSA and absence of self-reverse-complement dinucleotides or simultaneous paired dinucleotides is established directly. The six-pair indicator identity expands to 729 finite directed graphs with signed coefficients, whose closed-walk traces count positioned periods for every length. The full exact 18-polynomial signed determinant certificate, together with a standalone integer checker, proves the rational zeta function; this is not a finite-pattern extrapolation. Independently enumerating all four-letter words through length ten reproduces the counts. Burnside and root bounds prove the necklace counts and asymptotics.
+## correctness
 
-**Originality — PASS (qualified).** The principal 2023 full-text source determines the compatible generating-set framework and maximum Perron growth, and thereby the already known leading exponential base. Its linear-code capacity analysis does not give the total periodic finite-length counts across overlapping generating-set languages, or their rational zeta/necklace series. A separate 2023 DNA-code paper supplies motivation and constructs linear-code families. Published mathematical-record searches and historical claims found related DNA combinatorics and local duplication avoidance but no matching global dinucleotide pair enumeration. The 2024 journal extension's abstract was consulted, not its unavailable full text. This remains a meaningful residual prior-art risk, not a claim of proven uniqueness.
+PASS
 
-**Mathematical value — PASS.** Exact finite-size cardinalities and a complete rational periodic orbit enumerator are natural constrained-coding invariants not specified by the previously known capacity alone. The nontrivial signed overlap cancellation and multiplicity eight quantify the contribution and overlap of multiple optimal dinucleotide orientation families. The model is restricted to an idealized repeated-block, stem-length-two interpretation; no physical performance assertion is made.
+In the bi-infinite extension any two specified cyclic edge types, even two copies of one type, can be realized disjointly by translation. Thus admissibility is exactly exclusion of all four self-dual edges and simultaneous use of either pair of distinct reverse-complement edge types; this also treats n=1,2. The pairwise indicator expansion is exact, the trace of each surviving adjacency matrix counts positioned closed walks, and the formal trace-determinant identity gives the signed determinant product. Independently, review_checks/periodic_alphabet_certificate.py built the union of the 64 maximal graphs by successive inclusion-exclusion and extracted determinants by trace/Newton identities: all 18 signed nonzero entries and the exact cross-multiplied identity agreed. It reproduced the first 18 counts from the product and direct word/rotation-class counts through length 8. Burnside applies because repeating a block does not change the bi-infinite extension; the divisor formula counts fixed words rather than just primitive periods. The cubic has one simple root alpha>2 and the other roots in (-1,0) and (0,1); the other factors have reciprocal roots of modulus at most 2 (in particular |x|>2 is impossible for x^4-x^3-1=0). Logarithmic differentiation gives multiplicity eight and O(2^n), and proper-period divisor terms are O(n alpha^(n/2)) before division by n.
 
-The closest literature is Nguyen et al. (arXiv:2302.13714), Chu–Wang–Zhang (arXiv:2304.11403), and Wang–Chu–Ge–Zhang (DOI:10.1109/TMBMC.2024.3396404). Limitations include the inaccessible full 2024 journal article, risk of equivalent unindexed enumeration, and the idealized absence of minimum loop separation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The asymptotic exponential rate and compatible generating graphs are prior. The all-length overlap-corrected zeta function, exact positioned and rotation-class counts, and leading multiplicity eight are distinct from the strongest statements inspected. In particular an extremal generating graph's spectral radius does not enumerate the union or determine its leading coefficient.
+
+## value
+
+PASS
+
+This is the fixed-point zeta function of a natural periodic four-letter avoidance language, not a rerun of the finite-linear capacity computation. The compatible graphs have overlapping cycle languages, and even the leading multiplicity is not supplied by optimizing a spectral radius. The simplified rational invariant resolves the all-length census and determines both positioned words and rotation classes, useful when counting or comparing periodic constraint languages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

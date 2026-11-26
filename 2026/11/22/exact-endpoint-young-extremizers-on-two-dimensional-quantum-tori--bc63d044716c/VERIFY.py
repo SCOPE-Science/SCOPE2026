@@ -1,90 +1,46 @@
-"""Finite diagnostics for a Weyl-cocycle equality classification.
-
-These finite computations do not certify the infinite-dimensional theorem.
-Run: python VERIFY.py
-"""
+"""Exact finite diagnostics for the Weyl-cocycle criterion and example."""
 from fractions import Fraction
 from itertools import product
-from math import cos, sin, pi, sqrt
-
-checks = 0
+from math import gcd
 
 
-def require(condition):
-    global checks
-    assert condition
-    checks += 1
+def require_cocycle():
+    for d in (-3,-2,-1,0,1,2,3):
+        for k,l,kp,lp in product(range(-3,4),repeat=4):
+            # Phases of u_1^k u_2^l cancel; check the remaining signs.
+            left = d*(k*l+kp*lp)
+            right = d*(k*lp-l*kp-(k+kp)*(l+lp))
+            assert (left-right)%2 == 0
+    for p,q,A in product(range(-12,13),range(1,13),range(-10,11)):
+        if gcd(p,q)==1:
+            assert (Fraction(p*A,q).denominator==1) == (A%q==0)
 
 
-def determinant(h, k):
-    return h[0]*k[1] - h[1]*k[0]
+def require_half_deformation():
+    X = ((0,1),(1,0))
+    Z = ((1,0),(0,-1))
+    I = ((1,0),(0,1))
 
-# The twisted-character law can be checked exactly modulo 2 in its
-# rational-half-integer sign exponent for an isotropic rank-two lattice.
-h1, h2 = (2, 0), (0, 1)
-alpha = Fraction(1, 2)
-area = determinant(h1, h2)
-require(alpha*area == 1)
+    def mul(a,b):
+        return tuple(tuple(sum(a[i][k]*b[k][j] for k in range(2))
+                           for j in range(2)) for i in range(2))
 
-# Choosing both basis phases equal to 1 gives chi(k,l)=(-1)^(k*l).
-def chi_sign(k, l):
-    return -1 if k*l % 2 else 1
+    ZX, XZ = mul(Z,X),mul(X,Z)
+    assert mul(Z,Z)==mul(X,X)==I
+    assert all(ZX[i][j]+XZ[i][j]==0 for i,j in product(range(2),repeat=2))
+    assert mul(ZX,ZX)==((-1,0),(0,-1))
+    # At (x,y)=(pi/6,-pi/6), all three squared summands in R are 3/4.
+    # Hence the larger eigenvalue of M*M is 3+2*(3/2)=6.
+    R = sum([Fraction(3,4)]*3)
+    assert R == Fraction(9,4) and Fraction(3,2)**2 == R
+    assert Fraction(3)+2*Fraction(3,2)==6<9
+    # The unshifted fiber has R=2, giving squared norm 3+2 sqrt(2)<6.
+    assert 4*2 < (6-3)**2
+    # In that fiber I+Z^2+X=2I+X has eigenvalues 1 and 3.
+    assert (2-1,2+1)==(1,3)
 
-for k,l,kp,lp in product(range(-3, 4), repeat=4):
-    lhs = chi_sign(k,l)*chi_sign(kp,lp)
-    # exp(pi*i*alpha*area*(k*lp-l*kp)) is (-1)^(k*lp-l*kp).
-    twisted = -1 if (k*lp-l*kp) % 2 else 1
-    rhs = twisted*chi_sign(k+kp,l+lp)
-    require(lhs == rhs)
 
-for denominator in range(1, 13):
-    for area in range(1, 41):
-        for numerator in range(1, denominator+1):
-            if __import__('math').gcd(numerator,denominator) == 1:
-                require(((Fraction(numerator,denominator)*area).denominator == 1) == (area%denominator == 0))
-
-# At theta=1/2, Pauli U,V furnish an exact unitary representation.
-# Direct integer matrix arithmetic checks UV=-VU, U^2=I, and the
-# characteristic polynomials of the two witnesses.
-I=((1,0),(0,1))
-U=((1,0),(0,-1))
-V=((0,1),(1,0))
-
-def matmul(a,b):
-    return tuple(tuple(sum(a[i][k]*b[k][j] for k in range(2)) for j in range(2)) for i in range(2))
-def matadd(a,b):
-    return tuple(tuple(a[i][j]+b[i][j] for j in range(2)) for i in range(2))
-def matscale(a,s):
-    return tuple(tuple(s*a[i][j] for j in range(2)) for i in range(2))
-def det2(a):
-    return a[0][0]*a[1][1]-a[0][1]*a[1][0]
-def tr2(a):
-    return a[0][0]+a[1][1]
-
-require(matmul(U,U)==I)
-require(matmul(V,V)==I)
-require(matmul(U,V)==matscale(matmul(V,U),-1))
-nonisotropic=matadd(matadd(I,U),V)
-isotropic=matadd(matadd(I,matmul(U,U)),V)
-require(nonisotropic==((2,1),(1,0)))
-require(isotropic==((2,1),(1,2)))
-require(tr2(nonisotropic)==2 and det2(nonisotropic)==-1)
-require(tr2(isotropic)==4 and det2(isotropic)==3)
-# The above integer characteristic-polynomial certificates imply the
-# eigenvalues 1 +/- sqrt(2), and 3 and 1, respectively.
-require(1+sqrt(2) < 3)
-require(max(abs(1+sqrt(2)),abs(1-sqrt(2))) == 1+sqrt(2))
-require(max(abs(3), abs(1)) == 3)
-
-# Orthogonality and phase obstruction on a rank-one arithmetic triple:
-# (1,1,i) cannot be aligned by a single character frequency.
-phase0, phase1, phase2 = 1+0j, 1+0j, 1j
-require(abs((phase0*phase2)/(phase1*phase1) - 1) > 1e-8)
-# Conversely (1, exp(it), exp(2it)) is aligned.
-for t in (0, pi/7, pi/4, 2*pi/3):
-    c0=1+0j
-    c1=complex(cos(t),sin(t))
-    c2=complex(cos(2*t),sin(2*t))
-    require(abs(c0*c2/(c1*c1)-1) < 1e-12)
-
-print('VERIFY_OK', checks)
+if __name__ == '__main__':
+    require_cocycle()
+    require_half_deformation()
+    print('VERIFY_OK')

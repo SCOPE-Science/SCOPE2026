@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:58:45.845396Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Proof and Verification; frozen verify.py and VERIFICATION.md inspected, not executed",
+        "Independent replay: python3 /workspace/branches/2739918e-0516-4dac-8dc2-a05258250eb0/independent_prefix_normal_check.py; literal_run_4_to_32.log in the same directory"
+      ],
+      "rationale": "The shortest nonwrapping spans containing two and three ones give the cut predicate a≤b,c; zero-start cuts fail at length one. A qualifying nonminimum gap forces every smaller gap to be its predecessor. Hence with several minimum gaps only minima qualify; with a unique minimum a rotated first there is exactly one possible extra cut, before b, qualifying if b≤c,d. Subtracting a leaves three positive gaps; their unrestricted series is z³/(1−z)³ and the extra-cut subcase has series z³/((1−z³)(1−z)²). Multiplying the difference by z⁴/(1−z⁴) gives N_1. Exactly three minimum gaps and all equal gaps give N_3 and N_4 directly; Burnside gives the total, including half-turn and quarter-turn ties, and N_2 follows by subtraction. Pole orders yield the stated asymptotics. A fresh exhaustive weak-order polynomial check reproduced the four numerators, and direct literal tests of all physical cuts of all four-one necklaces for lengths 4–32 agreed, including (111,129,4,1) at length 20.",
+      "residual_risks": [
+        "Finite replay is corroboration; the structural count gives all lengths. Periodic equality of cut words must not be used to identify physical cuts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 4.2, Eq. (3), counts individual weight-four linear prefix-normal words by z⁴/((1−z³)(1−z)³).",
+          "b6fb9e08f331 partitions indexed words by equality of maximum-one-factor profiles and computes their fiber sizes."
+        ],
+        "reasoning": "The linear series gives an aggregate of physical valid cuts after a stabilizer adjustment, not all four counts. The profile fibers are not necklace orbits. The multiplicities of tied minimum gaps and the extra valid cut in the unique-minimum case require the orbit classification.",
+        "searches": [
+          "Burcsi et al., arXiv:1611.09017 §4.2",
+          "Resultary: four-one prefix-normal form/profile fiber-size spectrum, b6fb9e08f331"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused finite/circular prefix-normal and fixed-weight searches",
+        "arXiv:1611.09017 pp. 7, 11",
+        "Local-mirror RESULT.md passages of 2de292f43a6b and b6fb9e08f331"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular counting proof counts gap orders avoiding a maximum-to-minimum transition. The finite one-cut count instead isolates a unique minimum followed by a gap larger than at least one of the other two. Multiple tied minima give exactly that many finite cuts, regardless of circular success.",
+          "The known fixed-density series supplies one stabilizer-weighted sum of the N_j, which alone cannot recover the distribution."
+        ],
+        "reasoning": "The shift identity follows by comparing two separately derived series; a numerical match is not a specialization of the circular root theorem to the complete nonwrapping distribution. A distinct classification by finite cut multiplicity is needed. No ordering is inferred from the common date.",
+        "searches": [
+          "2de292f43a6b/RESULT.md Proof §§2–4 and Relationship to prior work",
+          "arXiv:1611.09017 Lemma 8 and §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 8 gives the linear shortest-span inequalities that specialize to a≤b,c.",
+          "2de292f43a6b requires a global-minimum following gap and a global-maximum preceding gap. Its first forbidden necklace 1110010, with gaps (0,0,2,1), has two finite admissible cuts (before the zero gaps), not zero or one."
+        ],
+        "reasoning": "Linear and circular prefix dominance genuinely differ on this composition. The equivalent linear formulation through gap spans is credited; the orbit multiplicity classification is the additional counting problem.",
+        "searches": [
+          "Resultary: weight-four prefix-normal physical cuts and circular rotations",
+          "2de292f43a6b/RESULT.md Finding and Proof §§1–3",
+          "arXiv:1611.09017 Lemma 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The forbidden circular-root series is z⁷/((1−z)^4(1+z²)(1+z+z²)), so it agrees with the N_1 series shifted by one length and shares the limiting fraction 2/3.",
+          "The checked exact indexed profile-fiber polynomial enumerates a different partition and is not a table of physical cut counts."
+        ],
+        "reasoning": "The shifted series coincidence is flagged rather than treated as unrelated. Neither inspected exact source supplies the full finite-cut multiplicity table, even under that shift.",
+        "searches": [
+          "Resultary: four-one necklace rational spectrum by valid rotations",
+          "2de292f43a6b/RESULT.md Finding and Proof §§3–4",
+          "b6fb9e08f331/RESULT.md Finding"
+        ]
+      },
+      "rationale": "Best-of-knowledge support is for the full nonwrapping necklace cut-multiplicity distribution, not for the known linear gap criterion, the total necklace count, or the periodic root problem. The strongest distinct same-day result enumerates weight-four necklaces with no circular prefix-maximal root. Its series B satisfies zB=N_1 here, a genuine exact numerical relationship, but its classification uses a different predicate and does not give the complete distribution by physical finite cuts. The linear-word enumeration supplies only an aggregate and not the per-orbit refinement.",
+      "residual_risks": [
+        "Comparison is best-of-knowledge and not a proof of historical priority. The numerical connection to the same-day circular series may admit a direct bijection; that would relate one series, not identify the full distributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the linear criterion and linear enumeration, not the per-necklace distribution.",
+          "evidence": [
+            "Lemma 8: inequalities comparing initial one-gaps with later consecutive one-gaps",
+            "Eq. (3): f_4(x)=x⁴/((1−x³)(1−x)³)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09017",
+          "material_read": "Lemma 8 p. 7, offset 26450; §4.2 p. 11, offset 40480",
+          "method": "OA PDF literal locate and relevant bounded passages",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "Classical finite prefix-normal gap criterion and fixed-weight enumeration"
+        },
+        {
+          "assessment": "Related same-day theorem and shifted counting sequence; not the finite-cut spectrum.",
+          "evidence": [
+            "Circular roots require shortest following and longest preceding gap",
+            "Forbidden series equals N_1(z)/z; the first forbidden necklace has two finite prefix-normal cuts"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-marker-circular-prefix-normality-an-exact-gap-criterion-and--2de292f43a6b",
+          "material_read": "Local-mirror RESULT.md Finding, Assumptions and scope, Proof §§1–4 and Relationship to prior work, offsets 0–11388",
+          "method": "Read the decisive equations and compare the predicates on an explicit case",
+          "title": "Four-marker circular prefix-normality: an exact gap criterion and forbidden-necklace series",
+          "trigger": "Same composition, cycles, prefix-normal condition, rational series and 2/3 limit"
+        },
+        {
+          "assessment": "Counts profile-equivalent words, not valid cuts.",
+          "evidence": [
+            "The class-size factor (r+1)H(p,q) counts indexed words with the same profile."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-fiber-size-spectrum-of-four-one-binary-prefix-normal-profi--b6fb9e08f331",
+          "material_read": "Local-mirror RESULT.md Finding, offsets 0–1787",
+          "method": "Compare inputs and the counted equivalence classes",
+          "title": "Exact fiber-size spectrum of four-one binary prefix-normal profiles",
+          "trigger": "Same Hamming weight and a full prefix-normal spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "2de292f43a6b/RESULT.md Finding for the contrast with circular cuts"
+      ],
+      "rationale": "Valid rotation counts measure the non-uniqueness of linear prefix-normal representatives obtainable by cutting without editing a circle. Four ones is a natural fixed-composition family, with a genuine difference between ordinary and periodic comparisons. A complete distribution, including tied and periodic configurations and the asymptotic two-class law, is a useful exact baseline rather than an arbitrary length cutoff.",
+      "residual_risks": [
+        "The result does not address arbitrary weights, un-oriented necklaces, or reconstruction of circular profiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

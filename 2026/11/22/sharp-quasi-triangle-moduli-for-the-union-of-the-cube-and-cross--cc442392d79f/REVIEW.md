@@ -1,15 +1,21 @@
-# Scientific review: sharp quasi-triangle moduli for two classical norm balls
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is an all-parameter theorem for \(q_{d,t}(x)=\min\{\|x\|_1,t\|x\|_\infty\}\), with \(d\ge2\), \(t>0\), over real or complex scalars, plus the corresponding statement on the vector space \(\ell_1\). For \(1<t<d\), polar duality for the convex hull of the two unit balls furnishes the concrete dual functional with weights \(1,(t-1)/(d-1),\ldots,(t-1)/(d-1)\). The resulting one-variable quotient has exactly one peak, yielding a global binary upper bound. The two-vector construction in RESULT.md attains it, simultaneously making the norm-convexification comparison sharp. Differentiation proves the unique optimizing scale. On \(\ell_1\), a direct sup-norm upper bound, finite-support witnesses and the equality conditions of the sup-norm inequality prove the claimed sharp constant and nonattainment. These arguments establish the result for every stated parameter; finite tests only supplement the proof.
+## correctness
 
-## Originality — PASS, with bibliographic qualification
-The closest verified recent primary paper is Michael Unser, *Quasi-norms on R^d: Characterization and Approximation by Conic Splines* (arXiv:2611.06212v1, 2026-11-04). Its Definition 2.3 names the quasi-triangle modulus, Theorem 2.4 proves a general norm-comparison bound, and Appendix A gives an abstract gauge characterization. None states the exact all-dimensional modulus for the minimum of the classical \(\ell_1\) and scaled \(\ell_\infty\) norms, the equality with convexification distortion, or the infinite nonattainment phenomenon. The generic bound does not itself establish either sharpness or the optimizing scale. R. Malčeski (2015, doi:10.9734/BJMCS/2015/15579), inspected in its primary PDF, gives universal inequalities conditional on the modulus and does not calculate this specific one. Sharp Lorentz quasi-triangle constants from Barza–Kolyada–Soria concern a different functional. Database searches on cube–cross-polytope interpolation, conic splines, quasi-triangle moduli and the two norm balls returned nearby results on **norm intersections**, **Euclidean Banach–Mazur distortion**, and **planar conic-spline gauges**, none mathematically implying the stated modulus for the **union**. A broad unindexed equivalent formulation remains a real novelty risk.
+PASS
 
-## Mathematical value — PASS
-The modulus is the quantitative convexity defect of the unit ball of a canonical nonconvex regularizer, namely the union of the cross-polytope and a scaled cube. The complete dimension-and-scale classification, unique optimal scale \(\sqrt d\), sharp growth \((\sqrt d+1)/2\), and nonattained \(\ell_1\) limit are natural invariant facts not consequences of the generic existence theory alone. Equality of the two-summand modulus and full convexification distortion is an additional structural fact, not generally automatic for nonconvex gauges. No unsupported reconstruction or optimization-algorithm benefit is claimed.
+At t<=1 and t>=d the functional is a norm. In the intermediate regime put c=(t−1)/(d−1). The polar of the convexified ball is the intersection of the dual constraints ||z||∞<=1 and ||z||1<=t. Assigning an aligned dual entry of modulus 1 at a largest coordinate and modulus c at all other coordinates yields h(x)>=M+c(||x||1−M), M=||x||∞, valid over either scalar field. The resulting scalar ratio min(1+r,t)/(1+cr) peaks at r=t−1. The pair (1−c)e1 and c·(1,…,1) has denominator 1−c+tc and numerator t, proving both sharpness statements by matching the upper bound. Differentiation gives the sign of d−t^2, so sqrt(d) is the unique global optimum and substitution gives (sqrt(d)+1)/2. On ℓ1 the sup-norm bound gives t when t>1, and the same finite supports approach it. Equality would force both nonzero entries of the pair, as vectors, to have singleton supports since q_t(x)=||x||∞ there; the sup-norm triangle equality forces the same support, on which the quotient is at most one. A zero vector gives ratio one as well. The norm regime t<=1 follows directly, and no completeness claim is needed. Analytic verification; the frozen finite rational checker was inspected, not executed or used as proof.
 
-## Limits of this review
-This is a mathematical self-review, not independent validation. No claim is made about all possible equality cases, arbitrary unions of two norm balls, higher-summand optimal constants or completeness of \(\ell_1\) in the new quasi-norm. The prior-art search cannot rule out every unindexed or inaccessible equivalent source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact dimension/scale constant and infinite nonattainment, not for the generic fact that binary and convexification distortions coincide for the gauge of a union of two convex balanced balls. In that setting any element of the convexified unit ball is one convex combination of one element from each ball, by grouping convex combinations within each ball. Applying the binary estimate gives the full convexification bound; the reverse follows from h<=q and subadditivity of h. The distinct mathematical comparison is the explicit sharp value for this pair of classical balls, with its scale optimum and limiting phenomenon. The matched ellipse and cube/cross geometry records do not compute that constant.
+
+## value
+
+PASS
+
+The precise convexity defect of two canonical norm balls, as their relative scale varies, gives the sharp worst-case square-root dimension growth and identifies the budget where it occurs. The loss of attainment in the infinite coordinate space records a concrete difference between finite and unbounded support. These add value beyond the generic grouping identity for convexification and beyond a bound from norm equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

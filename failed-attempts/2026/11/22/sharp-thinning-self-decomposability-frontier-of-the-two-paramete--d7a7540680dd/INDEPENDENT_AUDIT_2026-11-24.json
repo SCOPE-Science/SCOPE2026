@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:51:10.553711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized pgf has one numerator zero and a single negative-binomial factor; expanding its logarithm gives (alpha q^k-r^k)/k>0 and absolute summability. Under thinning, q_t=t/(theta+t) and r_t=t/(theta+1+t). Differentiating the logarithmic coefficients in t shows that the ratio of the subtracted to the positive derivative, before the factor alpha, is ((theta+1)/theta)((theta+t)/(theta+1+t))^2(r_t/q_t)^(k-1). It is strictly less than A(theta) for t<1, and tends to A(theta) for k=1 as t tends to one. Integration proves the strictly positive innovation intensities including equality; if alpha<A(theta), the first logarithmic coefficient, and hence H_t'(0), is negative for t close enough to one. The pgf quotient determines the innovation law uniquely. A(theta)-1 has numerator 1-theta-theta², confirming the admissible-shape transition. At the rational WNBL witness q=49/51, r=49/100, q_(1/2)=49/53 and r_(1/2)=49/151; the exact first log coefficient is -249361/2400900. Bakouch's original mgf/pgf and stated parameter range admit this witness, and Definition 5.3 uses the same thinning convention. Read VERIFICATION.md and check.py; did not execute the frozen script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader condition is (m+1)(theta+s)^2 >= s(theta+1)^2 for arbitrary m>0, theta>0, 0<=s<=1. Its general jump formula is [b_n(1)-b_n(t)]/n with b_n(u)=(m+1)(u/(theta+u))^n-(su/(theta+su))^n."
+        ],
+        "reasoning": "Along the PGL curve su/(theta+su)=u/(theta+1+u), giving exactly the claimed intensities. Strict positivity for all t<1 follows from strictness of the derivative ratio on 0<u<1 since 0<s<1, including at the limiting equality frontier. When the condition fails, Step 2 already excludes an innovation via its negative first probability.",
+        "searches": [
+          "6076ca6aa947 local mirror RESULT.md, Finding (1) and proof Step 2, (6)–(8)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Resultary 6076ca6aa947, d7a7540680dd, 669cf2e9718e and 12cdb9820df2",
+        "Bakouch 2018 primary PDF",
+        "Irshad et al. and Atikankul bibliographic and OA leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bakouch defines discrete self-decomposability using the independent thinning pgf equation and asserts it for WNBL on printed pp. 2631–2632. With beta=7/10 and p=49/51 its pgf equals the PGL pgf at alpha=17/10, theta=2/49. At these values the broader test gives A=132651/20000>17/10, and (6) evaluates directly to the stated negative coefficient at t=1/2."
+        ],
+        "reasoning": "The primary-source error is real under its own definition, but the exact witness is a direct evaluation of the already covering general formula, as is the impossibility at all subcritical points for at least one thinning rate. Using the law as an INAR innovation is a different issue.",
+        "searches": [
+          "Bakouch 2018 DOI 10.1590/0001-3765201820170733, Definition 5.3 and Propositions 2–3",
+          "6076ca6aa947 RESULT.md Step 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6076ca6aa947 RESULT.md Finding: pgf theta^m[theta+s(1-z)]/(theta+1-z)^(m+1) for m>0 and 0<=s<=1"
+        ],
+        "reasoning": "Under m=alpha-1, s=theta/(theta+1), the bracket equals theta(theta+2-z)/(theta+1); this is equality of pgfs and parameter domains on the entire PGL curve, not similarity of model names.",
+        "searches": [
+          "Resultary: PGL/TPPGL and WNBL thinning",
+          "Resultary: poissonization restores thinning self-decomposability adjacent shape gamma mixture 6076ca6aa947"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d7a7540680dd exact hit is the frozen assignment itself; 6076ca6aa947 is the distinct verified stronger record; 669cf2e9718e is a mixture of shapes one and three, not adjacent shapes"
+        ],
+        "reasoning": "No numeric table is needed for this continuum theorem. The exact title hit is not independent; the distinct result whose formula subsumes it is dispositive.",
+        "searches": [
+          "Resultary: two-parameter Poisson generalized Lindley exact thinning frontier",
+          "Resultary: adjacent-gamma mixture thinning compound-Poisson innovations"
+        ]
+      },
+      "rationale": "The distinct indexed record 6076ca6aa947 covers the main finding in a strictly broader family. Denote its lower Gamma shape by m and its lower-shape weight by s. Set m=alpha-1 and s=theta/(theta+1). Its pgf is then identical, its all-parameter condition (m+1)(theta+s)^2 >= s(theta+1)^2 becomes the claimed A(theta), and its innovation formula and first-probability obstruction specialize directly. It is a separate record, not an index hit for the assigned article. Both records are dated the same day, which does not establish order, but the material coverage is demonstrable. The WNBL witness correctly flags a false literature assertion, but this particular obstruction is also a parameter substitution in the broader theorem, not an uncovered new mathematical claim.",
+      "residual_risks": [
+        "Publication order between distinct same-day records is undetermined; failure is based on proved overlap, not inferred priority.",
+        "Primary PGL source body access was limited and does not exclude earlier coverage; it does not affect the established domination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the entire phase and innovation classification in the wider family",
+          "evidence": [
+            "Equations (1) and (6)–(8) give respectively the sharp inclusive condition and the general innovation with the degree-one obstruction"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-poissonization-restores-thinning-self-decomposability-in-adjacen--6076ca6aa947/RESULT.md",
+          "material_read": "Finding and assumptions, offset 300; proof Step 2, offset 4600",
+          "method": "Resultary local mirror",
+          "title": "Poissonization restores thinning self-decomposability in adjacent-gamma mixtures",
+          "trigger": "PGL as a mixture of adjacent Gamma shapes"
+        },
+        {
+          "assessment": "Same thinning definition and an actual blanket assertion; reported convolution-power argument does not imply an independent thinning quotient",
+          "evidence": [
+            "Definition 5.3 specifies G_X(z)=G_X(1-alpha+alpha z)G_Xalpha(z); the following text says the WNBL distribution is self-decomposable; Proposition 3 proof ends by claiming discrete self-decomposability"
+          ],
+          "identifier_or_url": "https://doi.org/10.1590/0001-3765201820170733",
+          "material_read": "Original PDF pp. 2631–2632, Definition 5.3, propositions and mgf formula",
+          "method": "Lawful SciELO full-text PDF, literal query and passage at text offset 53890",
+          "title": "A weighted negative binomial Lindley distribution with applications to dispersed data",
+          "trigger": "Claimed blanket WNBL self-decomposability counterexample"
+        },
+        {
+          "assessment": "Cannot be used to rule out earlier PGL coverage; redundant to the proven coverage comparison here",
+          "evidence": [
+            "Irshad et al. title identifies an INAR application; study of innovations would not alone establish all-rate stationary-marginal feasibility"
+          ],
+          "identifier_or_url": "10.1080/10543406.2022.2152832; https://www.ajs.or.at/index.php/ajs/article/download/1344/775",
+          "material_read": "Bibliographic leads and frozen RESULT.md relationship paragraph; primary body passages not recovered",
+          "method": "Metadata search and lawful OA attempts",
+          "title": "Inferential properties with a novel two parameter Poisson generalized Lindley distribution with regression and application to INAR(1) process; A New Poisson Generalized Lindley Regression Model",
+          "trigger": "Introductions of the PGL law and INAR use"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The phase law is useful, and the WNBL application usefully illustrates a literature error. As a separate mathematical finding, however, the complete frontier, innovation construction and obstruction are direct specializations of the already covering adjacent-Gamma result. The particular rational example is one evaluation of its explicit obstruction. No distinct nonmechanical result survives this comparison for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

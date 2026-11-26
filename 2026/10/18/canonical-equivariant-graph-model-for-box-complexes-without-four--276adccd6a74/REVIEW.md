@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The absence of a four-cycle forces every Hom cell to be a simplex having one singleton coordinate. Distinct maximal left/right simplices intersect only in oriented-edge vertices. Each simplex has a permutation-invariant radial tree, and for every subgroup the fixed sets of both the simplex and the radial tree are contractible. Equivariant Whitehead plus cofibration/Homotopy Extension gives a relative equivariant strong deformation retraction; the homotopies agree on shared vertices. The global radial graph is the barycentrically subdivided Kronecker cover. Computing the graph cycle lattice and cellular signed traces proves the homology and character formulas. The proof specifies degree and four-cycle boundaries; tests with triangles and nonbipartite/bipartite examples agree.
+## correctness
 
-## Originality — PASS, qualified
-Shukla's 2019 result is nonequivariant and maximum-degree-restricted. Publicly indexed high-girth graph-spine results similarly classify ordinary homotopy, not simultaneous \(\operatorname{Aut}(G)\times C_2\) equivariance. Matsushita's 2020 revision proves an isomorphism-type relation but not this equivalence. Walker's older theorem, as reported in literature, gives existence of some one-dimensional \(C_2\)-model, not the canonical cover with all graph automorphisms and a complete trace formula. Direct checks of Results records with these precise aliases returned no equivalent indexed statement. Risk: Walker's original proof and inaccessible older sources might implicitly realize the same model; search absence does not certify absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The equivariant model computes fixed-point spaces under arbitrary subgroups, integral cycle lattices, rational characters for every automorphism together with layer swap, and the homotopy type of the geometric involution quotient, uniformly for an infinite class of graphs with unbounded degree including triangles. These data are not determined by earlier circle-wedge ranks, and answer a natural equivariant refinement of graph coloring topology, rather than an arbitrary parameter-table extension.
+Both coordinates of a Hom cell cannot have cardinality at least two, since four distinct alternating vertices would then form a four-cycle, even if chorded. The left and right simplex families meet only at the specified oriented-edge vertices. Minimum degree two ensures their centers are distinct from those vertices. The equivariant radial retraction can be seen explicitly: in a simplex with r vertices and barycentric weights x_i, let m be the second-largest weight, including ties, and λ=max_i x_i−m. Map to weights (1−λ)/r+max(x_i−m,0). This is continuous and permutation-equivariant, lies in the center-to-vertex tree, and fixes the tree pointwise, also for r=2 and ties. Straight-line homotopy gives the required local strong retraction and fixes all shared vertices, so both coordinate swap and every automorphism commute with the glued retraction. Each oriented-edge vertex subdivides exactly one edge of the double cover; its geometric quotient by swap is G after suppressing subdivisions. The cover has 2n vertices and 2m edges; path parity gives one component for nonbipartite G and two for bipartite G, proving integral homology by graph chains. In the rational trace identity H1=H0−C0+C1 in the representation ring, no-swap fixed cover vertices and forward-oriented edges have counts 2f and 2e. Swap fixes no cover vertices; each exchanged original edge fixes both lifts with reversed orientation, giving −2s. The action on the two bipartite components is the XOR of the graph bipartition swap and the cover layer swap, giving the stated H0 terms.
 
-## Residual limitations
-The argument needs no four-cycle and minimum degree at least two. It makes no claim beyond this class. Literature overlap risk remains for inaccessible older proofs; independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit a narrow increment: the specified embedded spine in the polyhedral Hom model with a simultaneous Aut(G)×C2 strong retraction, and the explicit full action including the mixed trace. The abstract homotopy type, ordinary homology, coordinate-swap-only graph model, and its swap quotient are materially covered by the older square-free literature (especially Kamibeppu), and do not constitute novelty. The later indexed Lovász/neighborhood result also covers the no-swap trace. The inspected prior claims do not give the joint action on this embedded Hom spine, nor a statement of the full mixed character; that character is a direct chain consequence once the full model is established, not a new representation-theoretic method.
+
+## value
+
+PASS
+
+The useful refinement is a simultaneous equivariant model in the original Hom space: it gives a concrete integral cycle module and controls subgroup fixed spaces and the mixed swap/automorphism action, data an unadorned graph homotopy equivalence and Betti numbers do not encode. Keeping the swap sign on endpoint-exchanged edges gives an exact character for a natural symmetry action across the full stated class, not just a computation for selected examples. Neither the already-known graph type nor the routine graph-chain trace principle alone is credited as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

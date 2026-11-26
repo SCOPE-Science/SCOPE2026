@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:36:52.257773Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85",
+        "Frozen VERIFICATION.md, verify_conditional_alternation.py and verification_output.txt (read, not executed)",
+        "Independent exact replay: python3 /workspace/review_checks.py (vc function)",
+        "Independent 14-state replay and finite trace test: /workspace/branches/3e9f7877-d618-41e0-8f4b-20d01ee2a2e4/independent_check.py and independent_check_output.txt"
+      ],
+      "rationale": "The forbidden-factor DFA follows from the four proper-prefix suffixes. A state set is exactly the set of possible suffix states for one queried trace. Free positions union the two possible images, whereas selected positions create two separate branches. Inclusion is preserved by both images and their unions; retaining only minimal state sets therefore preserves the existence of a trace with no completion, at every subsequent indicator prefix. The complete 14-state table and each potential inequality were rebuilt and checked independently. In a second calculation retaining all state sets and storing actual suffixes of length at most two rather than proper-prefix masks, there were 18 reachable nonrejecting states and five nonrejecting equivalence classes; the exact rational resolvent and potential bound agree. Equivalently, in the printed table let X be the continuation series at state 0, Y at 2, and w=tz. States 0,1,3 have the same series; 2,4,11 have the same series; the pairs (5,12), (7,9) have the same continuation series by their zero loop and shared transitions. The recurrences give X=(1+wY)/(1−t), Y=[1+w(1+t−t²)]/[1−t−wt²(2−t)], verifying the fraction identically. Each allowed step has 3s−1≤D_i−D_j, so 3k−n≤4. The state 6 after 11 runs through 8,11,13 upon reading 001, and 13 repeats that loop; zero through two padding zeros are legal after any such prefix, including 11. These attain the sharp bound in all three residue classes from length two, with n=1 established by the initial transition on 1 and n=0 by the empty support. A separate direct trace enumeration through n=9 confirmed the computation and coefficients. The 14-state presentation need not be minimal, and no minimality is claimed.",
+      "residual_risks": [
+        "The finite trace enumeration corroborates; the all-length proof relies on the state invariant, finite transitions and the path bound. The claim is for ordinary VC dimension of finite linear words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson's §2 uses substrings of one fixed string with its sliding-window masks, not a language-specific exact enumeration for this SFT. Louidor–Marcus–Pavlov §3 and Thm. 1 give the multi-choice fixed-background shift and its soficity in one dimension, not the projected shattering predicate above. The classified single-forbidden-trigram languages include avoidance of 011 alone, but not simultaneous avoidance of 000 and 011."
+        ],
+        "reasoning": "A limit about independence density by itself would not give the full bivariate coefficients or finite-length offset. A general subset determinization framework yields computability, not the pair-specific transition reduction, exact rational form and sharp periodic extremum.",
+        "searches": [
+          "Hunter Johnson arXiv:2101.06490; Louidor–Marcus–Pavlov DOI 10.1007/s10440-013-9819-2, authorized author-hosted copy; Resultary 2a4a7f458de3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 87–101",
+        "Primary arXiv:2101.06490 and DOI 10.1007/s10440-013-9819-2 (author PDF)",
+        "Resultary b629e0b9b609, e74c4aaef4b5, a86c7bc37664, 2a4a7f458de3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shattering the individual avoidance classes is at most a necessary upper bound: their completions per labeling need not be a common word. The exact two-trigram nearby result has a different limiting slope (2/5). Fixed-background independence imposes a different, stricter condition, as witnessed by support {1,2} at n=3."
+        ],
+        "reasoning": "There remains a meaningful pair-specific feasibility and enumeration problem after these implications; the potential and attaining paths give exact finite constants not supplied by the broad frameworks.",
+        "searches": [
+          "Resultary 2a4a7f458de3 exact single-trigram classification and b629e0b9b609 two-trigram theorem; Johnson §2; Louidor–Marcus–Pavlov §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every admissible finite word extends to the two-sided shift (pad left by ones and continue via a legal successor on the right). With label-dependent extensions the predicate is finite-coordinate independence for that shift. Louidor–Marcus–Pavlov instead fix a whole multi-choice configuration and require every filling to be admissible, so a choice of singleton symbols off the selected set must work once and for all.",
+          "On a length-three block, selecting {1,2} is shattered for 000/011, but the two assignments (0,0) and (0,1) force different values at position 3. Thus even here the fixed other symbols formulation is strictly stronger.",
+          "Reversal and bit-complement replace 000/011 by 000/110, 111/100 or 111/001, not by 000/101, 000/111, or the one forbidden factor 0011."
+        ],
+        "reasoning": "Classifying finite-coordinate independence would be equivalent; multilabel product embeddings with one fixed background are not. Neither word symmetry nor the inspected neighbor-language records identify the target support complex.",
+        "searches": [
+          "Focused primary search for coordinate shattering or independence of binary forbidden-factor languages; arXiv:2101.06490 §§1–2",
+          "Louidor–Marcus–Pavlov, Independence entropy of Z^d-shift spaces, §3",
+          "Resultary complete classification of shattering support laws for all pairs of forbidden binary trigrams / two length-three factors 000 and 011 VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "000/111 has dimension ⌊n/2⌋+1 and at n=8 has 41 four-position and 8 five-position supports, instead of 4 and 0. 000/101 has dimension ⌊(2n+6)/5⌋ and a different series despite a coincidence at n=5. The distinct 0011 language has dimension ⌊(3n+6)/5⌋. The exact match for the target is this frozen result itself."
+        ],
+        "reasoning": "The compared exact listings are fine-grained neighboring cases, not a classification table covering this pair. A same-day date was not treated as either priority or grounds for exclusion.",
+        "searches": [
+          "Resultary ranked meaning search for all two-factor support laws and pair-specific shattering; mirrored original findings a86c7bc37664, b629e0b9b609, e74c4aaef4b5, 2a4a7f458de3"
+        ]
+      },
+      "rationale": "The supported precise gap is the explicit support enumerator and sharp finite-length maximum for the two-factor language 000/011, not the general idea of regular-language recognizability, transfer matrices, or VC dimension in symbolic dynamics. Nearby exact support enumerators change the forbidden set, and broader independence entropy addresses a different quantifier. No equivalent formula or mechanically dominating inspected result was found for this fixed pair.",
+      "residual_risks": [
+        "The bounded lookup does not exclude all work on finite-coordinate independence sets of shifts or a yet unlocated tabulation of all pairs of forbidden trigrams."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related framework, not the exact pair theorem",
+          "evidence": "The family is formed from one fixed string's substrings and analyzed via mask patterns in that string.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.06490",
+          "material_read": "Abstract p. 1 and §2 pp. 3–4, extraction offsets 0, 7900, 11879",
+          "method": "Lawful OA PDF",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Primary binary-word VC dimension"
+        },
+        {
+          "assessment": "Fixed-background product filling and its soficity, not shattering",
+          "evidence": "The filling set is the Cartesian product of symbol sets at every coordinate; all fillings of that single configuration must lie in X. This is stricter than a distinct completion per trace.",
+          "identifier_or_url": "https://cs.du.edu/~rpavlov/LMPmultichoice.pdf",
+          "material_read": "§3 p. 5 and Thm. 1 opening p. 6, offsets 11890–13881",
+          "method": "Lawful author-hosted PDF after DOI and publisher routes were unavailable",
+          "title": "Independence entropy of Z^d-shift spaces",
+          "trigger": "Potential equivalent subshift independence statistic and general automaton theorem"
+        },
+        {
+          "assessment": "Different forbidden pair",
+          "evidence": "000/101, exact slope 2/5 and an exact five-state minimum; not 000/011.",
+          "identifier_or_url": "b629e0b9b609",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A five-state shattering automaton for binary words avoiding two trigrams",
+          "trigger": "Closest same-day two-trigram exact statement"
+        },
+        {
+          "assessment": "Different factor length and pattern set",
+          "evidence": "A seven-state recognizer and exact VC dimension floor((3n+6)/5) for avoiding only 0011.",
+          "identifier_or_url": "e74c4aaef4b5",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A five-periodic VC law and complete shattering series for binary words avoiding 0011",
+          "trigger": "Related exact shattering series with an adjacent constraint"
+        },
+        {
+          "assessment": "Different predicate on indicator words and a different dimension law",
+          "evidence": "Avoids 000/111; dimension floor(n/2)+1 and a different support polynomial even at n=8.",
+          "identifier_or_url": "a86c7bc37664",
+          "material_read": "Mirrored RESULT.md offsets 0 and 8350",
+          "method": "Local Resultary mirror",
+          "title": "A regular shattering complex for binary words with no monochromatic triple",
+          "trigger": "Earlier two-forbidden-trigram exact shattering series"
+        },
+        {
+          "assessment": "Only one restriction at a time",
+          "evidence": "Its two shattering types classify single-trigram avoidance; intersection of the two allowed word families is not covered by that theorem.",
+          "identifier_or_url": "2a4a7f458de3",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Single-forbidden-trigram languages: two shattering types and a sharp extremality dichotomy",
+          "trigger": "Ambient classification including each factor separately"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–19, 25–81",
+        "Exact comparator findings b629e0b9b609 and a86c7bc37664",
+        "Louidor–Marcus–Pavlov §3 on the distinct product-filling statistic"
+      ],
+      "rationale": "This is a natural low-memory constrained family whose use of adaptive completion makes individual local forbidden-pattern checks insufficient to count or maximize shattered supports. The exact one-third law with its finite-boundary correction distinguishes it from nearby length-three constraints, and the coefficientwise result and explicit support automaton delimit the full feasible coordinate sets, not just a handful of examples or a generic regularity theorem. These are directly usable as exact comparisons in classifying the behavior of small forbidden-factor languages.",
+      "residual_risks": [
+        "The result gives no all-pairs classification, cyclic-word theorem or Littlestone dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

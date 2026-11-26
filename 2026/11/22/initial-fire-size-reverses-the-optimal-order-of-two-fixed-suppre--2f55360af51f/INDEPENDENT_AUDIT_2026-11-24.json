@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:05:09.096895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With row probabilities on states 1 and 2, common additive suppression gives Q_s=Q_0−sI+sN, where the only nonzero entry of N is N₂₁=1. The discriminant (λ+m−d)²+4λ(d+s) is strictly positive on the entire stated domain, including ℓ=0, so the divided-difference coefficient b_s(t) of Q_s in exp(tQ_s) is positive for t>0. The exponential swap is b_h(u)b_ℓ(v) times (h−ℓ)[N,Q_0]; the latter commutator applied to the column of ones is (−λ,d−m)ᵀ. Subtracting survival from one gives the stated positive factor times αλ+(1−α)(m−d). For d>m there is one interior tie and the sign changes across it; for d=m only α=0 ties; for d<m both endpoints of the affine expression are strictly positive. The proof's last nonpositive-term remark at RESULT.md line 66 applies to the survival bracket in line 60, not the negated extinction bracket; the formulas and Finding have the correct signs. One transient state gives a scalar cumulative-hazard factor, independent of order. Independently evaluating both exponential products by 70-term matrix Taylor series at λ=m=1,d=2,h=3,ℓ=0,u=v=1 gave extinction differences +0.007741914776 and −0.007741914776, and −0.00309676591033 at α=0.3. The frozen verifier was inspected, not executed; its recorded 7,208 checks are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first Hulsey et al. paper §II Eq. (3) derives λ_j=βj and μ_j=δj+γ; its footprint threshold does not cap population.",
+          "The follow-up §III–III.A compares allocations across multiple decision epochs and changing birth regimes.",
+          "The Ross–Pollett model includes finite ceilings but switches regimes on threshold crossings."
+        ],
+        "reasoning": "The common additive rate and time-varying control are known inputs. None of the inspected comparisons proves a fixed-two-episode order ranking at a two-active-site capacity with constant natural rates, all positive durations, and arbitrary initial mixture.",
+        "searches": [
+          "Hulsey–Alderson–Carlson, arXiv:2307.11726",
+          "Hulsey–Alderson–Carlson, DOI 10.1103/PhysRevE.111.024318",
+          "Ross–Pollett, DOI 10.1016/j.mbs.2006.02.004"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Exact and adjacent Resultary Findings above",
+        "Hulsey–Alderson–Carlson 2024 and 2025",
+        "Ross–Pollett 2006"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Markov transition-semigroup formulas compute each schedule; known control examples do not give the sign of their difference for general episode lengths.",
+          "After positive scalar factors are removed the projected swap commutator has opposite signs for the two pure initial states when d>m."
+        ],
+        "reasoning": "Neither a sign seen in simulations at fixed timings nor a rate-ratio sort in a one-way system determines this finite-deadline sign uniformly. The common additive hazard, reversible transient link and commutator projection are needed together to get the sharp boundary.",
+        "searches": [
+          "Hulsey et al. arXiv:2307.11726 §II",
+          "Hulsey et al. 2025 §III and III.A",
+          "Resultary rate-ratio sorting law Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-a-universal-rate-ratio-sorting-law-and-a-sharp-three-stage-obstr--12fd790003d2 treats an irreversible two-jump chain and terminal advance probability.",
+          "Ross–Pollett pp. 1, 3 use culling switched by population thresholds, allow a ceiling, and distinguish fixed-effort culling from per-capita loss."
+        ],
+        "reasoning": "State-dependent switch times do not prescribe either calendar permutation. Relabeling the irreversible chain cannot produce the reversible link between states 1 and 2, and its terminal advance comparison does not yield the initial-mixture extinction boundary.",
+        "searches": [
+          "Resultary: initial fire size and fixed suppression episode order",
+          "Resultary: finite-state chronological order and rate-ratio sorting",
+          "Ross–Pollett, DOI 10.1016/j.mbs.2006.02.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit SCOPE-initial-fire-size-reverses-the-optimal-order-of-two-fixed-suppre--2f55360af51f is the assigned Finding, not another result.",
+          "The strongest distinct index hit SCOPE-a-universal-rate-ratio-sorting-law-and-a-sharp-three-stage-obstr--12fd790003d2 has a different generator and metric."
+        ],
+        "reasoning": "The exact classification was compared at statement level. The distinct same-day hit is relevant but does not contain the threshold or an equivalent comparison; its date neither establishes nor rules out priority.",
+        "searches": [
+          "Resultary: exact two-episode suppression ordering and initial-state reversal"
+        ]
+      },
+      "rationale": "The supported distinction is the same-exposure, all-positive-duration extinction ranking and exact initial-mixture threshold for the common-additive, two-active-state birth–death chain. Neither the additive-hazard model nor the matrix-exponential technique is claimed as new. The examined sources do not cover the stated comparison; this does not establish historical priority.",
+      "residual_risks": [
+        "An unlocated finite-horizon culling or Markov scheduling theorem may imply the result under the same hypotheses.",
+        "Bounded scope comparisons do not establish chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related chronological-order theorem, not equivalent",
+          "evidence": "Irreversible 0→1→2, optimize reaching 2; includes three-stage context dependence.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-rate-ratio-sorting-law-and-a-sharp-three-stage-obstr--12fd790003d2",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "A universal rate-ratio sorting law and a sharp three-stage obstruction",
+          "trigger": "Closest distinct Resultary chronology result"
+        },
+        {
+          "assessment": "Supplies established model ingredients",
+          "evidence": "Birth and natural loss are proportional to population, plus absolute suppression rate; finite footprint threshold is not a hard population cap.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.11726",
+          "material_read": "§II p. 4 Eq. (3) and footprint-threshold discussion",
+          "method": "Bounded OA paper reading",
+          "title": "Birth-death-suppression Markov process and wildfires",
+          "trigger": "Same additive suppression hazard"
+        },
+        {
+          "assessment": "Related allocation problem, not the fixed-exposure swap law",
+          "evidence": "Changing birth regimes and decision-epoch allocation vectors (γ₁,γ₂,γ₃).",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.024318",
+          "material_read": "§III and III.A pp. 4–5, text offsets 25500–31481",
+          "method": "Bounded OA author PDF reading",
+          "title": "Forecasting and decisions in the birth-death-suppression Markov model for wildfires",
+          "trigger": "Closest cited time-dependent allocation study"
+        },
+        {
+          "assessment": "Different policy and comparisons",
+          "evidence": "Switches culling at population thresholds, rather than imposing two fixed calendar episodes in both orders.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2006.02.004",
+          "material_read": "pp. 1 and 3, text offsets near 1300 and 7000",
+          "method": "Bounded OA author PDF reading",
+          "title": "Extinction times for a birth-death process with two phases",
+          "trigger": "Two-phase extinction and finite-capacity culling precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal total exposure does not determine finite-deadline extinction, and even the preferred direction of front-loading can reverse with the initial population. The exact demarcation, uniform in episode lengths, and the minimal-capacity example identify when order-independent intuition first breaks. This is a structural conclusion for a deliberately small model, not advice to delay actual fire suppression or a result about burn footprint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

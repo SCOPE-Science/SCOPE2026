@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is for finite-dimensional complex Hermitian states on \(0\leq X\leq I\) and positive-definite Hermitian couplings \(0<B\leq2I\). The order interval is invariant. At a fixed state the invertible positive congruence equation \(B^{-1}XB^{-1}=X-X^2\) excludes unit state eigenvalues, forces invariance of the state support, and reduces to a **unique positive square root**, showing \([B,X]=0\). Spectral projectors then give all equilibria, including the zero and repeated-eigenvalue boundary cases. Full Hermitian-space linearization yields the exact multiplier \(b_ib_j(1-x_i-x_j)\), and explicit inequalities establish the sharp open spectral stability window \((0,1)\cup(1,\sqrt3)\). Exact rational reproducibility tests passed. No computation is invoked as an infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, with stated residual risk
-The originating Pawela–Życzkowski matrix-logistic paper [arXiv:2303.06176], inspected in its introduction, Hermitian/non-Hermitian sections, coupled-map section, and appendices, establishes the nonlinear model, scalar-matrix dynamics, random-matrix statistics, and numerically coupled graph behavior. Its diagonal two-site discussion does **not** establish global stationary commutation for arbitrary noncommuting input states or classify the Grassmannian fixed components of arbitrary positive-definite Hermitian couplings. Navickas et al. (2011) study the scalar-parameter two-by-two matrix iteration, not the non-scalar Hermitian coupling used here. The closest indexed same-map finding treats transverse chaotic fluctuations for a two-node coupling; the closest accessible prior archival finding treats nonnormal triangular coupling and polynomial extinction. Neither implies the new fixed-point classification or its sharp global-in-spectrum local stability criterion. Searches for equivalent conjugacy, scalar reductions, and sharper covering results yielded no known implication. Literature search cannot establish absolute novelty; unindexed matrix-equation results are a residual risk.
+PASS
 
-## Mathematical value — PASS
-The source itself motivates nonlinear matrix dynamics with noncommuting state and coupling, and the stationary geometry of these models is a structural question. This theorem gives a full solution for a natural self-adjoint coupling class, eliminating conjectural stationary inter-eigenspace coherence, identifying a sharp and observable degeneracy transition from discrete states to complex Grassmannians, and isolating the exact exponential-stability boundary at spectral value \(\sqrt3\). The commutation theorem and all-dimensions stratification are not scalar textbook deductions without the support rigidity proof. This is a local fixed-point theorem, not a global convergence or chaotic-statistics result.
+Functional calculus gives 0≤X−X²≤I/4 and hence forward invariance under 0<B≤2I. If X is fixed and C=B⁻¹, then CXC=X−X². An eigenvector v with Xv=v would give XCv=0 and therefore ⟨v,Cv⟩=0, impossible. Thus X−X² has support S=ran X. Invertibility gives ran(CXC)=CS, so C reduces S. On S, X is invertible and the positive matrix X^(1/2) C X^(1/2) has square X²(I−X). Its unique positive square root is X(I−X)^(1/2), yielding C=(I−X)^(1/2) on S and the asserted commuting projection formula, including X=0. Conversely each eligible projection satisfies the equation. Ranks in each eligible eigenspace index the compact Grassmannian components. In a common eigenbasis the Hermitian derivative has real multiplier b_i b_j(1−x_i−x_j) on each real coordinate. An omitted b>1 produces b²>1, so only the fully occupied X_* can attract exponentially. Its inactive and mixed multipliers are strictly subunit under the proposed condition. On the active square [1,√3]² the multiplier b/a+a/b−ab decreases strictly in each argument, with opposite corners 1 and −1; hence all interior pairs are strictly inside. Frobenius norm diagonalization and derivative continuity give a local contraction, with equivalent estimates in any fixed matrix norm. The uniform exponential estimate, differentiated for each iterate at the fixed point, forces spectral radius <1, which rules out b=1, b=√3, and b>√3 via diagonal modes. No boundary behavior slower than exponential is ruled out by this argument.
 
-## Closest literature and remaining limits
-[1] Ł. Pawela and K. Życzkowski, *Matrix logistic map: fractal spectral distributions and transfer of chaos*, arXiv:2303.06176, first public 2023-03-10, https://arxiv.org/html/2303.06176v2 .
-[2] Z. Navickas, R. Smidtaite, A. Vainoras and M. Ragulskis, *The logistic map of matrices*, DCDS-B 16 (2011), 927–944, https://doi.org/10.3934/dcdsb.2011.16.927 .
-The exact fixed-set result does not cover general graph couplings, singular couplings, global basins, or slow attraction at neutral derivative multipliers. Unindexed alternative formulations of positive congruence equations may carry stronger prior coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The map, scalar dynamics, and scalar stability window are prior; the fixed-point rigidity for arbitrary strictly positive Hermitian anisotropic coupling and the sharp ambient stability classification are not present in the closest inspected statements. In particular, the matching interval in the earlier two-mode fluctuation record concerns stability transverse to an invariant channel, not stability of the matrix equilibrium against all perturbations.
+
+## value
+
+PASS
+
+This is a complete equilibrium classification of an established noncommutative dynamical map in a natural coupling regime. It distinguishes repetition-induced fixed manifolds from genuinely noncommuting fixed points and proves that unequal-eigenvalue perturbations cannot silently tighten the scalar local threshold. The exact criterion simultaneously treats nonattraction, degeneracy, and both neutral boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

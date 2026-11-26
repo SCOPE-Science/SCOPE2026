@@ -1,11 +1,21 @@
-# Scientific review: four-dimensional double-cone Fourier zeros
+# Independent mathematical audit
 
-**Correctness: PASS.** Cross-sectional three-ball integration yields the exact rational-trigonometric Fourier profile. The proof treats its removable poles at \(u=\pm s\) explicitly; this distinction is necessary because \((\pm\pi,\pi)\) are not zeros. Strict convexity of \(t\mapsto\cos\sqrt t\) through \(\pi^2\), followed by the global lower bound \(\cos\sqrt t\ge-1\), proves positivity for every axial frequency and all transverse radii smaller than \(\pi\). Actual boundary zeros at \(\pm3\pi\) certify sharpness. Compactness, an implicit zero curve and a strictly convex local objective establish the nearest-zero asymptotic and the coefficient \(-36\pi^2\). Exact algebra and supplementary quadrature are reproducible using the embedded checker; finite sampling is not used as an infinite proof.
+## correctness
 
-**Originality: PASS on inspected evidence.** The source preprint arXiv:2609.10517v1 proves only a nonsharp existence strip. The published all-dimension Pólya–Bessel estimate is a strict lower bound for the dimension-four transverse threshold, not an equality. The closest published leading-slope result establishes a variational expression without evaluating its infimum or proving boundary attainment; the present claim computes the constant \(\pi\), describes the first boundary zeros, and derives the next asymptotic term. The dimension-three width-two result concerns a different dimensional kernel. Targeted primary-source and indexed-record searches did not identify stronger coverage. Historical priority cannot be guaranteed against unindexed or earlier Fourier-transform analyses of cones.
+PASS
 
-**Mathematical value: PASS.** The first real Fourier-zero distance is the central geometric quantity in the recent convex-body counterexamples to ball extremality. Computing its *sharp* transverse positivity radius (rather than one more sufficient numerical lower bound), its minimizing Fourier directions and its next asymptotic coefficient is a natural and nonroutine refinement of an explicitly unresolved exact invariant. The resulting explicit four-dimensional equal-volume-ball cutoff is mathematically useful, though not asserted optimal.
+With the frozen angular-frequency convention, integrating the 3-ball slices gives the positive prefactor 8πα⁻³s⁻³ multiplying F. The convolution of cos(ux) with sin(sx), evaluated at 1, is s(cos u−cos s)/(s²−u²); applying 1−s∂s gives F=s²N/(s²−u²)². Taylor expansion in u at u=±s gives the removable value (sin s−s cos s)/4; the axial slice s=0 reduces to the positive cubic-weight cosine integral by |sin(u/2)|<|u/2|. For 0<s<π, N/(2s) is the strict tangent deficit of cos√t at t=s², using strict convexity up to π² and that the tangent is below −1 thereafter. At s=π, N=2π(1+cos u), with ±π removed from the alleged zeros by the positive resonance value. For a closest zero the comparison with (3π,π) gives |u|≤3π and π≤s≤π√(1+9/α²). The lower bound is strict because u=0,s=π is not a zero. At (3π,π), N_s=−8π², N_u=0, N_uu=2π, so the true local curve has s=π+(u−3π)²/(8π)+O((u−3π)³); moving slightly left strictly improves the upper bound at each finite α. Compact localization forces any positive-u minimizer onto that curve as α grows. The second derivative of s(u)² at the limit is 1/2; analytic stationarity for s(u)²+α⁻²u² then gives the stated shifts and the −36π²/α² term in κ². Finally, volume 2π/(3α³) gives the claimed J₂-root threshold by comparing to the ball; the strict lower bound even suffices at equality of the stated threshold.
 
-**Limits.** Only the special four-dimensional Euclidean double-cone family is classified. No full finite-parameter minimizer theorem, general-dimensional exact constant, or optimal counterexample threshold is claimed. Quadrature verifies finite test cases only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Verified prior work supplies the same scaled profile framework, existence of a positive zero-free strip, and the large-elongation ball comparison, including an explicit weaker sufficient threshold. The supported distinct claim is the sharp four-dimensional transverse bound π, the exact boundary zero set, and the ensuing nearest-zero expansion and improved sufficient threshold; the compared earlier bounds and infimum formulation do not give these conclusions.
+
+## value
+
+PASS
+
+The exact transverse endpoint is the quantitative obstruction in a pre-existing Fourier-zero isoperimetric counterexample, not an arbitrary parameter sample. It supplies the first possible zeros, determines the previously unspecified asymptotic slope, and distinguishes the nearest zero from the boundary point through an explicit curvature correction. The smaller sufficient counterexample threshold is a concrete consequence, not the sole advance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

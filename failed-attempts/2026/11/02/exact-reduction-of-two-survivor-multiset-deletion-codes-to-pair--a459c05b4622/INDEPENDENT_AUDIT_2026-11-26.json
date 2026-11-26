@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:10:50.785067Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 3–51; independent symbolic reconstruction for all q,n≥2.",
+        "arXiv:2003.00483 Lemma II.1 and Theorem III.1 confirm the design input and length-three coding comparison.",
+        "Frozen verify.py, VERIFICATION.md, and verify_output.txt were inspected, not executed. The reported 16 numerical MILP optimality comparisons are corroboration, not an exact-arithmetic proof or the basis for acceptance on correctness."
+      ],
+      "rationale": "Two n-multisets are confusable exactly when their multiset intersection contains a size-two multiset. Choosing any doubled symbol of each repeated-symbol word gives distinct symbols across such words, because a common doubled symbol would be a common two-survivor output. Replacing these words by their constants is injective, preserves the distinct-symbol words, and introduces no conflicts. Missing constants can be added; the distinct-symbol part is exactly an n-uniform pair packing. Counting and the reverse construction establish both the identity and the existential normalization. For n>q there are no packing blocks, and for n=q there is one. For n=2 the expression is q+binom(q,2), the total number of length-two multisets, as expected when no deletions occur. The maximum partial triple-system formula gives the four residue classes by elementary simplification, including q=2 via the empty packing convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The January v1 open-case discussion was superseded by v2 Theorem 10 for every q,n≥2. Nearby indexed works change the number of survivors or the list-decoding allowance and are not the decisive equivalence."
+        ],
+        "reasoning": "The prior theorem covers the full frozen parameter range; this is stronger evidence than loose similarity to other survivor counts or list sizes.",
+        "searches": [
+          "Versioned arXiv:2601.05636v1 §3.4 vs v2 §4.3",
+          "Resultary: three-survivor multiset deletion codes; two-survivor multiset list decoding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.05636v1 §3.4",
+        "arXiv:2601.05636v2 §4.3, Theorem 10",
+        "arXiv:2003.00483",
+        "doi:10.1109/TIT.2021.3052191",
+        "SCOPE-20260920-c72f7a3b70a2",
+        "SCOPE-20261025-2946968acded",
+        "SCOPE-20261102-da6ffbe21ef7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 10 states S_q(n,n−2)=q+I(q,n). In its proof a doubled symbol can occur doubled in at most one codeword, and the construction uses all constants plus a maximum packing. Apply the same assignment to an arbitrary input code, keeping its squarefree words: the distinct assigned constants coexist with those words and can be augmented to all q constants."
+        ],
+        "reasoning": "The claimed injection is directly obtained from the prior proof, even though it is not given a separate name. It is not an independent surviving result.",
+        "searches": [
+          "arXiv:2601.05636v2, pp. 25–26, Theorem 10 and its repeated-symbol upper bound and constant-word construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I(q,n) is the maximum number of n-subsets of a q-set with pairwise intersections at most one, with the identical n>q convention: precisely P(q,n,2). For multiplicity vectors of common weight n, ℓ₁ distance is 2n−2 times their multiset intersection size subtracted from 2n in the sense d₁(x,y)=2n−2∑ₐmin(xₐ,yₐ). For n=3, the overlap bound is exactly minimum ℓ₁ distance 4."
+        ],
+        "reasoning": "The notation change I→P does not alter the general result; the older constant-weight theorem directly covers the n=3 deletion-capacity result under the isometric multiplicity-vector representation.",
+        "searches": [
+          "arXiv:2601.05636v2 §4.3, I(q,n) and Theorem 10",
+          "arXiv:2003.00483 Lemma II.1 and Theorem III.1, constant-weight ℓ₁ coding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The partial triple packing number is already given by floor((v/3)floor((v−1)/2))−1_{v≡5 mod 6}; Theorem III.1 adds v to this quantity for the corresponding coding optimum. The indexed weight-three 2-cover-free result uses the same packing count for its own set-family invariant; the list-decoding and three-survivor records solve other problems."
+        ],
+        "reasoning": "Expansion of the earlier floor expression gives all four frozen length-three residue cases. The direct published coding equivalence, not merely the presence of a design table, establishes the known specialization.",
+        "searches": [
+          "Resultary: exact two-survivor multiset deletion capacity, two-survivor list decoding, exact weight-three 2-cover-free families",
+          "arXiv:2003.00483 Lemma II.1, exact D(v,3,2)"
+        ]
+      },
+      "rationale": "The revised motivating paper, arXiv:2601.05636v2 (13 July 2026), states exactly this all-parameter theorem in §4.3, Theorem 10. Its repeated-symbol argument mechanically gives the proposed normalization. The frozen prior-work discussion is applicable to v1, not to the relevant v2. The length-three coding specialization also predates the record in the constant-weight ℓ₁-metric literature. This failure is established by matching mathematics in accessible primary sources, not by an unavailable source or a search hit.",
+      "residual_risks": [
+        "Earlier historical priority beyond the verified v2 and length-three sources was not determined; that does not affect the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PRIOR_COVERAGE",
+          "evidence": [
+            "I(q,n) is the same pair packing; the identical S_q formula and repeated-symbol/constant construction are explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05636v2",
+          "material_read": "§4.3, Theorem 10 and proof, pp. 25–26, near extracted offset 70900",
+          "method": "OA PDF version-specific passage inspection",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Revised version of the frozen closest source"
+        },
+        {
+          "assessment": "SUPERSEDED_FOR_THIS_QUESTION",
+          "evidence": [
+            "The v1 open-case description is not evidence against the proof in v2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636v1",
+          "material_read": "§3.4 two-survivor discussion and its open range, compared with v2",
+          "method": "Versioned primary text comparison",
+          "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+          "trigger": "Version behind the frozen open-problem comparison"
+        },
+        {
+          "assessment": "EXACT_SPECIAL_CASE",
+          "evidence": [
+            "D(v,3,2) has the classical floor formula; A(v,4,3)=v+D(v,3,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.00483",
+          "material_read": "Lemma II.1, p. 3 (near offset 17172); Theorem III.1, p. 5 (near offset 27809)",
+          "method": "OA PDF passage inspection",
+          "title": "Optimal codes with small constant weight in ℓ₁-metric",
+          "trigger": "Prior equivalent length-three coding problem and exact packing table"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": [
+            "Their objectives are respectively cover freeness, list decoding, and three-survivor unique decoding. The actual overlap is in the versioned primary paper."
+          ],
+          "identifier_or_url": "SCOPE-20260920-c72f7a3b70a2; SCOPE-20261025-2946968acded; SCOPE-20261102-da6ffbe21ef7",
+          "material_read": "Findings on weight-three cover-free families, two-survivor list allowance, and exact three-survivor codes",
+          "method": "Local Resultary mirror",
+          "title": "Indexed nearby multiset and packing results",
+          "trigger": "Same packing numbers or adjacent survivor/list problems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The coding-to-packing theorem is useful, but is already available with the same argument, and the injection and numerical corollaries follow mechanically. Restating the result with another label or attaching the small MILP comparisons adds no distinct scientific finding. No genuine surviving repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

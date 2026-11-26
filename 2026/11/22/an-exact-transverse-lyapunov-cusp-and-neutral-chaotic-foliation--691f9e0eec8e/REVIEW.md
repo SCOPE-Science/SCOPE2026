@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated map is the 2024 cyclic Lotka–Volterra polynomial at exactly \(R=3\), with both interaction coefficients equal. On its diagonal the exact logistic coordinate is \(u=3(1+2a)t/4\). The three-by-three derivative matrix has one radial eigenvalue \(4(1-2u)\) and an invariant, double transverse eigenvalue \(4[1-(2+a)u/(1+2a)]\). Since the splitting is fixed along the orbit, the three exponents are scalar Birkhoff logarithmic integrals against the arcsine measure. Jensen's cosine-log identity evaluates all cases including the neutral boundary, and elementary expansions give the sharp one-sided constants.
+## correctness
 
-For \(a=1\), the full map factors as \(F(x)=(4-3\sum_i x_i)x\), fixing all composition ratios. The logistic measure on each ray is ergodic and has exponents \((\log2,0,0)\); Lebesgue almost every initial state in the compact tetrahedron has one raywise empirical limit. Since the ray is determined by the limit's first moments, no fixed invariant probability can attract a positive-volume set. The standalone checker passed 764 deterministic finite tests. The proof, not the finite tests, establishes the infinite claims; exact zero-derivative exceptional orbits are excluded from the almost-everywhere statements.
+PASS
 
-## Originality — PASS within accessible evidence
-The complete HTML of Muni (2024), arXiv:2408.15054v1, was read across its model, Lyapunov charts, bifurcation sections, conclusions and references. It reports numerically identified quasiperiodicity and hyperchaos largely near \(R=1.4\) with unequal interactions, not an exact full Lyapunov formula on the \(R=3\) diagonal or a no-physical-measure theorem at unit symmetric competition. An indexed same-map result gives sharp Floquet multipliers of a synchronous primitive two-cycle for \(R>2\); this does not imply ergodic exponents for the logistic-four invariant measure or the neutral ray foliation. A related Euler–May–Leonard simplex result studies a distinct \(R=1\) step, where the neutral face is pointwise fixed, unlike the present chaotic \(R=3\) slice. Classical ergodicity and cosine integrals are properly credited as tools, not claimed new. The 1987 Gardini et al. predecessor was accessible as an abstract only and remains a material uninspected priority risk; the evidence does not prove absolute uniqueness.
+On the diagonal, t'=4t−3(1+2a)t². Scaling by u=3(1+2a)t/4 gives logistic-four, which is a factor of doubling by u=sin²(πθ); its arcsine probability is ergodic. Differentiating gives the fixed line and zero-sum plane multipliers 4(1−2u) and 4(1−ku), k=(2+a)/(1+2a), so logarithmic ergodic averages suffice. Their isolated interior or endpoint zeros are integrable, and their finite-time preimages are null. Under u=(1−cos θ)/2 the transverse log integral is log 4 plus the cosine-log average with A=1−k/2 and B=k/2. Applying Jensen to the quadratic z²+(2A/B)z+1 on the circle gives log k for k≥1 and 2 log(1+√(1−k)) for k<1; the radial k=2 case gives log 2. The identities k−1=(1−a)/(1+2a) and 1−k=(a−1)/(1+2a) on the respective sides yield the two constants. At a=1, F(x)=(4−3s)x maps the closed tetrahedron to itself and preserves composition before any hit of zero. Its derivative is (4−3s)I−3x 1ᵀ, with an invariant radial line span(p) and zero-sum plane along each fixed-composition orbit, giving the printed ray spectrum. The product change of variables x=(4u/3)p has volume Jacobian proportional to u²; arcsine and Lebesgue are equivalent in u. Ergodicity for a countable dense set of continuous tests then gives weak empirical convergence for volume-almost every point. The mean vector of each limit is (2/3)p; any specified empirical limit thus has at most one ray of typical initial conditions, a volume-null set. These are analytic checks of RESULT.md, not execution of verify.py or a claim about basins outside the tetrahedron.
 
-## Value — PASS
-The theorem gives an exact nonperiodic three-dimensional Lyapunov spectrum of an explicitly published model, resolves every positive symmetric interaction parameter on the natural maximal-chaos slice, and identifies a unique zero of two transverse exponents with asymmetric linear and square-root critical laws. At that same parameter, a full-dimensional invariant set splits into a continuum of mutually distinct chaotic ergodic ray measures with no three-dimensional physical measure. This distinguishes intrinsic instability from attractor hyperchaos and gives an exact analytical benchmark for numerical Lyapunov charts. It is a structural phase transition, not a numerical scan, isolated Jacobian example or arbitrary finite cutoff.
+## originality
 
-## Closest work and limitations
-Muni (2024) introduces the map; Gardini, Lupini, Mammana and Messia (1987) address related three-dimensional Lotka–Volterra bifurcations but their full paper was not readable in this review. The symmetric-Ricker and two-site-coupling literature has different maps. This finding does not assert a physical hyperchaotic attractor when \(a
-e1\), nor a parameter-global basin classification away from the neutral tetrahedron. Unindexed equivalent theorems remain a literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The symmetric spectrum and both cusp constants are mathematically covered by an explicit same-day asymmetric Resultary formula and are not credited as a result distinct from that formula. That record itself attributes the symmetric spectrum and neutral composition foliation to an earlier symmetric result; it does not identify that result independently of this submission, and publication order is unresolved. Pass applies to the joint result including the explicit neutral ergodic family, almost-everywhere empirical selection by composition, and absence of a volume-positive basin, which the stronger spectrum theorem does not supply. The older primary model's inspected passages are numerical and do not imply that neutral empirical-basin assertion. No historical priority is certified.
+
+## value
+
+PASS
+
+The exact neutral invariant tetrahedron gives a sharp distinction between chaos along almost every initial condition's selected composition and a physical measure attracting a positive-volume set. The measurable family of ray limits and the absence of a common basin provide a natural full-dimensional dynamical benchmark, rather than a parameter substitution in a Lyapunov formula. The result makes no attractor claim away from neutrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

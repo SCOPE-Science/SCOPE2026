@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:03:58.337496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md, both frozen verifier sources inspected, not executed",
+        "Independent replay: python3 /workspace/checks/frozen_math.py 4"
+      ],
+      "rationale": "The 13-by-13 incidence constraints require at least four members on each side. Incidence and pair counts for a four-point blocking set force a full line, whose four disjoint triples of singleton-signature lines would require at least eight selected lines. Duality handles the reverse split. For a five-point blocking set the corresponding counts give a_3+3a_4=3; two distinct three-secants would cover all five points, precluding a third, so a full line is forced. Dually the line side consists of a full pencil and one extra line. The four pairs of lines with a duplicated singleton signature force q to lie off the full line with q≠p, and the extra line must resolve the pair at x=pq∩ℓ. Conversely the line signatures are then separated; on the point side, t singles out one of the two remaining points of each other pencil line, and qx has just one outside point other than q. Different shores have disjoint nonempty signatures. Under a one-vertex exchange the full line and pencil cannot change because two distinct ones would require seven elements in a six-element union; the unchanged side then fixes x. The two independent choices of p and t thus yield a square for each of 13×9×4 triples. An independent affine-plane implementation checked all possible splits through size ten, and reconstructed all swaps by common nine-element subsets, including checking that no cross-shore swap appears. It found exactly the 1,872 states and 468 four-vertex components of degree two.",
+      "residual_risks": [
+        "The result uses open neighbourhoods, distinguishes only unselected vertices, and concerns minimum-preserving swaps in PG(2,3) only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The readable general projective-plane domination theorem gives 2q with closed neighbourhoods, not the locating-total number. No relevant result was obtained from the bounded broader lookup. The direct locating-total reference was identified but the primary text could not be read from the tried copies."
+        ],
+        "reasoning": "A closed-neighbourhood domination bound and its equality geometry leave the singleton-signature constraints and optimal swap graph undecided. Unread direct literature remains a risk.",
+        "searches": [
+          "Public literature query for locating-total domination in projective-plane incidence graphs",
+          "Héger–Nagy arXiv:1603.02933; Henning–Jafari Rad DOI 10.1016/j.dam.2012.04.004"
+        ]
+      },
+      "checked_sources": [
+        "Héger–Takáts arXiv:1207.5469; Héger–Nagy arXiv:1603.02933; Henning–Jafari Rad DOI (metadata only)",
+        "Resultary 5bebb17b0810, 530956a71a6a, c12a3d1b3ac8, 62b86adfe63f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The smallest metric-resolving and ordinary dominating sets have sizes 8 and 6 respectively, against 10 for the reviewed constraint; the statements do not classify the required line/pencil additions or swap invariants."
+        ],
+        "reasoning": "The exact classification depends on combining four duplicate-singleton constraints with the point-side constraints and fixing a triple along exchanges. None is supplied by those statements; the same-day date provides no comparative priority evidence.",
+        "searches": [
+          "Héger–Takáts definition and order-three computation; Héger–Nagy domination definitions and general result; nearest same-day Resultary statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Metric resolving uses distances, including to resolving vertices, with metric dimension 8 for PG(2,3). Same-graph classification 5bebb17b0810 gives 9,828 size-eight resolving sets and an orbit of size 1,872."
+        ],
+        "reasoning": "Open-neighbourhood total domination and outside location do not reduce to the distance-resolving criterion. Point–line duality preserves the reviewed invariant but does not turn it into metric dimension.",
+        "searches": [
+          "Resultary: locating-total domination of ternary projective-plane incidence graphs; line-plus-point and pencil-plus-line constructions",
+          "Héger–Takáts arXiv:1207.5469; Resultary 5bebb17b0810"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Error-detecting open-location has minimum 20 and 54,756 states; [1,2]-domination has minimum 7 and 468 sets; weakly connected domination has minimum 7 with a different pencil/line configuration."
+        ],
+        "reasoning": "These same-graph computations do not determine the exact reviewed minimum, minima or exchange components; in particular 468 [1,2]-dominating sets are not 468 components of the locating-total swap graph.",
+        "searches": [
+          "Resultary: minimum 10 and 1872, 468 C4 exchange graph; checked 5bebb17b0810, 530956a71a6a, c12a3d1b3ac8, 62b86adfe63f"
+        ]
+      },
+      "rationale": "Readable prior statements and the closest Resultary records concern different invariants. Even the matches to 1,872 and 468 count different objects. The minimum and the exchange structure for ordinary locating-total domination were not found in the bounded comparison. No claim of exhaustive priority is made.",
+      "residual_risks": [
+        "An unindexed order-three application or relevant passage in unread locating-total-domination material remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different metric invariant.",
+          "evidence": "Distance lists define resolution; the authors explicitly check μ=4q−4 for q=3.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.5469",
+          "material_read": "OA p. 1, offset 900; p. 9, offset 28850",
+          "method": "OA PDF bounded passages",
+          "title": "Resolving Sets and Semi-Resolving Sets in Finite Projective Planes",
+          "trigger": "Exact invariant for PG(2,3) often confused with locating"
+        },
+        {
+          "assessment": "Ordinary domination does not imply open locating-total domination.",
+          "evidence": "Closed neighbourhoods and ordinary domination number 2q.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.02933",
+          "material_read": "OA p. 1 around offset 900",
+          "method": "OA PDF bounded passage",
+          "title": "Dominating Sets in Projective Planes",
+          "trigger": "Stronger-looking general small-set geometry"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not negative evidence.",
+          "evidence": "No accessible OA copy identified, publisher returned 403.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2012.04.004",
+          "material_read": "DOI bibliographic material only",
+          "method": "Lawful OA, publisher and repository retrieval attempts",
+          "title": "Locating-total domination in graphs",
+          "trigger": "Primary work specifically on the reviewed invariant"
+        },
+        {
+          "assessment": "Metric resolving, four members per side; not a same-invariant overlap.",
+          "evidence": "9,828 size-eight resolving sets; 1,872 labels one orbit.",
+          "identifier_or_url": "Resultary 5bebb17b0810",
+          "material_read": "RESULT.md offsets 0–6785",
+          "method": "Resultary lookup and local mirror",
+          "title": "Four projective symmetry types of minimum resolving sets in the ternary plane",
+          "trigger": "Exact same graph and matching 1,872 count"
+        },
+        {
+          "assessment": "Stronger error-detecting condition, not ordinary locating-total minima.",
+          "evidence": "Minimum 20 and 54,756 minimizers.",
+          "identifier_or_url": "Resultary 530956a71a6a",
+          "material_read": "Finding around offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact error-detecting open-location polynomials on the ternary plane",
+          "trigger": "Same graph with open-location criterion"
+        },
+        {
+          "assessment": "Counts sets for a different predicate.",
+          "evidence": "[1,2]-domination minimum 7 with 468 optima.",
+          "identifier_or_url": "Resultary c12a3d1b3ac8",
+          "material_read": "Finding around offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Bounded-redundancy domination and oval-triangle exchange geometry",
+          "trigger": "Same plane and matching 468 count with exchanges"
+        },
+        {
+          "assessment": "Does not impose outside signature separation.",
+          "evidence": "Weakly connected domination minimum 2q+1, hence 7 at q=3.",
+          "identifier_or_url": "Resultary 62b86adfe63f",
+          "material_read": "Finding around offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "All optimal weakly connected dominating sets of finite projective planes",
+          "trigger": "Similar line/pencil geometry in general order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blocking-set argument, parametrization and exchange invariant",
+        "Exact independent count and swap reconstruction"
+      ],
+      "rationale": "The small natural incidence graph is a clean case where domination and location impose different constraints. The classification converts these constraints into an explicit geometric label and shows that optimal swaps preserve it, revealing severe reconfiguration disconnectivity that the minimum cardinality alone would not detect. The exact exceptional combinatorics provide a useful test case for reconfiguration questions on other incidence graphs.",
+      "residual_risks": [
+        "Does not determine connectivity under exchanges with extra selected vertices, or classify larger planes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

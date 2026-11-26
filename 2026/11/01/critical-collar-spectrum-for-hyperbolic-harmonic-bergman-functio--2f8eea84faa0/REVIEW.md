@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact four-dimensional hyperbolic-harmonic radial factor follows by applying the displayed invariant Laplacian to a homogeneous Euclidean-harmonic polynomial and its squared-radius multiple. Spherical orthogonality gives multiplicity \((\ell+1)^2\) and the exact finite eigenvalue quotient. The substitution \(s=\ell(1-t)\) retains its full numerator, domain, and positive normalization. The dominating integrable function \(e^{-s}s^{p-1}(s+2)^2\) works for every \(p>0\). Consequently the degree-scaled eigenvalue profile, the three collar regimes, and multiplicity-weighted weak spectral convergence follow without assuming uniform fixed-radius asymptotics. The successive endpoint constants follow by a local power expansion and exponentially dominated integration; for \(p=1\), polynomial-exponential integration gives \(15837/800\) exactly. A standalone finite checker passed 54 supplementary assertions. Numerical checks do not substitute for the analytical proof.
+## correctness
 
-## Originality (O): PASS, subject to independent historical review
-The established source formulas for hyperbolic-harmonic radial eigenfunctions and norms are used as background; the exact finite eigenvalue ratio itself is not claimed to be new. Üreyen's projection, atomic decomposition, and interpolation results address boundedness and function-space properties. Blaschke–Engliš–Youssfi analyze Dirichlet continuation and radial norms, not moving radial collars. The independently derived claim concerns the degree-dependent boundary scale, three-regime spectral law, full threshold counts, and two explicit projection-defect endpoint coefficients. A separate earlier fixed-radius eigenvalue analysis for the same four-ball geometry provides exact individual eigenvalues but not a uniform moving-radius limit; it is a close implication comparator, not evidence of uniqueness. A general radial semiclassical theorem or unpublished specialization might imply the result, and Stoll's relevant article was only available at abstract level. Therefore no claim of independent priority or certification is made.
+PASS
 
-## Mathematical value (V): PASS
-Boundary collars provide a natural concentration experiment in a geometrically canonical reproducing-kernel space. The normalized defect \(\operatorname{Tr}(T(I-T))\) quantifies spectral non-projectivity and is a standard concentration statistic, not a fitted or arbitrary invariant. The full spectral law explains the unique critical scale and shows precisely how the hyperbolic radial equation changes the ordinary gamma limit into a positive three-component gamma mixture. Both sharp endpoint coefficients, including the exact unweighted large-collar constant, yield reproducible benchmarks for finite spectral computations. The result is restricted to dimension four and does not claim a general theorem for all hyperbolic dimensions.
+In the stated conformal metric the degree-l radial multiplier F(t), t=|x|², obeys t(1-t)F''+[l+2-lt]F'+lF=0. The regular branch is 1-lt/(l+2); the other indicial exponent at zero is -(l+1). Angular orthogonality makes the radial-symbol compression scalar on each degree, of dimension (l+1)². Polar measure gives t^(l+1)(1-t)^(p-1)F(t)² dt. For l≥1, s=l(1-t) gives the stated (s+2)² tilt and upper limit min(l,a l N^(-beta)). The unnormalized densities converge in L¹ by the integrable majorant e^(-s)s^(p-1)(s+2)²; normalization then gives convergence of the cdf uniformly over all s≥0. This proves uniformity on every band l/N≥epsilon, including p<1 and the two degenerate regimes. The omitted multiplicity fraction is asymptotically at most epsilon³. Weighted Riemann sums give the critical distribution; its no-atom property also at G_p(a) gives the asserted threshold result. Integrating the small-s density gives the small-a coefficient; the exponential upper tail makes the rescaled large-a defect integral finite and positive. For p=1, with Q=1+3s/5+s²/10, the two unweighted-in-a integrals of s²e^(-s)Q and s²e^(-2s)Q² are 8 and 1121/800, giving 15837/800 after multiplication by 3. The decreasing finite radial likelihood ratio (and increasing s-tilt in the limit) gives the strict Euclidean comparison for proper tails and positive degree.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the known hypergeometric separation and radial norm coefficients in full. Neither the closest fixed-radius calculation in the same B⁴ space nor the same-day analytic-disk gamma crossover supplies the multiplicity-weighted moving-collar transition and defect constants in the announced setting. The bounded comparison supports this distinction, not historical priority over every possible general concentration theorem.
+
+## value
+
+PASS
+
+The result identifies the unique bandwidth-dependent scale at which a natural near-boundary observation retains a spread of eigenvalues, rather than all 0 or all 1 in the empirical limit. It determines threshold counts and the rate of loss of projection defect in the two ends of that transition. The explicit tilt also isolates why Euclidean weighted radial concentration is not an adequate substitute, despite the same collar scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

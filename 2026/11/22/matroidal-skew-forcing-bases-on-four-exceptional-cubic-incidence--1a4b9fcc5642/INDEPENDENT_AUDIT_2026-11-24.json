@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:00:21.070534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62; VERIFICATION.md; verify.py, lines 30–183; verify.cpp, lines 18–132",
+        "/workspace/reproductions/5/stopping_sets.py and /workspace/reproductions/5/replay.txt (python3 stopping_sets.py)",
+        "/workspace/branches/18843536-9351-4475-bd00-ddacf633cf30/check_record5.py and CHECK.md (additional direct closure and exchange-distance comparison)"
+      ],
+      "rationale": "In skew forcing the color of the forcing vertex is irrelevant, so on a bipartite graph each shore evolves using only its own white set and the opposite-shore neighborhoods as tests. The whole forcing family is a product. For an independent exact check I enumerated inclusion-minimal white stopping sets on both shores of each stated graph and then checked all black seeds against those sets: a stopping set cannot lose its first white vertex, and any nonempty stalled residual white set contains a minimal stopping set. This reproduced every coefficient of both factors and the forbidden triples, including the Pappus shore permutation and the extra parallel class. For Desargues no addition across black components is possible and two-edge paths successively shorten to edges, so closure fills the complete graphs on the initial components; complementation gives the other shore. The connected-graph recurrence and the exact finite check agree. The explicit basis-exchange axiom was checked for all minimum shore seeds, and the identified bases are those of the displayed geometric, sparse-paving and graphic matroids. An exchange from any current basis toward a target basis decreases the difference by one, proving the distance formula. Each whole optimum has the shore minimum on each side, so jumping gives a Cartesian square and sliding across a bipartition never preserves optimality. The one-shore edge counts 126, 300, 540, 930 and eccentricity counts 28, 48, 72 at 3 and (5 at 3, 120 at 4) for Desargues reproduce the table and whole Desargues eccentricity counts 25, 1,200, 14,400. For the Desargues eccentricities, a disconnected complement of a tree requires all edges of a cut in the tree; a 2-versus-3 cut needs six edges, so only a star has disconnected complement. Its complement is K_4 plus one isolated vertex and there is a spanning tree using just one star edge. No assumption on probabilistic seeds or on extrapolation is needed.",
+      "residual_risks": [
+        "The comment at frozen verify.py lines 88–89 overstates a converse: realizing the Hamming lower bound in a Johnson subgraph does not by itself establish a matroid basis family (e.g. {12,23,34} is an isometric path but violates basis exchange). The theorem uses the actual matroid descriptions, and the independent check verifies the basis axiom explicitly; the false converse is not used.",
+        "Certification is for the four labelled graph models and ordinary skew forcing only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeAlba's matroid result assumes every maximum matching is uniquely restricted. Each graph here has multiple perfect matchings (24, 33, 42, 60, respectively), hence alternating cycles prevent that hypothesis. Same-day 3e4638bc887b applies to full once-subdivisions of connected graphs; dbe6095a0498 treats corank-two matroid realizations."
+        ],
+        "reasoning": "The full once-subdivision graph family has degree-two subdivision vertices, unlike these cubic incidence graphs. A corank-two statement does not cover the displayed ranks/coranks. The general fort theorem supplies a test, not the geometry or enumerator of the four exact families.",
+        "searches": [
+          "DeAlba arXiv:1404.1618, Proposition 4.1 and Theorems 4.6–4.7",
+          "Bong et al. arXiv:2501.03642, §2.2",
+          "Resultary same-day related records 3e4638bc887b and dbe6095a0498"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.1618 and arXiv:2501.03642",
+        "Resultary records 3e4638bc887b, dbe6095a0498, 546fce2bd813, 9228c57633d9, c9fe15cd9378 and fc9b95f1c3c6",
+        "Primary skew forcing and Tanner stopping-set search comparisons; frozen prior-work references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard matroid exchange implies the jump distances once the bases are known, and the Desargues triangle rule is ordinary graphic closure. Neither turns a different incidence matrix, a general fort characterization, or an ordinary-forcing census into the other exact shore families."
+        ],
+        "reasoning": "The connected-edge identification for the Desargues incidence model, the Fano and Möbius–Kantor forbidden triples, and especially completion to all affine lines in the Pappus model are the decisive object-specific steps. Matching counts alone, the general hitting criterion or the unrelated subdivision model do not determine these steps. The arithmetic once these identifications are known is not separately credited as novelty.",
+        "searches": [
+          "DeAlba arXiv:1404.1618; Bong et al. arXiv:2501.03642; published Resultary 3e4638bc887b and fc9b95f1c3c6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct catalogue hit was the assigned record. The focused primary search did not return a relevant graph-specific paper. The skew-fort hitting theorem gives exactly a stopping-set transversal formulation on each shore."
+        ],
+        "reasoning": "The reduction is genuine: minimum seeds are minimum hitting sets of the inclusion-minimal nonempty white stopping sets. A prior catalogue of those exact sets could cover the enumerator and minimum sets even without the term skew forcing. PG(2,3) catalogue fc9b95f1c3c6 is a different 13×13 matrix, not any of these matrices.",
+        "searches": [
+          "Resultary: exact skew forcing, matroid closure and minimum-set reconfiguration on Heawood, Möbius–Kantor, Pappus and Desargues",
+          "Primary: ‘skew zero forcing’ Heawood ‘Möbius-Kantor’ Pappus Desargues graphs",
+          "Bong et al. arXiv:2501.03642, §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary-forcing records give exact counts on the same graphs, including 700 Heawood minima, 1,704 Möbius–Kantor minima, 6,912 Pappus minima and 13,520 Desargues minima; these differ from the skew census. The primary stopping-set search surfaced the inaccessible Stopping Set Distributions of Some Linear Codes and other stopping-set/girth or ensemble papers."
+        ],
+        "reasoning": "Ordinary forcing requires a black forcing vertex and does not split into independent shore processes. A distribution giving only counts of stopping sets by size generally does not encode inclusion-minimal labelled families or intersections with seeds. No accessible exact table inspected covered the identified shore families or the skew exchange metrics. No judgment about the inaccessible papers' full contents is made.",
+        "searches": [
+          "Resultary: exact forcing and reconfiguration on the four graphs; incidence-matrix stopping sets, records 546fce2bd813, 9228c57633d9, c9fe15cd9378 and fc9b95f1c3c6",
+          "Primary: Tanner stopping sets exact incidence matrix Heawood Möbius-Kantor Pappus Desargues graph stopping set enumeration"
+        ]
+      },
+      "rationale": "The full shore enumerators with the identified base families and exact exchange geometries are distinct from inspected prior work. General skew forts, bipartite separation, graphic closure and basis exchange are credited as methods; inspection found neither a covering theorem with satisfied hypotheses nor an exact catalogue for these matrices. The unresolved stopping-set literature access risk is explicit below.",
+      "residual_risks": [
+        "The exact matrices and stopping-set material in Stopping Set Distributions of Some Linear Codes could not be inspected; inaccessible or unindexed treatments could partially overlap. No absence inference rests on failed access or keyword misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hypothesis excludes the four graphs",
+          "evidence": "Matroid description uses all maximum matchings uniquely restricted; any two distinct perfect matchings yield an alternating cycle in their symmetric difference.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.1618",
+          "material_read": "PDF pp. 8–9, Proposition 4.1 and Theorems 4.6–4.7, offsets 17564–22723",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+          "trigger": "General bipartite matroid result"
+        },
+        {
+          "assessment": "Exact general framework, not verified graph-specific coverage",
+          "evidence": "Defines exchanges and slides and shows skew forcing sets hit all skew forts. On one shore the fort test is precisely no opposite check meeting the set in one vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.03642",
+          "material_read": "PDF p. 1 (offset near 4500); §2.2 p. 4, Theorem 2.2.9 (offset near 14812)",
+          "method": "Primary OA PDF bounded passage inspection and literal checks for the graph names",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "Exact reconfiguration framework and possible stopping-set equivalence"
+        },
+        {
+          "assessment": "Close structural analogues, different objects",
+          "evidence": "The former uses full subdivisions and a root plus a tree complement, with K_n times a basis graph and no slides; the latter concerns corank two.",
+          "identifier_or_url": "2026/11/22/...3e4638bc887b ; 2026/11/22/...dbe6095a0498",
+          "material_read": "Findings and stated graph/matroid hypotheses",
+          "method": "Local published mirror",
+          "title": "Spanning-tree exchange geometry of minimum skew forcing on full subdivisions; Unique simple-graph skew-forcing realizations of all corank-two matroids",
+          "trigger": "Distinct same-day exact skew-forcing matroid results"
+        },
+        {
+          "assessment": "Different forcing rule or different incidence matrix",
+          "evidence": "The former require ordinary zero forcing; the latter counts 769 stopping sets on the 13×13 projective-plane incidence matrix.",
+          "identifier_or_url": "546fce2bd813 ; 9228c57633d9 ; c9fe15cd9378 ; fc9b95f1c3c6",
+          "material_read": "Catalogue findings and rule/matrix descriptions",
+          "method": "Local published mirror",
+          "title": "Exact ordinary zero-forcing records for Heawood, Möbius–Kantor, Pappus and Desargues; Complete stopping configurations and erasure-failure spectrum on the PG(2,3) incidence matrix",
+          "trigger": "Same-graph exact tables and an equivalent-framework table"
+        },
+        {
+          "assessment": "Possible coverage unresolved",
+          "evidence": "Not determinate whether it treats these matrices or reports labelled inclusion-minimal stopping sets.",
+          "identifier_or_url": "https://citeseerx.ist.psu.edu/document?doi=bdfdc2526a6f85937e72ebfba091adb5267a1736&repid=rep1&type=pdf",
+          "material_read": "Indexed title only; matrices and tables not retrieved",
+          "method": "Direct and alternate lawful full-text retrieval attempts, unsuccessful",
+          "title": "Stopping Set Distributions of Some Linear Codes",
+          "trigger": "Possible exact Tanner stopping-set coverage"
+        },
+        {
+          "assessment": "No whole-document coverage inference",
+          "evidence": "The indexed titles indicate ensemble distributions and girth; they do not identify exact labelled families here.",
+          "identifier_or_url": "IEEE document 1397932 ; IEEE article 01023274",
+          "material_read": "Indexed descriptions only",
+          "method": "Primary retrieval attempts did not yield full text (HTTP 202)",
+          "title": "Stopping set distribution of LDPC code ensembles; Stopping sets and the girth of Tanner graphs",
+          "trigger": "Related stopping-set search results"
+        },
+        {
+          "assessment": "Available passage is graph classification, not a forcing formula",
+          "evidence": "The cited objects are organized by symmetry and girth in the available material.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2008.06.001",
+          "material_read": "Landing page and abstract; full text not retrieved",
+          "method": "Bounded publisher/OA retrieval",
+          "title": "A complete classification of cubic symmetric graphs of girth 6",
+          "trigger": "Previously identified exceptional graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Bong et al. arXiv:2501.03642, reconfiguration definitions",
+        "Independent stopping-set and exchange verification in /workspace/reproductions/5"
+      ],
+      "rationale": "These are standard exceptional cubic incidence examples, and their minimum forcing sets are relevant to reconfiguration under both a global edit and a graph-local one. The result is not just another minimum cardinality table: it identifies the obstruction geometry, recovers the missing affine direction in the Pappus case, and explains why minimum sets are slide-frozen but have exact shortest jump paths, with a separate metric profile for the graphic case. The full forcing polynomials distinguish behavior beyond minima. The finite checks cover the natural complete families on these four graphs rather than a selected subset of seeds.",
+      "residual_risks": [
+        "The result supplies a four-object classification, not a general bipartite skew-forcing matroid theorem. Some component formulas are routine once the object-specific identification is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

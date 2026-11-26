@@ -1,19 +1,21 @@
-# Scientific assessment: a metric-dependent relaxation front in nested Brownian resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite-time gamma mixture is directly traceable to Britton et al., equation (2.10). Stochastic ordering of the symmetric Gaussian scales gives equality, not merely an upper bound, between one-Wasserstein distance and the difference of absolute first moments; the incomplete-gamma integration is exact. The gamma central limit theorem, uniform integrability and Taylor expansion of normal densities in the \(L^1\) topology give the displayed Wasserstein and total-variation profiles with their separate normalization constants. Exponential gamma tails justify excluding rare scale deviations. The macroscopic profiles follow from gamma concentration, Scheffé's lemma and Gaussian density crossing. There is no inference from finite computation to an infinite theorem. The packaged numerical program passed 53 checks.
+PASS
 
-## Originality — PASS, with substantial implicit-corollary risk
+The exact mixture agrees with the published density, and backward ancestry through independent clocks also gives a total Brownian running time min(Gₙ/r,t). Sharing Gₙ and the same normal variable gives a coupling with ordered absolute displacements; the 1-Lipschitz test |x| attains its cost, proving the exact incomplete-gamma formula. At aₙ=n+z√n the square-root difference is (Gₙ−aₙ)₊/(√Gₙ+√aₙ); the standardized overshoot is uniformly integrable by its bounded second moment and the normalized denominator tends to two, giving the stated W₁ constant. For TV, after common rescaling, the first-order density difference is −n⁻¹ᐟ² E[(Hₙ−z)₊] ∂ᵥh₁, with O(n⁻¹) L¹ Taylor remainder on a compact variance interval and exponentially small density contribution from its complement. Cauchy–Schwarz also controls the complement's linear term. Half the L¹ norm of ∂ᵥh₁ is φ(1), by integrating (x²−1)φ(x) on x>1. For fixed s<1 the limiting normal variances are s and 1; density convergence at x≠0 suffices for Scheffé (the bounded-continuity argument need not apply at x=0). The density-crossing expression follows by equating the normals. For s>1 gamma concentration bounds TV by P(Gₙ>sn) and W₁ by a constant times √n times its square root. The frozen verification script was inspected without execution. Its finite TV checks are only at z=0; arbitrary z and the macroscopic TV formula are established by the proof.
 
-The forward finite-time density, stationary law, and accumulation-time front were explicitly proved in the 2026 motivating source and are excluded. Comparison of its Sections 2–5 and Appendix A found no theorem computing the optimal-transport distance or the sharp \(\sqrt n\)-window total-variation and Wasserstein profiles. The earlier 2025 nested-resetting paper addresses steady states and exact correlations rather than these quantitative marginal relaxation metrics. Targeted published-record, published-finding corpus and alternative-name searches found no equivalent quantified two-metric result. This is not an independent model or a new finite-time solution; its main novelty, if sustained, is a simultaneous large-depth metric-geometry theorem. It could be considered implicit in a sufficiently broad Gaussian scale-mixture result; independent literature verification is still required.
+## originality
 
-## Value — PASS
+PASS
 
-A local spatial accumulation time does not specify how rapidly the distribution of a deep particle approaches its stationary marginal in probabilistic distances. Here at the same physical wavefront the total-variation discrepancy is negligible while the absolute transport discrepancy remains macroscopic. The exact \(n^{-1/2}\) total-variation coefficient and normal-overshoot Wasserstein profile expose a concrete metric-dependent distinction relevant to the interpretation of stochastic transport and chain-depth relaxation. The single finite-time Wasserstein identity is accompanied by sharp macroscopic and critical-window limits rather than presented as an isolated routine rewrite.
+Pass for the exact transport result together with the quantified contrast between order-one physical W₁ and vanishing TV at the critical front. The transient marginal and accumulation-time front are published. The same critical TV formula is independently present in a later-dated catalogue entry and is not credited as distinct in isolation. Neither source comparison covers the transport profile or the simultaneous two-metric conclusion.
 
-## Closest literature and residual risk
+## value
 
-Britton et al. (2026), arXiv:2609.25252v1, equation (2.10) and Section 3, give the exact time-dependent position density and accumulation times. Alston, Britton and Bertrand (2025), arXiv:2502.03225v1, with its supplement, supply the stationary nested-resetting analysis. General transport-metric or Gaussian-mixture asymptotic results might logically subsume the limiting profiles despite using different terminology. No result asserting noncoverage of every possible source is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp constants quantify a meaningful distinction in the same model and at the same times: bounded position tests become insensitive while the optimal mean absolute displacement cost remains positive. This is not an assertion about the full joint law, and the use of unrescaled physical position in W₁ is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

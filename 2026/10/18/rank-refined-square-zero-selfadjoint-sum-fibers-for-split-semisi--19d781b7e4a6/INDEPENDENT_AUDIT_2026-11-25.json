@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:22.261149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd q, set D=A−B, so A=(C+D)/2 and B=(C−D)/2. Their conditions are equivalent to D*=D, CD+DC=0 and D²=−C². Different eigenspaces of the split selfadjoint C are orthogonal and each is nondegenerate. The anticommutation equation forces D to map V_λ into V_{−λ}; for λ nonzero the equation on D² makes the map invertible, so an unpaired eigenspace or unequal dimensions are impossible. On a paired block write D's upper-right entry as λT; selfadjointness gives the lower-left as λT*, and the square condition is T*T=−I and TT*=−I. This is exactly an anti-isometry of the two forms. The two determinant square classes must agree after negation of one form; this is exactly the stated character test. The valid maps form one torsor under the orthogonal group of the plus-labelled eigenspace. The kernels of C±D are graphs over one m_λ-dimensional eigenspace, so each summand has rank m_λ there. On V_0, B_0=−A_0; a square-zero selfadjoint A_0 has isotropic image U and kernel U^⊥, and the canonical identification V_0/U^⊥≅U* gives a bijection with nonsingular symmetric maps U*→U. The isotropic-line count from the finite-field quadratic zero count and quotienting by a hyperbolic plane multiply to count complete isotropic flags, then division by the flags in an r-plane gives I_r. The stabilizers of the two congruence classes relative to GL_r give S_r, with the stated orders and Witt signs. All factors are positive on the stated support, with the empty, zero-dimensional and rank-zero conventions consistent. The choices are ordered, so swapping A and B does not call for division by two. The independent replay directly tested all 59049 selfadjoint 4×4 matrices in each of four F3 cases and found 1+32z+144z², 2z+8z², 8z² and 0, checking both ranks. Replay: /workspace/branches/55fdf519-8983-4966-bb9c-1f6e34fdcdf4/record5_reproduce.py with record5_small_run.json and record5_other_runs.json. The uploaded check.py was inspected, not run. The replay is not a test of all odd q or of the recorded extension-field sample; the proof covers arbitrary odd q in the split setting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.15 is a necessary-and-sufficient existence theorem for selfadjoint operators without the split semisimple restriction; in this specialization the paired forms must be anti-isometric. Section 1.6.3 gives finite-field conditions.",
+          "Proposition 2.5 constructs an isometry to a hyperbolic boxed sum for decomposable invertible targets by using the complementary isotropic images. Section 4.2 uses boxed sums for existence.",
+          "The November 8 zero-product record has a fixed-image parametrization for a related pair problem, not the nonzero sum constraint."
+        ],
+        "reasoning": "The broader existence theorem subsumes the zero versus nonzero fiber criterion. Its constructive boxed-sum model parametrizes the structure up to isometry, not the number of ordered splittings at a specified C. In particular, obtaining the fixed-target multiplicity requires identifying and counting the choices inside that fiber.",
+        "searches": [
+          "de Seguins Pazzis arXiv:2210.03955v1 Theorems 1.13 and 1.15, §1.6.3, Proposition 2.5 and §4.2",
+          "Resultary: rank fibers and component intersections of selfadjoint zero-product pairs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "de Seguins Pazzis arXiv:2210.03955v1",
+        "Fulman–Goldstein arXiv:1211.0504",
+        "Resultary November 2 selfadjoint tuples, October 18 skew-adjoint tuples, October 12 rank-one fibers and November 8 selfadjoint zero-product records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The boxed-sum proof identifies the complementary maximal isotropic images and their connecting maps; it does not count decompositions over a fixed split target in the inspected passages. The November 2 formula has no nonzero target and accounts exactly for the zero-eigenspace factor.",
+          "For a fixed C, the anticommuting equation for D=A−B separates interactions into opposite eigenspaces. Resolving its square equation and selfadjointness gives one independent orthogonal torsor on each valid pair, with each summand forced to have half the pair dimension as rank; the isotropic part then supplies all further ranks."
+        ],
+        "reasoning": "The prior structural existence model is genuinely related, not just a keyword match. Passing from it to the stated exact multiplicities is not a parameter substitution into a prior count: the eigenspace-by-eigenspace fiber bijection fixes C and counts actual decompositions, not isometry types. Existing counts for target zero do not count those torsors at nonzero target.",
+        "searches": [
+          "arXiv:2210.03955v1, actual boxed-sum proposition and existence proof versus fixed-target rank count",
+          "November 2 mutually annihilating selfadjoint tuple formula at length one"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 joint-ranks Finding at tuple length one and t=r_1=r specializes to I_r S_r, with j=r the sole surviving term, so the entire zero-target polynomial is covered for its nontrivial dimensions.",
+          "The October 18 rank-resolved tuples Finding requires skew-adjoint maps with all pairwise products zero. October 12 exact rank-one additive fibers have no adjoint constraint and require both summands to be nonzero and rank one."
+        ],
+        "reasoning": "The first comparison is an exact specialization because B=−A at target zero. The other two change either the adjoint and product constraints or the rank domain, so they cannot substitute for prescribed selfadjoint fibers. The same-day skew-adjoint match was compared on hypotheses, not dismissed by date.",
+        "searches": [
+          "Resultary: selfadjoint square-zero sums and mutually annihilating tuples, rank-polynomial and common images",
+          "de Seguins Pazzis: square-zero splitting and boxed sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 tuple formula reproduces 1,32,144 for q=3 and a split 4-space at target zero. Fulman–Goldstein's symmetric rank distribution at full rank gives the classical S_r factor, with earlier Carlitz and MacWilliams work identified there.",
+          "The inspected older rank-one additive-fiber record counts non-selfadjoint unrestricted rank-one pairs, not the target polynomial on the selfadjoint subspace."
+        ],
+        "reasoning": "An exact table or ingredient for a component is credited as such. Neither a marginal symmetric rank distribution nor a different additive population enumerates the nonzero selfadjoint sum fibers.",
+        "searches": [
+          "Resultary: joint ranks and common images of mutually annihilating self-adjoint square-zero operators",
+          "Fulman–Goldstein arXiv:1211.0504 §4 equation (21), nonsingular symmetric matrices",
+          "Resultary: exact fibers of sums of two rank-one square-zero matrices"
+        ]
+      },
+      "rationale": "Pass is for the exact ordered fiber polynomial for a fixed split semisimple selfadjoint target, including its nonzero blocks and all ranks, conditional on the retrieved evidence. The existence criterion is already given by the primary classification, and the entire zero-target polynomial is covered by a later distinct indexed formula. Neither is credited as new. The actual broader existence and constructive passages were compared with the fixed-target enumeration; they do not supply the latter. No indexed or primary full count with the nonzero anti-isometry torsors and the zero-block rank contribution was established. This is not a priority assertion.",
+      "residual_risks": [
+        "An equivalent count may exist under fixed-target stabilizer, boxed-sum, or anti-isometry terminology outside the inspected passages and records. Neither priority nor newness of the existence test, zero-target formula, or classical factors is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence, with a genuine structural model, but no fixed-target rank census established in these passages",
+          "evidence": "Theorem 1.15 supplies the paired-form condition; Proposition 2.5 puts a splittable invertible operator into a hyperbolic boxed-sum model using the two maximal isotropic images.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03955v1",
+          "material_read": "Theorems 1.13 and 1.15 pp. 17–19; §1.6.3 pp. 22–23; Proposition 2.5 and proof pp. 31–32, PDF extraction offsets about 70800–74400; §4.2 pp. 47–49",
+          "method": "Public original PDF passages and specialization of hypotheses",
+          "title": "Sums of two square-zero selfadjoint or skew-selfadjoint endomorphisms",
+          "trigger": "Closest general classification and possible constructive implication"
+        },
+        {
+          "assessment": "Dominates the zero-target polynomial; later date is not a priority verdict",
+          "evidence": "At one operator, t=r, the sum has only j=r, giving I_r S_r using the same isotropic and symmetric-matrix factors.",
+          "identifier_or_url": "2026/11/2/SCOPE-joint-ranks-and-common-images-of-mutually-annihilating-self-adjo--76b3021ff74c",
+          "material_read": "RESULT.md Finding, offsets 0–2750",
+          "method": "Resultary public record in local mirror",
+          "title": "Joint ranks and common images of mutually annihilating self-adjoint square-zero operators",
+          "trigger": "Exact zero-block overlap"
+        },
+        {
+          "assessment": "Different self/skew and product/sum conditions",
+          "evidence": "Skew-adjoint mutually annihilating tuples and joint image rank, not selfadjoint prescribed-sum fibers.",
+          "identifier_or_url": "2026/10/18/SCOPE-rank-resolved-mutually-annihilating-tuples-in-finite-orthogonal--08d22328f3e7",
+          "material_read": "RESULT.md Finding and proof",
+          "method": "Resultary public record in local mirror",
+          "title": "Rank-resolved mutually annihilating tuples in finite orthogonal spaces",
+          "trigger": "Same-day orthogonal rank-tuple match"
+        },
+        {
+          "assessment": "Different restricted-rank problem despite common square-zero sum",
+          "evidence": "Two nonzero rank-one square-zero matrices, no selfadjoint condition.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-fibers-of-sums-of-two-rank-one-square-zero-matrices-over-f--10d018dd0e27",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary public record in local mirror",
+          "title": "Exact fibers of sums of two rank-one square-zero matrices over finite fields",
+          "trigger": "Earlier exact additive-fiber match"
+        },
+        {
+          "assessment": "Related zero-block method, not a prescribed nonzero sum count",
+          "evidence": "Counts selfadjoint zero-product pairs; square-zero on a selfadjoint factor additionally requires isotropic image.",
+          "identifier_or_url": "2026/11/8/SCOPE-rank-fibers-and-component-intersections-of-self-adjoint-zero-pro--f1e2a7d07826",
+          "material_read": "RESULT.md fixed-image parametrization",
+          "method": "Resultary public record in local mirror",
+          "title": "Rank fibers and component intersections of self-adjoint zero-product pairs",
+          "trigger": "Related image methods for selfadjoint pair counts"
+        },
+        {
+          "assessment": "Prior exact ingredient S_r, not the decomposition fiber",
+          "evidence": "Full-rank specialization of the symmetric rank distribution counts nonsingular symmetric matrices; the paper cites Carlitz and MacWilliams.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0504",
+          "material_read": "§4 equation (21), p. 13, and references p. 41",
+          "method": "Public original PDF passage",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Prior exact symmetric-matrix count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Existence does not determine the multiplicities of decompositions, even for invertible targets. The result supplies a fixed-target finite-field enumeration, separates the dependence on eigenspace form types from the nilpotent freedom on the zero eigenspace, and gives the attained ranks and their exact weights. The nonzero-block torsor count and its rank contribution address a natural gap beyond the earlier existence theorem and the known zero-target count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

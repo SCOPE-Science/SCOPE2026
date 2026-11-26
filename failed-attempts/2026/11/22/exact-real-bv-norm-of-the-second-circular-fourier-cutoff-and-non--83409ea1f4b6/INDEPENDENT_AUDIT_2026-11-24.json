@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:38:31.834382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–50",
+        "VERIFICATION.md and checks/check_bv_fourier2.py (inspected, not executed)"
+      ],
+      "rationale": "D commutes with normalized convolution. A Jordan coupling of mass V(f)/2 bounds amplification by half the maximum L1 distance of two normalized translates; opposite point masses from an arc attain each nonzero tested distance. For h=delta/2 and c=cos(h), the centered unnormalized difference is -4 sin(h) sin(u)(1+4c cos(u)), whose absolute integral on the two half-periods gives exactly the two branches in (2). The first reaches at most 4/pi. On the second, the derivative of the squared ratio times 4 pi^2 has sign given by -(16z+1)(32z^2-16z+1), with z=c^2, and the only interior maximum has z=(2+sqrt(2))/8 and value 71+8sqrt(2), larger than 64. Both boundary cases are smaller. Reflection gives only the two complementary lengths. The radical decimals agree. No all-BV equality classification is implied.",
+      "residual_risks": [
+        "Real scalar field and exact quotient by constants are essential to the argument; no claim about complex BV or arbitrary cutoff follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "It proves the norm and exactly maximizing arc lengths for all admissible nonnegative two-harmonic kernels and powers, with a q>Q branch."
+        ],
+        "reasoning": "At a=b=1/4,r=1, q=4>Q and s_q=(2+sqrt(2))/8. Multiplying its norm by 4 gives the radical after squaring. The unique short arc up to complementation transfers as well; the semicircle case evaluates to 4/pi by the explicit translate-distance formula.",
+        "searches": [
+          "24124cd6a492, Finding and proof steps 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and mirror: target 83409ea1f4b6, covering 24124cd6a492, and comparator IDs above",
+        "Primary OA source passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The smoothing proof gives the exact half-L1 distance for every shift and both global maximizing regimes. Candès–Fernandez-Granda and Poon instead address Fourier recovery."
+        ],
+        "reasoning": "The two-harmonic theorem plus a positive uniform admixture and scalar multiplication imply every substantive part of the frozen finding. The recovery theorems are not needed for this implication.",
+        "searches": [
+          "24124cd6a492, mirror offsets 0–2127 and 2600–5577",
+          "arXiv:1203.5871v3 §1.2; arXiv:1407.5339 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "k_(1/4,1/4)=(D_2/(2 pi))/4+3/(8 pi); it is nonnegative since 1+(cos t+cos 2t)/2 >= 0."
+        ],
+        "reasoning": "Convolution by the constant component has derivative zero. On the exact real BV quotient, this admissible smoother is 1/4 of the target operator, so its norm and the full maximizing arc-length set transfer without any extension beyond the other result's hypotheses.",
+        "searches": [
+          "Resultary: sharp circular BV two-harmonic translate norm and nonantipodal norming jumps",
+          "24124cd6a492, mirror Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent literal table of the radical was found in those neighboring exact records; the target hit is itself. The distinct exact parameterized formula 24124cd6a492 supplies the value as above."
+        ],
+        "reasoning": "A tabulated radical is unnecessary once a stronger indexed theorem gives it on the identical quotient after scaling. Other exact projection constants use different norms or domains.",
+        "searches": [
+          "Resultary: BV Dirichlet projector norm, finite harmonic constants, exact Fourier projection",
+          "Finite maximum-edge cycle 616f4adc601f; finite TV spectral projection 92a019b51662; finite cyclic endpoint b176a6018242"
+        ]
+      },
+      "rationale": "The entire finding is already mathematically covered by the distinct indexed two-harmonic smoothing result 24124cd6a492. Use the admissible nonnegative density with a=b=1/4 and r=1, not the inadmissible substitution a=b=1. This same-day comparison establishes coverage, not publication order or dependence. The other record's uncited description of a signed degree-two norm may refer to this very target; no additional prior publication is inferred from that description.",
+      "residual_risks": [
+        "The exact temporal relationship of the two same-day records is unknown; the scientific failure is duplicate mathematical coverage, not a historical accusation.",
+        "Historical approximation-theory full-text coverage remains incomplete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering by admissible rescaling on BV modulo constants; no dating order inferred",
+          "evidence": "Finding gives the q>Q branch and exact arc lengths; proof step 2 gives every shift. The uniform term cancels in all translated differences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-circular-bv-contraction-and-a-golden-ratio-jump-transition--24124cd6a492/RESULT.md",
+          "material_read": "Finding, proof steps 1–3 and prior-work passage, offsets 0–2127, 2600–5577 and 5250–7550",
+          "method": "Exact RESULT.md, local mirror",
+          "title": "Sharp circular BV contraction and a golden-ratio jump transition for two-harmonic smoothing",
+          "trigger": "Closest matching norm, kernel class and maximizing arcs"
+        },
+        {
+          "assessment": "Different domain and norm",
+          "evidence": "One harmonic pair and the finite maximum-edge Lipschitz norm.",
+          "identifier_or_url": "Resultary 616f4adc601f",
+          "material_read": "RESULT.md offsets 0–4716 and 4700–7700",
+          "method": "Local mirror",
+          "title": "Sharp harmonic projection constants on finite metric cycles",
+          "trigger": "Exact harmonic projection constants"
+        },
+        {
+          "assessment": "Discrete and different frequency set",
+          "evidence": "Exact edge-TV norm for Paley frequencies on finite groups.",
+          "identifier_or_url": "Resultary 92a019b51662",
+          "material_read": "RESULT.md offsets 0–4444",
+          "method": "Local mirror",
+          "title": "Exact Paley spectral projection norm in cyclic total variation",
+          "trigger": "Closest other TV norm analogy"
+        },
+        {
+          "assessment": "Different operator and norm",
+          "evidence": "Full-space endpoint norms for three consecutive characters.",
+          "identifier_or_url": "Resultary b176a6018242",
+          "material_read": "RESULT.md offsets 0–4424",
+          "method": "Local mirror",
+          "title": "Exact three-frequency Fourier projection norm on every cyclic group",
+          "trigger": "Potential exact Fourier constant table"
+        },
+        {
+          "assessment": "Not this norm",
+          "evidence": "Large-cutoff C(T) sup-norm differences after frequency deletions.",
+          "identifier_or_url": "Resultary c38977523c90",
+          "material_read": "RESULT.md offsets 0–3883",
+          "method": "Local mirror",
+          "title": "A universal positive Lebesgue-norm penalty for fixed Fourier frequency deletions",
+          "trigger": "Dirichlet-cutoff norm comparison"
+        },
+        {
+          "assessment": "Different extremal problem",
+          "evidence": "The Dirichlet projector serves recovery of sparse measures, rather than maximization of BV amplification.",
+          "identifier_or_url": "arXiv:1203.5871v3",
+          "material_read": "§1.2, offsets 12600–15634",
+          "method": "OA primary text",
+          "title": "Towards a Mathematical Theory of Super-Resolution",
+          "trigger": "Cited low-pass projection source"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Discrete gradient-sparse recovery from incomplete Fourier samples.",
+          "identifier_or_url": "arXiv:1407.5339",
+          "material_read": "§2.1, offsets 11200–15799",
+          "method": "OA primary text",
+          "title": "On the role of total variation in compressed sensing",
+          "trigger": "Fourier recovery with TV"
+        },
+        {
+          "assessment": "Unresolved historical comparison; not used for failure",
+          "evidence": "Available material mentions the Dirichlet kernel and BV measure correspondence; it does not settle an exact norm comparison.",
+          "identifier_or_url": "doi:10.2307/44151131",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful OA attempt",
+          "title": "Bounded Variation and Fourier Series",
+          "trigger": "Plausible historical same-object source"
+        },
+        {
+          "assessment": "No inference of noncoverage",
+          "evidence": "Unavailable full-text comparison is residual only.",
+          "identifier_or_url": "doi:10.1007/BF02843691",
+          "material_read": "Citation; full text not obtained",
+          "method": "Lawful OA attempt",
+          "title": "On variation diminishing transformations on the circle",
+          "trigger": "Historical circular variation-kernel comparator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations",
+        "24124cd6a492, Finding and proof step 2"
+      ],
+      "rationale": "Nonantipodal jumps are an informative benchmark, but as a separate contribution this exact benchmark is a one-step quotient rescaling of an already covered kernel family, including its extremizing lengths. No independently useful uncovered invariant or classification remains to repair.",
+      "residual_risks": [
+        "The benchmark can still be useful as an explicitly credited example; the decision concerns incremental scientific value as a finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

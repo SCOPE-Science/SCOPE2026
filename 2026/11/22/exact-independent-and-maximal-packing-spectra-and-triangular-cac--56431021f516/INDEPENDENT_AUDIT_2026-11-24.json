@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:00:35.164977Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A k-packing has its 2k half-open endpoints strictly increasing in [1,n+1], and consecutive pairing is an inverse; the even binomial part gives the count and degree. Substituting z=-tan^2(theta) gives cos((n+1)theta)/cos(theta)^(n+1), with exactly the asserted degree-many distinct zeros at finite negative z. A packing is maximal iff no vacant vertex is nonadjacent to the entire occupied union: a witness would itself be an addable singleton. Thus end gaps are 0 or 1 and internal gaps 1 or 2, giving t^(2k-1)(1+t)^(k+1)/(1-t)^k and the stated sum. Odd optimum uses all minimal lengths and gaps. For even n, comparing omission labels r<t changes endpoint-list positions r through t-1, hence exactly one paired block iff both labels belong to a common triple (2i-1,2i,2i+1). This proves every edge, not merely connectedness; a chain of m triangles has diameter m, including m=1. Independent interval enumeration for n=1–10 matched both coefficient lists and full labeled optimum edge sets. Frozen source verification reports a separate n<=12 run; its script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected results define or use the same blob graph and transfer packing optimization or induced-minor properties. They concern feasibility and optimization, not enumeration by maximal cardinality or the edges between all tied optima."
+        ],
+        "reasoning": "A graph-family or optimization reduction does not specify these path-specific invariants. In particular an optimum size bound does not determine its exchange graph.",
+        "searches": [
+          "Martin et al., Algorithmica 85 (2023), §§2, 3.1",
+          "Bonnet et al., arXiv:2602.18317v1, §4 and Lemma 14"
+        ]
+      },
+      "checked_sources": [
+        "Martin et al. (2023)",
+        "Bonnet et al. arXiv:2602.18317v1",
+        "OEIS A000213",
+        "Local Resultary records 56431021f516 and 97bbbc9522da",
+        "Frozen RESULT.md and verification support"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gap restriction and the omitted-endpoint comparison add information absent from the transfer results and total-count sequence. A000213 cannot distinguish which gaps are spent on blob lengths or prove two particular optima share all but one blob."
+        ],
+        "reasoning": "The evaluated bivariate count and the exact exchange relation are the distinct structural claims; neither is just applying the prior optimization reduction or recalling the total recurrence.",
+        "searches": [
+          "Bonnet et al., §4 and Lemma 14; Martin et al., blob-graph packing reduction",
+          "OEIS A000213 compared to frozen Proof lines 46–56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independent-set/packing model with connected subsets and separation of chosen blobs is established. The endpoint encoding also identifies a packing with consecutive runs of occupied vertices in a binary word on n sites.",
+          "Resultary 56431021f516 is the identical frozen record. Distinct 97bbbc9522da instead counts maximal independent sets of a triangular cactus itself."
+        ],
+        "reasoning": "Renaming the graph or rewriting the elementary run count is not credited. The other cactus record does not compute exchanges among optimum blob packings: the cactus is the output graph here, not the input to an independence polynomial.",
+        "searches": [
+          "Local Resultary searches for path blob graph, separated intervals, maximal packing and optimum exchange graph",
+          "Martin et al., DOI 10.1007/s00453-023-01109-z, §§2, 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000213 at offset 137 matches the maximal totals from a(3): 1,3,5,9,17,31,... . This is the z=1 specialization and is acknowledged in the record.",
+          "The only inspected indexed statement with both the size profile and the exchange structure was the identical record 56431021f516."
+        ],
+        "reasoning": "Agreement of univariate terms, even for every n via the recurrence, does not establish their size refinement or the optimum-exchange edge relation.",
+        "searches": [
+          "OEIS A000213",
+          "Local Resultary path-blob packing and triangular-cactus searches"
+        ]
+      },
+      "rationale": "The supported contribution is the size-refined maximal-packing spectrum together with the exact one-exchange geometry of optimum packings of path blobs. The blob graph, analogous packing reductions, and the maximal totals are covered; no separate novelty is credited for the even-binomial enumerator or its elementary zeros.",
+      "residual_risks": [
+        "The shared primary search query for path blob packing was deferred; the foundational primary references were still inspected directly. An equivalent size-refined binary-run result or interval-packing reconfiguration classification under other terminology could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the packing framework, not either exact path invariant in the examined passage.",
+          "evidence": [
+            "Connected-subgraph packing is treated through independence in the blob graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-023-01109-z",
+          "material_read": "Sections 2/3.1, PDF extraction around page 5 and offset 13000.",
+          "method": "Lawful open passage inspection.",
+          "title": "Induced Disjoint Paths and Connected Subgraphs for H-Free Graphs",
+          "trigger": "Established blob-graph model and packing reductions."
+        },
+        {
+          "assessment": "Definition and transfer rather than cardinality spectrum and optimum-exchange isomorphism.",
+          "evidence": [
+            "Blob adjacency is overlap or an edge between the sets; §4 studies induced-minor and optimization behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.18317v1",
+          "material_read": "Section 4 around offset 42600, and Lemma 14 around offset 46000.",
+          "method": "Open full-text passage comparison.",
+          "title": "QPTAS for MWIS and finding large sparse induced subgraphs in graphs with few independent long holes",
+          "trigger": "Same blob graph and general transfer theory."
+        },
+        {
+          "assessment": "Direct coverage for the unrefined total; not the bivariate theorem or exchange graph.",
+          "evidence": [
+            "Matched terms beginning at a(3)."
+          ],
+          "identifier_or_url": "https://oeis.org/A000213",
+          "material_read": "Listed sequence around offset 137.",
+          "method": "Sequence-entry passage read and compared with enumerated totals.",
+          "title": "OEIS A000213",
+          "trigger": "Exact maximal-count totals."
+        },
+        {
+          "assessment": "Different graph role and different invariant.",
+          "evidence": [
+            "Studies polynomials for cactus input graphs rather than the shape of an optimum exchange graph for path intervals."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-jacobi-path-factorization-of-triangular-cactus-maximal-independe--97bbbc9522da",
+          "material_read": "Finding on maximal-independent-set polynomials and matching roots of triangular cactus graphs.",
+          "method": "Local Resultary statement comparison.",
+          "title": "Jacobi path factorization of triangular cactus maximal independent sets",
+          "trigger": "Triangle-chain and maximal-independent-set overlap in indexed search."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Path bases are a natural benchmark for the blob-graph packing reduction. The bivariate answer distinguishes maximal packing sizes hidden by totals or maximum cardinality, and the full optimum-exchange classification gives an exact parity change, bottleneck vertices, and distances. This substantive content goes beyond the elementary independence count and reproducing a tribonacci sequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

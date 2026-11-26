@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:01.369110Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite enumeration has the correct universe (all 2^15 masks), click adjacency (the incident edges at a uniform in/out vertex only), connectivity, and distance conventions. A source-to-sink move cannot introduce a directed cycle, and the inverse sink move gives the same undirected edge. Vertex relabelings and arrow reversal preserve acyclicity and legal flips. An independent run of /workspace/branches/e66f836f-f1ef-4704-a45b-8bd0397d3206/independent_click_census.py exhaustively reproduced 16,680 states, 28,140 edges, 704 components, all eight (order, multiplicity, edges, radius, diameter) rows, all nine S5-orbit rows, and the reversal transposition on the two order-21 orbits alone; output is in independent_click_census.out beside the script. Thus equality of order implies isomorphism via relabeling and, only for order 21, possibly reversal. This is a finite result for this graph; the frozen uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Macauley–Mortveit give the Tutte evaluation for the class count and the cycle-signature connectivity criterion.",
+          "adc90e8a9935, Finding, gives a cycle-anchor criterion and exact distance formula under source/sink flexes on general orientations."
+        ],
+        "reasoning": "On acyclic orientations there are no directed-cycle anchors, so the general flex result gives each pairwise distance when specialized. It does not itself tabulate the graph-specific metric, cardinality and automorphism orbit distribution.",
+        "searches": [
+          "arXiv:0709.0291 and arXiv:0910.4376",
+          "Resultary adc90e8a9935"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and companion verification files",
+        "Resultary 5191306166b5 (original result and verifier) and adc90e8a9935",
+        "arXiv:0709.0291 and arXiv:0910.4376"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparison certificate uses the full neighbor sets and exact member lists for each component and proves reversal switches just the two order-21 orbits.",
+          "Eccentricity distributions give radii by taking minima; the stored neighbor lists give edges per component by half the sum of their sizes over component members."
+        ],
+        "reasoning": "The isomorphism-type assertion follows from the same reversal and orbit data, without a new isomorphism search. The only nonprinted table entries are read directly from finer data or elementary degree sums. Distinct indexed coverage is demonstrated, while temporal priority is not.",
+        "searches": [
+          "5191306166b5, Proof §§2–4 and companion verify_click_petersen.py, component and neighbor data and orbit rows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5191306166b5 Finding defines the same KG(5,2), all DAG orientations and undirected source clicks with inverse sink clicks.",
+          "Its Proof §4 proves Aut(P)=S5 by the intrinsic five stars of intersecting two-sets."
+        ],
+        "reasoning": "A click-equivalence class is exactly the connected component in the given undirected graph. The other census's full-automorphism orbits are the same S5 component orbits, not orbits of individual orientations.",
+        "searches": [
+          "Resultary searches on Petersen acyclic orientations, click components and source/sink flip distances; 5191306166b5",
+          "arXiv:0709.0291"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The eight order/multiplicity/diameter rows and nine orbit sizes in the original text match exactly, including both order-21 orbits of size 60.",
+          "The companion table asserts explicit eccentricity distributions, e.g. order 28: 24 at 5 and 4 at 6; order 66: 22 at 5 and 44 at 6. Every orbit row contains eccentricity 5 and none less.",
+          "Its global unordered distance histogram starts with 28,140 pairs at distance 1."
+        ],
+        "reasoning": "This is exact table-level overlap, not a matching abstract or a matching total only. The eccentricity table is finer than a radius/diameter table.",
+        "searches": [
+          "5191306166b5, RESULT.md Finding and verify_click_petersen.py orbit eccentricity certificate"
+        ]
+      },
+      "rationale": "A distinct indexed Petersen-click result, 5191306166b5, tabulates the same component orders, multiplicities, diameters, nine orbits, and reversal exception. Its companion verifier contains explicit eccentricity distributions for all nine orbits, which imply every radius is exactly five, and exact component/neighbor data, whose elementary degree sums give the residual edge column. Its index directory is labeled October 26 versus October 19 for the frozen record: the evidence establishes duplicate/dominating scientific coverage, not earlier public priority or dependence. In contrast, the generic click and flex papers alone do not give this exact table.",
+      "residual_risks": [
+        "Nothing in the inspection establishes priority between the two Petersen records or shows copying; the directory dates by themselves do not resolve provenance.",
+        "An unindexed Petersen census could also exist; the verdict rests on the explicit indexed match, not on this possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact or stronger coverage of material claims; same finite census, later directory date without resolved provenance",
+          "evidence": "Identical eight size/multiplicity/diameter rows, nine automorphism orbits, same reversal; code tables give each exact eccentricity distribution and retain the adjacency lists.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-nine-symmetry-types-and-exact-click-distances-for-petersen-acycl--5191306166b5/RESULT.md",
+          "material_read": "Finding/assumptions offset 0, Proof §§3–4 around 5650, verification and comparison around 8596 and 10800; companion verify_click_petersen.py eccentricity computation and offset 7350 through end",
+          "method": "Read-only local mirror of original result and source code, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Nine symmetry types and exact click distances for Petersen acyclic orientations",
+          "trigger": "Exact Petersen graph and same click symmetry census"
+        },
+        {
+          "assessment": "General antecedent, not a printed Petersen table",
+          "evidence": "General cycle-anchor criterion and potential-based distances apply on the acyclic subspace.",
+          "identifier_or_url": "Resultary adc90e8a9935",
+          "material_read": "Finding, offset 0",
+          "method": "Read-only original mirrored text",
+          "title": "A complete cycle-anchor invariant and geodesic formula for graph flexes",
+          "trigger": "General source/sink flip metric"
+        },
+        {
+          "assessment": "Click definitions and bare total by Tutte evaluation, not the finer table",
+          "evidence": "Definition of click equivalence and κ(G)=T_G(1,0).",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0291",
+          "material_read": "PDF pp. 5 and 16",
+          "method": "Open-access original PDF text",
+          "title": "Equivalences on Acyclic Orientations",
+          "trigger": "Same click graph and component count theory"
+        },
+        {
+          "assessment": "General invariant underlying the proof's check",
+          "evidence": "Identical cycle signatures imply click equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/0910.4376",
+          "material_read": "PDF p. 11, Theorem 4.1",
+          "method": "Open-access original PDF text",
+          "title": "Posets from Admissible Coxeter Sequences",
+          "trigger": "Same cycle-signature method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact orbit-resolved census of this canonical graph can be worth doing. Here a distinct finding already provides the substantive census and strictly finer metric tables, with the edge column recoverable by a degree sum on the same finite data. The submitted classification does not establish a distinct valuable remainder; an independent reproduction lends confidence, but is not an additional finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

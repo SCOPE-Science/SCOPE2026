@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:31.773712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–75",
+        "VERIFICATION.md; frozen cubic_gabor_verify.py and cubic_gabor_verify_output.txt (inspected, not executed)",
+        "OPENBLAS_NUM_THREADS=1 python3 /workspace/reviews/reproduce.py 2; /workspace/reviews/reproduction-2.txt"
+      ],
+      "rationale": "Use the Hilbert–Schmidt and standard data norms. On the unit basis W_{u,v}/p the measurement columns are distinct phase-space characters times the ambiguity coefficients divided by p. There are p^4 data coordinates, so the column norms are p times the absolute ambiguity. Translating the cubic gives 3h(t−h/2)²+h³/4=k for h≠0 and empty intersections for h=0,k≠0. Among the p choices of k for each h≠0 there are (p−1)/2 empty, one single, and (p−1)/2 double intersections. One or two p-th roots cannot cancel. For u=0 the cyclotomic polynomial makes vanishing equivalent to permutation of the p cubic-linear values. If both coefficients are nonzero, collisions are off-diagonal points of t²+tw+w²=−a/b: a nonzero level has p−χ(−3) points (split quadratic form or nonzero norm fiber), at most two diagonal. Hence exactly the two stated axis tests give zeros. At (a,b)=(0,0) the sum is p. For each double intersection the nonzero linear difference v·(x₁−x₂) is uniform, giving the two-root cosine multiset and the stated multiplicities. This gives precisely the rank, full Weyl kernel and all singular values with the identity block left as cubic sums. No pure-state inference is needed.",
+      "residual_risks": [
+        "Fresh direct matrix SVD at p=5 and quotient-character diagonalization of an explicitly constructed Gram row at p=7 reproduced ranks 317 and 1219 and both full singular-value multisets, to tolerance 10⁻⁶. These finite numerical checks do not certify general primes. The frozen checker tests phase-difference uniformity for one representative double shift per prime (lines 69–78), not independently for every double shift as its prose suggests; the uniformity for all follows from the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou §2 gives Gram eigenvalues d|A|² and rank from nonzero correlations for a cyclic system. The same-day 1f76e4a64221 proof step 1 gives the elementary abelian Weyl character reduction without depending on the graph exponent."
+        ],
+        "reasoning": "The Goldberger et al. formulation is not literally over F_p² but the character argument is unchanged for this group: diagonal conjugation by all Weyl shifts produces mutually orthogonal character columns. Pure-state PhaseLift criteria for small Hermitian matrix rank are a different question. No chronological conclusion is drawn from the quartic record's date.",
+        "searches": [
+          "arXiv:2106.01509v1; arXiv:1503.05800; Resultary 1f76e4a64221"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.01509v1 and arXiv:1503.05800; local Resultary 2db777d1e47b, a783058468ac, 1f76e4a64221 from snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Bounded exact-object web search; arXiv:2508.08377 abstract and §1 treats extension for a moment curve, not this rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h≠0, prior proof a³+b³=(a+b)³−3ab(a+b) gives ab=(h³−k)/(3h); for h=0 only k=0 is possible. Prior Step 1 gives exactly the (a≠0,b=0) and (a=0,b≠0,p=2 mod 3) zeros of the prime sum."
+        ],
+        "reasoning": "The discriminant h²−4ab=(4k−h³)/(3h) is 4 times the assigned s, so counting its square classes already fixes each intersection and its population. At a nonempty shift there are at most two roots of unity; these cannot cancel. For two points, the difference of their phases runs over each residue p times, which by |1+ζ^j| gives the cosine bands without any remaining cubic computation. At the identity shift, the standard character formula retains the exponential sums and the preceding exact classification supplies all zeros. The target combines these facts but resolves no additional nontrivial cubic fiber or spectral class.",
+        "searches": [
+          "2db777d1e47b Proof offset 1050; a783058468ac Proof step 1 offset 2318; arXiv:2106.01509v1 §2; 1f76e4a64221 Proof step 1 offset 2107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2db777d1e47b reconstructs pair-sum fibers from their sum and product; a783058468ac classifies vanishing of the identical prime-level cubic sums; 1f76e4a64221 has the same operator, but a different window."
+        ],
+        "reasoning": "The point (x,x³) is in the translated intersection at (h,k) iff (x,x³)+(h−x,(h−x)³)=(h,k), since C=−C. Thus the nonidentity translated intersections are exactly the prior pair-sum fibers. The quartic window does not have that reduction and its numerical formula is not the cubic one.",
+        "searches": [
+          "Web: \"cubic graph\" Gabor tomography rank Weyl kernel translated intersections finite field",
+          "Resultary cubic and quartic graph Gabor tomography; IDs 1f76e4a64221, 2db777d1e47b, a783058468ac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact pretabulated cubic rank was identified in these records; the prime-square record gives exactly the identity-block zero table for all p and every (a,b), and the extension proof gives the translated fiber types."
+        ],
+        "reasoning": "A numeric table alone cannot match a complex operator unless normalization and ambient group are fixed. The viable exact-data comparison is the analytic translation and frequency classification in these catalogue records, not the scalar extension norm or the prime-square number of spectra.",
+        "searches": [
+          "Local Resultary exact cubic-graph rank, spectral kernel, cubic Fourier extension and prime-square exponential spectra; 2db777d1e47b, a783058468ac, 1f76e4a64221"
+        ]
+      },
+      "rationale": "No identical standalone cubic Gabor rank statement was found, and the same-day quartic record is not equivalent. Nevertheless the exact cubic result, not merely the methods, is directly determined by the earlier catalogue results on this same cubic: the Oct. 4 pair-sum fiber description gives every translated support by central symmetry of the graph, while the Oct. 11 low-frequency criterion is exactly the full zero-translation block. Standard Gabor character diagonalization and elementary one-/two-point Fourier transforms then give all the claimed rank, kernel and bands. Neither the extension norm as a scalar nor the whole prime-square spectrum-classification theorem is being identified with operator rank. The overlap is at the level of the explicit supporting local formulas, and the failure is for mechanical implication, not proof of an earlier verbatim publication or a claim about same-day priority.",
+      "residual_risks": [
+        "The comparison establishes implication, not an earlier identical publication or provenance of the calculation. Unindexed exact statements would not change this distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its scalar invariant is different, but its proof supplies the translated-intersection classification after C=−C",
+          "evidence": [
+            "For nonzero sum s, the product is determined by the cubic sum through s³−3abs. For zero sum all pairs are antipodal and cubic sum is zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-sharp-finite-field-cubic-graph-l-2-to-l-4-extension-norm-a--2db777d1e47b/RESULT.md",
+          "material_read": "Finding at offset 0; Proof on collision fibers at offset 1050",
+          "method": "Local mirror of published record",
+          "title": "Exact sharp finite-field cubic graph L²-to-L⁴ extension norm and extremizers",
+          "trigger": "Same cubic graph and pair-sum geometry"
+        },
+        {
+          "assessment": "Its ambient ring and full result differ, but low-frequency sum classification exactly covers the identity shift",
+          "evidence": [
+            "S_p(pU,pV)=p Σ_a exp(2πi(Ua+Va³)/p); it vanishes exactly for nonzero linear monomials or cubic monomials when p≡2 mod 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-all-exponential-spectra-of-the-cubic-graph-over-prime-square-cyc--a783058468ac/RESULT.md",
+          "material_read": "Finding and scope at offset 0; Proof step 1 from offsets 2318–4918",
+          "method": "Local mirror of published record",
+          "title": "All exponential spectra of the cubic graph over prime-square cyclic rings",
+          "trigger": "Possible exact prime-level frequency overlap"
+        },
+        {
+          "assessment": "Different graph, arithmetic and final rank; common elementary abelian character reduction",
+          "evidence": [
+            "Weyl columns transform by distinct phase-space characters; for the quartic the intersection equation reduces to w³+w, not to the assigned quadratic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rank-and-weyl-kernel-classification-for-quartic-graph-gabo--1f76e4a64221/RESULT.md",
+          "material_read": "Finding at offset 0; Proof steps 1–2 from 2107",
+          "method": "Local mirror of published record",
+          "title": "Exact rank and Weyl-kernel classification for quartic-graph Gabor tomography",
+          "trigger": "Same-day close object and operator"
+        },
+        {
+          "assessment": "General spectral formula in the cyclic convention, not a cubic calculation",
+          "evidence": [
+            "Gram eigenvalues d|⟨g,M^kT^ℓ g⟩|²; the rank is the number of nonzero Gabor correlations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "§2, pp. 2–4, PDF offsets near 8197 and 11420",
+          "method": "OA PDF passages",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "General operator Gram spectrum"
+        },
+        {
+          "assessment": "Methodological overlap, not the cubic full-complex-matrix result",
+          "evidence": [
+            "PhaseLift criterion for nonlinear signal recovery involves Hermitian rank-one and rank-two matrices in the kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "§2.2 p. 3 and Theorem 2.1 p. 4, PDF offset near 13875",
+          "method": "OA PDF passages",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Possible Gabor operator-kernel equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 20–34, 36–75",
+        "2db777d1e47b, a783058468ac, and arXiv:2106.01509v1 as compared under originality"
+      ],
+      "rationale": "The operator rank and translated spectrum are natural invariants, and distinguishing full linear tomography from pure-state recovery is useful. But here the exact invariants reduce mechanically to already resolved cubic two-point fibers and the exact prior frequency zeros on the same graph; the remaining multiplicities are those of a nonzero linear functional and the universal transform of a two-point support. No further cubic exponential-sum magnitude, structural obstruction, or new spectral regime is resolved beyond that recomposition. This does not meet the scientific-value bar for an exact invariant that is already mechanically implied.",
+      "residual_risks": [
+        "An independently useful classification of nonzero identity-block magnitudes or a theorem beyond these mechanically determined values would be a different claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

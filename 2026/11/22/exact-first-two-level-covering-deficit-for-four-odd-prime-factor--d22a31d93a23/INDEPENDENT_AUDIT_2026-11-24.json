@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:03:30.590991Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–34",
+        "Frozen VERIFICATION.md; crt_four_prime_certificate.py, lines 24–81 (inspected, not executed)",
+        "/workspace/independent_replays.py, covers()"
+      ],
+      "rationale": "Normalize the four single-prime classes to coordinate zeros in the CRT product. In the surviving core, replacing an empty pair cylinder by a nonempty one cannot reduce the union. Let k be the number of active cylinders at a core point. Its contribution to B minus the union size is max(k-1,0). On the six cylinder indices draw a graph joining each pair of complementary edges of K4; this is a matching. If p=3, also join one pair of edges at vertex 0 whose assigned labels agree (such a pair exists because three edges share two available labels). The new edge joins distinct matching components, so the graph is still a forest. Its induced graph on the active cylinders has at most max(k-1,0) edges. Summing gives a deficit of at least 3 (one point for each complementary pair), or at least 3+m1 for p=3 (the forced pair intersection frees the remaining coordinate, of size at least m1). Distinct incidence labels throughout, or the lone repetition on pr and ps at p=3, respectively, realize these bounds: the only simultaneously active pairs are those counted, and they form no triangle, so no triple contributes. This gives 323 and 2519 for the displayed examples. Independently rechecked the finite symbolic certificate via direct core-point unions at a base point and unit shifts of the parameters: B-U is affine because any intersection of two distinct pair cylinders has at most one free coordinate. All coefficients are therefore recovered exactly by differences; all 625 and 500 signatures passed, with example union maxima 361 and 157 respectively. Replay: python3 /workspace/independent_replays.py 4.",
+      "residual_risks": [
+        "The frozen script's line 73 comment says s>=r+4; the actual substitution and proof use only s>=r+2, as required. The comment does not restrict the checker.",
+        "The argument does not cover additional moduli, repeated moduli, or more coordinates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai et al. require lcm divisible by 45 for a complete distinct odd covering. Cummings et al. bound the least modulus by 118 for a complete distinct squarefree covering.",
+          "The separate Resultary theorem optimizes one class at each of seven nontrivial divisors of pqr, including pqr, giving pqr-pq-pr-qr+1."
+        ],
+        "reasoning": "The broad covering theorems do not control a sharp incomplete-cover optimum, and the three-prime theorem has neither the four-coordinate geometry nor the same support family.",
+        "searches": [
+          "arXiv:2611.15110v1, abstract and Theorem 1.1",
+          "arXiv:2211.08548v1, Theorem 1.1",
+          "Resultary 071e03ac98f2, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d22a31d93a23 and 071e03ac98f2",
+        "Dai et al. arXiv:2611.15110v1",
+        "Balister et al. arXiv:1901.11465v1",
+        "Cummings et al. arXiv:2211.08548v1",
+        "Öztürk DOI 10.13140/RG.2.2.13216.55049 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct odd squarefree noncovering theorem implies a positive deficit, but asserts no q-dependent correction or matching construction.",
+          "Three-prime covered unions include their highest-divisor class and cannot encode the three complementary edge pairs among all six pairs of four vertices."
+        ],
+        "reasoning": "The two exact sharp corrections and their attainable cylinder configurations are additional to the identified implications.",
+        "searches": [
+          "arXiv:1901.11465v1, Theorems 1.1–1.2",
+          "Resultary 071e03ac98f2, full claim and stated limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d22a31d93a23 is the identical record (Finding, both corrections).",
+          "Balister et al., Theorem 1.2, a complete covering of the specified full box contains parallel hyperplanes."
+        ],
+        "reasoning": "The equivalent formulation is a maximum union of six specified-support codimension-two cylinders in the CRT core. The geometric complete-cover theorem does not evaluate that maximum.",
+        "searches": [
+          "Resultary: exact four-prime prime/pair-modulus uncovered extremum via CRT and four-coordinate pair cylinders",
+          "arXiv:1901.11465v1, Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact formula hit d22a31d93a23 is the assigned record itself; distinct exact extremum hit 071e03ac98f2 gives the three-prime formula on different supports."
+        ],
+        "reasoning": "No independent exact table or duplicate formula was identified; rank-limited lookup does not exclude unindexed tables.",
+        "searches": [
+          "Resultary queries for the exact uncovered count and sharp corrections 3 and q+2 for one class per prime or pair modulus"
+        ]
+      },
+      "rationale": "The checked exact counterpart is the identical assigned record. The closest separate Resultary theorem is on all seven nontrivial divisors of three primes; it does not give the six-cylinder extremum of a four-coordinate core. Quantitative complete-covering restrictions in the inspected primary literature are not sharp partial-union optimizations. No dominating claim was identified in the compared evidence.",
+      "residual_risks": [
+        "The Öztürk preprint could not be inspected. It is attributed as a three-prime source, not established as equivalent coverage.",
+        "Unindexed finite box-union optimizations could contain the same result; examined covering passages do not settle absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not separate prior coverage",
+          "evidence": [
+            "Same support family and correction terms."
+          ],
+          "identifier_or_url": "Resultary d22a31d93a23",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary file mirror",
+          "title": "Exact first-two-level covering deficit for four odd prime factors",
+          "trigger": "Exact result hit"
+        },
+        {
+          "assessment": "Different prime count and modulus family",
+          "evidence": [
+            "u(pqr)=pqr-pq-pr-qr+1 using all seven nontrivial divisors; four-prime formula outside scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-minimum-uncovered-residues-for-three-prime-divisor-coverin--071e03ac98f2",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions and limitations",
+          "method": "Local Resultary file mirror",
+          "title": "Exact minimum uncovered residues for three-prime divisor coverings",
+          "trigger": "Closest related exact CRT extremum"
+        },
+        {
+          "assessment": "Inspected theorem addresses complete coverings",
+          "evidence": [
+            "Theorem 1.1, divisibility by 45."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15110v1",
+          "material_read": "Abstract and p. 1 theorem passage (OA offset 3900)",
+          "method": "Lawful OA paper text",
+          "title": "On the moduli of distinct covering systems",
+          "trigger": "Odd and squarefree distinct covering bounds"
+        },
+        {
+          "assessment": "Qualitative noncoverage is weaker than the sharp partial count",
+          "evidence": [
+            "Theorems 1.1–1.2, noncovering and parallel-hyperplane condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.11465v1",
+          "material_read": "p. 2 theorem passages (OA offset 5700)",
+          "method": "Lawful OA paper text",
+          "title": "The Erdős–Selfridge problem with square-free moduli",
+          "trigger": "CRT box reformulation"
+        },
+        {
+          "assessment": "Different invariant for complete coverings",
+          "evidence": [
+            "Theorem 1.1, least modulus at most 118."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.08548v1",
+          "material_read": "p. 2 theorem passage (OA offset 5250)",
+          "method": "Lawful OA paper text",
+          "title": "An upper bound for the minimum modulus in a covering system with squarefree moduli",
+          "trigger": "Plausible broader quantitative covering bounds"
+        },
+        {
+          "assessment": "Primary text unavailable; cannot exclude other material",
+          "evidence": [
+            "Both attempts returned HTTP 403; the secondary attribution is to a three-prime conjecture."
+          ],
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.2.13216.55049",
+          "material_read": "Attribution to §6, Conjecture 1 in the three-prime record; no primary theorem obtained",
+          "method": "Lawful DOI and identified ResearchGate retrieval attempts",
+          "title": "Öztürk's three-prime divisor-covering preprint",
+          "trigger": "Primary source cited for the closest separate Resultary claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and sharp examples",
+        "Balister et al., Theorems 1.1–1.2 for qualitative context"
+      ],
+      "rationale": "The first two nontrivial divisor levels are a natural fixed family in the squarefree covering problem, and a sharp residual count gives information even when noncoverage is already known. The p=3 threshold detects a specific obstruction from the smaller coordinate alphabet, with an attainable loss increasing with q, rather than a table of isolated tuples. The pointwise collision argument also identifies what drives the optimum.",
+      "residual_risks": [
+        "No inference about higher divisor levels or arbitrary covering families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:02:06.346919Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–47",
+        "VERIFICATION.md; frozen orbit_census.py, generator_closure.py and direct_composition.py as supporting evidence, not executed",
+        "arXiv:2307.11596 Theorem 2.1 and Corollary 2.6",
+        "Independent finite replay recipe: enumerate all n^n maps, retain idempotent e; pair with each permutation t squaring to id and test te=et=e; canonicalize simultaneous conjugation; directly evaluate generator-pair composition and enumerate positive-word closure on the resulting pair and unit representation."
+      ],
+      "rationale": "The classified singular map takes the input identity to t², so identity preservation selects exactly involutory t, including t=id. From te=et=e, each idempotent fiber root is t-fixed and each transposition stays within one fiber. Each size-j fiber is specified by the number of transpositions 0 through floor((j−1)/2), yielding the exponent ceil(j/2); removing transpositions gives ordinary partitions. In the right-action convention a final singular factor of a word determines its output retraction up to unit conjugation unless the word has already collapsed to the constant identity map. A nontrivial t can only survive from that final singular factor; t=id cannot be newly produced for a retraction with all fibers of size 1 or 2, because no compatible nontrivial t exists. Conversely a fiber of size at least 3 permits swapping two nonroot vertices, and an even nonidentity involution (12)(34) with e constant onto a fixed point supplies the left collapse for all these types. The constant-identity endomorphism (e=id) is required; two unit generators suffice and products involving a singular map cannot produce a unit. This proves the formula for n≥5 and both generating conventions. A separate labelled census at n=5,6 checked all transformations against the pair conditions, conjugated pairs directly, compared each proposed generator-pair product on every transformation, and closed positive words. Counts were 391 and 2707 singular pairs, 12 and 21 singular orbits, and closures of 511 and 3427 elements from 10 and 16 generators respectively.",
+      "residual_risks": [
+        "The finite check relies on the classified forms for exhaustiveness and covers n=5,6 only. n=4 is outside the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general classification includes t³=t; values on even permutations are t², so the unital subset is exactly t²=id. Proposition 4.2 gives the final singular factor/orbit and even left-collapse argument.",
+          "The prior exact rank-two essentiality iff construction produces u with u²=t; taking t=id forces u into the unital subset as required."
+        ],
+        "reasoning": "The full monoid's numerical rank does not determine the submonoid's rank by itself. Its proof and the later orbit classification, however, restrict with their generation witnesses inside the submonoid.",
+        "searches": [
+          "arXiv:2307.11596, Theorem 2.1, Corollary 2.6, §4 Proposition 4.2, §8",
+          "05f93685b217, Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 05f93685b217, Proof §§1–4",
+        "arXiv:2307.11596 Theorem 2.1, Corollary 2.6, Proposition 4.2 and §8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restrict A→z and B→z² in A·M(A+B), giving z/[(1−z)(1−z²)]. Applying M again gives the product for c_n. Removing two-cycles gives p(n). The specialized essential rank-two series counts partitions into ones and twos excluding the all-ones case, so the term is floor(n/2).",
+          "Rank-three types are indispensable by the prior last-singular-factor argument. The prior left-collapse and rank-one arguments use available unital factors: an even involution with a fixed root, and c itself."
+        ],
+        "reasoning": "The exact formula and stated necessary generator-type classification follow from the inspected prior proofs under the forced unital restriction, even though §8 of the older structural work describes adaptation rather than printing this value.",
+        "searches": [
+          "05f93685b217, offsets 3800–9611, especially prior fiber series, essentiality proof and rank reduction",
+          "arXiv:2307.11596 Proposition 4.2, pp. 16–17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published rooted functional-graph encoding identifies unital structures exactly as its no-leaf subfamily: a fixed component of size one and a two-cycle of size two.",
+          "At t=id every point is already fixed, and the previous rank-two essentiality criterion becomes at most one nonroot point in each e-fiber."
+        ],
+        "reasoning": "Different terminology for the components does not create a different classified structure after the unital restriction. Both the c_n and essentiality invariants are furnished by the same prior encodings.",
+        "searches": [
+          "Resultary identity-preserving/unital End(T_n) rank, involution-idempotent types, rooted-fiber and generator comparisons",
+          "Resultary full-monoid plane-partition record 05f93685b217"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct hit tabulates full semigroup-endomorphism ranks, not the unital sequence 10,16,25,41,67,109,175,280. No exact independent unital table was identified in inspected hits.",
+          "The full-monoid series already supplies the exact component enumerator of which the unital coefficient product is the no-leaf specialization."
+        ],
+        "reasoning": "A different table is not itself a duplicate. Conversely, an unprinted restricted coefficient does not restore originality when the same count follows mechanically.",
+        "searches": [
+          "Four focused Resultary searches covering unital End(T_n) rank, the c_n product, singular conjugacy orbits and essential retraction types",
+          "05f93685b217 full-monoid rank table and multiset formulas"
+        ]
+      },
+      "rationale": "The exact unital formula is not printed in the inspected prior full-monoid formula, but it is mechanically implied by the prior structural and enumerative results together. In the earlier plane-partition calculation, a permissible pair is a multiset of rooted fibers consisting of one distinguished fixed-point component and other fixed-point or two-cycle components with leaves. The condition t²=id deletes all leaves from those exact types, so its A and B component series specialize to z and z². The published fiber rule then gives z/((1−z)(1−z²)); the same multiset operator gives the claimed c_n and deleting two-cycles gives p(n). For t=id, the prior iff criterion of at most one nondistinguished fixed component per fiber becomes exactly sizes 1 and 2; excluding e=id leaves floor(n/2) essential rank-two types. The published rank reduction still works on the restricted pairs: the unit group is unchanged, c is unital, and the only collapsing operation needed uses an even rank-three left factor, available for n≥5 as (12)(34) with the constant retraction to 5. The earlier proof of nonessentiality already constructs a rank-three square root of t=id that is thus itself involutory. The exact rank follows by these restrictions, not by substituting a value into the full ambient rank number; it takes no new orbit invariant or essentiality test. The formula is correct, but the asserted distinct quantitative content is covered by this implication.",
+      "residual_risks": [
+        "This is a statement-level implication finding, not a claim that the exact sequence appeared verbatim or a determination of earliest publication. The 1998 DOI access issue does not determine the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the needed encoding and essentiality after restriction; does not print the exact unital rank",
+          "evidence": "Fixed- and two-cycle component series, multiset of rooted fibers, exact rank-two square-root criterion and 3+r₃+r₂ rank template.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-plane-partitions-and-exact-generator-ranks-for-endomorphism-mono--05f93685b217/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§1–4, comparison and references, local snapshot offsets 0–10037; decisive essentiality and rank passages 3800–9611",
+          "method": "Local mirror, statement and decisive proof passages",
+          "title": "Plane partitions and exact generator ranks for endomorphism monoids of full transformation semigroups",
+          "trigger": "Strongest distinct exact rank and fiber-census comparison"
+        },
+        {
+          "assessment": "Provides structural ingredients; the revised orbit count is then a direct restriction of the earlier plane-partition result",
+          "evidence": "Proposition 4.2 uses the final singular factor and a rank-three even-type left multiplier; §8 distinguishes identity-preserving maps from the full monoid.",
+          "identifier_or_url": "arXiv:2307.11596; DOI:10.1007/s00605-025-02147-1",
+          "material_read": "§2 Theorem 2.1 and Corollary 2.6; §4 Remark 4.1 and Proposition 4.2 pp. 16–17, PDF offsets 50400–55963; §8 pp. 34–35",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "The structure of End(T_n)",
+          "trigger": "Primary classification and construction behind both ranks"
+        },
+        {
+          "assessment": "Background classification verified through the reproducing source, not used as an uninspected rank claim",
+          "evidence": "The reproduced theorem uses t³=t and even-permutation value t². The DOI retrieval was unavailable, so no claim about uninspected additional material.",
+          "identifier_or_url": "DOI:10.1090/S0002-9939-98-04764-9",
+          "material_read": "Classification as reproduced in arXiv:2307.11596 Theorem 2.1; publisher full text not accessed",
+          "method": "Identified primary DOI attempt and reproducing OA theorem",
+          "title": "Endomorphisms of finite full transformation semigroups",
+          "trigger": "Original classification citation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–14, 21–47",
+        "Resultary 05f93685b217, Proof §§1–4",
+        "arXiv:2307.11596 Proposition 4.2, §8"
+      ],
+      "rationale": "The unital monoid and its minimum generator number are natural, and the explicit formula can be convenient. However, this narrow exact invariant is already mechanically supplied by the previous multiset count and generator classification: omitting leaves, retaining witnesses that square to the identity, and counting ones and twos give the complete stated contribution. The extra labelled computations and explicit values do not supply a further independently useful unknown invariant or structural consequence. No separate surviving claim was established for a substantive repair.",
+      "residual_risks": [
+        "This finding is limited to the frozen rank and singular-type census; it does not rule out worthwhile new work on unital endomorphism structure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

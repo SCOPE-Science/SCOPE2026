@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:01.005207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized polar integration gives squared monomial norms (n+1)^(-s), giving the stated kernel and normalization P_s(0)=1. In the replacement, an integral for P_(s−N), with N an integer larger than the local parameters, followed by (1+t∂_t)^N establishes joint analyticity off [1,∞), in particular at (2m,−1). The alternating continuation gives P_s(−1)=η(−s). Differentiating there in the order gives −η′(−2m); the recurrence in the scalar variable gives ∂_tP_(2m)(−1)=−η(−2m−1), which is nonzero. The unique implicit branch is real by conjugation, and its derivative is −η′(−2m)/η(−2m−1). Expanding the sine factor in the zeta functional equation at −2m and evaluating at −2m−1 gives the positive ratio π²ζ(2m+1)/[(2m+1)ζ(2m+2)], multiplied by the ratio of the two eta prefactors. This gives the stated m=1 value and large-m asymptotic; equal moduli give an inward radial speed v_m/2. Eulerian reciprocity and simplicity give exactly m−1 roots in (−1,0) at s=2m, and the simple root −1. The prior negative-real zero result reduces exhaustion for real s to the compact interval [−1,0], where continuity and local uniqueness of each zero exclude any other arrivals. As a separate check on the frozen proof's boundary exclusion, the zeta functional equation bounds the coefficients of the regular part of the Jonquière series uniformly by a polynomial in the index times (2π)^(-index), locally in s, so that proof also excludes zeros near t=1. The supplied finite checker, requirements, and recorded results were inspected; the checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 and §4(i) of the 1972 article give all simple nonpositive zeros for the power coefficients of positive real order (the slit-plane count is k for k−1<s≤k before removing the origin). Known integer Eulerian results give reciprocity and simple negative roots. Perälä constructs other radial weights with prescribed kernel-zero behavior."
+        ],
+        "reasoning": "The 1972 theorem covers the real-order location ingredient, including outside the disk, and must be credited. It is not a formula for the rate at which a zero moves when the power exponent varies.",
+        "searches": [
+          "doi:10.2748/tmj/1178241531",
+          "doi:10.1307/mmj/1028999545",
+          "arXiv:2404.03249",
+          "arXiv:1008.5339",
+          "arXiv:1703.05976"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, requirements.txt and check_output.txt",
+        "doi:10.2748/tmj/1178241531",
+        "doi:10.1307/mmj/1028999545 (access limited)",
+        "arXiv:2404.03249, 1101.3135, 1008.5339 and 1703.05976",
+        "Resultary 620d2c813fe1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With reality already known, compactness on [−1,0] and the sign change of η(−s) at its simple trivial zero recover local counting using the integer census. Neither counting nor reality determines the magnitude of position change. The replacement obtains it as a ratio of two different partial derivatives, then evaluates it as the explicit odd/even zeta ratio."
+        ],
+        "reasoning": "The local count is ancillary rather than a new general theorem. Classical identities calculate inputs to the new quantitative law; the known existence/location statements make no rate or asymptotic identification.",
+        "searches": [
+          "Jurkat–Peyerimhoff §4(i)",
+          "Durán arXiv:2404.03249, reciprocity",
+          "NIST DLMF Ch. 25, zeta and polylogarithm",
+          "Resultary 620d2c813fe1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With zero shift and coefficient function x^s, the older real-power series is Li_(−s)(t)=tP_s(t); division only removes the forced zero at 0. The later logarithmic-kernel threshold record uses α=s−1 and differs only by a positive weight normalization."
+        ],
+        "reasoning": "Both are actual changes of formulation of the same zero problem, not merely analogies. The classical theorem supplies the simple negative-real location; the threshold record supplies only existence or absence, not the crossing derivative.",
+        "searches": [
+          "Jurkat–Peyerimhoff, On power series with negative zeros, Thm. 4 and §4(i)",
+          "Resultary 620d2c813fe1",
+          "arXiv:1101.3135"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later same-family indexed record gives zero-free iff s≤2, not a crossing-speed list or formula. Integer zero data determine the starting points and disk counts at 2m, not their order derivatives."
+        ],
+        "reasoning": "The audited replacement is a parametric velocity formula for all m, not a claimed new integer root or threshold value. No inspected table or indexed statement gives that velocity.",
+        "searches": [
+          "Resultary 620d2c813fe1",
+          "Resultary: logarithmic Mellin Bergman kernel, even-order crossings and odd-zeta velocity",
+          "arXiv:2404.03249, Eulerian roots"
+        ]
+      },
+      "rationale": "The original bundle overstates the novelty of the real-order simple negative zero and local census claims: Jurkat–Peyerimhoff already give stronger slit-plane zero location and simplicity for the real power series, and the local census follows by combining that theorem with the integer reciprocal roots and the sign change at −1. The replacement's claim is the explicit velocity of the parameter-dependent zero at every even parameter and its quantitative asymptotic, not the known reality, simplicity, or census. The comparison sources do not give this parameter derivative; its closed value requires comparing the order and argument derivatives and using the trivial-zero derivative, not reading a count or location from a table.",
+      "residual_risks": [
+        "The 1966 paper was not read in full. An earlier parametric derivative under power-series or polylogarithm terminology remains possible; the search was bounded. Earlier general real-order location is positively credited from 1972, not treated as merely a possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material earlier coverage requiring narrowing; extraction degrades some inline symbols but the power family and zero conclusion are identified",
+          "evidence": "In the application with α(x)=x^s, k−1<s≤k, the shifted power series has k simple zeros, all nonpositive, in the slit plane. Zero shift includes Li_(−s); its origin is simple and removed in P_s.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/tmj1949/24/2/24_2_207/_pdf",
+          "material_read": "Opening and coefficient description, PDF pp. 1–2 offsets 0 and 4080; Theorem 4 and power-coefficient application §4(i), PDF p. 13 offsets 31300 and 32900 (journal p. 219)",
+          "method": "Lawful J-STAGE OA PDF passage extraction",
+          "title": "On power series with negative zeros",
+          "trigger": "Strong broader theorem for power-series coefficients of positive real order"
+        },
+        {
+          "assessment": "Scope beyond the other papers' attribution not used as negative evidence",
+          "evidence": "Yamamori points to it for further location information. The 1972 primary paper independently supplies the material broader comparison.",
+          "identifier_or_url": "doi:10.1307/mmj/1028999545",
+          "material_read": "Bibliographic record and the references to it in the accessed papers; primary full text unavailable",
+          "method": "Project Euclid landing and PDF attempts, plus an identified alternate linked PDF attempt",
+          "title": "On the zeros of power series",
+          "trigger": "Earlier paper cited by Yamamori and Jurkat–Peyerimhoff"
+        },
+        {
+          "assessment": "Known integer simplicity and reciprocity",
+          "evidence": "The degree n−1 Eulerian numerator has n−1 simple negative roots and is reciprocal.",
+          "identifier_or_url": "arXiv:2404.03249",
+          "material_read": "PDF pp. 3–4, OA offset 8200",
+          "method": "Lawful OA PDF passage",
+          "title": "Asymptotic for the rightmost zeros of Bell and Eulerian polynomials",
+          "trigger": "Integer Eulerian zero facts"
+        },
+        {
+          "assessment": "Integer order, not a parameter velocity",
+          "evidence": "Eulerian representation for Li_(−n)(t)/t, roots simple and negative and interior zero for n≥3.",
+          "identifier_or_url": "arXiv:1101.3135",
+          "material_read": "§2.2, PDF p. 3, OA offsets 7939–9074",
+          "method": "Lawful OA PDF passage",
+          "title": "Yamamori's Eulerian-polynomial and Bergman-kernel analysis",
+          "trigger": "Existing polylogarithm zeros for integer order"
+        },
+        {
+          "assessment": "Integer-parameter interior existence and prior location reference",
+          "evidence": "Uses reciprocity to prove an interior zero for all integers n≥3 and cites Peyerimhoff for further locations.",
+          "identifier_or_url": "arXiv:1008.5339",
+          "material_read": "PDF p. 5 Lemma 2 and following paragraph, OA offset 16500",
+          "method": "Lawful OA PDF passage",
+          "title": "The Bergman kernel of a certain Hartogs domain and the polylogarithm function",
+          "trigger": "Closely related kernel zeros and original literature lead"
+        },
+        {
+          "assessment": "Different weights, not the real-power order family",
+          "evidence": "Constructs other radial weights equivalent to standard weights with prescribed zero behavior.",
+          "identifier_or_url": "arXiv:1703.05976",
+          "material_read": "PDF pp. 2–3, OA offsets 5580 and 6800",
+          "method": "Lawful OA PDF passages",
+          "title": "Perälä's radial weighted Bergman kernel zero construction",
+          "trigger": "Possible overlap of radial zero results"
+        },
+        {
+          "assessment": "Later same-family threshold; no local branch velocity",
+          "evidence": "With α=s−1 the threshold is s=2; for s>2 a negative-real scalar kernel zero exists. It does not classify every zero, its multiplicity, or its distance to the circle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-zero-free-threshold-for-logarithmic-radial-bergman-kernels--620d2c813fe1",
+          "material_read": "Finding OA offset 318 and limitations offset 5791",
+          "method": "Resultary search and local mirror text",
+          "title": "Sharp zero-free threshold for logarithmic radial Bergman kernels",
+          "trigger": "Strongest indexed exact family overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The velocity is a quantitative invariant of a natural boundary transition already singled out by the integer reciprocal symmetry. Knowing only a zero count or sign change gives no distance of the new zero from the unit circle for a small perturbation. The exact slope determines that distance to first order, also for symmetric choices of the two kernel arguments, and its asymptotic describes weakening sensitivity at successive even orders without claiming a uniform perturbation neighborhood.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

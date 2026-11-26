@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:42:23.546108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–91",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt; inspected, not executed",
+        "arXiv:2206.11841v1, §2, Thm. 2.1"
+      ],
+      "rationale": "In the moment matrix, the index groups {0,1,2} and {n+1,n+2,n+3} give identity diagonal blocks and the stated triangular cross-block; any indices from 3 to n have only zero cross-moments. Schur complement and the truncated trigonometric moment theorem prove both directions. In the Herglotz Cayley transform the first correction beyond its linear term is of order 2(n+1)>n+3, so the shifted Schur function has coefficients a,b,c. Set r=|a| and s=|b|. Schwarz–Pick on the next Schur parameter gives the envelope 1+r−r²+s−s²/(1+r) with 0≤s≤1−r². Its unconstrained vertex gives at most 13/8 up through r=1/2; thereafter the endpoint gives 1+2r−r²−r³, uniquely optimized at (√7−1)/3. Saturation forces the next parameter to be a unimodular constant, uniquely prescribing the Schur function. The degree-n+2 Blaschke product has strictly positive boundary angular derivative, so its level-one roots are distinct and the Herglotz masses are precisely the reciprocal angular derivatives. Subtracting the corresponding point kernels cancels all poles and leaves zero real part on the circle, excluding another measure component; Herglotz uniqueness and the two moment phases give the full equality family. The Hardy transfer matches Theorem 2.1 of arXiv:2206.11841v1.",
+      "residual_risks": [
+        "The recorded 99 phase/order cases corroborate the node and weight equations numerically, not the universal proof. The identification of three free moments with the first three Schur coefficients is restricted to n≥2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdullayev–Savchuk–Savchuk Thm. 2.1 characterizes normalized best-approximation-preserving kernels by growth order and positive real part",
+          "Bultheel–Cruz-Barroso–Díaz Mendoza abstract treats positive quadrature via zeros of quasi-paraorthogonal polynomials",
+          "Kovalev Thm. 1.5 handles three-term signed/complex polynomial segments at all positions, not their coefficient modulus sum"
+        ],
+        "reasoning": "The frameworks explain feasibility and can represent extremal measures once the extremizer is known. None of the inspected statements selects the optimizing phases and radius for this objective.",
+        "searches": [
+          "arXiv:2206.11841v1",
+          "arXiv:2110.10460",
+          "arXiv:2507.04544"
+        ]
+      },
+      "checked_sources": [
+        "7d4580645e3c",
+        "arXiv:2507.04544",
+        "arXiv:2310.02723",
+        "arXiv:2206.11841v1",
+        "arXiv:2110.10460"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The growth and real-part kernel criterion is already available",
+          "The truncated moment theorem yields the body after block reduction",
+          "The closest prior automorphism witness is not sharp for the target objective"
+        ],
+        "reasoning": "The new comparison maximizes a coupled magnitude envelope and forces saturation at a specific automorphism. Feasibility and individual coefficient estimates do not mechanically imply the optimum. The boundary inverse-derivative weights are standard once the sharp automorphism is forced.",
+        "searches": [
+          "arXiv:2206.11841v1, Thm. 2.1",
+          "arXiv:2507.04544, Thm. 1.5",
+          "Classical Schur and truncated trigonometric moment theorems as identified in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovalev, Thm. 1.5 and following paragraphs, distinguishes |a0+a1+a2| from |a0|+|a1|+|a2| and gives 13/8 as an example",
+          "7d4580645e3c optimizes the polynomial section norm, yielding 89/64 at section degree two and radius one",
+          "arXiv:2310.02723, §1 Thm. A, is the weighted infinite Bohr majorant for radius at most 1/3"
+        ],
+        "reasoning": "The exact equivalent optimization is the unweighted modulus sum of the first three Schur coefficients. A single phase rotation of z does not in general align all three complex coefficients, so section norm does not recover it. A Bohr estimate at small radius does not give the unweighted radius-one sharp extremum.",
+        "searches": [
+          "arXiv:2507.04544",
+          "Resultary mirror 7d4580645e3c",
+          "arXiv:2310.02723"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue section value 89/64 belongs to a different objective",
+          "The closest exact displayed first-three modulus sum in Kovalev is 13/8 for the particular automorphism with parameter 1/2, strictly below the frozen optimum"
+        ],
+        "reasoning": "Neither exact number is an entry for the same supremum or an equivalent lookup of its equality data. No covering table entry was established.",
+        "searches": [
+          "Resultary mirror 7d4580645e3c",
+          "arXiv:2507.04544, Thm. 1.5 and following example"
+        ]
+      },
+      "rationale": "Credit the sharp aggregate coefficient-modulus optimization with complete equality and its all-degree optimal moment measures, not the classical feasibility criteria or the existing Hardy kernel characterization. The strongest inspected coefficient paper explicitly separates segment supremum norm from the modulus sum and gives 13/8 only as an example for the latter; it neither proves the global upper bound nor classifies its equality. The closest inspected catalogue result likewise solves the section-norm problem instead. No covering claim was established in the inspected sources; historical priority is not certified.",
+      "residual_risks": [
+        "An earlier exact solution of the unweighted first-three Schur coefficient sum, including a signed coefficient-functional formulation such as maximizing |a0+a1−a2|, is not excluded by these comparisons.",
+        "Only the abstract of arXiv:2110.10460 was assessed; it gives quadrature context, not a full-text exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close but not covering the inspected claim",
+          "evidence": "The paper says an upper bound for the sum of the three magnitudes would be different, then computes 13/8 for one Möbius function.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.04544",
+          "material_read": "§1 Thm. 1.5 and discussion through §2, offsets 8187 and 8875–11924",
+          "method": "Lawful OA primary text",
+          "title": "Sharp bounds for some segments of bounded power series",
+          "trigger": "Closest three successive Schur-coefficient comparison"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Section supremum norm, not coefficient ℓ¹ norm; specialization gives 89/64.",
+          "identifier_or_url": "7d4580645e3c",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary search and mirror text",
+          "title": "Higher Neil–Fejér–Rogosinski section radii",
+          "trigger": "Exact Schur section functional"
+        },
+        {
+          "assessment": "Inspected statement does not cover",
+          "evidence": "Weighted entire coefficient sum with radius at most 1/3.",
+          "identifier_or_url": "arXiv:2310.02723",
+          "material_read": "§1 Thm. A, OA offset 844",
+          "method": "Lawful OA primary text",
+          "title": "The Bohr radius and the Hadamard convolution operator",
+          "trigger": "Bohr-majorant reformulation"
+        },
+        {
+          "assessment": "Covers the credited transfer, not the claimed joint optimum",
+          "evidence": "BAP iff K_n=z^n+O(z^(2n+1)) and Re(K_n/z^n)≥1/2.",
+          "identifier_or_url": "arXiv:2206.11841v1",
+          "material_read": "§2 Thm. 2.1, OA offset 7399",
+          "method": "Lawful OA primary text",
+          "title": "Best approximation-preserving operators over Hardy space",
+          "trigger": "Necessary Hardy kernel characterization and potential coefficient coverage"
+        },
+        {
+          "assessment": "Context only, not a whole-document exclusion",
+          "evidence": "Treats positive unit-circle quadrature from prescribed quasi-paraorthogonal zeros. No exact asserted modulus-sum optimum in the passage read.",
+          "identifier_or_url": "arXiv:2110.10460",
+          "material_read": "Abstract, OA offset 1112",
+          "method": "Lawful OA abstract inspection",
+          "title": "Zeros of quasi-paraorthogonal polynomials and positive quadrature",
+          "trigger": "Potential prior optimal atomic rules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–5",
+        "arXiv:2507.04544, discussion after Thm. 1.5"
+      ],
+      "rationale": "The joint objective answers how large the first three deviations from uniform moments can be in aggregate while preserving exact cancellation at all preceding orders. Beyond the sharp number, the phase classification gives every optimal positive quadrature explicitly and proves the exact minimum node count for optimality. Separate one-coefficient bounds or a nonsharp example cannot supply that design information.",
+      "residual_risks": [
+        "No claim about more than three free coefficients, nonpositive quadratures, or stability under node perturbations is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

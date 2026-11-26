@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise family allows both sites to coincide and includes zero-precision omitted observations. Gaussian integration yields the kernel mean and target variance. Direct inversion of the two-reading covariance gives the explained-variance expression, continuous at the omitted-channel boundary. For strictly separated sites its derivative in the product of sensor precisions is strictly positive, so the equal split is the unique best allocation. At the coincident site, total precision alone matters. The logarithmic derivative in the squared half-separation has a strictly decreasing numerator and thus gives the one global location optimum, including the equality threshold. The proof covers every positive kernel length-scale, integration scale, and budget, without extrapolating finite tests to a continuum.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The closest full-text comparisons were the symmetry reduction for noiseless kernel quadrature (Karvonen–Särkkä, 2017), scaled Gauss–Hermite Gaussian-kernel weights (Karvonen–Särkkä, 2018), and the positivity theorem for noiseless quadrature weights (Karvonen–Kanagawa–Särkkä, 2018). The noisy-quadrature results of Cai–Lam–Scarlett (2022) establish error rates and bounds, not a fixed-two-sensor threshold. Hayakawa–Oberhauser–Lyons (2021) optimize a positive-weight subsampling construction, not continuous noise-precision allocation. Published finite-rank circle-kernel placement transitions and exact Brownian/Ornstein–Uhlenbeck precision designs concern different kernels and integration measures; no implication supplies this squared-exponential/Gaussian-measure phase boundary. No searched source supplies the claimed exact \(P_c\) or the prescribed-location/allocation classification. Search is not proof of universal novelty; the 2017 optimal cubature thesis and unindexed experimental-design treatments remain a priority risk.
+PASS
 
-## Value — PASS
-A Gaussian probability measure and squared-exponential covariance are central Bayesian-quadrature objects; measuring more accurately at one site competes naturally with spatial coverage when observations cost precision rather than a fixed count. The exact threshold \(P_c=\ell^2/	au^2\) determines when a second distinct site is worthwhile, and the theorem identifies both the sensor allocation and the sharp square-root onset. This is a complete classification within the intrinsically symmetric two-site design family, not a post hoc arbitrary parameter slice. It is useful as an analytically computable benchmark for replication versus exploration and as a boundary condition for broader experimental-design problems. No claim of unrestricted two-node optimality is needed for that value.
+Independent reconstruction: convolution with the target gives m_a = ell/sqrt(S) exp(-a^2/(2S)) and Var(J) = (1+2 tau^2/ell^2)^(-1/2). Multiplying the noisy covariance inverse's numerator and denominator by p_-p_+ gives the quotient (P+2(1-k)z)/(1+P+(1-k^2)z) with k=exp(-2a^2/ell^2), z=p_-p_+. At z=0 this is the exact one-channel answer. At a=0 it is independent of z; for a>0 the sign of its derivative is the sign of (1-k)(2+P(1-k))>0, so the balanced split is unique there. With that split the log-gain derivative in s=a^2 has sign (ell^2+2 tau^2)exp(-2s/ell^2)-ell^2(1+2/P). The sign decreases strictly and is already nonpositive at s=0 precisely for P<=ell^2/tau^2. At equality it vanishes only at the boundary. Otherwise its unique zero gives the stated a_* and, by subtraction from Var(J), the stated risk. Expanding the root at P_c gives a_*^2/(P-P_c) -> tau^4/(ell^2+2 tau^2); sending P to infinity gives the stated limit. Finite-budget risk is positive because an exact Gaussian linear prediction from active channels would have nonzero independent noise variance unless all prediction coefficients were zero. An independent 40-digit decimal evaluation of sqrt(log(5/2)/2) gives 0.67686436302783553519 for the stated P=10 example.
 
-## Sources and limitations
-Primary full-text comparisons: arXiv:1703.06359 (Section 3.4 and Theorem 3.7), arXiv:1803.09532 (Theorem 2.2, Sections 3 and 5), arXiv:1812.08509 (noiseless BQ-weight formulas and positivity results), arXiv:2202.10615 (noisy problem definition and rate theorems), arXiv:2107.09597 (subsampling meta-algorithm). The exact covariance algebra and strict monotonicity are proved in RESULT.md. The checker supports implementation but cannot certify novelty, the unrestricted asymmetric design, or independent verification. These limits are retained in the public claim and metadata.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the exact joint allocation and placement phase diagram for the specified Gaussian kernel and Gaussian integration measure. Do not credit generic Gaussian conditioning, equal weights at fixed symmetric equal-noise sites, or the existence of a collision transition as such. The strongest same-day different record has a genuine collision transition and different onset, not equivalent coverage; the common date does not settle priority. No compared source established the full claim or a stronger result implying it.
+
+## value
+
+PASS
+
+The tradeoff between measurement accuracy and spatial separation under a common budget is operationally meaningful; a finite threshold, full boundary/equality classification, and different leading response just above the threshold are more informative than noiseless weights or a rate bound. The answer resolves a complete optimization over all allocations, including omitted channels, in a natural symmetry-reduced family. It is an independently useful exact design benchmark, not a claim about unrestricted two-point designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

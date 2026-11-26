@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:05:13.656200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coding counts positive-right words once per iterate-fixed point, and no periodic point lands on x_1=0 (the source's 'crosses' should be read as 'hits', not as forbidding successive iterates on opposite sides). After step k an input strand i occupies position i+r_k mod 3; the strand occupying position zero is doubled. Thus the diagonal moduli on residue-zero words are 2^N_0, 2^N_2 and 2^N_1. In a nonzero residue the weighted permutation is a three-cycle with characteristic polynomial λ³−a, a≠0, so it cannot have an all-real spectrum. For P=(I+S)/2 the nontrivial multiplier (1+ω)/2 satisfies Re[λ/(1−λ)]=0, so the symmetric lag covariance cancels and Σ=I/3−11^T/9. The tilted finite matrix for the post-step occupations has leading eigenvalue with zero linear term and Gaussian quadratic term, and its spectral projection tends to the uniform stationary projection; the other modes vanish exponentially. Conditioning on residue zero leaves the CLT and the second-moment bound, since the condition has probability tending to 1/3, and excluding the all-left word costs O(2^−n). The continuous minimum and uniform integrability give the mean coefficient E max of three standard normals divided by √3, equal to √3/(2√π) by integrating 3φΦ² by parts. The uploaded checker was inspected, not executed; its finite matrix enumeration is not the limiting argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 1 theorem is for every fixed M≥2, proves the full labeled-vector CLT with I_M/M−11ᵀ/M² after base conversion, and bounds E||N(n)−n1/M||²/n uniformly.",
+          "The October 11 record gives real spectrum iff M divides positive right count, and corresponding exact counts."
+        ],
+        "reasoning": "The previous vector normal limit is stronger than a scalar minimum law before conditioning; the periodic conditioning is not printed there and is justified by the terminal mixing argument below, not by unconditional weak convergence alone.",
+        "searches": [
+          "2026/11/1/…11d620ed5ef6, Finding and Proof Steps 1–4",
+          "2026/10/11/…f1bd1c74fb3b, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.04304",
+        "2026/10/11/…f1bd1c74fb3b",
+        "2026/11/1/…11d620ed5ef6",
+        "2026/11/2/…dc5a96c076c3",
+        "2026/11/8/…587eb603d607"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The November 1 proof supplies both the exact cyclic chain and scaled L² bound as well as its vector CLT, with the same deterministic start.",
+          "The real-spectrum restriction is a condition on the last cyclic residue; its probability tends to 1/3."
+        ],
+        "reasoning": "Take m=⌈log n⌉ and retain only the occupations through n−m. Since P^m(x,0)=1/3+O(2^−m) uniformly, the law of the full prefix under the real endpoint condition changes in total variation by O(2^−m). Restoring the last m observations changes the centered vector after scaling by O(m/√n). Deleting the all-left word changes the law exponentially little. The prior vector CLT therefore transfers directly, and its L² bound transfers by dividing by the positive conditioning probability. Continuous minimum and the elementary Gaussian maximum integral yield exactly the frozen law and coefficient, without a new covariance or conditioned CLT theorem.",
+        "searches": [
+          "2026/11/1/…11d620ed5ef6 proof offsets 5182–9291",
+          "arXiv:2202.04304 Lemmas 2.4–2.6",
+          "2026/10/11/…f1bd1c74fb3b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saiki–Takahasi–Yorke Lemmas 2.4–2.6 identify iterate-fixed points with non-all-left words and exclude hits of the discontinuity.",
+          "November 1 RESULT.md offsets 0–5182: iid fair words and exactly the same post-step occupation process for coordinate stretches. On residue zero the matrix is diagonal, so weakest singular value equals weakest eigenvalue modulus."
+        ],
+        "reasoning": "This is one common binary-word model, not just two Gaussian laws with the same covariance. The only change in sampling is conditioning on terminal residue zero and deleting the all-left word.",
+        "searches": [
+          "Resultary: twisted baker weakest-multiplier law and finite-time Gaussian splitting",
+          "arXiv:2202.04304 §§2.2–2.3",
+          "2026/11/1/…11d620ed5ef6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 Finding and Proof Steps 2–3 give H_{M,n,t}(r), the exact count at right count t and weakest modulus 2^((t+gr)/M) with g=gcd(M,t).",
+          "The distinct same-day record has two-dimensional matched gap laws, not the three-dimensional minimum."
+        ],
+        "reasoning": "For M=3 and t=3s>0, g=3, so summing H_{3,n,3s}(r) over s+r fixed and dividing by Σ_{s≥1} binom(n,3s) gives exactly the finite distribution under review. The census alone is not asserted to print or prove the asymptotic.",
+        "searches": [
+          "Resultary: exact weakest-multiplier census for twisted baker",
+          "2026/11/2/…dc5a96c076c3",
+          "2026/11/8/…587eb603d607"
+        ]
+      },
+      "rationale": "The theorem is mathematically correct but follows from the prior stronger all-fixed-dimension CLT for the same word-level occupation vector, with a short terminal-mixing reduction to the real periodic ensemble. A separate prior exact census already covers the finite scalar laws. The conclusion is prior-implied, not a claim that the identical conditional asymptotic is printed verbatim or that scholarly priority is settled.",
+      "residual_risks": [
+        "Catalogue dates are not independent evidence of public priority; the assessment rests on demonstrated mathematical coverage.",
+        "No inspected text states the exact endpoint-conditioned limit verbatim. Unrelated live results supply no evidence that equivalent asymptotics do not also appear elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides code and count of iterate-fixed points, not the fluctuation statement",
+          "evidence": "Lemmas 2.4–2.6 give coding of periodic words containing R and no periodic point on the switching plane.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04304",
+          "material_read": "§§2.2–2.3 pp. 7–9, offsets 18800–24792",
+          "method": "OA PDF passages",
+          "title": "The twisted baker map",
+          "trigger": "Exact coding and possible periodic spectrum results"
+        },
+        {
+          "assessment": "Supplies the conditioning event and exact counts",
+          "evidence": "All return eigenvalues are real iff M divides the positive number of right symbols.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b",
+          "material_read": "Mirrored Finding from offset 154",
+          "method": "Local catalogue and mirror passages",
+          "title": "Exact real-spectrum residue law for the twisted baker map",
+          "trigger": "Exact real-spectrum selection criterion"
+        },
+        {
+          "assessment": "Stronger word-level occupation CLT from which the conditional asymptotic transfers by terminal mixing",
+          "evidence": "Fair iid word measure, exact post-step occupation identity, vector CLT in all fixed M, and explicit uniform scaled second-moment bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-isotropic-gaussian-splitting-of-finite-time-singular-values-in-t--11d620ed5ef6",
+          "material_read": "Mirrored offsets 0–9291: Finding, Assumptions, Proof Steps 1–4",
+          "method": "Local catalogue and focused mirror reads",
+          "title": "Isotropic Gaussian splitting of finite-time singular values in the twisted baker map",
+          "trigger": "Potentially dominating multivariate Gaussian limit with the same covariance"
+        },
+        {
+          "assessment": "Exact finite law includes the real-spectrum scalar distribution after grouping",
+          "evidence": "Fixed-t histogram H_{M,n,t}(r) with weakest modulus 2^((t+gr)/M).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-prime-divisor-onset-and-exact-weakest-multiplier-census-for-the--dc5a96c076c3",
+          "material_read": "Mirrored Finding and Proof Steps 2–3 around offsets 3900–8250",
+          "method": "Local catalogue and mirror passages",
+          "title": "Prime-divisor onset and exact weakest-multiplier census for the twisted baker map",
+          "trigger": "Potential exact finite distribution of the scalar target"
+        },
+        {
+          "assessment": "Different dimensional gap law",
+          "evidence": "Exact spectral-class gap laws for M=2, not the M=3 scalar minimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-matched-spectral-classes-at-every-singular-gap-level-in-the-two--587eb603d607",
+          "material_read": "Mirrored Finding and Assumptions from offset 0",
+          "method": "Local catalogue and mirror passages",
+          "title": "Matched spectral classes at every singular-gap level in the two-dimensional twisted baker map",
+          "trigger": "Distinct same-day related spectral record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The periodic interpretation is useful context, but both the exact scalar law and the fluctuation mechanism are covered. Transferring the prior CLT by omitting o(√n) terminal steps, projecting to a minimum and evaluating a standard Gaussian order statistic leaves no substantial standalone contribution or valuable distinct remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

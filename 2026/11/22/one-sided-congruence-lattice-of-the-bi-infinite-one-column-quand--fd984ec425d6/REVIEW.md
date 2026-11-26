@@ -1,15 +1,21 @@
-# Review of the one-sided congruence lattice theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed classification reduces the congruence condition to an equivalence relation on \(\mathbb Z\) preserved by successor. The sequence of quotient classes is a full bi-infinite orbit for a surjective successor map. Either it never repeats, repeats periodically at every integer, or first enters one cycle at a unique integer cutoff. These disjoint cases prove exhaustion and unique parameters. The inverse-operation failure is explicitly witnessed by the pair \((c,c+d)\). The inclusion criterion proves the gcd/lcm lattice operations, and the generation argument separates principal eventual-periodic relations from non-finitely-generated global periodic relations. The standalone finite-window checker supplies corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS relative to examined evidence
-Cazet's 2023 work studies finite one-column quandles but does not classify one-sided congruences on the countably infinite shift model. Burrows and Tuffley (2023) prove a sufficient local-finiteness criterion for one-sided congruences to be genuine and construct half congruences; their countable explicit construction has two bi-infinite orbits and does not state the full one-orbit congruence lattice. The earlier 2022 thesis gives that two-orbit construction in Chapter 4. The closest previously recorded result involving the same one-column operation concerns finite retraction images, not quotient equivalences on an infinite orbit. The stated theorem is not a merely differently worded corollary of those inspected theorems: it includes complete normal forms, lattice meet/join operations and a finitary-generation separation. However, equivalences through classical congruence classifications for unary successor algebras could remain unindexed.
+PASS
 
-## Value — PASS
-Half congruences are an actual obstruction to taking rack/quandle quotients, not an artificial statistic. On the simplest countable one-column shift quandle, the result gives every obstruction, the entire distributive quotient lattice, and a sharp phenomenon: every proper nontrivial finitely generated forward congruence fails inverse compatibility, while every finite quotient satisfies it. This supplies a natural benchmark for infinite-quandle quotient theory beyond individual counterexamples.
+Verified the right-operation convention and both directions of the reduction in RESULT.md:34–45. The right shift fixes the distinguished index and permutes the identity translations, which gives self-distributivity. Equating the distinguished point to an integer identifies i with i+1 for every i, forcing the universal relation. Otherwise forward compatibility is exactly preservation under successor. For a direct exhaustion check, let I be the set of i sharing their class with some later j. I is upward closed; at any index i in I its first positive return d gives d distinct classes on that cycle (a duplicate within it would shift forward to an earlier return at i). All later classes stay on that cycle, and cycles starting at different indices of I coincide by looking far enough forward. If I is empty there is equality; if I is all of Z the relation is P_d; otherwise I is [c,∞)∩Z, and no pair whose smaller index is below c is identified, giving H_{c,d}. This proves uniqueness and exhaustion without enumeration. Backward shift respects P_d and fails for (c,c+d) in H_{c,d}. The inclusion criterion follows by testing the first admitted cutoff and divisibility of gaps, with P_d the infinite-left extension; the resulting product order gives the stated max/lcm meet and min/gcd join and distributivity even after adjoining bottom and top. Forward translates and their equivalence closure generate H_{c,d} from the one pair; every finite set of P_d pairs lies in some H_{c,d}, so cannot generate P_d in the forward signature. Its quotients are finite, whereas a finite cutoff leaves infinitely many singleton classes; the universal quotient is also finite and genuine. Read check.py and VERIFICATION.md; the 1,640 reported bounded cases were not rerun and do not certify the classification. The proof uses one bi-infinite shift orbit and only the forward operation for generation.
 
-## Sources and limitations
-Primary comparisons: N. Cazet, *Quandles with one non-trivial column* (arXiv:2303.15815v1, 2023-03-28), especially Section 3; W. Burrows and C. Tuffley, *The rack congruence condition and half congruences in racks* (arXiv:2308.11852v1, 2023-08-23), Sections 3 and 5; W. Burrows, *Congruences in Racks and Quandles* (2022 thesis), Chapter 4, Section 4.3.5. A related 2013 paper on congruence lattices of unary/group actions is relevant background but was available only by abstract, so any stronger equivalence there remains a priority risk. The result is specific to one infinite shift orbit with one distinguished fixed point; neither multiple-orbit quandles nor arbitrary infinite racks are claimed to be classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the exact whole-lattice and finite-generation classification for the single bi-infinite shift with one distinguished point. The half-congruence phenomenon and closely related two-orbit examples are established prior work, as are the finite one-column family and the monounary shift itself.
+
+## value
+
+PASS
+
+The smallest canonical shift example supplies a complete, usable lattice of one-operation obstructions, rather than one witness of inverse failure. Cutoff and period give independent order coordinates, and the nontrivial proper compact elements are precisely the nongenuine ones even though every finite quotient is genuine. That exact benchmark is useful for studying more complicated rack quotients and is not claimed to classify multiple-orbit actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

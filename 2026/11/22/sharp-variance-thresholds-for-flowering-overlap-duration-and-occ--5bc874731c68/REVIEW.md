@@ -1,15 +1,21 @@
-# Review: Sharp variance thresholds for flowering-overlap duration and occurrence
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete proof is analytic. The Gaussian heat equation turns the triangular overlap function into the exact derivative of expected overlap duration. The strictly convex equation \(\log\cosh(az)-z=0\), with \(a=2d/L\), gives the sharp half-duration threshold and a unique optimum whenever \(d>L/2\). A separate normal-tail derivative gives the full-duration threshold for probability of any co-flowering. The layer-cake argument proves strict ordering of the two optima when \(d>L\), and the endpoint discontinuity when \(d=L\) is handled explicitly. Direct numerical quadrature, independent Gaussian-moment evaluation, finite differences and positive-parameter stress tests passed; these finite checks do not prove the all-parameter results.
+## correctness
 
-## Originality — PASS on inspected evidence, priority provisional
-Austin et al. (2024, https://doi.org/10.1111/nph.19994) motivate variable relative phenological shifts and days of overlap but do not provide this Gaussian all-variance phase diagram. Rudolf (2018, https://doi.org/10.1111/1365-2656.12850) already shows nonlinear interaction response to timing variability in another model, so broad nonlinear variability effects are not new. Buckley et al. (2021, https://doi.org/10.1111/1365-2656.13451) quantify different empirical overlap metrics, without exact distributional thresholds. Weis et al. (2014), Stemkovski et al. (2023), and Montes-Perez et al. (2025) provide related schedule-variation or co-occurrence studies with distinct mathematical objectives. Semantic published-record searches and claim implication comparisons found no dominating theorem among the inspected material. Standard Gaussian heat smoothing, the triangular overlap identity, and normal CDF calculus are acknowledged prior tools. Older random-interval probability or Gaussian scale-space literature remains a genuine priority risk.
+PASS
 
-## Value — PASS
-Two biologically motivated overlap summaries can convey contradictory changes under the same perturbation: for \(L/2<d<L\), more Gaussian timing variability raises average shared flowering days over a nonzero interval yet always lowers the fraction of years with any positive overlap. The exact thresholds, ordering and critical onset provide a natural benchmark. The result does not claim biological fitness optimization or calibrated field effects.
+With X∼N(d,s), O=(L−|X|)₊ and positive overlap iff |X|<L, the two metrics are Gaussian smoothings of a tent and an interval indicator. The tent's distributional second derivative is δ₋L−2δ₀+δ_L, yielding F′=φ_s(d)[exp(−L²/(2s))cosh(dL/s)−1]. With z=L²/(2s) and a=2d/L this gives the sign of H_a(z)=log cosh(az)−z. For a≤1 it is strictly negative for z>0, including a=0. For a>1, H_a starts at zero with slope −1, is strictly convex and grows to +∞, giving one positive crossing and a unique maximum in s. At a↓1, H_a(C)→H_1(C)<0 for each C>0, so z_F→∞; (a−1)z_F=log 2−log(1+exp(−2az_F)) proves the claimed onset. F is continuous at zero. Differentiating Gaussian interval mass gives the difference of the two weighted densities in the record, with one positive zero at the stated s_P when d>L and strictly negative derivative when d≤L. At d=L the mass tends to 1/2 as s↓0 but the deterministic positive-overlap probability is zero. For d>L, layer cake expresses F as the integral of the narrower interval probabilities with half-width u∈(0,L). Their maximizing variances are q(u)=d²(u/d)/artanh(u/d), strictly between q(L)=s_P and d². Their derivatives are strictly positive at s_P and negative at d²; integration proves the strict ordering. An independent root bisection and split-at-zero quadrature give σ_F=0.6081417030881335, F=0.32447563410484603 and P=0.657492697428084 in the printed example. The supplied checker was read, not run.
 
-## Limits and evidence
-The result assumes two equal, fixed flowering durations, independent of onset, a normal relative-year displacement, binary floral presence, and an unbounded real-line calendar. It excludes stochastic widths, seasonal edge effects, abundance weighting and interaction networks. The proof is self-contained in RESULT.md and the numerical checks are reproducible with `python3 verify_overlap.py`. No independent audit or human priority check has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the paired global variance classification: different exact duration and occurrence thresholds, the onset law for the positive duration optimum, and strict ordering of the two optima when they coexist. Gaussian interval-mass calculus, heat smoothing, option-payoff representations, and qualitative nonlinear responses to phenological variation are not credited as novel. The strongest available neighbouring statements treat different parameters or metrics and do not establish this joint result.
+
+## value
+
+PASS
+
+Expected overlap and probability of any overlap are both natural measurements but are not interchangeable. The interval L/2<d<L has opposite initial responses for these two metrics in the same model. The touch discontinuity, distinct variance optima and strict comparison establish more than a generic nonmonotonic effect. The sharp offset thresholds and quantitative onset tell a researcher exactly when the qualitative distinction matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

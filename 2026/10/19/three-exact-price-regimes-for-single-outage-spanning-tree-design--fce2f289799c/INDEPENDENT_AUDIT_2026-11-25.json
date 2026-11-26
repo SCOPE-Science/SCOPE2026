@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:05.544802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–77",
+        "Frozen VERIFICATION.md and verify_robust_book.py inspected, not executed; rational cofactors are finite corroboration, not the proof."
+      ],
+      "rationale": "The budget simplex is compact and a positive surviving tree count is feasible for m≥2, so allocations with any singular outage cofactor cannot maximize the objective. On the positive domain log of the worst tree count is the minimum of concave log determinants of affine reduced Laplacians and is therefore concave. Averaging over page permutations and hub interchange preserves budget and does not decrease it. For symmetric weights, direct tree counting gives the intact count 2^(m−1)a^m(ma+2b): a tree uses the hub edge and one spoke per page, or omits the hub edge and uses exactly one double-spoke connector page. Removing the hub sets b=0; removing one spoke instead forces its page to use the other spoke, giving 2^(m−2)a^m((m−1)a+2b). These outage counts tie at r=(m+1)/2. The budget substitutes a=B/(2m+tr). To the right of the tie the objective strictly decreases; on its left the derivative sign is that of 4m−(m²−1)t−2mtr. Its zero reaches the tie and zero precisely at the stated t1 and t2. This verifies the optimizer, optimum, active failures and both equality cases. For unrestricted uniqueness, the average of the spoke-outage log determinants is strictly concave on its positive domain: a zero log-det curvature direction would vanish on every undeleted-edge dyad sum; in a simple graph those dyads are independent by inspecting off-diagonals and then diagonals, so the different deletions admit no common nonzero null direction. If an optimal allocation were nonsymmetric, group averaging would strictly increase this spoke average. But the average is at least the worst-outage log determinant at the original allocation and equals it at the symmetric optimum, since spoke outage is active there in every regime. That is a contradiction, including at b=0 or either threshold. The intact scalar derivative has sign 4m−m(m+1)t−2mtr, giving the nominal threshold 4/(m+1) by the same concavity and symmetry reasoning. It is strictly below t2; the displayed limits follow directly.",
+      "residual_risks": [
+        "Continuous nonnegative weights, t,B>0, m≥2 and exactly one adversarial designated edge deletion without reallocation. This is not random survival probability or a theorem about other graphs or multiple outages."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Khosoussi passages establish general tools including the matrix-tree identity and effective-resistance relation; these do not state a dominating robust allocation theorem for the given topology and budget.",
+          "The Daoud stacked-book paper could not be inspected directly. The frozen reference describes another topology and a graph count, not a price-regime theorem; that description was not independently verified."
+        ],
+        "reasoning": "General counting and determinant machinery is prior coverage of proof ingredients. No stronger inspected theorem implies the exact optimizer under the adversarial continuous-weight objective.",
+        "searches": [
+          "Khosoussi et al. weighted spanning-tree optimization and edge-failure identities",
+          "Daoud DOI 10.1016/j.jtusci.2013.04.006, possible book graph overlap",
+          "Robust determinant-design literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "Khosoussi et al. arXiv:1604.01116",
+        "Resultary 623a2d5d5f81 and 6bfa0d131382",
+        "Daoud DOI 10.1016/j.jtusci.2013.04.006 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Optimizing λ₂ does not optimize the product of the surviving nonzero eigenvalues, and the same-topology spectral record does not assert unrestricted spoke-weight uniqueness.",
+          "The nominal threshold comparison has exact overlap where applicable, not independent original weight. Neither nominal log-det nor stochastic expected trees compares the two active outage counts needed for the thresholds."
+        ],
+        "reasoning": "The surviving claim concerns all three regimes and unrestricted uniqueness for the continuous robust determinant problem; no implication from the inspected spectral or nominal optimizers supplies it.",
+        "searches": [
+          "Compare Resultary 623a2d5d5f81 and 6bfa0d131382 Findings with frozen Finding, including quantifiers and cost normalization",
+          "Compare arXiv:1604.01116 §§2.2–5 with the frozen worst-outage objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximizing the minimum weighted tree count is precisely maximin determinant of the reduced Laplacian cofactors over edge deletions; the log formulation is equivalent wherever all cofactors are positive.",
+          "Khosoussi et al. discuss a determinant, edge deletion/effective resistance, expected tree counts, and discrete edge choices rather than adversarial minimum over individual deleted-edge determinants with continuous allocations."
+        ],
+        "reasoning": "This comparison accounts for the determinant-design translation. Expected or chosen-edge objectives do not equal the minimum-outage objective. The targeted external search itself returned no results, not evidence of nonexistence.",
+        "searches": [
+          "Robust or maximin D-optimal design under single observation or edge deletion with weighted spanning trees and priced book topology",
+          "Khosoussi et al., arXiv:1604.01116, §§2.2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 623a2d5d5f81 is a strong same-topology/price/failure match for algebraic connectivity with a distinct cutoff; it gives t_c(2)=3+2√2, unlike the robust determinant's t2(2)=8/3.",
+          "Resultary 6bfa0d131382 is an intact, three-price-class determinant result. Its equal-spoke special case has the same nominal hub-deletion threshold for m≥3."
+        ],
+        "reasoning": "The strongest exact records are on different objective functions or cover only the nominal subproblem. There is no finite numeric table whose lookup could replace the exact all-m robust optimizer; catalogue findings were checked at statement level.",
+        "searches": [
+          "Local Resultary searches for fault-tolerant book networks, worst-outage spanning trees, nominal book D-optimality and support thresholds"
+        ]
+      },
+      "rationale": "The distinct result is the unrestricted maximin spanning-tree optimizer, its two exact thresholds and equality cases. The strongest exact-topology overlap optimizes the surviving spectral gap, not the product of nonzero eigenvalues. The indexed nominal determinant result covers the intact benchmark, not the worst-outage criterion. General determinant-design and edge-deletion identities do not give the classified optimum without additional analysis. The assessment is bounded by the inspected statements.",
+      "residual_risks": [
+        "Unlocated robust/maximin D-optimal work could use other terminology. The targeted search returned no results and the stacked-book source was inaccessible; neither fact establishes absence or independently forces a verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general tools, but differing optimization criteria in inspected results.",
+          "evidence": "Weighted matrix-tree identity, effective-resistance deletion formula, expected count under independent edge presence, and graph design by discrete edge selection do not state the exact robust book allocation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+          "material_read": "Version 2, §§2.2–3 pp. 4–5 offsets 9450–13886 including 12150; §4 p. 7 offset 17800; §5 p. 13 offset 42103; §6 p. 17 offset 53994.",
+          "method": "Open primary full-text bounded passages.",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Closest cited determinant and D-optimal graph-design framework."
+        },
+        {
+          "assessment": "Material same-topology overlap; spectral criterion is inequivalent.",
+          "evidence": "Optimizes the surviving algebraic connectivity and gives a distinct cutoff t_c, with t_c(2)=3+2√2 and mt_c(m)→2; gives a unique symmetric allocation, not full unrestricted spoke uniqueness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-backup-edge-price-for-fault-tolerant-diffusion-on-book-g--623a2d5d5f81/RESULT.md",
+          "material_read": "Finding and start of proof, offset 0.",
+          "method": "Local mirror statement inspection.",
+          "title": "A sharp backup-edge price for fault-tolerant diffusion on book graphs",
+          "trigger": "Same priced book topology and adversarial single-edge failure."
+        },
+        {
+          "assessment": "Exact partial overlap for the nominal comparison; no outage objective.",
+          "evidence": "Three price classes for the intact topology reduce to the nominal threshold R=4S/(m+1) when both spoke prices equal S, for m≥3. The catalogue path is later than the frozen item; chronology is not used to deny this partial overlap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-four-exact-support-regimes-for-price-constrained-d-optimal-condu--6bfa0d131382/RESULT.md",
+          "material_read": "Finding, offset 0.",
+          "method": "Local mirror statement inspection.",
+          "title": "Four exact support regimes for price-constrained D-optimal conductances",
+          "trigger": "Determinant criterion, same topology and allocation budget."
+        },
+        {
+          "assessment": "Uninspected access risk, not a negative coverage finding.",
+          "evidence": "The frozen citation identifies it as a stacked-book count. Its actual graph definition and results were not independently checked.",
+          "identifier_or_url": "DOI 10.1016/j.jtusci.2013.04.006",
+          "material_read": "No full text obtained.",
+          "method": "Lawful open-access retrieval attempts returned HTTP 403; no identified repository copy.",
+          "title": "Complexity of stacked book graph and cone graphs",
+          "trigger": "Plausible named book-graph tree enumeration overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Nominal and spectral comparators above"
+      ],
+      "rationale": "Worst single-outage tree connectivity is a natural robust analogue of an established continuous network-design measure. On an infinite graph family the theorem distinguishes equalized failure scenarios, an interior spoke-limited design and complete abandonment of the hub edge. Its exact price comparison isolates when backup remains worthwhile under the robust criterion but not without outages; proof of unrestricted uniqueness makes that interpretation independent of any symmetric-design restriction.",
+      "residual_risks": [
+        "Relevance is to the specified determinant measure; no empirical reliability, general network topology or multiple-failure performance is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

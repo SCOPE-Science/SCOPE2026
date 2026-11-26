@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:23:57.497213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–45; VERIFICATION.md, verification_results.txt and verify.py, inspected without executing the frozen code",
+        "Schaeffer–Shallit, arXiv:2012.06840, §6 and Theorem 8, p. 10",
+        "Independent /workspace/branches/6704ee90-ae2d-475e-829d-2944fa822c28/finite_check.py and finite_check_results.txt: every occurrence at m=2…9 checked; minima 2,3,3,4,4,5,5,6, with 77097 distinct factors in the largest case"
+      ],
+      "rationale": "In the one-based word 11010001…, a factor with a unique occurrence forces a hit in that occurrence. The factor 11 forces [1,2], and the factors 1 followed by 2^j-1 zeros followed by 1 force [2^j,2^{j+1}] at the selected even j≥2, because the consecutive powers have distinct gaps. These intervals are disjoint. The final factor 0^{2^{m-2}}1 ends uniquely at 2^m: every earlier one has a shorter preceding zero run. Its interval starts at 3·2^{m-2}, beyond all selected two-one intervals. For odd m≥3 the additional 0^{2^{m-3}}10 can only have its one at 2^{m-1}, as earlier zero runs are too short and the final one has no successor. The interval starts at 3·2^{m-3}, after the prior packing, and ends at 2^{m-1}+1<3·2^{m-2}. The counts give k+1 for m=2k and k+2 for m=2k+1. Independently checking the cited upper bound, Schaeffer–Shallit Theorem 8 uses i=k-1 in both cases: the lengths are 4·4^i and 8·4^i in the respective intervals, and adding one to their zero-based positions gives the two frozen sets of exactly those cardinalities. The case 11 alone needs one position.",
+      "residual_risks": [
+        "The all-order upper bound inherits the published Walnut theorem; it was not independently rerun. Its surrounding prose has an apparent indexing slip, but the displayed word and theorem's zero-based position sets are the matching ones. The finite reproduction is not the all-order argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed all-prefix profile is 1 at n=1,2; 2 at n=3…5; and 3+j for 6·4^j≤n<24·4^j. Substituting n=2^m gives j=k-2 if m=2k≥4 and j=k-1 if m=2k+1≥3. The older Theorem 8 supplies explicit attractors across every length n≥3 but expressly disclaims a matching minimum result."
+        ],
+        "reasoning": "The later indexed theorem really does imply the entire frozen finding, not merely overlap at a few lengths. The published broader upper bound implies only one inequality.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-exact-minimum-string-attractor-profile-of-the-powers-of-two-char--5ffa12b82ec7",
+          "Schaeffer–Shallit arXiv:2012.06840 Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.06840 Theorem 8",
+        "arXiv:2509.08503v2 Table 2",
+        "Resultary 19c751e8e9ff, 65ba8f939f2b, 5ffa12b82ec7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8 explicitly says its construction 'only gives an upper bound' and that 'other techniques must be used' for a matching lower bound. The lower bound here uses disjoint uniquely occurring factors including a parity-dependent truncated-end witness, not the upper bound or greedy experiment. The later all-length theorem is an actual implication in the reverse chronology."
+        ],
+        "reasoning": "The exact dyadic minimum is not a direct specialization of the published upper bounds or an asymptotic growth statement. Priority remains bounded by the checked sources.",
+        "searches": [
+          "Schaeffer–Shallit arXiv:2012.06840 Theorem 8 and its closing paragraph",
+          "Béal–Crochemore–Romana §5 Table 2 and algorithm label",
+          "Frozen RESULT.md lower-bound proof and prior-work notes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed dyadic theorems give ceil(m/2)+1 for m≥2 with length two exceptional; in zero-based indexing the ones occur at positions 2^j-1. The two-one and odd-parity witness constructions substantially overlap; one record uses a different even terminal witness."
+        ],
+        "reasoning": "Translating positions and adding a vacuous length-one case do not distinguish the mathematical result. The two exact comparison records are catalogued after the frozen record, not date-prior exact coverage; whether they are independent or related is not established.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-exact-dyadic-string-attractor-size-of-the-powers-of-two-indicato--19c751e8e9ff",
+          "Resultary 2026/11/8/SCOPE-exact-minimum-string-attractors-for-dyadic-prefixes-of-the-power--65ba8f939f2b",
+          "arXiv:2012.06840 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2's 'Pow. of 2' column gives output sizes of GetAnAttractor; at n=1,2,4,8,16 entries are 1,1,2,3,4. In particular the output size 4 at n=16 exceeds the exact minimum 3. Later indexed profiles are exact, unlike this computational greedy table."
+        ],
+        "reasoning": "A table of sizes of found attractors is not a table of minima; even exact agreement at some lengths does not imply optimality.",
+        "searches": [
+          "Béal–Crochemore–Romana arXiv:2509.08503v2 §5 Table 2",
+          "Local Resultary exact dyadic and all-prefix profiles 19c751e8e9ff, 65ba8f939f2b, 5ffa12b82ec7"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the matching all-dyadic lower bound and hence exact minimum, not the published attractor construction. Two later indexed dyadic theorems are exactly equivalent and a later all-prefix theorem strictly subsumes it; those are coverage, not evidence of earlier priority over this frozen result.",
+      "residual_risks": [
+        "An earlier unindexed equivalent is not excluded. The later exact overlap and stronger coverage are real; archive chronology alone does not establish independent invention or full historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior upper sets for both parities, not exact minima",
+          "evidence": "Theorem 8(a),(b) have the required intervals and -1 on the positions; the text explicitly leaves matching lower bounds open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06840",
+          "material_read": "§6, Theorem 8 and paragraph after proof, p. 10, offsets 23780–26393",
+          "method": "OA primary PDF",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Exact upper sets and possible prior optimality"
+        },
+        {
+          "assessment": "Experimental greedy outputs, not certified minimum sizes",
+          "evidence": "The table and caption describe outputs of GetAnAttractor; at length 16 the output is 4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.08503v2",
+          "material_read": "p. 14 definition at offset 36620 and p. 16 Table 2 and commentary",
+          "method": "OA primary PDF",
+          "title": "Checking and producing word attractors",
+          "trigger": "Published dyadic-size table for same word"
+        },
+        {
+          "assessment": "Same theorem and largely shared witnesses, with different even terminal witness; later date",
+          "evidence": "All m≥2 have ceil(m/2)+1; m=0,1 have size 1.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-dyadic-string-attractor-size-of-the-powers-of-two-indicato--19c751e8e9ff",
+          "material_read": "Finding at offset 0 and lower-bound witnesses",
+          "method": "Local Resultary mirror",
+          "title": "Exact dyadic string-attractor size of the powers-of-two indicator",
+          "trigger": "Exact indexed formula, possible proof duplication"
+        },
+        {
+          "assessment": "Exact same theorem after index shift, later date",
+          "evidence": "The dyadic word has ones at zero-based positions 2^j-1 and the same matching minimum.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-minimum-string-attractors-for-dyadic-prefixes-of-the-power--65ba8f939f2b",
+          "material_read": "Finding at offset 0 and lower-bound construction",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimum string attractors for dyadic prefixes of the powers-of-two word",
+          "trigger": "Equivalent indexed result with zero-based word"
+        },
+        {
+          "assessment": "Strictly broader exact result, catalogued later",
+          "evidence": "The range 6·4^j≤n<24·4^j gives size 3+j and covers both dyadic parities by substitution.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-minimum-string-attractor-profile-of-the-powers-of-two-char--5ffa12b82ec7",
+          "material_read": "Finding with piecewise exact formula",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimum string-attractor profile of the powers-of-two characteristic word",
+          "trigger": "Strongest indexed match at all prefix lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Relationship to prior work",
+        "Schaeffer–Shallit §6",
+        "Béal–Crochemore–Romana Table 2"
+      ],
+      "rationale": "The powers-of-two characteristic word is the cited canonical automatic example with unbounded prefix attractor size. The result closes the stated optimality gap at all natural dyadic scales and gives elementary parity-sensitive packing witnesses, allowing later work to distinguish actual compression optima from greedy behavior. This is more than a few sample sizes and does not claim arbitrary prefix lengths.",
+      "residual_risks": [
+        "The original dyadic result alone gives neither all-prefix minima nor a characterization of all minimizing position sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

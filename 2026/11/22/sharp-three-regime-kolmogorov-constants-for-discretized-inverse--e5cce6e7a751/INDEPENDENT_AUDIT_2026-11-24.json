@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:25:16.511145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed positive α,β the incomplete-gamma integral gives the stated smooth tail expansion and linear and quadratic terms of n log F(a_n x). To check uniformity, on a_n x≥y₀ choose the survival S≤1/2 and comparable to (a_n x)^(-α). The error in replacing n log F by −x^(−α) is bounded by a constant times a_n^(-1)x^(−α−1)+n^(-1)x^(−2α), from |nS−x^(−α)| and the nS² bound for the log remainder. Both logs are bounded above by −C x^(−α). After exponentiation, scaling by n for α<1 or a_n for α>1 leaves polynomial-in-x envelopes times exp(−C x^(−α)), vanishing at both ends. The derivative formula likewise gives a uniform bound by C' x^(−α−1)exp(−C x^(−α)) plus the compact convergence. On a_n x<y₀, H_n and its derivative are exponentially small (even with polynomial n factors) by F(y₀)<1, and the Fréchet CDF and derivative have the same required negligible tails. This validates the uniform expansions. The exact floor shift is d_n/a_n with 0<d_n≤1. Integrating the uniform derivative convergence gives the uniform first-order shift, and lattice points approaching the derivative maximum attain d_n=1. Below shape one, this is smaller than 1/n and maximizing (1/2)u²e^(−u) gives 2e^(−2). At shape one the smooth parent maximum is exactly Fréchet, but the floor still contributes 4e^(−2)/β at scale n. Above one, the smooth term equals β/(α+1) times the derivative term, so the two positive errors add at d_n=1, giving exactly the stated constant. At x<0 both CDFs are zero; x=0 has probability F(1)^n and is negligible. check.py was inspected, not executed: its scan samples lattice cells and truncates the range and hence does not certify the global supremum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hitz–Davis–Samorodnitsky §1 describes the Shimura-type discrete maximum-domain criterion via continuous extensions and long-tailedness.",
+          "Nadarajah–Lyu §3.4 gives a discrete inverse gamma as a special case of their discrete inverse-transformed gamma and §4 discusses applications and tails.",
+          "Davis is a plausible rate-theorem lead, but the primary full text was unavailable; no substantive theorem is inferred from its title."
+        ],
+        "reasoning": "An MDA criterion guarantees a limiting class, not a sharp rate constant. A family and tail classification do not establish uniform maximum-CDF errors. General continuous second-order results may cover the smooth part, and a strong theorem already controlling both lattice displacement and the smooth part in supremum norm could cover the entire claim; this was not established from accessible materials.",
+        "searches": [
+          "Shimura, Discretization of distributions in the maximum domain of attraction (2012)",
+          "Davis, The rate of convergence in distribution of the maxima (1982), DOI 10.1111/j.1467-9574.1982.tb00772.x",
+          "Nadarajah–Lyu, DOI 10.1371/journal.pone.0285183 §§3.4 and 4"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof and Relationship to prior work",
+        "VERIFICATION.md",
+        "check.py",
+        "Hitz–Davis–Samorodnitsky arXiv:1707.05033 §§1,3.1",
+        "Nadarajah–Lyu DOI 10.1371/journal.pone.0285183 §§3.4,4",
+        "Resultary 461e7c58350c Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof uses both a compact-to-global log estimate and the derivative profile evaluated at attainable lattice endpoints; the leading terms are scaled by different powers of n on opposite sides of shape one.",
+          "For α=1 the normalization makes the continuous maximum exactly Fréchet, so only the lattice displacement remains at leading order.",
+          "The inspected Hitz example estimates a threshold/exceedance probability, not a supremum over the full normalized CDF."
+        ],
+        "reasoning": "The floor model and first-order limit do not mechanically determine the competing terms or prove the sharp supremum. Even a smooth rate statement omits the same-scale floor term for α≥1 unless it includes suitable control of the CDF at displaced arguments and the attainable lattice endpoints.",
+        "searches": [
+          "Hitz–Davis–Samorodnitsky §1 and §3.1 Eq. (14) versus RESULT.md Proof §§1–3",
+          "Resultary 461e7c58350c Finding versus the floor inverse-gamma profile",
+          "Davis 1982 and Shimura 2012 as possible rate and discretization implications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hitz–Davis–Samorodnitsky §3.1 Eq. (14) uses the exact same floor convention with IG(2,1), for a rare-event simulation.",
+          "Continuity of the parent yields the finite-n equivalence between the floor CDF at x and the continuous maximum CDF at (floor(a_n x)+1)/a_n."
+        ],
+        "reasoning": "A theorem stated for the entire sampled maximum-CDF error, including the cell endpoints, could be equivalent without the phrase Kolmogorov constant. The rare-event approximation actually inspected uses the same family and rounding but not that global supremum or its asymptotic coefficient.",
+        "searches": [
+          "Hitz–Davis–Samorodnitsky arXiv:1707.05033 §§1 and 3.1, Eq. (14)",
+          "Literature search: inverse-gamma max convergence rate, floor discretization and Kolmogorov error",
+          "Resultary: Fréchet Kolmogorov constants for discretized inverse-gamma maxima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record e5cce6e7a751 is the exact self-hit.",
+          "Distinct 461e7c58350c studies forward relative entropy for optimally calibrated Gumbel approximations of continuous rate-one Gamma maxima, excluding shape one."
+        ],
+        "reasoning": "The same-day hit and its shape-one discussion warrant a comparison, but the reciprocal transformation takes gamma maxima to inverse-gamma minima, not to the inverse-gamma maxima here. Its optimization over Gumbel parameters and forward KL loss give neither the lattice CDF supremum nor the fixed Fréchet normalization. No distinct table with the claimed constants was established.",
+        "searches": [
+          "Resultary: exact three-regime Kolmogorov constants for inverse-gamma maxima",
+          "Resultary: sharp maximum calibration, including shape one and discrete or gamma laws"
+        ]
+      },
+      "rationale": "Pass for the combined sharp global floor-law classification under the specified first-order scaling, including lattice attainment and the shape-one change in the leading mechanism. Neither the floor inverse-gamma model, the first-order domain of attraction, nor the general expansion of a smooth maximum is claimed as new. The closest inspected floor inverse-gamma example addresses exceedances, and the prior continuous rate literature remains an explicit access limitation.",
+      "residual_risks": [
+        "Shimura's and Davis's primary rate/discretization passages could not be inspected. An earlier general sharp uniform result might include this instance without using inverse-gamma terminology.",
+        "The exact parameterization in the PLOS image equations and the precedent for the gamma-KL endpoint were not verified; neither is used as evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model overlap at α=2, β=1; the inspected use is for exceedance estimation, not sharp uniform normalized-maximum constants.",
+          "evidence": [
+            "§1 defines discrete domain-of-attraction membership using floor extensions; §3.1 Eq. (14) uses X=floor(Y), Y∼IG(2,1), in a rare-event simulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.05033",
+          "material_read": "Section 1 discrete maximum-domain and exceedance discussion; §3.1 Eq. (14) inverse-gamma simulation.",
+          "method": "Bounded read of the open text at the relevant sections.",
+          "title": "Discrete Extremes",
+          "trigger": "Same floor inverse-gamma observations and discrete extreme-value setting"
+        },
+        {
+          "assessment": "Family-level and tail overlap; exact agreement of floor parameterization was not independently verified and no maximum-error constant was identified in the inspected passages.",
+          "evidence": [
+            "§3.4 calls discrete inverse gamma its c=1 special case."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0285183",
+          "material_read": "§3.4 prose on the inverse-transformed-gamma family and §4 discussion of the models and applications; displayed image equations e176–e180 were not verified.",
+          "method": "Bounded read of the open journal HTML.",
+          "title": "New discrete heavy tailed distributions as models for insurance data",
+          "trigger": "Cited discrete inverse-gamma family"
+        },
+        {
+          "assessment": "The first-order criterion does not establish the constants. The scope of the original rate results as applied to this problem remains unverified.",
+          "evidence": [
+            "Hitz–Davis–Samorodnitsky §1; RESULT.md lines 108–119."
+          ],
+          "identifier_or_url": "Shimura (2012); Davis (1982), https://doi.org/10.1111/j.1467-9574.1982.tb00772.x",
+          "material_read": "Shimura bibliographic details and Hitz–Davis–Samorodnitsky §1 attribution; Davis bibliographic identification only.",
+          "method": "Bounded lawful full-text access attempts and available statement comparison; full primary texts unavailable.",
+          "title": "Discretization of distributions in the maximum domain of attraction; The rate of convergence in distribution of the maxima",
+          "trigger": "Potential general coverage by discretization and rates of convergence"
+        },
+        {
+          "assessment": "Different maxima, metric and calibration. Its shape-one precedent is not identified as a floor/Fréchet Kolmogorov result by the passages read.",
+          "evidence": [
+            "Finding gives an order (log n)^(-4) forward-KL law and excludes shape one."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-sharp-relative-entropy-calibration-of-gamma-maxima--461e7c58350c",
+          "material_read": "Finding on continuous rate-one Gamma maxima, fitted Gumbel laws and forward KL loss.",
+          "method": "Resultary search and bounded statement comparison.",
+          "title": "Sharp relative entropy calibration of gamma maxima",
+          "trigger": "Related sharp error and shape-one issue for a closely named distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp uniform constants quantify when discrete observations matter for the error in a Fréchet approximation to maxima. The classification separates an ordinary finite-sample exponent correction, an exact continuous cancellation leaving a pure lattice error, and an additive smooth-plus-lattice regime. This is an all-threshold conclusion that a tail fit or a compact pointwise expansion would not give.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

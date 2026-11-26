@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof determines every face of the Alexander dual, gives a uniform sequence of exactly \(9n\) genuine elementary simplicial collapses and identifies the resulting complex as a cyclic union of \(n\) triangular-prism boundaries together with isolated extra edges. The graph-of-spaces decomposition proves the integral homotopy type for all \(n\ge5\); Alexander duality establishes the complete integral homology of the ordinary cut complex. Finite tests over \(5\le n\le10\) verify exhaustive face sets, the full collapse sequence, and mod-two boundary ranks. No computation is used to infer the infinite statement.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Both foundational cut-complex papers [1,2] discuss different graph families and grid boundary conditions. The highly relevant toroidal cut-complex theorem [3] assumes both cycle lengths at least five, and therefore does not contain the triangular-factor case. The triangular-cylinder neighborhood-complex theorem [4] studies a different simplicial functor, despite sharing the graph. The mixed-alphabet Hamming result [5] requires three or more complete-graph factors. The available full result texts of [2–5] were inspected and compared at the level of implications, not titles. Targeted semantic searches did not identify an equivalent classification, but unindexed literature remains a residual risk.
+PASS
 
-**Value — PASS.** The triangle factor is a natural boundary excluded by existing toroidal cut-complex treatments: its within-column triangles alter the dual from a torus-plus-circles to a wedge with an extensive independent \(S^2\) family. The exact all-integer torsion-free ranks and universal non-shellability are not merely a small isolated computation and explain the structural effect of shortening a periodic factor.
+The ordinary cut dual on all 3n vertices contains exactly the sets all of whose triples are connected. For n≥5 its 16n triangles consist of column triangles, straight paths and corners. On four vertices the triple condition forces minimum degree two; no graph edge lies in two triangles, ruling out diamonds and cliques, and every four-cycle is a product square (two opposite cycle steps and two opposite color steps). Each square's opposite pairs force a possible fifth vertex to meet all four corners, which is impossible. A corner triangle identifies a unique tetrahedron and the deleted diagonal subsequently lies in just one triangle. A straight path's endpoints have a unique common neighbor, including at n=5. The indicated elementary collapses therefore leave triangulated prism boundaries with binom(3n,2)−15n additional bare edges. The n prism boundaries meet in disjoint column disks in cyclic order. Disk inclusions are cofibrations: glue along a spanning path, and the final attachment along two disks adds one loop as well as one sphere. Each extra bare edge between points of the connected core adds another loop. Integral combinatorial Alexander duality therefore gives the two stated free groups with the stated degree shift. The pure complex has nonzero homology below its top dimension, ruling out shellability.
 
-**Limitations.** No claim is made for the two short-cycle exceptions, full homotopy type of the original cut complex, or equivariance. Unindexed equivalent literature may exist. The computation checks examples, not all integers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest ordinary-cut comparisons use the same geometric strategy but do not cover a triangle factor with a long cycle. The same-graph open-neighborhood result classifies a different complex. The distinct supported content is the triangular-prism dual and exact integral ordinary-cut homology on this graph family.
+
+## value
+
+PASS
+
+The triangle is a natural short-circumference boundary where product squares coexist with actual triangle columns. The theorem detects an integral change from a retained torus on longer tori to one sphere class per prism, and gives complete cut homology, including non-shellability, rather than only a count of two-cells or finite-field Betti data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

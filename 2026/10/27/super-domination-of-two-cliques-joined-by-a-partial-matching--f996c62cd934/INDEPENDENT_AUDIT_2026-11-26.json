@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:46:00.361029Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4, VERIFICATION.md, and verify_superdom.py inspected.",
+        "Independent replay: python3 /workspace/checks/frozen_mathematics.py 2, directly checked all 7680 subsets at the 15 pairs with 3≤n≤5, 0≤t≤n, including maximal omissions via comparison with all admissible supersets."
+      ],
+      "rationale": "If both sides have omissions and one side has at least two, selected witnesses on that side see at least two omissions; any opposite-side neighbor of an omitted vertex on that side also sees an omission in its own clique. Thus only a mixed pair is possible, and an index different from the two omitted indices gives witnesses on both sides when n≥3. With at least two omissions on just one side, in-clique witnesses are impossible and the opposite matching mates are necessary and sufficient. Single omissions and the empty omission always work. The resulting omission generating polynomial is 2(1+w)^t−1+2(n−t)w+n²w²; mapping omitted size k to selected size 2n−k gives the asserted polynomial. Maximal omissions are exactly mixed pairs and, when t≥2, the full matched subset on either side. Smaller unmatched or matched singletons can be extended to mixed pairs; proper matched subsets of size at least two can be extended within their side. This yields the inclusion-minimal polynomial, min/max, and minimum multiplicities, including addition at the coincident exponent when t=2.",
+      "residual_risks": [
+        "General claims rest on the witness argument, not finite replay. No extension to n=2 or to cross edges other than a matching is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 22 gives γ_sp(G □ K₂)=|V(G)| for graphs of order at least two. In §6 of Ghanbari et al. N_sp counts minimum-cardinality sets, and Theorems 6.1, 6.5 count for cliques and cycles. Kaidash's broad super-domination-polynomial chapter was not available in full in the access attempts."
+        ],
+        "reasoning": "The prism theorem actually covers the scalar t=n endpoint; the inspected §6 enumerations concern a different object/class or optimization level. No whole-chapter scope inference is made from the Kaidash bibliographic material.",
+        "searches": [
+          "Klein–Rodríguez-Velázquez–Yi arXiv:1705.00928, Theorem 22; Ghanbari–Jäger–Lehtilä arXiv:2209.01795 §6; Kaidash DOI 10.1007/978-3-031-73365-9_6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1705.00928 and 2209.01795; DOI 10.1007/978-3-031-73365-9_6 limited access; Resultary 5607c6d03173, 9d11a0d9ad56 and d6c5648dc05a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prism theorem fixes only the lowest nonzero degree for t=n; N_sp is the coefficient at such a minimum; the closest complete polynomial is for the complement."
+        ],
+        "reasoning": "The mixed-pair and matched-side maximal omission families, the coefficients of all larger degrees, and the growing gap between sizes of inclusion-minimal sets do not follow from these minimum data or from applying the complementary graph formula.",
+        "searches": [
+          "arXiv:1705.00928 Theorem 22; arXiv:2209.01795 Theorems 6.1, 6.5; Resultary 5607c6d03173"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/18 result gives a complete omitted-vertex enumerator for K_{a,b} minus a matching. For a=b=n this is the complement of J_{n,t}.",
+          "The 10/13 crown graph record treats the full-deletion endpoint on the bipartite side."
+        ],
+        "reasoning": "Complementation is not an equivalence of the witness requirements: an omitted-neighborhood intersection being a singleton in the complement is an omitted non-neighborhood being a singleton in the original, not the asserted private-neighbor condition. Neither result is a reformulation of the target polynomial.",
+        "searches": [
+          "Resultary: partial-matching joins of two cliques, omission and super domination polynomials",
+          "Resultary 5607c6d03173, bicliques with a deleted matching; 9d11a0d9ad56, crown graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact polynomials treat deleted matchings in bipartite graphs, including crown graphs. A same-date result d6c5648dc05a treats successful initial sets for temporal forcing under alternating matching snapshots."
+        ],
+        "reasoning": "None of these inspected statements gives the same object and exact quantities. Temporal process forcing is not the static selected-witness rule, independently of apparent publication order. No assertion about every indexed record is made.",
+        "searches": [
+          "Focused Resultary retrieval for super-domination enumeration of partial matching clique joins",
+          "Resultary 5607c6d03173, 9d11a0d9ad56, d6c5648dc05a"
+        ]
+      },
+      "rationale": "The verified distinct claim is the entire admissibility classification and the two labelled enumeration polynomials. The familiar scalar minimum for the full prism is credited; the strongest matching enumerators located concern graph complements or minimum sets only.",
+      "residual_risks": [
+        "Uninspected examples in Kaidash or an unindexed computation could overlap; a web query produced no results, which is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full-prism scalar minimum",
+          "evidence": "For any G of order n≥2, γ_sp(G □ K₂)=n.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.00928",
+          "material_read": "Theorem 22, PDF p. 12, OA offset about 26300",
+          "method": "Primary OA passage",
+          "title": "On the super domination number of graphs",
+          "trigger": "General prism theorem might subsume the endpoint"
+        },
+        {
+          "assessment": "Minimum counts on different classes, not an all-set/inclusion-minimal classification here",
+          "evidence": "Defines N_sp as minimum-set count and gives it for cliques and cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01795",
+          "material_read": "§6, Theorem 6.1 (p. 17), Theorem 6.5 (p. 20)",
+          "method": "Primary OA passages",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Plausible graph-class exact counts"
+        },
+        {
+          "assessment": "Material residual risk, not evidence of noncoverage or coverage",
+          "evidence": "Chapter title and framework are directly relevant, but its full example list was not verifiable.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-73365-9_6",
+          "material_read": "Bibliographic record and abstract/preview as documented by frozen source; no chapter full text inspected",
+          "method": "DOI, Springer chapter and direct PDF access attempts redirected; DOI recovery found no lawful repository copy",
+          "title": "Super Domination Polynomial of a Graph",
+          "trigger": "General polynomial chapter with potentially relevant examples"
+        },
+        {
+          "assessment": "Different graph despite exact complementary relation",
+          "evidence": "Exact omitted-vertex polynomial for K_{a,b} with a matching removed.",
+          "identifier_or_url": "Resultary 5607c6d03173",
+          "material_read": "Finding, mirrored offset 0",
+          "method": "Local Resultary discovery and mirrored passage",
+          "title": "Super-domination polynomial of bicliques with a deleted matching",
+          "trigger": "Closest all-set enumeration under graph complementation"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Enumerates sets for K_{n,n} with a perfect matching removed.",
+          "identifier_or_url": "Resultary 9d11a0d9ad56",
+          "material_read": "Finding, mirrored offset 0",
+          "method": "Local Resultary discovery and mirrored passage",
+          "title": "All super dominating sets of crown graphs",
+          "trigger": "Exact enumerator at the complement of the full-prism endpoint"
+        },
+        {
+          "assessment": "Different condition and object",
+          "evidence": "Successful initial sets for temporal forcing on alternating matching snapshots.",
+          "identifier_or_url": "Resultary d6c5648dc05a",
+          "material_read": "Finding, mirrored offset 0",
+          "method": "Local Resultary discovery and mirrored passage",
+          "title": "Switch-count invariance and exact temporal forcing enumerators",
+          "trigger": "Same-date matching and enumerator hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and maximal-omissions proof; arXiv:1705.00928 Theorem 22 for prior scalar minimum"
+      ],
+      "rationale": "The partial matching interpolates between disconnected cliques and a standard prism. The classification explains the competition between within-clique and cross-clique witnesses, giving a sharp transition at t=3 between equal cardinalities of maximal omissions and an unbounded spread of sizes of inclusion-minimal sets, even on connected prisms. This structural outcome is not captured by the known scalar minimum.",
+      "residual_risks": [
+        "No claim of a new polynomial framework or results outside the stated graph family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

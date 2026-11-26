@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:06:49.154217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "VERIFICATION.md and check.py, inspected as evidence"
+      ],
+      "rationale": "Expand (A+εB)^d modulo ε². For ordered Jordan blocks of sizes a,b≤d, a corner matrix unit generates the rectangular space under the two independent shifts, so the differential is multiplication by F=Σ x^i y^(d−1−i) in k[x,y]/(x^a,y^b). The relation (x−y)F=0 reduces all degree-t multiples to x^tF; a term survives exactly when d−b≤i≤a−1−t. Consequently there are max(0,a+b−d) independent nonzero products of different degrees, with no characteristic cancellations. Thus the lift count is q^(n²−r_d). The reduction orbit has size |GL_n| divided by the centralizer unit count: the endomorphism space has dimension Σ m_a m_b min(a,b) and its semisimple quotient is the product of matrix algebras of sizes m_s. Combining yields exactly the claimed coefficients. The n=0 convention works; partition substitution also verifies all four small totals.",
+      "residual_risks": [
+        "Uploaded checks not executed; their finite prime-field cases cannot certify extension fields or all exponents. The symbolic argument is the basis of PASS."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5c39e77ec446 gives the rank over every field and for positive power exponent without the d≥3 restriction; it also treats generic tangent excess. The higher-jet comparison stays at exponent 2; Weyman's orbit-closure equations and the Brauer loop model do not count the same ordinary power-zero entry scheme."
+        ],
+        "reasoning": "The exact covering record dominates the positive-dimensional exponent range. The unique empty matrix here is an empty-product convention, not an additional substantive case.",
+        "searches": [
+          "5c39e77ec446",
+          "2026/11/8/SCOPE-equidimensional-jets-of-the-square-zero-3-times3-matrix-scheme--5cf076352a99",
+          "arXiv:math/0006232",
+          "arXiv:math/0503224"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 64–80",
+        "Resultary indexed power-zero and square-zero-jet records listed above",
+        "arXiv:1212.6157 §6.2",
+        "arXiv:math/0006232 p. 2",
+        "arXiv:math/0503224 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching proof counts the same rectangular-block multiples and explicitly obtains the orbit-times-lift factor per λ. The earlier length-two similarity paper uses the differential-shaped operator on rectangular blocks, without the exact census in the inspected passage."
+        ],
+        "reasoning": "Appending ∏_s z_s^m_s to an already specified per-type count requires no new count or deduction about matrices. The overlap is stronger than sharing a linearization technique.",
+        "searches": [
+          "5c39e77ec446, Proof §§2–3",
+          "Prasad–Singla–Spallone, arXiv:1212.6157, §6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching Finding and Proof §§1–3 treat the scheme defined by the entries of X^m, not a reduced orbit closure, and compute the same differential rank and lift fiber."
+        ],
+        "reasoning": "Take m=d and group ordered indices i,j by their Jordan sizes a,b; the matching R_m becomes precisely r_d. First-jet fibers in that entry-equation scheme are exactly the matrices counted here.",
+        "searches": [
+          "Resultary: differential rank and dual-number fibers for X^d=0",
+          "2026/11/2/SCOPE-power-zero-matrix-schemes-exact-dual-number-fibers-and-a-generic--5c39e77ec446"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That census is the sum over λ of |GL_n|q^(n²−R_m(λ))/(q^(Σ(λ'_j)²)∏_s∏_{h≤b_s(λ)}(1−q^(−h)))."
+        ],
+        "reasoning": "Compare the symbolic partition entries rather than a short numeric sequence. Each indexed summand is exactly the count for the corresponding reduction type, so the exact enumeration is covered coefficient by coefficient.",
+        "searches": [
+          "5c39e77ec446, Finding, exact total census"
+        ]
+      },
+      "rationale": "A distinct indexed result already supplies the identical characteristic-free rectangular rank, fixed-reduction fibers and identical coefficients as a partition-indexed census, in an exponent range containing this claim. The formal variables only label those exact summands. This is a finding of equivalent coverage in the indexed corpus, not a chronology or attribution claim: the matching record carries a later catalogue date.",
+      "residual_risks": [
+        "No priority inference from catalogue dates. Older equivalent statements in representation-scheme tangent/Ext calculations or Hall enumeration are not ruled out; this is not an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent or stronger coverage",
+          "evidence": "The characteristic-free block-rank formula, q-power fiber, and orbit-sum numerator and denominator agree term for term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-power-zero-matrix-schemes-exact-dual-number-fibers-and-a-generic--5c39e77ec446/RESULT.md",
+          "material_read": "Finding around offsets 453–2060; Proof §§1–3, offsets 3080–5155",
+          "method": "Indexed comparison, bounded local mirror passages",
+          "title": "Power-zero matrix schemes: exact dual-number fibers and a generic tangent calculation",
+          "trigger": "Exact rank and partition-indexed census candidate"
+        },
+        {
+          "assessment": "Operator overlap; exact count not established from this passage",
+          "evidence": "Defines L_N(X)=Σ_{a+b=N−1}J^a X J^b and evaluates it blockwise.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.6157",
+          "material_read": "§6.2, pp. 20–21, rectangular blocks and matrix units",
+          "method": "Primary PDF passages",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Same operator on a length-two coefficient ring"
+        },
+        {
+          "assessment": "Different scheme question",
+          "evidence": "Orbit-closure ideal includes characteristic-polynomial invariants as well as power equations; the cited arbitrary-field case has e=2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0006232",
+          "material_read": "p. 2, equations for orbit closure of type (e^r,f)",
+          "method": "Primary PDF passage",
+          "title": "Two results on equations of nilpotent orbits",
+          "trigger": "Possible scheme-theoretic power-zero coverage"
+        },
+        {
+          "assessment": "Different product and scope",
+          "evidence": "Uses a degenerate product, not ordinary associative matrix powers in the claimed ring.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503224",
+          "material_read": "p. 1, definition of the product and scheme",
+          "method": "Primary PDF passage",
+          "title": "A scheme related to the Brauer loop model",
+          "trigger": "Possible earlier square-zero point-count comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "5c39e77ec446, Finding and Proof §§2–3"
+      ],
+      "rationale": "Characteristic-independent mixed-block ranks and reduction-type fiber counts are useful invariants, but they have exact indexed coverage. No distinct invariant remains: multiplying each already known partition entry by its type monomial is only a relabeling, and the small totals and empty-matrix convention add no new mathematical content.",
+      "residual_risks": [
+        "The value judgment is on this claimed addition, not on the utility of the underlying known rank formula."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

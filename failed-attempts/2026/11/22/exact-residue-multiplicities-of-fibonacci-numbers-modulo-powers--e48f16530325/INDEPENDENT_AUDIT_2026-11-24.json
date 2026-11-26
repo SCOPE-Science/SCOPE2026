@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:47:40.385897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–78; VERIFICATION.md; check_fib11.py (read, not executed)",
+        "/workspace/branches/cd683c03-6d0a-4eb2-9bd9-837cb175d66f/audit_fib11.py"
+      ],
+      "rationale": "A has order 10 modulo 11, and A^10=I+11C with C nonzero modulo 11. Odd-prime binomial lifting raises the first nonzero congruence valuation by one at each step, and returning the initial consecutive Fibonacci pair is equivalent to A returning to the identity. For the ten index branches, the reduced divided difference of the Fibonacci interpolation is 8Lᵢ; only i=5 is singular. Each other branch is an isometry after scaling by 11 and hits each target in its residue disk once. At i=5, the chosen root satisfies s≡73 modulo 121 and ℓ/11≡6 modulo 11; Binet gives κ cosh((1+2t)ℓ). The square root used to normalize κ(ℓ/11)^2/4 exists as that expression is 1 modulo 11. The higher coefficients of the normalized sinh factor are in 121 Z₁₁, so the normalized V has unit divided difference 2u modulo 11. Thus F=κ+242V² with V bijective at each finite precision. There are 11 lifts of each root from precision k−2 to index precision k−1; k=2 uses the trivial ring, and k=1 is the direct ten-term count. The valuation split of the squares gives the stated root counts, central fiber sizes, and support and density. An independent exact replay checked every target at the sampled levels 1, 2, 3, 5 and 6 and first-return states through the asserted periods; it is finite corroboration, not the all-level proof.",
+      "residual_risks": [
+        "The replay has finite exponent coverage; the unbounded conclusion uses the exact lifting and isometry proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The composite theorem explicitly gives parity refinements at both primes and combines them by parity-synchronized CRT. It states the local least period 10·11^(b−1).",
+          "Bragman–Rowland treat limiting density in split/inert classes; the actual consulted Carlip–Somer theorem concerns frequency bounds with additional hypotheses. Bundschuh–Bundschuh give exact frequencies at 3, a different prime."
+        ],
+        "reasoning": "The composite record subsumes the assignment through its stated local factors, not by an inadmissible a=0 substitution. The inspected broad density and frequency passages are useful prior context but are not needed for the exact-coverage finding.",
+        "searches": [
+          "Resultary 2b765358240b on 7^a11^b; Bragman–Rowland arXiv:2202.00704, Theorem 1; Carlip–Somer (2007), §6 Theorem 6.1; Bundschuh–Bundschuh (2011), Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, proof and prior-work comparison",
+        "Resultary 2b765358240b, 9065fee25bef, be34cdadeedf and 7e3e471f3ea3",
+        "Rowland–Yassawi, Bragman–Rowland, Carlip–Somer (2007), Bundschuh–Bundschuh"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The composite record's local factors are expressly frequencies in one local least period, so their sum requires no reconstruction of index-parity incidence across primes.",
+          "Rowland–Yassawi give the regular image disks with Hensel uniqueness, the exceptional image tree, and the density 145/264; regular one-preimage behavior is recoverable from their proof."
+        ],
+        "reasoning": "Summing the local factors and using invariance of square-root counts under a square-unit multiplier supplies every frozen multiplicity. Finite support and observing central or off-center maxima are then immediate valuations or sums of those same entries. A different derivation via cosh does not distinguish the claimed invariant. No day-internal priority is inferred.",
+        "searches": [
+          "Resultary 2b765358240b actual statement and Steps 1–3",
+          "Rowland–Yassawi arXiv:1602.00176, §5 Lemmas 17–19 and Theorem 20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct composite record gives (E₁₁,b,O₁₁,b) as even and odd counts over the least local period, including the divisible-square-root count for 5z²−4 when z≡5 modulo 11.",
+          "On that target class, 5z²−4=5(z−κ)(z+κ), with 5(z+κ) a unit. For z≡κ modulo 121 set δ=(z−κ)/121; the ratio of the discriminant's scaled factor to the frozen root coefficient δ/2 is the square unit 10(z+κ)≡1 modulo 11, interpreted as a multiplier also at δ=0."
+        ],
+        "reasoning": "The divisible roots are u=11v; dividing their congruence by 121 and rescaling v by a square-root unit yields exactly 11R_(b−2)(δ/2) for b≥2. If z is outside that disk but in the singular target class there is no divisible root; at b=1 exactly one root remains. The two formulations agree at every precision and every target, not just on their support.",
+        "searches": [
+          "Local Resultary lookup for Fibonacci prime-power frequency, eleven-adic quadratic fibers and split-prime laws",
+          "Resultary 2b765358240b, Finding, scope and critical-branch proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11-regular pairs in the distinct record are 0:(1,0), 1:(1,2), 2:(0,2), 3:(1,0), 8:(1,0), 10:(1,0). Their sums are exactly the frozen c, and the singular entry closes the all-target table.",
+          "Other catalogued exact square-branch classifications concern Fibonacci at 19 (9065fee25bef), Lucas at 7 (be34cdadeedf), or another sequence at 11 (7e3e471f3ea3)."
+        ],
+        "reasoning": "This is an exact parameterized entry in a distinct indexed record, not coincidence of bounded frequency tables or reliance on the assigned record itself. The other catalogued comparators do not establish this coverage.",
+        "searches": [
+          "Local Resultary exact-census lookup for Fibonacci modulo eleven powers; regular local-factor table and singular root rule in 2b765358240b"
+        ]
+      },
+      "rationale": "A distinct Resultary record on composite Fibonacci fibers explicitly gives the same local least period and the even/odd frequency of each target within that very period modulo 11^b, for every b≥1. Summing its two parity factors yields the entire frozen theorem, including the singular law after an elementary square-unit change of its discriminant. This is demonstrable mathematical coverage, not a conclusion about which same-date record was written first. The independent access risk for the 1999 frequency chapter is not the basis of failure.",
+      "residual_risks": [
+        "The catalogue date does not establish authorship, independent derivation, or publication order. The historical reach of the unread 1999 chapter remains uncertain without affecting exact catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers and refines the bound claim at 11",
+          "evidence": "The local least period is 10·11^(b−1), factor pairs are even/odd frequencies in it, and the singular odd entry uses all divisible roots of 5z²−4. The proof gives a companion-Lucas isometry on the critical branch.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-composite-fibonacci-fibers-modulo-7-a11-b-and-their-nonmul--2b765358240b/RESULT.md",
+          "material_read": "Finding, Assumptions, Steps 1–3 and start of Step 4, offsets 0–7250",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact composite Fibonacci fibers modulo 7^a11^b and their nonmultiplicative density",
+          "trigger": "Exact eleven-adic factors in a broader composite target law"
+        },
+        {
+          "assessment": "Substantial prior interpolation, image classification and known density; inspected statements do not explicitly give the complete singular target multiplicities",
+          "evidence": "Regular branches onto full disks with Hensel uniqueness; exceptional image tree and density 145/264.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00176",
+          "material_read": "§5 Lemmas 17–19 and Theorem 20, pp. 12–15, extracted offsets near 38800 and 47800",
+          "method": "Lawful original PDF passages",
+          "title": "p-adic asymptotic properties of constant-recursive sequences",
+          "trigger": "Direct prior analysis of classical Fibonacci at eleven"
+        },
+        {
+          "assessment": "Density rather than a complete finite-precision index count",
+          "evidence": "The density algorithm uses the split/inert cases; 11 is split and the relevant valuation of F₁₀ is one.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.00704",
+          "material_read": "Theorem 1, arXiv HTML offset 3000",
+          "method": "Lawful original HTML passage",
+          "title": "Limiting density of the Fibonacci sequence modulo powers of a prime",
+          "trigger": "Broader split-prime analysis"
+        },
+        {
+          "assessment": "Consulted statement gives bounds under specified hypotheses, not this exact Fibonacci law",
+          "evidence": "The theorem invokes p-singularity and recurrence/block hypotheses.",
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/134189/MathBohem_132-2007-2_3.pdf",
+          "material_read": "§6 Theorem 6.1, extracted p. 35, offset 82300",
+          "method": "Lawful original PDF passage",
+          "title": "Bounds for frequencies of residues of second-order recurrences modulo prime powers",
+          "trigger": "Potential general frequency result that might specialize to this theorem"
+        },
+        {
+          "assessment": "Different prime in the exact classification",
+          "evidence": "States exact Fibonacci frequencies modulo powers of three.",
+          "identifier_or_url": "https://fq.math.ca/Papers1/49-3/Bundschuh2.pdf",
+          "material_read": "Theorem 1.1, p. 2, offset 4222",
+          "method": "Lawful original PDF passage",
+          "title": "Distribution of Fibonacci and Lucas numbers modulo 3^k",
+          "trigger": "Exact targetwise multiplicity in prime-power Fibonacci literature"
+        },
+        {
+          "assessment": "No full-text conclusion; not causal for failure",
+          "evidence": "Available material identifies the bounds chapter, but does not permit testing its full statements and hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1515/9783110285581.691",
+          "material_read": "Bibliographic/abstract material only; full chapter pp. 691–719 not read",
+          "method": "DOI retrieval attempt and identified lawful EUDML material",
+          "title": "Bounds for frequencies of residues of regular second-order recurrences modulo prime powers",
+          "trigger": "Possible antecedent under more general frequency hypotheses"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the singular normal form",
+        "Resultary 2b765358240b, local frequency factors and critical-branch proof"
+      ],
+      "rationale": "Moving from an image density to exact fibers at a singular branch would be a useful quantitative objective, but this record's full invariant is directly obtainable from the more informative parity-resolved local law. The normal form is an alternative way to prove those counts, not a separate claimed theorem of wider scope; the support and central/maximum fiber consequences follow by immediate square-root enumeration. No distinct useful remainder justifies a repair.",
+      "residual_risks": [
+        "This is an assessment of distinct added value, not of the utility of the covered frequency invariant itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

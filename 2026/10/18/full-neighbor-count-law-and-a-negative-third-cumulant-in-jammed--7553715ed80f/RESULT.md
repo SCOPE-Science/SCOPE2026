@@ -1,6 +1,8 @@
-# Full neighbor-count law and a negative third cumulant in jammed tree adsorption
+# A strictly negative three-neighbor cumulant in jammed tree adsorption
 
 ## Finding
+
+The contribution is the strict negative sign of the terminal mixed third cumulant for three distinct neighbors of a single center at every regular degree \(\Delta\ge3\), in contrast to the known positive pair covariance. The explicit star law is used to evaluate the cumulant; the law is obtainable from the prior general vacancy recurrence, and the empty-star asymptotic is a consequence of the prior one-site density.
 
 Consider nearest-neighbor-exclusion random sequential adsorption (blocking RSA) on the infinite \(\Delta\)-regular tree, \(\Delta\ge2\): each vertex independently attempts adsorption once at a uniform time in \([0,1]\), succeeding only if none of its neighbors is already occupied. For a fixed vertex \(o\), let \(X_\Delta\) count its occupied neighbors at the final jammed configuration. Define
 \[
@@ -36,13 +38,12 @@ Write \(Y_i\) for the terminal occupation indicator of the \(i\)-th neighbor of 
 &=-\frac{a_\Delta^2}{4}\left[a_\Delta^4+8a_\Delta-9-6(1+a_\Delta^2)\log a_\Delta\right]<0.
 \end{aligned}
 \]
-Finally, the vacancy of the entire neighbor star is asymptotically more likely than an independent-site approximation even as the marginal density vanishes:
+As a consequence of the known one-site density, the vacancy of the entire neighbor star is asymptotically more likely than an independent-site approximation even as the marginal density vanishes:
 \[
 \mathbb P(X_\Delta=0)\sim\frac{\log\Delta}{\Delta},\qquad
 \frac{\mathbb P(X_\Delta=0)}{(1-\mathbb E[Y_1])^\Delta}\sim\log\Delta
 \qquad(\Delta\to\infty).
 \]
-The marginal occupation probability and pair covariance have classical antecedents; the asserted new content is their extension to the **complete star law, strict negative three-neighbor cumulant, and logarithmically enhanced empty-star event**.
 
 ## Assumptions and scope
 
@@ -110,13 +111,19 @@ The accompanying `verification.py` recomputes the moment and cumulant identities
 
 ## Relationship to prior work
 
-Penrose and Sudbury (2005), Theorems 12–13 and related derivations, already obtain occupation probabilities and pair correlations for blocking RSA on Bethe lattices and prove parity-sensitive positive association. In particular the one-site formula and the pair-covariance positivity are prior results, not stand-alone novelty claims here. Dehling, Fleurke and Külske (2008) independently derive the occupation probability for general iid random-degree trees, recovering the regular case. Their inspected article addresses the marginal density, not the joint full-star law. Classical RSA overviews motivate higher-order jammed morphology. The additional complete neighbor-count distribution, explicit negative distinct-triplet cumulant, and logarithmic high-degree empty-star enhancement are not statements found in the inspected full texts.
+Penrose and Sudbury [1, Theorems 12–13] give the one-site density and the pair correlation at distance two. Since the jammed set is maximal, the empty star occurs exactly when its center is occupied. Both the empty-star probability and its large-degree ratio to the independent-site approximation follow by expanding the known density.
 
-Gouet and Sudbury (2008) analyze finite Cayley-tree processes and correlations, which may provide related specialized implications, but the complete paper was not available for full comparison. Sudbury's Bethe-lattice emptiness paper and Fan–Percus's multisite-correlation article likewise warrant continued bibliographic checking. The derivation above stands independently of any novelty claim and does not purport to rule out all equivalent older formulations.
+The general finite-set vacancy equation in [1, Proposition 2, equation (5)] also specializes to the star law. To see this, let \(Q_{d,k}(t)\) be the joint vacancy probability of the center and \(k\) specified neighbors when the center has degree \(d\) and every other vertex has degree \(\Delta\). The term of the vacancy equation deleting the center is \(u(t)^d\); each term deleting one of the specified neighbors is \(u(t)^{\Delta-1}Q_{d-1,k-1}(t)\) by branch independence. The resulting differential recurrence with \(Q_{d,k}(0)=1\) is solved by
+\[
+Q_{d,k}(t)=u(t)^k\left[1-\int_0^t u(s)^{d-k}\,ds\right].
+\]
+Indeed, differentiating and using \(u'=-u^{\Delta-1}\) gives precisely the center term and the \(k\) identical neighbor terms, with the latter absent at \(k=0\). At \(t=1\), the probability that the specified neighbors alone are vacant is \(Q_{\Delta,k}(1)+(1-a^2)/2\), since an occupied center forces vacancy of those neighbors. These probabilities determine the entire count law, for example by expanding \(z^{X_\Delta}=\prod_{i=1}^{\Delta}[z+(1-z)(1-Y_i)]\). The direct cavity derivation above gives a convenient explicit expression and moments for use in the sign proof. The strict third-cumulant sign needs the separate all-parameter inequality in Step 3; it does not follow from pair positivity or from the vacancy recurrence without evaluation and a sign argument. Dehling, Fleurke and Külske [2] also use general vacancy correlations and give the density on random-degree trees, including the regular case.
+
+Full-text comparisons with Gouet–Sudbury [3], Sudbury [4], and Fan–Percus [5] were not available. The accessible description of [4] concerns vacancy of connected sets; a vacancy formula for connected stars in this same blocking model would determine the neighbor-count law by the reduction above. No claim of absolute priority for the cumulant sign is made.
 
 ## Limitations
 
-The exact formulas require a regular infinite tree and one independent single-site attempt per vertex. They do not extend without new analysis to cycles, variable coordination, equilibrium hard-core gases, adsorbing dimers, or correlated arrival clocks. The negative third cumulant concerns *distinct neighbors of the same center*, not arbitrary triples of graph vertices. The ratio asymptotic is a large-degree statement, not a nonzero limiting correlation. Some older primary literature could not be fully inspected; originality remains subject to independent bibliographic review. No independent scientific audit has been performed.
+The exact formulas require a regular infinite tree and one independent single-site attempt per vertex. They do not extend without new analysis to cycles, variable coordination, equilibrium hard-core gases, adsorbing dimers, or correlated arrival clocks. The negative third cumulant concerns *distinct neighbors of the same center*, not arbitrary triples of graph vertices. It does not assert failure of positive association. The ratio asymptotic is a large-degree statement, not a nonzero limiting correlation. Some older primary literature could not be fully inspected.
 
 ## References
 

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:30:22.764460Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–20 and 24–97",
+        "Frozen VERIFICATION.md and verification/check_birth_death_boundary.py (inspected, not executed)",
+        "Lo–Menshikov–Wade, arXiv:2208.12955, Section 4 conditioning identity"
+      ],
+      "rationale": "The scale products satisfy r_n~C n^-3 since the logarithmic drift remainder is summable. Finite-interval gambler's ruin followed by the upper endpoint tending to infinity gives h(n)=S_n/S_0, so h(1)<1 and the chain is transient. A separate occupation check proves the conditional divergence: for the original chain killed at zero, reversible weights with w_0=1 are w_n=1/(p_n r_n), and its Green function satisfies G(1,n)=w_n h(n). Indeed q_1 G(1,1)=h(1), and for n>=1 the chance to reach 1 is h(n)/h(1); apply reversibility. Conditioning multiplies G(1,n) by h(n)/h(1). Hence E_1[H_0 | H_0<infinity] is the sum of w_n h(n)^2/h(1), whose summands are asymptotic to a positive constant times 1/n. The deterministic first step from zero adds one. This confirms the frozen transformed-drift and telescoping proof without relying on the finite example.",
+      "residual_risks": [
+        "The claim and this check are for strictly positive nearest-neighbor transitions and first-return time at zero, not general bounded-jump processes. The supplied rational example only checks finite identities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives strict criteria only, whereas Alexander's theorem gives a tail asymptotic, including delta=1, for recurrent uniformly elliptic reflecting Bessel-like chains.",
+          "Remark 3.2(b) discusses the lack of a transient-chain local limit, not the inability to use a recurrent-chain first-return-tail theorem after conditioning."
+        ],
+        "reasoning": "Apply the more informative first-return-tail theorem on the transformed side. No transient-chain local limit theorem is required.",
+        "searches": [
+          "Alexander, arXiv:0912.4550, equations (2.1), (2.2), (2.5) and Theorem 2.1",
+          "Lo–Menshikov–Wade, arXiv:2208.12955, Theorem 3.1 and Remark 3.2(a,b)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked searches (including the two nonmatching 11/22 survival records ending 8f6b85888df1 and 7b50eb1b5742)",
+        "Primary arXiv:2208.12955 and arXiv:0912.4550 passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The birth–death h-transform gives q_i^h/p_i^h=(q_i/p_i)h(i-1)/h(i+1); multiplying telescopes. With r_n~C n^-3 and S_n~(C/2)n^-2, the transformed product grows linearly, not just up to a power of log n.",
+          "Alexander's (2.5) identifies L as asymptotically constant when kappa=1 and the scale product grows linearly; (2.7) then gives the divergent harmonic tail sum."
+        ],
+        "reasoning": "The exact boundary follows directly from existing conditioning and tail laws with standard birth–death scale algebra, although the strict criterion in the frozen citation alone cannot prove it.",
+        "searches": [
+          "arXiv:2208.12955, Lemma 4.1 and Remarks 3.2(a) and 5.3(d)",
+          "arXiv:0912.4550, (2.5) and (2.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lo–Menshikov–Wade Lemma 4.1 and Corollary 4.2 identify the conditioned excursion with the corresponding Doob-chain law.",
+          "Ranked Resultary hits on survival-conditioned entrance localization and critical polynomial-tail selection concern initial distributions and conditioning on time survival, not conditioning a transient chain to return."
+        ],
+        "reasoning": "The relevant equivalent formulation is the return law of a recurrent transformed nearest-neighbor chain; the two survival-conditioning hits do not implement this transformation.",
+        "searches": [
+          "Resultary semantic searches: critical strong transience, birth–death chain, first return conditioned on return, Lamperti boundary",
+          "arXiv:2208.12955, Section 4",
+          "arXiv:0912.4550, Bessel-like excursions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No equivalent tabulation appeared in the returned ranked records. The result is an asymptotic for a continuum of transition sequences, not a finite count or table lookup.",
+          "Alexander provides an exact asymptotic formula with slowly varying factor determined by the transition law; it applies to the full transformed class."
+        ],
+        "reasoning": "A sequence or finite exact example is not a coverage mechanism for this claim; the appropriate exact comparison is an existing asymptotic formula.",
+        "searches": [
+          "Local Resultary index for the exact Lamperti coefficient/error regime and conditional moment boundary",
+          "Alexander Theorem 2.1 excursion-tail law, the closest exact formula"
+        ]
+      },
+      "rationale": "Lo–Menshikov–Wade's strict-inequality theorem does exclude this boundary, but an existing stronger exact first-return law covers the frozen nearest-neighbor claim by direct substitution after conditioning. For the Doob chain reset to step from 0 to 1, h(n)=S_n/S_0~c n^-2 and the transformed scale product is r_n^h=r_n h(0)h(1)/(h(n)h(n+1))~c' n. Its drift is -1/(2n)+o(1/n), it is recurrent by the conditioning identity, and uniform ellipticity follows from its transition limits 1/2 and strict positivity at the finitely many small states. Thus Alexander's Bessel-like hypotheses hold with delta=1, kappa=1. Equation (2.5) gives a positive finite limit for L(n) from r_n^h~c'n. Theorem 2.1, equation (2.7), yields the stronger conditional return tail ~c''/n, which immediately implies the claimed infinite conditional mean. This is verified coverage via a reduction, not an accusation about historical priority.",
+      "residual_risks": [
+        "An earlier explicit formulation for the original transient chain was not established; the reason for failure is verified theorem-level implication.",
+        "Neither checked tail theorem nor this record settles the full bounded-jump critical problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict theorem does not settle equality; exact conditioning makes the recurrent return law applicable",
+          "evidence": [
+            "Remark 3.2(a) singles out stronger logarithmic control and nearest-neighbor increments as possible ways to handle equality.",
+            "The conditional first-return law is the h-transformed first-return law."
+          ],
+          "identifier_or_url": "arXiv:2208.12955; DOI:10.1016/j.spa.2023.104260",
+          "material_read": "Theorem 3.1, Remark 3.2(a,b) pp. 4–6 (including offsets 11900–20508), Section 4 Lemma 4.1 and Corollary 4.2 pp. 7–8, and nearest-neighbor discussion in Remark 5.3(d) pp. 9–10",
+          "method": "OA PDF passage inspection",
+          "title": "Strong transience for one-dimensional Markov chains with asymptotically zero drifts",
+          "trigger": "Same Lamperti boundary and return conditioning"
+        },
+        {
+          "assessment": "Covers with a stronger conditional return-tail asymptotic after the exact transform",
+          "evidence": [
+            "For delta>-1, kappa=(1+delta)/2, the first-return tail is asymptotic to a positive constant times n^-kappa L(sqrt(n)).",
+            "The scale product is asymptotic to K_0 x^(2kappa-1)/L(x)."
+          ],
+          "identifier_or_url": "arXiv:0912.4550; DOI:10.1214/10-AOP509",
+          "material_read": "Section 2, pp. 3–5, equations (2.1), (2.2), (2.5) and Theorem 2.1 including (2.7), PDF offset 6650–14314",
+          "method": "OA PDF passage inspection",
+          "title": "Excursions and local limit theorems for Bessel-like random walks",
+          "trigger": "Recurrent exact excursion law for the conditioned birth–death chain"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and scope",
+        "Alexander (2.5) and Theorem 2.1",
+        "Lo–Menshikov–Wade Section 4 and Remark 3.2"
+      ],
+      "rationale": "The general strong-transience equality is a meaningful problem, and the nearest-neighbor scale proof is pedagogically useful. The frozen first-moment assertion nonetheless gives only the divergent-mean consequence of a stronger known first-return theorem in exactly the transformed class. It leaves no new boundary behavior beyond a standard exact nearest-neighbor reduction and harmonic-series divergence.",
+      "residual_risks": [
+        "No finding is made about the value or status of substantially broader critical cases."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

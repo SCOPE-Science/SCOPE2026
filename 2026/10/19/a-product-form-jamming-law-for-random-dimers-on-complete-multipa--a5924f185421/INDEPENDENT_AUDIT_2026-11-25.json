@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:46:41.112554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen finding (RESULT.md lines 5–22) takes fixed q>=3, all proportions positive, and independent iid atomless priorities. Uniform priority order can be realized with independent exponential clocks of rate 1/N. At time T an edge whose two endpoints remain unmatched cannot have rung earlier; exponential memorylessness gives exact rate X_iX_j/N for pair i,j, including after conditioning on past occupancy. The scaled coordinate martingale has bracket at most T/N and the bounded-cube drift is Lipschitz, so Doob and Gronwall give convergence uniformly on compact time intervals. To verify the ODE parametrization, write F(g)=prod(1−a_jg) and y_i=a_iF(g)/(1−a_i g). With g'=F(g), differentiation gives y_i'=−y_i sum_{j≠i}y_j, and monotonicity plus F>0 up to its first root forces g to approach 1/a_*. Evaluating the polynomial y_i there gives precisely the unique-largest product and zero in every coordinate for ties. The key horizon comparison is deterministic: every subsequent edge consumes a distinct surviving vertex outside any selected largest part. Thus the change of that part, of the total and of every other part is bounded by twice the minority count at the fixed horizon. Taking N first and then the horizon to infinity proves the classwise terminal LLN even if the finite-N proportions break a limiting tie. Boundedness gives L1 convergence. The 8m,7m,5m example has matching counts 5m,3m,2m and limiting unmatched density 3/160. Direct recursion on labeled feasible edges gave exact finite terminal laws including P(U=2)=1/5 and P(U=0)=4/5 for K_{2,2,2} (python3 /tmp/opencode/frozen_math_reproduction.py); neither that calculation nor the supplied verifier's recorded simulation proves terminal asymptotics. The frozen verifier was inspected rather than run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1986 abstract reports a conservation law for the rate equations and an explicit three-species solution, but does not display its formula.",
+          "The inspected greedy matching paper treats regular/high-girth or bounded-degree settings; the dense tripartite catalogue result gives exactly three fixed positive parts, while the dominant-class defects result takes vanishing minority proportions."
+        ],
+        "reasoning": "Neither the cited bounded-degree graph estimates nor either indexed tripartite theorem establishes the fixed arbitrary-q positive-fraction ground regime. Exact overlap of the earlier rate-equation formulas remains possible and is not denied.",
+        "searches": [
+          "Ben-Avraham–Redner DOI 10.1103/PhysRevA.34.501, n-species kinetics abstract",
+          "Gamarnik–Goldberg arXiv:0807.1277, abstract and §1.1",
+          "Resultary 38fa8766b226 and 557016a407ad"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1103/PhysRevA.34.501 (abstract)",
+        "arXiv:cond-mat/0209471",
+        "arXiv:0807.1277",
+        "Resultary 38fa8766b226, 61dea9dcaba2, 3b9a8257a10c, 557016a407ad, 5199f30e2a94 (index only for the last)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed tripartite law gives the precise product for three parts and uses the same terminal-time comparison in that regime.",
+          "With four or more positive parts, grouping parts creates a block with active internal edges and does not give a three-species edge-selection process; nor do rate equations by themselves imply that an infinite-horizon LLN follows from a compact-time fluid limit.",
+          "The weighted-tripartite index entry mentions a closed-form law, but its RESULT.md was unavailable in the local mirror; in any case the indexed scope is tripartite."
+        ],
+        "reasoning": "The q>=4 law, where every class contributes a factor, requires the arbitrary-q solution and a terminal stochastic proof. The exact tripartite match and deterministic antecedents are credited without treating them as a general stochastic theorem.",
+        "searches": [
+          "38fa8766b226 terminal-time proof (offset 3791)",
+          "arXiv:cond-mat/0209471 pp. 1–2, deterministic mean-field kinetics",
+          "Resultary 5199f30e2a94, weighted tripartite index summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scanning a uniform edge permutation and repeatedly selecting a uniform edge of the unmatched-induced graph give the same accepted-edge law, since each accepted edge leaves a uniform relative order on the surviving edges.",
+          "The deterministic limit is an equal-rate multispecies annihilation ODE, but that equation is not by itself a stochastic time-to-absorption statement."
+        ],
+        "reasoning": "The index's uniform-feasible-edge wording is an exact model equivalence, not a distinct process; continuum rate equations are equivalent only at the fluid level, not as a terminal LLN.",
+        "searches": [
+          "Resultary: complete multipartite random greedy matching, uniform feasible edge, and dimer jamming",
+          "Resultary 38fa8766b226, Finding and terminal-time proof",
+          "Deloubrière–Hilhorst–Täuber arXiv:cond-mat/0209471, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "61dea9dcaba2 counts maximal matchings; the unmatched vertices occupy one part.",
+          "38fa8766b226 has terminal density (a−b)(a−c)/a when normalized by its common size parameter; dividing by a+b+c is the identical q=3 product in total-vertex normalization, including ties.",
+          "3b9a8257a10c concerns split graphs and gives a different density α exp(−(1−α)/α)."
+        ],
+        "reasoning": "A maximal matching census has no random-priority weights, and does not determine this limiting law. The tripartite exact overlap is accepted on its merits, with no inference of priority from date paths.",
+        "searches": [
+          "Resultary 61dea9dcaba2, maximal matching distribution of complete multipartite graphs",
+          "Resultary 38fa8766b226, exact dense complete tripartite limit",
+          "Resultary 3b9a8257a10c, complete split graphs"
+        ]
+      },
+      "rationale": "Credit the exact indexed q=3 coverage; the supported distinct result is the explicit all-fixed-q positive-density product in the stochastic terminal LLN, including q>=4, with the classwise and tie conclusions. Published mean-field work supplies related deterministic kinetics; the compared statements do not establish this arbitrary-q stochastic terminal claim.",
+      "residual_risks": [
+        "The APS paper's exact three-species solution and any higher-species consequence were not available as inspected passages; earlier deterministic calculations could overlap.",
+        "The weighted tripartite index statement was not verified from its frozen full text. Priority relative to catalogue overlaps is not inferred from their dates.",
+        "A stronger dense random matching limit in unlocated literature would require separate comparison; the present checks do not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial possible deterministic antecedent, precise formula unverified",
+          "evidence": "Abstract reports a conservation law and an explicit n=3 solution.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.34.501",
+          "material_read": "Indexed abstract only; APS full text returned 403 and an identified author-hosted scan did not provide extractable text",
+          "method": "Publisher abstract and lawful alternate-copy attempt",
+          "title": "Kinetics of n-species annihilation: Mean-field and diffusion-controlled limits",
+          "trigger": "Potential exact unequal-density ODE solution"
+        },
+        {
+          "assessment": "Related kinetics and qualitative statement, not this finite-graph limit in the inspected text",
+          "evidence": "Two-species mean-field equations and minority decay; multispecies equal-density mean-field discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0209471",
+          "material_read": "PDF pp. 1–2, offsets about 5600–9600 and 13700–17860",
+          "method": "OA primary PDF text",
+          "title": "Multi-Species Pair Annihilation Reactions",
+          "trigger": "Equal-rate annihilation dynamics and unequal-density survival"
+        },
+        {
+          "assessment": "Different graph regime",
+          "evidence": "Regular/high-girth and bounded-degree hypotheses rather than dense multipartite degrees of order N.",
+          "identifier_or_url": "https://arxiv.org/pdf/0807.1277",
+          "material_read": "Abstract and §1.1, pp. 1–2",
+          "method": "OA primary PDF text",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs",
+          "trigger": "General random greedy matching literature"
+        },
+        {
+          "assessment": "Exact overlap for q=3 only",
+          "evidence": "U_n/n tends to (a−b)(a−c)/a for a>=b>=c>0. Total-vertex scaling divides by a+b+c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-sharp-7-8-random-edge-matching-ratio-on-dense-complete-tripa--38fa8766b226/RESULT.md",
+          "material_read": "Finding at offset 0 and terminal-time proof at offset 3791",
+          "method": "Local mirror text",
+          "title": "The sharp 7/8 random-edge matching ratio on dense complete tripartite graphs",
+          "trigger": "Same model and exact tripartite formula"
+        },
+        {
+          "assessment": "Enumeration rather than stochastic matching law",
+          "evidence": "Counts matchings and locates unmatched vertices in one part; no random-priority distribution.",
+          "identifier_or_url": "Resultary 61dea9dcaba2",
+          "material_read": "Finding and proof at offset 0",
+          "method": "Local mirror text",
+          "title": "Maximal matching distribution of complete multipartite graphs",
+          "trigger": "Full multipartite family and same terminal support"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "Within-clique edges allowed; limit α exp(−(1−α)/α).",
+          "identifier_or_url": "Resultary 3b9a8257a10c",
+          "material_read": "Finding and proof at offset 0",
+          "method": "Local mirror text",
+          "title": "Gaussian jamming fluctuations on complete split graphs",
+          "trigger": "Same random-priority jamming objective in another dense class"
+        },
+        {
+          "assessment": "Different limiting proportions",
+          "evidence": "M_n/n tends to infinity, so minor part fractions vanish.",
+          "identifier_or_url": "Resultary 557016a407ad",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Poisson jamming defects in dominant-class tripartite dimer adsorption",
+          "trigger": "Same physical process with dominant class"
+        },
+        {
+          "assessment": "Exact equal-rate specialization unverified",
+          "evidence": "Indexed statement concerns closed-form weighted tripartite survival.",
+          "identifier_or_url": "Resultary 5199f30e2a94",
+          "material_read": "Index summary only; RESULT.md missing from available mirror",
+          "method": "Local Resultary index and mirror lookup",
+          "title": "Rate-selected minority survival in weighted tripartite dimer jamming",
+          "trigger": "Potential stronger weighted q=3 law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-fixed-q terminal formula separates unique-largest and tied-largest regimes and quantifies when irreversible deposition leaves a positive macroscopic vacancy even with a perfect matching available. Its product of all asymmetry factors and terminal-horizon control are useful for comparing heterogeneous complete substrates; the main contribution is the arbitrary-q law, not the already matched tripartite special case or a claim about spatial kinetics or fluctuations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

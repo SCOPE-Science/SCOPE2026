@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:48:18.076301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§1–4",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Independent BFS and integral assignment primal-dual replay, k=3..10"
+      ],
+      "rationale": "A closed walk in the full de Bruijn graph minus one copy of each required arc has excess divergence +1 at precisely the vertices ending but not beginning in 11 (and -1 at the reversed type). An excess path from such a source cannot reach a vertex beginning in 11 before r shifts, where r is that source's first 11 index. For v=p11s the r-letter append p reversed reaches 11s reverse(p), stays legal, and is inverted by cutting at the last 11. This balances a strongly connected graph and yields an attaining Euler circuit. At k=3 both imbalance sets are empty. I recalculated P(z)=z(1+2z)/(1-z-z²)^2 and B(z)=1+z³+z^4 A(z) from the allowed prefix and suffix; multiplying by z³ gives the displayed excess. The zero-run recurrence is primitive (hence has a unique dominant simple pole), and at its pole rho, 1-rho-rho²=rho³ gives the asserted ratio. In a fresh finite replay I used BFS in both overlap graphs and a minimum assignment of source-to-target distances with matching dual certificate; the costs at k=3..10 were 0,1,4,9,21,45,93,188 in both graphs. This test corroborates the exact all-length proof.",
+      "residual_risks": [
+        "No claim about the number of optimum hosts; finite replay does not prove formulas at larger k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier general run-limited theorem covers all q,r≥2 for constrained hosts, with an explicit dual and primal certificate.",
+          "Paired de Bruijn sound cycles use an additional constraint in a different graph; the general postman method alone does not supply the explicit optimum."
+        ],
+        "reasoning": "The all-q,r theorem supplies the entire constructive upper bound; direct checking of its dual on full edges supplies the apparently missing side.",
+        "searches": [
+          "Resultary 2026/10/18/475811a7997d §§2–4",
+          "arXiv:1307.7806",
+          "DOI 10.1007/BF01580113"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 475811a7997d and 90c9032f6f7f",
+        "arXiv:1711.07029",
+        "arXiv:math/0311399",
+        "arXiv:1307.7806",
+        "DOI 10.1007/BF01580113 (full text not inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior first-run potential drops by at most one; its proof uses the shift geometry and rightmost new start, not legality.",
+          "The prior construction appends the reverse of the prefix before the first run, exactly the target augmentation."
+        ],
+        "reasoning": "Apply the potential on the full graph to the residual flow of any host and combine with the prior attaining legal circuit. This establishes the purported distinguishing unrestricted conclusion as an immediate implication, not merely plausibly similar.",
+        "searches": [
+          "Resultary 2026/10/18/475811a7997d §§2–3, offsets 2725–4517"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bit complementation identifies 111-avoidance with the earlier binary 000 specialization.",
+          "The universal-cycle papers study families of combinatorial objects or patterns rather than this minimum repeated-window objective."
+        ],
+        "reasoning": "The equivalence by complementation applies to both legal and full hosts, and retains every overlap and its unit cost.",
+        "searches": [
+          "Resultary 2026/10/18/475811a7997d",
+          "arXiv:1711.07029",
+          "arXiv:math/0311399"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives every target value 7,14,28,53,102,194,367,692; substituting q=2,r=3 gives the target excess series after shifting indices by three.",
+          "The later binary table extends through 16 but is not priority evidence."
+        ],
+        "reasoning": "Coverage is not inferred from coincident table entries; symbolic specialization gives the same full sequence.",
+        "searches": [
+          "Resultary 2026/10/18/475811a7997d, Finding",
+          "Resultary 2026/11/02/90c9032f6f7f, Finding"
+        ]
+      },
+      "rationale": "The earlier Resultary all-alphabet, all-run-length theorem gives the same rational law, all displayed numbers and the same reversed-prefix legal augmentation under a constrained-host definition. Its published dual certificate works on the full overlap graph without a new lemma: for a vertex of length L set phi to the first forbidden-prefix run a^(r-1) index, or L-(r-1)+1 if absent. In any full-graph left shift an existing occurrence can move left by at most one, and a newly created one can start only at L-(r-1); if a leftmost index zero disappears, the drop bound is automatic. Thus phi(u)-phi(v)≤1 on every edge, including forbidden windows. After removing required edges from a full-graph covering walk, the very same divergence identity sums these drops to the old sharp bound; the old legal augmentation attains it. The unrestricted-host assertion is therefore mechanically implied by the earlier certificate and construction, even though not explicitly stated there. The limit is also the corresponding pole ratio of the already given series. This is a prior-coverage finding, not an access-based rejection.",
+      "residual_risks": [
+        "The ordinary literature comparison is bounded, but the prior mathematical coverage is explicit and does not depend on the inaccessible postman paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the frozen result",
+          "evidence": "Same first-run dual bound and reverse-prefix augmentation; the dual inequality remains true on all overlap edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-shortest-cyclic-covers-of-run-limited-words-over-arbitrary--475811a7997d/RESULT.md",
+          "material_read": "Finding/assumptions; §§2–4, especially offsets 2725–4517",
+          "method": "Published record passage read",
+          "title": "Exact shortest cyclic covers of run-limited words over arbitrary alphabets",
+          "trigger": "General theorem and exact matching binary table"
+        },
+        {
+          "assessment": "Related objective, not the decisive overlap",
+          "evidence": "Existence constructions for restricted combinatorial families rather than pricing repeated windows in this language.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+          "material_read": "PDF p. 1, abstract and definition",
+          "method": "OA PDF passage read",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "Restricted word universal cycles"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Universal cycles for ordered word patterns via a Hamiltonian overlap graph.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0311399",
+          "material_read": "PDF p. 2 and §3.2.2 pp. 9–10",
+          "method": "OA PDF passage read",
+          "title": "On unavoidable sets of word patterns",
+          "trigger": "Pattern universal cycles"
+        },
+        {
+          "assessment": "General background, full paper not assessed",
+          "evidence": "The frozen record invokes only the generic postman principle, not a closed-form rule from that paper.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01580113",
+          "material_read": "Citation; full text not retrieved via DOI/publisher OA route",
+          "method": "Lawful OA attempt",
+          "title": "Matching, Euler tours and the Chinese postman",
+          "trigger": "Postman formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–4",
+        "Resultary 2026/10/18/475811a7997d, Finding and §§2–4"
+      ],
+      "rationale": "The natural all-length minimum and its overhead are useful invariants, but the record supplies no independently substantive increment over the earlier exact law and its published certificate. The apparent change of host domain only requires noticing that the same edge inequality never used legality; the new numerical limit is routine extraction from the same rational functions. No surviving valuable distinct claim was identified for repair.",
+      "residual_risks": [
+        "This does not diminish the usefulness of the general prior theorem or assert that domain extensions are valueless in general."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

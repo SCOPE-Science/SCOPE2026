@@ -1,15 +1,21 @@
-# Review of the consecutive-deletion pseudo-Frobenius theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the exact gap sets from two-generator offset intervals, then establishes a consecutive block of semigroup elements to certify the conductor. Each candidate pseudo-Frobenius number is tested against all generators; every omitted gap is defeated by an explicit generator. Interval cardinalities yield the type and defect formulas, and the Apéry-socle/Koszul argument yields the last Betti number over any coefficient field. The proof explicitly handles the boundary \(j=1\), the boundary \(j=k\), and possible emptiness of the \(j>k\) regime. The standalone separately implemented enumeration returned `VERIFY_OK cases=10857 checked_gap_counts=530299 e_max=48`. Finite tests are supporting evidence only; the interval argument is the infinite proof.
+## correctness
 
-## Originality — PASS, subject to stated residual risk
-Goel–Şahin–Singh–Srinivasan, *Numerical Semigroups of Sally Type II*, arXiv:2512.10812v2, Theorems 2.2 and 3.3, explicitly classify the one- and two-deletion cases, not the interior consecutive blocks of \(k\geq3\). Singh–Srinivasan, *Structure and Symmetry of Sally Type Semigroup Rings*, arXiv:2512.18136, studies the exact present family and establishes its Frobenius numbers, genera and Gorenstein symmetry criterion, but its inspected full text does not state general pseudo-Frobenius sets, an all-type bijection, or last Betti numbers across positions. The previously established symmetric case is acknowledged rather than reclaimed. Published record searches did not identify a stronger equivalent result. An unindexed manuscript, alternative parametrization, or unavailable full text could still contain equivalent formulas; absence from search is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-For any fixed multiplicity and embedding dimension in the substantial family \(e\geq2k+1\), the theorem realizes each nonmaximal Cohen–Macaulay type exactly once by varying only the consecutive deletion position. This is a complete realization spectrum, not a single parameter substitution. Explicit pseudo-Frobenius sets resolve the socle and the terminal Betti number, while the exact almost-symmetry defect measures non-Gorenstein behavior. The earlier symmetry characterization alone neither determines the type spectrum nor the pseudo-Frobenius generators.
+Reconstructed the interval and socle arguments for k≥3, e≥2k+1, 1≤j≤e−k−1. For j>k the offset sums [0,2j−2] and [j+k,e−1] leave no gap in the two-generator block. For j≤k the missing offsets are exactly [2j−1,j+k−1]; in the next block three small offsets cover [0,3j−3], while two large offsets start at 2(j+k)−e≤2j−1 and cover through j+k−1. This also works at j=1 (the first range ends at 0 and the second starts by 1). In either case an e-term consecutive run gives the conductor by addition of e. For the PF test, adding retained generators excludes the low offsets below j and the deleted offsets in both regimes. When j≤k, adding e+(e+j+k−1−x) to x∈[j+k,e−1] reaches F, and adding e+max(0,j−1−r) to e+j+r hits the third gap block. Every gap in that third block is PF; when j>k, exactly the surviving upper parts of the two low blocks are PF. Negative candidates in the integer definition are excluded by adding e, except −e, which is excluded by adding 2e−1. Counting gives the stated disjoint two type ranges, also when e=2k+1 leaves only the first branch. Substituting (g,F,t) gives the defect. Since t^e is regular, reduction modulo it preserves the minimal graded Betti ranks over the polynomial ring in the other generators; the last Koszul homology is the socle, with basis indexed by e+PF via the Apéry set. This is characteristic-free. The finite verifier was inspected but not rerun; VERIFICATION.md's 10,857-case output is recorded, not independent proof.
 
-## Scope and limits
-The theorem does not cover \(e\leq2k\), disconnected deletion sets, intermediate Betti numbers, or a general uniqueness theorem over all literature. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the explicit pseudo-Frobenius classification and the resulting bijection of deletion positions with types for k≥3 on the bounded comparisons made. Prior same-family gap/genus/Frobenius and symmetry computations are credited, as is terminal Betti coverage in the symmetric case. The general type-to-Betti relation and the defect substitution are consequences, not separate new general theorems.
+
+## value
+
+PASS
+
+A natural fixed-multiplicity, fixed-embedding-dimension deletion family realizes every type from 1 through ν−1 exactly once; the two PF interval formulas specify which gaps realize each type. This gives usable data about canonical invariants, terminal Betti numbers and distance from almost symmetry, not merely an enumeration at sampled multiplicities or a repetition of the known symmetric case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

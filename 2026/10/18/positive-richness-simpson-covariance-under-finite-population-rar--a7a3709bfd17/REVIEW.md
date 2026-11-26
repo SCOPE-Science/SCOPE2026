@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The event decomposition \(K_m=\sum_i I_i\) and conditional-without-species covariance establish the exact rational formula. Symmetrization gives a sum of nonnegative terms, and the strictly positive lower-bound factor supplies a complete equality classification. The code independently enumerates 2,375 finite census/depth cases using three exact methods and checks all boundaries. Finite verification is supporting evidence, not the unrestricted proof.
+## correctness
 
-**Originality — PASS, with stated risks.** The closest public mathematical research establishes this sign law only for iid categorical draws with replacement. Its published result was read in full; its probability laws cannot determine without-replacement saturation zeros or the explicit finite-census bound. Full technical texts of Barbour's occupancy study, Källberg–Leonenko–Seleznjev's coincidence study, and Colwell et al.'s rarefaction analysis were inspected. Their objects include some of the two marginal statistics, but their displayed results do not cover their joint finite-census covariance. Heck et al.'s 1975 article was identified but remained inaccessible in full. Equivalent prior work, particularly in older hypergeometric association literature, remains possible and needs independent review.
+PASS
 
-**Value — PASS.** Richness and Gini–Simpson diversity are basic but distinct ecological sample measures. Their positive mixed covariance is a nontrivial sampling-design invariant: the sharp population-specific lower bound and full strictness classification allow investigators to distinguish genuine positive cofluctuation from complete-detection saturation. A prior iid law has a different equality structure and cannot be applied unchanged to finite-rarefaction samples. The result does not assert causal ecological dependence, spatial realism, or inference with unknown abundances.
+Exchangeability of sample pairs gives the finite-census index as the expectation. Conditioning on absence of species i, when feasible, gives the same pair probability in the complement census. Cov(I_i,G) is the absence probability times the unconditional-minus-complement index; infeasible terms are zero without defining a conditional expectation. Cancelling the first two factors of the complement falling factorial yields (1). Expansion of the numerator into N(t-1)(N-t)+B(t-a_i), and symmetrization with weights a_i, gives exactly (2); each pair contribution is nonnegative because feasibility-thresholded w_i is nonincreasing in a_i, including at m=2. The first term is strictly positive exactly when 1<t<N and some species can be absent. In all other cases richness or both statistics are constant. Equal abundances annul the correction and attain the lower bound, including nondegenerate positive cases. Independent exact labeled-subset calculation agreed on 2,375 profile/depth pairs, with 1,891 positive and 484 zero.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The iid richness–Simpson identity is established in an indexed record, and an indexed same-day Rao statement contains finite-census special cases with broader distances. Neither gives the fixed-census all-profile, all-depth equal-distance identity, two-term lower bound and exact saturation criterion. The same-day Rao result was assessed by mathematical scope, not by assuming an order within the date.
+
+## value
+
+PASS
+
+The result gives an exact dependent-sampling law for two widely used rarefaction summaries. Its sign, attained bound and exact zero threshold give information not available from the two marginal means or an iid calculation; in particular, the loss of covariance as richness saturates is characterized for arbitrary abundance profiles. The Rao comparison shows the equal-distance scope is a real mathematical boundary, not a normalization convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

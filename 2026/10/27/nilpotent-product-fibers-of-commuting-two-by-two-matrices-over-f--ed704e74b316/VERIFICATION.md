@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python check.py` with a recent standard-library Python 3 interpreter. The checker enumerates every ordered pair of \(2	imes2\) matrices over each of the fields \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), and \(\mathbb F_5\). Its multiplication in \(\mathbb F_4\) uses \(\mathbb F_2[X]/(X^2+X+1)\), so the verification includes a nonprime field.
+## correctness
 
-For each field, the program independently computes \(AB\), \(BA\), the nilpotence test (trace and determinant both zero), each individual nilpotent-product fiber, the commuting-pair denominator, and both aggregate counts. It asserts the claimed exact formulas and ends with `VERIFY_OK` on success.
+PASS
 
-Observed outputs: \(q=2\): 88 commuting, 52 qualifying, 40 zero fiber; \(q=3\): 945 commuting, 321 qualifying, 225 zero fiber; \(q=4\): 5056 commuting, 1096 qualifying, 736 zero fiber; \(q=5\): 18625 commuting, 2785 qualifying, 1825 zero fiber. All nonzero nilpotent fibers agree with \(2q(q-1)\).
+For rank-one A the conditions at C=0 identify B with arbitrary maps k²/im A→ker A, giving q possibilities; A=0 gives q⁴ and invertible A gives one. With (q²−1)²/(q−1) rank-one matrices and (q²−1)(q²−q) invertible matrices this gives q²(3q²−2). At a nonzero nilpotent C, both factors centralize C, whose algebra is the dual numbers. Two nonunits there multiply to zero, whereas two units cannot give a nilpotent product. Choosing which factor is the unit and then the unit itself determines the other factor uniquely, giving 2q(q−1). The orbit of the sole nonzero nilpotent Jordan form has size |GL₂|/[q(q−1)]=q²−1. Summing gives the stated total. The q scalar centralizers have size q⁴, all others q². For independent factors, rank-one A imposes one nonzero linear trace condition, rank-two A gives q² choices and rank-zero A gives q⁴; the unrestricted count is q⁴(2q²−1). Division and subtraction give the positive factored expression and the stated asymptotics for all prime powers, including characteristic two. The separate exhaustive replay uses C²=0 rather than a trace/determinant criterion and enumerates the unrestricted comparison as well as each commuting nilpotent fiber over F₂, F₃ and F₄.
 
-The code is exhaustive for the four finite fields only. The uniform theorem for every prime power follows from the centralizer-and-orbit proof, not from extrapolating these tests. There is no independent audit certificate.
+## originality
+
+PASS
+
+Credit Huang for the zero fiber, Feit–Fine for the commuting-pair denominator, and the earlier indexed work for the unrestricted benchmark. The supported distinct claim is the nonzero nilpotent-product stratum with arbitrary commuting factors and its exact consequence for conditional enrichment. No inspected competing theorem counts that stratum or mechanically specializes to it; the extra factorization step in the centralizer is necessary.
+
+## value
+
+PASS
+
+The product-fiber profile is a natural refinement of both the standard commuting-pair statistic and nilpotent-product probability. It supplies an independently useful exact dimension-two baseline across all finite fields: conditioning strictly enriches nilpotent products for every q, by a leading factor 5/2, and the nonzero stratum contributes at the same order as the zero one. This is not a new claim about the previously known zero locus or unconditioned probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

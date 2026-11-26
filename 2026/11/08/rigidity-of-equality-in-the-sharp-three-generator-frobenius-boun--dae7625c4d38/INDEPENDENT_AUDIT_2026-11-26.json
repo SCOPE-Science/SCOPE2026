@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:49:49.905453Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kneser's inequality forces k{0,a,b} to fill Z/cZ if the stabilizer is trivial; if it is nontrivial, the generating set reaches every vertex in the quotient in at most c/|H|-1 steps and periodicity lifts this to the same conclusion. The Apéry minimum in an equality residue is kb-1; its at-most-k-coin representative is at least kb-1, at most kb, and congruent to kb-1, forcing that exact coin value. The deficit identity then forces one copy of a, k-1 of b and b=a+1. For 2≤a<k the proposed gap is at least a(a-1) for either parity and thus is already in <a,a+1> (its quotient on division by a is at least its remainder). For odd c, the remaining a≥k give quotient k-1 and remainder a-k≤k-3; for even c, a≥k+1 gives quotient k-1 and remainder a-k-1≤k-3. The case a=1 gives equality exactly at b=2 and even c by the stated F=-1 convention. For a=k and c=2k, the candidate k²-k-1 is a gap modulo k: at least k-1 copies of k+1 would be needed and already exceed the candidate. The sharp upper bound makes that gap maximal. Independently, `python3 /workspace/branches/independent_math_replay.py 5` verified 14,665 triples through c=48 by direct integer reachability, finding 46 equalities and certifying the upper tail with c consecutive representable values per triple. This is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2005 result maximizes F over all a<b at fixed c, e.g. its even-c extremizers include {c-2,c-1,c} and {c/2,c-1,c}. The 2026 bound instead depends on b individually."
+        ],
+        "reasoning": "The fixed-c objective does not classify equality in the b-dependent bound. Its extremizers can differ from the sharp-bound equality triples. The all-dimension upper bound gives the numerical benchmark, not the full equality set.",
+        "searches": [
+          "Aguiló–Miralles, DOI:10.46298/dmtcs.3462, Theorem 6",
+          "arXiv:2610.32219v1, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.32219v1",
+        "DOI:10.46298/dmtcs.3462",
+        "Resultary/SCOPE records dae7625c4d38, 84c058c5f5e0 and 0d9290baf24e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the number of generators to three in the 2026 construction gives {k,k+1,2k}, k≥2; neither that construction nor the older theorem excludes other triples for the same b-dependent bound."
+        ],
+        "reasoning": "The necessity argument from equality in the residue bound to consecutive generators and then the parity restrictions supplies the substantive addition.",
+        "searches": [
+          "arXiv:2610.32219v1, Theorem 2 and §3.2 sharpness construction",
+          "DOI:10.46298/dmtcs.3462, Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality is equivalently max Apéry representative modulo c = b ceil(c/2)-1. Theorem 1 bounds that maximum; Theorem 2 constructs attaining tuples, not the inverse classification."
+        ],
+        "reasoning": "Restating in Apéry or modular-cost language does not turn the earlier sufficient examples into necessary conditions. The case with a=1 is a convention-dependent elementary addition, not the distinct main result.",
+        "searches": [
+          "arXiv:2610.32219v1 Theorems 1–2 and §3.2",
+          "Resultary: equality in the sharp three-generator Frobenius bound and Apéry maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match dae7625c4d38 is the assigned record itself. Record 84c058c5f5e0 considers <qk,qk+1,q(k+1)> with q≥3,k≥2 and a different gluing deficit; k=1, which would produce a present equality family, is excluded. Record 0d9290baf24e concerns isolated gaps in a different triple family."
+        ],
+        "reasoning": "These indexed entries do not establish an independently matching all-triples classification. A finite census could corroborate but not cover the universal statement.",
+        "searches": [
+          "Resultary: equality in the sharp three-generator Frobenius bound; related Frobenius gluing and Apéry classifications"
+        ]
+      },
+      "rationale": "The bound and nonunit equality family are prior. The distinct assertion is the complete equality locus, including the necessity of consecutive smaller generators and the exclusion of odd c. Neither the sharpness construction nor the older fixed-largest-generator extremal theorem supplies those restrictions.",
+      "residual_risks": [
+        "Targeted primary and indexed comparisons do not prove historical priority; an earlier classification in different terminology remains possible. No independent web-search sweep was used for this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact bound and the nonunit example are covered; the exhaustive three-generator equality classification is not supplied by these statements.",
+          "evidence": [
+            "Theorem 1 allows joint gcd one rather than pairwise coprimality. Section 3.2 specializes to {k,k+1,2k} for three generators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.32219v1",
+          "material_read": "Theorem 1, p. 2 (OA offset 6101); Theorem 2 and §3.2, p. 5 (offset 17686).",
+          "method": "Primary OA PDF passage comparison with tuple and equality assumptions.",
+          "title": "A Sharp Upper Bound for the Frobenius Number",
+          "trigger": "Exact benchmark and prior sharpness families"
+        },
+        {
+          "assessment": "Covers a different, fixed-largest-generator maximum.",
+          "evidence": [
+            "The stated extremizers depend on c alone; the earlier odd-c extremal family does not yield equality in the bound under review."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3462/download",
+          "material_read": "Theorem 6, p. 321 (OA offset 11668).",
+          "method": "Primary OA PDF passage comparison of extremal objectives and families.",
+          "title": "On the Frobenius’ Problem of three numbers",
+          "trigger": "Earlier equality theorem for Frobenius triples with prescribed largest generator"
+        },
+        {
+          "assessment": "Different invariant and nonoverlapping parameter regime at the relevant boundary.",
+          "evidence": [
+            "The result requires k≥2 in <qk,qk+1,q(k+1)>; its k=1 boundary is not part of the theorem."
+          ],
+          "identifier_or_url": "SCOPE record 84c058c5f5e0",
+          "material_read": "RESULT.md finding, offset 0.",
+          "method": "Local indexed-record statement retrieval and comparison.",
+          "title": "Sharp first Frobenius gluing deficit and second Apéry thresholds",
+          "trigger": "Nearby indexed claim with a related three-generator family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp general inequality with a known attaining family leaves a natural inverse question. The classification shows that no odd largest generator attains the bound and that with even largest generator there is exactly one nonunit triple, beyond the elementary generator-one convention case. This is structural information about sharpness rather than another construction or tabulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

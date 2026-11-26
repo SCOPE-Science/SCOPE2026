@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:52:10.321380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4; static inspection of check_dynamics.py and check_transfer.py",
+        "/workspace/branches/95e81986-105d-4109-93d4-c52256661946/assignment4_check.py and assignment4_check.txt"
+      ],
+      "rationale": "For the open NOR map F on sets, symmetry gives S⊆F²(S); applying antitonicity and then this inclusion to F(S) yields F³=F. Thus recurrence equals the image (and Fix(F²)) and every orbit enters it within one update. A fixed state is precisely an independent set dominating every excluded vertex. A recurrent state and its unique partner give the two shores of a maximal independent set of the canonical double cover; independence is cross nonadjacency and maximality is exactly the pair of complementary-neighborhood equations. Under ((i,a),t)↦((i,t⊕a),a) the double of the prism is the double of C_n Cartesian-product K₂: a rail edge flips t⊕a, a rung preserves it. The double of C_n is two C_n for even n and a single C_(2n) for odd n. On the prism, a rung has a top vertex, a bottom vertex, or neither; adjacent equal occupied rails violate independence and an empty rung must have opposite occupied neighbors. Ordered pairs and allowed overlapping triples count labelled words by trace, not up to rotation. The exact matrix coefficients give t⁵(t²−t−1)(t²+t+1), hence the Lucas-plus-cube-root trace. All terms and asymptotics follow; counting unlabelled temporal pairs requires dividing the nonfixed recurrent states by two, not taking a spatial quotient.",
+      "residual_risks": [
+        "Replay with python3 /workspace/branches/95e81986-105d-4109-93d4-c52256661946/assignment4_check.py. Checked all 87,360 states for n=3,...,8, fixed/recurrent/two-orbit counts (6,20,7), (6,36,15), (10,122,56), (20,400,190), (28,842,407), (46,2116,1035), and the exact transfer characteristic coefficients [1,0,−1,−2,−1,0,0,0,0,0]. Traces were tested to n=30; these bounded checks do not prove the all-size formula. Uploaded scripts were not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 cut identity gives #MIS for the across-cut graph from the number of distinct unions across any cut in any simple undirected graph. The prior rook record proves F³=F and Rec=im(F) for all finite undirected graphs, not only rooks."
+        ],
+        "reasoning": "Take the cut consisting of the two copy classes of H(G); each union on the second copy is the ordinary neighborhood union in G relabelled. Complementation preserves their number. This gives the general exact recurrent-count identity, without a special prism argument or sharpened estimate.",
+        "searches": [
+          "Practical Algorithms for Linear Boolean-width, DOI 10.4230/LIPIcs.IPEC.2015.187, §2",
+          "bipartite double prism graph odd doubled prism cycle Kronecker cover",
+          "Resultary: NOR dynamics on rook graphs, proof Step 1"
+        ]
+      },
+      "checked_sources": [
+        "2015 Boolean-width paper, p. 188; OEIS A007040; prior mirrored open-NOR rook and dissociation papers",
+        "Aledo et al. 2020 indexed abstract; local Resultary queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cut identity applied to H(G_n) gives the exact recurrent count; replacing copy bit t by t⊕a commutes the double operation with this bipartite Cartesian factor. On C_n, a horizontal step flips the bit, so one circuit changes it exactly when n is odd. Then multiplicativity of #MIS and A007040 give the parity formulas."
+        ],
+        "reasoning": "The transfer matrix rederives the known M sequence. No genuinely new count remains after the prior identities: half the difference gives exactly the claimed two-orbit numbers, and Lucas growth gives the two asymptotics. This is an implication judgment, not a claim the two-cycle expression was explicitly printed earlier.",
+        "searches": [
+          "ten Brinke et al., Practical Algorithms for Linear Boolean-width §2 Definition 1 and following identity",
+          "OEIS A007040",
+          "Resultary, earlier NOR dynamics on rook graphs Step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Recurrent configurations are NOR outputs by F³=F; an output is the complement of a union of open neighborhoods. A fixed configuration is a maximal independent set. These are labelled objects in the cited sources.",
+          "The prism MIS and cyclic binary-word interpretations of A007040 count the same sequence, not just several coincidences."
+        ],
+        "reasoning": "The NOR naming does not distinguish the recurrent count from the number of neighborhood unions, while the fixed count is the existing maximal-independent-set count.",
+        "searches": [
+          "Boolean-width maximal independent sets neighborhoods bipartite graph Bui-Xuan Telle Vatshelle lemma number",
+          "Resultary: Boolean synchronous open neighborhood NOR recurrent states temporal two-cycle bipartite double cover maximal independent sets exact arbitrary undirected graph",
+          "OEIS A007040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007040 explicitly identifies n≥3 terms as maximal independent set counts of n-prisms and gives L_n+2 cos(2πn/3); the identifying comments/formula are dated 2017. A prior dissociation record already cites this separate MIS interpretation. The OEIS page itself does not claim the NOR two-cycle census."
+        ],
+        "reasoning": "This is exact database evidence for the full all-size enumerative input, including its mod-three correction. Applying the cut identity then gives the remaining counts; no matching temporal table is needed to establish prior coverage.",
+        "searches": [
+          "OEIS A007040, comments and formulas",
+          "Resultary: circular ladder prism maximal independent sets independent domination Lucas open NOR period two bipartite double cover",
+          "Resultary: dissociation polynomials and extremal configurations of circular ladders"
+        ]
+      },
+      "rationale": "The all-size prism maximal-independent-set number M_n is expressly documented in OEIS A007040 (2017). The other count is a direct substitution in an existing general counting identity: ten Brinke, van Houten and Bodlaender (2015), §2 p. 188, state that the number of distinct unions of neighborhoods across a cut equals the number of maximal independent sets in its bipartite cut graph. For synchronous open NOR, the outputs are exactly the complements of the unions of the input vertices' neighborhoods. Apply the prior identity to the two natural shores of the canonical double cover: this gives the image size exactly, and the previously proved universal one-step entry identity identifies it with the recurrent count. The double cover is the familiar double of the cycle times K₂ (the t⊕a relabelling above), so the prior prism formula on its components gives M_n² or M_(2n). Subtracting the fixed count and halving gives the exact primitive two-orbit formula. Thus the entire numerical census is covered by prior results and direct reductions, even without a previously printed NOR orbit table for prisms.",
+      "residual_risks": [
+        "Not a determination of the first explicit prism NOR orbit census. Aledo et al. full text was not independently available, but the positive earlier cut identity, explicit prism count, and general NOR clock suffice for the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger counting theorem; already states the graph counting identity needed for every NOR image",
+          "evidence": [
+            "For any cut (A, Ā), UN(A)={N(X)∩Ā : X⊆A}; |UN(A)|=#MIS(G[A,Ā]) (citing their ref. [16], Theorem 3.5.5)."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2015.187",
+          "material_read": "Official proceedings PDF, §2 Preliminaries, p. 188, Definition 1 and following paragraph",
+          "method": "Checked definition of neighborhood union and substituted the left/right cut of the canonical bipartite double cover",
+          "title": "Practical Algorithms for Linear Boolean-width",
+          "trigger": "Potential general exact theorem about the image statistic in equivalent graph terminology"
+        },
+        {
+          "assessment": "Exact prior enumeration of prism MIS; not itself a temporal two-orbit source",
+          "evidence": [
+            "For n≥3 the term counts maximal independent sets of the n-prism. L_n+2 cos(2πn/3) equals the stated Lucas number plus 2 or minus 1."
+          ],
+          "identifier_or_url": "https://oeis.org/A007040",
+          "material_read": "Sequence comments and formulas, notably the Weisstein prism and Lucas entries dated March 30 and August 7, 2017",
+          "method": "Checked graph, size offset and exact expression against frozen M_n",
+          "title": "OEIS A007040",
+          "trigger": "Matching all-size prism MIS count"
+        },
+        {
+          "assessment": "One-step entry and recurrence equals image are explicitly prior in full generality; the original enumeration here is for a different graph",
+          "evidence": [
+            "For any finite undirected graph F³=F and Per(F)=im(F). The fixed-state criterion is exactly maximal independence."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-nor-dynamics-on-rook-graphs-rectangles-matchings-and-a-square-bo--c79fc7919f54",
+          "material_read": "Local mirror, proof Steps 1 and 6 on the general clock and fixed configurations",
+          "method": "Matched open input convention and scope of the clock theorem",
+          "title": "NOR dynamics on rook graphs: rectangles, matchings, and a square-board gap",
+          "trigger": "Same open NOR under synchronous updates; possible general clock and reduction"
+        },
+        {
+          "assessment": "Already points to the prior exact prism MIS formula, but counts a different extremal family",
+          "evidence": [
+            "It credits A007040's separate maximal-independent-set prism interpretation rather than claiming this count."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-dissociation-polynomials-and-extremal-configurations-of-circular--d2470e7871c7",
+          "material_read": "Local mirror, proof of extremal count, relationship to prior work, reference to A007040",
+          "method": "Compared prism MIS and the distinct dissociation observable",
+          "title": "Dissociation polynomials and extremal configurations of circular ladders",
+          "trigger": "Related sequence and exact prism enumeration"
+        },
+        {
+          "assessment": "Relevant bounds context; not needed for the decisive exact coverage",
+          "evidence": [
+            "The abstract describes bounds involving maximal independent and minimal dominating sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+          "material_read": "Bibliographic/abstract description; full text unavailable via lawful attempted routes",
+          "method": "Used only accessible stated scope; not relied on for a negative full-text conclusion",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "Potential broader result on fixed and 2-periodic points"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and limitations; OEIS A007040 and the 2015 cut identity"
+      ],
+      "rationale": "The labelled orbit counts are natural, but here they are mechanically obtained from a documented exact sequence, the general neighborhood-union identity and the elementary cover relabelling. The transfer calculation is a second derivation of the known sequence, and the asymptotics are immediate from its Lucas growth. The frozen claim contains no independent census of individual basins, equivalence under spatial symmetries, or other new result that survives the prior coverage.",
+      "residual_risks": [
+        "The judgment does not concern altered NOR rules, basin-size distributions, or classifications up to spatial symmetry."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

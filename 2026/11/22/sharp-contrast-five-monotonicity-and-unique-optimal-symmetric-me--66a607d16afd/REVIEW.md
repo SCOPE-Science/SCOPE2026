@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The natural second-derivative matching equations have determinant \(D=(r+2)(3r+2)>0\). Direct differentiation gives all three cardinal derivative coefficients, including their coefficient-sum normalization. The global uniform-in-data problem reduces to the exact largest negative-coefficient mass \(N_* = \max\{1/(r+2),r/[2(r+2)]\}\). The proof bounds each outer and central interval for all real \(r>0\), gives attaining points, and constructs strictly increasing counterexample data for any greater ratio. Its two branches meet uniquely at \(r=2\). A stand-alone exact-rational verifier passed 5,050 supplementary tests, but the universal quantifiers are proved algebraically, not inferred from tests.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest exact four-knot natural-spline literature checked in full optimizes continuous-versus-discrete **total variation** (record `a68c76ffcd7c`) or computes its equispaced norm (record `287732549e93`); neither quantifies the uniform monotonicity-preserving positive-slope-contrast radius. A clamped-zero-first-derivative four-knot contrast result differs in boundary conditions. Published Fritsch–Carlson local Hermite positivity criteria, Aràndiga–Baeza–Yáñez monotone reconstruction methods, Baeza–Yáñez endpoint-adjustment limitations, and Beatson–Chacko spline-boundary norm comparisons were cross-checked against statements and implications. No equivalent or dominating numerical radius \(R(r)\) or its exact symmetric-mesh optimum was located. Historical priority is not certified: more general classical spline criteria may conceivably contain the result as a corollary, and some older treatments remain unindexed.
+PASS
 
-## Value — PASS
-The exact threshold is a robust shape-preservation design rule for the first naturally coupled cubic-spline geometry: the center-enlarged \((1,2,1)\) mesh provably tolerates slope contrast \(5\), compared with \(4\) on equally spaced knots. Sharp endpoint and central-pocket failure witnesses show that the gain is real and not an artifact of a loose sufficient condition. The assertion is limited to four knots with reflection-symmetric lengths, natural boundaries, and positive secant slopes; it neither gives a general pointwise data criterion nor extends to longer/asymmetric meshes.
+For four natural knots with gaps (1,r,1), normalize by the smallest positive secant, not by the smallest data increment. The derivative coefficients sum to one, so the minimum on the resulting contrast cube is one minus (K-1) times the negative coefficient mass. On the left interval, the first coefficient is strictly positive and the other two have opposite signs; the negative mass peaks at the outer endpoint at 1/(r+2). Reflection gives the right interval. In the middle the b coefficient is positive, so maximize the largest of zero, each individual negative coefficient and their joint negative sum. The joint expression peaks at the midpoint with mass r/[2(r+2)]. Each individual vertex gives J=r(3r^2+6r+4)/[(r+2)(3r+2)^2]. For r<=2, the difference after clearing denominators against 1/(r+2) is 4+8r+3r^2-3r^3>0: putting r=2u, it is at least 4+16u-12u^2>0 for 0<u<=1. For r>=2, J<=r/[2(r+2)] follows from 3r^2>=4. The endpoint and midpoint attain the competing bounds, and the specified positive corner slopes attain each failure for any larger K. A negative endpoint derivative gives a negative interval by continuity. Equality is included, and the two monotone-in-r branches meet uniquely at r=2. Independent symbolic replay of witnesses and the interior vertex via the knot first-derivative system: python3 /workspace/review_replay.py, check 1. Proof, not finite checks, establishes all r and all t.
 
-## Sources and outstanding limits
-Fritsch–Carlson (1980), Aràndiga–Baeza–Yáñez (2021), Baeza–Yáñez (2022), Beatson–Chacko (1990/1992), and two directly comparable published four-knot natural-spline results were examined at the scope described in `AUDIT.json`. Standalone exact arithmetic checked 5,050 diagnostic cases. Publication priority and the proof have not received independent external scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact fixed-mesh contrast radius for unmodified natural splines on (1,r,1), with two sharp obstruction locations and its unique optimum. The closest indexed uniform-grid claim produces an explicitly weaker guarantee for r=1 and covers no r other than 1. Classical segment characterizations supply a method, not the optimization of the uniform data guarantee. This is a bounded overlap decision, not a historical-priority finding.
+
+## value
+
+PASS
+
+This is an actionable four-knot design criterion for a standard unmodified interpolant in the first coupled natural-spline geometry. It identifies the tradeoff between outer-endpoint loss and central derivative reversal, with explicit failures and a unique mesh equalizing the constraints. The exact improvement from 4 to 5 is substantive for this design problem; neither a general-grid guarantee nor variation minimization substitutes for it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The operator uses actual endpoint traces, not equivalence-class point values. BV's signed interior derivative measure reduces the sharp seminorm to single-jump responses. Integrating the step polynomial yields a Beta-binomial identity and a binomial absolute deviation with independently checked normalization. The degree-one through degree-three factorization is strict for every admissible interior jump. The central binomial identity proves strict interior dominance for all degrees at least four; compactness gives attained norms. The triangular-array CLT plus a uniform second-moment bound (including boundary-moving parameters) proves the sharp global asymptotic and universal localization, without claiming any finite-degree midpoint optimality.
+PASS
 
-## Originality
+One-sided endpoint traces agree with the endpoint values of the BV representation by jumps against Df. Positivity bounds each jump response Q_s between zero and one, and the triangle inequality bounds every ratio by the supremum of the jump errors; a single jump gives the reverse inequality. Integrating the Bernstein polynomials and converting beta integrals to binomial tails yields the stated absolute moment: the admissible k lie between B+1 and A-1, with the exceptional k=n counted exactly on A=n+1. The polynomial endpoint values 1/(n+1) are limits of interior-jump errors, not errors of constant endpoint jumps. Independently, pair n-1 Bernoulli(s) trials in A with those in B. Their differences sum to a symmetric integer Z, with each summand taking ±1 with probability q=s(1-s) each. The two unpaired trials minus one contribute zero with probability 2q. The mean absolute moment is E|Z|+(1-2q)Pr(Z=0), giving the three stated small-degree polynomials. Their strict deficits at every interior s integrate to a positive deficit against any nonzero variation measure, proving nonattainment. At the midpoint the absolute deviation of Bin(2n,1/2) telescopes to n choose(2n,n)/4^n; its successive ratio is (2n+1)/(2n) and it crosses 1 from 15/16 to 35/32 between degrees three and four. Thus an interior jump attains the norm for every n≥4. The triangular-array CLT has a bounded-summand Lindeberg condition for any interior parameter limit, and bounded second moments yield convergence of absolute moments. For endpoint parameter limits the second moment after scaling tends to zero. Compactness then gives uniform convergence to 2 sqrt(s(1-s)/pi), with unique maximum at 1/2. This proves the constant and localization for every choice of maximizer, not the finite-degree maximizing location. Direct independent evaluation at n=2, s=1/3 also gives 61/243 on both sides.
 
-PASS, qualified by source access. Relevant published work treats genuine-operator direct/inverse bounds and smooth-function asymptotics rather than the present integrated-BV sharp norm and its degree-four attainment barrier. The ordinary Durrmeyer sharp midpoint norm is not stronger coverage: the genuine operator has endpoint atoms, reproduces affine data and has a fundamentally different boundary limit. Direct semantic searches against published research records and the accessible historical ledger located no implication of the exact binomial identity plus attainment phase and localization. The very relevant 2012 paper was accessible only as an abstract and reference list, and an institutional full-text request could not proceed; an older 2007 paper was verified in an archived preprint listing but not read in full. These are explicit historical-priority risks, not an assertion of complete literature coverage.
+## originality
 
-## Value
+PASS
 
-PASS. The genuine operator is a canonical affine-reproducing, endpoint-interpolating alternative to the ordinary Bernstein–Durrmeyer operator. Its boundary-value handling changes whether the sharp error can be attained: degrees one through three have only boundary-concentrating approximate extremizers, but every larger degree has an actual interior jump normer. The first degree and an exact probabilistic finite prescription are both natural invariants; the large-degree normal law shows that all optimal jump locations approach the center and supplies a sharp calibration of worst-case error for discontinuous data.
+The supported distinct claim is the sharp unweighted BV-to-L1 error formula and degree-four attainment transition for the endpoint-interpolating genuine operator, together with maximizer localization. The jump reduction and CLT techniques are standard. The same-day sharp integrated-error result for the ordinary operator has a different operator and no matching nonattainment regime. The most plausible primary literature overlaps with the operator or its pointwise behavior, but available statements do not give this norm or threshold. The full-text limitations qualify the assessment.
 
-## Closest literature and limits
+## value
 
-Gonska–Kacsó–Raşa (2012), DOI 10.1007/s00025-012-0287-1: direct/inverse estimates and semigroup iterates; full article inaccessible. Sauer (1994), DOI 10.1007/BF03322291: shape and saturation on simplices; full article inaccessible. Alotaibi et al. (2021), DOI 10.1186/s13662-020-03164-0: inspected open-access defining formula, moment and approximation sections, for generalized operators. Abel et al. (2026), DOI 10.1007/s11785-026-01929-1: inspected open-access smooth-function asymptotic expansions. Historical priority remains non-independent and may require full-text verification of earlier work. No exact finite-degree global argmax or all-equality classification is claimed beyond the first three degrees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The trace convention is standard for the endpoint-interpolating operator, but interior variation does not charge endpoint jumps. This creates a substantive low-degree distinction between a sharp supremum and an actual norming input. The exact binomial representation settles the threshold at degree four and gives a useful prescription and sharp asymptotic comparison for integrated approximation of discontinuous BV inputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

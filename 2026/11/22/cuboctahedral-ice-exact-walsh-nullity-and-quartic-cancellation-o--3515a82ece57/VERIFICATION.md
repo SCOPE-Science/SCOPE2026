@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The first program constructs the edge-adjacency graph of the binary three-cube, checks there are 24 edges, exhaustively branches on orientation bits with degree pruning, and applies the full integer Walsh transform. Its result reports 600 balanced orientations, 9,500,672 zeros, minimum nonzero multiplier 4, minimum even vanishing weight 4, and projection norm 29471/2048.
+# Independent mathematical audit
 
-The independent Python implementation first solves the mod-two incidence constraints by spanning-tree leaf elimination and then enforces outdegree two. It checks 600 states among all 8,192 parity-admissible vectors, performs a second integer Walsh transform and obtains 4,639 reduced zeros and 3,553 reduced surviving frequencies. It asserts Parseval's identity, exactly zero vanishing two-edge characters, exactly 864 vanishing four-edge characters, minimum absolute nonzero value 4 and the same projection norm. A separate symmetry checker generates all 48 cubical automorphisms, checks group images of the quartic zeros, and certifies 21 orbits, of sizes 48 (15 orbits) and 24 (6 orbits).
+## correctness
 
-The calculations are exhaustive only for the specified finite graph. Full external validation and literature-priority certification have not been performed. The included code and output data permit reruns but must not be mistaken for independent institutional certification.
+PASS
+
+Fresh exact enumeration by GF(2) row reduction and outdegree filtering recovered 600 balanced states among 8192 parity-admissible vectors. The rank-11 incidence constraints imply 2048 full characters per restricted character up to a fixed sign. The reduced integer Walsh transform gave 3553 nonzero, 4639 zero and minimum nonzero magnitude 4; the full counts are 7276544 and 9500672. Reversal forces 8388608 odd zeros, hence 1112064 even zeros. Direct sums on 276 pairs and 10626 quartets gave zero and 864 zeros respectively. Adjacency-preserving enumeration found 48 automorphisms and the quartic zeros partitioned into fifteen size-48 and six size-24 orbits. The empty frequency gives 600, hence the condition number is 150 and the pseudoinverse norm is 1/4. Averaging any range projection over translations gives the unique range projection diagonal in Walsh coordinates, without increasing either endpoint norm. The inverse-transform kernel is supported on the linear parity subspace and its absolute sum was 117884/8192 = 29471/2048.
+
+## originality
+
+PASS
+
+The distinct claim is the exact cuboctahedral Fourier range, first even blind supports and endpoint projection constant, not the classical orientation model, its coefficient-extraction count, or Walsh diagonalization. No equivalent evaluated invariant or result implying it was found in the inspected statements.
+
+## value
+
+PASS
+
+The cuboctahedron is a natural finite four-regular ice graph. The finding distinguishes reversal-forbidden frequencies from extra even blind modes, classifies the lowest such modes, and gives exact rank and conditioning data. The projection constant controls the best endpoint norm even for projections not designed by Fourier symmetry. These motivated invariants are useful for comparison with other graph-ice recovery models and are not given merely by a state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

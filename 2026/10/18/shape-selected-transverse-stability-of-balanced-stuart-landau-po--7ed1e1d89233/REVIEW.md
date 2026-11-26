@@ -1,19 +1,21 @@
-# Scientific review: reactive stabilization of balanced polygons
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The co-rotating real-linear perturbation equation is derived by differentiating the original ODE. The noncollinear balanced-phase condition supplies exactly \(M-2\) radial eigenvectors at \(-2a\) and \(M-2\) angular eigenvectors at zero. A two-complex-variable resolvent yields the four-dimensional determinant, which expands to the displayed polynomial. Exact symbolic and rational identities for the two decisive quartic Routh–Hurwitz determinants establish the necessary-and-sufficient stability criterion and its unique threshold. At equality, factorization proves exactly one neutral imaginary pair in the collective spectrum. The explicit four-node example has an exact coefficient \(5(18d^2-13)/32\). The finite verifier additionally passed 2,283 tests; the proof, rather than finite enumeration, covers all permitted \(M\) and all real parameters.
+PASS
 
-## Originality
+In units of a, the Jacobian is a block diagonal operator −2P_j (P_j the radial rank-one orthogonal projector), plus common injection of K times the mean perturbation, K=[[x,−y],[y,x]]. Noncollinearity gives a rank-two phase-balance derivative and precisely M−2 tangential neutral directions. A rank-two determinant update gives characteristic polynomial [t(t+2)]^(M−2) det(t(t+2)I−[(t+1)I−S]K), where S=2 mean(P_j)−I has eigenvalues ±d. The trace in the determinant is 2x(t+1) and det([(t+1)I−S]K)=((t+1)^2−d²)(x²+y²). This reproduces all factors including exceptional t=0,−2 by polynomial identity. With the notation b_j of the proof, b_1 b_2−b_3=2(1−x)[y²+(2−x)(4−x)] and (b_1 b_2−b_3)b_3−b_1²b_4=4H. For x≥2 b_1 fails, and for 1≤x<2 the first determinant fails. For 0<x<1, b_1,b_4 and the first determinant are positive, so H>0 forces b_3>0 and then b_2>0, which completes strict Hurwitz equivalence. In u=y², H has positive leading coefficient, negative constant term and is strictly negative at u=x(2−x); its unique positive root decreases strictly with d². At equality the stated factorization gives a simple imaginary pair and a Hurwitz quadratic. At x=1/2, y=1 the exact threshold is d²=13/18, with an unstable square (H<0 and no imaginary or zero collective roots) and an attracting antipodal-pair polygon at φ=π/6 (d²=3/4), at the same coefficients. Independently replayed symbolic identities and 12 exact rational four-node Jacobian comparisons: python3 /workspace/replay/stuart_landau.py (SymPy). If Ω=0 the solution is an equilibrium, so the spectrum is interpreted as characteristic rates, not as multipliers of an orbit with an intrinsic period. For Ω≠0 the co-rotating transformation is periodic and the exponents give the claimed Floquet real parts. No nonlinear Hopf or single-orbit asymptotic-attraction claim is made.
 
-PASS under the inspected-literature and research-index comparisons, with documented residual bibliographic uncertainty. Zhao–Uchida (2026), sections 2 and 5, derive the balanced polygon family and numerically sample transverse eigenvalues but do not state the closed-form Hurwitz threshold. Zou–Zhan (2009), Appendix B, give the analogous second-moment reduction only for real coupling and prove the real-coupling criterion, not reactive stabilization when the dissipative part is positive. The nearest identified oscillator-related research-index entries concern nonpairwise, phase-truncated triads or pure real coupling and do not imply this full complex-amplitude result. Possible uninspected complex-coupling literature remains a risk, and bibliographic noncoverage is not a proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Numerically observed shape-dependent polygon stability is replaced by a complete exact spectrum and a sharp, dimension-independent reactive-coupling threshold. The four-agent example provides two opposite transverse stability types at identical growth, damping, coupling, amplitude, and frequency, clarifying how polygon geometry rather than heterogeneous amplitudes can govern loss of normal attraction. It also locates a codimension-one imaginary spectral transition while appropriately not claiming nonlinear Hopf dynamics.
+Credit existing balanced polygons, sampled shape-dependent stability, and the second-moment collective-reduction precedent. The supported distinct result is the complete quartic and exact necessary-and-sufficient threshold for identical oscillators with positive dissipative and potentially nonzero reactive coupling, with an explicit fixed-coefficient four-agent contrast. The strongest indexed overlaps give exact pure-reactive or real-coupling results or small-positive-coupling persistence, not the full strict boundary. This is a bounded comparison, not priority certification.
 
-## Limits and status
+## value
 
-This is normal/transverse local stability of the balanced manifold, not global convergence or attraction to a single periodic orbit. Collinear shapes and nonlinear bifurcation behavior at the threshold are excluded. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scalar shape statistic converts a population-size Jacobian into an exact spectral law and explains when reactive coupling overcomes dissipative destabilization. The same-parameter attracting and unstable polygons are a concrete demonstration that shape is dynamical data, not just geometric labeling. This improves on numerical sampling without asserting anything about global basins or nonlinear dynamics at the threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

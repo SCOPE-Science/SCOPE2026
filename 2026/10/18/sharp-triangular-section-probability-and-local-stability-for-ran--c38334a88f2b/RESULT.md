@@ -1,88 +1,38 @@
-# Sharp triangular-section probability and local stability for random affine cuts of rectangular boxes
+# Strict Schur ordering of triangular affine sections of rectangular boxes
 
 ## Finding
 
-For positive \(a,b,c\), let \(B(a,b,c)=[-a,a]\times[-b,b]\times[-c,c]\). A random affine plane is sampled using translation- and rotation-invariant plane measure, conditioned on meeting \(B(a,b,c)\). The probability \(P_3(a,b,c)\) that the section has exactly three vertices is
+For a Euclidean rectangular box with positive half-side lengths \(a,b,c\), let \(P_3(a,b,c)\) be the probability that an affine plane drawn from motion-invariant plane measure conditional on hitting the box has a triangular section. At fixed \(a+b+c\), this probability is **strictly Schur-concave**: if \((a,b,c)\) majorizes \((a',b',c')\) and they are not permutations of one another, then \(P_3(a,b,c)<P_3(a',b',c')\).
 
-\[
-P_3(a,b,c)=\frac{4}{a+b+c}\,\mathbb E\min\{a|U_1|,b|U_2|,c|U_3|\},
-\qquad U\sim\operatorname{Unif}(S^2).
-\]
+Equivalently, any transfer between two unequal half-lengths that strictly reduces their gap, leaving their sum and the other half-length unchanged, strictly increases the triangular-section probability. This orders many pairs of unequal boxes, not just their comparison to the cube. The cube is the unique maximizer up to scale, by this ordering.
 
-For fixed positive sum of the half-side lengths, \(P_3\) is **strictly Schur-concave**: every nontrivial transfer making two unequal half-side lengths closer strictly increases the probability. Consequently the cube is the unique maximum up to common scale, and
+## Sampling and scope
 
-\[
-0<P_3(a,b,c)\le P_*:=2-\frac{4\sqrt2}{\pi}\arctan\sqrt2
-=0.2798257232129537\ldots.
-\]
-
-The sharp range among genuine boxes is \((0,P_*]\); its zero infimum is approached by flattening any one side. There is also an exact local stability coefficient. For every fixed \(h\in\mathbb R^3\) with \(h_1+h_2+h_3=0\), and all sufficiently small \(\varepsilon\) for which the half-side lengths are positive,
-
-\[
-P_*-P_3(1+\varepsilon h_1,1+\varepsilon h_2,1+\varepsilon h_3)
-= C\varepsilon^2\sum_{i=1}^3h_i^2+o_h(\varepsilon^2),
-\]
-\[
-C=\frac{\arctan\sqrt2}{\pi\sqrt2}-\frac{1}{3\pi}
-=0.1089184892037839\ldots>0.
-\]
-
-The constant is the exact isotropic Hessian coefficient at the cube, in the coordinates of fixed-sum half-side lengths.
-
-## Assumptions and scope
-
-An unoriented plane is the equivalence class of \((u,t)\in S^2\times\mathbb R\) under \((u,t)\sim(-u,-t)\), with equation \(u\cdot x=t\). The invariant measure is induced by surface measure \(d\sigma(u)\) times Lebesgue measure \(dt\), restricted and normalized to planes meeting \(B(a,b,c)\). In particular, conditional orientation is **not** uniformly distributed: directions are weighted by the width \(2(a|u_1|+b|u_2|+c|u_3|)\). Degenerate planes containing vertices or edges have measure zero.
-
-Only three-dimensional rectangular boxes with positive side lengths and this precise affine-plane probability measure are covered. Schur comparison concerns the normalized vector \((a,b,c)/(a+b+c)\), not comparison at fixed volume or diagonal.
+Represent an unoriented plane by \((u,t)\in S^2\times\mathbb R\) modulo \((u,t)\sim(-u,-t)\); its equation is \(u\cdot x=t\). Use the measure induced by \(d\sigma(u)\,dt\), restricted and normalized to planes meeting the box. In particular the direction of a sampled hitting plane is weighted by the box width, not uniform. The claim compares positive half-side lengths at fixed sum, equivalently after normalizing their sum. It is not a comparison at fixed volume or under a different plane sampling rule.
 
 ## Proof
 
-**1. Width-weighted probability identity.** For fixed \(u\), the extremal support levels of the eight vertices are \(\pm s\), with \(s=a|u_1|+b|u_2|+c|u_3|\). The two extremal vertices are unique away from a null set of normals. The second level below the maximum is \(s-2m\), where \(m=\min\{a|u_1|,b|u_2|,c|u_3|\}\). Thus a plane gives a triangular section precisely when its offset lies in the two end intervals of total length \(4m\). All hitting offsets occupy length \(2s\). Since \(\mathbb E|U_i|=1/2\), integration over normals gives total hitting-plane measure proportional to \(a+b+c\), proving the stated identity. The identification can also be checked directly by observing that exactly the three edges incident to the extremal vertex are cut in either end interval.
-
-**2. Shape rigidity and the full range.** Put \(F(a,b,c)=\mathbb E\min\{a|U_1|,b|U_2|,c|U_3|\}\). For each fixed normal the integrand is the minimum of three linear forms in the half-side lengths, hence concave. Uniform spherical measure makes \(F\) symmetric and homogeneous. Moreover averaging any unequal pair strictly increases \(F\). Indeed, if \(a>b\), compare \((a,b,c)\) with \((b,a,c)\). On a positive-measure open neighborhood where \(|U_1|\approx|U_2|\) and \(c|U_3|>\max\{a,b\}\max\{|U_1|,|U_2|\}\), the two endpoint minima select different coordinates, while the minimum at a nontrivial convex mixture is strictly larger than the mixture of those endpoint minima. Such neighborhoods exist by taking \(|U_1|,|U_2|\) sufficiently small. The same argument, with the crossing ratio adjusted, holds for every nontrivial pairwise balancing transfer. Therefore \(F\), and \(P_3=4F/(a+b+c)\) at fixed sum, is strictly Schur-concave. Averaging all permutations proves uniqueness of \(a=b=c\). The probability is positive on the positive cone and tends to zero as any one half-side length tends to zero with the other two fixed; continuity yields the claimed exact range.
-
-**3. Exact cube value.** On the positive octant, symmetry partitions the sphere into six regions congruent to \(D=\{u_1\ge u_2\ge u_3\ge0\}\). Including signs yields \(48\) congruent sectors. On \(D\), the minimum coordinate is \(u_3\). Its spherical triangle has vertices \(v_1=(1,0,0)\), \(v_2=(1,1,0)/\sqrt2\), and \(v_3=(1,1,1)/\sqrt3\). For any oriented spherical patch \(D\), the spherical vector-area identity is
-
+Use the triangular atom of the rectangular-box Crofton law [1], writing \(U\) for a uniform unit vector:
 \[
-\int_Du\,d\sigma(u)=\frac12\sum_{\text{oriented great-circle edges }(v,w)}
-\frac{\arccos(v\cdot w)}{\|v\times w\|}(v\times w).
+P_3(a,b,c)=\frac{4}{a+b+c}F(a,b,c),\qquad F(a,b,c)=\mathbb E\min\{a|U_1|,b|U_2|,c|U_3|\}.
 \]
+For completeness, to recover the normalization, fix a normal with no zero coordinate and put \(s_u=a|u_1|+b|u_2|+c|u_3|\) and \(m_u=\min\{a|u_1|,b|u_2|,c|u_3|\}\). The first two vertex levels from the upper end are \(s_u\) and \(s_u-2m_u\). A generic triangular section crosses three graph edges, which requires a singleton on one side: in the cubic graph, a cut with smaller side of size \(k\le 4\) has size \(3k-2e\), where \(e\) is the internal edge count. This can be three only for odd \(k\), and \(k=3\) would require three edges among three vertices in the bipartite cube graph. Thus the triangular offsets have total length \(4m_u\) at the two ends; all hitting offsets have length \(2s_u\). Integrating and using \(\mathbb E|U_i|=1/2\) gives the displayed law. Offsets through vertices can be discarded as null.
 
-For the indicated triangle, the third component is \(\pi/8-\phi/(2\sqrt2)\), where \(\phi=\arctan\sqrt2=\arccos(1/\sqrt3)\). Hence \(F(1,1,1)=48(\pi/8-\phi/(2\sqrt2))/(4\pi)\); multiplying by \(4/3\) gives \(P_*=2-4\sqrt2\phi/\pi\).
-
-**4. Exact second variation.** For fixed \(h=(h_1,h_2,h_3)\), write \(F_h(\varepsilon)=F(1+\varepsilon h_1,1+\varepsilon h_2,1+\varepsilon h_3)\). Differentiating the piecewise-linear minimum under the sphere integral, its first derivative has no boundary term (the branches agree on ties). The second derivative receives negative contributions only from two-way ties \(|u_i|=|u_j|<|u_k|\). In distribution/coarea notation,
-
+For each direction the minimum in \(F\) is a concave function of the half-lengths, and the direction law makes \(F\) symmetric under permutations. Fix \(a>b>0\) and \(c>0\), and compare \(v=(a,b,c)\) with its swap \(v'=(b,a,c)\). Take a direction with \(|u_1|=|u_2|=d>0\), for sufficiently small \(d\) that \(c|u_3|>ad\). At \(v\) the unique minimizing branch is the second coordinate, and at \(v'\) it is the first. Both inequalities persist on a nonempty open set of directions, of positive spherical measure. For any \(0<\eta<1\), every linear branch evaluated at \((1-\eta)v+\eta v'\) strictly exceeds the corresponding convex combination of the endpoint minima on that open set: each branch fails to minimize at at least one endpoint. There are only three branches, so their minimum also strictly exceeds that combination. Elsewhere concavity gives the weak inequality. Integration and permutation symmetry give
 \[
-F_h''(0)=-\sum_{i<j}(h_i-h_j)^2
-\mathbb E\bigl[|U_i|^2\,\delta(|U_i|-|U_j|)\,\mathbf1_{\{|U_i|<|U_k|\}}\bigr].
+F((1-\eta)v+\eta v')>(1-\eta)F(v)+\eta F(v')=F(v).
 \]
-
-The triple-tie set consists of finitely many points; its \(O(\varepsilon^2)\) neighborhoods contribute \(O(\varepsilon^3)\) to the minimum integral and do not alter the second-order term. On each of the eight signed tie arcs, parameterize \((|u_i|,|u_j|,|u_k|)=(\sin\theta/\sqrt2,\sin\theta/\sqrt2,\cos\theta)\), with \(0\le\theta\le\phi\). The spherical gradient of \(|u_i|-|u_j|\) has length \(\sqrt2\) on the arc, and the spherical arclength element is \(d\theta\). Consequently each coefficient equals
-
-\[
-J=\frac{2}{\pi\sqrt2}\int_0^\phi\frac{\sin^2\theta}{2}\,d\theta
-=\frac{\phi}{2\pi\sqrt2}-\frac{1}{6\pi}.
-\]
-
-Since \(\sum h_i=0\), the identity \(\sum_{i<j}(h_i-h_j)^2=3\sum_i h_i^2\) yields \(F_h''(0)=-3J\sum_i h_i^2\). Its linear term vanishes by permutation symmetry. Because \(a+b+c=3\) along this perturbation, multiplying the Taylor expansion by \(4/3\) gives the claimed coefficient \(C=2J\). The same coarea argument justifies twice differentiability at the balanced box and the little-oh remainder for each fixed \(h\).
+The new absolute gap is \(|1-2\eta|(a-b)\), so this covers every strictly gap-reducing transfer. The prefactor of \(F\) in \(P_3\) stays constant. By the finite pair-transfer characterization of majorization, together with permutation invariance, a majorization comparison not between permutations requires at least one such strict transfer and yields the claimed strict inequality. The balanced triple is majorized by every triple of its sum, giving the uniqueness statement.
 
 ## Verification
 
-The accompanying standalone Python checker constructs a deterministic low-discrepancy grid of \(2^{18}\) spherical directions, evaluates the exact conditional-probability integral for the cube and asymmetric boxes, and compares two perturbative difference quotients with \(C\). The checker reports the stated constants. These finite calculations are corroboration only; Steps 1–4 prove the continuum theorem.
+The direction and transfer proof establishes the strict inequality for every positive half-length vector. The accompanying `triangular_box_checker.py` is a finite deterministic numerical check of integral values at the cube and selected asymmetric boxes, as well as consistency with the cube's quadratic expansion; it is not an exhaustive test or a proof of the strict ordering.
 
-As a separate internal normalization check, each of the four box edges parallel to coordinate \(i\) meets a plane over an offset interval of length \(2a_i|u_i|\). Summing over all twelve edges and dividing by total hitting-plane measure gives the known exact expected section-vertex count \(\mathbb E N=4\), independent of box aspect ratio. This identity is not claimed as new.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Bray (2009), Chapter 10, treats motion-invariant random plane sections and obtains the regular **cube's** polygon-type probabilities. The symmetric cube endpoint is accordingly background, not an independent novelty claim here. The new theorem concerns **all** positive rectangular boxes, strict majorization with a unique extremal aspect ratio, and the exact second-variation coefficient. Birkemeyer–Brose–Brandenburg–Prün (2026), on combinatorial slicing hierarchies, and Brandenburg–Curtis–Giardino–Meroni–Padrol (2026), on cube-slice reconstruction, address which section combinatorics determine polytope properties, not this shape-optimized affine-plane probability. Other calculations of hexagonal **central** box sections use a different orientation law and conditioning, so neither their extremal values nor their implications cover this statement.
-
-## Limitations
-
-The exact probability formula remains a two-dimensional spherical expectation for a general box; no elementary closed form at arbitrary aspect ratios is asserted. The quadratic expansion is for fixed shape-perturbation vectors with zero sum and does not provide a universal, aspect-ratio-independent global quadratic remainder. The theorem does not address arbitrary affine images with sheared faces, random central sections, or offset laws different from invariant plane measure. Possible earlier equivalents under stereological terminology remain a bibliographic risk. A very closely related 2026 cube-slice reconstruction manuscript was available by abstract but not in full text for comparison.
+Record [1] gives an elementary all-aspect-ratio formula for the full distribution of affine section types, including the same triangular probability above. It also treats the cube extremizer and stability as existing background; the cube coefficient can be obtained by Taylor expansion of its explicit triangular formula. The distinct statement here is the global strict comparison for **every** nontrivial fixed-sum majorization, which is stronger than a maximum at the cube or a local deficit near the cube. No priority for the probability formula, cube value, or local expansion is claimed. Bray [2] is cited in [1] for the cube's section-type table. These comparisons do not assert comprehensive historical priority for the strict ordering. The proof concerns rectangular boxes, not sheared parallelepipeds, central sections, or other orientation or offset laws.
 
 ## References
 
-1. Brian Michael Bray, *Invariant measures on multifids of convex polytopes*, University of Wollongong doctoral thesis (2009), Chapter 10, pp. 109–118. Open-access text: https://scispace.com/pdf/invariant-measures-on-multifids-of-convex-polytopes-2szr2numek.pdf
-2. Anna Birkemeyer, Anouk E. Brose, Marie-Charlotte Brandenburg, Niklas Prün, *Combinatorial slicing problems of polytopes: How (not) to reconstruct a polytope from its slices*, arXiv:2609.16195 (first public September 14, 2026). https://arxiv.org/abs/2609.16195
-3. Marie-Charlotte Brandenburg, Juliana Curtis, Chiara Giardino, Chiara Meroni, Arnau Padrol, *Reconstruction of slices of cubes*, arXiv:2610.09939 (first public October 7, 2026). https://arxiv.org/abs/2610.09939
-4. Marie-Charlotte Brandenburg, Jesús A. De Loera, Chiara Meroni, *The Best Ways to Slice a Polytope*, arXiv:2304.14239 (2023). https://arxiv.org/abs/2304.14239
+1. *Elementary Crofton section-type law and quadratic hexagon extinction for rectangular boxes*, Resultary catalogue record ecdb5fa9f8fa, `RESULT.md`, Finding, Assumptions and scope, and Relationship to prior work. https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-elementary-crofton-section-type-law-and-quadratic-hexagon-extinc--ecdb5fa9f8fa/RESULT.md
+2. B. M. Bray, *Invariant measures on multifids of convex polytopes*, University of Wollongong, Ph.D. thesis (2009), Chapter 10. https://ro.uow.edu.au/theses/3403

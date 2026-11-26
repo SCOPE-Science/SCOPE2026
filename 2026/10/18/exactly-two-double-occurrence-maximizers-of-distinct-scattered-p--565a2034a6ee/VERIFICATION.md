@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-`check_scattered_palindromes.py` is a self-contained Python 3 program using only the standard library. Execute `python3 check_scattered_palindromes.py` in the folder containing it.
+## correctness
 
-A direct subsequence-set enumerator and a different interval/support enumerator are compared for every pairing of \(2q\) positions, with \(1\le q\le5\), producing respectively \(1,3,15,105,945\) pairings. Counts and length histograms coincide for all cases, and only the stated canonical words attain \(2^{q+1}-2\). Independent second-half-permutation scans additionally cover every tail at \(q=6,7\), testing \(720\) and \(5040\) permutations. The checker also verifies the exact length-spectrum identities for both forms through \(q=5\).
+PASS
 
-All listed tests completed successfully, ending with `ALL_SCATTERED_PALINDROME_CHECKS_PASSED`. They are finite tests, not a certificate for infinitely many alphabet sizes. The proof in RESULT.md supplies the universal interval-nesting argument and complete equality classification. No independent audit has been performed.
+For a fixed nonempty support every noncentral letter must use its two host positions in mirrored pairs, and those intervals strictly nest. If all intervals nest there is one even value and one odd value (only the innermost letter can be central). Otherwise there is no even value; a prescribed center fixes the palindrome value and three distinct feasible centers would force every interval pair to nest by choosing a center outside that pair. Thus equality in the total bound forces two values for every support separately. A disjoint pair of intervals prevents either letter enclosing the other, giving zero for that support. Pairwise intersection with distinct endpoints then puts every first occurrence before every second occurrence. On full support an even value forces the whole word to be the reversed-tail palindrome. Otherwise the two odd centers c,d require reversal of each pair other than {c,d}, which must be nonreversed and consecutive in first-appearance order. Any letter first appearing after both would have both of their intervals enclosing its interval, making either center impossible. So only the two highest letters can be swapped. If a support contains both swapped letters, there is one interior occurrence of each inside the other interval (the later opener and earlier closer, respectively), giving exactly the two odd values; all other supports have the even/odd nested pair. Counting the supports of size k containing the swapped pair yields the stated binomial correction and all lengths. The two canonical words are distinct at q=2 as well, and labeling gives q! choices for each. The q=1 host has only its singleton and doubleton values. The uploaded checker's finite matching/permutation tests were inspected, not executed; the interval argument proves the unbounded statement.
+
+## originality
+
+PASS
+
+Credit Mahalingam–Pandoh not only for the sharp maximum and the nested witness, but also for the nested length spectrum, which is explicitly stated after Proposition 5.1. The distinct supported claim is the exhaustive equality classification, including the unique crossed canonical case, its length spectrum, and the resulting labeled multiplicities. No inspected comparator provides those results directly or by specialization.
+
+## value
+
+PASS
+
+The balanced boundary of a prior extremal problem has a natural exact equality question. An exhaustive all-q result showing one nested and one genuinely nonpalindromic form answers it, and the crossed spectrum describes exactly how even values are traded for odd values at fixed support size. This is a structural classification beyond the known maximum and nested spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

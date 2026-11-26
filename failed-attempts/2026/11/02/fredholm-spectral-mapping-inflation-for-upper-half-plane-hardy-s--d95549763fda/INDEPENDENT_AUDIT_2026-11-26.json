@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:04:16.755003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–81",
+        "Frozen VERIFICATION.md and checks/verify.py, inspected only",
+        "Liang–Li–Qian Theorem 4.13"
+      ],
+      "rationale": "The inhomogeneous derivative norm gives 2π W_n(t)dt under positive-frequency Paley–Wiener, W_n(t)=Σ_{k=0}^n t^{2k}, and dilation sends g(t) to e^{−s}g(e^{−s}t). Thus conjugation by x=log t and the square root of the density gives V_sh=φ_0(x)h(x−s)/φ_0(x−s), with φ_0(x)=e^{−x/2}√W_n(e^x) up to a constant. Its logarithmic derivative b_n(x) is bounded and tends to α and β, yielding L=−∂_x+b_n with domain H¹ by bounded perturbation of translations. The equivalent distributional generator condition in holomorphic variables is zF′ in the stated space. The solutions of (L−λ)φ=0 have rates α−Re λ and β−Re λ at the two ends. In the open strip they grow at both ends, while the conjugate reciprocal is in L² and spans the adjoint kernel. The two half-line integrating-factor inverses have exponentially integrable bounds on their Volterra kernels and their traces match exactly on the codimension-one annihilator, proving closed range and index −1. On the boundary wide far-out modulated bumps have vanishing residual and are weakly null; their H¹ norms are bounded, so they contradict the graph-domain Fredholm estimate. Outside, the group Laplace estimate and reciprocal spectral-distance lower bound agree, giving the sharp resolvent norm. The norm of V_s is sharp by the polynomial weight ratio and limits at ±∞. The same norm for powers and inverse powers traps σ(V_s) in the annulus. In its interior choose e^{sλ}=ζ, so the adjoint eigenvalue needed for the cokernel is e^{s conjugate(λ)}=conjugate(ζ); all lifts differing by 2πi/s give independent Fourier characters times the same nonzero factor. The frozen text writes the adjoint eigenvalue as ζ, but conjugation preserves the annulus and relabeling gives the stated result for each ζ. The equation V_sh=ζh iterated along each fiber t+sℤ has h(t+ks)=ζ^{−k}φ_0(t+ks)h(t)/φ_0(t), incompatible with ℓ² on at least one tail for every ζ in the annulus, proving injectivity. Boundary circles follow by closedness or singular sequences. Thus the stated mathematical mapping failure is valid.",
+      "residual_risks": [
+        "The finite checker was not executed and is not needed for the graph-domain or essential-spectrum conclusions. The adjoint spectral parameter must be conjugated when interpreting the cokernel."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Latushkin–Tomilov Theorem 1.2 gives Fredholmness by dichotomies on the two half-lines plus the Fredholm pair (ker P⁻_0, im P⁺_0), and defect numbers from that pair.",
+          "Chalendar–Partington's Hardy–Bergman annulus uses weight 1+1/t; Schroderus's classical scales differ; Arvanitidis gives the classical generator formula on H^p."
+        ],
+        "reasoning": "The different weighted-Laplace examples are background, not decisive for H_n². The general differential theorem applies exactly: C is reflexive, the scalar family exp(∫_y^x (b_n−λ)) is strongly continuous and exponentially bounded, and its evolution generator is the log model. In the strip forward time decays on the left (P⁻=I) and grows on the right (P⁺=0), so the pair (0,0) in C has intersection zero and codimension one. Off the strip both signs agree, yielding complementary pair and invertibility. On either boundary an end has zero real limiting rate, preventing either scalar dichotomy there. This gives the exact generator spectrum and Fredholm data.",
+        "searches": [
+          "Latushkin–Tomilov Fredholm differential operators with unbounded coefficients, math-ph/0308002, Theorem 1.2",
+          "Chalendar–Partington arXiv:2204.05894v2 Theorems 3.4, 3.7",
+          "Schroderus arXiv:1605.01859v3 Theorem B",
+          "Arvanitidis arXiv:1109.5275v1 Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f5fe871223a8, 8904205fb886, bf886492241e",
+        "arXiv:math-ph/0308002, 2603.13983v1, 2204.05894v2, 1605.01859v3, 1109.5275v1, 1811.01876v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under a=e^s the earlier annulus plus scalar dichotomy specialization give the two sets in the claimed strict inclusion. Exponentiating just the two vertical lines gives the two boundary circles.",
+          "The earlier norm of T_0 and its inverse bounds the generator resolvent by the standard Laplace formula; the generator spectrum forces the matching lower bound.",
+          "The differentiable-semigroup spectral mapping theorem assumes bounded AU_{t_0}, impossible here since U_{t_0} is bounded invertible and A is unbounded."
+        ],
+        "reasoning": "Neither the differentiable theorem nor the different-weight annulus rules this example out. But the thesis follows directly from the exact prior fixed-time result and the general generator theorem with only scalar endpoint signs; the logarithmic substitution, winding of the exponential around circles and resolvent norm comparison do not require a new technical result.",
+        "searches": [
+          "f5fe871223a8 RESULT.md undamped annulus proof, offsets 2900–4727",
+          "math-ph/0308002 Theorems 1.1–1.2",
+          "Tajmouati–Boua–Karmouni arXiv:1811.01876v1 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact inhomogeneous derivative norm gives p_n(t)=Σ t^{2k}; in f5fe871223a8 the operator T_0F(z)=F(az) acts by the same weighted dilation with a=e^s.",
+          "The unitary log model converts A−λ into the scalar differential evolution generator −∂_x+b_n(x)−λ on H¹, without changing Fredholm data."
+        ],
+        "reasoning": "Changing the name from dilation composition to weighted translation or from a to e^s neither changes the model nor its norm and annulus. It also brings the generator exactly under the first-order differential theorem rather than a merely similar composition result.",
+        "searches": [
+          "Resultary upper-half-plane polynomial-frequency Hardy–Sobolev dilations",
+          "Liang–Li–Qian arXiv:2603.13983v1 Theorem 4.13",
+          "Fredholm differential operators and scalar weighted translation generator, math-ph/0308002v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier f5fe871223a8 explicitly gives the undamped full and Fredholm annulus and the sharp norm of positive and negative powers, and proves infinite adjoint geometric multiplicity in the interior.",
+          "Same-day 8904205fb886 treats translations on disk Hardy space and a circle, whereas bf886492241e treats exponential multipliers, not this dilation group."
+        ],
+        "reasoning": "This is not a tabulated-number question. The catalogue has an exact match for all s>0 in the fixed-time component, including the infinite-dimensional cokernel mechanism; the distinct neighboring records do not govern the generator or offer evidence about within-day priority.",
+        "searches": [
+          "Resultary polynomial-frequency Hardy–Sobolev damping spectral collapse f5fe871223a8",
+          "Resultary Hardy space translation Fredholm circle and exponential multiplier upper-half-plane"
+        ]
+      },
+      "rationale": "The exact fixed-time Fredholm annulus, infinite adjoint multiplicity and both signs of the sharp group norm are already covered by Resultary f5fe871223a8 (take a=e^s), not merely by analogy to a different weight. The claimed generator Fredholm lines and interior defect numbers are a direct specialization of the established scalar case of the exponential-dichotomy theorem on the exact weighted model; the sharp resolvent norm is then the immediate matching of the standard group Laplace estimate with reciprocal spectral distance. The juxtaposition gives an illustrative mismatch but does not supply a distinct new spectral theorem on this evidence. No original remainder suitable for repair was established.",
+      "residual_risks": [
+        "Earlier explicit statements of the mismatch on this space need not be resolved to reject priority: its components and comparison have direct prior coverage or implication as detailed above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact fixed-time coverage including norms and infinite cokernel, not stated generator theory",
+          "evidence": [
+            "Exact norms a^{m(n−1/2)} and a^{m/2} for powers and inverse powers. Interior eigenvectors t^γ/p_n(t) times bounded multiplicatively periodic functions yield infinite adjoint multiplicity."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-polynomial-frequency-hardy-sobolev-damping-spectral-collapse-and--f5fe871223a8",
+          "material_read": "Finding and undamped proof, mirror offsets 2900–4727, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local Resultary mirror text",
+          "title": "Polynomial-frequency Hardy–Sobolev damping: spectral collapse and normalized powers",
+          "trigger": "Same H_n² and undamped dilation annulus"
+        },
+        {
+          "assessment": "Exact general implication for generator Fredholmness, index and defect numbers",
+          "evidence": [
+            "Strongly continuous exponentially bounded evolution family on a reflexive space; dichotomies on the two half-lines and Fredholm pair (ker P⁻_0, im P⁺_0). The defect numbers of the generator are those of that pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0308002",
+          "material_read": "Abstract, introduction and Theorem 1.2, PDF p. 4 around offsets 9796–10016",
+          "method": "Open primary-text passages",
+          "title": "Fredholm Differential Operators with Unbounded Coefficients",
+          "trigger": "Potential general theorem dominating generator classification"
+        },
+        {
+          "assessment": "Supplies exact model but not generator classification by itself",
+          "evidence": [
+            "Each k-th derivative contributes 2π t^{2k} under Paley–Wiener."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.13983v1",
+          "material_read": "Theorem 4.13, HTML offset 48650",
+          "method": "Open primary-text passage",
+          "title": "Banach Hardy–Sobolev Spaces on the Upper Half-plane and Operator Theory",
+          "trigger": "Exact polynomial frequency model"
+        },
+        {
+          "assessment": "Fixed-time technique; Hardy–Bergman annulus has different weight",
+          "evidence": [
+            "Essential inclusion by weighted adjoint eigenvectors; exact annulus for weight 1+1/t."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.05894v2",
+          "material_read": "Theorem 3.4 p. 9, offset 19700; Theorem 3.7 pp. 10–11, offset 22400 onward",
+          "method": "Open primary-text passages",
+          "title": "Composition operators on function spaces on the halfplane: spectra and semigroups",
+          "trigger": "Annulus and adjoint eigenvectors in a closely related dilation model"
+        },
+        {
+          "assessment": "Classical scales have a circle or disk; not this weighted generator",
+          "evidence": [
+            "Hyperbolic affine self-maps have equal spectrum and essential spectrum on classical Hardy or weighted Bergman scales."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.01859v3",
+          "material_read": "Theorem B, HTML offset 4480",
+          "method": "Open primary-text passage",
+          "title": "Spectra of linear fractional composition operators on the Hardy and weighted Bergman spaces of the half-plane",
+          "trigger": "Classical dilation spectra on the same domain"
+        },
+        {
+          "assessment": "Classical H^p generator statement, not the inhomogeneous Hardy–Sobolev Fredholm result",
+          "evidence": [
+            "Generator Γf=Gf′, with domain requiring Gf′ in H^p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.5275v1",
+          "material_read": "Theorem 3.3, PDF p. 10, offset 28900",
+          "method": "Open primary-text passage",
+          "title": "Semigroups of Composition Operators on Hardy Spaces of the Half-plane",
+          "trigger": "Classical generator formula and graph domain"
+        },
+        {
+          "assessment": "Hypothesis not satisfied here",
+          "evidence": [
+            "Requires AT(t_0) bounded for some t_0>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.01876v1",
+          "material_read": "Theorem 1, HTML offset 11561",
+          "method": "Open primary-text passage",
+          "title": "Spectral Mapping Theorems of Differentiable C₀ Semigroups",
+          "trigger": "General essential spectral mapping theorem possibly relevant to scope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and proof",
+        "Resultary f5fe871223a8 undamped proof",
+        "math-ph/0308002 Theorem 1.2"
+      ],
+      "rationale": "This is a clear illustrative example of Fredholm versus ordinary spectral mapping for a natural group, but the claimed new invariant is not independently valuable under the novelty-of-exact-fact standard: the bounded annulus and its infinite multiplicity are already known here and the generator side is the endpoint-sign case of a general theorem. Exact norm and resolvent facts add no independent novelty. No nonroutine new boundary, invariant or mechanism remains to justify a narrowed repair.",
+      "residual_risks": [
+        "Rejection is of the package as a new finding, not of the example's pedagogical usefulness or the truth of the strict inclusion."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

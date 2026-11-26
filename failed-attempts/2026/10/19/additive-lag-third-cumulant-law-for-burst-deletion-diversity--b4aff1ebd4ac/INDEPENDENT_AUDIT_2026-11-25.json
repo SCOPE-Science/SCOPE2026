@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:53:53.030257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen verify.py (read only)",
+        "Independent q=4,n=5 direct deletion census"
+      ],
+      "rationale": "Comparing deletion starts i<j gives equality exactly when X_t=X_{t+b} on i≤t<j, so each class of equal outputs is a contiguous run and D_b−1 counts lag-b disagreements. For uniform letters, equalities on a forest are independent Bernoulli(1/q) by revealing tree vertices from roots. Edges at distinct positive lags cannot coincide, so all covariance terms vanish; in order three only triangle terms survive. Writing t=1/q, the joint probabilities for a single, two, and all three triangle agreements are t,t²,t² respectively; the centered disagreement product has expectation −(t²−t³). The triangle exists exactly when a+b=c and the two different middle positions give 2(n−c) triangles. At n=3 there are no admissible triples. An independent literal enumeration of deletion outputs at q=4,n=5 gave −3/16 for (1,2,3), −3/32 for (1,3,4), and zero for (1,2,4) and (2,3,4). The marginal fixed-lag graph consists of b disjoint paths.",
+      "residual_risks": [
+        "This review establishes only the stated uniform, distinct-lag theorem and its stated marginals; no extension to nonuniform sources or repeated lags is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a graph (V,E), the coefficient of the product of the variables of F⊆E in the Potts sum is q^{k(V,F)}. After normalizing by q^{|V|}, this gives all agreement-indicator moments, with no restriction on the graph.",
+          "The later joint deletion-ball second-moment record treats arbitrary-position binary deletions. The later read-deletion forest record is a catalogue lead, not inspected full text."
+        ],
+        "reasoning": "The first theorem covers every lag graph for every integer alphabet size and supplies precisely the elementary edge products needed for the frozen theorem. The later deletion records are not needed for the coverage conclusion.",
+        "searches": [
+          "arXiv:math/0503607, Theorem 2.3 and (2.10)",
+          "Resultary, multiscale forest independence and deletion-ball joint moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.06820",
+        "arXiv:math/0503607",
+        "Resultary joint second moments (4ce40b9cbccc) and read-deletion lead (a632b2b7b083)",
+        "Frozen RESULT.md lines 91–99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To get centered disagreements H_e=1/q−J_e, multiply each Potts factor by 1+t_l/q and set v_e=−t_l/(1+t_l/q) for an edge of lag l. After division by q^{|V|}, the coefficient of t_a t_b t_c is the frozen mixed moment, and the coefficient of t_a t_b is the covariance."
+        ],
+        "reasoning": "Every distinct two-edge set is a forest, so centering cancels its coefficient. For three edges, q^{k(V,F)−|V|} gives zero after centering except on triangles, where it gives −(q−1)/q³; for lags a<b<c the triangle is determined by one left endpoint and the ordering of a,b, possible iff a+b=c. This explicit substitution and low-degree extraction give the entire claimed increment, including sign and count.",
+        "searches": [
+          "arXiv:math/0503607, (2.7) and (2.9)–(2.10)",
+          "arXiv:1602.06820, Section IV Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schoeny et al. express the deletion diversity using run counts in lag-spaced rows (their stated setting is binary and b divides n). The row-run identity translates to disagreements; direct output comparison removes those restrictions.",
+          "The partition function uses factors 1+v_e J_e for equal-letter indicators J_e, with a separate variable for each edge."
+        ],
+        "reasoning": "The distinct-length cumulant is a mixed coefficient of the product of centered edge-indicator factors, on the graph with edges at the three prescribed lags.",
+        "searches": [
+          "arXiv:1602.06820, Section IV Eq. (2) and Appendix A",
+          "arXiv:math/0503607, Fortuin–Kasteleyn representation, Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table gives the stated distinct-burst third moment verbatim. The all-radii second-moment record (ID 4ce40b9cbccc) is for another statistic; the classical Appendix A gives binary marginals only."
+        ],
+        "reasoning": "There is no exact table duplication established; the decisive comparison is to a general exact generating identity.",
+        "searches": [
+          "Resultary, deletion-ball joint moments and read-deletion sphere forest independence",
+          "arXiv:1602.06820, Appendix A"
+        ]
+      },
+      "rationale": "The specific burst notation and coefficient were not found verbatim, but the result is the first two mixed-degree specializations of the published edge-weighted Potts/Fortuin–Kasteleyn identity applied to the standard lag representation. Extracting those coefficients reduces immediately to two-edge forests and the two placements of a middle vertex in a triangle. This is demonstrable stronger prior coverage, not a verdict based on a matching title or unavailable text.",
+      "residual_risks": [
+        "No claim of verbatim publication of the frozen formula. The inaccessible read-deletion text and deferred broader searches do not affect the explicit implication from the inspected Potts expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lag-count representation in the cited setting; no cross-lag moment there",
+          "evidence": "Run-array row increments count disagreements separated by b positions. Appendix A addresses binary marginals.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.06820",
+          "material_read": "Preliminaries p. 2, Section IV Eq. (2) p. 4, Appendix A",
+          "method": "Bounded primary PDF passages",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Source of the burst run-count identity and marginal law"
+        },
+        {
+          "assessment": "Stronger result; the frozen moments follow by the specified edge-lag substitution and coefficient extraction",
+          "evidence": "The expansion counts q^{k(A)} assignments for every edge subset A, with one common spin per component.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "Section 2 Theorem 2.3, proof and Eqs. (2.9)–(2.10), PDF pp. 4–5, OA offset 12400",
+          "method": "Located Fortuin–Kasteleyn and inspected the original statement and proof passage",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Potential all-edge general formula for the centered equality-indicator moments"
+        },
+        {
+          "assessment": "Distinct statistic, and second order only",
+          "evidence": "Arbitrary-position deletion on binary words, not one contiguous burst.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc",
+          "material_read": "RESULT.md opening finding at offset 0",
+          "method": "Local mirror statement passage",
+          "title": "Exact joint second moments of binary deletion-ball sizes at all radii",
+          "trigger": "Nearby joint moments of deletion diversity"
+        },
+        {
+          "assessment": "No verdict on its full scope; not used to establish coverage",
+          "evidence": "Summary concerns a read-vector deletion statistic with a forest-independence component.",
+          "identifier_or_url": "2026/11/8/SCOPE-binomial-read-deletion-sphere-law-and-multiscale-forest-independence--a632b2b7b083",
+          "material_read": "Indexed summary only; exact mirror passage unavailable",
+          "method": "Resultary search and attempted local mirror retrieval",
+          "title": "Binomial read-deletion sphere law and multiscale forest independence",
+          "trigger": "Catalogue lead on forest independence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–85 and 91–99",
+        "Sokal Theorem 2.3, especially (2.10)"
+      ],
+      "rationale": "The joint statistic is natural and the additive resonance is a useful illustration. The asserted scientific increment nevertheless consists of the constant-degree extraction of the already known exact graph moment identity, on a lag graph whose only three-edge cycles have gaps a,b,a+b. No surviving invariant beyond this direct consequence is established, and there is no substantive repair in merely reframing that calculation.",
+      "residual_risks": [
+        "This judgment is on the particular second/third moment claim, not on the possible value of harder joint distribution or asymptotic questions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

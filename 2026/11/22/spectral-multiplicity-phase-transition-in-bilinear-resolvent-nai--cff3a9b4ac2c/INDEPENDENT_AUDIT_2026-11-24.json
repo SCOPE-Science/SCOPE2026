@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:25:46.446605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–28 and 30–121; VERIFICATION.md and CHECK.py",
+        "Independent complex-matrix check and direct block derivation"
+      ],
+      "rationale": "Independently checked the ingredients and rank calculation in RESULT.md lines 14–117. Put A₀=A−aI and B₀=B−bI. For M=I+xA+yB+xyC, its two factorizations are (I+yB)(I+xA)−γxyR and (I+xA)(I+yB)−γxyR*. Since RA₀=R*B₀=0, multiplying the proposed numerator I−xA₀(I+xA)^−1−yB₀(I+yB)^−1 on the left by M gives (1+ax+by+cxy)I; the product identities cancel the remaining operator terms. In the p decomposition, the equation for the lower block is D(B|_{p⊥}−bI)=γI, forcing invertibility, and the null vector of A₀ forces the upper diagonal Schur term z*D^−1z. Computing the Schur inverse of A leaves K₀=(a/σ)ww* plus a lower block cA₁^−1B₁^−1. Thus K₀ has rank one at c=0 and is coercive at c>0 (the lower term controls p⊥ and w has nonzero p coordinate). Termwise nonnegative gamma integration of (2) yields c/[(b+cx)(a+cy)−γ]=1/(1+ax+by+cxy), normalizing the kernel. At c=0 the scalar kernel instead lies precisely on the exponential ray. The two operator convolutions add one positive coordinate with a spectral exponential kernel; changing variables yields exactly (7)–(8). The gap above each simple isolated minimum makes the corresponding density positive and boundedly invertible on its orthogonal complement at any interior wedge point, with no extra boundary mass. For c>0 convolution preserves absolute continuity and the unsmoothed term gives W≥f_cK₀ pointwise, hence full multiplicity. In the weighted indicator-section dilation, multiplying sections by W^1/2 and testing orthogonality against each indicator times a countable dense set gives exactly the fibers closure ran W^1/2, minimal by construction; the measure can be taken as Lebesgue measure plus the ray probability measure in the critical case. These arguments cover infinite separable dimension. A continuous-spectrum example is obtained by taking D as multiplication by x on L²[1,2] with z=1; polynomials make p cyclic for A, B has a continuous block, and the simple b-eigenprojection plus cyclicity exclude a proper common reducing subspace. A fresh exact complex 3×3 check verified rank and the resolvent product at both c=0 and c>0 with noninteger transform arguments (replay `OPENBLAS_NUM_THREADS=1 python /tmp/opencode/frozen-review-diagnostics.py`, check 4). The frozen checker was inspected, not executed; neither finite calculation proves the infinite-dimensional ranks.",
+      "residual_risks": [
+        "Interior coercivity is pointwise, not uniform on the quadrant. Critical c=0 is γ=ab, not the excluded γ=0 endpoint. Infinite-dimensional multiplicity is unchanged on the planar part as a cardinal but the new singular ray has multiplicity one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian's independently retrieved front matter describes arbitrary-Hilbert-space existence and unique completion under spectral and cyclicity assumptions. The frozen source explicitly attributes the block and resolvent formulas and measure construction to Theorem 5.1 and (5.9)–(5.10).",
+          "Even granting the full decomposition as prior, bounded invertibility of the interior density and the ranks of the two critical densities call for exact coefficient and operator-kernel analyses."
+        ],
+        "reasoning": "The prior existence/uniqueness/classification of completions supplies the operators, not in its retrieved statement a dominating spectral multiplicity result. No claim of novelty is assigned to the ingredients.",
+        "searches": [
+          "James Tian, Joint Moments of Bilinear Resolvents, arXiv:2611.03081v1 (Theorem 5.1 and §6 via cited locators)",
+          "Resultary: minimal dilation of bilinear-resolvent positive completions"
+        ]
+      },
+      "checked_sources": [
+        "Tian arXiv:2611.03081v1 (front matter and frozen attribution distinguished)",
+        "Resultary 3b321b9e0369 Finding and Assumptions; self-hit cff3a9b4ac2c",
+        "Frozen RESULT.md §§1–5 and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A rank-one singular component and planar absolute continuity do not determine planar fiber rank. The block decomposition gives a coercive lower block for c>0, and at c=0 the two spectral exponential kernels on disjoint wedges have exactly ker W_A=Cq and ker W_B=Cp.",
+          "The older 2×2 result's d,e in its curve equation are rates, not the Hilbert dimension in the multiplicity statement."
+        ],
+        "reasoning": "The stated prior ingredients and general dilation principle do not already classify the direct integral. The all-dimensional positivity/rank proof, geometric split and pointwise fiber analysis are the specific contribution.",
+        "searches": [
+          "arXiv:2611.03081v1, equations (5.9)–(5.10), Theorem 5.1, §6 (as located by frozen citation and primary contents)",
+          "Resultary 3b321b9e0369 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent formulation is the pointwise dimension of closure ran W^1/2 for the weak operator density of the representing POVM on each scalar measure stratum. The frozen proof explicitly constructs this minimal multiplication dilation (line 117).",
+          "The 17 November variation-jump catalog statement supplies a rank-one singular part in its finite-dimensional family; it is not merely a different parametrization of the full fiber classification."
+        ],
+        "reasoning": "The general density-to-fiber dictionary is standard and not novel. Variation distance, singular rank in a 2×2 subfamily, and density rank across the whole arbitrary-dimensional class are different exact data.",
+        "searches": [
+          "Resultary: bilinear resolvent Hausdorff moments, minimal Naimark dilation and wedge fiber rank",
+          "arXiv:2611.03081v1, final remark",
+          "arXiv:1801.00331 (general POVM/Radon–Nikodym framework referenced in the frozen record)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-day hit cff3a9b4ac2c is the assigned record itself. Prior Resultary 3b321b9e0369 concerns a 2×2 subfamily with a sharp operator-norm variation jump, a planar absolutely continuous interior measure, and rank-one mass on (e^(−dt),e^(−et)) at its critical parameter."
+        ],
+        "reasoning": "The predecessor establishes the singular phenomenon and critical rank-one component in its stated subfamily, not a table of the two wedge multiplicities and full interior multiplicity for arbitrary d. No distinct materially overlapping same-day claim surfaced in the focused searches.",
+        "searches": [
+          "Resultary: Tian positive completion rank drop, singular curve and two planar wedges"
+        ]
+      },
+      "rationale": "Credit the completion criterion, resolvent decomposition and measure ingredients to Tian and the appearance of a rank-one curve and change of measure type in the specific 2×2 jump predecessor. Credit the general rank-to-fiber construction separately. The supported contribution is the complete stratified multiplicity for the full stated spectral-and-cyclicity class, including the arbitrary-dimensional coercivity and critical wedge kernels. The strongest available source comparisons support that distinction, with targeted-access qualifications.",
+      "residual_risks": [
+        "The exact primary Tian §5–6 passages could not be retrieved despite targeted attempts; the wording of the question and whether the primary text mentions a partial rank implication remain unconfirmed here.",
+        "A broader unindexed direct-integral treatment or a more precise 2×2 multiplicity statement may exist; the decision concerns the specified full class and relies on the available comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The existence and uniqueness contributions and the attributed decomposition are credited; the exact wording of §6 and whole-document noncoverage are not independently certified",
+          "evidence": [
+            "Abstract: arbitrary-Hilbert-space existence and unique-completion criterion under spectral and cyclicity assumptions; contents: Higher dimensions p. 16, Final remark p. 23.",
+            "Frozen citation specifically attributes the three measure ingredients to Theorem 5.1, Lemma 2.1 and (5.10), and the multiplicity question to §6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03081v1",
+          "material_read": "Independently retrieved PDF front matter (abstract and contents); precise Theorem 5.1 and §6 passages were not recovered. Frozen RESULT.md lines 32–62 and 125 specify the ingredients and question attributed to those locations.",
+          "method": "Primary PDF front matter, targeted OA retrieval of exact passages, and attempted alternate arXiv HTML copy; exact passage retrieval failed",
+          "title": "Joint Moments of Bilinear Resolvents",
+          "trigger": "Identical positive-completion class; cited possible open multiplicity question"
+        },
+        {
+          "assessment": "Substantive overlap in the 2×2 critical curve and regularity change; the compared theorem does not provide the all-dimensional multiplicity function",
+          "evidence": [
+            "Noncommuting 2×2 class, a>d>0,b>e>0,d/a+e/b<1 and 0≤c<de; critical rank-one component on (e^(−dt),e^(−et)), and variation jump 2(d/a+e/b)."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-total-variation-jump-for-unique-bilinear-resolvent-joint--3b321b9e0369",
+          "material_read": "Local mirror Finding and Assumptions",
+          "method": "Targeted Resultary lookup and local mirror statement comparison",
+          "title": "A sharp total-variation jump for unique bilinear-resolvent joint measures",
+          "trigger": "Closest prior critical singular curve and rank drop"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–10 and 64–117",
+        "Resultary 3b321b9e0369 prior 2×2 variation-jump statement"
+      ],
+      "rationale": "The spectral multiplicity of the smallest joint dilation is a natural invariant of the representing measure, different from the spectra of A and B. The calculation isolates the geometric source of the new rank-one component and gives the entire rank on each stratum even with infinite-dimensional operators. This is a structural answer beyond detecting a discontinuity in variation or reproducing existence of a POVM.",
+      "residual_risks": [
+        "The full classification is for the bounded, simple-isolated-minimum cyclic class; it does not address general positive completions or nonminimal dilations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

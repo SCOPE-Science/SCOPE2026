@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:22:02.480891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine normal form is x=0, y=0, x+y=c with c=0 or 1; changing coordinates on the frequency plane preserves the sum of kernel magnitudes. With the stated q⁻² normalization the complex operator norm is the absolute row sum, attained by a conjugate-phase input. Inclusion–exclusion gives pencil numerator values 3q−2, q−2, and −2 with multiplicities 1, 3(q−1), and (q−1)(q−2). For the triangle the origin contributes 3q−3 and the three punctured exceptional directions each contribute A_q; off those directions the contribution is B_q. Root-of-unity multiplicity q/p and correction for the common origin give A_q=(q/p)U_p(q)−(q−3) for q≥3 and B_q=(q/p)²R_p−3(q/p)T_p+6, yielding the claimed constant correction +12. Independently checked the second moments: on one punctured direction it is (q−1)(q−2)²+3q−5, and off all three it is 3q²−15q+18. Cauchy–Schwarz gives the stated A_q and strict B_q bounds; the gap lower polynomial is positive at q=4 and increasing thereafter. At q=3 the off-direction magnitudes vanish and the triangle numerator absolute sum is 6+6√3; at q=2 the pencil is the whole plane and the triangular magnitudes are 3,1,1,1 before q⁻². The characteristic-two reduction and fixed-p limit follow by the stated root sums; the O(1/q) remainder for U_p follows from cancellation of the real parts of the p-th roots. Read the supporting verification and checker without running the uploaded code. Its finite checks do not underwrite the universal comparison.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanders gives coset structure controlled by algebra norm, not an arrangement-specific formula.",
+          "The two-coset theorem evaluates a union of two affine cosets. Adding a third line changes the signed Fourier sum; the absolute contribution where all axis indicators vanish can involve three simultaneous phases."
+        ],
+        "reasoning": "Norm subadditivity or known two-coset norms do not recover the absolute value of the signed three-line inclusion–exclusion sum. Affine transitivity on the support of a synthesis theorem also does not supply the sharp norm of this projection.",
+        "searches": [
+          "Sanders, Bounds in Cohen’s Idempotent Theorem, §12 Thm. 12.2",
+          "Iosevich–Li–Yu, arXiv:2609.25404v2, abstract and §2",
+          "Resultary d4da4e897f70, exact norm of two affine cosets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary a7dd17a1a8fa, d4da4e897f70, 87d7ea89b8bb, b73f0653cc40",
+        "arXiv:2609.25404v2",
+        "10.1007/s00041-020-09732-y"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b73f0653cc40 studies a principal (3q−2)-dimensional matrix, not a full-plane convolution projection.",
+          "87d7ea89b8bb has the same pencil geometry but optimizes an infinity-to-fourth-power synthesis ratio and supplies no triangle value.",
+          "d4da4e897f70 uses the same norm and related method but does not supply the two-orbit three-line computation."
+        ],
+        "reasoning": "None of these statements determines the characteristic-dependent triangle norm or proves its strict comparison with the pencil. The same-day distinct results were compared by mathematical content, without inferring priority from their dates.",
+        "searches": [
+          "Resultary b73f0653cc40, three-line sampling rank and nullity",
+          "Resultary 87d7ea89b8bb, sharp fourth-power Fourier synthesis on pencils",
+          "Resultary d4da4e897f70, two affine cosets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized Fourier-algebra norm of 1_S is exactly the sharp projection norm in the frozen record, not just a related quantity.",
+          "Neither inspected general norm definition evaluates this norm on the two three-line arrangements; the exact local hit a7dd17a1a8fa is the assigned result itself."
+        ],
+        "reasoning": "The multiplier norm and the normalized idempotent-measure/Fourier-algebra norms were treated as equivalent prior formulations. Rank of a restricted matrix and a synthesis ratio with a different denominator are not equivalent.",
+        "searches": [
+          "Local Resultary: Fourier algebra indicator norm / complex infinity multiplier norm for three affine lines, pencil versus triangle",
+          "arXiv:2609.25404v2 §2 Eq. (2.3)",
+          "10.1007/s00041-020-09732-y, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue entry is the frozen record; the adjacent entries report exact norms for two cosets or fourth-power synthesis for pencils.",
+          "The root-of-unity average R_p/p², even if independently tabulated or known via planar walks, does not give the finite-q correction or the comparison of the two geometries."
+        ],
+        "reasoning": "The sought object was the full arbitrary-prime-power classification, not a small-field check or the isolated character-sum average. No independent exact listing was identified in the checked sources.",
+        "searches": [
+          "Local Resultary exact three-line multiplier/Fourier-algebra norm formulas and binary exception",
+          "Local Resultary a7dd17a1a8fa, d4da4e897f70 and 87d7ea89b8bb"
+        ]
+      },
+      "rationale": "The operator equals a classical Fourier-algebra indicator norm, and exact adjacent calculations exist. The inspected exact-norm, synthesis and sampling results do not give the classification of both three-line geometries and their sharp comparison. This conclusion is limited to the inspected literature and catalogue.",
+      "residual_risks": [
+        "An older exact evaluation may use unrelated idempotent-measure or finite-geometry terminology.",
+        "The known root-of-unity average and the standard norm identity are not priority claims here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Norm equivalence and adjacent synthesis results, not the exact three-line projection analysis.",
+          "evidence": [
+            "§2 defines the indicator algebra norm; the abstract discusses exact synthesis on affine-symmetry sets, including paraboloids."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25404v2",
+          "material_read": "v2 PDF p. 1 abstract; pp. 7–8 §2 Eq. (2.3), text offset about 30000; §3 synthesis context",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Spectral synthesis, Fourier extension, and arithmetic in Z_N^d",
+          "trigger": "Motivating primary source using indicator Fourier-algebra norms and affine symmetry"
+        },
+        {
+          "assessment": "A structural estimate, not exact norms of these configurations.",
+          "evidence": [
+            "The theorem controls quantitative coset structure by the Fourier-algebra norm, rather than evaluating the norm of a given three-line union."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-020-09732-y",
+          "material_read": "PDF pp. 1–2 norm convention; §12 Thm. 12.2, pp. 59–60, text offset about 160250",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Bounds in Cohen’s Idempotent Theorem",
+          "trigger": "Broader quantitative idempotent theory with the same algebra norm"
+        },
+        {
+          "assessment": "Fewer affine components and no pencil-versus-triangle statement.",
+          "evidence": [
+            "The exact result is for two affine cosets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fourier-algebra-norm-of-two-affine-cosets-and-its-parity-o--d4da4e897f70",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and bounded mirror passage",
+          "title": "Exact Fourier-algebra norm of two affine cosets and its parity obstruction",
+          "trigger": "Strong same-norm exact comparator"
+        },
+        {
+          "assessment": "Different optimized norm and no comparison with the triangle.",
+          "evidence": [
+            "It studies the infinity-to-fourth-power synthesis ratio on pencil supports."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-sharp-fourth-power-fourier-synthesis-on-finite-field-l--87d7ea89b8bb",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and bounded mirror passage",
+          "title": "Universal sharp fourth-power Fourier synthesis on finite-field line pencils",
+          "trigger": "Same pencil geometry, plausible norm confusion"
+        },
+        {
+          "assessment": "Principal Fourier sampling matrix rank, not complex infinity norm of the full convolution projection.",
+          "evidence": [
+            "The exact classification is of rank/nullity of the principal matrix."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-arithmetic-sixth-root-resonance-for-three-line-fourier-sampling--b73f0653cc40",
+          "material_read": "Mirrored RESULT.md Finding and matrix definition, offset 0",
+          "method": "Local Resultary lookup and bounded mirror passage",
+          "title": "Arithmetic sixth-root resonance for three-line Fourier sampling",
+          "trigger": "Close three-line Fourier statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three lines with pairwise distinct directions are the first such line arrangement that can differ by triple incidence; two lines do not have the same concurrency question. Exact sup-norm amplification for the two natural affine orbits, its characteristic dependence and the strictly reversed binary case are useful information not furnished by line counts, a generic coset bound or a rank theorem. The computational burden is not the rationale for value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

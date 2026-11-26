@@ -1,29 +1,21 @@
-# Scientific review: singular resource selection and a quadratic noise clock
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the exact four-phenotype replicator and resource equations, with strictly positive initial phenotypes and an interior resource. The conditioned action-payoff differences give three uniformly positive growth rates for the phenotype \(HL\) relative to competitors. For each finite sensory noise this establishes exponential phenotype selection globally, not merely stability of a listed equilibrium. The truncated Gaussian perception probability is strictly decreasing in resource abundance and crosses the harvest balance once. Uniform exponential phenotype selection and scalar inward comparison imply convergence to the unique interior resource equilibrium for every eligible initial state.
+PASS
 
-The high-noise Taylor expansion is uniform through one derivative and yields the selected abundance and the leading slow eigenvalue. In the explicit constant-gap payoff slice, exact logistic solutions at infinite noise give the stated logit-memory law. Integrable fast transients and a uniform \(O(\sigma^{-4})\) perception expansion establish the stretched-time cubic limiting dynamics away from the initial time boundary layer. The standalone numerical checker verifies complementary algebra and illustrative parameter values. It is not used as evidence for infinite-dimensional or infinite-time quantifiers.
+The published Gaussian normalization and Eqs. (7)–(8) match. The source uses depleted-first phenotype labels, so its LH, not its HL, is the same phenotype as the frozen record's explicitly replete-first HL (high under replete perception, low under depleted). In the frozen labels the log-ratio advantages against LL, HH, and LH are −pk, −ωk, and −k; the payoff gap is bounded below by min(T−R,P−S), and the probabilities have positive lower bounds for fixed finite noise, uniform also for σ≥1. This gives exponential fixation in the stated interior. The Gaussian derivative is σ^−2 times Cov(V,1_{V<c}), strictly negative; decreasing density at n=0 and increasing density at n=1 give ω(0)>c>ω(1). In resource logit coordinates the transient vanishes exponentially and the limiting drift is uniformly strictly inward outside each fixed neighborhood of the root. This yields finite entry and trapping, avoiding a spurious boundary limit from the n(1−n) factor. Expanding the two Gaussian integrals with uniform differentiated remainders gives ω−c=c(1−c)((1+c)/3−n)/(2σ²)+O(σ^−4); differentiation at the root gives the asserted negative resource eigenvalue in the triangular linearization. For k=−1 and D=0 the transient in the logit equation is exactly d/dt of b=(ε/c)log((1−x)/y), at every noise level. At infinite noise this yields the precise memory shift (ε/c)log(y_0/(1−x_0)). For equal initial marginals 1/2, b(0)=0 and b(t) decays uniformly exponentially for σ≥1. On stretched time subtract b from the logit; its slow drift differs from the limiting Lipschitz logit drift by O(σ^−2)+O(exp(−γσ²τ)), of integrated size O(σ^−2) on fixed compact intervals. Gronwall gives the cubic crossover for positive stretched times. Finite-physical-time continuous dependence gives the other iterated limit. The limits differ when n_0 differs from (1+c)/3, as in the stated example.
 
-## Originality — PASS, with historical priority risk
+## originality
 
-The motivating paper [1] gives the continuous-resource Gaussian-perception equations and stationary cases, including the noise-dependent partially depleted regime and its formal disappearance as noise diverges. The current claim does not relabel those fixed points as new. Its separate contributions are a quantified global-interior convergence statement, the selected high-noise limit \((1+c)/3\), exact noncommuting time/noise limits, and a full slow-time crossover at the paper's own critical feedback balance.
+PASS
 
-The closest distinct literature consists of noisy information channels in discrete stochastic resource games [2] and replicator feedback with no such channel [3]. They do not supply the identical truncated-Gaussian four-phenotype limit on the inspected material. The novelty conclusion is bounded by accessible sources and explicit statement-level comparisons, not by keyword absence. An equivalent asymptotic calculation elsewhere cannot be categorically ruled out.
+The model, dominant action choices, interior stationary equation, phase regions and critical balance are prior; the review credits the quantified singular Gaussian critical-line result. The primary paper explicitly states squeezing toward the critical balance and has the post-fixation scalar equation, but its inspected equations, Fig. 4 and §III.3 do not resolve the finite-noise selected limit at the balance, the relaxation coefficient, or the full-dynamics initial-memory and crossover laws. Global convergence uses the old dominance and scalar signs, so it is not by itself the basis of the pass. The distinguishing result is the quantitative resolution of the singularity including the two protocols and uniform-away-from-zero slow limit.
 
-## Value — PASS
+## value
 
-The initiating model's high-noise phase diagram appears to squeeze the partially depleted state away at one precisely distinguished harvest-balance parameter. The theorem resolves what finite but arbitrarily large noise actually selects, why loss of the partial-resource region at exactly infinite noise is singular, and how the environmental response slows on an explicit quadratic clock. The transient resource memory and deterministic crossover can be tested against numerical implementations using the exact equations. The threshold and noise clock are motivated by the original model's phase boundary, not a gratuitous numerical parameter slice.
+PASS
 
-## Closest literature and limitations
+The balance is forced by the meeting of two previously identified phase boundaries, not a numerically chosen slice. Although the large-noise kernel expansion is elementary, the result resolves what the singular phase picture cannot: a universal finite-noise-selected resource, an explicit slow rate, and a different terminal state if complete noise is taken first, with a crossover law linking the two. This is a usable quantitative refinement of the model, not a new claim about the underlying game or a calibrated ecological timescale.
 
-[1] A. Patra, J. Das Bairagya and S. Chakraborty, *Bayesian eco-evolutionary game dynamics*, Phys. Rev. E **111**, 044401 (2025); https://doi.org/10.1103/PhysRevE.111.044401 ; open full preprint https://arxiv.org/abs/2504.02399. Inspected its model derivation, equilibria, phase diagram, and strong-noise discussion.
-
-[2] S. S. Mondal and S. Chakraborty, *Noisy information channel mediated prevention of the tragedy of the commons* (2024), https://arxiv.org/abs/2408.08744. This concerns a stochastically fluctuating two-state repeated game; the accessible introduction was read, not every appendix.
-
-[3] J. S. Weitz et al., *An oscillating tragedy of the commons in replicator dynamics with game-environment feedback* (2016), https://doi.org/10.1073/pnas.1604096113. The available abstract establishes a different no-channel formulation; it is not a full-text exclusion certificate.
-
-Scope is deterministic, infinite-population, positive initial phenotype support and interior resource abundance. Noncommutation and the crossover are demonstrated in an explicit constant-gap payoff slice with independent initial phenotype coordinates. No empirical calibration, finite-population survival, or non-Gaussian extension is claimed. Independent scientific validation has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

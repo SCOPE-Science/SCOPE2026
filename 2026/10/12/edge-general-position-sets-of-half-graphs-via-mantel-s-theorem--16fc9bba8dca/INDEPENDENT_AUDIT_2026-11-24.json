@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:48:46.225989Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two vertices on the same shore have a common neighbor (b_n or a_1); an opposite-shore nonadjacent pair has distance three via a_1,b_n. Thus a geodesic with three selected edges must have length three, and orienting from B to A gives b_j−a_ell−b_k−a_i with ell≤j<i≤k. The map a_i b_j ↦ {i,j+1} is a bijection. Every sorted triangle p<q<r lifts to b_(q−1)−a_p−b_(r−1)−a_q with nonadjacent endpoints, so the image of a feasible set is triangle-free and Mantel gives the upper bound. For a cut, three crossing pairs along the displayed geodesic would require alternating colors at ell,j+1,i,k+1; if j+1=i it is impossible, otherwise these are four distinct increasing positions. Conversely any alternating four positions p<q<r<s give the forbidden crossing pairs {p,q},{p,s},{r,s}, lifting to a geodesic. This is equivalent to at least four runs. A balanced two-run cut therefore attains the bound, and Mantel equality forces every maximum to be such a balanced cut with at most three runs. Connectivity of the complete bipartite image determines the partition up to reversal of colors. With positive counts x,y there are 2+(x−1)+(y−1)=n+1 labeled strings, with complementation dividing by two only when the color counts are equal. The proof covers n=2 and uses twin-free half-graph adjacency, not general chain graphs. The frozen code was inspected, not executed. Independent BFS predecessor recovery and branching over feasible edge subsets (`python3 -I /workspace/checks/4.py`) recovered all optimizer sets through n=6, equal to the predicted cut images, with respective counts 3,2,5,3,7; see /workspace/checks/4.log. The finite check is corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian et al. give global extremal results and block-graph results; H_n at n≥3 has a 4-cycle in a nonclique bipartite block.",
+          "The accessible 2026 abstract describes hierarchical, corona and edge-corona products and integer programming, not a chain-graph evaluation.",
+          "No exact full-text result from Cao et al. could be read."
+        ],
+        "reasoning": "The inspected block-graph formulas do not cover the half graphs of arbitrary order. An integer-programming encoding can evaluate individual inputs, but it does not itself imply the closed formula or optimizers; the product paper's full scope remains unverified.",
+        "searches": [
+          "Tian–Klavžar–Tan arXiv:2302.01587v2 introduction and §3",
+          "Cao–Ji–Wang DOI 10.1007/s40840-025-01873-x",
+          "Hamed-Labbafian–Henning–Tavakoli DOI 10.1016/j.dam.2026.01.008"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.04292v1",
+        "arXiv:2302.01587v2",
+        "DOI 10.1007/s40840-025-01873-x access attempt",
+        "DOI 10.1016/j.dam.2026.01.008 abstract",
+        "Resultary 964bdcf6d755, 19a7e3cf4e97, 1d43894ee75c, faa93223a29f, b2c5343f72c7 and 13a0853af1d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crown proof forbids transitive directed triangles for its own arc encoding.",
+          "For half graphs a forbidden geodesic can map either to a triangle or to three pairs on four positions; the latter impose the ordered-run restriction on balanced cuts."
+        ],
+        "reasoning": "Even Mantel plus the triangle obstruction gives only an upper bound and a necessary balanced-cut form at equality. Feasibility and enumeration of those cuts depend on the separate ordered four-point condition. The inspected crown and vertex statements do not imply it.",
+        "searches": [
+          "Resultary crown-graph edge general position 964bdcf6d755 Finding and Proof",
+          "Tian et al. extrema and block graphs",
+          "Mantel equality applied to the frozen edge-to-pair identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper treats edge general position, including hypercubes, trees and grids, in the inspected results.",
+          "Resultary 19a7e3cf4e97 is a vertex monophonic-position classification (induced paths); 1d43894ee75c treats vertex variants, not selected edges."
+        ],
+        "reasoning": "The reversed indexing convention gives an isomorphic half graph, but changing the selected objects from edges to vertices, or geodesics to induced paths, is not such an equivalence. The same-family vertex results do not identify half-graph edge optimizers.",
+        "searches": [
+          "Resultary and OA checks: half graph, twin-free chain graph, Ferrers graph, edge general position",
+          "Manuel–Prabha–Klavžar arXiv:2105.04292 pp. 4–6",
+          "Resultary 19a7e3cf4e97 and 1d43894ee75c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "964bdcf6d755 gives the crown value floor(n²/2) via a directed-triangle obstruction.",
+          "Other closest entries concern half-graph edge metric bases, perfect edge domination in chain graphs or Ferrers edge partitions."
+        ],
+        "reasoning": "The main claim is an all-order formula and classification rather than a numerical table. The closest exact catalogue hits change the graph family or the invariant. A match to a few small values would not by itself cover the classification.",
+        "searches": [
+          "Resultary: edge general position half, chain and Ferrers graphs",
+          "Resultary 964bdcf6d755, 13a0853af1d2, faa93223a29f, b2c5343f72c7"
+        ]
+      },
+      "rationale": "The supported distinct content is the sharp half-graph value together with the exact cut/run characterization of all optimizers and its count. The inspected prior results use different graph families or position parameters, or give general methods without this equality case. This is a best-of-knowledge verdict subject to the specific unavailable full texts below.",
+      "residual_risks": [
+        "The 2025 Cao–Ji–Wang paper and the full 2026 products/ILP paper were not independently readable. The available snippets and keyword misses do not rule out an unmentioned result or differently indexed chain/Ferrers specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected results not covering the claimed family",
+          "evidence": "Exact values/bounds discussed for hypercubes, trees and grids; no half/chain/Ferrers result in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292.pdf",
+          "material_read": "Abstract and theorem passages pp. 4–6, offsets 12484 and 15422",
+          "method": "Lawful OA PDF excerpt comparison and supplementary term search",
+          "title": "Edge General Position Problem",
+          "trigger": "Primary treatment of the same parameter"
+        },
+        {
+          "assessment": "Inspected extremal and block-graph results not covering",
+          "evidence": "Section 3 deals with block graphs, not half graphs with nonclique blocks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01587.pdf",
+          "material_read": "Introduction pp. 1–2 and §3 p. 7, offsets 0, 3971 and 16341",
+          "method": "Lawful OA PDF excerpt comparison and supplementary term search",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Same invariant and possible stronger extremal theorem"
+        },
+        {
+          "assessment": "Specific unresolved overlap risk",
+          "evidence": "The title places it in the same invariant, but there was no readable result statement to compare.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-025-01873-x",
+          "material_read": "Bibliographic metadata only",
+          "method": "Lawful DOI, publisher and repository recovery attempts; no accessible full text found",
+          "title": "The Edge General Position Number of Some Graphs",
+          "trigger": "Plausible family-specific calculation"
+        },
+        {
+          "assessment": "Not a direct overlap on available material; full-text risk remains",
+          "evidence": "Available text describes hierarchical, corona and edge-corona products and an integer-programming model.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.01.008",
+          "material_read": "Accessible ScienceDirect abstract snippet; no full text",
+          "method": "Lawful abstract comparison and publisher-access attempts",
+          "title": "Edge general position in graphs: Graph products, integer linear programming and some applications",
+          "trigger": "Potential stronger method or application"
+        },
+        {
+          "assessment": "Different graph family, meaningful analogous reduction",
+          "evidence": "Crown arcs and forbidden transitive directed triangles lead to floor(n²/2), not an ordered balanced-cut optimizer theorem for half graphs.",
+          "identifier_or_url": "Resultary 2026/10/13/964bdcf6d755",
+          "material_read": "Local RESULT.md Finding and Proof",
+          "method": "Local catalogue and mirror",
+          "title": "Edge general position number of crown graphs",
+          "trigger": "Closest catalogue hit with the same invariant and extremal method"
+        },
+        {
+          "assessment": "Different invariant, not discarded on date grounds",
+          "evidence": "The selected objects are vertices on induced paths, not edges on geodesics.",
+          "identifier_or_url": "Resultary 2026/10/12/19a7e3cf4e97",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Local catalogue and mirror",
+          "title": "All monophonic position sets of half graphs",
+          "trigger": "Same objects with a related position condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On the canonical twin-free chain graph, the result goes beyond evaluating the invariant: it reduces geodesic avoidance to an ordered extremal condition, identifies every optimum and gives an exact optimizer census. The alternating pattern explains the extra constraint not captured by the Mantel bound alone and makes the complete classification usable directly.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-The companion standalone `verify.py` uses only Python 3's standard library. Run `python3 verify.py` in a directory containing this extracted file.
+## correctness
 
-The symbolic checker creates every triple of nonempty color supports \((S,T)\) and a pointed color \(c\in S\), reconstructs the exact list of successor descriptors and exhaustively performs one-step modal partition refinement. Its printed counts are:
+PASS
 
-- Two colors: `2,4,6,6,6` over 12 color-support states.
-- Three colors: `3,15,51,51,51` over 84 color-support states.
-- Four colors: `4,48,356,356,356` over 480 color-support states.
+With q=2^k atomic colors and pointed support data (c,S,T), a depth-one minterm homogeneity test recovers exactly T if |T|>1, and otherwise all such tests are true. In the latter case all opposite-side worlds have the identical successor set and color, so in fact all modal tests are true at every depth. For |T|>1 fix a in T: on the opposite side Δχ_b is a constant h_b, and Δ(χ_a ∧ Δχ_b) at the point holds precisely when h_b is false. These tests recover [S], including the singleton class. When |T|>1 the set of successor depth-two descriptors is then uniquely determined, including when |S|=1, so a formula induction proves stability. For each c there is one monochromatic-opposite descriptor and (2^q−q−1)·2^(q−1) others. Finite Boolean separation gives the powerset algebra at each depth. Varying valuations on K_{q,q} realizes all descriptors by repetition of colors; (c,C,C) forces at least q vertices on each side. Replacing S={c} by S={c,d} with the same non-singleton T proves sharpness. This covers k≥2 and validates the included k=1 example, with no assertion for k=0.
 
-In addition, the checker directly compares every pair of color-support states with the claimed depth-two descriptor, rather than merely comparing the resulting cardinalities.
+## originality
 
-A second independent routine enumerates all labelled finite valuations of \(K_{m,n}\) for \(1\leq m,n\leq3\) on alphabets of sizes two and three, builds each concrete graph's neighbor sets, and computes the semantic refinement from vertex truth vectors. This independently checks 196 two-color models (952 pointed worlds) and 1521 three-color models (7956 pointed worlds), with depth profiles `2,4,6,6` and `3,15,51,51`. It cross-checks the entire depth-two partition with the predicted descriptor.
+PASS
 
-These are actual finite checks rather than proofs for arbitrarily large alphabets. The structural induction in `RESULT.md` is the evidence for the universal theorem. No proof assistant or external mathematical audit is claimed; historical priority is provisional.
+Pass is for the many-letter depth-two biclique classification, formulas counts and least universal biclique, not novelty of homogeneity tests, the first-layer count in other frame classes, or the one-letter boundary case. The checked literature and indexed results do not give an equivalent many-letter pointed classification or imply it as stated.
+
+## value
+
+PASS
+
+The classification answers how much of either side is observable with the weaker Δ modality and gives an exact depth cutoff even with arbitrarily many letters. The two masking regimes, the Boolean algebra size and a least common finite testing frame are useful consequences of identifying the exact observable data, not just a census of small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

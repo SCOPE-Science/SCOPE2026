@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:15:09.889696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pair-only word is uniformly distributed and the event of no second discovery through j counts the two monochromatic prefixes (restrict to j>=1). Pascal's identity gives the nonnegative difference in survival numerators C(a-1,j-1)-C(b,j-1). A quantile coupling of the second discovery times followed by the correct conditional words preserves both marginals. A common independent pair/rest interleaving and identical sequence of other individuals then order every prefix at once; uniform labeling within species recovers the full uniform permutations. At fixed m and j only one-to-two pair richness can change, so the event at threshold r changes only when the other-species richness is r-2, giving the displayed W kernel. The exact expectation follows by subtracting the two affected absence probabilities; its numerator is strictly positive precisely when 1<=m-1<=N-b-1. This includes the stated m=0 and full-census conventions. For integral majorization, sort both profiles, transfer from the first surplus to the first subsequent deficit (at least two apart in abundance), and resort. Prefix inequalities persist and the sum of squared abundances decreases, so a finite chain reaches the target. Conditional gluing of the adjacent whole-curve couplings is valid on these finite path spaces. The read-only checker uses exact DP/subset counts and binary words to corroborate finite cases, not to prove the path theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The iid theorem is a fixed-sample-size stochastic order under balancing. The literature's stronger PMF order refers to one crossing of PMF differences, not the existence of a pathwise coupling. The indexed three-species result concerns crossings of mean rarefaction curves, giving pointwise mean order for comparable profiles."
+        ],
+        "reasoning": "One-size stochastic orders do not generally order path vectors; expected-curve results do not imply even one-size upper-tail ordering. No inspected broader result entails the joint finite-census statement.",
+        "searches": [
+          "Marshall–Olkin–Arnold, DOI 10.1007/978-0-387-68276-1, cited finite-population chapter",
+          "arXiv:1608.00155 Theorem 6.1 and Section 8",
+          "2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_rarefaction.py",
+        "arXiv:1608.00155",
+        "Walton and Wong–Yue abstracts",
+        "Marshall–Olkin–Arnold landing page",
+        "Three indexed Resultary findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-size counting formula follows from decomposing a hypergeometric sample and applying Pascal's identity, so it is a direct use of classical marginals. The whole-curve comparison couples one random second-discovery time and preserves every prefix using a common interleaving."
+        ],
+        "reasoning": "The coupling is not a routine inference from the known expected gain or one-size distributions. It identifies the structural random time that controls the changed portion of all prefixes, and the exact gains quantify the one-unit richness shift at each threshold.",
+        "searches": [
+          "Walton publisher abstract: distribution and moments of number of observed classes",
+          "Zoroa et al., arXiv:1608.00155 Sections 6 and 8",
+          "indexed three-species mean rarefaction Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same fixed-size statistic is the number of positive cells of a multivariate hypergeometric count vector in Walton's publisher abstract. Both Wong–Yue and Zoroa et al. concern independent draws from category probabilities."
+        ],
+        "reasoning": "The occupancy formulation changes no statistic. Treating abundance proportions as iid probabilities changes the law, including whether repeats of physical individuals are possible and whether the sample at N includes every species. Iid dominance does not supply the stated finite-population coupling.",
+        "searches": [
+          "Walton 1986, DOI 10.1080/01621459.1986.10478254",
+          "Wong–Yue 1973, PII 0012365X73900708",
+          "arXiv:1608.00155 Sections 2 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The variance candidate uses the exact same (4,3,1) to (4,2,2) transfer but studies changes of variance, and the singleton candidate studies expected singleton counts and an N=17 reversal."
+        ],
+        "reasoning": "None of these exact moments or parameter matches gives the stated probability-tail kernel or path ordering. Same-day records were compared by observable rather than assumed later or unrelated.",
+        "searches": [
+          "Resultary: finite-population richness-path coupling, hypergeometric balancing and exact tails",
+          "2026/10/18/SCOPE-two-variance-reversals-under-one-unit-abundance-balancing-a-shar--29bc5c6742fc",
+          "2026/10/18/SCOPE-a-one-switch-transfer-law-and-a-sharp-17-individual-triple-rever--7d918366c8e4"
+        ]
+      },
+      "rationale": "One-size hypergeometric richness, mean rarefaction, and majorization under iid sampling are background. The supported distinct result is finite-census ordered whole paths with exact upper-tail gains, not the classical expectation formula or a PMF single-crossing claim.",
+      "residual_risks": [
+        "Full Walton and Wong–Yue papers and the relevant Marshall–Olkin–Arnold chapter were not available. Broader hypergeometric ordering results might contain an equivalent statement.",
+        "The finite-census kernel uses standard counting; novelty is assessed on the coupled path and gain theorem, not on the underlying law or binomial algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit fixed-size distribution and moments, full-text overlap unresolved.",
+          "evidence": [
+            "The abstract describes the number of represented classes for sampling without replacement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1986.10478254",
+          "material_read": "Publisher abstract only",
+          "method": "Bounded publisher material; full-text request returned HTTP 403 and OA recovery found no alternate copy",
+          "title": "The Number of Observed Classes from a Multiple Hypergeometric Distribution",
+          "trigger": "Exactly the same finite-population richness statistic"
+        },
+        {
+          "assessment": "Independent-trials setting, not a finite-census comparison.",
+          "evidence": [
+            "The law of distinct outcomes after n independent repetitions is compared as the category probability vector varies."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0012365X73900708",
+          "material_read": "Publisher abstract and attribution in the OA Zoroa paper, not Wong–Yue full text",
+          "method": "Publisher passage and lawful full-text check",
+          "title": "A Majorization Theorem for the Number of Distinct Outcomes in n Independent Trials",
+          "trigger": "Closest earlier majorization terminology for occupancy"
+        },
+        {
+          "assessment": "Iid fixed-size order; defines a different, stronger PMF notion.",
+          "evidence": [
+            "Successive draws are independent with fixed probabilities; strong dominance in Section 8 means a one-crossing sign condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.00155",
+          "material_read": "Sections 2, 6 and 8, PDF pp. 5, 20–23, 28–29; Theorem 6.1",
+          "method": "OA primary PDF passage reads",
+          "title": "The coupon collector urn model with unequal probabilities in ecology and evolution",
+          "trigger": "Species accumulation and balancing stochastic order"
+        },
+        {
+          "assessment": "Potential broader coverage not resolved by metadata.",
+          "evidence": [
+            "Book identified, but no relevant full chapter was available."
+          ],
+          "identifier_or_url": "https://link.springer.com/book/10.1007/978-0-387-68276-1",
+          "material_read": "Publisher landing page; no decisive chapter passage",
+          "method": "Lawful publisher access check",
+          "title": "Inequalities: Theory of Majorization and Its Applications",
+          "trigger": "Cited broad sampling-from-a-finite-population coverage"
+        },
+        {
+          "assessment": "Covers crossings and majorization order for mean curves for three species, not simultaneous stochastic order.",
+          "evidence": [
+            "The compared curves are expectations, with exactly three species."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary mirror passage inspection",
+          "title": "A single-crossing law for three-species individual-based rarefaction",
+          "trigger": "Same rarefaction process and comparative abundance profiles"
+        },
+        {
+          "assessment": "Different observable, expected singleton counts.",
+          "evidence": [
+            "A local transfer gives a one-switch response in expected singleton counts and an N=17 minimum for a triple reversal."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-one-switch-transfer-law-and-a-sharp-17-individual-triple-rever--7d918366c8e4",
+          "material_read": "RESULT.md result and scope",
+          "method": "Resultary mirror passage inspection",
+          "title": "A one-switch transfer law and a sharp 17-individual triple reversal",
+          "trigger": "Same sampling and local balancing transfer"
+        },
+        {
+          "assessment": "Variance crossings can coexist with stochastic dominance; not equivalent to pathwise order.",
+          "evidence": [
+            "The variance analysis covers the (4,3,1) to (4,2,2) transfer but does not construct a coupling."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-two-variance-reversals-under-one-unit-abundance-balancing-a-shar--29bc5c6742fc",
+          "material_read": "RESULT.md result and example",
+          "method": "Resultary mirror passage inspection",
+          "title": "Two variance reversals under one-unit abundance balancing",
+          "trigger": "Same transfer, same total richness variable, same worked example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Whole-path order controls all richness discovery times in the same joint experiment. The one-transfer construction even confines the simultaneous path difference to 0 or 1, and the exact gain localizes how a one-unit balancing changes threshold probabilities. This is more informative than comparing means or separate one-size samples, while staying within uniform finite-census sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

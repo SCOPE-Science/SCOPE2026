@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:59.653277Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54",
+        "Frozen VERIFICATION.md lines 20–24; verify_bipartite_equilibria.py lines 14–85 (inspected, not executed): enumeration compares payoffs directly; the probability check aggregates formula values already checked on small cases"
+      ],
+      "rationale": "In spin coordinates s_i=2x_i-1, with S_A and S_B the two side sums, the equilibrium condition is delta_i s_i S_B>=0 for i in A and delta_j s_j S_A>=0 for j in B. This follows from the stated payoff difference and leaves both actions feasible at zero opposite sum. With both sums zero there are q(a)q(b) labeled profiles. With S_B=0 but S_A nonzero, B is forced to s_j=delta_j sign(S_A), and its sum vanishes exactly when d_B=0; there are then 2^a-q(a) choices on A. Reversing sides gives the other single-tie contribution. With both sums nonzero they obey S_A=d_A sign(S_B), S_B=d_B sign(S_A), with exactly two sign pairs and corresponding profiles when d_A d_B>0, otherwise none. These independent cases establish the count for all positive sizes, including singletons. Even-even sizes have a double-tie profile for every role assignment; the all-coordinator A/all-anti-coordinator B assignment realizes the minimum in even-even and proves failure of role-robust existence otherwise. Setting both imbalances zero in even-even maximizes the count: the free-part additions are each at least two, whereas the nonzero-imbalance addition is at most two. Under fair independent roles, a side's imbalance vanishes with mass q(t)/2^t and has fair sign when nonzero; this gives the stated probabilities in each parity case.",
+      "residual_risks": [
+        "No supplied code was executed; the equilibrium counts, extrema and probability follow algebraically without finite enumeration.",
+        "The proof depends on weak ties, fixed types, unit weights and no within-part edges. It is not an equilibrium selection or stability claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pei–Cao–Zhang covers more than two strategies on a complete bipartite graph with homogeneous opposite roles on the two sides. Specializing to two strategies gives existence iff both sides are even and the balanced-profile count q(a)q(b) for that assignment; it does not cover arbitrary fixed mixed-role compositions.",
+          "Arditti et al. give cohesiveness-based existence conditions in the general mixed game. Vanelli et al.'s all-to-all theorem uses threshold equations on a different graph; their broader signed-network theorem guarantees specified partial actions under hypotheses rather than a complete count."
+        ],
+        "reasoning": "The earlier role-separated case and general existence frameworks give partial or different coverage, but not the frozen arbitrary-role census. Full equivalent coverage in the inspected evidence comes from the distinct catalogue record.",
+        "searches": [
+          "Pei–Cao–Zhang arXiv:2607.10997v2, Result 4",
+          "Arditti et al. arXiv:2109.12692v3, Theorem 1",
+          "Vanelli et al. arXiv:1912.02000v2, Theorem 1; arXiv:2505.09799v3, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54 and 59–74",
+        "Resultary 7d5cc658885e, e43d24b32b87 and fc09840229e8",
+        "arXiv:2607.10997v2, arXiv:2109.12692v3, arXiv:1912.02000v2 and arXiv:2505.09799v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record states the exact count, the even-even minimum and role-robust existence, and an absence probability of (1-Z_a/2^a)(1-Z_b/2^b)/2 outside even-even. Complementation gives every stated random-role case.",
+          "For positive even sizes, the two zero-imbalance bonuses dominate either one alone, and their sum is at least four, exceeding the sole possible strict-majority bonus of two. Thus the explicit maximum in the frozen record adds only a direct evaluation of the same census.",
+          "Pei–Cao–Zhang establishes the opposite-role obstruction in the role-separated case but not the count for general mixtures."
+        ],
+        "reasoning": "The whole finding, not merely the parity boundary or a special case, follows from the identical four-term formula. No earlier historical priority conclusion is required for this content comparison.",
+        "searches": [
+          "Resultary 7d5cc658885e Finding and Proof",
+          "Pei–Cao–Zhang arXiv:2607.10997v2, Result 4, pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7d5cc658885e, Finding and Proof, offsets 0 and 2380: conformists/rebels choose spins in {-1,1}, matching/mismatching counts on simple unweighted K_(a,b), and both actions best respond at ties.",
+          "The exact dictionaries are s=2x-1, conformist=coordinator, rebel=anti-coordinator, Z_t=q(t), and Delta_A=d_A and Delta_B=d_B. For a rebel, maximizing the mismatch count differs from maximizing minus the match count by the fixed degree. These transformations preserve labeled profiles and best responses."
+        ],
+        "reasoning": "This is an explicit bijective equivalence of the two games, not just a title or graph-family match. The four terms of the count and the four-stratum proof are identical under the dictionary.",
+        "searches": [
+          "Resultary: exact number labeled pure Nash equilibria mixed coordination anti-coordination complete bipartite graph threshold 1/2 parity role assignment",
+          "Literature: \"mixed coordination\" \"complete bipartite\" exact pure Nash equilibria count signed majority games"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7d5cc658885e gives the exact same labeled equilibrium census Q_A Q_B + 1_(Delta_A=0)(2^b-Q_B) + 1_(Delta_B=0)(2^a-Q_A) + 2 1_(Delta_A Delta_B>0), where Q_t=Z_t, for every allowed a,b,c,d.",
+          "The adjacent complete-split and balanced complete-multipartite results concern homogeneous anti-coordination on other graph families and are not the exact match."
+        ],
+        "reasoning": "The explicit parameterized census replaces an exact table for every allowed input. The matching record has a distinct identifier and Finding; it is not retrieval of the frozen record itself. The catalogue date is not used to infer first-public priority.",
+        "searches": [
+          "Resultary: exact number labeled pure Nash equilibria mixed coordination anti-coordination complete bipartite graph threshold 1/2 parity role assignment",
+          "Resultary 7d5cc658885e Finding at offset 0; adjacent e43d24b32b87 and fc09840229e8 Findings"
+        ]
+      },
+      "rationale": "A distinct indexed record, 7d5cc658885e, contains the same full labeled count for every size and role composition, the same all-role parity and minimum, and the same fair-role probability under complementation. The frozen statement's explicit even-even maximum follows mechanically from that identical count by setting both imbalances to zero. The model and proof correspond under a binary action relabeling and equivalent payoff scaling. There is no uncovered finding in the frozen claim relative to the inspected catalogue. This establishes current equivalent coverage, not chronological priority: the two catalogue dates differ, the matching entry is dated later, and this comparison does not show the November 2 finding was already public elsewhere when it was made or that either record derives from the other.",
+      "residual_risks": [
+        "The indexed exact match is dated November 8 UTC and the frozen record November 2 UTC. Independent discovery order and first-public priority were not established by exact formula comparison or catalogue dates.",
+        "The Riehl et al. full text was unavailable through the checked routes. The verdict rests on direct catalogue evidence, not on that access limit or unsuccessful searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage in the current catalogue, no finding about historical priority",
+          "evidence": [
+            "Same four-term labeled count, weak ties, all-role even-even existence, sharp minimum and equivalent fair-type law; same spin-based four-stratum decomposition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-parity-and-multiplicity-of-pure-equilibria-on-mixed-type-c--7d5cc658885e/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2300; Proof offsets 2380–3962; relationship passage around 4190",
+          "method": "Published record via local mirror",
+          "title": "Exact parity and multiplicity of pure equilibria on mixed-type complete bipartite networks",
+          "trigger": "Distinct catalogue record appearing to supply the same entire theorem"
+        },
+        {
+          "assessment": "Earlier coverage of the role-separated case, not arbitrary mixed roles",
+          "evidence": [
+            "Existence iff both side sizes are divisible by the strategy count, with an even split over strategies at all equilibria; two strategies specialize to balanced profiles on both sides."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10997v2",
+          "material_read": "Result 4, PDF pp. 7–8, around offset 18000",
+          "method": "Open primary PDF",
+          "title": "Equilibria in heterogeneous multi-strategy network games",
+          "trigger": "Earlier complete-bipartite conformist/rebel equilibrium specialization"
+        },
+        {
+          "assessment": "General model and sufficient existence conditions, not an exact census in the inspected theorem",
+          "evidence": [
+            "Cohesiveness-based guarantees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.12692v3",
+          "material_read": "PDF pp. 2–4, model and Theorem 1, around offsets 13600 and 25305",
+          "method": "Open primary PDF",
+          "title": "Equilibria and learning dynamics in mixed network coordination/anti-coordination games",
+          "trigger": "Original mixed binary network-game formulation"
+        },
+        {
+          "assessment": "Different network: all-to-all rather than complete bipartite",
+          "evidence": [
+            "Threshold-solution characterization and count bound n+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.02000v2",
+          "material_read": "Abstract and Theorem 1, p. 4, around offset 28149",
+          "method": "Open primary PDF",
+          "title": "On games with coordinating and anti-coordinating agents",
+          "trigger": "Earlier exact-type equilibrium characterization"
+        },
+        {
+          "assessment": "Structural-balance existence result, not exact enumeration",
+          "evidence": [
+            "Under the stated conditions guarantees an equilibrium with specified actions on a subset."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.09799v3",
+          "material_read": "Theorem 1, PDF p. 9, around offset 74528",
+          "method": "Open primary PDF",
+          "title": "On Signed Network Games with Binary Actions",
+          "trigger": "Possible stronger signed-network theorem"
+        },
+        {
+          "assessment": "Not used for the originality verdict",
+          "evidence": [],
+          "identifier_or_url": "10.1073/pnas.1610244113",
+          "material_read": "Bibliographic identification only",
+          "method": "Publisher access denied and open retrieval attempts timed out",
+          "title": "Networks of conforming or nonconforming individuals tend to reach satisfactory decisions",
+          "trigger": "Related conformist/nonconformist network dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–26 and 37–54",
+        "Resultary 7d5cc658885e Finding and Proof"
+      ],
+      "rationale": "The underlying problem is worthwhile: it is a natural complete classification that quantifies the importance of weak ties and role placement. But the frozen package adds no substantive standalone result to the inspected exact census and four-stratum argument. The separately emphasized maximum is direct maximization of the same formula, not a new boundary or independently useful uncovered classification. This is an incremental-value failure under the scientific standard, not a claim that the equilibrium formula is uninteresting or incorrect.",
+      "residual_risks": [
+        "No conclusion about the value of a genuinely different extension, such as nonuniform thresholds or a tie-dependent dynamics, is made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

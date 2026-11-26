@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:49:31.033702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–32 and 34–105",
+        "VERIFICATION.md, check.py (inspected, not executed), CHECK_OUTPUT.txt"
+      ],
+      "rationale": "At h=2ε/L the smoothness decrement is at least h∑ g_i²√w_i/(ε+√w_i)², where w is the new memory. A nonzero gradient component forces w_i>0, so the decrement is strict off the minimizer. Coercivity bounds x, and the memory filter then bounds v on the same orbit. Vanishing decrements and compactness force x→x_*; the stable filter with input g²→0 yields v→0. Uniform bounds in terms of the initial objective gap and initial memory prove Lyapunov stability in the full state. In the scalar quadratic with L=a and no finite zero, eventually x reverses sign and q_k=|x_{k+1}/x_k|→1. The error y_k−1 for y_k=v_k/(a²x_k²) satisfies an affine recurrence with coefficient β/q_k² eventually bounded strictly below one and forcing tending to zero. Hence y_k→1; telescoping reciprocal amplitudes, whose increments tend to 2a/ε, gives both claimed limits. The finite-hit example is exact: v_1=124/125+1/125=1, h=1, x_1=1/10−(1/5)/2=0. Zero positions remain zero and their memory decays geometrically.",
+      "residual_risks": [
+        "The asymptotic constants are for nonterminating scalar quadratics at a sharp L, not a multidimensional or stochastic rate. Recorded numerical experiments cover finite examples only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ISS/stability bound of Dimitrieski et al. assumes a strict step-size margin; the local result of Dereich et al. assumes strict spectral stability and zero initial memory; the expected stochastic bound of Dereich–Jentzen uses bias correction and a different guarantee."
+        ],
+        "reasoning": "Those results do not bound deterministic full-state trajectories for arbitrary initial memory at the exact boundary or give the scalar critical constants.",
+        "searches": [
+          "arXiv:2603.15823 Theorem 1; arXiv:2504.19426 Proposition 2.7; arXiv:2608.30382 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records and four primary arXiv papers listed above",
+        "Bounded web lookup for exact endpoint and scalar critical rate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior inequalities grant stability only in a strict step-size range. Strict one-step descent at equality is instead recovered by the positive new memory in any nonzero-gradient coordinate."
+        ],
+        "reasoning": "Convergence/stability is not obtained by passing a strict step-size estimate to its limit where its contraction or dissipation margin vanishes. Absence of nonzero two-cycles at equality likewise does not prove full-state GAS or the tail limits.",
+        "searches": [
+          "arXiv:2610.30078v1 Theorems 4.4 and 4.8, Corollary 4.5; arXiv:2603.15823 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loh et al. treat the precise epsilon-outside new-memory update. Their convergence result has h<2ε/L and quadratic instability has h>2ε/λmax. The catalogue stale-memory comparison updates x using the preceding v and treats above-threshold cycles."
+        ],
+        "reasoning": "The two strict regimes leave equality open, and stale memory does not ensure the same one-step strict decrement. A scalar quadratic cannot be identified with a general coupled objective by changing coordinates, because coordinatewise scaling is not rotation invariant.",
+        "searches": [
+          "Resultary: scalar epsilon-outside critical relaxation and stale-memory two-cycle instability",
+          "Loh et al., arXiv:2610.30078v1 §§4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/08 scalar entry states exactly the finite-hit dichotomy, eventual sign alternation and both scaled limits at h=2ε/a; the 11/02 stale-update entry does not.",
+          "No exact indexed match for the general endpoint stability theorem was identified in the bounded comparison."
+        ],
+        "reasoning": "The scalar match is theorem-level overlap, not independent support for general originality; its scope stops at scalar quadratics and the indexing date is not proof of priority.",
+        "searches": [
+          "Resultary: SCOPE-universal-critical-relaxation-for-scalar-epsilon-outside-rmsprop--a80d03e85890; SCOPE-sharp-update-order-instability-of-a-one-step-lag-rmsprop-two-cyc--779e48cdeae5"
+        ]
+      },
+      "rationale": "The closest primary theorems for the same new-memory update are strict on either side of the threshold and do not establish global stability at equality. The exact scalar dichotomy and constants overlap with a later-indexed scalar Resultary finding; that overlap is credited and no provenance inference depends on its date. In particular it does not supply the general endpoint stability theorem for coupled strongly convex L-smooth objectives and arbitrary initial memory. No earlier matching endpoint theorem or exact limiting law was established in the sources examined.",
+      "residual_risks": [
+        "The scalar match establishes overlap, not release chronology. Bounded searches cannot settle exhaustive priority for either result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest strict-regime prior theorem",
+          "evidence": [
+            "GAS requires h<2ε/L; the instability theorem requires h>2ε/λmax(A)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30078",
+          "material_read": "Abstract and §§4.1–4.2, Theorem 4.4, Corollary 4.5, Theorem 4.8, pp. 6–7, PDF offsets 23467 and 31000",
+          "method": "OA PDF passage inspection",
+          "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+          "trigger": "Same recursion and stability frontier"
+        },
+        {
+          "assessment": "Strict, not endpoint stability",
+          "evidence": [
+            "With epsilon outside and updated memory, the step-size hypothesis includes η_0+η_1<2ε/L."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.15823",
+          "material_read": "Equations (2) and (3), Theorem 1, pp. 2–3, offsets 9500–15000",
+          "method": "OA PDF passage inspection",
+          "title": "Global Stability and Step Size Robustness of RMSProp",
+          "trigger": "Global stability under smooth strong convexity"
+        },
+        {
+          "assessment": "Local subcritical result",
+          "evidence": [
+            "γ∈(0,2ε/K), small initial spatial state and zero initial memory."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.19426",
+          "material_read": "§2.5, Proposition 2.7, p. 10, offset 36072",
+          "method": "OA PDF passage inspection",
+          "title": "Sharp higher order convergence rates for the Adam optimizer",
+          "trigger": "RMSProp rate result"
+        },
+        {
+          "assessment": "Different stochastic, bias-corrected regime",
+          "evidence": [
+            "Nonincreasing learning-rate sequence and expectation of a stopped objective, not deterministic critical relaxation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30382",
+          "material_read": "§1.1 equations (2)–(4) and Theorem 1.1, pp. 3–4, offsets 6899 and 14000",
+          "method": "OA PDF passage inspection",
+          "title": "Convergence rates for the RMSprop optimizer with full control of the hyperparameters",
+          "trigger": "Alternative RMSProp convergence theorem"
+        },
+        {
+          "assessment": "Exact scalar overlap; later-indexed and not general",
+          "evidence": [
+            "The same quadratic no-hit limits k|x_k|→ε/(2a), k²v_k→ε²/4, with sign alternation and the finite-hit branch."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-critical-relaxation-for-scalar-epsilon-outside-rmsprop--a80d03e85890",
+          "material_read": "RESULT.md offsets 0 and 4700",
+          "method": "Resultary and local mirror",
+          "title": "Universal critical relaxation for scalar epsilon-outside RMSProp",
+          "trigger": "Exact endpoint scalar limits"
+        },
+        {
+          "assessment": "Different recurrence and step regime",
+          "evidence": [
+            "Uses stale memory and treats above-threshold two-cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-update-order-instability-of-a-one-step-lag-rmsprop-two-cyc--779e48cdeae5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp update-order instability of a one-step-lag RMSProp two-cycle",
+          "trigger": "Same-day RMSProp stability record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md endpoint and scalar proof",
+        "Loh et al. strict stability/instability theorems"
+      ],
+      "rationale": "The exact step boundary is a natural missing regime: the linearized scalar spatial multiplier is −1 and strict-step geometric estimates cease to apply. The proof extends global stability to that boundary even for coupled smooth strongly convex objectives and arbitrary memory, and the scalar law quantifies the nonlinear slowdown with exact constants and a real finite-hit exception. This changes the boundary classification rather than making a numerical adjustment to a strict step-size bound.",
+      "residual_risks": [
+        "No uniform transient bound is established; the scalar critical law is not a general rate theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

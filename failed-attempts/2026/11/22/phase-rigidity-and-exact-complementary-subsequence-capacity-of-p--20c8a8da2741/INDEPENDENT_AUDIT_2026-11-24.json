@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:52:58.144102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50",
+        "VERIFICATION.md, both supplied checker texts and recorded outputs",
+        "/workspace/replay_frozen.py 3"
+      ],
+      "rationale": "An ordered deletion is uniquely specified by its weakly increasing source-copy indices t_i. For the j-th rank of surviving copies of each letter, the letters deleted by copy j form an initial segment of length h_j. The surviving block uses the tail of copy j and the head of copy j+1 in that order. Weak monotonicity of h_j orders adjacent blocks and the first-crossing construction inverts the encoding. Reduction of h_j modulo q only identifies 0 and q. With a nonzero phase in the output the lift is unique; the all-zero phase word has exactly r+1 lifts. Subtracting r from the embedding count yields the stated cardinality, including r=0. The bounded independent replay /workspace/replay_frozen.py 3 confirms 48 full-fiber and language comparisons, using a transfer over the source periods.",
+      "residual_risks": [
+        "Finite replay alone does not establish unbounded q or r; the proof supplies the universal quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For q≥3 and any m,k≥0, the published mirror gives a complete rotation language and bounded-digit count for C(P^(m+k),P^k). Its proof partitions every deletion into gaps before, between and after retained rotation blocks."
+        ],
+        "reasoning": "With m=r and k=1 the host, deleted subsequence and linear output all coincide, not just parameter sizes. The general algorithms of Adamson–Fleischmann–Huch alone are not the covering result.",
+        "searches": [
+          "Resultary record b24b0f8dcc3a, Bounded-digit law for complements of repeated permutation words, Finding and Proof 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b24b0f8dcc3a, d7ef6cdd9c92 and 1e7ccb67347b",
+        "Adamson–Fleischmann–Huch arXiv:2603.20790v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each nonterminal deletion gap is its least required phase increment plus q times a nonnegative integer; the terminal gap uses the remaining budget. With budget q, E_q>0 leaves no whole period to assign, hence the output has one embedding. E_q=0 is exactly P^r; its entire deleted period can be placed in any of r+1 gaps."
+        ],
+        "reasoning": "The multiplicity strengthening is a direct implication of the exact multi-period proof, even though its statement concentrates on distinct outputs. The covering record explicitly credits Phase rigidity as an existing manuscript; historical priority remains separate and unresolved.",
+        "searches": [
+          "Full comparison with Bounded-digit law, proof of forced rotation blocks and constructive allocation, mirror offset 2450; prior-work paragraph at offset 7000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's complement operator is exactly the prescribed-deleted-subsequence, linear-residual operator; its conclusion discusses closed formulas in special cases as open.",
+          "Bounded-digit law, Finding: E_q(s) = s_1 + sum of least nonnegative cyclic phase increments. For k=1, E_q≤q allows a nondecreasing positive phase run between initial and terminal zeros, with no further wrap; this gives exactly the frozen phase regular expression."
+        ],
+        "reasoning": "The shift from monotone integer codes to minimum cyclic expenditure is an equivalent formulation on the single-period slice. Counts of survivor embeddings or circular rotation classes are not the same operation.",
+        "searches": [
+          "Resultary: prescribed period deletion, complementary subsequences and permutation powers",
+          "Adamson–Fleischmann–Huch, arXiv:2603.20790v1, complement scattered factors and shuffle complements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Broad record b24b0f8dcc3a explicitly states the exact single-period count binom(m+q,q)−m in its prior-work section, including the q=3 table as a substitution.",
+          "Record d7ef6cdd9c92 covers binary alternating words; record 1e7ccb67347b treats length-three deletions in binary alternating words, not periods on three distinct letters."
+        ],
+        "reasoning": "The exact all-parameter count in the broader record is stronger than a numerical table. The similar binary tables are not matches for q≥3.",
+        "searches": [
+          "Resultary: periodic-complement enumeration and q=3 deletion spectra; b24b0f8dcc3a, d7ef6cdd9c92 and 1e7ccb67347b"
+        ]
+      },
+      "rationale": "A distinct indexed, same-day multi-period theorem covers the entire language and count, and its exact proof directly yields the same sole collision and multiplicity. This is failure to establish a distinct standalone contribution against demonstrable coverage, not evidence that this record historically came second. The broader record expressly credits this theorem for the k=1 slice, so date or coverage must not be used to contradict that attribution or adjudicate priority.",
+      "residual_risks": [
+        "No within-day public chronology is established. The broader record's explicit acknowledgment is evidence of attribution, not a timestamp.",
+        "Unindexed shuffle-complement literature is not exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all frozen mathematical components; explicit credit but same-day publication order not established",
+          "evidence": [
+            "E_q≤qk; [z^{≤qk}](1+z+…+z^{q−1})^m; deletion-gap congruences",
+            "Single-deleted-period slice explicitly credited to Phase rigidity"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-bounded-digit-law-for-complements-of-repeated-permutation-words--b24b0f8dcc3a/RESULT.md",
+          "material_read": "Finding, Proof 1–2, Relationship to prior work, References; offsets 0, 2450, 7000 and 9355",
+          "method": "Local mirror exact text and direct specialization",
+          "title": "Bounded-digit law for complements of repeated permutation words",
+          "trigger": "Strongest general Resultary statement on the identical operation"
+        },
+        {
+          "assessment": "General methods but no covering permutation-power statement in inspected passages",
+          "evidence": [
+            "Defines C(w,u) through shuffle complements; conclusion leaves special closed-form cardinalities open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Introduction, definition and algorithm, concluding open problems",
+          "method": "OA HTML passages, offsets approximately 8500–12680, 17500 and 93400",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Primary study of the exact complement operator"
+        },
+        {
+          "assessment": "Covers q=2, outside frozen novelty scope",
+          "evidence": [
+            "Treats deletion of (ab)^k from (ab)^(m+k)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror exact text",
+          "title": "Binomial-tail law for complements of alternating words",
+          "trigger": "Binary precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen phase language and multiplicity theorem",
+        "Bounded-digit law, Finding and Proof 1–2"
+      ],
+      "rationale": "The phase rigidity is a natural and useful structural observation, but as a separate record alongside the exact multi-period result it supplies no distinct invariant: both the census and the full one-period embedding fibers follow immediately from the covering theorem's deletion-gap proof. No valuable noncovered remainder was demonstrated.",
+      "residual_risks": [
+        "This comparison of standalone content does not deny the usefulness of the argument or adjudicate historical credit."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

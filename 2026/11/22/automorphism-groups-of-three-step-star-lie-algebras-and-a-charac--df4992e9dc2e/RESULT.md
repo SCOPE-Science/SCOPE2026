@@ -2,78 +2,61 @@
 
 ## Finding
 
-Let \(m\ge3\), let \(k=\mathbb F_q\) be any finite field, and put \(w=\binom m2\). For the class-three Lie algebra \(L_m(k)\) attached to the star \(K_{1,m}\), its full group of \(k\)-linear Lie automorphisms has order
-
+Let \(k=\mathbb F_q\), \(m\ge3\), and \(w=\binom m2\). The full group of \(k\)-linear automorphisms of the star Lie algebra \(L_m(k)\) has order
 \[
-|\operatorname{Aut}_k(L_m(k))|=q^{(m+1)(w+1)}(q-1)\begin{cases}m!(q-1)^m,&\operatorname{char} k\ne2,\\\prod_{i=0}^{m-1}(q^m-q^i),&\operatorname{char} k=2.\end{cases}
+|\operatorname{Aut}_k(L_m(k))|=q^{(m+1)(w+1)}(q-1)
+\begin{cases}
+m!(q-1)^m,&\operatorname{char}k\ne2,\\
+\prod_{i=0}^{m-1}(q^m-q^i),&\operatorname{char}k=2.
+\end{cases}
 \]
+Its image on the abelianization is the block-diagonal group \(k^\times\times H_m(k)\), where \(H_m(k)\) is the monomial subgroup in odd characteristic and \(\operatorname{GL}_m(k)\) in characteristic two. The kernel has order \(q^{(m+1)(w+1)}\) in both characteristics.
 
-More structurally, its action on \(L_m/[L_m,L_m]\) is precisely the block-diagonal group \(k^\times\times H_m(k)\), where \(H_m(k)\) is the monomial subgroup of \(\operatorname{GL}_m(k)\) in odd characteristic and all of \(\operatorname{GL}_m(k)\) in characteristic two. The kernel has order \(q^{(m+1)(w+1)}\) in both characteristics. Thus the characteristic-two linear symmetry enlargement is exact, not merely the existence of extra automorphisms.
+## Algebra and scope
 
-## Assumptions and scope
-
-The algebra has \(k\)-basis \(h,u_1,\dots,u_m,a_1,\dots,a_m,w_{ij}\ (1\le i<j\le m)\), with \(w_{ji}=w_{ij}\). Its only nonzero brackets among basis vectors, up to antisymmetry, are
-
+The star algebra has basis \(h,u_1,\ldots,u_m,a_1,\ldots,a_m,w_{ij}\ (1\le i<j\le m)\). The nonzero brackets, up to antisymmetry, are
 \[
-[h,u_i]=a_i,\qquad [u_i,a_j]=w_{ij}\quad(i\ne j),
+[h,u_i]=a_i,\qquad [u_i,a_j]=w_{ij}\quad(i\ne j),\qquad w_{ji}=w_{ij}.
 \]
-
-with \([u_i,a_i]=0\) and the \(w_{ij}\) central. This is the star specialization of the vertex/edge/two-path construction of Gallo and Videla [1]. In particular \(L_m'=A\oplus W\), \([L_m,L_m']=W\), \(Z(L_m)=W\), and \(\dim L_m=1+2m+w\). Brackets and automorphisms are over \(k\); this result does not assert a formula for other graphs or for nonlinear group automorphisms.
+The bracket is alternating, also in characteristic two. The only Jacobi identity on distinct basis entries with possibly nonzero terms is for \(h,u_i,u_j\); the terms cancel because \(w_{ij}=w_{ji}\). Write \(U=\langle u_i\rangle\), \(A=\langle a_i\rangle\), \(W=\langle w_{ij}\rangle\). Then \(L_m'=A\oplus W\) and \([L_m,L_m']=W\). The center is exactly \(W\): bracketing with \(h\) detects the \(U\)-component, while bracketing with the leaves detects the \(h\)-component in \(A\) and the \(A\)-component in \(W\). This is the star specialization of Gallo and Videla [1]. The statement concerns \(k\)-linear Lie automorphisms for \(m\ge3\); it is not a statement about other graphs or abstract group automorphisms.
 
 ## Proof
 
-Set \(V=L_m/L_m'\), with the images of \(h,u_1,\ldots,u_m\) as basis, and let \(U\subset V\) be the span of the leaf images. The induced \(L_m'/W\)-valued bracket satisfies
-
+On \(V=L_m/L_m'\), the bracket with values in \(L_m'/W\simeq U\) is
 \[
-[\alpha h+u,\beta h+v]\pmod W=\alpha v-\beta u\quad(u,v\in U),
+[\alpha h+u,\beta h+v]\pmod W=\alpha v-\beta u.
 \]
+An isotropic subspace containing a vector with nonzero \(h\)-coefficient has dimension at most one: the bracket with that vector vanishes only on its own line. Thus the image of \(U\) is the unique maximal isotropic subspace of dimension at least two and is characteristic. A candidate automorphism on \(V\) has \(h\mapsto\lambda h+t\), \(u\mapsto Mu\), with \(\lambda\ne0\), \(t\in U\) and \(M\in\operatorname{GL}_m(k)\). With arbitrary lifts \(h',u_i'\) of these vectors, \([h',[h',u_i']]=\lambda[t,Ma_i]\), where the matrix on \(A\) is written using the identification \(u_i\leftrightarrow a_i\). The left radical of \(U\times A\to W\) is zero: if the coefficient of \(u_i\) is nonzero, pair with \(a_j\) with \(j\ne i\) and read the \(w_{ij}\)-coefficient. The defining relation \([h,[h,u_i]]=0\) and invertibility of \(M\) now force \(t=0\).
 
-where \(A=L_m'/W\) is identified with \(U\). Every subspace on which this bracket vanishes and which contains a vector with nonzero \(h\)-coefficient has dimension at most one. Hence, for \(m\ge2\), \(U\) is the unique isotropic subspace of dimension at least two that is maximal by inclusion. It is characteristic. Every automorphism therefore acts on \(V\) in the form
-
-\[
-h\longmapsto\lambda h+t,\qquad u\longmapsto Mu,
-\]
-
-with \(\lambda\in k^\times\), \(t\in U\), and \(M\in\operatorname{GL}_m(k)\). Choose arbitrary lifts \(h'=\lambda h+t+b+z\) and \(u'_i=Mu_i+b_i+z_i\) with \(b,b_i\in A\) and \(z,z_i\in W\). Since \([h,[h,u_i]]=0\), the relation \([h',[h',u'_i]]=0\) reduces to \(\lambda[t,Ma_i]=0\) in \(W\). The bilinear pairing \(U\times A\to W\) has zero left radical for \(m\ge2\): if a nonzero coefficient of \(t\) occurs at index \(i\), pair \(t\) with an \(a_j\) for \(j\ne i\) to obtain a nonzero \(w_{ij}\)-coefficient. Because \(M\) is invertible, \(t=0\). Thus the quotient action is block diagonal.
-
-Next use the defining identity \([u,[h,u]]=0\) for every basis leaf \(u_i\). For \(u=\sum x_i u_i\),
-
+For \(u=\sum_i x_i u_i\),
 \[
 [u,[h,u]]=2\sum_{i<j}x_ix_jw_{ij}.
 \]
+Terms from changing lifts in \(L_m'\) do not affect this triple bracket. Thus each column of \(M\) must belong, in odd characteristic, to one of the coordinate axes. Invertibility makes \(M\) monomial. In characteristic two the triple bracket is identically zero on \(U\).
 
-In odd characteristic its zero locus in \(U\) is exactly the union of the \(m\) coordinate axes. The induced map \(M\) must preserve this union, hence maps the coordinate axes bijectively to themselves and is monomial. In characteristic two the identity vanishes identically, so this condition imposes no restriction.
+For sufficiency, set \(h'=\lambda h\), \(u_i'=Mu_i\), \(a_i'=[h',u_i']\) and \(w_{ij}'=[u_i',a_j']\) for \(i<j\). The images of the leaves commute; \([h',a_i']=0\), and \([u_i',a_i']=0\) holds by the column condition in odd characteristic and by the factor of \(2\) in characteristic two. The mixed bracket is symmetric in the two leaf indices, and the \(a_i'\) commute and the \(w_{ij}'\) are central. This checks all brackets. On \(W\) the map has the following two descriptions:
 
-Every candidate in these stated groups actually lifts. Given \(\lambda\ne0\) and \(M\) monomial (odd characteristic) or arbitrary invertible (characteristic two), define \(h'=\lambda h\), \(u'_i=\sum_j M_{ji}u_j\), and determine \(a'_i=[h',u'_i]\), \(w'_{ij}=[u'_i,a'_j]\). The defining relations are preserved: \([u'_i,u'_j]=[h',a'_i]=0\), and \([u'_i,a'_i]=0\) follows from monomiality when \(2\ne0\), and from the factor \(2\) when \(2=0\). Moreover the action on \(W\) is \(\lambda\bigwedge^2 M\), which is invertible. These images thus extend to an automorphism. The quotient image is exactly \(k^\times\times H_m(k)\).
+- In odd characteristic, if \(Mu_i=d_i u_{\sigma(i)}\), then \(w_{ij}'=\lambda d_i d_j w_{\sigma(i)\sigma(j)}\), with **unordered** index pairs. It permutes the pair basis up to nonzero scalars; no permutation sign occurs.
+- In characteristic two the \(w_{ab}\)-coefficient of \(w_{ij}'\) is \(\lambda(M_{ai}M_{bj}+M_{bi}M_{aj})\) for \(a<b\). This is \(\lambda\bigwedge^2 M\) under \(w_{ij}\leftrightarrow u_i\wedge u_j\), because minus and plus agree.
 
-It remains to count the kernel of the action on \(V\). Such an automorphism has generator lifts
+Both actions on \(W\) are invertible. The actions on \(L_m'/W\) and \(V\) are also invertible (respectively \(\lambda M\) and \(\operatorname{diag}(\lambda,M)\)). The lifts give automorphisms, proving the stated quotient image.
 
+For the kernel, the possible generator lifts are
 \[
-h'=h+b+z,\qquad u'_i=u_i+\sum_{k=1}^m c_{ki}a_k+z_i,
+h'=h+b+z,\qquad u_i'=u_i+\sum_j c_{ji}a_j+z_i,
+\qquad b\in A,\quad z,z_i\in W.
 \]
-
-with arbitrary \(b\in A\), \(z,z_i\in W\), subject only to \([u'_i,u'_j]=0\). Fix three distinct indices \(i,j,k\). The coefficient of \(w_{ik}\) in this relation forces \(c_{kj}=0\), so every off-diagonal \(c_{kj}\) is zero since \(m\ge3\). The coefficient of \(w_{ij}\) then forces \(c_{ii}=c_{jj}\). Hence the matrix \((c_{ki})\) is \(cI\), with one free scalar \(c\in k\). Conversely \(h'=h+b+z\), \(u'_i=u_i+ca_i+z_i\) preserve all brackets, and induce the identity on \(V\) and on the highest central layer; they are automorphisms because their induced maps on the lower central filtration are identities. The independent parameters are \(m\) coordinates of \(b\), \((m+1)w\) central coordinates of \(z,z_i\), and one scalar \(c\). Consequently
-
-\[
-|\ker(\operatorname{Aut}(L_m)\to\operatorname{GL}(V))|=q^{m+(m+1)w+1}=q^{(m+1)(w+1)}.
-\]
-
-Multiplying by \((q-1)|H_m(k)|\), with \(|H_m(k)|=m!(q-1)^m\) or \(|\operatorname{GL}_m(q)|\), proves the formula. All deductions hold over arbitrary finite fields of the asserted characteristic, including nonprime fields.
+For distinct \(i,j,k\) the coefficient of \(w_{ik}\) in \([u_i',u_j']\) is \(c_{kj}\); hence all off-diagonal entries vanish, using \(m\ge3\). The \(w_{ij}\)-coefficient is \(c_{jj}-c_{ii}\), so the matrix is \(cI\) in either characteristic. Conversely those choices give commuting leaves, \(a_i'=[h',u_i']=a_i-[u_i,b]\), and \([u_i',a_j']=[u_i,a_j]\). The images satisfy all other defining zero brackets since \(A\) is abelian, \([h,A]=0\) and \(W\) is central. They induce the identity on all three lower-central quotients, so each choice gives an automorphism. Since the generators determine the map, the \(m\) coordinates of \(b\), the \((m+1)w\) central coordinates and the one scalar \(c\) give exactly \(q^{(m+1)(w+1)}\) choices. Multiplication by the quotient order gives the formula. The proof applies to nonprime as well as prime fields of the stated characteristics.
 
 ## Verification
 
-The accompanying standalone `verify_star_aut.py` implements the bracket on the \(1+2m+w\) basis elements, checks every defining bracket after 30 seeded random automorphism lifts for each of \((q,m)=(2,3),(2,4),(3,3),(3,4),(5,3)\), and computes the exact linear constraint rank for the kernel over these fields. Its exhaustive enumeration of all \(2^9\) and \(3^9\) three-by-three matrices confirms 168 allowed invertible leaf actions over \(\mathbb F_2\) and 48 over \(\mathbb F_3\). This finite computation checks the proof but does not substitute for the all-field argument above. The checker is deterministic and uses only the Python standard library.
+The accompanying standard-library script `verify_star_aut.py` tests bracket preservation for seeded lifts at \((q,m)=(2,3),(2,4),(3,3),(3,4),(5,3)\) and computes the linear kernel constraint rank for the leaf corrections. Enumerating the three-by-three matrices over \(\mathbb F_2\) and \(\mathbb F_3\) gives respectively 168 and 48 admissible invertible leaf actions. Run `python3 verify_star_aut.py`; the expected marker is `STAR_AUTOMORPHISM_GROUP_OK`. These are finite consistency checks; the proof gives the all-field statement.
 
-## Relationship to prior work
+## Prior work and limitations
 
-Gallo and Videla [1], first submitted 2026-10-25 UTC, introduce the class-three graph Lie construction, explicitly discuss star brackets in Section 3, derive the lower-central dimensions, and prove graph-isomorphism rigidity in characteristic not two. Their results do not state a full automorphism-group order for stars or the exact characteristic-two quotient-action jump. In particular, isomorphism rigidity between two different graph Lie algebras does not determine the automorphism group of any fixed algebra. Chakrabarti, Mainkar and Swiatlowski [2] analyze automorphisms in a distinct class-two construction based on edge-colored complete graphs; that narrower graph setting and nilpotency class do not imply this class-three star formula. Related graph Lie algebra automorphism frameworks remain possible historical overlap risks; these have not been ruled out exhaustively.
-
-## Limitations
-
-This theorem is restricted to branching stars with \(m\ge3\). The kernel constraint has different dimension for \(m=2\). The proof concerns field-linear Lie automorphisms, not Lie group, abstract group, derivation, or Lie algebra scheme automorphisms. The result is a direct algebraic proof with finite computational cross-checks, not a machine-certified theorem. Historical priority relative to unindexed or inaccessible structural classifications is provisional. No independent mathematical audit has been performed.
+Gallo and Videla [1, §§2–3] give the graph construction, including the star brackets in characteristic two. Their Theorem 4.5 establishes graph-isomorphism rigidity in characteristic different from two; it does not describe automorphisms of a single fixed algebra. The automorphism results of Chakrabarti, Mainkar and Swiatlowski [2] concern a different, class-two graph construction. The exact quotient image and kernel order above are distinct from those results; historical priority relative to unindexed classifications remains provisional. The kernel calculation uses three distinct indices and is not asserted for \(m=2\).
 
 ## References
 
-[1] A. L. Gallo and D. E. Videla, *Nilpotent Lie algebras of nilpotence class at most three via graphs*, arXiv:2610.33963v1 (first public 2026-10-25), https://arxiv.org/abs/2610.33963 .
-
-[2] D. Chakrabarti, M. Mainkar, and S. Swiatlowski, *Automorphism Groups of nilpotent Lie algebras associated to certain graphs*, arXiv:1812.09439 (2018), https://arxiv.org/abs/1812.09439 ; *Communications in Algebra* 48 (2020), 263–273, https://doi.org/10.1080/00927872.2019.1640239 .
+1. A. L. Gallo and D. E. Videla, *Nilpotent Lie algebras of nilpotence class at most three via graphs*, [arXiv:2610.33963v1](https://arxiv.org/abs/2610.33963).
+2. D. Chakrabarti, M. Mainkar and S. Swiatlowski, *Automorphism Groups of nilpotent Lie algebras associated to certain graphs*, [arXiv:1812.09439](https://arxiv.org/abs/1812.09439), *Communications in Algebra* 48 (2020), 263–273, [doi:10.1080/00927872.2019.1640239](https://doi.org/10.1080/00927872.2019.1640239).

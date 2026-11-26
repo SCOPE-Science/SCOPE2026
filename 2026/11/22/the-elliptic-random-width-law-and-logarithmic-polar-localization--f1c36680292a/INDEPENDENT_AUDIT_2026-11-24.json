@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:09:42.810607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the actual equal-radius orthogonal intersection and Haar-width claim. At fixed y the section is a square, giving support r sqrt(u_y^2+(|u_x|+|u_z|)^2), hence W=2r sqrt(1+S), S=2|U_x U_z|. Independently, rotation by pi/4 gives S=|P-Q| where (P,Q,1-P-Q) has Dirichlet(1/2,1/2,1/2) law. Its folded difference density is (1/pi) times the integral of [v(v+s)(1-s-2v)]^(-1/2) for 0<v<(1-s)/2. Substitution v=(1-s)sin^2(theta)/2 gives the displayed K with modulus sqrt((1-s)/(1+s)); the width Jacobian cancels sqrt(1+s). The elliptic endpoint expansion gives f_S(s)=log(8/s)/pi+O(s log(1/s)), and s=delta/r+delta^2/(4r^2) yields the stated full lower-tail constant and error. The density is smooth up to the other endpoint with limit 1/r; neither endpoint has atoms. Independent latitude/azimuth gives E S=(2/3)(2/pi). For 0<a<b<1, integrate the disk density over s^b<|x|<s^a and |z|<s/(2|x|): it is uniformly (1+o(1))/(2pi) there and the mass is (b-a)s log(1/s)/pi. Dividing by the full tail and exhausting interior intervals proves the conditional law and forces both |x| and |z| to zero in probability. Reflection gives the fair independent sign exactly for every positive threshold. Read the checker and notes without execution; the checker is a finite numerical diagnostic, not a proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch, arXiv:1211.4514, pp. 1–2: mean directional widths for convex hulls of disks, not this intersection or a conditional law.",
+          "MathWorld, Steinmetz Solid, gives the defining cylinder intersection and classical geometric quantities, not its random width or marked polar behavior.",
+          "Dunkl et al. allow arbitrary ordered eigenvalues, covering the marginal in strictly greater generality."
+        ],
+        "reasoning": "Do not identify the hull with the intersection or a mean width with the marked law. Credit the exact stronger distributional theorem, but it integrates out the angular mark.",
+        "searches": [
+          "Web: \"Steinmetz bicylinder\" random width distribution elliptic integral",
+          "Resultary: published random width or mean width Steinmetz bicylinder intersection versus convex hull of two orthogonal disks Finch"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_steinmetz.py",
+        "Dunkl et al., arXiv:1409.4941",
+        "Finch, arXiv:1211.4514",
+        "MathWorld, Steinmetz Solid",
+        "Resultary 8cb749eaa167, 075ee740f4cf, a276467e90bf, a3dd7557422c, f1c36680292a (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Twice Eq. (81) at eigenvalues (-1,0,1) is E(-1,0;s,1); Eq. (80) gives the factor 1/sqrt(1+s) and hypergeometric argument (1-s)/(1+s), precisely the frozen K formula. The scalar width law then follows by the support identity; standard expansions and moments give the claimed scalar corollaries.",
+          "No comparison above integrates the spherical strip s^b<|U_x|<s^a, whose full asymptotic exhausts near-minimum mass over logarithmic scales."
+        ],
+        "reasoning": "Existing stronger work covers the density even without naming the solid. The original joint conditional claim remains supported and distinct; no novelty is assigned to the special-function identity or reflection symmetry in isolation.",
+        "searches": [
+          "Dunkl et al. arXiv:1409.4941 §5.3, positive branch and folding",
+          "8cb749eaa167, Finding and discussion of radius-gap limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dunkl et al. §5.3, Eqs. (79)–(81): exact real shadow of the quadratic form with three eigenvalues; rotate and take eigenvalues -1, 0, 1.",
+          "The catalogue factorized-kernel match a3dd7557422c concerns an L log L mechanism for singular integrals, not the spherical mark."
+        ],
+        "reasoning": "The law of S is precisely the absolute real shadow, not just an analogous product law. A marginal over the level sets does not itself determine their conditional marked direction law.",
+        "searches": [
+          "Resultary: distribution of product |U_x U_z| for Haar uniform direction on S2 elliptic integral logarithmic singularity",
+          "arXiv:1409.4941, literal queries elliptic integral and N = 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact f1c36680292a hit is this frozen record. Distinct 8cb749eaa167 is for strictly unequal radii and has an elliptic linear tail slope and azimuthal and rescaled-coordinate marks, not the equal-radius log-scale law.",
+          "075ee740f4cf is a tricylinder and has six intersections of minimizing circles rather than two; a276467e90bf is a two-disk convex hull with a different small-width exponent."
+        ],
+        "reasoning": "The strongest local comparator predicts a singular limit qualitatively, but its fixed-unequal tail and conditional shape cannot be specialized at equal radii; the slope is divergent and the minimizing locus changes. Same-day hits are substantive comparisons but are not priority evidence.",
+        "searches": [
+          "Resultary: exact isotropic caliper-width probability density equal-radius orthogonal cylinder intersection Steinmetz bicylinder complete elliptic integral",
+          "Resultary: conditional near-minimum width directions Steinmetz bicylinder logarithmic coordinate scale uniform sign U_y"
+        ]
+      },
+      "rationale": "The compound theorem adds the marked conditional localization for this bicylinder; the scalar elliptic distribution is already an exact specialization of published real numerical-shadow results, and its scalar tails and moment are not independent novelty. The marked log scale and resulting selection of the two crossings are not supplied by that scalar marginal, or by the inspected width results. No ordering is inferred from same-day catalogue dates.",
+      "residual_risks": [
+        "Bounded comparison, not a historical priority certification. An unindexed general conditional-product or saddle-localization theorem could overlap the mark.",
+        "No priority is inferred from same-day catalogue dates; no joint unequal-to-equal crossover is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger scalar coverage, not a marked-width theorem",
+          "evidence": "Equation (81) and positive-branch reflection produce the frozen K expression after the substitution and folding above.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.4941",
+          "material_read": "§5.3, PDF page 22, text offset 80350, Eqs. (79)–(81)",
+          "method": "OA literal location then bounded PDF offset",
+          "title": "Real numerical shadow and generalized B-splines",
+          "trigger": "Rotation turns the product into a three-eigenvalue quadratic form"
+        },
+        {
+          "assessment": "Family overlap with nonuniform limit, not equivalent mark",
+          "evidence": "Assumes 0<a<b, gives linear slope K(a/b)/(pi b) and azimuthal conditional selection; at equality that slope diverges.",
+          "identifier_or_url": "2026/11/22/SCOPE-elliptic-rare-width-tomography-for-unequal-orthogonal-bicylinder--8cb749eaa167",
+          "material_read": "Finding and singular radius-limit discussion, offsets 0 and 4652",
+          "method": "Local catalogue search and mirrored RESULT.md",
+          "title": "Elliptic rare-width tomography for unequal orthogonal bicylinders",
+          "trigger": "Closest same-body-family hit"
+        },
+        {
+          "assessment": "Different geometry and statistic",
+          "evidence": "The model is a convex hull; the inspected width quantity is an average over directions.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.4514",
+          "material_read": "PDF pp. 1–2, offsets 0 and 3175",
+          "method": "OA paper reader, bounded passages",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Nearby directional-width result from the bibliography"
+        },
+        {
+          "assessment": "Classical geometry only in inspected passage",
+          "evidence": "Perpendicular-cylinder intersection and its volume and surface area.",
+          "identifier_or_url": "https://mathworld.wolfram.com/SteinmetzSolid.html",
+          "material_read": "Definition and geometric measures near webpage text offset 85",
+          "method": "OA website passage",
+          "title": "Steinmetz Solid",
+          "trigger": "Classical bicylinder reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mark distinguishes which parts of a nonisolated extremizing set receive the rare directions: the crossings attract all the mass, with no single algebraic approach scale. This is useful information beyond the known marginal density and unlike either a smooth isolated extremum or the strictly unequal bicylinder. The full constant gives the normalization linking that mark to the actual caliper excess.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

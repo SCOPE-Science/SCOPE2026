@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs simultaneous eigenspace lifts using linear operators \(Q_\epsilon\), not by falsely asserting that \(I-E_i\) is an algebra map. Their action on the cotangent space gives an invertible generator substitution, hence a true algebra automorphism. Orbit uniqueness follows from the tangent decomposition. A stabilizer count in the actual symmetric-polynomial monomial basis yields the point-count formula, including all nonlinear generator terms; direct binary exhaustive enumeration corroborates the smallest nontrivial cubic instance. The algebra's unit contributes to every image rank. No infinite claim rests solely on finite computation.
+## correctness
 
-## Originality — PASS, provisional priority
-The first public motivating retract paper (Chakraborty–Dasgupta–Dutta–Gupta, 2019) does not contain the commuting-family finite-field census in inspected material. Published all-length single-retraction image and fiber formulas already cover one idempotent and are excluded from novelty. The nearest full published published-finding corpus theorem on commuting retractions treats **noncommutative, nonunital tensor-word quotients**; its Boolean orbit ideas are credited, but the formulas and representations are not identical. The new result counts commutative monomial weights across all lengths and provides a distinct growing \(\binom d2\) mixed-color exponent; no exact published symmetric-jet joint-rank formula was located. Because broad general semilattice-action theorems may imply the pattern, publication priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-The commuting compatibility problem is not determined by the previously known single-map spectrum. The result gives a natural complete classification and all-arity joint-image-rank enumerator across arbitrary number of variables and truncation lengths, which can be used to study commuting retraction complexes, simultaneous splittings and finite-field orbit distributions. The growing commutative mixed-monomial correction is an exact structural invariant, not a random isolated small example. The new content is the simultaneous symmetric-jet census rather than the general idea of diagonalizing commuting idempotents.
+Every unital coefficient-field-fixing map preserves the nilpotent maximal ideal. On that ideal the commuting linear idempotents have mutually orthogonal simultaneous Boolean projectors given by products of E_i or 1−E_i. Applying the matching projectors to an arbitrary section of each cotangent weight space produces an equivariant section of the cotangent quotient; no multiplicativity of 1−E_i is needed. Send each linear generator to its value under this section. The full ideal-power truncation makes this an algebra map, and its invertible degree-one part implies invertibility on the finite associated graded and hence on the algebra. It intertwines the original tuple with the linear extensions. Ordered tuples therefore have precisely the simultaneous cotangent multiplicities as conjugacy data. The automorphism group has |GL_n(q)| q^(nH) elements. The stabilizer has block general linear group at degree one, and each generator's higher coefficients must lie in its own Boolean weight, since the homogeneous retractions evaluate each monomial by the bitwise meet of its input colors. The number of such coefficients is the stated symmetric monomial count (including the empty-color conventions); multiplying by the number of generators of each weight gives exactly the displayed exponent by orbit–stabilizer. Products retain r_I variables and have linear image dimension binom(r_I+d,d), including the unit when r_I=0. For n=t=2 there are four singleton orbits; the six two-color cases have a common linear factor q(q+1). Only the incomparable pair loses all mixed terms from the stabilizer's permitted coefficients, adding sum_{j=2}^d(j−1)=binom(d,2) to the orbit exponent. Independent substitution enumeration at n=2,d=3,q=2 reproduced 770 maps and 9,988 ordered commuting pairs, and extended the check to 69,896 ordered commuting triples with all 36 joint cotangent-rank profiles matching for the seven nonempty products. Replay: /workspace/review-evidence/5/check_binary_triples.py. That bounded test uses actual map commutation and compares cotangent ranks (equivalent to the asserted image-rank exponents here by the proved rank formula); it is not an all-field proof. The frozen verifier was inspected, not executed.
 
-## Limitations
-The theorem is limited to the full maximal-ideal-power quotient and coefficient-field-fixing algebra maps. Existing general categorical/formal-linearization results may provide an alternate proof; full historical uniqueness is not claimed. The direct checker exhausts only a small finite instance, not all parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The overlapping Boolean-weight method and all-arity orbit classification in the earlier associative setting, and the prior commutative single-map work, are credited. The independently supported distinct claim is the ordered commuting-tuple orbit size and joint product image-rank census in the symmetric jet algebra, with its commutative mixed-monomial enhancement. The closest associative theorem counts ordered tensor words and does not state or directly imply these orbit sizes on the commutative quotient. No historical priority beyond the checked statements is asserted.
+
+## value
+
+PASS
+
+Full maximal-ideal-power jets are canonical finite local algebras. Exact counts of the compatible substitutions and their product images answer a natural question left open by marginal retraction counts: homogeneous tangent data alone do not tell how much larger a nonlinear orbit is. The computed stabilizer shows a specific symmetric mixed-monomial effect, producing the incomparable-color enhancement at every truncation depth and giving a joint-rank enumeration for arbitrary arity. This is more than a change of variables in the tensor-word formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

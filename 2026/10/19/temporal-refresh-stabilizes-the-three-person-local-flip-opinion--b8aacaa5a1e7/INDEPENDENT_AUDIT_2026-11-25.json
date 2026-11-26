@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:28.096320Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding the cubic gives z'=zC(z²,a,b), with centered independent uniform contributions of widths 3(1-z²)/2 and (3+z²)/2. Squaring and using variance 1/12 gives the stated quadratic in z², bounded sharply by 3/8 as nonzero states approach the tie. Geometric decay of the second moment gives almost-sure convergence by summable tail probabilities and forces every invariant law to have zero second moment. Conditional on each past, reflecting both uniforms changes C to -C and the b-slope stays at least 3/2 in magnitude, so C has no atom at zero even at |z|=1. From a nonzero initial imbalance all finite-time signs are therefore conditionally fair given the whole past and jointly independent. The same b-slope gives uniformly bounded log-squared moments by integrating on [-3/2,3/2]; this gives uniform integrability and continuity of the mean log multiplier. The series of centered increments weighted by 1/(t+1) converges in the square-integrable martingale argument, so its unweighted averages tend to zero. The triangular density 2(1-s) of |1-a-b| then gives h(0)=log(3/2)-3/2. This is a geometric mean pathwise rate, not a deterministic one-step ratio; the sign and log-rate assertions exclude the fixed tie. The two frozen corner triangles have total area 1/9. Proof reviewed at RESULT.md §§1–4; the finite identity tests and simulation in verify_temporal_galam.py were inspected as supplemental, not executed or relied upon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yan et al. p. 1 use expanding/contracting random maps; Gimenez et al. p. 1 use an oscillatory field in asynchronous four-person encounters; the Resultary zero-drift analogue concerns endpoints of a piecewise-linear map."
+        ],
+        "reasoning": "Random-iteration techniques and time-varying contrarianism are prior; none of these inspected results supplies the conditional reflection law and global contraction for this cubic or evaluates its exact log multiplier.",
+        "searches": [
+          "Resultary: random maps, Lyapunov exponents, stochastic stability",
+          "arXiv:2308.09269",
+          "arXiv:2309.05765"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.09344",
+        "arXiv:2211.13601",
+        "arXiv:2308.09269",
+        "arXiv:2309.05765",
+        "2026/11/2/SCOPE-critical-zero-drift-rigidity-for-stationary-probabilities-of-a-r--e90743ff4507"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Toth already obtains the 8/9 versus 1/9 frozen stability split; a negative exponent for the refreshed cubic needs control over trajectories and the singular logarithm."
+        ],
+        "reasoning": "Frozen stability regions do not imply refreshed stability. A generic Lyapunov argument does not by itself give either model-specific log integration or fair signs.",
+        "searches": [
+          "arXiv:2211.13601 §2.1 and p. 15",
+          "arXiv:2308.09269 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Toth–Galam p. 2 uses the same two configuration-specific parameters; Toth §2.1 treats one uniformly sampled pair in a fixed map and p. 15 calls the ordinarily fixed constants randomly selected."
+        ],
+        "reasoning": "A mixture of fixed-parameter dynamical systems is not the same as composition with a fresh pair independent of the entire previous trajectory. Per-group averaging is not the shared random recursion either.",
+        "searches": [
+          "Resultary: three-person local-flip model, refreshed common parameters, fair signs, exact Lyapunov exponent",
+          "arXiv:2107.09344",
+          "arXiv:2211.13601"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected local analogue classifies stationary endpoint mixtures at zero mean log slope, not an attracting tie with fair signs in a three-person model. No matching rate or sign law in the inspected ranked hits."
+        ],
+        "reasoning": "The stationary laws and assumptions differ, and a search miss alone is not evidence of priority.",
+        "searches": [
+          "Resultary: refreshed/random-environment majority dynamics",
+          "Resultary: random maps and stationary laws",
+          "2026/11/2/SCOPE-critical-zero-drift-rigidity-for-stationary-probabilities-of-a-r--e90743ff4507"
+        ]
+      },
+      "rationale": "The supported distinct claim concerns independent common renewal at each round and the joint conclusion of almost-sure tie, exact nonlinear Lyapunov exponent, and independent fair majority signs. The polynomial update and the 1/9 frozen contrast are not new. The strongest inspected random-iteration matches concern other maps or different temporal laws; best-of-knowledge assessment, not an exhaustive priority claim.",
+      "residual_risks": [
+        "Ranked literature and catalogue searches are not exhaustive; broader random-map literature may contain an equivalent formula. The primary-literature search yielded no decisive additional hit and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model overlap; not temporal claim",
+          "evidence": "Separate flip probabilities correspond to different configurations and are analyzed as parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.09344",
+          "material_read": "p. 2, offset 9800",
+          "method": "OA PDF passage",
+          "title": "Deviations from the Majority: A Local Flip Model",
+          "trigger": "Same local-flip rule"
+        },
+        {
+          "assessment": "Covers frozen contrast only",
+          "evidence": "Probability of linear instability is 1/9 over the parameter plane; parameters are ordinarily fixed constants that are randomly selected.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.13601",
+          "material_read": "§2.1 pp. 4–5, offsets 17800–23793; p. 15 offset 58200",
+          "method": "OA PDF passages",
+          "title": "Models of Opinion Dynamics with Random Parametrisation",
+          "trigger": "Same law for the two parameters"
+        },
+        {
+          "assessment": "Related method and different result",
+          "evidence": "Piecewise-linear map at zero mean log slope; stationary laws are mixtures of endpoint atoms.",
+          "identifier_or_url": "2026/11/2/SCOPE-critical-zero-drift-rigidity-for-stationary-probabilities-of-a-r--e90743ff4507",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Critical zero-drift rigidity for stationary probabilities of a random map",
+          "trigger": "Refreshed parameters and stationary laws"
+        },
+        {
+          "assessment": "Methodological overlap",
+          "evidence": "Randomly selects expanding/contracting maps each step and identifies a zero-exponent critical sampling probability in its own model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.09269",
+          "material_read": "p. 1 offset 3000",
+          "method": "OA PDF passage",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Random expansion and contraction"
+        },
+        {
+          "assessment": "Different update and temporal law",
+          "evidence": "Oscillatory field with asynchronous encounters involving one agent and three others.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.05765",
+          "material_read": "p. 1 offset 0",
+          "method": "OA PDF passage",
+          "title": "Contrarian Majority Rule Model with External Oscillating Propaganda and Individual Inertias",
+          "trigger": "Time-varying opinion dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separating static random parameters from common temporal refresh is a substantive modeling distinction. An exact almost-sure decay exponent and independent sign fluctuations despite a vanishing majority margin identify the behavior more precisely than stability of the tie or a generic negative-drift criterion. No conclusion about finite populations or arbitrary renewal laws is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

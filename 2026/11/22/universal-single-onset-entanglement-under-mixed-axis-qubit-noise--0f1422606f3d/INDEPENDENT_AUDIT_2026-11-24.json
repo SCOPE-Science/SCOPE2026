@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:38:29.236286Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every fixed J,a,b,r>0 the trace-preserving completely positive no-reset evolution yields the displayed positive, unit-trace reset resolvent, and differences contract at least as e^{-rt}. An independent exact substitution into the full four-by-four master equation verified the stationary matrix, all nine printed coefficients of P, and 55 strictly positive monomials in Q; thus the second concurrence branch is strictly negative. For the first branch positivity is equivalent to P>0 by rationalization of nonnegative operands. P0–P2 are negative and P5–P8 positive. B3 decreases in J² and is positive at J²=a²/20; if P3≥0, then J²>a²/20 and the verified expression B4−B3 is strictly negative, so P4>0. Descartes' rule (discarding zero coefficients) with the endpoint signs gives one simple positive root and the exact inclusive separable interval. The independent radicand limit r⁴(s_o²−w²)=24a²J² in the limit, together with q+k=2J/r+O(r⁻²), gives the claimed expansion. Replay: python3 /workspace/branches/independent_exact_checks.py qubits. Frozen checker inspected, not run; its 880 numerical assertions are reported by the source, not independently replayed. The high-rate law is pointwise in the fixed noise/coupling rates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rose et al. supply the generic stationary reset-resolvent construction; Hartmann et al. discuss local low-entropy resets and reset-stabilized entanglement."
+        ],
+        "reasoning": "A stationary resolvent determines the state, but does not itself give a sign-variation theorem for its concurrence; local per-site resets are not joint state replacement. No broader inspected result supplies the all-parameter phase classification.",
+        "searches": [
+          "arXiv:1806.01298v2, Abstract/Introduction, OA offsets 1656–3616",
+          "arXiv:quant-ph/0703138v1, Introduction, OA offsets 3894–6145"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:25a4a404999e",
+        "Resultary:1e0867d1d987",
+        "Resultary:3ffdacad6009",
+        "arXiv:2307.07485v2",
+        "arXiv:1806.01298v2",
+        "arXiv:quant-ph/0703138v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-flip model needs J²>ab and has leading concurrence 2(J−√(ab))/r in its entangled regime; mixed axes give 2J/r and entanglement eventually even when J²≤ab.",
+          "The same-date spontaneous-emission record instead uses (r+γ)(r+2γ)>2γg and a pair-converting Hamiltonian. For g≤γ it is entangled at every positive r. Its optimized-in-g envelope is not a fixed-parameter high-reset limit.",
+          "The isolated interacting pair and the pure-reset dephased pair already show high-reset entanglement in other settings; neither gives the claimed positive noisy onset."
+        ],
+        "reasoning": "The complete mixed-axis classification is not implied by these threshold laws. The distinct same-date entry was compared on substance, without assuming chronological priority.",
+        "searches": [
+          "Resultary 25a4a404999e, 1e0867d1d987 and 3ffdacad6009, primary Findings",
+          "arXiv:2307.07485v2, Abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-flip result has both jump operators commuting with XX; the present Z on qubit two anticommutes with it. A simultaneous change of basis preserves the relative commutation relation.",
+          "The pair-converting dephased model freezes the odd-sector populations between resets, whereas the present first-qubit flip populates that sector and XX also connects its levels."
+        ],
+        "reasoning": "Neither changing local bases nor passing from concurrence to the equivalent two-qubit partial-transpose signs identifies the distinct generators or turns their thresholds into this one.",
+        "searches": [
+          "Resultary 25a4a404999e, RESULT.md Finding and assumptions",
+          "Resultary 1e0867d1d987, RESULT.md Finding and assumptions",
+          "arXiv:2307.07485v2, Abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact boundaries are for two flips, pair conversion with dephasing, and pair conversion with spontaneous emission, respectively; their printed conditions and polynomials do not give the X/Z threshold."
+        ],
+        "reasoning": "The exact object that could be tabulated is the criterion in r,J,a,b for the named generator, not a numerical threshold for one noise tuple. The closely matching indexed exact results were checked on that basis.",
+        "searches": [
+          "Local Resultary: nearest joint-reset concurrence and phase-boundary entries 25a4a404999e, 1e0867d1d987, 3ffdacad6009"
+        ]
+      },
+      "rationale": "The strongest inspected matches already contain joint-reset stationary concurrence, one-onset diagrams and high-reset entanglement under other hypotheses. They do not cover the specific mixed local axes, for which the verified result is a strictly positive unique threshold for every finite positive pair of local rates. This is a bounded statement-level conclusion, not a general novelty claim for entanglement by resetting or for the resolvent.",
+      "residual_risks": [
+        "A general anisotropic two-qubit noise result or an unindexed equivalent may subsume the boundary. Broad search results added no material match and are not negative evidence. No precedence is inferred from the date of the neighboring result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest model overlap, but a different noise generator and ceiling",
+          "evidence": [
+            "Two bit-flip channels; one positive onset only when J²>ab; entangled tail asymptotic 2(J−√(ab))/r."
+          ],
+          "identifier_or_url": "Resultary:25a4a404999e",
+          "material_read": "Local RESULT.md, Finding and generator assumptions, offset 0",
+          "method": "Compared jump axes, positivity criterion and strong-reset coefficient",
+          "title": "A sharp geometric-mean noise threshold for entanglement under global quantum resetting",
+          "trigger": "Same Hamiltonian, reset and single-onset question"
+        },
+        {
+          "assessment": "High-reset entanglement in its pure-reset case overlaps qualitatively, not the mixed-axis onset",
+          "evidence": [
+            "Pair-only conversion and local dephasing; finite entangled window or pure-reset all-positive-rate entanglement."
+          ],
+          "identifier_or_url": "Resultary:1e0867d1d987",
+          "material_read": "Local RESULT.md, Finding and assumptions, offset 0",
+          "method": "Compared pair conversion, odd occupations and exact regime statement",
+          "title": "Exact reset-rate reciprocity and thermal entanglement boundary for a dephased qubit pair",
+          "trigger": "Exact concurrence and reset windows in a related noisy pair"
+        },
+        {
+          "assessment": "Spontaneous emission and pair-only conversion; neither generator nor onset agrees",
+          "evidence": [
+            "Criterion (r+γ)(r+2γ)>2γg; the nonzero limiting envelope permits g to vary with r."
+          ],
+          "identifier_or_url": "Resultary:3ffdacad6009",
+          "material_read": "Local RESULT.md, Finding and assumptions, offset 0",
+          "method": "Compared boundary and the parameters held fixed in the large-r limit",
+          "title": "A sharp entanglement rescue boundary and optimal concurrence envelope",
+          "trigger": "Distinct same-date noise and joint-reset result with an exact boundary"
+        },
+        {
+          "assessment": "Coherent isolated pair; not the mixed-axis noisy phase diagram",
+          "evidence": [
+            "Pure-state resets and averaged stationary concurrence for an isolated coherently coupled pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.07485v2",
+          "material_read": "Abstract, OA offsets 600–3000",
+          "method": "Compared no-reset dynamics and entanglement observable",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Primary joint-reset interacting pair concurrence"
+        },
+        {
+          "assessment": "General reset method is prior art; inspected claims do not prove this positivity boundary",
+          "evidence": [
+            "Generic spectral and stationary-state characterizations under resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1806.01298v2",
+          "material_read": "Abstract/Introduction, OA offsets 1656–3616",
+          "method": "Compared spectral and stationary-state claims to the concurrence sign classification",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "Candidate general reset theorem"
+        },
+        {
+          "assessment": "Established qualitative effect; different local reset mechanism",
+          "evidence": [
+            "Low-entropy resets of individual particles support steady-state entanglement."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/quant-ph/0703138v1",
+          "material_read": "Introduction, OA offsets 3894–6145",
+          "method": "Compared reset operation and type of result",
+          "title": "Entanglement and its dynamics in open, dissipative systems",
+          "trigger": "Prior noisy reset-stabilized entanglement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exhaustive classification of the entanglement sign for a naturally specified pair of local Pauli errors distinguishes an axis-induced change in the achievable phase diagram: no finite fixed pair of noise rates forbids entanglement, and no further disentanglement window is possible beyond the onset. The latter does not follow just from the high-reset expansion; the threshold can be calculated from the explicit polynomial. This does not mean concurrence is monotone above onset or remains appreciable as r grows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

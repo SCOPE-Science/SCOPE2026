@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:36.351957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A constant factor with angular column (h/√c,√c) and translational columns (√κ I,0) has the same Gram matrix as the symmetric mobility square root and differs by a constant orthogonal noise rotation. The angular term is d(Rφu) in Stratonovich form, since Ju=h/c. The independent translational noise integral has zero quadratic covariation correction; conditional on the angular path it is Gaussian with deterministic covariance τI before rescaling, hence independent of that path. Increments on disjoint reset cycles are iid. Integrating the endpoint e-projection gives cos Θ−1, and tilting yields Λ(q)=εq²+log A_z(q) with A_z=e^−qB_z from the wrapped-normal Fourier coefficients. Λ′(0)<0, Λ″≥2ε>0 and Λ′ eventually positive since the angular variable is bounded. The optimal Chernoff upper bound is matched by tilting to zero mean: the tilted CLT gives nonvanishing probability for a sample mean in [0,δ], and undoing the tilt costs at most q*δ in the per-cycle exponent. For fixed z, scaling θ=v/√q in the wrapped integral and in its first derivative gives A_z∼H_z/√(2πq) and −A_z′/A_z∼1/(2q). Gaussian domination follows from 1−cos θ≥2θ²/π² on the integration interval; an even Taylor expansion of w_z and the phase gives the stated relative O_z(q^−1) corrections. The optimizer escapes every compact interval as ε→0 because −A_z′/A_z is strictly positive there, and 2εq*=−A_z′/A_z gives εq*²→1/4. Substitution yields 1/4 log(1/ε)−1/4−log(H_z/√π) per cycle, divided by τ per unit time. Opposite h reflects the full law, the moment identities follow from E cos(kΘ)=exp(−k²z), and at ε=0 the wrong-sign event has probability zero for n≥1 because each cosine equals one with probability zero. These arguments are analytical (RESULT.md Eqs. (6)–(12)); no uploaded script executed. They do not imply a joint-limit estimate, a rate for an anisotropic Schur complement, or an optimal decision rule beyond the specified displacement sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Sunil §6.1 gives additive-functional large-deviation machinery for resetting diffusions.",
+          "Chaki–Olsen–Löwen §§II,V use independent angular and translational noises and Poissonian orientation resets; Eqs. (62)–(65) describe effective long-time Gaussian diffusion."
+        ],
+        "reasoning": "General large-deviation theory gives an optimization once the cumulant is supplied, not this model's sharp singular asymptotic. A Gaussian central limit is not a large-deviation rate, and changing the reset clock and coupling does not specialize the quoted Gaussian result to this problem.",
+        "searches": [
+          "Web: large deviations displacement Brownian motion with stochastic resetting rate function renewal resetting Brownian particles",
+          "arXiv:2412.16374 §6.1 Eqs. (78)–(90)",
+          "arXiv:2406.17550v2 §§II,V"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.19430v1; arXiv:1603.04340v1; arXiv:2406.17550v2; arXiv:2412.16374",
+        "Resultary 5e7e897c019d and 2f5a16bb9aac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parent paper's moment is a corollary of the cycle law, but not conversely. Its Appendix B gives particular mobilities, not an isotropic-Schur-complement theorem.",
+          "The later catalogue decomposition gives the endpoint law by setting S=κI. It does not evaluate the optimal sign tail or its weak-noise expansion."
+        ],
+        "reasoning": "The full law plus standard tilting gives the variational step; extracting the sharp quarter-log coefficient and constant additionally needs control of the escaping optimizer and the wrapped heat-kernel mass at the tangent point. That is not a parameter renaming or a second-moment corollary.",
+        "searches": [
+          "Resultary: wrong-direction probability exponential rate iid periodic Brownian colloid orientation resets sign displacement",
+          "Web: Chernoff large deviations sign of sum of independent increments Gaussian noise wrapped angular Brownian resetting",
+          "Cleuren–Eichhorn §(ii), Eq. (8) and Appendix B; Resultary 5e7e897c019d proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cleuren–Eichhorn §(ii), Eq. (8), gives the same mean current and Eq. (4) the coupled mobility model.",
+          "Resultary 5e7e897c019d, proof §1 (offsets 3250–4398) gives the same angular primitive and the residual conditionally Gaussian integral with covariance 2ϑ∫R S Rᵀdt.",
+          "Chakrabarty et al., arXiv:1603.04340v1, opening displacement-PDF analysis treats free diffusion at different tracking points."
+        ],
+        "reasoning": "Under S=κI the cited conditional covariance is deterministic; the Gaussian is then independent and the one-cycle law is covered. Free displacement-PDF comparisons are not this rare-event statistic under periodic cycles.",
+        "searches": [
+          "Resultary: periodic orientation resets translation rotation coupled Brownian colloid displacement law independent Gaussian angular endpoint",
+          "Web: translation-rotation coupling Brownian colloid periodic orientation resetting displacement distribution",
+          "arXiv:2603.19430v1 §(ii) and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5e7e897c019d concerns the periodic two-dimensional covariance and a diffusion-axis reversal, while 2f5a16bb9aac concerns coupled mobility under Poisson angle resets and the Gaussian limit."
+        ],
+        "reasoning": "The continuous rate and theta-series constant are not a conventional finite table entry; the explicit formula search compared them to the strongest same-model catalogue findings. Neither covariance nor the Poisson Gaussian-limit observable is the fixed-z periodic sign-error rate.",
+        "searches": [
+          "Resultary: Brownian colloid wrong sign classification large deviation error exponent periodic resetting",
+          "Resultary: weak residual translational noise logarithmic diverging large deviation rate Brownian particle classification"
+        ]
+      },
+      "rationale": "The distinct finding taken for this pass is the exact sign-error rate and its sharp fixed-z small-residual-noise asymptotic, including the optimizer and constant. Credit the parent model and mean drift, and do not count the standalone endpoint factorization as a new mechanism: it is a specialization of a broader exact decomposition in a distinct catalogue result, and is also directly obtainable from the parent dynamics. No inspected comparison supplies the model-specific rate and logarithmic asymptotic. This is a bounded assessment, not a priority assertion.",
+      "residual_risks": [
+        "This was a targeted, non-exhaustive search; an unlocated angular endpoint asymptotic or diffusion sorting result could overlap.",
+        "Some comparisons use selected primary passages only; no whole-document absence is inferred from partial inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and mean, implies distribution on isotropic specialization after noise decomposition, not the sharp sign-error rate",
+          "evidence": [
+            "Eq. (4) is the coupled SPD mobility equation, resets set the angle to zero, and Eq. (8) is the mean current."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.19430v1",
+          "material_read": "§(ii), text offsets 12650–20584; Appendix B around offset 35810",
+          "method": "Lawful full article; targeted equations and mobility examples",
+          "title": "Sorting by Resetting",
+          "trigger": "Parent dynamics, reset protocol and mean"
+        },
+        {
+          "assessment": "Covers the independent-noise endpoint mixture at S=κI, not the rate",
+          "evidence": [
+            "Cycle displacement is F(θτ)−F(0)+Mτ with path-conditional covariance 2ϑ∫R S Rᵀdt. Its catalogue date is later, without a conclusion on priority."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-unique-isotropic-reset-period-and-diffusion-axis-reversal-for--5e7e897c019d/RESULT.md",
+          "material_read": "Finding and proof §1, offsets 3250–4398 for the decomposition",
+          "method": "Local Resultary mirror and direct specialization",
+          "title": "A unique isotropic reset period and diffusion-axis reversal",
+          "trigger": "Same dynamics and exact cycle decomposition"
+        },
+        {
+          "assessment": "Free-particle displacement and tracking-point effects in inspected passages; no periodic sorting rate",
+          "evidence": [
+            "Fixed initial orientation can give nonzero mean displacement; Gaussian behavior recovers at long times."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.04340v1",
+          "material_read": "Abstract and first-page passages, extracted offsets 0–9790",
+          "method": "Lawful OA PDF",
+          "title": "Effects of Translation-Rotation Coupling on the Displacement Probability Distribution Functions of Boomerang Colloidal Particles",
+          "trigger": "Earlier exact/free displacement law comparisons"
+        },
+        {
+          "assessment": "Different noise and reset clock",
+          "evidence": [
+            "Independent noises and Poisson resets lead to a Gaussian effective diffusion limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.17550v2",
+          "material_read": "§II offsets 8200–14213 and §V offsets 53000–59463, Eqs. (62)–(65)",
+          "method": "Lawful OA full text, targeted passages",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Orientation-reset diffusion"
+        },
+        {
+          "assessment": "Methodological coverage, no weak residual sign-rate specialization",
+          "evidence": [
+            "General additive-functional large deviations for resetting models."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.16374",
+          "material_read": "§6.1 Eqs. (78)–(90), offsets 43953–50452",
+          "method": "Lawful OA full text, targeted equations",
+          "title": "Stochastic Resetting and Large Deviations",
+          "trigger": "Broader resetting large-deviation formulation"
+        },
+        {
+          "assessment": "Poisson rather than deterministic reset; different observable",
+          "evidence": [
+            "Effective covariance and Gaussian limit are central, not the wrong-sign periodic-cycle exponent."
+          ],
+          "identifier_or_url": "Resultary 2f5a16bb9aac",
+          "material_read": "Mirrored Finding on drift, diffusion and Gaussian limit",
+          "method": "Local Resultary mirror",
+          "title": "Poissonian orientation resets invert the diffusion axes of a thermal colloid",
+          "trigger": "Coupled colloid with orientation resets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful new quantity is the speed of decay of the misclassification probability for a specified protocol, which an average drift or effective diffusivity cannot predict. The logarithmic rather than inverse-noise rate, and its explicit constant, resolve the behavior near the one-sided noiseless boundary. The result is an idealized model guarantee, not an experimental design validation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

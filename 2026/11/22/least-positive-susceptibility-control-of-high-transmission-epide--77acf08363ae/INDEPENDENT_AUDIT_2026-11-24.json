@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:22:49.752606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–51 (model and all asymptotic steps)",
+        "VERIFICATION.md and check_peak.py lines 6–45 (inspected, not executed)"
+      ],
+      "rationale": "Under the stated deterministic model, positive initial prevalence i, and unit recovery, infectious prevalence stays positive at finite times by its scalar linear equation with the current susceptible weights as coefficients. For cumulative pressure A, the susceptible classes are s p_j exp(−λ_j A) and recovered mass is A/R, so I=H_R(A)=1−sG(A)−A/R and A′=RI. H_R′(u)=s∑p_j λ_j exp(−λ_j u)−1/R is strictly decreasing, with exactly one root A_R under the given threshold. Because H_R≥i from 0 to A_R, the trajectory reaches the root in finite time, and strict increase of A gives a unique strict prevalence maximum. Factoring the root equation by its slowest decaying positive-class term yields A_R=log(R s p_*λ_*)/λ_*+o(1). In the time integral for R t_peak, replacing H_R by H_0 changes the integral by at most A_R²/(2Ri²)=o(1). The difference 1/H_0−1/(1−sp_0) is nonnegative and exponentially integrable, proving the constant and its sign. An independent endpoint check for a single positive class gives C=log((1−sp_0)/i)/(λ_*(1−sp_0)) by elementary substitution. The two-atom coefficients at a=1/2,1,0 are respectively 2,1,1/(2−s), giving eventual strict ordering. At fixed R in the supercritical regime the root varies continuously with a by strict monotonicity and joint continuity, and the integral has denominator bounded below by i; hence the maximum is attained in the interior at sufficiently large fixed R and the iterated normalized limits differ. Coalescence at a=1 doubles p_* relative to the noncoalesced case, and at a=0 the zero-rate term drops out of the derivative, as required.",
+      "residual_risks": [
+        "The numerical check solves the same pressure equations for selected parameters; it is not independent evidence of the all-law asymptotic. The proof is for fixed s and fixed finite F, not uniform near a=0; no claim about incidence peaks, final size or stochastic finite-population timing is verified by this argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fluid-limit representation is broader in law but its inspected theorem gives trajectories, not the asymptotic time integral with uniform error. The incidence-crests finding studies a different functional on related trajectories. The 2025 joint-risk comparison could not be fully inspected."
+        ],
+        "reasoning": "Including the model class is not sufficient to dominate the timing theorem; the stronger result must give the relevant high-R timing under these assumptions. Multiple incidence maxima do not imply the time of the prevalence maximum.",
+        "searches": [
+          "arXiv:2608.22122v1 Theorem 1 and §§3.4, 4.5",
+          "DOI 10.1016/j.jtbi.2025.112211",
+          "Local Resultary incidence-crests finding 404117c6122e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.22122v1",
+        "DOI 10.1016/j.jtbi.2025.112211 (abstract/landing only)",
+        "Local Resultary records 404117c6122e and 77acf08363ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 specializes exactly to the pressure ODE in the frozen proof. The inspected discussion treats initial growth, final size, and numerical peak timing. The related catalogue finding concerns incidence extrema before the unique prevalence peak."
+        ],
+        "reasoning": "The exact peak condition follows directly from established equations and is not credited as new. The least-positive support asymptotic, control of the integrated finite-R remainder through a moving endpoint, and the noncommuting boundary limits are the additional claims; the inspected results do not give them as a parameter substitution.",
+        "searches": [
+          "arXiv:2608.22122v1 Theorem 1 and §§3.4, 4.5",
+          "Local Resultary 404117c6122e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the pressure coordinate the target is equivalently an asymptotic of the first hitting time of s(−G′)=1/R, with a finite centered time correction. The exact pressure closure and illustrated differences in peak times are prior. The matching assigned catalogue record is not outside evidence."
+        ],
+        "reasoning": "A sharp high-transmission hitting-time law in the same pressure variable would cover this claim regardless of terminology. The exact governing equation and a finite set of illustrated peak times provide inputs, not that law.",
+        "searches": [
+          "Local Resultary: heterogeneous susceptibility, least positive class, epidemic prevalence peak timing",
+          "arXiv:2608.22122v1 Theorem 1 and §4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 1 illustrates peak timing for selected closures, not an exact table of logarithmic coefficients or constants indexed by susceptibility law. The finite sample diagnostics in the frozen package are not the theorem."
+        ],
+        "reasoning": "A finite numerical peak-time table cannot establish a fixed-law asymptotic or an iterated-limit discrepancy. No exact catalogue counterpart other than the assigned record was established.",
+        "searches": [
+          "Local Resultary least-positive-class and incidence-crest records",
+          "arXiv:2608.22122v1 §4.5, Figure 1"
+        ]
+      },
+      "rationale": "The exact pressure equation, Laplace closure, and selection/peak-timing motivation already occur in the deterministic mixed-Sellke representation. The supported distinct result is the fixed-law two-term prevalence peak-time expansion and the mean-preserving singular limit. The closest same-day catalogue record concerns multiple incidence crests with a unique prevalence peak, not the asymptotic timing of that prevalence peak.",
+      "residual_risks": [
+        "The 2025 paper's discussion and appendices were not accessible. An earlier equivalent first-passage-time analysis for the same heterogeneous ODE could alter historical priority; the accessible passages support a bounded assessment only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the model reduction, not the sharp fixed-law expansion in those passages.",
+          "evidence": "Theorem 1 gives A′=τ[1−r₀−s₀G(A)]−γA and s=s₀G(A). Figure 1 discusses changes in peak timing and prevalence among illustrated closures, without giving a high-transmission timing law.",
+          "identifier_or_url": "https://arxiv.org/html/2608.22122v1",
+          "material_read": "§3 Theorem 1 and §3.1 (offset 16510 onward), §3.4 (offset 22096 onward), §4.5 and Figure 1 (42500–46999)",
+          "method": "Read bounded lawful OA HTML passages from the primary paper",
+          "title": "From Individual-Based Stochastic Epidemics to Heterogeneous SIR Equations",
+          "trigger": "Same deterministic susceptible Laplace representation, including peak timing"
+        },
+        {
+          "assessment": "Exact coverage unresolved; the inspected material cannot support a whole-paper exclusion.",
+          "evidence": "Available scope concerns covariation of susceptibility and transmissibility, unlike the frozen homogeneous-infectivity model. A limiting specialization is not established from the abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2025.112211",
+          "material_read": "Landing/abstract material only; full text not reached",
+          "method": "DOI and lawful publisher routes tried; publisher full-text route returned HTTP 403",
+          "title": "Infections are not alike: The effects of covariation between individual susceptibility and transmissibility on epidemic dynamics",
+          "trigger": "Risk heterogeneity and possible overlap in peak timing"
+        },
+        {
+          "assessment": "Related deterministic risk setup, different observable and theorem; no order or priority inferred from date.",
+          "evidence": "Two classes can produce more than one strict incidence maximum before the single infectious-prevalence maximum; that assertion does not locate the prevalence maximum asymptotically.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-risk-classes-suffice-for-recurrent-incidence-crests-during-r--404117c6122e",
+          "material_read": "RESULT.md Finding comparing incidence and prevalence maxima",
+          "method": "Read bounded statement through the local published-record mirror",
+          "title": "Two risk classes suffice for recurrent incidence crests",
+          "trigger": "Closest distinct catalogue record: same day, finite susceptibility classes and epidemic peaks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, proof Step 4 and Limitations",
+        "arXiv:2608.22122v1 §4.5 for observable and modeling motivation"
+      ],
+      "rationale": "Peak time is an observable not determined just by the reproduction threshold or final size. The fixed-law expansion shows that, unlike the common mean susceptibility, the slowest positive class and exactly immune mass set the leading timing coefficient. The explicit finite offset gives precision beyond the logarithmic rate. The mean-preserving example exhibits a strict interior-later ordering and a noncommuting limit even though, at fixed transmission, the timing is continuous in mixture parameter. This is a useful structural distinction in the stated mathematical model, not a calibrated prediction.",
+      "residual_risks": [
+        "No uniform transition asymptotic, finite-population theorem, incidence-peak law, or real-world parameter prescription is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

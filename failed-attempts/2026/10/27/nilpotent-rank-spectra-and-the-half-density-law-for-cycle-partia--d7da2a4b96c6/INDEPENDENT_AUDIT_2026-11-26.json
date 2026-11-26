@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:21:46.784006Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixing one source and image leaves the two possible dihedral orientations. A second source fixes the orientation except at an antipode, and a third distinct source always fixes it. A restriction is nilpotent exactly when it omits some vertex from every ambient permutation cycle. This gives the stated rotation and reflection terms; remove 2n−1 surplus empty restrictions, one surplus restriction per nonidentity singleton map, and n(n−2)/2 for even n from bijections between distinct antipodal pairs. The rotation terms reach rank n−1 only at order n, with coefficient nφ(n); reflections cannot reach it for n≥3. At each nonantipodal distance, the 2n² rank-two maps lose 2n for equal domain and image and 2n for a fixed vertex in a distinct overlapping pair; the antipodal distance contributes n(n−2)/2. For density, orders d≤ceil(2 log₂ n) cost O(log² n) rotations, and the relative deficit 1−(1−2⁻ᵈ)^(n/d) for any larger order is at most 1/n. Reflections contribute at most n·3^(n/2); the duplicate correction and the denominator's departure from 2n·2ⁿ are O(n²). Independent enumeration of partial bijections directly by distance and iterated image gave all rank coefficients for n=3–7 without assuming dihedral extension.",
+      "replay": "python3 /workspace/branches/independent_replay.py 2",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 10/12 finding refines the polynomial by exact nilpotency index; setting the index cutoff to n counts all nilpotents. The published papers supply extension and cardinality or a general nilpotency criterion, not an exact cycle rank census on their own."
+        ],
+        "reasoning": "The earlier indexed theorem is a direct broader statistic for n≥4. The missing triangle is the ordinary all-distances-one case.",
+        "searches": [
+          "Resultary rank-and-nilpotency-index result, Finding",
+          "Fernandes–Paulista Lemma 1.1 and Theorem 1.4",
+          "Gomes–Howie Lemma 2.1 and Theorem 2.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10/12 and 11/8 cycle enumerators",
+        "arXiv:2205.02196",
+        "DOI:10.1017/S0013091500026778",
+        "DOI:10.1007/BF02573384 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute z=1 in the earlier formula; the rotation terms normalized by 2ⁿ are (1−2⁻ᵈ)^(n/d). Splitting the totient sum at twice log₂ n and using Bernoulli's inequality gives exactly the stated O(log² n/n) density error. Substituting n=3 yields 1+6z+6z²."
+        ],
+        "reasoning": "The qualitative limit and this estimate do not require a new cycle count, and no sharp correction is claimed. Rank two also follows by coefficient extraction.",
+        "searches": [
+          "10/12 RESULT.md Finding; arXiv:2205.02196 Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed PIso(C_n) and the frozen DPC_n are the same graph-metric partial-isometry monoid, with the same rank, nilpotence, and inclusion of the empty map."
+        ],
+        "reasoning": "This is not a change to paths, partial graph automorphisms, or a count of generators. The older polynomial enumerates the same distinct maps.",
+        "searches": [
+          "Resultary: cycle partial isometries nilpotent rank polynomial dihedral restrictions nilpotency-index enumerators",
+          "arXiv:2205.02196 Lemma 1.1; DOI:10.1017/S0013091500026778 Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "10/12 RESULT.md prints the identical totient sum, reflection terms and three corrections; it also prints nφ(n). 11/8 RESULT.md prints the same polynomial including n=3, the half-density limit, and an additional conditional binomial-rank approximation."
+        ],
+        "reasoning": "The 10/12 text provides material exact overlap. The separately indexed 11/8 result is additional overlap, not evidence of earlier priority.",
+        "searches": [
+          "2026/10/12/SCOPE-rank-and-nilpotency-index-enumerators-for-partial-isometries-of--32e0cfa664d8",
+          "2026/11/8/SCOPE-nilpotent-rank-spectra-and-a-binomial-law-for-cycle-partial-isom--6fca557893ec"
+        ]
+      },
+      "rationale": "The earlier indexed rank-and-nilpotency-index finding explicitly states the same complete rank polynomial and top-rank count for every n≥4, with an index refinement. The new endpoint n=3 and the low-degree example are direct evaluations, and the density bound is a short tail estimate of that same polynomial at one using the known total size. No independently distinct contribution was established for the frozen claim.",
+      "residual_risks": [
+        "Mills full text was not recovered. Direct overlap in the distinct indexed result does not depend on resolving that older source or asserting publication priority from path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct covering result for n≥4 with stronger index refinement",
+          "evidence": "The two boxed formulas include an index cutoff and then exactly the frozen rank enumerator, followed by nφ(n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-rank-and-nilpotency-index-enumerators-for-partial-isometries-of--32e0cfa664d8/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 0–2493",
+          "method": "Local repository mirror",
+          "title": "Rank and nilpotency-index enumerators for partial isometries of finite cycles",
+          "trigger": "Direct earlier indexed overlap"
+        },
+        {
+          "assessment": "Later-dated overlap; not the basis for precedence",
+          "evidence": "Identical polynomial for n≥3 and one-half limit; also approximates the conditional rank distribution in total variation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-nilpotent-rank-spectra-and-a-binomial-law-for-cycle-partial-isom--6fca557893ec/RESULT.md",
+          "material_read": "Finding, offsets 0–1600",
+          "method": "Local repository mirror",
+          "title": "Nilpotent rank spectra and a binomial law for cycle partial isometries",
+          "trigger": "Same objects, rank statistic and density"
+        },
+        {
+          "assessment": "Structural and denominator coverage",
+          "evidence": "Dihedral extensions and multiplicities; exact total monoid size.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.02196",
+          "material_read": "Lemma 1.1 p. 4 and Theorem 1.4 p. 6",
+          "method": "OA PDF passage reading",
+          "title": "On the monoid of partial isometries of a cycle graph",
+          "trigger": "Primary source on the identical monoid"
+        },
+        {
+          "assessment": "General acyclicity/path criterion, not exact restricted rank distribution",
+          "evidence": "Nilpotence excludes nonempty invariant subsets and gives disjoint path components.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091500026778",
+          "material_read": "Lemma 2.1 p. 385 and Theorem 2.8 p. 388",
+          "method": "OA PDF passage reading",
+          "title": "Nilpotents in finite symmetric inverse semigroups",
+          "trigger": "General nilpotent partial-injection theory"
+        },
+        {
+          "assessment": "Unresolved historical overlap, not basis of fail",
+          "evidence": "Identification as a related polygon partial-symmetry study does not establish formula coverage.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02573384",
+          "material_read": "Bibliographic identification; no primary full text recovered",
+          "method": "Bounded publisher and repository retrieval attempts",
+          "title": "The inverse semigroup of partial symmetries of a convex polygon",
+          "trigger": "Plausibly equivalent geometric object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank distribution is a natural invariant, but the frozen result adds only a triangle endpoint, extracted coefficients and a nonsharp density estimate by a standard bound on the known divisor sum. These do not supply an independently needed new count or asymptotic feature; the earlier result already gives the more informative joint census.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:28:36.439270Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–64",
+        "VERIFICATION.md and verify.py (inspected)",
+        "/workspace/branches/replay-4.py (independent exact inverse-insertion replay)"
+      ],
+      "rationale": "The sign is attached to the surviving entry while its magnitude is standardized, and an unknown single output rather than the whole deletion deck is the observation. There are 384 sources and 48 outputs. The prescribed nonnegative twice-weights have multiplicities 12,32,4 and total 40. For nonconstant sign words, the one-, two-, and three-change cases each provide two distinct nonalternating output sign patterns, hence at least two units. For constant signs and a one-output deck, comparing the standardized survivors from deleting adjacent entries of magnitudes a<b at their common position gives a and b-1, so these magnitudes must be consecutive. Repeating this at all three adjacent pairs forces monotone order, whose single output has weight two. A constant-sign deck of size at least two needs no special argument. I independently generated all incidences by inserting every signed absolute rank at every position into each of the 48 outputs, lifting ranks at least the inserted one. All 384 twice-weight constraints held. This inverse enumeration confirmed the printed ten sources and their negatives give 20 distinct sources and 46 distinct outputs with no cross-deck collision; the two omissions are exactly ±(3,-2,1). The integral packing gives a feasible fractional packing of value 20, and the halves of the listed weights provide a dual feasible cover of cost 20. Weak duality certifies both optima exactly.",
+      "residual_risks": [
+        "No classification of all optimum codes; no guarantee for multiple deletion, retained absolute labels, sign errors or higher ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unsigned construction uses permutation and inverse signatures and is asymptotically efficient. The signed sorting paper allows reversals and transpositions.",
+          "The two-marker theorem optimizes redundancy for encoding all three- or four-symbol unsigned messages, with 6 and 24 codewords, respectively."
+        ],
+        "reasoning": "Neither the unsigned asymptotic construction, insertion of extra distinct marker symbols, nor a signed sorting theorem is an upper bound or exact signed standardized-deletion result.",
+        "searches": [
+          "Gabrys et al., §IV Construction 1",
+          "Galvão–Lee–Dias DOI 10.1186/s13015-015-0040-x, abstract",
+          "2026/11/2 two-marker systematic code record e0a01394b7e2"
+        ]
+      },
+      "checked_sources": [
+        "Gabrys et al. DOI 10.1109/ISIT.2014.6875337",
+        "Galvão–Lee–Dias DOI 10.1186/s13015-015-0040-x",
+        "Resultary source IDs 9818c4545657, e0a01394b7e2, bf84cee375c4, 1f96402b4ab9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dual cover is the usual shadow LP dual; the sign-dependent weights and 20 feasible codewords are additional channel-specific certificates.",
+          "The closest signed model concerns sorting; the closest relabeling model omits the sign observable."
+        ],
+        "reasoning": "Standard duality explains why the two certificates suffice but does not provide their optimum cost. Forgetting signs preserves ordinary rank deletion but loses disjointness information; no inspected reduction makes the value 20 automatic.",
+        "searches": [
+          "2026/11/22 fractional packing RESULT.md, 1f96402b4ab9, Finding and table",
+          "Gabrys et al., Definition 1 and Construction 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrys et al. define survivor relabeling in S_n, without signs.",
+          "In the permutation-successions result the actual channel sources are ternary sparse words and signed permutations with constrained signs encode codebooks, not received deletion outcomes."
+        ],
+        "reasoning": "Discarding signs maps decks to a coarser unsigned channel; disjointness of signed decks is not equivalent to disjointness after projection. A signed encoding of a codebook in a different channel is not an equivalent signed source alphabet.",
+        "searches": [
+          "Resultary: signed permutation, rank-standardized single deletion and shadow packing",
+          "Gabrys et al. DOI 10.1109/ISIT.2014.6875337, Definition 1",
+          "2026/10/26 permutation-successions record 9818c4545657"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day alternating six-letter code table bf84cee375c4 gives maximum 11 with six optimal codebooks for 61 unsigned up-down sources.",
+          "Same-day 132-avoiding table 1f96402b4ab9 gives integer 13 and fractional 2217/154 at length six, in an unsigned restricted class."
+        ],
+        "reasoning": "The tables were considered on their content, not excluded by date; neither tabulates the signed 384-source, 48-output incidence family. No earlier exact signed table was verified.",
+        "searches": [
+          "Resultary: exact signed B_4 deletion capacity, rank-deletion codebook tables and fractional packing"
+        ]
+      },
+      "rationale": "The unsigned standardized channel, adjacent-consecutive collision rule and generic fractional shadow-packing formulation are prior tools. The exact signed B_4 integer/fractional optima and sign-symmetric attaining certificate were not established by the inspected alternatives. This is a statement-level best-of-knowledge verdict, not an exhaustive priority claim.",
+      "residual_risks": [
+        "An earlier unindexed signed-channel table or implicit equivalent remains possible. The outbound discovery query returned irrelevant pages, which gives no negative evidence; the verdict rests on the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unsigned relabeling precedent, not signed capacity",
+          "evidence": "Outputs are in S_(n-1) after magnitude relabeling; signatures are used for unsigned codes.",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+          "material_read": "Abstract, §II Definition 1 pp. 2764–65, §IV Construction 1 p. 2767",
+          "method": "Bounded OA PDF inspection",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "Direct standardized-deletion precedent"
+        },
+        {
+          "assessment": "Different edit problem in inspected material",
+          "evidence": "The article studies signed reversal and transposition operations for sorting.",
+          "identifier_or_url": "https://doi.org/10.1186/s13015-015-0040-x",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Bounded OA PDF inspection",
+          "title": "Sorting signed permutations by short operations",
+          "trigger": "Same signed alphabet, possible related edit model"
+        },
+        {
+          "assessment": "Signed permutations encode optimal codebooks for a different channel",
+          "evidence": "Sources have one 1, one 2 and n-2 zeros; capacity is n-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-permutation-successions-classification-of-optimal-ternary-sparse--9818c4545657",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Permutation-successions classification of optimal ternary sparse deletion codes",
+          "trigger": "Signed permutations and optimal deletion codes"
+        },
+        {
+          "assessment": "Different source space and objective",
+          "evidence": "The theorem gives two additional markers for systematic encoding, not signed B_4 capacity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-two-marker-systematic-permutation-invariant-single-deletio--e0a01394b7e2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp two-marker systematic permutation-invariant single-deletion codes for three and four information symbols",
+          "trigger": "Small standardized-deletion instance with four information ranks"
+        },
+        {
+          "assessment": "Different restricted unsigned channel",
+          "evidence": "It gives maximum 11 and six optimum codebooks on the 61 six-letter up-down permutations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-six-extremal-rank-deletion-codes-in-the-six-letter-alternating-p--bf84cee375c4",
+          "material_read": "RESULT.md Finding and proof histogram",
+          "method": "Local catalogue mirror",
+          "title": "Six extremal rank-deletion codes in the six-letter alternating permutations",
+          "trigger": "Closest exact same-day rank-deletion codebook catalogue"
+        },
+        {
+          "assessment": "Shared LP framework, distinct incidence and non-tight relaxation",
+          "evidence": "For 132-avoiding length-six sources the table gives M_6=13 and P_6=2217/154.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-first-fractional-single-deletion-packing-gap-for-132-avoidin--1f96402b4ab9",
+          "material_read": "RESULT.md Finding and table",
+          "method": "Local catalogue mirror",
+          "title": "The first fractional single-deletion packing gap for 132-avoiding permutations",
+          "trigger": "Same-day shadow-packing LP and exact capacity table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–19, 23–64",
+        "Direct comparison with the signed three-rank channel using the same deletion convention",
+        "2026/11/22 fractional packing gap (different source class)"
+      ],
+      "rationale": "The first balanced sign case makes four ranks a natural baseline: at three every source has a constant-sign output, so just four such outputs cap capacity and the four constant-sign monotone sources attain it. At four a two-plus/two-minus source escapes that bound altogether. An exact benchmark at this onset of mixed-sign shadow packing is useful for evaluating signed deletion constructions and bounds. The half-integral explicit cover and sign-symmetric packing establish not just the number, but exact tightness of a reusable relaxation and attainment with a natural symmetry.",
+      "residual_risks": [
+        "The exact benchmark and symmetry result do not predict the general signed packing capacity or guarantee fractional tightness at higher ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

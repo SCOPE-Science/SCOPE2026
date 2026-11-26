@@ -1,15 +1,21 @@
-# Scientific review: exact multiscale covariance spectrum of fair knockout scores
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the complete binary single-elimination tree on \(n=2^\ell\) equal-strength players with independent fair winners. Survival indicators at distinct bracket levels have exact joint probabilities: they are independent before the common ancestor and mutually exclusive when both require its win. Their double sum gives the proposed negative covariance kernel. For one player, nested survival gives the exact variance. Dyadic subtree Haar contrasts diagonalize this kernel and form a complete orthogonal basis with one constant null mode. Explicit eigenvalues are strictly ordered and positive; the extremal contrast inequalities and condition number follow. Uniform reseeding makes the deterministic score multiset exchangeable. Dominated convergence of spectral log-products gives the generalized-variance limit. The standalone checker enumerates all outcome assignments for brackets of 2, 4, 8 and 16 players and passes 1,085 exact rational assertions; asymptotic numerical diagnostics are supplementary. No finite test is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Adler–Cao–Karp–Peköz–Ross (2016; arXiv:1612.04448) discuss knockout structures and win probabilities; Malinovsky–Rinott (2022; arXiv:2206.08461) analyze tournament-score negative dependence; Su–Zou–Hu (2025; arXiv:2505.01971) establish negative association of fixed fair brackets and correct an earlier counterexample claim. Negative correlations and score-vector dependence are therefore not claimed as new. The compared accessible texts do not state this dyadic covariance eigenspectrum, its sharp all-contrast bounds, or the ratio \(3/4\) of asymptotic geometric-mean generalized variances. Formula-equivalent or stronger results under hierarchical covariance terminology remain a publication-priority risk. A tangential bracket-design paper (Glickman and Hennessy, 2016) was available only in abstract and was not used for a whole-text negative conclusion.
+PASS
 
-## Value — PASS
-The exact eigenspectrum identifies which scoring contrasts are most and least variable, with a sharp condition number of \(3n-2\ell-3\). It resolves a natural quantitative gap left by earlier qualitative negative-dependence results and compares fixed versus randomly seeded bracket uncertainty through a nontrivial universal determinant ratio. The tree-specific hierarchy and all-size sharpness make the claim more than a restatement of pairwise negative covariance.
+A leaf survives r rounds precisely when its first r independent ancestral choices favor that leaf's path. Two survival paths before the common node use disjoint coins whenever at least one requested survival is below that node; if both reach it, the choices are mutually exclusive. Summing covariances yields the negative square in the claim. Summing (2r-1)2^(-r) gives the second marginal moment; subtracting the squared mean gives the stated variance. With z=1/n and a_h=2^(1-h)-z, constant total wins gives a zero row sum and the subtree contrasts have eigenvalues 2^d a_d^2 plus sum_{h>d} 2^(h-1)a_h^2. Expanding gives 6/2^d-[2(ell-d)+5]/n. Their multiplicities sum to n-1, all are positive, and successive differences are 3/2^d-2/n>0. The extremal Rayleigh bounds follow, including n=2 where both equal 1/2. The permuted deterministic score multiset gives equal diagonal and off-diagonal entries under random labeling and hence one positive eigenvalue nv/(n-1). The fixed weight at level d is 2^(-d); the tail vanishes uniformly in the weak spectral comparison. Bounds 2^(-d)<=lambda_d<=6*2^(-d) dominate the logarithms after weighting, giving per-entrant log pseudodeterminants log(3/2) and log 2 in the limit. Exponentiating their difference gives 3/4. The kernel direction is constant, not a nonzero vector in the zero-sum contrast subspace; the scope wording about a zero-sum direction should be read in this sense, as the finding and proof explicitly say.
 
-## Limits and status
-The result does not address byes, unequal strengths, weighted outcomes, adaptive formats or independence beyond second moments. Historical originality is not certified; independent scientific audit remains necessary before external reliance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Random-draw score exchangeability and the deterministic multiset were already explicit, and hierarchical Haar diagonalization is standard. The inspected fixed-bracket dependence results do not state the exact distance-dependent covariance for fair win counts, which is needed to specialize the hierarchical calculation. The supported distinct contribution is that exact kernel and its full spectrum and quantified fixed-versus-random comparison, not the sign or the generic tree diagonalization. No equivalent statement or stronger implication for that full knockout covariance was found in the inspected matching sources.
+
+## value
+
+PASS
+
+The full spectrum quantifies effects not captured by negative dependence alone: final-half contrasts have variance per squared norm 1/n while local contrasts are of order one, and uniform label randomization removes that anisotropy. The exact eigenvalues and limiting geometric mean make the dependence and fixed/random comparison usable beyond a sign result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

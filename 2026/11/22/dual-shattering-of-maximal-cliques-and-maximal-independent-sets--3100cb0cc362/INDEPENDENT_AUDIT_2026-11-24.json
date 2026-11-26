@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:03:38.202817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the finite classification from the given adjacency rules using a standard-library recursive search for pairwise compatible sets, retaining a set exactly when there is no compatible vertex outside it. For each graph and each concept family, enumerated all supports of size 0–4 and compared explicit set-intersection traces to the structural proposition support by support. Concept counts (R independent, R clique, S independent, S clique) were 24,8,48,32; their support vectors through size four were (1,16,72,96,0), (1,16,48,0,0), (1,16,72,96,0), (1,16,48,32,0). The size-four exclusion is exhaustive by downward closure. Every face of both independent-set complexes extended to a triangle. Exact F2 elimination on edge and triangle boundaries gives rank pairs (15,57), (15,0), (15,57), (15,31). The mod-two reduced ranks follow as stated. Checked that the S clique triangles are exactly the two triangles of each periodic square with a common diagonal direction, giving an actual torus quotient; the rook clique complex here is instead the connected graph of cycle rank 33. As an additional direct check for the rook independent family, maximal independent sets are permutation matrices: fix the demanded placements of a partial transversal and permute the remaining placements cyclically to dodge the forbidden ones when at least one is forbidden and the support has size ≤3. A size-four transversal cannot realize the trace of precisely three entries. For the S independent family, the independent triples have extension multiplicities to independent 4-sets of 0 for 32 triples and 1 for 64 triples (96 total; 16 independent 4-sets). These checks are for the stated graphs and inclusion-maximal notions, not a general graph theorem. The repair credits exactly covered statements, without changing the mathematical claims or coverage of verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodnar et al. distinguish the ordinary clique complexes by 4-cliques in R and none in S. Classical face membership in a clique/independence complex requires only the all-positive trace, while the claim requires all Boolean traces in a maximal-set family. A source on graph VC dimension with respect to subgraph-induced systems could not be read from the publisher."
+        ],
+        "reasoning": "No checked stronger result for the claimed maximal-set concept systems was established. Ordinary clique/independence complex comparisons do not imply all traces; the inaccessible source is a residual risk, not negative evidence.",
+        "searches": [
+          "graph VC dimension shattering maximal independent sets maximal cliques Boolean traces Shrikhande rook graph concept family shatter maximal stable sets",
+          "arXiv:2103.03212 Fig. 3",
+          "ScienceDirect S0166218X16301755"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 332b27986fe0",
+        "Resultary 3100cb0cc362 (self-match)",
+        "Resultary 41bf4d1d3187",
+        "Resultary 670b6697d463",
+        "Resultary 7b6c8851e0b3 (summary only)",
+        "arXiv:2103.03212",
+        "arXiv:2405.07588",
+        "S0166218X16301755 (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the Shrikhande result H has no edges in common with the original graph; the 32 triangles of H are independent dominating triples in the original graph, so they are exactly the maximal independent triples of that graph. All H-clique supports are therefore already shattered by the larger maximal-independent family, but 64 other independent triples require trace comparisons beyond these witnesses.",
+          "Minimum domination in a 4×4 rook grid allows full-row or full-column transversals: a set with both a blank row and blank column misses their intersection. The minimum domination family thus properly contains the permutation matrices; its positive shattering statements do not pass down to this subfamily."
+        ],
+        "reasoning": "There is verified complete implication for K(S) and a genuine partial implication for I(S), explicitly credited in the repair. The full I(S) classification is not implied by only the minimum triples; similarly no verified implication gives the complete rook classifications from the inspected families.",
+        "searches": [
+          "Resultary 332b27986fe0 Finding and §§1–3, Cayley isomorphism and full traces",
+          "Resultary 7b6c8851e0b3 summary and attempted direct RESULT.md",
+          "arXiv:2103.03212 Fig. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum dominating sets of S in 332b27986fe0 are all 32 triangles of H≅S, and shattering is exactly the clique supports of H. Transporting vertices by the isomorphism preserves every trace. The closed-neighborhood family instead consists of the sets N[v]."
+        ],
+        "reasoning": "Despite the different name of the optimization family, the H–S isomorphism gives exact equivalent coverage for K(S), not merely the same VC dimension or homology. Closed-neighborhood VC dimension is not equivalent to maximal-set traces.",
+        "searches": [
+          "Resultary 332b27986fe0, Shrikhande minimum domination Boolean traces",
+          "arXiv:2405.07588 §2, closed-neighborhood VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3100cb0cc362 is the exact self-match. The separate same-day 332b27986fe0 gives the exact K(S) face collection after relabeling. 41bf4d1d3187 computes ordinary independence homotopy types; 670b6697d463 computes closed-neighborhood shattering. The 7b6c8851e0b3 ranked summary gives rook minimum-domination shattering, not a verified trace table for the permutation subfamily."
+        ],
+        "reasoning": "Same-day dating does not settle priority. Neither the comparison of ordinary independence counts nor the other family's closed-neighborhood/rook domination tables settles the three distinct maximal-set classifications.",
+        "searches": [
+          "Resultary 3100cb0cc362, 332b27986fe0, 41bf4d1d3187, 670b6697d463 and 7b6c8851e0b3"
+        ]
+      },
+      "rationale": "Reassessed only the supported distinct remainder after crediting a same-day exact overlap: the Shrikhande maximal-clique trace classification is demonstrably equivalent to the indexed minimum-domination result, independently of relative priority. That source also already gives a subset of the Shrikhande maximal-independent shattering supports. Full R and S maximal-independent classifications and the R maximal-clique classification are not supplied by the inspected results. The repaired version makes these boundaries explicit and does not reclaim the known ordinary topological invariants.",
+      "residual_risks": [
+        "The same-day minimum-domination result overlaps as specified; order within the day is not known.",
+        "The rook minimum-domination full result and the graph-subgraph VC-dimension journal article were not available for full comparison. No absolute priority conclusion follows from a bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap with K(S) and partial overlap with I(S), not timing evidence.",
+          "evidence": [
+            "All 32 minimum dominating sets are triangles of H. An invertible matrix sends G to H with disjoint edge sets. The witness table realizes all eight traces on representatives of both triangle orbits and gives all clique supports of H."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-toroidal-shattering-complex-of-minimum-domination-in-the-shr--332b27986fe0",
+          "material_read": "RESULT.md Finding, offsets about 400–2245, and derivation of Cayley isomorphism and trace witnesses at 3070–5638",
+          "method": "Published full-text passages via local mirror; verified implications by Cayley isomorphism and independent domination",
+          "title": "The toroidal shattering complex of minimum domination in the Shrikhande graph",
+          "trigger": "Distinct same-day material overlap in the graph and exact trace complex"
+        },
+        {
+          "assessment": "Ordinary clique complexes, not maximal-clique traces.",
+          "evidence": [
+            "Rook has 4-cliques and Shrikhande does not; this separates ordinary clique 3-complexes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.03212",
+          "material_read": "Fig. 3, PDF p. 4 near offset 23020, and p. 17 near offset 122670",
+          "method": "Primary OA full-text passage comparison",
+          "title": "Weisfeiler and Lehman Go Topological: Message Passing Simplicial Networks",
+          "trigger": "Classical Shrikhande versus rook clique-complex comparison"
+        },
+        {
+          "assessment": "Uses different concept families.",
+          "evidence": [
+            "Graph VC dimension is that of the closed-neighborhood set system {N[v]}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+          "material_read": "PDF §2, p. 4 near offset 13074",
+          "method": "Primary OA definition comparison",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Graph VC dimension could name an equivalent invariant"
+        },
+        {
+          "assessment": "Ordinary independence complexes, not maximal-set trace systems.",
+          "evidence": [
+            "The ordinary complexes have differing homotopy types and include every independent face."
+          ],
+          "identifier_or_url": "Resultary 41bf4d1d3187",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Published record comparison",
+          "title": "Independence complexes of the Shrikhande and 4×4 rook graphs have different sphere-wedge homotopy types",
+          "trigger": "Same graph pair and independence homology"
+        },
+        {
+          "assessment": "Closed neighborhoods as concepts, no maximal-set trace implication.",
+          "evidence": [
+            "The face support test is for {N[v]}, a different family."
+          ],
+          "identifier_or_url": "Resultary 670b6697d463",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record comparison",
+          "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+          "trigger": "Exact shattering polynomial on same pair"
+        },
+        {
+          "assessment": "Summary concerns the minimum-domination family; the full text was not compared.",
+          "evidence": [
+            "Indexed shattering rule concerns supports with distinct rows or distinct columns, using minimum ordinary dominating sets."
+          ],
+          "identifier_or_url": "Resultary 7b6c8851e0b3",
+          "material_read": "Indexed summary only; exact RESULT.md unavailable locally",
+          "method": "Published index and attempted exact mirror extraction",
+          "title": "Three-torsion in minimum-domination shattering complexes of rook graphs",
+          "trigger": "Potential rook independent-family overlap"
+        },
+        {
+          "assessment": "Not evaluated at statement level.",
+          "evidence": [
+            "Index excerpt names a set system induced by a family of subgraphs but does not identify a maximal-set trace theorem."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X16301755",
+          "material_read": "Index excerpt only; publisher full text inaccessible by both permitted routes, exact-identifier search did not identify an open copy",
+          "method": "Primary OA attempt and alternate-copy search",
+          "title": "The VC-dimension of graphs with respect to … (truncated index title)",
+          "trigger": "Potential graph-induced set system theorem returned by targeted literature lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical strongly regular pair has matching elementary parameters but different clique/independence structures. The precise equal-size truncated independent shattering classification despite different numbers of concepts supplies a reproducible benchmark for maximal-family trace systems. Rook clique traces stopping at edges while the overlapping Shrikhande clique family shatters triangles show that the two dual notions behave differently on the same pair. This value does not rely on treating the known torus, already-covered Shrikhande clique trace classification or beta number alone as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

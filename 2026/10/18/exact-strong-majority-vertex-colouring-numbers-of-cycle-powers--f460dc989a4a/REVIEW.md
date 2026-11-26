@@ -1,19 +1,21 @@
-# Scientific review of cycle-power strong-majority colourings
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Two colours are equivalent to open-neighbourhood sign balance because every degree is \(2k\). The factored cyclic-shift adjacency operator, \(BD\), proves the two-adic obstruction for odd powers; explicit alternating and block-alternating sign words prove the converse. The three-colour construction is checked using exact per-arc bounds, with all exceptional five-letter windows at \(\(k=2\)\) listed in the proof. When \(\gcd(n,k)=1\), injectivity of \(B\) and the permutation cycles of the shift by \(k+1\) give the exact count. Small-case exhaustive checks and thousands of constructive checks support, but are not substituted for, the proof.
+PASS
 
-## Originality
+In the stated noncomplete range every neighbourhood consists of 2k distinct positions. For binary signs, shifting the zero neighbourhood-sum equations by k factors the operator as B(I+T^(k+1)) with B=I+T+⋯+T^(k−1). Global balance forces even n, and alternating signs work for even k. For odd k, let L=n/gcd(n,k+1). If L is odd the alternating geometric sum gives an inverse for I+T^(k+1), forcing Bx=0, impossible for a sum of k signs. If L is even, alternating signs on each (k+1)-step cycle solve the equations (the frozen block word is one such choice). L is even exactly at the displayed 2-adic threshold. When gcd(n,k)=1, Bx=0 implies T^kx=x, hence constancy and x=0, so all binary solutions are obtained by alternating independently on the gcd(n,k+1) cycles. The ternary word is periodic 012 with zero, one or two distinct inserted symbols at one junction. A length-k interval with s of those symbols contains at most ceil((k−s)/3) ordinary occurrences of a given colour; across two disjoint neighbour intervals the largest counts are bounded by 2ceil(k/3), or by ceil((k−1)/3)+ceil(k/3)+1 for a colour actually inserted there. Both are at most k for k≥3. At k=2 the eleven junction windows satisfy the four-neighbour cap after removing the centre; only one insertion block can be met. The independent replay exhausts 25 small binary cases and verifies 2,304 ternary constructions, including the shortest cycles, complementing the universal proof.
 
-**PASS with bibliographic limitations.** Strong-majority colouring was introduced in the 2026 motivating paper, which proves the ordinary-cycle case but not arbitrary noncomplete powers. The mathematically equivalent two-colour notion, neighbourhood-balanced colouring, predates it: Freyberg--Marr (2024) covers the entire quartic circulant case, hence the two-colour criterion for the second power of a cycle. That known special case is expressly excluded from the novelty claim. The sharp higher odd-power divisibility theorem, uniform three-colour construction, and coprime enumerator are not covered by the inspected texts or the retrieved mathematical-record matches. Perfect-colouring and circulant-kernel terminology pose residual unindexed-priority risks. The close comparisons are mathematical implications rather than title differences.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a complete exact evaluation of a new colouring invariant on an infinite natural graph family of unbounded degree, with a sharp arithmetic distinction between even and odd powers. The constructive upper bound is uniform and optimal, and the coprime fibre count supplies information beyond the extremal number. The result resolves every permissible order and exponent in the noncomplete range rather than an arbitrary isolated small parameter.
+Prior results already cover ordinary cycles, the quartic two-colour case, and the even-k binary phase; older circulant constructions also cover a boundary subfamily of odd powers. The supported distinct content is the full odd-k two-adic converse and threshold, the three-colour upper bound across the entire noncomplete range, and the coprime labelled count. No compared stronger statement supplies those remaining facts.
 
-## Verification and limits
+## value
 
-The stand-alone verifier enumerates every candidate two-colouring for tested orders, checks local junction patterns, and confirms the constructive formula on thousands of cycle powers. It does not independently prove statements for unbounded order, and an external independent audit remains outstanding. Previously known base cases are credited, and equivalent unindexed literature cannot be excluded absolutely.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural graph family gets a sharp optimal colour classification, including a genuine odd-power arithmetic obstruction not predicted by graph order being merely even. The uniform constructive cap and coprime exact count answer useful existence and enumeration questions beyond a finite survey or a single degree, while separating them from already known low-degree cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

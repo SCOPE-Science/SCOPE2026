@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:55:19.534786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final-size equation follows by integrating incidence and using total infectious person-time. The survival-odds equation follows by averaging the conditional Poisson offspring generating function over the exponential infectious lifetime; B and K are similar by diagonal population scaling, and the transpose in the backward equation is essential. For positive fixed data, rescaling entry (i,j) of K by (p_i h_i)z_j gives a positive matrix with prescribed row and column margins. This proves the compatibility, dimension and rank-one assertions directly (see originality). Nonzero margin-preserving directions exist already for n=2 and small perturbations of a strictly positive point stay positive. The fitted positive fixed points are not extraneous: Kz=-log(1-z)>z implies supercriticality, and both maps are increasing and strictly subhomogeneous on positive rays. The maximum coordinate-ratio comparison excludes two distinct positive fixed points; branching iteration from survival vector 1 selects the maximal fixed point. The positive rank-one eigenvalue in the finding is its trace and is >1 by the same comparison. This is an all-size argument for the stated idealized model, not for empirical finite-sample data or for non-exponential recovery. RESULT.md lines 21–50 and VERIFICATION.md lines 19–23 were checked. verify.py lines 9–82 were inspected, not run: it is a finite Decimal example and basis-generator check, not independent proof or certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang et al., equation (4) and the pre-reciprocity form of the branching pgf in (6), with the latent-to-infectious fixed-point equality in §3.2. The authors additionally impose balanced contacts in (3) and use that assumption to rewrite (8).",
+          "The classical transportation result permits arbitrary positive rectangular margins and does not require balanced epidemic contacts.",
+          "El Khalifi, Theorem 1 and Propositions 4–5, is a forward analysis of different heterogeneous-trait models."
+        ],
+        "reasoning": "The forward formulas transfer to the frozen model by writing the incidence and offspring rates in its own K/B normalization, not by assuming that Zhang et al.'s microscopic balanced-contact model grants arbitrary K. The unrestricted inverse conclusion then falls within the general row/column-margin result.",
+        "searches": [
+          "Resultary: epidemic inverse problem identify next generation matrix final size extinction probabilities",
+          "arXiv:2611.19854v1, §§3.1–3.2",
+          "arXiv:1307.0124, §2.1",
+          "arXiv:2601.01549, §§2.2 and 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records 519b72c30ab7 and ff902f4f891f",
+        "Zhang et al., arXiv:2611.19854v1",
+        "De Loera and Kim, arXiv:1307.0124",
+        "El Khalifi, arXiv:2601.01549",
+        "Ball and Critcher, PMC13111495 (landing page only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive rank-one table with margins r,c has entries r_i c_j/T: in an outer product, each marginal fixes one factor up to a scalar. Invertible diagonal scaling preserves rank.",
+          "An interior of dimension (n-1)^2>0 cannot consist of that single rank-one table. The reproduction number of the rank-one fit is the trace of an outer product."
+        ],
+        "reasoning": "The classical feasibility/dimension theorem and elementary rank-one identities give the whole asserted inverse classification without an additional epidemiological or mathematical obstruction. The known forward relations and their fixed-point interpretation supply the modeling premise. The distinct Resultary example is not the basis for this implication.",
+        "searches": [
+          "arXiv:2611.19854v1, equations (4), (6) and (8)",
+          "arXiv:1307.0124, Lemmas 2.2–2.3",
+          "Resultary record ff902f4f891f, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Loera–Kim, §2.1, equation (2.2) and Lemmas 2.2–2.3: equal margin totals and dimension (p-1)(q-1) for classical transportation polytopes with positive margins.",
+          "The frozen forward constraints Kz=a and w^T K=v^T, with w=p⊙h and v=p⊙b, become exactly the row and column sums r_i=w_i a_i and c_j=v_j z_j under X=diag(w)Kdiag(z)."
+        ],
+        "reasoning": "All scaling factors are positive. The observational fiber is exactly the relative interior of a standard transportation polytope in rescaled coordinates; equal margin totals are the record's compatibility identity. The product of the normalized margins gives the strictly positive interior point.",
+        "searches": [
+          "Resultary: joint epidemic final size attack rates and branching survival probabilities inverse kernel compatibility T1 T2 rank-one",
+          "Resultary: transportation polytope affine dimension (n-1)^2 positive matrices prescribed row and column weighted constraints unique rank-one kernel epidemic",
+          "arXiv:1307.0124, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record 519b72c30ab7 is the identical finding, not independent coverage.",
+          "Distinct SCOPE record ff902f4f891f changes parameters at fixed reproduction number, comparing total attack and aggregate seeding probability; it does not characterize a fixed-profile fiber."
+        ],
+        "reasoning": "No distinct exact indexed formula was established. Same-day dating neither proves nor rules out priority. This symbolic theorem is not an individual table entry, and the finite example is not the claim.",
+        "searches": [
+          "Resultary: joint epidemic final size attack rates and branching survival probabilities inverse kernel compatibility T1 T2 rank-one",
+          "Resultary: epidemic inverse problem identify next generation matrix final size extinction probabilities"
+        ]
+      },
+      "rationale": "The exact epidemiological wording was not found in a distinct inspected source. The scientific content of the inverse classification, however, is covered as a direct corollary of the classical prescribed-margins problem once the known forward relations are written for the stated arbitrary effective kernel. The reduction is invertible diagonal scaling, which also preserves rank; it needs no new inverse theorem. This is a finding of implication rather than an assertion that a prior paper prints the same epidemic formula.",
+      "residual_risks": [
+        "Exact historical priority for the epidemiological formulation was not established. Deferred external search and an inaccessible article are not negative evidence; the disposition rests on verified mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers forward equations and extinction interpretation; reciprocity is an additional assumption of its contact parameterization, not assumed in the frozen general-kernel fiber.",
+          "evidence": "Equation (4) integrates incidence; equation (6) gives the fixed-point equation before using (3) to obtain (8).",
+          "identifier_or_url": "https://arxiv.org/html/2611.19854v1",
+          "material_read": "§3.1, equations (2)–(4); §3.2, pgfs, fixed-point selection and (6)–(8); OA offsets 14400–16698 and 22900–27393",
+          "method": "Lawful primary HTML, bounded passages",
+          "title": "Indication of demographic and epidemiological data on early-stage risks and long-term epidemic burden",
+          "trigger": "Closest same-model forward relations cited in the frozen proof"
+        },
+        {
+          "assessment": "Direct coverage of the margin-balance criterion and dimension of the rescaled fiber.",
+          "evidence": "Lemma 2.2 states nonemptiness iff margin totals agree; Lemma 2.3 gives rank p+q−1 and dimension (p−1)(q−1) in the positive-margin case used here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.0124",
+          "material_read": "§2.1, p. 3, equation (2.2) and Lemmas 2.2–2.3; PDF text offsets 8250–10669",
+          "method": "Lawful primary PDF, literal locate and bounded passage",
+          "title": "Combinatorics and geometry of transportation polytopes: an update",
+          "trigger": "Exact broader theorem under diagonal reweighting"
+        },
+        {
+          "assessment": "Forward ordering at fixed reproduction number, not a fixed-profile inverse result.",
+          "evidence": "A two-type parameter change gives opposite shifts in total final attack and random-seed survival.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-fixed-reproduction-inversion-of-epidemic-outbreak-probability-an--ff902f4f891f",
+          "material_read": "RESULT.md Finding, from character offset 543",
+          "method": "Local published-record mirror",
+          "title": "Fixed-reproduction inversion of epidemic outbreak probability and attack",
+          "trigger": "Closest distinct indexed epidemic record"
+        },
+        {
+          "assessment": "Forward observations, not the joint inverse problem studied here.",
+          "evidence": "Scalar final-incidence relation and extinction/concordance comparisons for heterogeneous traits.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.01549",
+          "material_read": "PDF pp. 3 and 8, §§2.2 and 2.6, equations (10)–(11), (24)–(26), Theorem 1 and Propositions 4–5",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "Dependence Structure and Epidemic Outcomes in Heterogeneous SIR Models",
+          "trigger": "Closely related heterogeneous epidemiology"
+        },
+        {
+          "assessment": "Not assessable from retrieved material; not used as evidence for or against coverage.",
+          "evidence": "Full text not obtained through the attempted routes.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13111495/",
+          "material_read": "Landing page only; no technical content relied on",
+          "method": "Lawful PMC and alternate Europe PMC access attempts",
+          "title": "Multitype SIR epidemics among a population partitioned into households with proportionate global mixing",
+          "trigger": "Potential overlap in rank-one/proportionate model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Joint observability of burden and seeding risk is a meaningful question, and distinguishing conditional rank-one identification from testing the mixing assumption is useful. But for the expressly unrestricted positive-kernel class and noiseless observations, the answer is exactly an invertible reexpression of prescribed margins and their independence table. No new obstruction for constrained contact classes, inference with error, or other substantive result survives that reduction; none of those harder variants is asserted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

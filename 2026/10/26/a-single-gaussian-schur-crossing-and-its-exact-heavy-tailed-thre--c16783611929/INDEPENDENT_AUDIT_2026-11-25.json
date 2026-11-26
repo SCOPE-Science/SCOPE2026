@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:01:12.611275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, Proof §§1–3",
+        "Frozen VERIFICATION.md; verify_gaussian_quadratic.py inspected, not executed (finite floating-point corroboration only)"
+      ],
+      "rationale": "Independently, on the unit circle P_s(z)=0 is equivalent to c z + a conjugate(z)=−s b. This real-linear equation is invertible when Δ=|c|²−|a|²≠0, giving the unique candidate z=−sB/Δ. Thus a circle root exists exactly at T and is simple because the other root has modulus |a/c|≠1. The count is constant on each open interval avoiding T; at zero both root moduli are sqrt(|a/c|), and for large s the middle term dominates on the circle, giving exactly one interior root. For the law write b=ρe^(iψ), d=e^(2iψ)conjugate(c), D=d−a and S=d+a. D,S are conditionally independent circular Gaussians of variance 2 with conditional law independent of b. Then Δ=Re(S conjugate(D)), |B|=ρ|D|, and Z=Re(S conjugate(D)/|D|) is standard real normal with conditional law independent of D and b. Hence T=|Z|/ρ with ρ² unit exponential independent of Z. This also proves the stated null exclusions and the independent fair sign. The Gaussian integral gives the CDF, and its density is constant to leading order near zero and asymptotic to 2/s³ at infinity; the advertised beta integral yields exactly −1<q<2, the mean and divergent second moment. Solving the CDF equation gives the median, and the root-count law gives its stated mean and variance.",
+      "residual_risks": [
+        "Same coefficient realization throughout the path and the specified circular Gaussian normalization are essential to the stated random law. The displayed piecewise count excludes the isolated boundary parameter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian analytic zero intensity is (4π)⁻¹ times the Laplacian of log K(z,z). With variances α,β,γ, radial integration yields E N_s=(s²β+2γ)/(α+s²β+γ); thus the frozen mean 1 is already implied by a general result.",
+          "The annular-density catalog result uses an expected planar intensity profile, distinguishing one and two radial peaks, not a random count for each realization.",
+          "The Eneström–Kakeya full text was not read; the DOI and journal PDF were denied and the journal static-file attempt timed out."
+        ],
+        "reasoning": "A first moment cannot recover the distribution on {0,1,2} even when 0 and 2 are equiprobable, much less the almost-sure coupled threshold. No claim of noncoverage of the inaccessible paper is made.",
+        "searches": [
+          "Krishnapur arXiv:math/0607504v1 §2.3, scalar Gaussian analytic zero intensity",
+          "Probabilistic Eneström–Kakeya, DOI 10.3390/math11194061, lawful access attempts",
+          "Resultary Gaussian analytic trinomials annular density transition"
+        ]
+      },
+      "checked_sources": [
+        "Barrera arXiv:2304.09147; Krishnapur arXiv:math/0607504v1",
+        "Resultary 9c1cf2345cea and 39e0f31cc67a",
+        "Documented table and publisher access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact deterministic boundary also follows directly from the invertible real-linear circle equation. The scalar Gaussian intensity implies the expected count, as above. The two available catalog match statements have different observables."
+        ],
+        "reasoning": "The distinct step is the reduction of the signed random circle-crossing amplitude to a normal divided by the independent exponential square root, simultaneously carrying the sign that determines the direction of the path. Neither static stability alone nor a marginal intensity gives that reduction.",
+        "searches": [
+          "Barrera deterministic necessary/sufficient condition, p. 3; Krishnapur §2.3; nearest indexed exact findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barrera treats the deterministic condition that all roots lie in the open unit disk. The closest catalog match instead uses z^n+sA conjugate(z)+B and counts all plane zeros; its threshold is described via a hypocycloid."
+        ],
+        "reasoning": "The deterministic stability criterion is relevant to the ray crossing but supplies no random law. Replacing z by conjugate(z) in just one term is not a holomorphic change of coordinates; all-plane harmonic valence and inside-disk holomorphic root count are different invariants. The same catalog date settles no priority question.",
+        "searches": [
+          "Configured Resultary semantic search: Gaussian quadratic unit disk exact root-count law and coupled single Schur crossing",
+          "Barrera arXiv:2304.09147, deterministic trinomial stability region"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed statements concern a hypocycloid valence threshold and an expected-intensity threshold; neither identifies the holomorphic amplitude with the claimed CDF. R page retrieval timed out and is not used as scientific evidence.",
+          "Algebraically the known normal/chi-square ratio identifies the scalar law as |Student t with 2 degrees of freedom|: 2ρ² is χ²₂, and T=|Z|/sqrt(χ²₂/2)."
+        ],
+        "reasoning": "There is no pertinent finite tabulation of this pathwise theorem. A distribution table could at most confirm the standard law after the key identification, so numerical equality with that law does not make the pathwise coefficient result covered.",
+        "searches": [
+          "Resultary exact-formula candidate records 9c1cf2345cea and 39e0f31cc67a",
+          "R stats TDist documentation, public page retrieval attempt"
+        ]
+      },
+      "rationale": "Credit the deterministic Schur test, the mean count, and the standard folded Student t distribution as known tools or consequences, not as novel results. The distinct contribution is identifying that distribution as the threshold of the entire realized holomorphic quadratic root-count path (and the resulting exact fixed-amplitude count probabilities). The strongest available nearby statements did not provide that identification.",
+      "residual_risks": [
+        "Eneström–Kakeya article full text unavailable during this review. Earlier equivalent computations under different random-Schur or Gaussian joint zero-density terminology may exist. A bounded index search does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant deterministic antecedent, not the stochastic statement in inspected material",
+          "evidence": "Criteria on coefficients for all roots to belong to the open unit disk.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.09147",
+          "material_read": "p. 3, offset 7623, necessary and sufficient open-disk conditions passage",
+          "method": "OA PDF passage search and reading",
+          "title": "The stability region for Schur stable trinomials with general complex coefficients",
+          "trigger": "Same deterministic complex trinomial stability problem"
+        },
+        {
+          "assessment": "Implies expected count, not full threshold law",
+          "evidence": "ρ₁(z)=(4π)⁻¹ Δ log K(z,z) for scalar Gaussian analytic functions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0607504v1",
+          "material_read": "§2.3, printed p. 18 (PDF p. 26), offset 51492",
+          "method": "OA PDF passage search and reading",
+          "title": "Zeros of Random Analytic Functions",
+          "trigger": "Broader Gaussian zero law"
+        },
+        {
+          "assessment": "Distinct, same-day result, different invariant and no priority inference",
+          "evidence": "z^n+sA conjugate(z)+B, total plane zeros, hypocycloid threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-gaussian-harmonic-trinomials-a-one-crossing-valence-law-and-its--9c1cf2345cea",
+          "material_read": "RESULT.md Finding, offsets 0–2196",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Gaussian harmonic trinomials: a one-crossing valence law and its threshold",
+          "trigger": "Nearest coupled Gaussian crossing index match"
+        },
+        {
+          "assessment": "Different expectation observable; later dated",
+          "evidence": "Expected planar zero density of ξ₀+sqrt(a)ξ₁z^m+ξ₂z^(2m) and its radial extrema.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-annulus-threshold-for-zeros-of-gaussian-analytic-trino--39e0f31cc67a",
+          "material_read": "RESULT.md Finding and Proof §1, offsets 0–3199",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact two-annulus threshold for zeros of Gaussian analytic trinomials",
+          "trigger": "Nearly the same amplitude-dependent polynomial model"
+        },
+        {
+          "assessment": "Full text not obtained; no exclusion inference",
+          "evidence": "Initial responses 403, alternate publisher request timed out.",
+          "identifier_or_url": "https://doi.org/10.3390/math11194061",
+          "material_read": "Access responses only, including alternate journal static-file request",
+          "method": "Lawful DOI and publisher PDF retrieval attempts",
+          "title": "A Probabilistic Version of Eneström–Kakeya Theorem for Certain Random Polynomials",
+          "trigger": "Potential random coefficient root localization overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–3",
+        "Krishnapur §2.3 for the contrast with expected count"
+      ],
+      "rationale": "The quadratic is the first case with competing zero-, one-, and two-inside-root counts. Following a single realization under amplitude variation gives an exact path, not only a stability probability. The law gives a precise probability of crossing by a prescribed amplitude and shows that the random crossing scale has a finite mean but no finite variance, features not visible in the constant mean root count.",
+      "residual_risks": [
+        "Does not describe higher degree, other coefficient distributions, or multiple parameter perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

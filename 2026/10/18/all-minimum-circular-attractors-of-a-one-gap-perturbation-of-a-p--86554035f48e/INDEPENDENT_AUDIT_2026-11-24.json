@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:12:21.674410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-gap circle has exactly one zero run of length q+s-1; the others have length q-1. The coverage of 1 is the set O of ones, and that of 0^q is the long run R. Each of 10^q and 0^q1 has a unique occurrence covering respectively the last 1 and first q long-gap zeros, and the last q long-gap zeros and initial 1. Any zero-only factor can slide across R, covering every position in it in some occurrence. A factor containing either boundary witness covers the respective witness interval. Every other factor with a 1 has h consecutive regular-spaced ones and at most q-1 zeros on either flank; sliding its block of h ones over the m displayed ones gives valid occurrences that collectively cross every member of O, including at a cyclic flank. Thus every factor-coverage set contains one of the four witness sets, and intersecting all four is necessary and sufficient. Since O and R are disjoint, a pair must choose one from each; the boundary intervals impose exactly the two implications on j,t. The endpoint ones each allow q zero choices, and each of the m-2 interior ones allows max(q-s+1,0). This also proves attainment and covers q=1, m=2, s=1 and s>q without assumptions about nonempty regular gaps or an irredundant set of four tests. The proof establishes the infinite claim; checker.py and its output were inspected, not executed. In that code the attribution to all pairs relies on the prior mask-containment test, rather than independently testing each pair on every factor.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Romana treats general checking complexity and hardness, not this indexed classification in the inspected introduction. The frozen record cites Mantaci et al. for a consecutive-position characterization of primitive standard Sturmian conjugates. The full text was not available in the attempted copies, so that report is not treated as independent full-text evidence. The targeted general lookup yielded no usable scientific passage."
+        ],
+        "reasoning": "Even the cited consecutive-position assertion, as reported, only concerns existence of an adjacent pair and cannot supply all nonadjacent optimum pairs or an all-subset factor test. Its Christoffel slice is narrower than the gap parameters here.",
+        "searches": [
+          "Romana CEUR 3587/9885.pdf, p.1",
+          "Mantaci et al. DOI 10.1016/j.tcs.2020.11.006, reported Theorem 34",
+          "Targeted web lookup for circular string attractors, Christoffel and all pairs"
+        ]
+      },
+      "checked_sources": [
+        "Romana CEUR Vol.3587/9885 p.1",
+        "Mantaci et al. DOI 10.1016/j.tcs.2020.11.006 (retrieval attempted, source not read)",
+        "Banbara et al. arXiv:2602.16152 p.1",
+        "Resultary 1f4a31bc89e1, 7de7a01f300d, 16126812e394"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Banbara et al. classify ordinary minima in Fibonacci, period-doubling and Thue–Morse words; the catalogue four-witness result tests pairs in ordinary (0^a1^b)^k instead of every subset in the circular perturbed family."
+        ],
+        "reasoning": "Neither a minimum-size theorem nor a generic attractor checker yields containment of every coverage set in the sense required here (each coverage set must contain one specified witness set). Changing periodic gap values or moving from a linear cut to a circle does change the constraints, as the explicit two-marker comparison shows.",
+        "searches": [
+          "Resultary 1f4a31bc89e1, 7de7a01f300d and 16126812e394 Findings",
+          "Banbara et al. arXiv:2602.16152, p.1, offset 1300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A circular attractor hits the union of the positions crossed by all circular occurrences of each factor, with a separate choice of occurrence for each factor. Linear occurrences are not an equivalent convention: for m=2,q=2,s=1 a linear cut of the same circle gives 01010 with six ordinary optimum pairs while its circle has four."
+        ],
+        "reasoning": "A linearization can encode the letter pattern in the two-marker case but not the universal collection of cyclic occurrence coverage sets. The comparison is made at the level of the hitting condition, not just word syntax.",
+        "searches": [
+          "Romana, Algorithmic View on Circular String Attractors, CEUR 3587/9885, Abstract/Introduction",
+          "Resultary all minimum pairs in two-marker binary words, 2026/11/22/7de7a01f300d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day circular entry gives a sharp threshold and all pairs for three markers with strictly distinct run lengths a<b<c. The two-marker entry gives linear exact counts, and the two-run-power entry gives a four-witness pair test with different factors and linear occurrences."
+        ],
+        "reasoning": "These are genuine adjacent exact results, not table matches for repeated equal gaps with one long gap. No exact catalogue coverage for the claim was demonstrated; ranked search is non-exhaustive.",
+        "searches": [
+          "Resultary circular attractors one exceptional gap and exact optimal pairs; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Resultary 2026/10/18/1f4a31bc89e1, 2026/11/22/7de7a01f300d, 2026/11/2/16126812e394"
+        ]
+      },
+      "rationale": "The reviewed circular literature provides the framework and related checking and consecutive-position results. Exact Resultary analogues under linear occurrences or three distinct circular gaps do not establish either the all-subset four-witness reduction or the all-minimizer census in this one-gap family. The possible Sturmian overlap at s=1 is not credited as a new scalar bound; the result here includes all optimal pairs and the arbitrary-marked-set test and works when s>1. No exact prior theorem or mechanical implication was established in the bounded evidence.",
+      "residual_risks": [
+        "Mantaci et al.'s unavailable full text limits exact comparison at the balanced s=1 slice.",
+        "Focused literature retrieval produced no additional usable passage, and the ranked catalogue lookup was bounded; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact framework, not a parametric optimum-pair classification in inspected material",
+          "evidence": "Defines circular attractors and gives general linear-time verification and NP-completeness results.",
+          "identifier_or_url": "https://ceur-ws.org/Vol-3587/9885.pdf",
+          "material_read": "PDF p.1, Abstract and Introduction, extracted offset 0",
+          "method": "OA PDF passage",
+          "title": "Algorithmic View on Circular String Attractors",
+          "trigger": "Same circular attractor condition and general verification"
+        },
+        {
+          "assessment": "Named remaining overlap risk, especially s=1; no original full-text comparison",
+          "evidence": "The report attributes a consecutive-position characterization among primitive words, not a classification of all pairs. Repository access returned 403 or no readable copy.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2020.11.006",
+          "material_read": "Frozen report of Theorem 34; original paper full text not retrieved",
+          "method": "Lawful repository handle and DOI recovery attempts; cited theorem report used only conditionally",
+          "title": "A combinatorial view on string attractors",
+          "trigger": "Potential Christoffel/Sturmian special-case coverage"
+        },
+        {
+          "assessment": "Different words and occurrence convention",
+          "evidence": "Ordinary substring attractors and all minima for specific morphic families, including Thue–Morse in the later version.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "PDF p.1, offset 1300",
+          "method": "OA PDF passage",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Earlier complete all-minimum attractor classification"
+        },
+        {
+          "assessment": "Different gap multiplicities",
+          "evidence": "Circle 0 1^a 0 1^b 0 1^c requires 1<=a<b<c, not repeated short gaps and one long gap.",
+          "identifier_or_url": "Resultary 2026/10/18/1f4a31bc89e1",
+          "material_read": "Finding and stated hypotheses",
+          "method": "Resultary local mirror",
+          "title": "A sharp three-marker transition for circular binary string attractors",
+          "trigger": "Same-day circular gap-family threshold and pair count"
+        },
+        {
+          "assessment": "Later linear analogue, exact discrepancy on a shared letter pattern",
+          "evidence": "Linear 0^a1 0^b1 0^c census uses occurrences that do not wrap around; 01010 has count six versus circular count four.",
+          "identifier_or_url": "Resultary 2026/11/22/7de7a01f300d",
+          "material_read": "Finding and occurrence convention",
+          "method": "Resultary local mirror",
+          "title": "All minimum string-attractor pairs in two-marker binary words",
+          "trigger": "Underlying word family on the m=2 boundary"
+        },
+        {
+          "assessment": "Later related result; linear and pair-only",
+          "evidence": "Tests 0, 1, 01, 10 on pairs in the ordinary periodic family (0^a1^b)^k.",
+          "identifier_or_url": "Resultary 2026/11/2/16126812e394",
+          "material_read": "Finding and hypotheses",
+          "method": "Resultary local mirror",
+          "title": "All smallest string attractors of binary two-run powers",
+          "trigger": "Earlier-looking analogous short testing basis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-optimal-position counts distinguish circles with the same minimum size. The proof identifies four coverage constraints that suffice for any marked set, not merely a faster check of candidate pairs. It quantifies the effect of a single nonperiodic gap in a natural family: interior ones stop participating above the gap threshold while endpoint choices remain. This structural and counting result goes beyond exhibiting one pair or rechecking a finite catalogue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

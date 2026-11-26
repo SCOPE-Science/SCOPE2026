@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:02:19.484062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof; VERIFICATION.md; static inspection of verify.py",
+        "Independent exact flow and determinant recomputation for pi=(2/5,1/3,4/15), (4/9,5/18,5/18), and (9/20,11/40,11/40)"
+      ],
+      "rationale": "The stationary flows have fixed pair sums ell_i opposite state i and a common oriented current j by conservation, exhausting the feasible matrices for |j|<=J. The two directed-triangle determinant terms give det P=(ell_1 ell_2 ell_3+j^2)/(4u); trace zero and the stationary root give residual discriminant (g-j^2)/u. Reversibility at j=0 makes g>=0, and g=0 forces uniform pi by the diagonal of the two-eigenvalue spectral decomposition. For pi=(p,q,r), ell_2 ell_3=-J+4qr, hence J^2-g=(4-9p)qr. The radius is strictly decreasing in j^2 up to g and increasing beyond it, so the exact optimizer has j^2=min(g,J^2). This gives the claimed 4/9 frontier, both branches, all sign choices and the uniform merger. The oriented triangle in the sign direction of j is positive, and some two-cycle is positive at every optimizer (the only possible loss of all reverse edges is a uniform-law endpoint, not optimal); this gives primitivity. A diagonalizable double root -1/2 would force P=-I/2+3(1 pi)/2 and hence uniform pi, proving the nonuniform Jordan claim. Independent exact examples at p=2/5, 4/9 and 9/20 verify existence of the real/complex split, equality at the frontier, and optimal radii 1/2, 1/2 and 2/3 respectively.",
+      "residual_risks": [
+        "The script's check tally is a reported counter and the sampled optimal-envelope comparison uses floating-point square roots. The symbolic proof and rational spot checks, not the reported tally, justify the result. The boundary p=1/2 is outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kirkland fixes the stationary vector in S(w) but permits loops; the explicit three-state minimum-eigenvalue results concern its reversible subclass R(w). Ran–Teng work with the zero diagonal in dimension three but do not prescribe the stationary vector."
+        ],
+        "reasoning": "These broader classes drop different constraints, and the fixed-stationary reversible minimization is also a different objective. Neither inspected theorem establishes feasibility at fixed pi of its unrestricted spectral realization.",
+        "searches": [
+          "Kirkland, ELA 39 (2023), §2 Theorem 2.1 and Theorems 4.2–4.3",
+          "Ran–Teng DOI 10.13001/ela.2024.7965, Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "Ran–Teng Proposition 6",
+        "Kirkland Theorems 2.1, 4.2–4.3",
+        "Resultary a90ff98542db, 186c818c5e1c, 40ab4f079cbc",
+        "Guerry bibliographic comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ran–Teng's zero-diagonal spectra have the nonstationary pair centered at -1/2; this gives the universal 1/2 lower bound irrespective of the stationary law. The reversible slice only determines the discriminant at j=0."
+        ],
+        "reasoning": "Neither observation determines which spectra are realizable with a given pi; the exact maximal current J and identity J^2-g=(4-9p)qr are needed for optimizer feasibility and boundary equality. The defective repeated optimum at nonuniform pi uses that prescribed law in its diagonalizability argument.",
+        "searches": [
+          "Ran–Teng Proposition 6 statement and proof",
+          "Kirkland Theorems 4.2–4.3",
+          "Resultary a90ff98542db finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a90ff98542db gives a three-letter no-repeat kernel P_ij=q_j/(1-q_i) for i distinct from j and the symmetric zero-diagonal fixed-composition stationary flow. This flow equals the j=0 slice: conservation determines its undirected pair sums and a symmetric flow has no circulation."
+        ],
+        "reasoning": "The equivalent reversible slice is prior overlap. Away from the uniform law it cannot attain the optimum here because g>0 and min(g,J^2)>0. It does not cover the nonreversible optimization. Shared record date does not assign priority.",
+        "searches": [
+          "Local Resultary stationary zero-diagonal 3-state chain spectral search",
+          "Resultary a90ff98542db, mirrored Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a90ff98542db treats the reversible slice and occupation rates; 186c818c5e1c uses the uniform off-diagonal-half kernel and lag correlation; 40ab4f079cbc optimizes a sparse primitive bistochastic class with a self-loop. No exact prescribed-pi threshold entry surfaced."
+        ],
+        "reasoning": "The uniform case has p=1/3 and no threshold to infer. A primitive bistochastic support with a self-loop is not the zero-diagonal family. Bounded database misses do not show absence.",
+        "searches": [
+          "Ranked Resultary searches for fixed-pi zero-diagonal three-state stochastic spectrum, circulations, 4/9 threshold and fastest-mixing variants"
+        ]
+      },
+      "rationale": "Credit the exact stationary-concentration threshold and minimizers for the joint constraints of prescribed stationary probabilities and zero diagonal without reversibility. The unrestricted trace bound and reversible stationary-flow representation are not credited as new. No inspected comparison covers the sharp prescribed-law optimization or its equality classification.",
+      "residual_risks": [
+        "Guerry's full text was not assessed, and an older fixed-stationary inverse-eigenvalue characterization may be unindexed or unseen. No priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted stationary vector, partial overlap",
+          "evidence": "Spectrum centered at -1/2 and realization for the class without a prescribed stationary vector.",
+          "identifier_or_url": "https://doi.org/10.13001/ela.2024.7965",
+          "material_read": "Proposition 6 and proof, pp. 511–512",
+          "method": "OA primary PDF",
+          "title": "The nonnegative inverse eigenvalue problem with prescribed zero patterns in dimension three",
+          "trigger": "Zero-diagonal three-state spectral realization"
+        },
+        {
+          "assessment": "Not a joint fixed-law, zero-diagonal, unrestricted-circulation result",
+          "evidence": "S(w) permits diagonal transitions; explicit three-state results are reversible minimum-eigenvalue results.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/7971/6411/18315",
+          "material_read": "§2 and Theorem 2.1 p. 559; Theorems 4.2–4.3 pp. 567–568",
+          "method": "OA primary PDF",
+          "title": "Eigenvalues for stochastic matrices with a prescribed stationary distribution",
+          "trigger": "Fixed stationary probabilities and three-state spectral analysis"
+        },
+        {
+          "assessment": "Reversible flow and model overlap; different objective",
+          "evidence": "The symmetric stationary flow is the current-zero member of the prescribed-pi class.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-occupation-large-deviations-and-universal-rare-transitions--a90ff98542db",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact occupation large deviations and universal rare transitions",
+          "trigger": "Same no-repeat three-state model at detailed balance"
+        },
+        {
+          "assessment": "Exact full-text coverage unresolved",
+          "evidence": "Identified topic is roots and embeddability, not verified coverage or noncoverage of the fixed-law problem.",
+          "identifier_or_url": "https://doi.org/10.1007/s40304-020-00226-3",
+          "material_read": "Bibliographic abstract comparison recorded in frozen source; no independent full-text passage retrieved",
+          "method": "Identified OA retrieval attempted",
+          "title": "Matrix roots and embedding conditions for three-state discrete-time Markov chains with complex eigenvalues",
+          "trigger": "Potential overlap on three-state nonreal spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and exact flow calculation",
+        "Ran–Teng Proposition 6",
+        "Kirkland stationary-vector results"
+      ],
+      "rationale": "Prescribing the stationary law and prohibiting self-loops are natural joint constraints for a transition design. The result determines exactly when the trace obstruction is attainable, where complex spectra can occur, and when the spectrally best design is necessarily defective. The latter warns against interpreting optimally small eigenvalue modulus as a uniform finite-time mixing guarantee.",
+      "residual_risks": [
+        "This is a three-state eigenvalue-modulus optimization, not a finite-time, higher-dimensional, or population-dynamics result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

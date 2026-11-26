@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The transition matrix has a fully specified feasible domain and explicit two-by-two Fourier-permutation spectral blocks. The dominance of the positive transverse eigenvalue follows from nonnegative trace and direct comparison to the mean-mode eigenvalue. Strict monotonicity in each core edge probability after symmetry reduction forces the nonnegative core holding-probability boundary. A strictly convex one-variable norm has a unique radical minimizer, and the positive-semidefinite common-kernel argument upgrades orbit-invariant uniqueness to uniqueness across every feasible transition matrix. The algebraic identities and independent dense spectra were replayed using the included script. Numerical experiments are supplemental, not a universal proof.
+## correctness
 
-## Originality — PASS
-The closest matching graph occurs in Jafarizadeh--Jamalipour (2010), but its signed-weight optimum violates the stochastic diagonal requirement for every order in the claim. Jafarizadeh (2020), Section 7.4 and Appendix E, gives a CCS-star stochastic formula only under the condition \((m-1)\pi_1\le\pi_0\); uniform one-edge-branch coronas of order \(m\ge3\) violate it, and the paper's separate violating-condition branch treats branch length two. Boyd et al. (2004, 2009) give the general convex framework and symmetry tool, not the present boundary formula or all-optimizers uniqueness. Indexed semantic searches and accessible previous graph-optimization claims did not yield a dominating theorem. An unindexed exact solution remains a residual risk; failed search is not proof of novelty.
+PASS
 
-## Value — PASS
-The problem is the standard nonnegative fastest-mixing design, but on a natural graph family already studied in the signed-consensus and reversible-chain literature. The sharp entrywise-positivity boundary changes the optimizer and its asymptotic modulus; a full infinite-family radical formula and genuine global uniqueness provide a reusable precise benchmark where the signed and stochastic formulations diverge.
+Simultaneous core–leaf pair averaging preserves the feasible set and cannot increase SLEM. The invariant matrix has one constant-pair block (eigenvalues 1 and 1−2p) and m−1 transverse 2×2 blocks. The latter's upper eigenvalue dominates the lower eigenvalue in modulus since the trace is nonnegative, and also dominates |1−2p| by the bounds max(1−p,p). This includes reducible boundaries. At p=0 the SLEM is 1, while some positive feasible p,q give less than 1. For p>0 the upper branch strictly decreases in q, forcing core saturation. With c=m/(2(m−1)) and t=1−p the boundary objective is (1−c)t+sqrt((1−t)²+c²t²); its second derivative is c²/((1−t)²+c²t²)^(3/2)>0 and its endpoint derivatives are −c and 1. Squaring at the interior tangency gives the stated quadratic for μ. Its unique positive root and t=(1−(1−c)μ)/(2c) yield the stated radicals and their limits. Unrestricted uniqueness is not inferred from averaging alone. The PSD deficit μI−(Q−J) for each conjugate of an arbitrary optimizer must vanish on the average's active transverse eigenspace E={(u,ru):u⊥1}, with r>1. The leaf equations fix every p_i; the core equations fix the weighted clique Laplacian on the whole of 1-perp, and it vanishes on 1. Consequently every core-edge entry is the same, forcing the unique stated kernel. The frozen verifier was inspected but not executed; finite deterministic and random checks are not a general uniqueness proof.
 
-## Independent status and limits
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-The theorem assumes a uniform equilibrium distribution and precisely one pendant leaf per clique vertex. It does not extend by assertion to arbitrary stationary measures or multi-edge branches. A previously unindexed equivalent theorem cannot be excluded.
+PASS
+
+The earlier signed solution is infeasible in this stochastic problem, and the earlier reversible one-edge formula excludes the uniform regime m≥3. A distinct later-dated general corona record demonstrably covers the optimal value and weights; its proof also readily implies unrestricted uniqueness in the complete-core case, despite not claiming that in general. No inspected evidence dates that stronger result earlier than this frozen record. The pass is a bounded judgment on the earlier exact stochastic finding, not a claim of content absent from the current index or of exclusive priority.
+
+## value
+
+PASS
+
+The result solves the stochastic saturation regime on a canonical family where the otherwise optimal consensus chain is infeasible. It gives the exact optimum at each size rather than just an asymptotic bound, and a complete optimizer classification across all supported kernels. The active-eigenspace rigidity handles precisely the non-invariant variation that generic symmetry reduction leaves open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

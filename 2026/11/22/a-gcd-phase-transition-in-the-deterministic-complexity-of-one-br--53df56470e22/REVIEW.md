@@ -1,19 +1,21 @@
-# Review: gcd-sensitive modular-marker determinization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The language is recognized by an explicitly defined epsilon-free \(r+s\)-state NFA with a unique branching transition. Every reachable subset has one first-cycle state and an arbitrary second-cycle subset in one gcd residue class. Generalized Chinese remaindering realizes all these subsets. An explicit Myhill--Nerode argument distinguishes different second-cycle subsets and all unsaturated first-cycle phases; only full-residue-class subsets merge. Therefore the minimal count is \(r(2^{s/\gcd(r,s)}-1)+\gcd(r,s)\). Two independent checkers passed for small parameters; their finite tests are not substituted for the proof. Remaining scientific risk: no independent human or formal audit.
+PASS
 
-## Originality — PASS against inspected evidence
+The epsilon-free NFA accepts exactly by choosing a b with the correct prefix residue and checking the suffix residue. A word with T letters a leaves a unique C index i=T mod r; each D index is T-t mod s for an eligible b at a-count t, with r|t. Thus all D indices lie in J_i defined by i mod g. For reachability fix T congruent to i and at least lcm(r,s)-1. For each j in the desired subset J_i, CRT gives one t in [0,lcm(r,s)-1]; these t are distinct since their residues modulo s differ. Mark exactly those positions. This yields exactly r*2^(s/g) reachable subsets. Distinct D sets are separated by rotating a symmetric-difference element to zero. For equal unsaturated D sets, including the empty set in different classes, use CRT to rotate a missing eligible D position to zero and precisely one of the two C phases to zero; the final b then adds D_0 only to that phase. If equal D sets are saturated, the classes must coincide (they are nonempty), and rotation preserves saturation while b adds nothing; acceptance is controlled only by the rotated class. Exactly g classes result from saturation, proving the minimal complete formula even for r=1, s=1, and r=s. The NFA never loses its C state, and there is no missing sink state to count. From the submitted scripts and logs I confirmed their stated methods and ranges without executing them. My separate python3 -B /workspace/reviews/modular_check.py uses Brzozowski double reversal and compares the quotient map and merging blocks on all 49 pairs through 7. Reached/minimized pairs include (r,s)=(1,7):128/128, (7,1):14/8, (6,4):24/20, (6,6):12/12, (6,7):768/763; 8176 direct binary word comparisons matched. The finite check supports, but is not used in place of, the CRT and right-language proof.
 
-Baburin–Cotterell (arXiv:2611.10911v1) studies general determinization hardness and subset complexity, but its inspected theorems do not yield the exact two-modulus quotient. Their older arXiv:2407.09891v1 supplies classical Moore/Meyer–Fischer exponential examples; the unconstrained-prefix special case is acknowledged rather than claimed anew. Jirásek–Jirásková (arXiv:2511.03814v1) gives other concatenation witnesses, not the current language's exact gcd-dependent state formula. Hospodár–Mlynárčik (2020) treats concatenation of permutation languages; here the left marked factor is not a permutation language, and only its summary was accessible. Relevant published small-state censuses and other modular word statistics have different hypotheses and do not imply the all-positive-parameter result. Exact-claim and alternative-description searches revealed no direct coverage. Residual priority risk: an unindexed equivalent specialized treatment could exist, and source searches cannot establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A single branch can yield exponential determinization, but congruences between the cycle lengths impose systematic identifications. The formula supplies an exact arithmetic classification and complete quotient structure for an infinite natural family, explaining a transition from \(r2^s-r+1\) in coprime cases to \(2r\) on the diagonal. This is substantially more informative than small-case enumeration or a generic upper bound, and gives a reusable exact benchmark for determinization and minimization.
+Best-of-knowledge pass for the two independently variable guards, the exact arithmetic quotient and its full list of identifications. The known modular-suffix exponential example is not itself original or needed as a priority claim. The paper's generic hardness motivation and the use of CRT, subset construction and Myhill–Nerode theory are prior tools.
 
-## Evidence and limitations
+## value
 
-Reproduce with `python3 verify_subset.py` and `python3 verify_quotient.py`; exact recorded outputs are `verify_subset.txt` and `verify_quotient.txt`. The formal proof, rather than the parameter-range checks, supports unrestricted integer parameters. No assertion is made of minimum NFA size, broad general NFA behavior, or exhaustive priority coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This naturally parameterized one-branch determinization example separates reachable subset count from minimal DFA count and explains every residual-language identification. It exposes which parameter, s/g, governs exponential growth, including linear growth when s/g stays bounded, and gives a reusable exact witness for congruence effects in restricted determinization. The joint structural classification, not the familiar free-prefix exponential example or a small table, carries the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

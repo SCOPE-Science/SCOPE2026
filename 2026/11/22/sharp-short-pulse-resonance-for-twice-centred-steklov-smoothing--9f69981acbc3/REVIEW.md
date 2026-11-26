@@ -1,19 +1,21 @@
-# Scientific review: twice-centred Steklov smoothing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a sharp, all-bandwidth statement on \(0<a\le1/3\) for real periodic \(BV\), not a finite enumeration. A signed-derivative coupling expresses each \(BV\) input modulo constants as a mean of oriented arc indicators; the Hilbert triangle inequality reduces the norm to an exact arc residual, and strict equality plus nonzero Fourier multipliers gives the full equality classification. Fourier differentiation identifies \(F_a''=2(K_a*K_a-2K_a)\) away from zero, and the fourfold-box convolution gives a polynomial on \(0<L<a\). Its integrated derivative \(p\) has one root in \((0,1)\) by strict convexity and endpoint signs. On \(a\le L\le1/2\), positivity of the fourfold convolution forces \(F_a''\ge0\), while reflection forces \(F_a'(1/2)=0\), excluding all additional maxima including wrapping regimes. The exact constant follows from \(V(\mathbf1_I)=2\). Explicit rational checks and a bounded Fourier tail verify the algebra without purporting to certify all arcs computationally.
+PASS
 
-## Originality — PASS, with explicit residual risk
+Normalize the two Jordan parts of the circular derivative by V/2, and pair them to express the function modulo constants as a probability average of oriented arc indicators times V/2. Equality can be checked by the Hilbert-space variance identity: the residuals must all equal one maximizing residual. The multiplier 1−sinc²(πka) is nonzero for k≠0, so equality of residuals identifies the arc modulo constants. For the arc energy F(L), expansion of (I−T_a)^2 gives F(L)=L+2∫₀ᴸ(L−x)(K_a*K_a−2K_a)(x)dx, using circular kernels. The unwrapped four-box spline gives F(az)=aΦ(z) for z≤1; no translate contributes even at a=1/3 and z=1. The quartic is strictly convex with opposite endpoint signs and has exactly one root on (0,1). Beyond a, F''≥0 all the way to 1/2 even with wrapping, so F'≤0 by symmetry. The strict decrease from ar to a rules out every other length except the complementary one. For a≤1/4 integration of the outer spline gives the a/5 plateau; V=2 for a unit arc gives the claimed squared-norm factor 1/4. Exact independent spline-integral, root-enclosure and plateau checks passed; replay from /workspace with python3 -I -B branches/frozen_review_checks.py.
 
-Compared at the statement/implication level: Costarelli–Vinti (2014, https://doi.org/10.1216/JIE-2014-26-4-455, accessible complete article including its B-spline kernel section) proves rates for discrete sampling-Kantorovich operators on Lipschitz and Orlicz classes; the input class, operator and target sharp constant all differ. Mejía–Silvestre (2015, https://doi.org/10.1155/2015/253636, open full-text rendering with equations partially degraded) uses iterated forward Steklov means in higher \(p\)-variation/modulus inequalities but does not provide the centred residual \(BV\)-to-\(L^2\) norm or maximizing pulse. The later full Angeloni–Vinti et al. (2023, https://doi.org/10.1515/math-2022-0573) studies convergence in variation of sampling-Kantorovich schemes, not sharp smoothing residuals. Separate related work on one-sided boxcars and Poisson mixtures has different spectral multipliers and optimized arc geometry; neither dominates this result. Searches for triangular and fourfold B-spline sharp circle \(BV\) errors found no equivalent, but search incompleteness and an unindexed historical equivalent are remaining risks. No literature-wide uniqueness is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-A twice-applied positive moving average is a standard smoothing operation, and exact worst-case variation-normalized \(L^2\) error matters when signals contain jumps. The theorem supplies a complete sharp constant and **all** extremizers over a nontrivial continuum of bandwidths. The worst pulse is only \(0.6111143254\ldots\) times the averaging width: its two error layers reinforce, increasing squared residual by roughly \(23.17\%\) over widely separated jumps in the nonwrapping range. This is a structural distinction from isolated-jump or semicircle heuristics, not merely a substituted parameter or computed table entry.
+The supported distinct contribution is the exact centered triangular-convolution norm throughout 0<a≤1/3 and its rigid pulse equality class. The general BV reduction and the phenomenon of interacting jump layers in other smoothers are not independently new claims. The closest available statements have different operators or conclusion strength; the comparison is provisional where only indexed summaries or frozen source inspections were available.
 
-## Limitations and follow-up risk
+## value
 
-The proof relies on the small-support geometry \(a\le1/3\); the full larger-width phase diagram remains unproved. No signed kernels, other \(L^p\) metrics or forward-shifted error norm are covered. Historical priority is qualified because indexing cannot exclude equivalent formulations in older smoothing-inequality literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Twice-centered moving averages are a natural smoothing operation for periodic jump data. The separation between the worst short pulse and a pair of isolated jumps is structural: the exact squared residual is about 23.17% larger than the separated plateau where that plateau exists. The complete extremizer geometry and endpoint-valid bandwidth law give a sharp benchmark not supplied by a convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: exact positive Laplace two-cycle classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining map yields two derivative equations for two successive Laplace transforms. Subtraction gives the exact invariant difference \(q-r=c\), and positivity allows a complete exhaustive split by the sign of \(c\). Each resulting Riccati solution has a unique Laplace representation. The geometric branches satisfy both directions of the defining equation on the same convergence half-line; the zero branch yields the exponential fixed points. Probability normalization is checked directly. The attached exact-rational checker is supplementary rather than a substitute for this proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-Grabchak (2026) constructs geometric alternating chains from a shifted/scaled ansatz but does not state or prove the converse classification of *all* solutions of \(F^2(\mu)=\mu\). The converse follows here from an invariant obtained without assuming such an ansatz. The 2025/2023 real-line chainability papers use a second-logarithmic-derivative operation, so their stated fixed-point results do not directly imply this first-derivative two-cycle theorem. A public classification for a generalized equilibrium transform concerns a different mapping. Searches of published mathematical records and accessible previous claims did not identify an equivalent two-cycle theorem. Historical priority remains uncertain, especially because a related 2025 paper was not readable beyond its abstract.
+PASS
 
-## Value — PASS
-The motivating paper leaves examples of nontrivial period-two chains but not a complete description. The theorem closes that natural structural classification for the full positive-measure domain, proves that nonconstant periodicity must alternate a zero atom with a strictly positive lattice, and gives an exact characterization of which starting probabilities can lie on a two-cycle. It also resolves the normalization obstruction for both successive distributions. This is a complete natural invariant classification, not an arbitrary special-parameter computation.
+At every interior Laplace parameter, differentiation under the integral is justified by tilting at a slightly smaller admissible parameter. If q and r are the two strictly positive transforms, q'=r'=-qr so q-r=c. When c=0, (1/q)'=1 gives exactly q=1/(z+gamma). Orient a nonconstant pair so c=a>0; then (log(r/q))'=-a, so r/q=t exp(-az) with t>0, and q=a/(1-t exp(-az)). The positive inverse transforms are obtained by the convergent geometric series and are unique by Laplace uniqueness after a finite exponential tilt. The series converge exactly for z>log(t)/a, not at the endpoint; the reciprocal affine transform likewise has the stated abscissa. Direct differentiation gives the required two directions on the common half-line. The zero-atom difference fixes a and the transform ratio fixes t; a constant transform with zero partner is excluded by hypothesis. The masses are a/(1-t) and at/(1-t) for t<1 (infinite otherwise), giving both probability slices and the obstruction to two probability members. The reciprocal affine family has exactly one probability member, the rate-one exponential. Inspected VERIFICATION.md and verify.py without running the uploaded code; its finite rational identities are supplementary, not required for the classification.
 
-## Closest literature and limitations
-M. Grabchak, arXiv:2611.11109v1 (2026), Theorem 1 and Corollary 2, is the closest same-map result. S. K. Bar-Lev and G. Letac, *Statistics & Probability Letters* 216 (2025), 110256, is related but defines a different transform. S. K. Bar-Lev, *Mathematics* 11 (2023), Section 4.7, provides earlier second-derivative context. The theorem does not classify longer periodic or preperiodic chains, and no independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the unrestricted necessity/classification, not for discovering the fixed points or the geometric examples. The strongest same-map source obtains the entire example family under a shift-scale premise; the exact period-two premise alone is not shown there to force that premise. The derivative invariant supplies the missing step. No independently covering statement was established in the bounded comparisons.
+
+## value
+
+PASS
+
+Exact period two is the first natural nonfixed periodicity question for this map. A proof that all such cycles must be rigid lattice pairs differing by one atom, including when one member is a probability and the other is not, is a useful exclusion/classification, not a further example or cosmetic reparameterization. It does not address longer periods or convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:28:18.091185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fourier series uses length measure and integrates to one. The exponential mixture of strictly positive periodized stable transition densities gives a positive minimum: the mixture restricted to t in [1,2] already has a uniform positive lower bound. Write a_k=σ^(−α)k^(−α)+r_k with ∑k|r_k|<∞; the remainder is C¹, even, and has derivative zero at the cusp. The leading decrement is a Riemann sum for ∫₀∞(1−cos t)t^(−α)dt=π/[2Γ(α) sin(π(α−1)/2)], obtained by the Laplace representation of t^(−α) and the beta integral. Dirichlet summation bounds the scaled sine-series tail beyond k=T/|x| by O(T^(−β)), where β=α−1; rescaling the finite part gives the derivative constant −βB on the positive side, with the opposite sign on the negative side. At α=2 the sawtooth sine series gives the same one-sided result. Passing to g=√f divides the cusp constant by 2√f(0). For β<1/2, after x=hu the squared increment is dominated on the rescaled tails by C|u|^(2β−2), with bounded integrand on compact sets; away from the cusp the original integral is O(h²). This gives the exact Jβ and the power 2β+1. At β=1/2, on M|h|<|x|<δ the derivative asymptote and |h/x|≤1/M give relative errors made arbitrarily small by taking δ small and M large after the h limit. The two sides each give A²/4 times h² log(1/|h|); the remaining pieces are O_{M,δ}(h²). Independently, Parseval gives ||f(·−h)−f||²=(2/π)∑a_k²(1−cos kh); at α=3/2 the harmonic sum gives σ^(−3)h² log(1/|h|)/π. The square-root difference divides this leading term by 4f(0) since it is concentrated near the cusp, agreeing with A²/2. For β>1/2 the integrable derivative near the cusp is also square integrable, so g is in periodic H¹ and the translation derivative is −g′ in L², giving I/4. At and below β=1/2 the squared Hellinger discrepancy divided by h² diverges, ruling out DQM. The integrand of truncated information is 4g′²∼4A²β²|x|^(2β−2), which gives both asserted constants by two-sided integration. This is fixed-scale, fixed-shape circular location inference for 1<α≤2 using non-halved Hellinger loss, not uniform asymptotics or a statement about joint estimators. The source checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dachian et al., §1.1 pp. 9–11, uses an odd signed cusp on the real line, 0<κ<1/2, and a rescaled squared-increment integral in its likelihood analysis. Its Remark 1 also identifies older symmetric generalized-Gaussian cusp examples.",
+          "Wang–Gao gives a general Hellinger-modulus framework and a power-log example. Laha p. 13 after eq. (15) gives a finite/infinite information threshold for a symmetrized-beta example."
+        ],
+        "reasoning": "The exponent scaling and square-integrability test are common cusp phenomena. The signed cusp uses a different increment integrand, and the cited examples do not yield the periodic Fourier-to-cusp calibration, or the complete wrapped-Linnik location constants, without new model-specific calculations.",
+        "searches": [
+          "Resultary: location family cusp Hellinger shift nonregular cusp exponent Sobolev DQM",
+          "arXiv:1711.03740",
+          "arXiv:2609.20749",
+          "arXiv:2105.04287"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/jrfm16090405",
+        "DOI:10.1080/02664763.2023.2283689 (listing/attempt only)",
+        "arXiv:0903.5344",
+        "arXiv:1711.03740",
+        "arXiv:2609.20749",
+        "arXiv:2105.04287",
+        "Resultary:87e6f4c012d9",
+        "Resultary:92a2596e06eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 87e6f4c012d9 generic passage proves the non-halved critical law (b²/2)h² log(1/|h|) for a square-root cusp with a locally Lipschitz remainder and a square-integrable derivative off the cusp. At α=3/2, the local expansion of the principal cosine polylogarithm has an analytic remainder and the Fourier coefficient residual is C¹. Expanding √f therefore gives −A√|x| plus a Lipschitz remainder. Localize the circle to the cusp; the complementary shift costs O(h²). The prior critical law thus covers this step with b=−A.",
+          "The 92a2596e06eb threshold is for an endpoint power-log family in its log parameter, not α in wrapped Linnik. Lim–Teo covers the cusp amplitude before applying the wrapped square-root normalization but not the circular location problem."
+        ],
+        "reasoning": "The critical asymptotic mechanism is a true prior implication, not just an analogous problem. The proof still needs to obtain the wrapped calibration, its subcritical exact modulus and truncated circular information, and assemble the three regimes. None of the inspected stronger statements already supplies that combined model-specific result. The inaccessible follow-up cannot be treated as negative evidence.",
+        "searches": [
+          "Resultary:87e6f4c012d9",
+          "Resultary:92a2596e06eb",
+          "arXiv:0903.5344",
+          "PMC11389635"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SenGupta–Roy (2023), §3 Theorem 2 and eq. (5), gives the identical Fourier density in θ−μ, with scale σ in (σp)^α.",
+          "The Lim–Teo real-line near-origin expansion at n=ν=1 recovers the same leading cusp exponent and B after matching scale. For the wrapped law the square-root amplitude divides by 2√f(0), where f(0) is the sum over all periodic images, rather than the real-line peak."
+        ],
+        "reasoning": "The wrapped model is exactly prior, and its cusp is related to the known unwrapped cusp, not a new singularity. Real-line Hellinger shifts cannot simply be restated as circular ones: wrapping changes the denominator of the leading square-root amplitude, and the regular Fisher integral is over the circular density.",
+        "searches": [
+          "Resultary: wrapped Linnik location Hellinger Fisher information alpha 3/2",
+          "DOI:10.3390/jrfm16090405",
+          "arXiv:0903.5344"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest matched exact catalog statements are a critical square-root cusp formula for a different location problem and a compact-support endpoint power-log transition. No distinct exact wrapped-Linnik three-regime constants were identified in these inspected matches.",
+          "The inspected original model paper tabulates and studies the shape model; its §3 formula supplies the starting Fourier weights rather than a location-information classification."
+        ],
+        "reasoning": "Catalog matches were compared for the density, local singularity, parameter and normalization rather than just the word ‘critical.’ The limited catalog comparison and inaccessible sources do not establish absence from other tables or literature.",
+        "searches": [
+          "Resultary: wrapped Linnik location Hellinger Fisher information alpha 3/2",
+          "Resultary: location family cusp Hellinger shift nonregular cusp exponent Sobolev DQM",
+          "Resultary:87e6f4c012d9",
+          "Resultary:92a2596e06eb"
+        ]
+      },
+      "rationale": "Narrow pass for the complete normalized wrapped-Linnik location classification and its model-specific constants. The model, real-line cusp ingredient, generic square-root-cusp logarithm, and regular Sobolev/DQM principle are not original. A prior generic critical formula really does apply after checking the wrapped square-root remainder and matching the Hellinger convention. The inspected cases and general frameworks do not supply the full calibrated circular result with both divergent-information constants. This is a bounded assessment with a relevant inaccessible follow-up, not a claim that the underlying cusp mechanism or the number 3/2 by itself is novel.",
+      "residual_risks": [
+        "No conclusion about the full contents of the same-family follow-up PMC11389635; full text was not successfully retrieved. The cited Bell–Nadarajah and Shemyakin full texts were also not available in this comparison.",
+        "Equivalent circular kernel asymptotics could be indexed under fractional Bessel potentials, resolvent kernels, or general periodic nonregular location models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same density; inspected sections address the wrapped model and shape-estimation context, not the present location constants",
+          "evidence": [
+            "Equation (5) gives the density with coefficients [1+(σp)^α]^(−1). The article introduces trigonometric method-of-moments estimators for α."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/jrfm16090405",
+          "material_read": "Primary PDF §3, Theorem 2 and (5), pp. 3–4, offsets 14980–19065; §1 overview of §§6–8 at offsets 9878–10445",
+          "method": "Bounded reading of OA PDF at mdpi-res.com/d_attachment/jrfm/jrfm-16-00405/article_deploy/jrfm-16-00405.pdf",
+          "title": "Circular-Statistics-Based Estimators and Tests for the Index Parameter α of Distributions for High-Volatility Financial Markets",
+          "trigger": "Exact original wrapped Linnik model and same parameters"
+        },
+        {
+          "assessment": "Whole-paper coverage remains unresolved",
+          "evidence": [
+            "The accessible listing identifies the same family and a goodness-of-fit study. Publisher and public full-text routes did not supply a passage for comparison."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11389635/ (DOI:10.1080/02664763.2023.2283689)",
+          "material_read": "Indexed listing only; no original result passage was retrievable",
+          "method": "Attempted public publisher and PMC access, exact candidate PDF and Europe PMC alternatives; no usable text",
+          "title": "A characteristic function based circular distribution family and its goodness of fit: The flexible wrapped Linnik family",
+          "trigger": "Most relevant same-family follow-up, plausible source of stronger results"
+        },
+        {
+          "assessment": "Covers the corresponding unwrapped cusp ingredient, not the circular information classification",
+          "evidence": [
+            "Its origin expansion at n=ν=1 supplies the leading real-line decrement; α=2 is Laplace."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.5344",
+          "material_read": "PDF pp. 4–6 and 11–15; offsets approximately 14000 and 43000–55000",
+          "method": "Bounded primary-PDF statement comparison",
+          "title": "Analytic and asymptotic properties of multivariate generalized Linnik’s probability densities",
+          "trigger": "Known real-line Linnik origin asymptotics, potential specialization to cusp constant"
+        },
+        {
+          "assessment": "Prior subcritical cusp methodology and related real-line families, not the wrapped normalized result",
+          "evidence": [
+            "Main i.i.d. calculation uses an odd signed power in the rescaled squared-increment integral. Remark 1 cites symmetric generalized-Gaussian examples on both sides of κ=1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.03740",
+          "material_read": "PDF §1.1 pp. 9–11, offsets 25639–30830 and 32645–33855",
+          "method": "Bounded primary-PDF comparison of the i.i.d. model, scaling calculation and Remark 1",
+          "title": "Estimation of cusp location of stochastic processes: a survey",
+          "trigger": "Strong generic cusp-location analogue and possible subcritical implication"
+        },
+        {
+          "assessment": "The generic critical shift law really does apply locally to wrapped Linnik after matching the cusp coefficient; does not establish the other regimes",
+          "evidence": [
+            "A locally Lipschitz remainder after removing b√|x| and square-integrable derivative outside the cusp give the non-halved constant b²/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-truncated-pareto-position-scores-and-a-singular-location-informa--87e6f4c012d9",
+          "material_read": "Mirrored RESULT.md Proof, offsets 5395–6028",
+          "method": "Local catalog and exact original passage comparison",
+          "title": "Truncated Pareto position scores and a singular location information law",
+          "trigger": "Potentially covering general critical square-root-cusp Hellinger lemma"
+        },
+        {
+          "assessment": "Different support and critical parameter",
+          "evidence": [
+            "Compact-support endpoint power-log model; finite information and DQM exactly for its log parameter κ>1."
+          ],
+          "identifier_or_url": "2026/9/18/SCOPE-critical-power-log-location-hellinger-transition--92a2596e06eb",
+          "material_read": "Mirrored RESULT.md, offsets 0–7843",
+          "method": "Local catalog and original statement comparison",
+          "title": "Critical power-log location Hellinger transition",
+          "trigger": "Potential stronger general location Hellinger/DQM threshold"
+        },
+        {
+          "assessment": "General framework and separate example, not an evaluation of wrapped Linnik",
+          "evidence": [
+            "The power-log example uses its own parameter in (0,1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.20749",
+          "material_read": "Wang–Gao, PDF p. 3 eqs. (4), (7), and p. 20",
+          "method": "Bounded primary-PDF comparison",
+          "title": "Inverse Hellinger-modulus framework and power-log example",
+          "trigger": "Plausible general Hellinger coverage"
+        },
+        {
+          "assessment": "Different density and shape coordinate",
+          "evidence": [
+            "For the symmetrized-beta example, location information is infinite for r≤2 and finite for r>2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04287",
+          "material_read": "Laha, PDF p. 13, equation (15) and following paragraph",
+          "method": "Bounded primary-PDF comparison",
+          "title": "Symmetrized-beta location-information example",
+          "trigger": "Generic finite-information cutoff in a cusp family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard circular family this answers whether location inference falls under the usual finite-information translation model, and quantifies the loss of regularity in the actual wrapped normalization. In particular it separates the pure fractional modulus from the critical logarithm and identifies how the scale and the entire wrapped density peak enter the leading constants. Checking and calibrating those regimes for this model is useful beyond repeating a generic Sobolev criterion; it does not establish an optimal estimator or a joint-parameter inference theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

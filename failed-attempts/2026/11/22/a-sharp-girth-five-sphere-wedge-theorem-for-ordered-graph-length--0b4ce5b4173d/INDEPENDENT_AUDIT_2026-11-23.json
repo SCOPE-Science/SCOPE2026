@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:21:43.873562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–61",
+        "Frozen VERIFICATION.md and verify_enriched2.py (inspected, not executed)"
+      ],
+      "rationale": "At inclusive length two every nondegenerate 2-cell is a two-step unit-edge walk; there are no higher cells. Distinct endpoints give distance two by triangle exclusion and have a unique common neighbor by square exclusion. Each ordered shortcut is therefore an embedded free side of its sole triangle and can be removed with that triangle; opposite shortcuts are distinct. The residual complex has a pair of directed arcs and two disks along their bigon for each unoriented edge. A backtrack disk is a disk with the degenerate side collapsed to a point. With one disk per edge, collapse each disk against one arc to get the ordinary graph. The other disks have nullhomotopic attaching loops and add one sphere each. The two normalized disks have the identical primitive boundary b_uv; their difference generates the degree-two kernel on that edge, and graph automorphisms transport these differences with a sign when the edge is reversed. For H1 the sum b_uv is invariant under reversal. Quotienting the directed-edge chains by the sums gives exactly the signed ordinary graph chains, and every graph cycle lifts to a cycle because boundaries factor through that quotient. This proves primitivity, natural exactness, and the field-wise ranks. For C3, there are 12 triangles and 6 arcs; the three bigon relations and the triangular graph cycle give boundary rank four. For C4 there are 16 triangles and 12 arcs; eliminating the four ordered opposite-pair shortcuts leaves the four bigon relations and the square cycle, for total boundary rank nine. The excluded examples therefore give (0,8) and (0,7), respectively. These are integral arguments independent of the recorded finite-field tests.",
+      "residual_risks": [
+        "The proof gives a nonequivariant wedge equivalence and separately an integral module computation, not an equivariant wedge decomposition or a later-stage barcode."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tree lemma for L>=2 already gives a wedge of one S^L per edge in the cumulative complex. The covering argument compares geodesics or walks of length <=L by 2L<g, which at L=2 is exactly the target girth condition.",
+          "At L=2 the universal cover is simply connected by the tree lemma, H2 has the alternating edge basis, the base graph arcs induce the required pi1 isomorphism, and the Whitehead argument works in degree two just as in higher degrees.",
+          "Tajima's exact-length tree theorem alone has twice as many generators and is not the cumulative wedge result; Melodia's individual backtrack death alone gives only a lower bound on the kernel."
+        ],
+        "reasoning": "The original proof passages of the broader indexed result, not its restricted headline, cover the target wedge and integral top action by direct substitution. No priority judgment follows from the common catalogue date.",
+        "searches": [
+          "Resultary 1370e294b1e8, RESULT.md Proof §§1–4",
+          "Tajima doi:10.14943/doctoral.k15733, Example 2.2.5(1) and Theorem 2.2.6",
+          "arXiv:2608.21479 §4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1370e294b1e8",
+        "Resultary e4f536ceab68",
+        "arXiv:2411.01857",
+        "arXiv:2608.21479",
+        "doi:10.14943/doctoral.k15733"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At L=2 the specialized equivalence identifies the usual graph H1 via the chosen directed arcs; backtrack triangles identify every reverse arc with the inverse. Therefore on H1 of the two-arc graph the persistence map is the canonical signed-arc projection. Its kernel is exactly the primitive, unsigned lattice of arc sums. H2 is free on the differences by the specialized top cycle formula.",
+          "The higher-cutoff work's Related Work explicitly mentions narrower cutoff-two results without identifying them; this observation was not used as proof of which record appeared first."
+        ],
+        "reasoning": "The exact sequence and signs follow from the explicit graph inclusion and small chain relations, on top of the direct proof specialization. There is no independently new target theorem left by treating the first-stage count and the two excluded examples as supplementary facts.",
+        "searches": [
+          "Resultary 1370e294b1e8, RESULT.md offsets 2396–9840: tree lemma, lifting, Whitehead comparison and natural symmetry",
+          "arXiv:2608.21479, Lemma 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ivanov–Xu §1.1 (1.2), §§2.2–2.3 (2.19), (2.22)–(2.23) identify the same ordered construction and cumulative blurred magnitude homology.",
+          "The prism Čech nerve has the same nonequivariant wedge, but its H2 is unsigned and its H1 kernel signed. This is not equivalent to the target ordered nerve as a natural construction.",
+          "The distinct high-girth ordered-length result on the identical object specifies the analogous alternating top class a_L+(-1)^(L+1)b_L; this is exactly z_uv at L=2."
+        ],
+        "reasoning": "The direct overlap arises in the same ordered object under the l^1 total-length formulation; it is not an inference from a superficially similar unordered nerve or matching ranks.",
+        "searches": [
+          "arXiv:2411.01857, ordered inclusive l^1 Vietoris–Rips simplicial set",
+          "arXiv:2608.21479, length-filtered persistent magnitude homology",
+          "Resultary 1370e294b1e8 and e4f536ceab68"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prism comparison reproduces the sphere multiplicities for a distinct construction, not a table of such ordered nerves. The higher-cutoff record gives analytic, not tabulated, ranks for the same object and includes the requisite scale-two proof ingredients. The C3 and C4 ranks are small boundary computations, not the central classification."
+        ],
+        "reasoning": "A finite table is not a substitute for a universal homotopy and module statement. Here the coverage is by a theorem's proof and its specialization, not by numerical tabulation.",
+        "searches": [
+          "Resultary e4f536ceab68, Finding and §§4–6",
+          "Resultary 1370e294b1e8, Finding and Proof §§1–4",
+          "Tajima doi:10.14943/doctoral.k15733, exact-length tree cases"
+        ]
+      },
+      "rationale": "A distinct indexed result on the SAME ordered length nerves has a proof that specializes to the target cutoff without a new lemma. Its formal headline is for cyclic graphs and L>=3; this is proof-level coverage, not a claim that the headline includes L=2 or that the two same-date records have a known ordering. Its explicitly L>=2 tree calculation supplies the tree case. For cyclic graphs, its short-length lifting and Whitehead steps require 2L<g and continue to hold at L=2. Its explicit parity calculation becomes the target signed cycle. It also identifies the embedded graph on one directed arc per edge as a fundamental-group isomorphism; the backtrack disks identify the other arcs with the inverses, so the persistence map is precisely the projection of the doubled graph onto the ordinary graph. Thus the unsigned primitive kernel is a direct consequence. The elementary collapse is a shorter proof of these overlapping statements; the small excluded examples do not constitute a separate substantive remainder of the frozen claim.",
+      "residual_risks": [
+        "The catalogue establishes a distinct overlapping result, not ordering within a date or independent invention history.",
+        "The unnamed cutoff-two comparison in the higher-cutoff record was not identified; it is unnecessary for the direct mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable proof-level coverage at L=2 despite L>=3 and cyclic restriction in the headline; priority ordering not established",
+          "evidence": [
+            "Tree lemma explicitly for L>=2; lifting uses 2L<g; chosen graph arcs induce pi1 isomorphism; endpoint reversal acts by (-1)^(L+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-high-girth-ordered-length-nerves-split-into-graph-circles-and-ed--1370e294b1e8",
+          "material_read": "Mirrored RESULT.md Finding, Proof §§1–4 (offsets 2396–9840), Relationship and Limitations (from offset 9850)",
+          "method": "Local catalogue lookup and bounded primary mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "High-girth ordered length nerves split into graph circles and edge spheres",
+          "trigger": "Same ordered length nerve, same wedge pattern and signed top class; decide applicability below the headline cutoff"
+        },
+        {
+          "assessment": "Same nonequivariant wedge but genuinely different nerve and modules",
+          "evidence": [
+            "Prism closed-ball Čech H2 is the unsigned edge-permutation lattice, and the H1 kernel is signed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68",
+          "material_read": "Mirrored RESULT.md Finding and proof §§4–6, offsets 0 and 4700–7900",
+          "method": "Local catalogue lookup and bounded primary mirror reading",
+          "title": "A high-girth prism Čech collapse and its integral symmetry modules",
+          "trigger": "Same nonequivariant wedge multiplicities and natural integral comparison"
+        },
+        {
+          "assessment": "Exact framework match, not the graph classification in the passages inspected",
+          "evidence": [
+            "Consecutive-distance sum for l^1 and identification of the inclusive construction with non-strict blurred magnitude homology."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.01857",
+          "material_read": "§1.1 (1.2), §§2.2–2.3 (2.19), (2.22)–(2.23); PDF pp. 3, 8–9",
+          "method": "Bounded open primary PDF text",
+          "title": "On l^p–Vietoris–Rips complexes",
+          "trigger": "Alias for the inclusive ordered length nerve"
+        },
+        {
+          "assessment": "Provides general chain framework and one backtrack death, not alone the full kernel or wedge",
+          "evidence": [
+            "A two-vertex backtrack cycle is filled at scale 2d(x,y)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.21479",
+          "material_read": "Abstract and §4, including Proposition 4.4 and Lemma 4.6; bounded PDF text near offsets 31221 and 33350–35000",
+          "method": "Bounded open primary PDF text",
+          "title": "Persistent Magnitude Homology for Quantitative Equational Theories",
+          "trigger": "Same length filtration and first-transition relations"
+        },
+        {
+          "assessment": "Exact-length quotient, not cumulative ordered nerve",
+          "evidence": [
+            "Exact-length tree wedge has 2|E| spheres in degree L; attachment information is needed for cumulative results."
+          ],
+          "identifier_or_url": "https://doi.org/10.14943/doctoral.k15733",
+          "material_read": "Example 2.2.5(1) and Theorem 2.2.6, PDF p. 17",
+          "method": "Bounded open primary thesis text",
+          "title": "Discrete Morse theory on magnitude homotopy types of finite graphs",
+          "trigger": "Possible broader tree homotopy coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and scope",
+        "Resultary e4f536ceab68 for direct contrast of the module actions"
+      ],
+      "rationale": "The first nontrivial length stage is a natural invariant of the filtration: the homotopy classification has branching and cycles built in, and the signed versus unsigned module distinction detects structure invisible to Betti numbers. The short-path collapse is a useful presentation. This assessment of the mathematical question's substance does not establish originality for the frozen claim.",
+      "residual_risks": [
+        "No equivariant homotopy or persistence beyond the first transition follows. The two small exclusions alone were not assessed as a separate valuable contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

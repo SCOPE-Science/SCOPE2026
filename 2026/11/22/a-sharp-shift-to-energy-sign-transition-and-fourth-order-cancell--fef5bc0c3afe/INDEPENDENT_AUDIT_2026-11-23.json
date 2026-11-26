@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:52:53.873123Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the scheme in RESULT.md, write G(u)=u^3/f(u). The eliminated equation is 2(x_n-u)=h r_n G(u)/(1+hG(u)^2/4). G is strictly increasing on (0,a], and the scalar map v/(1+hv^2/4) is increasing throughout its range for small h. The two sides bracket at u=x_n/2 and u=x_n uniformly for bounded positive r_n, since G(x_n/2)≤x_n^3/(8√C). On every finite prefix the accumulated symmetric chain-rule defect is bounded by const·(max|Δ_n|)^2 Σ|Δ_n|=O(h²): Δ_n=O(h) and Σ|Δ_n|≤a. This bound inductively keeps r positive and bounded (the auxiliary update decreases r while x does), so the branch extends to all steps. At fixed h any positive limiting x contradicts the eliminated step equation and the uniform lower bound on r. The exact energy change is −Δ_n²/h. The per-step defect is −f'''(u)Δ_n³/24+O(|Δ_n|⁵); the mean auxiliary ratio is 1+O(h²) uniformly, so summing and applying composite midpoint quadrature gives h²∫₀ᵃ f'''(u)u⁶du/24+O(h⁴). Both errors use the bounded total variation a, not a fixed number of steps. Substitution t=u⁴/(4C), then s=√(1+t), gives the stated factored coefficient. Its sole zero at s=(2+√10)/3 gives the displayed energy ratio and signs. This proves O(h⁴) at cancellation, not a nonzero h⁴ coefficient or fourth-order state accuracy. VERIFICATION.md and check_quartic_sav.py were inspected, not executed; the decisive verification is the uniform summation and exact integral.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taking E_DG=0, E_SAV=x⁴/4, C₀=C and S=−1 in Definition 4.1 reproduces the exact scheme.",
+          "Theorem 4.3 establishes self-adjointness and second-order accuracy; Appendix C.1 starts from local truncation followed by local-to-global error analysis. The §7 tests are different systems.",
+          "Russo et al. study finite-time convergence for a staggered SAV update in mechanical string models."
+        ],
+        "reasoning": "Neither energy stability nor second-order accuracy provides a coefficient at n→∞ taken before h↓0. The cubic flow approaches zero algebraically; the bounded total variation in the reconstructed proof, and integration of the signed drift, are specific extra arguments.",
+        "searches": [
+          "arXiv:2607.27795v1, lifted system, Definition 4.1, Proposition 4.2, Theorem 4.3, §7 and Appendix C.1 locator",
+          "doi:10.1007/s11071-026-12708-0, model and convergence passages",
+          "doi:10.1137/17M1159968"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27795v1",
+        "doi:10.1007/s11071-026-12708-0",
+        "doi:10.1137/17M1159968 (access attempt; not full text)",
+        "Resultary quartic midpoint and distinct SAV-BE reversal/false-limit result summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general method implies the discrete energy identity used in the proof, but a decreasing r² starting at C+F(a) can limit either above or below C.",
+          "Shift sensitivity of finite-time convergence does not determine the signed coefficient, its exact zero or the cancellation order."
+        ],
+        "reasoning": "Only the part actually implied by the known framework is credited as covered; the stronger quantitative long-time claim was not located.",
+        "searches": [
+          "arXiv:2607.27795v1, Proposition 4.2 versus Theorem 4.3",
+          "doi:10.1007/s11071-026-12708-0, convergence and shift discussion",
+          "Resultary quartic midpoint and SAV false-limit matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the positive branch r∞²−C=(r∞+√C)(r∞−√C), so the two tested signs are equivalent; modified-energy decay is not equivalent to either sign against C.",
+          "Resultary exact hit 2026/11/22/SCOPE-a-sharp-shift-to-energy-sign-transition-and-fourth-order-cancell--fef5bc0c3afe is this record. The distinct 2026/11/8 reversal-branch/false-limit hit concerns a quadratic SAV backward-Euler positive-root scheme."
+        ],
+        "reasoning": "Recasting the auxiliary offset as physical-versus-modified energy bias does not make the prior decay law or a different discrete recurrence imply its sign.",
+        "searches": [
+          "Resultary: quartic midpoint SAV long-time auxiliary defect, sign switch and cancellation",
+          "arXiv:2607.27795v1, Definition 4.1 and Proposition 4.2",
+          "doi:10.1007/s11071-026-12708-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match is self, and the identified quarter-power energy examples in the method paper are not this dissipative scalar flow (the quartic Poisson-system example is conservative)."
+        ],
+        "reasoning": "A finite numerical table is not the object of the claim: it is a continuum formula in (a,C), with a unique exact ratio and uniform-in-step-count asymptotics. Checked the directly relevant index for an equivalent exact result, not for an approximate coincident number.",
+        "searches": [
+          "Resultary exact quartic midpoint auxiliary-defect record and neighboring SAV branch result",
+          "arXiv:2607.27795v1 PDF keyword locators quartic and long-time; §7 overview"
+        ]
+      },
+      "rationale": "The underlying midpoint DG–SAV scheme, exact modified-energy law, and second-order accuracy are prior work. The supported distinct result is the signed leading coefficient of the infinite-time auxiliary constraint defect on this quartic flow, including its unique cancellation ratio. Accessible comparisons do not establish that result as prior coverage.",
+      "residual_risks": [
+        "The Shen–Xu full text and the distinct SAV-BE record full text were not retrieved; no universal priority claim is made. An unlocated uniform long-time defect theorem could change coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact method and energy law covered, not the claimed fixed-step long-time sign law in the inspected analysis",
+          "evidence": [
+            "Definition 4.1 and Proposition 4.2, PDF p. 10; Theorem 4.3; §7, p. 15; Appendix C.1 opening, p. 25"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.27795",
+          "material_read": "PDF pp. 7, 10–11, §7 overview and Appendix C.1 opening; quartic and long-time hits checked for model identity",
+          "method": "Lawful primary PDF passage retrieval by query and offset",
+          "title": "A Unified Discrete Gradient–SAV Framework for Structure-Preserving Integration",
+          "trigger": "Defines the matching midpoint scheme; might already analyze auxiliary drift"
+        },
+        {
+          "assessment": "Related shift-dependent errors, different recurrence, dynamics and time limit",
+          "evidence": [
+            "ODE model and finite-time staggered SAV convergence at PDF offsets 9444 and 27600"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-026-12708-0",
+          "material_read": "Primary PDF model p. 3 and update/convergence pp. 5–6",
+          "method": "Lawful primary PDF bounded passage reading",
+          "title": "Numerical convergence of the scalar auxiliary variable method applied to nonlinear stiff string models",
+          "trigger": "Auxiliary convergence and dependence on shift"
+        },
+        {
+          "assessment": "No full-text noncoverage judgment",
+          "evidence": [
+            "2018 SIAM J. Numer. Anal. paper on SAV convergence; full-text access returned 403"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/17M1159968",
+          "material_read": "Bibliographic identification only in this review; full text not retrieved",
+          "method": "Direct and lawful alternate access attempts",
+          "title": "Convergence and Error Analysis for the Scalar Auxiliary Variable (SAV) Schemes to Gradient Flows",
+          "trigger": "General convergence analysis could contain stronger results"
+        },
+        {
+          "assessment": "Exact hit has identical record suffix; nearby hit states a different update and potential",
+          "evidence": [
+            "Exact record states the same quartic threshold; distinct summary specifies positive-root backward Euler and a quadratic problem"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-shift-to-energy-sign-transition-and-fourth-order-cancell--fef5bc0c3afe; distinct 2026/11/8 SAV-BE reversal-branch record",
+          "material_read": "Indexed result statements; distinct record's full text unavailable from the mirror",
+          "method": "Local scientific index comparison",
+          "title": "Resultary exact result and distinct SAV backward-Euler reversal/false-limit result",
+          "trigger": "Possible exact or nearby published overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quartic decay is a canonical scalar gradient flow with a degenerate equilibrium, and the shifted auxiliary variable is meant to represent its physical energy. An artificial, permanently retained bias can have either sign despite the exact discrete dissipation law. The precise coefficient and ratio provide a reproducible benchmark for diagnosing that distinction and for choosing the shift in this model, not a general integrator order upgrade.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

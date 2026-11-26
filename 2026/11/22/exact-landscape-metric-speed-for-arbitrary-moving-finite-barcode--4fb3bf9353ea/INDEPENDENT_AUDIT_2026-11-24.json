@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:52:18.034814Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 40–66",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen check.py lines 14–48 and 74–89, inspected, not executed"
+      ],
+      "rationale": "At each x except the finitely many base tent breakpoints, the unsorted tents have first-order velocities -b_i' on the rising halves, d_i' on the falling halves, and zero elsewhere. Finiteness keeps distinct base-height blocks disjoint for sufficiently small |h| at that x. Inside a tied block, each baseline coordinate is the same, so the sum of p-th powers of the increments agrees exactly with the unsorted sum regardless of the ordering at h. The order-statistic sup-norm bound and the common compact support give an integrable dominator; integrating yields exactly the two half-lifetime factors for all finite p>=1, including p=1. On a compact C^1 track the same bounds give Lipschitz continuity and the metric length theorem gives the stated integral. For the example [g,4),[-g,6), the top layer is x+|g| for small |g| at each fixed x in (0,2); on any compact subinterval the resulting one-sided quotients already exclude a strong L2 derivative. Independently, for 0<h<1 the shorter perturbed tent is nested in the longer, and direct integration over the moving birth and apex strips gives ||lambda(h)-lambda(0)||_p^p = h^p[5-h(3/2-3/(p+1))], consistent with speed sqrt(5) for p=2.",
+      "residual_risks": [
+        "The proof assumes a fixed finite number of positive-length bars tracked by differentiable endpoints at the point; zero lifetimes, births or deaths of bars, infinite bars, truncated layers, and p=infinity are not covered.",
+        "The supplied checker tests exact rational secants with a tolerance at the smallest step only; it is not the basis of the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bubenik's p-landscape stability and persistence-weighted distance bounds cover more general finite diagrams but are inequalities involving endpoint sup-norm differences.",
+          "Belchí–Statuto Remark 11 identifies possible tent switching outside nested common-birth tents and notes a loss of two-sided differentiability of sorted deaths at crossings."
+        ],
+        "reasoning": "Broader stability coverage does not fix a derivative or its sharp coefficient, and the common-birth argument does not resolve the competing layers for general endpoint tracks.",
+        "searches": [
+          "Bubenik, JMLR 16 (2015), §5, Theorems 14 and 16",
+          "Belchí–Statuto arXiv:2611.11358v1, Assumptions 5–6 and Remark 11"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index",
+        "Belchí–Statuto arXiv:2611.11358v1",
+        "Bubenik JMLR 16 (2015), §5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 14 bounds the p-th power by sums with leading term lifetime times max endpoint displacement to power p; this differs even to first order in the p-th powered secant from half-lifetime times the sum of the two p-th powers when the endpoint speed magnitudes differ.",
+          "Fixed-birth formulas do not determine the contribution of an independently moving other endpoint or justify equality after pointwise reordering."
+        ],
+        "reasoning": "The finite tied-block argument supplies the missing equality of first-order norm contributions, not just nonexpansiveness of sorting. The length integral itself follows by a standard implication once that speed is proved.",
+        "searches": [
+          "Bubenik (2015), §5, Theorem 14, printed p. 95",
+          "Belchí–Statuto arXiv:2611.11358v1, pp. 17–19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary hit 2026/11/22/SCOPE-exact-landscape-metric-speed-for-arbitrary-moving-finite-barcode--4fb3bf9353ea is the same record.",
+          "Corollary 10 gives the same half-lifetime weights when p=2 and all births are fixed and common."
+        ],
+        "reasoning": "After translating that common birth to zero and taking b_i'=0, the expressions agree; this recovers an exact overlap, not an equivalent formulation of the general theorem. The frozen labeled-track result does not require differentiability of sorted deaths or of the landscape.",
+        "searches": [
+          "Local Resultary semantic search for moving finite-endpoint persistence landscape metric speed",
+          "arXiv:2611.11358v1, Theorem 9, Corollary 10 and Remark 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded catalogue matches yielded the identical record and no distinct match carrying the full expression; the primary formula source has only the common-fixed-birth comparison."
+        ],
+        "reasoning": "The claim is a parametric identity, not a finite census for which matching values in a table could settle coverage. Exact formula coverage in indexed records and in the closest formula paper was the pertinent comparison.",
+        "searches": [
+          "Local Resultary moving-endpoint landscape search, identical record ID ending 4fb3bf9353ea",
+          "arXiv:2611.11358v1, Theorem 9 and Corollary 10"
+        ]
+      },
+      "rationale": "The identical indexed record is not separate coverage. The closest explicit formula establishes the fixed common birth Hilbert case under differentiability of sorted death times. The inspected older landscape stability theorem gives an upper bound, not the exact local equality. No competing statement or stronger implication was established for the full moving-endpoint, all finite-p, tie-tolerant speed claim. This verdict does not credit the classical metric length identity separately.",
+      "residual_risks": [
+        "Bounded search does not exclude an unindexed equivalent infinitesimal rearrangement result.",
+        "The comparison relies on the restrictions and layer-switching discussion in Remark 11, not on whether the paper literally calls moving births future work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the common fixed-birth Hilbert formula, not of the stated general extension.",
+          "evidence": [
+            "Theorem 9 uses half the sum d_k |d_k'|^2 and differentiable sorted deaths. Corollary 10 shifts d_k to d_k-b. Remark 11 discusses nesting, crossings and layer switching."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11358v1",
+          "material_read": "Assumptions 5–6, printed p. 11; Theorem 9, p. 17; Corollary 10 and Remark 11, p. 19",
+          "method": "Versioned OA PDF, targeted passages",
+          "title": "Persistence landscape velocity: Closed formulas and a topological probe of quantum criticality",
+          "trigger": "Direct predecessor and same Hilbert-speed observable"
+        },
+        {
+          "assessment": "The inspected statements give definitions and bounds, not the sharper metric-speed equality.",
+          "evidence": [
+            "Theorem 14 uses lifetime times the p-th power of endpoint sup-norm discrepancy plus a higher-order term, minimized over matchings. Theorem 16 is a function-level stability bound."
+          ],
+          "identifier_or_url": "https://www.jmlr.org/papers/volume16/bubenik15a/bubenik15a.pdf",
+          "material_read": "§5, PDF pp. 18–19 (printed pp. 94–95), offset 46500 onward, Theorems 14, 16 and surrounding text",
+          "method": "OA PDF, literal location and bounded passage read",
+          "title": "Statistical Topological Data Analysis using Persistence Landscapes",
+          "trigger": "Foundational landscape stability and a possible stronger general theorem"
+        },
+        {
+          "assessment": "Identical record, no independent priority evidence.",
+          "evidence": [
+            "Both give moving birth and death speeds for all finite p with positive-length barcode branches and the full landscape."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-landscape-metric-speed-for-arbitrary-moving-finite-barcode--4fb3bf9353ea",
+          "material_read": "Local Resultary summary and frozen Finding",
+          "method": "Local semantic lookup and frozen statement comparison",
+          "title": "Exact landscape metric speed for arbitrary moving finite barcode endpoints",
+          "trigger": "Strongest indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and strong-differentiability example",
+        "Belchí–Statuto Remark 11"
+      ],
+      "rationale": "The formula computes a previously restricted topological path observable directly from endpoint velocities even when unequal births and collisions switch landscape layers. Independence from overlaps at all finite p is useful for interpreting the result; the positive-length tie example marks a concrete difference between speed and strong differentiation. This is not merely a stability upper bound or a substitution into the fixed-birth formula.",
+      "residual_risks": [
+        "The usefulness is for full landscapes with differentiable endpoint lifts, not for truncated or averaged landscapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:52.203033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–85",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "Reconstructed the argument for the displayed map with literal first-coordinate linear multiplier −1. For x₀≠0, |x_n| decreases to a limit U. If U>0, |x_{n+1}/x_n|→1 forces y_n→0; the identity x_n=y_{n+1}−by_n then contradicts U>0. Once x_n→0, summation of the stable filter with |b|<1 gives y_n→0. The axis orbit x₀=0 is exactly (0,b^n y₀). For other orbits let q_n=x_n², r_n=y_n/x_n, s_n=1/q_n and D=1+b. The exact r-recurrence can be treated along the orbit as affine with slope −b(1+y_n²), eventually uniformly contractive, and constant term tending to −1. Thus r_n→−1/D, and Δs_n=2r_n²+r_n⁴q_n→c=2/D², giving q_n∼1/(cn). In the r equation the first forcing after subtracting its limit is −q_n/D³, and geometric convolution first gives r_n+1/D=O(1/n). Subtracting −q_n/D⁴ then leaves a stable recurrence forced at O(n⁻²), since q_{n+1}−q_n=O(q_n²). This proves the stable-fiber expansion. The increment has coefficient H=4/D⁵+1/D⁴=(5+b)/D⁵ on q_n, so s_n=cn+O(log n). Subtracting cn+(H/c)log n leaves increments O(log n/n²); their absolute summability and tail estimate give finite C and O(log n/n). Sign alternation and the ratio limit give both signed amplitudes, including the b-independent transverse one. Inspected the supplied symbolic/finite-iterate checker without executing it; a finite set of orbits cannot establish these quantifiers or the asymptotic error.",
+      "residual_risks": [
+        "No uniformity near b=±1; the x₀=0 exception must not be included in the nonzero-tail formula. The result is for the map with a minus sign, regardless of external parameter conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The critical flip treatment obtains n⁻¹ᐟ² via the local cubic second iterate, including the center-manifold reduction for planar maps.",
+          "Parabolic Dulac germs have asymptotic power and iterated-log Fatou-coordinate expansions; these concern a different class of one-dimensional germs."
+        ],
+        "reasoning": "These sources explain the general mechanisms. They do not give this map's global basin, its computed normalized increment, or the claimed error in the original coordinate. A parabolic reduction would still need the coefficient computation and control of the physical orbit.",
+        "searches": [
+          "Leonel–Ferreira–Oliveira arXiv:2602.04091v1, §§2.1–2.2 and center-manifold Eqs. (28)–(32)",
+          "Mardešić–Resman–Rolin–Županović arXiv:1710.01268v2, parabolic Fatou-coordinate expansions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.04091v1",
+        "arXiv:1710.01268v2",
+        "arXiv:2212.03455v1 §3.1",
+        "Resultary 741941f8eb7b and d83bf246b19f",
+        "Somarakis–Baras and Elhadj–Sprott citations and retrieval attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A local cubic normal form plus the original-coordinate eigenvector can imply the leading amplitudes once the model-specific cubic coefficient is known. The closer same-map local expansion was not available to check how far that implication goes.",
+          "The frozen logarithmic term requires the next term of the inverse-square increment and summably controlled errors; the generic cubic exponent does not determine it."
+        ],
+        "reasoning": "Credit the general exponent and do not treat leading constants as decisive novelty in the face of plausible local implication. The mathematical comparison supporting acceptance is the global critical result and higher-order orbital law; the unread exact-map literature remains a stated risk.",
+        "searches": [
+          "arXiv:2602.04091v1, critical flip Eqs. (5)–(7) and (28)–(32)",
+          "Somarakis–Baras §4.3 exact-source and full-text retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen map uses first-coordinate factor −1/(1+y²); the flip slice must be matched by its literal −1 multiplier, not the label a=1 alone.",
+          "The frozen account distinguishes a strict subcritical global result from a local critical proposition. The corresponding primary passages could not be read, so the cited attribution and coefficient coverage were not independently confirmed."
+        ],
+        "reasoning": "A subcritical theorem, if it excludes the critical multiplier, cannot be extended to equality by relabeling or taking a limit of parameter values. Comparing actual map equations rather than the a label is essential.",
+        "searches": [
+          "Somarakis–Baras, exact title and DOI 10.1142/S0218127413300218; §4.2 Proposition 3 and §4.3 Proposition 5",
+          "Elhadj–Sprott, DOI 10.1142/S0218127411028325; author-hosted manuscript"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 741941f8eb7b gives a global signed √n law and a (15/121)log n term for f(x)=(2x²+x+8)/(8x²+3); Ohmori–Yamazaki Eq. (19) is its underlying one-dimensional map.",
+          "Record d83bf246b19f gives an inverse-square expansion with linear, square-root and log terms for a different Hénon flip, only locally outside the strong-stable manifold."
+        ],
+        "reasoning": "Both are substantive analogues, but neither indexed claim applies to the reviewed planar rational map or yields the b-dependent coefficient or global bound. The first analogue predates the frozen record, so the log-relaxation pattern itself is not new.",
+        "searches": [
+          "Local Resultary: signed and logarithmic critical relaxation, planar rational flip, inverse-square asymptotics"
+        ]
+      },
+      "rationale": "The rational map and generic critical flip exponent are prior context. Distinct supported content is convergence on the full real plane on the critical slice together with the explicit orbital logarithmic term, finite renormalized constant and error bound. Related catalogue results are for different maps. The closest same-map papers were not readable in the attempted lawful copies; possible overlap, particularly with local coefficients, is not excluded or treated as negative evidence. No independent priority claim is made for the generic exponent or for constants that an earlier map-specific local expansion may imply.",
+      "residual_risks": [
+        "The precise local expansion and critical-basin scope of Somarakis–Baras and the original Elhadj–Sprott work were not confirmed from their primary text. The earlier technical report noted in the frozen record was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct comparison unresolved; not evidence of noncoverage",
+          "evidence": "The located author-hosted copy did not yield readable passages in the attempted retrievals, and no independent full-text copy was found.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127413300218",
+          "material_read": "Bibliographic identification and frozen account of §4.2 Prop. 3 and §4.3 Prop. 5; no body read",
+          "method": "Author-hosted PDF and DOI recovery attempts; exact-title search for lawful alternate",
+          "title": "On the Dynamics of a Simple Rational Planar Map",
+          "trigger": "Same map; possible exact global and local critical coverage"
+        },
+        {
+          "assessment": "Potential direct overlap unassessed",
+          "evidence": "The PDF retrieval did not produce extractable material; the frozen record attributes introduction of the rational map to this work.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127411028325",
+          "material_read": "Citation and frozen comparison only; no readable body",
+          "method": "Author-hosted PDF and DOI recovery attempts",
+          "title": "On the Dynamics of a New Simple 2-D Rational Discrete Mapping",
+          "trigger": "Original map and possible critical-boundary analysis"
+        },
+        {
+          "assessment": "Covers the local mechanism and leading critical exponent, not the stated global logarithmic law",
+          "evidence": "The local second-iterate reduction is cubic and gives the inverse square-root decay.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.04091",
+          "material_read": "PDF p. 2, Eqs. (5)–(7), and p. 4, Eqs. (28)–(32)",
+          "method": "OA primary PDF passage inspection",
+          "title": "A phenomenological description of critical slowing down at period-doubling bifurcations",
+          "trigger": "Generic theorem that could imply critical exponent or amplitude"
+        },
+        {
+          "assessment": "General methodological analogue, not exact map coverage",
+          "evidence": "The class considered is parabolic Dulac germs; no full planar basin or original-coordinate coefficients follow from the passages read.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.01268v2",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "OA primary PDF passage inspection",
+          "title": "Fatou coordinates for parabolic Dulac germs",
+          "trigger": "General power-logarithmic asymptotics after parabolic reduction"
+        },
+        {
+          "assessment": "Real overlap of phenomenon but distinct system and coefficients",
+          "evidence": "The exact leading and logarithmic law is for the identified positive scalar map, not the planar system with parameter b.",
+          "identifier_or_url": "2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b",
+          "material_read": "Mirrored RESULT.md finding; arXiv:2212.03455v1 §3.1, p. 9, Eq. (19) for the comparison map",
+          "method": "Local Resultary search and passage reading, plus OA primary PDF inspection",
+          "title": "Global signed and logarithmic critical relaxation in a positive rational map",
+          "trigger": "Indexed global logarithmic rational flip law"
+        },
+        {
+          "assessment": "Different map, local scope and different expansion",
+          "evidence": "The Hénon formula includes a square-root term and excludes the strong-stable manifold; it makes no global claim.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-signed-and-logarithmic-relaxation-at-the-first-h-non-flip--d83bf246b19f",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and mirrored source inspection",
+          "title": "Exact signed and logarithmic relaxation at the first Hénon flip",
+          "trigger": "Indexed planar flip inverse-square asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact normalized recurrences",
+        "Generic critical exponent comparison in arXiv:2602.04091v1",
+        "Resultary rational and Hénon comparisons"
+      ],
+      "rationale": "For this previously studied map the result gives more than the usual local power law: it accounts for every finite initial state, isolates the stable-axis exception and shows that the first accumulated correction to inverse-square growth is logarithmic with a controlled remainder and a finite orbit-dependent offset. This distinguishes geometric transients and critical relaxation in an exact example and gives physical-coordinate coefficients against which local normal-form approximations can be checked.",
+      "residual_risks": [
+        "The offset is not evaluated in closed form, and no drift bound uniform in b is supplied. The result has the scope of one natural critical map, not a general flip theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

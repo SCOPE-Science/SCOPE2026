@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:39.962319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38, VERIFICATION.md, verify.py and verification_output.txt",
+        "Independent exact reproduction: /workspace/net_snf_reproduction.py",
+        "Yuzvinsky, arXiv:math/0305242, §4"
+      ],
+      "rationale": "The marked graph is the connected Levi graph of the order-four Latin square: each crosspoint is incident to one line of each class and each distinct-class pair of lines has exactly one common point. Normalizing row and column zero and enumerating gives four reduced squares, exactly the Klein-four table and three simultaneous relabelings of the cyclic table. Their intercalate counts distinguish the two types. Independently I used an oriented incidence matrix with a line vertex removed (rather than rooting at a point as in the deposit), formed the 27×27 integer Gram/Laplacian and performed Smith reduction directly over Z with SymPy. All four gave eighteen 1s and 2,8,8,24,24,24,24,96,96. Replay: `python3 /workspace/net_snf_reproduction.py` with SymPy. The uploaded script and log were read, not run. As an independent check on order, the 12×16 point-incidence block has row Gram matrix with diagonal blocks 4I₄ and off-diagonal all-ones blocks, hence eigenvalues 12, 4 with multiplicity 9, and 0 with multiplicity 2. The block Laplacian matrix-tree product is 7·8⁹·4²·3⁶ divided by 28. The abstract nodal curve is stable since all rational components have valence at least three; its arithmetic genus is 48−28+1. Choosing all smoothing parameters of the form t in an unobstructed deformation gives unit thickness; Raynaud’s degree-class identification applies to this split regular model.",
+      "residual_risks": [
+        "This is not the dual graph of the original union of lines or the full point-line singularity graph. The geometric component group identification does not extend as stated to nonunit thickness or nonsplit special fibers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former realizes the finite abelian net groups in the plane, and the latter classifies finite group realizability for 3-nets."
+        ],
+        "reasoning": "Realization and group-table classification give both combinatorial inputs, not their integral Laplacian cokernels or their coincidence.",
+        "searches": [
+          "Primary literature: arXiv:math/0305242, §4 Theorem 4.4",
+          "arXiv:1104.4439v3, abstract and Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bd666500e930 and 04e84911035b",
+        "arXiv:math/0305242 Theorem 4.4",
+        "arXiv:1104.4439v3 Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The row-side Gram and hence the Laplacian eigenvalues and critical group orders already agree for combinatorial reasons. The independent integral calculation detects eighteen unit factors and all nine nonunit factors in both cases."
+        ],
+        "reasoning": "Neither rational spectral equality nor an exact group for V₄ forces the integral Smith factors for C₄. The independently verified all-type coincidence is the distinct statement, within the verified marked graph scope.",
+        "searches": [
+          "Comparison of Reye Finding/Proof with frozen RESULT.md lines 21–34",
+          "Transpose-incidence and rational Gram comparison of the two order-four net types"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Partition the cube-model Reye point vertices into the four even corners, four odd corners, and the center and three axis points. Its 16 line triples give the table s(i,j)=i XOR j up to relabeling, with 12 intercalates. Dualizing incidence matches its point part to the frozen line part. The same graph and exact factors occur in bd666500e930."
+        ],
+        "reasoning": "This is exact implication-equivalent coverage of the V₄ case, not just the same numerical factors. The line-class partition is graph-recoverable on the degree-four side by the absence of a common neighbor for two distinct vertices in the same class; vertices in different classes always have one. Hence the 12 vs 4 intercalates cannot be bypassed by an alternative grouping to transfer the coverage to C₄.",
+        "searches": [
+          "Resultary: marked order-four 3-net/Latin-square Levi graph critical group and transversal-design aliases",
+          "Exact comparison with the Reye incidence graph in Resultary bd666500e930"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Reye record reports the exact invariant factors for the V₄ incidence dual. The related order-four partial-transversal record gives a homotopy classification, not critical groups. The bounded external exact-string lookup did not give usable evidence of an equivalent cyclic table."
+        ],
+        "reasoning": "Neither a partial-transversal homotopy table nor a list of reduced squares is a Smith table. The actual matching invariant table is credited for its identified graph only.",
+        "searches": [
+          "Resultary by exact Smith factors/Levi critical groups; exact-string primary literature search for the order-four incidence groups",
+          "Resultary bd666500e930 and 04e84911035b"
+        ]
+      },
+      "rationale": "There is exact existing catalogue coverage of the Klein-four case under incidence duality: the Reye record computes the same group for the very same graph. No date-order inference is made, and no standalone novelty is credited to that case. The supported distinct central finding is the equality across both isotopy types and, in particular, the exact cyclic-type group. Neither the Reye result nor the checked broader results account for the cyclic type.",
+      "residual_risks": [
+        "The external exact-string search was uninformative; equivalence to an integral table for the cyclic Levi graph under another name or in uninspected literature was not ruled out. The scope is the checked distinct coincidence, not exclusive priority for either presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact V₄ overlap; no cyclic type statement; shared day does not date priority",
+          "evidence": [
+            "The 3 classes of 4 even, odd and center/axis points form the table of V₄; its 16 lines become the 16 marked points of that net graph.",
+            "The record gives the identical integral Smith factors for this graph."
+          ],
+          "identifier_or_url": "Resultary bd666500e930",
+          "material_read": "RESULT.md Finding and Proof, particularly the cube model and Smith factors",
+          "method": "Local mirror reading and exact comparison of line triples",
+          "title": "The integral component group of the Reye point-line incidence degeneration",
+          "trigger": "Same orders, degrees and factors; possible incidence duality"
+        },
+        {
+          "assessment": "Realizes the two underlying net group types; no integral incidence invariant in the compared theorem",
+          "evidence": [
+            "Finite subgroups of a two-dimensional torus are realized by 3-nets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0305242",
+          "material_read": "§4, Theorem 4.4, PDF p. 8 (offset around 24300)",
+          "method": "Bounded direct OA PDF reading",
+          "title": "Realization of finite Abelian groups by nets in P²",
+          "trigger": "Both order-four realizations"
+        },
+        {
+          "assessment": "Broader classification of realizability, not of degree-class groups",
+          "evidence": [
+            "The classified invariant is the realizable group, not the critical group of the Levi graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.4439v3",
+          "material_read": "Abstract and Theorem 1.1, pp. 1–3, offsets around 0 and 4314",
+          "method": "Bounded direct OA PDF reading",
+          "title": "3-nets realizing a group in a projective plane",
+          "trigger": "Broad group-realizing 3-net classification"
+        },
+        {
+          "assessment": "Different complex and invariant",
+          "evidence": [
+            "Partial-transversal homotopy, not Laplacian Smith groups."
+          ],
+          "identifier_or_url": "Resultary 04e84911035b",
+          "material_read": "Classified object and invariant in indexed statement",
+          "method": "Resultary search and statement comparison",
+          "title": "Complete homotopy classification of order-four Latin-square partial-transversal complexes",
+          "trigger": "Same two small Latin-square types, exact classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34",
+        "Resultary bd666500e930",
+        "Independent exact reproduction: /workspace/net_snf_reproduction.py"
+      ],
+      "rationale": "The two realizable combinatorial types give a natural full small family of split unit-thickness degenerations. Their equal group orders are automatic from the block structure, whereas agreement of the entire integral groups supplies a sharper failure of a Jacobian invariant to distinguish the two types. This gives precise invariant data for the cyclic type and the exact comparison with the existing Reye/V₄ result, not another numerical computation of the Reye case alone.",
+      "residual_risks": [
+        "No larger-order net classification or weighted degeneration invariant is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

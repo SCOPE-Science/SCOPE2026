@@ -1,19 +1,21 @@
-# Scientific review: A parity-repaired Poisson crossover for competitive monomer–dimer adsorption on complete graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact vacancy chain has singleton probability \(q_k=2\varepsilon/(k-1+2\varepsilon)\). Every pair of adjacent vacancy-count states has a first visit using a fresh uniform, giving independent comparison indicators with probabilities \(\varepsilon/j\). A direct sum of first-visit mismatches, double visits, boundary exceptions and Le Cam errors proves the finite-size \(5\varepsilon\) bound. Deterministic parity repair yields the final law; harmonic asymptotics prove the stated window and the Poisson central limit regime. The standalone program returned 294 successful finite exact or numerical assertions, supplementary to the proof.
+PASS
 
-## Originality — PASS relative to inspected literature
+The complete-graph race at k≥2 gives singleton probability q_k=2ε/(k−1+2ε), with a deterministic final singleton at k=1. The decreasing vacancy path cannot skip both members of {2j,2j−1}; the first member visited is selected using only uniforms in higher states. Its uniform is fresh, so the shared-threshold comparison indicators with probabilities ε/j are independent. Subtracting the thresholds and summing gives first-visit error at most 2ε(ζ(2)−1). A second voluntary monomer in a pair contributes at most q_{2j}q_{2j−1}; summation gives at most 4ε²(1−log 2). The initial unpaired odd state and vacancy two contribute at most (5/2)ε together. Adding the Bernoulli-to-Poisson error ≤2ε²(ζ(2)−1), the coefficient after division by ε is at most 4.420 for ε≤1/4. Parity repairs the voluntary count pathwise and deterministic pushforward contracts total variation. The harmonic sum, Poisson mean coupling and a rounding error of at most one give the critical window, PGFs, parity-minimal regime and CLT. For convergence of the actual means, total variation alone is insufficient, but the same uniforms give K_n^{mon}≤1+Σ_{k=2}^n 1{U_k≤q_k}; the independent sum has mean bounded by 2εH_{n−1} and bounded second moment in the critical window. This gives uniform integrability and justifies the stated mean limits. Vertex permutation symmetry yields the uniform label set conditional on every positive-probability count. Frozen exact and numerical tests were inspected, not rerun; the uniform 5ε bound follows analytically.
 
-Cadilhe and Privman (arxiv:cond-mat/0311190) consider mixed kinetic adsorption on a fixed-connectivity Bethe lattice; Pippenger (doi:10.1137/0402034) considers random greedy graph adsorption, including edge-only occupation; and Chen (arxiv:1506.08484) considers complete-graph equilibrium Gibbs matching fluctuations. The latter primary PDF was inspected at the model and theorem level, including whole-document searches for kinetic terminology. None of the inspected statements implies the weak-rate terminal law on the complete graph. Searches for rare-rate competition, parity-alias Poisson laws and stronger matching coverage found no evaluated duplicate. Complete texts of several specialist papers were inaccessible; any broader hidden result remains an originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivated observable is the number of irreversibly deposited monomers, not a contrived sub-count. The complete graph supplies a mean-field benchmark for competing single and pair adsorption; the integrated monomer hazard is logarithmic and becomes critical at \(\varepsilon\asymp(\log n)^{-1}\). The limit distinguishes a parity-*repaired* Poisson count from a parity-*conditioned* one, including different zero/one-monomer probabilities and even–odd mean gaps. An explicit uniform total-variation estimate extends the conclusion through the entire weak-rate range.
+Best of current knowledge for the irreversible terminal count and its uniform upward-rounded Poisson approximation. Published kinetic and equilibrium results, exact complete-graph catalogue results, and same-date weak-rate Poisson phenomena were compared at their model and observable level. None of the inspected results states or was shown to imply this bound.
 
-## Limitations and residual uncertainty
+## value
 
-The theorem is restricted to complete graphs, uniform irreversible rates, and \(0<\varepsilon\le1/4\). Available primary full texts were not exhaustive, and absolute historical novelty is not certified. Finite tests do not certify infinite-size claims; the proof provides those arguments. No independent scientific audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The terminal monomer count is intrinsic to the competitive irreversible process. The uniform error across n isolates a genuinely different parity mechanism from conditioning and identifies the logarithmic crossover (including its zero/one probabilities) and both adjacent regimes. The complete graph is a useful mean-field kinetic case rather than a reparametrization of Gibbs matching fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:43.524436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–30 and 32–84",
+        "Frozen VERIFICATION.md and verify_boundary.py beside RESULT.md, inspected; checker not executed (bundled replay: python3 verify_boundary.py from the record directory)"
+      ],
+      "rationale": "At size m the retained and deleted root-parent arrivals have exclusive increments and conditional probabilities pC_m/m and (1−p)C_m/m. With alpha=(1−p)/p, D=B−alpha(C−1) is a mean-zero martingale with conditional increment variance alpha C_m/m. Summing telescopes to Var(D_n)=(1−p)(mu_n−1)/p². The cross increment Delta C Delta D contributes −(1−p)mu_m/m, so h=E[CD] divided by mu decreases by (1−p)/(m+p); this gives the negative harmonic correction in the exact covariance. The rising second factorial product C(C+1) is multiplied in expectation by 1+2p/m, giving E[C²]=2Q−mu. Conditional variance for the Bernoulli increment gives v_(m+1)=(1+p/m)²v_m+p mu_m/m−p²(v_m+mu_m²)/m²; substitution gives the claimed difference of the normalized covariances with sign q_m−p/m, where q_m=v_m/mu_m². The latter difference strictly increases by the nonzero increment variance of C/mu and the strict decrease of p/m. Starting with Cov at n=2 equal to −p(1−p), the normalized covariance first decreases (one possible flat step at a negative value), then increases to infinity by gamma ratios. Thus there is exactly one reversal and at most one zero. The same ratios give V_p>0 from q_2>0 and monotonicity. For the correlation check, with the proof's u and w and s=sqrt(1+2u+w), rationalization gives the exact deficit (w−u²)/(s(s+1+u)). The denominator tends to 2 and u²=o(n^−p); inserting Var(D_n) and v_n gives the stated positive limit. Neither variance degenerates for n≥2 with 0<p<1: all-retained and all-deleted configurations already give different C_n and B_n values (for B_n take a star on the all-deleted event).",
+      "residual_risks": [
+        "The asymptotics hold at fixed p in (0,1); no endpoint-uniform or near-critical estimate follows. The accompanying enumerations check only finite cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baur–Bertoin gives the Yule mutation coupling and Pólya–Hoppe representation for the root cluster. Baur treats cluster sizes and states scaling as p(n) approaches 1.",
+          "ba4f1c497f72 gives the whole finite-size joint generating function for C_n,B_n, exact second moment of the same compensated frontier, and a two-scale distributional limit."
+        ],
+        "reasoning": "The older general machinery does not on its own give the mixed covariance of the stated variables, whereas the stronger indexed finite joint law really does determine the needed moments. That record is dated 2026-11-08, after the frozen 2026-10-18 record.",
+        "searches": [
+          "Baur–Bertoin arXiv:1406.2238v1, §2.1",
+          "Baur arXiv:1407.2508v1, §§2.1–2.2",
+          "Resultary ba4f1c497f72, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Baur–Bertoin arXiv:1406.2238v1",
+        "Baur arXiv:1407.2508v1",
+        "Kürsten arXiv:1512.05275v1",
+        "Resultary ba4f1c497f72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old root variance does not give the negative cross term E[CD] or the variance of B.",
+          "The later transform entails the moment sequences by differentiation; its displayed Gaussian fluctuation result alone is not a covariance-deficit formula, and its Finding does not state a universal one-crossing theorem."
+        ],
+        "reasoning": "The sign proof requires more than eventual positive covariance or a root size limit: it uses a strict comparison of a normalized variance with p/m. The correlation rate additionally needs cancellation of the first-order cross correction. The later joint law could be used to derive both analyses without constituting earlier priority.",
+        "searches": [
+          "Baur–Bertoin §2.1",
+          "Kürsten §V Eqs. (44)–(47)",
+          "ba4f1c497f72 exact joint transform and compensated second moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frontier count in ba4f1c497f72 is exactly the number of deleted edges with one endpoint in the root component; contraction to the component tree is the same daughter-component count.",
+          "Kürsten's first-generation mixed moment uses the total number of nodes in first-generation child clusters."
+        ],
+        "reasoning": "A mutation at a root-cluster birth gives one extra daughter component. That component may later contain more than one vertex. The two child statistics are not equivalent, whereas the later frontier variable is identical.",
+        "searches": [
+          "Resultary ba4f1c497f72, Exact frontier law and Gaussian fluctuations for percolated recursive trees",
+          "Kürsten, arXiv:1512.05275v1, §V equations (44)–(47)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed match gives the complete bivariate transform, not merely a finite set of values; coefficient extraction and differentiation supply exact mixed moments for every size.",
+          "The old root/child-node moment formulas concern a different second variable."
+        ],
+        "reasoning": "The later joint-law entry is a genuine exact-data overlap, fully credited. No earlier exact joint-law or table for this component-count pair was established in the material checked.",
+        "searches": [
+          "Local Resultary matching of percolated recursive trees, fixed-p frontier/daughter-component statistics, ID ba4f1c497f72",
+          "Kürsten §V moment formulas"
+        ]
+      },
+      "rationale": "Credit the established root-cluster law, moments and mutation/urn machinery. The distinct October result is the exact fixed-size covariance for the count of immediate daughter components, its unique sign reversal, and the sharp correlation deficit. The strongest indexed comparison is a later-dated joint-law result on exactly the same pair; it determines the covariance and shares exact residual moments, but the catalogue dates do not make it prior coverage of the frozen record. The older inspected primary sources do not supply the relevant boundary-component cross moment or sign/rate theorem.",
+      "residual_risks": [
+        "An earlier exact result under a triangular-urn or branching-process formulation has not been excluded. Later exact joint-law overlap is substantial; no historical priority beyond the documented record dates is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background root-cluster representation, not the stated cross statistic",
+          "evidence": "Yule growth with neutral mutations and a Pólya–Hoppe representation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2238v1",
+          "material_read": "§2.1 pp. 3–4, offsets 7480 and 8885",
+          "method": "Primary arXiv PDF passage inspection",
+          "title": "Cutting edges at random in large recursive trees",
+          "trigger": "Prior root-cluster coupling and urn"
+        },
+        {
+          "assessment": "Cluster sizes and a different retention scaling",
+          "evidence": "The scaling theorem treats p(n) tending to 1 and sizes attached to vertices of the cluster genealogy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2508v1",
+          "material_read": "§§2.1–2.2 pp. 4–7, offsets 9140, 14141 and 16246",
+          "method": "Primary arXiv PDF passage inspection",
+          "title": "Percolation on random recursive trees",
+          "trigger": "Potential equivalence to genealogically indexed percolation clusters"
+        },
+        {
+          "assessment": "Prior root moments; child-node mixed moment does not cover child-component covariance",
+          "evidence": "The mixed term counts nodes in first-generation child clusters, including post-mutation growth.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.05275v1",
+          "material_read": "§V equations (44)–(47), p. 8, offsets 58400 and 59700",
+          "method": "Primary arXiv PDF passage inspection",
+          "title": "Random Recursive Trees and the Elephant Random Walk",
+          "trigger": "Exact joint moment for a first-generation statistic"
+        },
+        {
+          "assessment": "Material mathematical coverage via later joint law, not evidence of earlier priority",
+          "evidence": "Explicit bivariate generating function; Z=B−((1−p)/p)(C−1) and exact E[Z²]; mixed-normal limit on scales n^p and n^(p/2).",
+          "identifier_or_url": "Resultary ba4f1c497f72",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2959, date 2026-11-08",
+          "method": "Local indexed record and published-record mirror",
+          "title": "Exact frontier law and Gaussian fluctuations for percolated recursive trees",
+          "trigger": "Identical object and stronger finite-size law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4",
+        "Kürsten §V",
+        "Resultary ba4f1c497f72 Finding"
+      ],
+      "rationale": "At each arrival root growth and daughter-component creation compete, but cumulative fluctuations share the random root growth rate. This natural joint boundary statistic admits a finite-size sign classification rather than just an eventual-limit statement; quantifying the reversal and the residual decorrelation scale distinguishes both effects. The sharply normalized rate measures how well the boundary count tracks root mass, and is not merely the old root marginal.",
+      "residual_risks": [
+        "The claim does not describe near-endpoint regimes, correlations with daughter vertex mass, or other tree-growth models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

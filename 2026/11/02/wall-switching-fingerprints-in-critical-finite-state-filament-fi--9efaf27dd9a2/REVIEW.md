@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite generator and both backward equations are specified. Eliminating the elongating state yields a three-term recurrence with explicit characteristic roots; strict Laplace monotonicity follows from differentiating its exact solution. At criticality the roots, cap boundary and finite difference yield both the universal absorption-time transform and the nonvanishing first boundary-sensitive correction. The mean equation provides an independent normalization check. The bundled verifier independently solves finite Markov generators over multiple rate choices and confirms the formulas. Infinite-size claims rest on the proof, not a finite test.
+## correctness
 
-**Originality — PASS, qualified best-knowledge.** The 2026 source already gives the finite-cap model for one specific wall conversion rate, its first-passage mean and critical mean scaling, all credited as prior work. The 2016 persistent-walk work gives established continuum Laplace transforms and diffusion limits. The new assessed statement is the strict finite-size dependence on an independently variable cap-conversion rate together with its exact first-order *full-Laplace-law* response on the quadratic-size time scale; it is not merely the source's known mean. Searches of published records and accessible papers did not identify an implication covering this specific discrete cap-sensitivity formula. The 1997 microtubule article was accessible in abstract but not complete text, so an implicit-priority risk remains. Absence from available searches does not establish global novelty.
+PASS
 
-**Value — PASS.** A finite filament cap may either block growth or promote a switch to shortening. Although these choices leave the main critical first-passage distribution identical, the complete time-dependent lifetime transform retains a precisely measurable leading correction, and the finite-size Laplace ordering is strict. This identifies the size scale at which cap chemistry matters and enables comparisons beyond a mean-lifetime plot. It is a structurally motivated boundary-sensitivity theorem, not an arbitrary parameter substitute.
+First-step elimination gives A_s f_{j+1}-B_s f_j+C_s f_{j-1}=0 with f_0=1 and f_{N-1}=b_gamma f_N. In particular b_gamma=1+(s/k_d)(1+lambda_+/(s+lambda_-+gamma)). Strict ordering also follows directly: the derivative of the killed resolvent equation with respect to gamma has forcing f_N-g_N>0 in row (N,a) only, and every transient state reaches that row, so the inverse resolvent makes every component strictly positive. This does not use criticality. At criticality A_0=C_0=D(lambda_++lambda_-), and B_s-A_s-C_s=s(s+lambda_++lambda_-). With s=sigma/N^2 the roots are 1±h/N+O(N^-2). The two cap coefficients in the frozen solution are asymptotic to he^-h/N and -he^h/N, giving the reflected-Brownian transform. For the difference between walls, the boundary forcing is (b_1-b_2)f_N(b_2) at N-1 minus b_1 times N, with b_1-b_2 asymptotic to sigma(delta_1-delta_2)/N^2 for distinct walls. On the difference basis z_+^j-z_-^j this boundary operator is -2h cosh(h)/N to leading order, while f_N(b_2) tends to sech(h). This gives the sign, the cosh(h)^2 denominator, and the factor sinh(hx)/h. Adjacent differences of this wall contrast are O(N^-2), so the active-state equation has the same scaled limit. At s=0 differentiation yields the slope recurrence d_{j+1}=d_j-1/D with d_N=delta_gamma; summation and the active backward equation give (3) and both mean differences. These arguments include x=1, gamma=0, and the trivial equal-wall contrast; they do not assert stochastic ordering. Supporting verifier was inspected, not executed. A fresh direct-generator check at N=9 and rates (k_d,k_e,lambda_+,lambda_-)=(2,3,1,1.5) corroborated all-state transform ordering at s=0.4 for gamma 0, 1 and 3 and the shortening means.
 
-**Relationship and limitations.** Singular limits with length-dependent wall rates, biased bulk drift and more detailed biochemical cap dynamics are outside this result. Classical continuum telegraph theory covers the leading reflected-diffusion law, not the claimed exact lattice correction. Independent publication-priority and mathematical validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the original hard-cap model, its critical mean, and leading diffusion precedent. The new comparison supported here is the strict absorption-transform sensitivity to independently varied cap switching together with the positive-order N^-1 effect at fixed critical bulk rates. In particular, the original mean is not new and the variable-cap mean is a direct extension of its symbolic boundary coefficient, not itself the originality basis. No statement-level match for the relative full-transform correction was established in the inspected sources.
+
+## value
+
+PASS
+
+This gives a measurable distinction between plausible boundary rules whose leading critical first-passage laws coincide: the nonzero relative transform at order 1/N for any positive scaled discount and macroscopic starting position. The exact correction tests approximations across the whole Laplace scale, rather than merely reproducing the original model's mean or a leading Brownian formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

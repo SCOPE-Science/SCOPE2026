@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:49.785664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In K[G] put t_i=g_i+1; the square-free monomials give the truncated polynomial basis. The linear adjacency multiplies by f_d for odd d and 1+f_d for even d, where f_d consists of all square-free monomials of degree at least two and f_d^2=0. Thus the even case is invertible. For P=product(1+t_i) on the first d-2 variables, P^2=1 and u=P+1 squares to zero. The last-pair contribution is u(a+b)+Pab=P(a+u)(b+u), since Pu=u. Replacing (a,b) by (P(a+u),b+u) is invertible over the earlier variables and preserves both square-zero relations. Iteration yields disjoint products. For one pair, the map 1→UV is contractible and U,V survive; on any tensor summand with a contractible pair, its contraction tensored with identity gives a contraction for the total map (cross terms cancel in characteristic two). For odd d=2k+1 the residual space has dimension 2^(k+1) including the unused coordinate; rank is (2^d−2^(k+1))/2. Basis squares span all products even over an imperfect field, since this is a span, not the set of values of the nonlinear squaring map. Independent GF(2) column elimination in the monomial basis (python3 /workspace/reproduce_reviews.py 2) reproduced ranks 4,2,16,12,64,56,256,240,1024,992,4096 in d=2..12.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Giacomelli §9.1 supplies the Cayley evolution algebra construction.",
+          "Resultary 1791669aa4e5 gives A²=(valency mod 2)I for cubelike graphs and computes other examples.",
+          "Chandler–Sin–Xiang Theorem 1.1 gives the adjacency Smith form of ordinary Q_n for even n."
+        ],
+        "reasoning": "The broader parity theorem covers the even-d branch and nilpotence but leaves the rank free up to half dimension for a square-zero map. Smith form of an ordinary hypercube does not transfer as stated to this characteristic-two quotient.",
+        "searches": [
+          "Literature: folded cube graph adjacency matrix rank over F_2 Smith normal form binary rank folded hypercube",
+          "Resultary: cubelike evolution algebra even connection set square of structural adjacency zero characteristic two exact rank square ideal dimension folded cube formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1791669aa4e5",
+        "Chandler–Sin–Xiang Smith Group of the Hypercube Graph",
+        "MathWorld Folded Cube Graph",
+        "arXiv:1502.00776",
+        "arXiv:2605.12672v1",
+        "arXiv:2206.11625 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd n the bipartite double of FQ_n is Q_n, and Q_n adjacency is invertible mod 2, which independently implies the even-d branch.",
+          "For even n, FQ_n already is bipartite and its bipartite double is the disjoint sum of two copies of FQ_n, not Q_n."
+        ],
+        "reasoning": "There is no such transfer of the Q_n rank in the odd-d branch; one needs the exact deficit from the square-free multiplication map (or an equivalent binary incidence computation). The homology dimension is equivalent to the rank once square-zero is known, not a second independent novelty claim.",
+        "searches": [
+          "Chandler–Sin–Xiang §4",
+          "MathWorld Folded Cube Graph bipartite double relation",
+          "1791669aa4e5 Finding and Proof (1),(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1502.00776 p. 1 gives PC_d as precisely Cay(F_2^d,{e_i,J}), also the antipodal quotient of Q_(d+1).",
+          "MathWorld gives the standard folded-quotient indexing n=d+1 and bipartiteness for even n."
+        ],
+        "reasoning": "The odd-d target is the even-parameter quotient FQ_n, not Q_n itself and not odd-parameter FQ_n. Over any characteristic-two field the rank is the binary rank by minors; in the bipartite incidence form its claimed half-rank is 2^(n−3)−2^((n−4)/2). No match for that rank was located.",
+        "searches": [
+          "Resultary: folded cube / folded hypercube adjacency rank over F2, exact binary rank or Smith normal form, including alternative dimension conventions and bipartite incidence matrix interpretations",
+          "Literature: projective cube binary neighborhood code dimension projective hypercube antipodal quotient binary adjacency code folded cube rank over GF(2) Hadamard cubelike"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest cubelike entry, 1791669aa4e5, computes ranks of ordinary hypercubes and complete cubelike graphs in Proof (6), not the odd-dimensional folded family.",
+          "The retrieved integral Smith form table/formula is for Q_n; the other rank search result arXiv:2206.11625 p. 1 concerns an extremal size question for graphs subject to rank n."
+        ],
+        "reasoning": "Parity and an exact rank for a different connection set are not an exact table for PC_d, even if some smallest ranks happen to agree. No family-wide folded adjacency table was located in this bounded comparison.",
+        "searches": [
+          "Resultary: folded cube adjacency rank over characteristic two exact dimension square ideal 2^(d-1)-2^((d-1)/2)",
+          "Resultary: exact binary rank modulo 2 of adjacency matrix of folded cube or folded hypercube; Smith normal form or coding-theoretic formula"
+        ]
+      },
+      "rationale": "Credit the established even-d rank and odd-d square-zero property to the general parity result. The exact odd-d rank, its homology deficit and the specific pair normal form are the distinct supported contribution; neither ordinary hypercube Smith form nor checked cubelike parity statements give them.",
+      "residual_risks": [
+        "Unindexed binary neighborhood-code or modular incidence ranks for projective cubes could cover the odd-d result; no such statement was found in the compared passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers even d and odd-d square-zero, not odd-d folded rank",
+          "evidence": "A²=(t mod 2)I; additional rank examples are ordinary and complete cubes/graphs.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-square-map-parity-dichotomy-and-idempotent-field-extension-jum--1791669aa4e5",
+          "material_read": "RESULT.md Finding, Proof (1) and (6)",
+          "method": "Local mirror passage inspection",
+          "title": "A square-map parity dichotomy and idempotent field-extension jump for cubelike evolution algebras",
+          "trigger": "Exact prior cubelike parity overlap"
+        },
+        {
+          "assessment": "Ordinary hypercube; only odd-parameter folded full rank implied using double cover",
+          "evidence": "Smith form over integers for Q_n when n is even; odd determinant of Q_n when n is odd.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/REU/REU2016notes/ChandlerSinXiang.pdf",
+          "material_read": "pp. 2–4, Theorem 1.1 and §4",
+          "method": "OA PDF passage inspection",
+          "title": "The Smith Group of the Hypercube Graph",
+          "trigger": "Potentially implies binary rank via integral Smith form"
+        },
+        {
+          "assessment": "Confirms convention and the relevant double-cover limitation",
+          "evidence": "Standard FQ_n has 2^(n−1) vertices and can be obtained by identifying antipodes of Q_n.",
+          "identifier_or_url": "https://mathworld.wolfram.com/FoldedCubeGraph.html",
+          "material_read": "Offsets 242–4679, folded quotient and bipartite double",
+          "method": "OA HTML passage inspection",
+          "title": "Folded Cube Graph",
+          "trigger": "Indexing and double-cover conventions"
+        },
+        {
+          "assessment": "Identifies the exact graph and bipartite branch; no rank assertion in checked passage",
+          "evidence": "PC_d is generated by e_1,…,e_d,J and PC_(2k−1) is bipartite.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.00776",
+          "material_read": "p. 1, offsets 2456–3250; p. 2 Theorem 1.1 passage",
+          "method": "OA PDF definition/theorem passages",
+          "title": "Projective cube preprint",
+          "trigger": "Alternative naming in the binary neighborhood-code search"
+        },
+        {
+          "assessment": "Prior construction, not a folded square-ideal calculation",
+          "evidence": "Defines Cayley evolution algebras and identifies their underlying Cayley graphs.",
+          "identifier_or_url": "arXiv:2605.12672v1",
+          "material_read": "§9.1 Definition 9.1 and Remark 9.2, offset 59342 onward",
+          "method": "OA passage inspection",
+          "title": "Expander Evolution Algebras",
+          "trigger": "Cayley evolution algebra framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural characteristic-two rank question left by the parity dichotomy is answered for a canonical family, with explicit sub-half-rank defect and homology. The pair normal form explains the exact defect rather than interpolating small ranks or merely restating the nilpotence. It gives a reusable algebraic calculation for this structured multiplication operator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

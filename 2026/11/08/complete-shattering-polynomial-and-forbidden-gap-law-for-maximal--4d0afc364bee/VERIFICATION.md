@@ -5,23 +5,22 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification
 
-# Verification and limitations
+Use the proof in `RESULT.md` for the unrestricted claim. Its counting argument marks an actual long-gap index in each indexed word, including when the word has a rotational symmetry. The proof includes the singleton and empty-support cases and treats an obstruction run that occupies the entire cycle.
 
-The public reproduction program `verify_cycle_mis.py` uses only Python standard-library arithmetic. Execute with `python verify_cycle_mis.py`. It reconstructs maximal independent sets directly from independence and domination, and does not rely on the forbidden-gap classification to create those concept families.
-
-For each cycle length \(3\le n\le18\), the program independently forms the trace family on every one of the \(2^n\) vertex supports, compares its size with \(2^{|S|}\), compares that result to the proposed cyclic-gap test, and checks every coefficient of the closed sum. The total number of individual supports inspected is \(524280\). Additional formula and dimension-boundary checks cover lengths \(19\) through \(90\).
-
-Observed output: `MAXIMAL_CYCLE_SHATTERING_PASS supports= 524280 direct_lengths=3..18 formula_boundary_lengths=19..90`.
-
-These computations are finite consistency checks, not a proof for unbounded lengths. The unrestricted conclusion rests on the private-neighbor witness lemma, gap-block construction, and cyclic-rooted enumeration in the proof. Historical priority remains conditional on available literature. Independent review has not been conducted.
+The accompanying standard-library Python checker is a finite diagnostic for the unchanged coefficient formula and gap criterion. It tests all 524,280 vertex supports for lengths 3 through 18 and finite boundary identities through length 90. The terminal line starts with `MAXIMAL_CYCLE_SHATTERING_PASS`. These checks do not replace the unrestricted proof. No formal verification, external attestation, or historical priority is claimed.

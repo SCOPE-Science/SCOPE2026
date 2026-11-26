@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the coatom matching
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer and no third-party packages. `verification_output.txt` is the expected stdout from a complete execution. All groupings are over genuine order-preserving transformations on \([n]\); multiplication is implemented as function composition, not through the theorem's inverse condition.
+## correctness
 
-The checker tests every ordered pair of coatom transformations for \(n=4,5,6,7,8,9,10\). It checks actual mutual-inverse compositions against the claimed index criterion, tests all specified partners and their involution identities, verifies fixed idempotents, counts two-cycles, and confirms chain-reflection equivariance. In addition it enumerates **all** perfect matchings of the nonidempotent bipartite inverse relation using exact integer dynamic programming for \(n=4,5,6,7,8\), recovering precisely one each time.
+PASS
 
-The output reports the number of ordered inverse pairs, which includes loops and both orientations of each nonloop edge. The exhaustive dynamic program checks only the displayed finite parameter values. The mathematical proof of uniqueness for every \(n\ge4\) is the finite-set coordinate-sum argument in `RESULT.md`; finite checks are independent corroboration, not an infinite proof.
+Each rank-(n−1) isotone map is determined by its unique consecutive double block and its one omitted image value. Idempotence is equivalent to omitting one member of the double block. For the inverse criterion use both cross-transversal conditions: a sandwich identity f g f=f forces g to be injective on im(f) and hence onto im(g) there, and f then maps im(g) bijectively onto im(f). In reverse, with both cross-transversals, the restrictions are increasing bijections between the two ordered images; their composites are identity because increasing bijections of a finite chain to itself are identity. This justifies the criterion without relying on one transversal alone. For x=(j,k) in R, a nonidempotent inverse (u,v) must lie in L since u≥k−1≥j+1≥v, and distinct nonidempotents have no loops. The proposed pairing is feasible, with ψ(u,v)=(v,u+1) its inverse labeling. Every allowed edge has ψ(u,v)≥(j,k) in both coordinates. A perfect matching preserves the sum of each coordinate of R, so every inequality is equality, proving uniqueness. Counting R gives binom(n−1,2), and conjugation by reflection preserves the conditions, hence commutes with the unique matching.
 
-No external mathematical verification, proof-assistant certification, or independent audit is claimed.
+## originality
+
+PASS
+
+Pass for rigidity of the specified matching, not for discovering the formula, its existence, its counts, or the cross-transversal encoding. Several earlier Resultary records already give the same explicit top-rank matching. The inspected earlier works do not establish that fixing all idempotents forces it. This is a distinction within the frozen exactly-one theorem, not an alteration of the theorem.
+
+## value
+
+PASS
+
+An inverse involution known by construction is now forced by a natural fixed-idempotent constraint across an entire canonical Green class, even where vertices have more than one possible inverse partner. That determines the combinatorial freedom in this class, explains equivariance intrinsically, and gives a structural distinction from unconstrained involutions. This value does not rely on the previously known formula being new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

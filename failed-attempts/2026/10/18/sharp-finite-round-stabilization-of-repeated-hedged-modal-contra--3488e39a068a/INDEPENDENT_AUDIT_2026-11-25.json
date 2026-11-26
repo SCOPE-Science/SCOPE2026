@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:02.709864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:15–53",
+        "Frozen VERIFICATION.md:19–25",
+        "Frozen verify.py:10–108",
+        "arXiv:2606.31861, Definition 4.1"
+      ],
+      "rationale": "From the simultaneous row update in RESULT.md:17–27, all rows grow and the set A of worlds with no a-successor outside P shrinks. If a nonempty A is unchanged by an update, all rows of all agents meet that same set after the update, so the following update is the identity; if A is empty, the update is the identity immediately. Count at most |A_0| strict decreases if A reaches the empty set, or at most |A_0|-1 strict decreases plus one strict constant-set round otherwise. A survivor while A contains a false-p world cannot have previously gained an edge, since every earlier A contained that same world and receiving it would have expelled the survivor permanently. Testing its original row against the current A therefore gives precisely the sink-deletion rule. The directed path pointing toward its terminal sink starts with A=W, loses exactly one vertex from the right until all are lost, and includes the one-world empty-row case. Propositional truth sets are fixed by the edge update on any carrier, so the update is idempotent. The finite bitmask checks in verify.py are consistent in scope; inspected, not executed.",
+      "residual_risks": [
+        "No extension of the finite n-bound to infinite carriers, arbitrary modal formulas, or other event-update semantics is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper defines the full multi-agent operator and gives a conditional one-update success statement; its conclusion identifies iterations of the broader GDEL framework as future work.",
+          "The catalogue theorem is one-agent, not an explicit theorem quantifying over unrelated parallel agents."
+        ],
+        "reasoning": "Neither treating generalized event models nor stating one-update success covers quantitative fixed-formula iteration. The positive overlap comes from the exact one-agent theorem, not the general framework alone.",
+        "searches": [
+          "Belardinelli and Zhang arXiv:2606.31861, Definition 4.1, §6.1 and §8",
+          "Resultary: 5680885de989"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5680885de989 (distinct catalogue entry)",
+        "arXiv:2606.31861, Definition 4.1, §6.1 and §8",
+        "Focused primary-literature search for iteration of hedged contraction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof uses monotonicity and the unchanged-set stopping lemma, and gives the entire path-witness trajectory. The other agents' rows do not enter the definition of the falsifying set."
+        ],
+        "reasoning": "Parallel extra agents extend the same row argument, not the sharp phenomenon. General sink-peeling is a structural description not expressly located in the comparison; it should not be represented as already stated there.",
+        "searches": [
+          "5680885de989 Proof, offsets 2301–5401",
+          "arXiv:2606.31861, Definition 4.1 and §6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5680885de989 RESULT.md, Finding and Proof, offsets 0 and 2301–5401: fixed diamond p, upper bound n, same directed path with P={0}."
+        ],
+        "reasoning": "Negating the atom by complementing its valuation identifies the formula and row operation at every step. The path, carrier size, proof invariant up to complementation, and sharp witness all match.",
+        "searches": [
+          "Resultary: sharp finite convergence of iterated possibility contraction, 5680885de989"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5680885de989, local-mirror RESULT.md, offsets 0 and 2301–5401, supplies an all-n statement and proof rather than just finite tabulation."
+        ],
+        "reasoning": "No tabulation is required for an arbitrary-n theorem; the catalogue supplies direct coverage of its main sharp quantitative feature.",
+        "searches": [
+          "Configured Resultary semantic comparison for the fixed possibility-contraction update"
+        ]
+      },
+      "rationale": "The sharp n-round phenomenon, the directed-path witness for every n, and the propositional contrast are expressly present in a distinct Resultary finding, 5680885de989. Complement the truth set of p to identify its fixed diamond p with this record's diamond not-p: every iterate of the distinguished relation is then identical. Other agents do not feed back into that trajectory; the same no-progress lemma applies to their rows in parallel. The general explicit sink-pruning characterization is not stated in the overlapping finding and is a distinguishable structural refinement. This does not establish the submitted broader bundle as a distinct sharp-bound finding. This is a coverage decision, not a claim that the indexed comparison historically preceded the frozen manuscript.",
+      "residual_risks": [
+        "The indexed comparison bears a later catalogue date; dates do not establish historical priority or dependence.",
+        "The searches do not establish priority for the structurally distinct general sink-pruning formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact operator; neighboring one-step result, not the sharp iteration bound",
+          "evidence": [
+            "Adds all current counterexamples precisely at rows satisfying the belief condition.",
+            "§6.1 is conditional one-update success; §8 lists iterative properties."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31861",
+          "material_read": "Definition 4.1 (article p. 141), §6.1 Success (p. 145), §8 conclusion (p. 151)",
+          "method": "OA PDF, located definition and bounded passages",
+          "title": "Belief Contraction in Dynamic Epistemic Logic",
+          "trigger": "Same update semantics and closest iteration motivation"
+        },
+        {
+          "assessment": "Equivalent coverage of the single-agent sharp theorem and propositional contrast; no explicit general sink recurrence in the inspected sections",
+          "evidence": [
+            "Fixed diamond p, n strict updates at most, n attained by 0→…→n−1 with only 0 satisfying p.",
+            "Same constancy/no-progress mechanism."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-sharp-finite-convergence-of-iterated-possibility-contraction--5680885de989/RESULT.md",
+          "material_read": "Finding, and upper-bound and sharpness proof at offsets 2301–5401",
+          "method": "Configured Resultary search and bounded local-mirror reads",
+          "title": "Sharp finite convergence of iterated possibility contraction",
+          "trigger": "Material Resultary match on exact bound and formula under complement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:29–47",
+        "arXiv:2606.31861, §8",
+        "Resultary 5680885de989, Proof"
+      ],
+      "rationale": "Linking a fixed modal contraction to sink pruning of the original induced digraph gives a usable prediction of its stages, not merely a finite census. The depth-one versus depth-zero comparison isolates the effect of changing modal truth rather than inserting frame restrictions. This is intrinsic scientific utility, not credit for novelty of the already covered sharp bound.",
+      "residual_risks": [
+        "The graph rule is specific to this fixed formula and the condition that the surviving set contains a false-p world."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

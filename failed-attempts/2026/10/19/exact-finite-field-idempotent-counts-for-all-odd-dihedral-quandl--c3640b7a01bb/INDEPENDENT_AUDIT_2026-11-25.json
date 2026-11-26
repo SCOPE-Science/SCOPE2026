@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:49.807523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51; independent Fourier reduction, orbit closure, root-group count and descent check",
+        "Frozen VERIFICATION.md lines 19–25 and verify.py source (not executed)",
+        "Standalone replay: python3 /workspace/review-evidence/bounded_counts.py, quandle_check()"
+      ],
+      "rationale": "For odd n and p=char(F_q) not dividing n, Fourier inversion is valid and the product e_x e_y=e_{2y−x} gives c_k=c_{−k}c_{2k}. The nonzero support is invariant under both finite permutations. Multiplication of equations at k and −k, then cancellation and surjectivity of doubling on the support, give c_{−k}c_k=1 and c_{2k}=c_k². On order-r indices, if −1=2^{d_r/2} modulo r the seed relation t^{2^{d_r/2}}=t^{−1} also closes the doubling cycle; otherwise the negated doubling cycle is disjoint and independently given by inversion, with closure t^{2^{d_r}−1}=1. Frobenius covariance c_{qk}=c_k^q is both necessary and sufficient by inversion. The quotient of the order-r residues by H_r has q-cycles of common length s_r. On each cycle, propagation gives one zero choice or a seed solving both t^{N_r}=1 and t^{q^{s_r}−ε_r2^{a_r}}=1. The gcd is prime to p: N_r is odd if p=2, and the second exponent is a unit modulo p if p is odd. Thus the number of nonzero choices is the stated gcd, even when the exponent difference vanishes in characteristic two. Independent cycles and c_0=0 or 1 give the formula and inverse. Direct exact enumeration in the original basis independently gave 12, 16 and 80 at (n,q)=(5,4),(7,3),(9,2).",
+      "residual_risks": [
+        "The bounded counts do not prove the universal formula. Even n and the modular case p|n are outside the finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang's Theorem 5.5 uses c_χ=c_{χ⁻¹}c_{χ²} for complex odd-order abelian cores and gives the Peirce spectrum. Theorem 5.2 and Elhamdadi–Ta–Virgin Theorems 4.3/5.4 concern integral idempotents. This establishes prior method but not alone the finite-field formula.",
+          "The later indexed bea675d51eff extends the finite-field census and support/augmentation enumerator to odd-order finite abelian cores; specializing to a cyclic group gives the dihedral quandle. The later 972d2f02c5a2 instead works over C."
+        ],
+        "reasoning": "The exact matched record, not the integral or complex spectrum results, covers this frozen theorem in its full coefficient-field range. The broader finite-field result gives additional coverage but is not used to infer earlier priority.",
+        "searches": [
+          "Zhang arXiv:2610.08204v1 §5 Alexander/core Fourier formulas",
+          "Elhamdadi–Ta–Virgin arXiv:2609.03799v1 §§4–5",
+          "Resultary odd-order finite abelian core quandle census, bea675d51eff and 972d2f02c5a2"
+        ]
+      },
+      "checked_sources": [
+        "Published records 4a113244be17, bea675d51eff, 972d2f02c5a2, 06aa9c19e539, 107bfdf05104, dc75c28dd3a9",
+        "arXiv:2610.08204v1 and arXiv:2609.03799v1; partial R_3 comparison arXiv:2601.07057v1 §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put S=ord_n(q), m=S/s_r and e=ε_r2^{a_r}. The map H_r→(Z/N_r Z)^× sending the generators 2 and −1 to 2 and −1 is well defined: 2^{d_r}=1 mod N_r and, when the generators are dependent, 2^{d_r/2}=−1 mod N_r. In the other branch the group is the direct product of the doubling subgroup and ⟨−1⟩.",
+          "Hence e^m≡1 mod N_r because (q^{s_r} mod r)^m=1. If g=gcd(N_r,q^{s_r}−e), then q^S≡e^m≡1 mod g. Therefore gcd(N_r,q^S−1,|q^{s_r}−e|)=g, including a vanishing difference. Equivalently, a propagated seed closes automatically in the splitting field."
+        ],
+        "reasoning": "Grouping identical orbit contributions and dropping a redundant gcd argument are direct deductions from the prior result. No residual new classification, count or substantive construction is isolated.",
+        "searches": [
+          "4a113244be17 Frobenius descent proof and gcd definition versus frozen RESULT.md lines 45–51"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed record counts all idempotents (including zero) with e_i e_j=e_{2j−i} for every odd n≥3 and gcd(n,q)=1, via 2 times one factor 1+g_D per orbit of ⟨−1,2,q⟩. The proof uses the same seed relations, Frobenius propagation and inverse transform.",
+          "On the exact order-r stratum, write k=(n/r)u with u a unit modulo r. Its ⟨−1,2,q⟩-orbit consists of a full q-cycle on cosets of H_r. The old orbit parameters d,t,a,M_D become r,d_r,s_r,N_r, respectively. There are φ(r)/(h_rs_r) such cycles.",
+          "In the branch −1∈⟨2⟩, choose the older ε=1 and b=a_r; otherwise the sign and power are unique and equal to the frozen choices. Thus the closing exponent q^{s_r}−ε_r2^{a_r} is the same."
+        ],
+        "reasoning": "Removing the redundant splitting-field constraint (proved under claim_vs_prior_implication) leaves the same nonzero seeds, including the same zero-frequency choice and zero seed on each cycle. This is equivalence of parametrizations for every input, not agreement of selected counts.",
+        "searches": [
+          "Resultary: finite-field idempotent count dihedral quandle algebra odd n Frobenius divisor cycles",
+          "4a113244be17 Finding and proof, compared to frozen RESULT.md lines 4–51"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4a113244be17 supplies a symbolic exact census, with split and nonsplit examples at n=11, not just a finite table. 06aa9c19e539 already gives eight for nonmodular R_3, and q+1 in characteristic three. Later catalog matches include a divisor/Frobenius formula (107bfdf05104) and a prime-order census including modular fields (dc75c28dd3a9)."
+        ],
+        "reasoning": "The matched symbolic census covers every entry; verification of more small field instances or an isolated example cannot create an unknown exact invariant. The later entries and the R_3 table alone would not decide coverage of all composite orders.",
+        "searches": [
+          "Resultary exact dihedral quandle idempotent census and R_3 characteristic-three record",
+          "4a113244be17; 06aa9c19e539; 107bfdf05104; dc75c28dd3a9"
+        ]
+      },
+      "rationale": "Published record 4a113244be17 gives the same full count and Fourier parametrization for the same multiplication and the same range of odd n and coprime finite fields. Its global splitting-field gcd factor is redundant, and its orbit product is identical to the frozen divisor product after grouping by order r; the equivalence is proved below. This is established statement-level coverage, not an inference from title, date, or common use of Fourier methods. The record-path dates do not establish authorial priority or provenance.",
+      "residual_risks": [
+        "Provenance and attribution of the overlapping records are not established by the corpus paths. This limitation does not affect the proved equivalence or the presence of distinct indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent theorem and classification under a regrouping of factors",
+          "evidence": "2∏_D(1+g_D) over ⟨−1,2,q⟩-orbits, with g_D=gcd(M_D,q^S−1,|q^a−ε2^b|), and unique reconstruction by descending orbit seeds.",
+          "identifier_or_url": "2026/10/18/SCOPE-frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17",
+          "material_read": "RESULT.md Finding, assumptions, Fourier reduction, one-orbit proof and Frobenius descent (offsets 0–5311); prior-work paragraph (offset 5599)",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Frobenius-orbit census of idempotents in finite dihedral quandle algebras",
+          "trigger": "Same object, hypotheses, exact count and full Fourier classification"
+        },
+        {
+          "assessment": "Prior Fourier equation; different census question and coefficient rings",
+          "evidence": "The core formula c_χ=c_{χ⁻¹}c_{χ²} occurs in the complex Peirce analysis, not a nonmodular finite-field enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08204v1",
+          "material_read": "§5, Proposition 5.1 and Theorems 5.2 and 5.5 (prop./core offsets 24061 and 30832)",
+          "method": "OA HTML passage inspection",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Same Fourier equation in a broader quandle family"
+        },
+        {
+          "assessment": "Integral claims do not supply the finite-field formula",
+          "evidence": "The stated theorems concern integral idempotence in semi-latin Takasaki and medial commutative cases.",
+          "identifier_or_url": "https://arxiv.org/html/2609.03799v1",
+          "material_read": "Theorem 4.3 and Theorem 5.4 (offsets 26064 and 33466)",
+          "method": "OA HTML passage inspection",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Broader Fourier idempotent theorems"
+        },
+        {
+          "assessment": "Broader catalog coverage, not evidence of earlier priority",
+          "evidence": "Counts idempotents for finite abelian groups of odd order in nonmodular finite characteristic; includes a support/augmentation enumerator and the cyclic case.",
+          "identifier_or_url": "2026/11/8/SCOPE-finite-field-galois-descent-for-idempotents-of-odd-order-core-qu--bea675d51eff",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Finite-field Galois descent for idempotents of odd-order core quandles",
+          "trigger": "Potential stronger finite-field theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "4a113244be17 Finding and Frobenius descent; explicit equivalence in this review"
+      ],
+      "rationale": "The arithmetic classification is a worthwhile invariant of a natural algebra. But the incremental assertion in this submission is the same known classification in divisor notation: the exponent just counts same-order cycles and the gcd simplification follows immediately from closure. Neither supplies a further mathematical invariant or substantive new range, obstruction, application or algorithmic result. There is no isolated surviving valuable claim to repair.",
+      "residual_risks": [
+        "Convenience of presentation is distinct from a new scientific finding; no claim is made about the usefulness or attribution of the prior census itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

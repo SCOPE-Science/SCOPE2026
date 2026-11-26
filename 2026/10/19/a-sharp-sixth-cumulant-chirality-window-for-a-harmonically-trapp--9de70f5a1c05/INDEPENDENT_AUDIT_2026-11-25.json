@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:18:44.111638Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stable linear trap gives a unique stationary coordinate, with bounded active part. I independently computed the moments by integrating over ordered past times, expanding the cosine product as Fourier sign words. Uniform angular phase imposes zero total frequency; independently distributed angular increments give a factor 1/(kb+j^2+iuj) for each gap, where j is the tail frequency, k its tail length, and u is the scaled angular drift. The resulting even-moment combination equals the claimed rational sixth cumulant exactly. Its denominator is positive. Independently recomputed the resultant factorization and root count (one root in (0,1/2), in (11/25,9/20)), the positive shifted coefficients excluding zeros for b>=1/2, and the two positive roots at b=1/10. Strict convexity, positivity at x=0 and the positive quartic leading coefficient prevent changes in the number of positive roots except by collision; on compact b-intervals away from zero, roots cannot escape to infinity. There must therefore be exactly one positive double-root collision. Exact Taylor coefficient bounds give Q_x(b,6)<0<Q_x(b,8) throughout the isolating b interval. Refinement gives (0.4475510940308399394...,6.835392739927954179...). Both simple roots of the weak-trap boundary quadratic continue from b=0. Rotation by pi centers the scalar law; no reflection symmetry of the full torque-driven dynamics is needed. The added independent stationary OU coordinate is Gaussian, hence invisible to the sixth cumulant. Replay: python /workspace/branches/independent-continuous.py swimmer.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caraglio–Franosch gives spectral/iterative trapped-particle dynamics; Frydel gives general moment recursion. The torque-driven follow-up describes exact time-dependent moments through order four."
+        ],
+        "reasoning": "A propagator or arbitrary-moment algorithm can supply the raw ingredients of the formula but does not settle the global positive-root geometry of the connected sixth-order numerator.",
+        "searches": [
+          "arXiv:2210.04205",
+          "arXiv:2312.05406",
+          "arXiv:2603.26967 §Fourth order moment of displacement"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_sixth.py",
+        "arXiv:2509.03448",
+        "arXiv:2603.26967",
+        "arXiv:2404.09650",
+        "arXiv:2210.04205",
+        "arXiv:2312.05406",
+        "Resultary c86e0f02b51e and 9a21f4969a84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier 2024 chiral SDE has no harmonic restoring term. The trapped 2025 and 2026 results quantify lower orders. The original sixth-order claim requires the connected subtraction, a distinct quartic, and an all-parameter collision exclusion."
+        ],
+        "reasoning": "Neither free-motion cumulants nor a fourth-order trapped phase diagram implies the stationary two-boundary and unique-collision theorem by direct specialization.",
+        "searches": [
+          "arXiv:2404.09650 §2 Eq. (2.0.1)",
+          "arXiv:2509.03448 pp. 1–3",
+          "arXiv:2603.26967 p. 20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model literature evaluates displacement moments and excess kurtosis. Isotropy would allow conversion of a complete set of radial even moments through order six, but the fourth-order moments inspected do not determine a sixth cumulant. Resultary c86e0f02b51e and 9a21f4969a84 concern Poisson pi-reversal rather than deterministic angular drift."
+        ],
+        "reasoning": "Coordinate and radial computations are mathematically related by rotational invariance, unlike the distinct angular generators in the direction-reversal and torque models. Fourth-order reentrance need not entail sixth-order reentrance.",
+        "searches": [
+          "arXiv:2509.03448",
+          "arXiv:2603.26967",
+          "Resultary trapped active-particle sixth cumulant sign boundaries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed sixth-order sign regimes and zero-kurtosis witnesses use a different reversal-rate parameter. The published same-model steady-state diagram at arXiv:2509.03448 pp. 2–3 plots excess kurtosis, not the sixth cumulant."
+        ],
+        "reasoning": "The exact target is the full stationary sixth-cumulant sign boundary, in particular the same-model coordinates (b*,x*) and their isolating characterization. A phase map of a different order or process is not an exact match.",
+        "searches": [
+          "Resultary c86e0f02b51e",
+          "Resultary 9a21f4969a84",
+          "arXiv:2509.03448 steady-state chirality versus confinement comparisons"
+        ]
+      },
+      "rationale": "The known torque-driven trapped model, moment methods, and fourth-order reentrance are not new. The supported distinction is the evaluated stationary sixth Cartesian cumulant and its full sign classification, including the unique finite-confinement collision and weak-trap endpoints. No inspected prior source supplied an equivalent classification.",
+      "residual_risks": [
+        "The primary-text comparison was selective, not a full read of every supplement. A broad moment framework can implicitly produce the sixth cumulant; the distinct global boundary classification is the strongest contribution. No publication-priority guarantee is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior torque-trap model and fourth-order reentrance, not sixth-order sign classification",
+          "evidence": [
+            "The 2D treatment gives fourth displacement moments/excess kurtosis and a stationary chirality-confinement kurtosis map."
+          ],
+          "identifier_or_url": "arXiv:2509.03448",
+          "material_read": "pp. 1–3; offsets 0–1900, 13000, 20300",
+          "method": "OA primary PDF text",
+          "title": "Chirality, confinement and dimensionality govern re-entrant transitions in active matter",
+          "trigger": "Closest same-model steady-state prior work"
+        },
+        {
+          "assessment": "Same model and lower-order analysis; v2 predates the frozen publication",
+          "evidence": [
+            "The abstract specifies exact time-dependent moments up to order four and the inspected moment section evaluates the fourth displacement moment."
+          ],
+          "identifier_or_url": "arXiv:2603.26967",
+          "material_read": "p. 1 offset 2100, p. 20 offset 160800 in the fourth-moment section",
+          "method": "OA primary PDF text",
+          "title": "Exact dynamics and dimensional effects in torque-driven trapped active Brownian particles",
+          "trigger": "Prior same-model exact dynamics and possible higher-order formulas"
+        },
+        {
+          "assessment": "Wrong dynamics for the claim; free chiral motion",
+          "evidence": [
+            "The displayed 2D SDE has propulsion and thermal noise but no harmonic restoring term."
+          ],
+          "identifier_or_url": "arXiv:2404.09650; published DOI 10.1088/1367-2630/ad6a32 under the torque title",
+          "material_read": "p. 1 offset 1800; p. 2 offset 8200, §2, Eq. (2.0.1)",
+          "method": "OA primary PDF text",
+          "title": "Impact of chirality on active Brownian particle: Exact moments in two and three dimensions",
+          "trigger": "Unresolved earlier torque paper in the frozen comparison"
+        },
+        {
+          "assessment": "Prior iterative/spectral solution without the deterministic-torque sixth-order boundary in the material inspected",
+          "evidence": [
+            "The paper describes exact iterative relations for the propagator and low-order correlations of a trapped particle."
+          ],
+          "identifier_or_url": "arXiv:2210.04205; DOI 10.1103/PhysRevLett.129.158001",
+          "material_read": "p. 1 offset 0, model and solution summary",
+          "method": "OA primary PDF text",
+          "title": "Analytic Solution of an Active Brownian Particle in a Harmonic Well",
+          "trigger": "General trapped-particle solution prior work"
+        },
+        {
+          "assessment": "Methodological prior art, not evidence of the evaluated sign diagram",
+          "evidence": [
+            "Fokker–Planck stationary moment recurrence is presented as a general method."
+          ],
+          "identifier_or_url": "arXiv:2312.05406",
+          "material_read": "p. 1 offsets 500–745",
+          "method": "OA primary PDF text",
+          "title": "Active oscillator: recurrence relation approach",
+          "trigger": "Older stationary-moment recurrence"
+        },
+        {
+          "assessment": "Later related finding with a different angular process",
+          "evidence": [
+            "Its stationary projected cumulant boundaries are in a Poisson reversal rate, not a deterministic angular-drift cusp."
+          ],
+          "identifier_or_url": "Resultary c86e0f02b51e",
+          "material_read": "RESULT.md offsets 0 and 831",
+          "method": "Local mirror text",
+          "title": "Nested fourth/sixth cumulant sign boundaries for a trapped direction-reversing particle",
+          "trigger": "Close indexed sixth-cumulant sign classification"
+        },
+        {
+          "assessment": "Later result for direction reversals, and on a fourth-order locus rather than a full torque sign map",
+          "evidence": [
+            "The sixth cumulant is strictly negative along the reversal model's zero-kurtosis curve."
+          ],
+          "identifier_or_url": "Resultary 9a21f4969a84",
+          "material_read": "RESULT.md offsets 0 and 842",
+          "method": "Local mirror text",
+          "title": "A strict sixth-cumulant witness on the zero-kurtosis curve",
+          "trigger": "Close indexed stationary sixth-order witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The previously observed fourth-order reentrance raises a concrete higher-order question about non-Gaussian stationary fluctuations. The sixth order has a different exact negative window and a confinement cutoff that can be used without recomputing a parameter grid. The uniqueness and weak-trap endpoint results add information beyond evaluation of the recurrence at order six, and the invariance under translational Brownian forcing gives the sign criterion a robust interpretation within the model. A zero of this cumulant is not a test of Gaussianity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

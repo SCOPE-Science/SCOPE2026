@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:45:35.077912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the mean-zero space the gap lower bound z is a positive-semidefinite constraint. Compressing to the group contrast and taking normalized traces on the two within-group zero-sum spaces gives the three necessary bounds on totals; uniform weights realize all three compressed Rayleigh values. At fixed z the minimum normalized cost therefore reduces to a piecewise-linear function of cross weight divided by z, with breakpoints 1/(p+q), 1/p, 1/q. The slopes are pq−t(2pq−p−q)/2 and pq−tq(p−1)/2, so the claimed values and flat intervals follow; for equal groups the last two breakpoints coalesce. At all points where both internal trace bounds are tight, positivity forces both within-group zero-sum spaces into the gap eigenspace. Applied across the partition this makes every column and row constant, and within each group it makes the internal Laplacian scalar on its zero-sum space. This proves the stated unrestricted uniqueness and the full lower and balanced critical segments. Above the upper price only the larger group's bound is tight: equal rows with slightly unequal positive column weights preserve the large group's eigenvalue B/p while the other positive eigenvalues remain strictly larger by continuity. For the explicit example 5u1u2=11/80>1/9. The upper endpoint claim is only an exhibited segment, not an exhaustion. The frozen NumPy checks were inspected as supporting evidence, not run or treated as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. give a general SDP/dual, not evaluated at this price pattern; Jafarizadeh pp. 28 and 40–41 treats other complete-graph products/coupled cliques; the multilayer article fixes the intralayer conductances."
+        ],
+        "reasoning": "A solver framework requires the parametric minimization and equality analysis; the inspected explicit results constrain or change the decision variables.",
+        "searches": [
+          "DOI:10.1137/S0036144504443821",
+          "arXiv:1509.05823",
+          "The art of interconnections, Network Science 2024"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Sun et al. DOI:10.1137/S0036144504443821",
+        "arXiv:1509.05823",
+        "Network Science article 67B428A634B2BF0741AFD0B350F8AB4E",
+        "Resultary 4d170c56ba91, da6bd4b37466, 2e1277c4e435, 33fae1c22fc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared upper threshold 2p/(p−1) comes from the interval on which the smaller block is already inactive. The earlier lower threshold p(q+1)/(q(p−1)) and this record's 2pq/(2pq−p−q) differ, for instance 9/4 vs 12/7 at (p,q)=(3,2)."
+        ],
+        "reasoning": "The earlier upper-price formula is not new in isolation; its first slope and corresponding phase behavior do not imply the present ones, and the general SDP does not give pointwise equality/rigidity without additional analysis.",
+        "searches": [
+          "Resultary 2026/10/13 4d170c56ba91",
+          "DOI:10.1137/S0036144504443821"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. p. 683 is exactly the rate-budget maximum-gap formulation, and §4.1 gives the maximum variance unfolding dual.",
+          "The earlier two-block specialization charges (cross, larger internal, smaller internal) = (1,t,1) instead of (1,t,t); for p>q≥2 and t≠1 its t-price subgraph is one clique plus isolates, not two cliques on all vertices. Its unit-price subgraph is connected with triangles, not a complete bipartite graph."
+        ],
+        "reasoning": "Continuous-time consensus, fastest diffusion, and fastest mixing refer to the same unnormalized symmetric spectral-gap optimization here. Neither relabeling nor normalization changes the earlier edge-price pattern into the target pattern, even if the two relative prices are interchanged.",
+        "searches": [
+          "DOI:10.1137/S0036144504443821",
+          "Resultary 2026/10/13 4d170c56ba91"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest unequal two-block record has a different lower price and asserts uniqueness only in the orbit-constant class. Resultary da6bd4b37466 covers the equal-size optimum value, decision threshold and symmetric optimal set, but explicitly does not assert arbitrary-design uniqueness. Other indexed models price a matching in a complete graph or alternating classes on an even cycle."
+        ],
+        "reasoning": "The balanced formula and symmetric phase diagram are demonstrably covered, but none of the matching statements gives the unequal optimizer classification or even excludes nonsymmetric balanced ties. Their dates do not decide equivalence or priority.",
+        "searches": [
+          "Resultary 2026/10/13 4d170c56ba91",
+          "Resultary da6bd4b37466",
+          "Resultary 2e1277c4e435 and 33fae1c22fc4"
+        ]
+      },
+      "rationale": "The closest inspected priced complete-graph theorem shares the method and the upper price but changes one block's relative price and does not give the target lower transition or unrestricted rigidity. Credit the framework and shared upper-price calculation; the distinct content is the two-internal-price law and rigidity/nonrigidity classification under independent weights.",
+      "residual_risks": [
+        "A different or unindexed explicit budgeted-SDP specialization may give equivalent results; the inspected overlap does not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not evaluated phase diagram",
+          "evidence": "Weighted budget optimization and dual maximum variance unfolding SDP.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144504443821",
+          "material_read": "pp. 681, 683 and §4.1 p. 689",
+          "method": "OA full-text passages",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same continuous-time spectral objective and adjustable priced rates"
+        },
+        {
+          "assessment": "Material partial overlap, different price pattern",
+          "evidence": "Only one costly internal block; lower threshold differs and optimizer uniqueness is orbit-constant only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-two-price-thresholds-in-fastest-mixing-on-a-complete-graph-with--4d170c56ba91",
+          "material_read": "RESULT.md Finding and proof",
+          "method": "Local published-record mirror",
+          "title": "Two price thresholds in fastest mixing on a complete graph",
+          "trigger": "Strong two-block and two-threshold match"
+        },
+        {
+          "assessment": "Exact balanced value and symmetric phase diagram, partial optimizer information",
+          "evidence": "Gives τ=m/(m−1), both displayed values, and all optimal symmetric ratios, but explicitly does not assert uniqueness against nonsymmetric designs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-distinct-investment-thresholds-for-resistance-and-fastest-mixing--da6bd4b37466/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0, fastest-mixing paragraph",
+          "method": "Local published-record mirror",
+          "title": "Distinct investment thresholds for resistance and fastest mixing in a two-community complete network",
+          "trigger": "Matches the equal-size prices and objective"
+        },
+        {
+          "assessment": "Different models in the inspected passages",
+          "evidence": "Complete-graph products and coupled-clique topologies, not a complete two-block graph priced on both types of internal edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.05823",
+          "material_read": "pp. 28, 40–41",
+          "method": "OA full-text passages",
+          "title": "Optimizing the Convergence Rate of the Continuous Time Quantum Consensus",
+          "trigger": "Explicit spectral-gap optima on complete and coupled graphs"
+        },
+        {
+          "assessment": "Different allocation problem",
+          "evidence": "The existing internal edge weights are fixed while interconnections are optimized.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+          "material_read": "Introduction p. 3 (OA offset 11000)",
+          "method": "OA full-text passage",
+          "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+          "trigger": "Two groups and maximal algebraic connectivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The thresholds and optimizer geometry answer when scarce budget buys internal reinforcement, and when symmetry of the cost no longer forces symmetry of actual optimal weights. The equality analysis adds useful information beyond computing a symmetric optimal representative. The balanced case shows the role of group-size imbalance and bounds the scope of the asymmetry claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

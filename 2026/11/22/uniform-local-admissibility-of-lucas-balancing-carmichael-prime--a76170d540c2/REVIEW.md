@@ -1,15 +1,21 @@
-# Review: Uniform local admissibility of Lucas-balancing Carmichael prime triples
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the sequence normalization, derives the norm identity \(AD-B^2=8\) and the mod-\(48\) cycle, then treats **every prime**: parity, primes dividing the middle term, primes dividing the outer product, and remaining primes. The exceptional local residues \(1,-1/6,-6\) do not vanish because all prime divisors of \(AD\) exceed \(3\). The direct Korselt calculation is independent of the numerical example. The infinity assertion is explicitly conditional on Dickson's conjecture. The standalone script checks \(17\) even indices against \(37\) primes each, plus a verified prime-factor example; this is supporting finite evidence only.
+PASS
 
-## Originality — PASS, with residual risks
+The recurrence gives D=6B−A and the shift-invariant AD−B²=8; consecutive coprimality and the period (1,3,17,3) modulo 48 imply pairwise coprimality and M≡17 mod 48 for n≥2 even. Then 25M+7 is divisible by 48, and the parity adjustment by odd M gives even k=K+2Mu with 48k≡7 mod M. For ℓ=2 or ℓ|B all forms are 1; for ℓ|M (necessarily ℓ≥5), exactly one of A,D is zero and the other equals 6B mod ℓ. The three residues are 1,−1/6,−6 using B²≡−8 and k≡7/48. All other primes are ≥5 and at most three residues of u are forbidden. For prime values, division of the reduced product expansion by a=Bk leaves the bracket j+k+ajk for the other two sequence terms j,k. It is a multiple of B for the middle modulus and vanishes modulo A,D by B(7−48k(u)), so the three distinct odd primes satisfy Korselt. Dickson is used only for infinitude at each fixed even n; strictly increasing forms give distinct products. The frozen verifier was inspected, not run. A separately written bounded check enumerated even K from 0 to 2AD−2 for n=2, found K=14918, and at u=363 recovered the three stated factors; exhaustive trial division to the respective integer square roots found each prime and the three Korselt remainders were exactly zero. This confirms the example only.
 
-Bensella (arXiv:2611.02054v1, 2026-11-01) characterizes the Korselt parameters but explicitly does **not** assert infinite prime triples or establish the all-index no-local-obstruction result. Wright (2019), summarizing Chernick's use of Dickson, establishes conditional results with different linear forms. The closest indexed Lucas–Carmichael and positive-shift claims use different divisibilities. The reviewed local-admissibility claim is not implied by the inspected prior results. Some database entries were readable only as scientific summaries and an unindexed equivalent could remain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-index admissibility calculation resolves the concrete local existence obstruction for the newly parametrized Carmichael product family. It is a structural theorem with an immediate Dickson-conditional infinitude consequence for **each** even index, rather than an arbitrary special case or an additional isolated numeric example. It does not claim an unconditional result about infinitely many prime triples.
+Bensella establishes the exact previous Korselt parametrization, so that part is not new. The supported increment is proving all local obstructions absent for an explicit subprogression for every fixed even n, and thus obtaining the precise Dickson-conditional implication for that family. The nearest inspected claims do not establish that increment.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The progressions come from the known necessary compatibility conditions, not an arbitrary slice. Showing a fixed-divisor obstruction never defeats Dickson's conjecture in any positive even-index family is a concrete advance from candidate parametrization to conditional realization, despite using elementary local arithmetic. It is neither an unconditional prime-tuple theorem nor a new general Carmichael construction technique.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

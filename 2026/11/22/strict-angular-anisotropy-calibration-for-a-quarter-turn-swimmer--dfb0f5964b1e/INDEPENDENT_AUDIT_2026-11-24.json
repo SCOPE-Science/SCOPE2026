@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:55:06.313065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original RESULT.md line 68 incorrectly asserts continuous log-ratio density for all a. Since h_a(w)^2 is asymptotic to w^(2a-2)/B(1/2,a)^2 near zero, the convolution at zero diverges for a<=1/2 (and Fatou's lemma shows the same limit as the argument tends to zero). The strict interval-mass argument also used strict density decrease where the a>1 step only established nonincrease. The full corrected RESULT.md under /workspace/repairs/3/ preserves the theorem: take layer cake in the symmetric unimodal density, not in the test. Each nontrivial finite centered superlevel interval contributes integral_{s-r}^{s+r} F(v) dv, strictly decreasing for s>0 because F(s+r)<F(s-r). Finite positive-length levels have positive measure even for an unbounded density. Convolution with the independent log difference of the nondegenerate beta factors strictly decreases the expectation. The repaired proof needs no strict density or continuity assertion. I rechecked the telegraph signs (one flips at each permitted turn, each at rate gamma), the rotation sign of cos(4theta), beta parameter and factor multiplication, the dominated continuity and endpoint beta limits, and the square-law integral giving pi-3. At high a the joint Gaussian correction in polar coordinates is r^2 - r^4(3+cos(4phi))/8 - 1/4; Gaussian radial averages of r² and r⁴ are 1 and 2, respectively, giving exactly -cos(4phi)/4 in the rotated angular density at first order. Gaussian domination outside r<=a^(1/8) and polynomial-weighted Taylor errors inside yield the stated integrated O(a^-2) error uniformly in angle. Independent bounded reproduction: python /workspace/branches/replay_frozen.py 3; direct polar integration gives aQ=0.125389077, 0.125156004, 0.125078064 at a=80,200,400. The original script and recorded numbers are unaffected by the proof repair and were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 705d6eafe130: single-view calibration via projected-density singularities at 0<a<1/2",
+          "Resultary d2b78a5896b4: inverse using directional second-, fourth- and sixth-order cumulants with thermal noise",
+          "Resultary 83578980642d: mutual information between rotated coordinates at the balanced rate a=1"
+        ],
+        "reasoning": "Projected singularities and cumulant tomography genuinely overlap the inverse goal, but require different observables and, for the single-view theorem, a smaller parameter domain. Fixed-rate mutual information is not an across-rate angular ordering. A prior strict peakedness theorem for this log ratio would dominate the harmonic result; no such established special or general coverage was identified.",
+        "searches": [
+          "Resultary: broader calibration of four-direction trapped swimmers, positional angle and angular information",
+          "arXiv:2207.10445 and APS 10.1103/PhysRevE.106.054133 angular distribution"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md, frozen CHECK.py, VERIFICATION.md, REVIEW.md, AUDIT.json",
+        "arXiv:2207.10445v2 and arXiv:2305.03663v1, primary first-page extracts",
+        "Resultary dfb0f5964b1e, d357046fa9e1, 965a51cb75a3, f3729281ca46, 705d6eafe130, d2b78a5896b4, 83578980642d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local RESULT.md 965a51cb75a3: sharp radial fourth-moment envelope over a different class of reflection-symmetric turning laws",
+          "Local RESULT.md f3729281ca46: signed mixed fourth moment under unequal turning rates",
+          "Repaired RESULT.md steps 2–4: independent beta multiplicative increment and strict convolution inequality"
+        ],
+        "reasoning": "Radial fourth moments or an unequal-rate chirality statistic do not specify the harmonic of position angle for the symmetric model. Forward evaluation under the known density at individual rates is possible, but the decisive cross-rate comparison uses the beta-factor coupling and strict smoothing. An equivalent implication in unretrieved primary passages could alter priority.",
+        "searches": [
+          "arXiv:2207.10445 stationary angular distribution and anisotropy",
+          "Resultary d357046fa9e1; 965a51cb75a3; f3729281ca46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith et al., arXiv:2207.10445v2, PDF p. 1: exact position distributions by decomposition into independent one-dimensional problems",
+          "Resultary d357046fa9e1 local RESULT.md Finding and Assumptions: the same beta-product trap, but radial-density shells and a threshold at a=1/2"
+        ],
+        "reasoning": "Q is a strictly distance-decreasing test of the log ratio of two squared coordinates. A law for their sum or radius is not the ratio comparison; the exact joint law supplies the premise, not by itself a strict ordering theorem across parameters.",
+        "searches": [
+          "Resultary: strict fourth positional angle harmonic for quarter-turn swimmer; beta log-ratio/sech-squared comparison",
+          "Public literature: stationary angular fourth harmonic ordering and inverse ratio in harmonic confinement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary dfb0f5964b1e is the identical assigned record",
+          "Repaired RESULT.md steps 1 and 5 identify the anchor as a square angle integral of an established density"
+        ],
+        "reasoning": "The exact self-match is not prior evidence. An anchor or even a table for the forward moment would not prove strict order at all positive real rates. The novelty decision does not depend on pi-3 being new.",
+        "searches": [
+          "Resultary: Q(a), fourth angular harmonic, pi-3, 1/(8a), quarter-turn ratio"
+        ]
+      },
+      "rationale": "Best-knowledge pass after repair for strict all-positive-rate ordering of one scale-free stationary position-angle harmonic and the resulting inverse. The proof correction does not change the observable or parameter range. The exact position/angle law is prior input, and the unit-ratio anchor is a calculable consequence of its uniform square case, not an originality basis. Independent primary access to the decisive angular-law passage was limited. Two different calibration observables in the same model were compared by their actual statements, not discarded as same-date results.",
+      "residual_risks": [
+        "The decisive angular-law equations in Smith et al. were not independently inspected despite legitimate alternate retrieval attempts; stronger angle or log-ratio ordering may exist.",
+        "The repair does not claim publication priority for the anchor, the given stationary distribution or the beta-factor identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The independent-coordinate reduction is directly documented; no whole-document exclusion of strict ordering or the high-rate coefficient is made.",
+          "evidence": [
+            "Primary p. 1 describes symmetric 90-degree turns and reduction to independent one-dimensional problems.",
+            "Frozen RESULT.md expressly credits the product law and angular marginal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.10445",
+          "material_read": "Primary arXiv v2 PDF p. 1 abstract; frozen RESULT.md lines 18–22, 116–117 describe the angular marginal; the decisive primary angular passage was not independently obtained.",
+          "method": "Targeted open-text requests including arXiv HTML/PDF and APS alternate; inspected PDF first-page extract.",
+          "title": "Exact position distribution of a harmonically-confined run-and-tumble particle in two dimensions",
+          "trigger": "Same model and exact stationary angle/coordinate law"
+        },
+        {
+          "assessment": "Available passage concerns an angular potential and turning kinetics, not a stationary position-angle inverse in this trap. The repaired reference cites the v1 author list as printed, not the unverified final version.",
+          "evidence": [
+            "v1 p. 1 lists Benjamin Loewe and Tyler N. Shendruk and describes anisotropic tumble-turns and continuum/simulation work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.03663v1",
+          "material_read": "v1 primary PDF p. 1 title and abstract; journal alternate passage not obtained.",
+          "method": "Open preprint extract and targeted journal-page request.",
+          "title": "Anisotropic run-and-tumble-turn dynamics",
+          "trigger": "Adjacent quarter-turn kinetic mechanism"
+        },
+        {
+          "assessment": "These target the radial pushforward or an unequal-rate mixed moment, not the all-rate angular harmonic.",
+          "evidence": [
+            "d357046fa9e1 has two radial shells at 1 and sqrt(2).",
+            "965a51cb75a3 optimizes E|X|^4 across turning laws.",
+            "f3729281ca46 varies the clockwise/anticlockwise bias."
+          ],
+          "identifier_or_url": "Resultary d357046fa9e1; 965a51cb75a3; f3729281ca46",
+          "material_read": "Local mirror RESULT.md Findings; Assumptions for radial shells and radial fourth moments.",
+          "method": "Catalogue search followed by local mirror reading.",
+          "title": "Radial shells, radial fourth moments and chirality fingerprints",
+          "trigger": "Same stationary law or fourth-order observable"
+        },
+        {
+          "assessment": "Distinct measurement requirements, ranges and functionals; no assumption about precedence based on same-day dates.",
+          "evidence": [
+            "705d6eafe130 uses four projection caustics for 0<a<1/2.",
+            "d2b78a5896b4 uses directional cumulants with thermal noise.",
+            "83578980642d examines balanced-rate mutual information."
+          ],
+          "identifier_or_url": "Resultary 705d6eafe130; d2b78a5896b4; 83578980642d",
+          "material_read": "Local mirror RESULT.md Findings.",
+          "method": "Catalogue and local mirror statement-level comparison.",
+          "title": "Single-view and cumulant calibrations; angular information boundary layer",
+          "trigger": "Strongest indexed candidate coverage of the angular inverse aim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full attainable range and strict ordering make a single angular harmonic sufficient to identify a rate ratio independently of spatial scale, including across the change in stationary density shape. This resolves ambiguity of a natural observable rather than supplying pointwise forward evaluations. The sharp high-rate law also quantifies fading of the signal. This is not a finite-sample estimation result, separate identification of both rates, or a theorem for noisy or differently turning swimmers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

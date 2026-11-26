@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:28.492701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–87 (independent risk, kernel, strict convolution and integral checks)",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt (inspected, not executed; scipy>=1.10, supplemental quadrature only)",
+        "Godrèche arXiv:1704.04406v2 §§5.4, 6 for the classical sign and occupation laws"
+      ],
+      "rationale": "Symmetry makes the sign balanced with zero tie probability at each interior time, so the conditional mean is 1/2 + C(t)Y_t and the risk is 1/12 - C(t)^2 by the uniform occupation law. Conditional on a positive standardized bridge value z, the expected noisy sign at scale r is P(|N|<z/r) except on a Gaussian-null set, and equals 1 at r=0. This is nonincreasing in r and positive on a positive-measure tail for every finite r. Integrating it against the conditional Gaussian sign expectation gives a positive kernel for rho>0, strictly increasing on [0,1] in rho (it is zero at rho=0). In log-odds coordinates the correlation is exp(-|x-z|/2), and the time measure is an even logistic density strictly decreasing away from zero. Each centered-interval layer of the kernel gives a strictly decreasing shifted integral since w(z+v)<w(z-v) for z,v>0. Its nonzero positive mixture is also strictly decreasing. Applying the fixed scale r(1/2) to every candidate is an upper bound for C(t) because the standardized scale has a global midpoint minimum; this proves uniqueness even for atomic noise and discontinuous scales. For Gaussian noise the arcsine integrand follows from correlation attenuation. Integrating by parts with u=sqrt(s/(1-s)), then setting au=sin(theta) and taking tan(theta), gives the stated arctangent. At zero noise the two arcsine integrals give C(t)=(sqrt(t)+sqrt(1-t)-1)/2 and the risk and explained fraction follow exactly.",
+      "residual_risks": [
+        "The quadrature suite was not rerun; the theorem and constants were checked analytically. The scale minimum must be global as stated; the result is not for arbitrary time-dependent or asymmetric noise."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available primary passages use full-valued discrete/high-frequency process observations for conditional means or L2 approximation, not a single chosen noisy binary sign.",
+          "The located Pozdnyakov citation concerns Brownian movement under measurement error; the DOI full-text attempt returned HTTP 403, so no claim about the contents of its unavailable full text is made."
+        ],
+        "reasoning": "A result for estimators based on a richer observation sigma field does not give the optimizer after one-bit quantization, much less its robustness to all symmetric noise laws.",
+        "searches": [
+          "Ivanovs–Podolskij arXiv:2001.02517, pp. 2–4; Altmeyer–Le Guével arXiv:2108.11632, p. 1 and §2.2; Pozdnyakov et al. doi:10.1890/13-0532.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; Godrèche 1704.04406v2; Ivanovs–Podolskij 2001.02517; Altmeyer–Le Guével 2108.11632; Resultary ec7f7a8efc6a and 1068bd71181d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arcsine law integrates to the noiseless C(t) and the uniform occupation law gives variance 1/12; Gaussian noise is handled by attenuation in the same Gaussian formula.",
+          "For non-Gaussian noise, monotonicity in correlation and standardized scale follows from conditioning on the Gaussian bridge value and using the symmetric-noise mass in a centered interval. The logistic convolution supplies strict placement improvement."
+        ],
+        "reasoning": "The classical formulas cover important inputs and mechanically give the noiseless computations, but do not imply the all-noise kernel comparison combined with strict placement and time-dependent standardized scale. Novelty is confined to that supported design result.",
+        "searches": [
+          "Godrèche arXiv:1704.04406v2 §5.4 Eqs. 5.32–5.35 and §6; compare with frozen proof §§2–4 and Resultary 1068bd71181d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balanced-bit Bayes design reduces to maximizing an integrated two-time sign correlation, not to estimating the full process. Godrèche gives the noiseless Gaussian correlation. The same-day two-sign bridge result contains the exact noiseless one-bit covariance coefficient.",
+          "The one-bit Brownian-motion comparator has a different covariance and an off-midpoint optimum even under relative Gaussian noise."
+        ],
+        "reasoning": "The Brownian-motion result cannot be carried over just by pinning the endpoint or rescaling time: the standardized bridge correlation is stationary in log-odds, with logistic time measure, while the Brownian-motion design solves a different optimization. Reducing a two-sign experiment to one sign does not add arbitrary symmetric noise.",
+        "searches": [
+          "Resultary: Brownian occupation one-bit optimal observation and Brownian bridge sign quadrature; ec7f7a8efc6a and 1068bd71181d",
+          "Godrèche arXiv:1704.04406v2 §5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ec7f7a8efc6a gives an exact one-bit relative Gaussian-noise design for Brownian motion, with an off-midpoint optimizer. 1068bd71181d gives the one-bit noiseless covariance within a two-sign bridge quadrature analysis and optimizes a symmetric two-site class."
+        ],
+        "reasoning": "These are real neighboring results, including exact duplication of a baseline coefficient; neither states the arbitrary-symmetric-noise midpoint optimum. No same-day ordering is assumed.",
+        "searches": [
+          "Local Resultary Brownian occupation design and sign quadrature neighbors: ec7f7a8efc6a and 1068bd71181d (same calendar date as the bound record)"
+        ]
+      },
+      "rationale": "The supported distinct claim is a unique global one-bit placement law for arbitrary symmetric finite noise under the global standardized-scale condition. The bridge sign correlation, Lévy's occupation law and the directly obtained noiseless covariance are not new. The strongest same-day comparisons either change the process and restrict noise to Gaussian, or change the experiment to two noiseless signs; neither supplies the distribution-free noisy bridge theorem.",
+      "residual_risks": [
+        "The Pozdnyakov et al. full text was unavailable on the bounded DOI attempt. Searches and located primary passages do not certify priority against all formulations or literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior inputs and noiseless implication, not the noisy design",
+          "evidence": "Gives 2 arcsin(rho)/pi and the uniform occupation density at theta=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.04406v2",
+          "material_read": "p. 11 §5.4 Eqs. 5.32–5.35; p. 13 §6",
+          "method": "Located primary OA PDF passages",
+          "title": "Two-time correlation and occupation time for the Brownian bridge and tied-down renewal processes",
+          "trigger": "Exact bridge sign/occupation formulas could cover the observation objective"
+        },
+        {
+          "assessment": "Strong analogue but different process/noise class and optimizer",
+          "evidence": "Brownian motion, relative Gaussian noise and optimizer x_eta=1/(a^2+k(a)^2), not universal midpoint optimality for a bridge.",
+          "identifier_or_url": "Resultary ec7f7a8efc6a",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Local mirror primary record",
+          "title": "Exact one-bit optimal sampling for Brownian occupation under relative noise",
+          "trigger": "Distinct same-day exact one-bit design with noise"
+        },
+        {
+          "assessment": "Noiseless coefficient covered; two-site design is different",
+          "evidence": "Exact coefficient a(x)=(sqrt(x)+sqrt(1-x)-1)/2 within noiseless two-sign estimation, with optimization over a symmetric two-site class.",
+          "identifier_or_url": "Resultary 1068bd71181d",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Local mirror primary record",
+          "title": "Exact two-sign Brownian-bridge occupation quadrature and a unique optimal symmetric design",
+          "trigger": "Distinct same-day exact bridge occupation problem"
+        },
+        {
+          "assessment": "Different model and full-valued high-frequency observation experiment",
+          "evidence": "Conditional-mean estimation of occupation/local-time quantities with discrete process values, not single-bit placement.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.02517",
+          "material_read": "pp. 2–4, OA offsets near 6100 and 9900",
+          "method": "Located primary OA PDF passages",
+          "title": "Optimal estimation of some random quantities of a Lévy process",
+          "trigger": "Possible broader occupation-estimation result"
+        },
+        {
+          "assessment": "Full-valued discrete approximation rather than noisy binary design",
+          "evidence": "Approximation by high-frequency sampling/Riemann estimators.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.11632",
+          "material_read": "p. 1 and §2.2 p. 3, OA offsets 0 and 8200",
+          "method": "Located primary OA PDF passages",
+          "title": "Optimal L2-approximation of occupation and local times for symmetric stable processes",
+          "trigger": "Optimal squared-loss occupation approximation"
+        },
+        {
+          "assessment": "Unassessed full text, not negative evidence; the citation identifies a Brownian-motion observation model",
+          "evidence": "No supporting full-text passage available from that attempt.",
+          "identifier_or_url": "https://doi.org/10.1890/13-0532.1",
+          "material_read": "Citation and title only; no full text retrieved",
+          "method": "Bounded lawful DOI retrieval returned HTTP 403",
+          "title": "On modeling animal movements using Brownian motion with measurement error",
+          "trigger": "Noise in Brownian observation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–5; Godrèche §5.4 and Resultary ec7f7a8efc6a for context"
+      ],
+      "rationale": "This is a sharp decision result for a natural information-constrained experiment: one observed bit for a global path functional. Exact midpoint uniqueness robust to discrete, heavy-tailed or degenerate symmetric noise removes a noise-density assumption, and covers both constant absolute and constant relative amplitude. The explicit risks give a quantitative benchmark; neither numerical design tuning nor a noiseless formula alone would give this conclusion.",
+      "residual_risks": [
+        "No claim for multiple observations, different bridge laws, asymmetric noise or arbitrary scale schedules; the explicit general-noise result is location, not a universal closed-form risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:20:26.208929Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the two-mode SPD quadratic with κ>1 and r=v²/u²>0, compute F_j=(g_{j,1}²+g_{j,2}²/κ)/2. The Cauchy step multiplies g_0 modes by (κ−1)r/(1+κr) and −(κ−1)/(1+κr). Its secant is parallel to g_0, so the second step a has a²=(1+r)/(1+κ²r), in (1/κ²,1), and multiplies the modes by 1−a,1−κa. Substitution gives the displayed ratio. Bounding the two squared factors by 1 and κ²a² respectively and using κ²r a²<1+r bounds the ratio by κ²(κr²+1+r)/[(1+κr)²(κ+r)]. The denominator less κ(κr²+1+r) is r(2κ²−κ+1)+r²(κ³−κ²+2κ)+κ²r³>0. Nonnegativity follows from the squared energy. For r=κ^(−3/2) the first energy ratio is asymptotic to κ^(−1/2), a is asymptotic to κ^(−1/4), and the next ratio is asymptotic to κ^(3/2), squeezing the rescaled supremum to one. Exact replay using g_0=(sqrt(63),1), κ=9 gives step lengths 8/9,2/3 and energies 284/9,28/9,5516/81, hence all three rational ratios. The argument proves neither a finite-κ optimizer nor later-step control; absent-mode or stationary seeds are excluded as stated. Frozen VERIFICATION.md, artifacts/verify_two_step.py and artifacts/verification.txt were inspected; the script was not run. The text output is recorded evidence only, distinct from the independent mode and rational-energy calculations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary BB-interval record 7866f4762b53 proves the sharp bound (κ−1)² for F_{k+1}/F_k over the BB interval, even after Cauchy warm-up, with monotonicity frontier κ=2."
+        ],
+        "reasoning": "The method here lies in the prior interval, but the prior uses a previous-iterate denominator and ranges over selectors. Multiplying its uniform bound by F_1/F_0<=1 gives only order κ², not the reviewed order or coefficient; these require the fixed selector's correlation with the seed.",
+        "searches": [
+          "Resultary: Sharp objective-monotonicity frontier Barzilai Borwein interval steps Cauchy start immediate previous iterate"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify_two_step.py and artifacts/verification.txt",
+        "arXiv:2608.03546v1",
+        "Dai–Huang–Liu manuscript",
+        "DOI 10.1007/978-3-319-17689-5_3 (retrieval attempted)",
+        "Local Resultary entries 7866f4762b53, 69464fd3db0c and 5f12814867fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CG_AOS record 69464fd3db0c gives the ratio (κ−1)^6/[4κ(κ+1)(κ³+1)]~κ/4 for a different update. AdOGD record 5f12814867fa gives endpoint-annihilating seed counterexamples about step-size identification, not this amplification. Primary-web hits were generic and are not used as evidence against overlap."
+        ],
+        "reasoning": "A shared order of growth in another algorithm neither upper-bounds the present fixed selector nor provides coefficient one. Endpoint-annihilation examples are inapplicable to a mixed-mode Cauchy seed, which lies strictly between the two curvature reciprocals.",
+        "searches": [
+          "Resultary: Sharp two-mode transient amplification CG_AOS exact initialization initial-to-final objective ratio",
+          "Resultary: Spectral-persistence counterexamples and a repair for AdOGD Wang Ballotta Carli Cao Schenato endpoint eigenspace seed curvature estimator",
+          "Primary web search: \"Cauchy\" \"geometric mean\" Barzilai-Borwein two-step objective ratio condition number adaptive curvature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geometric mean of the BB steps is ||s||/||y||; y=Hs gives the reciprocal secant curvature. Wang et al. prescribe 2/(running-min + running-max), which becomes that same reciprocal at the first measurement."
+        ],
+        "reasoning": "The two algorithms' first feedback step therefore has an exact established alias. The comparison is about the composed Cauchy-to-geometric-mean worst energy ratio, not about rebranding the step.",
+        "searches": [
+          "Resultary: Cauchy exact line search followed by geometric mean Barzilai Borwein objective ratio two gradient steps condition number",
+          "Dai–Huang–Liu, p. 4 equation (16)",
+          "arXiv:2608.03546v1 equations (10), (35)–(36)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue entry is this assigned record; distinct close hits were the BB-interval and CG_AOS records. The rational example is an illustrative witness, not the novelty-bearing claim."
+        ],
+        "reasoning": "The sharp asymptotic for a continuously varying condition number and optimized starting direction has no finite table interpretation. An exact formula for a different two-step rule is not a match for this ratio.",
+        "searches": [
+          "Resultary: Cauchy exact line search followed by geometric mean Barzilai Borwein objective ratio two gradient steps condition number",
+          "Resultary: Sharp two-mode transient amplification CG_AOS exact initialization initial-to-final objective ratio"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass only for the sharp initial-to-final amplification coefficient for the exact pair of updates. The spectral step and adaptive estimators are established prior rules, and the existence of objective overshoots for broader classes is not credited as new. The closest same-metric prior uses a different second rule; the closest same-class prior bounds a different ratio and cannot imply the sharp coefficient.",
+      "residual_risks": [
+        "The 2015 chapter was not available for theorem-level inspection and could contain a matching two-update result. Older analyses under the geometric-mean or positive-BB alias remain possible. Bounded lookup is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the curvature and rule; inspected result concerns adaptive convergence, not sharp two-step energy gain",
+          "evidence": [
+            "The running extrema are the same at k=1, giving α_1=1/c_1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.03546v1",
+          "material_read": "§3 equation (10) and §4 equations (35)–(36), OA offsets 13215 and 28074",
+          "method": "Open primary manuscript passages",
+          "title": "Pursuing Optimal Stepsize in Adaptive Gradient-Based Quadratic Optimization",
+          "trigger": "Same adaptive feedback and local curvature"
+        },
+        {
+          "assessment": "Established exact step formula, not the reviewed two-update law",
+          "evidence": [
+            "α^P=sqrt(α^BB1 α^BB2)=||s||/||y||."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2018/05/6628.pdf",
+          "material_read": "p. 4 equation (16), OA offset 9702",
+          "method": "Open manuscript PDF passage",
+          "title": "A Family of Spectral Gradient Methods for Optimization",
+          "trigger": "Exact spectral alias"
+        },
+        {
+          "assessment": "Still a plausible priority risk for the specific two-step analysis; no claim of noncoverage",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-17689-5_3",
+          "material_read": "No substantive passage retrieved; rule attribution confirmed in the accessible 2019 manuscript",
+          "method": "Attempted identified DOI direct and VPN routes; both timed out",
+          "title": "A Positive Barzilai–Borwein-Like Stepsize and an Extension for Symmetric Linear Systems",
+          "trigger": "Earlier source for the exact geometric-mean rule"
+        },
+        {
+          "assessment": "Prior sharp one-step amplification; not the claimed fixed-selector two-step initial-to-final ratio",
+          "evidence": [
+            "Worst ratio over BB interval is (κ−1)² relative to the immediately preceding iterate; frontier κ=2."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+          "material_read": "RESULT.md Setting, theorem and proof §§1–2, mirror offset 0",
+          "method": "Local Resultary mirror passages",
+          "title": "Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps",
+          "trigger": "Cauchy seed and interval including this step"
+        },
+        {
+          "assessment": "Comparable metric and order, distinct update and coefficient",
+          "evidence": [
+            "Explicit two-step family has gain asymptotic to κ/4."
+          ],
+          "identifier_or_url": "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp two-mode transient amplification for CG_AOS after exact initialization",
+          "trigger": "Same two-mode initial-to-final metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A practitioner using the natural exact-search warm-up and established curvature rule cannot infer net progress from first-step decrease or asymptotic convergence. The sharp initial-to-final coefficient quantifies how much progress can be lost and identifies an adverse scale for the starting spectral mixture, going beyond an example of overshoot or a loose previous-iterate bound. The result is deliberately only about two exact updates on the stated two-mode model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

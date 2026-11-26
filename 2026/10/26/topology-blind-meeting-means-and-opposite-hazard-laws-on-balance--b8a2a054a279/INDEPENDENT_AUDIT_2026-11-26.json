@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:31.605710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start from D and ignore jumps that stay in D: the waiting time to either absorption or S is Exp(2m/d), with absorption probability 1/m at that event. The rate to S is 2(m−1)/d. From S the next event is Exp(2) and leads to D. These relations do not depend on the actual vertices and give almost-sure absorption by geometric renewal. With F_X the transform, F_S=2F_D/(s+2) and F_D=[2/d+2(m−1)F_S/d]/[s+2m/d]. Hence the stated numerator and denominator d s²+2Ns+4 follow. Log derivatives at zero give mean N/2 and variance N²/4−d/2 for S; log((s+2)/2) subtracts 1/2 from the mean and 1/4 from the variance for D. The distinct positive rates follow from (N−2)²+4(m−1)>0. S is a sum of the two exponentials; with Δ=λ_+−λ_- its hazard is λ_-(1−exp(−Δt))/(1−(λ_-/λ_+)exp(−Δt)), strictly increasing to λ_-. In D, the monic rate polynomial at 2/d is 4(1−m)/d², so for m>1 the initial hazard 2/d lies strictly between the two rates and the asserted mixture weights are positive. Its hazard derivative is minus the variance of the rate under the time-t survivor weights. With m=1, S is unavailable and D has constant rate 2/(N−1). At fixed N comparisons are among admissible divisors/part sizes, and conditional, not over a mixture of initial classes. Inspected meeting_checker.py: its full ordered-pair killed generator and exact moment/resolvent checks are finite corroboration; not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohwa p. 2 gives the general first-jump equation for exponential holding times, pp. 2–3 uses a product chain, and §3.3 Proposition 3 evaluates a complete graph.",
+          "Oliveira pp. 1, 3 studies mean-field coalescence and transitive mixing; Cooper et al. pp. 1–2 give discrete-time coalescence bounds; Zhang et al. p. 1 studies stationary-start synchronous steps and exact means for special regular graphs."
+        ],
+        "reasoning": "Generic exact linear equations cover the method; the graph-family result still needs an explicit two-class rate count, rational evaluation and sign analysis. Mean-field coalescence and synchronized stationary-start means are not exact class-conditioned continuous-time laws.",
+        "searches": [
+          "Ohwa (2015) Theorem 2 and §3.3 Proposition 3",
+          "Oliveira arXiv:1109.5684",
+          "Cooper et al. arXiv:1204.4106",
+          "Zhang–Tan–Krishnamachari arXiv:1408.2005v1"
+        ]
+      },
+      "checked_sources": [
+        "Ohwa (2015), Thm. 2 and Prop. 3",
+        "Aldous–Fill §14.2",
+        "Oliveira; Cooper et al.; Zhang et al.; Pickering–Lim (specific passages above)",
+        "Resultary records --84ed4797c0f0 and --408d24e29fef, summary level"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-two transient reduction yields standard resolvent formulas directly once the S-to-D and D-to-S/killing rates are known. Aldous–Fill's group calculation supplies the single-walk reduction and their Proposition 14.5 the half-mean identity in the symmetric setting. Neither source gives the two evaluated moments and their part-size comparison for this family in the inspected results.",
+          "Pickering–Lim §V p. 7 treats a bipartite voter macrostate and says the spectral method there instead uses a diffusion-region approximation."
+        ],
+        "reasoning": "Generic solvability and hitting-time equivalence are not proposed as new or as evidence of priority. The new comparison needs both graphical rates and a rate-polynomial sign: the positive two-pole mixture, rather than merely two poles, establishes strict decreasing hazard at D, versus an increasing two-stage hazard at S.",
+        "searches": [
+          "Ohwa p. 2 general Laplace first-jump formula",
+          "Aldous–Fill §14.2 difference random flight and Proposition 14.5",
+          "Pickering–Lim arXiv:1408.2130v2 §V"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohwa treats the meeting time as hitting the diagonal in a configuration chain. First encounter of independently clocked walks, or coalescence of two such walks, agrees until that time.",
+          "Aldous–Fill §14.2 gives the doubled-speed difference-walk reduction for symmetric random flight on an abelian group. K_{m,…,m} admits precisely this representation on Z_r×Z_m with step distribution uniform off {0}×Z_m."
+        ],
+        "reasoning": "The doubled-speed first hitting of a fixed vertex is an equivalent law here. The general identity does not itself evaluate it according to the two start types or give their different signs of hazard ageing. Never-colliding Doob conditioning and synchronous discrete-time collision change the observable/law.",
+        "searches": [
+          "two independent rate-one continuous-time walkers balanced complete multipartite conditional first meeting transforms same part different part opposite hazards",
+          "Ohwa doi:10.1186/s40736-015-0016-2 Theorem 2",
+          "Aldous–Fill, Reversible Markov Chains and Random Walks on Graphs, §14.2 Meeting times"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary --84ed4797c0f0 summary on balanced bicliques concerns the motion conditioned never to collide and its path-space statistics. Resultary --408d24e29fef summary advertises an exact lifetime chain for k walkers on bicliques; k=2 is a substantive possible overlap. Exact records were not retrieved from the local mirror.",
+          "Ohwa's exact complete-graph example is a covered endpoint; Pickering–Lim §V is a complete-bipartite voter-consensus treatment, not a two-walker conditional transform table."
+        ],
+        "reasoning": "The catalogue summaries do not resolve explicit formula coverage at r=2. Even coverage of the biclique subfamily would not give the r>=3 evaluated comparison (and the central fixed-order topology comparison is not a comparison among bicliques). No priority judgment from same-day or later dating.",
+        "searches": [
+          "balanced complete multipartite graphs coalescing random walks two rate one first meeting time conditional Laplace transform hazard",
+          "balanced biclique same side opposite side collision time two walkers exact law"
+        ]
+      },
+      "rationale": "The distinct contribution is the evaluated two-class conditional law on all balanced multipartite graphs and the variance/hazard comparison. The reduction is short and uses standard hitting-time machinery; no claim of novelty for the general resolvent, the mapping to single-walk hitting on this Cayley family, the complete-graph endpoint, or the general properties of exponential mixtures/convolutions. No inspected source supplies an evaluated stronger graph-family formula yielding this whole comparison by parameter substitution.",
+      "residual_risks": [
+        "The exact full biclique records were unavailable; do not treat that as noncoverage of r=2.",
+        "A prior evaluated collision law on distance-regular or complete multipartite graphs could supersede this assessment. Searches do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers first-jump method and complete-graph example; no evaluated multipartite pair of laws in compared passages",
+          "evidence": [
+            "Theorem 2 supplies Laplace equations using the walkers' exponential holding times."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s40736-015-0016-2",
+          "material_read": "Theorem 2 and proof pp. 2–3 (offsets ~5600 and ~10000), §3.3 Proposition 3 p. 6 (~42000)",
+          "method": "Targeted OA primary text",
+          "title": "Exact computation for meeting times and infection times of random walks on graphs",
+          "trigger": "Potential exact covering continuous-time theorem"
+        },
+        {
+          "assessment": "Difference walk at doubled speed directly applicable on this family; prior reduction, not evaluated comparison",
+          "evidence": [
+            "For independent continuized group random flights with symmetric commuting step law, X^{-1}Y is a random flight with doubled jump rates."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch14.S2.html",
+          "material_read": "§14.2 opening random-flight example and Proposition 14.5, offsets 0–2400",
+          "method": "Open textbook web text",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Stronger identity of meeting and one-walk hitting on symmetric graphs"
+        },
+        {
+          "assessment": "Mean-field full coalescence, not finite conditional first-encounter evaluation",
+          "evidence": [
+            "The hypotheses involve transitive-chain mixing time and the law is approximate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.5684",
+          "material_read": "pp. 1, 3, offsets ~600 and ~7000",
+          "method": "Targeted OA preprint text",
+          "title": "Mean field conditions for coalescing random walks",
+          "trigger": "Possible exact vertex-transitive coalescing implication"
+        },
+        {
+          "assessment": "Discrete-time bounds, not the conditional continuous-time hazard",
+          "evidence": [
+            "Defines worst-start expected two-particle meeting time in a discrete setting and the voter correspondence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.4106",
+          "material_read": "pp. 1–2, offsets ~450 and ~4200",
+          "method": "Targeted OA preprint text",
+          "title": "Coalescing Random Walks and Voting on Connected Graphs",
+          "trigger": "Potential pair-walker/voter equivalence on general graphs"
+        },
+        {
+          "assessment": "Simultaneous steps and uniform starting law differ",
+          "evidence": [
+            "Explicit exact expressions in compared statement concern expectations on cycles and tori."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2005v1",
+          "material_read": "p. 1, offset ~900",
+          "method": "Targeted OA preprint text",
+          "title": "On the Meeting Time for Two Random Walks on a Regular Graph",
+          "trigger": "Meeting means on a larger regular graph class"
+        },
+        {
+          "assessment": "Different observable, no inspected exact two-walker transforms",
+          "evidence": [
+            "Analyzes the two-part voter concentration state, with a diffusion-region approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2130v2",
+          "material_read": "Abstract and §V p. 7, offset ~45500",
+          "method": "Targeted OA preprint text",
+          "title": "Solution of the voter model by spectral analysis",
+          "trigger": "Graph-specific bipartite voter dual"
+        },
+        {
+          "assessment": "Material overlaps on bicliques; no claim that either full record lacks a covering biclique formula",
+          "evidence": [
+            "The first refers to conditioned noncollision and the second to a finite-state lifetime reduction on K_{m,n}."
+          ],
+          "identifier_or_url": "Resultary --84ed4797c0f0 and --408d24e29fef",
+          "material_read": "Search summaries only; full records unavailable via attempted mirror access",
+          "method": "Published-catalogue search and local-mirror attempts",
+          "title": "Exact traffic dynamics and path-space entropy for two noncolliding walkers on balanced bicliques; Universal first-collision side marks and an exact multi-walker lifetime law on bicliques",
+          "trigger": "Exact related two-walker biclique dynamics and lifetime laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the standard encounter law on a canonical family with two intrinsic starting relations. The precise comparison shows when common means lose the geometry, recovers part size from conditional variance, and finds opposite effects of conditioning on survival as time passes. This is more than rewriting a generic resolvent or giving an isolated variance: it classifies the law and hazard across an infinite family and distinguishes starting classes for modelling encounters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

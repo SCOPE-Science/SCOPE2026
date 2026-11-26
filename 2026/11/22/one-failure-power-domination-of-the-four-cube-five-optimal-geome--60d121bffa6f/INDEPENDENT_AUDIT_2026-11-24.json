@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:07:10.342441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45 and VERIFICATION.md",
+        "verify_direct.cpp and verify_structural.py, inspected without execution",
+        "Corrected repairs/1/RESULT.md, Finding, scope and sharp-optimum proof",
+        "Independent replay: python3 /workspace/checks/1_cube.py; output /workspace/checks/1_cube.log"
+      ],
+      "rationale": "The Finding's bare universal deletion predicate would accept the empty deployment vacuously. The corrected RESULT explicitly requires a nonempty deployment (the intended actual-failure experiment, also used by the frozen checker), and adds the singleton closure argument excluding size two. For nonempty deployments of size under four, failure leaves zero or one seed, or would require a triangle in the bipartite distance-three graph. Independent replay computes closures of all 65,536 seed subsets and confirms the distance-three pair and triple tests, all robust coefficient counts, and equality of the four-set list with the three induced shapes. Translation and coordinate-permutation orbits give five classes with sizes 48,96,16,192,24; distance-three adjacency is isomorphic to cube adjacency via parity complement. Each admissible shape selects two of each parity, so sliding along a cube edge is impossible. Pairwise symmetric-difference adjacency and complete distance-layer enumeration give degrees 12,14,16, all vertices reachable, 2496 edges, radius 5 and diameter 6, including the full distance histogram. No number or movement rule is altered in the repair.",
+      "residual_risks": [
+        "Only Q4, distinct sensor sites, one lost sensor with all vertices and edges retained, and size-four paths for relocation. The exact reconfiguration numbers use finite exhaustive evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-power-of-two-dimensional-cube formula is for ordinary power domination, not surviving all deletions.",
+          "The PMU-multiset article treats complete bipartite and block graphs in the inspected scope. Ordinary power domination reconfiguration uses a different feasible state space."
+        ],
+        "reasoning": "An ordinary minimum does not give the compatible surviving subsets or the robust move graph. A multiset optimum need not even use distinct sites.",
+        "searches": [
+          "Dean et al., On the Power Dominating Sets of Hypercubes, p. 2",
+          "arXiv:2312.07377, scope and definition",
+          "DOI 10.1007/s44007-025-00187-5, abstract and move definitions"
+        ]
+      },
+      "checked_sources": [
+        "Dean et al. DOI 10.1109/CSE.2011.211",
+        "Pai–Chang–Wang DOI 10.1016/j.dam.2010.03.001 (partial access)",
+        "arXiv:2305.13430 and arXiv:2312.07377",
+        "DOI 10.1007/s44007-025-00187-5",
+        "Resultary 30e6a8ea15ed; 60d121bffa6f only as self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary Q4 minimum two rules out resilient nonempty deployments of size at most two, but does not rule out robust three-sets or prove 376 four-sets. The known Q5 mobility pattern likewise gives no robust Q4 compatibility calculation."
+        ],
+        "reasoning": "The new structural input is the characterization of compatible survivors and the resulting feasible four-sets. Exact graph distances and orbits cannot be inferred from the ordinary scalar result, conventions, or the neighboring mobility example.",
+        "searches": [
+          "Dean et al., p. 2, power-of-two dimension formula",
+          "Power Domination Reconfiguration DOI 10.1007/s44007-025-00187-5",
+          "Resultary 30e6a8ea15ed Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The robust-power-domination Introduction identifies the earlier retained-vertex distinct-location failure model. The PMU-defect-robust model reduces to the same test on multiplicity-one deployments at one failure."
+        ],
+        "reasoning": "Neither term denotes new robustness here. The comparison is to exact four-cube placement geometry and relocation under this established predicate, not to differently named or colocated deployments.",
+        "searches": [
+          "Pai–Chang–Wang DOI 10.1016/j.dam.2010.03.001; Bjorkman–Conrad arXiv:2305.13430",
+          "Web: fault-tolerant power domination hypercube Q4 one failure 376 robust distinct sensor Pai Chang Wang grids full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The latter is the frozen claim itself and is excluded as a self-match. The distinct 30e6a8ea15ed Finding treats 3600 ordinary Q5 minima, also observing frozen slides and diameter-six jumping."
+        ],
+        "reasoning": "The parallel movement pattern merits comparison, but the dimension, robustness predicate, and entire optimum catalogue differ; the Q5 statement does not give any of the Q4 robust state counts.",
+        "searches": [
+          "Resultary local: one-failure Q4 robust sets and hypercube reconfiguration; 30e6a8ea15ed and 60d121bffa6f"
+        ]
+      },
+      "rationale": "Distinct-location fault tolerance and both move conventions are known, and ordinary Q4 has minimum two. The supported distinct finding is the full one-failure optimum ensemble and its exact two-rule mobility, not a new robustness or reconfiguration notion. The nonempty-deployment clarification does not change that comparison.",
+      "residual_risks": [
+        "Pai–Chang–Wang full text remained unavailable after legal attempts; it could contain a relevant Q4 subcase. Bounded discovery cannot certify absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known ordinary minimum, not robustness",
+          "evidence": [
+            "For n=2^k the ordinary minimum is 2^(n-k-1); n=4 gives two."
+          ],
+          "identifier_or_url": "https://kjtian.github.io/PDSHypercube.pdf",
+          "material_read": "PDF p. 2, offset 7130",
+          "method": "OA PDF passage comparison",
+          "title": "On the Power Dominating Sets of Hypercubes",
+          "trigger": "Ordinary Q4 baseline"
+        },
+        {
+          "assessment": "Credits model; Q4-specific content unresolved",
+          "evidence": [
+            "The journal index identifies a grid study; arXiv:2305.13430 p. 1, offsets 0 and 2838, describes the earlier retained-vertex, single-site model. Does not establish whole-paper noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2010.03.001",
+          "material_read": "Journal bibliographic/abstract evidence; no accessible full text in DOI or identified ResearchGate route",
+          "method": "OA retrieval plus lawful identified alternate; compare characterization on p. 1 of the OA robust-power-domination survey",
+          "title": "Restricted power domination and fault-tolerant power domination on grids",
+          "trigger": "Earliest plausible identical failure model"
+        },
+        {
+          "assessment": "Specialization of predicate, not optimal Q4 geometry",
+          "evidence": [
+            "Defines PMU multisets, with headline cases complete bipartite and block graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.07377",
+          "material_read": "PDF pp. 2–3, offsets 6696 and 9981",
+          "method": "OA PDF passage comparison",
+          "title": "An Introduction to PMU-Defect-Robust Power Domination",
+          "trigger": "Alternate robustness with multiplicity"
+        },
+        {
+          "assessment": "Movement conventions and ordinary feasibility, not robust optima",
+          "evidence": [
+            "Studies ordinary power domination under TAR/TJ and defines sliding; does not state the robust Q4 result in the passages checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "Abstract and definitions, pp. 1–2, offsets 0 and 1093",
+          "method": "OA statement comparison",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Move rules on power-dominating sets"
+        },
+        {
+          "assessment": "Different cube and no failure",
+          "evidence": [
+            "Ordinary Q5: 3600 minima, connected jumps of diameter six and isolated slides."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/30e6a8ea15ed",
+          "material_read": "Mirrored RESULT.md Finding, offset 732",
+          "method": "Local Resultary and mirror passage comparison",
+          "title": "Six symmetry classes and a mobility gap for minimum power domination",
+          "trigger": "Closest indexed symmetry/mobility analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and relocation proof",
+        "Independent orbit/degree/distance census"
+      ],
+      "rationale": "The first exact distinct-site robustness census here distinguishes not merely the best budget but the structure of every optimum. It explains why no local slide is legal by parity and shows unrestricted one-for-one replacement nevertheless connects all states. This is a meaningful contrast between relocation constraints at fixed fault tolerance, on a canonical small regular graph.",
+      "residual_risks": [
+        "A finite exact reference case, not a claim of general hypercube rigidity or jump connectivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

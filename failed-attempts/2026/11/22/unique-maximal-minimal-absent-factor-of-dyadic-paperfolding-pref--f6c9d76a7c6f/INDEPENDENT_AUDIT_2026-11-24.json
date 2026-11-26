@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:06:14.509052Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–46; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python -B /workspace/review-evidence/recompute.py 3"
+      ],
+      "rationale": "In the 8-symbol synchronization base, for a fixed zero-based residue modulo 16 all positions except the sole multiple of 8 have fixed bits. Both exceptional bits occur and the 32 patterns are distinct. Equal length-2^r windows have the same start parity, so one-based even-index subsampling gives equal length-2^(r-1) windows with starts floor(i/2) and floor(j/2); induction proves the claimed synchronization. In the quarter-block check the invariant for j<m other than m/2 is equality of odd parts modulo four, not literal equality of the odd parts as integers. This follows because m divided by the exact power of two in j is divisible by four. The exception and the four boundary bits give B=D and opposite final bits in A and C. The only possible gap between equal length-m starts is 2m, and comparing those starts gives exactly m and 3m. Any longer repeat would repeat the first length-m block, but the second B has no next symbol. A minimal absent word of length at least 3 needs distinct occurrences of its interior to realize its two proper extensions. The predecessor sets at the two occurrences of B and the missing terminal successor therefore give exactly C_m B C_1 at maximal length. Independent recurrence, sorting and context-set checks confirmed k=5 through 13; the argument for all k is analytic.",
+      "residual_risks": [
+        "No extension to arbitrary prefixes or folding instructions, shorter MAW layers, or cyclic factors is supported. The imprecise wording about odd parts in line 39 does not affect the claim when read with the defining modulo-four rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original specifically reports that the older paper characterizes repetitions in S_k of length 2^k-1 and that its maximum repeat has length m-1 for k>4. The official listing confirms title, authors and DOI; the precise theorem wording was not independently accessible.",
+          "Barton et al.'s predecessor-set criterion handles an arbitrary finite word."
+        ],
+        "reasoning": "The two prefix lengths differ, but the cited bound rules out every length-m repeat not using the newly appended symbol. Together with a direct modulo-four block identity and the standard MAW criterion this covers the claim; there is no need for a stronger repetition theorem directly formulated for W_k.",
+        "searches": [
+          "Bates–Bunder–Tognetti, DOI 10.2298/AADM1000005B, Theorem 21 and Corollary 5 named in frozen RESULT.md line 49; official journal listing, DOI and lawful alternate access attempts",
+          "Barton et al., arXiv:1406.6341, Lemmas 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §Relationship to prior work and exact block proof; Bates–Bunder–Tognetti named corollary attribution and official bibliographic listing",
+        "Barton et al., Lemmas 1–2; Resultary f6c9d76a7c6f and 5752f791719e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If S_k has no repeated length-m block as stated in the original's prior-work comparison, any repeated length-m block of W_k must include the final length-m suffix D: only that window was not in S_k. A direct bit comparison gives B=D: for 1<=j<m the indices m+j and 3m+j differ by 2m, a multiple of four after removing their common power of two; the end symbols at 2m and 4m are both zero.",
+          "No third occurrence of B is possible because the two earlier occurrences would already repeat in S_k. The first B is followed by C_1, and the two predecessors p_m and p_(3m) are 0 and 1. Thus the older bound plus the one-symbol extension gives the entire length-m repeat classification and excludes any length-(m+1) repeat. The MAW rule gives exactly 1 B C_1 and precludes a longer MAW."
+        ],
+        "reasoning": "Neither an exact table of old repeats nor the new infinite-word synchronization induction is required for this implication. The exact invariant mechanically follows from the specific already credited old bound and the definition of the bits, even though the older paper need not phrase it as a missing-word theorem.",
+        "searches": [
+          "Frozen RESULT.md lines 39–43, 48–49; exact bound attributed to Bates–Bunder–Tognetti Corollary 5; Barton et al. PDF p. 4, offset 12058"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barton et al. construct minimal absent words via missing predecessors of the longest proper suffix relative to the predecessor set of the interior. This applies to linear contiguous factors as here.",
+          "The distinct same-day record 5752f791719e concerns shortest unique factors of length 2^(k-4)+1 in the complemented convention, not the maximal missing factor."
+        ],
+        "reasoning": "The shortest unique factor is not an equivalent invariant, even after bit complementation. The maximal minimal absent factor is obtained by applying the ordinary predecessor-set rule to the unique repeated interior and its two simple boundary contexts.",
+        "searches": [
+          "Local Resultary: maximal minimal absent factors, longest repeats and unique factors on dyadic paperfolding prefixes; matching f6c9d76a7c6f and 5752f791719e",
+          "Barton et al., arXiv:1406.6341, Lemmas 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f6c9d76a7c6f is the exact assigned result, not an independent prior hit. No earlier exact maximal-absence table for W_k was obtained. The Bates et al. table could not be read and is not reconstructed from the frozen synchronization table."
+        ],
+        "reasoning": "The exact table is unnecessary for the mathematical comparison: a repeat-length bound for S_k, the last symbol, and a direct comparison of B and D determine the maximal layer. The verdict makes no claim about an unread table entry.",
+        "searches": [
+          "Local Resultary f6c9d76a7c6f and 5752f791719e; DOI 10.2298/AADM1000005B and exact-title lawful copy search for Corollary 5 and Theorem 21"
+        ]
+      },
+      "rationale": "Under the exact older longest-repeat bound for the one-symbol-shorter prefix that the frozen record itself specifically credits to Bates–Bunder–Tognetti, all key conclusions are a mechanical boundary extension. The review establishes this implication directly without assuming their exact repetition table. The standard minimal-absent-word construction is verified separately in Barton et al. The decision is based on the recorded specific prior bound and the elementary extension, not on inability to read the older article or on title similarity.",
+      "residual_risks": [
+        "The exact 2010 Corollary 5 and repetition table could not be independently read. The prior comparison uses the precise older bound as attributed by the authors; the implication from that bound is independently established. Explicit earlier publication of the MAW formula itself was not shown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The recorded older bound suffices mathematically. The same conclusion is not asserted from the bibliographic metadata alone.",
+          "evidence": "Frozen prior-work passage credits maximum repeat length 2^(k-2)-1 for the length-(2^k-1) fold prefix and k>4.",
+          "identifier_or_url": "https://doi.org/10.2298/AADM1000005B",
+          "material_read": "Official volume listing at offsets 2935–5882; precise Thm. 21/Cor. 5 attribution in frozen RESULT.md line 49. No primary theorem or table passage obtained.",
+          "method": "Lawful DOI, publisher and alternate OA attempts; statement-level comparison of the exact recorded attribution",
+          "title": "Mirroring and Interleaving in the Paperfolding Sequence",
+          "trigger": "The exact longest-repeat bound for the one-symbol-shorter prefix can imply the entire result"
+        },
+        {
+          "assessment": "Directly supplies the generic construction, not the specific paperfolding block identity",
+          "evidence": "Lemma 1 compares the predecessor sets of the proper suffix and the interior; the proof relates them to both proper factors occurring but not the full word.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6341",
+          "material_read": "PDF p. 4, Lemmas 1–2, offsets 12058–14398",
+          "method": "Bounded OA PDF passage",
+          "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+          "trigger": "Established context-set MAW construction"
+        },
+        {
+          "assessment": "Different invariant; no priority order inferred from same-day indexing",
+          "evidence": "Shortest unique factors and their positions, in the complemented convention.",
+          "identifier_or_url": "Resultary 5752f791719e",
+          "material_read": "Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "Exact shortest unique factors of dyadic regular paperfolding prefixes",
+          "trigger": "Same family and exact competing factor invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Relationship to prior work; standard MAW construction and the direct extension proof in originality"
+      ],
+      "rationale": "The maximal missing factor of a canonical word is a natural invariant, but the specified one-symbol boundary makes it a direct corollary of the already credited longest-repeat length. Only one length-m window is added, its earlier occurrence is a direct comparison of two blocks, and the MAW is then the unique missing cross-context. The synchronization lemma is a proof device, not a separately substantiated new finding in the frozen record.",
+      "residual_risks": [
+        "This does not assess a classification for general prefix lengths or the rest of the minimal-absence spectrum."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

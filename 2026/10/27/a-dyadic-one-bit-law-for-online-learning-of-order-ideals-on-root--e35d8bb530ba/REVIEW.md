@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-parameter formula for online shattering of ideals of rooted-spider posets. The proof explicitly represents every nonempty ideal by independent arm-prefix lengths, isolates the empty ideal, and derives the exact root-versus-arm query recurrence. The elementary additive formula for product threshold classes supplies a baseline. Induction on the sum of coordinate counts proves both the universal one-bit upper bound and that equality occurs precisely for the simultaneous Mersenne coordinates; the converse gives a concrete recursively shattered root query. Edge cases with no arms and a single arm are included. The verifier independently enumerates ideals and the Littlestone game for 183 small spiders. Risks: finite verification is not a proof, and the unrestricted conclusion rests on the exact recurrence and induction, both displayed in RESULT.md.
+PASS
 
-## Originality — PASS, with residual risk
+Each nonempty ideal has the root and an independently chosen prefix on every arm, giving 1+∏b_i including the extra empty ideal. For a single arm with b prefixes, binary search shatters depth floor(log₂ b) (split into two sets of at least 2^(floor(log₂ b)−1) when b≥2) and the hypothesis count prevents any greater depth. For the pure disjoint-domain product, concatenate factor trees to attain the sum; conversely each query splits only one factor, whose smaller-dimensional nonempty child has dimension at most the original factor dimension minus one. Induction on version-space size gives the summed upper bound. In the augmented product keep the distinguished root even during negative restrictions, and allow a coordinate count of 1. The root query contributes one, and a depth-j query along arm i gives a pure product with count b_i−j on the positive side and an augmented product with count j on the negative side. This exhausts nonconstant queries; an all-ones augmented box, including zero arms, has rank one. For A=∑floor(log₂ b_i)>0, the induction hypothesis and the pure positive child bound every split by A+1. To achieve A+1 both children must have rank at least A; with a=floor(log₂ b_i), positivity forces j≤b_i−2^a≤2^a−1. The negative baseline has lost at least one level. Equality can only be rescued by its bonus, so j=2^a−1 and all other counts are Mersenne. Then b_i−j≥2^a forces b_i=2^(a+1)−1. Conversely this very split gives two children of rank A when all counts are Mersenne. The root query cannot supply the bonus for A>0, and monotonicity gives the baseline when no bonus is possible. This proves the formula in the full stated family; the 183-case frozen verifier and recorded output were inspected, not executed or used as the infinite proof.
 
-The 2020 paper of Ghazi, Golowich, Kumar and Manurangsi studies aggregation bounds for Littlestone dimension but does not state a dyadic root-plus-disjoint-chains ideal formula. Hanneke, Moran and Waknine (2024), Proposition 2, establish the additive direct-sum property for concept classes; this is background for the arm product and does not determine the exact change caused by adjoining the empty ideal. Frank a Campo (2022) studies counts of finite-poset downsets, not complete adaptive shattering trees. The inspected full texts and targeted mathematical searches did not reveal an equivalent, dominating, or tabulated classification. Earlier accessible work on ideals of a two-row product poset addresses a different partial order and only an algorithmic recurrence; it does not imply this closed formula. Residual risk: omitted earlier specialist literature or an unindexed direct one-point augmentation theorem may cover the result; failed searches alone do not certify uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Order ideals are canonical finite concept classes, and bounded-error deterministic online learning naturally asks for the exact Littlestone dimension. The theorem classifies an infinite, branching family in closed form, pinpoints when adjoining a single bottom concept changes the optimal mistake bound, and provides an explicit sharp iff criterion involving the arm-prefix counts. This is not an arbitrary finite census: each positive arm length is admitted, with unbounded width and height, and the bonus gives an indefinitely repeatable nonadditivity phenomenon for a natural one-point poset extension. No extension to arbitrary rooted trees is asserted.
+The supported contribution is the exact one-bit change after adjoining the empty ideal and allowing the shared root query. Independent-arm binary search and additive rank are standard. The strongest identical restricted classification is for lengths 1 and 2, in a later catalogue record; an earlier two-row ideal problem uses coupled cuts and does not cover a spider with arbitrary arm lengths. The inspected broader definitions and algorithms do not themselves determine the Mersenne bonus.
 
-## Closest literature and scope
+## value
 
-The comparison distinguishes the number of downsets, ordinary product additivity, and general aggregation bounds from the precise statement about membership-query Littlestone dimension on root-joined chains. The 183 tested instances support verification only. Specialist publication-priority review and independent proof verification remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rooted spiders are a natural first branching family of order-ideal concept classes. The exact rank quantifies when one additional hypothesis and the shared-root query improve the worst-case adaptive mistake depth despite independent-arm additivity. The equality criterion is substantive: two arms with b=3 and b=5 and one arm with b=15 both give 16 ideals, but their dimensions are 3 and 4, respectively. The formula supplies a sharp baseline for studying which branching features beyond a single root alter online rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

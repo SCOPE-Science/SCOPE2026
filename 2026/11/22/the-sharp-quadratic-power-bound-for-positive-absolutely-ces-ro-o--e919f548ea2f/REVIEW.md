@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Positivity reduces all powers and the absolute Cesàro constant to one norming order unit, so the scalar sequence of power norms is submultiplicative with bounded initial averages. Pairwise AM–GM gives the universal quadratic inequality. The separated-spike weighted nilpotents have an exact, explicitly computed optimal absolute Cesàro constant and power maximum, proving the coefficient is optimal for every prescribed \(K>1\). A finite exact-arithmetic checker independently confirms the elementary finite-product computations. No numerical sample is treated as a proof for infinite spaces.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The source's positive \(L^p\) result for finite \(p\) concerns self-improvement rather than the unital AM-space endpoint. Cohen–Cuny–Eisner–Lin's simultaneous-operator-and-adjoint argument already gives the qualitative implication and can provide a quadratic upper estimate after applying positivity in an AM-space. **Neither this upper estimate nor the qualitative implication is claimed as new.** The assessed addition is a proof that this quadratic function is **optimal for each exact prescribed constant** through separated-spike finite matrices. The closest published finite-horizon \(p\)-absolute Cesàro extremal result concerns finite exponent spaces. The precise quantitative endpoint and two-spike asymptotic extremizers were not identified in the checked literature or public mathematical-finding records. The complete Arnold 2026 follow-up and full record of the finite-exponent extremal paper were not accessible, so implicit equivalent coverage remains a risk; absence of a hit is not treated as proof of novelty.
+PASS
 
-**Value — PASS.** This determines the *best possible* uniform amplification law for a natural positive-operator class and distinguishes the unital supremum-norm endpoint sharply from unbounded power behavior allowed on \(L^p\), finite \(p\). The explicit two-spike construction shows that a quadratic bound is necessary even for nilpotent matrices, not merely a nonsharp byproduct of qualitative power boundedness. The precise coefficient matters for quantitative ergodic and stability estimates.
+Reviewed RESULT.md:5–56, VERIFICATION.md, and checks/check_extremizers.py. Positivity and the order-unit norm make the same unit vector norm all powers, including in the complex case by the lattice modulus inequality. Hence the optimum absolute Cesàro constant is the supremum of the prefix averages of a_j = ||T^j||. For each j between 0 and n, submultiplicativity gives a_j a_(n-j) >= a_n; AM–GM summed over j gives (n+1)sqrt(a_n) <= sum a_j <= (n+1)K. This includes zero powers and n=0. The finite backward shift with endpoint weights c and interior weights 1 has powers with norms 1, c (N−1 terms), c², then zero. The largest prefix average includes c² and equals c+(c−1)²/(N+1). For each exact K>1 the tuning equation has one c_N>1 by strict monotonicity and unboundedness in c, and 0<K−c_N<=(K−1)²/(N+1); thus c_N² tends to K². K=1 is attained by the identity. Independent bounded replay: python3 /workspace/branches/replay_frozen_review.py 2 checked 16 exact rational matrix orbits using basis vectors and row sums. That tests the construction, not the infinite-dimensional inequality or the quantifier over real K; these are proved algebraically.
 
-**Limits.** The claim does not cover general bounded operators without positivity or AM-spaces without a norming order unit. It does not imply that one finite power attains equality for \(K>1\); sharpness is via an approximation family across dimensions. Bibliographic limitations are as above.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The upper estimate and qualitative power boundedness are not counted as original. The supported distinction is the exact best function of the optimal one-sided absolute Cesàro constant at the positive order-unit endpoint, with finite-dimensional nilpotent witnesses at each prescribed K. The closest verified results give finite-exponent improvements, different finite-horizon estimates, or a two-sided power-boundedness argument without this optimality. This is a bounded conclusion, not historical priority.
+
+## value
+
+PASS
+
+The exact amplification allowed by an optimal average bound is a natural quantitative operator invariant. The upper inequality alone is simple; the exact-K finite-dimensional witnesses are what make this a useful sharp endpoint. They rule out improving the bound at any K>1, not merely improving the exponent as K grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

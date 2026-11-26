@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact six-character mixed-moment identity is derived from branching for the natural permutation representation, the dimensions and eigenvalues are reconstructed using hook lengths and Frobenius's transposition-ratio formula, and the covariance is obtained by subtracting first moments. For \(n\ge7\), a strict Jensen inequality using the *exact* convex-combination identity proves negativity at every unbounded integer step \(t\ge2\). For \(n=6\), the one negative eigenvalue is handled separately by parity; the \(n=5,t=3\) positive boundary is an exact finite count. An independently implemented exact-arithmetic state-enumeration checker confirms all stated tested finite cases. No finite experiment is used as a substitute for the general proof.
+PASS
 
-## Originality — PASS (best-knowledge, with residual historical-priority risk)
+Independently reconstructed RESULT.md §§Character reduction–Strict sign. Subtracting exterior-square trace from unordered-pair trace gives 2Q=1+χ_W−χ_U. Tensoring with the permutation character is Ind Res: W and U both contribute V and (n−3,2,1), which cancel in their difference; the remaining difference is χ_W−χ_U+χ_X−χ_Y. The five dimensions and ratios follow from the hook and content formulas, valid also at n=6. In the centered moment only X, Y and the products of the V ratio with W and U remain, with ρ_Vρ_W=a. For n≥7, a−c=12/[n(n−1)] and b is the strict convex combination of a,c with the stated weights; Jensen gives the strict sign including c=0 at n=7. For n=6, b/a=3/5 and c/a=−1: the even and odd brackets are respectively −15a^t+15b^t and −9a^t+15b^t. Time 0 and 1 have deterministic counts. Independent n=5 replay by cycle type: after two transpositions the path counts for identity, 3-cycle, and two 2-cycles are (10,60,30). From these types the transitions to a lone 2-cycle, a 4-cycle, and a (3,2) are respectively (10,0,0), (3,6,1), (2,4,4), by splitting or joining cycles. Thus the third-step path counts are (340,480,180) out of 1000; E[F]=3/2, E[Q]=13/25, E[FQ]=51/50, giving 6/25. The supplied Python and its stored finite output were inspected, not executed; neither substitutes for the proof.
 
-The accessible literature supplies exact one-cycle-count expectation formulas and general character tools, but the inspected theorems and sections do not cover the complete signed *mixed* covariance in the non-lazy discrete walk. Alon and Kozma (2010) provide a decomposition for **one** cycle-length count, Berestycki and Kozma (2012) derive single-length expectations for continuous time, and Diaconis and Shahshahani (1981) give group-Fourier machinery and mixing for a lazy walk. Bernstein (2016) treats a different involution kernel. The mixed-character identity and strict-convexity sign classification are additional nontrivial steps. Search failure is not a proof of priority; earlier equivalent computations may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A persistent sign law for two classical, correlated-at-finite-time cycle statistics is relevant to the transient structure of permutation shuffles. The result contrasts with their zero covariance at the uniform stationary distribution and identifies the exact finite-size threshold \(n=6\), with an explicit \(n=5\) counterexample. It is an all-time structural classification rather than an arbitrary numerical slice or simply a marginal expectation restatement.
+Pass for the exact non-lazy discrete covariance and uniform strict sign with the n=5 boundary, not for the central-character machinery or individual cycle-count moments. The strongest indexed overlap shares the mixed-character identity but treats a different transition operator and a different sign law.
 
-## Closest sources and limits
+## value
 
-The prior-work comparison includes full accessible primary manuscripts by Alon–Kozma (2010), Berestycki–Kozma (2012), Diaconis–Shahshahani (1981), and Bernstein (2016). The distinction between non-lazy discrete and lazy/continuous-time kernels is essential. The four published works' general spectral methods can in principle derive mixed moments, but none of their inspected asserted conclusions fixes the mixed covariance sign at every step. Older historical equivalences remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-point and two-cycle counts are the first two canonical cycle statistics. A sign rule at every nontrivial time, with an explicit minimal-size counterexample and a qualitatively different published holding-kernel behavior, is an exact structural statement rather than a single-time recomputation or marginal law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

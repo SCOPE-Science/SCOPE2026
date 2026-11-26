@@ -1,90 +1,37 @@
-# Universal size-biased deletion and covariance thresholds for random hypergraph components
+# Size-biased deletion and ordered covariance thresholds for isolated vertices and components in uniform random hypergraphs
 
-## Finding
+## Finding and scope
 
-Let \(H\) be the independent-edge, \(r\)-uniform random hypergraph on \([n]\), with \(n\ge r+1\), \(r\ge2\), and edge probability \(0<p<1\). Write \(I_n\) for its number of isolated vertices. Fix \(r\le s\le n-1\), and let \(Z_s\) be any nonnegative, nonzero-in-expectation weighted count of connected components on exactly \(s\) vertices, where each weight depends only on the component's vertices and internal hyperedges (not on the remainder of \(H\)). All components use ordinary vertex connectedness via intersecting hyperedges.
+Let $H$ be the independent-edge $r$-uniform hypergraph on $[n]$, where $r\ge2$, $n\ge r+1$, and each potential edge is present with probability $0<p<1$. Use ordinary vertex connectivity via intersecting edges. Fix $r\le s\le n-1$. Let $Z_s$ be a weighted count of components on exactly $s$ vertices, with finite nonnegative weights depending only on the marked component's labels and internal edges and with $\mathbb E Z_s>0$. Write $I_m$ for the isolate count of the same model on $m$ vertices (edgeless for $m<r$), $q=1-p$, $M_m=\binom{m-1}{r-1}$ for $m\ge1$, and $\Delta_s=M_n-M_{n-s}$. Use the usual zero convention for binomial coefficients with insufficient upper index.
 
-**Size-biased deletion.** For every real function \(g\) on \(\{0,\ldots,n\}\),
+For every real function $g$ on $\{0,\ldots,n\}$,
 \[
-\frac{\mathbb E[Z_s g(I_n)]}{\mathbb E Z_s}=\mathbb E[g(I_{n-s})],
+\frac{\mathbb E[Z_s g(I_n)]}{\mathbb E Z_s}=\mathbb E[g(I_{n-s})].
 \]
-where on the right \(I_{n-s}\) counts isolated vertices in an independent copy of the same \(r\)-uniform binomial model on \(n-s\) vertices (with no edges when fewer than \(r\) vertices remain). Thus, for \(0\le j\le n-s\),
+For $0\le j\le n-s$, the corresponding mixed falling factorial moment divided by $\mathbb E Z_s$ is $(n-s)_{\underline j}q^{\binom{n-s}{r}-\binom{n-s-j}{r}}$, where $(m)_{\underline 0}=1$. In particular,
 \[
-\frac{\mathbb E[Z_s(I_n)_{\underline j}]}{\mathbb E Z_s}
-=(n-s)_{\underline j}(1-p)^{\binom{n-s}{r}-\binom{n-s-j}{r}}.
+\frac{\operatorname{Cov}(I_n,Z_s)}{\mathbb E Z_s}=(n-s)q^{M_{n-s}}-nq^{M_n}.
 \]
-In particular, put
+The covariance switches sign once, from negative to positive, at $p_*(n,r,s)=1-((n-s)/n)^{1/\Delta_s}$, and $p_*$ is strictly increasing in $s$ for fixed $n,r$. For fixed $r,s$ and $n\to\infty$,
 \[
-M_n=\binom{n-1}{r-1},\quad
-M_{n-s}=\binom{n-s-1}{r-1},\quad
-\Delta_s=M_n-M_{n-s}>0.
+p_*\sim (r-2)!n^{1-r},\qquad
+\left.\frac{\operatorname{Cov}(I_n,Z_s)}{\mathbb E Z_s}\right|_{p=c/n^{r-1}}
+\longrightarrow s e^{-c/(r-1)!}\left(\frac{c}{(r-2)!}-1\right)\quad(c>0).
 \]
-Then
-\[
-\boxed{\operatorname{Cov}(I_n,Z_s)=\mathbb E Z_s\bigl[(n-s)(1-p)^{M_{n-s}}-n(1-p)^{M_n}\bigr].}
-\]
-The sign depends on \(n,r,s,p\), **not** on the connected component shape, edge count, or allowed nonnegative component weights. It changes exactly once, from negative to positive, at
-\[
-\boxed{p_*(n,r,s)=1-\left(\frac{n-s}{n}\right)^{1/\Delta_s}.}
-\]
-For fixed \(n,r\), the sequence \(p_*(n,r,s)\) is strictly increasing over \(s=r,\ldots,n-1\). For each fixed \(r,s\), as \(n\to\infty\),
-\[
-p_*(n,r,s)\sim\frac{(r-2)!}{n^{r-1}},
-\qquad
-\frac{\operatorname{Cov}(I_n,Z_s)}{\mathbb E Z_s}
-\longrightarrow s\exp\left(-\frac{c}{(r-1)!}\right)
-\left(\frac{c}{(r-2)!}-1\right)
-\]
-whenever \(p=c/n^{r-1}\) for fixed \(c>0\). At the other end,
-\[
-p_*(n,r,n-1)=1-n^{-1/M_n}\sim\frac{(r-1)!\log n}{n^{r-1}}.
-\]
-The small-component threshold aligns asymptotically with the ordinary giant-component branching threshold; the largest-possible proper component threshold aligns with the isolated-vertex disappearance/connectivity scale. These are **scale comparisons**, not claims of exact finite-size critical probabilities for giant components or connectivity.
-
-## Assumptions and scope
-
-A hyperedge is an unordered set of \(r\) distinct vertices; every potential hyperedge is included independently with probability \(p\). A connected component on \(s\ge r\) vertices has no isolated vertex internally. The count \(Z_s\) can select specific connected isomorphism types, fix the component edge count, count all size-\(s\) components, or give each such component a nonnegative weight. Its weights must not depend on hyperedges outside the component or between the component and its complement. \(\mathbb E Z_s>0\) is assumed for the strict sign assertions. The standard unweighted size-\(s\) count satisfies this for all stated \(n,r,s,p\). Binomial coefficients with nonnegative upper argument smaller than the lower are zero; \((a)_{\underline j}=a(a-1)\cdots(a-j+1)\), with \((a)_{\underline0}=1\).
+For $s=n-1$ and fixed $r$, $p_*=1-n^{-1/M_n}\sim(r-1)! n^{1-r}\log n$. The two endpoints of the size hierarchy thus recover the scales of the giant-component branching threshold and isolated-vertex disappearance, respectively. These are scale comparisons, not exact phase-transition thresholds.
 
 ## Proof
 
-**1. Deletion under a marked component.** Expand \(Z_s\) over vertex sets \(S\subset[n]\) of size \(s\) and connected internal hyperedge configurations \(F\) supported on \(S\). The event that \(S\) is exactly one component with internal configuration \(F\) is the intersection of: (i) the prescribed edges/nonedges entirely within \(S\); and (ii) the absence of every hyperedge meeting both \(S\) and its complement. Both restrictions depend only on hyperedges that intersect \(S\). Hyperedges entirely within \([n]\setminus S\) remain independent Bernoulli-\(p\) variables, regardless of which \(S,F\) occurred. Since \(F\) is connected with \(s\ge r\), all vertices of \(S\) have positive degree. Therefore \(I_n\), on the marked-component event, is exactly the isolate count in the outside induced hypergraph \(H[[n]\setminus S]\), whose law is \(H^r(n-s,p)\). Multiplying by the internal weight, summing over \(F\) and \(S\), and dividing by \(\mathbb E Z_s\) proves the distributional size-bias identity for arbitrary \(g\).
+Expand $Z_s$ by marked vertex sets $S$ and connected internal configurations on $S$. On such a marked event, only edges meeting $S$ have been conditioned on: no edge crosses its boundary, and the internal configuration is specified. The completely outside edges remain independent Bernoulli variables with parameter $p$. Each vertex in the connected marked component has positive degree, so $I_n$ on that event is exactly the isolate count on the complement. This conditional law depends on neither $S$ nor its internal shape, which gives the first identity by weighting and summing. For $j$ fixed distinct ordered vertices of the complement to be isolated, all $\binom{n-s}{r}-\binom{n-s-j}{r}$ edges meeting them must be absent. Summation gives the factorial moment. Taking $j=1$ and subtracting the original mean times $\mathbb E Z_s$ proves the covariance identity.
 
-**2. Factorial moments.** In \(H^r(m,p)\), prescribe an ordered \(j\)-tuple of distinct vertices. All of them are isolated precisely when none of the \(\binom{m}{r}-\binom{m-j}{r}\) possible hyperedges meeting that tuple occurs. Summing over the \((m)_{\underline j}\) tuples gives
-\[
-\mathbb E[(I_m)_{\underline j}]
-=(m)_{\underline j}(1-p)^{\binom m r-\binom{m-j}r}.
-\]
-Apply step 1 with \(m=n-s\). In particular, \(\mathbb E I_m=m(1-p)^{\binom{m-1}{r-1}}\). Subtract \(\mathbb E I_n\,\mathbb E Z_s\) from \(\mathbb E[I_nZ_s]\) to obtain the displayed covariance.
+The sign is the sign of $((n-s)/n)q^{-\Delta_s}-1$, since the omitted factor is positive. As $p$ increases from 0 to 1 this expression increases from $-s/n$ to infinity, yielding the unique root. Write $a_s=\log(n/(n-s))$. Then $a_s/s$ strictly increases in $s$ because $-\log(1-x)/x$ strictly increases for $0<x<1$. Pascal's identity gives $\Delta_s=\sum_{j=n-s}^{n-1}\binom{j-1}{r-2}>0$. Thus $\Delta_s/s$ is a mean of nondecreasing summands, with each successive increase in $s$ appending the next smaller or equal term. The ratio $a_s/\Delta_s$ strictly increases, as does $p_*=1-e^{-a_s/\Delta_s}$.
 
-**3. Unique sign crossover.** With \(q=1-p\) and \(\Delta_s>0\), divide the covariance by the strictly positive quantity \(nq^{M_n}\mathbb E Z_s\). The remainder is
-\[
-\frac{n-s}{n}q^{-\Delta_s}-1,
-\]
-which is strictly increasing in \(p\in(0,1)\), starting negative and ending positive. Its unique zero is the stated \(p_*\).
+For fixed $r,s$, $a_s\sim s/n$, $\Delta_s\sim s n^{r-2}/(r-2)!$, and $M_n\sim n^{r-1}/(r-1)!$. These imply the first threshold asymptotic. When $p=c/n^{r-1}$, $q^{M_n}\to e^{-c/(r-1)!}$ and $q^{-\Delta_s}=1+cs/((r-2)!n)+o(1/n)$. Substitute into $q^{M_n}[(n-s)q^{-\Delta_s}-n]$ to get the normalized covariance limit. For $s=n-1$, $a_s=\log n$ and $\Delta_s=M_n$, giving the stated near-spanning threshold.
 
-**4. Strict ordering in component size.** Define \(a_s=\log(n/(n-s))\). Since \(-\log(1-t)/t\) is strictly increasing on \((0,1)\), \(a_s/s\) strictly increases with \(s\). Pascal's identity yields
-\[
-\Delta_s=\sum_{j=n-s}^{n-1}\binom{j-1}{r-2}.
-\]
-These summands are nondecreasing in \(j\), so adding the next smaller term when \(s\) increases makes \(\Delta_s/s\) nonincreasing. Because \(\Delta_s>0\), the ratio \(a_s/\Delta_s\) strictly increases, and hence \(p_*=1-\exp(-a_s/\Delta_s)\) strictly increases.
+## Verification and limitations
 
-**5. Endpoint and sparse asymptotics.** For fixed \(r,s\), \(\Delta_s\sim s n^{r-2}/(r-2)!\), \(a_s\sim s/n\), and \(M_n\sim n^{r-1}/(r-1)!\). These give the first threshold expansion. For \(p=c/n^{r-1}\), use \(q^{M_n}\to e^{-c/(r-1)!}\) and \(q^{-\Delta_s}=1+cs/((r-2)!n)+o(1/n)\) in the exact covariance ratio. For \(s=n-1\), \(\Delta_s=M_n\) and \(a_s=\log n\), yielding the other expansion directly.
-
-## Verification
-
-The standalone `verify.py` independently enumerates all labeled hypergraphs for \((n,r)=(3,2),(4,2),(5,2),(4,3),(5,3),(5,4),(6,4)\) at \(p=1/4\) and \(p=2/3\). It computes connected components, their vertex counts and internal hyperedge counts, and compares exact-rational first and second mixed factorial moments against the deletion formula for every present \((s,\text{edge count})\) stratum. It also checks strict ordering of the thresholds at high precision for \(5\le n\le50\) and \(2\le r\le\min(7,n-1)\). Output: `VERIFY_OK 44 component-shape strata 69872 hypergraph states`. The unrestricted claims are proved above; exhaustive finite samples are supplemental checks, not substitutes for proof.
+The accompanying `verify.py` from the original source package enumerates small labeled graphs and uniform hypergraphs, compares first and second mixed factorial moments in component-size and edge-count strata, and checks the ordering on a finite parameter grid. The recorded run is supplemental; the proof applies to unrestricted finite parameters and to all allowed weights. The result does not give the magnitude of Pearson correlation without second moments of the weighted count. Its sign, however, is the covariance sign: $I_n$ is nonconstant (empty versus one-edge graph), and $Z_s$ is nonconstant because it vanishes on the empty hypergraph and is positive with positive probability. The proof uses independent edges and ordinary vertex components and does not assert an analogue for fixed-edge-count models, nonuniform probabilities, or higher-order connectivity.
 
 ## Relationship to prior work
 
-De Ambroggio and Roberts (2021 preprint) study near-critical component-size tail probabilities in the ordinary independent-edge random graph, with primary MSC 60C05; the present claim instead gives exact mixed moments against **arbitrary component-type weights** at every finite \(n\), and extends to uniform hyperedges. Cooley, Fang, Del Giudice and Kang (2018 preprint) analyze large higher-order components and hypertree structure, but not the displayed isolate/component size-biased law. Last, Nestmann and Schulte (2018 preprint) derive covariance formulas for component counts in a Poisson-vertex random connection model; their model is not a fixed-vertex binomial hypergraph. Pittel (1990) gives limiting Gaussian covariance functions for tree-component counts in sparse ordinary random graphs: the fixed-size graph/tree asymptotic here should **not** be presented as independently novel, and may be a specialization of his results. The distinct candidate contribution here is the finite-\(n\), all-\(r\), all-connected-type deletion identity and its strictly ordered covariance-zero hierarchy, including the interpolation to the near-spanning component endpoint.
-
-## Limitations
-
-The theorem does not apply unchanged to sampling a fixed number of hyperedges, to nonuniform edge probabilities, or to \(j\)-connected components with \(j>1\) without checking a corresponding deletion independence property. It is a moment/size-bias identity and **not** a central limit theorem, giant-component theorem, connectivity theorem, or a claim that an actual phase transition happens exactly at \(p_*\). It does not establish correlation signs, whose normalization can depend on the weighted count. Classical component-count and Palm identities may already imply portions of the result; full text of Pittel's 1990 article was not available in the source inspection, so historical-priority assessment remains provisional. Independent scientific verification has not been performed.
-
-## References
-
-1. U. De Ambroggio and M. I. Roberts, *Unusually large components in near-critical Erdős–Rényi graphs via ballot theorems*, arXiv:2101.05358, first public version 2021-01-13; DOI: 10.1017/S0963548321000584. Primary MSC2020 60C05 in the published record.
-2. O. Cooley, W. Fang, N. Del Giudice and M. Kang, *Subcritical random hypergraphs, high-order components, and hypertrees*, arXiv:1810.08107, first public version 2018-10-18; DOI: 10.1137/18M1221527.
-3. G. Last, F. Nestmann and M. Schulte, *The random connection model and functions of edge-marked Poisson processes: second order properties and normal approximation*, arXiv:1808.01203, first public version 2018-08-03; DOI: 10.1214/20-AAP1585.
-4. B. Pittel, *On tree census and the giant component in sparse random graphs*, Random Structures & Algorithms 1 (1990), 311–342; DOI: 10.1002/rsa.3240010306.
+The ordinary graph covariance formula and ordering follow by setting the first component size to one in *Shape-universal covariance sign reversals for random graph components*, Resultary record `2026/10/18/...--00c844d9af13` (equations (1)–(2)); summing marked events also allows label-dependent weights in that case. No independent novelty is asserted for those graph-case covariance results or the fixed-size sparse graph/tree asymptotic. Pittel, *On tree census and the giant component in sparse random graphs* (1990), DOI `10.1002/rsa.3240010306`, is a classical asymptotic precedent. Last, Nestmann and Schulte, arXiv:1808.01203, §3, give component-count Palm moment formulas for a Poisson spatial graph, not this fixed-vertex uniform model. Cooley, Fang, Del Giudice and Kang, arXiv:1810.08107, study the size and structure of components in sparse uniform hypergraphs. The distinct scope here is the full isolate deletion law under locally weighted component marks and the finite ordered threshold law for $r\ge3$ connecting the two scales. The comparison does not establish historical priority.

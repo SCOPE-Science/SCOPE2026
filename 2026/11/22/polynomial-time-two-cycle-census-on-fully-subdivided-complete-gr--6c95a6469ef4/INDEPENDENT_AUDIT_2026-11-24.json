@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:52:48.547987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a two-step return on the connected graph, the sum of the two firing vectors is in the kernel of the Laplacian. The only constant possible for a nonfixed return is one. Given the first firing pattern, solving the complementary threshold inequalities gives exactly c_v consecutive nonnegative chip counts at each vertex, all below 2d_v. A nonzero product has a mixed pattern, so the first update is not fixed. Complementary time phases give the factor 1/2. Once the old vertices are colored, same-shore subdivision vertices are forced with weight two, and each cross edge contributes to exactly one old endpoint. In the product expansion the only conflicts are reciprocal selections, and any consistent set of j forbidden pairs is a j-matching on the selected shores. This proves the stated inclusion–exclusion, including empty shores under the specified power convention. Polynomial precomputation and four bounded indices suffice for the exact arithmetic bound; this is not an optimality or unit-bit-cost claim. In fact, summing the k and ell binomial terms at fixed j gives factors (a−1+b/2)^(a−j) and (b−1+a/2)^(b−j), with prefactor (−1)^j binom(a,j)binom(b,j)j!/4^j. My replay of this collapsed form reproduced all six listed integers and a separate direct threshold update on all 4^6 states for n=3 gave 100 orbits. Replay: /workspace/branches/independent_replay.py, chip(). The packaged source and its recorded tests were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 5004d505b623 gives a universal, energy-resolved cut polynomial and efficient evaluations on trees, including Pell path counts.",
+          "Jiang's return criterion equates the number of firings over a return interval; the firing-pattern paper studies realizability and motors."
+        ],
+        "reasoning": "The first result strictly covers the counting representation, but the inspected efficient specializations do not apply to the cyclic incidence graphs S(K_n). The two journal/preprint comparisons describe periodic behavior or admissibility, not an efficient census for these graphs.",
+        "searches": [
+          "Resultary: general parallel chip-firing cut-degree census",
+          "arXiv:1003.0943 Prop. 2.5 and §3",
+          "arXiv:1211.6786 and DMTCS proceedings version"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5004d505b623 (original)",
+        "arXiv:1003.0943",
+        "arXiv:1211.6786 / DMTCS proceedings version",
+        "Resultary 68d40fe5e7c1 (index only)",
+        "Resultary sequence lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At z=1 its energy polynomial P_G(z) is the sum over unordered cuts of the product of their opposite-neighbor counts."
+        ],
+        "reasoning": "Every unordered cut corresponds to two complementary firing patterns, so evaluating that theorem at one gives exactly the starting half-sum here, and hence the same integer implicitly. It does not give the symmetry compression: one must eliminate subdivision colors, identify reciprocal-edge conflicts, and count those by a complete-bipartite matching sieve. The existing general identity alone supplies no stated polynomial evaluator here.",
+        "searches": [
+          "Resultary 5004d505b623, RESULT.md, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang arXiv:1003.0943 §3 addresses complete bipartite graphs.",
+          "The distinct same-graph record 68d40fe5e7c1 is indexed as enumerating edge-open packings; matching primary text was unavailable."
+        ],
+        "reasoning": "S(K_n) is the vertex–edge incidence graph of K_n, not the complete bipartite graph between its shores: each inserted vertex has only two old neighbors. Edge-open packing subsets are not, by their indexed definition, primitive configuration orbits; no orbit-count reduction supplying this evaluation was located.",
+        "searches": [
+          "Resultary: complete-graph subdivisions / incidence graphs and chip-firing orbit census",
+          "Resultary record 68d40fe5e7c1, complete-graph-subdivision packing polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result for the full sequence was the assigned record itself (6c95a6469ef4); no separate exact table was found in the bounded lookup."
+        ],
+        "reasoning": "The assigned record is not separate evidence of prior publication or independent verification. The n=3 entry also belongs to a cycle instance; small-instance agreement would not supply the all-n evaluator.",
+        "searches": [
+          "Resultary lookup of 100, 12312, 3759616, 2764042240, 4765773791232, 18876597230632960"
+        ]
+      },
+      "rationale": "The unrestricted cut census already determines the orbit number via an exponential cut enumeration. The supported distinct contribution is the efficient exact evaluation for the fully subdivided labelled clique, not the cut-degree identity, its threshold proof, or a generic algorithm for all graphs. No equivalent efficient census was established by the bounded comparisons.",
+      "residual_risks": [
+        "The same-graph packing record's full text was unavailable; no hidden reduction or unnamed earlier incidence-graph evaluation is excluded.",
+        "The bounded catalogue/literature lookups do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general identity exactly, not the efficient subdivided-clique evaluation in the inspected result",
+          "evidence": "P_G(1)=sum over cuts of the product of c_v; linearly many arithmetic operations stated on trees.",
+          "identifier_or_url": "2026/11/1/SCOPE-cut-degree-census-and-maximum-cut-thresholds-for-period-two-chip--5004d505b623",
+          "material_read": "RESULT.md at offset 0, Finding and proof of the cut polynomial",
+          "method": "Resultary identification and matching original through the local mirror",
+          "title": "Cut-degree census and maximum-cut thresholds for period-two chip-firing",
+          "trigger": "Closest unrestricted count"
+        },
+        {
+          "assessment": "Covers equal firing counts; complete bipartite period results are for other graphs",
+          "evidence": "A position returns after t steps iff each vertex fired equally often.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "Prop. 2.5, PDF p. 5 (offset 13900), and §3 scope",
+          "method": "Open PDF, bounded passage",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Primary antecedent for the firing count and bipartite examples"
+        },
+        {
+          "assessment": "Background only in the material read",
+          "evidence": "Characterizes realizable firing patterns and studies motors; no inspected subdivided-clique orbit evaluator.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.6786",
+          "material_read": "DMTCS Proc. AT (2014) PDF pp. 1–3, offsets 0, 4903, 6859",
+          "method": "Open proceedings full text, bounded passages",
+          "title": "Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Possible periodic-pattern characterization implying a count"
+        },
+        {
+          "assessment": "Different invariant as indexed; full statement not established",
+          "evidence": "The index describes size enumeration of edge-open packings, not temporal chip-firing orbits.",
+          "identifier_or_url": "2026/10/26/SCOPE-edge-open-packing-decomposition-and-exact-polynomial-for-complete-graph-subdivisions--68d40fe5e7c1",
+          "material_read": "Catalogue summary; matching original unavailable in mirror",
+          "method": "Resultary plus attempted local-mirror inspection",
+          "title": "Edge-open packing decomposition and exact polynomial for complete graph subdivisions",
+          "trigger": "Same graph and a different exact polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact dynamical invariant for a natural incidence-graph family. The subdivision makes a naive firing-pattern sum exponential in a quadratic number of vertices. Removing that enumeration with a computable conflict sieve gives a usable all-size census, not merely a list of small cases or a parameter substitution into the known exponential sum. The result is limited to primitive two-step temporal orbits; it does not address longer periods or basins.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

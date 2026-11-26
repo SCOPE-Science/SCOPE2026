@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:52:24.282583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50",
+        "Frozen VERIFICATION.md line 21 and verify_parity.py lines 10–76 (read only)",
+        "Independent replay: python3 /workspace/branches/parity-independent-replay.py"
+      ],
+      "rationale": "With t=q+1, h=q−1, m=t/2 and D=d(q−1), bijectivity implies gcd(r,2h)=1 by restriction to a fiber of x↦x^D. The induced permutation on μ_m gives B^D=1, where B=a^m−(−1)^m≠0. If a=0 then B=−(−1)^m is in F_q^×. Otherwise both a^m and B lie in μ_{2h}, so Frobenius takes either to itself or its negative. The nonzero difference (−1)^m between them precludes a negative Frobenius sign on a^m, by considering both possibilities for B. On the t cosets of F_q^×, even block sizes kill the block permutation sign, and the common internal power map's signs cancel because t is even. The remaining translations have product (g^t)^{q(r−1)/2}B², since g^D traverses μ_m twice in the product of coset representatives. Its quadratic character is (−1)^((r−1)/2). The fixed zero does not change sign. Independent arithmetic and inversion counts reproduced 707 even and 544 odd permutations among 12,372 parameters; 81 of these had a=0. In the F_9 example, listing pairs (a,b) lexicographically for a+bu, the two image lists on labels 0–8 were [0,7,5,4,3,2,8,1,6] and [0,5,7,4,2,3,8,6,1], of signs +1 and −1.",
+      "residual_risks": [
+        "The replay has bounded parameter ranges; general prime powers and exponents are established by the algebraic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "008dae091151 additionally asserts the square-coefficient restriction and supplies the identical sign law. Tang–Fan classifies admissibility for generalized gcd-two exponents; Bors–Wang states a general wreath-product representation."
+        ],
+        "reasoning": "The direct comparison is at least as strong. The two primary publications cover different invariants or more general machinery, not the exact sign in the statements inspected.",
+        "searches": [
+          "Resultary 008dae091151",
+          "Tang–Fan arXiv:2611.14162v1 Corollary 1.4",
+          "Bors–Wang arXiv:2103.00664 Theorem 1.1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 4 and 5",
+        "Resultary 008dae091151, 2c4a64ac82f2, 249fad2fb294",
+        "arXiv:2611.14162v1",
+        "arXiv:2103.00664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem directly implies the full claim. Even starting just from record 4's nonzero result, the additional case a=0 is a power map with B=−(−1)^m, so B²=1 in the same product calculation. The October index-one sign law and September coprime-index work concern different families/invariants."
+        ],
+        "reasoning": "The extension to zero is not a new mechanism, and the verified F_9 evaluations are illustrations. The earlier adjoining works are not treated as exact duplicates merely for studying permutation binomials.",
+        "searches": [
+          "Resultary 008dae091151 and 758682ca98a9",
+          "Adjacent index-one sign law 2c4a64ac82f2 and coprime-index collisions 249fad2fb294",
+          "Tang–Fan Corollary 1.4 and Bors–Wang Theorem 1.1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "008dae091151 at offset 0 gives the same parity exponent for every odd prime power, the same gcd-two condition and all admissible coefficients; it explicitly includes a=0. Record 4 Finding lines 5–13 gives the same conclusion for nonzero coefficients."
+        ],
+        "reasoning": "The whole theorem, not just the specialization d=2, is covered by the distinct mirror theorem. No assumption about which same-day result was earlier is needed for this comparison.",
+        "searches": [
+          "Resultary: uniform permutation sign for X^r(X^{d(q−1)}+a), quadratic extension, gcd(d,q+1)=2",
+          "Distinct local mirror 008dae091151 and frozen record 4 (758682ca98a9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact theorem supplies the requested invariant, including the zero edge case; the inspected Tang–Fan results give an admissibility criterion and a square-coefficient constraint, not a parity table."
+        ],
+        "reasoning": "The precise sign is directly indexed; a list of small examples or finite counts cannot establish a distinguishable classification.",
+        "searches": [
+          "Resultary exact two-to-one parity theorem 008dae091151",
+          "Tang–Fan Corollary 1.4 and Lemma 2.2"
+        ]
+      },
+      "rationale": "The distinct Resultary theorem 008dae091151 covers the full parity claim, including zero. Frozen record 4 covers precisely its nonzero part. Their dates do not fix priority; the exact matching scopes are demonstrable regardless of within-day order. The two F_9 examples illustrate the signs but are not a distinct general mathematical result.",
+      "residual_risks": [
+        "No within-day priority is determined.",
+        "The external comparison is not exhaustive; direct indexed equivalence, not negative search evidence, settles the coverage verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire frozen sign theorem",
+          "evidence": "Same q,d,r,a domain and same sign; explicitly includes monomial case and states square-coefficient condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-uniform-parity-of-two-to-one-index-permutation-binomials--008dae091151/RESULT.md",
+          "material_read": "Finding and scope at offset 0; prior-work discussion around offset 5008",
+          "method": "Bounded local mirror passages",
+          "title": "Uniform parity of two-to-one index permutation binomials",
+          "trigger": "Exact distinct index hit including zero"
+        },
+        {
+          "assessment": "Equivalent for nonzero coefficients",
+          "evidence": "Uses the same coefficient product and even-block cancellation to give the same sign.",
+          "identifier_or_url": "2026/11/22/SCOPE-coefficient-independent-parity-of-quadratic-extension-index-two--758682ca98a9",
+          "material_read": "RESULT.md lines 5–79, 85–99",
+          "method": "Read frozen statement and proof",
+          "title": "Coefficient-independent parity of quadratic-extension index-two permutation binomials",
+          "trigger": "Adjacent frozen theorem"
+        },
+        {
+          "assessment": "Admissibility and a coefficient condition, not the stated parity in those passages",
+          "evidence": "Generalized gcd-two criterion and d=2 square-coefficient restriction.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14162v1",
+          "material_read": "Abstract, Corollary 1.4 (8250–13847), Lemma 2.2 (16350–19345)",
+          "method": "Primary OA HTML, bounded passages",
+          "title": "A complete classification of permutation binomials of the form X^r(X^{2(q−1)}+a) over finite fields",
+          "trigger": "Exact binomial family"
+        },
+        {
+          "assessment": "General machinery; not this specialization in inspected text",
+          "evidence": "Imprimitive wreath-product representation, not the binomial coefficient cancellation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.00664",
+          "material_read": "Introduction p. 2; Theorem 1.1.3 p. 4",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Generalized cyclotomic mappings: Switching between polynomial, cyclotomic, and wreath product form",
+          "trigger": "General permutation block and sign machinery"
+        },
+        {
+          "assessment": "Different index-one family",
+          "evidence": "Uses X^{q−1} and a norm-dependent quadratic character.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-universal-sign-bias-for-classified-finite-field-permutation-bi--2c4a64ac82f2",
+          "material_read": "Finding, offsets 0–4079",
+          "method": "Local mirror",
+          "title": "A universal sign bias for classified finite-field permutation binomials",
+          "trigger": "Earlier exact binomial parity result"
+        },
+        {
+          "assessment": "Different gcd and invariant",
+          "evidence": "Counts distinct maps and representation collisions for coprime index; not alternating characters.",
+          "identifier_or_url": "2026/9/18/SCOPE-coprime-index-permutation-binomial-collisions--249fad2fb294",
+          "material_read": "Finding and scope, offsets 0–3192",
+          "method": "Local mirror",
+          "title": "Collision rigidity and exact enumeration for coprime-index permutation binomials",
+          "trigger": "Related exact enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations",
+        "Resultary 008dae091151 Finding",
+        "Frozen record 4 Finding"
+      ],
+      "rationale": "The invariant is mathematically natural, but the exact all-coefficient result is already present in a distinct indexed statement. The monomial edge case adds no uncovered structure and the two checked nine-element examples are routine instances, not a separately motivated new finding. No surviving valuable narrowing is identified.",
+      "residual_risks": [
+        "This judges the incremental value of the frozen claim, not the mathematical usefulness of the sign law."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

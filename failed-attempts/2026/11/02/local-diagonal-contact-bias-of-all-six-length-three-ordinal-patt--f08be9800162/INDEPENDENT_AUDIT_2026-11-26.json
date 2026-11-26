@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:45:14.195350Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, conditional counting and all six identities",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "Conditioning on the fixed site preserves exchangeability at any window not containing it, giving actual independence of the two indicators. In a window containing it, the two other values form a uniform ordered pair; selecting r−1 below j and 3−r above j uniquely determines the ordered pair for the specified pattern. Summing the three incident counts and subtracting (n−1)(n−2)/2 in the common numerator yields in order 123,132,213,231,312,321: n−1, −3i+2n−3, 3i−n, 3i−2n+2, −3i+n−1, 3−n. This checks all endpoint signs, the degenerate 321 zero at n=3 and the peak/valley cancellations. The conditional mean uses P(A)=1/6 and E[F]=1. The proof is exact and independent of the numerical counter.",
+      "residual_risks": [
+        "The program's reported 32,802 is a tally of check steps, not literally assertion executions: lines 38–43 count 21,168 local summands without an assert. The finite tests do not prove a new theorem; the proof establishes correctness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 5455c3336f55 eq. (1) gives exactly the same local kernel at arbitrary m, including m=3, but is later dated. October Resultary 6e228e1e9495 treats m=2, which does not by itself fix the within-peak rank distinctions. Diaconis–Evans–Graham concern successions and fixed-point sets, not this joint local law."
+        ],
+        "reasoning": "The general pattern kernel explicitly contains this result, but the later date is not used for priority. The earlier two-entry comparison covers a shorter window only.",
+        "searches": [
+          "fixed points position-specific consecutive length three ordinal patterns covariance six patterns permutation",
+          "fixed point descent dependence boundary localization adjacent positions uniform permutation",
+          "arXiv:1308.5459"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a65ba414ee78, 5455c3336f55 and 6e228e1e9495",
+        "arXiv:2001.00654 and arXiv:1308.5459",
+        "Reutenauer Theorem 1",
+        "arXiv:1504.07265, p. 2 and arXiv:1902.00978, pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional laws add over disjoint extension events. The four-pattern theorem's proof determines E[F_j 1_A] for each component, and centering and summing the three incident terms determines all six affine polynomials. The endpoints and pairwise cancellations then follow by evaluation.",
+          "Reutenauer's descent-set/cycle formula and the peak/fixed-point generating function do not by themselves resolve the peak orientations; those are not the basis of rejection."
+        ],
+        "reasoning": "Conditional marginalization is mechanical here and works at every i, including the rightmost window using a left extension. The trivial three-letter exception does not create a distinct contribution.",
+        "searches": [
+          "Resultary a65ba414ee78, conditional law immediately before eq. (1)",
+          "Resultary 5455c3336f55 eq. (1)",
+          "uniform random permutations covariance fixed points position-specific consecutive length-three pattern peak valley Gessel Zhuang fixed points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-pattern proof states off-window conditional probability 1/24 and gives its inside-window conditional binomial formula for every fixed site t, not just after summing over windows.",
+          "Marginalize the added coordinate by summing the four insertion patterns in an adjacent extension. This includes the case when the conditioning site is the extra position; after marginalization the three original values are exchangeable in that case."
+        ],
+        "reasoning": "The exact desired conditional probability, at any incident or nonincident site, is a fixed marginal of existing available formulas. Aggregate headline wording does not remove this implication.",
+        "searches": [
+          "partial permutations point patterns fixed points local pattern formula covariance permutation",
+          "Resultary a65ba414ee78, Proof, offsets 2800–4050"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed four-pattern record lists length-four aggregate profiles; the arbitrary-length later record includes aggregate length-three results. Neither needs to print the actual six position-resolved rows for its local equations to determine them. Gessel–Zhuang gives aggregate peak/fixed-point generating functions, without a local distinction between 132 and 231."
+        ],
+        "reasoning": "The input is a symbolic position-dependent table, not an independently enumerated sequence. The actual rows reduce to evaluating known local formulas, not aggregate peak/descent statistics alone.",
+        "searches": [
+          "joint peaks fixed points permutation generating function aggregate peak descent positions",
+          "arXiv:2001.00654 §6.1",
+          "Resultary a65ba414ee78 and 5455c3336f55"
+        ]
+      },
+      "rationale": "A distinct same-date indexed four-pattern record contains the exact site-by-site conditional law for every single window of length four in the proof, even though its headline tables are aggregate. For any length-three window and n≥4, extend it at one end to a length-four window, and sum that conditional law over the four distinct ways to insert the rank at the extra position while preserving the order of the original three entries. This yields the full local law including off-window independence, hence the centered six profiles and signs by exact arithmetic. The n=3 cases are the six individual permutations (fixed-point counts 3,1,1,0,0,1 in table order). The later all-length record supplies another explicit implication. This is a coverage finding, not a priority finding against the same-date record.",
+      "residual_risks": [
+        "Within-day ordering is undetermined; no claim of historical precedence. No reliance on later publication for the same-date implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its site-by-site formula, not just its headline aggregate theorem, implies the target by rank-insertion marginalization.",
+          "evidence": [
+            "Off-window conditional probability 1/24; on-window probability binom(t−1,r−1)binom(n−t,4−r)/[(n−1)(n−2)(n−3)]."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-finite-sample-fixed-point-dependence-for-all-consecutive-f--a65ba414ee78/RESULT.md",
+          "material_read": "Proof conditioning step and eq. (1), offsets 2800–4050",
+          "method": "Local indexed mirror, exact passage",
+          "title": "Exact finite-sample fixed-point dependence for all consecutive four-patterns",
+          "trigger": "Same random variables for one extra position"
+        },
+        {
+          "assessment": "Implies the three-pattern-width kernel by m=3, but dated later.",
+          "evidence": [
+            "General local binomial count and zero covariance off-window."
+          ],
+          "identifier_or_url": "Resultary 5455c3336f55",
+          "material_read": "RESULT.md eq. (1), offsets 2200–4100",
+          "method": "Local indexed mirror",
+          "title": "Boundary covariance and cyclic orthogonality for fixed points and consecutive permutation patterns",
+          "trigger": "General fixed-site by pattern formula"
+        },
+        {
+          "assessment": "Length-two analogue only.",
+          "evidence": [
+            "Incident-site formulas and Cov(F,D_j)=−1/[n(n−1)]."
+          ],
+          "identifier_or_url": "Resultary 6e228e1e9495",
+          "material_read": "Finding, offsets 0–2370",
+          "method": "Local indexed mirror",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Earlier adjacent descent comparison"
+        },
+        {
+          "assessment": "Covers aggregate moments, not the six local profiles.",
+          "evidence": [
+            "Joint generating functions of peak, descent and fixed-point counts and joint peak/fixed-point specialization."
+          ],
+          "identifier_or_url": "arXiv:2001.00654",
+          "material_read": "§6.1, Theorem 6.1 and Corollary 6.2(a), pp. 34–36",
+          "method": "OA arXiv PDF passages",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Aggregate peak/fixed-point formulas"
+        },
+        {
+          "assessment": "The relevant observable is an increasing succession, not a relative-order three-window.",
+          "evidence": [
+            "Positions k with π(k+1)=π(k)+1 compared in distribution to the fixed-point set restricted to [n−1]."
+          ],
+          "identifier_or_url": "arXiv:1308.5459",
+          "material_read": "p. 1 distributional statement",
+          "method": "OA arXiv PDF",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Position-sensitive fixed-point coupling"
+        },
+        {
+          "assessment": "Counts by exact descent set and cycle type, not with a specified ordinal type inside a peak.",
+          "evidence": [
+            "The descent-set/cycle-type class size is a scalar product of representations."
+          ],
+          "identifier_or_url": "Christophe Reutenauer, Theorem 1, p. 4 of scanned source",
+          "material_read": "Theorem 1, scan text offset about 6030",
+          "method": "Lawful scanned source passage",
+          "title": "Number of Permutations with Given Descent Set and Cycle Structure",
+          "trigger": "Fixed points as specified cycle data with local descent information"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Resultary a65ba414ee78, local four-pattern conditional probabilities"
+      ],
+      "rationale": "The sign profiles are intelligible and the position-specific covariance is a motivated statistic, but the exact table is a fixed four-way marginal of previously available evidence, and signs and cancellations are simply arithmetic on it. No independently valuable non-implied remainder is identified; the width-three boundary at n=3 is immediate from six permutations.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

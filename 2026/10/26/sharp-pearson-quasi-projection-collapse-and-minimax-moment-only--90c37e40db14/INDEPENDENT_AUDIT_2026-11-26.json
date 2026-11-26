@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:34:09.117794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing a=3t and putting the oriented Pearson sum over a common denominator gives exactly D=(3s−2)²/4+3(m−as)²/[4(1−a²)]. The oracle a=m/s is unique and interior for every admissible truth. For the moment matcher a=3m/2, division by the oracle loss for s≠2/3 gives the inverse of c(m) exactly; at s=2/3 both losses are zero, so the inequality also holds there. The fixed s=5/6 witnesses no positive constant uniform in m without sacrificing full support. In the additive problem convexity in s gives the larger endpoint limit even on the open interval. For a<0 the first endpoint alone exceeds 3m²/4. With 0<a≤m the first endpoint dominates, strictly; for a>m the switch is at a=2m/(1+m). The active first branch decreases and the active second branch increases (derivative has sign (a−m)(1−am)). This proves the claimed unique minimizer, its value, and the moment-matching coincidence at m=1/3 in the stated domain. In RESULT.md §4 the phrase 'intersection is unique' means the unique positive crossover: the branches also touch at a=0, which does not affect the argument. The supplied exact-rational script and VERIFICATION.md were inspected, not executed; the identities and sharp endpoints here follow algebraically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reconstruction paper asks for c in (0,1) beyond KL; Nielsen–Nock give chi-square distances between members of the same affine exponential family."
+        ],
+        "reasoning": "The known exact-projection comparison does not resolve the relaxed inequality. Distances within a family do not compare an exterior truth to its fitted projection or optimize the excess over all truths of the same observed mean.",
+        "searches": [
+          "arXiv:2610.21872v1 §6 relaxed multiplicative projection question",
+          "arXiv:1309.3029v2 §II.A, pp. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and minimax_pearson_check.py",
+        "arXiv:2610.21872v1",
+        "arXiv:1309.3029v2",
+        "Local Resultary comparison aa6191d1adb5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reconstruction paper's §6 asks rather than answers the weakened inequality; the distance formulas in §II.A of Nielsen–Nock do not involve oracle excess over positive exterior truths."
+        ],
+        "reasoning": "The counterexample needs control while the matcher approaches the boundary and the oracle loss stays fixed. The minimax rule requires balancing two endpoint oracle regrets. Neither follows directly from generic noncoincidence or distances between family members.",
+        "searches": [
+          "arXiv:2610.21872v1 §§5.2, 6",
+          "arXiv:1309.3029v2 §II.A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Pearson example uses ten Chebyshev moments for a continuous bimodal target and reports a positive numerical gap. The nearest indexed minimax hit aa6191d1adb5 concerns coordinate sampling for quadratic descent."
+        ],
+        "reasoning": "Changing the divergence convention by a common factor does not change the quasi-projection constant, but a positive gap alone does not show an unbounded ratio, and the quadratic-descent sampling problem does not give this loss or target family.",
+        "searches": [
+          "Local Resultary title/formula searches for Pearson chi-square moment matching, quasi-projection and minimax reconstruction",
+          "arXiv:2610.21872v1 §§5.2, 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Pearson comparison records a gap of 0.03630 and L² gap of 0.1658 for its continuous example, not a sharp constant or rule indexed by the mean. No matching catalogue finding was retrieved."
+        ],
+        "reasoning": "The matching object would be formulas over a whole mean interval, not a positive-gap entry for one different experiment.",
+        "searches": [
+          "Local Resultary Pearson quasi-projection / three atoms / minimax rule formula and title search; closest minimax hit aa6191d1adb5",
+          "arXiv:2610.21872v1 §5.2 Pearson numerical comparison"
+        ]
+      },
+      "rationale": "The matched reconstruction paper asks the relaxed multiplicative question and illustrates a positive Pearson projection gap. Its inspected evidence does not establish collapse of a universal constant, an exact optimal fixed-mean constant, or an exact additive minimax rule. The comparison is specific to Pearson divergence and does not decide all non-KL cases.",
+      "residual_risks": [
+        "Bounded searches do not exclude uncatalogued exact treatments of three-point Pearson projections or related minimax decision problems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and open question established, not the reviewed sharp formulas",
+          "evidence": [
+            "The example uses a continuous target and ten Chebyshev moments; §6 explicitly asks about the multiplicative relaxation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21872v1",
+          "material_read": "§5.2 HTML offsets 82000–86996, Pearson at 85638–85811; §6 offsets 91616–91854",
+          "method": "Targeted OA HTML reading",
+          "title": "On Minimum Divergence for Distribution Reconstruction",
+          "trigger": "Original reconstruction framework and weakened quasi-projection question"
+        },
+        {
+          "assessment": "Within-family distances, not conditional oracle/minimax projection",
+          "evidence": [
+            "Closed forms concern two members of the same affine exponential family, with Poisson and Gaussian examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.3029v2",
+          "material_read": "§II.A, pp. 4–5, text offsets 13400–17348",
+          "method": "Targeted OA PDF text reading",
+          "title": "On the Chi square and higher-order Chi distances for approximating f-divergences",
+          "trigger": "Potential broader chi-square exact formula"
+        },
+        {
+          "assessment": "Unrelated minimax loss and action class",
+          "evidence": [
+            "The decision is coordinate sampling for quadratic descent, not a Pearson reconstruction."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5",
+          "material_read": "Matched Finding summary",
+          "method": "Local Resultary search",
+          "title": "Exact minimax omission sampling for a frustrated three-coordinate problem",
+          "trigger": "Closest local minimax catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The collapse on three atoms is a sharp, full-support counterexample to a uniform relaxed Pearson projection property, rather than just another example of noncoincidence. The same loss decomposition gives a unique action from exactly the available information and a finite worst-case excess where moment matching becomes arbitrarily bad. The small alphabet isolates the mechanism and makes the formulas useful as benchmark cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

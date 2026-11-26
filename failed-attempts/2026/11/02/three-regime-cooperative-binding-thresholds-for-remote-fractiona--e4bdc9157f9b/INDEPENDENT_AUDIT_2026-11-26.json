@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:02:07.875108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md, lines 62–116: the sine transform puts each e_m in the domain of L^{-alpha/2} when alpha<3/2. The weighted Gram factorization and dense range of L^{alpha/2} give the exact nonnegativity threshold; a strictly negative form value gives a negative eigenvalue by finite-rank perturbation. The cosine formula and integrability prove the short-range limit. At alpha=1/2 subtract theta^{-1}; the L^1 remainder contributes o(1) off diagonal, and the cosine-integral tail is O(1/|m_i-m_j|), leaving the log ratio. Above 1/2, the rescaled integrand is bounded by a constant times min(u^2,1)u^{-2alpha}; the cosine integral gives the displayed normalization (in particular K_1(x,y)=min(x,y)). Independence of distinct sine frequencies gives positive definiteness. The two-site criterion is the sign of det(I-M) under the two strict diagonal bounds, and the spectral gaps persist. CHECKER.py and VERIFICATION.md were inspected; the recorded numerical assertions were not used as independent evidence of the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 2.3 expressly extends (2.3) to powers with exponent greater than -3/2 as a quadratic form, and supplies the limits for exponents -1/2 and -1. Substituting exponent -alpha thus gives every m,n entry needed, without proportional-separation assumptions.",
+          "§3 explicitly uses the Birman–Schwinger norm criterion for diagonal nonnegative potentials; on finite support its zero-energy matrix is exactly the weighted Green matrix of the Finding."
+        ],
+        "reasoning": "The older result is an exact kernel on all sites, stronger entrywise than the stated asymptotics. The compact finite-support reduction to the top eigenvalue does not depend on a new spectral theorem. The single-site bilaplacian in §4 is not the decisive comparison.",
+        "searches": [
+          "arXiv:2307.09919, Proposition 2.1 (2.3)–(2.4), Remark 2.3, and §3 (3.1)–(3.2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py",
+        "arXiv:2307.09919",
+        "arXiv:2608.26936",
+        "Resultary 6579965f42ff and 72449e47556b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reflection of the gamma denominators in (2.3) at exponent -alpha gives G(m,n)=b_alpha[f(|m-n|)-f(m+n)], where b_alpha=Gamma(1-2alpha)sin(pi alpha)/pi and f(j)=Gamma(j+alpha)/Gamma(j+1-alpha). The singular values are exactly the digamma difference divided by pi and min(m,n).",
+          "Since f(j)~j^(2alpha-1), in the short regime only b_alpha f(0)=C_alpha survives on the diagonal. The digamma asymptotic psi(j+1/2)=log j+o(1) gives both the critical diagonal and the off-diagonal log ratio. In the power regime the same ratio asymptotic gives K_alpha entrywise, including the diagonal since f(0) is fixed; reflection gives -b_alpha=1/[2 Gamma(2alpha) sin(pi(2alpha-1)/2)] away from alpha=1, and the exact min kernel handles alpha=1.",
+          "Known sine representation gives strict Gram positivity by independence of sines. Positive off-diagonals and the weighted matrix norm then imply strict cooperation, with the stated 2-by-2 inequality following by testing I-M."
+        ],
+        "reasoning": "These are direct specializations of the published closed form with standard gamma/digamma asymptotics and elementary finite-dimensional spectral continuity and determinant tests. In particular, the finite log-ratio term does not escape prior implication.",
+        "searches": [
+          "arXiv:2307.09919, (2.3)–(2.4), Remark 2.3, (3.1)–(3.2) compared with frozen RESULT.md, Finding and Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing x=cos(theta) in (2.5) and taking lambda to zero gives the source integral for the identical Dirichlet spectral power.",
+          "arXiv:2608.26936 explicitly uses compression of the full-line power, which is not the spectral half-line realization in the Finding."
+        ],
+        "reasoning": "The sine and Chebyshev versions of the prior kernel are equivalent; the separate Toeplitz compression result is not an equivalent formulation.",
+        "searches": [
+          "Focused literature search on fractional discrete half-line Dirichlet multi-impurity Green thresholds",
+          "Gerhat–Krejčiřík–Štampach, arXiv:2307.09919, (2.2)–(2.5), Remark 2.3",
+          "Štampach–Waclawek, arXiv:2608.26936, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored Finding 6579965f42ff concerns quadratic emergence below band edge for multi-impurity thresholds on the full line.",
+          "Mirrored Finding 72449e47556b gives binomial thresholds for hypercube arrays in the full lattice of dimension at least three."
+        ],
+        "reasoning": "The closest inspected Resultary entries use different geometries and do not encode this fractional half-line limit. A numerical table for selected strengths would not settle the real-parameter asymptotic theorem; the prior exact analytic kernel is decisive. No date-based priority is assigned to same-day entries.",
+        "searches": [
+          "Resultary searches on finite-site Birman–Schwinger thresholds, fractional Green matrices and remote impurities"
+        ]
+      },
+      "rationale": "The strongest earlier paper supplies the exact zero-energy Green entries for this same spectral half-line operator, not merely the sine integral and a single-site result. Its Proposition 2.1, Remark 2.3 and the Birman–Schwinger formula in §3 mechanically imply all three leading finite-site laws and their strict two-site consequence. The comparison does not assert that the earlier article literally states the remote-impurity theorem.",
+      "residual_risks": [
+        "Bounded comparison does not determine who first stated the remote limits explicitly. The failure rests on an inspected earlier exact formula and its mathematical implications, not on absence or inaccessibility of other sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact formulas mechanically imply the Finding",
+          "evidence": [
+            "Negative-power form extension through exponent >-3/2 and digamma/min special cases, Remark 2.3",
+            "Finite-support application of the norm criterion from §3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09919",
+          "material_read": "Theorem 1.1; printed pp. 3, 5 and 7, Theorem 1.3, (2.2)–(2.5), Remark 2.3 and (3.1)–(3.2); Proposition 4.1",
+          "method": "Lawful OA PDF, bounded passages, including offsets 21400–26785 and 31000–33488",
+          "title": "Criticality transition for positive powers of the discrete Laplacian on the half line",
+          "trigger": "Same spectral half-line operator and possible exact zero-energy matrix"
+        },
+        {
+          "assessment": "Different operator; not relied on for coverage",
+          "evidence": [
+            "Abstract names compression of the full-line power"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.26936",
+          "material_read": "Abstract and introductory distinction of half-line realizations",
+          "method": "Lawful OA PDF, p. 1 and p. 2 'half-line' locations",
+          "title": "Optimal fractional discrete Hardy inequalities on the half-line",
+          "trigger": "Possible equivalent realization"
+        },
+        {
+          "assessment": "Different threshold question",
+          "evidence": [
+            "One-dimensional full-line setting, quadratic energy emergence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-quadratic-emergence-of-localized-states-from-arbitrary-mul--6579965f42ff",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirrored source reading",
+          "title": "Sharp quadratic emergence of localized states from arbitrary multi-impurity thresholds",
+          "trigger": "Closest topical Resultary candidate"
+        },
+        {
+          "assessment": "Different operator and scaling",
+          "evidence": [
+            "Full-lattice hypercube arrays with binomial threshold staircase"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-binomial-binding-thresholds-and-band-edge-states-of-hypercubic-i--72449e47556b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirrored source reading",
+          "title": "Binomial binding thresholds and band-edge states of hypercubic impurity arrays",
+          "trigger": "Finite-array thresholds candidate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Cooperative binding is a natural question, and the presentation is useful as an exposition. Here the precise constants, the interaction at the logarithmic boundary, and the strict cooperation window are all direct consequences of the earlier closed form and elementary spectral tests. No independently useful unknown exact claim survives on this evidence; the limiting equality case or higher-order threshold information is not resolved in the Finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

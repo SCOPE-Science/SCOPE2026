@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The prefix closure necessity follows from coordinatewise maxima at a path entrance time. For sufficiency, each new grade raises a coordinate maximum and every other grade outside the closed prefix is not dominated by the next maximum. The antichain closure is its convex index interval. The wedge-of-boundary-spheres construction provides one isolated positive-degree infinite bar per unique dimension; every strict order therefore determines a distinct degree-labelled combinatorial barcode. Pairwise affine entrance-order changes occur only at the \(\binom n2\) threshold lines \(z=j+wi\), giving the quartic arrangement bound. The exhibited six-grade order violates opposite necessary inequalities \(w>1\) and \(w<1\). Exact rational checker and witness tests pass. These tests support, rather than replace, the arbitrary-size proof.
+## correctness
 
-## Originality — PASS, with remaining priority uncertainty
-Belton et al., arXiv:2611.00261v1 (2026-10-30), Section 4 and Conjecture 7.1 define the comparison and motivate class enumeration; they give qualitative separation from affine lines but neither this antichain graded-persistence quantitative gap nor the six-grade threshold. Bapat et al., arXiv:2210.12868v3, treat positive-slope line partitions and matching-distance computations but not arbitrary monotone-path barcode counts. An earlier antidiagonal isolated-vertex classification already implies the contiguous-prefix strict order count; that elementary subcount is therefore NOT offered as a new standalone contribution. The new joint claim is the explicit degree-labelled barcode realization, the uniform polynomial-versus-exponential affine comparison, and the exact first affine failure in the family. Search-based absence is not proof of global priority.
+PASS
 
-## Mathematical value — PASS
-The gap sharpens a qualitative incompleteness phenomenon with a canonical one-critical family, an exponentially large count of genuinely distinct persistent invariants, a uniform quartic bound on what affine probing can distinguish, and a first small witness certified without computation. This quantitatively addresses the class-enumeration direction in the cited article. It does not claim a classification of tied-event histories.
+Re-audited repaired RESULT.md and SLOGAN.txt. For the frozen fixed-box interpretation, the exact unrestricted count cannot be asserted: requiring every entrance point inside [0,L]^2 imposes n-w(L-n-1)≤z≤L+w, from the maximum event x=max(n,z-w) and maximum event y=max(n,n+1+(n-z)/w). The independent rational check gives 24 rather than 30 at n=6 for L=7, and a gap already at n=5 for L=6 (14 rather than 16). The corrected Finding explicitly uses full-line entrance orders for both exact counts and first gap, and retains only the upper bound and the obstruction uniformly under clipping. For an explicit padded box it correctly gives 30 in [0,37]^2: verified the CSV witnesses have event x≤37/4 and y≤36. The closed-prefix proof is sound for every L>n in the family and arbitrary interior grades in general: every event location dominates its prefix maxima, and every new grade in a closed-prefix chain raises a coordinate maximum, ensuring that the straight segment to the new maximum introduces that grade only at its endpoint and no unlisted grade. Antidiagonal closure is interval hull, giving the sum of endpoint-interleavings 2^(n-1). The sphere filtration is one-critical and its persistent homology has one essential bar per distinct positive degree; under the repaired explicit shared entrance indexing these degrees decode the entire order. For i<j, the strict sign of t_i-t_j is the sign of z-j-wi, so each strict order is constant in an open chamber of the M tie lines, and the standard intersection-count argument gives the quartic bound. The independent exact slab enumeration samples each open chamber, also covering any strict order realized at a slab boundary by openness. It yields 1,2,4,8,16,30 through n=6, with exactly the two displayed reflected obstructions, and confirms 638 at n=13. The analytic six-grade contradiction gives w>1 from the middle trio and w<1 from the last requirement. Any full-line witness fits in some padded square and hence has closed prefixes, so all first-gap comparisons are with the stated path-order sets. The uploaded checker was inspected, not executed.
 
-## Closest literature and limitations
-Belton et al., arXiv:2611.00261v1, especially Definition 4.10 and Conjecture 7.1; Bapat et al., arXiv:2210.12868v3, matching-distance line arrangements. Results are limited to strict one-critical events, and complete historical priority cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the repaired joint path-versus-line theorem: the graded-barcode realization, the quartic-versus-exponential comparison and the exact six-grade full-line cutoff. The raw antidiagonal strict simplicial order count is directly covered by a matching catalogue theorem, and neither that count nor the general idea of line arrangements is claimed as new.
+
+## value
+
+PASS
+
+The repaired theorem answers a natural finite-order question in the extended fibered setting and quantifies the information positive-slope probes lose in a canonical family. It gives a complete path-realizability criterion with a construction, then an explicit barcode family and a sharp first failure for full lines, rather than an arbitrary finite sample or an overstated resolution of the general counting question. This remains a substantive gap under sufficient padding, and the upper bound alone gives a gap for clipped restrictions as well.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

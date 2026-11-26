@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite and fully specified. The proof gives an explicit 30-vertex construction as the line graph of \(GP(10,2)\), an exact degree-seven annihilating polynomial, and an exact rational rank computation over **all** 435 unordered distinct-site pairs. The matrix annihilator proves that the seven-step Krylov columns already span the full bright invariant subspace. The imaginary-part eigenvector argument proves that every bright component decays for arbitrary strictly positive sink rates; the dark component cannot decay. Thus the computed ranks yield exact eventual capture fractions for the maximally mixed state. Every computational comparison is exact integer or rational arithmetic; finite exhaustive enumeration is appropriate because the theorem concerns precisely one finite graph.
+PASS
 
-## Originality — PASS on inspected evidence
+A separate exact verifier reconstructed the line graph of GP(10,2), verified the degree-seven integer annihilating polynomial, and row/column rank over Q agrees with complex rank for these integer matrices. Independent column elimination over the rationals gives all 435 pairs: (distance, number of length-three walks if distance three, rank, multiplicity) equal to (1,–,13,60), (2,–,13,120), (3,1,13,60), (3,2,12,60), (4,–,13,120), (5,–,8,15). All 30 one-site ranks are seven. Since the polynomial is monic, degrees 0 through 6 span the full Krylov space. At distance three length-three walks are exactly geodesics. The frozen verify.py was inspected but not run; independent replay is python3 /workspace/branches/a9f86d26-6ae3-4c8a-99f5-2c7afcf15e8a/independent_rank_check.py, with rank_check_output.txt in that directory. The analytic absorption limit also checks: the Krylov space reduces A by Hermiticity and contains both site vectors, so its complement is unaffected by the absorbers and evolves unitarily. The imaginary part of a bright eigenvalue is nonpositive; equality forces vanishing at both sites because the rates are strictly positive. The eigenvector would then be an A-eigenvector orthogonal to both full Krylov spans, a contradiction. Bright evolution therefore decays even with Jordan blocks. The trace limit is the initial dark weight, giving absorption tr(Πρ₀), and for I/30 the fractions are 8/30,12/30,13/30. The dark dimensions and rate independence follow within the stated homogeneous single-excitation model.
 
-The spectral and dark-state mechanisms are not new. Rousochatzakis–Läuchli–Mila provide the icosidodecahedral lattice and one-magnon spectral setting, Caruso–Chin–Datta–Huelga–Plenio establish the general invariant-subspace view of transport, and Le–Donati–Severini–Caruso treat general graph dark spaces and other explicit topologies. The new statement distinguishes every placement of **two local absorbers on this 30-vertex graph** by exact bright rank, especially the two inequivalent classes at distance three. This placement-by-placement table does not follow from the published model statements alone without additional graph-specific eigenspace comparison. The inspected material does not state the classification. Residual risk: equivalent two-site controllability calculations may exist under a different terminology or in uncatalogued literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The icosidodecahedron is the natural finite kagomé-on-a-sphere graph associated with experimentally studied Keplerate molecular magnets, and placement of local losses controls survival of a coherent excitation. The exact three-valued classification resolves a physically motivated finite design question: antipodal site pairs are strongly redundant, whereas the best of 435 possible pairs cannot capture even half a uniformly mixed excitation ensemble. The distance-three splitting shows graph distance alone is not a sufficient trapping predictor. This is a natural, complete and non-obvious exact invariant, not an arbitrary slice of a larger table.
+Pass for the graph-specific two-site ranks, placement counts and geometry, not the standard spectral accessibility and dissipation principle. The strongest same-day comparison is an essentially parallel exact classification on the related truncated icosahedron. It uses the same proof template but does not supply the asserted 30-vertex ranks. The primary work on the icosidodecahedron supplies adjacency spectral context, not the pairwise rank data in the passages compared.
 
-## Limits and closest literature
+## value
 
-The result does not optimize absorption speed, cover heterogeneous hopping or dephasing, or claim novelty of the underlying spectral/quantum-walk techniques. The relevant primary literature is arXiv:0711.3231, arXiv:0901.4454, and arXiv:1707.07482. A global historical-priority certification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The icosidodecahedron is a standard finite kagomé network with an established spectral motivation, and the accessible dimension is exactly the observable determining long-time mixed-state capture. No distance-only placement rule could give the result: the two distance-three classes have different ranks, while antipodal placement adds only one bright direction over a single sink (unlike complete antipodal redundancy on C60). The sharp ceiling and exact exceptional placements give actionable geometry for the stated model. The scientific value lies in this classification, not in the size or runtime of the exact enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:21:11.244257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4, lines 20–79",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 5–41"
+      ],
+      "rationale": "The three formulas hold for all positive k. The Pell companion identities reduce each window sum to (B_k C_{2n+j} ± k)/m, with the specified shift j and m=16 or 2. Subtracting the first numerator leaves B_k times companion differences. Their common divisor comes from the first two adjacent differences because the step-two recurrence has unimodular transition; parity gives gcd(16,560)=16 and gcd(96,3264)=96. At primes ≥5 the remaining gcd has exactly the part of gcd(k,B_k). At 2, C_even≡1 and C_odd≡3 mod 16, B_odd≡k mod 16, and doubling gives B_k≡3k modulo 2^(v2(k)+4) for even k. Inserting these gives even-k valuations v2(k)-1,v2(k),v2(k), and zero for odd k. At 3 the recurrence makes B_odd a unit and C_odd divisible by 3. For even k, doubling from an odd index first supplies a factor 3, and each tripling of an even index contributes at least one more via 4C_j^2-1. Thus v3(B_k)>v3(k) for even k. The only extra 3 is in the c formula at k≡3 mod 6, where H(k) is prime to 3. This also gives the asserted divisibility by k. The broken-down proof covers k=1 and the infinite range of offsets. The frozen verifier was read, not run; its nominal counter of 7,620 is not a literal count of assert executions and is irrelevant to the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 generalized Fibonacci theorem uses coefficient pair (1,1), not (6,-1).",
+          "The 2023 paper asks about four square-window families and separately term-index gcds; its question is not a theorem supplying the three formulas."
+        ],
+        "reasoning": "Neither inspected publication supplies a broader theorem implying these formulas. The frozen result does not resolve the ordinary cobalancing case or simplify H(k).",
+        "searches": [
+          "Mbirika–Spilker arXiv:2204.12626",
+          "Mbirika–Schrader–Spilker JIS 23.6.4 §6.1, Questions 30–31"
+        ]
+      },
+      "checked_sources": [
+        "JIS 26 (2023), Article 23.6.4, p. 22",
+        "arXiv:2204.12626 pp. 1,3",
+        "Resultary dea4e87b5cd7, 9976f1178eb2, 75648f386183, 3e257746e75f, 917a6e6a2ee5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exhaustive parity partition gives the all-k G_B and G_C statements from the first two exact records, and the third gives G_c for all k.",
+          "The divisibility and exact extra three follow from those formulas and B_odd being a unit at 3, as is immediate from the original recurrence."
+        ],
+        "reasoning": "The material coverage is in the exact catalogued formulas, not an inference of equality from the published empirical ratio observations. No distinct theorem is left in the final claim.",
+        "searches": [
+          "Resultary records dea4e87b5cd7, 9976f1178eb2, 75648f386183",
+          "JIS 23.6.4 §6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 30 uses the same square-window gcds under the balancing-family conventions and reports the same ratios empirically.",
+          "The catalogued Lucas-cobalancing proof uses c_0=-1; every index in the finding is positive, so this does not alter any term in a window."
+        ],
+        "reasoning": "The targets are invariant under the compared notational shifts; the exact formulas with H(k) in the matched records are already in the frozen normalization.",
+        "searches": [
+          "Resultary: balancing, Lucas-balancing and Lucas-cobalancing square-window gcds via gcd(k,B_k)",
+          "Mbirika–Schrader–Spilker, JIS 23.6.4, Question 30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12 exact-even record dea4e87b5cd7: G_B=H/2 and G_C=H for even k.",
+          "2026/10/13 odd-window record 9976f1178eb2: G_B=G_C=H for odd k.",
+          "2026/10/13 exact Lucas-cobalancing record 75648f386183: G_c=3H for k≡3 mod 6 and H otherwise.",
+          "Later dated 3e257746e75f repeats the Lucas-balancing formula and 917a6e6a2ee5 repeats the combined theorem; neither is needed to establish the earlier-dated coverage."
+        ],
+        "reasoning": "These are matching exact statements, not just tables with the first few values.",
+        "searches": [
+          "Resultary local mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4, square-window gcd matches",
+          "JIS 23.6.4 p. 22"
+        ]
+      },
+      "rationale": "The formula-level coverage is established: three distinct earlier-dated Resultary entries together give exactly the same formulas across all k, including every claimed exceptional factor. Their union covers the frozen finding, not merely its special cases or the ratios conjectured in the 2023 literature. Combining the already stated parity cases under H(k) does not add a mathematical conclusion requiring a new comparison. This verdict identifies substantive coverage; it does not determine public posting priority or independent authorship.",
+      "residual_risks": [
+        "Record date-paths and mirror content establish overlap, not public posting priority or authorship; other exact results may exist outside the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem; empirical ratios and open questions, not exact formula coverage",
+          "evidence": [
+            "Question 30 asks for all four square-window gcds; Question 31 asks about term-index gcds."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+          "material_read": "§6.1, p. 22, Questions 30 and 31 and observations",
+          "method": "Bounded original OA PDF passage inspection",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Original motivating question for exactly these families"
+        },
+        {
+          "assessment": "Different recurrence hypotheses",
+          "evidence": [
+            "G_n=G_{n-1}+G_{n-2} with arbitrary seeds does not encompass the balancing recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "Abstract p. 1; Definition 2.1 p. 3",
+          "method": "Original OA PDF passage inspection",
+          "title": "GCD of Sums of k Consecutive Squares of Generalized Fibonacci Numbers",
+          "trigger": "Candidate broader theorem about square-window gcds"
+        },
+        {
+          "assessment": "Exact even-k coverage",
+          "evidence": [
+            "For all positive even k, G_C=H and G_B=H/2."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-even-window-gcds-of-balancing-and-lucas-balancing-squares--dea4e87b5cd7",
+          "material_read": "Finding statement and parameter scope",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact even-window gcds of balancing and Lucas-balancing squares",
+          "trigger": "Exact even-k match"
+        },
+        {
+          "assessment": "Exact odd-k coverage",
+          "evidence": [
+            "For all positive odd k, G_B=G_C=H."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-odd-window-square-sum-gcds-for-balancing-and-lucas-balancing-seq--9976f1178eb2",
+          "material_read": "Finding statement and parameter scope",
+          "method": "Configured local Resultary mirror",
+          "title": "Odd-window square-sum gcds for balancing and Lucas-balancing sequences",
+          "trigger": "Exact odd-k match"
+        },
+        {
+          "assessment": "Exact all-k Lucas-cobalancing coverage",
+          "evidence": [
+            "G_c=3H precisely on k≡3 mod 6, and G_c=H elsewhere; the extension at index zero does not enter the gcd."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-exact-square-window-gcd-for-lucas-cobalancing-numbers--75648f386183",
+          "material_read": "Finding statement and sequence convention",
+          "method": "Configured local Resultary mirror",
+          "title": "The exact square-window gcd for Lucas-cobalancing numbers",
+          "trigger": "Exact third-family match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "JIS 23.6.4 §6.1",
+        "RESULT.md Finding and proof"
+      ],
+      "rationale": "An all-k exact calculation for three named square-window problems is mathematically motivated by Question 30. Reducing each infinite gcd to a common index divisor explains and sharpens the observed exceptional factors, without purporting to solve the fourth family or evaluate H(k) in simpler terms. This is an assessment of the mathematical content, independent of its duplicate coverage.",
+      "residual_risks": [
+        "No fourth-family or further term-index formula follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

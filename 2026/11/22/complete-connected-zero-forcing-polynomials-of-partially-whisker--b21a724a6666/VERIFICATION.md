@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no third-party packages. The checker separately constructs the labelled graph, tests every initial subset for induced connectedness, and runs ordinary simultaneous zero-forcing closure to convergence. This is compared coefficient by coefficient with the interval-and-gap formula.
+## correctness
 
-The run returned:
+PASS
 
-```text
-VERIFY_OK exhaustive_leaf_patterns=120 n=3..6 labelled_placement_comparisons=120
-DEGREE_SEQUENCE_CONTRAST_PASS n=7 three_leaves min_sizes=3_and_5
-KNOWN_SUNLET_SPECIALIZATION_PASS n=3..14
-```
+For at least two initial blue cycle vertices, connectedness forces a unique proper cyclic interval (or the whole cycle) and forbids a blue leaf with a white parent. A single leaf can at most supply its parent, which still has two white cycle neighbors. A boundary can enter the gap exactly when its private leaf is absent or blue. Its front reaches the first decorated gap vertex, but cannot proceed beyond it while the farther cycle neighbor is white: the private leaf of the stalled vertex must also be white. If the two reach lengths leave a middle interval, a first force into it is therefore impossible, including an inactive initial boundary as a zero-length front. Otherwise the fronts cover the gap, after which parents force all unselected leaves. This includes a one-vertex gap and the triangle. Optional interior leaves have independent factors 1+z; boundary weights encode initial leaf selection exactly and proper intervals are counted once. New exhaustive subset code reproduced both n=7 coefficient vectors, 1023 nonempty subsets each. The universal statement follows from the proof, not the finite checks.
 
-All 120 possible leaf-placement patterns for cycle orders three through six are checked; the two explicit seven-cycle contrasts are separately brute-forced. Checks of the full-sunlet minimum coefficient and total count up to cycle order fourteen are finite consistency checks. An unrestricted theorem follows from the step-by-step two-front structural proof in RESULT.md, not from these finite tests. No external or independent review has been performed.
+## originality
+
+PASS
+
+The distinct claim is the all-cardinality formula for an arbitrary cyclic subset of supports together with the full placement-sensitive distributions. The minimum-only unicyclic framework is substantial prior structure. The already enumerated all-whiskered endpoint and the overlapping single-leaf special case are not independent originality claims.
+
+## value
+
+PASS
+
+The formula gives the whole labelled connected-forcing size distribution without enumerating subsets of vertices, on a natural intermediate family between bare cycles and sunlets. The explicit equal-degree-sequence examples prove that the minimum and the rest of the distribution can genuinely depend on placement, illustrating the need for a cyclic-pattern statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

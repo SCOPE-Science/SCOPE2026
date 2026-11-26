@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a stationary-branch theorem under explicit concavity, flux matching, monotone gas and single-droplet hypotheses. The equations \(S'=-r\rho\), \(R'=-(r+\alpha)\sigma\) yield a conserved quadratic current; decay at infinity and interface flux continuity give \(S=\sqrt{r/(r+\alpha)}R\). Integrating the remaining first-order equation gives the gas mass exactly as the boundary current divided by \(\sqrt{r(r+\alpha)}\). The dense-phase exponential, total-mass normalization and strict one-variable maximum then prove every formula. Strict concavity makes the lower gas-current inverse unique and produces the spinodal fold. Boundary injection at zero, phase-current continuity, nonnegativity and regime endpoints were checked. The included numerical program reproduced independently integrated masses, profile derivatives and the distinct branch availability of two nonlinear examples. Computations corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS, qualified best knowledge
+The corrected result is /workspace/repairs/2/RESULT.md. The original general theorem follows under its hypotheses, but the displayed second current and four numerical examples have f''(0)=0, contrary to a literal all-domain f''<0 reading. The repair specifies strict curvature on the open gas density interval, retaining a nondegenerate interior peak and f'(0)>0; the verification script and scientific notes remain applicable, unaltered. Re-derived under the corrected assumptions: summing and subtracting gives S'=-rρ and R'=−(r+α)σ. With c=√(r/(r+α)), D=S−cR satisfies D'=(Λ/v)D; its absolute value cannot decrease in the positive-speed tail, so decay sets it to zero and flux continuity and ODE uniqueness preserve zero in the core. Hence R'=-Λρ and R is Λ times remaining rightward tail mass, with R(0+)=MΛ/2. Reflection yields jumps of ±rM/2 in the two directional transport fluxes, exactly cancelling the two resetting sources. The increasing-branch inverse exists out to infinity since f'(0)>0, and monotonicity prevents a decreasing-current-side gas tail. Peak equality gives a continuous cusp but a well-defined flux and weak gas solution; Taylor expansion at the peak gives the claimed origin-density fold. Interface flux J sets tail mass J/Λ and fixes the lower gas root; the linear dense current yields exponential density and a core iff MΛ/2>J. The derivative of (log t)/t changes only at e for t>1, so the strict coexistence comparisons, including upper equality, and the mass fraction follow. The two examples have maxima 2 and 16/(3√3) by differentiation, on opposite sides of e for common J=1; both now satisfy the stated curvature condition. No dynamical conclusion is claimed.
 
-The 2026 source solves a linear dilute speed and a particular finite-return extension; its arbitrary-speed flux identity is a genuine precursor. The linear-law thresholds, existence of the gas branch, and linear-law optimal width are prior work. The new contribution is a quantified structural **all-concave-gas-current** branch classification, together with gas-law-independent optimum versus gas-law-dependent spinodal and their universal \(e\) crossing. Targeted public-literature and mathematical-record searches returned no equivalent general arbitrary-current classification. Two distinct nonlinear laws with identical optimized droplet geometry but different existence of a competing gas solution rule out a mere parameter relabeling. Residual priority risk remains because general flux integration is elementary once the source's first integral is known, and broader flux-balance treatments may imply part of the classification.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a natural robustness question raised by using one particular gas slowdown law: which predictions depend on the detailed constitutive relation and which do not? It supplies a complete stationary phase-existence diagram inside a physically motivated model class, a universal condensed-mass fraction at maximum droplet size, and a sharp parameter test for whether a competing gas branch persists there. The contrast between the two explicit constitutive laws has a direct mathematical interpretation for active-gas model design. No transient stability or microscopic experiment is claimed.
+Pass for the repaired joint stationary branch comparison over the current class, not for the first integral, width, optimum, or linear-law coexistence and fold taken in isolation. Grange already gives those in the specific linear-speed model, from which its special-case ratio boundary follows. A separate broader matched-flux theorem covers the dense geometry and e at constant dense speed but does not constrain a competing gas-branch peak. The general gas-cutoff proof and the independently variable relation to the universal optimum distinguish the corrected finding.
 
-## Prior sources and limits
+## value
 
-Grange (arXiv:2610.26149, Sections 2–5 and Appendix B) establishes the first integral and a special-case phase diagram, not a stated arbitrary concave-flux theorem. Cates–Tailleur (arXiv:1406.3533) motivates generic density-dependent motility and phase separation but not resetting-induced droplet widths. The literature priority check is best-knowledge, not exhaustive. The theorem excludes other shock states, finite-particle fluctuations, non-Poisson clocks, and nonconstant dense-phase speed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed dense flux and kinetic controls, varying the gas shape leaves the optimal droplet size and mass partition unchanged but can switch whether a competing stationary gas state exists at that optimum. The explicit admissible pair isolates that effect, giving a sharp criterion usable to separate geometric optimization from branch availability. The claimed value does not rest on an isolated derivative calculation, a new name for the flux integral, or a claim of experimental hysteresis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

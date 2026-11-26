@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:19.266223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive iid increments, P(S_h≤m)≤e^{am}(E e^{-aψ})^h, with E e^{-aψ}<1. This gives absolute variance summability, an integrable covariance-tail envelope, and almost surely a conditional index dependence range O(log n) by a union bound and Borel–Cantelli. At each frequency in the countably many trigonometric approximations needed, the bounded character martingale differences give the pathwise Bohr mean. For fixed h, splitting the h-step covariance innovations into residue classes modulo h+1 gives the martingale strong law for the difference from the conditional mean g_h(Y_k). Lag-continuity ensures g_h is Bohr almost periodic and the norm-continuous integral commutes with its mean. Truncating lags, prefix Cesàro convergence is uniform after division by n; omitting the last h terms of each prefix is O(H²/n) for a fixed truncation H. The ergodic collision envelope controls all longer lags simultaneously for the prefixes. Consequently conditional variances converge uniformly on the Brownian time scale to tσ², including σ²=0. Blocks of size floor(n^(1/3)) separated by O(log n) gaps are jointly independent by the setwise m-dependence assumption. Residue-class maximal inequalities make the deleted prefix sums negligible in L² after normalization. The fourth moment bound summed over normalized full blocks is O(n^(-2/3) log² n). Assign block sums to completion times: the maximal discrepancy within a block is deterministically bounded by 2K floor(n^(1/3))/sqrt(n), so the full-block conditional variance profile follows uniformly by the L² triangle inequality. The independent-array functional CLT therefore applies in J1 and uniform-probability approximation restores the original process. The separate Brownian-sign example has σ²=3−4/π at ε=0 and independent integration gives σ²≈1.8569314 at ε=1/2; these are checks of the variance formula, not the limit. The frozen script was inspected, not executed. The frozen verification metadata does not attest expert, independent, or Lean verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berger–Strobel note their mixingale proposition follows from a functional CLT of McLeish; this does not supply the deterministic-schedule variance profile and blocking hypothesis almost surely.",
+          "Berger–Mohamed give a continuous-time scalar averaging CLT under almost-periodic stationarity and m-dependence without independent renewal sampling."
+        ],
+        "reasoning": "General array CLTs can be applied only after proving the new pathwise convergence of the conditional variance and control of clustered observation times. An accessible annealed functional extension would not dominate the quenched assertion.",
+        "searches": [
+          "arXiv:2610.23669v1, Theorem 4.5 and preceding mixingale proposition",
+          "arXiv:2208.08240, Theorem 7.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Berger–Strobel arXiv:2610.23669v1",
+        "Berger–Mohamed arXiv:2208.08240",
+        "Resultary record 366d80019b89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same formula γ(h)=E M(c_{S_h}) in the shared regime; the almost-sure prefix variance law with logarithmic conditional dependence range is not given by that formula or its annealed scalar CLT."
+        ],
+        "reasoning": "The variance identification and overlapping scalar law are covered. The converse implication from averaging over schedules to a fixed-schedule invariance principle is not valid in general, nor does a published theorem inspected here provide the additional bridge.",
+        "searches": [
+          "arXiv:2610.23669v1, Theorem 4.5 and Lemma 4.8(iv)",
+          "Frozen RESULT.md, proof Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berger–Strobel state forward and backward scalar annealed CLTs with the same characteristic-function condition and no sampling moment assumption.",
+          "Their stationary-limit covariance is the renewal-lag expectation of the Bohr mean; summing it gives the same variance on the overlap.",
+          "Whole-schedule conditional convergence here applies to almost every fixed schedule and is not another formulation of convergence under the joint law."
+        ],
+        "reasoning": "A joint-law scalar limit or stable convergence is weaker than almost-sure convergence of the conditional path laws. Boundedness gives L² uniform integrability but covariance almost periodicity does not give almost periodicity in distribution; conversely this record adds uniform lag-continuity. The two theorems are not restatements.",
+        "searches": [
+          "arXiv:2610.23669v1, Theorem 4.5 and Lemma 4.8(iv)",
+          "Resultary semantic search for renewal-sampled almost-periodic covariance and quenched functional limits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected limit-mode match: 2026/11/2/SCOPE-quenched-brownian-normality-for-static-cardinality-driven-bootst--366d80019b89, Finding (static cardinality-driven bootstrap walk and two-coordinate Brownian limit)."
+        ],
+        "reasoning": "This indexed result neither concerns the sampled process nor proves its conditional limit. No exact numeric table is applicable to a process-level theorem with arbitrary increment and covariance laws; the example constants are only diagnostics.",
+        "searches": [
+          "Resultary semantic search for renewal-sampled almost-periodic covariances; quenched Brownian functional limits"
+        ]
+      },
+      "rationale": "The supported distinction is the almost-sure, whole-schedule conditional J1 theorem for bounded m-dependent processes with almost-periodic lag covariances. The same variance and overlapping scalar annealed limit are prior work, not credited as new. No inspected result establishes the stronger conditional functional statement or implies it on these hypotheses.",
+      "residual_risks": [
+        "An unlocated general deterministic-environment invariance principle specialized to renewal schedules could overlap. The comparison is to the available inspected statements, not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct variance and overlapping scalar annealed coverage, not the quenched J1 statement.",
+          "evidence": "Theorem 4.5 uses distributional almost periodicity and L²-uniform integrability; Lemma 4.8(iv) averages the Bohr mean against the renewal-lag law.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23669v1",
+          "material_read": "PDF pp. 18–19, Theorem 4.5 (text offset near 49280), underlying mixingale proposition, Lemma 4.8(iv)",
+          "method": "Located and read primary OA passages",
+          "title": "Random Sampling of Almost Periodic Stochastic Processes",
+          "trigger": "Same sampling model, covariance series and finite dependence"
+        },
+        {
+          "assessment": "Adjacent continuous-time scalar result, not renewal-sampled or quenched.",
+          "evidence": "The statement treats averaging an m-dependent almost-periodic stationary input in continuous time.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.08240",
+          "material_read": "PDF p. 29, Theorem 7.2, text offset near 94500",
+          "method": "Located and read primary OA theorem",
+          "title": "Almost Periodic Stationary Processes",
+          "trigger": "Potential general CLT under related almost-periodicity hypotheses"
+        },
+        {
+          "assessment": "Different process, no theorem coverage.",
+          "evidence": "Two-coordinate quenched functional limit for a static cardinality-driven bootstrap walk.",
+          "identifier_or_url": "2026/11/2/SCOPE-quenched-brownian-normality-for-static-cardinality-driven-bootst--366d80019b89",
+          "material_read": "Mirrored Finding",
+          "method": "Configured semantic search and bounded mirror inspection",
+          "title": "Quenched Brownian normality for a static cardinality-driven bootstrap walk",
+          "trigger": "Closest inspected Resultary limit-mode match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Inference or pathwise limit analysis with one realized observation schedule needs a conditional path law, not averaging over new schedules. The result handles arbitrarily close clusters without a minimum gap or a renewal moment and requires regularity only of lag covariances, not all marginal laws. The pathwise variance and clustering arguments together close a meaningful gap between the known annealed scalar result and such usage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

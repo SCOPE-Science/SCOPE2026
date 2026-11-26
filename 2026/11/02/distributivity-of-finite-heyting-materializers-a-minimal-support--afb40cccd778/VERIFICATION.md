@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The embedded `materializer_distributivity_verify.py` uses only Python standard-library facilities. Running `python3 materializer_distributivity_verify.py` enumerates the distinct naturally labeled finite posets whose underlying labels form a linear extension. Every isomorphism class of finite posets has such a labeling, so the enumeration covers every poset structure through the tested orders.
+## correctness
 
-For each antecedent downset it computes the minimal external-support family, tests the equivalent pairwise union condition, and checks that these agree. For every poset of orders 1–5, it also computes the materializer directly from the Heyting implication formula, reconstructs all intrinsic joins as intersections of common upper bounds, and tests distributivity over every ordered triple. For order six, only the two equivalent structural criteria are compared, not all distributivity triples.
+PASS
 
-Expected successful output concludes with `ALL_MATERIALIZER_DISTRIBUTIVITY_CHECKS_PASS posets=5231 antecedents=101658`. The script additionally confirms the explicit smallest four-point non-distributive poset witness. These finite tests are supplementary; the proof of the all-size theorem is in `RESULT.md`.
+On U, membership of a satisfying consequent J is determined by the test S_p ⊆ J∩I; on Q, J can be any ideal L containing the forced predecessors D(J∩I). Thus the coordinate meet is intersection and the join adds D(K₁∪K₂) to the second coordinate. Union preservation makes this a sublattice of the coordinate product. Conversely a newly forced q witnesses failure of the meet-over-join law by meeting with (∅,↓_Q q). For a given q the trigger is an OR over its support family. A minimal principal trigger in a union occurs in one summand; a nonprincipal minimal support splits into the ideal left after removing a maximal point and that point’s principal ideal, neither of which can trigger q alone. This also handles empty families and I or Q empty. A failed trigger supplies two incomparable points in I and a third point q incomparable to both, below a common p. Restriction onto this induced four-point poset is surjective on ideals, and any extra r makes restriction noninjective: ↓r and the downclosure of its restriction differ at r. Thus equality at nine ideals forces exactly that poset. Only the three two-minimum antecedents can fail there, and each gives the displayed seven-element witness. The separate three-point example has Q empty and a Boolean intrinsic lattice with nonambient join. Support comparisons and greatest-element tests are polynomial in the poset size. A separate finite check (python3 /workspace/review_checks.py, boundary) used direct implication and join tables through five poset points with at most nine ideals; it found only the three (4 points, 9 ideals, 7 materializers) antecedents. This is corroboration, not the all-size proof; the supplied verifier was inspected, not executed.
 
-The scientific status is self-reviewed only. No independent audit has been performed.
+## originality
+
+PASS
+
+Pass for the exact intrinsic-distributivity criterion and sharp minimum/equality classification, not for the materializer definition, the existence of intrinsic joins, or the four-point example in isolation. A distinct indexed record of the same date gives the identical witness and a closure representation but tests ambient joins; same-day dating does not resolve priority and that witness is not credited as distinct.
+
+## value
+
+PASS
+
+This decides a natural question about a named Heyting equality class without enumerating the ambient lattice when given its poset, and explains exactly which extra join obligations destroy distributivity. The nine-ideal boundary and equality classification are useful beyond exhibiting a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: a single-crossing weak-restart phase diagram
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact process has two oriented states and exponentially sticky reflecting outer walls. The inward-target value obeys a killing/survival Bernoulli boundary condition; the outward-wall value includes an independent exponential holding time. The first and second backward-moment systems in `RESULT.md` are solved directly. The fourth-degree susceptibility polynomial is exactly reconstructed, and its Bernstein coefficients have at most one sign change. Descartes' rule limits the number of interior sign transitions to one, while explicit endpoints and monotone rate functions prove existence and strictness. `check.py` runs the actual symbolic consistency and published-uniform-variance identity tests. The classification is local in restart rate; no assertion is made about the equality case beyond its vanishing linear term.
+## correctness
 
-## Originality — PASS, qualified
-The exact spatial, two-parameter, weak-restart *sign classification* and its uniqueness mechanism are not among the derived results in the inspected principal 2023 first-passage paper. That paper supplies model dynamics and the spatially uniform mean and variance, so those inputs are acknowledged as prior and are reproduced as checks, not claimed as findings. The 2022 and 2023 boundary-absorption studies concern different reflection or reaction mechanisms; the 2025 partly absorbing resetting study uses a half-line and potentially nonrenewal local-time resets, rather than this bounded two-sticky-wall model. The standard weak-restart moment criterion itself is known. Published comparison records on reactive Brownian intervals, active OU searching, and sticky-wall tumbling optimization do not imply the stated exact Bernstein single-crossing for this active model. Search and full-text inspection cannot exclude all unindexed equivalent calculations; this remains a real publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The quantity answers whether occasional experimental re-initialization makes target detection faster or slower, given a specified fixed launch site. The previously studied uniform-start observable does not reveal the sharp adverse near-wall region; the structural theorem proves there can be *only one* positional reversal and identifies the sharp speed/reactivity boundary for its appearance. The result is a continuous phase classification over all positive physical parameters, not an arbitrary data slice or routine parameter substitution.
+In time units 1/λ the folded generator is ±s⁻¹∂a plus unit-rate heading reversal. A failed inward crossing at zero renews on the outward branch with weight exp(−ks); at the outer wall the outward lifetime adds an independent Exp(1) wait to the inward lifetime. These give g(1)=1/2, G(1)=1+f(1)−g(1), f(0)=cg(0), F(0)=cG(0) and the stated moment equations. A crossing with capture has a state-uniform positive probability in a fixed finite time block (allow an outward start time to reach the wall, reverse there, then travel inward without another reversal), so the needed moments and Taylor expansion are justified. Complete independent restarting gives right derivative −Δ/(2λ²) in physical units. Reconstructing the moment polynomials confirms the endpoints and the Bernstein signs: b0 and b1 are positive, and b1>b2>b3>b4; no ordering of b0 and b1 is needed. Descartes' rule with multiplicities and the endpoint signs give the unique simple interior crossover when the wall sign is negative. On P>0, coth(ks/2)P strictly decreases in s while Q strictly increases; P≤0 cannot furnish an extra root. At fixed s, increasing k decreases the positive product, proving strict decrease of the threshold; compactness between the strong and weak limits and the defining root equation give both limits. Integrating F and f under uniform launch and squaring only the integrated first moment gives the positive uniform susceptibility. Equality at the wall or at the crossover specifies only the first derivative; a=0 enters solely as the limiting folded value, not as an allowed restart site. The independent symbolic check reconstructed f,g,F,G from the integrals, expanded Δ, and compared the coefficients using b_j=Σ_{i≤j}[a^i]Δ·binom(j,i)/binom(4,i). This checks the identities, not the stochastic model or the sign theorem by sampling. Uploaded code was inspected but not executed.
 
-## Closest literature and limits
-Closest: Jeon, Go, Kim, arXiv:2310.04016v1, Sections II–III and Appendix C, including known Eq. 113; Bressloff, arXiv:2209.07293v2 and arXiv:2302.01158v1, boundary-reactive transport; Bressloff, arXiv:2503.01304v1, half-line RTP resetting. The new proof does not establish any positive-rate global optimum or behavior at a neutral first-order boundary. A published exact general propagator could in principle be specialized to this model, so independent bibliographic review remains necessary before a publication-priority assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest unreset process and the general restart criterion are known. Neither supplies the claimed fixed-site sign classification across all s,k>0; the endpoint polynomial and uniqueness argument are substantive additional results. No equivalent or dominating result was identified in the bounded comparisons.
+
+## value
+
+PASS
+
+The exact threshold and unique change of sign identify where restarting helps or hurts in a standard confined persistent-search model. This sign information cannot be inferred from the uniform-launch benefit, and it gives an actionable distinction without claiming an optimal finite restart rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

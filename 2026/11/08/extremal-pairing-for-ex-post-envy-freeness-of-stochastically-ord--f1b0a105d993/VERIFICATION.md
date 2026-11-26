@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic stochastic-difference proof establishes all stated inequalities for arbitrary nonnegative, independent, atomless item laws satisfying first-order stochastic dominance. The finite checker cannot by itself prove the infinite-domain claim.
+## correctness
 
-Run `python3 verify.py` in the directory containing this file. It uses only the Python standard library. The actual check passed on 2026-11-01 UTC: 1,764 exhaustive four-law chains on the three-point rational grid, each with empty and Bernoulli(1/2) symmetric background (3,528 checks); exact exponential computations and means-only counterexample also passed. Finite distributions are interpreted with independent tiny continuous jitter, producing half-tie probabilities for comparisons of the unjittered integer totals.
+PASS
 
-The formula for the exponential example follows from the Laplace transform of a sum of two independent exponentials; it was separately evaluated using exact rational arithmetic. Independent audit and independent replication beyond the included checks have not been performed.
+If independent A and B satisfy A≥st B, replace A by an independent copy of B and −B by an independent copy of −A in turn to obtain A−B≥st B−A. For the differences between paired sums, the disjoint item differences are independent and the background difference T=U−V is independent and symmetric. Reversing X₂−X₃ in the comparison for p₁₂ gives p₁₃; reversing both disjoint differences in the comparison for p₁₃ gives its negative in law and hence p₁₃≥1/2. Reversing X₃−X₄ gives p₁₄≤p₁₃, and reversing the other difference in the p₁₄ comparison gives 1−p₁₃≤p₁₄. There are no ties by independence and atomlessness, and the two agents' independent non-envy events have complementary probabilities. The ranking follows from 1/4−(p−1/2)². A fresh exact sign-sum enumeration reproduced 1,764 ordered chains and 3,528 comparisons; a separate Laplace-transform calculation and comparison thresholds −5, 7, 11 in the means-only example reproduced all six stated win probabilities. The jitter in that example cannot change any comparison sign.
+
+## originality
+
+PASS
+
+The distinct claim is the complete fixed two-two ordering for general FSD-ordered independent atomless laws, with an independent equal-law background and no need for an ex-ante envy-free split. The stochastic-order lemma, the probability product, and examples confined to previously covered law families are not separate novelty claims.
+
+## value
+
+PASS
+
+This solves a natural smallest pairing problem with three distinct choices: a practitioner can rank the fixed allocations from stochastic dominance alone without knowing either bundle-sum distribution or finding an ex-ante fair allocation. The matched-background extension and the strictly means-ordered counterexample clarify when the recommendation is useful and when it is not.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

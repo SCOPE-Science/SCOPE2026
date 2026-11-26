@@ -47,7 +47,7 @@ Consequently,
 2,&r\ge3\text{ and fewer than two parts are singletons},\\
 1,&G=K_{1,1},\\
 b,&G=K_{1,b},\ b\ge2,\\
-\min\{a,b\},&G=K_{a,b},\ a,b\ge2.
+\min\{a,b,4\},&G=K_{a,b},\ a,b\ge2.
 \end{cases}
 \]
 
@@ -108,7 +108,7 @@ Suppose next that \(r\ge3\) and \(S\) meets at least three parts. Removing one s
 
 Finally suppose \(r=2\), with occupied parts \(V_1,V_2\). For a selected \(v\in V_1\), a replacement must come from \(V_2\), so \(t_2\ge1\). If \(s_1\ge2\), deleting \(v\) leaves both parts occupied, and any such replacement works. If \(s_1=1\), deleting \(v\) leaves only \(V_2\) occupied; after inserting one omitted vertex of \(V_2\), the new set dominates exactly when it becomes all of \(V_2\), namely exactly when \(t_2=1\). The symmetric argument for \(V_2\) gives the bipartite criterion.
 
-The minimum formulas follow immediately. For \(r\ge3\), either a singleton whole part is co-secure because a second singleton part exists, or two vertices in two different parts form a co-secure set. For \(K_{1,b}\) with \(b\ge2\), the singleton side cannot be co-secure and any set meeting both sides fails at the unique selected-side replacement condition, while the whole \(b\)-vertex side is co-secure. For \(K_{a,b}\) with \(a,b\ge2\), either whole part is co-secure, giving the upper bound \(\min\{a,b\}\); the bipartite criterion rules out any smaller two-part-supported set.
+For \(r\ge3\), either a singleton whole part is co-secure because a second singleton part exists, or two vertices in two different parts form a co-secure set. For \(K_{1,b}\) with \(b\ge2\), the singleton side cannot be co-secure and any set meeting both sides fails the condition that both parts have an omitted vertex, while the whole \(b\)-vertex side is co-secure. For \(K_{a,b}\) with \(a,b\ge2\), either whole part is co-secure. For a co-secure set meeting both parts, if \(s_1=1\), the criterion forces \(t_2=1\), and then \(|S|=b\). If \(s_2=1\), it similarly gives \(|S|=a\). Otherwise \(s_1,s_2\ge2\) and \(|S|\ge4\). These cases give the lower bound \(\min\{a,b,4\}\). If \(\min\{a,b\}\le4\), a whole part attains it. If both parts have size greater than four, choosing two vertices in each part attains it by the bipartite criterion.
 
 For \(r\ge3\), start with all subsets that meet at least two parts:
 \[
@@ -128,11 +128,13 @@ Independently, the script evaluates the structural characterization above and th
 
 The replay checks \(128\) multipartite profiles and \(64{,}916\) subsets. The finite computation is corroborative only; the proof above establishes the result for arbitrary positive part sizes.
 
+The separate script `artifacts/check_biclique_minimum.py` computes minima directly by neighborhood coverage and swaps in all bicliques \(K_{a,b}\) with \(1\le a\le b\le 7\). In particular it tests \(K_{5,5}\), where selecting two vertices from each side gives a co-secure dominating set of size four, smaller than either part.
+
 ## Relationship to prior work
 
 Cui, Li, Zhang, Chen, and Xiong study co-secure domination in a 2024 paper whose stated problems ask for structural characterizations involving the co-secure domination number. Their paper was published on December 27, 2024 and lists MSC \(05C69\). Its full accessible text develops forbidden-induced-subgraph conditions for equalities such as \(\gamma_{cs}(G)=\alpha(G)\) and \(\gamma_{cs}(G)=\gamma_s(G)\), rather than an all-set classification of complete multipartite graphs.
 
-The foundational co-secure literature determines values for paths, cycles, and several standard families and proves general bounds. Joseph and Sangeetha's 2018 paper specifically advertises Jahangir, friendship, and helm graphs. The searched literature did not yield a complete-multipartite co-secure polynomial or the support/complement criterion proved here.
+The foundational co-secure literature determines values for paths, cycles, and several standard families and proves general bounds. In particular, Kusum and Pandey's Lemma 1 reports the complete-bipartite minimum as prior work, attributing it to Arumugam, Ebadi, and Manrique. The bipartite minimum above recovers that known value; the additional statements here classify every admissible set and enumerate them by size. Joseph and Sangeetha's 2018 paper specifically advertises Jahangir, friendship, and helm graphs. The inspected literature did not yield a complete-multipartite co-secure polynomial or the support/complement criterion proved here.
 
 A nearby result in the current database gives the secure-domination polynomial of complete multipartite graphs. Secure domination reverses the quantifier direction: every outside vertex must be able to replace a selected defender. Co-secure domination instead requires every selected vertex to have an outside replacement. The two all-set classifications are therefore not implication-equivalent, and their multipartite support obstructions differ.
 
@@ -140,7 +142,7 @@ A nearby result in the current database gives the secure-domination polynomial o
 
 The theorem is specific to complete multipartite graphs. It does not provide a general algorithm for arbitrary perfect, cograph, chordal, or bipartite graphs.
 
-The originality assessment is literature-based, not an absolute uniqueness proof. Co-secure domination has older literature under closely related terminology, and a poorly indexed source could contain a special-case formula. The directly inspected recent papers and targeted searches did not reveal a complete-multipartite all-set classification or polynomial.
+The originality assessment is literature-based, not an absolute uniqueness proof. The complete-bipartite minimum is already known. The 2014 source cited for that minimum could not be inspected in full, so scope beyond the scalar value is not established for that paper. Targeted searches and the inspected statements did not reveal a complete-multipartite all-set classification or polynomial.
 
 ## References
 
@@ -148,3 +150,4 @@ The originality assessment is literature-based, not an absolute uniqueness proof
 2. A. Joseph and V. Sangeetha, “Bounds on Co-Secure Domination in Graphs,” International Journal of Mathematics Trends and Technology 55 (2018), 158–164, DOI 10.14445/22315373/IJMTT-V55P520.
 3. S. Arumugam, K. Ebadi, and M. Manrique, “Co-secure and Secure Domination in Graphs,” Utilitas Mathematica 94 (2014), 167–182.
 4. J. Cui, T. Li, X. Chen, and L. Xiong, “Characterization of Some Claw-Free Graphs in Co-Secure Domination Number,” Mathematics 13 (2025), article 2426, DOI 10.3390/math13152426.
+5. Kusum and A. Pandey, “Cosecure Domination: Hardness Results and Algorithm,” arXiv:2302.13031v1, Lemma 1.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete proof covers all \(n\ge2\), \(0<p<1\), \(\lambda>0\), \(H>0\): the affine exponential survival recursion, strictly negative-definite objective Hessian, adjacent stationarity identities, explicit unique root, and the equality and subthreshold boundaries. In particular, equality of adjacent marginal returns forces equal pre-search stocks before the final visit. Global optimality is proved by strict concavity, not by the numerical search. The standalone checker passes 15,020 tests including exact-rational agreement of two constructions of expected discoveries and independent numerical evaluations.
+PASS
 
-## Originality — PASS, qualified by accessible evidence
+With normalized stock r_i the recurrence is r_i=1−exp(−d_i)+(1−p)exp(−d_i)r_(i−1). The last visit strictly gains on postponement before H because 0≤r_(n−1)<1; a pass at zero can be moved to H with strictly positive gain, since positive stock survives and can escape finitely many trials. On the simplex the negative Hessian is a positive sum of outer products of interval indicator vectors; singleton vectors already make it positive definite. Thus strict concavity gives one optimizer, including boundary schedules. With U_i=1−r_i and Q_i the backward propagation factor for stock, adjacent equality of gradients pU_iQ_i gives U_i=p exp(−d_(i+1))Q_(i+1). Combining successive equalities and the forward recurrence gives U_1=…=U_(n−1) (not generally U_n). Writing A=1−(1−p)q, the candidate has U_1=…=U_(n−1)=pq/A, Q_i=1/A for i<n, and U_n=pq/A², so all gradients agree. At n=2 the direct condition is exp(−d_1)=p exp(−d_2), with feasibility exactly h≥−log p; it gives the same q parametrization. The horizon function strictly decreases from infinity to h_c at q=1/(2−p); there d_n=0 and all earlier gaps are positive. The candidate is optimal at equality because its equal-gradient condition still implies the concave supporting-plane bound. Below h_c an all-positive maximizer is impossible and d_1 cannot vanish. The invariant follows from the endpoint log ratio. Independently reproducing the n=4 example with a cohort sum gave 1.30167008997 versus 1.27510268262 for equal gaps. VERIFICATION.md and checker.py were read, not executed.
 
-The closest directly relevant sources are Korner-Nievergelt et al. (2011), which calculate detection corrections at regular intervals; Etterson (2013), which establishes estimation schemes handling irregular search intervals; the 2015 *carcass* tutorial that discusses such calculations; and Wolpert (2015), which gives a generalized mortality estimator. These sources establish portions of the stochastic model, but the inspected full primary material does not state the strict-concavity optimizer, its arbitrary-\(n\) equal-middle-gap structure, constant first–last offset, or exact collision threshold. Relevant indexed optimal ecological snapshot and Markovian-availability results have different state and objective definitions; none was found to imply the present all-\(n\) result. Important limit: Etterson's complete 2013 text was not accessible, despite an open repository attempt, so its full historical priority remains a residual risk; a broader unindexed inspection theorem is also possible. No claim of exhaustive priority or independent certification is made.
+## originality
 
-## Value — PASS
+PASS
 
-Repeated missed-carcass detection and scavenger loss are recognized determinants of monitoring quality. A complete global maximizer at every sufficiently long finite horizon, an exact boundary at which independent visits cease to be separated, and the horizon-independent endpoint offset are actionable analytical benchmarks for the detection-count objective. The theorem is not a restatement of a known correction factor or a tiny numerical optimization gain. It illuminates why equal-interval designs, often used to represent changing mortality over calendar time, need not maximize detection under strictly homogeneous arrivals. It is not a field protocol: heterogeneity, uncertainty, visit costs and estimator variance can change the optimum.
+Repeated-discovery expectation modeling is established, and there is a material two-visit overlap with the closely related persistence-mixture result. The supported distinct claim is the arbitrary-n unique-calendar separation threshold and invariant, including identical interior gaps. The strongest inspected sources do not imply this multi-visit result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Identical repeat searches might suggest equal spacing. The unique endpoint offset and exact change from a collision to full separation show why that intuition fails in a natural discovery-count model, and distinguish a true scheduling constraint from numerical near ties. This benchmark is useful for model and search-design comparisons, not a recommendation about field coverage or estimator precision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

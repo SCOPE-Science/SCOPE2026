@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact algebraic proof is in `RESULT.md`. The separate standard-library script `verify.py` enumerates actual idempotents and their left-nested products and checks the full reachable/unreachable sets for eight representative finite-field quadratic forms (six ternary forms over \(\mathbb F_3,\mathbb F_5,\mathbb F_7\), and two quaternary forms). The checker also verifies that each supposed generator is idempotent and that maximal shortest lengths are five or six as predicted.
+# Independent mathematical audit
 
-For the exceptional \(81\)-element nonsplit ternary algebra over \(\mathbb F_3\), it independently evaluates the exact twelve-state transition quotient by signed permutations of coordinates, compares all ten reachable orbit types and their first-appearance lengths, and counts \(72\) reachable elements. The missing set consists of the scalar \(2\) and eight nonzero pure isotropic vectors.
+## correctness
 
-Execute `python3 verify.py` with Python 3.8 or later. Observed output ends with `VERIFY_OK: finite-field BFS and exact exceptional orbit-transition certificate`. Computational checks are finite supplements, not evidence for all finite fields. The proof handles all field orders analytically. No external audit has occurred.
+PASS
+
+The repaired proof distinguishes words of lengths one, two and three: padding with 1 in the frozen argument did not preserve the two-nontrivial-idempotent norm identity. The corrected necessary discriminants for lengths one and two are 9 and (8β−1)²; at length three the predecessor quadratic gives the stated discriminant. The scalar cases in the lower bound now use D(0)=1 and D(1)=81. The predecessor plane is solvable in precisely the claimed cases: use a nondegenerate binary or larger complement for anisotropic vectors and the hyperbolic-plane decomposition for isotropic vectors; the residual ternary line has square class −Δ. For q≥5 the square-discriminant selection has at least three candidates against at most two bad norms; a single extra step handles the exceptional scalar coordinate. The q=3 split ternary bound is covered by the cited proposition and extends to higher dimensions by embedding each vector in a suitable ternary subspace. Independent full BFS of both ternary F3 algebras found 80 and 72 reachable elements and shortest-length widths 5 and 6. No change to the numerical theorem.
+
+## originality
+
+PASS
+
+The repaired article explicitly credits known exact split-ternary lengths and width. The finite-field result for all types in dimension at least three, especially permanent nonsplit ternary exclusions and the length-six exception, is distinct from the sources inspected.
+
+## value
+
+PASS
+
+Exact bounded generation by idempotents is the motivating invariant. The determinant-sensitive permanent obstruction distinguishes a failed short factorization from non-generation at every length, while the exceptional width six supplies a sharp boundary not explained by the matrix case alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

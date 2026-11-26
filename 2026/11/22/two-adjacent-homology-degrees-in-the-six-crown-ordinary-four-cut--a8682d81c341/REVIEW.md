@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The forbidden quadruple count is \(30+120+15=165\) by exhaustive disjoint case analysis; the full dual f-vector is \((12,66,220,330,120,20)\). The included exact verifier enumerates all 768 faces, certifies a 350-pair acyclic matching (complete directed Hasse DAG, 2,832 arcs), and computes the zero *integral* critical-four-to-critical-three Morse incidence. With one critical vertex, 66 three-cells and one four-cell, Hurewicz converts zero integral degrees into a nullhomotopic attaching map, proving the dual wedge. Alexander duality and universal coefficients then give the original complex's asserted integral homology. Independent mod-two boundary ranks \((11,55,165,99,20)\) corroborate but do not replace the integer proof. No claim of a homotopy splitting for the original complex is made.
+## correctness
 
-## Originality — PASS against inspected sources
-The foundational 2023 cut-complex paper distinguishes complete bipartite graphs and Cartesian clique prisms; its \(K_n\square K_2\) construction has within-shore edges and is *not* the tensor-product crown graph. The 2024 sequel addresses disjoint unions, grids, squared paths and other representations. Indexed crown cut work concerns parameter three, and the prior five-crown parameter-four calculation gives only one homology degree and cannot determine the six-crown result. Targeted searches by graph aliases (crown, deleted matching biclique, bipartite double of a clique, tensor product), cut parameter, and homology did not find an equivalent statement. Unindexed computations and undiscovered stronger results remain possible; absence from search does not itself establish novelty.
+PASS
 
-## Value — PASS
-The six-crown is a canonical twelve-vertex bipartite double cover of a complete graph, not an arbitrary induced-subgraph slice. Deleting a full perfect matching from the complete bipartite graph changes a previously single-degree four-cut homotopy phenomenon into **two adjacent nonzero integral homology degrees**, sharpening the first observed finite transition beyond the known five-crown case. This shows nonshellability and failure of Cohen--Macaulayness for a symmetric, natural graph, supported by a concise exhaustive reproducible certificate. The theorem is finite, but the exact transition is structurally motivated and not a table recomputation.
+Disconnected four-sets have shore splits 4+0 (all), 3+1 (the singleton misses its matched vertex), or 2+2 (both matching edges are absent); these disjoint classes have 30, 120, 15 members. A face of the dual is exactly a set containing none of them. The separate exact replay builds the full face poset and reproduces 768 faces and 350 disjoint matching pairs; topological sorting all 2,832 covers in the match-reversed graph reaches all 768 nodes. With orientations by increasing vertex order, each signed pivot contributes −[u:f]/[u:t] to the other facet terms. Acyclicity makes the gradient recursion finite, and the 66 integral coefficients from the unique critical four-cell are all zero; mod-two ranks are not needed. Forman's theorem gives one vertex, 66 three-cells, one four-cell and no other cells. The three-skeleton is a wedge of 3-spheres, is 2-connected, and Hurewicz identifies its π3 with H3; the attaching map has the computed zero degree vector and is nullhomotopic. Alexander duality for 12 vertices takes degrees 4 and 3 to original reduced homology degrees 5 and 6 via 9−i, with ranks 1 and 66 and no torsion. Purity follows from equal complement sizes. The lower-dimensional field homology obstructs both pure shellability and Cohen–Macaulayness over every field.
 
-## Closest work and limitations
-The nearest exact published general result is Bayer et al., arXiv:2304.13675, Theorems 7.1 and 7.18 (different graphs). Bayer et al., arXiv:2407.08158, studies other graph families. The closest indexed crown research treats ordinary three-cut complexes. An existing five-crown four-cut computation is a neighboring special case, not a general covering theorem. The present claim covers only the six-crown four-cut case and only the original complex's integral homology; no independent audit is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected neighboring results are for ordinary four-cuts of the five-crown and for ordinary three-cuts of general crowns. Published complete-bipartite and Cartesian prism theorems do not include the six-crown. No exact equivalent or covering result was established in the inspected material.
+
+## value
+
+PASS
+
+The six-crown is the next crown after the inspected five-crown at the same natural cutoff, and the complete bipartite graph is a closely related benchmark. The exact example changes the pattern from a single reduced homology degree to two adjacent integer degrees, neither top-dimensional, and identifies an integral wedge for the dual rather than merely computing field Betti numbers. It supplies a specific useful test case for structural or computational predictions about cuts of crowns and matching deletions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

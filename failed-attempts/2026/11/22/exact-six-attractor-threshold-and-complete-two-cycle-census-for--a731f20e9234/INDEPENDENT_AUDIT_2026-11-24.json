@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:59:13.894658Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66, VERIFICATION.md and verify.py (script read only)",
+        "/workspace/branches/reproduce-1.py (independent symbolic factorization and neutral-return calculations)"
+      ],
+      "rationale": "The theorem is true with the stated local smooth successor convention. Subtracting and adding the two cyclic equations gives x²+xy+y²=1-2/h and either x+y=0 or x²-xy+y²=1. The first case gives the antipodal pair exactly for h>2. In the second non-antipodal case xy=-1/h, (x+y)²=1-3/h and (x-y)²=1+1/h, with precisely two choices up to interchange for h>3. These identities also give sufficiency and the h=3 coalescence. At regular points the inverse return derivative is the reciprocal of the product H'_h(x)H'_h(y), yielding the two displayed multipliers. The antipodal singularity is at 5/2; the asymmetric singularity is at 1+3/sqrt(2). The fixed-point inverse multipliers are 1/(1+2h) at ±1 and 1/(1-h) at zero wherever regular. The frozen proof does not justify exclusion of attraction at the unit-multiplier cases merely by reporting those multipliers. To fill that gap, the polynomial returns at h=3 about the antipodal points and at h=2 about zero have leading expansions z-48z³+O(z⁴) and z-4z³+O(z⁴), respectively; the respective inverse returns repel. At the asymmetric flip h=1+sqrt(5), the polynomial two-step return F=H_h² has F'=-1 and negative Schwarzian. Indeed SH_h(t)=6h[(1-h)-6ht²]/(H'_h(t))² is strictly negative at each regular cycle point and the Schwarzian composition law preserves that sign. With F=-z+bz²+cz³+O(z⁴) in cycle-centered coordinates, SF(0)=-6(c+b²)<0, and F²=z-2(c+b²)z³+O(z⁴); the inverse of F² therefore repels on both sides. Thus none of the equality endpoints adds an attractor. For h>1+sqrt(5) all six indicated regular returns are attracting, and for smaller h fewer are so. A smooth autonomous scalar ODE cannot have a nonconstant periodic trajectory, by uniqueness at an extremum.",
+      "residual_risks": [
+        "The frozen multiplier argument by itself is not an endpoint proof; the independent cubic-order analysis above supplies it. The correct statement applies only to local selected smooth successors, not a global inverse or automatic solver selection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rogers–Whitley's §2 resolves the exact low-period scalar bifurcations, and §3 notes the negative Schwarzian when a>1. Their §3 also pursues four-cycles, beyond the frozen scope.",
+          "Oliveira gives a generic implicit flip normal form. The same-cubic Resultary repeller record gives the full shift on three symbols for h≥64, implying three primitive two-cycles there, not the sharp small-step boundaries. Green–Patrick–Spiteri's inspected abstract treats one-step principal solution branches and critical timesteps for consistency."
+        ],
+        "reasoning": "The decisive coverage is not a generic framework or the high-step count: it is a direct exact result on the same cubic. The polynomial factorization and multiplier formulas extend algebraically outside the older paper's invariant-interval parameter range.",
+        "searches": [
+          "Rogers–Whitley (1983), §§1–3, specifically printed pp. 9–15",
+          "arXiv:2611.03336v1 §6.2 Theorem 6.5",
+          "Resultary b1fdedf22da7 RESULT.md offsets 464–2492",
+          "Literature: Stuart Peplow 1991 The dynamics of the theta method backward Euler cubic two cycles pdf author arXiv Stuart Peplow",
+          "Literature: Green Patrick Spiteri On theoretical upper limits for valid timesteps of implicit ODE methods 2019 PDF cubic backward Euler arxiv"
+        ]
+      },
+      "checked_sources": [
+        "Rogers–Whitley (1983), printed pp. 9–15, especially p. 13",
+        "arXiv:2611.12327v1 §7.6 and arXiv:2611.03336v1 §6.2",
+        "arXiv:1912.08900 opening",
+        "Resultary b1fdedf22da7, local mirror; exact self-hit a731f20e9234"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divide f_a²(x)-x by a x(x²-1)(ax²+2-a); the older quartic is a²x⁴+a(1-a)x²+1. Its roots in x² are ((a-1)±sqrt((a-3)(a+1)))/(2a), and p. 13 pairs the four roots as alpha with -beta and beta with -alpha. For a>3 the roots in x² are both positive and less than one; below 3 the discriminant is negative and at 3 the roots merge with the antipodal points. Also f_a(x)>x for x>1 and f_a(x)<x for x<-1, excluding outside cycles. Thus neither the all-real domain nor a>4 creates a new census.",
+          "Rogers–Whitley give (2a-5)² and 7+4a-2a²=9-2(a-1)² for the two polynomial return derivatives; they explicitly give the asymmetric -1 crossing at 1+sqrt(5). Buescu–Oliveira explicitly reciprocate the antipodal derivative in the implicit setting.",
+          "Reciprocation of the older multipliers and differentiating f_a at its three fixed points imply simultaneous hyperbolic inverse attraction exactly above 1+sqrt(5). The fold exclusions come from the zeros of these same polynomials. The neutral points need an extra local check, supplied in correctness: in particular the older negative-Schwarzian flip has a contracting polynomial squared return and a repelling inverse."
+        ],
+        "reasoning": "Reading the same cycles backwards and exchanging attraction and repulsion at the regular hyperbolic returns yields the claimed result without additional orbit geometry. The remaining endpoint check is short local calculus from the very same explicitly known map and flip, not a new substantive range or family.",
+        "searches": [
+          "Rogers–Whitley (1983), §2 p. 13 and §3 p. 14",
+          "Buescu–Oliveira arXiv:2611.12327v1 §7.6, equations (7.25)–(7.26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing X=sqrt(h)x gives the monic family X↦X³-(h-1)X. More decisively, Rogers–Whitley p. 9 uses f_a(x)=ax³+(1-a)x itself.",
+          "The equations f_a(x)=y, f_a(y)=x specify the same unordered cycles as backward Euler. Smooth local inverse returns are inverses of the polynomial return germs."
+        ],
+        "reasoning": "No dynamical conjugacy between the whole forward and multivalued inverse systems is assumed. Equality of the cycle sets and inversion of each regular return germ are enough for exactly this local claim.",
+        "searches": [
+          "Resultary: cubic backward Euler implicit scalar map H_h(t)=(1-h)t+h t^3 primitive period-two cycles inverse branches antipodal asymmetric threshold six attractors",
+          "Literature: \"H_h(t)=(1-h)t+ht^3\" OR \"2h-5\" backward Euler two-cycle cubic implicit map",
+          "Literature: real cubic map x^3 - a x symmetry breaking period 2 bifurcation sqrt(5) antipodal nonsymmetric odd cubic iteration dynamics periodic points exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title Resultary match was the assigned record itself; the strongest distinct indexed overlap found was the same-cubic high-step repeller law.",
+          "An exact formula census, rather than just a numerical bifurcation picture, appears on p. 13 of Rogers–Whitley: the known factor x(x²-1)(ax²+2-a), the exact remaining quartic, the two asymmetric pairings, and their exact flip value."
+        ],
+        "reasoning": "The earlier analytic enumeration is stronger evidence than a database word match or numerical table. Its quartic discriminant and branch pairings exhaust the degree-nine fixed-point equation at all real positive steps.",
+        "searches": [
+          "Resultary exact implicit cubic query listed under equivalent_formulations",
+          "Literature: \"Chaos in the cubic mapping\" \"cubic\" pdf 1983 map period doubling x polynomial numerical bifurcation symmetric author",
+          "Literature: \"VARIOUS BIFURCATIONS IN A CUBIC MAP\" 2014 pdf full text map first pitchfork",
+          "Literature: \"Symmetry breaking bifurcation analysis and control of a cubic\" 00479-9 pdf critical two period solutions cubic equation parameter"
+        ]
+      },
+      "rationale": "Rogers and Whitley, Chaos in the Cubic Mapping (1983), analyze exactly the same cubic with a=h; they explicitly factor the degree-nine period-at-most-two equation, give the asymmetric quartic and the pairing of its roots, compute the return eigenvalues, and locate the exact symmetry breaking and flip values including 1+sqrt(5). Their displayed factors are an algebraic identity for all h, even though the paper primarily studies the invariant interval for 0<a≤4. The inverse-branch relation has exactly the same cycles and reciprocates the nonzero return multipliers. Consequently the advertised numerical threshold and census are either explicit there or mechanical consequences, not an uncovered scalar classification. This is affirmative prior coverage, not an access failure.",
+      "residual_risks": [
+        "The 1983 paper attributes earlier analysis to May; exact historical first priority among older results was not resolved and is unnecessary for the decisive prior coverage.",
+        "The SIAM Stuart–Peplow 1991 endpoint timed out; full text of several other plausible cubic bifurcation hits was unavailable. No assertion of noncoverage is based on those failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior coverage; same map, state pairing and bifurcation data, with local inversion supplying the implicit-step statement",
+          "evidence": [
+            "p. 9 defines precisely f_a(x)=ax³+(1-a)x.",
+            "pp. 11 and 13 give the fixed points, creation of the antipodal period-two orbit at 2, multiplier (2a-5)², its zero at 2.5, and creation of two distinct cycles at 3.",
+            "p. 13 displays the canceled factor and surviving quartic, solves the quartic, pairs the four roots and states the exact asymmetric multiplier and the flip at 1+sqrt(5). p. 14 records negative Schwarzian for a>1."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0270025583900301 ; university-hosted same paper: https://carretero.sdsu.edu/teaching/M-538/lectures/references/ChaosCubicMap.pdf",
+          "material_read": "Rogers and Whitley, Mathematical Modelling 4 (1983), 9–25, printed pp. 9–15 (PDF pp. 1–7), especially p. 13",
+          "method": "Publisher endpoint returned 403; visually read the rendered pages of the identified OA university-hosted scan after text extraction was unavailable",
+          "title": "Chaos in the Cubic Mapping",
+          "trigger": "Equivalent forward cubic with two critical points; strongest exact candidate from the monic-family/period-two search"
+        },
+        {
+          "assessment": "Direct partial overlap for the antipodal cycle in the implicit setting; 1983 forward-map paper supplies the other cycles",
+          "evidence": [
+            "Same cubic component, branch cycle with square (delta-2)/delta, and local implicit return multiplier (2delta-5)^(-2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.12327v1",
+          "material_read": "§7.6, especially equations (7.25)–(7.26), offsets 120078–126559",
+          "method": "OA original HTML, bounded passage",
+          "title": "Singular bifurcations in implicit discrete dynamical systems",
+          "trigger": "Same cubic backward-Euler component in a planar implicit example"
+        },
+        {
+          "assessment": "General flip machinery, not itself the exact all-range census of this map",
+          "evidence": [
+            "The inspected passage gives the local normal form for an implicit flip."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03336v1",
+          "material_read": "§6.2, Theorem 6.5 and equation (69), offsets 61731–64729",
+          "method": "OA original HTML, bounded passage",
+          "title": "Lyapunov–Schmidt reduction for periodic orbits of implicit discrete dynamical systems",
+          "trigger": "Potentially general reduction covering the nonlinear flip"
+        },
+        {
+          "assessment": "Three primitive two-cycles in the large-step subfamily, by full-shift coding",
+          "evidence": [
+            "The bounded-past repeller is conjugate to the full three-symbol shift for h≥64; that statement does not locate the exact low-period transitions."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-three-symbol-past-repeller-and-a-three-term-dimension-law-for--b1fdedf22da7",
+          "material_read": "RESULT.md offsets 464–2492",
+          "method": "Published-record local mirror",
+          "title": "A three-symbol past repeller and a three-term dimension law for an implicit cubic step",
+          "trigger": "Strongest distinct same-cubic Resultary overlap"
+        },
+        {
+          "assessment": "Inspected claim is about consistency by principal-branch continuation, not the audited periodic-return criterion",
+          "evidence": [
+            "The abstract defines a critical timestep for uniquely continuing a consistent one-step solution to timestep zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.08900",
+          "material_read": "Abstract and start of §1, p. 1, offsets 0–3421",
+          "method": "OA author preprint after the initial retrieval failure",
+          "title": "On theoretical upper limits for valid timesteps of implicit ODE methods",
+          "trigger": "Prior implicit-step branch thresholds potentially equivalent to a sink threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope, and prior-work discussion",
+        "Rogers–Whitley (1983), §2 especially p. 13 and §3 p. 14",
+        "Independent local boundary check"
+      ],
+      "rationale": "The example is useful pedagogically as an illustration of spurious local backward-Euler attractors, but the scientifically advertised exact census and sharp threshold come from a known classification of the identical cubic, by local inversion, with only standard neutral-return calculus at equality. The open-interval result above a=4 is a direct algebraic extension of the published formulas. No distinct branch-selection theorem, basin classification, or nonroutine surviving invariant was established. A new certificate or a restatement in integrator language would not supply that missing contribution.",
+      "residual_risks": [
+        "The value decision is specific to the frozen claim. A separate theorem with genuinely new information about the inverse dynamics could merit assessment; none is asserted or submitted as a repair here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

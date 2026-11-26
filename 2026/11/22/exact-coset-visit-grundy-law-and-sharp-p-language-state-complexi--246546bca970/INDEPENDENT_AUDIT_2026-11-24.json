@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:07:17.506259Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36",
+        "Frozen VERIFICATION.md, check_grundy.py, check_minimal_dfa.py, grundy_output.txt, and minimal_output.txt"
+      ],
+      "rationale": "The product of the suffix after prefix j is p_j^{-1}p_n, so its membership in H is equality of the left cosets p_jH and p_nH, without normality. The legal predecessors are the earlier visits to that coset, ordered with Grundy values 0 through one less than the number of such visits, by induction and mex. The prefix-product map is a bijection on G^n. Conditional on the final coset, the first n−1 nonempty prefix products match it independently with probability |H|/|G|. The conditional count does not depend on the final coset, so adding the empty-prefix match adds an independent Bernoulli variable of the same parameter. The empty word has value zero. For normal H, the quotient state x and the visited set V induce the normalized state T=x^{-1}V containing 1, plus a freshness bit. Reading y takes T to y^{-1}T ∪ {1}, with freshness iff y is not in T. For T≠{1}, choose x=t^{-1} with t∈T other than 1, visit the elements of xT starting at 1 and ending at x for the first time, then append an identity letter to obtain the other freshness bit. The full alphabet permits every transition. The empty continuation distinguishes different bits; a letter from the symmetric difference of two sets distinguishes different sets. This proves exactly 2^[G:H] states including the H=G and H={e} cases. Independent bounded check: python3 /workspace/checks/frozen_math_checks.py 4 computes signatures from raw, unnormalized S3 histories for subgroup orders 1, 2, 3, 6 and finds 64, 8, 4, 2 distinct signatures respectively.",
+      "residual_risks": [
+        "The bounded check supplements the proof. The count uses iid uniform letters and the irreducible state count uses the full group alphabet. The frozen DFA proof is stated for a quotient group, so it uses normality; the same normalized-set construction can instead use the transitive left G-action on G/H when H is nonnormal. The frozen result does not claim nonnormality invalidates the count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.8 and Corollary 3.10 construct regular level languages for any regular subtraction rule. Hetyei's decomposition requires the strongly Bernoulli condition including prefix closure; for proper H, xx^{-1} belongs to the rule but the nonempty prefix x need not."
+        ],
+        "reasoning": "The broader regular-language theorem covers recognizability here, but not minimality or the quantitative Grundy distribution. The prefix-closure theorem does not apply to the family for proper H.",
+        "searches": [
+          "arXiv:2611.09157v1 Theorem 3.8 and Corollary 3.10",
+          "arXiv:0912.0573v1 Definitions 2.1–2.3, Remark 2.4 and Theorem 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the two distinct findings above",
+        "arXiv:2611.09157v1",
+        "arXiv:0912.0573v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic recognizing automaton gives an upper bound, not the distinguishing suffixes required for the exact minimum. The two-state result gives n in the every-suffix-legal case. For a proper H, the nonempty rule has at least three residuals: the empty word, an accepted nonempty word, and a one-letter word x∉H (an identity continuation distinguishes the empty and x residuals)."
+        ],
+        "reasoning": "The proof of the new quantitative statements requires the exact equivalence between suffix legality and prefix-coset coincidence, the uniform-prefix bijection, and reachability and separation for each normalized state. The inspected prior statements do not imply those quantitative conclusions as stated.",
+        "searches": [
+          "arXiv:2611.09157v1 Sec. 3 Theorem 3.8, Corollary 3.10, and Problem 3.1",
+          "Resultary e200bbffa34e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent state interpretation is a last-state local-time game on successive prefix cosets, with visited-set freshness for P-positions. Inoue–Inazu's Problem 3.1 uses 'group language' for a property of the syntactic monoid, not this subgroup suffix rule.",
+          "The highest distinct related indexed record classifies maximum length-n Grundy values for subtraction-rule DFAs of at most two states; this is not the P-language state complexity."
+        ],
+        "reasoning": "Neither the syntactic-monoid formulation nor the distinct maximum-Grundy classification gives the same visit law or the visited-set right congruence.",
+        "searches": [
+          "Resultary: Word Subtraction Games Inoue Inazu finite group subgroup coset visit Grundy binomial normal quotient P-position automaton exact state complexity 2^index",
+          "arXiv:2611.09157v1 Sec. 3, Problem 3.1; arXiv:0912.0573v1 Sec. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen record was returned. The closest distinct two-state record (e200bbffa34e) reports maxima rather than all value counts, and its H=G boundary overlap does not extend to the proper-subgroup rule. The balanced-end record (98406dab7d57) enumerates losing words for a binary two-sided rule and proves nonregularity of that language."
+        ],
+        "reasoning": "Neither distinct inspected record tabulates or supplies the claimed all-n histogram or the all-index minimum for the subgroup game. Same-day dates give no priority inference.",
+        "searches": [
+          "Resultary: Word Subtraction Games Inoue Inazu finite group subgroup coset visit Grundy binomial normal quotient P-position automaton exact state complexity 2^index"
+        ]
+      },
+      "rationale": "The general regularity of Grundy level sets and the strongly Bernoulli decomposition are prior input, not the contribution. The combination of a pointwise left-coset visit law, its exact uniform-word binomial histogram, and a tight full-alphabet Myhill–Nerode count survives the inspected comparisons.",
+      "residual_risks": [
+        "A prior exact treatment in the language of first visits of finite permutation actions or an unindexed state-complexity result may remain. The result is judged against inspected statements, not certified priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers regularity, not the fiber count, distribution or tight state count in the inspected statements",
+          "evidence": [
+            "OA character offsets 97179, 99000–106929: regular fixed-level languages by subset tuples; 110311: syntactic group languages as a problem; 238600–242075: discussion of bounded Grundy values."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.09157v1",
+          "material_read": "Sec. 3, Theorem 3.8, Corollary 3.10 and Problem 3.1; conclusion on bounded Grundy functions",
+          "method": "OA full-text passage comparison with the frozen rule and exact claims",
+          "title": "Word Subtraction Games",
+          "trigger": "Primary game framework and possible stronger regular-language theorem"
+        },
+        {
+          "assessment": "Strong-prefix-closure scope excludes proper-H rules",
+          "evidence": [
+            "OA offsets 10000–16968: strongly Bernoulli-type games require prefix closure; the remark distinguishes the broader type."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0912.0573v1",
+          "material_read": "Sec. 2, Definitions 2.1–2.3, Remark 2.4 and decomposition scope",
+          "method": "OA full-text definitions compared to a witness against prefix closure",
+          "title": "Enumeration by kernel positions for strongly Bernoulli type truncation games on words",
+          "trigger": "Potential stronger truncation-game enumeration theorem"
+        },
+        {
+          "assessment": "Boundary overlap H=G only; no covering all-subgroup claim",
+          "evidence": [
+            "At most two subtraction-DFA states; classifies the maximum as one of five sequences and gives a special mixed reset/swap formula."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-grundy-growth-classification-for-two-state-word-subtractio--e200bbffa34e",
+          "material_read": "Finding and assumptions in RESULT.md",
+          "method": "Local mirror, offsets 0–7888; compare input DFA and maximum versus output DFA and histogram",
+          "title": "Sharp Grundy-growth classification for two-state word-subtraction games",
+          "trigger": "Strongest distinct Resultary candidate"
+        },
+        {
+          "assessment": "Different game and invariant",
+          "evidence": [
+            "Balanced prefixes or suffixes over a binary alphabet; nonregular P-language, not a subgroup suffix-only game with full group alphabet."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-narayana-chebyshev-enumeration-of-losing-positions-in-a-balanced--98406dab7d57",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local mirror, offsets 0–7404; compare rule direction, alphabet and invariant",
+          "title": "Narayana–Chebyshev enumeration of losing positions in a balanced-end subtraction game",
+          "trigger": "Nearby indexed enumeration and regularity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17 and 20–36",
+        "Inoue–Inazu, arXiv:2611.09157v1 Sec. 3"
+      ],
+      "rationale": "A finite-group product condition is a natural family of regular suffix-deletion rules. The theorem determines every game value and its full uniform-input law, and shows an exponential separation between a small rule automaton and the minimal complete P-position recognizer over the full alphabet. The exact state count and short distinguishing continuations are meaningful beyond a census of small groups.",
+      "residual_risks": [
+        "The distribution is not asserted for biased sources, nor the state bound for restricted generating alphabets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:49.315882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With rates in units of a and hub departure multiplier h=m (edge) or 1 (vertex), use transient states C=distinct leaves, A=searcher leaf/trap hub, B=opposite. The killed Poisson matrix in order C,A,B has rows (1+x,−x,−1), (−hx(m−1)/m,1+hx,0), (−h(m−1)/m,0,x+h). The right side is all ones. Absorbing jumps enter the diagonal departure rates but not the off-diagonal transition terms. Searcher-only paths while the trap waits give a positive capture probability within fixed time uniformly in the finitely many states for each fixed parameter, establishing finiteness and uniqueness. Cramer's rule independently yields both normalized means with positive denominator D=(1+x)(1+2mx+x²); at x=0 both give 1, also the direct leaf-to-hub first-jump mean in original units 1/a. Subtracting 1 gives x times strictly decreasing quadratic brackets divided by D, with positive intercepts for m≥2 and roots equal to the two stated thresholds. Subtracting the two means gives (m−1)x(m−2−x)/D, so the positive crossover exists only for m>2, and for m=2 the edge mean is strictly lower at x>0. Independent symbolic expansion shows that each derivative numerator has positive constant term and strictly negative coefficients of all positive powers for m≥2. Hence each has a unique positive zero and gives the unique global maximum. Positive-polynomial gap identities give the uniform bounds (m+1)/2 and 2; evaluating both at x=m^(−1/2) proves the sharp limits by squeezing. The two positive-root scalings also check exactly. Replay: python3 /workspace/branches/independent_star.py (SymPy), output independent_star.out alongside. The proof covers real a>0 and b≥0, not just the finite rational samples in the frozen package. It is only for independent exponential walkers on a finite star and the specified initial leaf–hub pair, and only for the mean.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tzou–Xie–Kolokolnikov show slower mean capture for slow trap motion and thresholds for a confined continuum model.",
+          "The two comb papers analyze related mobile-particle encounter phenomena, not these CT star normalizations.",
+          "Duan et al. formulate discrete-time independent-chain meeting means via a product chain."
+        ],
+        "reasoning": "A general recipe to solve a killed product chain and the general slowdown phenomenon are known, but do not give the two normalized expressions or analyze their extrema and degree scalings. The compared comb and continuum models are not exact specializations.",
+        "searches": [
+          "arXiv:1410.1391 mobile trap and capture threshold",
+          "arXiv:1405.5554 finite-comb encounter §II.A",
+          "arXiv:1604.05874 §III.C unequal walkers",
+          "arXiv:1912.02693 pp.1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1410.1391, arXiv:1405.5554, arXiv:1604.05874, arXiv:1912.02693, arXiv:1408.2005",
+        "DOI:10.1103/PhysRevE.86.021110 (access limited)",
+        "Resultary 26d2ff691960, 001e879932da, 7b228ae0c6cb and 84ed4797c0f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Brownian mobility threshold compares stationary and moving traps but does not specialize to the nonregular finite star.",
+          "Optimizing a common holding probability in a discrete-time graph is not optimizing over b/a with a fixed leaf rate, and the conjectured match with CT peripheral-edge slowdown would change both the initial condition and what is varied."
+        ],
+        "reasoning": "The substantive content lives in the sharp difference between two rate laws, not the existence of first-step equations. Neither an inverse-matrix recipe, same-normalization special case, nor earlier qualitative slowdown entails the two sharp asymptotic maxima.",
+        "searches": [
+          "Compare arXiv:1410.1391 p.1 with fixed-start star threshold statements",
+          "Compare discrete-time product model arXiv:1912.02693 and pertinent Resultary star/complete-bipartite findings to both killed CT generators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Encounter equals absorption at the diagonal of the independent product chain; relabeling as rendezvous or mobile-trap capture is not a distinct problem.",
+          "Resultary 7b228ae0c6cb also uses continuous-time star collision means, but with two unit-total-rate walkers initially at distinct peripheral vertices, comparing graphs with added peripheral edges."
+        ],
+        "reasoning": "There is no parameter relabeling from averaging over distinct leaves and varying edges to this fixed opposite-part start and varying one walker's clock while retaining the star. Coinciding a graph or a CT convention alone does not give the cross-convention result.",
+        "searches": [
+          "Web: fixed-start two-walker star mean meeting time, continuous time edge-clock/vertex-clock and mobile trap slowdown",
+          "Resultary: star K1,m diagonal first hitting / collision mean, leaf–hub initial pair under unequal rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "26d2ff691960 includes the star and hub–leaf pairs but compares starting classes for synchronous discrete-time walkers varying common laziness.",
+          "001e879932da gives synchronous lazy opposite-part meeting times, including a star limit for minimizing over laziness. 84ed4797c0f0 treats collision-suppressed or conditioned dynamics on a balanced biclique.",
+          "No inspected exact formula record matches the fixed leaf–hub CT mean under both rate laws and variable unequal mobility."
+        ],
+        "reasoning": "Meeting means of lazy two-walker chains, including same-graph opposite-part means, cannot be used as matching exact data without proving the time and transition laws coincide. In particular, synchronous steps admit both walkers moving on the same tick; common laziness does not give the unequal-mobility comparison or the per-edge normalization.",
+        "searches": [
+          "Resultary exact star/complete-bipartite meeting means, unequal mobility thresholds, fixed leaf–hub start",
+          "Resultary 26d2ff691960, 001e879932da, 7b228ae0c6cb and 84ed4797c0f0 Finding passages"
+        ]
+      },
+      "rationale": "The general moving-trap slowdown and the product-chain method are credited background. Of the inspected exact sources, none gives or mechanically implies both evaluated fixed-start continuous-time formulas, their exact thresholds and switch, and the incompatible optimal degree scalings under the two clocks. Closely matching Resultary entries differ in clock, parameter comparison, graph, or starting law. This is a bounded assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Campari–Cassi full text could not be checked independently through lawful routes. Other inaccessible or unindexed worked-out calculations for finite stars may exist.",
+        "The general method and the qualitative slowdown are not new; any novelty is in the evaluated simultaneous sharp classification for these two conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior phenomenon under a different model, credited",
+          "evidence": [
+            "Studies one-dimensional confinement and compares very slow moving traps with a stationary one, not edge and vertex conventions on stars."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.1391",
+          "material_read": "p.1 abstract, near offset 600, identifying the confined continuum assumptions and regimes",
+          "method": "OA PDF passage reading",
+          "title": "Drunken robber, tipsy cop: First passage times, mobile traps, and Hopf bifurcations",
+          "trigger": "Prior moving trap can worsen capture and exact threshold regimes"
+        },
+        {
+          "assessment": "Finite comb model and numerical encounter analysis, different geometry and no matching two-clock result in the inspected passage",
+          "evidence": [
+            "Considers finite combs including encounters with an immobile particle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5554",
+          "material_read": "p.2 and §II.A, offsets about 15000–21860",
+          "method": "OA PDF bounded passage reading",
+          "title": "Slow Encounters of Particle Pairs in Branched Structures",
+          "trigger": "Closely related finite branched encounter versus immobile target"
+        },
+        {
+          "assessment": "Unequal diffusivities and synchronous finite-comb study, not both CT star clocks",
+          "evidence": [
+            "Studies discrete-time encounter scaling in the relevant finite-comb passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05874",
+          "material_read": "Introduction p.1 offset 900 and §III.C pp.5–6 offsets approximately 32400–39800",
+          "method": "OA PDF passage reading",
+          "title": "The two-particle problem in comb-like structures",
+          "trigger": "Unequal mobility and finite branched graphs"
+        },
+        {
+          "assessment": "Provides general discrete-time product-chain framework, not the evaluated CT two-clock comparison",
+          "evidence": [
+            "The independent-chain transition matrix is a Kronecker product in the stated setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.02693",
+          "material_read": "pp.1–2, around offsets 3450 and 10100",
+          "method": "OA PDF passage reading",
+          "title": "Robotic Surveillance Based on the Meeting Time of Random Walks",
+          "trigger": "General product-chain meeting framework"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; access failure is not negative evidence",
+          "evidence": [
+            "Publisher endpoints denied access, and no lawful alternate copy was located in the bounded recovery."
+          ],
+          "identifier_or_url": "10.1103/PhysRevE.86.021110",
+          "material_read": "Bibliographic identification; no decisive primary passage retrievable in the independent check",
+          "method": "Lawful publisher and alternate OA recovery attempts",
+          "title": "Random collisions on branched networks: How simultaneous diffusion prevents encounters in inhomogeneous structures",
+          "trigger": "Plausible closely related branched CT collision article"
+        },
+        {
+          "assessment": "Different step law and varying parameter",
+          "evidence": [
+            "Synchronous lazy walkers; thresholds compare starting-pair classes as common laziness varies."
+          ],
+          "identifier_or_url": "Resultary 26d2ff691960",
+          "material_read": "Original RESULT.md Finding and model assumptions",
+          "method": "Configured Resultary search and original statement inspection",
+          "title": "Two sharp laziness thresholds for meeting on complete bipartite graphs",
+          "trigger": "Includes star and specified opposite-part start"
+        },
+        {
+          "assessment": "Different initialization, graph perturbation, and one clock only",
+          "evidence": [
+            "Total rate one for both walkers, distinct peripheral starts, variable peripheral edge addition."
+          ],
+          "identifier_or_url": "Resultary 7b228ae0c6cb",
+          "material_read": "Original RESULT.md Finding and model assumptions",
+          "method": "Configured Resultary search and original statement inspection",
+          "title": "Strict collision-time slowdown from adding disjoint peripheral edges to a star",
+          "trigger": "Closest CT star collision-time statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A star isolates degree dependence while holding the leaf rate fixed. The two standard normalizations give the same static benchmark and both have a slowdown interval, yet changing how the hub departs changes the largest delay from order m with sharp coefficient 1/2 to a uniform ceiling 2, attained in the large-degree limit. The crossover thresholds and maxima quantify a useful normalization-sensitive distinction for two-particle encounter models, beyond a few numerical comparisons or a textbook first-step calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

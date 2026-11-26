@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each component of the smooth Cassini family, the square-root parameterization is regular. The continuous tangent-angle derivative follows directly from the complex logarithmic derivative. The sign of its explicit numerator exactly classifies the three regimes; in the concave phase there are two negative-turn intervals, each of precisely computed angular drop. Their normal images are antipodal and nonoverlapping, permitting a complete one/three-preimage count by the turning number. Signed-to-absolute turning converts the two negative swings into the exact integrated absolute curvature. The derivative and both endpoint asymptotics follow from differentiation and one-dimensional integration. The standalone reproducibility checker passed 745 independent finite assertions; these are not used as an infinite proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The closest direct historical Cassini source located is the 2013 Boyadzhiev–Boyadzhiev paper, which studies harmonic-motion foci, not a boundary Gauss-map preimage histogram. The 2025 Rabinowitz Cassini survey describes conventional shape, tangent and normal geometry without the explicit angular multiplicity law. Lawden's 1999 paper studies orthogonal trajectories and was available only in abstract/extract, so it remains a named access limitation. Semantic research-record comparisons include a result about normals through points of ellipses (not the oriented boundary Gauss-map fiber), a result about evolute loops of harmonic support curves (not Cassini), and a Cassini crossover region in ellipsoid shadows (a different space and invariant). No inspected source was found to imply the explicit two-arc formula and both sharp singular laws. The inability to inspect all historical papers does not prove global novelty.
+PASS
 
-## Value — PASS
-The singular transition from two to one connected components is distinct from loss of curvature positivity at \(s=2\). The exact three-valued normal fiber classification, strictly monotone inverse parameter statistic, exact total absolute curvature, and two different sharp degeneration exponents give geometric information not contained in the conventional connectedness/convexity phase diagram. The observable is intrinsically defined for the natural Cassini family and meaningful for inverse normal-angle sampling and classical differential geometry; it is not a parameter-only numerical slice.
+Re-audited the corrected all-direction claim. For s≠1 the square root has no zeros; the circle in the squared plane has winding 0 or 1 about 0, giving two 2π branches or one 4π branch. Holomorphic local orientation and the sublevel region certify the outward normal e^{it}/(z/|z|). Its lifted derivative is (s²+2+3s cos t)/(2|1+s e^{it}|²), with total positive turn 2π per component when s<1, and net turn 2π when s>1. At s=2 the normal lift is strictly increasing despite isolated stationary parameters; thus all directions have one point. For 1<s<2 the numerator has two simple zeros per 2π and one negative interval. At t=π±φ the argument of 1+s e^{it} is π±ψ, giving outward angles π/2∓A/2 and antipodal ones on shifting t by 2π. The drop is positive and less than ψ<π/2, so these critical values are distinct. Signed degree gives m=1+2 times the number of negative preimages at every regular direction. Each simple fold contributes one distinct point exactly at its critical direction, while the one regular point persists from the side with a single preimage; distinct critical values exclude any other fold in that fiber. The two negative turns give K=2π+4A. Differentiation gives A′=−sqrt(4−s²)/(s sqrt(s²−1)); expanding this integrand gives −A′=sqrt(3/2)(s−1)^(−1/2)(1+O(s−1)) and −A′=sqrt(2−s)/sqrt(3)(1+O(2−s)) at the respective endpoints. Integrating gives both stated constants and remainder orders; endpoint arcs are measure zero. The implicit-gradient replay independently found and checked widths and absolute turns and matched 1,799 regular direction counts on connected shapes. The fold endpoint counts follow from the analytic simple-fold and compactness argument, not the sample mesh.
 
-## Limitations
-The singular member \(s=1\) is excluded; the multiplicity statement is generic at Gauss-map folds. The archive-date source documents the classical Cassini family rather than priority of the new result. Full-text Lawden (1999) remained inaccessible. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact angular fold images, all-fiber law and quantitative shape statistic, not for the classical topology, convexity threshold, curvature/inflection ingredients, or the generic degree-count formula. The critical-fiber extension uses a standard fold argument and is not credited as a separate novel fact beyond completing the Cassini-specific classification.
+
+## value
+
+PASS
+
+Cassini ovals are a standard family in which disconnectedness and nonconvex connectedness behave differently. Counting boundary points with a prescribed outward normal is a natural inverse-geometric observable. The full angular fiber law locates where direction inference is ambiguous, including exactly where ambiguity changes. Its resolved measure recovers the shape parameter within the peanut phase, evaluates absolute curvature and distinguishes the two degenerations quantitatively. These are not supplied by just knowing the signed turn or convexity threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

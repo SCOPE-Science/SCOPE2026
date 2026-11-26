@@ -1,19 +1,21 @@
-# Scientific review: orthogonal prefix modes in a free left regular band
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite word product is explicitly defined, and equality of \(uv\) and \(vu\) forces prefix comparability. The graph therefore is the transitive ancestor closure of the permutation-prefix tree. The key proof constructs mutually orthogonal **invariant** radial and child-difference spaces, not just an equitable quotient. Their exact dimensions add to the full vertex space, and the induced adjacency operators are the explicitly normalized quotient matrices \(H_k\). This proves the full polynomial, without extrapolating finite experiments. For each \(k\), the coincident final two rows and columns of \(H_k+I\), and a nonzero leading minor, give the exact derivative \(P'_k(-1)=-2(k-1)!\). The resulting factorial multiplicity follows by telescoping. Direct full adjacency characteristic polynomials were independently recomputed through \(n=4\); symbolic minor, derivative, degree, and exponent checks extend farther. Finite checks are corroboration, not general proof.
+PASS
 
-## Originality — PASS, with residual risk
+Both products begin with their left word; equality forces prefix comparability, which conversely gives commutation. For the resulting strict ancestor graph, the level-constant restriction has one ancestor per earlier level and the stated factorial number of descendants per later level. For a vertex with k+1 children, weights orthogonal to the all-ones vector on children cancel the adjacency contribution at the vertex itself and all its ancestors, while each child's radial coordinates act by H_k. Nested contrast spaces are orthogonal by levelwise cancellation; disjoint subtrees are orthogonal by support. Completeness can be checked at each absolute depth j: if N_d=n!/(n−d)!, the dimensions at that depth add to 1+Σ_{d<j}N_d(n−d−1)=1+Σ_{d<j}(N_{d+1}−N_d)=N_j. The restrictions are self-adjoint in the positive weights k!/(k−i)! on the levels. For M=H_k+I the last two rows and columns coincide. In the leading k-square minor, differencing successive rows produces pivots k−1 through 1 and a last first-column entry 1, hence determinant (−1)^(k−1)(k−1)!. All principal cofactors vanish except the two equal ones at the endpoints of the identical pair. This gives P'_k(−1)=−2(k−1)! and telescoping exponents give n!. The k=1 minor is [1]. For n≥2 the empty word alone is central; deleting it partitions the graph by first letter into n copies of the smaller graph.
 
-The relevant source for the algebra is Saliola's 2006 treatment of the free left regular band, whose quiver and Cartan invariants concern a distinct operator. Brown's 2000 Markov-chain spectrum likewise concerns a different matrix. Generic cograph spectral algorithms (Jacobs–Trevisan–Tura, 2016) and a later trivially-perfect-graph resolvent recurrence (Conde–Dratman–Grippo, 2026) can compute graph eigenvalues in principle; a previously known cograph formula can also help deduce the \(-1\) corollary. These facts are **not** claimed independently new. The contribution remaining after those comparisons is the closed all-parameter **semigroup-specific orthogonal decomposition** with exact copies of every small quotient and factorial exponents, not merely an algorithm to locate eigenvalues. A related published free-left-legal-semigroup result concerns a non-idempotent variety and gives a different commuting graph and its Laplacian spectrum. The most significant residual risk is a generic cograph or spherically homogeneous-tree decomposition implicitly equivalent to the new one; no independent priority certification has been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The commuting graph has \(\sum_{d=0}^{n}n!/(n-d)!\) vertices, and its full spectrum is nevertheless described by only \(n\) determinant factors of orders at most \(n+1\) and explicit integer multiplicities. This gives a meaningful unbounded structural classification of an algebraically natural semigroup invariant, including all noncentral graph components. The exact decomposition and polynomial handle every eigenvalue, not an arbitrary small finite instance or numerical improvement.
+The supported distinct contribution is the explicit orthogonal adjacency decomposition into depthwise sibling modes with identified factorial-sized quotient entries and block multiplicities, and the simple-root derivative for each radial block. The prefix graph itself occurs in older work; the bulk characteristic polynomial is recoverable algebraically from a prior trivially perfect graph recursion, and the whole-graph −1 count is covered by general cograph multiplicity results. Neither bare spectral computability nor the whole-graph −1 count is independent novelty.
 
-## Scientific scope and evidence
+## value
 
-The checker reconstructs operations and adjacency from definitions rather than using the theoretical quotient construction for its input, compares exact characteristic polynomials for \(n\le4\), and tests the exceptional root and degree identities separately. Exact proofs are in `RESULT.md`. The findings are only for the free idempotent left regular band with the stated full or noncentral graph conventions. An earlier general equivalent eigenspace decomposition remains a live priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The orthogonal block spaces identify actual adjacency modes, not only a factorization or an eigenvalue count. They give a constructive eigenfunction reduction from a graph with factorially many vertices to depth quotients of size at most n+1 and locate each copy at a specific prefix with levelwise cancellation. This is useful for adjacency representation and eigenfunction questions where a characteristic polynomial or a congruence algorithm cannot recover the modes. The analysis of −1 within each radial block further identifies how that repeated eigenvalue is assembled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

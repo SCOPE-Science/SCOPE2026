@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:57:38.863146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68, VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent direct enumeration (24 cases)"
+      ],
+      "rationale": "Expanding (q−1)^j modulo q² gives the quotient digit weights w_j=(−1)^j(2m−1−2j), since paired exponents have opposite parity. In the group ring of Z/qZ, write e_x for the residue basis and J for its sum. Modulo the ideal of multiples of J, a nonzero internal weight contributes −e_{−w_j} (only digit q−1 is excluded), while a zero weight contributes q−1. A nonzero leading weight contributes −e_0−e_{−w_0} (digits 0 and q−1 are excluded); a zero leading weight contributes q−2. Since the internal weights sum to 1−m and all weights sum to m, multiplying gives the correction supported at m−1 and −m, or at m−1 alone for w_0=0. Restoring the unique constant term with total mass T gives the stated 2/q or 1/q subtractions. The two exceptional residues are distinct exactly when w_0 is nonzero. As q≥3 both levels occur and differ by the nonzero amplitude; the integer coefficients count actual digit choices, including m=1. The zero internal weights select one congruence class modulo q, so z≤ceil((m−1)/q) and division by T gives exponential decay of the discrepancy. Direct enumeration of actual integers matched every count for q=3,5,7,11,13,17, m=1–4, including both leading-weight branches. Replay: python3 /workspace/branches/619446a5-3748-4872-ad57-c3c7b5e4e801/independent_check.py.",
+      "residual_risks": [
+        "The finite checks are corroborative; the algebraic proof supplies the infinite range. No generalization to composite q or higher lifts is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected equidistribution results have coprimality conditions that exclude q² for b=q−1 or 3 for b=2 as applicable. The Onphaeng et al. abstract states cases b≡0 or 1 modulo its modulus, not b≡−1 for the odd q here."
+        ],
+        "reasoning": "General character factorization is a shared input; coprime-modulus bounds or averaged distribution do not state the exact fixed-length spectrum in the excluded regime. The abstract comparison is limited to its advertised regimes.",
+        "searches": [
+          "arXiv:math/0405056v1 Lemma 3.1 and Corollary 4.5",
+          "arXiv:2307.16637v3 §10",
+          "Onphaeng et al., Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bab47a6477c9 and 0a25efd8bf3c",
+        "arXiv:math/0405056v1 and arXiv:2307.16637v3",
+        "OEIS A045571 and A132286",
+        "Onphaeng et al. abstract; Hansen and Schmidt limited access as listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "bab47a6477c9 states count (b−1)b^{m−1} at residue 0 for each divisor of b+1 at even length.",
+          "The public date metadata of 0a25efd8bf3c cites earlier arXiv:2307.16637v3; the inspected §10 supplies an averaged coprime setting, not the exact binary lift."
+        ],
+        "reasoning": "Counts modulo divisors of q give only the sum of counts for P/q mod q, with no split within that fibre. Same-day dates and a metadata provenance field do not prove priority or earlier coverage. The archival lookup did not produce usable original passages and is not contrary evidence.",
+        "searches": [
+          "Resultary: palindrome counts modulo divisors of b+1 versus quotient counts modulo b+1",
+          "Web: \"Modular Palindromes\" Hansen 1971 \"Palindromes: Density and Divisibility\" Schmidt 1988 full text exact congruence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0a25efd8bf3c, Finding: exact histogram of P/3 mod 3 for canonical even binary palindromes; exact match on specializing q=3 and z=floor(m/3).",
+          "Its higher powers of 3 claim concerns support rather than exact frequencies."
+        ],
+        "reasoning": "Counting quotient residues P/q=r mod q is identical to counting P=qr mod q². This identifies the binary overlap precisely, but the binary result supplies neither q>3 nor the general exceptional-residue amplitudes.",
+        "searches": [
+          "Resultary: even base-(b+1) palindrome quotient residue spectrum modulo (b+1)^2 exact formula",
+          "Resultary: even length palindromes modulo q squared residue distribution character sum exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A045571 lists odd-length decimal palindromes divisible by 11 and mentions the classical even-length divisor. A132286 lists divided odd-valued even-length decimal palindromes, not an exact all-residue census at each length."
+        ],
+        "reasoning": "Examples or lists in one base do not give the uniform all-prime, two-level count. The exact q=3 histogram overlap is separately credited.",
+        "searches": [
+          "Resultary: OEIS exact formula even base b palindromes divisible by (b+1)^2 counts all residues",
+          "OEIS A045571 and A132286"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the full all-odd-prime, exact fixed-length first quotient-lift spectrum. An indexed binary first-lift law exactly overlaps the q=3 specialization, so that case is not credited as distinct. The analogous first-layer result for all bases just counts palindromes in residue zero and cannot account for their distribution within that fibre modulo q². The examined coprime-modulus distribution theorems exclude this setting; use of familiar character methods is not claimed as new. Archival access limitations leave priority unresolved but do not supply positive coverage of the full claim.",
+      "residual_risks": [
+        "Hansen and Schmidt were not available in lawful full text; an exact higher-modulus classification there remains possible.",
+        "Onphaeng et al. comparison is abstract-limited; neither catalogue metadata nor these bounded searches settle publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First layer only; does not imply lift counts.",
+          "evidence": "All even-length palindromes are in residue zero for each d dividing b+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9",
+          "material_read": "Local RESULT.md Finding offset 0",
+          "method": "Configured search and local mirror",
+          "title": "Exact residue counts for palindromes modulo divisors of the base plus one",
+          "trigger": "Closest indexed all-base exact count"
+        },
+        {
+          "assessment": "Covers q=3 only; recorded provenance is not proof of earlier same-formula coverage.",
+          "evidence": "Exact P/3 mod 3 law for all even binary lengths; higher-level eventual support.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-binary-palindrome-ternary-lifting-an-exact-first-level-bias-and--0a25efd8bf3c",
+          "material_read": "Local RESULT.md Finding offset 0 and provenance metadata",
+          "method": "Configured search and local mirror",
+          "title": "Binary palindrome ternary lifting: an exact first-level bias and higher-lift support",
+          "trigger": "Exact first-lift comparison"
+        },
+        {
+          "assessment": "Related method but the stated equidistribution conclusion excludes the target modulus.",
+          "evidence": "Corollary assumes gcd(Q,b(b²−1))=1; q divides b²−1 and Q=q².",
+          "identifier_or_url": "https://arxiv.org/abs/math/0405056v1",
+          "material_read": "Lemma 3.1, p. 5 offset 8746; Corollary 4.5, p. 15 offset 40586",
+          "method": "Primary open PDF, bounded passages",
+          "title": "Almost All Palindromes Are Composite",
+          "trigger": "Exact exponential products and published palindrome equidistribution"
+        },
+        {
+          "assessment": "Inspected result not an exact first-lift histogram.",
+          "evidence": "Averaged equidistribution with coprimality restriction excluding the binary modulus-3 case.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16637v3",
+          "material_read": "§10 pp. 33–35, offset 123293",
+          "method": "Primary open PDF, bounded passage",
+          "title": "Infinitude of palindromic almost-prime numbers",
+          "trigger": "Primary source cited for indexed binary-lift result"
+        },
+        {
+          "assessment": "Only the advertised cases can be compared; not a judgment on the whole paper.",
+          "evidence": "Abstract states regimes b≡0 or b≡1 mod the modulus.",
+          "identifier_or_url": "Onphaeng et al. (2024), Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions",
+          "material_read": "Accessible abstract; full PDF not read",
+          "method": "Public abstract; full-text OA request timed out",
+          "title": "Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions",
+          "trigger": "Exact palindrome congruence counts"
+        },
+        {
+          "assessment": "Unresolved risk, not evidence against coverage.",
+          "evidence": "No original theorem passage obtained.",
+          "identifier_or_url": "https://doi.org/10.1080/0025570X.1971.11976148",
+          "material_read": "Bibliographic material only",
+          "method": "OA attempt returned 403; bounded search did not locate a lawful readable alternate",
+          "title": "Modular Palindromes",
+          "trigger": "Plausible archival primary source on modular palindromes"
+        },
+        {
+          "assessment": "Unresolved risk, not a whole-document comparison.",
+          "evidence": "The secondary indication relates to an odd-digit divisibility case and cannot exclude other coverage.",
+          "identifier_or_url": "https://www.jstor.org/stable/2689549",
+          "material_read": "Bibliographic material and A045571's secondary indication only",
+          "method": "Public full-text attempt met a client challenge; no readable alternate found in the bounded search",
+          "title": "Palindromes: Density and Divisibility",
+          "trigger": "Plausible archival primary divisibility result"
+        },
+        {
+          "assessment": "The inspected sequences are not all-residue quotient distributions.",
+          "evidence": "Odd-length divisibility by 11 and a list of selected even-length palindromes divided by 11, respectively.",
+          "identifier_or_url": "https://oeis.org/A045571 ; https://oeis.org/A132286",
+          "material_read": "Entries at offset 0",
+          "method": "Public database passages",
+          "title": "OEIS A045571 and A132286",
+          "trigger": "Exact-sequence/table check for the decimal q=11 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24 and 26–68",
+        "Distinct first-layer and binary-lift comparisons"
+      ],
+      "rationale": "The first square-modulus lift of the forced divisor is the first place where these canonical even-length palindromes can have a nontrivial distribution. The theorem gives every count without enumerating the exponentially large catalogue, distinguishes the zero-leading-weight resonance, and proves nonuniformity at every length despite decay toward uniformity. This is a natural complete invariant, not just a numerical check for decimal divisibility or the already-covered binary specialization.",
+      "residual_risks": [
+        "No claim of exact higher-lift frequencies or of results for arbitrary composite base plus one."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact omitted-neighbor count inside a clique fiber, which restricts every column to 0, 1, or \(m\) omissions. Domination and capacity exclude full triples, full–non-full–full, and singleton columns within cyclic distance two of full columns. The resulting run-gap inequality \(|S|\le mf+(n-f-2b-2)_+\) is optimized over all feasible numbers of full blocks and full columns. All equality cases are tracked; a separate no-full-column analysis identifies the only exceptions at \((3,3)\) and \((3,6)\). A constructive cyclic word gives equality, and a cyclic compositions count enumerates every optimum. Direct exhaustive graph checks and a separate column-state dynamic program independently match the claimed minima/counts in the stated finite ranges. Finite checks are not an unrestricted proof.
+## correctness
 
-## Originality — PASS, qualified
-The original definition, the cycle value, and the general Cartesian upper bound belong to Božović et al. (arXiv:2606.22422) and Tepeh (arXiv:2606.22428), respectively. The scalar equality is already implied by earlier general bounds for some special parameters and that part is not asserted as wholly novel. The inspected Cartesian-product paper's Section 4 treats rook, rectangular-grid, selected prism and hypercube situations, but does not establish the present complete \(K_m\square C_n\) family or count its optimizers. Neither the related more recent general-bounds abstract nor the searched mathematical record supplied an equivalent classification. The closest available historical result on 1-limited domination of \(C_n\square K_2\) concerns the excluded \(m=2\) factor and is not used to infer novelty. Residual risk remains from inaccessible or unindexed prior work, and from partial access to earlier historical ledgers.
+PASS
 
-## Value — PASS
-The invariant is a capacity-constrained domination parameter whose Cartesian products are a focus of current research. This gives a sharp infinite two-parameter family beyond the cases explicitly solved in the originating product paper, with a rigid classification of *all* extremizers and a nonconstant four-periodic multiplicity \(4,n,n^2/4,n\). The exceptional whole-cycle-fiber minimizers have a precise structural boundary. These are natural exact invariants and equality structures, not arbitrary finite slices, renamings, or computation-only certificates.
+In the repaired scope, each clique column has 0, 1 or m omissions because any selected vertex sees all omitted neighbors in its clique. A full run has length at most two and gaps between runs have length at least two. A singleton cannot be at distance one or two from a full column; distance two makes the intervening column empty and violates the cap in the singleton's row. If there are f full columns in b blocks, then n≥f+2b≥2f and n=4q+2 excludes f=2q+1 since it would require b≥q+1. Thus f≤h. The gap bound gives at most (n−f−2b−2)_+ singleton columns, at most 2(h−f) since n−2h≤2. Therefore |S|≤mh−(m−2)(h−f) and equality with a full column requires f=h and no singleton. Without full columns |S|≤n, with a tie n=mh only at (3,6) in the repaired scope, where consecutive singleton rows must agree and all three fixed rows are feasible. The allowed binary words are feasible by the direct conditions. Counting a distinguished block and dividing by b gives n in residues 1 and 3 and n(q+1)/2+nq/2=n²/4 in residue 2. This also proves attainment. The original n=3 tie and residue-zero counts agree with the credited results. The supplied finite-check source was inspected, not executed; the all-size conclusion is symbolic.
 
-## Limitations and risk
-The scope is exactly ordinary \(K_m\square C_n\) for \(m,n\ge3\) and capacity one. General \(k\), arbitrary factors, nonminimum counts, and historical priority beyond inspected sources are not determined. No independent mathematical review or certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected claim only, the strongest inspected sources cover the base cycle, bounds, the excluded rook slice and neighboring variants, but do not determine the clique-cycle optimum and rigidity for m≥3, n≥5, 4∤n. The base word count is not claimed to be independently original.
+
+## value
+
+PASS
+
+The surviving structured classification resolves whether product minimizers must arise from base-cycle patterns even when generic capacity bounds do not meet. It also identifies a genuine smallest exception outside the rook slice, where a different geometric shape ties, and supplies exact labelled counts for future extremal and enumeration work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

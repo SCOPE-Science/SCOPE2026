@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:27.220420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71, VERIFICATION.md, and check_partition_spectra.py (inspected; frozen checker not executed)",
+        "Saiki–Takahasi–Yorke arXiv:2202.04304, pp. 5, 7–9"
+      ],
+      "rationale": "The two indicated branch maps have the given signed monomial derivatives. Independently of the cited coding theorem, both closed inverse branches map the box to itself. In normalized coordinates y1=(x1+1)/2 and yi=xi otherwise, the left inverse halves slot 1; the right inverse shifts backward, with slot 2 to slot 1 taking t to (1+t)/2 and slot 1 to slot M taking t to 1-t. If a word has k>0 right symbols, repeating its inverse ℓ=M/gcd(M,k) times makes each coordinate traverse the entire cyclic list of slots q=k/gcd(M,k) times, hence contracts every direction. The inverse product has a unique fixed point. In its periodically repeated inverse itinerary a boundary value cannot stay on the boundary: to enter slot 1 from slot 2 while remaining on the boundary it must enter at value 1; the next left inverse in slot 1 makes it interior, or the next right inverse sends it to slot M at 0 and the following entry into slot 1 makes it interior. Once interior it remains interior. Thus the closed-branch construction does not yield spurious itineraries at a switch, and different positioned words give different points. Forward each cycle of the return coordinate permutation wraps exactly q times, giving (-2)^q. A left step in gap j doubles a coordinate in cycle class j mod g, up to relabeling, so the only additional exponent is b_r, the gap sum. Any composition is attainable by putting each part in the first corresponding gap. Cycle factors with distinct b have distinct root moduli, so only permutations of a tuple can identify spectra. There are q+1 gaps of residue 0, and q for every other residue, giving the stated multiplicities by stars and bars, including q=1 and N=0. The contrast is 2^((max b-min b)/ℓ); concentrated and balanced compositions respectively give the attained extrema, while g=1 forces contrast 1.",
+      "residual_risks": [
+        "It counts fixed points of F^n, not primitive orbits or least-period-n points only; this distinction matters when a word repeats. Eigenvalue contrast is not a singular-value statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original map is dimension-general, but its coding and type statements do not enumerate fixed-k eigenvalue multisets. The earlier exact real-spectrum law covers all residues but does not give attainability or frequencies at fixed k.",
+          "The later indexed weakest-multiplier census mentions weighted compositions. Its full text was unavailable in the local mirror and it is not earlier on the available dates."
+        ],
+        "reasoning": "An invariant of the minimum multiplier, even if given exactly, does not generally recover an entire unordered spectrum. The extent of joint-spectrum overlap with the later indexed result is not verified.",
+        "searches": [
+          "arXiv:2202.04304, dimension-general coding and spectral lemmas",
+          "Local Resultary f1bd1c74fb3b and later indexed dc5a96c076c3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.04304",
+        "Resultary f1bd1c74fb3b",
+        "Resultary dc5a96c076c3 (indexed synopsis only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior signed factorization and constraint sum(a)=n allow tuples not satisfying the new lower bound a≥q; the latter comes from tracking wraps separately on every cycle. The prior does not count placements of L among residues of the k+1 indexed gaps."
+        ],
+        "reasoning": "Monomial cycle factorization is reused, but the profile support and weights require identifying which coordinate cycle each L visit hits, proving surjectivity of the profiles, and keeping the extra gap for residue 0. The contrast extremes then follow routinely and are not separate novelty without the classification.",
+        "searches": [
+          "Resultary f1bd1c74fb3b, Finding and proof Step 2; arXiv:2202.04304, Lemmas 2.1–2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f1bd1c74fb3b gives factors t^ℓ-(-1)^(k/g)2^a with nonnegative a summing to n and exact real/nonreal proportions.",
+          "The originating paper already treats real/nonreal spectra for particular twist residues and codes nontrivial fixed points by words."
+        ],
+        "reasoning": "A real/nonreal classification is a coarser invariant: even when it assigns all spectra at a fixed k the same type, the roots can have different moduli. Permutation-equivalent exponent profiles here classify the full eigenvalue multisets.",
+        "searches": [
+          "Local Resultary: twisted baker periodic multipliers, spectra, residue classes, and weighted compositions",
+          "Saiki–Takahasi–Yorke arXiv:2202.04304, Lemmas 2.1–2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published exact residue law tabulates real/nonreal counts, not the distinct polynomials and their frequencies. The coding lemma totals binary words (excluding all-left), not spectra."
+        ],
+        "reasoning": "Neither a total word count nor a two-class frequency gives a table indexed by eigenvalue multiset. No inspected catalogue tabulation supplies that finer invariant.",
+        "searches": [
+          "Local Resultary: exact twisted-baker periodic spectrum, multiplicity and weakest multiplier; closest hits f1bd1c74fb3b and dc5a96c076c3",
+          "arXiv:2202.04304, pp. 5–9"
+        ]
+      },
+      "rationale": "The coordinate-cycle factorization and much of the real/nonreal type classification are already known. Credit is confined to the fixed-twist attainable exponent profiles, exact multiplicities of the spectra, and resulting sharp contrasts. The available strongest pre-dated result does not classify how the left-step weights are distributed among cycles.",
+      "residual_risks": [
+        "Shared factorization with the Oct. 11 work is prior; priority is not certified beyond the actual finer fixed-twist claims compared. The later weakest-multiplier full text was unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coding and spectral type overlap, not the refined distribution",
+          "evidence": "All non-all-left words code points; all-real when M divides k and nonreal type for residues ±1.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04304",
+          "material_read": "Map p. 2; basic rectangles p. 5 (OA offset 5989); spectral Lemmas 2.1–2.3 pp. 6–7 (15316); coding Lemmas 2.4–2.5 pp. 7–9 (18600)",
+          "method": "OA PDF primary passages",
+          "title": "The twisted baker map",
+          "trigger": "Originating primary paper and coding premise"
+        },
+        {
+          "assessment": "Material factorization overlap; conditional profile attainability and frequencies not stated in these passages",
+          "evidence": "Signed monomial cycle factors with nonnegative exponents of sum n, then exact real/nonreal residue census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b",
+          "material_read": "RESULT.md Finding (offset 0) and proof Step 2 (4100)",
+          "method": "Local Resultary mirror",
+          "title": "Exact real-spectrum residue law for the twisted baker map",
+          "trigger": "Closest pre-dated exact result"
+        },
+        {
+          "assessment": "Later related record; no claim of exact comparison with the joint spectrum",
+          "evidence": "Synopsis describes a weakest-multiplier census and weighted compositions.",
+          "identifier_or_url": "Resultary 2026/11/2 dc5a96c076c3",
+          "material_read": "Local index synopsis only; full source unavailable through the local mirror",
+          "method": "Local Resultary search",
+          "title": "Prime-divisor onset and exact weakest-multiplier census for the twisted baker map",
+          "trigger": "Related multiplier enumeration using weighted compositions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–22 and 43–68",
+        "Saiki–Takahasi–Yorke arXiv:2202.04304",
+        "Resultary f1bd1c74fb3b"
+      ],
+      "rationale": "The map is a natural example of periodic instability. Conditioning on twist count controls the coordinate permutation but not the expansion accumulated by each cycle. The classification resolves exactly which expansion profiles are possible at those fixed permutation data and how often they occur, information lost in the known real/nonreal dichotomy even for spectra of identical type. This is a complete spectral census with realizable extrema, not just a rephrasing of the monomial factorization.",
+      "residual_risks": [
+        "The result makes no claim about distribution of singular values, primitive orbits, or generic perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

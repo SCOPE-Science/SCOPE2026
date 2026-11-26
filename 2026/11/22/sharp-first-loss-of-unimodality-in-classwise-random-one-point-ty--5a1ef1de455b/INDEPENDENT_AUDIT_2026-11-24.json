@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:59:14.400969Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fraïssé extension property realizes exactly one new-class diagram and all adjacency subsets in each represented class. Homogeneity identifies equal diagrams with equal complete types, and nonalgebraic types exclude the named points. Consequently c0=k+1 and cj is the sum of binomial coefficients for j>=1. For n<=16, a rise from j to j+1 at j>=3 needs a class b>=2j+2. Its contribution to the preceding difference is at least 28, 90, or 297 at j=3,4,5, while all others can offset at most 28, 20, or 1. In the j=3 equality-bound case, splitting the other eight points strictly reduces the pair count, and leaving them together gives a positive contribution instead. For j>=6 the remainder is too small to offset anything. Rises therefore propagate back to the 2-to-3 step. Except in the all-singleton case, c0<=c1, so any failure requires c1>c2 and c3>c2. The second inequality forces a size-six or larger class and c2>=15; the first requires n>=16. At n=16 equality c2=15 exhausts all within-class pairs with just one size-six class, and the explicit valley persists with additional singletons. A separate enumeration of nonincreasing partitions using the binomial recurrence examined 914 profiles and returned only (6,1^10) with coefficients (12,16,15,20,15,6,1). Replay by generating partitions with each next part at most the previous one, summing each part's row starting from binom(a,0)=1 and adding 1 at grade zero, and detecting any positive adjacent difference after a negative one. Frozen VERIFY.py and its recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Lu give sufficient conditions for unimodality and log-concavity and a nonunimodal complete multipartite example of order 34."
+        ],
+        "reasoning": "These conditions do not establish universal unimodality through order 15 together with classification of the failures at order 16. Examples for more general graphs do not give the minimum in this family.",
+        "searches": [
+          "arXiv:1507.05754, Theorem 3.1 and Remark 3.4",
+          "Resultary search for type-count extrema and nonunimodality"
+        ]
+      },
+      "checked_sources": [
+        "Zhu–Lu, arXiv:1507.05754, §3",
+        "Resultary identical record and distinct d131516353b2 record",
+        "Primary-literature lookup on first nonunimodality for binomial sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula allows direct evaluation of any proposed profile. The published order-34 counterexample has one eight-part and 26 singleton parts."
+        ],
+        "reasoning": "Evaluating the (6,1^10) witness and adding singleton parts are easy once the formula is given. The first possible order and uniqueness require excluding all different smaller profiles and all other profiles at the boundary; they do not follow from the order-34 witness or mechanically from the formula.",
+        "searches": [
+          "arXiv:1507.05754, §3, Theorem 3.1 and Remark 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu–Lu give the complete multipartite independence polynomial as a sum of binomial rows minus a constant."
+        ],
+        "reasoning": "The type polynomial is I(K)+k. In a mixed-size profile both constant terms are at most the linear coefficient n, and all later coefficients are identical; both all-singleton profiles are unimodal. Thus an earlier exact complete-multipartite independence-polynomial threshold would cover the claim about unimodality despite the constant shift. The inspected theorem and example do not give that threshold.",
+        "searches": [
+          "Primary-literature lookup on first nonunimodal sums of binomial rows",
+          "arXiv:1507.05754, §3",
+          "Resultary search for classwise one-point-type unimodality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed result is this record. The distinct same-date result has two five-part profiles of order 16 with equal scalar counts, not a table of unimodality failures."
+        ],
+        "reasoning": "An identical indexed copy is not independent prior coverage. The other occurrence of 16 concerns collisions of different invariants and does not enumerate exceptions.",
+        "searches": [
+          "Resultary: SCOPE-sharp-first-loss-of-unimodality-in-classwise-random-one-point-ty--5a1ef1de455b",
+          "Resultary: SCOPE-five-class-binary-carry-collisions-in-homogeneous-multipartite-s--d131516353b2",
+          "Zhu–Lu, §3"
+        ]
+      },
+      "rationale": "Best of the inspected evidence supports the sharp threshold, minimal-profile uniqueness and persistence as distinct. Neither the extension-count formula alone nor the existence of nonunimodal multipartite independence polynomials is credited as new.",
+      "residual_risks": [
+        "An unindexed minimal complete-multipartite independence-polynomial theorem or an older exact census could cover the equivalent threshold. The bounded lookup is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers formula and related sufficient criteria, not exact first failure",
+          "evidence": "The multipartite formula differs by a constant; the example has order 34 and there is no minimality or order-16 uniqueness statement in the relevant results.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.05754",
+          "material_read": "§3, pp. 5–6, including formula, Theorem 3.1 and Remark 3.4",
+          "method": "OA PDF text, relevant passage at offset 15200",
+          "title": "Unimodality of the Independence Polynomials of Some Composite Graphs",
+          "trigger": "Same binomial-sum family through the complete multipartite independence polynomial"
+        },
+        {
+          "assessment": "Different assertion",
+          "evidence": "The profiles (1,3,4,4,4) and (2,2,2,5,5) collide for a scalar count, not for a first nonunimodality test.",
+          "identifier_or_url": "2026/11/22/SCOPE-five-class-binary-carry-collisions-in-homogeneous-multipartite-s--d131516353b2",
+          "material_read": "Finding in RESULT.md at offset 0",
+          "method": "Local published mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Five-class binary carry collisions in homogeneous multipartite structures",
+          "trigger": "Same order 16 and similar type-count objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first failure measures when aggregating unimodal within-class rank counts can create a valley. The result gives the full minimal obstruction rather than just an example, and the backward-rise lemma explains why only the first two nonconstant coefficient comparisons can cause failure at these orders. The equivalent multipartite graph statement also makes the cutoff relevant outside the type-count interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

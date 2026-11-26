@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies sequential residual-weighted Cholesky on a diagonal two-plateau matrix with a size-biased permutation. An exponential race gives the exact conditional binomial law; independent spacings of the dominant clocks yield the Laplace factors and full finite probability generating function. The fixed-rank geometric limit and growing-rank conditional-binomial central limit theorem are derived with explicit scaling. The final exact residual trace establishes that the specified near-optimal event is equivalent to capturing every dominant coordinate. The independent rational dynamic recursion in `verify.py` cross-checks the finite formula and the first two moments.
+PASS
 
-## Originality — PASS, subject to literature limitations
+In the repaired statement the current diagonal rule means sequential size-biased removal. Exponential races have this law by the minimum and memorylessness identities, and conditional on the final heavy clock the light count is binomial. The unit-rate maximum has mean H_r and bounded variance by independent exponential spacings. Hence its clock induces a random binomial mean μ_n+O_P(1), because the remainder O_P((log r)²/n) goes to zero. In the conditional centered characteristic function the quadratic term tends to −t²/2 and the uniform cubic error O(mp_n|t|³/μ_n^(3/2)) vanishes in probability. Boundedness of characteristic functions permits mixing and the O_P(1) shift vanishes after scaling. The residual trace after r+s pivots with h heavy coordinates left is m−s+(a−1)h. At the prescribed window the strict inequality a−1>εm+s eventually holds, so success means L≤s. Rounding does not change the continuity limit. Monotonicity of residual trace gives the extended zero/one limits without requiring the exact event reduction outside the window. The retained finite identities follow by binomial expansion of the conditional mass and generating function, and the fixed-rank comparison follows by mixing the conditional Poisson limit over the exponential spacings.
 
-Epperly's 2026 near-optimality bounds, Divan–Gilles's 2026 spectral-decay bounds, and Chen–Epperly–Tropp–Webber's original RPCholesky guarantees do not, in the inspected material, establish the exact two-plateau RPCholesky capture-count law or its high-probability Gaussian critical window. The last paper does use the two-level diagonal motif for DPP sampling in Appendix C.4; this is explicitly credited. Classical exponential races, geometric sums, and central limit methods are acknowledged as proof ingredients, not claimed as new. The possibility of an equivalent result in broader size-biased permutation theory or inaccessible primary material remains.
+## originality
 
-## Value — PASS
+PASS
 
-The exact law and sharp logarithmic oversampling threshold quantify the additional pivot budget needed to find a known number of prominent spectral coordinates in a natural structured RPCholesky benchmark. The limiting Gaussian transition supplies numerical high-probability calibration rather than only order bounds, and identifies the fluctuation mechanism. This complements, but does not strengthen, universal worst-case bounds for arbitrary positive-semidefinite matrices.
+For the repaired claim, the finite identity and fixed-rank comparison are explicit supporting context rather than separate originality claims. Credit the Wallenius finite law and the existing two-level pivot-capture analysis. The surviving claim is the growing-rank Gaussian log-oversampling scale and trace-success curve at fixed positive a/n. The closest inspected pivot-capture result is at contrast of order n/r, and the ordinary fixed-draw formulas or general trace bounds do not directly yield this Gaussian window.
 
-## Closest literature and limitations
+## value
 
-Primary comparison: arXiv:2608.20633v1 (universal RPCholesky bounds; incomplete later-section access), arXiv:2609.06287v1 (spectral-decay bounds), arXiv:2207.06503v6 (foundational algorithm; two-plateau DPP benchmark). The finite law assumes exact sequential sampling. The limiting trace guarantee requires \(a=\lambda n\), \(r=o(n)\), and \(0<\varepsilon<\lambda\). No floating-point or dense-kernel guarantee is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired theorem gives instance-specific operationally interpretable mathematical information not available from an expected-error bound: it resolves both the oversampling threshold and the probability across its transition. It separates the bounded heavy-clock fluctuations from Gaussian light-count fluctuations, explaining the scale and why a limit for the last heavy clock alone gives the wrong success window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

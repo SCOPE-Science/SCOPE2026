@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result specifies the circular kernel, monotonicity, sign condition, sample weights, Sobolev norm and real range \(s>1/2\). Pairwise principal Gram matrices give a global eigenvalue lower bound; strict monotonicity reduces possible optimal gaps to two explicit intervals; their sum condition forces the unique cyclic triple. An explicit signed Gram diagonalization reaches the lower bound and identifies multiplicities. A positive Laplace integral for the differentiated Fourier sine series proves kernel monotonicity at every fractional exponent. Modulo-six Fourier grouping verifies the required sign. Local Dirichlet convergence establishes the low-smoothness limit, and controlled first-mode dominance with a mean-value expansion establishes both sharp high-smoothness coefficients. The standard-library checker passed 1,466 finite numerical comparisons, which do not replace the proof.
+## correctness
 
-**Originality — PASS, qualified.** Wang–Zhang (arXiv:1207.5871) minimize optimal reconstruction error, not the raw three-component sampling norm; their Section 2 criterion is different. Novak–Ullrich–Woźniakowski (arXiv:1311.1528) and Novak–Zhang (arXiv:1609.01146) minimize scalar oscillatory-integration errors. Krieg–Sonnleitner (arXiv:2009.11275) establish asymptotic recovery criteria, not a three-site sharp norm. The previously established order-one trace result is a covered special case and is credited accordingly. The newly assessed statements are the all-exponent fractional classification, the general circular kernel principle, and both sharp endpoint asymptotics. Residual risk: an unindexed general kernel-design theorem might subsume the elementary gap principle; the specialized all-exponent asymptotic laws were not found in the inspected sources.
+PASS
 
-**Value — PASS.** For a natural and widely used periodic Sobolev Hilbert scale the classification solves the fixed three-sensor worst-case sample-energy problem for every allowable real smoothness, proving that equispacing is never optimal. The universality criterion extends beyond polynomial Bernoulli kernels, and the sharp \(4^{-s}\) displacement and gain laws explain how nonuniform benefit becomes exponentially small with increasing smoothness. This is a complete natural classification, not a single arbitrary parameter example.
+Interlacing gives k + max |K(g_i)| for the three cyclic gaps. At the candidate level each gap lies in [d,2d] or [1-2d,1-d]; fewer or more than one long gap cannot sum to 1, and equality with one long gap requires (d,d,1-2d) cyclically. At those gaps the off-diagonal matrix is sign-conjugate to the matrix with all off-diagonals -p, giving k+p twice and k-2p once. The Sobolev evaluation-map squared norm is the top Gram eigenvalue. Differentiation on compact subarcs follows from the uniform Dirichlet test; the Laplace sine representation has positive integrand on the open half-circle, with partial geometric sums dominated by C e^{-u} uniformly away from zero angle. In the sum at 1/6 and 1/3 odd harmonics cancel, and the remaining coefficient at 2m is 2 cos(2 pi m/3); this gives the exact strict sign for 2s>1. Locally uniform convergence to the log-sine kernel traps the critical root by sign. For H_s=K_s(2 pi)^{2s}/2, H_s(t)+H_s(2t) has value -4^{-s}(1+o(1)) and derivative -3 pi sqrt(3)+o(1) at t=1/6, with uniformly convergent derivatives near the limiting root. The shift thus costs one third of the leading gain over equal spacing, leaving the normalized coefficient 2/3. Independently replayable `python /workspace/branches/audit_checks.py sobolev` checks the polylog roots, the s=1 normalization, the critical root (~0.1194571600), and both large-s coefficients (s=15: 0.06125876625 and 0.66666666591); these are corroboration, not proof. The frozen checker was inspected, not executed. The endpoint s=1/2 is a node-location limit only.
 
-**Limits.** No assertion concerns optimal interpolation recovery, statistical reconstruction, four or more samples, asymmetric sample weights, or other domains. The endpoint \(s=1/2\) is only a limiting node-design law; point evaluations themselves cease to be bounded at that endpoint. External historical priority beyond the inspected sources requires independent scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact s=1 design is covered and expressly excluded from novelty in RESULT.md. The supported distinct claim is the general circular criterion, all real s>1/2 for the specified Sobolev scale, and the sharp limiting design and gain laws. The closest examined sources do not establish or imply that extension.
+
+## value
+
+PASS
+
+Solves the natural worst-case simultaneous sample-energy minimization for three equally weighted sensors across an entire fractional scale, not only a parameter instance. The kernel theorem isolates why clustered sites can beat equal spacing and gives equality rigidity, and the two asymptotic coefficients quantify precisely how the improvement vanishes. It does not make claims about recovery-error-optimal points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

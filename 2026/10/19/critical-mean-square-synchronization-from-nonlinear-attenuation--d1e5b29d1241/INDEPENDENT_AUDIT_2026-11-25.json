@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:39:34.083728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the natural past filtration, the directed-pair independence makes the three centered noise increments before projection conditionally uncorrelated, with variances h²B_i/(1+a_i)². The deterministic centered multiplier is 1−6γ, and the projection onto the disagreement plane has diagonal 2/3. Thus its conditional squared norm is exactly the stated recursion. With ΣB_i=6S, the supremum of the one-step ratio over S>0 is ρ=(1−6γ)²+4h²: all sufficiently small rescalings of any fixed nonconstant state approach that ratio. Solving ρ=1 for the positive gain gives γ_c, and ρ>1 yields actual local one-step expansion. For opinion gaps p,q,p+q, the sum of pair products of the three squared gaps is (p²+pq+q²)²=9S²/4. Hence Σa_i B_i=9S²/2. At γ_c, using a_i≤2S and 1−(1+a_i)^(−2)≥a_i/(1+a_i) yields the claimed drift. The convex function S²/(1+2S), the supermartingale bound ES_t≤S₀, and reciprocation of u_(t+1)≤u_t−3h²u_t²/(1+2S₀) give the displayed rate for u_t=ES_t (zero stays zero). Supermartingale convergence and Fatou give the a.s. conclusion. Below threshold, the expected disagreement decays geometrically, and the sum of second moments of the mean-martingale increments is finite (each bounded by (2h²/3)ES_t), proving individual a.s. and L² convergence to the common limit. At equality, constant modulation gives ES_t=S₀ exactly. Critical mean-square agreement means E||x−mean(x)1||²→0; it does not claim E[S_t²]→0, convergence of the common mean, or a matching decay lower bound. Supercritical one-step expansion does not establish long-run divergence. The frozen verify.py and VERIFICATION.md were inspected, not executed; the finite Rademacher checks do not substitute for the moment and supermartingale arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives a sufficient strict small-gain condition and a.s. and L² consensus under joint uniform connectivity. The proof uses block contraction with factor 1−ηγ+4ξγ²<1. Corollary 3 broadens the permitted nonlinear modulation, not the critical drift analysis.",
+          "This earlier result gives sufficient consensus regimes in a larger family but does not state the exact critical gain or the inverse-linear bound for the nonlinear-versus-constant comparison."
+        ],
+        "reasoning": "The nonuniform state dependence at the critical gain has to be retained. Even for iid Rademacher signs, small-state rescaling at that gain makes ES_t/S₀ tend to one for every fixed t, by finite-path linearization and critical variance neutrality; no uniform strictly contracting fixed-time factor for S covers the endpoint argument.",
+        "searches": [
+          "Shang DOI 10.1093/comnet/cnad009 Theorem 2, Corollary 3, and proof around (4.40)",
+          "Local Resultary: Shang temporal hypergraphs noisy higher-order interactions exact frontier three agents"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Shang DOI 10.1093/comnet/cnad009, original model, assumptions and strict consensus theorem passages",
+        "Three indexed Resultary comparisons listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A strict upper bound on allowable gain does not compute the sharp conditional supremum, and a variance estimate discarding attenuation cannot prove decay at variance neutrality.",
+          "The critical drift uses Σ a_iB_i=9S²/2 for the three scalar opinions and compares attenuated and unattenuated updates at the same critical factor."
+        ],
+        "reasoning": "The general convergence tools and positivity of denominators alone do not give the quantitative critical Jensen drift, the exact gain frontier, or the contrasting conservation statement. Those follow from an equation-specific calculation.",
+        "searches": [
+          "Shang DOI 10.1093/comnet/cnad009, model and strict small-gain estimates",
+          "Local Resultary: mean square consensus nonlinear higher order random noise hyperedge critical endpoint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shang's coefficient c_ij sums f(|x_j−x_k|) over the edge, and g(x_j−x_i) multiplies independent w_ij in Eq. (3.1). This agrees with the displayed specialization, with iid in the earlier assumptions but only independence and common first two moments in the frozen claim.",
+          "A shared random draw across ordered pairs would change the conditional covariance and is not an equivalent model."
+        ],
+        "reasoning": "The equilibrium-centered noise and gain normalization are fixed by the exact equation; neither alternate notation for the Shang model nor common-noise dynamics is a new formulation of the claimed endpoint comparison.",
+        "searches": [
+          "Shang DOI 10.1093/comnet/cnad009, Eq. (3.1) and Assumptions 1–2",
+          "Local Resultary: gamma_c = 3/(9+4 kappa^2) three agent hypergraph mean square disagreement",
+          "Local Resultary: constant modulation critical variance-neutral gain three-agent hyperedge mean-square disagreement nonlinear attenuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Brownian three-particle record gives a.s. decay and t ES_t→1/9 in continuous time, with a different variance mechanism.",
+          "The Stuart–Landau record gives a critical spectral-gap boundary and inverse-time deterministic disagreement. The logistic network uses deterministic diameter and gives t^(−1/2) decay. Neither shares the stochastic update or the invariant conditional second moment of constant modulation."
+        ],
+        "reasoning": "Exact statement-level comparisons disclose neighboring boundary results. No same-equation and same-observable exact record surfaced among the inspected results; the ranked search is not exhaustive.",
+        "searches": [
+          "Local Resultary: critical mean-square synchronization from nonlinear attenuation",
+          "Local Resultary: critical mean-square agreement inverse-linear upper bound three-person noisy hyperedge",
+          "Resultary 2026/10/26/SCOPE-unique-nonlinear-scalar-closure-for-variance-feedback-interactin--9f34425ea0e2",
+          "Resultary 2026/11/1/SCOPE-critical-spectral-gap-synchronization-and-optimal-inverse-time-d--08cb01578580",
+          "Resultary 2026/10/18/SCOPE-sharp-nonlinear-synchronization-envelope-for-logistic-threshold--3ecc92a730da"
+        ]
+      },
+      "rationale": "The equation is a specialization of Shang's pair-noise model; the earlier sufficient consensus theorem and the standard martingale tools are not novelty claims. The supported difference is the exact uniform one-step frontier together with the nonlinear critical drift and the constant-modulation contrast for the specified discrete three-agent equation. No inspected statement yields those endpoint results for this model.",
+      "residual_risks": [
+        "Bounded comparison does not establish priority across stochastic synchronization literature; in particular the underlying source cited by the Brownian analogue was not independently retrieved.",
+        "The general sufficient-gain constants were not numerically optimized on this specialization; the comparison concerns its established statements and the difference between strict and variance-neutral one-step arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model family and broader sufficient strict consensus result, not a statement of the exact critical law",
+          "evidence": [
+            "Eq. (3.1) uses pair-indexed iid noise with first two moments 0,1; the proof uses strict 4ξγ<η. Corollary 3 includes an extra positive bounded modulation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/comnet/cnad009",
+          "material_read": "OA PDF Assumptions 1–2 p. 3 offset 11900; Eq. (3.1) p. 5 offset 15600; Theorem 2 p. 6 offset 21100 and proof p. 18 offset 69500; Corollary 3 p. 23 offset 91650 and discussion p. 7 offset 21750",
+          "method": "Compared equations, noise hypotheses, strict inequalities and convergence statements in bounded full-text passages; OA copy at https://pdfs.semanticscholar.org/1d79/443c62adae18a5536279b4e86af5187ba46f.pdf",
+          "title": "Non-linear consensus dynamics on temporal hypergraphs with random noisy higher-order interactions",
+          "trigger": "Originating equation and plausible covering nonlinear small-gain theorem"
+        },
+        {
+          "assessment": "Strong analogy but different stochastic process",
+          "evidence": [
+            "One-dimensional Brownian diffusion gives S_t→0 a.s. and t ES_t→1/9, not this gain frontier."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-unique-nonlinear-scalar-closure-for-variance-feedback-interactin--9f34425ea0e2",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Compared noise, clock and observable",
+          "title": "Unique nonlinear scalar closure for variance-feedback interacting particles",
+          "trigger": "Stochastic three-particle critical variance decay"
+        },
+        {
+          "assessment": "Different deterministic dynamics",
+          "evidence": [
+            "Continuous-time Stuart–Landau network with a critical spectral-gap boundary."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-critical-spectral-gap-synchronization-and-optimal-inverse-time-d--08cb01578580",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Compared process and definition of critical gain",
+          "title": "Critical spectral-gap synchronization and optimal inverse-time decay",
+          "trigger": "Exact critical boundary with inverse-time disagreement"
+        },
+        {
+          "assessment": "Different deterministic network",
+          "evidence": [
+            "t^(−1/2) critical diameter decay, not a mean-square variance-neutral comparison."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-sharp-nonlinear-synchronization-envelope-for-logistic-threshold--3ecc92a730da",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Compared update and critical observable",
+          "title": "Sharp nonlinear synchronization envelope for logistic threshold networks",
+          "trigger": "Earlier sharp discrete synchronization threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-agent system is the full interaction of the smallest genuine three-body hyperedge. Its exact variance-neutral gain is a natural endpoint at which the uniform contracted factor disappears. The nonlinear modulation then yields almost-sure and quantified mean-square agreement even though the constant modulation retains its second moment. This addresses a concrete stochastic endpoint obstruction without claiming a global long-run transition or mere novelty for standard inequalities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

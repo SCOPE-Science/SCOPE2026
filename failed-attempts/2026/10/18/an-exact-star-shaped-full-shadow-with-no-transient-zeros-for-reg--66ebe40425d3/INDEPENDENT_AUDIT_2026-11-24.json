@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:38:59.021058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–3",
+        "Frozen VERIFICATION.md and check_star.py",
+        "Hägg–Shapiro I, arXiv:2610.09602v1 pp. 4–5, Proposition 5.2",
+        "Independent exact closed-coefficient and Sturm replay"
+      ],
+      "rationale": "After z=lambda*w, the chain rule on w^r Q(w^d) gives the stated residue and degree. For r=0, ordinary Rolle intervals account for every root of Q' with the retained endpoint factor; Q'(0)/Q(0) is the negative sum of reciprocal roots counted with multiplicities. If r>0, the weighted polynomial u^(r/d)Q(u) adds the interval from zero to the first positive root. Those disjoint intervals and the endpoint multiplicity exhaust the new degree, so the interior roots are simple and a lost endpoint root cannot return; constant reduced polynomials cause no exception. The core is a subset of the shadow by definition in Hägg–Shapiro I (p. 4); their Theorem 1.4(i) supplies connectedness and containment of the vertices. These facts and finite-level localization force every interior point of every spoke and the center, by separation of the leaves. The frozen text's shorthand attribution of the subset inclusion to (i) is harmless with the definition. Independent replay: python3 /workspace/branches/replay_exact_audit.py 5 used explicit binomial/factorial coefficients, exact endpoint division and Sturm counts for 567 descendants; the uploaded checker was only inspected. The arbitrary orders and d follow from proof, not the replay.",
+      "residual_risks": [
+        "The limiting-core argument uses the published connected-core theorem rather than reproving it here; no claim for perturbed polygons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Part III Lemma 7.2 and Theorem 7.3 localize every finite descendant and identify the full shadow and core of real-rooted radial pullbacks; Corollary 7.4 specializes to z^q-1 and gives its pooled measure.",
+          "Bøgvad–Hägg–Shapiro Theorem 1.1 is a fixed-ratio result assuming simple P and P' roots, while P'=dz^(d-1) has a multiple root here."
+        ],
+        "reasoning": "The signed-star theorem covers the principal geometric assertion by choosing H_rad(u)=u-1 and q=d. The older fixed-ratio and star-orthogonality material is only related, not the basis of the rejection.",
+        "searches": [
+          "Hägg–Shapiro III, §7, signed radial stars and Corollary 7.4",
+          "arXiv:2107.05710, regular polygon and fixed-ratio descendants",
+          "Radial orthogonal-polynomial zero families"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9054e99efdbc",
+        "Hägg–Shapiro I arXiv:2610.09602v1",
+        "Hägg–Shapiro III author-hosted PDF",
+        "Bøgvad–Hägg–Shapiro arXiv:2107.05710",
+        "Leurs–Van Assche arXiv:1804.07512"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Part I only gives connectedness/vertices and covariance. Part III adds radial localization/equality by a strictly more general result. The indexed record additionally proves all the claimed reduced-root counts and multiplicities, with the same residue recursion."
+        ],
+        "reasoning": "Taking the degree of the normalized factor yields q_m and subtracting the endpoint multiplicity gives the interior count. Thus even the finer remainder after subtracting the main theorem's overlap is covered. The FAIL is based on those explicit implications, not inability to retrieve literature.",
+        "searches": [
+          "Hägg–Shapiro I, Theorem 1.4 and Proposition 5.2",
+          "Hägg–Shapiro III, Lemma 7.2/Theorem 7.3/Corollary 7.4",
+          "Resultary 9054e99efdbc, Finding and proof recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9054e99efdbc, Finding and first proof section: exactly z^r Q(z^d), Q(0) nonzero, simple open-interval roots, endpoint multiplicity max(n-m,0), both sets equal to the star.",
+          "The chain-rule multiplier for z=lambda*w is nonzero and all roots are rescaled by lambda."
+        ],
+        "reasoning": "Normalizing the complex coefficient does not lose any roots or multiplicities, and the shadow and core are affine covariant. The two result statements are mathematically equivalent after restriction to d>=3.",
+        "searches": [
+          "Local Resultary: exact radial full shadow and limiting core for regular root binomial powers and all derivatives",
+          "Normalized z^d-1, congruence-reduced polynomial, radial interlacing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct catalogue record 2026/11/2/SCOPE-exact-radial-full-shadows-of-regular-root-binomials--9054e99efdbc: explicit all-orders statement includes center and vertex multiplicities and interior simplicity, and extends through d=2.",
+          "Part III Corollary 7.4 is also an exact explicit entry for the normalized family, giving a uniform arclength component and a mass 1/q^2 at each vertex."
+        ],
+        "reasoning": "There is an exact direct catalogue match. It is not the assigned record's own identifier, nor a numerical table or title-only match. The catalogue date says nothing by itself about priority.",
+        "searches": [
+          "Local Resultary regular-root polygon, binomial full shadow, absence of transients and exact finite-order multiplicities",
+          "Resultary 9054e99efdbc exact Finding"
+        ]
+      },
+      "rationale": "The exact classification is covered by a distinct indexed record, not just a similar title: Resultary 9054e99efdbc proves the all-orders support, center factor, interior simplicity, endpoint multiplicity and shadow/core equality for z^d-1 in all d>=2. The scalar change z=lambda*w, lambda^d=a, and affine covariance transfer all those conclusions to the frozen family; the degree and dimension statements are immediate. Independently, Hägg–Shapiro III gives the main geometric conclusion in a stronger signed-radial family and supplies the pooled measure for this exact special case. The finite-level multiplicities not asserted in III are already in the other indexed record, leaving no distinct verified remainder. This finding of demonstrable coverage is not a claim about first discovery or historical priority: the indexed comparator has a later catalogue path date, and the priority chronology of the authors' Part III copy is not established here.",
+      "residual_risks": [
+        "This is an equivalence and coverage finding only, not a determination of writing, posting, or discovery priority.",
+        "Not all cited radial orthogonality papers were available as full text; they are not needed for the decisive comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the precise claim after normalization and is broader in degree",
+          "evidence": "The passage says all reduced roots in (0,1] with interior roots simple and multiplicity max(n-m,0) at 1; it identifies both sets with the star with no transient zeros.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-radial-full-shadows-of-regular-root-binomials--9054e99efdbc/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and explicit residue recurrence, mirror offsets 55–2016",
+          "method": "Local Resultary snapshot and local mirror passage reading",
+          "title": "Exact radial full shadows of regular-root binomials",
+          "trigger": "Exact all-orders classification hit in local catalogue"
+        },
+        {
+          "assessment": "Stronger theorem covers shadow/core geometry and all-level support; adds the pooled measure",
+          "evidence": "For H_rad(u)=u-1 the positive star has unit length on q spokes with no negative spokes; the theorem states all finite zeros already lie on that limiting star. The cited passages do not assert the frozen exact interior multiplicities.",
+          "identifier_or_url": "https://staff.math.su.se/shapiro/Articles/03_Shadows.pdf",
+          "material_read": "§7, pp. 31–32: Lemma 7.2, Theorem 7.3, Corollary 7.4 (7.8)",
+          "method": "Original author-hosted OA PDF, bounded passages",
+          "title": "The full shadow of a polynomial III. Semialgebraicity and Reflection Rigidity",
+          "trigger": "Explicit radial pullback theorem and same example"
+        },
+        {
+          "assessment": "Verified general premise, not by itself an all-orders radial support theorem",
+          "evidence": "K_P lies in S_P, is compact and connected, contains all original roots, and transforms affinely.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09602v1",
+          "material_read": "Definition of K_P p. 4, Theorem 1.4(i),(iii) p. 5, Proposition 5.2 p. 27",
+          "method": "Original OA manuscript, bounded passages",
+          "title": "The full shadow of a polynomial I. The limiting core and the transient set",
+          "trigger": "Essential connected-core premise"
+        },
+        {
+          "assessment": "Different hypotheses and fixed-ratio asymptotic outputs",
+          "evidence": "Main theorem assumes simple roots of P and P'; quadratic fixed-ratio case is explicit, while the stated generic conjecture excludes regular polygons.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.05710",
+          "material_read": "Theorem 1.1 p. 3, §6 pp. 45–46, §7 Conjecture 7.2 p. 51",
+          "method": "Original OA manuscript, bounded passages",
+          "title": "Rodrigues' Descendants of a Polynomial and Boutroux Curves",
+          "trigger": "Earlier derivative-root asymptotics with regular polygons discussed"
+        },
+        {
+          "assessment": "Related family, not all binomial descendants",
+          "evidence": "The zero and Rodrigues formulas apply to prescribed multiple orthogonal families on a star.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.07512",
+          "material_read": "pp. 2–3, 14",
+          "method": "Original OA manuscript, bounded passages",
+          "title": "Jacobi–Angelesco multiple orthogonal polynomials on an r-star",
+          "trigger": "Radial zero and Rodrigues-type analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finite-level theorem and exact shadow/core equality",
+        "Hägg–Shapiro I and III for the object and context",
+        "Resultary 9054e99efdbc"
+      ],
+      "rationale": "As a mathematical classification, this is useful: it gives both the exact support of every finite derivative and the absence of transients for a canonical family, without replacing the complete shadow by a single differentiation-ratio limit. That utility is not a claim of a new contribution: explicit coverage is decisive on the originality axis.",
+      "residual_risks": [
+        "No new radial density, general perturbed-polygon stability, or other distinct result is demonstrated by the frozen record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

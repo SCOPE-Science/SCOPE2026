@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies \(C^6\) regularity, a common sign for the sixth derivative, classical 3-node Gauss and 4-node Lobatto formulas, normalized interval geometry, and a sharp ratio and minimax coefficient. Exactness up to degree five justifies the Peano formulas. A piecewise polynomial certificate establishes \(A\ge0\), \(D>0\) on the interior, and \(c_*D-A\ge0\) for the precise algebraic constant. Symmetry supplies the other half of the interval. The midpoint kernel ratio attains \(c_*\), while the endpoint limit is zero; smooth bump-sixth-derivative sequences prove that neither bound can be improved. The minimax equality follows from the exact two-ended interval, and the same-sign sum gives the partition statement. The delivered checker ran successfully with 39 exact sign certificates and 12 moment identities. Rounding or empirical sampling is not used to justify any universal statement.
+PASS
 
-## Originality — PASS (qualified)
+On [0,1] I reconstructed the two Peano kernels using left hinges (t−x)_+^5/120, equivalent to the right hinges by degree-five exactness, and independently checked both rules’ twelve moment equalities. With a=(5−√15)/10 and b=(5−√5)/10, the first piece has A=t^6/720, D=t^5/1440. Write R=25−6√15, U=R+√5 and H=RD−UA. For H on the first piece the sign factor R−2Ua has a rational lower bound 860899/10^6. For the scaled kernels 720A,720D,720H on [a,b] the respective Bernstein-coefficient minima have positive rational lower bounds 2,9,7 divided by 10^6; on [b,1/2] the bounds are 249,610,76 divided by 10^6, with the last bound for 720H/(1−z)^2 where z=(t−b)/(1/2−b). Divisibility is exact. The independent reconstruction (python /workspace/branches/independent_peano.py, with SymPy) used rational radical enclosures; no uploaded script was executed. Reflection supplies the other half. At 1/2 the scaled kernels are R/1600 and U/1600; at the outer boundary A/D tends to zero. D is positive off the endpoints, so the gap vanishes only for f^(6) identically zero under the sign assumption. Continuous nonnegative sixth derivatives supported in shrinking interior neighborhoods approach both ratio extremes; negation preserves the ratio for the other sign. Hence the blend’s worst-case normalized error is max(|q|,|c*−q|), uniquely minimized at c*/2. With a fixed finite partition the signed gaps cannot cancel, and placing the bump inside one cell also proves composite sharpness. The signed brackets, not the normalized ratio, reverse for the nonpositive case.
 
-The 2016/2017 Peano-kernel comparison bounds the ratio by \(1/2\); the 2026 study builds a \(1/4\)-certificate from that comparison but does not derive the sharp \(0.4407268\ldots\) ratio or its unique minimax blend. The 2022 optimal-blending study concerns a separate degree-three/3-convex family, so its optimality does not imply this coefficient. Searches of published mathematical records for aliases, Peano-kernel domination, the exact radical expression, and Gauss–Lobatto optimal blends found no covering claim. The proof uses classical Peano and Bernstein methods, so priority beyond the examined records remains subject to possible unindexed or older equivalent calculations.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp kernel ratio is a natural invariant of an established, actually-used error-estimator pair, not an arbitrary coefficient extraction. It yields a unique positive-weight, degree-five-exact blended quadrature with a *provably best* certificate among every real linear blend using the same seven nodes. The published certified error constant falls from \(1/4\) to \(c_*/2\), an approximately 11.85% reduction for no added integrand evaluations; the complete Peano ordering also clarifies the exact limit of the existing stopping criterion. This does not promise a universal runtime gain, and its guarantee requires the one-sign sixth derivative assumption.
+The rule pair, comparison, gap certificate, and equal-panel use are established precedents. The new content supported by the comparison is the exact sharp kernel domination constant, with its nonpolynomial limiting extremizers and uniquely optimized coefficient for the same nodes; optimizing an already known ratio interval would by itself be routine.
 
-## Closest sources and limits
+## value
 
-Komisarski–Wąsowicz, 2017 (arXiv:1612.08086, Theorem 5 and Proposition 4); Wąsowicz, 2026 (arXiv:2601.16796, journal Theorem 1); Komisarski–Wąsowicz, 2022 (DOI 10.1007/s00010-022-00868-4, sections on optimal degree-three blends). No theorem for general sign-changing sixth derivatives, alternative quadrature nodes, noisy observations, or floating-point certification is asserted. Unindexed priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This sharp coefficient improves an existing a posteriori certificate for a standard, already implemented rule pair. The old q=1/4 weight genuinely has worst-case coefficient 1/4, approached at the small-ratio end. The minimax weight reduces it to about 0.22036, an 11.85% reduction with the same seven evaluations per panel, and identifies the precise limit of what that gap and the sign assumption can ensure among linear blends. No wall-clock speedup or floating-point guarantee follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

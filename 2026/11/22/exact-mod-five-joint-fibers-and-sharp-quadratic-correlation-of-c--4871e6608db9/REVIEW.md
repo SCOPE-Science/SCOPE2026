@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Laurent-polynomial digit argument verifies a Lucas factorization for both sequences modulo five; it gives the exact five-digit exponent pairs \((0,0),(0,1),(3,1),(1,1),(2,0)\). Discrete Fourier inversion on \((\mathbb Z/4\mathbb Z)^2\) supplies all sixteen counts; explicit eigenvalue cancellation proves the paired-row identities, and Parseval establishes the squared interaction. Direct independent standard-library checking of the integer recurrence, finite digit products, and 25 complete finite-block spectral calculations passed 7,041 exact assertions. Tests were used as corroboration, not as proof for infinitely many levels.
+PASS
 
-## Originality — PASS within inspected evidence
+For either Laurent polynomial and n=5q+d, its dth power has exponents in [-4,4], so the product with a polynomial in x^5 has constant term only from two zero exponents. Frobenius therefore gives exact digit multiplication modulo five. The direct residues give the increments (0,0),(0,1),(3,1),(1,1),(2,0), so all n have nonzero residues and a padded length-L word is one of 5^L equally counted words. Convolution on (Z/4Z)^2 diagonalizes with the four rows 2+3i^s, i^s, 2−i^s, i^s. Inversion gives the table including L=0. For the differences of opposite rows only odd r contribute: they cancel for rows 1 and 3, and sum to the character delta at f=L mod 4 for rows 0 and 2. At L=3, f=0 requires zero second-coordinate increments, so first coordinates are even; for f=1 and f=2 there is a spare digit giving increment 2 if needed, and for f=3 choosing three first coordinates from {0,1,3} spans all four. At L=4 both missing cells occur, and zero padding preserves all cells. Adding high digit 4 in pairs creates infinitely many distinct indices with each unchanged pair. Projection off the marginals kills modes with r=0 or s=0; the nine remaining squared magnitudes are 9 once, 5 twice and 1 six times. Parseval gives (3); the (2,2) mode yields the 3^L checkerboard, with the remaining absolute amplitudes bounded as in (4). The full-table energy uses additionally 13 twice and 1 four times after removal of the constant, consistent with (8). The (2,0),(0,2),(2,2) modes give 1, (−1)^L, 3^L; dividing by block length and subtracting the product of the means gives the stated covariance. Direct sparse Laurent multiplication, not the digit recurrence, recovered the L=3 missing pair positions and all L=4 cells (minimum count 16, cross sum 81), via python3 /workspace/branches/independent-reproduction/arithmetic_review.py. Frozen checker inspected, not executed; the finite replay is corroboration.
 
-The exact same objects occur in Sun (2010), and their single-coordinate modulus-five digit behavior is analyzed in Rampersad--Shallit (2021). Those established inputs and general constant-term methods from Straub (2022) and Beukers (2022) are explicitly credited. The inspected literature and research-record matches did not state the evaluated same-index sixteen-cell cross distribution or the exact mixed interaction energy; closest records concern lagged central trinomial residues or one-coordinate Delannoy images. The general method makes an implicit earlier derivation possible; this is an explicit priority limitation, not a claim of exhaustive search.
+## originality
 
-## Value — PASS
+PASS
 
-A complete distribution of two related number-theoretic sequences is not determined by their individual distributions. The all-level pair spectrum gives a sharp, exceptional near-perfect row symmetry and a quantitatively nontrivial positive quadratic-character dependence with a clean exact decay. The value lies in a natural complete simultaneous classification and unexpected exact cancellation, not in the mere existence of a generic finite-state computation.
+The pass is for the evaluated same-index mod-five trinomial–Delannoy interaction and exact block classification, not the generic Lucas congruence, constant-term scheme, existence of a joint automaton, or Fourier inversion. The closest indexed cross-sequence table concerns different sequences, and the closest same-sequence tables and correlations do not supply the Delannoy coordinate or a cross-character law. No inspected statement gives an equivalent evaluated interaction. The synthesis is elementary and the comparison is not exhaustive.
 
-## Closest literature and limitations
+## value
 
-- Rampersad and Shallit, 2021, arXiv:2110.06244, Section 3: central trinomial residues modulo five, including the Lucas rule and uniform recurrence; no same-index Delannoy partner in the evaluated result.
-- Sun, 2010, arXiv:1008.3887: both generalized central trinomial specializations and individual arithmetic congruences; no matching evaluated sixteen-pair theorem found in material inspected.
-- Straub, 2022, arXiv:2205.09902; Beukers, 2022, arXiv:2211.15240: general constant-term congruence machinery, not the particular computed joint table.
-- Closest research records: all-lag two-point central trinomial modulo five (different coordinate), ternary central Delannoy spectrum (different prime and no pair), and another Delannoy-polynomial fixed divisor spectrum.
+PASS
 
-Only the fixed prime five, complete \(5^L\) blocks, and the specific pair are proved. Independent scientific validation has not taken place.
+The two standard generalized-trinomial specializations give a natural test of what the known marginal laws miss. The closed-form interaction after removing both marginals distinguishes dependence from bias: a sharp dominant mixed mode, exact opposite-row cancellations and an exact support threshold are useful explicit data, beyond constructing an automaton or printing a finite table. The result is a narrow evaluated invariant for this pair and prime.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

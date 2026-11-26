@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:44.229468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With y=ell+1 the Peter–Weyl scalar has the sign of a_y+b(a_{y-1}+a_{y+1}); division by the irrep dimension does not change the sign. The neighbor-ratio tail is 2+12/y^2+O(y^-4), so the maximum is attained and exceeds 2. An independent exact symbolic check recovered both the x-derivative (the prime in Step 2 is partial_x at fixed q) and the polynomial for the adjacent difference. R_2>R_1; for q<=0 the displayed polynomial is positive on x>=2, while for q>0 it has a unique sign change in x>1 by its u-derivative and its value at u=1. Strict continuous unimodality precludes nonadjacent or triple maximizing ties. Descartes plus the endpoint signs gives a unique positive adjacent crossing; unimodality at a tie orders the next crossing strictly later. The crossings cannot accumulate at a finite q, since at any q beyond that bound all integer ratios from index 2 would then strictly increase, contrary to their tail. Scaling u=qt locates the continuous turning point at u/q tending to 3; the discrete maximum is one of its two integer neighbors. In this range the central second difference of a divided by a equals a''/a+O(q^-2)=12(x^2-q)/(x^2+q)^2+O(q^-2), giving the sharp large-mass formula. At a PSD threshold the finitely many missing blocks can only support a measure with a finite Fourier polynomial density; a nonzero finite atomic measure cannot have such a density. For uniform density, a missing matrix block annihilates the RKHS by a Haar-functional, whereas positive weights everywhere include all matrix coefficients. The supplied checker was inspected, not executed. Separate bisection on the exact-ratio expression at y=2,3 corroborated the given approximate roots.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5666d49c8fcc allows arbitrary finite real character-polynomial masks including the present mask, but its finite inequalities require geometric Abel weights (ell+1)r^ell.",
+          "The compact-manifold/compact-group Matérn and positivity constructions fix the general spectral framework; the compact-group theorem is a nonnegative-character criterion, not a comparison of the resolvent ratios."
+        ],
+        "reasoning": "Wider masks with a different fixed base are not broader in the resolvent direction. Even a representation of the base as a mixture of Abel kernels would not imply the exact sharp signed boundary of that mixture from pointwise Abel cone membership.",
+        "searches": [
+          "Resultary: Abel SU(2) cone and character-polynomial positivity",
+          "arXiv:2006.10160 Section 2.3",
+          "arXiv:2208.14960 Matérn discussion and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:5666d49c8fcc",
+        "Resultary:e9c1c53ae903",
+        "Resultary:027cc81ac50f",
+        "Resultary:3df14ed06eed",
+        "arXiv:2006.10160",
+        "arXiv:2208.14960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Abel finite spectral tail is affine after extracting its geometric factor, unlike the rational resolvent tail here.",
+          "The spherical staircase gives no-skipping for a different multiplier connecting second-neighbor degrees. Character positivity supplies the sign reduction but not unimodality, crossing order or asymptotic location."
+        ],
+        "reasoning": "The nonstandard part is the specific resolvent-ratio optimization uniformly in mass, not a specialization of the Abel finite-cone or spherical geodesic-exponential threshold.",
+        "searches": [
+          "Resultary 5666d49c8fcc, Finding and Proof Sections 1–3",
+          "Resultary e9c1c53ae903, Finding and Proof Section 4",
+          "arXiv:2208.14960 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e9c1c53ae903 is on round S^3, hence the same underlying geometry, but uses e^(-a theta) and cos(2 theta)=(chi_2-chi_0)/2, not chi_1=2 cos(theta).",
+          "Resultary 027cc81ac50f and 3df14ed06eed use circle Fourier weights and different geodesic exponentials."
+        ],
+        "reasoning": "Rewriting the spherical kernel and mask in SU(2) characters still gives different spectral weights and index couplings, so the exact active-index problem is not equivalent.",
+        "searches": [
+          "Resultary: signed SU(2) squared-resolvent modulation, SU(2) character-polynomial positivity, circle staircase",
+          "web: SU(2) Matérn squared resolvent signed character multiplier positive definite sharp covariance Fourier mode staircase Clebsch Gordan ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact query surfaced the bound result d162e5022ed7 itself. The S^3 comparison uses quadratic crossings for a different kernel and does not tabulate these degree-six transitions."
+        ],
+        "reasoning": "No inspected independent formula or table reports the specified q_y; the identical record is not an independent priority match.",
+        "searches": [
+          "Resultary: signed SU(2) squared-resolvent modulation; circle staircases and Abel cone",
+          "web: SU(2) Matérn squared resolvent signed character multiplier positive definite sharp covariance Fourier mode staircase Clebsch Gordan ratio"
+        ]
+      },
+      "rationale": "Positive type and universality reductions are standard, and an every-mode staircase is already known on the same S^3 geometry for different radial weights and a different character mask. The exact unsuppressed staircase, transition polynomials and large-mass sharp boundary for the squared-resolvent weights do not follow from the inspected statements. Priority is assessed on that distinct content rather than on the existence of spectral switching in general.",
+      "residual_risks": [
+        "Search is bounded; an older Chebyshev, Green-function or resolvent formulation might identify the same rational optimization by a transformation not located here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different spectral base, no sharp resolvent implication",
+          "evidence": [
+            "Abel weights (ell+1)r^ell, finite d+1 inequalities, affine tail."
+          ],
+          "identifier_or_url": "Resultary:5666d49c8fcc",
+          "material_read": "Finding; Proof Sections 1–3",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Finite positive-type and universality cones for character-polynomial Abel kernels on SU(2)",
+          "trigger": "Identical group and inclusive multiplier class"
+        },
+        {
+          "assessment": "Material structural overlap without equivalence of coefficients",
+          "evidence": [
+            "Base e^(-a theta), cos(2 theta) modulation, quadratic transitions."
+          ],
+          "identifier_or_url": "Resultary:e9c1c53ae903",
+          "material_read": "Finding; Proof Section 4",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "A two-sided positivity cone and every-mode staircase for geodesic-exponential kernels on S^3",
+          "trigger": "Same geometry and exact adjacent-degree staircase"
+        },
+        {
+          "assessment": "Different group, base and spectral sequences",
+          "evidence": [
+            "Geodesic exponentials with cos(2 theta) and cos(theta) circle modulation."
+          ],
+          "identifier_or_url": "Resultary:027cc81ac50f; Resultary:3df14ed06eed",
+          "material_read": "Findings and proof Sections 1–3 and 2 respectively",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Exact every-mode staircase for even-harmonic geodesic-exponential circle covariances; Sharp circle covariance modulation threshold and an unbounded Fourier staircase",
+          "trigger": "Analogous Fourier switching"
+        },
+        {
+          "assessment": "Provides base spectral construction, not signed switching",
+          "evidence": [
+            "Spectral weights via Laplace–Beltrami eigenvalues on compact manifolds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.10160",
+          "material_read": "Section 2.3, p. 4",
+          "method": "OA primary PDF passage",
+          "title": "Matérn Gaussian processes on Riemannian manifolds",
+          "trigger": "Parent Matérn construction"
+        },
+        {
+          "assessment": "General harmonic framework, no resolvent-ratio staircase in the inspected passages",
+          "evidence": [
+            "Stationary kernels via nonnegative character expansions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.14960",
+          "material_read": "Matérn discussion p. 6, Theorem 1 p. 8",
+          "method": "OA primary PDF passages",
+          "title": "Stationary Kernels and Gaussian Processes on Lie Groups and their Homogeneous Spaces I: the compact case",
+          "trigger": "Compact-group Matérn and Fourier positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp one-parameter admissibility boundary is useful for a natural signed perturbation of a standard covariance. Which irreducible block goes singular is nontrivial and changes without skipping through an unbounded set of modes; the large-mass formula quantifies the loss of admissibility. The strict-positive-definiteness versus universality distinction describes what remains usable exactly at the boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

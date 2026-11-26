@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:21.699266Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected; not executed",
+        "Independent replay: python3 /workspace/branches/audit_analytic.py"
+      ],
+      "rationale": "Independence and the one-sided reflection principle give S_i and the killed kernel at variance 2D_i t. The cycle mean is μ, finite and positive for N>2 by the t^(−N/2) survival product. Finite-mean nonlattice regeneration at the common zero gives the stationary normalized cycle occupation measure. Integrating each tagged killed kernel to −Rc_j gives the Gaussian integral over [Rc_j,Rc_j+2L_j]; an untagged kernel instead integrates over [−L_i,L_i]. Independently of the frozen dominated-convergence argument, let U_i be independent uniforms over these respective intervals. Tonelli permits integrating t first, giving the exact joint probability A Γ(ν)4^ν/μ times E[(∑ U_i²/D_i)^(−ν)]. Since J is nonempty and the tagged depths are fixed positive, the scaled quadratic form converges uniformly over the windows to ∑ c_j²/D_j and stays bounded away from zero. This yields the claimed limit and positive prefactor for every J, including all coordinates. Dividing the pair constant by the one-coordinate constant gives (D_j/(D_i+D_j))^ν. The bounded positive side and tail integration give exactly p<N−2 and logarithmic divergence of the boundary truncated moment. Independent compact-box quadrature reproduced μ≈0.35698468349 and limiting constants 1.16798046352 and 0.38932682117, and tested a pair at unequal depths.",
+      "residual_risks": [
+        "Quadrature is a spot check, not an asymptotic proof. The tail comparison is at common physical depth, so it can be asymmetric. The conventional equal-marginal-quantile lower-tail coefficient instead equals 2^(−ν); the frozen formula is explicitly for equal depths. Parameters and relative depths are fixed and no uniformity is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Mauro et al., equations (36)–(39), pp. 8–9: intervals are external",
+          "Biswas–Majumdar–Pal p. 1: completion-time objective",
+          "Biroli et al. p. 1: constant-rate Poisson reset"
+        ],
+        "reasoning": "Neither external-age law gives the first-hit survival product and killed kernels of the frozen model. General occupation and mixing methodology is background, not independent novelty.",
+        "searches": [
+          "arXiv:2509.06658, simultaneous non-Poissonian resetting stationary mixture",
+          "arXiv:2504.13501, threshold-triggered target search",
+          "arXiv:2211.00563, Brownian gas extreme statistics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.00440v2",
+        "Resultary c03a80e1262c",
+        "arXiv:2509.06658",
+        "arXiv:2504.13501 p. 1",
+        "arXiv:2211.00563 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Common-D,L hypotheses in 2512.00440v2 and c03a80e1262c; independent window integration of the heterogeneous killed kernels"
+        ],
+        "reasoning": "The homogeneous density supplies the homogeneous case, including the exponent and moment cutoff. On the full parameter domain its common survival factor S(t)^N cannot be used as the arbitrary product ∏ S_i(t), and the sharp common-depth conditional coefficient can vary with D_j/D_i. The derivation is a targeted heterogeneous application of known tools, not a new renewal principle.",
+        "searches": [
+          "Biroli–Majumdar–Schehr equations (10)–(13); c03a80e1262c theorem; compare threshold and diffusivity scalings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c03a80e1262c, RESULT.md offsets 0–3973: all-tagged directional tail and moment cutoff with common D,L, plus a Gamma age law",
+          "Biroli–Majumdar–Schehr, equations (1)–(5) and (10)–(13): common D,L and exact mixture"
+        ],
+        "reasoning": "Threshold normalization leaves D_i/L_i² unequal, and diffusion normalization leaves L_i/√D_i unequal. Both can be made common only when L_i/√D_i is constant; separate time rescalings would change the common trigger. The exact homogeneous overlap is credited.",
+        "searches": [
+          "Resultary: fixed-population first-passage resetting gas multivariate Pareto excursions",
+          "arXiv:2512.00440v2, finite-N killed renewal mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c03a80e1262c theorem and limitations (offsets 0–3973 and 7800–10998): homogeneous prefactor, directional tail, cutoff and conditional age"
+        ],
+        "reasoning": "Although this is a symbolic family, not a finite table, the exact formula is the relevant comparator. The located exact catalogue formula is missing general heterogeneous survival μ and dependence on the tagged diffusivity ratios.",
+        "searches": [
+          "Resultary: heterogeneous threshold-resetting Brownian gas stationary joint negative tails / unequal diffusivities",
+          "Resultary: multivariate Pareto excursions and conditional age"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp joint coefficient across all nonempty tagged subsets of an arbitrarily heterogeneous system, including its common-depth conditional consequence. The exact homogeneous stationary mixture, N>2 cutoff, and homogeneous case of the tail theorem are covered. The strongest exact overlapping catalogue statement has common D and L, plus a conditional age law; it cannot normalize away arbitrary ratios L_i/√D_i. The external-interval stationary mixture does not give the killed conditional kernels of this state-triggered reset model. No inspected statement establishes the fully heterogeneous joint asymptotic or its parameter dependence.",
+      "residual_risks": [
+        "Broader regular-variation or regenerative-mixture work may implicitly supply this specialization. The search is bounded, and no catalogue-date ordering is used as proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identical thresholds and diffusivities and gives the homogeneous density and stationarity threshold, not the general heterogeneous amplitudes.",
+          "evidence": [
+            "Common D,L; killed propagator, renewal density, conditional mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.00440v2",
+          "material_read": "Model and equations (1)–(5), (10)–(13), HTML offsets approximately 9500–18718",
+          "method": "Read primary HTML equations and compared parameter domains and tail implication",
+          "title": "First Passage Resetting Gas",
+          "trigger": "Same global trigger and stationary Brownian gas"
+        },
+        {
+          "assessment": "Exact common-D,L overlap; extra age law is not the heterogeneous tail theorem.",
+          "evidence": [
+            "All-tagged directional tail, q<N−2, common Brownian diffusivity and common barrier."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c",
+          "material_read": "RESULT.md offsets 0–3973 and 7800–10998, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read theorem and limitations; compare normalization and heterogeneity hypotheses",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law in a first-passage resetting gas",
+          "trigger": "Exact fixed-N joint negative-tail and moment statement"
+        },
+        {
+          "assessment": "External reset-interval construction; does not establish the threshold-killed heterogeneous constants.",
+          "evidence": [
+            "The reset-age law and the conditional position densities are from externally timed resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+          "material_read": "Equations (36)–(39), PDF pp. 8–9, offsets 44700–48589",
+          "method": "Read the stationary mixture and compare interval mechanism",
+          "title": "Dynamically emergent correlations under simultaneous non-Poissonian resetting",
+          "trigger": "Potential broader stationary regenerative mixture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen model, Finding and limits",
+        "Comparison with the homogeneous finite-N law"
+      ],
+      "rationale": "A single finite population has a genuinely shared heavy-tailed renewal age. The exact directional coefficients quantify which large excursions still co-occur at a common physical depth, and distinguish dependence on diffusivities from the thresholds that affect the absolute rates. The moment cutoff also gives concrete integrability information in a stationary regime. These are natural observables of the model; the heterogeneous family is not an arbitrary parameter slice.",
+      "residual_risks": [
+        "No large-N scaling, equal-quantile asymmetry, or change-of-trigger claim follows. The dependence proof uses known regenerative machinery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

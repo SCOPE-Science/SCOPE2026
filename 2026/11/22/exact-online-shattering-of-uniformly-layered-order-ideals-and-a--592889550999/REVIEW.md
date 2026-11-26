@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Traces of the formula \(p<y\) on any finite named poset are exactly its lower ideals by a valid one-point extension. The glued Boolean-cube representation gives the exact residual rank recurrence. A two-level induction proves the boundary-cube lemma: a boundary query loses to a full-cube query, while a balanced full-cube query reduces the number of intact cubes on both sides, giving the stated floor-logarithm at every width and height. The VC formula is the poset width. Elementary integer inequalities prove the uniform zero-or-one entropy deficit and first strict occurrence at five levels. Two genuinely different implementations independently verified 28 literal cases, 19,180 version-space states, and 155 abstract cases. The proof, not a finite experiment, establishes the infinite statement.
+## correctness
 
-**Originality — PASS within inspected literature, provisional priority.** Littlestone (1988) supplies the definition and generic complete mistake-tree method. The existing publicly accessible bounded-width order-ideal paper proves an XP dynamic program for all bounded-width posets and an exact result on two-row product grids; its full argument does not state the explicit layered-weak-order identity or universal five-level first gap. The published root-and-two-edge-arms paper solves a different poset geometry. These sources logically permit computing finite instances, but neither states nor immediately implies the all-height closed form without the new boundary-cube lemma. Targeted published-finding corpus queries for online ranks of stacked antichains, ordinal sums of Boolean lattices, five-level information gaps and aliases returned no exact prior assertion. This is best-knowledge originality, not certified priority; separately indexed online learning, lattice or poset literature may contain an equivalent formula.
+PASS
 
-**Value — PASS.** The uniform layered family is a natural fixed-width class of finite parameter structures in the homogeneous universal poset, not an arbitrary selected instance. The result gives the exact optimal adversarial online mistake complexity of all its definable traces, demonstrates unbounded online-versus-VC separation at every fixed width, and identifies both a uniform one-bit upper deficit and its sharp first onset, height five. The proof identifies an order-of-cubes mechanism that explains this information loss. This is more than a special numerical computation or restatement of the generic recursion.
+An ideal is empty or is specified by its last nonempty level and a nonempty subset of that level; all strictly lower levels are full. This gives 1+h(2^w−1), and exactly the antichains can be shattered. The one-point extension above any such ideal realizes the strict-order trace over the named finite poset. The critical online recurrence is exact: a query in a full cube at position j leaves the earlier or later full cubes with one additional (w−1)-cube at the cut and possibly the outer boundary cube. At zero full cubes, one boundary cube has rank w−1 and two have the same rank by width induction. With t≥1 full cubes, querying an end boundary has an outer branch of rank w−2; a full-cube query gives minimum residual rank w−1+floor(log2 min(j,t−j+1)), maximized at a middle cube. This proves the formula for all w,h, with w=1 given by threshold search. For s=floor(log2(h+1)), the counting bound lies between w−1+s and w+s; at h=1–4 substitution gives no deficit, and at h=5 the interval 2^(w+2)≤5·2^w−4<2^(w+3) gives the first deficit for every w≥2. RESULT.md lines 15–51 is the all-parameter proof. The supplied verify.py and verification_output.txt were inspected; their finite checks were not rerun and are not needed for the induction.
 
-**Scientific limits.** Only uniform level sizes are covered. The global infinite-poset class is not assigned a finite rank. Other descriptions of the same Boolean ordinal sum may contain historical equivalents; independent mathematical audit and comprehensive historical certification are unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the uniform layered closed rank and sharp five-level entropy boundary, not for the general ideal-rank recurrence, VC-width equality, or the threshold rank of a chain. The closest broader exact algorithm requires a separate analysis to solve its recurrence on this family. Distinct same-day results inspected do not supply that solution.
+
+## value
+
+PASS
+
+The result supplies an exact online benchmark in a natural class of fixed-width posets, including the first place a realizable decision tree must lose a bit relative to the number of ideals. The rank stability under small boundary cubes explains that loss and is more informative than tabulating ranks or just observing a static/online separation on chains. Scope is uniform positive widths and finite traces only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

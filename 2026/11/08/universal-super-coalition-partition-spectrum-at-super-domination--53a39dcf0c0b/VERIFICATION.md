@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,19 +21,6 @@
 
 # Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter and no network access or third-party packages. The program independently tests the super domination witness definition, generates the feasible-pair graph, computes disjoint edge pairs, exceptional perfect matchings, and triangles, then compares exact formulas with exhaustive enumeration of all unordered vertex set partitions.
+The five-vertex claim and its minimality are established by the explicit feasible-pair lists and the complete connected four-vertex table in `RESULT.md`. Check a proposed pair by testing for a selected neighbour exclusive to each omitted vertex. This test does not require enumerating all five-vertex graphs to establish the obstruction.
 
-Observed successful results from the standalone verifier:
-
-```text
-MULTIPARTITE_EXHAUSTIVE_OK 15
-ALL_SIX_VERTEX_GRAPHS_OK 24509
-SEEDED_OTHER_GRAPHS_OK 7 197
-SEEDED_OTHER_GRAPHS_OK 8 108
-SAME_SET_POLYNOMIAL_DIFFERENT_COALITION_SPECTRA_OK
-VERIFY_OK
-```
-
-The complete six-vertex scan considers all labelled simple graphs with six vertices, filters graphs with isolated vertices and those with feasible omitted triples, and directly checks the complete partition-count formula on each of the \(24{,}509\) eligible labelled graphs. The 15 multipartite profiles include the exceptional six-vertex boundary. Larger checks use a fixed pseudorandom seed and test all partitions in each retained graph.
-
-This checks many finite instances; the general unrestricted claim follows from the symbolic case analysis in `RESULT.md`, not from sample extrapolation. The verification is not independent mathematical validation, and no independent audit was performed. Literature originality assessment remains provisional because the motivating manuscript's full text was unavailable.
+The original `verify.py` uses the witness condition and exact unordered set partitions to check a wider range of graphs. Its subcheck `SAME_SET_POLYNOMIAL_DIFFERENT_COALITION_SPECTRA_OK` concerns the two six-vertex examples in `RESULT.md`; it does not check the five-vertex cutoff. To reproduce that six-vertex subcheck together with the rest of the script, run `python3 verify.py` using a standard Python 3 interpreter.

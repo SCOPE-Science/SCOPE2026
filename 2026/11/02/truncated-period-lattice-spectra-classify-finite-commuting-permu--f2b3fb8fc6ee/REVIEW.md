@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stabilizer test is quantifier-free in a one-variable **function-symbol** language: subgroup generators give an upper orbit bound and distinct coset terms give its matching lower bound. The distinguishing formula uses only the claimed number of variable names. The permanent pebble invariant preserves every unary-term equality and each distinct occupied orbit. The Hermite normal form and subgroup count justify the generating product. The independent direct term evaluator tested 54,114 cross-subgroup point configurations. The separate exact finite checks are corroboration only.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. The closest literature considered finite-variable pebble equivalence (Grohe and Otto, 2012), logics of a single permutation in a different relational signature (Albert, Bouvel and Féray, 2018), and identification by counting logic for relational structures (Kiefer, Schweitzer and Selman, 2015). The inspected relevant sections neither state nor imply the full commuting-bijection function-symbol truncation classification, exact width threshold, and Euler-product spectrum without a separate orbit-geometry argument. Searches of published research records for stabilizer lattices, commuting functions, and multiplicity truncation returned no equivalent result. A more general classical theorem concerning finite unary algebras might still subsume it; this remains a real residual risk.
+PASS
 
-## Mathematical value
-PASS. This is a complete all-width, unrestricted-depth classification of the natural class of finite actions of \(\mathbb Z^2\) (equivalently two commuting permutations), extending the cycle decomposition viewpoint to sheared period lattices. The exact minimal identifying width, unique smallest models, and index-sum Euler product connect finite-variable expressive power to finite-index subgroup growth. The sharp contrast with one-variable counting logic specifies the exact source of information loss. The result is not a claim of a broader theorem for arbitrary algebras.
+A finite transitive action of the named commuting permutations is a coset action Z^2/H. In the stated HNF, two nonnegative-word equalities put both generators of H in the point stabilizer, and pairwise inequalities between the ab coset terms force exactly ab orbit points, hence exact H. Same-orbit membership within that type is likewise a disjunction of nonnegative-word equalities. If the smaller multiplicity is r<k, a sentence with r+1 point variables picks representatives of r+1 distinct H-orbits; this gives the lower bound in the exact width formula. Conversely, maintain an actual orbit isomorphism on each currently occupied matched pair of orbits, extending the pebbled correspondence. This preserves every atomic equality of composed unary terms. Once the active variable is removed at most k-1 occupied orbits remain. Entering a previously occupied orbit uses its isomorphism; entering an unoccupied orbit of type H has a free counterpart by matching exact counts below k and at-least-k counts above. Induction on formula formation gives equivalence at unrestricted quantifier depth. This includes empty structures: absence of every type is equivalent to emptiness and any nonempty type is visible with one variable. The first differing width is the minimum over the witness types. Minimal size is attained only by the componentwise minimal spectrum and the types determine a unique isomorphism class. Counting H-points yields index times multiplicity, enough for one-variable counting. HNF's determinants ab and a possible shears give sigma_1(h) independent types at each h; expanding the multiplicity choices yields the formal product, with finitely many contributions to any degree. The finite check outputs corroborate, but are not used for the general proof.
 
-## Scientific limitations
-The claim applies only to finite commuting bijections with **function symbols**; changing to relational successor predicates changes the logic. No quantifier-rank bound or external independent certification is asserted. Published historical coverage may be incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+In the inspected literature the pebble method, composition principles, and subgroup normal forms are inherited. There is a close component-truncation analogue for a single relational permutation and a prior census of the same commuting permutation systems in a different counting signature. Neither supplies the two genuine unary functions, all widths, and the exact stabilizer-indexed minimum-representative census. This is a bounded statement comparison, not a historical priority certificate.
+
+## value
+
+PASS
+
+The theorem identifies exactly what information bounded variables lose in a natural family of finite actions. Arbitrarily large orbit geometry remains visible with one variable, while only multiplicity above the width is lost. The sharp minimal width, unique smallest model, and counting contrast are useful structural consequences, and the resulting canonical-size profile links logic to subgroup growth. The case is not just a numerical Euler product or a relational-language restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

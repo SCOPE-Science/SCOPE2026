@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:41.612060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45, VERIFICATION.md, VERIFY_OUTPUT.txt and verify_trivial_abelian.py; supplied solver was inspected, not executed.",
+        "Independent replay: /workspace/branches/2e6f8fbe-19ab-46f2-96d6-2c310046d9c0/record4_independent_check.py and record4_independent_check.out.txt. Exhaustive binary words and compositions through length 16, and sum/GF coefficient agreement through length 500. T(8,8)=10, with eight four-run words."
+      ],
+      "rationale": "A mixed Abelian square has both letters in both halves, so it cannot lie across just one boundary. Across two boundaries it requires an even complete middle run, and an even middle run gives such a factor using one letter of each outside run. The prior five-run obstruction handles either parity of the middle run by adding an endpoint letter when necessary. In four runs a^h b^i a^j b^k, the factors a^j b^i a^j b and a b^i a^j b^i witness failure respectively when h≥j and k≥i, once i,j are odd. Conversely a factor spanning all three boundaries has its midpoint in run two or three, and respectively the counts of a or b cannot agree under h<j and k<i, including the cut between the inner runs. For each positive composition the two orientations and the three-run middle-run parity give the stated first terms; the four-run terms count odd j with x/2<j<x and odd i with y/2<i<y, giving floor(x/4)floor(y/4) per orientation. The monochromatic boundary and omitted empty word are consistent. The one-variable series follows by specialization and has leading pole 1/[8(1−z)^4] at 1 and no other pole of order above two, giving the asserted asymptotic.",
+      "residual_risks": [
+        "Finite tests are not the proof. This classification does not count mixed square occurrences, circular factors, or words on more than two letters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General run counts include a Hamming-weight restriction but do not specify the square condition. The same-date reconstruction theorem recovers words up to reversal from sets of factor Parikh vectors, not from ordered adjacent half-pairs. The later indexed four-run record describes distinct Abelian-square-content counts but its full formula was unavailable from the local mirror."
+        ],
+        "reasoning": "Run enumeration needs the exact admissible run conditions, and reconstruction is not a classification of avoiders. A formula for every four-run word's distinct square contents could detect avoidance by comparison with the monochromatic contents determined by the largest runs, but the summary does not establish its full scope, coverage or earlier availability.",
+        "searches": [
+          "arXiv:2602.10005v2, abstract",
+          "Resultary 2026/10/26/SCOPE-five-run-rigidity-and-the-first-collisions-of-binary-factor-comp--6dca7adb09bd",
+          "Resultary 2026/11/8/SCOPE-exact-abelian-square-content-counts-and-parikh-minima-for-four-r--5d3bd307d058"
+        ]
+      },
+      "checked_sources": [
+        "Fazekas et al. arXiv:2604.23188v1",
+        "Fici–Saarela Dagstuhl report Lemma 3",
+        "Balado–Silvestre arXiv:2602.10005v2 abstract",
+        "Resultary 6dca7adb09bd",
+        "Resultary 5d3bd307d058 indexed summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old sufficiency proof works for all splits with the same four conditions; it does not rule out any remaining splits. Its canonical construction gives only one split per orientation at (8,8), whereas the complete correct census gives four per orientation."
+        ],
+        "reasoning": "Counting only the old construction undercounts. Extending its proof gives the right sufficient family, but exhaustive counting still requires the forbidden factors for all complementary run cases and the positive composition count.",
+        "searches": [
+          "arXiv:2604.23188v1, proof of Theorem 12(a), offset 23800",
+          "Frozen RESULT.md lines 29–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Only trivial factors means exactly no mixed Abelian-square factors in these binary words. Fazekas et al. exclude five runs and prove avoidance for effective four-run words; their proof uses the conditions i,j odd, h<j and k<i, not the minimality of their selected odd split."
+        ],
+        "reasoning": "The five-run obstruction and four-run sufficiency should be credited to the earlier arguments. The inspected statements and proofs do not establish the converse for four runs with noncanonical splits, which is necessary for an exhaustive generating function.",
+        "searches": [
+          "Focused web query for binary mixed/non-trivial Abelian-square avoidance, run classification, and exact enumeration",
+          "arXiv:2604.23188v1, Theorems 3, 10 and 12",
+          "Fici–Saarela, Dagstuhl report, Lemma 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Table 3 tabulates minimum numbers of distinct Abelian squares and sample attaining words for length 18 by composition, not the number of words with no mixed square. The closest catalogue record with explicit four-run counts is the later square-content hit."
+        ],
+        "reasoning": "Minimizing square counts differs from minimizing mixed counts to zero, and examples at one length do not give the composition census. The inspected table is not an equivalent tabulation.",
+        "searches": [
+          "arXiv:2604.23188v1, Table 3, PDF offset 20700",
+          "Local Resultary search for composition-refined avoidance and four-run Abelian-square content"
+        ]
+      },
+      "rationale": "The five-run obstruction is known, and the proof of the prior sufficient effective-word construction already gives four-run sufficiency using exactly odd inner runs and the two strict outer/inner inequalities. The independent addition is the converse for arbitrary four-run words and the complete composition and length counts, rather than the old obstruction, the sufficiency proof, or just summation of a prior complete characterization.",
+      "residual_risks": [
+        "The later square-content record's full formula could imply the four-run part; it could not be compared at theorem level from the local mirror. This is not evidence for or against full equivalent coverage.",
+        "Bounded literature and catalogue searches do not exclude an unindexed complete predicate or enumerator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Five-run proof and four-run sufficiency covered; no complete converse or census in the examined results",
+          "evidence": "Theorem 12(a) splits by which runs a factor crosses; its argument uses parity and the strict inequalities. The theorem selects effective partitions minimizing the longer odd side, rather than stating necessary and sufficient conditions for arbitrary run lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.23188v1",
+          "material_read": "Theorem 3 proof p. 1, offset 2350; Table 3 p. 6, offset 20700; Theorem 12 and proof pp. 6–7, offset 23800",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "Binary Words Containing Few Abelian Squares",
+          "trigger": "Same avoidance property, exact four-run sufficient construction, and prior tables"
+        },
+        {
+          "assessment": "Conditional lower bound on the square count, not an avoidance enumerator",
+          "evidence": "The lemma applies when all Abelian squares are trivial and bounds the number of squares in a single word.",
+          "identifier_or_url": "doi:10.4230/DagRep.4.3.28",
+          "material_read": "Dagstuhl report p. 7, Lemma 3, OA offset 19900",
+          "method": "Lawful OA report",
+          "title": "On the Minimum Number of Abelian Squares in a Word",
+          "trigger": "Prior theorem under the same trivial-square hypothesis"
+        },
+        {
+          "assessment": "General run enumeration is related, with no square-avoidance claim in the inspected passage",
+          "evidence": "The abstract includes Hamming-weight constraints but not an adjacent equal-Parikh-factor avoidance test.",
+          "identifier_or_url": "arXiv:2602.10005v2",
+          "material_read": "Abstract p. 1, OA offset 0; abstract-level comparison only",
+          "method": "Lawful OA PDF",
+          "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+          "trigger": "Possible general enumeration theorem including fixed composition"
+        },
+        {
+          "assessment": "Different, reconstruction claim",
+          "evidence": "Reconstruction is from the set of factor Parikh vectors up to reversal, not a criterion for repeated adjacent Parikh vectors.",
+          "identifier_or_url": "Resultary 6dca7adb09bd",
+          "material_read": "Mirrored RESULT.md statement and proof, offsets 0–7395",
+          "method": "Local Resultary mirror",
+          "title": "Five-run rigidity and the first collisions of binary factor compositions",
+          "trigger": "Same-date, same alphabet and comparable run bound"
+        },
+        {
+          "assessment": "Potentially related dominating invariant; full implication and priority not established",
+          "evidence": "The hit describes exact content counts and a minimum in the four-run family; it is not reported as a complete avoidance census over every composition and number of runs.",
+          "identifier_or_url": "Resultary 5d3bd307d058",
+          "material_read": "Indexed summary only; identified mirrored RESULT.md absent",
+          "method": "Local Resultary comparison and attempted exact mirror read",
+          "title": "Exact Abelian-square content counts and Parikh minima for four-run binary words",
+          "trigger": "Closest catalogue hit about exact four-run square content"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–48; Fazekas et al. Theorems 2, 3 and 12"
+      ],
+      "rationale": "The class is motivated by the known lower-bound program for binary words having only trivial squares. The converse distinguishes all such words from examples selected to have few trivial squares, and the exact composition law makes it possible to identify the full admissible class at every weight, rather than list canonical examples. The length asymptotic quantifies the size of that structurally characterized class. The finding does not claim to solve the minimum-square conjecture.",
+      "residual_risks": [
+        "Applies to mixed-square avoidance in linear binary words only; the size of this class does not determine what occurs in nonavoiding words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:16:18.621380Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inverse Fourier transform of the symmetric frequency indicator is real; its square is nonnegative, in L1 and L2, and bandlimited to 2Q_t. The integer samples of each translate are the Fourier coefficients of its phase-multiplied transform on the unit frequency cube. Parseval therefore gives the claimed norm and inner-product identities for every real shift, not just samples; the common norm is positive. Convolution gives the product density proportional to (2-|eta|)^2 in each coordinate and covariance (2/5)I. The small-argument quadratic estimate and the uniform positive gap away from zero together control every lattice translate, including distant translates when taking the quotient infimum. For a finite set, truncation and renormalization control all quotient distances additively, hence relatively by the least nonzero pair distance. Base-s coding is injective on the support difference set: subtract two candidate differences and reduce coordinatewise modulo s, using strict bounds smaller than s. This matches all nonzero-shift correlations in both directions and preserves positivity and normalization. Splitting the distortion budget between the torus model and the truncation proves the stated finite claim; singleton sets are trivial. Finite determination of real L1 distortion then transfers the Khot–Naor obstruction. The supporting numerical script was inspected, not run; an independent direct evaluation reproduced 0.00130208333333074 approximately for the four listed shifts using the stated 20001 terms. This is a sampling check, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das–Rosendal realize flat tori in unrestricted real sphere quotients, including finite sets after coding; their obstruction theorem targets Hilbert space.",
+          "Khot–Naor Theorem 5.1 and Corollary 5.2 supply flat tori with unbounded L1 distortion."
+        ],
+        "reasoning": "A theorem embedding into a larger signed target does not ensure that its image lies in the nonnegative subspace. Likewise nonembeddability of a containing metric space need not extend to a subspace.",
+        "searches": [
+          "arXiv:2610.31468v1, Theorem 1.1, Theorem 3.2, Proposition 4.1 and Corollary 4.2",
+          "arXiv:math/0510547, §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_sampling.py",
+        "Local Resultary index and matching mirror record above",
+        "arXiv:2610.31468v1",
+        "Khot–Naor, arXiv:math/0510547 / Math. Ann. 334 (2006), §5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the two prior papers already gives an L1 obstruction in the unrestricted signed quotient. The coding is reusable verbatim on already nonnegative finite-support data."
+        ],
+        "reasoning": "The positivity-preserving torus model with exact shift covariance, constant norm, and near-Euclidean local kernel supplies the missing implication. Neither cited result provides it by specialization.",
+        "searches": [
+          "Das–Rosendal Theorem 3.2 and Proposition 4.1; Khot–Naor §5; RESULT.md proof steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cosine-integral formula in Das–Rosendal Theorem 3.2 gives real unit representatives but does not impose nonnegative coefficients.",
+          "The closest inspected local Fourier positivity record concerns probability measures exact for first-band characters and an empty-square radius, not translation-orbit metrics."
+        ],
+        "reasoning": "Nonnegative amplitudes are a restriction on representatives, not a relabeling of the signed quotient or the same as positive frequency density. Translation and the known finite coding do not turn signed entries into nonnegative ones.",
+        "searches": [
+          "Resultary: positive shift-orbit flat-torus embeddings, nonnegative Fourier-square sampling and integer translation quotient",
+          "Primary-literature lookup for nonnegative unit signal shift quotients and flat-torus distortion",
+          "arXiv:2610.31468v1, §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched local record studies first-band-exact positive measures, not this finite-subset embedding statement. The four sample sums check a normalization only."
+        ],
+        "reasoning": "An exact numerical table cannot cover this universally quantified existence and nonembeddability theorem; the local lookup tested for an indexed statement or construction rather than matching a decimal.",
+        "searches": [
+          "Resultary local searches for positive signal shift-orbit obstructions, positive Fourier-square torus sampling and flat-torus L1 lower bounds",
+          "2026/11/16/SCOPE-sharp-first-band-fourier-hole-radius-and-rigidity-on-the-two-tor--6bf7c0fed446"
+        ]
+      },
+      "rationale": "Credit prior flat-torus embeddings and finite coding for unrestricted signed shift orbits and the known flat-torus L1 obstruction. The distinct supported finding is the nearly isometric realization by nonnegative real unit signals, and its consequence for that smaller quotient. The strongest located results do not supply this realization under the positivity constraint.",
+      "residual_risks": [
+        "Bounded search does not rule out an older unindexed positivity-preserving embedding or sign-elimination reduction. No priority claim is made for the signed construction, coding, or flat-torus lower bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior signed construction and finite coding; not coverage of the nonnegative claim",
+          "evidence": "Cosine-integral coordinates and exact coding on finite supports; sign preservation is not sign elimination.",
+          "identifier_or_url": "https://arxiv.org/html/2610.31468v1",
+          "material_read": "Theorem 1.1 (offset 3294), §3 Theorem 3.2 (offsets 14165–20657), §4 Proposition 4.1 (21603–27603) and Corollary 4.2",
+          "method": "Primary HTML passages",
+          "title": "A sphere obstruction for the Hilbert shift quotient",
+          "trigger": "Same torus and shift quotient construction without explicit positivity"
+        },
+        {
+          "assessment": "Covers the flat-torus obstruction used as input",
+          "evidence": "Suitable n-dimensional flat tori have L1 distortion bounded below by an absolute constant times sqrt(n).",
+          "identifier_or_url": "https://cs.nyu.edu/~khot/papers/nonembed-final-new.pdf",
+          "material_read": "§5, Theorem 5.1 and Corollary 5.2, PDF p. 17, text offset 55664",
+          "method": "Primary PDF extract",
+          "title": "Nonembeddability theorems via Fourier analysis",
+          "trigger": "Source of the quantitative L1 obstruction"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Positive probability measures exact for first-band characters and sharp empty-square radius; no signal-orbit metric or L1 embedding.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-first-band-fourier-hole-radius-and-rigidity-on-the-two-tor--6bf7c0fed446",
+          "material_read": "RESULT.md matching statement, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "Sharp first-band Fourier hole radius and rigidity on the two-torus",
+          "trigger": "Topical local match involving Fourier positivity and tori"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonnegative unit constraint removes the signed model used in the prior embedding. Recovering the flat-torus finite metrics with arbitrarily small loss inside the smaller quotient shows that signal positivity does not remove its L1 obstruction. The constructive finite-realization statement is stronger than just a single bad example and is useful independently of the known lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

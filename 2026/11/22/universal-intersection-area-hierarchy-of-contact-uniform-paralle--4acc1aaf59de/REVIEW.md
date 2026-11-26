@@ -1,19 +1,21 @@
-# Scientific assessment: contact-uniform parallelogram inellipse intersections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses identify the uniform-contact measure and exclude degenerate ellipses. An affine normalization preserves the side parameter and normalized area. The proof obtains an exact pointwise coverage interval, proves it stays within the available contact-parameter interval, and applies independence and Tonelli to an explicitly evaluated beta integral. The pairwise trigonometric kernel follows from an exact radial minimum integral with one crossing in each first-quadrant angular sector; algebraically the four common boundary points are distinct and transverse. The gamma quotient gives the integer-large-\(m\) expansion. Numerical quadrature and incidence diagnostics test computations independently but are not used as infinite proofs.
+PASS
 
-## Originality — PASS, with residual historical risk
+Normalize the parallelogram affinely; normalized arclength on the selected straight side is the uniform affine parameter and the area Jacobian cancels. For a centered ellipse written with a positive definite shape matrix, the support distances in the coordinate directions are square roots of its diagonal entries. Equal opposite supporting distances force center zero and tangency forces both entries one. With off-diagonal k, positive definiteness is |k|<1 and support in the first direction is attained at (1,k), proving the required classification and measure. The coverage quadratic in k is (k−xy)²≤(1−x²)(1−y²); the full interval lies in [−1,1] by Cauchy–Schwarz. Its normalized length is the square root of the right-hand side. Taking the mth power by independence, Tonelli and the substitution r=x² give the square of B(1/2,1+m/2) divided by 4, yielding π²/16 and 4/9. The gamma quotient with z=m/2 has correction −3/(8z); squaring gives the advertised −3/(2m) relative correction. Independently, rotate to principal coordinates U,V and integrate vertical slices in the positive quadrant: the l ellipse has the smaller height up to U₀=√[(1+k)(1+l)/2], after which k has the smaller height until U=√(1+k). In each integral set U=√(1+c) sin ψ. At the switch ψ_l=(π−α)/2 and ψ_k=(π−β)/2; the sinψ cosψ terms cancel, leaving the stated kernel, also continuous at k=l. Subtracting the two conic equations gives (x+y)²=(1+k)(1+l) and (x−y)²=(1−k)(1−l); their two independent sign choices give four points even for k+l=0. All contacts on the square boundary differ, so the four crossings are interior. Their gradient determinant is 4(l−k)(x²−y²) up to sign, nonzero since the product (x+y)(x−y) is nonzero. These exact checks resolve the claims; inspected frozen quadratures were not executed and are not needed for proof.
 
-Direct scientific comparison distinguishes the classical all-inellipse parametrization and its area/extremal results (Horwitz 2008), the incidence-count geometry of the inellipse pencil (Horwitz 2015), generic ellipse-overlap calculation algorithms (Hughes–Chraibi 2011), and touching-conic nets (Bobenko–Fairley 2021). None states the present exact contact-uniform point-coverage function, the all-integer beta-square expected-intersection hierarchy, or the full two-parameter elementary area kernel in the inspected content. The closest published related mathematical records treat a different random center distribution in nonparallelograms or a specialized pair of perpendicular ellipses with a different invariant. The precise statements and their implications, not titles, were compared. Historical coverage is not absolute: a 2024 inellipse monograph was only available via its overview, and older geometry literature may contain an equivalent overlap formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete family of all inellipses of every parallelogram, with a geometrically defined contact-uniform sampling rule. The output yields a nontrivial shape-independent all-\(m\) exact hierarchy, the sharp \(1/m\) survival order, an exact pairwise overlap kernel over the complete parameter range, and four-crossing rigidity. The result adds quantitative intersection information absent from the classical single-ellipse area and eccentricity characterizations, and is not just a reparametrization of a preexisting area inequality. It gives an explicit benchmark for random intersections of constrained convex bodies.
+Credit the classical tangent-family equations and point-incidence theory, standard sector overlap computation, and the previously available congruent-perpendicular subfamily of the kernel. The distinct contribution supported here is the contact-uniform all-m mean and full two-parameter exact overlap, with a family-wide crossing count as a geometric consequence of the classical pencil.
 
-## Risks and limits
+## value
 
-The self-review does not establish external priority or independent verification. The theorem is only for parallelograms, side-contact-uniform sampling, and mean intersection area, rather than the full random-area distribution. Historical monograph content remains an accessibility limitation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural sampling on the complete affine family gives an exact shape-independent hierarchy for every sample size, not just an example, and a sharp quantitative decay law. The full deterministic kernel is useful independently of random sampling and goes beyond the known congruent case or an individual overlap computation; four transverse crossings explain the integration geometry. The result is a mean-area law, not a claim about the whole area distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

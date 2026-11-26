@@ -1,11 +1,21 @@
-# Scientific review: Pell–Narayana dyadic value image
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact recurrence, matrix and four integer-valued Mahler expansions are fully specified. Exact integer calculations give the matrix divisibilities and the first two coefficient valuations \((1,5),(3,5),(9,13),(9,15)\); the uniform remainder bound proves each claimed scaled isometry on all two-adic inputs. Two isometries fill the odd and eight-divisible balls, and two more fill the exceptional ball. The remaining index classes are confined by parity and three further explicit Mahler coefficients. The derived cardinality and Haar measure therefore follow at every level. `VERIFY.py` independently checks the finite certificates and all residue sets through modulus \(2^{13}\). No finite enumeration is substituted for an infinite argument.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2023 primary paper (arXiv:2305.04786, §§1–3) and the accessible full-text 2025 group-orbit article explain modular periods, not a classification of the attained residue set. Public search queries concerning Pell–Narayana, dyadic residues, image closure and the fraction 161/256 found no exact equivalent. A closely matching *method* occurs for a Pell–Lucas recurrence, but its second-order defining matrix and image balls differ and do not imply the asserted result. The closest published numerical-semigroup and other Narayana results have different objects. Residual risk: unindexed work on general linear-recursion p-adic images could contain a stronger specialization.
+PASS
 
-**Value — PASS.** Period lengths are a natural arithmetic invariant of this recurrence but leave residue coverage undetermined. The three disjoint balls give a complete and precise local solvability criterion and show a sharp forbidden even shell, with an exceptional class surviving only at depth eight. This is a nontrivial infinite classification of a named third-order integer sequence, not an arbitrary finite table or an incremental small-modulus computation. The exact density \(161/256\) is derived from structural isometries.
+The companion matrix advances (P_n,P_{n+1},P_{n+2}) by one index. Exact recomputation gives entry valuations at least 1,2,4 for K^h−I at h=3,6,24, and the four rows of first and second Mahler coefficient valuations are (1,5),(3,5),(9,13),(9,15). For a row with matrix divisibility exponent s and first coefficient valuation d, uniform convergence follows from v2(c_j)≥sj and the integral binomial basis. Vandermonde and i·binom(t−u,i)=(t−u)binom(t−u−1,i−1) give the binomial difference bound v2(t−u)−floor(log2 j). The j=2 valuations exceed d+1. For j≥3, floor(log2 j)≤j−2 proves the required sj≥d+1+floor(log2 j) in each row (check at j=3 with this stronger linear bound, then slopes s≥1). Thus the linear term determines the exact difference valuation. The normalized maps induce injections of Z/2^k into itself and hence bijections for all k. With continuity and compactness this proves the four full branch disks, including the two complementary 512-disks centered at 258 and 2. For containment, the two nonzero classes mod 3 are odd, n=6t lies in 8Z2, and n=6t+3 has constant 2 modulo 256 since its next three coefficients are 256,29184,3330304 and all later ones are divisible by 4^4. Nonnegative parameter lifts of any finite residue yield infinitely many indices. The even disks collide only at k=1; from k=2 onward all three projections are disjoint, giving the stated cardinalities and Haar measure 161/256. The all-level argument does not depend on the finite recurrence period test.
 
-**Scientific limits.** No claim about within-period multiplicity, odd primes, arbitrary recurrences or independent validation is made. An implicit prior general theorem remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary work has exactly the same recurrence and seeds, and gives prime-power periods, but not the residues within the periods. The closest prior three-disk theorem concerns a different, second-order recurrence, and analogous Narayana-cows results concern coefficient 1 rather than 2. The supported distinct claim is the exact image and its containment and surjectivity, not the period theorem or the standard Mahler machinery.
+
+## value
+
+PASS
+
+For the natural Pell–Narayana recurrence, periods leave open a different arithmetic question: which target values are achievable to arbitrary dyadic precision. The answer isolates a particularly thin even disk at level 256, distinguishes infinitely many hits from unattained residues, and supplies an exact density and all finite-precision counts. The isometric-subsection method also explains how the thin disk is filled, rather than extrapolating it from a finite scan.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

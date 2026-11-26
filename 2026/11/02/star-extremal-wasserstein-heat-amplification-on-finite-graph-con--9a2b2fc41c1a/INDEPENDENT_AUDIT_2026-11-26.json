@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:19.635463Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite Kantorovich duality and the edge formula for the Lipschitz seminorm reduce the operator norm to evolved edge pairs. The hub mode has eigenvalue −(d+1), while the mean-zero peripheral subspace evolves by e^(−t)R_t with R_t=exp(tQ_H), since Q_H annihilates constants and is symmetric. Fixing the hub potential at zero, the signed hub-edge mass has peripheral coordinates α−a q_v, where a=e^(−t), b=e^(−(d+1)t), α=(a−b)/d and q=R_t(y,·). Optimizing over the larger star potential cube gives dα+a−2 sum min(α, a q_v)≤a+(d−2)α, with equality only if q is supported on one point: either all a q_v<α and the sum is a, or one already contributes α and all others must vanish for equality. A nonisolated y has positive probability of zero jumps and of exactly one jump to a neighbor at any t>0. For an isolate the star-optimal potential with opposite values at y and the other peripheral vertices remains feasible on the cone. For an internal edge, rate-d uniformization gives at least 2/d row overlap at the first jump (at its two endpoints), retained under subsequent steps in total variation. The zero-Poisson term has transport one, and all subsequent terms have transport at most 2−4/d by the peripheral diameter bound. This gives B_d as in the record: for d=2,3 its scaled bracket is strictly below one at t>0, and for d≥4 direct subtraction gives e^t(F_d−B_d)≥(2/d)(1−e^(−dt)). Thus no internal edge can attain the envelope at positive time. At t=0 all edge costs equal one. Differentiation yields F'_d(0)=d−3 and the given unique interior maximum precisely for d≥4. Using the critical-point relation gives the stated peak formula, and expanding its logarithm gives both asymptotics. Inspected the supplied finite numerical checker without running it; it is not the all-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform lower curvature yields exponential Lipschitz domination; nonnegative curvature also yields W1-to-L1 heat estimates; the Lipschitz-smoothing framework gives Bakry–Émery gradient estimates and L∞-to-Lipschitz smoothing."
+        ],
+        "reasoning": "These broader results have different asserted norms, regimes, or functional forms. They do not give the two-exponential sharp envelope with the isolate criterion.",
+        "searches": [
+          "arXiv:1712.00875, Theorem 3.8; arXiv:1907.13514, abstract; arXiv:2403.00620v2, (1.1)–(1.2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and records listed above",
+        "arXiv:1712.00875",
+        "arXiv:1907.13514",
+        "arXiv:2403.00620v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bouquet formula uses the smallest clique blade s. The curvature theorem controls a single exponential from a uniform lower bound."
+        ],
+        "reasoning": "A general H is not partitioned into clique components; deleting internal edges changes the generator as well as the metric. Neither comparison mechanically bounds all its internal edge-pair costs or detects equality at positive time.",
+        "searches": [
+          "Compare af0b2ef7a2d6 Finding (offsets 815 and 1560) and arXiv:1712.00875 Theorem 3.8 to arbitrary K1∨H"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.8, p. 19, equates curvature lower bounds and exponential heat estimates, including their W1 dual form.",
+          "Record af0b2ef7a2d6 gives an exact heat transport norm on clique bouquets; with the smallest blade s=1 its formula is exactly F_d."
+        ],
+        "reasoning": "The Lipschitz-norm and Wasserstein formulations are the same question; general exponential curvature domination and exact norms on restricted bouquet graphs are not the arbitrary-cone classification.",
+        "searches": [
+          "Resultary: cone, universal hub, apex/join, star heat amplification and Lipschitz semigroup norm",
+          "Münch–Wojciechowski, arXiv:1712.00875, Theorem 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records af0b2ef7a2d6 and 25dfaec57151 reproduce F_d in the singleton minimum-petal and all-singleton cases, respectively. Records adeb94fb4812 and caec40c6443e concern the restricted complete-multipartite class."
+        ],
+        "reasoning": "No inspected exact family formula covers arbitrary internal edges among the periphery. The matching star-profile overlap is credited, not interpreted as a priority verdict.",
+        "searches": [
+          "Resultary: exact all-time Wasserstein amplification on cones, stars, clique bouquets and windmills; complete multipartite heat-kernel profiles"
+        ]
+      },
+      "rationale": "The star formula and the singleton-blade equality case on clique bouquets are already covered by the matching indexed family statements, without an identifiable priority order on the shared date. Best of current knowledge, the bound on every unit-rate cone, and the timewise isolated-vertex iff classification for an arbitrary peripheral graph, are distinct. The general known transport/curvature equivalences do not yield this profile.",
+      "residual_risks": [
+        "Bounded search; equivalent results may use join, apex, or universal-vertex terminology.",
+        "Same-day indexed family records show explicit partial overlap but do not establish ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial overlap on clique bouquets, but not arbitrary cones",
+          "evidence": [
+            "At peripheral size k, s=1 gives 2(k−1)e^(−t)/k−(k−2)e^(−(k+1)t)/k."
+          ],
+          "identifier_or_url": "Resultary af0b2ef7a2d6",
+          "material_read": "RESULT.md Finding offsets 815 and 1560, including smallest-petal rigidity",
+          "method": "Local Resultary mirror",
+          "title": "Exact all-time heat transport and smallest-petal rigidity for clique bouquets",
+          "trigger": "Identical envelope on a subclass"
+        },
+        {
+          "assessment": "Direct star profile and restricted windmill family",
+          "evidence": [
+            "Setting m=1 in the stated equal-blade formula gives F_r."
+          ],
+          "identifier_or_url": "Resultary 25dfaec57151",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Wasserstein heat-flow amplification on equal-blade windmills",
+          "trigger": "Star included with one vertex per blade"
+        },
+        {
+          "assessment": "Restricted graph family, no arbitrary-cone implication",
+          "evidence": [
+            "Both findings specify complete multipartite graphs."
+          ],
+          "identifier_or_url": "Resultary adeb94fb4812 and caec40c6443e",
+          "material_read": "Findings at offsets 392 and 892",
+          "method": "Local Resultary mirror",
+          "title": "Complete-multipartite exact heat transport and amplification records",
+          "trigger": "Closely related exact all-time graph formulas"
+        },
+        {
+          "assessment": "General exponential bound, not the profile or equality case",
+          "evidence": [
+            "Uniform curvature lower bound equivalent to exponential Lipschitz and W1 domination."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.00875",
+          "material_read": "Theorem 3.8 p. 19",
+          "method": "OA primary PDF",
+          "title": "Ollivier Ricci curvature for general graph Laplacians",
+          "trigger": "Equivalent general semigroup formulation"
+        },
+        {
+          "assessment": "Different scale and norm",
+          "evidence": [
+            "W1-to-L1 heat estimate under nonnegative curvature."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.13514",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary PDF",
+          "title": "Non-negative Ollivier curvature on graphs",
+          "trigger": "Wasserstein heat estimates on graphs"
+        },
+        {
+          "assessment": "General smoothing estimates, not sharp cone amplification",
+          "evidence": [
+            "Bakry–Émery gradient and L∞-to-Lipschitz estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00620v2",
+          "material_read": "(1.1) p. 1 and (1.2) p. 2",
+          "method": "OA primary PDF",
+          "title": "Properties of Lipschitz Smoothing Heat Semigroups",
+          "trigger": "Potential broader Lipschitz domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp benchmark holds at all times on a large natural class, including disconnected peripheral graphs, and equality at any single positive time recovers the presence of a pendant vertex. The result captures transient amplification missed by a pure large-time rate. It does not assert a general diameter-two bound for graphs without a hub or give the individual profiles for nonextremizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

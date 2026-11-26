@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:00:21.212231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x=(a,b,c,d)=|w|², distinct powers of the shift occupy distinct diagonals; the squared resolvent norm is 5+E+Q with Q=ab+cd+bc(1+a)(1+d). Reflection flips both differences p=a−d and q=b−c; a strict improvement is possible if pq<0. At fixed A=a+d and B=b+c the exact difference multiplied by 16 is −(B²−q²)p²−(A+2)²q²+8pq. If A,B>0 and q=0, p=0 is necessary. If q=B>0 then p=A is necessary. At 0<q<B a maximum with p<A uses p=4q/(B²−q²)>0; after eliminating p, the objective difference in z=q² is 16z/(B²−z)−(A+2)²z, with strictly positive second derivative. An unsaturated point has an open feasible z-neighborhood and cannot maximize. A=0 is already outer-zero; B=0 yields Q=0 and is suboptimal. Thus the equality reduction is exhaustive, not just a symmetrization inequality for values. On d=0, fixing b>0 forces a=c via their product; the resulting cubic has derivative 2E+(2E−8)y−6y², positive at 0 and negative at E/2, with just one positive root. Reflection handles a=0, and b=0 cannot win on d=0. The palindrome derivative is 2F(u,s−u). For u>0 the positive root v*(u) of F(u,v) has F_v>0 and lies below u+2, so F_u=v²−(2u+2)v−1<0 there. Consequently u+v*(u) increases continuously from zero to infinity, giving one interior maximum, with the derivative positive at the left endpoint and negative at the right. The phase and tie cases follow. For E≤1, dropping v² to its upper bound E²/4 and completing the square yields P≤E²/4+E⁴/12, below the broken trial E²/4+E³/32 when E<3/8. For E≥10, the equal-four trial minus the broken bound is at least E²(−1/16−5E/864+E²/256)>0, since the bracket is positive at 10 and increasing thereafter. Continuity gives a tie, not uniqueness. This independently reconstructs the all-real-budget proof; CHECK.py and VERIFICATION.md were inspected as finite corroboration, not executed or used to prove the reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Szehr, theorem III.1, pp. 7–8, bounds the operator norm of a contraction's resolvent off its spectrum.",
+          "Lawful OA retrieval for Sievewright was unsuccessful (HTTP 403); no theorem-level exclusion was inferred."
+        ],
+        "reasoning": "Szehr targets a different norm and a different feasible domain; even a norm-conversion bound cannot identify all budget-constrained Hilbert–Schmidt maximizers. An unseen general extremal theorem remains a risk, not established coverage.",
+        "searches": [
+          "arXiv:1305.7208, Theorem III.1",
+          "doi:10.1016/j.jmaa.2015.04.027"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially Proof 1–5 and Relationship to prior work",
+        "Resultary a0f6a336e377",
+        "Resultary b54aa40ea2d4",
+        "arXiv:1305.7208 theorem III.1",
+        "doi:10.1016/j.jmaa.2015.04.027 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-coordinate theorem places the largest of three prescribed nonzero magnitudes centrally to maximize positive Schatten moments; it does not reallocate the magnitudes.",
+          "The five-coordinate shadow-fibre theorem minimizes the operator norm for positive weights at fixed numerical shadow, not the Hilbert–Schmidt norm of the resolvent at fixed energy."
+        ],
+        "reasoning": "The rearrangement overlap can at most help order a prescribed multiset on the broken branch. It proves neither the best multiset there nor the reduction from all four-edge allocations to an outer-zero or palindrome, the unique interior root, or the regime change. The shadow-fibre comparison is not a specialization of this claim.",
+        "searches": [
+          "Resultary a0f6a336e377, RESULT.md Finding and Assumptions",
+          "Resultary b54aa40ea2d4, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md, proof step 1: (I−S)^−1 is the bidiagonal inverse whose squared norm is 5 plus the sum of all nonempty contiguous products of squared weights.",
+          "The primary-literature search did not surface a passage treating the associated simplex maximization and all equality cases."
+        ],
+        "reasoning": "Optimizing a bidiagonal-inverse Frobenius norm and optimizing this interval-product sum under a linear budget on the squared weights are precisely equivalent; the elementary matrix identity does not solve either optimization.",
+        "searches": [
+          "Resultary: path interval products resolvent weighted shift fixed sum squared weights Hilbert-Schmidt optimization",
+          "Primary literature: weighted shift resolvent Hilbert-Schmidt norm finite path interval products fixed sum squared weights optimization bidiagonal inverse Frobenius norm theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned ranked neighbors included the assigned record itself and the two distinct records a0f6a336e377 and b54aa40ea2d4. Their Finding and Assumptions describe different optimization domains."
+        ],
+        "reasoning": "No distinct exact database entry with this fixed-energy objective appeared in the query output. The resolved neighboring entries were compared on their actual hypotheses, not excluded based on titles or dates; retrieval is not exhaustive.",
+        "searches": [
+          "Resultary: five site weighted shift resolvent Hilbert Schmidt fixed energy optimizer palindromic sparse branch",
+          "Resultary: strict Schatten rearrangement four-site weighted-shift resolvents fixed multiset",
+          "Resultary: five-site numerical-shadow fibre operator norm transitions weighted shift resolvent"
+        ]
+      },
+      "rationale": "On inspected evidence, the exact fixed-energy value and all optimizers for the length-four edge path survive as a distinct claim. The finite path resolvent expansion itself is routine and is not the originality basis. The strongest inspected neighboring results fix the weight multiset, fix the numerical shadow, or bound an operator norm under a contraction hypothesis; none determines the fixed-budget sparse-versus-palindromic classification.",
+      "residual_risks": [
+        "An earlier equivalent consecutive-product or bidiagonal-inverse extremum could use terminology missed by these searches.",
+        "The Sievewright full text was unavailable; no negative finding relies on it.",
+        "No absolute publication-priority claim or uniqueness of the transition is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related rearrangement, not the fixed-budget claim",
+          "evidence": "Four sites and a fixed multiset of three nonzero magnitudes; permutations only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-strict-schatten-rearrangement-for-four-site-weighted-shift-resol--a0f6a336e377",
+          "material_read": "RESULT.md Finding and Assumptions, initial passage",
+          "method": "Local mirror passage comparison",
+          "title": "Strict Schatten rearrangement for four-site weighted-shift resolvents",
+          "trigger": "Closest resolvent optimization overlap"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Operator-norm minimization under fixed complete numerical shadow with positive weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-two-sharp-norm-transitions-within-a-five-site-numerical-shadow-f--b54aa40ea2d4",
+          "material_read": "RESULT.md Finding and Assumptions, initial passage",
+          "method": "Local mirror passage comparison",
+          "title": "Two sharp norm transitions within a five-site numerical-shadow fibre",
+          "trigger": "Same site count and transition theme"
+        },
+        {
+          "assessment": "General resolvent context, not this optimizer theorem",
+          "evidence": "Contraction and nonspectral parameter hypotheses, operator-norm conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.7208",
+          "material_read": "Abstract (p. 1) and PDF theorem III.1 (pp. 7–8)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Eigenvalue estimates for the resolvent of a non-normal matrix",
+          "trigger": "General resolvent bound potentially implying the optimum"
+        },
+        {
+          "assessment": "Not adjudicated from full text",
+          "evidence": "No negative coverage inference from access failure.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2015.04.027",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "OA retrieval attempt returned HTTP 403",
+          "title": "Spectral radius algebras and weighted shifts of finite multiplicity",
+          "trigger": "Cited weighted-shift literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed squared gain is a natural allocation constraint, and the squared Hilbert–Schmidt inverse norm measures aggregate response in all basis directions. On the first path where the outer-zero and positive palindromic allocations compete, the proof gives a global design reduction and the complete extremal profiles, and demonstrates that an edge must be inactive at sufficiently small budget but active at large budget. The structural support change and equality classification, rather than evaluating a single finite polynomial, are the contribution. No operator-norm, larger-chain, or unique-transition claim is credited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

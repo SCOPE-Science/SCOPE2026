@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:23:03.258132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen correctness fails: the exact off-node piecewise-quadratic CDF and its density rely on the false parenthetical ‘in fact, linearly’ in the paragraph after Ostrovski's Theorem 5.1. The same primary source separately establishes the geometric foliation, with parallel intervening polygon sides and continuity (Corollary 5.4); the repair does not use the linearity assertion. In the leaf qP₁ the K corner edges have area Jacobian qtd apiece because det B=1 and Bv₀=(t,s) give det(v_j,v_{j+1})=−td, and the horizontal side segment of length 1−q contributes t(1−q) per unit dq. Hence the area disintegration gives total leaf mass M(q)=4t[1−(1−Kd)q], so the outside area is 4tq−2t(1−Kd)q², strictly increasing on 0≤q≤1. The map preserves q and area, so it preserves the atomless full-support conditional circle measure for a.e. q. The orientation-preserving action in the normalized cumulative-mass coordinate is a rotation, with displacement qtd/M(q) measured on the arc qv₀→qv₁. Continuity gives this ratio on every interior leaf. Thus q(r)=4r/[d+4(1−Kd)r], not affine interpolation. At K=3, r=1/14, the exact q is (1+d/2)⁻¹ and the frozen q is (1+3d/7)/(1+d); their exact positive difference is (30√2−41)/833. Since outside area increases strictly, this refutes the frozen CDF. The corrected rational law and density are obtained by substitution and differentiation; endpoints give no atoms, r(q_N)=1/[4(K+N)], and the original node laws, leading tail, and logarithmic truncated mean survive. The repaired moment statement quantifies all real exponents p<1 since T≥4K also bounds negative moments. I independently reduced the determinant, first-step and left-eigenvector identities modulo s²=t(1−t), f²=1−4t² and expanded the two logarithms in √(1/2−t); their coefficients match the repaired derivation of 4K²−32K/3+128/45. The frozen finite script was inspected, not executed; its integer-index polygon tests could not detect the off-node error. Complete corrected result, verification notes (original front matter preserved), and slogan are provided separately; the frozen package is unchanged. This PASS is for those corrected scientific claims, not for the original interpolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original theorem and corollary give the resonant family, nested distinguished periodic leaves and complete parallel-sided intervening foliation, with continuous monotone rotation numbers.",
+          "The core-area record 22de24ee92be gives the innermost polygon area and states the first two resonance-angle asymptotic terms."
+        ],
+        "reasoning": "The original map and interpolation construction are a stronger geometric description of the object, but it does not correctly compute its off-node rotation coordinate. An invariant-measure conjugacy on a circle is a general mechanism, not a result giving the q-dependent arc and full leaf masses needed for this law. The angle asymptotic in the core-area record does not reach the order needed for the constant term in C_K.",
+        "searches": [
+          "Ostrovski arXiv:1305.4282v1 Theorem 5.1, interpolation argument, Corollary 5.4 and Appendix",
+          "Local Resultary Ostrovski foliation and parameter-asymptotic searches"
+        ]
+      },
+      "checked_sources": [
+        "Ostrovski arXiv:1305.4282v1 §§2, 5 and Appendix inputs",
+        "Resultary 9d9a41caf0a3 and 22de24ee92be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "q_N and 1/[4(K+N)] from the source pin the law only on the distinguished set. The source's local triangle return construction uses different return durations, and its prose incorrectly interpolates rotation itself.",
+          "The area normalization and a node threshold asymptotic can yield the leading reciprocal tail by monotonicity without any off-node result."
+        ],
+        "reasoning": "The new calculation uses the full conditional perimeter measure induced by area and the mass of one step. This corrects, rather than directly specializes, the source's rotation-coordinate assertion. The exact CDF is not implied by a continuum first-order expansion or the samples at r_N; the refined C_K coefficient uses higher Taylor orders of the implicit parameter relation.",
+        "searches": [
+          "arXiv:1305.4282v1 §5 Lemma 5.3 and Corollary 5.4, Appendix resonance relation",
+          "Resultary 22de24ee92be exact normalization and angle asymptotic; 9d9a41caf0a3 exact slow levels and continuum asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9d9a41caf0a3 gives exact Lebesgue masses at r_N=1/[4(K+N)], the normalized reciprocal tail and infinite mean, and a small-rotation asymptotic with remainder O_K(r²). It does not give the exact law at off-node r.",
+          "Ostrovski asserts continuous and ‘in fact, linearly’ varying rotation numbers along the intercept. The recovered Möbius coordinate agrees at nodes, but disagrees with that off-node assertion."
+        ],
+        "reasoning": "Equal-area quantiles, survival at inverse rotation thresholds, and the density are interchangeable if exact at all thresholds. The inspected node equalities and tail are only partial matches, and the linear off-node assertion is not equivalent to the corrected law.",
+        "searches": [
+          "Resultary: Ostrovski square map slow-winding area, inverse rotation survival, invariant annulus rotation-number density",
+          "arXiv:1305.4282v1 §5, between proof of Theorem 5.1 and Corollary 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026-10-26 record 9d9a41caf0a3 states the matching discrete-threshold formula after identifying its shear parameter with d and its area normalization with 2t(1+Kd); also the matching fixed-K leading coefficient 16t/d. This catalog date follows the frozen 2026-10-19 record.",
+          "2026-10-18 record 22de24ee92be concerns the exact innermost polygon area and its own resonant asymptotic."
+        ],
+        "reasoning": "The earlier core area already determines W by complement, and the later record genuinely duplicates the node law and tail. Neither provides the repaired exact distribution between nodes or the higher-order C_K expansion; record dates do not resolve earlier unobserved circulation.",
+        "searches": [
+          "Resultary 9d9a41caf0a3 exact slow-winding area law and 22de24ee92be core area"
+        ]
+      },
+      "rationale": "On the repaired claim, the distinct parts are the correct off-node rotation coordinate and full area pushforward, which correct the interpolation assertion in the motivating paper, and the displayed higher-order large-K asymptotic of the leading coefficient. The foliation, distinguished levels and earlier core area are prior inputs. The exact node-law and leading tail overlap substantively with a separately indexed but later-dated finding; they are not counted as the distinguishing content here.",
+      "residual_risks": [
+        "The comparison uses bounded local catalog searches and the decisive original paper passages; it is not an exhaustive historical search. Related thesis or unindexed exact calculations could contain an equivalent corrected coordinate.",
+        "The later dated exact partial overlap does not establish the order of any private or unindexed earlier circulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometry, discrete levels and continuity are valid credited inputs; the parenthetical linearity assertion is refuted, and no corrected area pushforward is stated in the passages examined",
+          "evidence": [
+            "Intervening circles consist of segments parallel to the polygons in the proof. It explicitly says the rotation number ‘changes continuously (in fact, linearly)’ as W moves on E₁P₁ from X to Y. Corollary 5.4 asserts only continuity and monotonicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.4282v1",
+          "material_read": "§5 interpolation after proof of Theorem 5.1 and Corollary 5.4, PDF pp. 7–8 (PDF text offsets 24700–28975); also compared the §2 map and resonant auxiliary quantities used in Lemmas 5.2–5.3 and the Appendix",
+          "method": "Read the actual interpolation paragraph; compare invariant polygon shape, exact level values, and claimed linearity against the invariant arc-mass computation; independently check the left-eigenvector used in the resonance expression",
+          "title": "Dynamics of a Continuous Piecewise Affine Map of the Square",
+          "trigger": "Identical map and quantifiers, original geometric and interpolation assertions"
+        },
+        {
+          "assessment": "Exact overlap of node masses and leading inverse-rotation law; later indexed date; does not give corrected off-node law or large-K constant term",
+          "evidence": [
+            "Same thresholds 1/[4(K+N)], normalized tail and infinite mean, coefficient 16t/d, and O_K(r²) remainder for small rotations."
+          ],
+          "identifier_or_url": "Resultary:9d9a41caf0a3",
+          "material_read": "Mirrored RESULT, exact threshold statement and small-rotation / inverse-rotation consequences",
+          "method": "Identify d and W in the two parameterizations; compare node and off-node domains and fixed-K versus large-K asymptotics",
+          "title": "Exact slow-winding area law for the integrable Ostrovski square map",
+          "trigger": "Strongest catalog hit on identical map and tail"
+        },
+        {
+          "assessment": "Supplies normalization and some asymptotic ingredients only",
+          "evidence": [
+            "Exact inner area, 10/(3K²)+O(K⁻³) scaling of core area, and π/4−θ_K=K⁻¹+(1/3)K⁻²+O(K⁻³)."
+          ],
+          "identifier_or_url": "Resultary:22de24ee92be",
+          "material_read": "Mirrored finding of innermost polygon area and resonance-angle asymptotic",
+          "method": "Use complement for W and compare the order and observable of its K expansion",
+          "title": "Quadratic vanishing of the unfoliated core in an integrable piecewise-affine square map",
+          "trigger": "Earlier exact geometry and resonant scaling on identical map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected formula gives a canonical area distribution at all rotation thresholds on a natural positive-area invariant annulus, rather than just at selected periodic boundaries. It resolves a concrete error in the original off-node rotation description, yields the exact reciprocal survival law with its finite-moment cutoff, and separates the leading rare-slow-rotation coefficient from the tail's higher-order resonant scaling. This is a useful exact invariant and correction of prior literature, not a routine recomputation of one core area.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:19:48.203636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67",
+        "Frozen VERIFICATION.md and verify_liouville_stride.py inspected, not executed",
+        "Independent finite replay: node /workspace/branches/replay-4.js"
+      ],
+      "rationale": "At each prime the quotient valuation is the sum over powers p^j of max(0,N_{p,j}-1). A term can contribute only if two window terms share the power, hence p^j divides a nonzero difference (i-i')c and j<=v_p(c)+floor(log_p k). This gives the claimed period divisor c*lcm(1,...,k). CRT separates the means, and every odd-prime sum has odd numerator. For the binary mean m_t of a consecutive window, separating out even terms yields exactly (1): halving a window of u even terms costs u-1 in valuation. Both child pairs in the proof have one odd and one even numerator over a common power-of-two denominator, including the m_2,m_3,m_4 bases. This excludes equality and opposite unit values in adjacent pairs for u>=2. Thus only t=3 and its doublings give zero, and only powers of two give unit means, with m_{2^r}=(-1)^(r-1) for r>=1. For the arbitrary stride, the classes v_2(n)=j<e contribute the fixed sign (-1)^(kj) with weight 2^(-j-1), and the divisible class contributes 2^(-e)*(-1)^(ke)*m_{k+1}; its odd unit is a residue permutation. For even k and positive e the odd-length m has modulus<1, so the mixture is positive; for odd k its zero requires m=(1-(-2)^e)/3, namely 1 or -1 at e=1 or 2 and outside [-1,1] beyond. This proves all branches including k=1. Independently enumerated 190536 starts over complete periods for 128 (k,c) pairs via the telescoping identity G=product_i gcd(lcm of earlier terms, next term). Computing each gcd by lcm of pairwise gcds and evaluating Liouville by a sieve gives exactly the predicted finite zero set.",
+      "residual_risks": [
+        "The finite replay is corroboration only. The density is over all starts for each fixed k and stride, not a uniform limit with changing parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October value law gives the joint valuation PGF for every b+a(q+i), with scaling by d=gcd(a,b) and omission of primes dividing a/d. Every residue class n mod c is one such law, taking a=c and b the residue. Averaging over b mod c gives the full all-start value distribution, not just its period."
+        ],
+        "reasoning": "For 2^e||c and v2(b)=j<e, the normalized stride is even, so its binary factor is omitted and scaling contributes (-1)^(kj); if 2^e divides b, the normalized stride is odd, so scaling contributes (-1)^(ke) times the stride-one binary mean. The class proportions directly produce (4). Equivalent local period results ensure the signed mean can be tested at prime two only.",
+        "searches": [
+          "Resultary SCOPE-exact-value-frequency-law-for-consecutive-arithmetic-progression--8e35eb7b4fbc, Finding and scaling proof",
+          "Hong–Qian arXiv:0903.0530v3, p. 1; Farhi–Kane arXiv:0808.1507v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34529d61f621 and 8e35eb7b4fbc, original passages",
+        "Huang–Yang arXiv:2611.15379v1",
+        "Hong–Qian arXiv:0903.0530v3",
+        "Farhi–Kane arXiv:0808.1507v1",
+        "Targeted external literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The valuation PGF at -1 and uniform class mixing give the arbitrary-stride binary mean; odd-prime means cannot vanish because they average an odd number of signs. The exact consecutive word result gives m=0 exactly at 3*2^r and m=+/-1 exactly at powers of two with sign (-1)^(r-1). At positive e and even k, the mixture can only possibly vanish at e=1 with m=-1, ruled out by the odd window length. With odd k it vanishes iff m=(1-(-2)^e)/3, equal to +1 at e=1, -1 at e=2, and impossible for e>=3."
+        ],
+        "reasoning": "This obtains the full frozen zero set using only specialization, elementary averaging and arithmetic on existing exact statements. A differently organized proof does not supply a distinct result here.",
+        "searches": [
+          "Exact consecutive word sums 34529d61f621, equations (4), (6)–(9), local mirror offset 2720",
+          "AP valuation PGF 8e35eb7b4fbc, local mirror offset 350"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The multiplicative-function quotient in Huang–Yang with f=Liouville, a=1 and b=0 is the same sign sequence, because Liouville is completely multiplicative. Sign balance is vanishing of the finite-period signed mean. In the AP frequency law it is obtained by setting all prime variables to -1 and including the scaling sign."
+        ],
+        "reasoning": "The period literature covers the object and periodicity, not the zero criterion, but the exact frequency formulation yields the signed mean itself.",
+        "searches": [
+          "Resultary: Liouville parity cancellation and arithmetic-progression LCM quotient value frequencies",
+          "Literature lookup for product/LCM Liouville sign and fixed arithmetic progressions",
+          "Huang–Yang arXiv:2611.15379v1 definition and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The consecutive record states exactly the stride-one zero set; more strongly, for window length M+r, M=2^h, 1<=r<=M, its local mean is (-1)^(M-1-h)S_h(r)/M. The midpoint sum is zero; for non-midpoint 1<=r<M its valuation is 1+v2(r); at r=M it is -M (h>=1). The h=1 case is explicit and k=1 is treated separately."
+        ],
+        "reasoning": "For interior non-midpoint r, 1+v2(r)<h, ruling out S_h(r)=+/-M. Thus the exact source already supplies the unit-magnitude classification at powers of two, with sign (-1)^h there, not just the odd-stride zero branch.",
+        "searches": [
+          "Resultary SCOPE-exact-liouville-parity-cancellation-for-consecutive-integer-lcm--34529d61f621, equations (2)–(9)",
+          "Targeted literature lookup for exact fixed-stride zero sets"
+        ]
+      },
+      "rationale": "The exact uniform classification follows from already indexed stronger ingredients, not merely from a known period or a table of special cases. The exact AP value-frequency law yields the mixed signed mean by a direct residue-class substitution and evaluation at -1; the same-day consecutive result supplies exact binary word sums strong enough to give both their zero set and all their unit extrema. Combining them gives all three frozen branches by a scalar geometric sum. This is demonstrable coverage by implication and does not infer priority or order from same-day dating.",
+      "residual_risks": [
+        "No claim about relative priority of the same-day records. The separately indexed distinct-prime-factor record 3cea4032cc5d was not available in the local mirror; its summary concerns omega, not the Omega sign here, and is not used to decide coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ingredient for the full implication",
+          "evidence": "Parity, zero set, endpoints and valuation of nonzero interior cyclic word sums.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-liouville-parity-cancellation-for-consecutive-integer-lcm--34529d61f621/RESULT.md",
+          "material_read": "Finding and proof equations (2)–(9), especially offsets 2204 and 2720",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Liouville parity cancellation for consecutive-integer LCM quotients",
+          "trigger": "Exact stride-one overlap and possible coverage of the binary extrema"
+        },
+        {
+          "assessment": "Broader class-conditional laws; direct uniform mixing",
+          "evidence": "Every a,b allowed, explicit normalization by gcd and exact prime-factor PGF with absent normalized-stride primes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-value-frequency-law-for-consecutive-arithmetic-progression--8e35eb7b4fbc/RESULT.md",
+          "material_read": "Finding and start of proof, offset 350",
+          "method": "Local Resultary mirror, same snapshot",
+          "title": "Exact value-frequency law for consecutive arithmetic-progression LCM quotients",
+          "trigger": "Potential broader distribution theorem"
+        },
+        {
+          "assessment": "Period coverage, not the sign zero-set theorem",
+          "evidence": "Its general function specializes directly to the frozen sign sequence with f=Liouville.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15379v1",
+          "material_read": "Definition/abstract and Theorem 1.1, offsets 0 and 7600",
+          "method": "OA original",
+          "title": "On least periods of a class of arithmetic functions",
+          "trigger": "General multiplicative-function AP quotient"
+        },
+        {
+          "assessment": "Period precedent",
+          "evidence": "The statement inspected concerns periodicity, not sign means.",
+          "identifier_or_url": "https://arxiv.org/pdf/0903.0530v3",
+          "material_read": "PDF p. 1, quotient definition and statement on the least period",
+          "method": "OA original",
+          "title": "The least common multiple of consecutive arithmetic progression terms",
+          "trigger": "Exact quotient in fixed arithmetic progressions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equation (4) and classification",
+        "Resultary 8e35eb7b4fbc valuation PGF and 34529d61f621 exact consecutive word-sum equations"
+      ],
+      "rationale": "Uniform sign balance is a natural question and the even-stride families are a useful way of presenting its answer. But as a distinct contribution the frozen result is a direct specialization and mixing of the available exact PGF and exact consecutive word-sum results. No separate useful invariant or bound beyond their evaluated arithmetic consequence is established.",
+      "residual_risks": [
+        "This is not a rejection of the interest of the sign statistic or of the correctness of this presentation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

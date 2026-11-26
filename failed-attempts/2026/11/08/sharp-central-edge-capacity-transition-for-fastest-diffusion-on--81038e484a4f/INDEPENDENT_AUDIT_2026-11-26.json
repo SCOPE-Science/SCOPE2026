@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:26.547348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered increasing test vector has jumps 1 except 2r at the center, so its Rayleigh quotient bounds every feasible allocation, not merely symmetric ones. The prefix identity w_i(x_{i+1}-x_i)=-lambda sum_{j<=i}x_j gives the positive candidate, and with these weights all the vertex equations follow by differencing. Since the resulting tridiagonal Laplacian is irreducible with negative off-diagonal entries, its no-zero-component eigenvector with exactly one sign change is the second mode. Equality in the Rayleigh principle forces the same test vector and hence the same weights for any other optimizer. Summation gives B/u=1+2(m-1)r(r+(2m-1)/3)/(r+(m-1)/2), increasing from B/u0 at r=1/2 to infinity. The candidate saturates the budget on both branches; when r=1/2 the parabolic weights give u0. The affine cap bound [B+(4r^2-1)u]/V_m(r), at fixed r, supports the value function from above at contact. On 0<u<u0 the implicit solution is differentiable, so the derivative equals (4r^2-1)/V_m(r)>0 and goes to zero at u0, joining the constant regime. Solving the budget equation at small u gives r=B/[2(m-1)u]+O(1), yielding the stated second-order expansion. Independent finite tridiagonal eigensolves and finite differences in /tmp/opencode/frozen_1_2_3_checks.py included m=3,B=19,u=3 with gap 1 and cap derivative 3/28. Inspected the uploaded exact verifier without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. give the explicit unique rates and optimal straight-line embedding for any strictly positive d_i and any path length. Wan et al. Theorem 1 gives equal optimal increments for the unit-price budget; Shakeri et al. and Tavasoli et al. concern fixed layers and allocation of interlinks."
+        ],
+        "reasoning": "The earlier arbitrary-price path solution is genuinely broader than the optimizer family used here. Fiedler's unit-price absolute connectivity and the interlayer analogues separately do not establish the capped branch.",
+        "searches": [
+          "algebraic connectivity edge weight budget unequal edge costs path closed form tree edge lengths Fiedler Göring Helmberg weighted absolute algebraic connectivity path arbitrary edge lengths embedding formula",
+          "Wan et al. (2008), Theorem 1",
+          "arXiv:1510.06785 and arXiv:2008.13036",
+          "Sun et al. 2006, §5.2 Paths"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify.py",
+        "Sun et al. (2006) §2, §3.2 and §5.2",
+        "Wan et al. (2008)",
+        "Resultary 124a9f37736a, 7f96525dec6d, 8e7b5e3f9718 and e4e7dfa12883",
+        "arXiv:1510.06785 and 2008.13036",
+        "de Abreu survey, §2 Eqs. (2.1)–(2.6); Göring et al., embedding dual discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d_m=2r and d_i=1 otherwise, the centered embedding of Result 5 has x_i=-(r+m-i) on the left and its negative reflection on the right. Its unit-gap rates are a_i=i(r+m-(i+1)/2) and their reflections for i<m, and a_m=m(r+(m-1)/2)/(2r).",
+          "Scale all rates by u/a_m. At r=1/2 the central fraction of the total is 3m/(4m^2-1). Below that cap the ratio (sum a_i)/a_m is exactly frozen Eq. (1), strictly increasing to infinity; thus there is a unique r>1/2 making the total B."
+        ],
+        "reasoning": "The scaled rates saturate both original constraints and thus the priced budget C; by homogeneity the unique unit-gap optimum from Result 5 scales to the unique optimum at C. Hence the same rate vector, lambda=u/a_m, threshold, and global uniqueness follow with no new spectral theorem. At the switching point the price excess 4r^2-1 vanishes; the cap multiplier and small-cap expansion follow by differentiation and expansion of this same formula. They do not furnish a distinct theorem that survives the exact prior implication.",
+        "searches": [
+          "Sun et al. §5.2 Result 5 and §3.2 homogeneous dual normalizations",
+          "Resultary: weighted spectral-gap uniqueness on alternating-price cycles",
+          "arXiv:1510.06785 fixed layer model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. Eq. (1), p. 683, gives precisely the combinatorial lambda_2 objective on nonnegative conductances, with d_i^2 as the edge prices. Eq. (2), p. 686, is its homogeneous rescaling to min cost at gap 1, used in Result 5."
+        ],
+        "reasoning": "In the binding branch take d_i=1 off center, d_m=2r and priced budget C=B+(4r^2-1)u. The cap-feasible set is contained in this weighted-budget set. An optimizer of the latter that saturates both original restrictions is therefore the unique optimizer of the former. This does not confuse the two feasible sets or assume reflected conductances. At and above the threshold the same argument uses all d_i=1 and C=B.",
+        "searches": [
+          "Resultary: spectral gap allocation with a central capacity and priced path edges",
+          "Sun Boyd Xiao Diaconis Fastest Mixing Markov Process Graph connection maximum variance unfolding path link cost pdf continuous time",
+          "Sun et al., Eq. (1), Eq. (2) and §5.2 Result 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned Resultary match is the record itself. Distinct indexed alternatives give a priced double-star or a priced cycle (including a nonunique threshold optimizer on the four-cycle). The exact prior rates for arbitrary-price paths are given as closed formulas in Result 5.",
+          "Result 5 pp. 695–696 expresses the unique rates at unit gap as the negative prefix sum of the centered positions, divided by d_i; its straight-line embedding has increments d_i."
+        ],
+        "reasoning": "The indexed designs on other graphs were compared but do not imply the path formula. The published exact formula is stronger than a table for finite m and supplies the same entire family of rate vectors.",
+        "searches": [
+          "Resultary: capped even path lambda_2 and exact central edge cost transitions",
+          "2026/11/8/SCOPE-unique-priced-algebraic-connectivity-allocation-for-mirrored-dou--124a9f37736a",
+          "2026/11/2/SCOPE-a-sharp-edge-price-transition-in-spectral-gap-design-of-a-four-c--7f96525dec6d",
+          "Sun et al. Result 5 exact path rates"
+        ]
+      },
+      "rationale": "Sun, Boyd, Xiao and Diaconis (SIAM Review 48 (2006), 681–699) give the unique exact fastest continuous-time allocation on paths with arbitrary positive edge prices, not just uniform prices or an unevaluated optimization framework. Their §5.2 Result 5 specializes to the frozen optimizer via one price and a positive rescaling. The cap-to-price implication below establishes coverage of both phases, the optimizer and uniqueness; the threshold and local behavior are direct algebraic consequences. This failure is based on primary full-text theorem and hypothesis passages, not access uncertainty.",
+      "residual_risks": [
+        "The full texts of Fiedler (1990) and Kirkland–Neumann (2004) were not retrieved through the attempted lawful routes. This leaves historical attribution beyond the decisive 2006 theorem open; it does not affect the demonstrated mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact coverage by specialization and rescaling",
+          "evidence": [
+            "Offsets 6480–8369 specify d_i^2 as price with continuous-time lambda_2; 16830–17838 gives unit-gap normalization; 46400–50331 supplies the arbitrary-price unique path rates and collinear embedding."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Publication page, weighted-resource formulation Eq. (1), homogeneous min-cost formulation Eq. (2), §5.2 Result 5 and its proof, printed pp. 681, 683, 686, 695–696",
+          "method": "Author-hosted OA PDF, bounded passages located by edge-cost query and read by offset",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Earlier closed-form arbitrary-price path solution; exact weighted-budget surrogate for the capped problem"
+        },
+        {
+          "assessment": "Unit-price background, not the decisive arbitrary-cost path theorem",
+          "evidence": [
+            "Printed p. 806, offsets 11919–15807: equal Fiedler jumps on each used edge when the optimum eigenvalue is simple."
+          ],
+          "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/cdc-2008/data/papers/0353.pdf",
+          "material_read": "Abstract, Theorem 1 and neighboring tree section",
+          "method": "OA PDF passages",
+          "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+          "trigger": "Closest cited unit-price tree theory"
+        },
+        {
+          "assessment": "Interlink budget with fixed layers; different feasible variables",
+          "evidence": [
+            "Offsets 0–3187 and 8200–12498: interlink weights only, threshold splitting uniform/nonuniform designs."
+          ],
+          "identifier_or_url": "arXiv:1510.06785",
+          "material_read": "Abstract and fixed-layer one-to-one model, pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Potentially related threshold result"
+        },
+        {
+          "assessment": "Different independent variables and graph for the general family",
+          "evidence": [
+            "Balanced double-star with mirrored spoke prices and a priced hub edge, no separate capacity; it does not cover the family of even paths. No priority inference from same-day date."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-unique-priced-algebraic-connectivity-allocation-for-mirrored-dou--124a9f37736a/RESULT.md",
+          "material_read": "Finding, offset 0–5128",
+          "method": "Local mirror passage",
+          "title": "Unique priced algebraic connectivity allocation for mirrored double-stars",
+          "trigger": "Nearby exact separately priced bridge result"
+        },
+        {
+          "assessment": "Different graph and threshold/equality law",
+          "evidence": [
+            "Cycle with priced closing edge and an interval of reflection-invariant optima at its price threshold 9."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-edge-price-transition-in-spectral-gap-design-of-a-four-c--7f96525dec6d/RESULT.md",
+          "material_read": "Finding and transition proof, offsets 0–4433 and 4400–7691",
+          "method": "Local mirror passages",
+          "title": "A sharp edge-price transition in spectral-gap design of a four-cycle",
+          "trigger": "Related exact price threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The hard-cap question is natural and its concrete formula can be useful. But the entire classification is the explicit one-edge-price restriction of the established arbitrary-price path solution, with an elementary scaling to meet the cap, a one-variable budget equation, and immediate equality and limiting consequences. The frozen result offers no independent new classification or invariant beyond that implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

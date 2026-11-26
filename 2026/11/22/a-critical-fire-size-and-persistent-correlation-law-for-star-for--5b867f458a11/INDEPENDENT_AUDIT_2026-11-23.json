@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:52:26.145896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The killed process is reset to empty at every hub fire, and independent future Poisson increments give iid cycles. The finite chain is irreducible: an occupied hub can clear the system, and from empty any configuration is reachable by a chosen finite sequence of births before strikes. Conditional on hub growth at h, the pre-hub birth/death chain has leaf occupation p_h=(1−e^{−(1+λ)h})/(1+λ). For a post-hub leaf, vacancy weighted by survival is (1−p_h)e^{−u}; surviving occupation is p_h e^{−λu}+(1−p_h)∫₀ᵘe^{−s−λ(u−s)}ds. The latter integral is (V−U)/(1−λ) and is u e^{−u} at λ=1. These weights and the independent hub survival e^{−λu} factorize before the marked kill; multiply the k coefficient by λ(k+1), then integrate in h and u. Both monomial denominators and the algebraic expression for B follow, including continuity at one by domination for λ in a compact positive interval around one using hub survival. Hub lightning ensures total probability one; every k is attainable with positive probability. Independent finite cross-check by first-event conditioning: n=1 gives P(F=1)=λ/(λ+2). For n=2, λ=1, the hub-growth occupancy probabilities are (7/15,2/5,2/15); post-growth birth/kill total rate is 3 in each count state. This gives P(F=1,2,3) as the vector (7/45,64/135,10/27). The supplied checker was inspected, not run; it omits λ=1 and checks finite formula versus generator only. For λ_n=c/n, deleted pre-hub leaf lightning marks up to t have expected count ≤ct, which bounds the discrepancy in leaf fraction from independent growth paths by a quantity tending to zero in probability, uniformly over a compact interval. The empirical CDF of independent Exp(1) birth times converges uniformly. An independent Exp(1) threshold for integrated terminal hazard gives time convergence on compacts since the limiting hazard is strictly increasing after h and diverges; tightness and uniform leaf control give joint convergence, also using the left-limit count just before the fire. Averaging the conditional survival gives S_c, and differentiation cancels the boundary term against the derivative of e^{−t}; the changes y=1−e^{−t}, s=e^{−h} give the displayed density. For stationarity the worst initially vacant leaf survival is (e^{−λu}−λe^{−u})/(1−λ) when λ≤1/2. The uniform conditional product bound e^{2c−cu} holds for all h; it can be integrated against e^{−h}, without assuming the actual post-growth wait independent of H₀. Splitting at H₀=t/2 directly gives an integrable bound e^{−t/2}+e^{2c−ct/2} for the full cycle survival. Dominated convergence in the renewal-reward numerator and denominator yields the stationary age mixture and its fraction. Exchangeability plus bounded first two moments gives the covariance; positivity follows from nondegenerate age. At small c, post-growth hazard ≤c gives M_c≥1/c and P(A_c≤a)≤a/M_c→0. At large c the post-growth wait tends to 0 for each h>0 and S_c≤S_1 for c≥1, giving age Exp(1) and uniform fire and stationary fractions. Their stated endpoint variance follows by bounded moments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graf has identical site clocks but fixed branching r≥2 with tree depth tending to infinity; the theorem concerns destruction of infinite percolation clusters near deterministic τ under exponentially scaled rates.",
+          "van den Berg–Brouwer examine square-lattice critical percolation time and compare directed binary trees; Stahl constructs stationary laws on Z^d. Ráth–Tóth burn clusters in an evolving Erdős–Rényi graph by removing edges rather than burning occupied sites on a fixed star."
+        ],
+        "reasoning": "Neither same local clock rules nor total-lightning scaling alone transfers the all-size marked law or covariance. Changing depth with fixed branching does not include the limit of depth one and unbounded branching; dynamic complete-graph connectivity is different from a hub gating all macroscopic burns. The leftmost observable in the lattice construction, existence of stationarity, is not an evaluation of stationary correlation.",
+        "searches": [
+          "Graf arXiv:1404.0325 §1 definitions and Theorems 1–2",
+          "van den Berg–Brouwer arXiv:math/0412488 abstract",
+          "Stahl arXiv:1203.5533 abstract",
+          "Ráth–Tóth arXiv:0808.2116 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.0325 full relevant sections",
+        "arXiv:math/0412488, arXiv:1203.5533 and arXiv:0808.2116 abstracts",
+        "Resultary 86c46a755dbf, 212035f9f876 and 91b9b9909142 (indexed scientific statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identical graphical construction supplies potential no-fire paths, but not their effective hub-gated hazard or a common regenerative return of all sites under Graf's scaling. A constant-rate total reset has independent Exp age; it cannot recover the hazard which vanishes before random hub growth and then grows with leaf fraction.",
+          "General renewal-reward theory gives the stationary age density once the proper cycle survival and uniform moment control are available; it does not supply S_c or its density/endpoints from the model."
+        ],
+        "reasoning": "No inspected stronger result gives the exact model-specific inputs: marked absorption, conditional survival and correlation once normalized by the model's mean cycle duration. The variance-of-age-mixture identity itself is routine and not credited alone.",
+        "searches": [
+          "Graf arXiv:1404.0325 Definition 1 and Theorems 1–2; Resultary catastrophe-rate staircase 86c46a755dbf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit is the assigned record. Critical source-pinned SIS occupation (91b9b9909142) is also a growing star but uses a permanently infected source and studies its occupation, not an endogenous regenerative fire and mark.",
+          "The equivalent limit is a process with deterministic leaf fraction 1−e^{−t} in each cycle, an independent exponential hub-growth gate, and killing intensity c(1−e^{−t}) only after the gate. Event-time fraction uses T_c; arbitrary-time fraction uses equilibrium age A_c."
+        ],
+        "reasoning": "Alternatives requiring a permanently pinned hub or an exogenous exponential reset age are not equivalent to a stochastic hub-growth gate and endogenous lightning intensity. Time-sampled and event-sampled laws differ at finite c.",
+        "searches": [
+          "Resultary: Forest fire on star graph hub-fire exact size, critical c/n lightning, stationary pair correlations",
+          "Literature: Drossel Schwabl stochastic forest fire on star graph exact hub cluster ignition probability high degree star Markov model stochastic catastrophe occupancy density Ráth Tóth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catastrophe-rate staircase (86c46a755dbf) is a modal classification for stationary synchronized resets of independently turning-over patches. Its indexed result does not give a cycle fire-size table or growing-star density. A sharp rescue-rate threshold (212035f9f876) concerns two habitats and alternative risk sharing, not an all-n star limit."
+        ],
+        "reasoning": "The finite transient generator determines absorption probabilities by linear algebra, but it is not a published table of the marked readout. The separable killed-leaf polynomial evaluation is the specific finite law, and contributes alongside the nontrivial limiting laws rather than being assessed as a tiny finite table.",
+        "searches": [
+          "Resultary star-fire query above",
+          "Resultary: Exact catastrophe-rate staircase for most probable number of occupied habitat patches independent Poisson global catastrophe constant reset"
+        ]
+      },
+      "rationale": "The elementary regenerative principle and conditional-mixture covariance are established tools, not new results. The surviving claim is a model-specific all-size hub-fire distribution, critical state-gated hazard and explicit law, and its stationary correlation limit. The closest actually checked model families and statements do not prescribe that growing-degree star law.",
+      "residual_risks": [
+        "The first explicit marked-law priority is provisional: exact earlier star-graph or general endogenous-catastrophe analyses might cover the result.",
+        "The targeted search with no returned records and the unavailable query are not negative priority evidence. Whole-document exclusions are not drawn from the read abstracts.",
+        "Model concerns hub fires only and successive limits, not all fires, simultaneous endpoint scalings, or physical wildfires."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local rules, incompatible graph limit and different burn observables",
+          "evidence": [
+            "Definition 1 and fixed r in §1.1; Eq. (1) and Theorems 1–2 of §1.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1404.0325",
+          "material_read": "Primary full-text HTML abstract, §§1.1–1.4, graphical construction, pure growth and theorem statements",
+          "method": "Compared parametrization and stated limit with growing-degree star",
+          "title": "Self-destructive percolation as a limit of forest-fire models on regular rooted trees",
+          "trigger": "Closest identical continuous-time ignition rules on rooted trees"
+        },
+        {
+          "assessment": "Abstract addresses square lattice (and comparison directed binary tree), not star stationary covariance",
+          "evidence": [
+            "Vacant vertices grow at rate 1, lightning clears the occupied cluster; studies burn events near the no-fire infinite-cluster emergence time"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0412488",
+          "material_read": "Primary abstract",
+          "method": "Read stated graph and percolation-time event",
+          "title": "Self-Organized Forest-Fires near the Critical Time",
+          "trigger": "Original closely related continuous-time Poisson site model"
+        },
+        {
+          "assessment": "Existence from finite-volume lattice laws does not identify adjacent or leaf covariance on growing-degree stars",
+          "evidence": [
+            "Stationary existence on Z^d, d≥2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.5533",
+          "material_read": "Primary abstract",
+          "method": "Compared stated stationary existence scope",
+          "title": "Existence of a stationary distribution for multi-dimensional infinite volume forest-fire processes",
+          "trigger": "Same population process and stationary question"
+        },
+        {
+          "assessment": "Growing random edges and component breakup to disconnected vertices are not fixed-star site occupation",
+          "evidence": [
+            "Poisson lightning in evolving Erdős–Rényi graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.2116",
+          "material_read": "Primary abstract",
+          "method": "Compared what grows and what resets in the stated model",
+          "title": "Erdos-Renyi random graphs + forest fires = self-organized criticality",
+          "trigger": "Possible mean-field coverage of high-degree critical lightning regimes"
+        },
+        {
+          "assessment": "Related shared resets, but no marked hub-fire distribution or occupancy-gated limit in the indexed statement",
+          "evidence": [
+            "Independent patch turnover, synchronized full reset, modes parameterized by catastrophe rate and equilibrium occupancy"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-catastrophe-rate-staircase-for-the-most-probable-number-of--86c46a755dbf",
+          "material_read": "Indexed Resultary claim summary; constant exogenous clock assumption as identified in the frozen comparison, not independently verified in full text",
+          "method": "Compared indexed modal/count assertion and considered the stated model implication",
+          "title": "Exact catastrophe-rate staircase for the most probable number of occupied habitat patches",
+          "trigger": "Synchronized global clears and occupancy mixture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The hub naturally selects fires that reset the entire labelled star, making regenerative cycles observable. The c/n scale keeps the total leaf ignition rate competitive with regrowth. The result gives a usable all-size marked law, a nondegenerate critical size density, and a mechanism and magnitude for persistent pair correlation despite diverging leaf count, distinguishing event-time from stationary sampling. These are quantitative benchmarks rather than mere stationarity or a finite generator computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

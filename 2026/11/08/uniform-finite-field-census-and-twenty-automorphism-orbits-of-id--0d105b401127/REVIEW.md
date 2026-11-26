@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The projection/subalgebra equivalence is reconstructed for the precise weight convention. The line and plane subalgebra lists are complete by diagonal equations and the radical quotient, including characteristic two. Complementarity counts and explicit automorphism action prove the rank census and all 20 orbit classes. Two independent finite-field implementations check the algebra equations and the full subspace lattice; finite checks corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS (provisional)
-An–Bai (arXiv:0711.1389, Proposition 4.2, pages 13–17) already classifies all weight-one operators on three-dimensional complex associative algebras, including the same underlying algebra. **No characteristic-zero operator classification is claimed as novel.** The present exact rank polynomial for all finite characteristics, and the 20-orbit classification with sizes under the specified smaller algebra-automorphism group over all fields, do not appear in that table. Jian (arXiv:1307.6966) gives the general splitting construction; previous results on the full algebra of all \(2\times2\) matrices or weight-zero triangular operators do not automatically imply the stated finite-field count. The closest mathematical-index records concern different weights, algebras or invariants. The main residual priority risk is that a careful enumeration from the 2007 characteristic-zero normal forms, or an unseen finite-characteristic extension, might recover the stated refinement; no independent priority certification is claimed.
+PASS
 
-## Value — PASS
-The minimal noncommutative hereditary path algebra provides a natural testing ground for splitting Rota–Baxter operators. The distinction among ordered complementary subalgebra types produces a uniform small positive-characteristic arithmetic and orbit census, rather than just an existence example or a rank-one toy count; the 20 orbits distinguish two semisimple idempotent orientations and the radical. The specialization is a small exact classification and is not promoted as a general-dimensional theorem.
+An idempotent map is the projection along an ordered splitting, and substitution into the stated operator equation reduces it to closure of each summand: with x=b+c,y=b′+c′ the inner expression is bb′−cc′. The lines closed under multiplication are exactly J, the scalar line, and the e- and f-idempotent lines. A plane containing J is the preimage of one of three quotient subalgebra lines; a plane transverse to J is a graph with slopes s,t, whose lift of e times its lift of f forces s+t=0. Complement counts for line images are q for J, 2 for the scalar line, and q+1 for each idempotent line. Swapping summands gives the count at rank two, not a conjugacy identification. J is characteristic and the quotient axes cannot be swapped because the first acts nontrivially on the left of J and the second on the right. The affine automorphisms preserve each listed type; for transverse line–plane pairs the parameter difference t−s (e family) or t+s (f family) rescales by λ∈k×, so the nonzero differences form one orbit each. The nine pair types give two singleton orbits, five of size q and two of size q(q−1), even for q=2. This proof uses only field operations and gives 20 orbits over every field, plus the stated rank counts over F_q. The finite program outputs were inspected, not regenerated; no attestation beyond the mathematical review is inferred.
 
-## Limitations
-Only idempotent maps and the specific three-dimensional algebra are classified. The finite-field formulas do not claim scheme-theoretic multiplicities. The absence of a matched citation is not a proof of global historical novelty. Program outputs cover only the listed fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the finite-field point census by rank and the uniform all-field algebra-automorphism refinement as framed, not the projection correspondence or a classification of complex operators in isolation. The closely overlapping complex T9 normal form table is verified prior coverage. Its specialization to finite or arbitrary fields (especially characteristic two), exhaustion there, and rational orbit sizes are not asserted by that paper or justified solely by evaluation of its complex normal forms.
+
+## value
+
+PASS
+
+A natural smallest noncommutative triangular algebra gets a complete ordered splitting classification, exact finite-field rank counts and rational orbit sizes, with a proof that does not drop small fields or characteristic two. These invariants distinguish what is merely a complex normal form from what actually holds over each field and furnish a concrete baseline for classification and counting questions in larger triangular algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

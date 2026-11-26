@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:15.325078Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 28–75: the Gaussian conditional mean is the minimum-risk linear estimator. The Wiener representation turns its signal error into the L² distance of 1/2−s from a centered step function; the noise penalty minimizes to (sum |w_i|)²/P by Cauchy–Schwarz. After aggregating coincident jumps and ignoring endpoints, decreasing rearrangement uses no additional sites, cannot increase variation, and strictly improves the signal error for any inversion on positive-length cells. If the decreasing range exceeds 1, clipping then recentering strictly improves the error. For W≤1 the sorted-site objective has Hessian −2(diag(w)−wwᵀ), so the stated stationary nodes are global maximizers of variance reduction, strictly for W<1 with positive weights. Independently, with S_k the cumulative weights, the residual on cell k is (1−W)/2+S_k−s; its zero is w_i/2 on either side of jump i and its outer lengths at the endpoints are (1−W)/2. Integrating the squared residual gives [(1−W)³+sum w_i³]/12. Strict Jensen, including zero padding to n effective jumps, forces n distinct positive-weight jumps at any optimum with W>0; this excludes boundary, coincident and inactive original channels. Cauchy–Schwarz then forces p_i=P/n. The scalar objective is strictly convex, its derivative is negative at 0 and positive at n/(n+1), and its stationary equation gives the stated root, including n=1. Evaluating the objective for n+1 at the old positive minimizer gives strict risk improvement; the scalar equation also gives the stated budget limits. The rational example n=3,P=18 gives both sides of the root equation 2/9 and risk 11/432. The frozen numerical verifier was inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The positivity result uses total positivity and local node optimality; the noisy quadrature theorem supplies bounds. Mukherjee's abstract mentions optimizing path IMSE and estimating the integral, but does not specify a noisy integral precision-budget theorem."
+        ],
+        "reasoning": "None of the inspected statements supplies finite-budget equality conditions for joint location and measurement precision. Path IMSE averages individual conditional variances, whereas scalar-integral risk integrates conditional covariances over pairs of points.",
+        "searches": [
+          "Resultary: joint global optimization Brownian bridge quadrature sensors precision budget",
+          "arXiv:1812.08509v1, Corollary 1",
+          "arXiv:2202.10615v2, Theorem 1",
+          "Purdue AAI3043760"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–87, VERIFICATION.md and verify.py (static)",
+        "Resultary 15716724ea95, ca21be61c9e2, a7be6c7ddb05, ad44ca256f44",
+        "arXiv:1812.08509v1, 2004.00556v1, 2210.15959v1, 2202.10615v2 and Purdue AAI3043760"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed equal-variance objective matches the n=2, p₁=p₂=P/2 restriction. Santin's theorem gives the equally spaced Brownian-bridge grid for a noiseless supremum interpolation criterion, not this posterior integral risk. The neighboring OU design assumes stationary exponential covariance."
+        ],
+        "reasoning": "Optimizing on the equal-variance slice cannot rule out unequal variance, and a different interpolation loss matching the limiting grid gives no implication for the finite-P contracted mesh. The OU result has no direct bridge specialization in its stated covariance family.",
+        "searches": [
+          "Resultary 15716724ea95, Finding and scope",
+          "arXiv:2210.15959v1, Theorem 5",
+          "Resultary: Brownian bridge scalar integral optimal design sensor locations weights noise budget equal precision"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary 15716724ea95 uses equal fixed noise η, equivalent to fixing both precisions at P/2 when η=2/P. Resultary ca21be61c9e2 and ad44ca256f44 treat unconditioned Wiener quadrature."
+        ],
+        "reasoning": "The two-site source overlaps directly on locations for the equal split, not on optimality of that split or on general n. Conditioning Wiener motion on an exactly supplied terminal value would produce the bridge and remove the random terminal component of its integral, but an extra free noiseless terminal channel is not part of the finite-precision Wiener design theorem.",
+        "searches": [
+          "Resultary: Brownian bridge integral noisy observations total precision budget optimal sensor locations equal allocation",
+          "Resultary: Brownian bridge integrated scalar functional noisy point observations optimal design replication",
+          "Web: \"Bayesian quadrature\" noisy observations precision budget optimal locations allocation Brownian bridge integral exact design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact closest bridge match is the two-site equal-noise formula in 15716724ea95. Other same-day exact all-n matches are for Wiener or OU covariances, not the bridge."
+        ],
+        "reasoning": "Checked exact formula and mesh matches; a table of fixed choices cannot establish global allocation rigidity for arbitrary n and P. Same-day dating does not determine priority or erase real overlap.",
+        "searches": [
+          "Resultary: Brownian bridge integral exact optimal deterministic quadrature n equally spaced points posterior variance",
+          "Resultary: universal optimal sensing meshes centered equally spaced contracted interval precision",
+          "Resultary 15716724ea95, ca21be61c9e2, a7be6c7ddb05, ad44ca256f44"
+        ]
+      },
+      "rationale": "Credit the known noiseless equally spaced limit and the verified two-site equal-noise overlap. The distinct content established here is the all-n finite-P global result with freely allocated precision, including proof of uniqueness against unequal, inactive and repeated channels. Neither the two-site location result nor the related all-n designs for different covariances gives this joint conclusion.",
+      "residual_risks": [
+        "Mukherjee's inaccessible full text is an unresolved exact-integral-design match, particularly for the noiseless limit. No full-text claim about its finite precision scope is made.",
+        "Bounded catalogue and lawful primary-source checks do not establish publication priority or exclude an unindexed noisy design theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact two-site equal-noise location overlap; all-n and allocation not covered",
+          "evidence": [
+            "Two observations have common specified variance η; η=2/P identifies the restricted design."
+          ],
+          "identifier_or_url": "Resultary 15716724ea95",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian-bridge integral sensors",
+          "trigger": "Same process, integral and noisy point measurements"
+        },
+        {
+          "assessment": "Unconditioned Wiener process, not the bridge",
+          "evidence": [
+            "Uses min(s,t) covariance, with a terminally concentrated optimum."
+          ],
+          "identifier_or_url": "Resultary ca21be61c9e2",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp joint precision and time design for Wiener integral quadrature",
+          "trigger": "Same optimization variables and budget for related covariance"
+        },
+        {
+          "assessment": "Different covariance family",
+          "evidence": [
+            "Uses stationary exponential covariance."
+          ],
+          "identifier_or_url": "Resultary a7be6c7ddb05",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Globally optimal precision budgets and observation meshes for Ornstein–Uhlenbeck quadrature",
+          "trigger": "Same free-budget all-n design form"
+        },
+        {
+          "assessment": "Fixed common noise for a Wiener process",
+          "evidence": [
+            "Does not allocate precision and does not use the pinned process."
+          ],
+          "identifier_or_url": "Resultary ad44ca256f44",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact equal-weight design for any number of noisy Wiener integral observations",
+          "trigger": "All-n equality of quadrature weights"
+        },
+        {
+          "assessment": "Positivity under local-optimality hypotheses, not the joint design",
+          "evidence": [
+            "Uses total positivity and stationarity/local optimality with respect to nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509v1",
+          "material_read": "Abstract p. 1, Corollary 1 p. 9, OA offset 63100",
+          "method": "Targeted OA passages",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Weights at variance-optimal nodes"
+        },
+        {
+          "assessment": "Context for greedy/quasi-uniform approximation; no exact coverage established from that passage",
+          "evidence": [
+            "The abstract describes greedy and uniform approximation convergence and perturbation analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.00556v1",
+          "material_read": "Abstract p. 1",
+          "method": "OA abstract inspection",
+          "title": "Sampling based approximation of linear functionals in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Nodal approximation to integral functionals"
+        },
+        {
+          "assessment": "Same evenly spaced grid in a noiseless interpolation objective",
+          "evidence": [
+            "Uniquely minimizes the supremum interpolation power function, not noisy integral variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15959v1",
+          "material_read": "Theorem 5 p. 5, OA offset 21350",
+          "method": "Targeted OA theorem passage",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Exact bridge optimal-mesh theorem"
+        },
+        {
+          "assessment": "Average-case error bounds, not exact finite designs",
+          "evidence": [
+            "Includes noisy bounds for kernel families and algorithms, not an optimizer and allocation formula for the finite bridge problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615v2",
+          "material_read": "Abstract p. 1, Theorem 1 p. 5, OA offset 20800",
+          "method": "Targeted OA passages",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Broad noisy Bayesian quadrature theorem"
+        },
+        {
+          "assessment": "Plausible unresolved integral-design overlap, especially noiseless; cannot determine finite-P scope from abstract",
+          "evidence": [
+            "Abstract states exact path IMSE designs for the bridge and discusses estimating the integral without specifying the joint noisy budget setting."
+          ],
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public dissertation abstract only; thesis text not available through the accessible landing page",
+          "method": "Public Purdue page inspection; no login used",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Bridge design dissertation also mentioning integral estimation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The design problem is a nontrivial joint finite-budget optimization even with a fixed Gaussian prior. Its scalar risk law and rigidity translate limited precision directly into a contracted mesh and equal allocation, and exclude all degenerate or asymmetric alternatives. The exact noise-to-noiseless transition, and strict value of adding a sensor even at unchanged total precision, are useful consequences rather than isolated numerical optima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

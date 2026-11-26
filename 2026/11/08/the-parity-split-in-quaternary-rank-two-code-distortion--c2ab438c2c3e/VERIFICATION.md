@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the quaternary rank-two classification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no third-party dependencies. The script uses exact integer arithmetic for \(\mathbb F_4\) and exact rational arithmetic for distortion. It enumerates the 60 projective permutations from all invertible two-by-two matrices over the four-element field and checks equality with the alternating permutations of five objects. It also verifies the Frobenius transposition and the two nonisometric length-ten examples.
+## correctness
 
-The script checks all nonzero codeword weights of each explicit generator, verifies the common weight enumerator, and computes the exact distortion \(100/81\). It exhaustively tests repeated-profile orbit predictions for shorter lengths and tests the sharp distortion formula for 150 distinct-weight profiles at lengths 10 through 21. An observed successful replay prints `CHECK_OK`. These finite computations are checks of the argument, not exhaustive proof for arbitrary length. The all-length classification follows from the projective parity action and the inversion inequality in `RESULT.md`.
+PASS
 
-No outside certification or independent audit is asserted. A separate literature priority assessment remains open, particularly for unpublished or unindexed discussions of rank-two code equivalence.
+If N is the number of nonzero columns, the five projective message weights are N minus the five column multiplicities, and their sum is 4N. Thus the spectrum and fixed length recover the multiplicity multiset and zero columns. Kernel labeling intertwines the message and column projective actions (by inverse change of basis). The faithful projective action has order (16−1)(16−4)/3=60 and therefore image A5. All labelings are realized by rank-two generators; a repeated entry supplies an odd stabilizer, while a fully distinct profile has two orbits. Between the two orbits every linear matching is odd and all odd matchings are attainable. An inversion gives two ratios each at least the smallest adjacent weight ratio, and the adjacent transposition realizing that ratio achieves equality. The minimum sum of five distinct nonnegative multiplicities is 10; equality forces the given profile, and (0,1,2,3,n−6) gives the stated all-length example. Frobenius exchanges the two nontrivial conjugate field elements and acts oddly. 'Linearly inequivalent' here means inequivalent by linear Hamming isometries, not absence of arbitrary vector-space isomorphisms.
+
+## originality
+
+PASS
+
+No inspected distinct source gives the combined F4 monomial-linear fiber classification and optimal inter-orbit distortion. The projective setup and parity ingredient are standard; the distinct claim is the spectrum criterion, optimal parity penalty, and sharp first length together.
+
+## value
+
+PASS
+
+A weight enumerator is a natural invariant and linear distortion is a motivated quantitative comparison. The result answers when the invariant ceases to identify a rank-two quaternary code up to linear isometry and quantifies the exact cost of that first ambiguity and every later split. The all-length formula, not just a computed pair, makes the result useful as an exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

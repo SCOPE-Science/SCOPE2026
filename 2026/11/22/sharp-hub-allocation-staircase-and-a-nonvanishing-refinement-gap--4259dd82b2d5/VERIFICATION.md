@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The exact model is the unweighted star graph and the independent class-supported Rademacher estimator. Run `python verify_star.py` with Python 3 and standard-library dependencies only. The checker prints `PASS: 367 exact-rational comparisons / identities` after exhaustive restricted-growth-string partition comparisons for all parameters listed in RESULT.md, direct Gauss–Jordan rational inverses, exact threshold/count checks, and rational one-split refinements. The asymptotic assertion rests on the analytical \(O(m)\) estimate in RESULT.md, not on the finite tests. No independent mathematical audit has been performed.
+The one-split asymptotic at fixed screening and fixed parent-class budget follows from the uniform balancing and pair-count bounds in `RESULT.md`. The unchanged standalone `verify_star.py` uses Python 3 with standard-library dependencies only. It covers exact-rational Green entries and finite partition costs, auxiliary fixed-budget optimizer formulas, the example with 12 leaves, and bounded refinements. The script's original terminal count is `PASS: 367 exact-rational comparisons / identities`. These finite tests corroborate individual instances and are not an asymptotic proof or evidence about historical priority.

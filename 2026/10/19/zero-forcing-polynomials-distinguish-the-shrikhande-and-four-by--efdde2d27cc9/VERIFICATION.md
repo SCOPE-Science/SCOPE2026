@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The two primary programs use distinct mathematical criteria: standard blue-vertex force closure, and existence of a nonempty fort in the initially white subset. They enumerate all \(65536\) initial configurations for each graph. The complete zero-forcing truth values coincide, bit for bit, against `certificates/forcing_truth_tables.bin` (\(16384\) bytes). Bit \(j\) of byte \(i\) in each graph block encodes the forcing status of integer blue mask \(8i+j\). The first \(8192\) bytes are the Shrikhande block.
+# Independent mathematical audit
 
-From the package root:
+## correctness
 
-```sh
-python3 scripts/verify_simulation.py
-g++ -std=c++17 -O2 -Wall -Wextra scripts/verify_forts.cpp -o verify_forts
-./verify_forts certificates/forcing_truth_tables.bin
-python3 scripts/verify_orbits.py
-```
+PASS
 
-Successful execution verifies for Shrikhande the forcing coefficient vector, indexed by degrees \(10\) through \(16\), of \((3616,3600,1760,560,120,16,1)\), and for the rook graph \((3456,3504,1760,560,120,16,1)\). The total counts are \(9673\) and \(9417\). All inclusion-minimal forcing sets in both graphs have size \(10\). The fort program also checks all inclusion-minimal forts and classifies all five- and six-white subsets by their least contained fort order. The orbit program checks all \(192\) displayed affine automorphisms, proves completeness using the six-cycle root-neighborhood argument, and verifies all \(23\) Shrikhande minimum-set orbit representatives and their class sizes; the orbit-size distribution is \(192\) occurring \(15\) times, \(96\) occurring \(7\) times, and \(64\) once.
+Both given graphs have six neighbors per vertex and two common neighbors per distinct pair, verified for all labels. This gives A²=4I+2J, with constant eigenvalue 6 and trace-determined multiplicities 6 and 9 for 2 and −2. Their root neighborhoods are respectively C6 and two disjoint triangles. A nonempty fort contained in the whites cannot lose its first vertex and a nonempty white closure is itself a fort. The independent 65,536-mask scan per graph computes simultaneous forcing by dynamic recursion to strictly smaller white masks. It reproduces the exact labeled coefficients and both minimum/total counts, comparing all 131,072 decisions against the two binary blocks by explicit bit order. Superset marking of newly found minimal forts in increasing order gives least obstruction sizes without a zeta transform; it agrees with the closure decision for every mask and gives minimal fort counts (60,48,336) and (60,144,112) at sizes 4,5,6 only, as well as both full five- and six-white classifications. A successful set is inclusion-minimal iff no one-vertex removal succeeds, by monotonicity; these scans give only size-ten minimal sets. The round counts at size ten are 1312/2304 for Shrikhande and 864/2592 for rook. For the symmetry check, the root has six neighbors forming a six-cycle; the other nine vertices have distinct two-neighbor signatures in it. Enumerating all images of the root and cycle permutations and checking the unique extensions gives exactly 192 automorphisms. The resulting 23 orbits match every CSV field, with sizes 192×15, 96×7 and 64 once. The two polynomials differ only at degrees ten and eleven by 160 and 96; the higher-degree equality has independently checked nonzero coefficients, not just a shared zero-forcing number.
 
-The code has no stochastic steps and needs only a Python interpreter of version at least 3.10 and a C++17 compiler; all source, certificate, and Python module dependencies are included. A checksum is a useful transport diagnostic but is not substituted for the exact per-mask comparison. No infinite generalization or independently performed mathematical audit is asserted.
+## originality
+
+PASS
+
+The rook-side forcing polynomial and minimum sets are already covered by a stronger all-rook formula and are an expressly identified benchmark, not an originality credit. A later general classification also covers rook minimal forts. Abiad et al. give ordinary Z separation for a different cospectral pair, and for these exact two graphs give a PSD, not ordinary, separation. The supported distinct finding is that the standard full polynomials separate this canonical pair despite the equal standard minimum, with the Shrikhande counts, orbit/time data and exact comparative obstruction geometry. No checked statement or implication supplies that finding in full.
+
+## value
+
+PASS
+
+A canonical pair of nonisomorphic strongly regular graphs with the same spectrum and the same ordinary forcing number is a natural controlled test of the extra information in the ordinary polynomial. The precise difference and fort-size thresholds make the distinction interpretable, and the Shrikhande orbit/time data make the exceptional minimum configurations usable as a benchmark. Independent value lies in the distinction and the Shrikhande side, not in rediscovering the rook polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each nonzero Bloch coupling the dissipative two-state population-coherence differential equations have an exact integrated solution. The modewise identity, Tonelli, and Parseval support the possibly-infinite lifetime formula without cutoffs. Complete eventual absorption at criticality follows from pointwise decay away from the single zero momentum and dominated convergence. Polynomial factorization proves the critical Fourier-zero criterion; the bidiagonal convolution Gram matrix has a simple largest eigenvalue \(4\cos^2(\pi/(2L))\), proving optimality and uniqueness for all \(L\ge2\). The supplementary independent Lyapunov and Gram-matrix test script passes 231 comparisons but does not replace these proofs.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Rudner and Levitov (arXiv:0807.2048v1) established the lattice model, non-Hermitian topological displacement, and divergence for localized one-site injection. Rudner and Levitov (arXiv:1005.4809v1) and Rudner, Levin, and Levitov (arXiv:1605.07652v1) developed spin-pumping applications and dark-state classifications. Thiel, Kessler, and Barkai (arXiv:1912.08649v1) derived a distinct single-channel lifetime quantization under special initialization. The inspected primary texts and comparisons against public mathematical research records did not identify the exact arbitrary-coherent-preparation lifetime, if-and-only-if critical cancellation, or sharp universal block-support optimizer; the prior formulas do not assert the new support-optimization conclusion. Algebraic derivability from the original Hamiltonian is acknowledged; historical equivalence in uninspected material remains a risk.
+PASS
 
-## Mathematical value — PASS
-The precise physical obstruction is critical slowing of absorption despite eventual complete decay. The classification identifies exactly which coherent inputs suppress that singular contribution and gives an optimal physical preparation of any prescribed contiguous support size, including a sharp formula and uniquely selected envelope. The result is a complete, motivated state-preparation classification rather than a routine isolated example.
+For a Bloch mode with s=|v+w exp(ik)|>0 the loss identity makes every eigenvalue of the evolution generator strictly stable: equality of the real part to zero would force the lower component to vanish, which the coupling forbids for a nonzero eigenvector. As a separate check, write the integrated-survival Gramian as Q solving A*Q+QA=-I with A=-iH after removing the hopping phase. Its off-diagonal entry has imaginary part -1/(2s) and real part Delta/(gamma s). The lower diagonal entry is 2/gamma and its upper entry exceeds that by (Delta^2+gamma^2/4)/(gamma s^2). Parseval and Tonelli therefore give the exact integral with the stated normalization, including possible infinite mean. Complete absorption follows by dominated convergence because the one nondecaying momentum at criticality has measure zero. At v=w=h a finite polynomial must vanish at -1 to make the quadratic singularity integrable; division by (1+z) then reduces the integral to the squared quotient-coefficient norm divided by h^2. Multiplication by (1+z) on length L-1 vectors has Gram matrix with diagonal 2 and adjacent entries 1, whose simple largest eigenvalue is 4 cos^2(pi/(2L)) with the stated sine vector; Rayleigh–Ritz gives the value and uniqueness up to translation and phase, including L=2, while L=1 cannot cancel. Off the critical diagonal the normalized reciprocal denominator is a Poisson kernel centered at pi, of unnormalized mass 1/|v^2-w^2|. In the cancelling case the factored ratio is bounded by 4/(v+w)^2 using the exact denominator (v-w)^2+vw|1+exp(ik)|^2, yielding the finite pathwise limit. The form (2+Delta^2 I)/gamma+gamma I/4 gives the displayed optimized loss rate. The divergence asymptotic is read off the diagonal; exactly on it a noncancelling state's mean is already infinite.
 
-## Limits
-The theorem assumes a homogeneous infinite bipartite walk, positive constant uniform loss, and finitely supported coherent input on nondecaying sites. Finite boundaries, disorder, additional channels and decoherence may invalidate the conclusion. No independent validation or exhaustive literature-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original walk and its dark momentum and localized dwell-time divergence are known. The inspected sources support those mechanisms but do not supply the normalized finite-packet critical mean-lifetime criterion together with the exact finite-block minimum and its uniquely selected preparation. The closest exact survival-operator and sine-envelope comparisons are for finite paths or endpoint-sink half-lines, with different operators or objectives. The pass concerns the combined exact coherent-preparation result in the infinite bulk-loss model and is subject to the stated search limits.
+
+## value
+
+PASS
+
+The result separates eventual absorption from finite mean survival at a critical coupling in a standard dissipative model. It gives a concrete way to remove the lifetime divergence using only two adjacent sites, and a sharp support-budget law and unique state for every larger contiguous block. This resolves the preparation problem more precisely than identifying a dark mode or estimating the lifetime of a localized input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

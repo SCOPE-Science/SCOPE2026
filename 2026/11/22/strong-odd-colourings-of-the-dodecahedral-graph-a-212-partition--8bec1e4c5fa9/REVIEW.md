@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the loopless simple graph \(D=\operatorname{GP}(10,2)\) on the twenty explicitly indexed vertices, with all vertex neighborhoods reconstructed from the three specified edge orbits. The definition of a strong odd colour class is exactly independent plus odd-or-zero selected-neighbor multiplicity at every vertex outside it. The exhaustive finite predicate over all \(2^{20}\) subsets gives the entire class polynomial, and a separate C++ include/exclude independent-set generator obtains exactly the same counts. A lower bound of five colors follows because no three classes can cover twenty vertices and a hypothetical four-colouring would require two of the ten six-vertex classes; every one of their fifteen disjoint pairs has an eight-vertex complement with no eligible four-set. The five-color partition given in the result satisfies every neighborhood test. An exact-cover recurrence pivoting at the least uncovered vertex counts every unordered partition once, giving exactly 212 five-colour partitions by block-size profile and two square-colouring partitions. C++ and Python programs executed independently on the included graph specification and agreed. Computations are finite exhaustive proofs of this one graph, not evidence of a general infinite theorem.
+## correctness
 
-## Originality — PASS, provisional
-The earliest public motivating primary source is Kwon and Park's 2024-01-22 arXiv version on strong odd coloring, with explicit Petersen-graph examples but no dodecahedral vertex-colouring census in the inspected material. Caro, Petruševski, Škrekovski, and Tuza's 2024 general strong odd colouring paper gives bounds and structural cases, including claw-free square-colouring equivalence, which is inapplicable to this cubic claw-containing graph. Their later work on odd independence gives general bounds rather than this twenty-vertex polynomial. The closest public records concern odd domination on generalized Petersen graphs (closed-neighborhood odd parity **without** an independence constraint) and odd-independent polynomials for circular ladders (different graph). They neither imply the claimed class polynomial nor the exact 212-cover count. Actual indexed searches for dodecahedral strong odd colouring, the 212 census, and equivalent independent-set descriptions found no covering statement. Priority remains provisional because no literature search proves complete absence of previous work.
+PASS
 
-## Value — PASS
-The dodecahedron is a natural cubic planar girth-five graph related to the Petersen graph by a two-fold covering. Its strong odd chromatic number decreases from six on the Petersen graph (a six-colour example appears in Kwon–Park, and the exact value is independently verified by the included finite Petersen certificate), while equality of its strong odd and square chromatic numbers conceals a large disparity: only two out of 212 optimum partitions satisfy the stronger distance-two constraint. A complete natural extremal census and an odd-independent-set polynomial for a classical twenty-vertex graph are mathematically usable finite benchmarks for local parity-colouring, exact-cover, and graph-cover investigations. The distinction is not just a numerical substitution into a known graph parameter.
+For the defined simple cubic GP(10,2), a block is eligible exactly when it is independent and no outside vertex has two neighbors in it. The least-uncovered-vertex recurrence counts partitions of fixed vertices without ordering the blocks. A separately written exhaustive implementation reproduced the polynomial 1+20t+100t^2+120t^3+90t^4+10t^6, no four-block partition, and 212 five-block partitions with the three profiles 60, 100 and 52. At most three blocks cannot cover 20 vertices (each block has size at most six). Exactly two five-block partitions are square colorings. Independently, fixing the colors on the even inner pentagon as 0,...,4, the even outer vertices at 2a are restricted to a±2 mod 5. The distance-two constraints around this outer five-cycle force a constant choice of sign. The odd outer vertices are then forced by their two adjacent even outer and two distance-two even inner vertices; their colors are a+4 for the plus sign and a+2 for the minus sign at 2a+1. The odd inner colors are then forced to a+1 and a, respectively. Both assignments satisfy the constraints. The modulo-five quotient is locally bijective, so counts of each neighbor color pull back; Petersen has minimum six, independently reproduced. Thus the decrease is strict and 210 of the 212 optimal partitions fail to color the square.
 
-## Closest sources and limitations
-- H. Kwon and B. Park, *Strong odd coloring of sparse graphs*, arXiv:2401.11653v1 (2024-01-22): invariant and the Petersen six-color example, not the dodecahedral census.
-- Y. Caro, M. Petruševski, R. Škrekovski, Z. Tuza, *On strong odd colorings of graphs*, arXiv:2410.02336 (2024-10-03): general theory and claw-free comparison, not the exact object.
-- Same authors, *The odd independence number of graphs, I*, arXiv:2509.20763: general inequalities, not this cubic graph's full class polynomial.
-- Public record *Complete odd-domination weight spectra of GP(n,2)* (2026-11-08), https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-odd-domination-weight-spectra-of-operatorname-gp-n-2--7b458bdb223f : same graph family but counts subsets satisfying \((I+A)s=\mathbf1\), whereas the new classes satisfy independent and partial open-neighborhood constraints.
-- Public record *Odd-independent-set polynomial of circular ladders* (2026-10-18), https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-odd-independent-set-polynomial-of-circular-ladders--619736a433f3 : same invariant on \(C_n\square K_2\), which is not \(\operatorname{GP}(10,2)\).
+## originality
 
-All polynomial and partition claims are restricted to the explicitly indexed twenty-vertex graph; independent expert validation and exhaustive global historical priority determination remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Passes for the dodecahedral invariant and enumerative refinement and the specific strict covering example, not for the Petersen value or the general implication from square coloring. Crediting the exact Petersen theorem sharpens the citation without changing the finding.
+
+## value
+
+PASS
+
+For a canonical cubic planar graph, the census makes the distinction between two natural coloring constraints measurable even when their minimum color numbers coincide. The 210-versus-two split and size profiles, together with a strict covering example, are useful exact data not inferred from the generic bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

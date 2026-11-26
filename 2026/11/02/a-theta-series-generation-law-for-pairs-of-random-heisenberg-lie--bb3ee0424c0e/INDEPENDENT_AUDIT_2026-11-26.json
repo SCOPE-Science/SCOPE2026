@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:58:20.468040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–33 and 35–91",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen artifacts/verify.py, lines 19–59 and 62–100",
+        "Independent finite-field RREF enumeration with direct bracket-span rank: (n,q)=(1,2),(1,3),(1,5),(2,2),(2,3) yielded respectively 77, 229, 1157, 7925, 203195 ordered generating pairs out of 12^2, 19^2, 39^2, 158^2, 693^2",
+        "Independent Gaussian sums for n=8,16,32,48 and theta sums for q=2,3,5 reproduce the quoted numerical approximations"
+      ],
+      "rationale": "The image of a generated subalgebra in the central quotient is the span of the two images. If the images span, two lifts have nonzero bracket by nondegeneracy, forcing the center into the generated algebra, including in characteristic two. Subalgebras containing the center are in bijection with all subspaces; those avoiding it are graphs of functionals on totally isotropic spaces. Counting ordered isotropic bases successively gives q^(2n-i)-q^i possibilities at step i, divided by the number of ordered bases of the target rank. After multiplying by q^r for the graph functional, the bound is Phi_infty^-1 q^(2nr-3r(r-1)/2). Maximizing and dividing by the central count, at least q^(n^2), gives the stated exceptional-population bound, and conditioning on both containing the center gives the factor-2 probability comparison. For dimensions n+j and n+k, choosing the intersection of dimension j+k and a graph in the quotient by that intersection gives the exact count and the displayed conditional kernel, zero if j+k<0. In the central range |j|<=n/2, the unnormalized rank probability weight is q^(-j^2)(1/Phi_infty+O_q(q^(-n/2))); the weighted errors, not unweighted errors times the number of ranks, are summable. The omitted mass is O_q(q^(-n^2/4)), and the conditional kernel is uniformly within O_q(q^(-n/2)) of its limit on the central range. This proves the rate after normalizing and multiplying the two rank weights. Positive limiting weights occur both on possible and impossible spanning sizes, so the constant is strictly between zero and one.",
+      "residual_risks": [
+        "The uploaded checker was inspected but not executed; 12 finite comparisons under its loose tolerance alone would not certify the rate. Independent enumerations used prime fields only; the proof, not the computation, includes extension fields.",
+        "The rate is for n tending to infinity with q fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed complementary dimensions r,s give probability q^(rs)/[r+s choose s]_q, a product that equals the frozen conditional kernel at j+k=0. The later classical-space theorem fixes dimensions and requires nondegenerate subspaces. 6f754a2fffbb has a theta prefactor for noncentral ideals in a free class-two algebra."
+        ],
+        "reasoning": "Neither fixed-dimension result averages across all dimensions, and the theta prefactor in the free algebra concerns an entirely different census and event. The Gaussian-binomial and conditional kernel inputs are classical; the independent rank mixture and its transferred asymptotic are what must be compared.",
+        "searches": [
+          "Glasby–Niemeyer–Praeger arXiv:2109.10015v1, Lemma 2.1; arXiv:2111.02198, Theorem 1.1",
+          "Resultary theta-modulated cubic suppression 6f754a2fffbb"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Relationship to prior work",
+        "Resultary cea008ee3276, e3fb5b5762fa, 36a817900ae3 and 6f754a2fffbb",
+        "arXiv:2109.10015, 2111.02198 and 2609.19086 (abstract for the last)",
+        "Bounded primary literature search for the unrestricted subspace spanning limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The central-central component of the finite edge formula is the spanning count of proper subspaces; the isotropic-graph terms supply the exceptional components. The complete census and those terms identify what is to be estimated, while the fixed-rank complement law covers only one diagonal of the required rank-pair summation."
+        ],
+        "reasoning": "The finite sum makes asymptotic analysis possible, but does not make the theta conclusion a fixed-rank substitution or a tabulated value. The inspected sources do not give the Gaussian rank fluctuation mixture with this conditional spanning limit, the uniform control over rank pairs or the stated superexponential transfer.",
+        "searches": [
+          "cea008ee3276 Finding and proof §§1–4",
+          "e3fb5b5762fa Finding and proof §1",
+          "arXiv:2109.10015v1 Lemma 2.1 and arXiv:2111.02198 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comaximal graph defines adjacency by Lie generation and proves the identical projected span criterion. Ordinary spanning of two uniform unrestricted subspaces is equivalent under annihilators to trivial intersection of two such subspaces. The extraspecial-group catalogue comparison treats commutativity of cyclic subgroups and the permutability source studies a different event."
+        ],
+        "reasoning": "The graph formulation recovers finite generation probabilities. For odd prime q the exponent-p extraspecial-group correspondence is a natural alias for the group generation problem, but the inspected commutativity statements use a different observable or sample space; they do not supply the claimed two-generator asymptotic. No exact theta-spanning match was found in the bounded literature lookup.",
+        "searches": [
+          "Resultary: Heisenberg comaximal generation and extraspecial groups; cea008ee3276, e3fb5b5762fa and 36a817900ae3",
+          "arXiv:2609.19086, subalgebra permutability",
+          "Primary websearch: finite field uniform random subspaces all dimensions Galois numbers probability trivial intersection spanning theta asymptotic pairs Heisenberg generation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e3fb5b5762fa gives the census C_n+D_n and its classification. cea008ee3276 gives the exact edge count E for nonzero proper subalgebras and the same fixed-rank count for projected subspace sums."
+        ],
+        "reasoning": "If S is the total subalgebra count, the ordered-pair generation count is exactly 2E+2S-1: proper generating pairs give two orientations per edge, and the full algebra in either position adds 2S-1. Thus that distinct, later-dated record covers the exact finite probability on the shared rank domain. Its stated edge formula does not give the limiting theta ratio or the bounds without further asymptotic analysis.",
+        "searches": [
+          "Resultary catalogue census e3fb5b5762fa and exact comaximal-edge count cea008ee3276"
+        ]
+      },
+      "rationale": "The supported distinct claim is the fixed-q theta-series asymptotic with its convergence rate and the superexponentially accurate distributional reduction at the level of the generation event. The exact finite counts, including finite generation counts evidenced elsewhere, the projection criterion, and the fixed-dimension complement calculation are not treated here as independently novel. The inspected exact sums cover the finite invariant but do not by themselves establish the claimed estimates and nondegenerate limit; deriving the latter uses rare-population control and a uniform sum across fluctuating dimensions.",
+      "residual_risks": [
+        "Finite-count equivalence is established, not priority or dependence between the records. A theta asymptotic might occur in other Galois-number, classical-group or extraspecial-group work outside the bounded searches.",
+        "The cited Resultary Grassmann Fourier endpoint record ae0e928d4919 was not available in the attempted mirror lookup; the complementary-dimension count was verified in the primary paper instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-count overlap for rank at least two; does not state the frozen asymptotics in the material read",
+          "evidence": [
+            "Adjacency iff the images span; exact edge count separates central-central, central-graph and graph-graph types"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-edge-count-and-symplectic-fibers-in-heisenberg-comaximal-g--cea008ee3276",
+          "material_read": "RESULT.md offset 0–4878, Finding, scope and proof §§1–4 (opening)",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact edge count and symplectic fibers in Heisenberg comaximal graphs",
+          "trigger": "Same object and generation event in graph language"
+        },
+        {
+          "assessment": "Exact census and classification; pair statistic differs",
+          "evidence": [
+            "C_n+D_n counts center-containing subspaces and isotropic graph subalgebras; odd-prime Lazard subgroup interpretation"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-heisenberg-subalgebra-commutativity-degree--e3fb5b5762fa",
+          "material_read": "RESULT.md, Finding and proof §1, offset 0",
+          "method": "Local mirror",
+          "title": "Exact subalgebra commutativity degree of finite Heisenberg Lie algebras",
+          "trigger": "Same unrestricted subalgebra census and extraspecial alias"
+        },
+        {
+          "assessment": "Matches the fixed complementary-rank case, not the dimension mixture",
+          "evidence": [
+            "There are q^(rs) complements to a fixed r-space in dimension r+s, yielding q^(rs)/[r+s choose s]_q, equivalently Phi_r Phi_s/Phi_(r+s)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.10015",
+          "material_read": "§2 Lemma 2.1 and proof, printed p. 3, OA offset 8071",
+          "method": "Primary OA PDF and check of the complement count and denominator",
+          "title": "The probability of spanning a classical space by two non-degenerate subspaces of complementary dimensions",
+          "trigger": "Known conditional spanning product"
+        },
+        {
+          "assessment": "Fixed-dimensional nondegenerate model and event differ",
+          "evidence": [
+            "Nondegenerate subspaces of specified dimensions, nondegenerate span"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.02198",
+          "material_read": "Theorem 1.1, pp. 1–2, OA offset 3084",
+          "method": "Primary OA PDF passage",
+          "title": "Random generation of direct sums of finite non-degenerate subspaces",
+          "trigger": "Potential generalization beyond complementary dimensions"
+        },
+        {
+          "assessment": "Different sampling and observable",
+          "evidence": [
+            "Cyclic subgroups and projective points; permutability rather than whole-group generation"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-cyclic-subgroup-commutativity-of-extraspecial-exponent-p-groups--36a817900ae3",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Cyclic-subgroup commutativity of extraspecial exponent-p groups",
+          "trigger": "Group-theoretic alias and exact subgroup-pair result"
+        },
+        {
+          "assessment": "Mathematical analogue; different algebra, census and sampled event",
+          "evidence": [
+            "Noncentral ideal suppression for V_d plus its second exterior power"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-theta-modulated-cubic-suppression-of-noncentral-ideals-in-free-c--6f754a2fffbb",
+          "material_read": "RESULT.md, Finding and proof §§1–2, offset 0",
+          "method": "Local mirror",
+          "title": "Theta-modulated cubic suppression of noncentral ideals in free class-two Lie algebras",
+          "trigger": "Catalogue theta asymptotic for closely related class-two algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–33 and 43–91",
+        "Resultary e3fb5b5762fa and cea008ee3276 for the exact-count baseline"
+      ],
+      "rationale": "Uniform choice across the entire subalgebra lattice is a natural sampling law, inequivalent to a fixed dimension. The result explains why the generation limit exists without degenerating to zero or one: the quotient ranks stay within a bounded window, fluctuations there affect the spanning kernel, and noncentral picks have negligible population. The explicit theta mixture and quantitative transfer are useful beyond a finite census of this algebra family.",
+      "residual_risks": [
+        "No extension to larger-center algebras, changing field size or other sampling models is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:55:40.489822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–111; VERIFICATION.md, both Python verifier sources and recorded stdout inspected, not executed.",
+        "Independent exact replay: /workspace/branches/4e4cfc93-4011-40b6-852b-9a73c5d1502c/sector_reproduction.py, with sector_reproduction_output.txt; SymPy 1.14.0, both 45- and 36-dimensional characteristic polynomials matched exactly.",
+        "Independent direct replay: python3 /tmp/opencode/review-ladders-2.py; iterated the original update three times on all 6^(2n) configurations for n=3 and n=4, both seams. Primitive state counts were 492/72 and 1584/384, yielding respectively 164/24 and 528/128 orbits. The two nontrivial activity classes split each count equally."
+      ],
+      "rationale": "Summing updates gives a Laplacian kernel vector, so connectedness forces one common number of firings per vertex in three steps. Zero and three firings yield fixed states; one and two are interchanged by x↦5−x. This complement is valid throughout each orbit: each vertex has a waiting time with at most two chips, the next value is at most five, and any firing step cannot increase its own value. For frequency one, a vertex at its unique firing time has 3+u, and the two subsequent values are u+b_own and 3+u−a, with a its predecessor-phase count. Both are legal waiting values exactly for 0≤u<a, using a+b_own≤3. The local choices are independent, reconstruct each phase and height from the states, and force least period three. Hence the phase-weight sum is multiplied by 2/3, not by a spatial orbit factor. The 81 states are consecutive-rung pairs; in a twisted closure the terminal pair is the initial pair with both rows swapped, giving the predecessor weights across the seam at both ends. The row involution commutes with the transfer and fixes nine pair states, so the sectors have dimensions 45 and 36. Independent exact characteristic-polynomial computation matched the two displayed factorizations; traces add for the prism and subtract for the Möbius closure, regardless of Jordan blocks. A is strictly positive on the real axis since its remaining quadratic after subtracting (z²+z)² has negative discriminant. The two conjugate moduli are reciprocal, not both one, since otherwise A would be reciprocal. The dominant cosine has subsequences bounded away from zero on both sides whether its angle is rational or irrational in turns (indeed even n suffices, as the doubled angle is nontrivial). This gives sign reversals. For C the three rational brackets give distinct positive roots, Descartes excludes additional positive roots and C(−x)<0 for x≥0. Their product exceeds one so the remaining conjugate pair has modulus below one. The stated triangle bounds for A and for B=(z+1)^4−3z give radii below 4.8 and 3, so the C root above 4.88 uniquely dominates, giving the claimed growth and relative error bound.",
+      "residual_risks": [
+        "The direct dynamical counts are exhaustive in the proved periodic-state box for the checked n only. All-n validity uses the exact transfer-sector identities and trace argument, and sign reversals are proved independently of finite counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-general chip-energy theorem gives the phase/height enumeration and complement. Jiang treats the existence of specified periods, including complete bipartite and multipartite families. Jiang–Scully–Zhang exclude clumpy periodic firing patterns."
+        ],
+        "reasoning": "The graph-general enumerator subsumes the phase sum as an unevaluated specialization. The nonstandard finite determinant identities and the asymptotic seam signs require evaluating that sum for these particular cyclic closures. Period existence and pattern restrictions are not counts.",
+        "searches": [
+          "Resultary Two contiguous chip-energy bands, §§Finding, 2, 3",
+          "Jiang arXiv:1003.0943 §4; Jiang–Scully–Zhang arXiv:1211.6786 §6 Theorem 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Four Resultary records above, Jiang arXiv:1003.0943 and Jiang–Scully–Zhang arXiv:1211.6786."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chip firing weights a phase by the product of the numbers of predecessor neighbors; Greenberg–Hastings uses a zero-one successor-neighbor existence predicate. The weighted odd transfer factor A produces the actual oscillatory correction.",
+          "The period-two law gives one sign on all even sizes and the other on all odd sizes, while the chip-firing period-three difference takes both signs even along the even sizes."
+        ],
+        "reasoning": "The common trace method is prior context, but this transfer is not obtained merely by reindexing the other exact cases. The signed gap and the simultaneous common exponential growth depend on new characteristic factors, not just the possibility of period three.",
+        "searches": [
+          "Graph-general at z=1, period-two seam law, and Greenberg–Hastings transfer predicates and exact spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arbitrary-connected-graph chip-energy polynomial at z=1 is exactly the frozen equation (2).",
+          "The period-two record uses the same labelled graph families and dynamical rule but a different least period, with opposite seam signs by parity. The three-color Greenberg–Hastings analogue counts states, so division by three there only corrects temporal normalization."
+        ],
+        "reasoning": "Neither converting states to temporal orbits nor relabeling the Möbius closure can turn the period-two count or the different threshold dynamics into the primitive three-cycle census.",
+        "searches": [
+          "Resultary: three-cycle census by chip energy, parity-reversing twist law on cubic ladders, three-color seam screening; compare temporal states versus orbits and prism versus twisted ladder",
+          "Jiang arXiv:1003.0943 possible periods on complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Greenberg–Hastings seam difference has recurrence s_n=−5s_(n−2)+3s_(n−3) in its exact formula and different characteristic factors despite the shared 45/36 dimensions.",
+          "The distinct same-day four-wave record gives two cubic spectra from a 256-state transfer with different dynamics and least period, not the present exact sectors."
+        ],
+        "reasoning": "The closest exact formulas are for different counting sequences. Equal transfer dimensions are only a statement about the rung-state alphabet and symmetry, not an exact match to the determinants or counts.",
+        "searches": [
+          "Resultary exact cubic ladder orbit counts, three-color excitable-wave screening, two cubic spectra/four-wave census"
+        ]
+      },
+      "rationale": "The graph-general phase count and activity complement are prior and are not credited as new. The exact sector factors for the weighted chip-firing transfer and their consequence for the signed response to twisting are distinct from the closest same-family chip-firing and excitable-wave results.",
+      "residual_risks": [
+        "Bounded comparison to catalogue and identified primary passages is not an exhaustive historical search. The same-day four-wave analogue does not establish priority from its date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Literal coverage of phase-sum identity, not the ladder evaluation",
+          "evidence": [
+            "The coefficient enumerator at z=1 gives (2/3) times the sum of predecessor-degree products for an arbitrary connected simple graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-two-contiguous-chip-energy-bands-and-an-exact-three-cycle-census--99e5dddcdc6e",
+          "material_read": "RESULT.md Finding, §2, §3, offsets 0, 3500, 5500",
+          "method": "Local Resultary mirror",
+          "title": "Two contiguous chip-energy bands and an exact three-cycle census on connected graphs",
+          "trigger": "Exact same general phase-sum after dropping the mass weight"
+        },
+        {
+          "assessment": "Different least temporal period, different seam law",
+          "evidence": [
+            "Seam difference 1+(−1)^n+2W_n, positive for even n and negative for odd n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-parity-reversing-twist-law-for-period-two-chip-firing-orbits-o--3e46c74462fe",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A parity-reversing twist law for period-two chip-firing orbits on cubic ladders",
+          "trigger": "Same update and graph families"
+        },
+        {
+          "assessment": "Different dynamical rule and spectral factors",
+          "evidence": [
+            "Zero-one successor existence weights and least-period-three state difference 2(1+(−1)^n)+4s_n with s_n=−5s_(n−2)+3s_(n−3)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exponential-seam-screening-for-three-color-excitable-waves-on-cu--b0ea4c831bc4",
+          "material_read": "RESULT.md Finding and transfer comparison, offsets 0 and 3500",
+          "method": "Local Resultary mirror",
+          "title": "Exponential seam screening for three-color excitable waves on cubic ladders",
+          "trigger": "Same strip closures and three-state transfer approach"
+        },
+        {
+          "assessment": "Exact root-power census for another least period and update",
+          "evidence": [
+            "Four-state Greenberg–Hastings waves with least period four, 256 states and color-symmetry spectral sectors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-cubic-spectra-and-the-exact-four-wave-census-on-circular-lad--87d35d7cb1cd",
+          "material_read": "RESULT.md Finding and proof passages, offsets 0 and 3000",
+          "method": "Local Resultary mirror",
+          "title": "Two cubic spectra and the exact four-wave census on circular ladders",
+          "trigger": "Same-day close methodological result with a circular ladder transfer"
+        },
+        {
+          "assessment": "Existence and possible-period restrictions, not counts at either ladder closure",
+          "evidence": [
+            "Describes possible periods on complete bipartite graphs and constructions on complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.0943",
+          "material_read": "Abstract, p. 1; §4, pp. 10–11; OA offsets 9500 and 34350",
+          "method": "OA primary-text passages",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Possible overlap via complete multipartite realizations, including the smallest twisted ladder"
+        },
+        {
+          "assessment": "Pattern restriction, not the weighted ladder count",
+          "evidence": [
+            "Clumpy firing patterns do not occur at periodic states."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+          "material_read": "§6 Theorem 6.2, PDF pp. 11–13, OA offset 31800",
+          "method": "OA primary-text passage",
+          "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "General restrictions on parallel chip-firing phase patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(4) and proof of growth and sign reversals; compared prior period-two and Greenberg–Hastings seam laws."
+      ],
+      "rationale": "The exact counts distinguish two natural seam closures for the same local dynamics. Twisting leaves the dominant growth unchanged yet changes the counts in both directions infinitely often, including within one parity class; this shows precisely where the corresponding period-two parity intuition fails.",
+      "residual_risks": [
+        "The result concerns primitive period-three orbits only, not the prevalence of their basins, all periods or spatial symmetry quotients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

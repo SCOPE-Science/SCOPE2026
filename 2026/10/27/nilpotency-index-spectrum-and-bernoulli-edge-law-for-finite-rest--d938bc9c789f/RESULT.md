@@ -1,95 +1,72 @@
-# Nilpotency-index spectrum and Bernoulli edge law for finite restricted-range endomorphisms
+# Sharp uniform Bernoulli approximation for the nilpotency-index defect of restricted-range maps
 
 ## Finding
-Let \(q\) be any prime power. Fix integers \(k,c\ge1\), a \((k+c)\)-dimensional vector space \(V\) over \(\mathbb F_q\), and a fixed \(k\)-dimensional subspace \(W\). Consider the finite semigroup
-\[
-S(V,W)=\{X\in\operatorname{End}_{\mathbb F_q}(V):X(V)\subseteq W\}.
-\]
-For a nilpotent \(X\), its index \(\nu(X)\) is the least positive integer \(j\) with \(X^j=0\); in particular \(\nu(0)=1\). Let \(F_{k,c,q}(z)=\sum_{X\in S(V,W),\ X\text{ nilpotent}}z^{\nu(X)}\).
 
-For a partition \(\lambda\vdash k\), write \(\lambda'\) for its conjugate, \(m_j(\lambda)\) for the multiplicity of \(j\), \(d=\lambda_1\), and \(r=m_d(\lambda)\). Put
+Fix a prime power \(q\). Let \(V\) be a \((k+c)\)-dimensional vector space over \(\mathbb F_q\) with a fixed \(k\)-dimensional subspace \(W\), where \(k,c\ge1\). Choose \(X\) uniformly among the nilpotent linear maps \(V\to V\) whose images lie in \(W\). Write \(\nu(X)=\min\{j\ge1:X^j=0\}\) and \(D_{k,c}=k+1-\nu(X)\), the defect from the maximum possible index. Set
 \[
-C_\lambda(q)=q^{\sum_{i\ge1}(\lambda'_i)^2}
-\prod_{j\ge1}\prod_{a=1}^{m_j(\lambda)}(1-q^{-a}),
-\qquad N_\lambda(q)=\frac{|\operatorname{GL}_k(\mathbb F_q)|}{C_\lambda(q)}.
+\varphi_s(q)=\prod_{i=1}^s(1-q^{-i}),\qquad K_q=\prod_{i=2}^{\infty}(1-q^{-i}),\qquad \varphi_0(q)=1.
 \]
-Then the **complete nilpotency-index enumerator**, including nonregular semigroup elements, is
+Let \(S_q\) and \(E_c\) be independent, with
 \[
-\boxed{F_{k,c,q}(z)=\sum_{\lambda\vdash k}N_\lambda(q)
-\left[q^{(k-r)c}z^d+
-\big(q^{kc}-q^{(k-r)c}\big)z^{d+1}\right].}
+\Pr(S_q=s)=K_q\frac{q^{-2s}}{\varphi_s(q)}\quad(s\ge0),\qquad
+\Pr(E_c=1)=q^{-c},\quad\Pr(E_c=0)=1-q^{-c}.
 \]
-In particular there are exactly \(q^{k(k+c-1)}\) nilpotent elements, no index exceeds \(k+1\), and the number of elements of maximal index \(k+1\) is
+Using total variation distance \(d_{\rm TV}(P,Q)=\sup_A|P(A)-Q(A)|\), for every \(k,c\ge1\) one has
 \[
-\boxed{q^{k(k+c-1)}(1-q^{-c})\prod_{j=2}^{k}(1-q^{-j}).}
+\frac{K_q(1-q^{-1})}{q}\,q^{-k}
+\;\le\;d_{\rm TV}\!\left(\mathcal L(D_{k,c}),\mathcal L(S_q+E_c)\right)
+\;\le\;\frac{q^2}{(1-q^{-1})(1-q^{-2})}\,q^{-k}.
 \]
-The empty product is one.
-
-There is also a uniform **top-edge law**. Choose \(X\) uniformly among all nilpotent elements and set \(D_{k,c}=k+1-\nu(X)\). Write \(\varphi_s(q)=\prod_{j=1}^s(1-q^{-j})\) (with \(\varphi_0(q)=1\)) and \(K_{q,k}=\prod_{j=2}^k(1-q^{-j})\). For every integer \(s\ge0\) with \(2s<k\), exactly
-\[
-\boxed{\Pr(D_{k,c}=s)=K_{q,k}\left[
-(1-q^{-c})\frac{q^{-2s}}{\varphi_s(q)}+
-\mathbf1_{s\ge1}\,q^{-c}\frac{q^{-2(s-1)}}{\varphi_{s-1}(q)}\right].}
-\]
-For fixed \(q\) and \(c\), as \(k\to\infty\), \(D_{k,c}\) converges in **total variation** to \(S_q+E_c\), with independent summands defined by
-\[
-\Pr(S_q=s)=K_q\frac{q^{-2s}}{\varphi_s(q)},\quad
-K_q=\prod_{j=2}^{\infty}(1-q^{-j}),\quad
-\Pr(E_c=1)=q^{-c},\quad \Pr(E_c=0)=1-q^{-c}.
-\]
-If \(c=c(k)\to\infty\), then \(D_{k,c(k)}\) converges in total variation to \(S_q\). Hence a growing codimension makes a typical nilpotent nonregular while still keeping its nilpotency index within a tight random distance of the algebraic maximum.
+Thus the approximation error has exact order \(q^{-k}\) at fixed field size, uniformly in all positive codimensions. In particular, fixed \(c\) gives the indicated Bernoulli-shifted limit, and if \(c=c(k)\to\infty\), the unshifted law \(S_q\) approximates \(D_{k,c(k)}\) with error at most the displayed upper bound plus \(q^{-c(k)}\).
 
 ## Assumptions and scope
-All linear maps, dimensions, ranks and Jordan partitions are over \(\mathbb F_q\); arbitrary prime powers and all characteristics are admitted. Both \(k\) and \(c\) are positive. The probability refers to uniform sampling from the nilpotent subset of \(S(V,W)\), not from all endomorphisms or from the regular subsemigroup. No ambient nilpotent Jordan-type classification is asserted: the invariant classified is the nilpotency **index**. The exact edge formula is asserted only when \(2s<k\); the full finite distribution for every index comes from the partition sum.
+
+All dimensions, matrices and ranks are over \(\mathbb F_q\), with every characteristic permitted. The sampling is uniform on the nilpotent subset of the entire restricted-range semigroup, with no regularity restriction. The theorem concerns only the nilpotency index, with \(\nu(0)=1\). The target law is allowed to vary with \(c\); the error estimate does not assume that \(c\) is fixed or tends to infinity. The rate constants depend on \(q\); the theorem does not assert a leading asymptotic constant for the error.
 
 ## Proof
-Choose a vector-space complement \(U\) to \(W\) in \(V\), and use \(V=W\oplus U\). Every \(X\in S(V,W)\) has unique block form
-\[
-X=\begin{pmatrix}A&B\\0&0\end{pmatrix},
-\quad A\in M_k(\mathbb F_q),\quad B\in M_{k\times c}(\mathbb F_q).
-\]
-The restriction of \(X\) to \(W\) is \(A\), while the induced map on \(V/W\) is zero. Thus \(X\) is nilpotent if and only if \(A\) is nilpotent. Direct multiplication gives, for all \(j\ge1\),
-\[
-X^j=\begin{pmatrix}A^j&A^{j-1}B\\0&0\end{pmatrix}.
-\]
-Suppose \(A\) has Jordan partition \(\lambda\), maximal block length \(d=\lambda_1\), and \(r=m_d(\lambda)\) longest blocks. Then \(A^d=0\), \(A^{d-1}\) has rank exactly \(r\), and \(X^{d+1}=0\). The index is \(d\) precisely when all \(c\) columns of \(B\) lie in \(\ker A^{d-1}\), and is otherwise \(d+1\). The kernel has dimension \(k-r\). Therefore exactly \(q^{(k-r)c}\) choices of \(B\) yield index \(d\), and the remaining \(q^{kc}-q^{(k-r)c}\) choices yield index \(d+1\). This includes the zero-matrix case \(d=1\). The regularity criterion for the restricted-range semigroup is \(X(V)\subseteq X(W)\), equivalent here to \(\operatorname{im}B\subseteq\operatorname{im}A\). Conditional on \(A\), this has probability \(q^{-c(k-\operatorname{rank}A)}\). As a nilpotent \(A\) has rank at most \(k-1\), the total regular-nilpotent proportion is at most \(q^{-c}\). Thus it tends to zero when \(c\to\infty\), even though the maximum-index probability tends to a positive constant.
 
-To count \(A\) of each type, regard its nilpotent Jordan module as \(\bigoplus_{j\ge1}(\mathbb F_q[t]/t^j)^{m_j(\lambda)}\). The endomorphism algebra of this module has dimension \(\sum_i(\lambda'_i)^2\), and its semisimple quotient is \(\prod_j M_{m_j(\lambda)}(\mathbb F_q)\). Its units, the centralizer of \(A\) in \(\operatorname{GL}_k(\mathbb F_q)\), consequently have cardinality \(C_\lambda(q)\). Orbit-stabilizer gives precisely \(N_\lambda(q)\). Summing the two conditional counts over nilpotent partitions proves the displayed polynomial.
+**Block restriction and fibres.** Choose a complement to \(W\). Then \(X=\begin{pmatrix}A&B\\0&0\end{pmatrix}\) with \(A\) of size \(k\) and \(B\) of size \(k\times c\). For \(j\ge1\), the two upper blocks of \(X^j\) are \(A^j\) and \(A^{j-1}B\). Thus \(X\) is nilpotent exactly when \(A\) is, and in the uniform nilpotent ensemble \(A\) is uniform nilpotent and \(B\) is independent and uniform. If the largest Jordan block of \(A\) has size \(d\) and multiplicity \(r\), then \(A^{d-1}\) has rank \(r\), even for \(A=0\), where \(d=1\) and \(r=k\). The index of \(X\) is \(d\) with probability \(q^{-rc}\), since the columns of \(B\) must all lie in \(\ker(A^{d-1})\), and is otherwise \(d+1\). In particular the maximum is \(k+1\), attained by taking a single block in \(A\) and a column not killed by \(A^{k-1}\).
 
-The classical finite-field nilpotent-matrix count is \(q^{k^2-k}\): equivalently, summing the standard nilpotent conjugacy-class sizes gives \(\sum_{\lambda\vdash k}N_\lambda(q)=q^{k^2-k}\). This identity is also immediate from the usual nilpotent cycle-index coefficient \(\sum_{\lambda\vdash k}C_\lambda(q)^{-1}=q^{-k}/\varphi_k(q)\) and \(|\operatorname{GL}_k(\mathbb F_q)|=q^{k^2}\varphi_k(q)\). Multiplying by the \(q^{kc}\) unconstrained choices of \(B\) yields the total. Index \(k+1\) requires \(\lambda=(k)\) and \(A^{k-1}B\ne0\). The fraction of all nilpotent \(A\) with partition \((k)\) is \(K_{q,k}\), and for each such \(A\), the nonvanishing probability is \(1-q^{-c}\). This proves the maximal-index count and its positive probability.
-
-For the exact edge law, fix \(s\) with \(2s<k\). Any partition \(\lambda\vdash k\) whose largest part is \(k-s\) is uniquely \((k-s,\mu)\), where \(\mu\vdash s\), and the longest block is unique. For this partition,
+For reference, the classical multiplicity of a nilpotent Jordan type \(\lambda\vdash k\) is \(N_\lambda=|\operatorname{GL}_k(\mathbb F_q)|/C_\lambda\), with
 \[
-\sum_i(\lambda'_i)^2=k+s+\sum_i(\mu'_i)^2,
-\quad C_\lambda(q)=q^{k+s}(1-q^{-1})C_\mu(q).
+C_\lambda=q^{\sum_i(\lambda'_i)^2}\prod_j\varphi_{m_j(\lambda)}(q),
 \]
-The nilpotent cycle-index identity in dimension \(s\) gives \(\sum_{\mu\vdash s} C_\mu(q)^{-1}=q^{-s}/\varphi_s(q)\). Dividing the sum of the corresponding class sizes by \(q^{k^2-k}\) therefore shows
-\[
-\Pr(k-\nu(A)=s)=K_{q,k}\frac{q^{-2s}}{\varphi_s(q)}\qquad(2s<k).
-\]
-Here the term \(k-\nu(A)\) denotes the defect of the longest Jordan block of \(A\), not of \(X\). Conditional on any such \(A\), the rank of \(A^{\nu(A)-1}\) is one. Independently sampled columns in \(B\) therefore extend the nilpotency index by one with probability \(1-q^{-c}\), and leave it unchanged with probability \(q^{-c}\). To have \(D_{k,c}=s\), either the longest-block defect of \(A\) equals \(s\) and extension occurs, or it equals \(s-1\) and extension fails. These disjoint possibilities give the stated exact formula.
+where \(\lambda'\) is the conjugate partition and \(m_j\) is the multiplicity of part \(j\). The block argument consequently gives the finite count by summing \(N_\lambda q^{kc-rc}\) at index \(d\) and \(N_\lambda(q^{kc}-q^{kc-rc})\) at index \(d+1\). These finite counts are used as inputs to the asymptotic comparison, not claimed as a new enumerative theorem.
 
-Finally the infinite product \(K_q\) is positive. The elementary \(q\)-binomial identity
+**Exact masses near the maximum.** Write \(K_{q,k}=\prod_{i=2}^k(1-q^{-i})\). When \(0\le 2s<k\), a partition with largest part \(k-s\) is uniquely \(\lambda=(k-s,\mu)\) with \(\mu\vdash s\), and that largest part is unique. Squaring the conjugate column lengths gives
 \[
-\sum_{s\ge0}\frac{u^s}{\varphi_s(q)}
-=\prod_{j\ge0}(1-uq^{-j})^{-1},\quad |u|<1,
+\sum_i(\lambda'_i)^2=k+s+\sum_i(\mu'_i)^2,\qquad C_\lambda=q^{k+s}(1-q^{-1})C_\mu.
 \]
-with \(u=q^{-2}\) proves \(\sum_{s\ge0}K_q q^{-2s}/\varphi_s(q)=1\); it can be checked directly by the recurrence \(G(u)=G(u/q)/(1-u)\) and \(G(0)=1\). Thus the displayed limiting masses form a probability law. For each fixed \(s\), the exact edge identity applies for all sufficiently large \(k\), so the mass at \(s\) converges to that of \(S_q+E_c\) (or \(S_q\) when \(c\to\infty\)). Pointwise convergence of probability masses on the nonnegative integers to a mass-one limit implies convergence in total variation: choose a finite prefix containing all but arbitrarily little limiting mass, then compare that prefix and its complement. This proves both asymptotic assertions.
+The classical nilpotent-matrix counts in dimensions \(j\) are \(q^{j^2-j}\), so \(\sum_{\mu\vdash s}C_\mu^{-1}=q^{-s}/\varphi_s(q)\) by orbit-stabilizer. This includes the empty partition in dimension zero. Using \(|\operatorname{GL}_k|=q^{k^2}\varphi_k(q)\) and dividing by \(q^{k^2-k}\) for the uniform nilpotent \(A\) gives
+\[
+\Pr(k-\nu(A)=s)=K_{q,k}q^{-2s}/\varphi_s(q)\qquad(2s<k).
+\]
+For \(D_{k,c}=s\) either the largest-block defect of \(A\) is \(s\) and the index is extended by one, or its defect is \(s-1\) and the index remains unchanged. In either case the largest block is unique in the stated range, so the probability of no extension is \(q^{-c}\), regardless of the smaller blocks. The exact near-maximum masses are therefore
+\[
+\Pr(D_{k,c}=s)=K_{q,k}\left((1-q^{-c})\frac{q^{-2s}}{\varphi_s(q)}+
+\mathbf1_{s\ge1}q^{-c}\frac{q^{-2(s-1)}}{\varphi_{s-1}(q)}\right),\qquad 2s<k.
+\]
 
-## Verification
-The accompanying standalone \(\texttt{verify.py}\) enumerates every restricted-range matrix in seven small fields/dimensions, performs successive matrix multiplications directly in the relevant finite field, and compares the observed index counts against the partition formula. Fields of orders \(2,3,4,5\) are included, with \(\mathbb F_4=\mathbb F_2[u]/(u^2+u+1)\). The cases \((q,k,c)\) are \((2,1,1)\), \((2,2,1)\), \((2,2,3)\), \((2,3,2)\), \((3,2,2)\), \((4,2,1)\) and \((5,1,2)\). A total of \(44,642\) matrices are examined (including nonnilpotent matrices, which are excluded from the counts). The reproducible result is \(\texttt{VERIFY_OK}\); the infinite-family claims rely on the preceding proof, not the finite checks.
+**Uniform total variation and sharpness.** The law of \(S_q\) is normalized by the power series \(G(z)=\sum_{s\ge0}z^s/\varphi_s(q)\), which obeys \((1-z)G(z)=G(z/q)\) by comparing coefficients. For \(|z|<1\), iteration gives \(G(z)=\prod_{j\ge0}(1-zq^{-j})^{-1}\). Taking \(z=q^{-2}\) gives \(G(z)=K_q^{-1}\), and \(K_q>0\) since the sum of the omitted factors' deficits is finite.
+
+Put \(h=\lfloor(k-1)/2\rfloor\) and \(P=\mathcal L(D_{k,c})\), \(Q=\mathcal L(S_q+E_c)\). At every integer \(0\le s\le h\), the finite mass formula gives \(P(s)=(K_{q,k}/K_q)Q(s)\ge Q(s)\). The identity \(d_{\rm TV}(P,Q)=1-\sum_s\min(P(s),Q(s))\) then yields
+\[
+d_{\rm TV}(P,Q)\le Q\{s>h\}\le \Pr(S_q\ge h)\le \frac{q^{-2h}}{(1-q^{-1})(1-q^{-2})}.
+\]
+The second inequality uses \(E_c\le1\). The third uses \(\varphi_s(q)\ge(1-q^{-1})K_q\) and a geometric sum. Since \(2h\ge k-2\), this gives the claimed upper bound even for \(k=1\).
+
+For a matching lower order uniformly in \(c\), use the event \(D_{k,c}=0\). Its excess probability over \(Q(0)\) is \((K_{q,k}-K_q)(1-q^{-c})\). The product identity \(K_{q,k}/K_q=\prod_{i>k}(1-q^{-i})^{-1}\ge (1-q^{-(k+1)})^{-1}\) and \(1-q^{-c}\ge1-q^{-1}\) give the stated lower bound. Finally \(S_q+E_c\) and \(S_q\) can be coupled by using the same \(S_q\); they disagree with probability \(q^{-c}\), yielding the claim for growing codimension.
+
+## Verification and limitations
+
+The accompanying `verify.py` compares the finite index counts with direct matrix powers over small fields of orders 2, 3, 4 and 5, including the zero map. Run with standard Python 3. These checks address the finite block-counting input. They do not test the infinite product approximation or establish its sharp rate. The upper rate follows from the exact-mass prefix and its complementary tail; the lower rate already follows from the single maximum-index event. No ambient Jordan classification or asymptotic leading constant in total variation is claimed.
 
 ## Relationship to prior work
-Grau introduced the general independence-algebra restricted-range framework and analyzed Green relations and ideals; the cited preprint's first public date is 25 June 2022. Sullivan and Sommanee--Sangkhanan had studied linear restricted-range semigroups and their regular parts earlier. These structural foundations are not claimed anew. Standard nilpotent finite-field Jordan orbit counts and the nilpotent cycle index are classical inputs; Fulman--Guralnick explicitly recall these tools. Fulman's affine-group cycle-index paper treats a one-column affine analogue of this counting problem, so no independent priority is claimed for such specialized mechanisms.
 
-A count restricted to **regular nilpotent** maps does not determine the unrestricted \(B\)-fibres: many nonregular maps have nilpotency index one greater than that of their restriction to \(W\). The full nilpotency-index enumerator and its codimension-dependent Bernoulli limit concern these omitted fibres. The full enumerator is not a claim about all ambient Jordan partitions.
-
-## Limitations
-The theorem does not enumerate full ambient Jordan types of \(X\), nor classify nilpotent conjugacy orbits within the restricted-range semigroup. A general parabolic cycle-index result could imply some of these formulas; this remains a literature-coverage risk. The affine one-column case, standard nilpotent orbit formulas, and known regular-restricted-range enumerations are prior ingredients, not independent contributions. Finite computational tests do not certify general identities or publication priority.
+The finite Jordan-type counts for this restricted-range family are a consequence of classical Hall-polynomial counts, including in arbitrary codimension. For a nilpotent Jordan type \(\eta\) on \(V\), the condition \(X(V)\subseteq W\) says that \(W\) is a submodule with quotient of type \((1^c)\). For each restriction type \(\lambda\) on \(W\), the Hall number \(g_{(1^c),\lambda}^{\eta}(q)\) counts these submodules for one operator of type \(\eta\). Multiplying by the unrestricted count of operators of that type and dividing by the number of \(k\)-planes gives the count for fixed \(W\), by transitivity on the Grassmannian. The largest part \(\eta_1\) is the index. For \(c=1\) there is also the affine cycle-index route: swapping the two blocks and transposing \(I+X\) gives a unipotent matrix in the point-stabilizer realization of the finite affine group. Neither the existence of finite counts nor the one-column case is claimed as new. The assertion here is instead a uniform stochastic approximation with sharp exponential order in \(k\). The proof identifies the Bernoulli contribution in the unique-longest-block range and uses the resulting mass comparison to bound total variation from above and below. Related calculations for lifts over finite dual-number rings concern an index that can double, with a different perturbation mechanism.
 
 ## References
-1. A. Grau, *The semigroup of endomorphisms with restricted range of an independence algebra*, arXiv:2206.12526v1 (25 June 2022), DOI: 10.1007/s00233-022-10324-z.
-2. R. P. Sullivan, *Semigroups of linear transformations with restricted range*, Bulletin of the Australian Mathematical Society 77 (2008), 441--453, DOI: 10.1017/S0004972708000385.
-3. W. Sommanee and K. Sangkhanan, *The regular part of a semigroup of linear transformations with restricted range*, Journal of the Australian Mathematical Society 103 (2017), 402--419, DOI: 10.1017/S144678871600080X.
-4. J. Fulman, *Finite Affine Groups: Cycle Indices, Hall--Littlewood Polynomials, and Probabilistic Algorithms*, arXiv:math/0009182 (2000).
-5. J. Fulman and R. Guralnick, *Cohen Lenstra Partitions and Mutually Annihilating Matrices over a Finite Field*, arXiv:2111.09433 (2021), Section 3 (classical Jordan orbit counts).
+
+1. I. G. Macdonald, *Symmetric Functions and Hall Polynomials*, 2nd ed., Oxford University Press, 1995, Chapter II §§2, 4, especially (4.3) and (4.6).
+2. J. Fulman, *Finite Affine Groups: Cycle Indices, Hall–Littlewood Polynomials, and Probabilistic Algorithms*, arXiv:math/0009182, Theorem 2 and Corollary 1. https://arxiv.org/abs/math/0009182
+3. J. Fulman and R. Guralnick, *Cohen Lenstra Partitions and Mutually Annihilating Matrices over a Finite Field*, arXiv:2111.09433, §3, for classical Jordan counts. https://arxiv.org/abs/2111.09433

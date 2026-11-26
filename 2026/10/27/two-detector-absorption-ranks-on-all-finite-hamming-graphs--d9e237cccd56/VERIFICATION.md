@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,8 @@
 }
 ---
 
-# Verification of the two-monitor theorem
+# Reproducibility of the nonbinary two-monitor theorem
 
-Run `python verify_two_monitor.py` in a Python environment with NumPy and SciPy installed. The file builds full Hamming adjacency matrices, spectral projectors from their distinct eigenvalues, and the exact Krawtchouk expression for site-level absorption. It checks nine graph families: (q,d)=(2,2),(2,3),(2,4),(2,5),(3,1),(3,2),(3,3),(4,1),(4,2). There are 23 inequivalent monitor distances and 394 initial-state evaluations. It independently computes matrix ranks and diagonal bright-space projections and checks the binary antipodal and adjacent-site closed formulas. It also evaluates the full dissipative propagator with two different positive loss strengths at t=900 in H(2,3).
+The accompanying `verify_two_monitor.py` can be run with Python, NumPy and SciPy. It builds explicit Hamming adjacency matrices, constructs spectral projectors from their distinct eigenvalues and compares the diagonal of the bright-space projection with the Krawtchouk formula. The original finite run reports 23 detector-distance cases and 394 site comparisons across nine graph families; that count includes binary benchmark cases. The separate unequal-rate propagation example in \(H(2,3)\) at \(t=900\) reports survival \(0.4444444444443397\), compared with the theoretical infinite-time survival \(4/9\).
 
-Observed result: PASS for all 23 detector-distance cases and 394 site comparisons; direct propagation survival 0.4444444444443397 compared with theoretical 4/9. Tolerances are explicit in the file. These are finite numerical consistency checks, not a proof for arbitrarily large parameters. The complete proof is in RESULT.md and uses exact finite Fourier character orthogonality and rank arguments. No independent audit has been performed.
+These are finite numerical checks; they do not establish the exact rank for arbitrary size or asymptotic decay for all permitted rates. The proof in `RESULT.md` establishes the two-projected-vector rank on each eigenspace by the strict nonbinary Krawtchouk inequality and gives the exact infinite-time projection law.

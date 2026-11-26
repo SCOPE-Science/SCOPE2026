@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:44.639017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof and Verification",
+        "VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt (inspected, not executed)",
+        "Independent direct rational stage-sum replay and centered-quartic proof check"
+      ],
+      "rationale": "Minimizing the follower's stage cost gives u=Θx/(2R). Substitution gives the factor 2Rx₀²/B² multiplying the quartic, with the two weights at states x₀ and ax₀. Reflection about zero excludes negative multipliers; the derivative at zero and the strictly positive derivative on [A,∞) give 0<a<A. At η=1 the exact identity G−A²=(a²−Aa+1)² gives the two distinct minima for A>2; the centered quartic y⁴+(2−A²/2)y² plus constant gives the unique minimum for A≤2. For η≠1, the linear term A(η−1)y and reflection about A/2 select one strict half-line. There the derivative in z=|y| starts negative, rises to infinity, and either is increasing throughout or first decreases and then increases. Thus its unique positive root is simple and globally minimizing. Evaluating G′/2 at a=1 for 1<A<2 gives η−(A−1)(3−A); for A>2 evaluation at a± gives (η−1)a± and locates each optimizer beyond the appropriate equal-depth branch. Compactness of the minimizers as η tends to 1 gives the stated one-sided limits. Differentiation along the simple roots yields the envelope gap a₊²−a₋²=A√(A²−4). At A=2 the stationary equation is 2y³+δy+δ=0, with y tending to zero, so y³/δ tends to −1/2. I recomputed the exact leader costs directly from the two stages at Θ=−4, −1 and −5/2, obtaining 25/2, 25/2 and 1681/128.",
+      "residual_risks": [
+        "The finite witness does not establish the phase diagram; that follows from the root and comparison arguments. Stability is for iteration of the fixed multiplier, not a design constraint. Increasing R reverses the direction of increasing η."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2 is an arbitrary-horizon objective formula, and the optimal-incentive results in Propositions 3–5 concern the long-horizon and high-follower-cost limits. The Schur lemma pertains to a given feedback.",
+          "The OA attempt for the Wasa–Hirata–Uchida source returned HTTP 403; no lawful alternate was identified in the bounded lookup."
+        ],
+        "reasoning": "An objective formula valid at larger horizons is not a theorem about its global argmin there. Neither limiting optimization nor a fixed-gain stability test determines the competing finite-horizon global branches. The inaccessible source is a residual risk, not evidence of noncoverage.",
+        "searches": [
+          "Focused primary literature search on scalar two-period bilinear incentive, global feedback switching and stability",
+          "arXiv:2604.27770 §III-B Propositions 2–5 and Schur-stability lemma; DOI:10.1049/iet-stg.2018.0256 OA attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.27770; Resultary 2b3cbd4bf89e and 9d694fa2e0cd; bounded primary search",
+        "DOI:10.1049/iet-stg.2018.0256 (OA access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At horizon two the objective follows by direct substitution, but a stability criterion cannot determine which of several stationary branches is globally selected. The boundary 1<A<2 requires a sign test on the correct half-line, whereas at A>2 two separated global minimizers coexist at η=1."
+        ],
+        "reasoning": "A cubic stationary equation or the classical equal-depth symmetry alone does not give the claim: global selection, the change from a smooth crossing to a cusp and then to a discontinuous jump, and the relative locations of the branches require the model-specific comparisons.",
+        "searches": [
+          "arXiv:2604.27770 Proposition 2 and neighboring results; frozen RESULT.md root-order and phase arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generic finite-horizon cost reduces at N=2 and zero reference to exactly (2Rx₀²/B²)G, not merely a similar polynomial.",
+          "Reflecting about A/2 gives the classical quartic with a linear tilt, whose symmetry line is η=1."
+        ],
+        "reasoning": "Neither the reduction from the model nor generic quartic symmetry is claimed as new. The exact tie, multiplicity and Schur diagram in A and η pertain to the selected global branch in this model.",
+        "searches": [
+          "Resultary: two-period scalar bilinear functional incentive / global optimizer stable–unstable switch / quartic equal-depth cusp",
+          "arXiv:2604.27770, equations (2)–(7) and Proposition 2 equation (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b3cbd4bf89e classifies when the origin minimizes a two-variable Terrell-type quartic; 9d694fa2e0cd treats a Floquet criterion for a primitive two-cycle of a three-dimensional polynomial map."
+        ],
+        "reasoning": "The exact needed object is a symbolic phase diagram, not a tabulated numerical invariant. These catalogue statements do not compute the minimizers or stability boundary for the fixed bilinear-incentive quartic.",
+        "searches": [
+          "Resultary quartic classification and sharp stability-window matches 2b3cbd4bf89e and 9d694fa2e0cd"
+        ]
+      },
+      "rationale": "The model, myopic response, and general scalar finite-horizon cost are prior. Specializing Proposition 2 of Matt–Bolognani–Dörfler already gives this quartic, and depressed-quartic algebra is classical. The supported distinct contribution is the complete global selection and closed-loop stability diagram at two periods, with exact jump and critical cusp. The closest inspected source solves high-cost and long-horizon problems and describes stability of a given gain, rather than giving this two-period global phase classification. The indexed quartic and stability comparisons concern different objectives and dynamics.",
+      "residual_risks": [
+        "Earlier dynamic-contract literature remains incompletely accessible and could contain a parallel equivalent formulation. Bounded catalogue and primary comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior objective after specialization; no global two-period phase theorem in passages inspected",
+          "evidence": "The finite-horizon cost sums along the induced scalar dynamics. Neighboring results treat optimal incentives asymptotically; the stability lemma tests the fixed closed loop.",
+          "identifier_or_url": "https://arxiv.org/html/2604.27770",
+          "material_read": "§§II–III equations (2)–(7), offsets 10400–20892; Schur lemma offsets 23000–27200; §III-B Proposition 2 equation (11), offsets 77500–83973; Propositions 3–5, offsets 85200–91607",
+          "method": "Bounded primary full-text inspection",
+          "title": "Optimal Functional Incentives for Control: The Linear-Quadratic Case with Bilinear Incentives",
+          "trigger": "Same model, follower and scalar finite-horizon cost"
+        },
+        {
+          "assessment": "Unresolved comparison",
+          "evidence": "Access failure establishes no scientific claim about overlap.",
+          "identifier_or_url": "https://doi.org/10.1049/iet-stg.2018.0256",
+          "material_read": "No primary full-text passage independently read",
+          "method": "Lawful OA access attempted; HTTP 403; no alternate identified in bounded lookup",
+          "title": "Optimal agency contract for incentive and control under moral hazard in dynamic electric power networks",
+          "trigger": "Earlier dynamic incentive/control model cited in the frozen record"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Classifies origin-minimality for (λ+x²+y²)²−(γ₁x+γ₂xy)² in two variables.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-two-variable-classification-for-the-terrell-type-quartic-m--2b3cbd4bf89e/RESULT.md",
+          "material_read": "Opening classification in RESULT.md",
+          "method": "Bounded local archived text inspection",
+          "title": "Exact two-variable classification for the Terrell-type quartic",
+          "trigger": "Exact quartic global-minimizer classification"
+        },
+        {
+          "assessment": "Different dynamics and no incentive selection",
+          "evidence": "Studies primitive two-cycles and a cubic Floquet sink criterion for a polynomial map, not a two-stage leader's optimizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-parameter-floquet-rigidity-and-a-sharp-two-cycle-sink-window--9d694fa2e0cd/RESULT.md",
+          "material_read": "Opening theorem in RESULT.md",
+          "method": "Bounded local archived text inspection",
+          "title": "Two-parameter Floquet rigidity and a sharp two-cycle sink window",
+          "trigger": "Same-day sharp two-step stability window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md stability table, jump and cusp; arXiv:2604.27770 finite-horizon model and neighboring asymptotic results"
+      ],
+      "rationale": "Two is the shortest horizon at which the same incentive affects a later state cost. The result distinguishes three meaningful ways the optimal multiplier approaches or crosses the stability boundary: ordinary crossing, cubic-root singular crossing, and a jump with stable and unstable co-optima. It gives exact parameter thresholds and quantifies the jump in both the multiplier and the normalized value derivative, which an observation of nonconvexity or a numerical optimizer would not establish.",
+      "residual_risks": [
+        "No extrapolation to longer horizons, constrained incentive designs, or a recommendation to deploy unstable feedback."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

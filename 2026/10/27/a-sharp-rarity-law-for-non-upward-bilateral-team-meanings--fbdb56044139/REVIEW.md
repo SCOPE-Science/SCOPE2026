@@ -1,11 +1,21 @@
-# Review of the rarity law for non-upward bilateral team meanings
+# Independent mathematical audit
 
-**Correctness — PASS.** A weak ideal's largest supporting team is present by finite binary-union closure, and convexity identifies its contents with a nonempty upset of that team's Boolean subset lattice. This normal form is invertible, with a separate empty-family case. The resulting Dedekind transform and exception subtraction are exact. The published Dedekind logarithmic estimate forces domination by the codimension-one maximum layer; no finite enumeration is treated as an infinite proof. The independently designed exhaustive checker confirms the normal-form criterion on all families on at most four valuations.
+## correctness
 
-**Originality — PASS (qualified).** The published source already explicitly identifies BSL denotations with weak ideals, and Anttila--Knudstorp's Lemma 3.2 already gives a related characterization by maximum team. Dedekind numbers and their asymptotics are also established prior work. The distinct claim tested here is the precise semantic census together with the first-order rare-exception law and the conditional single-missing-valuation concentration. Primary texts were compared on their actual implications, and relevant published-finding corpus records and accessible historical claims were checked; none checked states the quantitative BSL law. This is a synthesis of prior ingredients, not an assertion of foundational novelty. An unlocated older enumeration of convex union-closed families could contain the same formula or subsume the asymptotic application.
+PASS
 
-**Value — PASS.** Support-equivalence is a canonical, finite invariant for BSL with a fixed finite vocabulary. The exact spectrum and asymptotic quantify an unexpected typical-versus-exceptional semantic distinction: a logic capable of genuine failures of upward closure has almost all of its support classes upward closed, with the exceptional mass localized to a single omitted valuation. This is an informative distributional theorem rather than arbitrary enumeration of a selected formula length or parameter slice. It may guide semantic testing or representative-model selection; it makes no claim about typical syntactic formulas.
+The semantic input is expressive completeness for weak ideals on the fixed labelled valuation domain, for support only. A nonempty finite weak ideal contains its union U by binary closure. Convexity then makes it an upset inside P(U), and every nonempty upset of P(U) has maximum U and is a weak ideal globally. The empty family counts once and is globally upward closed; the nonempty globally upward-closed families are exactly the layer U=V. This gives both counts including k=0. Dedekind numbers are nondecreasing by embedding upsets with extra coordinates ignored, so the tail from k≤N−2 is at most 2^N M_{N−2}. At even N the middle coefficients at N, N−1 and N−2 have successive ratios tending to 2 (the first ratio is exactly 2). The established estimate log₂ M_m∼binom(m,⌊m/2⌋) thus makes the log gaps of order B_N, which dominates N. This yields the first-order equivalents, the −B_N/2 logarithmic rate, and conditional probability N(M_{N−1}−1)/E_N→1. A separate exhaustive direct classification for N≤4 and arithmetic at N=8 reproduced the reported values (python3 /workspace/reproductions/frozen_checks.py 2). The N=8 check uses published Dedekind inputs, independently read in OEIS A000372; it is not a new enumeration of M_8.
 
-**Limits and closest work.** Anttila--Knudstorp (2025), Section 3.1, contributes expressive completeness and the union-of-support normal form. Aloni et al. (2026), Section 3.1, supplies the BSL weak-ideal identification. Jenssen--Malekshahian--Park (2026) reviews and strengthens the classical Dedekind estimates used here. The existing finite two-variable convex-property symmetry census concerns all convex properties, not the union-closed subfamily or its rarity exponent. The one-letter bilateral count concerns support/anti-support pairs, not support meanings alone. Exact \(M_8\) values are externally established, not reproduced by brute force. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior weak-ideal semantics, maximum-team representation, and Dedekind estimates in full. The exact census is a direct enumeration using that representation. The distinct contribution supported here is the quantitative BSL rarity law as a synthesis: a relative-error equivalent for the entire exceptional count, a logarithmic exponent, and concentration of the defect on the one-omission layer. It requires connecting and controlling the strata, not just quoting the estimate for a single Boolean lattice. None of the inspected statements already gives or dominates that quantitative conclusion; historical priority is not certified.
+
+## value
+
+PASS
+
+Uniform sampling of labelled semantic classes has a well-defined distribution independent of syntax or a choice of formula length. The probability statement is more informative than the census alone: the logic admits non-upward meanings, they occupy an asymptotically vanishing fraction at an explicit rate, and almost all exceptions have precisely one missing valuation in their largest supporting team. These are useful facts about the semantic space; they do not imply analogous syntactic or full bilateral sampling laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

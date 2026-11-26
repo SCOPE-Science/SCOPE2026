@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:45.454759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97, VERIFICATION.md, both C++ sources and both recorded outputs (inspected without executing uploaded code)",
+        "Frozen basin_catalog.tsv compared over every row",
+        "Independent replay: python3 /workspace/reproductions/majority.py folkman <frozen basin_catalog.tsv>",
+        "Repaired replay: python3 /workspace/repairs/4/check_individual_basins.py <frozen basin_catalog.tsv>; exact catalogue agreement, 4387 rows and 26 output rows"
+      ],
+      "rationale": "The repaired statement uses the same twenty-vertex graph, bit labelling, and synchronous rule. Replace tie-retaining degree-four majority by strict majority of the four neighbors and the old bit: these rules agree for all five possible neighbor counts. Construct the full exact integer successor array, seed every x with F^2(x)=x by the minimum periodic phase, and assign inverse images one simultaneous layer at a time. Induction gives correct unique basin labels; exhausting all masks rules out any other cycles. Tally by identifier and exact period. The repaired checker verified all 26 size/multiplicity rows and both unanimous sizes, and compared all 4387 triples (identifier, period, size) to the frozen table, including the checking of keys and exact row count. Among the 351 oscillators, 60 have size 2 and 240 have size 16; the unique size-8652 basin and both size-207670 unanimous basins follow from the replay. The original comparison was also reproduced separately: a fresh all-state run verified the full joint entry/period table, including that witness 64030 has F^6=917503 and F^7=F^8=F^9=1048575. It computed the symmetry orbit counts by sorting paired twin temporal codes and minimizing over all 120 site permutations and both temporal orders. Twin pairs are exactly the nonsingleton open-neighborhood equivalence classes, forcing the whole (C2)^5 semidirect S5 group. These clock and symmetry facts are not claimed by the repair.",
+      "residual_risks": [
+        "The census does not quantify over other graph sizes, majority conventions or asynchronous dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general period-one-or-two theorem does not give fibre cardinalities",
+          "Resultary 095dfb0decea is the cubic dodecahedron; fb9765d5d984 is the cubic prism/Desargues comparison"
+        ],
+        "reasoning": "General period control places the attractors in two period categories without distributing antecedents among them. Exact measurements on other adjacency graphs do not specialize to the quartic Folkman graph with tie retention.",
+        "searches": [
+          "arXiv:1405.2486 Theorem 1.1 p. 2",
+          "Resultary searches for exact majority basin spectra, subdivided doubles, and 20-vertex comparison graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 82371cbac77e (identical original), cdd89c0eadf8, 095dfb0decea, fb9765d5d984",
+        "arXiv:1405.2486, Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator states 4036 and 351 recurrent orbits, clock seven, full joint table and 44/8 spatial classes; its recorded basin sums are 959624 and 88952, and its depth-seven cohort goes to the two unanimous states",
+          "The repaired measurement gives each attractor a weight, including contributions from earlier layers; e.g. exactly 300 of 351 oscillators have basin at most 16 while one has basin 8652"
+        ],
+        "reasoning": "Totals by period/time and the counts of spatially equivalent phases leave free many distributions of initial states to individual attractors even after symmetry enforces equal weight within each orbit. Knowing where the late layer ends also does not allocate the other layers. A fresh complete basin assignment is needed; the comparator's stated results and tables do not mechanically supply it.",
+        "searches": [
+          "cdd89c0eadf8 RESULT.md proof steps 4–5, verification and CENSUS.txt",
+          "arXiv:1405.2486 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalogue hit 82371cbac77e is the assigned original; cdd89c0eadf8 is a distinct record for the identical graph/rule",
+          "The closest comparator specifies the same entry time/period counts and 44/8 geometric classes but provides only grouped basin totals"
+        ],
+        "reasoning": "Changing u_(i,epsilon) from bit i+5epsilon to bit 2i+epsilon conjugates the maps, so the clock and grouped dynamics are the identical statement. A histogram of sizes of individual inverse-attractor fibres is a different invariant and is not changed by this relabelling either. No distinct equivalent histogram was found among the checked results.",
+        "searches": [
+          "Resultary: Folkman graph subdivided double K5 synchronous tie-retaining majority individual attraction basin cardinality spectrum histogram 26 sizes 4387 basin_catalog 207670 8652 4038 per two-cycle oscillator count",
+          "Resultary cdd89c0eadf8 RESULT.md offsets 0 and 4900; relabel grouped twins to interleaved twins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct comparator's exact CENSUS.txt has BASIN entries only for total period-1 and total period-2 populations, and SHELL entries only by time and period",
+          "Its RESULT gives spatial class sizes of recurrent phases, not initial-state basin sizes per class or attractor",
+          "The exact per-attractor catalogue surfaced only in the assigned indexed version in the targeted checks"
+        ],
+        "reasoning": "There is no paired class/basin data from which division by the class sizes could yield the individual catalogue. In particular the 88,952 two-cycle starting states are a single aggregate, not data on the five oscillating-basin sizes.",
+        "searches": [
+          "Folkman individual-basin Resultary searches including label catalogue, 207670 and oscillator sizes",
+          "cdd89c0eadf8 CENSUS.txt offset 0, and RESULT.md verification section"
+        ]
+      },
+      "rationale": "For the repaired claim only, the decisive same-graph comparator cdd89c0eadf8 groups all initial states by eventual period and first-entry time, and groups recurrent points by spatial orbit; it does not tabulate the initial-state count at each individual attractor. Neither marginal group count identifies the basin size distribution. The additional catalog and 26-size spectrum therefore constitute a distinct fine-grained invariant on this exact graph. The extensive exact overlap of the original complete census is credited, not passed as submitted.",
+      "residual_risks": [
+        "No same-day publication priority is assigned. Bounded exact and alias searches do not exclude older unindexed orbit-specific tables. The Goles–Olivos original full text was not retrieved; the general theorem was inspected in Benjamini et al.",
+        "Deferred web queries yielded no negative originality evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the original clock, recurrence, aggregate and class census; does not supply repaired individual spectrum",
+          "evidence": "Marginal BASIN and SHELL lines; group orbit sizes count recurrent states, including phases in two-cycles. No initial-state weight per orbit is specified.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-seven-update-consensus-tail-and-eight-oscillator-families-in-f--cdd89c0eadf8",
+          "material_read": "RESULT.md offsets 0–4939 (finding, model, proof), 4900–7989 (symmetry, basin proof and verification), CENSUS.txt offset 0",
+          "method": "Resultary/local mirror, direct read of actual claim and basin output",
+          "title": "A seven-update consensus tail and eight oscillator families in Folkman-graph majority dynamics",
+          "trigger": "Distinct same-day exact result on identical graph and dynamics"
+        },
+        {
+          "assessment": "General period restriction only in the inspected passage",
+          "evidence": "Restates the Goles–Olivos conclusion that every initial profile on a finite graph enters period one or two.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Theorem 1.1 p. 2 (offset 4100)",
+          "method": "OA PDF text",
+          "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "General or random-regular graph majority theorem"
+        },
+        {
+          "assessment": "Another graph, not a specialization covering Folkman",
+          "evidence": "Cubic dodecahedral graph: 118 fixed points, 9679 two-cycles and a sharp seven-step clock.",
+          "identifier_or_url": "2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary/local mirror",
+          "title": "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+          "trigger": "Another exact 20-vertex seven-step majority census"
+        },
+        {
+          "assessment": "Other cubic graphs, not this quartic graph",
+          "evidence": "124 fixed states and 7626 two-cycles on each, with distinct basin census and cutoff four.",
+          "identifier_or_url": "2026/11/17/SCOPE-equal-attractor-counts-but-unequal-basins-for-majority-on-the-pr--fb9765d5d984",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary/local mirror",
+          "title": "Equal attractor counts but unequal basins for majority on the prism and Desargues graphs",
+          "trigger": "Same-size graphs, exact basin data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md and SLOGAN.txt",
+        "Replayed exact catalogue and spectrum",
+        "cdd89c0eadf8 exact census for contrast"
+      ],
+      "rationale": "Individual basin weights answer how likely each recurrent orbit is when the initial mask is uniform, on the canonical smallest semisymmetric graph with a substantial twin structure. Aggregate period totals conceal the orders-of-magnitude variation among oscillators and among nonunanimous fixed points. The repaired distribution and encoding-specific catalogue give a complete, independently checked baseline for that natural finite system; neither the already reported clock nor other repeated periodic statistics are used to earn value.",
+      "residual_risks": [
+        "The finite benchmark is not a structural theorem for semisymmetric graphs in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

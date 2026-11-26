@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:52:40.758974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–60",
+        "Frozen VERIFICATION.md; frozen CERTIFICATE.txt and check.py, inspected without executing the script",
+        "Independent replay: python /workspace/audit-evidence/02_tree_ranks.py (SymPy for adjacency polynomials); exact output /workspace/audit-evidence/02_tree_ranks.txt"
+      ],
+      "rationale": "Leaf extension exhausts trees by deleting a leaf, and the recursively sorted rooted codes at the invariant center(s) detect unrooted isomorphism. Matchings give the adjacency polynomial by the shared deletion recurrence. Independently I generated rooted trees as all multisets of already generated rooted branches of the required total order, then identified unrooted trees by minimizing the rooted code over all vertices. Exact adjacency characteristic polynomials, calculated directly rather than by matchings, and sorted degrees give no collision through eight and exactly two buckets of size two at nine; their isomorphism classes match all four witnesses. For cohomology the graph bracket is rational and the compact quotient exists; Nomizu identifies real de Rham dimensions with the Chevalley–Eilenberg complex. The exterior derivation sends each edge form to the wedge of its endpoints up to common sign and preserves vertex support. The supplied support-block elimination is valid; separately I replaced edge-form entries in ordered tuples by their two endpoints, sorted by explicit inversion parity, checked d²=0, and performed full sparse fraction-free elimination over Q without support blocks. The ranks d_0 through d_4 are (0,8,75,404,1383), (0,8,75,404,1382), (0,8,73,397,1351), (0,8,73,397,1350). Subtracting successive ranks from binom(17,k) reproduces the stated Betti vectors. The spectral fact refers to the joint invariant, not to the first adjacency-cospectral trees in isolation.",
+      "residual_risks": [
+        "The enumeration is of trees through nine vertices, not arbitrary graphs. Ranks over Q give the real de Rham numbers; torsion or integral cohomology is not decided."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldi et al. give the graph Lie-algebra framework, a general b_3 formula, and all-degree formulas for stars. Remark 26 notes a degree-four analogous census would need fourth essential cohomology for 1,249 graphs.",
+          "The later all-degree path formulas cover paths P_n; each witness branches and none is a star.",
+          "The degree-distance paper gives explicit constructions at order ≥36 without fourth-Betti assertions."
+        ],
+        "reasoning": "The general cochain procedure can be applied to the witnesses but leaves the degree-four ranks to calculate. The explicit all-degree formulas are for graph classes that exclude the witnesses.",
+        "searches": [
+          "arXiv:2402.14188, Theorem 23, Remark 26 and Section 4",
+          "arXiv:2611.17014, pp. 1–3",
+          "arXiv:2608.16497, Theorem 1 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 66–78",
+        "Resultary exact self-hit 6f72c032c46d and indexed unicyclic record ece08ad53c7f",
+        "arXiv:2402.14188; arXiv:2611.17014; arXiv:2608.16497",
+        "Brouwer cospectralA table; Haemers–Spence retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 23 computes b_3 from induced subgraphs. Nomizu's theorem gives the invariant to compute, not a known numerical rank.",
+          "Remark 26 explicitly discusses the missing degree-four essential data for the general formula. The known all-degree formulas do not apply to these branching trees.",
+          "Brouwer's aggregate counts cannot distinguish the actual tree pairs from other graphs in their edge-count row."
+        ],
+        "reasoning": "In particular, equality through degree three does not force a fourth gap. To derive the exact unit differences from the available formalism requires new exact ranks or equivalent induced-subgraph data; the record computes those ranks and supplies the minimal witness context.",
+        "searches": [
+          "arXiv:2402.14188 pp. 7–9 (Theorem 23, Figure 2, Remark 26, Section 4)",
+          "arXiv:2611.17014 pp. 1–3; Brouwer cospectralA table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a tree adjacency cospectrality is same matching polynomial, and fourth real de Rham Betti number of the compact graph nilmanifold is dim H^4 of the ordinary graph Lie algebra.",
+          "Lin et al. exhibit the joint spectral/degree condition plus more cospectrality conditions at orders 17r−15 for r≥3.",
+          "The Resultary same-date unicyclic record ece08ad53c7f is indexed as a degree-multiset/Tutte comparison, not adjacency cospectral trees."
+        ],
+        "reasoning": "These rewrites identify equivalent algebraic and graph formulations and are not themselves original. The inspected large-order family does not settle a minimum at nine or its graph cohomology. A unicyclic Tutte comparison alone cannot cover the tree adjacency comparison.",
+        "searches": [
+          "Resultary and literature: same-degree adjacency-cospectral trees nilmanifold fourth Betti graph Lie algebra",
+          "Lin et al. arXiv:2608.16497, Theorem 1",
+          "Aldi et al. arXiv:2402.14188, Theorem 23 and Remark 26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer's (9,8) row gives 345 graphs, 269 characteristic polynomials and 136 graphs with cospectral mates; it aggregates all graphs with that n and e and does not list degree sequences, polynomials or graph identities.",
+          "Aldi et al. tabulate 23 types with nonzero third essential cohomology, not degree-four values for these witnesses.",
+          "Resultary 6f72c032c46d gives the exact claim but is the submitted record itself, not independent coverage. The independent local census confirms its exact values, not priority."
+        ],
+        "reasoning": "The aggregate table cannot isolate trees sharing both invariants, and the third-degree table cannot establish fourth-degree separation. A prior all-tree graph table could cover the spectral census, but would not by itself cover the cohomological finding.",
+        "searches": [
+          "Primary lookup for same-degree adjacency-cospectral nonisomorphic trees of order nine and Haemers–Spence enumeration",
+          "Brouwer, Number of cospectral graphs, n=9 and (n,e)=(9,8) rows",
+          "Aldi et al. arXiv:2402.14188, Figure 2; Resultary target 6f72c032c46d"
+        ]
+      },
+      "rationale": "The distinct claim supported by this audit is the specific fourth-Betti separation of both minimal same-degree adjacency-cospectral tree pairs. General graph Lie-algebra methods, lower-degree tables, and examples of trees with the same degree sequence and adjacency spectrum are known. The relevant available exact graph tables and cohomology formulas do not already provide or directly imply the two one-unit fourth-degree differences and equality in all lower degrees.",
+      "residual_risks": [
+        "Priority for the spectral census component alone is not established. A graph-level secondary table or an inaccessible appendix might identify both pairs; the checked table does not. Unindexed exact fourth-cohomology data or alternative derivations could remain undiscovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known framework and lower-degree census; inspected all-degree section is for stars",
+          "evidence": "Degree three uses 23 types; Remark 26's degree-four analogue would require fourth essential cohomology for 1,249 graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14188",
+          "material_read": "Theorem 23 and Figure 2, pp. 7–8; Remark 26 and Section 4, pp. 8–9 (OA offsets around 18500–24494)",
+          "method": "OA primary PDF text",
+          "title": "On the cohomology of Lie algebras associated with graphs",
+          "trigger": "General cohomological formulas or precomputed fourth-degree data might cover the witnesses"
+        },
+        {
+          "assessment": "Path-only formulas do not apply to these witnesses",
+          "evidence": "Explicit and recursive formulas for P_n; witness degree multisets include at least one degree >2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17014",
+          "material_read": "Pages 1–3 (OA offset around 3300)",
+          "method": "OA primary PDF text",
+          "title": "Poincaré polynomials of nilmanifolds associated with path graphs",
+          "trigger": "All-degree results for a class of trees"
+        },
+        {
+          "assessment": "Related family, not a small-order census or Betti calculation",
+          "evidence": "Its construction has order 17r−15, r≥3, so smallest order 36.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.16497",
+          "material_read": "Theorem 1 and proof, pp. 2 and 9 (OA offsets 7319 and 27400)",
+          "method": "OA primary PDF text",
+          "title": "A Family of Simultaneously Cospectral Trees for Degree-Distance Matrices",
+          "trigger": "Same two spectral/degree constraints on trees"
+        },
+        {
+          "assessment": "Aggregate comparison only; cannot recover the specific claim",
+          "evidence": "At n=9,e=8 the values 345,269,136 are counts of graphs, polynomials and graphs with a mate across all graphs, with neither tree identity nor sorted degree columns.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/cospectral/cospectralA.html",
+          "material_read": "Order-nine summary and note (OA offsets 355 and 821); detailed n=9,e=8 row (around offset 5014)",
+          "method": "OA public webpage table excerpts",
+          "title": "Number of cospectral graphs",
+          "trigger": "Exact database might tabulate the two minimal tree pairs"
+        },
+        {
+          "assessment": "Direct comparison of witness rows or any supplemental graph data remains unresolved",
+          "evidence": "The accessible related table reports aggregate cospectral graph counts, not the degree-matched tree pairs.",
+          "identifier_or_url": "Haemers–Spence, European Journal of Combinatorics 25 (2004), 199–211",
+          "material_read": "Referenced by Brouwer's table; actual full text unavailable",
+          "method": "OA access attempt; publisher returned 403",
+          "title": "Enumeration of cospectral graphs",
+          "trigger": "Original source for small-graph cospectrality enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior work",
+        "Aldi et al. Theorem 23 and Remark 26",
+        "Independent census and exact rank calculation"
+      ],
+      "rationale": "The standard unweighted graph Lie algebra and Betti invariants are independently motivated by the published graph cohomology program; adjacency spectrum and degree multiset are standard comparators. The result calibrates both the smallest example class with these two graph invariants tied and the first cohomology degree that actually breaks each tie. The two exact degree-four differences are useful reference values outside the known path and star families, not just a check that two graph Lie algebras are nonisomorphic.",
+      "residual_risks": [
+        "Finite benchmark, not a general formula for fourth Betti numbers or a classification in arbitrary order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

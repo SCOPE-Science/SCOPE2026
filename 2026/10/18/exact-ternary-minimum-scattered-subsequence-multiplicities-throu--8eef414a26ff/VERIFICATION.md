@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification
 
-The primary finite proof is `census.cpp`. Compile using `g++ -O3 -std=c++17 census.cpp -o census`, then execute `./census`. It reproduces the exact minimum and the number of restricted-growth minimizing words at every length through 16, and checks each canonical-word total against hardcoded exact expectations. The run must terminate with `CENSUS_VERIFY_OK range=1..16`.
+# Independent mathematical audit
 
-The independent checker `verify_independent.py` does not implement the recurrence. It enumerates selected position masks and groups them by the spelled scattered subsequence; it repeats the full minimum and minimizer census for all restricted-growth words through length nine and checks every listed optimizer at larger lengths. Execute with `python3 verify_independent.py`; the ending marker is `VERIFY_OK ternary_minimal_maxocc_length_1_to_16`.
+## correctness
 
-The full canonical word census is `data/census.json`. Entries use base-zero symbols, and `canonical_minimizers` lists each minimizer exactly once up to bijective renaming. The exact domain is the full ternary alphabet with words allowed to omit letters. The work is a finite proof, not a proof of any uniform formula beyond length 16. The source enumeration is required to establish the lower bounds; checking optimal witnesses alone gives only upper bounds. No separate independent audit has been performed.
+PASS
+
+The frozen recurrence partitions embeddings by use of the last text position. Nonzero base-four digits encode distinct patterns, appending multiplies the old code by four and adds a digit, the two streams are individually sorted, and the merge adds exactly the coinciding counts; the integer keys and counts cannot overflow through length 16. Restricted growth adds existing symbols or the next new one, giving one exemplar per relabeling class, including words omitting symbols and without reversal quotient. Independently enumerated all canonical words of each length 1..16 by base-three suffixes with leading 0 and discarding a 2 before the first 1. For each length, discarded only words with an explicit multiplicity above the tabulated target, calculated from a single-letter binomial or selected fixed-pattern integer DP. On all survivors, visited the trie of present patterns, using counts by final text position: the count for an extension ending at j sums all prefix counts ending before j. This checks every present pattern or finds a witness over the target. Thus all words at or below the target are recovered, and their exact scores certify the lower bound, not just attainability. The total at length 16 was 7,174,454 canonical texts, with 1,049 passing the preliminary sieve and exactly the four frozen optimizers at 46. The full lists, counts, minima and examples for all 16 lengths agree with data/census.json. Replay paths: /workspace/branches/independent_replays/replay5.py and replay5_1_13.jsonl, replay5_14_15.jsonl, replay5_16.jsonl in that directory. The submitted secondary checker alone exhausts only lengths through nine; the independent threshold census exhausts the whole claim. No inference beyond length 16.
+
+## originality
+
+PASS
+
+The objective, recurrence idea and general-alphabet framework are already known, and trivial initial values are not a distinct contribution. The supported novel content is the nontrivial exact ternary finite profile with all relabeling-class optimizer sets through length 16, not a novelty claim about the minimax problem or the method. The strongest actual tables inspected are for a different alphabet.
+
+## value
+
+PASS
+
+The minimum max-occurrence invariant is motivated by the existing subword entropy problem; complete first nonbinary data are useful for comparing proposed optimizer structure and alphabet-size bounds against exact outcomes. The substantial contiguous range and full optimizer lists, rather than an isolated small value, expose variation in structure: uniqueness at lengths 14 and 15, four relabeling classes at 16, and markedly larger sets at some smaller lengths. The certified lower bounds and equalities are useful independently of a future asymptotic theorem; neither the cutoff nor these data imply asymptotic behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

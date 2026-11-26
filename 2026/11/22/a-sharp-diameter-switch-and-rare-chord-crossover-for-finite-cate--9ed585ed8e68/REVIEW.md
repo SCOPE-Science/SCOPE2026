@@ -1,11 +1,21 @@
-# Scientific review: catenary diameter and rare-chord transition
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduction from all pairs to a chord with an endpoint uses simultaneous comparisons of horizontal and vertical separations. The one-variable stationarity function has only one possible interior local maximum. Strict monotonicity of the normalized comparison at each fixed fractional contact parameter yields the unique global switch, and nondegenerate local integration proves the two sharp probability exponents, the explicit coefficients, the transition window, and conditional limiting region. The supplied code runs independent deterministic numerical checks; no finite test is offered as an infinite proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Rojas, arXiv:1401.2660 (2014), derives the classical catenary via an extremal metric; Coll–Harrison (2014) prove catenary ratio characterizations. Neither inspected text states or implies the diameter switch, the sharp arclength-uniform chord tails, or the \(O(\varepsilon)\) crossover. Related published results on near-diameter chords of round cylinders, polytopes, and convex ovals do not specialize to this finite, one-dimensional catenary arc with boundary-to-interior extremizers. Searches by exact object, farthest-point aliases, critical aspect, and random-chord asymptotics found no decisive coverage. Older and unindexed sources may exist, so independent priority review remains necessary.
+PASS
 
-**Value — PASS.** The catenary is a canonical geometric shape. A unique nontrivial span identifies a first-order global change in its farthest-point geometry, and this creates a sharp shift in a natural rare-chord exponent from \(2\) to \(3/2\). The explicit crossover and conditional geometry resolve the singular vicinity of the switch rather than supplying a routine numerical approximation of the diameter.
+For a pair not touching a domain endpoint, move its larger-|x| member toward the endpoint on that side. The horizontal distance strictly increases and the absolute height separation cannot decrease. After reflection, maximizing reduces to Q_L(x) with one endpoint fixed at −L; Q_L is strictly increasing for −L<x≤0. On the positive side Q_L′=−2H_L, and H_L′=cosh(x)(cosh L−2cosh x) changes from positive to negative at most once. H_L is negative at 0 and L, so only the smaller crossing can give an interior maximum; neither a double root nor the local minimum can tie the endpoint. For x=rL, 0≤r<1, the normalized vertical difference has termwise positive L derivative, and a trial pair's crossover span is continuous in r and escapes uniformly on each bounded span range as r→1. This follows from the O(1−r) cosine-hyperbolic difference versus the square root of 4−(1+r)². The infimum is attained away from r=0 because the excess increases to first order in r there. Thus a unique nondegenerate interior contact ties the endpoint once; the positivity of the normalized excess's L derivative at this contact gives A_*>2 by stationarity. The endpoint-pair deficit is u+v to first order in inward parameter gaps. Each interior-contact pattern has deficit A u+B v² plus lower scaled order, giving limiting area 4/(3A√B) after division by ε^(3/2) and asymptotically constant sampling density. Counting two ordered endpoint neighborhoods and four ordered mixed neighborhoods reproduces both constants and the conditional law. In the moving window the budget for the mixed contact is ε[1+k min(λ,0)]+O(ε²), and uniform compact localization around the three unordered contact pairs shows that the ε^(−3/2) limit vanishes even at the cutoff. No uniformity away from the specified local window is used.
 
-**Limitations.** The result concerns symmetric finite arcs with independent arclength-uniform sampling, not coordinate-uniform sampling or arbitrary catenary fragments. The decimal evaluations are diagnostic approximations. There is no independent mathematical audit or exhaustive historical priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest distinct indexed comparison gives the same local exponents for a parabola but neither its geometry nor its sampling law implies the finite-catenary phase boundary or moving arclength-volume law. The catenary minimum-disk transition is a different invariant. The judgment rests on the exact catenary classification, transversality and critical window, not on the catenary representation or the elementary linear/quadratic integral.
+
+## value
+
+PASS
+
+For a canonical arclength-sampled curve this gives the full finite-span diameter phase diagram and quantifies the effect of competing, nonmerging chord geometries on rare-event probabilities. It distinguishes what survives at the contact itself from what contributes through the width-ε window. This matters beyond a decimal root or a change of variables from the parabola.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the small-exponent \(L_p\)-spherical obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact bivariate \(L_p\)-spherical density gives uniform marginals by a beta integral. Its \(p=3\) logarithmic potential has Laplacian \(2\pi f_3\); the density has a strictly positive rectangular finite difference at the four points \((0,0)\), \((1/8,0)\), \((0,1/8)\), and \((1/8,1/8)\). Consequently the potential cannot be additively separable. Smooth product-bump perturbations preserving both marginals detect the failure, and their first power-energy variation converges to the nonzero logarithmic variation as \(\beta\downarrow0\). A single sufficiently small perturbation therefore improves energy throughout a positive exponent interval. The diagnostic script confirms the elementary sign and its exact rational lower bound; the continuous theorem follows analytically.
+PASS
 
-## Originality — PASS
+The beta-integral gives marginal density 1/2, and converting to [0,1]^2 multiplies all energies by the same 2^(-beta). In the central square the log potential is continuous and has distributional Laplacian 2 pi f_3. If the potential were additive, the mixed derivative of its Laplacian would vanish; on the positive quadrant the mixed derivative of f_3 is strictly positive, as also witnessed by the strict rectangle difference in RESULT.md. Smoothing two pairs of coordinate point masses yields one fixed zero-marginal g with nonzero linear variation; the candidate densities are bounded below on its support uniformly near p=3. The densities converge almost everywhere and have mass one, so they also converge in L1. In passing to the limit in (r^beta-1)/beta the near-diagonal part is bounded by the locally integrable |log r| times a uniform local density bound; away from the diagonal the difference quotient converges uniformly. Thus the first and quadratic variations divided by beta have finite limits A_0 != 0 and B_0. Choosing one sufficiently small t of the sign of A_0 preserves feasibility and makes 2tA_0+t^2 B_0 positive for all sufficiently small beta. This proves the interval claim, not an explicit endpoint. The frozen checker was inspected, not executed; it only corroborates the rectangle sign, already proved by strict convexity.
 
-Bernard, Müller and Oesting, arXiv:2206.10180v1 (2022), Section 3.2, conjecture optimality for \(p=3-\beta\), with heuristic finite-grid evidence, but do not establish an endpoint obstruction. Bernard and Müller, arXiv:2004.11770v1 (2020), Theorem 11, prove the distinct positive result for \(\beta=1\). Perlman and Wellner (2011) analyze the underlying Euclidean circular copula rather than power-energy extremality. Semantic searches for generalized energy distance, logarithmic potential, fixed-margin copulas and the conjecture found no result covering the small-exponent disproof. A differently termed or unindexed earlier disproof remains a priority risk; novelty has not been independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem refutes an explicitly motivated universal conjecture for an entire nonempty exponent interval, rather than reporting an isolated numerical failure. Its fixed smooth marginal-preserving variation identifies the mathematical obstruction and preserves the valid geometry of the original copula construction.
+The supported distinct claim is a fixed admissible witness refuting the proposed optimizer throughout a nonempty exponent interval. The density, conjecture, and beta=1 result are prior work; no matching refutation or stronger covering result was established in the inspected evidence.
 
-## Limits and closest literature
+## value
 
-The interval endpoint, the bump coordinates and the true maximizing dependence law are not quantified. The result does not dispute the established \(\beta=1\) optimum. The original source is Bernard–Müller–Oesting (arXiv:2206.10180v1), with Bernard–Müller (arXiv:2004.11770v1) the closest positive theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a stated conjecture negatively on an entire interval, not just at a numerical sample, and explains why the geometric ansatz fails using a necessary potential condition. It leaves the positive beta=1 theorem and the problem of locating the actual optimum intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

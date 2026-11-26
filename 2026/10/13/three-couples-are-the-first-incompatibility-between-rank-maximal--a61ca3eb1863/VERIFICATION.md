@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,46 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_rankmax_minregret_boundary.py` performs an exact finite replay using only the Python standard library.
 
-It exhausts all
-\[
-(2!)^4=16
-\]
-complete strict \(2\times2\) profiles and all
-\[
-(3!)^6=46656
-\]
-complete strict \(3\times3\) profiles.
+# Independent mathematical audit
 
-Every perfect matching is tested for stability independently by:
-1. precomputed rank-table blocking-pair checks;
-2. preference-list-position scans.
+## correctness
 
-Every stable matching's two-sided rank profile and regret are independently computed by:
-1. precomputed rank dictionaries;
-2. direct list-position lookup.
+PASS
 
-The implementations agree on every tested matching.
+For n=1 there is one matching. For n=2 with two stable matchings, the men must both prefer the same one: if they disagreed they would both prefer the same woman, who would need to prefer each of her two partners to the other to prevent blocking in both matchings. When both men prefer one matching, stability of the other forces both women to prefer that other matching. Both profiles are then (2,2), with regret 2. For n=3 I reproduced the exact census by fixing man 0's preference list to the identity, a free normalization under women's label permutations, and weighting each normalized input by 6. For each perfect matching I independently compared the sets of pairs preferred by their male and female endpoints to their assigned partners; disjointness is exactly stability. Both partners' ranks contribute to the lexicographic objective and the maximum rank. Exact set comparisons give 37716 equal, 6984 strict P subsets, 1956 disjoint and no other cases. The stable counts are 34080, 11484, 1092. Among the disjoint profiles the counts by (stable count, |P|, |G|) are (2,1,1): 1728, (3,1,1): 144, (3,2,1): 84. After expanding the disjoint normalized profiles, orbit traversal by adjacent label transpositions on both shores and side-swap gives 26 size-72, 2 size-36 and 1 size-12 orbits. The witness has just the specified two stable matchings with profiles (2,4,0), (4,0,2) and regrets 2, 3; the incidence fraction reduces to 163/3888.
 
-The replay verifies:
-- \(P(I)=G(I)\) for all \(16\) two-couple profiles;
-- three-couple relation counts \(37716\) equality, \(6984\) proper \(P(I)\subsetneq G(I)\), and \(1956\) disjoint;
-- no proper \(G(I)\subsetneq P(I)\) case and no nonnested overlap;
-- three-couple stable-matching-count distribution \(34080,11484,1092\);
-- every incompatible profile has a unique minimum-regret optimizer;
-- incompatible profiles split as \(1728\) with two stable matchings and \(228\) with three;
-- rank-maximal optimizer sizes \(1872\) singleton and \(84\) doubleton within the incompatible set;
-- \(29\) incompatible isomorphism classes under all independent side relabelings and side exchange;
-- orbit-size distribution \(26\) of size \(72\), \(2\) of size \(36\), and \(1\) of size \(12\);
-- the displayed witness.
+## originality
 
-Run:
+PASS
 
-`python3 verify_rankmax_minregret_boundary.py`
+The objectives and underlying profile space are established. Very close Resultary records compute other pairs of fairness objectives, or the objective-free symmetry quotient of the same market. The checked sources do not supply the rank-maximal/minimum-regret optimizer relations or the objective-specific quotient. This is a best-of-knowledge assessment of the specific boundary and census, not priority for the objectives or enumeration technique.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The exhaustive statement stops at \(3\times3\).
+Lexicographically maximizing the number of high ranks and optimizing the worst individual rank express two natural, established goals. The result determines the smallest market where enforcing one can preclude the other and describes all optimizer-set relations there. Exact counts and symmetry types quantify and classify the first obstruction, rather than presenting a cherry-picked example or recomputing the known unlabelled compatibility-free census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

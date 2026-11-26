@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:13:17.710095Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 15–133",
+        "VERIFICATION.md lines 20–30 and check.py, inspected only",
+        "/workspace/reproductions/frozen-check-2.txt",
+        "DOI:10.3390/math12213334, Eqs. (20)–(24), (32) and Table 1"
+      ],
+      "rationale": "The derivative of H_theta lies between theta^2/(theta+1) and theta, so h is strictly increasing and bounded above and below by positive linear multiples of y. Integrating out either exponential conditional gives the stated marginal and normalizer, Z_k ~ log(k)/k. For powers 1 and 2, h_i(y)^p exp(-a_i y)/y is an integrable majorant for the marginal numerator multiplied by k; thus E[X_i] ~ A_i/log(k) and Var(X_i) ~ B_i/log(k). The conditional mean also gives E[Y_1 Y_2]=E[Y_1/(a_2+kY_1)]<=1/k, bounding the mixed X moment by O(1/k). The covariance is therefore asymptotic to -A_1 A_2/(log(k))^2, proving the prefactor. For finite k>0 the conditional X_2 mean strictly decreases with Y_1 while X_1 increases, proving strict negativity; continuity at finite k and the two zero endpoints yield an attained negative minimum in the interior. On intervals inside (0,1), the logarithmic coordinate T_1 has limiting uniform mass by integration of 1/(ky); letting interval endpoints approach 0 and 1 gives tightness and the uniform limit. The conditional exponential representation gives T_2=max(0,1-T_1)+o_P(1) because the log-sum differs from the max by O(1/log(k)) and log(E)/log(k) tends to zero. Hence the log coordinates tend jointly to (U,1-U). Continuous limiting uniform marginal quantiles give copula convergence; the common Lipschitz bound makes it uniform. Decreasing both coordinates reflects the copula twice but fixes W, and both limiting rank statistics follow from bounded rank-score or independent-copy formulas with no ties in the limit. Independent quadrature using numeric inverse hazards and a logarithmic integration coordinate tested two fixed parameter sets through k=10^16. It also returned approximately -0.2561772788 at a parameter point where the source paper's Table 1 prints +0.9552; the analytic sign proves that the positive table value cannot describe the density of its Eq. (32). Replay: python3 /workspace/reproductions/frozen_checks.py 2.",
+      "residual_risks": [
+        "Finite quadrature is corroboration, not the proof of the limit. The table discrepancy is established relative to the defining density; its computational cause is not determined.",
+        "The limit holds for fixed strictly positive theta_i and a_i; it does not assert uniformity across those parameters or a unique Pearson minimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible simulation paper gives and attributes the general exponential-conditional density on the positive quadrant and focuses on simulation. The 1988 abstract identifies the parent family, but full text was not available. The general proportional-hazards DOI lookup did not supply a passage."
+        ],
+        "reasoning": "The broader specifications are real overlaps but a general density or monotone transform theorem does not state a limiting copula or Pearson moment equivalent. Coverage in earlier full texts remains a residual risk.",
+        "searches": [
+          "Arnold–Strauss, DOI:10.1080/01621459.1988.10478627 and JSTOR 2288872; alternate exposition arXiv:0909.4129",
+          "Arnold–Martínez-Flórez–Gómez, DOI:10.3390/sym14102073, exponential conditionals locator"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math12213334 Eqs. (20)–(24), (32) and Table 1",
+        "arXiv:0909.4129 Eq. (1)",
+        "DOI:10.1080/01621459.1988.10478627 / JSTOR 2288872 (abstract/landing only)",
+        "DOI:10.3390/sym14102073 (access attempt)",
+        "Resultary 9ef4a764685a (self-match) and 085ca6042971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining equations supply conditional exponentials and monotone transforms. They do not identify the uniform log-coordinate regime or show that the mixed X moment is negligible compared with the product of the marginal means. The marginal inverse-hazard powers and their integrals determine a different Pearson coefficient than on the exponential scale."
+        ],
+        "reasoning": "The known transformations move a copula result between the two coordinate systems if such a result is already known, but do not themselves furnish that limit. The asymptotic moment calculation for the Lindley scales is not a substitution into a parent Pearson-correlation identity.",
+        "searches": [
+          "BPLS Eqs. (20)–(24), (32) and Tables 1–2; BEC kernel at Yu Eq. (1); 1988 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BPLS Eq. (32) maps exactly to the exponential-conditional density with a_i=alpha_i, k=alpha_12 using the baseline Lindley cumulative hazards. Yu Eq. (1) uses beta, gamma, delta with k=delta beta gamma. The increasing hazard inversions preserve the copula but not Pearson correlation."
+        ],
+        "reasoning": "The claimed copula limit is equivalently a strong-coupling result in the exponential-conditional parent family. An exponential-scale Pearson formula, even if known, is not an equivalent result for the nonlinear inverse hazard coordinates.",
+        "searches": [
+          "Power-Lindley survival and exponential conditionals aliases in Resultary and primary literature; DOI:10.3390/math12213334 and arXiv:0909.4129"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record. The same-day distinct copula admissibility record is for a different product-log candidate copula and states a validity frontier, not this limit. The published BPLS table gives finite Pearson entries, some positive; for (theta_1,theta_2,a_1,a_2,k)=(1.30,1.70,1.25,1.50,1.75), the printed +0.9552 contradicts the strictly decreasing conditional mean forced by Eq. (32)."
+        ],
+        "reasoning": "A finite table is not the claimed asymptotic, and the discrepant positive values cannot be used to infer properties of the explicitly specified density. The distinct indexed result was excluded by statement, not by date.",
+        "searches": [
+          "Resultary inverse-rank/Pearson logarithmic limit, 9ef4a764685a and 085ca6042971",
+          "DOI:10.3390/math12213334 Table 1 and Eq. (32)"
+        ]
+      },
+      "rationale": "The bivariate family, its hazard transformation, the exponential-conditional parent density and finite-coupling dependence are not new. The supported distinct claim is the simultaneous countermonotone copula limit and explicit sharp Lindley-scale Pearson asymptotic as the coupling alone diverges. The checked model and generation papers provide the density/conditional representation, not the joint logarithmic-rank degeneration or the inverse-hazard dependent coefficient. The conclusion is bounded by the inability to inspect the full 1988 article.",
+      "residual_risks": [
+        "The original 1988 full text and a passage from the 2022 proportional-hazards paper were not independently available; a general earlier strong-coupling asymptotic could alter priority. The accessible simulation exposition confirms the model only.",
+        "No claim of novelty is made for the family, transform, known negative dependence mechanism or exponential-conditional normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact family, but the checked results are not the claimed limits; finite table conflicts with its own Eq. (32)",
+          "evidence": [
+            "Eqs. (20)–(22) require nonnegative coupling and the explicit BPLS density. Eq. (32) is the normalized exponential-conditional kernel. Table 1 reports +0.9552 for the parameter point verified to have a negative correlation under that density."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12213334",
+          "material_read": "University repository OA PDF pp. 6–7, around offsets 30000–36298 (density and conditional forms); p. 8 Table 1, offsets 49500–55600; p. 9, around offset 57400 onward, Eq. (32)",
+          "method": "OA PDF passage inspection and independent quadrature at the Table 1 parameter point",
+          "title": "A Bivariate Power Lindley Survival Distribution",
+          "trigger": "Exact source model and Pearson comparisons"
+        },
+        {
+          "assessment": "Known parent family; no whole-document exclusion",
+          "evidence": [
+            "Abstract-level discussion identifies exponential conditionals but did not establish the rank/Pearson joint limit in the material obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1988.10478627",
+          "material_read": "Accessible abstract/record only, JSTOR 2288872 and DOI landing",
+          "method": "Targeted literature lookup and OA access attempts at both identifiers",
+          "title": "Bivariate Distributions with Exponential Conditionals",
+          "trigger": "Foundational parent-family paper, possible strong-coupling precedent"
+        },
+        {
+          "assessment": "Exact density equivalence, simulation objective rather than the two strong-coupling conclusions",
+          "evidence": [
+            "Numerator exp[-(beta x+gamma y+delta beta gamma xy)], with delta nonnegative."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0909.4129",
+          "material_read": "PDF p. 1, Eq. (1) and surrounding statement",
+          "method": "OA PDF passage inspection",
+          "title": "Efficient Simulation of a Bivariate Exponential Conditionals Distribution",
+          "trigger": "Lawful alternate exposition of the exact parent density, not a copy of the inaccessible 1988 paper"
+        },
+        {
+          "assessment": "No negative paper-level conclusion",
+          "evidence": [
+            "The locator did not supply the requested text; only the cited bibliographic identification was available for this comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym14102073",
+          "material_read": "No independently retrievable passage in the focused lookup",
+          "method": "OA DOI locator attempt",
+          "title": "Bivariate Proportional Hazard Models: Structure and Inference",
+          "trigger": "Potential broader proportional-hazards coverage"
+        },
+        {
+          "assessment": "Different model and question",
+          "evidence": [
+            "The product of powers of logs of the marginal survival probabilities occurs in a candidate copula validity frontier, not in the BPLS density limit and Pearson prefactor."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-copula-admissibility-frontier-for-asymmetric-power-exponen--085ca6042971",
+          "material_read": "Local-mirror finding and parameter form",
+          "method": "Resultary and local mirror",
+          "title": "Sharp copula admissibility frontier for asymmetric power exponentials",
+          "trigger": "Closest distinct same-day indexed copula hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–13 and 69–133",
+        "DOI:10.3390/math12213334 Eq. (32)"
+      ],
+      "rationale": "This is a natural regime of a published lifetime model where two common dependence diagnostics give opposite practical impressions: the copula approaches the most negatively dependent possible rank law while Pearson correlation vanishes. The explicit nonzero logarithmic coefficient gives the scale of this mismatch for each fixed set of parameters, rather than merely showing numerical smallness or a qualitative contrast.",
+      "residual_risks": [
+        "The endpoint is a limiting copula, not an ordinary bivariate density with these marginals. No empirical performance or convergence rate for rank coefficients is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

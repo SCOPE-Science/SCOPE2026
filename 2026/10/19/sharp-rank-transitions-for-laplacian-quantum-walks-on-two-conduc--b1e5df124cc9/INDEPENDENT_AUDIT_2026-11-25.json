@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:41:38.559224Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a≠b the contrast projectors on each leaf class have eigenvalues a,b respectively when the respective contrasts exist. The cell-constant Laplacian has simple spectrum consisting of 0 and the roots of z²−[(p+1)a+(q+1)b]z+(p+q+1)ab. Its discriminant is ((p+1)a−(q+1)b)²+4pqab>0 and evaluation at a,b gives the stated nonzero quantities. Thus full spectral projectors do not mix bright and dark sectors. Squared profiles of the three rank-one bright projectors have the rank of the scaled diagonal-moment matrix because the spectral Vandermonde is invertible. The restriction in orthonormal cell coordinates uses multiplicity-square-root factors on the profiles (the rank statement is unchanged). Subtracting the center row in the displayed moment matrix and expanding gives ab[a(p−1)(p+1−q)−b(q−1)(q+1−p)]. Its first term determines the strict sign if p>q (the second is nonnegative after subtraction), likewise the second when p<q; p=q≥2 leaves (p−1)(a−b). Therefore the bright block is positive definite for all unequal a,b with at least three leaves. Dark Schur squares act on their contrasts by 1−2/m, so exactly the two-leaf contrasts survive in the kernel. For a=b one must first merge full projectors: the two independent uniform-star bright profiles and the dark contrast eigenvalue 1−2/(p+q) give positive definiteness when p+q≥3. For p=q=1 all three Laplacian eigenvalues are simple also at a=b (0,a,3a). The proposed vector annihilates all three diagonal moment columns and hence all squared profiles; a real eigenvector orthogonal to the constant vector on the three vertices cannot have three equal nonzero squared coordinates, so at least two profiles are independent. The frozen checker was inspected, not executed; the independent `python3 /workspace/checks/frozen_math_checks.py 2` passed the symbolic determinant identity and full-Laplacian checks on nine representative profiles, including equal weights, two contrasts, and the weighted boundary. Numerical projectors are not a certificate for near coincidences or arbitrary conductances; the exact argument handles those regimes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mohan et al. compute trace for the ordinary star; Coutinho et al. give general spectral-projector and commutant frameworks and exact computations principally for adjacency walks."
+        ],
+        "reasoning": "A trace formula does not determine rank or eigenvectors. The general framework computes the invariant if the spectral structure is given but does not establish independence of the three bright squared profiles or account for the distinct leaf energies without additional work.",
+        "searches": [
+          "Web literature: average mixing weighted Laplacian star rank kernel weighted conductances quantum walk",
+          "arXiv:2608.20739v1 Theorem 2.6",
+          "arXiv:1709.03591 §§2,5",
+          "arXiv:2208.08971 Introduction and average-mixing passage"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked search and three distinct source Findings",
+        "arXiv:2608.20739v1 §2.6",
+        "arXiv:1709.03591 §§2,5",
+        "arXiv:2208.08971 pp. 1,4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-leaf-energy theorem applies immediately when a=b, including the equal three-vertex boundary. The adjacency double-star uses the same Schur-square size-two contrast mechanism but has further kernel modes."
+        ],
+        "reasoning": "The uniform part and the mechanism cannot establish absence of hidden bright modes for unequal conductances. This needs the weighted moment determinant and its global sign, and the unequal three-vertex null vector needs its own calculation.",
+        "searches": [
+          "Local Resultary Findings for the inhomogeneous star, adjacency double-star and endpoint-potential path",
+          "arXiv:1709.03591 §§2,5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior inhomogeneous Hamiltonian has common leaf on-site energy β. The uniform Laplacian is the exact special case (center, leaf, spoke)=(mc,c,−c); the unequal Laplacian has two distinct leaf diagonal entries a,b. The prior endpoint-potential path record leaves the non-endpoint diagonal zero."
+        ],
+        "reasoning": "Signed-spoke gauges preserve diagonals; uniform additive shifts preserve the leaf-energy difference. A three-vertex unequal Laplacian with diagonal (a+b,a,b) therefore does not reduce by these operations to a common-leaf-energy star or a one-endpoint-potential path (all three diagonals are distinct).",
+        "searches": [
+          "Resultary: weighted combinatorial Laplacian star two positive conductances exact average mixing rank nullity kernel",
+          "Resultary: three-vertex weighted star Laplacian average mixing matrix kernel rank two conductances",
+          "Local Finding and Assumptions: 2026/10/12/SCOPE-full-rank-quantum-average-mixing-on-inhomogeneous-stars-an-exact--e385d3035560"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inhomogeneous-star local Finding gives uniform m≥3 positive definiteness and the uniform m=2 rank as a special case. The adjacency double-star local Finding explicitly lists size-two leaf contrasts. No exact unequal two-conductance Laplacian-star entry appeared among the ranked hits."
+        ],
+        "reasoning": "These are actual earlier special-case and mechanism overlaps, but the local results impose common leaf diagonals or concern a different graph/operator, not the complete unequal Laplacian rank and kernel.",
+        "searches": [
+          "Resultary: average mixing zero modes size-two leaf class dark contrast Schur square star",
+          "Resultary: uniform combinatorial Laplacian star average mixing positive definite rank",
+          "Resultary: two conductance weighted star continuous-time quantum walk average mixing nullity exact"
+        ]
+      },
+      "rationale": "Distinct earlier local records mechanically cover the uniform case and exhibit the size-two dark contrast mechanism for adjacency double-stars. Do not credit these as new. The supported distinct result is the exact rank and complete kernel classification for unequal conductances of the combinatorial-Laplacian star, including its unequal three-vertex boundary; the earlier results do not imply that classification.",
+      "residual_risks": [
+        "An unlocated general weighted-star theorem might cover the unequal case; these bounded searches are not exhaustive.",
+        "The uniform case and the dark contrast calculation have earlier coverage or precedent as described and should not be presented as new contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers uniform Laplacian cases only",
+          "evidence": [
+            "All leaves share on-site energy β; arbitrary nonzero spoke couplings allowed up to sign gauge; two equal-magnitude spokes give the rank-two boundary."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-full-rank-quantum-average-mixing-on-inhomogeneous-stars-an-exact--e385d3035560",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Full-rank quantum average mixing on inhomogeneous stars",
+          "trigger": "Closest local star-rank theorem"
+        },
+        {
+          "assessment": "Direct structural precedent for size-two contrasts, different full theorem",
+          "evidence": [
+            "Unweighted adjacency double-stars have leaf-pair differences from Schur squares of their dark projectors, together with other modes."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-kernel-and-sharp-full-rank-boundary-for-quantum-average-mi--3d2ed0be59c4",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local mirror",
+          "title": "Exact kernel and sharp full-rank boundary for quantum average mixing",
+          "trigger": "Earlier exact leaf-contrast kernel"
+        },
+        {
+          "assessment": "Does not cover unequal Laplacian boundary",
+          "evidence": [
+            "One endpoint potential and otherwise zero diagonal is not the Laplacian degree diagonal."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-endpoint-potentials-and-the-exact-determinant-of-quantum-average--0c2d29d0e12a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Endpoint potentials and the exact determinant of quantum average mixing",
+          "trigger": "Possible weighted three-vertex path equivalence"
+        },
+        {
+          "assessment": "Trace rather than rank; ordinary unweighted star",
+          "evidence": [
+            "Theorem 2.6 states the star trace formula, not the unequal-conductance rank law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20739v1",
+          "material_read": "PDF abstract p. 1 and §2.6, Theorem 2.6 p. 6",
+          "method": "OA PDF full-text access, relevant passages inspected",
+          "title": "Laziness of Quantum Walks on Graphs",
+          "trigger": "Most directly related ordinary Laplacian star"
+        },
+        {
+          "assessment": "General tools without this classification",
+          "evidence": [
+            "Relates average-state and commutant structure to rank; no specific two-conductance star criterion in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+          "material_read": "PDF §§2,5, pp. 4–9",
+          "method": "OA PDF relevant passages",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Broader average-mixing rank framework"
+        },
+        {
+          "assessment": "Methodological precedent, not this weighted Laplacian rank result",
+          "evidence": [
+            "Exact average-mixing computation for adjacency walks is not a rank/kernel formula for the specified star family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.08971",
+          "material_read": "Introduction p. 1 and average-mixing discussion p. 4",
+          "method": "OA PDF relevant passages",
+          "title": "Irrational quantum walks",
+          "trigger": "General exact projector computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank and the visible zero modes are natural spectral invariants of the long-time walk, not arbitrary statistics. Splitting one conductance into two strictly introduces exactly the contrasts of size-two classes, independent of the contrast magnitude in conductances; exact equal-weight coalescence changes the projector structure and can remove the nullspace. The theorem specifies when class symmetry causes a genuine loss of average-mixing rank and rules out hidden bright modes, a useful exact benchmark beyond the already covered uniform star.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

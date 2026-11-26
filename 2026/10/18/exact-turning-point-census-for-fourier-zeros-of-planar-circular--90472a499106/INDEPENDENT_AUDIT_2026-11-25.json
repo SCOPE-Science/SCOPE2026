@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:04:36.382136Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial integration gives 2pi G_q(x)/x for G_q(x)=J_1(x)-qJ_1(qx), and area pi(1-q^2)>0 at zero. Put H(x)=xJ_1(x). Then H'=xJ_0 and H''=H'/x-H, so (H^2+H'^2)'=2H'^2/x, strictly increasing in the integrated sense on every positive interval. At a root H(x)=H(qx), this forces |J_0(x)|>q|J_0(qx)|. Consequently G_{q,x}=J_0(x)-q^2J_0(qx) is nonzero there and of the sign of J_0(x). At each J_0 gap endpoint, the same energy comparison gives |J_1(x)|>q|J_1(qx)|; alternating signs force one root per gap, and all simple crossings inside a gap have the same orientation, so there cannot be two. Below the first endpoint the integral has positive integrand almost everywhere. The implicit-function theorem gives analytic roots. The inner argument y=qx has derivative xJ_0(x)/G_{q,x}>0. Its left limit is zero and its right limit is j_{0,n}: the normalized integral G_q/(1-q) extends smoothly to q=1 with value xJ_0(x), and its local branch at j_{0,n} is j_{0,n}[1+(1-q)/2]+O((1-q)^2), entering the correct open gap and hence coinciding with its unique root. This is the decisive endpoint argument, without assuming the right endpoint is not a zero of the limiting function. At q=0 the local J_1 branch and qJ_1(qx)=xq^2/2+O(q^4) give exactly the even disk expansion. Since x_n'=y J_0(y)/G_{q,x}, y's increasing range crosses just j_{0,1},...,j_{0,n-1}. At each crossing y'=x and J_0'(y)=-J_1(y); this gives the stated nonzero curvature and sign (-1)^(n+m). In particular the n=1 derivative is strictly negative, and H is strictly monotone on the gap so the equation for X_{n,m} determines it uniquely. Replay: RESULT.md lines 58–145 and the above argument; python3 /workspace/review_evidence/bounded_checks.py uses Bessel series and bisection to reproduce q_{2,1}=0.315585469056578 and X_{2,1}=7.620203695958628. The provided SciPy script and recorded outputs were inspected, not rerun; the infinite-order result rests on the strict energy and implicit branch argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical adjacent-order interlacing deals with individual Bessel functions; annular Laplacian results and the DLMF cross-product use J and Y, not the scaled J-only difference.",
+          "The later indexed all-dimensional gap and turning-point theorems imply the corresponding planar claims, not just selected numerical samples."
+        ],
+        "reasoning": "Higher-dimensional coverage is real mathematical implication by setting d=2, but the available catalogue dates are later. Classical interlacing and Laplacian theorems in inspected earlier sources are not such implications.",
+        "searches": [
+          "arXiv:1002.0976 Theorem 1.3",
+          "DLMF 10.21(i),(x)",
+          "arXiv:1907.03669 Theorem 1.1 and Remark 1.3",
+          "Resultary d>=2 records 08d6dce0baa0 and 4dce7d426125"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_annular_zeros.py",
+        "arXiv:1002.0976, 1907.03669 and 2109.05118; DLMF §10.21",
+        "Resultary 08d6dce0baa0 and 4dce7d426125",
+        "DOIs 10.1155/2013/267684 and 10.1364/AO.44.007677 identified but decisive text not accessible"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Disk and ring limits follow from classical endpoint profiles, but do not control the number or orientation of intermediate zero crossings. The gap theorem alone, as in the 10/25 record, also does not supply n-1 turns; the 11/16 theorem does."
+        ],
+        "reasoning": "The strict inner-coordinate derivative and its precise range are needed to turn known J_0 interlacing into an exact stationary count. The inspected earlier endpoint results do not give that derivative or imply the exact nondegenerate sequence.",
+        "searches": [
+          "DLMF Eq. 10.21.2",
+          "arXiv:2109.05118 §1, Eqs. (1)–(2)",
+          "Resultary 08d6dce0baa0 and 4dce7d426125, RESULTS Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A uniformly illuminated annulus is the difference of two disks. In two dimensions the amplitude is proportional to [J_1(x)-qJ_1(qx)]/x, and its real radial intensity zeros are the same locations. The all-dimensional catalogue formulas specialize at d=2 to the same zero equation and turning count."
+        ],
+        "reasoning": "Neither a shift of Fourier frequency units nor an amplitude-versus-intensity convention changes the locations. Multiplicities in the record are for the real amplitude, not its squared intensity. Optical profile equivalence alone does not state the roots' trajectory properties.",
+        "searches": [
+          "Annular aperture scalar diffraction and annular point-spread function; arXiv:2109.05118 §1 Eqs. (1)–(2)",
+          "Resultary 08d6dce0baa0 and 4dce7d426125, Fourier zeros of concentric annuli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives genuine matches for all positive roots, analyticity and endpoint limits (2026/10/25), and for the k-1 ordered stationary count with critical radii (2026/11/16). The frozen record is dated 2026/10/18. DLMF supplies the individual endpoint zero data, not annular trajectories."
+        ],
+        "reasoning": "These are exact overlapping findings, not a match based solely on benchmark radii. Dates distinguish the observed timeline without establishing absolute priority; no inspected lookup table replaces the exact finite-q trajectory theorem.",
+        "searches": [
+          "Resultary SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0",
+          "Resultary SCOPE-every-indexed-fourier-zero-of-a-concentric-annulus-has-exactly-o--4dce7d426125",
+          "DLMF §10.21"
+        ]
+      },
+      "rationale": "Classical Bessel interlacing and the optical disk and thin-ring profiles are antecedents. The gap census and turning count are mathematically covered by two later-dated all-dimensional records on specializing to d=2. That overlap must be credited, but it is not verified prior coverage relative to the frozen record, and the dated evidence here does not establish provenance or absolute priority. No inspected earlier result supplied the claimed joint gap and stationary-point classification with the endpoint expansions. The assessment concerns that classification, not the known diffraction profile.",
+      "residual_risks": [
+        "The close mathematical coverage by later indexed theorems leaves provenance and absolute priority unresolved.",
+        "The inaccessible optics sources and unindexed older annular-diffraction or dilated-Bessel-zero work could contain related exact results. A bounded empty web query is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior adjacent-order interlacing, not the annular difference",
+          "evidence": "Interlaces J_nu with J_(nu+epsilon); no continuously changing inner aperture argument is involved.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.0976",
+          "material_read": "Theorem 1.3, p. 2, text offset 5400",
+          "method": "Bounded OA PDF passage",
+          "title": "Interlacing of positive real zeros of Bessel functions",
+          "trigger": "Classical interlacing may imply annular gap enumeration"
+        },
+        {
+          "assessment": "Endpoint interlacing and a different cross-product",
+          "evidence": "The listed J_nu and J_(nu+1) zeros interlace; cross-product formulas involve J_nu(x)Y_nu(lambda x)-Y_nu(x)J_nu(lambda x).",
+          "identifier_or_url": "https://dlmf.nist.gov/10.21",
+          "material_read": "§10.21(i) Eq. 10.21.2 and §10.21(x) Eqs. 10.21.48–52, latter HTML offset 42150",
+          "method": "Bounded OA web passages",
+          "title": "NIST DLMF §10.21, Zeros",
+          "trigger": "Exact Bessel zero and cross-product references"
+        },
+        {
+          "assessment": "Different operator and Bessel zero equation",
+          "evidence": "The Weyl law counts annular Laplacian eigenvalues from J/Y cross-product zeros.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.03669",
+          "material_read": "Theorem 1.1 and Remark 1.3 p. 4, text offset 9000",
+          "method": "Bounded OA PDF passage",
+          "title": "The Weyl formula for planar annuli",
+          "trigger": "Potential annular spectral result on similar quantities"
+        },
+        {
+          "assessment": "Prior aperture model and limiting profiles, not an all-ring census in the inspected text",
+          "evidence": "Circular aperture has J_1(z)/z profile and a thin annular ring has J_0 profile; the ring is described by an aperture difference.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2109.05118",
+          "material_read": "§1, Eqs. (1)–(2), HTML offset 0",
+          "method": "Bounded OA HTML passage",
+          "title": "Discretization of Annular-Ring Diffraction Pattern for Large-Scale Photonics Beamforming",
+          "trigger": "Direct antecedent for optical annular and disk profiles"
+        },
+        {
+          "assessment": "Later-dated result covers planar gap census and limiting root paths",
+          "evidence": "One simple positive root per J_(d/2-1) gap and no other positive roots, with analytic dependence and ball/sphere limits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0/RESULT.md",
+          "material_read": "RESULT.md offsets 0 and 4800, Finding and proof passages",
+          "method": "Local published-record mirror",
+          "title": "Rigidity and Bessel interlacing of Fourier zeros of concentric annuli",
+          "trigger": "Generalization of the same Fourier-zero census"
+        },
+        {
+          "assessment": "Later-dated direct coverage of the planar stationary census",
+          "evidence": "Exactly k-1 stationary parameter values for each indexed zero for all d>=2, with a critical-radius formula. Treats the 10/25 census as antecedent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-every-indexed-fourier-zero-of-a-concentric-annulus-has-exactly-o--4dce7d426125/RESULT.md",
+          "material_read": "RESULT.md offsets 0 and 4800, critical count and critical-radius formula",
+          "method": "Local published-record mirror",
+          "title": "Every indexed Fourier zero of a concentric annulus has the specified stationary-point census",
+          "trigger": "Generalization of the same turning-point theorem"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "Full-text routes returned HTTP 403; no repository copy recovered.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/267684",
+          "material_read": "Bibliographic lead only; no decisive passage retrieved",
+          "method": "DOI/Wiley/Hindawi requests and repository-copy check",
+          "title": "Minimizing the Bright/Shadow Focal Spot Size with Controlled Side-Lobe Increase in High-Numerical-Aperture Focusing Systems",
+          "trigger": "Possible earlier annular diffraction and dark-ring coverage"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "Publisher route returned a bot challenge rather than the article.",
+          "identifier_or_url": "https://doi.org/10.1364/AO.44.007677",
+          "material_read": "Citation lead only",
+          "method": "Publisher route attempt",
+          "title": "Urcid and Padilla (2005), Applied Optics annular-diffraction article",
+          "trigger": "Annular diffraction equations cited by matched Resultary work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar annular Fourier transform is a natural object. A full radial zero enumeration and exactly n-1 alternating nondegenerate turns resolve the meaningful question of whether dark-ring radii move monotonically as the hole grows: the first does, all higher ones have a prescribed number of reversals. The exact locations and endpoint corrections are useful beyond the known endpoint optical profiles; no Laplacian or complex-zero significance is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

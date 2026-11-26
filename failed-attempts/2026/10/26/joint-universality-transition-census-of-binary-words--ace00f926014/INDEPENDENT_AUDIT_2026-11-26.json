@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:03:28.783216Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–40",
+        "VERIFICATION.md and verify_arch_run_joint.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/rank_and_word_replay.py (record 5 output)"
+      ],
+      "rationale": "Each completed greedy arch supplies either bit, and greedily aiming for the successive arch-ending bits followed by a bit missing from the rest constructs an absent subsequence of length one greater. Thus the index is exactly the arch count. A direct enumeration gives a cross-check of the continuation-state proof: for k≥1 the k arch lengths contribute (z²/(1−z))^k, the internal changes t^k, the first orientation 2, the k−1 inter-arch boundaries (1+t)^(k−1), and the empty-or-unary tail 1+z(1+t)/(1−z). This is the stated coefficient of u^k. Its two terms yield exactly the two binomial contributions and r=k,…,2k−1 when n=2k, adding r=2k at n≥2k+1. The n<2k terms vanish, and k=0 has just the empty word or the two positive unary words at each length. An independent program builds all subsequence sets by length and agrees with every joint cell for n=0,…,12, including the zero cells and the support assertions.",
+      "residual_risks": [
+        "The independent finite check through length 12 is corroboration, not the all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greedy rich/arch factorization and the identification of the number of arches with the universality index are prior work.",
+          "Adamson's abstract and introduction count or rank k-universal words, not an adjacent-change refinement in the inspected text."
+        ],
+        "reasoning": "Generic counting and ranking do not by themselves provide this exact formula. The decisive stronger data are the explicit, independent orientation choices in the published specialized binary decomposition.",
+        "searches": [
+          "arXiv:1511.01807v4 §3.2 rich-factorization framework",
+          "arXiv:2003.04629 p. 5 Definition 6",
+          "arXiv:2304.04583v1 counting and ranking k-subsequence-universal words"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e77c4e8d9f37, 8b750033b0cb, 412ee9869e0f, 7f6baa3dff67",
+        "Karandikar–Schnoebelen §3.2; Barker et al. p. 5; Adamson abstract/introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof explicitly enumerates A(z)=2z²/(1−z) for each independently oriented arch and R(z)=1+2z/(1−z) for the independent rest, using the unique decomposition.",
+          "For k≥1, keep the first factor 2; each subsequent orientation factor 2 becomes 1+t because exactly one of its two choices makes a switch from the known preceding ending bit. Use t^k for the k fixed internal switches. For the tail this changes R(z) to 1+z(1+t)/(1−z)."
+        ],
+        "reasoning": "The substitution gives exactly 2z^(2k)t^k(1+t)^(k−1)(1+zt)/(1−z)^(k+1). The optional boundaries are independent, so the asserted sharp range follows by counting the available boundaries. This is coefficient extraction from the prior explicit parametrization, not an inference from equality of marginals or merely the abstract existence of a word enumeration.",
+        "searches": [
+          "Resultary e77c4e8d9f37 RESULT.md proof, offsets 1660–3501"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e77c4e8d9f37 gives the same fixed binary arch variables; each binary arch is an oriented a^m followed by its opposite bit, with a unary-or-empty rest.",
+          "Resultary 8b750033b0cb and 412ee9869e0f treat a circular, rotation-optimized index."
+        ],
+        "reasoning": "For nonempty linear words transitions equal the number of maximal constant-letter runs minus one. Rotation-optimized cyclic statistics are not equivalent, whereas the linear binary arch parametrization underlies precisely the same words and index.",
+        "searches": [
+          "Resultary exact title; binary scattered-subsequence universality and adjacent changes; run-count and arch-factorization aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e77c4e8d9f37 explicitly gives the index marginal, not a printed joint table; Resultary 8b750033b0cb, 412ee9869e0f, and 7f6baa3dff67 give different circular classifications."
+        ],
+        "reasoning": "No inspected exact joint table covers this population; excluding circular overlaps does not remove the direct combinatorial implication from the earlier linear binary record.",
+        "searches": [
+          "Resultary linear-word three-statistic lookup and nearby circular/cut-robust records"
+        ]
+      },
+      "rationale": "No duplicate joint table was located. The objection is direct prior implication, not that the prior marginal as a numerical distribution determines a joint one. The already published binary arch proof gives a finer exact orientation-and-length parametrization. At fixed lengths each arch makes one internal change, and every free starting-bit choice after the first is exactly a free binary choice of whether to change at that boundary, including at a nonempty tail. Marking the existing orientation choices gives the entire formula and support without additional constraints or enumeration.",
+      "residual_risks": [
+        "No exhaustive search for a printed joint table was performed. This does not affect the specific direct implication above.",
+        "No priority order is inferred for the same-day circular records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication via the existing orientation parameters",
+          "evidence": "The proof explicitly counts the two initial-letter orientations independently for each a^m opposite(a) arch and for a positive unary rest.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "RESULT.md Finding and proof, especially offsets 1660–3501",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Same word population, marginal and explicit binary decomposition"
+        },
+        {
+          "assessment": "Different statistic, not shown equivalent",
+          "evidence": "Optimizes over cyclic rotations and uses matchings in cyclic transition runs, rather than counting the linear index jointly with linear changes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-circular-subsequence-universality-distribution-of-binary-w--8b750033b0cb",
+          "material_read": "RESULT.md offsets 0 and 3495",
+          "method": "Local mirror statement and method comparison",
+          "title": "Exact circular subsequence-universality distribution of binary words",
+          "trigger": "Potential equivalent formulation in terms of transition runs"
+        },
+        {
+          "assessment": "Prior underlying factorization",
+          "evidence": "Richness means containing the whole fixed alphabet; the rich factorization is greedy.",
+          "identifier_or_url": "https://arxiv.org/html/1511.01807v4",
+          "material_read": "§3.2, OA offset 42860",
+          "method": "Primary HTML passage comparison",
+          "title": "The height of piecewise-testable languages and the complexity of the logic of subwords",
+          "trigger": "Prior greedy factorization"
+        },
+        {
+          "assessment": "Prior arch-index identity",
+          "evidence": "Hébrard's arch factorization is recalled and related to the universality index.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "p. 5, Definition 6 and following remark, offset 16649",
+          "method": "OA text passage comparison",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Prior arch count as universality"
+        },
+        {
+          "assessment": "Inspected passages supply a different counting target",
+          "evidence": "Counting and ranking fixed-length k-universal words are described without a transition coefficient in those passages.",
+          "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+          "material_read": "Abstract and introduction",
+          "method": "Primary HTML passage comparison",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Possible more general enumerator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–17 and 22–35",
+        "Resultary e77c4e8d9f37, proof offsets 1660–3501"
+      ],
+      "rationale": "Both statistics are natural, and the formula is usable, but in the fixed binary alphabet the entire extra statistic is the forced count of internal changes plus an unrestricted toggle at each existing orientation choice. The positive-cell range and numbers are routine consequences of the prior exact binary parametrization. The claimed refinement adds no independent boundary phenomenon surviving that comparison.",
+      "residual_risks": [
+        "The judgment concerns this exact binary refinement, not analogous statistics with nontrivial boundary interactions in other alphabets."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

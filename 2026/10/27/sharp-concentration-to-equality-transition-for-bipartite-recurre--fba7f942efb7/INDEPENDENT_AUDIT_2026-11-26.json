@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:43:32.913164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a uniform booster phase the stationary mean of clipped-linear susceptibility is F(x)=1-x/2 for 0<=x<=1 and F(x)=1/(2x) for x>=1, where x=tau r and F(0)=1. After normalization of the unvaccinated reproduction number, pure cross mixing has the off-diagonal entries F(x),F(y) and squared Perron root F(x)F(y). Put B=x+y=2w. For B<=1 the positive correction to the endpoint product is xy/4. For 1<B<2 the low–low segment has xy>=B-1 and hence product at least (3-B)/4, strictly above 1/(2B); on a mixed segment the derivative with respect to the smaller argument is (1-B/2)/(2(B-y)^2)>0, so only the endpoint attains 1/(2B). At B=2 the same mixed product cancels to 1/4 identically, including x=y=1. For B>2 the mixed segment minimizes at y=1 with value 1/[4(B-1)]>1/B²; when both arguments exceed or equal 1, maximizing xy yields the unique equal split and product 1/B². These checks verify all rates including zeros, both kinks and the displayed positive square roots. The archived exact rational grid was inspected, not rerun; it is redundant to the continuum argument. The result concerns a stationary disease-free invasion factor under the specified phase and contact assumptions, not whole-epidemic or empirical vaccine outcomes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both published versions' compared fairness statements restrict the mixing parameter to [0,1]. The general matrix formula admits alpha=2, but the fairness-optimality proposition stops short of it."
+        ],
+        "reasoning": "A model can include the endpoint without its optimization theorem doing so. Neither an assortative fairness theorem nor booster timing in a single pool settles the cross-group allocation.",
+        "searches": [
+          "arXiv:2306.13633v1 Proposition 4 and latest arXiv Proposition 6",
+          "Focused literature search for disassortative booster-rate optima"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.13633v1 and latest arXiv version",
+        "Resultary b1779b85de6a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior equations directly imply the scalar objective under stationary deterministic boosting, but the optimal split must still be determined over all branches. The exponential-waning comparison only characterizes a local change, not the minimizing set of this product."
+        ],
+        "reasoning": "The clipped-linear high–low product is identically 1/4 at B=2 and changes monotonicity there; the remaining same-branch comparisons are needed for the complete global classification. None of these conclusions follows by specializing the prior fairness proposition.",
+        "searches": [
+          "arXiv:2306.13633v1 §§5.2–5.4: renewal mean, contact parametrization, fixed-dose constraint and Proposition 4",
+          "Resultary b1779b85de6a Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior dose budget p1/E[T1]+p2/E[T2]=1/m, renewal mean susceptibility and equal-share alpha=2 contact factor specialize to the same geometric-mean product optimization."
+        ],
+        "reasoning": "The formulations agree for the disease-free stationary factor. Specifying the factor does not itself solve the piecewise product minimization; no claim is made that the prior PDE regularity theorem applies to deterministic intervals.",
+        "searches": [
+          "Focused primary-literature queries for Foutel-Rodier et al. and for recurrent boosters with clipped-linear waning in two disassortatively mixing groups",
+          "arXiv:2306.13633v1 §§5.2–5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary hit b1779b85de6a analyzes exponential waning and a fair allocation's local curvature; it also exhibits an endpoint counterexample to fair optimality. Its indexed date is later than the frozen record."
+        ],
+        "reasoning": "Neither the different susceptibility law nor its local second-derivative threshold yields the global optimum or an interval of optimal allocations at w=1. No matching exact indexed allocation law was identified in the bounded search.",
+        "searches": [
+          "Resultary search for exact concentration-to-equality booster thresholds under cross-only mixing and linear waning"
+        ]
+      },
+      "rationale": "Foutel-Rodier–Charpentier–Guérin's framework contains the budget, immunity renewal average and spectral matrix, including pure cross mixing. Those are prior ingredients. Their fairness theorem is restricted to alpha<=1, while the proposed model is alpha=2. The distinct addition is the full constrained global lower envelope and its optimizer set for the clipped-linear deterministic case, not the spectral reduction or the general idea of a fairness reversal.",
+      "residual_risks": [
+        "The APS source remained inaccessible; no whole-paper noncoverage inference is made.",
+        "Unindexed prior global minimization for a broader waning family could subsume the special case.",
+        "Priority of the general renewal/next-generation framework is credited to the cited prior paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the stationary susceptibility/budget and spectral reduction; the theorem on equality excludes pure cross mixing and does not cover the frozen classification",
+          "evidence": [
+            "Equal shares permit alpha=2; v1 Proposition 4 and latest Proposition 6 impose alpha in [0,1]"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.13633v1",
+          "material_read": "v1 §§5.2–5.4 pp. 22, 24–26 at offsets 80100, 87500, 92200, 94800; latest arXiv §§5.3–5.4 pp. 26–27 and 30 at offsets 96500–103499 and 110850",
+          "method": "Open primary PDF passage and version comparison",
+          "title": "Optimal Vaccination Policy to Prevent Endemicity: A Stochastic Model",
+          "trigger": "Same two-population recurrent-booster framework, potential coverage by fairness result"
+        },
+        {
+          "assessment": "Different susceptibility law and local result; no global clipped-linear classification",
+          "evidence": [
+            "Exponential waning; fair-split curvature threshold and a noninfinitesimal alpha=2 example; deterministic periods justified via stationary renewal"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-waning-dependent-fairness-reversal-in-disassortative-boo--b1779b85de6a/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–4175",
+          "method": "Local mirror statement and model comparison",
+          "title": "A sharp waning-dependent fairness reversal in disassortative booster allocation",
+          "trigger": "Closest exact catalogue match to a booster concentration/fairness transition"
+        },
+        {
+          "assessment": "Related based on the snippet; group-allocation coverage unresolved and not excluded by snippet",
+          "evidence": [
+            "Snippet concerns dose timing and an epidemic threshold"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/cykd-2rjn",
+          "material_read": "Search snippet only; no primary full text accessed",
+          "method": "Lawful OA attempts at APS PDF and abstract page returned 403",
+          "title": "When to boost: How dose timing determines the epidemic threshold",
+          "trigger": "Relevant search hit on waning immunity and booster timing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural extreme-mixing benchmark just outside an established fairness theorem. The exact lower envelope separates the waning-saturation kink from the allocation reversal and identifies a complete interval of neutral splits at one specific budget. That distinction is useful as a check on numerical global allocation and qualitative extensions; the result does not recommend unequal allocation in real populations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

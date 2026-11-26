@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:00:42.191548Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the holomorphic derivative at inputs with w≠0 and B≠0. The distinct-root identity gives ∑_{j≠i}(z_i−z_j)^{-1}=(n−1)/(2z_i), so D_i=B/(2z_i) and the stated one-step image holds, including the zero-scale image now explicitly excluded from further pairwise-distinct iteration. The j≠i derivative is −4(t−1)^2/[B^2(1−ζ^{j−i})^2], and rotation with cyclic reindexing gives the constant diagonal. The Fourier-sum increments follow from T_1=−(n−1)/2 and T_{k+1}−T_k=1 on the indicated range, hence S_k−S_1=(k−1)(n+1−k)/2. Evaluating the scaling-mode derivative by the quotient rule and adding this Fourier difference gives the full spectrum. The mode constants are positive with maximum n²−1, and their transverse maximum is (n−1)². At t=r^n>0, (n−1)|t−1|<B, so purely transverse perturbations always contract. Comparing √(n²−1)|t−1| with B gives τ_n on t<1; for t≥1 the norm is bounded by (n−1)/(n+1). The exact factorization of Φ(r)−1 into (r−1)^3 times a positive polynomial divided by B follows by multiplying the three-term power difference and comparing coefficients; together with the sign of Φ(r)−r it proves no overshoot, positive monotone convergence, and the unique positive fixed point. At the correctly ordered root vector the derivative is zero and the map holomorphic, so a small contracting neighborhood exists; pulling it back along each finite radial orbit proves the open-basin assertion.",
+      "replay": "Repair RESULT.md, Proof Steps 1–4; run `python3 check_modes_fd.py` in the repaired directory for the new finite diagnostic. Independently measured 176 centered directional-difference comparisons in degrees 2–9, including complex and collapse inputs, with largest scaled error 1.51e−9. Inspected the frozen verify.py and its notes but did not execute it. It evaluates analytic Jacobian entries, not finite differences; the repaired verification notes distinguish the two diagnostics. Numerical tolerances do not certify arbitrary degrees, nonlinear stability, or floating-point behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Grabbel–Srkalovic–Schleicher abstract states open sets with attracting period-four cycles in each degree at least seven. This is not a Jacobian theorem for the specified binomial polygon.",
+          "The frozen descriptions of Reinke and Shemyakov et al. identify respectively divergence/equivariance and local cubic convergence near simple roots. Primary passage retrieval did not succeed independently."
+        ],
+        "reasoning": "Neither exceptional orbit existence nor a local convergence order specifies exact Fourier coefficients at nonroot points. General derivative bounds could give sufficient tests but are not evidence for equality at this threshold.",
+        "searches": [
+          "arXiv:2611.02143v1, attracting nonroot cycles and stability",
+          "arXiv:2011.01660, divergence and Möbius equivariance",
+          "arXiv:2004.03217, local cubic convergence and equally spaced initialization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned record 076d6879e5b3 and returned catalogue comparisons",
+        "arXiv:2611.02143v1 (abstract)",
+        "arXiv:2011.01660 and arXiv:2004.03217 (frozen descriptions only)",
+        "Frozen AUDIT.json, REVIEW.md, RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ambient norm equals the scalar derivative modulus only after proving the complex circulant is normal and its scaling eigenvalue dominates every transverse eigenvalue. Neither a scalar Halley formula nor local cubic convergence asserts this fact.",
+          "A nonroot attracting cycle elsewhere does not determine the full Jacobian on this binomial family."
+        ],
+        "reasoning": "The exact threshold becomes scalar after a separate, nontrivial full-Jacobian comparison. The repaired collapse exception and transverse contraction are direct deductions from the corrected calculation, not claims of novelty for either observation in isolation.",
+        "searches": [
+          "arXiv:2611.02143v1 abstract and frozen RESULT.md §§Relationship to prior work and Limitations",
+          "Test mathematical implication from the equivalent scalar Halley formula and cubic local convergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the assigned record 076d6879e5b3 itself with the matching full spectrum and threshold; no distinct mathematical match surfaced in the returned catalogue summaries.",
+          "Substituting p=w^n−1 in Halley’s correction gives 2w(t−1)/B, exactly the scalar correction. It supplies only the tangent scaling derivative, not the transverse ordering or ambient norm."
+        ],
+        "reasoning": "Scalar iteration, local convergence, and the ambient derivative at a full ordered polygon are distinct questions. Matching the scalar rational map is not matching the n-dimensional result.",
+        "searches": [
+          "Resultary semantic search for Ehrlich–Aberth roots of unity circulant Jacobian Fourier spectrum ambient Euclidean frontier",
+          "Primary-literature query for Ehrlich–Aberth derivative and regular polygon dynamics",
+          "Compare restricted update with Halley’s 2pp′/[2(p′)^2−pp″] correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the identical assigned record was a material catalogue match. The closest primary search result concerns exceptional cycles, not Fourier eigenvalues on the all-degree, all-admissible-scale family."
+        ],
+        "reasoning": "Even exact eigenvalue data for a different orbit and polynomial are not the claimed family or radius boundary. The full 2026 paper and its tables were not independently inspected; their contents beyond the abstract are not treated as negative evidence.",
+        "searches": [
+          "Resultary semantic search for exact Fourier-mode Ehrlich–Aberth spectrum and stability frontier",
+          "arXiv:2611.02143v1, comparison of stated exceptional-cycle result with the frozen references to eigenvalue data"
+        ]
+      },
+      "rationale": "Best of current knowledge for the full ambient spectrum and its sharp norm frontier on positive scales. The particular scalar update is Halley's iteration on z^n−1, and the open-basin inference uses standard local dynamics; neither part is credited as a new standalone result. The verified comparison was scoped to actual catalogue summaries, the available 2026 abstract, and frozen descriptions of relevant passages whose primary versions could not be retrieved independently. No evidence established an earlier theorem giving the ambient modes or norm equality needed to obtain the frontier.",
+      "residual_risks": [
+        "Full-text lawful retrieval of the closest primary papers timed out. This is not evidence of absence.",
+        "Older exact symmetric benchmarks, Halley-related reductions, or general derivative results with a tight specialization may have gone unindexed or unrecognized. No blanket priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not separate antecedent",
+          "evidence": [
+            "Same record suffix, polynomial, Fourier spectrum and ambient frontier."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-fourier-mode-stability-frontier-for-regular-polygon-ehrlic--076d6879e5b3",
+          "material_read": "Catalogue summary and frozen Finding, proof and verification",
+          "method": "Local catalogue search and read of frozen source",
+          "title": "Sharp Fourier-mode stability frontier for regular-polygon Ehrlich–Aberth iterates",
+          "trigger": "Exact catalogue overlap"
+        },
+        {
+          "assessment": "Stated cycle theorem does not cover the claim; full text not independently checked",
+          "evidence": [
+            "The stated result is local attraction of a nonroot period-four cycle for open sets in d≥7."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02143v1",
+          "material_read": "Search-result abstract; §§2–3 and eigenvalue-table characterization only from frozen documentation",
+          "method": "Primary search and attempted lawful OA retrieval",
+          "title": "The Ehrlich–Aberth root finder is not generally convergent",
+          "trigger": "Same iteration and linear stability of exceptional orbits"
+        },
+        {
+          "assessment": "The described divergence/equivariance does not imply the polygon spectrum; full-text coverage unresolved",
+          "evidence": [
+            "Divergence for other inputs is a different quantified claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.01660",
+          "material_read": "Frozen discussion of Theorem A and §§2–3; no primary full text successfully accessed",
+          "method": "Frozen source inspection and lawful OA retrieval attempts",
+          "title": "Diverging orbits for the Ehrlich–Aberth and the Weierstrass root finders",
+          "trigger": "Same iteration; possible broader dynamical analysis"
+        },
+        {
+          "assessment": "The described root-neighborhood and numerical findings do not imply the formula; full-text coverage unresolved",
+          "evidence": [
+            "Knowing local convergence where w^n=1 does not determine the derivative spectrum away from roots."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.03217",
+          "material_read": "Frozen references to Lemma 2 and numerical experiments; primary retrieval did not succeed",
+          "method": "Frozen source inspection and lawful OA retrieval attempts",
+          "title": "Finding polynomial roots by dynamical systems—a case study",
+          "trigger": "Evenly spaced circle starts and local cubic convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Regular polygons are natural equally spaced starts for the binomial. The exact ambient decomposition identifies both the maximum one-step amplification and the unexpected fact that transverse modes strictly contract even in the scaling-mode expansion regime; it therefore separates perturbation mechanisms rather than just giving a scalar convergence rate. The result is a sharp idealized algorithm benchmark, not a claim that pure transverse perturbations expand or that nearby starts diverge.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

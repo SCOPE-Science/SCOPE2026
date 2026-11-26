@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:11:58.763079Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "VERIFICATION.md",
+        "checker.py"
+      ],
+      "rationale": "The declared interval implies alpha>-1, delta=beta-alpha>0 and c=beta-2delta+1>0. Under x=exp(-s) and multiplication by exp(-(beta+1)s/2), the operator is f(s) mapped to the integral of exp(-cu/2)f(s+u) for u>=0, whose norm is at most 2/c. Monomials are eigenvectors, hence only the low-output/high-input block of the commutator can be nonzero. The adjoint applied to a polynomial p is x^(-delta) times the scalar integral of t^(delta-1)p(t), minus a polynomial of the same degree; x^(-delta) is square integrable precisely here because c>0. In the stated shifted Jacobi basis, Rodrigues integration by parts gives the unnormalized moment of P_k at x^(s-1) as (-1)^k Gamma(s) (beta+1-s)_k/Gamma(k+s+1). For s=delta and s=alpha+1, endpoint terms vanish (order at least x^s at zero and a positive order at one); reinserting the square-root normalization yields both stated factors with the correct signs. Thus after removing basis signs each rate contributes one outer product. The Gamma constants cancel between the two factors. With degree-dependent rescaling n^(-c_j) and n^(c_j), the two Gram entries have limits given by the low partial sum of powers and the high tail sum of inverse powers at d=c_i+c_j>0, both 2/d. The exact limiting matrix 2C follows for each Gram; the exponentials exp(-c_j t) prove C positive definite for distinct rates. Polar decomposition and continuity of the finite matrix square roots and singular values give all m limits, eventual rank m, and positivity, including for complex lambda. The example is Hermitian with trace 1/6 and determinant -1/150 and hence eigenvalues 1/5 and -1/30. Polynomial density and boundedness give strong convergence to zero, while the norm tends to a positive number. The optional checker was inspected but not run; its finite tail cutoff is not the proof.",
+      "residual_risks": [
+        "No conclusion here for other weights, repeated or complex rates, or the boundary of the stated interval. Numerical verification of the illustrative cutoff was not required by the exact Gram argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first Agler–McCarthy work gives monomial eigenvectors and a Gram determinant formula for distances. The second treats limits of monomial spans for invariant subspaces. Chalendar–Partington treat boundedness and compactness of monomial operators."
+        ],
+        "reasoning": "These statements include useful tools for the same operator framework, not control of both head and tail cross-Grams for a common increasing cutoff. Restricting their parameters alone does not give this result.",
+        "searches": [
+          "Agler–McCarthy arXiv:2205.01856v1 and arXiv:2206.03462v2",
+          "Chalendar–Partington arXiv:2212.02172v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary identical record and both distinct relevant exact-spectrum results",
+        "arXiv:2205.01856v1, 2206.03462v2, 2212.02172v1",
+        "Focused primary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The singular values depend on off-diagonal Cauchy entries; separate single-rate norms cannot determine them. The finite-section argument establishes the same limiting Gram for both sides with the rates retained jointly."
+        ],
+        "reasoning": "Standard Gram and approximation tools may help derive the theorem but no inspected statement automatically gives the required coupled matrix, nor can parameter substitution into an individual-rate result supply the cross terms.",
+        "searches": [
+          "Agler–McCarthy distance formula and monomial identities; two related catalogue singular-spectrum statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nominal closest hit is the identical assigned record. The distinct Cesàro/Jacobi result is for MC-CM with a different Cesàro operator and a singular sequence 1/[n(n+1)]. The Hardy-power result is for HM_alpha-M_alpha H."
+        ],
+        "reasoning": "Multiplication commutators are not equivalent to off-diagonal blocks relative to an increasing polynomial flag. Their singular index runs through an infinite spectrum for a fixed operator; here the rank bound is fixed and the cutoff tends to infinity.",
+        "searches": [
+          "Local Resultary: Hardy/Cesàro commutators, Jacobi projections, multirate Galerkin leakage",
+          "Focused primary search on multirate weighted Hardy polynomial projection leakage and Cauchy Gram limits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned finding was the exact hit; inspected distinct exact spectra concern the Cesàro multiplication commutator and Hardy-power Weyl law, not the pair of limiting Gram matrices for this family."
+        ],
+        "reasoning": "The exact comparison is to a formula for the whole spectrum, for every allowed rate and coefficient, not to numeric tables for a two-rate example.",
+        "searches": [
+          "Meaning-based local Resultary lookup for the full multirate Cauchy-Gram spectrum and related explicit singular systems"
+        ]
+      },
+      "rationale": "The inspected monomial/Hardy and approximation literature supplies eigenvectors, operator theory and distance tools, but not the joint off-diagonal block limit at these polynomial cutoffs. The closest distinct catalogue singular-system results concern different commutators and different spectral regimes. The supported distinct claim is the complete coupled finite-multirate singular spectrum for this specific weighted space and polynomial flag, not a priority claim for any of those tools.",
+      "residual_risks": [
+        "This is not a historical priority determination. A general theorem for simultaneous cutoffs in monomial approximation, not found in the inspected literature, could subsume the formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different commutator and singular-value regime",
+          "evidence": [
+            "MC-CM and the fixed-operator spectral sequence 1/[n(n+1)] rather than the leakage of P_n against a sum of averages."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-jacobi-singular-system-of-a-real-variable-ces-ro-commutato--7e2b67f7c66b",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Published-record local mirror",
+          "title": "Exact Jacobi singular system of a real-variable Cesàro commutator",
+          "trigger": "Strong exact Jacobi/commutator catalogue result"
+        },
+        {
+          "assessment": "Different fixed-operator commutator",
+          "evidence": [
+            "Unweighted H against multiplication M_alpha, with n^-2 Weyl asymptotics."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-singular-value-weyl-law-for-hardy-power-commutators--33677ede3aa1",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Published-record local mirror",
+          "title": "A universal singular-value Weyl law for Hardy power commutators",
+          "trigger": "Hardy singular-spectrum alias"
+        },
+        {
+          "assessment": "Useful identities, not the complete cutoff-spectrum theorem in inspected passages",
+          "evidence": [
+            "Unweighted monomial eigenvector identity; Gram-determinant expression for Hilbert space distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.01856v1",
+          "material_read": "p.1, offset 0; p.3, distance formula at offset 7711",
+          "method": "OA original PDF",
+          "title": "A generalization of Hardy's operator and an asymptotic Müntz–Szász theorem",
+          "trigger": "Closest monomial/Hardy and Gram-distance literature"
+        },
+        {
+          "assessment": "Invariant-subspace rather than Galerkin singular-spectrum result",
+          "evidence": [
+            "Limits of finite-dimensional monomial spans characterize relevant invariant spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.03462v2",
+          "material_read": "p.1, offset 0, main scope",
+          "method": "OA original PDF",
+          "title": "Beurling's theorem for the Hardy operator on L²[0,1]",
+          "trigger": "Hardy limits of finite monomial spans"
+        },
+        {
+          "assessment": "Boundedness and compactness, not the joint cutoff matrix in inspected passage",
+          "evidence": [
+            "The stated scope covers operator classes and compactness rather than singular spectra of cutoff leakage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.02172v1",
+          "material_read": "p.1, offset 0, abstract and announced scope",
+          "method": "OA original PDF",
+          "title": "Boundedness and compactness of weighted composition operators and monomial operators",
+          "trigger": "Possible broader monomial-operator criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen full-spectrum theorem and two-rate example",
+        "Agler–McCarthy monomial-operator framework",
+        "Related exact singular-system records"
+      ],
+      "rationale": "For the natural polynomial approximation scheme of a monomial-diagonal operator, the exact off-diagonal leakage is a meaningful obstruction to norm-convergent finite sections. The theorem gives all leakage channels and their interaction, not merely nonconvergence or the one-rate norm. The rate-induced Cauchy matrix explains what can be lost if leakage from distinct averages is treated separately; it remains meaningful for complex coefficients and cancellations.",
+      "residual_risks": [
+        "The usefulness demonstrated is for this weight, basis flag and fixed finite sums; the theorem does not establish general Galerkin efficiency or treat growing numbers of rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

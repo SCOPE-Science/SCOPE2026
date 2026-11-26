@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:31:20.448498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63",
+        "Frozen VERIFICATION.md and verify.py, recorded checker results not treated as independent proof"
+      ],
+      "rationale": "The shift is an invertible binary map. The columns Ae_j,…,A^te_j are the linear image of the independent fair noise bits, so each affine support point has identical mass. Independently, take e_1 as cyclic generator and write m=n+1: the state module is F₂[z]/P with P=(z^m−1)/(z−1), and z acts by A. The cyclic basis in the proof telescopes to e_j=z(1+…+z^{m−j−1})e_1. The gcd of P with this generator polynomial is (z^g−1)/(z−1), of degree g−1; this uses the polynomial gcd of z^m−1 and z^{m−j}−1 and does not require square-freeness in characteristic two. Thus its annihilator has degree m−g and the first t noise columns have rank min(t,m−g). The uniform-affine-to-uniform TV distance is exactly one minus the support fraction, including t=0 and n=1. In the rotation model, residue-class parity is onto the even-parity g-bit words, its kernel is the span of the within-class edge incidences, and noise fills each reachable parity fiber after m−g steps. Reachability at all sufficiently large compatible times gives exactly one closed communicating class per quotient orbit and period equal to that orbit length. The Burnside fixed words repeat each free bit g/d_s times, so even parity is either automatic or one independent constraint. Independent direct binary elimination matched all 348 ranks for n=1,…,8, all sites and t=0,…,n+3; direct fair-noise propagation through t=11 and SCC/return-period computation in the 256-state n=8,j=3 example gave support plateau 64 and classes of sizes 64 and 192 with periods 1 and 3. The all-dimension result follows from the proof, not these checks.",
+      "residual_risks": [
+        "Fair independent bits are needed for uniformity on an affine support. The TV profile is from a fixed start and to the full uniform law, not to the stationary measure conditional on a given class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis–Graham use a different triangular affine walk and note fair-noise exact uniformity there.",
+          "Resultary 4b19ad060188 and 5f5dcc0ba067 evaluate single-input controllability on real weighted tadpole and path Laplacians, respectively."
+        ],
+        "reasoning": "Generic Krylov span machinery gives the dimension in terms of a controllability invariant, but the invariant and the rotating parity quotient have to be identified for this feedback and legal sites. The inspected more specialized operators do not dominate the binary walk.",
+        "searches": [
+          "Resultary: binary finite-dimensional linear system controllability Krylov span rank minimal polynomial single input",
+          "Diaconis–Graham, An affine walk on the hypercube, p. 215"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.05387 §5",
+        "Diaconis–Graham p. 215",
+        "Resultary 5e9a0bd8234b, ffcd7daa8532, 4b19ad060188, 5f5dcc0ba067"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Levin–Tankala prove full rank at time N for the middle site. Independence of its initial noise columns would yield the earlier-time support profile for that site too.",
+          "Noncoprime-site quotient words in this result are rotated rather than all held fixed; the proof determines their orbit and fiber structure."
+        ],
+        "reasoning": "Earlier-time TV for that already-invertible case is an elementary implication and is not the novelty. The noncoprime quotient dynamics and full reducible-class and timing classification are not implied by middle-site invertibility or by generic rank methods without finding the specific quotient.",
+        "searches": [
+          "Levin–Tankala §5 Theorem 2 and its proof",
+          "Diaconis–Graham p. 215",
+          "Resultary: binary finite-dimensional linear system controllability Krylov span rank minimal polynomial single input"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Levin–Tankala Theorem 2 is this model at the middle site j=m in dimension N=2m, so gcd(j,N+1)=1. It proves the time-N noise matrix is invertible.",
+          "Resultary 5e9a0bd8234b instead uses random actuator schedules on a real cyclic shift with two possible actuators."
+        ],
+        "reasoning": "The published theorem gives a genuine overlapping endpoint special case, not the all-site law. The real random-schedule control result is not the same system or distribution under any indicated reparameterization.",
+        "searches": [
+          "Resultary: single-site randomized XOR shift register fixed injection site gcd rank",
+          "Resultary: affine walk hypercube fixed middle coordinate exact sampling shift register",
+          "Levin–Tankala arXiv:2109.05387 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact gcd-indexed rank law, ffcd7daa8532, concerns the rank of a continuous-time quantum average-mixing matrix on a path, not a finite-time binary reachable space."
+        ],
+        "reasoning": "The shared gcd parameter does not identify rank, dynamics or TV. A catalog entry counting even necklaces would address the Burnside corollary at most, not identify the communicating classes of the shift register.",
+        "searches": [
+          "Resultary: arithmetic rank gcd cyclic shift single-site perturbation",
+          "Resultary: single-site randomized XOR shift register fixed injection site gcd rank"
+        ]
+      },
+      "rationale": "The fixed middle-site uniformization theorem and general affine/controllability methods are not new. The evaluated all-site finite-time profile together with the parity rotation-orbit classification, exact class periods and count are a distinct supported claim. The cited theorem and the most plausible catalog matches do not have those statements or a stronger result that mechanically yields the combined classification.",
+      "residual_risks": [
+        "An equivalent all-site classification in older cyclic-vector, linear control or coding-theory terminology remains possible. This is a statement-level comparison, not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered special case; not the all-site and reducible-class results",
+          "evidence": "Middle bit is flipped before the shift; time-N uniformity for N=2m is proved by noise-matrix invertibility.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.05387",
+          "material_read": "§5 pp. 14–15, Theorem 2 and proof, OA offsets approximately 47400–53835",
+          "method": "Read primary theorem, transition convention, and full-rank argument",
+          "title": "Fast mixing of a randomized shift-register Markov chain",
+          "trigger": "Identical feedback map and fixed-middle-site theorem cited by frozen result"
+        },
+        {
+          "assessment": "Different linear map",
+          "evidence": "Triangular walk has exact uniformity by time d for fair bits, but not the frozen gcd-dependent feedback quotient.",
+          "identifier_or_url": "https://fanchung.ucsd.edu/ron/papers/92_01_hypercube_walk.pdf",
+          "material_read": "Opening framework on p. 215, OA offset 0",
+          "method": "Read primary map and fair-noise sampling statement",
+          "title": "An affine walk on the hypercube",
+          "trigger": "Older affine binary walk with fair one-coordinate noise"
+        },
+        {
+          "assessment": "Different control system",
+          "evidence": "Random schedules choose between two real shift actuators.",
+          "identifier_or_url": "Resultary 5e9a0bd8234b",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read indexed result statement",
+          "title": "Exact rank-deficiency law and Poisson threshold for random cyclic schedules",
+          "trigger": "Cyclic shift controllability and rank search"
+        },
+        {
+          "assessment": "Same arithmetic motif but different rank",
+          "evidence": "A continuous-time quantum average-mixing matrix supplies the gcd rank, not a binary noise span.",
+          "identifier_or_url": "Resultary ffcd7daa8532",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read indexed statement and compared operators",
+          "title": "Arithmetic rank law for quantum average mixing on paths with a marked site",
+          "trigger": "Strong exact gcd-indexed rank search hit"
+        },
+        {
+          "assessment": "Different system",
+          "evidence": "Real weighted tadpole Laplacian with rank loss at resonances.",
+          "identifier_or_url": "Resultary 4b19ad060188",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read indexed statement",
+          "title": "Exact single-input controllability resonances on a one-leaf cycle",
+          "trigger": "Single-input rank and minimal-polynomial query"
+        },
+        {
+          "assessment": "Different system and invariant",
+          "evidence": "Real path-Laplacian Kalman determinant with gcd(2j−1,n) classification.",
+          "identifier_or_url": "Resultary 5f5dcc0ba067",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read indexed statement",
+          "title": "Unimodular single-node controllability and universal D-optimal design",
+          "trigger": "Single-site arithmetic controllability query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–25 and 53–63",
+        "Levin–Tankala §5"
+      ],
+      "rationale": "For the natural fixed-site variant, exact sampling at the previously analyzed site does not distinguish sites that sample uniformly from sites trapped forever in a cycle of affine fibers. The theorem supplies that sharp design criterion, the entire distance profile, and the complete reducible-case partition with periods. These answer concrete reachability and sampling questions beyond an isolated rank check.",
+      "residual_risks": [
+        "The classification is for this feedback, fixed site, and fair independent noise; it does not address randomized site schedules or other feedback polynomials."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

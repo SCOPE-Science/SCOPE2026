@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:14.330099Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–75, checked analytically",
+        "Frozen VERIFICATION.md and verify_symmetric_snowdrift.py, inspected, not executed"
+      ],
+      "rationale": "For the symmetric payoff matrix the payoff difference is c(1/2-x). Dividing the positive interior factor x(1-x)[x^k+(1-x)^k] out of the ODE leaves lambda z/2-H_k(z) with z=1-2x and H_k(z)=tanh(k artanh z). For 0<k<1 and 0<z<1, H_k(z)<z and H_k'(z)=k(1-H_k(z)^2)/(1-z^2). Its second derivative has sign z-kH_k(z)>0, so the quotient H_k(z)/z strictly increases from k to 1. For k>=1 the quotient is at least 1 and lambda/2<1. This yields the entire equilibrium census, and the strict sign changes give the basins by uniqueness and monotone bounded convergence on the invariant interval. At the admissible equality lambda=2k, expansion of H_k near zero gives the positive cubic drift 2^(2-k) k(1-k^2)(x-1/2)^3/3 with fifth-order remainder; the center repels even though its linear derivative vanishes. Endpoints have slope -(1-lambda/2) and remain attracting. In the example, dividing the bracket by sqrt(1-x) and clearing 9(1+t^2), t=sqrt(x/(1-x)), gives exactly 2(t-2)(t-1)(2t-1); its three positive roots yield the stated witness. Differentiating this factored bracket gives slopes 2 sqrt(5)/75 at 1/5 and 4/5 and -sqrt(2)/36 at 1/2; all five equilibria are hyperbolic in the witness.",
+      "residual_risks": [
+        "The equality case only concerns 0<k<1 under lambda<2. The ODE classification does not assert finite-population chain behavior or a global asymmetric-payoff classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader linear-game analysis allows multiple interior roots and deduces at least one unstable root for stable endpoints. The inspected S1–S3 address simulations, a three-strategy Prisoner's Dilemma and an alternative construction, respectively.",
+          "The matched catalogue results use a two-community contagion model and a different three-dimensional polynomial flow, respectively."
+        ],
+        "reasoning": "The general results cover background stability and multiplicity possibilities but their implications do not separate the symmetric line into the exact two- and three-attractor regimes.",
+        "searches": [
+          "arXiv:2406.14922, Methods: Linear games, OA text offsets 40500–45425; appended Supplementary S1–S3, offsets 67000–71551",
+          "Resultary 030a81089e11 and 204b611b60dc"
+        ]
+      },
+      "checked_sources": [
+        "Chiba-Okabe and Plotkin, arXiv:2406.14922 / PNAS e2414291121, passages above",
+        "Local Resultary semantic comparisons including 030a81089e11 and 204b611b60dc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both regimes in the reviewed statement retain unstable interior equilibria, and both satisfy the published necessary instability condition. In the tristable regime the unstable equilibria are the two thresholds, not the center."
+        ],
+        "reasoning": "An exact derivative at the center detects a change of local stability, but an exhaustive global conclusion additionally requires the sharp monotonicity of H_k(z)/z. The inspected broader implication does not give that uniqueness or the critical equality conclusion.",
+        "searches": [
+          "arXiv:2406.14922, Eq. (2) and the at-least-one-unstable argument in Methods around OA offset 42000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published Eq. (2) becomes the target ODE exactly after setting D=c(1/2-x), k=gamma-1 and lambda=alpha c. Its payoff-balance equation is the same interior root problem, but the inspected general discussion does not determine the number and order of roots on this line.",
+          "The matched effective-assortativity Resultary boundary (030a81089e11) is for two-community pair-and-triangle contagion, not the scalar evolutionary game."
+        ],
+        "reasoning": "Model and equation identity are credited as prior. Merely rewriting them cannot give global uniqueness of the positive off-center root, its strict disappearance at equality or the resulting three basins.",
+        "searches": [
+          "Resultary semantic comparisons: Chiba-Okabe Plotkin complex contagion, symmetric Snowdrift, gamma-1 and alpha c, five equilibria",
+          "arXiv:2406.14922, Eq. (2) and Methods, Linear games"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the gamma>1 Snowdrift cell, c<2/alpha and b-c<1/alpha both reduce to lambda<2 on the target line; Table 1 gives stable endpoints and the interior category 'unstable & potentially non-unique'. The available explicit fixed-point formula for gamma=2 is instead at k=1."
+        ],
+        "reasoning": "Neither the cell nor the displayed k=1 solution provides the subcell boundary, exact root count or coexistence stability for 0<k<1. The table's loose wording is not evidence that the paper explicitly rules out all stable interior roots.",
+        "searches": [
+          "arXiv:2406.14922, Snowdrift discussion and Table 1, OA offsets 19000–21462",
+          "Resultary searches for the exact symmetric line and five-equilibrium threshold"
+        ]
+      },
+      "rationale": "The continuum ODE and the encompassing stable-endpoints cell are already published, as is the fact that stable endpoints force at least one unstable interior fixed point. The supported distinct contribution is the exhaustive multiplicity and stability split at lambda=2k on the symmetric Snowdrift line, including its equality-case drift, basins and the checkable coexistence witness; the source's existential instability result is not contradicted.",
+      "residual_risks": [
+        "No separate publisher-hosted supplement or independent broad external search was inspected; best-of-knowledge comparison centers on the source article and Resultary. No priority claim follows from a same-day catalogue date or a negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical model and broad phase cell; the inspected table and linear-game arguments do not give the exact symmetric-line cut or basin census",
+          "evidence": [
+            "Eq. (2) factors with x^(gamma-1) and (1-x)^(gamma-1).",
+            "Table 1 describes a stable-boundaries cell and potentially non-unique unstable interiors.",
+            "Methods explicitly claims existence of at least one unstable interior fixed point when both boundaries are stable."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.14922",
+          "material_read": "Eq. (2), OA offsets 12155–12375; Snowdrift and Table 1, offsets 19000–21462; Methods Linear games, offsets 40500–45425; arXiv Supplement S1–S3, offsets 67000–71551",
+          "method": "Primary OA HTML text, targeted passage and surrounding context",
+          "title": "Social learning with complex contagion",
+          "trigger": "Identical ODE and encompassing Snowdrift phase table"
+        },
+        {
+          "assessment": "Different variables, mechanism and threshold",
+          "evidence": [
+            "The finding is about possible asymmetric equilibria in pair-and-triangle two-community mean-field dynamics."
+          ],
+          "identifier_or_url": "Resultary 030a81089e11, RESULT.md",
+          "material_read": "Finding, mirrored text offset 0",
+          "method": "Local Resultary search and primary mirrored record",
+          "title": "A sharp effective-assortativity barrier for asymmetric equilibria",
+          "trigger": "Same-day thematic match for a sharp contagion equilibrium boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–17, 53–75 and 81–87",
+        "Chiba-Okabe–Plotkin Table 1 and Methods"
+      ],
+      "rationale": "The payoff ratio makes the ordinary mixed equilibrium exactly central, so the line isolates the effect of complexity on coexistence without moving that equilibrium. Determining the exact parameter slice supporting survival of a stable mixed state alongside both pure attractors, rather than merely locating a local derivative crossing, sharpens the existing broad phase table and specifies the initial-condition thresholds. The hyperbolic witness also shows the pattern is not an artifact requiring exact symmetry.",
+      "residual_risks": [
+        "Value is for the stated continuum game and motivated symmetry slice; it does not give a full payoff-space diagram or stochastic prediction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:16:44.349513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A zero leaf would require its sole neighbor to be simultaneously zero for restraint and two for domination. With all leaves positive, the core zero set must induce no isolates. At a positive core, both it and its leaf can take either positive label, independently. At a zero core, the leaf can take either positive label if the core borders a positive core, and must take two otherwise. These factors give the full polynomial, with a unique least-weight term per zero set. For a path with r nonempty zero-core runs and h occupied-complement end runs, b=2r-2+h and n>=3r-1+h. Saturation gives precisely the stated choices: (k,1) at n=3k, (k,2) at 3k+1, and (k+1,0) or (k,2) at 3k+2, the last with one free extra site. Directly, P_1 has one optimizer and P_2 has two. On a proper cyclic zero set, b=2r and n>=3r; distributing n-3k extra sites over 2k alternating runs and marking a start gives the factor n/k and all three residues. The claimed extremal equality requires the complement to consist of a single universal vertex and the induced deletion to have no isolates, and both example families check. The frozen verifier and verification notes were inspected, not executed; the decision rests on the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem applies to every finite simple base graph and explicitly recovers the minimum and its labeled multiplicity. Its cycle section also gives an explicit full sunlet enumerator.",
+          "The accessible Samadi introduction describes the scalar parameter and its complexity, bounds, and extremal cases. The exact Abdulhasan–Mojdeh full text could not be obtained."
+        ],
+        "reasoning": "Both the universal formula and the cycle refinement are covered. The all-graphs theorem also applies directly to paths, even though the indexed record does not print the piecewise comb count. No external overlap beyond inspected statements is needed for this decision.",
+        "searches": [
+          "Indexed October 12 RESULT.md, all-base-graphs theorem and optimal-labeling identities",
+          "Samadi et al., arXiv:2009.12209",
+          "DOI:10.1142/S1793830923500179 (attempted full-text retrieval)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "October 12 indexed RESULT.md in the local mirror",
+        "Samadi et al., arXiv:2009.12209 (introductory passage)",
+        "External access checks: DOI:10.1142/S1793830923500179, DOI:10.1142/S179383092250118X, DOI:10.22049/CCO.2021.27471.1269"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior optimizer identity is the number of allowable subsets maximizing their internal vertex boundary. For paths these are words of zero-core runs of length at least two; the endpoint-run inequality and distributing at most one surplus site evaluate the count. The prior cycle formula states the resulting census directly."
+        ],
+        "reasoning": "The comb formula is a short evaluation of an already identified statistic, not another universal enumerator. A polynomial counting restrained-dominating subsets rather than ternary RID functions would not by itself imply the claimed labeled count, but the indexed RID theorem does.",
+        "searches": [
+          "Indexed October 12 RESULT.md, Finding and cycle proof",
+          "Frozen RESULT.md, Proof Part 2 (paths)",
+          "DOI:10.1142/S179383092250118X (attempted full-text retrieval)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record sums z^(2n-b_H(Z))(1+z)^(2(n-|Z|)+b_H(Z)) over the same isolate-free core subsets, with b_H counting the vertices in Z adjacent to its complement.",
+          "The indexed cycle census (n/k) binomial(r+2k-1,2k-1), with r=n-3k, gives 3, 2n, and n(2k+1) when r is 0, 1, and 2 respectively."
+        ],
+        "reasoning": "The objects, labeling conventions, admissibility and weights agree. The cycle formulas differ only by evaluating the same binomial coefficient.",
+        "searches": [
+          "Resultary leaf-corona RID polynomial and comb/sunlet searches",
+          "2026/10/12/SCOPE-restrained-italian-domination-polynomials-of-leaf-coronas-from-i--fa69dce458b7, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror gives the whole coefficient identity and optimizer count, not just a table of small cases. The exact matching Finding starts at offset 0; the cycle proof and optimizer derivation are around offset 4554."
+        ],
+        "reasoning": "This is an exact indexed match at all orders; comparing or recomputing more small numbers cannot remove it.",
+        "searches": [
+          "Resultary exact enumerator and sunlet optimizer census",
+          "Local mirror of indexed October 12 Resultary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct indexed record explicitly states the same universal labeled weight enumerator and optimizer identities, plus the same sunlet optimum census in binomial form. This is demonstrable overlap of the frozen central finding, not an inference of publication priority from dates. The comb residue formula is not printed there, but evaluates the already-established optimizer statistic by a short endpoint run count; it does not save the frozen broad novelty claim.",
+      "residual_risks": [
+        "Volkmann and the two World Scientific papers were not independently compared line by line; further scalar corona overlaps are possible. The exact indexed overlap does not depend on those uncertainties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the principal theorem and sunlet census",
+          "evidence": "Same boundary summand and labeled optimizer count; same cyclic count written in binomial form.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-restrained-italian-domination-polynomials-of-leaf-coronas-from-i--fa69dce458b7",
+          "material_read": "RESULT.md Finding (offset 0), cycle proof (about 4554), related-work passage (about 8017)",
+          "method": "Bounded local mirror passages at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Restrained Italian domination polynomials of leaf coronas from induced boundaries",
+          "trigger": "Same enumerator and optimizer statistic in indexed result"
+        },
+        {
+          "assessment": "Establishes the pre-existing scalar problem; not a whole-paper exclusion",
+          "evidence": "The inspected text foregrounds NP-hardness, bounds and extremal characterizations.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.12209",
+          "material_read": "First-page introductory/abstract passage, text offset about 2600",
+          "method": "Bounded OA extraction",
+          "title": "Restrained Italian domination in graphs",
+          "trigger": "Definition and established scalar theory"
+        },
+        {
+          "assessment": "External scope remains unresolved, not decisive",
+          "evidence": "The frozen record reports scalar corona results; the full paper was not obtained to compare individual cases.",
+          "identifier_or_url": "doi:10.1142/S1793830923500179",
+          "material_read": "No primary full-text passage; related-work and limitations in frozen RESULT.md lines 85 and 89",
+          "method": "DOI and lawful alternate retrieval attempts without usable full text",
+          "title": "Further results on (total) restrained Italian domination",
+          "trigger": "Plausible scalar corona overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The universal labeled-function enumerator is useful mathematics, but it is already in the indexed record. The distinct comb expression is an elementary endpoint case split of that optimizer formula: at maximum there is at most one surplus position to place, and the two short exceptional paths are immediate. The record supplies no further substantive comb invariant that would make this narrow remainder a worthwhile standalone repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

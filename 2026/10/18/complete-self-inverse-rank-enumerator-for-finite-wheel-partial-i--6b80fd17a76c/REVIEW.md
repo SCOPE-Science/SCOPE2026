@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A self-inverse partial bijection has invariant domain, so the three hub cases are exhaustive. For rim-only domains, the wheel distance relation is exactly induced rim adjacency versus nonadjacency. The cyclic run-count identity and wreath-product involution formula establish each coefficient. Hub-exchange involutions require the remaining domain to lie within two rim neighbors. The standalone independent metric checker matches all coefficients on rim lengths three through nine.
+## correctness
 
-**Originality — PASS within the checked literature.** The same wheel monoid's source, Fernandes (arXiv:2307.16257), proves generating-rank and Green-class results rather than this rank-by-rank count of self-inverse elements. The broad partial-graph-automorphism structure results of Jajcay et al. (arXiv:1809.04422) do not furnish the wheel polynomial. The cycle-metric work of Fernandes and Paulista addresses dihedral restrictions; the wheel rim has a different metric and additional involution types. Possible unindexed priority and the uninspected full cycle article remain risks.
+PASS
 
-**Value — PASS.** The formula is a complete, exact infinite-family invariant and explains an unexpectedly low-degree hub correction to a nontrivial cyclic component-enumeration polynomial. The integer-partition expression is reproducible and is not a small isolated numeric computation.
+A partial bijection equal to its inverse has an invariant domain and is an order-at-most-two permutation there. Ambient rim distances are 1 for rim adjacency and 2 otherwise, so these maps are exactly involutive automorphisms of induced rim subgraphs. On a nonempty proper domain, a marked run gives n choices of its first vertex, r!/prod(m_j!) length words and binom(n-k-1,r-1) positive gap compositions, with exactly r marked versions per labelled subset. For m_j equal-length components, t transpositions can be chosen in m_j!/(2^t t!(m_j-2t)!) ways, with a_j choices per fixed component and per paired component pair, since the reverse is forced. On the full rim the dihedral possibilities are the identity, n reflections, and one extra half-turn for even n; the empty coefficient is one. Adding a fixed hub multiplies the rim sum by z, in addition to the maps omitting it. If the hub is exchanged with v, any other domain vertex x has d(v,x)=d(0,alpha(x))=1, and its image is likewise a rim neighbor of v. An arbitrary involution on any subset of the two rim neighbors preserves all distances with the swapped pair and within the subset. The empty, singleton and pair choices give 1,2,2 per v, proving the correction in exactly ranks 2–4. Fresh bounded brute-force distance checks reproduce every coefficient for rim lengths 5,6,7, including the intermediate vector (1,7,42,86,98,54,20,8). Replay with python3 /workspace/branches/12dc9ffb-b009-43ed-b4c7-a6420659384d/independent_wheel_involution_check.py; output is reproduction-small.txt in the same directory. The uploaded checker was inspected but not executed; its n=3–9 evidence is recorded, not claimed as a fresh run. Finite checks are not the all-n proof.
 
-**Scientific limits.** The formula concerns self-inverse elements, not all semigroup elements or commuting pairs; exhaustive verification on finite sizes is not an infinite proof. The proof is combinatorial and unrestricted in rim size within its stated domain. No independent review has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ambient graph and wheel monoid are prior; in particular the small-rank bound for a moving hub and broad partial-automorphism structure are known. The strongest checked enumerator counts all maps at each rank, not fixed points of inversion. The related cycle involution enumerator uses a different metric. Neither provides the stated involution-weighted induced-run sum and hub coefficients.
+
+## value
+
+PASS
+
+This is the full inversion fixed-point statistic of a natural graph inverse monoid at all domain sizes, not a handful of small instances or only the dihedral unit group. It separates the equal-length path-component symmetries from the low-rank effects specific to the hub. For example, with the all-map polynomial the result gives the rank profile of inverse pairs versus self-inverse maps coefficientwise; the total rank data alone cannot recover that profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

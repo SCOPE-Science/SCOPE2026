@@ -1,15 +1,21 @@
-# Scientific review: square-root step allocation for Gaussian-walk mixed volumes
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact expected mixed-volume factorization is traced to the independent-copy mixed-volume formula of Bolotin and Zaporozhets, with the Gaussian determinant normalization checked independently in dimensions two and three. The new allocation argument uses the explicit generating series \(\operatorname{Li}_{1/2}(z)^r/(1-z)\), its two leading singular terms, and a full Puiseux expansion to control first and second discrete logarithmic differences. The normalized leading objective has a unique proportional maximum; the first nontrivial derivative term moves the maximizing integer by the proved \(\sqrt N\) correction. Eventual strict discrete log concavity gives at most two adjacent maximizers. The digamma integral and its strict arithmetic--geometric-mean bound prove the direction of the correction. The attached checker corroborates finite instances but makes no claims about infinite ranges.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** The closest primary source, Bolotin--Zaporozhets, arXiv:2610.10228, Corollary 3.2, explicitly gives the general expected mixed-volume sum, and this directly implies the Gaussian factorization after specialization; these identities are not claimed as new. The new item is the simultaneous fixed-budget optimization over two horizons, including the second-order scaling, a sign theorem for all multiplicities, and eventual cardinality of the maximizing set. Randon-Furling--Zaporozhets (arXiv:2007.02768) instead studies a single joint hull of several Gaussian walks and does not dominate this two-body mixed-volume statement. Searches for discrete step allocation, equivalent orthoscheme-projection optimization, and convolution coefficient optimization found no matching published result. A differently named classical asymptotic or an unpublished extension is a residual risk.
+PASS
 
-## Mathematical value
-**PASS.** Fixing a total sampling budget is a natural comparison for mixed stochastic-geometric observables. The expected objective's leading asymptotic suggests allocating steps in ratio \(p:q\); the theorem proves that this rule systematically misses an unbounded number of optimally allocated steps and determines their exact signed first correction for **all** fixed multiplicities. The monotonic gamma-ratio argument and the adjacent-maximizer theorem give structural answers, not a numerical example or routine change of variables. Possible future use is in optimized finite discretization of two independent hulls; no downstream performance guarantee beyond the stated mixed volume is asserted.
+The independent-copy formula divides by d! and all block lengths. For Gaussian increments each determinant contributes the square roots of the block lengths times a common standard Gaussian determinant; its expectation cancels d! and gives the stated unit-ball factor with the normalized mixed volume. The generating function of F_r is Li_{1/2}(z)^r/(1−z). The first two singular powers are −1−r/2 and −(r+1)/2; transfer gives the asserted leading coefficient and relative correction β_r. The expansion is in a slit domain and can be transferred sufficiently far that log F_r(k), after its leading logarithm, has powers k^{-j/2} through j=5 and remainder O(k^{-3}); thus differencing the remainder does not jeopardize either displayed log-difference estimate. Leading asymptotics give interior maximizers with m/N→p/d, excluding endpoints by the uniform power bound. There the forward increment has leading drift (pN−dm)/(2m(N−m)) with uniform error O(N^{-3/2}). Its forward and backward signs at a maximizer imply |m−pN/d|=O(sqrt N). Expanding there gives slope −d³/(2pq) in the scaled coordinate and zero at the stated α, with uniform O(N^{-2}) increment error, so the location error is bounded in steps. The second log-difference makes the increment strictly decreasing on a common interior interval containing all maxima, excluding three or two nonadjacent maxima. The digamma integrand is e^{−xt/2}/(1+e^{t/2}), strictly bounded by (1/2)e^{−(x/2+1/4)t}; this proves that h decreases and, as ζ(1/2)<0, that β_r/r^{3/2} increases. Hence the bias has sign q−p and vanishes at equality; substitution gives the stated (2,1) example. Replay: RESULT.md lines 37–91, with the precise source normalization below. The supplied verify_budget.py was inspected, not executed, and its finite floating-point estimates are not evidence of an all-large-budget threshold or of exact ties. The proof applies only to fixed p,q and the stated Gaussian walks.
 
-## Literature and limitations
-Primary dated source: A. Bolotin and D. Zaporozhets, *Expected mixed volumes of convex hulls of random walks and Lévy processes*, public arXiv posting October 7, 2026, arXiv:2610.10228 (full-text Corollary 3.2 and Sections 1, 3 inspected). Contrast: J. Randon-Furling and D. Zaporozhets, arXiv:2007.02768, first posted July 2020. Standard tools: NIST DLMF §25.12 and Flajolet--Sedgewick, *Analytic Combinatorics*, Chapter VI. The theorem is not asserted for changing multiplicities, correlated or drifted walks, or all finite budgets. The code uses floating-point checks and is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the integer optimizer theorem with signed square-root shift, bounded step error and eventual adjacency, not the expectation identity, leading proportional split, or individual analytic tools. None of the strongest accessible statements inspected either gives that precise discrete claim or mechanically implies it jointly without the higher coefficient and finite-difference analysis.
+
+## value
+
+PASS
+
+The proportional prediction misses an unbounded number of steps whenever p and q differ. The exact sign and size of that bias, bounded integer location error, and eventual restriction to at most two adjacent optimizers resolve a natural allocation problem quantitatively rather than merely restating the continuous limit or checking an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

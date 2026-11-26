@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:19:33.801333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–88; VERIFICATION.md lines 21–31; CHECK.py lines 17–56 (inspected only)"
+      ],
+      "rationale": "With a frozen error and T independent draws, each count has second moment T p_i+T(T-1)p_i^2. Expanding coordinate squares gives the exact conditional change -beta T(2U-beta V), hence the single-batch strict-descent criterion. For uniform probabilities V/U=1+(T-1)/m and U=||x||^2/m; iteration yields the exact factor and excludes nonzero starts at or above the mean-square boundary. For positive ell, the weights and squared errors are ordered together, giving U>=||x||^2/m by the pairwise covariance identity. Since V<=TU, beta T<2 gives the claimed geometric mean-square bound, hence almost-sure convergence by summable Markov bounds. At equality an axis start is a deterministic sign flip. Above it, on the path selecting one initially nonzero coordinate in every draw, probability of another all-i batch is (1+C R^(-ell k))^-T, where R=beta T-1>1. The sum of the negative logarithms is bounded by TC/(1-R^(-ell)), so this infinite event has positive probability and supplies an exponentially growing lower bound on the second moment for every nonzero start. For the stated m=4,T=3,beta=1 example the uniform factor is 5/8, while beta T=3 lies in the adaptive divergent regime.",
+      "residual_risks": [
+        "No characterization of all adaptive critical trajectories, of uniform almost-sure behavior outside the mean-square range, or of nonfrozen asynchronous schedules is inferred. Finite enumeration cannot validate the infinite event by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Set-based parallel coordinate descent does not accumulate duplicates. Multiset block descent uses scaled local curvature and class-based probabilities. Static batch subsystem projection is not summation of stale row corrections. 950481c92526 states a sharp frontier for mixing uniform and greedy rules in two rows."
+        ],
+        "reasoning": "A safe batch limit depends on how repeated updates are applied. Neither subsystem projection, set sampling, nor the mixing family gives an all-dimension theorem for finite residual powers; pure greed can anticipate the adaptive endpoint without supplying the finite-power escape result.",
+        "searches": [
+          "Richtárik–Takáč DOI 10.1007/s10107-015-0901-6, Algorithm 1 and §4",
+          "Lopes–Santos–Silva DOI 10.1007/s10589-026-00773-5, §4 repeated block sampling",
+          "arXiv:2511.09872v2 §3 and Algorithm 3.1",
+          "Resultary 950481c92526 stale-batch safety frontier"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ca374658cd7 (self-match), 3a196be2a758, 950481c92526, a71a8d8a1086, 8163c39ed9e1",
+        "arXiv:2607.08313, 2606.01232, 1212.0873, 2511.09872v2; DOI 10.1007/s10589-026-00773-5",
+        "PII S0893965926000248 and DOI 10.1007/s12190-025-02720-9 (search descriptions only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closely overlapping earlier Resultary summary entails an exact two-row duplicate-selection penalty, and the uniform branch agrees in that case: minimizing q_0 over beta for m=2 gives 1/(T+1). Coleman's progress estimates use single-coordinate steps or bounded asynchronous delay. The earlier Resultary summary does not assert an all-start divergent path."
+        ],
+        "reasoning": "Credit the prior special case and the established collision mechanism. Dense starts are not settled by an axis counterexample, a worst-direction minimax value, or a finite-time descent bound. The novel supported portion uses a summable conditional failure probability along an infinite path, together with a contraction uniform over positive powers in the safe range. The inaccessible earlier full text leaves the extent of special-case overlap unresolved.",
+        "searches": [
+          "Compare the statements in Resultary 3a196be2a758 and 950481c92526 against the frozen transition law and dense-start infinite-event bound",
+          "arXiv:2606.01232 baseline theorem and Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3a196be2a758 expressly has two orthogonal rows and simultaneous squared-residual-weighted picks from one snapshot, a direct overlap with the two-row, exponent-two setting at the level of the stated model. The sequential planar zero-power discontinuity a71a8d8a1086 concerns the almost-sure rate for nonorthogonal rows. Coleman studies residual-power sampling and practical concurrency, plus a one-coordinate progress bound."
+        ],
+        "reasoning": "One can put orthonormal rows in coordinate form on their span, so the two-row model cannot be dismissed by a change of coordinates. The singleton, nonorthogonal and hardware schedule settings do not yield the frozen multiplicity law with arbitrary m and T.",
+        "searches": [
+          "Local Resultary: frozen residual-weighted two-row Kaczmarz, stale batch frontier, and zero-power limit",
+          "arXiv:2607.08313v1 abstract, v2 pp. 3 and 8; arXiv:2606.01232 pp. 11 and 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ca374658cd7 is the assigned record itself. 3a196be2a758 reports a minimax one-step relaxation transition at T=3 and limiting adaptive factor 1/9, compared with 1/(T+1) in the uniform case. 950481c92526 supplies a different family's exact two-row limit. 8163c39ed9e1 is a rank-one residual tracker with singleton sampling."
+        ],
+        "reasoning": "The exact comparisons are not interchangeable: optimizing a worst-direction batch factor at m=2 and fixed exponent is different from classifying universal convergence over relaxation and all finite positive powers, including long-run behavior above threshold.",
+        "searches": [
+          "Local Resultary exact ID 3a196be2a758 and nearby frozen batch entries 950481c92526, a71a8d8a1086, 8163c39ed9e1",
+          "arXiv:2607.08313 empirical stability boundary"
+        ]
+      },
+      "rationale": "The mechanics of a duplicate-draw penalty, related two-row thresholds, and zero-power singularities have substantial prior coverage. The supported distinction is the joint sharp stability classification for any orthonormal dimension and every finite positive exponent, and the positive-probability exponentially divergent path from every nonzero supercritical start. The exact moment expansion alone is not claimed as new.",
+      "residual_risks": [
+        "Exact full-text overlap with the earlier two-row frozen-batch and partially greedy Resultary entries could not be resolved beyond their stated summaries; they are credited for verified statement overlap. The feasibility and multi-step papers were not accessible via the attempted lawful routes. No claim of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material special-case overlap established by summary; full extent unresolved",
+          "evidence": "T simultaneous squared-residual picks from one snapshot; unique minimax relaxation changes at T=3; adaptive worst-direction factor tends to 1/9 while uniform optimum is 1/(T+1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-concurrency-frontier-for-residual-weighted-two-row-kaczm--3a196be2a758",
+          "material_read": "Resultary exact-ID result summary; decisive RESULT.md passage requested via local mirror but not retrieved",
+          "method": "Local Resultary statement search and configured mirror retrieval attempts",
+          "title": "A sharp concurrency frontier for residual-weighted two-row Kaczmarz",
+          "trigger": "Same frozen orthogonal update in the two-row squared-residual case"
+        },
+        {
+          "assessment": "Same broad stability question, different selection law; full-text overlap unresolved",
+          "evidence": "Mixes uniform and greedy selection, with stated threshold beta<4/[K+1+(K-1)sqrt(theta^2+(1-theta^2)c^2)] and a two-worker pure-greedy reflection orbit.",
+          "identifier_or_url": "Resultary 950481c92526",
+          "material_read": "Resultary statement summary; attempted local mirror passage unavailable",
+          "method": "Local Resultary search and configured mirror request",
+          "title": "Sharp stale-batch safety frontier for partially greedy two-row Kaczmarz",
+          "trigger": "Exact stale-batch safety frontier in the two-row setting"
+        },
+        {
+          "assessment": "Real conceptual overlap, different updates",
+          "evidence": "First is sequential with nonorthogonal row lines and concerns an almost-sure rate; second is a rank-one, singleton-sampling tracker with a probability-dependent mean-square threshold.",
+          "identifier_or_url": "Resultary a71a8d8a1086 and 8163c39ed9e1",
+          "material_read": "Both RESULT.md opening Findings",
+          "method": "Local Resultary mirror",
+          "title": "The singular zero-power limit and exact Lyapunov law for planar Kaczmarz; sharp sampling imbalance frontier for two-row residual tracking",
+          "trigger": "Exact zero-exponent jump and exact two-row mean-square thresholds"
+        },
+        {
+          "assessment": "Empirical/scheduling antecedent rather than the stated fixed multiplicity theorem in the read passages",
+          "evidence": "339-run study and measured thread-count/exponent stability effects with schedule-dependent behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.08313",
+          "material_read": "v1 abstract p. 1; v2 pp. 3 and 8, offsets 5625 and 17670",
+          "method": "OA primary PDF passages",
+          "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+          "trigger": "Exact power weighting and consistent-snapshot motivation"
+        },
+        {
+          "assessment": "Positive-exponent single-component and delayed-update antecedent",
+          "evidence": "Baseline progress theorem and sharpened exponent-two case, with asynchronous delay bounds, not an all-batch-wid​th classification in the cited passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.01232",
+          "material_read": "Abstract p. 1, p. 11 theorem/proof offsets 33485 and 34200, p. 13 Theorem 5 offset 43460",
+          "method": "OA primary PDF passages",
+          "title": "Residual-Weighted Randomized Jacobi: Sharpened Bounds via Residual Concentration and Asynchronous Extension",
+          "trigger": "Residual-power progress and asynchronous stale values"
+        },
+        {
+          "assessment": "Set-based update, not duplicate accumulation",
+          "evidence": "Updates blocks indexed by a sampled set S_k; the sampling is a distribution on subsets.",
+          "identifier_or_url": "https://doi.org/10.1007/s10107-015-0901-6",
+          "material_read": "arXiv:1212.0873, Algorithm 1 p. 7 offset 25903 and §4 p. 13 offset 47195",
+          "method": "OA submitted-version PDF passages",
+          "title": "Parallel Coordinate Descent Methods for Big Data Optimization",
+          "trigger": "Parallel block sampling could yield same multiplicity stability"
+        },
+        {
+          "assessment": "Multiset mechanism with different probabilities and local update",
+          "evidence": "Allows repeated choices; scales the local model via beta L_i and samples by identified block classes rather than residual powers.",
+          "identifier_or_url": "https://doi.org/10.1007/s10589-026-00773-5",
+          "material_read": "Publisher PDF offsets 10849, 20430 (§4), 51072",
+          "method": "OA publisher PDF passages",
+          "title": "Parallel block coordinate descent methods with identification strategies",
+          "trigger": "Repeated independent block draws"
+        },
+        {
+          "assessment": "Static batches and joint projection, not independent adaptive stale corrections",
+          "evidence": "Projects onto a subsystem drawn using batch distributions instead of accumulating multiplicities from current residual powers.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.09872v2",
+          "material_read": "§3 and Algorithm 3.1, pp. 3 and 7, offsets 11140 and 25943",
+          "method": "OA primary PDF passages",
+          "title": "Xie and Yang batch Kaczmarz comparator",
+          "trigger": "Batch Kaczmarz variant with different selection/aggregation"
+        },
+        {
+          "assessment": "Unresolved adjacent leads, no coverage conclusion from snippets",
+          "evidence": "Descriptions mention negative-part feasibility residuals and, respectively, multi-step Kaczmarz with cyclic column updates and greedy selection.",
+          "identifier_or_url": "ScienceDirect PII S0893965926000248; DOI 10.1007/s12190-025-02720-9",
+          "material_read": "Search descriptions only; lawful OA attempts and alternate-copy lookup did not retrieve full text",
+          "method": "Public search and OA retrieval attempts",
+          "title": "A residual-based randomized Kaczmarz method for solving linear feasibility problems; adjacent multi-step Kaczmarz article",
+          "trigger": "Residual-based alternatives in the literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 60–100",
+        "Resultary 3a196be2a758 exact two-row comparison"
+      ],
+      "rationale": "Holding the update schedule fixed isolates a genuine stability discontinuity between exact uniform selection and arbitrarily weak positive residual weighting. The all-start escape result rules out interpreting the instability as an artifact of starting on a single coordinate. The classification gives exact limits in a meaningful frozen model and separates positive-probability divergence and second-moment blowup from typical-trajectory or hardware performance claims.",
+      "residual_risks": [
+        "The escape-event probability may be tiny; the thresholds do not characterize typical performance or general asynchronous Kaczmarz."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review: arm-permutation cohomology of star nilmanifolds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The group law, integer lattice, Lie brackets and finite arm-permutation action are explicit. The Chevalley–Eilenberg differential is \(d=a\wedge E\), so the degreewise equivariant kernel/cokernel decomposition is immediate. A degree-zero \(\mathfrak{sl}_2\)-triple commuting with the arm action proves the coefficient-extraction lemma on **all** exterior powers; the super-symmetric-power generating series then yields the closed orbit-space Betti polynomial. The exact stand-alone modular checker independently tests the chain-level trace identities for every permutation of up to four arms (304 degree/element comparisons), while the proof—not an extrapolation—handles all arm counts in characteristic zero. The cohomology of a finite smooth group quotient equals the invariant rational cohomology by averaging on equivariant triangulations. Rational coefficients, rank bounds and the special \(n=1\) case are stated explicitly.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+The simultaneous arm permutation preserves the stated lattice and acts naturally on the Nomizu model after extension to real coefficients. In the splitting by the presence of a, d is precisely a wedge the degree-zero replacement z_i -> x_i; image subtraction gives equal kernel and cokernel characters. For each sl_2 isotypic component the permutation acts on the multiplicity space, and that same space occurs once both in ker E and in the sum of weights 0 and 1. A length-l cycle contributes the stated two determinants. Independently, on arm invariants let X=sum x_i, Z=sum z_i, W=sum x_i z_i. For degrees 2j the invariant basis is W^j (0<=j<=n), with XZW^{j-1} also when 1<=j<n; in degrees 2j+1 it is XW^j,Z W^j for 0<=j<n. This follows by symmetrizing the empty, double and two single local wedge types, with each odd type usable at most once; over Q the symmetrized two-single component of XZW^{j-1} is nonzero for j<n. E vanishes on the even space and sends the second odd generator to the first, proving the stated plateau and 6n total after the (1+t) factor, including n=1. Barycentric subdivision of an equivariant triangulation removes simplex inversions so invariant cochains compute ordinary rational orbit-space cohomology. Inspected RESULT.md, VERIFICATION.md and checker.py; the latter checks modular traces only and was not run. No integral, ring or Borel claim is verified.
 
-The 1997 Armstrong–Cairns–Jessup paper already computes the star Lie algebra's ordinary Betti numbers using the degree-zero derivation, and its kernel/cokernel framework must not be presented as new. The 2024 Aldi et al. paper provides the star cohomology calculation through induced subgraphs, with no arm-permutation character statement in the inspected relevant sections. The November 2026 paper concentrates on path graph nilmanifolds and cites star results as known; no arm-permutation characters or orbit-space Betti spectrum were located in the relevant full text. Targeted literature and research-record searches did not identify the cycle-type trace formula or the topological quotient's linear cohomology spectrum. The new nontrivial work is the commuting \(\mathfrak{sl}_2\) and super-symmetric invariants refinement, which is not implied by the numerical Betti polynomials. Residual risk: the 1997 source was materially inspected only through accessible excerpts rather than every page, and equivalent unpublished or unindexed representation results are possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unrefined total rational cohomology grows as \(2\binom{2n+1}{n}\), whereas the naturally defined permutation quotient retains exactly \(6n\) dimensions. The closed trace formula further determines invariants for *every* subgroup of the arm-permutation group by character averaging, not merely its full quotient. This is a meaningful topological symmetry refinement for a canonical graph-nilmanifold family relevant to the developing explicit Poincaré-polynomial theory, rather than a recomputation of known Betti numbers. The quotient's characteristic-zero cohomology is genuinely distinct information not recoverable from the ordinary Betti polynomial.
+Pass applies to the graded arm-permutation characters at arbitrary cycle type and the resulting ordinary rational orbit-space Betti formula, not to the cohomology dimensions of the covering star nilmanifold. The strongest inspected published work with the same stars gives those covering-space dimensions, while the closest ancillary symmetry calculations concern other graphs. No equivalent or stronger covering theorem was established on the evidence searched.
 
-## Closest literature and limits
+## value
 
-- Armstrong, Cairns and Jessup (1997), *Explicit Betti numbers for a family of nilpotent Lie algebras*: ordinary dimensions and derivative-kernel method, strong prior coverage of the nonequivariant part.
-- Aldi et al., arXiv:2402.14188v2, §4: existing complete star Betti calculation by a different method.
-- Aldi et al., arXiv:2611.17014v1: new formulas for *path* nilmanifolds; star formulas cited as previously known.
+PASS
 
-This is a characteristic-zero representation and orbit-space Betti theorem, not an integral ring calculation. Unindexed equivalent work is a publication-priority risk. The code provides bounded finite-field tests but no infinite proof; the infinite proof is supplied in the result text.
+The automorphism group is intrinsic to the star and its explicit symmetric lattice. The cycle formula answers the naturally equivariant cohomology question for every permutation and, by restriction and averaging, for all arm-permutation subgroups. The 6n total with its exact degree plateau contrasts with exponential covering-space cohomology and is not obtained from the known nonequivariant dimensions or a single small graph computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

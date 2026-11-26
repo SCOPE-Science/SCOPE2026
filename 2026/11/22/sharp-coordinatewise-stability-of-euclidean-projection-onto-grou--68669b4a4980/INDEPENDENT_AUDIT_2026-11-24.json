@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:14.931608Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66; VERIFICATION.md and checker.py (read but not executed)",
+        "Corrected RESULT.md at repairs/5/RESULT.md, Finding and proof, reread after writing"
+      ],
+      "rationale": "The main formula is correct. The frozen Finding's unqualified singleton specialization 2−2/m is false for m=1: the interval projector is the identity locally and has Lipschitz coefficient 1. The corrected result gives the right exception and describes sorting as an available method, not a necessary computational step. On a strict exterior cell, clipping gives k_i t_i=∑_{j∈S_i} y_ij−λ and H=∑_{h active}1/k_h. A clipped row has positive in-group absolute sum 1−1/(k_iH) and negative cross-group absolute sum (r−1)/(k_iH) for r active groups. One active group gives zero clipped rows; identity and inactive rows have norms one and zero. The largest exterior row for r≥3 minimizes k_iH by k_i=1 and taking all coordinates clipped in the other r−1 active groups, which can be the largest groups. The cap-budget solution is affine in each strict sign and clipping cell; continuity extends the segment bound to arbitrary inputs. At chosen equal positive caps and λ>0, the extremal clip pattern satisfies strict inequalities. Perturbations of initially zero coordinates do not spoil the open affine neighborhood: those outputs are either zero by inactivity or unchanged by clipping. A signed finite perturbation attains the row norm, and interior pairs cover m≤2. Homogeneous sizes give a strictly increasing prefix function, with the stated value at m−1.",
+      "residual_risks": [
+        "The exact rational enumeration in the supplied script verifies only small combinatorial pattern values; the KKT witness and affine-segment argument are required to establish feasibility and global sharpness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu et al.'s generalized Jacobian in the inspected passage is for the Newton equations, not the sharp input-output coordinate norm.",
+          "Euclidean nonexpansivity holds for this projector, but its norm is different and cannot decide the m≥3 expansion.",
+          "The cited Liu et al. study is for weighted norm epigraphs by its bibliographic record; primary text was not retrieved."
+        ],
+        "reasoning": "The published algorithms and general projector facts do not solve the exact optimization across coordinate rows and arbitrary group sizes. No statement-level finding is inferred from the unavailable paper.",
+        "searches": [
+          "Chu–Zhang–Sun–Tao, semismooth Newton Jacobian, pp. 4–5",
+          "Perez–Condat–Barlaud arXiv:2307.09836, projection formulation",
+          "Liu–Han–Wang–Chen (2015), Pacific Journal of Optimization 11, 737–749"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and corrected RESULT.md",
+        "Chau–Wohlberg–Rodriguez arXiv:1806.10041",
+        "Chu et al. PMLR 119 (2020)",
+        "Perez–Condat–Barlaud arXiv:2307.09836",
+        "Béjar–Dokmanić–Vidal arXiv:1910.03749",
+        "Resultary 5177ec842d41, 77979dc14d49, a3fe218df88d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the fixed singleton projection, normalized lp and l∞ ratio bounds differ by at most a factor n^(1/p), tending to one. Taking the largest absolute centering row 2−2/k and the identity case recovers the entire singleton specialization.",
+          "For larger groups the absolute row norm depends on each reciprocal clipping count, and maximizing it requires jointly selecting other active groups and a distinct target and realizing that strict cell."
+        ],
+        "reasoning": "The compared known formulas underlie the clipping method and cover the singleton case. They do not state a stronger sharp-modulus theorem specializing to the arbitrary-block prefix optimum.",
+        "searches": [
+          "Resultary 5177ec842d41 and 77979dc14d49 singleton results versus group-size optimization",
+          "Chu et al. cap system and Newton-variable Jacobian versus repaired ambient-input rows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both mixed-norm subscript conventions denote the sum of within-group maxima in the pertinent projection papers.",
+          "The Moreau relation using the dual ball identifies the projection as identity minus a proximal map; a sharp norm of a map does not yield the sharp norm of its difference from identity.",
+          "The weighted l1 epigraph has a free additional coordinate, unlike fixing the cap sum at R."
+        ],
+        "reasoning": "The same cap geometry is credited where it appears in other notation. The epigraph and dual prox are mathematically related but do not identify an existing sharp coordinate modulus for this fixed-radius map.",
+        "searches": [
+          "Local Resultary: group-max mixed-norm ball, coordinatewise Lipschitz, cross-polytope and weighted l1 epigraph",
+          "arXiv:1806.10041, PMLR 119 chu20b, arXiv:2307.09836 for the same ball under both subscript orders",
+          "arXiv:1910.03749 for dual prox"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 77979dc14d49 gives the singleton thresholding selection with coefficient 2−2/n in the l1 metric (in n≥2); symmetric centering gives the same l∞ row coefficient.",
+          "Resultary 5177ec842d41, Finding (offset 0), proves the common map for 1<p<∞ and max{1,max_k ||C_k||p} on it; passing p→∞ in fixed dimension gives the singleton endpoint formula.",
+          "Same-day a3fe218df88d is a distinct sharp l∞ study of a weighted l1 epigraph."
+        ],
+        "reasoning": "Credit the singleton endpoint by implication, not just the literal catalogue statements. Neither that exact special case nor the epigraph law tabulates the arbitrary mixed group-size modulus.",
+        "searches": [
+          "Local Resultary: sharp global block-size prefix formula, m≤2 criterion, singleton thresholding and weighted epigraph"
+        ]
+      },
+      "rationale": "Prior work already solves the same mixed-norm Euclidean projection problem, and the numerical singleton-block coefficient is covered by known cross-polytope thresholding and centering formulas. The supported distinction is the exact global coordinate maximum-norm modulus for nontrivial general block-size patterns, its nonexpansivity boundary, and finite attaining pairs for the optimizing patterns. The result does not claim a new norm, new projector or a new singleton coefficient.",
+      "residual_risks": [
+        "Older equivalent group-projector sensitivity or epigraph calculus could bear on originality. The MIT copy of Quattoni et al. was rate limited and the epigraph differential-properties article was not retrieved; neither is counted as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ball and root search, not a sharp sensitivity statement in inspected material",
+          "evidence": "Projection onto the sum of within-group maxima is the optimization target.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.10041",
+          "material_read": "PDF pp. 1 and 4, offset around 10500",
+          "method": "OA PDF passages",
+          "title": "A Fast Projection Method for the mixed-norm ball",
+          "trigger": "Same Euclidean projection under alternative norm-order convention"
+        },
+        {
+          "assessment": "Gives cap formulation and differentiates the Newton system, not the claimed norm of the projector",
+          "evidence": "Generalized Jacobian of F(μ,θ)=0 concerns solver variables.",
+          "identifier_or_url": "https://proceedings.mlr.press/v119/chu20b.html",
+          "material_read": "PDF p. 3, offset around 10000; pp. 4–5, offsets 21800–24000",
+          "method": "OA PDF passages",
+          "title": "A Semismooth Newton Algorithm for Efficient Projections onto the l1,∞-Norm Ball",
+          "trigger": "Same map and a potentially relevant generalized Jacobian"
+        },
+        {
+          "assessment": "Exact problem equivalence and prior algorithmic context",
+          "evidence": "The norm is the sum of columnwise maxima and projection is Euclidean.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09836",
+          "material_read": "PDF p. 2, offset around 11000",
+          "method": "OA PDF passage",
+          "title": "Efficient projection algorithms onto the mixed-norm ball",
+          "trigger": "Explicitly the same nearest-point computation"
+        },
+        {
+          "assessment": "Prior dual map and threshold equations, not projector maximum-norm sharpness",
+          "evidence": "Moreau relation prox=I−P onto dual ball.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.03749",
+          "material_read": "PDF pp. 1–3, offsets around 7000, 17500 and 21500",
+          "method": "OA PDF passages",
+          "title": "The Fastest l1,∞ Prox in the West",
+          "trigger": "Dual proximal representation"
+        },
+        {
+          "assessment": "Singleton case mechanically implied by fixed-dimensional p→∞; general groups not treated",
+          "evidence": "The map is independent of p for 1<p<∞ and its modulus is the maximum of identity and active-set centering norms.",
+          "identifier_or_url": "2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+          "material_read": "Local-mirror Finding offset 0; centering proof passages around 4110–4488",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold",
+          "trigger": "Singleton limit under the same piecewise affine thresholding map"
+        },
+        {
+          "assessment": "Singleton overlap, perturbation norm in the source is l1",
+          "evidence": "Thresholding selection has sharp coefficient 2−2/n for the nontrivial singleton case; transposed column/row norms agree for symmetric centering.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-lipschitz-nearest-point-selections-for-real-ell-1-balls--77979dc14d49",
+          "material_read": "Finding",
+          "method": "Local Resultary and mirror passage",
+          "title": "Optimal Lipschitz nearest-point selections for real l1 balls",
+          "trigger": "Potential identical singleton thresholding formula"
+        },
+        {
+          "assessment": "Different feasible set; date does not decide priority",
+          "evidence": "The epigraph projection optimizes the last coordinate rather than imposing a fixed radius.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-endpoint-stability-and-a-golden-ratio-phase-transition-for--a3fe218df88d",
+          "material_read": "Finding and cited leads",
+          "method": "Local Resultary and mirror passage",
+          "title": "Sharp endpoint stability and a golden-ratio phase transition for weighted l1 epigraphs",
+          "trigger": "Same-day sharp coordinate sensitivity for a related projector"
+        },
+        {
+          "assessment": "Access limitation; no primary-text claim exclusion",
+          "evidence": "Possible overlap in local projector calculus remains a risk, not an established exact modulus.",
+          "identifier_or_url": "Pacific Journal of Optimization 11 (2015), 737–749",
+          "material_read": "Bibliographic lead from epigraph record only",
+          "method": "Citation inspection; full text not retrieved",
+          "title": "Differential properties of the metric projectors over the epigraph of the weighted l1 and l∞ norms",
+          "trigger": "Potential general differential results on related projectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding, Optimization and Sharpness",
+        "Cross-polytope and epigraph comparisons for scope"
+      ],
+      "rationale": "Coordinatewise error is a natural sensitivity measure for a projection implemented by clipping individual coordinates. A sharp coefficient, a block-count nonexpansivity criterion, and an actual finite witness say more than Euclidean firm nonexpansivity. Unequal block sizes and the possibility of selecting a strict prefix matter, and the equal-size formula shows that block structure can substantially amplify coordinate errors.",
+      "residual_risks": [
+        "The formula uses disjoint groups and unweighted Euclidean distance and gives no lower bound on the complexity of evaluating the coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

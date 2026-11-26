@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:18:01.071650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning one excursion on success gives the terminal marks, since the trials are iid and geometrically repeated. The absorbing-interval transform has a near-endpoint term exp(-qd sqrt(1+s)) and an opposite-endpoint term bounded exponentially in q. After z=qd, the local densities are dominated by a constant times z^(beta-1), and the part outside any fixed target neighborhood is exponentially small. This proves the rescaled transform on each side, with a leading coefficient of zero allowed, and p_r ~ (c_+ + c_-) Gamma(beta) q^(-beta). The conditional time transform gives E[U|Z]=Z/2 and Var(U|Z)=Z/4, so Cov(Z,U)=beta/2 and the claimed correlation is 1/sqrt(2) for the limit law. The failed-duration sum is independent of the terminal marks at finite rate; its Laplace transform on the rp_r scale tends to (1+theta)^(-1), while the terminal duration on that scale vanishes. The mean threshold follows from the single-trial elapsed mean (1-p_r)/r. For total variation the coupling can disagree only if the far endpoint is hit first and before reset, with probability sinh(qd)/sinh(2aq). Add the omitted half-line Gamma tail, use ring success mass at least half the untruncated half-line mass for x>=2beta+2, and bound the cost of normalization by twice the unnormalized discrepancy divided by ring success mass. This gives the claimed factor-four bound for the symmetric pure power family, not an exact TV asymptotic. Proof replay: RESULT.md lines 54–110; CHECK.py and VERIFICATION.md were inspected, not executed, and the mass comparisons in the script are not an empirical verification of the joint TV bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ring renewal/survival framework applies to distributed resets and yields the averaged mean formula. The frequent-reset unmarked exponential arrival limit is prior art and is explicitly disclaimed."
+        ],
+        "reasoning": "The general renewal identities imply the exact mean identity after averaging, but do not give the endpoint-dependent joint marked limit, constant correlation or full conditional TV comparison.",
+        "searches": [
+          "arXiv:2605.08414v1 §II Eqs. (1)–(5)",
+          "arXiv:2302.05409 (frequent-reset unmarked clock, cited in frozen record)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py",
+        "arXiv:2507.14483v2",
+        "arXiv:2605.08414v1",
+        "Resultary 1734fe611d2c and 9e0fe93f6312"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The renewal factors already provide the exact position tilt and mean framework. The ring-to-line coupling instead bounds discrepancies in the whole pre-normalization marked measure by a killed opposite-endpoint exit probability plus an omitted Gamma tail."
+        ],
+        "reasoning": "The mean threshold and Gamma limits can be derived from renewal and endpoint asymptotics, but the inspected results do not imply the simultaneous conditional TV estimate. Credit is for the explicit marked scaling and quantitative comparison, not for conditioning or the underlying Brownian first-passage kernel.",
+        "searches": [
+          "arXiv:2507.14483v2 Eqs. (26)–(29)",
+          "arXiv:2605.08414v1 Eqs. (1)–(5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (26) convolves the reset-free final duration with the preceding reset history to obtain total arrival time and last reset position. Eqs. (27)–(29) give success weighting of the position and its Brownian exponential tilt."
+        ],
+        "reasoning": "Retaining the convolution variable gives a precursor to the terminal-duration mark, not an equivalent statement of its rescaled joint law or its dependence on the terminal distance. The paper's application separates the reset support from the target.",
+        "searches": [
+          "Brownian Poisson resetting last reset position and terminal successful excursion duration; targeted literature comparison",
+          "arXiv:2507.14483v2 §V Eqs. (26)–(29)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1734fe611d2c marks exit side and duration in a quadrant from a fixed reset point. Resultary 9e0fe93f6312 marks origins at threshold-reaching and eventual-capture excursions in a support-away-from-target setting."
+        ],
+        "reasoning": "Neither distinct record has the target-contact density powers, joint terminal position and time, or the ring-to-line TV comparison. Their dates are not used to infer coverage.",
+        "searches": [
+          "Resultary: Brownian resetting, marked successful excursion, Gamma boundary layers and exit-mark decoupling"
+        ]
+      },
+      "rationale": "The supported contribution is the joint high-rate law of terminal distance, terminal duration and side under target-contact density powers, with the quantitative ring-to-half-line TV bound for a pure power. Last-reset weighting, the renewal mean and the unmarked exponential clock are not credited as new. The strongest inspected position/time precursor concerns total arrival time and last reset position; its integrand can give a prelimit successful-excursion measure but does not supply the stated asymptotic or quantitative domain comparison.",
+      "residual_risks": [
+        "The targeted literature search did not yield a useful additional source; this is a bounded comparison, not an exhaustive priority certification.",
+        "General marked-renewal formulas may implicitly encode more of the prelimit law than the inspected sources explicitly discuss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precursor and position marginal coverage",
+          "evidence": "Eq. (26) is for total time, (27) is product tilt, (28)–(29) are its Brownian specialization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.14483",
+          "material_read": "v2 §V, p. 7, Eqs. (26)–(29)",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Abrupt transitions in the optimization of diffusion with distributed resetting",
+          "trigger": "Last-reset position and a potentially equivalent time mark"
+        },
+        {
+          "assessment": "Renewal/mean coverage, not the stated marked estimate",
+          "evidence": "General survival and mean formulas parameterized by the reset density.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08414",
+          "material_read": "v1 §II, pp. 3–4, Eqs. (1)–(5)",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Same ring and distributed resets"
+        },
+        {
+          "assessment": "Different geometry, fixed reset start, different marks",
+          "evidence": "Quadrant exit-side mark and centered Gaussian duration, no random terminal distance.",
+          "identifier_or_url": "Resultary 1734fe611d2c",
+          "material_read": "Mirrored RESULT.md statement and model",
+          "method": "Local mirror",
+          "title": "A logistic–Gaussian exit front with sharp corner screening under Poisson resetting",
+          "trigger": "Similar exit-side and time marking under fast resetting"
+        },
+        {
+          "assessment": "Distinct pair of marks and reset support hypotheses",
+          "evidence": "Two origin marks for threshold and capture, not the duration of capture.",
+          "identifier_or_url": "Resultary 9e0fe93f6312",
+          "material_read": "Mirrored RESULT.md statement and model",
+          "method": "Local mirror",
+          "title": "Exact marked-excursion decoupling and opposite endpoint selection in Brownian resetting",
+          "trigger": "Similar Gamma scaling and marked excursions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The limit identifies persistent dependence invisible to the two Gamma marginals or to the unmarked arrival clock. Its exponent-independent correlation and independent side are interpretable properties of successful trajectories. For the pure-power family, the explicit whole-law error controls replacing the ring by a half-line for events involving both marks simultaneously; that guarantee is not available from a mean or a marginal transform alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

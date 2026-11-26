@@ -4,7 +4,7 @@ No external packages. Its finite checks supplement, rather than replace,
 the symbolic proof in RESULT.md.
 """
 from fractions import Fraction
-from math import gcd, isqrt, lcm, log, sqrt
+from math import gcd, isqrt, lcm
 
 LIMIT = 100000
 SCALE = 10**12
@@ -150,11 +150,33 @@ def main():
             if e is not None:
                 rounded_ceiling_sum += (SCALE+2*p*e-1)//(2*p*e)
     assert rounded_ceiling_sum == 137404000609
-    # Conservative outward constant, all x>=100000:
-    # C = 1.25506*log(1+sqrt(2))/2 < 0.554,
-    # 1/log(100000)+1/(2 log(100000)^2) < 0.0905,
-    # so C*... < 0.0502.
-    assert 1.25506*log(1+sqrt(2))/2*(1/log(LIMIT)+1/(2*log(LIMIT)**2)) < 0.0502
+    # Rigorous outward rational bounds for the analytic tail at LIMIT.
+    def twice_atanh_partial(r, n):
+        return 2*sum(r**(2*j+1)/ (2*j+1) for j in range(n))
+    # Small-x certification of pi(x) < 1.25506*x/log(x); above 60184
+    # Dusart's bound (6.6) implies the inequality (log(x)>10).
+    def log_from_ratio_upper(r):
+        return twice_atanh_partial(r, 12) + 2*r**25/(25*(1-r*r))
+    log2_upper = log_from_ratio_upper(Fraction(1,3))
+    count = 0
+    for p in range(2, 60184):
+        if SPF[p] != p:
+            continue
+        count += 1
+        if p >= 17:
+            m = p.bit_length()-1
+            a = 1 << m
+            logp_upper = m*log2_upper + log_from_ratio_upper(Fraction(p-a,p+a))
+            assert count*logp_upper < Fraction('1.25506')*p
+    assert Fraction(100,89) < Fraction('1.25506')
+    r = Fraction(414214, 10**6)
+    assert (1+r)**2 > 2  # r exceeds sqrt(2)-1
+    assert log_from_ratio_upper(r) < Fraction(882,1000)
+    assert twice_atanh_partial(Fraction(9,11), 60) > Fraction(2302,1000)
+    assert LIMIT == 10**5
+    L = Fraction(1151,100)
+    tail = Fraction('1.25506')*Fraction('0.882')/2*(1/L+1/(2*L**2))
+    assert tail < Fraction(502,10000)
     assert 1-Fraction(rounded_ceiling_sum,SCALE)-Fraction(502,10000) > Fraction(812,1000)
     print('PASS:',gcd_checks,'matrix/valuation gcd comparisons;',rank_checks,'direct prime-rank comparisons')
     print('PASS:',prime_count,'odd primes up to',LIMIT,'; upward-rounded density sum',rounded_ceiling_sum,'/',SCALE)

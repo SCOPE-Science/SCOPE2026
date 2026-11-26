@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:47:52.423981Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Berger moments are 1,m,ms at orders 0,1,2 and all positive-order denominators are positive. I independently checked the upper certificate by tilting with (R−t)dμ/(R−m), which gives a probability measure of mean a=m(R−s)/(R−m). Write C=U_n and f(t)=t^(n+1)−Ct^n. The continuous quotient (f(R)−f(t))/(R−t) equals t^n+(R−C) times the geometric divided difference (R^n−t^n)/(R−t). Equivalently it is t^n+(R−C)Σ_(j=0)^(n−1) R^(n−1−j)t^j. This is strictly convex on [0,R] for n≥2, since C≤R and t^n alone is strictly convex. Jensen yields ∫f≤0 by comparison to the one-point tilted law at a, which is exactly the tilt of the claimed two-atom extremizer. Equality forces support in {a,R}, then the first moment fixes the masses. This also explains the sign in the frozen Hermite proof: the remainder quotient consists of the nonnegative complete homogeneous terms given there. The lower bound follows from log-convexity; equality at any n≥2 forces equality already at n=2 and hence constant positive support under the t-tilt. When s=m the variance is zero, and when s=R the expectation of t(R−t) is zero, giving the stated unique endpoint laws. For interior s, mixing the lower and upper measures varies the ratio continuously between distinct endpoints; every positive share of the upper law charges R, while lower equality forces norm squared s. Moment roots converge to the support supremum, as do the monotone ratios; small mixture shares approximate s uniformly on any fixed finite set of indices. Finally the odds π/(1−π)=mδ/(R−m)^2 and the factor (R/a)^t give the stated crossover by substitution, with O(δ log(1/δ)) centering error. Inspected the frozen verification and checker; did not execute the bundled code or treat its reported finite assertions as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary theorem works at arbitrary consecutive observation indices and has both a positive lower and an upper support bound. At index zero with positive lower support it therefore gives the exact upper comparison, uniqueness, and interpolation between endpoints.",
+          "Stampfli Theorem 6 and Curto et al. Theorem 1.2 address flatness propagation rather than this cap-constrained maximization. The earlier catalog theorem, not those propagation results, is the covering comparison."
+        ],
+        "reasoning": "For any law on [0,R], push it forward by t↦ε+(1−ε/R)t; its support is in [ε,R]. Its moments and candidate upper ratio converge to the frozen ones as ε decreases to zero, yielding the same bound. The earlier nonnegative-polynomial sign lemma already holds for t≥0 with positive interpolation nodes in the interior case, so it extends the equality certificate to zero as well. Degenerate moment laws follow directly.",
+        "searches": [
+          "b6e42f10def5, RESULT.md theorem, assumptions and polynomial sign lemma",
+          "arXiv:2604.05370, Theorem 1.2",
+          "Curto–Fialkow DOI 10.1007/BF01200218; primary literature on upper principal representations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b6e42f10def5",
+        "Stampfli (1966), Theorem 6",
+        "arXiv:2604.05370",
+        "DOI 10.1007/BF01200218 (abstract-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier two-atom formula and pointwise attainment imply the same sharp upper extremal sequence under the norm cap after the elementary extension to zero. Requiring exact norm deletes the lower endpoint by lower rigidity; positive mixing with the existing right-atom extremizer realizes all other values.",
+          "Although the earlier result does not print the near-flat profile, its upper law gives the exact term odds mδ/(R−m)^2 times (R/a)^t, whose balance yields both the logarithmic center and the limiting profile."
+        ],
+        "reasoning": "Neither the boundary adaptation nor taking the explicit asymptotic makes the earlier all-horizon envelope original. No independent nonroutine claim survives at the level needed for a repair of this finding.",
+        "searches": [
+          "b6e42f10def5, Finding and Proof §§1–5 compared with frozen Finding and Proof §§3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b6e42f10def5, RESULT.md Finding and Proof §§1–3: for first two tilted moments m,m²+v, the upper extremizer has c=m−v/(b−m), right atom b, and probability (m−c)/(b−c). Its displayed upper ratio U_h is the consecutive-moment ratio of this law.",
+          "The upper two-point law is the upper principal representation for moments 1,m,ms in the interior case; ordinary extremal-expectation facts alone do not license maximizing a quotient."
+        ],
+        "reasoning": "In the earlier theorem the tilt at observation index zero is the original Berger law. Then c=a and its probability is precisely π. The earlier proof explicitly treats the difference of the two moments with the candidate ratio as multiplier; this is the same optimization, not just a match of atom locations.",
+        "searches": [
+          "Resultary: subnormal weighted-shift sharp all-horizon continuation and bounded consecutive moment ratios",
+          "Upper principal representation / two-point Hausdorff moment extremizer at the right endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier distinct record gives the entire consecutive-quotient formula and pointwise attainable intervals, not just agreeing numerical cases."
+        ],
+        "reasoning": "This functional database match is stronger than a shared table. In the frozen interior regime, holding m,s,R fixed and decreasing the earlier lower support bound to zero sends its lower two-atom law to the claimed {0,s} law and leaves its upper law unchanged.",
+        "searches": [
+          "Resultary b6e42f10def5, Sharp all-horizon continuation intervals for subnormal weighted shifts"
+        ]
+      },
+      "rationale": "The central sharp simultaneous upper envelope, its two-point extremizer and its polynomial ratio comparison are covered by Resultary b6e42f10def5, an earlier distinct record. The earlier theorem assumes support bounded away from zero but allows any observation index. At its index zero set b=R and v=m(s−m): this gives exactly the frozen U_n and maximizing law. The nonnegative-support extension is obtained by an affine perturbation and continuity, with uniqueness from the same sign certificate. The known envelope also gives the crossover by balancing its two terms; exact-norm endpoint removal uses standard lower rigidity and mixing. This is demonstrated coverage of the main claim, not a failure caused by unavailable literature. The earlier record does not literally state the crossover or the open exact-norm interval.",
+      "residual_risks": [
+        "Older priority of the quotient-specific comparison within classical moment theory and of companion completion results was not determined. The relevant principal-representation publisher retrieval and the full Curto–Fialkow paper were unavailable, and Karlin–Studden was not inspected. These limits do not affect the demonstrated catalog overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material covering result; strict lower support is an elementary boundary distinction",
+          "evidence": "For arbitrary observation index, the two tilted moments give the upper law on {m−v/(b−m),b}, all h quotients U_h, equality uniqueness for h≥2 and attainable intervals. Its sign lemma controls t^(h+1)−λt^h, not isolated moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-all-horizon-continuation-intervals-for-subnormal-weighted--b6e42f10def5/RESULT.md",
+          "material_read": "Finding and assumptions, proof §§1–5, including the nonnegative polynomial quotient lemma",
+          "method": "Local Resultary mirror; decisive Finding and sign-lemma opening checked directly",
+          "title": "Sharp all-horizon continuation intervals for subnormal weighted shifts",
+          "trigger": "Exact same sharp simultaneous ratio optimization under a support bound"
+        },
+        {
+          "assessment": "Qualitative flatness, not the ratio bound",
+          "evidence": "Propagates adjacent-weight equality under its hypotheses; no sharp future upper ratios under an external norm cap in the inspected statement.",
+          "identifier_or_url": "Stampfli, Pacific J. Math. 17 (1966), 367–379",
+          "material_read": "Theorem 6, PDF printed page 12 (text offset about 23150)",
+          "method": "Open primary PDF text",
+          "title": "Which weighted shifts are subnormal?",
+          "trigger": "Earlier flatness propagation"
+        },
+        {
+          "assessment": "Berger and propagation background",
+          "evidence": "Treats propagation and subnormality; the inspected theorem is not a quantitative capped scalar ratio maximization.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.05370",
+          "material_read": "Abstract and Theorem 1.2, pp. 1–3",
+          "method": "Open primary text",
+          "title": "Propagation Phenomena for Operator-Valued Weighted Shifts",
+          "trigger": "Possible stronger propagation theorem"
+        },
+        {
+          "assessment": "Remaining older-priority risk, not basis of verdict",
+          "evidence": "Accessible description concerns minimal norm and minimal moments; it does not establish what other extremal problems are covered in the full paper.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01200218",
+          "material_read": "Abstract-level description; full text not retrieved",
+          "method": "Bounded lawful DOI lookup",
+          "title": "Recursively generated weighted shifts and the subnormal completion problem",
+          "trigger": "Potential older completion theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp simultaneous envelope is a useful structural object, but the earlier result already supplies that mathematical value. What this submission adds beyond it is a straightforward zero-endpoint limit and mixture corollary and the direct two-term asymptotic of the same explicit formula. Those are reasonable explanatory consequences, but do not supply a separate substantive mathematical contribution as a final finding; they do not justify a narrowed repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

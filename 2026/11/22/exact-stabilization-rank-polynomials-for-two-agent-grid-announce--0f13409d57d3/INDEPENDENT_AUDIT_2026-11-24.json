@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:17:23.140431Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the restricted rectangle, row existence of a 1 and column existence of a 0 reduce independently to shore restrictions. Each strict update peels sinks in the corresponding complete bipartite orientation. Rank counts strict world deletions, not an extra graph-only removal of isolated vertices after one shore is empty. A zero row and a one column cannot coexist, giving the fixed-point inclusion-exclusion count I. Removing exactly the specified one-columns (or zero-rows) leaves a labelled submatrix of the opposite avoidance class, with either a strictly smaller dimension or a terminal empty model. This proves the triangular recurrence and its used boundary entries. Alternating nonempty batches give the stated degree bounds; at saturation, all vertices partition into alternating ordered blocks with the last block on the surviving shore. In equal sizes every block is a singleton; in unequal sizes the smaller shore supplies k singletons while the larger shore supplies k+1 nonempty ordered blocks. Edges point toward earlier opposite-shore blocks, giving the bijection and Stirling counts. For two rows, with types A=00, B=01, C=10, D=11, the support sets by rank are {BC,ABC}; {A,D,BCD,ABCD}; {B,C,AD}; {AB,AC,BD,CD}; {ABD,ACD}. Weighting each by its surjection count gives the displayed spectrum, including n=1. An independent direct grid-world replay enumerated 92,314 valuations across 19 shapes, matched the row/column rank, extremal counts and terminal checkerboard criterion, and matched two-row spectra through n=7. Replay: python3 /workspace/branches/5ae753db-4218-4a5a-8177-4ed8d7da8997/independent_grid_check.py; see adjacent independent_grid_check.out. The proof, not the finite run or source verification status, supplies all dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada defines the least equal consecutive iteration and general stabilization bounds, not a count of valuations for this formula. Jung–Kim–Yoon Thm. 2.4 gives acyclic sink blocks. Cameron et al. Thms. 3.1 and 3.5 give the acyclic orientation census and lonesum correspondence.",
+          "Distinct sink-count studies 6f5632222324 and 71931ebc05c2 grade by first-round sink cardinality within acyclic orientations."
+        ],
+        "reasoning": "A dynamical bound or an enumerator restricted to acyclic orientations does not count cyclic orientations by their peel depth to a nonempty fixed core. The literature query was unavailable; this is not evidence of absence.",
+        "searches": [
+          "Resultary: maximal sink elimination bipartite tournament Stirling number extremal orientations",
+          "arXiv:1412.3685 Theorems 3.1, 3.5; arXiv:2012.08147 Theorem 2.4; arXiv:2611.11911 stabilization rank",
+          "Websearch: \"stabilization-rank polynomial\" public announcement Boolean grid sink elimination bipartite orientations lonesum matrices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84; verification evidence and checker inspected, not executed",
+        "arXiv:2012.08147, arXiv:1412.3685, arXiv:2611.11911",
+        "Distinct SCOPE records 79a9d2c42079, a6a7fa4aacb4, d0cea52ffc25, 6f5632222324, 71931ebc05c2, bcc49a6a89d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of Cameron Thm. 3.1 uniquely identifies acyclic orientations by alternating ordered part blocks. In an acyclic biclique, the epistemic rank is the number of blocks minus one. Maximal block counts give exactly the submitted extremal Stirling factors. Ferrers rigidity gives the same staircase matrices and counts 2(k!)² and m!n! on squares and adjacent rectangles, for a different generator property."
+        ],
+        "reasoning": "The acyclic extremal result is mechanically obtained from the prior block structure; the exact overlap is credited. Counting first-sink sets across both cyclic and acyclic matrices and using the opposite initial-avoidance class of each residual grid gives a rank recurrence not supplied by conditioning on acyclicity or substituting a parameter in the lonesum formula.",
+        "searches": [
+          "Resultary: public announcement Boolean Cartesian grid row column existential modalities rank polynomial",
+          "SCOPE-ferrers-rigidity-and-the-exact-one-generator-census-of-finite-tw--d0cea52ffc25, Finding; arXiv:2012.08147 Theorem 2.4; arXiv:1412.3685 Theorem 3.1 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct same-day SCOPE-two-step-stabilization-and-exact-basin-enumeration-for-disjuncti--79a9d2c42079 computes fibers and fixed points of an operator where either agent knows whether E, with T³=T². The earlier SCOPE-exact-disappearance-times-under-repeated-two-agent-announcements--a6a7fa4aacb4 treats neither agent knowing whether p on general finite S5 models.",
+          "Jung–Kim–Yoon's sink sequence translates the grid update exactly while both shores survive, but graph elimination may have a last isolated-vertex round after the epistemic model is already empty."
+        ],
+        "reasoning": "The other announcements are not this asymmetric row-positive/column-negative deletion. Sink sequences give an exact dynamics correspondence, not an all-labelled census; the bound record's search self-hit is not independent evidence.",
+        "searches": [
+          "Resultary: exact stabilization-rank polynomial two-agent Boolean grid public announcement",
+          "Resultary: public announcement Boolean Cartesian grid row column existential modalities rank polynomial",
+          "Jung–Kim–Yoon arXiv:2012.08147, sink elimination index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cameron et al.'s exact poly-Bernoulli formula sums acyclic orientations. The unbalanced sink-side study gives exact finite-size EGFs by shore and number of initial sinks in those acyclic orientations. SCOPE-five-base-acyclic-orientation-rank-polynomial-for-k-2-2-n--bcc49a6a89d7 grades acyclic orientations of K_(2,2,n) by edge disagreement."
+        ],
+        "reasoning": "None tabulates the full stabilization-rank sequence on Boolean Cartesian grids under the specified operator. For instance the acyclic total for K_(2,2) is 14, while F_(2,2)(1)=16 with rank coefficients (2,2,4,8,0). The similarly named rank polynomial on a tripartite graph is a different grading.",
+        "searches": [
+          "Resultary: two-row stabilization rank spectrum Q_j(n) lonesum acyclic orientation enumeration",
+          "Cameron et al., Theorem 3.1; SCOPE-two-parameter-sink-side-law-for-unbalanced-random-bipartite-acyc--6f5632222324, Finding"
+        ]
+      },
+      "rationale": "The full labelled rank polynomial here grades every orientation by rounds of state deletion, including orientations with a nonempty cyclic terminal model. The strongest prior graph results already supply the acyclic sink-block bijection and make the degree and maximizer formula a direct block-count consequence in that sector; the Ferrers generator study also identifies the same extremal staircase patterns on squares and adjacent rectangles. I do not credit those consequences or the sink-sequence correspondence in isolation as new. The frozen record's explicitly primary claim is the full-grid recurrence and rank census for this operator; the inspected operator analogues, acyclic enumerations and first-sink generating functions do not cover that claim.",
+      "residual_risks": [
+        "The level-by-level distribution for cyclic bicliques might be indexed under different vocabulary elsewhere; the direct literature and ranked corpus coverage are bounded.",
+        "The unavailable broad lookup was not used to support novelty. Priority is not asserted for the acyclic sector or the maximum formula derivable from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior acyclic sink sequence structure; no full orientation depth census in the compared result",
+          "evidence": [
+            "Theorem 2.4 characterizes ordered acyclic sink blocks on one shore each, with arcs pointing from later to earlier and complete adjacency to the previous block."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.08147",
+          "material_read": "Sink sequence and index definitions p. 2 (offset 6550); Theorem 2.4 and beginning of proof p. 5 (offset 14120)",
+          "method": "OA primary PDF statement and proof passages",
+          "title": "On competition indices and periods of multipartite tournaments",
+          "trigger": "Same bipartite sink-round dynamics under a different application"
+        },
+        {
+          "assessment": "Extremal count accessible from known block decomposition; not all orientations graded by sink rounds",
+          "evidence": [
+            "Unique alternating intervals of equivalent vertices; total sum of ((j−1)!)² S(m+1,j)S(n+1,j); lonesum equivalence via forbidden directed 4-cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3685",
+          "material_read": "Thm. 3.1 and proof pp. 5–6 (offset 10850); Thm. 3.5 p. 7 (offset 14700)",
+          "method": "OA primary PDF",
+          "title": "Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "Exact biclique acyclic count and similar alternating blocks"
+        },
+        {
+          "assessment": "General rank notion and bounds, not this specialized census in the inspected material",
+          "evidence": [
+            "Rank is the least equal consecutive iteration of the update operator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.11911v1",
+          "material_read": "Rank definition and discussion near HTML offset 6250, Theorem 24 context",
+          "method": "OA primary HTML passage",
+          "title": "Properties of Public Announcements as Operators",
+          "trigger": "Cited general announcement rank framework"
+        },
+        {
+          "assessment": "Different operator and statistic",
+          "evidence": [
+            "Either agent knowing whether E; T³=T², fixed points and fibers."
+          ],
+          "identifier_or_url": "SCOPE-two-step-stabilization-and-exact-basin-enumeration-for-disjuncti--79a9d2c42079",
+          "material_read": "Finding offset 0 and proof offset 1500",
+          "method": "Resultary local mirror",
+          "title": "Two-step stabilization and exact basin enumeration for disjunctive announcements",
+          "trigger": "Distinct same-day exact grid announcement enumerator"
+        },
+        {
+          "assessment": "Different operator and frame family",
+          "evidence": [
+            "Neither agent knowing whether p, analyzed via directed walks in finite S5 frames."
+          ],
+          "identifier_or_url": "SCOPE-exact-disappearance-times-under-repeated-two-agent-announcements--a6a7fa4aacb4",
+          "material_read": "Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact disappearance times under repeated two-agent announcements",
+          "trigger": "Earlier two-agent iteration with exact times"
+        },
+        {
+          "assessment": "Material partial extremizer overlap, not a rank-class enumeration",
+          "evidence": [
+            "Square and adjacent-rectangle generator classes agree with extremal singleton blocks; wider imbalance admits no generators there but still gives positive rank maxima here."
+          ],
+          "identifier_or_url": "SCOPE-ferrers-rigidity-and-the-exact-one-generator-census-of-finite-tw--d0cea52ffc25",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Ferrers rigidity and the exact one-generator census of finite two-agent grids",
+          "trigger": "Same labelled staircase classes and counts at extremal dimensions"
+        },
+        {
+          "assessment": "Initial sink size and side, not number of rounds; only acyclic orientations",
+          "evidence": [
+            "Egf variable z marks initial sink count; coefficient sums recover poly-Bernoulli totals."
+          ],
+          "identifier_or_url": "SCOPE-two-parameter-sink-side-law-for-unbalanced-random-bipartite-acyc--6f5632222324",
+          "material_read": "Finding and Assumptions offsets 0–2784",
+          "method": "Resultary local mirror",
+          "title": "Two-parameter sink-side law for unbalanced random bipartite acyclic orientations",
+          "trigger": "Distinct same-day exact sink enumerator on labelled bicliques"
+        },
+        {
+          "assessment": "Different conditional distribution and statistic",
+          "evidence": [
+            "Uniform acyclic orientations, variable number of sinks, limit PGF 2^z−1."
+          ],
+          "identifier_or_url": "SCOPE-zero-truncated-poisson-sink-law-for-uniform-acyclic-orientations--71931ebc05c2",
+          "material_read": "Finding and Assumptions offsets 0–1888",
+          "method": "Resultary local mirror",
+          "title": "Zero-truncated Poisson sink law for uniform acyclic orientations of balanced bicliques",
+          "trigger": "Earlier biclique sink law"
+        },
+        {
+          "assessment": "Different graph, different grading",
+          "evidence": [
+            "The exponent is edge disagreement on K_(2,2,n), not stage of model stabilization."
+          ],
+          "identifier_or_url": "SCOPE-five-base-acyclic-orientation-rank-polynomial-for-k-2-2-n--bcc49a6a89d7",
+          "material_read": "Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Five-base acyclic orientation rank polynomial for K_(2,2,n)",
+          "trigger": "Close alternative exact polynomial title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single existential announcement is a natural interacting deletion rule for a Cartesian information model. Its exact rank distribution counts valuations reaching stable nonempty cores as well as valuations peeling to emptiness; the rank-zero and two-row spectra provide concrete calibrations. This fills a different finite-counting gap from the acyclic orientation total or a generic bound on announcements, even though those known methods explain the extremal sector.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

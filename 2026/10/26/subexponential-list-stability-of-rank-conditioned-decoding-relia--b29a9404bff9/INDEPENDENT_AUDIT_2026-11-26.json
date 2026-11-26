@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:09:11.752606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the corrected package, not for an unrestricted reading of the frozen endpoint. RESULT.md:7–26,47–51 of the original invokes fixed-list regularity but only writes y_L<1 as the rank restriction, and applies an unstated moving strict-tail limit. The reference's Lemma 5 and Proposition 2 actually require y_L<H_0, the guesswork support endpoint, which can be below 1. For uniform noise on a subspace of size K_n=2^{floor(hn)}, 0<h<1, the rate is I(x)=h−x on [0,h], infinite elsewhere. Take L_n=n eventually, with early ranks 1,2 and last rank K_n, all ranks within the support. Then I(h)=0 and y_L=h<1, but the strict tail is zero, so S_n=1/n. For R>1−h the original displayed Delta evaluated with the closed-set rate is 1−R−h<0, falsely predicting exponential decay under these weaker hypotheses. This does not refute the intended claim if one imports the reference's interior restriction. The corrected RESULT.md, SLOGAN.txt and claim in METADATA.json make the limits on the actual rank sequences explicit and no longer claim that y_L<1 supplies the tail limit. Independently, for a fixed received word each admissible completion of a given tuple has common codebook and transmitted-word factors; a listed putative transmitted rank is in every completion, while a given allowed unlisted one is in the fraction (M_n−L_n)/(2^n−q_L) of completions. Weighting by its noise probability gives the exact posterior, with feasibility eventual because R<1 and y_L<1. The sum of later listed likelihoods lies between p_{q_2} and (L_n−1)p_{q_2}, preserving its point exponent. The uniform inclusion factor has rate 1−R. Taking the minimum of the later-list and unseen-tail rates, then dividing by p_{q_1}, gives rate Delta for the posterior odds against the first entry. The odds going to zero or infinity yields exactly the two claimed limits and exponents. The source interior hypothesis is verified for moving ranks by its point-mass window and squeezing the fixed strict tails on either side of y_L, with the trivial upper probability bound one when y_L=0. There is no claim at Delta=0, no stronger inference from an LDP alone, and no assertion that a change of list length leaves the observed endpoint exponents unchanged. The frozen verification is analytic; there is no executable certificate needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 1 already includes the exact finite formula for the varying sizes when the tuple is admissible. Proposition 2 explicitly analyzes fixed L and distinct y_i∈[0,H_0). Merhav treats average list-error exponents with fixed or exponential list sizes; Tavakoli treats subexponential lengths in random binary linear coset guesswork."
+        ],
+        "reasoning": "The finite identity is relevant broad prior coverage but not by itself an asymptotic uniform estimate; the bulk likelihood as the number of terms grows is the extra issue. A result allowing larger lists for a different event (transmitted word missing from the list) does not imply a point-conditioned reliability decision for its first entry.",
+        "searches": [
+          "arXiv:2610.02458v1 exact finite Proposition 1 and asymptotic Proposition 2",
+          "arXiv:1311.7298v1 fixed and exponential list random-coding error exponents",
+          "arXiv:2607.00205v2 Theorem 8 list guesswork"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02458v1",
+        "arXiv:2607.00205v2",
+        "arXiv:1311.7298v1",
+        "Resultary 71cabed30d84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's point window controls moving points and the strict-tail lemma at interior fixed exponents supplies moving tails by a squeeze. Its fixed-L Proposition 2 cannot take L=L_n. The additional bound p_{q_2}≤A_n≤(L_n−1)p_{q_2} then shows why the aggregate rate is stable under log L_n=o(n), even with arbitrary separation or ties between limiting exponents."
+        ],
+        "reasoning": "The fixed-size asymptotic assertion alone cannot be specialized to n-varying dimension. The added comparison is simple but a uniform extension of a conditional regime, not merely an evaluation of a known fixed-L theorem. The strict-tail endpoint restriction is substantive and cannot be removed by interpreting the LDP as pointwise equality on closed sets.",
+        "searches": [
+          "arXiv:2610.02458v1 Lemmas 2 and 5, Propositions 1 and 2, Eqs. (31)–(36)",
+          "arXiv:2607.00205v2 Definition 2, Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Struss–Médard–Duffy give the same posterior and off-critical sign formula at fixed L. The exact odds against the first candidate used here are simply a re-expression of their finite identity.",
+          "Tavakoli's list objective is a moment of ceil(G_coset/L_n); the earlier Resultary 71cabed30d84 concerns syndrome-guesswork moments."
+        ],
+        "reasoning": "Changing posterior to odds is not originality. The scope difference is growing list length and moving tuple exponents, not a renaming of existing list-guesswork rates: neither moments of a rank nor average exclusion of the transmitted word conditions on all the observed ranks.",
+        "searches": [
+          "rank-conditioned posterior correctness, subexponential list size, GRAND soft-output list reliability",
+          "Resultary: rank-conditioned list posterior, constrained and list guesswork",
+          "arXiv:2610.02458v1 Propositions 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact expressions are the prior finite posterior, the fixed-threshold point and tail exponents, and the fixed-list decision formula. The retrieved catalogue comparison has exact all-rate moment exponents for a syndrome random variable, not this posterior."
+        ],
+        "reasoning": "An empirical table cannot establish a uniform assertion over all subexponential sequences. The closest symbolic exact statements were compared directly rather than treating the lack of a table as evidence of novelty.",
+        "searches": [
+          "Resultary: random codebook ranked posterior and syndrome guesswork phase transition, 71cabed30d84",
+          "arXiv:2610.02458v1 Lemma 5 and Propositions 1–2"
+        ]
+      },
+      "rationale": "The repaired claim is the subexponential-list asymptotic statement, not the exact finite posterior or the fixed-list boundary. The source gives the exact finite posterior for admissible L, but its asymptotic Proposition 2 only treats fixed L and fixed distinct rank exponents. The joint n-dependent aggregate bound is needed to pass from that identity to the growing-list result, and the correction states the moving-limit regularity explicitly. Compared list-guesswork and list-error exponents are about other quantities, not this rank-conditioned posterior. Originality is bounded to this precise extension.",
+      "residual_risks": [
+        "No absolute priority is asserted. An unlocated rank-conditioned moving-list theorem could cover the extension; bounded comparisons did not find one.",
+        "The permissive bound y_L<1 is combinatorial and not a guarantee of the noise-tail rate. Endpoint applications require a separate justification of the hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact posterior and fixed-list asymptotics; provides interior moving-rate ingredients but does not state the growing-list conclusion",
+          "evidence": "Admissibility q_L≤2^n−2^k+L. Proposition 2 fixes q_i=2^{floor(ny_i)} at distinct y_i∈[0,H_0); equations (31)–(32) assert point and strict-tail rates below H_0, not at it.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02458v1",
+          "material_read": "Intro p. 3; Proposition 1 pp. 5–6, Eqs. (12)–(15); Lemma 2 point window and Lemma 3 continuity; Lemma 5 and Proposition 2 pp. 9–10, especially OA offsets 75100–79478",
+          "method": "Bounded OA PDF passages and exact restriction checked in the result",
+          "title": "Conditional Correctness in List Decoding: How a Late Second Codeword Can Rescue Confidence in the First",
+          "trigger": "Exact primary source of the finite formula, fixed-list boundary and decisive support restriction"
+        },
+        {
+          "assessment": "Related moment result, not conditional posterior",
+          "evidence": "List guesswork is ceil(G_coset/L_n) in the random binary linear/coset model with Bernoulli noise, and subexponential L_n preserves its moment exponent.",
+          "identifier_or_url": "arXiv:2607.00205v2",
+          "material_read": "Definition 2 p. 2, condition (13) and Theorem 5 pp. 6–7, Theorem 8 p. 9",
+          "method": "Bounded OA paper comparison",
+          "title": "Guesswork Under Linear Constraints: Exact Exponent for Coset Decoding",
+          "trigger": "Subexponential lists and coding exponents"
+        },
+        {
+          "assessment": "Broader size regimes for a different error event",
+          "evidence": "Average probability that the transmitted message is missing from the list, for fixed and exponential sizes.",
+          "identifier_or_url": "arXiv:1311.7298v1",
+          "material_read": "p. 1, model and scope of exponents",
+          "method": "Bounded OA primary source comparison",
+          "title": "List Decoding – Random Coding Exponents and Expurgated Exponents",
+          "trigger": "Potential stronger coverage of growing list sizes"
+        },
+        {
+          "assessment": "Earlier coverage of a different exponent",
+          "evidence": "Constant-factor moment comparison for ranks within random syndrome classes and an all-rate Rényi guesswork-moment exponent, not a posterior given the top-list tuple.",
+          "identifier_or_url": "Resultary 2026-09-20, 71cabed30d84",
+          "material_read": "Mirrored RESULT.md finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue lookup and statement comparison",
+          "title": "Random linear syndrome guesswork phase transition",
+          "trigger": "Closest distinct topical catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The list-size issue is natural for decoders outputting polynomial or other growing lists. The result identifies which observations still determine strict-sign exponential reliability and shows that the aggregate of many later candidates introduces no further rate on that scale under explicit noise regularity. It is a narrow extension of known posterior theory, not a new decoding model or a resolution of the critical surface. The repaired endpoint distinction prevents a concrete incorrect reliability-exponent prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,24 +1,21 @@
-# Scientific review: weight-dependent Rota–Baxter loci on a split Leibniz family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The left Leibniz bracket reduces the full weight-\(\lambda\) identity to the tensor equation (1) of RESULT.md. The proof treats both possibilities for \(R(u)\): independent of the derived line or lying in it. In the first case vanishing of a pure tensor and linear independence force the two functional alternatives. In the second, substitution on \(y=u\) forces the scalar to be either zero or minus the weight. These cases exactly exhaust the stated three or six linear/affine families. Direct substitution proves sufficiency. Geometric intersections follow from linear constraints over the algebraic closure. The Gaussian-binomial rank count is inclusion-exclusion over these components, with the fixed-pivot Schur-block ranks explicitly accounted for. Original weighted identities and the rank formulas agree for all 17 exhaustive prime-field test configurations specified in VERIFICATION.md. This is a proof-based review; small-field tests only corroborate it.
+PASS
 
-## Originality — PASS relative to investigated literature
+For a=fR, b=gR and z=R(u), the tensor equality in the proof is equivalent to the original bilinear identity. If z is not in ku, the u and z coefficients vanish separately, forcing a=0,b=−λg or b=0,a=−λf. If z=cu, evaluation at y=u gives c(c+λ)=0. With z=0 the tensor a⊗b vanishes; with z=−λu at nonzero weight it is (a+λf)⊗(b+λg) that vanishes. Substitution proves sufficiency without any division by 2. The fixed row and column constraints give the stated dimensions, and for n≥3 no component is contained in another (in particular z can have a nonzero W part in F3 and F4). The only pairwise edges are 12, 24, 56, 36, so each connected triple is open and closed by the distinct value of g(z). For ranks, F1/F2 have an unrestricted m×m block; F3/F4 have one pivot and an h×m residual with h unused entries; F5 has two pivots, an h×h residual and 2n−3 unused entries; F6 has one pivot and an m×m residual. The four intersections remove exactly the blocks counted in the subtraction terms. Inclusion–exclusion works even when n=2 pieces are not maximal. Evaluation at full rank and summation give the invertible count and doubling; only nonzero-weight maps can be invertible. Independent replay: python3 /workspace/branches/independent_replay.py 3, using the actual bracket and image cardinalities rather than elimination; exhaustive in the listed F₂, F₃ and added F₄ small cases, e.g. n=2 over F₄ gives (1,6,0) at weight zero and (1,7,6) at every nonzero weight.
 
-The 2018 classification of Zhang, Li and Zheng **already covers all dimension-two and dimension-three instances** at the usual weights. Those instances are not new. Di Bartolo, La Rosa and Mancini establish the higher-dimensional split family and analyze derivations, automorphisms and biderivations rather than weighted Rota–Baxter maps. Mondal and Saha establish deformation/cohomology machinery for Leibniz Rota–Baxter operators. A published finite-field census on the identical algebra treats algebra endomorphisms and idempotent retractions, which do not satisfy the same identity in general. Another published subalgebra census on this algebra does not directly classify graph subalgebras in a doubled algebra. The mathematical difference, not a title comparison, is the full all-dimensional all-weight operator locus, rank count and six-versus-three geometric components. Indexed searches for equivalent formulations and parameter cases found no theorem supplying the complete statement. Priority remains provisional because indexing and historical full-text coverage are not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the nonnilpotent non-Lie one-dimensional-derived Leibniz family singled out by a structural classification in odd characteristic. The result determines every weighted operator in all dimensions, every finite-field matrix-rank fiber, and the transition from zero invertible maps at weight zero to a positive, explicit invertible count at every nonzero weight. The exact factor-two point-count law masks a genuine change from a connected triple intersection to six components in two disconnected triples. These are structural invariants, not a choice of arbitrary small numerical parameters, and provide a completed operator census for an unbounded canonical algebra family.
+The supported contribution is the all-dimensional weighted operator and rank census, including reduced component incidence and the finite-field total and invertible counts. The split algebra and the small-dimensional classification credited in the record are not claimed as new; an earlier exact rank census on the same algebra concerns different operator equations. No verified source was found that already yields the weighted census.
 
-## Closest literature, scope and risks
+## value
 
-- A. Di Bartolo, G. La Rosa and M. Mancini, arXiv:2307.09102, initial public posting July 18, 2023: identifies the split nonnilpotent family, but does not supply this operator census.
-- L. Zhang, L. Li and H. Zheng, DOI 10.1155/2018/8540674: Rota–Baxter identities and the already-covered low-dimensional subcases. Formula display in some online table cells is incomplete; the article's coverage to dimension three is explicit and fully acknowledged.
-- B. Mondal and R. Saha, arXiv:2208.00560: general Leibniz Rota–Baxter theory and deformation framework, not an identified finite-field census for this family.
-- *Endomorphism and retraction rank spectra of a split non-nilpotent Leibniz family*, public research result published November 2, 2026: same objects, different operator identity; full RESULT.md inspected.
+PASS
 
-Residual risk: an uninspected, more general classification of Rota–Baxter maps on split extensions could implicitly imply the new all-dimensional rank and component formulas. The claim concerns the **reduced** solution variety only, and the finite tests do not cover every finite extension field. The original tensor argument and finite-field matrix-count identities supply the arbitrary-field proof independently of those tests.
+This is a natural split family from the structural theory of Leibniz algebras with one-dimensional derived ideal. A single calculation gives complete reduced incidence and labeled rank spectra in all dimensions, explaining why the nonzero fiber has two connected components and twice the rational points, and exactly when invertible maps occur. The ranks and component changes give reusable information about the parameter space beyond an existence construction or low-dimensional table.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

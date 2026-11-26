@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The finite diagnostic `checker.py` uses only the Python 3 standard library. Run from the artifact directory as `python3 checker.py`. It independently evaluates the relation \(S\,R\,T\) as nonzero bit-mask intersection and forms modal truth sets by successor existence. It checks the tail recurrence, the complementary-parity source support, each singleton-world definition, every coordinate detector, and every world-isolating Boolean formula for orders \(1\) through \(11\), comprising \(4083\) explicit world-isolate tests across those orders.
+## correctness
 
-A logically separate partition-refinement implementation computes modal observational color signatures using the initial parity proposition and sets of successor colors. It confirms that the eventual partition is discrete for orders \(1\) through \(8\). Both checks previously completed with `ALL_CHECKS_OK`.
+PASS
 
-Finite model checking is not an all-order certificate. Universal correctness is based on the symbolic identity and induction in `RESULT.md`. The exact sharpness of the rank follows from the fact that the zero-generated subalgebra contains only the two constants.
+For any set X of worlds, the Diamond-image tests intersection with the union of the atom supports of X. In the definable tail [k,n], the minimum-parity color opposite to k never uses atom k and contains the entire world [k+1,n]. Its Diamond-image, negated and intersected with the tail, therefore isolates precisely the world {k}; applying Diamond again gives membership of atom k in any world. Excluding that coordinate produces the next tail. At k=n the tail already isolates its only world. The coordinate tests exhaustively distinguish worlds, and finite unions give all propositions. Both constants are fixed by Diamond, so no zero-generator modal algebra is full when n≥2; at n=1 the constants suffice. The pure Boolean lower bound is 2^r≥2^n−1 and the n coordinate generators attain it. The argument is for Boolean complement on sets of worlds and unrestricted valuations. Finite bit-mask and partition-refinement evidence was inspected, not rerun; the induction supplies all orders.
 
-The checked model is the full unrestricted propositional complex algebra. No claim is made that its parity-of-minimum initial valuation is induced by an atomic set-theoretic sentence under principal-downset translation semantics. An independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the explicit single parity-minimum generator and resulting sharp modal rank of this full overlap-frame algebra. Same-frame one-step and pure modal-composition results, restricted forcing validity, and general finite modal distinguishability were compared with the claimed Boolean-modal closure.
+
+## value
+
+PASS
+
+A natural finite compatibility family has exponentially many worlds and pure Boolean rank n, yet a single uniform definable color pattern suffices with the modality. The proof gives exact rank and actual world-isolating formulas, not just an upper bound or a small-frame coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

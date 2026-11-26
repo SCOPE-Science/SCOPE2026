@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive two-disk seed gives the exact normalization \(57\pi/4\); each disk overlap is nonincreasing in displacement, while the autocorrelation Fourier density is positive around zero and hence strictly positive definite. Abel-regularized Fourier–Bessel inversion and four exact Legendre trigonometric identities reduce the first spherical coefficients to the integrals \(A_1,\dots,A_4\). The 28-term rational series and analytically proved factorial tail bounds give a strictly negative degree-three coefficient and positive degrees zero through two. The certificate is an independently executable calculation, not a substitute for the analytic implication.
+PASS
 
-## Originality — PASS relative to checked records
+The disk at the origin has amplitude 5 and the annulus amplitude 2, giving 57π/4. Horizontal slices reduce each translated disk intersection to the overlap length of two intervals of fixed half-widths, a nonincreasing function of separation. The large-disk self term gives positivity for r<3 and zero for r≥3. L² translation continuity gives continuity; the Fourier quadratic form is strict because |ĝ|² is positive on a neighborhood of zero and an exponential sum of distinct frequencies cannot vanish there (restrict to a generic line and use Vandermonde). The Abel identity can also be proved without a singular limit: the J₀ series gives ∫₀ᵃ ρJ₀(ρr)/√(a²−ρ²)dρ = sin(ar)/r; pairing this integrable radial frequency window with the compactly supported F gives 2πaAₐ by Fourier inversion and Fubini. Independently checked the trigonometric Legendre formulas and all four normalization factors. For the tail, bₖ ≤ (21/8)(9/16)^k/(k!)², so convolution uses Σ binom(m,k)²=binom(2m,m)≤4^m; hₘ≤1, and the successive majorant ratio for m≥28 is ≤(9a²/4)/29². Reviewer-written exact rational replay `python /workspace/review_checks/2.py` confirms the lower-degree signs, 9A₃−A₁>1, and 5A₄−A₂<−1/200, with central value −0.005618338733205308 and certified radius less than 1.5×10⁻¹⁴. Multiplication by 2/57 gives the claimed bound; the Schoenberg obstruction follows. No properties of the coefficients above degree three were inferred. Frozen code inspected, not executed.
 
-Ge's August 2026 paper proves unrestricted failure using a signed three-disk seed and a negative degree-two coefficient, but its Section 5 explicitly identifies shape-restricted questions as separate. Huang–Zhang's August 2026 exact-support argument uses filtered compactly supported functions and does not establish an everywhere nonnegative radially decreasing autocorrelation. Gneiting's 2013 transfer analysis and standard Pólya-type sufficient hypotheses do not imply positive spherical transfer from mere pointwise nonnegativity and radial monotonicity. Semantically searched prior mathematical records included general sphere transfer, monotone two-disk autocorrelation, and Legendre degree-three aliases. No stronger implication covering this specific shape-restricted example was found.
+## originality
 
-## Value — PASS
+PASS
 
-Pointwise nonnegativity and radial nonincrease are natural covariance constraints, not arbitrary numerical restrictions. Their failure to preserve geodesic positive definiteness identifies a geometrically interpretable boundary of a recent transfer problem; the first negative harmonic occurring at degree three despite three positive lower degrees makes the obstruction difficult to detect from low-order tests. The two positive disks are a short explicit seed with an exact reproducible sign certificate.
+Best-of-knowledge pass for the explicit compactly supported, nonnegative nonincreasing planar profile and its first negative spherical harmonic. The general even-dimensional counterexample, the Abel window, Schoenberg's test and autocorrelation positivity are not the contribution. The mathematical comparison is based on directly inspected primary and published texts, not on negative search evidence.
 
-## Risks and limitations
+## value
 
-The transfer problem without shape restrictions was already settled; no general transfer statement or infinite family is asserted here. An earlier equivalent in Euclid-hat mixture or radial covariance construction literature could affect priority. The exact sign certificate is finite rational arithmetic controlling an infinite series by a proved tail bound. No independent review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nonnegativity and radial nonincrease are natural covariance constraints, and dip detection through degree two would miss the obstruction. The two positive disks supply a reproducible shape-restricted counterexample, not another example solely of unrestricted even-dimensional failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:11:47.794724Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59",
+        "Frozen VERIFICATION.md",
+        "Frozen verify_pav.py read without executing"
+      ],
+      "rationale": "For any strict disagreement label the unique first greedy choice A. Since the marginal comparison is exactly the comparison of the two complete pair scores containing A, the unique global optimum has to be BC. Let a,z,w count ballots A, BC, ABC, let d_B,d_C be the positive approval deficits relative to A, and write 2(P(BC)−P(AB))=1+u, 2(P(BC)−P(AC))=1+v. Pair scores are sums of approval totals minus half their shared approvals. Solving these integer equations gives AB=z+2d_C+1+u, AC=z+2d_B+1+v, B=a+d_B+1+v and C=a+d_C+1+u. Hence n=10+3(a+z+d_B−1+d_C−1)+2(u+v)+w. The remaining marginal difference is (v−u)/2, so strictness costs at least two voters. Equality forces u+v=1 and all other excess terms zero. The two assignments of u,v are exchanged by B↔C and represent distinct count vectors; the three choices of A give six profiles. The given profile's pair scores are (11,23/2,12), and the two second-round marginals are (4,9/2). Adding all-approval ballots preserves all score differences. Thus the argument covers all n, not only the enumeration range.",
+      "residual_risks": [
+        "The supplemental enumeration is only through 12 voters. Its output is recorded evidence; the audit rests on the unrestricted integer proof.",
+        "The count is for anonymous profiles with fixed labels, not ordered voter lists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 2.5 gives a 23-voter, four-candidate strict divergence (global ac at 19; greedy dc at 18.5).",
+          "The axioms for sequential valuation rules and general tie-counting results do not provide an electorate minimum for the specified rule comparison."
+        ],
+        "reasoning": "A strict witness with more candidates or a general analysis of either rule does not classify the three-candidate minimum or the profiles attaining it.",
+        "searches": [
+          "Lackner–Skowron Chapter 2 Example 2.5",
+          "arXiv:2302.11890v1 sequential valuation rules",
+          "arXiv:2305.01769v1 PAV and GreedyPAV ties"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.01795",
+        "Resultary 671629f408c9",
+        "arXiv:2305.01769v1",
+        "arXiv:2302.11890v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding a universal ballot to the earlier 10-voter example gives 11 voters but leaves the second-round tie unchanged. The later nonnesting theorem allows empty ballots and has no second-round strictness condition."
+        ],
+        "reasoning": "Neither the relaxed threshold nor the published larger example forces 12 or the orbit classification. The missing inequality u≠v is exactly what raises the sharp bound.",
+        "searches": [
+          "Lackner–Skowron Proposition A.2 and Example 2.5",
+          "Resultary 671629f408c9 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ten-voter profile in Proposition A.2 has uniquely best singleton c and pair ab, but the marginal scores of a and b after c are both 7/2.",
+          "Resultary 671629f408c9 classifies three-candidate PAV nonnesting when the singleton and pair are unique."
+        ],
+        "reasoning": "Nonnesting with unique global outcomes guarantees disagreement with every greedy tie-breaking outcome, but does not guarantee a unique second choice. It is the relaxed problem, not an equivalent formulation of strict separation.",
+        "searches": [
+          "Resultary: PAV versus greedy PAV, tie-free separation, three candidates and two seats",
+          "Lackner–Skowron Appendix A Proposition A.2; PAV house nonnesting or failure of committee monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The book says appendix counterexamples are implemented and verified in abcvoting, but the passage does not present an exhaustive profile table. The tie paper's Table 1 summarizes computational complexity, not an exact electorate census.",
+          "The catalogue classification gives three fixed-label minima for the relaxed 10-voter problem, not six strict cases for 12."
+        ],
+        "reasoning": "A counterexample library and a complexity table serve different purposes from an exact list of all boundary profiles; neither list inspected supplies that list.",
+        "searches": [
+          "Lackner–Skowron Appendix A and abcvoting counterexample reference",
+          "Janeczko–Faliszewski Table 1",
+          "Resultary 671629f408c9 minimum-size classification"
+        ]
+      },
+      "rationale": "The best-supported distinct claim is the exact tie-free threshold and equality classification for three candidates, not the existence of PAV/seq-PAV differences or the 10-voter committee-monotonicity example. No inspected antecedent covers both unique greedy rounds and the sharp classification in this size regime.",
+      "residual_risks": [
+        "A focused follow-up web query was unavailable; unindexed small-profile enumerations or a more general theorem elsewhere remain possible.",
+        "Catalogue timing is not an independent priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior nonstrict example with three candidates and prior strict example with four",
+          "evidence": "Two singleton ballot types with multiplicity 2 and two c-containing pair types with multiplicity 3 give 10 voters and tie the second round; the strict 23-voter example has four candidates.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.01795",
+          "material_read": "Example 2.5 p. 24, committee-monotonicity discussion p. 45, Appendix A Proposition A.2 pp. 125–126",
+          "method": "Primary OA PDF passages",
+          "title": "Multi-Winner Voting with Approval Preferences",
+          "trigger": "Likeliest prior examples and appendix classification"
+        },
+        {
+          "assessment": "Later-dated and a strictly relaxed comparison",
+          "evidence": "Unique one-seat winner is excluded from the unique two-seat winner; ten voters, three labeled profiles, one orbit, with empty ballots allowed.",
+          "identifier_or_url": "671629f408c9",
+          "material_read": "Finding and assumptions in mirrored RESULT.md",
+          "method": "Bounded local mirror reading",
+          "title": "Ten voters are necessary and sufficient for tie-independent PAV house nonnesting",
+          "trigger": "Closest catalogue minimum and exact boundary census"
+        },
+        {
+          "assessment": "Related but no exact comparison threshold in inspected material",
+          "evidence": "Table 1 summarizes the complexity of tie-related tasks rather than exact smallest separating profiles.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.01769v1",
+          "material_read": "Abstract and introduction pp. 1–2 and Table 1",
+          "method": "Primary OA PDF passages",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Tie-detection and enumeration terminology"
+        },
+        {
+          "assessment": "Axiomatic rule description, not this minimum",
+          "evidence": "The inspected statements define seqPAV and characterize sequential valuation rules rather than counting strict disagreements.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.11890v1",
+          "material_read": "Rule definition and characterization passages pp. 5 and 8",
+          "method": "Primary OA PDF passages",
+          "title": "Characterizations of Sequential Valuation Rules",
+          "trigger": "Alternate naming and characterization of sequential PAV"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Lackner–Skowron Proposition A.2 and Example 2.5"
+      ],
+      "rationale": "The smallest candidate/seat setting in which a greedy pair can disagree with the global pair yields a sharp minimal electorate under a substantive uniqueness constraint. The orbit classification supplies a canonical test profile and isolates the two-voter cost of removing the known second-round tie. This is a usable boundary, not merely another disagreement example.",
+      "residual_risks": [
+        "No minimum or profile classification is asserted with more candidates, more seats or different Thiele weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

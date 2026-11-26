@@ -1,15 +1,21 @@
-# Review of the alternating weighted four-cycle distortion formula
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for every positive real alternating ratio and **real** Banach–Mazur distance. The proof identifies the dual of the free space with a three-coordinate absolute norm, uses averaging over its full sign-change symmetry to reduce *every* Hilbert comparison to a diagonal quadratic form, computes both required extremal norms exactly, and proves the scalar minimax by opposite monotonicities. The two distance-minimizing ratios follow from the stated derivative and reciprocity; t=1 and the endpoint limits are included. Eight exact-rational arithmetic checks replay the claimed optimal forms; they are not substituted for the continuum proof.
+## correctness
 
-## Originality — PASS (qualified)
-The directly inspected finite-free-space literature by Hájek–Lancien–Pernecká (arXiv:1507.02701), Dilworth–Kutzarova–Ostrovskii (arXiv:1807.03814), Alexander–Fradelizi–García-Lirola–Zvavitch (arXiv:1911.10642), and Ostrovska–Ostrovskii (arXiv:2112.02689) covers definitions, graph quotients, Banach–Mazur problems, four-cycle isometries and zonotope classification, but does not give this exact alternating Euclidean distortion formula. The closest publicly indexed results treat only one exceptional cycle edge (`1b1292e047f1`, `38cb69cb8edd`) or equal edges (`13d7bdc76366`). The first two apply to \((1,1,1,r)\), not \((1,t,1,t)\); even when their constants happen to agree at a particular ratio, equality of numerical values is not implication of the full family. No covering statement or general weighted-four-cycle formula was located. This is a best-knowledge originality assessment, not proof of uniqueness in all historical literature. Unindexed convex-geometric ellipsoid treatments remain a residual risk.
+PASS
 
-## Value — PASS
-The two alternating weights form a natural symmetry-preserving family of weighted cycle transportation norms. The theorem gives an exact optimal Euclidean ellipsoid for *every* ratio and discovers a genuine nonmonotone distortion profile, with sharp global minima at two distinct reciprocal ratios rather than at the uniform metric. This is a structural, fully parameterized classification; a single numerical instance would not supply it.
+Edge differences form the zero-sum hyperplane and the Lipschitz norm is precisely the maximum of edge slopes, since paths bound all pairwise slopes and every edge is shortest. Changing coordinates gives max(|u|+|w|,(|v|+|w|)/t). Duality preserves the real Euclidean distance, and swapping u,v with a scalar realizes inversion of t. For t≥1 sign averaging preserves the quadratic sandwich and removes off-diagonal entries without raising distortion. On the unit norm body the maximal diagonal energy occurs at |w|=0 or 1: the upper corner energy a(1-z)^2+b(t-z)^2+cz^2 is convex. The reverse squared norm has exact Cauchy–Schwarz maxima 1/a+1/c and (1/b+1/c)/t². Normalize the reverse maximum to 1; at each h=1/c in (0,1) the smallest feasible a=1/(1-h), b=1/(t²-h) minimize the forward maximum. The two branches then strictly increase and decrease respectively. Their difference has numerator −(2t+1)(h−t)(h−t/(2t+1)) over h(1−h)(t²−h); only the second root is admissible, also at t=1. It follows that the displayed Q is optimal and the squared distance is 3−2(t−1)/((t+1)(2t−1)). Its derivative has sign t−2, giving the two reciprocal unique minima with squared value 25/9 and the uniform and degenerate limits 3. The displayed Q is in dual coordinates for t≥1, with t<1 handled by the swap/scaling. Frozen check.py is an exact rational finite check, not a continuum proof; independently verified contact candidates and off-optimum controls at five ratios with Fraction, replay python3 /workspace/branches/independent_finite_checks.py (check 2).
 
-## Limitations
-The result is confined to four-point real cycle metrics and alternating edge weights. No result for complex linear maps, arbitrary independent edge weights, or higher cycles is claimed. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The edge-quotient model and t=1 cube endpoint are known. The prior one-defect family already realizes the same numerical minimum, but does not give this alternating profile or its isolated minimizers. Strong same-object catalogue overlaps give volumes and a later Minkowski decomposition, not an exact Euclidean distortion solution. The verdict is for the alternating profile and its sharp ratio characterization, not for transport duality, sign averaging, or the number 5/3 in isolation.
+
+## value
+
+PASS
+
+The four-cycle is the first cyclic transport example beyond trees and the alternating weights are a natural one-parameter deformation retaining opposite-edge symmetry. The exact optimum supplies a nonmonotone contrast with the cube endpoint and a one-defect plateau, identifies the precise best deformation, and produces the sharp quadratic comparison. General norm equivalences do not answer these questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

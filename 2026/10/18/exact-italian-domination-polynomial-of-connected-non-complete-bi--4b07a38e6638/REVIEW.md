@@ -2,7 +2,7 @@
 
 ## Correctness — PASS
 
-The scope is precisely connected bipartite chain graphs with at least two nonempty canonical twin-class pairs, with numeric labels in \(\{0,1,2\}\) and the standard Italian defense condition. Each assignment uniquely determines two zero frontiers: the first \(A\)-class with a zero and the last \(B\)-class with a zero. Because neighborhoods are nested and all labels are nonnegative, defense of all zeros on each side reduces *exactly* to a weight-at-least-two condition on one prefix or suffix of the other side. The class-polynomial products enforce zero-frontier membership, and deleting degree-zero and degree-one terms enforces the two conditions. These independent restrictions multiply, and disjoint frontier pairs add. There is no unverified infinite enumeration step. A standalone brute-force implementation reconstructed graph edges and checked 793620 assignments on 76 profiles, comparing 1143 frontier cells exactly. These tests supplement, not replace, the proof.
+The scope is precisely connected bipartite chain graphs with at least two nonempty canonical twin-class pairs, with numeric labels in \(\{0,1,2\}\) and the standard Italian defense condition. Each assignment uniquely determines two zero frontiers: the first \(A\)-class with a zero and the last \(B\)-class with a zero. Because neighborhoods are nested and all labels are nonnegative, defense of all zeros on each side reduces *exactly* to a weight-at-least-two condition on one prefix or suffix of the other side. The class-polynomial products enforce zero-frontier membership, and deleting degree-zero and degree-one terms enforces the two conditions. These independent restrictions multiply, and disjoint frontier pairs add. The bundled brute-force test list has 74 distinct ordered profiles and two repeated entries. It compares 1111 distinct profile/frontier cells from a total of 754254 assignments across the distinct profiles. These tests supplement, not replace, the proof.
 
 ## Originality — PASS (qualified by access and priority limits)
 
@@ -10,7 +10,7 @@ The closest primary contribution by Shao and Zhao [1] addresses all-weight Itali
 
 ## Value — PASS
 
-The mathematical gap is the full coefficient distribution of Italian dominating functions on an entire natural nested-neighborhood graph class, beyond the already known minimum weight and beyond tree/cycle counting algorithms. The theorem gives an explicit \(p(p+1)\)-term product-and-truncation formula for every possible positive class-size vector and hence counts every weighted feasible defense plan without enumerating exponential numbers of labelings. The coefficient at weight four distinguishes two noncomplete chain graphs with equal bipartition sizes \((3,3)\) and the same minimum weight four (counts four versus six), showing that the new information is not a restatement of the previous extremal parameter. Arbitrary class sizes and cycles make this a meaningful infinite-family determination, not a hand-picked finite census.
+The mathematical gap is the full coefficient distribution of Italian dominating functions on an entire natural nested-neighborhood graph class, beyond the already known minimum weight and beyond tree/cycle counting algorithms. The theorem gives an explicit product-and-truncation formula with \((p+1)^2\) indexed contributions for every positive class-size vector and counts the functions by weight without enumerating individual labelings. The coefficient at weight four distinguishes two noncomplete chain graphs with equal bipartition sizes \((3,3)\) and the same minimum weight four (counts four versus six), showing that the formula is not a restatement of the previous extremal parameter.
 
 ## Sources, boundaries and residual risk
 
@@ -18,9 +18,9 @@ The mathematical gap is the full coefficient distribution of Italian dominating 
 
 [2] Padamutham–Palagiri, *Complexity of Roman {2}-domination and the double Roman domination in graphs*, DOI:10.1016/j.akcej.2020.01.005 (abstract and indexed Section 4 / Theorem 7 material inspected; entire PDF unavailable).
 
-[3] *Roman domination polynomial of chain graphs*, published published-finding corpus record `2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b` (indexed published summary inspected).
+[3] *Roman domination polynomial of chain graphs*, related research record, 4 October 2026, identifier `e846e0fa619b` (original comparison based on the indexed summary).
 
-[4] *Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs*, published published-finding corpus record `2026/10/4/SCOPE-weight-enumerator-of-all-roman-2-dominating-functions-on-complet--4a62f97e627e` (indexed published summary inspected).
+[4] *Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs*, related research record, 4 October 2026, identifier `4a62f97e627e` (original comparison based on the indexed summary).
 
 [5] Das–Santra, *Roman-Type Domination on Convex and Chordal Bipartite Graphs: Algorithms and Hardness*, arXiv:2607.15026 (abstract inspected; full content unavailable).
 

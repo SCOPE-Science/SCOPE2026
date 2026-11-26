@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:52:06.956285Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–47; VERIFICATION.md lines 19–24; checks/check_classes.cpp and checks/check_packings.py inspected, not executed; adjacent .out files read as recorded evidence.",
+        "ETSU Maximum Packings, Theorem 4.2.A; independent parity and explicit packing replay above."
+      ],
+      "rationale": "Every class is an intersecting family of edges, hence a star subfamily or a triangle. For a proper star of size t≥2, a noncentral edge can see two class edges when t=2, t−1 when t≥3 is odd, and t−2 when t≥4 is even, all positive even counts. A full star gives n−3 neighbors for every noncentral edge and is therefore permitted exactly for even n. Triangles and singletons always work. Two full stars cannot coexist. With P(v) the maximum triangle packing size, the respective costs are C0=binom(n,2)−2P(n) and C*=1+binom(n−1,2)−2P(n−1); equality within a type forces a maximum packing. The verified classical leave sizes give the four formulas and C0−C*=(2n−12)/3, (2n−4)/3, (2n−2)/3 in the even residues 0,2,4, respectively. Independently at n=6, triangles 123,145,246,356 leave a matching; five triples would violate leave-degree parity. In K5, 123 and 145 pack two triples; three would leave one edge, violating even leave degree. These give seven colors in each allowed type and no other optimum type. This verifies all n≥5 and classifies unlabelled color partitions, not named assignments.",
+      "residual_risks": [
+        "The all-order existence step uses the classical maximum triple-packing theorem, not finite solver runs; higher-rank Kneser graphs are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kneser result covers general k but asks when alpha_od=alpha and inspects largest intersecting families. Foundational papers cover general bounds and selected graph classes; their Kneser literal locators did not return hits."
+        ],
+        "reasoning": "The prior independence theorem supplies the allowable maximum stars but neither packs all smaller classes nor optimizes the number of classes; the graph-family bounds are not all-order exact rank-two optima.",
+        "searches": [
+          "Kwon–Park arXiv:2401.11653; Caro et al. arXiv:2410.02336; Caro et al. arXiv:2509.20763v1 §3.3"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index",
+        "arXiv:2509.20763 and v1",
+        "arXiv:2401.11653",
+        "arXiv:2410.02336",
+        "ETSU Theorem 4.2.A"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Petersen proposition gives chi_so=6, all nontrivial classes as neighborhoods, and the optimal construction from two adjacent centers; its proof forces that form. In rank two these neighborhoods are the triangles on the complementary ground triples. The packing theorem gives all four leave sizes."
+        ],
+        "reasoning": "The n=5 subcase, the full-star test and the packing sizes are covered. The classical theorem has no definition of a strong-odd class; without the new reduction it does not decide the rank-two optimum across both admissible types or the tie at six.",
+        "searches": [
+          "arXiv:2509.20763v1 Proposition 14 / current Proposition 15, and v1 Theorem 16 / current Theorem 17",
+          "Schönheim packing result as expounded in ETSU Theorem 4.2.A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general Kneser theorem uses maximum intersecting families and the parity of disjointness from a full star. The packing theorem supplies the exact maximum size of a family of triples sharing no edge."
+        ],
+        "reasoning": "Rank two turns proper classes into intersecting edge families, but equality of the two independence numbers does not classify smaller eligible families. Excluding all proper star subfamilies and comparing the entire-star and no-star packing optima are additional steps.",
+        "searches": [
+          "Strong odd classes in KG(n,2) as odd-independent edge families, intersecting families and maximum partial Steiner triple systems",
+          "arXiv:2509.20763v1, §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit SCOPE-strong-odd-colorings-of-two-subset-kneser-graphs-through-triangl--c7089565d41d is the frozen result. The distinct SCOPE-outer-independent-two-rainbow-polynomials-and-optimum-colorings--2263ae4eab5a uses a different coloring invariant and weighted minimization; the conflict-free surcharge indexed hit also uses a different parity requirement."
+        ],
+        "reasoning": "These entries are not independent tables of strong-odd exact optima. The classical packing table becomes a coloring table only after the class characterization and optimization reduction.",
+        "searches": [
+          "Local Resultary: strong odd coloring of two-subset Kneser graphs, admissible stars and triangle packing, exact values and partitions"
+        ]
+      },
+      "rationale": "Passes for the all-order rank-two formula and complete optimizer reduction and classification. The n=5 optimizer structure is already implicit in the published Petersen proof, not just its scalar value; the full-star parity criterion and the packing extremum are also prior ingredients. The checked literature does not settle the distinct all-order coloring claim.",
+      "residual_risks": [
+        "A term miss or inaccessible mirror is not proof of historical priority; a prior equivalent coloring reduction in uninspected literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior n=5 coverage, plus the full-star parity test, but not the all-order partition optimization",
+          "evidence": "Petersen nontrivial classes are neighborhoods and disjointness is equivalent to adjacency of their centers; Kneser theorem decides equality of odd independence and independence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+          "material_read": "Proposition 15 pp. 13–14 (offset 29270), §3.3 Theorem 17 p. 16 (34395); v1 §3.3 theorem numbering checked",
+          "method": "OA PDF bounded passages and v1 locator",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact Petersen subcase and broader Kneser scope"
+        },
+        {
+          "assessment": "Exact coverage of the packing input only",
+          "evidence": "Leaves are a 1-factor for 0,2, a 4-cycle for 5, a tripole with (v+2)/2 edges for 4, and empty for 1,3 modulo six.",
+          "identifier_or_url": "https://faculty.etsu.edu/gardnerr/Design-Theory/notes-Design-Theory-LR2/Design-Theory-LR2-4-2.pdf",
+          "material_read": "Attribution p. 1; construction context pp. 2–3; Theorem 4.2.A p. 5 (offset 3460)",
+          "method": "OA PDF literal locator and bounded passage",
+          "title": "4.2. Maximum Packings (exposition of Schönheim's theorem)",
+          "trigger": "Exact constructive existence needed in all residue classes"
+        },
+        {
+          "assessment": "Relevant background and a Petersen example; no decisive additional overlap seen in the passages inspected",
+          "evidence": "Kwon–Park exhibit a Petersen SO 6-coloring; Caro et al. abstract specifies planar bounds, trees, unicyclic graphs and products.",
+          "identifier_or_url": "arXiv:2401.11653; arXiv:2410.02336",
+          "material_read": "First paper p. 3, Fig. 1 and surrounding bounds; second paper abstract; Kneser literal locators in both",
+          "method": "OA PDF bounded reads and locators",
+          "title": "Strong odd coloring of sparse graphs; On strong odd colorings of graphs",
+          "trigger": "Foundational theory and plausible broader bounds"
+        },
+        {
+          "assessment": "Self-match is not an antecedent; the distinct indexed statement concerns a different optimization problem",
+          "evidence": "The distinct entry specifies an outer-independent two-rainbow weight polynomial, not odd open-neighborhood multiplicities in proper vertex colorings.",
+          "identifier_or_url": "Resultary:SCOPE-strong-odd-colorings-of-two-subset-kneser-graphs-through-triangl--c7089565d41d; SCOPE-outer-independent-two-rainbow-polynomials-and-optimum-colorings--2263ae4eab5a",
+          "material_read": "Indexed statements and frozen finding; distinct full record not retrieved",
+          "method": "Local Resultary index comparison; mirror retrieval attempted",
+          "title": "Resultary rank-two Kneser and related coloring entries",
+          "trigger": "Exact self-match and strongest distinct same-graph hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and class/packing proof; prior Kneser odd-independence and classical packing theorems"
+      ],
+      "rationale": "This settles a natural infinite subfamily of Kneser graphs for a neighborhood-parity invariant, not just one scalar. The allowable-class lemma and star versus no-star comparison explain how a classical packing problem determines all optimizers, including the exceptional tie; they provide reusable structure beyond the already-known Petersen value.",
+      "residual_risks": [
+        "Does not enumerate maximum packings or imply a higher-rank coloring law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

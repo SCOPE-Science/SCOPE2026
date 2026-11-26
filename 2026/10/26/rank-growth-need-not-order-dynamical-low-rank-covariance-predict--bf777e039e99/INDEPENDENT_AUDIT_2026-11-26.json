@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:57:03.124918Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–91; all of VERIFICATION.md and verify_rank_order.py; independent replay: python /workspace/branches/reproduce_frozen_reviews.py 2"
+      ],
+      "rationale": "The factor equation has S'=U^TQU positive semidefinite, so the positive minimum eigenvalue of S cannot decrease; the Stiefel factor stays compact and S grows at most linearly. For B_r=I-P_r, the exact covariance defect is the initial positive semidefinite defect plus the integral of B_r Q B_r. Independently, in the range graph chart L=Y_BA(Y_AA)^(-1), L'(0)=Q_BA(Y_AA(0))^(-1). Differentiating Y'=Q-B_rQB_r gives D''_11=0, D''_13=-q12*q23/a, and D''_33=2*q23^2/b for D=Y2-Y1. The first derivative and initial form vanish on span(e1,e3). Substituting the stated z gives the coefficient -b*q12^2/(4*a^2) while the e2 form tends to b; smoothness gives both signs throughout a punctured time interval. The rank-one example yields -1/18. In dimension two the rank-two projector is the identity, so the established comparison with the full covariance rules out a counterexample there. A separate graph-chart integration gives z^TDz/t^2=-0.055661185 and -0.055567722 at t=0.01 and 0.001, respectively.",
+      "residual_risks": [
+        "Finite numerical checks are corroborative, not proof. The uploaded symbolic routine prints an assertion count of 11, although ten assert statements are visible; the coefficient identities were derived independently. No conclusion is drawn about drift, finite-step integrators, or observation updates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schmidt et al. Eq. (7) is the projected covariance ODE and the text uses BUG integration; Ceruti–Lubich Eq. (2) is the generic projected ODE and describes truncated-SVD initialization. No ordering comparison appears in these passages."
+        ],
+        "reasoning": "A general equation supplies the dynamics, not an ordering theorem or a counterexample across nonnested evolving ranges; the integrator paper was not read.",
+        "searches": [
+          "Schmidt et al. arXiv:2306.07774",
+          "Ceruti–Lubich arXiv:2010.02022",
+          "Carrel–Gander–Vandereycken DOI 10.1007/s10543-023-00984-4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3b462c0cdecb and 5690082e6d19",
+        "arXiv:2306.07774",
+        "arXiv:2010.02022",
+        "DOI 10.1007/s10543-023-00984-4 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The initial difference has a two-dimensional kernel and its first-order form there vanishes. The sign is decided by a second-order cross term from distinct projector motions."
+        ],
+        "reasoning": "Common upper bounds do not order the two approximants. Neither the general projector prescription nor a sign failure for the discrete scheme forces this sign or the sufficiently-small-time quantifier.",
+        "searches": [
+          "Schmidt et al. Eq. (7), Ceruti–Lubich Eq. (2), and closest Resultary record 3b462c0cdecb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loewner nonordering here means the difference has quadratic forms of both signs. The closest indexed example has a rank-two one-step output that is itself indefinite. The same-day METD result addresses a stable-drift two-dimensional time discretization."
+        ],
+        "reasoning": "Loss of positivity of an individual step is not equivalent to loss of ordering between two positive semidefinite exact flows; the exact-flow/step distinction and full-covariance bounds are essential.",
+        "searches": [
+          "Local Resultary search for exact DLR covariance rank comparison: 3b462c0cdecb and 5690082e6d19",
+          "Schmidt et al., arXiv:2306.07774, Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched numerical examples have a different evolution or different sign predicate."
+        ],
+        "reasoning": "No numerical sequence or census is claimed. An exact example could cover the existential claim only if it specified the nested initialization, continuous projected flow and sign of the two-rank difference, not just a coincident dimension or noise rank.",
+        "searches": [
+          "Local Resultary matched records 3b462c0cdecb and 5690082e6d19"
+        ]
+      },
+      "rationale": "The closest indexed records show loss of positivity of numerical outputs. This theorem instead compares two exact continuous trajectories that individually remain positive semidefinite and satisfy the full-covariance bound. The primary DLR sources establish the common equation and algorithms, not this cross-rank obstruction. Pass is bounded by the comparisons below, not a priority guarantee.",
+      "residual_risks": [
+        "The Parareal source was not obtained; the catalogue and literature comparison are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different claim",
+          "evidence": "Projected exponential Euler followed by Frobenius rank truncation; the rank-two result itself can be indefinite.",
+          "identifier_or_url": "2026/10/25/SCOPE-rank-one-immunity-and-a-sharp-rank-two-positivity-transition-in--3b462c0cdecb",
+          "material_read": "RESULT.md offsets 0–2861 and 1800–4536",
+          "method": "Resultary search and local mirror",
+          "title": "Rank-one immunity and a sharp rank-two positivity transition in projected exponential Lyapunov integration",
+          "trigger": "Strongest Resultary match"
+        },
+        {
+          "assessment": "Different claim, independent of date",
+          "evidence": "Symmetrized METD output for a two-dimensional stable-drift problem, not exact two-rank ordering.",
+          "identifier_or_url": "2026/10/26/SCOPE-unbounded-covariance-negativity-in-second-order-matrix-exponenti--5690082e6d19",
+          "material_read": "RESULT.md finding at opening offset",
+          "method": "Resultary search and local mirror",
+          "title": "Unbounded covariance negativity in second-order matrix exponential time differencing",
+          "trigger": "Same-day covariance negativity match"
+        },
+        {
+          "assessment": "Method antecedent",
+          "evidence": "Projected covariance ODE and BUG implementation.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07774",
+          "material_read": "PDF p. 4 Eq. (7), offset 15347",
+          "method": "OA primary PDF",
+          "title": "The Rank-Reduced Kalman Filter",
+          "trigger": "Primary covariance model"
+        },
+        {
+          "assessment": "Method antecedent",
+          "evidence": "Tangent projection and truncated-SVD initialization, followed by time-step construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02022",
+          "material_read": "PDF p. 3 Eq. (2), offset 7957",
+          "method": "OA primary PDF",
+          "title": "An unconventional robust integrator for dynamical low-rank approximation",
+          "trigger": "Potential general DLR antecedent"
+        },
+        {
+          "assessment": "Access unresolved; no coverage inference",
+          "evidence": "Retrieval returned 404.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-023-00984-4",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful OA and publisher URL attempts",
+          "title": "Low-rank Parareal: a low-rank parallel-in-time integrator",
+          "trigger": "Cited additional integrator antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–91 and 96–100",
+        "Schmidt et al., projected covariance model Eq. (7)"
+      ],
+      "rationale": "A minimal-dimensional exact counterexample separates comparison with the unprojected covariance from ordering successive modeling ranks. The open coupling condition and rank-one forcing isolate a concrete projector-rotation mechanism and rule out explaining the phenomenon as a time-stepping artifact. It informs when rank hierarchies can be used as ordered covariance approximations.",
+      "residual_risks": [
+        "This is not a conclusion about approximation norms or an observed filter's performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

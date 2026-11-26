@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of the finite classification
+# Independent mathematical audit
 
-The finding concerns the graph on two labelled layers of nine vertices and a single replacement of a selected vertex, not adjacency-restricted sliding. The exact source files are `exact_hitting_census.cpp` and `direct_trace_census.py`. On a system with C++17 and Python 3.10 or later, run:
+## correctness
 
-```sh
-g++ -O2 -std=c++17 exact_hitting_census.cpp -o exact_hitting_census
-./exact_hitting_census
-python3 direct_trace_census.py
-```
+PASS
 
-The C++ checker constructs all eighteen neighborhood bitmasks from the complete specified edge list, adds all 153 symmetric-difference constraints, tests all 262,144 vertex subsets, and checks the full optimum one-exchange graph. The Python checker independently constructs eighteen neighborhood traces for every subset of cardinality up to seven (63,004 cases); it checks nonemptiness, trace uniqueness, optimum exchanges, component degrees and edges, six dihedral orbits and preservation of adjacency. Both source implementations were executed successfully and produced the declared values: optimum size 7, 90 optimum codes, 81 exchange edges, component partition \(9(K_1\vee(2K_2))\sqcup9P_3\sqcup9K_2\).
+The closed-neighborhood hitting reduction is exact: the neighborhood constraints test nonemptiness and the pairwise symmetric-difference constraints test all trace inequalities. A fresh independent set-based reproduction constructs adjacency by explicit modular predicates and checks all 63004 subsets of sizes 0–7 by taking the set of the 18 literal traces; there are no codes below seven and 90 at seven, including the stated witness. Equal-size codes are adjacent exactly when they have a common six-element subset, so grouping optima over those subsets independently reconstructs all exchange edges. It gives 81 edges and nine components of each reported degree pattern. In a five-vertex component the universal vertex leaves four vertices of degree one after deletion, hence two disjoint edges and a bowtie; the other two patterns force P3 and K2. Applying all 18 simultaneous rotations/reflections gives the six listed representatives, orbit sizes, degrees and component types and covers all optima. The same actions preserve the host relation (both cycle layers and the matching) and hence identifying traces and exchanges.
 
-Every loop has a stated finite search domain. No partial search, sampling, solver timeout, unchecked numerical approximation, machine-assisted infinite proof or independent external validation is asserted. A manual verification can inspect the two different finite acceptance predicates and the short mathematical reduction in RESULT.md. The result does not extend to other cycle lengths, token slides, or erasure-resilient codes.
+## originality
+
+PASS
+
+The exact optimum-family and exchange classification for the nine-cycle is distinct from the known seven-code construction and the asymptotic size theorem. The latter and the later complementary-prism bounds do not themselves force this minimum, let alone the census.
+
+## value
+
+PASS
+
+Nine columns are the fundamental block size of the known seven-per-nine construction, not an arbitrary truncation. A complete answer there determines exactly which optimal deployments can be reached without adding a landmark and distinguishes several component geometries and symmetry types; neither the asymptotic size nor a single optimal example answers that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

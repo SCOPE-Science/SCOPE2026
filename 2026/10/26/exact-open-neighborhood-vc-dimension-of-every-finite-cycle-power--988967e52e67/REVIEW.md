@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem uses the standard cyclic-distance graph-power definition and open, not closed, neighborhoods. The extreme densities are proved from complement-singletons, antipodal pairs, and length-three circular windows. The universal four-point obstruction is a count of exactly four membership changes per sampled point, with the two changes at a sampled center and its successor forcing a repeated trace if the counting bound were saturated. Every claimed dimension-three case has an eight-entry parameter-uniform trace certificate. At radius two the four possible full-trace triples each have a specified impossible pair trace when the order is at least nine. The standalone computation checks all small cases and the witness formulas but is not relied on for the infinite theorem.
+## correctness
 
-**Originality — PASS, qualified.** Adler–Benediktsson–Macpherson (2020), arXiv:2007.16042, studies Johnson/Hamming graph neighborhoods, not cycle powers. Coudert–Csikós–Ducoffe–Viennot (2024), arXiv:2405.07588, studies general exact graph VC-dimension algorithms, mainly for *closed* neighborhoods; its text distinguishes the open-neighborhood variant. Published work on third-power cycle *neighborhood complexes* asks for a topological type, rather than this trace-shattering invariant. Available prior research titles and recoverable claims about Hamming/triangular neighborhoods, circular windows, and cycle-power topology do not logically imply the exact phase diagram. No equivalent formula was located by direct phrase/alias and semantic searches. This is best-knowledge originality, **not** proof of publication priority; a differently indexed circular-arc/translated-punctured-window result could still cover it. The relevant topological manuscript could not be materially opened at the time of review, but its available scientific statement addresses a separate invariant.
+PASS
 
-**Mathematical value — PASS.** The theorem supplies a complete and nontrivial exact two-parameter classification for a standard distance-regular/circulant family in graph-VC theory. The radius-two isolated exception, the sharp order threshold for higher powers, and the cyclic transition-budget argument are structurally informative: VC dimension is not monotone in the order of this family. These conclusions are not recoverable merely from the generic upper bounds in the nearby graph literature.
+The five cases hold with open neighborhoods and the whole cyclic vertex set as both sample ground set and center set, including radii above the diameter. In the complete case a two-point set cannot have an empty trace; at n=2r+2 an empty trace would require an antipodal pair, which has no singleton trace. At n=2r+3, multiplication by the inverse of r+1 converts complements to consecutive triples: a full three-point trace would require one such triple and its endpoints cannot occur without its midpoint. For n>=2r+3 the pair {0,r+1} has all four traces. In the four-point obstruction each membership bit has four change positions, with the two center-hole transitions consecutive. Sixteen different traces would force sixteen runs with precisely one changed bit at each boundary; the consecutive flips undo each other and repeat a trace in separate runs. At r=2, n>=9, requiring the full trace reduces the candidate triple to a subset of {-2,-1,1,2}; the witnesses for joint inclusion of the designated pair are confined to center 0, where the third vertex is also included. The wrap-around distances in the two uniform witness tables give their eight stated traces up to and including n=3r+2 and starting at n=3r+3, respectively; the C8 square witness checks directly. The fresh replay matched 297 pairs (3<=n<=24, 1<=r<=n) and the eight-trace witnesses on 295 pairs (3<=r<=12, 2r+4<=n<=5r+10). This is finite corroboration of the symbolic proof, not its basis.
 
-**Limitations.** The theorem is not about closed neighborhoods or arbitrary circulants. Finite computations do not establish its infinite assertions. The literature comparison cannot exclude every alternative terminology or future priority conflict. No external independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No equivalent or dominating result was found in the inspected sources. The assessment credits only the exact fixed-radius open-neighborhood classification, not publication priority.
+
+## value
+
+PASS
+
+A canonical graph family gives a complete exact benchmark for the effect of removing the center from a circular ball. In particular the square changes from three to two between n=8 and n=9, unlike the stable higher-radius regime. The center-hole argument explains an obstruction that the generic transition budget alone does not, and the exact witnesses distinguish every boundary without a cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

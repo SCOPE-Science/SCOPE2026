@@ -1,11 +1,21 @@
-# Scientific review: sharp hexagonal midpoint extension
+# Independent mathematical audit
 
-**Correctness.** PASS. The arbitrary-operator lower bound follows by dihedral averaging (with no positivity assumption), three distance-function witnesses, and an exact equal-column-sum identity. The upper bound is a fully specified positive operator: all vertex-to-midpoint pairs saturate the same constant, and midpoint-to-midpoint differences are controlled by a common positive cyclic convolution of arithmetic interpolation kernels. Square-root enclosures and an enumerative checker corroborate the required inequalities and geometric distances. The asserted domain is exactly six regular-hexagon vertices and their six Euclidean edge midpoints.
+## correctness
 
-**Originality.** PASS under current best-knowledge comparison, with residual bibliographic uncertainty. Ambrosio–Puglisi (2016), Bruè–Di Marino–Stra (2018), and Basso (2021) provide general transport/random-projection and finite-LP machinery but do not state the exact twelve-point hexagonal norm or its specific positive equioscillating kernel in inspected relevant sections. Closest regular-polygon center extensions add a different point; simplex-edge, cross-polytope and square/cube midpoint results have different point configurations and do not imply this formula. Full-text and research-database searching found no matching sharper claim, though less-indexed equivalent work cannot be excluded.
+PASS
 
-**Value.** PASS. Simultaneous **linear** interpolation on a canonical Euclidean polygonal refinement is a natural finite Lipschitz-space operator invariant, not the automatic existence of a scalar nonlinear McShane extension. The nontrivial three-orbit distance balancing produces an exact radical constant and an all-positive optimizer that strictly improves the natural two-endpoint rule while preserving nonexpansivity among added midpoint measures. This is an exact first non-square even polygonal benchmark, rather than an arbitrary parameter slice.
+The reflection fixing a midpoint pairs the six vertices into three orbits. After averaging, the signed coefficients sum to one. For the three orbit representatives, test distance-to-the-vertex functions. The sums across the three tests of the distances at each reflection-pair column are all 4+2 sqrt(3). These signed linear inequalities sum to the claimed lower bound even without positivity (and already work for a single midpoint). Solving the three equioscillation equations gives the stated a,b,c; the middle row fixes B and the end-row difference fixes A-C, while their sum fixes L. Simple rational square-root enclosures give a>b>c>0. The given convolution is a probability law and gives coefficients (a,a,b,c,c,b) exactly. Translation-invariant transport contracts under this convolution, and shifts by 1,2,3 of the original two-vertex measures admit couplings with costs sqrt(3)/2, 3/2, sqrt(3), exactly the midpoint distances. Mixed pairs attain L by transporting to a single vertex; vertex pairs have ratio one. For endpoint averaging the far vertex ratio (2+sqrt(3))/sqrt(13) dominates all other pairs and is strictly larger than L.
 
-**Closest literature and scope.** The results should be read alongside the three papers cited in RESULT.md. They neither classify all regular polygons nor assert uniqueness of the optimizer. Bibliographic completeness and the independently checked status remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest prior cases are the exact pentagon, square/cube, and simplex midpoint extensions. They substantially overlap in method, but their stated formulas do not cover the regular hexagon and its six added midpoints, or the nonexpansive midpoint restriction here. The inspected literature gives representations and constructions, not this value.
+
+## value
+
+PASS
+
+The regular hexagon and all its edge midpoints are a canonical Euclidean refinement. The contribution is not just the small gain over averaging: the local bound for arbitrary signed operators is obtained by a positive simultaneous operator without a midpoint-pair obstruction. This identifies the exact simultaneous norm and shows why using only the two nearby vertices is insufficient for the sharp constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

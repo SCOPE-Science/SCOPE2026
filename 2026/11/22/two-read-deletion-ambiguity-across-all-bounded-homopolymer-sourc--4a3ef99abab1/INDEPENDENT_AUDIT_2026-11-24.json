@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:03:44.048702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cai et al. Proposition 9 gives exactly two distinct common deletion outputs precisely for opposite alternating phases, with the block forced by the first and last disagreements. For either endpoint of the block, one phase extends the adjacent context run if its symbol is in the selected pair; thus the only forbidden contexts are those whose adjacent run has length r in either of the two symbols. A fixed terminal symbol and run length r contribute z^r/(1−(q−1)S_r); subtracting twice this from the all-context series gives H. Since L≥2 the interfaces cannot coalesce, and multiplying by the two independent contexts and one unordered choice of symbols gives the bivariate count with no overcounting. The unique smallest-modulus pole is simple for H and double for the edge series: equality in the triangle inequality forces all summands, including z and z², to align with the positive real axis. The fixed-span/total coefficient ratio gives the stated geometric law; differentiating in u gives convergence of the mean to (2−R)/(1−R). Comparing the double-pole edge asymptotic to the single-pole vertex asymptotic gives the stated linear mean degree constant. The frozen scripts were inspected, not executed: the direct one checks total edges and observed edge structure, not individual expected span counts. A separate enumeration tested span counts at 42 parameter/length points, including 69,18,3 for spans 2,3,4 at q=3,r=2,n=4. Replay: /workspace/branches/8394f34b-b488-4f62-8bd9-33c79cb55a7c/independent_bounded_check.py and bounded_enumeration.txt in the same directory. The finite test is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section V.A applies hypergraph code-size bounds to binary (d,k) run-length-limited sources and disjoint deletion balls",
+          "Resultary e7209f45b6f7 concerns cap-one words with at least one common deletion output"
+        ],
+        "reasoning": "Bounds on maximum code sizes under no common output are not counts of unordered pairs with exactly two common outputs. Combining a weaker adjacency test with a stricter cap does not subsume the assigned graph.",
+        "searches": [
+          "Kulkarni–Kiyavash arXiv:1211.3128 §V.A",
+          "Resultary: constrained-source deletion reconstruction and adjacent-unequal words"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both frozen verifier scripts",
+        "Cai et al. Proposition 9 and Kulkarni–Kiyavash §V.A",
+        "Resultary records 737fed325e91, f45a481280b1 and e7209f45b6f7",
+        "Independent bounded enumeration and run log"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted bivariate formula and a geometric limit with parameter 1−1/q follow from the prior per-span proof",
+          "At finite cap the excluded contexts have factor 2z^r/(1−(q−1)S_r), and R solves (q−1)S_r(R)=1"
+        ],
+        "reasoning": "Restricting the known edge characterization is a starting point, not the enumerator. The requirement that both alternating phases stay within the run cap produces a new endpoint correction; the unrestricted proof cannot supply it by simply replacing total word counts.",
+        "searches": [
+          "Cai et al. arXiv:2001.01376 Proposition 9",
+          "Resultary 737fed325e91 Finding and proof's span count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 9 characterizes two-deletion-deck intersections by Type-A confusability",
+          "Resultary 737fed325e91 counts the same alternating spans but allows every context"
+        ],
+        "reasoning": "Rephrasing the graph in terms of alternating intervals yields the same recognized edges, but the unrestricted count has factor (1−qz)⁻² instead of H²; the difference begins when a full boundary run can be extended.",
+        "searches": [
+          "Resultary: bounded-homopolymer two-read single-deletion exclusion graph and disagreement-span enumerator",
+          "Cai–Kiah–Nguyen–Yaakobi arXiv:2001.01376 Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "737fed325e91 has per-span counts binom(q,2)(n−L+1)q^(n−L) on all q-ary words; f45a481280b1 tabulates degrees on all binary words; e7209f45b6f7 tabulates a different adjacency at cap one"
+        ],
+        "reasoning": "The exact tables count different vertex sets, different edges or different invariants. An unrestricted degree distribution does not locate which edges remain after removing over-cap words.",
+        "searches": [
+          "Resultary 737fed325e91, f45a481280b1, e7209f45b6f7 (exact deletion-edge and degree-spectrum comparisons)"
+        ]
+      },
+      "rationale": "Credit is for the finite run-cap r≥2 enumerator and its run-cap-dependent consequences, not the Type-A characterization, the unrestricted count or its geometric limit. The inspected matches do not cover the required finite-cap boundary compatibility.",
+      "residual_risks": [
+        "The frozen claim that the cap-one exactly-two-output graph was enumerated elsewhere has no identifiable citation in the examined evidence; cap one is excluded from the theorem",
+        "Earlier unindexed constrained reconstruction results are not ruled out"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN STRUCTURAL INPUT",
+          "evidence": [
+            "Distinct words at Hamming distance at least two share two deletion outputs iff Type-A-confusable; distance one gives one common deletion output"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+          "material_read": "Proposition 9, paper page 7, OA offset 34812",
+          "method": "Lawful OA PDF passage",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact structural equivalence and known overlap"
+        },
+        {
+          "assessment": "COVERS UNRESTRICTED CASE",
+          "evidence": [
+            "Counts binom(q,2)(n−L+1)q^(n−L) edges with span L, with unconstrained prefixes and suffixes"
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Finding and proof's span count",
+          "method": "Resultary search plus local mirror RESULT.md",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Exact same adjacency and span statistic"
+        },
+        {
+          "assessment": "DIFFERENT ADJACENCY AND CAP",
+          "evidence": [
+            "Adjacent-unequal sources are joined for at least one shared deletion descendant"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-one-deletion-confusability-and-changed-interval-spectrum-o--e7209f45b6f7",
+          "material_read": "Finding and proof",
+          "method": "Resultary search plus local mirror RESULT.md",
+          "title": "Exact one-deletion confusability and changed-interval spectrum",
+          "trigger": "Adjacent-unequal constrained-word spectrum"
+        },
+        {
+          "assessment": "DIFFERENT INVARIANT AND NO CAP",
+          "evidence": [
+            "Exact distribution of degrees over all binary words"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+          "material_read": "Finding and proof",
+          "method": "Resultary search plus local mirror RESULT.md",
+          "title": "Complete degree spectrum of the binary two-read deletion-reconstruction graph",
+          "trigger": "Exact binary two-read graph invariant"
+        },
+        {
+          "assessment": "DIFFERENT COUNTING PROBLEM",
+          "evidence": [
+            "Applies fractional transversal bounds on single-deletion-correcting codebooks to (d,k) constraints on zero runs in binary words"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "§V.A, PDF page 12, OA offsets 94020–96402",
+          "method": "Lawful OA PDF passage",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Earlier constrained-source single-deletion result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-read exclusion graph is a natural reconstruction object; enforcing a maximum run length changes both the finite adjacency counts and their asymptotics. An exact all-length, all-span formula quantifies how localized ambiguity is for a uniformly sampled edge and provides an exact linear mean-degree benchmark beyond the unconstrained case. It does not solve an independence-number problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

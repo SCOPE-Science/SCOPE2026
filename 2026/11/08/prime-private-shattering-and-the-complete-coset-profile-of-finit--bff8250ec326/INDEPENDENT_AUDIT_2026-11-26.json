@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:37:33.568869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof Steps 1–5; VERIFICATION.md; VERIFY.py inspected without executing the uploaded script",
+        "/workspace/reproductions/check.py: python3 -B /workspace/reproductions/check.py 5 directly enumerated traces at 1,2,12,30,60 and checked the separate first-differing-digit formula at 30 and 60"
+      ],
+      "rationale": "For r≥3, each co-singleton trace requires a divisor modulus at which the omitted point differs from all the others; some primary factor of the modulus already witnesses this, so each label needs a private prime. A prime cannot serve two labels: compare their witness levels at the smaller level using a third point and obtain contradictory congruences. Conversely, intersect the witness fibers for the omitted labels; for a nonempty trace the intersection is nonempty and is exactly a coset of the lcm modulus. The empty trace is provided by a singleton outside the support, since r≤ω(n)<n. The upper bound is attained when ω(n)≥3 by taking the individual unit vectors in CRT coordinates; pairs are shattered for all n≥3 using singletons, the whole group and an outside singleton. For n=1 no singleton support is shattered; for n=2 singletons are shattered but the full support cannot realize the empty trace. Locally, fix an outlier label and use the first digit k where it differs: choose q values for an anchor among the other coordinates, p^((a-k)(r-2)) for the remaining coordinates agreeing through k digits, and (p-1)p^(a-k) for the outlier agreeing through k-1 but not k. Summing gives q(p-1) times the sum of p^(b(r-1)) over b=0,...,a-1. This counts the same disjoint events as the frozen expression partitioned instead by the maximal common exponent of the non-outliers. By CRT, prescribed j labels all lacking a private prime give the stated product of q^r-jB_r. Inclusion–exclusion counts ordered tuples with all labels served; these tuples have no repeats, so division by r! is exact. At r=t each prime serves one distinct label, giving t! assignments that cancel the denominator, and squarefree factors then give nφ(n).",
+      "residual_risks": [
+        "The bounded enumeration does not prove the census for arbitrary exponents or ranks; those follow from the exact local partition and CRT argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conant–Pillay–Terry and the zero-error census compare translates gA of a single fixed A; Sisask's subgroup-coset dimension zero is for his fixed-set relative translate notion. The dihedral record varies the subgroup, but only in groups D_(2p) with p odd prime."
+        ],
+        "reasoning": "A bound or classification for each fixed A does not classify shattering by the union of those classes over all subgroup choices. A census in D_(2p) cannot be restricted to produce the theorem for arbitrary cyclic n and all exponents: the visible order-p rotation subgroup does not carry the multiple independent primary coordinates of the cyclic theorem.",
+        "searches": [
+          "Conant–Pillay–Terry arXiv:1802.04246 p. 1",
+          "Sisask arXiv:1802.02836 Proposition 4.7 and p. 20",
+          "Resultary f36cdb380117 and 1fc256f3fe53"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bff8250ec326 (self-match), 1fc256f3fe53, f36cdb380117, eeb9c033ac3d",
+        "arXiv:1802.02836",
+        "arXiv:1802.04246 v4 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior translate and geometric results address different concept geometry or only dimension bounds. The frozen count uses disjoint possible outlier labels at each primary coordinate and a local count at every p-adic depth."
+        ],
+        "reasoning": "The ordinary intersection argument reduces nonempty trace tests to co-singletons but does not itself give single-label capacity in a nested CRT coordinate, the local valuation/depth census, or the weighted CRT product. Even a matching dimension bound would not determine these coefficients.",
+        "searches": [
+          "Sisask arXiv:1802.02836 Propositions 4.7 and 4.9",
+          "Resultary 1fc256f3fe53, Findings and proof",
+          "Resultary f36cdb380117 and eeb9c033ac3d, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CRT writes a congruence fiber as a box with one laminar residue class per primary coordinate. Sisask's general axis-aligned-box bound 2d uses interval geometry and does not classify this laminar subfamily.",
+          "The dihedral analogue uses a 2-plus-1 split among rotation cosets and noncyclic reflections, while the cycle-geodesic analogue tests an antipodal obstruction."
+        ],
+        "reasoning": "A group being cyclic as a vertex set is not an equivalence of concept families; geodesics are shortest-path sets, not arithmetic fibers. The CRT laminar-box formulation genuinely is equivalent, but the retrieved interval-box and dihedral statements give no private-primary-label criterion via that equivalence.",
+        "searches": [
+          "Literature: \"all congruence classes\" divisors of n VC dimension shattered supports cyclic group cosets",
+          "Sisask arXiv:1802.02836 §§4.7–4.9 (Propositions 4.7, 4.9)",
+          "Resultary 1fc256f3fe53, f36cdb380117 and eeb9c033ac3d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bff8250ec326 is the identical frozen record, not distinct evidence. The dihedral index gives 1+2pz+binom(2p,2)z²+p²(p-1)z³ for D_(2p); the fixed-translate index gives 2σ(n)-2·1_(2|n) for the number of small-dimension generators A. The geodesic index gives an exact polynomial for shortest-path vertex sets."
+        ],
+        "reasoning": "With the same order 2p the cyclic class has at most two primes and no shattered triples, unlike the dihedral census. The divisor-sum result counts A rather than supports shattered by all congruence fibers. None gives the cyclic full profile or its squarefree top count in the inspected statements.",
+        "searches": [
+          "Resultary bff8250ec326, 1fc256f3fe53, f36cdb380117, eeb9c033ac3d"
+        ]
+      },
+      "rationale": "The verified distinct near matches count shattered supports on other concept families, not all cosets of the cyclic subgroup lattice. Classical intersection closure and CRT are not credited as new. The supported distinct claim is the exact cyclic shattering criterion together with the coefficientwise census from primary-coordinate outlier counts, not an assertion of priority for general box shattering.",
+      "residual_risks": [
+        "The literature query was inconclusive. A treatment of products of rooted residue trees or hierarchical boxes under different terminology may contain an equivalent count. The shared date of the neighboring index entries does not establish their order or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, but not a covering theorem for cyclic groups",
+          "evidence": [
+            "D_(2p) triples have a mixed 2-plus-1 distribution across rotation cosets; top coefficient p²(p-1) and dimension three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-coset-shattering-polynomial-for-prime-dihedral-groups--1fc256f3fe53/RESULT.md",
+          "material_read": "Finding, assumptions, proof and prior-work passages, mirror offsets 0 and 5322",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete coset-shattering polynomial for prime dihedral groups",
+          "trigger": "Exact all-subgroup-coset polynomial in a nearby group family"
+        },
+        {
+          "assessment": "Counts a different family and a different object",
+          "evidence": [
+            "A fixed set A generates a translate family; the divisor-sum formula counts A with translate dimension at most one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-zero-error-rigidity-and-divisor-sum-census-for-finite-group-tran--f36cdb380117/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Zero-error rigidity and divisor-sum census for finite-group translate families",
+          "trigger": "Finite cyclic arithmetic and shattering in the same catalog"
+        },
+        {
+          "assessment": "Different concepts and shattering criterion",
+          "evidence": [
+            "Shortest-path vertex sets and an antipodal-pair criterion, rather than congruence fibers and prime-private labels."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-classification-and-topology-of-geodesic-shattering-on-fin--eeb9c033ac3d/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity classification and topology of geodesic shattering on finite cycles",
+          "trigger": "Complete shattering polynomial on a cyclic ground set"
+        },
+        {
+          "assessment": "Fixed-set translate and interval-box results are not the full congruence-fiber classification",
+          "evidence": [
+            "Characterizes cosets in a dimension-zero fixed-set notion and bounds the axis-aligned-box dimension by 2d in the stated setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.02836",
+          "material_read": "Abstract, Proposition 4.7 and Proposition 4.9 with proof, pp. 12–13, and p. 20; OA offsets 0, 38825, 40987, 61317",
+          "method": "OA PDF text",
+          "title": "Convolutions of sets with bounded VC-dimension are uniformly continuous",
+          "trigger": "Subgroup-coset VC dimension and axis-aligned boxes"
+        },
+        {
+          "assessment": "Abstract fixes the translate generator; not used as a whole-paper exclusion",
+          "evidence": [
+            "Analyzes {gA:g in G} for a fixed subset A and derives structure and regularity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04246",
+          "material_read": "v4 p. 1 abstract, OA offset 0",
+          "method": "OA PDF text",
+          "title": "Structure and regularity for subsets of groups with finite VC-dimension",
+          "trigger": "Finite-group VC results with group cosets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and scope",
+        "Resultary 1fc256f3fe53 and f36cdb380117 as comparisons of nearby concept families"
+      ],
+      "rationale": "This counts all shattered supports of a canonical arithmetic concept class, not just the largest support size. The finite polynomial exposes the different roles of distinct primes and their exponents: the number of primes limits the rank, while exponents alter the number of witnesses at each rank. The private-label criterion explains the restriction and gives a direct test without enumerating all Boolean traces; the exact top coefficient and the boundary at n=1,2 give additional concrete information.",
+      "residual_risks": [
+        "The formula does not count supports for coset unions, general noncyclic groups, or adaptive shattering."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:20:22.178092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated 12-state chain, each excursion's two absorption probabilities are the discounted reset-free first-passage sums divided by the common factor s. Renewal gives their ratio to the sum; success is positive for s>0. The tridiagonal cofactors give the two side determinants and odds prefactor 231/2, with s^(-1) from the distances five and six. Both determinant polynomials are positive on [0,1] by their decreasing derivatives and positive endpoint values. Exact reconstruction reproduced L, R, H, the transformed signs (--++-) and the bracket signs (-++-); solving the full eventual-probability equations with the reset term included also confirmed the formula at six rational s, including s=1. Replay: python3 /workspace/branches/independent-exact-4-5.py; the supplied verify.py was inspected, not run. Descartes' rule counts multiplicities after the interval-to-positive-axis substitution, so the two disjoint sign brackets exhaust the roots and both are simple. In increasing s, the extrema are a strict minimum and then a strict maximum (reversed order in reset probability 1-s); no absorption claim is made at s=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The twelve-state threshold record explicitly asserts an upper bound of one stationary point on shorter nonconstant paths and uses the assigned witness for sharpness.",
+          "The eight-vertex onset record treats the first possible single interior optimum, not a two-optimum threshold."
+        ],
+        "reasoning": "Coverage of this witness is explicit and does not depend on independently accepting the comparator's stronger general bound, which was not audited here.",
+        "searches": [
+          "Resultary: geometric reset splitting extrema, sharp state count",
+          "b7682f792857, Finding and sharpness proof",
+          "3aea3b6fb9ce, single interior optimum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and bundled verification evidence",
+        "Resultary b7682f792857, 3aea3b6fb9ce, e5d4f0cb0730, 581750305912 and 8d6e6fdd6bb2",
+        "Newton–Vega Coso, arXiv:2611.01756v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold comparator's N(t) equals -10^7 H(t) for the frozen record, and the same transformed polynomial signs and exact bracket signs establish the same number and types of stationary points.",
+          "The Newton–Vega Coso covariance formulation distinguishes time order from response to reset; Section 10.3 explicitly asks for a classification. Brownian partially absorbing reentrance is a threshold crossing in a different model."
+        ],
+        "reasoning": "The assigned conclusion is already an explicit component of the distinct threshold finding, not a deduction from reentrant capture majority or exact-time reversal. Its extra rational point checks and a change of expansion scale establish no additional scientific claim.",
+        "searches": [
+          "b7682f792857 proof, displayed polynomial (4) and positive-axis substitution",
+          "2611.01756v1 Sections 8.1 and 10.3",
+          "e5d4f0cb0730, Brownian reentrance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day comparator resets before the next step after nonabsorption, equivalent to resetting just after the current nonabsorbing step. The s^n versus s^(n-1) discount cancels in the renewal quotient; its L and R names are swapped.",
+          "Proposition 7.6 in 2611.01756 is about exact-time odds, not reset-rate odds. An exact Sturm check of that paper's two-temporal-reversal chain finds no interior root of its reset derivative."
+        ],
+        "reasoning": "The change of clock wording and polynomial names is immaterial in b7682f792857. By contrast, exact-time odds reversals genuinely do not imply reset-rate extrema.",
+        "searches": [
+          "Newton–Vega Coso 2611.01756v1, exact-time reversals and geometric-reset response",
+          "Resultary b7682f792857, exact odds and witness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue record gives z=5 and (95,10,80,30,1,40,75,45,40,10)/100, and places the squared survival parameters in (4/5,9/10) and (99/100,999/1000).",
+          "Related catalogue entries 581750305912 and 8d6e6fdd6bb2 concern different 17-state and 13-state witnesses."
+        ],
+        "reasoning": "This is an exact match of the complete scientific example, not an accidental match of state count or a related parameter slice. The assigned record's own index entry is not used as coverage.",
+        "searches": [
+          "Resultary: two interior turning points, geometric resetting, rational birth–death witness",
+          "b7682f792857, exact probabilities and brackets"
+        ]
+      },
+      "rationale": "Distinct catalogue record b7682f792857 contains the exact same rational witness and exact-two certificate as its sharpness example, and asserts a broader minimality result not contained here. The identical rate vector, start, reset convention, formula, derivative polynomial up to a nonzero scalar, brackets, and Descartes argument show substantive mathematical coverage, not just a similar search hit. Both records are dated 2026/11/22; the evidence does not establish which came first. No distinct claim survives in this frozen example, and this is not a finding that the example is false or a historical priority attribution.",
+      "residual_risks": [
+        "Same date and available snapshot do not resolve historical priority.",
+        "The general minimality proof in b7682f792857 was not independently audited; the comparison relies on its exact example and certificate only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of this witness and proof; no ordering inferred",
+          "evidence": "Gives the same transition vector, formula with side names exchanged, and intervals; says existence was known and states global minimality as its new assertion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-twelve-states-are-the-sharp-threshold-for-two-geometric-reset-sp--b7682f792857/RESULT.md",
+          "material_read": "Finding, scope and discounted identity; sharpness proof polynomial (4) and certificate",
+          "method": "Local mirror, bounded passages at offsets 0 and 7603",
+          "title": "Twelve states are the sharp threshold for two geometric-reset splitting extrema",
+          "trigger": "Stronger theorem with potentially identical sharpness witness"
+        },
+        {
+          "assessment": "Supplies framework and motivation, not this reset witness",
+          "evidence": "Exact-time log-odds increments in the cited example change sign twice; its geometric-reset derivative has Sturm variation counts 3 and 3 at the squared-parameter interval endpoints. Section 10.3 asks when one or several interior extrema can occur.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01756v1",
+          "material_read": "Proposition 7.6, Corollary 7.9, Sections 8.1 and 10.3",
+          "method": "Primary HTML via OA; offsets 52582, 57424 and 73782 for reversals and open direction; independently reconstructed reset response of the exact-time witness",
+          "title": "Stochastic Orders of the Exit Pair and the Monotone Response to Resetting",
+          "trigger": "Two exact-time reversals and an explicit open direction on reset extrema"
+        },
+        {
+          "assessment": "Single-extremum onset, not coverage of two",
+          "evidence": "Paths with at most six edges are monotone or constant; the first possible strict optimum is at seven edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-sharp-eight-vertex-onset-of-interior-geometric-reset-splitti--3aea3b6fb9ce/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The sharp eight-vertex onset of interior geometric-reset splitting optima",
+          "trigger": "Nearby sharp state-count theorem in the same model"
+        },
+        {
+          "assessment": "Different model and property",
+          "evidence": "Brownian motion on the real line with partial absorption and Poisson resetting can switch capture majority twice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-reentrant-capture-majority-window-for-two-partially-absorb--e5d4f0cb0730/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Sharp reentrant capture-majority window for two partially absorbing Brownian targets",
+          "trigger": "Another resetting reentrance result"
+        },
+        {
+          "assessment": "Different witness, more extrema",
+          "evidence": "At least three extrema for a different 17-state chain.",
+          "identifier_or_url": "581750305912 (Resultary, 2026/11/22)",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Three interior reversals of geometric-reset absorption in a 17-state chain",
+          "trigger": "Same model and multiple extrema"
+        },
+        {
+          "assessment": "Different witness and constraint",
+          "evidence": "13 states and just two distinct right-transition probabilities.",
+          "identifier_or_url": "8d6e6fdd6bb2 (Resultary, 2026/11/22)",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Two transition biases suffice for a double reset-rate reversal",
+          "trigger": "Same model and two extrema"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A first exact witness would be well motivated by the open direction on multiple reset-rate extrema. This frozen version, however, supplies only the same narrowly specified witness and exact root-count certificate already present in the separate threshold record. There is no independent boundary, classification, or mechanism here beyond that overlap. Reproduction is useful as verification, not a distinct scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

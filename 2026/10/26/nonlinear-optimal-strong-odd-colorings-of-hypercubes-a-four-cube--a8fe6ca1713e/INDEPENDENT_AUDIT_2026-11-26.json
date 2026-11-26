@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:54:06.427016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive even d the cube adjacency operator A over F₂ satisfies A²=0. A proper strong odd coloring with at most three colors would see exactly two neighbor colors at every vertex; in the three-color case each color indicator h would satisfy (A+I)h=1, forcing h=1 since A1=0, a contradiction. For an affine labeling, exactly two distinct nonzero increments occur, each an odd number of times. Choosing their unordered pair, an odd support for a designated one, and the translation gives 3·2^(d+1) named labelings; each uses four colors and the 24 renamings act freely and preserve affineness. For the Q₄ census a fresh definition-based replay (replay_q4_from_definitions.py, replay_q4_output.txt) fixed the root label to zero. Of 16,384 assignments on the even side, 54 pass the constraints at odd vertices; 12,288 proper extensions to odd vertices were tested, of which 480 satisfy the remaining constraints and 24 are affine. Four palette translations and division by 24 as appropriate give 1920, 96, 1824 named and 80, 4, 76 unnamed, respectively. The frozen verify.py and output were inspected without execution. In RESULT.md §2 the four-singleton neighborhood pattern is excluded by properness with a four-color palette (one color is the center's), not by the sum of odd multiplicities alone; the census uses the correct constraint. The seed was checked directly, including the occurrence of the XOR-1 neighbor color at every vertex. Adding 2k such neighbors preserves oddness, and the original slice certifies nonaffineness for every even d≥4. This is a proof for that seed, not a finite-test extrapolation or a claim that all seeds lift. In Q₂ all opposite vertices must differ as well as adjacent ones, and every permutation of F₂² is affine.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary product theorem gives general chromatic bounds; Proposition 26 gives χ_so(Q_d)=2 in odd dimension and 4 in even dimension.",
+          "The later catalog item counts a restricted family in every even dimension and covers the parity-split type of the displayed seed."
+        ],
+        "reasoning": "Knowing the optimum or a product construction is not a classification of its achievers. The stronger parity-split count in varying dimension does not cover the nonsplit part in the fixed four-cube, though it provides another route to nonlinear examples.",
+        "searches": [
+          "arXiv:2410.02336, Cartesian products, Theorem 4.2",
+          "arXiv:2509.20763, Proposition 26",
+          "Resultary/SCOPE 3dbef98168c9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2401.11653, 2410.02336 and 2509.20763",
+        "Resultary/SCOPE 3dbef98168c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 26 implies optimality of any valid displayed four-color seed. At d≥4 the later parity-split count exceeds the affine count and consequently gives existence of nonlinear optima. The catalog record is dated later than the frozen item and does not give its particular lift or unrestricted Q₄ census."
+        ],
+        "reasoning": "The known minimum is not credited as original and the all-dimensional existence overlap is real. Even independent of priority for that existence statement, obtaining the total and separating all optima by affineness requires more than the known minimum or the parity-split formula.",
+        "searches": [
+          "arXiv:2509.20763, Proposition 26",
+          "3dbef98168c9, Finding and count proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local odd-multiplicity definition agrees with Kwon–Park. The catalog formula 6·2^(2^(d−1)) is for parity-split labelings, using disjoint palettes on the two cube classes.",
+          "The fresh Q₄ replay found 1536 named parity-split labelings (64 partitions), but 384 nonsplit labelings (16 partitions)."
+        ],
+        "reasoning": "Naming changes the count by exactly 24, not by a graph automorphism group. Splitting by bipartition is a restriction, not a reformulation of strong oddness; it misses one fifth of the full Q₄ census.",
+        "searches": [
+          "arXiv:2401.11653, definition of strong odd coloring",
+          "Resultary/SCOPE 3dbef98168c9, parity-split strong odd colorings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalog formula evaluates to 1536 named labelings at d=4, not 1920; its text explicitly excludes nonsplit colorings. The hypercube proposition supplies color minima, not counts. No unrestricted census was located in the bounded search."
+        ],
+        "reasoning": "Neither the exact known optimum nor the exact subfamily count is a table of all optimal colorings on the labeled four-cube. The independent replay is evidence of the count but not evidence of priority.",
+        "searches": [
+          "Resultary/SCOPE 2026/11/22/SCOPE-parity-split-strong-odd-colorings-of-even-boolean-cubes-q-d--3dbef98168c9",
+          "arXiv:2509.20763, Q_d result"
+        ]
+      },
+      "rationale": "The hypercube chromatic number is established prior work and is excluded from the novelty claim. The unrestricted Q₄ census and its affine split, and the concrete seed and parity-preserving lift, are supported distinct claims relative to the inspected sources. A later indexed theorem covers a substantial parity-split subfamily and also implies existence of nonlinear optima; it does not give the unrestricted census.",
+      "residual_risks": [
+        "Bounded semantic and literature searches are not a proof of priority or of the absence of an unindexed equivalent census. Catalog dates do not establish the development history of overlapping constructions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition, no exact Q₄ census in the inspected material.",
+          "evidence": [
+            "Requires proper coloring and odd multiplicity for every occurring open-neighborhood color; the initial theorems concern sparse graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11653",
+          "material_read": "Page 1, near offset 439, definition and initial results",
+          "method": "Bounded open-access PDF passages and literal location check",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Foundational definition and potentially equivalent early bounds"
+        },
+        {
+          "assessment": "Product bounds, not a classification or enumeration of cube optima.",
+          "evidence": [
+            "The theorem addresses graph products via chromatic bounds rather than the distribution of optimal colorings by affine type."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "Page 18, Theorem 4.2, near offset 41511",
+          "method": "Bounded open-access PDF passage",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Potential product-construction coverage of cube optima"
+        },
+        {
+          "assessment": "Covers the minimum exactly; it is not the census result.",
+          "evidence": [
+            "Strong odd chromatic number of Q_d is 2 for odd d and 4 for even d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+          "material_read": "Page 22, Proposition 26, near offset 49709",
+          "method": "Bounded open-access PDF passage",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact strong odd hypercube result"
+        },
+        {
+          "assessment": "Substantial, later-dated exact overlap for the parity-split part and implication for nonlinear existence, not the complete count.",
+          "evidence": [
+            "Formula 6·2^(2^(d−1)); nonsplit colorings are explicitly outside its scope."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-split-strong-odd-colorings-of-even-boolean-cubes-q-d--3dbef98168c9",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4637, including scope restriction and formula",
+          "method": "Resultary lookup and bounded local-mirror passages",
+          "title": "Parity-split strong odd colorings of even Boolean cubes",
+          "trigger": "Explicit named enumeration of a potentially all-inclusive cube-coloring class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first even cube where affineness can fail is a natural test case for the relation between the known optimum and its structure. The complete count shows that the affine constructions are a small minority, not just that one exception exists, and the parity-shift construction transfers an actual nonlinear pattern to all higher even dimensions. The census does not purport to classify all high-dimensional nonlinear colorings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the self-contained `verify.py` with a standard Python 3 interpreter. Its BFS constructs the exact forward residue orbit of \(0\) for every modulus \(1\le m\le2000\). It asserts the equivalence between full reachability and \(6\nmid m\) and checks the missing residue \(1\pmod6\) for all relevant moduli. The checker passed in an independent execution before packaging and in a replay extracted from the actual delivered package.
+## correctness
 
-The code checks only finitely many moduli. Universal correctness is supplied by the separately written group-action and two-/threefold lifting proof in RESULT.md. No computer-assisted claim beyond exact finite BFS is made. No independent audit has been performed.
+PASS
+
+The projected orbit is exactly the forward orbit of 0 in the finite ring. For gcd(m,6)=1, the inverse of the permutation BA is a power of BA, so AB(BA)^{-1} is a permitted forward transformation and translates by 2, a generator of the additive residue group. This includes the trivial ring m=1. If 3 does not divide m, representatives for the even and odd halves of Z/(2m) come from A and C respectively, using that 3 is a unit modulo m for the odd half. If 2 does not divide m, C, AB and B produce the three residue classes mod 3 in Z/(3m), using invertibility of 2 modulo m in the first two. Factoring out a power of 2 or 3 exhausts the moduli not divisible by 6. Neither the seed nor any generator output is 1 modulo 6, so every multiple of 6 misses a class. All prime powers therefore have full support, whereas the cylinder 1 mod 6 is disjoint from the orbit in the profinite completion.
+
+## originality
+
+PASS
+
+The primary papers checked supply the original orbit and general tools, not an equivalent all-moduli classification. The two distinct indexed records have real overlap on mixed-prime moduli but do not dominate the iff across all moduli. One expressly recognizes the all-moduli criterion as background. This is an evidence-bounded originality judgment, not an attribution of priority from catalog dates.
+
+## value
+
+PASS
+
+The orbit is a named, previously studied critical Klarner example. The classification identifies exactly when congruences give an obstruction, including the failure of simultaneous 2- and 3-adic support despite full support in either coordinate separately. This distinguishes ordinary density questions from the exact local/profinite obstruction and is useful independently of finer mixed-prime counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

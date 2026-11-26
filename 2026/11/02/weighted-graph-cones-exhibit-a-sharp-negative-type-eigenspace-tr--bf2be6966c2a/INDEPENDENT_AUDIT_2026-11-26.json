@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:24:48.555354Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "Frozen VERIFICATION.md, lines 18–24",
+        "Frozen check.py, lines 43–96"
+      ],
+      "rationale": "Anchor the putative Euclidean realization at the apex. With b=h^p and c=(2h)^p, its Gram matrix is bJ minus half of B=c(J-I)+(1-c)A, by polarization. Positive semidefiniteness is equivalent to an embedding and the Gram rank is the minimum affine dimension. On constants the eigenvalue is -[k+(N-1-k)c-2Nb]/2; on a nonconstant adjacency mode theta it is [c+(c-1)theta]/2. The least mode is theta=-s when c>1, and at c=1 all nonconstant modes are strictly positive. F(p,h) in the constant branch strictly increases with p, is negative at p=1, and diverges at every h in [1/2,1]. At a root the coefficient of h^p in k+h^p[(N-1-k)2^p-2N] is negative, so p0 strictly increases with h; p1 strictly decreases from infinity to at most 1. Solving c=s/(s-1) jointly with F=0 gives the stated crossing, and counting zero modes gives the rank drops, also when the base is disconnected. The tensor decomposition for Hamming adjacency verifies the stated least eigenvalue, multiplicity and limits. Independent exact check: for the disconnected base C4 disjoint union C4 the crossing has c=2, b=3/4 and Gram rank 5, certified by three explicit integer null vectors and a rank-5 reduction modulo 101 (node /workspace/independent_checks.js, section 4). This is a single finite check; the diagonalization proves the general result. The uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sánchez treats all finite metrics via det(D_p)=0 or the vanishing all-ones quadratic form for the inverse, and gives generic equality directions. His explicit complete-bipartite threshold log2(2nm/(2nm-n-m)) is for a different fixed graph metric.",
+          "The unweighted graph H-join is directly relevant at h=1 and the one-distance base is classical at h=1/2. The H-join paper's exact theorem text could not be inspected."
+        ],
+        "reasoning": "A general implicit matrix criterion can be applied to these metrics, but deriving which independent constraints bind and where they meet requires the weighted-family analysis; no stronger explicit arbitrary-h phase diagram was established by inspected statements.",
+        "searches": [
+          "Sánchez arXiv:1108.0451, Corollaries 2.4–2.5 and Theorem 3.1",
+          "Deza–Laurent, Applications of Cut Polyhedra, Theorem 4.6; Cardoso–Díaz–Rojo, Distance matrices on the H-join of graphs, DOI 10.1016/j.laa.2018.08.024"
+        ]
+      },
+      "checked_sources": [
+        "Sánchez arXiv:1108.0451, §2–3",
+        "Deza–Laurent Theorem 4.6, cited OA attempt",
+        "Cardoso–Díaz–Rojo DOI 10.1016/j.laa.2018.08.024, OA attempt",
+        "96de5c8a97e7",
+        "cf77f16e4965",
+        "aef92201fdc0",
+        "1dc112430f69",
+        "Frozen RESULT.md, lines 51–115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base alone gives only c<=s/(s-1); the independent constant-load inequality depends on N,k and h^p.",
+          "At h=1/2 the spectral obstruction disappears; at h=1 the spectral branch binds. Proving opposite monotonicity and solving the simultaneous equations gives p*=log2(2Ns/[s(N-1)-k]), then h*, and rank drops of 1, m+1, m respectively.",
+          "A variable bridge in the triangle barbell has only six points and does not instantiate the family of independent apex/base blocks with arbitrary -s multiplicity."
+        ],
+        "reasoning": "The supported contribution is the universal competition and exact rank stratification, not the general existence of a root or either standard spectral tool. The direct proof works even when the base is disconnected, with repeated degree eigenvalues in the perpendicular space.",
+        "searches": [
+          "Sánchez arXiv:1108.0451 §2 and §3; Resultary 96de5c8a97e7, cf77f16e4965 and 1dc112430f69",
+          "Frozen RESULT.md, lines 51–95"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered-Gram and conditional-negative-definiteness formulations are equivalent by anchoring at the apex; the latter separates constants from the base least-eigenspace.",
+          "96de5c8a97e7 indexes two unit triangles joined by a variable bridge, with two simultaneous equality directions. 1dc112430f69 indexes two criteria and equality directions for a fixed Hadamard graph path metric, not a variable-spoke cone."
+        ],
+        "reasoning": "A similar multiplicity or number of competing modes does not identify the metric family or give the branch functions. At h=1,p=1 the cone condition reduces to s<=2, reproducing the known unweighted criterion rather than a new threshold there.",
+        "searches": [
+          "Resultary: weighted graph cones, competing negative-type obstructions, and two-distance regular-graph criteria",
+          "Resultary: regular graph weighted cone apex edges length h 1/2 to 1 least adjacency eigenvalue Hamming graph two competing constant mode and adjacency eigenvalue exact crossover supremal negative type"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cf77f16e4965 describes a corona with one threshold equation; aef92201fdc0 describes an edge perturbation of K_{n,n,n}; 96de5c8a97e7 gives a particular two-mode transition. These are not a catalogue of this continuous regular-cone family.",
+          "The Hamming least-eigenvalue table follows from the classical tensor adjacency spectrum; the crossover height and rank loss require the cone rule, not a new computation of that spectrum."
+        ],
+        "reasoning": "The target is parameterized by continuous h and arbitrary admissible graph parameters, so a finite table of selected graphs or isolated exact thresholds would cover only those instances. No indexed exact parametric table was identified as equivalent.",
+        "searches": [
+          "Resultary: weighted negative type of complete-graph coronas, two-mode triangle barbells, weighted tripartite-edge sensitivity, and powered-distance criteria for Hadamard graphs"
+        ]
+      },
+      "rationale": "The basic Schoenberg criterion and two-distance least-eigenvalue branch are not distinct contributions. The supported new claim is the explicit competition with the independent apex constraint across the whole continuous apex-weight interval, including the unique closed-form crossover and exact minimum dimensions on both sides and at coincidence for all admissible regular bases. A same-day weighted triangle barbell exhibits a similar two-obstruction pattern but varies one bridge, not all cone spokes, and does not cover this regular-base family. The exact previously inspected finite-metric criterion supplies a general implicit first singularity; it does not supply the two branches, their opposite monotonicity, or the explicit simultaneous rank defect. The evidence supports this distinction to the best of current knowledge, not historical priority.",
+      "residual_risks": [
+        "The strongest matched indexed graph records were available at statement-summary level, not full text. Same-day dates do not establish ordering.",
+        "A more general weighted graph-join treatment could contain an equivalent explicit formulation; the Cardoso and Deza–Laurent passages were inaccessible. The pass rests on the distinct verified scope relative to actual available statements, not lack of results from inaccessible sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General implicit criterion and concrete fixed complete-bipartite formula, not this explicit crossover",
+          "evidence": [
+            "The first root of the determinant or inverse all-ones form gives the supremum; the complete-bipartite formula is log2(2nm/(2nm-n-m))."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1108.0451",
+          "material_read": "Full-text HTML §2, Corollaries 2.4 and 2.5 (raw offsets 127079 and 140607); §3 Theorem 3.1 (196957)",
+          "method": "Identified lawful arXiv HTML after passage-reader timeout",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General supremum and equality-direction claims"
+        },
+        {
+          "assessment": "Substantive structural analogy, but the stated metric varies a bridge between two triangles and does not give the claimed family",
+          "evidence": [
+            "At the critical bridge length the two equality directions coexist and the minimum dimension drops from 5 to 3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-two-mode-negative-type-transition-in-weighted-triangle-barbell--96de5c8a97e7",
+          "material_read": "Indexed statement summary; mirror full text timed out",
+          "method": "Resultary and configured local mirror attempt",
+          "title": "A two-mode negative-type transition in weighted triangle barbells",
+          "trigger": "Closest indexed coincidence of equality modes under varying a graph weight"
+        },
+        {
+          "assessment": "Unweighted cone is an H-join; possible more general block-matrix overlap remains unverified",
+          "evidence": [
+            "Linear Algebra Appl. 559 (2018), 34–53; the proof of opposite monotonicity and the rank diagram here is not attributed to it without passage evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.08.024",
+          "material_read": "Journal citation and title; primary theorem not obtained",
+          "method": "Lawful OA lookup timed out; identified publisher page denied access",
+          "title": "Distance matrices on the H-join of graphs: A general result and applications",
+          "trigger": "Potentially broader block-distance spectral result"
+        },
+        {
+          "assessment": "Credit the indicated unweighted special case, not a claim about uninspected scope",
+          "evidence": [
+            "At h=1,p=1 the constant mode gives -k-2 in the conditional distance form; the base maximum is s-2, the stated least-eigenvalue criterion."
+          ],
+          "identifier_or_url": "https://micheldeza.altervista.org/papers/apl-cut-poly/applications-of-cut-polyhedra.pdf",
+          "material_read": "Frozen citation to Theorem 4.6; exact source language not obtained",
+          "method": "Cited OA copy attempted via passage reader and lawful direct fetch",
+          "title": "Applications of Cut Polyhedra",
+          "trigger": "Known unweighted exponent-one cone criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Negative type and minimal Euclidean snowflake dimension are natural invariants of weighted graph metrics. The result reduces a whole interval of weighted realizability and rank questions to a scalar branch switch determined by N,k,s,m, and locates the extra loss of dimension at equality. The Hamming family illustrates potentially large multiplicity losses rather than just a small exceptional case. These are usable structural and geometric conclusions beyond recomputing a fixed graph spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

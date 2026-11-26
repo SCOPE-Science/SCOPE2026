@@ -1,15 +1,21 @@
-# Scientific review of the pole–ring frame projection functional
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The geometric fourth-moment identity is derived from exact trigonometric quadrature (harmonics through order four) and proves Parseval normalization. The strictly positive absolute Gram matrix has a unique positive Perron eigenvector; ring cyclic symmetry reduces it without loss to a positive two-by-two matrix. Its explicit leading eigenvalue proves the all-index formula. The finite cosine-sum computation is exact, including the proof that no sample lies at an absolute-value cusp. Piecewise Fourier integration provides a uniform summable cubic remainder; the two cusp jumps give the negative Bernoulli correction. The irrationality argument and density of fractional parts establish the sharp two-sided subsequential limits. The bundled checker passed all finite tests; infinite statements are proven rather than inferred from those tests.
+## correctness
 
-## Originality (O): PASS, subject to priority risk
-The closest motivating source, Deręgowska–Lewandowska (arXiv:2608.08695v1), studies projection-functionals, tight frames and weighted designs, but its inspected statements and worked examples do not cover the pole–ring family at arbitrary cardinality or its second-order arithmetic asymptotic. The separately inspected seven-vector manuscript of Hu–Tang evaluates a sign-pattern-optimized counterexample with six ring vectors: that functional involves an additional maximization and is not the absolute Gram Perron functional evaluated here. published-finding corpus semantic searches for the pole–ring design, projection Gram radius, all-size polygon spectra, and Bernoulli lattice phase yielded related but non-implying results about other geometries (planar Parseval volume) and other projections (cyclic Fourier blocks or Walsh chaos). Established Fourier quadrature theory explains the asymptotic method but not the specific identified frame quantity. Priority risk remains from earlier general frame/spherical design formulas or unnoticed equivalent cyclic-kernel spectral evaluations; the searches are not a uniqueness certificate.
+PASS
 
-## Mathematical value (V): PASS
-Weighted spherical designs are concrete candidates in projection-constant theory. The one-pole latitude construction interpolates a five-point ring/equiangular example and a prominent seven-vector counterexample. Quantifying its particular Gram-based frame functional for every cardinality identifies how that canonical invariant responds to increasing sampling density; the sharp arithmetic second term detects nonmonotone finite-size behavior invisible in continuous-density estimates. The result is a natural structural exact evaluation and asymptotic boundary, not a claim to global optimization.
+Regular-ring averaging is exact through Fourier degree four for n≥5. Writing R²=X²+Y² gives the unnormalized ring average 6R⁴+12R²Z²+Z⁴, and the weights give (R²+Z²)²/5 after the pole term. The diagonal second moments are 1/3 in every coordinate and the mixed moments vanish, so the normalized Gram is a rank-three projection. The absolute Gram is positive: the only potential zero ring entries require 2 cos(2πj/n)=−1/2, impossible for a rational algebraic integer. Perron uniqueness makes the positive eigenvector constant around the ring; in pole/normalized-ring coordinates the matrix is (1/2)[[1,1],[1,a_n]]. The signed ring average is one and the positive indices are 0 and ±1 through ±floor(nα). A geometric sum yields the stated a_n, including a_5=1+4√5/5 and a_6=8/3. As an independent check of the cusp asymptotic, put s={nα}, δ=1−2s. Rewrite a_n as −1+4α+2δ/n+(8/n)sin(θ+δπ/n)/sin(π/n). The n^−1 terms cancel since cos θ=−1/4; the n^−2 coefficient is 8π sin θ(1/6−δ²/2)=−4π√15 B_2(s). Taylor's remainder is uniform since |δ|≤1. Composing with Φ gives the asserted coefficient, and the density of the irrational phase yields both exact extremal subsequence limits. The frozen script was read, not executed; sampled moment and eigenvector checks do not establish the all-n formula or the remainder.
 
-## Limitations
-No result is claimed for a universally optimal projection constant, for the sign-optimized Hu–Tang invariant, or for arbitrary weighted designs. The general Fourier tools are classical. Independent assessment of publication priority and proof remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported result is the exact all-size value of the already defined fixed-frame functional on this design family, including its sharp irrational second-order phase. Neither the frame functional, the seven-point geometry class, the Perron method, nor Bernoulli quadrature is new. The inspected primary passages and related exact catalogue results concern different optimizations, observables, or kernels. The original Hu–Tang manuscript was not available in lawful full text, so independent comparison of its exact ring parameters is limited to the accessible D–L report.
+
+## value
+
+PASS
+
+This is a concrete exact invariant of a natural family of weighted designs from projection-constant theory, extending the regular pentagonal and hexagonal ring examples. The sign-changing sharp n^−2 fluctuation shows why a single second-order constant cannot describe discretization to the continuous-ring benchmark. The exact finite values make the comparison possible without incorrectly treating this fixed-frame quantity as a global projection constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

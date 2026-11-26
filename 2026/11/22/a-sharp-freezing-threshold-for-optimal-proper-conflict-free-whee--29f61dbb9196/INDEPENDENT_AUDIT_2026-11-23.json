@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:50:24.769470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hub colour is absent from the rim, so the rim vertices automatically have a neighbourhood witness; the hub needs a colour used exactly once on the rim. Three named colours do not suffice (an odd rim is not 2-colourable and a properly 2-coloured even rim has two equally sized parts of size at least two). Giving one rim site its own colour and alternating two others off it proves that four suffice. For n≥5 at most one rim colour is a singleton, since n−2 occurrences of a third colour exceed the rim independence number. Thus the fixed-hub states consist of a chosen singleton site and colour, and one of two alternating orders. There are 6n per hub. A non-singleton can only move to the singleton colour away from its neighbours, and must leave another singleton behind; a singleton move would leave no witness. This freezes every state for n≥7. For n=5, encoding the state by the singleton site p and the cyclically ordered tuple (singleton, next colour, following colour), one allowed move advances p by 1 and rotates the tuple by one, and the other is its inverse. Each orbit has length lcm(5,3)=15; the 30 states per hub give two cycles. For n=6 the thrice-used colour stays fixed, and a move advances p by 2 or −2 and swaps the other colour roles; the orbit has length lcm(3,2)=6. This yields six cycles per hub. At n=3 every assignment is frozen by properness, and at n=4 two singleton colours and one opposite repeated pair give 12 states per hub; changing a singleton destroys both witnesses. The hub itself cannot move. Independent direct enumeration of all four-palette assignments for 3≤n≤7 confirmed state counts 24,48,120,144,168 and the component sizes and degrees. Replay: python3 /workspace/review-evidence/2/exhaustive_check.py 3 4 5 6 7. The frozen verify.py and VERIFICATION.md were inspected, not executed. Finite enumeration is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 22 addresses the scalar PCF optimum for a universal vertex adjoining a perfect graph, applying to even cycles and C3. Eq. (2) addresses PCF chromatic number of cycles without a hub.",
+          "OA retrieval of the cited ordinary recolouring paper failed (403); no theorem-level exclusion about it is asserted."
+        ],
+        "reasoning": "Minimum palette and colourability do not establish legal next states. For odd rim length at least five the perfect-core theorem does not apply; where it does apply it does not give the connected components.",
+        "searches": [
+          "Santra arXiv:2611.03906 §4.6, Theorem 22",
+          "Caro–Petruševski–Škrekovski arXiv:2203.01088v1 §2.1, Eq. (2)",
+          "ArXiv:2608.10874v1 (overview plus targeted reconfiguration and wheel passage locators)",
+          "Recoloring via Modular Decomposition, DOI 10.1002/jgt.70005"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2611.03906 Theorem 22",
+        "arXiv:2203.01088v1 Eq. (2)",
+        "arXiv:2608.10874v1 opening",
+        "Resultary ID suffixes 90f832f169a9 and e08c9a017a67",
+        "DOI 10.1002/jgt.70005 (retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A proper ordinary move can destroy the witness: at n=7 a vertex in a size-three alternating class away from the singleton can take the singleton colour, yielding no singleton. This move exists in the ordinary graph but not in the reviewed graph.",
+          "The wheel forcing census uses partially coloured seeds and a propagation rule; domination counts and cycle-prism PCF counts likewise do not give the one-vertex wheel move geometry."
+        ],
+        "reasoning": "The perfect-core theorem and the known PCF witness principle reduce the state description. One still needs the two move orbits at the exceptional sizes and the exclusion of every possible move in the infinite frozen range. The ordinary C5 reduction is credited as partial overlap, not evidence for the complete classification.",
+        "searches": [
+          "Santra Theorem 22 statement and its hypotheses",
+          "Mirrored wheel seed and singleton two-rainbow RESULT.md passages",
+          "Frozen RESULT.md transition proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-hub states reduce exactly to proper three-colour cyclic words with a singleton. For C5 every proper three-colouring has multiplicities (2,2,1), so the singleton restriction is vacuous only in that exceptional case among n≥5.",
+          "The targeted PCF query returned arXiv:2608.10874v1; its abstract and opening concern PCF colourability and structural bounds. The ordinary 3-colouring cycle-weight lookup returned no full-text source for a specific equivalent pentagonal census."
+        ],
+        "reasoning": "The reduction to cyclic words is an actual equivalence with a constrained ordinary recolouring subgraph. At n=6 and above ordinary proper recolouring does not in general preserve the singleton, so a theorem classifying ordinary components does not thereby classify the needed induced subgraph.",
+        "searches": [
+          "\"proper conflict-free coloring\" wheel reconfiguration wheel universal vertex singleton color",
+          "Local Resultary semantic lookup for wheel state counts and optimal PCF single-site transition graphs",
+          "Cereceda van den Heuvel Johnson Finding paths between 3-colorings cycle weight components 5-cycle reconfiguration PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct near matches e08c9a017a67 and 90f832f169a9 are respectively wheel singleton two-rainbow domination and the wheel partial-seed forcing census, not tables of the optimal PCF transition graph. The related prism PCF census counts states for another graph family."
+        ],
+        "reasoning": "The exact graph decomposition, not merely a chromatic number, is the invariant under review. Neither table of other wheel objects specifies the state set and edge rule needed here.",
+        "searches": [
+          "Resultary index for wheel exact component or census results, named optimal PCF and one-site moves"
+        ]
+      },
+      "rationale": "The all-order optimal PCF transition classification is distinct from scalar PCF chromatic-number results and from wheel state or seed counts. Credit the known universal-hub PCF mechanism and ordinary 3-colouring where it coincides: the pentagonal fixed-hub case is exactly ordinary three-colour reconfiguration of C5 and is not in itself a new PCF mechanism. The six-cycle components at n=6 and universal freezing for n≥7 are where preservation of the singleton imposes additional structure.",
+      "residual_risks": [
+        "The cited modular-decomposition paper was not accessible; ordinary colour reconfiguration is directly relevant to the pentagonal special case, and the literature search did not supply a verified exact census for that special case.",
+        "A focused local and primary-literature comparison does not establish priority among all reconfiguration treatments or unindexed cyclic-word formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a scalar optimum for perfect cores; not the optimal PCF reconfiguration graph.",
+          "evidence": [
+            "The result gives the PCF chromatic number of the cone over a perfect graph, including C3 and even cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03906",
+          "material_read": "OA PDF p. 16, §4.6, Theorem 22, offset near 68601.",
+          "method": "Bounded OA statement inspection.",
+          "title": "Proper Conflict-Free Coloring on Structured Graph Classes: Bounds, Exact Algorithms, and Hardness",
+          "trigger": "Universal-vertex PCF result and wheel chromatic-number antecedent."
+        },
+        {
+          "assessment": "Cycles without a hub, and a scalar invariant.",
+          "evidence": [
+            "Equation (2) gives the PCF chromatic number of C_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.01088v1",
+          "material_read": "§2.1, Eq. (2), offset near 9792.",
+          "method": "Bounded full-text passage inspection.",
+          "title": "Remarks on proper conflict-free colorings of graphs",
+          "trigger": "Primary cycle PCF antecedent."
+        },
+        {
+          "assessment": "Inspected overview concerns complexity, algorithms, and scalar colourability; no whole-document exclusion inferred from keyword misses.",
+          "evidence": [
+            "The abstract gives structural bounds and algorithms for specified graph classes, rather than an optimal-state transition theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.10874v1",
+          "material_read": "OA PDF opening, offset 0 through 4428; targeted literal probes for wheel and reconfiguration produced no matches.",
+          "method": "Read abstract and opening and located potential terminology in extracted text.",
+          "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+          "trigger": "Primary literature hit on proper conflict-free colourability in graph classes."
+        },
+        {
+          "assessment": "The article's exact theorem-level relationship remains unchecked; the observable difference in transition rules is independent of that article.",
+          "evidence": [
+            "No source-level conclusion drawn from the retrieval failure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.70005",
+          "material_read": "No article full text retrieved.",
+          "method": "Attempted OA retrieval, HTTP 403.",
+          "title": "Recoloring via Modular Decomposition",
+          "trigger": "Cited ordinary proper recolouring comparison, with possible partial applicability where PCF agrees with properness."
+        },
+        {
+          "assessment": "Different states and moves, not an equivalent classification.",
+          "evidence": [
+            "It counts initial partial seedings under forced continuation, not PCF-preserving moves on complete assignments."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-forced-four-colouring-polynomial-and-sharp-seed-census-of-wheel--90f832f169a9",
+          "material_read": "Mirrored RESULT.md, beginning at offset 0.",
+          "method": "Bounded mirror read of the state and forcing definitions.",
+          "title": "Forced four-colouring polynomial and sharp seed census of wheel graphs",
+          "trigger": "Exact wheel counting result with four colours and a graph rule."
+        },
+        {
+          "assessment": "Different graph invariant, not an equivalent claim; same-date indexing says nothing about priority.",
+          "evidence": [
+            "It counts minimum singleton two-rainbow dominating functions on wheels, not proper conflict-free colouring transitions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-regime-census-of-minimum-singleton-two-rainbow-funct--e08c9a017a67",
+          "material_read": "Mirrored RESULT.md, claim near offset 0.",
+          "method": "Bounded mirror read of the object being counted.",
+          "title": "Sharp three-regime census of minimum singleton two-rainbow functions on wheels",
+          "trigger": "Exact wheel census with singleton and regime terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The connected-component structure, not just a count of states or the known optimum, answers when two optimal wheel colourings can be joined without losing a conflict-free witness. It identifies the exact mobile heaps of states at the two exceptional lengths and a permanent freezing boundary. This is a natural full-family reconfiguration benchmark with precise invariants, restricted to named colours and elementary moves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The legal-word recurrence and integer bijection agree term for term with the source-defined \(f\)-sequence. The bounded-zero-run automaton exactly enforces the gap rule, and a sufficiently long single-one word realizes every endpoint of the period matrix, proving primitivity. Analytic Perron perturbation supplies linear mean and variance; the Poisson martingale decomposition establishes that zero asymptotic variance would make every closed-walk reward equal its length times a common mean. The all-zero closed walk and a one-selection closed walk contradict this. The interval law is exactly one plus the preceding-prefix law. Standalone exhaustive checks support but cannot replace these proofs.
+## correctness
 
-## Originality — PASS, subject to residual risk
-The principal 2013 paper asks explicitly in Section 5(3) if arbitrary periodic \(f\)-decompositions are Gaussian; it proves only selected periodic patterns. The broad 2003 Bertoni–Choffrut–Goldwurm–Lonati symbol-count central limit theorem assumes a primitive homogeneous *one-symbol* transition matrix; the natural phase-augmented digit automaton here has period \(m\), while the primitive period-block matrix has rewards \(0,1,\ldots,m\). Thus it does not literally supply the universal specific theorem without a reduction and nondegeneracy check; those steps are proved here. A different encoding could make the result an unreported corollary of general regular-language theory, and that is a material residual novelty risk. Published mathematical sources checked did not state an exact or dominating all-periodic assertion; absence from checked sources is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The result resolves the arbitrary-periodic case of a numbered, explicitly published question, with no excluded positive period, including zero forbidden gaps and patterns with forbidden distance greater than the period. Strict positivity of the variance makes the conclusion nondegenerate and useful for all growing decomposition intervals. This is more than a routine specialization to one chosen period.
+Induction on the largest index partitions legal sums into [0,a_j) and a_j+[0,a_(j−f(j))), also when the second interval has length 1. Thus the uniform integer law is the uniform legal-word law. The capped gap automaton is exact, including F=0 (both choices go to the same state and weights add). With enough whole periods, zeros bring any state to F, and a single 1 followed by exactly s<F zeros reaches s; the all-zero word reaches F. Therefore the period matrix is primitive. Its simple Perron eigenvalue and analytic spectral projection give the normalized quasi-power with uniform analytic error at each of the finitely many residue classes. The stationary weighted-edge moment generating matrix is diagonally conjugate to P(e^t)/λ(1), so its first two limiting log derivatives are the same. The Poisson equation splits centered rewards into martingale differences plus a bounded boundary term. Zero rate would force each cycle reward to be its length times the mean; the zero loop and a longer returning walk with one 1 contradict this. A positive-reward edge has positive stationary mass, giving positive mean. Taylor expansion gives the CLT with exact centering/scaling, and subtracting a_n on the adjacent interval gives exactly 1+X_(n−f(n)) for large n. The supplied verifier was inspected, not run; a separate bounded enumeration of patterns (0) and (0,3,1) through n=10 corroborated the two interval bijections only. The exact finite check can be replayed by enumerating binary words on the relevant indices, retaining those satisfying the pair exclusion and testing that their subset sums list each indicated integer exactly once. It is not evidence for uniformity or a limit as f varies.
 
-## Literature and limits
-Original question: Demontigny et al., arXiv:1309.5599v1, Section 5(3). Strongest generic comparison: Bertoni et al., Theoretical Computer Science 302 (2003), Theorems 2–4, DOI 10.1016/S0304-3975(02)00892-7. Further context: arXiv:1409.0488v1 and arXiv:1309.5600v1. Complete mathematical proof for each fixed period does not give nonperiodic cases, a uniform rate, or independent validation. Subsequent regular-language literature could contain an equivalent statement not found.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is the all-periodic conclusion, with nondegeneracy verified for every fixed nonnegative gap pattern and both sampling intervals. The primary f-decomposition paper asks this question explicitly after proving a special b-bin case. The Kentucky theorem covers a second explicit pattern. Standard analytic automaton methods are not claimed as new: the substantive application is the general periodic gap automaton and its gap-rule-specific certificate of strict positivity, which does not follow merely from an unqualified invocation of a quasi-power theorem. I did not find a substantiated stronger claim that already solves the periodic f question; the closely relevant 2003 symbol-count theorem's full statement was not retrievable in the identified lawful copies.
+
+## value
+
+PASS
+
+This resolves a natural question posed for the entire periodic family rather than computing another bin example. The positivity argument rules out hidden exceptional patterns, and the finite matrix gives usable mean and variance constants for any fixed list of gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

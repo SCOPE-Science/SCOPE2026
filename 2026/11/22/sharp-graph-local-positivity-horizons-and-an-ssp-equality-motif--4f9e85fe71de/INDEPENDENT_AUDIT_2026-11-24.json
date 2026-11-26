@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:58:55.990613Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–63",
+        "VERIFICATION.md:19–27",
+        "verify.py:9–72 (inspected, not executed)"
+      ],
+      "rationale": "For i≠j the entry is h(a_ij−hΔ_ij/2); missing edges and edges with Δ_ij≤0 cannot constrain h≥0. The diagonal is at least [1+(1−hλ_i)^2]/2, and row sums are one. In a row of maximal exit rate M>0 the diagonal exceeds one for h>2/M, so some constraining edge exists. Every constraining entry stays negative after its first positive zero, which proves the entire interval, not just a first crossing. Dividing Δ_ij by a_ij gives a denominator at most 2M, with equality exactly when both exits are maximal and the two-step alternative has zero weight. The star has threshold 2/(m+1); even exact equality in the upper universal bound is possible for a single one-way edge to an absorbing vertex. Q=0 is handled separately; the regular common-neighbor formula is for d>0.",
+      "residual_risks": [
+        "Finite rational assertion groups are supporting diagnostics, not needed for the proof for real rates. This result does not certify intermediate-stage positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth's accessible abstract describes largest positivity step sizes for positive IVP settings and thresholds for classes of RK methods; it does not state the fixed-generator criterion.",
+          "The frozen literature account identifies absolute monotonicity of scalar stability functions and the generic coefficient-one SSP decomposition as antecedents."
+        ],
+        "reasoning": "A sufficient uniform threshold over a class or an absolute-monotonicity radius is not an exact per-generator endpoint horizon. A stronger full-text Horváth implication could not be excluded.",
+        "searches": [
+          "Horváth 2005, DOI 10.1016/j.apnum.2004.08.026",
+          "arXiv:1303.6651",
+          "arXiv:1403.6519"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e295dbcc047e, 0aa3ec090e79, 01bb6b2f127c, 2c9867ce7a18, 395a6d422888",
+        "Horváth 2005 (abstract)",
+        "RESULT.md:69–85 (frozen descriptions of SSP and absolute monotonicity; independent OA attempts did not recover those texts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular bipartite/path-gap criteria give sharpness on restricted classes. The exact regular formula uses a constant exit rate and common-neighbor counts.",
+          "The directed equality condition simultaneously needs two maximal exits and vanishing weighted two-step alternatives, and applies without regularity or symmetry."
+        ],
+        "reasoning": "Neither the restriction to regular graph polynomials nor a class-wide sufficient coefficient establishes the arbitrary fixed-generator if-and-only-if. No checked statement already yields the supported general claim.",
+        "searches": [
+          "Resultary records 2c9867ce7a18 and e295dbcc047e",
+          "Horváth 2005 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The degree-two, order-two RKL2 stability polynomial is uniquely 1+z+z²/2; the RKL2 catalogue formula 2/(2d−t) is exactly the connected unweighted regular specialization.",
+          "The Euler product at duration h has quadratic coefficient h1*h2≤h²/4, not h²/2."
+        ],
+        "reasoning": "RKL2 is mathematical overlap on its reported class, regardless of same-day order; Euler products are a different map, not a change of notation for the present result.",
+        "searches": [
+          "Resultary record e295dbcc047e (two-stage RKL2 heat flow)",
+          "Resultary record 395a6d422888 (two Euler substeps)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete multipartite catalogue entry gives degree-two horizon 2/N, including the star with N=m+1; the regular RKL2 entry gives the reported d,t formula; the path-parity entry gives sharp Euler-bound cases."
+        ],
+        "reasoning": "These are real exact-value overlaps on graph families, not an entry for the unrestricted question over arbitrary real edge rates. A finite graph-value table could not certify that quantified claim.",
+        "searches": [
+          "Resultary records 0aa3ec090e79, 01bb6b2f127c, 2c9867ce7a18 and e295dbcc047e"
+        ]
+      },
+      "rationale": "The supported distinction is the exact all-step horizon and necessary-and-sufficient SSP-equality motif for an arbitrary fixed finite directed weighted generator. The unweighted regular graph restriction and the star limiting witness have concrete catalogue overlap and are not credited as original. The available older threshold literature did not establish the full directed weighted result; this is a best-of-knowledge decision.",
+      "residual_risks": [
+        "No full-text comparison with Horváth (2005) was possible; it is a material historical coverage risk.",
+        "Catalogue comparisons use available mathematical summaries and do not exclude extensions in uninspected text; same-day order is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausibly relevant; coverage unresolved",
+          "evidence": [
+            "Abstract addresses largest positivity step sizes for positivity-preserving IVPs and method classes; fixed linear-generator theorem and proof not visible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Accessible abstract and landing metadata; no full text recovered",
+          "method": "Primary literature lookup and bounded lawful OA retrieval attempt",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Plausible general exact positivity-threshold antecedent"
+        },
+        {
+          "assessment": "Confirmed statement-level overlap on connected regular graphs; same-day publication order not inferred",
+          "evidence": [
+            "Summary gives 2/(2d−t) with minimum edge triangle count t."
+          ],
+          "identifier_or_url": "Resultary e295dbcc047e",
+          "material_read": "Indexed mathematical summary; matching full text unavailable on attempted read",
+          "method": "Resultary catalogue; targeted mirror/OA lookup",
+          "title": "A sharp spectral-to-positivity gap for two-stage RKL2 heat flow",
+          "trigger": "Same endpoint polynomial and exact regular graph horizon"
+        },
+        {
+          "assessment": "Restricted-class overlap",
+          "evidence": [
+            "Degree-two radius 2/N with N total vertices implies the assigned star formula and its limiting normalized factor."
+          ],
+          "identifier_or_url": "Resultary 0aa3ec090e79",
+          "material_read": "Indexed mathematical summary",
+          "method": "Resultary catalogue comparison",
+          "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+          "trigger": "Exact degree-two horizon including every star witness"
+        },
+        {
+          "assessment": "Restricted exact-threshold/motif antecedent",
+          "evidence": [
+            "Sharp 1/d on weighted regular bipartite graphs under the reported diameter condition."
+          ],
+          "identifier_or_url": "Resultary 2c9867ce7a18",
+          "material_read": "Indexed mathematical summary; frozen RESULT.md:73 description",
+          "method": "Resultary catalogue and frozen literature account",
+          "title": "A path-parity certificate for sharp positivity loss in Taylor diffusion",
+          "trigger": "Euler-bound sharpness criterion"
+        },
+        {
+          "assessment": "Different step polynomial",
+          "evidence": [
+            "Two nonnegative Euler substeps at fixed total h cannot produce quadratic coefficient h²/2."
+          ],
+          "identifier_or_url": "Resultary 395a6d422888",
+          "material_read": "Indexed mathematical summary and frozen RESULT.md:73 comparison",
+          "method": "Resultary catalogue and direct polynomial comparison",
+          "title": "A triangle-count law for positive two-stage Euler supersteps on regular graphs",
+          "trigger": "Triangle counts in two-stage graph positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:18–30, 34–63",
+        "Resultary e295dbcc047e and 2c9867ce7a18 for restricted antecedents"
+      ],
+      "rationale": "This turns a uniform sufficient time-step rule into an exact per-generator admissibility test and identifies the specific local bottleneck that prevents a larger completed step. The one-way-edge and star regimes explain why the generic bound can miss by a factor of two. The useful content is the complete directed classification, not the standard SSP decomposition or a triangle count alone.",
+      "residual_risks": [
+        "No claim of accuracy or improved internal-stage stability at the larger steps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verify_rb.py` to reproduce the finite-field checks without third-party packages. The checker uses native modular arithmetic for prime fields and explicit irreducible quadratic polynomials for \(\mathbb F_4\) and \(\mathbb F_9\). It builds the operator by triangular expansion in the vectors \(t^ia^j\), projects onto \(k[a]\), and applies truncated integration, then verifies the Rota–Baxter identity on all ordered pairs of basis monomials. By bilinearity this verifies each tested operator on the entire finite algebra.
+## correctness
 
-The program reports `VERIFICATION_OK 1204` after 1,204 constructed operators in 24 field/truncation configurations, with some large-value sets sampled to a stated cap of 300. It independently enumerates every linear map and checks the predicted **set of attainable unit values** in five exhaustive configurations: \((q,N)=(2,2),(2,3),(2,4),(3,2),(3,3)\). The respective counts of all valid operators are 2, 4, 24, 3, and 15; the numbers of distinct unit values are 2, 2, 4, 3, and 9.
+PASS
 
-The decisive universal verification is the proof: any \(P(1)\) satisfies the divided-power \(p\)-nilpotence relation, and for each nilpotent target \(a\) the projection–integration composition is an explicit witness. Nonzero leading-degree coefficients are inverted only where those coefficients are units; factorial denominators involved are at most \(p-1\) and therefore invertible. This accounts for every field of characteristic \(p\), not only tested finite fields. The coefficient-matrix formula also proves regular dependence on the reduced valuation strata.
+For b_j=P^j(1), the weight-zero identity inductively gives b₁b_j=(j+1)b_(j+1), so P(1)^p=p!b_p=0. If a≠0 has valuation r, its p-th power is zero exactly when pr≥N (its leading coefficient remains nonzero over any field). For sufficiency the t^i a^j with 0≤i<r and i+rj<N are a triangular basis with unit leading coefficients. The group for each i is invariant under a, since the last basis vector maps to zero by truncation; hence the projection π onto i=0 is k[a]-linear. The target subalgebra has length L=ceil(N/r)≤p. Truncated integration a^j↦a^(j+1)/(j+1), zero at the top, uses only 1 through L−1. On a pair a^i,a^j the two sides have common degree i+j+2 and vanish if that degree is truncated, including if an input is top degree. Otherwise the integration denominators are units and the usual reciprocal identity applies. The subalgebra-linearity of π pulls the identity for integration back to the whole algebra, giving P(1)=a. This argument works over the coordinate ring k[a_r,a_r^(-1),a_(r+1),…,a_(N−1)] itself: the triangular diagonal is invertible there and exactly the same basis, projection and multiplication identities apply. This proves the section as a morphism, not just by agreement at field points. The zero section and the finite-field count follow. An independent enumeration of all linear maps in the five listed prime-field/truncation configurations reproduced valid-operator counts 2, 4, 24, 3, 15 and distinct unit-value counts 2, 2, 4, 3, 9, with the exact predicted sets.
 
-No full enumeration of operators, their scheme components, their global moduli space or their total finite-field number is claimed. Finite experiments are not substitutes for the exact proof. Independent audit has not been performed.
+## originality
+
+PASS
+
+The divided-power obstruction, the square-zero case, and additional low-depth/rank-one sectors are covered and are not counted as new. The inspected results do not imply the arbitrary-depth converse for elements with a^p=0 but a²≠0, nor the general regular valuation-stratum sections. For example, p=3, N=6, a=t² is on the claimed locus but a²=t⁴≠0; a rank-one operator with this unit value cannot satisfy a²=2P(a), since its image would be ka and a² is not proportional to a. No dominating arbitrary-depth, all-positive-characteristic locus theorem was found in the bounded comparison.
+
+## value
+
+PASS
+
+Evaluation at the unit is a natural invariant of a unital Rota–Baxter algebra. The universal necessary obstruction alone leaves it unclear whether a prescribed generator can be realized on the fixed ambient algebra. Solving that realization problem for all depths and giving regular families of witnesses makes the result useful for constructions and moduli comparisons. The predictable finite-field count is a consequence, not the sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

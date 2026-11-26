@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python check_weighted_lse.py` with standard Python 3. The program constructs log-sum-exp by shifted exponentials, computes its exact analytic Jacobian in floating arithmetic, evaluates step-column operator norms, checks random real finite-pair inequalities, checks concentrated near-extremal profiles and finite equality pairs. Its output was:
+## correctness
 
-```
-FINITE_JACOBIAN_AND_TWO_INPUT_CHECKS_PASS 9800
-SHARPNESS_AND_TEMPERATURE_TESTS_PASS 48
-FINITE_NONEXPANSIVE_EQUALITY_CHECKS_PASS 12
-ALL_WEIGHTED_LOGSUMEXP_VARIATION_CHECKS_PASS
-```
+PASS
 
-These checks are finite corroboration only. The rigorous universal bound, sharpness and nonattainment are proved algebraically in `RESULT.md`. Python floating-point tolerances are explicitly used, not presented as exact-rational certificates. The theorem does not claim any independent external audit or publication priority certification.
+Modulo constants, input adjacent differences are the coefficients of suffix steps, so the exact induced variation norm of the derivative is the largest variation of a step column. A full column is 0,p,q,1; a truncated column has no greater variation. Set X=u_(k-1), Y=u_k for the two shared exponentials. The only possible decrease p-q is bounded by P-Q=(ac-b²)XY/((bX+cY)(aX+bY)). When this is positive, minimizing the denominator divided by XY gives (sqrt(ac)+b)² at X/Y=sqrt(c/a). Integrating derivatives along the input segment proves the two-input bound. The cut k=4 exists already at n=6 and places both outside values 0 and 1 in the output. In the nonexpansive regime the column is monotone at all finite base points, so a finite suffix step gives equality. In the expansive regime sending the two nonshared exponentials to zero yields the extreme derivative value in the limit; small finite perturbations then approach it. On every fixed finite segment the shared-mass bound is strict at all potentially descending columns, uniformly by continuity and compactness; hence no finite attainment. Temperature independence follows also from F_tau(x)=tau F_1(x/tau). Independent exact tests of finite pairs use rational exponentials and compare powers of products of adjacent ratios, without evaluating logarithms.
+
+## originality
+
+PASS
+
+The distinct contribution is the sharp amplification law and attainment classification for fixed relative-position taps on an open path. Classical smoothing and monotone-likelihood-ratio results account for components of the proof, especially the nonexpansive side; neither supplies the expansive law. The nearest published records differ in topology, map or reported sharp coefficient. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+This is a natural two-signal stability problem for a nonlinear local smoother. The threshold alone would leave the severity and realizability of instability unanswered. The exact gain from one overlap reversal, its near-three limit for a small middle tap, and a strict distinction between finite equality and concentration in the limit answer those questions within a complete three-tap classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

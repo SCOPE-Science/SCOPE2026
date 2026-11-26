@@ -2,102 +2,63 @@
 
 ## Finding
 
-Let \(H(N)\) count unordered three-element subsets \(\{a,b,c\}\) of distinct squarefree integers in \(\{2,\ldots,N\}\) such that, for **every** prime \(p\), at least one of \(a,b,c\) is a square modulo \(p\), with zero counted as a square. As \(N\) tends to infinity through positive integers,
-
+Let \(H(N)\) count unordered three-element subsets of the squarefree integers in \(\{2,\ldots,N\}\) such that for every prime \(p\) at least one of the three elements is a square modulo \(p\), with zero counted as a square. As \(N\to\infty\),
 \[
-H(N)=\left(\kappa+o(1)\right)N^{3/2},\qquad
-\kappa=\frac{2}{3}\prod_{p\ \mathrm{prime}}\left(1-\frac1p\right)^3\left(1+\frac3p\right)
-=0.0765897\ldots.
+H(N)=(\kappa+o(1))N^{3/2},\qquad
+\kappa=\frac23\prod_{p\ \mathrm{prime}}(1-p^{-1})^3(1+3p^{-1}).
 \]
-
-The Euler product is absolutely convergent and strictly positive. For each integer \(N\ge 2\), there is also the exact finite count
-
+The Euler product converges absolutely to a positive number. For every integer \(N\ge2\) the exact count is
 \[
 H(N)=\sum_{\substack{1\le u<v<w\\vw\le N}}\mu^2(uvw).
 \]
 
-This is a sharp leading-term count, not a claim of a power-saving error term.
-
 ## Assumptions and scope
 
-The elements are **positive, pairwise distinct, squarefree and greater than one**; they need not be pairwise coprime. The word square modulo a prime includes the residue zero. The count is of unordered sets, not ordered triples. The property is required for all primes, although in this domain it is equivalent to the property for all but finitely many primes. The source context is Mishra's 2023 study of finite sets containing a power residue for almost every prime, whose primary MSC2020 includes 11A15.
+The elements being counted are positive, distinct, squarefree and strictly greater than one; they need not be pairwise coprime. This is a count of sets, not of ordered triples. On this domain the every-prime condition is equivalent to the almost-every-prime condition. The asymptotic gives the leading term only.
 
 ## Proof
 
-**1. Prime-residue condition.** For positive squarefree \(a,b,c>1\), none is an integer square. Fried's criterion, in the formulation of Mishra's Proposition 2.1, asserts that a finite set of nonzero integers contains a square modulo almost every prime precisely when an odd-cardinality subproduct is an integer square. With three elements and no square singleton, this says exactly that \(abc\) is a square. Conversely, if \(abc\) is a square, then for primes dividing \(abc\) one of the three residues is zero, and at primes coprime to \(abc\) the product of their three Legendre symbols is \(+1\), so the symbols cannot all be \(-1\). Hence \(abc\) square is also sufficient for **every** prime, without exceptions.
+**1. Reduction to square products.** The Fried–Filaseta–Richman criterion, as stated by Mishra [1, Proposition 2.1], says that a finite set of nonzero integers contains a square modulo almost every prime precisely when the product of some odd-cardinality subset is an integer square. Here no singleton is square, so necessity reduces to \(abc\) being square. For sufficiency, the prime 2 is automatic. If an odd prime divides \(abc\), one entry is zero modulo that prime; otherwise the three Legendre symbols have product \(+1\), so they cannot all be \(-1\). This proves the every-prime statement.
 
-**2. Unique parameterization.** Write the three elements in increasing order \(a<b<c\). As each is squarefree, the condition that \(abc\) is a square means that every prime divides either none or exactly two among \(a,b,c\). Set
+**2. Unique factor coordinates.** Order the elements as \(a<b<c\). Because each is squarefree, every prime occurs in exactly zero or two entries. The factors \(u=\gcd(a,b)\), \(v=\gcd(a,c)\), \(w=\gcd(b,c)\) therefore have squarefree product and give \((a,b,c)=(uv,uw,vw)\). The order and height are exactly \(1\le u<v<w\) and \(vw\le N\). Conversely these bounds together with squarefreeness of \(uvw\) produce three distinct squarefree elements, none equal to one, and their product is square. These maps are inverse and give the exact sum.
 
+**3. Region volume and cusp bound.** Put \(X=\sqrt N\) and \(\mathcal R=\{(x,y,z)\in\mathbb R_{>0}^3:x<y<z,\ yz\le1\}\). Then
 \[
-u=\gcd(a,b),\quad v=\gcd(a,c),\quad w=\gcd(b,c).
+\operatorname{vol}(\mathcal R)=\int_0^1\int_y^{1/y}y\,dz\,dy=\frac23.
 \]
-
-These three positive integers have pairwise disjoint prime supports and are squarefree, and
-
-\[a=uv,\quad b=uw,\quad c=vw.\]
-
-The inequalities \(a<b<c\) give \(u<v<w\), and the height restriction is exactly \(vw\le N\). Conversely any such \(u,v,w\) with squarefree product produces one admissible set. This proves the exact identity for \(H(N)\).
-
-**3. Archimedean volume and tail.** Put \(X=\sqrt N\) and consider
-
+For \(B\ge1\), cutting at \(z=B\) removes volume \(1/(2B)\) by integrating \(\int_0^{1/z}y\,dy\) over \(z>B\). The number of integer points with \(w>BX\), even without arithmetic restrictions, is at most
 \[
-\mathcal R=\{(x,y,z)\in\mathbb R_{>0}^3:x<y<z,\ yz\le1\}.
+\frac12\sum_{w>BX}(N/w)^2=O(N^{3/2}/B).
 \]
+Indeed for fixed \(w\) there are at most \(\binom{\lfloor N/w\rfloor}{2}\) increasing pairs \(u<v\).
 
-Its finite volume is
-
-\[
-\operatorname{vol}(\mathcal R)=\int_0^1\int_y^{1/y}\int_0^y dx\,dz\,dy
-=\int_0^1(1-y^2)dy=\frac23.
-\]
-
-For \(B\ge1\), the truncated region \(\mathcal R_B=\mathcal R\cap\{z\le B\}\) has volume \(2/3-1/(2B)\). Moreover, disregarding squarefreeness, lattice points with \(w>B\sqrt N\) are bounded by
-
-\[
-\frac12\sum_{w>B\sqrt N}\left(\frac Nw\right)^2
-=O(N^{3/2}/B).
-\]
-
-Thus no mass escapes toward the unbounded cusp.
-
-**4. Local squarefree sieve.** For a fixed prime \(p\), requiring that \(uvw\) be squarefree permits either no coordinate divisible by \(p\), or exactly one coordinate divisible by \(p\) to valuation one. Counting classes modulo \(p^2\) gives the local probability
-
+**4. Local density and removal of the prime cutoff.** Modulo \(p^2\), squarefreeness of the product allows no coordinate divisible by \(p\), or exactly one coordinate with valuation one. The density is
 \[
 \delta_p=(1-p^{-1})^3+3(p^{-1}-p^{-2})(1-p^{-1})^2
 =(1-p^{-1})^3(1+3p^{-1}).
 \]
-
-In particular \(\delta_p=1+O(p^{-2})\), and all factors are positive, so \(\prod_p\delta_p\) converges to a positive constant.
-
-For a fixed cutoff \(Y\), the Chinese remainder theorem makes the combined local probability \(\prod_{p\le Y}\delta_p\). On the bounded Jordan-measurable region \(X\mathcal R_B\), lattice points in each fixed residue class modulo \(\prod_{p\le Y}p^2\) are equidistributed after division by \(X^3\). Therefore the count satisfying the local conditions up to \(Y\), divided by \(N^{3/2}\), tends to
-
-\[\operatorname{vol}(\mathcal R_B)\prod_{p\le Y}\delta_p.\]
-
-To remove the cutoff, every offending prime \(p>Y\) has either \(p^2\) dividing one coordinate or \(p\) dividing two different coordinates. Inside the box \((0,BX]^3\), for fixed \(p\), the first type accounts for at most \(3(BX)^3/p^2\) lattice points and the second for at most \(3(BX)^3/p^2\); contributions vanish when the requisite modulus exceeds \(BX\). Consequently the union bound over all \(p>Y\) is
-
-\[O(B^3N^{3/2}/Y),\]
-
-uniformly in \(N\). First let \(N\to\infty\) with fixed \(B,Y\), then let \(Y\to\infty\) and finally \(B\to\infty\). The tail bound and the sieve estimates yield
-
-\[\lim_{N\to\infty}\frac{H(N)}{N^{3/2}}=\frac23\prod_p\delta_p.\]
+These factors are positive and \(1+O(p^{-2})\), giving an absolutely convergent positive product. Fix \(B\ge1\) and \(Y\ge2\), and write \(\mathcal R_B=\mathcal R\cap\{z\le B\}\). The region \(\mathcal R_B\) is bounded and Jordan measurable. Equidistribution by Riemann sums in each residue class modulo the fixed integer \(\prod_{p\le Y}p^2\), together with the Chinese remainder theorem, gives the truncated density
+\[
+\lim_{N\to\infty}X^{-3}\#\{(u,v,w)\in X\mathcal R_B\cap\mathbb Z^3:\ p^2\nmid uvw\ \text{for all primes }p\le Y\}
+=\operatorname{vol}(\mathcal R_B)\prod_{p\le Y}\delta_p.
+\]
+An offending prime \(p>Y\) either divides two distinct coordinates or has its square dividing one coordinate. In \((0,BX]^3\), the number of nonzero integer points for each of the six choices of pattern is at most \((BX)^3/p^2\), using \(\lfloor BX/p^j\rfloor\le BX/p^j\) for \(j=1,2\). Summation over \(p>Y\) therefore costs \(O(B^3X^3/Y)\), uniformly in \(N\). First send \(N\to\infty\), then \(Y\to\infty\) at fixed \(B\), and finally \(B\to\infty\), using the cusp bound. This gives the asserted leading constant.
 
 ## Verification
 
-The accompanying standalone `check.py` performs two separate integer enumerations: one from the \(u<v<w\) factorization and another directly over all distinct squarefree triples using an exact integer-square test. Both agree at heights \(30,100,200,300\): respective counts are \(12,77,222,422\). Factor enumeration additionally gives \(2491\) at \(N=1000\), \(12775\) at \(N=3000\), and \(77719\) at \(N=10000\). The finite-prime Euler product through \(p\le100000\) gives \(0.076589731381\); this decimal is numerical, not a certified error bound for the full product. The proof above, rather than these computations, establishes the infinite statement.
+The accompanying `check.py` compares direct integer-square tests on squarefree triples and the factor enumeration at heights \(30,100,200,300\), obtaining \(12,77,222,422\). Factor enumeration gives \(2491,12775,77719\) at \(1000,3000,10000\), respectively. The value \(0.076589731381\) in `check_results.txt` is the prime product with the factor \(2/3\) truncated at \(p\le100000\); it is not a decimal expansion of \(\kappa\) to the displayed precision. The finite checks are diagnostic; the proof supplies the infinite-product formula and asymptotic.
 
 ## Relationship to prior work
 
-Mishra's first public 2023 preprint, *Almost No Finite Subset of Integers Contains a qth Power Modulo Almost Every Prime*, proves a generic upper bound on sets with a power-residue covering property and states the Fried–Filaseta–Richman odd-subproduct criterion. For three elements and squares, its generic \(O(N^{5/2})\) bound does not imply the exact squarefree \(N^{3/2}\) asymptotic or its Euler product.
-
-Tao's first public 2024 work, *On Product Representations of Squares*, recalls the standard \(a=uv,b=uw,c=vw\) representation when discussing extremal sets that avoid square products. The parameterization is therefore not claimed as new here. The inspected article does not state the present complete squarefree-triple count or its constant. Erdős–Sárközy–Sós (1995) study maximum sizes of square-product-free sets, while Skałba (2010) proves Ramsey and density thresholds forcing square-product triples; their stated theorems concern existence/extremality, not this count.
+Mishra [1] gives the general odd-subproduct criterion and a generic upper bound on the number of such residue-covering sets; the bound for triples and squares does not yield the leading squarefree count. The standard pairwise-product coordinates occur in Tao [2, §1, equation (1.3)] in the setting of extremal sets avoiding square products. Erdős–Sárközy–Sós [3] and Skałba [4] concern extremal or forcing problems rather than the exact count of all squarefree triples at a common height. The contribution here is the sharp squarefree counting asymptotic with the explicit volume and local factors, not the residue criterion or factor coordinates themselves. The comparison does not establish exhaustive historical priority.
 
 ## Limitations
 
-Originality is assessed relative to the inspected primary literature and mathematical-record searches; unlocated implicit equivalents in broader multiplicative extremal-set literature remain possible. This is a leading asymptotic only: no effective uniform remainder, finite-height bound, or equidistribution theorem in other coordinate constraints is asserted. This work has not received independent mathematical validation.
+The exclusion of one is essential: a triple containing one automatically covers every prime. No error rate, results for longer sets or results for a different height region are asserted.
 
 ## References
 
-1. B. Mishra, *Almost No Finite Subset of Integers Contains a qth Power Modulo Almost Every Prime*, arXiv:2308.13167, first submitted 25 August 2023, Proposition 2.1 and Theorem 1.1. https://arxiv.org/abs/2308.13167
-2. T. Tao, *On Product Representations of Squares*, arXiv:2405.11610 (2024), §1 and equation (1.3). https://arxiv.org/abs/2405.11610
+1. B. Mishra, *Almost No Finite Subset of Integers Contains a qth Power Modulo Almost Every Prime*, arXiv:2308.13167, Proposition 2.1 and Theorem 1.1. https://arxiv.org/abs/2308.13167
+2. T. Tao, *On Product Representations of Squares*, arXiv:2405.11610, §1, equation (1.3). https://arxiv.org/abs/2405.11610
 3. P. Erdős, A. Sárközy and V. T. Sós, *On Product Representations of Powers, I*, European Journal of Combinatorics 16 (1995), 567–588. https://real.mtak.hu/110606/1/1-s2.0-019566989590039X-main.pdf
 4. M. Skałba, *Product of Three Numbers Being a Square as a Ramsey Property*, Colloquium Mathematicum 120 (2010), 1–5. https://doi.org/10.4064/cm120-1-1

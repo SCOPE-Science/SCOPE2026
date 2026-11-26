@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,35 +20,14 @@
 ---
 # Verification
 
-The bundled `verify.py` is a standard-library exhaustive verifier for all finite claims in the finding.
-
-It checks:
-
-- all 105 perfect matchings of \(K_8\);
-- all 416 one-factorizations containing the fixed factor \(01|23|45|67\);
-- exact partition validity for every factorization;
-- that every triangle in a one-factorization is trichromatic;
-- the exact histogram of the number of realized three-colour sets:
-  \(7^{\times2},11^{\times42},13^{\times28},17^{\times168},26^{\times112},35^{\times64}\);
-- for every one of the 416 instances, full qualitative coverage iff every pair of factors has Hamiltonian union;
-- the seven-matchings finite lemma used in the converse hand proof;
-- canonicalization under all vertex relabellings, yielding exactly six one-factorization classes and exactly one qualitative/perfect class;
-- the atom-permuting automorphism group of the good class, of order \(42\), with vertex-orbit sizes \(1,7\);
-- direct canonicalization of all eight seven-point deletions, yielding exactly two classes with multiplicities \(1,7\).
-
-The current run returns:
+Run `python3 verify.py`. This uses exact finite enumeration and the standard library only. Every one-factorization is isomorphic to one containing the fixed matching, since its factors are perfect matchings and all perfect matchings are equivalent under vertex relabelling. The script enumerates the fixed-factor exact covers and groups them by vertex relabellings. In every case it tests the equivalence of full triangle-triple coverage and pairwise Hamiltonian union. It constructs the affine representative separately and checks that its fixed-factor orbit is precisely the 64 factorizations with full coverage. It checks the full colour-permuting automorphism group, then recounts triangle triples **after** deleting each vertex of the affine representative. For the explicit triple \(\{2,4,5\}\), it checks that its sole witness is lost by deletion of \(0\).
 
 ```
-fixed_factor_factorizations=416
-isomorphism_classes=6
-triangle_triple_histogram={7: 2, 11: 42, 13: 28, 17: 168, 26: 112, 35: 64}
-qualitative_fixed_factor_instances=64
-qualitative_isomorphism_classes=1
-good_automorphism_group_order=42
-good_vertex_orbit_sizes=[1, 7]
-seven_point_deletion_classes=2
-seven_point_deletion_multiplicities=[1, 7]
-VERIFY_OK 164307 exact assertions
+fixed-factor census: 416 {7: 2, 11: 42, 13: 28, 17: 168, 26: 112, 35: 64}
+fixed-factor class sizes: [2, 28, 42, 64, 112, 168]
+automorphism order: 42 ; vertex orbit sizes: 1, 7
+restriction triple counts (finite vertices, then infinity): [29, 29, 29, 29, 29, 29, 29, 35]
+VERIFY_OK
 ```
 
-The verifier does not re-prove the published theorem that every seven-point qualitative representation uniquely extends to eight points; that infinite-literature dependency is isolated explicitly in the proof.
+The script verifies finite graph claims. The published structural theorem on base size and seven-to-eight point extension is the separate input identified in `RESULT.md`.

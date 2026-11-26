@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:11:59.324662Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76; VERIFICATION.md lines 19–23; verification.py lines 7–46 and 49–97."
+      ],
+      "rationale": "The span of Hermitian hopping eigenvectors vanishing on the sinks reduces both hopping and loss. On its orthogonal complement, taking the imaginary part of each lossy eigenvalue's Rayleigh quotient forces strictly negative imaginary part, since equality would force the eigenvector into that dark span. The finite-dimensional complementary semigroup therefore tends to zero, including in the presence of Jordan blocks. In the Bloch basis, degeneracy requires 2Φ=0 modulo 2π; a simple mode cannot vanish at a sink. In a doublet there is just one line of candidates, with a sine envelope around the first sink and divisibility condition N | (2k−p)(t−a). At zero flux this gives h frequencies before identifying opposite signs and deleting self-pairs. At half flux the solvability condition is N/g odd, and the g odd-frequency representatives give floor(g/2) doublets after deleting the possible unpaired zero-sine representative. Summing squared site amplitudes by the finite geometric-series identity gives the stated zero-flux profile and the enhanced half-flux survival at the even-g antipode. For the thresholds, each dark edge needs an effective congruence (odd p | N or mod 2 if 4 | N at zero flux). A shared congruence on two edges darkens the triple; three distinct congruences suffice by assigning a different equal pair in each modulus by CRT. At half flux an even cycle already forces every dark pair into the same full 2-power residue class, making the whole triple dark. For odd N both flux tests coincide. The least admissible sizes are 4·3·5=60 and 3·5·7=105; direct gcds give pair dimensions (2,4,1) and (1,2,3) at the respective claimed fluxes, with no collective dark state.",
+      "residual_risks": [
+        "This is a proof audit; the frozen numerical script was inspected, not executed. Its spectral tests are finite numerical corroboration; the cutoff scans use the arithmetic predicate and skip even half-flux lengths on the analytic argument. No finite-time decay or flux-robustness conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agliari–Mülken–Blumen give first-order losses for arbitrary unfluxed trap placements in the weak uniform loss calculation (even N in this section), and discuss persistent modes and mean survival for periodic placements."
+        ],
+        "reasoning": "Arbitrary placement in Eq. (22) is meaningful overlap; its scope is broader in number of traps than the two-sink indexed result but is not a magnetic all-flux or exact arbitrary-strength site-survival theorem.",
+        "searches": [
+          "arXiv:0903.3288v1 Section IV, Eq. (22) and Eqs. (23)–(26); local Resultary multi-sink and three-trap threshold search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0903.3288v1",
+        "Resultary 84c3bc481be5",
+        "Resultary 00e13d1db4cb",
+        "Resultary c167498f544b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero first-order branch in Eq. (22) requires the phase sum to have modulus M. Equality in the triangle inequality forces every exp(4πil m_j/N) to agree; this is precisely the unfluxed congruence for the corresponding doublet and already supplies exact dark eigenvectors there. Pairwise gcd predicates are already available from the two-sink finding."
+        ],
+        "reasoning": "The zero-flux dark-mode criterion is materially implied for the overlapping scope. Neither prior statement supplies the shared-congruence obstruction, the matching CRT construction for every admissible size, or the even half-flux no-go and resulting joint minimum.",
+        "searches": [
+          "arXiv:0903.3288v1 Eq. (22); 84c3bc481be5 prior two-trap resonances"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "84c3bc481be5's Finding uses gcd(N,2(b−a)) at zero flux and gcd(N,b−a) at half flux and gives exact sitewise survival for two sinks with arbitrary positive strengths. The other two indexed two-trap findings also overlap the specialization."
+        ],
+        "reasoning": "Substituting T={a,b} makes the two-sink formulas the same statements, but does not turn a two-sink theorem into an equivalence for the intersection of dark conditions from three sinks.",
+        "searches": [
+          "Local Resultary: magnetic quantum cycle dark survival two traps; multi-sink collective absorption thresholds; 84c3bc481be5, 00e13d1db4cb, c167498f544b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed Finding lists flux switching and survival for pairs, rather than any N=60 or N=105 collective minimum. The primary work's periodic placement examples do not tabulate the pairwise-dark/collectively-bright property."
+        ],
+        "reasoning": "A two-sink result, or a periodic example where the full set remains dark, is not a database entry establishing the first three-sink obstruction at either flux. The bounded negative search is not proof of absence.",
+        "searches": [
+          "Local Resultary dark survival quantum cycle three absorbers, cycle lengths 60 and 105; compare 84c3bc481be5"
+        ]
+      },
+      "rationale": "The entire two-sink specialization is prior indexed content, and an earlier perturbative source has the key unfluxed arbitrary-placement phase condition in implicit form. The submitted novelty is the collective three-edge classification with sharp first sizes, in the context of exact all-set flux-dependent site survival. The strongest inspected statements do not give that classification or an equivalent general theorem subsuming it.",
+      "residual_risks": [
+        "The broader literature query was low yield. Differently indexed work on multi-trap cycle arithmetic remains possible; this is a best-of-knowledge decision, not a priority certificate.",
+        "The two-trap special case and the unfluxed phase-alignment mechanism should not be credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior arbitrary-placement perturbative phase criterion and special stationary modes; not the magnetic collective classification",
+          "evidence": [
+            "Eq. (22) has rates proportional to M ± |Σ_j exp(4πil m_j/N)|; Eqs. (23)–(26) treat periodic patterns and mean survival."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0903.3288v1",
+          "material_read": "Section IV, Eq. (22) and Eqs. (23)–(26), OA passage starting at offset 16200",
+          "method": "Bounded primary OA passage",
+          "title": "Continuous-time quantum walks and trapping",
+          "trigger": "Same continuous-time absorbing cycle with arbitrary zero-flux sink placements"
+        },
+        {
+          "assessment": "Exact two-sink specialization, not the triples or their minima",
+          "evidence": [
+            "Both gcds and localized survival probabilities agree in the two-sink case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-flux-resonant-dark-survival-for-two-trap-quantum-cycles--84c3bc481be5",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Flux-resonant dark survival for two-trap quantum cycles",
+          "trigger": "Strongest prior indexed flux-resolved survival formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–38 and 64–76; prior indexed two-trap Finding 84c3bc481be5."
+      ],
+      "rationale": "Existence of a stationary state for each pair need not give a dark state common to the triple; the theorem classifies exactly when this failure is possible and shows that changing flux imposes a qualitatively different 2-adic obstruction. The two minima answer natural finite questions rather than selected example searches. The site formulas also distinguish existence from the ability of a localized particle to populate the dark space.",
+      "residual_risks": [
+        "Restricted to the stated homogeneous, continuous-time, single-particle ring and onsite absorption."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

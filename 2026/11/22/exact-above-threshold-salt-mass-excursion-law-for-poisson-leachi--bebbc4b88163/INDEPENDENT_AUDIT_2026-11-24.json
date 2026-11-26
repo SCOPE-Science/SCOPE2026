@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:29:04.539270Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x>=h, conditioning on the first event gives f(x)=integral_0^infinity lambda exp[-(lambda+s)t] I(x+ct) dt, where I(x)=(h/x)^a+a*x^(-a)*integral_h^x y^(a-1) f(y) dy. Continuity of I justifies differentiation and the right boundary relation c f'(h+)=(lambda+s)f(h)-lambda, not absorption at h. Eliminating I gives the stated Kummer equation. For finite T the process up to T is bounded below by x times the positive product of all factors through T, so f decays at infinity and selects U over M. The U derivative normalizes the transform; a residual satisfying Q'=-aQ/x with Q(h+)=0 verifies recovery of the first-order equation. In the positive integral for U(A,a,z), the integral diverges as 1/A at the lower endpoint as s approaches zero, canceled by 1/Gamma(A), while U(A+1,a+1,z) remains finite. Thus f(h) tends to one and crossing is almost sure. The small-s slope also gives mean 1/lambda+(a/lambda)U(1,a+1,lambda*h/c), equivalent to the stated mean by integration by parts. On the same path the excursion cannot end before the first Poisson event E; conditional survival at E is 1-(1+cE/h)^(-a), giving the TV upper bound and asymptotic by coupling and domination by acE/h. Independent U-integral quadrature at the supplied sample gave 0.4223846030645711 (within 4.1e-11 of the recorded value); this is finite corroboration. The frozen simulation script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general growth-collapse hitting equations inspected use initial state below the level and hit upward by drift. For the power-law factor family, Löpker–Stadje obtain the Kummer M branch.",
+          "The downward one-sided exit result of van der Hofstad et al. treats a fixed proportional cut, not the continuous law r^a."
+        ],
+        "reasoning": "Changing passage direction changes the nonlocal boundary data and the interval. The bounded boundary at zero for upward passage does not supply the decaying branch and right threshold condition for downward passage. A fixed multiplier does not specialize to a continuously distributed multiplier by changing its value.",
+        "searches": [
+          "Boxma et al., EURANDOM 2005-033, §2 and §4 Theorem 3",
+          "Löpker–Stadje, EURANDOM 2009-011, Theorem 1 and §4.2",
+          "Löpker–van Leeuwaarden, EURANDOM 2007-049, pp. 1–2",
+          "van der Hofstad et al., arXiv:2102.00438 Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:1207.2332 and 2102.00438",
+        "EURANDOM 2009-011, 2005-033 and 2007-049, cited sections",
+        "Exact published-record self hit bebbc4b88163"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model stationary gamma and the prior excursion mean provide only marginal or first-moment information.",
+          "The downward transform uses the probabilistic decay at infinity, strict-crossing normalization and the continuous beta-density jump kernel. None of the inspected upward or fixed-cut theories gives this combination. Tamea et al. could not be inspected beyond the frozen characterization; no whole-paper noncoverage claim."
+        ],
+        "reasoning": "The value of the Kummer U boundary ratio is not obtained by reading off the stationary mean or the upward-hitting M ratio. Conditioning on the actual first event gives the complementary survival correction; the TV result is an upper bound, not an asymptotic for the distance itself.",
+        "searches": [
+          "Compare Suweis et al. equations (6)–(7), Löpker–Stadje §4.2, and van der Hofstad et al. Theorem 2.2",
+          "Tamea et al. DOI 10.1029/2011GL049074 as a plausible full-duration comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Suweis et al. pp. 7–8 use constant salt input and exponential jump losses in log mass. Identifying c with the input rate and a with the reciprocal mean exponential mark gives exactly the same multiplicative model.",
+          "The source derives the stationary gamma law, not the transform of the duration until the next downcrossing."
+        ],
+        "reasoning": "This is not a novel salt process under different notation: X is multiplicative growth-collapse storage, or a deterministic drift with additive exponential jumps in log X. Stationary mass or stationary exceedance does not determine the distribution of excursions starting at h.",
+        "searches": [
+          "Primary literature search for Poisson growth-collapse and AIMD downward threshold passage",
+          "Published-result search for salt mass, Tricomi/Kummer transform, and first-leaching excursion",
+          "Suweis et al., arXiv:1207.2332 equations (4), (6), (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exactly matching published-result hit bebbc4b88163 is the same record.",
+          "The primary exact formulas located in Löpker–Stadje §4.2 and van der Hofstad et al. Theorem 2.2 have the direction or mark discrepancies above."
+        ],
+        "reasoning": "This is a continuous-parameter identity, not a numerical sequence. The checks sought a closed formula or exact transform under an alias. The self hit is not a distinct source; exact expressions for related hitting times do not tabulate the target identity.",
+        "searches": [
+          "Published-result comparison for exact salt excursion transforms and TV bounds",
+          "Primary exact-form search for a growth-collapse down-exit transform rather than an excursion mean"
+        ]
+      },
+      "rationale": "The model, stationary law, and mean are not credited as new. The supported distinct claim is the exact downward first-passage transform for the specified continuous multiplier family, together with the quantitative high-threshold first-event comparison. Same-model upward hitting and different-mark downward exits are substantial precedents, but the results inspected do not cover the stated law.",
+      "residual_risks": [
+        "Tamea et al. full text was not accessible",
+        "A broader downward exit or state-dependent ruin result may contain an equivalent law; this is not an exhaustive historical-priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, established stationary law",
+          "evidence": "Log-mass losses are independent exponential marks and the stationary density in mass is gamma.",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.2332",
+          "material_read": "pp. 7–8 equations (4), (6), (7)",
+          "method": "Lawful OA PDF",
+          "title": "Stochastic Modeling of Soil Salinity",
+          "trigger": "Exact same salt-mass model"
+        },
+        {
+          "assessment": "Same jump family but reverse passage direction",
+          "evidence": "Power-law factor U^(1/alpha); its upward hitting formula uses a Kummer M function.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/3054232/643466.pdf",
+          "material_read": "Theorem 1 p. 6 and §4.2 p. 17",
+          "method": "Lawful OA report",
+          "title": "Hitting Times and the Running Maximum of Markovian Growth Collapse Processes",
+          "trigger": "Same power-law mark family and hypergeometric solution"
+        },
+        {
+          "assessment": "Relevant passages now read, covering upward passage",
+          "evidence": "Equations with initial x below the target and a Kummer result for uniform cuts do not give this strict downward excursion from the threshold.",
+          "identifier_or_url": "https://www.eurandom.tue.nl/reports/2005/033-report.pdf",
+          "material_read": "§2 pp. 7–8; §4 Theorem 3 pp. 14–15",
+          "method": "Lawful OA report",
+          "title": "A Markovian Growth-Collapse Model",
+          "trigger": "Frozen text reported inaccessible historical priority risk"
+        },
+        {
+          "assessment": "Upward hitting, not this downward exit",
+          "evidence": "The stated hitting transform starts at x<y.",
+          "identifier_or_url": "https://www.eurandom.tue.nl/reports/2007/049-report.pdf",
+          "material_read": "pp. 1–2, general-Q hitting-transform statement",
+          "method": "Lawful OA report",
+          "title": "Hitting Times for Multiplicative Growth-Collapse Processes",
+          "trigger": "Possible general random-cut formula"
+        },
+        {
+          "assessment": "Direct directional analogue; different mark law",
+          "evidence": "The formula is for a deterministic proportional multiplier.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.00438",
+          "material_read": "Theorem 2.2 p. 5, equations (9)–(13)",
+          "method": "Lawful OA PDF",
+          "title": "Exit problems for additive-increase multiplicative-decrease processes",
+          "trigger": "Explicit downward one-sided first passage"
+        },
+        {
+          "assessment": "Full text unavailable in this review",
+          "evidence": "Publisher route returned HTTP 403. The frozen description of fitted full laws and exact short-time/mean results was not independently verified.",
+          "identifier_or_url": "https://doi.org/10.1029/2011GL049074",
+          "material_read": "Frozen RESULT.md prior-work characterization only",
+          "method": "Lawful primary PDF retrieval attempt",
+          "title": "Crossing properties for geophysical systems forced by Poisson noise",
+          "trigger": "Closest cited geophysical excursion-duration comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Threshold-exceedance duration is not measured by the stationary gamma tail or by the mean duration alone. This exact transform determines the law and is available for computing moments or inverting to probabilities. The coupled first-event estimate quantifies when a simpler exponential waiting-time model is accurate, at a specified finite threshold. This is a benchmark for salt mass in the stipulated process, not a calibrated prediction of salinity exposure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

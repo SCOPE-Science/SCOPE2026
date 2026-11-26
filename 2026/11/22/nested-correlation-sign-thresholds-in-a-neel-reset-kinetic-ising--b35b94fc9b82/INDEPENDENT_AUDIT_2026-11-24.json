@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:44:28.381290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 42–83",
+        "Frozen VERIFICATION.md and check_neel_reset.py (inspected, not executed)",
+        "/workspace/audit_replays/ising.py: independent dual-process check, 16 exact rational separation resolvents and 208 Fourier comparisons, N=4,6,10,32; maximum absolute discrepancies 6.7e-16 and 5.9e-14"
+      ],
+      "rationale": "The specified unit-clock zero-temperature flips are equivalent to copying a uniformly chosen neighbor. Before coalescence two backward lineages have relative jumps at rate one in each direction; global resetting kills the relative walk at rate r with reward (-1)^n, while coalescence at 0 or N has reward 1. This gives the stated recurrence with no extra factor of two. Poisson renewal gives stationarity and first-reset coupling gives uniqueness; fair phase makes the one-spin means zero. The alternating particular solution and the bounded or two-boundary homogeneous solution give the exact kernels. The cosh ratio is strictly decreasing in r, and in n up to the midpoint; for fixed n the finite-image correction is positive and strictly decreases to zero with N. Bracketing the roots at the infinite root and any larger rate proves strict finite-size nesting and convergence. The odd infinite-chain equation gives u^m(u-1)=2. With t=kappa/2 and y=nt it yields y+log y=log n+o(1); since the derivative of y+log y is at least one, y-W(n)=o(1). This verifies the asymptotic and the fixed-rate sign-front scale. Fourier transformation of the normalized geometric periodization and (-1)^n gives the exact diffuse and Bragg terms.",
+      "residual_risks": [
+        "Finite Fourier comparisons use floating-point arithmetic and serve only as corroboration; all-rate and infinite-volume statements are analytic. The sign front is a change in an observable, not a phase transition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Magoni–Majumdar–Schehr give stationary reset-age averaging; Mayer–Sollich solve unreset correlations for general initial data. The resulting generic pair resolvent is (r+2)C_n-C_{n-1}-C_{n+1}=rR_n."
+        ],
+        "reasoning": "These sources already encode the kernel method and one can solve for the alternating particular term. The prior generic method does not classify the signs, prove the strict ring-size nesting, or analyze the threshold length.",
+        "searches": [
+          "Resultary: exact stationary correlations arbitrary reset configuration Glauber Ising chain Poisson resets",
+          "arXiv:2002.04867",
+          "arXiv:cond-mat/0307214"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.04867",
+        "arXiv:cond-mat/0307214",
+        "arXiv:2207.08590",
+        "Resultary 266eb22a4de7, 65cef8842981, da40ba33c965"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The iid reset profile is just q^n or its normalized periodization and is positive. The all-plus positive-temperature term arises from a constant source; its transition is for a different observable. The prior renewal identity and closure readily yield the diffuse kernel, but contain no finite-size threshold comparison or Lambert-W computation."
+        ],
+        "reasoning": "Do not credit a new kernel theorem. The nontrivial comparison of competing alternating and decaying terms, threshold ordering across geometries, and extracted asymptotic constitute the distinct claim.",
+        "searches": [
+          "266eb22a4de7, RESULT.md offsets 0–2277",
+          "65cef8842981, RESULT.md offsets 850–3650 and 7520–10214",
+          "arXiv:2002.04867, pp. 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange resets voters independently to their initial opinions, not with a common clock. The fresh-iid whole-chain reset in 266eb22a4de7 is global but has zero pair source at nonzero distance."
+        ],
+        "reasoning": "Neither a sitewise reset nor a spatially independent reset ensemble implements the deterministic alternating pair source. A fixed choice of Néel phase does give the same pair equations but not the same zero-mean covariance claim.",
+        "searches": [
+          "Resultary: nested correlation sign thresholds Neel reset kinetic Ising chain",
+          "Resultary: globally synchronized stochastic resetting alternating Ising Glauber stationary correlations",
+          "arXiv:2207.08590"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the assigned record itself. The distinct all-plus record 65cef8842981 gives a reset-age density edge threshold and positive profile, not a sequence of sign thresholds; da40ba33c965 is a Pareto-reset covariance result."
+        ],
+        "reasoning": "A candidate exact table needs the same sign-changing odd-distance observable, global Poisson clock and alternating source; the inspected explicit profiles do not have these features.",
+        "searches": [
+          "Resultary: nested correlation sign thresholds Neel reset kinetic Ising chain",
+          "Resultary: two-point stationary correlations all-plus reset Ising Glauber chain structure factor"
+        ]
+      },
+      "rationale": "Credit the classical pair closure, renewal formula and exponential/periodized Green kernel as known or directly inherited. The supported distinction is the Néel-specific sign classification: finite-size and separation nesting, algebraic odd-root thresholds, and logarithmically enhanced front, with the associated staggered response. The strongest same-day record explicitly has the same kernel but an iid reset source, hence no staggered term or sign hierarchy. No inspected result gives or directly contains the full hierarchy and asymptotics.",
+      "residual_risks": [
+        "Four focused primary-literature searches were deferred; they are not negative evidence. The comparison rests on the actual indexed findings and retrieved primary passages.",
+        "Generic unreset solutions and renewal already imply the kernel calculation once specialized. An unindexed treatment could have extracted the same hierarchy. No priority is inferred from the date of the distinct iid-reset record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational closure and renewal, not the sign hierarchy",
+          "evidence": "Discusses resetting to the initial configuration, iid initial spins and exponential-age averaging; conclusion points to two-point correlation distributions as future work.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+          "material_read": "PDF pp. 1–3 and conclusion p. 5",
+          "method": "Open-access PDF passage comparison",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "Global Ising resets and spatial correlation closure"
+        },
+        {
+          "assessment": "Generic unreset solution",
+          "evidence": "Exact Glauber hierarchy for general initial one-time correlations, without the specified reset hierarchy.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0307214",
+          "material_read": "PDF p. 1, offsets 3050–6898",
+          "method": "Open-access PDF passage comparison",
+          "title": "General Solutions for Multispin Two-Time Correlation and Response Functions in the Glauber-Ising Chain",
+          "trigger": "Broader exact pair solution"
+        },
+        {
+          "assessment": "Different clock and reset mechanism",
+          "evidence": "Each agent resets independently to its initial opinion.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08590",
+          "material_read": "PDF p. 1, offsets 1700–4475",
+          "method": "Open-access PDF passage comparison",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Equivalent voter formulation of zero-temperature dynamics"
+        },
+        {
+          "assessment": "Common kernel, distinct reset source and result; order within the date unknown",
+          "evidence": "Fresh unbiased iid reset configurations yield the q-kernel and a four-point obstruction, not a staggered source.",
+          "identifier_or_url": "Resultary 2026/11/22 record 266eb22a4de7",
+          "material_read": "RESULT.md offsets 0–2277",
+          "method": "Indexed local mirror, statement and assumption comparison",
+          "title": "A fourth-order obstruction to equilibrium camouflage in a global reset model",
+          "trigger": "Same-day zero-temperature global Poisson model with exact ring and line profiles"
+        },
+        {
+          "assessment": "Different source and threshold observable",
+          "evidence": "Positive-temperature all-plus reset produces a positive profile; threshold is for the reset-age correlation density edge.",
+          "identifier_or_url": "Resultary 2026/11/2 record 65cef8842981",
+          "material_read": "RESULT.md offsets 850–3650 and 7520–10214",
+          "method": "Indexed local mirror, profile and observable comparison",
+          "title": "A doubled resetting threshold and logarithmic edge singularity",
+          "trigger": "Exact global-reset spatial profiles and threshold"
+        },
+        {
+          "assessment": "Different renewal law and initial condition",
+          "evidence": "Pareto resets to a fixed iid configuration, not Poisson resets to fresh random Néel phases.",
+          "identifier_or_url": "Resultary 2026/11/2 record da40ba33c965",
+          "material_read": "RESULT.md offsets 0–2748",
+          "method": "Indexed local mirror, hypothesis comparison",
+          "title": "Algebraic spatial correlations and a sharp susceptibility threshold",
+          "trigger": "Zero-temperature reset spatial covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–40, 65–83",
+        "Contrasts with the iid/all-plus profiles in originality assessment"
+      ],
+      "rationale": "The alternating reset ensemble directly competes with local ferromagnetic coarsening. The exact nested odd-distance crossover identifies which pair observables change sign and how the ring modifies their crossing rates. Its weak-reset front grows by a logarithmic factor beyond the exponential decay length, and its staggered plateau yields a distinct Bragg contribution. These are informative distinctions beyond evaluating a standard renewal integral.",
+      "residual_risks": [
+        "The result concerns a specific synchronous, zero-temperature protocol; neither new thermodynamic phases nor positive-temperature universality is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:24:39.774376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a compact interval [0,K], the required multiplicities lie at indices at most floor(K a_N)+r=o(sqrt(N)), so DeSalvo–Menz gives joint total-variation transfer, with c=pi/sqrt(6). In the geometric model the zero probabilities are 1-exp(-cj/sqrt(N)). Writing epsilon=a_N/sqrt(N) gives a_N epsilon^r=1, and Taylor expansion uniformly on this window gives the stated Riemann-sum intensity. For a fixed tuple of distinct starts, a connected cluster of t overlapping windows has at least r+t-1 distinct absent sizes and O(a_N) placements, hence contributes O(epsilon^(t-1)); different clusters are independent. Removing nearby tuples from the independent product of intensity sums costs O(1/a_N). Mixed factorial moments therefore give independent Poisson interval counts; first moments give tightness on compacts, and the diffuse intensity gives vague convergence and count convergence on [0,x]. At x=0 the count is zero. The k-th start tail is exactly the event of at most k-1 starts through floor(x a_N); overlapping starts are counted as stipulated. The source's finite coefficient/enumeration tests were inspected as bounded corroboration, not rerun or used as a limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeSalvo–Menz give the small-part approximation, and a first-gap example for r=1.",
+          "Bhoria–Eyyunni–Santra study the count of absent sizes below the largest part, not starts of consecutive runs."
+        ],
+        "reasoning": "A growing-window multiplicity transfer does not determine the limit for the dependent run-start process without a separate rare-overlap and intensity analysis. Neither the r=1 example nor the missing-size count supplies that result.",
+        "searches": [
+          "arXiv:1610.07664, Theorems 4.13–4.14 and Example 4.6",
+          "arXiv:2604.12557, introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.03658",
+        "arXiv:2312.02620",
+        "arXiv:1610.07664",
+        "arXiv:2604.12557",
+        "SCOPE-20261122-e9b692c356a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact identities concern sums and related partition counts; the TV theorem concerns multiplicities, not mixed counts of run starts.",
+          "The later equivalent entry compares itself to the same enumerative work and uses the older Arratia–Tavaré conditioning framework to obtain the needed local transfer and overlap analysis."
+        ],
+        "reasoning": "The first-moment generating function is not a fixed-rank distribution, and weak convergence alone does not answer that first-moment question. The transfer theorem is a prerequisite, not a covering stronger limit. The later equivalent proof supplies no earlier run-process theorem.",
+        "searches": [
+          "arXiv:2208.03658, Theorem 2.6 and Problem 6",
+          "arXiv:2312.02620, Theorems 1.5–1.7",
+          "arXiv:1610.07664, Theorem 4.14",
+          "SCOPE-20261122-e9b692c356a0, RESULT.md, prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 1 gives exactly the first of the counted starts, with no restriction at the right endpoint. Theorem 2.6 is a summed generating function, and Problem 6 concerns the sum's asymptotic.",
+          "SCOPE-20261122-e9b692c356a0, RESULT.md Finding, gives exactly the same scale, polynomial intensity and fixed-rank tails, not merely a related mex statistic."
+        ],
+        "reasoning": "Earlier enumerative mex formulations share the statistic but not the distributional claim. The different indexed record is genuinely equivalent; its later listed publication and its earlier cited motivation are not evidence that it is a predecessor.",
+        "searches": [
+          "arXiv:2208.03658, Definition 1, Theorem 2.6 and Problem 6",
+          "arXiv:2312.02620, Theorems 1.5–1.7",
+          "Resultary SCOPE-20261122-e9b692c356a0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate mirrored entry explicitly lists the same ordinary-partition process and all fixed-order tails, and its METADATA distinguishes its November publication date from the August 2022 date of its motivating source."
+        ],
+        "reasoning": "This is exact corpus overlap, not a numerical/table coincidence. No earlier exact entry was established in the checked evidence. A later equivalent entry alone establishes overlap, not direction of derivation or independent priority.",
+        "searches": [
+          "Resultary semantic lookup for consecutive missing part sizes / r-chain mex point process",
+          "SCOPE-20261122-e9b692c356a0, RESULT.md and METADATA.json"
+        ]
+      },
+      "rationale": "The supported contribution is the fixed-r point-process limit and its successive-start laws relative to the inspected predecessors. There is a distinct, mathematically equivalent Resultary record carrying a later publication date, which is disclosed, not treated as a different theorem or evidence of reverse priority. No inspected source established the same limiting law before the frozen result. This is not a priority certification.",
+      "residual_risks": [
+        "Equivalent coverage in the later listed record is established; independent derivation and priority are not.",
+        "A more general limit for absent-run locations or an unindexed earlier equivalent result may exist; the inspected cases do not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical first-start definition; earlier enumeration, not the process law in these passages",
+          "evidence": [
+            "Offsets 15198, 19387 and 59663: all r sizes absent; sum generating function; request for an asymptotic for the sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.03658",
+          "material_read": "Definition 1 p. 5; Theorem 2.6 p. 7; Problem 6 p. 16",
+          "method": "OA PDF passage inspection",
+          "title": "A New Generalization of the Minimal Excludant Arising from an Analogue of Franklin's Identity",
+          "trigger": "Exact r-chain mex statistic and asymptotic question"
+        },
+        {
+          "assessment": "Enumerative comparisons, not the point-process claim in these passages",
+          "evidence": [
+            "Offsets 7716 and 10892: bijective count relations and generating-function identities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02620",
+          "material_read": "Theorems 1.5–1.7, pp. 3–4",
+          "method": "OA PDF passage inspection",
+          "title": "On the Combinatorics of r-Chain Minimal and Maximal Excludants",
+          "trigger": "Closest exact enumeration for the same statistic"
+        },
+        {
+          "assessment": "Supports the proof input; example concerns a single absent size",
+          "evidence": [
+            "Offsets 113929 and 116656; ordinary allowed-size growth exponent one and comparison scale o(sqrt(N))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07664",
+          "material_read": "Theorems 4.13(1), 4.14 p. 26; Example 4.6 pp. 26–27",
+          "method": "OA PDF passage inspection",
+          "title": "A Robust Quantitative Local Central Limit Theorem with Applications to Enumerative Combinatorics and Random Combinatorial Structures",
+          "trigger": "Critical small-part transfer and older smallest-gap result"
+        },
+        {
+          "assessment": "Different statistic in the inspected passage",
+          "evidence": [
+            "Counts missing integers below the largest part."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.12557",
+          "material_read": "Introduction, offset 1559",
+          "method": "OA HTML passage inspection",
+          "title": "On the Number of Missing Integers in Partitions",
+          "trigger": "Possible recent missing-size distributions"
+        },
+        {
+          "assessment": "Equivalent result, with later listed publication; precedence not established for this comparator",
+          "evidence": [
+            "Same intensity (pi/sqrt(6))^r x^r dx and first and higher start tails; prior work is identified as enumerative or a conditioning framework."
+          ],
+          "identifier_or_url": "SCOPE-20261122-e9b692c356a0",
+          "material_read": "RESULT.md Finding at offset 0 and prior-work passage at offset 8254, plus METADATA.json",
+          "method": "Mirrored file inspection",
+          "title": "Inhomogeneous Poisson onset of consecutive missing parts in random integer partitions",
+          "trigger": "Strongest exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic is the established chain mex and its canonically ordered successors. Its intensity, scaling exponent and fixed-rank laws characterize a natural emergence process and require controlling overlapping runs, rather than replacing r in a one-gap limit. The result is useful as a distributional description; it does not by itself give an asymptotic of the summed mex or any unbounded moment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

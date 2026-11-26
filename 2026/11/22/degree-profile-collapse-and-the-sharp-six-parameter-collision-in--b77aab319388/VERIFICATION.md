@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification and evidentiary limits
 
-Run `python3 verify_degree_collapse.py` using Python 3 and the standard library. `verification_output.txt` records the exact successful output. All graph instances are generated from the defining deleted-edge pattern. For each, triangle-freeness of candidate neighborhoods is tested directly, separately from the degree-expression calculation. All fixed-shore bipartite patterns with at most five vertices are generated (with both third-shore sizes one and two), including four-cycle cases. The canonical test uses every within-shore permutation and exchanges equally sized shores. The unique earliest fibre for two plus three defect vertices is directly checked, and the two witness families are independently enumerated for third-shore size one through seven. No external tables are assumed.
+Run `python3 verify_degree_collapse.py` using Python 3 and the standard library. `verification_output.txt` records the original finite check output. The script generates deleted-edge patterns for the tested shores and counts triangle-free neighborhoods directly, separately from the degree-only expression. It checks the degree expression on four-cycle-free patterns and the first correction coefficient on four-cycle-bearing patterns. Its canonical polynomial-fibre test includes only the four-cycle-free patterns, allowing within-shore permutations and the exchange of equally sized shores. It also directly checks the two center-swapped witnesses for third-shore size one through seven.
 
-The all-order assertions are proved algebraically in `RESULT.md`, not by finite enumeration. The checker does not independently certify historical priority, and no independent mathematical audit has been performed. The full-text source comparisons and the unresolved limits are recorded in `AUDIT.json`.
+The proof in `RESULT.md` handles arbitrary shores and gives the full small-order classification by an explicit table covering all deletion patterns, including the four-edge fibre omitted from the script's fibre test. No finite computation by itself establishes the general polynomial identity, its inverse, or publication priority.

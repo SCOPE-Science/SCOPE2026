@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Verification performed
+# Independent mathematical audit
 
-Reconstruct the analytic argument in `RESULT.md`: spherical measure \(ds\,d\theta/(4\pi)\), support maximization over the radius-\(a\) disk, the uniform \(O_{a,b}(s^2)\) remainder, and normalization \(\int_0^{2\pi}g^{-1}d\theta=4K(a/b)/b\). The strict monotonicity argument does not rely on numerics. Run `python3 CHECKER.py` with the original standalone file in the same directory; it uses Python standard library only and reports 121 finite diagnostic assertions. This checker is not a proof of an asymptotic theorem and does not establish external or independent validation.
+## correctness
 
-## Scientific and priority limits
+PASS
 
-Claims are restricted to \(0<a<b\); hidden constants are not uniform as \(b\downarrow a\). The known equal-radius case is not claimed as new. The original 1965 journal article was publicly issued before the day-dated seed but only month-range evidence has been confirmed for its publication, so no precise first-public 1965 date is invented. Historical novelty requires independent scrutiny beyond the inspected primary and indexed sources.
+Central symmetry gives W=2h. The radius-a ball is included, and au for U_z≠0 strictly satisfies both cylinder inequalities, so all and only equatorial directions minimize. For (x,y) in the smaller disk, the z contribution is |s|sqrt(b²−y²). Its Lipschitz perturbation of the objective at the equatorial optimizer av is bounded by L|s||q−av|, against a support loss at least sqrt(1−s²)|q−av|²/(2a). Completing the square gives h=a+|s|g(θ)+O_{a,b}(s²) uniformly. Compact separation off the equator and min g>0 imply |s|=O(ε); the event and the strip |s|≤ε/(2g) differ in spherical measure by O(ε²). Integrating dθ ds/(4π) establishes the claimed slope; on that strip the mark change of variables gives the product law with azimuth proportional to 1/g. The slope is strictly decreasing from infinity to zero at fixed a by its positive integral expression, which also verifies the inverse. The stated equal-radius comparator agrees with maximizing (|u_x|+|u_z|)sqrt(a²−y²)+u_y y and the small-product log law localized near ±e_y.
+
+## originality
+
+PASS
+
+The distinct contribution is the fixed unequal-radii probability asymptotic with its elliptic coefficient, marked conditional limit, and recovery from endpoint and slope. Closest indexed laws concern the equal-radius degeneration or central chords, and the other inspected primary geometric formulas concern a different functional.
+
+## value
+
+PASS
+
+Random line projections are a natural way to observe the body without choosing its orientation. The degenerate minimum is a whole circle, so ordinary isolated-minimum approximations do not describe the marked localization. The exact finite slope distinguishes two radii from an endpoint alone and separates this regime from the singular equal-radius case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

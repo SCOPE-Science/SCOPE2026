@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:59:59.149031Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof, lines 2–238",
+        "Frozen VERIFICATION.md and verify_shannon_berger_parker_boundary.py, inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_boundaries.py, BP rows; enumeration and comparison are specified in the rationale"
+      ],
+      "rationale": "At common k,N, both scores decrease in exact integer keys: Shannon in ∏n_i^{n_i}, order ∞ in max n_i. I independently generated all length-k sorted excess vectors with entries in 0,…,r, filtered on sum r, restored the ones, and compared all pairs for k=3,4,5,6 and r=0,…,6. There are no discrepancies through r=3. At r=4 the unique tie split has max 3 and products 729 vs 432, with the second profile preferred by Shannon. No strict reversal occurs through r=5. At r=6 the two excess-partition reversals are (3,3) vs (4,1,1), with abundance maxima 4<5 and products 65536>50000, and (2,2,2) vs (3,1,1,1), with maxima 3<4 and products 19683>16384. The latter requires k≥4. There are no other strict reversals at r=6. Beyond k=6 every possible excess partition in the audited range was already admitted; added ones affect neither key. Thus the finite comparison and stabilization prove the claim for all k≥3.",
+      "residual_risks": [
+        "Exhaustion is for 0≤r≤6, sufficient for first layers, not a large-r classification.",
+        "Profiles are unordered positive integer abundances at common k and N; reciprocal dominance is used for the diversity comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Morris et al. note that index choice can alter conclusions.",
+          "The fixed-maximum Berger–Parker–Simpson result bounds a quadratic concentration statistic, with first strict reversal at excess 8. The four-species Hill-profile study treats changing finite positive q and excludes infinity."
+        ],
+        "reasoning": "These statements use different statistics or do not cover the order-∞ endpoint; none yields uniform no-crossing, tie, and completeness results at the audited excesses.",
+        "searches": [
+          "Morris et al., open PDF abstract and comparative index discussion",
+          "Resultary 8b2ee10f8104, fixed-maximum quadratic bound",
+          "Resultary 9291017e5d7d, finite-order Hill profiles"
+        ]
+      },
+      "checked_sources": [
+        "Morris et al. 2014",
+        "Resultary ab675e6a278a, 8b2ee10f8104, 41bc9e96a9b3, 9291017e5d7d, 2d5223184b0f (local mirror)",
+        "Berger–Parker 1970 and Carrigg et al. 2012 OA access checks only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first of the audited strict witnesses follows at once from the known Shannon tie split for HHI and its maxima 4<5.",
+          "No strict HHI–entropy reversal through r=6 plus no strict max–HHI reversal through r=7 cannot exclude a max–entropy reversal through r=5 without information inside HHI tie classes. Nor do those statements enumerate max ties split by entropy; the inspected r=6 HHI witness does not give the second audited strict pair."
+        ],
+        "reasoning": "The two orders could be indirectly constrained, but the shared witness and partial dominance do not imply the exact weak onset and all-richness strict classification. The pass credits the distinct complete result.",
+        "searches": [
+          "Same-day HHI–entropy and Berger–Parker–Simpson Resultary findings and proofs, first 3995 mirrored-text characters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Morris et al. place reciprocal maximum abundance at Hill order ∞ and Shannon at order 1.",
+          "At fixed total the maximum and Shannon-product comparison is equivalent to comparing the largest excess part and ∏(1+j)^{1+j}; both reversing partition pairs are incomparable under majorization (their sorted prefix sums cross)."
+        ],
+        "reasoning": "Equivalent Hill and excess-partition formulations leave the same discrete comparison problem. Common majorization monotonicity does not order either crossing pair or give the sharp boundary.",
+        "searches": [
+          "Morris et al. (2014), DOI 10.1002/ece3.1155, Hill-index table",
+          "Resultary semantic searches using entropy, Berger–Parker, Hill order infinity and integer excess"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "HHI–entropy exhibits exactly the excess pair (3,3) vs (4,1,1) as a quadratic tie split at r=6; its first strict HHI–entropy reversal is a different pair at r=7.",
+          "The rarefaction record exhibits the same abundances at k=3 as equal-Simpson profiles, separated by three-draw rarefaction. The earlier Shannon–Brillouin table classifies a different comparator at fixed census."
+        ],
+        "reasoning": "Exact pair overlap is material, even without determining priority. It is not overlap of the two first layers and their completeness, which require the maximum-vs-entropy comparison on all admissible profiles.",
+        "searches": [
+          "Resultary local mirror, ab675e6a278a, 41bc9e96a9b3, and 2d5223184b0f; Finding/Proof"
+        ]
+      },
+      "rationale": "The supported contribution is the first weak and strict Shannon–order-∞ disagreement boundary and its all-richness classification, not the indices, exact comparison keys, or the first witness in isolation. The exact witness overlap with the same-day HHI–entropy record supplies the Shannon comparison on that pair (so a maximum check immediately gives one reversal), but does not establish no earlier strict reversals, the first weak layer, or the complete first strict layer. Related maximum–quadratic comparisons do not supply the missing Shannon comparisons.",
+      "residual_risks": [
+        "Same-day witness overlap does not establish priority. The bounded searches and accessible passages do not preclude an earlier exact catalogue or an unindexed teaching example.",
+        "No whole-document inference for inaccessible papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, ordinal definitions and motivation",
+          "evidence": "Berger–Parker is p_max, reciprocal is Hill-∞; passage discusses use alongside Shannon, without an integer-excess boundary.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.1155",
+          "material_read": "PDF abstract p. 3514 and index table/discussion p. 3515, offsets 3800 and 14608",
+          "method": "Bounded OA published PDF read",
+          "title": "Choosing and using diversity indices: insights for ecological applications from the German Biodiversity Exploratories",
+          "trigger": "Same Hill orders and comparative ecological use"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "r=6 entropy comparison is the same pair; HHI ties the pair and is not the maximum key. First strict reversal for the HHI order is at r=7.",
+          "identifier_or_url": "2026/10/13/SCOPE-seven-excess-market-units-are-the-sharp-hhi-entropy-reversal-bou--ab675e6a278a",
+          "material_read": "Finding and proof, mirror offset 0–3995",
+          "method": "Local Resultary search and targeted mirror read",
+          "title": "Seven excess market units are the sharp HHI–entropy reversal boundary",
+          "trigger": "Exact same-day witness and Shannon comparison"
+        },
+        {
+          "assessment": "DISTINCT COMPARATOR",
+          "evidence": "Quadratic concentration bound at a fixed largest part, r=8 first strict reversal; no Shannon-product theorem.",
+          "identifier_or_url": "2026/10/13/SCOPE-eight-excess-individuals-are-the-sharp-berger-parker-simpson-rev--8b2ee10f8104",
+          "material_read": "Finding and proof, mirror offset 0–3994",
+          "method": "Local Resultary search and targeted mirror read",
+          "title": "Eight excess individuals are the sharp Berger–Parker–Simpson reversal boundary",
+          "trigger": "Same maximum key and fixed richness/excess setup"
+        },
+        {
+          "assessment": "SHARED EXAMPLE, distinct claim",
+          "evidence": "(1,4,4) and (2,2,5) collide under Simpson and are separated by three-draw rarefaction, not a theorem about maximum versus entropy.",
+          "identifier_or_url": "2026/10/13/SCOPE-nine-individuals-are-the-sharp-simpson-rarefaction-identifiabili--41bc9e96a9b3",
+          "material_read": "Finding and proof, mirror offset 0–3996",
+          "method": "Local Resultary search and targeted mirror read",
+          "title": "Nine individuals are the sharp Simpson–rarefaction identifiability boundary",
+          "trigger": "Same k=3 abundance profiles"
+        },
+        {
+          "assessment": "DIFFERENT REGIME",
+          "evidence": "Changing finite positive Hill orders; q=∞ excluded.",
+          "identifier_or_url": "2026/10/13/SCOPE-four-species-are-necessary-and-sufficient-for-two-hill-diversity--9291017e5d7d",
+          "material_read": "Finding and assumptions, mirror offset 0–4000",
+          "method": "Local Resultary search and targeted mirror read",
+          "title": "Four species are necessary and sufficient for two Hill diversity reversals",
+          "trigger": "Hill-order crossing generalization candidate"
+        },
+        {
+          "assessment": "ACCESS LIMITATION, no coverage judgment",
+          "evidence": "No readable lawful copy obtained in the checked routes. No conclusion about whole-document coverage.",
+          "identifier_or_url": "https://doi.org/10.1126/science.168.3937.1345 ; https://doi.org/10.1111/j.1574-6941.2012.01405.x",
+          "material_read": "No full text retrieved via the checked OA routes",
+          "method": "OA DOI/repository access check",
+          "title": "Diversity of Planktonic Foraminifera in Deep-Sea Sediments; and Understanding microbial community diversity metrics derived from metagenomes",
+          "trigger": "Original index and direct empirical comparison of diversity rankings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and invariant/padding argument",
+        "Morris et al. 2014, substantive distinction between diversity indices",
+        "Resultary ab675e6a278a, exact overlapping witness but different comparator boundary"
+      ],
+      "rationale": "With richness controlled, the resolution question for two widely used diversity orders is naturally discrete: when can redistribution underneath the largest abundance first change a tie, and when can it outweigh the maximum's ordering? The exact onset separates these phenomena and identifies all first strict witnesses across richnesses. This supplies benchmark profiles and a protection window against opposite rankings, beyond producing another example of disagreement.",
+      "residual_risks": [
+        "This is a small, motivated census classification, not a threshold for practical sample size or arbitrary real-valued abundance vectors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

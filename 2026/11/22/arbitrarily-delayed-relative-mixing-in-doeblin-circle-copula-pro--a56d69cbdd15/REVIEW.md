@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The chain density integrates to one in both variables and is reversible with uniform stationary marginal. The exact independent-regeneration decomposition yields the formula for every multi-step kernel. On centered Fourier characters the transition operator has a signed two-dimensional spectrum, giving the exact maximal-correlation coefficient. The strict finite-lag threshold follows from generalized Young's inequality on one side and diverging positive Fejér means on the other, including odd lags and equality cases. The even-lag formula follows from nonnegative Fourier coefficients; the pole coefficient follows from a uniform incomplete-gamma oscillatory asymptotic. Boundary parameters are deliberately excluded. The standalone numerical consistency checker passed, but is not used as an infinite proof.
+PASS
 
-## Originality
+Both marginals integrate to one by circular translation. The projection onto uniforms commutes with the reflected-walk transition, so the pure n-step density discrepancy is scaled by ε^n; the reflected increments alternate signs, giving the stated lag kernel and TV bound. Markov conditioning at the two boundary states gives the bound by the essential density discrepancy; endpoint rectangles shrinking to Lebesgue points give equality even for infinite supremum. For maximal correlation the corresponding centered operator norm is on real sine/cosine blocks with eigenvalues ±ε|fhat_a(k)|. Riemann–Lebesgue and the strict triangle inequality yield a attained nonzero maximum less than one for the unmixed generator. The oscillatory gamma integral with the tail integrated by parts gives leading phase exp(−iπ(1−a)/2) and power k^(−(1−a)), uniformly locally in a with error O(k^−1). If n(1−a)>1, the lag Fourier series is absolutely summable. Otherwise its real coefficients are eventually positive and bounded below by a constant times k^(−n(1−a)), including at odd n where the limiting phase has positive cosine. At zero the Fejér means then diverge, since the weights at k up to half the order are at least 1/2. This rules out essential boundedness also at equality. For even lag the nonnegative series attains the absolute discrepancy supremum at zero, and Parseval gives the two-step rational formula. At a_m the summed error after raising magnitudes to power 2m is bounded uniformly by a summable k^(−1−a_*) for a positive a_* near the boundary, leaving the zeta pole with residue ε^(2m)c(a_m)^(2m)/m in the variable a_m−a. Taking a=1−1/L for L≥2 and sufficiently small ε gives the claimed separation; L=1 allows any a>0.
 
-**PASS, with residual priority risk.** The source construction by Lalancette–Zimmerman (arXiv:2204.04336, 2022) supplies the parent copula, not the lagwise relative-mixing classification. Their extended rotational family (arXiv:2509.26635, 2025) includes the Markov-product convolution closure and Fourier description; these are acknowledged and do not state the power-cusp critical lags or exact even-lag coefficients. Longla's 2022 mixing theorem (doi:10.1007/s44199-022-00045-1) supplies a general sufficient condition for eventual mixing, not the first finite coefficient nor its divergence. Classical harmonic estimates are used, not presented as new. Related published results on spectral mixing for other stationary copula chains concern distinct transition objects and do not imply the displayed singular-cusp threshold. Other harmonic-analysis accounts of power singularities could contain an equivalent convolution criterion; further specialist bibliographic review remains advisable.
+## originality
 
-## Value
+PASS
 
-**PASS.** Exact onset of bounded multi-step transition densities is a natural question in dependent-data error control, since relative-mixing coefficients quantify worst-case multiplicative event dependence rather than merely average correlation. The theorem provides the complete parameter-and-lag classification in a natural singular generator family, including an infinite relative-mixing plateau of arbitrary length under a uniform Doeblin bound. The exact even-lag formula and critical pole explain how the plateau ends. These properties cannot be inferred solely from small correlations or total-variation mixing and sharpen interpretation of highly irregular copula models.
+The rotating/reflected copula construction, signed convolution product and relevant Fourier representation are covered; regeneration and the spectral formula are direct operator consequences, not independently novel ingredients. The retained distinction is the quantitative cusp calculation: first finite relative-mixing lag, including odd lags and equality, exact finite even-lag values with the explicit critical pole, and the resulting arbitrarily long initial plateau of infinite ψ under arbitrarily small one-step ρ. No inspected statement establishes that classification for this generator.
 
-## Limits and comparison
+## value
 
-The result is restricted to the specified circle copula with a power singularity mixed with uniform independence. The exact series identifies even-lag coefficients, not a closed extremal formula for every odd lag. It is a mathematical analysis, not a statistical calibration validated on observations. Literature searches and direct comparisons cannot certify universal historical priority; the general reflected/random-walk equivalence is acknowledged. The proof and reproducibility checker are included in the package, with no claim of external independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameterized example gives a sharp counterexample to interpreting rapid total-variation regeneration or small maximal correlation as control of relative event dependence. It separates the quantities for a prescribed number of lags, then identifies mathematically how the separation ends, including the precise blow-up of even-lag values. The cutoff and transition are meaningful for interpreting uniform density error in singular copula models, irrespective of the known Fourier and regeneration tools used to derive them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

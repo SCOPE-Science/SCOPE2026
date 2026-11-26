@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact Alsedà–Misiurewicz piecewise-affine maps, the negative stationary exponent is independently recomputed from the uniform graph marginal: \(\lambda=(1-c)\log a+c\log b<0\). The critical nonstandard step is not to assume that Lyapunov linearization automatically controls finite gaps. Instead, breakpoint separation follows from the summable bound \(\mathbb P(d_n<e^{-\eta n})\le2e^{-\eta n}\) and the ergodic asymptotic \(D_n=e^{(\lambda+o(1))n}\), giving a positive random radius for which the entire future orbit is **exactly affine**. Recurrence of positive-radius shifts and the published all-interior qualitative synchronization then bring every interior initial point into such a radius. This is a common probability-one event, not merely an event separately chosen for each pair. Monotonicity ensures the multiplicative coefficient is positive. The proof also explicitly excludes boundary points and \(c=1/2\). The finite exact-arithmetic checker returned `VERIFY_OK`; infinite-time justification is analytical.
+PASS
 
-## Originality — PASS
+The prior graph is interior, equivariant, and its current coordinate is uniform and independent of the current symbol (past dependence, or the product projection of Proposition 6.2). The two long branches have length 1−c with slope a, so ergodicity gives log D_n/n→(1−c)log a+c log b=H(c)−log 2<0. The probability of a sub-e^(−ηn) approach to the selected breakpoint is at most 2e^(−ηn). Borel–Cantelli then gives d_n/D_n→∞ for sufficiently small η, and the absence of exact kink hits makes the infimum over n strictly positive. On the resulting affine neighborhood, induction establishes exact displacement by D_n at every step. Ergodic returns to neighborhoods with radius bounded below, together with the source's simultaneous attraction, yield permanent entry for each interior orbit on one common event. For each pair strict monotonicity gives a positive prefactor and exact gaps for all n after both entries. One-sided measurability can be seen by bracketing each pair's distance above and below by rational pairs with the same exponent. Independent rational replay checked endpoints and continuity for c=1/4 and 1/3 and 30 common-branch steps for c=1/4 with final gap 268435456/205891132094649; this is an algebra check, not an infinite-time test. The submitted script was inspected but not executed.
 
-Theorem 5.10 of Alsedà–Misiurewicz (arXiv:1212.4440v1) establishes simultaneous qualitative coalescence; their Section 6 gives the stationary exponent. Neither alone supplies that **every nonzero finite distance** eventually evolves by exactly the stationary derivative product, or that its logarithmic rate always equals that exponent. Malicet (arXiv:1412.8618v1) establishes broad local exponential contraction, so generic exponential decay is known and is not claimed as new. Its conclusions do not identify an exact model-specific exponent or eventual equality of affine branch histories. Gharaei–Homburg's C¹/C² setting and Czudek's C² annealed theory differ in scope; Barański–Śpiewak addresses stationary-measure regularity. Targeted literature and mathematical-result searches, plus available historical claim titles/statements, yielded no equivalent or stronger theorem. Priority remains subject to unindexed derivations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2012 paper explicitly left the exponential nature of its contraction uncertain. A general exponential result became available later, but the **sharp value** for arbitrary pairs and the eventual exact co-branching mechanism still resolve a concrete quantitative problem for this benchmark nonsmooth random dynamical system. The result distinguishes a stationary infinitesimal Lyapunov exponent from an exact finite-separation exponent, and it explains how trajectories avoid moving kinks by a summable tail argument. This is a structural pathwise theorem for a natural one-parameter family, not a numerical experiment or a parameter substitution.
+The inspected source states qualitative simultaneous synchronization and computes the stationary graph exponent; both are credited. The new part is the sharp finite-distance exponent for all interior pairs on one event and the stronger eventual exact affine identity. This requires quantitative avoidance of the chosen breakpoint, construction of a positive random affine neighborhood, and its simultaneous use through recurrence, none supplied by the inspected qualitative or local exponential statements.
 
-## Closest literature, scope, and residual risk
+## value
 
-Closest are Alsedà–Misiurewicz [2012, arXiv:1212.4440v1], Malicet [2014, arXiv:1412.8618v1], Gharaei–Homburg [2016, arXiv:1611.07248v1], Barański–Śpiewak [2019, arXiv:1905.11048v1], and Czudek [2025, arXiv:2504.16549]. The evidence does not establish absolute novelty against every unindexed work. There is no uniform random entrance time over all interior starts, no control of the two fixed endpoints, and no asserted annealed contraction rate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves an exact pathwise rate for a standard example previously analyzed through qualitative synchronization and stationary derivatives. The exact eventual identity is a structural strengthening: it specifies why every interior gap eventually uses the same cocycle, not merely a local or annealed estimate. It does not promise entrance times uniform over the open interval or cover the fixed endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

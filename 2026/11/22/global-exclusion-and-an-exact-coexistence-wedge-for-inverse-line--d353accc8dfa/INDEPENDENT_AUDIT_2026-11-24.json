@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:49:19.239774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, recurrence (1), specialization (2), and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Seno–Goyal, DOI 10.1007/s00285-026-02427-w, equations (8), (13), (18)–(19)"
+      ],
+      "rationale": "In the zero-carryover specialization, adult escape leaves h/(1+y) as the prey input to recruitment, and juvenile survival divides recruited prey by 1+x. Multiplying juvenile consumption by its conversion and normalization gives x'=R_J x h'; the adult equation similarly gives y'=R_A y h/(1+y). On the stated capacity interval, G is positive and at most 1; hence the recurrence preserves positive coordinates and h≤1, and x_{t+1}≤R_J regardless of initial predator densities. Dividing the exact updates gives q_{t+1}=(R_A/R_J)q_t/(1+y_t), and y_t=R_J x_{t−1}q_t for t≥1. Strict inequality gives geometric decay since x_{t−1}≤R_J for t≥2. At equality, q decreases: if its limit is zero the same bound works; if its limit is positive then ∑log(1+y_t)=log(q_0/q_∞)<∞, so y_t→0. Equivalently, at equality 1/q_{t+1}−1/q_t=R_J x_{t−1} for t≥1. This controls arbitrary admissible trajectories, not just equilibria; a compact forward-invariant positive set would have y bounded below, which is impossible. In Beverton–Holt recruitment the prey update simplifies to rh/[(1+x)(1+y+(r−1)h)]. A positive fixed point first forces h=1/R_J by the juvenile equation and then 1+y=R_A/R_J and 1+x=rR_J/(R_A+r−1). Positivity of both predators gives R_J<R_A<1+r(R_J−1); this open interval requires R_J>1 and then h<1. Conversely these inequalities and substitution prove existence and uniqueness, with one coordinate zero at each wedge boundary. The rational witness (r,R_J,R_A)=(3,2,3) gives (1/2,1/5,1/2) by direct substitution.",
+      "residual_risks": [
+        "The proof uses the stated prey-capacity interval and strictly positive initial predators. It does not show that the juvenile predator persists, that prey converges, or that the interior equilibrium is stable.",
+        "The script checks finitely many rational transitions and fixed-point substitutions, not the global infinite-time statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 already gives global extinction of a predator with its own R₀≤1 for the general recurrence (13); Corollary 1 compares an above-threshold and a below-threshold predator. Lemma 6 requires R_0^A>R_0^J>1 for a coexistence fixed point of (27), their exponential-escape example."
+        ],
+        "reasoning": "The original paper does contain global extinction statements, but at the absolute threshold, not for all both-supercritical initial conditions under the relative ordering. Nonexistence of a positive equilibrium is not an all-orbit exclusion theorem, and an equilibrium ordering is not the inverse-linear wedge with a sharp upper endpoint.",
+        "searches": [
+          "Seno–Goyal, Theorem 1, Corollary 1, Lemma 6 and its appendix proof"
+        ]
+      },
+      "checked_sources": [
+        "Seno–Goyal 2026, doi:10.1007/s00285-026-02427-w",
+        "Marcinko–Kot 2020, arXiv:2001.07843",
+        "Resultary 1f59dc2b325d, 3d3b21ce1f59 and bound record d353accc8dfa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Individual below-threshold extinction covers part of the frozen theorem but does not constrain either predator relative to the other when both replacement numbers exceed one.",
+          "The two-state Marcinko–Kot Model 1 has a single predator threshold b>1 for its positive equilibrium at R₀>1, rather than two predator parameters and the upper as well as lower coexistence threshold."
+        ],
+        "reasoning": "The decisive extra step is exact comparison of two nonlinear positive populations via h y/x, including equality and non-equilibrium trajectories. Neither a one-predator fixed-point formula nor an invasion inequality supplies that step.",
+        "searches": [
+          "Seno–Goyal, Theorem 1 and Lemma 6, actual statements and appendix proof",
+          "Resultary 1f59dc2b325d, RESULT.md Finding",
+          "Marcinko–Kot arXiv:2001.07843, equations (38)–(39) and (43)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Seno–Goyal's negative-binomial shape k=1 is exactly the inverse-linear formula; their model (13) normalizes to the frozen map at σ=0, with the same basic replacement numbers. Their detailed example instead uses k→∞, exponential escape.",
+          "Marcinko–Kot Model 1 uses the same fractional, shape-one escape functional form with Beverton–Holt recruitment, but has only a host and one parasitoid; Model 3 uses exponential escape."
+        ],
+        "reasoning": "These comparisons identify the common functional forms rather than relying on labels. Same-form escape with only one parasitoid cannot encode the ratio of two positive specialists, and exponential escape does not give the shape-one cancellation.",
+        "searches": [
+          "Seno–Goyal, equations (8), (13), (18)–(19), (26)–(27)",
+          "Marcinko–Kot arXiv:2001.07843, Models 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit d353accc8dfa is the bound record. The distinct 1f59dc2b325d result compares transverse exponents for rare invaders of corresponding recurrent resident states in the zero-survival Beverton–Holt/Nicholson–Bailey model; it expressly does not claim nonlinear exclusion or global basins. Entry 3d3b21ce1f59 concerns invasion multipliers on cycles with positive adult survival."
+        ],
+        "reasoning": "The zero-survival overlap concerns boundary linearization and exponential escape, not arbitrary positive orbits in the inverse-linear model; the other comparison even changes the survival assumption. No distinct materially matching same-day record was identified by these bounded searches.",
+        "searches": [
+          "Local Resultary: stage-specific global exclusion, Seno–Goyal oscillatory invasion, Beverton–Holt coexistence wedge, Marcinko–Kot"
+        ]
+      },
+      "rationale": "The underlying sequence of predation, recruitment and replacement parameters is prior, as is global predator loss at that predator's own threshold R₀≤1. In particular the previously covered part R_A≤1 is not credited as new. Seno–Goyal's Lemma 6 is a necessary parameter ordering for a positive equilibrium in their exponential-escape example. The distinct conclusions here are global relative-ordering exclusion even when 1<R_A≤R_J (including equality), using the shape-one ratio, and the full necessary-and-sufficient shape-one Beverton–Holt equilibrium wedge, including its upper bound. The matched rare-invader and single-predator analyses do not imply these.",
+      "residual_risks": [
+        "The prior-work comparison should be read specifically as absence of the relative-ordering global result from the inspected claims, not as denying Seno–Goyal's absolute-threshold global extinction theorem.",
+        "An unindexed equivalent two-specialist shape-one comparison remains possible; no historical-priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and absolute-threshold global extinction; exponential example supplies only the compared equilibrium necessity, not the shape-one relative result or upper wedge",
+          "evidence": [
+            "Theorem 1 expressly applies to recurrence (13) when the disappearing predator has R₀≤1; Lemma 6 restricts a positive equilibrium of (27) to R_0^A>R_0^J>1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02427-w",
+          "material_read": "OA PDF pp. 9–13, equations (8), (13), (18)–(19), Theorem 1 and Corollary 1; pp. 19–20, equations (26)–(28); pp. 26 and 47, Lemma 6 and appendix proof",
+          "method": "Retrieved and read bounded OA PDF passages",
+          "title": "Discrete-time exploitative competition model of different stage-specific predators",
+          "trigger": "Identical base recurrence and earlier exclusion/coexistence claims"
+        },
+        {
+          "assessment": "Direct two-state analogues of individual predator regimes, not a two-predator comparison",
+          "evidence": [
+            "Model 1's updates are in two variables and combine fractional recruitment and fractional escape. Model 3 returns to fractional recruitment but has exponential escape and still has only two state variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.07843; doi:10.1080/17513758.2020.1783005",
+          "material_read": "OA preprint §4, equations (38)–(39), offsets 26040–28780; §6 and equation (43), offsets 37450–41013",
+          "method": "Lawful arXiv copy identified after publisher access failed; read relevant PDF passages",
+          "title": "A comparative analysis of host–parasitoid models with density dependence preceding parasitism",
+          "trigger": "Potential coverage of fractional escape and Beverton–Holt coexistence"
+        },
+        {
+          "assessment": "Comparative transverse-invasion result for exponential escape, outside the claimed nonlinear scope",
+          "evidence": [
+            "A rare juvenile invader has a larger transverse exponent on corresponding recurrent resident states at equal reproduction; the statement does not assert global exclusion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dynamical-equivalence-gives-an-exact-oscillatory-invasion-advant--1f59dc2b325d",
+          "material_read": "Local mirrored RESULT.md, Finding and limitation on nonlinear dynamics",
+          "method": "Local Resultary lookup and direct passage comparison",
+          "title": "Dynamical equivalence gives an exact oscillatory invasion advantage",
+          "trigger": "Related zero-carryover stage-specific comparison on recurrent states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Seno–Goyal, Theorem 1, Lemma 6 and model (13)"
+      ],
+      "rationale": "The identity distinguishes replacement ability in isolation from competition on arbitrary time-dependent prey trajectories. It yields a global obstruction to positive recurrence even when both predators exceed their individual invasion threshold, and the equilibrium census exhibits an upper as well as lower adult-replacement bound for potential coexistence. These questions arise in the unmodified stage-specific model and are not a numerical parameter slice.",
+      "residual_risks": [
+        "The fixed-point wedge is not a persistence or stability wedge. No demographic or empirical validation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

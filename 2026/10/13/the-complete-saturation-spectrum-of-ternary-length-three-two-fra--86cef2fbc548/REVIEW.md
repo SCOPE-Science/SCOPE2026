@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two-frameproofness is exactly avoidance of 972 forbidden triples on the complete set of 27 ternary three-coordinate words. Every feasible code has one increasing-index enumeration path. Direct maximality checking against all excluded words yields the stated 1,092 maximal codes. A second implementation uses base-three bitmask incompatibilities and produces the identical full catalogue. Direct orbit closure under generating alphabet/coordinate permutations yields nine disjoint orbits; enumeration of the one-word deletions of the 12 nine-word codes gives exactly 108 distinct size-eight codes, equal to the total feasible count at size eight. Both verifiers assert the nonzero cardinality profile, finite coverage and all symmetry sizes.
+PASS
 
-## Originality — PASS, with limitations
+Distinct-word violations are exactly the forbidden unordered triples; coalitions of size at most one cause no violations. Per coordinate an ordered target and parent pair satisfying descent has 15 assignments. Of the 15^3 ordered triples, 2*27^2-27 have the target equal to a parent; no distinct triple admits two different targets. Division by the two parent orders yields 972. Increasing-index enumeration visits each feasible set once because feasibility is inherited by every prefix. Checking additions from the entire 27-word universe, not just later indices, certifies inclusion-maximality. A separate implementation reproduced all feasible ranks (1,27,351,1953,4455,4482,2439,756,108,12), total 14584; maximal ranks 3,4,5,6,7,9 had counts (27,162,540,27,324,12), total 1092. It checked the full 1296 coordinate and independent symbol permutations and obtained the nine stated orbit sizes; explicitly testing each feasible size-eight code gave exactly one valid addition for each of the 108 codes. Replay: /workspace/branches/ca789421-95bb-4523-a1ac-0e77f1845ec6/independent_census.py and independent_census.log in that directory. The uploaded Python and C++ verifiers were inspected, not executed. As an analytic check of the size-eight extension, if a feasible pair differs in one coordinate, any other word must have the third symbol in that coordinate (else one of the pair can be framed). At this fixed symbol, the two remaining coordinates give a bipartite graph on 3+3 vertices with no three-edge path, hence a star forest with at most four edges. Such a code has size at most six. A feasible size-eight code is therefore a partial Latin square with one hole. The deficient row and column both need the one symbol used only twice; it fills the hole uniquely, yielding a distance-two code and thus a two-frameproof code at length three.
 
-The closest primary literature covers frameproof code bounds and constructions (Chee–Zhang and Blackburn) and, separately, stronger identifiable-parent variants (Tô–Safavi-Naini). It does not state a classification of all inclusion-maximal ternary length-three two-frameproof codes. Maximum-cardinality classifications, including the known nine-word case, cover only 12 of the 1,092 terminal codes; they cannot imply the other 1,080 maximal codes or the nonoccurrence of maximal size eight. An earlier unindexed table remains a genuine risk. Relevant inaccessible primary papers were not declared noncovering on snippets alone.
+## originality
 
-## Value — PASS
+PASS
 
-The saturation spectrum measures how badly a greedy process of adding fingerprint users until no further addition is possible can underperform an optimal design. The minimum terminal size three versus optimum nine quantifies that gap. The complete list of nine isometry classes and the unique extension of every size-eight code give a structural account of the terminal landscape, not merely a witness, renaming or routine re-enumeration of maximum-size designs.
+The supported distinct claim is the full inclusion-maximal saturation polynomial and orbit census, especially the non-maximum strata. The exact size-nine coefficient and its one orbit already occur in the inspected equality-case record and are not credited as novel. The one-hole extension fact is not needed as an independent novelty claim. The older literature comparison is bounded and the inaccessible sources leave the named residual risks.
 
-## Boundaries and nearest literature
+## value
 
-Chee–Zhang (arXiv:1206.5863) was inspected in full; the Guo thesis was inspected in relevant theoretical sections. Blackburn (DOI:10.1137/S0895480101384633) could not be inspected in full. Tô–Safavi-Naini (DOI:10.1137/S0895480102400424) was inspected through all 23 pages; its Theorem 34 establishes the much smaller ternary two-IPP maximum of four words, and its section 7 optimizes IPP code size, rather than enumerating inclusion-maximal two-frameproof codes. Classification is finite and exact only at the stated parameters. The accompanying code is a reproducible exhaustive computational proof, not an independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural smallest ternary length-three extremal-code setting with known maximum configurations. The counts address a distinct practical and structural question: where greedy codeword addition can stop, and how many symmetry types those terminal codes have. The spread from size three to nine, absence of terminal size eight, and the nonmaximum orbit breakdown supply precise useful data rather than merely recomputing the maximum. The finite scope is complete and transparent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

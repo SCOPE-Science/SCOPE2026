@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python verify.py` from a directory containing the companion source file. Dependencies are SymPy and mpmath. No external data downloads, random seeds, network operations or compiler are required.
+## correctness
 
-The verifier independently integrates the two Gauss–Legendre cardinal polynomials, constructs the cumulative explicit and implicit velocity-Verlet substep matrices, and checks the exact \(2\times2\) compression. It checks the compression trace, determinant and \(2\cos(2\theta)=\sqrt3-1\), constructs the two-stage Gauss collocation endpoint, and verifies its exact unit determinant. For each of six successive correction counts, the exact determinant polynomial has zero coefficients below the predicted \(z^{k+1}\) order and the correct nonzero leading coefficient. Nine high-precision full-stage forward-substitution calculations independently check the leading sign and scale.
+PASS
 
-Actual result: `PASS: quadrature, Verlet matrices, complex compression, Gauss collocation, six determinant-leading identities, and nine independent high-precision sweeps`. The observed leading signs at correction counts 1 through 9 are negative, positive, positive, negative, positive, negative, positive, positive, negative.
+The frozen method definition uses I both for the lower cumulative quadrature (first row zero) and for the identity in all three solves, an ambiguity that makes the literal sweep inconsistent for x0≠0. The corrected RESULT separates these matrices and matches the identity in the frozen checker. For the corrected, intended method, the lower block of Q²−Xvv is H. The initial velocity-column error is −c+O(z) and the position-column error is O(z). Propagating and applying the endpoint functional gives the asserted z^(k+1) bottom-right perturbation; the top-right perturbation enters the determinant with a further factor O(z). The exact collocation determinant is one. The Cayley–Hamilton recurrence checks the first four signs exactly; conjugation sqrt(3)↦−sqrt(3) makes the conjugate of qH^k c positive, eliminating the potentially unclassified zero. The other conjugate of 2cos(2θ) is below −2, so the phase is irrational. Schur’s other two inequalities have positive leading terms z and 4, and both signs occur on half the circle, separately also on each parity subsequence. This rechecks the final corrected claim without requiring any numerical extrapolation.
 
-The infinite-density conclusion is proved by irrational circle-rotation equidistribution and the algebraic-conjugate obstruction to roots of unity; finite code checks are not a substitute for that proof. The small-step bound may depend on the correction count. No external or independent validation has been performed.
+## originality
+
+PASS
+
+The final repaired claim explains the published finite-sweep examples through a solver-specific exact determinant coefficient and an all-sweep-count small-step stability theorem. Neither the founding scheme and table nor the closest indexed phase-law record gives this result or implies it without the new compression and determinant argument. Distinctness is assessed on the statement, not on a presumed priority based on catalogue dates.
+
+## value
+
+PASS
+
+In a published oscillator benchmark with unexplained behavior as the correction count varies, the coefficient pinpoints the first loss of symplecticity and explains why neither odd nor even sweep counts reliably inherit local stability. The all-k density and parity conclusion go beyond a small-instance table and concern a commonly used method with precisely specified initialization and output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

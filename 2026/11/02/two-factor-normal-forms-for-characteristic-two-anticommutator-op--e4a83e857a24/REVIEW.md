@@ -1,12 +1,21 @@
-# Scientific review: characteristic-two anticommutator operator monoids
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof computes commutators directly in the basis \((E_{11},I_2,E_{12},E_{21})\). The four parameters of a twofold map are recovered uniquely from its action. Necessity and sufficiency for both normal-form strata are explicitly proved, including zero parameters; triple factors reduce by an exact identity. Rank counts are justified by the graph-of-functional argument and the rank-one degenerate cases. The independent exhaustive finite-field verifier returned `VERIFY_OK` for \(q=2,4\). These finite checks do not substitute for the general proof. Risk: a transcription error or a different convention for empty products; both conventions are explicitly distinguished.
+## correctness
 
-## Originality — PASS (with historical-priority risk)
-The closest paper, Gogić–Kazalicki–Tomašević, arXiv:2604.17664v1, proves full linear-semigroup generation only in characteristic different from two and explicitly describes the characteristic-two obstruction in §1. It does not calculate the monoid structure, short normal forms, ranks, or finite-field cardinality for characteristic-two \(M_2\). Relevant semantic mathematical-record searches (for adjoint-operator products and characteristic-two Jordan analogues) revealed no equivalent claim, and earlier scientific claim statements were compared. Related work on \(2\)-local derivations does not enumerate their composition semigroups. Risk: earlier Lie-adjoint transformation-semigroup literature may include an equivalent classification despite different language.
+PASS
 
-## Mathematical value — PASS
-This computes an exact and natural boundary to a recent maximal-semigroup theorem: not merely that the characteristic-two analogue is proper, but that its full \(2\times2\) structure has multiplication word length at most two and an exact finite-field rank profile. It exposes a uniform forbidden rank and sharp quantitative loss of generation; these are useful structural invariants. Limits: larger matrix size and genuinely quadratic Jordan theories are not addressed.
+In the (E11,I,E12,E21) basis, direct multiplication gives T(a,v)(h,t,z)=(0,ω(v,z),hv+az). Reading the image of E11 and the two off-diagonal units recovers the parameters of a product (r,s,u,d) uniquely. Two factors give r=a₂a₁, s=a₂v₁, u=a₁v₂ and d=ω(v₂,v₁). If r≠0 this forces d=ω(u,s)/r and the converse follows by taking a₁=1, a₂=r. If r=0, at least one of u,s vanishes; any scalar d is realizable by nondegeneracy of ω, including when both vectors vanish (set a₁=a₂=0). On the trace-zero image of any generator, T(a₃,v₃)T(a₂,v₂) agrees with T(a₃a₂,a₂v₃), reducing every longer word. Among single factors exactly T(0,v≠0) are not twofold, and the identity is separate since the nonempty words kill I. Over F_q the r≠0 stratum has (q−1)q⁴ rank-two maps, the r=0 stratum has 2q³−q maps of rank one except for zero, and the extra q²−1 single factors have rank two. This gives the stated ranks and order; none of the structural steps requires a perfect field. Independent closure enumeration on all 16 vectors over F₂ returned 34 maps with ranks (1,13,19,0,1).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The characteristic-two obstruction is already explicit in the closest Jordan multiplication paper. The supported distinct contribution is the complete two-factor normal form, exceptional one-factor maps, and finite rank distribution for the unnormalized M₂(k) composition monoid. No inspected equivalent result or stronger implication was found.
+
+## value
+
+PASS
+
+The monoid is the first nontrivial size for the characteristic-two analogue of an established generation problem. Knowing the prior obstruction alone cannot determine whether a proposed operator is attainable. The normal form decides attainability and minimal word length and gives rank counts uniformly over all finite fields of this characteristic, rather than an arbitrary small-field census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review: Universal inverse-distance germination penalty in a heterogeneous habitat corridor
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact formula follows from a geometric first-step identity at each unsuitable patch and at the suitable target. Logarithmic differentiation gives a strictly decreasing positive stationarity function, with endpoint limits of infinity and zero, hence a unique global maximum. Appending a patch adds a strictly positive summand and strictly raises optimal dormancy. A habitat-specific policy maximizes every traversing factor and target germination separately. Uniform Taylor bounds for \(A_j\le1-\varepsilon\) establish \((1-q_n)K_n\to1\) and the exact relative factor \(1/[e(1-s_0)K_n]\). The singular target-survival boundary is treated separately. A standalone standard-library script independently tests finite-horizon recursions and analytical formulas on many heterogeneous examples; it cannot replace proof of infinite claims.
+PASS
 
-## Originality — PASS on inspected evidence
+A successful visit to corridor patch j spends ℓ≥1 seasons there with path weight (qA_j)^(ℓ−1) q b_j; the target contributes the success sum (1−q)∑(s₀q)^ℓ for ℓ≥0. Multiplication applies because advances are ordered and renew the process. These series converge at both endpoints under the hypotheses, with H_n(0)=H_n(1)=0. The derivative of log H_n has the sign of the left side of (1) minus 1−s₀. Each summand of that left side is a product of (1−q)/(1−A_jq) and 1/q−s₀, both strictly decreasing and positive on the interior, with the full sum falling from infinity to zero. Appending a positive summand moves the unique root strictly right. A different policy at each site maximizes the passage factors by q=1 and the target factor by q=0, yielding the strict cue benchmark. To check the long-corridor law, for fixed q<1 the stationarity sum is bounded below by n(1−q)(1−s₀q)/q, so its unique solution tends to 1. For δ=1−q_n the sum of reciprocals of 1−A_j+A_jδ is K_n(1+O(δ/ε)), uniformly in n; the stationarity equation then gives δK_n→1 and δ=O(1/n) since n≤K_n≤n/ε. Alternatively, conditional on successful passage under the cue policy the patch residence seasons are independent geometric variables with means 1/(1−A_j). The dormancy penalty in the chain is their summed-time generating function at q_n. The log error relative to −δK_n is O(nδ²/ε²) from the series of log(1−δ) and log(1+A_jδ/(1−A_j)), so the passage penalty tends to e^−1. The target factor is asymptotic to δ/(1−s₀). At s₀=1 the conditional target success is one for q<1 and zero for q=1, giving a supremum but no maximum, as claimed. The five-patch equation reduces to 123q²−288q+160=0 with the stated smaller root in (0,1); finite checks in the inspected but unexecuted uploaded script are not needed for the proof.
 
-A publicly posted March 2021 preprint (Szojka and Germain) and its March 2024 journal version motivate transport of dormant seeds through unsuitable matrix habitat, but their empirical findings do not establish the corridor-wide unique optimizer, patch-append monotonicity, or heterogeneous inverse-distance cue penalty. The inspected Satterthwaite (2009), Chen et al. (2020) and Pausas et al. (2022) primary texts concern dormancy fitness, trait covariation and cue strategies without this hitting-probability law. The Venable–Lawlor (1980) abstract concerns escape in space and time; its full text was inaccessible, so historical priority remains provisional and full-document noncoverage is not asserted. Standard absorption and geometric-series calculations are explicitly credited as prior methods. Searches of related seed-bank growth optimization, absorbing-chain first passage and spatial dispersal results found no demonstrated covering implication; search absence is not a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The exact distinction between germination based on habitat cues and one common germination fraction is biologically motivated by dormant seeds traversing unsuitable landscape matrices. The theorem supplies a complete finite-length strategy classification and a genuinely heterogeneous asymptotic: even when patch transport/survival vary arbitrarily within a natural bounded-retention class, inability to recognize the target adds the sharp \(e^{-1}/K_n\) inverse-distance penalty to an already decaying establishment probability. This quantifies a previously qualitative landscape-connectivity mechanism, while leaving field prediction and population-level fitness outside scope.
+The classical waiting-time passage identity and conceptual dormancy/dispersal tradeoff are not new. On the sources actually examined, the finite optimizer and strict append response combined with the sharp heterogeneous cue-relative asymptotic distinguish the frozen claim. This is a best-of-knowledge decision with explicitly bounded access, not historical certification.
 
-## Closest literature and limits
+## value
 
-Szojka and Germain: https://doi.org/10.1101/2021.03.22.436493 (public preprint 23 March 2021) and https://doi.org/10.1002/ecs2.4814 (2024 journal article); Satterthwaite: https://doi.org/10.1007/s11258-009-9696-y; Venable and Lawlor: https://doi.org/10.1007/BF00540137; Chen et al.: https://doi.org/10.1111/ele.13595; Pausas et al.: https://doi.org/10.1111/nph.18436.
+PASS
 
-The proof does not include backwards dispersal, reproduction during crossing, adaptive site sensing beyond the stated comparison, environmental correlations, a deadline, or evolutionary optimality. Full-text historical priority comparison is incomplete, and independent external audit has not been performed.
+The sharp extra 1/K_n loss quantifies a natural restriction on using one germination probability across distinct habitat states, in a setting where absolute success can already decay exponentially. The heterogeneous optimizer and its strict response to added distance go beyond a homogeneous geometric-sum example. This is a clean idealized single-seed benchmark, not field calibration, population fitness or deployment advice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

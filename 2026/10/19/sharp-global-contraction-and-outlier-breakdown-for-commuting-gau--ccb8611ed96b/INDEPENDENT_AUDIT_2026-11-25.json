@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:58.666758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–132",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution; finite numerical assertions and quoted benchmark values are not the universal proof"
+      ],
+      "rationale": "I reconstructed the reduction and the limits. Any finite competing cost has finite second moments from the transport term; finite Gaussian-reference KL also excludes zero-variance marginals. For a scalar candidate with mean m and standard deviation s, the transport lower bound m²+(s−b)² and the KL Gaussian lower bound at the same moments attain equality simultaneously by the affine Gaussian coupling; the mean term is minimized at zero. Across independent coordinates, the entropy lower bound by the sum of marginal entropies and the matching product Gaussian coupling make the scalarization exact. The strict convex inner problem has unique positive root of c_a s²−2bs−τ=0, c_a=2+τ/a². The derivative approaches 2/c_a from below. Sharpness of the global Lipschitz modulus follows by letting just a maximizing coordinate go to infinity, where the diagonal-Gaussian W₂ geometry is Euclidean. The continuous extension maps the complete closed orthant into its interior, justifying Banach convergence and uniqueness. Differentiating the minimized objective gives 2(b−T(b)) and diagonal Hessian with global infimum 2(1−q), attained as an infimum at infinity. For the outlier, the relaxed map strictly increases with M and has a contraction bound uniform in M at fixed clean weight, so the fixed points increase to the limiting fixed point. Setting δ=τ/M², I obtain ∂_δs=−s∞²/[2√(b²+2τ)] from the quadratic; the nonzero fixed-point derivative 1−T∞′ produces exactly K_w and analyticity gives the M^(−4) error. In the second limit any bounded subsequence of B_w would imply a finite fixed point of s∞, impossible. The large-b expansion s_a(b)=2b/c_a+τ/(2b)+O(b^(−3)), also valid with c_a=2 for s∞, therefore gives (1−w)(1−2/c_a)B_w²→τ/2, yielding the claimed prefactor. This proof does not interchange the two limits or require a contraction factor uniform in w.",
+      "residual_risks": [
+        "The common eigenbasis and fixed positive regularization are essential for this argument. The outlier statements are scalar, covariance-only and sequential; M is a standard deviation, not a covariance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published hybrid convergence theorem is on a bounded spectral band. The distinct theorem for exact-geodesic descent uses a different geometry and is not the sharp Hessian calculation for the hybrid step.",
+          "The contamination figure estimates a Gaussian from samples of a mixture inside an input distribution; it does not insert one independent Gaussian whose standard deviation goes to infinity at fixed weight, nor send the clean weight to zero afterward."
+        ],
+        "reasoning": "A broad qualitative robustness discussion, a different algorithm's strong convexity, and compact-band convergence do not subsume the nonuniform two-limit optimizer estimates.",
+        "searches": [
+          "arXiv:2410.08117, Theorems 5–6",
+          "PMLR v300 nguyen26a, Theorems 4.5–4.6 and §5/Fig. 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.08117",
+        "PMLR v300 nguyen26a",
+        "Focused Resultary ranked searches; no material hit returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalarize the known update and differentiate at large b: the supremum slope is q. Minimize the scalar cost and differentiate to obtain 2(1−T′), giving the sharp modulus. Both are formula-level implications even though not stated theorems.",
+          "The scalar fixed-point equation is encoded by those same formulas. A finite-outlier limit is accessible once the uniform contraction bound is established; the first correction uses invertibility of the new limiting fixed-point equation, and the clean-mass limit instead needs a divergence argument and leading balance as that bound degenerates. Neither outlier rate or sharp constant is supplied by the stated prior convergence/robustness results."
+        ],
+        "reasoning": "The outlier asymptotics can be proved starting from published formulas, but are not mechanically obtained by changing notation, evaluating the one-step map at the limits, or taking a special case of the prior theorem. In particular a fixed-point limit cannot be read from the pointwise limit of updates when the contraction bound tends to one. Basis for passing is the asymptotic optimizer analysis, not the familiar iteration or its directly differentiated constants.",
+        "searches": [
+          "arXiv:2410.08117, Gaussian closed form, Eqs. (1)–(2), and Algorithm 2",
+          "PMLR v300 nguyen26a Theorems 4.2 and 4.6 and §5/Fig. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The costs agree, and the Gaussian formula in common diagonal coordinates supplies the same scalar step. The authors display uniform weights; duplicates realize rational weights, and real weights follow by continuity in the analyzed fixed positive settings.",
+          "In the prior paper coordinates are covariances; passing to standard deviations is essential to recognizing equivalence of the update and does not make the update novel."
+        ],
+        "reasoning": "Neither using unequal weights nor switching to standard deviations removes formula-level prior coverage. The outlier analysis targets the stationary point of that update, not an alternative formulation of just one relaxation step.",
+        "searches": [
+          "Nguyen et al. arXiv:2410.08117, Eqs. (1)–(2), Theorem 2 and Algorithm 2",
+          "PMLR v300 nguyen26a, Theorem 4.2 and Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No material Resultary record was identified in the returned bounded ranked set. The closest exact data are the literature's analytical Gaussian update formulas, not a table of optimizer asymptotics; Fig. 2 is a different finite experiment."
+        ],
+        "reasoning": "The actual formula is counted as exact prior coverage of the update and compared to the studied invariant, rather than mistaking a lack of tabulation for originality. The formula and experiment are not an exact listing of B_w, K_w or the singular breakdown law.",
+        "searches": [
+          "Resultary: commuting Gaussian semi-unbalanced barycenter exact contraction and outlier ceiling/asymptotics; bounded ranked search",
+          "arXiv:2410.08117 and PMLR v300 nguyen26a, exact Gaussian closed form and contamination figure"
+        ]
+      },
+      "rationale": "Credit the one-sided KL objective, Gaussian relaxation and its closed form, and the hybrid update to Nguyen et al. The exact scalar update is already encoded there, and sharp contraction and the standard-deviation Hessian modulus are direct differentiation consequences, not independently original invariants for purposes of this review. The surviving distinct result in the frozen Finding is the quantitative sequential outlier response of the optimizer: the finite ceiling, its strictly positive inverse-square leading correction, and especially the singular sharp prefactor as clean mass vanishes. The prior formula is for one update, not the optimizer as a function of the outlier and weights. The outlier conclusions require control of the fixed point in two distinct regimes (a uniform-in-outlier gap followed by a vanishing gap), not plugging the outlier into an already known bound or explicit optimizer formula. The inspected paper's qualitative experiment and bounded-spectrum convergence theorem do not cover that analysis.",
+      "residual_risks": [
+        "A prior scalar asymptotic for the same cost under alternative terminology remains possible. The checked passages and bounded catalogue search are not an exhaustive priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same one-sided cost and formula; stated convergence relies on a spectral band",
+          "evidence": "Theorem 2 solves the Gaussian relaxation; Algorithm 2 averages the relaxed marginals in Wasserstein geometry; Theorem 6 assumes starting and updated covariance matrices stay in K[1/ρ,ρ].",
+          "identifier_or_url": "https://arxiv.org/abs/2410.08117",
+          "material_read": "§3 Eqs. (1)–(2), p. 5, offset 15600; §4.1 Theorem 2, pp. 6–7, offset 19700; §4.3 Algorithm 2 and Theorem 6, pp. 9–10, offsets 33700–35200",
+          "method": "Bounded OA primary-text passages",
+          "title": "On Barycenter Computation: Semi-Unbalanced Optimal Transport-based Method on Gaussians",
+          "trigger": "Original exact Gaussian update and hybrid convergence"
+        },
+        {
+          "assessment": "Closed form and update confirmed. Distinct spectrum-restricted convergence and finite contamination experiment, not the two ordered-limit optimizer laws",
+          "evidence": "Algorithm uses equal contributions. Fig. 2 obtains an empirical Gaussian covariance from a mixture; Theorem 4.5 is for exact-geodesic gradient descent, not the sharp standard-deviation hybrid estimate.",
+          "identifier_or_url": "https://proceedings.mlr.press/v300/nguyen26a.html",
+          "material_read": "Theorem 4.2, p. 5, offset 27600; Theorem 4.5, p. 7, offset 40500; Algorithm 2 and Theorem 4.6, p. 7, offsets 52000–55000; §5/Fig. 2, p. 8, offset 60000",
+          "method": "Bounded OA published primary-text passages",
+          "title": "On Barycenter Computation: Analyzing Semi-Unbalanced Optimal Transport-based Method on Bures-Wasserstein Manifold",
+          "trigger": "Published revision; plausible stronger convergence and contamination theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations for the ceiling, inverse-square correction and square-root limit",
+        "PMLR v300 nguyen26a §5/Fig. 2 for the distinct prior robustness context"
+      ],
+      "rationale": "For the existing transport objective, a tight one-step convergence factor is useful context but not the basis for value. The exact optimizer has a motivated robustness contrast with ordinary Wasserstein averaging: an arbitrarily large covariance input has bounded influence at fixed clean weight, but the bounded ceiling deteriorates at a quantified rate as that clean weight vanishes. The positive inverse-square correction and exact singular prefactor characterize both regimes and cannot be inferred from a finite experiment or routine substitution into one update.",
+      "residual_risks": [
+        "No motivation is inferred for robustness to means, non-Gaussian inputs or all covariance contamination; the claim is exact for the stipulated scalar test."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

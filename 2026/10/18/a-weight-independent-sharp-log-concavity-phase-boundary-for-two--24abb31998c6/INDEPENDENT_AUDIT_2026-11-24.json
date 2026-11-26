@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:56.729340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent curvature check: for d=β−α>0 and w in (0,1), let p=Bx^d/(A+Bx^d) be the density contribution fraction of the higher-shape component. Its derivative is dp/dx=d p(1−p)/x. The mixture score is −λ+(α−1+dp)/x (here dp means d times p), so the scaled curvature is −(α−1)−d p+d²p(1−p). Since p spans (0,1) for every permitted rate and weight, α<1 fails as p→0, and for α≥1 and 0<d≤1 the curvature is strictly negative. For d>1, the quadratic has its unique maximum at p=(d−1)/(2d), where Bx^d/A=(d−1)/(d+1) and the maximum equals (d−1)^2/4−(α−1). When it is positive and α≥1, its nonpositive endpoint limits and strict downward quadratic shape give exactly one positivity interval (left endpoint x=0 if α=1) and negative curvature elsewhere outside its closure; solving the equivalent t=B x^d/A quadratic gives the stated endpoints. At the d>1 equality threshold only the maximizer has zero curvature; (α,d)=(1,1) instead has strictly negative curvature on x>0. Shapes (2,5) and (2,6) give maxima 0 and 5/4, respectively, confirming the sharp examples. At excluded endpoint weights the density is a single Gamma, and the violating point for shapes (2,6) can escape to a support boundary as one weight vanishes. The frozen rational checker was inspected, not run; the analytic replay applies to all real shapes, unlike the finite instances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mu treats sufficient log-concavity statements for Beta mixtures with log-concave mixing weights.",
+          "Boedihardjo–Xie Theorem 1.1 frames a two-component estimate using component means and covariances.",
+          "The two-point binomial result cc74aabec259 gives an exact discrete odds-gap criterion."
+        ],
+        "reasoning": "None of these precise settings gives necessary and sufficient curvature for arbitrary two positive Gamma shapes at a common rate. A same-shape classification cannot imply the varied-shape case, and a discrete odds criterion is not an equivalent curvature statement on the positive real line.",
+        "searches": [
+          "arXiv:1312.2166 Theorems 1–2",
+          "arXiv:2607.17368 Theorem 1.1",
+          "Resultary cc74aabec259"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_gamma_mixture.py",
+        "Resultary e45ac4ab94e8 and cc74aabec259",
+        "arXiv:2211.08652, 1312.2166 and 2607.17368; DOI:10.1239/jap/1238592127"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity for a finite mixture is average component log curvature plus the variance of the component score. Here the score variance after multiplying by x² is d²p(1−p). The comparators instead use rate-dependent amplitude, Beta mixing hypotheses, or modeling without the global curvature classification."
+        ],
+        "reasoning": "The differentiation identity by itself does not compare the score variance with mean curvature or establish global attainment. The Gamma common-rate reduction, surjectivity of p for each interior weight, separate α<1 and d≤1 cases, and attainable maximum give a sharp classification rather than an application of a prior stated class bound. The precise gap, failure interval and location do not follow by parameter substitution in the inspected findings.",
+        "searches": [
+          "Resultary e45ac4ab94e8 Finding and assumptions",
+          "arXiv:1312.2166 Theorems 1–2",
+          "arXiv:2211.08652 introductory model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Common scale in Li–Lee–Kottas is equivalent to common rate and their Erlang components vary in integer shape, but the inspected introductory passages use the family for survival modeling, not this sharp classification.",
+          "Resultary e45ac4ab94e8 holds shape fixed and varies rate; Yu compares Gamma convolutions and scale mixtures in stochastic orders."
+        ],
+        "reasoning": "A common rescaling of x can set the common rate to 1 but cannot turn distinct shapes into a common shape. The frozen positive two-power factor, up to an exponential tilt, is equivalent to a quadratic in the contribution fraction p, which ranges through (0,1). A two-rate exponential sum at fixed shape does not have this tilt range or curvature law.",
+        "searches": [
+          "Resultary e45ac4ab94e8, equal-shape Gamma rate mixtures",
+          "arXiv:2211.08652, common-scale Erlang mixtures",
+          "DOI:10.1239/jap/1238592127, Gamma scale mixtures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two relevant same-day indexed findings give a weight-dependent amplitude threshold at fixed Gamma shape and an odds-gap threshold for binomial mixtures. The inspected common-scale Erlang source supplies the family used in modeling, not a table of exactly classified shape pairs."
+        ],
+        "reasoning": "No matching exact table or indexed statement covering the common-rate shape-gap domain was established in the bounded check. The shape restriction is on a continuous two-parameter domain, not a finite enumeration; the Erlang case is the integer restriction of the same sharp boundary.",
+        "searches": [
+          "Resultary e45ac4ab94e8",
+          "Resultary cc74aabec259",
+          "arXiv:2211.08652"
+        ]
+      },
+      "rationale": "Bounded comparison supports the sharp common-rate, distinct-shape phase boundary and its attained normalized-curvature refinement. The general mixture differentiation identity is standard; the assessed claim is the exact weight-independent classification for this family, not the differentiation rule. The strongest inspected records have different variable parameters or a different distribution family.",
+      "residual_risks": [
+        "An earlier two-power or more general sharp common-rate theorem under different terminology is not excluded. The bounded literature search did not establish absence, and the judgments are limited to inspected material.",
+        "The result excludes endpoint weights from the mixture classification and does not apply to unequal rates or mixtures with more than two shapes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different family; no shape-gap coverage",
+          "evidence": "Common shape and unequal rates, classification by a normalized fast-component amplitude ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-log-concavity-threshold-for-equal-shape-gamma-rate-mixtu--e45ac4ab94e8/RESULT.md",
+          "material_read": "Finding and assumptions, mirrored text offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp log-concavity threshold for equal-shape Gamma rate mixtures",
+          "trigger": "Strongest same-day Gamma mixture threshold"
+        },
+        {
+          "assessment": "Structural analogue; different distribution and notion of curvature",
+          "evidence": "Discrete binomial odds-gap condition, not Gamma powers with a common rate.",
+          "identifier_or_url": "Resultary cc74aabec259",
+          "material_read": "Mirrored statement at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp odds-gap thresholds for log-concavity of two-point binomial mixtures",
+          "trigger": "Same-day two-point mixture with uniform-in-weight classification"
+        },
+        {
+          "assessment": "Strong model motivation; no exact phase boundary in inspected passages",
+          "evidence": "Common-scale Erlang components with varying integer shapes used for survival modeling.",
+          "identifier_or_url": "arXiv:2211.08652",
+          "material_read": "pp. 1–2, text offset 650",
+          "method": "Lawful OA PDF passage",
+          "title": "Bayesian Nonparametric Erlang Mixture Modeling for Survival Analysis",
+          "trigger": "Closest cited common-rate shape mixture family"
+        },
+        {
+          "assessment": "Different hypotheses and distributions",
+          "evidence": "Beta mixtures with log-concave continuous or discrete mixing weights.",
+          "identifier_or_url": "arXiv:1312.2166",
+          "material_read": "p. 1, text offset 0, Theorems 1–2",
+          "method": "Lawful OA PDF passage",
+          "title": "Log-concavity of a Mixture of Beta Distributions",
+          "trigger": "Log-concavity preservation for mixtures with varying shape"
+        },
+        {
+          "assessment": "Related stochastic-order and scale-mixture question; not coverage in the inspected statement",
+          "evidence": "Gamma convolutions represented as scale mixtures, not a common-rate two-shape curvature condition.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1238592127",
+          "material_read": "p. 1 abstract, text offset 0",
+          "method": "Lawful paper passage",
+          "title": "Stochastic Ordering of Exponential Family Distributions and Their Mixtures",
+          "trigger": "Gamma mixing literature with possible equivalent parametrization"
+        },
+        {
+          "assessment": "Different objective and hypotheses",
+          "evidence": "Recovery and regimes in terms of component means and covariances, not the exact Gamma shape-gap bound.",
+          "identifier_or_url": "arXiv:2607.17368",
+          "material_read": "Abstract at offset 0; Theorem 1.1, p. 4, offset 14100",
+          "method": "Lawful OA paper passages",
+          "title": "Boedihardjo and Xie, two-component log-concave mixtures",
+          "trigger": "Possible broader two-component mixture regime theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete exact test for global log-concavity in a natural, common-rate model, not a finite algebraic example. In particular, two individually log-concave components can fail the density shape constraint for every interior weight; adjusting a weight only moves the failure region. The sharp square-root gap gives a usable Erlang model-design rule, with an explicit curvature witness and tangency at equality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

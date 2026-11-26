@@ -1,120 +1,57 @@
-# Sharp negative-weight failure rates for affine randomized least-squares quadrature
+# Sharp negative-weight failure rate for affine randomized least-squares quadrature
 
 ## Finding
 
-Consider the unweighted randomized least-squares quadrature rule that integrates the two-dimensional space \(V=\operatorname{span}\{1,x\}\) exactly. Let \(X_1,\ldots,X_m\) be independent samples from a symmetric, atomless probability measure \(\nu\) supported on \([-R,R]\), where \(R>0\) is its essential upper endpoint, and suppose \(\nu((0,R))>0\). Let \(F_m\) be the event that at least one of the resulting \(m\) quadrature weights is negative. For every integer \(m\ge2\), the weights exist uniquely almost surely, and
-
+Let \(X_1,\ldots,X_m\) be independent samples from a symmetric atomless probability measure \(\nu\) on \([-R,R]\), where \(R>0\) is the essential upper endpoint and \(\nu((0,R))>0\). In the ordinary unweighted least-squares quadrature rule on \(\operatorname{span}\{1,x\}\), fit an affine function by least squares on the sampled nodes, then integrate the fit against \(\nu\). The rule's weight vector exists uniquely almost surely for \(m\ge2\). If \(F_m\) denotes the event that some weight is strictly negative, then
 \[
-\lim_{m\to\infty}-\frac1m\log\Pr(F_m)
-=I_\nu
-:=-\log\min_{t\ge0}\mathbb E_\nu\!\left[e^{-t(X^2-RX)}\right]>0.
+\Pr(F_m)\le 2e^{-m I_\nu}\quad(m\ge2),\qquad
+\lim_{m\to\infty}-\frac1m\log\Pr(F_m)=I_\nu,
+\qquad I_\nu=-\log\min_{t\ge0}\mathbb E_\nu e^{-t(X^2-RX)}\in(0,\infty).
 \]
-
-The minimum is attained at a unique positive \(t\). The finite-sample bound \(\Pr(F_m)\le2e^{-mI_\nu}\) holds for every \(m\ge2\). For uniform sampling on \([-1,1]\), there is additionally an exact three-node law,
-
-\[
-\Pr(F_3)=\frac{2+\pi}{16},\qquad
-\Pr(\text{all three weights positive})=\frac{14-\pi}{16}.
-\]
-
-For this uniform law, \(I_\nu=0.172761450635\ldots\) and the minimizing parameter is \(t_*=1.2631644033\ldots\). In particular, the failure probability is \(\exp[-I_\nu m+o(m)]\) on the logarithmic scale. The finite three-node identity and the general exponential-rate theorem are complementary descriptions of the same positivity event.
+The minimizer is unique and strictly positive. For uniform sampling on \([-1,1]\), the exponent is approximately \(0.172761450635\), attained at \(t_*\approx1.2631644033\).
 
 ## Assumptions and scope
 
-The integration functional is \(\mathcal L(f)=\int f(x)\,d\nu(x)\); the sampling and integration measures coincide. Each integrand is fitted on the sampled nodes by ordinary, unregularized least squares in \(V\), and the integral of that fitted affine function defines the quadrature rule. No positivity constraint, postprocessing, node pruning, induced sampling, or weight clipping is applied. The measure \(\nu\) is symmetric about zero, nonatomic, supported in \([-R,R]\) with essential upper endpoint \(R>0\), and has positive mass on the open interval \((0,R)\). The latter assumption guarantees a nondegenerate strictly negative region for \(X^2-RX\). All assertions concern exact real arithmetic and independently sampled nodes. The three-node constant and explicit error-function formula specialize to \(\nu=\operatorname{Uniform}[-1,1]\).
+The sampling and integration measures are identical. The least-squares fit is unregularized and unconstrained, with no pruning, clipping, or other weight postprocessing. The assertion concerns the weights of this particular rule, not uniqueness among all vectors exact on affine functions. The endpoint \(R\) being essential means \(\nu([R-\delta,R])>0\) for every \(\delta>0\). The result is a logarithmic rate: it gives no asymptotic prefactor or exact finite-sample distribution.
 
 ## Proof
 
-**1. Exact weight and sign formula.** Write \(S=\sum_{j=1}^m X_j\) and \(Q=\sum_{j=1}^m X_j^2\). The ordinary least-squares design matrix has rows \((1,X_j)\). As \(\mathcal L(1)=1\) and \(\mathcal L(x)=0\), inversion of the \(2\times2\) normal matrix gives
-
+**Weights and sign test.** Write \(S=\sum_i X_i\) and \(Q=\sum_i X_i^2\). Since the integral of a fitted affine function is its intercept, the two normal equations give
 \[
-w_i=\frac{Q-SX_i}{mQ-S^2},\qquad i=1,\ldots,m.
+w_i=\frac{Q-SX_i}{mQ-S^2}.
 \]
+The denominator is \(m\sum_i(X_i-S/m)^2>0\) almost surely, by atomlessness and independence. For \(S>0\), a negative weight occurs exactly when \(Q<S\max_i X_i\); for \(S<0\), it occurs exactly when \(Q<S\min_i X_i\). For \(S=0\) every weight is \(1/m\).
 
-The denominator equals \(m\sum_j(X_j-S/m)^2\) and is positive almost surely because \(\nu\) is nonatomic and \(m\ge2\). Consequently, if \(S>0\), a negative weight occurs exactly when \(Q<S\max_iX_i\); if \(S<0\), exactly when \(Q<S\min_iX_i\). For \(S=0\), all weights are \(1/m\). These statements are exact finite-sample equivalences, not probability approximations.
-
-**2. Exponential upper bound.** If \(S>0\), then \(\max_iX_i\le R\), so the failure event implies \(\sum_j(X_j^2-RX_j)<0\). If \(S<0\), it implies \(\sum_j(X_j^2+RX_j)<0\). Symmetry makes these two sums identically distributed. Therefore, for any \(t\ge0\), Markov's inequality gives
-
+**Upper bound and optimization.** Since \(|X_i|\le R\), in the two sign cases failure implies a negative sum of \(X_i^2-RX_i\) or \(X_i^2+RX_i\), respectively. These sums have the same distribution by symmetry. Put \(Y=X^2-RX\). The exponential Markov bound therefore gives, for every \(t\ge0\),
 \[
-\Pr(F_m)\le2\Pr\!\left(\sum_j(X_j^2-RX_j)<0\right)
-\le2\left(\mathbb E e^{-t(X^2-RX)}\right)^m.
+\Pr(F_m)\le2\Pr\!\left(\sum_{i=1}^m Y(X_i)<0\right)\le 2(\mathbb E e^{-tY})^m.
 \]
+The mean \(\mathbb EY=\mathbb EX^2\) is positive, and \(Y\) is strictly negative with positive probability. Thus the derivative of \(\log\mathbb E e^{-tY}\) at zero is negative; its second derivative is the strictly positive variance under the exponential tilt. This convex function tends to \(+\infty\) as \(t\to\infty\), since \(Y\) is bounded above by a negative constant on a set of positive probability. It follows that its unique minimizer is strictly positive and the minimum of \(\mathbb Ee^{-tY}\) is strictly between 0 and 1. This proves the bound with \(I_\nu\) and gives the lower bound on the logarithmic exponent.
 
-Minimizing over \(t\ge0\) gives the asserted nonasymptotic bound. The bounded random variable \(Y=X^2-RX\) has \(\mathbb EY=\mathbb EX^2>0\) and takes strictly negative values on a set of positive probability in \((0,R)\). Thus \(\log\mathbb Ee^{-tY}\) has negative derivative at zero, strictly positive second derivative for every finite \(t\), and positive derivative at sufficiently large \(t\). It has precisely one minimizer \(t_*>0\), with a minimum strictly between zero and one; hence \(0<I_\nu<\infty\).
-
-**3. Matching exponential lower bound.** Fix \(0<\delta<R\) small enough that \(\nu((0,R-\delta))>0\), and set \(Y_\delta=X^2-(R-\delta)X\). The designated-node event \(X_1\in[R-\delta,R]\) has probability \(c_\delta>0\), by the essential-endpoint assumption. For \(|X|\le R\), \(|Y_\delta|\le2R^2\). Hence, on the independent intersection
-
+**Matching logarithmic bound.** Put \(Y_\delta=X^2-(R-\delta)X\). Fix \(\delta>0\) sufficiently small that \(R-\delta>0\) and \(\Pr(Y_\delta<0)>0\). On the event that \(X_1\in[R-\delta,R]\) and \(\sum_{i=2}^m Y_\delta(X_i)<-2R^2\), we have \(Q<(R-\delta)S\) because \(|Y_\delta|\le2R^2\). Hence \(S>0\), and the designated node ensures \(\max_i X_i\ge R-\delta\), so the sign test forces failure. Independence of the designated node and the other nodes gives
 \[
-X_1\in[R-\delta,R],\qquad
-\sum_{j=2}^{m}Y_\delta(X_j)<-2R^2,
+\Pr(F_m)\ge \nu([R-\delta,R])\Pr\!\left(\sum_{i=2}^m Y_\delta(X_i)<-2R^2\right).
 \]
+Zero lies in the interior of the convex hull of the law of \(Y_\delta\), with \(\mathbb E Y_\delta=\mathbb EX^2>0\). Its Cramér rate function \(J_\delta\) is finite and continuous there, and \(J_\delta(0)=-\log\min_{t\ge0}\mathbb E e^{-tY_\delta}\), since the maximizing tilt at zero is negative. For each fixed small \(\eta>0\), an open interval around \(-\eta\) lying below \(-\eta/2\) is included in the designated sum event for the mean of the last \(m-1\) nodes once \(m\) is large. The Cramér lower bound gives a limit superior of the negative logarithm divided by \(m\) at most \(J_\delta(-\eta)\). The constant node probability has zero logarithmic cost per sample. Sending \(\eta\downarrow0\) bounds the limit superior by \(J_\delta(0)\).
 
-we have \(Q<(R-\delta)S\), which forces \(S>0\); also \(\max_jX_j\ge R-\delta\). The exact sign formula then forces a negative weight. Thus
+To take \(\delta\downarrow0\), choose \(0<a<b<R\) with \(\nu([a,b])>0\), which exists by exhaustion of \((0,R)\) by compact subintervals. For \(0\le\delta\le (R-b)/2\) and \(X\in[a,b]\), \(Y_\delta\le-a(R-b)/2<0\). Consequently \(\mathbb Ee^{-tY_\delta}\) exceeds 1 for all sufficiently large \(t\), uniformly in these \(\delta\). The minimizations can all be taken over one compact \(t\)-interval, where the expectations converge uniformly as \(\delta\downarrow0\) by boundedness. Thus \(J_\delta(0)\to I_\nu\). Together with the exponential upper bound on failure this gives the claimed limit.
 
+**Uniform example.** For \(t>0\), completing the square gives
 \[
-\Pr(F_m)\ge c_\delta\Pr\!\left(\sum_{j=2}^{m}Y_\delta(X_j)<-2R^2\right).
-\]
-
-The ordinary Cramér large-deviation theorem for bounded independent variables, together with the open-set lower bound at a threshold approaching zero, gives
-
-\[
-\lim_{m\to\infty}-\frac1m\log\Pr\!\left(\sum_{j=2}^{m}Y_\delta(X_j)<-2R^2\right)
-=I_\delta:=-\log\min_{t\ge0}\mathbb Ee^{-tY_\delta}.
-\]
-
-Indeed, \(\mathbb EY_\delta=\mathbb EX^2>0\) and \(\Pr(Y_\delta<0)>0\), so zero is an interior left-tail point. Boundedness makes the moment-generating functions continuous in \((t,\delta)\); their unique minimizers remain uniformly bounded for all sufficiently small \(\delta\), because a fixed interval inside \((0,R)\) has negative \(Y_\delta\). Thus \(I_\delta\to I_\nu\) as \(\delta\downarrow0\). Combining this lower estimate with Step 2 proves the exact logarithmic rate.
-
-**4. The three-node uniform probability.** For three independent uniform nodes, all three signs agree with probability \(1/4\); in that event exactness for \(x\) forces a negative weight. Otherwise, by reflection symmetry, it suffices to consider one negative node \(-U\) and two positive nodes \(V<W\), where their three absolute values were independent \(\operatorname{Uniform}(0,1)\). From the weight formula, the weight associated with \(-U\) is positive, and the weight at \(W\) is negative precisely when
-
-\[
-U(U+W)<V(W-V).
-\]
-
-Writing \(v=V/W\), this is \(U<W h(v)\) with \(h(v)=(\sqrt{1+4v(1-v)}-1)/2\). The ordered positive pair has density \(2\) on \(0<V<W<1\). The conditional failure probability for this mixed-sign pattern therefore equals
-
-\[
-2\int_0^1\int_0^W W h(V/W)\,dV\,dW
-=\frac23\int_0^1h(v)\,dv
-=\frac23\left(\frac\pi8-\frac14\right)
-=\frac\pi{12}-\frac16.
-\]
-
-The two mixed-sign categories have combined probability \(3/4\), giving
-
-\[
-\Pr(F_3)=\frac14+\frac34\left(\frac\pi{12}-\frac16\right)
-=\frac{2+\pi}{16}.
-\]
-
-All boundary cases have probability zero because the law is continuous.
-
-**5. Explicit uniform-law exponent.** Completing the square yields, for \(t>0\),
-
-\[
-M(t):=\mathbb E e^{-t(X^2-X)}
+\frac12\int_{-1}^1 e^{-t(x^2-x)}\,dx
 =\frac{\sqrt\pi\,e^{t/4}}{4\sqrt t}
-\left[\operatorname{erf}\left(\frac{\sqrt t}{2}\right)
-+\operatorname{erf}\left(\frac{3\sqrt t}{2}\right)\right].
+\left[\operatorname{erf}(\sqrt t/2)+\operatorname{erf}(3\sqrt t/2)\right].
 \]
-
-The unique solution of \(M'(t)=0\) determines \(I_\nu=-\log M(t_*)\), with numerical values reported above. This closed one-variable minimization is the exact rate; decimal values are illustrative rather than part of a numerical certificate.
+The derivative vanishes at the unique minimizer; the reported decimals are numerical illustrations, not certified intervals.
 
 ## Verification
 
-The accompanying `verify.py` is a standalone Python 3 standard-library checker. It verifies \(4,648\) nonsingular rational node configurations (including exact constant and first-moment reproduction and the sign-event equivalence), numerically evaluates the three-node integration identity, cross-checks the error-function moment generating function against direct quadrature, brackets the stationary point of its derivative, and performs a seeded simulation of the three-node event. Running `python3 verify.py` returns `VERIFY_OK`. Neither numerical integration nor simulation substitutes for Steps 1–5, which prove the exact identities and infinite-sample statement.
+The proof gives the rate for all laws in scope. Finite exact-rational checks of the weights and sign test, and numerical evaluations for the uniform law, are described in `VERIFICATION.md`.
 
 ## Relationship to prior work
 
-Bělík, Narayan and Turnage (2026, arXiv:2609.09506v1), Sections 2.2, 2.6, 3.3 and 4, introduce and analyze the weighted least-squares quadrature construction, prove finite-sample weight-concentration bounds and sufficient high-probability positivity, and discuss Carathéodory–Steinitz pruning. Their formula includes this unweighted symmetric sampling specialization; they do not give the exact three-draw probability or the sharp logarithmic failure exponent in the general symmetric affine class.
+- F. Bělík, A. Narayan and J. Turnage, *Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares*, [arXiv:2609.09506v1](https://arxiv.org/html/2609.09506v1), §§2.2, 2.5–2.6 and 3.3. Their weighted construction includes this rule. Their sufficient high-probability positivity conditions do not supply a matching logarithmic failure rate in the affine setup.
+- G. Migliorati and F. Nobile, *Stable high-order randomized cubature formulae in arbitrary dimension*, [arXiv:1812.07761](https://arxiv.org/abs/1812.07761), Theorem 6 and Corollary 4. Theorem 6 concerns induced sampling; Corollary 4 gives sufficient positivity bounds for standard least squares with Jacobi sampling, including the uniform law, but not a sharp failure exponent.
+- *Heavy-tail and positivity laws for random affine least-squares quadrature*, [Resultary, 26 October 2026](https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-heavy-tail-and-positivity-laws-for-random-affine-least-squares-q--6eba4b8f5a9c), gives the exact three-node positivity probability for the uniform law. That finite-sample identity is prior work and is not part of the finding here.
 
-Migliorati and Nobile (arXiv:1812.07761, subsequently Journal of Approximation Theory 275, 105706) establish high-probability positivity under a sample-size bound for their induced-sampling cubature rule. This does not identify the exact negative-weight probability or its Cramér rate for the unweighted sampler considered here. The affine normal-equation identity and the classical Cramér theorem are standard ingredients; the new mathematical statement is their sharp combination for the sign of randomized least-squares quadrature weights, including the exact finite-size calibration.
-
-## Limitations
-
-The rate is logarithmic only: no multiplicative prefactor, finite-sample distribution for every \(m\), or universally monotone failure probability is asserted. The symmetric nonatomic bounded-support hypothesis is essential to the stated proof, and the three-node constant assumes uniform sampling. The result concerns the original unconstrained least-squares weights, not positive-weight pruning, an induced sampler, or arbitrary higher-degree trial spaces. Independent validation of the mathematical result has not been performed.
-
-## References
-
-1. F. Bělík, A. Narayan and J. Turnage, *Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares*, arXiv:2609.09506v1 (first public version 2026-09-08), https://arxiv.org/html/2609.09506v1 .
-2. G. Migliorati and F. Nobile, *Stable high-order randomized cubature formulae in arbitrary dimension*, arXiv:1812.07761 (first public version 2018-12-19), https://arxiv.org/abs/1812.07761 ; Journal of Approximation Theory 275 (2022), 105706.
-3. H. Cramér, classical large-deviation theorem for independent bounded random variables (standard theorem; an application to the displayed node-functional is proved above).
+The affine weight formula and Cramér's theorem are standard. The rate requires a matching lower bound for failure involving the observed extremes, not just an exponential estimate after substituting the support endpoint. No claim of exhaustive historical priority is made.

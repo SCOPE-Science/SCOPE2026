@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:27:55.103939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The observed DC component fixes the mean; the only real invisible modes are sine and cosine at k. Cyclic differentiation is invertible on that span, coprimality permutes its sample phases, and even n makes y_(j+n/2)=−y_j. The usual triangle inequality shows strict uniqueness if the mass on every s-set is strictly below half. For necessity, choose a maximum phase and a top set containing a nonzero antipodal pair, which is possible for s≥2, and take a gradient supported at the selected nonzero sites with signs opposite y and total zero (each sign class is weighted by the size of the other). This integrates to a cyclic signal and gives the directional TV change ||y||_1−2||y_S||_1, including nonuniqueness or nonoptimality at equality. For s≤1 a top magnitude is strictly less than half: its antipode contributes equally and other magnitudes are nonzero. For fixed signs and ordering the ratio is a quotient of two linear trigonometric forms; the derivative numerator is constant and the denominator positive. Nonidentical absolute ties and sample zeros are at multiples of π/n, while shifting by 2π/n only permutes samples. Therefore the two grids give the global maximum, including breakpoints and constant pieces. The top-s variational identity and uniform Riemann sums yield the upper-p fraction of the |cos| mass, sin(πp/2) (including p=0,1); monotonicity and comparison at p=1/3±δ give the first-failure limit. At n=6 both grids have top-two fraction 1/2. Replay from the frozen proof, RESULT.md lines 37–68; the floating-point checker was inspected, not executed, and its sampled ceil(n/3) observation is not needed or credited as the stated theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai–Xu give the equivalent general TV nullspace inequality for N−1 differences, with Gaussian measurement thresholds later; here the gradient is cyclic and constrained to sum to zero.",
+          "Poon and CRT prove high-probability guarantees under random Fourier sampling, not an exact uniform iff for this fixed deterministic deletion."
+        ],
+        "reasoning": "Those methods motivate the nullspace criterion but do not locate its maximizers or solve the deterministic cosine concentration problem. Necessity for actual cyclic signals is established by the balanced-sign construction rather than assumed from unrestricted gradients.",
+        "searches": [
+          "Cai–Xu arXiv:1301.6791v6 Theorem 2.1 and §2.2",
+          "Poon arXiv:1407.5339 Theorem 1.1",
+          "CRT arXiv:math/0409186 Theorem 1.3 and Corollary 1.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0409186 §1.4",
+        "arXiv:1301.6791v6 Theorem 2.1",
+        "arXiv:1407.5339 Theorem 1.1",
+        "arXiv:1107.5203v1 abstract",
+        "Resultary aabfaa5078e3 and 1d3091d9c873; 8ab0ab444275 is the assigned record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fourier difference multiplier and standard NSP specify the test before extremization. The inspected probabilistic theorems give sufficient bounds, not the phase maximization, endpoint grids or converse failure index here."
+        ],
+        "reasoning": "Computing the sharp functional is a separate step: ties and zeros make the ordered ratio piecewise fractional trigonometric, giving the two grids, while mass integration at a moving quantile gives the exact asymptotic crossing. Neither follows by substituting the measurement count n−2 into the prior guarantees.",
+        "searches": [
+          "CRT arXiv:math/0409186 §1.4 and Corollary 1.4",
+          "Cai–Xu arXiv:1301.6791v6 Theorem 2.1",
+          "Poon arXiv:1407.5339 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CRT §1.4 directly transforms cyclic Fourier TV minimization to sparse recovery of the zero-sum first difference.",
+          "Distinct catalogue record aabfaa5078e3 computes point L1 concentration with two frequencies, not the sum of the top s magnitudes of a single real conjugate mode."
+        ],
+        "reasoning": "In the equivalent sparse-vector formulation the erased pair spans a real plane and the unknown gradient is constrained to sum to zero. A pointwise or peak concentration bound does not give the required ordered-set mass ratio for variable s.",
+        "searches": [
+          "Local Resultary search for missing Fourier conjugate pair, cyclic TV, and finite cosine L1 concentration",
+          "Candès–Romberg–Tao arXiv:math/0409186 §1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ab0ab444275 is the assigned work itself and provides no independent coverage.",
+          "aabfaa5078e3 has a divisor formula for a point concentration functional, while 1d3091d9c873 treats continuous circle masks/two-mode spectral concentration."
+        ],
+        "reasoning": "These catalogued exact quantities do not supply the discrete two-phase mass fractions or their uniform sparse-jump threshold; coincidence of the number of modes does not identify the extremal functional.",
+        "searches": [
+          "Local Resultary search for cyclic Fourier two-mode concentration",
+          "Resultary records 8ab0ab444275, aabfaa5078e3 and 1d3091d9c873"
+        ]
+      },
+      "rationale": "Credit the previous cyclic differentiation/Fourier reduction and standard sparse-gradient nullspace methodology. The supported distinct part is the exact two-grid evaluation of top-s mass for this deterministic primitive conjugate-pair erasure, with a realizable cyclic-gradient failure witness and a sharp one-third limit. A near-complete Fourier set under deterministic erasure is not the probabilistic recovery regime of the inspected Fourier theorems.",
+      "residual_risks": [
+        "The bounded lookup does not exclude an unindexed deterministic real coding, projected-polytope, or sharp trigonometric concentration treatment. Uninformative retrieval is not evidence of priority.",
+        "The nullspace condition and cyclic Fourier differentiation are known; priority assessment concerns the explicit extremization and sharp threshold only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior cyclic difference reduction, different reconstruction guarantee",
+          "evidence": "The displayed program minimizes cyclic variation and gives the zero-sum Fourier difference formulation. Corollary 1.4 gives uniqueness with high probability under the random-sampling assumptions of Theorem 1.3.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409186",
+          "material_read": "§1.4, equation (1.10) and Corollary 1.4, offsets 22870–25136; Theorem 1.3 locator p. 7",
+          "method": "OA arXiv alternate after DOI no full text",
+          "title": "Robust Uncertainty Principles: Exact Signal Reconstruction from Highly Incomplete Frequency Information",
+          "trigger": "Primary partial Fourier/TV theorem and possible identical reduction"
+        },
+        {
+          "assessment": "Standard NSP antecedent, not the deterministic evaluation",
+          "evidence": "Theorem 2.1 is the iff inequality for N−1 gradients; the next threshold assumptions are iid Gaussian measurements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.6791v6",
+          "material_read": "§§2.1–2.2, Theorems 2.1–2.2, offset 10570–13749",
+          "method": "OA PDF",
+          "title": "Guarantees of Total Variation Minimization for Signal Recovery",
+          "trigger": "Uniform TV nullspace condition and recovery thresholds"
+        },
+        {
+          "assessment": "Random-frequency guarantee",
+          "evidence": "The theorem includes the zero frequency and samples other frequencies randomly; its recovery result is high probability.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.5339",
+          "material_read": "PDF abstract and Theorem 1.1, offsets 0 and 3500",
+          "method": "OA PDF",
+          "title": "On the role of total variation in compressed sensing",
+          "trigger": "Cyclic-TV partial-Fourier recovery"
+        },
+        {
+          "assessment": "General sparse-vector context in the passage read",
+          "evidence": "The abstract discusses sparse approximation and stability, not a finite conjugate-pair cosine formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.5203v1",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "OA PDF",
+          "title": "Sparse approximation property and stable recovery of sparse signals from noisy measurements",
+          "trigger": "Cited general sparse-recovery comparison"
+        },
+        {
+          "assessment": "Different concentration functional",
+          "evidence": "A divisor formula for point concentration does not evaluate arbitrary top-s mass or cyclic-TV uniqueness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-two-frequency-l-1-concentration-on-every-cyclic-group--aabfaa5078e3",
+          "material_read": "Original mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-file mirror",
+          "title": "Exact two-frequency L1 concentration on every cyclic group",
+          "trigger": "Strongest distinct indexed finite cyclic concentration result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Asking how sparse gradients must be for uniform uniqueness after minimal real Fourier information is removed is a natural deterministic recovery question. The exact finite criterion is independent of the primitive missing frequency, and the one-third boundary and explicit feasible witnesses quantify a nontrivial uniform obstruction even though almost all measurements are kept.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

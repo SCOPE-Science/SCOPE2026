@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:43:55.172720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired RESULT.md under /workspace/repairs/2 proves the same claim. In the frozen proof, moving both endpoints in the same cyclic direction gives order a,a',b,b', so the query chord crosses the marked chord itself, which is wrong for an open neighborhood. The opposite-side move used in the repair gives a,a',b',b; it preserves all crossings with other marked chords. All traces can then be realized simultaneously by using distinct new endpoints in the specified gaps. For the lower bound, gap-prefix parities are the empty mask, two endpoint singletons, and all consecutive two- and three-blocks. The repaired case split includes shifted three-blocks with a one-point overlap, an omitted case in the frozen exhaustiveness explanation; this gives two length-two runs, already counted. For the two-run types of lengths a,b in {2,3}, at least one middle zero gives binomial(m-a-b+1,2) placements. Equal-block offsets one give singleton displacement two or three; unequal-block overlap gives (1,2) and its reflection, with exactly one duplicate apiece when adding the endpoint-singleton cases. Two endpoint singletons give an extra (1,1) for m>=7. Nesting and adjacency contribute only lengths 1 through 6, each appearing at every possible start. Summing the table gives 2m^2-4m+1. I independently enumerated the pairs of endpoint gaps by testing exactly one marked endpoint in [i,j), confirming 31 and 49 distinct traces for the boundary cases m=5 and m=6. The formula for arbitrary m rests on the repaired case split, not the finite check. The frozen verify.py was inspected, not run, and its finite census assertions are unaffected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed sparse-class logic study is identified as a general structural and learning result, and the Johnson/Hamming article is indexed as addressing those two graph families. Primary retrieval did not supply relevant theorem passages for either article."
+        ],
+        "reasoning": "VC or structural bounds do not give a 2m^2-O(m) construction; Johnson and Hamming families are not the class in the claim. No stronger implication was established from the available evidence.",
+        "searches": [
+          "Primary literature on circle graph neighborhood traces and shatter growth",
+          "arXiv:2606.24848",
+          "10.1016/j.dam.2021.09.017"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 64–80",
+        "Resultary circle-graph and parity-word searches",
+        "2026/11/2/…68dbb5ccd296 indexed statement",
+        "2026/10/4/…fffb4c5764ff indexed statement",
+        "Primary-literature search and lawful OA attempts for the named articles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed type result counts insertion types up to chord-diagram symmetries (including 2m(m+1) in its range), not distinct crossing neighborhoods. The five-query calculation and VC dimension four do not include an unbounded-m lower bound."
+        ],
+        "reasoning": "Counting possible insertions bounds the size of their image from above, not below. The substantive additional claim is that an explicit sequence of diagrams has a near-injective gap-pair-to-trace map with the stated exact image size.",
+        "searches": [
+          "2026/10/4/SCOPE-sharp-quadratic-type-growth-of-simon-s-generic-chord-quotient--fffb4c5764ff",
+          "2026/11/2/SCOPE-four-query-static-shattering-and-logarithmic-adaptive-depth-in-c--68dbb5ccd296"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gap traces are exactly XORs of two prefix-parity vectors; this is also the set of parity vectors of cyclic substrings.",
+          "The prior indexed circular pair-separation result is about the same binary responses, VC dimension four and a five-query exhaustive census. The frozen comparison credits the 31-trace m=5 case after adjoining the empty pattern."
+        ],
+        "reasoning": "The equivalence is substantive, but the available prior statement is finite or concerns VC dimension, not the all-size formula or the leading coefficient.",
+        "searches": [
+          "Resultary search for the circle-graph adjacency shatter function",
+          "Resultary: distinct parity substrings of double occurrence words",
+          "2026/11/2/SCOPE-four-query-static-shattering-and-logarithmic-adaptive-depth-in-c--68dbb5ccd296"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highest matching entry is the assigned finding itself. The previously indexed five-query table is material for m=5; it is not an all-size formula. The sizes up to six in the frozen checker are finite evidence only."
+        ],
+        "reasoning": "Neither a same-record hit nor computation at finitely many parameter values establishes coverage of the all-size construction or the limit.",
+        "searches": [
+          "Resultary searches for sharp circle-graph trace growth and the count 2m^2-4m+1",
+          "2026/11/2/SCOPE-four-query-static-shattering-and-logarithmic-adaptive-depth-in-c--68dbb5ccd296"
+        ]
+      },
+      "rationale": "The corrected proof makes no change to the claim. The inspected statements support the all-size trace census and sharp coefficient as distinct from the prior finite shattering calculation, insertion-type count and general VC framework. The m=5 case and the basic encoding are not credited as independently new. This is a best-of-knowledge judgment, not a claim of historical priority.",
+      "residual_risks": [
+        "Original passages of the two nearest indexed results were not retrievable; their available statements do not rule out a stronger result elsewhere in those records.",
+        "Original paper passages for the Johnson/Hamming, sparse-class logic and circle-recognition comparisons were unavailable. Unlocated additive-combinatorial work on distinct binary parity-prefix differences could imply the asymptotic result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material finite overlap, not established all-size coverage",
+          "evidence": "Indexed VC dimension four and finite five-query census; frozen RESULT.md line 65 supplies the 31-trace comparison.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-query-static-shattering-and-logarithmic-adaptive-depth-in-c--68dbb5ccd296",
+          "material_read": "Indexed statement and frozen RESULT.md § Relationship to prior work; original passage unavailable",
+          "method": "Resultary, exact local mirror lookup and lawful OA attempt",
+          "title": "Four-query static shattering and logarithmic adaptive depth in circular two-block partitions",
+          "trigger": "Equivalent response encoding and five-query census"
+        },
+        {
+          "assessment": "Different invariant in available statement",
+          "evidence": "Counts labelled insertion types/orbits, not the image of the crossing trace map (frozen RESULT.md line 67).",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-quadratic-type-growth-of-simon-s-generic-chord-quotient--fffb4c5764ff",
+          "material_read": "Indexed statement and frozen RESULT.md § Relationship to prior work; original passage unavailable",
+          "method": "Resultary, exact local mirror lookup and lawful OA attempt",
+          "title": "Sharp quadratic type growth of Simon's generic chord quotient",
+          "trigger": "Quadratic gap insertion counts"
+        },
+        {
+          "assessment": "Available comparison concerns different graph classes",
+          "evidence": "The indexed classes are Johnson and Hamming graphs; no circle-graph extremal statement was retrieved.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.09.017",
+          "material_read": "Bibliographic metadata and frozen description; not full text",
+          "method": "Lawful OA and DOI lookup",
+          "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "Potential general shatter-density theorem"
+        },
+        {
+          "assessment": "No implication verified; not a negative full-text finding",
+          "evidence": "Frozen RESULT.md line 69 describes sparse-class learning and structural bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.24848",
+          "material_read": "Frozen comparison; original requested passage unavailable",
+          "method": "Lawful OA and arXiv retrieval attempts",
+          "title": "Complexity of Clique-Guarded First-Order Logic with Counting",
+          "trigger": "Potential broader structural coverage"
+        },
+        {
+          "assessment": "Only definitional relevance verified from the frozen comparison",
+          "evidence": "Frozen RESULT.md line 69 cites chord and consecutive-set definitions, not an extremal trace count.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.72",
+          "material_read": "Frozen comparison; original requested passage unavailable",
+          "method": "Lawful OA and Dagstuhl retrieval attempts",
+          "title": "Circle Graphs Can Be Recognized in Linear Time",
+          "trigger": "Same class of graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant is a natural extremal measure of the size of the set system of open neighborhoods. The upper bound by endpoint gaps is elementary; the content is that collisions cost only O(m) of the gap pairs, shown by one uniform explicit construction with an exact census. VC dimension alone does not answer this, and the result does not claim a sharp finite global maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

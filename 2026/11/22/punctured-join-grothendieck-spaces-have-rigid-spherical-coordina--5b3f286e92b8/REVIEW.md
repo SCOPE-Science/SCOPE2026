@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The group/order starting point is precisely the join-factorization description in Chocano–Prieto-Martínez, Theorems 3.14 and 4.1. The all-rank proof is reconstructed in five steps: coordinate-order identity, equivariant signed-support order retraction, cross-polytope face-poset identification with determinant orientation, atom-pair and lower-cover rigidity, and the antipodal/projective quotient. For the infinite-rank case, any compact sphere map into the CW order complex has finite support and becomes null after adjoining one coordinate; Whitehead then applies. Ordinary homotopy of non-Hausdorff Alexandrov spaces is deliberately not conflated with weak homotopy. The embedded checker passed all asserted finite verifications in ranks one through four. The checker does not replace the all-rank proof.
+PASS
 
-## Originality — PASS (best-knowledge priority assessment)
+Theorem 4.1 of arXiv:2611.14300v1 divides the numerator and denominator of reduced representatives separately. With join primes from Theorem 3.14 this is exactly the displayed sign-and-magnitude order. The component argument using minimal nonfaces independently proves the needed join factorization, including isolated vertices. The sign retraction s respects the order, is equivariant, and satisfies s≤id, so the order homotopy given by this natural transformation fixes the retracted subposet. That subposet is the nonempty proper face poset of the cross-polytope, giving its barycentric subdivision. Orthogonal signed permutations act on its reduced integral top homology by determinant, including the swap of the two points in rank one. For rigidity, opposition of signed atoms is recognized by the failure of a common upper bound. After canceling a signed permutation, an automorphism fixes each atom. Elements with just that atom below them form a chain of type 1<2<… and are fixed pointwise; for a general element each coordinate is recovered from the largest axis point below it. This also independently verifies the predecessor induction. The equivariant equivalence descends to the inversion quotient, and radial projection gives the antipodal sphere quotient RP^(r−1), including rank one; it gives H₁(RP²;Z)=Z/2. In the full puncture the same retraction works, with countably infinitely many primes (all discrete simplicial complexes on ≥2 vertices are join indecomposable, as is the one-vertex complex). Compact sphere images in the CW realization lie in finite subcomplexes; putting their finite signed support in the cone of an unused signed vertex contracts the maps, and also connects any two points. Whitehead then yields contractibility. McCord gives the weak comparison to the Alexandrov space; no ordinary equivalence with the Hausdorff sphere is needed. The checker was inspected but not executed; no finite computed invariant is required by the finding.
 
-The closest November 2026 full-text source proves the Grothendieck group, order, unpunctured contractibility and universality, but not the punctured finite-coordinate homotopy, complete punctured homeomorphism group or projective quotient. These do not follow from its *contractibility statement*: removing the least element changes finite-coordinate topology, and the atom-pair rigidity proof is additional. Classical cross-polytope and finite-space results are credited as ingredients rather than original outputs. Search for alternative signed-vector/poset language found no explicit covering theorem in the checked material, but an unindexed equivalent reformulation remains plausible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Puncturing the identity is a canonical test of the newly defined Alexandrov topology because the identity makes the unpunctured poset contractible. Prime-generated rank-\(r\) subgroups are intrinsic finite-dimensional coordinate strata of its unique join-factorization group. The theorem classifies their homotopy, all homeomorphisms and the integral orientation action in every rank; its antipodal quotients introduce actual two-torsion, beginning with rank three. The infinite-rank puncture is instead weakly contractible, identifying a concrete finite/infinite rank transition. These are structural topology and symmetry invariants of a motivated new object, not arbitrary parameter tables.
+Credit the same-day bounded-length filtration result as material overlap with the entire finite-rank equivariant sphere calculation, independently of who preceded whom. The determinant and antipodal-quotient homotopy are consequences of that equivariant sphere once upgraded by the natural sign retraction to the unrestricted finite-rank stratum, not independent priority claims. The full homeomorphism classification of the unbounded punctured coordinate posets and their comparison with the unrestricted infinite-coordinate puncture remain the distinct structural content relative to the inspected claims.
 
-## Closest literature and limitations
+## value
 
-P. J. Chocano and L. F. Prieto-Martínez, arXiv:2611.14300v1 (2026-11-10), sections 3.2–3.3 and 4.1–4.3, provide the coordinate group and order. M. C. McCord, Duke Math. J. 33 (1966), 465–474, supplies the Alexandrov/order-complex weak comparison. Standard cross-polytope topology supplies the sphere model. Residual risk: another signed-vector-poset work might express this theorem under different language. The result does not cover arbitrary free subgroups, nonzero punctures or the ordinary homotopy type of the infinite Alexandrov space. The rank-four and smaller checker tests are corroborations only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical puncture removes the minimum that made the original space contractible. Its full order-topological symmetry classification is strictly stronger than describing a group action on a homotopy model; the determinant, antipodal torsion example and finite-versus-infinite distinction make that classification usable. No novelty is assigned to standard cross-polytope or projective-space facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

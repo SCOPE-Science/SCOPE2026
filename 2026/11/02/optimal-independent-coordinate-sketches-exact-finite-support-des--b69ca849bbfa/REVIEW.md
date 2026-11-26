@@ -1,19 +1,21 @@
-# Review of the exact optimized one-coordinate sketch theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Independent coupon noncoverage gives the exact squared Hilbert--Schmidt error; strict convexity and a common threshold multiplier prove global optimality on the closed probability simplex; full-support mixtures approximate its optimal value. Monotone integral comparisons establish the sharp limit \(\rho^\rho\) for \(\rho>1\). The proof covers finite-\(L\) support thresholds, nonattainment under strict isotropy, and the \(L=2\) boundary. The 90-family standalone checker verifies exact finite-space combinatorics and numerical consistency, not infinite claims.
+PASS
 
-## Originality
+Rechecked the corrected summable-spectrum claim and proof in repairs/2/RESULT.md. Full-support one-coordinate laws have the stated weak isotropy; sketch magnitude and sign do not affect the coordinate range. Independence and Tonelli give sum_j j^(-rho)(1-pi_j)^L. For L>=2 the cutoff equation has a unique root because its sum is continuous, strictly increasing above 1, and unbounded. Supporting-line slopes at the cutoff law are -L t^(-rho) on the support and at least this slope off it. Derivative sums are absolutely convergent by the probability l1 bounds. Strict coordinate convexity gives the unique closed-simplex optimizer, with finite support; full-support mixtures approach it by dominated convergence and cannot attain it. Substituting yields (m-1)t^(-rho) plus the squared-singular-value tail. The root diverges but is O(1/delta); a decreasing-function integral comparison bounds the discretization error by delta(1+log t), so t delta tends to 1. Thus the contributions inside and outside support have leading coefficients 1 and 1/(rho-1) in units of t^(1-rho). The best rank-L residual is the tail after L, giving the required ratio rho^rho. The original two-draw identity also checks: t^rho=1+2^rho lies strictly between 2^rho and 3^rho. The original checker and notes were inspected, not executed; finite coupon and floating-point checks are corroboration only.
 
-PASS with historical-priority limitations. Lynch-Davies and Webb (arXiv:2610.31333v1) introduce an almost-surely finite one-coordinate isotropic sketch and establish general infinite-dimensional sketching theory; their inspected manuscript does not solve the exact spectral allocation. Saibaba--Międlar (arXiv:2308.05814v1) discuss non-Gaussian low-rank approximations and coordinate-sampling coupon loss but do not derive the finite-\(L\) power-law optimum or its sharp asymptotic factor. The earlier Halko--Martinsson--Tropp survey documents coupon-collector issues. The most similar indexed mathematical record concerns optimal coordinate descent on inverse-positive SPD quadratics, not independent coordinate coverage of a compact rangefinder. A generic weighted-coupon-coverage theorem could subsume the first-order formula; equivalence has not been ruled out by independent comprehensive literature review.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result quantifies an implementationally relevant gap between isotropic one-coordinate sampling and best-rank spectral truncation, precisely \(\rho^\rho\) in expected squared Hilbert--Schmidt error. The closed-simplex nonattainment explains why strict full-support isotropy forces arbitrarily small but nonzero tail probabilities even in the optimal limit. This is not a result about general randomized or adaptive sketches.
+Pass applies only to the repaired sharp Hilbert–Schmidt ratio for a fixed summable infinite spectrum. The original framing of the exact finite-budget allocation as part of the novelty does not survive: it is the deterministic-coverage, one-slot specialization of Błaszczyszyn–Giovanidis and is displayed in equivalent truncated form by Ji–Caire–Molisch. The repaired text cites this exact overlap and uses the allocation as a proof ingredient. In the strongest inspected asymptotic comparisons, the explicit gamma^gamma hit constant is for 0<gamma<1 with a growing finite catalogue; the gamma>1 bounds are order estimates for throughput–outage with an exponential miss objective. Neither result provides the sharp error relative to the rank-L tail in the summable regime. The countably infinite, full-support formulation is necessary for the question but by itself is not the novelty.
 
-## Boundaries and evidence
+## value
 
-Only diagonal power-law compact operators, iid one-hot sketches, and squared Hilbert--Schmidt loss are claimed. The exact analytical derivation is the proof; finite computations support it. The full-text motivating manuscript was inspected; broader or peripheral related sources were only partially inspected as described in the audit. Published-priority uncertainty remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct sharp constant quantifies the price of repeated iid coordinate selection relative to the best rank-L approximation on the same summable spectrum. Even after per-budget optimization the factor can be large; it gives a calibration that a mere decay order, cutoff rule, or coupon-collector example cannot supply. The retained and unretained parts both contribute at leading order, so this benchmark is not obtained by identifying effective support alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

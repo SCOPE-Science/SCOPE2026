@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:42:01.062113Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 34–100; VERIFICATION.md; verify_depth.py (inspected, not executed)",
+        "Independent exact check at beta=1/2, n=2,...,8: enumerate the Cartesian product of all eligible-parent lists and compare resulting depths with the path law; also check the potential identity and R>=0 on each path. At n=8, 324 assignments, E D_8=1333/324, Var(D_8)=68291/104976 and F(8)=13/3."
+      ],
+      "rationale": "The backwards ancestry exposes independent parents at strictly decreasing labels, with a uniform jump on 1,...,b_l. Telescoping the potential gives F(n)=D_n+M+R with a bounded centered martingale increment and nonnegative R. A width boundary m-1 to m has drop 2/[m(m+1)], is charged by at most one jump and is charged at most b_l times. At that crossing v is of order l for large l because b_l=o(l), hence b_l=O_beta(m). The widths increase by at most one, so the total charge is O_beta(1+log n) pathwise, including the finitely many initial labels. The per-step bracket is (b_l-1)/(3(b_l+1)). Martingale isometry and the deterministic remainder give D_n/F(n) -> 1 in probability and in mean; the bracket divided by F(n) tends to 1/3 both in probability and in expectation by removing finitely many small labels. The bounded-increment triangular-array CLT and Cauchy–Schwarz for the variance of M+R give the two distinct limiting assertions. F(n) ~ 2 n^(1-beta)/(1-beta); its exact discrete form, not merely that leading term, is used for centering.",
+      "residual_risks": [
+        "The finite check does not test the asymptotic theorem. The proof is for fixed 0<beta<1 and one last-born vertex, not endpoints, height or joint depths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest same-model theorems are about local limits, height and global geometry/newest-vertex spans. Scaled attachment uses multiplicative parent indices and a logarithmic depth scale."
+        ],
+        "reasoning": "Neither a height theorem nor a Gaussian law in the multiplicative attachment regime subsumes this absorption-time CLT.",
+        "searches": [
+          "Resultary: mesoscopic-tree height/depth Gaussian ancestry",
+          "Angel et al., Theorems 2.3, 2.8–2.11; Devroye–Fawzi–Fraiman, Depth properties of scaled attachment random recursive trees"
+        ]
+      },
+      "checked_sources": [
+        "The four Resultary query themes above and the cited published-record and primary PDF passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The height theorem has the same first-order coefficient 2/(1-beta). The bounded-increment CLT used here is standard but requires a bracket limit and control of the potential error on the smaller fluctuation scale."
+        ],
+        "reasoning": "First-order concentration at a matching constant gives neither the small-scale centering nor variance convergence. The pathwise estimate and bracket analysis supply the extra hypotheses.",
+        "searches": [
+          "Angel et al., Theorem 2.8; Resultary: last-born exact centering and variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The time index in Angel et al. is n for the arrival of n+1; their width is min(n,1+floor(n^beta)), identical to the frozen width. Their height is a maximum, not the depth of n+1.",
+          "The same finding appears under its own index ID, not as a second result."
+        ],
+        "reasoning": "Translating the indexing and the ancestry/absorption-time interpretation does not make a height law equivalent to the last-born-depth CLT.",
+        "searches": [
+          "Resultary: exact title; newest-vertex depth CLT in polynomial recent-window trees",
+          "arXiv:2510.18856v1, §1.1 and Theorem 2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same record 2026/11/22/SCOPE-gaussian-depth-fluctuations-in-mesoscopic-limited-memory-recursi--375e4120fe33. Distinct inspected records end in 314e1aeb4e66 (conditional variance envelope), 64c654896be4 (batch-depth covariances), and b6cfcc92dbd6 (leaf versus vertex depth)."
+        ],
+        "reasoning": "These exact entries have different attachment rules or statistics; the same record is not independent coverage. There is no finite table to certify the growing-size law.",
+        "searches": [
+          "Resultary: last-born exact centering and variance; exact title"
+        ]
+      },
+      "rationale": "The closest primary work establishes this same tree model and first-order geometry. The inspected literature and distinct indexed records do not give the second-order last-born-depth result, floor-sensitive centering and limiting variance together or imply them from their stated results. The already known model and first-order scale are not credited as new.",
+      "residual_risks": [
+        "Ranked literature/index checks are not exhaustive; an unlocated general absorption-time result could affect priority. A broad search returning irrelevant results is not evidence against such a result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and first-order scale; no second-order overlap in the inspected statements",
+          "evidence": [
+            "j(n)=n-floor(n^beta); height divided by n^(1-beta) converges in probability to 2/(1-beta)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.18856",
+          "material_read": "§1.1 pp. 2–3 and the theorem passages in §2, especially Theorem 2.8 p. 6",
+          "method": "OA PDF bounded passages; §1.1 offsets 6500–9315; height passage near offset 19561",
+          "title": "Evolution of recursive trees with limited memory",
+          "trigger": "Identical recent-window model, plausible depth/height overlap"
+        },
+        {
+          "assessment": "Different regime",
+          "evidence": [
+            "Multiplicative parent labels and logarithmic depths, not an additive recent window of width n^beta."
+          ],
+          "identifier_or_url": "https://luc.devroye.org/devroye-fawzi-fraiman-sarrt-2012.pdf",
+          "material_read": "p. 1 abstract and model distinction",
+          "method": "OA PDF passage",
+          "title": "Depth properties of scaled attachment random recursive trees",
+          "trigger": "Recursive-tree depth fluctuation comparison"
+        },
+        {
+          "assessment": "Different statistic and model",
+          "evidence": [
+            "Optimizes expected conditional depth variance over weighted attachment profiles."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-conditional-depth-variance-envelope-in-deterministic-weigh--314e1aeb4e66",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp conditional depth variance envelope in deterministic weighted recursive trees",
+          "trigger": "Exact indexed depth variance"
+        },
+        {
+          "assessment": "Not equivalent regardless of priority order",
+          "evidence": [
+            "Covariance between birth-batch depths in a batch-growth model."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-persistent-birth-depth-covariance-in-batch-recursive-trees-with--64c654896be4",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Persistent birth-depth covariance in batch recursive trees",
+          "trigger": "Same-date indexed birth-depth fluctuation match"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Leaf-mean minus vertex-mean depth in a uniform recursive tree."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-gaussian-fluctuations-of-the-leaf-versus-vertex-depth-gap-in-rec--b6cfcc92dbd6",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Gaussian fluctuations of the leaf versus vertex depth gap",
+          "trigger": "Indexed Gaussian depth fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Angel et al., §1.1 and Theorem 2.8"
+      ],
+      "rationale": "This addresses second-order uncertainty in a natural existing model. The explicit centering is accurate on the fluctuation scale with integer-window effects intact, and the variance statement controls actual moments rather than simply naming a Gaussian limit. The pathwise boundary-charge argument is the substantive bridge beyond a first-order law.",
+      "residual_risks": [
+        "Does not measure maximum height fluctuations or give a normal approximation rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

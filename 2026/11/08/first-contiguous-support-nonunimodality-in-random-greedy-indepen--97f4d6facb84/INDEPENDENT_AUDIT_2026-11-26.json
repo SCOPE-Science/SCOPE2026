@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:47:06.130467Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With uniform vertex order the first accepted vertex is uniform; deleting its closed neighborhood leaves uniform relative order on the surviving induced graph. Thus the first-vertex probability generating function recurrence holds, with products for components by independence of their relative orders. On S(1,1,3), first accepting the center leaves an edge, while first accepting the nearer internal arm vertex leaves three isolates. A short leaf leaves an isolate and a three-vertex path; the farther internal arm vertex leaves a two-leaf star; the long-arm leaf leaves a three-leaf star. These residual laws yield (19,16,37)/72 at sizes (2,3,4). Exact independent Prüfer and order enumeration found (0,0,0,0,0,360) qualifying labeled exceptions through orders 1–6, testing all trees and orders rather than sampling. All exceptions had these arm lengths and counts (190,160,370) out of 720. The tree has exactly the short-arm swap symmetry, so this is one unlabelled type and 6!/2=360 labelled trees. The middle value is a strict valley and all three masses are positive.",
+      "replay_paths": [
+        "/workspace/branches/f03b939e-193f-4032-8cf3-ad0f2a167a1d/independent_check.py",
+        "/workspace/branches/f03b939e-193f-4032-8cf3-ad0f2a167a1d/full-check.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-tree expectation theorem gives only a moment. Contat gives the exact law after averaging over the Cayley tree. Greedy Uniformity gives individual set probabilities in specified spiders with direct leaves and length-two arms. Uniformising studies positive unequal rates and full-set uniformity."
+        ],
+        "reasoning": "Neither first moments nor mixtures over tree shapes determine the conditional size distribution. The spider probability formulas do not include a length-three arm, and changing rates to uniformize the per-set law is a different question.",
+        "searches": [
+          "arXiv:1907.07216 Theorem 1.4",
+          "arXiv:2103.03800v3 Theorem 1",
+          "arXiv:2610.02276 Theorems 1.1–1.2; arXiv:2611.26675"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:1907.07216, 2103.03800v3, 2009.08609v2, 2610.02276, 2611.26675",
+        "Resultary 97f4d6facb84, cfdfc0cc2b01, e9c71afd7c39, 00c93caa8850"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "These are the inspected exact-law statements closest to the target distribution; the average is over trees, and the other laws are for specific families excluding the witness."
+        ],
+        "reasoning": "The generic first-arrival recursion is a way to compute the exact values but not a classification of when the support is an interval and the masses first develop a valley. The known exact laws do not settle all six-vertex trees.",
+        "searches": [
+          "Contat Theorem 1 exact Cayley-averaged law; Greedy Uniformity in Trees Theorems 1.1–1.2; Resultary 00c93caa8850"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The greedy law from iid continuous priorities is the same as from uniform permutation. Krivelevich et al. make the discrete parking connection; Krapivsky studies full occupation-number statistics for one-dimensional RSA."
+        ],
+        "reasoning": "These names can describe the same arrival and exclusion rule on a graph, but a one-dimensional interval does not include the branched witness. Counting uniform independent sets or uniform maximal independent sets is not this probability weighting.",
+        "searches": [
+          "Graph random sequential adsorption (RSA), parking, random-order greedy maximal independent set",
+          "arXiv:1907.07216 §1.1.2 and arXiv:2009.08609v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first ID reproduces this frozen classification. cfdfc0cc2b01 and e9c71afd7c39 concern expectations. 00c93caa8850 gives exact size-law polynomials and support for a path with exactly q≥2 attached leaves per spine vertex."
+        ],
+        "reasoning": "The earlier or neighboring expectation records do not encode mass vectors. At six vertices the only uniformly decorated cases with q≥2 are a star and a two-vertex spine with two private leaves at each end, neither S(1,1,3). No distinct fixed-tree table covering the exceptions was found in the checked records.",
+        "searches": [
+          "Resultary: 97f4d6facb84, cfdfc0cc2b01, e9c71afd7c39, 00c93caa8850"
+        ]
+      },
+      "rationale": "The supported distinct claim is the first fixed-tree interval-support valley in the random-order terminal size law, including the unique six-vertex shape. Related exact laws concern averages over trees, paths, or other restricted spider and decorated-path classes. None of the compared coverage gives the witness and minimal census. The identical catalogue entry is not a separate source of priority.",
+      "residual_risks": [
+        "Pippenger's graph-RSA article was not available via the attempted lawful route. Older specialized graph-RSA tables or other unlocated exact enumerations could overlap; no historical-priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Expectation only for the all-tree theorem",
+          "evidence": "Path minimizes expected greedy size; discrete parking interpretation is discussed.",
+          "identifier_or_url": "arXiv:1907.07216",
+          "material_read": "§1.1.2 p. 2, §1.1.3 Theorem 1.4 p. 7",
+          "method": "OA full-text passages",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same process on trees and parking terminology"
+        },
+        {
+          "assessment": "Average not conditional law",
+          "evidence": "Underlying labelled Cayley tree is itself uniform random.",
+          "identifier_or_url": "arXiv:2103.03800v3",
+          "material_read": "Theorem 1 pp. 2–3",
+          "method": "OA full-text passage",
+          "title": "Surprising identities for the greedy independent set on Cayley trees",
+          "trigger": "Exact random greedy size law"
+        },
+        {
+          "assessment": "Linear substrate",
+          "evidence": "Full statistics for one-dimensional RSA, not a branched-tree enumeration.",
+          "identifier_or_url": "arXiv:2009.08609v2",
+          "material_read": "Abstract p. 1",
+          "method": "OA passage",
+          "title": "Large Deviations in One-Dimensional Random Sequential Adsorption",
+          "trigger": "Equivalent occupation-count terminology"
+        },
+        {
+          "assessment": "Does not cover this spider size-law classification",
+          "evidence": "Full terminal-set law; specified spiders have direct leaves and length-two arms.",
+          "identifier_or_url": "arXiv:2610.02276",
+          "material_read": "pp. 1–2, Theorems 1.1–1.2",
+          "method": "OA full-text passages",
+          "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+          "trigger": "Exact probabilities on spiders"
+        },
+        {
+          "assessment": "Different objective and cutoff",
+          "evidence": "Tuning arrival rates to achieve uniform output on maximal independent sets, with no six-vertex classification.",
+          "identifier_or_url": "arXiv:2611.26675",
+          "material_read": "pp. 1 and 6",
+          "method": "OA full-text passages",
+          "title": "Uniformising random greedy maximal independent sets on graphs with at most five vertices",
+          "trigger": "Potential exact tiny-graph table"
+        },
+        {
+          "assessment": "Restricted family excludes S(1,1,3)",
+          "evidence": "Every spine vertex receives the same q≥2 private leaves.",
+          "identifier_or_url": "Resultary 00c93caa8850",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2342",
+          "method": "Local mirror",
+          "title": "Exact random-greedy independence laws on uniformly leaf-decorated paths",
+          "trigger": "Nearby finite exact law with same cardinality observable"
+        },
+        {
+          "assessment": "Same record",
+          "evidence": "Identical minimal spider, probabilities and census.",
+          "identifier_or_url": "Resultary 97f4d6facb84",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "First contiguous-support nonunimodality in random greedy independent sets on trees",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "No whole-paper conclusion",
+          "evidence": "Access failure is not negative literature evidence.",
+          "identifier_or_url": "doi:10.1137/0402034",
+          "material_read": "Identified citation; full text not inspected",
+          "method": "Bounded OA retrieval, HTTP 403",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Graph RSA antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The terminal size law is natural for random greedy packing, and interval support removes the trivial way a star violates shape constraints. The first strict interior valley separates interval support from unimodality and from log-concavity even on trees. It gives an exact minimal, unique benchmark for shape questions about the distribution rather than its expectation. The result need not make claims for larger trees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

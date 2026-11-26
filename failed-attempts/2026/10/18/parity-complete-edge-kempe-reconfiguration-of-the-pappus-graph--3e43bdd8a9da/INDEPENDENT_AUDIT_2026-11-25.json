@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:43:06.562500Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55; VERIFICATION.md; kempe_certificate.json and supplied Python/C++ enumerators (not executed)",
+        "/workspace/branches/502817e1-593c-418d-b396-70221ae071fd/independent_check.py (run; finite enumeration and supplied incidence-to-LCF map check)"
+      ],
+      "rationale": "The incidence model and its supplied map to the Pappus LCF graph agree. An independent replay exhausts point-to-line bijections with the incidence restriction and constructs triples from disjoint perfect matchings and their complements. Direct enumeration of named edge assignments independently checks the state count. For each pair of colors every connected component of their union is an alternating cycle, so enumerating all such switches and discarding global renaming loops exhausts the moves on the quotient. Replay confirms 42 perfect matchings, 20 unordered states (120 named), 36 edges, two opposite-product-sign components each with one universal hub and three disjoint peripheral triangles, and the claimed cycle profiles. Switching a 2k-cycle multiplies the sign of each of the two matching bijections by the same (−1)^(k−1), proving invariance; the computed components prove sufficiency and diameter two. Relabeling either ordered bipartition may flip the overall sign convention, not the sign partition.",
+      "residual_risks": [
+        "Exhaustive for this graph and the quotient by global color names. Sign sufficiency and the windmill form are not claims for arbitrary bipartite cubic graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The connected bipartite cubic census covers order 18 in aggregate and gives class counts, not the individual states or transitions.",
+          "The Belcastro–Haas K3,3 class calculation and Dejter's Pappus prism/edge-girth coloring discussion concern different graphs or invariants."
+        ],
+        "reasoning": "General class-count algorithms and aggregate counts do not alone give the full Pappus move graph. The direct exact catalogue coverage, not the census inclusion or related use of Pappus, is decisive.",
+        "searches": [
+          "Goedgebeur–Östergård arXiv:2105.01363, pp. 13–14",
+          "Belcastro–Haas arXiv:1209.1730, pp. 11–12",
+          "Dejter arXiv:2102.06956, Pappus passage p. 16"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 57–72",
+        "Published Resultary entry 81d0af0022f9 and primary passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full quotient structure and two bichromatic cycle-profile types are stated by the matching entry; the sign criterion is not stated there.",
+          "From the 24 color-pair incidences with three cycles, each unaffected matching occurs four times (colorings of its complement up to exchange), giving six such matchings. The other 36 color-pair incidences with a Hamiltonian complement correspond to 36 distinct matchings. Every perfect matching extends to a factorization since its complement is an even 2-factor.",
+          "A sign-reversing incidence automorphism plus preservation of the sign in each component turns the already stated two components into exactly the two sign classes."
+        ],
+        "reasoning": "The two most substantive apparent additions, parity completeness and the number 42, do not survive as a genuinely distinct finding after accounting for the exact public profiles and component result.",
+        "searches": [
+          "81d0af0022f9 full Finding and proof excerpts, offsets 0–4583",
+          "Frozen RESULT.md lines 13–19 and 23–35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "81d0af0022f9 explicitly quotients by global color names and uses one connected bichromatic cycle per move; its graph 2(K1 join 3K3) is the same.",
+          "The 2017 named-color transition graph excludes triangles; this does not contradict the quotient result."
+        ],
+        "reasoning": "The move graph is on unordered partitions into three perfect matchings. This is the same as the matching catalogue entry, not the named state graph or a graph with simultaneous multiple-cycle switches.",
+        "searches": [
+          "Resultary: Pappus graph three-edge-coloring, Kempe reconfiguration, two windmill components",
+          "Belcastro–Haas arXiv:1209.1730; Australasian Journal of Combinatorics 69(2), 197–214"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror record explicitly gives 20 quotient vertices, 36 edges, and two K1 join 3K3 components with the same bichromatic profiles.",
+          "The census bibliography gives a Zenodo dataset DOI and the frozen record cites the related DOI for dataset/code; the exact files were not lawfully retrievable in the audit."
+        ],
+        "reasoning": "The exact indexed mathematical claim is already present independently of ambiguous ancillary access. No conclusion about the dataset contents or direction of priority rests on an HTTP error or display date.",
+        "searches": [
+          "Resultary 81d0af0022f9, RESULT.md offsets 0–4583 and 4583–8736",
+          "Zenodo 10.5281/zenodo.4707696 and 10.5281/zenodo.4707697; arXiv:2105.01363 bibliography"
+        ]
+      },
+      "rationale": "The central claim is demonstrably covered in the distinct published Resultary record 81d0af0022f9, which gives the same graph, quotient, single-cycle moves, entire windmill structure, counts and cycle profiles. That text is catalogued later; this is a finding about mathematical coverage of the submission against the published corpus, not a claim of earlier discovery, copying, or established priority by that entry. The parity statement not made there follows directly from the two components and a sign-reversing automorphism: (x,y)↦(x,−y), (m,b)↦(−m,−b) preserves incidence and acts with opposite permutation signs (three versus four transpositions) on the two parts. It flips every coloring's product sign; the elementary switch invariant then identifies the two components. The named count and switch diameter follow immediately from the quotient, and the perfect matching count follows from the published cycle profiles. No distinct substantive remainder is established by these additions.",
+      "residual_risks": [
+        "Exact Zenodo ancillary files could not be read; no claim is made about earlier presence there.",
+        "The demonstrated coverage does not establish relative discovery, submission or publication priority between the two records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the central mathematical claim, without deciding priority",
+          "evidence": "Same single-cycle adjacency in global-color quotient, 20 states, 36 edges, two ten-state windmills and the same center and peripheral cycle profiles; no separate sign criterion stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-windmill-components-in-the-pappus-graph-three-edge-coloring--81d0af0022f9",
+          "material_read": "RESULT.md offsets 0–4583, 4583–8736 (Finding, construction and scope)",
+          "method": "Local mirror primary text",
+          "title": "Two windmill components in the Pappus graph three-edge-coloring reconfiguration graph",
+          "trigger": "Direct graph-specific move-graph match in Resultary"
+        },
+        {
+          "assessment": "Aggregate class-counting and algorithm precedent, not the Pappus quotient adjacency",
+          "evidence": "Order-18 row includes 149 connected bipartite cubic graphs; table records aggregate class counts and the text links examples attaining maximal counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.01363",
+          "material_read": "PDF p. 1 offset 1871, pp. 13–14 offsets 28891–33810, p. 19 offset 43499",
+          "method": "Lawful OA primary text",
+          "title": "Switching 3-edge-colorings of cubic graphs",
+          "trigger": "Census including connected bipartite cubic graphs of order 18, and auxiliary dataset"
+        },
+        {
+          "assessment": "Unresolved ancillary comparison; not negative evidence",
+          "evidence": "Census cites the first DOI; the frozen record cites the second. Exact relationship and files not established in this review.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.4707697; https://doi.org/10.5281/zenodo.4707696",
+          "material_read": "Dataset citation in census; no full dataset payload independently read",
+          "method": "OA landing/alternate record API attempted, unsuccessful",
+          "title": "Switching 3-edge-colorings of cubic graphs dataset",
+          "trigger": "Could contain graph-specific or algorithmic coverage"
+        },
+        {
+          "assessment": "Known definitions and different cubic graph example",
+          "evidence": "K3,3 has two isolated Kempe classes since the two-colored spanning subgraphs are Hamilton cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+          "material_read": "PDF pp. 11–12, offset 23981",
+          "method": "Lawful OA primary text",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Prior equivalence classes, switches and graph-specific results"
+        },
+        {
+          "assessment": "Different named coloring state space",
+          "evidence": "Triangle-free transition graph for named colorings, not the global color-permutation quotient.",
+          "identifier_or_url": "Australasian Journal of Combinatorics 69(2), 197–214 (2017)",
+          "material_read": "Opening offset 0 and Proposition 2.1 offset 7219",
+          "method": "Lawful OA primary text",
+          "title": "Belcastro–Haas article on transition graphs of edge colorings",
+          "trigger": "Transition graphs could include the same definition and property"
+        },
+        {
+          "assessment": "Different coloring and prism setting",
+          "evidence": "Pappus enters a prism/cutout argument on hexagonal tiles, not its base graph's edge-Kempe quotient.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.06956",
+          "material_read": "PDF p. 16, offset 40339",
+          "method": "Lawful OA primary text",
+          "title": "Tight factorizations of girth-g-regular graphs",
+          "trigger": "Pappus graph and coloring claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and novelty framing; published 81d0af0022f9 Finding; sign-flip and profile deductions above"
+      ],
+      "rationale": "For the natural Pappus graph a genuinely unknown full switch graph would be useful beyond knowing a class count: it resolves class sizes, cliques and worst-case distance. In this submission the precise finite object is already available in the distinct published match. The marginal sign label follows from the two known components, the standard matching sign invariant and one explicit reflection; the other marginal counts follow from known profiles. The package does not furnish a scientifically valuable distinct remainder to repair.",
+      "residual_risks": [
+        "This is a judgment about added scientific content relative to verified coverage, not a claim that finite switch graphs lack value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

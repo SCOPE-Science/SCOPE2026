@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:52:15.736869Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a common tilt t near zero, J(t)=E[P_{m,a} prod_i D_i^t]=m Γ(m)Γ(1+a+t)Γ(1+t)^{m-1}/Γ(m+a+mt). Differentiation is legitimate since one may bound the logarithms by slightly reduced exponents in the interior of the Dirichlet integrability domain. The covariance is -J'(0)+J(0)E[sum_i log D_i], since -m log m is constant. The derivative and E[sum_i log D_i]=m[ψ(1)-ψ(m)] give precisely the frozen bracket and its sign. At a=1 the bracket vanishes, as required by sum_i D_i=1. At a=2 it is (m-1)/(2(m+1)) and J(0)=2/(m+1). The fourth moments have numerator 24m+4m(m-1), denominator m(m+1)(m+2)(m+3), giving the stated Greenwood variance. The log variance is the second derivative of log E[prod_i D_i^t], i.e. m ψ_1(1)-m^2 ψ_1(m). These give the exact squared correlation; positivity of the covariance fixes the square-root sign. Trigamma expansion gives Var(M_m)~m(π²/6-1) and hence the stated limit. Independent `python /workspace/audit_checks_1_5.py 5` integrates at m=2 by elementary monomial-log integrals, getting 1/9, and confirms the illustrative correlations and limits. The recorded successful checker output is supplementary; its code was inspected, not executed. The independent review could not directly check the historical asymptotic citation in the full Mirakhmedov text, but the limiting formula itself is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minka Eq. (1) gives the normalized density for any positive shape vector. Replacing its exponents by any admissible tilt makes the original tilted moment precisely the ratio of the two displayed gamma normalizers. Eq. (8) gives the component log expectation. Eq. (20) yields the symmetric second moment at general common shape.",
+          "Only bibliographic/abstract material was accessible for the two spacing test articles in this review; they are not evidence of noncoverage or the basis for FAIL."
+        ],
+        "reasoning": "The classical normalized family evaluates the full mixed power-product moment needed here, not just its asymptotics or a marginal not coupled to the log statistic.",
+        "searches": [
+          "Minka, Estimating a Dirichlet distribution, author PDF §1 equations (1), (6)–(8) and equations (19)–(20)",
+          "Mirakhmedov DOI 10.1016/j.jspi.2010.04.002",
+          "Penev–Ruderman DOI 10.1016/j.jspi.2010.09.025"
+        ]
+      },
+      "checked_sources": [
+        "Minka, Estimating a Dirichlet distribution (2000; rev. 2012)",
+        "Resultary 061e4bb9211c",
+        "Resultary 53a0f2d3a98e",
+        "Mirakhmedov DOI 10.1016/j.jspi.2010.04.002 (limited access)",
+        "Penev–Ruderman DOI 10.1016/j.jspi.2010.09.025 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the classical symmetric Dirichlet law with common shape s, E_s[P_{m,a}]=m Γ(ms)Γ(s+a)/[Γ(ms+a)Γ(s)]. The negative derivative at s=1 is exactly Cov(P_{m,a},M_m): the score for s is sum_i log D_i minus its expectation, directly from eq. (1). At a=2 the same known mean reduces to m(s+1)/(m(ms+1))=(s+1)/(ms+1); its negative derivative is (m-1)/(m+1)^2. The remaining variance and limit use the same normalizers and trigamma expansion."
+        ],
+        "reasoning": "One ordinary shape derivative of a standard moment determines the full frozen finite-covariance family, with no additional result about spacings or a new mixed moment evaluation. The exact finite correlation is normalization by standard marginal moments. The weighted-log records are related but not needed for this implication.",
+        "searches": [
+          "Minka §1 eq. (1), common shape parameter and one-coordinate exponent shift",
+          "Resultary 53a0f2d3a98e full local Finding and Proof compared with the unweighted claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moran is -log(prod_i D_i) plus a constant; the exact joint Mellin function for that product and each coordinate power is a ratio of Dirichlet normalizing constants.",
+          "The matched records instead use -sum_i D_i log D_i; their covariance at unit parameters is -(m-1)/[(m+1)^2(m+2)], unlike this positive unweighted-log covariance."
+        ],
+        "reasoning": "The logarithm alias for the product is exact, whereas converting Shannon entropy to Moran is not valid. The Mellin formulation identifies the correct stronger exact result.",
+        "searches": [
+          "Resultary lookups for product of spacings/log versus power-sum covariance",
+          "Resultary 061e4bb9211c",
+          "Resultary 53a0f2d3a98e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed matches give exact finite joint laws for weighted-log entropy/concentration, not the product-of-spacings companion. No exact finite Greenwood–Moran table or coefficient was identified in bounded lookup. The frozen record's historical 0.3876 is an asymptotic squared correlation, not an exact finite match."
+        ],
+        "reasoning": "A search miss does not support novelty against the exact broader moment formula, and neither a finite number for the different entropy statistic nor the limiting constant would cover the frozen finite law directly.",
+        "searches": [
+          "Resultary finite Greenwood–Moran joint null covariance",
+          "Resultary 061e4bb9211c RESULT.md, Finding and Proof",
+          "Resultary 53a0f2d3a98e RESULT.md, Finding and Proof"
+        ]
+      },
+      "rationale": "The exact power/Moran law is a mechanical consequence of the prior Dirichlet normalizing integral (including its ordinary log derivatives), by the common tilt that defines Moran's log-product statistic. This is implication by an existing broader exact formula, not evidence that the Greenwood–Moran wording or finite rational number was itself printed. The matched entropy–Greenwood results do not give the Moran law by identifying the two statistics.",
+      "residual_risks": [
+        "An older spacing paper may give the exact finite result explicitly in a different normalization, and the full spacing-test sources could not be checked independently. Neither the access gaps nor the lack of an exact hit decide this review; it turns on demonstrable implication by the normalizing integral."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader prior formula with direct implication, not a literal spacing-pair claim",
+          "evidence": "Gamma density normalizer in eq. (1); the digamma log mean is eq. (8), and eq. (20) gives the second-power mean from eq. (19).",
+          "identifier_or_url": "https://tminka.github.io/papers/dirichlet/minka-dirichlet.pdf",
+          "material_read": "§1, p. 1 eqs. (1), (6)–(8); p. 2 eqs. (19)–(20)",
+          "method": "Author-hosted OA PDF, bounded text by offset and equation passages",
+          "title": "Estimating a Dirichlet distribution",
+          "trigger": "Broader exact Dirichlet normalizer and coordinate moments"
+        },
+        {
+          "assessment": "Weighted rather than unweighted log, different covariance",
+          "evidence": "The companion is -sum_i D_i log D_i; the covariance is -(m-1)/[(m+1)^2(m+2)].",
+          "identifier_or_url": "Resultary 061e4bb9211c",
+          "material_read": "Local RESULT.md Finding and Proof from offset 0",
+          "method": "Published-record local mirror",
+          "title": "Greenwood dispersion and spacing entropy remain strongly anticorrelated",
+          "trigger": "Strong same-null exact Greenwood log-functional comparison"
+        },
+        {
+          "assessment": "Same-day related exact moment; neither equivalence nor priority inferred",
+          "evidence": "Covariance of Shannon entropy with Simpson concentration is -s(m-1)/[(ms+1)^2(ms+2)], not the Moran family.",
+          "identifier_or_url": "Resultary 53a0f2d3a98e",
+          "material_read": "Local RESULT.md Finding and Proof, offsets 0–7894",
+          "method": "Published-record local mirror",
+          "title": "Shannon–Simpson dependence transition for symmetric Dirichlet vectors",
+          "trigger": "Broader symmetric-Dirichlet entropy/concentration candidate"
+        },
+        {
+          "assessment": "Full-text scope unresolved; not negative originality evidence",
+          "evidence": "The frozen dossier cites Eq. (2.6) and the table with 0.3876; this independent review verified the exact limit mathematically, not that attribution in the original table.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.04.002",
+          "material_read": "Landing page or abstract only; no original passage on the constant obtained",
+          "method": "Lawful OA discovery and publisher retrieval attempted",
+          "title": "On Greenwood goodness-of-fit test",
+          "trigger": "Closest cited joint efficiency comparison and claimed asymptotic constant"
+        },
+        {
+          "assessment": "Exact full-text coverage unresolved; not negative originality evidence",
+          "evidence": "No original finite joint moment passage was available to compare.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.09.025",
+          "material_read": "Accessible bibliographic/abstract material only",
+          "method": "Lawful OA discovery and publisher retrieval attempted",
+          "title": "On the behaviour of tests based on sample spacings for moderate samples",
+          "trigger": "Moderate-sample comparisons could directly state an equivalent finite result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantifying finite null dependence between two named tests is motivated and can be useful. But under the stated standard the precise invariant is already mechanically implied: Moran is minus the common-shape Dirichlet score plus a constant, so the covariance is an ordinary derivative of the textbook power moment and the Greenwood answer is the derivative of a rational mean. The squared correlation then normalizes by standard variances; the asymptotic comparison is not a distinct surviving contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

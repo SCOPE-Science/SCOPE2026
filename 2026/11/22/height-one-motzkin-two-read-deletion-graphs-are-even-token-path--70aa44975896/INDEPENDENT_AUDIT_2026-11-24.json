@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:11:32.271064Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated height-at-most-one excursion model the even set of non-flat positions determines the word. For two shared distinct deletion outputs, the Type-A criterion applies to the first-to-last differing interval. The two U/D phases cannot start at the same admissible prefix height; a longer F/U or F/D interval puts UFU or DFD in one phase. The two-letter flat swaps are admissible and realize two distinct deletion outputs, with no validity filter on the outputs. This proves the full graph identification, including absence of interlayer edges. Sliding to the packed set proves connectedness. Toggling the first mixed adjacent pair gives a matching; unmatched even sets occupy whole pairs and no lone last site, and all have position-sum parity t. This certifies the layer and summed optima, including singleton layers and the vacuous two-read condition. Choosing the other positions counts edges per boundary. Moving the rightmost token that needs to move right, or the leftmost needing leftward movement, attains the sorted-coordinate L1 lower bound, proving the distance and diameter formulas. Packed-to-packed paths use only rightward moves; their prerequisites are exactly the rectangular tableau order, so the hook-length count follows. Read RESULT.md, VERIFICATION.md, verify.py and distance_check.py; their recorded finite checks are supplementary and were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai et al. characterize confusability for arbitrary words rather than classify the edges allowed by the excursion restriction.",
+          "De Alba et al. give the independence number for arbitrary path token counts, covering this capacity conditional on the constrained graph identification."
+        ],
+        "reasoning": "Applying the deletion criterion requires the admissibility argument on each alternating-block type and the identification of the resulting moves. Once that bridge is made, the layer capacity is a specialization of a stronger graph theorem.",
+        "searches": [
+          "arXiv:2001.01376v2, Definition 8 and Proposition 9",
+          "De Alba et al., Theorem 3.9 and Corollary 3.10",
+          "Focused literature lookup for specialized Motzkin two-read deletion or token-graph results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376v2",
+        "Australasian Journal of Combinatorics 76(3), 387–403",
+        "arXiv:1604.03000",
+        "Resultary binary weight-two and Motzkin single-deletion-code records",
+        "OEIS A284979 comparison in frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Valid opposite U/D phases are impossible and only adjacent flat/non-flat alternating swaps survive, although binary alternating blocks of length four can be confusable.",
+          "Having identified the graph, the capacity is given by the known path-token independence formula and the edge and geodesic formulas follow from standard graph and tableau arguments."
+        ],
+        "reasoning": "The direct consequences on the token-graph side are credited as such. The supported step relates a specific read-equivalence graph to the entire path-token geometry, not merely a scalar capacity to a known formula.",
+        "searches": [
+          "Cai et al., Proposition 9",
+          "De Alba et al., Corollary 3.10",
+          "Resultary binary weight-two RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type-A-confusable words share an alternating two-symbol differing block; this is the ambient deletion criterion.",
+          "For binary weight two, 0101 and 1010 share 010 and 101. Their supports {2,4} and {1,3} are not adjacent in the t=1 Motzkin token graph."
+        ],
+        "reasoning": "Replacing alternating U and D by a single occupied symbol preserves vertex labels in a fixed layer but not deletion confusability. The closest binary code result therefore does not state an equivalent graph theorem.",
+        "searches": [
+          "Resultary: exact two-read single-deletion capacity and Motzkin excursions",
+          "arXiv:2001.01376v2, Definition 8 and Proposition 9",
+          "Resultary 2026/10/26 binary weight-two record, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier binary weight-two record has the exact same floor(n^2/4) maximum and odd-gap code as the t=1 layer.",
+          "The shifted reversal-class sequence agrees numerically with the total capacity; reversal on length n-1 binary strings has 2^floor(n/2) fixed strings, giving the same closed form by orbit counting.",
+          "The distinct same-day Motzkin record's indexed summary addresses one-read codes through length seven, with its original RESULT.md unavailable on the local mirror."
+        ],
+        "reasoning": "Neither an equal sequence nor a one-read code size determines this two-read confusability graph. No conclusion about priority rests on the dated label of a distinct record.",
+        "searches": [
+          "Resultary: binary weight-two two-read capacity and Motzkin single-deletion codes",
+          "OEIS A284979 (comparison recorded in RESULT.md §Relationship to prior work)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact labeled graph identification for this constrained ternary deletion channel. Neither the general deletion criterion, the abstract path-token capacity, nor the standard enumerative consequences are independent originality claims. The inspected closest earlier indexed capacity and code agree in the t=1 layer but do not give the same graph.",
+      "residual_risks": [
+        "A prior unindexed constrained-source graph identification may exist; the search was bounded.",
+        "The same-day one-read Motzkin record was available only as a summary; no ordering or priority inference is drawn.",
+        "The formula and code partially overlap prior work, and the graph identification is a concise application of the general criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ambient criterion, not the excursion-specific edge classification.",
+          "evidence": [
+            "For Hamming distance at least two, two common single-deletion outputs are equivalent to Type-A confusability; Hamming distance one gives just one."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+          "material_read": "Definition 8 and Proposition 9, offsets 33272 and 33825",
+          "method": "OA HTML passage inspection",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "General characterization of exactly two common deletion outputs"
+        },
+        {
+          "assessment": "Prior abstract layer formula; not a Motzkin channel theorem.",
+          "evidence": [
+            "The even-k case of Corollary 3.10 with k=2t gives the claimed layer independence number."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/76/ajc_v76_p387.pdf",
+          "material_read": "Definition on printed p. 388; Theorem 3.9 and Corollary 3.10, pp. 395–396",
+          "method": "OA PDF targeted passages",
+          "title": "Independence and matching numbers of some token graphs",
+          "trigger": "Exact path-token capacities"
+        },
+        {
+          "assessment": "Exact t=1 capacity/code overlap, but not an equivalent graph.",
+          "evidence": [
+            "The maximum is floor(n^2/4) with odd separation of the ones; the length-four alternating phases show that the edge sets differ."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64",
+          "material_read": "Mirrored RESULT.md, offset 0, statement and code",
+          "method": "Local published-record mirror",
+          "title": "Exact two-read single-deletion capacity in the binary weight-two layer",
+          "trigger": "Same t=1 support labels and coding problem"
+        },
+        {
+          "assessment": "Summary concerns one-read codes; narrower overlap not ruled out by full text.",
+          "evidence": [
+            "Indexed exact one-read results concern lengths through seven, not the stated all-length two-read reduction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-single-deletion-codes-and-the-first-fractional-gap-for-motzkin-excursions-71eef2e2dbc5",
+          "material_read": "Indexed summary; original RESULT.md unavailable on the local mirror",
+          "method": "Local Resultary lookup and targeted mirror retrieval attempt",
+          "title": "Exact single-deletion codes and the first fractional gap for Motzkin excursions",
+          "trigger": "Same source language and single deletions"
+        },
+        {
+          "assessment": "Different reconstruction channel.",
+          "evidence": [
+            "Studies reconstruction from insertion-corrupted reads, not the Motzkin two-deletion-read confusability relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.03000",
+          "material_read": "Abstract and introduction, offset 911",
+          "method": "OA passage inspection",
+          "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+          "trigger": "Archival sequence reconstruction setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural bounded-height constrained language, the result determines every ambiguous pair under a specified two-read channel, not just a numerical optimum. It gives an exact all-length code construction and the geometry of each ambiguity component. The value lies in the structural reduction, which would not follow from treating occupied positions as a binary deletion channel; the existing token-graph counts and tableau formula do not separately add novelty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

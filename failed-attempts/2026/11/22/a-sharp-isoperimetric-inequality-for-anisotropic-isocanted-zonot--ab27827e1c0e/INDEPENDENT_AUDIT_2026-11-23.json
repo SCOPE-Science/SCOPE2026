@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:20:11.557898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive lengths all facet normals are the unit vectors ±e_i and ±(e_i−e_j)/sqrt(2). Coordinate facets have the indicated products of widths; projecting the diagonal into the orthogonal complement of the other d−2 coordinate directions gives the factor sqrt(2)a in the remaining facet areas. The determinant formula gives the volume. With the record's dimensionless variables the quotient reduces to 2^d(d+Bp)^d/[P(1+dp)^(d−1)]. Its logarithmic derivative has the sign of B(1+p)−d(d−1), hence the interior minimum stated in RESULT.md. The normalized Newton inequalities telescope to E_d≤E_2^(d−1), and B≤sqrt(2) binom(d,2), with equality in the latter only for equal normalized lengths. This includes d=2. Substitution yields the stated sharp constant and a/b=sqrt(2)−1. A separate fixed-normal Wulff proof below also recovers the exact constant and equality. Replay: RESULT.md lines 23–47 and the support-function argument in this review; VERIFICATION.md and check_zonotope.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Wulff bound applies even to competitors outside the given zonotope family whenever their boundary areas are evaluated using h_W; for all fixed-normal polytope competitors this tension gives the same Euclidean area.",
+          "Joós–Lángi optimize in the unrestricted d+1-generator class and the regular rhombic-dodecahedral optimizer does not establish the sharp constant for these prescribed directions."
+        ],
+        "reasoning": "The unrestricted zonotope result is not a dominance argument for the claimed conclusion, but the Wulff inequality is: the fixed-normal Euclidean form has equality within the precise family being reviewed.",
+        "searches": [
+          "Neumayer arXiv:1503.06705v2, §1.1, anisotropic perimeter and Wulff minimization",
+          "Joós–Lángi arXiv:2206.03204, §3.1 Theorem 3, p. 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_zonotope.py",
+        "Neumayer arXiv:1503.06705v2 §1.1",
+        "Joós–Lángi arXiv:2206.03204 §3.1",
+        "Resultary entries ab27827e1c0e, 12c715aa8342 and 0614300ec957",
+        "De la Puente 2025 (metadata and unsuccessful full-text retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After centering, the zonotope support numbers are (b_i+a)/2 on coordinate normals and (b_i+b_j)/(2 sqrt(2)) on difference normals. Setting all b_i=sqrt(2) and a=2−sqrt(2) makes every support number equal to 1, giving exactly W.",
+          "The determinant volume of W is (sqrt(2))^d[1+d(sqrt(2)−1)]. The Wulff bound S≥d V(W)^(1/d) V^(1−1/d) therefore gives the submitted constant. Equality requires homothety to W; the coordinate support numbers force equal b_i and the difference supports then force a=(sqrt(2)−1)b.",
+          "The 2025 paper's cited exact comparison could not be independently inspected in full; that uncertainty is not needed for the Wulff implication."
+        ],
+        "reasoning": "This implication reproduces every dimension, all unequal-width competitors, and the full rigidity statement without any special Newton optimization. It is mathematical coverage, not a judgment based on a shared inball parameter or a catalog date.",
+        "searches": [
+          "Neumayer §1.1, Wulff sharp bound and equality",
+          "Frozen RESULT.md lines 14–24: facets and determinant volume",
+          "De la Puente DOI 10.17398/2605-5686.40.1.1, Theorem 3.14 and Section 7 retrieval attempted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neumayer defines anisotropic perimeter as the integral of surface tension over exterior unit normals, and gives its sharp Wulff bound and equality up to translation and dilation.",
+          "With U={±e_i, ±(e_i−e_j)/sqrt(2)}, take W={x: u·x≤1 for u in U} and tension h_W. Since W contains the unit ball and u itself meets the plane for every u in U, h_W(u)=1 there."
+        ],
+        "reasoning": "All tested zonotopes have facet normals in U, so anisotropic perimeter for h_W equals ordinary Euclidean area identically. The associated Wulff body is W; this recasts the claimed optimization as precisely an equality-attaining case of an existing, broader inequality.",
+        "searches": [
+          "Local Resultary: anisotropic isocanted cubes, inball contact and Euclidean isoperimetric optimizers",
+          "Neumayer, arXiv:1503.06705v2, §1.1, PDF p. 1, extraction offset 2060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result ab27827e1c0e itself is a self-match. Catalog record 12c715aa8342 gives the centered isocanted cube's contact transition; the original mirror file was not accessible. Record 0614300ec957, original mirror RESULT.md offset 0, has the same-looking parameter but a uniform chainlink polytope."
+        ],
+        "reasoning": "A matching parameter alone is not a matching theorem. The inball catalog hit supplies relevant tangency context, not an independent unequal-width optimum. No enumerative table is relevant to an all-dimensional continuous shape optimization; the precise constant is nonetheless fixed by the general theorem.",
+        "searches": [
+          "Local Resultary: axes-plus-diagonal and isocanted equal-/unequal-width extremizers"
+        ]
+      },
+      "rationale": "The central inequality, constant, and equality case are a direct specialization of the pre-existing Wulff inequality to a fixed finite set of facet normals. The proof here differs from the published anisotropic inequality proof, but is not a new extremal claim. The difference from the unrestricted zonotope optimum does not resolve this stronger prior implication.",
+      "residual_risks": [
+        "The equal-width treatment in de la Puente's Theorem 3.14 and §7 was not read independently; it might establish additional overlap.",
+        "The primary search did not return usable additional results. That access limitation is not a negative literature finding and does not affect the positive Wulff coverage demonstration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the constrained optimum by specialization",
+          "evidence": [
+            "Anisotropic perimeter is the boundary integral of the surface tension; the Wulff set minimizes at fixed volume, with equality exactly up to dilation and translation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.06705",
+          "material_read": "Version 2, §1.1, PDF p. 1 and beginning of p. 2; extraction offset 2060 through 5015",
+          "method": "Original OA PDF literal locator followed by bounded offset read",
+          "title": "A strong form of the quantitative Wulff inequality",
+          "trigger": "General isoperimetric inequality for a prescribed normal set via anisotropic perimeter"
+        },
+        {
+          "assessment": "Broad but nonsharp for the prescribed directions",
+          "evidence": [
+            "The theorem optimizes intrinsic volumes (including half the area) among unrestricted d+1-generator zonotopes at fixed volume, at the regular rhombic dodecahedron."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03204",
+          "material_read": "§3.1 Theorem 3, PDF p. 7",
+          "method": "Original OA PDF, targeted passage",
+          "title": "Isoperimetric problems for zonotopes",
+          "trigger": "Same generator count and surface objective"
+        },
+        {
+          "assessment": "Unresolved equal-width comparison, not evidence of noncoverage",
+          "evidence": [
+            "Metadata concerns face measures of the equal-coordinate isocanted cube; publisher article and PDF access failed."
+          ],
+          "identifier_or_url": "https://doi.org/10.17398/2605-5686.40.1.1",
+          "material_read": "Bibliographic description only; intended Theorem 3.14 and §7 not retrieved independently",
+          "method": "Lawful OA DOI and publisher retrieval attempts",
+          "title": "Isocanted cube: the lower Lebesgue volumes, incidence numbers and symmetries of this d-dimensional tile",
+          "trigger": "Same equal-width shapes, face measures and potentially the precise surface comparison"
+        },
+        {
+          "assessment": "Tangency overlap in catalog; no full-text noncoverage claim",
+          "evidence": [
+            "Catalog describes a contact transition at the centered isocanted cube; this is not in itself an inequality for unequal widths."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-isocanted-cubes-have-exact-vertex-shells-and-a-Chebyshev-center--12c715aa8342",
+          "material_read": "Resultary catalog summary only; original local mirror file unavailable",
+          "method": "Local Resultary lookup and mirror attempt",
+          "title": "Isocanted cubes have exact vertex shells and a Chebyshev center",
+          "trigger": "Same symmetric contact parameter"
+        },
+        {
+          "assessment": "Distinct body family",
+          "evidence": [
+            "The optimized body is a uniform chainlink polytope, not the fixed axes-plus-diagonal zonotope."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-dimension-independent-sharp-euclidean-isoperimetric-optimizer--0614300ec957",
+          "material_read": "Original RESULT.md, finding, local mirror offset 0",
+          "method": "Local Resultary and bounded original mirror passage",
+          "title": "A dimension-independent sharp Euclidean isoperimetric optimizer",
+          "trigger": "Same-looking optimizer and surface quotient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The geometric question is natural and the symmetric rigidity is useful to state, but the inequality claimed as the independent finding is mechanically implied once the known tangent configuration is expressed through its fixed facet normals. The facet and determinant formulas are standard evaluations; the alternate Newton proof gives an elementary exposition, not an additional phenomenon or a quantitative stability theorem. No independent valuable remainder requiring a substantive repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

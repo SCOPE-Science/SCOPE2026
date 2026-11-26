@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of adjacent tetrahedral local-square counts
+# Independent mathematical audit
 
-The standard-library Python checker `verify.py` computes elliptic character traces directly, directly compares the complete count of indices with both adjacent tetrahedral values quadratic residues against the theorem, and verifies the marginal single-value count. It covers 24 primes through 101 with 65 complete prime-power histograms, nine small-prime regular-class checks, and exact rational covariance formulas. To replay: run `python3 verify.py` in this package.
+## correctness
 
-Observed output:
+PASS
 
-```
-PASS: 24 prime-field checks and 65 full prime-power histogram tests.
-PASS: exact marginal/joint formulas and the two covariance-sign laws.
-Small prime regular counts: [(5, 1), (7, 1), (11, 1), (13, 5), (17, 3), (19, 3), (23, 5), (29, 11), (31, 7)]
-Example densities: [(5, '9/20', '7/30'), (7, '5/16', '17/112'), (11, '3/8', '9/88'), (13, '227/364', '71/182')]
-```
+Outside {-1,0,1,2}, expanding the two quadratic-character indicators gives two cubic sums of -chi(6)a_p before exclusions, and one quadratic sum of -1 because (x-2)/(x+1) runs through all field values except 1. Exclusions subtract chi(-1)+1 from the linear terms collectively and 2chi(-2) from the quadratic term. On the four singular balls the roots are simple; at 0 and 1 the two leading-unit characters agree exactly when chi(-2)=1, and at 2 and -1 the companion values are 1 and -1. Thus below depth k each allowed even-order shell has exactly half its leading units eligible, while the central congruences count separately because zero is a square. Summing the shell densities gives 1/[2p(p+1)] per allowed ball. For integer cutoffs, keep the O_p(log(2N)) shell levels with p^{2m} <= N+1: each is a fixed number of progressions, and the omitted total expected count is O_p(1) with no noncentral observations. Reflection about x=1 cancels the cubic sum for p=3 mod 4; substitution into delta-mu^2 gives the two strict covariance signs. Hasse's bound gives positive R_p for p>=37 and direct counts cover the nine smaller primes. A separate bounded replay tested 35 full prime-power periods and both covariance formulas on its eligible primes.
 
-The tests establish consistency at the enumerated levels, not the infinite assertions. The proof supplies the unbounded result using character expansions, Hensel lifting, valuation shells, and Hasse's bound. Neither p=2 nor p=3 is treated, and no global integer-square conclusion is asserted. No independent mathematical audit has been carried out.
+## originality
+
+PASS
+
+The supported distinct contribution is the aligned joint count with zero included at every p-adic depth and the resulting adjacent-indicator covariance reversal. The marginal count is useful context, not independently new relative to the earlier one-point fiber theorem. No inspected primary statement gives the joint theorem or implies it by direct specialization.
+
+## value
+
+PASS
+
+Adjacency dependence is a natural additional invariant of the classical tetrahedral sequence once one-point local square membership is known. The all-depth calculation answers how often both neighboring values qualify, and yields an arithmetic distinction that a marginal cannot show: the covariance changes sign between two prime classes. The result gives a useful precise local obstruction/density calculation without claiming any global ordinary-square theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

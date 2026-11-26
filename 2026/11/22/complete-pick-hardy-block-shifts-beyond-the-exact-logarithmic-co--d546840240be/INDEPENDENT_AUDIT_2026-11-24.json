@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:37:42.978396Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–64",
+        "VERIFICATION.md",
+        "verify_kernel.py",
+        "Agler–McCarthy arXiv:1610.01997, Theorem 3.1",
+        "Independent record5.py and record5.log"
+      ],
+      "rationale": "Write M=(a^2-c^2)(c^2-1)>0. The assumed bound b^2<=M implies (ac)^2-b^2>=a^2+c^2(c^2-1)>0. Multiplication by q and 1/q are bounded on H^2; evaluation of the first two coefficients and removing them give the bounded inverse displayed in the record, with x_1=g(0) and x_0=ag'(0). Direct substitution gives UT=zU and the transported space has kernel given by the three orthogonal summand evaluation vectors. With t=z conjugate(w) and W=q(z) conjugate(q(w)), Q=1-(1-t)K=tR/W. The determinant of the coefficient matrix of R is strictly positive throughout the region, including its endpoint, and the positive leading entry proves positivity. Q is positive by analytic conjugation and Schur product, with Q(z,z)=1-(1-|z|^2)K(z,z)<1; thus |Q(z,w)|<1 and K never vanishes. For H=c^2 R-(c^2-1)W, the positive leading entry and determinant c^4(M-b^2)>=0 give positivity even at b^2=M. The identity 1-1/K=c^2t/W+t^2H/[W^2(1-Q)] now gives positivity by the convergent Schur series for 1/(1-Q). Normalization at zero, nonvanishing and the classical criterion give CNP. On the finite summand D=T*T-I has positive leading entry and det D=(a^2-1)(c^2-1)-b^2>0; the defect is strictly positive on that summand and zero on H^2. On the same summand, the difference (T*T)^2-T*^2 T^2 is P=D+D^2-A*DA. Its leading entry is c^2(b^2+c^2-1)>0 and its determinant is a^2c^2(M-c^2b^2). Thus equality is allowed at M/c^2 for logarithmic concavity, which fails above it, and the endpoint b^2=M still satisfies CNP. A separately written symbolic script extracted the R/H coefficient matrices from rational expressions and P from a finite truncation of T, matching all determinants, including 20, -36 and 176 at (3,2,2). Replay: python3 /workspace/branches/independent-checks/record5.py (SymPy 1.14.0); record5.log in that directory. The frozen script was inspected, not executed.",
+      "residual_risks": [
+        "CNP has only a sufficient bound; no assertion is made at b^2>M. Rank-two strictly positive defect means positivity on its support, not positive definiteness on the entire space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luo–Rydhe prove CNP under concavity with shift-invariance assumptions, while their logarithmically concave non-CNP example has rank-three defect. Agler–McCarthy give the general normalized defect-kernel criterion. Sau studies structural criteria for de Branges–Rovnyak kernels admitting a CNP factor."
+        ],
+        "reasoning": "The new region fails log-concavity and thus cannot be won by applying a concavity theorem; the rank-three example is the opposite separation. A general positivity criterion alone does not verify positivity for a given nonzero-coupling region. The inspected structural passages do not supply this parameter claim.",
+        "searches": [
+          "Luo–Rydhe arXiv:2611.12778v1, Theorems 1.2–1.3 and §4",
+          "Agler–McCarthy arXiv:1610.01997, Theorem 3.1",
+          "Sau arXiv:2606.09680, pp. 2 and 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 43542adbde56, d81646a0eb48, 55f7752cd564 and the exact target mirror",
+        "arXiv:2611.12778v1",
+        "arXiv:1610.01997",
+        "arXiv:2403.19377",
+        "arXiv:2606.09680"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior cone has b^2<=M/c^2 under A=c,B=a,u=b; since c>1, this misses every coupling with M/c^2<b^2<M. The critical-coupling formula assumes a=c and neither supplies nor obstructs the strict a>c parameter window. The natural vector-valued factorization is not the scalar setting of the quoted Chu criterion."
+        ],
+        "reasoning": "The substitution proves actual coverage of the lower threshold and all CNP within it, and that credit is excluded from the distinct result. No inspected theorem with hypotheses valid on the strict larger window was found that mechanically verifies CNP there.",
+        "searches": [
+          "Resultary 43542adbde56, exact cone; 55f7752cd564, equal-diagonal kernel",
+          "Luo–Rydhe Theorems 1.2–1.3",
+          "Ahmed–Das–Panja pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 43542adbde56 use A=c,B=a,u=b to obtain the identical operator and transported normalized kernel. In d81646a0eb48 at b=0 the squared weights are A=a^2, B=c^2 and then 1. The identity K=(1-Q)/(1-t), with Q=tR/W positive, gives a vector-valued de Branges–Rovnyak representation."
+        ],
+        "reasoning": "The same-model match is substantive and not merely a similarity of parameter names. Radial equivalence covers only zero coupling. Scalar de Branges–Rovnyak characterizations do not apply just by exhibiting a vector-valued realization.",
+        "searches": [
+          "Resultary: two-coordinate Hardy-block shifts, complete Pick beyond logarithmic concavity and rank-two couplings",
+          "Resultary 43542adbde56 and d81646a0eb48",
+          "Ahmed–Das–Panja arXiv:2403.19377; Sau arXiv:2606.09680"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "43542adbde56 gives A^2|u|^2<=(A^2-1)(B^2-A^2). d81646a0eb48 gives A>=1, 4A/(A+1)^2<=B<=A for the radial case. 55f7752cd564 gives CNP and log-concavity exactly at beta=0 with equal diagonal weight A>1 and |beta|<A^2-1. The exact full-bound record is the assigned record itself."
+        ],
+        "reasoning": "The catalog covers two overlapping subfamilies and one excluded parameter boundary, not the claimed nonradial open window. Same-day dates establish no priority relation and the records are compared on their content.",
+        "searches": [
+          "Resultary 43542adbde56 (same-day two-coordinate cone)",
+          "Resultary d81646a0eb48 (same-day radial window)",
+          "Resultary 55f7752cd564 (earlier critical coupling)",
+          "Resultary query for the exact b^2 <= (a^2-c^2)(c^2-1) condition"
+        ]
+      },
+      "rationale": "Credit only the CNP certificate in the strict non-logarithmically-concave region beyond the known exact threshold. A distinct same-day result gives the same two-site model, the entire log-concave part of the parameter cone, its exact boundary and CNP there, after a direct change of symbols. The same-day radial result covers the uncoupled line. Neither supplies the nonzero-coupling continuation beyond log-concavity. The CNP upper sufficient cutoff is not credited as an exact classification.",
+      "residual_risks": [
+        "An older or differently formulated vector-valued de Branges–Rovnyak analysis could cover the region. An unproductive bounded web search was not treated as evidence of absence. Identical dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact overlap on the log-concave cone, no extension past it",
+          "evidence": "Hardy block with coefficients A,u,B and A^2|u|^2<=(A^2-1)(B^2-A^2); A=c,B=a,u=b.",
+          "identifier_or_url": "Resultary 43542adbde56",
+          "material_read": "Mirrored Finding and Assumptions, offsets 0–3106; scope offsets 6100–7993",
+          "method": "Local Resultary search and mirror",
+          "title": "Complete-Pick stability of the two-coordinate logarithmically concave shift",
+          "trigger": "Exact same-day model and threshold"
+        },
+        {
+          "assessment": "Covers b=0, not b nonzero",
+          "evidence": "Radial model with squared weights A,B,1,... and exact CNP condition 4A/(A+1)^2<=B<=A at A>=1.",
+          "identifier_or_url": "Resultary d81646a0eb48",
+          "material_read": "Mirrored Finding, offsets 0–2400",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp complete-Pick window and delayed sign detection for a two-defect shift",
+          "trigger": "Same-day exact Pick criterion for two defects"
+        },
+        {
+          "assessment": "Equal-diagonal boundary, excluded here",
+          "evidence": "q_beta(z)=A^2+beta z; CNP and log-concavity exactly when beta=0 for the stated critical family.",
+          "identifier_or_url": "Resultary 55f7752cd564",
+          "material_read": "Mirrored Finding, offsets 0–3585",
+          "method": "Local Resultary search and mirror",
+          "title": "Rank-two complete-Pick rigidity at a critical shift coupling",
+          "trigger": "Earlier coupled rank-two Pick example"
+        },
+        {
+          "assessment": "Different hypotheses and direction of separation",
+          "evidence": "Concavity implies CNP; a three-coordinate Hardy-block example is logarithmically concave but not CNP.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.12778",
+          "material_read": "v1 p. 3 Theorems 1.2–1.3 and §4 pp. 16–18",
+          "method": "OA PDF passage inspection",
+          "title": "Concave shifts and the complete Nevanlinna–Pick property",
+          "trigger": "Main related sufficiency and separation theorem"
+        },
+        {
+          "assessment": "Classical criterion, not parameter positivity",
+          "evidence": "Normalized CNP kernels have the representation 1/(1-F) for a positive F under the theorem's hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.01997",
+          "material_read": "Theorem 3.1, pp. 9–10",
+          "method": "OA PDF passage inspection",
+          "title": "Complete Nevanlinna–Pick kernels",
+          "trigger": "General normalized Pick characterization"
+        },
+        {
+          "assessment": "Related framework; natural target realization is vector-valued",
+          "evidence": "The cited Chu comparison treats scalar de Branges–Rovnyak kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.19377",
+          "material_read": "pp. 3–4, normalized criterion and quoted scalar Chu characterization",
+          "method": "OA PDF passage inspection",
+          "title": "Ahmed–Das–Panja on de Branges–Rovnyak kernels",
+          "trigger": "Potential equivalent-model coverage"
+        },
+        {
+          "assessment": "No direct parameter comparison in the inspected statements",
+          "evidence": "Structural criteria for a complete Pick factor; the nonzero-coupling two-site threshold is not supplied by those passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.09680",
+          "material_read": "pp. 2 and 5, opening framework and structural criterion",
+          "method": "OA PDF passage inspection",
+          "title": "Sau on de Branges–Rovnyak kernels admitting a complete Pick factor",
+          "trigger": "Potential broader factorization criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Part I–II",
+        "Resultary 43542adbde56",
+        "Luo–Rydhe arXiv:2611.12778v1"
+      ],
+      "rationale": "A coupled rank-two Hardy-block model gives a robust open separation: complete Pick can persist after exact operator log-concavity fails, with an analytic certificate rather than isolated numerical examples. The known boundary and classical criterion are context, not the scientific contribution. The location and positive size of the new interval can guide sharper boundary and finite-defect investigations.",
+      "residual_risks": [
+        "No necessity for CNP above the sufficient cutoff, and no classification of general rank-two defects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

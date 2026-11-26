@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof makes the maximum nilpotency-index hypothesis precise and derives the one-path structure. The explicit clockwise-successor recurrence is checked algebraically and interpreted as first return of modular rotation, giving the exact gcd criterion. Farey-neighbor denominators account for every positive-orientation path. In the reversing case, the square of the interpolating orientation-reversing circle homeomorphism forces two monotone parity blocks, both realized. Exhaustive small-size path counts and independent successor-permutation checks support, but do not replace, the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The standard Sós/Farey permutation enumeration is already known, including the three-branch recurrence. This fact is credited without a novelty claim. The assessed addition is the precise maximal-index nilpotent interpretation in partial-injection monoids and the new reversing-only \(2n\) classification, yielding the combined oriented-monoid invariant. The inspected Li–Fernandes endomorphism paper does not cover this. Earlier general semigroup work may nonetheless contain a dominating result and is a residual bibliographic risk.
+PASS
 
-## Value — PASS
-Maximal nilpotency depth is an intrinsic algebraic invariant. The result gives a complete infinite-family classification of the extremal elements of two natural monoids and explains the unexpected Farey/rotation parametrization and sharp reversal correction. This is more than a renaming of a known sequence because the orientation-extension classification is independently established.
+A nilpotent partial injection is a disjoint union of chains; index n forces one chain through all n vertices. For the preserving calculation put m=n−1, b=g(0), d=g⁻¹(0), a=g⁻¹(m). The successor recurrence increments by one except at i=a or i=d−1. If d−1<a, then g(d−1)=b+d−1 but the deletion of 0 forces b=g(d−1)+1, impossible. Thus a≤d−1 and g(a)=m=b+a, giving b+d>m. From d onward g(i)=i−d, and if the middle interval is nonempty, the recurrence starts it at g(m)+1=m−d+1. This proves the three branches; substituting verifies the converse. Their rotation first-return description is valid because an overshoot into (m,b+d) returns to [0,m] on the next step; every gcd(b,d) residue class meets [0,m]. Thus one cycle means coprimality and precisely a Farey gap. For reversal, any reversing partial bijection between the two circle subsets extends over their gaps to a reversing circle homeomorphism. Its decreasing lift yields exactly two fixed points and it exchanges the intervening open arcs. The even subsequence is a strictly monotone orbit of its increasing square in the first arc, and the odd subsequence runs in opposite order in the second. These give exactly the two displayed words, both satisfying anti-order after deletion. All rotations give n distinct labeled placements; preserving and reversing are disjoint on a domain of size at least three. The summatory-totient estimate gives the stated asymptotics. Independently enumerated preserving/reversing/union results at n=4,…,8: (16,8,24), (30,10,40), (60,12,72), (84,14,98), (144,16,160).
 
-## Sources, comparison and limits
-Primary full texts examined: Li and Fernandes, arXiv:2207.12823v1; Bockting-Conrad et al., arXiv:2007.01132v1. The preserving branch is known as a Sós-permutation class; only the semigroup interpretation and reversing/union theorem receive a qualified originality assessment. Existing Green-relations literature could imply part of the result; some earlier sources could not be inspected fully. Computations do not prove infinite statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the semigroup classification including the reversing branch and full oriented maximal-index census, not the preserving numerical sequence or the Sós recurrence. Those are explicitly credited and exactly match older Sós/Farey combinatorics. The inspected closest same-monoid Resultary theorem restricts its counts to adjacent endpoints and has no reversing branch. The two cyclic parity words and exactly 2n extra maps are not consequences of the inspected Sós classification of increasing order or of the endpoint result. This is a bounded assessment of the distinct claim, not a priority certificate.
+
+## value
+
+PASS
+
+Maximum nilpotency index selects a canonical extremal layer of the two monoids. The exact classification up to rotation explains why a substantial Farey family is possible for one orientation but only two parity orders for the other, and fully determines the oriented count. The useful increment is this structural distinction, not the already tabulated preserving numbers or the standard totient asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

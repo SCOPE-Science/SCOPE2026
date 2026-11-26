@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every trace class is proved by a complete split into incident and disjoint pairs and common-center triples, with explicit witness conditions. Every four-support is excluded by a mixed-trace obstruction. Nine vertices are necessary from eight distinct witnesses and sufficient by the four-arm construction. An independent stdlib verifier checks 18,948 trees plus an unlabeled-tree enumeration on 2,287 types; these tests are corroborative only.
+## correctness
 
-## Originality — PASS within inspected sources
-The inspected Johnson-induced result gives a four-bound, not the exact tree-line coefficients; recent neighborhood-complexity work concerns closed neighborhoods of other graphs. Checked indexed alternatives on full triangular graphs, geodesic halfspaces, and neighborhood topology do not imply the theorem. Incomplete older literature is acknowledged as a residual priority risk.
+PASS
 
-The closest primary source is Benediktsson, Macpherson and Adler (2020), where every induced Johnson graph has open-neighborhood VC dimension at most four, while the sharp coefficients for the tree-line subfamily are not given. Recent forest neighborhood-complexity results count closed neighborhoods, and the full triangular graph is a different domain. Earlier priority cannot be guaranteed without independent literature review.
+Verified the fixed-tree proof in RESULT.md lines 40–55. A queried edge witnesses its own empty singleton trace, and in a tree with ≥2 edges it has a neighbor. For a support of two edges incident at u, the two own-edge witnesses realize the singleton traces, an extra edge at u is required for the full trace, and the empty trace requires either a second edge in an unchosen branch or a third edge in any branch. When no branch extends three edges, precisely those pairs containing every depth-two branch fail the empty-trace condition, giving B_u. For a disjoint pair, the middle edge of their unique three-edge connecting path is the only possible joint witness, and another edge is needed at an endpoint of each outer edge for each singleton, giving the two degree-sum tests. Any all-support witness splits the support among its endpoints. For a mixed support of size ≥3, choosing one edge from each side gives a disjoint pair whose only common neighbor is the all-support witness, so the pair trace is missing. The remaining triples are stars: the omitted support edge gives each doubleton, each singleton requires extension on its chosen branch, and the same branch test gives the empty trace. Four-edge stars have no two-element trace, excluding them and all larger supports by heredity. Eight distinct witnesses are necessary for a shattered triple; the four length-two arms supply them on nine vertices and give four shattered triples. The attached Prüfer verifier was inspected, not executed; the separately reported unlabeled census is corroboration only.
 
-## Value — PASS
-A natural definable one-point-type/shattering invariant now has exact degree coefficients for every member of the nontrivial family of line graphs of trees. The sharp VC threshold and nine-vertex extremizer refine a general Johnson bound and distinguish local depth-2 and depth-3 branching behavior, offering explicit structural rather than ad hoc finite data.
+## originality
 
-## Scientific limitations
-The classification applies only to finite trees and their line graphs. External verification and historical-priority review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass for the explicit branch/degree formulas enumerating shattered supports of each tree line graph and their sharp nine-vertex threshold. The same-day block-graph theorem already implies the degree-three upper bound as a statement, irrespective of unresolved relative priority. The upper bound alone is not credited as distinct. The relevant broader results count traces on a prescribed support, not how many supports in a fixed tree attain all traces.
+
+## value
+
+PASS
+
+The exact per-tree census gives structural information not furnished by a sharp class maximum: it identifies separate depth-two and depth-three branch effects and counts supports for every tree without enumerating all witnesses against all supports. The nine-vertex witness and counting lower bound fix a meaningful first occurrence of the top-degree term. The result is restricted to open line-graph neighborhoods with internal witnesses allowed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

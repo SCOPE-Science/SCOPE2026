@@ -1,25 +1,21 @@
-# Scientific review: fourth moments of finite-field parabola pairs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a complete exact double-branch convolution over every odd prime-power field, including the degenerate mixed quadratic at opposite curvature. Its three centered convolution terms are shown pairwise orthogonal, which verifies the universal weighted-branch energy \(22q^2-6q\); direct correction of the doubly counted origin establishes the exact set energy. The full energy histogram follows by two elementary character sums and the trace of a nonsingular cubic elliptic curve (in characteristic at least five), with a separate elementary characteristic-three argument. The exact all-large-field extrema use Hasse's bound plus explicit small-field sign counts. The standalone direct convolution checker passed all 240 admissible ratios over fourteen prime and extension fields. Finite checks are supplementary, not a general proof.
+PASS
 
-## Originality — PASS, subject to remaining bibliographic risk
+On a two-sum fiber with first coordinate s, completing the square gives 1+chi((a+b)t-ab s^2) for a+b nonzero; at a+b=0 the exceptional fiber is s=0 with mass q at t=0. The three centered convolutions have squared norm q(q-1), and their off-diagonal products cancel between s=0 and s!=0 by the two-root sum; for an opposite-curvature mixed term the s=0 pairing cancels directly. This proves weighted energy 22q^2-6q. Removing the duplicate origin changes f*f to f*f-2f+delta_0. Evaluating the mixed incidence on the branches and the exceptional sum at zero gives exactly the base polynomial and the two character terms plus the opposite correction. Expanding the sign indicators gives both censuses, with the product sign reducing to chi(lambda) away from the omitted points in characteristic three. The cubic is squarefree in characteristic >=5 and the Hasse lower bounds ensure the required non-opposite sign classes for q>=31; the characteristic-three count handles q>=27 and the finite transition table reaches q=17. The opposite value beats all others when q=2 mod 3, but the original SLOGAN.txt asserted an unqualified iff, false at q=3 where -1 is the sole admissible ratio. The replacement slogan limits the iff to q>=17 and identifies the lower envelope as the one first attained at 17; this matches the proved Result. The frozen CHECK.py did not assert the named transition table or the characteristic-three sign census. The replacement checker now checks those items, all small extrema and both versions of the energy on the same 240 cases. It ran successfully. A separate independent difference-counting implementation checked 319 ratios, including q=81, and reproduced the small and transition tables and both sign-census formulas. The theorem in RESULT.md is unchanged; the pass is for the repaired package, not the original unqualified slogan.
 
-The motivating primary paper of Iosevich–Li–Yu (arXiv:2609.25404v1) gives general fourth-moment/energy relations and paraboloid Gauss sums, but not the exact union-energy formula, complete character histogram, and sharp curvature-ratio extrema. The closest published result on *two opposite finite parabolas* gives a full Fourier kernel for the special opposite ratio. Its fourth moment is consequently derivable for that ratio; that specialization is not claimed novel. Its one-ratio Fourier projection norm does not supply an all-ratio energy profile or the elliptic character census. General conic-position results of Asgarli–Yip count tangent configurations, not fourth Fourier energies. A possible unpublished or unindexed exact union-energy calculation and derivability from a broader already-known paired-conic identity are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The geometry is the natural first reducible conic support after a single parabola. The exact formula separates universal superposition energy from a genuinely arithmetic double-point correction. It produces a complete parameter classification, an explicit elliptic-trace census, a first persistent finite-field cutoff at \(17\), and a sharp cube-root-of-unity resonance where the opposite pair uniquely maximizes the fourth moment. These are natural endpoint Fourier diagnostics and distinguish conic pairs with the same point count, rather than recomputing a single known-table entry. No general sharp weighted Fourier extension constant is asserted.
+The result supported as distinct is the whole-curvature weighted and union energy profiles, full sign census and sharp envelopes, not the generic Fourier/energy reduction, standard Gauss and Hasse facts, or the opposite-prime-field moment recoverable from a previously given kernel. Narrowing the headline to the proved large-field unique-maximizer classification leaves this mathematical increment intact.
 
-## Limits
+## value
 
-Only odd-characteristic pairs \(y=x^2\) and \(y=\lambda x^2\), with \(\lambda\ne0,1\), are considered. The fourth moment is of the indicator, not an arbitrary complex-weight extension operator norm. The elliptic trace is not evaluated beyond the exact one-sum expression. The Hasse bound is a standard cited external input. No independent validation has occurred.
+PASS
 
-## Closest sources
+For equal-size reducible conic supports, the fourth moment naturally measures the contribution of cross-branch coincidences. The exact comparison between the constant multiplicity energy and the variable ordinary union energy isolates a single-point correction, and the character census and sharp smallest persistent lower cutoff quantify effects that the known opposite case cannot detect. This is a family-wide invariant and a maximizer classification, not a recomputation of the known endpoint norm.
 
-- Iosevich, Li and Yu, *Spectral synthesis with the complexity parameter in \(\mathbb Z_N^d\)* (arXiv:2609.25404v1), especially Sections 2, 5 and 8. https://arxiv.org/abs/2609.25404
-- *A sharp \(4/\pi\) amplification law for Fourier projection onto two opposite finite parabolas*, published 2026. https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-4-pi-amplification-law-for-fourier-projection-onto-two-o--a4d0f8547404
-- Asgarli and Yip, *Mutual position of two smooth quadrics over finite fields*, 2025. https://doi.org/10.1007/s10623-025-01687-9
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

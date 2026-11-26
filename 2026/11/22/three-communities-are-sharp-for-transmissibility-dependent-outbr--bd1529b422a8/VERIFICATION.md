@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Executed checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory. The checker requires the Python standard library only. It validates all rational numerical witnesses that appear in the proof, confirms positivity and row sums of the explicit matrix, iterates the survival fixed-point equations for two tested transmissibility scales, and checks the two-type sign relation for a deterministic randomized sample of positive matrices. The analytic proof establishes the universal theorem; finite checks serve only as consistency tests.
+## correctness
 
-At \(\tau=1\), the computed survival vector is approximately \((0.0058185383,0.7968144267,0.0008913727)\). At \(\tau=20\), the first two survival probabilities are so close to one that binary64 rounds both to one. Their strict ordering is established instead by the exact exponential bounds in `RESULT.md`; the checker compares the respective logarithmic extinction exponents and does not claim to resolve their probability difference in binary64.
+PASS
 
-## Limits
+Checked source-to-offspring row convention and independent Poisson generating functions. Nonextinction is the largest fixed point of F(p)=1−exp(−τBp), obtained by iterating from one. For τρ(B)>1 a sufficiently small positive Perron vector multiple is a subsolution, guaranteeing positivity. Strict subhomogeneity of F excludes two positive fixed points by taking their maximum coordinate ratio; finiteness gives each coordinate strictly below one. With h(x)=−log(1−x)/x increasing, p_1>p_2 gives τr_1>h(p_1)>h(p_2)>τr_2 because each off-diagonal coefficient is positive; the other order is symmetric, and equality of coordinates forces equality of row sums, so all three signs are settled. The witness row sums and feasibility were checked exactly: positivity and b_22=2 imply ρ(B)>2. At scale one h(p_2)>2>h(1/2), p_3≤1/450 and p_1≤(1/1000+1/90)/(9/10)=109/8100. At scale twenty h(p_3)>2, making the type-one log-extinction exponent >50 versus type two ≤1001/25=40.04. Ordering exponents avoids falsely comparing rounded probabilities of one. Finally DF(p)p<p from z exp(−z)<1−exp(−z), which bounds its spectral radius below one and gives continuous local dependence by the implicit function theorem; uniqueness patches it throughout the supercritical interval. The witness reverses strictly, with at least one tie in between; no uniqueness is needed. One type has no pair, and in two types the proven sign law excludes both phenomena. The packaged numerical check was examined, but proof rests on these inequalities and not numerical iteration.
 
-The evidence is mathematical and self-reviewed, not independently audited. No exhaustive search of all possible historic publications was possible. A non-accessible supporting appendix about overdispersed offspring does not affect the Poisson calculations, but remains a literature-coverage limitation.
+## originality
+
+PASS
+
+The multitype Poisson fixed point and the caveat about unweighted totals are prior framework. The distinct result is the universal supercritical two-type sign theorem and sharp, strictly positive three-type reversal under a common scale, not branching survival theory or the general observation that total reproduction need not measure risk magnitude.
+
+## value
+
+PASS
+
+The proof establishes the exact minimal dimension at which a simple total-offspring ranking ceases to be reliable and at which common scaling can change that ranking relative to the true nonextinction probabilities. The universal two-type classification and positive three-type witness jointly resolve a natural mathematical proxy question, not merely a numerical solution of one branching model. Conclusions are restricted to the abstract independent-Poisson nonextinction model, not outbreak sizes or calibrated predictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

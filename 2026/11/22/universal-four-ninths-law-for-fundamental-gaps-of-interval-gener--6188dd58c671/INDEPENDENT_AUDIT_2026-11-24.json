@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:43:58.571400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed summand count m the represented integers form the entire interval [ma,m(a+k)]. For n=qa+r no m>q works; if any m<=q works, q also works, because n>=qa and n<=q(a+k). Thus membership is exactly r<=qk and the genus is the stated residue sum. For the j-fold test, the carry c=floor(jr/a) changes r to jr-ca and q to jq+c. Below ceil(a/2) the double has no carry and still fails. In the bands [ceil(a/2),ceil(2a/3)) and [ceil(2a/3),a) the carries (c2,c3) are (1,1) and (1,2); comparison of c2/2 to c3/3 gives respectively the triple and double as the stronger restriction. This proves both integer bands, also when a band or an admissible q interval is empty. To verify the uniform estimates, the genus ceiling error relative to a²/(2k) is -a/(2k) plus a quantity in [0,a-1). For a>=3k neither lower bound needs clipping, and each count is within one of (a+k)/(3k) or (a+k)/(2k); the difference of the arguments is positive so the raw difference of ceilings cannot be negative. The band lengths differ from a/6 and a/3 by less than one; rounding the summands costs less than a, the +k numerators add at most a/2, and rounding the lengths against a/(3k) and a/(2k) costs at most a/(3k)+a/(2k). The resulting error is <3a. For a<3k, both F<=g<5a/2 and the nonnegative main term <2a/3 bound the absolute difference by <3a. Relative errors vanish when k/a→0, giving 4/9. At k=a-1 the membership test also gives directly FG=[ceil(a/2),a) as integers. VERIFICATION.md and check_fundamental_gap_bands.py were inspected, not run; the recorded unbounded-coin checks only compare the finite set of parameters and use a proven cutoff. Replay of the unrestricted result is the interval and carry argument above, not an extrapolation from those counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The open fixed-fundamental-gap paper gives a general algorithm to enumerate semigroups of specified genus with a fixed fundamental gap. Komatsu–Ying give explicit p-Frobenius and p-genus formulas for arithmetic triples, including d=1.",
+          "The 2004 foundational paper's landing/abstract was accessible but full text was not obtained (403; no alternate repository copy recovered); its precise classifications and tables cannot be ruled out."
+        ],
+        "reasoning": "General instance enumeration or a genus formula does not by itself express the residue bands or yield a uniform two-parameter count. Inaccessible primary material is not negative evidence.",
+        "searches": [
+          "Rosales et al. DOI 10.1016/j.jpaa.2003.10.024; lawful publisher and repository access attempts",
+          "Moreno-Frías–Rosales DOI 10.3390/math13010095; Komatsu–Ying arXiv:2206.13052, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13052",
+        "DOI 10.3390/math13010095",
+        "DOI 10.1016/j.jpaa.2003.10.024 (bounded access)",
+        "Resultary 6188dd58c671 (self), 04db0dd819db and f45c31acfd04"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arithmetic-triple theorem has d=1 as k=2, but evaluates p-gap/Frobenius/genus data, not joint membership of 2n and 3n among missing n.",
+          "Fixed-genus algorithms can recover individual instances, but uniform bands and asymptotics require comparing the double and triple carries and controlling rounding independently of k."
+        ],
+        "reasoning": "Neither a restricted statistic nor a general enumerator states a stronger asymptotic of which 4/9 is a specialization. The new restricted-family analysis is necessary in the inspected evidence.",
+        "searches": [
+          "Komatsu–Ying arXiv:2206.13052 pp. 1–5, definitions and Theorem 1",
+          "Moreno-Frías–Rosales DOI 10.3390/math13010095 pp. 1–2",
+          "Resultary 04db0dd819db and f45c31acfd04 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A nonmember n with 2n and 3n in S is exactly a fundamental gap: all larger positive multiples follow by addition. The explicit band conditions are a reformulation of this predicate in the interval family, not a separate invariant.",
+          "The Resultary square-root profiles 04db0dd819db and f45c31acfd04 instead ask whether n² fails membership; they are not an equivalent predicate."
+        ],
+        "reasoning": "The known definition and standard residue form must be credited; the additional content is the full surviving interval classification and uniform count. Shared interval-family parameters do not identify the predicates.",
+        "searches": [
+          "Moreno-Frías–Rosales DOI 10.3390/math13010095, abstract and algorithm discussion",
+          "Resultary: fundamental gaps, double/triple membership, residue–quotient carry bands, interval-generated semigroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact 6188dd58c671 hit is the assigned finding itself, not an antecedent. The same-day 04db0dd819db compares arbitrary-width missing-square-root counts; f45c31acfd04 compares the width-one missing-square-root profile, not a fundamental-gap table.",
+          "The width-one formula from the actual bands is (B-A)floor((a+1)/3)+(a-B)floor((a+1)/2), giving a concrete comparison target; no distinct verified record with this formula was obtained."
+        ],
+        "reasoning": "Self match and shared parameters are not exact independent coverage; the earlier primary paper could still contain a width-one or other special case.",
+        "searches": [
+          "Resultary exact and semantic searches for 4/9, two fundamental-gap bands and the two-generator k=1 boundary",
+          "Rosales et al. DOI 10.1016/j.jpaa.2003.10.024 exact retrieval attempts"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full two-band fundamental-gap classification with a uniform linear absolute counting error and a width-independent 4/9 ratio for sublinear width. The basic semigroup membership and genus machinery, fundamental-gap predicate, and general finite algorithms are antecedent, not standalone novelty. No claim of exhaustive historical priority is made.",
+      "residual_risks": [
+        "Full text of the 2004 same-invariant paper was unavailable; its earlier specialization or exact table is not excluded.",
+        "The primary web query yielded no usable passage; a missed equivalent under a different description is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers related Frobenius and genus statistics on triples, not the joint multiple condition",
+          "evidence": [
+            "The theorem uses {a,a+d,a+2d} with gcd(a,d)=1 and gives p-Frobenius/genus formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "pp. 1–5, p-gap definitions and Theorem 1, including offsets 3101, 4375, 7204, 12813",
+          "method": "OA PDF statement inspection",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Closed formulas on consecutive triples within the parameter range"
+        },
+        {
+          "assessment": "Foundational overlap; precise extent unresolved",
+          "evidence": [
+            "Publisher full text returned 403 and no repository copy was recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2003.10.024",
+          "material_read": "Landing/abstract; full text not obtained",
+          "method": "DOI/publisher access and lawful alternate recovery attempt",
+          "title": "Fundamental gaps in numerical semigroups",
+          "trigger": "Foundational paper on the identical invariant; possible interval or two-generator specialization"
+        },
+        {
+          "assessment": "Same predicate and algorithmic search, not the analytic interval law",
+          "evidence": [
+            "Calls a gap fundamental when {2a,3a} is contained in S; gives an algorithm for semigroups of prescribed genus with the selected gap."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math13010095",
+          "material_read": "pp. 1–2, offsets 432 and 7127",
+          "method": "OA published PDF via Granada repository",
+          "title": "Numerical Semigroups with a Fixed Fundamental Gap",
+          "trigger": "General same-predicate exact algorithms"
+        },
+        {
+          "assessment": "Different membership statistic",
+          "evidence": [
+            "Counts n with n² not in S, not gaps with both double and triple in S."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-phase-diagram-for-missing-square-roots-in-interval-generated-n--04db0dd819db",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "A phase diagram for missing square roots in interval-generated numerical semigroups",
+          "trigger": "Closest distinct same-day all-width interval-semigroup hit"
+        },
+        {
+          "assessment": "Distinct square-root predicate and limit",
+          "evidence": [
+            "Uses <m,m+1> and a square-gap root profile with density 1-t², not a count of fundamental gaps."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-square-gap-root-profile-for-consecutive-generator-nume--f45c31acfd04",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Universal square-gap root profile for consecutive-generator numerical semigroups",
+          "trigger": "Same width-one family and exact-gap asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fundamental gaps are a standard semigroup invariant. A complete parameter-uniform classification and a natural density among gaps, holding for fixed and growing sublinear widths with the same constant, add information beyond a genus count or a finite algorithm. The two competing carry boundaries explain where the limit comes from; no broader proportional-width claim is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

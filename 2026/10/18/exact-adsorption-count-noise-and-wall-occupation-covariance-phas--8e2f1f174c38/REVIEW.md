@@ -1,11 +1,21 @@
-# Scientific review: adsorption-count fluctuations at a sticky boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact half-line telegraph backward equations give the unreset Laplace transform; conditioning on exponential Poisson resets yields the reset first-passage transform. Differentiating supplies the excursion mean and variance. Independent exponentially distributed bound periods form regeneration cycles, and the regenerative covariance formula yields all entries of the joint count/occupation matrix. A strictly increasing product of two explicit positive factors proves uniqueness of the resetting crossover. Small-reset asymptotics give both critical slopes. Exact-event Monte Carlo trajectory experiments independently corroborate the analytic claims, without claiming to prove asymptotic limits.
+## correctness
 
-**Originality — PASS, with explicit literature-access risk.** The primary 2026 Bressloff–Linn work establishes the dynamical model and related renewal formulas; these are not new. General renewal-reward covariance formulas and prior counting/occupation studies supply methods. The mathematical claim assessed here is the model-specific paired phase transition, proof of the unique reset crossover, and the weak-reset limits of its two transition rates. Targeted prior-record and primary-literature comparisons did not identify direct covering statements. The full text of Akimoto's closely related 2023 general renewal study was inaccessible; it may imply parts of the covariance matrix, and independent expert verification remains needed. A 2025 encounter-based active-particle preprint was available only in abstract form.
+PASS
 
-**Value — PASS.** Adsorption counts and time spent bound characterize different experimental measurements. A strictly positive correlation between them can coexist with sub-Poissonian event counts, a regime bounded by two exact critical rates. The universal weak-reset ratios provide a direct predictive asymptotic that is not recoverable from the mean bound occupancy alone.
+At fixed positive rates and v,x₀>0, the decaying solution of the two-velocity backward equations with the incoming boundary condition gives φ₀(z)=exp[−(x₀/v)√(z(z+2α))]. Conditioning on the first Poisson reset gives (1−φᵣ(z))/z=(1−p)/(z+rp), p=φ₀(r+z); evaluation and differentiation at zero reproduce the stated mean m and variance s². Both bulk resets and independent exponential wall desorption return to (x₀,−1); bulk clocks are stopped while bound. With centered excursion and residence times U,V, the centered cycle rewards are (−(U+V),mV−bU)/(m+b), giving the stated covariance per unit time by independence. The actual covariance limit, not just a distributional CLT, is justified: a reset followed by direct leftward traversal gives a uniform positive chance of hitting in a fixed time block, so the first delay and ordinary cycles have exponential tails. Ordinary cycles also have duration at least x₀/v. Stopping the centered-reward martingale at the first cycle end after t gives its covariance as the expected number of sampled cycles times the one-cycle covariance. The overshoot reward and centering error are bounded in L² by the initial delay and the maximum of O(t) exponentially-tailed cycles, hence are o(√t) in L². Dividing by t yields the displayed covariance and the mean-rate/Fano normalization. The cross term has its unique zero at m/s²; the Fano sign is that of s²−m²−2mb. The ratio rβ′/(1−e⁻ᵝ) is a product of two strictly increasing positive factors and goes from 1/2 to infinity, giving precisely one resetting crossover. The weak-reset asymptotics m∼K r⁻¹ᐟ² and s²∼K r⁻³ᐟ², K=(x₀/v)√(2α), give the two claimed constants after t→∞ at fixed r. The frozen simulation script was inspected, not executed; finite simulations are corroborative only.
 
-**Limits.** The result assumes independent exponential wall residence, Poisson bulk resets only, fixed ballistic speed, two-state Markov tumbling, and return to the original bulk state on desorption. The displayed limits concern long-time count/occupation covariances and a subsequent small-reset asymptotic, not uniform finite-time approximations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the combined model-specific sign diagram, with a unique r crossover and two ordered desorption thresholds with different weak-reset constants. Count/occupation fluctuation methods and first-passage inputs are prior; in particular Akimoto's accessible full text already encodes mixed count/occupation moments. No priority is assigned to that general fluctuation framework.
+
+## value
+
+PASS
+
+The sign diagram answers when increased wall occupation is positively correlated with counts even though the count process is quieter than Poisson. The unique reset crossover specifies exactly when the Fano transition disappears, and the different weak-reset constants quantify a robust separation of the two boundaries. Those distinctions add information beyond a stationary mean or a generic fluctuation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

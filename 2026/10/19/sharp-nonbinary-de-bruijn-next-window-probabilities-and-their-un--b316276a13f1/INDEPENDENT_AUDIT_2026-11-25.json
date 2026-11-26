@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:30:25.205040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The single prescribed pair consists of distinct labelled arcs except for the excluded constant word. Contraction to one labelled arc is reversible up to rotation, including loops and parallel arcs, and lowers just the middle outdegree from q to q−1. Thus BEST gives the tree-count ratio divided by q−1. The rank-one row-Laplacian update is (e_a−e_b)(e_b−e_c)^T; for the grounded minor one subtracts a constant from the full solution to set the root component to zero, and the difference functional is unchanged. The powers of adjacency count overlaps before m=n−1 and A^m is all-ones, so the finite geometric inverse gives (1). The zero-index coefficient is 0 exactly when one of the n-letter end blocks is constant (then one update vector is zero), −2 exactly for alternation, and −1 otherwise. For −1, the absolute residual tail is strictly less than 2/[q(q−1)], which gives a strict gap from both bounds even at q=3. For alternation the coefficients are −2,+2,…, and summation gives (q−1+2(−1/q)^m)/(q²−1); the lower endpoint occurs only at m=1 and alternation cannot attain the upper endpoint. The equality counts and union bound follow. I inspected verify.py and the frozen verification_output.txt, including the 24 ternary order-two cycles and both extremal counts; these are recorded finite corroboration, not an all-orders proof or a fresh run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rødland's general path-contraction method and count distributions cover wider fixed-composition ensembles; a shortcut path count is prior machinery.",
+          "Cowan gives general conditional expectations; Sawada and Gabrić give a uniform sampler via arborescences, rather than next-window extrema."
+        ],
+        "reasoning": "The wider count and sampling frameworks are credited. A formula valid per word is not itself a uniform sharp extremal theorem over all word lengths and alphabets.",
+        "searches": [
+          "Rødland 2006 DOI 10.1239/aap/1143936143 Theorem 1 and §5",
+          "Sawada and Gabrić arXiv:2510.16545 §3",
+          "Cowan 1991 Theorem in §3"
+        ]
+      },
+      "checked_sources": [
+        "Cowan (1991)",
+        "Rødland (2006)",
+        "Tesler arXiv:1708.03654",
+        "Sawada and Gabrić arXiv:2510.16545",
+        "Resultary 02203ca2da50",
+        "Resultary 6864ba365d1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Contraction plus BEST already gives the ratio of counts for a specified path.",
+          "Positivity in the earlier support record gives only positive probabilities for individual q,n,w, not a bound uniform in n.",
+          "The sharp universal lower endpoint here requires isolating alternators and bounding the overlap tail separately for the nonalternating class; the upper equality requires the boundary-run classification."
+        ],
+        "reasoning": "The extremal computation is not a substitution into the available general counts; it uses additional overlap geometry uniformly in the order. The exact marginal itself is not the originality basis.",
+        "searches": [
+          "Rødland 2006 pp. 120–122 and §5",
+          "Cowan 1991 §3 eqs. (9)–(11)",
+          "Resultary 02203ca2da50 and 6864ba365d1a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cowan's conditional expected frequency includes overlaps but is stated for transition-count-conditioned linear sequences with a specified first letter.",
+          "Rødland's cycle-count setup represents words by consecutive paths and counts occurrences via shortcut arcs.",
+          "For de Bruijn cycles the prescribed motif occurs at most once, so cyclic expected count equals inclusion probability."
+        ],
+        "reasoning": "The rotation-quotiented inclusion claim can be compared using equivalent cyclic Euler-tour or conditional-count language. Such formulations account for the pointwise count; they do not identify its global extrema or all equality cases.",
+        "searches": [
+          "Cowan 1991 DOI 10.2307/3214691 §3",
+          "Rødland 2006 DOI 10.1239/aap/1143936143 pp. 120–122",
+          "Tesler arXiv:1708.03654 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 support finding explicitly gives possible factors, not probabilities; for q≥3 its support is all nonconstant factors.",
+          "The November 22 binary pointwise likelihood record is both binary-only and later-dated than the frozen nonbinary finding.",
+          "Tesler gives a closed table-free expression for the total count, not for the extrema of the conditional count."
+        ],
+        "reasoning": "These are genuine adjacent catalogue/count entries, but none gives either equality classification for the nonbinary optimization.",
+        "searches": [
+          "Resultary next-order factor support and next-window probabilities; exact IDs 02203ca2da50 and 6864ba365d1a",
+          "Tesler arXiv:1708.03654 §3"
+        ]
+      },
+      "rationale": "Pass is limited to the order-uniform sharp two-sided nonbinary bounds and full equality classification. The support theorem, labelled cyclic counting framework, general conditional expected counts, and the contraction/BEST count are not new. The most relevant general count machinery permits individual computations, but the inspected results do not implement or mechanically supply the order-uniform optimization over overlap patterns.",
+      "residual_risks": [
+        "Dawson–Good (1957), JSTOR 2237055, was located but not read in full; an equivalent extremal deduction in uninspected conditional-count literature remains possible.",
+        "Bounded Resultary and literature retrieval is not a comprehensive priority determination; the broad web lookup did not yield relevant new primary evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional expected count machinery, not observed nonbinary extrema",
+          "evidence": "The theorem conditions on transition counts and first letter, counting overlapping occurrences of the nominated pattern.",
+          "identifier_or_url": "https://ssh.maths.usyd.edu.au/u/richardc/Whittleformula.pdf",
+          "material_read": "§3, equations (9)–(11) and theorem, PDF pp. 3–4",
+          "method": "Author-archived primary full text, bounded passage",
+          "title": "Expected frequencies of DNA patterns using Whittle's formula",
+          "trigger": "General theorem that may cover conditional next-window counts"
+        },
+        {
+          "assessment": "Prior reduction for the count; no matching inequalities or extremizers in inspected statements",
+          "evidence": "The consecutive path is replaced by a shortcut arc and the resulting Euler cycles are counted by BEST.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1143936143",
+          "material_read": "pp. 120–122 including Theorem 1, and §5",
+          "method": "Lawful Cambridge primary full text, bounded passages",
+          "title": "Exact distribution of word counts in shuffled sequences",
+          "trigger": "Possible exact prior consecutive-path counting and de Bruijn specialization"
+        },
+        {
+          "assessment": "Known total cycle count",
+          "evidence": "(q!)^(q^(k−1))/q^k for ordinary labelled cyclic de Bruijn sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.03654",
+          "material_read": "§3, p. 6",
+          "method": "Primary preprint passage",
+          "title": "Multi de Bruijn Sequences",
+          "trigger": "Existing cyclic counts and conventions"
+        },
+        {
+          "assessment": "Framework and uniform generation, not the bounds",
+          "evidence": "Arborescences supply a uniform generation method.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "§3, pp. 3–4",
+          "method": "Primary preprint passage",
+          "title": "Random generation of universal cycles and de Bruijn sequences",
+          "trigger": "Uniform sample-space framework and possible local law"
+        },
+        {
+          "assessment": "Overlaps on support only",
+          "evidence": "All and only nonconstant factors occur in some nonbinary cycle; explicitly does not give occurrence probabilities.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-next-order-factor-support-across-de-bruijn-cycles--02203ca2da50",
+          "material_read": "Finding and scope of support statement",
+          "method": "Resultary retrieval and mirrored finding comparison",
+          "title": "Exact next-order factor support across de Bruijn cycles",
+          "trigger": "Closest archived theorem on identical window objects"
+        },
+        {
+          "assessment": "Pointwise binary result, not prior nonbinary extremal coverage",
+          "evidence": "It identifies prior implications of Rødland for scalar probabilities but does not study the q≥3 extrema.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-time-exact-next-window-likelihood-for-random-binary--6864ba365d1a",
+          "material_read": "Finding and prior-count comparison",
+          "method": "Resultary retrieval and mirrored finding comparison",
+          "title": "A quadratic-time exact next-window likelihood for random binary de Bruijn cycles",
+          "trigger": "Exact next-window likelihood with related conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The improvement from qualitative support to explicit probability bounds independent of order changes what can be guaranteed when sampling cycles to cover local windows. The equality classification distinguishes two concrete overlap mechanisms (boundary runs and the shortest alternating return) and establishes sharp constants without exhaustive enumeration. The application is marginal/union-bound only, not independence of motifs within a cycle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

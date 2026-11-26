@@ -28,7 +28,7 @@ Thus the center has a strictly superadditive distance profile: for all \(1\le i<
 \[
 C^{(n)}_{ik}>C^{(n)}_{ij}+C^{(n)}_{jk}.
 \]
-In particular the center is a strictly nonmetric Monge transportation cost, although a distinguished boundary face of this simplex consists of metric cost matrices.
+In particular the center is a strictly nonmetric Monge transportation cost. By contrast, the relative interior of the distinguished metric face consists of genuine metrics; points on that face's relative boundary satisfy the triangle inequality but identify some distinct sites at zero distance.
 
 The asymptotic statements are sharp:
 \[
@@ -68,7 +68,7 @@ To justify the inverse, subtract adjacent cumulative sums in the two indices. Th
 \]
 All gradients are nonzero because \(N\ge3\).
 
-**Step 3: radius and uniqueness.** For any interior point with barycentric coordinates \(\lambda_{ab}\), the perpendicular distance to facet \(\lambda_{ab}=0\) is \(\lambda_{ab}/g_{ab}\). A radius-\(r\) ball is contained in the simplex exactly when \(\lambda_{ab}\ge r g_{ab}\) for every index. Summing the constraints gives \(1\ge r\sum g_{ab}\). Equality is attained by choosing \(\lambda_{ab}=\rho_n g_{ab}\) for every index and \(\rho_n=(\sum g_{ab})^{-1}\); equality forces every coordinate and hence the center uniquely. The elementary triangular identity
+**Step 3: radius and uniqueness.** For any interior point with barycentric coordinates \(\lambda_{ab}\), the perpendicular distance to the facet's supporting hyperplane \(\lambda_{ab}=0\) is \(\lambda_{ab}/g_{ab}\). A radius-\(r\) ball is contained in the simplex exactly when it lies in every supporting halfspace, equivalently when \(\lambda_{ab}\ge r g_{ab}\) for every index. Summing the constraints gives \(1\ge r\sum g_{ab}\). Equality is attained by choosing \(\lambda_{ab}=\rho_n g_{ab}\) for every index and \(\rho_n=(\sum g_{ab})^{-1}\); equality forces every coordinate and hence the center uniquely. The elementary triangular identity
 \[
 \sum_{a=1}^{m-1}a(m-a)=\binom{m+1}3
 \]
@@ -102,6 +102,8 @@ Q(p+q)-Q(p)-Q(q)
 \]
 Dividing by \(2D_n\) proves the strict inequality for every ordered triple.
 
+For comparison, on the metric face the only nonzero barycentric coordinates can be \(\lambda_{k,n-k}\), \(1\le k<n\). Those rectangle vertices are cut matrices, so the distance between \(i<j\) there is \(\sum_{k=i}^{j-1}\lambda_{k,n-k}/(2k(n-k))\). This is additive along ordered triples and separates distinct sites exactly when every adjacent cut has positive weight, that is, throughout the relative interior of the face.
+
 **Step 6: asymptotics, including uniformity.** Since \(D_n=n^4/12+O(n^3)\), we have \(n^4\rho_n\to6\sqrt2\). Uniformly for integers \(1\le d<n\), the numerator \(Q(d)=d^2+O(n)\), with the implied constant independent of \(d\) and \(n\); also \(2D_n=n^4/6+O(n^3)\). Thus
 \[
 \sup_{1\le d<n}\left|n^2\frac{Q(d)}{2D_n}-6(d/n)^2\right|=O(n^{-1}).
@@ -114,14 +116,14 @@ The standalone script `verification/verify_hollow_monge.py` constructs the verte
 ## Relationship to prior work
 Erickson and Kretschmann's *The structure and normalized volume of Monge polytopes*, arXiv:2311.07522 (first posted 2023-11-13), defines the hollow symmetric Monge simplex, determines its vertices, and identifies its metric face (Propositions 4.1, 4.2, 4.6). Their full relevant Sections 2--5 were inspected. Their volume and face-lattice results do not give the **Frobenius inradius, the unique Toeplitz incenter, or the quadratic continuum limit**.
 
-The published published-finding corpus note *An affine \((n-1)\)-cube of Euclidean incenters for square Monge polytopes* (2026-10-11) gives the exact inball of the **nonsymmetric** normalized square Monge polytope, whose ambient dimension is \(n^2-1\) and which has nonunique centers. Its proof and theorem were inspected. Taking the hollow symmetric slice does not transport its radius or incenter classification, since that slice is lower-dimensional and its intrinsic facet norms change. That published nonsymmetric inradius is asymptotic to \(6n^{-4}\), whereas the hollow symmetric radius here is asymptotic to \(6\sqrt2\,n^{-4}\). The strict squared-cost continuum profile and its anti-metric property are further statements not implied by that prior result.
+*An affine \((n-1)\)-cube of Euclidean incenters for square Monge polytopes* gives the exact inball of the **nonsymmetric** normalized square Monge polytope, whose affine dimension is \(n^2-1\) and which has nonunique centers. Taking the hollow symmetric slice does not transport its radius or incenter classification, since that slice is lower-dimensional and its intrinsic facet norms change. The nonsymmetric inradius is asymptotic to \(6n^{-4}\), whereas the hollow symmetric radius here is asymptotic to \(6\sqrt2\,n^{-4}\). The squared-cost continuum profile and strict reversal of the triangle inequality are not implied by that prior result.
 
-Rudolf and Woeginger (1995) characterize extreme rays of the nonnegative Monge cone but do not, in the available descriptions, address this intrinsic Euclidean center. No equivalence with a previously published Chebyshev-center or discrete-cost result was identified in the searches listed in the audit; absence of an identified result is not proof of publication priority.
+Rudolf and Woeginger (1995) characterize extreme rays of the nonnegative Monge cone. The simplex inradius identity is also standard; the calculation here evaluates the intrinsic facet norms and the resulting cost profile. These comparisons do not establish publication priority.
 
 ## Limitations
-The theorem does not extend automatically to all symmetric (non-hollow), nonsymmetric, rectangular, or differently normalized Monge polytopes. The Euclidean metric is specifically Frobenius, not an arbitrary affine-invariant metric. The comparison with the nonsymmetric case does not assert an exact finite-size radius ratio. No independent mathematical audit or comprehensive exhaustive historical-priority certification has been performed. Earlier work on Monge cone extremal rays was available principally through bibliographic descriptions, rather than a fully inspected original article.
+The theorem does not extend automatically to all symmetric (non-hollow), nonsymmetric, rectangular, or differently normalized Monge polytopes. The Euclidean metric is specifically Frobenius, not an arbitrary affine-invariant metric. The comparison with the nonsymmetric case does not assert an exact finite-size radius ratio.
 
 ## References
 - W. Q. Erickson and J. Kretschmann, *The structure and normalized volume of Monge polytopes*, arXiv:2311.07522v2, first public posting 2023-11-13; especially Propositions 4.1--4.2, Section 4.3 and Proposition 4.6. Full-text preprint also available from the authors' ResearchGate upload, 2023-11-20.
 - R. Rudolf and G. J. Woeginger, *The cone of Monge matrices: Extremal rays and applications*, Mathematical Methods of Operations Research 42 (1995), 161--168; DOI:10.1007/BF01415751.
-- *An affine \((n-1)\)-cube of Euclidean incenters for square Monge polytopes*, published mathematical research record, published-finding corpus (2026-10-11), full `RESULT.md` inspected.
+- *An affine \((n-1)\)-cube of Euclidean incenters for square Monge polytopes*, Resultary (2026-10-11), https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-affine-n-1-cube-of-euclidean-incenters-for-square-monge-polyt--b3dc6b94166a .

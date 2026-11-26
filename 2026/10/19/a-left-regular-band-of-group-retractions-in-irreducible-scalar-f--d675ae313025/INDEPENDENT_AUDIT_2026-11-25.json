@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:08:03.337317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the classification directly. The unique Sylow p-subgroup V receives the image of V under any endomorphism, since all images of its elements are p-elements. The kernel of the restriction is stable under α and is an F_p-subspace. The minimal polynomial of α has degree ord_m(p)=d, hence F_p[α]=F_q and that restriction has zero kernel or is zero. For an idempotent with zero kernel on V, the restriction is the identity. Conjugating each v∈V by the image of (0,α) now gives the same scalar α, so the induced map on the quotient is the identity by faithfulness. The whole map is then injective and idempotent, hence the identity. Every other endomorphism under consideration kills V and factors through C_m. If (0,α) maps to (w,α^a) with a=0, its order divides m and p, so w=0. For a≠0 the affine power law gives translation label t=w/(1−α^a) and F(v,α^j)=(t(1−α^(ja)), α^(ja)). Composing retains the left translation and multiplies the quotient exponents. The idempotent condition is exactly a²=a modulo m, so the CRT residues are precisely those stated; nonempty support yields q distinct maps, and support intersection gives closure and FGF=FG. The quotient power image has order m_S and its translation conjugation preserves this order. For |S|=s there are 2^(r−s)−1 nonempty disjoint supports allowing all q labels and 2^r−2^(r−s) intersecting supports allowing exactly one label, plus the two universal maps. For ordered support pairs, 3^r assignments avoid intersection before removing empty supports, leaving 3^r−2^(r+1)+1 nonempty disjoint pairs and 4^r−3^r intersecting pairs. Adding 4+4q(2^r−1) ordered pairs involving a universal map verifies the census and its r=1,2 reductions. This is the centralizer within the band only. The frozen script and its finite checks were inspected, not executed; the conclusion uses the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang treats the broader class of elementary-abelian-kernel, cyclic-complement Frobenius groups, but the classification is Aut(G), of which only the identity is composition-idempotent.",
+          "Chebolu–Lockridge's normal-complement criterion applies to retract images in general; Bors studies endomorphism monoids for the specified finite p-groups, not these semidirect products.",
+          "The full-monoid Resultary result is stronger in the type of invariant but restricted to prime kernels."
+        ],
+        "reasoning": "Neither broader group hypotheses with only automorphisms nor stronger monoid conclusions with smaller parameter scope subsume the theorem. The normal-complement criterion is genuine groundwork and must be supplemented by the structure of all relevant complements and the product of the actual retraction maps.",
+        "searches": [
+          "Wang arXiv:1610.05914v4 Theorem 1.1 and remarks",
+          "Chebolu–Lockridge arXiv:2408.08195 §2; Bors arXiv:1411.4190v2 abstract",
+          "Resultary prime-kernel full-monoid classifier 0f4e61ab58d0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 162c2b90ff0e and 0f4e61ab58d0",
+        "arXiv:1610.05914v4, 2408.08195, 2103.00425v2 and 1411.4190v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once the exponent/translation model is established, the CRT and the numerical formulas are elementary. The nonunit analysis hinges on irreducibility forcing an idempotent either to kill the whole additive kernel or to be the identity.",
+          "Full-affine examples can provide retractions for a proper complement by choosing the compatible prime-power bits and restricting; this alone does not show that every retraction on the subgroup so arises. Exhaustiveness requires the restriction argument for that subgroup itself.",
+          "The automorphism description supplies no multiplication on the remaining idempotents."
+        ],
+        "reasoning": "Credit the standard cyclic and retraction ingredients and established special cases. The distinct assertion is the uniform complete classification and product for the proper nonprime case as well, not a new CRT method or a standalone arithmetic corollary.",
+        "searches": [
+          "Chebolu–Lockridge §2 normal-complement criterion; Wang Theorem 1.1 and remarks; Resultary 162c2b90ff0e and 0f4e61ab58d0 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 162c2b90ff0e gives the same supports, product, retraction count and ordered commuting count for AGL(1,F_q), identified here by m=q−1.",
+          "Resultary 0f4e61ab58d0 determines the full endomorphism monoid of C_p⋊C_n with n|p−1, n≥3, and has the exact matching idempotent count for d=1,m=n. Its larger centralizers are not the band statistic."
+        ],
+        "reasoning": "Composition-idempotents are the retractions onto their fixed images. The affine and prime-kernel formulations are exact mathematical overlaps, not rejected on dates, but neither represents arbitrary proper m at d>1. For example q=64,m=21 has ord_21(2)=6 and belongs to neither overlap.",
+        "searches": [
+          "Resultary: title and claim terms for scalar Frobenius group retraction bands; Boolean-support bands and full endomorphism monoids",
+          "Web: endomorphism monoid finite Frobenius group elementary abelian kernel cyclic irreducible complement semilinear classification idempotents retractions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "162c2b90ff0e lists the same commutation law and census in the full affine subcase. 0f4e61ab58d0 gives the prime-kernel monoid spectrum and matching idempotent count there.",
+          "McCarron's perfect-order-class divisibility counts elements of the group by their orders, not endomorphisms by image orders or centralizers within the idempotent band."
+        ],
+        "reasoning": "The theorem is symbolic, not a finite database claim. The relevant table comparison is a parameter-wide exact idempotent-image and centralizer census; the subfamily tables must not be conflated with an exact table for arbitrary irreducible m, or with all-endomorphism centralizers.",
+        "searches": [
+          "Resultary: exact counts, image-order enumerator and composition centralizer spectra for affine and cyclic Frobenius retractions",
+          "McCarron arXiv:2103.00425v2 abstract"
+        ]
+      },
+      "rationale": "The supported distinct claim is the entire idempotent endomorphism band for arbitrary irreducible faithful scalar complements, including proper complements over nonprime fields, with joint composition, image and commutation invariants. Exact matches in the full affine and prime-kernel subfamilies are credited as overlaps. The inspected broader automorphism theorem concerns only units, and the retract criterion does not supply the classification or explicit multiplication for arbitrary proper scalar complements.",
+      "residual_risks": [
+        "The two indexed overlaps are dated later; no priority, derivation or independence is inferred from those dates.",
+        "Abstract/section-level comparisons are local claims about the inspected passages. Older or unindexed finite-group endomorphism classifications could contain an equivalent general result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact full-complement specialization; has further commuting-graph conclusions",
+          "evidence": "AGL(1,F_q) with m=q−1, same support intersection, common-label commute criterion and order-pair counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-boolean-support-left-regular-bands-and-diameter-three-commuting--162c2b90ff0e",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Published local mirror",
+          "title": "Boolean-support left-regular bands and diameter-three commuting graphs",
+          "trigger": "Exact match to the band and census"
+        },
+        {
+          "assessment": "Prime-kernel subcase; centralizers in full monoid",
+          "evidence": "C_p⋊C_n for n|p−1, n≥3 has 2+p(2^ω(n)−1) idempotents.",
+          "identifier_or_url": "2026/11/22/SCOPE-composition-centralizer-spectra-of-prime-kernel-cyclic-frobenius--0f4e61ab58d0",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Published local mirror",
+          "title": "Composition centralizer spectra of prime-kernel cyclic Frobenius groups",
+          "trigger": "Potential stronger full endomorphism monoid classification"
+        },
+        {
+          "assessment": "Broader group family, unit group only",
+          "evidence": "Aut(G)=V·N_Aut(V)(H) in the remarks, with field automorphism factor controlled by ord_n(p). The theorem concerns automorphisms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.05914v4",
+          "material_read": "Abstract, Theorem 1.1 and remarks pp.1–2 around offsets 0 and 3641",
+          "method": "OA preprint PDF",
+          "title": "On the automorphism groups of Frobenius groups",
+          "trigger": "Same Frobenius family, potentially a general classification"
+        },
+        {
+          "assessment": "General criterion, not the explicit band in the compared result",
+          "evidence": "A subgroup is a retract precisely when it has a normal complement; the paper's main question is liftability to ring endomorphisms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.08195",
+          "material_read": "Abstract p.1 and §2 p.3 around offset 10427",
+          "method": "OA preprint PDF",
+          "title": "Fuchs' problem for endomorphisms of nonabelian groups",
+          "trigger": "Prior retract classification groundwork"
+        },
+        {
+          "assessment": "Different invariant in the inspected passage",
+          "evidence": "Perfect order classes refer to the number of elements of each order dividing the group order, not an endomorphism census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.00425v2",
+          "material_read": "Abstract p.1",
+          "method": "OA preprint PDF",
+          "title": "Frobenius Groups with Perfect Order Classes",
+          "trigger": "Same group family and possible order census overlap"
+        },
+        {
+          "assessment": "Different group hypotheses",
+          "evidence": "Analyzes specific p-groups of order p⁸ and necessary conditions for p-group endomorphism monoids to be commutative.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.4190v2",
+          "material_read": "Abstract and introduction from offset 0",
+          "method": "OA preprint PDF",
+          "title": "On the endomorphism monoids of some groups with abelian automorphism group",
+          "trigger": "Potential broader endomorphism and commutation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Retractions need not form a subsemigroup in general. A complete multiplication for this natural Frobenius family describes when closure and left regularity occur here, and separates the band isomorphism type (q and the number of complement primes) from the embedding-sensitive image orders (full prime-power sizes). The support description gives exact commutation data uniformly, including proper irreducible complements outside the two comparatively well-described subfamilies. The numerical census is useful as a consequence of this structure rather than an isolated CRT exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

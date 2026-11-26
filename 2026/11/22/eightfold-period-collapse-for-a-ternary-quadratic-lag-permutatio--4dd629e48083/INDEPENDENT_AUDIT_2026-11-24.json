@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:53:05.973524Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because k>=2, the last old coordinate remains available when inverting T_k. A state fixed at 8k is a cyclic recurrence solution. Writing k columns of eight rows gives D y_j=B_{j-1} and D y_0=rho B_{k-1}, with rho the one-row shift and B the nonzero mask. Cyclic summation forces weights 0,3,6; a zero forces all columns zero because an ensuing nonzero constant would have weight eight. The independent exhaustive enumeration of 3^8 words at /workspace/branches/744fb5ef-27ca-4681-ad52-d3cc8969e69/mask_graph_check.py reproduced 84 vertices, 96 arrows, the stated four-mask adjacency, no core exits, and no three-step exterior walk. Equivariance lets the path to rho^{-1}B_0 close after eight rotated copies; every vertex of a closed walk is on a cycle, hence in the core. Four consecutive predecessor mask bits then sum to three, forcing y_{j,t+4}=y_{j,t}, including across the wrap. The reverse inclusion is immediate. For the count, a unique predecessor zero at row z in a four-row column allows exactly two admissible lifts with zeros at z+1 or z+2, each unique for its support. The wrap contributes one extra row shift; if j transitions move by two, k+j+1 is divisible by four. Four starting rows and the resulting binomial sum count nonzero states, plus the zero state. This argument is universal; bounded direct state counts in the supplied verifier were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primitive short-cycle census describes divisors of 4k.",
+          "The fivefold, sixfold and sevenfold results exclude nonzero fixed states at those multiples. The sixfold/sevenfold record also explicitly states the k=2 equality from an eight-cycle and the zero state."
+        ],
+        "reasoning": "The other-width exclusions do not exclude the extra divisors of 8k for general k. The k=2 statement is exact partial overlap, not the universal equality.",
+        "searches": [
+          "Resultary 4fc407051b10",
+          "Resultary 50d142a68b24",
+          "Resultary 01cf398f7e75"
+        ]
+      },
+      "checked_sources": [
+        "Finch arXiv:2610.34300",
+        "Local Resultary and exact mirror statements 4fc407051b10, 6c6028dfb8c1, 50d142a68b24, 01cf398f7e75",
+        "Same-day different-map result 5614a82d36e1",
+        "Cassaigne–Finch abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the 4k fixed cardinality and all primitive cycles dividing 4k cannot account for cycles of periods dividing only 8k.",
+          "In a period N coprime to k, reindexing by n=kt interchanges the roles of the lags by using k inverse modulo N as the new quadratic lag. Thus the swapped-lag catalogue excludes N=8 for odd k, but cannot do this for the noncoprime periods, or handle N beyond its finite cutoff."
+        ],
+        "reasoning": "Credit the uniform collapse, not the binomial formula as a new count independent of the fixed-set comparison.",
+        "searches": [
+          "Finch Theorem 8, PDF p. 4",
+          "Resultary 4fc407051b10, Finding",
+          "Resultary 6c6028dfb8c1, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite permutation fixed-set equality is equivalent to excluding every least period dividing 8k but not 4k; excluding exactly 8k alone is weaker.",
+          "Finch studies the identical bijection, not merely a conjugate map, but states a fourfold count.",
+          "The surfaced 1995 abstract treats related recurrences; its full text was not obtained."
+        ],
+        "reasoning": "The uniform period-set exclusion is not the already known enumeration of points known to lie in the smaller set.",
+        "searches": [
+          "arXiv:2610.34300, Proposition 7 and Theorem 8",
+          "Resultary: ternary quadratic lag period forbidden 8k versus 4k",
+          "DOI:10.1080/10586458.1995.10504307"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue of least periods through 22 treats x_t=x_(t-1)+x_(t-k)^2, not x_t=x_(t-k)+x_(t-1)^2.",
+          "The same-day short-cycle arithmetic record uses a different map T_delta on (F_q)^3."
+        ],
+        "reasoning": "The finite catalogue is not directly a table for this permutation. Its absence of length eight contrasts with the actual 8-cycle of T_2 through (0,1).",
+        "searches": [
+          "Resultary 6c6028dfb8c1",
+          "Resultary 5614a82d36e1",
+          "Resultary 4fc407051b10"
+        ]
+      },
+      "rationale": "The same map, fourfold fixed-point count, and equality at k=2 are already known. A related short least-period catalogue concerns the recurrence with the linear and quadratic lags interchanged. The distinct claim is the uniform equality of the two fixed sets; it was not established by the inspected results.",
+      "residual_risks": [
+        "The full older Cassaigne–Finch article was unavailable by the tried OA routes. An implicit more general period theorem or unindexed exact exclusion remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers bijectivity and the fourfold count; no eightfold equality in the inspected theorem",
+          "evidence": [
+            "Counts Fix(T_k^(4k)) for all k in the theorem's range"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34300",
+          "material_read": "PDF p. 4, offset 9111, Proposition 7 and Theorem 8",
+          "method": "OA paper passages",
+          "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+          "trigger": "Identical map and exact short-period theorem"
+        },
+        {
+          "assessment": "Exact coverage restricted to divisors of 4k",
+          "evidence": [
+            "Counts Fix(T_k^(4d)) for d|k and primitive periods dividing 4k"
+          ],
+          "identifier_or_url": "Resultary 4fc407051b10",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact primitive short-cycle census for a ternary quadratic recurrence",
+          "trigger": "Strongest local same-permutation census"
+        },
+        {
+          "assessment": "The recurrence interchanges the two lags; limited transfer by coprime reindexing, not k=2 and not universal",
+          "evidence": [
+            "For x_t=x_(t-1)+x_(t-k)^2 the only nonzero least periods through 22 are 4,9,19,22"
+          ],
+          "identifier_or_url": "Resultary 6c6028dfb8c1",
+          "material_read": "RESULT.md Finding, offset 0; displayed recurrence and table",
+          "method": "Local mirror",
+          "title": "First four attainable nonzero cycle lengths of a ternary quadratic lag recurrence",
+          "trigger": "Short least-period exclusions might imply individual cases"
+        },
+        {
+          "assessment": "Universal theorems on other iterates, with exact k=2 overlap for the target",
+          "evidence": [
+            "Fix at 5k,6k,7k consists of zero",
+            "Sixfold/sevenfold Finding explicitly gives the one fixed point and one eight-cycle of T_2, hence equality of its 8th and 16th fixed sets"
+          ],
+          "identifier_or_url": "Resultary 50d142a68b24 and 01cf398f7e75",
+          "material_read": "Exact findings of both records",
+          "method": "Local mirror",
+          "title": "Fivefold and sixfold/sevenfold ternary permutation exclusion records",
+          "trigger": "Same map and closely related universal exclusion statements"
+        },
+        {
+          "assessment": "Implicit overlap not resolved",
+          "evidence": [
+            "Abstract treats 1-additive sequences and periodicity of a related ternary quadratic recurrence"
+          ],
+          "identifier_or_url": "DOI:10.1080/10586458.1995.10504307",
+          "material_read": "Surfaced abstract, not full text",
+          "method": "Bounded search and lawful OA attempts",
+          "title": "A Class of 1-Additive Sequences and Quadratic Recurrences",
+          "trigger": "Older related periodicity analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a studied family with a known fourfold sector, determining whether the next doubled sector adds any points is a natural gap, not a count of a chosen instance. The uniform exclusion follows from a finite exact recurrent-mask obstruction and a rotation argument that handles every lag, and determines an otherwise unknown iterate-fixed set from an established one.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

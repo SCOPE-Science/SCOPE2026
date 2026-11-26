@@ -1,15 +1,21 @@
-# Self-review: exact domination-game opening responses
+# Independent mathematical audit
 
-## Correctness — PASS
-The move convention agrees with the explicit legal-move definition of Brešar–Klavžar–Rall. A dominated-vertex mask is a sufficient state; legal transitions strictly enlarge it, giving an exact finite backward induction. Two independent implementations use different incidence constructions and different traversal methods (memoized reachable states versus all-mask reverse dynamic programming), agree on both starting values and every distance-by-score response table, and test each first vertex separately. The first and second checkers produce their stored exact outputs with success markers. No extrapolation beyond these two finite graphs is asserted.
+## correctness
 
-## Originality — PASS (qualified)
-The examined 2010 original formulation provides game definitions and general bounds, not these exact incidence-graph opening tables. The 2015 bluff-graph study has a generalized Petersen census but does not cover bipartite Heawood/Pappus: a generalized Petersen graph on 14 or 18 vertices has an outer odd cycle. The 2014 incidence-design paper gives ordinary domination invariants, not two-player game minimax outcomes. Targeted literature searches for the same game and graph names and semantic records yielded no stronger implication or tabulation of the stated two-ply classifications. Residual risk: obscure or unindexed computational tables may overlap. The search is evidence of noncoverage among inspected sources, not a proof of global novelty.
+PASS
 
-## Value — PASS
-The Fano-plane and affine three-net incidence graphs are canonical small cubic bipartite symmetric designs, and two separate analyses of starting-player asymmetry motivated checking them. The finding gives a complete first-two-turn strategic classification with a sharp contrast: all Heawood Staller-first responses are equally optimal, whereas exactly two Pappus responses at graph diameter are optimal. This is more informative than isolated game-number values and supplies a reproducible exact strategy benchmark for further finite-incidence game analysis. No paper-scale or infinite-family contribution is claimed.
+An undominated set U and the player to move determine the game: possible successors are precisely U minus N[v] for v with N[v] intersecting U. Every successor is smaller, so induction from U empty proves the min/max recurrences. The opener moves again after two fixed moves. An independently written exact replay using frozensets and paired turn values checked all 182 Heawood and 306 Pappus ordered legal opening pairs. For distances in increasing order it obtained (reply count, Dominator-open total, Staller-open total) = [(3,7,6),(6,5,6),(4,5,6)] and [(3,8,8),(6,7,8),(6,7,8),(2,7,7)] respectively, at every opening vertex. The resulting starting values are (7,6) and (8,7). Vertex transitivity alone would not prove constancy within a distance sphere, but all-pair verification does; alternatively Fano point stabilizers are transitive on their spheres, and a Pappus point stabilizer at the origin acts by (x,y) -> (A x,B y+C x), A B nonzero, transitively on each of the four spheres.
 
-## Closest primary literature and residual limits
-B. Brešar, S. Klavžar and D. F. Rall (2010), DOI 10.1137/100786800; B. Brešar et al., *How Long Can One Bluff in the Domination Game?* (2015 author manuscript); D. Goldberg et al., *Domination in Designs*, arXiv:1405.3436v1. Their accessible material was inspected for rules, game-number bounds, generalized-Petersen tables, design incidence and two-ply play. External independent audit has not occurred; neither the recurrence nor the exhaustive certificates establish external novelty on their own.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The conditional two-ply minimax tables, and the exact scores in the inspected antecedents, were not found in earlier coverage. One later indexed record gives identical results on both graphs and extends them to other graphs; this is exact overlap, not evidence of earlier priority. The originality judgment is bounded by the sources inspected.
+
+## value
+
+PASS
+
+The two classical cubic incidence graphs test the minus phenomenon on natural bipartite objects. The exact response table gives more than two start scores: it distinguishes why Staller must answer locally against a Dominator opening, while the minimizing reply to a Staller opening is unrestricted on Heawood and forced to maximum distance on Pappus. This is reusable exact data for contrasting optimal play in structured graphs, not just a recomputation of ordinary domination or a win/loss label.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

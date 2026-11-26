@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:25:03.592615Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x=a and y=b-a, the normalized increments are independent Gaussians. Projection onto them gives the stated three inner products of the conditional mean basis; the independent residual adds only a deterministic trace to the conditional mean of Q. The residual after b is Brownian rather than a pinned bridge, which does not affect the projection argument. Isserlis and total variance give risk 1/3-2F, including duplicate and zero sites by dropping the redundant variable. Independent exact elimination reproduces the resultant and the linear relation y=-A/D. Sturm counting gives exactly three positive sextic roots, one per stated interval; on the first two brackets the signs of (A,D,-A-(1-x)D) are respectively (+,-,+) and (+,-,-), with zero counts for each sign polynomial. Only the first yields a feasible interior point. The witness 457/2916 exceeds 9/64 on both coordinate faces; its difference from the sloping-face polynomial is positive at zero and has no root on [0,1]. Compactness then forces the unique interior optimizer. Reproduced (a,b,risk)=(0.51844460651642214,0.85233448486089546,0.01965852971584853). The linear-area variance has cubic gap weights 1/12,1/12,1/3, giving (2/5,4/5); substitution gives quadratic risk 131/5625. Replay: python /workspace/independent_checks.py 3 (SymPy); original verify.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Legendre record states the optimizer for coordinate subsets and distinctly the optimum over arbitrary independent noiseless Gaussian linear measurements.",
+          "Neuberger et al. define data-averaged posterior variance for quadratic goals."
+        ],
+        "reasoning": "An optimization over arbitrary linear measurements does not identify the best design over spans of two Brownian point-value functionals; the general variance identity evaluates the criterion but does not classify its restricted stationary points or boundaries.",
+        "searches": [
+          "Resultary: Brownian quadratic path energy with linear information; SCOPE-optimal-legendre-information-for-brownian-quadratic-path-energy--b0b2e0435862",
+          "arXiv:2411.07532v1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary snapshot (two distinct mathematical records above)",
+        "arXiv:2411.07532v1",
+        "arXiv:1904.06998v3",
+        "ScienceDirect S096007792301319X (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonlinear Gaussian criterion gives a reduction, and the Brownian approximation paper gives a weighted path-projection result; neither solves the polynomial optimization over two noiseless Brownian values."
+        ],
+        "reasoning": "The derivation that remains after adopting the known criterion includes exclusion of three boundary portions and rigorous isolation and feasibility checks for the unpinned stationary points, so the precise global classification is not delivered by the prior results examined.",
+        "searches": [
+          "arXiv:2411.07532v1, data-averaged G_q criterion",
+          "arXiv:1904.06998v3, Theorem 2.2",
+          "Resultary Brownian bridge and Legendre records identified above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bridge record's Finding optimizes over two predetermined noiseless point observations of the integrated square and gives a different optimal ordered pair under the pinned covariance min(s,t)-st."
+        ],
+        "reasoning": "The two objectives have the same form but differing projections and terminal segment laws. Conditioning standard Brownian motion on an additional endpoint would change the design problem, not just rename it.",
+        "searches": [
+          "Resultary: two-point Brownian quadratic-path observation; SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact two-site result is for a bridge, not the unpinned covariance; the opened records gave no applicable tabulated optimum for the two unpinned point sites."
+        ],
+        "reasoning": "The possibly indexable object is a location/risk tuple with a specified covariance and information class, not a generic distribution table for the integrated square. A study of that distribution alone would not supply the tuple.",
+        "searches": [
+          "Resultary Brownian quadratic energy and two-time observation design",
+          "Primary literature: Brownian motion integrated square optimal sampling observation design"
+        ]
+      },
+      "rationale": "Credit the exact global two-point classification for unpinned Brownian motion, not the Gaussian quadratic variance criterion, a result for arbitrary linear information, or an analogous bridge proof. The strongest indexed comparisons change the covariance or the admissible observations; neither supplies the constrained optimizer. This is a bounded best-of-knowledge finding, not a date-based priority inference.",
+      "residual_risks": [
+        "An equivalent two-site unpinned design could appear in historical sampling, estimation or information-based-complexity literature under another formulation.",
+        "The integrated-square article's full text was not retrieved; no negative whole-paper inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different pinned model; strong structural overlap, no priority inference from date",
+          "evidence": "For any predetermined two observation sites 0 ≤ x ≤ y ≤ 1, with no observation noise, the bridge quadratic risk has its own unique optimizer.",
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Globally optimal two-point observation of Brownian bridge quadratic energy",
+          "trigger": "Closest target and sampling design"
+        },
+        {
+          "assessment": "Different design class",
+          "evidence": "Optimizes shifted-Legendre white-noise coordinate subsets and gives the separate optimum over arbitrary independent noiseless Gaussian linear measurements.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-legendre-information-for-brownian-quadratic-path-energy--b0b2e0435862",
+          "material_read": "RESULT.md, Finding and Assumptions and scope (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Optimal Legendre information for Brownian quadratic path energy",
+          "trigger": "Same Brownian target, broader linear information"
+        },
+        {
+          "assessment": "Prior criterion, not exact design optimizer",
+          "evidence": "Criterion obtained by integrating the posterior variance of the quadratic approximation over the set of likely data.",
+          "identifier_or_url": "https://arxiv.org/html/2411.07532v1",
+          "material_read": "Abstract/Introduction and G_q discussion, OA offsets 639–4611 and 7500–11499",
+          "method": "OA full-text passages",
+          "title": "Goal oriented optimal design of infinite-dimensional Bayesian inverse problems using quadratic approximations",
+          "trigger": "General nonlinear Gaussian variance objective"
+        },
+        {
+          "assessment": "Different objective and information",
+          "evidence": "Theorem 2.2 concerns weighted L²(P) approximation by a polynomial basis for a Brownian bridge.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.06998v3",
+          "material_read": "pp. 1, 5, including Theorem 2.2",
+          "method": "OA PDF passages",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Brownian optimal approximation"
+        },
+        {
+          "assessment": "Unresolved content, not evidence of noncoverage",
+          "evidence": "Snippet describes properties of integrated squares, without a demonstrated optimum for two observation sites.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S096007792301319X",
+          "material_read": "Search snippet only; not article full text",
+          "method": "Search and attempted lawful OA retrieval",
+          "title": "The integral of the squared Gaussian process",
+          "trigger": "Same functional in Brownian/Gaussian examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two exact Brownian values are a natural physically constrained information budget. The global certificate supplies a concrete nonlinear-goal benchmark including repeated and endpoint designs, and the 15.588% risk reduction against the linear-area optimum has a mathematical explanation: quadratic explained variance depends on the squared inner products of the projected modes, not only on gap-area variances. The exact sites, rather than generic existence or the Gaussian reduction, are the useful addition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

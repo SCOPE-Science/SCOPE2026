@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:42:48.290934Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–68",
+        "VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent finite calculation: for each sink x generate the d+1 rows A^j e_x by neighbor sums, then compute the stacked rank by modular elimination over F_101"
+      ],
+      "rationale": "For Gamma positive on exactly the ball, the norm loss derivative is -2 times its expectation. Zero norm loss forces evolution in its kernel, so the dark subspace is the sum of free-adjacency energy eigenspaces restricted to the kernel of Gamma. This subspace reduces both adjacency and Gamma; a real eigenvalue on the complement would force a vector in the dark space. Thus the bright dynamics decay also in the presence of Jordan blocks, and the maximally mixed absorption is B/2^d, independent of the rates. For the rank computation, expansion of each Walsh character on the ball into inclusion rows is invertible by triangularity. On the Boolean layers the up operator U and its adjoint L satisfy [L,U]=(d-2j)I on layer j; for h in the kernel of L at level i, L U^a h=a(d-2i-a+1)U^(a-1)h. Consequently each harmonic chain extends through level d-i, and these orthogonal chains fill each layer by dimension telescoping. Inclusion rows from level j span the images of that layer under U^(w-j), up to a factorial, hence the stack up to r sees exactly chain starts i<=min(r,w,d-w). Their dimensions telescope to the asserted binomial bound with equality. The sector sum gives the bright formula, and the middle sector is dark in part at every smaller radius than floor(d/2). At d=2t the last prethreshold deficit is binom(2t,t)-binom(2t,t-1); at d=2t+1 it is twice binom(2t+1,t)-binom(2t+1,t-1). These are C_t and 2 C_(t+1), respectively. The central term (d-2r+1)binom(d,r) controls the fixed-r asymptotic. A separately written adjacency Krylov calculation modulo 101 gave dark dimensions 5,0,28,0,98,14,0 for (6,2),(6,3),(7,2),(7,3),(8,2),(8,3),(8,4), respectively; this is finite corroboration only.",
+      "residual_risks": [
+        "The exact displayed odd formula is twice C_(t+1), not the sum of two different Catalan numbers; the accompanying prose is imprecise.",
+        "Nonzero homogeneous hopping and strictly positive losses at all designated sites are essential to the argument as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed sphere theorem gives the exact restriction scalar in every energy sector on each Boolean harmonic summand and treats arbitrary positive trap rates. Avni–Samorodnitsky study adjacency of induced Hamming-ball and related subgraphs. Gottlieb's classical inclusion rank provides the frozen paper's alternative route after the Walsh row transformation."
+        ],
+        "reasoning": "Knowing single-sphere ranks alone would not in general give a stacked rank; the known location of the kernels in the common harmonic decomposition gives full coverage. The standard trapping framework alone does not yield these ranks.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-parity-sharp-coherent-absorption-by-hamming-spheres-on-quantum-h--519ce4796df0, sections 1–3 and 6",
+          "arXiv:1707.07482; arXiv:2411.14597; Gottlieb doi:10.1090/S0002-9939-1966-0204305-9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary sphere absorption and coordinate actuator placement records above",
+        "arXiv:1101.2572 p. 1; arXiv:1707.07482 p. 1; arXiv:2411.14597 p. 1; arXiv:1006.2405 p. 1",
+        "Gottlieb doi:10.1090/S0002-9939-1966-0204305-9, original text not extracted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In weight w, a lifted degree-i harmonic component maps to its same-degree lift on sphere s with scalar (-2)^i K_(d-2i,w-i)(s-i); no other degrees interact. If i<=min(r,w,d-w), selecting s=i makes the coefficient (-2)^i binom(d-2i,w-i) nonzero. If i>r then no target layer in the stack contains the degree-i harmonic."
+        ],
+        "reasoning": "The stacked rank is the sum of binom(d,i)-binom(d,i-1) over exactly the visible range, hence the frozen sector rank. Summing over w yields B and D, and the Catalan formulas, threshold, absorption fraction and asymptotic then follow by substitution, elementary binomial identities and the known loss reduction.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-parity-sharp-coherent-absorption-by-hamming-spheres-on-quantum-h--519ce4796df0, exact restriction scalar at offsets 3600–6769"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bright rank is equivalently the site-input adjacency Krylov rank. The published Albertini–D'Alessandro paper concerns discrete-time coined walks and Lie controllability, a different system. Resultary 2026/11/8/SCOPE-sharp-coordinate-actuator-placement-on-every-binary-hypercube--45657af810d8 uses related Walsh/PBH methods but was not identified as the same ball-rank statement."
+        ],
+        "reasoning": "Discrete-time coined controllability is not the rank in question. The pertinent rank is observation of full-cube eigenspaces on selected vertices, not the eigenspectrum of the induced Hamming ball.",
+        "searches": [
+          "Resultary: hypercube Hamming-ball dark and bright dimension, Hamming-sphere absorption, Catalan dark residual and coordinate actuator placement",
+          "arXiv:1006.2405, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct exact indexed table is a harmonic visibility formula for each sphere and weight, not a ball table. The Catalan match concerns star traps on Johnson and Kneser networks, not binary-cube balls."
+        ],
+        "reasoning": "No separately tabulated ball formula was found in the inspected material, but absence of one does not avoid coverage by the stronger compatible sector data.",
+        "searches": [
+          "Resultary: exact Hamming-ball dark space, Catalan residual, and sphere rank",
+          "Resultary 2026/11/8/SCOPE-catalan-dark-subspaces-and-a-distance-two-trapping-resonance-on--e785fe81a13a"
+        ]
+      },
+      "rationale": "An indexed result under the same dynamical hypotheses gives the harmonic restriction maps for individual spheres. Those maps diagonalize in a common domain decomposition, not just separate scalar ranks. Stacking the first r+1 maps covers precisely the expected initial harmonic degrees, with guaranteed visibility of degree i at the sphere of radius i. This supplies the claimed ball rank and all its numerical consequences, even though the ball formula is not separately displayed. There is no inference about temporal priority from the two records' displayed dates.",
+      "residual_risks": [
+        "Direct comparison with the Gottlieb scan and the Razzoli–Paris–Bordone full text was unavailable. The failure rests on the inspected sphere restriction theorem, not either access limit.",
+        "No priority judgment between the same-day indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the ball result through the common harmonic decomposition, not through summing unrelated ranks",
+          "evidence": "Section 3 gives an exact scalar for each degree; section 6 supplies the arbitrary-positive-rate reduction and mixed-state survival.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-sharp-coherent-absorption-by-hamming-spheres-on-quantum-h--519ce4796df0",
+          "material_read": "RESULT.md finding; offsets 3600–6769, sections 1–3, and 7000–10820, sections 5–6",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity-sharp coherent absorption by Hamming spheres on quantum hypercubes",
+          "trigger": "Strongest distinct indexed match, same full-cube Hamiltonian and positive diagonal absorption"
+        },
+        {
+          "assessment": "Different operator in the stated claim",
+          "evidence": "Adjacency eigenvalues and eigenspaces of induced subgraphs on balls or unions of spheres, not full-space hopping with loss on these sets.",
+          "identifier_or_url": "arXiv:2411.14597",
+          "material_read": "p. 1, offset 530",
+          "method": "Lawful OA passage",
+          "title": "Eigenvalues and Eigenfunctions of a Hamming Ball",
+          "trigger": "Hamming ball and related spectral claims"
+        },
+        {
+          "assessment": "Established rank ingredient, independently recovered here via the Boolean up/down relation",
+          "evidence": "The frozen proof invokes maximal rank for the unsigned inclusion matrix only after the Walsh row transformation.",
+          "identifier_or_url": "doi:10.1090/S0002-9939-1966-0204305-9; https://www.math.purdue.edu/~gottlieb/Bibliography/Incidence.pdf",
+          "material_read": "No original theorem passage extracted; rank statement as cited in frozen RESULT.md lines 50–60",
+          "method": "Lawful Purdue scan lacked extractable text; publisher PDF returned 403",
+          "title": "A Certain Class of Incidence Matrices",
+          "trigger": "Cited characteristic-zero inclusion rank"
+        },
+        {
+          "assessment": "The inspected passage provides general dark-state context rather than the ball rank",
+          "evidence": "Graph-theoretic identification and suppression of dark subspaces.",
+          "identifier_or_url": "arXiv:1707.07482",
+          "material_read": "p. 1, offset 1918",
+          "method": "Lawful OA passage",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "Cited framework for identifying dark spaces"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Parity-sharp coherent absorption by Hamming spheres on quantum hypercubes, sections 2–3 and 6"
+      ],
+      "rationale": "The absorption threshold and residual dimensions are natural questions, but every claimed quantitative answer is obtained directly by stacking harmonics from the indexed sphere theorem and then carrying out elementary summation. The alternate inclusion-matrix calculation is correct but does not establish a separate scientifically valuable surviving claim in this record.",
+      "residual_risks": [
+        "This finding does not discount the value of the broader harmonic restriction theorem or of other sink-placement questions it does not settle."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

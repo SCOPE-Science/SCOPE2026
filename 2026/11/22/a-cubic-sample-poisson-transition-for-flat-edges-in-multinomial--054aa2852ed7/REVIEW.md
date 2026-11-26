@@ -1,15 +1,21 @@
-# Scientific assessment: cubic-sample flat-edge transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes an ordered uniform multinomial histogram with deterministic total sample size, diverging per-bin load, and an explicitly specified spatial counting measure. The proof establishes a uniform-in-position lattice local-limit formula for every fixed joint set of edge constraints by writing the exact characteristic function of the signed incidence matrix; the run-length determinant yields the correlation multiplier. The Fourier integral is Gaussian-dominated globally: at most \(2k\) active columns, a positive fraction of zero columns, and an aperiodicity argument exclude extra peaks. Factorial moments control the limiting Poisson process and adjacent-edge clusters; the first- and second-moment estimates prove the supercritical and subcritical sides. The exact finite-sample checker passed 345 assertions, including marginal identities and incidence determinants. No computational experiment is used as the proof of an infinite limit.
+## correctness
 
-## Originality — PASS, with explicitly retained priority risk
-The November 6, 2026 motivating paper arXiv:2611.09592v1 studies the mean/variance of a *sum of absolute* bin differences for fixed bins and iterated large-bin limits, not the number or positions of exact zero differences at joint cubic sample scaling. Its substantive sections, theorem statements, large-bin discussion and PDF were inspected; no same or stronger claim was found. The published 2026-10-18 histogram-roughness result derives a proportional-load *variance coefficient* and global fixed-total correction, not rare flat edges at diverging load. Eaton–Godbole–Sinclair (arXiv:0806.1007) addresses other tie/occupancy comparisons. Semantic searches in the published published-finding corpus index using zero-gradient, tie, plateau, adjacent multinomial and Poisson-threshold variants did not identify an implication covering the present spatial point-process result. This is a best-knowledge scientific originality assessment, not certification that all unindexed general local-limit or occupancy theory has been excluded.
+PASS
 
-## Value — PASS
-A flat edge is the precisely zero discrete derivative of an ordered histogram, complementary to the familiar sum of *absolute* differences. It represents a natural local degeneracy in an established histogram statistic. The finding locates a previously unidentified cubic sample-size threshold and gives a complete subcritical/critical/supercritical description, including a sharp no-plateau probability and spatial Poisson law. The nontrivial fixed-sample Fourier comparison avoids silently substituting independent Poisson bins and accounts for adjacent-edge clusters. This is more than an isolated numerical coefficient, although it is specific to uniform bins and diverging loads.
+The exact fixed-total experiment is the sum of N independent incidence-column increments. Their means vanish, and their covariance is BB^T/n, where the edge Gram block of a run of length L has diagonal 2 and off-diagonal -1 and determinant L+1. The zero columns have positive mass uniformly for fixed k, and the endpoint and successive-difference phases force every edge phase to vanish modulo 2pi at a peak. This supplies Gaussian domination on the rescaled torus with no lattice multiplicity. Taylor expansion and dominated convergence give (1), uniformly since only finitely many run shapes occur. The constants for one edge, two touching and two disjoint are respectively (4pi lambda)^(-1/2), (2pi lambda sqrt(3))^(-1) and (4pi lambda)^(-1). Direct word counting at n=5,N=4 gives respectively 195, 64 and 61 admissible assignments out of 625, consistent with the finite marginal formulas. At criticality the O_k(n^(k-1)) tuples with touching edges contribute o(1), and mixed falling factorial moments give independent interval Poisson counts; bounded total mass on the compact interval gives tightness. The zero-count conclusion follows by testing the integer-valued mass at a half-integer cutoff. Above criticality Markov suffices; below it the covariance bounds for touching and disjoint pairs give relative variance o(1). Inspected the frozen finite checker without executing it; it does not purport to prove a limiting result.
 
-## Closest sources and limitations
-Banić–Elezović, arXiv:2611.09592v1 (first public 2026-11-06), and arXiv:2610.13366 (2026-10-09); *Conditioning removes a leading variance term from multinomial histogram roughness* (published 2026-10-18); Eaton–Godbole–Sinclair, arXiv:0806.1007. The theorem requires the uniform multinomial and a noncyclic ordered-bin path, and gives convergence rather than a finite-size total-variation error. Classical or unpublished occupancy point-process theorems may contain an equivalent; independent literature-priority and mathematical verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one-edge lattice marginal is classical in substance and the exact finite formula follows immediately from prior two-bin conditioning. Credit is due for the uniform fixed-total joint run law and spatial cubic threshold, not for the marginal identity by itself. No covering all-run or spatial theorem was identified in inspected material.
+
+## value
+
+PASS
+
+Exact ties are a natural degeneracy of the discrete gradient, complementary to absolute variation. A single marginal suggests the cubic balance, but cannot decide concentration, clusters or the limiting locations. The fixed-total joint law and complete three-regime description make the result useful for understanding when an ordered histogram has no flat edge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

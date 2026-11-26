@@ -1,19 +1,21 @@
-# Review of the last-new-transmission law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The local rates imply a first-infection clock of rate \(2\lambda\), an active one-sided tip with forward-infection rate \(\lambda\) and independent stifling rate \(1\), and a competing pair of clocks at the source for starting the opposite side. The time of the last successful transmission on each side, measured from the first infection, has CDF \(1-ae^{-t}\), including its atom at zero. The two side offsets are independent by disjoint local Poisson marks; their maximum, convolved with the first-infection clock, proves the CDF, transform and mean. Direct differentiation yields a cubic with one positive root. An independently implemented sitewise Gillespie process and exact-rational checks passed. The simulations do not prove the infinite-system statement.
+PASS
 
-## Originality
+The first new transmission has rate 2λ and no stifling competitor. Immediately afterwards the two endpoints of the informed interval are active spreaders; the original seed is itself the second tip. Each has a permanently informed inward neighbor and an ignorant outward neighbor, with respective stifling and transmission rates 1 and λ. Directed clocks driving the tips are independent even when they share the first informed edge, because stifling changes only the contacting spreader and informed status never reverts. After a birth the moving tip has fresh clocks; an old interior spreader cannot affect future births. This reduces each side to rate-λ Poisson births killed at independent Exp(1), independently of the initial time and the other side. The probability of no birth later than u is 1−e^(−u)+e^(−u)/(1+λ)=1−a e^(−u); finiteness follows from killing in finite time. The squared CDF for the maximum gives the atom, density, transform, and tail integral stated in the finding. Differentiation gives the cited cubic over a positive denominator, and its single positive sign change and endpoint signs give one strict minimizer. The mean minus 3/2 is (1−λ−λ²)/(2λ(1+λ)²), so the upper-rate limit is approached from below. Direct bisection independently gives 1.4811943040920155 and mean 1.3533164361622998. The uploaded sitewise Monte Carlo checker was inspected, not run; the argument is analytic.
 
-**PASS, qualified.** The October 2026 motivating paper establishes extinction and geometric **final spatial reach**, but does not state or imply elapsed last-new-transmission time from the range-only data. The closely related 2025/2026 cycle-paper full text concerns finite-network final counts and discrete transition counts rather than the elapsed time of the last new infection. The 2017 small-world paper uses different topology and final reach. The 2019 complete-network paper treats dissemination time to all nodes rather than this no-forgetting infinite-line stopping observable. Relevant publication/database searches and comparisons found no stronger covering theorem. General exponential-killing identities are old and are explicitly acknowledged; priority risk remains if an unlocated graphical temporal lemma directly covers the two-front assembly.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The last newly informed site's physical time is a natural temporal counterpart to the cited model's exact final spatial range. Its exact distribution and Laplace transform permit direct temporal predictions, and its uniquely nonmonotone expected duration reveals a genuine transmission-rate tradeoff: sufficiently rapid propagation spreads farther yet extends the expected window of *new* transmissions. This is neither the final-size result nor a generic reparameterization and does not require a claim about ultimate stifling time.
+The supported distinct claim is the stopping-time law in physical time and the resulting nonmonotone mean for the unit-stifling infinite-line process, not the frontier geometry, final range or almost-sure extinction. The closest inspected prior uses identical transition rates but proves the spatial count at absorption by geometric ranges. It does not specify the time of the last birth or the temporal combination of the two fronts. The other closest catalogue and literature matches differ in observable or rates and geometry. No exact or stronger covering statement was established in the checks below.
 
-## Closest literature and boundaries
+## value
 
-See RESULT.md References 1–4. Scientific scope excludes forgetting, finite cycles, long-range connections, and the terminal stifling time. The 2019 complete-network abstract was accessible but its full original article was not inspected; that is a residual priority risk, mitigated by its different network and time-to-all-vertices objective.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On the natural infinite nearest-neighbor benchmark, the elapsed time of the last new spread is not measured by ultimate reach or extinction. The exact law gives deadline probabilities and an explicit, genuinely nonmonotone mean despite increasing expected reach. It isolates the competition between the faster initial birth and the longer final activity of the surviving fronts, with a sharp and reproducible rate boundary. The result is not just a moment at one chosen rate or a renaming of the final-count law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -19,7 +19,7 @@ where \(\omega(1)=0\). If \((X_N,Y_N)\) is uniform on \(\{1,\ldots,N\}^2\), then
 \begin{aligned}
 &\mathbb P(V_2=0)=\mathbb P(V_2=1)=\tfrac12,\\
 &V_p=0\text{ almost surely if }p\equiv3\pmod4,\\
-&\mathbb P(V_p=0)=1-2p^{-2},\\
+&\mathbb P(V_p=0)=1-2p^{-2},\quad p\equiv1\pmod4,\\
 &\mathbb P(V_p=e)=2(1-p^{-2})p^{-2e},\quad e\ge1,\quad p\equiv1\pmod4.
 \end{aligned}
 \]
@@ -27,7 +27,7 @@ In particular,
 \[
 \mathbb P(G_\infty=1)=\mathbb P(G_\infty=2)
 =\frac12\prod_{p\equiv1\ (\mathrm{mod}\ 4)}(1-2p^{-2})
-\approx0.44742064.
+\approx0.44742061.
 \]
 Despite almost-sure finiteness, its exact moment threshold is
 \[
@@ -67,17 +67,17 @@ The upper limit of the right-hand side as \(N\to\infty\) is bounded by \(2\sum_{
 When \(t<1\), its deviation from one is \(O_t(p^{t-2})\), and \(\sum_p p^{t-2}<\infty\). Product convergence, monotone convergence for nonnegative factors when \(t\ge0\), and elementary boundedness for \(t<0\) show the stated finiteness. At \(t=1\), the split-prime factor simplifies **exactly** to \(1+2/p\), so the full formal mean-product is \(\frac32\prod_{p\equiv1\ (\mathrm{mod}\ 4)}(1+2/p)\). The classical divergence of the reciprocal-prime sum in the progression \(p\equiv1\pmod4\) forces the product of these factors to diverge. Therefore \(\mathbb E[G_\infty]=\infty\). For \(t>1\), the inequality \(G_\infty^t\ge G_\infty\) completes the divergence argument. This proves the exact moment frontier.
 
 ## Verification
-An exact-integer independent checker (`checker.py`) compares direct pairs with the Chinese-remainder formula for every modulus \(1\le m\le129\), and tests divisibility support and empirical coprimality frequencies in square boxes of sides \(100,300,600\). The execution output is included in `verification_output.txt`. A separate finite prime-product computation gives approximately \(0.4474206426\) for the proposed coprimality density; this numerical approximation is not needed for the proof. No finite enumeration is used to justify the infinite distribution or moment statements.
+An exact-integer checker (`checker.py`) compares direct pairs with the Chinese-remainder formula for every modulus \(1\le m\le129\), and tests divisibility support and empirical coprimality frequencies in square boxes of sides \(100,300,600\). The execution output is included in `verification_output.txt`. For the decimal, the partial product \(P_M=\frac12\prod_{p\le M,\ p\equiv1\ (4)}(1-2p^{-2})\) at \(M=10^8\) is about \(0.447420612512\). Since \(\sum_{k\ge0}2/(M+1+4k)^2\le 2/(M+1)^2+1/(2(M+1))\), multiplying \(P_M\) by one minus this bound gives a lower bound for the full product; \(P_M\) itself is an upper bound. This yields the eight-place rounding above and is not needed for the proof. No finite enumeration is used to justify the infinite distribution or moment statements.
 
 ## Relationship to prior work
-Kabluchko and Marynych, *Divisibility properties of polynomial expressions of random integers* (first public posting 2023-11-09), establish general convergence in distribution of gcds of polynomial values under suitable assumptions (Theorem 3.1). Their limit description is a broad probabilistic framework and motivates the present concrete pair; it does not explicitly evaluate the full prime-power root counts, product mass function, or the sharp moment boundary of these consecutive diagonal Gaussian norms. The present proof independently establishes the required large-prime tightness for this pair. Bodin and Dèbes prove general density results for coprime polynomial values, which support the context but do not provide the displayed complete distribution or moment cutoff. Magness, Nugent, and Robertson discuss primitive Gaussian lines. A related study of consecutive norms along a fixed primitive Gaussian line determines their GCD spectrum as a function of the line index; it does not give this two-dimensional box-sampling distribution or its infinite-mean threshold. Likewise a homogeneous-form resultant-density theorem is not applicable to this inhomogeneous translated pair.
+Kabluchko and Marynych, *Divisibility properties of polynomial expressions of random integers* (first public posting 2023-11-09), already imply convergence and an independent-local representation for this pair (Theorem 3.1): a common nonconstant factor would have to divide \(2(x+y+1)\), but the restriction of \(A\) to that line is \(2x^2+2x+1\), not zero. Their Remark 4.4 also gives the form of the coprimality Euler product. The contribution here is to evaluate the prime-power counts, local masses and sharp moment boundary explicitly; the elementary large-prime argument is an alternative proof for this pair. Bodin and Dèbes treat general coprimality densities. Magness, Nugent, and Robertson discuss divisibility on primitive Gaussian lines. A related fixed-line norm-GCD spectrum does not give this two-dimensional box-sampling distribution or its infinite-mean threshold. A homogeneous-form resultant-density theorem is not applicable to this inhomogeneous translated pair.
 
 ## Limitations
-The result concerns exactly the diagonal shift \((1,1)\) and the limiting random variable for a two-coordinate box; it does not give rates of convergence or asymptotics for finite-box moments. Only the limiting mean is asserted infinite. The complete law is an explicit specialization of general polynomial-GCD convergence techniques, and the possibility of an implicit equivalent in an unindexed source or a stronger universal theorem is an originality risk. No independent mathematical audit has been performed.
+The result concerns exactly the diagonal shift \((1,1)\) and the limiting random variable for a two-coordinate box; it does not give rates of convergence or asymptotics for finite-box moments. Only the limiting mean is asserted infinite. The complete law is an explicit specialization of general polynomial-GCD convergence techniques, and the possibility of an implicit equivalent in an unindexed source or a stronger universal theorem is an originality risk.
 
 ## References
 1. Z. Kabluchko and A. Marynych, *Divisibility properties of polynomial expressions of random integers*, arXiv:2311.05369v1 (first posted 2023-11-09), Theorem 3.1, https://arxiv.org/html/2311.05369v1.
 2. A. Bodin and P. Dèbes, *Coprime values of polynomials in several variables*, arXiv:2105.13883 (first posted 2021-05-28), https://arxiv.org/html/2105.13883v3.
 3. E. Magness, B. Nugent, and L. Robertson, *Walking to Infinity Along Gaussian Lines*, arXiv:2001.05018 (first posted 2020-01-14), https://arxiv.org/abs/2001.05018.
-4. *Complete norm-gcd spectrum on primitive Gaussian lines*, published result (2026-10-12), https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-complete-norm-gcd-spectrum-on-primitive-gaussian-lines--395dc3659689.
-5. *Finite-resultant correction for coprime values of homogeneous binary forms*, published result (2026-10-04), https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-finite-resultant-correction-for-coprime-values-of-homogeneous-bi--0efa4a963ad2.
+4. *Complete norm-gcd spectrum on primitive Gaussian lines* (2026-10-12), Resultary, record 395dc3659689.
+5. *Finite-resultant correction for coprime values of homogeneous binary forms* (2026-10-04), Resultary, record 0efa4a963ad2.

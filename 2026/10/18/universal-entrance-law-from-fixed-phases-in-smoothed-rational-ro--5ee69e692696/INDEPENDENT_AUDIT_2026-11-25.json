@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:45:33.703893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On K=[d,1/n-d] the discontinuous itinerary advances the site index by k modulo n in the interval of indices k-n through k-1. Coprimality visits each site once, and the nearest positive and negative sites are t and t−1/n. A finite induction bounds the smooth itinerary error by O(e^(-ad)), preserving signs. Every other site's correction is O(e^(-a(1/n+d))). The shift of the nearest negative site's argument is p_a(t) plus those smaller terms; its derivative is O(a e^(-a(1/n-t))) along that shift. This gives the uniform O(a q_a²) remainder in the one-return displacement. For large a, all branch derivatives are in (0,1), giving an increasing return with decreasing displacement and an interior fixed point. Testing h±c/a for each c>0 yields a(t_a*−h)→0 and the orbit from x_0 is trapped monotonically between x_0 and t_a*. In y=e^(-σa(t-h)), with σ the initial side, let u=e^(-at), v=e^(-a(1/n-t)). Then y(u+v)=q_a(1+y²), with y≤2 eventually and u+v=O(e^(-ad)). This controls the exponential and logistic Taylor remainders uniformly even at y→0, and the step a q_a has drift 1−y²+o(1). Discrete Gronwall gives y→tanh τ uniformly on bounded time intervals from y_0→0. The logarithm is uniform only away from τ=0. After a possible crossing of h the scaled displacement is o(1), so the absolute-displacement threshold observable differs uniformly from y by o(1). The uniform limit brackets the first sampled crossing, proves finiteness and gives the artanh clock. The verification notes and script were inspected, not executed; the 88 recorded checks evaluate the smooth map numerically and are not certificates for the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The half-grid record controls the return only for |t|≤sqrt(q_a) around h. The existence/basin theorem covers more initial points qualitatively but no quantitative transition like the frozen one.",
+          "The inspected detuned rational-cycle records concern positions and multipliers of periodic orbits or local return maps, not transients from a fixed phase."
+        ],
+        "reasoning": "A theorem with wider initial-data coverage but without a time estimate does not imply the entrance law. A local displaced-cycle theorem is not broader in initial phase.",
+        "searches": [
+          "Resultary b03eb35b1a55, local return proof and Limitations",
+          "arXiv:2411.01495v1 Thm. 3.3",
+          "Resultary ea5af59d59ba and de184842780e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_eos_entry.py",
+        "Resultary b03eb35b1a55, ea5af59d59ba and de184842780e",
+        "arXiv:2411.01495v1, arXiv:1807.06831v1 and arXiv:2201.10992v2",
+        "Published-literature search on steep EOS rational rotation first-passage asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old drift is q_a(e^(-at)−e^(at))+O(a q_a²+q_a³) for the local t displacement. Its local domain has a|t|→0, whereas the frozen initial |t| is fixed and a|t| diverges. The old record's Limitations exclude a uniform basin-entry or hitting-time consequence.",
+          "Qualitative numerator similarities in the piecewise model do not determine a common physical-time coefficient or the finite-τ profile."
+        ],
+        "reasoning": "The multiplier explains the asymptotic tail of the limiting profile and suggests the time scale. Proving its full shape requires the uniform fixed-bin displacement and the nonlinear initial-to-scaled-coordinate argument, not linearization or standard Euler convergence in isolation.",
+        "searches": [
+          "Resultary b03eb35b1a55, RESULT.md offsets 2150–2850 and 7100",
+          "arXiv:2411.01495v1 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same EOS family has qualitative almost-everywhere attraction in the interval-mimicking-rotations paper; the related symmetric game-map formulation has a period-two attractor for a>8. Neither inspected statement gives the fixed-start entrance function.",
+          "The signed log-coth profile is equivalent away from zero time to the compact-time limit y=tanh τ in the oriented exponential coordinate; neither form follows from attraction alone."
+        ],
+        "reasoning": "Comparisons were made after identifying the same rotation and related game-map variables, not on the labels 'entrance' or 'game'. A stable cycle does not determine its basin-entry scale or trajectory.",
+        "searches": [
+          "Local Resultary: rational EOS half-grid dynamics, fixed-phase entrance and scaled hitting law",
+          "arXiv:2411.01495v1 §§3–5; arXiv:1807.06831v1 §3.2; arXiv:2201.10992v2 Thms. 4.12–4.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching indexed formula is the local multiplier 1−2a q_a+O(a²q_a²) and local return displacement. The inspected later formulae are detuning laws, including an arsinh location profile, rather than ±log coth τ at dynamical times or artanh θ for first passage."
+        ],
+        "reasoning": "The query was checked against formulae and initial-data regimes; a closed hyperbolic-function formula for a different variable and limit is not an exact match.",
+        "searches": [
+          "Resultary catalogue lookup on fixed-phase entrance for steep rational EOS; explicit comparison to b03eb35b1a55, ea5af59d59ba and de184842780e"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full positive-time profile and sharp first-return clock from a fixed noncentral interior phase. The same-family half-grid orbit, local return formula and exponential contraction scale are already known and not counted as new. The strongest checked quantitative formula is restricted to a neighborhood shrinking exponentially in a, and the qualitative global results do not bridge the fixed-phase portion of the orbit on the rescaled clock.",
+      "residual_risks": [
+        "The broad literature query returned no relevant additional result; this is not negative evidence or a historical priority guarantee.",
+        "The repeated local estimates identify prior coverage of the time scale and tail; no claim is made that the slow time itself is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior local displacement, cycle selection and slowdown scale, not fixed-phase entrance",
+          "evidence": [
+            "The half-grid return multiplier is 1−2a q_a+O(a²q_a²); the return expansion's domain is |t|≤sqrt(q_a)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-singular-half-grid-selection-and-exponentially-weak-attraction-i--b03eb35b1a55",
+          "material_read": "RESULT.md Finding offset 0, local return-displacement offsets 2150–2850, Limitations offset 7100",
+          "method": "Local mirror passage inspection and mathematical comparison",
+          "title": "Singular half-grid selection and exponentially weak attraction in rational EOS maps",
+          "trigger": "Strongest earlier same-map quantitative claim"
+        },
+        {
+          "assessment": "Qualitative orbit and basin plus approximate numerator independence",
+          "evidence": [
+            "Almost every initial point tends to the attracting rational n-cycle; the piecewise-rotation surrogate explains qualitative similarity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.01495",
+          "material_read": "v1 Thm. 3.3, p. 5 offset 15100, §§4–5 including offset 22700",
+          "method": "OA primary PDF passages",
+          "title": "Interval maps mimicking circle rotations",
+          "trigger": "Frozen same-map existence and basin citation"
+        },
+        {
+          "assessment": "Related symmetric case establishes attraction, not its sharp transient scale",
+          "evidence": [
+            "For b=1/2 and a>8 the attracting two-cycle attracts all but countably many starting points."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.06831",
+          "material_read": "v1 §3.2, Thms. 3.8–3.9, pp. 7–8 offsets 20200–24400",
+          "method": "OA primary PDF passages",
+          "title": "Family of chaotic maps from game theory",
+          "trigger": "Potential equivalent coordinate formulation and n=2 overlap"
+        },
+        {
+          "assessment": "Inspected convergence and period-two statements do not quantify fixed-phase entrance",
+          "evidence": [
+            "The conclusions establish qualitative asymptotic behavior for a different parameter regime/formulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.10992",
+          "material_read": "v2 Thms. 4.12–4.13, pp. 19 and 21, extraction offsets 381000 and 386937",
+          "method": "OA primary PDF passages",
+          "title": "Unpredictable dynamics in congestion games: Memory loss can prevent chaos",
+          "trigger": "Related memory-parameterized game map"
+        },
+        {
+          "assessment": "Later-dated and parameter-detuned periodic-orbit profile, not a clock",
+          "evidence": [
+            "Gives a period-three orbit's position and multiplier under detuning."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-inverse-hyperbolic-sine-resonance-profile-for-a-hopping-perio--ea5af59d59ba",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "An inverse-hyperbolic-sine resonance profile for a hopping period-three orbit",
+          "trigger": "Catalogue match for an explicit hyperbolic-function EOS profile"
+        },
+        {
+          "assessment": "Later-dated local and parameter-detuning result",
+          "evidence": [
+            "Local cycle expansion does not imply a uniform global basin-entry time, as its limitations also note."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-universal-detuning-and-modular-inverse-corrections-for-rational--de184842780e",
+          "material_read": "RESULT.md offsets 0, 4800 and 10350",
+          "method": "Local mirror passage inspection",
+          "title": "Universal detuning and modular-inverse corrections for rational cycles",
+          "trigger": "Potentially broader rational return expansion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural dynamical question is how long actual trajectories take to enter the inverse-steepness layer, not how slowly a trajectory already extremely near its attractor contracts. The theorem gives an entire scaled transient and a sharp threshold-dependent clock independent of the fixed initial distance and rotation numerator. Uniform control across the intermediate phases makes this more than a restatement of the local multiplier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

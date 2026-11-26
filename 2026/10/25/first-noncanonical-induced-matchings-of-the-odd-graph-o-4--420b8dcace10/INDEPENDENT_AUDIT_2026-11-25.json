@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:33:14.829438Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On four distinct endpoints, the original Kneser graph must induce exactly two edges; this agrees with the stated four cross-intersections test. A shared endpoint fails that test as its partner is disjoint from it. I independently built compatibility by counting edges on the endpoint union, enumerated maximal compatibility cliques by pivoted Bron–Kerbosch, then took all size-seven and size-eight subcliques with deduplication. Any finite clique extends to a maximal one, and pruning only when the current clique plus eligible vertices has size less than seven is safe. The counts are 6420 and 315, the mixed size-seven count is 5580, and the anchored counts are 642 and 36. Closing all size-seven orbits by the adjacent transpositions, which generate S7, gives two size-420 monochromatic orbits, plus sizes 420, 2520, 1680, 840 and 120 for profiles (6,1), (4,2,1), (4,1,1,1), (2,2,2,1) and (1,1,1,1,1,1,1), respectively. Every eight-edge set is monochromatic; any larger mixed set would have a mixed eight-edge subset. Replay: python3 /workspace/reproduce_1.py, output /workspace/reproduce_1.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strong chromatic index characterization and uniqueness up to automorphism address optimal colorings of the full edge set.",
+          "Frankl–Kupavskii, p. 2, explicitly credits Gerbner et al. with the sharp almost-intersecting bound binom(2k,k) at n=2k and n=2k+1; this bounds the number of matching endpoints here by 20.",
+          "A related Resultary record on intersecting 3-graphs, 2026/9/8/SCOPE011, has ground sets of size 9–13 and concerns diversity/degree bounds."
+        ],
+        "reasoning": "The verified broader results credit the maximum and the canonical optimum. Neither a size bound of 20 nor strong-coloring uniqueness below that bound gives the mixed-label cutoff or submatching orbits.",
+        "searches": [
+          "arXiv:2101.04768 Theorem 2.2",
+          "arXiv:2004.08714 pp. 1–3, including the cited n=2k+1 case",
+          "Resultary: First noncanonical induced matchings of the odd graph O4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.8358",
+        "arXiv:2101.04768",
+        "arXiv:1801.03972",
+        "arXiv:2004.08714",
+        "doi:10.1137/120878744 bibliographic lead",
+        "Resultary 4aa15524ca4e",
+        "Resultary c6e54b8205ab",
+        "Resultary 2026/9/8/SCOPE011"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seven ten-edge canonical color classes already give 7 binom(10,7)=840 monochromatic size-seven subsets and 7 binom(10,8)=315 monochromatic size-eight subsets.",
+          "The later almost-intersecting literature quotes the sharp maximum in this ground-set range, but does not quote a near-extremal classification."
+        ],
+        "reasoning": "The monochromatic counts alone are implied and are not the novelty. Exhaustiveness at size eight and the mixed census at size seven are separate from a partition into optimal color classes. No accessible result committed to those suboptimal mixed configurations.",
+        "searches": [
+          "arXiv:1412.8358 §2",
+          "arXiv:2101.04768 pp. 3–4",
+          "doi:10.1137/120878744 small-ground-set lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A size-k induced matching here is a family of 2k triples whose disjointness graph is k disjoint copies of K2, with no isolated triples. Each disjoint pair determines its omitted point.",
+          "Almost-intersecting families allow isolated triples. The general K_{1,2}-free size bound for n≥2k+2 does not have the seven-point ground-set parameter for triples; Frankl–Kupavskii's Theorem 1.6 for triples applies from n=13."
+        ],
+        "reasoning": "The isolate-free subclass is exactly equivalent and is the relevant overlap test, but general size bounds for the larger family or different n do not classify it at 14 or 16 triples. The 2012 small-ground-set discussion remains a concrete lead.",
+        "searches": [
+          "Resultary: almost intersecting families of 3-sets disjoint pairs odd graph near maximum",
+          "arXiv:2004.08714 Definition 1.2 and Theorem 1.6",
+          "arXiv:1801.03972 induced star-free Kneser subfamilies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the top 12 returned per query no hit gave the exact counts or orbits.",
+          "Record 4aa15524ca4e concerns homology of the complex of pairwise-intersecting triples; record c6e54b8205ab concerns disjoint heptagons in the McGee graph and configuration-space homology."
+        ],
+        "reasoning": "The first hit shares the ground set and symmetry but its faces prohibit the disjoint pairs counted here; the second shares numerical vocabulary but no matching object. A finite ranked search is not an exhaustive absence claim.",
+        "searches": [
+          "Resultary: KG(7,3) induced matchings 5580 mixed label size seven S7 orbits",
+          "Resultary: KG(7,3) 315 induced matchings of size eight monochromatic"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact size-seven mixed threshold and labeled/profile/orbit refinement for KG(7,3), not the known canonical strong coloring or the maximal size. The focused Resultary comparisons and examined primary passages do not establish equivalent coverage. The primary 2012 almost-intersecting paper remains a material access limitation, not an evidence-based prior-coverage finding.",
+      "residual_risks": [
+        "The 2012 paper's primary full text was inaccessible; its small-order arguments might cover more than the attributed maximum bound.",
+        "The ranked Resultary search was bounded; the public search batch was deferred, so unindexed or specialist overlap is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior canonical construction",
+          "evidence": "The unique omitted element labels the edge; each label induces a strong color class.",
+          "identifier_or_url": "arXiv:1412.8358",
+          "material_read": "§2 p. 2",
+          "method": "OA primary text, offset 6884",
+          "title": "Odd graph and its applications to the strong edge coloring",
+          "trigger": "Canonical labeling"
+        },
+        {
+          "assessment": "Optimal coloring, not suboptimal census",
+          "evidence": "The cover characterization concerns regular graphs attaining the extremal strong chromatic index.",
+          "identifier_or_url": "arXiv:2101.04768",
+          "material_read": "Canonical coloring pp. 3–4 and Theorem 2.2",
+          "method": "OA primary text, offsets 7625 and 13142",
+          "title": "Strong edge colorings of graphs and the covers of Kneser graphs",
+          "trigger": "Possible domination by rigidity"
+        },
+        {
+          "assessment": "Different range for relevant bounds",
+          "evidence": "The cited t=2 result assumes n≥2k+2.",
+          "identifier_or_url": "arXiv:1801.03972",
+          "material_read": "Abstract and pp. 1–2 including K_{1,t} discussion",
+          "method": "OA primary text, offsets 0 and 6980",
+          "title": "On the Size of Asymptotic Largest Induced Subgraphs of Kneser Graphs",
+          "trigger": "Induced-star-free class includes matchings"
+        },
+        {
+          "assessment": "Maximum bound already known; no quoted near-extremal census",
+          "evidence": "For n=2k or 2k+1 the attributed sharp bound is binom(2k,k); the paper's own large-n theorem does not apply at n=7,k=3.",
+          "identifier_or_url": "arXiv:2004.08714",
+          "material_read": "Definition 1.2, Theorem 1.3, attribution after it, Theorem 1.6",
+          "method": "OA primary PDF, pp. 1–3, including offset 3400 for small-ground-set attribution",
+          "title": "Almost intersecting families",
+          "trigger": "Equivalent disjoint-partner language and small-order attribution"
+        },
+        {
+          "assessment": "Material residual risk",
+          "evidence": "Later primary text credits the exact extremal bound, not the 14- or 16-triple classification.",
+          "identifier_or_url": "doi:10.1137/120878744",
+          "material_read": "Bibliographic lead and later citations, not primary full text",
+          "method": "Lawful OA retrieval unsuccessful; no open alternate copy located",
+          "title": "Almost Intersecting Families of Sets",
+          "trigger": "Same n=2k+1, potentially relevant classification"
+        },
+        {
+          "assessment": "Summary concerns a different invariant",
+          "evidence": "S7 action on rational homology of the pairwise-intersecting triple complex.",
+          "identifier_or_url": "Resultary 2026/10/25, 4aa15524ca4e",
+          "material_read": "Catalog summary only",
+          "method": "Ranked Resultary retrieval; archived full text unavailable",
+          "title": "The S7 homology of the seven-point intersecting triple complex",
+          "trigger": "Same ground set and S7 action"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": "McGee graph disjoint heptagons generate configuration-space H2, rather than Kneser edge matchings.",
+          "identifier_or_url": "Resultary 2026/10/25, c6e54b8205ab",
+          "material_read": "RESULT.md opening finding",
+          "method": "Archived primary text, offset 0",
+          "title": "Shortest heptagon pair tori and a five-orbit integral threshold",
+          "trigger": "Same-day five-orbit threshold lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp finite stability statement for the canonical coloring of a standard odd graph. The exact departure from the monochromatic optimum is visible at seven edges, with distinct multiplicity patterns and orbit sizes, not merely one exceptional construction or a recomputation of the maximum. The classification gives a precise benchmark for structural conjectures about large induced matchings without asserting any generalization to larger parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

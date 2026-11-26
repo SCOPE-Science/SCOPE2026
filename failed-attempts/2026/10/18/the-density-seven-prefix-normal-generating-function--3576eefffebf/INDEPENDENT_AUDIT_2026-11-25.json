@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:38:20.738606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the shortest-span equivalence for fixed numbers of ones. For seven ones the length-one gap comparisons give five nonnegative excess gaps, the length-two and length-three comparisons give the four listed inequalities, and the other comparisons are redundant. The tail and the common gap increment have weights 1 and 6. For fixed A,B,C and s=D+E, there are s-max(0,A-C)+1 choices as soon as s>=max(A,A+B-C). Inverting the parameter substitutions confirms that the six regions are disjoint and cover the admissible triples, including all equality boundaries. Independently recomputed every region's geometric-series contribution: for exponent vector k, lower bounds l, and linear multiplicity 1+m·p, the unweighted sum is K=product z^(k_i l_i)/(1-z^k_i), and the weighted sum is K times [1+sum m_i(l_i+z^k_i/(1-z^k_i))]. Exact cancellation gives the stated numerator. Direct integer summation without region decomposition matches the rational coefficients through n=57 (p_7(57)=3531473); the symbolic argument, not the cutoff, establishes the claim at all lengths. Lengths below 7 have no terms and length 7 has coefficient 1. Replay: /tmp/opencode/frozen_density7_cubic.py, density7(). Inspected but did not run the frozen checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 discussion gives rationality via linear Diophantine constraints but explicitly reports no concrete formula for d>6.",
+          "Both matching catalogue findings supply the density-seven function together with a least quasiperiod and an asymptotic."
+        ],
+        "reasoning": "Abstract general rationality does not evaluate the coefficients. The stronger evaluated catalogue findings contain the whole frozen claim.",
+        "searches": [
+          "arXiv:1611.09017v1, section 4.2 and Proposition 16",
+          "Resultary 2026/11/2 …4ea2c5539e39 and …dcc91b029afa"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.2824v1",
+        "arXiv:1611.09017v1",
+        "Resultary …4ea2c5539e39",
+        "Resultary …dcc91b029afa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2016 text says: ‘We did not succeed in extending our list of concrete formulas for the rational functions f_d for d>6 using automated computation.’ The catalogue matches give F_7 itself, not merely a construction algorithm."
+        ],
+        "reasoning": "The historical results explain the gap formulation without mechanically settling its exact evaluation. The published catalogue matches directly settle it. Their dates are later than the assigned path date; priority and independence of derivations are not established by this comparison.",
+        "searches": [
+          "arXiv:1404.2824v1 Lemmas 2–3; arXiv:1611.09017v1 Proposition 16 and immediately following discussion",
+          "Matching Resultary Findings and gap-cone proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2 …dcc91b029afa, proof steps 1 and 3: word series equals z^7 G(z)/((1-z)(1-z^6)), with G's denominator (1-z^3)(1-z^4)^2(1-z^6)^2 and the same numerator."
+        ],
+        "reasoning": "Converting its gap-cone series to the same total length convention adds exactly the tail and common-gap factors in the frozen proof. The cone count is equivalent, not loosely related.",
+        "searches": [
+          "Resultary: seven-one prefix-normal enumeration and fixed-density gap-cone Hilbert series",
+          "arXiv:1611.09017v1, section 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both primary tables end at d=6. Both November 2 catalogue Findings have denominator (1-z)(1-z^3)(1-z^4)^2(1-z^6)^3 and ascending numerator coefficients (1,3,9,17,35,48,76,85,108,103,108,85,76,48,35,17,9,3,1), after extracting z^7."
+        ],
+        "reasoning": "Coefficient-by-coefficient and factor-by-factor identity establishes exact database coverage of the frozen invariant. The entries are distinct from the assigned entry.",
+        "searches": [
+          "Resultary: exact density-seven prefix-normal generating function",
+          "arXiv:1404.2824v1 section 4 Lemma 3 and arXiv:1611.09017v1 Proposition 16"
+        ]
+      },
+      "rationale": "The exact formula is covered by two distinct published catalogue findings: all 19 numerator coefficients and every denominator factor agree, and both matching records go beyond the exact formula. This is a finding of equivalent published coverage, not a conclusion that either later-dated catalogue record has priority or that this calculation is wrong. The cited 2014/2016 articles themselves do stop at density six.",
+      "residual_risks": [
+        "The catalogue dates do not establish discovery order, provenance of the later entries, or independent derivation.",
+        "The broader web lookup was unproductive; it cannot rule out other publications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier method and table; no density-seven evaluation in this passage",
+          "evidence": [
+            "Lemma 3 introduces its formulas for d=0,...,6."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1404.2824v1",
+          "material_read": "Section 4, Lemmas 2–3, explicit list at HTML offset 17726",
+          "method": "OA HTML passage inspection",
+          "title": "Normal, Abby Normal, Prefix Normal",
+          "trigger": "First explicit fixed-density formulas cited in the finding"
+        },
+        {
+          "assessment": "Rationality, but not the exact evaluated density-seven series",
+          "evidence": [
+            "Proposition 16 specifies d=0,1,...,6; the authors report no extension beyond six."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1611.09017v1",
+          "material_read": "Section 4.2, Proposition 16 and discussion at HTML offset 41940",
+          "method": "OA HTML passage inspection",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "Possible broader theorem or extension of the explicit list"
+        },
+        {
+          "assessment": "Exact evaluated formula with additional consequences",
+          "evidence": [
+            "All numerator coefficients and denominator powers agree; least quasiperiod 12 also stated."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-generating-function-and-minimal-quasipolynomial-period-for--4ea2c5539e39",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror, bounded passage",
+          "title": "Exact generating function and minimal quasipolynomial period for seven-one prefix-normal words",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Exact formula and equivalent evaluated gap-cone series",
+          "evidence": [
+            "After restoring the common-gap and tail factors and the minimal length z^7, the same function results."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-rational-enumeration-of-seven-one-prefix-normal-binary-wor--dcc91b029afa",
+          "material_read": "RESULT.md Finding and Proof steps 1–4",
+          "method": "Local published-record mirror, bounded passages",
+          "title": "Exact rational enumeration of seven-one prefix-normal binary words",
+          "trigger": "Second indexed match and equivalent Hilbert series"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first omitted fixed-density series is a natural target and the exact formula would make a useful benchmark. As submitted, however, that benchmark is already available in two matching published findings. The frozen claim asserts no independently needed new invariant, more general cone method, or other substantive advance beyond those statements; a different calculation of the same function does not supply one.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

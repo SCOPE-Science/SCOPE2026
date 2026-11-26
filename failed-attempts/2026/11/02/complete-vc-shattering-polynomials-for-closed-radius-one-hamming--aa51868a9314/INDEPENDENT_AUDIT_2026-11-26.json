@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:58:39.060259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix a center for the full trace. A different center on one arm covers only that arm among the neighbors; a center at distance two can cover at most two neighbors on distinct arms; farther centers cover none. These facts rule out shattering four: if the original center is a support point, it cannot be dropped while retaining a mixed-arm triple of neighbors; otherwise a mixed-arm triple forces the original center and thereby the fourth point. Collinear triples fail the two-positive trace. The remaining triples have distance patterns (1,1,2), (2,2,2), (1,2,2), and unique full-trace centers. Offsets on a spare coordinate give the requisite exclusion witnesses in d≥3. In d=2 the pivot has no singleton witness, the three-arm case is impossible, and the repeated-arm triple is shattered exactly when q≥4, as its empty trace needs an unused value outside three on one coordinate and two on the other. The pair condition is exactly distance ≤2 outside d=1 and (d,q)=(2,2); in the latter every ball misses only one vertex. Counting the three types and applying Pascal's identity gives the stated formula. Independent raw traces in branches/224c8b6a-87ed-4117-9045-0533e8f21052/verify_record4_raw.py reproduced all counts through support size four at (2,2),(2,3),(2,4),(3,2),(3,3),(4,2); this is finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coudert et al. study the general closed-neighborhood dimension problem, not this census in the inspected sections.",
+          "09da1f15171b has the closed-family dimension thresholds but not the census; 6c82fc864f93 gives the census for all d≥1, q≥2."
+        ],
+        "reasoning": "A dimension classification or general algorithm does not by itself supply the all-parameter coefficients; the direct catalogue statement supplies them.",
+        "searches": [
+          "Coudert–Csikós–Ducoffe–Viennot, arXiv:2405.07588v1, §§2,4",
+          "Resultary 09da1f15171b, exact static and adaptive shattering of closed Hamming neighborhoods",
+          "Resultary 6c82fc864f93, all-parameter finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and accompanying verification evidence",
+        "Resultary 6c82fc864f93 and 09da1f15171b",
+        "arXiv:2007.16042v1",
+        "arXiv:2405.07588v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its large-d cubic coefficient divided by q^d is binom(d,2)(q−1)^2 + binom(d,3)(q−1)^3 + d(d−1)binom(q−1,2)(q−1). The first and third terms sum to binom(d,2)(q−1)^3; Pascal's identity gives (q−1)^3 binom(d+1,3). Its proof classifies all three types and their unique centers."
+        ],
+        "reasoning": "The compact factorization and all classified supports are already supplied directly or by routine algebra from the same exact record. No chronological inference is needed for the mathematical comparison.",
+        "searches": [
+          "6c82fc864f93, RESULT.md Finding, Proof §3 offsets 3443–6840"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both frozen and 6c82fc864f93 use the reflexive Hamming relation distance ≤1, with exactly the full ambient set of centers and unordered supports. Both prove the pivot, three-arm and repeated-arm types with the same existence conditions.",
+          "The 2020 Hamming edge-relation results use the irreflexive relation and do not establish this equivalence for open balls."
+        ],
+        "reasoning": "Changing terminology from closed neighborhood to closed ball or from arms to coordinate groups leaves the incidence relation and classified support sets unchanged.",
+        "searches": [
+          "Resultary search on closed radius-one Hamming balls, shattering polynomials and triple classifications",
+          "6c82fc864f93, RESULT.md Finding and Proof §3",
+          "Adler–Benediktsson–Macpherson, arXiv:2007.16042v1, Theorems 4.6–4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed formula has s0=1, the same s1 and s2, the d=1 and (2,2) exceptions, the identical d=2 triple exception, and all coefficients beyond degree three zero."
+        ],
+        "reasoning": "This is exact coefficientwise coverage on an infinite parameter family, not just a matching finite list or a dimension coincidence.",
+        "searches": [
+          "Resultary all-Hamming shattering polynomials; exact hit 6c82fc864f93, Finding at offset 0"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 6c82fc864f93, states the entire same polynomial on identical objects and parameters and proves the same three-type support classification. The product-form simplification does not change the theorem. This is demonstrable catalogue coverage, not a finding about time of discovery, authorship, or the order of the two records. No distinct mathematical remainder was identified in the frozen claim.",
+      "residual_risks": [
+        "Catalogue dates alone do not settle the relationship between the two exact records or historical priority.",
+        "Comparison with the primary papers is limited to the named passages; any additional independent published mathematical overlap would not undo the verified catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage, independent of unresolved priority",
+          "evidence": "The same lower coefficients, small-parameter exceptions, zero higher coefficients, and three triple structures; the apparent difference in the large-d formula is Pascal's identity.",
+          "identifier_or_url": "2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "material_read": "RESULT.md Finding and scope (offsets 0–2532); Proof §3 (offsets 3443–6840)",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+          "trigger": "Exact formula and assumptions match"
+        },
+        {
+          "assessment": "Dimension overlap only",
+          "evidence": "Static/adaptive dimension thresholds do not specify every shattered support or coefficients.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-static-and-adaptive-shattering-of-closed-hamming-neighborh--09da1f15171b",
+          "material_read": "Finding on closed-neighborhood dimensions",
+          "method": "Resultary local mirror passage inspection",
+          "title": "Exact static and adaptive shattering of closed Hamming neighborhoods",
+          "trigger": "Distinct same-day exact closed-family dimension result"
+        },
+        {
+          "assessment": "Different concept family in the cited theorems",
+          "evidence": "They use open neighborhoods; the abstract separately states closed-neighborhood boundedness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042v1",
+          "material_read": "Abstract and Theorems 4.6–4.8, pp. 21–22",
+          "method": "OA PDF passage inspection",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Primary Hamming VC result"
+        },
+        {
+          "assessment": "General definitions and algorithms, not the inspected exact Hamming census",
+          "evidence": "The method treats closed-neighborhood graph VC dimension; the inspected results give algorithms and bounds rather than the polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588v1",
+          "material_read": "Abstract, §§2 and 4, including p. 4",
+          "method": "OA PDF passage inspection",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Broader closed-neighborhood paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result, the all-parameter structural census quantifies which finite samples realize all labelings, rather than just the largest size; it explains the alphabet threshold via the empty trace and separates three distinct geometric mechanisms. This is substantive scientific content, but the duplicate coverage gives this frozen finding no separate originality credit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

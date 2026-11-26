@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:30.485670Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This verdict applies to the corrected files under /workspace/repairs/5. The frozen mathematical identities themselves check out: greedily completed arches end at the first available disjoint unequal pair, or equivalently arbitrary disjoint pairs supply successive rich blocks. The two transfer states give P=1+zP+zyuE and E=1+z(1+y)P, yielding the frozen rational and binomial forms. Independently, letting each of the n-t gaps contain 2a_i+epsilon_i present edges shows that the same counts equal 2*binom(n-t,2k-t)*binom(n-k-1,t-k) on their support. In the repair the indicator vectors of weight t are uniform, hence so are their weak compositions of t separated by the fixed number m-t of zeros. The tail of a specified part at r is binom(m-r,t-r)/binom(m,t); summing its odd tails gives ceil(part/2) in expectation, with the correct boundary values. For the concentration proof, after conditioning on a fixed sample prefix, two different next labels can be coupled by their transposition in the completion. Whether the sampled labels are present edges or absent edges, the resulting graphs differ by at most one exchange, and the matching sizes differ by at most one as both have the same graph after removing their exceptional edge. This gives at most d=min(t,m-t) martingale steps of absolute increment at most one, so Azuma gives 2 exp(-s^2/(2d)); d=0 is deterministic. For 0<rho<1 the odd-tail sum is dominated geometrically, giving the normalized expectation rho/(1+rho), and the same bound at deviations proportional to n gives convergence in probability. At rho=0 use 0<=K<=t; at rho=1 use ceil(t/2)<=K<=floor(n/2). `python3 /workspace/reviews/replay_finite.py 5` checked the original histograms and means through length 11 directly by subsequence membership; `python3 /workspace/repairs/5/verify.py` gave 77 exact conditional means and 5,630 exact ordered swap checks. Neither finite check establishes the analytic limit. The frozen verification script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general run-enumeration formulas in 2602.10005 §2.1 count all length-n strings subject to a run-count/length constraint; the definition and counts have no budget variable for total ones. Örnek §§3–4 sums over all 2^n strings and then uses their ordinary uniform distribution.",
+          "Barker et al. give arch factorization, and Adamson gives the arch criterion and recursive exact counting, without the inspected sections giving the fixed-transition probability theorem."
+        ],
+        "reasoning": "Run-count distributions under an unconstrained ensemble are relevant but not directly the distribution of a path edge set conditioned to have exactly t ones. Generic martingale concentration tools are used as known, not claimed as new.",
+        "searches": [
+          "uniform random fixed weight binary string number odd runs weak compositions asymptotic maximum matching path fixed number edges rho/(1+rho) distribution concentration",
+          "arXiv:2602.10005, §2.1 around pp. 6–7",
+          "Örnek (2026), Pattern occurrence and run enumeration in random binary strings, §3–4",
+          "arXiv:2003.04629 and arXiv:2304.04583"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 412ee9869e0f, 8b750033b0cb, e77c4e8d9f37",
+        "arXiv:2003.04629, 2304.04583, 2602.10005",
+        "Örnek, Parabola 62(1), article 7 (2026)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 412ee9869e0f take its M(v,u) with v=y, start in the reset state with row vector (1,0,0), allow all three terminal states and omit the cyclic parity projection. Then 1+2z(1,0,0)(I-zM)^{-1}1 equals 1+2z(1+zyu)/(1-z-z^2yu(1+y)) since rows 0 and 2 of M are identical. Coefficient extraction yields all the frozen joint numbers and support. 8b750033b0cb also provides a weighted zero-delimited run block construction in the circular ensemble."
+        ],
+        "reasoning": "The original enumeration is mechanically implied, not merely analogous. In the repair it becomes background. The conditional limit and deviations require additional reasoning: uniform weak compositions or uniform edge samples at exact budget, a geometric bound to compute the density limit for interior rho plus separate endpoint arguments, and an exchange coupling on the smaller fixed-cardinality set. Unconditional and cyclic statistics do not give that result by the same boundary substitution.",
+        "searches": [
+          "Resultary 412ee9869e0f, Proof §§1–2, including the displayed M(v,u)",
+          "Resultary 8b750033b0cb, Weighted enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "412ee9869e0f explicitly proves that the linear binary index equals maximum matching size of the path of unequal adjacent pairs. e77c4e8d9f37 gives the unrefined binary-index law, with generating function (1+z)/(1-z-2uz^2).",
+          "For the conditional version the exact equivalent model samples t edges uniformly without replacement from a path's m labeled edges and takes its maximum matching number; equivalently it sums ceil(L_i/2) for a uniform weak composition of t into m-t+1 parts."
+        ],
+        "reasoning": "Neither the already known path identity nor the unrefined enum is accepted as new. The latter averages over binomially varying transition budgets and does not give the density-dependent conclusion for all deterministic budgets. The refined search included the equivalent matching/weak-composition formulation.",
+        "searches": [
+          "Resultary: conditional fixed transition budget binary subsequence universality law of large numbers rho/(1+rho) and concentration hypergeometric mean, random fixed-size path edge set maximum matching",
+          "Resultary 412ee9869e0f, Proof §§1–2; Resultary e77c4e8d9f37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact unrefined linear and circular coefficient distributions do exist; the stronger catalogue overlap for the frozen joint counts is the weight-marked transfer matrix in 412ee9869e0f. The narrowed catalogue query did not retrieve a comparable exact-budget concentration or density-limit statement."
+        ],
+        "reasoning": "An exact finite count or recurrence gives the means and probabilities by summing coefficients, but does not state or by direct substitution yield a uniform concentration estimate or limit for arbitrary sequences of budgets. No additional exact table was needed for that analytic comparison.",
+        "searches": [
+          "Resultary: binary subsequence universality indexed fixed-transition laws and random fixed-size path edge subsets",
+          "Resultary e77c4e8d9f37, 412ee9869e0f and 8b750033b0cb"
+        ]
+      },
+      "rationale": "For the repaired conditional-density claim only. The original framing does not pass originality: 412ee9869e0f explicitly gives the linear path-matching identity, and its displayed reset-at-zero transfer matrix mechanically gives the entire frozen joint law by changing cycle closure to free path boundary conditions. The repair removes both as claims of novelty and explicitly credits this implication. Its distinct focus is the fixed-budget conditional concentration and density limit, with the hypergeometric mean as a starting point, not a claim of new enumeration by coefficient extraction. Inspected unrefined, circular and general run-counting results do not state this exact-budget probability theorem or give the uniform minority-set deviation bound. The narrowed catalogue and primary search supports the distinction, not global priority.",
+      "residual_risks": [
+        "Classical occupancy or path-matching literature may contain the same concentration or asymptotic in another formulation; the searches and relevant inspected passages are bounded.",
+        "No novelty is attributed to arch factorization, the linear matching identity, the joint counts, or generic bounded-difference inequalities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior path identity and mechanical coverage of full joint enumerator, but not the narrowed probability theorem",
+          "evidence": [
+            "Proof §1 explicitly states the linear path identity; §2 displays rows (1,vu,0), (1,0,v), (1,vu,0) and the even parity projection for the cyclic ensemble."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-circular-subsequence-universality-spectrum-of-binary-words--412ee9869e0f",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§1–3, including offsets 2750–5356 and 5356–8656",
+          "method": "Local mirror passages and algebraic specialization",
+          "title": "Exact circular subsequence-universality spectrum of binary words",
+          "trigger": "Strongest indexed structural and transfer overlap"
+        },
+        {
+          "assessment": "Circular, parity-projected weighted-run model; no fixed-budget probability limit in inspected passage",
+          "evidence": [
+            "Run blocks start at zero, have index ceil(L/2), and are combined through cyclic block counting at parity markers +1 and -1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-circular-subsequence-universality-distribution-of-binary-w--8b750033b0cb",
+          "material_read": "Mirrored RESULT.md Finding through Weighted enumeration, offsets 0–5820",
+          "method": "Local mirror passages",
+          "title": "Exact circular subsequence-universality distribution of binary words",
+          "trigger": "Related run generating function"
+        },
+        {
+          "assessment": "Exact unrefined overlap, not the conditioned density law",
+          "evidence": [
+            "The joint generating function at y=1 reduces to (1+z)/(1-z-2uz^2), the already stated unrefined law."
+          ],
+          "identifier_or_url": "Resultary e77c4e8d9f37",
+          "material_read": "Mirrored RESULT.md Finding, around offset 360",
+          "method": "Local mirror passage",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Same linear statistic and already known specialization"
+        },
+        {
+          "assessment": "Known arch machinery and algorithmic counts; no claimed transfer or fixed-budget probability implication from inspected passages",
+          "evidence": [
+            "The number of arches is the universality index; fixed-length universal word counts can be computed recursively."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629; https://arxiv.org/pdf/2304.04583",
+          "material_read": "Barker et al. p. 5 (arch criterion); Adamson p. 3 criterion and §3.2 p. 5 counting",
+          "method": "OA PDF passages",
+          "title": "Scattered Factor-Universality of Words; Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Classical characterization and counting methods"
+        },
+        {
+          "assessment": "The inspected framework restricts run lengths/counts, not a fixed number of ones; no whole-document exclusion inferred",
+          "evidence": [
+            "Defines w(n,m) by n-string length and number of maximal runs in a chosen length interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.10005",
+          "material_read": "§2.1 pp. 6–7, change-of-constraint definitions and necessary conditions; nearby §2.2 locator",
+          "method": "OA PDF passage inspection",
+          "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+          "trigger": "Possible broader enumeration of the equivalent binary-run statistic"
+        },
+        {
+          "assessment": "Unconditional over the entire binary cube, not exact Hamming weight of the indicator vector",
+          "evidence": [
+            "The run sum is over all 2^n strings of length n; the probabilistic formulation uses a uniformly random binary string of length n."
+          ],
+          "identifier_or_url": "https://www.parabola.unsw.edu.au/sites/default/files/2026-05/vol62_no1_7.pdf",
+          "material_read": "Introduction and definitions of §§3–4, pp. 4, 6",
+          "method": "OA PDF passage inspection",
+          "title": "Pattern occurrence and run enumeration in random binary strings",
+          "trigger": "Possible equivalent probabilistic run-count results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a prescribed transition budget, the ordinary unrefined 1/3 law is not predictive at arbitrary densities, and the edge indicators are dependent. The repaired result answers the natural fixed-budget question for every density including both endpoints, expresses the finite center exactly, and gives a uniform deviation scale tied to the minority indicators rather than the full length. This is useful even for near-full and sparse budgets, where a length-based bound misses that scale. It is a substantive probability statement, not a repackaging of the already covered word counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

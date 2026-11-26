@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:39:59.151039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent code scanned all 8! even-to-odd bijections and retained exactly the cube-edge matchings. It formed adjacency by swapping two odd partners precisely when both crossed edges exist for the two even vertices opposite on a square. This gives exactly the legal move, with no hexagon moves or quotient by symmetry. Complete component traversal gave 272 states, 768 edges and one 264-state component plus eight singletons. All-source BFS in the mobile component reproduced the eight distance bins (768,2640,6032,9360,9504,5296,1104,12), totaling 34,716, and eccentricities 7 on 252 states and 8 on 12 states. It checked the supplied witness at distance 8, equality of the degree-four and peripheral sets, and a two-regular farthest-pair graph on three connected four-vertex sets. Applying all 384 translations composed with coordinate permutations verified both the peripheral matching orbit and the unordered diametral pair orbit. Replay: python3 /workspace/branches/e5186c03-e039-4713-b9ae-b355aac582e1/independent_q4_audit.py. The exact finite enumeration establishes the labeled Q₄ theorem, not any larger-box result; uploaded verifiers were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed square-plus-hexagon result and the general alternating-cycle diameter bound use strictly more permissive moves. The same-date frozen-sector record gives components, not the metric. Bonamy et al. define the same flip relation on general graphs but the inspected passages do not give the Q₄ census."
+        ],
+        "reasoning": "An upper bound with extra moves does not upper-bound distances with only squares. General matching-reconfiguration results and connectivity alone are not reasons for the originality failure.",
+        "searches": [
+          "Resultary db180e339d90 and b277c93b7e2a, component and move definitions",
+          "Bonamy et al. arXiv:1904.06184v1 pp. 1–2",
+          "Hartarsky–Lichev–Toninelli arXiv:2304.10930 Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 84ee7ca2c7ef",
+        "Resultary db180e339d90",
+        "Resultary b277c93b7e2a",
+        "DOI:10.5802/alco.205",
+        "arXiv:1904.06184v1",
+        "arXiv:2304.10930",
+        "DOI:10.1007/s11083-012-9279-8 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theorem explicitly states radial values 7 and 8, the twelve farthest pairs forming three four-cycles, and the single peripheral matching orbit. Its proof constructs all distance-eight edges and computes the action of all 384 cube symmetries on these matchings; it does not explicitly state the number of orbits on the unordered pairs."
+        ],
+        "reasoning": "This covers the central classification directly. Vertex transitivity of the farthest-pair graph alone does not imply edge transitivity, so the residual pair assertion is separated from that coverage. It can be checked by applying the same already-enumerated cube action to one edge and comparing with the earlier exact pair set.",
+        "searches": [
+          "Resultary 84ee7ca2c7ef, Finding, complete distance certificate, and antipodal structure and symmetries (offsets 0–5464)",
+          "Search within the same RESULT.md for orbit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A domino tiling of the 2×2×2×2 box is a perfect matching of Q₄; exchanging opposite edges of one coordinate square is the same move as a domino flip there. The prior Resultary theorem concerns the same labeled matchings and the same unquotiented 264-vertex component."
+        ],
+        "reasoning": "Changes of name between box tiling and matching reconfiguration do not change paths or distances. The isolated states are outside the mobile metric in both statements.",
+        "searches": [
+          "Resultary: four-cube domino square flips exact geodesic profile and diametral graph",
+          "Resultary 84ee7ca2c7ef, Finding and assumptions",
+          "Klivans–Saldanha, Example 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier Resultary histogram is (768,2640,6032,9360,9504,5296,1104,12), and the orbit table has only (size, degree, eccentricity)=(12,4,8) at degree four. Klivans–Saldanha already records 272 states split as 264+8."
+        ],
+        "reasoning": "The primary component count is an acknowledged baseline and does not fix the histogram; the separate earlier geodesic profile gives the exact metric table and peripheral-state classification, not just baseline enumeration.",
+        "searches": [
+          "Resultary 84ee7ca2c7ef, exact geodesic profile and symmetry triples",
+          "Klivans–Saldanha, Example 2.2, published p. 166",
+          "Östergård–Pettersson DOI:10.1007/s11083-012-9279-8"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record states the same exact mobile diameter, radius, distance histogram, eccentricity tally, degree-four peripheral orbit and 3C₄ diametral geometry under the identical square-only move. Its complete orbit table also makes the degree-four converse explicit. The only residual assertion in the frozen Finding is that the diametral edges themselves are one orbit. This is confirmed by the independent calculation but was not found stated explicitly in the earlier text; the failure is for the materially duplicated submitted classification, not a claim that the earlier theorem states edge transitivity.",
+      "residual_risks": [
+        "The pair-orbit assertion was not explicitly located in the earlier result's inspected passages, and historical priority of that isolated assertion is not established. The published enumeration article could not be compared in full. The bulk of the coverage is directly confirmed regardless of these limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the bulk of the Finding; no explicit pair-orbit count seen in those passages.",
+          "evidence": "Identical histogram, radii and eccentricities; the proof's orbit triples and 3C₄ statement agree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef/RESULT.md",
+          "material_read": "Finding, scope, distance certificate, antipodal proof and verification opening, offsets 0–5464; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror statement/proof comparison",
+          "title": "Exact square-flip distances in the four-dimensional hypercube",
+          "trigger": "Same labeled square-only Q₄ dynamics and exact distances"
+        },
+        {
+          "assessment": "Prior exact component census, not an exact geodesic profile in the inspected passage.",
+          "evidence": "The example gives 272 tilings, nine components, one size-264 component and eight singletons.",
+          "identifier_or_url": "https://www.numdam.org/item/10.5802/alco.205.pdf",
+          "material_read": "Example 2.2, printed p. 166, OA PDF text offset 12314",
+          "method": "OA primary PDF passage inspection",
+          "title": "Domino tilings and flips in dimensions 4 and higher",
+          "trigger": "Published computation for the identical four-dimensional box and square move"
+        },
+        {
+          "assessment": "No exact Q₄ profile in inspected passages.",
+          "evidence": "The graph-class question concerns alternating 4-cycle flips; general motivation is not a numerical classification.",
+          "identifier_or_url": "arXiv:1904.06184v1",
+          "material_read": "Primary pp. 1–2, move definition and motivation",
+          "method": "OA primary passage comparison",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Uses the same four-cycle switch and motivates shortest-path distances"
+        },
+        {
+          "assessment": "Residual priority risk for specialized geometry, not relied upon for failure.",
+          "evidence": "Direct public retrieval did not supply the paper and no repository copy was found.",
+          "identifier_or_url": "DOI:10.1007/s11083-012-9279-8",
+          "material_read": "Citation and accessible bibliographic scope; no primary full text retrieved",
+          "method": "OA retrieval and repository-copy check",
+          "title": "Enumerating Perfect Matchings in n-Cubes",
+          "trigger": "Identical matching state space and symmetry enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The square-only geodesic profile of the smallest four-dimensional box is a well-motivated finite benchmark, but its exact classification and peripheral geometry are already available. The sole additional count is a routine one-edge orbit tally using the previously constructed exact distance-eight graph and the same finite action, without a separate mechanism or a new substantial boundary. The frozen contribution as a whole is largely recomputation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

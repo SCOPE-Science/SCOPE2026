@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete stationary generator and reset-age renewal derivations independently produce the same first three raw longitudinal moments and their centered third moment. The exact factorization \(\kappa_3=p(A+p^2B)\), Descartes sign-change criterion for the unique positive root of \(Q\), and the analytic uniform bound forcing \(H'(r)>0\) prove the claim for all positive parameters. `verify.py` reconstructs both derivations and exact algebraic identities. The stationary law is uniquely regenerative for \(r>0\), with finite third moment. Risk: only the matched-relaxation slice is claimed; no extrapolation across arbitrary trap stiffness is made.
+## correctness
 
-## Originality — PASS, qualified
-Shee (arXiv:2409.06920, sections 2–6 and appendices) develops the same stochastic model but studies mean displacement, mean-square displacement and *radial* fourth-order excess kurtosis, without the directional third-central-moment sign theorem. Baouche et al. (arXiv:2405.06769, section III.1) study *orientational-only* resetting and transient skewness without this stationary trap mechanism. Olsen (arXiv:2310.04840, sections II–V) proves reset-distribution moment principles and skewness behavior in distinct OU/run-and-tumble models. Kumar et al. (arXiv:2008.03294) study untrapped complete resetting. Direct literature searches and mathematical research-record searches using model, claim, aliases, and equivalent sign classifications did not identify the present theorem. The source's general recurrence is acknowledged as stronger *moment-computational machinery* but does not already imply the global single-crossover classification without an additional polynomial argument. Residual risk: undiscovered general all-moment comparisons could subsume this mathematical consequence; full publication priority is not certified.
+PASS
 
-## Value — PASS
-The sign of longitudinal stationary skewness is a physically interpretable odd-moment diagnostic distinct from radial kurtosis: it separates reset-age asymmetry from active directional persistence. Matched trap/rotational relaxation is a natural equal-time-scale benchmark rather than an arbitrary arithmetic parameter choice. A unique crossover for *every* activity with universal sharp rate bounds and monotone motion of the threshold is a complete phase classification, not a single numerical example. It gives a falsifiable prediction for the direction and magnitude dependence of asymmetric stationary tails. Risk: it does not characterize complete distributions or an arbitrary-stiffness phase surface.
+Stationarity is regenerative with exponential age T of rate r. Conditionally on T the active convolution is bounded by 1 and the independent centered thermal term has variance 1-exp(-2T); this gives finite moments and strictly positive marginal variance. I reconstructed the first three longitudinal moments directly by expanding each cosine into two exponentials, ordering times and integrating the nonnegative time gaps. For n active factors the final residual age contributes 1/(r+n), and gap number j starting from j=0 contributes 1/(r+j+the squared tail-sign sum); there are n! orderings. Thermal terms in m2 and m3 are 2/(r+2) and 3p E[F_T(1-exp(-2T))]. Centering produces the two stated rational coefficients, including p(5-p^2)/80 at r=1. Replay `cd /workspace && python audit_checks.py 3` checks these identities, Q signs, the displayed derivative polynomial and the approximate upper endpoint 1.92291776319178567. The zero of Q is unique and simple by Descartes and the signs at 1 and 2. As a separate monotonicity proof, Q/r^2 is strictly increasing for all r>0 by differentiating its positive-power terms and the two negative inverse powers. In the competitive interval, H is 3 times the product of (r^2+2r-1)(r+1)^4(r+4)(r+9)/r^2 and -1/(Q/r^2). The first factor is a product of positive increasing factors: r+2-1/r, (r+1)^4/r (increasing for r>1/3), and (r+4)(r+9); the second factor is positive increasing because Q<0. Since sqrt(2)-1>1/3, H increases strictly from zero to infinity. Inside the interval the sign is that of H-p^2, and outside it the coefficients agree in sign (or one vanishes at an endpoint). This gives the unique crossover, the strict monotonicity and limiting rates as p varies, and the fixed-r positivity criterion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The moment machinery and physical model are prior, and stationary longitudinal skewness with the same reset protocol has been calculated without a trap. The distinct result is the exact evaluated centered third moment at matched relaxation and its all-activity negative-to-positive single crossover in reset rate; the prior observable or model changes are material.
+
+## value
+
+PASS
+
+The longitudinal sign distinguishes a directional asymmetry that radial kurtosis cannot measure. Matching the two physical relaxation scales makes a natural benchmark. A unique sign boundary over an entire two-parameter slice, with universal bounding rates and their monotone interpolation with activity, is more useful than an isolated skewness calculation or simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

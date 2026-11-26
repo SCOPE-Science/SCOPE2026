@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:21.883616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For squarefree a, parity gives s(ac!)=a·s(c!)/gcd(a,s(c!))², so nonmembership propagates to squarefree multiples. The unit case follows because kernels are positive. For the singleton witnesses c=2,3,6,7,11 the exact kernels 2,6,5,35,77 each contain the indicated small prime and are less than its square. The large-singleton proof uses s(c!)>c² for all c≥12: this holds at 12–16 by exact computation and thereafter because the three primes in (c/2,c] guaranteed by Sondow's R3=17 occur with exponent one, give a product > (c/2)³, and c≥17. For p<q both at least 13, at c<q only p can divide the gcd, and only if c≥p, handled by the same bound. For c≥q and c≥41, R5=41 gives five such primes and s(c!)>(c/2)^5>c^4≥(pq)². This leaves the 21 pairs from {13,17,19,23,29,31,37} and the finite window q≤c≤40. Independent parity accumulation by factoring each successive multiplier reproduces the kernels and tests all 21 pairs from c=0 to 40; it finds precisely the five cited failures and first witnesses (13,17;17,24310), (13,19;20,46189), (17,19;20,46189), (17,23;26,104006), (19,23;26,104006), with gcd=pq in each. This proves the uniform q≥29 claim and its sharpness among prime cutoffs (failure at q=23), plus nonclosure under multiplication. The finite replay does not by itself prove any statement about unbounded c, and the classified obstruction is not factorial-square representability.",
+      "replay": "python3 /workspace/evidence/replay_small.py 2",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yudin proves positive lower density for the same set. The 2026-10-13 prime-stratum record gives s(c!)>c² for c≥12 and the exact threshold p≥13, expressly excluding composite a. The other 2026-10-13 record classifies prime factorial kernels, not obstruction membership at semiprimes. Sondow gives R3=17, R4=29, R5=41."
+        ],
+        "reasoning": "Density places no exact membership constraints on semiprimes; the prime-stratum result and an exact-kernel-primality classification do not settle the d=pq case of gcd(a,s(c!)). Sondow's primes supply tail inputs, not the classification.",
+        "searches": [
+          "Yudin arXiv:2610.01899 §7.1 positive lower density",
+          "Resultary 64bc76a71550 and 4f6ac6e60ece",
+          "Sondow arXiv:0907.5232 p. 2 Ramanujan-prime definition and thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Yudin arXiv:2610.01899 §7.1",
+        "Erdős–Graham 1976 pp. 350–354",
+        "Sondow arXiv:0907.5232 p. 2",
+        "Resultary 64bc76a71550 and 4f6ac6e60ece"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quadratic prior bound suffices when at most one prime divides gcd(pq,s(c!)), not when both do. The five-prime bound supplies a quartic tail from 41, not 29. The remaining prime values q=29,31,37 still require the residual computation, as do exact exceptions at smaller q."
+        ],
+        "reasoning": "The combination of the quartic large-c bound and an exact check of the mathematically bounded residue yields genuinely finer membership information than the prior results. Neither a prior finite list of square-product examples nor an unquantified density implication proves the complete answer.",
+        "searches": [
+          "Resultary 64bc76a71550 Finding and assumptions; Yudin §7.1; Erdős–Graham Table 1 and p. 354; Sondow R3 and R5 passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yudin defines the same R, requiring s(ac!)≥a for all c≥0. Erdős–Graham's related A requires a>b>k and abk! square; then s(ak!)=s(b)≤b<a, so A⊆R^c among squarefree a."
+        ],
+        "reasoning": "A failure is equivalently a squarefree b=s(ac!)<a for which abc! is square, without the additional constraint b>c. A small number of factorial factors in a square product does not in general test this condition.",
+        "searches": [
+          "Yudin arXiv:2610.01899 §7.1, obstruction R",
+          "Erdős–Graham 1976 p. 354, set A of squarefree integers represented by abk! a square",
+          "Resultary: factorial six-factor obstruction, squarefree-kernel parity criteria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier factorial-square table lists products 221,247,323,391,437, matching the five exceptions, but also 299,377,403,481 and 493, which pass the R predicate. In the row 247, 247!246!187!186!20! being square actually exhibits 247·187·20! square, giving a previously available R failure at c=20."
+        ],
+        "reasoning": "Credit the individual overlap where an identity yields a witness of R failure. The table's predicate and enumeration do not distinguish exactly the five failures or establish universal membership elsewhere.",
+        "searches": [
+          "Erdős–Graham, On products of factorials, Table 1 p. 353",
+          "Resultary: R semiprimes, exceptional pairs and cutoff 29"
+        ]
+      },
+      "rationale": "The obstruction, gcd criterion, quadratic lower bound and singleton classification have prior coverage. One can also extract individual semiprime failures from some prior factorial identities. Credit is confined to the complete semiprime classification, in particular the exclusion of all other failure pairs and the sharp uniform prime cutoff. Neither the primary density theorem nor the inspected earlier prime-stratum result establishes that semiprime classification.",
+      "residual_risks": [
+        "An indexed or unindexed equivalent classification under a different square-factorial definition remains possible. Checked passages show prior overlap and do not certify overall priority. The exact classification is only for the stipulated squarefree stratum, not a characterization of all factorial-square representations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact predicate and density prior; no semiprime membership theorem in the inspected section",
+          "evidence": "Defines R for all c, relates a∈R to a five-factor obstruction in the stated n=ap context, and proves positive lower density.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01899",
+          "material_read": "§7.1, p. 13, OA offsets 41813–45348",
+          "method": "Lawful OA PDF passage",
+          "title": "Square products of factorials and a conjecture of Erdős and Graham",
+          "trigger": "Original definition and theorem for the same obstruction set"
+        },
+        {
+          "assessment": "Partial witness overlap, not exhaustive coverage",
+          "evidence": "Table contains all five exceptional products and several R-members; A has abk! square and a>b>k, and is contained in the complement of R.",
+          "identifier_or_url": "https://fanchung.ucsd.edu/ron/papers/76_12_factorial_products.pdf",
+          "material_read": "pp. 350–354, especially Table 1 on p. 353 and the set A discussion on p. 354",
+          "method": "Visual reading of lawful OA image-only PDF pages",
+          "title": "On products of factorials",
+          "trigger": "Earlier factorial-square examples and a related exact obstruction"
+        },
+        {
+          "assessment": "Covers the singleton case and quadratic estimate; does not cover composite elements",
+          "evidence": "Gives R∩P={p∈P:p≥13} and s(c!)>c² for c≥12.",
+          "identifier_or_url": "2026/10/13/SCOPE-prime-stratum-of-the-factorial-six-factor-obstruction-set--64bc76a71550",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Published Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Prime stratum of the factorial six-factor obstruction set",
+          "trigger": "Exact prior singleton classification and bound"
+        },
+        {
+          "assessment": "Verifies the tail inputs but gives no exact obstruction classification",
+          "evidence": "Defines π(x)−π(x/2)≥j for all x≥R_j, with (R3,R4,R5)=(17,29,41).",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.5232",
+          "material_read": "p. 2, definition and first Ramanujan primes, OA offset 2603",
+          "method": "Lawful OA PDF passage",
+          "title": "Ramanujan primes and Bertrand's postulate",
+          "trigger": "Tail hypothesis and comparison with known threshold theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Semiprimes are the natural first composite stratum on which the previously defined obstruction can differ from its singleton behavior. The result resolves the competing membership patterns, shows nonclosure under products with exact witnesses, and identifies and proves the least prime cutoff for uniform membership under the smaller-prime condition. The finite residue is derived from an analytic uniform bound, not an arbitrary search, and the exact answer is useful independently of any claim about least factorial counts. The prior singleton result is not credited anew.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

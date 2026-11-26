@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the extremal-run census
+# Independent mathematical audit
 
-The proof in RESULT.md establishes the infinite claims for each fixed integer base at least three. The finite checker verifies, independently of the claimed Fourier sum, all eight tested digit-length shells for each of ten bases, actual membership of tested consecutive integer blocks by computing all nonzero-digit products, and the necessity and sufficiency of predicted starts in the tested complete ranges.
+## correctness
 
-Run `python verify.py` using only a standard Python 3 installation. The successful replay prints ten PASS entries and a final `VERIFIED 80 shell counts` line. Arithmetic membership and shell totals are exact integers; a floating-point bound check is merely a numerical consistency check, not the proof of the error estimate. The full universal error inequality follows instead from the explicit Fourier argument.
+PASS
 
-Known limits: no independent audit, no general count of shorter blocks, no uniformity as the base varies, and no claim of a global fixed leading constant. The underlying maximum-run boundary theorem is cited to Gohn et al. (2022) rather than reproved.
+Reconstructed the repaired proof. Gohn et al. supply the maximum length. Independently, two terms in the same units-digit block force its prefix digit product to be one. A start at residue b−1 would include two final digits b−1 separated by b. At residues 1 through b−2 the first two prefixes must be binary and consecutive, forcing the first to end in 0; either a third prefix would have to be binary despite ending in 2, or the run contains a final digit divisible by ell_b in its first block and final digit ell_b in its second block, forcing ell_b to divide b. Thus the start is b²c. The first full block is equivalent to binary c and L_b|b²c; the last ell_b terms then follow. Valuations at primes dividing b give the trailing zeros; ONLY M_1 has to be coprime to b. Verified each nontrivial Fourier factor bound, including the empty product, the fixed-prefix counts, both strict cutoffs and the endpoint comparison giving Theta bounds. Base 3 gives E_3(m)=2^(m−2) for m≥2 and first start 36 by parity. Replay: repairs/3/RESULT.md. Frozen verify.py was inspected, not executed; no finite test substitutes for the proof.
+
+## originality
+
+PASS
+
+For the repaired claim only: the known boundary theorem and elementary start reformulation are excluded from the originality claim. The inspected sources do not establish the quantitative longest-run census, fixed-prefix distribution, and two explicit global counting constants as a result or corollary. Standard Fourier methods are not claimed as new.
+
+## value
+
+PASS
+
+Counting and locating longest runs is a natural question left by the known length theorem. The modulus and valuation parameters give explicit predictive shell counts; the fair-digit limit and two computable incompatible global power-law constants show a distributional phenomenon not conveyed by the existence or length of runs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

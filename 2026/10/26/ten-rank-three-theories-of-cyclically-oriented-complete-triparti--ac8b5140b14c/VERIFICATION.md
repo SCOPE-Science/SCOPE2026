@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_cyclic_tripartite.py` with Python 3.10 or later, from the directory containing the program. It requires only the Python standard library. `verify_output.txt` contains the output of an execution from these exact source bytes.
+## correctness
 
-The verifier constructs all twenty-seven size triples in \(\{1,2,3\}^3\). Its first implementation recursively computes quantifier-rank signatures from complete equality and directed-edge atomic diagrams and all available vertex extensions. It verifies one rank-one type, three rank-two types, and ten rank-three types. It checks that the pointed rank-two type is exactly the oriented three-coordinate cutoff profile, and that equality of the resulting unpointed footprint agrees with the rank-three signatures in all 729 ordered pairs of capped structures.
+PASS
 
-The second implementation is a direct two-sided Ehrenfeucht–Fraïssé game with Spoiler allowed to choose a side on every move; it checks all 378 unordered capped pairs at both rank two and rank three. Restricting each move to already used vertices and one new representative per class is complete because permutations of unused vertices within a class fix every already selected vertex and preserve every arc. The two independent implementations agree. Additional checks replace every capped parameter three by six and test the rank-three truncation boundary, certify the nine-vertex maximum of minimal representatives, and confirm that the exceptional merger at rank three is distinguishable at rank four.
+After choosing the first vertex, equality and the two ordered incidences to it identify its singleton, its own part minus itself, its outgoing part and its incoming part. With two further selections one distinguishes exactly the counts in those last three regions truncated at two. Conversely, mapping each choice to the corresponding region, reusing an image on repetitions and choosing a fresh vertex otherwise, always preserves the atomic diagram for the two remaining rounds. This argument works irrespective of the side chosen. Thus the unrooted three-round invariant is exactly the set of realizable pointed types, not their multiplicities. Independently grouping the capped words by the number of singleton parts gives 1, 2, 4, and 3 types for three, two, one, and zero singletons respectively; with one singleton the ordered pair of other sizes contributes four different directed profiles, and with zero singletons both mixed necklaces 223 and 233 give the same footprint. The all-3 footprint requires every part to have at least three vertices, giving the sharp 9 bound. The general game proof, not the finite verifier, covers all positive sizes.
 
-These checks corroborate the exact finite table. The deduction for arbitrary positive parameters rests on the full Ehrenfeucht–Fraïssé argument in `RESULT.md`, not on a search bounded by the machine. Neither an external referee nor a formal independent proof assistant has validated the result.
+## originality
+
+PASS
+
+The supported distinct claim is the exact unrestricted-variable but depth-three oriented footprint in the directed-triangle family, including its unique merger and minimal representative bound. The closest same-family finite-variable result instead gives 11 types at three variable names with unrestricted depth and separates the merged pair; the inspected general methods do not supply that merger.
+
+## value
+
+PASS
+
+For the smallest cyclic directed template the exact invariant detects the order of differently sized outgoing and incoming parts, while rank three loses exactly one distinction visible at variable width three. The uniform nine-vertex bound is sharp, and the 223/233 pair supplies a concrete boundary witness for treating depth and variable width separately. This is an exact theorem for an infinite natural family, not just the count of a finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

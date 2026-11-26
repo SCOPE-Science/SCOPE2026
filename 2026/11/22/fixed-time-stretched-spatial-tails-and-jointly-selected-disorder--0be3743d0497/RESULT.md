@@ -17,7 +17,7 @@ For every fixed \(t>0\), \(1/2<H<1\), and \(\tau,\lambda,\beta,\alpha>0\), as \(
 \]
 In particular, its ultimate fixed-time logarithmic far-tail scale is \(|x|^{2/3}\), not \(|x|\).
 
-Write \(D\) for the static diffusivity and \(S_t\) for the gamma operational time. Under the conditional law of the two hidden variables given the real-valued observation \(X_t=x\), put \(U_x=D/(\beta q_x)\) and \(W_x=\lambda S_t/q_x\). Then
+Write \(D\) for the static diffusivity and \(S_t\) for the gamma operational time. Under the Bayes conditional density of these variables given \(X_t=x\ne0\), put \(U_x=D/(\beta q_x)\) and \(W_x=\lambda S_t/q_x\). Then
 \[
  (U_x,W_x)\ \xrightarrow{\mathbb P}\ (1,1),\qquad
  \sqrt{q_x}\begin{pmatrix}U_x-1\\W_x-1\end{pmatrix}
@@ -29,7 +29,7 @@ Consequently the asymptotic Gaussian correlation of the two *fluctuating, condit
 
 ## Assumptions and scope
 
-Start at position zero. Let \(D\) be gamma with shape \(\alpha>0\), scale \(\beta>0\), and density \(d^{\alpha-1}e^{-d/\beta}/[\Gamma(\alpha)\beta^\alpha]\). Independently, let \(S_t\) have gamma shape \(k=\lambda t>0\), rate \(\lambda>0\), and density \(\lambda^k s^{k-1}e^{-\lambda s}/\Gamma(k)\). Conditional on \((D,S_t)=(d,s)\), the displacement has mean zero and variance \(2dV(s)\), where
+Start at position zero. Let \(D\) be gamma with shape \(\alpha>0\), scale \(\beta>0\), and density \(d^{\alpha-1}e^{-d/\beta}/[\Gamma(\alpha)\beta^\alpha]\). Independently, let \(S_t\) have gamma shape \(k=\lambda t>0\), rate \(\lambda>0\), and density \(\lambda^k s^{k-1}e^{-\lambda s}/\Gamma(k)\), so \(\mathbb E S_t=t\). Assume the conditional normal law \(X_t\mid(D,S_t)=(d,s)\sim\mathcal N(0,2dV(s))\), with
 \[
  V(s)=H(2H-1)\tau^{2H}\left[
  \frac{s}{\tau}\gamma\!\left(2H-1,\frac{s}{\tau}\right)
@@ -47,7 +47,7 @@ The incomplete gamma function is \(\gamma(\rho,z)=\int_0^z y^{\rho-1}e^{-y}\,dy\
  \exp\!\left(-\frac d\beta-\lambda s-\frac{x^2}{4dV(s)}\right)\,dd\,ds.
  \tag{1}
 \]
-This also specifies the continuous version of the regular conditional distribution \((D,S_t)\mid(X_t=x)\), by normalizing the integrand in (1).
+For each \(x\ne0\), the normal density at \(x\) is bounded uniformly over all positive variances, so \(0<p_t(x)<\infty\). Normalizing the integrand in (1) defines the Bayes version of the regular conditional law for every such \(x\); no choice of version at zero enters the result.
 
 **2. Precise tempered variance asymptotic.** Directly from its nonnegative integral representation,
 \[
@@ -91,7 +91,12 @@ and the remaining amplitude equals
 \[
  u^{\alpha-3/2}w^{k-1}R_q(w)^{-1/2}.
 \]
-On each compact positive region this tends to \(u^{\alpha-3/2}w^{k-3/2}\), and (3) supplies the additional continuous factor \(\exp[-\lambda c/(uw^2)]\). We justify restricting integration to such a compact region: \(R_q(w)\le w\) makes the actual exponential no larger than \(e^{-q\Phi(u,w)}\). The level sets of \(\Phi\) are compact in the positive quadrant, and outside any fixed neighborhood of \((1,1)\), \(\Phi\ge3+\epsilon\) on a suitable encompassing compact set. In the tails \(u\downarrow0\), \(w\downarrow0\), \(u\to\infty\), or \(w\to\infty\), the coercive terms \(u+w+(uw)^{-1}\) dominate the algebraic gamma/variance weights. To handle \(w\downarrow0\) uniformly in \(q\), use the explicit positive integral for \(V\), which is comparable to \(s^{2H}\) for bounded small \(s\), and to \(s\) for sufficiently large \(s\); neither generates an exponential counterweight. The complement is therefore exponentially smaller than \(e^{-3q}q^{-1}\). These estimates justify the two-dimensional Laplace method also for gamma shapes below one.
+On each compact positive region this tends to \(u^{\alpha-3/2}w^{k-3/2}\), and (3) supplies the additional continuous factor \(\exp[-\lambda c/(uw^2)]\). For a uniform noncompact bound, let \(\Phi_q=u+w+1/(uR_q(w))\), so \(\Phi_q\ge\Phi\). The level sets of \(\Phi\) are compact inside the positive quadrant: an upper bound on \(\Phi\) bounds \(u,w\) above and \(uw\) away from zero. By uniqueness of the minimizer, outside any fixed neighborhood of \((1,1)\) we therefore have \(\Phi\ge3+\epsilon\) for some \(\epsilon>0\). For \(q\ge1\), use one unit of the exponent to dominate the possibly singular variance weight. Writing \(v=1/(uR_q(w))\), we have \(R_q(w)^{-1/2}=\sqrt{u}\sqrt{v}\) and \(\sqrt v e^{-v}\) is bounded. Thus
+\[
+u^{\alpha-3/2}w^{k-1}R_q(w)^{-1/2}e^{-q\Phi_q}
+\le M u^{\alpha-1}w^{k-1} e^{-u-w}e^{-(q-1)\Phi}.
+\]
+The gamma weight on the right is integrable for all \(\alpha,k>0\). On the complement of the neighborhood this gives an integral of order \(O(e^{-(q-1)(3+\epsilon)})=o(e^{-3q}q^{-1})\). Near the saddle, the smooth comparison phase is bounded below by \(3+\eta\lVert(u-1,w-1)\rVert^2\) for some \(\eta>0\), and the amplitude is uniformly bounded. These bounds justify the two-dimensional Laplace method and its use for bounded tests of the centered, rescaled latent variables.
 
 The Gaussian integral about the unique saddle contributes
 \[
@@ -103,7 +108,7 @@ Multiplying \(C_0q^{\alpha+k-1}\), the limiting saddle amplitude \(1\), the corr
 
 ## Verification
 
-The separately supplied `verify_tail.py` checks the saddle Hessian and inverse **symbolically**. It then numerically integrates the exact single-clock integral obtained by analytically integrating out \(D\) via the modified Bessel function. For \((H,\tau,\lambda,\beta,\alpha,k)=(0.8,1,2,1,1.7,3)\), exact density divided by the displayed asymptotic equivalent at \(q=20,40,80\) is approximately \(1.20144,1.09849,1.04870\). For \((0.65,0.7,1.3,0.9,2.3,1.4)\), the corresponding ratios are approximately \(1.04098,1.02035,1.01014\). The checker also verifies \(0<V(s)<as\) for sampled positive \(s\). These are finite numerical cross-checks, **not** substitutes for the localization and Laplace proof above.
+The separately supplied `verify_tail.py` checks the saddle Hessian and inverse **symbolically**. It approximates the single-clock integral obtained by analytically integrating out \(D\) via the modified Bessel function, using finite quadrature in the rescaled clock \(0.04\le w\le4\). For \((H,\tau,\lambda,\beta,\alpha,k)=(0.8,1,2,1,1.7,3)\), its estimates of the density divided by the displayed equivalent at \(q=20,40,80\) are approximately \(1.20144,1.09849,1.04870\). For \((0.65,0.7,1.3,0.9,2.3,1.4)\), the corresponding estimates are approximately \(1.04098,1.02035,1.01014\). The checker also verifies \(0<V(s)<as\) for sampled positive \(s\). These are finite numerical cross-checks, **not** substitutes for the localization and Laplace proof above.
 
 Reproduce with `python verify_tail.py` using Python 3, NumPy, SciPy and SymPy. No observational data or numerical fit is needed for the theorem.
 
@@ -111,7 +116,7 @@ Reproduce with `python verify_tail.py` using Python 3, NumPy, SciPy and SymPy. N
 
 Zhao, Wang and Metzler (2026) introduce the precise tempered fractional Laplace transport model and derive its complete displacement-mixture integral and an exponential spatial-tail expression in the **long-time clock-self-averaging approximation**. Equations (11)--(12) and (35)--(43) of their paper were read. The result here instead takes \(|x|\to\infty\) at **fixed finite positive time**, without replacing the random clock by its mean. The different order of limits permits a much heavier ultimate spatial tail and leads to joint selection of hidden clock and diffusivity; the long-time approximation is not being invalidated within its own scaling regime.
 
-Springer and Thompson's product-distribution work and Gaunt's 2015 analysis (including its full-text distribution and tail sections) already cover the normal times independent gamma-factor product that emerges when \(V(s)=as\) exactly. Thus the generic two-gamma/normal product saddle exponent is **not** claimed as new. The specific finite-tempering intercept correction \(e^{-\lambda(2H-1)\tau}\), its exact prefactor in this nonlinear variance model, and the simultaneous conditional clock/diffusivity fluctuation law are the contributions assessed here. Wang and colleagues' earlier fractional Laplace motion with drift is related but does not include this finite-tempering, gamma-diffusivity specification. An indexed result on the same tempered model addresses squared-displacement *time-window correlations*, not its fixed-time spatial rare-event limit.
+For exactly linear \(V(s)=as\), one has \(X_t=\sqrt{2aDS_t}\,Z\) in law with \(Z\) an independent standard normal. Then \(\lambda X_t^2/(4a\beta)=(D/\beta)(\lambda S_t)(Z^2/2)\) in law, the product of three independent unit-rate gamma variables of shapes \(\alpha,k,1/2\). This is covered by Gaunt's product-distribution densities and tail asymptotics; Springer and Thompson's earlier work is a foundational product-distribution reference. The generic product saddle exponent and the unshifted reference constant are **not** claimed as new. The contributions here are the specific finite-tempering multiplier \(e^{-\lambda(2H-1)\tau}\) for the nonlinear variance and the joint conditional clock/diffusivity fluctuation law. Wang and colleagues' earlier fractional Laplace motion with drift is related but does not include this finite-tempering, gamma-diffusivity specification. An indexed result on the same tempered model addresses squared-displacement *time-window correlations*, not its fixed-time spatial rare-event limit.
 
 ## Limitations
 

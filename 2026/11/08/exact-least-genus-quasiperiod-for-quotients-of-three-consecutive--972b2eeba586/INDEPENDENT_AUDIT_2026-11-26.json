@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:53:34.271218Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–3",
+        "VERIFICATION.md and verify.py inspected but not run; the recorded DP checks count excluded multiples, and the branch/linear-period checks are finite corroboration."
+      ],
+      "rationale": "In the block N=qa+r, 0<=r<a, no expression can use more than q generators; exactly q gives every excess up to 2q, and fewer cannot exceed q(a+2). Hence the disjoint missing intervals and their exact multiple counts are valid. Writing a=2pm+r and q=tp+s gives the floor summand 2(m-t)+δ_s(r). Summing complete p-blocks and the tail gives the proposed quadratic. Summing remainders of sk modulo p uses every multiple of gcd(p,k) with multiplicity gcd(p,k); subtracting the contribution from exact divisibility in the shifted first floor gives D_p(r). After conversion to polynomials in a, the linear coefficient has period p for p=3 and p>=5 (for p>=5 the two maximal residues of the gcd sum are 0,-2 and cannot be permuted by a nonzero translation), and period 2 at p=4. The constant terms obstruct period p: for odd p both tails at 0,p vanish and the difference is -1/4; for even p, with r=p+1 the tail counts s<p/3 in 0<=s<=p/2-1, giving ceil(p/3), whereas the tail at 1 is empty. The branch difference is the stated strictly positive constant for even p>=4. Any eventual period T and 2p give gcd(T,2p) by equality of branch polynomials on infinite compatible progressions. This and the explicit p=2 parity polynomials give precisely the claimed least periods, including p=4.",
+      "residual_risks": [
+        "The least-period verdict depends on the symbolic branch comparison, not the finite linear-period tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 applies to every numerical semigroup quotient using root-of-unity evaluations of the semigroup polynomial. Section 3 specializes at divisibility."
+        ],
+        "reasoning": "This can compute individual case values, but no cited stronger theorem provides the all-residue floor/gcd polynomials or proves a period cannot collapse. In particular a bound on possible periods is not a least-period result.",
+        "searches": [
+          "Primary search: numerical semigroup quotient genus arithmetic progression generators exact formula quasipolynomial period quotient <a,a+d,...>",
+          "Adeniran et al., Theorem 1.3 and Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Adeniran et al. arXiv:1809.09360; Liu arXiv:2604.26415 and arXiv:2607.23076",
+        "Resultary findings f97e4a87e254 and 9f48bb6b7364"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-family Frobenius result and symmetry can recover genus on the covered even divisibility branch. Liu 2607.23076 treats the two-generator consecutive Frobenius case."
+        ],
+        "reasoning": "Symmetry and g=(F+1)/2 do not hold generally: at a=11,p=3 the gaps by direct membership are 1,2,3,5,6,7,9,10,14,18, giving g=10 and (F+1)/2=19/2. The constant-term obstructions on arbitrary residues are extra work beyond any of these prior computations.",
+        "searches": [
+          "Adeniran et al. Thm 1.3, §3",
+          "Liu 2607.23076 Thm 1.4",
+          "Resultary f97e4a87e254 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adeniran et al. §3, Theorems 3.2 and 3.5, Corollary 3.3; Liu 2604.26415 Theorem 3.3"
+        ],
+        "reasoning": "Set progression step to one and divisor to p. The 2018 genus formulas directly cover p|a under their respective hypotheses. In Liu's GCNS take k=2, b=(1,2), s_1=1, H=(u+1,2u+1), d=1-ua, recovering exactly (a,a+1,a+2); the positivity and condition of Theorem 3.3 hold. This is real coverage when p|a and p<a, not disjoint subject matter.",
+        "searches": [
+          "Resultary: quotients of three consecutive generators numerical semigroup genus quasipolynomial least period 2p",
+          "Resultary: quotient semigroup genus three-term arithmetic progression divisibility modulus divides first generator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned hit 972b2eeba586 is a self-match. Distinct local-mirror findings f97e4a87e254 and 9f48bb6b7364 both compute Frobenius numbers. The former treats the same generators and has least period 2p including p=2."
+        ],
+        "reasoning": "Not a match for genus or its exceptional period even in the closest indexed theorem. The date does not establish order between same-day findings.",
+        "searches": [
+          "Resultary: genus quotient arithmetic progression numerical semigroup exact formula quasipolynomial period",
+          "Resultary: quotients of three consecutive generators numerical semigroup genus quasipolynomial least period 2p"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-residue exact genus formula with the sharp least eventual period. Previously treated divisibility branches and the generic root-of-unity genus identity are not new. The frozen comparison understates Liu 2604.26415: it does include the target family on p dividing a. Neither that specialization, nor the closest same-family Frobenius result, yields the stated unrestricted genus-period classification.",
+      "residual_risks": [
+        "A bounded comparison cannot rule out unindexed equivalent floor-sum or generating-function derivations. Restricted divisibility results are credited, not presented as absent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic identity plus exact restricted-family overlap",
+          "evidence": "For instance even p>=4, a=sp and step 1 give (s-1)a/4; section assumes p|a.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09360",
+          "material_read": "Theorem 1.3, PDF pp. 2–3; §3 Thms 3.2, 3.5 and Cor. 3.3, pp. 5–6",
+          "method": "Open PDF passages, offsets around 6950 and 18900",
+          "title": "On the Genus of a quotient of a numerical semigroup",
+          "trigger": "General genus and same three-term family under divisibility"
+        },
+        {
+          "assessment": "Mechanically covers the p|a, p<a specialization",
+          "evidence": "Parameters given above recover exactly the target generators, including allowed negative d.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.26415",
+          "material_read": "Introduction p. 3 and Theorem 3.3 p. 7 (offsets 5800, 26450)",
+          "method": "Open PDF passages",
+          "title": "The Frobenius problem for a class of quotients of numerical semigroups",
+          "trigger": "Genus theorem in a broader generating family"
+        },
+        {
+          "assessment": "Different invariant and generator set",
+          "evidence": "Two consecutive generators and a Frobenius-number period dividing p.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23076",
+          "material_read": "Theorem 1.4, PDF p. 4, offset 12800",
+          "method": "Open PDF passage",
+          "title": "On the Frobenius Number of Quotients of Numerical Semigroups",
+          "trigger": "Fixed-modulus period theorem"
+        },
+        {
+          "assessment": "Frobenius rather than genus",
+          "evidence": "Frobenius number has least period 2p also at p=2, for a>=2p+4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-quotient-frobenius-quasiperiod-for-three-consecutive-gener--f97e4a87e254/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp quotient Frobenius quasiperiod for three consecutive generators",
+          "trigger": "Same quotient family, same doubled period"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact genus and least-period Finding",
+        "2018 restricted formulas and same-family Frobenius comparison"
+      ],
+      "rationale": "The genus, unlike the Frobenius number, measures every missing element of a quotient. The gcd statistic and separate constant-term obstruction predict exactly which polynomial branches must be distinguished for the first consecutive three-generator family. The genuine period doubling and its exception are structural information, not a finite re-tabulation.",
+      "residual_risks": [
+        "No period claim for longer progressions or varying p."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

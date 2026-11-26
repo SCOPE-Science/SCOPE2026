@@ -1,21 +1,21 @@
-# Review: Subalgebra-dimension enumeration for the free rank-two class-three Lie algebra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof exhausts subalgebras by projection to the three-dimensional Heisenberg quotient and intersection with its two-dimensional center. The only projection dimensions are 0,1,2,3. Two-dimensional quotient subalgebras must contain the central quotient generator and have a forced one-dimensional central bracket, while full quotient projection forces the entire center. The graph-lift counts q^{a(2-k)} are exact, with characteristic-two alternation handled. Independent RREF bracket-closure enumeration over F2,F3,F4 matches every coefficient and the abelian/nonabelian split. Finite computation is supplementary; algebraic classification proves all finite fields.
+PASS
 
-## Originality — PASS relative to accessible primary literature
+The stipulated alternating bracket gives the free Lie algebra of rank two and class three in every characteristic: the images of x and y fix those of z,u,v by the three defining brackets, and higher brackets vanish in any class-at-most-three target. Its center is Z=span(u,v). For S with image A in L/Z and K=S∩Z, sections are parameterized by q^(dim A(2−dim K)) linear maps f:A→Z/K once a linear lift s is fixed. In general bracket closure requires the central difference [s(a),s(b)]−s([a,b]) modulo K to equal f([a,b]), not merely that the central difference vanish. The actual cases avoid any extra assumption: quotient subalgebras of dimension at most two are abelian, and in dimension three the brackets with lifts of z project to zero and force u,v∈K before any condition involving f is needed. Writing P=q²+q+1, the dimensional contributions for A=0 are (1,q+1,1) in dimensions 0,1,2; the P possible quotient lines contribute Pq²,Pq(q+1),P in dimensions 1,2,3. The q+1 quotient planes all contain the image of z; for direction (a,b) they force K to contain span(au+bv). These give q²(q+1) three-dimensional and q+1 four-dimensional subalgebras. The surjective case yields only L. The plane lifts in dimension three have a one-dimensional central derived algebra with a nonzero alternating bracket on the two generators, so are Heisenberg also in characteristic two. Adding gives all coefficients and the total; the limits are the leading-term ratios. Independent section-map enumeration and direct bracket closure over F₂, F₃ and F₄ returned (1,31,43,19,3,1), (1,121,157,49,4,1), (1,341,421,101,5,1) and abelian three-dimensional counts 7,13,21. Replay: python3 /workspace/branches/0afb2ace-11b4-4207-afdd-b09e171a6cef/independent_counts.py. This is bounded corroboration; the supplied verifier was inspected, not executed, and arbitrary q rests on the proof.
 
-Closest relevant full article Lee arXiv:2010.02268 Theorem 3.7 proves the ideal zeta polynomial for the same f_{3,2}, not its full subalgebra enumeration; its subalgebra results treat different maximal-class algebras. Eick–Moede gives a general algorithm and simple-Lie F2 applications, not the exact family result. Published research-record searches for the algebra alias, five-dimensional subalgebra counts and all six coefficients returned neighboring Heisenberg/affine results but not the formula. Older all-subrings archive and earlier thesis are incompletely accessible; residual priority risk is documented, not claimed absent.
+## originality
 
-The closest direct primary source is Lee's free-nilpotent ideal-zeta computation, arXiv:2010.02268, Section 3.1.4; its stability condition is stronger than Lie subalgebra closure and so does not give the claimed polynomial. The older all-subrings archive and the earlier thesis remain priority risks because the underlying PDFs could not be read. No global uniqueness or independent priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
+The full dimension census and three-dimensional type split are supported as distinct on the inspected evidence. The strongest genuine overlap is with abelian-subalgebra enumeration after restriction of scalars, and with ideal counting for the same finite Lie algebra. Neither establishes the nonabelian subalgebra terms of the full polynomial. The abelian overlap and inaccessible older same-integral-ring entry remain explicit limitations; the assessment does not assert priority.
 
-This is a complete dimension-refined subalgebra count for the first free nilpotent rank-two Lie algebra beyond class two, directly complementary to published ideal counts of the identical natural object. The distinction is structural: nonabelian 3D Heisenberg subalgebras outnumber abelian ones by a factor growing with q, and almost all uniformly sampled subalgebras have dimensions one or two. It is not merely an arbitrary parameter slice, a textbook special case of the ideal result, or a numerical table; it classifies all closed subspaces for every finite field.
+## value
 
-## Scope of limitations
+PASS
 
-This is not a classification of all isomorphism types of larger subalgebras, only counts by dimension and the full split in dimension three. Characteristic is unrestricted. Exhaustive RREF checks cover three finite fields and do not replace the infinite-family proof. Independent audit remains pending.
+This is a full census of a canonical free nilpotent Lie algebra at the first rank-two class with a two-dimensional final central layer. It separates nonabelian from abelian embedded subalgebras and explains why the former dominate the three-dimensional slice, while dimensions one and two dominate the full measure. It is an all-finite-field invariant, including characteristic two, not a small table or a restatement of the ideal enumerator.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

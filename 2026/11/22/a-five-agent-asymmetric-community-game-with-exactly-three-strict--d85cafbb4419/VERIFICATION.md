@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py`. It uses standard-library `fractions.Fraction` and `itertools.product`, and solves rational linear systems by Gauss–Jordan elimination. Its exhaustive finite cases range over both community sizes from one through four, positive within- and cross-community weights, three independent opinion weights, and six threshold values. For every binary action profile it calculates the unique optimal equilibrium opinion vector, directly checks strict binary payoffs, and compares the resulting Nash set with the analytical four-pattern formula.
+## correctness
 
-Expected checker output: `PASS 2160 parameter cases; 92736 enumerated profiles; example: exactly three equilibria`.
+PASS
 
-The five-person worked example is independently checked with exact fractions, including its three equilibrium action vectors, the polar opinions, and both group mean opinions. The general proof does not rely on this finite enumeration. Weak equilibria at threshold equalities, dynamical behavior, empirical interpretation and historical priority are outside the verified mathematical claim.
+Because self-weight is zero, each fixed-action opinion optimization is a strictly concave quadratic with solution y_i=qz_i+(1-q)x_i in [0,1]. Completing the square gives the optimized action incentive beta*lambda/(beta+lambda) times z_i-theta, so joint deviations are accounted for. Within each community two distinct players differ only in which focal opinion is excluded. Thus z_i-z_j is the negative within-edge weight times y_i-y_j, while the equilibrium opinion difference has the same sign as x_i-x_j. Opposite actions would require the cooperator's z at least theta and the defector's z at most theta, a contradiction. For the two uniform block actions, the row-stochastic block matrix gives a unique opinion vector since q<1. Subtraction gives the opinion difference (1-q)/Delta in the A-only profile; then z_B=(1-p_B)/Delta and z_A=[q(1-p_B)+(1-q)p_A]/Delta. The B-only profile swaps roles. The consensus means are 0 and 1, and the excluded equalities guarantee strictness of every pure equilibrium. Width and translation follow by subtraction. A singleton forces p_A+p_B<1, and the only non-singleton case below five agents is balanced 2+2, so one-sided polarization is impossible there. For the 3+2 example the incentives put 5/8 strictly within the A interval and above the B interval. An exact fixed-point iteration with sup-norm error at most 2^(-18) independently resolves every player's action condition in all 32 profiles; the three surviving action vectors agree with the claim.
+
+## originality
+
+PASS
+
+The existing balanced census and its within-community homogeneity reduction are material prior coverage and are not credited as new. The distinct contribution is the exact unequal-size interval split, the resulting one-sided pure polarization, and its sharp 3+2 minimum within the common-weight family. The inspected balanced theorem gives paired polarization only. The inspected opening of Davidson et al. concerns consensus and does not state an unequal-community census; the remaining primary text was not assessed.
+
+## value
+
+PASS
+
+The interval split identifies what changes when the sizes, but not the edge parameters or behavior, are made asymmetric. It explains an odd three-equilibrium census that balanced polarization cannot realize. The exact minimum and strict witness make this more than an isolated finite enumeration; the witness is stable to sufficiently small parameter shifts within the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The analytically proved statement is the joint weak limit of a scaled time until the first strict longest-gap decrease, the original parent rank of the replacement longest gap, and the scaled size of that decrease. The model is a unit circle with an i.i.d. uniform point sequence.
+## correctness
 
-The critical ingredients have explicit proofs in `RESULT.md`: (i) normalized independent exponentials represent all initial gaps; (ii) thinning a rate-one spatial Poisson process supplies independent original-gap first-hit clocks; (iii) the discrete waiting count differs negligibly from the corresponding Poisson time at scale \((\log n)/n\); (iv) the first cut of each damaged top-ranked gap rules it out as the next leader with probability tending to one, provided some other top rank survives; (v) the probability that the first \(m\) ranks after the leader are all hit tends to \(1/m\), making truncation valid; (vi) independent exponential order gaps give the exact conditional drop distribution.
+PASS
 
-Run `python3 checker.py` in the directory containing this file. This checker uses only the standard Python library, checks the rank mass telescoping identities, verifies a truncated-mixture series with a rigorous remainder bound, checks conditional exponential-max CDF identities, and simulates actual forward insertion into initial circular gaps while tracking the original parents and all fragments. Its fixed-seed execution passed **113739** assertions; direct finite-sample simulations illustrate slow convergence but are not used to prove an infinite theorem.
+Rooting the circle at one sampled point gives Dirichlet gaps, so the ordered lengths are ordered independent exponentials divided by their sum. A binomial exceedance count at (1−δ)log n and a union bound at (1+δ)log n show that each fixed leading length is asymptotic to log n/n. Exponential memorylessness yields independent descending differences of rates j, giving the fixed-rank normalized gap-drop vector. Conditional Poisson thinning gives first-hit clocks E_i/G_(i) with the E_i independent of the initial gaps. The first strict decrease is exactly the first hit of rank one. The number of other marks before its clock is conditional Poisson with mean (1−G_(1))τ_1; the conditional centering difference from τ_1 is 1−G_(1)τ_1=1−E_1 and the conditional variance is O_P(n/log n). Both errors vanish under scaling by log n/n. If a rank in 2,…,m survives intact, it is at least as long as G_(m). Every damaged rank >m is shorter; for each hit leading rank the uniform first-cut position bounds its chance to leave any fragment ≥G_(m) by min(1,2(G_(i)−G_(m))/G_(i)), which has expectation tending to zero for fixed m. Thus the earliest rank that survives is the exact winner except on a vanishing event and the all-hit event. Finite clock/difference vectors converge jointly by independence and Slutsky; no limiting clocks tie. The all-hit event tends to 1/m both by exchangeability of m exponential clocks and by the integral in the record. Truncating bounded continuous test functions and then letting m grow proves the joint limit without requiring finite rank means. Given T=t, K−1 is geometric with parameter e^(−t), and integrating gives mass 1/[k(k−1)]. Given K=k the drop is a sum of independent rate-j exponentials and hence the maximum of k−1 rate-one exponentials. Mixing the CDF q^(k−1), q=1−e^(−y), against the rank weights yields survival y/(e^y−1), and termwise nonnegative integration yields π²/6. The difference variables, not the drop itself, are independent of (T,K); T and K are dependent.
 
-The result does not supply convergence rates or convergence of finite-sample means, does not analyze nonuniform locations or higher dimensions, and makes no claim to have checked every historical paper. Self-review is reported; no independent audit has yet been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the marked joint next-decrease law for sequential insertion after a specified initial size, including the original-parent rank and the drop. Old static spacing representations and larger-scale record-time/count asymptotics are credited. None of the closest inspected statements supplies the two marks or their coupling with waiting time.
+
+## value
+
+PASS
+
+The first subsequent decrease is the natural event at which the extremal gap changes length. The marked law distinguishes the original-parent survival mechanism from the possibility that a cut fragment wins. It shows coexistence of an exponential waiting limit, a dependent rank with infinite mean, and a light-tailed non-Gumbel drop with finite mean. The two new marks and their coupling are useful precision missing from aggregate record counts and static extremes, not just another statement of the elementary waiting law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

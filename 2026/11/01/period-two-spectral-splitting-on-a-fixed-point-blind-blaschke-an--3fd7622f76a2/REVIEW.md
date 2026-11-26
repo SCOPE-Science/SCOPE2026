@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(0<\mu<1\), the arctangent denominator is strictly positive. The fixed-point formula gives \(q_\mu=(\arcsin\mu/\pi,0)\); differentiating the deformation and substituting this point cancels the entire perturbation to the cat derivative. At \(\mu=0\), the lifted primitive-two equations have Jacobian determinant \(5\), so the analytic implicit-function theorem gives two distinct analytically continued cycles. Their first displacements follow by solving the displayed linear system, and direct multiplication of the two branch Jacobians gives the exact trace formula. Inserting the uniform Taylor expansion yields the coefficients \((25-7\sqrt5)/2\) and \((25+7\sqrt5)/2\). Both are positive, hence their traces differ from the cat-map period-two trace \(7\) for all sufficiently small positive \(\mu\). The standard differentiable-conjugacy derivative identity supplies the final obstruction. The supporting numerical script ran successfully, but cannot certify the universal result by itself.
+PASS
 
-## Originality — PASS within inspected evidence
+Fixedness gives y=0 and x+f_mu(x)=0 modulo one; the latter lift has derivative (1-mu²)/(1-2mu cos(2πx-alpha)+mu²)>0 and degree one. At x=arcsin(mu)/π the arctangent equals -arcsin(mu) and f'_mu=0. The two-step equations follow from y'=x'-x; the seed Jacobian has determinant 5, giving analytic continuation with primitive, disjoint cycles. Writing c=cos(2πa_0), the first displacement of both first coordinates is c mu/π. Substitution directly into the rational derivative gives d_a=2mu sin(2πa_0)+2(1-c)mu²+O(mu³) and d_b with the opposite linear term. The exact trace 7+3(d_a+d_b)+d_a d_b therefore has coefficient 8-12c+4c², which gives (25-7√5)/2 and (25+7√5)/2 in the stated order. This verifies the Finding analytically, without relying on the supplied Newton examples. For the last step differentiate the conjugacy equation for the second iterate once (rather than twice as worded in the proof); a C¹ diffeomorphic conjugacy preserves the two-step traces. The asymptotics and obstruction are local in mu.
 
-The foundational map and its fixed-point, trace, hyperbolicity and topological-conjugacy results are known from [1] and not claimed anew. The inspected source discusses generic fixed-point nonconjugacy but its own exact trace formula admits the exceptional curve \(\cos\alpha=-\mu\), where the fixed-point matrix is unaltered. The two explicit period-two quadratic coefficients and their difference were not found in the source. The related rational-Anosov resonance paper [2] treats operator and periodic multipliers from a different perspective; no matching real two-cycle perturbation formula was found in the relevant full text. The recent Blaschke-deformation paper [3] proves non-\(C^1\)-conjugacy for a different toral automorphism, with matrix \(\left(\begin{smallmatrix}5&2\\2&1\end{smallmatrix}\right)\), and does not supply the present coefficients. Searches of mathematical research summaries and the literature disclosed no covering formula. Potential equivalent unpublished or unindexed calculations remain the main risk.
+## originality
 
-## Value — PASS
+PASS
 
-On a natural curve where the fixed-point derivative is exactly indistinguishable from the undeformed cat map, the two primitive period-two cycles provide the first quantitative spectral obstruction to differentiable conjugacy. The nonzero and asymmetric golden-ratio coefficients identify how and at what order fixed-point spectral blindness is broken. This addresses a motivated rigidity question rather than an arbitrary parameter substitution or mere numerical difference.
+The supported distinct result is the orbit-resolved unequal quadratic trace pair on the moving fixed-point-blind slice. The fixed-point condition and the conjugacy argument do not separately earn originality credit. The strongest related same-day exact spectra result concerns a different phase slice, with a different fixed-point trace for all positive parameters and a linear rather than quadratic splitting; this is a mathematical distinction, not a priority inference.
 
-## Scope, closest works and remaining risks
+## value
 
-[1] Bandtlow, Just and Slipantschuk, arXiv:2402.14770v1, especially equations (2)–(5), defines the exact family and establishes fixed-point data and hyperbolicity. [2] Slipantschuk, Bandtlow and Just, arXiv:2211.05925v1, concerns rational Anosov resonances. [3] Shchetka, arXiv:2610.19019v1, Section 4, treats a distinct Blaschke-deformed map. The theorem gives a small-parameter analytic asymptotic, not an explicit full-parameter rigidity theorem. General invariance of periodic derivatives under differentiable conjugacy is standard. Numerical evaluations are not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the locus selected by the failure of the entire fixed-point derivative to detect deformation, not an arbitrary parameter restriction. Having both first available primitive periodic spectra split at quadratic order, with unequal explicit coefficients and a differentiable-rigidity obstruction, is useful quantitative periodic data beyond the generic fixed-point test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

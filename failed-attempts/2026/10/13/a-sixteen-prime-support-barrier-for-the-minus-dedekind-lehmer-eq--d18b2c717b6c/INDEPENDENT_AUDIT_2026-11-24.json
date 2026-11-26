@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:59:35.642562Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p^2 dividing N the factor p^(a−1)(p+1) makes psi(N)=0 mod p, contradicting −1 mod p; hence squarefree. If N is even and has any odd prime factor, psi(N) is even while MN−1 is odd; N=2 gives M=2. For odd N, parity and psi(N)>N force odd M≥3. At any fixed support size r, the multiplier expression product(1+1/p)+1/N decreases in each prime, so the first r odd primes maximize it. Independent trial division and exact integer arithmetic confirm nondecreasing maxima through r=15 and 3 minus the terminal maximum equals 14245067754145838/1253429172199617105>0. The contradiction is unrestricted in N and gives no existence claim at larger support. Replay: python3 -B /workspace/branches/frozen_math_replay.py (dedekind section). Frozen verify.py and verify_output.txt were inspected, not executed; the million-integer scan is not part of the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada gives M<15.52051 log log log N under the both-sign hypotheses for N≥19, and M<15.72775 log log omega(N) for omega(N)≥4. Subbarao's plus-sign unitary result includes the Dedekind plus-sign branch and has a stronger plus-sign bound conditional on 3 dividing N."
+        ],
+        "reasoning": "The N-dependent upper bound cannot rule out arbitrarily large N at fixed support. The support-dependent bound is already above 5 at omega=4, so does not exclude M=3 through 15. Subbarao's stronger conditional statement likewise does not switch signs.",
+        "searches": [
+          "Yamada arXiv:2303.16853, §1 and Theorems 3–4",
+          "Subbarao DOI 10.5486/pmd.1998.2029, §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Subbarao 1998 §4",
+        "Yamada arXiv:2303.16853",
+        "OEIS A001615 and A203444",
+        "Resultary 1773f2e8bc58 and ee6fbdcfa96b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subbarao bounds M above by the Euler product for the plus sign. The minus sign instead has M=product(1+1/p)+1/N. The exact slack with this positive correction, independently evaluated at support size 15, remains positive."
+        ],
+        "reasoning": "The previously stated inequality that the uncorrected product is strictly below 3 leaves the sign and size of the slack after correction to be checked. This is a very short arithmetic extension of the prior argument, not a consequence obtained by applying the plus-sign equation theorem to minus-sign solutions.",
+        "searches": [
+          "Subbarao §4, printed p. 689, actual extremal-product calculation",
+          "Yamada Theorems 3–4, both-sign statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local catalogue's unitary divisor-sum minus equation classifies through three primes; the residue-one Dedekind entry classifies its different residue through 709. Subbarao defines T(M) by psi(N)=1+MN."
+        ],
+        "reasoning": "On squarefree integers psi is the unitary divisor sum, so the first three support levels are covered. The 4–15 interval is not. Changing to the +1 residue changes the equation (except the coincidence modulo 2), and no equivalence transporting its solution-set theorem was found.",
+        "searches": [
+          "Resultary local lookup: minus Dedekind psi / psi(N)≡−1 mod N, unitary divisor-sum minus one; 1773f2e8bc58, ee6fbdcfa96b",
+          "Subbarao, §4, DOI 10.5486/pmd.1998.2029"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001615 gives the function; A203444 gives the range and notes even values for N>2. The materially close catalogue entries classify a different residue or cover at most three supports."
+        ],
+        "reasoning": "Function/range data support the parity step, not the joint relation between psi(N), N and support through fifteen. No exact same-residue classification of that interval was located.",
+        "searches": [
+          "OEIS A001615 and A203444",
+          "Resultary local exact minus-sign and support lookup"
+        ]
+      },
+      "rationale": "Only the stated minus-sign support exclusion through fifteen is credited as a distinct claim, not squarefreeness, parity, or the extremal-product method. The same-function plus-sign theorem uses the same support cutoff but is not a theorem for the requested residue. The exact correction needed for the minus equation is not supplied by its strict product bound alone, and the inspected both-sign results do not provide this classification. This limited originality decision does not credit the routine adaptation as a worthwhile finding.",
+      "residual_risks": [
+        "A previous unindexed sign-corrected calculation may exist. The conclusion is not a claim of exhaustive search or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same proof device and bound for the opposite residue; no application of that theorem to this residue",
+          "evidence": "Explicitly T(M)={n:psi(n)=1+Mn}; takes the product over the first r odd primes, below 3 if r≤15.",
+          "identifier_or_url": "https://doi.org/10.5486/pmd.1998.2029",
+          "material_read": "Full-text §4 definitions T and T*, result (7), extremal-product calculation, and start of (8), printed pp. 689–690",
+          "method": "Publisher OA PDF, extracted text offsets 11700–13911",
+          "title": "A companion to a Lehmer problem",
+          "trigger": "Same Dedekind function and sixteen-prime cutoff"
+        },
+        {
+          "assessment": "Explicit constants give no support exclusion through fifteen",
+          "evidence": "Theorems give upper bounds in log log log N and log log omega(N); introduction credits the Subbarao conditional bound for the plus sign.",
+          "identifier_or_url": "https://arxiv.org/html/2303.16853",
+          "material_read": "Introduction and Theorems 3–4, offsets about 6200, 7380 and 7682",
+          "method": "Open arXiv full-text passages",
+          "title": "On Lehmer's problem and related problems",
+          "trigger": "Both-sign bounds that might imply the claim"
+        },
+        {
+          "assessment": "Covers support at most three on the squarefree branch",
+          "evidence": "Only (2,2) satisfies sigma*(N)=MN−1 when omega(N)≤3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-three-support-obstruction-for-the-unitary-divisor-sum-minus-on--1773f2e8bc58",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A three-support obstruction for the unitary divisor-sum minus-one equation",
+          "trigger": "Same minus sign and equality of functions on squarefree integers"
+        },
+        {
+          "assessment": "Different residue; no domination of the proposed minus bound",
+          "evidence": "Classifies psi(n)≡1 mod n through 709 distinct primes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-710-prime-support-barrier-for-dedekind-s-residue-one-congruenc--ee6fbdcfa96b",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A 710-prime-support barrier for Dedekind's residue-one congruence",
+          "trigger": "Same function and stronger-looking support cutoff"
+        },
+        {
+          "assessment": "Background facts, not the support classification",
+          "evidence": "The displayed product and psi(N) even for N>2 agree with the first proof steps.",
+          "identifier_or_url": "https://oeis.org/A001615 and https://oeis.org/A203444",
+          "material_read": "A001615 defining formula, offset 137; A203444 description and parity comment, offsets 166 and 681",
+          "method": "Public sequence entry passages",
+          "title": "Dedekind psi function and its range",
+          "trigger": "Exact function/range and possible characterization of small-support solutions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivated equation does not by itself make this short adaptation of an established extremal product an independently valuable cutoff. Once the standard parity is used, the only change to the existing fifteen-prime calculation is adding the reciprocal of the same primorial and observing the numerical slack stays positive. No new obstruction on admissible supports, new cutoff mechanism, or reason to need exactly this inherited cutoff is shown. The valid necessary bound is not shown to be tight or to distinguish actual existence near sixteen. Rewording or replay evidence does not repair that issue.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

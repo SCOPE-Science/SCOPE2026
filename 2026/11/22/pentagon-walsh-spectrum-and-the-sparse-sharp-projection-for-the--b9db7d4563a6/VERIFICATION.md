@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Checks performed
+# Independent mathematical audit
 
-Running `python3 verify.py` reproduces the 12 pentagons from canonical five-vertex walks, then independently from complements of the six perfect matchings. It verifies the six-dimensional binary cycle code, the complete 64-character Walsh table, the full 32,768-character transform, and the explicit signed inverse-support kernel. Integer assertions also test the exact autocorrelation on codewords and the least surviving multiplier magnitude.
+## correctness
 
-The analytic proof in `RESULT.md` shows why the 64-character quotient is exhaustive and why translation averaging makes the computed endpoint norm optimal over arbitrary real or complex projections. The verification does not cover all cubic graphs or establish historical uniqueness. No independent mathematical audit has been carried out.
+PASS
+
+A fresh exact replay using the disjoint-pairs presentation of Petersen enumerates the 64 even-incidence edge subsets, selects the pentagons and hexagons by weight, and separately checks that the six weight-ten words are all disjoint-pentagon pairs. It counts all 32768 signed character sums and certifies the independently computed group-algebra identity k^4−16k^2=576·1_even-cycle-space. The signed counts are 512,7680,16384,7680,512 at −12,−4,0,4,12. The polynomial (160k^2−k^4)/2304 equals the spectral-support idempotent and has exactly the claimed coefficients. Character orthogonality yields rank and nullity 16384 and Euclidean range condition number 3. Averaging an arbitrary range projection over translations preserves range and identity on it and contracts both operator norms. The resulting convolution projection is forced by its character multipliers. Convolution attains its kernel l1 norm 5/2 at a point mass for l1 and at a sign-matched vector for l-infinity, over either field. No uploaded script was executed.
+
+## originality
+
+PASS
+
+The code enumerator and two-factor structure are prior coverage. The exact signed five-cycle transform and geometric support of its inverse spectral mask are not supplied by the closest inspected code, graph, or transform sources; the endpoint theorem depends on that new kernel computation.
+
+## value
+
+PASS
+
+On a canonical edge-incidence code and its distinguished girth cycles, the spectrum reports exact information loss and conditioning. The 17-point, signed geometric support is more informative than a rank table: it gives a concrete reconstruction projector and the exact smallest possible endpoint amplification even without translation symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

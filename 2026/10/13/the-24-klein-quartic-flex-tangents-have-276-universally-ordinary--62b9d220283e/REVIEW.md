@@ -1,19 +1,21 @@
-# Scientific review: Klein-quartic flex-tangent intersections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The point list is the explicit complete cyclotomic list of Fisher (2001) and is checked against both the quartic and its Hessian by exact arithmetic. The exact coefficient ring is \(\mathbb Z[\zeta_7]\); the 21 nonrational tangent coefficient vectors are all divisible by \(7\), and dividing by that factor is harmless away from characteristic seven. The complete 2024-triple norm census finds only the prime divisors two and seven, so its all-prime nonconcurrency assertion is proven, not extrapolated from examples. Smoothness follows from the determinant-28 gradient system, and Bézout ensures that the 24 distinct smooth Hessian intersections exhaust the inflection locus. The Galois fixed-pair counts, orbit decomposition and finite-prime formula are verified by independently enumerating projective Galois permutations. The standalone verifier was executed successfully.
+PASS
 
-## Originality — PASS, with historical-computation risk
+The separate exact replay /workspace/branches/cd793f49-369a-49ba-a084-908269ef5008/reproduce_klein.py (output reproduction.txt in the same directory) checked F=h=0, tangent normalization and all 2024 triples. It reproduced the nine norm frequencies and confirmed every norm is nonzero with prime support in {2,7}. A triple determinant zero at any prime above p would force p to divide its integer norm. Thus for all claimed p the reduced vectors are nonzero, no two are proportional and no triple is concurrent. Their contact points are nonzero because the reduced gradients are nonzero, and they are distinct by their distinct tangents. On XYZ≠0, multiplying the gradient coordinates by X,Y,Z gives the 3-by-3 cyclic linear system of determinant 28 in the three defining monomials; the three points with a zero coordinate are smooth directly. The smooth plane curve is geometrically irreducible, and F does not divide h (specialize X=0). In characteristic at least five the Hessian criterion follows in local coordinates with tangent y=0: its determinant at the point is a nonzero multiple of the x² coefficient, zero exactly for contact at least three. Bézout exhausts the flexes with 24 distinct contacts. The reduced pair-to-intersection map is bijective, so the 276 ordinary nodes and the Frobenius counts follow from the same permutations as in characteristic zero. The replay checked fixed pairs 276,3,3,3,3,24 at residues 1 through 6, and orbit counts 3,0,7,42 at lengths 1,2,3,6 respectively. A length-six orbit requires the full cyclotomic field. Natural prime densities follow from the prime number theorem in arithmetic progressions modulo 7, not merely infinitude in each class. These are exact finite certificate and proof checks, not a formal certification or assertions at the excluded primes.
 
-Fisher's modular-cusp description and the splitting field of the 24 flex points are prior art; they are not treated as new. Pacini–Testa (arXiv:1711.05776, Example 1.9) give the 24-point inflection scheme in the dual plane, which does not assert the absence of any collinear triple of its points or calculate Galois orbits of pair intersections. Pokora–Roé (arXiv:1803.06411) study a different, 21-line Klein arrangement; its 24-point count is of flex contact points, not intersections of 24 flex tangent lines. Dimca et al. (arXiv:2301.01117) mention the ordinary Klein flex count without classifying the tangent arrangement. Relevant exact-phrase searches and the public mathematical-results index disclosed no logically equivalent or stronger incidence-and-arithmetic classification, but cannot establish novelty absolutely. Elkies' historical survey could be read only at the abstract/metadata level in the accessible interface; this is noted as residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The 24 inflection lines are the intrinsic ramification-line configuration of a canonical, exceptionally symmetric genus-three curve. That **all** their pairwise intersections remain ordinary in **every** good prime characteristic despite their cyclotomic coordinates is a structural, all-prime incidence theorem, not a generic-position assumption or a small finite-field census. The exact 276-point Galois orbit profile and three rational-point regimes are complete natural arithmetic invariants of this geometric configuration; they are not entailed by the source's count of flexes. The result supplies a reusable arithmetic benchmark for comparing line configurations and their reductions.
+The surviving distinct substance is the complete all-good-prime nonconcurrence certificate for this integral flex-tangent arrangement. The characteristic-zero node count overlaps a distinct catalogue item, and the arithmetic of pairs is largely a consequence of known flex permutations once no-three-concurrent and compatibility with reduction are established. Neither point is credited as independent novelty over those inputs.
 
-## Limitations and closest literature
+## value
 
-The result is model-specific and restricted to primes at least five different from seven. It does not establish external novelty certification, reconstruct an arbitrary quartic, or classify special-characteristic flex schemes. The closest publications are Fisher (2001), Pacini–Testa (2018), Pokora–Roé (2018), and Dimca–Ilardi–Pokora–Sticlaru (2023). A historical survey by Elkies (1999) remains an incomplete full-text comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical quartic and a canonical line arrangement, an exhaustive norm certificate controls incidence at infinitely many good primes, a question the known count over characteristic zero or a sample prime cannot decide. The result ensures that the arithmetic permutation data genuinely count distinct geometric intersection points uniformly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

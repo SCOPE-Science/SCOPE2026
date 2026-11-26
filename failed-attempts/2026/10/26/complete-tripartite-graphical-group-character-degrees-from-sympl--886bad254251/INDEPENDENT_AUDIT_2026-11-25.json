@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:36:38.222210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed explicit formula is not defined under its stated domains. For (a,b,c)=(2,2,4), r=2,s=0,t=1 requires H_q(2,4;1); its u=2 term requires N_q(0,1), outside 0≤t≤v. In the proof an isotropic radical of dimension u leaves a 2(v−u)-dimensional symplectic quotient, so a nondegenerate 2t-plane requires u≤v−t. Replacing the upper bound by min(v−t,h−2t), or explicitly defining N outside its range to be zero, would fix this. The supplied artifacts/verify_tripartite.py (lines 27–33, inspected but not executed) in fact uses this zero extension, unlike the frozen formula. The remainder of the derivation supports the corrected expression: elimination of the X hyperbolic block leaves C and PᵀJP, elimination of the s paired C coordinates leaves the restriction on ker C (the inverse pairing block has lower-right block zero), and a specified P|ker C has q^(2rs) extensions. The symplectic basis and surjection counts hold in characteristic two as well. For odd q the edge center and commutator coincide and a central additive character, written using a fixed nontrivial additive character of F_q and an F_q-linear edge functional, yields a radical of size q^(n−2j); induction from a maximal isotropic subgroup gives degree q^j and that many representations. Independent exact evaluation with the corrected range gave the five stated K₃,₃,₃/F₃ coefficients and multiplicities, with totals 3²⁷ and 3³⁶; replay: /workspace/branches/1bc60fc1-44fc-4adf-9cfe-9ef24f191274/k333_recompute.py. This is evaluation of the finite sum, not brute force. VERIFICATION.md documents the finite checks, not a proof or formal certificate.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General class-two machinery reduces character counts to commutator rank and includes a bipartite example; it is not itself the rank evaluation. Unrestricted support-constrained matrices lack alternating ties, and the dense alternating rank law lacks tripartite zero constraints. The complete multipartite conjugacy-class result concerns a different statistic.",
+          "Universal coning already treats K₁,ₐ,ᵦ; independent-double-cone enumeration gives K₂,ₐ,ᵦ. Combined with c071440590d6 there is no uncovered part-size regime."
+        ],
+        "reasoning": "The count of classes is not a substitution for ordinary character counts. The exact coverage of all positive part sizes follows instead from the explicit rank enumerator in the interior and exact universal-cone evaluations on the boundary.",
+        "searches": [
+          "O’Brien–Voll arXiv:1203.3050 Theorems A–B and Example 4.4",
+          "Klein–Lewis–Morales arXiv:1203.5804",
+          "Fulman–Goldstein arXiv:1211.0504 §5",
+          "Rossmann–Voll arXiv:1908.09589 Prop. 8.7",
+          "Rossmann arXiv:2107.05564 §1.6 Q. 1.10",
+          "Resultary 732adc755a75 and 0bfb5f0d4fa2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c071440590d6",
+        "Resultary 732adc755a75",
+        "Resultary 0bfb5f0d4fa2",
+        "arXiv:1203.3050",
+        "arXiv:1203.5804",
+        "arXiv:1211.0504",
+        "arXiv:1908.09589",
+        "arXiv:2107.05564"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier interior formula uses rectangular ranks r,s, extension count q^(2rs), and the identical pullback rank. It already multiplies each rank count by q^(n−2j) for ordinary characters when q is odd. The earlier coning result is explicit for the only excluded boundary."
+        ],
+        "reasoning": "The prior results mechanically supply every rank and character multiplicity that the corrected frozen result claims. The added packaging and example require no independent structural step.",
+        "searches": [
+          "c071440590d6 RESULT.md exact rank and character displays and image-radical lemma",
+          "732adc755a75 Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier formula sums over image dimension k and imposes 0≤k−2j≤r−j. Set k=2t+u and j=t to obtain the corrected frozen H. Its q^(2j(r−h−j)) times a q²-Gaussian binomial is exactly the frozen quotient of symplectic group orders.",
+          "The earlier rectangular-rank factor equals M_q after extracting the q^i factors in its Gaussian ratio."
+        ],
+        "reasoning": "Taking coefficients of the frozen z-polynomial turns it into the prior coefficient formula, with t in that prior summand set to the desired rank-half minus r+s. This matches terms and supports, not just parameters or examples.",
+        "searches": [
+          "Resultary: complete tripartite alternating rank spectra symplectic pullback graphical group character degrees",
+          "c071440590d6 RESULT.md Finding, Lemma 1 and exact rank distribution, offsets 0–4943"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected prior record prints K₂,₂,₂/F₃, not the K₃,₃,₃/F₃ tuple. Its theorem nonetheless directly determines the latter, which coincides with the corrected independent arithmetic."
+        ],
+        "reasoning": "An unprinted coefficient list is not an uncovered exact fact when evaluating a verified explicit formula gives the list without further mathematics.",
+        "searches": [
+          "Resultary c071440590d6 worked example and general formula",
+          "K₃,₃,₃/F₃ evaluation of existing finite products and sums"
+        ]
+      },
+      "rationale": "Resultary c071440590d6 already gives the same rank distribution via the same reductions and pullback formula for all three part sizes at least two and all finite fields, with the same odd-q character consequence. Resultary 732adc755a75 already gives an explicit all-field formula for the remaining singleton-part case. Consolidation into one generating polynomial, including an evaluation at (3,3,3,3), is not a distinct invariant or theorem. The domain defect does not create novelty.",
+      "residual_risks": [
+        "The review does not assert exhaustive priority or identify the first printing of the K₃,₃,₃ tuple. Exact prior formula coverage is independent of that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent formulation for a,b,c≥2",
+          "evidence": "Same rectangular rank and symplectic factors, with an explicit valid radical range; same degree multiplicity formula.",
+          "identifier_or_url": "c071440590d6",
+          "material_read": "Finding, assumptions, image-radical census; offsets 0–4943",
+          "method": "Resultary catalogue and local mirror",
+          "title": "Complete alternating-rank spectra and graphical-group character degrees for complete tripartite graphs",
+          "trigger": "Exact all-three-large-parts match"
+        },
+        {
+          "assessment": "Covers boundary",
+          "evidence": "Universal vertex recurrence and explicit K₁,ₐ,ᵦ rank formula.",
+          "identifier_or_url": "732adc755a75",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Coning recurrence for character degrees of graphical groups",
+          "trigger": "Singleton part boundary"
+        },
+        {
+          "assessment": "Exact special-family coverage",
+          "evidence": "Independent double cone yields K₂,ₐ,ᵦ and its odd-q degree counts.",
+          "identifier_or_url": "0bfb5f0d4fa2",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Independent double-cone recurrence for graphical-group character degrees",
+          "trigger": "Part of size two"
+        },
+        {
+          "assessment": "General reduction and bipartite example",
+          "evidence": "Commutator ranks control character degrees; selected K₂,₂-type calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.3050",
+          "material_read": "Theorems A–B, PDF pp. 4–5; Example 4.4, p. 11",
+          "method": "OA PDF, offsets 9000, 15884 and 38494",
+          "title": "Enumerating classes and characters of p-groups",
+          "trigger": "General character enumeration machinery"
+        },
+        {
+          "assessment": "Different ensembles",
+          "evidence": "Support restrictions without the tied transposed entries of alternating matrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.5804",
+          "material_read": "Abstract and matrix count, PDF p. 1, offsets 0 and 3287",
+          "method": "OA PDF text",
+          "title": "Counting matrices over finite fields with support on skew Young diagrams and complements of Rothe diagrams",
+          "trigger": "Support-constrained rank enumeration"
+        },
+        {
+          "assessment": "Dense case, not tripartite zero pattern",
+          "evidence": "Unrestricted alternating/skew-symmetric ensemble.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0504",
+          "material_read": "Abstract; §5 p. 18, offset 46200",
+          "method": "OA PDF text",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Alternating rank law"
+        },
+        {
+          "assessment": "Conjugacy classes, not characters",
+          "evidence": "Conjugacy-class zeta data for complete multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.09589",
+          "material_read": "Proposition 8.7, PDF p. 94, offset 317775",
+          "method": "OA PDF text",
+          "title": "Groups, graphs, and hypergraphs: average sizes of kernels of generic matrices with support constraints",
+          "trigger": "Complete multipartite graphical group data"
+        },
+        {
+          "assessment": "Problem and reduction, not tripartite evaluation",
+          "evidence": "Character-degree counts linked to supported antisymmetric-matrix ranks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.05564",
+          "material_read": "§1.6 Question 1.10, PDF p. 5, offset 14607",
+          "method": "OA PDF text",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Character-degree problem for graphical groups"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Tripartite rank and character enumeration is a natural and valuable problem, but the frozen record's remainder after prior coverage is coefficient bookkeeping and an immediate evaluation for one example. Neither fixing the domain nor listing those coefficients supplies an independently useful unknown mathematical fact. No substantive repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

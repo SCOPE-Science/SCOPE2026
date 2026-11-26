@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Both affine branches map bijectively to the unit-area triangle and have determinants \(-2\), \(+2\); hence the full-height stationary density is constant. The normalized one-step image is \(t^{-2}\mathbf 1_{t\Omega}\), whose finite-measure weak derivative is the right-edge boundary flux \(\nu_R-2m\). Under the endpoint map, that edge measure moves onto the bottom edge and alternates with the diagonal measure, producing a nonzero Cesàro mean. A bounded sequence of invariant-measure quotients would have a weak-* limit, necessarily solving an impossible measure cohomological equation. Therefore the \(L^1\) ratio diverges. All quantifiers, signs, supports and boundary ties were checked algebraically; finite symbolic moment checks are ancillary. The theorem assumes, without reproving, the cited existence and uniqueness of ACIPs.
+PASS
 
-## Originality
+The two affine triangles each map onto the whole triangle, as seen on their respective three vertices; the formulas agree on the fold and the determinants are −2 and +2. Thus area is invariant at t=1, and pushforward of area at t is t⁻² times area restricted to tΩ. In radial-edge coordinates (x,y)=(z(2−s),zs), with 0≤z,s≤1, the absolute Jacobian is 2z and the lost region is z>t. Its area divided by 1−t tends weak-* to 2 ds on the right edge; dividing the pushforward difference by t−1 gives ν_R−2m with the stated sign. The right and diagonal parametrizations both map to (2s,0), while the bottom parametrization (x,0) maps to (min(x,2−x),min(x,2−x)), giving multiplicity two on the diagonal. These give exact identities on all continuous observables, not just moments; the branch meeting and vertices cause no atom. The Cesàro limit of this forcing is (ν_B+ν_L)/2−2m, nonzero by its interior test integrals. For any weak-* convergent subsequence Banach–Steinhaus bounds its TV norm; uniform convergence F_t→F_1 then allows passage of the pushforward in the invariance equation, producing (I−F_{1*})η=B. Its Cesàro sum telescopes to (η−F_{1*}^Nη)/N and goes to zero in TV because pushforward contracts TV, contradicting the nonzero limit. A bounded sequence of L¹ quotients would give a weak-* convergent subsequence by bounded weak-* metrizability on a compact metric Ω, so every such sequence is excluded. The L¹ density norm is exactly the TV norm of the signed measure here.
 
-**PASS within materially accessible literature; substantial residual priority risk.** The originating preprint arXiv:2409.18805v1, first public 2024-09-27, proves Hölder-type density/entropy continuity and explicitly poses higher-dimensional linear response as a question. The 2015 original family paper establishes an ergodic ACIP and a strange attractor rather than the finite-measure cohomological obstruction. The indexed triangular-tent CLT record gives correlation information at \(t=1\) only. Published one-dimensional critical-orbit failures do not logically imply the specific moving-image right-edge/bottom-diagonal obstruction or the divergent two-dimensional \(L^1\) quotient. A completed 2025 thesis titled *On linear response for tent maps* under one originating author's supervision could overlap the claim; only its bibliographic metadata could be retrieved, not its propositions or proof. The claim is not asserted uniquely known worldwide.
+## originality
 
-## Value
+PASS
 
-**PASS.** The main source motivates precisely the question whether linear response extends to the higher-dimensional tent family. A quantitative strict failure of Lipschitz statistical stability is stronger than the absence of a particular derivative formula and distinguishes regular entropy parameter dependence from density dependence. The persistent boundary cycle provides a structural obstruction that can be tested in other multi-dimensional families, rather than a parameter-slice computation.
+Best of current knowledge: the material inspected on this exact family supplies an upper continuity modulus and asks the response question, without the specific full-height moving-edge obstruction. The closed cap-to-boundary transfer calculation and nonzero Cesàro forcing supply the new lower regularity obstruction. The plausible thesis is an unresolved access risk, not affirmative coverage evidence; no claim of exhaustive priority is made.
 
-## Closest literature and limitations
+## value
 
-- Alves--Etubi 2024/2025: establishes density and entropy continuity, asks about linear response; does not state this strict endpoint non-Lipschitz law.
-- Pumariño--Rodríguez--Tatjer--Vigil 2015: establishes dynamical and stationary framework; only publisher abstract was directly accessible during overlap review.
-- Pereira, 2025 thesis *On linear response for tent maps*: bibliographic metadata only; the full thesis was unavailable, so this is a specific priority risk.
-- Other 1D response work and indexed triangular-map fluctuation work involve different assertions. None of the inspected statements implies the present theorem.
+PASS
 
-This establishes only failure of finite-measure-valued response at the one-sided full-height endpoint. It does not rule out smooth-observable derivatives or give a sharp growth order for the quotient. Independent audit has not been performed.
+This gives an endpoint obstruction for a published, naturally parameterized two-dimensional family explicitly raised in the response literature. It rules out uniformly bounded linear scaling of stationary densities and rules out finite-measure response even subsequentially, rather than merely failing to produce a derivative. The exact boundary cycle is a concrete geometric mechanism, not just a numerical instability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

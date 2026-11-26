@@ -1,15 +1,21 @@
-# Review of the rotational binary \(2\)-binomial diversity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Equality of full \(2\)-binomial signatures for words with equal numbers of ones and zeros is equivalent to equality of their weighted one-position sums. Cyclic rotation has the exact increment \(n w_i-k\), so all equality pairs have starting indices congruent modulo \(L=n/\gcd(n,k)\). Events that several of the \(g\) positions in one residue group have equal sums impose independent fixed-sum conditions on a partition of the circle into disjoint arcs. Each probability is a product of binomial coefficients divided by \(\binom{n}{k}\). Inclusion-exclusion by equality clusters gives the exact expectation. Equality in the lower bound \(C(w)\ge L\) is equivalent to period dividing \(L\), since subtracting consecutive length-\(L\) window counts forces every bit to repeat after \(L\). Fixed-gcd uniform Stirling estimates give the square-root correction, with all terms of subset size at least three bounded in total by a constant. The code independently checks all \(66\) pairs \((n,k)\) with \(2\le n\le12\), \(1\le k<n\), comprising \(8{,}166\) words. Finite checks support but do not prove the infinite theorem.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+At fixed n,k the only needed count is H=number of scattered 01 pairs; H=Σ_j j w_j−binom(k,2) in zero-based indexing. Advancing the rotation start by one changes H by n w_i−k, so equal values require equal starts modulo L=n/g. For any nonempty subset of one start group, the selected starts share a value exactly when each arc between successive selected starts contains d_jK ones. The arcs partition all labeled positions, and the probability is the product of binomial coefficients over the fixed-weight denominator. Inside an equality block of size a, summing (−1)^{r+1} binom(a,r) over nonempty subsets of the block gives one; this proves the expectation without any independence assumption across collisions or start groups. Equality at the global minimum forces every length-L window to contain K ones, so sliding one place gives w_{i+L}=w_i; the converse and g=1 follow. For g=3 the three pair events have equal probability p, all pair-event intersections are the same triple event of probability q, and the singleton, double and triple contributions yield the displayed multiplicities. Uniform Stirling for fixed g and interior density gives order L^{−(r−1)/2} for r specified starts in one group; hence only pairs affect the √L term. An unordered pair sum equals g/2 times the sum over its g−1 directed separations, giving the coefficient and the uniform O(1) remainder. An independent finite check computed all six signature counts at all rotations of every one of the 84 labeled length-nine weight-three words and compared them with the positional moment and window period test. It found counts of words 3,18,36,18,9 at diversity 3,4,5,6,7 respectively, and mean 36/7 (p=15/28, q=9/28); the finite check is not evidence for uniform asymptotics apart from the proof.
 
-The closest fully inspected authors' treatments, Lejeune–Rigo–Rosenfeld (arXiv:2001.11732) and Rigo–Stipulanti–Whiteland (arXiv:2201.04603), respectively address all-word equivalence class structure and factor complexities of infinite words, neither of which determines class diversity restricted to an individual cyclic orbit. Whiteland's binomial-monoid conjugacy equations allow auxiliary words and therefore do not directly establish equality of the particular cyclic rotations. Published-record searches compared adjacent multispectra, necklace orbits, and subsequence universality on their actual implications and found no prior equivalent full formula. The 2015 infinite-word binomial-complexity work was available at abstract level only, and equivalent results under alternative terminology remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result determines a natural reconstruction invariant for every fixed binary composition, with an exact gcd-controlled arithmetic obstruction, full characterization of minimum diversity, and a sharp square-root loss beyond the trivial upper bound under random fixed-weight sampling. These features explain when unknown rotation starts are distinguishable using scattered pairs. It does not assert results for general alphabets, error channels, or growing gcd.
+The distinct finding is the expectation and leading loss for general fixed gcd, beyond the exact overlapping g=2 result. Binary linear-word equivalence, the deterministic lower-bound characterization, and the g=2 moment and asymptotic are not counted as distinct from their inspected matches. No inspected stronger result implies the general gap-product formula or its square-root coefficient after specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The observable measures how many distinct observations remain when the start of a fixed-composition circular word is unknown. Neither deterministic bounds nor the g=2 exact result quantifies the typical loss at general gcd. The gap-product expression supplies such a mean for all fixed compositions, and its explicit square-root correction distinguishes pair collisions from higher-order coincidences; both are useful beyond the matching deterministic criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

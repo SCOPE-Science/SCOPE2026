@@ -1,21 +1,21 @@
-# Scientific review: odd finite exponential Gabor cutoffs
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for every odd integer \(L\ge5\) and every positive damping \(\lambda\) on the unit critical lattice. The geometric-series Zak transform is explicitly diagonalized and never vanishes for \(r=e^{-\lambda}<1\); its sharp upper and lower frame bounds follow from its essential extrema. The apparent many-well frequency minimization is reduced globally, not just locally, to the first Chebyshev arc by matching equal values of \(T_L\) and comparing the denominators. The derivative numerator is strictly increasing there because \(T_L''<0\), established by a positive-sine Dirichlet-kernel identity. The threshold equation has one root by a strictly increasing hyperbolic ratio. An implicit-function argument supplies the positive square-root splitting coefficient, and a separately bounded hyperbolic equation supplies the large-length expansion. Endpoint and equality cases are included, and the \(L=5\) constants were algebraically simplified. `CHECK.py` ran successfully with 509 supplementary comparisons. Those finite checks are not substituted for the all-length proof.
+## correctness
 
-## Originality — PASS, best-knowledge
-The nearest directly matched public result, *Sharp parity-dependent conditioning of finite-duration exponential Gabor bases* (2026-11-16, `00237a974cd0`), was read through its complete `RESULT.md`. It proves optimal bounds for **every even** cutoff, the complete **length-three** odd transition, and the weak-damping coefficient for **all fixed lengths**. The current result claims none of those as new. It proves the previously absent **entire odd-length \(L\ge5\) finite-parameter transition**, uniqueness and localization of the minimizing frequency, exact quadratic bifurcation law, and the large-\(L\) damping threshold. A general weak-damping asymptotic does not determine an entire finite-parameter minimizer curve or a unique transition. The primary full text of Faulhuber–Shafkulovska (arXiv:2204.02917) discusses one- and two-cell cutoff exponentials and lattice optimization, and gives no all-odd finite-parameter classification. Full-text comparisons with the spline and continuous totally-positive-window theories establish different hypotheses and objects; they do not imply the result. Searches for geometric-polynomial minimum modulus, finite impulse response terminology, general odd cutoff lengths, and algebraic Chebyshev equivalents found no broader claim. Unindexed classical extremal-polynomial or filter-design formulations remain a genuine historical risk, so this is not a proof of absolute priority.
+PASS
 
-## Value — PASS
-This is a uniform exact stability classification for an inherently natural family of finitely time-limited, exponentially tapered analysis windows. Its output determines the *exact worst-conditioned frequency* for every odd finite duration, the optimal Riesz lower bound through a single uniquely selected root, and the precise parameter at which symmetry breaks. The theorem unifies infinitely many odd lengths and supplies a sharp logarithmic-over-length phase boundary, rather than a lone numerical cutoff or a renaming of the known length-three formula. The square-root splitting gives additional local sensitivity information useful when damping and truncation length are design parameters. The new uniform Chebyshev-concavity argument is the structural ingredient; the previously known geometric-series identity by itself gives only a nonoptimized ratio. No claim is made about other lattices or window classes.
+On a unit Zak cell the transform of the window is e^(-lambda x) times the finite geometric series in r exp(-2 pi i xi), nonzero and bounded away from zero on the cell. Multiplication on the image of the Fourier monomial basis gives a Riesz basis and makes the squared essential extrema the optimal bounds; the time factor contributes r^2 to the lower bound and 1 to the upper. The triangle inequality maximizes the geometric series at aligned phases. For the minimum, at a given Chebyshev value the leftmost preimage strictly maximizes the positive denominator. On that first arc set x=-cos u; T'_L equals L times 1+2 sum_{j=1}^{(L-1)/2} cos(2ju), whose derivative in u is strictly negative for 0<u<pi/L. This proves strict increase of E and rules out competing interior or exterior minima, including at the threshold. The left endpoint factor vanishes exactly when cosh(L lambda/2)/cosh(lambda/2)=L, a strictly increasing ratio from 1 to infinity. Expanding T'_L in u gives T''_L(-1)=-L^2(L^2-1)/3; the implicit root has slope -E_r/E_x>0, so the angular squared slope is c_L=-2E_r/E_x with remainder as stated. Independently expanding the direct geometric series using moments of (-r)^j at L=5 gives c_5=2.927050983124842 at r=(3-sqrt(5))/2, in agreement with the exact formula. Finally y=L lambda_L/2 lies between arcosh L and log(2L)/(1-1/L); inserting this O(log L) estimate in cosh(y/L) and inverting gives the displayed O(log^2(L)/L^3) damping error.
 
-## Closest literature and limitations
-- Faulhuber and Shafkulovska, *Gabor frame bound optimizations*, arXiv:2204.02917 (2022-04-06), particularly sections 2.2 and 6, available at https://arxiv.org/abs/2204.02917.
-- *Sharp parity-dependent conditioning of finite-duration exponential Gabor bases*, 2026-11-16, full result and proof at https://github.com/published-finding corpus/2026/blob/main/2026/11/16/SCOPE-sharp-parity-dependent-conditioning-of-finite-duration-exponenti--00237a974cd0/RESULT.md.
-- Kloos and Stöckler, *Zak transforms and Gabor frames of totally positive functions and exponential B-splines*, arXiv:1311.7359, available at https://arxiv.org/html/1311.7359v1.
-- Christensen, Kim and Kim, *On the Gabor frame set for compactly supported continuous functions*, arXiv:1602.05717, available at https://arxiv.org/html/1602.05717v1.
-- de Dios Pont et al., *Gabor Frames of Totally Positive Functions: A Complete Characterization*, arXiv:2608.04992, available at https://arxiv.org/html/2608.04992v1.
+## originality
 
-There is no general closed radical formula for the interior root at arbitrary odd length, no classification of noninteger lengths or other lattices, and no independent scientific audit. Potential classical filter-bank equivalences are the main residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best of current knowledge, the global finite-damping minimizer classification for every odd L>=5, the general onset coefficient and the large-length threshold are new relative to the inspected near matches. The Zak reduction, small lengths, even lengths and previously known weak-damping coefficients are not credited as new.
+
+## value
+
+PASS
+
+An all-odd classification locates the global worst Zak frequency at any damping, thereby giving optimal frame constants without a global numerical optimization. The explicit local splitting and large-length threshold characterize a genuine change of minimizers rather than just producing another instance of a known frame-bound formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

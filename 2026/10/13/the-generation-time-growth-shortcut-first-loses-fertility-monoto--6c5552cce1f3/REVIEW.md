@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact Euler–Lotka equation reduces to \(\lambda^2=a\lambda+b\), so exact growth is strictly increasing in the late-age contribution. The generation-time shortcut is \((a+b)\log(a+b)/(a+2b)\). A one-unit late-fertility decrease is equivalent to an exact integer-power inequality. Exhaustion through initial \(R_0=6\) proves no failure for \(R_0\le5\) and a unique first failure at \((5,1)\to(5,2)\), where \(6^{54}>7^{49}\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the integer cutoff is tied to two reproductive ages and unit increments; other discretizations have different cutoffs.
+PASS
 
-## Originality
-**PASS.** The checked demographic literature establishes that reproductive amount and timing jointly determine growth and that \(\log(R_0)/T\) is an approximation with a restricted accuracy regime. The existing related finite-age result in the checked local record concerns exact Euler–Lotka extrema at fixed \(R_0\) and fixed mean age; it neither studies the shortcut nor changes reproductive amount and timing together. Targeted database and web searches did not locate the monotonicity failure, its derivative criterion, or the exact first positive-integer witness.
+Euler–Lotka has the unique positive factor λ=(a+√(a²+4b))/2, strictly increasing in each positive contribution, and r=log λ preserves that ordering. For S=a+b, the denominators of the shortcut before and after the unit increment are 2S−a and 2S+2−a. Cross-multiplication gives a strict decrease exactly when D(S,a)=S(2S+2−a)log S−(S+1)(2S−a)log(S+1)>0, equivalently the stated integer-power comparison. D is affine and strictly increasing in a, with slope (S+1)log(S+1)−Slog S>0 for S≥2. Thus check a=S−1 for S=2,3,4,5 and a=4,5 for S=6. Independently certified rational log brackets give signs −,−,−,−,−,+, respectively, using the convergent log series at z=(S−1)/(S+1) and a geometric tail bound; see /workspace/audit_evidence/replay.py (demography). This exhausts the stated grid since S=1 has no positive pair. The decrease is from 1.5357938308 to 1.5134856715 while the true rates increase from 1.6472311464 to 1.6812526457; decimal checks agree. Differentiation yields the stated continuous mechanism, and strict Jensen for at least two ages at R₀>1 gives the lower approximation without implying monotonicity. The boundary is for one-unit later-age additions with positive integer contributions and the cohort mean, not a universal biological threshold.
 
-Risk: a numerical example with similar values could occur in unindexed teaching material.
+## originality
 
-## Value
-**PASS.** A growth-rate approximation should ideally preserve the direction of an unambiguously beneficial demographic perturbation. Here adding late fertility always raises exact Euler–Lotka growth, yet the standard generation-time shortcut can move downward. Identifying the first exact witness and the general derivative mechanism gives a concrete diagnostic for when the shortcut should not be used for comparative sensitivity analysis.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the cohort-mean approximation, the exact Euler–Lotka equation and general reproductive-timing effects as known. The distinct claim found here is a direction reversal under added late fertility, with the exact first integer boundary and its unique witness. The closest inspected indexed timing result holds R₀ and the cohort mean fixed, whereas the perturbation here changes both. The inspection establishes no absolute priority.
+
+## value
+
+PASS
+
+A common lower approximation for growth can misrank a plain increase in fertility, not just miss the size of its effect. Two reproductive ages and a one-unit later-age increase give a minimal transparent test, and the exact cutoff identifies when the failure first becomes possible on that grid. The witness is useful as a stress test of the approximation and does not represent typical conditions, a universal cutoff, or a reason to reject use near replacement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

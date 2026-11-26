@@ -5,7 +5,7 @@ Let \(\mathcal F^2\) be the standard complex Bargmann–Fock Hilbert space and l
 \[
 (Tf)(z)=\pi^{-1}\int_{\mathbb C}\exp(\alpha z^2+\beta\overline w^{\,2}+\gamma z\overline w+\eta z+\delta\overline w)f(w)e^{-|w|^2}\,dA(w).
 \]
-If \(T\) is noncompact, its distance to *every* compact operator is its norm, and all its approximation numbers are flat:
+If \(T\) is noncompact, every compact operator \(K\) satisfies \(\|T-K\|\ge\|T\|\). The zero operator attains equality, so the distance to the set of compact operators and all the approximation numbers are
 \[
 \|T\|_{\mathrm{ess}}=a_n(T)=\|T\|\quad(n\ge1),\qquad
  a_n(T)=\inf_{\mathrm{rank}(F)<n}\|T-F\|.
@@ -59,13 +59,15 @@ The identities on coherent states extend to the whole Fock space by density and 
 \]
 Taking the supremum over \(f\) gives \(\|T-K\|\ge\|T\|\) for every compact \(K\); \(K=0\) gives equality. Every finite-rank operator is compact, so its distance from \(T\) is at least \(\|T\|\), with the zero approximant giving equality at every rank cutoff. This proves the asserted formula for all \(n\ge1\).
 
+The lower bound need not be equality for a given compact \(K\). For example, when \(T=I\) and \(P\) projects onto the constants, \(\|I-(-P)\|=2\). If instead \(T\) is compact, projections onto the first \(m\) monomials converge strongly to the identity, uniformly on the compact closure of \(T\)'s unit-ball image. Composing \(T\) with these projections gives finite-rank approximants converging in norm.
+
 **4. A nonunitary boundary point.** Set \(\alpha=1/10\), \(\beta=1/5\), \(\gamma=2\sqrt3/5\), \(\eta=\delta=0\). Then \(D=24/25\), \(N=1/4\), and \(|\gamma|^2/D+2|N|=1\), while the linear term vanishes. The source classification guarantees boundedness and noncompactness. The displacements \(u=1\), \(v=\sqrt3/2\) satisfy (2) and give \(c=1\). This operator is not a scalar multiple of a unitary: its coherent-state output norm varies with \(\operatorname{Im}w\), since the source reproducing-kernel calculation has \(\Theta_\alpha(w)=-(\operatorname{Im}w)^2/2\).
 
 ## Verification
 The standalone script `verification_check.py` evaluates Eq. (3) on reproducible random complex parameters, verifies the exact nonunitary boundary parameters and the displacement coefficient equations, and compares the two Gaussian exponent formulas at sampled complex coherent-state and spatial arguments. These finite checks detect arithmetic errors but do not establish the infinite-dimensional statement, which follows from steps 1–3 and the cited published classification.
 
 ## Relationship to prior work
-Sang and Zhao (2026) give the five-parameter boundedness and compactness conditions, and analyze Schatten membership in the compact regime. This proof uses those conditions but adds a nonzero Weyl covariance at the boundary and exact distances from every compact operator. Dong and Zhu (2025) determine the compact-versus-unitary dichotomy for a restricted two-parameter canonical family and singular values in its compact regime. Their noncompact family consists only of unitaries, whereas the explicit example above is nonunitary. Standard finite-rank approximation and displacement facts alone do not identify that the degeneracy condition forces exact covariance for all five parameters. Earlier oscillator-semigroup and Gaussian convolution theory may encode similar covariance under different terminology, so no absolute publication-priority conclusion is asserted.
+Sang and Zhao (2026) give the five-parameter boundedness and compactness conditions, and analyze Schatten membership in the compact regime. This proof uses those conditions to derive a nonzero Weyl covariance at the boundary, the essential norm, and every approximation number there. Dong and Zhu (2025) determine the compact-versus-unitary dichotomy for a restricted two-parameter canonical family and singular values in its compact regime. The convolution family of Cao, Li, Shen, Wick and Yan includes nonunitary Gaussian examples unitarily represented by Fourier multipliers; the norm equality already follows in that subfamily. Giacchi's oscillator-semigroup characterization concerns intertwining for the full Schrödinger representation with a generally complex symplectic parameter map. The conclusion here exhibits input and output displacements in the real phase plane (identified with \(\mathbb C\)) for every bounded noncompact member of the stated five-parameter family, including kernels with linear terms. The weak-convergence argument from Weyl covariance to the norm equality is general. No absolute publication-priority conclusion is asserted.
 
 ## Limitations
 This is a Hilbert-space statement about one complex variable and the exact five-parameter Gaussian kernel. It does not classify approximate numbers for general bounded Fock integral operators, nor approximation numbers of compact Gaussian kernels. It assumes the Sang–Zhao boundedness/compactness theorem; it does not provide a new independent proof of that classification. The novelty comparison is best knowledge, subject to broader oscillator-semigroup literature and independent verification.
@@ -74,3 +76,4 @@ This is a Hilbert-space statement about one complex variable and the exact five-
 1. Y. Sang and L. Zhao, *Boundedness and Compactness of Gaussian Integral Operators between Fock Spaces* (2026), arXiv:2610.28279v1, first posted 2026-10-20, https://arxiv.org/html/2610.28279v1 . Theorems 1.1, 1.2, 1.4 and Section 5.
 2. G. Dong and K. Zhu, *Canonical integral operators on the Fock space II* (2025), arXiv:2509.16672v1, https://arxiv.org/abs/2509.16672 . Introduction and Theorems A–B.
 3. G. Cao, J. Li, M. Shen, B. D. Wick and L. Yan, *A boundedness criterion for singular integral operators of convolution type on the Fock space* (2020), arXiv:1907.00574, https://arxiv.org/abs/1907.00574 . Contextual restricted convolution family.
+4. G. Giacchi, *A Schrödinger characterization of the oscillator semigroup*, arXiv:2608.25082, https://arxiv.org/abs/2608.25082 , Proposition 1.3 and Theorem 1.4.

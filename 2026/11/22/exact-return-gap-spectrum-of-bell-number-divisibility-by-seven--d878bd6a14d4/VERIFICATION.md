@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical reproducibility
+# Independent mathematical audit
 
-Run `python3 check_bell7.py` in the same directory as `gap_histogram.csv`, using stock Python 3. The checker (1) verifies modular-polynomial exponent identities, (2) derives the Bell sequence from the seven initial values and Touchard's congruence, (3) verifies all seven consecutive residues at the proper candidate shifts, (4) evaluates every one of the \(137257\) cyclic positions, (5) reproduces every positive gap count in `gap_histogram.csv`, and (6) cross-checks the same zeros with a separate seven-state sliding traversal. It checks the exact total and weighted gap count, the unique maximum at start index \(85736\), and the forbidden gap seven.
+## correctness
 
-Expected output: `CHECK_OK period= 137257 zeros= 19608 gap_types= 50 max_gap= 65 unique_max_start= 85736 gap_total= 19608 weighted_gap_total= 137257`.
+PASS
 
-These finite calculations are exhaustive for the entire period, not sampled. Their global consequence depends on the exact period identity given in `RESULT.md`. The theorem applies to ordinary Bell numbers modulo seven; the full histogram is a computed finite invariant and no general formula over varying primes is certified. Independent review has not been performed.
+Touchard's recurrence with the correctly reduced Bell seed determines every residue. The shift identity at P=137257 gives a period, also independently certified by exact return of the complete seven-term state. The frozen Step 2 checks least period of the full residues, not automatically that of their zero-indicator. The indicator assertion follows from the certified census itself: if its least period d properly divided P, P/d would divide the zero total 19608, impossible since 7·19608=P−1. The replay additionally checked indicator mismatches at n=9 for shift 29 and n=1 for shift 4733. It traversed every index of [0,P), compared all 50 CSV entries (which agree with the printed table) and counted the wrap gap of 12 once. Counts sum to 19608 and their weighted sum is P. The unique largest gap is 85736→85801, so the given 64-index interval is zero-free and 65 is the sharp universal window. Touchard implies that zeros seven apart force an intermediate zero at the next index, independently proving the exclusion of gap 7. Cyclic repetition gives each limiting frequency with denominator 19608.
+
+## originality
+
+PASS
+
+Best of available evidence, the supported distinct claim is the complete first-return distribution, especially its nonlocal tail and sharp 65-window, including the unique long gap's location. Do not credit the already known residue period, Touchard recurrence, or the trace-zero count as new. Available tables do not supply a full period, and the strongest nearby catalogue statement counts AP incidences without excluding intermediate zeros.
+
+## value
+
+PASS
+
+The residue period and density do not show how long Bell divisibility can be avoided. Seven gives a natural first prime case with a six-digit Bell cycle (the full periods at 2, 3 and 5 are 3, 13 and 781). The complete census yields an exact worst-case spacing, the unique witness, and frequencies usable as a fixed-prime benchmark for trace-sequence run or divisibility-spacing analysis. Those require resolving the order of the zeros, not simply evaluating a known count or lookup table. The merit is that finite invariant, not a claim of a new period theorem or general gap law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

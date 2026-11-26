@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the reset-clock exit theorem
+# Independent mathematical audit
 
-The proof is analytic. The following checks specify the ingredients and their reproducible evaluations; no empirical or computational test is represented as an infinite-limit certificate.
+## correctness
 
-1. **Characteristic exponent to jump tail.** For \(\exp(-t\sigma^\alpha|\xi|^\alpha)\), the symmetric Lévy density is \(\alpha\Gamma(\alpha)\sin(\pi\alpha/2)\sigma^\alpha/(\pi|z|^{1+\alpha})\). Integrating beyond the two endpoints gives the displayed \(k_\pm\), with \(k_+=k_- =\sigma/\pi\) when \(\alpha=1\), \(\Lambda=0\).
-2. **Published centered coefficient.** Euler's reflection formula yields \(1/(2\eta_\alpha)=\Gamma(1-\alpha)\cos(\pi\alpha/2)\); the continuous value at \(\alpha=1\) is \(\pi/2\). This equals the centered Poisson-reset mean coefficient in arXiv:2610.20410.
-3. **Geometric renewal transform.** Conditional on \(N=n\) failed cycles before a successful exit, the marked transform is \(b_K(s)^n a_{\pm,K}(s)\). Summation over \(n\ge0\) gives \(a_{\pm,K}(s)/(1-b_K(s))\). Differentiation at zero or a renewal-reward argument yields the exact mean ratio in the proof.
-4. **Dominated convergence.** The stable exit functions satisfy \(F_\pm(u)\le Cu\), which bounds scaled finite-mean success probabilities by \(CR\). For \(0<\delta<1\), the subcritical reset-time integral is dominated by \(\min(su,1)u^{-1-\delta}\), integrable at both endpoints.
-5. **Critical logarithm.** With Lomax shape one, the scale range \(1\ll R\ll K\) makes \(\int (sR/K)(1+R)^{-2}\,dR\sim s\log K/K\); the same logarithm appears in successful attempts, with coefficient \(k_\pm\). Thus the ratio has denominator \(k+s\) and numerator \(k_\pm\).
-6. **Mean comparison at the boundary.** For \(\alpha=1\) and \(\Lambda=0\), the known unreset mean \(\mathbb ET=1/\sigma\) differs from \(1/k=\pi/(2\sigma)\); the result therefore distinguishes the subcritical and critical clock families.
+PASS
 
-All limits concern fixed flight parameters and fixed reset laws. The directional small-time first-exit estimate is an externally established mathematical premise, inspected in Figueroa-López and Tankov (2014); it has not been numerically certified here. Independent audit is not performed.
+Stable self-similarity scales the exit time by K=L^α and preserves the side. Integrating the stated symmetric Lévy density gives k_± with the two distances 1∓Λ. The marked short-time rate can be verified directly: truncate jumps at b below the two boundary distances, and bound the compensated small-jump supremum exceeding ε over [0,u] by C u b^{2−α}/ε² using its second moment. At most one larger jump occurs except on an O(u²) event for fixed b. On the good small-jump event, a jump beyond the corresponding distance plus ε forces that exit, while exit to that side requires a jump at least the distance minus ε. Let u↓0, b↓0, then ε↓0. This also gives F(u)≤Cu; jumps of absolute size larger than two give an exponential tail for T. For every fixed t>0 there is no fixed-time jump, so T=t would require the stable position to be an endpoint (which has probability zero by its density). This justifies the strict tie-free cycle identities even for atomic R. Independence across cycles gives a_±/(1−b_K) and E[min(KT,R)]/P(KT<R). For finite ER, the scaled success numerator tends to k_± ER under the bound CR; the failure-duration term is dominated by sR and tends to s ER. At critical shape one, the success Stieltjes integral can be written ∫F_±(u)K/(1+Ku)² du: replacing F_±(u) by k_±u below a small fixed cutoff gives k_±log K/K, with the tail O(1/K) and arbitrarily small relative error at zero. Inserting e^(−sT) changes it by at most s/K. In the failure term the same kernel multiplies (1−e^(−su))P(T>u)~su, giving s log K/K. The mean-cycle term is E log(1+KT)~log K by logarithmic integrability. For 0<δ<1 the scaled success converges by dominance by T^(−δ); the failure integral is dominated by min(su,1)u^(−1−δ). The sum of the limiting marked transforms is continuous at zero and equals one there, so it defines the joint weak limit. Integration of the Lomax survival yields the stated limiting mean; differentiating the summed transform at zero gives the same mean for the limiting law. The endpoint limits in δ follow by moment domination at zero and (1−δ)E[T^(−δ)]→k from the linear rate at one. For centered Cauchy flight, the usual Dirichlet mean is √(1−x²)/σ inside the interval, giving 1/σ at the centre; k=2σ/π, so the example detects a genuinely different subcritical limit for small δ. There is no packaged numerical proof and none is needed.
+
+## originality
+
+PASS
+
+The Poisson side-and-time specialization is demonstrably covered, even by an earlier catalogue result with a stronger position mark, and the Poisson mean and restart machinery are prior. The supported distinct claim is the crossover for fixed renewal clocks, especially the exponent-one logarithmic cancellation and the evaluated subcritical marked transform with its inverse-moment weighting. None of the inspected stronger or adjacent results covers that tail comparison.
+
+## value
+
+PASS
+
+The distinction matters in interpreting heavy-tailed reset data: an infinite-mean clock at the exact unit exponent still erases the detailed excursion law, whereas the subcritical clock reweights it, including the side mark. The matching logarithms and the explicit Cauchy comparison explain why a universal exponential based only on near-zero escape hazards cannot be extrapolated across the boundary. This is a fixed-clock, fixed-interior-site result, not a claim about arbitrary correlated clocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

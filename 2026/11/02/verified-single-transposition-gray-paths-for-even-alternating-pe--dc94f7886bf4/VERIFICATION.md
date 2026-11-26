@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite-certificate verification
 
-The binary file contains consecutive zero-based indices into lexicographically sorted alternating permutations on zero-based symbols. It has four unsigned little-endian 16-bit blocks for even lengths \(4,6,8,10\). The exact block lengths are \(5,61,1385,50521\).
+# Independent mathematical audit
 
-`verify_primary.py` enumerates all candidate permutations by a full permutation iterator, extracts alternating states, and checks every position of the index certificate. The independently implemented `verify_alternative.cpp` recursively generates only valid alternating prefixes and rechecks every block, transition and index uniqueness. Both are complete finite checks. Command lines:
+## correctness
 
-```
-python3 verify_primary.py gray_paths_u16le.bin
-c++ -std=c++17 -O2 verify_alternative.cpp -o verify_alt
-./verify_alt gray_paths_u16le.bin
-```
+PASS
 
-Checks performed on these packaged bytes: `PRIMARY_PASS` for sizes \(4,6,8,10\), `ALL_PATHS_VERIFIED`, `ALTERNATIVE_PASS` for each size, and `ALTERNATIVE_ALL_PASS`.
+Replayed the frozen gray_paths_u16le.bin with the fresh verifier /workspace/branches/0376a469-53f7-424c-b1d9-a017debe03a4/independent_verify.py (python3, certificate path as its argument). I inspected the decisive code. The recursion tries every unused value subject exactly to the next alternating inequality, so its leaves are precisely all admissible permutations and in lexicographic order. Each fixed-size little-endian block has its entire index range as its index set, hence no omissions or duplicates, and each consecutive pair agrees outside two positions and has the two entries exchanged. All 103944 bytes were consumed: 5, 61, 1385, 50521 states and 4, 60, 1384, 50520 transitions (51968 total). SHA-256 a9fc613421c0eea64144092a959a85754da4fa1d16ceeba607f0611a17657b62 identifies the replayed input; legitimacy comes from the checked moves and exhaustive coverage, not the hash. The supplied two verifiers were read as evidence, not executed. The signs alternate at every edge, so odd vertex counts exclude a Hamilton cycle, not a path. This checks exactly the four stated sizes, not an all-even theorem or a generation algorithm.
 
-The certificate is an explicit proof for only the four finite sizes. No all-even-size extension or independent external scholarly validation was performed.
+## originality
+
+PASS
+
+No inspected source establishes the exact single-transposition paths through the four even sizes. The strongest related literature and indexed result differ in parity class, move set, hypotheses, or invariant. The finite n=10 witness is distinct from the classical vertex count and does not purport to resolve the open general question. This is a bounded best-of-knowledge decision, not a priority claim.
+
+## value
+
+PASS
+
+The cutoff gives explicit positive cases for a documented even-size Gray-code question, including the full 50521-vertex n=10 graph. This is not a re-enumeration of zigzag numbers: the certificate witnesses a global ordering subject to a sharp single-move constraint and can be independently checked in full. The value is a reusable, meaningful finite benchmark, not a uniform construction or resolution of the general problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

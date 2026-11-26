@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The functional equation for the two-colored binary-partition generating function gives an exact binary Cartier-section rule in a binomial polynomial basis. The 100-state closure is produced exhaustively; 800 exact annihilation checks and Cayley–Hamilton prove the eight formulas for all depths, while another 100 exact checks give a uniform bound of ten unstable suffixes. This last invariant yields ordinary natural density and logarithmic discrepancy by aligned-dyadic decomposition. Legendre's theorem gives the stated three-square obstruction. The independent Euler-product coefficient comparison has 16,384 indices, but finite sampling alone is not used for the infinite conclusions.
+## correctness
 
-## Originality
-**PASS within inspected sources.** Sobolewski–Ulas (2022/2023) establish automaticity and pose the general-color three-square and fixed-modulus questions; they do not state the two-color eight-cell dyadic counts or a \(1/32\) target residue density. The closest inspected published two-color result supplies only two fixed progressions totaling lower density \(1/64\), explicitly stopping short of an exact natural density. Neither that progressions theorem nor general automaticity implies the explicit eight-cell histogram or ten-unstable-suffix bound. Residual risk: implicit equivalence within broader automatic-series literature or uninspected historical tables.
+PASS
 
-## Value
-**PASS.** The exact modulo-\(128\) residue fiber answers a motivated colored binary-partition distribution question. The ordinary-density conclusion, rather than just a dyadic subsequence limit, gives a strictly improved, mathematically meaningful three-square obstruction lower bound of \(1/32\) versus \(1/64\). The structural stable-suffix method explains logarithmic counting discrepancy despite nonperiodicity.
+The generating product over the two distinguishable colors satisfies B(x)=(1−x)^(-2)B(x²). For each section, the B(x²) factor passes through as B(x); the indicated Vandermonde transformation computes coefficients of the remaining multiplier exactly. I independently rebuilt the full state space using rational multipliers P(x)/(1−x)^d rather than Newton coefficients: the next numerator is the even/odd section of P(x)(1+x)^(d+2), with denominator (1−x)^(d+2). The reproduced graph has 100 states; its histograms at depths 11 and 12 are (66,62,65,67,63,64,62,62) and (130,126,129,131,127,128,126,126), and all 800 consecutive recurrence residuals vanish in dimension 100. Taking predecessor closures of both labels gives 37 unstable states; exactly ten paths reach unstable states at depth seven and the next 100 differences vanish. Cayley–Hamilton applied to the integer transition matrix extends both identities to all later depths. The ten paths bound the change under any higher digits; together with the −2 offset they give error at most 12 per aligned dyadic block of length ≥2^11. Binary decomposition gives ordinary discrepancy O(1+log X), including real cutoffs by rounding. Positive values 112 mod 128 are 4²(8u+7), so the full obstruction lower density is at least 1/32, not necessarily exactly 1/32.
 
-The result does not settle the density of the *entire* three-square exception set. A separate independent audit would be needed for external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact eight dyadic histogram cells and the ordinary 112-fiber logarithmic discrepancy are distinct from prior automaticity, scalar valuations, and even the earlier two-color obstruction progressions. The claim is not new for automaticity or for the existence of a positive-density obstructed subset.
+
+## value
+
+PASS
+
+This is a motivated modulus and fiber: a single congruence yields a three-square obstruction and directly improves the earlier bound from 1/64 to 1/32. The stabilization and bounded number of suffixes sensitive to high digits give a quantitative all-prefix answer rather than just a dyadic-limit census. The simultaneous eight-cell histogram gives further usable residue information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

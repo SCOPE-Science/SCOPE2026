@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary statement follows from the exact affine form of a two-state Markov transition map. The two palindromic orders have the same contraction factor \(e^{-(s+t)h}\) and explicit distinct stationary intercepts. Strict convexity of \(\sinh\) brackets the exact equilibrium between them and proves strict mixing positivity. The combination consequently equals the entire exact transition matrix. For the three-state witness, direct finite matrix algebra yields the exact trace defect \((1-e^{-h})^4/4>0\), precluding even a signed affine mix. The verifier checks the identities independently on numerical rates and exact-rational polynomial data. It does not replace the universal proof.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+In the stated positive component-rate, column-vector setting all three maps on first-state mass have slope exp(−(s+t)h). Their fixed points lie on the line from p_A=b/s to p_B=d/t at parameters u_h, 1−v_h and t/(s+t), respectively. Multiplying the affine maps gives the stated hyperbolic-sine ratios; strict sinh convexity places the exact point strictly between the two when p_A≠p_B. Matching fixed points proves the weight, positivity and conditional uniqueness; p_A=p_B makes the generators proportional and both orders exact, and s=t gives a fair choice. For the path, cyclicity gives both traces as tr(exp(hA_3)exp(hB_3)); the two rate-one edge generators are −2 times rank-one orthogonal projections with squared overlap 1/4. At z=exp(−h) the product trace is 3−2(1−z²)+(1−z²)²/4, while the sum has eigenvalues 0,−1,−3. Their difference is (1−z)^4/4 for all h>0, excluding even real affine mixtures. These analytic checks, not the supplied sampled verifier (inspected, not executed), establish the claims. The result concerns one-step transition matrices, not pathwise equality.
 
-Searches over the public mathematics record and published mathematical claims covered exact convex combinations, reverse Strang orders, two-state kinetic generators, rate-only weights, three-state trace obstructions, and alternative Markov splitting terminology. The closest accessible primary work (Battestini–Caliari–Cassini, arXiv:2610.07989v1) analyzes noncommuting splitting *errors* of fixed orders; Li–Liu–Wan (arXiv:2603.27654) randomize order for approximation; Eisenmann–Stillfjord (arXiv:2210.05375) analyze a different random subflow scheme. None of the inspected statements implies the rate-only exact matrix identity, its unique mixing probability, and a sharp dimension-three trace obstruction. published-finding corpus matches on two-state reversible chains, SSP-SDIRK2 positivity, and Crank–Nicolson positivity concern other algorithms and metrics. This supports novelty under the checked evidence, not exhaustive priority. Residual risk: a specialized historical two-state splitting formula not indexed in the searched materials.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives an exact, *stochasticity-preserving* way of replacing an expensive coupled two-state generator exponential by a single randomly selected composition of split semigroups. Equal total relaxation scales yield a surprisingly simple fair randomization even when the generator components do not commute. The strict three-state obstruction identifies the first state dimension where the same two-order strategy can fundamentally fail, making the result a meaningful boundary for kinetic integrator design, not merely a renamed second-order error estimate. No cost optimality, nonlinear extension, or higher-dimensional impossibility is claimed.
+The supported distinct contribution is the positive exact, rate-only interpolation between the two specified fixed symmetric Strang products for a binary generator. The three-state trace obstruction is a correct sharp contrast, not a separate originality credit: strict Golden–Thompson already gives the qualitative obstruction for any two noncommuting real symmetric components. The exact path defect is a direct rank-one calculation. Among the compared sources, the closest binary relations are related or algebraically connected catalogue findings dated later, and the older product or splitting frameworks inspected do not provide an earlier equivalent theorem for the two fixed-order mixture. This is a bounded assessment, not historical-priority certification.
 
-## Source and scope limitations
+## value
 
-Relevant primary materials were checked at the full HTML level where accessible; a broader archival survey is not exhaustive. The two-state exactness refers to transition matrices/expectations at step endpoints, not pathwise sample paths. The obstruction applies to the two particular reverse Strang orders, not arbitrary positive multi-product formulas. All results are in exact arithmetic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reproducing the exact Markov step in expectation without modifying either off-the-shelf palindromic update is a precise, useful splitting constraint. Strict convexity and the explicit rate-only choice settle it for all step sizes and all distinct stationary states, unlike matching local truncation order. The symmetric path is a useful minimal-dimensional contrast, although the general trace mechanism is classical and pathwise equivalence and numerical performance are not established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,24 +1,21 @@
-# Scientific review: three-seed freezing on the four-cube
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed process has independent rate-one site clocks, unit ferromagnetic couplings, certain flips for energy decreases, fair-coin flips for ties, and no flips for increases. Its exact integer-scaled transition rates are 2, 1 and 0. The change in disagreeing-edge count is \(4-2d\), so the finite equations can be solved energy layer by energy layer, retaining within-layer neutral moves. The 222-orbit exact rational certificate is independently rebuilt by `verify_orbit_exact.py`. An independently coded full-state checker verifies the harmonic identity at all 65,536 configurations and all 720,896 transitions; its independent directed-graph decomposition finds exactly ten singleton recurrent classes. Its complete enumeration of 560 three-seed placements confirms all six exact rational probabilities and the one/two/three-seed boundary. No numerical simulation or finite-to-infinite inference is used.
+PASS
 
-## Originality — PASS on inspected evidence, with residual priority risk
+Flipping a vertex with d disagreeing neighbors changes the disagreement count by 4−2d; the doubled accepted-flip rates are 2 for d>2, 1 for d=2 and 0 otherwise. The generator is invariant under vertex symmetries and spin reversal. A separate full-state implementation used bit-mask neighbor intersections and different coordinate-permutation generators to validate the 222 orbit values on all 65,536 labeled states. It found 720,896 directed positive-rate moves and exactly the two monochromatic and eight coordinate half-cube absorbing masks. Reverse reachability from those masks covers every state, ruling out any other closed class; this also proves uniqueness of the finite harmonic solution. The replay checked each harmonic identity with integers scaled by a common denominator, and checked the boundary values against independently constructed absorbing masks. Independent enumeration reproduced all six distance classes, the exact weighted mean and the four reachability witnesses; all states with at most two minority spins have hitting probability zero. This is exhaustive on Q₄, not a claim for other dimensions or other tie rules.
 
-The closest same-model and same-graph source is Chen–Machta–Newman–Stein (arXiv:2506.19949). Its examined model, results and frozen-state sections include finite-dimensional numerical ground-state statistics, a geometric frozen-state framework, and the theorem excluding blinkers below dimension eight. The inspected main paper does not supply a rational exact six-geometry three-seed table or sharp minimal-seed boundary. Camia–De Santis–Newman studies infinite-volume \(\mathbb Z^2\), and Jovanovski studies low-temperature crossover barriers rather than this finite zero-temperature absorption. The full text of the closest published synchronous-majority four-cube result was compared: its deterministic simultaneous update and tie-retention convention yield different dynamics and cannot imply these probabilities. The published odd-by-odd bipartite Glauber race has no tied fields and a different graph. Failed indexed searches do not establish global historical uniqueness; unindexed work and possible unpublished data underlying numerical studies remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-cube is a canonical smallest nontrivial even-dimensional hypercube for the four-neighbor zero-temperature spin process and is directly motivated by prior studies of frozen domains and hypercube dynamics. The six exact three-seed classes and sharp boundary identify a concrete finite nucleation threshold: two minority spins never freeze, whereas a dispersed three-spin droplet sometimes produces an eight-spin frozen half-cube despite no temperature-driven uphill flip. A contiguous three-site path cannot do so. This geometry-dependent kinetic distinction, along with fully exact basin probabilities, is not merely a rephrasing of the standard absorbing-Markov-chain method or a previously reported static fixed-point count.
+The same-dynamics hypercube publication supplies the general no-blinker result and balanced-initial-state statistics, and known periodic-square stripe dynamics supplies close context. The distinct supported claim is the geometry-conditioned six-class exact three-spin law and sharp minority-seed boundary, not the general absence of blinkers, the stripe mechanism, or absorbing-chain algebra.
 
-## Closest literature and limits
+## value
 
-- Camia, De Santis and Newman, arXiv:math/0103050 (2001-03-07): fair-tie zero-temperature coarsening on the infinite square lattice.
-- Jovanovski, arXiv:1508.07769 (2015-08-31): low-temperature hypercube energy-barrier crossover.
-- Chen, Machta, Newman and Stein, arXiv:2506.19949 (2025-06-24): closely related exact model, numerical ground-state probabilities and a separate no-blinker theorem.
-- Published four-cube synchronous-majority census and complete-bipartite Glauber consensus result, URLs in `RESULT.md`.
+PASS
 
-The claim is only for standard continuous-time fair-tie dynamics on \(Q_4\), with exactly stated initial seeds. External historical-priority verification and independent scientific audit have not been performed.
+Q₄ is a natural degree-four cube where a minority configuration must grow to an eight-site half-cube to freeze. The smallest successful seeds include dispersed triples but not a length-two path; four geometric classes have distinct exact positive basin probabilities. This supplies a finite benchmark for geometry-sensitive nucleation that neither static frozen-state counts nor balanced-initial simulations provide. The standard Markov-chain method is not itself the contribution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

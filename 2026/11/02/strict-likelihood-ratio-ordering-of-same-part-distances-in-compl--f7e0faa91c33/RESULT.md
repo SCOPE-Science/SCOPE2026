@@ -1,64 +1,40 @@
 # Strict likelihood-ratio ordering of same-part distances in complete-bipartite uniform spanning trees
 
 ## Finding
-Fix integers \(a>b\ge 2\). Choose a spanning tree uniformly from the spanning trees of the simple complete bipartite graph \(K_{a,b}\), with labeled vertex classes \(A\) and \(B\). Let \(D_A\) be the tree distance between any two fixed distinct vertices of \(A\), and let \(D_B\) be the analogous distance for two fixed distinct vertices of \(B\). The two variables denote marginal laws; no simultaneous coupling is assumed.
 
-**Theorem.** The laws of \(D_A/2\) and \(D_B/2\) satisfy the strict monotone likelihood-ratio order
+Fix integers \(a>b\ge 2\). Sample a uniform spanning tree of the simple complete bipartite graph \(K_{a,b}\), with vertex classes \(A\) and \(B\). Write \(J_A=D_A/2\) and \(J_B=D_B/2\), where \(D_A\) and \(D_B\) are the tree distances between fixed distinct vertices in \(A\) and \(B\), respectively. The laws are marginal; no coupling is assumed.
+
+**Theorem.** \(J_B<_{\mathrm{lr}}J_A\): the ratio \(\Pr(J_A=j)/\Pr(J_B=j)\) is strictly increasing on their common positive support \(1\le j\le b-1\), and \(\Pr(J_A=b)>0=\Pr(J_B=b)\). In particular \(\Pr(J_A\ge j)>\Pr(J_B\ge j)\) for every integer \(2\le j\le b\), and \(\mathbb E\phi(D_A)>\mathbb E\phi(D_B)\) for every strictly increasing real function \(\phi\). If \(a=b\ge2\), the two laws coincide by symmetry.
+
+## Known distance law used in the proof
+
+For integers \(a\ge2,b\ge1\), put \(M=\min(a-1,b)\). The same-part tail for endpoints in the part of size \(a\) is
 \[
-D_B/2 <_{\mathrm{lr}} D_A/2.
+S_A(j)=\Pr(J_A\ge j)=\prod_{i=1}^{j-1}\frac{(a-i-1)(b-i)}{ab},\qquad 1\le j\le M+1,
 \]
-More explicitly, if \(p_A(j)=\Pr(D_A=2j)\) and \(p_B(j)=\Pr(D_B=2j)\), then \(p_A(j)/p_B(j)\) increases strictly for \(1\le j\le b-1\), wherever both probabilities are nonzero, and \(p_A(b)>0=p_B(b)\). In particular \(D_A\) is strictly larger than \(D_B\) in the usual stochastic order, so every strictly increasing real function has larger expectation on \(D_A\). If \(a=b\ge2\), the two laws coincide by symmetry.
+with empty product \(1\) and zero tail for \(j>M+1\). The mass is \(S_A(j)-S_A(j+1)\). These formulas follow from the prescribed-tree inclusion theorem of Ge and Dong and are recorded explicitly in *A complete one-crossing law for marked distances in bipartite uniform spanning trees*. For completeness, a path with \(j+1\) vertices of \(A\) and \(j\) of \(B\) has inclusion probability \([ab-(a-j-1)(b-j)]/(a^j b^{j+1})\). For two fixed endpoints there are \((a-2)_{\underline{j-1}}(b)_{\underline j}\) such paths, where \((x)_{\underline k}\) is the falling factorial. Their inclusion events are disjoint because a tree has a unique path between its endpoints. The sum is the difference of the displayed successive products, and the last product vanishes at \(M+1\). The \(B\)-law uses exchanged class sizes when \(b\ge2\).
 
-For any integers \(a\ge2,b\ge1\), putting \(J_A=D_A/2\), the full finite-sample law is
+## Proof of the ordering
+
+Set \(C_j=j(a+b-j-1)\) and \(p_A(j)=\Pr(J_A=j)\), \(p_B(j)=\Pr(J_B=j)\). Subtracting successive tails gives \(p_A(j)=S_A(j)(C_j+b)/(ab)\) and \(p_B(j)=S_B(j)(C_j+a)/(ab)\). Thus on the common support,
 \[
-\Pr(J_A\ge j)=\prod_{i=1}^{j-1}\frac{(a-i-1)(b-i)}{ab},
-\quad 1\le j\le\min(a-1,b)+1,
+\frac{p_A(j)}{p_B(j)}=
+\left[\prod_{i=1}^{j-1}\frac{(a-i-1)(b-i)}{(b-i-1)(a-i)}\right]\frac{C_j+b}{C_j+a}.
 \]
-where the empty product is \(1\), and the probability is \(0\) above that range. Equivalently, for \(1\le j\le\min(a-1,b)\),
-\[
-\Pr(J_A=j)=\frac{(a-2)_{\underline{j-1}}(b)_{\underline j}}{a^j b^{j+1}}
-\bigl(j(a+b)+b-j(j+1)\bigr).
-\]
+For each adjacent comparison \(1\le j\le b-2\), the newly appended factor has positive denominator and numerator exceeding it by \(a-b\). The last quotient increases strictly, since it increases in \(C_j\) and \(C_{j+1}-C_j=a+b-2j-2>0\) in this range. At \(j=b\), only the larger class has positive mass. This proves the stated strict order, including \(b=2\), where the common support is a single point and strictness comes from the extra positive mass.
 
-## Assumptions and scope
-The host graph is \(K_{a,b}\) and the probability measure is uniform over its spanning trees, not a minimum-spanning-tree model. Distinct endpoints are fixed in one bipartition class. Distances between vertices in the same part are even. The comparison requires \(a>b\ge2\); the exact one-part law also holds with \(b=1\) when only one of the two same-side comparisons is possible. Falling factorials obey \((x)_{\underline r}=x(x-1)\cdots(x-r+1)\), with \((x)_{\underline0}=1\). All numerical and stochastic comparisons are finite-sample statements, for every indicated integer pair.
+For \(2\le j\le b\), the upper-tail probability at \(j\) is strictly larger on the \(A\)-side: each existing product factor for \(A\) exceeds the corresponding factor for \(B\) when the latter is positive, and the \(B\)-tail at \(b\) is zero while the \(A\)-tail is positive. Summation by parts gives the strict expectation inequality. The likelihood-ratio theorem gives more than tail order: even after restriction to a common distance window, the odds of one specified higher distance versus one lower distance in the common support are larger for endpoints in the larger class.
 
-## Proof
-**Path containment.** A prescribed alternating simple path with \(r\) vertices in \(A\) and \(s\) vertices in \(B\) is contained in exactly the spanning trees obtained by contracting its edges, preserving parallel edges. With \(x=a-r\) and \(y=b-s\), the reduced Laplacian of the contracted graph, deleting the contracted path's vertex, is
-\[
-L'=\begin{pmatrix}
-bI_x&-\mathbf1_{x\times y}\\
--\mathbf1_{y\times x}&aI_y
-\end{pmatrix}.
-\]
-Its determinant, by the rank-one determinant identity, is \(b^{x-1}a^{y-1}(ab-xy)\); boundary cases with \(x=0\) or \(y=0\) follow directly from the remaining diagonal block, and \(x=y=0\) has determinant \(1\). The standard complete-bipartite tree count is \(a^{b-1}b^{a-1}\). Therefore the prescribed path is present with probability
-\[
-\frac{ab-(a-r)(b-s)}{b^r a^s}.
-\]
+## Verification and scope
 
-**Exact distance distribution.** If endpoints lie in \(A\), their unique path of length \(2j\) has \(j+1\) vertices of \(A\) and \(j\) of \(B\). There are \((a-2)_{\underline{j-1}}(b)_{\underline j}\) possible labeled paths. Two distinct such endpoint paths cannot both be the unique path in a tree; summing their containment probabilities yields the displayed mass \(p_A(j)\). The ratio of the displayed survival product at indices \(j+1\) and \(j\) is \((a-j-1)(b-j)/(ab)\). Thus its difference is exactly \(p_A(j)\), and the final product is zero. This proves normalization, the tail formula, and all support boundaries.
-
-**Strict likelihood-ratio order.** Let \(n=a+b\) and \(C_j=j(n-j-1)\). For \(a>b\ge2\), on the common positive support \(1\le j\le b-1\), the ratio of the two masses is
-\[
-\frac{p_A(j)}{p_B(j)}
-=\left[\prod_{i=1}^{j-1}
-\frac{(a-i-1)(b-i)}{(b-i-1)(a-i)}\right]
-\frac{C_j+b}{C_j+a}.
-\]
-Each factor added to the product when \(j\) increases is strictly greater than one: the numerator minus denominator of its inner fraction is precisely \(a-b>0\). The last fraction increases strictly with \(C_j\), since \(a>b\); and \(C_{j+1}-C_j=n-2j-2>0\) whenever \(j<b-1\). Hence the entire mass ratio is strictly increasing. The smaller part has maximal feasible index \(b-1\), while the larger part has index \(b\) with positive mass. This proves the strict likelihood-ratio order on the ordered union of supports. Strict stochastic order and all increasing-test consequences follow by the standard likelihood-ratio implication. Equal sizes give identical laws by side exchange.
-
-## Verification
-The standalone standard-library Python script `verify.py` performs exact rational checks of normalization, mass-tail identities and strict adjacent likelihood-ratio minors across \(2\le a\le30\), \(1\le b\le30\), plus **independent spanning-tree enumeration** for all \(2\le a,b\le4\). It completed **24,635 exact checks** with no failed assertion. This is supplementary finite evidence; the all-size theorem rests on the algebraic argument above. Run with `python verify.py`.
-
-For example, on \(K_{4,3}\), the masses of \(D_A/2\) at \(j=1,2,3\) are \((2/3,11/36,1/36)\), while those of \(D_B/2\) are \((3/4,1/4,0)\). Their common-support likelihood ratios are \(8/9<11/9\), followed by the larger part's extra positive tail.
+The unchanged `verify.py` checks both the known laws and the strict adjacent likelihood-ratio minors with rational arithmetic for \(2\le a\le30, 1\le b\le30\) (the latter where \(a>b\ge2\)). It separately enumerates spanning trees on \(K_{a,b}\) for \(2\le a,b\le4\). For instance on \(K_{4,3}\) the masses are \((2/3,11/36,1/36)\) versus \((3/4,1/4,0)\), with increasing common-support ratios \(8/9<11/9\). Finite checks illustrate the all-size argument; they do not prove it. The theorem concerns the uniform spanning-tree law, not a minimum or nonuniform weighted spanning tree or a general bipartite host.
 
 ## Relationship to prior work
-Chung, Horn and Lu, *Diameter of random spanning trees in a given graph*, publicly available in the 2011 journal edition, established general host-graph diameter estimates; the inspected preprint's spectral-gap setup explicitly treats nonbipartite graphs for those estimates and does not give a two-vertex, two-vertex-class likelihood-ratio comparison. Ge and Dong, *Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs* (2019), Theorem 1.4, already give a more general formula for the number of spanning trees containing any prescribed tree. The present fixed-path containment count is an instance of that known theorem; **it is not claimed as new**. Dong and Ge (2021), Theorem 4, further subsume those containment counts by a fixed-spanning-forest formula. The assessed contribution here is the full same-part distance law together with the strict **cross-vertex-class likelihood-ratio ordering** and its finite-sample consequences, which the inspected theorems do not state. These published containment formulas provide a route to reconstruct the first step, but do not themselves assert the distributional order.
 
-## Limitations
-The result concerns only uniform spanning trees on complete bipartite host graphs; it does not concern minimum-weight trees, nonuniform edge weights, general bipartite graphs, or distances conditional on a full degree sequence. It supplies no independent expert audit and makes no claim about a new formula for prescribed-path inclusion. Published work may contain an implicitly equivalent likelihood-ratio comparison not identified in the checked sources; that is the principal remaining priority risk.
+Ge–Dong, Theorem 1.4, and Dong–Ge, Theorem 4, give respectively the prescribed-tree and more general prescribed-forest counts. The exact individual mass and tail formulas are prior and are not part of the originality claim. *A complete one-crossing law for marked distances in bipartite uniform spanning trees* explicitly gives those laws and proves a stochastic comparison across **different** complete bipartite hosts of fixed total size when the marked part is at least as large as its complement. That theorem neither compares anchor classes within one unbalanced host nor asserts likelihood-ratio order. The present contribution is only the strict within-host cross-class likelihood-ratio theorem. Equivalent priority elsewhere has not been ruled out.
 
 ## References
-- F. Chung, P. Horn and L. Lu, *Diameter of random spanning trees in a given graph*, Journal of Graph Theory 69 (2012), 223–240; first published online 2011-03-04, https://doi.org/10.1002/jgt.20577 ; accessible earlier-dated manuscript https://cs.du.edu/~paulhorn/pap/spanningtree-final.pdf .
-- J. Ge and F. Dong, *Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs*, 2019, Theorem 1.4, https://arxiv.org/abs/1904.07766 .
-- F. Dong and J. Ge, *Counting spanning trees in a complete bipartite graph which contain a given spanning forest*, 2021, Theorem 4, https://arxiv.org/abs/2103.05294 .
+
+- J. Ge and F. Dong, *Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs*, Theorem 1.4, https://arxiv.org/abs/1904.07766.
+- F. Dong and J. Ge, *Counting spanning trees in a complete bipartite graph which contain a given spanning forest*, Theorem 4, https://arxiv.org/abs/2103.05294.
+- *A complete one-crossing law for marked distances in bipartite uniform spanning trees*, https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-complete-one-crossing-law-for-marked-distances-in-bipartite-un--50939acd9f27/RESULT.md.

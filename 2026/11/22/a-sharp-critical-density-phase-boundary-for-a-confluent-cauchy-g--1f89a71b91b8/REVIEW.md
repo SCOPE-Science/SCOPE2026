@@ -1,15 +1,21 @@
-# Scientific review: confluent Cauchy Gabor boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is restricted to real \(\lambda\), strictly positive pole height \(a\), and the unit critical time-frequency lattice. Differentiation of the classical Cauchy partial-fraction Zak identity gives the exact two-factor multiplier. Cotangent on a horizontal line is a circle with explicitly computed center, radius, and exposed arc; intersecting that arc with the required vertical line yields the claimed unique interior, boundary, or absent zero. Zak diagonalization gives the exact frame/Riesz criterion, Bessel upper bound, and completeness despite isolated nonframe zeros. Near the unique boundary zero, the derivative matrix is nonsingular; the constrained local least-square problem gives the height-independent coefficient \(4\pi^2\). The code checks finite formula, geometry, roots, and asymptotic consistency, not the infinite proof.
+## correctness
 
-## Originality — PASS (best knowledge; historical-priority uncertainty)
-The closest primary literature is Belov–Kulikov–Lyubarskii's 2021 rational-Gabor study and its 2022 single-Cauchy sequel. Their qualitative critical Zak criterion and simple-pole analysis are already known. The first paper discusses multiple poles as a possible extension and announces qualitative two-simple-pole frame-set descriptions. Neither inspected full text states the real confluent double-pole parameter threshold together with the universal sharp squared-lower-bound collapse. Related results on signed two distinct Cauchy poles concern genuinely separated simple poles and have different parameter geometry; their existing statements do not imply the coefficient here without a new singular-limit argument. These comparisons establish a defensible best-knowledge distinction, not exhaustive historical priority.
+PASS
 
-## Value — PASS
-The object is the lowest-order perturbation of a Cauchy time-frequency generating window by its derivative in pole position. The question is whether critical-density stable reconstruction survives, where it fails, and with what sharp conditioning rate. The theorem supplies an exact all-height, all-real-parameter phase boundary, an explicit geometric mechanism for the unique Zak zero, and a surprisingly pole-height-independent sharp quadratic loss coefficient. The exact coefficient is a natural stability invariant, not a numerical curiosity or an arbitrary finite slice.
+With the negative-frequency Zak convention in the record, applying −∂_z to the simple-pole series gives the squared-pole multiplier and the stated F. At lattice (1,1) the shifted/modulated windows correspond to multiplication of the orthonormal character basis by Zg; essential bounds for |Zg|² are therefore precisely the squared frame bounds. Z₁ is bounded and bounded away from zero on the one-sided rectangle. The cotangent circle has center −i coth(2πa) and radius csch(2πa); on its cap Im(cot)≥−1 the real part parametrizes a single graph on [−M,M], M=2/√(exp(4πa)−1). The zero requires real part −1/(πλ), with 2ω−1 equal to the imaginary part. This gives one boundary zero at equality and one open-cell zero above; ∂x Re F and ∂ω Im F are nonzero on this arc when λ≠0, giving simplicity. No zero occurs for λ=0. A boundary zero also kills the essential lower bound by interior continuity into every small neighborhood. Boundedness and nonvanishing almost everywhere prove Bessel and completeness. For positive λ near λc, the nonsingular real derivative in (x,ω) at the isolated critical zero, the uniform lower bound on |Z₁|, and an O(δ) trial residual force all weighted minimizers within O(δ) of the zero, δ=λc−λ. The constrained leading quadratic has its minimum at ω=0 and x−x*=M²δ/(M²+4), giving 4π²M²δ²/(M²+4). At contact Z₁(x*,0)=π(−M−2i), so the product is 4π⁴M²δ²=4π²(δ/λc)². Reflection x↦1−x handles negative λ, approaching each boundary only from the frame region. The finite supplied diagnostics were inspected, not executed; analysis, not the boundary-only numerical minimizer, proves the global asymptotic.
 
-## Sources and residual risks
-Primary full-text comparisons: *Gabor frames for rational functions* (arXiv:2103.08959, especially Sections 1, 2 and the multiple-pole note) and *Gabor frame operator for the Cauchy kernel* (arXiv:2212.08915, introduction and critical Zak bounds). Available research-record comparison includes *Sharp critical Gabor bounds and a universal conditioning barrier for positive Cauchy mixtures*, *Exact protected-gap lower frame bound for signed two-Cauchy Gabor windows*, *Sharp lower bounds and optimal normalized stability for opposite Cauchy poles*, and *Critical-density Gabor phase diagram for shifted cubic-gamma windows*; complete RESULT texts of these nearby records were compared on object, hypotheses and implication, not title similarity. Remaining risk: earlier unpublished or otherwise unindexed calculations of confluent rational windows might contain the same explicit quadratic coefficient. No independent historical or mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Critical Zak diagonalization and the simple-pole multiplier are established. The material advance is the explicit real double-pole threshold, its zero geometry, and the universal stable-side collapse coefficient. The closest checked lower-bound theorem is for distinct imaginary pole heights with real signed residues and no confluent limit; even its direct normalized coalescence is in an imaginary, not real, double-pole direction. The related same-day three-pole result is on a different parameter space and does not contain this boundary or onset.
+
+## value
+
+PASS
+
+A derivative perturbation of a canonical rational Gabor window poses a natural stability problem at critical density. The exact interval and the distinct boundary/interior zero cases distinguish loss of stable reconstruction from loss of completeness. The sharp coefficient quantifies how rapidly the lower bound becomes unusable while still inside the frame region, with no pole-height dependence under the stated normalization. This is useful even without a full noncritical frame-set classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-The standalone `verify.py` runs with Python 3, SymPy, NumPy, and SciPy and requires no source-document files or network access. Invoke `python3 verify.py` from the directory containing the script. The successful observed output begins:
+## correctness
 
-```
-PASS 75 exact symbolic identities/positivity conditions and independent geometric volume comparisons
-critical small/large ratio: 0.402394259925177568
-critical normalized large coordinate: 0.634264060482970744
-critical section volume: 1.31889442272420290
-```
+PASS
 
-The script constructs each rational piece from the independently derived positive-part convolution sum, asserts equality with eight explicit rational branches, differentiates their formulas, checks junction values and first derivatives, verifies the two Bernstein positivity identities exactly, and checks the defining quadratic root and both interval exclusions. It also computes twenty four-dimensional convex-hull volumes from actual five-cube edge-plane intersections at distinct real parameters, and checks agreement with the analytic volume formula.
+Coarea gives intrinsic volume as the density of the weighted uniform sum at zero times the norm of the normal. Inclusion–exclusion for the truncated box gives the fourth-positive-power density formula, differentiable even at its knots on the positive orthant. Block permutation invariance forces the spherical gradient into the one-dimensional space tangent to the normalized two-level arc, so vanishing of its derivative detects full stationarity. Across all four block multiplicities the exact branch polynomials and their knot limits leave only the smaller root of 39t²−48t+13, on the (2,3) arc. This derivative changes from negative to positive there; all other arcs are strictly increasing with no zero derivative at an internal knot. The density at the root gives the claimed volume, and the orbit count is 10 choices of the two large coordinates times 16 sign patterns modulo common reversal. The path minimum does not imply an ambient minimum: splitting the two large weights to 1+a and 1−a gives a negative quadratic term at fixed t=τ. In the normalized volume its coefficient divided by √(2+3t²) is f(0)(1+1/(2+3t²))−3/(4t), where f(0)=1−13t/32 is the density for unsplit weights. This follows from convolving the trapezoidal density of the two split uniforms with the other three; the correction near the trapezoid's plateau is a² times their density at zero, 3/(4t). The first term is below 3/2 and the second is above 3/2 since t<1/2.
 
-The convex-hull test uses floating point arithmetic with a conservative absolute error tolerance; only the symbolic algebra and sign certificates are exact. Neither twenty geometric profiles nor seventy-five program assertions constitute exhaustive proof over real parameters. The general theorem is established by the explicit positive-part formula, full-gradient symmetry argument, and exhaustive sign proof in `RESULT.md`.
+## originality
 
-The work classifies only normals with full support and precisely two absolute-coordinate levels. Independent audit has not been performed.
+PASS
+
+Credit the prior construction and saddle classification, not as new discoveries. The distinct claim is the exact five-dimensional ratio and the exhaustive full-support two-level census. One nonmaterial bibliographic correction: the earlier numerical entry ξ₅=0.634265 is the normalized large coordinate a, not the ratio t as the frozen discussion suggests. Here a=1/√(2+3τ²)=0.63426406048…, while t=τ≈0.40239426.
+
+## value
+
+PASS
+
+The first dimension after the cited classifications provides a natural, exhaustive four-family slice of the ambient critical-point problem. The result sharpens an earlier existence construction to a unique exact orbit within that slice and separates the strict symmetry-path minimum from the ambient saddle. An explicit volume and orbit count give usable data for a wider critical-point classification without claiming to solve it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:15.213265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated orientations of the unfilled cycle instead of orders: all orientations except the two consistently directed cycles are acyclic and hence arise from strict vertex orders. Each orientation gives the required incidence pairs at vertices with exactly one outgoing edge to an earlier vertex. Downward closures yield 1,060 nonempty faces, vector (16,96,272,380,240,56), 56 top facets and four additional tetrahedra. The pure complex omits precisely masks 2313, 9252, 20624, 33346 and agrees with the full one for n=3 through 7. The replay builds all 4,064 oriented incidences on the nonempty face poset and uses a recursion-stack acyclicity test: the 527 valid pairs leave mask 1 and the five stated three-simplex masks. Forman gives one 0-cell and five 3-cells with nowhere else for their boundaries to attach. This is integral homotopy, not an inference from the frozen modular Betti numbers.",
+      "replay_path": "/workspace/replay/simplicial.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Propositions 8.2–8.3 give dimension n−3 and n(n−1) top simplices. Theorem 8.4 and proof distinguish n≤7 from n≥8.",
+          "43f58158c288 proves all-n≥6 integral homology and a full-cycle independence-complex comparison.",
+          "4773dc901c73 studies pure homology, a distinct same-day record, and the later e87f9e9fd5ee and 0de42a6380fb concern C9 and C10."
+        ],
+        "reasoning": "The primary pure-cycle homotopy classification is not itself a full classification, but the older full structural model with its integral groups suffices in the single-degree eight-cycle case.",
+        "searches": [
+          "arXiv:2609.06844 Propositions 8.2–8.3 and Theorems 8.4, 8.6",
+          "Resultary 43f58158c288 Proof §§2–4",
+          "Resultary 4773dc901c73, e87f9e9fd5ee, 0de42a6380fb"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.06844",
+        "Resultary 43f58158c288, 4819a9d67705, 4773dc901c73, e87f9e9fd5ee, 0de42a6380fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the earlier L=Ind(B_8), its faces omitted from K are single-sign vertex covers of C8; these have ≥4 selected vertices because C8 has four disjoint edges.",
+          "The earlier proof gives L≃ΣD with D the plus-subsets whose complement contains three successive vertices. Any complement of an edge has six cyclic sites; without a run of three, the two missing sites could separate at most four present ones. Thus D contains the entire plus 1-skeleton and is connected.",
+          "K has only degree-three reduced homology Z^5 by the earlier integral formula."
+        ],
+        "reasoning": "The two shared low skeleta give pi1(K)=pi1(L)=0. Then H2=0 gives pi2=0 by Hurewicz. Representing a basis of H3 by maps S^3→K yields a homology equivalence of simply connected CW complexes from the wedge, hence a homotopy equivalence. Primary §8 already settles first divergence and 56 top facets; the word model supplies the four exceptional faces. No extra comparison between pure and full maps is required for the wedge implication.",
+        "searches": [
+          "43f58158c288 RESULT.md offsets 1150 and 4995, Proof Steps 1–4",
+          "arXiv:2609.06844 §8 at offsets 35100, 40350 and 57650–61187"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's full complex, not the ordinary or pure complex, uses incidences arising from strong vertex filtrations of the unfilled cycle.",
+          "The earlier Resultary word model identifies selected incidences with ±; opposite nonzeros cannot be adjacent; a monochromatic face must leave consecutive zeros."
+        ],
+        "reasoning": "The same definitions give the identical prior inclusion model. With both signs present a maximal face has only isolated zeros, each separating opposite signs, so an even number of zeros; four zeros at n=8 force alternating singletons and yield exactly four facets. With one sign every face extends to n−2 entries. Thus the precise exceptional-facet count follows immediately from the earlier criterion.",
+        "searches": [
+          "Resultary full strong discrete Morse matching complex of C8, cycle vertex filtrations, pure versus full",
+          "arXiv:2609.06844 §8",
+          "Resultary 43f58158c288 Proof Steps 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Table 1 lists five degree-three homology summands at n=8; the adjacent prose says the table reports homology, despite the sphere notation.",
+          "43f58158c288 gives degree-three rank 3+2, nothing elsewhere reduced, and explicitly does not claim homotopy.",
+          "4819a9d67705 gives virtual reduced Euler trace −5 at the identity for n=8, not a homotopy classification."
+        ],
+        "reasoning": "The homology is directly known. The Euler trace is a strictly weaker numerical match and the table alone is not a homotopy proof.",
+        "searches": [
+          "arXiv:2609.06844 Table 1",
+          "Resultary 43f58158c288 Finding at offset 0",
+          "Resultary 4819a9d67705 Finding at offset 0"
+        ]
+      },
+      "rationale": "The primary preprint already gives dimensions, counts of top simplices and the first failure of purity, and the full-C8 integral homology is exactly covered by Resultary 43f58158c288. More decisively, that earlier record supplies a simplicial inclusion K⊂L with only monochromatic cycle vertex covers omitted and proves L≃ΣD. At n=8 all omitted faces have at least four vertices and D is connected: its edges include all pairs, since a six-element subset of the eight-cycle must contain three consecutive vertices. Thus K and the simply connected L share their 2-skeleta. With the prior H2=0, K is 2-connected, and Hurewicz followed by homological Whitehead gives the five-sphere wedge. That prior structural information, not the homology table alone, makes the principal homotopy claim a routine consequence. The four extra facets are likewise obtained directly by specializing its cyclic word criterion; the specific perfect matching is a new certificate, not a material extension of the finding.",
+      "residual_risks": [
+        "A verbatim prior full wedge statement was not found. The negative assessment uses an explicit implication from the inspected prior proof, not that absence or the use of a homology table by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact top dimension/facet count, first divergence and homology overlap; not a stated full wedge theorem",
+          "evidence": "Theorem 8.6 gives the pure S^2 wedge two S^3 at C8, and the full entry gives rank five in degree three.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06844",
+          "material_read": "Abstract/introduction, §8 Propositions 8.2–8.3 and Theorems 8.4 and 8.6, Remark 8.13, full-cycle discussion and Table 1, PDF pp. 12–14 and 21–22",
+          "method": "OA primary PDF and bounded passages",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Same object, explicitly computes pure homotopy and tabulates full cycle homology"
+        },
+        {
+          "assessment": "Direct integral-homology coverage and a prior model mechanically giving the C8 homotopy classification",
+          "evidence": "The proof exhibits the omitted monochromatic vertex covers, and L as a homotopy pushout of contractible pieces, equivalently ΣD.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-integral-homology-of-full-strong-morse-matching-complexe--43f58158c288/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–4 (offsets 0, 1150, 4995)",
+          "method": "Resultary search and exact local-mirror text",
+          "title": "Uniform integral homology of full strong Morse matching complexes of cycles",
+          "trigger": "Same complex and all-cycle integral group formula"
+        },
+        {
+          "assessment": "Alternating traces not exact group or homotopy classification",
+          "evidence": "The identity trace for n=8 is −5.",
+          "identifier_or_url": "Resultary 4819a9d67705",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dihedral Euler characters of full strong Morse complexes of cycles",
+          "trigger": "Named full-cycle prior result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full-versus-pure question is mathematically motivated, and a perfect matching is a useful independent certification. But the frozen full homotopy type and divergence are already determined by prior results, and the additional face counts are routine word-model enumeration. No separately motivated structural theorem about the perfect matchings or harder cycle lengths is a finding here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

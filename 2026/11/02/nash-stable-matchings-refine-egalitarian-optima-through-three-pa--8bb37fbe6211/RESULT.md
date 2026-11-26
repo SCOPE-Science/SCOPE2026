@@ -1,46 +1,30 @@
-# Nash stable matchings refine egalitarian optima through three pairs, with a sharp four-pair reversal
+# Strict rank-sum ordering of Nash products in stable marriage through three pairs
 
 ## Finding
 
-Let \(I\) be a classical balanced stable-marriage instance with \(n\) agents on each side, complete strict preference lists, and perfect matchings. Give each agent whose assigned partner has zero-based rank \(r_a(M)\) the positive Borda-type utility \(n-r_a(M)\). For each stable matching \(M\), define the egalitarian rank cost and Nash product by
+In a balanced stable-marriage instance with complete strict preferences and \(n\) agents on each side, let \(r_a(M)\) be agent \(a\)'s zero-based partner rank under the perfect matching \(M\). Define the egalitarian rank sum and positive rank-induced Nash product by
 \[
 E(M)=\sum_{a=1}^{2n}r_a(M),\qquad P(M)=\prod_{a=1}^{2n}(n-r_a(M)).
 \]
-
-**Complete three-pair ordering theorem.** For every such instance with \(1\le n\le3\), and every pair of stable matchings \(M,N\),
+For \(1\le n\le 3\), **every pair** of stable matchings satisfies
 \[
 E(M)<E(N)\quad\Longrightarrow\quad P(M)>P(N).
 \]
-Consequently every Nash-product-maximizing stable matching minimizes egalitarian rank cost. Writing \(\mathcal N(I)=\arg\max_{M\ \mathrm{stable}}P(M)\) and \(\mathcal E(I)=\arg\min_{M\ \mathrm{stable}}E(M)\),
-\[
-\mathcal N(I)\subseteq\mathcal E(I)\qquad(1\le n\le3).
-\]
+This compares even stable matchings that optimize neither objective. At \(n=3\), the 46,656 labeled profiles contain 14,760 unordered stable-matching pairs. Of those pairs, 8,304 have unequal rank sums, and in each such pair the lower rank sum has strictly larger product. The smallest product difference among these strict comparisons is 6. The remaining 6,456 pairs tie on rank sum; 3,696 of them have different products and 2,760 agree on both scores.
 
-For the \((3!)^6=46{,}656\) labeled complete strict three-pair profiles, precisely \(43{,}728\) have \(\mathcal N(I)=\mathcal E(I)\), while precisely \(2{,}928\) have strict containment \(\mathcal N(I)\subsetneq\mathcal E(I)\). No other relation occurs. All sixteen two-pair profiles give equality.
-
-**Sharpness.** At four pairs the order can reverse, and Nash and egalitarian objectives can have disjoint unique stable optimizers. An explicit four-pair instance with exactly two stable matchings is given below, with a lower-cost solution of Nash product \(4096\) and a higher-cost solution of Nash product \(4608\).
+At four pairs a reversal already occurs with **exactly two stable outcomes**. This is the smallest number of stable outcomes in which a reversal can occur. The two solutions in the example below have \((E,P)=(7,4096)\) and \((8,4608)\), respectively.
 
 ## Assumptions and scope
 
-There are exactly \(n\) men and \(n\) women. All agents rank all agents on the other side strictly. The matchings are bijections, and stability means that no unmatched man-woman pair both strictly prefer one another to their partners. Each participant contributes once to both objectives. Ranks start at zero, so first-choice utility is \(n\), last-choice utility is \(1\), and \(P(M)>0\). The Nash geometric mean has the same maximizers as the product \(P\).
-
-All ties in the objectives are preserved in their complete optimizer sets. The theorem does *not* assert that all egalitarian minimizers are Nash maximizers; this fails for \(2{,}928\) of the three-pair profiles. The implication in the theorem concerns pairs with *strictly unequal* rank sums, and does not claim equality of Nash scores when rank sums tie.
+Matchings are bijections between the two sides. A matching is stable if no unmatched pair both strictly prefer each other to their assigned partners. All \(2n\) agents enter both scores once, and the geometric mean has the same order as \(P\). The result concerns the particular utilities \(n-r\), not arbitrary cardinal utilities consistent with the preferences. It imposes no product equality when rank sums tie.
 
 ## Proof
 
-**Step 1: An exhaustive finite proof for all markets of size at most three.** For each \(n\in\{1,2,3\}\), the checker enumerates every tuple of \(2n\) strict preference lists. Each list is one of \(n!\) permutations, so this covers exactly \((n!)^{2n}\) labeled profiles, without sampling or symmetry assumptions. For every profile, it enumerates every one of the \(n!\) perfect matchings and tests all potential blocking man-woman pairs. Two independently written stability tests, one using integer rank tables and one using explicit preference prefixes, agree on every candidate matching.
+For each \(n=1,2,3\), form every ordered tuple of \(2n\) preference permutations of the opposite-side labels. For each of these \((n!)^{2n}\) tuples, form all \(n!\) bijections. A bijection passes the stability test precisely when the set of edges that a first-side agent would prefer to their assigned edge has empty intersection with the set of edges that a second-side agent would prefer to their assigned edge. These sets consist exactly of the corresponding strict preference prefixes. For every bijection that passes, compute its integer \(E\) and \(P\). Sort each unordered pair of such matchings by \(E\); if its costs differ, compute the product difference in that order. This finite procedure uses every possible input and every candidate stable pair, without any symmetry assumption.
 
-For each resulting stable matching, the checker computes all \(2n\) partner ranks, the *exact integer* sum \(E\), and the *exact integer* product \(P\). It tests the strict inequality \(E(M)<E(N)\implies P(M)>P(N)\) for every unordered pair of distinct stable matchings, and computes the *full* argmin and argmax sets without tie breaking. Thus no unexamined profile or potential stable matching remains in the finite domain.
+At \(n=1\) the single profile has a single stable matching. At \(n=2\), fourteen profiles have one stable matching and two have two; both comparisons tie on both objectives. At \(n=3\), 34,080 profiles have one stable matching, 11,484 have two and 1,092 have three, giving \(11{,}484+3(1{,}092)=14{,}760\) stable pairs. The exact strict-cost comparisons are:
 
-At \(n=1\) there is one profile with one stable matching. At \(n=2\) all sixteen profiles have coincident optimizer sets. At \(n=3\), all \(46{,}656\) profiles pass the asserted pairwise implication. The distribution of the number of stable matchings is
-\[
-\begin{array}{c|rrr}\text{stable matching count}&1&2&3\\\hline\text{profiles}&34080&11484&1092\end{array}.
-\]
-The complete comparison includes \(14{,}760\) unordered pairs of stable matchings over all profiles, of which \(8{,}304\) have distinct rank sums, \(3{,}696\) tie on rank sums but differ in Nash product, and \(2{,}760\) tie on both objectives.
-
-For additional reproducibility, the complete stratification of the \(8{,}304\) strict-cost comparisons is below. The final column is the *smallest observed positive integer gap* \(P(M_{\mathrm{lower\ cost}})-P(M_{\mathrm{higher\ cost}})\) in the indicated rank-sum cell:
-
-| Lower \(E\) | Higher \(E\) | Pair comparisons | Minimum product gap |
+| Lower \(E\) | Higher \(E\) | Pairs | Minimum \(P_{\rm lower\ cost}-P_{\rm higher\ cost}\) |
 |---:|---:|---:|---:|
 | 2 | 3 | 288 | 162 |
 | 2 | 4 | 144 | 243 |
@@ -51,11 +35,11 @@ For additional reproducibility, the complete stratification of the \(8{,}304\) s
 | 4 | 6 | 648 | 45 |
 | 5 | 6 | 1944 | 6 |
 
-Every minimum gap is strictly positive. This exact finite calculation proves the stated implication for all size-at-most-three profiles. Any Nash maximizer outside the egalitarian minimum set would have strictly greater \(E\) than an egalitarian minimizer, hence strictly smaller \(P\), a contradiction. The exact optimum-set counts are \(43{,}728\) equal and \(2{,}928\) proper containment.
+All gaps are positive, which proves the assertion by exhaustive finite computation. In particular it gives a stronger statement than the known inclusion of optimizer sets: a stable matching with nonminimal \(E\) loses to *every* stable matching with lower \(E\), whether or not either is an optimizer.
 
-**Step 2: Four-pair counterexample.** Label both sides \(0,1,2,3\). In the following table, entries are opposite-side agents listed in decreasing preference order:
+For the reversal, preferences are listed in decreasing order:
 
-| Agent | Strict preference list |
+| Agent | Preferences |
 |:---|:---|
 | Man 0 | 1, 3, 2, 0 |
 | Man 1 | 2, 0, 1, 3 |
@@ -66,48 +50,21 @@ Every minimum gap is strictly positive. This exact finite calculation proves the
 | Woman 2 | 3, 0, 2, 1 |
 | Woman 3 | 2, 3, 1, 0 |
 
-Write a matching as a tuple of women assigned to men \(0,1,2,3\). Exhaustively checking all \(4!=24\) permutations gives exactly two stable matchings:
-\[
-M_E=(1,2,3,0),\qquad M_P=(2,1,3,0).
-\]
-Their eight-agent zero-based rank vectors, with men followed by women, are
-\[
-\begin{aligned}
-r(M_E)&=(0,0,2,0,0,2,3,0),\\
-r(M_P)&=(2,2,2,0,0,1,1,0).
-\end{aligned}
-\]
-Thus
-\[
-\begin{array}{c|cc}&E&P\\\hline M_E&7&4096\\ M_P&8&4608\end{array}.
-\]
-As there are no other stable matchings, \(M_E\) uniquely minimizes \(E\) and \(M_P\) uniquely maximizes \(P\). This proves both strict reversal and the sharp four-pair boundary.
+Man 3 and woman 0 are mutual first choices and must be paired. Man 2 cannot be paired with woman 2, since woman 3 would then form a blocking pair with him. He cannot be paired with woman 1, since man 0 would then prefer woman 1 to his partner and she prefers man 0 to man 2. Thus man 2 must pair with woman 3. Both bijections of the remaining men 0 and 1 to women 1 and 2 pass the blocking-pair test. Writing the partner labels in men's order, the complete stable set and scores are therefore:
 
-## Verification
+| Matching | Ranks (men, then women) | \(E\) | \(P\) |
+|:---|:---|---:|---:|
+| `(1,2,3,0)` | `(0,0,2,0,0,2,3,0)` | 7 | 4096 |
+| `(2,1,3,0)` | `(2,2,2,0,0,1,1,0)` | 8 | 4608 |
 
-Run the standalone Python 3 standard-library checker from the same directory:
+The scores strictly reverse, and no other stable outcome is needed to produce the reversal.
 
-`python3 verify_nash_egalitarian_boundary.py`
+## Reproducibility
 
-Successful execution terminates with `VERIFY_OK exact_profiles_3=46656 pairwise_stable_comparisons_3=14760`. It independently evaluates the blocking-pair test in two equivalent ways; tests all matchings for all labeled profiles through three pairs; reconstructs every full optimizer set and strict pairwise comparison; checks the exact profile histogram; and verifies the four-pair witness against all twenty-four perfect matchings. Integer arithmetic is exact throughout, with no floating-point tolerance.
+Run the accompanying standard-library script `python3 verify_nash_egalitarian_boundary.py`. It enumerates the complete finite domain, tests blocking pairs both by rank comparisons and by preference prefixes, checks the product inequality for every unequal-cost stable pair, and prints the strict comparison strata. It also verifies both stable outcomes of the four-pair witness over all 24 bijections. The success marker is `VERIFY_OK exact_profiles_3=46656 pairwise_stable_comparisons_3=14760`. The script also reproduces the known optimizer-set census as a consistency check rather than a new claim.
 
-These exhaustive computations constitute a finite proof for the stated finite market-size range. They do not establish the pairwise implication in larger markets, and the provided four-pair instance disproves its extension to all market sizes.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
+The earlier record [*Four pairs are the sharp separation threshold for Nash-welfare and egalitarian stable matching*](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-four-pairs-are-the-sharp-separation-threshold-for-nash-welfare-a--6a4f1b95ac69/RESULT.md) already proves optimizer-set inclusion through three pairs, gives the 43,728 equality and 2,928 proper-containment counts at three pairs, and shows a reversal at four pairs with four stable outcomes. Inclusion constrains the global maximizers but does not settle the product order of all distinct-cost stable pairs. Its accompanying checker tests the optimizer sets, not the strict order for every pair. The present claim is the all-pairs order with its exact comparison strata, together with a two-outcome witness at the known boundary size. It does not claim the optimizer-set counts or the existence of a four-pair reversal as new.
 
-Desai, Rasheed, Ghalme, and Gujar, *Fair Stable Matching: A Nash Social Welfare Approach* (first publicly posted September 2, 2026), define the same positive rank-induced utilities and prove an algorithmic reduction for Nash-optimal stable marriage. Their manuscript compares Nash and egalitarian fairness empirically and reports polynomial-time algorithms. The present finding is instead an exact structural implication for *all* stable outcomes at sizes at most three, with full optimizer-set counts and a minimal counterexample for the implication at four; that statement is not given in the inspected main text and appendices.
-
-Irving, Leather, and Gusfield established the egalitarian stable-marriage objective and its optimization. Related published small-market results compare egalitarian matchings to minimum-regret matchings, and rank-maximal matchings to egalitarian matchings. Neither comparison substitutes the Nash product for its other objective. In particular, knowing that Nash optimum sets lie within the minimum-regret optimum set and that egalitarian and minimum-regret sets are nested does not imply the present Nash-versus-egalitarian inclusion in profiles where the egalitarian set is a proper subset of the minimum-regret set.
-
-The exhaustive profile count also has a different logical content from the existing small-market classification of rank-maximal versus egalitarian optimum sets, which sometimes have *disjoint* optimizers at three pairs. The present Nash-versus-egalitarian optimum sets never do at that size.
-
-## Limitations
-
-The result is an exact finite-domain theorem through size three and one explicit size-four counterexample. It does not give a general formula for larger stable-marriage markets, heterogeneous cardinal utilities, incomplete lists, ties, or non-bipartite matching. The checker is one reproducible implementation with two independent stability formulations, rather than an externally audited certificate. Publicly available research records and accessible full texts were compared, but an unindexed earlier finite classification could still overlap. No independent scientific audit has been performed.
-
-## References
-
-1. P. Desai, M. Rasheed, G. Ghalme, and S. Gujar, "Fair Stable Matching: A Nash Social Welfare Approach," arXiv:2609.02354v1, first posted September 2, 2026. https://arxiv.org/abs/2609.02354
-2. R. W. Irving, P. Leather, and D. Gusfield, "An efficient algorithm for the 'optimal' stable marriage," *Journal of the ACM* 34(3) (1987), 532–543. DOI: 10.1145/28869.28871.
-3. "Sharp coincidence boundary for egalitarian and minimum-regret stable marriage," publicly accessible research record with full result: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b
-4. "Sharp three-by-three conflict layer for rank-maximal and egalitarian stable marriage," publicly accessible research record with full result: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-egalita--c67e0358daf3
+Desai, Rasheed, Ghalme and Gujar, [*Fair Stable Matching: A Nash Social Welfare Approach*](https://arxiv.org/abs/2609.02354), use these rank utilities and study Nash optimization and empirical comparisons with other stable-matching objectives. Results about minimizing the worst rank or lexicographically maximizing a rank profile compare different objectives and do not give the rank-sum/product pairwise implication. This exact finite classification does not extend to arbitrary market sizes, ties, incomplete lists, or alternative utility scales. Historical priority beyond the inspected comparisons is not established.

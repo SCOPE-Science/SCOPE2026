@@ -1,19 +1,21 @@
-# Scientific review: random cylinder-sidewall metric stretch
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The geometric model distinguishes the intrinsic shortest path on the uncapped sidewall from the ambient chord. Equation (4) follows from a flat covering strip and independent uniform angular coordinates and triangular axial differences. The threshold inequality is algebraically equivalent to the exact exceedance condition. The sharp maximum follows from the monotonic circular arc/chord ratio. The upper-tail coefficient is the exact area of a parabolic sublevel set multiplied by the limiting joint sampling density. The thin-height critical profile follows from the same local form, with the triangular density retained rather than replaced by its endpoint value. The conditional Dirichlet law follows from the explicit Jacobian. The reported finite numerical tests were replayed from `verify.py` and do not replace the analytic proof.
+PASS
 
-## Originality
+Unwrapping in the shortest angular class gives squared intrinsic and ambient distances r²(θ²+x²) and r²(4 sin²(θ/2)+x²). The independent angular and normalized axial differences have densities 1/π and 2(1-v), respectively. This yields the exact threshold formula; for any two positive heights its integrand drops strictly on a positive-length interval just above θ_t. The ratio extends continuously at coincidence with value 1 by its axial-independent bound θ/(2 sin(θ/2)); continuity and positive-measure neighborhoods establish the essential range, with the stated maximizing distinct pairs. At the maximum the loss in (δ,x²) is δ/2+βx² plus a quadratic remainder. Positivity localizes δ=O(ε), x=O(√ε). After scaling the remainder lies in a level shell of width O(ε) in scaled variables; the fixed-height density correction is O_h(√ε), giving precisely the stated ε^(3/2) coefficient and O_h(ε²) remainder. Squaring the axial coordinate in the uniform parabolic limit gives the claimed Dirichlet density. For bounded λ, sandwiching the angular admissible length at fixed v between 2[ε(1−βλ²v²)±O_Λ(ε²)]_+ gives a uniform error including at clipping. Integration yields both branches, with third derivative jump 8/π in L=λ√β. Independent axial-first integration at fixed h and across the clipping point corroborates the coefficients.
 
-**PASS, subject to historical-priority risk.** The published finite-cylinder intrinsic-distance result treats only the law of \(d_g\); the separate published Euclidean-cylinder moment result treats only ambient \(d_e\) moments. Their marginals do not determine the coupled ratio. All-power intrinsic-moment optimization and invariant random-line chord studies likewise have distinct statistics. The 2005 cylindrical parameterization paper and the 2010 periodic-surface geodesics preprint provide geometric context but not random stretch tails. Searches for cylinder geodesic/chord ratios, aliases, critical heights, and metric embedding distortion did not surface an equivalent statement. This is a scoped priority assessment, not proof of universal novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The statistic measures the embedding distortion of one of the simplest noncompact-with-boundary flat surface models while retaining its actual three-dimensional embedding. The unexpected shift between exponents \(3/2\) and \(1\), its explicitly nonsmooth crossover, the conditional parabolic/Dirichlet geometry, and one-threshold inverse aspect recovery make the statement more than a textbook cylinder-unrolling calculation or a routine moment increment. It provides a benchmark for geometric distance distortion under collapsing dimensions.
+The closest actual ratio-tail laws share a parabolic limit, including the same Dirichlet parameters, but do not imply the finite-cylinder triangular-height law or its thin-window crossover. The same-surface records treat separate marginals. No equivalent coverage of the assessed cylinder claim was established in the bounded comparison; no priority is inferred from publication dates or retrieval gaps.
 
-## Boundaries and residual risks
+## value
 
-The full exceedance CDF is an exact one-dimensional integral rather than a general elementary closed form. The asymptotic does not cover capped-cylinder paths, nonuniform point distributions, or an unbounded critical parameter. No independent mathematical audit has been conducted, and some older or non-indexed work might imply the result. The 2005 proceedings document is earlier than the precisely timestamped archival seed but its exact first public calendar day could not be verified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coupled metric distortion is a natural observable not captured by either metric alone. The exact probability law identifies height-to-radius from one fixed threshold; the explicit crossover quantifies when fixed-height rare-event behavior ceases to describe a thin cylinder and detects a specific nonanalytic transition from the axial cutoff. Together with the conditional limit, this goes beyond a routine distance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

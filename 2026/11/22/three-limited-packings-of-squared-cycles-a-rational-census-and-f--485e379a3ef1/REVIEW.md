@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cyclic five-neighborhood condition is equivalent to 16-state de Bruijn transitions. Each admissible circular word corresponds to exactly one closed state walk. The trace/log-determinant identity gives the complete bivariate coefficient enumeration. The polynomial determinant is certified by 833 exact integer calculations and the rigorous degree bounds in `verify_determinant.py`. Extracting the five lowest deficit coefficients yields positive exact optimum counts for every residue class, proving both achievability and optimality. The independent C++ direct enumeration agrees with the recurrence through 18 vertices. Main residual risk: an implementation or derivation mistake shared with the stated transition specification, despite the independent direct checker.
+## correctness
 
-## Originality
-PASS, provisional. The full accessible 2023 preprint on limited-packing partitions and the 2024 arXiv HTML text on total-limited packing/graph products were compared at the statement and graph-family level. The specific squared-cycle capacity-three full polynomial and five-residue optimum laws were not present. Exact-parameter searches in related mathematical records returned cycle-power convexity, regular-subset classifications, and double-total-domination on cycle prisms, each with a different admissibility predicate or graph. The complement-to-double-domination formulation was searched separately; no covering enumerator was identified. Remaining priority risk: unindexed enumeration literature, generalized cyclic-window counting results, or a double-domination paper not retrieved by these searches. Absence of a hit is not a proof of novelty.
+PASS
 
-## Value
-PASS. The example has a natural local sensor-capacity constraint on a canonical 4-regular circulant graph, and the theorem gives every labelled feasible-set multiplicity across all sizes, not just a bound or a table for small orders. The unexpectedly compact degree-ten determinant and the five distinct residue-class optimum laws, including the uniform count ten when the circumference is divisible by five, are precise reusable benchmarks for limited-packing and double-domination enumeration. No claim of a wider graph-power theorem is made.
+For each n≥5 the closed neighborhoods are distinct-site cyclic five-windows. Summing their occupancies proves 5k≤3n; each admissible word contributes its summed deficit 3n−5k to the indexed closed-walk trace with no rotation quotient. Independently computed det(I−tM) by the disjoint directed cycle expansion: 44 simple cycles in the four-bit transition graph; each compatible collection contributes (−1)^(number of cycles) t^(total length) u^(total deficit). The surviving coefficients are exactly 1, −tu³, −t²u, −t⁴u², −2t⁵, +t⁷u, +t¹⁰. The formal trace identity gives N=−t∂_tD. With z=t⁵, expand −log D through u⁴ after pulling out (1−z)². For r=0 the t-derivative gives the positive multiples-of-five coefficient 10; for r=1,2,3,4 the respective A_n/n are (q+1)+(4/3)binom(q+1,2), 1, binom(q+2,2)+(7/4)binom(q+2,3), and (3/2)(q+1). These simplify to the printed formulas and show the floor bound is attained. Direct independent bit-window census matches all recorded cardinalities for n=5,…,18. The stored programs and outputs were read, not executed; the degree-bounded grid certificate is also valid in principle but the independent determinant calculation does not rely on it.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the exact previously indexed A_{5q}=10 branch, not just analogous orbit work. The supported distinct content is the complete all-cardinality rational function and optimum census for the other residues, not the general transfer method, the zero-deficit count or the incidence upper bound. No inspected source implied the full series or the remaining residue laws.
+
+## value
+
+PASS
+
+The complete labelled census for a natural capacity constraint on a four-regular circulant also counts two-tuple dominating sets under size reversal. The evaluated degree-ten denominator gives a reusable exact benchmark beyond generic transfer existence, and the remaining residue branches show substantially different polynomial growth even close to the same density. Value does not rest on the known multiple-of-five case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

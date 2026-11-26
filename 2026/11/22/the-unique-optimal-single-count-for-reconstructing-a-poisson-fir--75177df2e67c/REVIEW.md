@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim is restricted to a homogeneous known-rate Poisson process, one deterministic cumulative count, its unbounded first-arrival time, and squared error. Given zero observed events the residual first-arrival time is exponential; given a positive count the first event is the minimum of independent conditional uniform locations. Those conditional expectations establish the exact Bayes rule. The entire factorial series reduces the Bayes risk to an exponential-integral expression. Differentiating twice yields a strictly concave critical-point function whose derivative vanishes at zero and is thereafter negative. It crosses zero exactly once, establishing a global minimizer rather than a local numerical guess. Independent Poisson-series and symbolic checks replayed from the packaged source support the calculations; finite tests are not the infinite proof.
+PASS
 
-## Originality (PASS, provisional historical priority)
+For zero observed events memorylessness gives conditional mean x+1/lambda and variance 1/lambda^2; for k>=1 the first arrival is the minimum of k uniform times and gives mean x/(k+1). Projection in L2 is optimal even without restricting the estimator family. With z=lambda*x, the squared mean average reindexes to exp(-z)(1+2z+zF(z)), where F is the given entire series. Subtracting it from 2 gives normalized risk; differentiating yields R'=-exp(-z)g, g(0+)=1, g'(0+)=0 and g''=(1+z-exp(z))/z^2<0. A negative slope at z=1 supplies a linear negative upper bound for g thereafter. Its sole crossing proves global optimality including x=0; separately the large-z risk tends to 1. For the retained bit the law of total variance subtracts z^2/expm1(z) from 1; the gain derivative has sign of (2-z)exp(z)-2 for z>0, with exactly one positive sign change. Independent differentiation and numerical optimization of a direct posterior-variance mixture and of the bit risk reproduced both times, risks and the stated improvements.
 
-The strongest directly relevant inspected primary result, Przybyłowicz (2017), concerns asymptotic global error and optimal multiple-time sampling of jump-diffusion paths, not a one-count finite-information first-arrival estimator. Przybyłowicz, Sobieraj and Stępień (2021) concern Euler schemes and complexity. Hornberger (2025) treats periodic arrival observations and parameter/mixing behavior, not optimization of a single count time for first-arrival squared risk. Comparisons with related published work on Poisson count sampling and event-time detection concern different observation models or target functionals. No equivalent or dominating result was located in the inspected sources. Standard conditional-uniform and exponential facts are not claimed new. Risk: historical prior art outside searchable or inspected sources may exist, including textbooks and older experimental-design treatments.
+## originality
 
-## Value (PASS)
+PASS
 
-A one-query event counter must be queried at a time chosen in advance when only the first-event timing matters. The theorem supplies the exact intensity-scaled observation time, a unique numerical design root, and an absolute minimum risk with no timestep or large-sample approximation. Recording the complete count instead of only the event-presence bit reduces even the best binary-sensor risk by about 8.70%; the exact optimal risk is about 32.17% of the no-query risk. The specific event-time target, one-query information constraint and comparison make this a substantive sampling decision rather than an arbitrary special-function evaluation. It does not imply optimality for unknown rate, multiple queries or other targets.
+The supported distinct claim is the globally optimal time and risk for a single deterministic full cumulative count when estimating the latent first arrival. Neither the standard posterior mean construction nor the binary root considered alone is claimed as new. The strongest neighboring result gives the same binary constant as a limiting design for a different target.
 
-## Literature risk and limitations
+## value
 
-The source comparison is about claims and quantifiers: global-path asymptotics, jump-SDE pointwise complexity and periodically observed rate/mixing results do not imply the claimed all-rate exact single-count first-event optimum. A historical-priority risk remains because the literature search is not exhaustive. No external independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First-arrival reconstruction is a natural latent-event inference target. The unique scale-free optimal query time and risk solve the full information-budget design problem, not just the textbook fixed-time regression. The separately optimized binary comparison quantifies the benefit of retaining count magnitude instead of only detecting arrival.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

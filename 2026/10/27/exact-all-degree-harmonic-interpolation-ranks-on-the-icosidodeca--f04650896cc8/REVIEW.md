@@ -1,12 +1,21 @@
-# Scientific review: exact all-degree harmonic interpolation ranks on the icosidodecahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-The thirty points are explicitly generated as edge midpoints of a canonical icosahedron. The addition theorem reduces normalized exact-degree sampling rank to one \(15\times15\) Legendre Gram matrix over \(\mathbb Q(\sqrt5)\). Exact field elimination (degrees \(0\)–\(14\)) and an independent prime-field calculation (degrees \(15\)–\(199\)) cover all finite exceptions, while the cited Bernstein inequality and exact dot-product valencies yield strict diagonal dominance for all degrees \(\ell\ge200\). The accompanying executable calculations use exact integers and rational pairs for every decisive finite rank claim. The numerical spherical-harmonic test is supplemental only. The exceptional ranks have been checked against the original coordinate construction, and the normalization is explicit. The main limit is that executable finite certificates must accompany the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest accessible primary full text, Bannai–Okuda–Tagami (2013), defines harmonic-index designs and notes ranks/design properties for a different, twelve-point icosahedral orbit. Zhu–Bannai–Bannai–Kim–Yu (2015) studies tight design criteria, not this all-degree interpolation rank classification. The previously recorded analyses of the icosahedron, dodecahedron, cuboctahedron, and 600-cell use different point sets and do not imply ranks on edge midpoints. Exact object and parameter comparisons identified no directly covering theorem. Crucial residual risk: Cohan's 1958 icosahedral representation tables through degree \(14\), and Zheng–Doerschuk's 2000 symmetrized-harmonic tables, were accessible only in extract/abstract form; their complete text could not be inspected. An older equivalent low-degree calculation is plausible, although the all-degree rank theorem has not been found.
+PASS
 
-## Mathematical value — PASS
-The icosidodecahedron is a canonical 30-vertex Archimedean orbit, not an arbitrary sampled subset. Its 15 independent antipodal directions provide a natural interpolation target. The sharp, nonmonotone all-degree rank census reveals an anomalous five-dimensional kernel at degree six, isolated constant-sector losses at degrees eight and fourteen, early full recovery at degree seven, and permanent full recovery from degree fifteen. This supplies a complete natural structural invariant for all exact harmonic degrees, useful for distinguishing orbit sampling from spherical-design conditions. It is not a general condition-number theorem and does not classify arbitrary icosahedral orbits.
+The probability-measure addition theorem with the 1/√(2ℓ+1) sampling scale gives exactly the Legendre Gram matrix. Antipodal redundancy reduces rank to the 15 representatives. A separate exact midpoint construction checked all row valencies, obtained ranks (1,3,5,7,9,11,10,15,14,15,15,15,15,15,14) through degree 14, and checked the zero row sums at 8 and 14. Thus the degree-6 compatible nullity is five and the sole missing direction at each of 8 and 14 is constant. A separately written prime-field recurrence and elimination confirmed nonsingularity for all 185 degrees from 15 to 199. Reduction is valid in the subring where the recurrence and coordinate denominators are prime-to-p; nonsingularity after reduction implies it before reduction. For degree ≥200, DLMF 18.14.3 with α=β=0 gives the stated Bernstein bound. The valencies and the fourth-root estimates bound each off-diagonal row sum by (1046/63)/√300<1, proving positive definiteness. This covers the infinite tail, rather than extrapolating from the certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct indexed conditioning record covers the exact nonsingular-degree set, hence also the eventual threshold, which receive no separate originality credit. Its inspected statement and certificates do not evaluate ranks or sole null directions on the singular degrees. The verified distinct contribution is the quantitative defect classification of this same orbit, especially rank ten at six and rank fourteen with one missing direction at eight and fourteen. Related harmonic-index designs and classical symmetry constructions do not establish those evaluation ranks in the material inspected. This is a bounded scientific comparison, not a priority determination.
+
+## value
+
+PASS
+
+On the canonical antipodal edge-midpoint orbit, knowing that a degree fails surjectivity does not tell a researcher how many independent measurements survive or which data constraints must be imposed. The exact difference between five missing directions at degree six and a single explicit constant obstruction at eight and fourteen is useful for one-degree interpolation and distinguishes the geometry from a generic 15-point parity sampler. This value rests on the defect information, not on rediscovering the indexed full-rank threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

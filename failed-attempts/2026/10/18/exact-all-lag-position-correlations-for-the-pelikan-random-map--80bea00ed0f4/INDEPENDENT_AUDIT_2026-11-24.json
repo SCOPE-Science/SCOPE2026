@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:06:28.014924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The raw stationary moment is correct for every integer n >= 0 and 1/2 < p < 1. Following prefixes of a word shows that k is the number of original digits consumed and h the number of prefixed zeroes still present, so the exact word map is 2^(-h) D^k. Reflection counts paths ending at h-k staying above -k by subtracting binomial(n,u+k+1) from binomial(n,u); imposing an attained minimum gives binomial(n,u+k)-binomial(n,u+k+1). When k=0 or h=0 the stricter barrier has no paths, consistent with this difference by binomial symmetry. Independence gives the word weights. On dyadic cells J_j with j >= k, the fractional part is 2^k x and the conditional second moment gives 7*2^k/(3*4^(j+1)). For j < k, integrating x times the sawtooth over equally spaced subintervals gives 3/(4*2^(j+1))+1/(12*2^k). Summing the given stationary masses yields the claimed tails, including the arithmetico-geometric p=2/3 case, and R_0=4(2p-1)/(3(5p-1)). The frozen verify.py and VERIFICATION.md were inspected, not run; the described rational comparisons for n <= 5 are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed record gives a covariance resolvent including p=1 and spectral asymptotics in addition to its raw moment at equation (9). Adding mu^2/(1-z) to its covariance generating function recovers exactly the raw-moment generating function.",
+          "Brevitt and Klages study quasi-stationary and quasi-ergodic laws of an open chain, not the stated stationary two-position statistic."
+        ],
+        "reasoning": "The broader indexed transform covers the entire frozen parameter regime, including p=2/3. Open-chain persistence and stationarity are different objectives.",
+        "searches": [
+          "Resultary d19d3482d20b, Finding and Proof Sections 2-4",
+          "arXiv:2607.19084, abstract and Introduction 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 2026/11/8 record d19d3482d20b",
+        "arXiv:2308.09269v2",
+        "arXiv:2409.19999v2",
+        "arXiv:2607.19084"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting J_k=mu/2+2^(-k)/12+B((1-p)/(2p))^k in the maximum-walk expectation in (9) gives E[2^(-h) I_k]. Grouping by maximum and endpoint gives the two-binomial coefficient by reflection; the indexed verification also explicitly uses that joint reflection distribution."
+        ],
+        "reasoning": "The displayed double sum is an unrolling of an already exact walk expectation, rather than a new observable, parameter range, or method for the positional integral.",
+        "searches": [
+          "Resultary d19d3482d20b, Proof equations (7)-(9) and Verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d19d3482d20b, equations (7)-(9): its J_k is E[X_0 D^k(X_0)], equal to I_k since D^k(x)={2^k x}. Its M_n and M_n-S_n are the frozen k,h after reversing the walk sign.",
+          "Monthus equations (197)-(201), (204), (208) use Lebesgue-uniform initial data for the computed time correlation; at n=0 the second moment is 1/3, not the frozen stationary second moment."
+        ],
+        "reasoning": "The indexed formula averages the identical conditional moment under the identical walk law; the uniform-start literature result is not equivalent.",
+        "searches": [
+          "Resultary: exact stationary Pelikan physical-position correlation, reflected walks and all-time transforms",
+          "arXiv:2409.19999v2, Section VI.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d19d3482d20b is a distinct catalogue record, not a match back to the assigned record. Its equations (7)-(9) supply all coefficients, not merely a numerical match for selected lags.",
+          "Yan et al. Appendix D gives exact lag 1, 2 and 3 expressions for the same statistic, and Sec. III.3 uses a commutation approximation for general lag."
+        ],
+        "reasoning": "The published narrow lag list does not itself cover the claim; the exact catalogue transform does. Catalogue path dates distinguish the items but do not establish the relationship or priority.",
+        "searches": [
+          "Resultary: exact finite-lag stationary Pelikan autocorrelation and spectral transform",
+          "arXiv:2308.09269v2, Sec. III.2-3 and Appendix D"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record already provides the same exact stationary all-lag moment by the same path normal form and dyadic moment, and sums it in a generating function. Converting its walk expectation to the reflection-coefficient finite sum does not leave a distinct substantive claim. This is demonstrable equivalent coverage, not evidence that the later-dated catalogue record predates the supplied result or that the proof is incorrect.",
+      "residual_risks": [
+        "No inference of priority or dependence from the displayed dates; the O failure concerns demonstrated catalogue coverage.",
+        "The scoped comparisons do not establish an exhaustive chronology of earlier exact propagator or correlation results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage and stronger transform",
+          "evidence": "Equation (8) has X_n=2^(S_n-M_n) D^(M_n)(X_0); equation (9) uses the resulting raw-moment expectation, not just the asymptotic covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-stationary-correlation-transform-and-spectral-edge-amplitu--d19d3482d20b",
+          "material_read": "RESULT.md Finding and Proof Sections 1-3, especially equations (7)-(9); Verification paragraph",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; bounded passages at offsets 0 and about 3950",
+          "title": "Exact stationary correlation transform and spectral-edge amplitudes for the Pelikan map",
+          "trigger": "Exact stationary transform for the same dynamics and observable"
+        },
+        {
+          "assessment": "Same observable and exact first three lags, not exact general-lag claim in the inspected sections",
+          "evidence": "The general-lag treatment simplifies the noncommuting map operations with an explicitly approximate step.",
+          "identifier_or_url": "https://arxiv.org/html/2308.09269v2",
+          "material_read": "Section III.2 and III.3, equations (16), (19)-(20), and Appendix D",
+          "method": "Lawful OA primary text, offsets about 41085-45575 and 66570",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Originating paper states the same correlation problem"
+        },
+        {
+          "assessment": "Substantial methodological predecessor; computed transform is for a different initial law",
+          "evidence": "The initial law in the position-correlation calculation is uniform and its limiting product uses the uniform initial mean.",
+          "identifier_or_url": "https://arxiv.org/html/2409.19999v2",
+          "material_read": "Section VI.5, equations (197)-(201), (204), (208)",
+          "method": "Lawful OA primary text at offsets about 129070 and 132242",
+          "title": "Pelikan-map correlations and binary-walk analysis",
+          "trigger": "Exact correlation transform and close binary-walk predecessor"
+        },
+        {
+          "assessment": "Related but different stated object",
+          "evidence": "The paper distinguishes the open substochastic model it studies from a closed chain with an invariant law.",
+          "identifier_or_url": "https://arxiv.org/html/2607.19084",
+          "material_read": "Abstract and Introduction Section 1.1",
+          "method": "Lawful OA primary text at offset 0",
+          "title": "Quasi-stationary and quasi-ergodic distributions in the Pelikan random map",
+          "trigger": "Later dyadic-state Green-function literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a scientific result, the exact stationary physical-position correlation over all lags is a natural target left approximate in the motivating published calculation. The order-sensitive reduction from exponentially many words to the distribution of two walk statistics and the evaluated within-cell moment are useful for exact benchmarking and extracting coefficients; that intrinsic value does not make the result a distinct addition to the catalogue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

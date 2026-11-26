@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Perfection makes the basis squares independent. The orthogonality of distinct images forces all automorphisms to be monomial. Matching each \(e_i\) with arbitrary \(x\) recovers every coefficient of the initially arbitrary two-local map, proving monomial linearity. Matching \(e_i\) with \(e_i^2\) then forces preservation of every square; the mixed basis products already vanish. Every field and dimension is covered. The exhaustive two-dimensional \(\mathbb F_2\) computation corroborates these steps without claiming to prove them.
+## correctness
 
-**Originality — PASS, qualified.** Costoya–Mayorga–Viruel (2025) and the earlier Elduque–Labra work provide the monomiality premise, not the two-local conclusion. The 2018/2019 nilpotent evolution-algebra study treats different objects (nilpotent, not perfect) and two-local derivations, not a theorem for two-local automorphisms of every perfect evolution algebra. Actual published-finding corpus searches for two-local automorphism rigidity and exact web searches under equivalent terminology found no covering result. The 2026 survey is only partially readable in the current inspection; further historical literature on local maps or monomial group actions could preempt the conclusion.
+PASS
 
-**Value — PASS.** This is an all-fields and all-dimensions rigidity theorem, removing nonlinear pathological two-local automorphisms from an entire natural class of nonassociative algebras, not a narrow finite table. It isolates exactly how perfection and vanishing mixed natural-basis products combine to imply global rigidity and distinguishes the perfect regime from the nilpotent settings investigated in earlier local-operator work. The proof is short, but its uniform conclusion is substantive.
+The n natural-basis squares span E² because all cross products vanish, and perfection makes these n vectors a basis. Thus the coefficients in g(e_i)g(e_j)=0 force disjoint supports for the columns of every genuine automorphism g, which is monomial by invertibility. Interpolation at pairs of natural-basis elements shows the nonzero images T(e_i)=c_i e_{σ(i)} occupy distinct coordinates. For any x and i, the witness for (e_i,x) has exactly one entry in row σ(i), namely c_i in column i, so that row of T(x) is forced to be c_i x_i. This reconstructs the entire invertible linear map with no field-size hypothesis. The witnesses at (e_i,e_i²) give the diagonal product constraints, and disjoint image coordinates give all off-diagonal ones. Bilinearity completes multiplicativity; no polarization or division by 2 is used. The zero-dimensional case is automatic. Independent enumeration using full multiplication tables and all 256 set maps for each of the six invertible F₂ structure matrices of dimension two confirms the equality there (eight ordinary automorphisms counted across the six algebras).
 
-Scientific limits: no statement about one-local automorphisms, two-local derivations, infinite-dimensional algebras, or nonperfect algebras. Publication priority cannot be independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited result is arbitrary-map two-point rigidity for all finite-dimensional perfect evolution algebras over all fields, not monomiality of ordinary automorphisms. The closest source supplying monomiality does not give the simultaneous coordinate and square interpolation argument that upgrades pointwise witnesses to one multiplicative map.
+
+## value
+
+PASS
+
+Perfect evolution algebras form a natural class with constrained but potentially varied automorphism groups. It is useful to know that two simultaneous evaluations already rule out every nonlinear or nonglobal interpolant, uniformly including the smallest fields and characteristic two. This is a class-wide rigidity result, and the pair-of-squares mechanism identifies why the known monomial structure is enough in the algebraic action but not for arbitrary monomial groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

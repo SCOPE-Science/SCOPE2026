@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:23:28.190925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A conflict-free retained subset can always be completed by pairing unused first-axis strata with unused second-axis strata and placing one point in each product rectangle. Each new interval is shorter than an old stratum and therefore can contain only points from at most two consecutive old strata. Each axis is a matching, so the simple union consists of paths, even cycles and isolated vertices; the alternating path/cycle formula computes the exact optimum in linear time given the old stratum order on each axis. For N=n+1 the offsets are independent Bernoulli bits with the stated rank-dependent probabilities; a collision is the adjacent pattern 10. The collision-free strings 0^k1^(n-k) have total probability 2^n*n!/(n+1)^n on an axis, by summing their binomial weights. The two coordinate-order bit arrays are independent, including after conditioning on the permutation, so the square and its Stirling equivalent follow. Adjacent collision indicators are one-dependent with mean sum n(n-1)/(6(n+1)) and variance O(n), so endpoint incidence tends to p=1/3 on each axis. Given the sizes, uniform relative relabeling of the two matchings has the graph statistics of two independent uniform partial matchings. For any fixed number of exploration steps, unexposed endpoint fractions are p+o(1) since only finitely many matched pairs and unmatched vertices have been revealed. Two bounded explorations at independent uniform roots are asymptotically independent: they intersect with vanishing probability and finite exposure changes the second exploration's probabilities by o(1). This gives a second-moment law for the truncated endpoint counts. Starting at an A-only endpoint, stopping at another A-only endpoint has limiting probability (1-p) times the geometric sum of p^(2k), namely 1/(1+p); the survival probability after a fixed even truncation tends to p^(2k), bounding the unclassified endpoint fraction via Markov and then k to infinity. Each such path has two A-only endpoints, giving T_A/n and T_B/n tending to 1/12. With doubled edges treated as two-cycles, deletion cost is (m_A+m_B+T_A+T_B)/2, hence D/n tends to 1/4 in probability and in mean. The target N=n+1 does not mean at most one new evaluation. Independent rational bit-pattern enumeration through n=7 corroborated the finite no-collision and mean collision formulas; for n=2,3,4 the one-axis no-collision probabilities were 8/9, 3/4, 384/625. The supplied checker was inspected, not executed, and no finite test is used to infer the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2015 paper addresses a general number of variables and gives an exponential exact method and a quadratic greedy method. The 2017 follow-up is a plausible source for a faster graph-decomposition algorithm, but no body could be read. Xu–Chen–Qian's abstract concerns sequentially refined designs deliberately built to reuse each point."
+        ],
+        "reasoning": "The inspected general algorithms do not give the claimed planar exact linear scan; the reusable-by-construction design is not the arbitrary-fixed-old-design optimization or its independent-jitter law. The unavailable 2017 body leaves the planar comparison open to further evidence.",
+        "searches": [
+          "DOI 10.1155/2015/450492, §§3–3.2 and greedy method",
+          "DOI 10.1080/00949655.2017.1368080, publisher and lawful alternates",
+          "DOI 10.1080/01621459.2014.993078, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_lhs.py (inspection only)",
+        "Resultary exact self match be8753d61c85 and targeted neighboring results",
+        "DOI 10.1155/2015/450492 inspected PDF; DOI 10.1080/01621459.2014.993078 abstract; DOI 10.1080/00949655.2017.1368080 abstract-level evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior edge rule makes the planar degree bound a short observation, but the abstract's acyclic wording cannot be used as a general stronger theorem: at n=4,N=5, offset strings (1,0,1,0) on both axes and relative permutation (1,2,3,0) give x-edges 01,23 and y-edges 30,12, an even cycle.",
+          "The random limit additionally needs the axis collision density and the frequency of odd alternating paths in the two partial matchings; just knowing the conflict count would not determine how many deletions are necessary."
+        ],
+        "reasoning": "Credit the 2015 exact reduction and the elementary path/cycle optimization once the planar structure is identified, rather than attributing a new general independent-set algorithm. Neither the deterministic prior reduction nor the inspected sequential designs imply the model-specific limiting law or exact no-deletion probability.",
+        "searches": [
+          "2015 extension paper, abstract and §3 edge rule",
+          "2017 faster general extension algorithm abstract",
+          "Resultary: planar maximum retention and fixed-coordinate extension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2015 paper connects old observations when they share a new interval: this is exactly the frozen conflict graph and maximizing kept points is its independence number.",
+          "Equivalently, old points are edges between first- and second-axis new bins and a retained subset is a matching in that bin graph. The bin degrees are at most two in the frozen planar setting."
+        ],
+        "reasoning": "The optimization formulation is covered, and the deterministic result specializes it by proving the degree bound and exploiting the component structure. The generic independent-set formulation does not give a stochastic law for this particular graph ensemble.",
+        "searches": [
+          "DOI 10.1155/2015/450492, general Latin-hypercube fixed-point extension, §3",
+          "Resultary: optimal planar Latin hypercube extension and two matching conflicts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sole exact catalogue hit was the bound record be8753d61c85. The inspected 2015 paper states the retention objective and graph algorithm, not the no-collision formula (2^n*n!/(n+1)^n)^2 or the 3/4 limit for independent rank jitters."
+        ],
+        "reasoning": "A count or success rate of nested-design constructions or of another extension size is not a tabulation of the exact probability in the frozen random model. No distinct exact entry was found in the targeted comparison.",
+        "searches": [
+          "Resultary: planar extension three-quarter retention and exact probability of all points kept",
+          "2015 fixed-point extension paper, abstract and pp. 3–7, targeted for exact planar or stochastic outcomes"
+        ]
+      },
+      "rationale": "The objective and maximum-independent-set reduction are directly covered by Liu–Li–Yang (2015) and are not credited as new. The strongest supported distinctions are the exact planar path/cycle specialization and the sharp random n-to-n+1 retention and no-deletion laws under independent jitter and random relative order. The 2017 full-text comparison remains incomplete.",
+      "residual_risks": [
+        "The full 2017 paper was unavailable from identified lawful sources, leaving possible prior coverage of the deterministic planar specialization.",
+        "The correlated-variable extension report and the sequential-refinement paper could not be examined in full. The bounded literature and catalogue checks do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified overlap of objective and reduction; no corresponding linear planar theorem in examined algorithm passages",
+          "evidence": "Old points sharing an enlarged interval conflict; the paper gives an O(2^n) exact and an O(n^2) greedy algorithm for general dimension. The universal acyclic reading is contradicted by the explicit four-cycle under the stated edge rule.",
+          "identifier_or_url": "https://doi.org/10.1155/2015/450492",
+          "material_read": "p. 1 abstract; §3 pp. 3–4 edge rule and independent-set reduction (PDF offsets about 15100–22599); p. 6 §3.2 exact algorithm and p. 7 greedy algorithm",
+          "method": "OA PDF passages, https://pdfs.semanticscholar.org/8e18/a16e4d4333eb4f4bd26c4d47fc1aa566245d.pdf",
+          "title": "Two General Extension Algorithms of Latin Hypercube Sampling",
+          "trigger": "Same maximum-retention fixed-coordinate extension objective"
+        },
+        {
+          "assessment": "Abstract relevant, exact planar specialization not adjudicated from it",
+          "evidence": "The abstract describes reducing the running time for general extension while retaining old points; it is not evidence for or against a planar theorem in the body.",
+          "identifier_or_url": "https://doi.org/10.1080/00949655.2017.1368080",
+          "material_read": "Abstract-level search material; publisher and alternate full-text retrieval unsuccessful",
+          "method": "OA publisher and identified ResearchGate/Semantic Scholar alternatives",
+          "title": "A fast general extension algorithm of Latin hypercube sampling",
+          "trigger": "Direct follow-up on faster exact retention/graph decomposition"
+        },
+        {
+          "assessment": "Abstract describes a different setting; no full-text absence inference",
+          "evidence": "Initial and follow-up runs are constructed so that their combination remains a Latin hypercube.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.2014.993078",
+          "material_read": "RePEc abstract, offset about 370; publisher full text inaccessible",
+          "method": "OA public abstract and full-text access attempt",
+          "title": "Sequentially Refined Latin Hypercube Designs: Reusing Every Point",
+          "trigger": "Exact retention of all points in sequential Latin hypercube designs"
+        },
+        {
+          "assessment": "Scope unresolved beyond the cited correlated-variable setting",
+          "evidence": "No full-text coverage inference is made from the timeout.",
+          "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc885396/",
+          "material_read": "2015 paper p. 9 citation; report page timed out",
+          "method": "OA report page access attempt and cited reference",
+          "title": "Extension of Latin Hypercube Samples With Correlated Variables",
+          "trigger": "Related extension method cited in the frozen result and 2015 paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact retention of existing coordinates avoids throwing away usable evaluations. The planar specialization replaces a general graph search by two scans and a component traversal. Independently of that speedup, the probabilistic theorem shows that enlarging a randomly jittered design by just one target stratum typically costs re-evaluating about a quarter of its old points, and that full retention is exponentially unlikely. These are useful exact benchmarks for distinguishing this extension setting from nested designs constructed to preserve observations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

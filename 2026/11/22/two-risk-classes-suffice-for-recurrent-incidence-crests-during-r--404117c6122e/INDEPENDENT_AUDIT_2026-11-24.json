@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:23:58.639754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In cumulative pressure x, I'=A−γ/β and J'/β=A(A−γ/β)−IB. Independent rational log enclosures obtained by integrating alternating geometric bounds on 1/(1+u) certify +,−,+,− at the four ordered points of the frozen witness (replay: python /workspace/checks/reproduce.py 1). A decreases and is still above γ/β at the last point, hence prevalence is positive and increasing on the entire witnessed interval and all four points are reached in finite time. Analyticity and the alternating signs give two strict interior maxima separated by a strict minimum. The unique crossing A=γ/β is later and is also reached with positive prevalence; no subsequent maximum is possible. Strict margins give a relatively open set in the admissible parameter space. In a single occupied class the bracket λ(S−I)−γ/β is strictly decreasing while λS>γ/β and negative afterward, so there is at most one strict incidence maximum. If the susceptible mass is zero, incidence is constant zero; the informal strictly-decreasing-or-unimodal description is for positive susceptible mass. The count in the example is a lower bound, not an exhaustive count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite-support susceptibility ODEs in Izyumtseva et al. specify the same framework; arbitrary multimodality there refers to the input susceptibility distribution.",
+          "Zheng et al. use multilayer delays.",
+          "c5b706e16565 proves arbitrarily many strict incidence maxima during growing prevalence but with exogenous time-varying transmission; the other two forced-model records use exponentially varying transmission."
+        ],
+        "reasoning": "A stronger numerical crest count in a more flexible model does not establish it subject to the frozen constant-rate restriction. The general ODE formulation gives no crest-count conclusion.",
+        "searches": [
+          "arXiv:2608.22122 §4.4",
+          "arXiv:1706.05780 p. 3",
+          "Resultary: c5b706e16565, 9a40b59e84d7, ce053672f1d8"
+        ]
+      },
+      "checked_sources": [
+        "2308.06593",
+        "2309.14583",
+        "2608.22122",
+        "1706.05780",
+        "404117c6122e (identical record)",
+        "c5b706e16565",
+        "9a40b59e84d7",
+        "ce053672f1d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unimodality of I cannot imply unimodality of J=βIA because the signs depend also on the decreasing factor A and its derivative.",
+          "A latent-period, weak-coupling or forced-rate example need not persist under the constant-rate single-pool SIR restrictions."
+        ],
+        "reasoning": "Neither the known prevalence theorem nor the other peak-generating models imply the frozen strict ordering or sharp minimum.",
+        "searches": [
+          "arXiv:2309.14583 §III.A/Theorem 1 in inspected version",
+          "arXiv:2608.22122 §4.4",
+          "arXiv:2308.06593 §10.1",
+          "Resultary c5b706e16565 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "404117c6122e is the assigned record itself, not a second statement.",
+          "Bootsma et al. report two peaks of total new infections, but with differing latent periods or weak coupling.",
+          "The rank-one weighted infected curve in Alutto et al. measures prevalence, not the flow of new infections."
+        ],
+        "reasoning": "Neither exchanging incidence with prevalence nor removing latency or weak-coupling assumptions preserves the cited conclusions.",
+        "searches": [
+          "Resultary: fixed susceptibility, incidence peaks while prevalence rises; 404117c6122e, c5b706e16565",
+          "arXiv:2308.06593 §10.1",
+          "arXiv:2309.14583 §III.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match retrieved was 404117c6122e itself; the closest distinct within-growth entry was c5b706e16565 with time-varying transmission."
+        ],
+        "reasoning": "The inspected catalogue evidence did not yield a distinct exact witness or sharp two-class threshold in this model; this is not proof of no such entry.",
+        "searches": [
+          "Resultary: fixed susceptibility classes, aggregate incidence crests during rising prevalence"
+        ]
+      },
+      "rationale": "The model, multiple incidence peaks through other mechanisms, and aggregate prevalence unimodality have precedents. The inspected evidence does not cover the sharp minimum for two strict aggregate incidence peaks before the unique prevalence maximum under fixed susceptibility and time-constant shared-pool SIR. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "Earlier heterogeneous-epidemic shape results under different terminology might contain the same autonomous constant-rate construction; the broad cross-model search was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Incidence peaks covered with different mechanisms, not the frozen scope",
+          "evidence": "Two well-mixed groups with different latent periods; a separate weakly coupled example.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.06593",
+          "material_read": "§10.1, PDF pp. 22–24, Figure 2",
+          "method": "Bounded primary full-text inspection",
+          "title": "The effect of host population heterogeneity on epidemic outbreaks",
+          "trigger": "Closest published aggregate incidence double peaks"
+        },
+        {
+          "assessment": "Related theorem about prevalence",
+          "evidence": "The weighted infected aggregate follows a scalar unimodality argument; individual subpopulation prevalence can be multimodal.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.14583",
+          "material_read": "§III.A, PDF pp. 4–5",
+          "method": "Bounded primary full-text inspection",
+          "title": "On the dynamic behavior of the network SIR epidemic model",
+          "trigger": "Rank-one SIR and potentially competing unimodality"
+        },
+        {
+          "assessment": "Covers model framework rather than the peak theorem",
+          "evidence": "The finite-discrete-risk equations allow arbitrary multimodality of the susceptibility distribution, not a stated incidence conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22122",
+          "material_read": "Abstract and §4.4, PDF pp. 1 and 17",
+          "method": "Bounded primary full-text inspection",
+          "title": "From Individual-Based Stochastic Epidemics to Heterogeneous SIR Equations",
+          "trigger": "Same fixed-susceptibility dynamics"
+        },
+        {
+          "assessment": "Different network model and mechanism",
+          "evidence": "Peak separation is attributed to delays between weakly coupled layers with differing degree distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.05780",
+          "material_read": "PDF p. 3, multiple-peak mechanism",
+          "method": "Bounded primary full-text inspection",
+          "title": "Multiple peaks patterns of epidemic spreading in multi-layer networks",
+          "trigger": "Potentially broader multiple-peak result"
+        },
+        {
+          "assessment": "Covers many maxima with time-varying transmission only",
+          "evidence": "The constructed transmission function decreases strictly but is not constant.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-incidence-prominence-budget-with-unbounded-micro-peak-coun--c5b706e16565",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and mirrored statement inspection",
+          "title": "Sharp incidence prominence budget with unbounded micro-peak count",
+          "trigger": "Closest catalogue result on maxima during rising prevalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp minimal heterogeneity threshold identifies a genuine limitation of inferring the number or ordering of incidence peaks from unimodal prevalence. Robustness to parameter perturbation rules out a fine-tuned coincidence. The value is as a structural result for a deterministic mathematical model, not as an outbreak prediction or claim about measured epidemic curves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

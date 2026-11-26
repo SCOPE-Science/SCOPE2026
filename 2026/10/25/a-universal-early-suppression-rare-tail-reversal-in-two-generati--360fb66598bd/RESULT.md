@@ -23,7 +23,7 @@ More precisely, for arbitrary positive parameters \(c,d\),
 \[
 \lim_{n\to\infty}\left[\frac1n\log\Pr(C_{c,d}\ge n)+\log\log n\right]=\log d.
 \]
-Thus front-loading the stronger transmission reduction lowers both the mean and all probabilities of zero-or-light outbreaks measured by the probability generating function, but eventually produces a larger *catastrophic* outbreak tail. The late-generation reproduction parameter controls the logarithmic rare-event coefficient; the first-generation parameter drops out of that coefficient.
+Thus front-loading the stronger transmission reduction lowers the mean, raises the probability of no new infections, and raises each discounted expectation \(\mathbb E[z^C]\) for \(0\le z<1\), but eventually produces a larger upper tail. Probability-generating-function order compares these expectations; it is not a pointwise ordering of outbreak-size probabilities or survival tails. The late-generation reproduction parameter controls the logarithmic rare-event coefficient; the first-generation parameter drops out of that coefficient.
 
 For a concrete non-asymptotic example, at \((a,b)=(1/2,2)\) the early-minus-late probability of at least twelve new cases is \(0.0003060185540125093\ldots>0\), although the means are \(3/2\) and \(3\), respectively. All thresholds from one through eleven instead favor early suppression in the usual survival-tail sense.
 

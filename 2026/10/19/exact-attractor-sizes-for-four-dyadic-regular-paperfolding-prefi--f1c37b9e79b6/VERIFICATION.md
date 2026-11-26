@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification protocol
+# Independent mathematical audit
 
-Run `python3 verify.py` and `python3 verify_independent.py` alongside `certificates.json`. These are standalone standard-library Python programs; no scientific computation from another package is imported. Each generates all four finite regular-paperfolding prefixes directly from the odd-part rule.
+## correctness
 
-For each prefix, `verify.py` loops over every substring length and every starting position, compares literal binary substrings, and ensures that the proposed attractor crosses at least one occurrence of every distinct factor. It independently finds all occurrences of each weighted certificate factor and adds its weight once to each position in the *union* of those occurrence spans. It checks the total weighted sum, denominator, and maximum position load. Expected terminal marker: `VERIFY_OK`.
+PASS
 
-`verify_independent.py` uses a different odd-part implementation and integer-bitset unions of substring occurrence intervals. It verifies all factors and separately recomputes load inequalities from the provided factor strings. Expected terminal marker: `INDEPENDENT_VERIFY_OK`.
+Independently reconstructed the word by p(2j)=p(j), p(2j+1)=j mod 2, and matched the first sixteen bits and the frozen zero-based witnesses. Used lossless integer keys (leading 1 followed by the bits) to enumerate every substring and test for an occurrence meeting the witness. For each weighted factor, exact overlapping matches and a difference array reconstructed the union of occurrence spans without counting multiple occurrences at a position twice. Every attractor hits each such union, so summing weights over its positions bounds the numerator total by denominator times attractor size. Independent replay rows (length, distinct factors, witness size, weighted factors, numerator sum, denominator, maximum load): (128,6479,5,5,5,1,1), (256,25775,6,11,11,2,2), (512,102767,6,12,12,2,2), (1024,410351,7,21,51,8,8). Taking ceilings gives the same four sizes as the witnesses.
 
-Validated numerical rows are: prefix lengths `128,256,512,1024`, distinct factor totals `6479,25775,102767,410351`, attractor sizes `5,6,6,7`, weight sums `5,11,12,51`, denominators `1,2,2,8`, and maximal position loads `1,2,2,8`. These give exact lower bounds `5,6,6,7`. These finite checks are exhaustive under the declared definition; they do not establish any statement for untested word lengths or an asymptotic growth law. No independent external audit has been performed.
+## originality
+
+PASS
+
+The strongest indexed comparison gives bounds on exactly these four instances rather than their minima. The inspected primary results neither resolve those gaps nor supply a stronger evaluated theorem implying the four values. The pass is limited to the finite exact values, not the factor counts, word definition, earlier dyadic minima, or general certificate method.
+
+## value
+
+PASS
+
+The four canonical dyadic folding scales are the already identified open rows of a natural benchmark, not chosen after finding favorable numerical outcomes. Exact optima with reusable upper witnesses and weighted lower certificates give a reference for checking algorithms and testing proposed attractor-profile bounds for this automatic word. The contribution is finite and claims no growth law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

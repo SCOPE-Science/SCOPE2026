@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:00:44.982648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–46 and proof lines 48–81",
+        "Frozen VERIFICATION.md and check_transverse.py (static inspection)",
+        "Independent branch, compactness, null-preimage and sink deductions"
+      ],
+      "rationale": "With u=(x+z)/2 and w=(x−z)/2, equal assigned signs s give u′=asu+sy+1, y′=2bu, w′=asw, including the nonnegative branch at zero. If dist(T^n p,K)→0 for a nonempty compact K⊂D, then w_n→0. At a mixed-sign visit, |u_n|≤|w_n| and w_{n+1}=±(au_n−y_n), so infinitely many such visits force a subsequence (u_n,y_n,w_n)→(0,0,0), contradicting the exclusion of the origin from K. Hence there are eventually only equal-sign visits; |a|≥1, including equality, forces eventual exact w=0 rather than just approach. Each of the four open branches has determinant −2ab≠0 (the two determinant terms each give −ab), and the switching planes are null. Thus inverse images of null sets are null even without continuity on the switches. The basin lies in ∪_{n≥0}T^{−n}(D), which is null. This permits points (0,y,0) with y≠0 in K. The derivative cocycle for measures giving the switching set zero mass splits into a bounded invertible tangent block (determinant modulus |2b|) and signed scalar a, so the exponent identities follow. For 0<|a|<1 and 0<b<(1−|a|)/2 the stated fixed point lies strictly in the positive branch; its tangential radius (|a|+√(a²+8b))/2 and transverse modulus |a| are strictly below one, yielding an open basin. Until the tube threshold |w_j|≥δ, the reference and perturbed center agree exactly while |w_j|=|a|^j|w_0|; rounding up the crossing time gives the stated clock, provided the reference sign stays away from the switch through the preceding step.",
+      "residual_risks": [
+        "The proof does not cover compact sets containing the origin or parameters ab=0. The checker is finite and no checker execution is needed for the basin theorem. The spectrum identity is not claimed for measures charging a switching line."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lozi reports sample fixed-point multipliers and says a proposed stable-manifold boundary remains to be proven.",
+          "Maistrenko et al. use two coupled logistic maps; Kucharski’s Lozi map is planar."
+        ],
+        "reasoning": "Neither the stability of particular smooth orbits nor the general transverse-instability concept forces global nullity for arbitrary compact K intersecting discontinuities, especially with exponent zero.",
+        "searches": [
+          "Lozi §4.4.1",
+          "Maistrenko et al. 10.1103/PhysRevE.57.2713",
+          "Kucharski 10.1063/5.0139893"
+        ]
+      },
+      "checked_sources": [
+        "Lozi 10.3390/dynamics3020019",
+        "Maistrenko et al. 10.1103/PhysRevE.57.2713",
+        "Kucharski 10.1063/5.0139893",
+        "Resultary 4a1cf0d3bef8 and 335be622e78a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The branch Jacobian determines the normal exponent and is credited.",
+          "A w→0 orbit visiting mixed signs infinitely often must approach the origin along those visits, which is the extra nonlinear condition used before any null-preimage argument."
+        ],
+        "reasoning": "The neutral conclusion and allowance for nonzero switching-line points depend on this exact orbit argument. They are not logical consequences of the prior fixed-point multipliers or of generic stable manifold theory at a smooth hyperbolic orbit.",
+        "searches": [
+          "Lozi §§4.1–4.4.1, pp. 334–337",
+          "Frozen proof §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lozi eqs. (34)–(40) give the same diagonal and Jacobians.",
+          "In (u,y,w) coordinates, the new basin inclusion is eventual exact entry into D, not merely transverse instability."
+        ],
+        "reasoning": "These are the same model and invariant plane under coordinate change; prior invariance and fixed-point instability should not be mistaken for the global Lebesgue statement.",
+        "searches": [
+          "Resultary: symmetric 3D Lozi, thread attractor, diagonal transverse exponent and ambient basin",
+          "Lozi 10.3390/dynamics3020019 §§3.2, 4.1–4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed hit concerns expectation identities of invariant probabilities for the planar Lozi map; the second concerns arclength absorption on an invariant graph of a different planar map.",
+          "The published fixed-point multiplier computation is at a=c=−1.25, b=.1, not a table of ambient basin measures."
+        ],
+        "reasoning": "A finite list of multipliers cannot decide the universal real-parameter, all-compact-K basin theorem; the closest indexed exact results concern different objects.",
+        "searches": [
+          "Resultary Lozi / null ambient basin hit 4a1cf0d3bef8",
+          "Resultary piecewise-affine absorption hit 335be622e78a",
+          "Lozi §4.4.1 fixed multipliers"
+        ]
+      },
+      "rationale": "The 3D map, symmetric invariant plane, branch Jacobian, and a worked transverse fixed-point multiplier are already in Lozi. The novel claim supported by the comparison is the nonlinear, ambient, all-compact-set null-basin criterion in the stated parameter domain, including neutral |a|=1 and switching-line intersections away from the origin. This is not a claim of novelty for block diagonalization or the derivative normal exponent alone.",
+      "residual_risks": [
+        "The focused prior-art comparison cannot exclude an unindexed equivalent. No claim of absence is based on an empty search response."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, symmetry and derivative; not the stated compact-set basin theorem",
+          "evidence": "At a=c=−1.25, b=.1, (20/41,4/41,20/41) has eigenvalues about −1.393521, −1.25, .143521; the −1.25 eigenvalue is not tangent. A proposed stable-manifold boundary is left unproven.",
+          "identifier_or_url": "https://doi.org/10.3390/dynamics3020019 ; https://hal.science/hal-04542935/document",
+          "material_read": "§3.2 pp. 332–333 eqs. (34)–(35); §§4.1–4.2 pp. 334–335 eqs. (36)–(40); §4.4.1 pp. 336–337 (offsets about 87300–91463)",
+          "method": "Original full-text OA author repository copy, bounded passages",
+          "title": "Coexistence of Thread and Sheet Chaotic Attractors for Three-Dimensional Lozi Map",
+          "trigger": "Original 3D family and ambient behavior"
+        },
+        {
+          "assessment": "Related concept, different map and conclusion",
+          "evidence": "Two coupled logistic maps and transverse/riddling phenomena, not the piecewise-affine 3D Lozi all-K criterion.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.57.2713",
+          "material_read": "Abstract (PDF p. 2), diagonal and transverse-exponent discussion (PDF pp. 4–5)",
+          "method": "OA full-text passages",
+          "title": "Transverse instability and riddled basins in a system of two coupled logistic maps",
+          "trigger": "Related nonlinear basin obstruction by transverse instability"
+        },
+        {
+          "assessment": "Planar setting",
+          "evidence": "No third coordinate with a diagonal normal direction in the studied map.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0139893",
+          "material_read": "Abstract p. 1 and introduction p. 2",
+          "method": "OA paper passages",
+          "title": "Strange attractors for the family of orientation preserving Lozi maps",
+          "trigger": "Possible rigorous Lozi attraction coverage"
+        },
+        {
+          "assessment": "Different invariant and ambient dimension",
+          "evidence": "Stationary expectation identity for compactly supported invariant probabilities of a planar Lozi homeomorphism, not a three-dimensional null basin.",
+          "identifier_or_url": "Resultary 4a1cf0d3bef8",
+          "material_read": "Finding, map, invariant objects and expectation identity",
+          "method": "Configured Resultary search and local mirror read",
+          "title": "Exact stationary sign-amplitude simplex and two-sided recurrence",
+          "trigger": "Closest indexed Lozi comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding (3)–(5), compactness and null-preimage proof",
+        "Lozi §4.4.1"
+      ],
+      "rationale": "The published thread-attractor example motivates distinguishing attraction in a natural invariant plane from attraction by volume in 3D. The theorem decides the ambient question for a whole class of compact invariant sets without a regularity assumption excluding all switch intersections. At neutral normal multiplier, where a sign-of-exponent test cannot decide nullity, it still gives a global obstruction. The explicit full-dimensional sink below the threshold shows why the parameter restriction matters.",
+      "residual_risks": [
+        "The result does not classify origin-containing sets or all basins, and does not establish existence of particular chaotic attractors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

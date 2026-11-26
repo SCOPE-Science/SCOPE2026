@@ -1,11 +1,21 @@
-# Review of reciprocal random-action consensus rate
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise stochastic update and conditional independence permit a closed two-dimensional moment recurrence. Its matrix has a strictly positive Perron eigenpair and spectral radius below 1 for every \(0<\alpha<1\); a martingale and Borel–Cantelli argument identifies the random binary consensus and the exact expected terminal quadratic loss. The derivative has precisely one genuine interior zero; the other algebraic root is extraneous. The packaged exact-arithmetic program checks all nonstandard polynomial and moment identities, not the infinite-time statements.
+## correctness
 
-**Originality — PASS with limitations.** The 2017/2018 foundational paper presents the random-actions model, herding, and a trajectory-local fast-descent heuristic \(1-\alpha\). The 2024 convergence paper proves almost-sure and moment convergence but does not give this expected terminal squared-error spectrum or its exact gain optimum. Targeted searches of published literature and indexed mathematical findings identified no implication of the full result; algebraic agreement with an unsearched two-state stochastic process cannot be excluded. The 2024 related thesis was not inspected in full and is a documented risk, not used to claim absence of coverage.
+PASS
 
-**Value — PASS.** The result solves a natural quantitative gap in an established model: it distinguishes transient ensemble convergence from the rapid final pathwise phase and finds a unique nonobvious optimal influence coefficient. It also gives a complete exact two-agent benchmark and exposes a concrete near-periodic source of slow convergence at large influence. It is not asserted to hold for larger networks.
+In the half-sum and half-difference coordinates, fresh conditionally independent actions give conditional variances alpha^2 u/2 in both coordinates and conditional means m and (1-2 alpha)d. Using u=m(1-m)-d^2 yields the exact two-moment matrix in the record. It is primitive: both off-diagonals and its first diagonal are strictly positive. The trace is below 2, both eigenvalues are real, and det(I-M)=2 alpha^3(1-alpha)>0, so the Perron root lies below 1. The bounded martingale m_t has a limit and geometric summability of E[d_t^2] gives d_t->0 almost surely. The expectation of m_t(1-m_t) tends to zero, forcing a binary limit Z. The conditional expectation of Z is m_t, giving the exact unconditional terminal squared error 2U_t+4V_t. All nonabsorbed initial states give a nonzero nonnegative starting vector, so its Perron projection and the coefficient of this error are strictly positive. Only the larger radical candidate survives the unsquared derivative sign condition; the endpoint values are 1 and the interior rates are strictly smaller, so the unique stationary point is the unique minimum. The eigenvalue there is the stated larger root. An independent exact enumeration at alpha=1/2 from (1/3,2/3) through three updates checked the U,V recurrence at each step; the first-step terminal-error identity evaluates to 1/2.
 
-**Closest sources:** Leshem–Scaglione (2018), Sections I and III; Abrahamsson–Danev–Larsson (2024), Sections II–IV and appendix. **Residual risks:** possibly equivalent two-state consensus calculations in older stochastic-process literature and a not-fully-read related 2024 thesis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass, to the best of current knowledge, for the exact attained terminal squared-error exponent and its unique optimum for the stated reciprocal Bernoulli-action model. The update mechanism and qualitative convergence are prior, and exact Perron optimization has close analogues for other consensus processes. The inaccessible thesis is a residual priority risk, not a basis for a verdict on its content.
+
+## value
+
+PASS
+
+The smallest reciprocal random-action network is a natural benchmark for the quantitative gap left by qualitative convergence: how fast the realized uncertain beliefs approach their eventual random consensus on average. The attained exponent for every nonabsorbed start and its exact unique optimum show a real tradeoff, with deterioration near both endpoints. Neither qualitative convergence nor an idealized last-stage trajectory factor answers that tuning question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

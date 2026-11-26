@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:08:29.356804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–119",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "python3 -B /workspace/branches/audit-replays/strings.py",
+        "python3 -B /workspace/branches/audit-replays/moments_and_units.py",
+        "Glen, Simpson & Smyth, arXiv:1701.00928, Theorem 1 (unrestricted benchmark)"
+      ],
+      "rationale": "A nonsingleton binary Lyndon factor starts with 0 and ends with 1, so the factors come from two rectangle families with their intersection subtracted, or from the four-run form 0^i1^b0^c1^j. Suffixes inside the initial zero run or starting with 1 are larger. The third-run suffix starting with all c zeros decides: i>c gives a Lyndon word, i<c rules it out, and i=c gives a Lyndon word exactly for j>b. With the two singleton letters this yields the entire spectrum. Writing Z=a+c and O=b+d, the deficit ZO−L is ad+cb+a min(b,d)−2 when a<c, c(b+2d)−2 when a>=c and d<=b, and (c−1)d+(2c+1)b−2 otherwise. The first is >=2; the other two are >=1 and give equality precisely in the allowed cases with b=c=1. Balancing Z,O gives the claimed sharp maximum, the optimizer parity count, and the n=4 boundary. Summing the rectangle, excess and tie terms as geometric series and putting them over (1−z)^6(1+z)^2 gives numerator z^4(3+6z−2z^2+2z^4). The uniform lattice simplex converges by Riemann sums to the uniform Dirichlet law; the remaining singleton and tie contribution is uniformly O(1/n) after n^2 scaling. For S=A+C the independent ratios U=A/S,V=B/(1−S) are uniform, independent of Beta(2,2) S. Independent bilinear integration on the four U,V rectangles and beta moments reproduced mean 9/80, second moment 1/64 and variance 19/6400. The pole at 1 of order 6 with leading Laurent coefficient 9/4, and the lower-order pole at −1, give expectation (9/80)n^2+O(n) after dividing series coefficients by binom(n−1,3). Primitive-rotation replay agreed with all 2401 spectra tested and directly verified total coefficients and extrema through length 17.",
+      "residual_risks": [
+        "Finite replays are not the proof for arbitrary run lengths. The limit and moments concern uniform positive compositions, not independent letters or factor occurrences counted with multiplicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives the maximum over all alphabet-size-sigma words, realized by ordered balanced blocks. Theorem 8 gives the total for Christoffel words in terms of their continued fractions. Section 4 takes expectations over all words of a given length."
+        ],
+        "reasoning": "A global maximum is an upper bound and is larger by three here. The Christoffel theorem counts a specially structured family, not every host with four positive runs. Unconditional letter statistics do not entail exact conditional composition statistics.",
+        "searches": [
+          "Primary-literature search on distinct binary Lyndon factors and four-run counting; arXiv:1701.00928, Theorems 1 and 8, §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior-work section",
+        "arXiv:1701.00928",
+        "arXiv:2106.01190",
+        "Resultary 5c8a2551c2f3, 0141782001ca and 02ced6be8097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior maximum in the binary specialization is floor(n^2/4)+2; the earlier expectations use a different distribution. The fixed-weight Resultary limit is on an O(m) scale, and the neighboring four-run law is a longest-subsequence deficiency."
+        ],
+        "reasoning": "None of these determines the exact deficit or optimizer in the four-run subclass, the tied interior-run factor contributions, or the pushforward law on the three-dimensional simplex. The genuine overlap on a fixed-weight slice is not a reduction of the full theorem.",
+        "searches": [
+          "Glen–Simpson–Smyth §2 Theorem 1, §4, Theorem 8",
+          "Hirakawa–Nakashima–Inenaga–Takeda arXiv:2106.01190",
+          "Resultary 02ced6be8097 and 5c8a2551c2f3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-marker factor records fix exactly three ones, rather than exactly four positive runs. The longest-Lyndon-subsequence record uses the same four-run input and sampling but a longest scattered object rather than a distinct contiguous-factor multiset by length."
+        ],
+        "reasoning": "The only common three-marker compositions satisfy b+d=3. Neither changing the sampling to fixed weight nor replacing factors by scattered subsequences preserves the statistic and domain of the Finding.",
+        "searches": [
+          "Resultary: fixed-four-run distinct contiguous binary Lyndon factors and length spectrum",
+          "Resultary records 5c8a2551c2f3, 0141782001ca and 02ced6be8097",
+          "arXiv:2106.01190, abstract and model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two mirrored Findings supply exact counts or distribution series under the three-one restriction; their own claims substantially overlap. No checked extract gives an all-four-positive-runs spectrum, maximum, series or law."
+        ],
+        "reasoning": "These exact indexed results are matched to their parameters rather than dismissed by title or date. They cannot tabulate hosts with unbounded b+d or produce the uniform positive composition law. No separate numerical table is required for the symbolic claim.",
+        "searches": [
+          "Resultary 2026/10/26 three-marker binary Lyndon factor census 5c8a2551c2f3",
+          "Resultary 2026/10/25 complete three-marker distribution 0141782001ca"
+        ]
+      },
+      "rationale": "In the strongest matched sources, unrestricted binary extrema, Christoffel factor counts, scattered subsequences, and factor counts on the three-one slice do not cover the unrestricted positive four-part composition family. The supported distinct contribution is the full length spectrum on that family, its sharp extremal loss and equality cases, and the resulting aggregate and conditional law. This is a best-of-knowledge comparison, not a priority guarantee.",
+      "residual_risks": [
+        "The bounded searches do not rule out unindexed work or differently named equivalent specializations. No claim of originality is made for the unrestricted benchmark, the general suffix criterion, or results on the exact three-one slice in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global and special-family neighboring results, not four-run conditional theorem",
+          "evidence": "Theorem 1 takes all words; Theorem 8 assumes Christoffel structure and counts by continued-fraction coefficients; §4 averages over Sigma^n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.00928; DOI 10.37236/6915",
+          "material_read": "§2 Theorem 1 p. 3 offset 6741; §4 p. 5 offset 14019; Theorem 8 pp. 8–9 offset 34300",
+          "method": "OA PDF passages",
+          "title": "Counting Lyndon factors",
+          "trigger": "Unrestricted extrema, expectations and direct factor census for a binary family"
+        },
+        {
+          "assessment": "Different counted object",
+          "evidence": "Studies scattered Lyndon subsequences rather than the set of contiguous factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.01190",
+          "material_read": "PDF p. 1 abstract and problem, offset 1870",
+          "method": "OA full-text passage",
+          "title": "Counting Lyndon Subsequences",
+          "trigger": "Lyndon enumeration with a potentially misleading factor/subsequence alias"
+        },
+        {
+          "assessment": "Partial parameter overlap only",
+          "evidence": "Exactly three ones with four nonnegative zero gaps, an exact census and fixed-weight fluctuation law.",
+          "identifier_or_url": "2026/10/26/SCOPE-three-marker-binary-lyndon-factor-census-isolated-maximum-and-fl--5c8a2551c2f3",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three-marker binary Lyndon factor census: isolated maximum and fluctuation law",
+          "trigger": "Distinct-factor exact count, maximum and law within bounded marker count"
+        },
+        {
+          "assessment": "Partial parameter overlap only",
+          "evidence": "The distribution series is restricted to exactly three ones.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-three-marker-distribution-of-distinct-lyndon-factors--0141782001ca",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete three-marker distribution of distinct Lyndon factors",
+          "trigger": "Exact distribution and generating function in a nearby family"
+        },
+        {
+          "assessment": "Same type of host, different invariant",
+          "evidence": "The observable is longest scattered Lyndon subsequence deficiency, not the number or length spectrum of distinct factors.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-longest-lyndon-subsequence-deficiency-and-its-limiting-law--02ced6be8097",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact longest Lyndon subsequence deficiency and its limiting law",
+          "trigger": "Same four-run domain and composition sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–56 and 64–119",
+        "Glen–Simpson–Smyth Theorem 1 and §4",
+        "Resultary 5c8a2551c2f3"
+      ],
+      "rationale": "The first four-run host with repeated 01 transitions introduces both an overlap between two factor rectangles and a competing interior zero suffix. The exact spectrum resolves both. The resulting fixed-run extremum is substantially more informative than a global numerical bound: it finds a sharp, length-uniform defect and all extremizers. The conditional law for a natural uniform run-composition model adds a nondegenerate fluctuation statement with exact moments; neither it nor the rigidity is furnished by the neighboring fixed-weight or unrestricted models.",
+      "residual_risks": [
+        "The result does not establish a general run-count theory, an explicit cumulative distribution, or a limit for iid binary strings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

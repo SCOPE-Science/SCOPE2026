@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-## Exact finite checks
+# Independent mathematical audit
 
-`checker.py` directly enumerates all 56 exceptional classes and the 28 associated bitangent indices, and finds 126 candidate conic-bundle divisor classes by the two numerical equalities with multiplicities at most two. It checks all intersections against the 56 exceptional classes are nonnegative and compares direct Frobenius-fixed class counts with closed formulas for all 15 cycle types and for their first 21 powers. All 15 joint pairs are distinct. The independently generated `classification.csv` is the same 15-row table used in the proof.
+## correctness
 
-Run:
+PASS
 
-```sh
-python3 checker.py classification.csv
-```
+Geiser complementation D -> -K-D pairs the four known families of exceptional curves into singleton-indexed and two-subset-indexed bitangents, including hyperflexes in odd characteristic. Nefness against exceptional divisors and their complementary cubics forces each multiplicity into {0,1,2}; square zero and anticanonical degree two then give just the listed five patterns. Their pencil existence can also be seen by quadratic Cremona change of marking: choose three maximal multiplicities and use a'=2a-b_i-b_j-b_k for degree reduction to H-E_i (at degree 3 choose 2,1,1). A Frobenius-invariant class descends over the finite field since its Brauer group vanishes, and the descended complete pencil has split projective-line base. Independent cycle-coloring of the multiplicities and cycle-union enumeration of bitangent indices reproduces all 15 distinct pairs, with 10 and 11 distinct individual entries in the two columns. Powers of a recovered point permutation determine both finite-etale zeta functions. As a direct check of the surface zeta formula, over F_(q^n) the blowup adds q^n times the number of original points fixed by F^n to 1+q^n+q^(2n), which gives the displayed factors.
 
-Expected leading output:
+## originality
 
-`CHECKED_56_EXCEPTIONAL_126_CONIC_CLASSES_28_BITANGENTS_15_UNIQUE_PAIRS_B10_C11`
+PASS
 
-The code validates a finite classification; it does not, without the mathematical arguments and primary geometry references in RESULT.md, independently establish every geometric correspondence or field-of-definition descent.
+The component geometry and classical eigenvalue-based reconstruction of zeta data are known. The distinct assertion is injectivity of these two specified base-field permutation characters jointly on the marked S_7 types, not a new list of curves, a general Weyl-class inversion, or a new trace formula.
+
+## value
+
+PASS
+
+Two natural but lossy geometric counts separately have collisions. Their joint separation of every possible marked septuple type is an exact economy of arithmetic data, turning two ground-field observations into all extension counts and the surface zeta function without extension-field measurements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

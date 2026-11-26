@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The semantic reduction from lax dependence splitting to vertex labels is bidirectional, including unused vertices. Two colors permit a universal opposite-side labeling. Pseudoforest edge orientations prove the positive case for every coloring. Every bicyclic connected graph has a theta, dumbbell, or figure-eight core; proper three-edge coloring settles the first two cases, while a two-cycle incompatible-center construction settles the third. The obstruction extends from a subgraph to the original graph. A standalone enumerator verifies all three-colored small bipartite graphs through \(K_{2,3}\) and a degree-four figure-eight core. The finite computation is not treated as the general proof.
+## correctness
 
-**Originality — PASS, residual risk noted.** The relevant full primary paper, Fröhlich–Kolaitis–Meier (2025), proves complexity/coherence trichotomies for these atoms, and pseudoforest equivalence for the different, two-variable formula. Its results do not state the all-colorings support-graph characterization with a sharp three-value threshold. Searches for equivalent graph-coloring/monochromatic-star/vertex-label formulations and relevant published research records revealed no identical theorem. A broad unnamed older edge-coloring result may still imply the result; priority is not independently certified.
+PASS
 
-**Value — PASS.** Instead of repeating instancewise model checking, the result identifies the exact support graphs on which *every* functional database with a fixed consequent alphabet satisfies a genuinely nontrivial two-dependence-atom disjunction. The sharp transition at three values is uniform over arbitrarily high degrees; the non-subcubic shared-vertex cycle case requires a separate obstruction. This gives a structural universal test and explicit counterexample certificates, motivated directly by the database-integrity interpretation.
+The team split is equivalent to total vertex labels such that each edge's assigned color matches a label at one endpoint. A satisfying split supplies partial labels, completed arbitrarily because the alphabet is nonempty; conversely each edge can be assigned to a matching endpoint. Constant labels on each side solve the two-color case. In a tree or unicyclic component orient edges to have at most one incoming edge at each vertex; each vertex then labels its one incoming edge. For necessity, take a spanning tree plus two non-tree edges in a component with at least two cycles, and prune leaves. This gives a connected core of minimum degree two with E=V+1. The sum of degree excesses above two is two. Suppressing degree-two paths leaves either one degree-four vertex with two loops, or two degree-three vertices with either three joining edges or one joining edge and a loop at each end. On undoing suppression these are exactly the figure-eight, theta and joined disjoint cycles. For each subcubic core, König's bipartite edge-coloring theorem supplies a proper three-coloring; each vertex can then cover at most one edge, fewer total than required. In the figure-eight, give the two incidences of each cycle at the shared vertex the same color, distinct across cycles. Alternate the two other colors along each remaining path, so each noncentral vertex sees distinct colors. Every cycle must use the shared vertex to cover an edge, but no single label can cover edges of both cycles. Extending the falsifying coloring preserves failure. Checking E≤V for each connected component takes linear time and includes isolated vertices. The checker was inspected, not run. It stops at the first falsifier on each nonrobust support, so it correctly tests the universal condition but the wording that it tests every coloring even on those supports is too strong.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The uncolored pseudoforest criterion and the same formula on a single given team are prior. Fröhlich–Kolaitis–Meier also already give three-color witnesses on a particular family of chorded even cycles. Their results, combined with proper edge coloring, account for the unbounded-palette implication and the subcubic obstructions. The distinct supported result is the sharp palette threshold for arbitrary finite bipartite supports: a three-color obstruction also exists on every figure-eight, where degree four prevents a proper three-edge-coloring, and two colors are always coverable. The closest matched catalogue record gives an exact three-color census and deletion distances on K_{2,n}, not the arbitrary-support threshold. Its same-day date gives no order or priority determination.
+
+## value
+
+PASS
+
+For an established dependence formula whose individual-team model checking has already been studied, asking whether an unlabeled support guarantees all teams work is a distinct, naturally motivated question. The sharp jump from universal acceptance at two colors to a linear-time structural classification at three identifies the least usable counterexample alphabet, including the only bicyclic core not covered by the direct proper-edge-coloring argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

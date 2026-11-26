@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:35:47.223691Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the full real symmetric space, the linearization is I−L_Z⁻¹L_X. L_Z⁻¹L_X is similar to the self-adjoint L_Z⁻¹ᐟ² L_X L_Z⁻¹ᐟ², which lies strictly between 0 and 2I by the quadratic forms for X and 2Z−X. Thus the linearization has operator norm below one in the L_Z inner product, yielding local linear attraction by continuity of the derivative. Commuting data preserve the simultaneous diagonal subspace. In each scalar mode u=(y+x)/(2(z+x)) obeys g(u)=ru(1−u), r=1+x/z in (1,3), u₀=1/2 and u*=(r−1)/r. For r≤2, [u*,1/2] is invariant and the sequence decreases to u*. For 2<r<3 the two invariant alternating intervals are [1/2,u*] and [u*,r/4], using g(r/4)−1/2=(r−2)(−r²+2r+4)/16≥0. The second-iterate displacement −u(ru−r+1)[r²u²−r(r+1)u+r+1] is positive below u* in the even interval since the bracket has negative discriminant. This proves convergence and u>u*/2 at every step, hence y>0. Independent exact Kronecker-product solves on all four coordinates reproduced both matrices, with det(Z)=21/16, det(2Z−X)=11/16, det(Y₁)=13934861/4521216 and det(Y₂)=−89099634797531/107317319122944; both leading minors needed for positivity are positive and X,Z do not commute. Replay with python3 /workspace/branches/independent_algebra.py. The strict conditions persist by continuity. This establishes transient cone exit, not eventual divergence or a floating-point failure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The verified general local theorem imposes a small-error norm assumption; the audit claim uses strict positive-definite order and proves positivity for the entire commuting orbit starting exactly at the seed.",
+          "Lawful DOI and alternate retrieval attempts did not yield readable full text for Li–Shen or Higham in this review; no negative whole-paper inference is drawn."
+        ],
+        "reasoning": "A local error-norm theorem is not a global cone-preservation theorem on every commuting pair with 2Z−X≻0. The older-paper access risk remains.",
+        "searches": [
+          "arXiv:2607.12430, p. 7, Theorem 3.1",
+          "Li–Shen (2014), DOI 10.1155/2014/267042",
+          "Higham (1986), DOI 10.2307/2007992"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2607.12430",
+        "Resultary 2026/11/8/...--1b0382281fc5",
+        "DOI 10.1155/2014/267042 and DOI 10.2307/2007992 (retrieval attempts only for full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later family satisfies S⪯(1+t)Z, so 2Z−S⪰(1−t)Z≻0; its positive first and indefinite second iterate imply the same existential obstruction.",
+          "Neither inspected theorem follows the orbit under the explicit order premise for all simultaneously diagonalizable data."
+        ],
+        "reasoning": "Credit the exact implication for the obstruction rather than distinguishing witnesses by parameters. The scalar recurrence for the commuting invariant subspace and its positivity bound establish the separate universal half.",
+        "searches": [
+          "arXiv:2607.12430 §§2.1 and 3",
+          "Resultary November nonnormal amplification Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freezing X₀ in the paper's Sylvester equation gives literally the same recurrence; re-solving Newton with X_k in its Sylvester operator is not equivalent.",
+          "The November Resultary family has the same fixed operator, strict order, first-positive/second-indefinite iterates and local attraction."
+        ],
+        "reasoning": "The map and the qualitative obstruction have direct coverage. The combined commuting theorem plus noncommuting contrast does not reduce to a renamed map, or to the November noncommutative family.",
+        "searches": [
+          "Gao–Kressner–Shao, arXiv:2607.12430 §2.1 and Theorem 3.1",
+          "Resultary: exact frozen Sylvester, noncommutative loss of positive definiteness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-exact-nonnormal-amplification-and-two-step-loss-of-positive-defi--1b0382281fc5 gives a strict SPD noncommuting family; its fixed-point spectrum is {−t,0,0,t}, 0<t<1, on the space used there.",
+          "That finding does not include the commuting all-seed global result or the particular rational pair in this record."
+        ],
+        "reasoning": "This is exact coverage of the qualitative obstruction, not of the two-sided theorem. The rational entries are evidence for the obstruction, not an independently significant originality claim.",
+        "searches": [
+          "Resultary: frozen-Sylvester chord matrix square root, commuting order condition, second-step cone escape"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the sharp qualitative separation between global positive convergence for commuting seeds under the explicit order hypothesis and the failure of that same hypothesis to preserve the cone for noncommuting seeds, with local attraction established in the full symmetric space. The iteration is already in Gao–Kressner–Shao. An indexed November record independently covers the qualitative second-step obstruction (with a stronger family); neither the qualitative obstruction alone nor the classical scalar logistic mechanism is credited as a distinct result against the current corpus. The overlapping result does not cover the commuting guarantee. The different record dates are not taken as a priority determination.",
+      "residual_risks": [
+        "Older fixed-Jacobian or equivalent matrix square-root literature may contain the commuting all-orbit result or the exact contrast; the inaccessible works and ranked search do not settle that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map; conditional local theorem, not the global commuting guarantee",
+          "evidence": "Explicitly freezes X₀ in the correction equation, then proves convergence under a norm-smallness hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.12430",
+          "material_read": "§2.1 pp. 2–3, OA offset 9959; Theorem 3.1 p. 7, offset 24866",
+          "method": "OA exact full-text passages",
+          "title": "A mixed precision algorithm for the matrix square root",
+          "trigger": "Primary source for the same recurrence"
+        },
+        {
+          "assessment": "Qualitative obstruction covered; commuting theorem absent from matching statement",
+          "evidence": "Its SPD family has the requisite order bounds, a stable derivative, positive first iterate and indefinite second iterate.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-nonnormal-amplification-and-two-step-loss-of-positive-defi--1b0382281fc5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact nonnormal amplification and two-step loss of positive definiteness",
+          "trigger": "Direct database hit on cone escape"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "No readable decisive passage returned.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/267042",
+          "material_read": "Bibliographic identification only; no full-text passage relied upon",
+          "method": "Attempted lawful DOI and identified alternate retrieval",
+          "title": "Newton's Method for the Matrix Nonsingular Square Root",
+          "trigger": "Plausible older frozen or periodically refreshed Jacobian variant"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "No readable decisive passage returned.",
+          "identifier_or_url": "https://doi.org/10.2307/2007992",
+          "material_read": "Bibliographic identification only; no full-text passage relied upon",
+          "method": "Attempted lawful DOI and identified alternate retrieval",
+          "title": "Newton's Method for the Matrix Square Root",
+          "trigger": "Classic square-root Newton variants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order condition can be checked directly and has an exact interpretation: throughout-orbit positive convergence for commuting seeds but not a general positivity safeguard, despite a locally attracting fixed point. This is useful for refinements that require SPD intermediate factors. The two-dimensional strict witness is immune to roundoff interpretation and isolates the gap in the smallest possible noncommuting size; it is not evidence about the failure frequency of the small-error algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:29.869469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The review applies to the corrected RESULT.md under repairs/5. I checked the derivative sign outside (3,4r), the derivative-ratio factorization, strict convexity of H and strict decrease of its unique minimum with r. The implicit minimizer is continuous, and the minimum is positive at 1 and tends to a negative value or below for large r by testing x=5. Independent symbolic evaluation of the cubic discriminant gave 12*r^2*(4*r-3)^2*(28*r^4-120*r^3+168*r^2-92*r+15); Descartes' rule for r-1 proves the uniqueness needed to identify the critical point. The two simple zeros of H give the two level endpoints in the correct order. In scaled coordinates s=sqrt(r-r*), z=(x-x*)/s, the divided analytic function has limit -k+h2*z^2/2, with two simple roots and positive k,h2. Its exact symmetry under (s,z)->(-s,-z) reflects and exchanges the analytic root branches. Thus the scaled integral is analytic and even, proving the O((r-r*)^(5/2)) remainder, and integrating at s=0 gives K=4*k*sqrt(2*k/h2)/3. A separate high-precision solution of H=H_x=0 and differentiation gave r*=2.156640808732223414107, x*=5.639594827458655397507 and K=2.451745065918098618622. The supplied verification script was read, not executed; the order of the remainder is proved analytically, not extrapolated from numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahmed et al. treat two separate shapes and scales, use a cubic discriminant to identify bimodality regions and give a mixing-weight interval from the relevant roots. The frozen model is included by taking hot scale 1 and cold scale 1/r after rescaling x by r.",
+          "Došlá's general derivative-ratio level criterion applies although its explicit Gamma propositions do not address varying both shape and rate."
+        ],
+        "reasoning": "These results cover the mode-count problem and weight window, not a new theorem of the original breadth. The repaired claim uses them only as set-up and concerns the singular quantitative opening of the interval.",
+        "searches": [
+          "Ahmed–Goria–Hussein DOI 10.1080/03610920701713286, Eq. (1) and §2",
+          "Došlá, Theorems 1–2 and §3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Corrected repairs/5/RESULT.md and VERIFICATION.md",
+        "Ahmed–Goria–Hussein §2",
+        "Došlá §§2 and 3.5",
+        "Resultary e45ac4ab94e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Došlá's levels p=(1+phi)^(-1) give exactly R_r(x_+)<B/A<R_r(x_-) after substituting phi=4r^5*R_r. In the general Gamma problem, substitution yields the same critical cubic and hence its discriminant after rescaling and clearing denominators.",
+          "The repaired asymptotic requires a singular expansion of both coalescing endpoints: the area under the leading quadratic fixes K, and its scaled symmetry eliminates the would-be next term of order delta^2."
+        ],
+        "reasoning": "An exact known mode criterion is not being rebranded as novelty. Merely substituting the two shapes and rates yields the endpoints but not an evaluated near-critical width and error control. The repaired result supplies that quantitative analysis without claiming the generic 3/2 exponent as a new mechanism.",
+        "searches": [
+          "Ahmed et al. pp. 1148–1152, gamma critical cubic and mixing-proportion interval",
+          "Došlá pp. 280–282, derivative-ratio extremal levels"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S normalized by 6A+24r^5 B is a Gamma(4, rate 1)/Gamma(5, rate 1/r) mixture, with second-to-first mixture odds 4r^5*(B/A). The constant multiplier at a fixed r cancels in the ratio of endpoint odds.",
+          "Došlá's derivative ratio for these normalized components is 4r^5*R_r."
+        ],
+        "reasoning": "The appropriate comparison in Gamma terminology is width on a log-odds scale with unequal shapes and rates, not width in mixture weight p itself, or log-concavity of an equal-shape mixture.",
+        "searches": [
+          "gamma mixture bimodality critical discriminant mixing weight interval onset width 3/2 asymptotic cusp Ahmed Goria Hussein Došlá",
+          "Resultary: sharp logarithmic bimodality weight interval width 3/2 cusp fold onset near critical rate ratio gamma mixtures unequal shapes four five Wien exact opening coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest family-near indexed match is e45ac4ab94e8, an exact global log-concavity threshold for Gamma components with the same shape. It does not specify this unequal-shape log-odds width.",
+          "The analytic discriminant and interval in the primary source are the relevant exact data, not a tabulation of sampled roots. No matching width coefficient or expansion was located in the bounded comparison."
+        ],
+        "reasoning": "A same-shape curvature threshold is not a two-shape mode-window cusp. Matching an approximate critical temperature would be insufficient evidence of the claimed onset asymptotic.",
+        "searches": [
+          "Resultary: sharp logarithmic bimodality weight interval width 3/2 cusp fold onset near critical rate ratio gamma mixtures unequal shapes four five Wien exact opening coefficient",
+          "Resultary e45ac4ab94e8",
+          "Ahmed et al. §2, exact cubic and weight interval"
+        ]
+      },
+      "rationale": "The frozen presentation cannot pass as a distinct threshold and full mode-count classification: the general Gamma-mixture critical-point/discriminant and mixing-weight criterion covers those components. The repaired contribution is the quantitative near-onset log-width, including its evaluated coefficient and controlled remainder. The general criteria supply the levels, but do not give this local window asymptotic in the inspected statements. A separate scaled-root and integral calculation, including parity of the normalized width, establishes it. No claim of novelty for the general fold exponent or Gamma modality criteria is retained.",
+      "residual_risks": [
+        "A generic cusp calculation or an unindexed Gamma-mixture asymptotic could contain an equivalent opening expansion; the bounded check does not establish historical priority.",
+        "The novelty assessment is limited to the sharp width, coefficient and remainder in this family. The threshold and boundary levels alone are covered by broader prior criteria."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The wider family covers the frozen mode-count and weight-window question; inspected passages do not give the repaired opening expansion",
+          "evidence": [
+            "The two shape and scale parameters are separate, and §2 characterizes bimodality by cubic roots and a P-interval."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610920701713286",
+          "material_read": "Original pp. 1148–1152, Eq. (1) and §2's critical cubic, discriminant, and mixing-weight interval",
+          "method": "Lawfully accessible full-text passage inspection during the literature check; direct DOI recovery did not independently return full text",
+          "title": "Gamma Mixture: Bimodality, Inflexions and L-Moments",
+          "trigger": "Strongest plausible general result on two Gamma components with unequal shapes and scales"
+        },
+        {
+          "assessment": "General theorem gives the exact window while the explicit Gamma cases are narrower; no local asymptotic in those statements",
+          "evidence": [
+            "Theorem 2 gives endpoint levels p_i=(1+phi(x_i))^(-1); §3.5 explicitly does not treat simultaneous differences of shape and rate."
+          ],
+          "identifier_or_url": "https://www.kybernetika.cz/content/2009/2/279",
+          "material_read": "Theorem 1, p. 280; Theorem 2, pp. 281–282; Gamma §3.5, pp. 288–290",
+          "method": "OA PDF passage inspection and explicit mixture normalization",
+          "title": "Conditions for Bimodality and Multimodality of a Mixture of Two Unimodal Densities",
+          "trigger": "General modality theorem and closer Gamma special cases"
+        },
+        {
+          "assessment": "Different hypotheses and invariant",
+          "evidence": [
+            "Its exact criterion controls global log-concavity for a common shape; it does not classify unequal-shape windows or give their near-critical width."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-log-concavity-threshold-for-equal-shape-gamma-rate-mixtu--e45ac4ab94e8",
+          "material_read": "Mirrored RESULT.md, original Finding on common-shape rate mixtures",
+          "method": "Local Resultary and mirrored statement inspection",
+          "title": "A sharp log-concavity threshold for equal-shape Gamma rate mixtures",
+          "trigger": "Strongest indexed family-near match, including the narrower opening query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum temperature contrast alone gives no measure of how finely tuned the component amplitudes must be just above that contrast. The explicit log-window width determines the relative tolerance in component strength, remains invariant under normalization to mixture odds, and quantifies how rapidly two modes become feasible in this naturally motivated model. The controlled error separates this quantitative local result from a repackaged threshold, while making no unsupported observational claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

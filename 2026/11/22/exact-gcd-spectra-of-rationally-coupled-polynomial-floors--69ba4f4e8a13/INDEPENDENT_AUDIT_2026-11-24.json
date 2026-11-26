@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:18:09.164750Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–103",
+        "VERIFICATION.md and verify.py (read only)",
+        "arXiv:2611.02223v1, §1 linear tail and Theorem 1.3, offsets 9052 and 11105",
+        "/workspace/branches/a0171f03-e887-428d-8532-e286e0a14935/bounded_check.py and bounded_check.txt"
+      ],
+      "rationale": "For n=bm+r, subtracting the two floors gives m+e with e the indicator of the upper fractional-phase interval, so the gcd reduces exactly to gcd(r-be,T,m+e). In each nonzero residue class, the highest irrational positive-degree coefficient remains irrational after the affine substitution and rational scaling for every fixed modulus and subprogression. Weyl therefore makes m mod c, T mod c and the phase jointly uniform in the required sense. CRT gives H_c(d); combining the two phase branches produces the weight 2(b-c)/b². Only r=0 needs an infinite sieve. Holdridge Theorem 1.3 allows any irrational nonconstant coefficient in degree at least two, and the linear tail quoted in the same introduction allows arbitrary real intercept and irrational slope. Thus it applies to f(bm). For any fixed d and prime cutoff R at least as large as every prime divisor of d, exact valuations at p<=R are tested modulo the product of p^(v_p(d)+1). The limiting product is obtained by Weyl; the discrepancy from the exact gcd event is contained in the checked large-prime tail. This gives 1/(zeta(2)d²), including b=1. The mixture normalizes, and only this class contributes when d>=b. In the rate calculation, summing the arithmetic progression after the Möbius expansion cancels the full zeta(2) term against the untruncated linear term. The two zeta-series tails are O(1/(b²d)), the bounded rounding term is O((1+log(b/d))/(b²d)), and the explicit d>=b tail contributes O(b^-2) in total. These bounds prove both asserted rates in the specified order of limits. Independent exact arithmetic matched 78 finite CRT cases, 306 finite Möbius cases, and 450 tail cases; these are not tests of the infinite tail theorem.",
+      "residual_risks": [
+        "The nonlinear large-prime theorem is imported, not proved by the finite checks. No effective fixed-b density rate or simultaneous-n-and-b limit was shown."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holdridge supplies the large-prime estimate for one floor, and the multi-floor coprimality result has a total homogeneous equidistribution condition. Champagne's inspected Theorem 1.1 is a coprimality theorem under its equidistribution hypotheses; Banks–Shparlinski use finite-type assumptions and give a power-saving coprimality count. The split-polynomial record likewise needs totally homogeneous equidistribution."
+        ],
+        "reasoning": "Here the phase difference is fixed on each n mod b progression, so joint phase equidistribution cannot be assumed. The one-floor large-prime estimate covers the needed input only, not the residue mixture or the transition with b.",
+        "searches": [
+          "Holdridge arXiv:2611.02223v1 §1, Theorems 1.2–1.3",
+          "Champagne arXiv:2607.27533 Theorem 1.1",
+          "Banks–Shparlinski arXiv:2205.00253v3 Theorem 1.1",
+          "Resultary bcbc904e31ef"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and relevant mirror Findings",
+        "Holdridge arXiv:2611.02223v1, Champagne arXiv:2607.27533, Banks–Shparlinski arXiv:2205.00253v3",
+        "Exact-ID index comparison and mirror retrieval attempt for 25bb71fd06de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-variable law follows from available tail control and fixed-modulus equidistribution. The finite bounded-gcd classes and cancellation between the zeta(2) term and the residue-mixture expansion are not in the inspected statements. A joint translated-floor law would imply a common-gcd law on its actual domain, but the summary alone cannot verify the rationally dependent match."
+        ],
+        "reasoning": "The nonzero residue reduction and the finite mixture account for correlations not determined by any prior marginal or coprimality statement. The tail of order d^-2 for each fixed b coexists with the d^-3 limiting law; the quantitative TV estimate needs control of the entire mixture, not just d=1 or a fixed special polynomial.",
+        "searches": [
+          "Holdridge §1 and tail proof",
+          "Champagne Theorem 1.1",
+          "Resultary split-integer coprimality and rational-floor exact histograms",
+          "25bb71fd06de joint-law summary and exact local-mirror attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching formula hit 69ba4f4e8a13 is the bound Finding itself. The distinct 25bb71fd06de summary says it gives a universal joint Euler product for gcds with r<=degree translated power floors and fails at degree+1 consecutive translates. The original Finding of that distinct record could not be retrieved from the local mirror."
+        ],
+        "reasoning": "Taking the gcd of the separate gcds would yield the common gcd when the underlying pair agrees. Before flooring, two distinct translates of the same irrational monomial have a difference of degree degree-1, so direct matching to x/b requires degree two. For degree two, shifts h±=±1/(4 alpha b) match the pair exactly over the reals; they are not rational shifts if alpha is irrational. The indexed summary does not establish admissibility or the law in this dependent case. Even if admissible, this construction covers only a special quadratic family, not arbitrary f and the TV comparison.",
+        "searches": [
+          "Local Resultary exact title, gcd expression, full-law/TV wording and Holdridge/Champagne comparisons",
+          "Resultary query 25bb71fd06de distinct integer shifts h_j Vandermonde law translate gcd assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational dilation Finding gives a full block histogram for gcd(n,floor(pn/q)); its limiting masses total (q-1)/q because 1/q escapes. The exact catalogue match to the target histogram and rate was the frozen record itself."
+        ],
+        "reasoning": "The rational-dilation table is a different arithmetic observable, not a tabulation of the irrational coupled-floor triple. The latter retains all its mass and the tail has a different mechanism.",
+        "searches": [
+          "Local Resultary searches for full gcd histogram, exact zeta tail, TV limit, and rational-floor dilation 86c702b63d42"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full limiting histogram for the rationally dependent triple, its exact finite-denominator tail and its quantitative TV transition. The two-coordinate law and its large-prime input are not claimed as new. The strongest partly inaccessible comparison, a same-day translated-power joint law, cannot be deemed equivalent from its indexed statement; the possible quadratic overlap is recorded explicitly.",
+      "residual_risks": [
+        "The shift domain and exact Euler factors in 25bb71fd06de could not be checked in its full text. Overlap for its quadratic subfamily remains open from accessible information; this does not establish either priority or equivalence.",
+        "The literature and catalogue checks are bounded, not a global priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "provides essential prior input, not the correlated triple histogram",
+          "evidence": "For degree >=2 any irrational nonconstant coefficient suffices; the linear estimate quoted there permits every intercept and an irrational slope.",
+          "identifier_or_url": "https://arxiv.org/html/2611.02223v1",
+          "material_read": "§1 linear estimate offset 9052 and Theorem 1.3 offset 11105; tail proof offset 103000",
+          "method": "OA primary full-text passages",
+          "title": "On the probability that the integer parts of polynomials are coprime",
+          "trigger": "essential polynomial and linear prime-tail input, potential broader coprimality result"
+        },
+        {
+          "assessment": "coprimality theorem; required linear tail located in Holdridge's explicit quotation",
+          "evidence": "Total homogeneous equidistribution and an irrational-slope linear first coordinate in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2607.27533",
+          "material_read": "§1 Theorem 1.1, offset 10481",
+          "method": "OA primary full-text passage",
+          "title": "On the greatest common divisor of n and polynomial integer parts",
+          "trigger": "linear case and possible full gcd prior"
+        },
+        {
+          "assessment": "does not cover required dependence and all-coefficient scope",
+          "evidence": "Coprimality count with finite-type constraints and a power-saving error.",
+          "identifier_or_url": "https://arxiv.org/html/2205.00253v3",
+          "material_read": "§1 Theorem 1.1, offset 6604",
+          "method": "OA primary full-text passage",
+          "title": "On the greatest common divisor of integer parts of polynomials",
+          "trigger": "polynomial-floor gcd asymptotics"
+        },
+        {
+          "assessment": "different hypotheses and observable",
+          "evidence": "Total homogeneous equidistribution; coprimality rather than all gcd values.",
+          "identifier_or_url": "bcbc904e31ef",
+          "material_read": "RESULT.md Finding",
+          "method": "local full-text mirror",
+          "title": "Coprimality densities for split integer polynomials and equidistributed integer parts",
+          "trigger": "Euler-product coprimality for related inputs"
+        },
+        {
+          "assessment": "different number of floors and escape of mass",
+          "evidence": "One rational floor and limiting masses summing to (q-1)/q.",
+          "identifier_or_url": "86c702b63d42",
+          "material_read": "RESULT.md Finding",
+          "method": "local full-text mirror",
+          "title": "Numerator-independent gcd histograms for rational floor dilations",
+          "trigger": "another exact full floor-gcd histogram"
+        },
+        {
+          "assessment": "possible special-quadratic overlap, not verified equivalent coverage or priority",
+          "evidence": "The summary states the translated-power law and the cutoff, but not whether the shifts may be real or which phase-independence assumptions are required.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-translate-threshold-and-joint-gcd-laws-for-irrational-poly--25bb71fd06de",
+          "material_read": "indexed summary; exact RESULT.md path unavailable on decisive local-mirror attempt",
+          "method": "local Resultary exact-ID comparison and mirror retrieval attempt",
+          "title": "Sharp translate threshold and joint GCD laws for irrational polynomial floors",
+          "trigger": "joint gcd law would determine the triple gcd on matching input families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 17–40 and 48–103",
+        "Holdridge §1",
+        "Rational-floor histogram Finding 86c702b63d42"
+      ],
+      "rationale": "The rational difference makes an independent-floor model inapplicable, but an exact law is still obtainable. It identifies how the residue-zero branch produces a different tail for every finite denominator and quantifies convergence of the full dependent spectrum to the three-integer law, not just a coprimality statistic.",
+      "residual_risks": [
+        "The TV rate is an upper bound between limiting laws; sharpness or finite-sample uniformity in b is not shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone Python 3 program `verify.py` requires only the standard library. Running `python3 verify.py` from the directory containing the file completed successfully with 20,470 test counters. It checks raw spin-energy changes for all configurations on \(K_{n,n,n}\) at \(n=1,2,3\); exact multinomial-weighted occupation-matrix enumeration for \(1\le n\le12\); and the finite polynomial or entropy-bound statements in their respective residue classes.
+# Independent mathematical audit
 
-The output includes the exact blocked-energy histograms for the tested sizes. In particular, at \(n=2\) it finds \(6+36y^2+48y^3\), at \(n=5\) it finds exactly six states, and at \(n=9\) it finds \(4,821,647,046\) blocked states. The code does not certify the infinite statement; that follows from the written support-pattern proof and Stirling asymptotics. The separate literature originality assessment has not been independently audited.
+## correctness
+
+PASS
+
+Changing an occupied colour c to d in part i changes H by the difference of exterior colour counts, so each used colour must minimize those counts, with ties allowed. An absent global colour would force all used colours to be exclusive, impossible across three nonempty parts with only two colours. A part using all three imposes three equal exterior counts summing to 2n, hence 3 divides n. For 3∤n an exclusive colour forces every colour in that part to be exclusive. Two exclusive colours in one part leave the same third colour on both other parts, where a switch to either exclusive colour would improve. The exclusive-colour part is therefore pure. On the other two parts, if either part is mixed, equality of the exterior counts of its colours forces the opposite part to split equally, which in turn forces the first part to split equally. These are blocked because the third colour has exterior count n to either split part. This gives six proper configurations and, for even n, 9 supports of weight binom(n,n/2)² and energy n²/2. Without exclusive colours the incidence matrix must have exactly two occupied cells in every row and column, so its absent cells are a permutation. The counts in each row are the exterior minima of the two other rows; the three row sums force every such minimum to be n/2. These are blocked since the absent colour has exterior count n. The six supports yield weight binom(n,n/2)³ and energy 3n²/4. For 3|n the all-balanced family gives the stated multinomial-cubed lower bound, and Stirling squeezes its normalized logarithm with the all-colourings upper bound to log 3. The exact nontriple formula yields the other two limits, 0 and log 2. Independent labelled enumeration, looping over 3^(3n) spin words and testing energy changes from the explicit cross-part neighbours, gave histograms {0:6}, {0:6,2:36,3:48}, and {0:6,9:216} for n=1,2,3. This is only corroboration; the proof treats all n.
+
+## originality
+
+PASS
+
+The same stability predicate is established in the stable-colouring literature, but the inspected comparative results do not give the equal tripartite support exhaustion, energy-resolved multiplicities or three arithmetic entropy limits. The closest indexed records either change the stability rule or the graph and ground-state versus blocked-state question. This is a bounded statement-level judgment, not priority certification.
+
+## value
+
+PASS
+
+The balanced complete tripartite graph is a natural symmetric dense geometry in which the three colours compete across parts. The same normalization gives six traps along one infinite arithmetic family, a binomial-scale exponentially large population along a second, and a multinomial-scale rate along a third. This is a failure of the unrestricted kinetic entropy limit, not an equilibrium transition. The exact energy-resolved counts on 3∤n distinguish two trap geometries, so the finding adds a reusable census rather than just another existence argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

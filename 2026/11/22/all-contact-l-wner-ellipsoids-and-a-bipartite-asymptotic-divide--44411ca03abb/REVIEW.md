@@ -1,15 +1,21 @@
-# Review of the balanced multipartite PQ Löwner theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The center and covariance are computed from positive diagonal and oriented-edge contact weights. A complete orthogonal eigenspace decomposition proves the affine dimension, positive definiteness and four exact eigenvalues. Every vertex's inverse-covariance quadratic form is computed by its four orthogonal projections; the unique positive root equalizes the two vertex orbit values, and the trace identity forces them both to equal the full intrinsic dimension. A trace–determinant inequality certifies global optimality and uniqueness even for nonsymmetric and off-center competing ellipsoids. The shape determinant, all-contact Euclidean ball and fixed-part-count volume-ratio limit follow algebraically. The independent code path reconstructs all vertices and checks 25 finite cases; finite checks do not establish all-parameter correctness, which rests on the supplied algebraic proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Ohsugi–Tsuchiya, *PQ-type adjacency polytopes of join graphs* (arXiv:2103.15045, posted 2021-03-28), defines the precise polytope and proves \(h^*\) and lattice-volume results, not enclosing Euclidean ellipsoids. The complete earlier result *The exact Löwner ellipsoid of balanced complete-bipartite PQ-type adjacency polytopes* (2026-10-11) is stronger **on its two-part domain**, uses the same classical covariance optimality principle, and is explicitly credited; it does not cover three or more parts or the new positive asymptotic volume-ratio limit. The complete multipartite metric-projection paper (2026-11-17) describes Hausdorff deep holes and is not a containing-ellipsoid statement. Split-graph covariance and star-graph Löwner papers concern distinct domains/designs. Unindexed generalized graph-root or optimal-design results could cover the present statement and are a residual priority risk. Current source comparisons did not reveal a dominating theorem.
+PASS
 
-## Mathematical value — PASS
-The result extends a nontrivial graph-polytope extremal ellipsoid calculation to an infinite natural family with a different spectral multiplicity structure. It identifies a qualitative geometric divide: the ellipsoid-to-ball volume ratio has a positive fixed-part-count limit in every genuine multipartite family, while the established bipartite ratio decays to zero. The exact threshold that uniform contact weights are optimal only for class size two is a structural sharp boundary, not merely a numerical instance. No downstream theorem or independent verification is claimed.
+The contact measure has uniform marginals. On the centered affine directions (the covariance formulas with A/k are restricted to 1-perp), the adjacency has eigenvalues −s on class contrasts and 0 on within-class contrasts. Orthogonal sum/difference coordinates yield the four stated positive eigenvalues and certify full dimension. For an ordered edge the two within-class projected components are supported in different classes, giving r(s−1)/N in each sign; the class-constant components give (r−2)/N and r/N. For a diagonal the U components double and V vanishes. These reproduce both inverse-covariance norms. Independently factored the cleared contact numerator as −2 times the stated quadratic and reproduced the exact factorization of F at the uniform mass. F decreases from 2(r−1)/(r−2) to −∞, so the unique contact mass lies strictly inside (0,1). The covariance trace forces both orbit gauges to be d; strict convexity excludes all other contacts. Averaging containment proves the trace/determinant bound and its strict equality condition even with unrestricted competitor centers. All vertices have squared distance d/N, and the same mean certificate proves ball optimality. The determinant ratio and p~(r−1)/(r(r−2)s) give the positive fixed-r limit; the bipartite substitution yields √2 exp(−1/4) s^(−1/4). The advertised checker was not included among the frozen files; VERIFICATION.md reports it, but the audited proof and independently reconstructed symbolic identities do not rely on it.
 
-## Reproducibility and scope
-The proof applies for every integer \(r\ge3\), \(s\ge2\); computed tests cover \(3\le r\le7\), \(2\le s\le6\). Source comparison is limited to the inspected primary source, published mathematical records and targeted literature searches. The metric is intrinsic to the standard PQ coordinate realization and the limit holds with the class count fixed. Historical priority is not certified by absence of a search match.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the explicit all-contact outer ellipsoid for balanced PQ multipartitions with r≥3, the s=2 threshold for uniform weighting and the fixed-r asymptotic. Earlier bipartite and star formulas and the classical determinant certificate are not new; none of the inspected statements covers the r≥3 answer.
+
+## value
+
+PASS
+
+Equal-size multipartitions are a natural extension of the bipartite geometry. The explicit optimal design resolves whether a uniform vertex covariance suffices and evaluates the distortion in volume from using the minimal containing ball. The change from a vanishing ratio to a strictly positive limit for each fixed r≥3 is a qualitative boundary rather than a cosmetic change of parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

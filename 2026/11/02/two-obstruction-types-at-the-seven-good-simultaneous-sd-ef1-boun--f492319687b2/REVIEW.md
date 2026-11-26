@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete claim is restricted to two labeled agents, seven goods, and strict additive singleton rankings. The SD-EF1 definition is reduced to prefix count imbalance at most one by removing the top-ranked good of the other bundle. For an agent, only the first 2, 4, and 6 ranked goods matter; for the market, each of three ranked item pairs must split one-to-one, with the seventh good unconstrained. This gives exactly 630 paired subjective orders per agent and 16 candidate market allocations. The standalone Python enumeration checked all 396,900 paired-order pairs and computed 96 infeasible profiles in two disjoint 48-member equivalence orbits. A separate C++ program enumerated all 25,401,600 strict-ranking pairs and independently reproduced 6,144 failures and the complete allocation-count histogram. Exact counts and boundary cases were checked without floating-point arithmetic.
+PASS
 
-## Originality — PASS, with residual priority risk
+Removing the highest-ranked good in the other bundle witnesses all the relevant prefix inequalities at once. With complete allocation, the own-count lower bound is floor(prefix length/2); odd bounds follow from the previous even bound. The market therefore forces one per pair and leaves the singleton free. An independent exhaustive replay used actual per-ranking good removals and compared sorted positions for SD dominance; it tested all 128 bundles for market feasibility, all 5040 strict orders for the resulting 16 market bundles, and checked each strict refinement within the 630 paired orders before grouping. It confirmed the full histogram, 96 exceptional paired profiles and the identical exceptional union of two disjoint 48-profile orbits generated from the reported representatives. The 64 refinements per paired profile yield 6144 failures and 8/33075. For the mean, reflection of a length-seven prefix walk at its first visit to −2 gives 35−21=14 successful three-good position sets and 35−7=28 four-good sets. Independence gives 16(14/35)(28/35)=128/25, also confirmed by the exact allocation incidence 130056192.
 
-Barman, Ebadian, Latifian and Shah, *Fair Division with Market Values*, arXiv:2410.23137, Theorem 1, already give the Type I obstruction; Theorem 2 establishes existence up to six goods. Their relevant definitions, Lemma 1, Theorems 1–3 and proof do not state exhaustive seven-good classification, the distinct Type II representative or exact failure incidence. Bu et al., *Fair Division with Allocator's Preference*, arXiv:2310.03475, establish broader EF1 rather than the stronger SD-EF1 and cannot imply this nonexistence census. Searches for the exact seven-good enumeration, equivalent ordinal formulations, and published numerical tables did not identify equivalent or stronger published coverage. Unindexed specializations remain possible; search absence alone is not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The literature identifies seven goods as the first possible failure of simultaneous SD-EF1 in the natural two-agent market-valuation model. A complete classification at precisely that first failure boundary is mathematically motivated: it separates two irreducible obstruction structures, identifies a second type not equivalent to the published example, and quantifies rarity as the exact probability \(8/33075\) under a canonical random-ranking model. This is not a numerical perturbation or an arbitrary restriction: it fully resolves the minimal obstruction layer and may inform stronger sufficient conditions for larger markets. It does not claim a general theorem beyond seven goods.
+The seven-good boundary, market-pair construction and Type I are explicitly prior. The complete two-orbit census and distinct obstruction Type II are not supplied by the strongest identified source; its common-ranking reduction does not resolve the two subjective SD-EF1 constraints. No equivalent census was identified in the bounded comparisons.
 
-## Independent validation and limitations
+## value
 
-The two executable enumerators use different representations and reproduce the same exact incidence. Their agreement is internal reproducibility, not independent scientific certification. The result assumes strict rankings; unindexed priority coverage and extensions beyond the first failure size remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first impossible layer is a published, mathematically motivated cutoff. Its complete orbit classification distinguishes a new obstruction from relabelings of the known one, and the exact zero frequency quantifies how exceptional worst-case nonexistence is in the natural uniform model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

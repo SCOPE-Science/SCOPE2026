@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The root minimization is strictly convex; for fixed root the leaves project individually to their lower bounds. On each strict active-set region this gives one explicit linear edge-gradient map. Its weighted \(\ell_1\) norm is computed from columns, and every active column is bounded by the corresponding singleton-active fraction. Piecewise affinity and continuity supply a global two-data bound; one-leaf-pooling perturbations attain each fraction, and an interior perturbation attains the identity value. The exact-rational standard-library checker passed 224,239 checks, but the analytic argument—not finite sampling—proves the all-parameter theorem. Hypotheses include every \(a_i>0\), \(w_i>0\), and arbitrary real data; no bound outside the star order is asserted. Risk: no formal or independent proof audit.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-Primary references 1211.3930 (sequence bounded variation and iterative isotonic estimation), 1503.08458 (coordinatewise monotonicity of projections of general regression cones, including branching constraints), 1706.01852 (general seminorm contractivity for isotonic regression on chains), and Punera–Ghosh WWW 2008 (hierarchical isotonic smoothing) were materially read. Their results do not state the same weighted two-data edge-variation operator constant on a rooted star. The closest searchable research records concern \(\ell_p\) regression on chains and general partial orders, rather than variation across star edges. Existing historical chain-variation work does not logically imply a branching formula. Risk: an equivalent elementary sensitivity calculation could have been recorded implicitly or under different terminology. Search failures cannot establish uniqueness or independence.
+PASS
 
-## Mathematical value — PASS
-This is a complete, attained and nontrivial sharp stability classification for the simplest branching order cone under two independently meaningful weight systems: observation reliabilities and graph-variation penalties. The degree-four change from contraction to amplification for unit masses and edge weights, and the exact matched-mass contraction criterion, expose a structural obstruction not captured by Euclidean projection nonexpansivity or chain results. The invariant is a natural nonlinear perturbation modulus rather than an arbitrary numerical slice. This is not claimed as a general-tree theorem or a paper-sized advance.
+For fixed root t the optimal leaf is max(t,y_i), and strict convexity gives the unique root via the derivative of a_0(t−y_0)²+Σ_i a_i(t−y_i)_+². In edge coordinates d_i=y_i−y_0 the fitted root relative to y_0 on the pooled face S is Σ_{i∈S}a_i d_i/A_S, A_S=a_0+Σ_{i∈S}a_i. The output is zero on S and d_k minus that average off S. Its weighted ℓ¹ column norms are 1 for inactive columns and a_i Σ_{k∉S}w_k/(w_i A_S) for i∈S. The latter is bounded by the singleton column value. For every face, the weak active inequalities define a closed polyhedron and the affine formulas agree on shared faces. Their intersections with a segment are intervals, so summing the local bounds gives the global two-input bound, including ties. The strict feasible identity region attains 1. The given base y_0=1, y_i=0, other leaves 3 and the increase by 1/8 preserve the singleton face for any positive masses, attaining its fraction with positive denominator. This includes m=1, with constant 1. Unit weights first amplify at m=4; w_i=a_i gives Σ_j a_j≤a_0+2 min_i a_i. In this context contraction means nonexpansivity, not a strict Lipschitz constant below 1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the exact attained two-input edge-variation constant with independently varying positive observation and edge weights and its singleton-pooling reduction on a rooted star. An indexed theorem dated 2026/11/17 is substantively identical for m≥2 and is explicitly credited; it adds a different existence question for stabilizing weights. It is evidence of equivalent coverage there, not evidence the result predates the frozen record or of who discovered it first. The inspected earlier and same-day comparisons do not give this formula.
+
+## value
+
+PASS
+
+The exact norm resolves when a branching order constraint can amplify graph variation in the difference of two fits, a stability question not answered by coordinatewise monotonicity or chain bounds. It replaces all pooled-face patterns by one-leaf tests, locates the first unit-weight amplification and supplies an exact criterion for prescribed matched masses. The finite attaining witnesses distinguish genuine amplification from an upper estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

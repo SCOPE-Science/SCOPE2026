@@ -64,7 +64,7 @@ At \(u=1\), both parameterizations equal \(\rho-\pi/2\). This common value lies 
 \rho-\sqrt{\rho^2-1}=\tan(h/2)<h
 \quad(0<h<\pi/2).
 \]
-Consequently the two monotone branches fill the single open phase interval \((c-h,c+h)\) without overlap other than their common endpoint at \(u=1\). Since \(2h<\pi<2\pi\), reduction modulo \(2\pi\) introduces no second positive sink. This proves the positive indicator and its uniqueness, with strict endpoints corresponding respectively to multipliers \(-1\) and \(+1\).
+Consequently the two monotone branches fill the single open phase interval \((c-h,c+h)\) without overlap other than their common endpoint at \(u=1\). Since \(2h<\pi<2\pi\), reduction modulo \(2\pi\) introduces no second positive sink. This proves the positive indicator and its uniqueness. In this real lift, the lower endpoint \(c-h=\theta_-(s)\) has \(\rho\cos(\pi-\arcsin s)=-1\); the upper endpoint \(c+h=\theta_+(s)\) has \(\rho\cos(\arcsin s)=+1\). Neither endpoint is included.
 
 The substitution \(u\mapsto-u\), \(\theta\mapsto-\theta\) preserves the fixed-point equation. Thus negative sinks occupy the reflection \((-c-h,-c+h)\) modulo \(2\pi\), with exactly one negative sink at every interior phase. The total count is therefore the sum of the two indicator functions.
 

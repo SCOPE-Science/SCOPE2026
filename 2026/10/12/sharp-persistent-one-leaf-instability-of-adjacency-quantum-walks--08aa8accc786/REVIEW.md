@@ -1,19 +1,21 @@
-# Assessment of one-leaf clique quantum-walk instability
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The three-dimensional invariant block is exact, with a polynomial \(f_m(x)=x^3-(m-2)x^2-mx+(m-2)\) checked symbolically. Its three real spectral roots are separated into two bounded and one diverging branch by explicit sign changes. The marked-vertex cofactor residue yields masses converging to \((1\pm1/\sqrt5)/2\) and a vanishing high-energy weight. The reverse triangle inequality bounds the marked return discrepancy **uniformly over all times**, and the fixed positive time \(\pi/\sqrt5\) attains the sharp limit. Explicit bulk and mixed-entry decompositions bound every other core complex-amplitude discrepancy uniformly by a quantity vanishing with clique size. Independent finite numerical matrix exponentials and symbolic identities corroborate the algebra; the proof, not the samples, covers every \(m\geq3\) in its asymptotic statement.
+PASS
 
-## Originality: PASS, subject to literature risk
+The zero-sum subspace on the unmarked clique vertices has eigenvalue −1. The complementary block in the hub, normalized unmarked sum, leaf basis has characteristic cubic x^3−(m−2)x^2−mx+(m−2). For m≥3 the sign-change intervals (−2,−1), (0,1), and (m−1,m) are disjoint and exhaust the roots. On bounded x the leading rescaled polynomial is −(x^2+x−1); both bounded roots are within O(1/m) of its simple zeros. Independently, an eigenvector with hub coordinate 1 has unmarked-sum coordinate sqrt(m−1)/(λ−m+2) and leaf coordinate 1/λ. Its normalized hub mass is the reciprocal of 1+(m−1)/(λ−m+2)^2+λ^(-2), giving (1±1/sqrt(5))/2+O(1/m) with the larger mass on the negative root. The remaining mass is O(1/m). The marked return modulus is bounded below for every real time by twice its largest mass minus one, whereas the bare clique return lies in [1−2/m,1]. At the fixed time π/sqrt(5) the limiting bounded modes oppose each other, proving a matching lower bound with O(1/m) error; the rapidly varying mode contributes only its small mass. For two unmarked vertices the dark −1 term cancels except for the difference of normalization weights, giving a complex-amplitude bound 1/(m−1)+1/m+1/[m(m−1)]=2/(m−1). A mixed hub/unmarked entry is bounded in difference by 1/sqrt(m−1)+2/m. These two bounds are eventually smaller than the marked fixed-time discrepancy, so the slower mixed-entry rate does not spoil the O(1/m) error of the supremum.
 
-The two closest relevant texts have been compared by implications rather than titles. *Irrational quantum walks* (arXiv:2208.08971v1, Sections 1, 4 and 5) gives general spectral methods and supremum techniques but does not state the perturbation family, the constant, or the induced-graph comparison. *Quantum walks on join graphs* (arXiv:2312.06906v1, Sections 11–12) gives a decay bound in joins and asks what happens for general induced subgraphs. The present graph is not a join; its nonvanishing limiting defect is incompatible with extending the join decay bound to arbitrary induced subgraphs. The potentially related *Localization Without Disorder* (arXiv:2603.05643v1, Sections II–III and VII) studies **normalized** adjacency Hamiltonians on barbell and multi-clique families, and time-averaged localization, not the same unnormalized adjacency comparison. The remaining risk is a separately published equivalent one-pendant clique result or an unlocated general perturbation theorem implying it. Negative searches cannot eliminate that risk.
+## originality
 
-## Value: PASS
+PASS
 
-This is a sharp, motivated boundary to a published quantitative research question about stability of quantum walks on induced subgraphs, with the complete graph explicitly named as a case of interest. The exact positive constant, fixed witnessing time and pointwise localization of the obstruction distinguish it from an arbitrary toy graph computation. It warns against extrapolating uniformly vanishing join bounds to a far weaker induced-subgraph hypothesis. The conclusion does not require a classification of all defect graphs to be useful.
+The distinct contribution is a sharp nonvanishing uniform-in-time modulus discrepancy from attaching one leaf at one marked clique vertex, with localization and a fixed-time witness. The strongest inspected prior theorem controls regular joins and explicitly leaves the merely induced case open. The closest cataloged pendant-graph results concern corona constructions and average mixing, not this perturbation and observable.
 
-## Closest literature and limitations
+## value
 
-The result is confined to unweighted adjacency dynamics with a single leaf attached to a distinguished clique vertex; it does not address other perturbations or Hamiltonian conventions. A previous literature treatment of the exact one-leaf limit, if identified, would supersede the originality judgment. The accompanying finite tests do not constitute an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single external edge already defeats a vanishing uniform-in-time modulus bound depending only on the size of a complete induced core, in a form directly responsive to the published join-versus-induced question. The constant, exceptional location, and fixed observation time distinguish persistent local dynamics from errors that require observation times diverging with graph size or affect the whole core.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

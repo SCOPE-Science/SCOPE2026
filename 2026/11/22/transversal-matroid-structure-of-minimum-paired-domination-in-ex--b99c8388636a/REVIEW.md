@@ -1,19 +1,21 @@
-# Scientific review — Transversal-matroid structure of minimum paired domination
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof directly establishes minimum size four (no dominating adjacent pair), classifies all optimal four-sets by 13 class-occupancy patterns, and matches these patterns exactly to a four-role transversal presentation. The standard matroid basis-exchange theorem then proves isometric shortest exchange paths; explicit complementary constructions prove the diameter. All parameters are arbitrary positive integers. The Python program compared 50,832 four-subsets over 64 parameter pairs; an independently coded C++17 verifier compared 94,941 four-subsets over 81 parameter pairs and checked full basis exchange at one nontrivial parameter pair. These are checks, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to prior-art risk
+No adjacent pair dominates all five nonempty classes, so a perfect-matchable dominating set has at least four vertices. The three core vertices plus any A or B vertex attain four. With no selected endpoint x0 or x2, domination fails or x1 is unmatched. With just one of x0,x2 and no other core vertex, its matching partner needs the adjacent large class and domination of the other endpoint needs the other large class; either (2,1) or (1,2) then works since A union B is a clique. With x0,x2 only in the core, their respective partners must be in B,A. Either adjacent core pair accepts all two additional large-class vertices, and all three core vertices accept either class for the fourth. The role test gives the same patterns: role 1 requires x0 or x2; if one is the sole selected core vertex the two distinct roles 2 and 3 force both A and B; if both endpoints are selected without x1 they are forced into 1 and 4, again forcing A and B. An adjacent core pair leaves two roles that can be chosen to accommodate AA, AB or BB (the roles of x1 can be adjusted); with three core vertices the fourth may be A or B. This accounts for all thirteen admissible patterns and yields the stated counting polynomial by labelled binomial choices. The partial-transversal theorem gives ordinary basis exchange, hence via exchanges increasing the intersection with the target by one at each step, distance 4 minus the intersection size and greedy minimum-weight basis optimization. The pigeonhole diameter bound is tight: the exhibited bases use a union of all vertices when a+b=2,3,4 and disjoint sets when a+b>=5 (all larger instances contain one of the a+b=5 configurations, up to swapping A,B and x0,x2). The C7 example has two minimum paired-dominating four-sets; one proposed exchange misses a vertex, the other leaves an unmatched vertex. Independent match-edge-pair and role-product enumeration plus BFS (`python3 /workspace/replay/audit_checks.py 4`, output `/workspace/replay/4.txt`) confirms counts and role equivalence on 36 small blowups, with complete distances and diameters when a+b<=8. Editorial caveats: the assumptions correctly require a perfect matching within G[S], not an induced matching, despite loose wording in the Finding and verification prose. The packaged C++ tests ordered ordinary basis exchange, not simultaneous symmetric exchange as its terminal label may suggest. Neither caveat affects the mathematical claim audited.
 
-Henning–McCoy–Southey (2014) identify the graph family as an edge-extremal equality case for paired domination four but the inspected extremal theorem does not imply the classification of all optimizer configurations. Classical transversal-matroid literature supplies the abstract matching theorem, not the new class-to-role presentation. Searches for the exact family, alternate matroid language, stronger implications and mathematical-result records did not identify a covering theorem. Particularly close published records concern triangular graphs under paired domination and cyclic clique blowups under super domination, so their actual statements do not cover the present invariant/object combination. The original publisher's full PDF could not be read and remains a genuine priority risk, not an asserted exclusion.
+## originality
 
-## Value — PASS
+PASS
 
-The 2014 edge-extremal family is mathematically motivated. An exact transversal presentation reveals graph-independent optimization structure: greedy weighted selection, optimal reconfiguration geodesics, the sharp all-parameter diameter and the exact placement polynomial. The property is nontrivial since \(C_7\) has minimum paired-dominating sets failing matroid basis exchange. The result is not merely a scalar recomputation or an arbitrary small census.
+The established extremal family and scalar paired-domination number are background. The supported distinct contribution is the graph-specific rank-four transversal presentation of all minima, including the exact count and diameter. Classical distance and greedy conclusions are credited as standard once that representation is proved.
 
-## Closest work and limitations
+## value
 
-Relevant sources include Henning, McCoy and Southey (2014), doi:10.1016/j.dam.2014.01.019; Haynes and Slater (1998), the original paired-domination invariant; Brualdi and Dinolt (1972) for transversal-matroid theory; and the SageMath transversal-matroid documentation. The main source's available rendered sections were inspected for the graph construction and scalar theorem, but the complete publisher PDF was inaccessible. Unindexed equivalent prior work remains possible. The theorem is limited to five-cycle blowups with three singleton classes and to ordinary paired domination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph family is distinguished by a published edge-extremal paired-domination problem. Giving all optimum configurations by one four-role presentation yields exact optimizer counts, shortest relocation paths and minimum-cost placement for arbitrary vertex weights throughout the family. The C7 obstruction explains why the useful matroid property is not a general paired-domination theorem. The known extremal scalar and the generic matroid consequences alone would not provide this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

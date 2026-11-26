@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:00:37.750581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gamma representation gives a positive Gram operator with finite sum of diagonal entries for beta>1. For an independent normalization check set beta=1+epsilon and sum the positive entry products under the three gamma integrals. The three resulting factors are zeta(1+t_i+t_j). With R=sum t_i and u_i=t_i/R, the integral over R<1 is Gamma(1+epsilon)^(-3) times the integral of R^(-1+3epsilon) times the simplex weight product(u_i^epsilon/(1-u_i)), up to a uniformly integrable remainder. Indeed 1/s <= zeta(1+s) <= 1+1/s by integral comparison, so replacing the zeta factors by their poles, and e^(-R) by 1, incurs a relative O(R) error uniformly on the simplex. For R>=1 the exponential and the integrable weight product(1-u_i)^(-1) give a uniform bound. Dominated convergence for the angular weight (one inverse linear singularity per vertex in two variables) and the radial integral 1/(3epsilon) yield A/3. At fixed t=u_1+u_2, partial fractions give A=integral_0^1 [-2 log(1-t)/(t(2-t))] dt. Setting t=1-exp(-v), then expanding 1/sinh(v), gives A=2 sum_{j>=0}(2j+1)^(-2)=pi^2/4. This confirms pi^2/12. The published proof's log quadrature also checks: every proper face has integrable decay at beta=1, and the angular majorant for the radial Abel limit is integrable. The first- and second-moment checks follow from integrating (1+2x)^(-beta) and R(1+R)^(-2beta), respectively; both quadrature errors are bounded as beta decreases to 1.",
+      "reproducibility": "Inspected VERIFICATION.md and CHECK.py without running the uploaded script. Independent composite Simpson quadrature of v/sinh(v), with the value 1 at zero, 24,000 equal panels on [0,30], gives 2.4674011002665 (pi^2/4 is 2.4674011002723); the omitted tail is at most 2(30+1)exp(-30)/(1-exp(-60)). This checks only the angular coefficient numerically. The analytic argument supplies the limit. The frozen expert, independent-audit, and Lean channels report not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source proves the exact family's positivity and trace criterion and identifies the first trace.",
+          "The second gives fixed-family eigenvalue asymptotics for a log-log perturbation; the third gives the critical operator's spectrum."
+        ],
+        "reasoning": "No inspected theorem gives uniform trace-cube asymptotics along the moving log-power parameter; trace class, spectrum as a set and eigenvalue asymptotics in a different family cannot substitute.",
+        "searches": [
+          "arXiv:2610.12252 Theorem 3.4 and Example 3.6",
+          "arXiv:1709.06326 Theorem 1.1",
+          "arXiv:1411.7294 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12252",
+        "arXiv:1411.7294",
+        "arXiv:1709.06326",
+        "Resultary 0ed82b356419",
+        "Resultary e8faa07be8b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zeta trace formula gives the first trace directly, not the product of three zeta kernels and its angular integral.",
+          "A suitable continuous slow-weight trace theorem would recover the bulk constant times the effective length, but ordinary sharp-cutoff asymptotics do not establish the uniform log-lattice comparison."
+        ],
+        "reasoning": "The known results give ingredients, not a checked stronger theorem implying the full discrete residue without the uniform comparison and soft-regulator analysis. Do not count the first moment or trace-class threshold as separate new claims.",
+        "searches": [
+          "arXiv:2610.12252 Theorem 3.4/Example 3.6",
+          "arXiv:1411.7294 and arXiv:1709.06326",
+          "comparison to Carleman/Wiener–Hopf bulk trace asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In continuous log coordinates the critical symbol is pi sech(pi xi), with cubic bulk density (2pi)^(-1) integral (pi sech(pi xi))^3 dxi=pi^2/4.",
+          "The regularization weights each log variable so that the effective cubic length is 1/[3(beta-1)]."
+        ],
+        "reasoning": "This identifies the equivalent continuous mechanism and the known critical model; neither the unregularized spectrum nor a sharp finite-section cutoff is the same assertion as the discrete moving-parameter residue.",
+        "searches": [
+          "Resultary gamma Helson/cubic trace residue comparisons",
+          "arXiv:1411.7294",
+          "arXiv:2610.12252"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two nearby indexed Helson records concern different geometric atomic measures and give respectively a critical essential spectral band and a weak-Schatten/eigenvalue law."
+        ],
+        "reasoning": "These are the closest checked indexed candidates, not exact entries or table values for the gamma cubic residue. Date coincidence is not used to decide dependence; a miss is not evidence of absence.",
+        "searches": [
+          "Resultary gamma Helson and cubic residue queries",
+          "Resultary IDs 0ed82b356419 and e8faa07be8b3"
+        ]
+      },
+      "rationale": "Credit the already known gamma family, trace criterion and critical Carleman spectrum. The checked sources do not establish the normalized cubic divergence along this discrete gamma regularization. In particular a bulk critical trace density or fixed-parameter eigenvalue law does not alone give the soft-cutoff length or a comparison with the discrete family uniform in beta. Pass is for the exact cubic residue, not a priority claim for Helson trace theory or the first trace formula.",
+      "residual_risks": [
+        "A more general soft-cutoff trace law with a uniform discrete-to-continuous theorem could subsume the calculation; no such applicable combined statement was verified.",
+        "The search does not establish exhaustive publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of background, not of checked cubic limit",
+          "evidence": "Trace is integral zeta(2s) dmu(s); gamma family trace class precisely above 1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.12252",
+          "material_read": "Theorem 3.4, PDF p. 17, offset 50211; Example 3.6, p. 19, offset 55144",
+          "method": "Lawful OA paper passages",
+          "title": "Unbounded Helson Forms with a Moment Representation",
+          "trigger": "Same gamma Helson family"
+        },
+        {
+          "assessment": "Spectral background only",
+          "evidence": "Critical matrix has norm pi and continuous spectrum [0,pi]; not a moving-beta trace statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.7294",
+          "material_read": "Abstract and Theorem 1, PDF pp. 1–2, offsets 1461 and 8322",
+          "method": "Lawful OA paper passages",
+          "title": "The Multiplicative Hilbert Matrix",
+          "trigger": "Critical multiplicative Hilbert/Carleman model"
+        },
+        {
+          "assessment": "Different slowly decaying factor and limit",
+          "evidence": "Uses 1/(sqrt(j) log(j) (log log(j))^alpha), not (1+log(j))^(-beta)/sqrt(j).",
+          "identifier_or_url": "https://arxiv.org/abs/1709.06326",
+          "material_read": "Theorem 1.1, PDF p. 2, offset 6377",
+          "method": "Lawful OA paper passage",
+          "title": "A Helson matrix with explicit eigenvalue asymptotics",
+          "trigger": "Closest verified eigenvalue-asymptotics theorem"
+        },
+        {
+          "assessment": "Different measure and observable",
+          "evidence": "Geometric atomic family; trace-class/bounded/unbounded trichotomy and essential spectral band.",
+          "identifier_or_url": "Resultary 0ed82b356419",
+          "material_read": "Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Critical atomic Helson essential spectrum",
+          "trigger": "Close indexed critical Helson result"
+        },
+        {
+          "assessment": "Different measure and observable",
+          "evidence": "Eigenvalue and weak-Schatten law for a geometric atomic family.",
+          "identifier_or_url": "Resultary e8faa07be8b3",
+          "material_read": "Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Exact eigenvalue coefficient for geometric atomic Helson matrices",
+          "trigger": "Close indexed Schatten result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parameter is the trace-class threshold of an existing natural Helson family. The first two residues are both 1/2; they do not determine the cubic singularity. The cubic residue identifies the first genuine three-variable contribution and gives a concrete test value for any proposed critical trace distribution or comparison with the Carleman model. The exact number and effective length matter here, rather than a numerical estimate for an arbitrarily selected parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

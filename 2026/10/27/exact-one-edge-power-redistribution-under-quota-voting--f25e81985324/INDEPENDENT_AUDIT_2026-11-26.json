@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:20:39.186596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two distinct endpoints, n≥3 and m≥1. The a-intervention precludes delegation, leaving the no-edge baseline B. For b, delegation makes the pivotal window two adjacent counts among n−2 fair votes, with probability 2B by Pascal; the direct branch contributes B. For an outsider the delegated bloc is 0 or 2 with equal probability, giving counts r−1 and r−3 among n−3 fair voters. Dividing their two binomial coefficients by the baseline coefficient gives numerator terms (m−s)(m−s−1) and (m+s)(m+s−1), including zero terms at impossible counts. This recovers R and makes the net change 2s²B/(3m), nonnegative with equality exactly at s=0. Independent small action-profile enumeration gave (1/2,2/3,1/3) for (n,r)=(3,2) and (1/4,1/3,1/3) for (3,3), including the unanimity endpoint. Replay paths: RESULT.md lines 34–81 and the exact profile enumeration in verify.py lines 14–74, inspected, not executed. The frozen RESULT.md and VERIFICATION.md give the code-consistent count of 20 finite cases; the self-review's count of 25 is a provenance discrepancy, not a theorem defect. No weighted, even-electorate, or normalized-index claim is validated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Colley–Delemazure–Gilbert give proxy-voting formulas on complete bipartite digraphs and computation results there and on complete digraphs; their general model admits weights and quotas.",
+          "SCOPE 1f3f0b6d9c13 analyzes lost delegation / represented weight on complete bipartite networks."
+        ],
+        "reasoning": "The one-edge graph with at least one isolated voter is not the complete bipartite proxy graph or the complete digraph of those specialized results. The general criticality definition computes each instance, and the representation law concerns another dependent variable; neither supplies the structural all-quota aggregate comparison.",
+        "searches": [
+          "Resultary: \"a-priori LD Penrose-Banzhaf\" complete bipartite proxy graph weighted quota",
+          "arXiv:2301.02462, Proposition 2 and Theorems 3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.02462",
+        "Resultary 6a41be4f4ced",
+        "Resultary 1f3f0b6d9c13",
+        "2026 IJCAI liquid-democracy survey, pp. 2 and 8 (discovery lead)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=m+1, differentiating the fixed-delegation accuracy difference at all biases 1/2 gives changes −B for a, +B for b and −B collectively for the symmetric outsiders. Conditioning on direct actions or delegation, and forcing a direct when testing a, gives the frozen majority vector and conservation.",
+          "The accuracy proof equates the two central binomial coefficients under majority. At other quotas the outsider pivot requires a different two-endpoint coefficient comparison."
+        ],
+        "reasoning": "Credit majority coverage even though the prior observable was presented differently. The all-quota quadratic law requires analyzing the two-vote correlation against an arbitrary pivotal window and simplifying the resulting coefficient difference; it is not a substitution into the inspected majority or complete-graph results.",
+        "searches": [
+          "SCOPE 6a41be4f4ced RESULT.md, Finding and Proof, mirror offsets 0–4199",
+          "arXiv:2301.02462, Theorem 1 and proxy-voting section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Colley–Delemazure–Gilbert identify LD Penrose–Banzhaf with the same a-priori criticality probability under individual uniformity.",
+          "2026/10/26 SCOPE 6a41be4f4ced gives the effect on accuracy when one edge is used deterministically under strict majority."
+        ],
+        "reasoning": "The established measure is exactly the same object, not a new index. The closest fixed-delegation formula can be converted to majority power differences by taking Bernoulli-bias derivatives and then accounting for the action mixture and forced direct votes, but it has no free quota parameter.",
+        "searches": [
+          "Resultary: delegative Banzhaf quota single-edge redistribution unnormalized sum power",
+          "Web: \"single delegation\" \"a priori\" Banzhaf voting power quota liquid democracy one edge exact formula",
+          "arXiv:2301.02462, Definition 4 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved one-edge record, 6a41be4f4ced, has a majority accuracy formula and a crossing in electorate size, not a table or theorem over quota levels.",
+          "The complete-digraph and proxy comparisons in arXiv:2301.02462 do not tabulate this sparse edge edit across quotas."
+        ],
+        "reasoning": "The matched records were compared on the graph, intervention, observable and quota. No equivalent all-quota tabulation was identified in the returned material.",
+        "searches": [
+          "Resultary: exact one-edge power redistribution under quota voting",
+          "Resultary: a priori voting power liquid democracy Banzhaf criticality delegation graph quota"
+        ]
+      },
+      "rationale": "The a-priori index and the simple-majority slice have substantial prior coverage. The supported distinction is the explicit all-quota one-edge vector and quadratic aggregate excess, hence the exact majority-versus-stricter-quota boundary, not a new index or an independent novelty claim for majority alone.",
+      "residual_risks": [
+        "The calculation is elementary given the established index; an unlocated local-edit or weighted-vote influence formula could give the all-quota identity. The bounded searches are not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the index, not the explicit all-quota comparison for one edge plus isolated vertices",
+          "evidence": [
+            "Individual uniformity; complete-bipartite and complete-digraph hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02462",
+          "material_read": "Model and weighted games pp. 3–5, Definition 4/Theorem 1 pp. 5–6, Proposition 2/Theorem 3 pp. 10–11, Theorem 4 p. 13 of preprint",
+          "method": "OA PDF passage inspection and graph/quota comparison",
+          "title": "Measuring a Priori Voting Power in Liquid Democracy",
+          "trigger": "Same criticality measure and plausible dominating graph formula"
+        },
+        {
+          "assessment": "Mechanically covers the majority slice after conversion, not the stricter-quota law",
+          "evidence": [
+            "Fixed transfer and strict majority; statewise gain and loss at S=m−1 and S=m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-one-crossing-law-for-majority-accuracy-under-single-edge-liqui--6a41be4f4ced/RESULT.md",
+          "material_read": "Finding, assumptions and derivation, offsets 0–4199; later comparison passages from offset 3893",
+          "method": "Local mirror and derivative comparison",
+          "title": "A one-crossing law for majority accuracy under single-edge liquid delegation",
+          "trigger": "Closest one-edge exact formula"
+        },
+        {
+          "assessment": "Representation, not quota criticality",
+          "evidence": [
+            "The stated exact law is for lost voting weight in complete bipartite networks."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-lost-delegation-law-and-square-root-direct-voter-transitio--1f3f0b6d9c13",
+          "material_read": "RESULT.md offsets 0 and 2362",
+          "method": "Local mirror statement comparison",
+          "title": "Exact lost-delegation law and square-root direct-voter transition",
+          "trigger": "Random delegation on a tractable graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single permitted edge is a natural first perturbation of direct voting in this measure. The all-quota law gives an exact benchmark for whether an edit only redistributes criticality or changes its aggregate, and isolates the conservation threshold despite the recipient's fixed relative gain. It is useful for checking quota-power computations and is not a welfare or normative claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

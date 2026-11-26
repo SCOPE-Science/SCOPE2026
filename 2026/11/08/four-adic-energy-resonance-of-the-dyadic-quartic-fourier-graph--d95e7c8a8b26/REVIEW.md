@@ -1,15 +1,21 @@
-# Review of the dyadic quartic-graph energy law
+# Independent mathematical audit
 
-## Correctness
-PASS. The ordered-quadruple count is reduced exactly to collisions in the fibers of \(h_s(x)=x^4+(s-x)^4\). The odd-sum branch has a two-to-one Hensel parameterization; the even-sum branch separates odd and even inputs modulo 16, with a uniform square-class argument in each subcase. The fully even branch is a three-variable lift, giving precisely the factor 512. The separate elementary square-collision recurrence, base exponents, four-step recurrence solution, and Fourier orthogonality all agree. The standalone enumerator verifies the closed expression and branch formulas through exponent eleven. Numerical checks do not prove the all-exponent assertion.
+## correctness
 
-## Originality
-PASS with bounded historical-priority risk. The closest published research record on the quartic graph works over finite fields and excludes characteristic two, whereas this is an exact 2-adic local-ring energy with four-residue recurrence. Mockenhaupt--Tao's even-moment lemma and their consecutive-power moment curve do not determine this energy. Hickman's prime-power-ring results concern full moment curves and operator estimates rather than a lacunary quartic two-point energy. The existing dyadic cubic-graph fourth-moment computation likewise has a different polynomial and does not imply the quartic recurrence. Searches of published records and related literature produced no exact match; unknown local-density literature remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. The quartic monomial graph is a natural thin Fourier frequency curve, and its full unweighted fourth moment is a canonical restriction-theoretic invariant. The exact answer exhibits a qualitatively new four-adic scale resonance, with normalized energy growing as the one-fourth power of the modulus rather than remaining bounded as in the analogous finite-field quartic graph. The periodic constants and all-exponent formula give a meaningful boundary for dyadic polynomial restriction, not merely a small finite computation. No assertion about the arbitrary-weight sharp norm follows.
+Reconstructed the all-k proof by conditioning on the linear sum s. The odd-square map modulo 2^j for j>=3 has kernel size four and image precisely the residues 1 mod 8, giving j*2^j square collisions after adding the even lift contribution 4*S_(j-2). For odd s, each even product x(s-x) has one preimage in each parity class by the odd derivative, and the quartic sum becomes 2(2z-s^2)^2-s^4; the factor 16 comes from two preimages per product and two lifts per odd residue after reducing the modulus by one, for each of the two inputs. This gives 8*N^2. For even s the input parities cannot collide. On odd inputs the centered factor z+z'+6(s/2)^2 has exact valuation one, using z,z'=1 mod 8 or 0 mod 4 as appropriate; the two even-s classes together give (k-2)*N^2. The all-even three-variable branch rescales by 16 and has 8^3 lifts, giving 512*E_(k-4). The k=1 case is the identity graph; for 2<=k<=4 the powers detect parity, giving 3*N^3/4. Dividing the recurrence by 4^k and adding k+14 yields a four-step doubling with the four listed bases. Orthogonality averaged over the two frequencies imposes both congruences with no extra factor. An independent direct x,d,e congruence enumeration through k=8 agreed, including both sides of the recurrence threshold. Replay: python3 /workspace/review_evidence/dyadic.py.
 
-## Closest sources and limits
-Mockenhaupt--Tao (2002, arXiv:math/0204234, section 5); Iosevich--Koh (2008, arXiv:0805.0814); Hickman (2015 thesis, chapter 4); *Exact additive energy of the finite-field quartic graph* (2026 public research record). Historical search cannot exclude an unindexed general two-adic representation-density result. Independent audit is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the all-exponent dyadic quartic energy and its four exact leading constants. The Fourier identity is standard. The closest same-day prime-power result shares the homogeneity-driven four-step form but expressly excludes 2, and its transformations need 2 invertible. The exact dyadic sums-of-even-powers table lacks the joint linear-sum condition. No examined source supplies the required characteristic-two residual count or its consequences.
+
+## value
+
+PASS
+
+This gives the exact unweighted fourth moment for a natural quartic graph in the small-prime regime excluded by the invertible-coordinate calculation. In particular, it quantifies the leading residue-class variation, not just a growth exponent or a small table of checks. Such exact dyadic constants distinguish behavior invisible to an order-of-magnitude restriction bound; the result makes no claim about the weighted norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the dimension-twelve Gauss–Padé positivity boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-stage rational stability map is normalized by the unweighted combinatorial hypercube Laplacian. Walsh diagonalization gives every distance-shell entry. The common strictly positive step in dimension twelve is certified by thirteen positive integers at the rational step \(h=1/3\); the entire higher-dimensional obstruction is certified by three rational Sturm-sequence variation equalities on covering intervals. Marginalization across Boolean-cube coordinates extends both halves to every dimension. The companion source constructs and checks the integer and Sturm certificates from their defining expressions and passed 116 assertions. The small-step dimension-six threshold is obtained from the exact zero sixth Padé Taylor coefficient and the negative seventh-distance term. No finite timestep search is used as proof of an all-real statement.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+Walsh characters of weight k have Laplacian eigenvalue 2k and their products across a j-distance pair give the coefficients of (1-t)^j(1+t)^(d-j), including the factor 2^(-d) in the entry. An independent exact rational reconstruction reproduced all thirteen positive scaled entries at d=12,h=1/3, with gcd 2786059680768 and minimum 48478650/2410225524765331; the multiplicity-weighted sum is one. For d=13, clearing the positive denominator and dividing out h^j gives degrees 18,12,24 for j=7,13,1 respectively. A separate exact calculation reproduced both the negative test signs and the Sturm variations: 7 at both ends of (0,1/32]; 1 at both ends of [1/32,1/3]; and 11 at 1/3 and +∞ on the last interval. The negative evaluation covers both finite boundaries where needed; Sturm exclusion controls the entire union for real h>0, not just samples. Coordinate projection intertwines the Laplacians and the rational map, so summing the larger kernel over a nonempty fiber returns the smaller kernel. This propagates strict positivity downwards and nonnegativity impossibility upwards. Finally F has Taylor coefficients -1/144, 0, 1/1728 at degrees 5–7. Distances 1–5 use the positive shortest-path leading term; at distance 6 the vanishing sixth coefficient leaves exactly one diagonal stay among seven factors, giving +(35d/12)h^7. Distance 7 uses seven off-diagonal moves and gives -(35/12)h^7. Diagonal entries approach one; this proves the local threshold separately. Replay: frozen RESULT.md equations in §§1–3 (to reproduce, generate coefficients of (1-t)^j(1+t)^(d-j) over Z, sum the rational eigenvalues, and form the sequence M,M', then negative remainders over Q), coordinate projection and shortest paths in §§4–5. The supplied checker was inspected, not run. The analytic and exact-arithmetic checks concern a completed end-step, not stages or floating-point implementations.
 
-The closest published Boolean-cube result gives a large-step negative adjacent entry and the complete three-cube interval; the closest Cartesian clique-product result characterizes positivity at **every** step. Neither result implies the present **existence-of-at-least-one-positive-step** characterization, because dimensions three through twelve have both positive and negative step ranges. The earliest focal primary work of Zappavigna, Colaneri, Kirkland and Shorten (2012) establishes method-wide Padé positivity counterexamples, and Lóczi and Ketcheson (2013) establish general rational absolute-monotonicity facts. The seventh-series-coefficient obstruction and all-step classifications are credited prior art, not newly claimed. The new dimension-twelve/twelve-versus-thirteen feasibility boundary and the exact three-shell obstruction were not found in the inspected primary material or targeted published-result searches. Unindexed specialist duplication remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-For a canonical, highly symmetric Markov diffusion network, stability and conservation do not imply positivity. The theorem resolves the previously unidentified integer-valued design question of whether **any** legitimate positive-step Markov transition is available for a specific widely used fourth-order implicit method, and shows a sharp unexpected transition between dimensions twelve and thirteen. The gap between the local threshold six and the global feasibility threshold twelve demonstrates real intermediate-step recovery with practical interpretation for diffusion simulation and for diagnostic testing of rational integrators.
+The surviving central claim is existence of some strictly positive step precisely through dimension twelve and impossibility of any nonnegative positive step from thirteen onward. Prior all-step and large-step results on the same cubes, the order-seven Padé sign, and general Krawtchouk machinery are credited as antecedents, not as new findings. The inspected results do not give the intermediate-step feasibility boundary or imply it by changing variables or quantifiers.
 
-## Limitations
+## value
 
-The result applies only to exact two-stage Gauss–Legendre completed steps on unweighted Boolean cubes. It does not enumerate all admissible steps in dimensions four through twelve, address internal stages or floating-point arithmetic, or guarantee preservation under asymmetric weights. The proof is reconstructed and supported by rational certificates in a self-review; an independent audit has not occurred. The published-source comparison is bounded and does not prove publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph family and entrywise condition are natural for stochastic diffusion. The separation of local and global feasibility cutoffs shows that small-step positivity failure need not prohibit every useful step; above a second exact dimension it does. The common rational witness, finite exact all-step obstruction, and marginal relation together give a complete classification of the existence question without claiming a full interval census below the boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

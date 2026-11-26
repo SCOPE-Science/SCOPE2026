@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns every integer \(n\ge3\) and real \(0\le a<1\). The origin belongs to the interior of all disks. For every polar direction, the most restrictive disk is selected by the smallest scalar product with a center; the resulting quadratic supplies the exact positive radius. The radius log-derivative \(\partial_t\log r=-a/d\) and mixed derivative \(\partial_a\partial_t\log r=-d^{-3}\) are proved by algebra and checked symbolically. For positive center radius, both the radial-square weight and its parameter score decrease strictly with angular antipode distance. Their positive covariance under the area-biased angle law supplies a strict derivative for the normalized moment quotient, without numerical extrapolation. Rotational symmetry ensures a scalar covariance matrix. The uniform positive radial limit after rescaling proves the sharp unattained regular-polygon endpoint. Independent Green-identity integrations verify the exact area and polar second moment. The standalone checker passed 151 algebraic/quadrature assertions; the infinite proof does not rely on sampling.
+## correctness
 
-## Originality — PASS (qualified historical priority)
-The radial-root formula is prior mathematical knowledge. Basit and Lángi (arXiv:2307.04026) study Dowker-type extremal area/perimeter behavior of disk-polygons. The full published statement of *Unique optimal two-sided disk approximation within rotationally symmetric disk-polygons* was compared on the identical one-parameter family: its uniqueness and exact area-loss optimization do not imply normalized inertia monotonicity. The full published statement of *Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks* establishes area extrema and fluctuations, but has no second-moment or normalized determinant ordering. The full published *Polar moment and isotropic constant of regular Reuleaux odd-gons* concerns a discrete constant-width family, without a continuous center-separation order. Bezdek's intrinsic-volume work does not control covariance. Own accessible scientific claims about two-disk lens inertia and outer roundings have different objects or deformation operations. Distinctive normalized-moment, alias, duality, and stronger-coverage searches found no implication-equivalent result; absence of hits is not proof of priority. The 1978 many-disk area article is a named full-text access risk.
+PASS
 
-## Mathematical value — PASS
-The result completely orders an infinite set of continuous affine-invariant shape deformations for every integer polygon order. The invariant is the covariance determinant normalized by fourth power of area, not an arbitrary slice. The exact moment profile and sharp polygon endpoint provide quantitative comparison with the disk, and the monotonicity argument introduces a reusable strict score-covariance method for radially parameterized convex sets. It distinguishes a disk-intersection flow from previously studied Minkowski outer roundings. No global statement for arbitrary disk arrangements is inferred.
+For n≥3 the rotation representation forces zero mean and scalar covariance. The farthest-center constraint along a ray reduces to r²+2atr+a²≤1 with t the maximum antipodal dot product. Implicit differentiation gives ∂t log r=−a/d; differentiating this in a gives −1/d³ since d²=1−a²(1−t²). Put q=r² and tilt angular measure by q/Eq. The logarithmic derivative of E(q²)/(Eq)² is 2 Cov(q,∂a log q)/E(q) under the tilted measure. Both functions decrease strictly in t for a>0 and t is nonconstant under a positive density, so the independent-copy covariance identity is strictly positive. The disk value follows by continuity; r/(1−a)→1/t uniformly because t≥cos(π/n)>0. The polygon sector integral of sec⁴ has primitive tan φ+tan³φ/3, confirming the stated upper constant. The arc flux at half-angle β is 1−a cos u, and its product with 1+a²−2a cos u integrates to the stated J; differentiating the proposed antiderivative in β and checking its zero constant also gives the identity. At a=0 the nominal arcs simply partition the disk. The exact algebra replay is `python3 /workspace/checks/independent_01_05.py` (check 1). The frozen 151-assertion run is author-reported corroboration, not an independent rerun or proof of the continuum statement.
 
-## Limits and remaining risks
-Priority assessment is based on inspected open primary material, complete published mathematical result statements, and targeted searches. Inaccessible or unindexed older inertia literature could supply equivalent facts; no independence, external certification, or global classification is claimed. The theorem does not cover \(n=2\), unequal disks, or arbitrary centers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the strict normalized polar-moment order at every radius and fixed order, with the sharp limit, not priority for the same-family radial root, area formulas or static polygon moments. A literature lookup and local published-record comparisons yielded relevant partial overlaps but no established equivalent or dominating monotonicity result.
+
+## value
+
+PASS
+
+The regular-center deformation is canonical and orders an affine invariant from disk to polygon, something inclusion or area ordering cannot do. The strict covariance identity supplies a useful way to compare radial moment ratios beyond this explicit profile; the exact limits give a calibration for every order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

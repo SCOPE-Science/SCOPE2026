@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:46:26.432212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Prefix normality compares, for each attainable number of ones, the least span of any consecutive ones with their first prefix occurrence. Thus it is exactly the gap-window test in the record. The two exceptional gaps are at indices a and a+c. At window size a the middle and last one-run cannot contain an all-unit window, giving a>=max(c,e). For sizes a through a+c-1 an alternative can have only the second exceptional gap precisely when c+e-1>=a for some such size, in which case size a already witnesses the required d>=b; for sizes at least a+c both gaps are forced. The terminal zeros do not affect any of these spans. The disjoint enumeration, rational simplification and dominant-pole coefficient at z=1 give the stated bivariate function and 7/24 proportion against binom(n,5). Direct independent finite membership and GF coefficient checks agreed at every (n,m) through n=12, including totals 1,3,10,23,50,94,169,280. Replay by directly counting ones in every factor of each three-one-run word of length at most 12, and multiplying truncated inverse-denominator series in the two markers. This is bounded corroboration only; the gap and GF arguments give the infinite identity. The supplied script was inspected but not executed; the frozen metadata does not record formal verification or expert attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burcsi et al., p. 7, give the general positions and gap-window characterizations; p. 10 Proposition 16 gives fixed-one-count rational GFs through six ones.",
+          "The public search produced irrelevant hits; no inference of absence is made."
+        ],
+        "reasoning": "The general membership criterion specializes to these gaps; the fixed-one-count GFs alone are not equivalent to an unbounded three-run composition GF. The decisive coverage instead comes from the matched catalogue proof.",
+        "searches": [
+          "arXiv:1611.09017 Proposition 7, Lemma 8, Proposition 16",
+          "Focused public literature search for prefix-normal three-run enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3666727b710f",
+        "arXiv:1611.09017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched proof explicitly gives A(z) for c+e<=a and T(z) for c,e<=a, both weighted by the ones a+c+e, and separate zero-gap GFs z²/(1-z)² and z²/((1-z)(1-z²)) for the two regions.",
+          "Replace z by t only in A and T, and by x only in the two zero-gap factors. Multiplication by 1/(1-x) adds trailing zeros. This is exactly the frozen split formula, with t=xy. No further classification or coefficient computation is missing.",
+          "P(z)/(1-z) sums the core counts; the unrestricted denominator is the corresponding sum of binom(k-1,4). The core leading term and O(k³) error give the same 7/24+O(1/n) proportion."
+        ],
+        "reasoning": "This is not an attempt to infer a general bivariate function from a diagonal specialization. The actual factors in the other proof already carry unambiguous, disjoint statistics. Restoring the distinct markers and summing the zero tail are mechanical.",
+        "searches": [
+          "Resultary 3666727b710f, Exact enumeration and Limiting density, RESULT.md offsets 3850–6200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched record's Finding gives the same criterion for the five nonempty constant runs 1^a0^b1^c0^d1^e, with a positive first and last one-run.",
+          "Appending or removing trailing zeros has no effect on least spans or prefix positions of ones."
+        ],
+        "reasoning": "The difference between three one-runs and five alternating runs beginning and ending in one is precisely a trailing string of zeros. The apparent run-count mismatch is not a different enumeration problem.",
+        "searches": [
+          "Resultary three one-runs / five-run prefix normal census and 7/24 density",
+          "2026/10/25/SCOPE-exact-five-run-prefix-normal-census-and-a-7-24-density-law--3666727b710f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives the exact core series P and counts 1,2,7,13,27,44,75 for lengths 5–11. Their partial sums are the assigned totals at those lengths.",
+          "The fixed-weight tables in Proposition 16 are for all run counts and cannot identify the joint coefficients by themselves."
+        ],
+        "reasoning": "The core coefficient table is already the corresponding univariate census after the free-zero-tail cumulative transform. For joint coefficients the prior proof gives a stronger exact formula than matching finitely many terms.",
+        "searches": [
+          "Resultary 3666727b710f Finding and Exact enumeration",
+          "arXiv:1611.09017 Proposition 16"
+        ]
+      },
+      "rationale": "A distinct indexed five-run record contains the identical core criterion and, crucially, already separates the one-length generating functions from the zero-length generating factors in its proof. Giving the separated factors distinct markers and appending a free terminal zero-run mechanically produces the entire claimed joint generating function, not merely its univariate specialization. This is demonstrable coverage, not a claim of priority based on the catalogue dates.",
+      "residual_risks": [
+        "Historical precedence is not established by the different displayed dates. The fail decision rests on exact mathematical overlap with an independently indexed record, not on dating or on an unsuccessful public query."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full joint formula and asymptotic mechanically implied by the marked factors and core criterion",
+          "evidence": [
+            "The proof labels the one-only exponent explicitly and independently computes the two zero-gap factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-five-run-prefix-normal-census-and-a-7-24-density-law--3666727b710f/RESULT.md",
+          "material_read": "Finding from offset 0; Exact enumeration and Limiting density at offsets 3850–6200",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, bounded passages",
+          "title": "Exact five-run prefix-normal census and a 7/24 density law",
+          "trigger": "Identical criterion and limiting density after deleting trailing zeros"
+        },
+        {
+          "assessment": "Covers general membership tests, not the specific joint census from the fixed-density table alone",
+          "evidence": [
+            "The fixed-one-count rational functions include all run strata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.09017",
+          "material_read": "pp. 7 and 10: Proposition 7, Lemma 8, Proposition 16",
+          "method": "Open full text, bounded passage comparison",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "General criterion and exact fixed-density functions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact distribution would be useful if independently uncomputed, but no distinct contribution remains here: the marked factors, the normalization asymptotic, and the classification are supplied by the same core calculation, and the terminal zeros amount to a free geometric factor. The changed markers and cumulative counts are not a substantive new invariant of this stratum.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

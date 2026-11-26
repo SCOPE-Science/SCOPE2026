@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For stationary iid positive finite-second-moment renewal intervals, the renewal-reward identity gives \(C(s)=D\mathbb E[(L-|s|)_+^2]/\mathbb E L\). Double integration of the harmonic Green kernel gives the exact variance functional. Strict Jensen follows from a directly computed positive second derivative; this is presented as established elementary machinery. A direct exponential integral yields both periodic-uniform-phase and Poisson variances. For \(f(z)=z^2-2z+2(1-e^{-z})\), the derivative of \((1+z)f(z)/z^3\) has an absolutely convergent power series with positive coefficients \((n-3)(n+2)/n!\) for every integer \(n\ge4\), proving strict monotonicity of the variance ratio and the sharp endpoints. Exact algebra and 369 independently implemented numerical checks passed. None of the infinitary inequalities rests solely on numerical sampling.
+PASS
 
-## Originality — PASS (qualified)
+In the stationary renewal construction the interval at a random observation time is length-biased and its age is uniform conditional on its length. For lag s≥0, only same-interval Brownian increments contribute; conditional covariance is 2Da at age a with a+s<L. Integrating gives C_L(s)=(D/m)E[(L−s)_+²], and symmetry gives negative lags. The finite second moment bounds that covariance, permits the L¹ kernel's mean-square convolution and its variance integral, and makes the convex-order comparison valid for nonnegative kernels. For the exponential kernel the two-sided integral reduces to μ^{−1}∫₀^∞e^{−μs}C_L(s)ds; integrating over s≤L gives the stated clock functional. Its bracket has second derivative 2(1−e^{−μL})>0, so Jensen is strict away from the point mass. The proposed two-point law preserves m and sends the second moment to infinity while the remaining terms in the bracket have bounded expectations. The periodic random-phase and equal-mean exponential laws give the two stated variances. Independently, writing H=2/R and integrating (1+z)∫₀¹e^{−zu}(1−u)²du by parts gives H=1−∫₀¹e^{−zu}(1−u²)du. Its derivative is ∫₀¹u(1−u²)e^{−zu}du>0 and H tends to 1/3 and 1 by dominated convergence, giving the strict 6-to-2 ratio. An exact phase check uses g(a)=2a−3+4e^{−a}−e^{−2a}: averaging the within-cycle variance yields Dμ^{−3}[∫₀^z g(a)da+g(z)/2]/z, equal to the claimed V_per, not the epoch variance.
 
-Guéneau–Majumdar–Schehr (arXiv:2306.09453) study this persistent harmonic particle with periodically and Poisson-reset force and supply a Gaussian variance at *reset epochs* for the periodic model; the present theorem evaluates *stationary random-time sampled* variance and supplies a strictly monotone, sharp, dimensionless cross-protocol penalty. The general renewal-reset Brownian covariance is already available from prior renewal theory and Taźbierski–Metzler–Magdziarz (New J. Phys. 27 (2025) 074603), and an earlier stationary finite-window averaging analysis proves deterministic-clock optimality by convexity. Those ingredients are NOT claimed novel; the ratio law for the unreset harmonic filter is the assessed additional mathematical statement. Compared implications rather than just titles: the finite-window boxcar observable and the reset-epoch variance do not state the exponential-filter ratio, although both provide useful inputs. The risk that general pre-existing formulas implicitly encode the ratio and its derivative sign remains and prevents a definitive priority assertion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A quantitative, sharp protocol-comparison law applies at every physical ratio \(z=\mu m\), giving a clear experimental-design bound: Poisson force resetting inflates steady particle-position variance by strictly between two and six times relative to periodic resetting of the same average frequency. The strict monotonicity, both optimal constants, and correct random-time/epoch distinction are not determined by either protocol's separate variance formula. The clock-functional extension identifies how renewal dispersion affects this persistent harmonic observable. These are complete structural comparisons rather than an arbitrary numerical parameter slice.
+Credit is limited to the explicit strict sharp Poisson-to-periodic variance ratio at stationary random times and matched mean. The covariance mechanism, stationary filtering and basic convexity are prior or direct consequences. A distinct catalogue record has the exact clock functional and deterministic minimizer but the inspected passages do not settle the ratio. The closest primary treatment of the same harmonic dynamics gives a periodic epoch statistic and a separately normalized Poisson statistic, not the same comparison.
 
-## Scientific limits
+## value
 
-Independent scientific validation has not occurred. The theorem does not concern finite-time transients, signed filter kernels, dependent reset durations, particle-position resetting, or stochastic ordering of entire distributions. The novelty comparison could be affected by unlocated broad renewal-filter theorems; the 2025 general covariance representation is explicitly acknowledged.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ratio quantifies a physically motivated choice of clock for the same mean reset effort and unchanged harmonic response. It distinguishes the variance penalty when many resets fit within a relaxation time from that when resets are sparse, gives exact limiting penalties and orders the entire interpolation. Those conclusions cannot be obtained from merely knowing that the deterministic clock minimizes variance at any one relaxation rate. The random-time rather than epoch requirement matters to using these values as stationary observables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

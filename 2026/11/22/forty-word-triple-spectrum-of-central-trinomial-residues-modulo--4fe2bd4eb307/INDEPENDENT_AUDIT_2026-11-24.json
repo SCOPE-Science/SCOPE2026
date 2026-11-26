@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:54:06.125655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponent separation in (x^-1+1+x)^(5m+t) modulo 5 is exact for 0<=t<=4: a term from the low digit has exponent of absolute value at most four, so it cannot cancel a nonzero multiple of five. The group-ring digit distribution is (1+J)^R=1+(5^R-1)J/4. In the histogram of exponent pairs (S(m),S(m+1)-S(m)), a low digit a<4 contributes A_R(s-e(a)) when d=a; the low digit 4 contributes B_R(s-2,d+2) to B_{R+1}(s,d). Unrolling, with B_0 concentrated at (0,0), gives the displayed formula including the all-four carry into a new digit. The five final-digit cases then give exactly N_r, with B_R=5^R/16+O(R+1) and the claimed rational masses. The three no-carry sets are disjoint (b-a=0,1,2 and c!=b), and the two carry sets b=a-1 and c=b intersect in four cells. The low digit plus one free high digit realizes every pair (s,d), so the support is already full at 125 starts. For arbitrary N the base-five aligned blocks translate the exponents diagonally except at at most two boundary starts per block; P is translation-invariant, and at most four blocks per depth each cost O(r+1), proving the log-squared error. An independent replay, python3 /workspace/audit_trinomial.py, used repeated Laurent-polynomial multiplication and a digit-pair histogram recursion rather than the supplied checker. It matched all triple counts at depths 1–5 (support sizes 5,22,40,40,40), the limiting tiers and both adjacent-pair and lag-two checks. The all-depth result is deductive, not inferred from finite checks. The scope's modular-arithmetic wording should be read as applying to exponent operations and indicator arguments, not sums of counts or rational probabilities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowland–Yassawi explicitly cover central trinomial Lucas products for odd primes and give an automatic-congruence framework.",
+          "Deutsch–Sagan's inspected preprint theorem treats central trinomial coefficients mod 3."
+        ],
+        "reasoning": "The Lucas digit product gives the underlying sequence; it does not evaluate consecutive triple probabilities, for which carry states and their frequencies must be worked out.",
+        "searches": [
+          "arXiv:1310.8635 section 5.1, Theorem 5.2 and following discussion",
+          "arXiv:math/0407326 section 4, Theorem 4.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fa9f646a7cb7",
+        "Resultary 4871e6608db9",
+        "arXiv:1310.8635",
+        "arXiv:math/0407326"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result gives all fixed-lag pair distributions, including the uniform adjacent law and the nonuniform lag-two ratio frequencies, and exact adjacent pair counts."
+        ],
+        "reasoning": "The three relevant pair marginals are consistent with a distinct candidate triple law obtained by making the middle exponent uniform independent of the outer pair. This preserves both adjacent marginals and the lag-two law but has full support. Thus the earlier evaluated pair marginals are not the evaluated joint law.",
+        "searches": [
+          "2026/11/2/SCOPE-all-lag-two-point-laws-and-exact-logarithmic-bias-for-central-tr--fa9f646a7cb7, Finding and exact pair-count discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-mod-five-joint-fibers-and-sharp-quadratic-correlation-of-c--4871e6608db9 (Finding) is an equal-index trinomial/Delannoy joint law.",
+          "The external phrase query did not return a match; this does not establish absence."
+        ],
+        "reasoning": "Passing to exponents via 3^a is a bijection; neither it nor use of ratio variables converts a same-index two-sequence law to a law of three consecutive values of one sequence.",
+        "searches": [
+          "Resultary: central trinomial modulo five consecutive/exponent word and joint residue laws",
+          "External: \"central trinomial\" modulo 5 consecutive triple joint distribution residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact triple-pattern hit is this record itself. The distinct same-day record 4871e6608db9 has different observables; the earlier fa9f646a7cb7 records pair laws."
+        ],
+        "reasoning": "No inspected distinct archived statement supplies the sixty-four-cell table, finite formula or support classification.",
+        "searches": [
+          "Resultary: consecutive triple, word support and exact mod-five joint fibers"
+        ]
+      },
+      "rationale": "Pass for the evaluated consecutive triple law, full support and exact/discrepancy counts, not for the Lucas product, automaticity, or the pair marginals. No distinct examined source gives or immediately determines that package; this is not a historical priority certification.",
+      "residual_risks": [
+        "A bounded catalogue and literature search cannot exclude an unindexed multipoint formula or explicit earlier triple calculation.",
+        "The apparent Deutsch–Sagan theorem-label/version discrepancy was not resolved; the Lucas product is nevertheless explicit in Rowland–Yassawi and independently proved in the frozen record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct pair-marginal overlap only",
+          "evidence": "Adjacent ordered pairs are uniform; lag-two ratio is nonuniform; statements use two positions at a time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-lag-two-point-laws-and-exact-logarithmic-bias-for-central-tr--fa9f646a7cb7/RESULT.md",
+          "material_read": "Finding and pair-count discussion (offsets 0 and 6423)",
+          "method": "Local Resultary mirror",
+          "title": "All-lag two-point laws and exact logarithmic bias for central trinomial residues modulo five",
+          "trigger": "Same sequence and prime, all pair lags"
+        },
+        {
+          "assessment": "Different joint law, no priority inference from date",
+          "evidence": "The block counts couple T_n and D_n at the same n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-mod-five-joint-fibers-and-sharp-quadratic-correlation-of-c--4871e6608db9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact mod-five joint fibers and sharp quadratic correlation of central trinomial and Delannoy residues",
+          "trigger": "Distinct same-day exact joint mod-five match"
+        },
+        {
+          "assessment": "Covers the digit premise, not the evaluated triple law in inspected passages",
+          "evidence": "The central-trinomial Lucas product is explicitly included for p!=2.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "Section 5.1, Theorem 5.2 and following discussion, PDF pp. 35–37",
+          "method": "OA PDF passage inspection",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "General automatic and Lucas-product approach"
+        },
+        {
+          "assessment": "The inspected theorem is mod 3",
+          "evidence": "It states a mod-three formula, not a mod-five triple spectrum; the difference from Rowland–Yassawi's cited theorem label may be a version issue.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407326",
+          "material_read": "Section 4, Theorem 4.7, PDF p. 13",
+          "method": "OA PDF passage inspection",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Classical trinomial congruences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The consecutive triple is a natural next invariant after all fixed-lag pair laws. Uniform adjacent pairs coexist with 24 globally forbidden triple words and three distinct positive mass tiers. The exact counts and quantified arbitrary-cutoff estimates make the higher-order obstruction usable in future sequence and digit-dependence comparisons. This is not an arbitrary subset of computed cells or an extrapolation to other moduli.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

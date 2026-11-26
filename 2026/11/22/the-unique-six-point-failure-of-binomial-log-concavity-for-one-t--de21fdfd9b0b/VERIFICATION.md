@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Run `python3 VERIFY.py` with standard Python 3. No external package is required. The program exhaustively loops over all possible labelled simple graph edge sets on \(n\le6\), checks forbidden four-cliques, and checks every subset used as a potential one-point neighborhood. The exact cross-multiplied inequality tests use integer arithmetic.
+# Independent mathematical audit
 
-Expected six-point summary: `n=6 K4free_labelled=27626 bad_labelled=72 indices={4: 72}`. The independent direct wheel enumerator produces `[1, 6, 15, 15, 5, 1, 0]`, and the final line is `EXHAUSTIVE_K4_FREE_BINOMIAL_THRESHOLD_OK`. The actual complete output is in `VERIFY.out`.
+## correctness
 
-Every conclusion is finite and exhaustive for the announced base-size range; it is not an infinite-size theorem. The 72 exceptions have the unique wheel degree pattern, which forces a five-cycle after removing the hub. There is no external certificate or independent audit.
+PASS
+
+An induced named K4-free base has one nonalgebraic one-point type for each allowed adjacency pattern: the new vertex creates a K4 exactly when its proposed neighborhood contains a triangle. The extension property realizes each allowed diagram over that very base, and homogeneous quantifier elimination distinguishes no further types within it. An independent exhaustive census of edge masks rejected four-sets with all four triangles, counted triangle-free subsets, then tested ambient-n normalized coefficients by exact rational arithmetic. The admissible counts for n=0,...,6 were 1,1,2,8,63,958,27626; all 72 failures occur at n=6 and only k=4. The forced degree signature (3,3,3,3,3,5) leaves a 2-regular five-vertex graph after removing the hub, necessarily C5. There are 6*5!/10=72 labelled wheels. Their generating function is (1+z)^5+z(1+5z+5z^2), yielding b3=3/4, b4=1/3, b5=1/6 and reversal gap 1/72. The zero b6 is included with ambient n=6; the test is not degree-normalized.
+
+## originality
+
+PASS
+
+The accepted increment is the complete first-failure classification with ambient binomial normalization. The triangle-free complex, type-to-diagram correspondence, and general notion of ultra-log-concavity are established inputs. Closely overlapping type-polynomial records study restricted families and a different statistic, and their censuses miss the wheel.
+
+## value
+
+PASS
+
+Sizes of admissible named neighborhoods give a natural rank sequence; ambient binomial scaling compares the fractions of all neighborhoods of each size that are allowed. The result locates the first obstruction to this strengthened log-concavity, isolates one graph rather than offering an isolated failure, and gives an exact, reproducible witness. The unnormalized wheel sequence does not show the obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

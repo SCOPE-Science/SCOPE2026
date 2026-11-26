@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update probabilities, normalization and shock convention are specified explicitly. The four-voter chain is symmetric, and stationary balance at the two outer count classes yields explicit ratios. Sign analysis of the displayed rational expressions gives the necessary and sufficient strict-trimodality window and proves its nonemptiness. For general fixed population size, the absorbing gambler's-ruin Green kernel and stationary interior-block resolvent give the first-order interior profile; the exact stationary mean identifies limiting consensus masses. These together establish three and only three local maxima, and elementary discrete geometry proves the sharp four-voter minimum. The independent rational code replayed the stated finite checks from the actual package. All-limit assertions are proved rather than inferred from these checks.
+PASS
 
-## Originality — PASS with residual priority risk
+With the specified with-replacement update the chain is irreducible for 0<eta,r<1. Reflection at N=4,k=2 gives (a,b,c,b,a). In reset odds h=r/(1-r), the zero and one balances give a/b=(3+eta)/(16(h+eta)) and c/b−1=[16h²+(2+22eta)h+eta(5eta−1)]/[4(1+eta)(h+eta)]. Thus the endpoint comparison requires eta<1/5 and h<(3−15eta)/16; in this eta domain the center comparison has one positive threshold. Substitution in r gives the stated quadratic and discriminant, and at the upper threshold c/b−1=5(1−5eta)/(4(1+eta))>0, proving a nonempty strict interval. Strict maxima cannot be adjacent, so three require at least five counts; the rational example attains this bound. For fixed N the killed zero-noise interior walk is transient; its embedded simple walk Green function is piecewise affine in the start with unit source, and multiplying by the holding time N²/[2j(N−j)] gives the stated rows. The interior resolvent is bounded near (r,eta)=(0,0) with difference O_N(r+eta); boundary injection is O_N(eta), giving O_N(r²+eta) error. The mean uses the exact one-step drift eta(1−2j/N); its stationary limit is k when eta=o(r), yielding boundary masses 1−k/N and k/N. Strict interior Green inequalities on each side of an allowed k persist with o(r) error, while both boundary masses dominate their neighbors. An independent symbolic solution of the full five-state stationary system and exact inverses of the killed chains for N=4 through 12 confirmed the ratios, threshold discriminant, rational example and Green matrix.
 
-The closest source, Argany Herrera–Alvarez-Zuzek–Artime (arXiv:2609.39858), states the noisy-voter shock matrix model and illustrates trimodality numerically; the relevant main-text sections and appendix were materially inspected. Its matrix formulation implies the ability to compute specific finite-population distributions, but no explicit sharp four-voter two-parameter classification or general rare-shock Green modal theorem was found in the inspected material. Caligiuri–Galla (arXiv:2305.19096) and Llabrés–San Miguel–Toral (arXiv:2301.09563) obtain multipeak phenomena under different stochastic mechanisms. The local-reset study by Grange (arXiv:2207.08590) is related but not implication-equivalent in its stated scope. An unlocated general resetting theorem or a direct corollary in other finite-state Markov-chain literature remains possible; search non-detection alone does not prove priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is motivated directly by the motivating paper's large-population numerical discovery of a trimodal regime. The result determines the smallest mathematically possible voter population, exactly where the regime occurs in a natural two-parameter miniature, and how it arises for every finite population in a controlled singular limit. Strict inequalities and Green-kernel coefficients expose modal transitions and quantitative interior occupancy, rather than supplying a routine isolated parameter substitution. The known gambler's-ruin computation is used as part of this complete phase explanation, not promoted as a new result by itself.
+The same discrete model and the qualitative occurrence of trimodality are already published. The supported increment is sharp finite-size onset via the exact strict N=4 window, together with the quantitative fixed-N rare-reset interior profile and strict-mode proof. Neither the ordinary Green function as a mathematical tool nor the generic reset resolvent is novel.
 
-## Closest literature and limits
+## value
 
-Closest literature: arXiv:2609.39858 (global exogenous shocks; related but not the stated phase theorem), arXiv:2305.19096 (switching noise/influencers), arXiv:2301.09563 (partisan noisy voter), and arXiv:2207.08590 (individual resets). Scope is the precisely normalized finite mean-field chain with one fixed shock target. The all-size statement is a fixed-size asymptotic, not uniform in population size. Historic priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The window gives an exact answer to how small a population in the already motivated collective-shock model can exhibit this phase. The Green profile and endpoints explain which probability comparisons sustain three peaks for each fixed larger population and separated reset target, instead of extrapolating from a large-population numerical diagram. The natural smallest chain and two-scale limit are substantive, not arbitrary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

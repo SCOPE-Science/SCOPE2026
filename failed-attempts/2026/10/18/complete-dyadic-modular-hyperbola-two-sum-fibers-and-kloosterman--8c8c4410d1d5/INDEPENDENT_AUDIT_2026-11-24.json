@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:48:25.773541Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89",
+        "Frozen VERIFICATION.md and check_fibers.py, inspected without executing",
+        "Independent independent-row check /workspace/branches/audit-3.py"
+      ],
+      "rationale": "For the ordered pair x,y with s=x+y, oddness forces even s and z=s/(xy) forces matching valuations; s=0 separately gives z=0 with every odd x allowed. For nonzero s, dividing by 2^a and translating x by s/2 gives the stated square congruence. The right-hand side has the parity forced by odd x and every root has 2^a lifts, with no division by a nonunit after passing to the smaller ring. Odd square roots are counted by the squaring homomorphism on the odd units, with kernel sizes 1,2,4 at moduli 2,4,≥8; zero and nonzero even roots then follow by valuation and lifting. For completeness the s/2 square is independent of representative since m≤k−1. Summing the supported z-values with a≥2 and the zero row gives 4+sum_{m=3}^{k−2}4^{m−2}; the remaining 2^{k−2} rows each have precisely L_{k−1} entries. Independently, if P_j is the collision probability of two independent uniform squares modulo 2^j, separating both-even and both-odd inputs gives P_j=P_{j−2}/4+2^{1−j} for j≥3, with P_1=P_2=1/2. Thus P_j=j/2^j. The a=1 row at k≥4 compares even squares, yielding P_{k−3}; the a≥2 strata with m≥3 each contribute 4n², the last two strata contribute 3n², and the zero row contributes n², with n=2^{k−1}. This proves 6(k−3)n². For k=2,3 all odd units are self-inverse, and each even diagonal target has exactly n ordered representations, giving energies 8 and 64. Two-dimensional character orthogonality gives the factor N² for the joint moment, and n^4 division gives the stated normalized values. The independent square-pushforward program compared all 87,376 target coordinates for 2≤k≤8 to direct row counts, including support and energy. Replay: python3 /workspace/branches/audit-3.py.",
+      "residual_risks": [
+        "The frozen proof's phrase 'divisible by an odd power' must mean 'of odd valuation'; the Finding specifies the correct condition and the root argument uses it.",
+        "No arbitrary-weight extension inequality follows from this constant-input result. The finite computation is corroboration, not the all-exponent proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey gives standard Kloosterman definitions/bounds. Bower et al. classify scalar coordinate sums of one hyperbola point, not sums of two points in the product ring. Nica's inspected fourth-moment statement is for odd characteristic; Guo et al. average over characters in odd moduli. The indexed weighted fourth-moment theorem uses a zero-completed inverse graph over F_{2^m}, not Z/2^kZ."
+        ],
+        "reasoning": "Neither a field analog nor the cited odd-characteristic results and scalar coordinate problem dominate the dyadic-ring convolution. The actual match is the separate same-ring pointwise theorem.",
+        "searches": [
+          "Shparlinski arXiv:1103.2879",
+          "Bower–Evans–Luo–Miller arXiv:1212.2930",
+          "Nica arXiv:1910.00165",
+          "Guo–Geng–Pan DOI 10.1186/1687-1847-2014-103",
+          "SCOPE-20261011-d9c0bfe755ff"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261108-41fad24c7e81 and SCOPE-20261011-d9c0bfe755ff",
+        "arXiv:1306.4104, arXiv:1212.2930, arXiv:1910.00165, arXiv:1103.2879 (p. 3 definitions and bounds)",
+        "Guo–Geng–Pan DOI 10.1186/1687-1847-2014-103; Zhang DOI 10.1016/j.jnt.2010.08.008 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all k≥2, split frequency pairs according to both coefficients even versus primitive. The even-even moment contribution is 16 times the joint fourth moment at modulus 2^{k−1}, by the two lifts of each unit. Mixed parity cancels using x↦x+2^{k−1}, whose inverse changes by the same amount mod 2^k. For both odd, scaling by either unit reduces the row to K(1,λ); the omitted even λ contribute zero. Thus the primitive term is φ(2^k) times the fixed-unit fourth moment, which Gong–Veys–Wan Theorem 4 evaluates as 3·2^{3k} for k>4. Shallow cases fix the recurrence. Classical moments can therefore imply the aggregate formula but do not determine pointwise fibers.",
+          "The indexed 41fad24c7e81 proof directly supplies all large-depth fibers. At k=2,3 the identity x²≡1 for odd x gives the omitted shallow diagonal cases immediately; dividing by |U|⁴ after orthogonality is a normalization, not another result."
+        ],
+        "reasoning": "No new pointwise or aggregate invariant remains beyond the verified coverage and these routine boundary checks. The inaccessible Zhang paper is not the basis of the originality decision.",
+        "searches": [
+          "Gong–Veys–Wan arXiv:1306.4104, definition of S_n and Theorem 4",
+          "Zhang DOI 10.1016/j.jnt.2010.08.008",
+          "SCOPE-20261108-41fad24c7e81, proof and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same odd-unit inverse graph, the matching record defines the count of ordered (u,v) at each (s,t). Its h, m, S, T and w are the frozen a, m, u, v and d, with t its second target coordinate rather than a half-sum. It uses parity-constrained root counts: even roots if h=1 and odd roots otherwise. The computed w is already of that parity, so the condition discards no roots.",
+          "Both results assign q/2 at (0,0) and zero to every other target outside the matched positive valuation cases."
+        ],
+        "reasoning": "This is equality of functions at every point in the common parameter range, not merely similar modular-hyperbola terminology or equality of aggregate moments.",
+        "searches": [
+          "Resultary semantic lookup for dyadic modular inverse hyperbola ordered pair-sum fibers, support and exact fourth moment",
+          "SCOPE-20261108-41fad24c7e81, Finding, scope and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem gives (q²+40q+256)/96 for k even and (q²+32q+256)/96 for k odd. Evaluating the frozen L_{k−1} gives (5+q/16)/3 for k even and (4+q/16)/3 for k odd, yielding exactly those polynomials. The same record also gives E=(3/2)(k−3)q² and q^{-2} times the unweighted joint fourth moment equal to E."
+        ],
+        "reasoning": "The index gives exact closed forms and complete fibers, stronger evidence than a numerical sample table. No separate sequence-table match is needed for this functional classification.",
+        "searches": [
+          "Resultary lookup for the exact dyadic inverse-graph twofold image and pointwise counts",
+          "SCOPE-20261108-41fad24c7e81"
+        ]
+      },
+      "rationale": "The distinct indexed Resultary record 41fad24c7e81 states the same ordered pointwise square-root law, sumset size, energy and joint fourth moment throughout k≥4. Removing its redundant parity filter on the roots and evaluating the finite sum L_{k−1} give exactly the frozen formulas. The extra k=2,3 cases both have a diagonal inverse graph, so they supply no substantive distinct remainder. The archive's November date does not establish that it preceded the frozen October record; the decision concerns demonstrable equivalent scientific coverage, not priority, origin or dependence between the records.",
+      "residual_risks": [
+        "No priority decision is supported solely by index dates, and possible additional older sources including Zhang remain incompletely inspected. Verified exact indexed overlap already establishes the scope of present coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent large-depth coverage, independent of archive priority",
+          "evidence": [
+            "Pointwise parity-filtered square roots reduce to the frozen square-root rule; support and energy formulas and joint moment coincide."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-pair-sum-fibers-and-image-density-of-the-dyadic-modular-in--41fad24c7e81/RESULT.md",
+          "material_read": "Finding, scope, complete formula and proof",
+          "method": "Local mirror, bounded passages between offsets 0 and 7224",
+          "title": "Exact pair-sum fibers and image density of the dyadic modular inverse hyperbola",
+          "trigger": "Identical ordered pair-sum problem, dyadic ring, energy and Fourier convention"
+        },
+        {
+          "assessment": "Substantive antecedent for aggregate moment, not full pointwise census",
+          "evidence": [
+            "S_n sums K(1,λ)^n over λ; at n=4, q=2^r and r>4 it is 3·2^{3r}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1306.4104",
+          "material_read": "Definition of S_n (PDF p. 5); Theorem 4",
+          "method": "Public PDF excerpt around offset 12293 and theorem text around HTML offset 7294",
+          "title": "Power Moments of Kloosterman Sums",
+          "trigger": "Earlier dyadic one-parameter moment with scaling implication"
+        },
+        {
+          "assessment": "Related scalar sums, different invariant",
+          "evidence": [
+            "Maps one point to x+x^{-1}, not two points to a vector sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.2930",
+          "material_read": "Definition on p. 2 and dyadic theorem on p. 5",
+          "method": "Public PDF excerpts around offsets 7808 and 13260",
+          "title": "Coordinate sum and difference sets of d-dimensional modular hyperbolas",
+          "trigger": "Same dyadic square restrictions under modular-hyperbola sums"
+        },
+        {
+          "assessment": "Inspected formula has an odd-characteristic hypothesis",
+          "evidence": [
+            "Fourth moment over units with non-primitive twist; not a pointwise result on Z/2^kZ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00165",
+          "material_read": "Fourth-moment discussion p. 3",
+          "method": "Public PDF excerpt around offset 9555",
+          "title": "Kloosterman sums over finite Frobenius rings",
+          "trigger": "Potential broader local-ring fourth-moment theorem"
+        },
+        {
+          "assessment": "Character averaging over odd q, rather than the frozen dyadic convolution",
+          "evidence": [
+            "The stated moment parameters and modulus conditions are different."
+          ],
+          "identifier_or_url": "doi:10.1186/1687-1847-2014-103",
+          "material_read": "Definitions and scope, pp. 2–3",
+          "method": "Public PDF excerpts around offsets 1000 and 6977",
+          "title": "On the fourth power mean of the general k-th Kloosterman sums",
+          "trigger": "Potential generalized moment overlap"
+        },
+        {
+          "assessment": "Exact scope not fully checked; not used as negative evidence",
+          "evidence": [
+            "No full-text passage available in this review."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jnt.2010.08.008",
+          "material_read": "Bibliographic material; theorem text not recovered",
+          "method": "Bounded lawful open-access retrieval attempt",
+          "title": "The fourth and sixth power mean of the classical Kloosterman sums",
+          "trigger": "Possible earlier exact fixed-unit dyadic moment"
+        },
+        {
+          "assessment": "Different field model, not the dyadic-ring pointwise formula",
+          "evidence": [
+            "The finite field inverse graph includes zero and the claim is for weighted extension."
+          ],
+          "identifier_or_url": "SCOPE-20261011-d9c0bfe755ff",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror, offsets 0–6203",
+          "title": "Sharp fourth-moment extension and a subfield localization dichotomy",
+          "trigger": "Characteristic-two inverse graph and sharp weighted fourth moment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete claim and boundary cases",
+        "SCOPE-20261108-41fad24c7e81, matched all-depth formulas for k≥4"
+      ],
+      "rationale": "The complete dyadic two-sum invariant is scientifically motivated, but all nontrivial levels are already present in the equivalent indexed theorem. The only uncovered cases are moduli 4 and 8 where inversion is the identity on odd units, and the normalization is elementary orthogonality. These residual facts do not make a separately useful exact-invariant result. No weighted extension claim or other substantive remainder is proved by the frozen work.",
+      "residual_risks": [
+        "A new weighted estimate or genuinely different convolution invariant would need a new theorem, not a repair of this one."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

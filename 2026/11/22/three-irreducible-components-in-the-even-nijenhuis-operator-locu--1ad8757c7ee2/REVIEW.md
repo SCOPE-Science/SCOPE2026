@@ -1,11 +1,21 @@
-# Review: complete even Nijenhuis-operator variety
+# Independent mathematical audit
 
-**Correctness — PASS.** The five displayed scalar equations follow from direct basis-pair expansion of the defining Nijenhuis identity. The component decomposition is set-theoretically exhaustive over all field extensions, and the quadratic cone is geometrically irreducible. Exact finite-field inclusion-exclusion gives the full and invertible counts. Independently written basis-pair checks over fields of sizes \(2,3,5\) agree. A finite check is only corroboration of the algebraic proof.
+## correctness
 
-**Originality — PASS, qualified.** The exact source, Basdouri–Mosbahi–Zhang, arXiv:2611.17694v1, has been materially compared at Example 2.2, Definition 2.4, Example 4.10, Remark 5.5 and Appendix B: it verifies a two-parameter diagonal operator family and explicitly remarks that the construction does not exhaust Nijenhuis operators. Ma–Song's earlier work treats ordinary perm algebras; related Nijenhuis classifications concern different multiplication tables and do not imply these conditions. Search-based comparisons cannot establish absolute historical uniqueness; an unindexed exact calculation is the principal risk.
+PASS
 
-**Mathematical value — PASS.** An eight-parameter operator-classification problem naturally arising from a specific published graded test algebra resolves to three four-dimensional geometric components and meaningful exact finite-field counts. The quadric-cone component and common three-space reveal structure omitted by an isolated diagonal family. This is a full natural fixed-object classification relevant to testing Nijenhuis deformations, rather than a chosen narrow parameter slice.
+Independently substituted the exact two-product multiplication and the even matrix into all 16 ordered basis-pair identities over the integral polynomial ring. The (f2,f2) torsion forces r=0 in the radical; the remaining generators are (a-s)(p-s), c(p-s), c(a+d-2p), and bc+(d-p)^2. In a prime containing these generators, either c belongs to the prime, forcing d=p and then a=s or s=p, or c does not, forcing s=p and a+d=2p. Conversely the three displayed component ideals contain the torsion ideal. They are incomparable primes over every field extension: the first two define affine four-spaces and the third is the product of an affine plane and the geometrically irreducible cone bc+t^2=0, primitive linear in b over K[c,t]. The sums of any two component ideals give the same affine three-space. The cone has Q(Q-1)+Q points by splitting c nonzero versus zero. The three determinant restrictions independently simplify to a^2 p^2, a p^3, and p^4; the intersection is invertible exactly when p is nonzero. Inclusion-exclusion gives both stated counts. None of the reasoning divides by 2.
 
-The result does not classify odd operators, automorphism classes, the tensors solving Yang–Baxter equations or all graded algebras of this dimension. The original source's characteristic-zero hypotheses are not silently extended to other theorems. Independent checking by a separate mathematical auditor remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The algebra, defining identity and diagonal family are known from the motivating paper, but the inspected relevant statements do not cover the full reduced eight-coordinate even locus. In particular, the diagonal family is only a strict slice of one component, with none of the other component data or all-field enumerations. No distinct compared catalog record or literature theorem covers the claim.
+
+## value
+
+PASS
+
+This is a complete natural invariant of the smallest explicit motivating product specimen under review, not a chosen slice of a known locus: it turns a verified diagonal family and acknowledged non-exhaustive construction into an all-field operator classification. The coexistence of two affine components with a cone component glued along the same affine subspace, and the invertibility stratification over finite fields, give substantive information not obtainable by counting the known examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

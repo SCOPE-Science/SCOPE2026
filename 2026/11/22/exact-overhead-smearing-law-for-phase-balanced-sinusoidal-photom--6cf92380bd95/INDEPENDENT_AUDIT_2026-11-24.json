@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:09:51.064705Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 5–52; VERIFICATION.md line 19 and check.py inspected, not executed.",
+        "Independent numerical replay: bisect the stationary equation on (0,pi/2) for a=10^-8,0.1,1,100 and compare the resulting objective with 10,000 grid competitors through 40 pi. No grid competitor exceeded it. For a=10^-8 and 10^-10, optimizer and efficiency-loss ratios agreed with their asymptotic scalings to within 5e-6; the double-precision residual tolerance was 1e-9."
+      ],
+      "rationale": "A centered boxcar multiplies each harmonic design column by sinc(x). The phase grid kills the first and second nontrivial harmonic sums for N>=3, so the Gaussian Fisher diagonal is (Nt/nu)(1,sinc(x)^2/2,sinc(x)^2/2), even with unknown baseline and both quadratures. Dividing by N(t+h) and by the limiting rate 1/(2 nu) gives sin²(x)/(x(x+a)). On (0,pi/2), its log derivative g=2 cot(x)-1/x-1/(x+a) strictly decreases since sin(x)<x; it starts positive and ends negative. It stays negative from pi/2 to pi. All x>=pi have objective at most 1/[pi(pi+a)], strictly below the value at pi/2, so later lobes cannot tie. Increasing a raises g pointwise; the roots increase and tend to the root of 2 cot(x)-1/x=0 in (0,pi/2). For a going to zero the root must tend to zero since at any fixed positive x below pi/2, the limiting g is 2(cot(x)-1/x)<0. At the root, a/(x+a)=2(1-x cot(x))~2x²/3; this implies a/x goes to zero and x³~3a/2. Substitution gives loss ~a/x+x²/3~x² and the dimensional constant (6h/omega²)^(1/3). At large a, a j_a tends to sin²(x_infty)/x_infty at the optimizer. At h=0, strict sinc²<1 at all positive times proves the claimed nonattainment. Phase waiting is excluded as stated; the proof is not an optimization over actual observing calendars.",
+      "residual_risks": [
+        "Sampling corroborates but does not prove uniqueness or asymptotics. These are consequences of the analytic checks. No instrumental or calendar validation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Watson–Dhillon give a resolution-matching velocity-smearing exposure rule. Kipping and Price–Rogers analyze transit integration, the latter using Fisher information and discussing effective sampling. Morello–Dyrek–Changeat cover arbitrary harmonic index n for the attenuation."
+        ],
+        "reasoning": "Specializing the harmonic response to n=1 supplies sinc, not a theorem optimizing the charged-time Fisher rate over all lobes. Transit-parameter information and spectral resolution rules do not specialize to the stated sine and cosine experiment.",
+        "searches": [
+          "astro-ph/0101513 §3.6; arXiv:1004.3741 abstract; arXiv:1408.4124 pp. 1, 3, 10; arXiv:2210.14194 §2.1."
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6cf92380bd95, baa64c15b418 and d7c45e8a2083; arXiv:astro-ph/0101513, 1004.3741, 1408.4124 and 2210.14194."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Harmonic sinc attenuation and ordinary photon-limited variance give ingredients for constructing the objective; the inspected transit and line-profile findings do not state this objective's global optimizer. Price–Rogers explicitly neglects read noise; the attribution of explicit readout-time treatment in the frozen related-work paragraph was not substantiated by the passages or the literal 'readout' lookup."
+        ],
+        "reasoning": "Once reduced, the stationary equation is elementary calculus and is not on its own credited as original. It does not alone imply a global first-lobe optimum, monotonicity, ceiling or the paired small-overhead efficiency and exposure laws. The unsupported readout-time attribution is ancillary to the finding; it is not used to establish either the information model or the comparison.",
+        "searches": [
+          "Compare arXiv:2210.14194 §2.1 and the inspected passages of arXiv:1408.4124 with the exact Resultary smearing analogues baa64c15b418 and d7c45e8a2083."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is equivalently squared first-harmonic signal-to-noise per charged time in this fixed phase-balanced photon-noise model. Morello–Dyrek–Changeat's exact sinc attenuation is the closest inspected ingredient. The indexed analogues baa64c15b418 and d7c45e8a2083 use line-profile autocorrelations or matched-template integrals."
+        ],
+        "reasoning": "An amplitude-only correction lacks the duty-cycle factor. Spectral line drift and a smeared harmonic are not equivalent optimization problems; in particular their examined large-overhead laws differ. The topical search's unrelated hits do not establish absence.",
+        "searches": [
+          "Resultary: phase-balanced sinusoidal exposure vs Doppler smearing and fixed readout; primary search: sinusoidal finite integration setup/readout duty-cycle Fisher rate; arXiv:2210.14194 §2.1."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6cf92380bd95 is the same record. baa64c15b418 uses F(T)/(T+h) for line drift and gives long-overhead square-root growth for a Gaussian line; d7c45e8a2083 addresses the template penalty for that line-smearing problem. Neither inspected distinct statement tabulates this one-harmonic optimum."
+        ],
+        "reasoning": "The exact constant 0.3710096482... is defined through an elementary transcendental root, but a numerical root table for tan(x)=2x would not supply the optimizing interpretation or the overhead law. No priority ordering is inferred from the same-day dates.",
+        "searches": [
+          "Local Resultary matches 6cf92380bd95, baa64c15b418, d7c45e8a2083; compare normalized optimum and both overhead regimes in their Findings."
+        ]
+      },
+      "rationale": "The sinc response, independent Gaussian information calculation and duty-cycle accounting are prior or elementary ingredients. Best of the inspected evidence, the supported distinct result is the exact global one-harmonic overhead optimizer with its sharp ceiling and small/large overhead laws. The identical indexed record is not independent evidence; the two same-day spectral-smearing records share the tradeoff and even a cube-root scaling, but not the profile, rate, or ceiling.",
+      "residual_risks": [
+        "A differently named exposure-design or signal-processing treatment could already contain the same tradeoff and its exact optimizer. The comparison is bounded and not a historical-first claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical frozen finding, not independent priority evidence",
+          "evidence": "Same j_a, global maximum and asymptotics.",
+          "identifier_or_url": "Resultary 6cf92380bd95",
+          "material_read": "Proof sections 1–4, offsets 2500–5933",
+          "method": "Local Resultary mirror",
+          "title": "Exact overhead–smearing law for phase-balanced sinusoidal photometry",
+          "trigger": "Exact title and model match"
+        },
+        {
+          "assessment": "Distinct line-smearing objective and different large-overhead regime",
+          "evidence": "Autocorrelation-based F(T)/(T+h); Gaussian long-overhead square-root law.",
+          "identifier_or_url": "Resultary baa64c15b418",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A unique Doppler-smearing exposure optimum and two overhead power laws",
+          "trigger": "Same fixed overhead, smearing, uniqueness, and cube-root law"
+        },
+        {
+          "assessment": "Different observable and long-overhead behavior",
+          "evidence": "Fixed and broadened templates for a Gaussian spectral line.",
+          "identifier_or_url": "Resultary d7c45e8a2083",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp fixed-template penalty for Doppler-smeared Gaussian spectra",
+          "trigger": "Matched exposure/readout optimum analogue"
+        },
+        {
+          "assessment": "Practical velocity-resolution rule, not sinusoid Fisher optimization",
+          "evidence": "t_exp ~ P v_res/(2 pi K_R).",
+          "identifier_or_url": "https://arxiv.org/abs/astro-ph/0101513",
+          "material_read": "§3.6, p. 6, OA offset 25690",
+          "method": "OA primary PDF",
+          "title": "Roche tomography of cataclysmic variables. I. Artefacts and techniques",
+          "trigger": "Cited orbital-smearing exposure rule"
+        },
+        {
+          "assessment": "Transit distortion rather than sinusoidal overhead optimum",
+          "evidence": "Finite temporal binning alters transit shape and inferred parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.3741",
+          "material_read": "Abstract, p. 1, offset 898",
+          "method": "OA primary PDF",
+          "title": "Binning is sinning: morphological light-curve distortions due to finite integration time",
+          "trigger": "Cited finite integration design context"
+        },
+        {
+          "assessment": "Supports transit Fisher/sampling comparison, not the claimed explicit readout-time attribution or exact one-harmonic law",
+          "evidence": "Constant total integration time in the absence of read noise, and explicit neglect of read noise in the discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.4124",
+          "material_read": "pp. 1, 3, 10 at offsets 2702–3203, 21753, 88144; literal 'readout' lookup returned no match",
+          "method": "OA primary PDF",
+          "title": "Transit Light Curves with Finite Integration Time: Fisher Information Analysis",
+          "trigger": "Closest cited Fisher/sampling analogue and alleged overhead treatment"
+        },
+        {
+          "assessment": "Covers harmonic attenuation, not the inspected elapsed-time optimum",
+          "evidence": "Fourier coefficients are multiplied by sinc(pi n Delta t/P), including the sine/cosine coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.14194",
+          "material_read": "§2.1, p. 2, offset 12828",
+          "method": "OA primary PDF",
+          "title": "Is binning always sinning? The impact of time-averaging for exoplanet phase curves",
+          "trigger": "Same harmonic exposure response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 5–26 and 30–52; Morello–Dyrek–Changeat §2.1 and Price–Rogers finite integration context."
+      ],
+      "rationale": "Exposure smearing competes directly with fixed per-exposure charges in phase-balanced scheduling. The result gives a usable exact optimizer at every overhead, rules out longer-exposure lobes rather than just giving a local optimum, and quantifies both a sharp upper ceiling and the leading efficiency loss. That is a reproducible design benchmark for a natural single-harmonic experiment, not a claim about arbitrary photometry or finite-calendar observing.",
+      "residual_risks": [
+        "Applying the prescription to nonuniform phases, charged waits, correlated noise, extra harmonics or detector read noise requires another model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

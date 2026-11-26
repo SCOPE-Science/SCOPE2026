@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:22:37.298438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–91",
+        "Frozen VERIFICATION.md lines 3–23, requirements.txt, verify.py (inspected, not executed)",
+        "/workspace/audit_checks.py, brownian()"
+      ],
+      "rationale": "Stationarity is regenerative with exponential age T of rate r. Conditionally on T the active convolution is bounded by 1 and the independent centered thermal term has variance 1-exp(-2T); this gives finite moments and strictly positive marginal variance. I reconstructed the first three longitudinal moments directly by expanding each cosine into two exponentials, ordering times and integrating the nonnegative time gaps. For n active factors the final residual age contributes 1/(r+n), and gap number j starting from j=0 contributes 1/(r+j+the squared tail-sign sum); there are n! orderings. Thermal terms in m2 and m3 are 2/(r+2) and 3p E[F_T(1-exp(-2T))]. Centering produces the two stated rational coefficients, including p(5-p^2)/80 at r=1. Replay `cd /workspace && python audit_checks.py 3` checks these identities, Q signs, the displayed derivative polynomial and the approximate upper endpoint 1.92291776319178567. The zero of Q is unique and simple by Descartes and the signs at 1 and 2. As a separate monotonicity proof, Q/r^2 is strictly increasing for all r>0 by differentiating its positive-power terms and the two negative inverse powers. In the competitive interval, H is 3 times the product of (r^2+2r-1)(r+1)^4(r+4)(r+9)/r^2 and -1/(Q/r^2). The first factor is a product of positive increasing factors: r+2-1/r, (r+1)^4/r (increasing for r>1/3), and (r+4)(r+9); the second factor is positive increasing because Q<0. Since sqrt(2)-1>1/3, H increases strictly from zero to infinity. Inside the interval the sign is that of H-p^2, and outside it the coefficients agree in sign (or one vanishes at an endpoint). This gives the unique crossover, the strict monotonicity and limiting rates as p varies, and the fixed-r positivity criterion.",
+      "residual_risks": [
+        "The proof uses unit trap and angular relaxation and independence of the thermal motion and angular noise conditional on the reset age; it is not a general resetting-clock or trap-strength result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shee's general resetting moment method applies to this slice and permits reconstruction of the moments. Olsen derives all-moment results for Brownian or run-and-tumble particles in harmonic confinement under distributed reset positions."
+        ],
+        "reasoning": "The general recurrence is not credited as new. Implicit availability of a raw moment is not a sign comparison across the full positive parameter quadrant. Olsen's active generator is not Brownian angular diffusion with joint resets, so its moment solution does not specialize to the proposed sign law.",
+        "searches": [
+          "arXiv:2409.06920 model, steady-state mean and Eqs. (18)–(19)",
+          "arXiv:2310.04840 abstract and §IV"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.06920",
+        "arXiv:2008.03294",
+        "arXiv:2405.06769",
+        "arXiv:2310.04840",
+        "Resultary 554b8e1b368c and 365d4f731432"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known stationary mean and radial fourth moment do not identify a centered third moment; the untrapped steady state has positive longitudinal skewness; Baouche et al. obtain transient negative skewness with vanishing long-time skewness in another reset protocol."
+        ],
+        "reasoning": "Solving the parent moment equations still leaves the nontrivial mathematical issue of proving monotonicity of the positive activity boundary formed from the third cumulant. The cited formulas for other observables or reset dynamics cannot transfer that classification.",
+        "searches": [
+          "arXiv:2409.06920 PDF pp. 3, 6, 9",
+          "arXiv:2008.03294 p. 7",
+          "arXiv:2405.06769 pp. 5–6",
+          "Resultary 554b8e1b368c and 365d4f731432"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign of the standardized longitudinal skewness equals the sign of the longitudinal third central moment since the variance is positive. Shee uses the same process with beta=mu*k/D_r and examines even radial kurtosis, not this odd observable. Kumar et al. examine the same signed observable and complete reset, but for a free particle; their stationary skewness is positive."
+        ],
+        "reasoning": "Changing from a raw odd moment to a centered moment is substantive, whereas standardizing does not change its sign. Free positional dynamics, orientational-only resets, or even radial moments are not equivalent ways to describe the frozen sign frontier.",
+        "searches": [
+          "Resultary queries for longitudinal stationary third cumulant/skewness of a jointly reset trapped active Brownian particle",
+          "arXiv:2409.06920 model and moments",
+          "arXiv:2008.03294 eqs. (16)–(17)",
+          "arXiv:2405.06769 eq. (22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later 554b8e1b368c compares Cov(X,Y^2), not the pure longitudinal cumulant. The distinct same-day 365d4f731432 classifies a stationary skewness reversal in a biased three-state run–rest process. Kumar et al.'s explicit free-particle formula has a different sign regime."
+        ],
+        "reasoning": "Neither indexed theorem nor the free-particle skewness formula tabulates this phase boundary. Same-day dating is not evidence of chronological order; the model distinction, not dating, is decisive.",
+        "searches": [
+          "Resultary searches for matched trap, longitudinal third cumulant and unique stationary rate crossover",
+          "Resultary 554b8e1b368c and 365d4f731432",
+          "arXiv:2008.03294 p. 7 Figure 6 and Eqs. (16)–(17)"
+        ]
+      },
+      "rationale": "The moment machinery and physical model are prior, and stationary longitudinal skewness with the same reset protocol has been calculated without a trap. The distinct result is the exact evaluated centered third moment at matched relaxation and its all-activity negative-to-positive single crossover in reset rate; the prior observable or model changes are material.",
+      "residual_risks": [
+        "A more general unpublished or unindexed directional moment comparison could contain the classification; the evidenced comparisons are bounded.",
+        "The moment formula is obtainable from prior general machinery, not the invention of a new moment method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Parent model and method are covered; no longitudinal reset-rate third-cumulant sign theorem in the inspected material.",
+          "evidence": [
+            "Mean parallel displacement, MSD, radial fourth moment and excess kurtosis are the named observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.06920",
+          "material_read": "Abstract (p. 1, offset 1621), model and beta definition (p. 3, 9200), Eq. (9) (p. 6, 20656), Eqs. (18)–(19) (p. 9, 32250)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Same stochastic model and general moment method"
+        },
+        {
+          "assessment": "Explicit skewness of the unconfined joint-reset process; not the trapped sign classification.",
+          "evidence": [
+            "The stationary longitudinal skewness formula is positive for positive reset and rotational rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.03294",
+          "material_read": "Abstract, p. 7 eqs. (16)–(17) and Figure 6 (offsets 47121 and 49200–50200)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Same complete reset protocol and stationary longitudinal skewness"
+        },
+        {
+          "assessment": "Orientation-only protocol with transient skewness, not complete joint resetting in a trap.",
+          "evidence": [
+            "Negative skewness at intermediate times, vanishing skewness in the long-time Gaussian limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.06769",
+          "material_read": "Eq. (22) and discussion, pp. 5–6 (offsets 35450 and 37102–38300)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Active Brownian particle under stochastic orientational resetting",
+          "trigger": "Angle reset and longitudinal skewness"
+        },
+        {
+          "assessment": "General moment methodology for different generators and reset laws.",
+          "evidence": [
+            "Brownian or run-and-tumble dynamics, arbitrary reset-position distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04840",
+          "material_read": "Abstract (p. 1, offset 1339) and §IV trapped run-and-tumble master equations (pp. 5–6, offsets 32727–33900)",
+          "method": "OA primary PDF model and statement comparison",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Broader harmonic-confinement resetting moment claims"
+        },
+        {
+          "assessment": "Different component of the cumulant tensor; also dated later.",
+          "evidence": [
+            "Observable Cov(X,Y^2)."
+          ],
+          "identifier_or_url": "Resultary 554b8e1b368c",
+          "material_read": "Finding and comparison, local-mirror offsets 0 and 7200",
+          "method": "Resultary search and local mirror",
+          "title": "A unique transverse third-cumulant reversal under complete resetting of a trapped active Brownian swimmer",
+          "trigger": "Same model class and third-order sign reversal"
+        },
+        {
+          "assessment": "Different three-state propulsion mechanism and control rate.",
+          "evidence": [
+            "Varies run–rest rate, not complete reset rate of a Brownian-angle particle."
+          ],
+          "identifier_or_url": "Resultary 365d4f731432",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp stationary skewness reversal under biased run–rest propulsion",
+          "trigger": "Indexed stationary unique third-moment sign switch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33 and 73–91",
+        "Shee radial-kurtosis discussion",
+        "Kumar et al. Figure 6 and eqs. (16)–(17)"
+      ],
+      "rationale": "The longitudinal sign distinguishes a directional asymmetry that radial kurtosis cannot measure. Matching the two physical relaxation scales makes a natural benchmark. A unique sign boundary over an entire two-parameter slice, with universal bounding rates and their monotone interpolation with activity, is more useful than an isolated skewness calculation or simulation.",
+      "residual_risks": [
+        "The sign is not a statement about modality, detailed shape, tail behavior, or a phase surface at arbitrary trap strength."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:59.122838Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56",
+        "Frozen VERIFICATION.md, verify_windows.py, and verification_output.txt inspected, not executed"
+      ],
+      "rationale": "Each depth-d tree needs 2^d distinct concepts and 2^(d−1) in each root branch. The positive branch has at most k starts on a path; the two cyclic branches have k and n−k. For the path lower bound, retain 2^d consecutive starts and query vertex 2^(d−1)−1, which splits them in half since that half has size at most k. For the cycle, the query k−1 partitions starts into contiguous blocks of lengths k and n−k, from which one retains 2^(d−1) consecutive starts in each branch. Midpoint queries bisect each retained block recursively: the clockwise distance from a start on the first half is less than k, and from a start on the second half it is at least n−(block size−1)>k on a cycle. Thus the floor thresholds and exact powers of two are attained, including the path singleton with dimension zero. For VC dimension on paths, an interval cannot label three ordered points 101. On two points their start intervals must overlap with both differences nonempty; a missed-by-both start is outside their union. Reflecting if needed makes it a start to the left, so the first query x is at least k and its start interval ends below m−1, forcing m≥k+2. The four stated starts for the pair k,k+1 realize all traces under this bound and k≥2. For cycles, three membership bits make at most six changes in total as the start goes around, hence at most six distinct traces (or one if constant). Adjacent points yield all four two-point traces iff both arc widths are at least two; the singleton/co-singleton boundaries have dimension one. The recorded finite enumeration is consistent with the proof but is not needed for its all-parameter conclusion.",
+      "residual_risks": [
+        "No claim for other widths within the same concept family, other query types, or randomized learning. A full-width cycle is a singleton outside the stated cyclic formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-linear-combination zero-set theorem forces equality of dimensions, unlike these window families; the other primary reference treats disjoint intervals in its example",
+          "The unrestricted interval rank table gives upper bounds on the fixed-width subfamily, not its exact dimension",
+          "The earlier four-point autocorrelation theorem gives exact adaptive rank three for the consecutive four-point seed; the later abelian translate identity gives the lower side of the cyclic VC classification"
+        ],
+        "reasoning": "Changing the admissible concept family changes the possible adaptive witnesses. For a consecutive four-point seed at n≥8, shift by two yields overlap two and the stabilizer is trivial; the older theorem is genuinely stronger on that slice, not across widths. Later zero-error rigidity characterizes cyclic VC dimension at most one (adjacent arcs of middle width are neither cosets nor their complements), but does not give the all-width adaptive rank.",
+        "searches": [
+          "arXiv:2109.04805, Theorem 3.10; arXiv:2310.04812, p. 6",
+          "Resultary da5ce6428f51 (all intervals), 65f0c259cf22 (four-point translates), f36cdb380117 (zero-error translate VC)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen METADATA.json publication date",
+        "arXiv:2109.04805 and arXiv:2310.04812",
+        "Resultary 65f0c259cf22, 8f87b8e9beef, 276e78f2c8f8, f36cdb380117, da5ce6428f51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing four-point classification yields the k=4 adaptive case, and the exact later translate-pair identity f36cdb380117 explains the static pair-count overlap",
+          "General rank upper bounds do not prove the matching lower bounds for the restricted query sets; equality of zero-set dimensions would contradict the gap families"
+        ],
+        "reasoning": "The old special case and ordinary interval VC ceiling cannot be substituted for the separate all-width adaptive formulas and the finite-path 1-to-2 VC threshold. Exact equivalent later results are counted as matches, not as evidence of priority or a new claim of global uniqueness.",
+        "searches": [
+          "Compared frozen path/cycle formula and branch constructions with arXiv:2109.04805 Theorem 3.10, arXiv:2310.04812 interval example, and Resultary 65f0c259cf22 Finding",
+          "Read 276e78f2c8f8 and 8f87b8e9beef prior-work passages at offsets 7804 and 6855; followed the specific old four-point lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic membership queries are again fixed-width arcs in the cyclic start domain; the path query sets in the start domain are truncated intervals, not arbitrary all-interval families",
+          "The cyclic minimum in the frozen finding equals 1+floor(log₂ min(k,n−k)) since 2 min(k,n−k)≤n",
+          "65f0c259cf22 uses the identical cyclic membership-query model for an arbitrary four-point seed"
+        ],
+        "reasoning": "The reparametrization shows exact equivalence to the later all-width cyclic formula, not to ranks of unrestricted arcs. Complementation flips all labels and preserves both dimensions, extending the known four-point adaptive slice to co-four arcs.",
+        "searches": [
+          "Public literature query: fixed-width intervals Littlestone dimension exact finite chain cyclic arcs VC",
+          "Local semantic search for Littlestone rank of fixed-width cyclic translates, including four-point exact rank",
+          "Compare Resultary 276e78f2c8f8 and 8f87b8e9beef, Findings and prior-work passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8f87b8e9beef gives the same path rank and a full polynomial encoding the same static threshold; 276e78f2c8f8 gives the same cycle rank and polynomial 1+nz+n(min(k,n−k)−1)z²",
+          "The all-interval same-day table in da5ce6428f51 gives initial thresholds for a different family"
+        ],
+        "reasoning": "The two November 8 entries really do encode all of the recorded dimension values, even when presented as polynomials or Shelah 2-rank. They are not evidence of earlier priority over the November 2 record.",
+        "searches": [
+          "Local Resultary fixed-width path and cycle rank and shattering tables; 8f87b8e9beef, 276e78f2c8f8, da5ce6428f51"
+        ]
+      },
+      "rationale": "The indicated contribution is the simultaneous all-parameter path and cycle classification, particularly the exact online ranks on both domains and the path static boundary. The earlier four-point translation theorem covers the cycle k=4 and, by label complementation, k=n−4 slices for n≥8, so those are not separate contributions. Two later-indexed records contain the exact path and cycle dimensions, respectively, as parts of richer theorems. This exact overlap is explicit; their November 8 records do not establish pre-existing coverage of the November 2 published record. An older exact all-width implication or exact table was not identified in the actual examined statements.",
+      "residual_risks": [
+        "Catalogue dates do not establish authorial priority or independence. The exact later pair-count identity was examined; whether it was independently known still earlier is unresolved.",
+        "Equivalent older results under online mistake bounds or consecutive-ones incidence could remain unindexed. An unattributed search snippet on discrete intervals did not identify a usable primary source and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers k=4 and its complement for n≥8, not the complete formulas",
+          "evidence": "For an aperiodic four-point seed with a two-point shift overlap, the rank is three. Consecutive four-point windows have overlap two at offset two.",
+          "identifier_or_url": "Resultary 2026/10/26, 65f0c259cf22",
+          "material_read": "RESULT.md Finding, assumptions and proof opening, offset 0",
+          "method": "Local publication mirror",
+          "title": "Four-point cyclic translate classes: an exact autocorrelation criterion for online shattering",
+          "trigger": "Earlier exact length-four rank referred to in later cyclic-window paper"
+        },
+        {
+          "assessment": "Exact later path overlap; adds null concept and full coefficients",
+          "evidence": "Same adaptive rank for the nonempty-window family; its polynomial gives the exact path static thresholds.",
+          "identifier_or_url": "Resultary 2026/11/8, 8f87b8e9beef",
+          "material_read": "RESULT.md Finding, offset 0, and Relationship to prior work, offset 6855",
+          "method": "Local publication mirror",
+          "title": "Exact online ranks and shattering polynomials of fixed-width intervals",
+          "trigger": "Direct path formula and static polynomial overlap"
+        },
+        {
+          "assessment": "Exact later cycle overlap; adds stability conclusion",
+          "evidence": "Exact minority-width rank formula and matching static cases; prior-work passage identifies an overlap with earlier four-point ranks and a general translate-pair identity.",
+          "identifier_or_url": "Resultary 2026/11/8, 276e78f2c8f8",
+          "material_read": "RESULT.md Finding, offset 0, and Relationship to prior work, offset 7804",
+          "method": "Local publication mirror",
+          "title": "Exact Shelah 2-rank and stability threshold for fixed-width cyclic windows",
+          "trigger": "Direct cycle rank and static polynomial overlap"
+        },
+        {
+          "assessment": "Broader later source for the cyclic pair-shattering obstruction, not an adaptive theorem",
+          "evidence": "VC at most one exactly for trivial sets, cosets or complements; pair count via the intersection of difference sets minus the translation stabilizer.",
+          "identifier_or_url": "Resultary 2026/11/8, f36cdb380117",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Zero-error rigidity and divisor-sum census for finite-group translate families",
+          "trigger": "General exact translate-pair identity and low-VC classification"
+        },
+        {
+          "assessment": "Upper bounds on a finite range only for fixed-width subfamilies",
+          "evidence": "All nonempty intervals and exact initial depth thresholds through ten; no equal-width rank or cycle claim in the compared statement.",
+          "identifier_or_url": "Resultary 2026/11/2, da5ce6428f51",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Exact initial online shattering thresholds for finite-chain intervals",
+          "trigger": "Same-day broader chain concept family with exact table"
+        },
+        {
+          "assessment": "Different hypotheses and conclusion",
+          "evidence": "Complete zero sets of nontrivial linear combinations give equal VC and Littlestone dimensions, not the strict window gaps.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Theorem 3.10, p. 9",
+          "method": "Open primary PDF",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Potential exact general dimension theorem"
+        },
+        {
+          "assessment": "Different interval family",
+          "evidence": "Disjoint intervals yield rank one in that example, rather than all overlapping translates of a common window.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "Pairwise-disjoint interval example, p. 6",
+          "method": "Open primary PDF",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "Exact interval concept example under query learning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Resultary 65f0c259cf22 and 276e78f2c8f8"
+      ],
+      "rationale": "The fixed-width path and cycle incidence families are natural domains for comparing static queries and adaptive membership. The exact finite-domain threshold is not supplied by counting concepts alone: it blends the root minority branch with how that branch can be recursively split. The path phase with VC dimension one and unbounded adaptive depth, and the distinct cyclic complement cutoff, are useful structural benchmarks. This judgment credits the full finite classification, not the easy interval ceiling or the previously known four-point slice.",
+      "residual_risks": [
+        "The constructive classification concerns deterministic membership depth; it does not imply a randomized bound or generalize to arbitrary translate families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

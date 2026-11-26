@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns exactly the origin-normalized \(m\)-fold symmetric Laplace convolution, integer \(m\ge2\), with time step one and frequency step one-half. The Zak scalar identity yields the *optimal* frame bounds. Splitting the Zak series into even and odd translates isolates the two nearest terms uniformly in both fiber coordinates. On the central half-cell, eventual strict convexity of \(e^{-2s}P_{m-1}(s)^2\) proves the sharp global lower bound; the other half-cell is exponentially larger. The upper extremum follows from uniform decay and the unit peak. The leading coefficient \(2^{m-1}(m-1)!/(2m-2)!\) supplies the exact factorial constant. Endpoint values, normalization, quantifiers, and the fixed-order limit have been checked. Finite grid calculations only corroborate the analytical argument.
+## correctness
 
-## Originality — PASS, with bounded risks
-The central 2026 source establishes frame existence for totally positive functions, not the limiting optimal frame bounds. The classical Zak reduction and the pure exponential model are acknowledged. The inspected 2013, 2023, and 2022/2023 primary papers give general methods, density or lattice results, and first-order exponential special cases; they do not give the evaluated higher-convolution-order sharp concentration asymptotic. Targeted database searches found close results on compact hat/tent spline windows and exponential-generator sampling, neither of which logically implies the present all-order Matérn asymptotic. A general localization principle in older unindexed special-function literature remains a credible residual risk; the search is not a proof of absolute novelty.
+PASS
 
-## Value — PASS
-The result solves a motivated stability question for an entire naturally ordered family of positive Fourier multipliers. It distinguishes the exponential decay from the algebraic order correction and gives sharp constants for each smoothness order, thereby making the conditioning cost of high concentration quantitative. The global optimality and minimizing-fiber localization require uniform control over infinitely many translates and the full Zak cell, not just a pointwise asymptotic. It does not purport to optimize other lattices or to prove a general downstream sampling theorem.
+The replacement resolves the frozen ambiguous universal 'minimizing sequence' claim: at a fixed off-midpoint x=1/4, S and A both tend to zero, so an absolute gap tending to zero does not localize. The revised relative criterion S/A→1 includes exact minimizers and is proved. Under the positive-sign Zak convention translation multiplies by e^(-2πikω) and modulation by b shifts ω to ω-b and multiplies by e^(2πibx). Fourier Parseval in the two modulation cosets yields S=|Z(ω)|²+|Z(ω+1/2)|²=2(|E|²+|O|²), with no missing oversampling factor. Continuity makes its extreme values optimal frame bounds; all finite λ are covered for existence by the known finite-type totally positive frame theorem. The coefficient ratios make e^(-s)P_n(s) decrease, with value one at zero. The leading coefficient gives h=g(1/2)∼n!/(2n)! λ^n e^(-λ/2). On [0,1/4], separation of the nearest even translate gives S/h²→∞ uniformly. On [1/4,1/2], the next even and odd distances are at least 3/2 and 5/4; squared cross terms with principal terms of size O(λ^n e^(-λ/4)) are o(h²) uniformly. Eventual convexity of e^(-2s)P_n(s)^2, from the leading term of its second derivative times e^(2s), minimizes the two-term leading symbol at x=1/2 and gives A∼4h². Away from the midpoint the nearest-even contribution is uniformly larger by a diverging factor, proving relative localization. Near x=0 the odd channel is uniformly o(1), and g≤1 bounds the even channel; evaluating at x=0 matches the limiting upper bound 2. Division gives the stated factorial condition law. Frozen verification notes and checker were inspected rather than executed; finite grids do not establish these uniform estimates.
 
-## Limitations
-Fixed integer order, fixed redundancy-two rectangular lattice, large concentration. No claim of independent mathematical validation or publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After clarifying the localization scale, the distinct claim is the sharp fixed-lattice large-λ law for each fixed higher convolution order. Frame existence, the Zak method, and the first-order equal-rate bound are credited as known. The strongest inspected exact-fiber precedents have no polynomial factor, and the strongest general window-class theorems establish existence or Zak zeros, not the extremum of the sum of two squared channels in this limit.
+
+## value
+
+PASS
+
+A qualitative frame theorem misses the ill-conditioning of a narrow window at a fixed sampling density. This computes both the exponential and order-dependent polynomial deterioration, with a sharp prefactor for the specified natural normalization, and identifies the time region responsible for it. The precise relative formulation gives information at the scale of the optimal lower bound, unlike absolute closeness which becomes vacuous here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

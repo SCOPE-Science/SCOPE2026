@@ -1,19 +1,21 @@
-# Self-review of an explicit finite-field toric code equivalence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(k=\mathbb F_8\), the group \(k^*\) has order \(7\), so \(x^6=x^{-1}\). The Laurent section spaces read directly from the two published polygons are \(L_4=\langle1,x,x^2,x^3,y,y^{-1}\rangle\) and \(L_5=\langle1,x,x^2,x^3,y,x^{-1}y^{-1}\rangle\). The map \(\phi(x,y)=(x^{-1},x^{-3}y)\) permutes all \(49\) torus points and squares to the identity. Multiplying by \(x^3\) gives a nonzero coordinate weight. The explicit calculation \(x^3f(\phi(x,y))=a_3+a_2x+a_1x^2+a_0x^3+by+cx^{-1}y^{-1}\) proves an invertible row reversal and hence the desired monomial equivalence. The finite verifier checks the generator ranks, bijective coordinate permutation, and exact matrix identity on all \(49\) points. The source pictures and explicit normalized areas confirm that the polygons are lattice-inequivalent: their boundary counts are \(4\) and \(3\). General claims follow symbolically rather than from a sampled numerical search.
+PASS
 
-## Originality — PASS, qualified
+The complete lattice-point lists agree with Figure 1.4. Reducing the six exponent pairs modulo seven gives six distinct characters for each code. They are independent: a reduced polynomial of degree at most six in each variable vanishing on the 7×7 grid is zero by univariate interpolation in each variable. The coordinate map phi(x,y)=(x^(-1),x^(-3)y) squares to the identity, and the paired weights x^3 and (x^(-1))^3 multiply to one. The weighted pullback sends (a,b) to (3-a-3b,b): the four horizontal exponents reverse, (0,1) stays fixed, and (0,-1) becomes (6,-1)=(-1,-1) modulo seven. Thus it sends precisely one basis of the evaluation code onto the other. The edge-step gcd sums give four and three boundary lattice points, ruling out integral affine unimodular equivalence. Independent exact replay in /workspace/replays/4.py passed the lattice-point, area, boundary, reduced-exponent and 49-coordinate weight/permutation checks. The frozen checker and recorded output were inspected, not executed.
 
-Luo–Yau–Zhang–Zuo, arXiv:1402.0060 (2014) and the published 2015 version, explicitly identify equality of the full weight enumerators but leave the precise \(\mathbb F_8\) pair \(P_6^{(4)},P_6^{(5)}\) open as Conjecture 1.1. The new 49-coordinate involution is not contained in those statements: equal enumerators do not imply equivalence. Their explicit \(\mathbb F_7\) equivalence concerns a different pair. The 2020 dimension-seven classification by overlapping authors concerns seven-point polygons and does not provide the missing six-point monomial map. Targeted source and mathematical-record searches did not locate an equivalent direct construction. A possible unindexed specialist resolution remains a historical-priority risk, not an algebraic uncertainty in the proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the explicitly named outstanding equivalence in a published classification of all six-dimensional toric surface codes. Settling it removes the final ambiguity in that classification. Its involution explains how finite-field reduction of exponent vectors modulo the order \(7\) of \(\mathbb F_8^*\) can identify codes on inequivalent lattice polygons. The precise geometric/coding-theoretic question is independently motivated by the source's conjecture and its sharp classification scope.
+The explicit monomial involution proves the precise F_8 equivalence left open in the original theorem. The prior enumerator equality supplies no equivalence certificate, the known F_7 equivalence is for a different pair, and the closest later theorem located concerns dimension seven. No distinct covering result was established in the inspected evidence.
 
-## Closest sources and scientific limits
+## value
 
-The 2014 arXiv preprint, 2015 journal version, and the 2020 dimension-seven sequel were examined for exact-claim and stronger-coverage comparisons. The result concerns this pair over \(\mathbb F_8\) only; its displayed map does not assert equivalence over other fields, nor resolve the 2020 dimension-seven open cases. The stated proof is self-reviewed and finite-field-replayed, but independent scientific validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact outstanding equivalence in the dimension-six classification, not an arbitrary small code calculation. The explicit coordinate involution resolves the enumerator ambiguity and shows how finite-field exponent reduction can identify codes from lattice-inequivalent polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

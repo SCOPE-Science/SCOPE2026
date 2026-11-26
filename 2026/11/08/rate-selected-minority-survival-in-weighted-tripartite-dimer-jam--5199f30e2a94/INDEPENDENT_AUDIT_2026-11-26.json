@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:30:55.765891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–73",
+        "VERIFICATION.md lines 19–29",
+        "CHECK_OUTPUT.txt and verify_exact.py/verify_limit.py inspected as frozen supporting evidence, scripts not executed"
+      ],
+      "rationale": "Racing the admissible edges at rates equal to their weights divided by N gives the exact embedded greedy chain. The three part-pair totals give the stated finite recurrence, with impossible transitions omitted; the terminal monomial has at most one nonzero exponent. On every compact time interval the bounded density region makes all total intensities O(N) and the jumps O(1/N). Thus the compensated coordinate martingales have O(T/N) second moments, and Doob plus Gronwall gives uniform convergence to the Lipschitz drift ODE from the limiting initial condition. The last two deterministic coordinates coincide by uniqueness. Independently, let s(t)=integral_0^t y(v)dv and r=y/x. Positivity for finite times gives x=a exp(−2s) and dr/ds=−1+(2−rho)r, r(0)=b/a. Because y tends to zero by y'≤−rho y², finite terminal s is exactly the first zero of this explicit linear solution; if there is no finite zero, x tends to zero instead. Solving yields all branches including rho=2 and the zero-density threshold. For delta=rho−rho_c>0 small the base is (b/a)delta, and (2/(2−rho)−2b/a)log(delta) tends to zero, giving the specified power and prefactor. For the finite chain, after time T the A count can drop by at most the entire B-plus-C count at T. Together with monotonicity and the fixed-time limit this gives the terminal convergence without interchanging limits. The uniform density bound gives L1 convergence. Both numerical examples follow by substitution.",
+      "residual_risks": [
+        "The proof is for fixed positive parameters and a deterministic limiting second/third-part symmetry, not critical-window or vanishing-rate scalings. The finite simulation tolerances do not establish the infinite limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general unscaled drift is exactly the mass-action system in §3.1. Its symmetric normalization then takes each row sum to be the same and evaluates equal initial densities. It explicitly declines further study of the unequal-initial-density case with positive limits. The two cited older full papers were not available for primary inspection."
+        ],
+        "reasoning": "General rates as model input do not supply an evaluated terminal law. Here the row sums are 2,1+rho,1+rho and the surviving density and terminal passage must still be established; a fixed-time approximation alone does not prove the terminal stochastic limit.",
+        "searches": [
+          "arXiv:cond-mat/0409079 §3.1 eqs. (4)–(5) and §3.2",
+          "DOI:10.1137/0402034",
+          "DOI:10.1103/PhysRevA.34.501"
+        ]
+      },
+      "checked_sources": [
+        "Hilhorst–Washenberger–Täuber arXiv:cond-mat/0409079",
+        "Local-mirror Results ccd40be25e5b and 557016a407ad",
+        "RESULT.md lines 75–87",
+        "Lawful access attempts for DOIs 10.1103/PhysRevA.34.501 and 10.1137/0402034"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weak-channel theorem maps to a=2b but rho_n→0; normalization by N makes its order-one defect vanish. Its limit cannot be used to recover the extensive remainder for fixed rho. The general ODE requires additional integration for the unequal rates and a pathwise tail bound for the random terminal state."
+        ],
+        "reasoning": "The distinct claim is neither a specialization of the equal-rate solution nor a direct consequence of the shrinking-rate theorem or a finite-time fluid limit.",
+        "searches": [
+          "arXiv:cond-mat/0409079 §§3.1–3.2",
+          "Resultary local-mirror RESULT.md for records ccd40be25e5b and 557016a407ad, Finding",
+          "RESULT.md lines 35–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-species annihilation with pair rates 1,1,rho and complete mixing removes exactly the same pairs of particles as graph edge deposition after projection to part sizes. Hilhorst et al. explicitly write the general mass-action drift and pair-removal master equation. The frozen prior comparison attributes the equal-rate solution to ben-Avraham–Redner."
+        ],
+        "reasoning": "The annihilation formulation is an exact process correspondence at this level; calling it RSA instead would not make a prior equal-statements result original. The new claim does not rest on renaming the kinetic equation.",
+        "searches": [
+          "arXiv:cond-mat/0409079, §§3.1–3.2",
+          "DOI:10.1103/PhysRevA.34.501",
+          "DOI:10.1137/0402034"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date weak-channel result has proportions (n,n,2n), n w_n→lambda and an even-Poisson defect law; the dominant-class result uses unit rates and a superlinear dominant class. Neither exact formula is a fixed-weight positive density law."
+        ],
+        "reasoning": "There is no natural finite table certifying this continuum of rate and density parameters. The pertinent indexed exact answers are terminal-count laws, and the strongest accessible ones are for inequivalent scaling regimes.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-even-poisson-jamming-defects-at-an-inverse-size-weak-channel-in--ccd40be25e5b",
+          "Resultary: 2026/10/26/SCOPE-poisson-jamming-defects-in-dominant-class-tripartite-dimer-adsor--557016a407ad"
+        ]
+      },
+      "rationale": "The basic complete-mixing master and mean-field equations and the equal-rate specialization are not credited as new. The supported distinct result is the explicit fixed positive asymmetric-rate terminal law with a rate-selected threshold, critical power and a terminal convergence argument for the finite graph process. The closest indexed weak-channel result specializes to the same graph proportions but lets rho shrink with N and analyzes a different, order-one terminal count. The strongest inspected primary rate equations contain the drift, but the symmetric row sums used in their equal-species analysis fail for the frozen asymmetric weights, and the unequal-initial-density case is set aside. No inspected prior result establishes the full distinctive terminal theorem.",
+      "residual_risks": [
+        "No whole-paper noncoverage claim is made for ben-Avraham–Redner or Pippenger. An older exact asymmetric-rate ternary solution could reduce novelty of the deterministic formula; priority does not follow from unavailable primary evidence. Dates alone were not used to decide overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in equations; unequal-density surviving case not evaluated in the decisive section",
+          "evidence": "The common row sum is justified by symmetry between all species, and the positive-limit case for unequal densities is explicitly not considered further.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/cond-mat/0409079",
+          "material_read": "§3.1 around (4)–(5) and beginning of §3.2",
+          "method": "Bounded text from lawful full HTML after OA passage attempts",
+          "title": "Symmetry and species segregation in diffusion-limited pair annihilation",
+          "trigger": "General reactions and master equations in the equivalent kinetic formulation"
+        },
+        {
+          "assessment": "Do not claim priority for equal rates; residual risk for broader coverage",
+          "evidence": "The frozen comparison credits the equal-rate case to this paper and notes it was not read in full.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.34.501",
+          "material_read": "Citation and equal-rate comparison in RESULT.md lines 77–85; primary passage unavailable",
+          "method": "Targeted OA retrieval and attempt at publisher's abstract page",
+          "title": "Kinetics of n-species annihilation: Mean-field and diffusion-controlled limits",
+          "trigger": "Early directly relevant three-species mean-field solution"
+        },
+        {
+          "assessment": "No decisive verified implication for dense weighted terminal laws",
+          "evidence": "Frozen record distinguishes its growing-degree weighted graphs from local-regularity results.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Citation and discussion in RESULT.md lines 77–86; no primary passage obtained",
+          "method": "Targeted OA and publisher-page attempts",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Foundational edge-adsorption on graphs"
+        },
+        {
+          "assessment": "Boundary-regime overlap, not equivalent fixed-rate result",
+          "evidence": "Part sizes (n,n,2n), weak channel w_n with nw_n→lambda, and R_n=2K_n with K_n tending to Poisson(lambda/2).",
+          "identifier_or_url": "2026/11/8/SCOPE-even-poisson-jamming-defects-at-an-inverse-size-weak-channel-in--ccd40be25e5b",
+          "material_read": "Local-mirror RESULT.md, Finding and Assumptions and scope (offset 0)",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Even-Poisson jamming defects at an inverse-size weak channel",
+          "trigger": "Same part sizes after relabelling and same weighted pair mechanism"
+        },
+        {
+          "assessment": "Different population and weight conditions",
+          "evidence": "The dominant part is superlinear, the two smaller parts linear, and rates are unit rates.",
+          "identifier_or_url": "2026/10/26/SCOPE-poisson-jamming-defects-in-dominant-class-tripartite-dimer-adsor--557016a407ad",
+          "material_read": "Local-mirror RESULT.md, Finding (offset 0)",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Poisson jamming defects in dominant-class tripartite dimer adsorption",
+          "trigger": "Related terminal law in the same graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–24 and 62–69",
+        "Hilhorst et al. §3.1",
+        "Local-mirror weak-channel result ccd40be25e5b"
+      ],
+      "rationale": "Changing only the relative BC rate can leave an extensive residue in the initially smallest part even in graphs that can match all vertices. The exact threshold and generally noninteger onset power quantify that distinction between random greedy kinetics and feasibility. The terminal coupling makes the mechanism an exact asymptotic statement for the graph process rather than a mass-action guess.",
+      "residual_risks": [
+        "The studied two-equal-part model is deliberately symmetric, and no universality claim for critical fluctuations, other weight matrices or spatial diffusion is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

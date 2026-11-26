@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python 3.9 or newer; standard library only) from the directory containing this file. The program independently derives the required set of linear-one-run words, the exact set of circular-one-run words, and an Eulerian host for each \(2\le k\le18\). It asserts that every predicted cyclic factor occurs exactly once, and that the host length is \(k^2-k+2\).
+## correctness
 
-For \(2\le k\le14\), an independently implemented bitmask minimum-cost assignment solves the exact degree-imbalance transportation problem, checking the formula \((k-1)(k-2)/2\) without reusing the explicit matching construction. For \(2\le k\le11\), a separate memoized edge-mask walk enumerator counts all prescribed-edge rooted Eulerian tours and confirms \(2^{k-2}\). For \(2\le k\le5\), exhaustive enumeration of every cyclic host rooted at the required factor \(0^k\) excludes all lengths below the proved optimum and verifies the precise set and number of optimal hosts.
+PASS
 
-Expected output:
+Marking one occurrence of every linear-one-run window leaves an integral flow from N_i = 1^i0^(k-1-i) to P_j = 0^(k-1-j)1^j in the full de Bruijn digraph. Each path must shift away i leading ones before it can reach any P_j. At equality there are no surplus cycles and the arrival after i steps forces j <= i. Bijectivity forces j=i, hence the appended symbols are forced to be 1^i. This proves both the unrestricted lower bound and the forced exact circular-one-run spectrum. The mandatory subgraph is strongly connected via 0^(k-1); adding the paths balances it and attaches every new vertex. For the enumeration, the BEST formula applies with the unique 0^k loop fixed first. In an in-tree toward 0^(k-1), the largest N_i that would select its path to P_i would return to itself, via some N_j with j>=i whose larger indices all descend, so all N_i must descend. The k-2 P_i each have two independent choices. The empty-flow and empty-choice cases at k=2 yield one class. An independently constructed out-Laplacian cofactor, taking windows with at most two circular changes, gave determinants 1,2,4,8,16,32,64,128,256 for k=2..10; this is finite corroboration, not the all-k proof.
 
-`VERIFY_OK construction_k=2..18 assignment_k=2..14 rooted_euler_counts_k=2..11 exhaustive_all_shorter_hosts_k=2..5`
+## originality
 
-All reported checks were executed on the included `verify.py` with the displayed output. The finite search does not establish the universal lower bound or tree-count formula; these follow from the written de Bruijn-flow and BEST-theorem proofs. A standard system Python runtime is the only dependency. The source code creates no files and requires no network access.
+PASS
+
+Pass for the combined optimal-cover result, particularly the unrestricted lower bound and mandatory forced completion. The standalone existence and rotation count for universal cycles of the completed family are demonstrably covered in another published Resultary statement. This overlap is credited explicitly, not treated as a separately distinct result or used to infer priority from dates.
+
+## value
+
+PASS
+
+This is a natural family for cyclic coverage. Proving a sharp overhead against all binary hosts, even those allowed to use arbitrary extra windows, and identifying every extra window at equality is substantially more informative than constructing one universal cycle. It also tells a user precisely when the completed-family enumeration counts all optimal hosts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

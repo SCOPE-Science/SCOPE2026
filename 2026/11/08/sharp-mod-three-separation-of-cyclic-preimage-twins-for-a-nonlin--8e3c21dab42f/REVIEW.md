@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact local polynomial has been independently matched to the second two-to-one rule in arXiv:2610.33131v1, Appendix B. The factorization through the involutive four-neighbor landscape, cyclic shift and binary difference is valid even at short cyclic lengths. The potential certificate is a complete finite check on all 128 edges of a 64-state graph, not a finite-trial inference. Checking no zero-cost return exists for each of the 16 unit-cost edges rules out all globally closed walks of reduced cost one, yielding the extra mod-three-two penalty. Explicit cyclic words attain each bound, so the quantifiers really cover all positive lengths. The standalone certificate was executed successfully; the result is not independently audited.
+## correctness
 
-## Originality — PASS within inspected evidence
-The original local rule and bi-infinite two-to-one multiplicity belong to Haugland, Larsen, Omland and Rustad, arXiv:2610.33131v1. The involutive landscape mechanism belongs to Haugland and Omland, arXiv:2411.00721. Haugland and Omland's arXiv:2407.11931 treats collision multiplicities and collision differences. These antecedents do not in their inspected pertinent full-text passages give the exact minimum Hamming separation for the selected rule. Existing nearby published findings concerning other five-neighbor automata or ring invertibility have different operators and implications; neither implies the current distance spectrum directly. Search failure cannot establish absolute novelty; specialized earlier minimum-collision-weight classifications remain a risk.
+PASS
 
-## Mathematical value — PASS
-Two-to-one maps can have drastically different precursor geometry despite identical fiber cardinality; the present sharp all-size invariant quantifies the minimum ambiguity separation. The nonlinear map's twin distance drops to about a third of ring length, unlike the Hamming-antipodal twins of the underlying linear cyclic difference operator. The unexpected exact residue-class penalty is demonstrated by a finite-state obstruction and a matching infinite family, making it a substantive natural structural measurement rather than an arbitrary numeric slice. The theorem is not an LEO or cryptographic-security result.
+The rule is D∘σ∘K by expansion. Any active marker conflicts with markers at offsets ±1 and ±2, so all guards of active markers survive the update. A new marker could only be within these offsets of an old active marker, which still excludes it. Thus K is an involution, also for N=3,4 by the same modular guard identities (for N=1,2 the guard vanishes). Cyclic D has kernel consisting of the two constants and even-parity image by rank and telescoping. In the pair de Bruijn graph, even for short rings, overlapping triplets reconstruct the entire periodic symbol word with multiplicity of sites, so closed walks encode exactly the complementary K-images and weight is Hamming distance. I independently enumerated the 256 candidate windows with a truth table and checked reflexive zero-cost reachability by Boolean transitive closure. Reduced costs 0,1,2 occur on 40,16,72 edges respectively, and no cost-one edge has a zero-cost return. Telescoping gives 3·distance−N ≥ 0 and excludes 1, the extra obstruction for N≡2. For the witness motifs, two period-three repetitions suffice to contain all periodic windows and stabilize the windows on both sides of the defect block: a length-four crossing uses at most three symbols from either side, cannot bridge a run of length six, and the pure run contains all three phases. Checking the two defects with zero, one and two repetitions, the pure period-three word and the singleton verifies all witnesses and their weights. An additional direct check of the unfactored rule exhausted N=1..10. Private replay: python3 /workspace/branches/check_twin_certificate.py. The supplied verifier was inspected, not executed; bounded direct checks alone are not the all-length proof.
 
-## Limits and closest literature
-See the three primary references in RESULT.md. All claims of generality are confined to the exact displayed rule. The finite checker is a machine-reproducible exhaustive *local-certificate* verification and does not independently certify the proof or historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the sharp minimum over cyclic preimage twins, including the full mod-three law. The local rule, marker involution and binary difference kernel are not new. The closest inspected statements identify the rule or give other collision invariants; they do not determine this optimized positional distance.
+
+## value
+
+PASS
+
+The rule is independently singled out in a classification of small-neighborhood automata. Fiber cardinality does not quantify the worst ambiguity: the formula establishes the exact least number of sites needed to distinguish colliding cyclic states, down to short rings and the stronger 3k+2 obstruction. The structural obstruction and constructive witnesses, rather than a finite table of small N, give this invariant independent use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

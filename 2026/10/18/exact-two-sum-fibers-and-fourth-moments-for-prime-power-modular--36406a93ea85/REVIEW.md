@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-sum case has one fiber of size \(\varphi(p^k)\). For nonunit sum \(s\), division by its exact \(p\)-adic factor reduces the fiber to a quadratic congruence with two simple Hensel roots or none. For unit \(s\), completing the square gives a bijection from admissible \(z\)-values to discriminants excluding one unit residue class; the exact square-root counts give every asserted stratum. The energy formula is obtained by summing squared stratum sizes, and the fourth moment by orthogonality in **both** Fourier coordinates. Full enumeration on seven rings and direct Fourier comparisons for moduli \(9\) and \(25\) corroborate the derivation. No finite enumeration is used to justify an unrestricted quantifier.
+PASS
 
-## Originality — PASS, with documented risk
+Counting ordered pairs means choosing x and then y=s−x. For s=0 every unit x gives z=0. For v_p(s)=a with 1≤a<k, z=s/(xy) has valuation a and the equation reduces after dividing by p^a to x(s−x)=s₀/z₀ modulo p^(k−a). Its mod-p roots are unit square roots of −s₀/z₀; simple lifting gives two roots for exactly half the unit z₀, and each root has p^a lifts. For unit s, the discriminant s²−4s/z ranges bijectively over residues outside one nonzero mod-p class, and every root gives a unit pair since the product s/z is a unit. A nonzero discriminant of even valuation 2j with square unit part has 2p^j roots: after dividing the root by p^j there are two simple roots mod p^(k−2j), each with p^j free lifts. The zero discriminant has p^floor(k/2) roots, and the omitted class subtracts p^(k−1) unit-square discriminants. This also covers p=3, where the unit-square stratum is empty. Squaring and counting gives m² at s=0, 2m² per nonunit valuation layer, and p^(k−1)[(k+1)(p−1)−3] per unit s (use the two parities of k). Adding these gives the stated E(H). Two-coordinate character orthogonality supplies exactly N²; division by m⁴ gives the displayed normalized expression under counting measure.
 
-Comparison concerns the exact **two-point vector-sum convolution fibers**, not title or notation. Shparlinski's survey of modular hyperbolas supplies the ambient objects and Kloosterman bounds, but no full two-point sum-fiber census. Bower–Evans–Luo–Miller's *coordinate sumset* of a modular hyperbola means \(x+x^{-1}\) of a single point, not \((x,x^{-1})+(y,y^{-1})\) in the ambient product ring; hence even its exact sumset cardinalities do not imply the present valuation-resolved two-coordinate fiber counts. Khan et al. address ordinary lines and distances. Guo–Geng–Pan and Gong–Veys–Wan use a one-variable Kloosterman moment with one Fourier parameter normalized, and thus do not recover all nilpotent-frequency behavior or each pair-sum fiber. Earlier finite-field hyperbola extension and modular-hyperbola restricted-character frames concern respectively fields and orthogonal families, not prime-power ring two-point convolution. Related one-variable power moments can imply portions of the aggregate formula after extra work; they do not subsume the stated full census. Independently established historical priority is not claimed. Zhang's 2011 and 2016 studies remain incompletely inspected, a genuine residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete classification of an intrinsic additive invariant for a canonical family of modular algebraic curves, uniform in the unbounded exponent. Distinct singularity mechanisms at valuations \(0\), \(1\) through \(k-1\), and zero produce a linear growth law in the normalized fourth moment, differentiating prime-power rings from finite fields. The exact fiber sizes (including the unique discriminant-zero exceptional fiber) furnish structural information unavailable from moment bounds alone, and permit direct reconstruction of two-sum statistics relevant to finite Fourier analysis. The claim is not presented as a sharp arbitrary-input extension inequality.
+Pass is for the complete valuation-stratified ordered representation census at the frozen publication date, not for the aggregate fourth moment or the root-counting machinery. The total fourth moment is mechanically recoverable from an earlier one-coefficient moment theorem by a conductor decomposition. Two distinct later catalogue records give exact coverage of the census, one directly and one after sum/difference conversion; this is evidence of overlap, not a claim about first discovery or dependence.
 
-## Limits and closest literature
+## value
 
-Primary sources: Shparlinski (arXiv:1103.2879); Bower et al. (arXiv:1212.2930); Khan et al. (arXiv:1304.6943); Guo et al. (DOI 10.1186/1687-1847-2014-103); Gong–Veys–Wan (2016 manuscript). The algebraic pieces use standard quadratic congruences and Hensel lifting, but the completed positive-fiber census and two-parameter consequence were not located as published statements in the inspected sources. The incomplete full-text access to W. Zhang's 2011 and 2016 Kloosterman papers creates remaining priority risk. Results concern counting and Fourier fourth moments, not arbitrary-input sharp bounds.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full representation spectrum records how collision multiplicities change between unit sums, each nonunit valuation and the zero sum. It contains information lost by summing squared counts, including the singular zero-discriminant fiber and the absence of ordinary unit-square fibers at p=3. This gives exact benchmarks for additive questions on a standard modular curve. The value is the census, not re-evaluating a covered aggregate or asserting a general restriction norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

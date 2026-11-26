@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:57.150116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated continuous-time rates have the column/row balance needed for uniform stationarity: reversing a single flip changes the sign of T_i=s_i(s_{i−1}−s_{i+1}), and ΣT_i=0. Positivity for |δ|<1 gives uniqueness. The stationary natural-log increment is −ηT_i with η=artanh δ. For distinct i,j, the generator of s_i s_j is −2s_i s_j plus (δ/2)[s_j(s_{i−1}−s_{i+1})+s_i(s_{j−1}−s_{j+1})]; after setting j=i+2 and summing, the distance-one and distance-three sums cancel in pairs, including at N=4. Thus LQ=−2Q for Q=Σs_i s_{i+2}; the drift is δη(N−Q)/2 and the centered drift is removed by h=−δηQ/4. In stationary time, the corrected martingale has variance exactly t times the mean bracket intensity; the bounded terminal correction changes the variance by O(√t)+O(1). Averaging each corrected jump square over s_i leaves rate 1/2; the cross expectation is zero because the distance-one and distance-two sites are disjoint for N≥4. The two distance-two sites coincide iff N=4 in this range, so their sum has squared mean 4 there versus 2 otherwise, while the distance-one difference always has second moment 2. This checks the factors, including the absence of an extra factor of two from the time unit. For δ=0 all entropy increments vanish; the exceptional variance enhancement is only numerically distinct for δ≠0. The packaged rational enumerator and optional spectral test were inspected, not executed. The all-size proof takes the stationary long-time limit at each fixed N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite periodic kinetic Ising calculation in Weiderpass et al. resolves spin correlations and parity sectors, not differentiation of a wall-current tilt in the checked passages.",
+          "Popkov–Schütz’s 2011 abstract explicitly reports analytically computed current large deviations in a lattice gas on a ring with pair annihilation and creation, including a leading Gaussian variance comparison. The abstract does not specify whether the exact tilted-generator result allows unequal rates (1±δ)/2 and the required finite even sector. Full text was not obtained."
+        ],
+        "reasoning": "General finite-ring solvability for untilted observables does not supply the second entropy cumulant. An exact SCGF theorem for the matching biased wall rates would dominate; the Popkov–Schütz abstract alone does not establish the necessary hypotheses, finite-size formula, or exclusion thereof.",
+        "searches": [
+          "arXiv:2410.23615v2 §4.2",
+          "arXiv:2402.19157 §III and Ising section",
+          "Popkov Schütz ‘Large deviation functions’ ‘creation and annihilation’ preprint pdf asymmetric hopping symmetric hopping rates 2011",
+          "DOI:10.1103/PhysRevE.84.021131 and Europe PMC PMID:21928973"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.23615v2",
+        "arXiv:1102.0141",
+        "arXiv:2408.11690v1",
+        "arXiv:2402.19157",
+        "DOI:10.1103/PhysRevE.84.021131 (abstract)",
+        "Resultary 66ffcc0ac40e, 658d604de1bb, b1d4ea7587cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published mean-EPR formulas measure stationary entropy flux, not its temporal noise. The strict-regime b1d4ea7587cf mean has the target mean as J→0, not its variance.",
+          "The N=3 full tilt is insufficient across N because ring identifications change the Poisson-corrector jump products; the N=4 anomaly is exactly a distance-two identification."
+        ],
+        "reasoning": "Neither the mean nor the full SCGF on the three-cycle fixes the second cumulant on larger cycles. The new evaluation requires the N-dependent stationary bracket or an equivalent finite-ring tilt. No precedence of the three-site record is inferred from the shared date, and an independent earlier N=3 publication was not verified.",
+        "searches": [
+          "arXiv:2408.11690v1 equations (5)–(6)",
+          "arXiv:2402.19157 equations (17)–(18) and (32)",
+          "SCOPE 66ffcc0ac40e and b1d4ea7587cf Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Weiderpass–Sharma–Sethi rate reduces exactly to the frozen rate under the above substitution; their checked finite-chain formulas concern spin evolution and correlations.",
+          "With wall occupation (1−s_i s_{i+1})/2, equal-neighbor flips create/remove a pair at rate 1/2 and carry zero entropy; opposite-neighbor flips exchange wall/vacancy at rates (1±δ)/2 and carry ±2η. The wall chain is in the even wall-count sector. The entropy rate formula is equivalently a signed total wall-hop current variance times (2η)².",
+          "Godrèche’s directed zero-temperature wall model discusses biased walkers annihilating on contact but does not include the required pair creation in that passage."
+        ],
+        "reasoning": "Equivalence to wall current is exact and was included in the search, so an exact finite-size variance for that biased creation/annihilation process in the even sector could directly cover the claim. Spin correlation formulas or zero-temperature annihilation-only dynamics are not such a result.",
+        "searches": [
+          "arXiv:2410.23615v2 §3 equations (3.2)–(3.4), γ_e=0, γ_o=δ, clock rate 1",
+          "arXiv:1102.0141 §2.1, directed Glauber domain walls",
+          "exact current large deviations free fermion asymmetric diffusion pair creation annihilation ring domain walls biased Glauber current cumulants periodic finite size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "66ffcc0ac40e gives the exact N=3 SCGF; its γ_e=0 second derivative is 3η²(1+δ²/4). This is a distinct record but outside the frozen size range.",
+          "658d604de1bb gives a wrapping correction at side length L=4 for mean entropy production in a parallel-update two-dimensional metric Ising model, not the 1D continuous-time cumulant. b1d4ea7587cf gives finite-ring mean dissipation for K>J>0."
+        ],
+        "reasoning": "No checked exact entry evaluates the N=4 coefficient and its all-N≥5 contrast for the target rates. A three-site SCGF or a coincident integer in a different geometry and observable is not an exact table match.",
+        "searches": [
+          "Resultary semantic lookup: nonreciprocal kinetic Ising ring, finite-size entropy-current variance/SCGF and four-site enhancement",
+          "SCOPE 66ffcc0ac40e, b1d4ea7587cf and 658d604de1bb primary records"
+        ]
+      },
+      "rationale": "The supported novelty is the exact second asymptotic cumulant on the finite biased continuous-time ring with N≥4 and the unique four-site correction; the model, mean-rate formula and martingale method are not credited as new. The exact three-site SCGF in a different same-day record is an overlap for N=3 only, and its date does not substantiate precedence. An abstract of a closely related older annihilation/creation current paper was located; its full equations and parameter coverage could not be confirmed, so it is a specific residual risk, not a negative full-text finding or a reason by itself to fail.",
+      "residual_risks": [
+        "Popkov–Schütz (2011) is a close reaction–diffusion alias; exact finite-size tilted-generator conditions were not accessible and potential coverage remains unresolved.",
+        "Related free-fermion lattice-gas current literature could cover the same even wall sector under another normalization. The cited same-day three-site record supplies an exact comparison but does not establish historical precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model correspondence; finite spin correlation analysis does not give the path-entropy variance in the inspected passages.",
+          "evidence": [
+            "γ_e=tanh(2βJ), γ_o=tanh(2βK); setting γ_e=0, γ_o=δ and the clock rate to 1 gives the target."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.23615v2",
+          "material_read": "§3 equations (3.2)–(3.4), printed p. 16, PDF offsets 46900–51371; §4.2, printed pp. 26–27, offsets 78700–83840.",
+          "method": "Read lawful primary PDF passages and substituted rates.",
+          "title": "Solving the Kinetic Ising Model with Non-Reciprocity",
+          "trigger": "Exact parent spin-flip model and finite periodic chains."
+        },
+        {
+          "assessment": "The inspected zero-temperature case has biased annihilating walkers, not pair creation/annihilation with the target rates and current variance.",
+          "evidence": [
+            "The wall description gives biased diffusion and annihilation on contact at zero temperature."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.0141",
+          "material_read": "§2.1 pp. 5–6, offsets 17300–20935.",
+          "method": "Read primary PDF wall-dynamics passage.",
+          "title": "Dynamics of the directed Ising chain",
+          "trigger": "Directed Glauber dynamics and domain-wall alias."
+        },
+        {
+          "assessment": "Material potential overlap; exact generator, parity, drive and size dependence not verified. No full-text noncoverage verdict.",
+          "evidence": [
+            "The abstract reports exact free-fermion current large deviations and a Gaussian variance comparison to particle-number-conserving dynamics in a ring with pair creation/annihilation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.84.021131",
+          "material_read": "Primary abstract reproduced at Europe PMC, PMID:21928973. Publisher/accepted manuscript routes returned HTTP 403; Jülich repository record 15622 and its identified PDF routes did not expose the full text.",
+          "method": "Targeted primary-literature search, abstract lookup and lawful publisher/repository attempts.",
+          "title": "Large deviation functions in a system of diffusing particles with creation and annihilation",
+          "trigger": "Potentially stronger exact wall-current statistics for a ring with creation and annihilation."
+        },
+        {
+          "assessment": "Two-dimensional mean entropy production, not finite one-dimensional continuous-time current noise.",
+          "evidence": [
+            "The equations treat mean entropy rate and its dependence on asymmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.11690v1",
+          "material_read": "Abstract p. 1, offsets 0–4406; p. 2 equations (5)–(6), offsets 11800–16315.",
+          "method": "Read primary PDF observable and model passages.",
+          "title": "The off-equilibrium Kinetic Ising model: The Metric Case",
+          "trigger": "Entropy production in a nonreciprocal Ising system."
+        },
+        {
+          "assessment": "Mean flux formula and a different asymmetric-network update.",
+          "evidence": [
+            "Stationary EPR is given by the forward/backward flux KL expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.19157",
+          "material_read": "§III equations (17)–(18), PDF offsets 39000–43765; Ising update equation (32), offsets 52600–56846.",
+          "method": "Read bounded primary PDF passages.",
+          "title": "Broken detailed balance and entropy production in directed networks",
+          "trigger": "Directed-network and Ising entropy formulas."
+        },
+        {
+          "assessment": "Same model on N=3, not the asserted N≥4 classification; date does not establish earlier publication.",
+          "evidence": [
+            "Exact three-cycle SCGF yields 3η²(1+δ²/4) when γ_e=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-entropy-production-fluctuations-in-a-three-spin-nonrecipro--66ffcc0ac40e/RESULT.md",
+          "material_read": "Finding/Proof, offsets 0–7293.",
+          "method": "Compared the primary mirrored record and reduced its variance on γ_e=0.",
+          "title": "Exact entropy-production fluctuations in a three-spin nonreciprocal Ising ring",
+          "trigger": "Exact same-observable kinetic-Ising tilt on a same-day three-cycle."
+        },
+        {
+          "assessment": "A high-temperature mean-EPR expansion for a discrete-time parallel-update square, not path-entropy variance on a four-cycle.",
+          "evidence": [
+            "An L=4 wrapping correction to mean entropy production on an L×L lattice."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-fourth-order-entropy-production-in-the-asymmetric-metric-k--658d604de1bb/RESULT.md",
+          "material_read": "Finding/Assumptions, offsets 0–7518.",
+          "method": "Compared the primary mirrored record's geometry, update and observable.",
+          "title": "Exact fourth-order entropy production in the asymmetric metric kinetic Ising model",
+          "trigger": "Apparent four-site wrapping and entropy overlap."
+        },
+        {
+          "assessment": "Mean only, in strict K>J>0; the J→0 extension does not give variance.",
+          "evidence": [
+            "Exact finite-ring mean dissipation for N≥4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dissipation-and-a-unique-thermal-optimum-in-a-strongly-non--b1d4ea7587cf/RESULT.md",
+          "material_read": "Finding/Proof, offsets 0–6897.",
+          "method": "Compared the primary mirrored record's parameter domain and entropy statistic.",
+          "title": "Exact dissipation and a unique thermal optimum in a strongly nonreciprocal kinetic Ising ring",
+          "trigger": "Same finite-ring entropy and overlapping asymmetry regime."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A stationary rate of entropy noise is a natural quantitative invariant beyond mean dissipation. The result identifies exactly when the noise per spin differs from its large-ring expression, rather than providing an arbitrary small-size example; the isolated wraparound is explained by the distance-two corrector. The closed coefficient gives a finite-ring benchmark for current-tilt methods with a clear distinction between stationary mean and fluctuations. It is limited to zero symmetric coupling, fixed finite rings and the second long-time cumulant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

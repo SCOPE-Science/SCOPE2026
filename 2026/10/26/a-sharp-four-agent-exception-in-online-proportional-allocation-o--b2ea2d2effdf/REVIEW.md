@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact discrepancy dynamics give a complete reduction of unit-chore Prop1 to an integral upper-discrepancy bound. The three-agent eight-state transition table proves an infinite-horizon induction and handles all ties. A separate finite exhaustive greedy recurrence checks all four-agent prefixes of length at most four, including all eligibility sets and all tie responses. The adaptive five-job tree has no surviving branch, and an independent minimax calculation returns first forced failure at five. The all-\(n\) three-job obstruction for at least five agents is algebraic, not extrapolated from computation.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+Each unit chore adds one to load and total share, hence the discrepancies sum to zero, and Prop1 is exactly max discrepancy <=1. An empty bundle has nonpositive discrepancy; a singleton eligibility simply leaves the discrepancy vector unchanged. An independent Fraction-based enumeration on permutation orbits (python /workspace/checks/1.py, output /workspace/checks/1.txt) constructs the closed greedy class for n=1,2,3, checks every entry of the three-agent transition table, and includes every eligible subset and tied choice. Closure starting at zero proves the all-horizon result. At n=4 the depth 0–4 nonsingleton orbit counts 1,3,14,43,87 give labeled counts 1,28,187,617,1405 by permutation multiplicities and maxima 0,3/4,3/4,1,1. Deleting singleton chores transfers this to every four-arrival prefix. In units of 1/12 the adaptive obstruction forces sorted states (-3,-3,-3,9) and (-7,-7,5,9), then either immediate failure with 13 or (-11,1,1,9); choosing the equal pair forces (-11,-5,7,9), then choosing the two positive agents forces a 13 or 15. The all-response minimax calculation independently confirms the first loss at 5 for four agents. For n>=5 two full sets either overload the same recipient or produce two distinct recipients, whose subsequent pair share is 2/n+1/2<1. No n can be forced to fail in two arrivals: use a different recipient when possible; otherwise the first recipient's singleton share alone pays for load minus one. The textual 'self-review' in RESULT.md line 74 is a typo for 'same agent', unambiguous from the stated load and the next sentence. The packaged checker was inspected, not executed.
 
-The closest source is Biburger–Megow–Shahkarami, arXiv:2610.08064 (October 6, 2026): it proves order-of-growth deterministic approximation guarantees and develops an adaptive lower-bound method, but the inspected material does not give this exact agent-versus-horizon frontier. Its general lower-bound idea accounts for the simpler large-population part. Sun–Wang–Li, arXiv:2602.18098, treats offline proportionality and does not decide online irrevocable feasibility. Searches of public research records, literature on online fractional rounding and unit restricted assignment, and relevant neighboring exact findings identified no covering theorem. No exhaustive historical priority or external certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result locates the precise transition from permanent online Prop1 feasibility to forced failure for unit chores under eligibility constraints. The four-agent five-item threshold is a genuine exceptional case, distinct from the easily constructed three-item adversary for five or more agents. It offers a benchmark for future restricted-assignment algorithms and separates a small exact structural frontier from previously known asymptotic approximation bounds.
+Supported distinct contribution at the frozen October 26 publication is the sharp four-agent cutoff together with the all-horizon three-agent guarantee, not the discrepancy-greedy ordering itself or the general targeted-adversary idea. There IS a separately indexed record stating the same complete theorem, with a November 8 publication date. It is equivalent coverage in the present catalogue, not evidence of earlier publication than the frozen record. No order of derivation or independence is established. The verified earlier primary literature and earlier restricted-family catalogue result do not imply the two exceptional small-population cases.
 
-## Limitations
+## value
 
-Claims are confined to identical unit-size chores, deterministic online assignments, publicly revealed eligibility sets, and adaptive adversarial arrivals. The four-agent four-job guarantee rests on a fully specified finite recurrence, whose included program should be inspected and rerun independently. Results for arbitrary job sizes and randomization are not asserted; unindexed historical prior work remains possible. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact population threshold and the four-agent failure at five rather than three pin down when a natural exact fairness benchmark can be promised at every prefix. The finite cutoff separates a genuinely perpetual guarantee from delayed impossibility and provides a useful test of stronger eligibility-aware online fairness claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

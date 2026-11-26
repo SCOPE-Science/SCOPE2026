@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:06:03.050895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof steps 1–6",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The Cauchy quantile is the boundary parametrization for the Cayley map based at m+is; its target harmonic measure has Fourier magnitudes r^|k| with r²=((c−m)²+(a−s)²)/((c−m)²+(a+s)²). Grid averaging leaves modes k=Nℓ; orthogonality in the single shared shift gives 2r^(2N)/(1−r^(2N)). Compact support bounds r away from 1 for each reference, justifying summation/integration. Convexity of the L² norm bounds the mixture by the worst singleton, and the compactness maximum is attained by an admissible Dirac mixture. The variance is not equal to that maximum for every mixture. Maximizing over c gives distance C+|m|, strictly worse for m≠0 than m=0 at the same s because r² is increasing in that squared distance. At m=0, T_a=1−r²=4as/[C²+(a+s)²] has no interior minimum in a and is uniquely maximized in s at √(a²+C²). T_A−T_B has the sign of AB−C²−s². A positive crossing, when present, is below the maximum of T_B; the lower envelope peaks uniquely at the crossing if the crossing is at or above the maximum of T_A, and otherwise at the maximum of T_A, also when there is no positive crossing. This gives the claimed phase boundary, two radius formulas and active sets; the branch formulas coincide at equality and their slopes in C have opposite nonzero signs there. A<B rules out zero worst radius, and compactness gives R_*<1; strict monotonicity of the variance in the radius makes the optimizer independent of N. Scaling by the total mass gives the relative-variance assertion. VERIFICATION.md and verify.py were inspected without execution; the finite diagnostics are not the universal proof.",
+      "residual_risks": [
+        "The theorem is for one shared shift and Cauchy references; it is not minimax over all quadrature rules, integrands or sampling distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hyvönen–Suzuki gives matched-scale polynomial exactness. Suzuki–Hyvönen–Karvonen analyzes a shared shift with randomized grid size and weighted Sobolev RMSE bounds. Potts–Weidensager gives the deterministic midpoint alias identity.",
+          "The deterministic Cauchy-mixture record allows scale adjustment for centered finite mixtures and zero-shift bias; the single-Poisson record gives the exact variance with any number of independently shifted grids."
+        ],
+        "reasoning": "These results credit the methods and underlying component risk. They do not choose a single location and scale that jointly minimize the worst component risks for all N, nor supply the sharp location-spread threshold.",
+        "searches": [
+          "arXiv:2604.27758v1 §4",
+          "arXiv:2407.13650v1 §4",
+          "Potts–Weidensager §2 Theorem 2.1",
+          "Resultary …--4c38c0a9043c and …--40e29c300ddc"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.27758v1",
+        "arXiv:2407.13650v1",
+        "Potts–Weidensager §2",
+        "Resultary …--40e29c300ddc, …--4c38c0a9043c, …--94e6734758c9, …--24d362b94140 and …--c39128e11afd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared-grid component formula is already covered, and the extension to the worst mixture for a fixed reference is a norm-convexity argument.",
+          "The competing active-scale geometry remains: both endpoints at the crossing, and only the lower-scale pair strictly above the phase boundary."
+        ],
+        "reasoning": "No inspected antecedent supplies the rectangular center/scale phase law together with the exact optimized risk. An RMSE rate or exactness of another objective cannot mechanically give it.",
+        "searches": [
+          "Resultary …--40e29c300ddc variance passage",
+          "Resultary …--4c38c0a9043c Finding and deterministic scope",
+          "Hyvönen–Suzuki Proposition 4.1 and Suzuki–Hyvönen–Karvonen Definition 4.1/Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cayley radius is tanh(d_H/2), so the reference is the smallest-enclosing-hyperbolic-disk center; the objective reduces to the four extreme corners (two when C=0).",
+          "Resultary …--94e6734758c9 is a largest inscribed disk problem for an ideal geodesic quadrilateral, not this enclosing-disk problem.",
+          "Resultary …--24d362b94140 and …--c39128e11afd fit a Poisson kernel in boundary L² to a fixed mixture, rather than optimize the worst shared-shift tail over a rectangle."
+        ],
+        "reasoning": "The hyperbolic reduction is exact; an existence/uniqueness theorem or algorithm for generic enclosing circles does not itself identify the active set or the transition for this rectangle. The fixed-mixture and inradius objectives are materially different.",
+        "searches": [
+          "hyperbolic minimax center rectangle upper half plane pseudohyperbolic Chebyshev center smallest enclosing hyperbolic disk rectangle",
+          "Resultary: Poisson Fourier aliasing, Cauchy scale/location reference minimax, hyperbolic Chebyshev center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry 2026/11/22/…--bb2d4a4e6a01 is the frozen result itself. Resultary …--40e29c300ddc contains the exact singleton formula when the number of independent grids is one.",
+          "Resultary …--4c38c0a9043c gives a geometric-mean scale in a special deterministic centered equal-weight example."
+        ],
+        "reasoning": "The exact singleton identity and special-case scale are not evidence of the full robust law; the indexed self-match is not independent prior evidence.",
+        "searches": [
+          "Resultary: exact Cauchy location/scale rectangle minimax, shared-shift near-boundary Poisson variance, parity-sharp Cauchy trapezoids"
+        ]
+      },
+      "rationale": "Credit the known aliasing formula, Möbius change of variables and standard hyperbolic distance. The supported distinction is the exact globally optimal reference and positive-mixture minimax risk over the full rectangular location-scale uncertainty, with an explicit sharp active-set transition, not merely the component formula or a centered deterministic exactness scale.",
+      "residual_risks": [
+        "The targeted hyperbolic-center search did not locate an applicable primary statement on this exact rectangle. An equivalent explicit enclosing-disk result under other terminology could still cover the geometric portion. This is not a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related quadrature; not rectangular minimax",
+          "evidence": "Exact matched-rule polynomial moments, not shared-shift variance over a location/scale uncertainty set.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.27758v1",
+          "material_read": "§4, Proposition 4.1, PDF p. 14, offset 45210",
+          "method": "Bounded original OA PDF passage",
+          "title": "Möbius-Transformed Trapezoidal Rule for Polynomial Weights",
+          "trigger": "Matched Cauchy-type reference and trapezoidal rule"
+        },
+        {
+          "assessment": "Random shift is prior art",
+          "evidence": "Grid size and shared shift are randomized for the Sobolev RMSE estimate; there is no exact optimization of the reference against this target rectangle in these results.",
+          "identifier_or_url": "https://arxiv.org/html/2407.13650v1",
+          "material_read": "§4 Definition 4.1 and Theorem 4.2, offset 48800",
+          "method": "Bounded original OA HTML passage",
+          "title": "Möbius-Transformed Trapezoidal Rule",
+          "trigger": "Randomized Möbius grid"
+        },
+        {
+          "assessment": "Related deterministic aliasing",
+          "evidence": "The midpoint alias identity in this theorem is not a worst-case shifted Cauchy theorem.",
+          "identifier_or_url": "https://www-user.tu-chemnitz.de/~potts/paper/approxFourierTransform.pdf",
+          "material_read": "§2, Theorem 2.1, p. 6, offset 18800",
+          "method": "Bounded original OA PDF passage",
+          "title": "Approximating the Fourier Transform from Non-equispaced Discrete Samples",
+          "trigger": "Inverse-distribution sampling and Fourier aliasing"
+        },
+        {
+          "assessment": "Exact prerequisite covered; robust optimization not covered",
+          "evidence": "Variance 2r^(2N)/[m(1−r^(2N))] for m independently shifted repeated grids specializes to the frozen component variance when m=1.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-sampling-crossover-for-independently-shifted-near-boundary--40e29c300ddc",
+          "material_read": "RESULT.md, Finding and variance passage near offset 3857",
+          "method": "Local Resultary mirror",
+          "title": "Sharp sampling crossover for independently shifted near-boundary Poisson quadrature",
+          "trigger": "Exact same component variance"
+        },
+        {
+          "assessment": "Different objective and parameter uncertainty",
+          "evidence": "Optimization of zero-phase normalization bias for fixed centered finite mixtures gives deterministic parity-dependent results.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-sharp-exactness-and-scale-optimization-for-cauchy-mixture--4c38c0a9043c",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Parity-sharp exactness and scale optimization for Cauchy-mixture Möbius trapezoids",
+          "trigger": "Nearest indexed Cauchy-mixture scale optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 3–6",
+        "Resultary …--40e29c300ddc and …--4c38c0a9043c as baselines"
+      ],
+      "rationale": "For a natural reference-selection problem this gives the exact worst-case variance and a unique resolution-independent optimal reference, even for arbitrary positive mixing and an unknown mixture normalizer. The boundary marks a genuine change in the obstructing target scale and reverses how the optimal width responds to location uncertainty; this is more than computing a standard aliasing tail.",
+      "residual_risks": [
+        "The guarantee is for rectangular uncertainty and the specified mass estimator; no general robust-quadrature or reference-family optimality claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

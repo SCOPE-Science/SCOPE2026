@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:50:57.661675Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the killed four-state backward equations, using only the two incoming boundary conditions and scaling gap by L and time by L/v. The uniform absorption probability in bounded time is positive even when one rate vanishes, so the moment equations apply at both endpoints. With y=x/L and u=y(1−y), the sum of the moving-state means is 1+hu and their difference is 2y−1. For the dimensionless second moments, the difference is (2y−1)[1+1/r+(h/6)(1+2u)] and the sum is 1+1/r+h/6−(2−h−3h/r−h²/6)u+(h²/6)u². These obey both boundaries; the corresponding homogeneous problem reduces to (2+h)Δ=0 and is unique. Including the two stalled phases and integrating using ∫u=1/6 and ∫u²=1/30 yields the frozen first and raw second moments, variance and CV squared. The derivative of the latter has numerator 24r²[(r−4)h+10r+30], positive since 10r−4h≥8r over the full allowed interval. The other derivatives are positive termwise. This proves the endpoint minimizers, interior infima if endpoints are excluded, and unique balanced maximum. The supporting script was inspected, not run; its reported simulations are not the proof. No stochastic ordering is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The speed-ratio record varies the common reversal rate with unequal speeds, for the mean only. The heterogeneous-tumbling record treats a fixed-sum split but a stationary exponential separation exponent of an attracting line pair. The Le Doussal et al. abstract describes equal telegraphic-noise rates and no-crossing survival on the infinite line. The frozen prior-work note identifies stationary jamming laws in Hahn et al."
+        ],
+        "reasoning": "Neither allowing unequal speeds on a common-rate slice nor using fixed-sum rate splits in a stationary binding problem dominates this first-contact model and observable. A general backward-equation method supplies equations, not the explicit normalized variance or sign of its relative-risk derivative.",
+        "searches": [
+          "2026/10/25/SCOPE-a-sharp-speed-ratio-threshold-for-beneficial-tumbling-in-two-par--04a25262f2b9",
+          "2026/11/8/SCOPE-heterogeneous-tumbling-sharpens-the-exponential-binding-length-o--4b3e35d48fc9",
+          "https://arxiv.org/abs/2306.00831; https://arxiv.org/abs/1902.06176"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; VERIFICATION.md; verification.py",
+        "Resultary and local-mirror records f5ea568543a0, 04a25262f2b9 and 4b3e35d48fc9",
+        "Primary literature passages and limitations listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eliminating the stationary phases introduces h=2abL/(gv) in the moving equations; at second order the forcing retains a distinct factor 1+(a−b)²/g²=2−2h/r. The strictly positive CV derivative uses the feasible interval 0≤h≤r/2."
+        ],
+        "reasoning": "The equal-rate transform does not extend by merely replacing the common rate by a total or effective rate: the second-moment forcing and stalled holding time carry different combinations of parameters. The stationary exponent does not determine these exit moments.",
+        "searches": [
+          "First-collision-transform record f5ea568543a0; speed-ratio record 04a25262f2b9; heterogeneous-tumbling record 4b3e35d48fc9",
+          "frozen RESULT.md 34–91"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-collision-transform record f5ea568543a0 uses the equal-rate, specified initially closing branch on a ring. The frozen first contact is an absorbing exit of the four-state oriented-gap process with all four branches initially equiprobable."
+        ],
+        "reasoning": "Rephrasing the process as a Markov-modulated fluid exit or the risk as CV squared does not change the comparison. Restricting to a=b fixes h=r/2 and loses the rate-allocation variable even if the initialization could be averaged in the equal-rate law.",
+        "searches": [
+          "Resultary: ring run-and-tumble first-collision transform and rare-reversal moments; different tumbling rates at fixed sum",
+          "Primary lookup: run-and-tumble first encounter unequal individual reversal rates on a ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact quantities considered are moment formulas or transforms, not a census. The strongest indexed transform concerns common rates, and the cited mean lemma is also described as common-rate; its exact passage was not retrieved."
+        ],
+        "reasoning": "A table check in the literal sense is inapplicable to a symbolic identity over continuous rate and geometry ranges. The exact-formula analogue was checked; a common-rate formula or table has no h variation at fixed r.",
+        "searches": [
+          "Resultary first-collision moment/transform record f5ea568543a0",
+          "https://arxiv.org/abs/1808.03830, §4.2 Lemma 4.5 as cited in frozen RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit first-contact moment pair and simultaneous strict ordering of the mean, variance and squared CV over individual rate splittings at fixed positive total, under the frozen initialization. The strongest inspected close results each fix the rates equal, vary a common rate for unequal speeds, or treat a stationary law of a different process. Known common-rate means and the backward-generator method are not credited as new. This is a best-of-knowledge claim comparison, not a publication-priority certificate.",
+      "residual_risks": [
+        "Exact Cheliotis lemma passage was not recovered; Hahn is not a full-text exclusion.",
+        "General fluid first-passage literature may imply additional formulas; no inspected statement supplied the fixed-budget three-objective comparison.",
+        "Restricted finite and literature checks do not establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest direct overlap, but a common-rate fixed branch and rare-reversal regime, not the claimed allocation comparison.",
+          "evidence": "Exact transform and mean from a specified closing branch with equal reversal rates.",
+          "identifier_or_url": "2026/11/2/SCOPE-first-collision-transform-and-rare-reversal-moment-singularity-f--f5ea568543a0",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "First-collision transform and rare-reversal moment singularity for a run-and-tumble pair on a ring",
+          "trigger": "Same ring first physical contact and exact moments"
+        },
+        {
+          "assessment": "The parameter path and objective differ.",
+          "evidence": "Unequal speeds, common rate varied, mean encounter time threshold.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-speed-ratio-threshold-for-beneficial-tumbling-in-two-par--04a25262f2b9",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "A sharp speed-ratio threshold for beneficial tumbling in two-particle ring encounters",
+          "trigger": "First-contact rate optimization on the ring"
+        },
+        {
+          "assessment": "Same parameter constraint in a different observable and dynamics; does not transfer first-contact risk identities.",
+          "evidence": "Stationary separation-decay exponent for a linearly attracting line pair.",
+          "identifier_or_url": "2026/11/8/SCOPE-heterogeneous-tumbling-sharpens-the-exponential-binding-length-o--4b3e35d48fc9",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Heterogeneous tumbling sharpens the exponential binding length of a jammed two-swimmer pair",
+          "trigger": "Same fixed-sum rate allocation and rate product"
+        },
+        {
+          "assessment": "Credit the common-rate mean antecedent as cited; no whole-document exclusion from limited access.",
+          "evidence": "Circle message-transfer setting in Cheliotis et al.; infinite-line equal-rate survival in Le Doussal et al.; frozen citation distinguishes stationary jamming from stopped first contact.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03830; https://arxiv.org/abs/1902.06176; https://arxiv.org/abs/2306.00831",
+          "material_read": "First-page material of the first two papers and the frozen specific discussion of all three in RESULT.md 97–109; decisive Cheliotis lemma and Hahn full text not inspected",
+          "method": "Primary lookup, targeted OA attempt and accessible arXiv PDF front matter",
+          "title": "A Simple Network of Nodes Moving on the Circle; Non-crossing run-and-tumble particles on a line; Jamming pair of general run-and-tumble particles",
+          "trigger": "Potential equal-rate reduction and general pair-dynamics antecedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-contact allocation problem is natural, and minimizing variance need not minimize relative fluctuation after the mean changes. Here explicit moments and strict relative-risk monotonicity settle all three objectives at every dimensionless budget, with sharp endpoints even when a rate vanishes. This is useful beyond an equal-rate moment evaluation and does not claim a full-law ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:17:53.584912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A repeated suffix with any one can only be a square, of period d=b+1, with exactly one marker per copy. In zero-based indexing the earliest marker p=a must lie in [t-2d+1,t-d] in a square ending at t, with p+d the other marker. This gives a>=b at the second marker and b>=1,a>=b-1 one step later. Otherwise the terminal zero run supplies the maximum; for runs of length >=2 the possible square cannot increase it. Thus the three-gap factorization is valid. Initial starts 123,121,11 distinguish the stated leading-gap cases; 121 can hide only (2,0,0) versus (0,0,2), and comparison through positions 3–6 in the 11 case gives the other two length-four and the one length-five cross-leading-gap collisions. For fixed a, b=0 is separate, and a staircase of length >=3 gives b uniquely. The local entry index in line 58 is off: for b=1 versus 2 the second entries after R_a(1) agree iff a>=1; the third entries then agree iff a>=2, with the third entries 2 and 1 when a=1. Length equality matches c with c-1. At a>=2 the resulting sequences coincide for c=1,2 and differ at position five after R_a(1) for c>=3. This verifies the claimed pairs despite that indexing slip. Direct n=2,3 cases are injective. The count and uniform conditional entropy and success formulas follow from exactly two doubletons at n>=7. Inspected VERIFICATION.md and both Python 3 replay scripts without executing the uploads: direct suffix comparisons through n=40 and formula grouping through n=100 supplement, but do not prove, the reconstruction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newer transform paper studies simultaneous power avoidance; its binary theorem bounds simultaneously cubefree sources and transforms, and it considers relaxations and infinite constructions.",
+          "The older binary enumeration concerns the terminal statistic c(n,k)."
+        ],
+        "reasoning": "Neither the larger alphabet setting of the former nor general final-curling counts of the latter give an inverse classification of entire vectors for all two-one words.",
+        "searches": [
+          "arXiv:2608.15670v1 introduction, results summary and §3 on the binary alphabet",
+          "Chaffin et al. arXiv:1212.6102 §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.15670v1",
+        "arXiv:1212.6102",
+        "OEIS A216955 and exact-prefix lookup",
+        "Resultary 6f099e4f6a40, 4590e1707270 and frozen self-hit e9f427a360b6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A same-transform theorem about sources constrained by avoidance discards unrestricted zero runs, which occur in the arbitrarily long binary inputs reviewed here.",
+          "The ternary results identify two outputs of large fibers, not the two binary doubletons or the reconstruction criterion."
+        ],
+        "reasoning": "A complete analysis of the aligned two-marker suffix square and its effect on entry-by-entry inversion is needed; the inspected avoidance and final-statistic theorems do not mechanically yield it.",
+        "searches": [
+          "Caveney–Dong–Shallit arXiv:2608.15670v1, transform and power-avoidance statements",
+          "Resultary ternary rigidity records 6f099e4f6a40 and 4590e1707270"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caveney–Dong–Shallit define the identical direct-prefix map in §§1–2.1.",
+          "The two strongest distinct Resultary hits 6f099e4f6a40 and 4590e1707270 give two-image fibers for specific ternary avoidance classes of length 84; the exact binary match e9f427a360b6 is the frozen record itself."
+        ],
+        "reasoning": "Specifying two marked positions is the same as fixing Hamming weight two for labelled binary sources; ternary extremal families at one length are not aliases of that all-length stratum.",
+        "searches": [
+          "Web: Repetition Avoidance in Curling-Number Transforms inverse reconstruction prefix curling-number binary injectivity collision weight-two fibers",
+          "Resultary: binary two-marker prefix curling-number transform inverse fibers and collision pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A216955 and Table 4 count all binary sequences of length n by one final curling number k.",
+          "The exact image-count prefix lookup did not match an OEIS entry."
+        ],
+        "reasoning": "Final-number counts cannot recover how all prefix coordinates co-vary on the fixed-weight class. The exact-prefix lookup is bounded, not a proof of no equivalent sequence.",
+        "searches": [
+          "OEIS A216955",
+          "OEIS exact lookup 1,3,3,9,14,19,26,34,43,53,64",
+          "On Curling Numbers of Integer Sequences, §3 Table 4"
+        ]
+      },
+      "rationale": "The full prefix statistic itself is prior art. The best-supported distinct claim is the complete inverse classification on fixed binary weight two for every n, including exact ambiguity. The closest full texts and result statements use the same transform with a different constraint, or measure a single curling number instead.",
+      "residual_risks": [
+        "The source inspection targeted the primary definitions and relevant results rather than every possible formulation; unindexed inverse classifications and unpublished equivalents are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same observation map, different results",
+          "evidence": [
+            "Study of simultaneous repetition avoidance; Theorem 2 gives a finite simultaneous cubefreeness bound, not weight-two inverse fibers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.15670v1",
+          "material_read": "Introduction, summary and definition near offset 1150, and binary alphabet section near offset 9677",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Repetition Avoidance in Curling-Number Transforms",
+          "trigger": "Identical direct-prefix transform, including binary sources"
+        },
+        {
+          "assessment": "Final statistic only",
+          "evidence": [
+            "c(n,k) is indexed by the curling number of the whole length-n word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.6102",
+          "material_read": "§3 p. 8 and Table 4 p. 9",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On Curling Numbers of Integer Sequences",
+          "trigger": "Closest earlier binary curling-number enumeration"
+        },
+        {
+          "assessment": "No match to the full-transform image count",
+          "evidence": [
+            "T(n,k) counts binary length-n sequences with final value k."
+          ],
+          "identifier_or_url": "https://oeis.org/A216955",
+          "material_read": "Definition near offset 185",
+          "method": "Public OEIS entry and exact-prefix lookup",
+          "title": "Binary sequences by curling number",
+          "trigger": "Relevant exact database for binary curling numbers"
+        },
+        {
+          "assessment": "Neither covers the binary sparse stratum",
+          "evidence": [
+            "The former has fiber sizes 4032 and 2016 for its ternary avoidance class; the latter has 6912 and 3456 for its specified ternary class."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/…6f099e4f6a40 and 2026/11/2/…4590e1707270",
+          "material_read": "Both result statements and the hypotheses specifying ternary length-84 classes",
+          "method": "Configured Resultary lookup and local-mirror passages",
+          "title": "Two-image rigidity at the maximal ternary curling-number boundary; Critical exponent and curling-transform rigidity at the ternary boundary",
+          "trigger": "Closest distinct full-transform fiber hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weight two is the first binary sparsity level at which a repeated suffix can use both symbols. The exact all-length inverse fibers identify precisely the failed reconstructions and give the exact ambiguity and decoder accuracy, a complete answer to a natural inverse observation problem rather than a finite table or arbitrary cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

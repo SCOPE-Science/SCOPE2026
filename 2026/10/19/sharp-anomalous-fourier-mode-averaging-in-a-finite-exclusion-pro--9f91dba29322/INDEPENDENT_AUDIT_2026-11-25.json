@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:13:16.842260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40 and 44–134; independent renewal identity and predictable-cycle variance calculation",
+        "Frozen VERIFICATION.md, requirements.txt dependency as identified therein, and check.py lines 17–109 (inspected, not executed)",
+        "arXiv:1909.11458 Eq. (3), p. 2, with finite mean and infinite second moment"
+      ],
+      "rationale": "A bond exchange moves the sine weights by the discrete Laplacian; the first-mode eigenvalue is −4 sin²(π/L). The geometric sine sum over the occupied half equals csc(π/L). Conditioning on the full clock leaves the age observable Y=e^(−λ_L A) with mean m=H(λ_L)/μ and leaves only an exponentially bounded same-cycle conditional SEP covariance, contributing O(1) to the covariance primitive and O(T) to the variance. The age/residual density yields the frozen n+b*g decomposition, with ∫b=m, ∫rb(r)dr finite, and g=k*U for k(t)=e^(−λ_L t)f(t). Independently verify the heavy-tail renewal expansion by writing d(t)=∫_t^∞f(v)dv: U*f=1 gives U([0,T])−T/μ=(U*d)(T)/μ. The continuous interarrival law is nonlattice, so Blackwell's theorem gives U increments of width 1 tending to 1/μ. Partitioning into unit bins backward from T and bracketing by the decreasing d on each bin then gives (U*d)(T)~μ⁻¹∫₀ᵀd; fixed early-renewal bins are negligible, and the integral diverges for both 1<α<2 and α=2. This recovers the expansion without needing the higher-order Doney refinement or its erratum. Convolution of the primitive with k and b multiplies the divergent correction by H(λ_L)m; replacing the convolved linear term by its linear asymptote costs only O(1) because both kernels have finite first moments. Thus the covariance primitive is asymptotic to (bar F)²/μ times ∫₀ᵀd. One more integration with the factor 2 gives the stated Pareto constants, including (bar F)²t₀ at α=2 since μ=2t₀. For α>2, sum the centered full-cycle rewards over cycles begun before T; the indicator that each is begun is predictable in the cycle filtration, giving an exact martingale variance equal to the mean number begun times the cycle variance. The last crossing-cycle correction in a fresh process has squared norm o(T): bound it by a constant times the sum over unit bins of E[τ² 1_{τ>j}], using the positive minimum spacing t₀ to bound the number of starts per bin and independence of each next τ. The Cesàro mean of those tail expectations tends to zero. The stationary initial residual truncation also has squared norm o(T), since its survival is O(T^(1−α)); the remaining fresh horizon is independent of future cycles. The renewal rate is 1/μ and Cauchy–Schwarz controls boundary cross terms. The conditional expected uncentered cycle reward is bounded by F_*/λ_L, while the subtraction bar F·τ is unbounded with τ, proving strict positivity.",
+      "residual_risks": [
+        "Checker corroborates finite generator samples and Laplace transforms, not the time-domain limits. The proof keeps L fixed and uses the stationary age/residual law. The Doney erratum was not read; the independent renewal argument does not rely on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doney recalls a general second-order renewal-function expansion covering the infinite-second-moment α=2 boundary, whereas his further refinement is restricted away from that boundary.",
+          "Resultary 1ee39cc9ce47 gives power/log/inverse-time occupation-fraction laws for a continuum resetting diffusion, with constants from its incomplete-beta sign kernel."
+        ],
+        "reasoning": "The broader renewal-function result supplies U, not the reduction from the exclusion-mode covariance. The occupation theorem itself requires a specific diffusion and uses within-cycle sign correlation with zero conditional sign mean; it is not a general theorem for the nonzero age-conditioned mode mean here.",
+        "searches": [
+          "Doney, arXiv:1909.11458 pp. 2–3, Eq. (3) and Theorem 1",
+          "Resultary: heavy-tail stationary renewal-reset time-average and occupation variance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.14120 §6.2",
+        "arXiv:1909.11458 Eq. (3), Theorem 1 and Remark 3",
+        "Resultary records 100b5eb65008, 432f025ce48d and 1ee39cc9ce47"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing mean profiles give the one-time mode mean; they do not separate the same-cycle SEP covariance from the clock contribution at two times.",
+          "The centered cycle reward theorem applies directly when the durations have a finite second moment; below it, the normalized variance instead comes from the divergent primitive of the stationary age covariance."
+        ],
+        "reasoning": "The known renewal theorem must be combined with a stationary age/residual covariance decomposition and both kernel masses to obtain the sharp constants. None of the inspected statements covers that combination. A general heavy-tail regenerative-reward theorem may provide an alternate route and has not been excluded by this search.",
+        "searches": [
+          "arXiv:2211.14120 and arXiv:1909.11458 Eq. (3)",
+          "Resultary 100b5eb65008 and 1ee39cc9ce47 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mishra–Basu analyze total transported current, with reported T^(2−α) growth below α=2 in that regime, rather than the stationary integral of a centered spatial density mode.",
+          "Resultary 100b5eb65008 treats infinite-lattice equal-time distinct-site covariance and macroscopic block masses as the reset cutoff grows. 432f025ce48d gives infinite-volume expected-current logarithms."
+        ],
+        "reasoning": "The clock/step overlaps do not equate the observables, required time correlations, stationary preparation or fixed-size versus macroscopic limits. Neither current nor equal-time covariance is an equivalent formulation of this variance.",
+        "searches": [
+          "Resultary: exact title and stationary finite-ring Pareto-reset SEP mode fluctuations",
+          "arXiv:2211.14120 §6.2, equations (58)–(61)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved current law and occupation-fraction formula quantify different observables; the occupation constants explicitly use an incomplete-beta kernel. No exact match to the pair of anomalous amplitudes or the finite-variance cycle formula for this SEP observable was identified."
+        ],
+        "reasoning": "Matching powers after dividing by T² does not fix the coefficient or mechanism. Bounded catalogue search does not establish absence elsewhere.",
+        "searches": [
+          "Resultary: finite stationary Pareto-reset sine-mode integrated variance and exact title",
+          "arXiv:2211.14120 §6.2 and Resultary 1ee39cc9ce47 Finding"
+        ]
+      },
+      "rationale": "Prior work gives the same resetting model, the mean from the renewal density, and current statistics; the distinct content is the stationary fixed-ring time-integrated nonzero density mode, its exact variance regimes and sharp amplitudes. General renewal-function asymptotics are an acknowledged input, not a novelty claim.",
+      "residual_risks": [
+        "No exhaustive exclusion of a more general regenerative theorem or earlier finite-ring mode calculation. DOI 10.1214/22-ECP456 (Doney erratum) was located but full text was unavailable in bounded lawful retrieval; not used as negative originality evidence or needed for the independent proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Current variance is not integrated Fourier-density variance",
+          "evidence": [
+            "Total-current variance has a different subcritical power and is described as approaching a stationary value above α=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.14120",
+          "material_read": "OA PDF §6.2 pp. 18–19, equations (58)–(61), extracted offsets 60000–65935",
+          "method": "Read and compare relevant primary passages and observable definitions",
+          "title": "Symmetric Exclusion Process under Stochastic Power-law Resetting",
+          "trigger": "Same physical reset model and anomalous variances"
+        },
+        {
+          "assessment": "Known renewal ingredient covers the logarithmic boundary; the higher-order result does not",
+          "evidence": [
+            "Finite mean and infinite second moment for Eq. (3); exact Pareto at α=2 satisfies both."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.11458",
+          "material_read": "PDF p. 2 Eq. (3) around extracted offset 2251; p. 3 Theorem 1 and Remark 3",
+          "method": "Open-access PDF, comparison of hypotheses and orders",
+          "title": "The remainder in the Renewal Theorem",
+          "trigger": "General renewal asymptotic used in proof, especially α=2"
+        },
+        {
+          "assessment": "Equal-time and infinite-volume/macroscopic, not stationary finite-ring long-time integrated variance",
+          "evidence": [
+            "Distinct-site covariance limit as the resetting cutoff grows, and block-mass limits."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-signed-macroscopic-correlation-law-for-pareto-reset-exclusion--100b5eb65008",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A signed macroscopic correlation law for Pareto-reset exclusion",
+          "trigger": "Strongest Resultary overlap in model"
+        },
+        {
+          "assessment": "Same trichotomy structure after time-average normalization, but different process, mechanism and amplitudes",
+          "evidence": [
+            "Symmetric sluggish diffusion sign covariance has the stated incomplete-beta kernel and vanishes across independent cycles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-renewal-reset-sign-decorrelation-and-a-heavy-tail-occupati--1ee39cc9ce47",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2650",
+          "method": "Resultary local mirror, direct passage comparison",
+          "title": "Sharp renewal-reset sign decorrelation and a heavy-tail occupation transition",
+          "trigger": "Closest stationary variance trichotomy in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; arXiv:2211.14120 §6.2 for comparison to earlier resetting observables"
+      ],
+      "rationale": "The step excites the slow first sine mode at a finite system size where internal dynamics alone have an exponential spectral gap. Quantifying how an external equilibrium-renewal clock nevertheless slows stationary time averaging, with the exact critical logarithm and nonzero amplitudes on each side, is a motivated transport/statistical fluctuation result rather than a current normalization or finite fit.",
+      "residual_risks": [
+        "No uniform thermodynamic limit or fluctuation-distribution conclusion follows from these variance asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

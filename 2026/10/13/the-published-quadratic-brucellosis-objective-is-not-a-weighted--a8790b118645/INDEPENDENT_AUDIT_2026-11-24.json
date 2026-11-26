@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:45.525613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The publisher PDF, pp. 552–553, explicitly calls Eq. (16) a weighted-sum transformation of the vector problem and confirms both transcriptions. A fixed weighted sum of the four integrals is the integral of the weighted sum of the original linear rates. Eq. (16) instead squares individual rates, separately within both J2 and J4. Even a single nonnegative cost stream can change order: integrals 1/2<3/5 give squared-rate integrals 1/2>9/25 in the frozen example. This is an unconstrained functional example, not an attainable trajectory claim. The printed state equations are affine in the three controls; differentiating the linear-cost Hamiltonian at fixed state and adjoint gives the three stated switching coefficients. Their nonzero signs select lower or upper endpoints by pointwise minimization over the box; a zero at a switching time alone does not establish a singular arc. For the quadratic cost the added derivative for each control is twice its coefficient times the control (e.g. 2ω3 B0² S² θ), so with positive control-cost coefficients the stationary roots, projected to the box, match all three formulas in Eq. (19), p. 555. Zero weight or zero state factor requires pointwise affine/degenerate minimization rather than division. The finding identifies the objective behind the displayed necessary conditions and, conditionally, the numerical setup; it does not establish global sufficiency of those conditions or verify the numerics. Figure 9's linear-loss caption describes an outcome measure, not evidence the linear sum was optimized. Supplied symbolic checker inspected, not executed; checks above are algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary article itself defines the weighted sum as the positively weighted convex sum of the objectives before introducing Eq. (16). The exact general operation follows by linearity of integration.",
+          "The frozen record attributes the known linear-versus-quadratic distinction to Zarei et al.; direct full text was not retrieved from the checked publisher routes."
+        ],
+        "reasoning": "General scalarization immediately fixes what a weighted sum must be and explains why the advertised equivalence cannot hold algebraically. It is the incorrect application and its source-specific consequences, not the definition or general optimization theory, that are credited.",
+        "searches": [
+          "10.3934/mbe.2018025, p. 553 and Theorem 4.3",
+          "10.1155/2010/568315, general multiobjective optimal-control scalarization",
+          "10.1007/s00158-003-0368-6, Marler–Arora survey cited by the primary article"
+        ]
+      },
+      "checked_sources": [
+        "Publisher PDF of DOI 10.3934/mbe.2018025",
+        "Resultary a5c2d82fba5a and 12f14a2b1354, mirrored findings",
+        "DOI 10.1155/2010/568315 (identified, limited access)",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted-sum identity implies linear running losses for the stated objectives; the Eq. (19) denominators reflect Eq. (16)'s squared rates, not that identity.",
+          "The different-model adjoint record finds missing/misindexed adjoint terms and does not find an objective mismatch. The KKT record concerns variable-order cones."
+        ],
+        "reasoning": "Prior theory implies the diagnostic once these equations are compared, but does not itself perform the comparison or distinguish the objective optimized by the displayed source system from its reported measure of economic loss. No general claim of new bang-bang theory or proof of changed numerical optimizers is warranted.",
+        "searches": [
+          "Zhou et al., Eqs. (11)–(16), (19), Fig. 9",
+          "Resultary 12f14a2b1354 and a5c2d82fba5a, mirrored findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Publisher Eq. (13) lists the linear objectives; its prose on p. 553 says 'By the weighted sum method' and introduces the scalar quadratic Eq. (16).",
+          "The nearest same-day indexed match a5c2d82fba5a finds a variable-order KKT multiplier obstruction concerning polar cones, not an incorrect objective scalarization."
+        ],
+        "reasoning": "An integrated weighted sum, its instantaneous linear combination, and the corresponding control switching rule expose the same mismatch. The polar-cone counterexample concerns a different optimization theorem and does not make any of these claims about the article.",
+        "searches": [
+          "Resultary: DOI/title, weighted economic-loss integrals, quadratic running-cost versus weighted-sum scalarization",
+          "\"10.3934/mbe.2018025\" \"weighted sum\" objective equation 16 brucellosis",
+          "Primary source full-text lookup by Zhou et al. title, pp. 543–567"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 9 calls its reported total economic loss the sum of the four Eq. (12) integrals; the article's optimization system uses squared terms. The adjacent record 12f14a2b1354 instead studies adjoint terms for a different model."
+        ],
+        "reasoning": "No numerical invariant, finite census, or exact table entry is the subject of this claim. The relevant documented comparison is between the caption's measured outcome and the specified objective, not a recomputation of the plot values.",
+        "searches": [
+          "Publisher PDF of 10.3934/mbe.2018025, Fig. 9 caption",
+          "Local Resultary search on original DOI/title and scalarization aliases"
+        ]
+      },
+      "rationale": "The general definition of weighted-sum scalarization, and the affine-versus-quadratic Hamiltonian distinction, are established and are not novel. The supported distinct claim is the source-level cost mismatch and attribution of the reported control equations to the changed objective in this particular article. Statement-level comparison found no distinct indexed finding or accessible paper identifying that mismatch there.",
+      "residual_risks": [
+        "No exhaustive corrigendum search or access to every cited general optimization reference; no claim of absolute priority.",
+        "The scope is the mathematical specification and its attribution, not whether any unreported implementation selected a different objective or a global optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the mismatch and the derivation target of Theorem 4.3; no empirical rerun or proof of solver behavior.",
+          "evidence": [
+            "Eq. (16) displays separate squares for both composite rates and follows the explicit assertion of weighted-sum transformation of the Eq. (13) vector problem.",
+            "Eq. (19) is introduced as a necessary Pontryagin condition for problem (17), which minimizes Eq. (16); Fig. 9 reports the sum of Eq. (12) integrals."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2018/2/PDF/1551-0018_2018_2_543.pdf",
+          "material_read": "Publisher PDF pp. 551–553, 555 and Fig. 9, offsets 34750, 36975, 38900, 45771 and 91400",
+          "method": "Publisher PDF located by full-title lookup; equation/bounded-passage reads",
+          "title": "Transmission dynamics and optimal control of brucellosis in Inner Mongolia of China",
+          "trigger": "Original objective, methods wording, control theorem, and numerical caption"
+        },
+        {
+          "assessment": "Relevant general technique, which is not credited as new here; exact scope of inaccessible passages not assumed.",
+          "evidence": [
+            "The frozen relationship section cites the article as defining a weighted sum of objective functionals and distinguishing linear and quadratic cost models. The weighted-sum definition is independently confirmed in the audited primary article."
+          ],
+          "identifier_or_url": "10.1155/2010/568315",
+          "material_read": "Bibliographic identification and frozen account only; full text not retrieved",
+          "method": "Bounded publisher access attempts and comparison with primary article's general definition",
+          "title": "Multiobjective Optimal Control of HIV Dynamics",
+          "trigger": "Prior general scalarization and linear/quadratic control-cost distinction"
+        },
+        {
+          "assessment": "Different theorem and obstruction, not equivalent.",
+          "evidence": [
+            "The stated failure is in a necessary multiplier rule for variable-polyhedral-order optimization; the obstruction is a polar intersection."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-polar-intersection-counterexample-to-variable-order-kkt-multip--a5c2d82fba5a",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary and mirror passage read",
+          "title": "A polar-intersection counterexample to variable-order KKT multipliers",
+          "trigger": "Closest same-day indexed vector optimization result"
+        },
+        {
+          "assessment": "Different model and missing/misindexed adjoint terms, not objective equivalence.",
+          "evidence": [
+            "The corrected expressions concern adjoint equations; the finding does not identify squaring of the original economic-loss rates in Zhou et al."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-correct-pontryagin-adjoints-for-a-variable-population-sqeiar-med--12f14a2b1354",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary and mirror passage read",
+          "title": "Correct Pontryagin adjoints for a variable-population SQEIAR model",
+          "trigger": "Adjacent indexed epid­emic-control mathematical correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A reproduction based on the stated linear objectives and one using the displayed quadratic objective optimize different criteria and use different pointwise control rules. Making that distinction is consequential for interpreting the weights and replicating the published calculation. The simple algebra is not offered as a new control theorem, and the conclusion does not require alleging that the reported trajectories are numerically wrong.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

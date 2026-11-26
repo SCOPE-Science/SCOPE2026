@@ -1,10 +1,10 @@
-# Optimal Roman \(\{2\}\)-domination and unit-transfer geometry of rectangular rook graphs
+# Unit-transfer geometry of optimal Roman \(\{2\}\)-dominating functions on rectangular rook graphs
 
 ## Finding
 
 For integers \(2\le m\le n\), let \(R_{m,n}=K_m\square K_n\) be the graph of an \(m\)-row, \(n\)-column rectangular board: two cells are adjacent precisely when they share a row or a column. A Roman \(\{2\}\)-dominating (Italian dominating) function is a map \(f:V(R_{m,n})\to\{0,1,2\}\) with \(\sum_{u\sim v}f(u)\ge2\) whenever \(f(v)=0\). Its weight is \(w(f)=\sum_vf(v)\).
 
-**Exact minimum and complete classification.** The minimum weight is
+**Known optimum families.** The exact minimum, optimizer classification and counts were given in *Minimum Italian domination on rook graphs: exact optimizers and a sharp transition* [6]. We recall them to specify the vertex sets of the reconfiguration graphs; these facts are not claimed as contributions here. The minimum weight is
 \[
 \gamma_{\{R2\}}(R_{m,n})=\min\{n,2m\}.
 \]
@@ -29,7 +29,7 @@ Consequently \(|\mathcal M_{m,n}|=A_{m,n}\) if \(n<2m\), \(B_{m,n}\) if \(n>2m\)
 -\frac{(2m)!}{2^m}.
 \]
 
-**Optimal-state reconfiguration.** Regard the vertex labels as fixed. The *unit-transfer graph* \(\mathcal U_{m,n}\) has vertex set \(\mathcal M_{m,n}\). Two arrays are adjacent if a single unit is removed from one cell carrying a positive label and deposited at one *different* cell carrying less than two units, with the new array again Roman \(\{2\}\)-dominating and of minimum weight. The transfer need not follow an edge of the underlying rook graph.
+**Unit-transfer theorem.** Regard the vertex labels as fixed. The *unit-transfer graph* \(\mathcal U_{m,n}\) has vertex set \(\mathcal M_{m,n}\). Two arrays are adjacent if a single unit is removed from one cell carrying a positive label and deposited at one *different* cell carrying less than two units, with the new array again Roman \(\{2\}\)-dominating and of minimum weight. The transfer need not follow an edge of the underlying rook graph.
 
 The graph \(\mathcal U_{m,m}\) consists of precisely \(m!\) isolated vertices. For every \(n>m\), the graph \(\mathcal U_{m,n}\) is connected. In the regime \(n>2m\), it is the \(m\)-fold Cartesian power of the multiset-pair graph \(T_n\): its vertices are size-two multisets drawn from \([n]\), and adjacency moves one occurrence of a symbol to another symbol. This supplies
 \[
@@ -59,7 +59,7 @@ r_i+c_j\ge2,
 \]
 because the row and column neighborhoods are disjoint and \(f(i,j)=0\).
 
-**Lower bound and extremal structures.** If some column \(j\) has \(c_j=0\), then every cell of that column is zero, whence \(r_i\ge2\) for each row \(i\). Thus \(w(f)\ge2m\). Otherwise every column has positive weight, giving \(w(f)\ge n\). Therefore \(w(f)\ge\min\{n,2m\}\).
+**Recap of the optimum classification [6].** If some column \(j\) has \(c_j=0\), then every cell of that column is zero, whence \(r_i\ge2\) for each row \(i\). Thus \(w(f)\ge2m\). Otherwise every column has positive weight, giving \(w(f)\ge n\). Therefore \(w(f)\ge\min\{n,2m\}\).
 
 Each family supplies feasible functions. In \(\mathcal A\), every row has positive weight and every column has weight \(1\), so at each zero cell \(r_i+c_j\ge2\); its total weight is \(n\). In \(\mathcal B\), every row has weight \(2\), and at each zero cell \(r_i+c_j\ge2\); its total weight is \(2m\). The claimed minimum follows.
 
@@ -101,11 +101,11 @@ Outputs of actual execution are provided in `italian_rook_check1.out` and `itali
 
 ## Relationship to prior work
 
-Chellali, Haynes, Hedetniemi and McRae introduced Roman \(\{2\}\)-domination and studied its foundational bounds, complexity and its relation to rainbow domination. Klostermeyer and MacGillivray subsequently developed relationships between Roman, Italian and ordinary two-domination. The relevant published material inspected did not provide the complete rectangular-rook minimizer and unit-transfer classification.
+Chellali, Haynes, Hedetniemi and McRae introduced Roman \(\{2\}\)-domination and studied bounds, complexity and its relation to rainbow domination. Klostermeyer and MacGillivray subsequently developed relationships between Roman, Italian and ordinary two-domination. Reference [6] gives the complete minimum-weight classification and exact counts for rectangular rook graphs, including the critical intersection at \(n=2m\). It determines the state sets used here, but does not analyze one-unit-transfer connectivity or distances.
 
-Varghese and Lakshmanan studied **perfect** Italian domination, which requires neighborhood weight *exactly* \(2\) at a zero, rather than *at least* \(2\). Their explicit calculation for Cartesian products of complete graphs, as read in their Theorem 2.4, does not imply the present weaker-condition phase diagram; for example the ordinary minimum on \(K_3\square K_4\) is \(4\), while their perfect variant has minimum \(6\). Davila and Krop studied Vizing-type lower bounds for weak-two domination on general Cartesian products, rather than the complete optimal label structures and swap geometry.
+Varghese and Lakshmanan studied **perfect** Italian domination, which requires neighborhood weight *exactly* \(2\) at a zero, rather than *at least* \(2\). For example the ordinary minimum on \(K_3\square K_4\) is \(4\), while their perfect variant has minimum \(6\) (Theorem 2.4). Davila and Krop distinguish Roman \(\{k\}\)-domination, which constrains only zeros, from \(\{k\}\)-domination, which requires the closed-neighborhood bound at every vertex; their general Cartesian product bounds do not address unit transfers.
 
-No claim is made that the terminology, the original parameter, or the general Roman \(\{2\}\)-domination framework is new. The proposed contribution is the **simultaneous** exact minimizer classification and the sharp behavior of the defined unit-transfer graph.
+The contribution is the exact connectivity threshold under unrestricted transfers, the product description for \(n>2m\), and the resulting metric and degree formulas. The connectivity argument supplies explicit legal paths within the onto-map family and at the critical union; these are not furnished by merely listing the optimum labelings.
 
 ## Limitations
 
@@ -120,3 +120,4 @@ The proof and the finite test files have been checked within a single mathematic
 3. J. Varghese and A. Lakshmanan S., *Perfect Italian Domination Number of Graphs*, Palestine Journal of Mathematics 12(1) (2023), 158–168; earlier public preprint arXiv:1910.12260.
 4. R. Davila and E. Krop, *On a Vizing-type integer domination conjecture*, arXiv:1708.01656 (2017).
 5. A. Almulhim, A. D. Akwu and B. AlSubaiei, *Survey on Roman \(\{2\}\)-Domination*, Mathematics 12 (2024), 2771.
+6. *Minimum Italian domination on rook graphs: exact optimizers and a sharp transition*, [published record](https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-minimum-italian-domination-on-rook-graphs-exact-optimizers-and-a--73393dbef1b4), Finding and proof of the optimizer classification.

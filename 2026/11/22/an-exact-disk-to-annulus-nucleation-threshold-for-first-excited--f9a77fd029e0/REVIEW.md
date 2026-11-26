@@ -1,19 +1,21 @@
-# Review of the first-excited wavelet observation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source wavelet normalization and Jacobi reproducing kernel are explicitly identified; the hyperbolic Jacobian, total wavelet energy, cumulative mass, two-lobe geometry and global bathtub comparison are derived in `RESULT.md`. The mask maximizer is unique even among nonradial fractional masks because threshold level circles have zero measure. The annular birth coefficients, distinct one-sided curvatures and parameter asymptotics follow from nondegenerate Taylor expansions and limiting root equations. Numerical checks (104 finite assertions) corroborate independently evaluated quadratures and boundary expansions but are not used as a substitute for the proof.
+PASS
 
-## Originality
+Abreu–Speckbacher Proposition 1, Eqs. (19)–(21), gives the unit-normalized self-transform by taking w=i in the kernel and removing its α/(4π) normalization, or directly by (21). The degree-one Jacobi polynomial gives 1−(α+2)u; the squared radial amplitude is (1−u)^(α+1) times its square. The Cayley area element integrates to 4π du/(1−u)²; differentiation of J_α and its endpoints verify the total energy 4π/α and the normalized mass. The derivative has exactly the stated inner zero node and outer nondegenerate maximum; the outer height bound is strictly below one. Strict superlevel area is continuous and strictly decreasing from infinite area to zero, and null level circles make the bathtub comparison unique even for fractional masks. The derivative of the optimal mass is the normalized common boundary level. For level deficit η, the two outer roots separate by 2√(2η/k_α)+O(η), weighted by 4π/(1−u_p)² in area; the inner displacement is η/|f'_α(u_*)|+O(η²). This gives the stated coefficients. Using √η as a smooth right-hand parameter yields zero right curvature, while the inner derivative is strictly negative on the left. At α→0 the limiting inner root is 1/3; at α→∞ uniform convergence in v=αu on [0,1] and strict monotonicity of e^(−v)(1−v)² give the claimed Lambert W root. At α=1 taking the positive square root on the inner branch gives the stated radicals. Read RESULT.md, VERIFICATION.md and check.py; the supplied finite script was inspected, not run. The analytic proof is decisive and does not extend to optimization over arbitrary input signals.
 
-**PASS, best-knowledge, with residual historical risk.** The exact first-excited wavelet kernel and the superlevel variational principle are previously known mathematical ingredients, **not** original contributions. The inspected primary paper [1] gives the Jacobi response but does not formulate the complete finite-area topological transition or its critical-area and non-\(C^2\) coefficients. The sharp Faber--Krahn theorem [2] treats an analytic (zeroth-order) wavelet and optimizes over both signals and sets; it does not settle the fixed first-excited response. The hyperbolic density and coherent-state literature [3,4] addresses sampling and operator geometry rather than the present area-budget frontier. The finite literature comparison is not a proof of priority; generic rearrangement principles might make this result accessible from published ingredients and specialized earlier accounts may exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The first Laguerre wavelet is the minimal higher-order case with a nodal pseudohyperbolic circle, so it is the natural first test of whether contiguous sensing remains optimal. The theorem answers that natural fixed-signal observation problem for every positive order parameter and every finite hyperbolic area, with **unique optimal shape, exact captured fraction, one precise topology transition, one-sided energy curvature, and an explicit nucleation rate**. This distinguishes the fixed excited wavelet from the analytic disk case; it is not a claim about the harder unrestricted higher-order Faber--Krahn problem. The complete sharp constants are useful for choosing observation masks and testing general concentration bounds.
+The response and normalizations are explicit specializations of prior Laguerre wavelet theory, and the bathtub principle is standard. The supported distinction is the complete topology, exact curvature change, birth laws, and parameter limits for the fixed first-excited self-response. The nearest optimized-signal Cauchy results concern a different window and a different optimization problem.
 
-## Prior work and limits
+## value
 
-The closest paper is Abreu--Speckbacher, *Donoho--Logan large sieve principles for the wavelet transform*, arXiv:2210.13056 (2022), especially its equations (20), (24)--(25). Ramos--Tilli, *A Faber--Krahn inequality for wavelet transforms*, arXiv:2205.07998, covers analytic windows with a different quantification. The result is for one fixed signal/window and not all inputs. Independent checking and a definitive historical-priority study have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nonanalytic Laguerre level is a natural setting to ask when a hyperbolic disk stops being optimal for a fixed state. The exact calculation answers that geometric question across all budgets: a second component appears with linear width while the old boundary shifts quadratically, and the optimal energy is not C². This supplies a quantitative boundary to disk optimality without overstating it as an operator-norm counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

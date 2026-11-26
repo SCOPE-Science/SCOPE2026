@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:45:22.478156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof, lines 38–63",
+        "Frozen VERIFICATION.md, lines 19–23; checks.txt, lines 1–4; verify.py, lines 8–66",
+        "/workspace/evidence/5/independent_two_eighths.py and recorded independent_two_eighths.out"
+      ],
+      "rationale": "For p odd and target a nonzero, the derivatives of X^8+Y^8-aZ^8 cannot vanish together in projective space over the algebraic closure. The smooth plane curve is geometrically integral (distinct components would meet) and has genus 21. The at-most-eight points on Z=0 leave at least p-7-42 sqrt(p) affine points by Hasse–Weil. At 1778 the squared margin (1778-7)^2-42^2*1778 is 49 with 1778-7 positive, and the unsquared lower bound increases for p>441. Thus the asserted large-prime range is covered with no gap above the census cutoff 1777. The target zero is immediate and F_2 has both elements as eighth powers. A separately written replay used trial-division primality, eight repeated modular multiplications for each x and a residue bitmap for all pairs of distinct power values as sets (including diagonal pairs). It checked all 275 primes through 1777 and exactly reproduced p:count = 5:3, 13:10, 17:5, 29:22, 41:21, 73:46, 89:56, 97:73, 113:85, 137:86, 233:204, 257:225, 337:295, 761:666. The replay checks the power-image size 1+(p-1)/gcd(8,p-1) in the three odd-prime branches, 769 primality, and compositeness of all integers between 761 and 769. This proves the least prime threshold. The uploaded verifier was inspected, not executed; the exact replay can be repeated with python3 /workspace/evidence/5/independent_two_eighths.py.",
+      "residual_risks": [
+        "The computation establishes residue-set cardinalities in prime fields, not ordered representation counts or a prime-power-field or ring threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arias–Borja–Anaya prove full two-power coverage for p>(k-1)^4; Small's theorem as reproduced by Bergelson–Best–Iosevich guarantees full coverage over fields of size q>(gcd(q-1,k)-1)^4. At gcd=8 these guarantee p>2401, not 769.",
+          "The same JIS paper treats the quartic branch explicitly. Its fourth-power result gives the exceptions with p=5 mod 8 by the equality of the fourth- and eighth-power subgroups there."
+        ],
+        "reasoning": "The general field theorems handle large fields but do not classify intermediate genuinely octic primes. A quartic theorem cannot exclude octic gaps at p=1 mod 8 where the octic subgroup is smaller.",
+        "searches": [
+          "Arias–Borja–Anaya (2023), Corollary 21 and Theorem 24",
+          "arXiv:2009.09518, Theorem 3 and following Remark",
+          "Podestá–Videla, Discrete Math. 344 (2021), 112324"
+        ]
+      },
+      "checked_sources": [
+        "Arias–Borja–Anaya, Corollary 21 and Section 6; Bergelson–Best–Iosevich, Theorem 3 and remark",
+        "Configured Resultary lookup of the octic claim and graph-diameter alias",
+        "Targeted OEIS lookup; A132215 and A132216 indexed definitions",
+        "Anaya thesis repository evidence and Podestá–Videla abstract/access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=17, the verified quartic count is 13 whereas the octic count is 5. Large-field bounds do not determine which intermediate primes fail or the size of their exceptional sets.",
+          "The 2020 text explicitly poses the largest failing field size at fixed degree as a follow-up question; it does not supply a sharp prime-field octic solution in the inspected part.",
+          "The exhaustive finite count supplies missing information not obtained by specializing the bounds; a general enumeration recipe alone is not an evaluated and certified census."
+        ],
+        "reasoning": "The main distinct information is the genuinely octic classification and its terminal prime, not the routine subgroup reduction or the existence of a finite search. The earlier thesis was located bibliographically but not read, so no statement about its contents is made.",
+        "searches": [
+          "Arias–Borja–Anaya (2023), Corollary 21, Theorem 24",
+          "arXiv:2009.09518, Remark immediately after Theorem 3",
+          "Anaya Ibáñez, Conteo de enteros representables como sumas de potencias k-ésimas módulo n, Universidad de Córdoba repository"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With H the set of eighth powers including zero, alpha_8(p)=|H+H|, so full coverage is exactly modular Waring number at most two.",
+          "For the additive Cayley graph with arcs of differences in H minus zero, alpha_8(p) is the size of the closed outward radius-two ball about 0; the coverage test is equivalent to directed diameter at most two, even when minus one is not an eighth power."
+        ],
+        "reasoning": "The sumset, diagonal congruence, and two-step graph reformulations detect equivalent coverage. Knowing the general diameter interpretation does not evaluate the diameter or the two-step ball size for these primes.",
+        "searches": [
+          "Resultary: Diameter of generalized Paley Cayley graph for octic residues over prime fields, Waring number g(8,p)>2, complete octic sumset exception counts, last exceptional 761 threshold 769",
+          "Arias–Borja–Anaya, JIS 23.8.1, modular Waring definition",
+          "modular Waring eighth powers prime fields two summands generalized Paley graph 761 769 exceptional primes degree eight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue hit checked is the assigned record itself; the related cyclic-octic conductor hit concerns modular residue sums for a subgroup at a composite modulus, not the cardinality of an additive twofold sumset in a prime field.",
+          "Theorem 24 reports quartic counts 3,10,22 at 5,13,29 respectively. The inspected adjacent classifications target other exponents.",
+          "OEIS A132215/A132216 concern sums as integers, not failures of residue coverage modulo a prime."
+        ],
+        "reasoning": "A self-match is not independent evidence, the verified quartic table is credited only for its three applicable cases, and integer representation sequences do not check the octic residue census. These are bounded database comparisons, not proof of absence.",
+        "searches": [
+          "Resultary: octic twofold sumset counts and exact prime cutoff 761/769",
+          "Arias–Borja–Anaya (2023), Section 6, Theorem 24, Theorem 25 and Proposition 27",
+          "site:oeis.org sum two eighth powers non-residues primes 17 41 73 89 97 113 137 233 257 337 761"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp prime-field octic classification, the eleven p=1 mod 8 obstructions and their counts, and the last obstruction at 761. The three quartic-branch exceptions and their counts are already known, and eventual coverage and the general geometric/counting methods are not new. The best relevant full texts inspected do not give the octic finite classification or its sharp threshold. The 2022 thesis and the unread portion of the 2021 graph paper remain access risks, not evidence of noncoverage.",
+      "residual_risks": [
+        "The Anaya thesis and full 2021 generalized-Paley paper were not accessible from the identified routes; an earlier equivalent exact table in them or elsewhere remains possible.",
+        "No inference of novelty is made from irrelevant search results, uninspected text, or the same-record catalogue hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the eventual bound and the three quartic exceptions; no full octic classification in the inspected statements",
+          "evidence": [
+            "Corollary 21 gives p>(k-1)^4 for two terms. Theorem 24 records quartic counts at 5,13,17,29. The nearby classifications are for fifth and sixth powers."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "Definitions and introduction; Corollary 21 and proof, printed p. 10, OA offset 25800; Section 6 around Theorem 24 and start of Theorem 25, OA offset 29900, and Proposition 27 passage",
+          "method": "Lawful OA primary PDF text",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Same cardinality invariant and explicit small-degree prime classifications"
+        },
+        {
+          "assessment": "General sufficient bound and explicit statement of the sharp-size problem, not a matching octic census",
+          "evidence": [
+            "Theorem 3 gives q>(gcd(q-1,d)-1)^4, including all finite fields. The remark asks for the largest failing field size at fixed degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.09518",
+          "material_read": "Theorem 3, proof and immediately following remarks, PDF p. 4, OA offsets 17615 and 18180",
+          "method": "Lawful OA primary PDF text",
+          "title": "Sums of Powers in Large Finite Fields: A Mix of Methods",
+          "trigger": "Closest general theorem with the same two-summand finite-field coverage quantifier"
+        },
+        {
+          "assessment": "Potentially covering, contents unverified",
+          "evidence": [
+            "The institutional index confirms Samuel Enrique Anaya Ibáñez, title, and year 2022. The fetched challenge page is not evidence of the theorem contents."
+          ],
+          "identifier_or_url": "https://repositorio.unicordoba.edu.co/items/0fd1b90a-c217-4d18-b41f-66402a64753c",
+          "material_read": "Indexed repository author/listing and item metadata; no thesis text obtained",
+          "method": "Targeted title and author retrieval; official repository landing led to an access challenge; no identified OA alternate full text found",
+          "title": "Conteo de enteros representables como sumas de potencias k-ésimas módulo n",
+          "trigger": "Earlier thesis with the same invariant and a coauthor of the 2023 paper"
+        },
+        {
+          "assessment": "Confirmed related equivalence from the abstract; no claim made about uninspected classifications",
+          "evidence": [
+            "The abstract identifies the Waring number with generalized Paley graph diameter. That equivalence alone does not imply the octic table."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0012365X21000376",
+          "material_read": "Indexed public abstract and bibliographic entry in arXiv:2604.06513v1 references; publisher full text not read",
+          "method": "Primary-paper lookup and lawful OA direct/alternate retrieval routes; publisher inaccessible",
+          "title": "The Waring's problem over finite fields through generalized Paley graphs",
+          "trigger": "Graph-diameter formulation of exactly the same modular Waring predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Hasse–Weil proof",
+        "/workspace/evidence/5/independent_two_eighths.out",
+        "Bergelson–Best–Iosevich, Remark after Theorem 3"
+      ],
+      "rationale": "The largest exception for a fixed exponent is a natural question explicitly raised in the two-power coverage literature. For the prime-field case at exponent eight, the result gives the sharp onset of permanence and all genuinely octic exceptions with exact coverage deficits. The theorem combines a certified universal cutoff and an exhausted finite complement, rather than proposing a table from sampled primes. Its specific finite counts are useful independently of a new general method, and the already-known quartic branch is not credited as a new contribution.",
+      "residual_risks": [
+        "The classification leaves prime-power fields and other exponents outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

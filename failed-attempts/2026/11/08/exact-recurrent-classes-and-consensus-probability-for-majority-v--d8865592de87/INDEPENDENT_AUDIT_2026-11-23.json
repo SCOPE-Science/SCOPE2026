@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:14:38.877817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two leaves of an edge determine its majority if they agree, so a locked pair cannot unlock; if they disagree, the first ring locks them to the current hub opinion without moving the hub. Consequently the leaf-freezing time is the maximum of m independent Exp(1) first-ring times. Integrating the survival function gives sum_{j=1}^m 1/j (or zero if m=0). Once frozen, a mixed-color pattern has exactly the two hub states, with rates b' and a' and stationary A weight a'/k. A uniform pattern reaches its unique absorbing state. Mixed-pair configurations are transient since a mixed edge rings almost surely and the reverse change is impossible. If the hub opposes the only initially locked color, consensus is decided by the first ring among the locked and mixed edges, with probability a/k or b/k as applicable; all other cases follow by locking. Averaging over the iid start gives the displayed expression, including q=0,1 and q=1/2. An independently written literal three-bit majority enumerator checked the rates with multiplicities, terminal SCCs, exact Bellman absorption equations for all 2728 states through k=5 and exact iid polynomial coefficients, not just sampled q values. There were 2,4,8,16,32 terminal SCCs; the k=5 probabilities split as 1140 zero, 488 one and 420 strictly fractional. Replay: replay/3_hyperstar.py. Finite evidence only; the sample-path argument proves all k. Uploaded script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 record reports every-initial-state classification and exact two-color consensus and persistent-disagreement dynamics with arbitrary positive selection weights.",
+          "Lanchier–Neufer use a general hypergraph generator, then specialize their main results to lattice blocks; this source is model coverage rather than the decisive specialized prior result."
+        ],
+        "reasoning": "Setting every weight equal recovers the absorption law for each fixed starting state. For a persistent pair pattern with both colors, the two possible hub values communicate because all weights are positive; every pattern is already attainable as an initial frozen pattern. Counting patterns gives the class census, with the two uniform patterns instead giving consensus.",
+        "searches": [
+          "October 18 Resultary record 1cd845592cb1; Lanchier–Neufer arXiv:1301.0151"
+        ]
+      },
+      "checked_sources": [
+        "Resultary weighted sunflower 1cd845592cb1",
+        "Lanchier–Neufer arXiv:1301.0151v1 Eq. (2) and pp. 4–5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The index describes exact conditional consensus by final color and weighted persistent disagreement. Its literal formulas were not inspected because the full text could not be retrieved.",
+          "The independent-clock law supplies the freezing-time order statistic as soon as pairs lock at their first update."
+        ],
+        "reasoning": "The same transition map and equal weights transfer all fixed-state absorption results. For initially A hub, B consensus requires no AA pair and first selected pair BB, giving (1-q)^2(1-q^2)^(k-1) by iid petals; A consensus requires no BB pair. Reverse colors and average over the hub to recover the bias-dependent formula. Likewise, counting opposite-colored locked edges gives the CTMC rates directly. No inference that the prior text literally prints the biased formula or the leaf-freezing CDF is needed.",
+        "searches": [
+          "Resultary 1cd845592cb1 with equal group-selection weights; independent-clock embedding of arXiv:1301.0151 Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1cd845592cb1 explicitly reports 3-person majority groups with one shared hub, exact consensus probabilities and persistent disagreement for positive group-selection weights, and the law (3/4)^(k-1).",
+          "Lanchier–Neufer Eq. (2), pp. 4–5: whole-hyperedge majority at independent rate-one rings; no ties for triples."
+        ],
+        "reasoning": "A sunflower of disjoint leaf pairs and a loose 3-uniform hyperstar are the same hypergraph. Superposition gives rate k and iid uniform ring labels, so the discrete and continuous chains have the same visited states, including when one ignores null events. Single-site majority is a different process.",
+        "searches": [
+          "Resultary: exact consensus recurrent classes uniform hypergraph majority group adoption loose hyperstar sunflower two leaves one hub",
+          "arXiv:1301.0151 Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published index gives an exact all-size formula (3/4)^(k-1), not a numerical table."
+        ],
+        "reasoning": "That formula already covers the most prominent quantitative special case. Exact finite SCC/absorption enumeration is validation only.",
+        "searches": [
+          "Resultary loose hyperstar / weighted sunflower exact majority consensus query"
+        ]
+      },
+      "rationale": "The October 18 Resultary record reports the same simultaneous majority on triples sharing just one hub, and a strictly broader arbitrary-positive-weight theorem for every initial state, both consensus colors and persistent disagreement. The unbiased law is explicitly identical. Equal-rate Poisson clocks have the same ordered edge sequence as uniform independent choices; the continuous-time formulation changes the clock, not hitting or communication. The additional biased-iid average, rate normalization and leaf-freezing order statistic are direct consequences, not an independently substantive surviving claim.",
+      "residual_risks": [
+        "The October 18 full text was not retrievable; its index is sufficient for the explicit coverage, but not for a line-by-line attribution of every formula. Public literature query unavailable; this is not negative search evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit same unbiased formula and stated broader per-state consensus/disagreement theorem",
+          "evidence": "Index specifies three-person groups sharing one hub, arbitrary positive weights, exact two-color consensus for every initial state, perpetual-disagreement dynamics and coupon-collector consensus times.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-consensus-and-persistent-disagreement-law-for-weighted-maj--1cd845592cb1",
+          "material_read": "Published title and mathematical index statement; repository/full-text routes unsuccessful",
+          "method": "Compared explicit quantified results and embedded jump chains; no inference about uninspected wording",
+          "title": "Exact consensus and persistent-disagreement law for weighted majority-rule sunflowers",
+          "trigger": "Identical triple-majority sunflower, with more general positive weights"
+        },
+        {
+          "assessment": "Includes the exact rule as a general framework; the excerpt's spatial results are not a loose-star classification",
+          "evidence": "Eq. (2) and following text specify simultaneous majority at independent unit-rate Poisson times and then restrict to overlapping lattice blocks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.0151",
+          "material_read": "arXiv v1 PDF introductory model and Eq. (2), pp. 1–5, and beginning of the spatial analysis",
+          "method": "Read generator, clock semantics, and change to lattice-block hypotheses",
+          "title": "Stochastic dynamics on hypergraphs and the spatial majority rule model",
+          "trigger": "Prior primary mathematical source for exactly the continuous-time whole-edge rule"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The persistent-disagreement example and exact law are valuable as mathematics, but they are not a new benchmark in this frozen record. Equal-weight specialization plus continuous-time clock embedding, a one-step iid product average and an elementary exponential order statistic do not constitute a separate motivated scientific advance. No repair is justified by the record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

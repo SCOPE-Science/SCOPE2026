@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:05:41.838096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to repairs/4/RESULT.md, not to the frozen definition. Frozen RESULT.md line 26 uses (x_i,x_5,x_6) with x_6=x_0. With that definition the distance is six iff the two words differ in their (x_0,x_5) pair: otherwise two windows certainly agree. Thus its true maximum is four, with 16^4=65536 labeled maxima, and the full dihedral action need not preserve admissibility. The replacement uses consecutive cyclic triples (x_i,x_{i+1},x_{i+2}), as in the frozen proof and programs, and specifies pair-distance five in the comparison. Every window projection must then be injective; the eight words abcabc attain the bound. The independent replay (branches/b14a181c-550e-434d-8163-b4e6fcc9fe43/record4_independent_check.py and .out) checked all 4096 ordered word pairs by two definitions, enumerated all eight-cliques, and reproduced 776 maxima, 232 affine and 544 nonaffine, with all ten stated orbits and stabilizers. In the two size-96 orbits, one is affine and one is not. Translating by a codeword reduces the affine test to closure under addition, and translations and dihedral window permutations preserve compatibility. The difference from d_pair>=5 consists exactly of the three cyclic masks 001001, with 32 unordered pairs per mask. The other package files already concern consecutive triples and did not require replacement; the frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Singleton bound and linear MDS existence at q>=b-1, b>=3, n>=2b apply here.",
+          "The closely related three-symbol record fixes the same alphabet, length and metric but requires d_3>=5, with a 76-code equality layer at size 16."
+        ],
+        "reasoning": "Neither general linear attainment nor a different size layer in a weaker compatibility graph classifies all size-eight codes with d_3=6.",
+        "searches": [
+          "Ding–Zhang–Ge, arXiv:1609.09236, Theorems 2.4 and 3.13",
+          "Resultary binary length-six three-symbol MDS: dd85fab75c15, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record package, including RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "repairs/4/RESULT.md",
+        "independent exhaustive replay and its output",
+        "Resultary dd85fab75c15 and b85d4564f4fb",
+        "arXiv:1609.09236",
+        "DOI 10.1109/TIT.2016.2522434 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorems entail A=8 via upper bound plus linear attainment; they do not constrain arbitrary equality cases to be linear or specify all such cases.",
+          "The d_pair>=5 size-eight catalogue determines a proper subfamily; its affine rigidity cannot extend to the entire d_3=6 layer, in which 544 maxima are nonaffine."
+        ],
+        "reasoning": "The distinct axis is an exact unrestricted equality classification, not the numerical maximum or a parameter substitution into an existing catalogue.",
+        "searches": [
+          "arXiv:1609.09236, Theorems 2.4 and 3.13",
+          "Resultary dd85fab75c15 and b85d4564f4fb actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard consecutive-window distance is the one of Ding–Zhang–Ge; at full distance the equivalent equality problem is bijectivity of all six consecutive window projections.",
+          "Pair-distance-five is a strictly stronger pairwise predicate in this length-six comparison: a triple agreement forces two pair agreements, while masks 001001 and its rotations witness the strict difference."
+        ],
+        "reasoning": "Neither the fixed-anchor frozen typo nor the ordinary pair metric supplies an equivalent census. The repaired code condition is invariant under the indicated subgroup and concerns exactly the standard three-symbol reads.",
+        "searches": [
+          "Resultary binary length-six three-symbol equality census, exact 776 count and affine/dihedral formulations",
+          "arXiv:1609.09236, §2",
+          "Resultary b85d4564f4fb, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dd85fab75c15 gives 76 codes at d_3>=5, and b85d4564f4fb gives 32 affine codes at d_pair>=5; both were checked against the actual metric and threshold in their Findings.",
+          "The primary MDS source passages give a bound and a construction, not a table at this unrestricted equality layer."
+        ],
+        "reasoning": "The returned precise small-parameter counts refer to distinct metric thresholds. Search failure to find a 776 entry is not evidence that no table exists.",
+        "searches": [
+          "Resultary exact 776 and binary consecutive-window length-six queries",
+          "Resultary binary length six cyclic symbol-pair read code minimum pair distance 5 MDS exact census 32 maxima all affine",
+          "Ding–Zhang–Ge arXiv:1609.09236, pp. 4 and 13"
+        ]
+      },
+      "rationale": "For the repaired consecutive-window claim, the bound and linear attainment are prior. The scientifically distinct claim is the complete census of arbitrary codes at binary n=6 and d_3=6, with affine split and translation-dihedral classification. No covering census was established by the bounded comparison.",
+      "residual_risks": [
+        "The cited original channel article was not inspected in full text; a matching small-instance classification in it or an unindexed source cannot be excluded.",
+        "The group checked is only the stated translation-dihedral subgroup, not the full isometry group."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes bound and linear attainment, not arbitrary-code census in inspected material",
+          "evidence": "Thm 2.4 gives q^(n-d_b+b); Thm 3.13 gives linear existence at q>=b-1, b>=3, n>=2b.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.09236",
+          "material_read": "p. 4 text offset 9519 around Theorem 2.4; p. 13 offset 44417 around Theorem 3.13",
+          "method": "lawful open PDF passage inspection",
+          "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+          "trigger": "same metric, bound and dominating linear MDS existence theorem"
+        },
+        {
+          "assessment": "different equality layer",
+          "evidence": "Consecutive windows, d_3>=5, maximum 16, with 76 maxima (44 affine), orbit sizes 4,4,12,24,32.",
+          "identifier_or_url": "2026/10/12/SCOPE-equality-case-census-for-binary-length-six-three-symbol-mds-code--dd85fab75c15",
+          "material_read": "RESULT.md at offset 0, metric, cutoff and Finding",
+          "method": "local Resultary mirror",
+          "title": "Equality-case census for binary length-six three-symbol MDS codes",
+          "trigger": "strongest indexed same-metric census"
+        },
+        {
+          "assessment": "same size, strictly stronger pair admissibility condition",
+          "evidence": "d_pair>=5 gives exactly 32 maxima, all affine and one orbit; the present admissibility predicate has 96 additional unordered edges.",
+          "identifier_or_url": "2026/10/13/SCOPE-affine-rigidity-of-binary-length-six-mds-symbol-pair-codes--b85d4564f4fb",
+          "material_read": "RESULT.md offset 0 through 2838, Finding, assumptions and enumeration proof",
+          "method": "local Resultary mirror",
+          "title": "Affine rigidity of binary length-six MDS symbol-pair codes",
+          "trigger": "same length, size-eight optimum and symmetry action, nearby read model"
+        },
+        {
+          "assessment": "unresolved full-text comparison, not evidence of absence",
+          "evidence": "The citation supplies original-channel context, not a verified classification at these parameters.",
+          "identifier_or_url": "doi:10.1109/TIT.2016.2522434",
+          "material_read": "bibliographic identification only; no primary full-text passage retrieved",
+          "method": "bounded lawful open text retrieval attempt",
+          "title": "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+          "trigger": "original channel model and potentially relevant constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the shortest length on which six three-symbol disagreements are possible. The equality layer describes every eight-word set with simultaneous bijective cyclic three-window projections. It measures the abundance and orbit complexity of nonaffine equality cases beyond known linear attainment, and it provides an exact contrast with the closely related affine-rigid pair-read problem. These features motivate the precise finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

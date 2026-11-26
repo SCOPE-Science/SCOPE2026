@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:24:34.433990Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The asserted formulas and extremizer families are true. In RESULT.md 32–45, greedy complete-alphabet blocks give a unique half-word decomposition. Each block ends in its previously missing letter; deleting that last letter gives exactly a remainder missing one letter, so S=A/y. Arbitrary incomplete remainders have series R by inclusion-exclusion. For half H with t arches, let m be the sequence of their last letters. The earliest embedding of m and the rightmost embedding of its reverse bound the intervening letters to R R^rev or R c R^rev, where R here denotes the literal remainder. A missing letter gives an absent length-(2t+1) witness if that interior is incomplete; if the center fills its unique missing letter c, the interior has only one c, so m c c m^rev is absent. The separate full-alphabet blocks supply the matching lower bounds, also at t=0. The extremal proof's line 47 overstates the condition on the remainder of an odd host of index at least 2t+1: it applies only with exactly t half-arches. With t+1 or more the odd host already has length at least 2q(t+1)+1, exceeding the claimed optimum. With exactly t the missing-letter condition forces q−1 residual positions and the equality classification follows; the even/odd competing parity bounds are strict as stated. This local proof slip does not invalidate the result. Independent bounded replay: python3 /workspace/branches/independent_math_checks.py, computing the index by a first-match suffix recurrence and comparing the whole histograms for q=2,3,4 through lengths 15,11,9, respectively. The uploaded verifier was inspected, not run; finite histograms are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barker et al. prove the even and odd index rule for each individual palindrome. Adamson counts unrestricted arch blocks and gives unrestricted universal-word enumeration (including Theorem 3.9). The Simon-congruence article treats a related factorization, not this distribution."
+        ],
+        "reasoning": "The word-level characterization is stronger than a histogram once coupled with complete-arch counts. Unrestricted k-universal totals by themselves are not a palindrome census; the arch enumerator and palindrome proposition together suffice.",
+        "searches": [
+          "arXiv:2003.04629v1, Section 4 Proposition 3",
+          "arXiv:2304.04583, Sections 3.1–3.2",
+          "arXiv:2306.14192"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ee2a2eecfdda",
+        "Resultary 44aefab7f7c9",
+        "arXiv:2003.04629v1",
+        "arXiv:2304.04583",
+        "arXiv:2306.14192"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the known complete-arch series A, all words uniquely consist of a sequence of arches followed by one incomplete remainder, so R=(1−A)/(1−qy). Appending the unique missing letter gives a bijection with a complete arch, so S=A/y. Barker's parity rule then gives the numerator by awarding u rather than 1 to exactly one center for each singly deficient remainder."
+        ],
+        "reasoning": "Geometric summation of the arch series with weight u² gives the frozen distribution without a new counting identity. The shortest even case needs t minimal q-letter blocks on the half; in the shortest odd case with exactly t arches, the residual half uses q−1 distinct letters and the center is the missing letter. Equality and the q! choices per block/center are direct.",
+        "searches": [
+          "Barker et al., Proposition 3",
+          "Adamson, arch enumeration in Section 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror's even and odd half-length series are E=R/(1-u²A) and O=[qR+(u−1)S]/(1-u²A), with the same labeled alphabet, remainder conditions and subsequence invariant."
+        ],
+        "reasoning": "The frozen P is exactly E(z²,u)+zO(z²,u). This is demonstrable duplicate coverage of the distribution, not an inference about either record's priority. The mirror does not explicitly list the shortest-host classification.",
+        "searches": [
+          "Resultary: ordinary palindrome subsequence-universality index by half-word, length and parity",
+          "2026/11/8/SCOPE-exact-universality-index-distributions-of-palindromic-words-over--ee2a2eecfdda/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ee2a2eecfdda explicitly gives all ordinary even/odd coefficients by its rational series; 44aefab7f7c9 concerns the adjacency-distinct subclass only."
+        ],
+        "reasoning": "Separate series already encode exactly the same coefficients, not merely selected lengths or binary cases. The restricted adjacency record does not subsume ordinary palindromes.",
+        "searches": [
+          "Resultary: full exact index distribution of ordinary palindromes, all alphabet sizes",
+          "Resultary record ee2a2eecfdda",
+          "Resultary record 44aefab7f7c9"
+        ]
+      },
+      "rationale": "The all-length series is exactly the combination of the two parity distributions in a distinct Resultary record. Its displayed later date is not evidence of earlier publication or derivation, so that match alone is not the reason for historical rejection. Independently, the exact all-length claim is a routine specialization of the published palindrome-index characterization and complete-arch enumerator; the extra shortest-host assertions are the immediate minimum-length equalities in that same characterization. No distinct mathematical remainder is established.",
+      "residual_risks": [
+        "The Resultary date does not establish priority or derivation.",
+        "The primary keyword lookup was unproductive and is not evidence of absence. The decision is on known implications and the exact catalogue comparison, not an exhaustive literature history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact distribution overlap; explicit extremizer census not stated; priority not inferred",
+          "evidence": "E and O above, with ordinary labeled palindromes and the same center-upgrade rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-universality-index-distributions-of-palindromic-words-over--ee2a2eecfdda/RESULT.md",
+          "material_read": "RESULT.md findings and derivation, including the ordinary even/odd formulas",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact universality-index distributions of palindromic words over finite alphabets",
+          "trigger": "Same object, exact index and both parities"
+        },
+        {
+          "assessment": "Restricted object, not ordinary palindrome coverage",
+          "evidence": "Requires adjacency-distinct palindromes.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-universality-index-distribution-of-adjacency-distinct-pali--44aefab7f7c9",
+          "material_read": "Indexed subject and restriction",
+          "method": "Resultary lookup",
+          "title": "Exact universality-index distribution of adjacency-distinct palindromes",
+          "trigger": "Closely matching distribution terminology"
+        },
+        {
+          "assessment": "Contains the essential palindrome theorem",
+          "evidence": "From the half-word arch count t, the even index is 2t and the odd index is 2t+1 exactly when the remainder alphabet plus center covers the full alphabet.",
+          "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+          "material_read": "Section 4 Proposition 3, reader offsets 47164–50647",
+          "method": "OA primary HTML by passage",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Claimed prior palindrome-index formula"
+        },
+        {
+          "assessment": "Related arch counts and unrestricted enumeration",
+          "evidence": "Fixed-length counts by arch components; Theorem 3.9 concerns unrestricted words.",
+          "identifier_or_url": "https://arxiv.org/html/2304.04583",
+          "material_read": "Sections 3.1–3.2, offsets 15375–20543 and 28750–30736",
+          "method": "OA primary HTML by passage",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Prior exact arch enumeration"
+        },
+        {
+          "assessment": "Related method; inspected passages do not give this palindrome histogram",
+          "evidence": "The discussed classification concerns alpha-beta factorization and Simon equivalence.",
+          "identifier_or_url": "https://arxiv.org/html/2306.14192",
+          "material_read": "Scope and factorization discussion, offsets 3970–6952",
+          "method": "OA primary HTML by passage",
+          "title": "alpha-beta Factorization and the Binary Case of Simon's Congruence",
+          "trigger": "Alternate factorization and subsequence equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distribution is useful as a compact reference for symmetric subsequence hosts, but the offered increment is the direct bookkeeping of a known word-by-word parity rule with the ordinary arch enumerator, and the extremizers are its immediate least-size cases. No new structural or enumerative work survives as a separate valuable claim. Correcting the local extremal proof sentence would not change that judgment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

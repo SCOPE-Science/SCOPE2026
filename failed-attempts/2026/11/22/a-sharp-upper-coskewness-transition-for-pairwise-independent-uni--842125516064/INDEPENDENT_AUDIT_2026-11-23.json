@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:27:05.680837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform line margins 1/9 characterize feasibility on the 27 ordered triples. I checked the ten symmetric slack types of the pair-potential certificate: in particular, on 1<t<=2 the 022, 111 and 112 slacks are t^2(t-1)/2, t^2(3-t)/2-1, and t(t-1)(2-t)/2, with 122 tight; on t>=2 they are t(t^2-1)/3, t-1 and zero, with 122 slack t(t-1)(t-2)/3. Thus the certificate is valid, and its expectation is (2d+t^3/3)/3 from the three uniform pair margins. The two Latin maps preserve each pair margin and yield the stated objectives. On the lower open branch, each (1,1) pair exhausts its mass in its only tight extension with remaining digit zero; these atoms exhaust the (0,1) pair margins. The (0,0) and (1,2) margins then force types 002 and 122, excluding any 222 mass and fixing the entire law. Above two, every (2,2) pair must extend to 222. At equality mixtures supply the full interval of top mass, with the universal upper endpoint 1/9 from a pair margin. Centering subtracts exactly mu^3 using pairwise independence. The verifier and reported 1136 finite checks were inspected, not executed; the symbolic certificate is sufficient, and the independent vertex comparison below additionally recovers the continuum claim and rigidity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linial–Luria §1.2.1 explicitly gives a nonintegral order-three vertex and proves its extremality; line relabelings preserve the constraints and extremality. The Latin line-permutation arrays are integral vertices. Zhang–Zhang p. 4 gives the exact count 66, 12 integral and 54 nonintegral; Li–Zhang–Zhang p. 7 likewise reports 66.",
+          "Gvozdev–Kolesnikov Theorem 4.1 addresses dyadic scores on continuous uniforms; Gladkov–Kolesnikov–Zimin's inspected discrete product example is binary. These are adjacent comparisons, not the source of dominating coverage."
+        ],
+        "reasoning": "The order-three classification recovered from the two orbits is strictly stronger than knowledge of the optimum for a specified product cost: it evaluates any linear cost via its vertex values, including the present family. The continuous dyadic and binary product results do not give that classification for ternary scores.",
+        "searches": [
+          "arXiv:1208.4218 order-three fractional vertex and line stochastic arrays",
+          "arXiv:2008.04655 orbit/census data; arXiv:1702.04288 p. 7",
+          "arXiv:2611.20365 Theorem 4.1",
+          "arXiv:1803.10447 pp. 2, 4–5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1208.4218 §1.2.1, p. 4",
+        "arXiv:2008.04655 p. 4; arXiv:1702.04288 p. 7",
+        "Fischer–Swart (1985), bibliographic and access check",
+        "arXiv:2611.20365 Theorem 4.1 and arXiv:1803.10447 pp. 2,4–5",
+        "Resultary identical assigned record",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all 26 profiles, subtract their cubic from 6t^2 on the first branch; substitute t=(1+2w)/(1+w), w>0, and multiply by (1+w)^3. Direct integer multiplication yields nonnegative coefficients in every case, all zero only for 0060. On the other branch subtract from 2t^3+4t and substitute t=2+w, w>0; coefficients are nonnegative, all zero only for 0402. At t=2 the equality profiles are exactly 0060 and 0402. This is an exact sign test over the entire intervals, not a sample of t.",
+          "The maximizing exposed face is the convex hull of the maximizing vertices. Its single lower-branch vertex has c3=0; above two the three vertices have c3=2, hence all-top probability 2/18=1/9. At the tie the top-mass coordinate interpolates between these endpoints."
+        ],
+        "reasoning": "The claimed upper envelope, uniqueness, forced top atom and transition interval all follow by finite deterministic evaluation of the explicitly recoverable vertex data. This establishes covered content even though the inspected papers neither form this particular cost nor discuss the application to centered moments.",
+        "searches": [
+          "arXiv:1208.4218 §1.2.1 array and vertex proof; arXiv:2008.04655 p. 4 exact census; objective and face read-off from both orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary feasible polytope in the frozen record is exactly the line-stochastic order-three Birkhoff polytope: scaling p by nine gives all line sums one, with no other constraints. The centered moment is the same optimization up to a fixed additive constant.",
+          "The local direct match 2026/11/22/SCOPE-a-sharp-upper-coskewness-transition-for-pairwise-independent-uni--842125516064 is the assigned record itself and was not used as earlier independent coverage."
+        ],
+        "reasoning": "This is exact feasible-set equivalence, not similarity of a tensor or coskewness keyword. The all-top event is the (2,2,2) entry divided by nine under this transformation. The vertex data of the exact same polytope apply to the objective and optimizer constraints.",
+        "searches": [
+          "Resultary: uniform ternary pairwise-independent upper coskewness / variable-gap Latin optimizer",
+          "arXiv:2008.04655 p. 4, line-stochastic polytope definition",
+          "arXiv:1208.4218 §1.2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Replay: use integer arrays scaled by two. The published fractional representative has three slices with row strings (200,011,011), (011,110,101), (011,101,110). For the integral representative use 2 at i+j+k=0 mod 3 and zero elsewhere. Independently permute i,j,k over all six permutations each and deduplicate each orbit by its flattened array. The counts are 54 and 12, respectively, which exhaust the published census; every generated array remains a vertex.",
+          "For each array, collect weighted occupancy counts c0,c1,c2,c3 for entries with no zero digit and with respectively zero, one, two and three digits equal to 2. The objective is (c0+c1 t+c2 t^2+c3 t^3)/18. The 20 fractional profiles are 1030,0301,1230,1311,0321,1131,0230,0221,1211,1121,1220,0320,2030,2031,0401,0411,1040,1140,0302,1302. The six integral profiles are 2002,0220,0402,0600,0060,2040. Profile 0060 has one representative, and 0402 has three; none of the other profiles shares either closed-branch optimum at t=2."
+        ],
+        "reasoning": "The published count by itself does not encode objective values, but together with the explicit published fractional example and the permutation symmetry it yields the actual full 66-point vertex list, with no new extremality or enumeration theorem needed. The profile tally is a projection of those exact data, not an assumption that all optimizers are Latin.",
+        "searches": [
+          "3x3x3 tristochastic polytope 66 vertices 54 fractional Fischer Swart three dimensional line stochastic exact list 3 Latin squares",
+          "Linial–Luria arXiv:1208.4218 p. 4 and Zhang–Zhang arXiv:2008.04655 p. 4"
+        ]
+      },
+      "rationale": "The published vertex census for the exact normalized feasible polytope, combined with a published order-three fractional vertex and the usual Latin vertices, recovers its entire vertex set by independent label permutations. The two coefficient envelopes and optimizer assertions are mechanically implied by these verified stronger data: the two orbits have 54 and 12 points and exhaust the reported 66. This is not a judgment from the census count alone, not a claim that the earlier papers state the threshold verbatim, and not a judgment from a failed fetch. The direct dual certificate is a valid alternative proof but does not make the tested statement distinct from the exact data consequence.",
+      "residual_risks": [
+        "Whether the 1985 primary source itself presents all orbit representatives or an objective table is unverified because the identified lawful copies did not open. The implication here does not rely on that assumption.",
+        "No claim is made that a prior author explicitly verbalized the transition or gave this particular dual certificate. The verdict is supported by reconstruction from verified stronger data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the fractional representative and its proof of extremality; its relabelings supply all 54 nonintegral vertices when combined with the separate published census",
+          "evidence": [
+            "The displayed order-three vertex has one entry 1 and sixteen entries 1/2, with the three slices transcribed in the replay.",
+            "The proof checks the graph of half-entries is connected and nonbipartite; the surrounding text identifies the integral Latin vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.4218",
+          "material_read": "§1.2.1, PDF p. 4, offsets 8880–10909; definition and context in preceding passage",
+          "method": "Lawful primary PDF, locate example then read bounded array and proof",
+          "title": "On the vertices of the d-dimensional Birkhoff polytope",
+          "trigger": "Exact same order-three feasible polytope; seek actual nonintegral vertex data beyond a count"
+        },
+        {
+          "assessment": "Actual count 66 for L_3, including integral/nonintegral split. With the independent orbit data this proves exhaustion; the census passage itself does not list the points.",
+          "evidence": [
+            "The line constraints are the three families of unit line sums.",
+            "The published split is 12 (0,1)-type and 54 non-(0,1)-type vertices containing halves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.04655",
+          "material_read": "PDF p. 4, offsets 10300–12556, equations (1)–(2) and preceding count; reference [14], p. 11 around offset 32394",
+          "method": "Lawful PDF, bounded census and feasible-set passage",
+          "title": "Enumerating extreme points of the polytopes of stochastic tensors: an optimization approach",
+          "trigger": "Exact order-three line-stochastic census; distinguish counts from representatives"
+        },
+        {
+          "assessment": "Different dyadic score class; does not supply the ternary result",
+          "evidence": [
+            "The cited optimal plan is on the Sierpinski tetrahedron for a dyadic-score formulation on uniform continuous marginals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.20365",
+          "material_read": "Abstract and §2 (PDF pp. 1,4), Theorem 4.1 (p. 9; offset near 26900)",
+          "method": "Lawful primary PDF bounded passage comparison",
+          "title": "On Pairwise Independent and Strongly Correlated Random Variables",
+          "trigger": "Same product optimization for pairwise independent observations"
+        },
+        {
+          "assessment": "Provides mathematical context, not the variable-gap order-three optimal face",
+          "evidence": [
+            "The discrete product example on the binary cube uses two parity-supported laws; it does not give the nonintegral order-three vertex orbit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.10447",
+          "material_read": "PDF p. 2 Latin connection near offset 7640 and pp. 4–5 binary product example near offset 13600",
+          "method": "Lawful primary PDF bounded passage comparison",
+          "title": "On multistochastic Monge–Kantorovich problem, bitwise operations, and fractals",
+          "trigger": "Prior finite/Latin connection and product-cost exact cases"
+        },
+        {
+          "assessment": "Original priority details unresolved; this access limitation is not the basis of the decision",
+          "evidence": [
+            "The count is independently available as a published statement in the later sources, and the explicit orbit seed is available in Linial–Luria."
+          ],
+          "identifier_or_url": "https://www.academia.edu/27103248/Three_dimensional_line_stochastic_matrices_and_extreme_points",
+          "material_read": "Verified bibliographic citation in arXiv:2008.04655 reference [14]; original text unavailable from identified copies",
+          "method": "Lawful alternate-copy attempts including Academia and CORE encountered HTTP 403",
+          "title": "Three dimensional line stochastic matrices and extreme points",
+          "trigger": "Original exact census reference by Fischer and Swart, Linear Algebra Appl. 69 (1985), 179–203; may include explicit complete list"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Uniform ternary dependence is a natural first nonbinary problem, and the elementary dual certificate is informative as an explanation. But the claim under review is this one exact comparison and its optimizer rigidity, not a new dual method or a general score theorem. Every asserted exact fact is a profile and exposed-face read-off from the full vertex data recoverable from published results. Under the narrow exact-result standard this is a useful recasting of existing information, not a surviving research gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

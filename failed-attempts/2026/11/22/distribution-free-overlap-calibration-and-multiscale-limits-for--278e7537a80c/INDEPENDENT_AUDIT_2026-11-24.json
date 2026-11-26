@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:47:08.762060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–92, with independent reconstruction of the cyclic local-minimum and rare-pattern estimates",
+        "Frozen VERIFICATION.md and verify.py (inspected only): finite exact rational checks of moments and distributions, not a limit proof"
+      ],
+      "rationale": "On each size class the label action is transitive, so independent exchangeable matchings become independent uniform matchings given their sizes. Counting completions of r prescribed disjoint edges in size b gives 2^r (b)_r/(n)_{2r}; summing over the binom(a,r) subsets of the first matching proves the exact PGF including empty size classes of positive probability. For the circle, root the cyclic order at a sampled label; the spacings are Dirichlet(1,...,1) and their order is that of iid exponentials. The shortest direction from a point meets an adjacent point first; hence reciprocal edges are exactly strict cyclic gap minima. Their mean is 1/3, adjacent joint probability 0 and distance-two joint probability 2/15 (integrate independent uniform gap ranks x,y with factor (1-x)(1-y)(1-max(x,y))); triples farther apart are independent. This gives the stated mean and variance for n>=5 and a stationary two-dependent CLT after changing at most two seam terms. Given M_i the two overlaps sharing sample i are independent and have means 2R_i/[3(n-1)], which gives the finite covariance. For the joint factorial-moment expansion, in a pattern with m distinct prescribed edges, v distinct label vertices, and D required incidences of a prescribed edge in a particular matching, the contribution is O(n^{v-D}) or zero if matching constraints conflict. Always v<=2m and D>=2m. A shared vertex makes the first strict; reuse of an entire edge across distinct pair types makes the second strict. The remaining configurations have (n)_{2T}/2^T assignments for T ordered slots and tend to the product factorial moments of independent Poisson variables of means 2 rho_i rho_j. These estimates hold along every deterministic size sequence tending to the stated ratios, with uniformly bounded moments for each fixed multi-index. The product Poisson law is moment-determinate. With random sizes whose ratios tend in probability to 1/3 the conditional expectations of bounded overlap test functions therefore tend in probability to constants, giving joint independence from the Gaussian size vector.",
+      "residual_risks": [
+        "No uploaded checker was executed. The limiting argument treats fixed q, not a growing number of occasions. The circular spacing assertion is for a cyclic order rooted at a sampled point rather than at an external coordinate origin."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deng gives total-variation approximation by independent Poissons for hits of deterministic edge-disjoint bounded-degree targets by a uniform perfect matching; §5 partitions overlapping target edge sets by membership. Spiro–Surya supplies the earlier marginal full-matching overlap context.",
+          "Bahadır–Ceyhan gives n/3, 2n/45 and the normalized Gaussian limit for reflexive pairs in the uniform interval model. The interval counts one-sided minima at the two ends of the path of n-1 gaps; for circular ranks one may use the same iid ranks, add the nth gap and change only the two end tests."
+        ],
+        "reasoning": "Deng covers arbitrary bounded-degree target graphs, including the earlier replicates viewed as conditioned deterministic matchings. The circle has a different finite model, but its Gaussian limit is unchanged by a bounded seam correction, and the two local covariances recover its exact variance.",
+        "searches": [
+          "Deng arXiv:2505.13799, Theorem 1.2 and §5 (Definition 5.1 and Corollary 5.3); Bahadır–Ceyhan arXiv:1605.01940, Theorems 3.1 and 4.3; Spiro–Surya arXiv:2211.01872, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; Deng 2505.13799; Bahadır–Ceyhan 1605.01940; Spiro–Surya 2211.01872; Resultary 6522264cb481 and c5a891e46186"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For deterministic sizes s_i/n tending to rho_i, expose uniform partial matchings one at a time. At step i let the earlier partial matchings be targets. Their pairwise common-edge counts are O_p(1), since the exact inclusion mean is 2s_js_k/[n(n-1)]. Deleting these multiply listed target edges changes a uniform perfect matching's hit vector with probability o(1), by its 1/(N-1) single-edge hit probability. The remaining targets have degree at most one and size s_j-o_p(n); their perfect-matching hit counts converge conditionally to independent Pois(rho_j) by Deng applied along deterministic target sequences.",
+          "The hit vector is tight. Conditional on boundedly many hit edges, a uniformly chosen s_i-edge subset of the floor(n/2) real edges retains them asymptotically as independent Bernoulli(2rho_i) marks, from the finite hypergeometric law. Thus the overlap block at exposure i has conditional product Poisson limit with means 2rho_i rho_j, independent in the limit of the past. Iteration over fixed q gives all pair coordinates; convergence along every deterministic size sequence gives the same conditional limit for random circular sizes and hence independence from their Gaussian fluctuations.",
+          "The residual finite positive covariance is Var(R_i) multiplied by the two unconditional single-edge probabilities in replicates j,k. This follows directly because given M_i the two overlaps are independent with conditional means proportional to R_i."
+        ],
+        "reasoning": "The conditional Poisson vector and its decoupling, not merely one marginal, follow from the stronger approximation by this exposure/thinning transfer. Together with the exact PGF transfer, the known local-minimum CLT and elementary conditional-covariance calculation, this leaves no supported distinct substantive claim at the frozen scope.",
+        "searches": [
+          "Deng arXiv:2505.13799, Theorems 1.2 and 3.1, Lemma 3.3 and §5; compare frozen proof Steps 1, 3 and 4 and Bahadır–Ceyhan Theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Given the sizes, fix the first partial matching as a deterministic disjoint-edge target and use a uniform size-b partial matching for the second. Let N be n rounded up to even. Form it by choosing uniformly b of the floor(n/2) edges of a uniform perfect matching on N labels after removing the dummy-incident edge if n is odd. Permutation invariance proves uniformity on the size-b class.",
+          "Deng Lemma 3.3 with a single size-a matching target gives PGF coefficient binom(a,r) 2^r (N/2)_r/(N)_{2r} on (z-1)^r for the unthinned intersection. Conditional on any unthinned intersection count h, the retained count is hypergeometric with factorial moments (h)_r (b)_r/(floor(n/2))_r; the target never contains the dummy. The resulting coefficient is binom(a,r) 2^r (b)_r/(n)_{2r} for either parity."
+        ],
+        "reasoning": "This is an exact implication for all allowable sizes, not only the full-matching specialization or a Poisson approximation. Exchangeability supplies the uniform model regardless of matching geometry, and hypergeometric thinning supplies the finite formula. The partial-permutation sources concern bipartite assignments or omitted domains and are not needed for the implication.",
+        "searches": [
+          "Deng arXiv:2505.13799, Corollary 2.3, Theorem 3.1 and Lemma 3.3; Resultary 6522264cb481 and c5a891e46186"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue hit was the assigned record itself. Distinct same-day 6522264cb481 gives a finite shared-entry PGF and mixed Gaussian–Poisson law for partial-permutation matrices with n^(1/4) rank scale and one shared count. Earlier c5a891e46186 compares omitted image points with missing domains in products of partial bijections. The e852fe58266d catalogue summary concerns perfect-matching indicator exchangeability; primary mirror retrieval failed.",
+          "The primary literature contains a directly applicable exact PGF (Deng Lemma 3.3), not just an asymptotic marginal or a table. Fixed-size thinning recovers the numerical conditional probabilities."
+        ],
+        "reasoning": "Neither the self-hit nor a same-day analogy establishes priority or exact content. The earlier exact overlap formula is decisive even though it has a perfect-vs-target presentation rather than a conditional calibration presentation.",
+        "searches": [
+          "Resultary: exact conditional partial matching shared edges and simultaneous pairwise Gaussian–Poisson overlap; 278e7537a80c, 6522264cb481, c5a891e46186, e852fe58266d",
+          "Deng arXiv:2505.13799, exact PGF Lemma 3.3"
+        ]
+      },
+      "rationale": "Deng's earlier Lemma 3.3 and Theorem 1.2 cover the mathematically substantive matching claims by fixed-size thinning of a uniform perfect matching. The exact PGF follows by thinning the perfect-matching overlap count against a single disjoint-edge target. The fixed-q joint conditional Poisson law follows by exposing replicates in order with the previous partial matchings as bounded-degree targets and then thinning. The Gaussian size limit is the interval local-minimum limit with a bounded change at the seam; the Gaussian–Poisson product is the usual conditioning consequence of the conditional limit having a constant limit law. The finite shared-replicate covariance is a direct law-of-total-covariance specialization of the edge marginals and size variance. The distribution-free calibration is a useful interpretation, but follows immediately by transitivity and does not make these implications new. This decision is based on actual earlier results and their implications, not a same-day similarity or an inaccessible paper.",
+      "residual_risks": [
+        "The exact conditional-calibration wording was not found verbatim in an independent record, but the mathematical finite law and joint limit follow by the documented reductions. No same-day priority assumed. The mirror miss for e852fe58266d is not material to the adverse decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage by exact hypergeometric thinning and asymptotic sequential exposure",
+          "evidence": "Lemma 3.3 gives exact coefficient mu_r 2^r (N/2)_r/(N)_{2r} for a size-r submatching of a target; Theorem 1.2 gives independent Poisson target hits in total variation at means |E(D_j)|/N after decomposing or removing the shared pieces.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.13799",
+          "material_read": "Theorem 1.2 p. 2, §2.2 Corollary 2.3 pp. 5–6, Theorem 3.1 and Lemma 3.3 pp. 8–9, §5 Definition 5.1 and Corollary 5.3 pp. 15–16",
+          "method": "Located primary OA PDF passages, in particular offsets 5400, 19166, 26774 and §5 near 54050",
+          "title": "Deranged Perfect Matchings on Complete Graph and Balanced Complete r-Partite Graph",
+          "trigger": "Earlier exact and multivariate matching-overlap results plausibly dominate by thinning and conditioning"
+        },
+        {
+          "assessment": "Interval analogue; directly supplies Gaussian limit by the bounded seam coupling",
+          "evidence": "Uniform interval mean n/3, variance 2n/45 for n>=5, and unit Gaussian under variance normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.01940",
+          "material_read": "Theorems 3.1 and 4.3, pp. 5 and 10",
+          "method": "Located OA primary PDF passages",
+          "title": "On the Number of Reflexive and Shared Nearest Neighbor Pairs in One-Dimensional Uniform Data",
+          "trigger": "Same reciprocal nearest-neighbor size moment constants and CLT"
+        },
+        {
+          "assessment": "Marginal perfect-matching overlap precedent, not the decisive multivariate transfer",
+          "evidence": "Univariate total-variation Poisson limit in specified complete multipartite hosts.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.01872",
+          "material_read": "Abstract p. 1, Theorem 1.2 p. 2",
+          "method": "Located OA primary PDF passages",
+          "title": "Counting Deranged Matchings",
+          "trigger": "Earlier Poisson limits for numbers of common matching edges"
+        },
+        {
+          "assessment": "Strong analogy, different matching space and overlap vector",
+          "evidence": "Partial-permutation matrix common-entry count and n^(1/4) rank-deficiency fluctuations, not the pairwise undirected matching overlap vector.",
+          "identifier_or_url": "Resultary 6522264cb481",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Local mirror primary record",
+          "title": "Exact Frobenius pair distance law and independent Gaussian–Poisson limit",
+          "trigger": "Distinct same-day exact overlap and multiscale law"
+        },
+        {
+          "assessment": "Different overlap statistic",
+          "evidence": "Omitted image points intersect a later missing domain, rather than two matchings sharing an unordered labelled edge.",
+          "identifier_or_url": "Resultary c5a891e46186",
+          "material_read": "RESULT.md Finding and definition of H_j, local-mirror offset 0",
+          "method": "Local mirror primary record",
+          "title": "Gaussian deficiencies and Poisson overlap corrections in random partial bijections",
+          "trigger": "Earlier independent Gaussian and Poisson overlap components"
+        },
+        {
+          "assessment": "Unresolved full text, not evidence of noncoverage and not used for disposition",
+          "evidence": "Catalogue describes exchangeability extensions for edge indicators; no primary passage retrieved.",
+          "identifier_or_url": "Resultary e852fe58266d",
+          "material_read": "Catalogue summary only; mirror path unavailable",
+          "method": "Local catalogue and attempted mirror retrieval",
+          "title": "The exact four-coordinate exchangeability reserve of a uniform perfect matching",
+          "trigger": "Same-day same object with exchangeability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof Steps 1, 3 and 4; Deng 2505.13799 for the dominating matching comparison"
+      ],
+      "rationale": "The inference problem is meaningful: conditioning on observed sizes gives an exact nuisance-free null calibration for whether a reciprocal pair persists under independent resampling. Simultaneous asymptotics explain why a real finite shared-replicate dependence can vanish, and when size fluctuations separate from the overlap statistics. This is usefulness of the benchmark, not credit for a new mathematical contribution beyond the sources and implications assessed above.",
+      "residual_risks": [
+        "The calibration assumes independent occasions, not a longitudinal or correlated null. The residual covariance computation itself is routine; neither it nor an application framing justifies a repaired novelty claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

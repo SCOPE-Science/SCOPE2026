@@ -1,11 +1,21 @@
-# Review of the binary length-eight \((2,1)\)-burst optimum
+# Independent mathematical audit
 
-**Correctness — PASS.** The channel is exactly one adjacent two-to-one replacement in an eight-bit word. The standard-library C++17 verifier constructs all \(256\) error balls, independently confirmed via string slicing, checks the explicit \(14\)-word code and an \(8\)-word binary linear code, and exhaustively rules out any compatible clique of size \(15\). Its greedy-color partition bounds every branch and its exhaustive include/exclude recursion checks all possibilities. The independent string-incidence integer optimization corroborates the optimum, but its solver output is not the proof certificate. An upper bound of \(14\) immediately limits binary linear sizes to at most \(8\), which the exhibited span attains.
+## correctness
 
-**Originality — PASS against inspected statements.** Lu and Zhang's general bound permits \(16\), not \(14\). Schoeny and collaborators provide relevant \((2,1)\)-burst constructions but do not settle the sharp length-eight maximum. The closest examined published finite results concern three-to-one bursts, unrestricted bounded substring edits, and deletion followed by arbitrary substitution; their channel semantics do not imply the stated bound or its linear counterpart. Direct and alias-based searches found no exact duplication. A differently indexed table or unindexed thesis is an acknowledged residual risk.
+PASS
 
-**Value — PASS.** A standard synchronization channel has a sharp finite optimum that is below the sphere-packing estimate, while nonlinear codes accommodate six more codewords than any linear code at the same blocklength. The result provides an exact, reproducible natural benchmark rather than an artificial parameter slice or an extrapolated sequence.
+Independently generated the incidence relation in reverse: for each seven-bit output and each of its seven coordinates, replace that output bit by each of the four binary pairs. Transposition gives exactly the claimed forward channel, including positions at either end. All 256 received sets have eight outputs. The 14-word witness uses 112 different outputs; the XOR span of 21, 79 and 164 produces eight different words with 64 different outputs. An independent integer-mask search rules out 15 without relying on the reported C++ run or on a floating-point optimizer. It splits by the least codeword x, and restricts the rest to words above x that avoid every output of x. In each search state it partitions candidates into classes with a shared received word, so a packing may use at most one member of each class. It branches on taking each next candidate in reverse class order, removes that word from remaining sibling branches, and removes all incompatible inputs when taking it. Fewer live classes than required words makes a branch impossible; otherwise every possible packing follows the branch of its first chosen word in that traversal. The run returned no size-15 packing for all possible least words, visiting 49,429 states. This proves the exact unrestricted maximum 14; binary linear cardinalities are powers of two, so the exhibited dimension three is optimal. The frozen C++ search has a valid analogous coloring/pruning invariant; its node count and the auxiliary MILP are not needed for the independent decision.
 
-Scope: binary length eight only; the proof is finite exhaustive computation and does not claim all-length behavior. The two channel implementations, witness vectors, exhaustive graph search, and independent numerical check are supplied. No outside independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work already defines this channel, gives correcting constructions and proves the constant ball size and packing bound. The checked prior results and exact tables do not determine the unrestricted optimum 14 and its gap to the exact linear optimum 8. The pass is for those optima and their gap, not the constant size of the balls or existence of channel-specific constructions.
+
+## value
+
+PASS
+
+Length eight is a natural short-block benchmark: the constant ball count n means perfect binary (2,1) packing requires n dividing 2^(n−1), hence a power of two. The trivial length-two case is perfect, and 0000 and 1111 are perfect at length four (their distinct outputs have weights at most one and at least two, respectively). Length eight is the next possible perfect length by divisibility. The calculation resolves two concrete issues there: attainable packing is exactly two codewords short of the perfect bound, and linearity further reduces the best size from 14 to 8. The result is useful as an exact benchmark, without extrapolation to other lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

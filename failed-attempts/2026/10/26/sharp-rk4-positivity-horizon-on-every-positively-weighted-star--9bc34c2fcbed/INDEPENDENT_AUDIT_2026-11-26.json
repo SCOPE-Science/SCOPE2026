@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:54:15.873952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For formal s, the hub Schur complement of I-sL is S=1-sA-s²∑w_i²/(1-sw_i). The coefficients of S⁻¹ through s³ are 1,A,A²+B,A³+2AB+C. Multiplying this series by -sw_i/(1-sw_i) or by s²w_iw_j/[(1-sw_i)(1-sw_j)] gives the claimed entries. The distinct-leaf quadratic is positive since 3W_ij>(A+w_i+w_j)²; the diagonal is positive by the fourth exponential Taylor bound and the spectral theorem. The spoke difference uses exactly the same positive leaf quadratic. Normalizing by A gives the stated derivative certificate (B/A²≤1), so the largest spoke has a single crossing, with exactly the stated ties. When m=1 there are no leaf-pair conditions. The polynomial in M=I-hL with nonnegative coefficients and a positive linear term gives strict spoke positivity at the Euler endpoint. Independent exact algebra passed with python3 /workspace/checks/rk4_algebra.py; the uploaded program was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier bidirected-star theorem imposes no restriction on a_j/b_j. The earlier 2042521dfc9d unweighted-tree Finding already gives the equal-spoke subcase. Later 9b715f55a0bc and 3a54409de318 cover unweighted bipartite graphs and weighted trees respectively but are not earlier priority evidence."
+        ],
+        "reasoning": "The bidirected theorem, not the general SSP context, certifies arbitrary weighted stars. The other graph theorems are narrower by weights or later in the archive.",
+        "searches": [
+          "Resultary exact local RK4 positivity for trees, bipartite networks and bidirected stars",
+          "arXiv:1106.3626",
+          "DOI 10.1137/S003614450036757X"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification",
+        "Frozen VERIFICATION.md and verify.py",
+        "Resultary 17dd482823b8, 2042521dfc9d, 9b715f55a0bc, 3a54409de318",
+        "arXiv:1106.3626",
+        "DOI 10.1137/S003614450036757X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtract the prior g_i,g_j: g_i-g_j=-(a_i-a_j)h[1/2-T_ij h/6+U_ij h²/24]. The same bracket in the prior proof equals P_ij/(a_i b_j h²)>0 for h>0. Hence the largest a_i minimizes the cubic at every positive step, and precisely the maximizing a_i tie at the endpoint. In the symmetric case these are exactly the largest weights.",
+          "At h=1/A, write R_4(M-I)=3I/8+M/3+M²/4+M⁴/24; a direct positive entry of M on every spoke certifies strictness."
+        ],
+        "reasoning": "The explicit largest-spoke wording is not needed in the prior: a single divided difference of its displayed cubic, using its already established leaf sign, gives the ordering and ties without a new inequality. The generic Euler improvement is routine.",
+        "searches": [
+          "Bidirected-star RESULT.md, Finding and proof, local mirror; Ketcheson–Gottlieb–Macdonald arXiv:1106.3626"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bidirected-star Finding: cubic g_j and exact interval [0,min_j h_j]; Assumptions and proof offsets 1830–4057 in the local mirror."
+        ],
+        "reasoning": "Set a_j=b_j=w_j in Q. Then Q=-L, and prior B,S_1,S_2 are frozen A,B,C. The prior g_j equals F_{w_j}.",
+        "searches": [
+          "Resultary RK4 endpoint positivity on weighted or bidirected stars",
+          "2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier archive Finding gives the exact per-spoke cubics and the minimum of their roots, for arbitrary positive rates, rather than a finite list of thresholds."
+        ],
+        "reasoning": "The exact necessary-and-sufficient horizon is already in the archive under the bidirected alias. A numerical table is unnecessary and would not test the all-real quantifier.",
+        "searches": [
+          "Resultary weighted-star RK4 horizon",
+          "2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+        ]
+      },
+      "rationale": "The earlier bidirected-star record proves the necessary-and-sufficient interval and supplies the formulas and strict signs that mechanically yield the heaviest-spoke refinement, indeed even for unequal inward and outward rates. The strict Euler comparison is an immediate nonnegative-power expansion for any such generator, not a distinct surviving result for this class.",
+      "residual_risks": [
+        "External priority survey is scoped to the inspected primary SSP sources; this cannot undo the verified earlier Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage and mechanical implication of the remaining structural refinement",
+          "evidence": [
+            "Q_0j=b_j, Q_j0=a_j (all positive); strict positivity on distinct leaves; explicit T_ij,U_ij in the common bracket; unique g_j crossing with cutoff min_j h_j."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8/RESULT.md",
+          "material_read": "Finding through boundary statement; Assumptions and proof offsets 1830–4057",
+          "method": "Indexed Resultary comparison and original file through local mirror",
+          "title": "An exact one-edge positivity horizon for fourth-order Runge–Kutta on bidirected stars",
+          "trigger": "Earlier stronger candidate matching the graph and integrator"
+        },
+        {
+          "assessment": "Covers equal spokes by rescaling the unweighted star, not arbitrary unequal spokes",
+          "evidence": [
+            "Exact unweighted-tree criterion: on the star all edge cubics are the same and there are no distance-three pairs."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-local-rk4-positivity-horizons-on-every-finite-tree--2042521dfc9d",
+          "material_read": "Finding, offset 0",
+          "method": "Original file through local mirror",
+          "title": "Exact local RK4 positivity horizons on every finite tree",
+          "trigger": "Same RK endpoint on a graph family containing unweighted stars"
+        },
+        {
+          "assessment": "Background, not the weighted-star classification in the inspected passages",
+          "evidence": [
+            "Concerns SSP two-step design and convex-combination restrictions on stages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.3626",
+          "material_read": "Abstract and p. 2 introduction (forward-Euler restriction)",
+          "method": "Bounded original OA PDF passages",
+          "title": "Strong Stability Preserving Two-Step Runge–Kutta Methods",
+          "trigger": "Cited general positivity context"
+        },
+        {
+          "assessment": "General forward-Euler-based SSP background",
+          "evidence": [
+            "Explains preservation of forward-Euler strong-stability properties rather than the exact hub–leaf cubic."
+          ],
+          "identifier_or_url": "10.1137/S003614450036757X",
+          "material_read": "pp. 89–90",
+          "method": "OA repository version after publisher access denial",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "General methods that might imply the Euler-bound comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Finding a controlling edge would be useful if it required a new fact. Here it replaces a prior minimum by a maximizer via one subtraction using the already positive leaf entry. The endpoint tie statement follows from the same subtraction; the Euler comparison is generic. No independently valuable uncovered remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

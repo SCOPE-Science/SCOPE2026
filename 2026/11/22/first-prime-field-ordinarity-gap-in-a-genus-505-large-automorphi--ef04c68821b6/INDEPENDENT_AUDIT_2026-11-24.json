@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:50:47.615067Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not run)",
+        "Corrected RESULT.md and VERIFICATION.md",
+        "Borges–Korchmáros–Speziali, arXiv:2202.05765v1, Propositions 8.5 and 8.13"
+      ],
+      "rationale": "The repaired statement correctly identifies the quotient over the ground field. The frozen plus-sign equation need not be that quotient over F_23: s=x+y and v=x-y give (s^p-s)^2=v^(2p)-2λv^(p+1)+v^2, so w=(s^p-s)/v gives the minus sign. At λ=2 the two models have 4 and 48 F_23 points respectively, including the two points at infinity. Trace-zero scaling of v identifies the models over F_(p^2); no geometric ranks change. The corrected proof independently establishes the genus and rank transfer: only the two infinities ramify, each remaining a simple pole after Artin–Schreier reduction, so the different exponents are 2(p-1) and Deuring–Shafarevich gives γ(X)=pγ(F)+p−1. Squarefreeness fails exactly at λ=±1. The Cartier coefficient extraction is diagonal since p≡1 mod p−1 and the basis indices differ by less than p−1. The diagonal agrees with the Legendre coefficients through degree p−2, by the binomial generating series in characteristic p. Inverse-Frobenius roots and iterates preserve the pattern of zero diagonal entries, giving geometric p-rank. Independently replayed all smaller-prime sets, the 21 rank assignments at 23, the 527-parameter distribution (1,2,24,10,490 in ranks 10,17,19,20,21), and the witness H(3ω)=ω. Checked divisibility separately by multinomial evaluation: the roots of P_2,P_5,P_7,P_9,P_11 in F_23 are respectively {10,13}, {0,6,11,12,17}, {0,7,9,14,16}, {0,4,19}, {0,2,3,5,8,15,18,20,21}, covering every simple root of Q. The repair distinguishes introducing new marked parameters from extending the base of an already nonordinary fiber.",
+      "replay_paths": [
+        "/workspace/branches/c0c468b3-c3c2-4ce1-865c-97d3a939dc1d/independent_replay.py",
+        "/workspace/branches/c0c468b3-c3c2-4ce1-865c-97d3a939dc1d/replay.txt"
+      ],
+      "residual_risks": [
+        "The finite enumeration is for marked parameters over the specified fields and primes, not larger primes or an isomorphism classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BKS prove the genus/rank transfer and explicitly raise ordinary fibers in Remark 8.14.",
+          "Novoselov's more general family covers these coefficients and diagonal reduction when g=p−2, but does not classify the union of Legendre zero loci on these marked finite fields."
+        ],
+        "reasoning": "The broader formulas are credited in full; the first gap and histograms require additional arithmetic, including the specific factor coverage at 23.",
+        "searches": [
+          "arXiv:2202.05765v1 Propositions 8.5 and 8.13, Remark 8.14",
+          "Novoselov, DOI 10.17223/20710410/37/2, Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.05765v1",
+        "DOI:10.17223/20710410/37/2",
+        "SCOPE-20261018-fce7bbe972a1",
+        "SCOPE-20261018-05ba569c6d6b",
+        "SCOPE-20261108-29c4b243f183",
+        "SCOPE-20261122-30e02858f51f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formula reduces p-rank to counting nonzero P_i(λ); it supplies neither Q dividing the five-polynomial product nor the count of parameters missing all zeros over F_529. Even exact rank strata at 7 settle only that comparison prime."
+        ],
+        "reasoning": "Neither existence of generic ordinary fibers nor knowing the reduction implies the finite-field obstruction or its minimal prime. BKS's citation to Miller in Remark 8.14 has a genus/characteristic restriction rather than covering p=23, g=21.",
+        "searches": [
+          "BKS Proposition 8.13 and Remark 8.14; Novoselov Theorem 9; characteristic-7 Resultary result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By rank transfer ordinary is equivalent for the plane curve and its Sylow quotient; the sign change yields the same geometric ranks by a quadratic isomorphism.",
+          "Earlier SCOPE-20261018-05ba569c6d6b treats a Klein-four quotient, not this Sylow-p quotient; its elliptic example is for q=3."
+        ],
+        "reasoning": "Comparisons include the quotient reformulation and the opposite sign parameter convention. Neither turns the previously reported quotient results into this arithmetic classification.",
+        "searches": [
+          "Resultary: BKS/PGL(2) pencil, Sylow quotient, p-rank strata and ordinarity",
+          "arXiv:2202.05765v1 §8 and Novoselov §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261018-fce7bbe972a1 gives strata for the characteristic-7 octic, an actual lower-prime case, not the new first gap.",
+          "Distinct same-day SCOPE-20261122-30e02858f51f concerns a genus-10 sextic pencil at 23, not genus 505 or its genus-21 quotient. SCOPE-20261108-29c4b243f183 studies a different genus-(p−1)/2 family. The exact self-match is the assigned finding, not a distinct earlier result."
+        ],
+        "reasoning": "Distinguished equal characteristic from equal family, and a genuine overlapping smaller-prime case from the new p=23 and extension tables. No inspected table covers those tables or the resulting cutoff.",
+        "searches": [
+          "Resultary: exact characteristic-23 Cartier/p-rank strata and prime-linked dihedral pencils",
+          "Novoselov §2.2 and BKS §8"
+        ]
+      },
+      "rationale": "The genus, geometric quotient, rank transfer and Cartier-to-Legendre reduction are prior results. The supported distinct contribution is the arithmetic first-prime gap, the exact rank distributions and explicit certificate for the specified marked families. Neither the repair to ground-field terminology nor the already known structural formulas are needed as originality claims.",
+      "residual_risks": [
+        "Focused primary search did not yield additional useful leads; this is not proof of priority.",
+        "Miller (1972) was compared through BKS and Novoselov, not directly read. Unindexed finite-field calculations may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers geometric structure, not finite-field marked rank strata; plus sign is valid up to geometric isomorphism",
+          "evidence": "Equation (21), the displayed rank transfer, and the ordinary-fiber question in Remark 8.14",
+          "identifier_or_url": "https://arxiv.org/html/2202.05765v1",
+          "material_read": "§8 Propositions 8.5 and 8.13 and Remark 8.14 (OA text offsets near 123200 and 142300–148436)",
+          "method": "Direct OA HTML passages and coefficient comparison",
+          "title": "Plane curves with a large linear automorphism group in characteristic p",
+          "trigger": "Same invariant pencil and the precise Sylow quotient"
+        },
+        {
+          "assessment": "Supplies the reduction, not the p=23 arithmetic classification",
+          "evidence": "Legendre entry formula, applied here with g=21; switching λ to −λ preserves zero flags",
+          "identifier_or_url": "https://www.mathnet.ru/eng/pdm593",
+          "material_read": "§2.2, Theorem 9, printed p. 29 (OA PDF text near offset 31500)",
+          "method": "OA primary PDF passage",
+          "title": "Hyperelliptic curves, Cartier–Manin matrices and Legendre polynomials",
+          "trigger": "Same type of hyperelliptic equation and possible diagonal/rank tables"
+        },
+        {
+          "assessment": "Genuine analogue and overlap at 7; no assertion at 23 or about first-prime obstruction",
+          "evidence": "Genus-21 octic in characteristic 7 and its rank and a-number strata",
+          "identifier_or_url": "SCOPE-20261018-fce7bbe972a1",
+          "material_read": "Mirrored RESULT.md finding and parameter regime",
+          "method": "Resultary search and local mirror",
+          "title": "Exact p-rank and a-number strata in a PGL(2,7)-invariant octic",
+          "trigger": "Strongest matching family and exact classification in the corpus"
+        },
+        {
+          "assessment": "Different quotient",
+          "evidence": "Klein-four quotient genus and q=3 elliptic case",
+          "identifier_or_url": "SCOPE-20261018-05ba569c6d6b",
+          "material_read": "Mirrored quotient statement and elliptic case",
+          "method": "Resultary and local mirror",
+          "title": "Klein-four quotients of a nonlinear invariant plane curve pencil",
+          "trigger": "Same plane pencil"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "BKS Remark 8.14",
+        "Corrected RESULT.md and independent finite replay"
+      ],
+      "rationale": "This quantifies an arithmetic obstruction in the ordinary-fiber problem explicitly raised for a large-automorphism pencil: the first prime with no smooth ordinary rational marked fiber contrasts with 490 ordinary marked fibers over the quadratic field. The precise marked rank distributions and short divisibility certificate are useful beyond a lone example, and were not supplied by the generic Cartier formula. The repaired quotient clarifies the field of definition without changing the contribution.",
+      "residual_risks": [
+        "No density estimate over primes, abstract isomorphism count, or classification for higher extensions is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

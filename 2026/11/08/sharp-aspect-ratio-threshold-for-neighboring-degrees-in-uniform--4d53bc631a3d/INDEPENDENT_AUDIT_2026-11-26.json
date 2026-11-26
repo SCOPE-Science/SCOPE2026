@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:03:37.472224Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof, lines 3–66",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 10–98 (inspected, not executed; transfer-current and exhaustive checks in its finite range)"
+      ],
+      "rationale": "On K_m square K_n the orthogonal constant/contrast tensor decomposition gives L^+ on the three contrast blocks with eigenvalues 1/m, 1/n and 1/(m+n). The transfer-current covariance can also be obtained from the two-edge coefficient of the reduced Matrix–Tree determinant after adding rank-one incidence perturbations: distinct edges contribute −K(e,f)² and the shared edge contributes K(e,e)−K(e,e)². Thus the covariance is p minus the sum of all squared currents, including the squared shared-edge current. To check that sum independently, put d_i=e_0−e_i in the first coordinate and f_j=e_0−e_j in the second. First-coordinate edges at the two marks have tensor incidences d_i⊗e_0 and d_k⊗e_1, pairing to (1+δ_ik)/[m(m+n)]. Mixed edges pair by their coordinate dot products on the double-contrast block; only the cases with the shared edge are nonzero and yield −1/(m+n). Second-coordinate incidences pair by their second-coordinate dot product times η=(n+1)/[n(m+n)]. Their sum of squared dot products is 4+3(n−2), and p=2η. This gives exactly the three contributions to S and the numerator N in the proof. As an independent sign check, set t=n(n+1)/2 and divide the numerator by m²: N/m²=2n(m−t)+n+2−n²(m−2)/m². For m≤t−1 and n≥3 this is at most 2−n<0; for n=2 the only allowed below-threshold case m=2 gives zero. For m≥t the last term subtracted is less than n²/m≤2n/(n+1)<2, so the value is positive. At n→∞ with m/n²→c>0, (N/m²)/n³→2c−1 and (m+n)²/n⁴→c²; the quotient yields the claimed n³-scaled limit, also at c=1/2. Swapping coordinates exchanges the marked edge direction.",
+      "residual_risks": [
+        "The scaling statement uses n→∞ as specified in the frozen assumptions. No weighted or nonadjacent extension is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rapoport, PDF p. 14, separates adjacent marked-vertex degrees by inclusion/noninclusion of their shared edge and gives general distribution machinery in terms of current-dependent sums.",
+          "Martin–Reiner weight a vertex (j_1,...,j_r) by the product of its coordinate variables, so the exponent of any one variable is the sum of degrees over a coordinate slice. Their Theorem 2 gives divisibility results for that decoupled degree enumerator."
+        ],
+        "reasoning": "The first result can in principle represent the joint law, but computing the ordered current contributions on this rook family and deriving an integer sign boundary are additional steps. The separately parameterized rank-one marking of two vertices is not given by the decoupled coordinate weights, and the stated divisibility does not compute the required moments.",
+        "searches": [
+          "Rapoport DOI 10.1007/s10955-025-03510-0: Theorem 3.7, Theorem 4.2, good set, neighboring points, rook, Hamming",
+          "Public literature: Jeremy Martin Victor Reiner Factorizations of some weighted spanning tree enumerators Cartesian products complete graphs decoupled vertex degrees arxiv",
+          "Martin–Reiner arXiv:math/0302213 equation (1) and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 3c7b2d864a45, 19789aab6810, 9c7d69867c06, 55a2313eb61b, e5b65adaa194, 67820a932340 and self 4d53bc631a3d",
+        "DOI 10.1007/s10955-025-03510-0",
+        "arXiv:math/0302213, 1711.09788 and 1806.02675",
+        "Burton–Pemantle access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huh–Schröter–Wang discuss negative correlation of two distinct edge-inclusion events. Hladký–Nachmias–Tran give a local rooted limit and degree-count bounds.",
+          "Rapoport's adjacent formula accounts for the common edge but does not evaluate this family's resulting current sums. The original Burton–Pemantle text was not retrieved in this check; the determinantal two-edge covariance is independently derived in the correctness assessment from the Matrix–Tree theorem."
+        ],
+        "reasoning": "Neither negative correlation for different edges nor a marginal/local limit specifies the sign after adding the common edge's variance. The general exact laws supply a method, not the cancellation 2n(m−t)+n+2−n²(m−2)/m² that resolves the aspect-ratio threshold for all integers.",
+        "searches": [
+          "Rapoport §4 adjacent vertices, PDF p. 14",
+          "Huh–Schröter–Wang arXiv:1806.02675 p. 1",
+          "Hladký–Nachmias–Tran arXiv:1711.09788 Theorems 1.1 and 1.5",
+          "Frozen Burton–Pemantle reference: transfer impedance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3c7b2d864a45 specifies the exact Poisson-binomial law for a single fixed vertex of K_m square K_n. 19789aab6810 gives one-root laws for strongly regular graphs, including K_4 square K_4. 9c7d69867c06 instead gives an adjacent joint degree PGF on Boolean hypercubes."
+        ],
+        "reasoning": "The marginal does not specify the mixed derivative of the two-vertex law or the joint covariance. Boolean hypercubes of dimension ≥3 have a different Cartesian product and no varying rectangular aspect ratio. The exact Resultary match 4d53bc631a3d is the frozen assignment itself. The broad public query did not supply a direct match and is not evidence of absence.",
+        "searches": [
+          "Resultary: uniform spanning tree degree covariance neighboring vertices K_m square K_n rook graph exact formula sign threshold aspect ratio",
+          "Resultary: rook graph uniform spanning tree neighboring vertex degrees covariance generating function",
+          "Public literature: Primary literature: uniform spanning tree on rook graphs / Cartesian products K_m □ K_n (rook graphs), Hamming graphs, joint or bivariate generating functions for degrees of two vertices, and covariance of vertex degrees in uniform spanning trees; exact neighboring-degree covariance or sign threshold."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 55a2313eb61b classifies exact signs on hypercubes by distance. Indexed e5b65adaa194 gives a nonpositive degree covariance result on complete multipartite graphs. Indexed 67820a932340 gives a conditional degree PGF in complete bipartite graphs. The exact indexed rook-rectangle covariance match 4d53bc631a3d is the frozen record."
+        ],
+        "reasoning": "The multipartite result includes the base case K_2 square K_2 isomorphic to K_{2,2}, but not the two-parameter rook family. Neither the hypercube classification nor conditional bipartite table/PGF gives the unconditioned triangular-number threshold. The local lookup is bounded and is not proof that no other exact table exists.",
+        "searches": [
+          "Resultary: uniform spanning tree rook graph K_m square K_n degree generating function covariance",
+          "Resultary: Hamming graph uniform spanning tree adjacent vertex degree covariance exact",
+          "Resultary: uniform spanning tree degree covariance bivariate generating function two vertices"
+        ]
+      },
+      "rationale": "Transfer currents and general formulas for joint UST degrees are known. The distinct contribution is an evaluated two-vertex covariance and exact integer aspect-ratio transition in the rectangular rook family. The strongest general comparators require evaluating graph- and pair-dependent currents or track only aggregate coordinate degrees. The closest indexed rook result gives only a marginal, and the indexed adjacent-degree results on hypercubes do not vary m,n. No inspected comparator states or gives without further graph-specific calculation the evaluated covariance and sign threshold. This judgment is limited to inspected evidence.",
+      "residual_risks": [
+        "The transfer-impedance primary full text was not available via the attempted routes. The identity is not claimed as new.",
+        "A different published evaluation of the rook-graph specialization may remain unlocated. Same-day entries were compared on actual graph family and objectives rather than assumed to be earlier or later."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General joint distribution formulas include adjacent degrees after separating the common edge; inspected passages do not evaluate rook covariance or sign",
+          "evidence": "'What about neighboring points?' followed by a decomposition of P(D_v=k_v,D_w=k_w) according to whether {v,w} is in T. Theorem 3.7's good set alone excludes neighbors.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-025-03510-0",
+          "material_read": "Introduction p. 3, Theorems 3.7 and 4.2, and neighboring-points passage §4 p. 14, offsets 6632, 37483, 44447",
+          "method": "OA Springer PDF; read adjacent passage, not just literal searches",
+          "title": "Correlations in Uniform Spanning Trees: a Fermionic Approach",
+          "trigger": "Strongest general adjacent-degree distribution machinery"
+        },
+        {
+          "assessment": "Provides edge-direction factorization and coordinate-degree divisibility, not a two-vertex PGF for the specified marks",
+          "evidence": "The degree monomial uses (x^(1)_(j_1)…x^(r)_(j_r)) raised to deg_T(v); the partial factorization uses sums of coordinate-specific variables.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302213",
+          "material_read": "PDF p. 2, Theorems 1–2 and decoupled-degree equation (1), offset 4470 through 8283",
+          "method": "OA arXiv PDF after focused title and topic search",
+          "title": "Factorizations of some weighted spanning tree enumerators",
+          "trigger": "Weighted tree generating functions for the identical Cartesian-product graphs may encode a stronger evaluated degree formula"
+        },
+        {
+          "assessment": "Single fixed-vertex marginal does not establish the pair moment",
+          "evidence": "Degree is 1 plus a Bernoulli and two independent binomials for every m,n≥2; leaf probability and extremizers are stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-poisson-binomial-rook-tree-degrees-and-sharp-fixed-degree--3c7b2d864a45/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2218",
+          "method": "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Poisson-binomial rook-tree degrees and sharp fixed-degree leaf extrema",
+          "trigger": "Identical graph family and exact degree law"
+        },
+        {
+          "assessment": "Analogue with an exact joint law but different graph family",
+          "evidence": "Adjacent bivariate PGF and positive covariance for Q_d, d≥3, with d² Cov→1.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-adjacent-degree-law-for-uniform-hypercube-spanning-trees--9c7d69867c06",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact adjacent-degree law for uniform hypercube spanning trees",
+          "trigger": "Exact joint degree result on a closely related product graph"
+        },
+        {
+          "assessment": "Not the rectangular pair sign boundary",
+          "evidence": "Graphon-limit law about a uniform root, and estimates for aggregate degree counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.09788",
+          "material_read": "Theorems 1.1 and 1.5, PDF pp. 2–3, offsets 5617 and 10110",
+          "method": "OA arXiv PDF passages",
+          "title": "The local limit of the uniform spanning tree on dense graphs",
+          "trigger": "Broader UST degree behavior and asymptotic results"
+        },
+        {
+          "assessment": "Distinct-edge inclusion, not covariance of adjacent vertex degrees",
+          "evidence": "Negative correlation concerns events that a random spanning tree contains distinct specified edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.02675",
+          "material_read": "PDF p. 1, distinct-edge graph antecedent to matroid correlation problem",
+          "method": "OA arXiv PDF passage",
+          "title": "Correlation bounds for fields and matroids",
+          "trigger": "Possible broader correlation sign covering UST degrees"
+        },
+        {
+          "assessment": "No coverage assessment from the unavailable passage",
+          "evidence": "The covariance identity needed in this review is independently derived from the reduced Matrix–Tree determinant.",
+          "identifier_or_url": "https://www2.math.upenn.edu/~pemantle/papers/burton.pdf",
+          "material_read": "Bibliographic/abstract material only; full text not read",
+          "method": "Author manuscript request returned 403; alternate DOI route yielded a landing page",
+          "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+          "trigger": "Foundational transfer-current result used for the second moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and sign proof",
+        "Indexed 3c7b2d864a45 marginal law",
+        "Rapoport §4 adjacent-vertex discussion",
+        "Huh–Schröter–Wang arXiv:1806.02675 p. 1"
+      ],
+      "rationale": "In a natural vertex-transitive graph family, two adjacent degree sums share a Bernoulli edge but also accumulate negative cross-edge covariances. The competition makes their sign unclear from classical negative association. The exact triangular-number transition, including the sole zero and behavior near the critical m≈n²/2 window, tells a researcher when the shared-edge mechanism wins rather than just exhibiting a positive example or giving a general algorithm for each parameter pair. The contribution is an evaluated and structurally informative boundary, not the transfer-current method itself.",
+      "residual_risks": [
+        "No assertion about other graph families, conditioned trees, or practical statistical estimates is needed for the value judgment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

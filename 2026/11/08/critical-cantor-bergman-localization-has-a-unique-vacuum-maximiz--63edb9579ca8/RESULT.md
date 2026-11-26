@@ -1,7 +1,11 @@
-# Critical Cantor–Bergman localization has a unique vacuum maximizer
+# A uniform vacuum gap for critical Cantor–Bergman localization
 
 ## Finding
-For every integer \(m\ge2\), the radial Cantor localization operator defined below has a **unique highest eigenvalue** at the constant Bergman monomial. In addition to an exact finite-stage formula, its normalized norm has a **sharp limiting constant**, strengthening a previously known two-sided order estimate:
+For every integer \(m\ge2\), the radial Cantor localization operator defined below has a **uniform normalized gap** between its vacuum eigenvalue \(\lambda_{m,0}\) and all other monomial eigenvalues:
+\[
+\left(\frac32\right)^m\left(\lambda_{m,0}-\sup_{k\ge1}\lambda_{m,k}\right)>\frac1{200}.
+\]
+In particular the constant Bergman monomial is the unique top mode, and for any unit vector \(f\) its squared distance from the constant subspace is at most \(200(3/2)^m(\|T_m\|-\langle T_m f,f\rangle)\). The exact finite-stage norm formula and identification of the previously characterized balanced even-stage limit at the vacuum index are
 \[
 \|T_m\|=\int_{3^m C_{2m}}\frac{dt}{(1+t)^2},\qquad
 \lim_{m\to\infty}\left(\frac32\right)^m\|T_m\|=\mathcal C:=\sum_{q\in\mathcal D}\int_0^1\frac{d\mu(u)}{(1+q+u)^2}.
@@ -69,7 +73,7 @@ The same elementary interval enclosures yield \(A_1=(8/27)2^{-\delta}<0.192\) an
  \left[\frac1{(1+q+1/6)^2}+\frac1{(1+q+5/6)^2}\right]
  =\frac{253146344807189721168}{402458387931340458025}>0.629.
 \]
-Thus \(L_{m,0}>0.629>0.624>L_{m,1}\) and \(L_{m,0}>0.629>0.600>L_{m,k}\) for all \(k\ge2\). This proves unique maximal eigenvalue at \(k=0\), and therefore exactly the stated finite-stage norm.
+Thus \(L_{m,0}>0.629\), whereas \(\sup_{k\ge1}L_{m,k}\le0.624\). The difference is strictly greater than \(1/200\). This proves that \(k=0\) is the unique maximizing index and gives the stated finite-stage norm. Expanding a unit vector in the monomial basis bounds its Rayleigh deficit below by the spectral gap times the sum of the squared nonconstant coefficients, giving the distance estimate.
 
 **5. Sharp limiting constant.** On each bounded interval, \(\nu_m\) converges weakly to \(\nu:=\sum_{q\in\mathcal D}\delta_q*\mu\): for fixed \(q\), \(\mu_m\Rightarrow\mu\), while sufficiently large shifts cannot meet a fixed compact set. The uniform bound \(F_m(t)\le t^\delta\) supplies a uniform tail estimate for \(g_0(t)=(1+t)^{-2}\): by integration by parts,
 \[
@@ -81,7 +85,7 @@ with an implied constant independent of \(m\). It also bounds the corresponding 
 The included standalone `CHECK.py` uses exact rational arithmetic for the four-cylinder bound, checks the interval inequalities used above, and independently computes finite-stage normalized eigenvalues from exact rational interval endpoints. It prints its test count. These tests are supplementary; the result for all indices and all \(m\ge2\) follows from the analytical estimates in the proof.
 
 ## Relationship to prior work
-Abreu, Mouayn and Voigtlaender establish the beta-prime eigenvalue representation and sharp **two-sided order** for middle-third Cantor Bergman localization (arXiv:2201.11705, Theorem 2.1 and Proposition 4.5). The current exact limit and unique vacuum maximizer for the specified unweighted critical sequence are not asserted there. Knutsen's studies (arXiv:1907.00848 and 2104.10976) concern Gaussian-window time-frequency/Fock localization, not this Bergman beta-prime operator. Although the mechanism of Cantor concentration is analogous, those theorems do not imply this precise statement.
+Abreu, Mouayn and Voigtlaender establish the beta-prime eigenvalue representation and sharp two-sided order for middle-third Cantor Bergman localization (arXiv:2201.11705, Proposition 4.1, Theorem 2.1 and Proposition 4.5; their unweighted parameter is \(\alpha=1/2\)). *Sharp subsequential constants for Bergman concentration on balanced Cantor annuli* [4] gives the same normalized even-stage limit as a maximum over monomial indices (their unweighted parameter is \(b=1\)), without identifying the index. Knutsen's studies concern Gaussian-window time-frequency localization. The Gaussian dominance theorem [5] for all radial Cantor scales also implies qualitative Bergman dominance: \(g_k(t)=\int_0^\infty e^{-s}s e^{-st}(st)^k/k!\,ds\), so each Bergman eigenvalue is an average of the corresponding Gaussian eigenvalues over dilations. The explicit stage-independent gap at the normalized Bergman scale here uses the Cantor growth and four-cylinder estimates above.
 
 ## Limitations
 The unique-maximizer statement is proved for all integers \(m\ge2\), not every real dilation or every Bergman weight. The sharp constant is expressed as a convergent Cantor integral series, not a claimed elementary closed form. The displayed decimal approximation is exploratory. The result does not provide convergence rates or a classification of other real dilation phases. An equivalent unlocated statement in earlier literature remains possible; independent mathematical validation has not been performed.
@@ -92,3 +96,7 @@ Abreu, L. D., Mouayn, Z., and Voigtlaender, F., *A fractal uncertainty principle
 Knutsen, H., *Daubechies' Time-Frequency Localization Operator on Cantor Type Sets*, arXiv:1907.00848 (2019).
 
 Knutsen, H., *Daubechies' Time-Frequency Localization Operator on Cantor Type Sets II*, arXiv:2104.10976 (2021).
+
+[4] *Sharp subsequential constants for Bergman concentration on balanced Cantor annuli*, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-subsequential-constants-for-bergman-concentration-on-balan--23a4c7691d0b.
+
+[5] *Exact Gaussian spectral dominance for every radial middle-third Cantor mask*, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-gaussian-spectral-dominance-for-every-radial-middle-third--4db46e8786d3.

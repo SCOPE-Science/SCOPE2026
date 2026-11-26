@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:13:20.272365Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–71",
+        "Frozen VERIFICATION.md lines 19–38 and verify.py lines 5–100 (inspected, not executed)",
+        "Brešar et al., arXiv:1608.06804, Propositions 4.1–4.2"
+      ],
+      "rationale": "In the stated regime, the first selected vertex of an untouched blade footprints another vertex there; the second footprints the first; two already dominate that blade and the center. Hence at most two vertices of each blade are legal, and selecting two in each attains length 2r in any order. Starting at the center yields length at most two. If the center is used after a peripheral vertex, it must be last; it cannot follow two selections in every blade because all vertices are already dominated. This last observation makes explicit the upper bound for sequences containing the center, implicit in RESULT.md lines 59–65. At length 2r with a terminal center, exactly one blade thus contributes one vertex, which itself remains undominated until the center. All permutations of the peripheral prefix work. Counting the two disjoint classes gives M(W) and Q(W), with per-set multipliers (2r)! and (2r−1)!, respectively. The homogeneous specialization follows; for two triangular blades there are five supports and 48 sequences.",
+      "residual_risks": [
+        "The original 33-profile subset-DP replay is supplementary; correctness here rests on the all-parameter proof, not on rerunning that finite check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Propositions 4.1–4.2 give the disjoint-union and join rules for the number and construct a witness; the join proof also shows the first transition between parts must be last. The clique-bouquet record characterizes secure total domination by replacement of a selected neighbor, not by legal orderings."
+        ],
+        "reasoning": "A broader parameter or existence result does not enumerate equality cases. Secure total domination even has a different center-containing support description on these very graphs.",
+        "searches": [
+          "arXiv:1608.06804, modular decomposition, disjoint union and join",
+          "Resultary 7955ecd06e11, clique bouquets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 82–97",
+        "arXiv:1608.06804",
+        "arXiv:1601.07525",
+        "Resultary catalogue and local mirror records 7955ecd06e11 and 3ecac28bb370; catalogue comparison aebec64f02d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each nontrivial clique has value 2, so the disjoint union has value 2r, and the K_1 side of the join contributes bound 2. The join proof gives a one-vertex terminal part switch, and the optimal-witness construction for this case supplies a witness entirely in the union side."
+        ],
+        "reasoning": "Credit both scalar and terminal-switch mechanism to prior work. To recover the full equality/counting result one still has to treat the near-maximum peripheral prefix, prove the terminal center is legal exactly with the remaining undominated singleton, and count all support and permutation choices. The general scalar formulas and indicated witness do not supply that result.",
+        "searches": [
+          "arXiv:1608.06804 PDF, Propositions 4.1–4.2 and proof of 4.2, pp. 6–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The foundational definition uses ordered legal open-neighborhood sequences. The same-parameter book-graph record 3ecac28bb370 treats K_{1,n} square P_2, a different bipartite graph. The same-day crown-graph record aebec64f02d9 uses closed rather than open neighborhoods."
+        ],
+        "reasoning": "The distinction between open and closed neighborhoods, and between book graphs and clique bouquets, prevents these from being equivalent counts. Counting supports also differs from counting orders.",
+        "searches": [
+          "Resultary comparisons: maximum Grundy total domination in windmills, friendship graphs and clique bouquets",
+          "arXiv:1601.07525; arXiv:1608.06804"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Findings give the support polynomials for secure total domination of the same bouquets and the exact counts (n+1)^2 and 4(2n)! for bipartite book graphs. Ranked catalogue results did not expose a table for the target enumeration."
+        ],
+        "reasoning": "Neither count tabulates these same objects with the same legality condition. This is a bounded catalogue comparison, not a claim that no such table exists.",
+        "searches": [
+          "Resultary: clique bouquet/windmill extremizers; mirror records 7955ecd06e11 and 3ecac28bb370"
+        ]
+      },
+      "rationale": "The scalar value and the terminality of the first switch of join parts are covered by modular decomposition. The supported distinct increment is the complete two-type equality classification for heterogeneous blades, including which prefixes can precede the center, and the exact all-profile counts of labeled supports and legal orderings. The strongest inspected sources cover the scalar, witness construction, adjacent invariants, or other graphs, not that enumeration.",
+      "residual_risks": [
+        "A poorly indexed extremizer enumeration under another name is possible. This best-of-knowledge pass does not assert novelty of the maximum length, join-switch lemma, or all maximum sequences in general cographs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar and a structural step, not complete enumeration",
+          "evidence": "A mixed legal sequence changes join parts only at the last position; stated optimal witness rules and maximum formula do not count all sequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.06804",
+          "material_read": "Propositions 4.1–4.2, including 4.2 proof (p. 7, OA offset 28946)",
+          "method": "Lawful OA PDF passage read",
+          "title": "Total dominating sequences in trees, split graphs, and under modular decomposition",
+          "trigger": "Stronger disjoint-union and join results on the very same parameter"
+        },
+        {
+          "assessment": "Terminology and parameter agree; definition passage does not cover the windmill result",
+          "evidence": "Legality requires footprinting a new open neighbor, not a closed neighbor.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.07525",
+          "material_read": "Definition passage, p. 2, OA offsets 7335–8494",
+          "method": "Lawful OA PDF passage read",
+          "title": "Total Dominating Sequences in Graphs",
+          "trigger": "Foundational definitions and equivalent terminology"
+        },
+        {
+          "assessment": "Different feasibility condition and enumeration",
+          "evidence": "With center present secure total domination requires at least one selected vertex per clique; its inclusion-minimal center sets have exactly one in each.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-secure-total-domination-polynomials-and-minimal-set-gaps-of-cliq--7955ecd06e11/RESULT.md",
+          "material_read": "Finding, offsets 0–2056",
+          "method": "Resultary catalogue and local mirror passage read",
+          "title": "Secure-total-domination polynomials and minimal-set gaps of clique bouquets",
+          "trigger": "Exact same heterogeneous graph family"
+        },
+        {
+          "assessment": "Different graph; not an equivalent formulation",
+          "evidence": "Its book is the bipartite Cartesian product K_{1,n} square P_2, and maximum sets omit one vertex from each bipartition class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-maximum-grundy-total-dominating-sequences-of-book-graphs--3ecac28bb370/RESULT.md",
+          "material_read": "Finding, scope and start of proof, offsets 0–2155",
+          "method": "Resultary catalogue and local mirror passage read",
+          "title": "Maximum Grundy total dominating sequences of book graphs",
+          "trigger": "Exact same parameter and counting problem in a named related family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:1608.06804, Propositions 4.1–4.2"
+      ],
+      "rationale": "The scalar alone cannot tell whether the universal center appears or how its presence changes the number of orders. This natural and fully heterogeneous family admits an exact description and different per-support multiplicities, useful for comparing center participation, counting, or sampling extremizers without enumerating orders. This is a modest complete classification, not a new algorithm for general cographs.",
+      "residual_risks": [
+        "Value is limited to the stated windmill family and its exact extremizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

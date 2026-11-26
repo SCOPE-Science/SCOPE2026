@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3 standard library. The actual successful result was:
+## correctness
 
-`SPLIT_DISCOTOPE_PASS cases=560 one_variable_grid=560560 full_simplex_tests=16800 max_grid_excess=1.42e-14`
+PASS
 
-The checker independently reconstructs the support from all clique and cross disks at the predicted squared-coordinate maximizer, compares against 560,560 equally spaced reduced-coordinate values, and tests 16,800 independently sampled unsymmetrized unit-direction squared-coordinate distributions. A separate symbolic-algebra manipulation confirmed matching values and first derivatives and the exact second derivative jump; independent numerical simplex optimization corroborated 210 configurations. Such finite checks do not prove the universal statement. The proof is in `RESULT.md`, including the strict-concavity reduction, exact one-variable optimization, equality cases, and completeness of contacts.
+Disk supports add. Central symmetry and the squared distances to an antipodal pair of maximal norm force the unique enclosing-ball center to be zero. As an independent route to the global maximizer, write z_i=u_i² and s=sum_A z_i. At fixed s, Cauchy–Schwarz bounds the two edge sums separately by sqrt(binomial(a,2)(a−1)s) and sqrt(ab[bs+a(1−s)]). Both bounds are attained at classwise equal squared coordinates. Equality in the positively weighted cross sum forces all z_i+z_j constant over cross edges, hence all z_i equal within each class, including a=2 or b=1. Maximizing the resulting scalar function yields s=1 for b≥a, or for b<a below and at the stated threshold; the derivative at 1 has sign (a−1)/sqrt(2)−τ(a−b), and strict concavity with positive infinite derivative at 0 gives the unique interior solution beyond the threshold. An attaining support direction gives exactly the contact Ru by equality in Cauchy–Schwarz, and the reverse map is x↦x/R. Thus the contact counts and their antipodal diameter counts exhaust the possibilities. The formal squared branch difference is ab(a−b)(τ−τ_c)², giving the second derivative jump, and the derivative of (1−s)/b at τ_c from above is 2sqrt(2)(a−b)/[a(a−1)], giving the square-root onset.
 
-Important boundaries: positive cross weight, integers \(a\ge2,b\ge1\), standard Euclidean metric, filled coordinate-plane disks. There is no independent audit or independent validation.
+## originality
+
+PASS
+
+The nearest source-level comparisons provide discotope support/facial machinery, an exact regular unit-weight outer sphere, or a biregular bipartite exact outer ellipsoid. The complete-split graph contains a triangle; for b≥2 its class degrees are a−1+b and a. The nonregular weighted radius and contact transition is therefore outside those exact classifications. The regular specialization b=1, τ=1 is already covered and is credited. Priority is bounded by the inspected literature and corpus.
+
+## value
+
+PASS
+
+The enclosing ball and its contacts are intrinsic metric quantities of graph-indexed disk sums. With the edge set fixed and every disk radius positive, varying just the cross weight changes which coordinates can appear at a contact, producing exactly a jump from 2^a to 2^(a+b) contacts and a sharp loss of radial smoothness. The quantitative onset and complete equality cases add geometric information beyond solving a single radius example or bounding it by an ellipsoid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

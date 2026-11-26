@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:20:33.251972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent standard-library replay reconstructed the LCF graph, 42 perfect matchings, and all 35,368 ordinary matchings; 15,820 extendible faces including the empty face, with the stated f-vector. The 7,901 matched pairs are disjoint covers and the complete 78,921-incidence digraph is acyclic. On the critical cells (1 in dimension 0, 5 in dimension 2, 10 in dimension 3, 1 in dimension 4), signed integral reduction reproduced both matrices, including determinant −1 on columns 0,1,2,4,8 of the degree-three differential and the identically zero degree-four differential. The three-skeleton is simply connected and has H2=0, hence is 2-connected and is equivalent to a wedge of five 3-spheres by Hurewicz and homological Whitehead. The degree-four attaching sphere has zero class in H3 of that skeleton and hence in π3, adding an S4 summand. Reproduce with python3 /workspace/branches/00f8fa2a-732d-417f-be3f-48aceb015c98/audit_pappus.py; the finite script does not prove the general homotopy theorems or establish originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al., pp. 1–2: planar honeycomb tilings, not the nonplanar Pappus graph.",
+          "Chandrakar–Singh, p. 1: polygonal-line tilings and 2-by-n grids."
+        ],
+        "reasoning": "Neither scoped family theorem supplies this nonplanar instance; the decisive coverage is the exact indexed computation.",
+        "searches": [
+          "arXiv:2209.02803",
+          "arXiv:2407.05809"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, certificate, verifier and recorded output",
+        "Resultary 26f0ea6dc918 and db6c6c11f317",
+        "arXiv:2209.02803 and arXiv:2407.05809"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact comparator has 7,905 pairs, critical cells by dimension 0,2,3,4 of 1,1,6,1, a unit degree-three differential and zero degree-four differential; it concludes the same integral equivalence.",
+          "The ordinary matching complex includes all 35,368 matchings, while the perfect-matching-generated one includes 15,820."
+        ],
+        "reasoning": "The prior exact statement and proof cover both advertised homotopy and homology conclusions. The ordinary complex is different and its result alone does not imply that of this subcomplex.",
+        "searches": [
+          "26f0ea6dc918 RESULT.md, Finding/Assumptions and Proof, offsets 0 and 2360",
+          "db6c6c11f317 RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "26f0ea6dc918 Finding and assumptions: same repeated LCF block [5,7,-7,7,-7,-5] and the same submatching condition.",
+          "Bayer et al., p. 2: simplices are subsets of some perfect matching, not all disjoint edge sets."
+        ],
+        "reasoning": "The aliases Pappus incidence/Levi graph and the LCF description identify the same graph. Perfect-matching extendability and containment in a perfect matching are the same face condition.",
+        "searches": [
+          "Resultary: Pappus perfect matching extendable",
+          "Resultary: Pappus Levi graph",
+          "arXiv:2209.02803"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "26f0ea6dc918, Finding, offset 0: wedge of five S3 and one S4, integral.",
+          "db6c6c11f317, Finding, offset 0: ordinary matching complex is a wedge of forty S5."
+        ],
+        "reasoning": "The former record is distinct from both the frozen record and the acknowledged ordinary matching computation.",
+        "searches": [
+          "Resultary: Pappus perfect matching extendable",
+          "Resultary: Pappus Levi graph"
+        ]
+      },
+      "rationale": "A distinct earlier indexed claim, 26f0ea6dc918, gives the identical integral homotopy type for the identical perfect-matching-generated Pappus complex. It even uses the same Morse/attaching-degree approach with a different pivot order and a smaller CW certificate. The frozen alternate pivot certificate confirms a known result; it does not supply an uncovered mathematical conclusion.",
+      "residual_risks": [
+        "No claim about priority beyond the decisive distinct indexed coverage.",
+        "Finite topology proof is specific to the stated graph; independence here does not imply formal verification or expert attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact integral coverage, not merely agreement of Betti ranks",
+          "evidence": [
+            "Same LCF block and extendable face condition; same sphere wedge; prior zero degree-four attachment and primitive degree-three boundary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-perfect-matching-extendability-on-the-pappus-graph-yields-five-t--26f0ea6dc918/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; proof offsets 2360–4220 and Hurewicz passage around 4511",
+          "method": "Resultary lookup and bounded OA local-mirror reading",
+          "title": "Perfect-matching extendability on the Pappus graph",
+          "trigger": "Exact indexed overlap on an equivalent object"
+        },
+        {
+          "assessment": "Different complex; does not cover the perfect-matching restriction",
+          "evidence": [
+            "Ordinary matching complex, wedge of forty S5."
+          ],
+          "identifier_or_url": "db6c6c11f317",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Integral homotopy type of the Pappus graph matching complex",
+          "trigger": "Same graph with neighboring complex"
+        },
+        {
+          "assessment": "Shared definition, planar family restriction",
+          "evidence": [
+            "Honeycomb graphs treated as planar hexagon tilings; faces lie in at least one perfect matching."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.02803",
+          "material_read": "pp. 1–2, offsets 1576 and 3937, family description and definition",
+          "method": "OA original paper",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Same type of complex and possible honeycomb alias"
+        },
+        {
+          "assessment": "Abstracted family theorem is on different graph families",
+          "evidence": [
+            "Polygonal-line tilings and two-row grids."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "p. 1, abstract",
+          "method": "OA original paper",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Possible family classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The pure extendible complex is a natural object and the mixed wedge is a meaningful contrast to ordinary matchings. As submitted, however, the only remaining difference is an alternative matching order with more critical cells, reproducing the entire known classification; it proves no new comparison map, structural invariant, or meaningful methodological improvement. There is no surviving mathematical claim to repair within the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

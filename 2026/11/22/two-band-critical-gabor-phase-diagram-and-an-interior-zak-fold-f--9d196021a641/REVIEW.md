@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit Fourier transform of the Cauchy kernel and the standard critical-lattice Zak criterion reduce the frame property to nonvanishing of a bounded one-sided rational multiplier. A global angular imaginary-part comparison excludes all nonaxial zeros under (H); the two remaining real zero curves are optimized *exactly* over the closed frequency interval. Strict monotonicity, convexity, and direct endpoint comparisons prove both forbidden intervals, while Taylor expansion at the unique interior minimizer proves the square-root fold coefficient. The rational specialization is exact. The included checker verifies independent algebraic equalities and representative Zak values; grid calculations are not substituted for the proof.
+PASS
 
-## Originality — PASS (best-knowledge, not independent priority certification)
+The Fourier transform of a positive-height simple Cauchy kernel has support on positive frequencies and the stated exponential weight; periodizing it gives a convergent geometric series on 0<omega<1. The bounded Zak multiplier is invertible exactly when it is bounded below in essential modulus; continuity on the one-sided compact strip makes even a boundary zero an obstruction. After solving for lambda, the two fractional-linear ratios have imaginary parts equal to sin(2 pi x) times r(1−q) or −rq(1−q), divided by their respective squared denominators and multiplied by 1/s or s. The ratio of squared denominators increases with cos(2 pi x), so (H) makes the summed coefficient strictly positive. The only real solutions therefore lie on x=0 or x=1/2. On the first fiber c_+/s+d_+s decreases; on the second c_-/s+d_-s has its unique interior minimum at s*=sqrt(c_-/d_-), and its greater endpoint is at q since c_-/d_->q. These are exactly the two stated closed intervals, disjoint only under the extra inequality (S). At the interior minimum the transverse imaginary derivative is nonzero and the frequency quadratic coefficient is sqrt(c_-d_-)(log q)^2, as follows also by writing the fiber as 2sqrt(c_-d_-)cosh((omega−omega*)log q). This gives two interior branches with the stated splitting. For (r,q)=(4/5,1/4), exact substitution gives (c_+,d_+,c_-,d_-)=(4,16/19,2/3,8/7), the four stated endpoints, and the stated splitting coefficient.
 
-Belov–Kulikov–Lyubarskii [1] treat broad rational Cauchy windows and Herglotz positive mixtures, but do not state this signed three-pole critical-density region or its fold. The 2026 signed two-Cauchy result [2] *does* establish separated nonframe bands and reentrant stability in a two-pole model, so these phenomena alone are prior art. The present contribution is the exact open **three-pole** parameter region, a complete algebraic if-and-only-if diagram under (H), and the new interior quadratic Zak-zero mechanism, impossible in the analogous two-pole real-residue ratio. Symmetric-pole rational Gabor work [3] concerns different families. A comprehensive specialist priority audit is not available; unpublished or unindexed parameter studies remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The minimal geometrically spaced signed three-pole extension adds a distinct interior spectral-fold obstruction absent for two poles. Classifying the entire real middle-residue parameter line over an open set of two pole-geometry parameters, with exact endpoints and a robust bifurcation law, is mathematically more informative than an isolated numerical phase diagram. It provides explicit stable and unstable windows for critical time-frequency reconstruction and identifies the mechanism controlling the first loss of stability. The hypotheses are transparent and checkable, rather than chosen by unconstrained finite enumeration.
+Signed critical-Cauchy reentry and two forbidden intervals are already present for two poles. Positive mixtures are also covered by established general theory. The supported distinct content is the exact three-pole signed classification on the stated open region and the isolated double Zak zero with its sharp interior splitting; neither follows from the inspected two-pole or general rational-window results.
 
-## Source comparison and limitations
+## value
 
-Sources [1] and [2] are full-text inspected; [3] is abstract compared. No assertion is made beyond the geometric region (H), real signed residues, the same-side three-pole configuration, and critical rectangular density. This is a self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete residue classification covers an open family of natural signed rational windows, and specifies exactly which side limits also obstruct critical frames. The extra pole permits a zero birth inside the frequency strip rather than merely reentry already exhibited by two poles. Isolating the fold and computing its sharp splitting is useful structural information about how critical frame stability is lost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

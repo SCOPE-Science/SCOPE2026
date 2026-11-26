@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:57:58.218835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact replay (branches/replay_01.py, NumPy integer arithmetic and SymPy over F3) tested 29,524 normalized forms by evaluating all 13 incidences and their gradients, obtaining 3,744 tangent-filling forms. Enumerating 1,790,112 eligible reduced-row-echelon generator pairs counts each eligible two-space exactly once, giving 22,464 pencils. Elementary generator substitutions generate PGL3(F3) of order 5,616; the four computed orbits each have that size and match every generator row. The three profile/base-count combinations occur 11,232, 5,616 and 5,616 times as stated. Each representative has 3,740 tangent-filling candidate third generators, and at most six of their nine new projective points pass in any candidate; transport by the group rules out all nets and hence larger systems. Exact affine Jacobian unit ideals on the three charts prove geometric smoothness for all three form-orbit representatives and all thirteen displayed member codes; the separate four-pair rank test makes every base intersection transverse. Distinct smooth plane cubics share no component, so the base has geometric length nine. Scope is rational pencil members only. The frozen base_reduced.py had a nonportable absolute dependency and only printed booleans rather than failing on a nonunit ideal. The portable replacement in repairs/1 is self-contained apart from SymPy, fails on any of the twelve nonunit chart ideals, and was independently executed successfully. The complete corrected RESULT.md and VERIFICATION.md distinguish the homogeneous partials restricted to each chart from derivatives of a dehomogenized equation and give portable replay instructions. The repaired proof also justifies independence after chart restriction by Euler's identity. No scientific counts or claims of scope changed. The frozen source was not executed or changed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2203.07169, p. 2 Theorem 1.3 gives existence of pencils with all rational members smooth; b3c5cd250d53 Finding concerns degree q+2 plane-filling equations over fields of size 3^r."
+        ],
+        "reasoning": "Neither smoothness without tangent-line coverage nor a dimension bound for a different degree and pointwise plane-filling condition dominates the cubic tangent-filling claim.",
+        "searches": [
+          "arXiv:2203.07169",
+          "Resultary published finding b3c5cd250d53"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7967ac46ac07 (self), 91eb1857066d, b3c5cd250d53",
+        "arXiv:2302.13420v2",
+        "arXiv:2203.07169",
+        "arXiv:2301.06019v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Individual curve orbit sizes and point counts are explicit in 91eb1857066d; none of these passages supplies the simultaneous pencil census, net obstruction or base transversality."
+        ],
+        "reasoning": "One must test compatibility among independent forms and the geometries of their intersections. Knowing individual classes, or a different net result, does not mechanically give the four simultaneous pencil orbits.",
+        "searches": [
+          "91eb1857066d, RESULT.md Finding and proof",
+          "arXiv:2203.07169, Theorem 1.3",
+          "b3c5cd250d53, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2302.13420v2, pp. 1–2 defines the rational tangent-line cover; arXiv:2301.06019v2, p. 1 instead uses blocking by curve points."
+        ],
+        "reasoning": "The dual line arrangement / projective four-member compatibility formulation is the same census. A blocking rational point set is not equivalent to a cover by rational tangent lines; the cited blocking-pencil result also uses an empty rational base, unlike the three or four points here.",
+        "searches": [
+          "Resultary: tangent-filling ternary cubic pencils over F3, projective line compatibility and net obstruction",
+          "arXiv:2302.13420v2",
+          "arXiv:2301.06019v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7967ac46ac07 is an exact self-hit; 91eb1857066d is a three-orbit table of 3,744 individual cubic forms."
+        ],
+        "reasoning": "The latter table provides the vertices of the eligible set but does not identify its contained four-point projective lines, their stabilizers, or their base geometry.",
+        "searches": [
+          "Resultary: 22464 / four free tangent-filling cubic pencil orbits / reduced nine-point base over F3"
+        ]
+      },
+      "rationale": "The curve-level census is already covered and is explicitly credited to 91eb1857066d in the repaired result. The supported distinct claim is the complete pencil incidence, projective orbit, base and sharp no-net classification. The strongest distinct matches do not supply that classification. The exact matching indexed record is this same finding, not independent coverage.",
+      "residual_risks": [
+        "The literature comparison was bounded to the inspected primary passages and Resultary matches; an additional keyword lookup was not run. An unindexed equivalent finite census is possible; no unconditional priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same individual curve predicate, different target theorem",
+          "evidence": "Definitions and the stated curve-level bounds and examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13420",
+          "material_read": "v2 pp. 1–2 (text offsets 0–6934)",
+          "method": "Open-access PDF text",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Exact tangent-filling definition"
+        },
+        {
+          "assessment": "Existence, not classification with tangent coverage",
+          "evidence": "Theorem 1.3 imposes smoothness on rational members but not rational tangent coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.07169",
+          "material_read": "p. 2, Theorem 1.3 (offset 4257)",
+          "method": "Open-access PDF text",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "All rational members smooth"
+        },
+        {
+          "assessment": "Different predicate and base-locus hypothesis",
+          "evidence": "Uses blocking curve point sets and a rationally empty base.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.06019",
+          "material_read": "v2 p. 1 (offset 0)",
+          "method": "Open-access PDF text",
+          "title": "Proportion of blocking curves in a pencil",
+          "trigger": "Nearby finite-field pencil condition"
+        },
+        {
+          "assessment": "Covers the curve census, not pencil incidence",
+          "evidence": "3,744 smooth individual forms, three orbits, point counts 4, 6 and 7.",
+          "identifier_or_url": "91eb1857066d",
+          "material_read": "Finding and proof, offsets 0–4245",
+          "method": "Published Resultary finding body via local mirror",
+          "title": "Tangent-filling plane cubics over F3: three projective classes",
+          "trigger": "Exact curve-level numerical match"
+        },
+        {
+          "assessment": "Different degree and predicate",
+          "evidence": "Dimension-two maximum for the degree-q+2 plane-filling case over fields of size 3^r.",
+          "identifier_or_url": "b3c5cd250d53",
+          "material_read": "Finding, offsets 0–2969",
+          "method": "Published Resultary finding body via local mirror",
+          "title": "A trace obstruction to smooth nets of minimum-degree plane-filling curves",
+          "trigger": "Possible covering net theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp bound on the dimension of systems satisfying a fixed geometric condition, a full and free orbit classification, and exact base-scheme information are useful for choosing pencil representatives and knowing which tangent-filling cubics coexist in one system. Group inequivalence despite the same rational count profile is structural information not provided by the curve-level census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

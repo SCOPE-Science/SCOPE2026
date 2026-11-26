@@ -1,15 +1,21 @@
-# Scientific assessment — rank-three Kneser projection norms
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge7\), the graph is connected and edge-transitive, so one dipole current column controls both endpoint operator norms. The displayed orbit matrix follows by counting disjoint triples. Its four rational potentials solve the equations when \(n\ge8\); the separate three-orbit matrix resolves \(n=7\). Explicit sign inequalities determine all absolute-current signs, enabling the exact coarea count. The projector trace independently determines the cycle norm. Polynomial identities with strictly positive coefficients after the shift \(t=n-9\) establish the global peak dimensions without relying on finite experiments. The checker reconstructs full graphs exactly and verifies polynomial identities using more distinct integer points than the numerator degree bound.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Dilworth–Kutzarova–Ostrovskii's 2023 full text treats invariant projections, tori, and Hamming graphs rather than \(KG(n,3)\). Ducey–Hill–Sin's Kneser paper computes the critical group for \(KG(n,2)\) rather than \(\ell_1\) norms of edge-space projections. Rank-three Kneser adjacency is not the Johnson rank-three adjacency, and rank-three Kneser graphs are not strongly regular, so these related rank-two and Johnson results do not imply the present formulas. Published-index searches did not identify a covering result. Equivalent unindexed electrical-flow calculations remain possible.
+PASS
 
-## Value — PASS
-The first non-strongly-regular rank of the Kneser disjointness family is a natural test of projection-norm behavior beyond the two-eigenvalue case. The complete parameter formula, its coarea mechanism, the distinct sharp cut-versus-cycle peak dimensions, and the global monotonicity certificates yield a nontrivial family classification rather than a sampled numerical table or a formal substitution into a known special-family result.
+The incidence convention gives a symmetric orthogonal projection, and vertex exchanges establish connectivity for n>=7. Permuting ground-set labels is edge-transitive and only permutes or changes signs of edge coordinates, so the endpoint norms equal the absolute sum in one column. I reconstructed the dipole by solving an independent radial one-pole Laplacian system: for overlap k with the pole, the number of neighbors of overlap j is binom(3-k,j) binom(n-6+k,3-j); subtract the two pole solutions to obtain the dipole. This reproduces all four orbit potentials. Their sign ordering follows from the positive quadratic separation and the positive coefficients after shifting n by 8. Counting disjoint pairs between distinct ordered potential levels gives the displayed cut rational function, including automatically zero multiplicities for absent levels; at n=7 a separate full graph reconstruction gives TV=116/35. The trace makes every diagonal 2(N-1)/(Nd) in (0,1), so the cycle correction is exactly 1-4(N-1)/(Nd). Independent symbolic subtraction and shifting n by 9 give positive coefficients; exact comparisons of n=7,8,9 prove the unique distinct maxima, and expansion confirms both coefficients through order n^-2. Replay: python3 /workspace/review-checks.py (SymPy; section kneser). This is a mathematical and computational review, not proof-assistant validation.
 
-## Limits
-No nonorthogonal minimality, weighted-graph, or general-rank assertion is made. Finite verification corroborates, but does not replace, the all-dimension algebraic proof. An independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior art gives the edge-dipole representation and even the same type of calculation for the pair Kneser graph. Those are precedents, not the present theorem. The supported distinction is the evaluated rank-three absolute-current sum and its sharp dimension behavior, not the projection representation, trace correction, or method alone.
+
+## value
+
+PASS
+
+Rank three is the first subset rank beyond the strongly regular Kneser case, so the graph family and canonical electrical norm have a natural motivation. The absolute-current formula and sharp cutoff show complementary projections peak at different dimensions, quantitatively extending the rank-two comparison, rather than merely listing some graph computations. This is limited to the stated canonical endpoint norms, not arbitrary projection minimality, intermediate p, or general rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

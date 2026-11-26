@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:31:22.950854Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Applies to repairs/1/RESULT.md. The original assertion of only finitely many non-generating points is false. For each k choose phase i*p_k modulo p_(k+1) so that index -1 is the fill immediately preceding subblock i, obtaining either 0 or 1 while rho_k=0; both choices exist for q_k>=4. Compactness produces two base points with aligned phase zero and different symbols at -1, agreeing at all other coordinates. Lifts with the same x_0 agree on the nonnegative ray. Each of their common nonnegative shifts gives an indistinguishable pair for the tower partitions: the level-k start in the original lift is m-(m mod p_k)>=0 for shift m>=0. Their distinct embedded integer phases give infinitely many exceptions. The repair instead uses phase uniformity and cylinder windows enlarged to include the origin; the bad-phase mass for a difference window of length L is at most L/p_k. This proves measure determination and shows why no finite point-exception claim is needed. Even parity and the two consecutive odd fills give q_k-1 unchanged and one switched subblock start, with exact normalization by q_k. The replacement proves surjectivity of the compatible-vector description by weighted finite orbit segments with endpoint error at most 2||f||/p_k; clopenness preserves the projected masses. It also gives a direct minimality proof: every cylinder contains an atom from a noninteger-phase lift, and any full next-level block visits both level-k bases. The difference coordinate is multiplied by 1-2/q_k, whose negative logarithm is comparable to 1/q_k; compatibility gives either the unique balanced family or the affine segment parametrized by tP_k, with its extreme points precisely the ergodic measures. The original checker was inspected, not executed; it has three nested examples, not four, and is only finite incidence evidence. The repair is a complete corrected RESULT.md; no other mathematical support file depends on the false finiteness assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kang–Jäger use h_(2,2)(x0,x1)=x1-x0 mod 2 and the same recursion, allowing q_k>=3.",
+          "Bezuglyi–Karpel–Kwiatkowski give general counting by nested-block incidence and the resulting invariant measure framework."
+        ],
+        "reasoning": "The broader theorems supply the topological criterion or a way of computing measures once incidence and measure determination are verified. They do not state the normalized matrices or exact simplex of this particular lift.",
+        "searches": [
+          "arXiv:2609.01140v1 Thm. 1.5, 5.4, 6.13",
+          "arXiv:1709.00055v3 Remark 7.4 and start of Sec. 7.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01140v1",
+        "arXiv:1709.00055v3",
+        "Resultary --1a88abe12d32, --815ac2c05332"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published lower bound has factors ((q_j-2)(q_(j-1)-1))/(q_j*q_(j-1)), whose product stays positive for summable reciprocal q_j. That proves the non-unique direction already. The bound tending to zero does not imply that actual discrepancies vanish.",
+          "The specific phase-resolved count, measure generation modulo null sets, and weak-* realization show both necessity and sufficiency for the exact tower masses."
+        ],
+        "reasoning": "The repair explicitly credits the already implied direction. Generic incidence descriptions do not on their own solve this lift or show that this rank-two representation determines its full invariant measures.",
+        "searches": [
+          "arXiv:2609.01140v1 Thm. 6.13 proof and its use of Thm. 5.4; OA full-text offsets 138300–146739",
+          "arXiv:1709.00055v3 Remark 7.4 at offset 177452"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general aperture-discrepancy criterion characterizes unique ergodicity, not the reciprocal-sum condition for this recursion.",
+          "The product threshold can equivalently be phrased as loss of the difference coordinate in a rank-two stochastic inverse limit."
+        ],
+        "reasoning": "These alternate formulations were compared at the level of the actual binary first-difference map and its two phase classes. The specific all-measure inverse limit and its solutions are not specified in the general criterion.",
+        "searches": [
+          "Resultary: binary first-difference lift Kang Jäger Toeplitz exact invariant measures reciprocal q_k dichotomy",
+          "Resultary: Kang Jäger minimal Toeplitz lift non uniquely ergodic binary q_k recursion invariant measures",
+          "arXiv:2609.01140v1 Thm. 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--1a88abe12d32 treats lag D=2^r on a period-doubling substitution and counts 2^(D-1) minimal components with fibre rank two; --815ac2c05332 treats a six-step period-doubling lift with four component ranks 8,8,24,24."
+        ],
+        "reasoning": "Component counts for a different fixed substitution and different lags do not encode an invariant simplex for the Kang–Jäger one-step recursion with variable q_k. This is a bounded ranked catalogue comparison.",
+        "searches": [
+          "Resultary: exact frozen title",
+          "Resultary: binary first-difference lift of Kang Jager Toeplitz recursion (300 ranked hits)"
+        ]
+      },
+      "rationale": "Pass for the repaired exact two-regime classification and all-measure tower-mass simplex, not for the recursive construction, minimality, the summable non-unique direction by itself, or Bratteli theory. Same-construction prior work already implies the latter non-unique direction but its one-sided discrepancy bound cannot decide the divergent case or determine the measures. The concrete measure-determining partitions and explicit compatible family fill that gap.",
+      "residual_risks": [
+        "Close to an explicit application of general finite-rank measure theory; an earlier concrete identification of these rank-two tower masses would reduce the distinct contribution. Targeted comparisons are not an exhaustive priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recursion and minimality; non-uniqueness in the summable regime follows from the proof. Neither the divergent direction nor the simplex is supplied there.",
+          "evidence": [
+            "Return-permutation transitivity criterion; aperture-discrepancy characterization; one-sided product lower bound in the proof of Thm. 6.13."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.01140v1",
+          "material_read": "Thm. 1.5 offsets 14362–17351; Thm. 5.4 near 108522; Thm. 6.13 proof and conclusion, offsets 138300–146739",
+          "method": "OA HTML located by named theorems and read at offsets",
+          "title": "On lifts of strictly ergodic subshifts by permutative sliding block codes",
+          "trigger": "Same construction and strongest direct implication"
+        },
+        {
+          "assessment": "Generic block incidence framework, not an identification of the two lifted phase classes in the Kang–Jäger construction.",
+          "evidence": [
+            "Remark 7.4 counts occurrences of earlier blocks in later blocks and points to Thm. 4.9 for the invariant measures."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1709.00055v3",
+          "material_read": "Remark 7.4 and beginning of Sec. 7.2, offset 177452 onward",
+          "method": "OA HTML literal location and bounded offset read",
+          "title": "Exact number of ergodic invariant measures for Bratteli diagrams",
+          "trigger": "General incidence machinery could already cover claimed classification"
+        },
+        {
+          "assessment": "Different base, lag and invariant.",
+          "evidence": [
+            "Period-doubling with D=2^r>=4, 2^(D-1) minimal components and fibre rank two."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minimal-component-counts-for-dyadic-period-doubling-differ--1a88abe12d32",
+          "material_read": "RESULT.md statement and assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimal component counts for dyadic period-doubling difference lifts",
+          "trigger": "Closest earlier binary difference-lift classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired statement gives a sharp, simple sequence criterion, both regimes within a fixed established family, and a complete simplex with computable tower observables despite the same regular uniquely ergodic base mechanism. This goes beyond adding another existential non-unique lift. The result concerns this family only and does not claim new general symbolic dynamics machinery.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

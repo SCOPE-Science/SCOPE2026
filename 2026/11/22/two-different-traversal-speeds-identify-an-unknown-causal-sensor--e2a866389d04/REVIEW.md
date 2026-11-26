@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input-output convolution law and all nonvanishing assumptions are explicit. Fourier factorization gives a ratio in which the unknown stationary field cancels, the geometric-frequency product telescopes exactly, and normalization at zero closes the limit. Fourier uniqueness identifies both integrable functions; the single-speed example consists of two distinct positive causal responses and two distinct positive sources with nonzero transforms and equal observed output. The moment identities follow from independent-sum distributions. `verify.py` completes 12,800 supplementary numerical assertions but is not substituted for the infinite-dimensional proof.
+PASS
 
-## Originality — PASS on the inspected evidence
+The stated noiseless model on the entire line gives an L1 convolution with k_v(s)=h(s/v)/v for s>=0 and zero otherwise. Its transform is C(xi)H(v xi). Both transforms have no real zeros; with a=v2/v1 in (0,1), the N-term measured ratio product at a^j omega/v1 is H(omega)/H(a^N omega). H is continuous at 0 and H(0)=1, proving the exact reconstruction including omega=0 without any branch of a logarithm or extra moment condition. Division gives C and Fourier injectivity gives uniqueness a.e. At one fixed positive speed, use distinct unit-mass exponential h1,h2 and the unit-mass Laplace g. Swapping their spatial kernels between convolution with g and the sensor leaves the same product and produces distinct admissible nonnegative sources and responses with nonzero transforms. The finite-second-moment formulas solve the two mean and variance equations of X+vU; for existing higher cumulants independence gives the analogous linear equations. An independent arithmetic replay gave a telescope error of about 1.24e-16 (1/normalization limit error 4.87e-13 at 40 factors), recovered E[U]=0.6 and variances 0.573333 and 1.28, and reproduced the one-speed alias at a frequency where the source transforms were separated by 0.222.
 
-The physical motivation is Russell et al. (ChemRxiv, March 2024; ACS 2024): the manuscript studies mobile sensor performance and response lag using higher-grade references, not joint nonparametric field and kernel reconstruction. Mulleti, Lee and Eldar (2020), read in its open full text, studies discrete sparse/finite-impulse-response multichannel blind deconvolution under coprimeness and finite sampling; it provides broad perspective but its theorems do not imply continuous infinite-support causal two-speed factor recovery. Carasso (2001) is limited to stable symmetric point-spread functions, unlike the normalized causal filter here; its available abstract was read, but its full text was not available for this comparison. The Fourier ratio, telescoping and probability moments are classical ingredients and are not represented as independently new. Exact historical priority for this combined nonparametric application is not proven by searching, and specialized dilation-blind-deconvolution predecessors remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Slow time response limits the spatial resolution of moving atmospheric monitors. Calibrating that unknown response without a reference monitor is a natural inverse-design objective, and the theorem gives a complete positive-class identifiability result, sharp two-pass minimum and explicit reconstruction, plus low-order moment estimates that avoid the full ill-conditioned Fourier inverse. This directly separates temporal sensor lag from spatial concentration variation in an idealized measurement scenario. It is not an implementation-ready calibration method and claims no noise stability or field performance.
+The supported distinction is the explicit nonparametric inverse for two full outputs of a common source through positive speed dilations of a single normalized causal L1 sensor, with one speed minimal in that class. Blind multichannel identification, convolution ambiguity and Fourier factorization are prior principles, not new here. The strongest inspected multichannel theorem relies on finite-dimensional sparse channel structure, not satisfied by the general impulse responses here. No independent covering statement was established by the bounded comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Two controlled traversal speeds supply a minimal sufficient experimental design within an infinite-dimensional blind model: the sensor need not first be externally calibrated, and repeating the same speed cannot substitute. The exact inverse and the one-speed indistinguishable pairs give complementary benchmarks for subsequent stability, sampling or calibration work. This goes beyond reporting a Fourier-domain product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

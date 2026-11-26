@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:48:04.660429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary equal-rate availability, conditioning on the penultimate selected spin repeatedly pairs the even moments; sign symmetry kills the odd moments. This yields positive exponential terms, including one positive single-gap term for each gap, so the Hessian is positive definite. Reversing the ordered observations leaves the objective unchanged, forcing the unique simplex minimizer to be symmetric even on a coincident-visit boundary. At the origin the derivative in gap j is −(1−q^j)(1−q^(n−j))/4 with q=1−p. The maximal magnitude is central because q^j+q^(n−j) decreases toward the middle and increases afterward. The strict derivative ordering against noncentral gaps persists on a sufficiently small simplex for fixed n,p: shifting a positive noncentral gap toward a central one would strictly decrease the miss probability. The two central gaps tie only in odd n, when reflection enforces equality. The n=3 case has only central gaps. For n=5 the positive factor in the differentiated objective leaves the sign of ρu³+u²−K(u+1). This cubic starts negative at zero, decreases to its unique positive minimum and then strictly increases; it is negative at u=K and has sign 1+ρ−2K at u=1. Thus equality at the stated critical horizon is still the unique endpoint-doublet optimizer. At an interior root K=u²(1+ρu)/(1+u)<u², placing the inner intervals strictly above the outer ones. At p=1 the strictly convex log of the all-unavailable path probability gives uniform spacing. The example's phrase 'five gaps' is editorial: the displayed vector and theorem correctly contain four gaps for five visits.",
+      "reproduction": {
+        "command": "python3 /workspace/reproduction/4.py",
+        "result": "143 exact rational assertions compare hidden-state paths to the even-moment formula, test reversals and origin derivatives, and verify the five-visit polynomial and rational root. With p=1/2 and (u,v)=(3/4,13/28), K=39/112<5/9, v<u, and the exact miss probability is 89739/262144. The frozen script was inspected, not run. These tests do not certify infinite ranges, a uniform short-horizon bound, or empirical survey performance."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michel’s Lemma 2.1 and Theorem 2.2 minimize asymptotic MLE variance from exact states at equally spaced times. The matched four-visit result explicitly leaves general visit counts open."
+        ],
+        "reasoning": "An exact-state estimation design, even with the same transition family, does not imply fixed-count imperfect detection optimality. An asymmetric theorem at a single smaller visit count is broader in a model parameter but not in visit count.",
+        "searches": [
+          "Jon Michel, Optimal adaptive sampling for a symmetric two-state continuous time Markov chain, §§2–3",
+          "Web literature: optimal sampling schedule Markov intermittent presence wildlife detect at least once fixed visits probability detection temporal dependence HMM snapshot cluster fixed horizon",
+          "Same-objective four-visit RESULT.md, Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary three-visit record 58658da993e0",
+        "Resultary four-visit record 83d0ec176818",
+        "Michel, DOI 10.1080/07474938.2019.1701808",
+        "Resultary and primary literature searches described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier one-coordinate strict convexity does not imply positive definite Hessians for arbitrary gap vectors. The earlier four-visit AM–GM argument uses a special product constraint and changes polynomial degree when the visit count changes."
+        ],
+        "reasoning": "The positive even-moment expansion and sign analysis are additional mathematics, not relabelling. The symmetric small-horizon schedules for n=3 and n=4 overlap and are not new individually.",
+        "searches": [
+          "Four-visit RESULT.md Proof equations (1)–(2)",
+          "Three-visit RESULT.md Proof, N(u)=C+A exp(−u)+B exp(−(L−u))"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same objective can be written as a product of transition and miss-emission matrices, or as one minus the probability of any detection. The matched four- and three-visit results optimize precisely that objective but at different fixed counts."
+        ],
+        "reasoning": "Using the dual miss objective or an exponential Markov clock does not turn the quartic four-visit or one-variable three-visit problem into the five-visit cubic.",
+        "searches": [
+          "Resultary: fixed endpoint Markov intermittent availability survey exact five visit no detection optimal sampling timing",
+          "Web literature: optimal observation times maximize at least one detection intermittent availability stationary two state continuous time Markov imperfect detector optimal sampling clustering evenly spaced visits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target was the only returned exact five-visit cubic claim. Closest distinct exact entries had a clipped middle-time law at n=3 and an AM–GM reduction to a quartic at n=4."
+        ],
+        "reasoning": "Neither entry computes the four-gap five-visit optimizer and no numeric table would establish its continuum of roots and the all-count parity law.",
+        "searches": [
+          "Resultary: fixed endpoint Markov intermittent availability survey exact five visit no detection optimal sampling timing",
+          "Exact mirrored three- and four-visit findings: Finding and Proof"
+        ]
+      },
+      "rationale": "The closest works solve the same detection objective at n=3 or n=4 and are properly overlapping cases. Neither derives the all-count Hessian/short-window parity law nor the exact five-visit transition. Broader asymmetric and adaptive frameworks were not exhaustively excluded.",
+      "residual_risks": [
+        "Uninspected hidden-Markov scheduling results could subsume a structural part of the theorem. The searches do not establish historical priority. The fixed-endpoint model neither calibrates ecological data nor addresses costs or dependence of simultaneous attempts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the n=4 optimum only.",
+          "evidence": [
+            "For four visits fixed product of outer factors enables an AM–GM reduction; a quartic controls the transition; arbitrary n is expressly left open."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-endpoint-doublet-transition-for-four-surveys-of-markovia--83d0ec176818/RESULT.md",
+          "material_read": "Finding, assumptions, Proof equations (1)–(2), and Limitations",
+          "method": "Mirrored public primary result text",
+          "title": "A sharp endpoint-doublet transition for four surveys of Markovian ecological availability",
+          "trigger": "Closest same-objective all-horizon threshold, including asymmetric availability."
+        },
+        {
+          "assessment": "Only the one-free-time optimizer.",
+          "evidence": [
+            "Convexity and explicit clipping concern a single middle cumulative-clock time; equal endpoint qualities give midpoint placement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-three-visit-scheduling-law-for-intermittently-available--58658da993e0/RESULT.md",
+          "material_read": "Finding, assumptions, Proof (middle-clock exponential expression), and Limitations",
+          "method": "Mirrored public primary result text",
+          "title": "A sharp three-visit scheduling law for intermittently available species",
+          "trigger": "Same probability-of-detection objective with heterogeneous attempt quality."
+        },
+        {
+          "assessment": "A different optimization criterion and observation model.",
+          "evidence": [
+            "Observations are exact states. The fixed design minimizes switching-rate MLE asymptotic variance; the adaptive design estimates that rate and adjusts spacing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/07474938.2019.1701808",
+          "material_read": "Lawful author PDF pp. 1, 3–8, equation (2), Lemma 2.1 and Theorems 2.2 and 3.1–3.2",
+          "method": "Read relevant passages of the open university-hosted PDF",
+          "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+          "trigger": "Closest primary design literature with the same latent transition kernel."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The objective separates time spent diversifying latent states from repeat detection chances at one state. Exact clustering by parity for every count and the first nontrivial five-visit threshold furnish a reusable baseline for scheduling, including the equality case and ordering after the threshold. This is a mathematical design benchmark for the stipulated model, not a field recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

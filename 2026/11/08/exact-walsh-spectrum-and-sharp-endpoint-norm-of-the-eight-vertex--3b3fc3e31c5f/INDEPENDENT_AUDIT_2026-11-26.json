@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:29.811975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5 of Proof and table",
+        "VERIFICATION.md",
+        "verify.py",
+        "hafnian_direct.c"
+      ],
+      "rationale": "Every matching uses each vertex once, so vertex switching multiplies all terms by the same sign. Fixing the seven incident signs at one vertex picks one point per orbit of size 128; with the switch fixed to zero at that vertex, even and odd switches pair the signs in each orbit. Fourier inversion gives kernel H/2^28. Its absolute sum is attained on a delta for the counting-measure ℓ¹ norm, and by the reflected kernel sign for ℓ∞. Independently, on every one of the 2^21 normalized assignments I evaluated the sum of the seven six-vertex principal hafnians (conditioning on the partner of the star vertex). Each six-vertex hafnian expands by a fixed vertex into five signed four-vertex hafnians, evaluated by their three products. Exact bounded integer arithmetic reproduces all 23 table entries and all absent levels, with first absolute sum 16854180, second sum 220200960, fourth sum 84777369600, and norm 4213545/524288. Oddness excludes zero. For magnitude 105, comparing the three ways of matching the star vertex and any triple while fixing a matching on the four other vertices forces the three signs on that triple equal; hence the two normalized matrices with all other signs constant are exactly the extremizers, giving 256 full points. The frozen Python and C certificates were inspected, not executed.",
+      "replay": "python3 /workspace/branches/audit-k8-subsets.py (NumPy); saved output /workspace/branches/audit-k8-subsets.out",
+      "residual_risks": [
+        "The census is exhaustive at order eight only; no general signed-hafnian law is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyadic Walsh rigidity, Finding: its explicit expansion uses involution counts and all matchings, including the empty one.",
+          "Dyadic Fourier rigidity and the first singular spectrum, Finding: exactly two disjoint edges; the K8 perfect-matching support instead has four.",
+          "The Gaussian estimator framework does not enumerate Rademacher magnitudes."
+        ],
+        "reasoning": "These supports cannot be identified by choosing n=8. Extracting the perfect-matching coefficient from a separate weighted generating function and determining its multiplicity distribution requires additional information.",
+        "searches": [
+          "Resultary: dyadic congruences cancellation signed hafnian complete graph perfect matching parity all even orders",
+          "arXiv:1409.3905"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1409.3905",
+        "Resultary 3b3fc3e31c5f (same finding)",
+        "Resultary 3518315cdf56 and 6e99150d9e61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Character orthogonality gives the second moment; odd matching count gives nonvanishing; switch orbits dictate the factor 128.",
+          "The prior related computations concern different supports or random models."
+        ],
+        "reasoning": "The standard reductions and moments do not fix the 23 individual counts or the absolute first moment. The independent full census supplies that missing exact information.",
+        "searches": [
+          "arXiv:1409.3905, Introduction",
+          "Resultary dyadic Walsh rigidity and size-two census, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh magnitudes here are symmetric Rademacher hafnian magnitudes; their mean is the projection norm.",
+          "Rudelson–Samorodnitsky–Zeitouni, Introduction, pp. 2–3: matching-sum definition and skew-symmetric Gaussian determinant estimator for nonnegative input."
+        ],
+        "reasoning": "A permanent of a bipartite sign matrix is a hafnian only with a bipartite block restriction; it samples a different frequency support from all pair partitions of eight vertices. Gaussian estimation of a fixed nonnegative input is not the signed amplitude law.",
+        "searches": [
+          "Resultary: order-eight signed hafnian; nonbipartite perfect-matching Walsh spectrum; bipartite signed permanent; signed-graph switching invariants",
+          "arXiv:1409.3905"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 23-level catalogue hit is the assigned finding 3b3fc3e31c5f itself, not a distinct source.",
+          "The closest distinct K8 census located in the catalogue is for the size-two matching support."
+        ],
+        "reasoning": "No distinct equivalent table was identified in the inspected results. This is a bounded finding, not evidence that no older table exists.",
+        "searches": [
+          "Resultary: exact order-eight signed hafnian enumeration; perfect-matching Walsh tables; bipartite permanent tables; switching tables",
+          "Literature lookup for signed-hafnian enumeration (completed results generic; deferred lookups not counted)"
+        ]
+      },
+      "rationale": "The evidence supports the distinct exact histogram and its absolute first moment for the K8 perfect-matching orbit. The matching identity, switching, and endpoint convolution reduction are background, not novelty. The nearest inspected results use Gaussian estimators or materially different matching supports. No global publication-priority claim is made.",
+      "residual_risks": [
+        "Earlier signed-hafnian enumerations or equivalent switching tables outside the inspected material remain possible; no unrelated bipartite table is credited as a full comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected result explains the hafnian identity but is not this independent-sign law.",
+          "evidence": "Nonnegative symmetric inputs; Gaussian skew determinant estimator, not random signed hafnian amplitudes.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.3905",
+          "material_read": "Introduction, PDF pp. 2–3, including the matching-sum definition and estimator model",
+          "method": "Open-access primary text",
+          "title": "Hafnians, perfect matchings and Gaussian matrices",
+          "trigger": "Closest primary hafnian-estimator result"
+        },
+        {
+          "assessment": "Different support and invariants.",
+          "evidence": "Uses all matchings including the empty matching, with involution-count expansion and congruence/invertibility claims.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-dyadic-walsh-rigidity-and-explicit-singular-resonances-for-compl--3518315cdf56/RESULT.md",
+          "material_read": "Finding, offset 0–1925",
+          "method": "Local mirror",
+          "title": "Dyadic Walsh rigidity and explicit singular resonances for complete-graph matchings",
+          "trigger": "General complete-graph matching Walsh transform"
+        },
+        {
+          "assessment": "Not the same frequency orbit.",
+          "evidence": "Explicitly defines the indicator using exactly two disjoint edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-dyadic-fourier-rigidity-and-the-first-singular-spectrum-of-two-e--6e99150d9e61/RESULT.md",
+          "material_read": "Opening of Finding at offset 99",
+          "method": "Local mirror",
+          "title": "Dyadic Fourier rigidity and the first singular spectrum of two-edge complete-graph matchings",
+          "trigger": "Distinct exact spectrum at the same K8 graph order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1 and 5",
+        "Resultary 6e99150d9e61 (different matching support)"
+      ],
+      "rationale": "Perfect matchings form a canonical nonbipartite frequency orbit. Its projection's exact endpoint amplification is a meaningful invariant not recovered by cardinality, nonvanishing or Parseval. The entire order-eight law is reusable for exact comparison with other matching supports and for checking analytic bounds or higher-order censuses; the value does not depend on extrapolation.",
+      "residual_risks": [
+        "This finite invariant does not establish a formula or asymptotic law at larger order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

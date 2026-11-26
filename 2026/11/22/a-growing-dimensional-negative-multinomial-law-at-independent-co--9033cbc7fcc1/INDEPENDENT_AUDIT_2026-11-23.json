@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:50.189900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The same-label coupling keeps the clock independent of each nondistinguished label stream. Conditional on T=t, the other clock count has mean t and variance 2t by the Poisson–gamma calculation. Conditional on both lengths, the mismatch can occur only if an extra draw hits any label absent in the shorter prefix, at cost ≤|T−N|(x^T+x^N), x=1−1/n. The geometric-phase transform has shift n(1−w)/w. At z=x² this is at least 2; at w=(2−z)^−1 it is 2−1/n. The exact shift-two product is 2/[(n+1)(n+2)], and the smaller shift increases the product by at most e² (bound each negative log by 1/[n(h+2)−1]). With E(T−N)²=2nH_n, Cauchy–Schwarz gives the stated per-coordinate coupling cost. Independent Poisson thinning gives U=e^(−S/n) distributed Beta(1,n); conditional on U the peers have independent Bin(n,U) laws. Coupling binomials to Poisson variables costs at most nE[U²]≤2/n per peer. Shared coupling U=1−exp(−E/n) and superposition cost at most E[E²]/(2n)=1/n per peer. All error costs apply jointly by union bounds, and integrating the shared exponential gives the reported negative-multinomial mass and geometric sum. No independence across peers is assumed after averaging the clock. Bound is a sufficient regime, not a threshold. Inspected frozen verify.py without executing it; its exact half-atom is for the continuous comparator, not the discrete law, which can have ties.",
+      "replay": "Frozen RESULT.md proof; fresh exact-rational PGF and Beta-binomial component checks for small n are in the private evidence file constants_check.py. Finite checks corroborate the components, not the all-n,q theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader classical occupancy calculation at a fixed deterministic round yields the conditional distribution at any given length but not a quantitative joint approximation after mixing the random length.",
+          "The indexed coupled multi-draw logistic-delay result uses shared offered groups and a different delay observable; indexed geometric-to-exponential shortages concern deficient labels at a multi-copy cutoff."
+        ],
+        "reasoning": "Fixed-dimension occupancy and coupon-clock limits can motivate the mixed Poisson model but do not by themselves give an error bound with growing q. Standard Poissonization is background, and the nontrivial step tested here is the shared stopping-clock error.",
+        "searches": [
+          "arXiv:math/0304229 §§1–2 and their completion generating functions",
+          "arXiv:1412.4346 abstract and §1",
+          "Resultary: Independent simultaneous coupon collectors missing coupons at distinguished collector completion shared exponential Poisson negative multinomial"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0304229",
+        "arXiv:1412.4346",
+        "Resultary coupon-collector search (indexed summaries for neighboring models)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical coupon completion and thinning already explain the exact shared beta mixture with independent continuous clocks; the synchronized vector samples a common integer round, not the independent Poisson lengths at the distinguished completion time."
+        ],
+        "reasoning": "The finite-n comparison requires control of the mismatch between the vector laws; the geometric-transform weighted edit bound is not an implication of the inspected completion-tie or hand-down theorems. No novelty is assigned to evaluating the limiting mixture itself.",
+        "searches": [
+          "arXiv:math/0304229 §§1–2",
+          "arXiv:1412.4346 §1",
+          "Resultary synchronous distinguished collector deficit search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Myers–Wilf use independent label streams and the same synchronous clock; their event of equal completion rounds is not K_{2,n}=0: the latter also includes earlier completion by collector 2.",
+          "Doumas–Papanicolaou give spare draws from one stream to the later siblings, not separately sampled albums."
+        ],
+        "reasoning": "Equivalent deficit language is the number of empty album positions at one specified collector's end. One cannot substitute a stopped rank path or duplicate-hand-down deficit for this joint observable.",
+        "searches": [
+          "Independent simultaneous coupon collectors at completion time missing coupons geometric number of uncollected coupons two collectors Myers Wilf number of missing coupons joint",
+          "arXiv:math/0304229 §§1–2",
+          "arXiv:1412.4346 introduction and model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed target itself and other coupon-collector models were found. Myers–Wilf actually tabulate a two-album same-round-completion probability, not the vector law or uniform TV error."
+        ],
+        "reasoning": "A closed negative-multinomial table or exact Stirling occupancy enumeration does not establish the quantitative approximation in this random synchronous horizon; no equivalent full-vector bound was identified in the inspected comparisons.",
+        "searches": [
+          "Resultary: Independent simultaneous coupon collectors missing coupons at distinguished collector completion shared exponential Poisson negative multinomial",
+          "Myers–Wilf §2.1 Eqs. 2, 6–7"
+        ]
+      },
+      "rationale": "The model of independent competing coupon collections and the mixed-Poisson/negative-multinomial law are classical ingredients. The distinct contribution supported by the comparisons is a quantitative coupling of the synchronized full deficit vector at a distinguished first completion to the classical law, with uniform control for a growing number of peers.",
+      "residual_risks": [
+        "An earlier quantitative de-Poissonization result for this or a stronger synchronous stopped occupancy model could subsume the claim.",
+        "Primary-literature search was unavailable; this is not negative evidence. Priority is provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the two-collector experiment and related exact statistics, not the quantitative joint approximation in the inspected results",
+          "evidence": "Eq. (7) is a sum of squared completion-time masses; §2.2 tracks equal paths then permanent lead.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "Abstract, contents, introduction and §2.1–2.2 opening, Eqs. (1)–(7)",
+          "method": "Read primary PDF text and compared stopping events and exact probabilities",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Same synchronous independent collector experiment"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Later sibling deficits arise from passed-on duplicates of the main stream, not independent coupon labels at each round.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.4346",
+          "material_read": "Abstract, opening model and initial definitions",
+          "method": "Read primary PDF text and compared coupon ownership and draw dependence",
+          "title": "The Siblings of the Coupon Collector",
+          "trigger": "Apparently equivalent missing-type language at a distinguished completion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite joint law approximation over many simultaneously observed independent albums is useful in a way that marginal geometric convergence is not: it quantifies the common stopping dependence and gives an explicit growing-dimensional error budget. The proof addresses a natural stopping statistic, without claiming its sufficient dimension scale is optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

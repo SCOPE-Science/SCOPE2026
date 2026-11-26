@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:11:50.878967Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4; VERIFICATION.md; verify.py (inspected only)",
+        "Replay: python /workspace/audit-evidence/3.py; output /workspace/audit-evidence/3.txt"
+      ],
+      "rationale": "At each site the three energies up to a common constant are δu²−(a+c)u. Minimization allows the matching nonzero sign iff |a+c|≥δ and zero iff |a+c|≤δ. Thus ties matter at 1 and 2, and above 1 any nonzero site forces identical neighbours, proving counts 3 through 2 and then 1. The overlap-pair transfer trace counts labelled cyclic words without rotation quotients; for n=3 the two neighbours remain distinct. In the regime below 1 the six states traversed by the cycle ++,+0,0−,−−,−0,0+ are the nonconstant strongly connected component with a self-loop, and 00 is a separate loop. At δ=1 the same component connects in both directions to 00; mixed opposite-sign adjacent states contribute no periodic words. The run weights give Perron equations z³/(1−z)=1 and z³(1+z)/(1−z)²=1 respectively, with z the reciprocal growth. Primitivity and the exact polynomials give simple strictly dominant roots and trace coefficient one. The critical polynomial is −2 at the lower root and the renewal weight strictly decreases as the candidate growth λ=1/z increases, so the entropy maximum is strict. The sum of squared differences plus (δ−1)∑s_i² gives the exact ground-state contrast. Independent integer enumeration compares 30 finite counts to transfer traces and reproduces all characteristic factors; it does not replace the all-length argument.",
+      "residual_risks": [
+        "Only one-site weak minima (including ties); zero-temperature dynamics that execute neutral changes and multiparticle stability are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arbitrary graph generality in Waclaw–Burda is for binary Ising spin glasses. The Fiig et al. abstract describes a numerical transfer-matrix study with weak long-range interactions; full text could not be obtained lawfully in the bounded check. Chen–Shen studies nucleation, not a weak-minimum count theorem."
+        ],
+        "reasoning": "Graph generality is not alphabet or move-rule generality; no inspected broader theorem supplies this classification as a specialization. Full-text gaps in older metastability work are kept as risks rather than negative findings.",
+        "searches": [
+          "Waclaw–Burda arXiv:0801.1224, arbitrary graph setup and cited one-dimensional results",
+          "Fiig et al., DOI:10.1103/PhysRevE.50.1930",
+          "Chen–Shen arXiv:1501.00347, model scope"
+        ]
+      },
+      "checked_sources": [
+        "Waclaw–Burda arXiv:0801.1224; Chen–Shen arXiv:1501.00347; Fiig et al. DOI:10.1103/PhysRevE.50.1930 (abstract only)",
+        "Resultary 0f8914252c1b summary; OEIS searches of the two computed n=3,…,10 prefixes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transfer-matrix counting and the local energy comparison are standard methods. The change of allowed sign/zero runs exactly at δ=1 and the associated cubic-to-quartic Perron comparison in the frozen theorem require the tie-inclusive adjacency restrictions."
+        ],
+        "reasoning": "A general transfer formalism is not the determinant, recurrence, or entropy of this concrete transition system. The sum-of-squares ground-state check is elementary motivation and contrast, not the originality basis.",
+        "searches": [
+          "arXiv:0801.1224, binary local-stability criterion and references to Li 1981 and Derrida–Gardner 1986",
+          "DOI:10.1103/PhysRevE.50.1930, transfer-matrix abstract",
+          "arXiv:1501.00347, spin-1 nucleation model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A spin-0 / matching-sign tie at neighbour-sum ±1 is essential at δ=1. Waclaw–Burda explicitly requires strict increase under binary flips. The ANNNI record summary treats binary axial next-nearest-neighbour coupling and different quintic/septic growth roots. Chen–Shen adds a positive external field and treats three-state nucleation on complex networks."
+        ],
+        "reasoning": "Neither adopting the word metastable nor identifying a one-spin minimum under another alphabet maps the allowed recolourings, ties, and periodic constraints to this model. A marginal entropy spike is not by itself the same count.",
+        "searches": [
+          "Waclaw–Burda arXiv:0801.1224, p. 1 one-spin-stable definition",
+          "Chen–Shen arXiv:1501.00347, spin-1 Hamiltonian and nucleation model",
+          "Resultary 0f8914252c1b (weak-blocking entropy spike)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An independent local-rule enumeration produced those respective n=3,…,10 count prefixes for 0<δ<1 and δ=1. Both OEIS queries reported no matching terms in the table. The nearest Resultary summary concerns different polynomials and a different alphabet/interaction."
+        ],
+        "reasoning": "The checked prefixes directly represent the two nontrivial entropy regimes, but no-match queries are not an absence proof and might miss differently normalized or indexed sequences.",
+        "searches": [
+          "Resultary weakly blocked spin-1 Blume–Capel cycle / entropy spike; nearest 0f8914252c1b",
+          "https://oeis.org/search?q=3%2C3%2C3%2C9%2C17%2C27%2C39%2C53",
+          "https://oeis.org/search?q=3%2C11%2C23%2C45%2C87%2C171%2C327%2C613"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete exact zero-field weak one-site count and entropy classification on labelled Blume–Capel cycles, particularly the tie-induced entropy peak. Binary one-spin stability and transfer-matrix counting, and the Blume–Capel Hamiltonian, are prior. Neither the binary studies nor the inspected spin-1 nucleation passages compare precisely the three recolourings with weak inequalities and recover these ring sequences. The nearest catalogue analogue uses a binary next-nearest-neighbour Ising model and different growth polynomials, so the overlap is conceptual, not the same census.",
+      "residual_risks": [
+        "Full texts not inspected for Fiig et al. (1994), Yamamoto–Park DOI:10.1103/PhysRevE.88.012110, the 2001 Metastable and unstable states of the Blume–Capel model article, or the earlier binary closed-chain results of Li and Derrida–Gardner. These are specific older metastability/transfer-matrix risks, not evidence of overlap with the claim.",
+        "Bounded OEIS and catalogue searches may miss counts indexed under an alternative constraint, subsequence, or coding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary strictly stable model, different from weak three-state counting",
+          "evidence": "Defines stability by an energy increase under single-spin flip; cites Li and Derrida–Gardner for earlier closed-chain binary results.",
+          "identifier_or_url": "https://arxiv.org/pdf/0801.1224",
+          "material_read": "PDF p. 1, offsets about 3200–7800; relevant bibliography around 60200–65175",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+          "trigger": "Closely related exact one-spin stability problem and earlier ring citations"
+        },
+        {
+          "assessment": "Same family, different field, geometry and observable",
+          "evidence": "Treats spin-1 nucleation scenarios on complex networks with a positive external field.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.00347",
+          "material_read": "Abstract p. 1; model p. 2, offsets 8461–11920",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Nucleation of a three-state spin model on complex networks",
+          "trigger": "Closest inspected three-state Hamiltonian reference"
+        },
+        {
+          "assessment": "Scope partially characterized; exact theorem coverage not adjudicated from abstract",
+          "evidence": "The abstract describes weak long-range couplings and a numerical transfer-matrix study. This is not evidence of an exact nearest-neighbour ring census.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.1930",
+          "material_read": "Search-result abstract only; no lawful full text obtained in bounded retrieval",
+          "method": "Primary-literature discovery and lawful availability check",
+          "title": "Numerical transfer-matrix study of a model with competing metastable states",
+          "trigger": "Plausibly relevant spin-1 metastability and transfer matrix"
+        },
+        {
+          "assessment": "Summary shows distinct model and different growth polynomials; no full-text exclusion implied",
+          "evidence": "Periodic axial next-nearest-neighbour binary Ising chain and quintic/septic growth roots, rather than spin-1 nearest-neighbour ring and cubic/quartic roots.",
+          "identifier_or_url": "Resultary 0f8914252c1b",
+          "material_read": "Catalogue summary; RESULT.md local mirror unavailable",
+          "method": "Local semantic search; bounded mirror availability check",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "Closest catalogue hit by weak blocking and isolated entropy peak"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4"
+      ],
+      "rationale": "The complete positive-field classification gives an isolated entropy peak from equality moves that differs both from nearby blocked counts and from the true ground-state count. The exact growth constants and trace formulas characterize a motivated constraint problem on the full parameter axis, rather than an arbitrary finite ring or a thermal phase transition.",
+      "residual_risks": [
+        "This is a static combinatorial entropy; does not measure metastable lifetimes or imply a dynamic transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:12:08.852797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each induced three-vertex forest with j edges, the adjacency characteristic polynomial is t³−jt, so capacity is 0, 1, or sqrt(2). The two-edge count is W, and summing edge incidences gives one-edge count (n−1)(n−2)−2W; subtraction gives the zero-edge count. Dividing by the uniform subset count is the specified conditional law. Setting a_v=deg(v)−1 gives sum a_v=n−2, and W=(sum a_v²+n−2)/2. At its minimum a_v is 0 or 1 for every v (path); at its maximum all excess is at one vertex (star). The low-threshold probability and mean strictly decrease with W, the high-threshold probability strictly increases, and strict comparison omits capacity 1 at delta=1 and all capacities at delta=sqrt(2). At n=4 the two distinct wedge counts give the quoted probabilities. For one survivor the capacity is zero; for two, the edge probability is 2/n for every tree. The theorem is conditional on uniform retention in an unweighted tree and uses a deterministic spectral proxy, not a stochastic persistence probability. Replay: python3 -B /workspace/branches/frozen_math_replay.py (capacity; SymPy for the three characteristic polynomials). Independent edge-subset/connectivity enumeration checked all labeled trees on 4, 5 and 6 vertices (16, 125, 1296); it is corroboration only. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ecological article gives the leading-eigenvalue criterion lambda>delta and removal via matrix deletion. Gutman–Das first give bounds for general graphs and then the sharp tree equality cases. A later catalogue result concerns component-count cumulants under independent vertex retention."
+        ],
+        "reasoning": "The ecological prior covers the framework but not the exact counting claim by itself. The graph-theoretic prior covers the organizing invariant and its optimizing trees. The independent-retention cumulant result involves three-edge paths and a different observable, so it is not used as covering this theorem.",
+        "searches": [
+          "Grilli–Barabás–Allesina PLOS article DOI 10.1371/journal.pcbi.1004251, leading eigenvalue and row-column deletion",
+          "Gutman–Das 2004 Eq. (6) and Theorem 1",
+          "Resultary local degree/motif and tree habitat loss comparison: 54bd12285874"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Gutman–Das, MATCH 50 (2004) 83–92, selected scanned pages",
+        "Grilli–Barabás–Allesina p. 6",
+        "Resultary local records 54bd12285874 and 17ffdb474fb3",
+        "Bounded graphlet literature lookup",
+        "Hanski–Ovaskainen (2000) and Ovaskainen (2003) open full-text attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior invariant fixes the number of triples with spectral radius sqrt(2). The number with radius 1 is (n−1)(n−2)−2W because every edge lies in n−2 triples. In the two nontrivial threshold intervals the numerators are (n−1)(n−2)−W and W, respectively; the mean's W coefficient is sqrt(2)−2."
+        ],
+        "reasoning": "Passing from the known W extrema to the sharp reversal is a sign change in an affine objective, with exactly the same strict equality conditions. The boundary 1 is the eigenvalue of a single edge plus an isolate, and the one- and two-survivor laws depend only on vertex and edge counts. These are explicit mechanical implications, not an inference from a matching title or inaccessible historical paper.",
+        "searches": [
+          "Gutman–Das p. 86 incident edge pairs and p. 88 strict equality cases; Grilli et al. p. 6 before Eq. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gutman–Das explicitly give the incident-pair count as sum_v binom(deg(v),2)=M1/2−m. They give the path and star as the unique M1 minimizer and maximizer among n-vertex trees."
+        ],
+        "reasoning": "With m=n−1 this is an invertible affine change between W and M1. No triangle means the incident pairs are exactly induced P3s. The two other counts are obtained by subtracting edge incidences and taking a complement; the capacity law reassigns the three types their respective eigenvalues.",
+        "searches": [
+          "Three-vertex induced graph profile: wedges, one-edge triples and independent triples; Elenberg–Shanmugam–Borokhovich–Dimakis 3-profile lookup",
+          "Gutman–Das 2004, The first Zagreb index 30 years after, p. 86 §1 on incident edge pairs and p. 88 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue item 54bd12285874 uses W as a degree-multiset statistic but concerns component counts. The graphical-zonotope item 17ffdb474fb3 uses matching and four-vertex path counts instead. Gutman–Das gives an exact invariant formula for all graphs and the extremal values for trees."
+        ],
+        "reasoning": "The input varies over all trees, not a single numerical sequence with a natural table index. A finite graph census is not decisive; the exact prior formula and equality cases for the organizing statistic are. The adjacent catalogue matches are not treated as equivalent.",
+        "searches": [
+          "Resultary local search for random habitat loss, tree degree or motif counts and exact spectral law; 54bd12285874 and 17ffdb474fb3",
+          "Gutman–Das printed pp. 85–86 and 88, exact count and extremal values"
+        ]
+      },
+      "rationale": "The graph statistic and its strict optimizing trees are exact prior results: the count of pairs of incident edges is M1/2−m, and Theorem 1 of Gutman–Das identifies the unique tree extrema of M1. In a tree the induced two-edge triple and incident pair are in bijection. The rest of the law is fixed by the edge incidence total and the three possible three-vertex forests. The stated threshold, mean optima and minimum census are direct translations of that coverage, not a new tree-extremal or spectral law requiring another structural result. The ecological phrasing is not asserted to appear in the Zagreb-index paper.",
+      "residual_risks": [
+        "Full primary passages of Hanski–Ovaskainen (2000) and Ovaskainen (2003) were not obtained. No claim about their complete contents is made.",
+        "The literature lookup did not retrieve a decisive 3-profile paper passage; a previous exact ecological phrasing or graphlet formula may exist. The decision rests on the positively verified incident-pair and extremal theorem and the explicit reduction, not on these access gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of W and of its strict tree extrema, implying the reported optimizers by affine monotonicity",
+          "evidence": "The incident-pair subsection writes ell(G,2)=M1/2−m. Theorem 1 states M1(S_n)>M1(T_n)>M1(P_n) for trees other than the star and path.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match50/match50_83-92.pdf",
+          "material_read": "Printed p. 85 Eqs. (1)–(2) and path/star values; p. 86 incident-pair subsection; p. 88 Theorem 1 and preceding bounds",
+          "method": "Visually inspected the relevant publisher PDF pages after OA text extraction indicated a scan",
+          "title": "The First Zagreb Index 30 Years After",
+          "trigger": "W is a sum of quadratic degree terms with the same tree extremizers"
+        },
+        {
+          "assessment": "Exact framework, not a theorem on uniformly sampled triples of trees",
+          "evidence": "Leading eigenvalue lambda is the capacity, persistence is lambda>delta, and removing a patch deletes the corresponding row and column.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1004251",
+          "material_read": "Page 6 text before Eq. 4, OA PDF offsets about 25250–27240",
+          "method": "Open primary text passages",
+          "title": "Metapopulation Persistence in Random Fragmented Landscapes",
+          "trigger": "Same ecological spectral criterion and patch removal"
+        },
+        {
+          "assessment": "Different survival law and response; not direct coverage",
+          "evidence": "Under independent retention the equal-degree trees agree in first two component-count moments, while a third-cumulant difference involves the three-edge-path count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-degree-matched-habitat-trees-conceal-fragmentation-in-the-first--54bd12285874",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Degree-matched habitat trees conceal fragmentation in the first moments",
+          "trigger": "Nearest catalogue overlap on tree survival and motif dependence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The survival proxy is motivated and the distinction between mean and exceedance is valid, but in the fixed three-survivor unweighted-tree setting it adds only a translation of an established invariant and its extremizers. The three tiny spectra turn the objectives into affine functions of the same known wedge count; neither the optimizer reversal nor the census observation requires a new structural fact. The result could be a useful illustration or benchmark, but not an independently valuable exact finding at this scope. No remaining claim is rescued by rewording.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

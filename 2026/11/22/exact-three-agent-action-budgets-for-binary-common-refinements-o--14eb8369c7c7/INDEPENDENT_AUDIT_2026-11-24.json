@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:51:51.324513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every profile's value must lie in the unique joint cell for its action blocks. For a doubleton, a fixed copy must see both symbols in its slice of that cell; partitions ensure that profiles outside that cell cannot supply either symbol. If fewer than two axes have length at least two, fixing the only potentially varying axis leaves a one-entry slice. If two axes vary, parity of their copy indices supplies both outcomes in every fixed-action slice, even for budgets greater than two. Singleton cells use their only outcome and impose no constraint. The cell constructions glue because joint cells partition the outcome set and all type triples are allowed. Each triangle needs two doubled vertices exactly when every one of its edges is covered. Extra copies beyond two are removable without violating feasibility, and isolated vertices need only one. Thus all optimum vectors correspond exactly to minimum covers and the displayed example has total 8. Independently tested 38 small cell shapes with bitmask slice-surjectivity enumeration, not the parity construction (`python3 /workspace/frozen_review_replay.py 4`); this is bounded corroboration. The frozen script was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciardelli assumes nonempty families, common outcome range, and nonempty all-agent intersections. The proof gives actions as pairs of one neighborhood and a world, with a group product, so it uses uniform world-sized copy counts.",
+          "The inspected Chen–Ju–Ågotnes passages concern representation classes or conditions outside this exact local multiplicity question."
+        ],
+        "reasoning": "The partition families satisfy Ciardelli's qualitative hypotheses. That construction does not classify which lower prescribed copy counts work or give the minimum per instance; its group trick is related to the parity construction but does not settle necessity or optimal usage.",
+        "searches": [
+          "Literature: \"actual effectivity\" deterministic concurrent game representation three agents action neighborhoods exact partitions binary arrays coloring",
+          "Ciardelli arXiv:2606.31866, §2 Theorem 2.2 and its construction",
+          "Chen–Ju–Ågotnes arXiv:2610.15476, §4.1; arXiv:2607.10567v1, abstract and section map"
+        ]
+      },
+      "checked_sources": [
+        "14eb8369c7c7 (assigned entry)",
+        "ab8e933d61f4",
+        "e6ecbe7ccc64 (summary)",
+        "fdd82819f033 (summary)",
+        "arXiv:2606.31866",
+        "arXiv:2610.15476",
+        "arXiv:2607.10567v1",
+        "arXiv:2603.04160v2 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ab8e933d61f4 theorem constrains each side of a two-way box. The catalogue summaries e6ecbe7ccc64 and fdd82819f033 describe, respectively, uniform per-agent worst-case budgets and a sufficient bound from a joint-outcome conflict graph. Their primary files were not retrieved."
+        ],
+        "reasoning": "Combining two agents into one side loses the requirements on each separately fixed action of those agents. An available-action bound uniform over all blocks or a sufficient conflict-coloring bound does not on the available statements imply the exact least total from the union of block triangles.",
+        "searches": [
+          "ab8e933d61f4, RESULT.md, offset 500",
+          "Resultary: three-way binary array coloring Latin hypercube surjectivity exact slice outcome neighborhoods finite action budgets partition refinement vertex cover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first query returned the assigned record itself and the distinct two-agent record ab8e933d61f4. The latter uses row-and-column-surjective arrays and requires both side lengths to be at least the cell size."
+        ],
+        "reasoning": "The equivalent three-way problem only asks for both symbols in each coordinate hyperplane, not for surjectivity along every line. The two-agent row/column requirement cannot determine the three-way rule: a 1×2×2 doubleton box is feasible even though one side has length one.",
+        "searches": [
+          "Resultary: three-agent simultaneous-action outcome table exact action multiplicities partition-valued actual effectivity binary transverse triple intersections doubleton vertex cover budget criterion",
+          "Resultary: three-way binary array coloring Latin hypercube surjectivity exact slice outcome neighborhoods finite action budgets partition refinement vertex cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact query identifies the assigned 14eb8369c7c7 entry. The inspected distinct ab8e933d61f4 Finding has an exact budget law and minimum for two partitions."
+        ],
+        "reasoning": "The requested invariant is an all-instance formula, not a single numeric table entry. The closest exact indexed law has different arity and cannot supply the triangle union minimum.",
+        "searches": [
+          "Resultary: three-agent simultaneous-action outcome table exact action multiplicities partition-valued actual effectivity binary transverse triple intersections doubleton vertex cover budget criterion"
+        ]
+      },
+      "rationale": "The supported claim is the exact per-block heterogeneous three-agent budget region and its instance-specific minimum for transverse binary refinements. General representability, modular addition as a construction, the two-agent rectangular region, and elementary graph-cover duality are not claimed original. The strongest accessible comparisons do not give this quantitative three-way classification or its graph reduction.",
+      "residual_risks": [
+        "Full primary files for e6ecbe7ccc64 and fdd82819f033 were not retrieved.",
+        "An equivalent binary coordinate-slice coloring and optimization theorem under older array or game-form terminology could remain outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong two-agent analogue, not the same or a stronger three-agent result",
+          "evidence": [
+            "d_i,e_j≥q_ij in each rectangle, with row- and column-surjectivity."
+          ],
+          "identifier_or_url": "SCOPE-exact-action-profiles-for-partition-valued-two-agent-effectivity--ab8e933d61f4",
+          "material_read": "RESULT.md at offset 500, criterion and array formulation",
+          "method": "Local mirror",
+          "title": "Exact action profiles for partition-valued two-agent effectivity",
+          "trigger": "Exact budget region for the corresponding partition representation problem"
+        },
+        {
+          "assessment": "Quantitatively weaker for prescribed budgets, despite more general representability scope",
+          "evidence": [
+            "Actions have the form (neighborhood, world); the outcome uses a group product where it lies in the intersection, and a fallback member otherwise."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.31866",
+          "material_read": "§2 Theorem 2.2 and proof, offsets 11100–17596",
+          "method": "OA located passage and proof read",
+          "title": "Inquisitive Action Logic",
+          "trigger": "General same-object representability theorem"
+        },
+        {
+          "assessment": "Different representation classes and only two agents",
+          "evidence": [
+            "The compared passages classify representation conditions, not prescribed action-copy optima."
+          ],
+          "identifier_or_url": "arXiv:2610.15476; DOI:10.4204/EPTCS.454.6",
+          "material_read": "Abstract and §4.1, offsets 2297 and 25500",
+          "method": "OA located passages",
+          "title": "Representation Theorems for Actual Powers over Two-Agent General Concurrent Game Frames",
+          "trigger": "Actual-power representation and potential general-frame comparison"
+        },
+        {
+          "assessment": "No exact per-block budget theorem in material inspected",
+          "evidence": [
+            "The abstract concerns four classes without independence; the section map points to a three-agent counterexample to a qualitative generalization."
+          ],
+          "identifier_or_url": "arXiv:2607.10567v1",
+          "material_read": "Abstract, offsets 0–4922, and section-map passage, offset 22500",
+          "method": "OA bounded passages",
+          "title": "Chen–Ju–Ågotnes study of actual and alpha powers over general concurrent game frames",
+          "trigger": "Actual-power representation extending beyond the two-agent setting"
+        },
+        {
+          "assessment": "Summary suggests a different uniform worst-case question; full-text coverage unresolved",
+          "evidence": [
+            "Budgets uniform per agent over all frames of a given outcome-range size in the summary."
+          ],
+          "identifier_or_url": "SCOPE-exact-heterogeneous-action-budget-region-for-finite-actual-effec--e6ecbe7ccc64",
+          "material_read": "Catalogue summary only; RESULT.md not retrieved",
+          "method": "Local catalogue and mirror attempt",
+          "title": "Exact heterogeneous action-budget region for finite actual-effectivity representations",
+          "trigger": "Potentially broader quantitative result"
+        },
+        {
+          "assessment": "Summary describes a sufficient coloring bound; full-text comparison unresolved",
+          "evidence": [
+            "Conflict graph on joint outcomes in the summary, rather than the necessary cover on block types."
+          ],
+          "identifier_or_url": "SCOPE-chromatic-compression-of-finite-actual-effectivity-action-repres--fdd82819f033",
+          "material_read": "Catalogue summary only; RESULT.md not retrieved",
+          "method": "Local catalogue and mirror attempt",
+          "title": "Chromatic compression of finite actual-effectivity action representations",
+          "trigger": "Potential graph formulation of action compression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the cost of exact simultaneous-action representation for a natural class where a qualitative theorem leaves the cost open. It identifies all per-block feasible budgets and reduces the exact instance-dependent minimum to a graph computable from the refinement; this permits nonuniform optima that the uniform-copy existence constructions do not explain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:07:18.202781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–107, especially lines 28–39 and 102–107",
+        "Repaired RESULT.md Finding and proof",
+        "checks/checker.py lines 10–111 (read-only)",
+        "VERIFICATION.md lines 3–14",
+        "Pakes (2022) §2"
+      ],
+      "rationale": "The gamma mixture gives L(t)=theta^r(theta+s t)/(theta+t)^(r+1) and G(z)=L(1-z). For s>0 the positive Lévy kernel is (r+1)e^(-theta x)-e^(-theta x/s); after dividing its derivative by theta e^(-theta x), the positive term is bounded above by, and tends at zero to, 1/s. Thus continuous self-decomposability holds exactly at s=0 or s>=1/(r+1). The count intensities lambda_n=((r+1)q^n-a^n)/n with q=1/(theta+1), a=s/(theta+s), are positive and summable since 0<=a<=q<1. The standard discrete criterion requires b_n=n lambda_n nonincreasing, and its differences are (r+1)(1-q)q^n-(1-a)a^n. The n=1 inequality dominates every subsequent one because a/q<=1. Simplifying at n=1 gives precisely (1), with equality allowed; taking square roots recovers the positive threshold and all-rate regimes, including the separate s=0 endpoint and s=1. In the quotient G(z)/G(1-c+cz), each logarithmic coefficient is (b_n(1)-b_n(c))/n in the rate-scaled notation. Its nonnegativity under the criterion follows from the derivative bound in the repair; if the criterion fails the linear ordinary coefficient is negative for c close enough to one. The frozen proof used the falling-factorial symbol in its differentiation identity, which would give zero for the v=1 derivative when m>=2. The corrected proof uses the rising product for derivatives and the falling product for the distributional factorial bias. Normalized derivatives therefore give weights m! and (m+1)! and land exactly at s=1/(m+2), r=m+1. The analytic separation example r=1,s=1/4,theta=1/4 has first canonical difference 7/100 and fails the continuous cutoff. Finite scripts were inspected but not executed.",
+      "residual_risks": [
+        "The finite examples do not certify the result for real-valued shapes or all orders. The proof covers precisely two adjacent shapes of common rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pakes supplies the continuous monotone Lévy kernel and the discrete nonincreasing canonical sequence and thinning quotient. Kella–Löpker work in a general thinning/mixing framework.",
+          "The closest local classification gives the PGL frontier as alpha>=(theta+1)^3/[theta(theta+2)^2] on the constrained curve."
+        ],
+        "reasoning": "An abstract criterion gives the test to be evaluated, not the model-specific continuous-versus-discrete thresholds or the critical Palm sequence. The known PGL curve does not dominate the independent-weight domain.",
+        "searches": [
+          "10.3390/axioms11110584 §2 Definitions 1–3 and (9)–(10)",
+          "arXiv:2202.10296v3 Introduction and §2",
+          "Resultary SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and PGL frontier mirror",
+        "10.3390/axioms11110584",
+        "arXiv:2202.10296",
+        "10.17713/ajs.v52i1.1344",
+        "10.3390/math12010081",
+        "10.3390/stats6030059",
+        "10.1080/10543406.2022.2152832 (access-limited)",
+        "Repaired prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pakes's criteria turn the problem into monotonicity tests; evaluating the exact b_n and its differences reduces all n to n=1, whereas the continuous test depends on the zero-limit derivative of a different kernel.",
+          "Substitution r=alpha-1,s=theta/(theta+1) gives exactly the separate PGL threshold, not only a qualitative implication. PNXL as an INAR innovation does not establish an independent thinning innovation for PNXL as a stationary marginal or its all-m residuals."
+        ],
+        "reasoning": "The general criteria and the PNXL PGF are essential known inputs. What survives is the model-specific sharp boundary, explicit region of restored count self-decomposability, and the identification of critical weights for the entire factorial-Palm sequence.",
+        "searches": [
+          "Pakes (2022) §2 continuous and discrete criteria",
+          "Irshad et al. §2.1, §2.2 and §4",
+          "PGL Resultary Finding and Step 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under Poissonization the adjacent gamma shapes give a mixture of adjacent negative-binomial shapes. The PGL PGF matches exactly when r=alpha-1 and s=theta/(theta+1). PNXL is exactly r=1,s=1/2.",
+          "Ong et al. instead mix an NB with its one-step shift, so their generating function is a Bernoulli factor times an NB PGF."
+        ],
+        "reasoning": "Neither a rate-constrained curve nor a shift in the count variable is a reparametrization of the full domain with independent mixture weight. PNXL itself is not new.",
+        "searches": [
+          "two component common rate adjacent gamma mixture mixed Poisson negative binomial adjacent shapes self-decomposability canonical sequence thinning necessary sufficient boundary gamma mixture",
+          "10.17713/ajs.v52i1.1344 §2 Eq. (2) and §3 Proposition 2",
+          "10.3390/math12010081 §2 and §4",
+          "10.3390/stats6030059 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The PGL Finding and Step 5 give the identical specialized thinning boundary with explicit innovations. Other close results classify a shape-one/shape-three Poisson–xgamma law, a shape-one/shape-three NB mixture, or a Bernoulli plus Poisson–Lindley law."
+        ],
+        "reasoning": "The PGL result is genuine exact subfamily coverage and is cited without a same-day priority inference. The distinct shape-gap and Bernoulli models do not cover the theorem on adjacent shapes; no distinct full-domain duplicate was identified.",
+        "searches": [
+          "Resultary adjacent-gamma and negative-binomial mixture thinning classification matches",
+          "SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd",
+          "Resultary records ending 7dbcedd43d57, 669cf2e9718e, and 12cdb9820df2"
+        ]
+      },
+      "rationale": "The repaired result credits the standard continuous and discrete criteria, the established PNXL distribution, and exact separate catalogue coverage of the PGL curve. The full region with free mixing weight, its continuous-versus-thinning separation, and the explicit critical PNXL residual sequence are not covered by the strongest inspected statements. No separate novelty is attributed to the distributional definitions or the PGL restriction.",
+      "residual_risks": [
+        "Bounded search under both mixed-Poisson and negative-binomial terminology. Further specialized gamma-mixture work or the uninspected PGL article could contain additional coverage; no access failure is used as a novelty finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general tests, not an explicit adjacent-gamma classification",
+          "evidence": "Continuous k must be nonincreasing; the discrete canonical sequence is indexed as r_j=(j+1)lambda_(j+1), and the thinning quotient characterizes the innovation.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms11110584",
+          "material_read": "§2 pp. 4–6, Definition 1, (9)–(10), Definitions 2–3",
+          "method": "OA primary paper passage inspection",
+          "title": "Mutant Number Laws and Infinite Divisibility",
+          "trigger": "Canonical-sequence and continuous Lévy criteria closest to a general implication"
+        },
+        {
+          "assessment": "General framework, not the inspected explicit adjacent-gamma boundary",
+          "evidence": "Treats thinning and mixing operations on general laws rather than this identified free-weight frontier.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10296",
+          "material_read": "v3 Introduction and §2",
+          "method": "OA primary paper passage inspection",
+          "title": "On Binomial Thinning and Mixing",
+          "trigger": "Possible general mixed-Poisson thinning coverage"
+        },
+        {
+          "assessment": "Establishes distributional overlap on the PGL curve",
+          "evidence": "PGF theta^alpha(theta+2-z)/[(theta+1)(theta+1-z)^alpha] identifies r=alpha-1, s=theta/(theta+1).",
+          "identifier_or_url": "https://doi.org/10.17713/ajs.v52i1.1344",
+          "material_read": "§2 equation (2), §3 Proposition 2",
+          "method": "OA primary paper passage inspection",
+          "title": "A New Poisson Generalized Lindley Regression Model",
+          "trigger": "Accessible primary law for an exactly equivalent PGL subfamily"
+        },
+        {
+          "assessment": "Known PNXL law and innovation use; not an all-order factorial-Palm frontier in the inspected passages",
+          "evidence": "The density theta(1+theta x)e^(-theta x)/2 and the corresponding PGF give the m=0 count law.",
+          "identifier_or_url": "https://doi.org/10.3390/math12010081",
+          "material_read": "§2.1 Definition 1 p. 3; §2.2 Eq. (2) p. 4; §4 INAR use",
+          "method": "OA primary paper passage inspection",
+          "title": "New One-Parameter Over-Dispersed Discrete Distribution and Its Application to the Nonnegative Integer-Valued Autoregressive Model of Order One",
+          "trigger": "Primary PNXL law and its thinning-related INAR application"
+        },
+        {
+          "assessment": "Different mixture mechanism",
+          "evidence": "Its Bernoulli-times-NB factor is a mixture with a shifted count, not a different NB shape.",
+          "identifier_or_url": "https://doi.org/10.3390/stats6030059",
+          "material_read": "§2.1 Eq. (1), §2.2 Eq. (5)",
+          "method": "OA primary paper passage inspection",
+          "title": "A Family of Finite Mixture Distributions for Modelling Dispersion in Count Data",
+          "trigger": "Possible NB mixture synonym"
+        },
+        {
+          "assessment": "Exact discrete boundary and innovation overlap on the PGL subfamily; no date-based priority inference",
+          "evidence": "The stated PGL inequality is identical to (1) after substitution; s varies only with theta in that record.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd",
+          "material_read": "Mirror RESULT.md Finding and Step 5",
+          "method": "Local Resultary and mirror statement-level inspection",
+          "title": "Sharp thinning self-decomposability frontier of the two-parameter Poisson-generalized Lindley law",
+          "trigger": "Strongest distinct exact Resultary overlap"
+        },
+        {
+          "assessment": "Detailed article coverage unverified; the Atikankul article is not represented as a copy of this paper",
+          "evidence": "The confirmed PGL formula comes from the separately identified Atikankul primary publication, not an inspected full text of this article.",
+          "identifier_or_url": "https://doi.org/10.1080/10543406.2022.2152832",
+          "material_read": "Citation and indexed scope; full-text retrieval returned HTTP 403",
+          "method": "Lawful OA attempt, with distinct accessible same-law source checked for the PGF",
+          "title": "Inferential properties with a novel two parameter Poisson generalized Lindley distribution with regression and application to INAR(1) process",
+          "trigger": "Primary PGL and INAR application that could have further subfamily coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof",
+        "Pakes §2",
+        "The distinct PGL frontier and PNXL law"
+      ],
+      "rationale": "An independently varying component weight is the natural full adjacent-shape mixture, not an arbitrary numeric slice. Its exact count frontier gives both a family of explicit witnesses separating continuous and discrete decomposability and an innovation law on the admissible side, rather than just a sign computation. The critical all-order PNXL residual identification gives a concrete structural invariant that cannot be read off from the original PNXL PGF without computing the changed weights. It is useful even with the known PGL curve and general canonical tests credited.",
+      "residual_risks": [
+        "The contribution is a closed natural family classification and residual result, not a general method for arbitrary mixed-Poisson laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

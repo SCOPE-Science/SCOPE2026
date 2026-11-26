@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:00:50.717652Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform marks thin the clocks into two exclusive rates lambda-c and one common rate c=lambda(m-1)/(N-1); joint no-reset intervals yield exp[-lambda(u+v)+c min(u,v)] below the horizon. Capping each backward time at t gives precisely the initial zero start and includes the atom at t. Conditional on ages the Brownian squared radii are independent 2DA_i times chi-square_d, giving strictly positive tail derivatives for positive arguments and thresholds. Layer cake yields the displayed strictly positive comparison on a rectangle of positive area for every t>0; fixed marginals and bivariate upper-orthant order give concordance/supermodular order, also after independent increasing scale mixtures. For the conditional result, below the observed age b<a the second age can be cut off only by its exclusive clock; for b>a an exclusive mark at a is required for label 1 and the second clock then has total rate lambda before a. At the horizon atom and complete synchrony these formulas have the asserted limiting meaning. The increase of the conditional age kernel on b between distinct observed ages implies strict increase for g_y(a). The posterior likelihood ratio for z2>z1 is strictly increasing in a on a nondegenerate age support; positive covariance of this ratio with g_y gives strict regression for the density-defined version on z>0. Independent signs give opposite signed-quadrant comparisons in one dimension and likewise for any scalar coordinate in higher dimensions. Integrating age survival and the first two chi-square moments gives the frozen covariances, including c=0 and c=lambda. My bounded reproduction, python /workspace/branches/replay_frozen.py 1, used conditioning on the exclusive/common mark at a rather than double age-survival integration; the six anchor tails agree within 1.4e-9, and it checks a nontrivial posterior grid and independent endpoints. The simulation and quadrature in the source are recorded evidence, not proofs or runs performed here.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary model paragraph, HTML offset 39618: m uniform labels at a rate-r event; §S3 Eq. (S29), offset 394500: marginal hazard mr/N",
+          "Primary §S3 Eqs. (S31)–(S36), offsets about 408000–425000: exact stationary pair law",
+          "Resultary 83d8c983aa19, Finding lines 3–44: k>=3 stationary directional far-tail rates and age pooling"
+        ],
+        "reasoning": "The primary model and law are broader raw distributional inputs at fixed r, not a theorem comparing dependence under fixed marginal rates. Broader cluster-size tail rates concern a restricted threshold limit, not all thresholds at each observation horizon.",
+        "searches": [
+          "arXiv:2601.20077v3, tagged rates and pair law (supplement §§S3, S6, S10), calibrated supermodular order and strict conditional regression",
+          "Resultary: asymmetric shared/exclusive shocks, age pooling under batch resetting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, REVIEW.md, AUDIT.json",
+        "arXiv:2601.20077v3 selected main and supplemental sections",
+        "Marshall–Olkin formula and public summary",
+        "Resultary fe3e31789427, 707257f9e1f5, 6eb1adb91d8a, 2171439516fd, 83d8c983aa19, f771955abc35, f8fe9bc159a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Eq. (16), offset 147683: stationary 1D covariance; substitution r=lambda N/m reproduces the frozen d=1 moment",
+          "Primary §S6.2, offset 553194: fixed-global-rate optimization",
+          "Resultary 2171439516fd Finding lines 3–49: conditions on both particles being extreme and analyzes age ancestry/gaps"
+        ],
+        "reasoning": "The stationary covariance is directly covered, not a new result. The finite-time strict joint-tail transfer requires testing the entire age survival with increasing chi-square tails. Posterior regression further requires a conditional age comparison and monotone likelihood-ratio update by one radius; neither conditioning on two extremes nor stationary cumulant identities for a different reset protocol imply it.",
+        "searches": [
+          "arXiv:2601.20077v3 Eq. (16), supplement §§S6.2 and S10",
+          "Resultary: rare co-outliers 2171439516fd, heterogeneous connected energy cumulants f771955abc35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Marshall–Olkin age law exp[-lambda(u+v)+c min(u,v)]",
+          "Resultary 707257f9e1f5, localizable RESULT.md Finding lines 3–42: fixed marginal rates, strict stationary far-tail exponent comparison as shared rate varies"
+        ],
+        "reasoning": "The fixed-rate age comparison is classical. An increasing transfer to radial observables gives a new application; the prior fixed-marginal exponent result supplies only eventual exponential-scale information along rays and cannot replace the exactly positive finite-threshold integral or posterior kernel.",
+        "searches": [
+          "Resultary: matched per-particle reset rate, common-shock age, squared-radius concordance, strict conditional energy tails"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary fe3e31789427 is the assigned record itself",
+          "Resultary 6eb1adb91d8a, RESULT.md lines 3–27 and 81–84: stationary signed one-dimensional pair-exceedance asymptotics and acknowledgement of the exact known pair density"
+        ],
+        "reasoning": "The identical entry is not independent priority evidence. The exact pair density makes numerical forward evaluation possible; no inspected table or existing formula states the exact family of strict comparisons. A sharp asymptotic prefactor is not a finite-threshold comparison.",
+        "searches": [
+          "Resultary: strict all-threshold and conditional monotonicity under calibrated batch resetting; exact tail formula; sharp pair-exceedance prefactor"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the calibrated observable dependence theorem, particularly strict posterior regression at all finite horizons as well as stationarity. Age-level survival/order, the batch-reset pair law and moment formulas are prior inputs. Fixed-marginal shared-rate comparisons already occur for far-tail exponents; neither an exponent nor the known covariance compares all finite thresholds or gives conditional prediction.",
+      "residual_risks": [
+        "The classical 1967 full article was not independently retrieved.",
+        "An unindexed implication from the known exact stationary pair law or a more general theorem for monotone scale mixtures could cover portions; the broad literature search was bounded and not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pair laws and moments are prior; comparison in that paper holds the global rate fixed, not the tagged marginal rate. No inspected passage states the all-horizon order or posterior monotonicity.",
+          "evidence": [
+            "HTML offsets 39618, 147683, 394500, 408000–425000 and 553194, with equation locators above."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.20077v3",
+          "material_read": "Model paragraph, main Eq. (16), supplemental §S3 Eqs. (S29), (S31)–(S36), §S6.2 and higher-dimensional correlator scope in §S10.",
+          "method": "Targeted public arXiv text passage inspection.",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Exact motivating process, law and covariance"
+        },
+        {
+          "assessment": "Age-level comparison credited; not by itself a theorem on posterior monotonicity of a gamma-scale observation.",
+          "evidence": [
+            "Exponential shared/exclusive hazards give the age survival of the frozen proof at lines 33–43."
+          ],
+          "identifier_or_url": "Marshall–Olkin (1967), JASA 62, 30–44; https://formal-applied-math.github.io/formal-mathfin/m/MathFin.Probability.Dependence.MarshallOlkin.html",
+          "material_read": "Public common-shock formula and frozen derivation; underlying 1967 full text not independently returned.",
+          "method": "Bounded open-text retrieval and comparison of the survival expression.",
+          "title": "A multivariate exponential distribution and common-shock summary",
+          "trigger": "Exact age copula and fixed-margin survival monotonicity"
+        },
+        {
+          "assessment": "Stationary asymptotics, different conditioning/protocol, or geometric rather than additive Brownian motion; none supplies the complete stated comparison. Same-day indexing does not determine priority.",
+          "evidence": [
+            "707257f9e1f5 treats far-tail exponents at fixed tagged rates; 6eb1adb91d8a treats a pair-tail prefactor; 2171439516fd studies two-extreme conditioning; f8fe9bc159a4 studies extreme geometric Brownian reset tails."
+          ],
+          "identifier_or_url": "Resultary 707257f9e1f5; 6eb1adb91d8a; 2171439516fd; 83d8c983aa19; f771955abc35; f8fe9bc159a4",
+          "material_read": "Exact available RESULT.md Findings and pair-tail Relationship section, with the ranges given above; f771955abc35 Finding lines 3–29, f8fe9bc159a4 Finding lines 3–39.",
+          "method": "Resultary search and bounded exact public record text comparison after local paths did not resolve.",
+          "title": "Published resetting rate, prefactor, age ancestry, and cumulant comparisons",
+          "trigger": "Same reset hazards, finite/infinite thresholds, and alternate conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physically natural matched-hazard reset budget holds every individual position law fixed, isolating changes in synchrony. The model yields both an all-threshold comparison and an interpretable conditional risk, not just a moment or a limiting direction. Opposing signed-quadrant effects give a precise boundary of the ordering. This provides a benchmark for dependence in batch resetting under known calibration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

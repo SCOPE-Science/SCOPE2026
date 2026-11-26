@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:29:33.829397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stipulated on-chain X packet, multiplication by the weight-d logical X cancels the packet sites and leaves d−n sites. Multiplication by a logical Pauli preserves the syndrome. With g=−log p_gate>0, the assumed independent-edge sum is (d−n)g, while −log p_net≤g. For n≤d−2 the second inequality is strict; for n=d−1 equality occurs exactly at p_net=p_gate, including the central case d=3, n=2. At n=d the packet has zero syndrome and is not part of this comparison. Read RESULT.md lines 4–46 and VERIFICATION.md lines 18–32; this proof is analytic, so no simulation or certificate is needed. In the conclusion, ‘favored’ is weak preference, subject to the explicit tie.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fowler PDF p. 4 assigns −log of a cylinder probability to matching edges and accounts for correlated gate errors",
+          "Rennela PDF pp. 2–3 specifies the MGT packet and its same-chain logical complement"
+        ],
+        "reasoning": "The broader matching framework does not fix this packet architecture, support relation, comparator cost or cutoff. In particular, generic effective edge probabilities need not obey the frozen toy model.",
+        "searches": [
+          "arXiv:1310.0863v1, §II Full Fault-Tolerance",
+          "arXiv:2607.01342v2, §III"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.01342v2",
+        "arXiv:1310.0863v1",
+        "Resultary packet/teleportation queries",
+        "Pith:32W4HHKQ (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source displays one packet edge versus floor(d/2) local edges at n=ceil(d/2), under p_net≥p_gate, and separately cautions about third matching classes"
+        ],
+        "reasoning": "The paper supplies the needed ingredients, making the extension short. The comparison at a single central n is not an all-n coverage theorem: substituting the actual remaining support for every proper packet, and retaining the tie, shows the claimed rationale does not distinguish the proposed ceiling. This does not contradict the paper's full-decoder simulations or a ceiling justified by other hypotheses.",
+        "searches": [
+          "arXiv:2607.01342v2, §III pp. 2–3, correlation-aware comparison and design rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rennela §III, PDF pp. 2–3",
+          "The exact source-specific Pith commentary could not be read"
+        ],
+        "reasoning": "A warning that an upper bound is unproved or that additional matchings can win is weaker than showing why this particular pair of competitors cannot produce the bound. The full wording of the closest commentary remains unconfirmed; that access gap is not negative evidence.",
+        "searches": [
+          "Resultary: exact finding title",
+          "Resultary: arXiv:2607.01342v2",
+          "Resultary: packet/complement matching costs",
+          "Pith:32W4HHKQ"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest domain hit: Resultary path 2026/10/13/SCOPE-a-dyadic-boundary-layer-in-coherent-network-teleportation-succes--53482c836d67; success probability rather than a matching-cost comparison"
+        ],
+        "reasoning": "The nearest returned domain statement concerns a different quantity and has no logical-complement or decoder threshold. No exact table lookup is applicable to an all-parameter analytic implication. The finite search does not prove absence.",
+        "searches": [
+          "Resultary: exact title and source ID",
+          "Resultary: packet/complement costs"
+        ]
+      },
+      "rationale": "The primary source compares these two costs at the central packet size, not for all packet sizes, and warns that the full decoding rule is heuristic. The distinct result is a source-specific limitation on that rationale, not the monotonicity of −log or a new matching theorem. No inspected statement establishes the same limitation. The comparison to the source-specific public commentary is access-limited.",
+      "residual_risks": [
+        "The public commentary could contain the same all-length consequence; its exact text was not accessible.",
+        "Other comments could be unindexed; the accessible primary evidence bounds the novelty assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the geometry and central comparison, not the all-length obstruction to this rationale.",
+          "evidence": "The displayed comparison uses floor(d/2) local edges at n=ceil(d/2) and is expressly heuristic in the presence of third matching classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.01342v2",
+          "material_read": "§III PDF pp. 2–3, same-chain construction, pairwise cost, design rule and caveats; located passages around offsets 8500 and 17500–24700",
+          "method": "Compared the range of the source's pairwise argument with the frozen hypothesis at arbitrary proper packet lengths.",
+          "title": "Design rules for fault-tolerant multi-gate teleportation",
+          "trigger": "Exact model and proposed ceiling"
+        },
+        {
+          "assessment": "Background, not packet-specific coverage.",
+          "evidence": "Cylinder weights use aggregate correlated-event probabilities; there is no MGT packet/logical-complement comparison in the inspected argument.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.0863v1",
+          "material_read": "§II, Full Fault-Tolerance, PDF p. 4, weighting passage near offsets 38897–39117",
+          "method": "Checked whether the weighting model fixes the same two classes and size parameter.",
+          "title": "Optimal complexity correction of correlated errors in the surface code",
+          "trigger": "Earlier correlated matching framework"
+        },
+        {
+          "assessment": "Unresolved possible overlap; no independent negative finding about this page.",
+          "evidence": "Frozen AUDIT.json lines 84–91 describe a third-matching objection, but are not a substitute for the commentary itself.",
+          "identifier_or_url": "Pith:32W4HHKQ",
+          "material_read": "No public text obtained; candidate public page returned HTTP 202/403. Only the frozen description was available.",
+          "method": "Tried to locate the named commentary for a passage-level comparison.",
+          "title": "Pith commentary associated with Design rules for fault-tolerant multi-gate teleportation",
+          "trigger": "Closest named public source-specific objection in the frozen supporting audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ceiling is a central design rule of the source. Showing that its local justification fails to change sign anywhere below d identifies exactly what the global decoder analysis must add. For instance at d=7, n=5 the packet still strictly beats the length-two complement even at equal probabilities. This is a motivated model-boundary correction, not a claim of full decoder performance or fault tolerance past half distance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification summary
+# Independent mathematical audit
 
-The equations of motion, reversible relative-generator density, stable stationary center representation and Stratonovich heat differential are derived directly in RESULT.md. The assertion of zero bond-only entropy production is path-level, since the bond diffusion and all of its transition kernels do not involve the stiffness asymmetry. The full-system entropy-production quadratic coefficient is a positive spectral multiplier for every finite spring rest length.
+## correctness
 
-The included `verify.py` was executed successfully against NumPy/SciPy. It checks three independent linear OU Lyapunov solutions against the exact zero-rest-length formula; three radial Green-function reconstructions of that same formula; and convergence/positivity of the radial coefficient at positive rest lengths 0.4, 0.8 and 1.5. Numerical truncation is not a rigorous certificate; strict positivity follows analytically from reversibility and the spectral theorem. The singular radial direction at zero has measure zero under the nondegenerate two-dimensional diffusion, with the energy chain rule justified by approximation.
+PASS
 
-No tests establish extensions beyond equal bath temperatures, equal monomer friction, a common isotropic trap, or interaction laws with an autonomous relative coordinate. No independent audit has yet been performed.
+Subtracting and averaging the monomer equations gives independent noise drivers of variances 4D and D in q and R, respectively. The q diffusion has potential V=a|q|²/2+b(|q|−ℓ)²/2 and diffusivity 2D, so its stationary reversible path law depends only on the stiffness sum. For ℓ>0 the bounded directional perturbation of the linear drift is locally bounded including at zero; localization and absolute continuity to planar Brownian motion make zero polar from the stationary initial law. On a finite interval away from that point the Stratonovich chain rule applies. Transforming the work in velocity units gives exact energy differentials plus 2δ F(q)·dR, with zero cross variation. Multiplication by γ/(kBT)=1/D yields σ=(2δ/D) E[F·(δF−aR)]. The stable causal center filter gives E[F·R]=δ〈F,(a−Lq)⁻¹F〉; the center noise convolution is independent of q. The remaining quadratic form has multiplier λ/(a+λ), strictly positive for the nonzero mean-zero F in L²(π), with constants the sole zero modes. At ℓ=0, each q component has variance 2D/(a+b) and cov(R_i,q_i)=δ cov(q_i,q_i)/(2a+b), giving σ=8δ²/(2a+b) as claimed. All identities use the fixed equal-bath, equal-friction model and the physical heat normalization.
+
+## originality
+
+PASS
+
+The same-model predecessor solves the zero-length Gaussian case and simulates the nonlinear case; autonomous bond reduction and hidden dissipation as a general phenomenon are not credited as new. The supported contribution is the parameter-sharp combination of identical stationary bond path laws and an exact, strictly positive all-rest-length heat coefficient for this particular trapped nonlinear model. The closest ring formula eliminates the center lag and the linear-network formula assumes Gaussian dynamics; neither inspected result evaluates this resolvent coefficient or supplies its full nonlinear claim as a corollary.
+
+## value
+
+PASS
+
+The constraint is observational rather than just a thermal-density identity: all equilibrium bond path statistics persist under asymmetry, while the heat changes by a positive computable coefficient times asymmetry squared. The result gives a route to that coefficient from a reversible bond generator without having to solve the nonlinear four-dimensional stationary density, filling a precise gap in the positive-rest-length model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

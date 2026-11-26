@@ -1,15 +1,21 @@
-# Scientific review: spatial ear laws of uniform triangulations
+# Independent mathematical audit
 
-## Correctness — PASS
-The probability law is proved by an explicit deletion bijection for every independent prescribed ear-site set and incompatibility of adjacent ear sites. Exact Catalan ratios determine all mixed moments. The covariance is an explicit combination of identity, cycle adjacency, and all-ones matrices; diagonalization is exact in the discrete Fourier basis. The rank argument checks every small exceptional polygon and gives a strict all-size inequality. The fair-bit \(01\) finite-dimensional limit follows by inclusion-moment convergence plus Boolean inversion. The independent verifier enumerates all \(6,916\) triangulations through eleven vertices and checks \(4,080\) subset constraints plus exact covariance ranks and fair-bit moments. Finite checks do not replace infinite proofs.
+## correctness
 
-## Originality — PASS (residual historical risk)
-Hurtado–Noy (1996) establishes counts by total number of ears; Devroye et al. (1999) studies degree maxima and longest diagonals in uniform triangulations; Asinowski–Regev (2013) studies symmetry classes and disjointness of triangulations with few ears; Alexandersson et al. (2020) treats cyclic sieving refined by total ear count. The labeled all-subsets ear law, evaluated Fourier covariance spectrum, exact singularity threshold, and local fair-bit process were not directly covered by the inspected statements. Full Hurtado–Noy 1996 PDF inspection remained unavailable, and implicit older Catalan derivations remain possible; priority is not independently certified. The ordinary Catalan and total-ear counts are not claimed as new.
+PASS
 
-## Mathematical value — PASS
-The ear field is a natural spatial random variable. The result completely classifies its finite polygon second-order dependence and rank, identifies sharp finite-size constraints, and obtains a simple limiting one-dependent process. In particular, it supplies formulas for every weighted positional ear statistic and explains how nearest-neighbor exclusion coexists with weak positive nonlocal correlation. This is distinct from merely counting ears.
+An adjacent prescribed pair forces crossing diagonals for n≥5. A cyclically independent S cuts off |S| distinct triangular faces and leaves a convex (n−|S|)-gon of at least three vertices; gluing back the prescribed ears is the inverse even when new ears appear in the smaller polygon. Thus all inclusion moments, and by Boolean inversion the law, follow. The covariance is (p−q)I−qH+(q−p²)J with H cycle adjacency. The constant mode agrees with Var(total ears)/n; the other modes are obtained by annihilating J. The minimum nonconstant mode is positive by p−3q≥0 for n≥8, with strict positivity contributed by 1−cos; for n=5,6,7 the maximal nonconstant cosine is <1/2, =1/2, and <9/10 respectively and the exact Catalan ratios give the claimed signs. Only the constant mode at n=5 vanishes. A fixed nonadjacent set has limiting inclusion moment 4^(−|S|); consecutive 01 patterns conflict and nonconsecutive ones use disjoint pairs of bits, so all finite-block moments match. An independent enumeration of noncrossing diagonal sets (not the supplied root recursion) checked all 480 inclusions and Fourier spectra for n=5 through 8; replay: OPENBLAS_NUM_THREADS=1 python /workspace/independent_checks.py (NumPy and SciPy). These checks are finite corroboration, not a general proof.
 
-## Sources and limitations
-See `AUDIT.json` for named searches, detailed implication comparisons, actual material inspected, and residual risks. The domain is a uniformly chosen triangulation of a convex labeled polygon, not an arbitrary random dissection or nonuniform law. Some earlier positional formulas may already imply portions of the theorem. Independent historical-priority and mathematical audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The total-ear law and constant covariance mode are prior results. The distinct claim supported by the comparison is the labeled site law together with the finite all-mode spectrum/rank and identified finite-block limit. The strongest indexed spectrum overlap is a later-dated Resultary record; it is explicitly credited as equivalent second-order coverage there, not treated as earlier priority evidence. This assessment is bounded by inspected material.
+
+## value
+
+PASS
+
+The labeled field rather than the total count is a natural observable: its spectrum controls the variance of every weighted position statistic and identifies an exact rank transition, i.e. the disappearance of deterministic linear constraints beyond the pentagon. The explicit limiting process describes complete fixed-window laws rather than just pair decorrelation. The credited total-ear moments and standard Catalan methods are not the proposed value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

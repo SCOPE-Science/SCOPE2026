@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:30:55.877404Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 43–70; VERIFICATION.md; CHECK.py and CHECK_output.txt inspected, not executed."
+      ],
+      "rationale": "For any two class sums the product coefficient at cell (i,j) is the left class's row count at i times the right class's column count at j. Equality within each target class for every pair of factors implies equality of each complete profile, by separately summing over the factors and cancelling 2 or m in characteristic zero. Conversely equal profiles suffice. Unequal row profiles force all classes into single rows; any two columns sharing one class must share the corresponding class in the other row, giving a common column partition. If all classes are row-balanced, a class name fixes the unordered pair of class names on any column it meets, and a two-name component is balanced exactly when each orientation occurs on half its columns. These descriptions are unique. Row and column classes are intrinsic as principal right and left ideals, so the automorphisms are precisely the independent row and column permutations. For balanced components a single row swap combined with matching half-swaps, together with independent column permutations within the prescribed pieces, gives exactly the prescribed orbits. The labelled assembly weight is 1 plus half the central binomial coefficient on even components, and 1 on odd components, giving the stated EGF with the formal constant 2.",
+      "reproduction": "Run python3 /workspace/branches/04593389-5367-42c3-bc38-efa3a29b9983/independent_check.py. The independent checker exhausts labelled partitions at m=1..4, tests product coefficients, compares accepted partitions with the classification and their orbits, and evaluates the weighted recurrence to m=9. Separated/balanced counts are 1/1, 2/3, 5/8, 15/33 at m=1..4; the recurrence gives the nine stated totals.",
+      "residual_risks": [
+        "Exhaustive direct testing ends at m=4; weighted recurrence evaluations are not exhaustive partition counts. The proof is restricted to the stated characteristic-zero setting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper's rectangular-band direct products yield Bell(n)Bell(m) examples, and §2.2 allows non-direct-product examples. §§5.4 and 5.6 record five Schur rings for 2×2 and thirteen for the 3×2 opposite orientation."
+        ],
+        "reasoning": "The general sufficient constructions and early counts do not themselves imply the two-row converse. Transposing the band identifies the opposite semigroup, under which product closure is unchanged. Exact universal coverage is established by the indexed records regardless of additional literature.",
+        "searches": [
+          "Marrow–Misseldine arXiv:2601.09940, §§2.1–2.2, 5.4, 5.6",
+          "Focused literature search for Schur rings of two-row rectangular bands"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md; Resultary b55d2bce611d and 898f75a97d4e; Marrow–Misseldine arXiv:2601.09940; OEIS exact-terms query."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 26 formula for m>=1 is exp(exp(z)-1)[1+exp((I_0(2z)-1)/2)]-2 with I_0(2z)=sum z^(2k)/(k!)^2. Both records also locate non-direct-product examples and count them."
+        ],
+        "reasoning": "Restoring the formal constant 2 and dropping the k=0 term inside the exponential gives the assigned series exactly. Every coefficient and the non-direct-product observation follow, so no valuable fragment remains.",
+        "searches": [
+          "Resultary 898f75a97d4e, Finding, weighted sum and Bessel-form EGF",
+          "Resultary b55d2bce611d, Finding, coefficient formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both records take the multiplication-closed rational span of class sums; each has the same separate-row blocks and the same one-class or two complementary equipartition classes in each balanced component."
+        ],
+        "reasoning": "Renaming the column components and their halves leaves exactly the same labelled partitions under the same definition. The orbit assertion has the same acting group, not merely a related automorphic construction.",
+        "searches": [
+          "Resultary: two-row rectangular band Schur partitions and automorphic classification",
+          "Records b55d2bce611d and 898f75a97d4e, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS returned no exact match to that terms query. The October 13 and 26 records list the first five and six totals respectively and give the exact formulas for every m."
+        ],
+        "reasoning": "The OEIS query miss is not evidence of originality. Later terms are mechanical evaluations of an already published enumerator, not a new independently obtained classification.",
+        "searches": [
+          "OEIS exact-terms search: 2,5,13,48,184,881,4386,25549,154863",
+          "Resultary b55d2bce611d and 898f75a97d4e enumerations"
+        ]
+      },
+      "rationale": "Two distinct earlier Resultary records already give the all-m classification, automorphic completeness, and the labelled count. The October 26 record also gives the identical characteristic-zero scope. The extra numerical evaluations do not supply a distinct theorem.",
+      "residual_risks": [
+        "The targeted literature and sequence checks do not establish global priority; exact earlier catalogue coverage is verified independently of those limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent covering result",
+          "evidence": "Same two disjoint families, all orbit partitions, and Bell plus the coefficient of the balanced EGF.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-schur-partitions-of-two-row-rectangular-bands-are-automorphi--b55d2bce611d/RESULT.md",
+          "material_read": "Finding, Assumptions, and multiplication criterion; offset 0–2908",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All Schur partitions of two-row rectangular bands are automorphic",
+          "trigger": "Same multiplication, classification and orbit assertion"
+        },
+        {
+          "assessment": "Direct equivalent covering result",
+          "evidence": "Same closed span, separation/balance dichotomy, automorphic realization, characteristic-zero extension, weighted formula, and equivalent EGF.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-schur-ring-classification-of-two-row-rectangular-bands--898f75a97d4e/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, offsets 0–3080; proof passages",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Schur-ring classification of two-row rectangular bands",
+          "trigger": "Same weighted enumeration and all-m classification"
+        },
+        {
+          "assessment": "General constructions and finite overlap",
+          "evidence": "The product-Bell family is not exhaustive; all five 2×2 cases are automorphic and the opposite-orientation 3×2 band has 13 Schur rings.",
+          "identifier_or_url": "https://arxiv.org/html/2601.09940",
+          "material_read": "§2.2 around HTML offset 43720; §5.4 around 183404; §5.6 around 187148",
+          "method": "Open full-text passages",
+          "title": "On Schur Rings Over Semigroups",
+          "trigger": "Primary semigroup Schur-ring study with rectangular-band examples"
+        },
+        {
+          "assessment": "No match to that query; not a priority result",
+          "evidence": "The query reported that the terms do not match anything in the table.",
+          "identifier_or_url": "https://oeis.org/search?q=2%2C5%2C13%2C48%2C184%2C881%2C4386%2C25549%2C154863",
+          "material_read": "Result page at offset 0",
+          "method": "Exact-terms search",
+          "title": "OEIS exact-terms lookup",
+          "trigger": "Natural enumerative sequence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Finding; Resultary b55d2bce611d and 898f75a97d4e, Finding and scope."
+      ],
+      "rationale": "A complete structural classification of this natural family is useful, but the submitted record adds neither new Schur families nor a stronger orbit result to the existing all-m classification. Printing three more terms by the known EGF does not constitute a new useful invariant or computation with its own motivation.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

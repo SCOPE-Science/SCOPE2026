@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:08:33.108849Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–58",
+        "Frozen VERIFICATION.md, line 19",
+        "Frozen checker.py, lines 13–125 (inspected, not executed)",
+        "Independent rational replay: evaluate (ℓ−1)d^(ℓ−1)−2ℓu d^(ℓ−2)+ℓu^(ℓ−1) for p=u/d at the stated endpoints"
+      ],
+      "rationale": "On each retained subset the surviving simple cycles are exactly the fully retained original cycles. They are edge-disjoint and independent in the cycle space, and span it since every cycle-space element is a sum of simple cycles. Thus the Euler component identity gives the expected count. Differentiation of each subset probability gives the score (|S|−np)/(p(1−p)), proving the covariance formula for the fixed component-count statistic. Write b for the number of bridges and c for the number of cycle blocks. For f=μ′, f″≥0 and f(1)=1−b−c by the block counts. If b+c≥2, there is an interior root from the endpoint signs, and there cannot be two, since the secant slope from any second root to 1 would have to be nonnegative by convexity. A pure cycle of length ℓ≥4 has f(1)=0 and f′(1)=ℓ(ℓ−3)>0, giving a negative value just to the left of 1 and the same unique-crossing argument; the triangle and edge give 3(1−p)² and 2(1−p). For g_ℓ=ℓ−1−2ℓp+ℓp^(ℓ−1), independent exact rational evaluation gives g_4(2/5)=7/125 and g_4(41/100)=−4316/10^6; g_3(41/100)=443/10^4 and g_5(41/100)=4128805/10^8. The latter two decrease up to 41/100 and g_ℓ(ξ)>2/25 when ℓ≥6, so f(ξ)≥1. At 3/4 the bridge contribution is −1/2, g_3=−13/16 and each g_ℓ for ℓ≥4 is less than −1, proving f(3/4)≤0 with equality only for the path with two bridges. For a bouquet of t squares, the derivative is 1+t g_4; on [ξ,3/4], g_4′≤−5/4, so the unique root differs from ξ by at most 4/(5t). This proves the unattained lower infimum and sharp attained upper bound without relying on sampled roots.",
+      "residual_risks": [
+        "The derivative argument uses the finite connected cactus block structure and homogeneous independent site retention. Neither a pathwise peak nor a theorem for bond percolation follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distinct Resultary a1cf5d6d5f12 proves a unique expected-component maximum on complete bipartite graphs except the edge. Its overlap is stars (including the three-vertex path) and C4; it does not contain general cacti or square bouquets.",
+          "Liao–Hou prove Q-uniqueness/reconstruction results, including for triangle bouquets, rather than a derivative-sign classification."
+        ],
+        "reasoning": "The general generating function recovers individual means but supplies no universal peak theorem. The bipartite statement establishes genuine overlap on the intersecting graph class; the same-day dates do not settle priority.",
+        "searches": [
+          "Local Resultary: site-percolated complete bipartite one-crossing, singleton peaks, cactus bond/bridge counts",
+          "Tittmann et al. §8; Liao–Hou §4 for cycles, tadpoles, friendship graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and verification notes",
+        "Local Resultary self-match c3b9290b590a and comparator a1cf5d6d5f12",
+        "arXiv:0812.4147 and arXiv:1311.6856"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact distribution implies its mean on each graph. The complete bipartite theorem implies uniqueness on stars and C4 within the target class.",
+          "The all-cactus interval requires comparing the bridge and every cycle-length contribution at ξ and at 3/4; the square-bouquet limit and upper equality uniqueness are not supplied by either result."
+        ],
+        "reasoning": "Credit the prior distribution machinery and overlap in uniqueness; the sharp envelope and general one-crossing argument require distinct statements beyond those implications.",
+        "searches": [
+          "Tittmann et al. Eq. (11) and cycle recurrence; Liao–Hou §4; original finding of Resultary a1cf5d6d5f12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their Q(G;x,y) counts vertex subsets by size and component count, and §8 Eq. (11) recovers the distribution P_k for independent vertex failures.",
+          "The exact local match c3b9290b590a is the assigned result, not independent coverage."
+        ],
+        "reasoning": "The target is the first moment Σ kP_k, equivalently a derivative at y=1 after the survival specialization, rather than residual connectedness reliability P_1. Thus node-reliability extrema do not by renaming imply this maximum.",
+        "searches": [
+          "Local Resultary: expected total component count and occupancy–fragmentation covariance under site retention",
+          "Tittmann–Averbouch–Makowsky, arXiv:0812.4147 §§2.1 and 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the frozen self-match provides the exact cubic and full extremal statements in the inspected records. The papers supply recurrences and graph invariants, not a table of cactus peak densities or a square-bouquet limit."
+        ],
+        "reasoning": "The sharp value must belong to the extremum over finite cacti, not simply coincide with a value computed for an individual graph. No result of a broader web query was available, so the checked entries are not a claim of exhaustive table coverage.",
+        "searches": [
+          "Local Resultary cactus peak and sharp interval comparisons",
+          "arXiv:0812.4147 Proposition 17 and §8; arXiv:1311.6856 §4 for cactus-family component polynomials"
+        ]
+      },
+      "rationale": "The prior subgraph-component polynomial gives the general distribution framework, and an adjacent one-crossing result covers stars and the square via complete bipartite graphs. The supported distinct claim is the cactus-wide one-crossing classification and sharp extremal interval with square-bouquet infimum and the unique upper equality case, not the idea of a first moment or a covariance derivative identity.",
+      "residual_risks": [
+        "Broader web-query results were unavailable. An unlocated earlier cactus formula or extremal theorem is possible; no negative literature inference is made from the unavailable lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General recoverability and cycle recurrence, not the sharp cactus extremal theorem",
+          "evidence": "Q sums q_ij x^i y^j; Eq. (11) specializes Q to the component distribution, separately identifying P_1 as residual connectedness reliability.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.4147",
+          "material_read": "Open PDF §2.1 p. 3 (offset 12636), Prop. 17 p. 11 (32272), §8 Eq. (11) p. 19 (56225)",
+          "method": "Lawful open PDF passage comparison",
+          "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "Same homogeneous site component-count distribution"
+        },
+        {
+          "assessment": "Different invariant question",
+          "evidence": "Q-uniqueness for cycles, tadpoles and friendship graphs does not locate peaks of a first moment.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.6856",
+          "material_read": "Open PDF p. 1 (offset 1150), §4 pp. 6–7 (14396 and 17783)",
+          "method": "Lawful open PDF passage comparison",
+          "title": "Note on the Subgraph Component Polynomial",
+          "trigger": "Results on cactus subfamilies including bouquets"
+        },
+        {
+          "assessment": "Covers uniqueness on the shared stars and square, not the full target",
+          "evidence": "Unique expected-count maximum except for the edge on complete bipartite hosts; the compared result lacks the full-class bounds and sharpness examples.",
+          "identifier_or_url": "Resultary a1cf5d6d5f12",
+          "material_read": "Original Finding in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary statement comparison",
+          "title": "A one-crossing occupancy-fragmentation law for site-percolated complete bipartite graphs",
+          "trigger": "Same statistic, retention convention, and one-crossing claim on a partially overlapping family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–22 and 37–58",
+        "Tittmann et al. §8",
+        "Resultary a1cf5d6d5f12"
+      ],
+      "rationale": "The expected number of surviving fragments and the density at which it peaks are natural induced-subgraph statistics not captured by a connectedness probability. A single-crossing law and a sharp density interval independent of the size and arrangement of the blocks explain how squares, rather than triangles, control the low-density extreme, and identify the sole upper extremizer.",
+      "residual_risks": [
+        "No claim about infinite-volume critical probabilities, pathwise maxima, variance or typically observed fragment counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

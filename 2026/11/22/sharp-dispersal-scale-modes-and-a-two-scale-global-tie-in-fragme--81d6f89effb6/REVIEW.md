@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete claim is supported by the exact Gaussian band integral, a self-contained exponential-sum zero theorem and an induction constructing separated bands attaining the count. For the two-band equal-global optimum, the proof compares both near and far maxima uniformly in the outer width, excludes intermediate scales, proves a strictly monotone peak-height crossover and computes the first-order coefficient \(2^{4/3}\). Exact rational polynomial evaluations provide a separate two-peak instance; finite numerical root tests are supplementary, not a proof of the quantified theorem.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Classical exponential Chebyshev zero counting is acknowledged as prior theory and is not part of the originality claim. The available 2009 heterogeneous-habitat invasion analysis, 2010 online spatial-kernel study, and 2012 habitat-scaling article study different outputs or vary different parameters. Related discrete Gaussian spectral band-count work has a mathematically analogous shape but not the stated continuous kernel-width global-tie asymptotic. No direct implication of the combined theorem was located in searched mathematical and ecological sources. The incomplete full text of one relevant paper and potentially stronger Gaussian scale-space literature remain priority risks.
+PASS
 
-## Value — PASS
-Spatially disconnected suitable habitat creates an intrinsically nonconvex dispersal-scale objective. The number of favorable distance bands gives an exact optimality-search complexity bound, attainable for every band count. In two bands the global optimum can be nonunique at a controlled, asymptotically explicit width frontier. The distinction matters when choosing a single dispersal-kernel scale from competing locally good choices. No empirical establishment or demographic claim is made.
+Differentiating the symmetric Gaussian interval probabilities gives a positive prefactor times a sum of 2m distinct exponentials at t=1/(2σ²). Rolle induction bounds distinct critical points by 2m−1, including at least one intervening stationary point for each consecutive pair of strict maxima. A remote [R,2R] band preserves the old derivative signs on compact windows and creates a new change from + to − in the rescaled window; analyticity makes the resulting maxima strict. For the tie, the two isolated band optima have strictly negative second derivatives; the near perturbation and its q derivative are exponentially small, and the far perturbation is √(2/π)/(Ru)+O(R⁻³) in C² on the necessary compact window. The two resulting peaks exhaust global possibilities by the mode cap, analyticity and vanishing tails. The envelope derivative of the far-minus-near gap is M′(q)+O(1/R)>0 uniformly in the closed q interval, and the endpoint gaps have opposite signs. The first-order root shift is −φ(0)/[Rφ(2/s(2))]=−2^(4/3)/R. Separately replayed the concrete witness with integer numerator signs +,−,+,− at the four stated rationals (python3 /workspace/branches/review_replay.py 1); the count follows exactly from the analytic bound, not a numerical root scan. Inspected but did not execute the supplied checker.
 
-## Relationship and limitations
-Dewhirst and Lutscher (2009), https://doi.org/10.1890/08-0115.1; Lindström et al. (2010 online), https://doi.org/10.1098/rspb.2010.1902; and Skelsey et al. (2012 online), https://doi.org/10.1007/s12080-012-0171-3. An unrestricted complete version of the Lindström paper was unavailable. The model assumes symmetric fixed bands, Gaussian one-step displacement, identical suitability within bands and a point source; it does not estimate persistence or invasion spread.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content supported here is the sharpness construction in the centered Gaussian band family and, most substantively, the two-scale exact global-tie theorem with uniqueness in the specified interval and a first-order width shift. The exponential-sum zero bound and general observation of an intermediate optimum are not new.
+
+## value
+
+PASS
+
+The sharp count relates a geometric input (number of separated bands) to the number of competing scale optima; the exact degeneracy boundary answers when two very different dispersal scales can be equally optimal. Its nonzero first-order shift is analytically useful because it quantifies the failure of treating widely separated bands as independent optima. These are structural features of a natural Gaussian benchmark, not evidence for a particular management recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

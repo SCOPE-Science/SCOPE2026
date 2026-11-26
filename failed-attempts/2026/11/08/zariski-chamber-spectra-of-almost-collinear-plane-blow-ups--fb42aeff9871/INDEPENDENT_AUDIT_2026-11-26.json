@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:54:21.239718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–54",
+        "VERIFICATION.md:19–23",
+        "verification/check.py:23–104 and verification/output.txt:1–9 (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/review_zariski_ldl.py"
+      ],
+      "rationale": "Bézout against the common and joining lines bounds the collinear multiplicities by d-m_* individually and d in sum. This gives C²≥m_*(d-m_*)≥0 for every unlisted nonexceptional irreducible curve. The incidence matrix forbids intersecting (-1)-pairs, and its Schur complement with R is -(n-1)+k, so k≤n-2 exactly. The four choices for the inclusion of R and E_* give the stated polynomial and its top coefficient. Any negative-definite support is realized: solve (-M)a=(A·C_i) for an ample A. The signs of the off-diagonals of -M and positive definiteness imply a≥0 (pair with the negative part of a). Then P=A+Σa_i C_i is big and nef, orthogonal to the support, and P+ΣC_i has precisely that negative part. An independent exact lattice-class enumeration by integral congruence elimination reproduced all reported profiles for n=3,4,5 and gave n=6 profile (1,14,79,241,435,467,271,58), total 1566. These finite tests are not the all-n argument.",
+      "residual_risks": [
+        "The finite replay verifies the intersection-matrix enumeration for n=3,4,5,6 only; Bézout and the structural count prove the unrestricted n assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-block proof gives the actual negative-curve list, incidence matrix, bipartite star footprints and complete weighted support polynomial. The published general correspondence alone does not give these inputs. The published denominator example has all points collinear."
+        ],
+        "reasoning": "The negative-curve list for actual admissible (n,3) centers yields the list after descending; the already evaluated footprint count specializes by deleting the two corresponding labels, and no geometric conjecture or new enumeration is needed.",
+        "searches": [
+          "Resultary two-block RESULT.md, §§1–5 (offset 0–6891)",
+          "arXiv:0912.0958, Proposition 1.1",
+          "arXiv:1411.2431, Example 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Two-block Resultary Finding and proof; all-collinear and one-nodal quartic Resultary Findings",
+        "arXiv:0912.0958, arXiv:1411.2431, arXiv:1204.4373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the retained column, r chosen cross-lines leave (N,M)=(n-r,0) for r≥1; r=0 leaves (n,1). The B-free parts of P_{a,b} are (1+t)^M[(1+t)^N+t B_{N,n-2}(t)]."
+        ],
+        "reasoning": "The restriction and sum specified in the rationale recover all coefficients of the target, not just the total. Its scope exclusion is real, but the reduction uses admissible (n,3) configurations and their explicit support footprint formula.",
+        "searches": [
+          "Resultary two-block RESULT.md, displayed P_{a,b}, Z_{n,m}, total and top coefficient; Proof Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-block record counts by negative-support size with two additional markers for block lines. The all-collinear record counts 2^{n+1}-n-1 chambers on a different configuration."
+        ],
+        "reasoning": "The retained-one-column reduction compares the same support invariant, not Mori chambers or denominator bounds. The identical indexed copy of the assigned result is not comparison evidence.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-zariski-chamber-profiles-for-two-transverse-collinear-blocks--2308b35a5b81",
+          "Resultary: 2026/11/8/SCOPE-exact-universal-zariski-denominators-on-blow-ups-of-collinear-pl--1f0a3fdf26b3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general-position r=4 chamber count 76 does not cover a collinear triple. The latter same-date 285 count uses five centers with exactly one collinear triple; neither n=3 nor n=4 here has those incidences. The Segre–Schur quartic has a different count and geometry."
+        ],
+        "reasoning": "None of these table entries directly matches. Exact coverage is instead by the two-block comparison.",
+        "searches": [
+          "arXiv:0912.0958, p. 2, Theorem table",
+          "arXiv:1204.4373, p. 2",
+          "Resultary: 2026/11/8/SCOPE-the-285-zariski-chambers-of-a-one-nodal-quartic-del-pezzo-resolu--1e41cbd76c21"
+        ]
+      },
+      "rationale": "The distinct indexed two-transverse-block record supplies the exact formula mechanically, not just the standard chamber algorithm. Its stated range is n,m≥3, so m=1 is not literally covered by its theorem statement. However, add two new points on a line through the off-line center, with intersection with the original line unblown. In the resulting (n,3) blow-up, the strict transform of any original negative curve stays negative, so Step 1 of the two-block result exhausts its possibilities. The added block-line and cross-lines using the two new labels have square zero after descent, and the new exceptional curves contract. All remaining negative-curve classes and pairings are unchanged when pushed down. In the indexed two-block formula delete its B terms (v=0) and keep just the one retained column for its cross-stars and one retained F label: this is exactly its footprint expression with m=1. The empty cross-family contributes (1+t)^{n+1}+t(1+t)B_{n,n-2}(t); selection of r≥1 surviving cross-lines contributes binom(n,r)t^r[(1+t)^{n-r}+t B_{n-r,n-2}(t)]. Summing gives the frozen polynomial by the binomial theorem. The explicit total and top coefficient of the two-block record also specialize algebraically to the claimed values at m=1. This is demonstrable content coverage by reduction and specialization of the indexed enumeration, not a claim about which same-date record was first.",
+      "residual_risks": [
+        "The exact historical order of the two same-date records is unresolved; the decision is about content implication, not priority. The bounded literature review is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical implication after retaining one second-block label; no same-day priority inference",
+          "evidence": "Explicit lattice configuration, star footprints and B-free terms of P_{a,b}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-zariski-chamber-profiles-for-two-transverse-collinear-blocks--2308b35a5b81/RESULT.md",
+          "material_read": "Finding, scope and proof through Step 6 (offset 0–6891)",
+          "method": "Primary local-mirror file",
+          "title": "Zariski-chamber profiles for two transverse collinear blocks",
+          "trigger": "Same invariant in the family with a second block"
+        },
+        {
+          "assessment": "General support correspondence, different small-rank configurations",
+          "evidence": "General-position r=4 count is 76.",
+          "identifier_or_url": "arXiv:0912.0958",
+          "material_read": "p. 2 Theorem and p. 3 Proposition 1.1",
+          "method": "Primary OA PDF text",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "Foundational correspondence and possible small-rank overlap"
+        },
+        {
+          "assessment": "All centers collinear, denominator invariant",
+          "evidence": "Negative curves there are the exceptional curves and the transform of the common line only.",
+          "identifier_or_url": "arXiv:1411.2431",
+          "material_read": "p. 7 Example 3.4",
+          "method": "Primary OA PDF text",
+          "title": "On the boundedness of the denominators in the Zariski decomposition on surfaces",
+          "trigger": "Related arbitrary-size collinear blow-ups"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–19,43–51; two-block RESULT.md Finding and Steps 1–5"
+      ],
+      "rationale": "The rank-refined counts are natural and the all-n proof is sound. Under the exact-invariant standard the frozen contribution does not add a surviving unknown invariant once the explicit indexed two-block footprint formula is specialized to the retained column. A different proof of the same resulting coefficients and more finite checks do not remove that mechanical implication.",
+      "residual_risks": [
+        "The finding makes no claim about chamber volumes or configurations other than these centers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:00:33.679557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–31; VERIFICATION.md; verify_binary.py and verify_cyclic.cpp (inspected, not run)",
+        "/workspace/branches/572994fd-3d45-4ea9-9b86-239553a8919b/heawood_witness_replay.py and heawood_witness_replay.out"
+      ],
+      "rationale": "Cubic closed neighborhoods exclude three dominators. If a four-set dominates, the point and line coverage inequalities force two of each. For chosen points p,q the selected lines must avoid them and cover all five other points. Their intersection must be the third point r of pq: at any other candidate intersection there are two distinct lines to p and q and only one line left. Conversely the two lines through r other than pq cover the five required points and are exactly the two lines not incident to p or q. This yields 21 concepts. Every vertex has frequency six. Pair frequencies are one for same-type pairs by point-pair uniqueness and duality, three for nonincidence by choosing r on the line, and zero for incidence. Hence all four traces occur exactly on nonedges (counts t,6−t,6−t,9+t), and any triple contains a same-type pair with just one all-positive witness, forbidding one of its two third-vertex extensions. Complement connectivity follows from the two part-cliques and cross nonedges. Contracting a spanning tree leaves 70−14+1=57 loops, proving the homotopy statement. For the online lower bound use point 1 and functional 1 as the first two queries in the binary labeling. The line contains points 2,4,6; the concepts containing it have point pairs among {1,3,5,7}. The third queries at points 2,3,2,3 have respective positive counts 5,2,1,1 among 12,3,3,3 surviving concepts, as also checked by an independent exhaustive witness replay. A root positive branch always has just six concepts and cannot realize eight leaves, giving the upper bound. The topology is that of a one-dimensional graph, not the clique complex of its 1-skeleton.",
+      "residual_risks": [
+        "No inference is made about all inclusion-minimal sets, all maximal independent sets, or higher-order planes. Replay confirms the finite online witness; the written trace and coverage arguments independently establish the other conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general incidence-graph domination theorem gives 2q, hence the exact minimum size 4 for q=2, while the structural theorem inspected assumes q≥5.",
+          "The regular-graph ratio work concerns domination and independent domination numbers, not query traces."
+        ],
+        "reasoning": "Credit the exact covered size. Neither stated scope extends to the Boolean or adaptive trace structure for all ordinary minimum sets of the Fano incidence graph.",
+        "searches": [
+          "Héger–Nagy arXiv:1603.02933, Theorems 1.1 and 1.5",
+          "Knor–Škrekovski–Tepeh arXiv:2010.13467, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary e9b5f8960619, 2312bedeb2f5, 332b27986fe0, 338a55d19206",
+        "Primary OA arXiv:1603.02933, 1803.04031, 2010.13467",
+        "Frozen RESULT.md lines 41–52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-type cooccurrence one is the triple obstruction; nonincident point–line cooccurrence three gives all four traces. An adaptive third query varies by branch of the fixed initial nonincident pair."
+        ],
+        "reasoning": "Neither the old optimal cardinality, independent-domination variant, nor an analogous theorem on a different graph supplies these joint counts or witness. Topology follows from the new graph identification; it is not claimed as an independent topological method.",
+        "searches": [
+          "Héger–Nagy Theorems 1.1 and 1.5; local Pappus 2312bedeb2f5 and same-graph power-domination 338a55d19206"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirrored e9b5f8960619 at offset 0 has the same identifier and all the same claims. Distinct Pappus 2312bedeb2f5 has the analogous VC 2/Ldim 3 and nonedge-pair criterion but 18 vertices, 18 minimum five-sets and 126 shattered pairs; Shrikhande 332b27986fe0 has a larger-dimensional shattered complex.",
+          "Same-graph 338a55d19206 concerns power domination, minimum size two and 28 minimum pairs. Alipour–Jafari report the different (2,2)-parameter 12."
+        ],
+        "reasoning": "Point–line duality preserves the present concept class rather than transferring it to a different graph or domination variant. The Pappus class is not isomorphic to it, and agreement of the two dimension numbers does not imply equivalence of the exact complexes. Unrelated broad search results add no evidence against coverage.",
+        "searches": [
+          "Local Resultary: Heawood ordinary minimum-domination shattering and VC/Littlestone separation",
+          "Primary literature: Heawood minimum dominating-set membership traces and adaptive dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact trace polynomial and both dimensions occur in the identical mirror, not a distinct inspected table. Distinct head-to-head records use other graphs or nonordinary domination. The cited earlier ordinary minimum-set census was not independently traced to a primary table."
+        ],
+        "reasoning": "The census size, even if known exactly, does not determine all simultaneous labels or decision-tree branch sizes. No historical novelty is assigned to enumeration of the concepts themselves.",
+        "searches": [
+          "Local Resultary: exact Heawood trace complex, Pappus/Shrikhande comparison, and Heawood variant census",
+          "Alipour–Jafari pp. 1–2 Heawood example"
+        ]
+      },
+      "rationale": "On the inspected evidence the exact shattered-support complex and adaptive dimension for this ordinary minimum-domination class are distinct. Domination number four is known and the 21-set census is treated as background, not as a novelty claim. The identical catalogue item shares the frozen record identifier and statement and is its own mirror, not a distinct predecessor.",
+      "residual_risks": [
+        "Same-day dates do not establish priority. The background 21-set census attribution was not independently resolved. An unindexed trace table or exact study of this learning class remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not distinct prior work",
+          "evidence": "Same stable suffix and identical ordinary class, polynomial, homotopy type and dimensions.",
+          "identifier_or_url": "Resultary e9b5f8960619",
+          "material_read": "Mirrored RESULT.md offset 0, finding and scope",
+          "method": "Local mirror comparison",
+          "title": "The minimum-domination shattering complex of the Heawood graph",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Same dimension separation, different concept class",
+          "evidence": "18 minimum five-sets and polynomial 1+18z+126z² instead of the Heawood class of 21 four-sets.",
+          "identifier_or_url": "Resultary 2312bedeb2f5",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror comparison",
+          "title": "Minimum domination reconstructs the Pappus graph and separates shattering from online dimension",
+          "trigger": "Closest distinct ordinary-domination analogue"
+        },
+        {
+          "assessment": "Different domination rule and invariant",
+          "evidence": "Power domination requires two selected vertices and reports 28 minimum pairs.",
+          "identifier_or_url": "Resultary 338a55d19206",
+          "material_read": "Indexed finding and variant assumptions",
+          "method": "Local Resultary comparison",
+          "title": "Exact power-domination obstruction complex of the Heawood graph",
+          "trigger": "Same graph and a domination complex"
+        },
+        {
+          "assessment": "Different graph and complex",
+          "evidence": "The polynomial has a triangle term; VC and Littlestone dimensions both equal three.",
+          "identifier_or_url": "Resultary 332b27986fe0",
+          "material_read": "Indexed finding and dimensions",
+          "method": "Local Resultary comparison",
+          "title": "The toroidal shattering complex of minimum domination in the Shrikhande graph",
+          "trigger": "Related minimum-domination trace complex"
+        },
+        {
+          "assessment": "Minimum size covered; trace and learning results not supplied by these theorems",
+          "evidence": "2q for all orders; the structural minimum-set theorem assumes q≥5.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02933",
+          "material_read": "pp. 2–3, Theorems 1.1 and 1.5; OA offsets about 4900 and 8136",
+          "method": "OA PDF passages",
+          "title": "Dominating sets in projective planes",
+          "trigger": "General incidence-graph dominance might cover the instance"
+        },
+        {
+          "assessment": "Different domination variant",
+          "evidence": "The Heawood example gives gamma_{2,2}=12, not ordinary minimum dominating concepts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.04031",
+          "material_read": "pp. 1–2, definition and example",
+          "method": "OA PDF passages",
+          "title": "Upper bounds for domination numbers of graphs using Turán's Theorem and Lovász local lemma",
+          "trigger": "Named Heawood domination example"
+        },
+        {
+          "assessment": "Cardinality ratio rather than trace invariant",
+          "evidence": "Studies the ratio of domination to independent domination for regular graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.13467",
+          "material_read": "p. 1, abstract",
+          "method": "OA PDF passage",
+          "title": "Domination versus independent domination in regular graphs",
+          "trigger": "Possible domination/independence structural implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28",
+        "Local Resultary Pappus and Shrikhande comparisons",
+        "Independent finite witness branch counts"
+      ],
+      "rationale": "This is the natural ordinary minimum-domination class of the smallest projective-plane incidence graph. The complete Boolean traces recover exactly the nonincidence/nonadjacency relation, and the explicit small adaptive tree provides a robust witness that even this symmetric set class distinguishes online and fixed-query shattering. The obstruction and tree are useful independent of the known optimal size; the cycle rank quantifies the geometry of the resulting support complex. Value does not rest on a routine 21-set census.",
+      "residual_risks": [
+        "Motivated single finite example, not a uniform theorem for incidence graphs or a new general learning bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

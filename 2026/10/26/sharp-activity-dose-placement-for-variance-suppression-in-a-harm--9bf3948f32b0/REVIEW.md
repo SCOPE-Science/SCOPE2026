@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Markov generator closes the position variance and position–orientation covariance as a two-dimensional inhomogeneous ODE. Its integral representation gives a nonnegative causal response kernel and a control-uniform \(O(\varepsilon^2)\) remainder. Exact differentiation proves unimodality, including the resonant case \(k=a\); an exchange argument yields the unique bang-bang optimal window and the sharp horizon/dose transition. Independent integration and quadrature comparisons passed as described in `VERIFICATION.md`. Numerical tests do not stand in for universal proof.
+PASS
 
-## Originality — PASS, with risk
+A flip at rate alpha/2 gives orientation correlation exp(-integral alpha) between two times. Extend the stationary baseline to negative times, set u=0 there, and represent X_T as the exponential convolution of the orientation. By symmetry its mean is zero. In the resulting covariance double integral over s<t<=T the integrand is 2v^2 exp(-2k(T-t)-(k+a)(t-s)) exp(-epsilon U(s,t)), where U is the integrated control from s to t. Expanding the last factor, integrating the linear term over s<=r<=t for a perturbation at r, yields exactly W(T-r), including the k=a limit. The zero-order integral is v^2/[k(k+a)]. Since 0<=U<=t-s and 0<=exp(-x)-1+x<=x^2/2 for x>=0, integrating the bound over T-t>=0 and t-s>=0 gives 0<=R<=v^2 epsilon^2/[k(k+a)^3], uniformly without assuming any smoothness of u. The difference-of-exponentials derivative has exactly one zero at the stated z_* and the resonant derivative has the sign of 1-2kz. For a threshold lambda whose superlevel set has length m, (W(T-s)-lambda)(u_star-u) is nonnegative everywhere and strictly positive where admissible controls differ off the level set. Thus the superlevel interval is the unique optimizer up to null sets. It first meets physical time zero at lag endpoints r_T,T and length m_c=T-r_T; it cannot touch physical time T for m<T because W(0)=0. Shrinking interior intervals contain the unique peak and their centers tend to T-z_*. The independent three-segment propagation matches the example: lag 0.4995912659, pulse [1.3649081504,1.6149081504], and variances 0.4996295196, 0.5036774237 and 0.5023481452 in the stated order.
 
-Baldovin–Manacorda (arXiv:2602.04560v1), inspected in its model, control, conclusion and appendix portions, studies the underlying harmonic particle and slow-protocol work/distribution-level control; it does not state this fixed-dose first-order variance scheduling phase diagram. Frim–DeWeese (arXiv:2304.06023) treats different controlled parameters for exact shortcuts and minimal time. Davis–Proesmans–Fodor (arXiv:2305.11078) supplies broader active-matter linear-response principles for thermodynamic dissipation, so the general mathematical principles are not claimed as new. Searches for fixed tumbling dose, impulse-response maxima, and exact bang-bang timing returned no equivalent model-specific claim. General response and optimal allocation theory may implicitly subsume the result; no priority beyond accessible comparisons is certified.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed budget of elevated tumble rate is a natural experimentally constrained intervention, and final position spread is a directly observable control target. The theorem resolves *when* to spend that finite dose at first order: early intervention below a sharp horizon, delayed interior intervention in the other regime, and an exact dose-dependent transition. This is not a generic assertion that more activity reduces variance; the competing correlation and confinement time scales create a nonobvious best lag. The exact \(\varepsilon^2\) bound controls how the linear-response optimization approximates the actual stochastic model.
+The surviving contribution is model-specific: fixed stiffness, propulsion and baseline, bounded nonnegative extra tumbling of fixed integrated dose, and optimization of the terminal position variance at first order, including the lag and dose transition and the explicit uniform error. The basic trapped-particle equations, response theory and threshold allocation principle are not claimed as new. The closest inspected control studies and indexed pulse result differ in objective, control regime or dynamics and do not give this combination.
 
-## Limitations
+## value
 
-The theorem addresses endpoint variance under stationary initialization, not full-distribution shortcuts, work optimization or finite-amplitude global optimality. Implicit coverage by general constrained linear-response control theory is the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed added tumbling dose it is not enough to know that increased rate suppresses spread; the question is where to use that dose before a terminal measurement. The peak response occurs at a positive lag and the exact critical dose explains when front-loading loses to a delayed interior pulse. This supplies a usable schedule in a standard active-particle model, with a control-uniform variance error that makes the weak optimum informative for small positive amplitudes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

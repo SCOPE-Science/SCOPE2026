@@ -1,83 +1,66 @@
-# Sharp all-degree asymptotics for binomial-polynomial numerical semigroups
+# Sharp Frobenius and genus asymptotics for binomial-polynomial semigroups of fixed degree at least three
 
 ## Finding
-For each fixed integer \(d\ge 2\), let \(a\ge2\) and \(b\ge1\) be coprime integers. Define the numerical semigroup
+
+Fix an integer \(d\ge3\). For coprime integers \(a\ge2\) and \(b\ge1\), define
 \[
-S_d(a,b)=\left\langle ai+b\binom{i}{d}:i=1,2,3,\ldots\right\rangle,
-\qquad c_d=(d!)^{1/d},\qquad \eta_d=\frac{d-1}{d^2}.
+S_d(a,b)=\left\langle ai+b\binom{i}{d}:i=1,2,\ldots\right\rangle,
+\qquad c_d=(d!)^{1/d},\qquad \eta_d=(d-1)/d^2.
 \]
-Its Frobenius number \(F_d(a,b)\) and genus \(g_d(a,b)\) obey
+The Frobenius number and genus satisfy
 \[
-\boxed{F_d(a,b)=(a-1)b+c_da^{1+1/d}+O_d\bigl(a^{1+\eta_d}\bigr)}
+\begin{aligned}
+F_d(a,b)&=(a-1)b+c_d a^{1+1/d}+O_d(a^{1+\eta_d}),\\
+g_d(a,b)&=\frac{(a-1)(b-1)}2+\frac{d}{d+1}c_d a^{1+1/d}+O_d(a^{1+\eta_d}).
+\end{aligned}
 \]
-and
-\[
-\boxed{g_d(a,b)=\frac{(a-1)(b-1)}2+
-\frac{d}{d+1}c_da^{1+1/d}+O_d\bigl(a^{1+\eta_d}\bigr).}
-\]
-Both error bounds have constants depending only on \(d\), uniformly for all \(b\ge1\) coprime to \(a\). Equivalently, after subtracting the indicated elementary \(b\)-terms, the normalized limits as \(a\to\infty\) are \(c_d\) and \(dc_d/(d+1)\), uniformly in those choices of \(b\). For \(d=2\), this refines the previously established order-of-growth estimates to constants \(\sqrt2\) and \(2\sqrt2/3\); the formulas additionally treat every fixed degree \(d\ge3\).
+The constants in the errors depend on \(d\) alone, so the leading asymptotic after subtracting the displayed elementary \(b\)-term is uniform even when \(b\) varies with \(a\). The contribution concerns degrees \(d\ge3\). The same two degree-two expansions, including their power-saving errors, follow from earlier results [1] and are not claimed as new.
 
 ## Assumptions and scope
-The notation \(\binom{i}{d}=0\) for \(i<d\) is used. A numerical semigroup is an additive submonoid of the nonnegative integers with finite complement. The Frobenius number is the largest omitted nonnegative integer, and the genus is the cardinality of the complement. The generator at \(i=1\) is \(a\); the generator at \(i=d\) is \(da+b\). These are coprime, so \(S_d(a,b)\) has finite complement and multiplicity \(a\). The exponent \(\eta_d\) is positive and strictly smaller than \(1/d\) for \(d\ge2\). All constants implicit in the asymptotic errors are independent of \(b\).
+
+We set \(\binom{i}{d}=0\) for \(i<d\). The semigroup contains zero and has finite complement among the nonnegative integers, since it contains the coprime pair \(a,da+b\). Its smallest positive element is \(a\). The Frobenius number is the largest missing integer and the genus the number of missing nonnegative integers.
 
 ## Proof
-**Step 1: the binomial-weight coin function.** For each nonnegative integer \(n\), put
+
+**1. Binomial index cost.** For \(n\ge0\), let \(\mu_d(n)\) be the least total index cost \(\sum_{i\ge d} i x_i\) of a representation \(n=\sum_{i\ge d}\binom{i}{d}x_i\) with nonnegative integer multiplicities. The unit coin \(\binom{d}{d}=1\) ensures feasibility, and \(\mu_d(0)=0\). Vandermonde's identity gives \(\binom{u+v}{d}\ge\binom{u}{d}+\binom{v}{d}\). Thus any representation with cost \(M\) has \(n\le\binom{M}{d}\le M^d/d!\), and \(\mu_d(n)\ge c_d n^{1/d}\).
+
+For \(n>0\), choose the largest \(k\ge d\) with \(\binom{k}{d}\le n\). Comparing the defining product for the binomial with \((k-d+1)^d/d!\) and \(k^d/d!\) gives \(k=c_d n^{1/d}+O_d(1)\). The remainder \(r=n-\binom{k}{d}\) is nonnegative, strictly less than \(n\), and less than \(\binom{k}{d-1}\), hence \(r=O_d((n+1)^{(d-1)/d})\). In particular, for all sufficiently large \(n\), depending only on \(d\), \((r+1)^{1/d}\le (n+1)^{1/d}/2\). Choose a constant \(A_d\) large enough to bound \(\mu_d(n)/(n+1)^{1/d}\) on the finite range before this inequality holds and large enough that \(k\le (A_d/2)(n+1)^{1/d}\) for all \(n>0\). By strong induction, adding the greedy coin to an optimal representation of \(r\) gives \(\mu_d(n)\le A_d(n+1)^{1/d}\). Applying this coarse bound only to the remainder of the first coin gives
 \[
-\mu_d(n)=\min\left\{\sum_{i\ge d}i x_i:
-   \sum_{i\ge d}\binom{i}{d}x_i=n,
-   \ x_i\in\mathbb Z_{\ge0},\ \text{finitely many nonzero}\right\}.
+c_d n^{1/d}\le \mu_d(n)\le c_d n^{1/d}+C_d(n+1)^{\eta_d},
+\qquad n\ge0,
 \]
-In particular \(\mu_d(0)=0\), and every \(n\) is feasible because \(\binom d d=1\). The following uniform estimate is the key new quantitative lemma:
+because \(\eta_d=(d-1)/d^2\).
+
+**2. Residue minima.** Write \(w_r\) for the least semigroup element congruent to \(br\pmod a\), \(0\le r<a\). A representation of such an element has value \(aM+bK\), where \(K=r+ja\) with an integer \(j\ge0\); for that \(K\) the minimum possible cost \(M\) is \(\mu_d(K)\). Generators of index less than \(d\) add positive multiples of \(a\) and cannot decrease this minimum. Consequently
 \[
-(d!n)^{1/d}\ \le\ \mu_d(n)\ \le\ (d!n)^{1/d}
- +C_d(n+1)^{(d-1)/d^2}. \tag{1}
+w_r=br+a\lambda_r,\qquad \lambda_r=\min_{j\ge0}\{\mu_d(r+ja)+bj\}.
 \]
-For the lower bound, the nonnegative Vandermonde convolution implies
-\(\binom{u+v}{d}\ge\binom u d+\binom v d\) for all nonnegative integers \(u,v\). Repeatedly applying this to any representation with total index cost \(M=\sum_i i x_i\) gives
-\(n=\sum_i x_i\binom i d\le\binom M d\le M^d/d!\), proving the lower estimate.
+For every \(j\) the expression inside the minimum is at least \(c_d r^{1/d}\), and the term \(j=0\) gives the upper estimate \(c_d r^{1/d}+C_d(r+1)^{\eta_d}\). No assertion that the minimizing \(j\) is always zero is required. This estimate is independent of \(b\).
 
-For the upper estimate, write \(q=(d-1)/d\) and perform a greedy binomial decomposition. For a positive remainder \(m\), choose the largest integer \(k\ge d\) with \(\binom{k}{d}\le m\); subtract that binomial coin, at index cost \(k\). As \(\binom{k}{d}=k^d/d!+O_d(k^{d-1})\), the initial index is
-\(k=(d!m)^{1/d}+O_d(1)\). The resulting remainder is strictly less than
-\(\binom{k+1}{d}-\binom k d=\binom k{d-1}=O_d((m+1)^q)\). Upon repeating \(L\) times, the residual value is at most \(O_{d,L}((n+1)^{q^L})\). Choose a fixed \(L=L(d)\) so that \(q^L\le q/d\). The index costs after the first greedy coin are each \(O_d((n+1)^{q/d})\), while the final remainder may be paid for with copies of the unit binomial coin \(\binom d d=1\), costing \(d\) times that remainder. Thus the total is at most \((d!n)^{1/d}+O_d((n+1)^{q/d})\), establishing (1), since \(q/d=(d-1)/d^2\). This also handles bounded \(n\) after enlarging \(C_d\).
-
-**Step 2: exact residue envelopes.** Each element of \(S_d(a,b)\) is of the form \(aM+bK\), where \(K\ge0\) is a sum of \(d\)-th binomial coefficients and \(M\) is the corresponding sum of indices. For any fixed \(K\), the smallest such \(M\) is \(\mu_d(K)\); the generators with \(i<d\) contribute only positive multiples of \(a\), so cannot lower this minimum. Because \(b\) is a unit modulo \(a\), for each \(r\in\{0,\ldots,a-1\}\) the least semigroup element in residue \(br\pmod a\) is
+**3. Frobenius and genus.** As \(b\) is invertible modulo \(a\), the \(w_r\) constitute the Apéry set for \(a\). The largest possible gap in a residue is its least semigroup element minus \(a\), and the number of gaps in that residue is the least element minus its least nonnegative representative, divided by \(a\). Hence
 \[
-w_r=br+a\lambda_r,\qquad
-\lambda_r=\min_{j\ge0}\{\mu_d(r+ja)+bj\}. \tag{2}
+F_d=\max_r w_r-a,\qquad
+g_d=\frac{1}{a}\sum_r w_r-\frac{a-1}{2}
+=\frac{(a-1)(b-1)}2+\sum_r\lambda_r .
 \]
-Every term in this minimum obeys \(\mu_d(r+ja)+bj\ge c_d(r+ja)^{1/d}+bj\ge c_dr^{1/d}\); the admissible choice \(j=0\), followed by (1), yields
+In the maximum, using \(r=a-1\) for the lower bound and monotonicity of the envelope's upper bound gives
 \[
-c_dr^{1/d}\le\lambda_r\le c_dr^{1/d}+C_d(r+1)^{\eta_d}. \tag{3}
+(a-1)b+ac_d(a-1)^{1/d}-a\le F_d\le
+(a-1)b+ac_d(a-1)^{1/d}-a+C_d a^{1+\eta_d}.
 \]
-These bounds do not involve \(b\). The \(a\) values \(w_r\) form the Apéry set relative to multiplicity \(a\).
+The change from \(a(a-1)^{1/d}\) to \(a^{1+1/d}\) is \(O_d(a^{1/d})\), and \(-a\) is also absorbed by the claimed error. For the genus, integral comparison gives \(\sum_{r=0}^{a-1} r^{1/d}=\tfrac{d}{d+1}a^{1+1/d}+O_d(a^{1/d})\), while the sum of the envelope errors is \(O_d(a^{1+\eta_d})\). This proves both formulas uniformly in \(b\).
 
-**Step 3: Frobenius number.** The standard Apéry identity gives \(F_d(a,b)=\max_{0\le r<a}w_r-a\). From (3), and using the \(r=a-1\) term for the lower bound,
-\[
-(a-1)b+ac_d(a-1)^{1/d}-a\le F_d(a,b)
-\le(a-1)b+ac_d(a-1)^{1/d}+C_da^{1+\eta_d}-a.\tag{4}
-\]
-The upper bound uses monotonicity of both \(r^{1/d}\) and \((r+1)^{\eta_d}\) on this range. Since \(a(a-1)^{1/d}=a^{1+1/d}+O_d(a^{1/d})\), equation (4) proves the first asserted expansion.
+## Relationship to earlier work
 
-**Step 4: genus.** The Apéry genus identity gives
-\[
- g_d(a,b)=\frac1a\sum_{r=0}^{a-1}w_r-\frac{a-1}{2}
-=\frac{(a-1)(b-1)}2+\sum_{r=0}^{a-1}\lambda_r. \tag{5}
-\]
-By (3), \(\sum_{r<a}\lambda_r=c_d\sum_{r<a}r^{1/d}+O_d(\sum_{r<a}(r+1)^{\eta_d})\). Integral comparison shows
-\(\sum_{r<a}r^{1/d}=\frac{d}{d+1}a^{1+1/d}+O_d(a^{1/d})\), while the error sum is \(O_d(a^{1+\eta_d})\). Inserting these estimates into (5) proves the second expansion and completes the theorem.
+In degree two, Hashuga, Herbine and Jensen [1] study the identical family and the identical cost \(\mu_2\). Their Theorems 6.3 and 6.6 bound it between \(f(n)\) and \(f(n)+3f((f(n)-2)/3)\) for positive \(n\), where \(f(t)=(1+\sqrt{8t+1})/2\). In particular \(\mu_2(n)=\sqrt{2n}+O((n+1)^{1/4})\). Their Corollary 7.6 and Theorem 8.1 express the two invariants by the maximum and sum of their Apéry parametrization outside eight fixed pairs. Inserting this cost estimate in the maximum and sum gives the two expansions with constants \(\sqrt2\) and \(2\sqrt2/3\), both with error \(O(a^{5/4})\) independent of \(b\); enlarging the constant covers the fixed exceptions. Those expansions thus follow from [1], even though its displayed order-of-growth corollaries use weaker bounds.
 
-## Verification
-The included standalone `verify.py` uses only the Python standard library. It independently computes the Apéry set using shortest paths in the residue graph generated by sufficiently many actual polynomial generators, and also constructs the exact envelope (2) by unbounded-change dynamic programming for the binomial index costs. For all coprime pairs \(2\le a\le50\), \(b\in\{1,2,3,5,7,11\}\), and \(d\in\{2,3,4,5\}\), the two independently implemented computations agreed in all \(928\) finite cases. The generator cutoff in the residue-graph computation is rigorous: the two coprime generators \(a\) and \(da+b\) bound each Apéry representative above by \((a-1)(da+b)\), and every omitted generator is already larger than that bound. Computation checks finite instances of (2); the claims for every exponent and unbounded \(a,b\) are proved in Steps 1–4, not inferred from experiments.
+The higher-degree result uses the cost for \(d\)-th binomial coins and a residue envelope that need not identify its optimizer. Robles-Pérez and Rosales [2] study finite tuples of consecutive triangular or tetrahedral numbers, not mixed generators with the independent parameters \(a,b\). Liu, Xin, Ye and Yin [3] use Apéry methods for generalized repunit systems. Hwang and Song [4] study finite sets of binomial coefficients with a fixed upper index. Those statements do not supply the index-cost estimate and uniform envelope for this mixed family.
 
-## Relationship to prior work
-Hashuga, Herbine and Jensen, *Numerical Semigroups Generated by Quadratic Sequences* (first public arXiv version dated 2020-09-04, arXiv:2009.01981), introduced the identical degree-two generator family. In their full text, Theorems 8.2–8.4 and Corollaries 8.3/8.5 give explicit nonmatching bounds and \(\Theta(a^{3/2}+ab)\) growth for the Frobenius number and genus. Their genus identity and the standard Apéry method are acknowledged. The present theorem sharpens the two quadratic asymptotics to explicit leading constants after removing their exact linear-in-\(b\) parts, establishes a uniform power-saving error, and treats every higher fixed degree. Their concluding discussion identifies higher-degree polynomial generators as a natural direction.
+## Reproducibility and limitations
 
-Liu, Xin, Ye and Yin, *On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups* (arXiv:2306.03459), give Apéry methods for ordered repunit-type recurrence systems with substantially different coefficient constraints, not a theorem for the family above. Hwang and Song, *The Frobenius Problem for Numerical Semigroups Generated by Binomial Coefficients* (arXiv:2412.17882), determine invariants for finite sets of pure coefficients \(\binom n k\) with a fixed upper index; this does not cover the mixed generators \(ai+b\binom i d\) with variable upper index. No priority claim is made beyond the material inspected.
+The accompanying `verify.py` independently compares the exact residue envelope with shortest paths in the residue graph on a finite grid for degrees 2 through 5. The generator cutoff follows because every residue has a representative using at most \(a-1\) copies of \(da+b\). These checks corroborate the residue description on the tested grid; the proof above establishes the asymptotic bounds. There is no claim of an optimal error exponent, an exact finite-parameter formula, or uniformity when \(d\) grows with \(a\). The literature comparison is limited to the material inspected.
 
-## Limitations
-The result gives asymptotic expansions with explicit leading coefficients but not exact finite-parameter formulas, second-order constants, or a uniform estimate when the polynomial degree itself grows with \(a\). The power-saving exponent in the error may not be optimal. The novelty comparison is conditional on accessible and inspected literature: an earlier unindexed result or an indirect implication from uninspected stronger work remains possible. Independent mathematical audit has not been performed.
-
-## References
-1. M. Hashuga, M. Herbine and A. Jensen, *Numerical Semigroups Generated by Quadratic Sequences*, arXiv:2009.01981, 2020, https://arxiv.org/abs/2009.01981.
-2. F. Liu, G. Xin, S. Ye and J. Yin, *On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups*, arXiv:2306.03459, 2023, https://arxiv.org/abs/2306.03459.
-3. W. Hwang and K. Song, *The Frobenius Problem for Numerical Semigroups Generated by Binomial Coefficients*, arXiv:2412.17882, first public 2024, https://arxiv.org/abs/2412.17882.
+1. M. Hashuga, H. Herbine and A. Jensen, *Numerical Semigroups Generated by Quadratic Sequences*, <https://arxiv.org/abs/2009.01981>, Theorems 6.3, 6.6 and 8.1 and Corollary 7.6.
+2. A. M. Robles-Pérez and J. C. Rosales, *The Frobenius number for sequences of triangular and tetrahedral numbers*, <https://arxiv.org/abs/1706.04378>, J. Number Theory 186 (2018), 473–492.
+3. F. Liu, G. Xin, S. Ye and J. Yin, *On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups*, <https://arxiv.org/abs/2306.03459>.
+4. W. Hwang and K. Song, *The Frobenius Problem for Numerical Semigroups Generated by Binomial Coefficients*, <https://arxiv.org/abs/2412.17882>.

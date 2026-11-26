@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:47:55.018033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–27",
+        "VERIFICATION.md and both supplied checker sources, inspected without execution",
+        "Independent run: python -B /workspace/branches/review-palindrome-replay.py; output /workspace/branches/review-palindrome-replay.txt"
+      ],
+      "rationale": "Each distinct unordered pair requires three traversals: two traversals alone could support both opposite backtracks only if each occurrence immediately followed the other in cyclic order, impossible when the word has length at least q²≥4. Each loop requires two traversals. The closed walk has even off-diagonal degree at each vertex; for even q the three-traversal baseline gives odd degree everywhere, costing at least q/2 additional traversals. Doubling one matching in the even case yields the connected Eulerian graph for the construction. Replace one traversal of each ordinary pair by a three-step alternating walk and double each loop; this preserves the closed tour and supplies precisely the required witnesses, including the constant triples. I independently recovered exact minima 8, 15 and 28 for q=2,3,4 by breadth-first search on the pair-state graph with an accumulated palindrome mask. One can fix the root state to 00 by rotating to an occurrence of 000. The bounded check corroborates, but does not replace, the all-q proof.",
+      "residual_risks": [
+        "The result concerns cyclic ordinary triples, not linear covers, minimizer counts, or arbitrary palindrome lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AAK and the general superwalk comparison are named in frozen lines 29–37; the attempted lawful retrievals did not supply passages",
+          "Resultary 2026/11/2/SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8 concerns a fixed alphabet and length five"
+        ],
+        "reasoning": "Generic overlap-graph modeling or a fixed ternary length-five value is not the sharp all-q theorem; the positive coverage finding comes from the explicit two-way length-three/four reduction, not from assuming any broader paper covers it.",
+        "searches": [
+          "cyclic palindrome superstring all length-three palindromes Euler tour",
+          "Anisiu–Anisiu–Kása (2006), §2 Proposition 1",
+          "Kapun–Tsarev (2013) multiplicity-constrained de Bruijn superwalk"
+        ]
+      },
+      "checked_sources": [
+        "Targeted local Resultary statements and mirror attempts",
+        "Frozen RESULT.md lines 3–40",
+        "Independent proof of the exact cyclic run-length transfer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available indexed statement specifies all ordinary abba, q≥2, and the exact parity cases; mirror retrieval of the original Finding timed out",
+          "Adding or removing one letter in each of q(q−1) nominated central runs and q nominated constant runs proves equality of the shifted minima without relying on either proof's internal details"
+        ],
+        "reasoning": "The theorem and existence of sharp witnesses follow from the distinct result. The matching method is already indicated in that exact statement. These facts show coverage without using the shared catalogue date to infer direction or priority.",
+        "searches": [
+          "Four-letter Resultary record 339ce420148c, exact indexed statement and matching-construction sentence",
+          "Decisive Finding in the local mirror for that record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triple target is a self-hit; the distinct four-letter result 2026/11/22/SCOPE-sharp-cyclic-covering-length-for-ordinary-four-letter-palindrome--339ce420148c explicitly states the all-q minimum (5q²+q)/2 for odd q and (5q²+2q)/2 for even q"
+        ],
+        "reasoning": "The run-length edit in the rationale is two-way, valid for all q≥2, and subtracts q² from both parity cases to give exactly the frozen finding.",
+        "searches": [
+          "cyclic covers of every length-three palindrome aba minimum length q parity Eulerian graph",
+          "shortest cyclic word containing all ordinary palindromes aba for alphabet size q",
+          "Sharp cyclic covering length for ordinary four-letter palindromes abba odd even"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index gives the exact four-letter parity formula and an Euler-tour construction",
+          "2026/11/22/SCOPE-complete-census-of-shortest-quaternary-cyclic-covers-of-four-let--ae58e2469c73 supplies length 44 at q=4"
+        ],
+        "reasoning": "The general formula transfers exactly; as a check, the four-letter value 44 transfers to 44−16=28. The quaternary census by itself does not imply all q, and its minimizer counts are not claimed to transfer.",
+        "searches": [
+          "parity-sensitive minimum cyclic palindrome cover q even perfect matching",
+          "Sharp cyclic covering length for ordinary four-letter palindromes abba odd even"
+        ]
+      },
+      "rationale": "A distinct indexed result states the exact minimum for all ordinary four-letter palindromes abba, including aaaa. The two extremal problems are exactly equivalent: if L3 and L4 denote the respective minima, L4(q)=L3(q)+q². In a cyclic run decomposition an off-diagonal aba needs a singleton b-run flanked by a-runs, and an off-diagonal abba needs a b-run of length exactly two with the same flanks. Each such central run witnesses just one required ordered pair. Choose one run for each of the q(q−1) pairs and lengthen each singleton from one to two to turn a triple cover into a four-letter cover; also lengthen one constant run of length at least three for each letter by one. The latter runs are disjoint from the chosen centers. This adds exactly q² letters and preserves all run adjacencies. Conversely shorten each of the chosen central runs from two to one and one constant run of length at least four per letter by one. This removes exactly q² letters and gives a triple cover. The exact four-letter formula therefore implies the exact triple formula, and its Euler-tour witnesses transfer by compression. This is demonstrable mathematical coverage, not a claim about publication priority or which proof came first.",
+      "residual_risks": [
+        "Full proofs of the four-letter record and the closest primary palindrome paper were not retrieved. The available exact four-letter statement suffices for the mathematical implication, not for proof attribution or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage by proved run reduction, independent of chronology",
+          "evidence": "The statement reports (5q²+q)/2 for odd q and (5q²+2q)/2 for even q. The difference from the triple formula is exactly q².",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cyclic-covering-length-for-ordinary-four-letter-palindrome--339ce420148c",
+          "material_read": "Exact local-index statement identifying abba, q≥2, the two parity formulas, and matching Euler-tour constructions; no full proof available",
+          "method": "Targeted Resultary search and literal Finding request in the local mirror",
+          "title": "Sharp cyclic covering length for ordinary four-letter palindromes",
+          "trigger": "Strongest distinct exact formula and same parity-sensitive Euler construction"
+        },
+        {
+          "assessment": "Self-hit, not independent coverage evidence",
+          "evidence": "Defines ordinary aba including aaa and proves the asserted parity formula.",
+          "identifier_or_url": "2026/11/22/SCOPE-shortest-cyclic-covers-of-all-length-three-palindromes--18d0cf3a4b8f",
+          "material_read": "Frozen RESULT.md lines 3–24 and index statement",
+          "method": "Bound source and local index",
+          "title": "Shortest cyclic covers of all length-three palindromes",
+          "trigger": "Exact index hit"
+        },
+        {
+          "assessment": "Earlier coverage unresolved; not needed for the positive equivalence finding",
+          "evidence": "Frozen RESULT.md lines 29–36 describe a comparison with consecutive palindrome windows.",
+          "identifier_or_url": "https://ictp.acad.ro/properties-of-palindromes-in-finite-words/",
+          "material_read": "Frozen comparison to §2 Proposition 1 and bibliography; original passage unavailable",
+          "method": "Lawful exact article retrieval attempt",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Directly pertinent palindrome-window constraints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–27",
+        "Resultary 339ce420148c exact statement",
+        "Two-way run-length comparison above"
+      ],
+      "rationale": "The problem is natural and the local edge-parity proof is clear, but the claimed invariant and a sharp witness are mechanically obtainable by the same uniform run edit from the already indexed exact four-letter result. The frozen claim supplies no distinct classification or new range of invariants; the independent small-case replay does not change that.",
+      "residual_risks": [
+        "This judgment concerns the submitted triple result as a separate contribution, not the usefulness of explaining the run-length equivalence or of the underlying parity proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

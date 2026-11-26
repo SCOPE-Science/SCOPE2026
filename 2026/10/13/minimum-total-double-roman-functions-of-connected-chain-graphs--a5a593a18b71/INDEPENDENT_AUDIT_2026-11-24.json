@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:13.742222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–67",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected, not run)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py chain; 156 canonical types, testing all candidate supports and positive labels of weight at most 6 on the stated replay profiles"
+      ],
+      "rationale": "Connectivity and nested neighborhoods give a vertex universal to the opposite shore on each side, so labeling such a pair 3 is feasible. In any total double Roman function the positive support is nonempty and meets both sides. If both sides have a zero, defending it requires at least 3 weight from the opposite side; total weight at most 6 means exactly one 3 per side. Totality makes them adjacent, and the zero conditions give adjacency to every other vertex on their opposite sides. If just one side has zeros, the all-positive side needs at least 5 weight: defending the zero adds at least 2 above the all-positive baseline, whether using one 3 or two 2s. Thus the other side cannot contribute at least 2 at weight at most 6. But if it contributes only 1, every vertex on the all-positive side needs label at least 2, giving total weight at least 7. With neither side containing a zero, weight at most 6 would make all vertices 1, impossible. Therefore the product count follows, as does uniqueness on the half graph. The argument actually needs only both side sizes at least 3 and nonempty opposite-universal classes, rather than the chain ordering itself.",
+      "residual_risks": [
+        "Finite support enumeration does not extend the theorem to small shores. The all-positive-side lower bound of 5 is also attained by the pattern 2,2,1 if both 2s neighbor the zero; the frozen proof needs only the bound, not uniqueness of the cheapest pattern."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed 2021 abstract states polynomial-time minimum total double Roman domination on chain graphs; an indexed PDF excerpt starts the precise connected-chain case and refers to Theorem 5 for K₂ and stars. Neither excerpt states the optimizer classification or count.",
+          "The exact mirrored half-graph record reports a 2020 ordinary double Roman scalar result 6 for non-complete connected chain graphs with neither side of size 2. That publication's exact passage could not be independently retrieved. The frozen proof of the total variant extends directly to bipartite graphs with an opposite-universal vertex on each side and both side sizes at least 3."
+        ],
+        "reasoning": "Prior scalar optimization is not the assertion that every optimum is a universal pair. The ordinary scalar result, where applicable, and a total-feasible weight-6 pair would already give the total scalar value. No checked broader optimizer theorem supplied the product census.",
+        "searches": [
+          "Algorithmic Aspects of Total Roman and Total Double Roman Domination in Graphs, DOI 10.1007/978-3-030-67899-9_3",
+          "Resultary total double Roman bipartite universal-on-both-sides",
+          "Padamutham–Palagiri ordinary double Roman, DOI 10.1016/j.akcej.2020.01.005"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records 7142cc8623f8 and fdc41468ff3b and indexed outer-independent record 8289a80c49dd",
+        "2021 Padamutham–Palagiri indexed abstract/section excerpt",
+        "2020 ordinary double Roman indexed abstract and mirrored theorem description",
+        "Frozen RESULT.md, lines 72–92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known upper-bound framework cited in the frozen source gives weight at most 6 from total domination number 2. Finding a minimum in polynomial time, as stated in the indexed abstract, also does not in itself give all optimum supports.",
+          "In the frozen proof the extra equality work excludes labelings whose zero set misses either shore and deduces opposite universality from the two zero defenses and the adjacency required by totality."
+        ],
+        "reasoning": "Apart from the half-graph reduction and scalar coverage noted above, the general all-optima statement requires the equality analysis or an equivalent theorem. The algorithm chapter may contain more than its accessible excerpts; no noncoverage conclusion about its full text is drawn.",
+        "searches": [
+          "Frozen RESULT.md, lines 43–79",
+          "Resultary 7142cc8623f8 Finding and assumptions",
+          "2021 chain-graph total Roman optimization abstract and indexed chain subsection excerpt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k=2, the indexed [k]-Roman inequality requires that a zero see one 3 or two 2s and that a 1 see at least one 2 or 3. This is ordinary double Roman without totality. Its unique half-graph minimizer is an adjacent pair of universal 3s, so it remains feasible and unique under totality.",
+          "The quasi-total Roman record uses labels 2 on the universal pair for optimum 4, not labels 3 for total double Roman optimum 6. The outer-independent half-graph comparison is a different restriction."
+        ],
+        "reasoning": "The half-graph assertion is covered by a verified restriction argument, not merely a similarly named invariant. That argument says nothing about the many other chain graphs. Uniform supports in the quasi-total Roman optimum do not identify the optimum set under the different constraints without a further comparison theorem.",
+        "searches": [
+          "Resultary connected chain/Ferrers/half graph total double Roman minimum universal pair",
+          "Resultary 7142cc8623f8 at offsets 0 and 5400",
+          "Resultary fdc41468ff3b at offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary count for quasi-total Roman specializes to the same product when both sides have size at least 3, but for assignments with alphabet {0,1,2} and optimum 4. The [k]-Roman half-graph result supplies the single optimum for that subfamily. No same-definition product count on the full chain domain was identified."
+        ],
+        "reasoning": "A count shared by a different constrained labeling problem is not by itself coverage; the half-graph singleton is precise overlap and excluded from the distinct scope.",
+        "searches": [
+          "Resultary chain graph exact minimum total double Roman optimizer count; fdc41468ff3b; 7142cc8623f8; 8289a80c49dd",
+          "Web: total double Roman domination chain graphs 6 algorithm minimum universal"
+        ]
+      },
+      "rationale": "The supported distinction is the classification and product count of all total-double-Roman optima over the general chain family with both sides of size at least 3. Do not claim priority for scalar chain optimization or for the half-graph corollary. The indexed half-graph [2]-Roman result at k=2 is the non-total double Roman classification and really does imply the frozen uniqueness on that subfamily. Another indexed result has the same universal-pair supports with labels 2 for quasi-total Roman domination, a different constraint and weight. The exact 2021 total-double-Roman chain algorithm is materially relevant, but the indexed material gives optimization and a chain-graph case discussion, not all optimizers; lawful retrieval did not resolve its full coverage.",
+      "residual_risks": [
+        "The full algorithmic chapter could contain an unverified scalar formula, proof revealing equality structure, or additional overlap. Its inaccessibility is not evidence against that possibility.",
+        "Priority and the existence of other equivalent general-chain counts are not settled by these bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior scalar optimization confirmed by abstract; exact all-optima coverage remains unverified",
+          "evidence": [
+            "Abstract explicitly names chain graphs among polynomial-time classes. The chain excerpt invokes Theorem 5 for K₂ and stars. Full chapter not retrieved (502/redirects or 403; no repository copy found)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-67899-9_3",
+          "material_read": "Indexed abstract and Springer PDF search excerpt opening the connected chain case; not full text",
+          "method": "Bounded primary-literature searches; lawful Springer, ACM and identified ResearchGate page attempts",
+          "title": "Algorithmic Aspects of Total Roman and Total Double Roman Domination in Graphs",
+          "trigger": "Exact function and chain-graph optimization"
+        },
+        {
+          "assessment": "Mechanically covers the frozen half-graph corollary; no priority inferred",
+          "evidence": [
+            "At k=2 the usual non-total double Roman constraints apply; unique pair of 3s on the adjacent universal endpoints. Adding totality preserves that optimum."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-unique-minimum-k-roman-functions-of-half-graphs--7142cc8623f8",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and prior-work comparison, offsets 0 and 5400",
+          "method": "Resultary index and exact local mirrored file",
+          "title": "Unique minimum [k]-Roman functions of half graphs",
+          "trigger": "Matching half graph and labels for k=2"
+        },
+        {
+          "assessment": "Support-shape overlap under a different function",
+          "evidence": [
+            "Minimum 4; universal pair receives label 2, with other patterns only when a side has size 2."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-minimum-quasi-total-roman-functions-of-connected-chain-graphs--fdc41468ff3b",
+          "material_read": "Exact mirrored Finding, offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Minimum quasi-total Roman functions of connected chain graphs",
+          "trigger": "Same scope and product count under related Roman variant"
+        },
+        {
+          "assessment": "Known scope concerns ordinary, not total, domination; do not infer negative full-text coverage",
+          "evidence": [
+            "The DOAJ abstract names chain graphs for linear-time scalar computation. Identified primary PDF/copies returned HTTP 403 and DOI recovery found no repository copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.akcej.2020.01.005",
+          "material_read": "Indexed abstract/metadata and precise theorem description in the mirrored half-graph record; no primary theorem passage",
+          "method": "DOI recovery and lawful publisher PDF and identified copies tried",
+          "title": "Complexity of Roman {2}-domination and the double Roman domination in graphs",
+          "trigger": "Reported prior ordinary double Roman chain result"
+        },
+        {
+          "assessment": "Upper bound used as mathematical comparison only; not a whole-document noncoverage claim",
+          "evidence": [
+            "The stated inequality γ_tdR≤3γ_t gives at most 6 from a universal pair. First lookup found no repository copy; second returned HTTP 202."
+          ],
+          "identifier_or_url": "10.22049/CCO.2019.26484.1118; 10.1109/ACCESS.2019.2911659",
+          "material_read": "Frozen source's cited upper-bound statement; primary full passages not retrieved independently",
+          "method": "Lawful DOI/repository lookup",
+          "title": "Total double Roman domination in graphs; On the Total Double Roman Domination",
+          "trigger": "Cited definitions and general total-double-Roman bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equality analysis",
+        "2021 indexed optimization abstract",
+        "Resultary 7142cc8623f8 half-graph result"
+      ],
+      "rationale": "The claim identifies every minimum feasible labeling on a basic nested-neighborhood bipartite class. The product counts the optima and identifies precisely when they are unique; the correspondence depends only on the opposite-universal classes and survives beyond chains. This is useful information distinct from running a scalar optimizer, and does not rest on the overlapping half-graph example.",
+      "residual_risks": [
+        "No classification for a shore of size 1 or 2 or for graphs without an opposite-universal pair is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

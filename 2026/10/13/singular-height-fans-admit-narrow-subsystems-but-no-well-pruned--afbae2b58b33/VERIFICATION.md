@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the definitions rather than inferred from a search result.
+# Independent mathematical audit
 
-For an arbitrary singular \(\kappa\), set \(\mu=\operatorname{cf}(\kappa)\) and choose a strictly increasing cofinal sequence \(\langle\kappa_i:i<\mu\rangle\). The proposed subsystem uses, on level \(\kappa_j\), all later branches \(B_{\kappa_i}\) with \(i>j\).
+## correctness
 
-The following checks were carried out explicitly:
+PASS
 
-1. Every chosen node exists because \(\kappa_j<\kappa_i\) whenever \(j<i\).
-2. Every subsystem level has cardinality exactly \(\mu\), since a tail of the infinite regular cardinal \(\mu\) has cardinality \(\mu\).
-3. For any two subsystem levels, choosing a still later branch gives comparable nodes on both levels; the predecessor-comparability axiom follows from the ambient tree order.
-4. Since \(\kappa\) is singular, \(\mu^+<\kappa\); hence the subsystem is narrow in the source's width sense.
-5. Every positive-level node belongs to a branch of height below \(\kappa\), so its cone is bounded. Therefore no subtree of height \(\kappa\) containing such a node can be well-pruned, and every height-\(\kappa\) subtree must contain such nodes.
+At singular κ set μ=cf(κ) and choose increasing positive branch heights κ_i cofinal in κ. On level κ_j take the nodes from branches κ_i for i>j. Such nodes exist, the set of levels is unbounded, and each tail has size μ. For any j<k, a branch indexed by i>k meets both levels; comparison respects levels and two predecessors of a common node are comparable in the fan. The inherited relation therefore satisfies the subsystem axioms. The successor μ⁺ is regular in ZFC, so μ<κ singular implies μ⁺<κ. For nonexistence of a well-pruned subtree, every positive-level node is confined to its single bounded chain even in the induced subtree order (a subtree of one bounded chain still has order type less than κ). Any subtree of height κ contains a nonroot node. As a sharpness check, fewer than μ nodes on any fixed positive subsystem level would use fewer than μ branch heights, bounded in κ, and prevent comparisons with sufficiently high selected levels. The proof uses no computation. Its conclusion is about preserving the stated width convention at singular height, not about the existence of a different singular-height theorem.
 
-No finite experiment, enumeration, or external certificate is used. The result does not assert anything about two-cardinal trees or about regular-height trees.
+## originality
+
+PASS
+
+Credit Adkisson for the fan, the definitions, the regular-height obstruction and the regular-height pruning theorem; bounded cones follow directly from the old fan. The distinct content is the cofinality-width subsystem and consequently the failure of the same narrowness condition to force pruning at singular height. The closest inspected text does not cover this construction; this is not a claim of absolute priority.
+
+## value
+
+PASS
+
+The same natural test object at regular and singular height isolates exactly why the width hypothesis ceases to enforce pruning: the least width for a subsystem is cofinality, which satisfies the narrowness inequality at singular height. This gives a uniform counterexample to a specific hypothesis deletion in a structural theorem, rather than an arbitrary cardinal example. It does not settle possible replacement hypotheses or two-cardinal cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

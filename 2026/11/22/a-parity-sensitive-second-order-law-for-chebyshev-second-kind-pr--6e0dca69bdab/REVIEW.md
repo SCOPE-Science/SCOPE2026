@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The semicircle probability measure makes the classical Chebyshev polynomials of the second kind an orthonormal system. For any real bounded-variation function, its variation measure represents the function as a superposition of unit jumps modulo constants, and the Hilbert-norm triangle inequality reduces the operator norm to one jump. Direct integration produces the finite Parseval identity and its positive Fourier tail. Differentiation at the midpoint yields an exact telescoping rational curvature formula, valid at every degree. The second-order asymptotic follows from uniform Fourier summation by parts on compact angular intervals, crude endpoint exclusion, and two explicitly constructed parity-dependent near-midpoint witnesses. Every maximizing jump converges to the midpoint; finite-degree global uniqueness is deliberately not asserted. The reproduced script passes exact finite curvature identities and independent finite residual consistency tests. A failed numerical probe would require reexamining the corresponding proof, but none occurred.
+## correctness
 
-## Originality — PASS (best-knowledge, qualified)
-The joint weighted \(BV\)-to-\(L^2\) **entire residual** norm and its order-two parity correction are different from individual second-kind Chebyshev coefficient bounds and from pointwise or \(L^1\) estimates for Chebyshev truncations. Orel–Perne (2014, DOI 10.1155/2014/572694) use nonclassical half-range spectral collocation for boundary-value problems; Xiang (2014, arXiv:1411.7746) analyzes polynomial interpolation of limited-regularity functions; Akansha (2024, arXiv:2404.18723) treats approximated coefficients and other error criteria; Sluchak (2026, arXiv:2611.04067) treats individual orthogonal coefficient bounds. Their materially examined accessible full texts do not state a dominating theorem yielding this two-term sharp residual and the all-degree curvature classification. Related existing first-kind Chebyshev and Legendre projection error results use distinct probability measures and orthogonal bases and do not mathematically imply this semicircle-weight theorem. Searches do not establish absolute novelty; an unindexed equivalent or less-accessible historical source remains a genuine risk.
+PASS
 
-## Value — PASS
-The Chebyshev-second-kind projector is a standard canonical Galerkin approximant under the semicircle weight. Its sharp error for jump-dominated signals is a meaningful benchmark beyond loose separate-coefficient estimates. The two-term expansion separates first-order approximation from a universal second-order correction, while the exact even/odd curvature proves that the midpoint can be asymptotically optimal yet is not even locally optimal at every odd finite cutoff. These are structural facts about where worst discontinuities reside, not a parameter relabeling of the arcsine-weight Chebyshev result.
+Under x=cos θ the measure is (2/π)sin²θ dθ and the second-kind basis is orthonormal by sine orthogonality. The real BV derivative measure represents the input modulo constants as a signed integral of unit jumps; Minkowski for the residual and equality at a maximizing jump reduce the norm to one scalar jump. The compact jump parameter has continuous residual, with zero at the endpoints and positive residual in the interior since a jump is not a polynomial almost everywhere. Direct integration gives p(θ) and the signed coefficients [sin(kθ)/k−sin((k+2)θ)/(k+2)]/π (the signed representative is used when differentiating their squares), with the stated full tail by Parseval. At π/2 reflection gives stationarity; differentiating the finite residual yields curvature coefficient 8[−1−floor(n/2)+Σ_{k odd≤n}(1+1/(k(k+2)))]. The sum of reciprocal products telescopes by 1/(k(k+2))=(1/k−1/(k+2))/2, verifying both exact signs and the degree-zero case. With N=n+2, square the leading tail coefficient −2 sinθ cos(mθ)/(πm); summability of the cross-error terms yields O(|cosθ|n^−2+n^−3) uniformly. The plain sum from N of m^−2 is n^−1−3/(2n²)+O(n^−3). Twice differencing the weights in the complex oscillatory sum gives its boundary term exp(2iNθ)/(N²(1−exp(2iθ))) with a uniform O(N^−3) error on compact interior arcs. On the endpoint arcs sin²θ≤1/4, the crude bound by the plain sum already keeps the leading residual below the centered residual. Uniform comparison on the remaining arc forces every maximizing angle to the midpoint. There the oscillatory term is at most (1+o(1))/(2n²) and the error from cosθ is o(n^−2). The even midpoint and odd angle π/2+π/(2N) align the leading phase and attain that upper expansion. At the midpoint without phase adjustment the boundary term carries (−1)^n, giving the exact parity-dependent second-order deficit. This proves the asymptotic norm, not a finite-cutoff optimizer classification.
 
-## Scope and limits
-Only real-valued ordinary variation on \((-1,1)\), weighted \(L^2\) error for the second-kind projector, and fixed integer projection cutoffs are included. No all-finite-degree global optimizer classification or independence/certification is claimed. Historical priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Related results already give the BV unit-jump extremizer for a single orthogonal coefficient and weighted L² projection-error upper bounds or rates. The contribution is the sharp optimization of the entire squared tail for the semicircle probability weight, specifically its second term and exact midpoint-curvature parity. The relevant full-text comparisons distinguish those questions; the assessment is best-of-knowledge only.
+
+## value
+
+PASS
+
+The norm is a natural worst-case L² approximation benchmark for variation-bounded data under a canonical weight. The exact second term resolves a measurable failure of the midpoint choice at every odd degree, despite all optimal jump positions approaching the midpoint. This identifies a parity effect not seen in the leading error rate, with an explicit phase-aligned witness; it does not claim global finite-degree uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

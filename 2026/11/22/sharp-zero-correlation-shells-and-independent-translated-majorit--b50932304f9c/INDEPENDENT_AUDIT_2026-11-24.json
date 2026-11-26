@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:51.278061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d=2m+1 all individual readouts are fair by complementation. The joint success count is the overlap K_a of equal radius-m balls and the covariance is K_a/2^d−1/4. On flipping the next prescribed coordinate, condition on the other bits: the decrement is the rectangular indicator difference at the two thresholds m,m−1, namely 1 exactly when both partial distances are m. Equal partial distances force 2s flipped coordinates with s ones there, so the decrement is binom(2s,s) binom(d−2s−1,m−s)>0 on an even-to-odd step, and zero on an odd-to-even step. Complementing a mask gives K_a+K_(d−a)=2^(d−1). The middle two distances are accordingly an equal plateau for d≡3 mod 4 and a strict drop for d≡1 mod 4. Together with strictness on the other even steps this proves exactly the stated zero and sign classification, also for d=1. Fair Bernoulli variables are independent at zero covariance. The four masks in the proof have distances 2k+1 from the zero mask and 2k+2 between nonzero masks, giving independent pairs. Global bit-complementation annihilates the triple product of centered signs, and the pair and singleton moments already vanish. Thus each triple has all seven nonconstant moments zero and is uniform; no statement about four-way independence is needed. The exact finite test was inspected, not run, and its recorded 2,115 assertions do not prove the all-dimension claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Danoyan's abstract and §2 opening identify the two-sphere count for specified centers and radii. Junnila et al.'s abstract states an exact formula for arbitrarily many q-ary balls of varying radii, with certain extremal asymptotics at fixed radius. These formula-level results are real broader coverage for computing K_a and triple intersections. Their inspected passages do not establish the adjacent strict/flat staircase at radius (d−1)/2 or a family of uniform triples.",
+          "The lookup for an explicit adjacent-distance lemma produced related intersection work and bounds rather than an inspected theorem settling the strict/flat identities here. Zhou's full scope was not independently recovered."
+        ],
+        "reasoning": "A general theorem giving the strict even-to-odd drop and odd-to-even equality at these radii would, with the elementary complement identity, settle the entire sign/zero claim. Merely counting intersections implicitly or studying fixed small radius as d grows does not establish that theorem. The distinction is left conditional on the material actually read.",
+        "searches": [
+          "Danoyan, On Some Properties of Intersection and Union of Spheres in Hamming Metric, §2",
+          "Junnila et al. arXiv:2606.09158v2, exact intersections for varying radii",
+          "Targeted lookup for binary equal-radius Hamming-ball odd/even-distance plateau and Levenshtein-style intersection monotonicity",
+          "Zhou et al., DOI 10.1007/s11704-013-2013-x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary exact self-hit",
+        "Danoyan public PDF abstract and §2 opening",
+        "Junnila et al. arXiv:2606.09158v2 abstract and introduction opening",
+        "Zhou DOI and majority table retrieval attempts",
+        "Cited noise-stability and slice preprint leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Hamming intersection formulas cover the count used in the proof. To derive the new classification from counting one still has to prove strict central crossing in one parity class and exact central plateau in the other, and exclude every other zero. Independently noisy coordinates average autocorrelations over random shifts; this is not the same assertion as zero at a prescribed shift weight. Uniformity of triples follows immediately from pairwise independence and simultaneous sign symmetry once a suitable four-mask design is given."
+        ],
+        "reasoning": "Credit standard exact counts and the standard moment deduction. The supported increment is the evaluated threshold/sign classification in every odd dimension and the resulting design in each eligible dimension, not treating the general count or Fourier inversion as new.",
+        "searches": [
+          "Compare exact shell and uniform triple assertions with Danoyan §2, Junnila et al. arXiv:2606.09158v2 abstract, Mossel–O’Donnell–Oleszkiewicz math/0503503, and Filmus–Kindler–Mossel–Wimmer arXiv:1504.01689"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For g=2I_0−1, the autocorrelation at shift v is E[g(X)g(X⊕v)]=4 Cov(I_0,I_v). In coding language the same problem is determining when the intersection of two binary balls of radius (d−1)/2 has cardinality 2^(d−2), and on which side of that value it lies at other distances. The available Danoyan and Junnila et al. passages give subject-specific coverage of exact intersection counts, not a statement of this threshold classification."
+        ],
+        "reasoning": "This removes the probability/coding-theory and covariance/autocorrelation language differences. A count for a prescribed dimension and distance is not yet the evaluation or parity classification of all the threshold shells.",
+        "searches": [
+          "Configured Resultary and literature search for fixed-weight shift majority autocorrelation, zero covariance shells and independent translated majorities",
+          "Danoyan equal-radius Hamming sphere intersection; Junnila–Laihonen–Lehtilä–Devaraj arXiv:2606.09158"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary result 2026/11/22/SCOPE-sharp-zero-correlation-shells-and-independent-translated-majorit--b50932304f9c is the frozen finding itself. The cited majority autocorrelation table is a d=3 case with zero shifts at weights one and two, as recorded in frozen RESULT.md lines 43–53; its independent retrieval failed."
+        ],
+        "reasoning": "The known small case is genuine overlap, but one truth table is not a formula for all d or a dimension-uniform mask design. No distinct indexed statement of the complete family was established.",
+        "searches": [
+          "Configured Resultary search for the central distances and four-mask construction",
+          "Boolean Functions: The Basics, §5, https://booleanfunction.github.io/basics.html"
+        ]
+      },
+      "rationale": "Pass for the exact all-odd-dimensional sign/zero classification and its explicit four-readout consequence, on the available evidence. The general ball-overlap formula, Boolean autocorrelation formalism, three-bit special case, and antipodal moment argument are not claimed as novel on their own.",
+      "residual_risks": [
+        "Relevant deeper passages of Danoyan and Junnila et al. and the Zhou full text were not recovered. An earlier explicit strict/flat lemma for binary equal-radius Hamming balls, or equivalent exact majority autocorrelation classification, could cover the pair result.",
+        "The failed or nonspecific lookup and exact self-hit are not evidence of absence. No claim of absolute priority or four-wise independence is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact intersection-count antecedent; insufficient passage to settle coverage of the strict/flat comparison",
+          "evidence": [
+            "The abstract states that the paper derives the number of points in the intersection of two Hamming spheres; §2 begins with arbitrary radii and centers."
+          ],
+          "identifier_or_url": "https://distantreader.org/stacks/journals-ojs/mpcs/mpcs-429.pdf",
+          "material_read": "Danoyan (2013), pp. 119–120, abstract, introduction and opening of §2 as supplied by the public PDF preview; subsequent equations were not obtained",
+          "method": "Targeted literature lookup, lawful OA attempt and published PDF preview",
+          "title": "On Some Properties of Intersection and Union of Spheres in Hamming Metric",
+          "trigger": "Exact same two-center binary overlap object; could imply the shell classification"
+        },
+        {
+          "assessment": "Broader exact counting coverage; no inspected statement of the half-ball sign/zero classification",
+          "evidence": [
+            "The abstract states an exact formula for s balls of varying radii, and treats some fixed-radius large-n maximizers for three balls. Here the ball radius grows with d and the goal is crossing a probability threshold, not maximizing the overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.09158v2",
+          "material_read": "Title, abstract and beginning of introduction, p. 1",
+          "method": "Public arXiv PDF preview after OA passage retrieval failed",
+          "title": "The Size of the Intersection of q-ary Hamming Balls",
+          "trigger": "General exact intersection counts include this binary two- or three-ball setting"
+        },
+        {
+          "assessment": "Whether its full text contains a majority specialization remains unresolved",
+          "evidence": [
+            "The frozen description places the paper in balanced-Boolean autocorrelation; this is a materially plausible umbrella, not proof of exact majority coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11704-013-2013-x",
+          "material_read": "Frozen citation and access note only; no independently recovered decisive passage",
+          "method": "OA and lawful publisher retrieval attempts",
+          "title": "The autocorrelation distribution of balanced Boolean function",
+          "trigger": "Balanced-Boolean autocorrelation is equivalent to the pairwise question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a full structural classification for a natural Boolean function on the same random input, with a qualitative parity distinction that independent-noise smoothing or a large-dimension approximation would miss. It gives a direct deterministic design for several exactly independent readouts in every admissible dimension, without additional randomness. The value is the exact family and design, not the isolated d=3 table or the elementary moment test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

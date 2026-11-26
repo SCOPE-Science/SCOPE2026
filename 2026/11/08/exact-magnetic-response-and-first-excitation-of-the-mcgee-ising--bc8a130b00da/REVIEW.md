@@ -1,15 +1,21 @@
-# Review of exact McGee Ising magnetic response
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph is explicitly determined by its 24-cycle plus McGee LCF chords. Both independent exhaustive exact-integer programs inspect all 16,777,216 spin assignments and agree on the 25 fixed-cardinality cut maxima and their multiplicities. The field-energy lower envelope and all boundary counts are reconstructed from those exact data, with no infinite-volume extrapolation. The first excitation and low-temperature susceptibility follow from the verified two lowest energy levels.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority uncertainty.** The 2015 regular-polyhedra Ising field study provides the method but does not treat the McGee cage. MathWorld and the AMS dated article specify the graph without giving the field diagram. The published McGee independence-complex result already supplies all independent-set coefficients and hence the saturation coexistence count 34,305; this is credited, not independently claimed. The low-field diagram relies on the separately enumerated eleven- and twelve-vertex minimal-induced-edge sectors. Exact cut tables outside the accessible literature, particularly inaccessible database material, remain possible competing prior art.
+PASS
 
-## Mathematical value
-**PASS.** The unique cubic girth-seven cage is a canonical nonbipartite network. A complete magnetic-response classification at every real field, including an 18-state first crossing and unique spin-reversed ground pair, is a natural finite frustrated-cluster result. The exact first excited level and activated susceptibility quantify a physically meaningful boundary of frustration at low temperature.
+An independent Gray-code enumeration of all 16,777,216 subsets of the 24-vertex, 36-edge LCF graph reproduced every cardinality maximum and its labeled count. In particular, at q=10,11,12 the maximum cuts are 30,31,32 with multiplicities 8,8,2; complement gives the other half of the census. For positive field it suffices to minimize over q≤12. The affine energies 36−2C_q−b(24−2q) give the q=12,10,0 plateaux in order, with q=10,11,12 tying at b=1 (8+8+2) and all independent sets tying at b=3 (34,305 including the empty set). Spin reversal handles h<0. At h=0 the two parity classes attain cut 32; their four uncut bonds are frustrated. All cut-31 states, sixteen in total, have magnetization ±2 with eight of each sign. The exact gap is 2J and no other energy lies within 4J of the ground energy. With mean magnetization zero, the variance has leading term (64/2)e^(−2βJ), giving the claimed (4/3)β coefficient per site.
 
-## Closest literature and limitations
-See the primary 2015 finite Ising-polyhedra study (arxiv:1502.04449), the dated AMS McGee description (2015-09-15), MathWorld's McGee graph entry, and the published McGee independence-complex calculation cited in RESULT.md. The model is classical and finite with uniform nearest-neighbor coupling; there are no claims of phase transitions at positive temperature, disordered/quantum extensions, or complete bibliographic priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct part is the size-resolved near-maximum cuts at q=11 and 12, the resulting low-field response, and the magnetization-resolved first excitation/susceptibility. The independent-set size vector is explicitly prior, including the eight maximum independent sets and the input that yields the saturation degeneracy. Nothing in the strongest inspected matches determines the q=11,12 results or the full cut-31 statistics.
+
+## value
+
+PASS
+
+The McGee graph is the natural smallest cubic girth-seven cage. Its uniform antiferromagnet probes frustration of that graph, and the exact low-field crossing and one-sixth magnetization plateau resolve how adding a field lifts the zero-field order. The joint excitation counts also give the first nonzero susceptibility term rather than just the maximum cut. These are concrete finite-cluster benchmarks; the known independent-set census at saturation is not counted as an additional contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

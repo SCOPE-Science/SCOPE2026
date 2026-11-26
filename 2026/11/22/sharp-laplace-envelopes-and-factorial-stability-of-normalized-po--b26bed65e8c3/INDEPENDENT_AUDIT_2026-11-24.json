@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:39:33.245399Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–88; VERIFICATION.md and check.py (inspected, not executed)",
+        "Grabchak arXiv:2611.11109v1 §3, Proposition 3"
+      ],
+      "rationale": "Normalization q_j(0)=1 fixes the constant of integration, so every admissible edge is q_j=Tq_{j+1}. Conversely, the drift ν{0} and Lévy measure ν(dx)/x on x>0 have Lévy integrability bounded by one, and the probability law they define has Tq_ν as Laplace transform. Its F-image is ν by differentiation and transform uniqueness. This permits arbitrary terminal probability, with no moment or ID requirement. The order reversal of T iterated N times sandwiches q_0 using 0≤q_N≤1. Terminal δ_0 realizes T^N1=h_{N+1}; δ_M approaches T^N0=h_N because the first integrated primitive is (1−exp(−Ms))/M≤1/M and T is continuous on each compact interval in the uniform norm. The unit-mean exponential q_* is fixed, so exact absolute deviation is the larger endpoint deviation. Iterating the Lipschitz integral bound for T gives N-fold integration of a function bounded by one, hence s^N/N!. At s=0 all h_n for n≥1 are one. For E_n=h_n−q_*, E_1=s+O(s²) and E_{n+1}=q_*(exp(−∫E_n)−1), so the leading monomial changes sign and is integrated once per step. The approachable endpoint therefore proves the claimed sharp limiting coefficient.",
+      "residual_risks": [
+        "The 5539 finite diagnostics are recorded evidence, not an independent replay. The proof does not presume a terminal first moment, does not assert total variation control, and uses fixed finite depth in the local sharpness limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3 gives arbitrary-length preimages by the same Lévy inverse. The earlier finite-moment comparison is described in the frozen audit as moment matching and a weaker local transform estimate. The frozen primary comparison attributes a second logarithmic derivative on the line to Bar-Lev–Letac; its full text was not retrieved."
+        ],
+        "reasoning": "Simple existence for a given terminal law gives no inequalities until combined with order reversal, the two extreme terminals and the sharpness calculation. Matching a finite set of moments likewise does not identify these s-dependent endpoints.",
+        "searches": [
+          "Grabchak §3 Proposition 3 and Theorem 1",
+          "Bar-Lev–Letac DOI:10.1016/j.spl.2024.110256",
+          "Frozen prior-claim comparison 80fbb0c3-7702-4398-a123-e44c71f4361a"
+        ]
+      },
+      "checked_sources": [
+        "Grabchak arXiv:2611.11109v1",
+        "Resultary 3863defa4e55 and identical hit b26bed65e8c3",
+        "DOI:10.1016/j.spl.2024.110256 (access attempted)",
+        "Frozen earlier finite-moment comparison, prior claim 80fbb0c3-7702-4398-a123-e44c71f4361a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse is the same. The two-cycle proof imposes the simultaneous equations q′=−qr and r′=−rq, yielding a constant difference and, with normalized masses, a fixed point."
+        ],
+        "reasoning": "Arbitrary finite chains do not satisfy the reciprocal differential equation; instead the comparison requires iterated order reversal and existence of the escaping-mass endpoint, and the locally optimal factorial constant requires its expansion. The Lipschitz/Picard argument itself is standard, not a new general convergence method.",
+        "searches": [
+          "Grabchak §3 Proposition 3 and Theorem 1",
+          "Resultary 3863defa4e55, Finding, assumptions and proof opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record itself is not independent prior coverage. The distinct two-cycle record uses the same logarithmic derivative, with the same normalized exponential once both members of a two-cycle have probability mass."
+        ],
+        "reasoning": "The fixed point and exact two-cycles concern F²μ=μ, while the current bounds take a supremum over arbitrary terminal laws at every finite depth. The cycle theorem does not provide such a supremum.",
+        "searches": [
+          "Resultary: normalized positive Laplace chain finite-depth sharp envelopes and factorial stability",
+          "Grabchak arXiv:2611.11109v1 §3; positive ID chainability and size-bias formulation",
+          "Resultary 3863defa4e55 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact related listing identifies exponential and atomic cycles; it gives no tables or formulas for the finite-depth capacity over all q_N."
+        ],
+        "reasoning": "Exact cycle parameters are not an envelope for arbitrary finite chains, including the terminal escaping-mass sequence δ_M.",
+        "searches": [
+          "Resultary search for normalized inverse Laplace chain h_N/h_{N+1}, exact depth envelope and factorial error",
+          "Distinct Resultary hit 3863defa4e55, Finding"
+        ]
+      },
+      "rationale": "The map, inverse-law construction, and unit-mean exponential fixed point are prior. The exact finite-depth pointwise capacity with both endpoint constructions and the locally sharp factorial stability estimate are supported as distinct based on the inspected evidence.",
+      "residual_risks": [
+        "The older related full text and the earlier internal moment result were not independently inspected in full. Search results are not proof of priority; an overlooked exact Volterra or chainability bound may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inverse construction and exponential fixed point covered; exact capacity and quantitative sharpness not supplied by these results",
+          "evidence": [
+            "Every probability terminal has arbitrary-length probability preimages. The zero-shift exponential family gives the probability-normalized fixed point."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.11109v1",
+          "material_read": "§3 Proposition 3 around offset 13328 and Theorem 1 around 15171",
+          "method": "OA primary HTML passages",
+          "title": "On Size-Biased Distributions and the Chainability of Positive Infinitely Divisible Distributions",
+          "trigger": "Exact normalized first-log-derivative transform and its arbitrary-depth inverse"
+        },
+        {
+          "assessment": "The normalized fixed point is common; different quantified problem, not an exact finite-depth estimate",
+          "evidence": [
+            "Nontrivial cycles have probability partners of unequal mass; both members normalized forces the unit-mean exponential. Same-day listing does not determine priority."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-exact-classification-of-two-cycles-of-the-positive-laplace-chain--3863defa4e55/RESULT.md",
+          "material_read": "Finding, Assumptions and opening proof, offsets 0–3395",
+          "method": "Resultary search followed by local mirror of the exact mathematical record",
+          "title": "Exact classification of two-cycles of the positive Laplace chainability map",
+          "trigger": "Closest distinct indexed result for the exact same map"
+        },
+        {
+          "assessment": "Reported second-derivative setting is different; independent full-text comparison unresolved",
+          "evidence": [
+            "The recorded transform is the second logarithmic derivative rather than the normalized first-derivative inverse used in the reviewed theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2024.110256",
+          "material_read": "Frozen RESULT.md relationship section and frozen audit comparison; no independently retrieved full text",
+          "method": "OA DOI attempt and explicit reliance only on recorded secondary description",
+          "title": "Chainability of Infinitely Divisible Measures",
+          "trigger": "Older chainability framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–5 of the proof",
+        "Grabchak Proposition 3",
+        "Resultary normalized two-cycle comparison"
+      ],
+      "rationale": "The natural finite-depth stability question has a complete sharp pointwise answer: an attainable bound, an escaping-terminal bound, and a quantitative distance to the normalized stationary law with best possible local constant. It distinguishes what is forced by a finite normalized chain from existence of inverse chains and exact periodic classification. This gives meaningful error control uniformly on bounded s-intervals without any terminal moment assumption.",
+      "residual_risks": [
+        "For large s the factorial estimate can exceed one; the exact envelope remains valid and is a transform-space bound only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The decomposition into the four linear characters and the unique two-dimensional quaternionic representation accounts for all irreducibles (sum of squared dimensions \(4+4=8\)). The symbolic determinant is exactly \(\sum_c v_c^2\), so the real/complex rank dichotomy is exhaustive. The lower bounds use the published global support product inequality and independently proved cardinality constraints for one/two Walsh characters; the upper bounds are witnessed by 16 explicit pairs \((u,v)\) checked in exact symbolic arithmetic. There is no reliance on finite searches for the universal lower bounds.
+## correctness
 
-## Originality (PASS, with stated residual risk)
-The closest published nonabelian uncertainty theorem gives only the product lower bound, without an exact support-by-support \(Q_8\) table or a real/complex separation. The exact two-spike law covers the \(t=2\) row, but not the remaining rows; the existing order-eight Fourier-support census concerns the abelian group \(\mathbb Z_8\). Direct comparisons were made using their actual mathematical formulas and complete accessible texts. No matching complete real/complex profile was located. An older nonabelian character-evaluation article was available by abstract rather than full text, leaving a stated priority risk.
+PASS
 
-## Mathematical value (PASS)
-This is a natural complete rank-weighted uncertainty invariant for the smallest nonabelian quaternion group, in the exact-support rather than at-most-support regime. It exhibits nonmonotone optimal values and an arithmetic-field gap at four support sizes, explained structurally by anisotropy of a four-square form over the reals and isotropy over the complexes. This distinguishes genuinely matrix-valued harmonic analysis from the cyclic order-eight DFT, while sharpening the general product bound in nontrivial strata. The value does not depend on claiming the previously known two-point case as new.
+The four linear characters see only the pair sums u on Q8/{±1}; the faithful irrep sees the pair differences v with determinant sum(v_c^2), and its block vanishes exactly when v=0. For real amplitudes this leaves ranks 0 and 2 only. The rank of the regular multiplication operator equals the sum of dimensions times Fourier-block ranks (the adjoint convention replaces f by its inverse-indexed function and preserves rank). The product lower bound also follows by greedily taking translated rows with a nonzero entry outside the union of the previous supports; those rows are independent, and a maximal union covers all eight positions. Odd support excludes either sector alone. One nonzero Walsh coordinate forces u nonzero at all four positions, which excludes complex weighted rank 3 at t=3 and forces real weighted rank at least 6 there; rank 2 at t=5,7 needs one sector alone. Over the reals odd supports 5,7 need both sectors and cost at least 5. At real t=6 a nonzero v costs at least 4; if v=0, u has exactly three nonzero entries, impossible with one or two nonzero Walsh coordinates. All sixteen reported upper witnesses were recomputed by exact rank of 8×8 regular multiplication over algebraic number fields, yielding both displayed profiles. Replay: python3 /workspace/reproductions/group_rank.py (SymPy). This checks witnesses, not impossibility for unrestricted amplitudes; the latter follows from the sector arguments. The supplied checker and verification notes were inspected, not executed.
 
-## Limits
-The result covers only \(Q_8\), does not classify all optimizer orbits, and depends on the rank-weighted (not representation-counting) definition. An equivalent obscure group-ring computation remains possible. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the simultaneous exact-support classification across coefficient fields, especially the real table and its discrepancies at 3,5,6,7. Credit the prior rank-weighted bound and exact two-point row. A distinct later Resultary complete complex spectrum genuinely determines the entire complex table, not merely a related object; it does not determine the real table and gives no evidence of prior coverage of the October claim.
+
+## value
+
+PASS
+
+This natural eight-element test case isolates a real-versus-complex obstruction for a genuinely matrix-valued Fourier transform: the quaternionic block permits complex isotropic rank one but forbids real rank one. A user of the invariant needs the exact-support values, not an at-most-support envelope that hides the four discrepancies. The table is useful as a benchmark for sharp finite-group uncertainty and compares genuinely different coefficient fields without relying on a novelty claim for the product bound or the two-spike case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

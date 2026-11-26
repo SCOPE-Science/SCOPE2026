@@ -1,19 +1,21 @@
-# Scientific review: endpoint alignment of bounded-noise gradient clipping
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The pointwise affine minorant is proved by separate inside/outside-ball cases, with concavity on the exact admissible interval; centering eliminates its affine noise term. Monotonicity of Euclidean projection extends the result beyond unit gradient norm, and antipodal noise attains the claimed coefficient. The subthreshold interval gives exact zero conditional drift. Martingale convergence, Doob's inequality and a nondegenerate Gaussian component yield a positive-probability nonoptimal limit. The checker verified the new finite computations, but does not replace the analytic proof.
+PASS
 
-## Originality
+Normalize q=1, set r=||g|| and let s be the noise component along g. For 0<r<=1 the proposed affine minorant is r/2+(1-r/2)s. Inside the clipping ball the excess is r(1+s)/2. Outside, s>-r/2, so the actual projected component is bounded below by F(s)=(r+s)/sqrt(1+r^2+2rs) using the positive numerator. Its second derivative has sign r^2-2-rs<0 on [-r/2,1]. The endpoint values r/2 and 1 exceed or equal the minorant's r^2/4 and 1, so concavity gives the bound. Centering removes the s term. For r>=1 the component is nondecreasing in r by monotonicity of Euclidean projection, so the r=1 bound suffices. Scaling restores q; the symmetric collinear two-point example attains equality for 0<||g||<=q. Below q=sigma, both clipped values are opposite constants on the closed plateau. Coupling to the independent-increment sum up to exit and applying the maximal probability bound V/(sigma-q)^2 gives positive nonexit probability for small amplitude. The square-summable sum converges almost surely and has no atom at zero (condition on everything except the first Gaussian); on sup|S_n|<sigma-q the limit is in the interval and agrees with the actual process. The numerical variance bound uses sum n^(-3/2)<=3 and is exact.
 
-PASS on the inspected record, with residual risk. The 2026 motivating Proposition 2 provides positive alignment only for clipping radius strictly larger than the bounded-noise radius, with a coefficient that collapses at the endpoint; its half-coefficient requires a radius at least twice the noise radius. The new result provides the sharp half-coefficient at the previously unresolved equality, for all centered noise distributions without symmetry. Chen, Wu and Hong (2020), Example 2, already gives an equivalent subthreshold zero-drift interval and is explicitly credited. Their symmetricity theorem does not imply a uniform bound over all asymmetric centered supported distributions. Koloskova, Hendrikx and Stich (2023) discuss uniform noise and thresholds but focus on bounded-variance bias without this sharp endpoint minorant. Qian et al. (2021) use additional component-gradient angle controls. Relevant mathematical search results include projection Lipschitz sensitivity and different clipping algorithms but none supplying this sharp endpoint implication. Equivalence in overlooked literature remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The motivating almost-sure convergence analysis currently assumes a strictly larger clipping radius than the bounded noise radius, and its stated descent coefficient vanishes as those parameters meet. A sharp, dimension-free positive coefficient at equality is a substantive structural improvement: it identifies the exact universal transition between guaranteed descent alignment and a failure regime. The pointwise affine minorant provides a reusable tool beyond the particular examples; the pathwise example makes clear why the lower side matters. This is not claimed as a new general convergence theory or as rediscovery of the 2020 dead-zone example.
+Pass the arbitrary-dimensional sharp endpoint inequality for all centered bounded errors, and the stated Gaussian post-clipping consequence of the subthreshold example on the evidence examined. The subthreshold zero-drift plateau itself is already known, and is explicitly credited as such; varying the two radii does not make that example new. No equivalence or implication covering the supported endpoint claim was established in the strongest inspected sources.
 
-## Limitations and risk
+## value
 
-The hypothesis is an almost-sure bound on centered oracle error, not just bounded variance. There is no claim of a per-ratio optimal coefficient away from the endpoint or independent verification. Historical equivalents may remain unindexed or uninspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At q=sigma the previous radius-gap bound provides no positive alignment and the subthreshold counterexample rules out such bounds just below it. A sharp dimension-free constant at that exact boundary, under centering rather than symmetry or interior mass, is useful in drift estimates for clipped algorithms and resolves a genuinely motivated threshold. The wrong-limit construction shows why unbiased post-clipping perturbations and finite total noise variance need not let a process escape the plateau; it supports rather than substitutes for the new inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

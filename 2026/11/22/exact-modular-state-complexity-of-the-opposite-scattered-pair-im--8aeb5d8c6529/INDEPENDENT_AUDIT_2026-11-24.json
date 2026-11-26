@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:52:33.743992Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The appending rules are exact: a new 0 creates b new 10 pairs, and a new 1 creates a new 01 pairs. If c counts 01 pairs, then d=2c-ab, so the allowable residues are exactly d+ab divisible by g=gcd(m,2). At fixed residues a,b choose actual counts a+m,b+m; adjacent swaps traverse every 01-count between zero and their product. Thus every c residue occurs, giving precisely m^3/g reachable states, and the same argument realizes all allowable suffix triples. For a suffix with letter-count residues A,B, the endpoint imbalance is d+E+aB-bA. Each of the choices (-a,0), (-a,1), (-a+1,-b) can produce acceptance from (a,b,d), since one final letter count is zero modulo m. If all three also accepted from another state, subtraction of the resulting affine equalities gives first delta a=0, then delta b=0 and delta d=0, without division (hence also for even or composite m). This proves minimality of the complete DFA. Independently, the triples form the concatenation group and the accepting subset d=0 has trivial left-translation stabilizer: the identity forces a stabilizer's d=0 and the two unit-axis elements force b=a=0. Hence all reached states have distinct suffix languages. Replay: RESULT.md lines 24–66. VERIFICATION.md and verify_modular_pair_balance.py report finite checks; the uploaded code was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed mixed-pair result recognizes simultaneous vanishing of the directed mixed-letter pair counts and reports m^3 states for binary words. Grobler–Sabellek–Siebertz study Parikh automata on infinite words; Rauch–Holzer study accepting-state complexity for operations on permutation automata."
+        ],
+        "reasoning": "Requiring both 01 and 10 to vanish is not requiring them to be equal. Even a joint pair-count counter gives only an upper-bound machine for a different accepting condition unless one computes the parity collapse and separates surviving states. The published machine-model and language-operation scopes inspected do not imply those facts.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-minimal-automata-and-residue-periodic-densities-for-modula--92575a32bd39",
+          "arXiv:2301.08969",
+          "arXiv:2208.14731"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_modular_pair_balance.py",
+        "Resultary exact self-hit and three distinct adjacent records listed above",
+        "arXiv:2110.14858; arXiv:2208.14731; arXiv:2301.08969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity for the sum produces the necessary residue constraint, but not realizability or separation. The indexed Rees zero-matrix statement treats a different language with a forbidden adjacency, so its Heisenberg component is not the minimal DFA of the unconstrained imbalance language."
+        ],
+        "reasoning": "Here reachability of the parity-constrained residues and minimality for acceptance d=0 are independently proved. Neither replacing the accepting set in another DFA nor counting the order of a related group proves that the resulting DFA has one distinct right quotient per counter value.",
+        "searches": [
+          "arXiv:2110.14858, Proposition 2.2",
+          "2026/11/22/SCOPE-a-rees-zero-matrix-syntactic-monoid-for-modular-scattered-pairs--60f4e56820b8",
+          "2026/11/22/SCOPE-exact-minimal-automata-and-residue-periodic-densities-for-modula--92575a32bd39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.2 gives the permutation-sum identity; in the two-letter case it yields I=ab-2*#10.",
+          "In upper-unitriangular coordinates (a,b,c) with cross term aB, the map to (a,b,2c-ab) has central kernel given by 2c=0; the indexed Rees zero-matrix result instead has adjacency avoidance and counts only 01."
+        ],
+        "reasoning": "An ordinary modular inversion test omits the term ab and is not equivalent. For the monotone unit-step lattice path taking 0 horizontally and 1 vertically, I is the oriented doubled area closed by the chord (integral of x dy minus y dx); any equivalent area theorem must count the same complete right quotients. The central quotient computes a realizable counter size; it does not alone give the required minimality for this accepting set.",
+        "searches": [
+          "Resultary: opposite scattered-pair imbalance, centered binary inversion count, modular area, Heisenberg quotient",
+          "arXiv:2110.14858, Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact balance-language hit is the identical frozen record. The November 8 indexed statement has the same formula but for a Moore machine reporting 010 and 101 count residues."
+        ],
+        "reasoning": "The identical record is not independent evidence of priority; the equal formula for reporting two length-three statistics is not an equivalent decision-language census. No claim of exhaustive historical indexing is made.",
+        "searches": [
+          "Resultary: exact modular scattered-pair DFA state complexity m^3/gcd(m,2)",
+          "2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+          "2026/11/22/SCOPE-exact-modular-state-complexity-of-the-opposite-scattered-pair-im--8aeb5d8c6529"
+        ]
+      },
+      "rationale": "The supported contribution is the exact number of right quotients for this binary zero-imbalance language over all moduli. Parikh pair counts and their sum, modular group counters, and permutation-automata methods are background. The examined sources do not establish this specific quotient size and acceptance minimality together. Strong nearby indexed records are distinguished by their actual available statements, not by date or title.",
+      "residual_risks": [
+        "Full neighboring Resultary texts could not be retrieved from the local mirror; their indexed theorem statements do not rule out ancillary overlap. Equivalent unindexed area or group-language formulations remain possible. No priority order was inferred from same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the starting identity, not the DFA theorem",
+          "evidence": "Summing the counts for permutations of a pattern gives a product of single-letter counts in the distinct-letter case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.14858",
+          "material_read": "Proposition 2.2, p. 3",
+          "method": "Lawful OA original PDF",
+          "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+          "trigger": "Cited exact scattered-pair sum identity"
+        },
+        {
+          "assessment": "Different invariant in the inspected scope",
+          "evidence": "Studies the number of accepting states under language operations for permutation automata.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.14731",
+          "material_read": "Abstract p. 1",
+          "method": "Lawful OA original PDF",
+          "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+          "trigger": "Neighboring state-complexity and quotient terminology"
+        },
+        {
+          "assessment": "Different acceptance model and word domain in the inspected scope",
+          "evidence": "Studies enriched automata on infinite words rather than minimal complete DFAs of finite-word modular tests.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.08969",
+          "material_read": "Abstract p. 1",
+          "method": "Lawful OA original PDF",
+          "title": "Parikh Automata on Infinite Words",
+          "trigger": "Cited Parikh-automata comparison"
+        },
+        {
+          "assessment": "Substantial structural overlap, different language in the available statement",
+          "evidence": "Words must avoid adjacent 11 and have 01 count divisible by m; the monoid is a Rees zero-matrix construction over a Heisenberg group.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-rees-zero-matrix-syntactic-monoid-for-modular-scattered-pairs--60f4e56820b8",
+          "material_read": "Indexed scientific statement only; matching local-mirror full text unavailable",
+          "method": "Resultary; OA local-mirror attempt",
+          "title": "A Rees zero-matrix syntactic monoid for modular scattered pairs",
+          "trigger": "Closest Heisenberg formulation"
+        },
+        {
+          "assessment": "Different zero test in the available statement",
+          "evidence": "Simultaneously vanishing directed mixed-pair counts in the binary case give m^3 states.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-automata-and-residue-periodic-densities-for-modula--92575a32bd39",
+          "material_read": "Indexed scientific statement only; matching local-mirror full text unavailable",
+          "method": "Resultary; OA local-mirror attempt",
+          "title": "Exact minimal automata and residue-periodic densities for modular scattered-pair counts",
+          "trigger": "Closest same-domain minimal DFA comparison"
+        },
+        {
+          "assessment": "Numerical coincidence, not the same stated invariant",
+          "evidence": "The machine reports 010 and 101 counts as outputs, rather than recognizing whether 01 and 10 have equal residues.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+          "material_read": "Indexed scientific statement only; matching local-mirror full text unavailable",
+          "method": "Resultary; OA local-mirror attempt",
+          "title": "Exact output-state complexity for modular alternating scattered patterns",
+          "trigger": "Identical parity-dependent formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural modular order-sensitive analogue of a letter-balance test. The exact deterministic memory requirement matters even for simple counters: the parity obstruction halves the state space at every even modulus, but no further quotient arises from testing only zero. The latter is an all-modulus minimality theorem about decision rather than output, not the routine construction of a product counter or a tiny computed instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

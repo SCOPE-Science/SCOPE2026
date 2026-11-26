@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:04:41.829356Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–49; VERIFICATION.md; verify.py; certificate.csv",
+        "review-evidence/double_six.py and double_six.txt",
+        "Das Table 5; Loughran–Trepalin Theorem 1.1"
+      ],
+      "rationale": "I independently recomputed the matched line/double-six spectra, class sizes, Picard traces and fixed ranks for every class. Starting with the blow-up intersection lattice, a 6-cycle and transposition of the E_i generate S₆ and a Cremona reflection completes W(E₆). A simultaneous orbit compares the 36 root lines {r,−r} to the 36 unordered double-sixes, starting from the root 2H−ΣE_i whose reflection exchanges the E_i sixer with its conic sixer. I checked the Schläfli incidence of all orbit pairs and the equivariant bijection on that orbit. Two actions give 51,840 elements with 25 conjugacy classes. The independent Picard calculation uses H=E₁+E₂+L₁₂ to get the trace and the average trace over powers to get the invariant rank. All 25 rows of the frozen CSV match as a multiset in class size, both spectra, trace and rank. Sole duplicate: 1²2³4⁷, with (class size, line spectrum, trace, rank) = (1620, 1⁵2¹4⁵, 3, 4) and (3240, 1¹2³4⁵, 1, 3). Adding the rational-line count separates all 25. Replay: `python3 -B /workspace/review-evidence/double_six.py <path-to-frozen-certificate.csv>`. From a finite étale zeta function the fixed counts of all powers are recovered by its logarithm, then the cycle multiplicities by Möbius inversion. The standard geometric identification works in every characteristic; the result is a statement on the Weyl-class universe, not that all classes occur over every field. Das Table 5 confirms (1²,4)=4D=C₁₈ and (2,4)=4B=C₅ by label and size. Loughran–Trepalin Theorem 1.1 applies to both for q≥7 as claimed (indeed q≥3 for this pair). The point counts use 1+q·tr+q² for a smooth cubic surface. The frozen verifier was inspected, not executed.",
+      "residual_risks": [
+        "The group calculation relies on the classical geometric identification of smooth cubic surfaces with the 27-line configuration, and on the cited finite-field realization theorem; it is not a new proof of either, and does not classify surface isomorphism types."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-a599a14f3844, table in Finding offset 0: (4,1,1) and (4,2) both have double-six type 1²2³4⁷, on the Frobenius-stable six-point blow-up locus",
+          "SCOPE-c536c9326761 gives all 25 classes but uses 40 Steiner triplets, not 36 double-sixes; SCOPE-49ca8401e2ad is Fermat-specific; SCOPE-0aac314408f8 concerns an integral lattice quotient, not Frobenius spectra",
+          "Loughran–Trepalin Theorem 1.1 supplies geometric realization, not a double-six table"
+        ],
+        "reasoning": "The restricted blow-up table already contains the exact collision but not the proof it is unique in the full Weyl universe; no priority is inferred from same-day dates. The 40-object theorem does not give 36-object comparisons. The full-coverage evidence comes instead from the broader ATLAS group data, not from any of these restricted cases.",
+        "searches": [
+          "Resultary: six-point blow-up sixer and double-six orbit spectra",
+          "Resultary: cubic surface Frobenius marking classes, double-six reconstruction and Fermat descent",
+          "Loughran–Trepalin arXiv:1811.06785 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "ATLAS U42d2G1-p27B0 and U42d2G1-p36B0 data (both generators each)",
+        "GAP CTblLib U4(2).2 and S6x2",
+        "Das arXiv:2002.11183",
+        "Loughran–Trepalin arXiv:1811.06785",
+        "SCOPE-a599a14f3844, SCOPE-c536c9326761, SCOPE-49ca8401e2ad, SCOPE-0aac314408f8",
+        "review-evidence/atlas_spectra.py and atlas_spectra.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ATLAS joint action query gives the two order-four rows of sizes 1620 and 3240, and no other duplicate",
+          "The degree-27 action gives differing fixed counts 5 and 1, so no additional geometric invariant has to be developed for the repair of the ambiguity",
+          "Das supplies corresponding six-dimensional virtual cycle types (and the extra fixed canonical direction supplies the seven-dimensional Picard representation); finite-field occurrence is separately known"
+        ],
+        "reasoning": "Once the standard actions are identified with the two markings, the inverse statement is just injectivity of the queried pairs, and any further functorial finite line configuration has its Frobenius action specified by the Weyl conjugacy class. Picard traces, fixed ranks, and point counts are standard class-to-arithmetic conversions. No independently distinct mathematical remainder was found.",
+        "searches": [
+          "ATLAS standard generator data for the 36- and 27-point actions versus certificate.csv",
+          "Das Table 5 with Loughran–Trepalin Theorem 1.1",
+          "SCOPE-a599a14f3844 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W(E₆)≅U₄(2):2; the 36 double-sixes form a transitive set with stabilizer S₆×C₂. The standard pair is preserved by permutation of the exceptional labels and by the commuting reflection in 2H−ΣE_i; the displayed subgroup already has the full stabilizer order 1440",
+          "GAP CTblLib U4(2).2 and S6x2 explicitly identify the order-1440 index-36 maximal subgroup as ATLAS U42d2G1-p36B0's stabilizer; they identify the unique index-27 maximal subgroup of order 1920 as well"
+        ],
+        "reasoning": "The double-six stabilizer is maximal: a larger maximal overgroup would have index properly dividing 36, hence index 2 by the published maximal-subgroup list, but the stabilizer contains reflections and is not contained in the unique index-2 determinant kernel. The transitive line stabilizer is maximal by the same list (no proper nontrivial index dividing 27). The unique maximal subgroups of those indices identify the two geometric coset actions with the standard ATLAS degrees 36 and 27. Finite étale zeta is equivalent to the full cycle spectrum of the corresponding action.",
+        "searches": [
+          "W(E6), U4(2):2, Schläfli double-six, root lines and degree 36 action",
+          "Das arXiv:2002.11183 §3 and Table 5",
+          "Resultary: unordered Schläfli double-six Frobenius orbit spectra and zeta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both ATLAS degree pages list the standard generators, with the degree-36 data recorded as checked in 2006; the .g1 and .g2 files for each degree give the actual four arrays",
+          "A bounded read-only data extraction and replay in review-evidence/atlas_spectra.py returned 51,840 elements, 25 classes, 24 distinct degree-36 spectra, the stated sole collision, and 25 distinct joint signatures when adjoining the degree-27 fixed count; all 25 class sizes and both spectra match in aggregate",
+          "GAP table metadata additionally lists stored fusion S6x2→U4(2).2; induction of the trivial character followed by class-power maps and Möbius inversion is another standard table route"
+        ],
+        "reasoning": "The data resolve the exact universe and both relevant numerical invariants; this is not an argument that any abstract presentation or the existence of a computation defeats originality. The two published actions already name every needed permutation in terms of common standard generators. Taking conjugacy representatives, querying cycle partitions and testing equality is a mechanical extraction of that prior data.",
+        "searches": [
+          "ATLAS U4(2):2 representations U42d2G1-p36B0 and U42d2G1-p27B0",
+          "GAP CTblLib U4(2).2 and S6x2 subgroup information",
+          "Das Table 5 (class names, sizes and virtual cycle types)"
+        ]
+      },
+      "rationale": "Exact earlier ATLAS actions encode the two spectra used in the main finding. I extracted the published degree-36 and degree-27 standard generator arrays and mechanically queried the joint class spectra; they give the entire frozen comparison, not merely some compatible orders or a potential database hit. The geometric action identifications are the corresponding standard coset actions. The only ambiguous types also appear as a collision in the same-day restricted blow-up table, independently of relative priority on that day. The arithmetic distinctions and occurrence are determined by the already tabulated class labels and realization theorem.",
+      "residual_risks": [
+        "The inspected literature need not contain a printed 25-row zeta table or use the same inverse-problem wording. The verified coverage is a mechanical implication of the exact earlier published actions, not a claim about who first formulated the arithmetic wording or about relative ordering of two same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior data mechanically cover all the class/marking comparisons",
+          "evidence": "Common standard generators in both degrees; the joint query atlas_spectra.py reproduces the entire matched spectrum multiset and class sizes.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/U42d2G1-p36B0",
+          "material_read": "36-point representation headings, Download and Checks applied; full-group degree list on /Atlas/v3/clas/U42/; exact U42d2G1-p36B0.g1/.g2 and U42d2G1-p27B0.g1/.g2 contents at /Atlas/clas/U42/gap/",
+          "method": "Bounded public OA website reads and exact plain-text representation files; transcribed cycles into a small independent query without executing downloaded code",
+          "title": "ATLAS: U4(2):2 — Permutation representation on 36 points and full-group 27-point counterpart",
+          "trigger": "Exact 36-point action and companion line action"
+        },
+        {
+          "assessment": "Identifies the exact coset data; not a printed 25-row orbit table",
+          "evidence": "Order 51840 and 25 classes; only one listed index-36 maximal subgroup S6x2, index-27 subgroup of order 1920, and stored S6x2 fusion.",
+          "identifier_or_url": "https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib/ctbltoc/data/U4(2).2.html",
+          "material_read": "Maximal subgroups, group constructions and stored fusions (offset 0); companion /ctbltoc/data/S6x2.html offset 0 gives AtlasStabilizer U42d2G1-p36B0",
+          "method": "Bounded public OA website reads",
+          "title": "GAP Character Table Library information: U4(2).2 and S6x2",
+          "trigger": "Verify action identifications via maximal subgroups and class fusion"
+        },
+        {
+          "assessment": "Established class labels and representations, not by itself a printed 36-point orbit comparison",
+          "evidence": "(1²,4)=4D=C₁₈ of size 1620 and (2,4)=4B=C₅ of size 3240; virtual cycle types refer to V₆.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.11183",
+          "material_read": "§3 around offset 26000 and Table 5 pp. 10–11 around offsets 34900–35000; related marking examples and character table",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Arithmetic statistics on cubic surfaces",
+          "trigger": "Same Weyl Frobenius classes and arithmetic marking framework"
+        },
+        {
+          "assessment": "Covers occurrence of both over all q≥3, stronger than the stated q≥7",
+          "evidence": "Only C₅ of this pair is absent over F₂; C₁₈ occurs over every finite field.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.06785",
+          "material_read": "Theorem 1.1, PDF p. 2 around offset 7450",
+          "method": "Bounded lawful OA PDF passage",
+          "title": "Inverse Galois problem for del Pezzo surfaces over finite fields",
+          "trigger": "Check actual occurrence of the collision classes"
+        },
+        {
+          "assessment": "Exact collision already present in this restricted setting; not full Weyl coverage; same-day order not inferred",
+          "evidence": "(4,1,1) and (4,2) table rows have identical unordered double-six spectra 1²2³4⁷.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-orbit-spectra-of-sixers-and-double-sixes-on-six-point--a599a14f3844/RESULT.md",
+          "material_read": "Finding and 11-row table, mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local-mirror passage",
+          "title": "Frobenius orbit spectra of sixers and double-sixes on six-point blowup cubic surfaces",
+          "trigger": "Closest distinct indexed double-six spectrum table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and certificate.csv",
+        "ATLAS degree-36 and degree-27 standard actions",
+        "review-evidence/atlas_spectra.txt",
+        "Das Table 5; Loughran–Trepalin Theorem 1.1"
+      ],
+      "rationale": "Unordered double-sixes and Frobenius recovery motivate a useful question. Here the precise answer is a routine query of established finite permutation data followed by standard arithmetic interpretation. Re-enumeration from a geometric realization is a good reproducibility check but contributes no new invariant or mathematical obstruction beyond the already encoded spectra and class arithmetic. The rational-line repair is precisely the fixed-count column of the companion published action. No distinct valuable corrected claim was found.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

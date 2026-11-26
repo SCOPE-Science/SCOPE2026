@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:37:46.385725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full torus intensity is a finite Laurent polynomial with the aperiodic autocorrelations as coefficients; orthogonality gives the converse from equality everywhere. Central reversal inverts both lags, and global sign cancels in every product. The action on arrays is the four-element action used in the census, allowing stabilizers. Burnside independently gives (4^n+2*2^n)/4 orbits: reversal and sign-times-reversal each pair the 2n cells into n pairs and global sign fixes none. A separate exact enumeration grouped full correlation vectors from one representative per orbit. For widths 1 through 8 the singleton counts were 2, 6, 20, 72, 272, 1048, 4160, 16488; the only double counts were 4 at width 6 and 12 at width 8, with no larger fibers. At width 6 all eight ambiguous representatives have neither identical nor opposite rows. Expanding F H and -F* H, with F=z^4+z^2-1 and H=(1+z)+w(z-1), gives the displayed pair; the reversal of F preserves its circle modulus. The two orbit representatives differ. This is exhaustive only through width 8. The frozen documentation's Python 3.8 minimum is inaccurate (int.bit_count needs 3.10), not a mathematical defect.",
+      "replay_paths": [
+        "/workspace/branches/9b81ea7a-06e3-497d-8fc0-e310678e4c4a/independent_census.py",
+        "/workspace/branches/9b81ea7a-06e3-497d-8fc0-e310678e4c4a/exact-census.txt",
+        "/workspace/branches/9b81ea7a-06e3-497d-8fc0-e310678e4c4a/explicit-pair.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first theorem produces continuous partners by oblique tensorization; the second gives compactly supported continuous or discrete equal-modulus partners without the fixed sign-alphabet census."
+        ],
+        "reasoning": "Existence of partners in the larger signal spaces does not give binary admissibility, sharp width or fiber multiplicities.",
+        "searches": [
+          "Novikov–Xu, arXiv:2407.05030v3 Theorem 3.1; arXiv:2604.25662v1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py",
+        "arXiv:2308.07467v3",
+        "arXiv:2407.05030v3",
+        "arXiv:2604.25662v1",
+        "arXiv:1901.07911v2",
+        "Resultary a954ad4f5585 and 036d01f106a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reciprocal-conjugate flipping characterizes candidate discrete ambiguities up to phase and shift; the explicit witness uses this mechanism."
+        ],
+        "reasoning": "The general factorization theorem explains why the witness works, but does not classify which flips preserve full-support sign coefficients or how many inequivalent arrays share an intensity at each width. Those are the checked new data.",
+        "searches": [
+          "Grohs–Koppensteiner–Rathmair, arXiv:1901.07911v2 §3 Theorem 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Katz–Rahman–Ward abstract and Table 1 report aperiodic 1-D binary uniqueness through length eight, modulo reversal and sign."
+        ],
+        "reasoning": "The natural homometry reformulation is equality of signed aperiodic correlations on the two-dimensional lattice. Flattening to length n is not a reduction: the cross-row correlations are separate coefficients and the two-row symmetry acts on both rows.",
+        "searches": [
+          "Katz–Rahman–Ward, arXiv:2308.07467v3; binary sequences with identical autocorrelation",
+          "Resultary: binary Fourier intensity, homometric sign arrays"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a954ad4f5585 repeats the frozen result. Distinct 036d01f106a5 covers square masks of sides 1–4 and reports 16512 orbits, 16488 singleton and 12 double fibers at 4×4."
+        ],
+        "reasoning": "The same histogram at 2×8 and 4×4 does not identify the two lag systems, or even give the same minimum problem. The square record explicitly excludes nonsquare masks; the date does not establish either record's precedence.",
+        "searches": [
+          "Resultary local mirror: a954ad4f5585 and 036d01f106a5",
+          "arXiv:2308.07467v3, Table 1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp two-row binary threshold and exact small-width fibers under the stated quotient. Neither the generic ambiguity mechanism nor one-dimensional uniqueness is new here. The identical indexed record is not a distinct antecedent; the distinct square-mask record agrees numerically at sixteen cells but classifies a different support. No transfer of its classifications to the two-row rectangle is established.",
+      "residual_risks": [
+        "An unlocated specialized table of binary homometric rectangles could overlap. A targeted query returned no results, which is not negative evidence.",
+        "No equivalence between the square and rectangle fiber systems was established; coincident histograms alone are insufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nearby 1-D classification",
+          "evidence": "Length 1–8 unequivocal for binary sequences.",
+          "identifier_or_url": "arXiv:2308.07467v3",
+          "material_read": "Abstract p. 1 and §1 Table 1, PDF p. 8",
+          "method": "OA full-text passages",
+          "title": "Sequences with Identical Autocorrelation Functions",
+          "trigger": "Binary homometry and exact tables"
+        },
+        {
+          "assessment": "Broader construction, no binary rectangle census in checked statement",
+          "evidence": "Continuous examples by oblique tensorization.",
+          "identifier_or_url": "arXiv:2407.05030v3",
+          "material_read": "§3.1 Theorem 3.1, PDF p. 4",
+          "method": "OA full-text passage",
+          "title": "On Non-uniqueness of Phase Retrieval in Multidimensions",
+          "trigger": "Multidimensional construction"
+        },
+        {
+          "assessment": "General partner construction, not enumeration",
+          "evidence": "Compactly supported equal-intensity partners on the full frequency domain.",
+          "identifier_or_url": "arXiv:2604.25662v1",
+          "material_read": "§3 Theorem 1, PDF p. 3",
+          "method": "OA full-text passage",
+          "title": "On Phase Retrieval for Continuous and Discrete Fourier Transforms",
+          "trigger": "Effective discrete constructions"
+        },
+        {
+          "assessment": "Covers the mechanism, not the sign-array classification",
+          "evidence": "Factor reversal theorem for discrete signals.",
+          "identifier_or_url": "arXiv:1901.07911v2",
+          "material_read": "§3 Theorem 3.7, PDF p. 16",
+          "method": "OA full-text passage",
+          "title": "Phase Retrieval: Uniqueness and Stability",
+          "trigger": "Reciprocal-factor witness"
+        },
+        {
+          "assessment": "Same result, not a distinct overlap",
+          "evidence": "Identical widths, equivalence and census.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-first-and-complete-small-width-fourier-intensity-ambiguities-for--a954ad4f5585",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "First and complete small-width Fourier intensity ambiguities",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Square support only",
+          "evidence": "The shape restriction specifically excludes nonsquare masks.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-first-nonseparable-binary-fourier-ambiguities-on-the-4-times4-sq--036d01f106a5",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–9207",
+          "method": "Local mirror",
+          "title": "First nonseparable binary Fourier ambiguities on the 4×4 square",
+          "trigger": "Distinct catalogue record with identical sixteen-cell histogram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row sign model is a minimal genuinely multidimensional full-support phase-retrieval setting. The sharp first nonseparable ambiguity supplies benchmark witnesses, while the return to uniqueness at width seven gives an exact obstruction to treating ambiguity as monotonic in width under this support constraint. Counting all fibers distinguishes rare genuine failures from generic ambiguity constructions and is useful for checking proposed uniqueness criteria. No scaling inference beyond width eight is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

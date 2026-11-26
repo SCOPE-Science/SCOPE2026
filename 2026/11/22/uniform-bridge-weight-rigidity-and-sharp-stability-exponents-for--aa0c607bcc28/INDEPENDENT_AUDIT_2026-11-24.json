@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:04.707842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–46, 49–114",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "For any admissible P, the centered spectral progress is no greater than the infimum Rayleigh quotient of I−P on 1⊥. A vector constant on each bulk has energy only at the three effective links A,c,B; minimizing over the gateways gives R(U−V)², while the centered norm squared is at least the bulk-only variance (U−V)²/s. A zero link gives a disconnection and zero progress, so the bound extends to boundary weights. The inequalities A,B≤1−c and (g−f(c))(1+c)=(c−c*)² give the bridge bound; the resistance difference 1/R−1/f(c) is at least the gateway holding sum, giving its claimed bound. The proposed stochastic kernel has two bulk zero-sum eigenvalues −x/n and −x/r and the given four-state quotient. Testing its variance at the bulk barycenter yields a Poincaré constant ≤1/(gs)+2/x+2/g≤1/(gs)+C/g. For n,r≥4 the quotient perturbation norm relative to the isolated bulks plus central block is ≤3x/4; the second eigenvalue is ≥1−gs from the same path test and lies strictly above all negative magnitudes and the other nontrivial modes. This verifies the finite sandwich for SLEM rather than just a one-sided gap. Compactness ensures attainment; substituting the sandwich gives the bounds for every optimizer. With balanced growing sizes the same comparison gives d(P)/s→R(c,h), and α=2g/(1−c*)²=1 gives R(c*,h)/g=1−h+O(h²), while the vanishing-holding loss is exactly quadratic from the displayed identity. Taking size large before sending the perturbation to zero establishes exponent sharpness, not tight finite constants.",
+      "residual_risks": [
+        "The proof's Rayleigh gap is the infimum on 1⊥ (possibly zero), not the smallest strictly positive eigenvalue in a reducible case; the zero-link test still gives the claimed bound.",
+        "The lower construction uses both clique orders ≥5; arbitrary nonreversible chains and exact optimizer-face classification are out of scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jafarizadeh treats reversible FMRMC with given equilibrium and extended barbells; the one-edge subsection supplies an optimal SLEM formula in that framework."
+        ],
+        "reasoning": "Even a broader exact-optimum result can specialize to optimum values and constructive kernels, which are not the claimed distinct content. The inspected optimizer formulas do not give a gap-versus-defect relation for every original unsymmetrized feasible matrix.",
+        "searches": [
+          "Jafarizadeh arXiv:2501.02421, abstract and §6.3 on extended barbells and the one-edge case",
+          "Boyd–Diaconis–Parrilo–Xiao §5.4.4 and symmetry-reduced SLEM"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Parrilo–Xiao §5.4.4",
+        "Jafarizadeh arXiv:2501.02421 §6.3",
+        "Local Resultary entries aa0c607bcc28 and 933dde29250d",
+        "Frozen RESULT.md relationship to prior work, line 120"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior balanced optimizer gives the limiting center c*, not the uniform upper envelope c(1−c)/(1+c) for arbitrary feasible choices with the holding-sensitive effective series resistance. The prior Kemeny statement concerns a different exact minimizer."
+        ],
+        "reasoning": "An exact optimum score plus its optimizer does not control how the objective degrades away from it, with constants uniform in clique ratio, or prove the linear holding and square-root bridge scales. Those deductions use the separate path bound for each feasible kernel and a two-parameter limiting family; neither follows by parameter substitution into the inspected optimum formula.",
+        "searches": [
+          "Boyd et al. exact balanced solution and limiting bridge formula, §5.4.4",
+          "Jafarizadeh one-edge optimal SLEM, §6.3",
+          "Kemeny barbell Finding 933dde29250d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al. give the symmetry-reduced balanced optimizer and already obtain c→√2−1.",
+          "The exact catalogue hit aa0c607bcc28 is the same record. The distinct same-day 933dde29250d is about the Kemeny-constant optimizer and has the same limiting bridge weight and zero holding."
+        ],
+        "reasoning": "The target is a quantitative constraint on every nearly maximizing SLEM kernel, including ones not invariant on edge orbits. Kemeny's sum of inverse gaps is a different objective, and giving a representative exact SLEM optimizer is not equivalent to a bound for all approximate optima. The same-day comparison is made on content, not chronology.",
+        "searches": [
+          "Local Resultary: near-fastest clique-barbell mixing, bridge rigidity, gateway holding, unequal cliques",
+          "Boyd–Diaconis–Parrilo–Xiao §5.4.4 balanced K_n–K_n",
+          "Resultary Kemeny-optimal clique barbells 933dde29250d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed entries are the frozen finding itself and the different-objective Kemeny optimization. Existing exact formulas cover particular optimizers/values rather than the uniform stability function."
+        ],
+        "reasoning": "A census by (p,q) of optimized scores or transition choices does not cover a continuum of possible deviations from the optimal score at each size. For that reason it cannot tabulate in the target result just by reading off a known optimizer coordinate.",
+        "searches": [
+          "Local Resultary exact semantic search for bridge/holding stability, including same-day barbell records",
+          "Explicit barbell formulas in Boyd et al. §5.4.4 and Jafarizadeh §6.3"
+        ]
+      },
+      "rationale": "Pass is for the finite, uniform inverse stability theorem over all admissible kernels and its sharp exponents. It is not for obtaining an optimal SLEM or a bridge weight for an exact optimizer, for the limiting balanced bridge constant, or for a generic bottleneck estimate.",
+      "residual_risks": [
+        "Other uninspected or unindexed fast-mixing stability results, including potential implications of generic SDP error bounds on this graph, are not excluded by the bounded comparison. No priority claim for the exact barbell optimum is established or needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior balanced optimizer, SLEM and limiting bridge constant; no implication of the target inverse theorem established",
+          "evidence": "Symmetry-reduced transition form and explicit all-size balanced optimizer, leading to √2−1.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§5.4.4, pp. 815–816, PDF text near offset 84000",
+          "method": "Bounded OA primary PDF passage reading",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact fastest-mixing solution for the same balanced single-bridge graph"
+        },
+        {
+          "assessment": "Broader model and explicit optimum, not identified quantitative inverse stability",
+          "evidence": "The section defines extended barbells and gives an optimal-SLEM formula for the one-edge case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+          "material_read": "Abstract and §6.3, PDF p. 21 near text offset 81550",
+          "method": "Bounded OA primary PDF passage reading",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Potentially dominating extended-barbell optimum formula"
+        },
+        {
+          "assessment": "Distinct same-day record, different objective",
+          "evidence": "Gives a unique optimizer of Kemeny's constant on balanced cliques, with the same limiting bridge weight and zero holding, not approximate SLEM optimizer constraints.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix 933dde29250d",
+          "material_read": "Mirrored Finding on balanced barbell optimization",
+          "method": "Local Resultary and local mirror",
+          "title": "Kemeny-optimal symmetric walks on clique barbells: a persistent bridge",
+          "trigger": "Same graph, bridge constant, and gateway holdings"
+        },
+        {
+          "assessment": "Same record, not independent coverage",
+          "evidence": "Same ID and all-kernel rigidity claim.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix aa0c607bcc28",
+          "material_read": "Indexed statement compared against frozen Finding lines 4–34",
+          "method": "Local Resultary semantic lookup and frozen primary statement",
+          "title": "Uniform bridge-weight rigidity and sharp stability exponents for near-fastest mixing on unequal clique barbells",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–34 and 49–114",
+        "Primary balanced and extended-barbell optimizer passages"
+      ],
+      "rationale": "The result certifies robustness of actual bottleneck weights in arbitrary nearly fastest matrices rather than only producing one familiar optimizer. Constants uniform in both clique sizes and their ratio force an entry-level constraint even for nonsymmetry-reduced near optima, and the separate perturbations establish the best possible exponents in the stated regime.",
+      "residual_risks": [
+        "No sharp finite stability constants or optimizer-face classification; asymptotic sharpness families are balanced."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For each horizontal column the exact height transition is \\(\\mathbf1_{h\\prime\\geq h-1}+(-1)^{\\xi_i}\\mathbf1_{h\\prime\\geq h}\\), with heights bounded by \\(0\\leq h_i\\leq n-i\\). The first column contributes \\(1+(-1)^{\\xi_0}\\), proving exactly half the Fourier multipliers vanish. For \\(\\xi_0=0\\) all later transitions are nonnegative: a forced all-down history contributes 2, while any later positive sign provides a distinct flat-step history contributing 4, proving unique sharp positive gap 2. Every incidence vector has a constructive path, making zero frequency the unique largest coefficient R_n. Fourier diagonalization gives rank/nullity \\(2^{n-1}\\), range independence of the first coordinate, and sharp nonzero spectral condition number \\(R_n/2\\). The extracted integer verifier passed 33,021 coefficient comparisons and histogram equalities through n=14; finite checks are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alekseyev (2016), https://arxiv.org/abs/1601.06158, counts ordinary and composite Catalan–Schröder lattice paths with univariate generating functions",
+        "Bandlow--Egge--Killpatrick (2002), https://www.ericegge.net/papers/schroderperm.pdf, Sections 2-4 use area/inversion statistics, not independent weights assigned to each starting column"
+      ],
+      "reasoning": "A completely general multivariate path step-weight generating polynomial could in principle imply the specialization after nontrivial analysis; no such previously proved positional zero/positivity statement was found. Standard transfer-matrix machinery alone is not the arithmetic Fourier-support classification. Residual risk is stated rather than declaring all broader work absent.",
+      "searches": [
+        "multivariate Schröder path signed diagonal steps horizontal column",
+        "Schroder paths with specified columns of diagonal steps enumeration distribution",
+        "Schröder paths column weights diagonal steps multiaffine polynomial all coefficients positive Fourier",
+        "Schroder path diagonal step x coordinate multivariate Schur continued fractions weights",
+        "arxiv:1601.06158 Lemma 1 and Theorems 2-5",
+        "https://www.ericegge.net/papers/schroderperm.pdf area-weighted Schröder polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0805.2465",
+      "arxiv:1511.00189",
+      "arxiv:1601.06158",
+      "https://www.ericegge.net/papers/schroderperm.pdf",
+      "https://oeis.org/A108916",
+      "https://oeis.org/A006318",
+      "Second-order boundary–bulk covariance cancellation in uniform Motzkin paths (2026)",
+      "previously described result ID 0f9b84d8-a487-40f8-9034-35720fa4be6a",
+      "previously described result ID 5e973760-c6a6-439e-8833-96d9b2b74f9c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously described theorem ID 0f9b84d8-a487-40f8-9034-35720fa4be6a determines Fourier zeros of zero-one interval-indicator convolution, not multiplicity-weighted diagonal-column Schröder statistics",
+        "Previously described theorem ID 5e973760-c6a6-439e-8833-96d9b2b74f9c determines a finite-length Motzkin-step indicator spectrum in a different ambient group",
+        "Published record 2026/11/8/SCOPE-second-order-boundary-bulk-covariance-cancellation-in-uniform-mo--904107dfeccb concerns correlations of Motzkin ground-level horizontals and peaks, not Fourier support"
+      ],
+      "reasoning": "No implication or reduction takes an interval-indicator square-length resonance, a finite length-ten Motzkin embedding, or a Motzkin covariance asymptotic to all-order Schröder diagonal-column Walsh coefficients. The present result also requires explicit path multiplicities; replacing them with an indicator would change the theorem.",
+      "searches": [
+        "Schröder path enumeration Fourier Walsh diagonal indicator distribution",
+        "Boolean convolution by weighted lattice path incidence patterns, rank and Fourier zeros",
+        "Square-length Fourier rank resonances for contiguous-run signals",
+        "The first post-cubic Walsh resonance and exact Fourier range projection for length-ten Motzkin paths",
+        "published result: Second-order boundary–bulk covariance cancellation in uniform Motzkin paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/1511.00189: diagonal heights encode permutation right-to-left minima, not starting-column signs",
+        "https://arxiv.org/html/0805.2465v2: maps of restricted paths and peaks do not encode an arbitrary signed subset of horizontal columns"
+      ],
+      "reasoning": "The claim can be reformulated as Fourier support of the path counting push-forward, equal cardinalities of the two first-column fibres, or invertibility of the remaining-column marginal. The inspected prior results discuss total or height-marked diagonals, not this joint positional marginal; the claimed strict all-character positivity is not their stated consequence.",
+      "searches": [
+        "Schröder paths diagonals by x-coordinate column: Fourier Walsh transform zeros, convolution rank, uniform first column and invertible remaining coordinates",
+        "Schroeder paths diagonal column incidence distribution zero Walsh coefficients, transfer matrix and positive remaining Fourier multipliers",
+        "Schröder paths diagonal columns marking set positions multivariate generating polynomial signed Fourier transform",
+        "Schroder paths diagonal location x coordinate polynomial evaluation -1 sign reversal",
+        "arxiv:1511.00189 Section 4 diagonal heights",
+        "arxiv:0805.2465 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A108916 records an aggregate step-predecessor statistic, not a subset of diagonal starting columns",
+        "https://oeis.org/A006318 gives total large Schröder counts, not a signed positional spectrum"
+      ],
+      "reasoning": "The sequence data supply classical totals and a different refined statistic; neither gives the \\(2^n\\) Fourier-root incidence, strict positive surviving multipliers, or exact minimum. Indexed records returned no exact table under the actual queries, but index incompleteness remains a residual risk.",
+      "searches": [
+        "Schröder path enumeration Fourier Walsh diagonal indicator distribution",
+        "Boolean convolution by weighted lattice path incidence patterns, rank and Fourier zeros",
+        "OEIS A108916 Schröder paths by diagonal steps not preceded by east step",
+        "OEIS A006318 large Schröder numbers"
+      ]
+    },
+    "rationale": "The primary publications inspected enumerate large Schröder paths, total diagonal-step counts, peak restrictions, area statistics, and bijections, but no inspected result gives the signed Fourier spectrum for the binary starting-column indicator, its exact hyperplane zero set, and strict positivity with unique sharp gap. The most relevant indexed published results and previously documented mathematical statements concern other path encodings, different statistics, or interval-set kernels. No broader theorem in checked material was shown to imply the conclusion. This is bounded-priority novelty, not a proof of historical uniqueness.",
+    "residual_risks": [
+      "A separately indexed or unindexed multivariate signed Schröder enumerator may specialize to the starting-column incidence result; no definitive historical priority claim is made.",
+      "The search does not exhaust every combinatorial special-function source, including all older printed catalogs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies peak-level restrictions, avoidance bijections and total peak counts; no signed starting-column joint distribution.",
+        "evidence": [
+          "https://arxiv.org/html/0805.2465v2 Sections 2-3",
+          "https://arxiv.org/abs/0805.2465 initial posted 2008-05-16"
+        ],
+        "identifier_or_url": "arxiv:0805.2465; https://arxiv.org/html/0805.2465v2",
+        "material_read": "full HTML Sections 1-3, definitions, Theorems 2.2-2.5, Corollaries 3.6-3.9",
+        "method": "primary HTML reading and comparison of refinements",
+        "title": "Schröder Paths and Pattern Avoiding Partitions",
+        "trigger": "earliest date-verified archival Schröder path source and restricted refinements"
+      },
+      {
+        "assessment": "Diagonal endpoint heights encode permutation minima but Fourier weights on starting horizontal columns are not classified.",
+        "evidence": [
+          "https://arxiv.org/abs/1511.00189 Sections 1,3,4"
+        ],
+        "identifier_or_url": "arxiv:1511.00189; https://arxiv.org/abs/1511.00189",
+        "material_read": "full arXiv-extracted text, especially introduction, path definition, Section 3 bijection and Section 4 diagonal-height Theorem 4.6",
+        "method": "primary full-text inspection and search for Fourier",
+        "title": "A Bijection on Classes Enumerated by the Schröder Numbers",
+        "trigger": "direct Schröder NE/D geometry and diagonal height statistics"
+      },
+      {
+        "assessment": "Univariate generating functions and related lattice path counts, no binary column-incidence signed Fourier zeros.",
+        "evidence": [
+          "https://arxiv.org/abs/1601.06158 Sections 1-3"
+        ],
+        "identifier_or_url": "arxiv:1601.06158; https://arxiv.org/abs/1601.06158",
+        "material_read": "full arXiv-extracted text, Lemma 1 and Theorems 2-5",
+        "method": "primary full-text inspection and search for Fourier",
+        "title": "On Enumeration of Paths in Catalan–Schröder Lattices",
+        "trigger": "potential broader weighted Schröder lattice enumeration"
+      },
+      {
+        "assessment": "The preserved weight is an area statistic and the target is inversion number; no Walsh-root classification of diagonal starting columns in inspected full text.",
+        "evidence": [
+          "https://www.ericegge.net/papers/schroderperm.pdf pp.1-5, 8-14"
+        ],
+        "identifier_or_url": "https://www.ericegge.net/papers/schroderperm.pdf",
+        "material_read": "parsed full text Sections 1-4, figures and definitions on pages 1 and 4 visually inspected",
+        "method": "page images, full parsed sections, find for Fourier, column and sign",
+        "title": "A Weight-Preserving Bijection Between Schröder Paths and Schröder Permutations",
+        "trigger": "potential general step-weight specialization that could dominate the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4361dc90-4d1c-4af9-93dd-a8da47adf0e1",
+  "value": {
+    "rationale": "The diagonal-column incidence law of classical Schröder paths is a natural push-forward retaining positional information lost by standard univariate enumeration. The theorem supplies a complete all-size classification of its Fourier kernel, identifies the exact recoverable quotient and an independent fair coordinate, and proves a sharp nonzero spectral gap and conditioning law. These are structural signal-recovery properties, not a single small numerical case, unmotivated parameter slice, or formal restatement of the total Schröder count.",
+    "status": "PASS"
+  }
+}

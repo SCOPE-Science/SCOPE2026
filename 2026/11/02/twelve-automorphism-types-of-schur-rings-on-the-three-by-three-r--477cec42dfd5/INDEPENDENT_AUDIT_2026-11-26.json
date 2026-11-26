@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:51:40.234432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–33 and 39–70",
+        "VERIFICATION.md; CHECK_DIRECT.py and CHECK_PROFILE.py inspected, not executed",
+        "CHECK_DIRECT_OUTPUT.txt lines 1–12 and CHECK_PROFILE_OUTPUT.txt lines 1–6, recorded outputs compared to the analytic block classification"
+      ],
+      "rationale": "Independently reconstructed the complete census without executing the supplied scripts. The coefficient at (i,j) in the product of class sums C,D is r_C(i)c_D(j). Summing separately over D and C proves profile equality is necessary within each class, and the product formula gives sufficiency. Partition the rows by identical complete row profiles and the columns by identical complete column profiles. Every color class lies in one resulting rectangle, where it is a nonempty biregular bipartite graph. Conversely any subdivision of each such rectangle into biregular graphs with disjoint color labels gives exactly the chosen row and column profile partitions: rows in different row blocks have disjoint nonempty supports, and likewise for columns. In an m-by-n profile rectangle a nonzero class size is divisible by both m and n, so coprime rectangles cannot split. The only potentially splittable sizes here are 2-by-2 (two complementary matchings, one possible partition) and 3-by-3. The latter can split as a matching and its complement (six choices) or as three matchings (two choices: the complement of any matching is a six-cycle with unique unordered alternating matching split). There are 25 unsplit labeled partitions, nine diagonal splits from the 2+1 by 2+1 profile choices and eight splits of the whole square. Under independent row and column permutations the 25 products give nine types and the three split forms give one further type each. For the three-matching partition, normalize one matching to the diagonal; the other two are the two 3-cycles. The class counts and labeled orbit sizes from these forms give the exact displayed table, with rank counts 1,12,4,9,9,6,1 for ranks 1,2,3,4,5,6,9. The automorphism group is exactly the independent row and column permutations, since left and right translations distinguish row and column coordinates. Automorphic realization holds by the product of the full symmetric groups inside each profile block for unsplit products, the simultaneous flip of the paired rows and columns for the 2-by-2 split, simultaneous S3 after normalizing a 3-by-3 matching with its complement, and simultaneous cyclic shifts for three matchings. Each named group has the required class orbits. These cover all cases and confirm the 42/12/25/17 census independently of the frozen outputs.",
+      "residual_risks": [
+        "Conclusion is over Q with multiplication closure alone and natural semigroup automorphisms; transposition is excluded and no general larger-band claim is tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper supplies automorphic and product constructions and notes non-product rings exist.",
+          "Both catalogue theorems about all Schur partitions being automorphic are restricted to two-row rectangular bands; R_2,3 has six cells and transposition cannot put either dimension of the square at two."
+        ],
+        "reasoning": "An all-width two-row theorem and sufficient constructions for general sizes do not imply a converse for the three-row square.",
+        "searches": [
+          "arXiv:2601.09940v1 §§2.1–2.2",
+          "Resultary:898f75a97d4e and Resultary:b55d2bce611d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.09940v1",
+        "Resultary:898f75a97d4e",
+        "Resultary:b55d2bce611d",
+        "Resultary:904ca12df0bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known direct-product construction already gives Bell(3)^2=25, and the automorphic construction gives sufficient examples.",
+          "The closest exact classifications are the order-four square and all two-row bands; neither decides the two types of whole-square matching refinements or their exhaustiveness."
+        ],
+        "reasoning": "Credit the mechanical product count and automorphic sufficiency to prior work. The independently reconstructed exact bound, orbit converse and symmetry census for the square are not supplied by these statements.",
+        "searches": [
+          "arXiv:2601.09940v1 §2.2 and §5.4",
+          "Resultary:898f75a97d4e, RESULT.md finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marrow–Misseldine's closure-only rational semigroup definition is exactly the frozen convention, and their LO_3 × RO_3 is the frozen nine-cell band.",
+          "Resultary:904ca12df0bd concerns permutation-matchable supports and idempotents of a zero-adjoined band, not partitions closed under class-sum multiplication."
+        ],
+        "reasoning": "Compare after replacing band notation and preserving multiplication only; neither zero-adjunction nor transposition is an equivalence of the counted classification.",
+        "searches": [
+          "arXiv:2601.09940v1 §1 and §2.2: closure-only Schur partitions on LO_n × RO_m",
+          "Resultary searches for rectangular-band Schur partitions and orbit classifications"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general semigroup census runs only through order seven. Table 1 extends to order fifteen for groups, not for rectangular bands; Table 4's nearby square band has four elements and five rings.",
+          "The catalogue tables 2,5,13,48,184,881 count R_2,m rather than R_3,3."
+        ],
+        "reasoning": "Neither inspected exact catalogue nor published census contains the matching 42 labeled partitions or the 12-type row/column orbit table. An unproductive query by itself establishes nothing about priority.",
+        "searches": [
+          "arXiv:2601.09940v1 abstract, Table 1, §5.4 Table 4",
+          "Resultary:898f75a97d4e exact labeled totals; exact three-by-three rectangular-band Schur-ring literature search"
+        ]
+      },
+      "rationale": "The definition, product constructions and automorphic constructions are prior, and the order-four square already has an all-automorphic result. The inspected sources do not cover the nine-element square census, including its two different square matching refinements and its mixed-profile case. Qualified priority judgment, not a claim that no earlier treatment exists.",
+      "residual_risks": [
+        "Unindexed work could contain a wider dimension classification; no such coverage was established. No precedence is inferred from same-day dating."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions, constructions and smaller exact census; no nine-element band entry in the census scope",
+          "evidence": "The multiplication condition alone, LO_n × RO_m product construction, and five automorphic rings on LO_2 × RO_2; abstract bounds the general census at order seven.",
+          "identifier_or_url": "https://arxiv.org/html/2601.09940v1",
+          "material_read": "Abstract; §1 (HTML offset about 4400); Table 1 (12604); §2.2 (43940); §5.4 Table 4 and discussion (172500–182000)",
+          "method": "Lawfully available primary HTML passages",
+          "title": "On Schur Rings Over Semigroups",
+          "trigger": "Same definition, rectangular bands and exact census"
+        },
+        {
+          "assessment": "Complete but different dimension",
+          "evidence": "All R_2,m partitions automorphic; explicit labeled and non-product counts only for two rows.",
+          "identifier_or_url": "Resultary:898f75a97d4e",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Schur ring classification of two-row rectangular bands",
+          "trigger": "Strongest apparently covering catalogue classification"
+        },
+        {
+          "assessment": "Two-row scope only",
+          "evidence": "The automorphic assertion is stated for two-row rectangular bands.",
+          "identifier_or_url": "Resultary:b55d2bce611d",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "All Schur partitions of two-row rectangular bands are automorphic",
+          "trigger": "Possible general orbit-converse theorem"
+        },
+        {
+          "assessment": "Different invariant and zero-adjoined object",
+          "evidence": "Concerns supported permutations and idempotents, not class-sum closed set partitions.",
+          "identifier_or_url": "Resultary:904ca12df0bd",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Sparsest permutation-matchable three-row rectangular zero bands",
+          "trigger": "Same-day three-row band hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "arXiv:2601.09940v1 §2.2 and §5.4",
+        "Resultary:898f75a97d4e"
+      ],
+      "rationale": "The motivating semigroup results establish products yet explicitly leave additional Schur rings on rectangular bands. The first square outside the two-row family and the order-seven semigroup census is a meaningful cutoff, not a random nine-element example. The finding resolves the exact gap beyond products, shows that it is nonetheless exhausted by automorphism orbits, and supplies rank and orbit data a larger band classification can test against. The small size makes a transparent structural certificate possible, not the result a known table recomputation.",
+      "residual_risks": [
+        "No implication that larger rectangular bands are automorphic or governed by these three split types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

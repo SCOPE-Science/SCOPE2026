@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:04:44.458743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 5–47",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "python3 -B /workspace/branches/audit-replays/moments_and_units.py"
+      ],
+      "rationale": "The finite standard-monomial set is an order ideal containing 0, and the nonconstant span is the nilpotent maximal ideal J. The constant section splits the units as k^× times 1+J. An element with p^r-th power 1 must have constant term 1 since gcd(p,q−1)=1. Frobenius acts by the coefficient-field automorphism and injective dilation on exponent vectors until a monomial vanishes, so the kernel on J has N−s_r free coefficients, giving q^(N−s_r). In the cyclic decomposition each C_(p^a) contributes min(a,r) to K_r; differencing twice gives the claimed multiplicities, which vanish eventually because only 0 survives all dilations. This includes r=0 and the case R=k. An independent GF(4) multiplication replay in branches/audit-replays/moments_and_units.py checked the complete order histogram for (x^3,y^2,x^2y), giving C_3 × C_2^4 × C_4^2 as predicted.",
+      "residual_risks": [
+        "The replay is one extension-field example, not a proof for general ideals; the monomial-basis argument supplies that proof. No classification of ring isomorphisms or nonmonomial ideals is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Frobenius-shadow theorem applies to every finite-field Artinian monomial quotient and also gives a Loewy-length counterexample family.",
+          "Chebolu et al. classify the elementary abelian unit-group case, not all cyclic exponents. Angeltveit et al. compute multi-relative K-groups using Witt vectors; those output groups are not the ordinary groups of units at issue."
+        ],
+        "reasoning": "The matching record covers the full parameter range, with additional results. The adjacent journal/preprint results inspected do not by themselves establish coverage of the full classification.",
+        "searches": [
+          "Resultary Frobenius-shadow classification, record 555b4e15780e",
+          "arXiv:2112.03853, Theorem 1.1",
+          "arXiv:1206.0247, Theorems 1.2–1.3 and §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 5–47 and 55–66",
+        "Local Resultary record 555b4e15780e and its mirrored finding",
+        "arXiv:2112.03853",
+        "arXiv:1206.0247"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected matching result obtains power-image sizes on principal units from nonzero survivors. The two Zhuravlev items are cited for fixed radical-layer profiles in the frozen record, but their full texts were not independently obtained."
+        ],
+        "reasoning": "The power map on the finite abelian principal-unit group has kernel size |1+J|/|im|=q^(N−1)/q^t_r=q^(N−s_r), so the seemingly different kernel statement is also implied. No unresolved access issue is needed for the overlap decision.",
+        "searches": [
+          "Resultary Frobenius-shadow classification, record 555b4e15780e, proof via power images",
+          "MathNet semr494",
+          "DOI 10.17377/semi.2017.14.048"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored Finding counts nonzero surviving exponents t_r and gives cyclic multiplicities e(t_(r−1)−2t_r+t_(r+1)). The frozen record counts the zero exponent as well: t_r=s_r−1."
+        ],
+        "reasoning": "Substituting t_r=s_r−1 gives exactly 2K_r−K_(r−1)−K_(r+1), with the very same constant-unit factor C_(q−1).",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-frobenius-shadow-unit-group-classification-and-loewy-blind-goren--555b4e15780e; compare Frobenius shadows with standard-monomial dilation survivors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matching mirrored RESULT.md, Finding at offset 0; snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4."
+        ],
+        "reasoning": "This is a distinct indexed record, not the frozen package itself or a coincidence of numeric parameters. The match is an exact formula in the catalogue; no fixed-parameter table is required.",
+        "searches": [
+          "Local Resultary index, exact matched record 2026/11/22/SCOPE-frobenius-shadow-unit-group-classification-and-loewy-blind-goren--555b4e15780e"
+        ]
+      },
+      "rationale": "The distinct Resultary Frobenius-shadow record covers the entire classification on precisely this quotient class. Its counts and this record's torsion formula determine each other, not merely a common example. There is no distinct theorem left in the frozen Finding under statement-level review. This is a coverage decision; it does not establish which derivation came first or whether one relied on the other.",
+      "residual_risks": [
+        "The catalogue dates alone do not settle priority between the equivalent records.",
+        "The two Zhuravlev texts were not independently read in full; the comparison to those texts is limited. No exhaustive primary-literature priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT COVERAGE for the frozen theorem; also additional examples",
+          "evidence": "Counts nonzero Frobenius survivors t_r, with cyclic exponents e(t_(r−1)−2t_r+t_(r+1)); includes C_(q−1).",
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-shadow-unit-group-classification-and-loewy-blind-goren--555b4e15780e",
+          "material_read": "Mirrored RESULT.md Finding and power-image argument, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Frobenius-shadow unit group classification and Loewy-blind Gorenstein examples",
+          "trigger": "Exact overlap on arbitrary finite monomial quotients"
+        },
+        {
+          "assessment": "Restricted classification, not the general formula",
+          "evidence": "The unit group under classification is required to be elementary abelian.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.03853",
+          "material_read": "Theorem 1.1, pp. 1–2",
+          "method": "OA full-text passage",
+          "title": "Rings with an elementary abelian p-group of units",
+          "trigger": "Finite-field truncated polynomial unit classification"
+        },
+        {
+          "assessment": "Adjacent, not an exact implication in the inspected passages",
+          "evidence": "The formulas describe multi-relative algebraic K-groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.0247",
+          "material_read": "Theorems 1.2–1.3, pp. 2–3 and §2",
+          "method": "OA full-text passages",
+          "title": "On the algebraic K-theory of truncated polynomial algebras in several variables",
+          "trigger": "Truncated multivariate monomial algebras and Witt vector decompositions"
+        },
+        {
+          "assessment": "Unresolved full text",
+          "evidence": "The frozen account describes a fixed radical-layer profile.",
+          "identifier_or_url": "MathNet semr494",
+          "material_read": "Frozen citation and account only",
+          "method": "Bounded MathNet retrieval timed out",
+          "title": "On unit group of a finite local rings of characteristic p",
+          "trigger": "Cited near neighbor"
+        },
+        {
+          "assessment": "Unresolved full text",
+          "evidence": "The frozen account describes layer dimensions (2,2,1) with J^4=0.",
+          "identifier_or_url": "10.17377/semi.2017.14.048",
+          "material_read": "Frozen citation and account only",
+          "method": "DOI retrieval did not yield the full text",
+          "title": "On unit group of a finite local rings with 4-nilpotent radical of Jacobson",
+          "trigger": "Cited near neighbor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53",
+        "Resultary Frobenius-shadow record 555b4e15780e"
+      ],
+      "rationale": "Extracting abstract units from standard monomials is a useful computation, but the frozen claim presents no independently new classification beyond the matching Frobenius-shadow theorem. In isolation it is a direct monomial-basis instance of Frobenius kernel counting and standard finite abelian p-group reconstruction. It supplies no separate obstruction, family, or unit-group distinction not given by that classification.",
+      "residual_risks": [
+        "The decision concerns the scientific contribution of this Finding, not pedagogical usefulness or the value of examples outside it."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:59:01.100689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, assumptions, and proof §§1–4",
+        "VERIFICATION.md and verify.py inspected without executing the frozen script",
+        "Independent exact replay from the review workspace: python3 evidence/2/independent_chern_sixfold.py"
+      ],
+      "rationale": "On Gr(3,9), E=(Sym² U*)⊕² has rank 12, is globally generated, and its sections induced by pairs of ambient forms generate the fibers. A general section is transverse; the nonzero degree calculation also proves nonemptiness. Its zero locus has dimension 6 and class c12(E), with tangent K-class [TG]−[E]. In ordinary K-theory [TG]=9[U*]−[U*⊗U], giving c1(TG)=9H, c1(E)=8H, and adjunction −K_F=H as a divisor class. Independently of torus localization, used roots x,y,z of U*, the ordinary total Chern series product ∏(1+x_i t)^9 divided by ∏(1+(x_i−x_j)t)∏_{i≤j}(1+(x_i+x_j)t)^2, and integer polynomial arithmetic through t^6. For every partition of six, multiplied the resulting monomial by ∏_{i≤j}(x_i+x_j)^2 and (x−y)(x−z)(y−z), then extracted [x^8 y^7 z^6]. All eleven values in source order are 3904, 3072, 1664, 896, 384, 256, 2880, 1728, 5248, 1792, 1088. The Grassmannian coefficient functional picks the rectangular Schur coefficient. This computation requires no smooth special example or finite-sample extrapolation. Top Chern integration gives the topological Euler characteristic.",
+      "residual_risks": [
+        "The transversality claim is for the stated general pair. Characteristic numbers, not an integral Chow-ring calculation, are certified by the exact arithmetic check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Suzuki compute motives of X and the Fano scheme of lines and give relative quadric-fibration results. The Debarre–Manivel paper is a plausible general source for Plücker degrees, but no readable copy was obtained in the check."
+        ],
+        "reasoning": "The inspected motivic statements do not give the intrinsic tangent intersections of F_2(X). A general degree formula might cover the volume, so numerical priority for 3904 alone is not asserted. Standard normal-sequence and integration formulas supply a method; the explicit calculations of the mixed pairings are a separate part of the claim.",
+        "searches": [
+          "Ji–Suzuki arXiv:2609.36233v1 Theorems 1.1–1.3",
+          "Debarre–Manivel DOI 10.1007/s002080050235, identified via Belmans et al. bibliography"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.05986",
+        "arXiv:2403.12517v2",
+        "arXiv:1602.03052v3",
+        "arXiv:2609.36233v1",
+        "Resultary 72565b0cc423 and f38b61b4b9ca",
+        "Debarre–Manivel DOI 10.1007/s002080050235 (bibliographic lead, not full-text evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-ambient Betti-number formula specializes at n=4,i=3 to Euler characteristic Σ_{j=0}^3 binom(9,j)binom(5−j,3−j)=10+54+108+84=256. Belmans et al. identify the Hodge structures as Hodge–Tate in the relevant range."
+        ],
+        "reasoning": "Chern–Gauss–Bonnet immediately gives ∫c6=256 from that prior result, so it is not new. No inspected result gave the polarized mixed tangent-Chern numbers as a table or as a direct implication of the stated Betti/Hodge formula.",
+        "searches": [
+          "Chen–Vilonen–Xue arXiv:1510.05986 Theorem 1.1; Belmans et al. arXiv:2403.12517v2 Proposition E"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target identifies with F^{8}_2 in the even-ambient cohomology result and the g=4,k=2 case in Proposition E. Its anticanonical polarization is the Plücker line bundle, so the two presentations of the table do not distinguish claims."
+        ],
+        "reasoning": "The overlapping object is exactly the same, but the available invariants are Betti/Hodge invariants rather than eleven intersection numbers. Hodge data can constrain Chern-number combinations through Riemann–Roch; this does not furnish the full table.",
+        "searches": [
+          "Resultary: Fano scheme of planes on two quadrics / complete Chern-number table / rank-12 Grassmannian zero locus",
+          "Belmans et al. arXiv:2403.12517v2 Proposition E",
+          "Chen–Vilonen–Xue arXiv:1510.05986 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest table-format finding computes numbers for the ten-hyperplane Calabi–Yau sixfold in Gr(2,10). The lines-on-two-quadrics match gives ch₂-degree −40 and H⁴=80 for F_1 in P^6."
+        ],
+        "reasoning": "The complete tables are not interchangeable across the two sixfolds, and the lines result has different dimension, tautological bundle and invariants. No equivalent table was identified in the inspected ranked matches.",
+        "searches": [
+          "Resultary: characteristic numbers of F_2 of two quadrics in P^8 / polarized Chern-number table",
+          "Resultary 72565b0cc423 and f38b61b4b9ca"
+        ]
+      },
+      "rationale": "Credit the exact Euler value 256 to prior cohomology, and the anticanonical identification and Grassmannian integration machinery to standard methods. The result assessed positively is the complete table, in particular the explicit mixed tangent-Chern pairings. The best inspected same-variety results compute Hodge/cohomological invariants, not that full table; other exact tables apply to different parameter spaces. The precise primary reference for the even ambient cohomology is Chen–Vilonen–Xue arXiv:1510.05986 rather than arXiv:1602.03052, which treats odd ambient dimension. Belmans et al. already provide the even-ambient refinement cited in the frozen record.",
+      "residual_risks": [
+        "Uninspected intersection-theory tables or general degree formulas may cover additional entries, especially the Plücker degree.",
+        "No global numerical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the Euler entry",
+          "evidence": "Specializing the theorem to n=4,i=3 gives the Betti sum 256.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.05986",
+          "material_read": "PDF p. 3, Theorem 1.1 (text offsets around 4500–8426)",
+          "method": "Open full-text PDF passage",
+          "title": "Fano varieties of intersections of quadrics and the Springer correspondence",
+          "trigger": "Cohomology of the same even-ambient Fano scheme"
+        },
+        {
+          "assessment": "Cohomological and Hodge information",
+          "evidence": "For ambient P^{2g} and k up to g−2, cohomology is even and Hodge–Tate; g=4,k=2 is included.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.12517v2",
+          "material_read": "Proposition E, PDF p. 3 (text offsets 8800–14705)",
+          "method": "Open full-text PDF passage",
+          "title": "On decompositions for Fano schemes of intersections of two quadrics",
+          "trigger": "Exact target variety in its Hodge range"
+        },
+        {
+          "assessment": "Main theorem is for odd ambient dimension",
+          "evidence": "The theorem treats P^{2g+1}; the introduction refers to previous even-ambient work.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.03052v3",
+          "material_read": "Abstract, introduction and Theorem 1.1, PDF pp. 1–3",
+          "method": "Open full-text PDF passages",
+          "title": "On the cohomology of Fano varieties and the Springer correspondence",
+          "trigger": "Frozen reference for cohomology"
+        },
+        {
+          "assessment": "Varieties/lines and relative quadric schemes, not the intrinsic F_2 table",
+          "evidence": "The absolute results give motives of X and F_1(X); the higher F_r statement is relative to a quadric fibration.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.36233v1",
+          "material_read": "Abstract, introduction, Theorems 1.1–1.3, PDF pp. 1–3 (text offsets 0 and 6900–13354)",
+          "method": "Open full-text PDF passages",
+          "title": "Motivic classes of Fano schemes of lines on intersections of two quadrics",
+          "trigger": "Nearby motivic results including even ambient dimension"
+        },
+        {
+          "assessment": "Unresolved possible degree coverage, not negative evidence",
+          "evidence": "The title and citation identify a plausible general degree source; no theorem passage was available to substantiate a stronger inference.",
+          "identifier_or_url": "https://doi.org/10.1007/s002080050235",
+          "material_read": "Bibliographic citation only; primary full text not obtained",
+          "method": "Bibliography and attempted lawful OA/publisher retrieval",
+          "title": "Sur la variété des espaces linéaires contenus dans une intersection complète",
+          "trigger": "Potential general degree formula for the same zero-locus family"
+        },
+        {
+          "assessment": "Different sixfold",
+          "evidence": "A ten-hyperplane section of Gr(2,10), rather than a rank-12 zero locus on Gr(3,9).",
+          "identifier_or_url": "72565b0cc423",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Complete polarized Chern-number table of the Grassmannian Calabi–Yau sixfold",
+          "trigger": "Closest indexed table format"
+        },
+        {
+          "assessment": "Different Fano scheme and invariant",
+          "evidence": "F_1 in ambient P^6 and degree-four pairings, not F_2 in ambient P^8.",
+          "identifier_or_url": "f38b61b4b9ca",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "The fourfold of lines on two quadrics",
+          "trigger": "Indexed characteristic numbers for the same construction at different parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md top intersection table",
+        "Independent extraction for all partitions of six",
+        "Belmans et al. Proposition E"
+      ],
+      "rationale": "The Fano parameter space of planes is a natural sixfold and the chosen invariants are the full top Chern-number list in its intrinsic anticanonical polarization, not a selective sample of integers. The table allows evaluation of degree-six characteristic polynomials, for example in Riemann–Roch or comparisons with other sixfolds, without repeating the ambient computation. This value rests on the explicit mixed pairings beyond the known Euler entry, not on novelty of the characteristic-class method or on the degree alone.",
+      "residual_risks": [
+        "A specialized numerical result; no new general formula, moduli theorem, or Chow-ring presentation is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

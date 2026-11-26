@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:36.218596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate into the difference span H. Rank three gives the affine simplex. In rank two put three points at 0,e1,e2; avoiding the three lines leaves (1,1),(1,2),(2,1), each giving a parallelogram after reordering. Equal character restrictions to H give proportional columns. Thus an invertible minor requires four different restrictions and each unordered local set has exactly (3^(d-r))^4 lifts, with unchanged Gram spectrum. Frequency translation is row-phase multiplication, and the count of (set, distinguished member) pairs is both four times the unanchored count and 3^r times the zero-anchored count. The independent exact calculation (column Gram traces plus Newton identities, not the packaged principal-minor implementation) reproduced the five planar polynomial multiplicities 16,4,16,16,4 in the order given. The first factors into t^2-9t+9 and t^2-7t+9, giving the stated extremes; the second has ratio 9, the third has cubic roots in (0,1),(4,5),(7,8) and so ratio >7; the remaining two are singular. In rank three all off-diagonal squared moduli are at least one by the integer root multiplicities, so tr(Q^2)>=76, tr(Q)=16. If the eigenvalue ratio is at most 7/3, scale into [1,7/3]; the derivative of (x^2+S)/(x+T)^2 is proportional to xT-S, so each coordinate maximum is at an endpoint and no interior coordinate attains the global maximum. The endpoint cases with 0 through 4 high values give 1/4,19/64,29/100,13/48,1/4. Only a single high value reaches 76/256, forcing spectrum (7,3,3,3) at equality and ruling out any smaller ratio. Of 2600 anchored simplex sets exactly eight have second characteristic coefficient 90 (tr(Q^2)=76), all with polynomial (t-7)(t-3)^3. The unanchored counts are therefore 16*9/4=36 and 8*27/4=54 before lifts. Independent replay: python3 /workspace/branches/d6c4f22c-73d3-47a5-b439-d187ec507290/census_replay.py; matching census_output.txt in that directory. Only the justified finite reduced spaces were enumerated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferguson–Mayeli–Sothanaphan treat general exponential-basis existence and quantitative spectrality; Barnett treats contiguous cyclic DFT submatrices.",
+          "ae557d1a308f covers all four-by-four ternary ranks; 2e5c015a9f31 gives minimum tight-frame size six on the same simplex, with 27 optimum six-sets."
+        ],
+        "reasoning": "A rank table only guarantees which class has four positive eigenvalues, while the tight-frame theorem addresses a different cardinality and exact equality to a scalar Gram matrix. The accessed broader literature does not specialize to an exact two-cap optimum or count.",
+        "searches": [
+          "arXiv:1904.04487v6, finite-abelian Riesz-basis framework",
+          "doi:10.1137/20M1336837, cyclic DFT conditioning",
+          "Resultary ae557d1a308f and 2e5c015a9f31"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Resultary 9f007d7c322e, 2e5c015a9f31, ae557d1a308f, 1aeaccf87af3",
+        "arXiv:1904.04487v6",
+        "doi:10.1137/20M1336837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tight-frame result also implies no orthogonal four-character simplex basis, since four third roots cannot sum to zero.",
+          "The frozen theorem additionally requires a quantitative Gram trace-square bound with the sharp eigenvalue-ratio inequality, and exact spectral comparisons to select the optimizers among the full-rank cases."
+        ],
+        "reasoning": "Nonorthogonality gives only ratio greater than one; it does not imply 7/3 or count equality. In the plane, even fixing rank four does not distinguish the three different nonsingular Gram polynomials. No equivalent or logically dominating claim was identified in the inspected material, irrespective of catalogue dates.",
+        "searches": [
+          "Resultary 2e5c015a9f31, offsets 78 and 2610",
+          "Resultary ae557d1a308f, local rank table; 9f007d7c322e, incidence Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio here is the square of the singular-value condition number of the character restriction matrix, matching the Riesz bounds of the finite-abelian-group framework.",
+          "1aeaccf87af3 computes exact spectra and an optimized Riesz ratio for subgroup plus one point. At subgroup order three the support contains an entire affine line."
+        ],
+        "reasoning": "Neither of the audited cap supports has a collinear triple, so unitary row/column phase changes and affine relabeling in that construction do not transform it into either canonical cap geometry.",
+        "searches": [
+          "Resultary: sharp ternary four-point cap / affine simplex Fourier Gram conditioning and exact minimizing counts",
+          "Resultary 1aeaccf87af3; arXiv:1904.04487v6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The incidence table gives 45 singular and 81 nonsingular partners per plane cap; the rank table gives the same split and gives 3213 rank-three / 14337 rank-four simplex partners, reproduced by the independent census.",
+          "The prior table's 36 singular line-rich partners are not the 36 nonsingular conditioning minimizers."
+        ],
+        "reasoning": "The number of nonzero eigenvalues determines admissibility, not the extremes within full rank. The prior counts therefore cross-check part of the census without covering its sharp objective or minimizers.",
+        "searches": [
+          "Resultary 9f007d7c322e, four-by-four ternary-plane minor incidence",
+          "Resultary ae557d1a308f, complete ternary minor rank distribution, local table offset 2664"
+        ]
+      },
+      "rationale": "Exact ternary four-point rank and singular-incidence tables were located, and an exact Riesz-ratio calculation for a line-plus-point support was located. None supplies the sharp squared spectral condition number or its multiplicity for the two cap supports. Tight-frame results on the same simplex exclude an orthogonal four-character basis but do not quantify the best non-tight basis. Credit here is for the new conditioning classification, not rank counts, existence, or tight-frame cardinality.",
+      "residual_risks": [
+        "An unindexed finite Fourier, matrix-design or experimental-design spectrum table could give equivalent coverage.",
+        "The bounded literature and Resultary checks do not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rank/incidence-level overlap only",
+          "evidence": [
+            "45 singular and 81 nonsingular, no optimization by Gram ratio"
+          ],
+          "identifier_or_url": "Resultary 2026/10/11 record 9f007d7c322e",
+          "material_read": "Finding, offset 75, including type-refined incidence counts",
+          "method": "Read local-mirror result and compare with exact census",
+          "title": "The four-by-four Fourier-minor incidence of the ternary affine plane",
+          "trigger": "Same planar cap and all four-character partners"
+        },
+        {
+          "assessment": "Different optimization; supplies nonorthogonality but not the four-frequency ratio",
+          "evidence": [
+            "Minimum 6 frequencies for tightness, with 27 such sets"
+          ],
+          "identifier_or_url": "Resultary 2026/10/11 record 2e5c015a9f31",
+          "material_read": "Finding and simplex tightness argument, offsets 78 and 2610",
+          "method": "Read local mirror and compare cardinality and invariant",
+          "title": "Prime-field simplex tight sampling has a unique ternary optimizer orbit",
+          "trigger": "Same ternary simplex and Fourier optimization"
+        },
+        {
+          "assessment": "Rank, not metric conditioning",
+          "evidence": [
+            "Plane cap 45/81, simplex 3213/14337 for rank 3/4"
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 record ae557d1a308f",
+          "material_read": "Local table, offset 2664",
+          "method": "Read local mirror, check rank counts against exact characteristic polynomials",
+          "title": "The complete four-by-four Fourier-minor rank distribution on ternary vector groups",
+          "trigger": "Broad exact table including both cap types"
+        },
+        {
+          "assessment": "Collinear triple excludes this geometry from the claim",
+          "evidence": [
+            "E_m=(Z_m x {0}) union {(0,1)}"
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 record 1aeaccf87af3",
+          "material_read": "Finding, offset 61",
+          "method": "Read local mirror and specialize support to order three",
+          "title": "Exact Riesz ratio of the subgroup-plus-one-point family",
+          "trigger": "Exact same conditioning metric and a four-point ternary case"
+        },
+        {
+          "assessment": "General frame and basis bounds, not the exact local conditioning census in material inspected",
+          "evidence": [
+            "Finite-abelian exponential basis framework and quantitative tightness questions"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1904.04487v6",
+          "material_read": "Opening framework and principal statements, offsets 0–2162 and 700–3248",
+          "method": "Read primary passages",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Primary source of general methods and Riesz-ratio setting"
+        },
+        {
+          "assessment": "Contiguous cyclic Fourier minors, not these ternary supports or optimizers",
+          "evidence": [
+            "The relevant geometry is a contiguous cyclic truncation"
+          ],
+          "identifier_or_url": "doi:10.1137/20M1336837",
+          "material_read": "Lawful open submitted PDF, introductory passage p. 1 around offset 3333",
+          "method": "Read primary passage on object and bounds",
+          "title": "How Exponentially Ill-Conditioned Are Contiguous Submatrices of the Fourier Matrix?",
+          "trigger": "Potentially related sharp DFT condition numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact optimal Riesz ratio is intrinsic to a sampling support and measures whether its best exponential basis is numerically stable; the multiplicity tells how many distinct bases attain that stability. The two affine geometries are exhaustive at this size and their sharp ratios differ substantially. This is a motivated finite classification, with an analytic quantitative lower bound and exact arithmetic in precisely justified representative spaces, not just an arbitrary table or reproduced rank counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

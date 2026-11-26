@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the explicitly labeled truncated-tetrahedral graph, all 495 induced four-sets are classified by a deterministic verifier; 447 disconnected sets yield facets of the cut complex, which has a complete six-skeleton. The Alexander dual is independently rebuilt from all 4096 subset masks, ensuring that its 220 triangular faces include those that are not faces of any connected-four-set tetrahedron. The replay validates 48 elementary collapse pairs, an eleven-edge spanning tree, and 55 triangular relations killing every remaining fundamental-group generator. These facts imply a simply connected dual with free rank-117 second homology, hence a 117-two-sphere wedge. Alexander duality and connectivity yield the 117-seven-sphere wedge for the original complex. Signed simplex traces are checked for all 24 symmetries, and character inner products are integral with the stated multiplicities. The external topological implications rely on standard Hurewicz and Whitehead theorems, not on a finite sample of homotopy groups.
+PASS
 
-## Originality — PASS against inspected evidence
+Rebuilt the directed-pair graph and tested induced quadruple connectivity by testing all bipartitions, independently finding 48 connected and 447 disconnected four-sets. Every seven-set lies in a facet; the literal complement predicate gives the complete two-skeleton plus the 48 tetrahedra in the dual. Replayed all 48 supplied free triangle/tetrahedron pairs and checked the eleven-edge spanning tree and 55 unit-edge relations, yielding a simply connected two-complex with reduced Euler characteristic 117. Hurewicz and homological Whitehead give the dual wedge. Combinatorial Alexander duality gives sole reduced H₇ of rank 117 on the original complex; its full six-skeleton gives five-connectivity, so Hurewicz and H₆=0 upgrade it to six-connectivity and give the seven-sphere wedge. The only graph triangles are the four vertex blocks; the unique reversed-edge connection between each pair of blocks determines each vertex from its two block labels, so the permutation action on blocks is faithful and exhausts the automorphism group. Independently evaluated the original reduced Lefschetz sum for all 24 permutations by enumerating unions of vertex cycles: after negating the reduced Euler trace, a fixed face formed by r cycles contributes (−1)^r, including the empty face. This returned (117,7,1,3,1). Irreducible character inner products with class sizes (1,6,3,8,6) give (8,4,16,13,9).
 
-The earliest qualifying source is Bayer et al., arXiv:2304.13675 (April 26, 2023), whose initial full-text sections and family table do not present this graph's ordinary four-cut equivalence or character. The related full-text sequel arXiv:2407.08158 (July 11, 2024) treats grid graphs, disjoint unions and symmetry; its full-skeleton theorem allows an Euler computation when hypotheses hold but does not imply the present wedge equivalence or its character. Relevant published research records cover the same graph at three-cut level and four-cut complexes under girth at least five, which is inapplicable because the truncated tetrahedron has triangles. Searches for the graph, cut parameter, dual, and symmetry character identified no dominating equivalent theorem. Indexed coverage is not exhaustive; two closely related public research pages were not fully accessible and are retained as residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The truncated tetrahedron is the smallest Archimedean truncated simplex graph and has a full tetrahedral symmetry group. Its four triangles exclude the standard girth-at-least-five four-cut classification. The result supplies the complete integral homotopy type at the next natural cut level after a known three-cut theorem, plus the full five-class rational symmetry character and eight globally invariant classes. These are structurally meaningful, stronger data than a bare Euler-characteristic calculation for a named graph. The result does not claim universal applicability or an integral equivariant module decomposition.
+General full-skeleton theorems already supply the Euler-count machinery. The available matching statements do not also establish the homotopy types and character for this graph. Same-day exact four-cut studies of the Dürer graph and cuboctahedral graph treat genuinely distinct graph parameters, not alternate descriptions of this graph. The exact same-graph index hit is the frozen record itself. The characteristic low-girth, ordinary four-cut calculation, dual homotopy and action therefore survive the statement-level comparisons.
 
-## Limits
+## value
 
-The homotopy conclusion concerns this graph only, and the symmetry decomposition is rational. Originality is based on indexed published-finding corpus comparisons and available primary literature, with residual unindexed-work risk. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The truncated tetrahedron is a canonical highly symmetric small graph whose triangles put it outside the higher-girth classification. At the natural next cut level after the three-cut result, the precise integral types for both dual partners and the full tetrahedral character distinguish homotopy and symmetry phenomena that an Euler count would not record. The eight-dimensional fixed subspace is genuine representation information, not just a table enumeration of connected quadruples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

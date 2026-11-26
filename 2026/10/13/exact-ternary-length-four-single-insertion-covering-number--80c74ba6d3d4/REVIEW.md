@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite domain has exactly \(81\) candidate four-symbol words and \(243\) five-symbol targets. Every incidence is independently rebuilt by deleting one position from a target, with duplicates removed. The displayed \(31\)-word family covers every target. The direct zero-gap mixed-integer set-cover computation attains both primal and global lower bound \(31\); the complementary zero-gap maximum-omission computation independently returns \(50\), giving the same sharp lower bound. Both executable formulations and the witness are supplied. Solver-internal branch certificates are not independently checked, and reproducibility requires SciPy/HiGHS.
+PASS
 
-## Originality
+The unrestricted incidence-cover formulation is exact: deleting any one of five positions, with duplicates ignored, is equivalent to obtaining the target by one insertion. I rebuilt the 243 target rows from insertions into the 81 possible centers, independently checked that the displayed 31 distinct words meet every row, and excluded all covers of size at most 30 with a separate exact integer-arithmetic proof replay. Every branch fixes one selection bit to 0 or 1. Unit rows force their one remaining bit; duplicate rows and rows containing another residual row are redundant. At each bound leaf, nonnegative integer multipliers y_i applied to the residual covering rows give a scaled lower bound D times the number already selected, plus sum_i y_i, plus sum_j min(0,D − sum_{i containing j} y_i), where D=1000000. The last term minimizes each residual coefficient times a 0–1 selection bit. Every bound leaf's integer score is strictly above 30D. The standalone replay checks both children of all 357 splits and all 358 bound leaves: the result does not rely on the numerical LP that suggested the multipliers, or on reported HiGHS MIP optimality.
 
-PASS, subject to residual indexing risk. The full 14-page arXiv:2606.15379v1 source was inspected; it establishes general bounds rather than this finite optimum. The publicly accessible full text of arXiv:2409.06425v1 gives \(S(3,4,3)=12\) from earlier data, not \(S(3,5,4)\). The 2021 general covering paper concerns general bounds. Searches for both covering-number notations, subsequence-hitting formulations, and exact tables found no statement implying the present value. A previously unindexed finite table remains a material residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result settles the next ternary word-length instance beyond the previously documented exact length-three case, for the elementary synchronization-error covering invariant. Its value \(31\) is substantially stronger than the ordinary sphere count's lower bound \(23\), and the sharp witness can benchmark finite insertion-covering constructions. No extrapolation to larger lengths is claimed.
+No checked earlier result establishes the exact unrestricted 4-to-5 ternary optimum. There is demonstrable exact coverage and a matching witness in the later-catalogued November 8 Resultary record; the November 2 record also prints the witness. These are not mathematically distinct statements of the unrestricted value or construction, and the shared witness does not establish independent discovery. Neither of those records is evidenced here to predate the frozen work. The pass is a bounded judgment at the frozen record, not a claim of global priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The length-four center case is the natural next ternary single-insertion covering invariant after the exact length-three case. The precise minimum 31 with an explicit cover is an independently useful finite benchmark: the elementary volume count is only ceil(243/11)=23, which does not answer whether a candidate construction of size 30 is possible. The unrestricted minimum also provides the natural baseline for quantifying a symmetry or additional channel constraint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

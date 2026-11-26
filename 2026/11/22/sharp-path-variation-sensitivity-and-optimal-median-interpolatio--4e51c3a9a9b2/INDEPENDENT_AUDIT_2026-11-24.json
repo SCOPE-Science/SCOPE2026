@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:13:28.483705Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two inputs have separate sample-dependent centers and share the same radius τ>0. In each strict rank-and-clip chamber the rows of the derivative are coordinate selectors or the same center row. On the quotient by constants the unit steps form the ℓ1 coordinate basis for path variation, so it suffices to bound one step response at a time. Piecewise affinity and continuity extend the bound to every pair, including ties. In odd size every response is binary. A median in the first position and an alternating mask to its right with a first-edge cut attain n−1. In even size, if both central sites are on the same side, that side is constant and contains at least two sites; this bounds the response by n−2. If they straddle the cut, the common value is s=θ or 1−θ, the sidewise oscillations are bounded by s and 1−s, and the bridge by 1. This yields 1+(n−2)max(θ,1−θ). To attain the first even branch, put the two central ranks at positions 1 and 2 and cut after position 2; to attain the other, cut after position 1 and place the larger interpolation weight on the left, with both central sites active. In each case alternate the masks to the right as in the proof. Both central values can be chosen in a narrow strict interval, with precisely half the remaining values below and half above it; each side then permits distinct strictly interior and exterior choices independently of the spatial mask. Finite sufficiently small step perturbations stay in the chamber and attain the announced ratios. At n=2 a strict identity cell gives 1 for every θ. Solving the inequality between the two even branches gives the singleton minimizer at n=4 and the claimed plateau at even n≥6. Single-input diminution follows from the scalar 1-Lipschitz property at its own center. The finite rational checker was inspected, not executed; the argument covers all n, θ and positive τ without enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank and trimmed-mean laws have moving local windows. Weighted tree rectification gives bridge-cut control at a fixed linear center, not an interpolation of spatially varying rank selectors."
+        ],
+        "reasoning": "Using a family of fixed linear centers can be relevant to bounding local responses, but none of the inspected statements gives the rank-dependent global operator and its attaining chambers or optimization of median conventions.",
+        "searches": [
+          "Resultary: sharp rank-dependent sliding order-statistic filters (4ad37e5b5ca9)",
+          "Resultary: running medians (4ef2a38a9807), symmetric trimmed means (15198f1331cd), weighted tree mean-centered rectification (a97bb3fa1c7b)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source and verification files",
+        "Published records fa0e636754f5, a97bb3fa1c7b, ddc6dbb8f632, 4ad37e5b5ca9, 4ef2a38a9807 and 15198f1331cd (passages or statements as noted)",
+        "Cited primary sources and Winsorizing Smoothers lead, access limits above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In arithmetic-mean clipping the center response to a cut is determined by the side cardinalities, not by whether two order statistics straddle the cut. Even with the weighted-linear-center mask method, a sharp result here has to choose where the rank indices can sit and realize the sharp masks while those indices remain the two central ranks. The window operators and empirical-quantile cutoffs do not give either branch of the rank-center phase diagram under these assumptions."
+        ],
+        "reasoning": "The closest prior methods overlap, but the exact attained classification and minimizer interval are not a parameter substitution into their statements.",
+        "searches": [
+          "fa0e636754f5 Finding and proof",
+          "a97bb3fa1c7b published bridge-cut statement",
+          "4ad37e5b5ca9 indexed rank-filter statement",
+          "ddc6dbb8f632 indexed Winsorization statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stated clip is a winsorization to the two data-dependent bounds c(x)±τ, not to two chosen sample ranks. Quantile Winsorization’s indexed exact coefficient is for complete-pair Gini variation, not adjacent path variation."
+        ],
+        "reasoning": "An alias for clipping does not preserve either the cutoff rule or the seminorm in the strongest Winsorization match.",
+        "searches": [
+          "Resultary: median-centered rectification clipping fixed amplitude symmetric band rank interpolated two central order statistics L statistic sharp two-input path variation n−2 center selection",
+          "Resultary ddc6dbb8f632: empirical-quantile Winsorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact match is the reviewed record itself. The arithmetic mean sibling gives 2 floor(n²/4)/n, the rank-filter entry gives 2 min(q−1,w−q)+1 for its window rank, and neither has the interpolation parameter or the plateau."
+        ],
+        "reasoning": "The positive evidence is the distinct scope and constants of the strongest other indexed statements; a catalogue miss alone does not establish novelty.",
+        "searches": [
+          "Resultary meaning search for the global median clip, odd n−1, and even n−2 interpolation plateau"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp size- and interpolation-dependent law for a global order-statistic center, particularly the exact even-size minimizer set. Local step/activation methods and related clipping, rectification, Winsorization and rank-filter stability results are precedents, not claimed new. This is a bounded comparison, not a historical-priority attestation.",
+      "residual_risks": [
+        "The accessible indexed and frozen passages do not exclude an older exact theorem in the winsorizing-smoother literature or a broader rank-centered theorem not retrieved.",
+        "Same-day listings do not settle priority; external primary-text retrieval was limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close sibling; different center derivative and exact gain",
+          "evidence": "Unweighted mean yields 2 floor(n²/4)/n. The same publication date establishes no within-day priority.",
+          "identifier_or_url": "fa0e636754f5",
+          "material_read": "Frozen RESULT.md Finding and proof of step response and sharp masks",
+          "method": "Frozen source",
+          "title": "Sharp path-variation sensitivity of mean-centered clipping",
+          "trigger": "Same fixed-radius map and metric with a different location center"
+        },
+        {
+          "assessment": "Same type of affine-mask calculation; not a rank-center theorem",
+          "evidence": "The bridge-cut maximum is attained for mean-centered positive-part rectification, with unit-weight gain (2/n) max_e |U_e||W_e|.",
+          "identifier_or_url": "a97bb3fa1c7b",
+          "material_read": "Published Resultary statement and unit-mass specialization; full source unavailable",
+          "method": "Local catalogue and attempted mirror retrieval",
+          "title": "Sharp two-input graph-variation sensitivity of mean-centered rectification on weighted trees",
+          "trigger": "Sharp variation cut method for related data-dependent thresholds"
+        },
+        {
+          "assessment": "Different cutoff rule and dispersion seminorm",
+          "evidence": "The two-input coefficient is max{a(n−a),(n−b+1)(b−1)}/(n−1) for the complete-pair Gini-variation quotient.",
+          "identifier_or_url": "ddc6dbb8-f632-4a2c-8c57-031330847d87",
+          "material_read": "Indexed mathematical summary; full passage unavailable",
+          "method": "Local Resultary",
+          "title": "Sharp two-input Gini stability of empirical-quantile Winsorization",
+          "trigger": "Nearest fixed-dataset order-statistic Winsorization result"
+        },
+        {
+          "assessment": "Sliding window order statistic, not global median-centered clipping",
+          "evidence": "Centered endpoint-clamped odd window, coefficient 2 min(q−1,w−q)+1 for n≥w+1.",
+          "identifier_or_url": "4ad37e5b5ca9",
+          "material_read": "Indexed mathematical summary",
+          "method": "Local Resultary",
+          "title": "Exact rank-dependent variation sensitivity of sliding order-statistic filters",
+          "trigger": "Sharp rank-dependent path-variation theorem"
+        },
+        {
+          "assessment": "Frozen comparison suggests a different operation; no whole-paper exclusion",
+          "evidence": "Frozen comparison describes moving-window hard replacement with a MAD-based threshold, rather than clipping at a uniform fixed absolute distance.",
+          "identifier_or_url": "https://doi.org/10.1186/s13634-016-0383-6",
+          "material_read": "Description in frozen prior-work comparison; independent full text not recovered",
+          "method": "Citation and attempted OA inspection",
+          "title": "Generalized Hampel Filters",
+          "trigger": "Cited archival robust-median outlier filter"
+        },
+        {
+          "assessment": "No conclusion on all results of the paper",
+          "evidence": "The frozen source cites this work on absolute deviations around a median; it does not quote a sharp clipping theorem from it.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jesp.2013.03.013",
+          "material_read": "Frozen bibliographic citation; no independently recovered primary passage",
+          "method": "Citation and attempted primary retrieval",
+          "title": "Detecting outliers: do not use standard deviation around the mean, use absolute deviation around the median",
+          "trigger": "Cited robust-scale motivation"
+        },
+        {
+          "assessment": "Unresolved, not evidence against or for priority",
+          "evidence": "Title is relevant to winsorized smoothing; exact objects and estimates could not be inspected.",
+          "identifier_or_url": "https://koasas.kaist.ac.kr/bitstream/10203/11679/1/20.pdf",
+          "material_read": "Recognized search lead; no full-text passage retrieved",
+          "method": "Literature lookup and attempted lawful PDF retrieval",
+          "title": "Theoretical Analysis of Winsorizing Smoothers",
+          "trigger": "Plausible archival equivalent under winsorizing terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing a sample median convention really changes worst-case perturbation amplification for a natural robust clipping rule, although no convention increases individual path variation. The classification says when midpoint centering is uniquely optimal and when an interval of asymmetric conventions is equally good. Attaining tests with strict ranks and clipping decisions distinguish true instability from a boundary-only linearization artifact. No assertion about statistical-risk optimality is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

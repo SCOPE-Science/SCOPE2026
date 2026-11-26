@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated object and operation are fully defined. A direct matrix exponential gives surface accumulation and the surface-to-air impulse response; linearity reduces the exposure benefit exactly to a positive coefficient times \(f(\tau)L(T-\tau)\). Strict log-concavity of both factors establishes a unique interior maximizer, not merely a critical point; an implicit-function sign proves strict horizon monotonicity. Short- and long-horizon expansions follow from Taylor series and a nondegenerate peak derivative. The proof specifies endpoints and fixed-positive-rate asymptotic scope. Reproducing the included checker gave 31,536 numerical comparisons, including independent ODE integrations; numerical testing is explicitly not used as the proof of the universal statement.
+PASS
 
-## Originality — PASS on inspected evidence
+With v,a,d>0, the rate polynomial is positive at 0 and negative at d, so the two positive rates straddle d. The off-diagonals of the unperturbed propagator are a f/k and d f/k, k=r−s. The first builds the surface load from the air-only pulse and the second propagates the removed load to the air objective over the remaining time. This yields the exact positive-factor gain qQad f(τ)L(T−τ)/k², with zero gain at both endpoints. The logarithmic derivative g=f′/f strictly decreases. To check h=f/L decreases, f′L−f²<0 is immediate when f′<=0; otherwise the strict log-tangent bound for f on (0,t) gives L<f²/f′. The stationarity expression g(τ)−h(T−τ) is therefore strictly decreasing in τ and increasing in T. The unique interior root lies below the surface peak t0, increases with T, and converges to t0 as h tends to zero. For short horizons, writing x=τ/T and multiplying the root equation by T gives 1/x−2/(1−x)−(r+s)T/6+O(T²) near x=1/3. The first two terms have a simple zero there with derivative −27/2, giving the stated −(r+s)T²/81 coefficient in τ. At large T, h(u) is asymptotic to sr exp(−su)/k and g′(t0)=−sr, which gives the stated exponential peak approach. An independent augmented-matrix-exponential computation reproduced the example optimizer 1.954697195671885 h, baseline burden 1.455061340406646, and reduction 0.235189905679788.
 
-The defining 2023 smoke-VOC paper (Li et al., DOI 10.1126/sciadv.adh8263) contains the exact linear gas–surface model, experimental cleaning, and reservoir dynamics; it does not give the exact finite-horizon one-wipe optimizer or its spectral characterization in the material read. The 2017 Lei–Jones–Li cleaning study (DOI 10.1186/s12879-016-2120-z) considers hospital contact transmission and a different cleaning objective. Blanchini et al. (DOI 10.1016/j.automatica.2022.110680) provide strong prior general positive-compartmental optimal control with continuously adjusted arc flows; their allowable interventions and switching theorem do not directly imply the stated fixed-generator instantaneous-reservoir-reset optimization without a separate derivation. Nearby retrieved research concerns aerosol ventilation budgets, contaminant plume sensors, stormwater wash-off order, and optimal sampling of exponential modes. Historical priority remains provisional: another older impulse-control or indoor-air engineering result might already present an equivalent calculation or stronger theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating experimental literature explicitly finds that post-smoke surface reservoirs prolong airborne VOC exposure and that physical removal affects persistent levels. A finite deadline creates a nontrivial tradeoff: cleaning immediately removes nothing, while cleaning at the deadline prevents no exposure inside the window. Uniqueness and a two-mode calibration law permit a globally optimal intervention time without separately estimating all adsorption, desorption, and ventilation coefficients. The exact \(1/3\) short-window rule and long-window surface-peak limit reveal mathematically distinct scheduling regimes. This is a useful self-contained benchmark rather than a validated field protocol or universal recommendation.
+The physical two-state exchange model and cleaning of surface reservoirs are prior. The supported distinct contribution is the evaluated one-wipe, source-free finite-horizon timing theorem, including uniqueness, spectral dependence, horizon monotonicity and its two endpoint laws. The strongest overlapping scalar window result uses different dynamics and cannot be specialized to this two-mode jump.
 
-## Sources and boundaries
+## value
 
-Primary open full text: https://pmc.ncbi.nlm.nih.gov/articles/PMC10575580/ (especially equations (1)–(2), surface-cleaning findings, and limitations). Closest different-object sources: https://link.springer.com/article/10.1186/s12879-016-2120-z and https://iris.unitn.it/retrieve/cd15dadf-d327-4a44-9014-aac0cddefec4/Automatica_OptimalControl.pdf . Model scope excludes additional pollutant sources, multiple sorbing reservoirs, nonlinear surface chemistry, cleaning-generated VOCs, time-varying rates and uncertain parameters. The proof and numerical checker have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit timing criterion distinguishes maximizing removed surface burden from minimizing cumulative air exposure. The optimum is strictly earlier than the burden peak and can be selected from the two air-decay rates without identifying the individual transfer rates or removal fraction. The horizon dependence gives actionable limiting intuition and an exact test case for richer compartment models; this is a meaningful structural result within the stated idealization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

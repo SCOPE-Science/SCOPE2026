@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The absorbing-edge condition is taken from the primary source [1]. The nine-culture common-neighbour geometry proves that every compatible pair of occupied shore palettes lies in one of four exhaustive structural families, whose overlap cardinalities are evaluated explicitly by inclusion-exclusion. A second exact support/surjection enumeration independently reproduces the all-order closed form for 576 positive shore pairs and direct configuration enumeration checks eight small graphs. The limiting three-versus-five culture law follows from explicit exponential comparisons and occupancy bounds. Finite checks corroborate rather than replace the proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The primary article [1] establishes a general homomorphism identity and small example counts, but no evaluated all-order \(q=3,F=2\) biclique expression or aspect-ratio phase transition. Galvin–Tetali [2] give general homomorphism extremal bounds and Sason [3] treats bipartite target graphs, not this looped nonbipartite target. Queries of the accessible mathematical literature and comparison with recoverable previous mathematical claims identified no equivalent formula, stronger covering theorem, or explicit culture-count mixture. This is a best-knowledge literature comparison, not a proof of global priority; the generic homomorphism framework itself is established prior work.
+PASS
 
-**Value — PASS.** The first nonbinary two-feature palette is the smallest setting where distinct frozen culture structures compete. Complete bipartite source graphs are canonical dense heterogeneous mixing networks. The exact count, 42 maximal compatible palette pairs, and the explicit irrational aspect-ratio transition reveal a change from five occupied cultures to three, with a critical finite-shape scaling law. This addresses a natural structural question prompted by the new absorbing-state classification, not an arbitrary restricted computation.
+The frozen condition is precisely cross-shore equality or disagreement in both coordinates. In the 3×3 culture grid a singleton has five compatible cultures; a distinct pair sharing a coordinate has the complementary two-point common-neighbor palette (whose common-neighbor palette in reverse is the original pair), and a pair sharing neither coordinate has the unique three-point permutation palette. This yields exactly 42 maximal oriented pairs, not 42 individual supports. Inclusion-exclusion for the two monochromatic-shore families and the permutation-triple family gives 9(5^a+5^b)+6·3^(a+b)−18(3^a+3^b)+9; the remaining disjoint family gives 18(2^a−2)(2^b−2). This verifies the formula for all positive shores, including a=1 or b=1 and the small 2×2 case. With a≤b and both tending to infinity, 5^a≤5^((a+b)/2)=o(3^(a+b)), and all other corrections and dominant-family intersections are lower order than 9·5^b+6·3^(a+b). Surjection error bounds show that the two dominant families actually use five and three cultures, respectively. Their weight ratio is (2/3)·3^(a−θb), giving both phases and the stated offset-dependent mixture.
 
-**Residual scientific limits.** Only \(F=2,q=3\) and labelled complete bipartite graphs are treated; the result gives no claim about the stochastic absorption probability, and unindexed equivalent historical work is possible. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Sources
+Credits the general homomorphism and support-sum formulations and previously tabulated examples. The distinct content is the resolved support geometry for the nine-culture target, the evaluated two-parameter count, and the imbalance-driven culture law. None of the compared general results supplies that geometry or the critical-window distribution.
 
-[1] Boudourides, *Triadic and assortative structure of absorbing states in the Axelrod model*, arXiv:2611.18719v1, https://arxiv.org/abs/2611.18719v1
+## value
 
-[2] Galvin and Tetali, *On weighted graph homomorphisms*, https://arxiv.org/abs/1206.3160
+PASS
 
-[3] Sason, *Counting Graph Homomorphisms in Bipartite Settings*, https://arxiv.org/abs/2508.06977
+The first three-value, two-feature target goes beyond monochromatic or single compatible-pair supports. The natural unbalanced complete bipartite test case lets one identify two geometrically distinct types of typical frozen state and their exact transition, including nontrivial critical weights. It is an exact comparison for a defined frozen ensemble, not a claim about cultural evolution trajectories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

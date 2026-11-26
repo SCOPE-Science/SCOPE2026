@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks conditional independence from the forward branch structure, derives the exact dyadic comparator transducer, proves the rank-one reset composition for every nonquarter cutoff, and establishes a geometric tail using disjoint output blocks. At the quarter cutoff, the neighboring binary XOR formula yields exactly two complementary preimages. Finite checks of exact state maps and word counts corroborate rather than replace the infinite-domain proof.
+PASS
 
-## Originality — PASS, subject to historical-priority uncertainty
+For every real cut, the two inverse branches above a point are antipodal and equally weighted, with exactly one branch in the half-open semicircle. Iterating independence of the current bit from the next state yields all cylinder probabilities. For a dyadic cut 2^r a=k, the low r−1 bits distinguish the two thresholds in the high-bit cases: the indicator is 1 exactly when the high bit disagrees with the comparison s_next≥k. This gives the backward maps in RESULT.md lines 23–38. Below k, F_0 repeatedly halves with floor; at or above k, the distance to M−1 repeatedly halves with floor. Both regions are invariant, and m=r−1 steps send them to 0 and M−1, respectively; for k=0 only the upper region exists. F_1 sends the two endpoints to M/2 and M/2−1 (for k>0), in the same region exactly when k≠M/2. Hence F_0^m F_1 F_0^m is constant outside the exception, including k=0. A later reset fixes the state there, and the intervening backward maps give the earlier state and bit. Independent aligned length-L blocks give failure probability (1−2^−L)^j for the first j blocks; reset occurrences downstream of every coordinate hold simultaneously almost surely. This reconstructs a measurable inverse and shift commutation then gives conjugacy. At k=M/2 the code is successive-bit XOR; the two choices of initial bit give complementary preimages, and no others. Typical output is not eventually constant, so binary endpoints cannot supply additional preimages. Reflection preserves Lebesgue measure, so an injective full-measure set cannot pick one of each typical reflected pair.
 
-The general results on sliding-block codes (Gonçalves--Sobottka--Starling, arXiv:1502.06262) and synchronizing automata (Araújo--Cameron--Steinberg, arXiv:1511.03184) are prior mathematics. The compared implications do not evaluate the fiber multiplicities of dyadic translated semicircle factors or give the explicit all-denominator reset word. Relevant older general results on Bernoulli endomorphisms and cellular automata were accessible only through abstracts, so an implicit earlier specialization remains a genuine risk. The absence of a search hit is not evidence of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem distinguishes distributional randomness from recovery of the hidden initial state in a canonical symbolic system. Its complete infinite dyadic family, uniquely non-generating quarter cut, exact two-fold fiber, and explicit finitary decoder with a geometric tail make this a natural structural classification and practical observation-theoretic fact.
+Fair output via balanced inverse branches, reset words in general, and Walsh examples of fair output are not the distinct contribution. The supported contribution is the all-dyadic-cut classification for this specified half-circle sensor, with an explicit word and inverse-delay bound outside the quarter cut, and the exact exceptional fibers. Neither the material inspected on this same doubling map nor general coding theory supplies this combination. This is a bounded comparison rather than a priority certificate.
 
-## Closest literature and limitations
+## value
 
-The general coding and automata references establish frameworks, not the displayed comparator family theorem. Nondyadic coding-injectivity is left unclassified; a.e. invertibility does not mean topological bijection on all points. The rate depends on the binary denominator.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mandated natural observation family has identical complete output laws, yet the factor map loses one bit at exactly one dyadic location and is almost-surely recoverable elsewhere. The classification separates a distributional diagnostic from actual state information, and a single explicit precision-dependent reset word makes the contrast constructive with a quantitative delay bound. This is more than a demonstration of fairness or a generic reset-word criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

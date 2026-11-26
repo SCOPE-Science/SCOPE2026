@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The sharp real \(BV\)-to-weighted-\(L^2\) norm is reduced analytically to the maximum of a one-variable Laguerre step residual. `CHECK.py` establishes the complete classification at degrees zero through five via exact rational arithmetic, independently of floating-point root estimates. Run `python3 CHECK.py` using Python 3's standard library.
+# Independent mathematical audit
 
-The script constructs ordinary Laguerre polynomials and the polynomials \(B_n,Q_n,A_n\), checks the derivative identity, isolates every root of \(A_n\) by rational sign changes (the count equals its degree), determines the signs of all critical values of \(e^{-t}Q_n(t)-1/2\), isolates and counts every stationary point, bounds the exponentials by Taylor polynomials with a rigorous positive remainder, and proves strict inequality between the winning and competing stationary residual values. The success line is `LAGUERRE_EXACT_CERTIFICATE_PASSED 84`.
+## correctness
 
-The comparison at degree five is especially narrow, so rounded decimals are not accepted as a certificate. The checker works with rational enclosures of width \(10^{-11}\) for the stationary roots; the lower bound at the third root is larger than the upper bound at the first. The complete critical-point count rules out additional larger stationary maxima. The endpoints have zero residual, hence cannot maximize.
+PASS
 
-A separate numerical quadrature cross-check at the six winning jump locations agreed with the exact finite-term residual formula to roughly \(10^{-16}\). This corroboration is not used to prove the theorem. The result is limited to degrees zero through five, real ordinary variation, exponential probability weight and exact orthogonal polynomial projection. No independent mathematical audit has been performed.
+For ordinary variation on the open half-line understood as |Df| mass, a bounded representative equals a constant plus the signed Stieltjes integral of right-tail steps almost everywhere. The projection residual annihilates constants; the triangle inequality bounds it by the integral of the step norms against |Df|. A maximizing step attains the bound, and equality forces concentration of |Df| on the maximizing locations, so a unique location gives exactly the claimed nonconstant extremizers. Orthonormality, the integral of e^(-x)L_k(x) over [t,infinity), and subtraction of the first n+1 squared coefficients give R_n(t)=e^(-t)-e^(-2t)B_n(t). It is positive inside since a step cannot agree with a polynomial almost everywhere, and tends to zero at both ends. Differentiating gives R_n'=e^(-t)(2e^(-t)Q_n-1). The independent replay constructs B_n,Q_n over rationals, isolates and exhausts the positive roots of Q_n'-Q_n by Sturm sequences, and uses exact exponential intervals to count the stationary roots between them and compare their residuals. Counts are (1,1,1,3,3,3); the unique winners are root 1 through degree 4 and root 3 at degree 5, whose squared margin over root 1 exceeds 0.0000521944. Distinct successive maximizing locations and the pointwise nesting inequality also give strict decrease of the sharp norms over these degrees. Replay: python3 /workspace/branches/844146e3-8c0c-49b0-9eef-00e14b2d01d7/audit_laguerre_independent.py; see audit-run.txt there. The frozen script was not executed. No higher-degree, other-weight, or complex-valued classification is checked.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the sharp continuous projection-residual classification and first branch relocation through degree five. The variation-to-step argument, classical Laguerre identities and sharp single-coefficient analysis are not claimed as new. The closest indexed coefficient record was compared by formula and objective.
+
+## value
+
+PASS
+
+The exact norm for continuous polynomial projection of variation-bounded data is a natural approximation invariant, and the optimizer geometry matters independently of the size of the norm. The degree-five switch disproves selecting the first stationary jump even within a short natural nested family, and certifies why a close numerical comparison has a strictly different winner. Proving the first switch and identifying all extremizers through it is useful finite structural information, not significance inferred from a tiny improvement in error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

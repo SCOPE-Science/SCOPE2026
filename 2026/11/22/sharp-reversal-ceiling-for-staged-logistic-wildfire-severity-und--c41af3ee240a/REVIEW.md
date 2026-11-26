@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The chain rule exactly multiplies conditional stage probabilities. The shared positive weather slope converts their denominators into monic polynomials, so the difference has degree at most \(n-1\). The all-identical case is separated. Sharpness preserves simple negative polynomial roots under small coefficient perturbations; it is not inferred from numerical experiments. The three-stage two-crossing test is an exact quadratic-root equivalence. An exact rational sign-bracket certificate proves all three stage thresholds in the example are positive. The standalone checker replays the exact witness and 30,000 rational comparisons; finite tests do not prove the universal theorem.
+PASS
 
-## Originality: PASS on inspected evidence, priority provisional
+The chain rule gives the product without independence; finite thresholds ensure all factors are positive. For t=e^(βw)>0 the gap has the sign of Q_B−Q_A where Q_A and Q_B are monic degree-n denominators, so the degree is ≤n−1 unless they are identical, in which case the odds multisets agree. At n=1 a nonidentical pair has no finite tie. To prescribe roots r_j>0, choose distinct positive base odds and disjoint negative intervals about their negatives. With sufficiently small nonzero ε, adding ε∏(t−r_j) preserves the opposite signs at the endpoints of every interval, giving all n negative simple roots of the perturbed monic denominator. Thus the new odds are positive finite and the gap has precisely the prescribed simple zeros, also in w. For n=3, positive product z/u, positive sum −v/u and positive discriminant are exactly the two-distinct-positive-roots condition, excluding loss of degree and tangency. The cubic witness's six signs, two crossing points and risk ordering all check. Each treatment has strictly increasing risk because each positive factor strictly increases.
 
-Brodie et al. (2024) provide empirical motivation from weather-dependent fuel treatments; Perrakis et al. (2023) provide genuine fire-logistic models. Panja–Kundu–Pradhan's full 20-page arXiv preprint establishes heterogeneous proportional-odds majorization-order results for series and parallel lifetimes, a close mathematical equivalent product setting, but not a sharp crossing-count and arbitrary location-realizability theorem under unrestricted thresholds. A 2017 location-scale maximum paper was accessible only at abstract level; its broader implications remain a specific priority risk. published-finding corpus and accessible prior research claims were checked by actual searches against the candidate, its aliases and parameter reductions. No inspection by title alone is treated as exhaustive, and classical polynomial facts are not presented as novel.
+## originality
 
-## Value: PASS
+PASS
 
-The structural result distinguishes monotonicity of each severe-outcome risk from monotonicity of the *relative* treatment ranking. It supplies a sharp complexity ceiling across varying fire weather, a concrete exact three-stage two-reversal witness, and a necessary-and-sufficient sign test for the first nontrivial double-reversal case. Observing more reversals than the number of stage gates minus one would refute the shared-slope stage description, not merely change a fitted threshold. No recommendation about actual prescribed-burning treatments is inferred.
+The supported distinct claim is the sharp crossing-calendar theorem with unrestricted positive odds in the equal-length common-slope model. A monic polynomial difference already implies the ceiling once product form is available, and the three-stage inequalities are ordinary quadratic algebra. No verified comparison supplies arbitrary maximal simple-crossing placement for the same admissible family. Priority remains qualified.
 
-## Limitations and closest literature
+## value
 
-The stage decomposition, conditional logistic responses, identical slope and fixed weather covariate are idealizations, and no observational calibration or confidence intervals are established. The mathematical product is equivalent to a heterogeneous proportional-odds maximum, so stochastic comparison literature is the principal novelty risk. The 2017 abstract-only source requires fuller priority review. Scientific references and reproduction details are in `RESULT.md`; the exact standalone validation is `checker.py`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result isolates a falsifiable structural ceiling and gives its exact attainable complexity, separating monotone individual risks from monotone comparative rankings. Prescribing crossing locations is stronger and more useful than one example, and the cubic/quadratic test identifies the first double-reversal regime exactly. The value is as a common-slope model benchmark, not a fitted or operational claim about fire management.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

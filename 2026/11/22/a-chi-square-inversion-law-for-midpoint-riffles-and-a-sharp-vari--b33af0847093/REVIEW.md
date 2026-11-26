@@ -1,19 +1,21 @@
-# Scientific review: midpoint-riffle inversion law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditional on any cut, reflection of pairs of packet-midpoint keys exchanges earlier and later relations for every strictly ordered cross-packet pair. Exactly half of the non-tied pairs are inverted, and independent fair tie coins produce the conditional binomial term. The proof derives the exact mean and variance using the second and fourth centered moments of a symmetric binomial, and derives the limiting reflected chi-square distribution via the binomial CLT with an explicit negligible tie-noise bound. The GSR comparison follows from an exact independent-binary-label decomposition into a weighted linear term and a centered quadratic term, which are uncorrelated and have exactly evaluated variances. Lindeberg and a second-moment bound give its Gaussian limit. The embedded checker corroborates finite distributions and moments through stated sizes but is not used to infer the all-size theorem.
+PASS
 
-## Originality
+At every nonempty cut, reflecting both midpoint grids changes x and y to 1−x and 1−y. This pairs the strictly inverted and strictly noninverted cross pairs; ties are disjoint, and a tie coin affects only the order of its tied pair. Empty cuts give zero. For odd deck sizes midpoint equality is impossible by parity and the cut masses combine two at a time, since k(n−k) is strictly increasing on the lower half of the cut range. The centered cut W has E(W²)=n/4 and Var(W²)=n(n−1)/8. Total variance gives the stated n(n−1)/32 plus E(T)/4, and T≤n gives L²-negligible coin noise on scale n; the cut CLT gives (1−Z²)/8 with the exact centering. For GSR the label-word probability is 2^(−n) for every word, as the binomial probability of the cut cancels the uniform-interleaving denominator. Expanding the pair count gives the indicated linear weights and centered quadratic term. Odd moments give orthogonality; the sum of squared linear coefficients gives variance n(n²−1)/48, and the quadratic variance is n(n−1)/32. Their sum and the normalized Lindeberg bound give the stated comparison. Independently constructed exact enumeration passed 220 midpoint and 18 GSR checks for sizes 2–10. The frozen checker was read, not run; bounded enumeration is corroboration only.
 
-PASS under the examined literature, with residual historical-priority risk. Jiang's arXiv:2611.02092v1 develops the same midpoint shuffle and computes the tie count, but its inspected model, inversion-related, bounds and limitations passages do not state the complete one-step inversion law, its reflected-chi-square limit, or the exact GSR variance-suppression comparison. The prior tie-count result is credited. Classic GSR inversion enumeration and fluctuation calculations concern the uniformly random interleaver, not midpoint sorting; that comparator is not claimed as newly discovered. A related published midpoint-riffle group-generation result concerns odd-deck irreducibility rather than the inversion statistic. A published correlated-label inverse-riffle inversion regime concerns a different shuffle. The inaccessible full text of the group-generation result leaves a bounded risk that it contains additional inversion computations not described in its indexed summary. The explicit novelty is confined to the midpoint law and scale contrast; searches alone do not certify priority.
+## originality
 
-## Value
+PASS
 
-PASS. The two shuffling mechanisms have exactly the same binomial distribution of cuts and the same mean inversion count, yet midpoint sorting cancels essentially all within-cut inversion noise. It changes the variance order from cubic to quadratic in deck size, with an exact sharp ratio on odd decks, and changes the limit from a Gaussian to a one-sided, reflected chi-square distribution. This is a natural quantitative diagnostic of the interleaving mechanism in a recently introduced shuffle, not an arbitrary parameter slice or a minor numerical improvement. The precise finite distribution is meaningful independently of a mixing theorem.
+The best-of-knowledge finding is the midpoint inversion distribution and the associated change of scale and limit relative to GSR. The shuffle, tie formula and classical comparator are prior. No covering result for the distinctive midpoint distribution was identified in the inspected material.
 
-## Closest literature and limitations
+## value
 
-The motivating source is Jiang, *Adhesive riffle shuffles*, arXiv:2611.02092v1, §§2--4 and 13. Classical GSR benchmarks are documented by Bayer--Diaconis (1992), Diaconis--Fulman (2023) and Sellke--Shi--Wang (arXiv:2510.22783). The published-finding corpus record titled *Odd-deck midpoint riffles generate the full symmetric group* concerns group support and convergence, and the record *Three-scale inversion laws for correlated-label inverse riffle shuffles* concerns a distinct stochastic interleaver. The findings are only about one step from the ordered deck; no total-variation mixing rate, cutoff, positive-adhesion law, or independent mathematical validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Inversions are a natural quantitative measure of departure from an ordered deck. Holding the entire random cut law fixed isolates the effect of the midpoint interleaver: exact cancellation of all strict within-cut inversion fluctuations leaves only the squared cut fluctuation and smaller tie noise, giving a one-sided limit and a precise order-n reduction in variance compared with GSR. This is useful as an observable distinguishing these two models without claiming a mixing consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

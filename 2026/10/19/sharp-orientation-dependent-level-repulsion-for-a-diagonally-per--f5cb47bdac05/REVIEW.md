@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact random object is a two-dimensional compression of three independently uniform diagonal variables. Its squared eigenvalue separation is an explicit ellipse quadratic form; the transformed density is exactly the truncated range density, so ellipse area and first-absolute-moment integrals establish the probability polynomial without asymptotic heuristics. Boundary orientations reduce to a convolution of weighted uniforms, and the inverse-moment classification follows by layer cake. The Schur-complement argument establishes samplewise first-order transfer to the perturbed rank-one projector, with a uniform error bound. Symbolic and numerical scripts reproduce the algebra and sample checks; simulation does not establish the analytical continuum statements.
+PASS
 
-## Originality — PASS (self-review)
+With p=p₁,q=p₂,r=p₃, the projector I−aaᵀ yields the stated quadratic form M in x=d₁−d₃,y=d₂−d₃; its off-diagonal entry is pq−r and (1−p)(1−q)=pq+r, giving det M=4pqr. The cube fibers in d₃ have length (1−w)₊, w=max(|x|,|y|,|x−y|)=(|x|+|y|+|x−y|)/2. The ellipse stays in w≤1 through exactly t₀, since its maxima of those three linear absolute values are t(1−q), t(1−p), t(1−r), each divided by 2√(pqr). Beyond t₀, the integrals of (1−w)₊ and 1−w differ strictly on a positive-area open set. The disk change of variables has Jacobian t²/(2√(pqr)); integrating absolute linear forms with disk first absolute moment 4/3 gives the stated cubic. At one zero coordinate the gap is |d₁−Z| with Z the independent weighted sum of the other uniforms; subtracting the two end losses against the triangular endpoint densities gives 2t−t³/(3uv). At two zeros the uniform difference gives 2t−t². Layer cake gives the claimed thresholds, with logarithmic divergence at the critical exponents. For positive η the Schur complement at λ uses a positive denominator ≥1−η. At λ=0 the complement is PSD, and at λ=η its eigenvalues are ≤η before subtracting λI; each ordered eigenvalue minus λ decreases strictly. The two roots, counted with multiplicity, are the two small full-matrix eigenvalues by inertia. Weyl on the 2×2 complement bounds each error as claimed, and hence the normalized gap error is uniform. No fixed-positive-η polynomial is inferred.
 
-The closest methodological source is Kressner and Shao, *On a randomized small-block Lanczos method for large-scale null space computations*, arXiv:2407.04634 (originally July 5, 2024). Its Section 2.1, Proposition 3, and Theorem 4 treat eigenvalue repulsion under independent uniform diagonal perturbations; its finite-strength high-probability bound does not compute the orientation-dependent first-order CDF, exact cubic term, sharp local radius, or boundary inverse-moment threshold. The closest general spectral-statistics source inspected is Kumar and Ahmed, *New Spectral Statistics for Ensembles of 2x2 Real Symmetric Random Matrices*, Acta Polytechnica 57 (2017), Section 2, which computes spacing laws for two different unconstrained matrix-entry ensembles. Their polynomial-shaped local spacing law is acknowledged; the constrained 3x3 compression with arbitrary prescribed nullspace coordinates is not a corollary of their formulas.
+## originality
 
-Targeted mathematical-record queries used aliases for compressed diagonal disorder, degenerate eigenvalue splitting, null-space repulsion, and inverse-gap moments. No covering result was identified. That absence alone is not a uniqueness proof. Older exact random-compression treatments remain a novelty risk.
+PASS
 
-## Value — PASS
+The diagonal perturbation model and broad finite-perturbation gap bound are established by Kressner–Shao, and the first-order compression mechanism and small-spacing geometric intuition are not new. The distinct result is the exact orientation-dependent CDF including its sharp interval, boundary degeneration, and inverse-moment classification in this minimal model. Neither the prior gap bound nor the other 2×2 spacing models determine it.
 
-The classification resolves a concrete risk left implicit in randomized diagonal-perturbation null-space algorithms: near collision of the two formerly zero eigenvalues. It identifies a sharp geometry-dependent transition in small-gap likelihood and in the existence of expected inverse gaps, whose reciprocal appears in Krylov convergence estimates. This is a natural complete minimal case, not an arbitrary slice of a broader computation. The theorem does not claim a new high-dimensional convergence rate, practical solver runtime gain, or novelty for generic Wigner level repulsion itself.
+## value
 
-## Limitations and literature
+PASS
 
-The probability polynomials apply to the perturbative first-order compression, not to an arbitrary finite perturbation. The results assume three real coordinates, a rank-one orthogonal projector, and independent uniform diagonal noise. Relevant primary sources: Kressner–Shao, arXiv:2407.04634, Theorem 4; Kumar–Ahmed, DOI:10.14311/AP.2017.57.0418, Section 2. No independent audit or full historical originality certification has been performed.
+The exact small-gap exponent changes at coordinate-aligned orientations in the smallest nontrivial model of a randomly split null space. That change determines precisely which inverse moments are finite. The coefficients and sharp CDF interval quantify what a general gap bound misses and provide a direct benchmark when near-degenerate orientations matter.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

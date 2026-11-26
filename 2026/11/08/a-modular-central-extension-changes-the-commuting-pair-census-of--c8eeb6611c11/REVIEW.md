@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation constraint, modular bracket, recursive centralizer equations, counting, quotient comparison, and non-splitting argument are all proved for every odd prime and finite extension field. Exhaustive checks cover three small finite fields plus a sampled larger case. These experiments do not establish the universal result by themselves.
+## correctness
 
-## Originality — PASS, provisional
-Mygind (2012) studies automorphism orbits of the simple Witt algebra; Yao and Chang (2013) already establish centralizers in that algebra, which are not new here. Premet (2014) studies derivations of rings truncated at \(p\) in each variable. The checked results do not directly imply the new nonsplit extension at truncation exponent \(p+2\) or its complete finite-field census. Search and abstract-access limitations mean a broader unidentified theorem remains a substantive priority risk. The 2018 Yao–Chang paper's abstract was inspected, not its full text.
+PASS
 
-## Value — PASS
-The centralizer dimensions and commuting probability are natural Lie-theoretic invariants of a canonical modular derivation family. Comparing the nonsplit extension with the split central stabilization shows a uniform, nontrivial difference in the leading commuting-pair population and explains its source in a resonant top coefficient.
+For truncation x^(p+2), differentiating the relation forces f(0)=0 because 2 is a unit. The coefficient of degree j+s−1 in fg'−gf' has diagonal (s−j)a_j multiplying b_s. For 2≤j≤p the only allowed resonance is s=j, which is in range precisely when j≤(p+1)/2. Subtracting a multiple of f at that entry leaves only the free tail s>p+2−j, of dimension j−1. At j=1 the last diagonal coefficient is p=0, and f and x^(p+1) account for both degrees of freedom; order p+1 is central. The x^(p+1) quotient truncates the same triangular system one step earlier and removes only the j=1 top resonance from that range; its cutoff for the s=j resonance stays the same because p is odd. Counting zero and each order with its q^dim centralizer gives both polynomials and the fixed-p limiting ratio. The classes of e_2 and e_p commute downstairs but all lifts have the same bracket (p−2)e_(p+1)≠0, including p=3. A fresh exhaustive calculation gives (C(L), C(L'))=(945,153), (589761,13041), (540625,45625) for (p,q)=(3,3),(3,9),(5,5), and direct ordered-pair enumeration independently gives 945 for L over F_3. Replay with Python 3: /workspace/branches/636bdfe2-4000-4b40-8423-fc87000f8064/independent_reproduction.py. The proof, not exhaustion in these fields, covers all extension degrees and odd primes; the uploaded verifier was read only.
 
-## Scope and limits
-The formulas apply to one variable, odd prime characteristic, and the fixed truncation pair \(p+1,p+2\), not general modular truncations. Geometric irreducible components, scheme structures, and independent mathematical validation are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The elementary triangular method is closely related to known Witt-algebra centralizer calculations, but the compared theorem does not give centralizers at the two higher truncations, their finite-field censuses, or the effect of this specific nonsplit extension. Qualified to this canonical pair of truncations and the modular resonance, not to Witt centralizers in general.
+
+## value
+
+PASS
+
+This is a complete centralizer and commuting-pair census for a natural modular truncation, not selected small fields. The quantitative comparison distinguishes the actual central extension from a split stabilization: their leading commuting counts differ by a factor tending to 2/(p+1), and the deficient lift is explained by the surviving degree-p+1 commutator. The exact order strata make the result reusable for finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

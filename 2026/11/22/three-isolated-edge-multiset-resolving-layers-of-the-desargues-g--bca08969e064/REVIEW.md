@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph has a fully specified twenty-vertex inclusion representation and thirty edges. Its edge-distance histograms are constructed by exact BFS and 20-bit population counts. Exhausting all \(2^{20}\) landmark subsets yields exactly \(720\), \(960\) and \(720\) feasible sets of sizes \(8\), \(10\) and \(12\). A second implementation uses the isomorphic \(GP(10,3)\) graph and an independent Gray-code census, with identical exact outputs. An explicit 720-mask certificate and a 240-element group-action checker establish the minimum-set orbit classification. This proves the finite claim without extrapolation.
+PASS
 
-## Originality — PASS, provisional historical priority
+The graph is the explicitly defined 20-vertex middle-level inclusion graph, not the full 5-cube. Its graph distances equal Hamming distances: between 2-sets replace each mismatched element via the temporary 3-set union; complement handles pairs of 3-sets. Between a 2-set and a 3-set, first go to a 2-subset of the latter containing their intersection and then add the last element; this realizes the Hamming lower bound. Minimum distance to an edge therefore deletes the unique coordinate flipped by that edge. Independent exact replay /workspace/desargues_independent_replay.py uses this distance calculation, 32 blocks of 32768 masks, and sorts the 30 packed histograms for each mask to detect equality. Run python3 /workspace/desargues_independent_replay.py followed by the full path to the frozen min_masks.txt. A pilot block preceded the full run; all 1048576 masks yielded just (8,720), (10,960), (12,720), and the size-eight certificate matched byte for byte. All edge shells had histogram (2,4,8,4,2), proving complement duality; the census then gives the exact dimension and failure on every single-vertex addition. Connectedness forces an automorphism to preserve or swap parts. Those preserving parts act faithfully on 2-sets, since each 3-set is determined by its 2-subset neighbors. Common-neighbor adjacency of 2-sets is the triangular graph. Every four-member pairwise intersecting family of 2-sets has a common point (a family without one lies in a triangle and has size at most three). Thus the five size-four stars determine the parts-preserving action, with each 2-set the intersection of two stars. Complement swaps the parts, giving exactly the 240 advertised symmetries. Independent orbit computation gave (representative, orbit size, induced edges) = (3534,240,4), (5582,240,5), (5933,240,6). The replay did not execute the uploaded C++ programs and does not generalize to larger graphs.
 
-The foundational 2023 article at https://doi.org/10.3390/sym15030762 defines the invariant and treats different families. Its short vertex-to-edge distance obstruction is inapplicable here because the maximum vertex-to-edge distance is four. The 2026 hypercube study at https://arxiv.org/abs/2608.09983 concerns hypercubes, not the incidence graph \(H(5,2)\). The older generalized-Petersen edge-metric literature concerns ordered landmark distances, not multisets. Searches for the Desargues graph, \(GP(10,3)\), its bipartite-Kneser realization and full edge-multiset resolving enumerators did not identify the present result. Some indexed records have only summaries; historical precedence remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete exact census on a canonical symmetric incidence graph in a recently introduced nonmonotone identification invariant. Its three isolated nonzero layers, the complement-dual symmetry and the three distinct minimum-set geometries reveal markedly different behavior from ordinary edge-metric generators, which are upward closed under adding landmarks. The exact finite benchmark can test proposed methods and bounds for edge-multiset resolution without claiming a broader theorem.
+The distinction is the exact edge-multiset polynomial and orbit census for the Desargues graph. Prior same-graph ordered edge codes, the full-cube multiset result, and earlier small-distance obstructions are mathematically different. No covering statement was identified in the inspected literature or catalogue.
 
-## Limits
+## value
 
-The proof is exhaustive and finite, not an infinite-family theorem. Independent external validation and comprehensive historical-priority clearance remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Desargues graph is a canonical highly symmetric cubic graph, and unordered edge identification is a standard invariant. A complete inventory exposes separated feasible cardinalities and universal failure under a single added landmark, in sharp contrast with ordinary ordered resolution. It also distinguishes three types of minimal-size witnesses up to full symmetry. This is an exact reusable benchmark for unordered edge identification, not an arbitrary experiment or a general-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

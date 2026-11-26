@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone `verify_ballotrank.py` requires standard Python 3 only. Execute:
+## correctness
 
-```sh
-python verify_ballotrank.py
-```
+PASS
 
-It constructs the exact complete rankings for the six-pair gadget at several positive integer multiplicities, reconstructs the majority-margin matrix, inserts BallotRank's specific normalized-win diagonal, and solves the stationary linear system over rational numbers. It checks each margin and column-sum invariant, the exact \(601\)-voter score difference at \(d=17/20\), and five further rational damping/examples. It also verifies rational identities for the limiting \(B-A\) expression.
+The two-ballot gadget reverses every runner comparison except its designated one. Placing A at opposite ends doubles the runner margins while tying every A comparison, before the final ballot gives A four one-vote victories. Each runner column has at least one loss of order k; the A-entry and the bounded BallotRank self-loop vanish in the limit. A's column is exactly e_A. With t=(1-d)/5 the runner equations eliminate to (4-3d^3-d^4)b=t(4+6d+5d^2+d^3); factoring (1-d) yields the stated positive limiting B-A gap for every fixed 0<d<1. Resolvent continuity implies strict reversal at finite k for each d. For fixed k each runner has positive one-step transition to the absorbing A, proving the reversed high-damping limit and noncommutativity. The separately stated 601-voter fraction was reproduced exactly by reconstructing the ballots and using rational determinants in independent_checks.py (python /workspace/independent_checks.py).
 
-Observed output from the packaged source:
+## originality
 
-```
-PASS: 81 exact-rational majority, stationarity and limiting-formula assertions
-d=17/20, k=25, voters=601: B-A=2462202045070872571152/1625203582777781791390465
-d=17/20 limiting: B-A=3876/87233
-```
+PASS
 
-These finite assertions do not prove the quantified claim for all real \(d\) or unbounded \(k\). The proof supplies the needed limiting column-stochastic matrix, the Neumann-series resolvent continuity argument, algebraic positive-gap identity, and the absorbing-state/Abel-limit argument. The score difference is strictly positive at \(d=17/20\), \(k=25\), and the general positive limiting gap ensures a finite witness exists for every fixed \(0<d<1\). No probabilistic simulation, infinite certificate, or external expert assessment is claimed.
+The primary BallotRank work uses precisely the same weighting and raises fixed-damping extremal examples, but the inspected comparison does not supply the five-alternative family, all-d quantifier, limiting gap, or reversed limits. The nearby convergence-voting results use a different normalization. No distinct covering indexed record was identified in the bounded searches.
+
+## value
+
+PASS
+
+This supplies a small-alternative finite obstruction for every fixed positive subunit damping and resolves the specific extremal direction raised in the BallotRank paper. The one-vote victories and noncommuting limits explain why moving damping close to one is not a profile-uniform remedy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

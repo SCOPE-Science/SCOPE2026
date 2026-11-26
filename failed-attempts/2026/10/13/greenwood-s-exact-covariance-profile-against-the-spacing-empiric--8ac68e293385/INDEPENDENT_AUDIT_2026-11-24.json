@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:20.080080Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md:57 says the Pearson correlation is given at every allowed threshold. It is undefined at x=0 and m and also at the interior point (m,x)=(2,1): the two spacings sum to 1, so exactly one is at most 1/2 almost surely and F̂_2(1)=1/2 almost surely. Here both the covariance and CDF variance are zero, not a zero correlation. These are the only exceptions: writing t=x/m, if mt<1 the all-above configuration and an open configuration with one below are both possible; if mt>1 use all below and one above. For mt=1 and m≥3, open configurations with exactly one or exactly m−1 above give different counts. The covariance, sign classification, two variance formulas, and fixed-x limit formulas otherwise check. The uniform-simplex shift conditions D given D_1>t into te_1+(1−t)Y and gives E[G|D_1>t]=t²+2t(1−t)/m+2(1−t)²/(m+1); exchangeability and the complement give the stated result. The one- and two-coordinate tails and Dirichlet fourth moments give the variances. Expanding the log of (1−2x/m)^(m−1)/(1−x/m)^(2m−2) gives −x²/m+O(m^−2), while m³ Var(G_m)→4. The limiting CDF variance coefficient is positive for every x>0 since e^x−2x>0 and e^0−1=0. Fubini and ∫(1−F̂_m)=1 give zero area. `python3 /workspace/branches/independent_examples.py 3` confirmed the integrated unequal-threshold CDF kernel identity at 198 sampled pairs and the interior zero-variance exception. Finite replay only. The frozen checker tests nonnegativity, not strict positivity or whether correlation is defined.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first indexed result handles arbitrary positive Dirichlet shapes for labeled coordinates and the count and joint Gaussian limit for all positive symmetric shapes. The second proves a sign switch for every strictly convex additive score in the symmetric family and explicitly gives the exact quadratic law.",
+          "The historical and modern spacing-EDF primary papers are plausibly relevant to the full covariance kernel. Ordinary lawful retrieval did not yield text sufficient for an independent full-paper comparison."
+        ],
+        "reasoning": "Taking shape 1 and score s² needs no new theorem. At shape 1 the indexed limiting matrix gives both marginal covariance coefficients and the cross-coefficient up to the sign from complementing the count; its weak convergence statement alone would not prove convergence of finite Pearson correlations.",
+        "searches": [
+          "SCOPE-178c0a43180a Equations (1)–(5)",
+          "SCOPE-18960b009db5 Finding and conditional regression",
+          "Koziol 1977, DOI 10.1111/j.2517-6161.1977.tb01631.x; Jammalamadaka–Taufer DOI 10.1080/10485250310001638102"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-178c0a43180a",
+        "SCOPE-18960b009db5",
+        "Koziol (1977) bibliographic record",
+        "Jammalamadaka–Taufer bibliographic record and frozen inspection account",
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and CHECKER_OUTPUT.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact profile by substitution determines the sign switch and yields the asymptotic cross-covariance directly. The numerical limiting correlation is the sign-adjusted normalized entry of the indexed Gaussian covariance matrix. That agreement is corroborated independently by the finite variance expansion rather than inferred from weak convergence alone.",
+          "Independently, N_t is a sum of exchangeable indicators with joint survival (1−2t)_+^(m−1) by shifting two simplex coordinates. Its variance requires only the usual second moment of a sum. The zero-area integral follows from the fixed sum of gaps without any probabilistic estimate."
+        ],
+        "reasoning": "The central result is a specialization, and the ancillary finite moment/limit checks and fixed-sum identity are mechanical. A published unequal-threshold CDF kernel, if present in older work, would additionally imply the profile through G=(2/m)∫u(1−F̂_m(u))du, but that possible extra coverage is not needed for the decision.",
+        "searches": [
+          "SCOPE-178c0a43180a Equations (3), (5), and Joint asymptotic law, offsets 4970–7592",
+          "SCOPE-18960b009db5 quadratic formula at shape 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison gives Cov(N_m(t),G)=(m−1)(m+2)t(t−2/(m+2))(1−t)^(m−1)/(m+1). The assumptions at shape 1 are identical to the frozen spacing law."
+        ],
+        "reasoning": "Use F̂_m(x)=1−N_m(x/m)/m: the covariance is exactly −1/m times the indexed one, with the same interior root on the normalized scale and opposite signs. The endpoints are deterministic.",
+        "searches": [
+          "Resultary: Greenwood sum of squared spacings versus long-gap count, covariance crossover",
+          "SCOPE-178c0a43180a Equation (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both catalogue records contain an exact symbolic profile covering all m and thresholds, stronger than a numerical table.",
+          "The frozen 13,349-threshold output is a finite check of identities and not an independent exact catalogue result."
+        ],
+        "reasoning": "The central invariant is already explicitly covered, not merely numerically matched at a few thresholds. The whole unequal-threshold finite CDF kernel was not located in those passages and is not attributed to them.",
+        "searches": [
+          "Resultary SCOPE-178c0a43180a, exact formulas (2) and (3)",
+          "Resultary SCOPE-18960b009db5, boxed exact quadratic covariance"
+        ]
+      },
+      "rationale": "The central exact mixed profile and its crossover are explicitly given in two other indexed results in an equivalent exceedance form and in a strictly broader Dirichlet family. One also gives the joint Gaussian law with the matching covariance coefficients. The separately presented elementary variance and zero-area identities do not establish a substantive distinct remainder. This conclusion is based on the inspected formulas, not on dates or on inaccessible papers.",
+      "residual_risks": [
+        "The original older full texts were not obtained independently; exact historical kernel or equivalent coverage remains unresolved. No priority is assigned from the displayed catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and stronger coverage of the core result",
+          "evidence": "Equations (2)–(3) give the exact covariance and sign change; (4)–(5) give the joint limit and covariance coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-greenwood-exceedance-covariance-crossover-for-dirichlet--178c0a43180a/RESULT.md",
+          "material_read": "Finding and hypotheses, offsets 0–4838, and Joint asymptotic law, offsets 4970–7592",
+          "method": "Local Resultary mirror, original formulas and proof comparison",
+          "title": "A sharp Greenwood–exceedance covariance crossover for Dirichlet compositions",
+          "trigger": "Exact Greenwood–exceedance covariance with uniform spacings as a specialization"
+        },
+        {
+          "assessment": "Covers the frozen mixed covariance and crossover",
+          "evidence": "At α=1, beta normalization B(1,m−1)=1/(m−1) and t=x/m give the same formula after complementing the count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-shape-dependent-sharp-covariance-threshold-for-symmetric-diric--18960b009db5/RESULT.md",
+          "material_read": "Finding, assumptions and conditional regression, offsets 0–2932",
+          "method": "Local Resultary mirror, specialize original boxed formula",
+          "title": "A shape-dependent sharp covariance threshold for symmetric Dirichlet samples",
+          "trigger": "Broader convex score sign theorem and exact quadratic covariance"
+        },
+        {
+          "assessment": "Unresolved, not relied on for FAIL",
+          "evidence": "Retrieval did not establish whether the exact finite kernel was stated.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1977.tb01631.x",
+          "material_read": "Bibliographic relevance; no usable full-text kernel passage obtained",
+          "method": "Lawful OA DOI/publisher retrieval and repository lookup",
+          "title": "On Goodness of Fit Tests Based on the Empirical Distribution Function for Uniform Spacings",
+          "trigger": "Potential published finite unequal-threshold covariance kernel for ordinary spacings"
+        },
+        {
+          "assessment": "Unresolved exact historical coverage, not relied on for FAIL",
+          "evidence": "No readable repository copy was located; this is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1080/10485250310001638102",
+          "material_read": "Bibliographic relevance and frozen account; no independent full-paper passage obtained",
+          "method": "Lawful OA DOI/publisher attempts and repository lookup",
+          "title": "Testing exponentiality by comparing the empirical distribution function of the normalized spacings with that of the original data",
+          "trigger": "Normalized-spacing empirical process and possible limiting kernel"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact mixed crossover is a natural and useful target, but already covered. The remainder is a marginal count variance from one- and two-coordinate simplex volumes, normalization of corresponding covariance coefficients, a fixed-sum integral identity, and a small degeneracy correction. None makes a separately motivated substantive claim surviving the comparison. Correcting the correlation domain alone would not create a valuable distinct result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

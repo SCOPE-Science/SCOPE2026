@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:58:34.243515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For coprime ordered denominators u,v≤N, the determinant-one equation gives a unique ordered pair of fractions in [0,1], including the endpoint cases. If a/u<h/k<c/v is strictly between such fractions then k=v(uh−ak)+u(ck−vh)≥u+v, so the sum condition is exact, not just a mediant test in one direction. On F_k≤N<F_{k+1}, k≥6, no distinct pair omitting F_k has sum above N, and (1,1), the only coprime diagonal pair, is excluded by its sum. Both (F_k,F_{k−1}) and (F_k,F_{k−2}) are coprime by the Fibonacci gcd identity. Their largest and second-largest sums force the event C(N)=2 exactly on the stated terminal block interval. For N=1,…,7 the denominator rule gives C(N)=1,2,4,2,6,4,2. The terminal blocks have F_{k−3} orders, giving E(F_k−1)=F_{k−2} by induction and the stated maximum formula. E(N)/N decreases up to F_k+F_{k−2}−1 then increases. That minimum converges to 1/(φ²+1), and both ends converge to φ⁻². The supplied full-Farey regression through 450 and denominator-pair regression through 15000 were inspected as recorded finite checks, not executed or used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parity papers count neighbors or patterns in subsequences, where consecutive determinant need not be one. The mirror record keeps full-Farey adjacency but deals with exact powers and their asymptotic count and spacing."
+        ],
+        "reasoning": "The subsequence theorems have a different adjacency relation. Exact powers are not a family containing the Fibonacci values under a parameter choice; the power law gives no exact two-pair blocks for this lacunary set.",
+        "searches": [
+          "arXiv:math/0201046 p. 1",
+          "arXiv:math/0511362 p. 1",
+          "Local Resultary mirror 2026/10/12/SCOPE-power-conditioned-farey-neighbors-have-a-universal-heavy-tail-sp--22d8004d7734"
+        ]
+      },
+      "checked_sources": [
+        "Alladi (1975)",
+        "arXiv:math/0201046",
+        "arXiv:math/0511362",
+        "OEIS A288219, A000032 and A207524",
+        "Local Resultary and the exact-power Farey record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical criterion reduces the problem to an ordered coprime-pair count. The cited Fibonacci recurrence identifies candidate interval boundaries but has no Farey condition."
+        ],
+        "reasoning": "The additional step is to prove that the two largest sums control the event: exclude every pair omitting the largest denominator, then use coprimality for the first two candidate sums. Neither prior input states the event nor supplies the block induction and extremal frequencies.",
+        "searches": [
+          "Classical Farey-neighbor criterion and Fibonacci gcd identity used in RESULT.md §§1–2",
+          "Alladi p. 1 and the OEIS A288219 recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest local mirror record treats exact-power denominators and a spacing law. Alladi constructs fractions with Fibonacci-valued numerators and denominators. The general search returned off-topic results and supplies no scientific evidence."
+        ],
+        "reasoning": "The present constraint applies to both denominator values but not to numerators. Adjacency is tested before imposing the denominator constraint. Neither comparison has the same event.",
+        "searches": [
+          "Local Resultary: Fibonacci denominators in full Farey adjacency",
+          "Farey sequence adjacent fractions both denominators Fibonacci numbers Lucas threshold two Farey neighbors consecutive Fibonacci denominators density",
+          "Alladi, A Farey Sequence of Fibonacci Numbers, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The start of each maximal event run is 2,4,7 and then F_k+F_{k−2}=L_{k−1} for k≥6, giving 2,4,7,11,18,29,47,…, exactly A288219 indexed from zero. Its listed interpretation is an iterated letter-count sequence; A000032 supplies the Lucas values. A207524 counts fractions relative to a consecutive-Fibonacci quotient."
+        ],
+        "reasoning": "A288219 is a genuine numeric match for the starts, but provides neither the identification with Farey orders nor the run ends and cumulative/oscillating frequencies. A207524 is not the count C(N) or E(N).",
+        "searches": [
+          "OEIS A288219",
+          "OEIS A000032",
+          "OEIS A207524"
+        ]
+      },
+      "rationale": "The distinct result is the exact interval criterion and order-frequency law for adjacency in the full Farey sequence. The run starts are a known Lucas-type sequence, and no novelty is assigned to those integers as a sequence, the Farey criterion, or Fibonacci strong divisibility.",
+      "residual_risks": [
+        "An earlier interpretation of Lucas-type numbers as the starts of these Farey-order runs could exist outside the inspected material.",
+        "The broader web lookup was off-topic and does not count as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different fraction set and adjacency question",
+          "evidence": "Constructs a sequence with both numerators and denominators Fibonacci-valued.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/13-1/alladi1.pdf",
+          "material_read": "p. 1, definition at text offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A Farey Sequence of Fibonacci Numbers",
+          "trigger": "Near-identical terminology"
+        },
+        {
+          "assessment": "Subsequence adjacency is different",
+          "evidence": "Defines the odd-denominator subsequence and notes that consecutive terms there need not have cross-determinant one.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0201046",
+          "material_read": "p. 1 around offset 1506",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the Distribution of the Farey Sequence with Odd Denominators",
+          "trigger": "Possible general theory of restricted Farey neighbors"
+        },
+        {
+          "assessment": "The density refers to a different parity-subsequence problem",
+          "evidence": "Concerns local distributions among even-denominator Farey fractions, not natural density over orders for the event C(N)=2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0511362",
+          "material_read": "p. 1 around offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A Density Theorem on Even Farey Fractions",
+          "trigger": "Potential direct density antecedent"
+        },
+        {
+          "assessment": "Same adjacency relation but different denominator condition and result",
+          "evidence": "Exact-power denominators with asymptotic count and gap law; no Fibonacci-value block criterion.",
+          "identifier_or_url": "2026/10/12/SCOPE-power-conditioned-farey-neighbors-have-a-universal-heavy-tail-sp--22d8004d7734",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary semantic search and local mirror passage",
+          "title": "Power-conditioned Farey neighbors have a universal heavy-tail spacing law",
+          "trigger": "Closest indexed full-Farey denominator-conditioned theorem"
+        },
+        {
+          "assessment": "Numeric overlap, no Farey interpretation in the inspected entry",
+          "evidence": "Initial terms 2,4,7 and Fibonacci recurrence; listed letter-count interpretation and a(n)=L(n+2) for n≥1.",
+          "identifier_or_url": "https://oeis.org/A288219",
+          "material_read": "Definition and recurrence around offset 429",
+          "method": "OA encyclopedia entry",
+          "title": "OEIS A288219",
+          "trigger": "Exact numerical match to event-run starts"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts rational numbers below a cutoff given by a consecutive-Fibonacci quotient.",
+          "identifier_or_url": "https://oeis.org/A207524",
+          "material_read": "Entry around offset 269",
+          "method": "OA encyclopedia entry",
+          "title": "OEIS A207524",
+          "trigger": "Source record flags consecutive Fibonacci and Farey connection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-Farey statistic asks at what orders a natural sparse denominator set leaves exactly the two unavoidable ordered adjacencies. The complete block criterion resolves this at every order and gives sharp bounds on the persistent oscillation, not just examples or an isolated computation of known Lucas numbers. The result is narrow and uses elementary inputs, but identifies a concrete obstruction to assigning a single long-run order frequency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:59.990961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical conclusions check under the explicitly uniform-permutation model, but the frozen Finding states only independent continuous priorities and the assumptions falsely assert that independence and continuity imply a uniform permutation. Without identical or otherwise exchangeable priorities the stated Δ_6=1/9 is false: assign independent continuous variables on disjoint ordered intervals enforcing 0,2,4,1,3,5. Both graphs then accept exactly 0,2,4 and the increment is zero. The distance is three at N=6 (only at N=5 does the labeled chord have distance two). For the uniform model, first arrival is uniform and restriction to the complement of its closed neighborhood leaves uniform relative order, proving the recursion. On coupled graphs, an earliest discrepancy must be at a chord endpoint; any later one has an earlier discrepant neighbor. An induced-subgraph discrepancy analogously has a decreasing-priority path to a deleted vertex. These paths are simple, length ℓ has order probability 1/(ℓ+1)!, and with only two degree-three vertices the path multiplicity bounds 8/6/2 (arbitrary chorded start/chord endpoint/cycle) hold. For N≥29 the retained 28 vertices form the stated path with its chord; outside H the endpoint distance is at least 13, and inside H a vertex at endpoint distance d has distance at least 13−d to a deleted site. Taking the smaller of the two necessary discrepancy-event bounds and summing with |D−D^H|≤2 and at most four sites per d produces B_12. An independent rational run checked N=5–28 (direct permutation enumeration too at 5–7), the exact gadget gain 13738981531700639/304554407185153125, and a factorial-tail upper bound about 0.00850039683462, giving the lower bound about 0.03661135071382. Replay: python3 /workspace/branches/44029fc6-da00-4bb1-a32d-c92bf0036c1e/independent_check.py. The supplied code was inspected, not executed. This proves the advertised numerical result in the intended uniform regime, not the frozen equivalence of priority assumptions.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "40a6c4586bde covers d=3 for n≥6, d=2 for n≥4, hence all the frozen cases and additional negative chords.",
+          "Krivelevich et al. use decreasing-priority paths and local limits; their inspected density statements do not themselves determine a single-edge order-one increment."
+        ],
+        "reasoning": "The catalogue theorem supplies an exact graph-family comparison, not only generic nonmonotonicity. For d=3 its all-size sign agrees with the frozen claim and the d=2 rule handles N=5.",
+        "searches": [
+          "Resultary 40a6c4586bde, two short-chord families",
+          "Greedy maximal independent sets via local limits, arXiv:1907.07216, local dependence passages"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 40a6c4586bde, a41a54dae9d7 and 09aa39c3a62a",
+        "Krivelevich et al. arXiv:1907.07216",
+        "Dhara et al. arXiv:1604.03918",
+        "Pippenger DOI 10.1137/0402034 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue proves Δ_(n,3)>0 for n≥6 excluding 7, Δ_(7,3)=0 and Δ_(5,2)=0. It obtains |Δ_(n,3)−Δ_(29,3)|≤17/1120 uniformly for n≥29, already giving an explicit positive constant above 0.0299.",
+          "The frozen gadget certificate uses a smaller error by weighting distance-dependent minima, not a change in the family, sign, scale, or type of locality result."
+        ],
+        "reasoning": "The qualitative finding is directly covered and an order-one positive lower bound is already a routine consequence of the published anchor and modulus. The exact frozen decimal 0.0366 does not follow from that particular displayed modulus; it is a tighter certificate of the same phenomenon.",
+        "searches": [
+          "Resultary 40a6c4586bde, Finding and Uniform locality estimate, offsets 0–5301"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "40a6c4586bde defines C_n^(d) by the same labeled edge {0,d}, identical uniform vertex ordering and identical total expectation difference.",
+          "For N=5 the edge {0,3} is mapped to {0,2} by reversing the cycle labels, so its distance-two exception is the same frozen case."
+        ],
+        "reasoning": "Random-order site adsorption and greedy maximal independent set size agree exactly under this rule. Neither edge-dimer matching nor limiting occupancy density is the frozen invariant.",
+        "searches": [
+          "Resultary: opposite short chord effects on random greedy jamming of cycles, 40a6c4586bde",
+          "Primary lookup on fixed-cycle vertex RSA edge perturbations and greedy maximal independent sets (one search; no usable hit)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40a6c4586bde uses the same uniform first-vertex exact recurrence to compute d=3 sizes 6–29 and d=2 sizes 4–29 with direct permutation checks at 6–8. It explicitly gives Δ_(29,3)=7886534621278669/174822140228360625.",
+          "a41a54dae9d7 is an exact path/chord generating function, not a table for cycles. 09aa39c3a62a gives other edge-addition examples with gain 1/15; matching a number would not identify the graph."
+        ],
+        "reasoning": "The catalogue finite sign data concern the same labeled family. The frozen 1/9 at N=6 is confirmed independently and obtained by the same stated finite recursion; equivalently both endpoints must be local minima on their disjoint triples in C_6, an event of probability 1/9, and on exactly that event inserting the chord adds one occupied vertex.",
+        "searches": [
+          "Resultary 40a6c4586bde, Exact finite recurrence and order-29 anchor",
+          "Resultary a41a54dae9d7 and 09aa39c3a62a, inspected Finding"
+        ]
+      },
+      "rationale": "The distinct indexed opposite-short-chord record covers the complete sign classification even after correcting the priority hypothesis, by a closely related finite-cutoff locality method. Its stated constants do not literally give the threshold 0.0366 from cutoff 29; that modest numerical sharpening is separately assessed for value and does not establish a substantive distinct claim. The overlap concerns current statement coverage, not priority or copying.",
+      "residual_risks": [
+        "Pippenger's full paper remains uninspected; the finding does not settle earliest historical coverage.",
+        "The exact comparative catalogue entry is later-dated and establishes current overlapping scope, not whether proofs were developed independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact sign classification coverage plus a different uniform numerical bound",
+          "evidence": "Distance-three classification, distance-two equality at five, factorial locality and rational size-29 anchor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-opposite-short-chord-effects-on-random-greedy-jamming-of-cycles--40a6c4586bde/RESULT.md",
+          "material_read": "Finding, assumptions, exact finite recursion and locality proof, offsets 0–5301, remaining comparison through 7913",
+          "method": "Local mirror original result and parameter comparison",
+          "title": "Opposite short-chord effects on random-greedy jamming of cycles",
+          "trigger": "Same cycle defect and exceptional orders"
+        },
+        {
+          "assessment": "Shared locality framework, not the exact chord law in inspected passages",
+          "evidence": "Defines decreasing-priority past and bounds long paths to control local occupancy; these statements do not infer the order-one cycle comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.07216",
+          "material_read": "PDF p. 4 offset 15491, p. 7 offset 24921, p. 10 offset 36240",
+          "method": "OA primary bounded passage inspection",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Potential general priority-path theorem and exact cycle perturbation"
+        },
+        {
+          "assessment": "Different boundary and finite exceptions",
+          "evidence": "Open path with chord, not closed cycle, with zero exceptions at 4 and 6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-four-cycle-chord-sensitivity-law-for-random-greedy-inde--a41a54dae9d7",
+          "material_read": "RESULT.md Finding and graph construction",
+          "method": "Local mirror domain comparison",
+          "title": "An exact four-cycle chord sensitivity law for random greedy independent sets",
+          "trigger": "Same chord and apparently stronger exact enumeration"
+        },
+        {
+          "assessment": "Different graph ensemble and observable",
+          "evidence": "Studies generalized adsorption and random-graph jamming constants, not one bond on a fixed cycle.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03918",
+          "material_read": "PDF pp. 1–2, text offsets 1371–4550",
+          "method": "OA primary model passage",
+          "title": "Generalized random sequential adsorption on Erdős–Rényi random graphs",
+          "trigger": "Potential broad jamming law"
+        },
+        {
+          "assessment": "Unresolved historical coverage, not used as evidence of absence",
+          "evidence": "The positive coverage decision rests on the inspected exact catalogue source, not this access limitation.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic identification only; full text not obtained after HTTP 403 and copy search",
+          "method": "Lawful OA access attempt",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Early graph RSA with short-cycle relevance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An all-size increase from one exclusion bond and a genuine small-cycle boundary would be informative if not already covered. The remaining modest constant improvement over a known uniform positive bound has no identified sharp threshold, application, new invariant or mathematically privileged decimal; it uses the same factorial-locality mechanism. Correcting the iid assumption alone therefore would not yield a distinct valuable survivor.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

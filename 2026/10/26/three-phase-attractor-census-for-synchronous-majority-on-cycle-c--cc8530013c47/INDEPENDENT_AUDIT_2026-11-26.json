@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:26:12.687201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adding a diagonal weight in (0,1) implements the stated ties without changing nonzero neighbor sums. Symmetry gives E_(t+1)−E_t=−(s_(t+2)−s_t)^T B s_(t+1), strictly negative whenever two-step equality fails; finite energy values give eventual period at most two. Within a periodic state all leaves at a site agree, and an ordered pair of core and leaf words is periodic exactly when both updates swap the words. With one leaf the two conditions mean no isolated bit in the bipartite double cover, which is one cycle of length 2n for odd n and two of length n for even n. The cyclic length-j count is the trace of the four-state consecutive-bit matrix with polynomial (z²−z−1)(z²−z+1). With two leaves a bit matching its leaves always retains that value, even at a tie; a differing bit must have at least one core neighbor matching its leaves, in both phases. The closed-walk trace counts indexed words, not rotation classes. Independently formed the 16-state matrix by literal four-vote majorities in both phases and recomputed its characteristic polynomial symbolically; all factors match, and the first trace counts agree with frozen VERIFY.out. The quartic has two positive roots in (1/2,1) and (3,4), exactly two by Descartes. For z=−u<0 it is positive (if u≥1/3 then 3u³≥u²; otherwise 2−u²>0). The remaining conjugate pair has squared modulus 2/(product of the positive roots)<4/3, and the other factors have moduli ≤sqrt(2); hence the large root governs growth. With r≥3 a monochromatic bundle dominates after one step, and a nonmonochromatic starting bundle is not recurrent, proving sharpness. Fixed points are counted separately and dividing P−H by two counts unoriented primitive cycles. Read VERIFY.py and VERIFY.out without executing the supplied script. Replay the independent matrix construction via `python3 /workspace/branches/independent_checks.py` (section 3; SymPy and mpmath); the finite determinant is exact, while the all-size counting and growth arguments are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The symmetric-threshold result guarantees periods at most two, not their number. The tree classification is outside the domain of graphs with a core cycle.",
+          "The later leaf-domination theorem does cover r≥3 by taking its arbitrary core H to be a cycle with degree two; r=2 fails its strict private-leaf domination hypothesis."
+        ],
+        "reasoning": "General convergence is credited; the broader domination result has genuine parameter-specialization coverage of one regime only.",
+        "searches": [
+          "Benjamini et al. arXiv:1405.2486v1 Thm. 1.1",
+          "Turau arXiv:2202.01580 abstract and introduction",
+          "2026/11/22/SCOPE-leaf-majority-domination-gives-a-one-step-involution-and-exact-b--7dd01f49bd84"
+        ]
+      },
+      "checked_sources": [
+        "Benjamini et al. arXiv:1405.2486v1",
+        "Turau arXiv:2202.01580",
+        "Agur–Fraenkel–Klein DOI metadata and frozen attribution",
+        "Goles–Olivos theorem via Benjamini et al.; original DOI landing page only",
+        "Resultary 8a5efe3ce640, 7dd01f49bd84, 830f30f39271, 8b5292373195"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree-two-core result bounds entry time for a one-leaf corona, not the fixed/periodic counts. The precise one-leaf formula and large-bundle counts are separately covered by the stronger later statements, but neither entails the tie-sensitive r=2 calculation.",
+          "The same-date fan-graph listing was available by summary only, with missing original text in the local mirror; it is not used as an exclusion."
+        ],
+        "reasoning": "The 16-state transfer requires both local constraints at degree four, neither the majority-without-ties sunlet condition nor leaf dominance. The resulting spectral census is not a substitution into the inspected claims.",
+        "searches": [
+          "Resultary one-leaf degree-two-core F^4=F^2 result 830f30f39271",
+          "Resultary later exact sunlet and leaf-domination findings",
+          "Same-date fan-graph listing 837382bed716"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected one-leaf sunlet statement gives the identical double-cover counts; degrees 3 and 1 preclude ties, so its strict-majority formulation is equivalent to the one-leaf case here.",
+          "After one step the leaves supply a delayed self bit. The usual closed-neighborhood one-layer ring fixed-word formulation only models equal phases, not the general two-layer phase pairs."
+        ],
+        "reasoning": "The one-leaf case has exact catalogue overlap, not just similar vocabulary. Weighted/delayed formulations were assessed as potential equivalents; no inspected formulation gives the two-leaf spectrum.",
+        "searches": [
+          "Local Resultary comparisons for both parity and quartic counts of sunlets/cycle coronas",
+          "arXiv:2202.01580 Introduction (symmetric weighted thresholds)",
+          "2026/11/2/SCOPE-a-parity-factorized-periodic-orbit-census-for-majority-dynamics--8a5efe3ce640"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited Agur–Fraenkel–Klein cyclic fixed-word count Q_n is explicitly excluded from novelty. Its scan did not yield extractable text in the available retrieval; bibliographic verification is not primary passage inspection.",
+          "The inspected exact quartic record 8b5292373195 has leaves on every other site and polynomial z^4−5z^3+4z^2−z−1. No corresponding exact two-leaf trace table turned up in the targeted retrieval."
+        ],
+        "reasoning": "The known sequence and exact partial overlaps are real. Similar algebraic degree and a leaf-bearing ring do not identify the r=2 trace sequence.",
+        "searches": [
+          "Targeted Resultary lookup for exact two-leaf corona quartic z^4−3z^3−z^2+2 (top 30 inspected for a match)",
+          "Resultary 8b5292373195 and exact partial overlaps 8a5efe3ce640, 7dd01f49bd84",
+          "Agur–Fraenkel–Klein DOI 10.1016/0012-365X(88)90005-2"
+        ]
+      },
+      "rationale": "Credit the established period-two theorem and cyclic no-isolated-bit count. Exact coverage of the one-leaf parity regime and the many-leaf regime exists in two distinct later-dated listings; neither covers the central two-leaf spectrum or the complete frozen census, and their dates do not prove historical priority. No inspected pre-existing statement gives that middle regime and census. This is limited to the specific labelled cycle-corona result.",
+      "residual_risks": [
+        "The original scanned Agur–Fraenkel–Klein theorem and original Goles–Olivos body were not independently readable; their overlapping known components are credited anyway.",
+        "No primary statement was recovered for the fan-graph listing 837382bed716.",
+        "A differently indexed weighted or one-step-delayed cycle model might recover the two-leaf count; exact historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers eventual periods, not corona counts.",
+          "evidence": [
+            "Theorem 1.1 states fixed point or two-cycle for the finite-graph tie-retaining process and attributes it to Goles–Olivos."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+          "material_read": "Introduction, Theorem 1.1 at OA offset 2128; scope of graph applications",
+          "method": "OA primary HTML",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General period-two theorem in the same tie convention"
+        },
+        {
+          "assessment": "Tree characterizations do not cover the unicyclic corona; weighted threshold discussion corroborates the known period bound.",
+          "evidence": [
+            "The classification domain is finite trees; symmetric weights permit periods one and two."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.01580",
+          "material_read": "Abstract and Introduction at OA offset 0",
+          "method": "OA primary HTML",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Potentially stronger classification of majority recurrent configurations"
+        },
+        {
+          "assessment": "Q_n is credited as known; no whole-paper exclusion claimed.",
+          "evidence": [
+            "Frozen RESULT.md lines 52, 64 explicitly attribute the cyclic closed-neighborhood fixed-point count to this article."
+          ],
+          "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+          "material_read": "DOI metadata, not an independently readable primary theorem passage",
+          "method": "Lawful OA PDF retrieval gave no extractable text; alternate fetch unsuccessful",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Exact precedent for the ring-word count"
+        },
+        {
+          "assessment": "Exact one-leaf overlap; later-dated listing.",
+          "evidence": [
+            "Same fixed-word formula and odd/even two-step-return counts on a cycle with one leaf per site."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-parity-factorized-periodic-orbit-census-for-majority-dynamics--8a5efe3ce640",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-file mirror",
+          "title": "A parity-factorized periodic-orbit census for majority dynamics",
+          "trigger": "Closest exact sunlet statement"
+        },
+        {
+          "assessment": "Includes exactly the large-bundle regime, but not the two-leaf case; later-dated listing.",
+          "evidence": [
+            "At least d_H(v)+1 private leaves per core vertex gives F³=F, 2^(2n) recurrent states and 2^n fixed states."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-leaf-majority-domination-gives-a-one-step-involution-and-exact-b--7dd01f49bd84",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-file mirror",
+          "title": "Leaf-majority domination gives a one-step involution and exact basin counts",
+          "trigger": "Broader core-plus-leaves theorem"
+        },
+        {
+          "assessment": "Different graph and characteristic factor.",
+          "evidence": [
+            "Every other vertex of C_(2m) gets a leaf; quartic z^4−5z^3+4z^2−z−1."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-quartic-oscillation-entropy-for-majority-dynamics-on-alternati--8b5292373195",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-file mirror",
+          "title": "A quartic oscillation entropy for majority dynamics on alternating leaf graphs",
+          "trigger": "Closest graph-family quartic analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full recurrent-state census for a natural graph family in one leaf-multiplicity parameter distinguishes three exponential growth rates and identifies the degree-four ties as a genuinely different constrained phase-pair system. The exact transfer quartic determines every labelled two-leaf count and the growth constant, which neither generic convergence nor the known ring word count provides. The result is not a basin or entry-time census for r=1,2.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

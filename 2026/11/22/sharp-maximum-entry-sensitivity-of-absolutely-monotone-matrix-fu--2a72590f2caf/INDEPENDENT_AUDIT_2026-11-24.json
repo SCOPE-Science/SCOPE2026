@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:52:58.234592Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–28, including row lemma, simultaneous sharpness and resolvent",
+        "VERIFICATION.md lines 19–21 and check.py lines 6–34 (read, not executed; finite derivative and pair samples)"
+      ],
+      "rationale": "For a PSD contraction P, P²≤P gives squared off-diagonal row mass ≤q(1−q) with q=Pii. Cauchy–Schwarz and writing q=(1+x)/2 show the exact row-sum bound (1+sqrt(n))/2: x+sqrt(n−1)sqrt(1−x²) has maximum sqrt(n). The positive rank-one projection attains it in row one, with q=(1+1/sqrt(n))/2, and the n=1 case agrees directly. Normalize each nonzero power A^j by b^j to use the same lemma. The derivative expansion has two one-sided terms and k−2 two-sided terms with the announced row/column bounds. At bP, using the all-ones symmetric perturbation J, row-one products attain every term with the same sign since P^j=P; the first-order term also attains its bound. Move the base point strictly inside by (b−epsilon)P+epsilon(I−P) before taking the directional limit, so the upper/lower spectral caps hold for admissible distinct test pairs. Norm convergence of the series and its derivative follows from radius >b and allows integration on the convex segment. Geometric sums give the stated resolvent square, and constants/affine series and n=1 specialize correctly.",
+      "residual_risks": [
+        "Sharpness is a supremum, not necessarily equality for separated inputs; proof uses real symmetry, two spectral caps and nonnegative Taylor coefficients. The sampled b-scaled resolvent test is only corroboration, not a sharpness proof for that mapping."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison describes low-rank computation of Fréchet derivatives and spectral-norm control; full-text OA attempts did not succeed. The Laplace-filter indexed statement gives a c_n²-scaled scalar derivative on the dissipative half-line and includes resolvents."
+        ],
+        "reasoning": "A broader domain may give an upper bound on a subset without proving a sharp constant there; the two-sided constraint fundamentally restricts the extremizing spectrum. Derivative computation or control in another norm does not compute this entrywise optimum.",
+        "searches": [
+          "Kandolf–Koskela–Relton–Schweitzer, arXiv:2008.12926; Crouzeix–Kressner, arXiv:2007.09784; Resultary Laplace-filter result 1a903dcf6eae"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 13–41",
+        "Resultary 2a72590f2caf, 1a903dcf6eae and d768844eb47f (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For f(t)=(1−t)^-1, translating by b gives the half-line coefficient c_n²/(1−b)². Its positive square root exceeds 1+c_n b/(1−b) by c_n−1 for n>1. At n=1 both recover the scalar derivative, which is not a new claim by itself."
+        ],
+        "reasoning": "The translated parent result does not mechanically imply the smaller bounded-interval value. Retaining sharpness requires the row estimates on positive powers and the same rank-one configuration and symmetric direction attaining all contributions.",
+        "searches": [
+          "Translate the 1a903dcf6eae indexed dissipative-domain estimate to the frozen resolvent; compare RESULT.md lines 14–28 and 33–41"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the symmetric spectral interval the two-input coefficient equals the supremum of the derivative norm (closed-interval boundary contributions approximated from the interior). Under A=bI+X the shifted domain is −bI≤X≤0, not the unrestricted negative half-line."
+        ],
+        "reasoning": "An exact same-domain maximum-entry derivative bound with sharp symmetric-direction realization would be equivalent. Neither norm conversion from spectral norm nor applying a negative-half-line formula preserves such sharpness.",
+        "searches": [
+          "Primary literature search for sharp entrywise/max-entry matrix-function Lipschitz constants, powers and resolvents",
+          "Resultary sharp entrywise sensitivity on spectral bands and for Laplace-transform matrix filters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a72590f2caf is the identical assigned finding. 1a903dcf6eae indexes universal sharp sensitivity of Laplace-transform filters for dissipative matrices; d768844eb47f indexes a matrix logarithm on spectral bands."
+        ],
+        "reasoning": "The Laplace neighbor is material because it includes a resolvent, but its available quantified domain and coefficient are not the target's. A logarithm's own exact spectral-band law likewise is not a general same-domain positive-power-series law. These are comparisons against indexed statements, not full-text exclusions.",
+        "searches": [
+          "Resultary matches 2a72590f2caf, 1a903dcf6eae and d768844eb47f"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact bounded PSD interval coefficient in entrywise maximum norm and its jointly sharp power contributions. Matrix-function derivative calculus and row-contraction techniques are ingredients, not credited alone. The strongest nearby indexed claim provides a related but strictly weaker resolvent bound after translation for n>1.",
+      "residual_risks": [
+        "Underlying Laplace-neighbor and general derivative primary texts were not retrieved; a separate same-domain theorem in inaccessible or unindexed literature is not excluded.",
+        "A lack of primary literature matches is not evidence that all special cases are new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified material distinction for the indexed claim, not a whole-text exclusion",
+          "evidence": [
+            "c_n² times the scalar boundary derivative; translated resolvent bound is strictly larger for n>1."
+          ],
+          "identifier_or_url": "Resultary 1a903dcf6eae",
+          "material_read": "Indexed formula and dissipative-domain assumptions; mirror full text not retrieved",
+          "method": "Local semantic search and targeted local mirror lookup",
+          "title": "Universal sharp entrywise sensitivity of Laplace-transform matrix filters",
+          "trigger": "Strongest related exact subcase (resolvent)"
+        },
+        {
+          "assessment": "Different matrix function and sharp law",
+          "evidence": [
+            "Specific logarithm stability rather than all power series with nonnegative coefficients."
+          ],
+          "identifier_or_url": "Resultary d768844eb47f",
+          "material_read": "Indexed statement",
+          "method": "Local semantic search",
+          "title": "Sharp entrywise matrix-logarithm stability on spectral bands",
+          "trigger": "Same matrix norm and spectral-band setting"
+        },
+        {
+          "assessment": "Described computational and spectral-norm comparisons are not direct entrywise sharp coverage",
+          "evidence": [
+            "The proof uses both symmetric PSD caps and the entrywise norm, unlike an estimate in spectral norm."
+          ],
+          "identifier_or_url": "arXiv:2008.12926; arXiv:2007.09784",
+          "material_read": "Frozen §Relationship to prior work and citations; independent primary text not retrieved",
+          "method": "Targeted OA retrieval attempts",
+          "title": "Computing low-rank approximations of the Fréchet derivative of a matrix function using Krylov subspace methods; A bivariate extension of the Crouzeix–Palencia result with an application to Fréchet derivatives of matrix functions",
+          "trigger": "Potential stronger general derivative estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–28 and 33–37"
+      ],
+      "rationale": "The maximum-entry condition number quantifies perturbations measured entry by entry on a natural PSD-constrained domain. Sharpness for one common direction over an entire class separates the exact coefficient from loose norm conversions; the resolvent shows a strict effect of the lower spectral cap compared with the known half-line expression.",
+      "residual_risks": [
+        "The argument does not establish the optimal coefficient for signed Taylor coefficients or a general nonsymmetric spectral domain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

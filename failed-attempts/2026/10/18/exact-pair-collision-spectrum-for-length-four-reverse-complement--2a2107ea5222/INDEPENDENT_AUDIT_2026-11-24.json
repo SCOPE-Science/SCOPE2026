@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:46:17.170112Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cancellation reduces the event to R(P)V=VR(Y) on d+4 independent symbols. At d=1,2,3 the solution families respectively have one, two and one free letters. At d>=4 the first d equations force V to be a periodic continuation of R(P), and the last four equations require its terminal block Y to satisfy Y=R(Y). Rotation bijects R(P) with Y, leaving q^2 choices. There are n-3-d pairs at each feasible displacement; the geometric tail and binary coefficient 11/64 follow. This is a pair count, not a distinct-descendant count. A separately written direct output enumeration (/workspace/branches/a06182c6-5100-4174-a77e-4f6b2e8785f1/rc4_independent_check.py) matched the probabilities for q=2, d=1..8 and q=4, d=1..5, plus the binary pair means for n=4..9. This is bounded corroboration only; the submitted checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. give necessary and sufficient coordinate equations for arbitrary block length and each of the two displacement regimes; their §3.3 only evaluates certain sphere sizes, but the appendix is broader.",
+          "The expressiveness/capacity results use related operations and are not needed to infer this collision statistic."
+        ],
+        "reasoning": "Block length four is exactly a specialization of the broader event characterization. The non-overlap regime in the frozen proof is already the periodic and terminal-reflection structure of equations (11a–c).",
+        "searches": [
+          "arXiv:1707.00052 Appendix A.1 equations (10a–c), (11a–c)",
+          "arXiv:2112.11811 §III Theorem 3",
+          "arXiv:2312.00394 Table 1 and §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1707.00052",
+        "arXiv:2609.00779",
+        "arXiv:2112.11811",
+        "arXiv:2312.00394",
+        "Resultary 2026/10/18/SCOPE-exact-one-step-descendant-spectrum-for-length-two-reverse-comple--0aca79ccebc0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In (10a–c) with length four, displacements 1, 2 and 3 leave respectively 1, 2 and 1 free equality classes. In (11a–c), choosing the two mirrored pairs of the terminal block selects the initial reversed block uniquely by rotation, hence exactly q^2 completions at all d>=4."
+        ],
+        "reasoning": "The probabilities and pair moment are obtained by directly counting free classes in the known conditions, multiplying by n-3-d, and summing a geometric tail. No new case beyond those equations is required.",
+        "searches": [
+          "arXiv:1707.00052 §3.3 and Appendix A.1, PDF p. 10, text offsets 31900–34079",
+          "arXiv:2609.00779 §4 Theorem 4.1, PDF p. 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.1 conjugates even reverse-complement duplications to reversal-only duplications by complementing alternate coordinates.",
+          "An insertion shifts the old suffix by four, preserving its coordinate parity; the copied symbol and its destination are at opposite parities. Thus this is sitewise conjugacy even with overlapping sites, not merely a correspondence of code sizes."
+        ],
+        "reasoning": "The alphabet map is a bijection preserving uniform independent letters, so exact palindromic site coincidences transfer with identical probabilities.",
+        "searches": [
+          "arXiv:2609.00779 §4 Theorem 4.1",
+          "arXiv:1707.00052 Appendix A.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary record 2026/10/18/SCOPE-exact-one-step-descendant-spectrum-for-length-two-reverse-comple--0aca79ccebc0 characterizes length-two site coincidences by complementary alternation and counts distinct descendants, not length-four colliding pairs.",
+          "Lenz et al. explicitly evaluate length-one and length-two spheres and give a general upper bound; this is not an exact table of the submitted probabilities."
+        ],
+        "reasoning": "Neither the catalogue comparison nor the sphere formulas alone show duplication of the claimed table. The decisive overlap is the exact prior event equation, not the shared calendar date of the catalogue results.",
+        "searches": [
+          "Local Resultary comparison: length-four reverse-complement pair-site collision spectrum versus one-step descendant spectrum",
+          "arXiv:1707.00052 §3.3 Lemmas 3–4"
+        ]
+      },
+      "rationale": "The numerical probabilities are not quoted in the sources, but the entire collision spectrum is mechanically implied by Lenz et al.'s exact all-length, all-displacement conditions for the conjugate palindromic operation. Zabokritskiy's coordinate involution preserves both sites and the uniform word law. In the palindromic variables, specializing Lenz equations (10a–c) to block length four identifies every letter for d=1 or 3, and gives the two classes in a b b a a b for d=2. Equations (11a–c) respectively force the initial repeat block, its four-periodic continuation and reversal symmetry of the rotated terminal block, leaving two free letters for every d>=4. Division by q^(d+4) and summation over displacements supply the whole expectation, without a new structural lemma. This is demonstrable prior coverage by implication, not an inference from titles or search unavailability.",
+      "residual_risks": [
+        "The targeted external search was unavailable; uninspected sources may explicitly print the numerical spectrum. This does not affect the positive evidence that the spectrum follows mechanically from inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen result by implication with the even-length conjugacy",
+          "evidence": "§3.3 gives the displacement-one equal-run condition; Appendix A.1 gives the overlap and non-overlap equations for arbitrary block length.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.00052",
+          "material_read": "§3.3 Lemmas 3–4; Appendix A.1 equations (10a–c), (11a–c), PDF p. 10",
+          "method": "OA PDF full-text passages; specialized the actual coordinate equations",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Exact same-word collision question in the equivalent operation"
+        },
+        {
+          "assessment": "Exact transfer between operations; two-error sphere results are not the pair statistic",
+          "evidence": "Theorem 4.1 gives the alternate-coordinate conjugacy; §5.1 concerns a maximum two-error sphere.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "§4 Theorem 4.1, PDF p. 9; §5.1, p. 13",
+          "method": "OA full-text passage comparison",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Equivalent formulation for even block lengths"
+        },
+        {
+          "assessment": "Related, not the decisive statement",
+          "evidence": "Theorem 3 addresses full expressiveness of the multi-step system, with separate seed criteria for odd and even lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.11811",
+          "material_read": "Introduction and §II; §III Theorem 3",
+          "method": "OA PDF full-text passages",
+          "title": "On the Reverse-Complement String-Duplication System",
+          "trigger": "Same reverse-complement word system and parity comparisons"
+        },
+        {
+          "assessment": "Inspected statements concern coding capacity, not the pair probability",
+          "evidence": "The compared sections define/classify the operations for a capacity analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.00394",
+          "material_read": "Table 1 and §2, PDF pp. 3–4",
+          "method": "OA PDF full-text passages",
+          "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+          "trigger": "Compares both relevant operations"
+        },
+        {
+          "assessment": "Different length and output statistic; related exact event",
+          "evidence": "Length-two coincidences are characterized by complementary alternation; the spectrum counts distinct descendants.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-one-step-descendant-spectrum-for-length-two-reverse-comple--0aca79ccebc0",
+          "material_read": "RESULT.md collision and descendant claims",
+          "method": "Local Resultary search and mirrored record inspection",
+          "title": "Exact one-step descendant spectrum for length-two reverse-complement duplication",
+          "trigger": "Closest distinct local Resultary match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Pair collisions are a meaningful second factorial moment of output multiplicities, and nonlocal collisions distinguish this length from length two. As submitted, however, all new-looking numbers are the direct free-class counts of the already characterized event and a routine expectation. No genuinely new residual invariant or complete multiplicity result is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

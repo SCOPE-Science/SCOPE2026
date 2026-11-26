@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:31:35.270275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the 54-vertex point/axis-line incidence graph and verified the exhaustive claims with an independently written symmetry-reduced Python enumeration. Directly tested every anchored stabilizer orbit for sets of sizes 5 and 6: those containing point 0, and the all-line cases containing line 27. The coordinate group is transitive separately on points and lines, so these anchors cover all subsets under the group. Combinatorial ranks mark every member of each anchored orbit. The anchor universes had sizes (292825,14950) and (2869685,65780), with respectively (7265,531) and (64965,1940) tested orbits. For a white vertex the replay tests the three possible forcing witnesses by requiring the witness and its other two neighbors in the preceding observed set; round 1 is N[S]. The resulting fully expanded, deduplicated labeled census is zero successful five-sets and 880632 successful six-sets with all 18 time/point-count entries as claimed (including the zero), no other cells. Monotonicity of each observation step rules out smaller sets. An independent slide BFS generated all neighbors by toggling the two endpoints of each incident edge (an occupied destination gives a four-set and is rejected); membership in the census restricts to valid configurations. One component of size 880632, degree multiplicities 77760,58968,182736,316872,130896,92016,9072,12312 at degrees 4,6,7,8,9,10,11,12 and the half degree-sum 3412368 agree. The two supplied seed orbits under the coordinate group each have size 1296 and exhaust the time-10 sets. Points and lines have distinct distance-six sphere sizes (8 versus 4), verified at their respective orbit representatives. Any automorphism thus preserves points and acts faithfully on their collinearity graph H(3,3): the line vertices are determined by triples of points. The stabilizer of a point permutes the three pairs of neighbors and switches symbols within each pair; fixing the six neighbors fixes each distance-two vertex by its two predecessors and each distance-three vertex by its three predecessors. This bounds the automorphism group by 27·48=1296, attained by the checked coordinate actions. The frozen C++ and Python programs were inspected, not executed. Replay the independent code at /workspace/branches/independent-reproduction/gray_review.py with arguments 5, then 6, then slides, in that order (writes intermediate data under /tmp/opencode); retained logs gray-five.log, gray-six.log, gray-slides.log. This exhaustion is for this labeled graph only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. initiate TAR and token-jumping reconfiguration and mention token sliding as a distinct move rule. The inspected passage does not assert the Gray slide graph's connectivity or counts.",
+          "Allie et al. define propagation radius by minimization over power-dominating sets and give bounds; this invariant does not encode the full delay distribution conditioned on optimum cardinality."
+        ],
+        "reasoning": "Neither framework applies as a theorem identifying all minimum configurations and their adjacency, nor does a minimum over sets encode the maximum-time orbits.",
+        "searches": [
+          "Bjorkman et al. arXiv:2201.01798, abstract and introduction",
+          "Allie et al. arXiv:2510.02211, abstract and Definition 2.3",
+          "Resultary Hamming and Hoffman–Singleton power-domination analogues 4e3e739b312a and 85c4d9c9ba8e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_grid.cpp, verify_lcf.cpp and verify_slowest_orbits.py",
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 9d6ef7a316dc, 85c4d9c9ba8e, 4e3e739b312a",
+        "arXiv:2201.01798; arXiv:2510.02211; Bouwer DOI 10.4153/CMB-1968-063-0; MathWorld Gray Graph, bounded passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Efficient open domination requires every vertex to have exactly one selected neighbor. Its 252 size-18 sets, minimum trades and 36/216 orbits do not describe six-set forcing or single adjacent-vertex replacements.",
+          "The Hamming graph's connected jump/slide graphs are on power-dominating triples; its edges and states do not map to the Gray minimum sensor sets by simply replacing Hamming edges with point/line incidences."
+        ],
+        "reasoning": "Sharing the automorphism group, word labels, or a reconfiguration theme is insufficient. None of the inspected statements implies the finite Gray timing and slide graph censuses.",
+        "searches": [
+          "Efficient open domination RESULT.md Finding at offset 0, 9d6ef7a316dc",
+          "Hamming relocation RESULT.md Finding and assumptions, 4e3e739b312a",
+          "Power domination reconfiguration arXiv:2201.01798, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arithmetical incidence model and the Hamiltonian chord/LCF model are two representations of the same cubic semisymmetric graph. The reference data identify the graph and standard invariants, not its minimum-set census.",
+          "Ternary Hamming graph H(3,3) uses the same point words but connects them directly when they differ in one coordinate. The indexed Hamming triple relocation result concerns that 27-vertex graph, not the bipartite incidence graph."
+        ],
+        "reasoning": "Alternate graph encodings and the nearby co-linearity graph were considered. Counting initial domination as round one introduces at most a constant shift relative to a time-zero convention, not a genuinely different invariant; no matching shifted census appeared in the compared claims.",
+        "searches": [
+          "Resultary Gray graph (incidence/Levi, LCF) minimum power domination, labeled sensor propagation and token slides",
+          "Bouwer's Gray graph DOI 10.4153/CMB-1968-063-0, p. 533; MathWorld Gray Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld gives Gray-graph LCF and standard graph data; the earlier indexed same-graph exact table gives 252 efficient open-dominating 18-sets and their trade graph (1566 edges).",
+          "The Hoffman–Singleton table has the same minimum sensor number 6 but 2329950 labeled optima on a different 50-vertex graph and records time versus induced-edge count."
+        ],
+        "reasoning": "These are exact references but not the target invariant on the target graph. The identical indexed copy of this finding is excluded as evidence of independent overlap.",
+        "searches": [
+          "MathWorld Gray Graph graph-data page; Resultary exact Gray labeled census and graph-invariant analogues",
+          "9d6ef7a316dc same-graph exact census; 85c4d9c9ba8e same-day minimum-power-domination table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete Gray-graph optimum-state census and synchronous timing/slide classification, not the Gray graph representation, its symmetry group, the underlying reconfiguration definitions or the value 6 as a freestanding novelty claim. The strongest distinct same-graph indexed result uses efficient open domination and a different trade rule. Indexed results with the same power-domination and slide vocabulary concern different graphs. No material earlier or same-day result was shown to cover this full invariant in the bounded comparison.",
+      "residual_risks": [
+        "Selective literature and database inspection cannot exclude an unindexed Gray enumeration or a historical result under a different name. No title/keyword miss is treated as negative proof.",
+        "The same-day dates alone do not establish independent priority; the exact statements, rather than ordering, were compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework overlap; does not cover the inspected Gray exact claims",
+          "evidence": [
+            "Abstract focuses on token addition/removal and token jumping; introduction mentions token sliding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798",
+          "material_read": "PDF p. 1 abstract and introduction, offsets 0–2927, token sliding at 2672",
+          "method": "Original OA PDF passage and move-rule comparison",
+          "title": "Power domination reconfiguration",
+          "trigger": "General named power-domination reconfiguration framework"
+        },
+        {
+          "assessment": "General bounds and a minimized statistic, not the joint Gray census",
+          "evidence": [
+            "Propagation radius is a minimum over power-dominating sets; the paper studies bounds and split graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.02211",
+          "material_read": "PDF pp. 1–3, abstract and Definition 2.3, offsets 2861,5579,8466",
+          "method": "Original OA PDF passages, normalized to the record's rounds",
+          "title": "Bounds on the propagation radius in power domination",
+          "trigger": "Potential general time or radius result"
+        },
+        {
+          "assessment": "Covers graph construction/identity only in the inspected material",
+          "evidence": [
+            "54-vertex cubic edge-transitive but non-vertex-transitive graph with chord construction."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1968-063-0",
+          "material_read": "p. 533, offset 0",
+          "method": "OA article passage comparison",
+          "title": "An edge but not vertex transitive cubic graph",
+          "trigger": "Classical alternative graph presentation"
+        },
+        {
+          "assessment": "Supplies standard graph data; not the target table",
+          "evidence": [
+            "54-vertex cubic semisymmetric Levi graph and LCF encoding."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/GrayGraph.html",
+          "material_read": "Main HTML entry, beginning at offset 0",
+          "method": "Public page read for graph invariants and encoding",
+          "title": "Gray Graph",
+          "trigger": "Canonical graph data and possible exact invariant table"
+        },
+        {
+          "assessment": "Same graph, different state constraint, size, and moves",
+          "evidence": [
+            "252 efficient open-dominating size-18 sets, 1566 trade edges and two orbits of sizes 36 and 216."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-efficient-open-domination-and-minimum-trade-geometry-of-the-gray--9d6ef7a316dc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror exact statement comparison",
+          "title": "Efficient open domination and minimum-trade geometry of the Gray graph",
+          "trigger": "Closest distinct same-graph indexed exact result"
+        },
+        {
+          "assessment": "Different graph; no overlapping Gray conclusion",
+          "evidence": [
+            "50 vertices, strongly regular parameters (50,7,0,1); 2329950 optima and time/induced-edge table."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-minimum-power-domination-and-exact-propagation-time-census-of-th--85c4d9c9ba8e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror exact graph and table comparison",
+          "title": "Minimum power domination and exact propagation-time census of the Hoffman–Singleton graph",
+          "trigger": "Same-day exact synchronous census of size-six optima"
+        },
+        {
+          "assessment": "Different graph and optimum states",
+          "evidence": [
+            "H(3,3) has 27 vertices, minimum 3, 1296 optimal triples, and connected jump and slide graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-power-domination-triples-and-sharp-relocation-detours-in-the-ter--4e3e739b312a",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local-mirror graph, state and move comparison",
+          "title": "Power-domination triples and sharp relocation detours in the ternary Hamming graph",
+          "trigger": "Closest distinct indexed power-domination slide result with shared coordinate geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard semisymmetric graph the two inequivalent vertex types make the minimum-sensor time spectrum and the geometry of adjacency-preserving relocation natural exact questions. The slowest symmetry classes and connected minimum-state graph add precise information that a minimum number, radius, single feasible move or marginal count cannot supply. The complete finite census is usable as a benchmark for power-domination and reconfiguration results; no general graph-family theorem or slide diameter is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

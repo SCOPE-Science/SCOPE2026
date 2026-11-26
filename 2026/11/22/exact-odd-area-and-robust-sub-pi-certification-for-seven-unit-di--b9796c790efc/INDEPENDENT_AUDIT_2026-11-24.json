@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:29:11.813583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, sections Finding, Proof (1)–(3) and Verification; VERIFICATION.md; odd_area_certificate.py, interval and formal algebra sections (inspected, not executed)",
+        "Independent check: exact angular-order and radical-coefficient reconstruction and bounded interval evaluation; separate numerical polar integration gave 3.108091649375221"
+      ],
+      "rationale": "For almost every point of a disk circumference the other disks have constant parity locally. Its arc is positively oriented for the odd region exactly when that parity is even. Green's theorem then gives the signed boundary formula. Independently computed all 84 ordered events and the exact coefficients by taking the vector cross product in the Green primitive, rather than expanding the individual trigonometric functions. In coordinates (X√3/24,Y/8), let D=(m√3/24,n/8) be the center displacement, s=m²+3n², and β=±1 indicate the two crossings. The angle is wπ/6−β asin(√(s/768)), with w chosen by the heading and the full-turn lift. At this event the cross-product contribution to the primitive is (Xn−Ym)√3/384+β(Xm+3Yn)√((768−s)s)/(384s). Initial coverage by the other disk is equivalent to m>0 and s²<768m². Summing the signed primitives reproduces the exact identity. An independent fixed-point interval check yields (-36834745203,-36834742557)/1099511627776 for OA−π, wholly inside the claimed rational bracket. Parallel slicing of disk translates gives symmetric difference at most 4||h||, even for large h, and XOR changes only on the union of the symmetric differences. Combined with the strict margin, this proves the stated aggregate displacement guarantee, with no dependence assumptions on the translations.",
+      "replay": "Use the displayed event formulas with the seven integer pairs (0,0),(4,0),(-2,2),(-2,-2),(1,1),(-2,0),(1,-1). Start the area accumulator with π times the initial sign per circle and add the current sign times each event primitive, flipping it at every strictly ordered event. Outward round arithmetic on grid 2^(-40): for the crossing orders 3.14159265<π<3.14159266 suffices; bound square roots by squaring outward endpoints and use eight arcsine terms and tail at most 2x^17. The arc coefficients, in s order 4,12,16,36,48, are 12,24,12,−12,−12. The radical coefficients, in squarefree order 3,7,15,47,183,191 with denominator 384, are −24,432,−288,96,−72,24.",
+      "residual_risks": [
+        "The translation guarantee is conservative, not a claim of optimal stability, minimal configuration, or minimal number of disks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating theorem gives OA≤3.12 and suggests a closed form could presumably be computed. The concyclic-centers lower-bound hypothesis does not hold here (the centers occupy three different radii about the center imposed by the three vertices)."
+        ],
+        "reasoning": "Neither the directly matching theorem nor the cited concyclic case states this exact evaluated invariant.",
+        "searches": [
+          "arXiv:2606.08337v1 theorem and ensuing discussion; frozen reference Carmel–Pinchasi, AJC 87 (2023), 148–159"
+        ]
+      },
+      "checked_sources": [
+        "Steinerberger, arXiv:2606.08337v1",
+        "Resultary target mirror, RESULT.md",
+        "Frozen bibliography, Carmel–Pinchasi concyclic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Steinerberger's 3.12 bound already implies a weaker positive quantitative tolerance via the same elementary area-change inequality: (π−3.12)/4≈0.005398. It does not give the claimed 0.008375 bound via that inequality."
+        ],
+        "reasoning": "Continuity or an elementary translate bound is not new; the stronger certified margin and stability bound rely on actually evaluating the nontrivial signed arrangement.",
+        "searches": [
+          "arXiv:2606.08337v1 pp. 1–2 benchmark and discussion",
+          "Resultary matching record, RESULT.md lines 94–99"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steinerberger p. 1 gives the same six vertex/midpoint centers and central seventh disk for an equilateral triangle of side 1/2; orientation or coordinate changes do not change the benchmark."
+        ],
+        "reasoning": "The configurations are identical up to Euclidean isometry. The new component is an evaluated parity-area expression, not a differently parameterized example.",
+        "searches": [
+          "Resultary bounded search for seven-disk odd area and translation certification",
+          "arXiv:2606.08337v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit 2026/11/22/SCOPE-exact-odd-area-and-robust-sub-pi-certification-for-seven-unit-di--b9796c790efc is the target itself, RESULT.md lines 21–35. The primary paper reports approximately 3.108 from grid counting, also supported by Monte Carlo, not an exact expression."
+        ],
+        "reasoning": "Agreement with a rounded value is corroborative, not an exact tabulation or certificate by an earlier source.",
+        "searches": [
+          "Resultary exact odd area / seven unit disks / sub-π perturbation comparison",
+          "arXiv:2606.08337v1 p. 1"
+        ]
+      },
+      "rationale": "The equilateral triangle construction and sub-π conclusion are due to Steinerberger. Pass only the explicit exact evaluation and its quantitative certificate and stability refinement, not the witness or qualitative continuity. The closest indexed exact match is the same record, not independent prior coverage.",
+      "residual_risks": [
+        "Bounded search is not a priority guarantee; an unindexed independent exact calculation could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the benchmark and sub-π example, not the exact value or the stated translation guarantee",
+          "evidence": [
+            "Theorem OA≤3.12; grid and Monte Carlo value about 3.108; text suggests possible closed-form calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.08337",
+          "material_read": "Theorem and numerical/closed-form discussion on PDF p. 1, extraction offsets 1350–3479 and 2350–4218",
+          "method": "OA primary PDF, bounded passages",
+          "title": "A Remark on the Odd Area of Unit Disks",
+          "trigger": "Identical seven-disk configuration and numerical area"
+        },
+        {
+          "assessment": "Identical source, not a distinct indexed result",
+          "evidence": [
+            "Identical expression, rational margin and aggregate displacement guarantee."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-area-and-robust-sub-pi-certification-for-seven-unit-di--b9796c790efc",
+          "material_read": "RESULT.md lines 21–35 and 94–99",
+          "method": "Local mirror, bounded file passages",
+          "title": "Exact odd area and robust sub-π certification for seven unit disks",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Steinerberger, arXiv:2606.08337v1, p. 1",
+        "Frozen RESULT.md, Finding and Proof"
+      ],
+      "rationale": "This pre-existing counterexample to a natural parity-area bound is a motivated nonarbitrary benchmark. Its exact value and rigorous gap quantify the example and give a usable guarantee against independent geometric perturbations. The explicit arrangement arithmetic is not supplied by a general Green theorem or by the approximate published value.",
+      "residual_risks": [
+        "Benchmark-specific; no general lower bound or new extremizer classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

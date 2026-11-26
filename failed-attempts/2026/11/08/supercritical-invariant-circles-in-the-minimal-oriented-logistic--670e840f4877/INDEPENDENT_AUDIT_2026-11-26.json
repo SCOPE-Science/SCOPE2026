@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:21:09.030542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70; frozen VERIFICATION.md and verify_exact.py (inspected)",
+        "/workspace/independent_checks/logistic.py (independent symbolic replay with SymPy 1.14.0)"
+      ],
+      "rationale": "Clipping is inactive jointly in state and parameter near the interior onset point. The cyclic Fourier polynomial multiplication gives the exact recurrence; the real multiplier is strictly inside the unit circle up to and across onset locally, and the complex pair has d|λ|/dr=1 at r_c. The unit eigenvalue is in the open upper half-plane with the only strong resonances at s=1/3 and s=1. In the stated Fourier normalization, the quadratic graph coefficient is −(s+3); elimination of the nonresonant conjugate-square term gives Re(conj(λ_c)C)=−(s+3)^3/(s+1)^2, verified symbolically from an independently constructed cyclic Fourier polynomial. The smooth local Neimark–Sacker theorem and transverse contraction give the attracting curve. To make the uniform leading estimate explicit, writing L=−Re(conj(λ_c)C)>0, sandwich the radial map on the shrinking curve by R↦R[1+(1±η)ε−(L∓η)R²]; these envelopes are increasing locally. Invariance then bounds the minimum radius below by the positive fixed radius of the lower envelope and the maximum above by that of the upper envelope, in the sense min R ≥ sqrt((1−η)ε/(L+η)) and max R ≤ sqrt((1+η)ε/(L−η)). Let η tend to zero and use the near-identity coordinate change and the smooth parameter-dependent quadratic center graph to obtain both uniform profiles.",
+      "residual_risks": [
+        "Applies for each fixed nonresonant interaction near onset. The symbolic replay checks local algebra, not existence on its own. No conclusion about the excluded resonances, global attraction, or the rotation number at every nearby parameter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baron–Galla's model and disorder analysis provide the ambient map, but not the deterministic triad cubic calculation. The related Resultary record 5dc43896452e uses five sites and contains a subcritical range."
+        ],
+        "reasoning": "The general framework and the five-site result are not the decisive coverage; the directly matching earlier triad analysis is.",
+        "searches": [
+          "arXiv:2609.24402 Eq. (1)",
+          "Resultary: oriented cyclic logistic map exact center manifold Fourier supercritical Neimark-Sacker"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 75840f5cffe4 and 5dc43896452e",
+        "arXiv:2609.24402 (OA HTML)",
+        "DOI 10.1155/2020/4103606 (attempted access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof gives h=−2r_c/t_c=−(s+3), the same cubic coefficient, and |W|=sqrt(ε(1+s)²/(s+3)³)+O(ε) on the invariant circle. It gives Z=W+O(|W|²)."
+        ],
+        "reasoning": "Squaring and using the near-identity change gives |z|²=ε(1+s)²/(s+3)³+O(ε^(3/2)). Multiplication by h in the graph for U, whose higher-order and smooth parameter terms are o(ε), gives m=−ε(1+s)²/(s+3)²+o(ε). Interior containment and attraction are already explicit. No independent remainder is identified.",
+        "searches": [
+          "Resultary 75840f5cffe4, Proof §§1–4, offsets 0–5871 of RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "75840f5cffe4, Finding and Assumptions: the same clipped map with c in place of a, κ=√3c, identical Fourier coordinate and identical excluded couplings c=1/3 and c=1/√3."
+        ],
+        "reasoning": "Put c=a, κ²=s, and identify U=m and Z=z; the scopes and bifurcation statement coincide.",
+        "searches": [
+          "Resultary: three-site cyclic logistic map balanced oriented interaction Neimark-Sacker invariant circle",
+          "Resultary: clipped multiplicatively coupled logistic map directed three-site ring bifurcation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed earlier RESULT.md gives the closed rational formula for every eligible c, not a pointwise numerical value or sampling table."
+        ],
+        "reasoning": "An empirical table could not establish the all-parameter theorem; the exact formula and proof in the indexed earlier record provide stronger coverage than a lookup table.",
+        "searches": [
+          "Resultary: Neimark-Sacker cubic coefficient cyclic logistic network invariant circle amplitude"
+        ]
+      },
+      "rationale": "The Resultary record 75840f5cffe4 dated 2026-11-01 proves the same result in the same Fourier normalization. Even though it does not highlight the mean as a finding, its center graph and quantitative amplitude immediately give the entire frozen mean formula uniformly. Thus the entire mathematical claim is already stated or immediately implied; it is not merely a related example or an unverified overlap.",
+      "residual_risks": [
+        "No worldwide-priority assertion is needed. Failure is based on an inspected earlier exact result, not on inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen theorem and immediately implies the mean profile",
+          "evidence": "Same map, spectral threshold and resonance exclusions; normalization, quadratic graph, cubic sign and radius formula in §§2–4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-universal-supercritical-oscillatory-bifurcation-in-a-circulati--75840f5cffe4/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–4, offsets 0–5871",
+          "method": "Local source mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal supercritical oscillatory bifurcation in a circulating logistic triad",
+          "trigger": "Exact result and parameter aliases"
+        },
+        {
+          "assessment": "Different dimension and coefficient behavior",
+          "evidence": "Five-site ring with a subcritical interval.",
+          "identifier_or_url": "Resultary 5dc43896452e",
+          "material_read": "RESULT.md opening passage, offset 0",
+          "method": "Local source mirror passage inspection",
+          "title": "Two criticality reversals at the first Neimark–Sacker bifurcation",
+          "trigger": "Closest distinct same-date ring result"
+        },
+        {
+          "assessment": "Ambient framework; not the decisive triad coverage",
+          "evidence": "Multiplicative clipping model with uncorrelated random coefficients, zero mean, variance σ²/N.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2609.24402",
+          "material_read": "Abstract and model Eq. (1), offsets 0 and 6094–9598",
+          "method": "Lawful alternate OA HTML passage inspection",
+          "title": "The disordered logistic map",
+          "trigger": "Published coupling model"
+        },
+        {
+          "assessment": "Not used to exclude coverage",
+          "evidence": "Retrieval denied; earlier triad proof independently decides coverage.",
+          "identifier_or_url": "https://doi.org/10.1155/2020/4103606",
+          "material_read": "No primary passage retrieved",
+          "method": "Attempted lawful publisher and PDF access",
+          "title": "Flip and Neimark–Sacker Bifurcations in a Coupled Logistic Map System",
+          "trigger": "Plausible related logistic bifurcation result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–11 and 44–70",
+        "Resultary 75840f5cffe4, Proof §§2–4"
+      ],
+      "rationale": "An all-coupling exact classification of the minimal directed ring is mathematically useful in its earlier form. This record adds no such structural invariant or new regime: the highlighted mean suppression is simply the existing quadratic graph evaluated at the already known radius. That routine substitution does not supply a worthwhile independent remainder.",
+      "residual_risks": [
+        "This is a judgment of the added content, not a denial of the mathematical interest of the earlier theorem. Resonance analysis would be a separate claim, not a repair established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

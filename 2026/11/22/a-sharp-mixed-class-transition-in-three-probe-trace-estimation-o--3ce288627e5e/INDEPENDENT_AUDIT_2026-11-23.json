@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:28.306180Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–77",
+        "VERIFICATION.md, verify.py, VERIFY_OUTPUT.txt (inspected; supplied checker not executed)",
+        "Independent bounded enumeration over pairs of ordered weak compositions of n into three parts; discard empty classes and compare integer-scaled pair costs and equality signatures"
+      ],
+      "rationale": "Decomposing the shifted Laplacian into the two shore-constant directions and their orthogonal complements gives within-shore entry κ and cross-shore entry χ, with χ/κ=1+μ/n. Each independent class probe contributes four times the sum over unordered within-class pairs. In the resulting cost, an exchange between two mixed classes at fixed class sizes strictly increases the sum of squared shore imbalances and lowers cost for θ>1. With only one mixed class, if both pure classes were on the same shore, moving the minority contribution of the mixed class into a pure class would save θn per transferred vertex against fewer than n new collisions. Thus the gain is D=ns−s²+(2−θ)ab, with s=a+b. For 1<θ<2 fixed s forces balanced a,b; a balanced positive choice at an integer nearest n/2 beats the pure gain, including s=2 for n=3. Values s≥n are worse (the successive differences are negative there), and s=1 is no better than the pure gain. Strictly decreasing differences give only adjacent interior ties. For θ≥2 the upper bound floor(n²/4) requires s nearest n/2, with ab=0 required only when θ>2. This also yields the unlabeled counting rules: a unique mixed class identifies its two subsets; in the even pure case the two equal halves are unordered. An independent exact-integer check grouped partitions by the two triples of shore counts, tested all feasible triples for n=3–12 at nine rational θ values each, and matched all optimizer signatures, including internal ties at (n,θ)=(6,3/2),(8,3/2),(12,5/4).",
+      "residual_risks": [
+        "The bounded enumeration is corroboration only; the analytic proof supplies the parameter-uniform result. Scope is exactly three probes, an unweighted balanced biclique, and positive screening."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact Rademacher variance identity holds for general partitions. The hierarchical probing source discusses distance colorings and solve budget on lattices."
+        ],
+        "reasoning": "These broader frameworks cover the objective and method, not optimal partitions of the screened balanced biclique at fixed three actions.",
+        "searches": [
+          "arXiv:2308.07722, Lemma 3.5 and Remark 3.6",
+          "arXiv:1302.4018, introductory discussion of hierarchical probing"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work section",
+        "arXiv:2308.07722",
+        "arXiv:1302.4018",
+        "Resultary: two-color complete bipartite, three-probe two-hub split, and two screened-star findings",
+        "Primary-literature search for the equivalent weighted fixed-three cut"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-color result treats general Kₘ,ₙ at exactly two classes and has proper optimum on balanced inputs throughout μ>0. The three-probe split-resolvent result allows a mixed class on a different graph whose two distinguished vertices are adjacent."
+        ],
+        "reasoning": "The two-color theorem gives neither the cost nor the equality problem when a third nonempty class is available. Changing the split graph to Kₙ,ₙ does not preserve its entry types and shore constraints. No implication of the accepted classification was demonstrated.",
+        "searches": [
+          "Resultary two-color complete bipartite resolvents, RESULT.md Finding, offsets 0–5139",
+          "Resultary two-hub split resolvents, RESULT.md offsets 0–7389"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Subtract the within-class cost from the total pair weight to obtain the corresponding weighted Max-3-Cut, with weight 1 within shores and θ across shores. The search returned broader Max-Cut material, not a statement resolving this particular two-weight equality problem."
+        ],
+        "reasoning": "A generic cut formulation or algorithm does not supply the all-n, all-θ optimum and equality cases. A specialized symmetric weighted cut result would be relevant if found.",
+        "searches": [
+          "Resultary: weighted max-3-cut, fixed-three partitions, and three-class biclique probing",
+          "Primary-literature search for weighted fixed-three cut/partition on two-weight complete graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day indexed two-hub split and screened-star findings have explicit transitions/staircases. Their primary statements are for K₂ joined to an independent set and K₁,q, respectively, not Kₙ,ₙ for n≥3."
+        ],
+        "reasoning": "Their formulas and tables do not evaluate the target balanced two-shore problem; the shared date does not establish precedence or coverage.",
+        "searches": [
+          "Resultary searches for three-probe transitions and fixed-class optimal probing partitions"
+        ]
+      },
+      "rationale": "The per-partition variance identity and distance-based probing are established. Earlier bipartite work has a different action budget; same-budget split-graph and star results concern different cost matrices. The inspected sources do not determine the biclique threshold, staircase or complete equality families, including via the equivalent weighted three-cut formulation.",
+      "residual_risks": [
+        "A specialized weighted three-cut theorem could cover this symmetric two-weight objective. The bounded search did not locate one and does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers variance normalization, not the optimized three-class result",
+          "evidence": "The Rademacher formula is extended explicitly to general partitions in the remark.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07722",
+          "material_read": "p. 8, Lemma 3.5 and Remark 3.6, offset approximately 27990",
+          "method": "Open-access full-text passage",
+          "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+          "trigger": "Exact objective for class-supported Rademacher probes"
+        },
+        {
+          "assessment": "Background on hierarchical distance coloring, not this extremum",
+          "evidence": "The inspected introduction discusses hierarchical probing on lattices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.4018",
+          "material_read": "p. 1, offset approximately 1551",
+          "method": "Open-access full-text passage",
+          "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+          "trigger": "Probe-budget and coloring context"
+        },
+        {
+          "assessment": "Same graph family, exactly two classes; does not imply three-class optima",
+          "evidence": "On balanced bicliques the indexed two-class criterion gives a proper optimum for every positive screening.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895",
+          "material_read": "RESULT.md, Finding, offsets 0–5139",
+          "method": "Indexed local mirror full-text passage",
+          "title": "Sharp two-color stochastic-probing transition on complete bipartite resolvents",
+          "trigger": "Same resolvent family and sharp transition"
+        },
+        {
+          "assessment": "Material analogue on a different graph, with no balanced-biclique implication found",
+          "evidence": "Solves the three-class problem on K₂ joined to an independent set of size q≥4.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-proper-to-improper-three-probe-transition-on-two-hub-spl--b49efa2c401d",
+          "material_read": "RESULT.md, Finding and proof continuation, offsets 0–7389",
+          "method": "Indexed local mirror full-text passage",
+          "title": "A sharp proper-to-improper three-probe transition on two-hub split resolvents",
+          "trigger": "Same fixed budget, analogous sharp transition"
+        },
+        {
+          "assessment": "Star-graph result",
+          "evidence": "Optimizer signature is hub occupancy for a star, not the mixed class on two large shores.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-hub-allocation-staircase-and-a-nonvanishing-refinement-gap--4259dd82b2d5",
+          "material_read": "RESULT.md, offset 0–4083",
+          "method": "Indexed local mirror full-text passage",
+          "title": "Sharp hub-allocation staircase and a nonvanishing refinement gap",
+          "trigger": "Screening-dependent finite staircase"
+        },
+        {
+          "assessment": "Broader budget range for stars, not broader graph coverage",
+          "evidence": "The characterization is in terms of the hub class and remaining star leaves.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-budget-optimal-rademacher-probing-partitions-on-screened-sta--276450ab2e3f",
+          "material_read": "RESULT.md, offset 0–4196",
+          "method": "Indexed local mirror full-text passage",
+          "title": "All-budget optimal Rademacher probing partitions on screened star graphs",
+          "trigger": "General probe budget includes three"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen statement and proof, including all ties and optimizer counts",
+        "Earlier exact two-class biclique result for contrast"
+      ],
+      "rationale": "The fixed three-action variance budget is operationally meaningful and exposes an exact reversal not seen at two actions on this graph. Weak screening forces a nonproper partition despite higher individual cross-shore pair costs; at and above critical screening the precise optimizer sets are different. Strict uncrossing and the discrete staircase give a usable characterization rather than just a numerical improvement or a single example.",
+      "residual_risks": [
+        "This is an exact variance result, not a runtime or concentration result, and it does not generalize here to arbitrary probe budgets or unbalanced shores."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

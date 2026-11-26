@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:46.283279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63",
+        "Frozen VERIFY.py and VERIFICATION.md"
+      ],
+      "rationale": "Writing x=ua+v with 0≤v<a gives membership iff u≥v: if a representation uses coefficient v+ta of a+1, the quotient only increases from v. Thus the gaps are exactly F_a-ia-j with 0≤j≤i≤a−2. On a residue r mod p, i=p−1 and the least residue j of r²−1 always qualify, since a>p. Costs with i≥p exceed its cost, and costs at smaller i are strictly ordered by i; the minimal (i,j) is independent of a within the class. For residue zero, j≡−1 forces i=j=p−1 at the minimum. For d|p proper, k=p/d, the proposed (d+k−2,d−1) lies in the triangle since p−1−i=(d−1)(k−1). Its cost is congruent to d²−d−1, with improvement over the zero-branch numerator equal to (d−1)(k−1)a+p−d>0, including d=1. A period d would force equality of the two polynomials on intersecting residue classes by the infinite-root property. The generalized CRT gives gcd(p,q) as a period if q is a period, by identifying the p-branch polynomials through a common q-branch on infinite progressions. Thus p divides any period, not just those among the divisors of p. The package's 3,234 enumerated instances and divisor-witness tests are finite diagnostics; verification rests on the uniform proof. The script was inspected, not executed.",
+      "residual_risks": [
+        "No conclusion for p varying with a or general generator pairs; the period is established on the entire stated domain a>p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 and Corollary 4.4 of Strazzanti give the exact Frobenius number by least representative for symmetric S. Resultary 9f48bb6b7364 derives an exact period for fixed h≥2 with gcd(p,h)=gcd(a,h)=1; f97e4a87e254 changes the generator set."
+        ],
+        "reasoning": "The broader least-representative evaluation does not address minimal periods. The fixed-gap proof extends to h=1 but its formal scope is h≥2 and the text presupposes the h=1 result; the related triple-generator theorem is not a two-generator result.",
+        "searches": [
+          "Strazzanti arXiv:1512.00638, §4",
+          "Resultary 9f48bb6b7364 two-generator fixed-gap quotients; f97e4a87e254 three consecutive generators"
+        ]
+      },
+      "checked_sources": [
+        "Liu arXiv:2607.23076",
+        "Strazzanti arXiv:1512.00638",
+        "Resultary 9f48bb6b7364 and f97e4a87e254"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd prime p the at-least-ceiling(p/2) distinct branches in Liu rule out period one, and for p=2 the two polynomials differ in constant term. At composite p this inference does not rule out each proper divisor. The higher-gap proof's zero-constituent uniqueness argument remains valid at h=1, but its declared contribution excludes this case and its relationship section explicitly presupposes exact period at h=1 without a source ID."
+        ],
+        "reasoning": "Reading off data for a fixed p and the immediate prime corollary are prior. The new uniform witness i=d+p/d−2, j=d−1 proves mismatch for each proper divisor and is not supplied by those prior exact constituent statements. The higher-gap record is demonstrable methodological coverage at h=1, not evidence by itself of independently prior h=1 publication; the finding and text distinguish the two claims, not merely their timestamps.",
+        "searches": [
+          "Liu Theorem 1.4, Theorem 5.3, Corollary 5.5, Proposition 5.9",
+          "Resultary 9f48bb6b7364 proof §§3–4 and Relationship, offsets 0–7465"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu's G(a,p) is the same function on a>p with the same constituents I_p(r),J_p(r). He states the period-divides-p result and notes in Definition 5.4 that a exhibited period need not be least."
+        ],
+        "reasoning": "Constituent equivalence does not itself assert noncollapse uniformly over composite moduli; exact period of the quotient's Frobenius number is the claim under review.",
+        "searches": [
+          "Resultary: Frobenius quotient of consecutive generators, exact quasipolynomial period",
+          "Primary: Feihu Liu On the Frobenius Number of Quotients of Numerical Semigroups, Theorem 1.4 Corollary 5.5 Proposition 5.9 least period exact divisor constituent formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu explicitly lists the five p=5 constituents: residues 1 and 2 agree, while residue 0 is isolated. The fixed-gap record reports bounded checks that also include h=1, qualified as known-case crosschecks."
+        ],
+        "reasoning": "An exact table for individual moduli can certify those examples, including p=5 without every branch being distinct. It does not certify minimal period for arbitrarily large composite p.",
+        "searches": [
+          "Liu arXiv:2607.23076 Example 5.7",
+          "Resultary 9f48bb6b7364 Verification"
+        ]
+      },
+      "rationale": "Limited to the all-moduli least-period assertion and the explicit divisor separation, especially for composite p. The constituent formulas and the prime conclusion are already covered. The close higher-gap catalogue result expressly excludes gap 1 from its theorem and treats the gap-1 exact period as an independently existing result; its argument also works at gap 1, but the inspection does not identify an independent earlier source for that assertion.",
+      "residual_risks": [
+        "The higher-gap record's independently existing h=1 result is not linked to a specific record; the exact historical attribution remains unverified. The bounded primary search did not resolve it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers computation, upper period and the immediate prime case",
+          "evidence": "Theorems specify I_p,J_p, while the branch-count proposition applies only to prime p.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23076",
+          "material_read": "Theorem 1.4 p.4; Theorem 5.3, Definition 5.4, Corollary 5.5 pp.16–17; Example 5.7 and Proposition 5.9 pp.18–19",
+          "method": "OA PDF passages",
+          "title": "On the Frobenius Number of Quotients of Numerical Semigroups",
+          "trigger": "Same G_p(a) and explicit p-constituents"
+        },
+        {
+          "assessment": "Covers the least-representative rule, not exact periods",
+          "evidence": "The Frobenius number of S/d is (F(S)-x)/d where x is the least element in the specified residue class.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.00638",
+          "material_read": "§4, Theorem 4.2 and Corollary 4.4, pp.8–9",
+          "method": "OA PDF passages",
+          "title": "Minimal genus of a multiple and Frobenius number of a quotient of a numerical semigroup",
+          "trigger": "Stronger quotient-Frobenius evaluation on symmetric semigroups"
+        },
+        {
+          "assessment": "Formally h≥2; proof extends to h=1 but the text treats gap one as an input already known independently",
+          "evidence": "§3's zero-constituent uniqueness is valid at h=1, while the Finding requires h≥2 and Verification explicitly labels h=1 a known-case cross-check.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-quasi-periods-for-fixed-gap-quotients-of-two-generator-num--9f48bb6b7364/RESULT.md",
+          "material_read": "Finding, assumptions, proof, Verification and Relationship, offsets 0–7465",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact quasi-periods for fixed-gap quotients of two-generator numerical semigroups",
+          "trigger": "Potential same least-period result on a broader generator family"
+        },
+        {
+          "assessment": "Not the two-generator family",
+          "evidence": "Uses ⟨a,a+1,a+2⟩/p.",
+          "identifier_or_url": "Resultary 2026/11/8, f97e4a87e254",
+          "material_read": "Indexed scope for the generator set",
+          "method": "Resultary catalogue comparison",
+          "title": "Sharp quotient Frobenius quasiperiod for three consecutive generators",
+          "trigger": "Adjacent exact period result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (3)–(5) and CRT argument",
+        "Liu arXiv:2607.23076 Theorem 1.4 and Proposition 5.9"
+      ],
+      "rationale": "The natural minimal period of an exact Frobenius quotient function is stronger information than a convenient congruence period. It determines the smallest valid residue modulus even when some branch polynomials coincide. For composite p this is not automatic from having multiple branches or from the known recipe for each constituent: the explicit witnesses uniformly couple divisibility of p with an actual gap and rule out every candidate collapse. This is a useful exact invariant, not a claim of novelty for recomputing the branch table.",
+      "residual_risks": [
+        "No assertion of a full classification of coincidences among nonzero branches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

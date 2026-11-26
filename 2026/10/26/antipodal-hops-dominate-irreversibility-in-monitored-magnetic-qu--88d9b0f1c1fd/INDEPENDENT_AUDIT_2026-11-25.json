@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:38:45.125680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and 44–94; VERIFICATION.md lines 19–23 and verify.py lines 28–94 inspected; uploaded script not executed",
+        "Independent replay: python3 /workspace/branches/f6597e72-4521-4c2f-b4c5-e341ef25e96b/reproduce.py; exact walk enumeration with N=5, weights (2,3,5,7,11), flux pi/2; 35 exact identities. The five squared long-arc products sum to 188222 and yield entropy coefficient 752888/45."
+      ],
+      "rationale": "For odd N=2m+1, each unordered pair has a unique oriented shortest arc of length d<=m. Its leading transition probability in both directions is b*tau^(2d) with b=A_short²/(d!)²>0; diagonal probabilities tend to 1. The chain is doubly stochastic by unitarity and strictly positive for small nonzero steps, so the stationary weighting is 1/N and grouping the two orders gives the stated entropy without a further factor of two. Hermiticity gives P(-tau)=P(tau)^T. An odd-order coefficient pairs two walks whose concatenation with one reversed is a closed odd walk; below N that is impossible, and at N such a walk must go once around the cycle without backtracking. Thus the relevant amplitude products use the complementary arcs, and the real part of i^(N-2d) exp(i Phi) gives (-1)^(m+d+1) sin(Phi). Twice the cross term and the directional difference give c=4(-1)^(m+d+1) A_short A_long sin(Phi)/(d!(N-d)!). The entropy term starts at c²/b times tau^(2N-2d), with analytic factors after canceling powers in the logarithm. Each paired term is even, so its correction is at least two powers higher. For nonzero sin(Phi) only d=m yields N+1; there are N distinct such pairs, and c²/b cancels the short-arc product exactly. Uniform weights give the stated specialization. On even cycles sublattice conjugation gives reciprocity; for Phi a multiple of pi the real symmetric gauge does so for any length, with zero entropy also on reciprocal zero-probability pairs by the stated convention.",
+      "residual_risks": [
+        "Independent replay is a bounded coefficient check in a special flux gauge, not an all-parameter proof or finite-time entropy test. The analytic result fixes all weights, N and flux; no limit uniform in these data is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed uniform-cycle result proves the full transition-matrix bound O(tau^N) and evaluates its nearest-neighbor directional difference by winding interference. Published site-dephasing treatments cover the Markov reduction, symmetry criteria or different multi-time statistics."
+        ],
+        "reasoning": "The uniform antisymmetry bound plus shortest-path probabilities gives an entropy upper order O(tau^(N+1)), but alone gives no nonzero far-pair coefficient or lower bound. The known symmetry cases and log expansion are ingredients, not an already stronger entropy asymptotic.",
+        "searches": [
+          "Resultary 6b103059d648 local mirror, Finding and antisymmetry proof, offsets 0–5093 and 4070–5851",
+          "arXiv:2508.11947 pp. 2–3; arXiv:2512.18873v1 pp. 2–3; arXiv:2606.15935 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6b103059d648 and focused catalogue searches; primary passages in arXiv:2608.12519, 2508.11947, 2606.15935, 2512.18873v1 and 2004.04850"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior interference proof gives the two paths of lengths 1 and N-1 and the exact signed degree-N cross coefficient for neighbors, then states only a matrix norm order for general ordered pairs."
+        ],
+        "reasoning": "The same winding argument is a material overlap and extends to weighted arcs, but neither the nearest-neighbor formula nor the general norm bound supplies the weighted degree-N far-pair cross term and its ratio to the shortest-path probability. Neighbors' entropy contribution is order 2N-2, which for N>=5 is higher than N+1. Comparing those probabilities across distances and canceling the short-arc factor yields the distinct coefficient; it is not a stationary-entropy restatement of the known contrast or a direct parameter specialization.",
+        "searches": [
+          "Resultary 6b103059d648 §3, local mirror offsets 4070–5851, and Longhi arXiv:2508.11947 complete-dephasing limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longhi and Huang et al. use the same fully dephased Markov map and detailed-balance condition. Resultary 6b103059d648 uses uniform hopping and an arrival-direction contrast, expressly not entropy production. Luppi's odd-ring observable measures a return-based Kolmogorov inconsistency after dichotomic measurements; Vallejo et al. use reduced-coin von Neumann entropy."
+        ],
+        "reasoning": "The audited observable is the classical relative entropy of stationary one-step fluxes and their transpose, not one selected transition difference, time-normalized entropy, a measured return statistic, or an entropy of the quantum coin. The same map or a matched cycle geometry does not make those observables equivalent.",
+        "searches": [
+          "Resultary: monitored magnetic quantum rings odd cycle antipodal transitions flux path reversal",
+          "Primary comparisons: arXiv:2508.11947, arXiv:2606.15935, arXiv:2608.12519, arXiv:2004.04850"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed exact formula located is a uniform arrival contrast proportional to sin(Phi) and a power of the measurement count. The nearest exact primary odd-cycle flux asymptotic located has order t^(2N) for a different return observable. The inspected three-node work uses the transition matrix but treats detailed balance and spectral transitions."
+        ],
+        "reasoning": "The target is a symbolic all-size coefficient indexed by unequal edges; none of these located formulas gives that coefficient or an equivalent exact entry. Ranked-search misses do not establish its absence elsewhere.",
+        "searches": [
+          "Focused and broad Resultary searches for monitored odd-ring flux directionality and stationary path entropy; checked local 6b103059d648",
+          "arXiv:2606.15935 three-node flux example; arXiv:2608.12519 Proposition 4/Eq. (93)"
+        ]
+      },
+      "rationale": "The known magnetic-cycle interference and dephasing-to-Markov reduction are not credited. The supported distinction is the stationary path-reversal entropy asymptotic, with its inhomogeneous complementary-arc coefficient and dominance by the least probable, maximally separated transitions. The strongest indexed analogue treats the same full-dephasing map and gives the whole-matrix antisymmetry order and an exact uniform nearest-neighbor contrast; that bounds the scale but does not evaluate the entropy or its leading far-pair terms. The most similar published odd-cycle flux asymptotic inspected concerns Lüders return statistics, not this observable. The comparison does not settle priority or assert exhaustive novelty.",
+      "residual_risks": [
+        "Common same-day catalogue dates give no within-day order. The related interference mechanism should not be attributed exclusively to the reviewed result. Unretrieved work on classical entropy production of magnetic walks may contain an equivalent calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in map and winding calculation, but the exact coefficient there is nearest-neighbor and uniform, and its measured contrast is not stationary entropy",
+          "evidence": "Computes the length-1 and length-(N-1) interference and gives full matrix O(tau^N); no far-pair leading coefficient in that statement. Same-day dating does not resolve chronology.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-parity-dependent-zeno-suppression-of-magnetic-ring-directi--6b103059d648/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–5093 and 4950–8773; §3 separately checked at 4070–5851",
+          "method": "Bounded local-mirror pages",
+          "title": "Sharp parity-dependent Zeno suppression of magnetic-ring directionality",
+          "trigger": "Closest same-model catalogue finding and possible covering antisymmetry theorem"
+        },
+        {
+          "assessment": "Different measurement and statistic",
+          "evidence": "Single-site dichotomic Lüders measurement and order-t^(2N) flux contrast for a return-based inconsistency.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.12519",
+          "material_read": "p. 3, extracted offset 15250; p. 10, offsets 69800–75985, Proposition 4/Eq. (93)",
+          "method": "Original PDF text, bounded passages",
+          "title": "Flux control of measurement back-action and Leggett–Garg correlations in chiral quantum walks",
+          "trigger": "Most similar odd-cycle flux asymptotic in a primary paper"
+        },
+        {
+          "assessment": "Covers the Markov map, stationary distribution and detailed-balance criterion, not the target entropy coefficient in inspected material",
+          "evidence": "At complete dephasing q=1 the map is |U_nm|²; double stochasticity implies uniform stationarity and detailed balance amounts to symmetry.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.11947",
+          "material_read": "pp. 2–3, extracted offset 10000",
+          "method": "Original PDF text, bounded passage",
+          "title": "Dynamical Phase Transitions in Open Quantum Walks",
+          "trigger": "Same dephased dynamics and detailed balance"
+        },
+        {
+          "assessment": "Close model ingredients, different size/claim",
+          "evidence": "Transition kernel from the dephasing channel and three-node flux-controlled detailed balance and spectral transitions.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15935",
+          "material_read": "pp. 1–2, extracted offsets 10000, 12000",
+          "method": "Original PDF text, bounded passages",
+          "title": "Experimental Observation of Dynamical Phase Transitions in a Dephased Photonic Quantum Walk",
+          "trigger": "Same transition mechanism and flux on a small cycle"
+        },
+        {
+          "assessment": "Different Hamiltonian and observable",
+          "evidence": "Real graph Laplacian and Haken–Strobl site-projector dephasing in a multi-time/Kolmogorov analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.18873v1",
+          "material_read": "pp. 2–3, extracted offsets 10800 and 16850",
+          "method": "Original PDF text, bounded passages",
+          "title": "Cycle graphs and site-basis dephasing (Luppi, Benedetti and Smirne)",
+          "trigger": "Adjacent cycle-graph dephasing and classical-statistics work"
+        },
+        {
+          "assessment": "Different entropy and walk",
+          "evidence": "Coined walk on a line, von Neumann entropy of the reduced coin, heat/energy balance.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.04850",
+          "material_read": "p. 1, extracted offset 1850; p. 3, offset 19200",
+          "method": "Original PDF text, bounded passages",
+          "title": "Entropy production in the quantum walk",
+          "trigger": "Terminology match on quantum-walk entropy production"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–36 and 62–94; closest indexed uniform contrast 6b103059d648"
+      ],
+      "rationale": "In a natural model with a uniform stationary state, the exact entropy law distinguishes stationary irreversibility from directional bias of individual transitions. The short-arc cancellation and maximal-distance dominance show why measuring only the common nearest-neighbor steps misses the leading stationary irreversibility. The weighted coefficient supplies a quantitative benchmark for disordered hopping and cannot be read from the directional norm or symmetry tests alone.",
+      "residual_risks": [
+        "It concerns fixed-size, fully vertex-dephased single-particle cycles and does not quantify physical heat dissipation or partial dephasing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

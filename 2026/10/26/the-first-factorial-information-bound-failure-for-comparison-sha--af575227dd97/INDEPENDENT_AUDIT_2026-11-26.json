@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:24:52.411331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each binary response path constrains the candidate permutations to the linear extensions of the comparisons' transitive closure. A depth-d tree has 2^d mutually disjoint, nonempty leaf classes, and each feasible root split must leave two depth-(d−1) classes. I independently decoded every stored certificate by response-path bits, using direct position comparisons in the lexicographic permutations (not the supplied split code). The numbers of checked leaves were 1,2,4,16,64,512,2048 and all were distinct within each tree. To exclude depth 12, it suffices by relabeling to test depth 11 for one oriented first response. I exhaustively split tuples of ranks in the 2520-permutation half-class, allowing every unordered comparison and pruning only if either child lacked 2^(d−1) permutations; depth 11 failed (766 memoized states). Thus the profile is (0,1,2,4,6,9,11), strictly below the factorial leaf bound first at seven labels. For VC shattering every graph orientation must extend to a total order, equivalent to having no undirected cycle; a forest on n vertices has at most n−1 edges and spanning trees attain this. Replay: python3 /workspace/review-replay.py 5 with the frozen comparison_certificates.json path. Only the VC identity is all-n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1993 paper gives an asymptotic adversarial lower bound and a polynomial approximate-halving upper bound. Feng et al. cover batches of r comparisons. Alon et al. allow whole-ranking proposals and possibly false counterexamples. Resultary 6c4de5b628dc covers the same exact profile and adds a block-concatenation lower bound."
+        ],
+        "reasoning": "Generalizing a model is not coverage of an exact invariant unless its bound or theorem specializes to the claimed numbers. No inspected earlier bound does so at seven. The later-listed 6c4de5b628dc does cover the exact numbers.",
+        "searches": [
+          "Goldman–Rivest–Schapire, total-order adversarial query analysis",
+          "arXiv:2209.01366 §5.2",
+          "arXiv:2608.21579",
+          "Resultary 6c4de5b628dc"
+        ]
+      },
+      "checked_sources": [
+        "Goldman–Rivest–Schapire (1993)",
+        "arXiv:2209.01366",
+        "arXiv:2608.21579",
+        "arXiv:2302.13849",
+        "arXiv:2103.00368",
+        "Resultary 6c4de5b628dc and 6d32ad5f97be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The balancing argument in the 1993 paper preserves a constant fraction of linear extensions in either child, not necessarily enough for another complete near-capacity subtree. Exact majority halving gives the factorial capacity bound (12 for n=7), not the sharper 11. Sorting from Counterexamples measures queries needed to identify the order after whole-order guesses."
+        ],
+        "reasoning": "A sorting identification lower bound concerns a tree separating all permutations, not a complete shattered subtree in which every path retains a consistent permutation. Neither the old balancing guarantee, a general mistake bound, nor sorting complexity yields the exact deficit by specialization.",
+        "searches": [
+          "Goldman–Rivest–Schapire (1993), p. 1030, Lemma 4.2 and Theorem 4.3",
+          "arXiv:2209.01366 p. 12",
+          "arXiv:2608.21579 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldman et al. use adversarial instance selection on ordered comparisons and monitor the linear extensions left in the version space. Feng et al. §5.2 explicitly specialize to one pair at r=1. Filmus et al. give the general deterministic mistake-bound interpretation of Littlestone dimension."
+        ],
+        "reasoning": "Index permutations by their rank functions; comparing ranks is the same Boolean concept class. Ordered pairs simply add reverse queries with negated answers, leaving the dimension unchanged. The equivalence makes the older mistake-bound sources directly relevant, but the inspected bounds are not the exact finite profile.",
+        "searches": [
+          "Resultary: adaptive permutation comparison shattering, first entropy deficit",
+          "Goldman Rivest Schapire Learning Binary Relations and Total Orders 1993 open PDF mistake bounds adversarial instance total orders",
+          "arXiv:2209.01366 §5.2",
+          "arXiv:2302.13849"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6c4de5b628dc states (0,1,2,4,6,9,11) and first failure at seven. 6d32ad5f97be gives 11<12 and dimension 10 conditional on one oriented comparison. Their catalogue dates are 2026-11-02 and 2026-11-08, compared with the frozen entry dated 2026-10-26."
+        ],
+        "reasoning": "Both are materially matching records. The November 2 record covers the full profile; the November 8 record covers the key obstruction and sharp seven-label value. This is not evidence about an earlier table or about priority of the derivations.",
+        "searches": [
+          "Resultary: seven-item entropy obstruction and online comparison total-order Littlestone profile",
+          "Resultary 6c4de5b628dc and 6d32ad5f97be",
+          "Goldman–Rivest–Schapire (1993), adversary passage pp. 1030 onward"
+        ]
+      },
+      "rationale": "The model and linear-extension bookkeeping are established, with closer prior art than the frozen bibliography: Goldman–Rivest–Schapire studied adversarial comparison mistakes on total orders in 1993, and Feng et al. treat the same one-pair case within a broader feedback model. Neither inspected treatment derives the exact seven-label deficit or its minimality. Two later-listed catalogue entries explicitly cover the seven-label result, and one covers the whole profile. These are real overlaps, not evidence of an earlier source for the frozen record or of any particular provenance. This pass is limited to the exact finite result, not the model, cardinality argument, or an absolute priority claim.",
+      "residual_risks": [
+        "An older exact computation in comparison-learning or rank terminology may still exist.",
+        "The catalogue overlaps are exact on their stated common scope but do not establish dependence or absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier same model and techniques, but inspected result is asymptotic/bound-based",
+          "evidence": [
+            "Uses a balanced incomparable pair for an Ω(n log n) lower bound; Lemma 4.2 and Theorem 4.3 treat exact and approximate halving."
+          ],
+          "identifier_or_url": "https://people.csail.mit.edu/rivest/pubs/GRS93.pdf",
+          "material_read": "Opening abstract and total-order adversary/halving passage (printed p. 1030, OA offset 91170 onward)",
+          "method": "Lawful author-hosted primary PDF, after publisher access failed",
+          "title": "Learning Binary Relations and Total Orders",
+          "trigger": "Historical exact-model and linear-extension risk"
+        },
+        {
+          "assessment": "Covers one-pair model, not exact seven-label dimension in inspected section",
+          "evidence": [
+            "A batch of one ordered pair has the same binary feedback; §5.2 gives bounds for batches and a lower-bound strategy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.01366",
+          "material_read": "§5.2, p. 12, OA offsets around 39525–39716 and following general bounds",
+          "method": "Primary OA PDF",
+          "title": "Sharp bounds on the price of bandit feedback for several models of mistake-bounded online learning",
+          "trigger": "Equivalent permutation-function comparison mistake model"
+        },
+        {
+          "assessment": "Different task",
+          "evidence": [
+            "Learner proposes a whole order, receives allegedly misordered pairs with up to k lies, and seeks identification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.21579",
+          "material_read": "pp. 1–2, OA offsets 0, 5355, 6303",
+          "method": "Primary OA PDF",
+          "title": "Sorting from Counterexamples",
+          "trigger": "Sorting and adversarial feedback terminology"
+        },
+        {
+          "assessment": "General framework, not finite comparison census",
+          "evidence": [
+            "Relates online mistake bounds to Littlestone-type dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.13849",
+          "material_read": "p. 1, OA offset 1426",
+          "method": "Primary OA PDF",
+          "title": "Optimal Prediction Using Expert Advice and Randomized Littlestone Dimension",
+          "trigger": "Cited general mistake-bound equivalence"
+        },
+        {
+          "assessment": "Different feedback and objective",
+          "evidence": [
+            "Analyzes noisy ranking and regret in misordered pairs rather than adversarial noiseless shattering."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.00368",
+          "material_read": "OA passages at offsets 3175 and 25732",
+          "method": "Primary OA PDF",
+          "title": "PairRank: Online Pairwise Learning to Rank by Divide-and-Conquer",
+          "trigger": "Cited online pairwise ranking precedent"
+        },
+        {
+          "assessment": "Direct full-profile coverage in a later catalogue entry",
+          "evidence": [
+            "Same profile and first factorial-bound failure; additional block-concatenation result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-seven-item-entropy-obstruction-for-adaptive-permutation-comp--6c4de5b628dc",
+          "material_read": "RESULT.md Finding and proof, mirror offsets 0 and 5837",
+          "method": "Local Resultary search and mirror",
+          "title": "The seven-item entropy obstruction for adaptive permutation comparisons",
+          "trigger": "Exact later-listed match for the finite profile"
+        },
+        {
+          "assessment": "Covers decisive seven-label result in a later catalogue entry",
+          "evidence": [
+            "Dimension 11 rather than 12, and half-class dimension 10."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-first-entropy-deficit-for-online-pairwise-comparison-of-tota--6d32ad5f97be",
+          "material_read": "RESULT.md, mirror offsets 0 and 5493",
+          "method": "Local Resultary search and mirror",
+          "title": "The first entropy deficit for online pairwise comparison of total orders",
+          "trigger": "Exact later-listed match at seven"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first non-tight cardinality upper bound is the motivated stopping criterion, not a selected example size. The positive trees and exhaustive seven-label exclusion locate the first time the constraints of realizable comparisons reduce the optimal mistake bound below what a count of concepts suggests. This is useful for the comparison model independently of the accompanying VC observation and is not a claim about optimal sorting comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

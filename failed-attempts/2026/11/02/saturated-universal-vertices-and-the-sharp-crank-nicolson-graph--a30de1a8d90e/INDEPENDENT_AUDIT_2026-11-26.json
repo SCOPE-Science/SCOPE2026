@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:53:29.192669Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s=h/2, the positive resolvent gives C(2s)=2(I+sL)^{-1}-I, and each resolvent diagonal strictly decreases from 1 to 1/N. For D=c(NI-J)-L, D is positive semidefinite and D1=0. On the zero-sum subspace the resolvent is (αI−sD)^{-1}, α=1+sNc. Expanding in the eigenbasis of D bounds it from below by α^{-1}I+sα^{-2}D, with equality on the projection of e_i exactly when De_i=0 (s>0). This proves the cap bound, the saturated-universal criterion, and the reserve. The frozen proof does not actually justify optimality of the coefficient: remove conductance ε on one edge of the saturated complete graph. At either endpoint C(h_0)_{ii}/ε=2s_0/[α(α−2s_0ε)] tends to the claimed coefficient as ε↓0, for every allowed N and c. For a part of size b, the projector weights 1/N, 1/b−1/N, 1−1/b give a return diagonal exceeding the singleton diagonal by (b−1)x/[(1+Nx)(1+(N−b)x)] for x=sc>0; this increases strictly with b. Its 1/2 crossing is the stated positive quadratic root. This verifies the finite horizon, strictness, optimizer statements and N=2 exception. The star example refers to c=1 for a unit-weight star (or spokes all c after scaling). The attached rational checker was inspected; it is finite evidence and does not test the optimal coefficient.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d475df91cd2a gives a general diagonal test and explicitly the complete-graph threshold",
+          "Fallat–Tsatsomeros treats matrix Cayley positivity classes; Higueras–Roldán treats the Dirichlet diffusion discretization"
+        ],
+        "reasoning": "These works explain the horizon criterion and benchmark but are not by themselves exact coverage of the weighted equality or reserve. The prior unweighted complement argument supplies the decisive implication.",
+        "searches": [
+          "Resultary: resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (d475df91cd2a)",
+          "Fallat and Tsatsomeros, DOI 10.13001/1081-3810.1086",
+          "Higueras and Roldán, arXiv:2301.01066v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 00c118bf4f45, 43a25cfb36f7, d475df91cd2a; inspected matching claims",
+        "Resultary c6c4fa5f4e74 is a later indexed exact multipartite match, not priority evidence",
+        "DOI 10.13001/1081-3810.1086; arXiv:2301.01066v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "00c118bf4f45 interpolates the resolvent from the complete graph and tests equality by E C_K(t)e_i=0",
+          "43a25cfb36f7 gives the same return-diagonal difference and increasing dimensionless root"
+        ],
+        "reasoning": "Replace E by the sum of weighted missing-edge Laplacians and rescale h by c; the kernel test proves saturation. For F(u)=(I+sL_c−usD)^{-1}, the prior interpolation has e_i^T F'(0)e_i=s D_ii/(1+sNc)^2 and e_i^T F''(u)e_i=2s²(DF(u)e_i)^T F(u)(DF(u)e_i)≥0. The tangent bound is therefore precisely the reserve. The first-order coefficient is forced by infinitesimal loss on one edge. Fixed-k multipartite extremizers follow from the prior strict monotonicity.",
+        "searches": [
+          "00c118bf4f45 RESULT.md, Proof §2",
+          "43a25cfb36f7 RESULT.md, Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "00c118bf4f45, Finding: same bound, endpoint-zero characterization and invariance for 0/1 weights with c=1",
+          "43a25cfb36f7, Finding and Proof §1: H_G=(2|E|/B)σ_N(a) and all first zero diagonals in minimum parts"
+        ],
+        "reasoning": "Choosing B=c|E| in the budgeted theorem reproduces the multipartite matrix and root for every graph in scope, not merely a numerical match or an optimum under a different budget.",
+        "searches": [
+          "Resultary: universal vertices and worst Crank–Nicolson positivity; budgeted complete-multipartite positivity",
+          "Primary literature query: \"2/[c(N-2)]\" Crank Nicolson graph positivity weighted Laplacian sharp horizon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact family formula in 43a25cfb36f7; no exact degree-deficit coefficient returned in the focused lookup"
+        ],
+        "reasoning": "This is an all-parameter theorem, not a finite numerical census for which a tabulation could establish the claim. The formula in the indexed finding covers the entire exact family; a lookup miss for the reserve is not novelty evidence.",
+        "searches": [
+          "Resultary: Crank–Nicolson degree-deficit coefficient; complete multipartite sharp positivity horizon"
+        ]
+      },
+      "rationale": "The earlier unweighted result gives the very same comparison, equality criterion and neighbor-edge invariance with a proof using only a positive-semidefinite deficit Laplacian. Its proof transfers without a new step to the pairwise cap. The stated linear reserve is the tangent estimate from that same published resolvent interpolation; its optimal coefficient is the first derivative for a one-edge deficit. The complete-multipartite package also has exact coverage in a distinct same-day finding, via B=c|E|, including the minimum-part endpoint and strict monotonicity. Day-level dates do not establish priority for this overlap. The decisive issue is mathematical coverage and routine implication, not the access limits of the literature search.",
+      "residual_risks": [
+        "No within-day priority established for the exact multipartite overlap.",
+        "Primary matrix/positive-cone literature was not examined exhaustively; the failure rests on demonstrated coverage and implications, not a negative publication search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unweighted overlap and decisive routine implication for capped weights",
+          "evidence": [
+            "Complement-edge Laplacian comparison, derivative integral, equality kernel test"
+          ],
+          "identifier_or_url": "Resultary 00c118bf4f45 (2026-10-25)",
+          "material_read": "RESULT.md Finding and Assumptions, Proof §§1–3, mirror offsets 0–3576",
+          "method": "Bounded mirror read and comparison of the interpolation",
+          "title": "Universal vertices exactly attain the worst Crank–Nicolson positivity threshold",
+          "trigger": "Same bound and universality equality"
+        },
+        {
+          "assessment": "Exact same-day coverage of the multipartite component; date does not establish priority",
+          "evidence": [
+            "H_G=2|E|σ_N(a)/B; explicit difference R_a−R_b and monotonicity"
+          ],
+          "identifier_or_url": "Resultary 43a25cfb36f7 (2026-11-02)",
+          "material_read": "RESULT.md Finding, assumptions and Proof §1, mirror offsets 0–6507",
+          "method": "Bounded mirror read, substitute B=c|E|",
+          "title": "A smallest-prime-factor law for Crank–Nicolson positivity on budgeted multipartite networks",
+          "trigger": "Same part-size root with a budget normalization"
+        },
+        {
+          "assessment": "Direct coverage of the diagonal test and saturated complete benchmark",
+          "evidence": [
+            "Threshold 2/[c(N−2)] for the complete graph"
+          ],
+          "identifier_or_url": "Resultary d475df91cd2a (2026-10-04)",
+          "material_read": "RESULT.md Finding, including complete-graph passage near mirror offset 2998",
+          "method": "Bounded mirror comparison",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Known finite-chain resolvent characterization"
+        },
+        {
+          "assessment": "General matrix-class comparison; abstract does not resolve graph-specific coverage",
+          "evidence": [
+            "General Cayley positivity classification subject"
+          ],
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Bounded OA reading",
+          "title": "On the Cayley Transform of Positivity Classes of Matrices",
+          "trigger": "General matrix positivity precursor"
+        },
+        {
+          "assessment": "The stated model is Dirichlet heat discretization, not the capped graph family",
+          "evidence": [
+            "Homogeneous Dirichlet boundaries and mesh dependence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066v1",
+          "material_read": "Abstract, OA offset 0",
+          "method": "Bounded OA reading",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Sharp positivity steps in primary literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Identifying sharp positivity thresholds is useful, but the multipartite family already has the exact relevant threshold law. The rest changes the missing-edge weights in the known complement comparison and retains its first-order tangent. There is no sufficiently substantive untouched result in the frozen claim to justify a repaired acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:50:09.630609Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the last reset age (density r exp(-rt)); the no-reset contribution has trace norm bounded by exp(-rt), and the integral of rank-one projectors gives the unique stationary state. The product free probabilities give the product overlap S(t,s)^d. All integrands in the overlap/Green representation are nonnegative, so Tonelli and monotone convergence apply even when the limit is infinite. For B(t)=ΣJ_n(2κt)^4, Parseval of the characteristic function gives its angular J_0² average. In Step 2 interpret the sine inequality on 0≤θ≤π after using evenness, equivalently |sin(θ/2)|≥|θ|/π; the literal signed inequality on negative angles is a typo. Integrating (1+κt θ)⁻¹ gives the stated logarithmic bound. S(t,s)≤√(B(t)B(s)) then proves finiteness for d≥3, with strict positivity near (0,0). Independently expanding J₀(4κt sin(θ/2)) through θ⁴ gives moments 2u² and 6u⁴+2u², u=κt. Cauchy–Schwarz above u² yields probability ≥1/8; both outer tails are ≤1/32 each when R≤u≤2R. Thus each disjoint ℓ∞ annulus at R=32^j contributes at least a positive constant times κ⁻². With reset, retain R≤κ/r where exp(-rt)≥exp(-2) on those intervals, giving the stated logarithmic lower bound. Integrating B with the exponential weight and splitting κt at 1 and κ/r yields O(κ⁻¹ log²(κ/r)); squaring gives the planar upper bound. The exact one-dimensional Fourier multiplier r/√(r²+16κ²sin²(θ/2)) gives Q₁ by Parseval and a tangent substitution. The absolute difference of two independent Exp(r) ages is Exp(r), giving the stated purity integral. Averaging the J₀ addition identity gives the elliptic transform with complementary modulus r/√(r²+16κ²), hence the logarithm. The origin-neighbor matrix element is -ir(1-P_d)/(4dκ) by integration by parts and |J₀(x)|<1 for x>0; its squared modulus contributes to the strict off-diagonal gap. Dominated convergence gives P_d/r→M_d for d≥3 and hence the stated ratio. Source checker inspected, not executed: its 55 finite assertions concern truncated quadrature and algebra; the witness is sampled at five d values {1,2,3,4,6}, not at d=5. Neither the checker nor the theorem gives an exact planar equivalent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald–Böttcher give the general finite-network exponential age integral and Hamiltonian-basis resolvent; on regular lattices the Laplacian differs from hopping by shift and scale. Their finite-N expression neither controls the infinite lattice nor supplies the weak-reset ℓ² threshold.",
+          "Das–Dattagupta–Gupta give the exact same stationary 1D profile at Δ=2κ, λ=r, reset site 0; its Fourier form immediately produces Q₁ by Parseval. Acharya–Gupta give the same free 1D Bessel kernel but study conditional resetting."
+        ],
+        "reasoning": "General resolvent/age formulas and the exact site law are prior starting points. An estimate integrable in time for d≥3 alone would still not prove sharpness; the annular estimate giving the 2D obstruction is not an immediate finite-network corollary.",
+        "searches": [
+          "arXiv:2008.00510v2 §III.4 Eqs. (28)–(35)",
+          "arXiv:2106.14181v2 §§3.1–3.2 Eqs. (25), (27), (48), (52)",
+          "arXiv:2308.14040v2 §§I–IV"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.14181",
+        "arXiv:2008.00510",
+        "arXiv:2308.14040",
+        "DLMF §10.23",
+        "Resultary fd0e95513bb2 and 63947a8d2b6d (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the lattice kernel into Eq. (34)'s age formalism gives the starting site law, and the 1D case can be obtained directly from Eq. (52). The two-time overlap uses products of diagonal site probabilities at two distinct ages; integrating the squared return amplitude at their difference instead gives P_d.",
+          "The prior coherent weak-reset hierarchy fixes the numerator of P_d/Q_d, not its denominator. For d≥3, the 1/r ratio is an immediate consequence once the independent diagonal criterion with positive C_d is proved."
+        ],
+        "reasoning": "Neither prior equality of full density matrices nor availability of the general resolvent is a stronger theorem about spatial collision convergence. A genuine stronger mixed-norm/dispersive theorem for the same kernel would be coverage; none was identified in the inspected passages.",
+        "searches": [
+          "Wald–Böttcher arXiv:2008.00510 Eq. (34); Das–Dattagupta–Gupta arXiv:2106.14181 Eq. (52); Resultary fd0e95513bb2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit is the assigned record. The nearby dimension-indexed purity record (fd0e95513bb2) has a nonanalytic correction at r^d log(1/r) for Tr(ρ²), not the dephased quantity Tr((diag ρ)²). Shared Poisson resets (63947a8d2b6d) compares two-particle coherent Rényi-two contrasts, not position collision of two independent stationary measurements.",
+          "Both the dephased purity and ℓ² summability of the time-integrated free site probability describe the audited diagonal observable. Generic finite network participation ratios or coherent purity are not equivalent to it."
+        ],
+        "reasoning": "The nonzero origin-neighbor element rules out replacing diagonal purity by full purity. The thresholds would coincide only if that substitution and the resulting asymptotics were valid, which they are not.",
+        "searches": [
+          "Resultary: Poisson resetting continuous-time quantum walk on Z lattice, site collision probability inverse participation ratio critical dimension 2 3 Bessel",
+          "Literature: quantum walk Poisson resetting stationary inverse participation ratio spatial collision Bessel Z lattice higher dimensions logarithm site probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Bessel addition/normalization and toroidal Legendre transform of Das–Dattagupta–Gupta Eq. (51) provide exact one-dimensional evaluations. The closed elliptic factor follows from the standard addition/Laplace integral; these special functions are not novel table entries.",
+          "The nearest indexed purity result is an exact formula for a different statistic. No compared table or indexed result gives the C_d existence threshold for the squared diagonal Green function."
+        ],
+        "reasoning": "The audited statement is a convergence/divergence classification of a positive integral and sum, not a claimed new tabulated coefficient; no evaluation of C_d or exact d=2 logarithmic coefficient is asserted.",
+        "searches": [
+          "NIST DLMF §10.23(ii), especially 10.23.3, 10.23.6–7",
+          "Resultary collision/purity query above; compared indexed fd0e95513bb2"
+        ]
+      },
+      "rationale": "The audited new result is the infinite-lattice square-summability threshold and its quantitative contrast with coherent purity (including nontrivial bounds at d=2), not the stationary density operator, the one-dimensional profile/Parseval specialization, standard Bessel identities or full-purity asymptotics. Closest concrete sources do not give an infinite-lattice diagonal Green-function criterion or its implication for the comparison.",
+      "residual_risks": [
+        "A prior lattice spectral/dispersive or square-summability theorem may imply the threshold; no blanket priority claim.",
+        "The closest Resultary purity record's linked full text did not open; comparison relies on its indexed scientific statement and the explicit prior purity attribution in the assigned record.",
+        "No conclusion about the exact planar logarithmic order or coefficient, finite-volume-first limits, or other reset laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior 1D profile and its exact transform; higher-dimensional diagonal ℓ² convergence is not part of those results",
+          "evidence": [
+            "Eq. (52) is the identical 1D stationary Bessel-Laplace profile; Eq. (27) gives the Fourier phase"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2106.14181",
+          "material_read": "Primary HTML §§3.1–3.2, Fourier kernel and stationary site distribution",
+          "method": "Read Eqs. (25), (27), (48), (51)–(52) and compared by Δ=2κ, λ=r",
+          "title": "Quantum unitary evolution interspersed with repeated non-unitary interactions at random times",
+          "trigger": "Same unconditional continuous-time tight-binding reset in one dimension"
+        },
+        {
+          "assessment": "Covers the stationary-age formalism but not its uniform infinite-lattice weak-reset collision estimate",
+          "evidence": [
+            "Eqs. (16), (28)–(35); finite N appearing as N² in spectral expansion"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2008.00510",
+          "material_read": "Primary HTML §§II, III.2, III.4",
+          "method": "Read finite-network normalization and stationary resolvent/exponential age formula; checked order-of-limits comparison",
+          "title": "From classical to quantum walks with stochastic resetting on networks",
+          "trigger": "General complete-reset density and site formula on graphs"
+        },
+        {
+          "assessment": "Same free chain kernel, but the principal stochastic reset protocol chooses between conditional target sites, not an all-dimensional diagonal collision theorem",
+          "evidence": [
+            "Eqs. (17), (23), (25), §IV two conditional target sites"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.14040",
+          "material_read": "Primary HTML abstract, §§I–III and opening of §IV",
+          "method": "Checked Hamiltonian, free propagator and reset assumptions",
+          "title": "Tight-binding model subject to conditional resets at random times",
+          "trigger": "Assigned primary source for tight-binding Bessel kernels and reset dynamics"
+        },
+        {
+          "assessment": "Direct prior on ensemble purity, not evidence of a diagonal collision theorem in the accessible statement",
+          "evidence": [
+            "Indexed finding gives first nonanalytic term for quantum purity at r^d log(1/r)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-dimension-indexed-logarithmic-purity-singularities-for-poisson-r--fd0e95513bb2",
+          "material_read": "Indexed scientific statement; full text link attempted and timed out",
+          "method": "Matched claimed observable and correction order; did not rely on unavailable sections",
+          "title": "Dimension-indexed logarithmic purity singularities for Poisson-reset quantum lattice walks",
+          "trigger": "Same lattice and weak-reset scaling, distinct purity observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A pair of independent positions from the reset stationary state gives a directly defined collision statistic, distinct from a quantum-state purity measurement. The theorem pins down the dimension at which its renormalized coefficient is finite and shows that in higher dimensions coherence dominates it by an inverse-rate factor. The exact dimension threshold depends on both upper and critical lower estimates; it is not mere evaluation of the known ensemble return integral.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

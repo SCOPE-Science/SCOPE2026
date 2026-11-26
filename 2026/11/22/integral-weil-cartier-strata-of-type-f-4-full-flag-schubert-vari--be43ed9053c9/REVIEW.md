@@ -1,11 +1,21 @@
-# Review: integral Weil–Cartier strata in type \(F_4\)
+# Independent mathematical audit
 
-**Correctness — PASS.** The general theorem identifies the relevant Cartier and Weil divisor bases; the proof reduces exactly to a finite family of integral matrices. Two independent cover-enumeration methods agree on all \(6,168\) covers of the \(1,152\) Coxeter elements. Root inversion lengths, integral minors and Smith invariants were actually replayed from the standalone file. There are \(233\) square full-rank matrices split into \(171+49+13\) group types. The scope is complex full flags only.
+## correctness
 
-**Originality — PASS (qualified).** Li–Rietsch–Yang's matrix criterion is a necessary predecessor and is explicitly not claimed as new. Its full text handles the \(G_2\) non-simply-laced examples but does not tabulate the \(F_4\) integral quotients. Targeted searches for the exact numbers, Smith factors, dual formulations and \(F_4\) class groups located no covering numerical table. A prior publication of the same census could still be unindexed; a generic algorithm is not by itself a published evaluation of every \(F_4\) integral invariant.
+PASS
 
-**Value — PASS.** Factoriality versus \(\mathbb Q\)-factoriality and the Cartier index of Weil classes are natural birational invariants. This complete exceptional-type census determines not only the number of \(\mathbb Q\)-factorial Schubert varieties but the distinction between one and two independent order-two obstructions; the latter cannot be recovered from mere rational ranks. This is a natural finite classification, not a random slice or a restatement of an individual general criterion.
+In the complex full flag case the boundary divisors at the Bruhat coatoms freely generate the Weil class group. The Picard basis is indexed by the simple support; the Chevalley coefficients in the divisor basis are the simple-coroot coordinates of the positive coroots of the right reflections giving the covers. The resulting integer map is injective. A Weil class has a positive multiple Cartier exactly when its image in the quotient is torsion, so Q-factoriality is finiteness of the cokernel, equivalently equality of the two basis ranks. Independently generated permutations of the 48 Euclidean F4 roots with the stated Cartan convention, length by positive-root inversions, support by membership in the four standard maximal parabolic subgroups, and covers via all 24 positive-root reflections. Exact Smith reduction gave full column rank, 6,168 covers across 1,152 elements, 919 positive-free-rank cokernels and finite types 0:171, Z/2:49, (Z/2)^2:13. Both witnesses' matrices agree up to row order; minimum lengths are 3 and 6. The index-two assertion follows from the exponent, not the maximum order.
 
-**Closest literature and limits.** The originating 2025 paper provides the general criterion and worked type-\(G_2\) comparison; it does not give the all-\(F_4\) Smith classification. Other searched cohomological results concern different Schubert invariants. Residual risks are unindexed \(F_4\) tables, uncertainty about publication priority, and the lack of independent mathematical review. No claims are made about partial-flag varieties, local class groups, or torsion in non-\(\mathbb Q\)-factorial positive-rank cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The geometric criterion and the integral matrix formula are prior. The supported distinct content is the evaluated global quotient census and exact earliest-length strata in F4. The exact Resultary hit is the current frozen record, not a distinct corroborating or priority source.
+
+## value
+
+PASS
+
+The natural exceptional full-flag family is exhausted. Knowing which finite quotient is noncyclic answers a Cartier obstruction question not answered by the rational test or even the quotient order. Uniform exponent two and the earliest length-six example with two independent obstructions are useful exact benchmarks for Weil versus Cartier behavior in non-simply-laced type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

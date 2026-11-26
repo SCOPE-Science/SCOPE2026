@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is \(\mathbb C\) and the quantifiers are “a general moving point” and “a general member of its rank-three net.” The exact checker reconstructs a rational 75-by-45 homogeneous-jet matrix of rank 42, verifies a nonzero kernel polynomial, tests the four local multiplicities \(3,3,3,5\) and squarefree tangent cones, and exhausts singular points via exact elimination in the affine patch and the projective infinity factorization. The proof of generalization is not a numerical extrapolation: it intersects two nonempty Zariski-open loci in the irreducible projective bundle of octic systems, using the independent absolute irreducibility example established in the initiating paper. The genus calculation subtracts \(3+3+3+10=19\) from arithmetic genus \(21\). Risks: the argument assumes the standard openness theorems for geometrically integral fibers and smooth proper transforms; the checker alone does not verify those general theorems.
+PASS
 
-## Originality — PASS
+The configuration and generic rank agree with Malara §§6.1–6.2. An independent exact computation (python -B /workspace/reviews/octic_check.py; SymPy) used 43 affine Taylor-jet rows, not the submitted homogeneous derivative matrix. Rank 42 at both (2:5:1) and (-59:-21:35) puts both witnesses on the maximal-rank locus; all relevant 43-by-43 minors vanish identically by the generic rank statement. The supplied octic passes the jet constraints, with multiplicities 3,3,3,5 and all four recorded tangent discriminants reproduced. Lex Gröbner elimination of (f,f_x,f_y) gave x^3(x-2)^6, an alternative to the submitted pairwise resultant calculation. Fiber gcds y^2 and (y-5)^4 give exactly the two affine points; the infinity factorization matches and its two simple roots are smooth. One blow-up at each ordinary point gives a smooth strict transform. Over the rank-constant disjoint-section open, the universal corrected divisors are relative effective Cartier divisors (a nonzero section on each smooth integral surface fiber), hence flat; fiber smoothness is open by properness, and exact ordinary multiplicities are an open jet condition. The nonempty integrality open and this open meet in the irreducible projective bundle, and its projection contains a base open with dense member opens. One also need not take the separate absolute factorization on trust: the certified (2:5:1) witness is reduced by finiteness of its singular set, and a smallest irreducible component of degree d<=4 would meet the rest in d(8-d). Cross-intersections occur only at the marked ordinary points and contribute m_component(m_total-m_component). A line through Q meets at most one triple (Q is on no coordinate side), giving at most 4+2=6, and a line missing Q gives at most 4; both are less than 7. A smooth irreducible conic gives at most 3*2+4=10<12. For d=3 or 4 the universal bound 3*2+6=12 is less than 15 or 16. This also proves integrality of the smooth-resolution witness. The genus and square follow from 21-19=2 and 64-27-25=12; genus-two hyperellipticity is standard. The computation is a specialization certificate only, not a parameter census.
 
-The closest primary source, Malara (2026), Section 6.2, proves existence and dimension of the unexpected octic net and existence of an absolutely irreducible octic, but does not give the complete ordinary singularity census or exact genus-two normalization for the general member. Its Section 6.1 treats a different sextic with double, not triple, fixed fat points and a quadruple, not quintuple, moving point. Malara–Tutaj-Gasińska (2022) treats reduced base point configurations and syzygy-bundle existence, not this nonreduced octic family. Indexed related classifications address distinct arrangements or unexpected curves. The exact specialization and openness provide new geometric data not implied by the published dimension calculation or irreducibility alone. Risk: unindexed equivalent computations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This natural net is a particularly concrete nonreduced higher-multiplicity plane example developed in Section 6.2; a two-dimensional subsystem is necessarily reducible, while an independent irreducible direction exists. The singularity and genus census settles a motivated gap: whether the general non-product octic has unforeseen singularities and whether the normalization has genus below the upper bound \(2\). Determining that it is *exactly* \(2\), along with the smooth four-point resolution and self-intersection \(12\), identifies the concrete birational geometry of the general integral member rather than merely its existence. No special-member or moduli classification is asserted.
+Best-of-knowledge pass for the generic singularity basket and exact normalization genus, not for the configuration, net dimension, or existence of integral members. The supplied explicit specialization and openness settle the missing geometric statement.
 
-## Literature and limitations
+## value
 
-Primary sources: Malara, arXiv:2611.04564v1, Section 6.2; Malara–Tutaj-Gasińska, arXiv:2109.00769v2, Sections 1 and 6. The first proves an absolutely irreducible witness at a different parameter; the new calculation independently gives a smooth-resolution witness at \(Q=(2:5:1)\). Both opens must be intersected: neither individual witness is silently assumed to possess the other's property. An independent mathematical audit remains necessary for external acceptance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the naturally singled-out nonreduced octic net of the initiating paper, with a known reducible subsystem. The exact full generic basket proves the sharp genus bound, showing that normalization of the extra integral direction is genus two rather than a smaller genus caused by hidden singularities. That is relevant to the geometry of the actual system; the square and hyperellipticity are consequences, not standalone novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

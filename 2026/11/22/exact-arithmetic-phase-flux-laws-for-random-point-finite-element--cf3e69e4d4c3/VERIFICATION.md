@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stated finite-jump flux theorem
+# Independent mathematical audit
 
-The complete derivation is in \(\texttt{RESULT.md}\). Run \(\texttt{python3 verify.py}\) in the directory containing this file and the script. The script was run in the package preparation environment and returned \(\texttt{VERIFY\_OK 136}\).
+## correctness
 
-Exact rational checks compare the closed inverse-resistance law with the direct stiffness-matrix solve for every admissible Bernoulli outcome at eight resolutions with two rational jump locations. Further exact checks test the strict-inverse-Jensen bias identity and exact-integrated deterministic Galerkin flux formula. Uniform-mixture moments are verified algebraically for selected orders. A separate 30,000-size numerical phase average for two rationally independent irrational interface locations checks the limiting mean-square and mean-bias constants to the documented tolerances.
+PASS
 
-These finite checks do not prove infinite equidistribution, completeness of the limit laws, universality of the theorem or historical priority. The corresponding analytic steps use the standard Kronecker–Weyl theorem, compactness, uniform Taylor estimates and exact Bernoulli mixtures. Independent mathematical audit has not been performed.
+The nodal flux balance and telescoping endpoint increments give reciprocal flux equal to the average sampled resistivity. With at most one jump per open cell this differs from the physical resistance by S_n/n, a sum of centered independent Bernoulli terms, with aligned jumps deterministic. The resistivities are uniformly bounded above and away from zero; strict Jensen gives exactly the variance-zero equality case, and the uniform reciprocal expansion gives the displayed bias and risk. Exact stiffness integration instead reciprocates each arithmetic cell average of conductivity, so the resistance defect is nonnegative and yields the reported deterministic error. Under the stated joint rational independence, the phase orbit has the full torus as its limit set and is Weyl equidistributed. The centered Bernoulli laws vary continuously, with matching laws at phases 0 and 1; bounded reciprocal linearization then gives precisely the listed subsequential laws and the Cesàro mixture. Integrating each phase produces density 1-|z| on [-1,1], variance 1/6 and the squared sinc characteristic function. An independent exact two-jump example at n=4 gives T=7/12, q=12/7, V=5/72, positive randomized bias 664/31185 and exact-integration flux 160/89. The uploaded verifier was inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinction is the exact physical-flux law and its mesh-phase and averaged distributional consequences in this one-dimensional layered model, not randomized quadrature assembly, torus equidistribution, or the general Bernoulli representation of a one-cell indicator. The nearest inspected results share ingredients but do not establish that combination.
+
+## value
+
+PASS
+
+A natural interface discretization admits a sharp comparison that norm bounds do not capture: the random physical flux has second-order mean bias but generically first-order fluctuations, whereas exact ordinary P1 assembly has a first-order flux defect. The same model shows how one can have no marginal weak limit yet have a fully explicit averaged law and mean-square constant. These are useful quantitative diagnostics for this discretization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

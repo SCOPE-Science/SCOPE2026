@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact recurrence for legal index-set counts is established by partitioning according to the largest selected index, with the crucial \(2c<k\) separation checked. A primitive finite-state transfer proves the simplicity and dominance of the count root. The eventual greedy recurrence has a primitive companion, so its own root governs the terms. Evaluating the count polynomial at the greedy root proves a strict entropy gap, and a fixed-index truncation sandwich proves the exact exponential order of representation multiplicity. The fixed-\(c\) large-\(k\) asymptotic follows by differentiating the count polynomial near the greedy root and using Lambert's \(W\) relation. Exact finite checks independently corroborate recurrence indexing and selected mean counts; they are not substitutes for the proof.
+## correctness
 
-## Originality: PASS within inspected evidence
-The closest primary work (Dantas e Moura et al., arXiv:2210.10577v2) already establishes both recurrences and identifies the average-multiplicity problem. Its Section 4 presents a conditional root-dominance scenario; the present claim proves the strict root inequality uniformly, verifies root dominance structurally, and supplies the sharp fixed-\(c\) parameter asymptotic. The 2016 Fibonacci quilt theorem (Catral et al., arXiv:1606.09312v2) does not directly cover these forbidden index sets. Targeted mathematical searches found no exact broader result. An unindexed equivalent treatment remains possible.
+PASS
 
-## Mathematical value: PASS
-The theorem supplies the missing guaranteed exponential regime in an infinite family explicitly motivated by the originating paper's Question 5. The exact growth constant and asymptotic decay of its logarithm refine a conditional heuristic into a quantitative classification.
+The greedy mex sequence strictly increases: all smaller positive values were already represented, and the previous mex becomes available as a singleton. For the legal-subset recurrence, if the top index n is selected, the only possible selection among the preceding k positions is n-k+c. With that position selected, any previous compatible index is at most n-2(k-c)<n-k, so no extra restriction from n remains. The admissible k-bit transfer matrix is primitive by paths through the all-zero word and its self-loop; the recurrence then identifies its Perron rate with the stated rho. The positive eventual greedy recurrence similarly gives growth rate lambda via its irreducible companion with a self-loop. At lambda, the count polynomial is -(lambda-1)lambda^c<0, and its factorized level function increases strictly above one. To check the truncation, choose fixed L so that lambda^(1-L)/(lambda-1)<1. Eventually even the sum of all terms through index n-L is below a_n, while no index n or later can occur. Counting each legal subset separately gives bounds d_(n-L) and d_(n-1) before division by a_n. For the second limit, w=k(lambda-1) satisfies w+log w=log k+O(w^2/k), with w tending to infinity and w=O(log k); thus w=W(k)+o(1). Uniformly on [lambda,lambda+2(lambda-1)/k] the derivative of the count polynomial is asymptotic to k. Its negative value at lambda is asymptotic to -(lambda-1); this gives a sign change on the interval and rho-lambda asymptotic to (lambda-1)/k. The example ratio independently evaluates to 1.011434032776249 by root bisection. This establishes exponential comparison, not a limiting prefactor; the eventual greedy recurrence is still a hypothesis outside the cited proved range. The uploaded finite verification was inspected, not executed.
 
-## Scope and risks
-The main theorem assumes the greedy recurrence, with independently sourced unconditional families \(c=1,k\ge11\) and sufficiently large \(k\) at every fixed \(c\). It does not assert the recurrence for every small \(k,c\), determine the exact multiplicative asymptotic prefactor, or establish independent validation. Earlier recurrence facts belong to the cited authors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The legal-subset recurrence and conditional root-ratio argument are prior. The supported distinct claim is the proven strict exponential growth on the whole stated singleton-exception recurrence range, without further assumptions of spectral dominance, and the explicit fixed-c asymptotic for its entropy excess. The inspected sources did not establish these conclusions.
+
+## value
+
+PASS
+
+This resolves a stated representation-multiplicity question on a natural infinite recurrence regime, distinguishes a strict exponential effect from bounded mean multiplicity, and quantifies how rapidly the entropy gap shrinks with k. The truncation proof addresses the actual integer interval rather than simply counting all legal subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:03:55.602360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md, checks/age_position_check.py and checks/requirements.txt (read, not executed)",
+        "Analytic replay: first-passage Laplace transform and stopped drift/cubic identities in rationale; use Eτ³=(Eτ)³+3Eτ Var(τ)+third cumulant, then divide occupation rewards by Eτ."
+      ],
+      "rationale": "The finite-mean continuous first-passage cycle gives the stationary occupation law; before its hit the drift is −v and variance rate is 2D. The killed resolvent has the Dirichlet image term and the correct forward-density tilt e^[v(L−x)/(2D)]. Its negative log derivative at zero gives 2D/v²+|x−L|/v−2m/[v(e^(vm/D)−1)]. For x<L the derivative has sign opposite to sinh(vx/D)−vx/D; for x>L it is 1/v. The continuous version is therefore uniquely minimized at L, with the asserted zero-side limit. Independently, for the stopped process at x=L, E[X_t;τ>t]=v E[(τ−t)_+] by stopped expectation. Thus U_x=v Eτ²/2 and V_x=v Eτ³/6, while U₁=Eτ and V₁=Eτ²/2. Differentiating E exp(−sτ)=exp[(v−√(v²+4Ds))L/(2D)] gives the mean, variance and third cumulant L/v, 2DL/v³ and 12D²L/v⁵, respectively. The stopped cubic identity gives U_x²=L³/(3v)+2D U_x/v (here U_x² denotes the potential of x↦x²). Substitution into the equilibrium occupation means gives Var(X)=L²/12+D²/v² and Cov(X,A)=D²/v³−L²/(12v). By the Markov property E[R|X=x]=x/v, giving Cov(X,R)=Var(X)/v. The renewal survivor identity gives equal marginals of A and R and is consistent with their different marked covariances. All stopped moment limits are justified by Gaussian survival bounds for large time and polynomial moment bounds. The age sign changes exactly at vL/(2D)=√3.",
+      "residual_risks": [
+        "This is a formula for the continuous conditional-mean version on x>0, not a claim at the zero-mass boundary or an ordering of the full conditional age laws. No entropy-production claim follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das–Majumdar–Pal compute killed and reset propagators, mean local time divided by mean first-passage time, and spatial position moments. De Bruyne et al. consider optimization and growth under other first-passage resetting geometries. Falcao–Evans use two particles reset on contact."
+        ],
+        "reasoning": "The closest exact same-model source supplies strong premises, but the marked monotonicity and covariance-sign results need new inequalities or calculations. The alternative models do not specialize to them in the checked statements.",
+        "searches": [
+          "arXiv:2609.24438v1, stationary Green and spatial moment sections",
+          "arXiv:2009.03419v2, first-passage resetting models",
+          "arXiv:1610.03503v1, interacting Brownian resetting §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24438v1, 2108.07018, 2009.03419v2 and 1610.03503v1",
+        "Resultary 093d59af14c1, c03a80e1262c, 273684c06d96, b065d0aa90c8 and 3fafd0c137ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model stationary spatial variance together with the mean residual hitting time yields the forward covariance by a standard calculation; this piece alone is not a novelty claim.",
+          "The full result marks time direction: the proof differentiates the killed Green function, proves a shape sign using sinh z−z, then evaluates mixed renewal rewards to get a distinct backward covariance with a nontrivial zero and a diffusivity-independent forward-minus-backward gap."
+        ],
+        "reasoning": "The published spatial or unmarked age marginals alone do not fix mixed covariances; even the kernel premise does not state an inequality or give the sharp threshold by mere specialization. It is the conjunction of nontrivial marked consequences, not the kernel or a simple normalization of known formulas, that survives the comparison.",
+        "searches": [
+          "Direct comparison of arXiv:2609.24438v1 §III Eqs. (12)–(15), (19), (22)–(25), §IV and conclusion with the frozen joint-age argument",
+          "arXiv:2108.07018 §2 and c03a80e1262c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model Green kernel determines the occupation transform; its log derivative is the conditional backward recurrence-time mean, not a previously reported sign theorem in the checked passages.",
+          "The inspection-bias review concerns sampling renewal intervals and unmarked waiting times. The marginal survivor identity is not equivalent to a spatial mark-conditioned age law."
+        ],
+        "reasoning": "Conditional age, backward recurrence time, and equilibrium time since last reset describe the same variable here. Treating age and residual as the same marginal variable does not equate their covariances with position.",
+        "searches": [
+          "Resultary conditional reset age, reinjection-point minimum, Pe covariance threshold, and residual covariance",
+          "Das–Majumdar–Pal arXiv:2609.24438v1 §III and §IV; literal conditional/covariance/residual checks followed by bounded section reading",
+          "Pal–Kostinski–Reuveni arXiv:2108.07018 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 093d59af14c1 is the frozen record. c03a80e1262c gives a Gamma age limit conditioned on spatial extremes in zero-drift threshold resetting for multiple particles; 273684c06d96 is nonstationary two-particle aging. b065d0aa90c8 concerns Poisson resetting in planar shear; 3fafd0c137ae concerns ballistic threshold resetting and lagged spatial covariance."
+        ],
+        "reasoning": "The inspected distinct records change the model or the marked observable; none gives the exact sign diagram or the conditional-age minimum. Same-day dates alone do not order the results.",
+        "searches": [
+          "Resultary four focused queries on the profile, minimum and two marked covariances",
+          "Resultary local-mirror RESULT.md for c03a80e1262c, 273684c06d96, b065d0aa90c8 and 3fafd0c137ae"
+        ]
+      },
+      "rationale": "The stationary spatial law, killed Green kernel, first-passage moments and unmarked inspection-age/residual identity are not new. The inspected same-model primary text and distinct resetting records do not give or classify the reported age-conditioned shape and the sign reversal relative to the strictly positive residual covariance. The conditional formula alone is a direct resolvent derivative; the mathematical contribution is the sharp geometry and paired marked sign classification.",
+      "residual_risks": [
+        "Earlier marked-moment applications of the same resolvent may be unindexed. The derivative is routine and known inputs are substantial, so this is a bounded assessment of the sharp geometry and sign contrast, not a claim of new kernel machinery or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-model premise, not a marked-age sign or minimum result in the sections inspected.",
+          "evidence": "Equilibrium density is MLT/MFPT; the results address killed/reset propagators, spatial dynamics and large deviations. Age covariance and residual covariance were not reported in the checked passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24438v1",
+          "material_read": "§III pp. 4–5 Eqs. (12)–(15), (19), (22)–(25); §IV spatial moments p. 8 and conclusion pp. 8–9",
+          "method": "Bounded OA full-text reads; §IV offsets 57400–62198 and conclusion offsets 64800–70265",
+          "title": "Non-equilibrium dynamics of drift–diffusion process under threshold resetting",
+          "trigger": "Exact same one-particle model and killed Green resolvent"
+        },
+        {
+          "assessment": "Renewal background, not position-marked equilibrium statistics for this model.",
+          "evidence": "The inspection weighting and marginal waiting time calculation do not supply a covariance with diffusion position.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07018",
+          "material_read": "Abstract and §2 pp. 3–4 on inspection bias and residual waiting",
+          "method": "Bounded OA full-text reading at PDF offset 11200 and abstract",
+          "title": "The inspection paradox in stochastic resetting",
+          "trigger": "Age and residual at equilibrium renewals"
+        },
+        {
+          "assessment": "A related mechanism, with other geometries and questions.",
+          "evidence": "The discussed problems include nonstationary infinite-domain diffusion and finite-interval optimization instead of the stationary inward-drift marked calculation.",
+          "identifier_or_url": "https://arxiv.org/html/2009.03419v2",
+          "material_read": "Abstract and Introduction, HTML offset 0",
+          "method": "Bounded OA HTML read",
+          "title": "Optimization and Growth in First-Passage Resetting",
+          "trigger": "First-passage reset mechanism and observables"
+        },
+        {
+          "assessment": "Related contact resetting for two particles, not the frozen model.",
+          "evidence": "The stationary-state calculation uses the interacting two-particle system and does not give the frozen marked covariance transition.",
+          "identifier_or_url": "https://arxiv.org/html/1610.03503v1",
+          "material_read": "Abstract and §4 equations (38)–(41), offsets 0 and 18300–21299",
+          "method": "Bounded OA HTML read",
+          "title": "Interacting Brownian Motion with Resetting",
+          "trigger": "Stationary Brownian threshold resetting"
+        },
+        {
+          "assessment": "Different model and asymptotic limit, not equivalent coverage.",
+          "evidence": "The theorem conditions on a far-left extreme in a many-particle zero-drift gas reset on threshold hit.",
+          "identifier_or_url": "2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 5734",
+          "method": "Resultary semantic retrieval and bounded mirror read",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law in a first-passage-reset gas",
+          "trigger": "Position-conditioned age under threshold resetting"
+        },
+        {
+          "assessment": "Different mechanism and observable.",
+          "evidence": "It treats a ballistic model and lagged spatial covariance, not Brownian position marked by age or residual time.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-boundary-fluctuations-and-negative-memory-in-ballistic--3fafd0c137ae",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 2098",
+          "method": "Resultary semantic retrieval and bounded mirror read",
+          "title": "Ballistic threshold resetting with negative spatial memory",
+          "trigger": "Same-day threshold-reset covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding: conditional geometry and covariance contrast",
+        "Das–Majumdar–Pal, same-model position-only stationary analysis",
+        "Pal–Kostinski–Reuveni, unmarked inspection setting"
+      ],
+      "rationale": "Age and residual are the natural two time directions of a stationary cycle. Position distinguishes them even when their marginals are identical: one covariance can be negative or vanish while the other stays positive, with a sharp nondimensional threshold. This identifies what a spatial inspection can reveal about time direction, and the conditional minimum determines where the particle is, on average, most recently reinjected. Those are concrete, usable properties of the standard model, not merely new notation for the Green function.",
+      "residual_risks": [
+        "The result is a second-moment and conditional-mean characterization in the specified model. It does not classify path reversal, entropy production or resetting mechanisms in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(k=2^m\), direct reindexing of the exact product printed in Theorem 4 gives \(\prod_{r=0}^{\ell-1}\binom{2^{r+1}}{2^r}\), and the associated geometric sum is exactly \(2^\ell-1\). The fixed-level rate follows from Stirling's formula, while the growing-level bound follows from \(\binom{k}{k/s}\leq(es)^{k/s}\) and \(\binom{2n}{n}\leq4^n\). The checker replays the finite identities and asymptotic diagnostics.
+## correctness
 
-## Originality
-PASS. Claim-specific searches of published published-finding corpus records and the accessible literature found no correction or equivalent statement for arXiv:2510.09911v1. The primary full text was inspected at the displayed Theorem 4 proof. The closest structural comparison is arXiv:1904.03581v3, whose Appendix A uses a top-level recursion product and therefore does not state this bottom-level indexing diagnosis.
+PASS
 
-## Value
-PASS. The mismatch changes the exponential scale of a central quantum complexity factor and affects the claimed spacetime tradeoff. Isolating the exact index identity distinguishes two possible repairs and prevents the displayed cost formula from being used interchangeably with the later asymptotic bound.
+Proof 4 of arXiv:2510.09911v1 prints the bottom-level amplitude product and evaluates its exponent using the top-level geometric sum. For k=2^m, r=m-j gives the factors binom(2^(r+1),2^r), 0<=r<ell, and the actual sum is 2^ell-1. The substituted value k(1-2^(-ell)) is strictly larger for ell<m and equal for ell=m. Thus the printed equality is false in general, although the larger expression can still be used as a loose upper bound. At fixed ell, the amplitude logarithm is constant, Stirling gives kH(2^(-ell))+o(k), and the classical-plus-encoding term contributes k*2^(-ell)*log C+o(k). With s=2^ell, the bounds log binom(k,k/s)<=(k/s)log(es) and log T_aa<=(s-1)log 2 yield the claimed logarithmic cost at a dyadic s comparable to sqrt(k log k), which is admissible for large dyadic k. This checks the literal printed cost model, not the complete algorithm or failure of its published upper bound. Verification is analytic; the frozen script and notes were inspected, not executed.
 
-## Closest literature and limitations
-The older quantum Steiner-tree paper arXiv:1904.03581v3 uses the top-level binomial product that would support an exponential amplitude-amplification cost. The 2019 polynomial-space classical paper supplies the source constant \(C\) but does not address the quantum indexing. A corrected version of the 2025 proof could remove the inconsistency by altering the product range or by restoring omitted costs; this result does not choose between those repairs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked earlier top-level analysis supplies the structurally related product but not the diagnosis of the later displayed equation or the asymptotics of its literal bottom-level model. Bounded catalogue and literature checks did not supply a covering correction or equivalent statement.
+
+## value
+
+PASS
+
+This is not just a typo report: it diagnoses which recursion levels make the amplification cost exponential at fixed depth and quantifies the qualitatively different tradeoff forced by the printed model at growing depth. That distinction matters to readers reconstructing the polynomial-space algorithm. Neither the finding nor this assessment claims a subexponential implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

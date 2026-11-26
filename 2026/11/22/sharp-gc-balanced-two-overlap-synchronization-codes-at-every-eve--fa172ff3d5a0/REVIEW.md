@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each admissible code, the disjoint initial/final symbol sets and disjoint two-letter prefix/suffix sets provide a saturated upper template. Every admissible template is among 280 explicitly enumerated cases. The standalone certificate independently checks the three integer coefficient inequalities and all twelve equality profiles. The weighted-central-binomial comparison proves the upper bound at every even length; an explicit prefix/suffix construction meets it. At lengths four and six, independent word-level counting checks the template-to-count mapping. A finite template certificate suffices because the boundary alphabet is fixed and the length dependence is treated symbolically.
+PASS
 
-## Originality — PASS, qualified
+For any active prefix set P, the largest compatible suffix set comprises all pairs not in P whose final symbol is not a first symbol of P. Saturating with balanced completions preserves both forbidden overlaps. An independent exact enumeration over all nonempty subsets of the 16 prefix pairs, taking this maximal suffix set, gave maxima (20,36,36) for f₂, f₁+f₂+f₃ and sum f_j. Exactly twelve choices attain f₂=20, all of profile (0,8,20,8,0); their four-symbol codebooks are distinct and all their boundary pairs occur at length four. This directly addresses n=4, where only the f₂ bound constrains equality. For L=n−4, a boundary with j class symbols has 2^L binom(L,n/2−j) completions. Dividing by 2^L binom(L,L/2) yields a nonnegative weighted sum of the three bounded statistics with weights 1−r₁, r₁−r₂ and r₂, r₁=L/(L+2), r₂=L(L−2)/((L+2)(L+4)), with out-of-range binomials zero. Since 1−r₁>0, every maximizer is among the twelve enumerated sets. Every allowed boundary of these sets is completable for n≥6, so distinctness persists. This establishes the formula and census at all lengths, not by extrapolation. The central-binomial ratio tends to 1/16, and including 2^(n−4)/2^n gives density 36/256=9/64.
 
-The unrestricted two-overlap optimum of Cai–Wang–Feng does not determine exact composition-restricted maxima. Stanovnik's accessible 2024 full text treats unrestricted overlap problems and related constructions. The accessible Wang–Fang–Feng article material concerns bounds for balanced restricted-overlap codes, without displaying this all-length equality. The prior length-four GC-balanced non-overlap count and its twelve extremizers cover only the first case, not the all-even-length formula, extremal rigidity, or the relaxed two-overlap condition for longer words. Yang–Ding (2026) gives unbalanced construction counts. The most important remaining priority risk is the inaccessible full body of the Wang–Fang–Feng article, which could contain additional exact special cases.
+## originality
 
-## Value — PASS
+PASS
 
-The exact tradeoff between a global GC-composition restriction and two short synchronization constraints is a natural finite-block coding parameter explicitly motivated by published work on balanced restricted overlaps. The formula covers arbitrarily large even lengths, supplies twelve equality cases, exact short-block benchmarks, and the asymptotic \(9/64\) density. It is not a single arbitrary computational instance or a routine restatement of the unbalanced optimum: the required majorization certificate controls the entire GC-weight spectrum of feasible boundary templates.
+Pass applies to the all-even exact-composition formula and optimizer census extending beyond length four. The n=4 value and equality cases are materially covered by the earlier length-four full-non-overlap census, and the unbalanced optimum and restricted-boundary reduction are prior ingredients. The closest exact-composition article could not be read in full; the available evidence does not establish that it covers the all-length theorem.
 
-## Scope and remaining limitations
+## value
 
-This does not impose long-overlap exclusion, strand invariance, Hamming distance or local composition balance. The finite boundary inequalities have a fully replayable small enumeration rather than a separate handwritten case taxonomy. Historical novelty is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact composition and two forbidden overlaps are natural simultaneous constraints of finite-word extremal combinatorics. The result identifies a sharp capacity at every length in this setting and shows that conditioning on composition selects the same twelve boundary patterns rather than changing the optimizers with length. That all-length dependence and equality information go beyond the known short instance and an unrestricted bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

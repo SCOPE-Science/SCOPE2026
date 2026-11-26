@@ -29,7 +29,7 @@ G_\alpha(y)=\int_y^\infty g_\alpha(u)
 The function \(G_\alpha\) has exactly one zero \(y_\alpha\) in \((0,\infty)\), positive below and negative above. For \(\alpha=1\),
 \[
 G_1(y)=e^{-y}(\log y+\gamma-y)+E_1(y),\qquad
- y_1=1.3714020181783595\ldots,
+ y_1\approx 1.3714020181784,
 \]
 where \(\gamma\) is Euler's constant and \(E_1(y)=\int_y^\infty e^{-u}/u\,du\). In particular, the growing-dimension cutoff is not simply \(1/m\) at finite shape.
 
@@ -69,7 +69,7 @@ It follows that
 \[
 \Pr\{X_1>t\}=\frac1m+\frac{m-1}{m}\alpha\log\frac{1-t}{t}+O_{m,t}(\alpha^2),
 \]
-where the remainder is differentiable in \(\alpha\) near zero by the same dominated endpoint subtraction. Differentiation yields the claimed covariance limit. Its strict signs on the two sides of \(1/2\), combined with the proven uniqueness of the finite-shape threshold, squeeze \(t_{m,\alpha}\to1/2\).
+To justify differentiation at zero, subtract \(x^{\alpha-1}\) from the incomplete-beta integrand and integrate the subtracted term as \(t^\alpha/\alpha\). The remaining integrand and its \(\alpha\)-derivative are bounded near zero by a constant times \(x^{-1/2}(1+|\log x|)\) for \(|\alpha|<1/2\), since \((1-x)^{(m-1)\alpha-1}-1\) and its \(\alpha\)-derivative are \(O(x)\). Thus the pole-subtracted integral extends continuously differentiably to zero. The inverse beta normalization is analytic at zero with a simple zero, so the product extends continuously differentiably there with the linear coefficient displayed above. Differentiation yields the claimed covariance limit. Its strict signs on the two sides of \(1/2\), combined with the proven uniqueness of the finite-shape threshold, squeeze \(t_{m,\alpha}\to1/2\).
 
 **4. Concentrated-shape limit.** From \(\psi(z)=\log z+O(1/z)\), \(h_{m,\alpha}\) converges uniformly on compact subintervals of \((0,1)\) to
 \[

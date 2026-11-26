@@ -1,15 +1,21 @@
-# Scientific review: automorphism-orbit thresholds for commuting involutions
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the acting group and source domain unambiguously. The projected image of every homomorphism is totally singular. Conversely, every singular quotient map lifts, with the central freedom counted explicitly. The exact sequence from the full automorphism group onto the orthogonal group is justified from an extraspecial presentation; Witt extension and the nondegenerate polar form prove orbit transitivity within each specified kernel/central-character pair. Subspace and character counts yield the formula, and the distinction of Witt indices gives the sharp threshold. Twelve independent finite-group enumerations in the attached checker reproduce all claimed small examples. Residual proof dependency: standard Witt extension for nonsingular quadratic forms in characteristic two.
+## correctness
 
-## Originality — PASS, qualified
-The exact invariant concerns full automorphism orbits of homomorphisms from elementary abelian \(2\)-groups, whereas the two closely related 2026 Levit–Shwartz papers study commuting tuples in all of \(G\) (homomorphisms from free abelian groups) and inner-conjugacy orbit counts. The explicit kernel-and-central-character classification and first Arf-type separation rank were not found in the compared mathematical research records and accessible literature. Classical singular-space counts, orthogonal automorphism quotients, and elementary abelian subgroup geometry are prior knowledge, not claimed separately as new. The relevant older work of Quillen and potential unindexed tables remain historical-priority risks, so absolute novelty is not asserted.
+PASS
 
-## Mathematical value — PASS
-The invariant naturally measures full-automorphism equivalence of involution representations and retains the finer quadratic type information that ordinary isoclinism-based commuting statistics suppress. The first distinction of the plus/minus types occurs only at an exactly proved rank threshold; in particular the results give structural classifications for all finite ranks and both infinite extraspecial families, not a selected finite census. These formulas can organize elementary abelian representations and fusion-style orbit computations. There is no claim of a classification for arbitrary finite \(2\)-groups.
+For a labeled map E -> G its projected image is totally singular, since squares and commutators are trivial. The induced quotient action is all of O(V,q): lifts of a transformed basis give the same presentation, with the center fixed, and the relations give at most 2^(2m+1) normal forms. The kernel acts by V*; for a difference character vanishing on K the restriction from V* to the image U is surjective (also realized by inner twists by nondegeneracy). Witt extension of the isometry of the totally singular projected images, followed by such a twist, makes the maps coincide exactly, not just their images. Conversely K and χ are preserved and any pair occurs by choosing a complement of K and basis lifts. The Gaussian count and type-difference term then follow with r=0 giving one. For raw counts the number of nonzero singular vectors in the j-step quotient is (2^(m-j)-1)(2^(m-j-1)+1) for plus and (2^(m-j-1)-1)(2^(m-j)+1) for minus; multiplying lift counts 2^j and dividing by the ordered basis count gives exactly T_±. Every surjection onto U lifts in 2^r ways; at r=1 the raw difference including identity is 2^(m+1).
 
-## Relevant literature and limits
-Motivating recent sources are arXiv:2605.02071v1 and arXiv:2605.17171v1; their source groups, actions, and conclusions have been compared to the new statement. Standard extraspecial group and Witt geometry results form the proof background. The verifier checks dimensions \(2m=2,4\), not general dimensions. No independent external assessment has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the full-postcomposition orbit classification of labeled elementary-abelian maps, and the first rank at which its count detects type. Raw counts and the quadratic model, Witt extension, and singular-space counts are not credited as original. Inspected inner-conjugacy, raw-count, and subgroup-geometry results do not provide the labeled fusion and kernel-character conclusion in this setting.
+
+## value
+
+PASS
+
+The profile measures equivalence of ordered commuting involutions rather than just existence, subgroup counts, or quotient geometry. It isolates exactly the central data surviving all automorphisms and proves a sharp delayed type-detection threshold despite immediate separation by raw counts. That distinction and complete orbit profile are useful for labeled-map enumeration; verifying classical T_± is not itself the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For each \(d\ge1,n\ge2,a,b>0\), independent Gaussian integration gives exactly the three denominators \(1+4(a+b)\), \(1+4(a+b)+12ab\), and \(1+4(a+b)+16ab\). Conditional degeneracy annihilates all overlapping-but-different pairs and yields the precise \(2/[n(n-1)]\) normalization. The distinct critical regimes follow from a factorization of the correlation and three explicitly controlled asymptotic regimes for \(d a_db_d\). Strict correlation at finite dimension follows from a four-point increment argument; at the critical limit, from a Gaussian representation with distinct exponential dependence on one latent Gaussian. The standalone exact-formula, deterministic quadrature and Monte Carlo checks passed, but numerical testing is not a substitute for the proof.
+## correctness
 
-**Originality (O): PASS, with historical-priority uncertainty.** Li–Yuan (2019, Section 2, Eq. (1)) gives the centered U-statistic and its same-bandwidth variance, which is covered and not claimed. Its formula does not state the cross-bandwidth covariance or the full high-dimensional correlation trichotomy. Schrab et al. (2021/2023) and Biggs et al. (2023) treat adaptive two-sample aggregation, not the present one-sample exactly-known-normal-null joint covariance. Yan–Zhang (2022/2023), Ramdas et al. (2015) and related high-dimensional studies address joint dimension/sample power or linearization but not this finite-\(n\) covariance kernel and bandwidth phase diagram. Public mathematical-record searches and accessible prior claims were searched by formulas, aliases and parameter limits; no covering equivalence was identified. Residual risk is that an implicit multibandwidth covariance identity or a stronger high-dimensional kernel fluctuation theorem already entails some or all of the result.
+PASS
 
-**Value (V): PASS.** Multiple bandwidths are used in adaptive goodness-of-fit and kernel tests, and the actual null dependence determines their effective redundancy. The exact finite-\(n\) dependence kernel and the sharp inverse-square bandwidth boundary \(d^{-1/2}\) distinguish the regimes where normalized bandwidth statistics are effectively the same, finitely correlated or asymptotically decorrelated. The result offers quantitative guidance for redundancy-aware multiscale designs and exposes a distinction between weak null correlation and the much smaller raw variance of narrow kernels; it makes no power or calibration claim.
+For the two difference vectors X−Y and X−Z their single-coordinate covariance matrix is [[2,1],[1,2]], giving determinant 1+4(a+b)+12ab in the joint Gaussian integral; the same-pair integral gives offset 0, and the product of means offset 16ab. Centering gives coefficients (1,−2,1). Kernel degeneracy kills every different unordered pair, retaining 2/[n(n−1)] exactly. Convex decrease of z^(−d/2) with gap ratio 3 gives strict positivity, and four-point mixed increments rule out proportionality unless a=b. The factored geometric term is (1−16(a−b)²/[1+4(a+b)]²)^(d/4). The centered residual tends to 1 when dab→∞, to g(uv) in the critical scaling, and is asymptotic to 4dab/[1+4(a+b)] when dab→0 (with remainder O(d(d+1)(ab/[1+4(a+b)])²)). This yields all three limits, the sharp subcritical log rate and the fixed unequal-bandwidth limit. For strictness at criticality, the given projected Gaussian exponential has mixed moment exp(4(u+v)²)g(uv), and its random exp(2uV) dependence at fixed S,T rules out proportionality to the v projection. Thus the normalized critical expression, not merely g(uv), is strictly between zero and one for u≠v.
 
-**Relevant limitations.** The reference normal parameters must be known, as opposed to fitted, and the result is about one-sample MMD and pairwise correlations, not two-sample tests or a multibandwidth maximum's critical values. The high-dimensional statement holds for fixed positive \(u,v\), not arbitrary bandwidth arrays. The conclusion has not undergone external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passes to best current knowledge for the explicit Gaussian mixed determinants and the sharp normalized cross-scale law, not for U-statistic degeneracy, the general covariance polarization, or the existing one-bandwidth variance and adaptive kernel methodology. The closest same-statistic theorem gives the exact variance identity for one kernel, which yields a generic mixed inner product by polarization but not the evaluated mixed-bandwidth determinant or critical correlation. The similar two-sample papers inspected do not state that Gaussian cross-bandwidth law in their compared results.
+
+## value
+
+PASS
+
+Multiple bandwidths are used for multiscale tests; this exact covariance determines the null redundancy of pairs of bandwidths and discloses a sharp scale separating near perfect correlation, finite correlation, and decorrelation. The nontrivial critical dependence and its small/large-scale limits go beyond a re-evaluation of the known one-bandwidth variance. In particular, decorrelation can occur despite very small raw variances and is not a power assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

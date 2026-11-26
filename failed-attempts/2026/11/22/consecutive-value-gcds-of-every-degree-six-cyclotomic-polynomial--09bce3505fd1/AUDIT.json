@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For all integer n, the complete totient-six index set is {7,9,14,18}. Exact 12-by-12 Sylvester determinants are 2^6*29^2 (index 7) and 19^3*37 (index 9), so parity excludes all but three common primes. Exhaustive prime-field root lists (29:{23,24}, 19:{4,5,16}, 37:{33}) and distinct unique lifting digits prove all common valuations at most one, not merely for a finite n-range. Reflection handles indices 14,18. Disjoint local residue sets and CRT prove the product formula, frequencies, exact least period 20387 and sharp maximum. A standalone Python check replayed both determinants, all root/lift certificates, 20387 full-period direct samples and negative n checks. Infinite n coverage follows from algebraic proof, not finite test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen and Sonn (2015), DOI:10.5802/jtnb.893, study the behavior of cyclotomic values at fixed bases a,b and growing exponent, with conditional estimates; they do not quantify over a common changing neighboring base n and n+1.",
+        "De Nápoli (2020), arxiv:2010.02668, treats products and factorizations as the cyclotomic index varies."
+      ],
+      "reasoning": "A general divisibility theorem would dominate only if it determined the exact simultaneous integer-value GCDs at fixed sextic indices, including all local exponents. Fixed-base exponent bounds and general cyclotomic index identities do not imply this. Generic resultants only restrict candidate primes.",
+      "searches": [
+        "cyclotomic polynomial consecutive arguments gcd resultant values degree six classification",
+        "A cyclotomic generalization of gcd(a^n−1,b^n−1) Cohen Sonn Theorem 3.1",
+        "Complete degree-six cyclotomic sequence common divisor profile for four indices 7 9 14 18: neighboring arguments, primes 19 29 37, least period 20387"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2010.02668 (2020-10-06 first version, primary 11C08/11A25, available full manuscript)",
+      "doi:10.5802/jtnb.893 (2015 original PDF, introduction and theorem 3.1)",
+      "doi:10.1112/mtk.12069 (2021 publisher abstract)",
+      "published third-cyclotomic shifted-GCD result (title and abstract summary only)",
+      "published eighth-cyclotomic LCM-window result (title and abstract summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Nápoli 2020 Theorem 1.1: when indices u,v are coprime, Phi_u(X^v)=product of Phi_du(X) over divisors d of v; this does not evaluate a gcd at adjacent arguments.",
+        "Cohen--Sonn 2015 Theorem 3.1: fixed a,b, varying exponent, under hypotheses distinct from a=n,b=n+1 with fixed cyclotomic index.",
+        "Published related third-cyclotomic shifted GCD and eighth-cyclotomic LCM-window findings have different fixed polynomials."
+      ],
+      "reasoning": "Neither cited primary theorem implies an exact divisibility threshold or finite frequency table for Phi_m(n) and Phi_m(n+1) at the four sextic m. The present proof must and does separately compute local lifts and the CRT distribution.",
+      "searches": [
+        "arxiv:2010.02668 Theorem 1.1 cyclotomic polynomial multiplicative identity",
+        "DOI:10.5802/jtnb.893 Theorem 3.1 varying exponent cyclotomic gcd",
+        "gcd Phi_n(a) Phi_n(a+1) cyclotomic values consecutive integers resultants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches in published mathematical literature and semantic mathematical-record indices surfaced neighboring-value GCD studies for third cyclotomic polynomials and LCM windows for eighth cyclotomic polynomials, but no equivalent four-degree-six-index formula.",
+        "Full available De Nápoli manuscript arxiv:2010.02668, Theorems 1.1 and 2.1, concerns index identities, not adjacent-base GCDs."
+      ],
+      "reasoning": "An equivalent formulation would use polynomial common roots in neighboring integers or the divisibility spectrum of adjacent values. Such alias searches uncovered the expected lower-degree problems but none with the four sextic index cases or the stated complete distribution.",
+      "searches": [
+        "gcd cyclotomic polynomial n and n+1 Phi7 Phi9 consecutive values resultant 29 19 37",
+        "greatest common divisor of values of the same cyclotomic polynomial at consecutive integer arguments n and n+1, ninth cyclotomic polynomial x^6+x^3+1",
+        "simultaneous roots of unity a,a+1 modulo primes, exact gcd of neighboring cyclotomic evaluations and periods"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published literature search and accessible semantic mathematical-record returns did not identify a table for all four sextic cyclotomic indices or the complete 20387-period histogram.",
+        "Exact resultant determinants 53824 and 253783 plus explicit roots and incompatible prime-square lift digits are supplied for reproducibility in RESULT.md and check_degree_six.py."
+      ],
+      "reasoning": "A database of only common-prime support or resultants would not imply the local root sets, squarefreeness or joint frequency table. An unindexed exact table containing these data would cover this claim; that possibility is expressly retained as residual risk.",
+      "searches": [
+        "resultants of Phi_9(x) and Phi_9(x+1), common factors 19 and 37",
+        "Exact greatest common divisor of x^6+x^3+1 and (x+1)^6+(x+1)^3+1 has values 1 19 37 703",
+        "Consecutive evaluation gcd of seventh ninth fourteenth and eighteenth cyclotomic polynomials, mod 29 19 37 root classifications"
+      ]
+    },
+    "rationale": "The inspected primary results give cyclotomic index identities, fixed-base varying-exponent GCD bounds, and height theory, not the complete four-index neighboring-argument GCD law. Published related calculations treat degree-two and degree-four polynomials; their statements do not entail the exact degree-six formulas, prime-square exclusion and eight-value CRT distribution. Search and content inspection provide reasonable but non-exhaustive priority evidence.",
+    "residual_risks": [
+      "An older unindexed or poorly searchable common-root table might already yield the complete degree-six GCD formulas and period distribution.",
+      "Not every potentially relevant abstract led to a readable complete primary article; lower-degree published records were compared only at statement/abstract level.",
+      "Scientific originality and priority have not been independently assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorems 1.1 and 2.1 vary cyclotomic indices and powers of the input variable, rather than bounding or classifying gcd(Phi_m(n),Phi_m(n+1)).",
+        "identifier_or_url": "https://arxiv.org/abs/2010.02668",
+        "material_read": "Available full arXiv article text: sections 1-4 with theorems 1.1, 2.1, 3.1, 4.4 and their surrounding arguments",
+        "method": "Read primary full text and compare indices and quantified polynomial arguments",
+        "title": "An Identity involving the Cyclotomic Polynomials",
+        "trigger": "Exact MSC2020-primary number-theory source and the cyclotomic polynomial index identities"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The quoted theorem varies the exponent n for fixed integers a,b, including conditional growth cases, rather than a fixed degree-six index with arbitrary neighboring bases.",
+        "identifier_or_url": "https://doi.org/10.5802/jtnb.893",
+        "material_read": "Open-access original PDF, introduction and Theorem 3.1 with its hypotheses and conclusion",
+        "method": "Read original article PDF via page image and text and compare fixed-base/varying-index quantifiers with the claimed varying-base/fixed-index result",
+        "title": "A cyclotomic generalization of gcd(a^n−1,b^n−1)",
+        "trigger": "Strong general cyclotomic GCD literature which might subsume a consecutive-input result"
+      },
+      {
+        "assessment": "LOW_RELEVANCE_NOT_DECISIVE",
+        "evidence": "The stated focus is coefficients/heights and prime arithmetic, not adjacent-input GCD spectra; no conclusion based on uninspected full text.",
+        "identifier_or_url": "https://doi.org/10.1112/mtk.12069",
+        "material_read": "Publisher abstract, metadata and title; full proof not inspected",
+        "method": "Read publisher abstract and check subject/quantifiers",
+        "title": "Cyclotomic polynomials with prescribed height and prime number theory",
+        "trigger": "Contemporary cyclotomic number-theory source"
+      },
+      {
+        "assessment": "NOT_COVERING_AT_STATEMENT_LEVEL",
+        "evidence": "The result concerns Phi_3(X)=X^2+X+1, whereas all four classified polynomials have degree six.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-spectra-and-three-point-stabilization-for-shifted-third-cy--5a00ad14fbc8",
+        "material_read": "Published title and mathematical abstract summary, not complete proof",
+        "method": "Compare fixed polynomial degree and quantifiers",
+        "title": "Sharp spectra and three-point stabilization for shifted third-cyclotomic GCDs",
+        "trigger": "Closest known published exact shifted cyclotomic GCD statement"
+      },
+      {
+        "assessment": "NOT_COVERING_AT_STATEMENT_LEVEL",
+        "evidence": "The statement concerns Phi_8(X)=X^4+1, rather than the four degree-six cyclotomic polynomials.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-first-five-window-lcm-quotient-spectrum-of-the-eighth-cycl--fd091d3f2946",
+        "material_read": "Published title and mathematical abstract summary, not complete proof",
+        "method": "Compare polynomial and LCM-window invariant",
+        "title": "Exact first-five-window LCM quotient spectrum of the eighth cyclotomic polynomial",
+        "trigger": "Closest neighboring cyclotomic value overlap statement with exact frequencies"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09bce350-5fd1-4f30-8697-0d1bcff6fcf5",
+  "value": {
+    "rationale": "The set of four sextic cyclotomic indices is a natural complete first layer beyond the low-degree family, with all integer arguments rather than an arbitrary cutoff. The finding classifies all local common factors and their prime-square obstructions, the exact four-way overlap and the sharp least-period frequency spectrum. The result exposes multiple local collisions not determined by general resultant bounds or previously studied degree-two/four neighboring-value distributions; a finite-degree but infinite-input structural classification is a meaningful exact invariant.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:51:39.332210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the absolutely continuous stationary law use X=2^(−J)U with geometric J of ratio r=q/p and independent uniform U. The reflected walk leaves this law stationary, and a doubling at depth zero is exactly one shift of U. Fair binary digits give E[U{2^k U}]=1/4+2^(−k)/12. This splits C_n into the centered depth term for P_1 and the uncentered term for P_{1/2}, with zero-loop weight b. To check the required spectral bound, conjugate by sqrt(π) to a symmetric half-line tridiagonal with off-diagonal c=sqrt(pq) and boundary diagonal a=pb. Outside [−2c,2c] an ℓ² eigenmode must decay geometrically with factor c/a, so it exists only when a>c and then has eigenvalue a+c²/a. For b=1 it is the simple constant mode at 1 before conjugation; for b=1/2 it exists only for p>4/5 and is strictly below 1. This gives absolute summability and the resolvent identity on the required subspaces. Substitution at both j=0 and j≥1 verifies the two Poisson solutions in RESULT.md; the first is in L²(π) and the second bounded. Contracting with the indicated weights gives S=(51p³−51p²+17p−1)/[3(3p−1)³(5p−1)], C_0=s/3−m²/4 and σ²=2S−C_0 by the stationary variance sum and absolute summability. At p→1/2 the rational σ² tends to 4, geometric J escapes, and C_0=(16/9)(p−1/2)+O((p−1/2)²). At p=1 the uniform doubling covariance is 2^(−n)/12, giving 1/4. There is no critical-state CLT or variance assertion. RESULT.md lines 25–78 are the all-time analytic replay; verify.py and VERIFICATION.md were inspected, not executed, and their finite tests do not prove the infinite result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monthus (149) and (195) are depth and tilted depth propagators allowing general initial depth. Her (201) is for uniform initial position, and the connected version subtracts E_stationary[X] E_uniform[X_0].",
+          "The exact stationary generating function d19d3482d20b implies the claim by z=1 evaluation but is later by the catalogue date. The distinct same-date a2040df61998 is for dyadic depth and has a divergent, not finite, variance limit."
+        ],
+        "reasoning": "Stationary and uniform starts have different depth weights and centering. A computation for a different observable is not a specialization; priority within a date is not inferred.",
+        "searches": [
+          "Monthus arXiv:2409.19999v2, Eqs. (149), (153), (195), (197)–(207)",
+          "Resultary d19d3482d20b and a2040df61998"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Yan et al. 2308.09269",
+        "Monthus 2409.19999v2",
+        "Resultary d19d3482d20b and a2040df61998"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general kernels do yield the stationary individual-lag covariance by averaging over all initial depths with weight π_j 2^(−j), weighting final depth by 2^(−k), using tilt e^ν=1/2 in the digit term, and subtracting the squared stationary mean.",
+          "Obtaining the exact rational all-time integrated variance still requires the centered resolvent calculation (or evaluating the corresponding spectral integral and cancelling the stationary mode), not a parameter substitution in (201). The later stationary transform does admit direct z=1 evaluation after centering."
+        ],
+        "reasoning": "The strongest earlier kernel is a computational starting point; its stationary projections and singular-limit evaluation are not a stated or plug-in consequence of the earlier uniform-start result.",
+        "searches": [
+          "Monthus arXiv:2409.19999v2, Secs. VI.3–VI.5; compare (195) versus (201)",
+          "Resultary d19d3482d20b, Finding and covariance transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-observable catalogue entry is d19d3482d20b (2026-11-08); no earlier equivalent formula was found in the bounded lookup.",
+          "Yan et al. explicitly treat the stationary coordinate autocorrelation; their exact short-lag calculations are followed by approximations, not an exact time sum."
+        ],
+        "reasoning": "The exact Green–Kubo variance is the covariance-series sum with the lag-zero term counted once; three exact lag values or an approximation at larger times do not determine it.",
+        "searches": [
+          "Resultary: stationary Pelikan centered coordinate covariance, Green–Kubo and critical variance",
+          "Yan et al. arXiv:2308.09269, Sec. III, Eqs. (16)–(17) and III.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hits were a later whole covariance transform and a same-day different-observable variance, not an earlier rational formula. The exact values of a finite set of lags in the primary literature are not an all-time coefficient table."
+        ],
+        "reasoning": "The appropriate exact comparators for a continuous p family are closed rational forms or a stationary generating function, not a numerical/short-time table.",
+        "searches": [
+          "Local Resultary catalogue for exact additive variance/time-sum coefficients",
+          "Yan et al. Sec. III.2 exact lags"
+        ]
+      },
+      "rationale": "Best of the inspected evidence, the explicit integrated stationary coordinate variance and its critical constant are distinct. The invariant law, latent reflected walk, general tilted propagation and short stationary lag formulas are prior. Monthus's exact correlation is for uniform initial position, while the closest exact stationary covariance transform in the catalogue is later-dated. The priority assessment is for the evaluated stationary statistic, not for all-lag calculability or the method.",
+      "residual_risks": [
+        "Literature and catalogue comparisons are bounded, not proof of priority against unindexed sources. Exact tilted propagators make an earlier implicit or unpublished stationary calculation plausible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior method and general kernels, not the evaluated stationary coordinate sum",
+          "evidence": "(195) retains initial depth; (201) and (204)–(207) calculate and center a uniform-start correlation.",
+          "identifier_or_url": "https://arxiv.org/html/2409.19999v2",
+          "material_read": "Secs. VI.3–VI.5, (149), (153), (195), and (197)–(207); relevant offsets near 100600, 126800, 129000 and 132000",
+          "method": "OA primary full text, bounded passage inspection",
+          "title": "Explicit dynamical properties of the Pelikan random map",
+          "trigger": "Exact propagator and same coordinate autocorrelation"
+        },
+        {
+          "assessment": "Short-lag formulas and longer-lag approximations, not exact integrated variance",
+          "evidence": "III.2 describes its exact calculation as the first three lags.",
+          "identifier_or_url": "https://arxiv.org/html/2308.09269",
+          "material_read": "Sec. III, especially Eqs. (16)–(17) and subsection III.2",
+          "method": "OA primary full text",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Same stationary coordinate covariance"
+        },
+        {
+          "assessment": "Later stronger coverage; not used as earlier evidence",
+          "evidence": "Exact centered stationary position-covariance generating function for this map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-stationary-correlation-transform-and-spectral-edge-amplitu--d19d3482d20b",
+          "material_read": "RESULT.md offset 0–5730",
+          "method": "Local mirror",
+          "title": "Exact stationary correlation transform and spectral edge amplitudes",
+          "trigger": "Exact stronger same-observable match"
+        },
+        {
+          "assessment": "Different observable; no inference from same-date ordering",
+          "evidence": "Additive variance of depth, not position, diverges at criticality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-dyadic-depth-fluctuation-variance-and-critical-slowing-in--a2040df61998",
+          "material_read": "RESULT.md Finding opening",
+          "method": "Local mirror",
+          "title": "Exact dyadic-depth fluctuation variance and critical slowing",
+          "trigger": "Same dynamics and critical fluctuation variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinate is a standard observable of this map. The exact variance separates equilibrium collapse from a surviving time-integrated fluctuation, fixes the critical constant 4 and quantifies the divergence relative to C_0. Neither stationary moments alone nor short-lag correlations resolve that distinction, and the resolvent gives a useful exact benchmark for fluctuation and crossover analyses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

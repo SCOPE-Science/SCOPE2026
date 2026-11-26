@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:53:00.275634Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–97, definitions and analytic proof",
+        "VERIFICATION.md and bg_inverse_checker.py, static inspection; no frozen-script replay"
+      ],
+      "rationale": "Independently set B=D−KΣ. The Lyapunov equation makes B skew; symmetry of Σ=K⁻¹(D−B) gives KB+BK=DK−KD. For 2×2 symmetric K the left side is LB, so B₁₂=c(T₁−T₂)/L. The potential torque is (KΣ)₂₁−(KΣ)₁₂=2B₁₂, with the stated sign. Taking the determinant of KΣ=D−B gives detΣ=(T₁T₂+B₁₂²)/detK. The angular integrand after removing the density is −B₁₂ times (xᵀΣ⁻¹x)/|x|², bounded in direction; its radial Gaussian integral contributes 1/√detΣ after angle averaging. Thus the current rate has the opposite sign to torque and its magnitude determines detK at nonzero torque. At fixed L, real positive diagonal roots with product detK+c² are equivalent to 0<detK≤L²/4−c², giving exactly the stated region and fibres, with |m|=|Δ| and nonzero m with ω=0 excluded. The branch gap squared equals a positive multiple of (Wmax−|ω|)(Wmax+|ω|), with nonzero second factor on each nonzero-torque fold, yielding local half-Hölder inverse branches but not a larger exponent. At m=0 one must have c=0 and ω=0, leaving the whole open diagonal segment. The diagonal entries of K⁻¹(D−B) give V=(bT₁−aT₂−2cB₁₂)/detK, which recovers the signed diagonal difference and splits the two branches. On the diagonal segment V=T₁/a−T₂/(L−a) decreases strictly from +∞ to −∞. No statistical inference or sample-path angular derivative is used.",
+      "residual_risks": [
+        "The reported author samples are numerical corroboration only. The independent verification is algebraic, not a formal proof-assistant audit. The local fold estimate is not uniform near zero torque."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mancois et al. treat the full SPD anisotropic forward model, not merely the equal-diagonal trap. Dotsenko et al. give a special coupled equal-diagonal case of current and rotation; that case lies at the fold when torque is nonzero.",
+          "Reconstruction from the entire stationary covariance, via a Lyapunov equation with known D, is a different data problem; it does not show that the variance difference alone suffices once the two scalar observables are fixed."
+        ],
+        "reasoning": "The actual broader forward theorem covers the forward component. Neither it nor reconstruction with more informative data is a theorem of sufficiency of this specific triple or of failure with exactly the first two scalars.",
+        "searches": [
+          "General anisotropic harmonic Model B forward formulas, arXiv:1802.04584",
+          "arXiv:1302.4056 §3.2 and Eqs. (25)–(29)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0710.3735",
+        "arXiv:1302.4056",
+        "arXiv:1802.04584",
+        "Resultary 1f4878a82d95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two forward laws invert algebraically to c and detK, so those recovery formulas alone would be routine. Imposing the SPD domain and globally handling branch collision, the degenerate data (0,0), and separation by the scalar V are the additional steps.",
+          "An equal-diagonal prior formula can evaluate forward outputs on the eventual fold, but cannot show those values are the extremal angular rates at fixed nonzero torque across all diagonal choices, nor determine the interior multiplicity."
+        ],
+        "reasoning": "Credit the forward laws and their immediate algebraic inversion; the full admissible-data and measurement-sufficiency problem, including both types of nongeneric fibre, was not covered by the inspected statements.",
+        "searches": [
+          "Filliger–Reimann Eqs. (6)–(7) and Mancois et al. Eq. (30) compared jointly under fixed trace",
+          "Dotsenko et al. p. 6 angular-rate result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Filliger–Reimann Eq. (6) uses x₁∂₂U−x₂∂₁U, the same potential-torque sign (as opposed to force torque). Mancois et al. Eq. (17) uses the stationary-current integral; the general anisotropic quadratic Model B in Eq. (30) is the same forward angular-rate observable after changing stiffness parameters.",
+          "Writing the joint data in terms of the off-diagonal stiffness and determinant makes the label-exchanged diagonal roots explicit; the inspected prior passages do not use an equivalent inverse formulation."
+        ],
+        "reasoning": "Differences in diagonal-axis convention or in torque sign do not make the forward laws new. The supported distinction is the constrained inverse classification, not a renamed observable.",
+        "searches": [
+          "Mancois et al., arXiv:1802.04584 Eqs. (14)–(18), Model B Eq. (30)",
+          "Filliger–Reimann arXiv:0710.3735 Eqs. (6)–(7)",
+          "Focused literature lookup for Brownian gyrator torque/angular-rate inverse reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest earlier inspected catalogue record 1f4878a82d95 studies torque reversal under Poisson interventions rescaling one coordinate, not the geometric stationary inverse map.",
+          "The location of the fold and the variance-difference test are given in the assigned record, not in an inspected earlier exact inverse table or result."
+        ],
+        "reasoning": "Related catalogue coverage concerns a different dynamical model and output; the bounded lookup does not establish comprehensive priority.",
+        "searches": [
+          "Resultary search for fixed-trace harmonic Brownian gyrator inverse, torque/rotation fibres, variance difference",
+          "Focused open-literature search for a joint inverse or identifiability result"
+        ]
+      },
+      "rationale": "The primary literature gives the forward torque and the same ensemble-current angular rate; much of the inverse algebra is directly accessible from those identities and is not a separate discovery of a new forward law. The distinct contribution supported here is the complete constrained inverse problem: exact feasible boundary and global fibre classification, local fold conditioning, and a specified single additional stationary statistic that works even on the zero-torque continuum. No inspected source states a covering inverse or stronger identifiability theorem for these data under the stated trace constraint. The result is an explicit synthesis with modest algebraic novelty; historical priority remains qualified.",
+      "residual_risks": [
+        "An unexamined inverse-observable result may provide equivalent coverage. The two established forward identities greatly simplify the constrained inverse, so the pass is for the complete global classification and scalar disambiguation, not rederivation of the laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers forward torque",
+          "evidence": [
+            "Potential torque given by the stationary integral of x₁∂₂U−x₂∂₁U and evaluated explicitly."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.3735",
+          "material_read": "PDF p. 3 Eqs. (6)–(7), OA offset 16118",
+          "method": "Open primary PDF passage",
+          "title": "The Brownian gyrator: a minimal heat engine on the nano-scale",
+          "trigger": "Same torque observable"
+        },
+        {
+          "assessment": "Equal-diagonal forward case and current method",
+          "evidence": [
+            "Computes the current and its mean angular velocity for a coupled quadratic trap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.4056",
+          "material_read": "§3.2 PDF pp. 5–6, Eqs. (17)–(21), (25)–(29), OA offsets 13836 and 17738",
+          "method": "Open primary PDF passages",
+          "title": "Two-temperature Langevin dynamics in a parabolic potential",
+          "trigger": "Possibly equivalent current or angular-frequency formula"
+        },
+        {
+          "assessment": "Covers the general forward angular-rate formula, not the stated constrained inverse",
+          "evidence": [
+            "Eq. (17) is the ensemble current-based angular mean; Eq. (30) is the general harmonic forward result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.04584",
+          "material_read": "PDF p. 3 Eqs. (14)–(18) and p. 4 Model B Eq. (30), OA offsets 18496 and 23039",
+          "method": "Open primary PDF; reparametrization comparison",
+          "title": "Two-temperature Brownian dynamics of a particle in a confining potential",
+          "trigger": "Full anisotropic harmonic Model B might cover the inverse"
+        },
+        {
+          "assessment": "Different dynamics and question",
+          "evidence": [
+            "Poisson resetting rescaling one coordinate and associated torque reversal, no fixed-trace joint inverse claim."
+          ],
+          "identifier_or_url": "Resultary 1f4878a82d95",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "A unique resetting-induced torque reversal in a two-bath Brownian gyrator",
+          "trigger": "Closest retrieved earlier Brownian gyrator torque claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and explicit proof of the boundary, fold and variance discrimination",
+        "Prior forward-work comparison"
+      ],
+      "rationale": "The constrained inverse resolves what can and cannot be identified from two natural stationary observables rather than taking an arbitrary algebraic slice to display a formula. It gives an explicit diagnostic for infeasible noiseless data, demonstrates genuine nonidentifiability and degraded conditioning where branches coalesce, and answers which one additional low-dimensional stationary measurement makes the inverse globally unique. This is meaningful even though the computation uses elementary matrix algebra and does not quantify errors from finite trajectories.",
+      "residual_risks": [
+        "The known trace, mobilities, and bath temperatures and exact stationary statistics are essential. Practical finite-sample estimability is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

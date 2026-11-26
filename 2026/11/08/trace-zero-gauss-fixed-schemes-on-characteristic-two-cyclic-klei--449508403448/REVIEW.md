@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The smoothness check uses all the partial derivatives, and the Gauss endomorphism identity is exact. A projectively fixed vector has all entries nonzero and admits one unique representative fixed on the nose; its coordinates are successive squares of a nonzero element of \(\mathbb F_{2^n}\). The cubic restriction becomes the fourth power of its trace. The zero differential of the Gauss endomorphism makes the fixed scheme étale, ensuring that the trace parameterization is a scheme isomorphism, rather than merely an enumeration of points. Elementary subfield traces establish the extension-field counts and their zeta Euler factors. The finite-field verifier reproduces the degree-five special case.
+## correctness
 
-**Originality: PASS, qualified.** General self-duality and inseparability results for Frobenius forms in Kadyrsizova et al., Proposition 8.6, are existing results; they are not being presented as novel. The older González-Aguilera–Liendo paper establishes the classical cyclic Klein family and studies automorphisms over characteristic zero. Furukawa (2012) proves that the Gauss-rank-zero property for smooth cubic threefolds characterizes the characteristic-two Fermat model geometrically; the paper does not state the marked cyclic fixed-scheme arithmetic. The closest related literature inspected describes general Gauss geometry or positive-characteristic surfaces, not the coordinate-marked Gauss fixed scheme for the cyclic family, its trace-zero identification, or its complete arithmetic Frobenius-orbit decomposition. Search coverage cannot establish definitive historical priority, and specialist results might remain uninspected.
+PASS
 
-**Value: PASS.** The scheme-theoretic fixed locus is a natural arithmetic invariant of an exceptional purely inseparable Gauss endomorphism of a smooth distinguished hypersurface. Its finite étaleness and complete Frobenius-orbit spectrum distinguish the characteristic-two dynamics from the generic self-duality theorem; on the classical Klein cubic threefold the result identifies three closed degree-five fixed points rather than just a generic intersection degree. The general family unifies these phenomena and detects the parity of subextension degrees.
+The derivatives give the marked cyclic permutation of coordinate squaring, with F(g(x))=F(x)^2, so this is a self-map of the smooth cubic. Every projective fixed point lies on the chart where all coordinates are units (a zero would propagate cyclically). Scheme-theoretically on the chart x_0=1, the proportionality factor is lambda=x_{n-1}^2, a unit; rescaling by lambda^{-1} gives a canonical vector y fixed under the same squared-coordinate formula. Its coordinates are t^{2^i} with t invertible and t^{2^n}=t, and this parametrization is inverse to normalization. On that ambient fixed algebra, Tr_n^2+Tr_n=t^{2^n}+t=0; hence F(y)=Tr_n(t)^4=Tr_n(t) there. This proves the stated quotient as a scheme, without inferring reducedness of an arbitrary intersection from a point count. Tr_n'=1 and its zero root is simple, giving finite étaleness and degree 2^{n-1}-1. For fields of size 2^m the parameter is in F_{2^gcd(m,n)}; restriction of trace multiplies by n/gcd(m,n), giving both parity branches and the zeta factors by counting Frobenius orbits. For n=5 the 15 points are not rational over F_2, so all have degree five and form three orbits. The independent exact replay checked the Frobenius and trace identities for n=3 through 10, the irreducible quintic factorization, all 31 normalized ambient F_32 points (15 on the cubic), and the extension counts for m=1 through 10 in the n=5 case.
 
-**Limitation and risk.** The coordinate marking is essential. Broad theorems about Frobenius forms are closely related, and exhaustive originality verification in specialist literature is unavailable. The verifier checks finitely many dimensions, whereas the proof supplies the unbounded mathematical argument. No independent audit or validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the arithmetic fixed scheme of the specifically marked self-map, including its extension counts and zeta function. The general Gauss inseparability and the Klein form are antecedents, and the identical indexed record is not independent coverage. The inspected antecedents do not imply the trace-zero descent and orbit census for this marking.
+
+## value
+
+PASS
+
+The standard cyclic form and its explicit coordinate marking pose a natural arithmetic question about tangent hyperplanes whose coordinates equal their point coordinates. Identifying the entire fixed scheme gives all extension counts and the zeta function, not merely an inseparable degree or a small-field count. The trace condition explains the parity effect under subfield restriction, and the threefold orbit splitting supplies a precise invariant for the classical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

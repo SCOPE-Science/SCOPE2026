@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed tree \(T\), the isolated-vertex indicator at \(v\) forces the \(d_v\) incident edges to be absent, leaving the other edges independent. The conditional-mean calculation yields \(\operatorname{Cov}(I,M)=-\tfrac12\sum_v d_v2^{-d_v}\). The tree degree-sum identity is equivalent to a complete unbounded knapsack representation with positive hub profit \(g(d)=1/2-d2^{-d}\) and cost \(d-1\). All stated replacement moves preserve cost and strictly improve hub profit, eliminating degrees three and seven or more, degree-two vertices and excess degree-four/six hubs. The residual bounded integer problem reduces by exact algebra to minimizing \(a+3c\) across eight possible pairs, proving every residue case and the full equality classification. Prüfer construction proves realizability of every listed degree multiset. Independent exact arithmetic checks of all tree degree profiles through order sixteen, complete retention enumeration for every profile through order ten, and the integer dynamic program through order 120 agree with the proof. Computation is corroboration, not an infinite-order certificate.
+PASS
 
-## Originality — PASS within inspected evidence
+Conditioning on isolation of a vertex v removes its d_v incident edges from the mean retained-edge count and does not affect any other edge, so its covariance contribution is −d_v2^(−d_v)/2. The function d2^(−d) equals 1/2 at 1,2 and is strictly smaller from degree 3 onward; equality for the lower bound therefore forces the path. The degree budget is B=n−2=Σ(d−1); a positive degree list of that sum has a Prüfer realization. For the upper bound hub profits at degrees 3,4,5,6 are 4,8,11,13 in units of 1/32, at costs 2,3,4,5. Any degree ≥7 is dominated by two fours with profit 16 at cost 6 and any remaining budget can be filled with degree-two vertices. The listed exchanges with a three, four fours, or two sixes are strictly profitable. A sole three can use a spare unit to become a four for B≥3. Two spare units buy a hub; one spare unit strictly improves any surviving degree 4,5,6 by replacing it with 5,6,(4,4), respectively. Thus there is no slack in an optimum and only (a,b,c) with 3a+4b+5c=B, a≤3,c≤1 survive. The scaled profit is 11B−a−3c; checking these eight (a,c) pairs yields exactly the four residues and their listed ties, with the three-fours case infeasible at B=5. At n=4 the star yields −15/16; at n=2,3 only the path is possible.
 
-The first public arXiv version of Berzunza–Cai–Holmgren (arXiv:1902.08109, 2019-02-21) addresses giant-cluster fluctuations for random split trees and regular trees, at a size-dependent supercritical retention parameter; its main setting does not cover fixed finite-tree, fair-percolation isolated-vertex/retained-edge covariance extrema. Betken (arXiv:1910.02668, 2019-10-07) concerns isolated-vertex CLTs in a growing preferential-attachment model, not this tree optimization. These primary texts were inspected beyond abstracts, including their introductions and main-theorem settings. The closest published research-record search hits involving tree degrees and percolation concern other statistics or graph models. Searches for covariance aliases, degree-index reformulations, and potential dominating general tree-degree optimizations did not locate the exact piecewise covariance optimum or its equality classes. These negative searches do not prove uniqueness or historical priority. Generic vertex-degree index methods and earlier obscure notes are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The dependence between deleted/retained edges and isolated vertices is a natural bond-percolation observable. Its sharp finite-size extremization is not simply path-versus-star: optimal tree hosts have degree-five branching, with two distinct competing maximizer degree multisets in one congruence class. The proof explains this through a discrete exchange calculus and produces a complete, exact classification of all maximizing degree profiles at every tree order. The four-residue structure offers a reproducible benchmark for dependence sensitivity to the host-tree topology; no generalization to all bond probabilities is claimed.
+The fixed-graph conditioning identity and path bound are elementary. The relevant distinct result is the exact unrestricted-tree covariance maximum and complete equality classification, particularly the degree-five hub economy and modulo-four corrections. The inspected adjacent results do not cover it. A possibility of coverage by generic degree-index optimization is retained as a bounded access risk, not dismissed from a snippet.
 
-## Closest literature, limitations, and risk
+## value
 
-Berzunza–Cai–Holmgren, *The fluctuations of the giant cluster for percolation on random split trees* (arXiv:1902.08109); Betken, *A central limit theorem for the number of isolated vertices in a preferential attachment random graph* (arXiv:1910.02668). The fixed-host covariance identity is elementary and not itself asserted as a novel method. The accepted scientific claim is the complete fair-retention, fixed-order sharp extremum and residue-class equality characterization. Historical-priority uncertainty remains for possibly equivalent graph-degree-index optimization theorems that might imply this result after a change of objective. A potentially related general degree-index source was accessible only in limited summary form and is not used to assert exclusion. Only fair bond percolation on a fixed simple tree is proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The covariance measures isolation sensitivity to edge density at a central retention parameter, and the fixed-order question asks how different tree hosts can make that sensitivity. The optimum does not asymptotically select either standard example (path or star); it selects degree-five hubs with exact modular corrections and distinct ties. The classification gives sharp sensitivity and exact equality for every order, information not supplied by a generic leading-rate bound or edge-conditioning calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

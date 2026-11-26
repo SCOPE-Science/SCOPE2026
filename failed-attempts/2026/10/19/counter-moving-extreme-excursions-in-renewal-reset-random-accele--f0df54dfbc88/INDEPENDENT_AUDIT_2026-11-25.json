@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:19:09.559400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equilibrium length-bias and uniform sampling in the renewal interval give age survival (1+a/b)^(-alpha), not the interarrival exponent 1+alpha. Brownian scaling and covariance integration give the independent age multiplier and Gaussian covariance (1/3,1/2;1/2,1), with determinant 1/12. The age density gives the stated beta integral and diverges for (3p+q)/2>=alpha, including equality. Conditioning on the Gaussian factors and using the upper bound from the exact Lomax survival justifies dominated convergence for either a one-sided sign-conditioned exceedance or the intersection of absolute exceedances. Quantile substitution for the latter is justified by marginal inversion and sandwiching between fixed scaled thresholds. The two normalized absolute Gaussian powers are positive with equal means one but unequal a.s., giving 0<chi<1. As a separate check, for independent standard normals Z,E with H=(sqrt(3) Z+E)/2, polar coordinates express Q as the integral of cos(theta)^s over [pi/3,pi/2] divided by the integral over [-pi/2,pi/2]. At s=0 this gives 1/6; at s=1 it gives (2-sqrt(3))/4. Increasing s strictly biases the positive-normal law toward larger Z and its tilted Z^2 is chi-square with s+1 degrees of freedom, so Q decreases strictly to zero. Separate bounded quadrature gave Q(0.5)=0.121596581927, Q(1.5)=0.066987298108 and Q(3)=0.028834442811. The frozen checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Segers's positive random-scale construction gives the normalized stable tail dependence function as the mean of the maximum of the spectral marks; inclusion–exclusion gives a joint exceedance as the mean of their minimum.",
+          "The rank-preserving map (|X|,|V|) -> (|X|^(2*alpha/3),|V|^(2*alpha)) gives exactly a common factor R with tail 1/r times the two Gaussian powers, up to deterministic constants. After marginal normalization the marks are exactly those in the frozen min formula. Segers states the construction with a unit Fréchet factor; replacement by R is exact at tail-measure level since r*Pr(R>r) tends to one and is bounded by one, so Gaussian integrability supplies domination."
+        ],
+        "reasoning": "This proves coverage of the full absolute two-coordinate tail coefficient, not just separate applications of scalar Breiman to obtain marginal exponents. The sign-marked formulation is another instance of the same random-scale construction.",
+        "searches": [
+          "arXiv:1204.0332 Sec. 3.1, Lemma 3.1 and Eq. (3.3)",
+          "arXiv:1207.2296 Eq. (5) and Theorems 3.1–3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks.py",
+        "Resultary semantic index and named mirror record",
+        "arXiv:1204.0332",
+        "arXiv:1207.2296",
+        "arXiv:1604.00561",
+        "arXiv:2007.05576",
+        "arXiv:1812.05667",
+        "arXiv:2312.13968"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reset-specific sources alone do not imply the claimed joint formulas as stated: Singh and Montero et al. use Poisson clocks, and Bodrova et al. treat a displacement marginal. The existing random-scale laws cover the tails after the elementary stationary-age and Gaussian scaling representation.",
+          "Monotonicity and both endpoints follow from ordinary gamma shape ordering of Z^2 under the tilt and the Gaussian wedge at s=0. The mixed moment is the product of a Gaussian moment and the standard beta-prime age moment; its frontier is the corresponding age-integrability condition."
+        ],
+        "reasoning": "No separate nonroutine statement remains after specializing the prior tail laws and integrating a Lomax age. The clock and kinematic interpretation are useful context but do not produce a new tail theorem or an independently uncovered exact coefficient.",
+        "searches": [
+          "arXiv:2007.05576 pp. 2–3, 6",
+          "arXiv:1812.05667 pp. 2–4, 18",
+          "arXiv:2312.13968 p. 2",
+          "arXiv:1204.0332 Lemma 3.1",
+          "arXiv:1207.2296 Theorems 3.1–3.2",
+          "arXiv:1604.00561 Eq. (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For s=2*alpha/3, replace velocity by the sign-preserving proxy A^(3/2)H and standardize X's Gaussian component to Z=sqrt(3)G. This is an elliptical vector with regularly varying radius of index s and Gaussian correlation sqrt(3)/2. Opitz gives the corresponding extremal Student-t dependence law for every such index and correlation, not only the Student-t radial distribution.",
+          "Ding's Eq. (5) gives the conditional Student-t distribution with degrees of freedom s+1. The large positive first-coordinate limit in this equivalent t model gives Q=T_(s+1)(-sqrt(3*(s+1))). The same formula follows directly by recognizing that Z^2 under z^s positive-normal tilting is chi-square with s+1 degrees of freedom.",
+          "For a nonnegative tail-measure formulation, take R=(A/b)^alpha and the marks Z_+^s and Z_+^s times 1_{H<0}. The second marginal tail weight divided by the first is exactly Q, since the second marked exceedance is precisely the first exceedance restricted to H<0."
+        ],
+        "reasoning": "The proxy preserves the exact conditioning event and velocity sign; it is not asserted to preserve velocity magnitudes. A constant correlation and scalar tail-index substitution identify the same conditional tail, including the exact s=1 case of the t_2 CDF.",
+        "searches": [
+          "random acceleration renewal resetting Lomax conditional velocity sign extreme position",
+          "Resultary: Lomax reset random acceleration reverse sign conditional velocity Gaussian power tilt",
+          "arXiv:1207.2296 Secs. 2.3–2.4 and Theorems 3.1–3.2",
+          "arXiv:1604.00561 Sec. 3, Eq. (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected Resultary record, 2026/11/8/SCOPE-extreme-displacement-velocity-and-reset-age-laws-for-random-acce--c202451627eb, uses Poisson resetting and conditioning on exact displacement, giving an exponentially small reversal probability. It is not the Lomax exceedance calculation.",
+          "No matching reset-specific coefficient table was retrieved. The value at alpha=3/2 is exactly the ordinary t_2 probability T_2(-sqrt(6)), equivalently the single elementary angular integral at s=1."
+        ],
+        "reasoning": "The database comparison distinguishes two genuinely different reset clocks and conditioning events; the explicit numerical value here is nevertheless a direct evaluation of the covered universal probability.",
+        "searches": [
+          "Resultary: renewal resetting random acceleration Lomax conditional velocity sign extremes",
+          "Resultary: joint extreme co-exceedance random acceleration stationary renewal resets",
+          "Resultary: random acceleration Lomax renewal Q(alpha) counter-moving probability",
+          "Resultary: stationary renewal age Gaussian integrated Brownian extreme position velocity sign",
+          "arXiv:1604.00561 Eq. (5)"
+        ]
+      },
+      "rationale": "The reset-specific literature examined does not give these formulas verbatim, but both extreme observables reduce exactly to existing random-scale and elliptical tail laws, and the remainder is a beta moment and an elementary evaluation of a standard conditional Student-t tail. This is prior coverage by implication, not a claim that a reset paper printed the same number.",
+      "residual_risks": [
+        "No exhaustive historical or verbatim-priority claim is made. The rejection rests on explicit mathematical reduction to actual inspected prior laws, not on absence of search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger construction after marginal powers and tail-equivalent scalar normalization",
+          "evidence": [
+            "The stable dependence function for a normalized independent common scale is E[max(x_j A_j,0)]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1204.0332",
+          "material_read": "Sec. 3.1, pp. 13–14, Lemma 3.1 and Eq. (3.3)",
+          "method": "OA PDF literal locator and bounded passage",
+          "title": "Max-stable models for multivariate extremes",
+          "trigger": "General random-scale coverage of the absolute joint coefficient"
+        },
+        {
+          "assessment": "Covers the proxy's limiting tail law at the same index and correlation",
+          "evidence": [
+            "The extremal Student-t law is the attractor for regularly varying elliptical vectors, with dependence determined by index and correlation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.2296",
+          "material_read": "Secs. 2.3–2.4, Eqs. (4)–(6), Sec. 3 Theorems 3.1–3.2 and proof",
+          "method": "OA PDF bounded passages at offsets 10000 and 15800",
+          "title": "Extremal t processes: Elliptical domain of attraction and a spectral representation",
+          "trigger": "Sign-preserving elliptical velocity proxy"
+        },
+        {
+          "assessment": "Known t conditional law with the parameter needed for the sign limit",
+          "evidence": [
+            "Conditioning on one coordinate changes the degrees of freedom from s to s+1 and gives the normal regression location and a scaled Schur complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.00561",
+          "material_read": "Sec. 3 through Eq. (5) and Conclusion One",
+          "method": "OA PDF literal locator and bounded passage at offset 7600",
+          "title": "On the Conditional Distribution of the Multivariate t Distribution",
+          "trigger": "Exact CDF underlying the reverse-sign integral"
+        },
+        {
+          "assessment": "Kinematic and stationary mixture background, Poisson reset clock",
+          "evidence": [
+            "The joint stationary law is a Laplace mixture of the reset-free joint law."
+          ],
+          "identifier_or_url": "arXiv:2007.05576",
+          "material_read": "pp. 2–3 and 6, offsets 7540–10669 and 21586",
+          "method": "OA PDF passage inspection",
+          "title": "Random acceleration process under stochastic resetting",
+          "trigger": "Same kinematics and complete resetting"
+        },
+        {
+          "assessment": "Related position-marginal asymptotics only in the inspected passages",
+          "evidence": [
+            "Power-law position-PDF asymptotics are separated from conditions for a stationary mean-square displacement."
+          ],
+          "identifier_or_url": "arXiv:1812.05667",
+          "material_read": "pp. 2–4 and 18, offsets 12497, 16330 and 95875",
+          "method": "OA PDF passage inspection",
+          "title": "Scaled Brownian motion with renewal resetting",
+          "trigger": "Power-law renewal and analogous displacement tail"
+        },
+        {
+          "assessment": "Different clock and observable",
+          "evidence": [
+            "Poisson reset assumption and crossing intensities, not stationary Lomax exceedances."
+          ],
+          "identifier_or_url": "arXiv:2312.13968",
+          "material_read": "p. 2, offset 8868",
+          "method": "OA PDF passage inspection",
+          "title": "The effect of stochastic resettings on the counting of level crossings for inertial random processes",
+          "trigger": "Inertial sign-sensitive resetting observables"
+        },
+        {
+          "assessment": "Different clock and exact-displacement conditioning; not the basis of the originality failure",
+          "evidence": [
+            "Poisson complete resets and X=x yield an exponentially small wrong-way probability."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-extreme-displacement-velocity-and-reset-age-laws-for-random-acce--c202451627eb",
+          "material_read": "RESULT.md opening statement, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement inspection",
+          "title": "Extreme displacement, velocity, and reset-age laws for random acceleration",
+          "trigger": "Closest model-specific catalogue match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The chosen observable is physically intelligible and the numerical benchmark is correct. As a mathematical finding, however, the reverse-motion benchmark is a mechanically implied Student-t tail and the absolute co-exceedance and moment frontier are direct random-scale and beta-integral evaluations. The record does not establish a distinct structural or quantitative consequence beyond these routine specializations.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

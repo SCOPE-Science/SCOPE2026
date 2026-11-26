@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:31:12.462531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=7m+d and j=7k+e, Lucas factors the low digits. A carry from d+e>=7 makes the units digit of n+j smaller than e, so these terms vanish. This is also precisely where the corresponding low-digit binomial for A(d) vanishes; the surviving sum separates. Original-binomial evaluation at d=0,...,6 gives residues (1,5,3,3,3,5,1), and hence nonvanishing signs and digit sum -3. Splitting the cyclic correlation into low-digit carry classes proves the stated recurrence with the top-block wrap. The no-carry and carry signed sums give the displayed rows. With L=7^(r-1) and c=C_(r-1)(1)=(L+2)/3, the only boundary minimum is c-2L at h=5 and its negative; the boundary maximum is 2L+c<3L for L>=7. Interior cases have absolute value at most 9L/7, below (5L-2)/3. Multiples of seven inherit the sharp maximum and miss the new minimum by at least 4, including the step from r=1. The sign-pair count is obtained by expanding (1+sigma*s(n))(1+tau*s(n+h))/4 and using equality of the two cyclic marginals. Independent replay `python3 /workspace/reproduce_frozen.py 5` computes original binomial sums through n=342 and checks every correlation and sign-pair count at depths 1–3 (399 depth/lag pairs); the supplied CHECK.py was inspected, not executed. The proof, not the bounded checks, covers all depths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Konieczny gives fixed-lag unwrapped limits under hypotheses, with mean-square and convergence results in that setting.",
+          "The Domb and Franel entries concern different sequences modulo five and limiting correlation spectra; the Domb record also gives exact nearest-neighbor sign counts."
+        ],
+        "reasoning": "Fixed-lag estimates or a general method for digit correlations do not sort the finite cyclic candidates at every depth, especially the maximizers with h=7^(r-1). No inspected broader theorem gives the exact extrema and shifts.",
+        "searches": [
+          "Fan–Konieczny arXiv:1806.04267, Bertrandias pseudorandomness, equations (83)–(87)",
+          "Resultary 43552c627a5d and d1c4b8a11bf4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e4d90213f805, 7d22009b7b0a, 43552c627a5d and d1c4b8a11bf4",
+        "arXiv:1508.00297 and arXiv:1806.04267",
+        "Gessel DOI (landing/abstract; Lucas attribution via Malik–Straub)",
+        "OEIS A005259 (attempted access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Malik–Straub give the Lucas input, with Gessel attribution, and already infer nondivisibility by seven. Fan–Konieczny's correlation formula has different sampling and no finite cyclic extremizers in the inspected passages."
+        ],
+        "reasoning": "Deriving a carry recursion from digit multiplicativity is standard. Obtaining both exact extrema with their different equality scales needs a separate all-shift argument, including negative-coefficient rows and the cyclic boundary cases; neither the sign vector nor unwrapped limiting statements mechanically give that classification.",
+        "searches": [
+          "arXiv:1508.00297 Introduction and §6.1",
+          "Resultary e4d90213f805, Finding",
+          "arXiv:1806.04267, equations (83)–(87)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e4d90213f805 includes the classical Apéry sequence at parameters (2,2), but uses a sixth-root character modulo nine and unwrapped positive-lag limits.",
+          "Resultary 7d22009b7b0a uses mod-seven Delannoy signs, including zeros, not the nonvanishing Apéry signs."
+        ],
+        "reasoning": "Changing the character and radix changes the local carry coefficients, and cyclic finite-block optimization allows lags growing with depth. It is not equivalent to fixed positive lags in an unwrapped limit.",
+        "searches": [
+          "Resultary: Apéry sign shift correlations, finite cyclic extrema and pair laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Malik–Straub explicitly tabulate the seven input residues. The closest Resultary Apéry result e4d90213f805 has a different modulus and a different correlation definition. A005259 is cited as a sequence reference, not as evidence for an all-shift theorem; its page was not read."
+        ],
+        "reasoning": "Exact knowledge of the input residues, or even every single Apéry value, is not an exact table of the sharp finite cyclic all-shift results. The first few finite blocks would not yield the complete equality statement without an argument.",
+        "searches": [
+          "OEIS A005259, Apéry sequence reference (retrieval unavailable)",
+          "Malik–Straub arXiv:1508.00297, §6.1, digit residues",
+          "Resultary: Apéry sharp pair correlations and signed digit correlation spectra"
+        ]
+      },
+      "rationale": "The mod-seven digit residues and nonvanishing are known. The supported distinct contribution is the exact finite cyclic all-shift extremal classification for the quadratic character, not the Lucas congruence, a generic two-state carry method, or the elementary inversion of two signs alone. The closest distinct same-day Apéry record concerns a different character and base and takes an unwrapped limit; no implication of the assigned finite classification was established.",
+      "residual_risks": [
+        "Comparisons were bounded to the cited primary literature and Resultary; an implicit general finite cyclic extremum theorem was not exhaustively ruled out.",
+        "Gessel's original full text and the OEIS page were not inspected; their access limits support no conclusion of absence.",
+        "The same-day modulo-nine entry does not determine publication priority; its inspected hypotheses and conclusion differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers input congruence, residues and nonvanishing",
+          "evidence": "A(n) is a product of its digit Apéry values modulo p; modulo 7 the digits give (1,5,3,3,3,5,1).",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+          "material_read": "Introduction at offset 0; §6.1 around offset 65000",
+          "method": "Primary OA text",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "Same Apéry numbers, modulus and digit values"
+        },
+        {
+          "assessment": "Full original passage unavailable; no absence claim based on it",
+          "evidence": "Malik–Straub attribute the Lucas product to Gessel's Theorem 1.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(82)90071-3",
+          "material_read": "Landing page/abstract only; theorem attribution in Malik–Straub's primary text",
+          "method": "Lawful OA lookup and cited restatement",
+          "title": "Some congruences for Apéry numbers",
+          "trigger": "Original source for Apéry Lucas factorization"
+        },
+        {
+          "assessment": "Inspected results concern unwrapped limits and estimates",
+          "evidence": "The defined correlation averages f(n+h) conjugate(f(n)) over n<N as N tends to infinity, for fixed h; the additional conclusions concern mean-square and convergence estimates under hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.04267",
+          "material_read": "Bertrandias pseudorandomness, equations (83)–(87), around offset 81150",
+          "method": "Primary OA text",
+          "title": "On uniformity of q-multiplicative sequences",
+          "trigger": "Broader digit-sequence correlation theory"
+        },
+        {
+          "assessment": "Thematic overlap, not established coverage",
+          "evidence": "Includes classical Apéry parameters (2,2), using modulo nine, a sixth-root character, ternary carry matrices and unwrapped limiting shifts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-two-tier-shift-correlations-for-the-modulo-nine-ap-ry-char--e4d90213f805",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp two-tier shift correlations for the modulo-nine Apéry character",
+          "trigger": "Same-day entry with classical Apéry numbers and sharp shift correlations"
+        },
+        {
+          "assessment": "Different sequence and correlation scope",
+          "evidence": "Central Delannoy signs include zeros; result concerns unwrapped finite blocks and fixed-shift limiting extrema.",
+          "identifier_or_url": "SCOPE-sharp-signed-shift-correlations-in-central-delannoy-numbers-modu--7d22009b7b0a",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp signed shift correlations in central Delannoy numbers modulo seven",
+          "trigger": "Same modulus and signed digit-correlation methods"
+        },
+        {
+          "assessment": "No theorem-level inference from unavailable page",
+          "evidence": "The frozen record cites the entry for single-index numerical values, not for cyclic pair correlations.",
+          "identifier_or_url": "https://oeis.org/A005259",
+          "material_read": "Not retrieved",
+          "method": "Website lookup, timed out",
+          "title": "Apéry numbers",
+          "trigger": "Exact source sequence reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural sign sequence from an established nonvanishing Apéry congruence has a precise scale-dependent distinction: the positive maximizer moves with the block depth while the most negative shift stays fixed up to sign. The exact finite extrema and their full equality sets quantify this difference; complete pair frequencies follow without assuming an unwrapped limit. This is not just a new tabulation of digit residues.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

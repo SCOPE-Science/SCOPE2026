@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A convex-polytope section's vertices are the strictly crossed polytope edges together with the existing polytope vertices on the cutting plane, with coplanar edges counted only through their endpoints. The exact checker independently confirms the solid's 30 vertices, 32 supporting facets and 60 edges, all 15 reflections, 31 axial mirror intersections, and their section counts. Reflection transitivity proves generic constancy, and a local centrally symmetric degree-four edge argument proves every generic wall value. Euler and symmetry establish 120 triangular spherical chambers. The finite calculations exhaust only finite combinatorial cases, while symmetry handles infinitely many plane directions.
+PASS
 
-## Originality — PASS under inspected evidence
+For the corrected proof, independently reconstructed the supporting triangular and pentagonal facets, 60 edges, and 15 preserving reflections using integer pairs in Z[phi] on doubled midpoint coordinates. Grouped the 105 mirror pairs by their incident-mirror sets; exact (mirror multiplicity, strict crossings, on-plane vertices) triples were (2,4,4) on 15 axes, (3,0,6) on 10, and (5,0,10) on 6. A strict crossing of an edge is extreme in the section, and an on-plane vertex remains extreme; there are no other section vertices and coplanar edges contribute only their endpoints. The representative (1,2,4) has 12 strict crossings and three chamber corners of multiplicities 2,3,5. The reflections exchange adjacent chambers, so this suffices for every generic normal. The incidence count gives 62 points and 180 arcs, then Euler gives 120 chambers. The original Step 4 did not justify four crossings from central symmetry alone. In the corrected step, the eight incident edges contribute complementary crossings across the wall, and the equal generic totals force four on each side. They are replaced by two inherited vertices at the wall, giving 10. The numerical and geometric statement is unchanged; the measure-zero conclusion follows from the finite mirror union.
 
-Padrol–Pfeifle (arXiv:1404.2443) provides general polygon-section bounds, not this specific count distribution. Baez (arXiv:2309.15774) gives the midpoint geometry, not the classification. Liu (arXiv:1908.01280) explicitly documents six decagonal and ten hexagonal equatorial cuts using a different sixteen-plane arrangement; **these special cases are prior art**. The classical fifteen-mirror spherical triangulation is also acknowledged and not claimed novel. The assessed incremental contribution is the complete statement across all normals, including generic 12-gons, regular mirror-wall 10-gons, twofold octagons, and all singular axial direction counts. Previous findings on projection silhouettes, icosahedral sections and other solids do not imply central-section sidedness here. Older diagrams and unindexed sources present genuine priority risk; originality is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete polygon-type classification for all central planes of a canonical uniform polyhedron is a motivated natural geometry problem. Its generic 12-gon rigidity and exact degeneration stratification provide more structure than the known selected equators and distinguish sections from projections. This is a complete specialized result rather than a general theorem about arbitrary sections, and no broad consequences are asserted.
+The checked sources cover the classical mirror arrangement, selected axial cuts, or the generic dodecagon statement; they do not cover the complete all-normal labeling including open walls and twofold axes. The proof repair changes no originality-bearing claim.
 
-## Scope and residual risks
+## value
 
-No noncentral plane statistics, metric section invariants or independent validation are claimed. The differently named 16-plane topology literature and the 15-plane classical symmetry arrangement are carefully separated. Historical priority remains open where complete older treatments have not been located. Details of comparisons, source material and evidence appear in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The vertex count is the first combinatorial invariant of a central planar cut of this natural solid. A full labeling by normal stratum determines exactly how a cut degenerates upon reaching a wall or symmetry axis, rather than giving just a generic value or collecting special equators. It supplies a useful geometric classification without claiming metric data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

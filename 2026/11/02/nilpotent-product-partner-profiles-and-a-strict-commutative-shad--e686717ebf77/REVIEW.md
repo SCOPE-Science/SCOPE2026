@@ -1,15 +1,21 @@
-# Scientific review: nilpotent-product partner profiles
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite unital ring, nilpotency of a product lifts across the nilpotent Jacobson radical; this establishes the pointwise profile identity with the semisimple quotient. For fixed rank-\(r\) matrix \(A\), a uniform partner gives a uniform induced endomorphism on \(\operatorname{im} A\), whence the conditional nilpotence probability is \(q^{-r}\). An explicit Fitting-count argument establishes the needed nilpotent-matrix enumeration. Rank enumeration proves the full profile, and a kernel-size expectation gives the mean. The endpoint-chord convex inequality and a factorwise replacement argument yield convex order, strict exactly for matrix blocks of size at least two. The matched-order truncated polynomial shadow and the dimension-two variance formula are derived explicitly. Exact multiplication-table tests for several rings agree. The universal theorem rests on proof, not finite tests.
+## correctness
 
-## Originality — PASS, with residual risks
-Sarma–Subedi (arXiv:2610.07892v1, Sections 2.2–2.3) investigates nilpotent-product probability, its scalar values and triangular examples, but does not give the profile law or convex comparison. Holmes–Im (arXiv:2608.16636v1, introduction and Proposition 3.13) determines the nilpotent cyclic-quiver probability, which **already implies the scalar formula for a full matrix ring**; the scalar formula is not claimed as the new content. Dolžan (arXiv:2504.12886v1, Theorem 3.2) gives every product-target probability for a full matrix ring, which is stronger in one direction but does not compare the conditional-propensity distributions of a noncommutative ring and its commutative shadow. Targeted scholarly literature searches identified no explicit all-finite-ring convex-order theorem with the sharp equality criterion and same-order variance comparison. The rank formula may be derivable from existing quiver or matrix product identities; earlier unindexed literature might subsume part of the contribution. Searches do not certify absolute historical priority.
+PASS
 
-## Mathematical value — PASS
-The new 2026 nilpotent-product invariant is a single scalar and admits indistinguishable noncommutative and commutative examples. A natural second-level invariant—the *full distribution of the conditional nilpotent-partner probability*—has a complete structural classification for every finite associative unital ring, is radical-invariant, and has a universal sharp convex-order comparison against a canonical commutative shadow. Strictness of the variance gap is equivalent to the presence of a noncommutative simple factor in the semisimple quotient. The equal-order matrix/local examples, including the exact ratio \(1/(q+1)\), demonstrate that this is not a cosmetic change of notation: it detects a qualitative structural difference invisible to the scalar probability.
+A nilpotent Jacobson radical makes reduction reflect nilpotence; equal-size fibers give the equality of propensities pointwise, not just equality of the means. For a rank-r matrix A, AB maps into W=im A. Its restriction to W is uniform in End(W) by surjectivity of B↦AB|W, and AB is nilpotent exactly when that restriction is. The Fitting-decomposition sum for q^(m²)/|GL_m| telescopes on subtracting the dimension-(m−1) identity, giving q^(m²−m) nilpotents, including the separate trivial m=0 case. Counting image spaces and surjections recovers the rank masses; counting expected kernel elements gives mean 2a−a² for one block. For the convex bound, given block propensity Z, choose an endpoint H∈{a,1} with conditional mean Z; the marginal mass at 1 is a. Independent such choices over the blocks give E[∏H_i | (Z_i)]=∏Z_i. Jensen is strict for every strictly convex function when some block has a positive chance of intermediate rank, since all endpoints are positive and the conditional product is then nonconstant. For n=2 the shadow variance is a(1−a)^3 at a=q^(−2). Its excess over the matrix variance is E[(1−Z)(Z−a)], supported only at rank one and equal to q/(q+1) times the shadow variance. Truncated polynomial factors have the required orders and residue fields. The frozen multiplication-table verifier and output were inspected as finite evidence only; the reasoning checks the general theorem independently of them.
 
-## Limits and closest antecedents
-The theorem does not detect all noncommutativity: a ring with noncommutative nilpotent radical extension can have commutative semisimple quotient and zero variance gap. It does not treat nonunital or infinite rings or nonuniform sampling. The matrix nilpotent count (Fine–Herstein, 1958), existing cyclic-quiver probability (Holmes–Im, 2026), and fixed-target product count (Dolžan, 2025) are acknowledged as antecedents. Historic priority for the combined convex-order statement awaits independent examination of potentially unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier matrix-block propensity (including exact rank conditioning), the scalar mean, and standard radical reduction and convexity ingredients. The distinct contribution supported by the comparisons is the strict commutative-shadow comparison for the full propensity distribution, including its precise equality criterion and equal-order examples. The rank-law extension is elementary once the block result is known; it is not an independent priority claim.
+
+## value
+
+PASS
+
+The conditional law retains information the usual nilpotent-product probability loses: equal-order rings with equal scalar probabilities can be distinguished by the entire spread of partner counts, with strict inequality detected already by variance. The equality criterion identifies commutativity of the semisimple quotient, not of the original ring. The exact order-q^4 pair and ratio quantify a natural comparison made for all blocks, rather than a small isolated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

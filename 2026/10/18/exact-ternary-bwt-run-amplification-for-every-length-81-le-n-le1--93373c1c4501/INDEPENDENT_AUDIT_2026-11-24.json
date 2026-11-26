@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:58:05.964701Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic-to-linear factor-two bound applies on this nonconstant primitive interval. Independently, among sorted rotations starting with a letter a, first come those whose first non-a letter is below a, then those for which it is above a. In the former group the last rotation has maximal initial a-streak in that group, and in the latter the first rotation has maximal streak. These terminal/initial rotations cannot have predecessor a, as prepending that a would give a longer streak in the same group. Since consecutive L entries differ, pair each L=F rotation in the below group with its successor and in the above group with its predecessor. This injects matches into mismatches, which count input cyclic boundaries. For the upper bound, independently reconstructed 80 inverse words by stable inverse-permutation traversal, sorted their rotations from scratch and checked primitivity, all last columns, linear runs n, and cyclic runs (n+1)//2. A ternary witness keeps all lexicographic comparisons in every larger stated ordered alphabet. Constant-necklace conventions and sentinel variants are outside the claim. Replay: /workspace/branches/independent_replays/replay3.py with the frozen BWT_WITNESSES.tsv, output replay3.out (ALL_80_ROTATION_CENSUSES_OK). This is a finite certificate, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumallagov proves U_k(n)>=ceil(n/2) generally and attains it at p-1,p under p=5 mod 8 and primitive root 2; the qualifying primes for this interval are 101 and 149. General attainment from n>=7 is Conjecture 7.1, not a proved dominating theorem. Fici et al. prove unclustered existence without the input objective."
+        ],
+        "reasoning": "General alphabet coverage and general feasibility are weaker than general attainment of the sharp input objective.",
+        "searches": [
+          "arXiv:2606.01267, Proposition 3.2, Proposition 8.1, Conjecture 7.1",
+          "arXiv:2508.20879, Theorem 15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, BWT_WITNESSES.tsv, check_bwt_witnesses.py, CHECK_OUTPUT.txt",
+        "arXiv:2606.01267",
+        "arXiv:2508.20879",
+        "Resultary 30e8ececf3c4 and 4c5373b9573c; local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Length 128, for example, is not p-1 or p for an eligible prime, not p+2 or p+3 for an eligible prime, and not an odd prime. Its upper certificate is actually checked, as are the other lengths."
+        ],
+        "reasoning": "The cited families, existing lower bound and unclustered existence do not mechanically imply sharpness for the contiguous block. Larger-alphabet upper bounds do follow directly from the ternary witnesses and are not a separate originality claim.",
+        "searches": [
+          "arXiv:2606.01267, Proposition 8.1; Resultary 30e8ececf3c4 and 4c5373b9573c, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A ternary L with adjacent letters distinct, single-cycle LF and d_H(L, sort(L))=ceil(n/2) is equivalent to the required primitive witness. The Lemma 3/Proposition 4.3 reformulation is known; existence of L without the Hamming requirement is also known."
+        ],
+        "reasoning": "Neither the equivalent Hamming objective nor ordinary unclustered existence implies that the Hamming minimum attains the lower bound.",
+        "searches": [
+          "arXiv:2606.01267, Proposition 4.3 and Conjecture 7.1",
+          "arXiv:2508.20879, Lemma 3 and Theorem 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 31–64 interval is disjoint. Resultary 2026/11/2/30e8ececf3c4 states the p+2,p+3 construction, covering 103,104,151,152; Resultary 2026/11/8/4c5373b9573c addresses singleton third letter at qualifying odd primes, including 101 and 149. No inspected exact table covers all 80 lengths."
+        ],
+        "reasoning": "These distinct indexed claims overlap materially but only at special lengths in the assigned interval; dated catalogue entries do not by themselves determine priority.",
+        "searches": [
+          "Resultary: completely unclustered BWT, cyclic U_k(n) sharpness intervals and prime-root constructions",
+          "arXiv:2606.01267, small-length and prime constructions"
+        ]
+      },
+      "rationale": "The factor-two inequality, cycle criterion, Hamming identity and already constructed special lengths are not original here. The supported distinct contribution is contiguous attainment on the entire 81–160 interval, specifically the lengths not covered by the inspected prime families or other interval results. Real overlaps at named lengths are credited; no inspected source yields the whole interval, and the residual risk is not a priority conclusion.",
+      "residual_risks": [
+        "Unindexed exact certificates or constructions could cover more lengths. Independently verified overlapping catalogue constructions do not settle priority. The finding makes no claim outside the checked interval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact lower bound and special-length attainment, not full attainment",
+          "evidence": [
+            "Offsets 8406, 10509, 12821, 24401, 26338 and 28338; n=1 convention not relevant here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01267",
+          "material_read": "PDF pp. 3–4, 8–10: definitions, Propositions 3.2, 4.3, 8.1 and Conjecture 7.1",
+          "method": "OA primary PDF passage comparison",
+          "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+          "trigger": "Identical objective and conjectured sharp value"
+        },
+        {
+          "assessment": "Primitive inversion and unclustered existence; no minimum of input runs from these results",
+          "evidence": [
+            "Offsets 9514 and 29647."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.20879",
+          "material_read": "PDF pp. 3 and 10, Lemma 3 and Theorem 15",
+          "method": "OA primary PDF passages",
+          "title": "Unclustered BWTs of any Length over Non-Binary Alphabets",
+          "trigger": "Exact feasible target and LF criterion"
+        },
+        {
+          "assessment": "Partial overlap",
+          "evidence": [
+            "For qualifying p, sharpness at p+2 and p+3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-new-sharp-prime-root-lengths-for-completely-unclustered-burr--30e8ececf3c4/RESULT.md",
+          "material_read": "Finding and relevant construction/comparison passages at offsets 0, 2881, 5800",
+          "method": "Resultary local search and local mirror",
+          "title": "Two new sharp prime-root lengths for completely unclustered Burrows–Wheeler images",
+          "trigger": "Exact objective and intersecting interval"
+        },
+        {
+          "assessment": "Partial overlap and a classification for a narrower class of necklaces",
+          "evidence": [
+            "Content (m,m,1), with 2m+1 prime and 2 primitive."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-singleton-third-letter-rigidity-at-the-unclustered-burrows-wheel--4c5373b9573c/RESULT.md",
+          "material_read": "Finding, including prime and fixed-content hypotheses",
+          "method": "Resultary local search and local mirror",
+          "title": "Singleton third-letter rigidity at the unclustered Burrows–Wheeler bound",
+          "trigger": "Sharp ternary extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This certifies a substantial contiguous block of exact cases of a stated extremal conjecture, rather than isolated rechecks or ordinary unclustered feasibility; it includes lengths outside the arithmetic families. Explicit extremal inputs across both parities can be used to test candidate structure theorems about sharp necklaces. It does not resolve the general conjecture or characterize all minimizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The shape is a proper two-circle intersection with exactly two transverse common boundary points. The support point in each signed direction is one of the unrestricted disk maximizers or the common circle intersection point; the membership inequalities give the exact thresholds \(a,b\), with \(a\ge|b|\). Differentiating the branches proves monotonicity and the sole maximal plateau, and the uniform-angle arcsine law produces the CDF and atom. Local Taylor expansions at both endpoints give the stated sharp constants; the chord-height identity \(4d^2H^2=(S^2-d^2)(d^2-\Delta^2)\) reconstructs the radii. The attached checker passed 2,434 independent admissible-arc support, inversion, and reconstruction diagnostics, and direct numerical asymptotics agreed. Finite checks are supplementary, not substitutes for the displayed proof.
+## correctness
 
-## Originality — PASS (best-knowledge, not priority certification)
-Harutyunyan's *Chord Length Distribution Function for Lens* (2011; DOI: 10.46991/PYSUA.2011.45.3.017) is the nearest object and treats a motion-invariant random affine line **chord**, including a random offset. The present result concerns the **projection width** at a random orientation, including the same-side-center atom and inverse rigidity; its statement is not implied by the earlier chord-density formulas. Finch's arXiv:1301.5515v1 concerns mean width of equal-radius three-dimensional spherical intersections; the published higher-dimensional symmetric-lens mean-width result covers congruent balls and a mean, not this unequal-radius complete planar distribution. A published asymmetric-kite reconstruction theorem covers polygonal width density, not this family. Direct intersection-area references do not evaluate widths. All closest published Results and underlying primary sources were materially compared. Hidden historical equivalent treatments remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The two-disk lens/lune is a canonical nonpolygonal convex shape. Its full random support-separation law has a qualitatively unexpected **positive atom at maximum width** over an open geometric regime, with a sharp linear birth threshold. The same unlabeled law reconstructs three intrinsic parameters, even across the atom transition, from only four precise distributional features. These are motivated shape-classification and inverse-geometric results, not an arbitrary numerical slice or repackaging of area formulas.
+With x=|U1|, the support of the intersection in each oriented direction is attained at an admissible disk support point, or else at a circle intersection: an interior point of just one smooth boundary arc can be a maximizer only at that disk's support point. The disk-admissibility tests are x≤−b or x≥a on the positive side and x≥b for the small-disk opposite support. The opposite large-disk support is impossible. The chord height identities give a≥|b|, hence the four branches in Eq. (1); a=b only for equal radii, and the zero-length cases and inclusive joins agree. The middle branch derivative is −rb−Hx/sqrt(1−x²), negative in the open branch and zero at its left end for b≤0. Thus the only plateau is at 2r for b<0 and the arcsine law of x gives its probability and linear onset. Solving the monotone middle branch selects the stated square-root inverse; the lower and upper inverse branches agree at their junctions. At the low end the exact linear support stage yields (6). At the high end the decrease is Hx²+O(x⁴) for b>0, (r/2)x²+O(x⁴) at b=0, and r³(x+b)²/(2H²)+O((x+b)³) just off the left plateau when b<0. Multiplying the inverse expansion there by the x-density 2r/(πH) gives (8), treating the atom separately. The lower-tail coefficient fixes d and m then fixes R+r; a positive atom yields 2r=M, otherwise 2H=M and the two-circle triangle area identity determines (R−r)² uniquely. This includes b=0 and R=r and excludes tangencies/containment. A separate bounded replay directly evaluated supports in 720 directions in each of six cases and checked joins, inversion, endpoint coefficients and recovery. Replay: /workspace/branches/d5c1bc79-7240-45dd-82d3-4f48d6d500d4/lens_replay.py. The numerical comparisons corroborate but do not prove the laws.
 
-## Limits and closest literature
-Results exclude tangency, strict containment and arbitrary transformations beyond congruence, and do not assert first-ever priority against all historic integral-geometry work. The exact references and material inspected are recorded in `AUDIT.json`; independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical circle geometry and equal-radius support formulas are known. The distinct theorem is the full angular-width law across unequal-radius regimes, especially its maximal atom, singular transition and recovery of the radii and distance from the unlabeled law.
+
+## value
+
+PASS
+
+The full law separates an angular interval of diametral directions from an isolated maximizer; it proves how the maximal atom appears and how its continuous upper tail changes at the boundary. More than a standard calculation of a width or its mean, the lower-edge behavior and atom test reconstruct all intrinsic lens parameters up to radius exchange and rigid motion from unlabelled data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`verify.py` is standalone and uses only Python 3 standard-library exact fractions. Run `python verify.py` from the directory containing that file. The program checks 4005 exact-rational equalities and inequalities, including the all-eight-class probability law, low-order equal marginals, all displayed rational susceptibility and derivative values, Möbius inversion through seven previous strains, and parity-trade cancellation through six.
+## correctness
 
-Expected output:
+PASS
 
-```text
-PASS: exact rational checks: 4005
-Sharp H interval at c=1/2: 13/32 7/16
-Positive-compartment initial growth rates: 1/54 -1/54
-```
+The normalized derivative of the positive pooled target compartment follows by summing the frozen linear-in-target equations: it depends on the susceptible history distribution only through its response mean. Inclusion–exclusion with the triple mass t yields exactly four odd cells of mass t and four even cells of mass 1/4−t; no other constraints besides 0≤t≤1/4 remain. The product response has slope −(1−c)^3, hence its range endpoints and width are sharp. An independent rational check verified the full pair tables, eligibility with strictly positive cells in both interior distributions, and the two opposite signed normalized derivatives in the frozen example. The comparison keeps the model parameters, susceptible total, and seeded compartment identical. With at most two prior labels all cells are fixed by the given moments, so no smaller case can exhibit this ambiguity. The general moment test is also correct: lower-order observed moments span the corresponding monomials, and uniform even/odd laws on any higher-order support with a nonzero Möbius coefficient agree on all strictly lower inclusion moments while differing on the top moment. This proves the iff for all distributions, not for every individual feasible fiber.
 
-The infinite family and iff claim follow from the algebraic proof in `RESULT.md`; finite tests alone are not offered as proof. All sources are scientific references rather than independent validation. No independent audit has been performed.
+## originality
+
+PASS
+
+The fair three-bit fiber and moment-span test are not independent novelty: the former is a specialization of known fixed-margin table geometry, and the latter is classical linear algebra. The supported distinct claim is the sharp model-specific minimum for a hidden sign reversal at matched admissible states, including positivity and the specified product response. The strongest inspected analogues do not establish that model-specific conclusion.
+
+## value
+
+PASS
+
+The model-specific result shows that pairwise data cannot in general even certify the direction of initial change, despite a separable per-history response and absence of zero susceptible cells. The small sharp boundary identifies when complete pairwise observation does and does not suffice. It is an identifiability warning for interpreting model summaries, not a claim about actual spread or a recommendation to change it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

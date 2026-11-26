@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification of the stationary feasibility theorem
 
-Reproduce with Python 3 standard library using `python verify.py`. The program independently forms the affine state matrix and solves the six symmetric discrete Lyapunov covariance equations by exact rational Gaussian elimination. It crosschecks the explicit risk, three auxiliary covariance identities, strict log-convexity signs, exact optimal-penalty brackets, and seeded stationary second moments. It completed 1716 checks successfully in the present evaluation.
+Reproduce with Python 3 standard library using `python verify.py`. The program forms the affine state matrix and solves the six symmetric discrete Lyapunov equations by rational Gaussian elimination; it compares the exact feasibility risk, momentum variance and primal–dual covariance identity. It tests log-convexity and optimal-ratio brackets and runs four seeded second-moment simulations. The frozen record reports 1716 checks.
 
-The analytical proof covers every real \(0<lpha<1\), \(0<eta/\eta<4/3\), finite-variance independent zero-mean oracle and finite-second-moment initial state. Rational grids and seeded simulations are finite sanity checks, not proof for the uncountable parameter domain. The sharp stability boundary follows from the Schur polynomial and nondegenerate controllability/observability.
-
-Only internal mathematical consistency was assessed; an independent audit has not been performed.
+The analytical proof covers all \(0<\alpha<1\) and \(0<\beta/\eta<4/3\), with iid finite-variance zero-mean noise independent of the finite-second-moment initial state. The boundary and divergent side use the Schur polynomial and nondegeneracy of the noise/input and feasibility/output projections. The finite checks do not establish the parameter-wide theorem or priority.

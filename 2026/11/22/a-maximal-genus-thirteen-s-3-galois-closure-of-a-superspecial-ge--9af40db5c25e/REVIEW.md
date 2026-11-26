@@ -1,11 +1,7 @@
-# Self-review
+# Scientific assessment
 
-**Correctness — PASS.** The canonical trigonal map has cubic field equation \(U^3-t^4U^2+1=0\). Its squarefree discriminant \(4t^{12}-27\), nontrivial square class and three rational simple poles yield a regular tame \(S_3\)-closure. Riemann–Hurwitz gives genus \(13\). The exact field-root enumeration was executed from the attached standalone `verify.py` and gives \(12\) and \(408\) points over \(\mathbb F_{11}\) and \(\mathbb F_{121}\); equality with Hasse–Weil proves maximality and \(L(T)=(1+11T^2)^{13}\). Scope is the stated smooth projective closure only.
+**Correctness.** The three simple trigonal poles, simple discriminant zeros and geometric irreducibility give the regular \(S_3\) cover. The reciprocal roots \(\zeta^jX+\zeta^{-j}Y\), with \(X=-A^4\), \(Y=-B^4\), exhibit its invariant function field and Frobenius descent. The exact finite splitting count follows independently by tabulating \(u+u^{-2}\) and composing with \(t^4\). No claim of analytic deduction from sampled fibers is made.
 
-**Originality — PASS, qualified.** Kudo–Harashita (arXiv:1702.05313) and Kudo–Harashita–Senda (arXiv:1709.03627) establish the original genus-four curve, maximality context and its automorphisms. Ogasawara–Ohashi–Sakata–Harashita (arXiv:2403.08139, §4.4) identifies this canonical double-elliptic model. Neither the inspected original results nor the targeted mathematical record search supplies or dominates the exact genus-thirteen \(S_3\)-cover and its maximality. Searches for equivalent cubic/discriminant, genus, field and Frobenius spectrum were made. Unindexed curve tables or alternative presentations remain a residual priority risk.
+**Originality.** The unmarked Hermitian quotient genus and maximality are covered by prior work. The claim retained here is the identification with the marked trigonal normal closure of the specified genus-four curve, the semilinear descent, and the associated splitting stratification. The checked prior genus and quotient descriptions do not state this connection. Priority remains provisional.
 
-**Value — PASS.** The natural trigonal Galois closure of a distinguished genus-four curve is a nonabelian degree-six construction producing a maximal genus-thirteen curve, with a new genus-five sign quotient and explicit complete tame ramification/Frobenius data. Superspeciality of the genus-four source alone cannot establish the new maximality.
-
-The Python verifier checks finite arithmetic exhaustively but is not an external formal certificate. No classification of all genus-thirteen maximal curves, complete automorphism group, or independent validation is asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** The marked description connects a concrete canonical trigonal map to a known maximal-curve construction and determines its nonabelian splitting by field of definition. It exposes covering maps and an explicit descent that are not recoverable from the genus or unmarked point totals alone.

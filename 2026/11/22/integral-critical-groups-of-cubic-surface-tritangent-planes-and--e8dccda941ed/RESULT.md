@@ -1,67 +1,44 @@
-# Integral critical groups of cubic-surface tritangent planes and a cospectral quadrangle mate
+# The second Spence (45,12,3,3) graph is a critical-group witness against the cubic tritangent graph
 
 ## Finding
-Let \(S\) be a smooth cubic surface over an algebraically closed field of characteristic zero. Let \(\Gamma_S\) be the graph with one vertex for each of its \(45\) tritangent planes, with two distinct planes adjacent if they contain a common line on \(S\). Its integral graph critical group is
 
+Let \(B\) be the graph given by the **second** adjacency matrix in Edward Spence's catalogue for parameters \((45,12,3,3)\). Its 3-primary graph critical group is
 \[
-K(\Gamma_S)\cong (\mathbb Z/3\mathbb Z)^6\oplus(\mathbb Z/15\mathbb Z)^4\oplus(\mathbb Z/45\mathbb Z)^5\oplus(\mathbb Z/135\mathbb Z)^{14}.
+ K(B)_{(3)}\cong (\mathbb Z/3)^8\oplus(\mathbb Z/9)^3\oplus(\mathbb Z/27)^{16}.
 \]
+It requires 27 generators. This makes \(B\) an explicit cospectral witness against the integral critical group of the cubic-surface tritangent-plane graph, whose 3-primary critical group requires 29 generators. The graphs have identical adjacency spectra and the same spanning-tree number \(3^{62}5^{23}\).
 
-The second \(45\)-vertex adjacency matrix in Edward Spence's published collection of strongly regular graphs with parameters \((45,12,3,3)\), denoted \(\Gamma_2\), is cospectral with \(\Gamma_S\), but
-
+The full invariant factors for \(B\) are
 \[
-K(\Gamma_2)\cong (\mathbb Z/3\mathbb Z)^4\oplus(\mathbb Z/15\mathbb Z)^4\oplus(\mathbb Z/45\mathbb Z)^3\oplus(\mathbb Z/135\mathbb Z)^{16}.
+ K(B)\cong (\mathbb Z/3)^4\oplus(\mathbb Z/15)^4\oplus(\mathbb Z/45)^3\oplus(\mathbb Z/135)^{16}.
 \]
+The contribution is the identified witness and the exact 3-primary comparison, not an independent priority claim for the tritangent baseline or for the 5-primary factors.
 
-Thus the two graphs have identical adjacency eigenvalues and spanning-tree counts, but their integral critical groups are different. The minimum number of generators of their \(3\)-primary critical groups is respectively \(29\) and \(27\).
+## Objects and normalization
 
-## Assumptions and scope
-A smooth cubic surface over an algebraically closed field of characteristic zero is the blowup of \(\mathbb P^2\) in six general-position points. Write its Picard group in the ordered basis \((H,E_1,\ldots,E_6)\), with \(H^2=1\), \(E_i^2=-1\), other pairings zero. Each exceptional line is one of the \(27\) classes
-
-\[
-E_i\ (6),\qquad H-E_i-E_j\ (15),\qquad 2H-\sum_{j\ne i}E_j\ (6).
-\]
-
-The anticanonical class is \(-K_S=3H-\sum_iE_i\). A tritangent plane corresponds to an unordered triple of these exceptional lines whose divisor classes sum to \(-K_S\). Define the integral Laplacian \(L=12I-A\), where \(A\) is the symmetric adjacency matrix of \(\Gamma_S\). We use the critical-group normalization \(K(\Gamma_S)=\operatorname{tors}(\operatorname{coker}(L:\mathbb Z^{45}\to\mathbb Z^{45}))\), equivalently the cokernel of any reduced \(44\)-by-\(44\) Laplacian.
-
-The comparison graph is exactly the second displayed binary adjacency matrix, not an arbitrary choice from the catalogue. Its original \(45\) matrix rows are embedded as `spence_second.txt`, allowing unambiguous reproduction of the comparator. Neither critical group is claimed to be the algebraic Picard, Brauer, or Jacobian group of \(S\).
+The tritangent graph \(T\) has as vertices the 45 tritangent planes of a smooth cubic surface over an algebraically closed field of characteristic zero. Vertices are adjacent when their planes contain a common line on the surface. This is the point graph of \(GQ(4,2)\). For a connected graph with integral Laplacian \(L\), the critical group is \(\operatorname{tors}(\operatorname{coker}L)\), equivalently the cokernel of a reduced Laplacian. The notation \(K_{(p)}\) denotes the Sylow \(p\)-subgroup. These are graph groups, not Picard groups of a cubic surface.
 
 ## Proof
-**Geometric enumeration.** Represent each divisor class \(aH-\sum b_iE_i\) by \((a,b_1,\ldots,b_6)\), and use the integral intersection pairing \((a,b)\cdot(a',b')=aa'-\sum b_ib_i'\). The three families above exhaust the \(27\) exceptional curves. Enumerate their unordered triples, retaining precisely those with class sum \((3,1,1,1,1,1,1)\) and every pair intersecting once. Exactly \(45\) triples remain; they are the tritangent sections. Two different triples share at most one line. Connecting triples with one common line gives a \(45\)-vertex graph with degree \(12\); any two distinct vertices, whether adjacent or not, have exactly three common neighbors. These finite assertions are exhaustively checked by the included verifier, using only the displayed divisor classes and intersection form.
 
-**Spectrum and tree number.** Thus \(A\) is strongly regular with parameters \((45,12,3,3)\) and satisfies \(A^2=9I+3J\). Its eigenvalues are \(12\) once, \(3\) twenty times, and \(-3\) twenty-four times. Hence \(L\) has spectrum \(0\) once, \(9\) twenty times and \(15\) twenty-four times, and the Matrix–Tree theorem gives
+**Graph inputs.** On the blowup of the plane at six general-position points, let \(E_i\) denote the exceptional classes, \(L_{ij}=H-E_i-E_j\), and \(Q_i=2H-\sum_{k\ne i}E_k\). The 45 unordered tritangent triples are the 30 \(\{E_i,L_{ij},Q_j\}\) with \(i\ne j\), and the 15 \(\{L_{ab},L_{cd},L_{ef}\}\) indexed by partitions into three pairs. Indeed anticanonical triples have degrees in \(H\) either \((0,1,2)\) or \((1,1,1)\); coefficient comparison gives these two lists. Each listed effective divisor sums to \(-K\), hence is an anticanonical plane section. Connecting triples with a common line supplies the canonical adjacency matrix. The companion `spence_second.txt` is the sequence of binary rows 46–90 when binary rows in Spence's 78-matrix file are counted starting at one (other lines ignored). Direct checks of degree, symmetry and common-neighbor counts give parameters \((45,12,3,3)\) for both matrices.
 
-\[
-\det L_{\mathrm{red}}=\frac{9^{20}15^{24}}{45}=3^{62}5^{23}.
-\]
+**Common spectral data and 5-part.** For either adjacency matrix \(A\), \(A^2=9I+3J\), so the adjacency eigenvalues are \(12,3,-3\) with multiplicities \(1,20,24\) (using the trace). The Laplacian \(L=12I-A\) has eigenvalues \(0,9,15\) with the same respective multiplicities. The matrix-tree theorem gives \(9^{20}15^{24}/45=3^{62}5^{23}\). On the lattice of degree-zero vertex vectors, the identity \(L(24I-L)=135I-3J\) becomes \(L(24I-L)=135I\). Hence the 5-part of the critical group is elementary abelian of rank 23 for every graph with these parameters.
 
-Both graphs have this spectrum and determinant because the second catalogue matrix passes the identical strongly regular parameter checks.
+**Graph-specific 3-part of the witness.** Delete one vertex of \(B\). For the resulting 44-by-44 reduced Laplacian, exact row and column reduction over \(\mathbb Z/3^9\mathbb Z\) gives valuation counts \(0:17,1:8,2:3,3:16\). To replay the reduction, at each pivot use a nonzero entry of least valuation \(v\) in the active submatrix, swap it into position, and clear its column and row by dividing their entries by \(3^v\) and using the inverse of the pivot unit modulo \(3^{9-v}\). These operations lift to invertible elementary operations over the local ring; no active pivot saturates the modulus. The counts sum to 44 and the valuation sum is 62. The accompanying calculation gives the same counts using deleted vertices 0, 9 and 20. Together with the common 5-part, pairing the sorted primary valuations gives the stated invariant factors for \(B\).
 
-**Integral Smith factors.** For each graph, take any reduced Laplacian. The exact local Smith valuations of its \(44\) nonzero diagonal factors, including zeros for units, are:
-
-| Graph | Prime | Valuation multiplicities |
-| --- | --- | --- |
-| Cubic tritangent | \(3\) | \(0:15,\ 1:10,\ 2:5,\ 3:14\) |
-| Cubic tritangent | \(5\) | \(0:21,\ 1:23\) |
-| Spence second | \(3\) | \(0:17,\ 1:8,\ 2:3,\ 3:16\) |
-| Spence second | \(5\) | \(0:21,\ 1:23\) |
-
-These are computed by row and column swaps followed by elimination at a pivot with smallest \(p\)-adic valuation in the active submatrix. A pivot \(p^vu\) with \(u\) a unit is eliminated using its inverse modulo \(p^{k-v}\); the chosen precisions \(k=9\) for \(p=3\) and \(k=6\) for \(p=5\) exceed all observed valuations. Every operation is invertible over the indicated local ring, so this computes exact truncated Smith exponents; no factor is lost because the complete determinant has only primes \(3\) and \(5\), and the valuation sums are exactly \(62\) and \(23\). Pairing the ordered prime valuations positionwise yields precisely the invariant-factor groups stated above. The different \(3\)-ranks prove the groups are nonisomorphic and, consequently, the graphs are nonisomorphic despite being cospectral.
+**Geometric comparison baseline.** Let \(N\) be the 27-by-45 line–plane incidence matrix. The bipartite Levi graph has Laplacian with diagonal blocks \(5I_{27},3I_{45}\) and off-diagonal blocks \(-N,-N^{\mathsf T}\). Since \(N^{\mathsf T}N=3I+A_T\), eliminating \(5I\) over \(\mathbb Z_{(3)}\) identifies its cokernel there with that of \((12I-A_T)/5\). Thus the 3-primary factors \((\mathbb Z/3)^{10}\oplus(\mathbb Z/9)^5\oplus(\mathbb Z/27)^{14}\) follow also from the exact Levi graph determination in [3]. The divisor-class matrix does not depend on the choice of smooth cubic surface in the specified characteristic. These factors, independently reproducible by the same reduced-Laplacian computation on \(T\), require 29 generators, unlike \(B\). The 5-part is common to both, so their integral critical groups are not isomorphic and neither are the graphs.
 
 ## Verification
-Run `python3 verify_tritangent.py` in the directory containing `spence_second.txt`. The program uses only the Python standard library. It independently constructs the \(27\) line classes and the \(45\) tritangent triples from divisor arithmetic, checks all \(990\) unordered graph-vertex pairs against the strongly regular conditions, reads the second catalogue matrix, and verifies its symmetry and parameters. For both graphs and each of three different deleted vertices (indices \(0,9,20\)), it performs fraction-free Bareiss determinants of the resulting \(44\)-by-\(44\) matrices, and separate exact \(3\)-adic and \(5\)-adic Smith elimination. All six determinant checks yield \(3^{62}5^{23}\), and all twelve local Smith checks yield the respective spectra above. Successful output ends with `CUBIC_TRITANGENT_CRITICAL_GROUP_COMPARISON_OK`.
 
-## Relationship to prior work
-The tritangent–exceptional-line incidence is the classical generalized quadrangle \(GQ(4,2)\). Coolsaet, Degraer and Spence (2006) classify all \(78\) strongly regular graphs with parameters \((45,12,3,3)\), including the incidence graph's point graph; their classification and Spence's adjacency catalogue determine the ordinary graphs but do not state the two specific graph-critical-group structures calculated here. Özçelebi (2012), Chapter 6, studies Smith invariants of adjacency operators for a **different** graph: the non-collinearity/complement graph associated with \(GQ(4,2)\). Adjacency Smith invariants of a complement do not directly determine integral Smith factors of \(12I-A\). Biggs's 1999 chip-firing framework explains why these integral invariants can be finer than tree numbers; it does not present this pairwise classification.
+In the directory with the accompanying `verify_tritangent.py` and `spence_second.txt`, run `python3 verify_tritangent.py`. These unchanged companions check the tritangent enumeration and both complete strongly regular matrices, and reproduce their exact reduced determinants and local factors for three roots of each graph. The expected terminal line is `CUBIC_TRITANGENT_CRITICAL_GROUP_COMPARISON_OK`. The reproduction is a finite certificate on two specified graphs, not a census of critical groups over all 78 catalogue entries.
 
-The novelty is not a new strongly regular graph, a new graph spectrum, or a new count of tritangent planes. It is the explicit integral Laplacian Smith decomposition for the geometrically canonical \(45\)-vertex tritangent graph together with a parameter-matched, cospectral witness exhibiting a different critical group.
+## Relationship to existing results
 
-## Limitations
-This is an exact finite calculation on two fully specified graphs, not a classification of critical groups for all \(78\) graphs in Spence's catalogue. It does not assert a correspondence between graph critical groups and the cubic surface's algebraic Picard group. A prior calculation under alternative labels such as the \(GQ(4,2)\) point graph, the tritangent-plane intersection graph, or elementary divisors of strongly regular Laplacians could duplicate the result; historical priority has not been independently certified. The formula is for algebraically closed characteristic-zero surfaces; arithmetic descent and positive-characteristic degenerations are not addressed.
+The graph enumeration in [2] and the matrix file [1] specify the allowable graphs, not the exact 3-primary factors of the second matrix. The same-date Levi graph statement [3] is a different graph calculation but, by the displayed local reduction and the common 5-part, it also supplies the tritangent group's exact factors; no within-day precedence is assumed. Theorem 3.3 of [4] applies at 3 with the nonzero eigenvalues ordered \(15,9\), of valuations 1 and 2, respectively. For the second matrix's 3-rank \(17\) it restricts the positive valuation counts to either \((7,5,15)\) or \((8,3,16)\); the graph-specific calculation selects the latter. The general theorem therefore does not force the claimed group from the parameters or even from the 3-rank alone. The parameter-based 5-part is not new. Priority is limited to the explicit witness comparison to the best of available evidence; no complete catalogue of critical groups or universal priority claim is made.
 
 ## References
-1. K. Coolsaet, J. Degraer and E. Spence, *The Strongly Regular (45,12,3,3) Graphs*, Electronic Journal of Combinatorics 13 (2006), R32, DOI: 10.37236/1058, full text: https://eprints.gla.ac.uk/12858/1/12858.pdf.
-2. E. Spence, *Strongly Regular Graphs (45,12,3,3)*, adjacency-matrix catalogue: https://www.maths.gla.ac.uk/~es/SRGs/45-12-3-3 (second displayed graph used here).
-3. Ç. G. Özçelebi, *Buildings and Kneser graphs* (2012), Chapter 6, especially Section 6.3.3 and Example 6.3.3.2: https://pure.tue.nl/ws/portalfiles/portal/3689733/721532.pdf.
-4. J. A. Thas and H. Van Maldeghem, *Embeddings of Small Generalized Polygons*, https://cage.ugent.be/geometry/Files/128/smallemb.pdf (tritangent-plane incidence realization).
-5. N. L. Biggs, *Chip-Firing and the Critical Group of a Graph*, Journal of Algebraic Combinatorics 9 (1999), 25–45, https://www2.math.ethz.ch/EMIS/journals/JACO/Volume9_1/m6g7032786582625.fulltext.pdf.
+
+1. E. Spence, *Strongly Regular Graphs*, [catalogue](https://www.maths.gla.ac.uk/~es/srgraphs.php), [binary matrices for (45,12,3,3)](https://www.maths.gla.ac.uk/~es/SRGs/45-12-3-3).
+2. K. Coolsaet, J. Degraer and E. Spence, *The Strongly Regular (45,12,3,3) Graphs*, Electron. J. Combin. 13 (2006), R32, [§5 and Table 2](https://eprints.gla.ac.uk/12858/1/12858.pdf).
+3. *Integral critical group of the cubic-surface line–tritangent Levi graph*, [record 616774bc1c5b](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-integral-critical-group-of-the-cubic-surface-line-tritangent-lev--616774bc1c5b).
+4. J. E. Ducey et al., *Critical group structure from the parameters of a strongly regular graph*, J. Combin. Theory Ser. A 180 (2021), [arXiv:1910.07686](https://arxiv.org/abs/1910.07686), §3.

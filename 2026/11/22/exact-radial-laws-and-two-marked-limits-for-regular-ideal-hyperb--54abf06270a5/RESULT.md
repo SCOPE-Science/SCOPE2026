@@ -1,31 +1,15 @@
-# Exact radial laws and two marked limits for regular ideal hyperbolic polygons
+# Two marked radial limits for regular ideal hyperbolic polygons
 
 ## Finding
 
 Let \(P_n\) be the regular ideal \(n\)-gon of the complete curvature-\(-1\) hyperbolic plane, where \(n\ge3\), and let \(O\) be its symmetry center. Sample \(X_n\) by normalized hyperbolic area (the polygon has finite area \(A_n=(n-2)\pi\)). Set \(D_n=d_{\mathbb H}(O,X_n)\), \(\alpha=\pi/n\), and \(r_n=\operatorname{artanh}(\cos\alpha)\).
 
-**Exact radial law.** For \(0\le t\le r_n\),
-\[
-\boxed{\Pr(D_n>t)=1-\frac{2(\cosh t-1)}{n-2}.}
-\]
-For \(t>r_n\), put \(\theta_n(t)=\arccos(\cos\alpha/\tanh t)\). Then
-\[
-\boxed{\Pr(D_n>t)=\frac{2n}{(n-2)\pi}
-\left[\arccos\!\left(\frac{\sin\theta_n(t)}{\sin\alpha}\right)
--\cosh t\,(\alpha-\theta_n(t))\right].}
-\]
-The density is \(2\pi\sinh t/A_n\) below the inradius and \(2n\sinh t(\alpha-\theta_n(t))/A_n\) above it. Its first tangency transition is continuous but has the sharp square-root defect
-\[
-\boxed{f_{D_n}(r_n+h)-\frac{2\pi}{A_n}\sinh(r_n+h)
-=-\frac{2n\sqrt{2\cos\alpha}}{A_n}\sqrt h+O_n(h^{3/2}).}
-\]
-
-**Fixed-side cusp law with marks.** For every fixed \(n\ge3\),
+**Fixed-side cusp law with marks.** For every fixed \(n\ge3\), the scalar survival probability used to normalize the conditional law is
 \[
 \boxed{\Pr(D_n>t)\sim c_n e^{-t},\qquad
 c_n=\frac{2n\cot\alpha}{(n-2)\pi}.}
 \]
-Inside the event \(D_n>t\), choose the unique side-normal fan containing the polar angle \(\phi\in(-\alpha,\alpha)\), and let \(J\) denote its limiting cusp vertex and \(B\) the side of that vertex, determined by the sign of \(\phi\). Define \(\delta_t=\alpha-\theta_n(t)\), \(Z_t=(\alpha-|\phi|)/\delta_t\), and \(S_t=D_n-t\). Then the joint conditional law of \((J,B,Z_t,S_t)\) converges in total variation to a uniform label among the \(2n\) directed cusp-side sectors, independent of the continuous law
+Inside the event \(D_n>t\) for \(t>r_n\), choose the unique side-normal fan containing the polar angle \(\phi\in(-\alpha,\alpha)\), and let \(J\) denote its limiting cusp vertex and \(B\) the side of that vertex, determined by the sign of \(\phi\). Put \(\theta_n(t)=\arccos(\cos\alpha/\tanh t)\), \(\delta_t=\alpha-\theta_n(t)\), \(Z_t=(\alpha-|\phi|)/\delta_t\), and \(S_t=D_n-t\). As \(t\to\infty\), the joint conditional law of \((J,B,Z_t,S_t)\) converges in total variation to a uniform label among the \(2n\) directed cusp-side sectors, independent of the continuous law
 \[
 \boxed{f(z,s)=e^s\,\mathbf1_{\{0<z<1,\ 0<s<-\frac12\log z\}}.}
 \]
@@ -48,7 +32,7 @@ with independent \(U\) arcsine and \(E\) standard exponential. Its complete limi
 \frac{e^{-y}}{1+\sqrt{1-e^{-2y}}}\right],&y>0.
 \end{cases}}
 \]
-These formulas describe the same radial observable in an exact finite-polygon regime, a fixed-polygon cusp regime, and a growing-side regime.
+The centered scalar limit and its survival function are included as consequences and for comparison with the scalar radial law. The claim here concerns the two joint marked limits.
 
 ## Assumptions and scope
 
@@ -75,14 +59,18 @@ shows, independently of Gauss–Bonnet, that their total area is
 =2n(\pi/2-\alpha)=(n-2)\pi=A_n.
 \]
 
-### 2. Distribution and tangency singularity
+### 2. Scalar radial law and tangency, for reference
 
 Radial area integration gives the exact identity for every \(t\ge0\),
 \[
 \Pr(D_n>t)=\frac{n}{A_n}\int_{-\alpha}^{\alpha}
 [\cosh R_n(\phi)-\cosh t]_+\,d\phi.
 \]
-If \(t\le r_n\), this equals one minus the area of a full radius-\(t\) disk divided by \(A_n\), giving the first branch. If \(t>r_n\), only the two portions \(|\phi|>\theta_n(t)\) survive. The primitive in Step 1 evaluates the resulting integral to the second branch, with no numerical approximation. By differentiating the radial integral at regular \(t\), or differentiating the branches, the density is
+If \(0\le t\le r_n\), this equals one minus the area of a full radius-\(t\) disk divided by \(A_n\), giving \(1-2(\cosh t-1)/(n-2)\). If \(t>r_n\), only the two portions \(|\phi|>\theta_n(t)\) survive. The primitive in Step 1 evaluates the resulting integral to
+\[
+\Pr(D_n>t)=\frac{2n}{A_n}\left[\arccos\!\left(\frac{\sin\theta_n(t)}{\sin\alpha}\right)-\cosh t\,(\alpha-\theta_n(t))\right].
+\]
+By differentiating the radial integral at regular \(t\), or differentiating the branches, the density is
 \[
 f_{D_n}(t)=\frac{2n\sinh t}{A_n}\begin{cases}
 \alpha,&0<t<r_n,\\
@@ -93,7 +81,10 @@ Since \(\tanh r_n=\cos\alpha\), Taylor expansion gives
 \[
 \theta_n(r_n+h)=\frac{\sqrt2\sin\alpha}{\sqrt{\cos\alpha}}\sqrt h+O_n(h^{3/2}).
 \]
-Multiplication by \(2n\sinh(r_n+h)/A_n\) and \(\sinh r_n=\cos\alpha/\sin\alpha\) gives precisely the displayed square-root coefficient and error. No density assertion is needed at the null threshold \(t=r_n\).
+Using \(\sinh r_n=\cos\alpha/\sin\alpha\), the density has a continuous extension at \(r_n\) and satisfies
+\[
+f_{D_n}(r_n+h)-\frac{2\pi}{A_n}\sinh(r_n+h)=-\frac{2n\sqrt{2\cos\alpha}}{A_n}\sqrt h+O_n(h^{3/2}).
+\]
 
 ### 3. Exponential cusp tail and the marked distribution
 
@@ -116,7 +107,7 @@ Its integral over \((z,s)\) is \(\Pr(D_n>t)\). Dividing by \(e^{-t}\), the densi
 \int_0^1\!\int_0^{-\frac12\log z} e^s\,ds\,dz
 =\int_0^1(z^{-1/2}-1)\,dz=1.
 \]
-Fatou's lemma and the exact probability bound, together with an elementary cutoff in \(z\) and \(s\) using the explicit radial equation, give convergence of the total masses to \(c_n e^{-t}\). More directly, the exact survival formula of Step 2 has the same coefficient by expanding its two terms using \(\delta_t\): the first contributes \(2\cot\alpha e^{-t}\) and the second \(\cot\alpha e^{-t}\), before multiplication by \(2n/A_n\). This gives \(\Pr(D_n>t)\sim c_n e^{-t}\). Thus the normalized conditional densities converge pointwise to a probability density, and Scheffé's lemma gives total variation convergence. Symmetry makes each of the \(2n\) corner labels equally probable, with the same limit. The substitution \(w=ze^{2s}\) transforms the limiting density into \(e^{-s}\,dw\,ds\) on \(w\in(0,1), s>0\), proving the independent uniform and exponential marks.
+For the normalizing probability, the density in Step 2 and the expansion of \(\delta_t\) give \(f_{D_n}(t)\sim c_n e^{-t}\). Integrating from \(t\) to infinity gives \(\Pr(D_n>t)\sim c_n e^{-t}\), since the relative density error is uniformly small beyond any sufficiently large threshold. Thus the normalized conditional densities converge pointwise almost everywhere to a probability density, and Scheffé's lemma gives total variation convergence. Symmetry makes each of the \(2n\) corner labels exactly uniform at every such \(t\), with identical conditional mark laws. The substitution \(w=ze^{2s}\) transforms the limiting density into \(e^{-s}\,dw\,ds\) on \(w\in(0,1), s>0\), proving the independent uniform and exponential marks.
 
 ### 4. Growing-side arcsine–exponential factorization
 
@@ -151,21 +142,22 @@ A standalone standard-library Python checker is supplied at `checks/check_radial
 
 ## Relationship to prior work
 
-The archived starting point is Abrosimov and Mednykh's *Volumes of polytopes in spaces of constant curvature*, arXiv:1302.4919, first publicly submitted 2013-02-20, whose primary classification is 51M20. Its full HTML text treats hyperbolic area/volume formulas and cyclic quadrilaterals, not uniform-point center-distance laws. The Gauss–Bonnet area formula, Klein disk geometry and hyperbolic polar Jacobian are classical premises, not new statements.
+*Radial distance in regular ideal hyperbolic polygons: an exact law and a logarithmic many-side limit* gives the scalar radial CDF and density for the same sampling model, the fixed-side scalar tail, and the weak limit centered at \(\log n\). Its scalar limit is equivalent to the one centered at \(r_n\) above, since \(r_n-\log n\to\log(2/\pi)\). The scalar formulas are not claimed as distinct contributions here. The joint distributions in the two marked limits, rather than radial marginals alone, are the subject of this result. For general hyperbolic polygon area formulas, see Abrosimov and Mednykh. The Gauss–Bonnet area formula, Klein disk geometry and hyperbolic polar Jacobian are classical premises.
 
 The publicly available result *The logarithmic boundary-distance law and a renormalized shape invariant for ideal hyperbolic polygons* evaluates the distance of one area-uniform point to the **nearest side**, and for ideal triangles gives the global side-clearance distribution. That is not the radial distance to a fixed incenter; the two distributions even have different support (bounded versus unbounded). *Cusp-pair tails for random distances in ideal hyperbolic polygons* and *Marked cusp-pair and midpoint laws for distant points in ideal hyperbolic polygons* concern the distance between **two** area-uniform points, with \(t e^{-t}\) scaling and two-cusp depth splits. Their probabilistic geometry does not imply the one-point \(e^{-t}\) tail, exact radial CDF, or many-side arcsine factorization.
 
-*Exact incenter and phase laws for boundary-uniform ideal hyperbolic triangles* instead randomizes the **ideal vertices** and studies the resulting random incenter; here the polygon is fixed and an interior point is area-uniform. The Euclidean theorem *Radial-distance laws classify tangential polygons up to cyclic ordering* has a related polar-integration principle but a different metric, finite vertices, different normalized sampling, and does not entail either hyperbolic marked law. The novelty assessed here is the cohesive exact *hyperbolic* radial law and its two conditional/geometric scaling limits, not the classical polar-area method considered in isolation.
+*Exact incenter and phase laws for boundary-uniform ideal hyperbolic triangles* instead randomizes the **ideal vertices** and studies the resulting random incenter; here the polygon is fixed and an interior point is area-uniform. The Euclidean theorem *Radial-distance laws classify tangential polygons up to cyclic ordering* uses related polar integration but a different metric, finite vertices, and different normalized sampling.
 
 ## Limitations
 
-The theorem concerns regular ideal polygons in curvature \(-1\), with each fixed \(n\ge3\) and a separate \(n\to\infty\) regime; it does not assert bounds uniform in \(n\) for the fixed-polygon cusp tail, nor results for irregular ideal polygons, compact polygons, nonconstant curvature, or alternative sampling schemes. The total-variation conclusions concern the specified two-dimensional **rescaled marks** and sector label, whereas the centered radial distance converges only weakly. Historical originality remains provisional: earlier general polar-tube formulas or less searchable treatments of hyperbolic polygon ball intersections might imply parts of the elementary exact CDF. No independent mathematical audit has been performed.
+The theorem concerns regular ideal polygons in curvature \(-1\), with each fixed \(n\ge3\) and a separate \(n\to\infty\) regime; it does not assert bounds uniform in \(n\) for the fixed-polygon cusp tail, nor results for irregular ideal polygons, compact polygons, nonconstant curvature, or alternative sampling schemes. The total-variation conclusions concern the specified two-dimensional rescaled marks and sector label; only weak convergence is asserted here for the centered scalar radial distance.
 
 ## References
 
 - N. Abrosimov and A. Mednykh, *Volumes of polytopes in spaces of constant curvature*, arXiv:1302.4919, first public 2013-02-20; https://arxiv.org/abs/1302.4919 ; full HTML https://arxiv.org/html/1302.4919v2 . Primary classification 51M20.
-- *The logarithmic boundary-distance law and a renormalized shape invariant for ideal hyperbolic polygons*, publicly available research result, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-logarithmic-boundary-distance-law-and-a-renormalized-shape-i--1d7379fbdbb6 .
-- *Cusp-pair tails for random distances in ideal hyperbolic polygons*, publicly available research result, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-cusp-pair-tails-for-random-distances-in-ideal-hyperbolic-polygon--102d92c50bd6 .
-- *Marked cusp-pair and midpoint laws for distant points in ideal hyperbolic polygons*, publicly available research result, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-marked-cusp-pair-and-midpoint-laws-for-distant-points-in-ideal-h--520ae1386677 .
-- *Exact incenter and phase laws for boundary-uniform ideal hyperbolic triangles*, publicly available research result, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-incenter-and-phase-laws-for-boundary-uniform-ideal-hyperbo--1559b103bd4b .
-- *Radial-distance laws classify tangential polygons up to cyclic ordering*, publicly available research result, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-radial-distance-laws-classify-tangential-polygons-up-to-cyclic-o--682fa94d6003 .
+- *Radial distance in regular ideal hyperbolic polygons: an exact law and a logarithmic many-side limit*, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-radial-distance-in-regular-ideal-hyperbolic-polygons-an-exact-la--7af837d2c4e2/RESULT.md .
+- *The logarithmic boundary-distance law and a renormalized shape invariant for ideal hyperbolic polygons*, https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-logarithmic-boundary-distance-law-and-a-renormalized-shape-i--1d7379fbdbb6/RESULT.md .
+- *Cusp-pair tails for random distances in ideal hyperbolic polygons*, https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-cusp-pair-tails-for-random-distances-in-ideal-hyperbolic-polygon--102d92c50bd6/RESULT.md .
+- *Marked cusp-pair and midpoint laws for distant points in ideal hyperbolic polygons*, https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-marked-cusp-pair-and-midpoint-laws-for-distant-points-in-ideal-h--520ae1386677/RESULT.md .
+- *Exact incenter and phase laws for boundary-uniform ideal hyperbolic triangles* (2026).
+- *Radial-distance laws classify tangential polygons up to cyclic ordering* (2026).

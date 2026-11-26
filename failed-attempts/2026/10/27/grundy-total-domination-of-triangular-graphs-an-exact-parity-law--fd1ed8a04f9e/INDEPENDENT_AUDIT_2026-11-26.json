@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:28.591843Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An unselected edge is uncovered exactly when both endpoints are unused; a selected edge is uncovered exactly when it is an isolated selected component. Each legal move therefore lowers the potential by one or two. The first destruction of an isolated selected edge necessarily joins to an unused endpoint or to another isolated edge, costing two. Any completed sequence has u in {0,1} and length n-u-b. In even order with u=0, a last two-unused move at unused count two is illegal, so there must be a positive even number of one-unused moves. The last such move must touch an isolated selected edge, and there is already a two-unit reduction no later than the first such move, from the initial matching phase. This proves the sharper bound and both directions of the equality test. The matching-first construction leaves one or two unused vertices after its matching phase and is legal at every connector, including n=3 and n=4. As a bounded independent replay, memoizing on the uncovered-neighborhood mask rather than the selected-edge set reproduced the six length/count pairs for n=3–8, over 5, 5, 37, 67, 429 and 1325 mask states. A previously selected vertex cannot be used again since its neighborhood is already covered. This supports, but does not replace, the proof in RESULT.md lines 21–45.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product paper is about standard graph products, including paths and cycles. KG(n,2) in the Kneser paper is the complement of J(n,2), with a different open-neighborhood rule. The matching-attachment record proves the identical formula on the identical graphs and strengthens the odd case by a matching-attachment characterization, count, and spanning-tree description."
+        ],
+        "reasoning": "Product and complement cases do not imply the law, whereas the stronger odd characterization sits on top of an explicit identical parity theorem.",
+        "searches": [
+          "arXiv:1712.08780, p. 1",
+          "doi:10.26493/1855-3974.1881.384, abstract",
+          "2026/11/8/SCOPE-matching-attachment-rigidity-of-longest-total-dominating-sequenc--9ecd9d75ebf1, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.json and verify.py",
+        "Resultary family search and matching-attachment record",
+        "arXiv:1712.08780",
+        "arXiv:1702.00828",
+        "arXiv:1404.1618",
+        "doi:10.26493/1855-3974.1881.384"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The competing record uses exactly the same uncovered set binom(U,2) disjoint union I. Its length formula L=n-u-b1-c2 holds for every completed sequence. Its B1 and C2 are precisely the two-unit reductions of |U|+|I|, and no other move decreases that potential by two."
+        ],
+        "reasoning": "Substitute b=b1+c2 into the companion length identity and compare to its parity law: equality means u+b=1 in odd order and u+b=2 in even order. Since u is 0 or 1 and b>=1, this is exactly the assigned extremality test, not merely a shared optimum. The catalogue date is later than the frozen record's date; this comparison does not decide priority.",
+        "searches": [
+          "Matching-attachment record, Proof §§1–3, local mirror offsets 2800–7070"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary zero forcing is dual to the Z-sequence invariant, not open-neighborhood total domination. The skew rule is genuinely equivalent numerically: for a legal sequence v_i choose first-footprinted neighbors w_i. Starting all vertices except the w_i blue, v_i can skew-force w_i in sequence order because none of the later w_j is adjacent to v_i. Conversely a skew-forcing list gives legal open-neighborhood footprints, and on this isolate-free graph it can be extended to completion. Thus gamma_gr^t+Z_skew=|V|.",
+          "The inspected skew-forcing background and indexed exchange-property work do not supply the needed complete-graph line-graph number; the matching-attachment record does cover it in the original formulation."
+        ],
+        "reasoning": "A numerical skew-zero-forcing theorem for L(K_n) would cover the parity law; ordinary zero forcing on the same graph does not. The exact indexed overlap does not require a translation through forcing.",
+        "searches": [
+          "Resultary: J(n,2), triangular graph, L(K_n), Grundy total domination",
+          "arXiv:1702.00828, pp. 2–3",
+          "arXiv:1404.1618, p. 1, skew forcing rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct matching-attachment entry explicitly gives n-1 in odd order and n-2 in even order for n>=3. The ordinary-forcing catalogue entry classifies a different invariant. The frozen sample counts are not an asserted infinite counting theorem."
+        ],
+        "reasoning": "This is exact family-level catalogue coverage, more decisive than a coincidence of small tabulated values.",
+        "searches": [
+          "Resultary queries under J(n,2), triangular graph and L(K_n)",
+          "2026/11/8/SCOPE-matching-attachment-rigidity-of-longest-total-dominating-sequenc--9ecd9d75ebf1, Finding and Proof §§1–3",
+          "2026/10/13/SCOPE-zero-forcing-sets-of-triangular-graphs-are-complements-of-forest--99ff340cc36c"
+        ]
+      },
+      "rationale": "A distinct indexed record has the identical all-order parity law and an equivalent proof identity giving the same two-case extremality test. It additionally classifies and counts all odd-order maximum sequences. This is verified existing catalogue coverage, not an assertion that the companion record preceded the assigned one or that either is the historical first proof.",
+      "residual_risks": [
+        "Published priority is unresolved. The focused web search yielded no relevant hit and the Kneser PDF extraction was limited; neither limitation is used to infer lack of priority or to justify rejection. The positive catalogue overlap is independently decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the whole assigned theorem, with additional odd-order classification",
+          "evidence": "Theorem gives n-1/n-2, and Eq. (2) is L=n-u-b1-c2 with move definitions B1 and C2 equivalent to the frozen count b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-matching-attachment-rigidity-of-longest-total-dominating-sequenc--9ecd9d75ebf1/RESULT.md",
+          "material_read": "Finding and Proof §§1–3, offsets 0–2380 and 2800–7070",
+          "method": "Bounded local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Matching-attachment rigidity of longest total dominating sequences in triangular graphs",
+          "trigger": "Decisive indexed match for graphs, parity, and equality case"
+        },
+        {
+          "assessment": "Verified complement family only; no whole-paper negative claim",
+          "evidence": "The abstract specifies KG(n,r), r>=2, n>=2r+1, not the intersection graph.",
+          "identifier_or_url": "doi:10.26493/1855-3974.1881.384",
+          "material_read": "English abstract, PDF p. 1",
+          "method": "Lawful OA publisher PDF, extractable front matter; displayed formula not reliably extractable",
+          "title": "Grundy domination and zero forcing in Kneser graphs",
+          "trigger": "Closest related published graph family and invariant"
+        },
+        {
+          "assessment": "Distinguishes the relevant open-neighborhood variant from ordinary forcing duality",
+          "evidence": "The displayed invariant dual to ordinary zero forcing is the Z-Grundy number.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.00828",
+          "material_read": "pp. 2–3, offsets 8943 and 10350",
+          "method": "Bounded OA PDF reads",
+          "title": "Grundy dominating sequences and zero forcing sets",
+          "trigger": "Potential equivalent matrix and forcing formulation"
+        },
+        {
+          "assessment": "Supplies the rule used in the equivalence, not a verified triangular-graph degree formula",
+          "evidence": "A vertex of either color may force a unique white neighbor.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.1618",
+          "material_read": "p. 1 definition and scope at offset 0",
+          "method": "Bounded OA PDF read",
+          "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+          "trigger": "Numerical dual under the skew rule"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The open-neighborhood extremal problem on line graphs of complete graphs is natural and the potential makes its proof succinct. But the frozen claim adds no distinct exact invariant or independently useful classification to the verified same-family result: the potential equality test is the companion length identity expressed as a two-unit count. The frozen finite counts are verification data, not a separate novel census theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

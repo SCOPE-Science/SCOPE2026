@@ -1,15 +1,21 @@
-# Review of natural-conjugacy rank stabilization in finite star partial-isometry monoids
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a theorem for every integer \(m\ge2\), with the one-leaf case separated. Two-sided inverse-semigroup conjugacy is characterized by isometric arrow-preserving bijections of supports. The metric star forces either a leaf-only diagram, a fixed hub plus a leaf diagram, or one of three explicitly bounded hub-moving types. This accounts for the unique singleton fusion and every class size. Formal cycle/path multiset enumeration yields the rank polynomial; telescoping yields the two-colored partition count; the unique maximal-support rank-\(r\) profile proves that stabilization at \(m=2r\) is sharp. Finite checks enumerate the defining conjugation equations directly through four leaves and compare all class-size multisets, as well as verifying the partition and stabilization formulas over further parameters. The finite checks do not substitute for the uniform proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Fernandes–Paulista (arXiv:2203.05504, Proposition 2.1) already classify star partial isometries into element families and compute size, rank, presentations and Green relations. Araújo–Kinyon–Konieczny (arXiv:1810.03208, Theorems 2.10 and 2.16) already classify conjugacy in symmetric inverse monoids and count its classes by partition convolution. Araújo and collaborators (arXiv:2301.04252, Proposition 2.14) already identify natural conjugacy with inverse-semigroup conjugacy. None of these inspected statements gives the star-specific two-sided conjugacy classification, the exact three hub-moving class sizes, or the sharp fixed-rank stabilization theorem. The partition count is a consequence of this classification and is not presented as a new partition identity. There is a genuine priority risk of an earlier or unindexed specialization using the known star decomposition and the general symmetric-inverse-monoid conjugacy criterion; the results are not claimed independently audited.
+PASS
 
-## Value — PASS
-The object is a standard graph-metric inverse monoid, and \(i\)-conjugacy is a canonical equivalence relation, so an exact class taxonomy and size distribution are meaningful intrinsic invariants, not an arbitrary finite slice. The theorem discovers a sharp stable range and a two-colored-partition law across an infinite family, while identifying why hub geometry creates exceptional low-rank behavior. These distinctions can be used in studies of class functions, representations and conjugacy growth, though no downstream result is asserted here.
+Each of the two conjugation identities gives a rank inequality, hence the ranks agree. In b=g⁻¹ag the map g sends dom b into dom a and im b into im a and intertwines their arrows. By equal ranks both images are onto, so g restricts to an isometry of the spans. Conversely such a span isometry, on just that domain, satisfies both identities. In a star, a metric span involving the hub and at least two leaves has a distinguished hub and cannot be isometric to a leaf span; on a two-point span the hub–leaf and leaf–leaf metrics differ. A singleton span is the sole fusion of the ordinary leaf and hub-fixed types. A rank-two hub mover must use the hub on both the domain and image sides, yielding either a transposition or a leaf→hub→leaf path. At higher rank the two stars in the domain and image force the hub to be fixed. At rank one the two directions of the hub–leaf arrow are span-isometric. Thus all three hub-moving classes and sizes follow. The labeled cycle/path counts divide by cycle rotations and repeated components, not path reversals. Removing the empty hub-fixed copy subtracts z, which the rank-one hub mover restores, leaving +2z². At z=1 the formal convolution telescopes to p₂(m), and at rank r the unique leaf profile of support 2r consists of r disjoint arrows; hub-fixed profiles use at most 2r−2 leaves. For r=1 the one-leaf monoid has two rank-one classes (identity singleton and single arrow), versus three at two leaves, so the boundary comparison includes r=1. The independent direct equation census (`python3 -B /workspace/review-evidence/star_direct.py`) matches all rank/class-size multisets for m=1,2,3,4, with 7,22,83,442 elements respectively. Those checks corroborate but do not replace the uniform argument.
 
-## Evidence and limits
-Primary full-text comparisons covered arXiv:2203.05504 (particularly the element decomposition and Green relations), arXiv:1810.03208 (cycle-chain conjugacy and class enumeration), and arXiv:2301.04252 (natural conjugacy and inverse semigroups). Targeted publication and indexed-finding searches found related statistics but no matching star \(i\)-conjugacy theorem. The theorem does not apply without modification to weighted stars or general trees; historical priority and independent review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The star element decomposition, the ambient finite inverse-monoid cycle/chain classes, and the two-partition convolution are prior. The inspected sources do not classify the metric-restricted conjugators or give the full star class-rank and class-size distribution or the sharp stabilization. The prior decomposition is important input but contains no conclusion that all the necessary within-family span maps or between-family mergers are allowed.
+
+## value
+
+PASS
+
+Domain-rank class counts and class sizes are natural intrinsic invariants for the star inverse monoids. The formula separates the inherited cycle/path combinatorics from every geometric exception and resolves exactly, rather than asymptotically, which number of leaves first realizes the stable set of classes. This complete classification with all sizes and a sharp uniform threshold is useful beyond a restatement of the monoid order or an ambient partition count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

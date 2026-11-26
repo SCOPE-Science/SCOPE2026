@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:15:10.467378Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five alternatives in RESULT.md lines 32–43 are closed under the indicated affine images, including the right assignment at 1/2 and equality in the two endpoint inclusions at beta=sqrt(2). The nontrivial differences are both (beta−1)(1−beta^2/2); also F(L)=d and F(R)=s. This proves the position bounds by induction for every initial point. F(0)=L<1/2 and F(1)=R>1/2 give the sharp length-two witnesses. The prefix result applied at F^k(u) gives every window; boundedness, integration against an invariant probability, and uniform measure on a periodic orbit prove the remaining consequences. Inspected CHECK.py but did not execute it; its rational examples cannot establish the continuum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 1(3), following Parry, covers all 1<beta<=sqrt(2) by at least one renormalization; Main Theorem’ makes the first renormalization periodic.",
+          "The smallest period is two: there is no fixed point on its own branch, and p=beta/[2(beta+1)] and 1−p exchange. For D equal to this orbit, the maximal continuity exponents in (3)–(5) are both two: between the left orbit point p and c, f² crosses c (it starts at p and tends to R), with the reflected statement on the right."
+        ],
+        "reasoning": "The prior formulas thus give f²(I)⊂I as a renormalization on this explicit interval. The endpoint c for the right convention maps in two steps to L; pairs there have signs right then left. This restores the convention omitted from the prior two-sided definition.",
+        "searches": [
+          "arXiv:0906.3131v3 Main Theorem’, Remark 1(3), and displayed renormalization (5)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0906.3131v3",
+        "arXiv:2301.09752v2",
+        "Resultary:997ff0d2228d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For x in I on the left f(x)≥f(L)=d>1/2; on the right f(x)≤f(R)=s<1/2. Together with the prior f²-invariance this makes every aligned pair from I balanced.",
+          "For arbitrary x, any repeated adjacent sign enters I at its second visit: a second left lies in [L,1/2), a second right in [1/2,R], by the global branch ranges.",
+          "Before first entrance to I the signs alternate and contribute absolute sum at most one; from entrance onward complete pairs cancel and an unpaired last sign contributes at most one. This also holds if entrance never occurs or is outside the window. The two endpoint witnesses give sharpness immediately."
+        ],
+        "reasoning": "This directly yields all windows, including transients, endpoints and the specified cut, from the exact older restrictive domain and elementary branch images. The 2023 nondensity example itself does not imply the claim. The five stated interval enclosures are a useful restatement of elementary endpoint propagation in this regime, not an independently established substantive remainder.",
+        "searches": [
+          "Cui–Ding §1.1, equations (3)–(6) and Remark 1(3)",
+          "arXiv:2301.09752 Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric family is exactly f_{beta,beta,1/2}. Its period-two restrictive interval is I=[f²(c+),f²(c−)]=[L,R].",
+          "On I, pairs aligned with the entrance time each have one visit on either side. This is not the claim of an eventually strictly alternating itinerary."
+        ],
+        "reasoning": "The precise symbolic implication uses disjoint time pairs, with no required bound on the entrance time; it does not infer a finite discrepancy from a bare limiting frequency.",
+        "searches": [
+          "Cui–Ding arXiv:0906.3131v3 §1.1 equations (2)–(6), Remark 1(3)",
+          "Ghahremani–Kelmendi–Ouaknine arXiv:2301.09752 Example 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue record 997ff0d2228d concerns sign-reversal zeta identities and fixed-point counts, not finite-window branch visits."
+        ],
+        "reasoning": "No direct matching table was found. The negative originality verdict instead rests on a primary-source implication.",
+        "searches": [
+          "Resultary: symmetric Lorenz finite-window branch discrepancy and itinerary balance"
+        ]
+      },
+      "rationale": "The principal sharp discrepancy bound is a routine pointwise corollary of the older period-two restrictive interval in this exact family. The prior paper need not state a discrepancy constant for this implication; the restrictive interval and a one-step observation handle transients and the cut.",
+      "residual_risks": [
+        "Parry's original article was not directly compared; the verdict uses the explicitly recorded renormalization statements in Cui–Ding rather than any assumption about what Parry explicitly counted.",
+        "No priority conclusion is made about the exact presentation of the five-state certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the restrictive-domain statement mechanically implying the sharp window bound, rather than stating the bound as a count",
+          "evidence": [
+            "Extraction offsets 5280–11850 for continuity exponents, periodic renormalization and interval formula; 11940 for Remark 1(3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0906.3131v3",
+          "material_read": "§1.1 equations (1)–(6), Main Theorem’, Remark 1(3), pp. 1–4",
+          "method": "OA PDF passage comparison and explicit specialization",
+          "title": "Renormalization and conjugacy of piecewise linear Lorenz maps",
+          "trigger": "Same symmetric family, exact restrictive interval and periodic renormalization"
+        },
+        {
+          "assessment": "The change u=3x−1 on [1/3,2/3] gives this exact map at one slope; the example treats a particular nondense orbit, not uniform counting",
+          "evidence": [
+            "PDF pp. 19–20, extraction offsets 61200–65400."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.09752v2",
+          "material_read": "§4, Example 4.1 and the displayed branches",
+          "method": "OA PDF passage comparison",
+          "title": "Reachability in Injective Piecewise Affine Maps",
+          "trigger": "Same instance at beta=4/3"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Fixed-point counts with attracting-cycle corrections rather than Birkhoff sums of the branch sign."
+          ],
+          "identifier_or_url": "Resultary:997ff0d2228d",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary and local-mirror RESULT.md",
+          "title": "Attractor-corrected sign-reversal zeta identity for symmetric Lorenz maps",
+          "trigger": "Closest indexed comparison on symmetric Lorenz symbolic dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quantitative statement is useful, but already follows by grouping visits in pairs on the classical restrictive interval and separating an alternating prefix. The finite-state proof makes the observation transparent but does not extend the regime, classify a new invariant, or resolve a separate substantial positioning question.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

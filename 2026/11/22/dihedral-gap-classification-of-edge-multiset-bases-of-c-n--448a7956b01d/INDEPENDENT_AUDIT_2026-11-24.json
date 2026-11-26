@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:17:49.484580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Midpoint distance is the specified nearest-endpoint distance plus 1/2. In a collision the multiplicities allow a bijective landmark matching, and each matched step must be the common translation or common reflection between midpoints. Identity matching is impossible since the nonidentity translation has no fixed point and a reflection has at most two. In a transposition the third point is reflection-fixed; if a swapped step uses reflection, its partner is the reflected point and the triple has two equal gaps. Otherwise translation swaps the pair and has displacement n/2; the fixed-point congruence for the third point is solvable exactly when n/2 is odd. A three-cycle has at most one reflection step since two adjacent reflection steps undo each other. The remaining two consecutive translation steps give an arithmetic progression; reversing its orientation if needed, use a positive step less than n/2, so two clockwise gaps coincide. Both obstructions realize a collision, by the triple's preserving reflection or by the half-turn match for the antipodes and midpoint reflection for the third point. A gap n/2 is equivalent to having an antipodal pair. No one- or two-element set resolves because a reflection preserves it and moves an edge; gaps (1,2,n-3) qualify for every n≥7. The marked-start ordered-composition count subtracts the three equal-gap events with the triple-intersection correction, then 3(n/2-1) triples in the odd half-order case; distinct gaps make the action free. Independent exhaustive check /workspace/evidence/cycle.py 7 30 (output cycle-7-30.txt) tested every triple, its criterion and its actual dihedral orbit when qualifying. This bounded replay is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original theorem gives edim_m(C_n)=3 for n≥7 and exhibits {v0,v1,v3}. The survey repeats that numerical theorem."
+        ],
+        "reasoning": "The minimum size and a universal witness are weaker than a test of every triple and cannot imply the equality cases.",
+        "searches": [
+          "Ikhlaq et al. DOI 10.3390/sym15030762 §4.6, Theorem 12",
+          "Farhan et al. arXiv:2607.10311 §6.1, Theorem 6.4"
+        ]
+      },
+      "checked_sources": [
+        "Ikhlaq et al. Symmetry 15 (2023), 762, Theorem 12",
+        "Farhan et al. arXiv:2607.10311, Theorem 6.4",
+        "Resultary 448a7956b01d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier witness has gaps (1,2,n-3) and never probes an antipodal gap for n≥7. The new test singles out a half-turn/reflection mixed matching not detected by asking whether the landmark set has a nontrivial dihedral automorphism."
+        ],
+        "reasoning": "The known scalar theorem and one example establish neither the obstruction for asymmetric triples nor the count and trivial stabilizer for all bases.",
+        "searches": [
+          "Compare Ikhlaq Theorem 12's witness and the survey's metric conventions with frozen proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge midpoints at i+1/2 give exactly the same classification since each distance is shifted by 1/2. In the vertex-multiset problem both targets and landmarks are vertices, not opposite grid classes. The survey lists both scalar dimensions but not a complete classification transferable under this change."
+        ],
+        "reasoning": "A change of origin aligns the targets alone, not both grids. The 2w ≡ 2i+n/2+1 congruence explicitly detects this distinction; the extra +1 reverses the even-order antipodal parity condition one would get with vertex targets.",
+        "searches": [
+          "Resultary: classification of cycle edge-multiset bases by gaps",
+          "Farhan et al., arXiv:2607.10311, §6.1, comparing vertex and edge multiset resolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit contains the same criterion and counts and is the frozen record itself. The inspected survey gives the minimum dimension, not a labelled-basis or orbit table."
+        ],
+        "reasoning": "A table of the scalar values is not a table of the configurations. No separate matching census was established in the bounded checks.",
+        "searches": [
+          "Resultary: cycle edge-multiset gap classification, antipodal obstruction and dihedral orbit census; exact result 448a7956b01d",
+          "Farhan et al. arXiv:2607.10311 §6.1"
+        ]
+      },
+      "rationale": "Scoped to the all-bases criterion, the parity-dependent antipodal obstruction and resulting counts, not discovery of the scalar edge-multiset dimension or of a particular basis. No independently covering equivalent statement was established in the inspected material.",
+      "residual_risks": [
+        "An unindexed full classification in the equivalent edge-centre formulation or an explicitly adapted vertex/edge duality calculation might have been missed; bounded review does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers dimension and one basis, not the asserted complete classification in the inspected theorem",
+          "evidence": "States dimension 3 for n≥7, using {v0,v1,v3}.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15030762",
+          "material_read": "§4.6, Theorem 12 and witness, PDF p. 12, text offset 53405",
+          "method": "Lawful primary full-text PDF passage",
+          "title": "A New Technique to Uniquely Identify the Edges of a Graph",
+          "trigger": "Original theorem on cycle edge-multiset dimension"
+        },
+        {
+          "assessment": "Known scalar result, not classification or basis census in this passage",
+          "evidence": "Reports both scalar values are 3 on these cycles but treats the two resolution parameters separately.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10311",
+          "material_read": "§6.1, Theorem 6.4 and surrounding distinction of vertex and edge variants, PDF p. 21, text offset 67561",
+          "method": "Lawful arXiv PDF passage",
+          "title": "Multiset resolvability parameters in graphs: A survey with new results and open problems",
+          "trigger": "Potential updated result for equivalent graph resolving parameters"
+        },
+        {
+          "assessment": "Identical record, not distinct coverage",
+          "evidence": "Same pairwise distinct gaps, parity-dependent half-order gap exclusion, and labelled and orbit counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-dihedral-gap-classification-of-edge-multiset-bases-of-c-n--448a7956b01d",
+          "material_read": "Local-mirror RESULT Finding, offset 0, versus frozen statement",
+          "method": "Local catalogue and mirror comparison",
+          "title": "Dihedral gap classification of edge-multiset bases of C_n",
+          "trigger": "Exact semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a structural equality-case refinement for a standard resolving invariant. The half-turn obstruction separates asymmetric triples that otherwise appear equivalent by automorphism criteria, and its mod-four behavior yields an exact census, not merely additional examples of the known minimum size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

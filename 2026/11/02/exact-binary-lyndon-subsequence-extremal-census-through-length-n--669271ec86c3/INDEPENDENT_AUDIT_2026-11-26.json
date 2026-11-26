@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:49:15.786859Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen recurrence is an exact set union because a subsequence either uses the last host position or omits it; the sentinel encoding separates lengths. The C membership tags, saved pre-append list length, rotation comparisons (strict, including the unary and periodic cases), and full fixed-length host loop implement these definitions within the stated integer bounds. I recomputed by a different, pattern-first count: a Lyndon pattern is strictly smaller than all proper nonempty suffixes. For each tuple of earliest greedy match positions ending at n, all skipped bits must be the opposite of the next required bit, fixing a single length-n host for this pattern/tuple. Different tuples cannot count that pattern twice in a host. The per-host score is its prefix score plus the new patterns whose greedy match ends at n. Exact integer accumulation recovers all 19 maxima, all 19 tie counts and the first witnesses, as well as both length-twelve attainers. At n=17,18,19 the results are 1292,1941,3132, all unique. Replay: /workspace/review-work/lyndon_dual.py 1 19 (Python/NumPy); recorded results in lyndon_small.txt, lyndon_middle.txt and lyndon_upper.txt in the same directory. The frozen Python crosscheck differs in data structure and predicate but shares the set recurrence; the pattern-first replay is independent of that recurrence. No claim outside n=1..19.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 25d2fdb342a5 deals with the expectation of the same count for an i.i.d. source and its growth.",
+          "Bannai et al. find one longest Lyndon subsequence, not the number of patterns. Related Resultary 02ced6be8097 gives longest-subsequence cost in four-run words."
+        ],
+        "reasoning": "Neither expected multiplicity of distinct strings nor longest length identifies the maximum over all hosts or the size of the maximizing set.",
+        "searches": [
+          "Resultary: distinct Lyndon subsequences of a binary word maximum count",
+          "arXiv:2106.01190v2, Table 2",
+          "doi:10.1007/s00453-023-01125-z, Introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.01190v2",
+        "IWOCA 2022 problem note by Köppl",
+        "Glen–Simpson–Smyth (2017)",
+        "OEIS A290743 and exact-sequence search",
+        "doi:10.1007/s00453-023-01125-z",
+        "Resultary 25d2fdb342a5 and 02ced6be8097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper distinguishes exactly solved MTS, expectation results and open MDS; the IWOCA construction does not certify an optimum or characterize attainers.",
+          "The Resultary expectation and longest-subsequence theorems give neither matching upper bounds nor optimizer sets for the frozen table."
+        ],
+        "reasoning": "The frozen all-host computation provides new upper and lower bounds that match, and optimizer multiplicities; these are not obtained by a parameter change, taking the longest, or ignoring repeated embeddings in an occurrence total.",
+        "searches": [
+          "arXiv:2106.01190v2, §1/Table 2 and following paragraph",
+          "IWOCA 2022 note, p. 2",
+          "Resultary 25d2fdb342a5 and 02ced6be8097"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hirakawa et al. define MDS as the maximum number of distinct Lyndon subsequences, list it as open, and solve the total positional-occurrence variant MTS instead.",
+          "The IWOCA note states the same optimization on alphabets of size sigma and gives a construction lower bound."
+        ],
+        "reasoning": "MDS(2,n) is exactly M_n of the finding, but posing the broader problem and bounding it from below do not determine these maxima or ties.",
+        "searches": [
+          "arXiv:2106.01190v2, Table 2, MDS(sigma,n)",
+          "Köppl, Maximum Number of Distinct Lyndon Subsequences (IWOCA 2022)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A290743 gives contiguous factors; the entries for n=2..5 coincide but n=6 has 11 versus the verified scattered value 13. Its n=1 display is not used as a valid comparison.",
+          "The exact-sequence lookup returned no match; no matching exact table was found in the inspected Resultary records."
+        ],
+        "reasoning": "Initial overlap is not equality of the invariant. The exact-string query is bounded negative evidence only.",
+        "searches": [
+          "OEIS A290743",
+          "OEIS exact sequence search: 1,3,4,6,8,13,18,28,41,63,96,141,225,335,538,803,1292,1941,3132",
+          "Glen–Simpson–Smyth, Counting Lyndon Factors, binary table"
+        ]
+      },
+      "rationale": "The precise maximum of distinct scattered Lyndon strings was posed before; the inspected papers, open-problem note and closest catalogue records do not give the exact ordered-binary census or its attainer counts. The pass is limited to the finite result, not the problem, underlying definitions, or an all-length characterization.",
+      "residual_risks": [
+        "An unindexed exact table or later solution may cover some or all of the finite range; the bounded searches do not establish priority.",
+        "No infinite shape of the optimizing hosts is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem, not solved by that source",
+          "evidence": "MDS is marked open; MTS and expectations are separate rows.",
+          "identifier_or_url": "https://arxiv.org/html/2106.01190v2",
+          "material_read": "§1 Table 2 and following paragraph, HTML offsets about 5147–7203",
+          "method": "Lawful OA primary HTML",
+          "title": "Counting Lyndon Subsequences",
+          "trigger": "Exact extremal statistic appears among solved and open variants"
+        },
+        {
+          "assessment": "Exact formulation and a construction lower bound, not the census",
+          "evidence": "Page 2 uses a distinct-subsequence construction, without an exact M_n and attainer table.",
+          "identifier_or_url": "https://tomasz-radzik.github.io/IWOCA/problems/2206S02distinct_lyndon_subsequences.pdf",
+          "material_read": "pp. 1–2",
+          "method": "Lawful OA primary problem note",
+          "title": "Maximum Number of Distinct Lyndon Subsequences",
+          "trigger": "Exact problem title and arbitrary alphabet"
+        },
+        {
+          "assessment": "Contiguous variant",
+          "evidence": "Length six has factor maximum 11 versus scattered maximum 13.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v24i3p28/pdf ; https://oeis.org/A290743?fmt=text",
+          "material_read": "Theorem 1 p. 3, binary table p. 4 and OEIS offsets 456–1250",
+          "method": "Lawful OA article PDF and public table",
+          "title": "Counting Lyndon Factors; OEIS A290743",
+          "trigger": "Similar small exact maxima"
+        },
+        {
+          "assessment": "Different optimization objective",
+          "evidence": "The algorithm concerns finding one longest Lyndon subsequence.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-023-01125-z",
+          "material_read": "Introduction, p. 736, PDF offset about 3492–3712",
+          "method": "Lawful OA primary PDF",
+          "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+          "trigger": "Possible algorithmic implication"
+        },
+        {
+          "assessment": "Expectation under i.i.d. sources and single-longest deficiency, respectively",
+          "evidence": "No exact maximum and number of attainers follow from the inspected claims.",
+          "identifier_or_url": "Resultary 25d2fdb342a5 and 02ced6be8097 (2026-10-25)",
+          "material_read": "25d2fdb342a5 RESULT.md offsets 0 and 5900; 02ced6be8097 RESULT.md offset 0",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf0ef7468c2a4",
+          "title": "Bias-sensitive Lyndon subsequence growth; Exact longest Lyndon subsequence deficiency",
+          "trigger": "Strongest catalogue overlaps in statistic and binary domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a reproducible finite answer to the binary specialization of a published open extremal question, not a recomputation of occurrence or factor counts. Exact numbers of optimizing hosts add information beyond the maximum sequence; the length-twelve tie and changing extremizer shapes are useful constraints on any proposed characterization. The complete contiguous range of verified host lengths is useful as a benchmark without implying an all-length solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

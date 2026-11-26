@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:10:12.271926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof",
+        "Frozen VERIFICATION.md and checker.py (source inspected)",
+        "/workspace/branches/replay/torus.py",
+        "/workspace/branches/replay/torus.out"
+      ],
+      "rationale": "The winding is constant-speed, so its normalized arclength equals ds/(2π) in the stated parameter. The Fourier integral vanishes exactly when m·v≠0. Unit frequencies exclude zero coordinates; signed permutations preserve the cross, and division by a common factor preserves every nonvanishing dot product. Thus positive ordered primitive triples suffice. At each displayed cap any equally short or shorter triple is in the bounded search, which includes equality. An independent calculation solves m₃=−(a m₁+b m₂)/c by divisibility for |m₁|,|m₂|≤t; when m₁=m₂=0 there is no nonzero orthogonal frequency. It finds one survivor per cap with exactly the stated winding norms (21,65,101,133,133,314), primitive candidate counts (9,41,80,119,119,421), and cross cardinalities (27,81,135,225,279,405). Each survivor attains its cap and the physical length is 2π times its norm, proving minimality and the signed-permutation classification.",
+      "residual_risks": [
+        "Exact finite proof for the stipulated single primitive closed geodesic only; no nongeodesic optimality or higher-strength classification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ehler Definition 4.1 uses the identical cross, §4.1 supplies a sharp two-dimensional result, and Theorem 4.3 gives order bounds for d≥3 at strengths n^d. Section 2 covers the full-box baseline. Gross et al. give multiple rank-one reconstruction/sample bounds."
+        ],
+        "reasoning": "The two-dimensional exact answer does not extend by restriction to the optimizing primitive vector in three dimensions, and neither order bounds nor sampling-size bounds specify a finite Euclidean optimum or its equality cases.",
+        "searches": [
+          "Ehler, arXiv:2611.03362v1, §§2, 4.1, 4.2",
+          "Gross–Iwen–Kämmerer–Volkmer, arXiv:2003.09753, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches above",
+        "Ehler, arXiv:2611.03362v1",
+        "Kämmerer, OA manuscript",
+        "Gross–Iwen–Kämmerer–Volkmer, arXiv:2003.09753, Theorem 1.1",
+        "Two distinct mirrored box-rigidity findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t>1 the cutoff lies between the unit cube and the box [−t,t]³; it contains (t,0,0) but excludes (t,t,0). A box-design upper bound hence need not be sharp for the cross, while the box lower bound cannot be imposed on the enlarged class of cross designs. Kämmerer's construction has a sample-count objective."
+        ],
+        "reasoning": "Even monotonicity under inclusion cannot imply the plateau at t=4–5, the jump at t=6 or the listed unique minimizers from these results.",
+        "searches": [
+          "Ehler §§2, 4",
+          "Primary findings of the two distinct Resultary box-rigidity records",
+          "Kämmerer Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous exactness condition is that the integer annihilator lattice v⊥∩ℤ³ avoid the nonzero cross. The all-unit-weight cross in Kämmerer is the same frequency set; its sampling criterion uses nonzero dot product modulo the lattice size."
+        ],
+        "reasoning": "Modular noncollision can give feasible windings but optimizing lattice size or reconstruction is not optimizing shortest Euclidean winding; integer nonvanishing is not the same as nonvanishing modulo a prescribed size. The 2π versus unit-period convention just rescales physical lengths, not the optimizing vectors.",
+        "searches": [
+          "Resultary: H3(t) shortest winding",
+          "Resultary: rank-one lattice reconstruction",
+          "Kämmerer, Reconstructing Hyperbolic Cross Trigonometric Polynomials by Sampling Along Rank-1 Lattices, pp. 1, 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct match 2026/11/22/SCOPE-the-first-six-exact-three-torus-hyperbolic-cross-geodesic-length--a2461f0cc52e is the assigned record. Two distinct closest box-rigidity findings (IDs ending 7b4e3de78ee6 and 9ae56ebdbb37) were inspected and cover the t=1 case, not the t=2–6 table."
+        ],
+        "reasoning": "The same-day date neither settles priority nor removes demonstrable baseline overlap. The two distinct entries are not equivalent expansions of the requested table.",
+        "searches": [
+          "Resultary: exact title and numerical table",
+          "Resultary: H3(t) shortest winding for finite d=3 strengths 2–6"
+        ]
+      },
+      "rationale": "The generic Fourier criterion, the cross itself and the t=1 cube answer are not new. The supported distinct result is the sharp finite three-dimensional classification at strengths 2 through 6, including equality cases; the strongest related theorems treat a different dimension or set of frequencies, weaker optimality, or a different objective.",
+      "residual_risks": [
+        "Exact-number web lookup did not produce usable evidence and is not the basis of the decision.",
+        "Unindexed equivalent finite tables or different formulations may exist; priority is assessed only for the new nonbox portion against checked material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known t=1 baseline and closely related general bounds; does not give the claimed three-dimensional finite optima.",
+          "evidence": "The cube construction gives (1,2,4); exact hyperbolic-cross result is d=2, while d≥3 receives order bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2611.03362v1",
+          "material_read": "§2 cube result (offset 7036), Definition 4.1 (36911), §§4.1–4.2 and Theorem 4.3 (40817)",
+          "method": "OA primary full-text passages",
+          "title": "Optimal bounds for design curves on the torus",
+          "trigger": "Identical hyperbolic cross and curve design problem"
+        },
+        {
+          "assessment": "Overlaps exactly the relevant cube baseline, not the stronger nonbox strengths.",
+          "evidence": "Tensor-product designs have Korobov winds (1,t+1,…,(t+1)^(d−1)).",
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-of-every-shortest-tensor-product-torus-design-curve--7b4e3de78ee6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity of every shortest tensor-product torus design curve",
+          "trigger": "Closest distinct indexed rigidity statement"
+        },
+        {
+          "assessment": "Box-frequency equality cases only.",
+          "evidence": "The theorem concerns an entire frequency box at each strength, which differs from H₃(t) for t≥2.",
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-of-every-shortest-box-fourier-design-curve-on-a-torus--9ae56ebdbb37",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror primary result at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity of every shortest box Fourier design curve on a torus",
+          "trigger": "Distinct indexed equality classification for shortest torus design"
+        },
+        {
+          "assessment": "Feasible modular construction and exactness/reconstruction, not shortest Euclidean winding.",
+          "evidence": "The construction bounds lattice sizes and enforces noncollision modulo M.",
+          "identifier_or_url": "https://www-user.tu-chemnitz.de/~lkae/paper/Kae2012.pdf",
+          "material_read": "p. 1 definitions; pp. 6–7, Theorem 3.2, offset 27563",
+          "method": "OA primary PDF passages",
+          "title": "Reconstructing Hyperbolic Cross Trigonometric Polynomials by Sampling Along Rank-1 Lattices",
+          "trigger": "Same cross in rank-one nonaliasing formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md table and scope",
+        "/workspace/branches/replay/torus.out",
+        "Ehler §§2, 4"
+      ],
+      "rationale": "For an independently motivated Fourier exact-design problem, the shortest primitive winding gives the exact cost of a single periodic trajectory. Beyond the known cube baseline, the first five nonbox cases locate a genuine plateau despite 54 added frequencies and then an exact jump from 133 to 314 in squared cost; in particular (3,−2,0) enters at strength six and obstructs the old optimum. This initial classification with rigidity provides precise feasible designs and benchmarks for sharpening higher-dimensional length bounds, not just examples at one selected parameter.",
+      "residual_risks": [
+        "The practical and structural conclusions are limited to the finite range; the data do not establish a general staircase law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

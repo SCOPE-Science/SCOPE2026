@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:28:52.446809Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: 3–76",
+        "Frozen VERIFICATION.md: 19–21",
+        "Frozen verify.py: 24–74, especially lines 60 and 67",
+        "repairs/2/RESULT.md: derivative and root argument, threshold endpoints and Verification",
+        "repairs/2/verify.py: independent exact-arithmetic execution",
+        "Symbolic master-equation and quotient check"
+      ],
+      "rationale": "The stationary weights satisfy all four master equations by direct symbolic multiplication with the specified generator; positivity and irreducibility give the unique normalized law. Quotient differentiation gives W_E=δL²−4Lht+4δt² and W_P=δL(L+g)−4Ljt+4δt² with t=u−B/2. Reflection excludes negative t when δ>0. In the repaired proof, both numerators decrease on [0,L/2], start positive and end negative: W_E(L/2)=−2(h−δ)L² and W_P(L/2)=−2(j−δ)L²+δLg<0 since j−δ=2e+g and δ<L. Thus each has exactly one root in that interval and the feasible optimizers are obtained by clipping at B/2. Evaluating there yields the stated thresholds. Since W_P−W_E=δLg+4Lgt>0 on the root interval, the P root is strictly farther right, which also gives B_P>B_E at B=B_E. At each threshold the corresponding optimizer is still at the endpoint, and δ=0 gives unique midpoint optima. The uploaded verification script was inspected, not executed: it had the wrong quadratic sign in W_E and used the wrong radical for the sample u_E. The supplied replacement verifier corrects both and passed 405 exact stationary comparisons plus exact derivative and optimizer checks for the example. The replacement RESULT.md makes the root choice explicit and documents the corrected finite checks. The theorem and scope are unchanged.",
+      "residual_risks": [
+        "The finite replacement checker corroborates the analytic result; it does not prove parameter-universal inequalities by enumeration or validate the model empirically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:78–88 describes a 100-patch simulation/mean-field asymmetry study, conservation rules using extinction-time objectives, and a deterministic source–sink density model, respectively; none of these available descriptions states a two-objective stationary budget theorem."
+        ],
+        "reasoning": "More patches or asymmetry in general do not ensure coverage: the law here depends on stationary master equations with independent background colonization and on the two specific same-chain objectives. A more general stationary allocation theorem could subsume it, but none was established by the evidence gathered.",
+        "searches": [
+          "Vuilleumier–Possingham DOI 10.1098/rspb.2006.3469, PMC1634917",
+          "Etienne–Heesterbeek DOI 10.1086/321986",
+          "Wu et al. DOI 10.1016/j.tpb.2019.11.004"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md: 28–45, 78–88",
+        "Resultary 1be50498fb12 and 09eda1510856",
+        "10.1086/321986 and PMC1634917 (lawful access attempted)",
+        "10.1016/j.tpb.2019.11.004 as described in the bound comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed c,e,f,B, any-occupancy equals 1−gL/D(t) and maximizes the concave denominator D, which favors negative t for δ>0. Expected count has numerator L²−4t² divided by D and favors positive t. This is consistent with why the accessible regional-vs-joint comparison does not state the present paired thresholds."
+        ],
+        "reasoning": "Optimizing components separately does not locate the optimum of their sum. Nor is extinction optimization in the absorbing model a limiting stationary comparison that determines B_E and B_P: the stationary occupancy is zero without background colonization.",
+        "searches": [
+          "Resultary 1be50498fb12: regional vs joint occupancy",
+          "Resultary 09eda1510856: closed rescue allocation",
+          "Etienne–Heesterbeek 10.1086/321986"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1be50498fb12 uses the same broad four-state setting and a quadratic root for joint occupancy, but its other objective is regional occupancy (probability any patch is occupied). Bound RESULT.md:28–45 distinguishes the exact rates and count criterion here."
+        ],
+        "reasoning": "Expected count is probability of any occupancy plus probability of joint occupancy, not either summand alone. A known allocation for the any-occupancy/joint-occupancy pair is not equivalent, though the joint objective should be credited as apparent overlap.",
+        "searches": [
+          "Resultary: four-state two-patch asymmetric colonization with mainland immigration, fixed directed-rate budget, expected occupied count and joint occupancy",
+          "Primary literature search: stationary two-patch occupancy allocation threshold with immigration and unequal extinction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1be50498fb12 summary gives a quadratic joint-occupancy optimum. Same-day 09eda1510856 is a sharp initial-state-dependent rescue allocation for extinction time under a closed model."
+        ],
+        "reasoning": "The former has substantive potential overlap for one threshold but does not state the ordered pair. The same-day case is distinct because it lacks external recolonization and optimizes a transient time, not stationary occupancy.",
+        "searches": [
+          "Resultary: exact paired budget thresholds for leaving a boundary allocation",
+          "Resultary 1be50498fb12 and 09eda1510856"
+        ]
+      },
+      "rationale": "The supported distinct claim is the comparison between expected occupied-patch count and joint occupancy: their separate exact endpoint thresholds and strict ordering. Do not credit as distinct the joint-occupancy optimization in isolation if the parameters match the closely related Resultary record. The corrected proof and verification preserve the exact objectives, thresholds and boundary cases, so the statement-level comparison still applies.",
+      "residual_risks": [
+        "Unexamined full text of 1be50498fb12 may contain additional exact coverage, and exact assumptions could not be matched beyond its indexed statement.",
+        "Primary stochastic conservation and asymmetry literature could not all be read in full; lack of retrieval did not count as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potentially covers the P optimizer; its described other objective differs from E",
+          "evidence": [
+            "Summary specifies regional any-occupancy and a quadratic root for joint occupancy."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-opposite-directional-colonization-allocations-for-regional-and-j--1be50498fb12",
+          "material_read": "Indexed scientific summary; underlying full record not available",
+          "method": "Local Resultary search and targeted source retrieval attempt",
+          "title": "Opposite directional colonization allocations for regional and joint occupancy",
+          "trigger": "Four states, directed budget, immigration and unequal extinctions; likely joint-optimum overlap"
+        },
+        {
+          "assessment": "Different stochastic objective and lack of immigration",
+          "evidence": [
+            "Summary concerns initial-state-specific mean time to extinction in a closed chain."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-initial-state-allocation-law-for-rescuing-two-habitat-pa--09eda1510856",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary search",
+          "title": "A sharp initial-state allocation law for rescuing two habitat patches",
+          "trigger": "Same-day directional allocation problem"
+        },
+        {
+          "assessment": "Extinction-time comparison in the available description differs from stationary expected count versus joint occupancy; extent of full coverage remains unchecked",
+          "evidence": [
+            "Frozen record explicitly distinguishes the prior extinction-time objective from the externally recolonized stationary chain."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/321986",
+          "material_read": "Frozen comparison at RESULT.md:78–88; no full-text passage retrieved",
+          "method": "Primary literature search and targeted lawful OA retrieval attempts",
+          "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+          "trigger": "Stochastic occupancy and optimal conservation intervention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: 3–29, 47–76",
+        "repairs/2/RESULT.md: Finding, Proof and Verification",
+        "Corrected verify.py example"
+      ],
+      "rationale": "The two commonplace conservation metrics favor different allocations in a natural minimal occupancy model. The proof identifies a nonempty interval in which one objective keeps the full endpoint allocation while the other requires splitting capacity, and orders the allocations once both split. This decision-relevant contrast is stronger than a numerical example or substituting stationary probabilities; it remains valid with the corrected evidence.",
+      "residual_risks": [
+        "The interpretation is model-specific and does not transfer directly to transient persistence, population abundance or larger patch networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

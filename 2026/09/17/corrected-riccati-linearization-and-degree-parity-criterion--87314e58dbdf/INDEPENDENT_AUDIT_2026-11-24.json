@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:19:47.801418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 4.20 of Wu–Hong concerns a nonzero Virasoro parameter, polynomial C and both off-diagonal entries nonzero; it gives the displayed rational Riccati condition. Differentiating gamma=-z'/(pz) produces +p'z'/(p^2 z); the squared logarithmic derivative cancels the -p gamma^2 term. Multiplication by -pz gives z''+(d-p'/p)z'-pq z=0. On domains where the substitution is defined the converse follows by solving z'=-p gamma z. Setting z=rho w removes the first derivative precisely when 2rho'+P rho=0, P=d-p'/p; it gives w''=(pq+P'/2+P^2/4)w. Both printed omissions in Remark 4.21 were checked. For p=q=x, d=0, gamma=1 solves the Riccati equation; the corresponding z=exp(-x^2/2) satisfies the corrected equation but has residual -z in the printed equation. Example 4.22 has p=1, q=x, d=0 and is unaffected. For the parity test, u=w'/w=-p gamma+P/2 would be rational and satisfy u'+u^2=pq+P'/2+P^2/4. At infinity p'/p=O(1/x); d=0 or 2 deg d<deg p+deg q ensures the right-hand side has leading degree M=deg p+deg q, positive and odd, from pq alone. A rational u of nonpositive degree makes the left side bounded at infinity; a rational u of positive degree has even leading degree 2 deg u. Both are impossible. This independently proves the polynomial sufficient test, including d=0, and does not assert absence of general Liouvillian solutions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Case 1 requires order at infinity even when it is below 3; the order here is minus the positive odd sum of the two degrees.",
+          "Wu–Hong Theorem 4.20 already translates nonexistence of rational Riccati solutions into module irreducibility under the polynomial and nonzero hypotheses.",
+          "The indexed rational-Riccati-method article was not accessible in full; snippets were not used to assert content about this degree test."
+        ],
+        "reasoning": "There is clear mathematical coverage of the degree obstruction by prior work irrespective of the blocked rational-solution article. It does not by itself identify or demonstrate the actual misprint in the Virasoro module paper.",
+        "searches": [
+          "Kovacic case 1 rational logarithmic derivative order at infinity, arXiv:2211.00804",
+          "Wiley DOI 10.5402/2011/852656 and PII S0096300312004304 rational Riccati methods",
+          "Wu–Hong Theorem 4.20"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Propositions 1–3 and the explicit counterexample",
+        "Wu–Hong arXiv:2609.18184v1, Theorem 4.20, Remark 4.21 and Example 4.22",
+        "Kovacic algorithm exposition arXiv:2211.00804, case-1 condition",
+        "Resultary SCOPE-87314e58dbdf and SCOPE017",
+        "Rational Riccati methods DOI 10.5402/2011/852656, indexed material only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree constraint forces an odd negative order at infinity in the corrected normal form, so prior case 1 excludes every rational logarithmic derivative without a full algorithm run.",
+          "Example 4.22 does not justify dropping -p'/p in the variable-coefficient case. For gamma=1 and p=q=x the corrected operator annihilates exp(-x²/2) and the printed operator does not."
+        ],
+        "reasoning": "The degree corollary is mechanically implied and not credited as a novelty. The valuable distinct content is the precise source-level diagnosis, counterexample and clarification that the correction does not affect Theorem 4.20 or the constant-p example.",
+        "searches": [
+          "Wu–Hong Theorem 4.20, Remark 4.21 and Example 4.22",
+          "Abbasi arXiv:2211.00804, case 1 necessary conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rational Riccati variable is equivalent to the rational logarithmic derivative u=-p gamma+P/2 of the normalized linear equation. The sign convention for w'' versus w''+r w=0 changes the sign of the potential, not its degree.",
+          "The source's actual displayed substitution is identical, but its z' coefficient lacks the logarithmic derivative and its subsequent gauge condition lacks the factor multiplying the first-derivative coefficient."
+        ],
+        "reasoning": "The classical linearization formula is not novel; the source's equations are not an equivalent form of it for the specified substitution.",
+        "searches": [
+          "Resultary: Wu Hong Riccati linearization c21 derivative degree parity Virasoro irreducibility",
+          "Wu–Hong arXiv:2609.18184v1, Remark 4.21",
+          "Abbasi arXiv:2211.00804, normal-form equation and case 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match SCOPE-87314e58dbdf is this record. SCOPE017 is about a particular resonant doubly-confluent Heun operator and all Kovacic cases, not the variable-c21 correction.",
+          "There is no numerical table to match for this symbolic erratum; the exact example in Wu–Hong has constant c21=1 and yields an already-known irreducible instance."
+        ],
+        "reasoning": "Neither the exact self-match nor the distinct catalog near match constitutes prior evidence for the erratum. The example only treats the case when the omission vanishes.",
+        "searches": [
+          "Resultary: corrected Riccati linearization and degree parity / Wu Hong Remark 4.21",
+          "Resultary: rational Riccati Kovacic differential Galois Heun",
+          "Wu–Hong Example 4.22"
+        ]
+      },
+      "rationale": "The distinct contribution is the explicit diagnosis and correction of the two errors in Wu–Hong v1 Remark 4.21, with a variable-coefficient counterexample and the exact scope of the repair. The transformations and the degree obstruction are classical, and the module criterion is directly implied by combining Kovacic's case-1 necessary condition with Wu–Hong Theorem 4.20 and the corrected normalization. Credit the criterion as a useful worked application, not as a new Riccati obstruction or independently novel general theorem. No separate source-specific correction was found in the checked statements; no first-discovery claim is made.",
+      "residual_risks": [
+        "An unindexed source-specific erratum may exist. The inspected Wu–Hong v1 does contain the displayed errors.",
+        "Full text of the cited rational-solution methods article was unavailable; no conclusions about its exact statements are drawn from its snippet. The degree obstruction is independently established as already covered by the accessible case-1 condition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual source error confirmed; theorem and example unaffected",
+          "evidence": "Remark has d as the z' coefficient instead of d-p'/p, and 2 beta'+d=0 instead of 2 beta'+P beta=0. Example's d=0 and p=1 mask both omissions.",
+          "identifier_or_url": "https://arxiv.org/html/2609.18184v1",
+          "material_read": "Theorem 4.20 at HTML text offset 108700; Remark 4.21 and Example 4.22 at 114600; Remark on PDF p. 25",
+          "method": "OA HTML math passages and PDF cross-check",
+          "title": "Generalized conformal modules over the Virasoro conformal algebra",
+          "trigger": "Theorem and remark explicitly corrected"
+        },
+        {
+          "assessment": "Directly covers the degree obstruction in normal form",
+          "evidence": "Case 1 is the rational logarithmic derivative case. For order at infinity below 3 the order must be even. Other cases are different and not disposed of by the parity claim alone.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.00804",
+          "material_read": "Normal-form reduction, four cases and case-1 order conditions, OA PDF text offsets 5100–8417",
+          "method": "OA PDF text",
+          "title": "Analysis and implementation of the Kovacic algorithm",
+          "trigger": "Plausible stronger prior theorem on rational Riccati solutions"
+        },
+        {
+          "assessment": "Specific theorem comparison unresolved; not negative evidence",
+          "evidence": "The indexed description concerns rational solutions with rational coefficients, but is not enough to extract a degree-parity theorem.",
+          "identifier_or_url": "https://doi.org/10.5402/2011/852656",
+          "material_read": "Search result with method description; primary text not recovered",
+          "method": "Indexed metadata; identified source and lawful alternate checked",
+          "title": "Rational Solutions of Riccati Differential Equation with Rational Coefficients",
+          "trigger": "Plausibly overlapping rational-solution tests"
+        },
+        {
+          "assessment": "Identical finding",
+          "evidence": "Same two corrections, degree hypotheses and module corollary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-corrected-riccati-linearization-and-degree-parity-criterion--87314e58dbdf",
+          "material_read": "Mirrored RESULT.md, both statements",
+          "method": "Local catalog mirror text",
+          "title": "Corrected Riccati linearization and a degree-parity irreducibility criterion",
+          "trigger": "Exact Resultary hit"
+        },
+        {
+          "assessment": "Different object and claim",
+          "evidence": "Concerns one Heun operator with Galois group SL(2,C), not the general module criterion or the misprinted reduction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/13/SCOPE017",
+          "material_read": "RESULT.md, operator and conclusion",
+          "method": "Local catalog mirror text",
+          "title": "Resonant doubly-confluent Heun operator: differential Galois group",
+          "trigger": "Closest distinct catalog hit using Kovacic cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The error changes the actual computational test for nonconstant c21, not only notation. In the record's concrete p=q=x example, the incorrect equation z''=x²z does not even admit a rational logarithmic derivative: such a derivative u would solve u'+u²=x², its finite poles would be simple with residue 1, and its polynomial part would be ±x with zero constant term by the x coefficient. With N finite poles, the constant coefficient of u'+u² would then be ±(1+2N), impossible. Thus the uncorrected equation can wrongly suggest absence of the rational solution relevant to reducibility. Correcting the recipe and explaining the unaffected theorem is worthwhile; the covered parity application illustrates use rather than adding the novelty on its own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

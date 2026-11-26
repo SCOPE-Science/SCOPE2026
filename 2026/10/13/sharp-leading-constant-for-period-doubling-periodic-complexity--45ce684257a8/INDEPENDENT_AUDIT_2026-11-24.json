@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:07:26.368764Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rampersad's p(n) convention is the same suffix-comparability definition, including p(0)=1. The digit order and six-dimensional representation match the published formula, and vM₀=v handles zero and leading zeros. Independently recovered the seven exact columns starting from (M₀+M₁−2I)w and checking M₀/M₁ closure with constant −1; state output is first coordinate minus one. The even transition in state 1 switches to state 3, whose sequence is complementary to state 1 on positive n (opposite at odd n, swap the roles and halve at positive even n). State 5 is complementary to state 2 including zero (even outputs are opposite, odd branches swap). Thus a(0)=b(0)=0 and the parity recurrences, including the a(2n) exception at n=0, are valid. Summing them gives the stated discrepancy recurrences; the magnitude increments for e_A and e_B are at most 4 and 1 per digit, respectively, with base n=1. At 2m, 3Q(2m)−2m=e_A(m)+e_B(m); at 2m+1 add 3a(m)−1, of magnitude at most 2, within the one extra digit's allowance. The n=1 case is direct. This proves the 5L/3 scale bound via P(2n)−2P(n)=n+Q(n). At 2^km the errors sum as Σ(L(m)+j)/(2^jm), giving O(log(m+1)/m) uniformly in k. Bracket large n between 2^km and 2^k(m+1) with m comparable to log n; Rampersad's O(log m) upper bound yields the O(log log n) term at both endpoints. Monotonicity of P interpolates, and replacing either endpoint denominator by n costs O(log n/m)=O(1). Replay /workspace/branches/period-doubling-increments-check.py independently recovered the closure, checked 257 direct local periods using the 2-adic word formula, and checked 4096 scale discrepancies. The frozen certificate and code were read but not run; the proof is infinite conditional on the published representation, not a finite verification of that premise for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The explicit terms of Theorem C require eigenvalues strictly outside the joint spectral radius. The max row sum of the digit matrices is 2, and row e₃ (1-indexed) satisfies e₃M₀M₁=4e₃, so the joint spectral radius is exactly 2. The eigenvalue 2 for M₀+M₁ is on that boundary."
+        ],
+        "reasoning": "The radius cannot be lowered merely by improving the norm bound for these matrices. The cited general expansion does not resolve the required term; the special increment-kernel argument removes that obstruction for this sum.",
+        "searches": [
+          "Heuberger–Krenn arXiv:1810.13178, §6.3 Theorem C",
+          "Rampersad §4 on applicability of regular-sequence asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and certificate.json",
+        "Rampersad arXiv:2112.04416v1, §§1–2,4",
+        "Heuberger–Krenn arXiv:1810.13178, Theorem C",
+        "Published Resultary 4e783b08b718"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7 bounds H(n) between logarithms with coefficients 1/3 and 4/3, and the powers of two have coefficient 2/3. Bracketing only between consecutive powers of two leaves a factor as large as two when dividing the sums by n."
+        ],
+        "reasoning": "The global first-order coefficient is not a squeeze from those published results. The reduction to a seven-state increment and its logarithmic summatory discrepancy gives the scale control at arbitrary multipliers that the interpolation needs.",
+        "searches": [
+          "Rampersad §4 Theorem 7 and dyadic formula; Heuberger–Krenn Theorem C; coefficient/scale literature search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rampersad uses the same suffix-comparability p and mean P/n, with an exact sum formula at powers of two. Half the novelty cannot be credited merely for writing the mean as a summatory statement."
+        ],
+        "reasoning": "The published dyadic result gives 2/3 on one subsequence; the two frozen all-integer formulations are equivalent to each other, but not to that subsequence result.",
+        "searches": [
+          "Resultary and literature: period-doubling local periods, periodic complexity, mean and coefficient 2/3, doubling identity",
+          "Rampersad arXiv:2112.04416v1, §§1–2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day catalogue result concerns third-order binomial equivalence of factor pairs at lengths 10·2^t. Rampersad gives exact initial values and exact dyadic values, not an all-integer increment discrepancy."
+        ],
+        "reasoning": "Factor statistics are a different invariant. A finite table or values on one dyadic ray cannot establish the all-n scale bound. The prior matrix representation is exact data for the sequence but does not tabulate these increments or their summatory discrepancy.",
+        "searches": [
+          "Published Resultary period-doubling matches including 4e783b08b718",
+          "Rampersad §4 exact initial row and dyadic summatory formula"
+        ]
+      },
+      "rationale": "The dyadic coefficient and the matrix representation are already in Rampersad. The supported distinct contribution is the quantitative one-scale discrepancy for every integer and the resulting all-integer coefficient with the stated error. A subsequence formula and logarithmic bounds do not substitute for this; the general regular-sequence theorem checked here has its spectral boundary at exactly the required eigenvalue, leaving this term uncontrolled by its explicit expansion.",
+      "residual_risks": [
+        "Bounded searches cannot exclude an unindexed scale identity or a sharper prior derivation specific to this representation; no broad claim of priority is made.",
+        "The published representation is given as Walnut-computed; the independent direct definition replay is finite and does not reconstruct that derivation in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the representation and dyadic answer, not the all-integer bound",
+          "evidence": [
+            "Identical local-period convention and most-significant-bit-first product; P(2^ℓ)=(5/9+(2/3)ℓ)2^ℓ+1/2−(−1)^ℓ/18; Theorem 7 global two-sided bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.04416v1",
+          "material_read": "§1 p. 1 offset 1450; §2 p. 4 offset 8000; §4 pp. 6–7 offsets 15400–17700",
+          "method": "OA PDF full-text passages and entry-by-entry matrix comparison",
+          "title": "The periodic complexity function of the Thue–Morse word, the Rudin–Shapiro word, and the period-doubling word",
+          "trigger": "Published premise and strongest exact prior result on the same invariant"
+        },
+        {
+          "assessment": "General expansion does not extract boundary-eigenvalue term here",
+          "evidence": [
+            "Explicit expansion only for eigenvalues outside the joint spectral radius; the relevant eigenvalue 2 equals that radius"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.13178",
+          "material_read": "§6.3 pp. 15–16, near PDF text offset 52000, Theorem C",
+          "method": "OA PDF full-text passage plus exact joint-radius calculation",
+          "title": "Asymptotic analysis of regular sequences",
+          "trigger": "Plausible general asymptotic theorem"
+        },
+        {
+          "assessment": "Different invariant; same date not used as an originality criterion",
+          "evidence": [
+            "Third-order binomial equivalence of selected factor pairs, not local periods, their prefix sums or their dilation defects"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-explicit-infinite-third-order-binomial-collisions-in-the-period--4e783b08b718",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Published local mirror, 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Explicit infinite third-order binomial collisions in the period-doubling word",
+          "trigger": "Same-day and same-word catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the missing global leading coefficient of an established complexity function on a canonical automatic word. The prior dyadic coefficient and coarse logarithmic bounds leave open the behavior at general lengths; a useful all-integer discrepancy estimate and an explicit error resolve that gap. No claim is made about the sharp second-order remainder.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

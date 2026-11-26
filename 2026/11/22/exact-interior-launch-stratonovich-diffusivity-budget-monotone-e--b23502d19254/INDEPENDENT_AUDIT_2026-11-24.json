@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:24:17.409323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For reflected Brownian motion in the intrinsic coordinate with generator ∂², the normalized time is S1 S2+S2²/2. It strictly increases in S1 and S2, so strict Jensen at each fixed interval mean proves the global reduction and the equality condition. The reduced derivative is ab(bt³−at−b)/t³; the cubic decreases once then increases from negative values to infinity and its sole positive root is above 1. Substitution gives a=(t³−1)/(t³+t−1). In the corrected proof the residual ratio R satisfies R′<0 by the displayed factorization (the quartic factor is positive) while a′>0. The added exact identity for 1−R factors its numerator as (t−1)³(2t⁴+2t³+3t²+t+1), so 1−R~9(t−1)³ and a~3(t−1). At infinity, R~2/t and b~t^−2. Smooth approximations preserve the infimum by budget normalization and convergence of intrinsic lengths, with no attained smooth optimizer. A separate bounded symbolic script verified the central rational and limit identities: /workspace/branches/d4c6303d-b329-4f1a-81f0-ed6ee89007a1/record3_independent_check.py. The supplied check.py was inspected, not executed; the proof, not profile sampling, establishes the gain theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 paper derives the arbitrary-profile coordinate reduction. The 2026 paper gives a broader convex variational framework and the two-level one-dimensional Stratonovich profile. The catalogue Pareto result is Itô, starts at the reflector, and jointly optimizes mean and first-of-many arrivals."
+        ],
+        "reasoning": "The coordinate transform and global design framework are prior. Itô endpoint Pareto parameters cannot be specialized to the relative time gain at interior Stratonovich launches.",
+        "searches": [
+          "arXiv:2311.00818 §2.1, Eqs. (10)–(14)",
+          "arXiv:2611.17470v1 discussion near Eq. (27), §III.C",
+          "2026/11/22/SCOPE-exact-mean-extreme-first-passage-pareto-frontier-for-budgeted-di--4a4e062c5d80"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and prior assessment materials",
+        "Corrected gain theorem and symbolic identities",
+        "Menon p. 7–8 primary passages",
+        "Menon, dos Santos and Anteneodo §2.1",
+        "Pareto frontier catalogue Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationarity gives the optimizer mechanically once the two-level case is selected; the reported gain is numerical and the earlier intrinsic formula precedes optimization. The gain derivative factors with a double zero at the reflecting limit, and the exact numerator of the gain itself has a third-order zero there."
+        ],
+        "reasoning": "The remaining theorem proves the sign of the optimized time relative to a changing homogeneous baseline, including the small-launch cancellation and target asymptotic. This is a genuine analytic characterization beyond the directly supplied optimizer and sampled curves.",
+        "searches": [
+          "arXiv:2611.17470v1 Eq. (50), Figs. 4–5 and discussion",
+          "arXiv:2311.00818 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At d=1 and α=1/2, the left side of Menon's Eq. (50) is the full intrinsic length divided by 2D_out^(3/2) outside and the target-side intrinsic length divided by 2D_in^(3/2) inside. Equating gives b/t=(a+b/t)/t³, or bt³−at−b=0."
+        ],
+        "reasoning": "The differently written stationarity condition is exactly the frozen optimizer equation. The repaired theorem credits this equivalence and instead analyzes the optimized gain.",
+        "searches": [
+          "arXiv:2611.17470v1 §III.C, Eqs. (49)–(52), Fig. 4(a)",
+          "Resultary: interior launch Stratonovich fixed mean, cubic contrast and monotone fractional time gain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 5 uses numerically optimized profiles separately for each (α,r0) and gives a gain curve, not exact endpoint coefficients. The exact-title catalogue hit is the assigned record, not another source."
+        ],
+        "reasoning": "The prior curve receives credit as numerical characterization. It does not prove a strict sign for all interior positions or determine the two sharp limits.",
+        "searches": [
+          "arXiv:2611.17470v1 Fig. 5 caption and discussion",
+          "Resultary: exact interior-launch Stratonovich efficiency and endpoint scaling"
+        ]
+      },
+      "rationale": "For the corrected claim, the exact sign of the Stratonovich gain over all launch fractions and the leading onset and target constants are distinct from the inspected primary stationarity theorem and numerical gain plot. The same-method optimizer and its straightforward allocation corollary are excluded from the claimed contribution.",
+      "residual_risks": [
+        "A previous analytic gain characterization outside the compared material remains possible; the explicit optimizer is not claimed apart from prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact implicit optimizer and numerical gain; the inspected propositions do not state the two limits and strict gain theorem",
+          "evidence": [
+            "d=1 Stratonovich profile is piecewise constant, jumps at launch",
+            "Numerical optimization for each plotted launch and prescription",
+            "Equation (50) yields the contrast cubic algebraically"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17470",
+          "material_read": "p. 4 near Eq. (27); pp. 7–8 Eqs. (49)–(52), Fig. 4(a) discussion, Fig. 5 caption and discussion (offsets 59750 and 66200)",
+          "method": "Lawful primary PDF passages, then independent specialization of the stationarity equation",
+          "title": "Optimal heterogeneous diffusivity profiles for mean first-passage minimization",
+          "trigger": "Identical fixed-budget design at d=1, Stratonovich"
+        },
+        {
+          "assessment": "Prior exact time formula, not the optimized gain theorem",
+          "evidence": [
+            "Reversing endpoints, the same integral of D^(−1/2) gives the Stratonovich MFPT."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.00818",
+          "material_read": "Sec. 2.1, p. 5, Eqs. (10)–(14)",
+          "method": "Lawful primary PDF passage",
+          "title": "Random-search efficiency in a bounded interval with spatially heterogeneous diffusion coefficient",
+          "trigger": "Same diffusion and coordinate transform"
+        },
+        {
+          "assessment": "Different stochastic prescription, launch and objective",
+          "evidence": [
+            "Endpoint-start Itô problem; mean gain 1/9 and first-of-many factor 32/27."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-mean-extreme-first-passage-pareto-frontier-for-budgeted-di--4a4e062c5d80",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured catalogue and local mirror",
+          "title": "Exact mean–extreme first-passage Pareto frontier for budgeted diffusivity",
+          "trigger": "Same budget and related exact first passage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strict monotonicity settles whether the relative gain monotonically grows rather than merely improving absolutely. The cubic onset and square-root relative deficit show that the design helps on very different scales at the two ends, information neither a stationary profile nor a sampled plot provides.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

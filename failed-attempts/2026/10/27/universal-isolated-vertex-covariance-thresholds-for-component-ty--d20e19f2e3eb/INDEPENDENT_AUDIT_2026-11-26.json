@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:07:07.817406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each summand W_S, an isolate in S contributes zero since k≥2 and S is connected whenever W_S is nonzero. Given the data determining W_S, any v outside S has probability (1−p)^(n−k−1) of being isolated on the event used by W_S: the edges to S are already absent and the remaining edges are independent. This gives E[IT]=(n−k)(1−p)^(n−k−1)E[T], including n−k=1. Subtracting E[I]E[T] gives the claimed sign and its unique root for positive E[T]. For t=k/n the function −log(1−t)/t=∫₀¹(1−ts)⁻¹ds is strictly increasing, giving the threshold ordering. Expanding its exponential gives the fixed-k and proportional-size limits; at k=n−1 the exponent is log(n)/(n−1), giving the final scale. The bundled verify.py was inspected, not run; it checks the 60 finite graph comparisons but does not contain the additional threshold stress tests described in the notes. None of the general conclusions depends on these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "00c844d9af13 treats every pair of ordered sizes h≠k and all connected shapes of those sizes. The regular-host theorem 2c5facc9a2eb also specializes at the complete host to the exact k=2 threshold 2/(n+√(n(n−2)))=1−√(1−2/n). Bollobás–Janson–Riordan Theorem 9.1 is instead about limiting frequencies."
+        ],
+        "reasoning": "The first generalization covers the full range of component sizes here after setting h=1, and the second independently covers the isolated-edge case. Asymptotic fixed-order frequencies are not the asserted exact covariance.",
+        "searches": [
+          "Resultary 00c844d9af13, Finding and Proof Eq. (5)",
+          "Resultary 2c5facc9a2eb, Finding",
+          "arXiv:math/0504589 §9 Theorem 9.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 00c844d9af13, 2c5facc9a2eb, d272683b84c8 and 836854b5c1ce",
+        "arXiv:math/9310236, math/0504589 and 1106.0048",
+        "Pittel DOI 10.1002/rsa.3240010306 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the permutation-invariant G(n,p) law, replacing T by its average over vertex relabelings preserves E[T] and E[IT] because I is invariant. The averaged statistic is a nonnegative linear combination of the unlabelled component-type counts C_K on k vertices, since the averaging makes the internal weights the same for every occurrence of each type. All C_K have the same covariance multiplier from 00c844d9af13."
+        ],
+        "reasoning": "Thus arbitrary label- and subset-dependent weights do not escape the known count identity. The strict monotonicity and expansions follow directly from the known root. Fixed-edge generating functions and marginal isolation concentration are not the basis for the coverage finding.",
+        "searches": [
+          "00c844d9af13, exact normalized covariance and sign change, Eqs. (1)–(2)",
+          "isolated vertices tree components covariance Erdős–Rényi exact joint distribution",
+          "arXiv:math/9310236 §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shape-universal covariance theorem for C_H,C_K of distinct sizes h,k divides their covariance by E[C_H]E[C_K] to give ((n−h)_k/(n)_k)(1−p)^(−hk)−1, where (n)_k is a falling factorial. H=K_1 gives C_H=I and the factor (n−k)/n, hence the displayed threshold in the frozen claim."
+        ],
+        "reasoning": "This is the same exact normalized covariance in the isolated-vertex case, not just a match to the sparse asymptotics.",
+        "searches": [
+          "Resultary: isolate/component covariance, exact sign thresholds for counts of connected types",
+          "00c844d9af13, Finding Eqs. (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "00c844d9af13 records the all-parameter exact formula, not samples. The same-day distinct record d272683b84c8 concerns a covariance for circular nearest neighbors and is not a match."
+        ],
+        "reasoning": "A finite table of threshold values is not decisive for this universal claim; the indexed analytic formula is decisive. The date alone is not used to include or exclude any match.",
+        "searches": [
+          "Resultary semantic lookup for exact graph component covariance and sign reversals",
+          "00c844d9af13; 2c5facc9a2eb; d272683b84c8"
+        ]
+      },
+      "rationale": "A distinct indexed shape-universal component covariance theorem covers the core formula and sign threshold by taking the first component to be a single vertex. Permutation averaging and linearity extend it to exactly the asserted arbitrary internal weights, even when the weights are label dependent. Ordering and scales are routine consequences of that same threshold and do not constitute an independent result.",
+      "residual_risks": [
+        "The inspected exact coverage suffices for the conclusion; the search does not settle historical priority among earlier sources.",
+        "Pittel’s original full text was unavailable. A broader keyword lookup did not return a decisive primary passage; that is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader indexed theorem, directly covers target",
+          "evidence": "Same Bernoulli G(n,p), arbitrary connected types of distinct sizes, exact covariance factor and unique sign reversal; h=1 yields the isolate formula.",
+          "identifier_or_url": "2026/10/18/SCOPE-shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13",
+          "material_read": "Mirrored Finding Eqs. (1)–(2), Assumptions, Proof Eq. (5) and disjoint-set argument",
+          "method": "Local mirror statement comparison and explicit specialization",
+          "title": "Shape-universal covariance sign reversals for random-graph component counts",
+          "trigger": "Strong Resultary exact-law match"
+        },
+        {
+          "assessment": "Exact special-case overlap",
+          "evidence": "For regular hosts, isolated vertices versus isolated two-vertex components have the displayed sign reversal; host K_n gives the frozen k=2 threshold.",
+          "identifier_or_url": "2026/10/25/SCOPE-triangle-controlled-covariance-of-isolated-percolation-component--2c5facc9a2eb",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror read and complete-host substitution",
+          "title": "Triangle-controlled covariance of isolated percolation components",
+          "trigger": "Exact isolated-edge covariance"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; no negative inference",
+          "evidence": "The frozen reference describes sparse joint tree-count asymptotics. The result is not needed for the exact coverage finding.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010306",
+          "material_read": "Bibliographic citation and description in frozen RESULT.md lines 56 and 64; original full text not obtained",
+          "method": "Lawful OA and publisher retrieval attempted, no accessible alternate found",
+          "title": "On tree census and the giant component in sparse random graphs",
+          "trigger": "Potential tree-count covariance overlap"
+        },
+        {
+          "assessment": "Different graph model in inspected formulas",
+          "evidence": "Disjoint-component multiplicativity and bivariate generating functions in the evolving/fixed-edge framework, not the frozen Bernoulli covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9310236",
+          "material_read": "§1 Eq. (1.3), §2 p. 6 Eqs. (2.1)–(2.3)",
+          "method": "OA PDF passage read",
+          "title": "The Birth of the Giant Component",
+          "trigger": "Exact enumeration/mixed-moment framework"
+        },
+        {
+          "assessment": "Asymptotic rather than exact",
+          "evidence": "Fixed-order component vertex frequencies converge to branching-process probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0504589",
+          "material_read": "§9 Theorem 9.1, p. 53",
+          "method": "OA PDF passage read",
+          "title": "The phase transition in inhomogeneous random graphs",
+          "trigger": "Component frequencies"
+        },
+        {
+          "assessment": "Different statistic in inspected theorem",
+          "evidence": "Concentration of the isolated-vertex count alone, not its covariance with a component count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.0048",
+          "material_read": "Abstract and Theorem 1.1, pp. 1–2",
+          "method": "OA PDF passage read",
+          "title": "Concentration of measure for the number of isolated vertices in the Erdős–Rényi random graph by size bias couplings",
+          "trigger": "Isolated-vertex conditioning literature"
+        },
+        {
+          "assessment": "Different model and observable",
+          "evidence": "Uniform circle samples and covariance of mutual neighbor count with directed neighbor length.",
+          "identifier_or_url": "2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror statement comparison",
+          "title": "Exact negative motif-length covariance in the circular nearest-neighbor model",
+          "trigger": "Distinct same-day Resultary hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sign change is an intelligible graph-statistical phenomenon, but the contribution as frozen is an isolated-vertex substitution into a known exact shape-universal covariance, followed by permutation averaging and elementary analysis of its root. The size ordering and asymptotic expansions do not supply a separate structural result or an independent application.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

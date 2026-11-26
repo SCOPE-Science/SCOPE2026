@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:43:13.252863Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3)",
+        "Frozen VERIFICATION.md and verify.py, inspected; not executed",
+        "Independent replay: python3 /workspace/branches/audit_analytic.py",
+        "arXiv:2312.01796, MPRK22 and its embedded stage"
+      ],
+      "rationale": "The c y_1 y_2 term is nonnegative, vanishes when either donor vanishes, cancels pointwise and leaves y_1'=a y_2 and y_2'=−a y_2. For any fixed forward and backward rates r,l in a conservative weighted solve, the first component is (u+hrs)/(1+h(r+l)), s=u+v. Apply this first with r=a+cu, l=cv and then with r=P_c/V, l=Q_c/U after averaging the two Heun flux rows at (u,v) and (U,V)=z. This gives δ=hav/[1+h(a+cs)] and Δ−δ=[ha(v+V)/2−δ]/[1+h(P_c/V+Q_c/U)]. The first formula yields 0<δ<v and the second has positive numerator; the endpoint second component is [v+hQ_c s/U]/[1+h(P_c/V+Q_c/U)]>0. Both conserve s. As c increases, U→u, V→v, P_c/c,Q_c/c→uv, and the final rate sum divided by c tends to s. The numerator in the uncombined difference formula tends to hav. Thus cδ and c(Δ−δ) both tend to av/s, cΔ tends to 2av/s, and the exact flow moves a positive distance v(1−e^(−ah)). This gives the asserted error ratio and rules out a representation-uniform multiplicative bound. A fixed positive absolute tolerance gives a lower bound on all weighted RMS denominators. Exact-rational independent scalar solves agree with the difference identity and numerical limits for three unequal/equal cases, including c=0 and c=10^10.",
+      "residual_risks": [
+        "The limits are for a fixed positive step, rate and state in real arithmetic. The proof refers to the numerator and denominator of the uncombined form of (3); in the single boxed fraction both grow differently but give exactly the same limit. There is no statement about arbitrary controller safeguards, multistep behavior or a joint small-h limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2210.11845 p. 1 stability for nonlinear PDS",
+          "arXiv:2602.14392 §2.1 discusses well-balanced physical equilibria",
+          "arXiv:2610.21857v1 pp. 6,12–13 constructs flux differences and PDS via positive/negative parts",
+          "8a12fdc5c04c all-finite-correction theorem, but only for p12=y2+C and p21=y1+C"
+        ],
+        "reasoning": "More quadrature nodes and correction counts make the last result broader in algorithm parameters, but not in admissible flux perturbations or physical vector fields. Fixed-point and well-balanced spatial results do not establish error-estimate masking under the frozen admissible decomposition family.",
+        "searches": [
+          "arXiv:2210.11845 nonlinear PDS fixed-point stability",
+          "arXiv:2602.14392 flux balance for Euler",
+          "arXiv:2610.21857v1 flux globalization and mPDeC §4",
+          "8a12fdc5c04c finite correction theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.01796",
+        "Resultary 8a12fdc5c04c",
+        "arXiv:2610.21857v1",
+        "arXiv:2210.11845 p. 1 and frozen comparison",
+        "arXiv:2602.14392 §2.1",
+        "Resultary 1e55df731ea7 and 23eb200336ce summary-only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Controller source §2.2.3 and §3, PDF pp. 12–13, gives the embedded stage and weighted discrepancy norm",
+          "8a12fdc5c04c definitions and first correction formula, RESULT.md offsets 0–3794"
+        ],
+        "reasoning": "With quadrature weights 1/2,1/2 and common initialization, the first terminal correction is the modified Patankar Euler stage; the second uses the averaged old and first-stage fluxes with first-stage denominators. Hence the two-node offset theorem really does imply the same-kind failure for MPRK22(1) on two-way exchange, with c-like coefficient ab|b−a|/(a+b) and positive error when a≠b. One cannot specialize its hypotheses to a nonconstant c y_1 y_2 flux vanishing at the donor boundary on a one-way-decay field, or use its exact formulas on that system. This narrower mechanism and quantitative bound survive.",
+        "searches": [
+          "Compare arXiv:2312.01796 §§2.2.3,3 and 8a12fdc5c04c at nodes 0,1 with the frozen one-way ODE"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Izgin-Melnikov–Ranocha arXiv:2312.01796 pp. 3, 5 notes nonuniqueness and examples, p. 12 describes embedded stage",
+          "Resultary 8a12fdc5c04c, RESULT.md offsets 0–3794: positive bidirectional constant offset and finite-correction stalling"
+        ],
+        "reasoning": "An unchanged numerical flux divergence in symmetric exchange is a close equivalent mechanism, but not the same donor-vanishing PDS family. A mere state translation is not a symmetry of the Patankar weights, which use component ratios to the original state/stages.",
+        "searches": [
+          "Resultary: Patankar flux-offset gauge stalling / equivalent production–destruction representations",
+          "arXiv:2312.01796 §2.1, §2.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8a12fdc5c04c offsets 0–3794: stage coefficient m ab(b−a)/(a+b) at the Lobatto endpoint",
+          "Ranked Radau 1e55df731ea7 and Fehlberg 23eb200336ce analogues, summary-level only; exact source files unavailable"
+        ],
+        "reasoning": "The relevant exact comparator is a symbolic asymptotic law rather than a finite table. The mPDeC law implies an exact pair discrepancy on its offset model, but does not tabulate or imply the frozen donor-vanishing constants. Estimator blindness for unrelated RK pairs does not fill the gap.",
+        "searches": [
+          "Resultary: embedded estimator resonance / Patankar gauge-stalling exact coefficients",
+          "8a12fdc5c04c exact stage expansion"
+        ]
+      },
+      "rationale": "The defensible distinct result is the sharp deterioration of the embedded estimate among donor-vanishing splittings of a fixed one-way decay ODE, for every positive initial state (including u=v), with the stated exact constants. PDS nonuniqueness and the embedded procedure are known. A strong overlapping mPDeC catalogue theorem actually implies stalling and a vanishing successive-endpoint discrepancy for the same Heun embedded pair in a different model: take two Lobatto nodes and one/two corrections. However, that theorem is for symmetric two-way exchange and a constant flux offset that does not vanish at zero donor. It does not cover the specified donor-vanishing nonlinear equal-flux perturbation or its all-state coefficient and fixed-flow error for one-way decay. Neither basic representation sensitivity nor the generic masking phenomenon alone is claimed as distinct.",
+      "residual_risks": [
+        "A general asymptotic for arbitrary two-pool PDSs with positive symmetric added rates could cover the donor-vanishing special case; no such statement was verified in this bounded comparison. The distinct catalogue offset result is not evidence of priority or dependence. The older analogous RK records were not relied on beyond their accessible summaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known premises; no donor-vanishing masking limit identified in these passages.",
+          "evidence": [
+            "At α=1 the lower-order embedded result equals the second stage; the weighted difference estimates local error."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.01796",
+          "material_read": "§2.1 pp. 3,5; §2.2.3 and §3 pp. 12–13, offsets approximately 9316,13175,46619,51105",
+          "method": "Read primary passages and compare the embedded stage, norm and representation claims",
+          "title": "Using Machine Learning to Design Time Step Size Controllers for Stable Time Integrators",
+          "trigger": "Defines the scheme, notes representation nonuniqueness, and specifies estimator"
+        },
+        {
+          "assessment": "Strong overlap including same embedded-pair behavior on a different ODE, but not the frozen donor-vanishing perturbation family.",
+          "evidence": [
+            "p12=y2+C, p21=y1+C; increasing correction number gives linear leading stage displacement on symmetric exchange."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c",
+          "material_read": "RESULT.md theorem, scope and stage equations offsets 0–3794; additional proof and limitations offsets 3794–8698 inspected in comparison",
+          "method": "Read the original statement and stage construction; specialize to one and two corrections on nodes 0,1",
+          "title": "A flux-offset gauge-stalling law for finite-correction modified Patankar deferred correction",
+          "trigger": "Exact same-phenomenon constant-offset result with stage asymptotics"
+        },
+        {
+          "assessment": "Related representation framework; no embedded collapse or donor-vanishing one-way counterexample established by the inspected construction.",
+          "evidence": [
+            "Uses globalized numerical flux differences and positive/negative flux parts for well-balanced mPDeC."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21857v1",
+          "material_read": "pp. 3,6,12–13, especially §4, offsets approximately 9821,23473,51413",
+          "method": "Read method passages and compare flux decomposition, method and conclusion",
+          "title": "Flux-globalized, well-balanced positive shallow-water mPDeC schemes",
+          "trigger": "Related construction of PDS splittings from flux differences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md one-step uniform-error obstruction",
+        "Exact-rational stage checks",
+        "8a12fdc5c04c offset model and arXiv:2312.01796 embedded procedure"
+      ],
+      "rationale": "This counterexample rules out a natural proposed safeguard: requiring the auxiliary production and destruction terms to vanish at their donor boundary does not by itself make the embedded discrepancy control the true error uniformly. The vector field has fixed stiffness, the rates are donor-vanishing and conservative, and exact step positivity survives, so the effect isolates the flux representation rather than physical stiffness or positivity failure. The sharp estimate is a reusable test for representation sensitivity in the actual embedded pair, not a claim to have invented the broader stalling phenomenon.",
+      "residual_risks": [
+        "No evidence of prevalence in physical models, mandatory bad-step acceptance by a specific controller, or extension to all PDS methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:15:01.591498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The diagonal comparison is half-normal with variance parameter one, against n-1 mutually independent planar Gaussian norms divided by sqrt(2). Conditioning on the diagonal gives Eq. (1); polar symmetry gives 4/pi times the angular integral on [0,pi/4]. The maximizing endpoint is pi/4 below two, where the coefficient of the quadratic increment of W_q^(-2) is (2-q)/u_q^2, and zero above two, where it is 1, including q=infinity. Each contributes a half-Gaussian integral. At two the angular weight is constant. For S(x)~C x^(-beta) exp(-a x^2), inversion gives x_s~sqrt(log(1/s)/a). The half-normal Mills ratio at x_s gives the factor x_s^(beta*alpha-1), with alpha=1/(2a), and hence the stated logarithmic power. Integration by parts for U=S(|Z|), then rescaling by n, gives Gamma(alpha+1): small-s power bounds dominate the rescaled logarithm near zero, and the kernel bounds the large rescaled variable exponentially. Substitution gives the three sharp constants with the specified GUE normalization. As exact checks, at infinity S(x)=2 erfc(x)-erfc(x)^2, yielding C=2/sqrt(pi); at q=2 the binomial integral is sum_{k=0}^{n-1} (-1)^k binom(n-1,k)/sqrt(1+2k), giving 1-1/sqrt(3) at n=2. At q=1 an orthogonal rotation gives the maximum of 2n-1 exchangeable absolute standard normals, so the exact identity holds and its leading coefficient is 1/2. At any n>=2, the off-diagonal maximum decreases strictly under coupling and the independent half-normal has strictly positive density between the two distinct positive maxima, proving strict monotonicity up to infinity. The finite quadrature is supplementary; replay the independent calibrations by Eq. (1), with q=infinity using the erfc formula or q=1.5 using the angular integral, at n=200,2000,20000. The frozen verify.py was inspected, not executed. The proof is for each fixed q, not for q varying with n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 1 gives the density equivalents of g=Sum |Z_i|^q for all three regimes, with diagonal maxima below two and coordinate-axis maxima above two; at two the law is chi-square.",
+          "For d=2 substitute y=(sqrt(2)x)^q in its density. Integrating gives exactly the finite-q off-diagonal survival factors of frozen Eqs. (2)–(4); e.g. below two the density transforms to [4/(u_q sqrt(pi(2-q)))] exp(-x^2/u_q^2), yielding the stated survival prefactor. The q=infinity survival follows separately from the exact product CDF."
+        ],
+        "reasoning": "This broader fixed-dimensional Gaussian-chaos analysis covers the finite-q angular-tail ingredient, even though the variable there is the q-th power of the norm. It is not a theorem for the half-normal-weighted first-pivot expectation.",
+        "searches": [
+          "tail asymptotic finite dimensional standard Gaussian l_p norm fixed dimension p>2 Hashorva Piterbarg lp norm exact tail Gaussian chaos first order independent gaussian",
+          "arXiv:1307.5857, Theorem 1 and Example 1, pp. 4,9–10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially Eqs. (1)–(6), VERIFICATION.md and verify.py",
+        "arXiv:2610.10481",
+        "arXiv:2506.20470",
+        "arXiv:1307.5857",
+        "Resultary record e7c6bc68eb4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Starting from the known tail and the non-iid comparison identity, set U=S_q(|Z|). The exponent and slowly varying factor of Pr(U<=s) require the half-normal Mills ratio at the inverse competitor tail, and the sharp moment is obtained by a Laplace/regular-variation limit, not by plugging the typical maximum into the diagonal tail.",
+          "The published Gaussian tail inputs and classical Abelian step make the new application accessible by standard methods; in particular no novelty is assigned to the saddle expansions or to the Abelian theorem.",
+          "Strict monotonicity can be verified by elementary norm coupling and is supporting evidence, not by itself the substantive contribution."
+        ],
+        "reasoning": "The supported residual contribution is the sharp no-swap phase diagram for the previously unaddressed fixed q in (1,2) and (2,infinity], including the exponent function and the uniform-in-value (not uniform-in-convergence) leading coefficient above two. It requires converting a one-competitor norm result into a different, weighted maximum comparison; it is not an additional density theorem or just a relabeling of the earlier pivot endpoints.",
+        "searches": [
+          "arXiv:1307.5857, Example 1",
+          "arXiv:2610.10481, Prop. 6 and proof",
+          "Frozen RESULT.md lines 70–96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 GEPP paper compares the first entry with the other column entries and uses the probability of the permutation fixing index one, the same no-swap statistic.",
+          "The 2025 result is a 2-by-2 swap probability; its 2/3 for l1 and 1/sqrt(3) for l2 are the complements of the frozen no-swap probabilities.",
+          "The two-population formulation here compares one half-normal to a maximum from a different distribution, not the position of the maximum of identically distributed variables except after the special l1 rotation."
+        ],
+        "reasoning": "The transformations identify exact endpoint overlap, not an all-q result. Ordinary iid rank symmetry and a limit law for a same-population maximum do not directly classify this heterogeneous comparison.",
+        "searches": [
+          "Resultary: GUE first pivot no-swap planar Gaussian norm q",
+          "arXiv:2610.10481, Prop. 6, p. 15",
+          "arXiv:2506.20470, §3 Prop. 1, pp. 2–3",
+          "asymptotic probability one independent observation exceeds maximum iid other distribution regular variation Gamma tail ratio highest order statistic win Laplace Stieltjes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact GEPP formulas in Proposition 6 and its proof cover q=1 for all n and a finite binomial sum for q=2 alongside its sharp asymptotic.",
+          "The Gaussian-angular catalogue match is about Gaussian support directions and cube/crosspolytope extremal exposure, not a GUE diagonal-versus-column comparison. A separate first-pivot catalogue hit describes Gaussian-sketch QR, not GUE, at summary level."
+        ],
+        "reasoning": "The problem is a continuum of exponents and a large-n equivalent rather than a finite tabulation issue. The nearest exact formulas are the known endpoints; they do not fix intervening exponents.",
+        "searches": [
+          "Resultary: GUE GEPP norm exponent first-pivot probabilities; Gaussian norm extremes",
+          "Resultary 2026/11/17/SCOPE-gaussian-angular-equipartition-and-a-gumbel-exposure-transition--e7c6bc68eb4a",
+          "arXiv:2610.10481, Eqs. (15) and (16)"
+        ]
+      },
+      "rationale": "Credit is limited to the fixed-q first-pivot phase diagram beyond the already credited q=1 and q=2 cases and its coupled monotonicity. The finite-q single-competitor tail prefactors are older Gaussian-chaos results, not a new tail theorem. The closest GEPP result gives the relevant exact first-pivot statistic at the endpoints only; the Gaussian-chaos source does not treat that statistic. Applying a tail result alone, or a weak limit for the off-diagonal maximum alone, is not the sharp pivot expectation. The proof uses a separate half-normal tail inversion and a controlled regular-variation moment transfer for this comparison. No directly covering earlier pivot or two-population theorem was established in the bounded check.",
+      "residual_risks": [
+        "An earlier theorem for a heterogeneous maximum comparison or an unindexed norm-dependent GEPP result may imply the pivot equivalents more directly. The negative search is bounded, not priority certification.",
+        "The nearby Resultary Gaussian-sketch QR first-pivot hit (3e3b827418f2) was available at summary level only; the summary indicates different matrix and pivot objects."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact q=1 and q=2 coverage, credited in the frozen record; inspected statement does not classify other q.",
+          "evidence": [
+            "p_{n,1}=1/(2n-1); p_{n,2}~1/sqrt(2n log n). Eq. (16) is the finite q=2 sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10481",
+          "material_read": "Prop. 6, Eq. (15), p. 15 (offset 67600); Eq. (16), p. 16 (offset 72400), and nearby proof.",
+          "method": "Open primary PDF passage inspection and event/constant comparison.",
+          "title": "Random permutations using GEPP",
+          "trigger": "Same GUE first-pivot question and candidate all-exponent coverage."
+        },
+        {
+          "assessment": "2-by-2 overlap at the l1 and l2 conventions, not large-n or general fixed q.",
+          "evidence": [
+            "Reports the swap probabilities 2/3 for LAPACK's l1 and 1/sqrt(3) for Euclidean GUE."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.20470",
+          "material_read": "§§3–4, especially Prop. 1, pp. 2–3 (offset 10000 onward).",
+          "method": "Open primary PDF passage inspection.",
+          "title": "Pivot probabilities and norm effects in Gaussian elimination for beta-ensembles",
+          "trigger": "Same norm-sensitive pivot comparison in the primary literature."
+        },
+        {
+          "assessment": "Directly covers the finite-q one-competitor prefactors after rescaling; the passages address density/tails of homogeneous functions of one Gaussian vector, not the GUE comparison probability.",
+          "evidence": [
+            "Example 1 treats the sum of absolute Gaussian powers on both sides of two, gives c2 and c3 and explains the geometry of the maximizing sets; the q>2 density is asymptotically d times the one-coordinate power density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.5857",
+          "material_read": "Theorem 1 hypotheses, p. 4 (near offset 10995); Example 1, pp. 9–10 (offsets 30200 and 32700 onward).",
+          "method": "Open primary PDF passage inspection and change of density variable, followed by integration of the leading Gaussian tail.",
+          "title": "Asymptotic Expansion of Gaussian Chaos via Probabilistic Approach",
+          "trigger": "Gaussian norm extremes may contain all claimed angular saddle coefficients."
+        },
+        {
+          "assessment": "Different extremal object and event.",
+          "evidence": [
+            "The Finding concerns Gaussian support directions and an exposure crossover for cube–crosspolytope vertices, not first-pivot norm comparisons."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-gaussian-angular-equipartition-and-a-gumbel-exposure-transition--e7c6bc68eb4a",
+          "material_read": "Mirrored Finding.",
+          "method": "Local indexed mirror statement comparison.",
+          "title": "Gaussian angular equipartition and a Gumbel exposure transition",
+          "trigger": "Nearest Gaussian-angular indexed hit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pivot convention changes the no-swap probability even asymptotically: arbitrary fixed choices below two can change the polynomial power, while the exact Euclidean point and the region above it have different logarithmic orders. A common sharp leading constant for every fixed exponent above two, including the maximum norm, makes the comparison quantitative. This completes a natural norm-dependent first-step question in Gaussian pivoting beyond the known endpoints, without claiming any downstream stability or permutation result. The already known angular-tail calculations and the elementary monotonicity alone would not justify the value decision.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

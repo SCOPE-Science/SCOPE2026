@@ -1,15 +1,21 @@
-# Scientific review: entropy-preserving boundary-crisis concentration
+# Independent mathematical audit
 
-## Correctness (PASS)
-For \(1<r<(1+\sqrt5)/2\), the left and right branches both map onto \([0,1]\) and their derivative magnitudes exceed one. Explicit inverse branches generate a contracting two-symbol coding with no positive-mass endpoint ambiguities. Its fair Bernoulli pushforward is the unique invariant maximal-entropy measure. A length-\(n\) all-left cylinder is exactly \([0,r^{-n}]\) and has mass \(2^{-n}\), proving the fixed-threshold exponential concentration and exceptional local dimension. The entropy/Lyapunov dimension formula applies to a piecewise \(C^2\) expanding full-branch map with bounded distortion, and the explicit derivative bounds prove the typical-dimension asymptotic. The standalone checker passed exact rational algebra and finite diagnostic bounds; infinite statements rely on the proof, not samples.
+## correctness
 
-## Originality (PASS within checked evidence)
-Sushko–Agliari–Gardini (2005) **already** identify the boundary crisis \(a=r^2/(r-1)\), so that curve and its trapping characterization are expressly not novelty claims. Duan–Wei–Li–Su–Grebogi (2024) analyze kneading, crises and golden-mean subsystems for the same piecewise map. Neither inspected full text gives the unique maximal-entropy law's exact endpoint-cylinder probabilities, fixed-spatial-threshold exponential concentration, weak endpoint limit, or contrasting typical versus exceptional dimension limits. Relevant indexed results for expanding cusp maps and entropy-separation models describe different objects and parameters and do not imply this concrete crisis-family limit. Classical coding and one-dimensional entropy/dimension theorems are credited, not claimed as new. Unindexed specialization of general thermodynamic formalism remains a genuine priority risk.
+PASS
 
-## Mathematical value (PASS)
-The exact crisis curve is a natural global boundary identified in the prior literature, and a maximal-entropy invariant probability is a canonical measure on its full-branch dynamics. The theorem quantifies an otherwise hidden singular regime: full symbolic entropy persists while the canonical invariant measure develops exponentially vanishing mass throughout any fixed strict subinterval, its typical fractal dimension collapses, and the exceptional origin local dimension diverges. The precise exponential rate and dual dimension laws distinguish topological complexity from geometric concentration and provide quantitative state-space information not contained in the crisis or kneading bifurcation diagrams. They are not an arbitrary parameter slice or a numerical-only observation.
+At c=1/r both branch values are 1; 0 and 1 map to 0. The right branch is decreasing on the stated range, with derivative magnitude bounded below by r(2−r)/(r−1)>1 exactly up to φ on the monotone range. Both inverses contract. Their nested cylinders partition the interval up to endpoints, generating the dynamics; the full two-shift codes them. The only multiple codes belong to preimages of c, which are countable transient points eventually sent to 0, and thus null for any invariant law. The fair Bernoulli pushforward has entropy log 2, and uniqueness follows by lifting other invariant laws via the itinerary (defined off those null ambiguities) and using the unique full-shift maximal-entropy law. The all-left cylinders are precisely [0,r^(−n)], of mass 2^(−n); floor-bracketing gives log μ_r([0,t])=(log 2)log(t)/log(r)+O(1) with bounded rounding error. This proves both the fixed-t limit as r↓1 and the local dimension at 0 as t↓0 for fixed r. For typical dimension, each branch has half the measure. The derivative bounds give χ_r=(1/2)log(1/(r−1))+O(r−1). For each fixed r, summable distortion of inverse cylinders follows from expansion and Lipschitz log derivative on each branch; Birkhoff gives cylinder length exp(−nχ_r+o(n)). To verify the ball comparison independently, the left endpoint mass is bounded by a power of the radius; the right endpoint also has such a bound by mapping its small neighborhood via the right branch into a left endpoint neighborhood of radius at most a times as large. Invariance and Borel–Cantelli then put typical f_r^n(x) at distance at least exp(−εn) from both endpoints eventually. Distortion transfers this to the cylinder about x, so both a containing ball of cylinder size and an inscribed ball of radius at least a constant times exp(−εn) times that size give the local dimension log 2/χ_r as ε↓0. This is measure dimension, not support dimension. It tends to zero while the exceptional dimension at x=0 diverges, and the endpoint mass bounds give weak convergence to δ_1.
 
-## Scope and publication risks
-The expansion hypothesis limits the statement to \(1<r<(1+\sqrt5)/2\). The limiting measure is singular and need not describe Lebesgue-typical trajectories; the physical invariant probability is not characterized. The same general entropy-over-Lyapunov theorem used here could lead to parallel, unindexed specializations, and an independent source comparison and mathematical audit remain appropriate before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The piecewise linear/logistic family, the exact boundary-crisis curve and its trapping interpretation are prior. Full-branch coding and entropy-over-Lyapunov dimension are also standard. The qualified distinct claim is the explicit joint parameter degeneration for the maximal-entropy (not physical) law on the expanding portion of this specific curve, with sharp spatial-threshold concentration and opposite typical and exceptional dimension limits.
+
+## value
+
+PASS
+
+This is a natural boundary of a known crisis family rather than a sample parameter. The canonical invariant law has unchanged full entropy, yet its mass outside any fixed neighborhood of 1 has a computable exponential rate, and the typical and exceptional dimension limits go in opposite directions. The two different geometric mechanisms (many weak left iterates versus the rapidly expanding right branch) give a useful quantitative example of what full symbolic entropy does not control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

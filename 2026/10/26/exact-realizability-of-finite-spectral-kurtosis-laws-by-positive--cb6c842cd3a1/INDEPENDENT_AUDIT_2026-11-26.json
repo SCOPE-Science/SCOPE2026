@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:38:39.480785Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence of the Brownian driver gives a centered conditional Gaussian of variance 2A_t with A_t=∫₀ᵗD_s ds, hence μ²t²α(t)=Var(A_t)=2∫₀ᵗ(t−s)Cov(D_0,D_s)ds. Detailed balance diagonalizes the generator in the stationary inner product, and irreducibility removes the zero relaxation mode from the centered observable. Integrating each active covariance exponential gives exactly the stated K with K(0)=1. Conversely, for each designated mean share h_j and weight w_j, the binary probability p_j=h_j²/(h_j²+w_j) and step size a_j=(h_j²+w_j)/h_j give mean h_j and variance w_j. The two positive flip rates sum to λ_j and give a stationary reversible product chain of 2^m states. Subtracting the total mean shares from μ leaves a strictly positive baseline, with no ceiling required on state diffusivities. Independence makes all cross covariances zero, including when other product-generator eigenvalues collide with an active rate. Differentiating t²α(t) twice recovers the normalized covariance, and successive isolation of the smallest active rate proves uniqueness of the rates and normalized weights. Varying the h_j changes at least the minimum diffusivity while preserving the curve; the empty mixture is constant diffusivity and also admits different unobserved switching generators. In an independent exact replay at t=log 2, enumerate the 64 stationary state pairs for binary probabilities (1/4,1/8,1/16), steps (1/2,1,4), baseline 1/8, and rates (1,2,3), using P_j(b,c)=2^−λ_j 1_{b=c}+(1−2^−λ_j)π_j(c). This gives mean 5/8 and covariance 180355072/1073741824=43/256, as predicted by the three modes. The supplied verification/verify.py was located and inspected, not executed; it checks examples and evaluates covariance via the eigenbasis, not an independent matrix exponential or a proof of exhaustiveness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erland–Greenwood's abstract develops sufficient conditions for finite-state reversible Markov chains to produce 1/ω^α noise, using covariance and spectral-density eigenrepresentations and state-value assignments.",
+          "Jensen's abstract accepts an arbitrary number of exchanging compartments, not arbitrary user-chosen positive weights at fixed mean."
+        ],
+        "reasoning": "Both are potentially broad frameworks. The inspectable statements do not furnish the inverse map with arbitrary weights, strict positivity and prescribed mean. In particular, a freely centered noise observable does not automatically remain positive after shifting by an arbitrarily small μ.",
+        "searches": [
+          "DOI:10.1103/PhysRevE.76.031114, OpenAlex W55225525 and NVA 11250/3227133",
+          "DOI:10.1002/mrm.29926, OpenAlex W4388670341 and PMC11027117"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.3573v1",
+        "arXiv:1411.5165v1",
+        "arXiv:1605.00106v1",
+        "DOI:10.1002/mrm.29926 (abstract)",
+        "DOI:10.1103/PhysRevE.76.031114 (abstract)",
+        "Local Resultary 4bb3a4c40dbd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jensen starts with a given exchange matrix; Miyaguchi–Akimoto–Yamamoto discuss a two-state fluctuating diffusivity with renewal sojourns.",
+          "Erland–Greenwood's abstract allows different state-value assignments for a given eigenvalue function, but does not identify an independent weighted binary CTMC construction or arbitrary realizable covariance weights."
+        ],
+        "reasoning": "Finite-exponential uniqueness transfers from covariance to kurtosis routinely. The substantive extra step is simultaneous exact amplitude and mean control under positivity, by allowing rare high-diffusivity states. None of the inspected actual statements establishes that step.",
+        "searches": [
+          "Jensen DOI:10.1002/mrm.29926 structured abstract",
+          "Erland–Greenwood DOI:10.1103/PhysRevE.76.031114 abstract",
+          "arXiv:1605.00106v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen realizability problem is equivalent, via twice differentiating t²α(t), to realizing each finite exponential covariance by a strictly positive stationary reversible Markov observable at prescribed mean.",
+          "Chubynsky–Slater connect diffusivity correlations and displacement non-Gaussianity; Uneyama et al. give the one-exponential diffusivity correlation and an integrated TAMSD fluctuation formula.",
+          "Jensen's abstract derives the forward multicomponent sum from the exchange matrix eigenvectors."
+        ],
+        "reasoning": "These are actual forward relations and special cases of related covariance constructions. They do not state that every list of relaxation rates and amplitudes is compatible with positivity at the same prescribed mean.",
+        "searches": [
+          "arXiv:1404.3573v1, around Eq. (7)",
+          "arXiv:1411.5165v1, Eqs. (48)–(56)",
+          "DOI:10.1002/mrm.29926"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-date indexed finding concerns a stationary symmetric two-state chain: cumulants 2, 4 and 8 at one time identify two positive diffusivities and the common switching rate, subject to an exact feasible-triple condition."
+        ],
+        "reasoning": "This is a different feasible set and data map. For example, symmetry alone bounds the two-state variance at fixed μ under strict positivity, whereas the frozen theorem allows any w>0 even with one active relaxation rate by using biased occupancies. No priority is inferred from the shared date, and a finite parameter table cannot certify this continuous realization space.",
+        "searches": [
+          "Local Resultary: SCOPE-20261026-4bb3a4c40dbd, single-time cumulant tomography"
+        ]
+      },
+      "rationale": "The distinct supported claim is the converse realization for every finite positive spectrum and arbitrary fixed positive mean, with strict positive diffusivities and an explicit finite-state bound. The variance identity, forward spectral form, and uniqueness of a finite exponential sum are not originality claims in isolation. The closest inspected literature has real forward and spectral-design overlap; the two strongest inaccessible full texts leave specific priority risks, not negative evidence.",
+      "residual_risks": [
+        "Jensen's full text could contain a stronger inverse construction not apparent in the abstract; the identified PMC route did not expose it.",
+        "Erland–Greenwood's full text was not accessible through the identified lawful routes. Its state-value construction may overlap more closely than the abstract permits determining.",
+        "A bounded search cannot rule out equivalent finite covariance constructions elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified forward overlap; inverse coverage beyond the abstract unresolved",
+          "evidence": "The abstract says the kurtosis terms are associated with eigenvectors of the exchange-rate matrix and establishes logarithmic convexity; it does not state arbitrary fixed-mean realizability.",
+          "identifier_or_url": "https://doi.org/10.1002/mrm.29926",
+          "material_read": "Structured abstract indexed by OpenAlex W4388670341; full text not obtained",
+          "method": "Bibliographic record and lawful Wiley/PMC accepted-version routes, the latter did not furnish readable full text",
+          "title": "Diffusional kurtosis time dependence and the water exchange rate for the multi-compartment Kärger model",
+          "trigger": "Same observable and arbitrary number of exchanging compartments"
+        },
+        {
+          "assessment": "Real spectral-design overlap; full construction not established from the abstract",
+          "evidence": "The abstract gives sufficient conditions using transition-matrix eigendecomposition and notes various ways to assign state values given the eigenvalue function, without specifying arbitrary positive covariance weights at a prescribed mean.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.76.031114",
+          "material_read": "Abstract indexed by OpenAlex W55225525; institutional record 11250/3227133 did not furnish full text",
+          "method": "Publisher and identified lawful institutional routes attempted; abstract inspection via exact DOI record",
+          "title": "Constructing 1/omega-alpha noise from reversible Markov chains",
+          "trigger": "Closest plausible inverse spectral design precedent"
+        },
+        {
+          "assessment": "Forward moment relation; not the inverse claim",
+          "evidence": "Relates correlations of step magnitudes to displacement non-Gaussianity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.3573v1",
+          "material_read": "p. 2 around Eq. (7), offsets 8800–11908",
+          "method": "Bounded OA primary PDF comparison",
+          "title": "Diffusing diffusivity: A model for anomalous and anomalous yet Brownian diffusion",
+          "trigger": "Forward relation between diffusivity correlation and non-Gaussianity"
+        },
+        {
+          "assessment": "Two-state forward covariance and TAMSD fluctuation, not arbitrary kurtosis mixtures",
+          "evidence": "The binary Markov covariance is single-exponential and is integrated for TAMSD relative standard deviation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.5165v1",
+          "material_read": "p. 9 Eqs. (48)–(56), offsets 45500–51685",
+          "method": "Bounded OA primary PDF comparison",
+          "title": "Fluctuation Analysis of Time-Averaged Mean-Square Displacement for Langevin Equation with Time-Dependent and Fluctuating Diffusivity",
+          "trigger": "Integral transforms of diffusivity autocorrelation and binary Markov model"
+        },
+        {
+          "assessment": "Different two-state renewal scope in the inspected statement",
+          "evidence": "Fast and slow states with power-law sojourns are used to study non-Gaussian propagation and aging.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.00106v1",
+          "material_read": "p. 1 abstract, offsets 0–4946",
+          "method": "Bounded OA primary PDF comparison",
+          "title": "Langevin equation with fluctuating diffusivity: a two-state model",
+          "trigger": "Two-state fluctuating diffusivity and non-Gaussian behavior"
+        },
+        {
+          "assessment": "Distinct same-date result; not a duplicate or broader implication",
+          "evidence": "Uses a symmetric two-state model and orders 2, 4 and 8 at one time, rather than the full normalized fourth-moment curve and arbitrary rate spectra.",
+          "identifier_or_url": "SCOPE-20261026-4bb3a4c40dbd",
+          "material_read": "Indexed finding and exact parameter regime",
+          "method": "Local Resultary search and statement-level comparison",
+          "title": "Single-time cumulant tomography of a symmetric two-state fluctuating diffusivity",
+          "trigger": "Positive switching diffusivity and exact identifiability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observable arises naturally when inferring switching diffusivity from displacement data; forward formulas alone leave open which spectra are physically feasible at a specified mean. The converse supplies an explicit positive realization even for arbitrarily large normalized weights, which a symmetric binary example cannot do. The simultaneous inverse classification and nonidentification distinguish which features of ideal kurtosis data can or cannot be inferred. The result does not claim minimal state counts, noisy-data identifiability, or full displacement-law realization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

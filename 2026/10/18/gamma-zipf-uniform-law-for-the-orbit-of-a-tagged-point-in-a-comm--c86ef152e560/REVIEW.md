@@ -1,11 +1,21 @@
-# Scientific review: tagged orbit of a weighted commuting pair
+# Independent mathematical audit
 
-**Correctness: PASS.** On each transitive component, a commuting pair is a transitive action of \(\mathbb Z^2\), and its Hermite-form subgroup is parametrized uniquely by horizontal period \(a\), height \(d\), and twist \(b\). Quotient automorphisms have order \(ad\), which gives exactly \((ad-1)!\) labeled actions and the exact pointed probability \(\theta Z_{n-ad}(\theta)/(nZ_n(\theta))\). The eta-product saddle-point coefficient asymptotic yields a uniform ratio for components of size \(O(\sqrt n)\); summing over heights and applying a Riemann approximation gives the proposed Gamma–Zipf density. Its integral sums to one, eliminating hidden escaping mass. Conditional twist is a discrete uniform grid and hence becomes independent uniform. The companion finite enumeration checks 162 exact pointed cases and 175 exact coefficient identities; finite computation is not asserted to prove the weak limit.
+## correctness
 
-**Originality: PASS, with priority qualification.** Abdesselam–Starr's 2025/2026 full text provides a CLT for the number of connected orbits, not the size/height/twist law of the tagged orbit. Abdesselam–Brunialti–Doan–Velie's complete 2023/2024 text already supplies the counting framework; the finite probability formula is not claimed novel in isolation. General random-permutation cycle-size limit theorems typically assume smooth or regularly varying cycle weights and do not recover independent integer torus height and twist. The same-objects comparison, general-cycle-weight comparison, related covers work, and overlapping published research records yielded no theorem implying the complete triple. An older general conditioned-assemblies theorem might imply the Gamma marginal, and independent priority assessment is still outstanding.
+PASS
 
-**Value: PASS.** The result answers a natural geometric question about the typical component of a random finite torus covering, beyond the previously studied count of all components. The sharp inverse-square distribution for the number of first-generator cycles is independent of the Ewens parameter; the continuous twist adds a third independent structural observable. The exact law and joint limit are not just an arbitrary moment or table lookup.
+A transitive Z²-action is uniquely specified by its stabilizer ⟨(a,0),(−b,d)⟩; its centralizer is the regular translation group of size ad. In the weighted labeled count for the tag, choosing the other ad−1 labels and multiplying by (ad−1)! transitive actions and (n−ad)!Z_{n−ad} for the complement cancels to (n−1)!Z_{n−ad}. Multiplying by θ and dividing by n!Z_n gives the per-triple formula. The Euler product follows from Σ_{j≥1}σ₁(j)z^j/j=−Σ_{r≥1}log(1−z^r). For h(t)=log Fθ(e^{−t}), the Riemann sum for x/(e^x−1) gives h′(t)=−β²/t²+Oθ(t⁻¹); the analogous integrable function x²e^x/(e^x−1)² gives h″(t)∼2β²/t³, and the third derivative is Oθ(t⁻⁴) on the contour by the nonnegative log coefficients. At t=β/√n the linear error and cubic remainder on |φ|≤t^{3/2}log(1/t) tend uniformly to zero. The first-harmonic geometric sum is comparable to φ²/[t(t²+φ²)] for |φ|≤π, so the complementary arc is negligible on the Gaussian scale. With the real eta estimate this yields the stated prefactor and uniform coefficient ratio on j≤M√n. For each d the a-grid has mesh d/√n and the twist count is a; the limiting mass density is θx e^{−βx}/d². The sum of its integrals is θζ(2)/β²=1, establishing tightness including at 0. On every fixed-d compact x-interval away from 0, a→∞ and the twist grid converges uniformly against continuous tests. This proves the three-way product limit on the stated space.
 
-Most relevant existing full texts: arXiv:2505.11469v3 (§§1.1–1.3 and main theorem), arXiv:2309.09407v3 (Theorem 1.1 and bijective construction). The earlier cycle-weight law arXiv:1102.4796 provides a comparison without addressing twisted commuting-pair components. Residual scientific limitations: no moving-parameter regime, no higher commuting tuples, no uniform error bound, and no independent priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the joint tagged Gamma–Zipf–uniform limit at every fixed θ>0. The orbit census and Euler product are prior, the exact tagged-size marginal is a direct instance of a prior general tagged-cycle identity, and the full finite marked law is an elementary extraction of the known census, as acknowledged in the record. Neither the related Gamma theorem nor the commuting-cover component-count results inspected establish the full marked limit.
+
+## value
+
+PASS
+
+The tagged orbit is the typical component seen from a point of the random action, complementary to a count of all components. The theorem resolves both its diverging size and the simultaneously tight, arithmetic number of σ-cycles; it also establishes independence of the continuum twist. In particular it identifies exactly which distributions change with θ, a feature neither a Gamma size marginal nor the total-count CLT can show.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

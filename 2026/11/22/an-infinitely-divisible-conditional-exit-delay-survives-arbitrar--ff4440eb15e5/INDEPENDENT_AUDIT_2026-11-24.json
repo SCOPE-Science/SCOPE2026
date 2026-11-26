@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:16:24.181002Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the replacement. The frozen metadata and proof intend i.i.d. regeneration, but the listed hypotheses say only a common failed-cycle law and independence of the next exploration, which do not themselves justify the geometric product of failed-cycle transforms. The replacement explicitly makes each fixed-law Brownian exploration and clock independent of the complete history preceding it, and proves the claim without i.i.d. returns. On the event of m failures and completed returns the elapsed time S_m and all prefix information are known. Testing the final success against that prefix gives the joint side-time transform as f_j(s) times the sum over m of E[exp(-s S_m); N>m]. Success has constant probability p, so N is geometric and the sum is finite, but its individual nonzero-s summands need not be powers. Testing arbitrary bounded functions gives independence of stopped prefix and successful exploration; the common factor cancels between normalized sides. The killed Dirichlet weights are proportional to sinh(b sqrt((r+s)/D)) and sinh(a sqrt((r+s)/D)); the ratio is the Laplace transform of the independent interval-(0,b) hitting time at b from a, conditioned to hit b first and exponentially tilted at r. This gives the convolution by uniqueness. The individual sinh-product factors are Bernoulli–exponential transforms with a summable expectation and positive variance; the Lévy sum is integrable against t by Tonelli and has strictly positive density on t>0. Differentiating the locally convergent log product yields the cumulants and strict complete monotonicity of the mean; the zeta sum and coth formula yield both endpoint limits. Symmetry exchanges or equates the target laws. No conditional completion-time moment difference is asserted when that difference is undefined. The frozen verify.py was inspected, not executed; its finite mixture tests are for the i.i.d. special case only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Tang–Li study two absorbing Brownian boundaries with linear trapping return, inactive absorption during returns, and explicitly recover the instantaneous-reset splitting probabilities. Their Section IV weights the sides without timing the full conditional law.",
+          "Newton–Vega Coso use stochastic orders of conditional exit laws and renewal-derived splitting probabilities to analyze responses; the inspected results do not give this convolution representation with timed returns.",
+          "Bressloff's public abstract explicitly includes multiple targets, finite return and refractory periods, and conditional means. The full original DOI:10.1103/PhysRevE.102.022115 was not accessible by the attempted routes."
+        ],
+        "reasoning": "Neither independent-of-return side probabilities nor conditional mean formulas give a law-level quotient at all Laplace arguments. An inaccessible source may prove more than its abstract; no noncoverage determination is made about it.",
+        "searches": [
+          "web: stochastic resetting noninstantaneous return multiple targets conditional splitting probability Brownian interval first passage return overhead joint Laplace renewal two targets conditional first passage location dependent return time",
+          "web: first passage search stochastic resetting returns joint Laplace transform splitting probabilities random refractory periods arbitrary position resetting conditional target arrival renewal Bressloff",
+          "arXiv:2611.23790 Section IV",
+          "arXiv:2611.01756 Proposition 2.1 and Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.09127",
+        "arXiv:1812.03009",
+        "Berkeley Technical Report 581",
+        "arXiv:2611.01756",
+        "arXiv:2611.23790v1",
+        "DOI:10.1103/PhysRevE.102.022115 (limited)",
+        "Resultary:1541ba943a11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dividing Pal et al.'s conditional instantaneous-reset transforms cancels the denominator and yields the no-return quotient with the Brownian Dirichlet factors. Pal–Prasad's inspected interval section includes conditional means.",
+          "A return process may have identical splitting probabilities and still change both time laws. Chen–Tang–Li's exact splitting results alone only cover s=0, not the independent distributional difference for s>0.",
+          "The repaired proof uses independence from the whole prefix at the successful attempt, rather than the product assumption. It establishes the law for return processes with correlated and non-identically distributed past-dependent overhead."
+        ],
+        "reasoning": "The published no-return ratio and the classical law identify the delay distribution, but the usual geometric formula does not mechanically handle the potentially nonrenewal prefix. The survival of the exact convolution in the enlarged setting requires the stopped-prefix factorization, not just an instantaneous-reset specialization.",
+        "searches": [
+          "arXiv:2502.09127 Eq. (4) and conditional normalization Eqs. (5)–(7)",
+          "arXiv:1812.03009 Section IV A Eq. (20)",
+          "arXiv:2611.23790 Section IV Eqs. (35)–(36)",
+          "Resultary:1541ba943a11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At r=0 the delay transform is the ratio of transforms of b^2 S_1/(2D) and a^2 S_1/(2D) in Pitman–Yor's convention. The positive-rate law is an exponential tilt of that ratio law; the classical Euler products give the termwise factors.",
+          "Resultary 1541ba943a11 has a Robin-reaction delay relative to a conditioned absorbing-endpoint hit, not the two conditional sides of resetting with past-dependent overhead."
+        ],
+        "reasoning": "The normalized sinh ratio and its product are not novel when expressed using the scaled classical S_1 laws. The Robin factorization is structurally close but its baseline, conditioning event and reaction mechanism do not produce the adaptive-reset relation.",
+        "searches": [
+          "web: Brownian interval conditional exit time convolution nearer farther endpoint hyperbolic sinh Bessel hitting time stochastic ordering independent delay selfdecomposable Kent Pitman Yor",
+          "Pitman–Yor Berkeley report 581 Eq. (2) and Eqs. (78)–(79)",
+          "Resultary: conditional exit independent spectral delay with Bernoulli–exponential law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact Resultary hit is the identical frozen record ff4440eb15e5. The distinct same-day analogue 1541ba943a11 gives a different spectral delay attached to Robin reaction.",
+          "Pitman–Yor provide the exact spectral ingredients for the delay law, while Pal et al. provide a formula for the instantaneous-reset quotient via normalization. Those are credited in the replacement."
+        ],
+        "reasoning": "The prior exact formulae and products cover those mathematical ingredients; no inspected table or theorem incorporates the full stopped history with this same factor for every admitted return mechanism.",
+        "searches": [
+          "Resultary: conditional exit delay regenerative return overhead and spectral conditional hitting",
+          "arXiv:2502.09127 Eqs. (4)–(7), (18)–(19)",
+          "Berkeley report 581 Eq. (2), Eqs. (78)–(79)"
+        ]
+      },
+      "rationale": "PASS for the repaired, specifically scoped full conditional-time convolution invariant under history-dependent return with fresh exploration. The no-overhead ratio follows from published conditional renewal currents and standard Dirichlet weights, and the positive infinitely divisible spectral delay law follows in substance from the classical hyperbolic laws. Neither is claimed as a new renewal formula or a new class of infinitely divisible distributions. The strongest inspected finite-return result identifies invariant splitting probabilities, not the entire independent-delay relation with arbitrary adapted, potentially dependent return durations. Related distributional factorization and return overhead works are distinguished below. The priority finding is evidence-bounded, with a significant inaccessible-source risk.",
+      "residual_risks": [
+        "Bressloff's full text remained unavailable; a more general marked renewal transform covering finite-return laws could reduce the original i.i.d. contribution still further. Equivalent full-history formulations may exist under sequential trial or restart terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact instantaneous-reset ingredients; no generalized history-dependent overhead conclusion in inspected claims",
+          "evidence": [
+            "Common renewal denominator in transformed currents and conditional normalization; interval example gives conditional means."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.09127",
+          "material_read": "Eqs. (4)–(7) pp. 2–3 and (18)–(19) p. 4; OA offsets near 11600, 14700 and 24950",
+          "method": "OA primary PDF passages",
+          "title": "Universal criterion for selective outcomes under stochastic resetting",
+          "trigger": "Same-model conditional renewal currents"
+        },
+        {
+          "assessment": "Classical law and product implication, not a resetting theorem",
+          "evidence": [
+            "S_t transform (lambda/sinh(lambda))^t and gamma-process Euler product."
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/581.pdf",
+          "material_read": "Eq. (2) p. 3; Eqs. (78)–(79) p. 21; offsets near 4300 and 47000",
+          "method": "OA primary PDF passages and scale/tilt comparison",
+          "title": "Infinitely divisible laws associated with hyperbolic functions",
+          "trigger": "Exact possible hyperbolic-law and spectral overlaps"
+        },
+        {
+          "assessment": "Exit orders and response; distinct from the claimed convolution with timed history-dependent returns",
+          "evidence": [
+            "Splitting renewal identity and implications comparing exit-side orders to reset response."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.01756",
+          "material_read": "Proposition 2.1 p. 2, Theorem 3.2 p. 4, Sections 9.2–9.3 p. 18",
+          "method": "OA primary PDF passages",
+          "title": "Stochastic Orders of the Exit Pair and the Monotone Response to Resetting",
+          "trigger": "Possible exact exit-side ordering coverage"
+        },
+        {
+          "assessment": "Prior conditional mean formulas in the inspected passage",
+          "evidence": [
+            "Interval exit-side mean under resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.03009",
+          "material_read": "Section IV A, Eq. (20)",
+          "method": "OA primary-source passage",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Same interval and conditioning model"
+        },
+        {
+          "assessment": "Preserves splitting probabilities under the specified returns; distinct timing conclusion",
+          "evidence": [
+            "Same two targets and inactive absorption during return; exact formula for splitting probability with a prescribed trapping return."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.23790v1",
+          "material_read": "Model introduction and Section IV, pp. 5–6, Eqs. (35)–(36), OA offset 36550",
+          "method": "OA primary PDF passages",
+          "title": "Finite-time stochastic resetting in bounded domains: competing targets, energetic cost, and optimal search strategies",
+          "trigger": "Closest inspected finite-return Brownian interval model"
+        },
+        {
+          "assessment": "Full-law comparison unresolved; no whole-document inference from the abstract",
+          "evidence": [
+            "Abstract derives splitting probabilities and conditional mean first-passage times including finite returns and refractory periods."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.102.022115",
+          "material_read": "Publisher/PubMed abstract and author's publication citation only",
+          "method": "Attempted publisher PDF direct and alternate route (403); checked author publication listing for identified copy",
+          "title": "Search processes with stochastic resetting and multiple targets",
+          "trigger": "Very relevant multi-target noninstantaneous-reset predecessor"
+        },
+        {
+          "assessment": "Different target/reaction factorization, not an implication about reset-return overhead",
+          "evidence": [
+            "Conditions on reaction before escape and compares a Robin capture time to an absorbing-endpoint hitting time."
+          ],
+          "identifier_or_url": "Resultary:1541ba943a11",
+          "material_read": "Finding and assumptions in published primary record",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Conditional Robin capture has an independent spectral reaction delay",
+          "trigger": "Same-day conditional convolution and Bernoulli–exponential spectral overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The replacement identifies an exact, protocol-independent distributional difference for competing targets while permitting physically meaningful dependent and history-adaptive returns. One can change both marginal timing laws, even eliminate their finite moments, without changing the convolution factor. That is a useful invariant and a stronger test of protocol models than invariant splitting or mean differences; the explicit spectral construction makes it evaluable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

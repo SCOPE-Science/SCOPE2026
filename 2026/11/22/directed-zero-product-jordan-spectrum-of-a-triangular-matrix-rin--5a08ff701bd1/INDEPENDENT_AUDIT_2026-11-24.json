@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:14.787301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–45",
+        "Frozen VERIFICATION.md, checker.py, verification_output.txt",
+        "Independent exact multiplication enumeration over the prime fields of orders 2, 3 and 5"
+      ],
+      "rationale": "For k=q−1, there are qk vertices of each nonzero-diagonal type A and B and k strictly upper-triangular nonzero vertices C. The product coordinates (ad,ae+bf,cf) give A_t→B_{−t}, B→A,C and C→A,C with its own loop deleted. Those arcs prove strong connectivity, also at q=2. Independent contrasts within A and B slope fibers are killed, and the contrast on C is acted on by −I. On fiber constants the B-slope contrasts map isomorphically, by k times slope reversal, to the A-slope contrasts, which are killed. Since the decomposition into contrasts and constants is direct over C, this gives q−1 length-two zero blocks and 2q(q−2) length-one zero blocks. The remaining uniform quotient has rows (0,k,0), (qk,0,k), (qk,0,k−1); its polynomial is the stated cubic, with P(0)=−qk² and P(−1)=1−q. To verify simplicity independently of the discriminant expansion, for q≥4 use P(−2)=q(k²−4)>0 and the signs at −∞, −1 and +∞ to separate three roots. For q=3, P(−2)=0 and P′(−2)=4, so there is a positive value just to the right of −2 and the two other roots are separated by −1. For q=2, z³−2z−2 and 3z²−2 have no common zero. The nonzero spectrum contributes q+1 to every power rank and the length-two zero chains contribute q−1 only to rank A. An independent replay by exact triple enumeration, polynomial and power-rank calculations for q=2,3,5 gave (rank A, rank A², rank A³)=(4,3,3),(6,4,4),(10,6,6). The supplied checker and saved q=2,3,4,5 output were inspected but not executed; q=4 output is recorded evidence only. The invariant decomposition, not any finite replay, proves the universal result.",
+      "residual_risks": [
+        "Neither Jordan multiplicities in the field characteristic nor adjacency with retained loops are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Masalkar et al. study Weyl eigenvalue bounds for the full M₂(F) under xy=0 OR yx=0.",
+          "Sherin's small-case displayed matrix is symmetric; the frozen directed graph is not even outdegree-regular.",
+          "Resultary …222dc729ddc8 deals with an additive bipartite unit/zero-divisor graph of products of finite fields, with real symmetric adjacency."
+        ],
+        "reasoning": "Neither the symmetric Weyl bounds nor the additive bipartite spectrum applies to this noncommutative, nonsymmetric zero-product matrix. Regular directed graph results do not apply either. The equitable partition gives a quotient spectrum but not the nilpotent chain lengths on its complementary subspace.",
+        "searches": [
+          "Resultary: compressed directed zero-divisor graph adjacency spectrum upper triangular matrix rings equitable partition weighted quotient Jordan",
+          "Masalkar et al., arXiv:2312.09934, abstract and graph definition; Sherin (2020), pp. 63–66"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md related work",
+        "Li–Tucci first-page abstract",
+        "Sherin pp. 63–66",
+        "Masalkar et al. arXiv:2312.09934 p. 1",
+        "Resultary …5a08ff701bd1 and …222dc729ddc8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 abstract supplies strong structural precedent, not inspectable invariant-subspace or Jordan calculations.",
+          "The frozen result computes a full rank map from one slope-contrast space into another whose image is killed; it also handles the loopless −1 contrast and simplicity of the isolated cubic roots."
+        ],
+        "reasoning": "Knowing the graph or its three-type quotient does not by itself settle its Jordan form: the distinction between zero multiplicity and chain length comes from the separate slope-contrast block. The proof uses standard decomposition techniques, but the inspected results do not give a stronger spectral theorem covering the directed invariant.",
+        "searches": [
+          "Li–Tucci DOI:10.1080/00927872.2012.706841 and first-page alternate PDF",
+          "Resultary: compressed directed zero-divisor graph adjacency spectrum upper triangular matrix rings equitable partition weighted quotient Jordan"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Tucci accessible first-page abstract reports a complete structural description for 2×2 upper triangular matrices over finite integral domains, including an edge formula; its indexed definition calls the graph directed.",
+          "Sherin (2020) p. 65 displays a symmetric 5×5 triangular-ring adjacency matrix."
+        ],
+        "reasoning": "Reversing all arcs merely transposes A and preserves Jordan form; symmetrizing the zero-product relation is not that equivalence, since symmetric adjacency has no length-two blocks. The structural coincidence with the 2013 paper is substantive even though no exact Jordan statement was in the accessible excerpt.",
+        "searches": [
+          "Primary literature: directed zero divisor graph triangular matrices finite field adjacency Jordan spectrum upper triangular Li Tucci graph eigenvalues directed UT2 rank Jordan nilpotent",
+          "Resultary: digraph upper triangular matrix ring UT2 finite fields directed zero-divisor complex Jordan form nilpotent blocks spectrum rank power"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit …5a08ff701bd1 is the same assigned record. The closest distinct indexed spectral hit examined was …222dc729ddc8.",
+          "Sherin Theorem 3.1 is a five-vertex eigenvalue list with a symmetric adjacency, not this directed invariant, even at q=2."
+        ],
+        "reasoning": "This is an all-order formula, not lookup of a single small digraph. The exact index hit is not independent evidence. One verified small directed characteristic polynomial is z²(z³−2z−2), which cannot be the spectrum of a real symmetric matrix.",
+        "searches": [
+          "Resultary: digraph upper triangular matrix ring UT2 finite fields directed zero-divisor complex Jordan form nilpotent blocks spectrum rank power",
+          "Primary literature: \"Zero Divisor Graphs of Upper Triangular Matrix Rings\" Li Tucci full text pdf spectrum \"Jordan\" finite field"
+        ]
+      },
+      "rationale": "The directed graph structure itself is established prior work. The supported distinct claim is the loopless adjacency's all-q complex Jordan decomposition, especially the length-two zero chains invisible to the cubic quotient. The closest accessible spectral comparisons are symmetric matrices for different graph conventions, and no inspected earlier theorem supplies the complete directed block counts or stabilized ranks.",
+      "residual_risks": [
+        "Full Li–Tucci text was not accessible; its same-family structural result is a material unresolved priority comparison.",
+        "The 2019 construction paper surfaced by search was not accessible in full; its indexed description concerns construction complexity, not an exact Jordan result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior graph structure; spectral extent unresolved",
+          "evidence": "Abstract explicitly claims a complete structural description for 2×2 matrices over finite integral domains and an exact edge formula.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2012.706841 ; https://userhome.brooklyn.cuny.edu/skingan/CombinatoricsSeminar/LiAihua.pdf",
+          "material_read": "Alternate first-page abstract, p. 1, offset 0–1118; indexed abstract definition",
+          "method": "Lawful alternate PDF and index; publisher/full text routes unavailable",
+          "title": "Zero Divisor Graphs of Upper Triangular Matrix Rings",
+          "trigger": "Same triangular-ring graph family and strongest structural prior"
+        },
+        {
+          "assessment": "Symmetric small-case adjacency, not directed Jordan",
+          "evidence": "Displayed 5×5 adjacency is symmetric and Theorem 3.1 lists eigenvalues, not directed zero Jordan chains.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.4011991",
+          "material_read": "Published PDF pp. 2, 4–5 (journal pp. 63, 65–66), offsets 2461, 7900, 9460",
+          "method": "Open full-PDF passage inspection",
+          "title": "Eigenvalue of Adjacent Matrix of Zero Divisor Graphs on Rings",
+          "trigger": "Possible spectrum for the order-two triangular ring"
+        },
+        {
+          "assessment": "Different graph and ring, eigenvalue bounds rather than Jordan",
+          "evidence": "Edge uses xy=0 or yx=0; bounds are for the full ring M₂(F).",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.09934",
+          "material_read": "Abstract and start of §1, PDF p. 1, offset 0–1680",
+          "method": "Open PDF passage",
+          "title": "On spectrum of the zero-divisor graph of matrix ring",
+          "trigger": "Broader noncommutative matrix-ring spectral search"
+        },
+        {
+          "assessment": "Different symmetric adjacency invariant",
+          "evidence": "Finite commutative reduced rings, units as vertices, and edges defined through addition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-adjacency-spectrum-of-the-bipartite-zero-divisor-unit-g--222dc729ddc8/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0–2300",
+          "method": "Local mirror",
+          "title": "Complete adjacency spectrum of the bipartite zero-divisor–unit graph of finite reduced rings",
+          "trigger": "Closest distinct local catalogue spectral hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and invariant decomposition",
+        "Li–Tucci structural precedent; Sherin small symmetric comparison"
+      ],
+      "rationale": "This gives a complete invariant of a standard directed ring graph, not just a quotient spectrum or a small-order table. Despite quadratic vertex count and strong connectivity, the adjacency has linear rank, a quantified nonsemisimple part, and stabilization of rank at its second power. Knowing only the polynomial would miss that behavior. The formulas resolve such questions uniformly, including nonprime finite fields.",
+      "residual_risks": [
+        "The conclusion is for the canonical two-by-two triangular ring family, not a general structural theorem for larger triangular matrix rings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

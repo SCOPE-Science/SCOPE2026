@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:04:40.234033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md lines 7–92, verification/verify.py and VERIFICATION.md (inspected, not executed)",
+        "checks/kaczmarz.py"
+      ],
+      "rationale": "Grouping the scalar unit-row projections by measurement value gives P_ij=n_j exp(-η|v_i-v_j|)/Z_i. The symmetric conductances n_i n_j exp(-η|v_i-v_j|) have degrees n_i Z_i, including the self-loop weight n_i^2; after normalization these give detailed balance and the exact unique invariant law. Taking η→∞ gives squared multiplicities, with sharp corruption bounds because k ≤ sum k_j^2 ≤ k^2, and stationary squared error strictly positive. At a clean start the escape probability is the same on each survival step, with leading coefficient k_*/g from all nearest bad levels; the ordinary geometric law gives the claimed scaling. The ordered exponential kernel is positive definite: a Gaussian Markov recursion with successive correlations exp(-ηd_i) has this kernel and independent innovations of positive variance. For the spectral gap, the two-block Rayleigh test has scaled energy tending to the unique adjacent cross-edge contribution, and its variance tends to M_L M_R(A-B)^2/(M_L+M_R)^2. Conversely centered unit-variance minimizers are uniformly bounded and their scaled energies are bounded by the test; every internal adjacent coefficient tends to infinity after scaling, forcing each subsequential limit to be constant on each side. The one surviving cross-edge gives the matching lower bound n_a n_(a+1)(1/M_L+1/M_R). The two-state recurrence gives the claimed transient and joint limit. Replay python3 -B /workspace/checks/kaczmarz.py: direct rational row-level two-value iterates agree exactly; a separate calculation from the principal minors of I-P gives scaled gaps 0.617647095607356 and 2.450000000000000 at η=18 for two distinct three-level examples, versus limits 21/34 and 2.45. The proof, not the numerical diagnostics, gives the asymptotic.",
+      "residual_risks": [
+        "The theorem fixes levels and multiplicities as η grows; the two-block coefficient assumes a unique longest gap. Adaptive weights and nonscalar systems are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary capped-link weighted-path summary states the severe-bottleneck optimum U(1/M_L+1/M_R)+O(U^2) for fixed positive node masses. This shares exactly the two-mass structure and should be credited.",
+          "The target path after reduction is not optimized; it has prescribed conductances depending on η, and interior conductances and the bottleneck all tend to zero, at different rates."
+        ],
+        "reasoning": "An optimum in the capped class gives an upper comparison but does not by itself force a matching gap for a prescribed family of paths. The lower bound here follows from divergence of the ratios internal/crossing conductance; inspecting the cap summary did not establish a theorem directly covering this whole family. Standard variational theory supplies the method, not the Kaczmarz statement.",
+        "searches": [
+          "Resultary:708685d27d1e weighted-path capped-link bottleneck",
+          "arXiv:1809.01903 reversible chains and conductance; arXiv:2611.03889v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.03889v1 and 2308.07987v1 (bounded excerpts)",
+        "arXiv:1809.01903 (search description)",
+        "Resultary:708685d27d1e, 2639ecb81dd1, 2de8a4971907, dd454724b0aa (target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen reports one-step bounds and geometric convergence conditions for threshold weighting; the nearest direct prior GWRK work does contain this user-defined sampling framework.",
+          "Haddock–Ma–Rebrova explicitly approximate a quantile threshold from a subsampled residual. The cap-law catalog result reproduces the shape of the spectral coefficient, while the quantile catalog result shares the rare-corruption clock idea."
+        ],
+        "reasoning": "Credit the threshold, prior clock and spectral parallels. An algorithm definition and one-step mean-square controls do not imply the simultaneous invariant bias and sharp mixing/escape laws. The gathered comparisons do not show that a single earlier theorem covers this model-specific result; remaining overlap risk lies primarily in detailed kernel-gap theory and uninspected portions of the closest works.",
+        "searches": [
+          "Chen arXiv:2611.03889v1 p. 1; Haddock–Ma–Rebrova arXiv:2308.07987v1 p. 1; Resultary 2639ecb81dd1, 708685d27d1e, 2de8a4971907"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al., p. 1, define the general residual sampler with weights proportional to a user-defined function; their abstract expressly distinguishes adaptive median/MAD exponential variants.",
+          "Grouping rows gives an ordinary reversible weighted complete graph with loop weights n_i^2, so the invariant law is a weighted-degree application. The adjacent-path energy is asymptotically equivalent: telescope a longer-edge difference over its adjacent path and bound its weight relative to each of those edges by a constant times exp(-η min d_i)."
+        ],
+        "reasoning": "The graph and path reductions explain the scope of possible prior coverage. Degree stationarity itself is covered by standard theory. Median/MAD adaptation does not in general use the fixed symmetric kernel; it cannot be substituted for that kernel.",
+        "searches": [
+          "Resultary: fixed exponential residual-weighted Kaczmarz square multiplicity stationary law unique largest gap reversible bottleneck",
+          "Chen et al. arXiv:2611.03889v1; reversible Dirichlet forms arXiv:1809.01903"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dd454724b0aa is the assigned target, not a separate antecedent.",
+          "2639ecb81dd1 treats exact two-state sampled-quantile transitions with hypergeometric corruption probabilities; same-day 2de8a4971907 treats a scalar quantile noise floor and sign persistence in a cached-observation model."
+        ],
+        "reasoning": "This is a parametric theorem, not a lookup of a finite table, but exact transition/clock results are still material comparison. The stated quantile formulas use distinct kernels; their finite two-state propositions do not give the arbitrary-fixed-level exponential formulas.",
+        "searches": [
+          "Resultary: exact square-multiplicity bias, scalar corrupt measurement, sharp exponential relaxation, two-state Kaczmarz"
+        ]
+      },
+      "rationale": "Credit existing generalized residual-weighted sampling, the weighted-degree stationary identity and the standard two-mass bottleneck coefficient structure. The supported contribution is the joint fixed-exponential scalar corruption analysis: squared-multiplicity bias and sharp corruption bounds, nearest-level first-error clock, and matching sharp relaxation law in this concrete dense kernel where other conductances vanish too. This is not a new general reversibility principle or universal weak-link formula.",
+      "residual_risks": [
+        "The relevant full sections of Chen et al. and the capped-path record were not retrieved in targeted attempts; the review does not exclude exact higher-coverage results in those sections or in unindexed kernel-bottleneck literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior generalized algorithm and one-step/threshold results; no whole-paper exclusion",
+          "evidence": [
+            "The abstract states weights proportional to residual-magnitude functions, one-step bounds separating clean and corrupted progress, and exponential weights scaled by median or median absolute deviation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03889v1",
+          "material_read": "p. 1 abstract (extracted lines 10–24); Algorithm 2 and Theorem 3 located by frozen citations, not independently retrieved in full",
+          "method": "Primary lookup, targeted OA attempts and arXiv PDF excerpt",
+          "title": "Weighted Randomized Kaczmarz for Sparsely Corrupted Linear Systems",
+          "trigger": "Same weighted selection framework and exponential variants"
+        },
+        {
+          "assessment": "Different selection mechanism",
+          "evidence": [
+            "Uses subsampled residuals to approximate a quantile threshold and analyzes convergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07987v1",
+          "material_read": "v1 p. 1 abstract (extract lines 15–26)",
+          "method": "Primary lookup and arXiv PDF excerpt",
+          "title": "On Subsampled Quantile Randomized Kaczmarz",
+          "trigger": "Corruption robust selection and subsampling"
+        },
+        {
+          "assessment": "Real potential spectral overlap; optimization under a cap is not the claimed prescribed η-dependent kernel",
+          "evidence": [
+            "Summary states an optimal severe-cap formula with leading factor U(1/M_L+1/M_R) and O(U^2) remainder."
+          ],
+          "identifier_or_url": "Resultary:708685d27d1e",
+          "material_read": "Catalog summary; targeted full record retrieval not successful",
+          "method": "Resultary semantic search; direct comparison of the variational problems",
+          "title": "A sharp single-cap phase law for fastest reversible mixing on weighted paths",
+          "trigger": "Exact same two-mass bottleneck coefficient shape"
+        },
+        {
+          "assessment": "Shared qualitative themes, different sampling mechanisms and outputs",
+          "evidence": [
+            "First summary identifies hypergeometric order-statistic transitions and a rare-update horizon; second identifies cached-observation query noise, positive error floor and sign persistence."
+          ],
+          "identifier_or_url": "Resultary:2639ecb81dd1; Resultary:2de8a4971907",
+          "material_read": "Catalog summaries; not full matching records",
+          "method": "Resultary semantic search",
+          "title": "Exact two-state dynamics and a sharp rare-corruption horizon for small-sample quantile Kaczmarz; Exact noise-selection floor and exponential sign persistence in quantile-averaged scalar Kaczmarz",
+          "trigger": "Exact scalar corruption dynamics and related same-day report"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md lines 30–85, 94–100"
+      ],
+      "rationale": "The example is a natural stress test of a residual-downweighting method on inconsistent measurements. It gives three distinct, exact diagnostics: the geometry of repeated bad values determines limiting bias, the nearest bad level controls the first corruption, and the longest adjacent gap controls global relaxation. A sharp, fixed-prefactor limit distinguishes relaxation from merely a conductance order estimate, and the two-level transient clarifies why apparently accurate short runs do not disprove persistent stationary error. The claims do not generalize this caution to all weighted Kaczmarz algorithms.",
+      "residual_risks": [
+        "Scalar calibration, not a full-matrix convergence result or a performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

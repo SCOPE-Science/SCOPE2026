@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:23:31.609977Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each factor is uniquely specified by its ordered domain and image. For the prescribed composite, I=im(f)∩dom(g) is in order-preserving correspondence with both A and D. Extra source/image entries of f and extra domain/output entries of g must have matching counts in their respective gaps. Extra intermediate entries for the two factors must be disjoint; disjointness also suffices, because the only points surviving both maps are then the t points matched through I. The four binomial factors count the choices without duplication. As an independent check, choose instead the full intermediate union of size r+s−t, and mark its sorted elements as survivor, f-only or g-only. With u_j and v_j extras in gap j, there are binom(u_j+v_j,u_j) local words; the survivor separators then determine I. This independently yields binom(n,r+s−t) times the coefficient of the product of gap polynomials with coefficients binom(a_j,u_j) binom(d_j,v_j) binom(u_j+v_j,u_j). It confirms both the empty target and the two impossible-rank bounds. With two rank-(n−1) factors, equal intermediate holes give rank n−1 and n choices; different holes give rank n−2 and four ordered choices of one outer hole on each side. Each pair of choices fixes two insertion slots, u or v−1 on the source side and a or b−1 on the target side; equal slots permit both intermediate orders, otherwise just one. The multiset dot product is therefore 0,1,2,4. Ordered pairs contributing 1 use three distinct indices with one common index, giving N(N−1)(N−2); contributing 2 are identical simple multisets or repeated/simple pairs sharing an index, giving 5N(N−1)/2; contributing 4 are N matched repeated multisets. Subtract from binom(n,2)^2 for class 4. This accounts for the n=2 and n=3 degeneracies and rules out 7. Independent direct compositions for n=1 through 5 agree with the union formula on every target and pair of ranks, including zeros (63,504 products and 9,072 target/rank checks at n=5; replay python3 /workspace/reproductions/2.py, output 2.txt). The universal proof is the bijection, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1110b14cea6d gives products uniform within rank in the full symmetric inverse monoid. 849553a20428 treats aggregate ranks of order-preserving partial isometries. Laradji–Umar's abstract concerns one-map lattice-path correspondences for order-preserving partial transformations."
+        ],
+        "reasoning": "Uniformity for all partial bijections does not persist on restricting to increasing maps: even at fixed rank the prescribed fibers take unequal values. Aggregate ranks and one-map counts do not resolve their dependence on source and image gaps.",
+        "searches": [
+          "Resultary: rank-uniform convolution in the symmetric inverse monoid; product-rank law of finite-chain partial translations",
+          "arXiv:1304.7574, lattice paths and order-preserving partial transformations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:1110b14cea6d",
+        "Resultary:849553a20428",
+        "Resultary:b068f89f1b6f",
+        "Resultary:4866f1ecdc09",
+        "Lopez (2019), DIMENSIONS pp. 104–105",
+        "arXiv:1304.7574",
+        "doi:10.1007/s002330010056 (limited access)",
+        "doi:10.1007/s00233-002-0006-4 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hypergeometric aggregate is obtained by counting intersections of an intermediate r-set and s-set. In contrast, two rank-(n−2) targets with the same rank can have sizes 4 and 8 (already at n=3), as independently checked."
+        ],
+        "reasoning": "An intersection-size law or matching intermediate deletion criterion discards precisely the order-insertion information that distinguishes the prescribed targets. Neither by itself supplies the gap polynomial or the multiplicity classification.",
+        "searches": [
+          "Compare Lopez pp. 104–105 and 1110b14cea6d §Finding with fixed endpoints A,D and corank-one hole spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lopez gives, in the same monoid and array notation, the rank-(n−1) retention condition im(f)=dom(g), and the rank drop when these intermediate sets differ. Springer retrieval for the other same-object sources did not provide full text."
+        ],
+        "reasoning": "Rank retention mechanically gives the n count once the target is prescribed. The drop criterion does not count fibers at rank n−2; these depend on the two outer missing pairs through a multiset slot overlap.",
+        "searches": [
+          "Resultary: prescribed target, ordered rook/partial-injection monoid, product gap and near-unit hole counts",
+          "Lopez (2019), DIMENSIONS pp. 104–105, Remark 1",
+          "Fernandes DOI 10.1007/s002330010056; Ganyushkin–Mazorchuk DOI 10.1007/s00233-002-0006-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact lexical match 07ccfcfc5438 is the assigned record itself. A distinct same-day result b068f89f1b6f gives Jones diagram monoid rank-(n−4) fiber strata 1,2,3,4,5,6,8 for factors of rank n−2; the Brauer record 4866f1ecdc09 concerns another diagram monoid."
+        ],
+        "reasoning": "The common excluded number 7 does not identify the target statistics. Jones uses caps/cups and different ranks; the two-hole multiset of this finding counts compositions of increasing injective maps, with no specified reduction from those tables. The date is not used as priority evidence.",
+        "searches": [
+          "Resultary: near-unit prescribed-fiber spectra and missing 7; 07ccfcfc5438; b068f89f1b6f; 4866f1ecdc09"
+        ]
+      },
+      "rationale": "The supported contribution is the target-specific two-factor structure constants for increasing partial injections and the full corank-one fiber spectrum and multiplicities. The rank criterion and the aggregate law are elementary/antecedent; they are not the basis for this pass. Same-object historical full-text gaps are retained as risks, not negative evidence.",
+      "residual_risks": [
+        "The two historic Springer full texts were not independently obtained; older factorization or partial-rook algebra results could overlap.",
+        "Terminology for prescribed product structure constants varies, so the bounded comparisons do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the elementary near-unit rank criterion; no target spectrum in those passages",
+          "evidence": [
+            "rank n−1 iff Rng(alpha)=Dom(beta) for rank-(n−1) inputs."
+          ],
+          "identifier_or_url": "https://www.fullerton.edu/nsmssc/_resources/pdfs/2019_dimensions.pdf",
+          "material_read": "Article abstract around PDF offset 324385; pp. 104–105, Remark 1 and rank-drop discussion around 339700",
+          "method": "Read the open publisher PDF at the relevant theorem/remark",
+          "title": "Economical Generating Sets of the Monoid of Partial Order-preserving Injections",
+          "trigger": "Same monoid, near-unit product condition"
+        },
+        {
+          "assessment": "One-map lattice-path counts; not evidence of prescribed two-factor coverage",
+          "evidence": [
+            "The objects include subsemigroups of order-preserving partial transformations, not just injective maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.7574",
+          "material_read": "p. 1 abstract",
+          "method": "Targeted OA source comparison",
+          "title": "Lattice Paths and Order-preserving Partial Transformations",
+          "trigger": "Order-preserving enumeration through lattice paths"
+        },
+        {
+          "assessment": "Different allowed factors; rank-uniform target law does not transfer",
+          "evidence": [
+            "Under full symmetric inverse-monoid sampling, the probability of a prescribed partial bijection depends only on its rank."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rank-uniform-convolution-and-coupon-collector-collapse-in-the-sy--1110b14cea6d/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Read matched original statement and compare the sampled monoid",
+          "title": "Rank-uniform convolution and coupon-collector collapse in the symmetric inverse monoid",
+          "trigger": "Potential stronger multiplication formula for all partial bijections"
+        },
+        {
+          "assessment": "Different diagram factors, ranks, and cap/cup data",
+          "evidence": [
+            "First singular Jones strata are 1,2,3,4,5,6,8 for rank-(n−4) targets and rank-(n−2) factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-seven-multiplication-fiber-strata-at-the-first-singular-jones-ra--b068f89f1b6f/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Read the relevant matched statement",
+          "title": "Seven multiplication-fiber strata at the first singular Jones rank",
+          "trigger": "Close symbolic fiber spectrum with the same missing 7"
+        },
+        {
+          "assessment": "Possible older equivalent count remains unresolved",
+          "evidence": [
+            "The frozen review's claims about these papers were not adopted as independent full-text evidence."
+          ],
+          "identifier_or_url": "doi:10.1007/s002330010056; doi:10.1007/s00233-002-0006-4",
+          "material_read": "Bibliographic scope, no independently retrieved full text",
+          "method": "Lawful OA DOI/Springer checks did not yield readable full text",
+          "title": "The Monoid of All Injective Order Preserving Partial Transformations on a Finite Chain; On the structure of IOn",
+          "trigger": "Historic same-object structural works"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These counts refine rank-aggregate convolution by distinguishing actual maps in a natural finite inverse monoid. The order-sensitive gap invariant handles every target and rank pair, while the natural first nontrivial rank drop exhibits a complete spectrum and target census rather than a few small examples. This gives usable product statistics that knowing only rank or ideal structure cannot provide.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

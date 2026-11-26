@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:33:40.051728Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 44–102; VERIFICATION.md lines 19–25; check.py lines 18–113 (inspected, not executed)",
+        "Penrose–Sudbury, arXiv:math/0503519, Theorem 11",
+        "/workspace/review_replay.py, wheel(), independently run"
+      ],
+      "rationale": "The first attempted vertex decides the hub event. Conditional on a rim first vertex, the relative rim order is still uniform, and the first acceptance leaves a path on n-3 sites. The path generating-function recurrence differentiates to the stated moment equations. At x=1 the second factorial moment has leading n^2 coefficient c^2, canceled in the variance by the squared mean; the remaining linear coefficient is e^(-4). This and the verified terminal path CLT transfer to the cycle, and the total-variation difference at most 1/(n+1) transfers the weak limit but not second moments. For the fourth moment, truncating at radius L=ceil(6 log(n+1)) fails only along a strictly decreasing priority chain; a union bound makes the probability of any mismatch superpolynomially small. The only nonvanishing fourth-moment terms have two pairs or one connected four-index dependency cluster (counting repetitions as dependent), giving O(n^2 L^2+n L^3). This implies the required o(1/n) baseline tail and o(n^2) third central moment. Conditioning gives the exact third-moment mixture formula, whose cubic term dominates with negative sign. Independent exhaustive permutations for an eight-site rim gave probabilities 1/9, 64/135, 56/135 for wheel counts 1, 3, 4 and exactly verified the cubic identity there.",
+      "residual_risks": [
+        "Finite permutation calculations do not certify any limit. The rigorous limit uses the path CLT and the fourth-moment control separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2c176161a13b works with any fixed positive hub clock rate and also studies a gear attachment. Penrose–Sudbury give the terminal path CLT with variance e^(-4) per vertex. Krapivsky derives a path log moment generating function per site with a differentiable limit at zero and explicit extensive third and fourth cumulants."
+        ],
+        "reasoning": "The baseline results apply to the exact path remaining on a cycle after first acceptance. Their use does not require a bounded-degree CLT on the wheel itself. In particular the published baseline control is stronger than the frozen fourth-moment bound needed for the wheel tail and third moment.",
+        "searches": [
+          "Resultary 2c176161a13b, Finding and Wheel coupling",
+          "arXiv:math/0503519, Theorem 11",
+          "arXiv:2009.08609, Eqs. (31)–(41)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c176161a13b, aa4a26f8b875 and 2dd1f414a75b",
+        "arXiv:math/0503519",
+        "arXiv:2009.08609",
+        "arXiv:1907.07216v6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The preceding wheel result states both the hub-first mixture and the path of length n-3 for the unchanged rim. The prior path cumulant theorem gives path third moment O(n), and fourth cumulant O(n) with variance O(n), hence fourth central moment O(n^2)."
+        ],
+        "reasoning": "Apply Markov's inequality to the prior fourth central moment: the ordinary cycle contributes O(n^-2) to the fixed sub-mean tail, leaving q_n asymptotically. The prior O(n) third moment is negligible in the cubic mixture identity against q_n (cn)^3, which fixes the skewness coefficient. Total variation at most q_n gives the Gaussian weak limit from the earlier path CLT; the variance difference is already explicit. These direct deductions account for the stronger-looking wheel consequences without a new probabilistic input.",
+        "searches": [
+          "2c176161a13b, Baseline cycle and Wheel coupling",
+          "arXiv:2009.08609, Section III Eqs. (31)–(41)",
+          "arXiv:math/0503519, Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier wheel result uses exponential attempts and an even rim of 2m sites. At hub rate lambda=1 the iid continuous clock order is identical in law to the frozen priority order."
+        ],
+        "reasoning": "The whole dependence on attempt times in this unweighted model is their order. With N=2m, the earlier q=lambda/(2m+lambda) becomes 1/(N+1). Neither the earliest-clock argument nor the removal of the first rim vertex and its two neighbors uses parity. Extending those calculations to odd rims is not a distinct mechanism.",
+        "searches": [
+          "Resultary 2c176161a13b, adsorption hub and variance inflation",
+          "arXiv:math/0503519, blocking RSA on a finite path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c176161a13b gives the exact distributional mixture and variance identity, not just finite graph data. The same-date aa4a26f8b875 studies a different graph family; the later 2dd1f414a75b explicitly includes the wheel as one hub of a clique-joined cycle."
+        ],
+        "reasoning": "The decisive earlier coverage is formula-level. No priority inference is made from the same-day complementary bipartite-graph record, and the later clique-join result is not counted as earlier coverage.",
+        "searches": [
+          "Resultary wheel and rare-hub law matches: 2c176161a13b, aa4a26f8b875, 2dd1f414a75b"
+        ]
+      },
+      "rationale": "Earlier indexed work gives the same exact hub/cycle mixture and extensive variance inflation on even rims, for more general hub rates. Its wheel and cycle reductions are parity-free and give the all-size mixture verbatim; prior path CLT and cumulant asymptotics then give the weak limit, the sharp tail and the skewness by direct conditioning. These last two formulas are not asserted to be printed in the earlier wheel record; the rejection rests on their implication from the exact prior law and suitable known baseline results, not on a title match.",
+      "residual_risks": [
+        "No claim of exhaustive historical priority. The assessed overlap is an exact earlier wheel law plus explicit mathematical implications; not all frozen corollaries were found verbatim in earlier text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same mechanism and exact wheel law on even rims, with variable hub rate; straightforward parity-free extension",
+          "evidence": "A hub-first event of probability lambda/(2m+lambda) changes the count to 1 independently of the rim law; the displayed exact variance identity is the frozen one for lambda=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-opposite-mean-shifts-and-extensive-extra-fluctuations-from-an-ad--2c176161a13b/RESULT.md",
+          "material_read": "Finding, assumptions, Baseline cycle and Wheel coupling, offsets 0–4221",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Opposite mean shifts and extensive extra fluctuations from an adsorption hub",
+          "trigger": "Exact earlier wheel mixture and variance law"
+        },
+        {
+          "assessment": "Direct baseline theorem, not a wheel variance theorem",
+          "evidence": "The path variance coefficient at blocking time t is t exp(-4t); the terminal case t=1 supplies the frozen CLT variance.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "Theorem 11, p. 14, text offset 38931",
+          "method": "Primary OA PDF text inspection",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Published path CLT and variance coefficient"
+        },
+        {
+          "assessment": "Stronger baseline moment input than needed for the wheel corollaries",
+          "evidence": "The pole formula gives the log generating function per site and Eq. (41) lists linear third and fourth cumulants. Together with the explicit variance this gives the required ordinary path central-moment bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.08609",
+          "material_read": "Eqs. (31)–(41), pp. 4–5, text offsets 25940–35236",
+          "method": "Primary OA PDF text inspection",
+          "title": "Large Deviations in One-Dimensional Random Sequential Adsorption",
+          "trigger": "Can prior path cumulants and concentration imply the rare tail and skewness?"
+        },
+        {
+          "assessment": "Density and growth-condition concentration background, not the exact wheel result in those passages",
+          "evidence": "The inspected conclusions are normalized densities or concentration under growth hypotheses, not wheel rare-event moments.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216v6",
+          "material_read": "Path/cycle density passage p. 6 offset 22900 and concentration passage p. 10 offset 36032",
+          "method": "Primary OA PDF text inspection",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Greedy path and cycle asymptotics and transfer"
+        },
+        {
+          "assessment": "Direct overlap, but later catalogue date and not required for the decision",
+          "evidence": "Its one-hub specialization gives the same law, Gaussian weak limit and greater limiting variance.",
+          "identifier_or_url": "2026/11/8/SCOPE-rare-hub-variance-inflation-in-random-greedy-adsorption-on-cliqu--2dd1f414a75b",
+          "material_read": "Finding and proof, offsets 0–10117",
+          "method": "Resultary local mirror",
+          "title": "Rare hub variance inflation in random greedy adsorption on clique-joined cycles",
+          "trigger": "Direct wheel weak-limit and variance comparison in a larger family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 2c176161a13b",
+        "arXiv:2009.08609, Eq. (41)"
+      ],
+      "rationale": "The wheel is a natural example and the failure of moment transfer is useful. As a distinct advance, however, the frozen findings restate the prior rare-hub variance mechanism, and the sharper formulas are immediate once the existing exact mixture is combined with the published path cumulants. The bounded remainder and extension to odd rims do not address a further scientific gap.",
+      "residual_risks": [
+        "This judgment does not diminish the value of the original wheel mechanism, or of a genuinely separate classification of when such rare-event effects arise."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

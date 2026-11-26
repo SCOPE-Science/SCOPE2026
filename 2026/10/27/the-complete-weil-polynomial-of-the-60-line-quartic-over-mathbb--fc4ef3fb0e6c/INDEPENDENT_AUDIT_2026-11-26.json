@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:05:30.747602Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I checked the geometry and recovered the arithmetic independently with python3 /workspace/audit_quartic.py. Smoothness can also be checked directly: on e1=0 the constrained partials agree only if all xi solve z^3+e2 z=constant, because the e2-square term has zero derivative. With two distinct values, the value of odd multiplicity is zero, and the patterns (4,1) and (2,3) fail the surface equation. With three distinct values a,b,c, their sum is zero and ab+ac+bc=e2; for multiplicities (3,1,1) this forces a=0 for the triple value, hence b=c, and for (2,2,1) the singleton is zero by e1=0 and the pair values again coincide. One value would give only the zero vector. Thus it is a smooth quartic K3. In a separate F4-to-F16 quadratic-tower implementation I enumerated normalized projective points, finding (20,554), and found all 60 F16-lines from pairs of these points (five distinct zeros force the binary quartic restriction to vanish). Their F4-Frobenius permutes them in 30 transpositions. Direct intersections and exact rational ranks give rank G=20 and rank G(I+P)=rank G(I-P)=10. The published rank-20 span gives the upper bound, and the intersection pairing identifies the two ranks with the two eigenspace dimensions. The two actions on untwisted H2 are therefore +4 and -4 with multiplicity ten each; inverting the permutation for geometric Frobenius has no effect. The 22-dimensional K3 trace formula then gives remaining traces 3 and -23 for F and F squared. Newton's identity gives product 16, hence residual factor X^2-3X+16 and discriminant -55. The H0 and H4 factors complete the stated zeta function in all extensions. No claim is made about other twists or the line complement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometry papers study the S5-symmetric family, line configurations, and bounds on the number of lines. Rams–Schütt give a characteristic-zero lift and the geometric rank-20 span.",
+          "None of the inspected results computes the marked reduction's two missing Frobenius traces or specifies its complete zeta function."
+        ],
+        "reasoning": "A geometric classification does not include this arithmetic invariant as a specialization; base-field descent and the action on the residual cohomology are additional data.",
+        "searches": [
+          "arXiv:1512.01358 §8",
+          "arXiv:1604.05836 §8.3",
+          "arXiv:1606.02135 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published index and complement record db6c8d91319c",
+        "arXiv:1512.01358",
+        "arXiv:1604.05836",
+        "arXiv:1606.02135"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior line equations permit a new calculation of the Frobenius eigenspaces but do not state their multiplicities. The geometric lattice discriminant -55 coincides with the residual quadratic discriminant, but does not determine the signed trace on the marked F4-model.",
+          "The complement record does explicitly give the arithmetic result, but as previously determined context, with its own finding restricted to the boundary and complement."
+        ],
+        "reasoning": "The earlier geometry plus the trace formula does not supply the rational-point traces without the actual finite-field evaluations; the line classes control only 20 of 22 dimensions. This pass does not claim originality for the geometric ingredients, nor treat the reproduced zeta as a different formula.",
+        "searches": [
+          "arXiv:1512.01358 §8, exact line equations, Néron–Severi lattice and paragraph on the lift",
+          "arXiv:1604.05836 Remark 8.10",
+          "Resultary complement record, RESULT.md offsets 0 and 4200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rams–Schütt use the same symmetric equation and the same marked mu. Degtyarev describes a nonsingular F4 reduction with the same 60-line geometry, not its arithmetic Frobenius.",
+          "The later complement record writes the surface factor as (1-16T^2)^10, exactly equal to (1-4T)^10(1+4T)^10. It also reproduces both point counts and the residual quadratic."
+        ],
+        "reasoning": "A factorization change is no scientific difference, so this is an exact arithmetic overlap, not merely a coincident line count. The later record disclaims that arithmetic as its contribution. No inspected equivalent equation or correspondence independently giving the earlier result was located.",
+        "searches": [
+          "Resultary: exact 60-line S5 quartic, F4 Weil polynomial, point counts, zeta and line complement",
+          "arXiv:1512.01358 §8",
+          "arXiv:1604.05836 Remark 8.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary record dated 2026-11-08 has the precise ambient zeta and both point counts. Its RESULT.md calls them 'prior arithmetic context, not part of the newly assessed contribution'; the new result treats the crossings and the line complement."
+        ],
+        "reasoning": "The overlap is exact and must be credited. This distinct catalogue entry is later than the assigned record's 2026-10-27 path date. It leaves the antecedent uncited, so it establishes present concordance, not an independently demonstrated earlier source of the assigned arithmetic.",
+        "searches": [
+          "Resultary: 60-line quartic, point counts 20 and 554, residual X^2-3X+16",
+          "Resultary SCOPE-the-510-ordinary-crossings-and-arithmetic-complement-of-the-char--db6c8d91319c"
+        ]
+      },
+      "rationale": "The marked surface, smoothness, lines and rank-20 lattice are known. The supported distinct content is the explicit arithmetic Frobenius action and residual quadratic for this marked F4-form. The exact surface zeta is also reproduced in a later Resultary record, where it is expressly antecedent arithmetic rather than the new claim. No earlier independent source of that formula was established in the checked literature.",
+      "residual_risks": [
+        "The later record does not identify its antecedent; whether it relied on this calculation or another source was not established. An earlier arithmetic calculation under a transformed equation or equivalent model remains possible. No priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric precedent",
+          "evidence": "Gives the specific mu, an F16 line and 60-line orbit, and rank-20 span of discriminant -55; the following lift discussion does not compute the marked finite-field zeta.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.01358",
+          "material_read": "§8, PDF pp. 14–15, starting at extracted offset 37700",
+          "method": "Open PDF bounded passage read",
+          "title": "At most 64 lines on smooth quartic surfaces (characteristic 2)",
+          "trigger": "Original equations for the exact marked surface and line orbit"
+        },
+        {
+          "assessment": "Geometric/model overlap",
+          "evidence": "Mentions the nonsingular F4 reduction retaining 60 lines, not the point counts or Frobenius factor of the assigned F4-form.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.05836",
+          "material_read": "§8.3, Remark 8.10, PDF p. 37, near offset 119500",
+          "method": "Open PDF bounded passage read",
+          "title": "Lines in supersingular quartics",
+          "trigger": "Potential equivalent model among 60-line configurations"
+        },
+        {
+          "assessment": "Cites the same extreme line geometry",
+          "evidence": "Invokes the example for the smooth line bound, with no zeta factor in that passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.02135",
+          "material_read": "PDF p. 1, near offset 2700",
+          "method": "Open PDF bounded passage read",
+          "title": "Lines on K3 quartic surfaces in characteristic 2",
+          "trigger": "Same smooth 60-line reduction cited in line-bound work"
+        },
+        {
+          "assessment": "Exact later overlap, asserted there as antecedent arithmetic",
+          "evidence": "Same marked surface, ambient zeta, point counts, eigenspace split and residual quadratic; new result is the line boundary and its complement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-510-ordinary-crossings-and-arithmetic-complement-of-the-char--db6c8d91319c",
+          "material_read": "RESULT.md offsets 0 and 4200, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror of the published record",
+          "title": "The 510 ordinary crossings and arithmetic complement of the characteristic-two 60-line quartic",
+          "trigger": "Exact zeta and point-count match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a distinguished line-maximal characteristic-two K3, with a naturally specified base-field form. The complete polynomial separates the descent of the known divisor-class span from the residual arithmetic and determines every extension count. In particular, the exact ambient zeta is an input for arithmetic calculations on its line complement, as the later complement study explicitly illustrates. The result is not merely a line-orbit recount.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

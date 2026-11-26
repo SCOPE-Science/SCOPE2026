@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:04:30.296112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–84; VERIFICATION.md; verify.py; verification_output.txt",
+        "Repaired RESULT.md, SLOGAN.txt, and VERIFICATION.md under /workspace/repairs/1/",
+        "Fresh exhaustive checker: /workspace/branches/862929db-1f6c-47d9-b3e1-2f51f0f3c474/fresh_check.py"
+      ],
+      "rationale": "For the repaired claim, a common deletion output of size three exists exactly when the sum of the coordinatewise minima is at least three; a larger common output can be shortened. Each coordinate can be heavy (multiplicity at least three) for at most one codeword. Hence four heavy words in an optimizer use all coordinates once. At n=5 the only compatible exceptional pairs have disjoint doubled coordinates and each member's single copy lies in the opposite doubled pair. These give 12 labelled pairs; for the displayed normal form the constraints are u,z=0..2 with u+z<=2, and v,w=0..1, so 24 independent heavy completions per pair. At n=6, with exceptional type (2,2,2,0), a heavy word on a doubled coordinate can only place extras on the zero coordinate d. The word heavy at d places at most two extras total on the other three coordinates; the constraints u_i+y_i<=2 give 144 completions and four choices of d. With type (2,2,1,1), the doubled coordinates force constants; each other heavy coordinate has five choices, and exactly the three mutually directed cross-extra pairs of total size greater than two are incompatible, giving six times 22. At n=7 the exceptional word has one singly occupied coordinate, and only its heavy word can have one extra copy; n=8 leaves only the four constants and the all-twos word. The known sizes used here follow from the same heavy bound and the stated exceptional cases; for n>=9 every word is heavy, so four constants attain the optimum without any optimizer-count assertion. The finite lexicographic recursion maintains pairwise compatibility and uniquely enumerates sets, not orderings. A fresh bounded check with a dynamic optimum reproduced the four maxima (6,5,5,5), labelled counts (288,708,16,1), all four rows of Burnside fixed counts, and orbit counts (14,46,2,1), using both canonical images and Burnside averaging over S4. The corrected files preserve those claims and the usable verification front matter; bit_count requires Python 3.10 or newer. The frozen verifier was inspected, not executed.",
+      "residual_risks": [
+        "The fixed-point table uses finite exhaustive enumeration; this is not a formal certificate or a census beyond n=8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited v2 certificate only bounds S_q by q+binomial(q,2) for n>=q+2; the updated v3 includes the exact all-q size formula, which gives 6,5,4 on the original ranges for q=4. The date on the v3 PDF is later than the frozen record date. The separate same-date catalogue result da6ffbe21ef7 gives q+1 on q+2<=n<=2q and q for n>=2q+1 and the one-light-plus-heavy structure in the middle regime; at n=q+1 its construction is a lower bound."
+        ],
+        "reasoning": "Neither a general capacity formula nor one-light-plus-heavy structure enumerates admissible extra multiplicities and their simultaneous-alphabet action. Same-date catalogue information is coverage, not proof of an order of priority. The repair removes any novelty claim for the entire capacity spectrum.",
+        "searches": [
+          "Kreindel–Barouch Essayag–Zabokritskiy arXiv:2601.05636v2 §4.4 Proposition 12 and v3 §4 Theorem 8/Corollary 9",
+          "Resultary da6ffbe21ef7 exact three-survivor multiset deletion codes over arbitrary alphabets"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md, Known results and Labelled optimizer counts/Alphabet-permutation classes",
+        "Resultary 10c1013a7401 and da6ffbe21ef7",
+        "arXiv:2601.05636v2/v3, 2003.00483, 2603.18322, 1612.08837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=6 a known size-five optimizer must use one exceptional word and four independent heavy coordinates, but type (2,2,2,0) leaves coupled constraints u_i+y_i<=2 and type (2,2,1,1) leaves three distinct exclusions in a 25-pair completion problem. Neither these numbers nor the fixed sets for transpositions (58) and double transpositions (8) follow from the size formula. At n=5 the exceptional-pair bound does not count the 24 heavy completions per normalized pair."
+        ],
+        "reasoning": "The known decomposition reduces the census to a natural tractable problem, not just a parameter substitution. The covariance of completing words under the alphabet action must be checked to obtain the full census. Rigidity at n=8 alone is easy once the structure is known; the novelty judgment is for the complete short-length census rather than that one endpoint in isolation.",
+        "searches": [
+          "Compare Resultary 10c1013a7401 and arXiv:2601.05636v3 Corollary 9 with the repaired optimizer proof and fixed-point table",
+          "Compare the earlier capped-word results in arXiv:2003.00483 and Resultary da6ffbe21ef7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compatibility condition equals minimum half-L1 separation n-2 on the nonnegative integral simplex, by half-L1=n minus multiset intersection. The arXiv:2601.05636v3 reduction instead caps each coordinate at two and counts the maximum possible number of exceptional words. The relevant Chen–Ma–Zhang theorem cases constrain those exceptional subsets by emptiness of compatible pairs or disjoint supports, not full optimal codebooks."
+        ],
+        "reasoning": "A table for the capped-word code size is equivalent to the size of the exceptional portion only. It cannot supply the heavy-word completions or the S4 set-stabilizers of full optimal codes. The repaired theorem gives those census data, not a reformulation of the size invariant.",
+        "searches": [
+          "Constant-weight codes in the L1 metric, arXiv:2003.00483, Theorem II.1",
+          "Simplex multiset deletion metric, arXiv:1612.08837 and arXiv:2603.18322 §2",
+          "Resultary quaternary optimizer census / alphabet permutation orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier 10c1013a7401 Finding and Proof give exactly the original 6,5,4 size profile, with the same parameter ranges, but explicitly do not classify every optimizer. Da6ffbe21ef7 covers the size at n>=6 and supplies no labelled or orbit counts. The focused catalogue query also returned length-three word covers and different alphabets or survivor counts, not this census."
+        ],
+        "reasoning": "The closest entries have the same code metric and sizes without the census columns. Results about covering words, list deletion, or a different survivor count do not answer the repaired packing census. This is a bounded database comparison, not an absence proof.",
+        "searches": [
+          "Resultary: quaternary multiset deletion three surviving symbols number of labelled optimal codebooks 288 708 16 1 alphabet permutation Burnside orbits 14 46 2 1 extremal census",
+          "Resultary 10c1013a7401 and da6ffbe21ef7"
+        ]
+      },
+      "rationale": "Credit is restricted to the complete labelled and alphabet-orbit census through the last length admitting size five, including the unique optimiser at eight. The original capacity claim is materially covered and is now explicitly identified as known. The strongest adjacent catalogue and primary results concern optimum sizes or coarse structure, not the compatibility of all heavy-word completions and their stabilizers. No exact census match was found in the inspected sources.",
+      "residual_risks": [
+        "A historically equivalent census in discrete simplex or lattice-code tables was not ruled out. No priority claim is made from the date of same-day entries or the date of v3.",
+        "Wei–Zhang, DOI 10.1360/SSM-2022-0051, Theorem 3.1, was not recovered in original full text; the inspection used its application in arXiv:2601.05636v3. This is not negative originality evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact original capacity overlap; neither labelled-count nor orbit census",
+          "evidence": "6 for n=5, 5 for 6<=n<=8, 4 for n>=9; all optimizers are not classified",
+          "identifier_or_url": "Resultary 10c1013a7401",
+          "material_read": "Finding and Proof (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact quaternary three-survivor multiset deletion spectrum",
+          "trigger": "Exact size-profile overlap"
+        },
+        {
+          "assessment": "Same-date broader size and partial structure, not an optimizer census",
+          "evidence": "q+1 for q+2<=n<=2q and q thereafter; at n=q+1 a size q+2 construction",
+          "identifier_or_url": "Resultary da6ffbe21ef7",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary search and statement comparison",
+          "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "trigger": "Potential general theorem yielding the repaired results"
+        },
+        {
+          "assessment": "v2 states the upper bound, v3 gives exact all-q sizes, neither inspected statement counts optimal codebooks",
+          "evidence": "v3 expresses S_q as q+A_3(q,2n-4,n) and gives the exact capacity profile; v2 has S_q<=q+binomial(q,2) in the indicated range",
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636v2 and https://arxiv.org/abs/2601.05636v3",
+          "material_read": "v2 §4.4 Prop. 12, PDF p. 26 offset 72444; v3 §4 Theorem 8/Eq. (4) and Corollary 9, PDF p. 17 offsets 65995–68480, and version date p. 1",
+          "method": "OA PDF passages",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same regime, version-specific capacity coverage"
+        },
+        {
+          "assessment": "Bounds or structures the capped-word subproblem, not the repaired census",
+          "evidence": "Distance exceeding twice weight permits at most one word, and equality forces disjoint support",
+          "identifier_or_url": "https://arxiv.org/abs/2003.00483",
+          "material_read": "Theorem II.1(b),(c), PDF p. 2 offset 12333",
+          "method": "OA PDF passage",
+          "title": "Optimal codes with small constant weight in L1-metric",
+          "trigger": "Earlier theorem for the capped-composition ingredient"
+        },
+        {
+          "assessment": "Inspected material concerns geometry and general bounds, not the finite census",
+          "evidence": "Simplex/L1 deletion geometry and ball-volume methods",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+          "material_read": "Introduction and §2, HTML offsets 500 and 7900",
+          "method": "OA HTML passages",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Same channel with geometric formulation"
+        },
+        {
+          "assessment": "General model and bounds, not the three-survivor census in inspected passages",
+          "evidence": "Multiset channel and A_m-lattice code framework",
+          "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+          "material_read": "PDF pp. 1–2 and offset 12405",
+          "method": "OA PDF passages",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+          "trigger": "Possible equivalent lattice code statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Reproduction and significance",
+        "Fresh count and orbit reproduction above"
+      ],
+      "rationale": "The range is the full exceptional span from length five to the last length supporting more than four codewords. Counting optimal codebooks before and after relabelling answers an identifiable design question: how many genuinely different optimal choices are available, and where does rigidity set in? The census shows a collapse from hundreds of labelled choices to a single codebook, with nontrivial class counts in the intermediate cases. It pairs a structural completion argument with complete finite enumeration, not just a recomputation of known capacity or an arbitrary sample of short lengths.",
+      "residual_risks": [
+        "No general count for n>=9 or downstream coding performance advantage is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

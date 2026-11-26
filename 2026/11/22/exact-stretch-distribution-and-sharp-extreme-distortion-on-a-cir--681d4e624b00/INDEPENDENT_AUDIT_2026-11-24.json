@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:34:07.724437Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–80: boundary cases, probability density, metric reduction and upper excursions",
+        "VERIFICATION.md, lines 3–14: formal and external channels not performed",
+        "check_ratio.py, lines 18–58 and 72–77: sampling, quadrature and small-deficit diagnostics, inspected statically"
+      ],
+      "rationale": "For any curve avoiding the apex, lift its azimuth and develop it into the plane. If the absolute developed angular change is at least pi, meeting the opposite ray already gives a total length at least s+t; for smaller absolute changes the chord bound increases with the angle. The shortest representative has angle q delta <= pi q < pi and its chord stays within the radial disk. The same s+t bound applies to paths through the apex. The developed and Cartesian chords give the stated quotient after division by 4st. Area sampling gives independent delta uniform on [0,pi] and U=log(s/t) with density exp(-2|U|). The quotient decreases with |U| at every delta>0; on U=0 its increase with delta follows from the decrease of x cot(x). This gives precisely the maximizers, essential support and invertible endpoint K(q); lateral area pi q L^2 then fixes scale. For 1<lambda<K, solving the quotient inequality yields the stated Q and the interval |U|<2 asinh(sqrt(Q)), giving the displayed strict survival integral, including the stated endpoint probabilities. At delta=pi and U=0, the linear coefficient of pi-delta is cos(pi q/2)/2 and the quadratic coefficient of U is (sin^2(pi q/2)-q^2)/(8q^3 sin(pi q/2)). Large |U| forces Z to 1 uniformly, so the local expansion controls the entire upper excursion. Its rescaled region has area 8/(3 A_q sqrt(B_q)); the sampling density tends uniformly to 1/pi after factoring out the Jacobian. This proves both the precise coefficient and the uniform conditional limit.",
+      "residual_risks": [
+        "The supplied Monte Carlo and quadrature checks were not rerun and are not needed for the analytic proof. The tail result is pointwise in the opening and does not cover degenerate limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cone-development passage gives an isometric embedding and planar development for curves on polyhedra, not an area-sampling stretch law.",
+          "The inspected cylinder and annulus results do not give a theorem over surfaces including circular cones. The broader intrinsic diameter-tail calculation in 6f35d2b9779f concerns raw distances rather than a chord-normalized ratio."
+        ],
+        "reasoning": "A general development tool supplies part of the metric derivation but does not give the joint numerator/denominator statistic or its endpoint analysis.",
+        "searches": [
+          "O’Rourke and Vîlcu, arXiv:1102.0823, introductory cone-development passage",
+          "Resultary 4f029a6c5ce8, 7132014140cc and 6f35d2b9779f, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: cc597f8daf41, b319e1ca315a, 6f35d2b9779f, 4f029a6c5ce8, 7132014140cc",
+        "O’Rourke and Vîlcu, arXiv:1102.0823",
+        "Frozen RESULT.md, lines 86–101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited opposite-rim geometry, taken as known, supplies the ratio at a particular maximizing pair; direct access to the cited calculation returned HTTP 403.",
+          "The cone distance tail in b319e1ca315a has intrinsic diameter contact regimes; it does not give the radial-log/azimuth excursions that determine tails of the ratio."
+        ],
+        "reasoning": "Even crediting the deterministic chord ratio, the law requires a pair-dependent ambient denominator and area sampling, and its sharp tail uses a new local excursion calculation. A known intrinsic marginal does not determine the joint chord information.",
+        "searches": [
+          "arXiv:1102.0823, page 1",
+          "Opposite-rim geodesic reference https://math.stackexchange.com/questions/1897144/geodesic-on-a-right-circular-cone-problem/2061892",
+          "Resultary b319e1ca315a, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cc597f8daf41, Finding: E[D_g^2] normalized by lateral area. b319e1ca315a, Finding: tails of D_g near its diameter for finite cones. The frozen random variable instead normalizes each pair by its own D_e.",
+          "4f029a6c5ce8 and 7132014140cc, Findings: pairwise intrinsic/ambient ratio on a cylinder sidewall and a planar annulus, respectively."
+        ],
+        "reasoning": "Neither rescaling the intrinsic metric nor changing the cone parameter converts raw distance or its moments into the stretch law. The cylinder and annulus use the same ratio concept on different geometries, not equivalent parametrizations of the cone's sampling and metric. Their same-day dates do not establish priority.",
+        "searches": [
+          "Published Resultary cone-distance and stretch records cc597f8daf41, b319e1ca315a, 4f029a6c5ce8, 7132014140cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared exact outputs are intrinsic distance moments and diameter-tail constants for cones, or stretch distributions/tails on cylinders and annuli."
+        ],
+        "reasoning": "The contribution is a family of exact functions and limits over a continuous opening parameter, not a finite table entry. The closest indexed exact invariants do not give the same observable on the same domain.",
+        "searches": [
+          "Resultary cone-geometry Findings cc597f8daf41, b319e1ca315a and 6f35d2b9779f",
+          "Resultary stretch-law Findings 4f029a6c5ce8 and 7132014140cc"
+        ]
+      },
+      "rationale": "The supported contribution is the exact area-sampled intrinsic/ambient ratio law, sharp tail and conditional shape for the circular cone. Cone development and the opposite-rim chord calculation are not claimed new; other exact intrinsic-distance or stretch models were compared at the level of their observables and parameters. No equivalent coverage of the probabilistic cone claim was demonstrated in the inspected sources.",
+      "residual_risks": [
+        "Bounded catalogue and primary-source comparison, not certification of historical priority; the cited public geodesic discussion was not accessible. Unindexed equivalent ratio calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different exact observable",
+          "evidence": "Computes E[D_g^2]/area, not the stretch distribution; Limitations distinguishes the moment from the whole intrinsic-distance law.",
+          "identifier_or_url": "cc597f8daf41",
+          "material_read": "Finding at offset 0; Limitations at about offset 6200",
+          "method": "Published record via local mirror",
+          "title": "Sharp mean-square geodesic separation and a third-order transition in Euclidean cone disks",
+          "trigger": "Same conical sample space and exact pair statistic"
+        },
+        {
+          "assessment": "Same geometry, different extreme event",
+          "evidence": "Tails are for D_g near its diameter and have distinct contact regimes; there is no D_e denominator in the inspected theorem.",
+          "identifier_or_url": "b319e1ca315a",
+          "material_read": "Finding at offset 0; Relationship to prior work at about offset 7000",
+          "method": "Published record via local mirror",
+          "title": "Sharp upper-distance tails at the tip–rim transition of a finite flat cone",
+          "trigger": "Same sample space, near-extreme law"
+        },
+        {
+          "assessment": "Intrinsic-distance tails, not stretch",
+          "evidence": "The stated contact regimes are around the intrinsic diameter.",
+          "identifier_or_url": "6f35d2b9779f",
+          "material_read": "Finding at offset 0",
+          "method": "Published record via local mirror",
+          "title": "Cubic diameter tails and a two-contact transition on finite circular cones",
+          "trigger": "Cone-distance tail analogue"
+        },
+        {
+          "assessment": "Closest ratio analogue, different geometry",
+          "evidence": "Cylinder sidewall law and crossover; does not specialize to an area-uniform pair on a cone.",
+          "identifier_or_url": "4f029a6c5ce8",
+          "material_read": "Finding at offset 0",
+          "method": "Published record via local mirror",
+          "title": "Exact extreme stretch and a thin-cylinder crossover for random sidewall pairs",
+          "trigger": "Same-day exact stretch law and 3/2 endpoint exponent"
+        },
+        {
+          "assessment": "Different metric domain",
+          "evidence": "Planar annulus with an inner obstacle; the displayed tail is cubic.",
+          "identifier_or_url": "7132014140cc",
+          "material_read": "Finding at offset 0",
+          "method": "Published record via local mirror",
+          "title": "Cubic extreme detour law and shape recovery for random annular pairs",
+          "trigger": "Same-day ratio endpoint and conditional limiting shape"
+        },
+        {
+          "assessment": "Credit development method, not random stretch",
+          "evidence": "Discusses isometric cone embeddings and planar developments of polyhedral curves.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.0823",
+          "material_read": "Page 1 introduction around text offset 500",
+          "method": "Open-access paper text, bounded passage",
+          "title": "Conical Existence of Closed Curves on Convex Polyhedra",
+          "trigger": "Classical geometric reduction might imply the deterministic part"
+        },
+        {
+          "assessment": "Not independently read; prior chord geometry credited",
+          "evidence": "The frozen record attributes the opposite-rim geodesic length to this discussion and does not claim that identity as new.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/1897144/geodesic-on-a-right-circular-cone-problem/2061892",
+          "material_read": "No full passage accessible; see frozen RESULT.md line 88 for the citation's stated scope",
+          "method": "Bounded public page retrieval returned HTTP 403",
+          "title": "Geodesic on a right circular cone problem",
+          "trigger": "Cited prior formula for opposite rim points"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 5–39 and 58–80",
+        "Related intrinsic distance and other-domain stretch results in the originality assessment"
+      ],
+      "rationale": "Pairwise metric distortion measures how much an embedded surface underestimates intrinsic travel when straight 3D chords are used. The endpoint identifies the cone opening, but it alone says nothing about how often this distortion is approached. The exact law, leading frequency and conditional scales quantify that gap for the natural area measure and are not determined by intrinsic-distance moments or the single opposite-rim computation.",
+      "residual_risks": [
+        "No uniform endpoint rate across degenerating openings or statistical shape-estimation performance is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

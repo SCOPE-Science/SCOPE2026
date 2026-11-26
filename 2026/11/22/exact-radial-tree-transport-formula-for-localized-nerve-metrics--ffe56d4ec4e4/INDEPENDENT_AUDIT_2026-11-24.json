@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:40:03.688521Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof Steps 1–3",
+        "Frozen VERIFICATION.md and check_tree.py (inspected; recorded finite LP checks, not executed)",
+        "McCabe–Perea, arXiv:2611.15938v1, §3 definitions and Proposition 3.3"
+      ],
+      "rationale": "For a shell of radius t the restricted ultrametric has diameter at most t, and a last-common-ancestor height of (r-t)d(x,y)/2 above the leaves produces the required same-shell path cost, with a stem if the graft height L(t) exceeds the dendrogram height. Along the trunk H is strictly increasing. F=H+L and H-L=2rt, so pairs at distinct interior radii t<s give F(s)-2rt, exactly (r-s)s+2r(s-t); the equality d(x,y)=s follows from the strong triangle inequality in both directions. At the root the cost is F(t), and with an outside endpoint it is 2r(r-t) or 2r^2 from the root; all outside sites map to the same vertex. This accounts for the cutoff equality d(m,x)=r, singleton shells and the degenerate pair costs. The cut formula is a lower bound by conservation on every edge, and it is attained by decomposing the unique signed net tree flow into transport paths plus stationary mass. Any plan on the quotient tree vertices lifts by distributing each incoming and outgoing amount according to the original marginal masses in each fiber. Maximizing over centers then gives the stated metric without interchanging transport and maximization. The stated line counterexample has distinct largest and second-largest four-point sums (10 and 9).",
+      "residual_risks": [
+        "The exact proof, not the numerical LP tolerance, establishes the result for arbitrary weights and finite ultrametric sizes. No extension to the different pointwise modified cost or to arbitrary metric spaces is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stated edge-imbalance formulas apply to measures on a given tree; the ultrametric representation also gives a dendrogram for the original ultrametric."
+        ],
+        "reasoning": "Their domain includes the new tree after it is built, so the transport identity conditional on that construction is known. Neither prior tree formula supplies the transformed ground cost or proves the radial grafting conditions.",
+        "searches": [
+          "Chen–Tabaghi–Wang, arXiv:2210.12288, Theorem 2.1 and §3.1",
+          "Skandalis–Valette, arXiv:2601.16859v1, Corollary 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15938v1 §3",
+        "arXiv:2210.12288 Theorem 2.1 and §3.1",
+        "arXiv:2601.16859v1 Corollary 1.3",
+        "Resultary/local mirror for the assigned and distinct chained-transport records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known auxiliary distance is Wasserstein rather than a stated tree distance. With r=3 and d(m,a)=1, d(m,b)=d(a,b)=2, and a fourth point at distance 3 from each of these points, the input is ultrametric but the three transformed costs are 8,8,14."
+        ],
+        "reasoning": "Applying an ultrametric formula directly to the transformed cost would be invalid. The exact tree cutoff representation uses the new observation that its cross-shell costs fit the trunk heights and the rescaled within-shell subtrees simultaneously. Once this is shown, the classical cut sum follows.",
+        "searches": [
+          "McCabe–Perea, Lemma 3.2 and Proposition 3.3",
+          "Chen–Tabaghi–Wang, Theorem 2.1 and §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McCabe–Perea realize c_m as a multiple of Wasserstein on a feature space Z_m and take a supremum over m of the induced transport.",
+          "The distinct Resultary hit determines the zero relation of a chained pseudometric on the strictly positive simplex for a different cost with coefficient D_m."
+        ],
+        "reasoning": "Neither the auxiliary realization nor a degeneracy classification for the modified cost identifies the full pairwise localized cost as a tree path metric. The catalogue copy of the assigned record was not counted as corroboration.",
+        "searches": [
+          "McCabe–Perea, arXiv:2611.15938v1, §3 and Lemma 3.2",
+          "Resultary/local mirror: SCOPE-the-exact-degeneracy-kernel-of-chained-nerve-map-transport-on-fi--2f8b8a98f31f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit with the new tree was the identical assigned record. The distinct nerve-map hit uses the modified chained cost. The nearby analytic exact formula evaluates transport given a tree."
+        ],
+        "reasoning": "A numerical table is not an applicable substitute for a construction for arbitrary finite ultrametrics and arbitrary probability weights. The relevant exact catalogue and formula entries were checked; no distinct inspected entry specifies these trunks and grafts for c_m.",
+        "searches": [
+          "Resultary/local-mirror exact localized nerve metric and radial-tree comparison",
+          "Chen–Tabaghi–Wang, Theorem 2.1",
+          "McCabe–Perea, Proposition 3.3"
+        ]
+      },
+      "rationale": "The radial-tree representation of the specific localized cost is the distinct result; the cut formula for a known tree is established background. Neither the inspected original cost definition and auxiliary-Wasserstein realization nor the known cut formulas provide the identification needed here.",
+      "residual_risks": [
+        "The comparison is bounded to the cited sections and inspected catalogue records; other terminology for localized transport or general tree-metric closure properties may reveal equivalents. No exclusive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical localized ground cost and metric; no radial tree in these decisive passages",
+          "evidence": [
+            "c_m is the kernel-minimum product plus the kernel difference penalty; Lemma 3.2 represents it as r times Wasserstein on auxiliary feature points."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15938v1",
+          "material_read": "§3, bump at HTML offset 20024, pointwise cost at 26433, Lemma 3.2 at roughly 27644–33462 and Proposition 3.3",
+          "method": "Bounded OA text reading",
+          "title": "Wasserstein Stability of the Nerve Map",
+          "trigger": "Original definition and potential tree representation"
+        },
+        {
+          "assessment": "Exact cut formula is covered once the tree is given",
+          "evidence": [
+            "Weighted absolute subtree imbalances for tree transport; ultrametric dendrogram representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.12288",
+          "material_read": "Theorem 2.1, §2, HTML offsets 9500–14972, and §3.1",
+          "method": "Bounded OA text reading",
+          "title": "Learning Ultrametric Trees for Optimal Transport Regression",
+          "trigger": "Prior exact tree transport and ultrametric representation"
+        },
+        {
+          "assessment": "General tree background, not an identification of the localized cost",
+          "evidence": [
+            "Finite metric trees admit the cut expression for the transport norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.16859",
+          "material_read": "Corollary 1.3, PDF p. 3, text offsets approximately 6200–10624",
+          "method": "Bounded OA reading",
+          "title": "On the transportation cost norm on finite metric graphs",
+          "trigger": "Tree-flow norm and cut formula"
+        },
+        {
+          "assessment": "Different cost and different conclusion",
+          "evidence": [
+            "Zero-equivalence on the strictly positive simplex, with the coefficient D_m in the modified cost."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-exact-degeneracy-kernel-of-chained-nerve-map-transport-on-fi--2f8b8a98f31f",
+          "material_read": "RESULT.md, degeneration and modified cost statement; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "The exact degeneracy kernel of chained nerve-map transport on finite spaces",
+          "trigger": "Strongest distinct indexed nerve transport result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, construction and four-point obstruction",
+        "McCabe–Perea, §3 and its stability application",
+        "Chen–Tabaghi–Wang, Theorem 2.1"
+      ],
+      "rationale": "The result converts a stability-related localized metric defined via a family of transport optimizations into weighted sums of observable mass imbalances in a natural hierarchical class. For a fixed support and scale the trees depend only on the metric and can be reused for arbitrary measure comparisons, which replaces an entire transport LP at each center by a subtree pass. The obstruction on the ordinary four-point line shows this representation is not merely a restatement for all finite inputs.",
+      "residual_risks": [
+        "No claim is made about optimal preprocessing time, general metrics, or stronger nerve-map stability bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

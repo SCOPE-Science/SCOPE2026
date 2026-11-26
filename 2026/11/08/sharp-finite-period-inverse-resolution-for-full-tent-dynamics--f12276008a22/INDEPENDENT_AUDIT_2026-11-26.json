@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:03:34.454226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Folding circle doubling sends a point to the same tent coordinate precisely when the two circle inputs differ by sign. Thus for the Nth iterate the denominators are m+1 and m-1, m=2^N. Folding gives the stated two grids, meeting only at zero. The difference formulas for consecutive interlaced nodes, including the terminal interval to 1, show the unique largest gap is [0,2/(m+1)]. The least positive point from each smaller k is strictly larger, and 1/2 lies outside that first gap for N>=2. For h=g-T, absolute continuity and the slope bound give |h(x)|<=delta times the distance to the nearest mesh endpoint on each gap. A triangle with slopes +/-delta on the first gap attains the bound, and g remains monotone onto [0,1] on each branch. Each inverse word of length k is contracting. It has one fixed point, and different words cannot share one because the only point common to both branch domains is the critical point, which is preperiodic to zero and not periodic. The 2^k fixed points therefore exhaust the preserved reference orbits, and the maps have identical actions on them (same next point and ordering). A Lipschitz triangle supported strictly inside the first gap, smoothed by nonnegative convolution with sufficiently small support, retains the slope bound and approaches the same height. It agrees on neighborhoods of the entire observed set, hence preserves every defined jet and multiplier, with endpoint derivatives interpreted one-sidedly. In that subclass the bound cannot be attained: vanishing near zero shortens the only extremizing gap. An independent exact rational inverse-word enumeration checked the unique largest gap for N=2..12; the supplied checker was inspected, not executed. The all-N proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuhrmann–Gröger–Passeggi's inspected theorems use complete spectra for uniqueness. Resultary 267b0335a863 constructs close finite-orbit-agreeing maps with many branches and high entropy, not a sharp slope-constrained two-branch ambiguity."
+        ],
+        "reasoning": "Complete data are not a finite bound. Finite agreement in a much larger class may show a distinct obstruction but does not identify the supremum in this fixed-turning-point expanding class or show it is retained under neighborhood agreement.",
+        "searches": [
+          "Period spectrum and rigidity of interval maps, Fuhrmann–Gröger–Passeggi",
+          "Resultary: finite-period tent-map orbit agreement and entropy",
+          "Primary: symbolic dynamics and kneading/gap estimates for tent maps"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify.py",
+        "Resultary 1cdd2704bf68, 5c6adc39dfa6, 25e2e4fa7ad6, 267b0335a863",
+        "Fuhrmann–Gröger–Passeggi arXiv:2610.07435; O'Hare DOI 10.1017/etds.2024.83; Scheicher–Sirvent–Surer DOI 10.1112/jlms/jdv071 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "O'Hare uses finite periodic-multiplier data for smooth expanding circle maps and obtains approximate smooth conjugacy. In 1cdd2704bf68 the extremal observable is a sample-distance function, with no dynamical normalization or short-orbit constraint."
+        ],
+        "reasoning": "The general Lipschitz envelope computes the radius given an interpolation mesh, but does not by itself determine this normalized all-k mesh or ensure that extremizers are self-maps with exactly the same short orbit actions and a sharp smooth-jet obstruction. The latter steps require the full-branch argument and admissible smooth perturbations.",
+        "searches": [
+          "O'Hare, Finite data rigidity for one-dimensional expanding maps, Theorem 1.3",
+          "Resultary: optimal recovery from tent-map periodic points versus exact finite orbit and derivative matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1cdd2704bf68, Finding and §4, gives sharp minimax L*2/(2^p+1) for arbitrary L-Lipschitz observables sampled at exact least-period-p points for prime p. The first point lies at 2/(2^p+1) from the unsampled zero endpoint."
+        ],
+        "reasoning": "There is substantive overlap in Lipschitz recovery from periodic samples and the denominator, but the relevant distance for this theorem is half the first gap between two prescribed values, including zero. The sample set, unknown, constraints and exact orbit-preserving extremal problem differ, and the prior theorem's prime hypothesis does not restrict the new cutoff.",
+        "searches": [
+          "Resultary: finite-period inverse resolution and optimal recovery at full-tent periodic samples",
+          "Resultary: exact prime-period sampling discrepancy and transport"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5c6adc39dfa6 gives the same two-grid census for all fixed-iterate orders n and transport errors for the uniform empirical law. 25e2e4fa7ad6 gives transport results for fixed-point censuses of generalized tents. The prime-period paper's proof also bounds the undeleted fixed-grid gaps.",
+          "The cited 2016 tent-map article could not be inspected in full."
+        ],
+        "reasoning": "The rational grids and closely related gap information overlap directly; no novelty is assigned to those inputs. Transport distance for a single iterate is not the exact maximal interpolation gap on the union with all lower cutoffs and normalization nodes, coupled to an exact map recovery statement. The all-cutoff gap here follows from the grid and the smallest-positive-node comparison, not from an unexplored numerical table.",
+        "searches": [
+          "Resultary: tent rational periodic grids, fixed-census Wasserstein error and largest tent-map gaps",
+          "Scheicher–Sirvent–Surer, Dynamical properties of the tent map"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact ambiguity for the all-periods-through-N geometric map data in the normalized slope-constrained class, with absence of extra short orbits and the same sharp supremum under local agreement at all observed points. The rational grids, Lipschitz recovery envelopes and broad finite-period nonuniqueness are related prior ingredients, not separate novelty claims.",
+      "residual_risks": [
+        "The 2016 tent-map full text and the later two-parameter tent kneading article DOI 10.1088/1361-6544/ae73de were not available in full; closer grid/gap results could exist.",
+        "The geometry and ordinary Lipschitz recovery method overlap prior findings. The pass is limited to the normalized all-cutoff map extremum with preserved short orbits and the sharp neighborhood-agreement consequence, not novelty of those ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive shared geometry and recovery method, different exact observations and target class",
+          "evidence": "Samples exclude fixed points; their covering radius is set by the unsampled endpoint and sharp recovery has opposite Lipschitz-distance alternatives.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-prime-period-sampling-discrepancy-and-transport-for-the-fu--1cdd2704bf68/RESULT.md",
+          "material_read": "Finding at offset 0; gap and minimax proof at offsets 4710–6274",
+          "method": "Resultary and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact prime-period sampling discrepancy and transport for the full tent map",
+          "trigger": "Same map and sharp recovery scale"
+        },
+        {
+          "assessment": "Exact same two grids for a single iterate; different transport problem",
+          "evidence": "The empirical measure counts each fixed point of T^n once; its W-infinity transport error is 1/2^n, not an inverse radius.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-order-transport-quantization-inefficiency-of-tent-map--5c6adc39dfa6/RESULT.md",
+          "material_read": "Finding and scope at offsets 0–2257; rational-grid proof",
+          "method": "Resultary and local mirror",
+          "title": "Sharp all-order transport quantization inefficiency of tent-map periodic points",
+          "trigger": "Exact all-order fixed-point census and geometry"
+        },
+        {
+          "assessment": "Overlaps the general nonuniqueness conclusion, not the quantitative fixed-branch class",
+          "evidence": "Its maps achieve arbitrarily high entropy with finite unlabelled orbit agreement and more monotone pieces.",
+          "identifier_or_url": "Resultary 267b0335a863",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Unbounded entropy under finite periodic-orbit agreement near the tent map",
+          "trigger": "Finite orbit nonidentifiability near the same reference map"
+        },
+        {
+          "assessment": "Complete-spectrum rigidity, not finite resolution",
+          "evidence": "The inspected statements require a complete periodic spectrum and mixing or density assumptions, not a finite cutoff.",
+          "identifier_or_url": "https://arxiv.org/html/2610.07435",
+          "material_read": "Theorem passages at OA offsets 3232 and 5200",
+          "method": "Open arXiv text",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Geometric periodic-orbit inverse problem for interval maps"
+        },
+        {
+          "assessment": "Different data, maps and discrepancy",
+          "evidence": "The data are periodic multipliers and the conclusion is approximate smooth conjugacy of circle maps.",
+          "identifier_or_url": "https://doi.org/10.1017/etds.2024.83",
+          "material_read": "Theorem 1.3, printed pp. 1598–1599, OA offsets 4083 and 5871",
+          "method": "Open Cambridge PDF",
+          "title": "Finite data rigidity for one-dimensional expanding maps",
+          "trigger": "Finite-data rigidity for expanding maps"
+        },
+        {
+          "assessment": "Possible grid or gap overlap remains unresolved",
+          "evidence": "Full text was not available in the attempted routes; no negative whole-document claim is made.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms/jdv071",
+          "material_read": "Bibliographic/abstract evidence only; no full-text inspection",
+          "method": "Lawful OA and publisher retrieval attempts",
+          "title": "Dynamical properties of the tent map",
+          "trigger": "Older symbolic tent-map work that may contain exact mesh observations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the natural fixed-height two-branch model, the theorem gives an exact worst-case spatial resolution at every cutoff, not just an asymptotic rate or a construction changing the number of branches. The same supremum after matching every observed orbit locally makes the constant relevant even when positional measurements are supplemented by all local derivatives and multipliers. This is a specific finite-data complement to complete-spectrum rigidity, not an upper bound for unlabelled measurements or noisy data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

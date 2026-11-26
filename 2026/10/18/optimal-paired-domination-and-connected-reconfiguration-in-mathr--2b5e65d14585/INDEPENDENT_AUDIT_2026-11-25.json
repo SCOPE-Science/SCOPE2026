@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:33:35.694776Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Repaired RESULT.md and SLOGAN.txt",
+        "Frozen RESULT.md:22–46",
+        "VERIFICATION.md:19–25, verify.py, verify_reconfiguration.py and verification_output.txt (inspected, not rerun)"
+      ],
+      "rationale": "The four-edge starting characterization was independently reconstructed: paired domination implies total domination and hence ground vertex-cover number at least three. A triangle whose fourth edge meets it gives a two-cover; a disjoint fourth edge gives a claw in the disjointness graph, which has no perfect matching. Four edges and no triangle imply bipartiteness, and König's theorem gives a matching of size three. Conversely such a triple dominates all vertices, and the fourth edge can be paired to one of the triple; two selected vertices never suffice and four do. The original census and matching multiplicities are correct, but are not claimed as the contribution of the repair. In the repair the cliques of states containing each matching triple cover the whole exchange graph. A change of one ground matching edge gives a common four-edge state; a two-edge flip ab,cd -> ac,bd with fixed ef links the cliques by exchanging cd for bd in states sharing ab,ac,ef. One-edge replacements align the six-label supports, and flips then insert desired pairs without undoing ones already installed. This also handles n=6, where no support changes are needed. Moves within each clique join the links and connect the given endpoints without leaving the optimum set space.",
+      "residual_risks": [
+        "Bound is n>=6; unrestricted token jumping and labeled ground pairs only. Finite verification is corroboration, not the all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "785c37304582 covers n>=4, gives the same static classification for all n>=6, and treats smaller cases, but the inspected result and proof are about minimum sets and their symmetry/census.",
+          "The same-day total-domination result uses vertex-cover obstructions but lacks the perfect-matching constraint. The primary Kneser graph literature treats ordinary, multiple, or total domination."
+        ],
+        "reasoning": "Broader static feasibility theorems are usable inputs for the repair, but do not state exchange connectivity for paired optima. Neither domination variant automatically accounts for the induced matching constraint.",
+        "searches": [
+          "Resultary 785c37304582",
+          "Resultary 944543e08525",
+          "arXiv:2308.15603v2 and 2312.15464v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 785c37304582, 944543e08525, 371270f6d358 and db619faaacbc",
+        "arXiv:2308.15603v2, 2312.15464v1",
+        "Repaired RESULT.md Proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The feasible-set census gives a covering by matching-triple cliques, not links for two-edge matching flips. For n=6, a 3-matching has no unused ground labels, so the one-edge support manipulation alone cannot connect distinct matching triples."
+        ],
+        "reasoning": "Connectivity of the matching triples under two-edge flips is standard, but those flips are not themselves legal one-token jumps of four-edge states. The bridge between distinct cliques across such a flip, together with the common-state bridge for support changes, is the missing inference. It uses the four-edge extension and is not a direct application of the competing results.",
+        "searches": [
+          "785c37304582 Proof, first three paragraphs",
+          "371270f6d358 and db619faaacbc Findings",
+          "Repaired RESULT.md Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "785c37304582 gives exactly the same feasible four-edge families. The repaired reconfiguration can be expressed as the induced subgraph of the Johnson graph on those four-edge sets.",
+          "371270f6d358 uses the intersecting-pairs graph and a slide rule; db619faaacbc uses jumps on the Franklin graph."
+        ],
+        "reasoning": "The Johnson formulation preserves the exact feasible vertices and adjacency. The triangular graph uses the complementary ground-pair adjacency for feasibility, and the Franklin result fixes a different graph and six-token budget.",
+        "searches": [
+          "Resultary 'token jumping connectivity reconfiguration of minimum paired dominating sets KG(n,2) Kneser graph four selected edges lifts of matching switches'",
+          "External 'paired domination' reconfiguration 'Kneser' token jumping minimum matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise 180 C(n,6)+315 C(n,7)+105 C(n,8) census and the three shapes are indexed; those are no longer contributions. No checked table gives connectivity of every n>=6 four-set exchange graph."
+        ],
+        "reasoning": "A list of class counts does not connect exchange states. The repaired claim is not a recomputation of that table or a repetition of its three-type classification.",
+        "searches": [
+          "Resultary 785c37304582 Finding and Proof",
+          "Resultary Kneser minimum paired-domination exchange search above"
+        ]
+      },
+      "rationale": "The original package's static minimum, full classification and exact census have demonstrable equivalent indexed coverage and do not pass originality as contributions. Both affected claim files now isolate the surviving all-n connectivity theorem. No examined statement gives that theorem for these feasible sets and moves. The conclusion distinguishes coverage from priority, which the catalogue dates do not settle.",
+      "residual_risks": [
+        "No assertion of chronological priority: 785c37304582 is a distinct indexed result with a later catalogue date and unknown relationship to the frozen record.",
+        "Bounded searches are not evidence against unindexed or differently formulated general reconfiguration claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap of static results; inspected result does not supply connectivity",
+          "evidence": "Minimum four for n>=6, exactly P4+K2, P3+2K2 and 4K2, with identical multiplicities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-paired-domination-in-two-subset-kneser-graphs--785c37304582/RESULT.md",
+          "material_read": "Finding, Assumptions and classification/census proof, offsets 0–4357",
+          "method": "Resultary query and local-mirror statement/proof inspection",
+          "title": "Minimum paired domination in two-subset Kneser graphs",
+          "trigger": "Exact matching static claim for the same feasible sets"
+        },
+        {
+          "assessment": "Different feasibility",
+          "evidence": "Inclusion-minimal total domination includes the K3+K2 type that is not paired dominating; no paired-optimum jumps in the inspected claim.",
+          "identifier_or_url": "Resultary 944543e08525",
+          "material_read": "Finding and scope from offset 244",
+          "method": "Resultary and local-mirror passage",
+          "title": "Minimal total domination of two-element Kneser graphs",
+          "trigger": "Same-date reference with same ground graph and cover reduction"
+        },
+        {
+          "assessment": "Different graph and moves",
+          "evidence": "Adjacency is intersection and a slide requires the removed and inserted ground edges to meet; optima are disjoint two-edge stars for n=3k+1.",
+          "identifier_or_url": "Resultary 371270f6d358",
+          "material_read": "Finding and Assumptions, offsets 0–2400",
+          "method": "Local mirror",
+          "title": "Paired-domination slides of triangular graphs as square-bouquet token swaps",
+          "trigger": "Strong plausible connectivity overlap for ground pairs"
+        },
+        {
+          "assessment": "Same move but different feasible-set geometry",
+          "evidence": "A fixed twelve-vertex cubic graph with six-vertex optima, rather than KG(n,2).",
+          "identifier_or_url": "Resultary db619faaacbc",
+          "material_read": "Finding and Assumptions, offsets 0–2175",
+          "method": "Local mirror",
+          "title": "Johnson-isometric, non-matroid relocation of minimum paired domination on the Franklin graph",
+          "trigger": "Same paired-domination and jump definitions"
+        },
+        {
+          "assessment": "Different constraint",
+          "evidence": "Closed-neighborhood k-tuple domination does not require that selected vertices admit a perfect matching.",
+          "identifier_or_url": "https://arxiv.org/html/2308.15603v2",
+          "material_read": "Abstract and section 1, offsets 480–4780",
+          "method": "OA HTML passages",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Ordinary and multiple domination on the same graph"
+        },
+        {
+          "assessment": "Structural input, unrelated objective",
+          "evidence": "For r=2,k=1, minimum total domination has size three for n>=6; not a reconfiguration statement for paired four-sets.",
+          "identifier_or_url": "https://arxiv.org/html/2312.15464v1",
+          "material_read": "Abstract offsets 1483–1939 and section 1 from offset 7048",
+          "method": "OA HTML passages",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Plausible broader total-domination classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md sections Finding and Proof",
+        "Frozen RESULT.md:34–42",
+        "Resultary 785c37304582"
+      ],
+      "rationale": "The repair answers a natural mobility question not determined by knowing or counting the optima: whether a single replacement can update solutions without ever losing feasibility or optimality. It gives an explicit lift from ground-matching operations to legal moves on four-edge states and includes the tight n=6 obstruction to moving supports. The proof works uniformly, rather than checking a finite sample or restating the covered census.",
+      "residual_risks": [
+        "The result gives reachability, not all distances nor adjacent-vertex sliding connectivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

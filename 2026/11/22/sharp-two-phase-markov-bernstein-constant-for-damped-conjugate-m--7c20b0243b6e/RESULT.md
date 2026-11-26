@@ -2,162 +2,63 @@
 
 ## Finding
 
-Fix real \(a,b>0\). Let \(X_{a,b}\) be the two-dimensional real function space
+Let \(a,b>0\), and consider the first-derivative operator norm \(\mathcal M(a,b)\) on the real span of \(e^{-at}\cos(bt)\) and \(e^{-at}\sin(bt)\), with supremum norm on \([0,\infty)\). Put \(r=a/b\), \(R=\sqrt{1+r^2}\), and
 \[
-X_{a,b}=\{e^{-at}(A\cos(bt)+B\sin(bt)):A,B\in\mathbb R,\ t\ge0\},
+g_r(u)=e^{ru}(\cos u-r\sin u),\qquad u_1=\pi/2+\arctan r.
 \]
-equipped with the supremum norm on the nonnegative half-line. The *sharp first-derivative constant* is
+There is a unique \(u_c\in(\arctan(1/r),\pi)\) with \(g_r(u_c)=-1\). For \(u_*=\min(u_1,u_c)\) the sharp norm is
 \[
-\mathcal M(a,b)=\sup_{0\ne f\in X_{a,b}}\frac{\|f'\|_{L^\infty(0,\infty)}}{\|f\|_{L^\infty(0,\infty)}}.
+\boxed{\mathcal M(a,b)=b(1+r^2)e^{r u_*}\sin u_* .}
 \]
-Write \(r=a/b\), \(R=\sqrt{1+r^2}\), \(\phi=\arctan r\), and
-\[
-u_1(r)=\frac\pi2+\arctan r.
-\]
-Let \(u_c(r)\) be the unique root in \((\arctan(1/r),\pi)\) of
-\[
-e^{ru_c}(r\sin u_c-\cos u_c)=1.
-\]
-Then the sharp constant, including its attainment, is
-\[
-\boxed{\mathcal M(a,b)=b(1+r^2)e^{r u_*(r)}\sin u_*(r),\qquad u_*(r)=\min\{u_1(r),u_c(r)\}.}
-\]
-There is a unique transition ratio \(r_*>0\), defined by
-\[
-\frac{2r_*}{\sqrt{1+r_*^2}}\exp\!\left(r_*\left(\frac\pi2+\arctan r_*\right)\right)=1,
-\qquad r_*=0.29908438015271477\ldots.
-\]
-For \(0<r\le r_*\), the sharp constant simplifies to
-\[
-\mathcal M(a,b)=b\sqrt{1+r^2}\,e^{r(\pi/2+\arctan r)},
-\]
-and the normalized real extremizer has just one active positive-time absolute-value contact, apart from the transition. For \(r>r_*\), it instead has two active contacts, at time zero and at \(u_c/b\), with opposite values. In both regimes the real extremizer is unique up to real scaling and sign. The same sharp constant applies to the full complex span of the two conjugate exponentials.
+The complex span of the two conjugate modes has the same norm. There is a unique transition ratio \(r_*=0.29908438015271477\ldots\) determined by \((2r_*/\sqrt{1+r_*^2})e^{r_*(\pi/2+\arctan r_*)}=1\). For \(r\le r_*\), \(u_*=u_1\) and \(\mathcal M(a,b)=bR e^{r u_1}\); for \(r>r_*\), \(u_*=u_c\).
 
-The dimensionless constant \(\mathcal M(br,b)/b\) is continuously differentiable but not twice differentiable at \(r_*\). Its second derivative has an explicit strictly negative jump, specified below. Also,
+**Real extremizers.** Define \(F_r(x)=g_r(u_*-x)\) for all real \(x\). Up to nonzero real scaling, all half-line derivative-norm extremizers are
 \[
-\lim_{r\downarrow0}\frac{\mathcal M(br,b)}b=1,
-\qquad
-\lim_{r\to\infty}\frac{\mathcal M(br,b)}{br}
-=\frac{q}{q-1}=4.59112147666862\ldots,
+ f(t)=F_r(bt-d),\qquad 0\le d\le u_c-u_*.
 \]
-where \(q=1+W(e^{-1})\) is the unique root in \((1,2)\) of \((q-1)e^q=1\). Here \(W\) is the principal Lambert function.
+The displayed representatives have norm one; the unique representative with a positive extremal derivative *at time zero* is \(d=0\). For \(0<r<r_*\) the full derivative norm instead has a nontrivial interval of translated extremizers. There is a positive-time norm contact at \(t=(u_*+d)/b\) of value \(1\); the endpoint is a contact of value \(-1\) exactly when \(d=u_c-u_*\). For \(r\ge r_*\) the interval collapses, and the extremizer is unique up to nonzero real scaling and has both contacts.
+
+The dimensionless norm \(C(r)=\mathcal M(br,b)/b\) is \(C^1\) but not twice differentiable at \(r_*\), with a strictly negative right-minus-left second-derivative jump given below. Moreover \(\lim_{r\downarrow 0}C(r)=1\) and \(\lim_{r\to\infty}C(r)/r=q/(q-1)=4.59112147666862\ldots\), where \(q=1+W(e^{-1})\in(1,2)\) and \(W\) is the principal Lambert function.
 
 ## Assumptions and scope
 
-All statements about sharpness and extremizers refer to the first derivative and the supremum norm on \([0,\infty)\), without a weight in that norm. The parameters satisfy \(a>0\), \(b>0\); the zero-frequency and zero-damping cases occur only as limiting regimes. Complex functions mean arbitrary complex linear combinations of \(e^{(-a+ib)t}\) and \(e^{(-a-ib)t}\). No assertion is made about higher derivatives, sums with additional exponentials, finite observation windows, or systems with two different decay rates.
+All norms are unweighted. Only the first derivative, a common positive damping rate, one positive frequency, and the nonnegative half-line are considered. The supremum of a derivative over the open half-line has the same value as over its closure by continuity. The two limiting damping statements do not classify any zero-frequency or undamped extremizers. The classification above is of real extremizers; only the constant is asserted for complex modes.
 
 ## Proof
 
-**1. Reduce to initial velocity and unit frequency.** Put \(s=bt\). Since differentiation in \(t\) multiplies the derivative norm by \(b\), it is enough to calculate the dimensionless constant for \(b=1\), \(a=r\). The space is invariant under right translations \((T_hf)(t)=f(t+h)\), which contract the supremum norm. Differentiation commutes with these translations, so
-\[
-\sup_{f\ne0}\frac{\|f'\|_\infty}{\|f\|_\infty}
-=\sup_{f\ne0}\frac{|f'(0)|}{\|f\|_\infty}.
-\]
-The equality follows by applying the initial-velocity bound to each \(T_hf\), then using \(h=0\) for the opposite inequality.
+**1. Initial derivative and real reduction.** Rescale time by \(x=bt\); this multiplies the dimensionless derivative norm by \(b\). In dimensionless time, right translation preserves the space and contracts its norm. For each \(h\ge0\), applying an initial-derivative bound to \(f(x+h)\) controls \(|f'(h)|\), and the full derivative bound in turn controls \(|f'(0)|\). Thus the two optimal constants coincide, though their equality cases need not coincide. For a complex function and any \(h\), translate by \(h\), rotate by a constant complex phase to make its initial derivative nonnegative real, and take its real part. This lies in the real space, keeps the required derivative value, and has norm at most that of the starting function. This proves equality of the real and complex constants.
 
-For any complex combination, translate to a point attaining its derivative supremum, rotate its complex phase to make the derivative real and nonnegative, and take the real part. This produces a real damped sinusoid with the same initial derivative and no greater supremum norm. Therefore the real and complex sharp constants coincide.
+**2. Phase optimization.** Up to real scaling every nonzero real function is \(e^{-rx}\cos(x-u-\phi)\) with \(\phi=\arctan r\), \(u\in[0,\pi)\). Its stationary times differ by \(\pi\), with absolute values decreasing by \(e^{-r\pi}\); the first nonnegative stationary time is \(u\). Its norm is \(R^{-1}\max\{|\cos u-r\sin u|,e^{-ru}\}\), and its initial derivative has magnitude \(R\sin u\). Therefore
+\[
+C(r)=\max_{0\le u\le\pi}\frac{R^2\sin u}{\max\{|\cos u-r\sin u|,e^{-ru}\}}.
+\]
+The endpoint phases contribute zero. Since \(g_r'(u)=-R^2e^{ru}\sin u<0\) for \(0<u<\pi\), with \(g_r(0)=1\) and \(g_r(\pi)=-e^{r\pi}\), there is one threshold \(u_c\), necessarily after the zero \(\arctan(1/r)\). Up to and including \(u_c\) the quotient is \(R^2 e^{ru}\sin u\), increasing strictly up to \(u_1\) and decreasing strictly thereafter. From \(u_c\) on it is \(R^2/(r-\cot u)\), strictly decreasing until it tends to zero at \(\pi\). The unique maximizing phase is therefore \(u_*\). At \(u=u_1\), \(-g_r(u_1)=(2r/R)e^{r u_1}\), which increases from zero to infinity (logarithmic derivative \(1/r+u_1\)). This proves the transition equation and equivalent branches. The normalized initial-derivative extremizer with positive derivative is \(F_r(x)=R e^{r u_*}e^{-rx}\cos(x-u_* -\phi)\), equivalently \(g_r(u_*-x)\). It has \(F_r(u_*)=1\), \(F_r'(0)=C(r)\), \(\|F_r\|_\infty=1\), and all later stationary absolute values are less than one.
 
-**2. Exact one-variable reduction.** Any nonzero real member can, up to an overall nonzero scalar, be expressed as
-\[
-f(t)=e^{-rt}\cos(t-\theta).
-\]
-Let \(\phi=\arctan r\). Choose \(u\in[0,\pi)\) with \(\theta\equiv u+\phi\pmod\pi\). All positive-time stationary points have times \(u+k\pi\), and their absolute values decrease by \(e^{-r\pi}\) each period. Thus the supremum is the larger of the endpoint value and the first stationary absolute value:
-\[
-\|f\|_\infty
-=\frac1R\max\{|\cos u-r\sin u|,e^{-ru}\}.
-\]
-Meanwhile \(|f'(0)|=R\sin u\). Hence the dimensionless sharp constant equals
-\[
-C(r)=\max_{0\le u\le\pi}
-\frac{R^2\sin u}{\max\{|\cos u-r\sin u|,e^{-ru}\}}.
-\tag{1}
-\]
-The equality also includes phases with a stationary point at the endpoint; the endpoints \(u=0,\pi\) contribute zero to (1).
+**3. All real equality cases for the full derivative norm.** Normalize \(f\) to norm one in dimensionless time. Its derivative is continuous and decays to zero, so its derivative norm is attained at some \(d\ge0\) on the closed half-line. If that norm equals \(C(r)\), the right translate \(f(x+d)\) must also have norm one: a smaller norm would contradict the bound for its initial derivative. By uniqueness of the maximizing phase, \(f(x+d)=\pm F_r(x)\) for \(x\ge0\). Both sides are real analytic and belong to the same two-dimensional space on the whole line, so this identity extends and determines \(f(x)=\pm F_r(x-d)\). Conversely a shift of this form remains of norm one exactly when \(|F_r|\le1\) on \([-d,0]\); it then has derivative magnitude \(C(r)\) at \(d\) and is an extremizer. On the backward interval, \(F_r(x)=g_r(u_*-x)\). Since \(g_r\) decreases strictly on \((0,\pi)\) and crosses \(-1\) at \(u_c<\pi\), the extra interval is admissible precisely up to \(d=u_c-u_*\). If \(d\) is larger, the interval includes a point with argument between \(u_c\) and \(\pi\), where \(g_r<-1\). On the admissible interval the value \(-1\) is attained only at the new endpoint and only for maximal \(d\); on the forward interval the only active positive-time contact is the first stationary point. Moreover, for \(d>0\) the initial phase \(u_*+d\) differs from the uniquely optimal initial phase \(u_*\), so it cannot attain the initial-derivative bound. Restoring \(x=bt\) gives the claimed classification.
 
-**3. One switching point and one maximizer.** Define
+**4. Differentiability across the switch.** Write \(W_0(r,u)=R^2 e^{ru}\sin u\). This is analytic, as are the two phase branches; implicit differentiation at the contact gives
 \[
-g_r(u)=e^{ru}(\cos u-r\sin u).
+u_c'=-\frac{u_c+e^{r u_c}\sin u_c}{W_0(r,u_c)}.
 \]
-For \(0<u<\pi\),
-\[
-g_r'(u)=-R^2e^{ru}\sin u<0,
-\quad g_r(0)=1,\quad g_r(\pi)=-e^{r\pi}<-1.
-\]
-Consequently there is one and only one \(u_c\) with \(g_r(u_c)=-1\); it lies after the zero of \(\cos u-r\sin u\), namely in \((\arctan(1/r),\pi)\). The denominator in (1) is \(e^{-ru}\) for \(u\le u_c\), and \(r\sin u-\cos u\) for \(u\ge u_c\). Thus its ratio is respectively
-\[
-F_r(u)=R^2e^{ru}\sin u
-\quad\text{and}\quad
-H_r(u)=\frac{R^2}{r-\cot u}.
-\]
-The function \(F_r\) increases strictly up to the unique point \(u_1=\pi/2+\phi\), then decreases strictly. The function \(H_r\) decreases strictly throughout \([u_c,\pi)\). Therefore the unique maximizing phase is \(u_*=\min\{u_1,u_c\}\), proving the sharp formula.
-
-**4. Transition and explicit extremizers.** Since \(\sin u_1=1/R\), \(\cos u_1=-r/R\), one has
-\[
-g_r(u_1)=-\frac{2r}{R}e^{ru_1}.
-\]
-The function \(h(r)=2r e^{r u_1(r)}/R\) increases strictly from zero to infinity: its logarithmic derivative is \(1/r+u_1(r)>0\). Hence the unique \(r_*\) with \(h(r_*)=1\) separates \(u_c>u_1\) from \(u_c<u_1\), with equality at the threshold.
-
-For each \(r>0\) define, in the dimensionless time variable,
-\[
-f_r(t)=R e^{r u_*}e^{-rt}\cos(t-u_*-\phi).
-\]
-Its endpoint value has magnitude at most one, its first stationary value at \(t=u_*\) equals one, and every later stationary value has smaller absolute magnitude. Thus \(\|f_r\|_\infty=1\) and
-\[
-f'_r(0)=R^2e^{r u_*}\sin u_*=C(r).
-\]
-For \(r<r_*\), the endpoint value is strictly greater than \(-1\), so only the first stationary point is active. For \(r\ge r_*\), \(f_r(0)=-1\) and \(f_r(u_*)=1\). Uniqueness of the maximizing phase in (1) proves uniqueness of normalized real extremizers up to sign.
-
-**5. Differentiability at the contact transition.** Set \(W(r,u)=R^2e^{ru}\sin u\). The two analytic branches are \(W(r,u_1(r))\) below the threshold and \(W(r,u_c(r))\) above it. They agree at \(r_*\), where \(W_u(r_*,u_1)=0\); their first derivatives therefore agree. Implicit differentiation of \(e^{ru_c}(r\sin u_c-\cos u_c)=1\) gives
-\[
-u_c'(r)=-\frac{u_c+e^{r u_c}\sin u_c}{W(r,u_c)}.
-\]
-At \(r_*\), put \(R_*=\sqrt{1+r_*^2}\), \(u_*=u_1(r_*)\), and \(W_*=W(r_*,u_*)\). Then
-\[
-u_1'(r_*)=R_*^{-2},\qquad
-u_c'(r_*)=-R_*^{-2}-u_*/W_*,\qquad
-W_{uu}(r_*,u_*)=-R_*^2W_*.
-\]
-Differentiating the two composites twice and using \(W_u(r,u_1(r))=0\) yields the strictly negative jump
+The composites agree at \(r_*\), where \((W_0)_u=0\) at the common phase. Thus their first derivatives agree. At the common point put \(R_*=\sqrt{1+r_*^2}\), \(U=u_1(r_*)\), and \(M=W_0(r_*,U)\). Here \(u_1'=R_*^{-2}\), \(u_c'=-R_*^{-2}-U/M\), and \((W_0)_{uu}=-R_*^2M\). Differentiating the stationary condition along \(u_1(r)\) gives \((W_0)_{ru}=-(W_0)_{uu}u_1'\) at the crossing. Consequently the second derivatives of the two composites differ by \((W_0)_{uu}(u_c'-u_1')^2\), so
 \[
 \boxed{C''(r_*+)-C''(r_*-)
-=-R_*^2W_*\left(\frac{2}{R_*^2}+\frac{u_*}{W_*}\right)^2<0.}
+=-R_*^2 M\left(2/R_*^2+U/M\right)^2<0 .}
 \]
-This establishes \(C\in C^1\) but \(C\notin C^2\) at the unique phase transition.
+The analytic branches and this nonzero jump show that \(C\) is continuously differentiable but has no second derivative at the switch.
 
-**6. Endpoint asymptotics.** As \(r\downarrow0\), the low-damping branch gives
-\[
-C(r)=1+\frac\pi2r+O(r^2).
-\]
-For sufficiently large \(r\), \(u_*=u_c\). Set \(x_r=ru_c\); its defining equation is
-\[
-e^{x_r}\left(r\sin(x_r/r)-\cos(x_r/r)\right)=1.
-\]
-The monotonicity already established places \(x_r\) between \(1\) and \(2\) for all sufficiently large \(r\). Uniform convergence on that interval identifies its unique limit \(q\in(1,2)\), characterized by \(e^q(q-1)=1\). Consequently
-\[
-\lim_{r\to\infty}\frac{C(r)}r
-=\lim_{r\to\infty}\frac{(1+r^2)e^{x_r}\sin(x_r/r)}r
-=q e^q=\frac{q}{q-1}.
-\]
-All asymptotic statements follow. This completes the proof.
+**5. Limits.** The small-\(r\) branch gives \(C(r)=1+(\pi/2)r+O(r^2)\). For large \(r\), set \(x_r=ru_c\). The increasing contact expression on the relevant phase interval becomes \(e^{x_r}(r\sin(x_r/r)-\cos(x_r/r))=1\). On \([1,2]\) its left side converges uniformly to \(e^x(x-1)\), whose endpoint values bracket one strictly. By uniqueness, for sufficiently large \(r\) the root is in that interval, and it tends to the unique \(q\) with \(e^q(q-1)=1\). Substitution in \(C(r)/r\) gives \(q e^q=q/(q-1)\).
 
 ## Verification
 
-The standalone, standard-library-only `check.py` computes \(r_*\), the unique stationary-contact root, and the claimed sharp constant using bracketing. It compares the formula against 58 independent phase grids with 1,001 phases each, probes explicitly normalized extremizers at 2,001 times for each parameter, and checks a separate coefficient-angle formulation. It also checks the large-damping limit and numerically probes the second-derivative jump. These are supplementary finite checks; the proof above establishes the continuum and all-parameter statements.
+The analytic argument proves the continuum result and the translated equality classification. The companion standard-library `check.py` checks the numerical norm formula, transition, canonical witness \(F_r\), large-damping limit and curvature jump on finite probes (`python3 check.py`). That script does not test global uniqueness or the classification of translated extremizers.
 
-Reproduction: `python3 check.py` from the directory containing this document and the script. No source download or specialized software is required for the checker.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Protasov, *Generalized Markov–Bernstein inequalities and stability of dynamical systems* (first arXiv submission 25 September 2022), defines general exponential-polynomial sharp constants and reduces them to finite-dimensional constrained uniform approximation; his results for exact sharp constants focus on real exponent systems. The present claim evaluates the minimal nonreal conjugate pair exactly, including its active-contact transition, explicit uniqueness, and differentiability loss; it does **not** prove Protasov's general comparison conjecture.
-
-Kamalov and Protasov, *Chebyshev approximation by non-Chebyshev systems* (first arXiv submission 24 March 2024), give a general constrained approximation algorithm and numerical Markov–Bernstein examples. In their Section 9.4, the damped harmonic example includes an additional \(e^{-t}\) mode in addition to the sine and cosine modes. The exact analytic two-dimensional phase diagram here is not their numerical three-mode example. The older Borwein–Erdélyi work on exponential sums supplies a different family of real-exponent Markov–Bernstein bounds.
-
-## Limitations
-
-This theorem concerns one conjugate pair sharing one decay rate and the first-derivative uniform norm. It does not establish a comparison theorem for arbitrary complex spectra or multiple modes. The explicit numerical value of \(r_*\) is a computed approximation, not a claim of an elementary closed form; the root equation is the exact definition. Prior-publication priority remains subject to discovery of older specialist work on maximum initial velocities of damped oscillators. No independent mathematical validation has been performed.
+Protasov's general exponential-polynomial inequalities provide the broader Markov–Bernstein setting; general constrained uniform-approximation algorithms are also known. The damped harmonic example in Kamalov and Protasov, §9.4, is described in the literature comparison as including an additional \(e^{-t}\) mode. The claim here specifically evaluates the two-mode constant and classifies its real equality cases, including the collapse of a nontrivial interval of shifts. It does not settle comparison conjectures or cover higher derivatives, additional modes, or finite time windows. Exact priority remains subject to possible earlier specialist results on maximal initial velocities of damped oscillators.
 
 ## References
 
-1. V. Yu. Protasov, *Generalized Markov–Bernstein inequalities and stability of dynamical systems*, arXiv:2209.12250 (first public version 25 September 2022), https://arxiv.org/abs/2209.12250.
-2. V. Yu. Protasov and R. Kamalov, *Chebyshev approximation by non-Chebyshev systems*, arXiv:2403.16330 (first public version 24 March 2024), https://arxiv.org/abs/2403.16330.
-3. P. Borwein and T. Erdélyi, *A sharp Bernstein-type inequality for exponential sums*, Journal für die reine und angewandte Mathematik 476 (1996), 127–141, https://doi.org/10.1515/CRLL.1996.476.127.
+1. V. Yu. Protasov, *Generalized Markov–Bernstein inequalities and stability of dynamical systems*, arXiv:2209.12250.
+2. V. Yu. Protasov and R. Kamalov, *Chebyshev approximation by non-Chebyshev systems*, arXiv:2403.16330.
+3. P. Borwein and T. Erdélyi, *A sharp Bernstein-type inequality for exponential sums*, J. reine angew. Math. 476 (1996), 127–141, doi:10.1515/CRLL.1996.476.127.

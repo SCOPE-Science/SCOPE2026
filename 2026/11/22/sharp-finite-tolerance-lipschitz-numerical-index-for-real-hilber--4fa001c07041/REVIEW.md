@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized increments of an isometric reference lie on the Hilbert unit sphere. The spherical-cap optimization gives the lower bound \(\sqrt{2\delta-\delta^2}\) for **every** Lipschitz perturbation. A rank-two skew rotation supplies an exactly norm-one perturbation attaining the same index and the maximum finite-tolerance error. A tangential-component argument proves the error upper bound. The same skew construction gives the stated one-sided result for nonisometric references, and direct scalar evaluation gives the one-dimensional exception. Boundary suprema and arbitrary metric cardinalities are covered. The supplementary diagnostic passed 20,136 finite checks; the proof does not depend on exhaustive finite tests.
+PASS
 
-## Originality — PASS, with residual risk
+Write c=1-delta and s=sqrt(1-c^2). For unit reference a and nonzero increment b, put x=|<a,b>|/||b||. Maximizing over the closed cap gives ||b|| for x>=c, and ||b||(cx+s sqrt(1-x^2)) for x<c, by aligning the perpendicular component with the signed perpendicular component of b. Boundary values are limits from the open cap, so the suprema coincide. Concavity on [0,c] gives minimum s at x=0. Since each reference increment is unit for an isometry, taking the supremum over pairs gives the lower index bound without any norm-attainment assumption on f. A rank-two skew J has Ja perpendicular to a. Its plane contains one nonzero reference increment, so ||Jg||_Lip is positive and equals one in the isometric case. For a merely norm-one g and admissible u, the orthogonal component of u relative to a/||a|| has norm at most s because <u,a>/||a||>c. Thus normalized Jg gives the upper bound even without an isometry. For unit a the limiting radius equals the supremum of the longitudinal evaluations, by the uniform estimate ||u-a||<=sqrt(2 epsilon). At finite tolerance the perpendicular term adds at most s||f||_Lip. The same skew witness has zero longitudinal evaluation and finite radius exactly s. In real dimension one with isometric g the matching unit sign evaluates the entire increment in absolute value, giving index 1 and error 0.
 
-Pérez-Hernández (arXiv:2507.18208, 2025) uses a finite \(\delta\) in the definition of an approximate numerical radius but studies its limiting value and uses nonsharp general estimates. Kadets et al. (arXiv:1905.12257, 2019/2020) and Choi–Han–Jung (arXiv:2611.20406, 2026) prove qualitative vanishing of Hilbert-target indices. The finite-tolerance sharp profile for all Hilbert metric isometries, with its best global regularization error, was not identified in the compared sources. Equivalent results under a different near-norming convention remain possible. The 2026 preprint is a supporting later reference, not the eligible source determining the first-public date.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves a natural quantitative problem for the almost-norming functionals already used in numerical-index theory. It gives a full, exact, dimension-independent regularization law over a broad metric class and identifies the precise square-root error, rather than merely recovering the known limit zero. It also distinguishes real scalar targets sharply from all higher-dimensional Hilbert targets.
+The supported distinction is the exact positive-tolerance profile and best uniform regularization error on all isometric metric domains in real Hilbert targets. Near-norming definitions, skew maps, and a zero limiting relative index are not novel ingredients.
 
-## Limitations
+## value
 
-The exact assertions concern real Hilbert targets and isometric reference maps. Only a one-sided estimate is claimed for arbitrary norm-one references. There is no independent external mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite near-norming relaxation is a preexisting object, and exact control matters because the real Hilbert limiting index is zero. The theorem quantifies the positive floor introduced by tolerance and the worst bias across all normalized test maps, showing that neither square-root scale nor its leading coefficient can be reduced. The construction works on arbitrary metric subsets without needing attainment, differentiability or compactness. This supplies a uniform benchmark, not just a planar cap calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

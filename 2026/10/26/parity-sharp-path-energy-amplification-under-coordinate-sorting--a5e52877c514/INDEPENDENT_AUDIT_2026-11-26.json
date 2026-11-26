@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:10:33.628928Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each strict sorting chamber the map is a permutation. Splitting a generic segment at coordinate crossings and using the triangle inequality gives the upper maximum over permutation norms; continuity handles segments lying in ties. A small arbitrary perturbation inside each chamber gives the reverse inequality. On the mean-zero subspace, the nearest-neighbor path Laplacian with degree-one ends has eigenmodes cos((j-1/2)k pi/N) by the second-difference equation (with equal ghost and endpoint values). The extreme nonzero eigenvalues are 4 sin^2(theta) and 4 cos^2(theta), theta=pi/(2N). Their eigenspaces are simple. For even N, reflection pairs opposite signs in both modes and sine/cosine complementation matches magnitudes, so a permutation attains the spectral ratio. For odd N the lowest mode has a zero coordinate while the highest has none; compactness and the finite permutation family make the inequality strict. For the odd lower bound, write v_(h+l)=(-1)^(h+l-1) cos(l pi/N), h=(N+1)/2. In increasing rank, expressing v as -cos of angles yields the even-angle grid when N=3 mod 4 (0 once and other angles twice) and the odd-angle grid when N=1 mod 4 (pi once and others twice). This matches the low-mode midpoints within theta in every rank. The positive semidefinite defect lambda_max I-L annihilates v, so the energy deficit of the permuted low mode is at most lambda_max N theta^2, giving the stated odd lower bound and asymptotic. Each sorted-value gap is crossed by at least one original path edge, whose square dominates the sum of its crossed gap squares, proving the separate one-point bound. A different-coordinate SVD enumeration (python /workspace/independent_checks.py 2) checked 872 permutations over N=2–6; this is finite numerical corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The monotone-target proposition concerns Lp losses against a fixed monotone function.",
+          "The graph/lattice Pólya–Szegő inequalities and weighted path cut-ratio theorem control a single rearranged input, and the latter contains the unweighted one-input inequality."
+        ],
+        "reasoning": "None of the accessed broader statements compares Sx-Sy to x-y in a path derivative norm for arbitrary ordered chambers. In particular Sx-Sy is not the rearrangement of x-y.",
+        "searches": [
+          "arXiv:0806.4730v3",
+          "arXiv:2209.06765v2",
+          "arXiv:2403.10270 §§4.1.2–4.2",
+          "Resultary convex weighted-path sorting 40c683c1fbd3"
+        ]
+      },
+      "checked_sources": [
+        "GroupSort PMLR 97 (2019)",
+        "arXiv:0806.4730v3, 2209.06765v2, 2403.10270",
+        "Resultary 6993154cc2b9, 40c683c1fbd3, 8d2a5f108bf9, 9df4babfb1ca, 9edda903c336",
+        "Almgren–Lieb (1989), AMS article and PDF access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star's homogeneous statement applies directly to a path of three vertices, not to the path family.",
+          "The condition number bound needs no chamber-specific spectral information, whereas equality requires a coordinate permutation between two distinct extreme path modes."
+        ],
+        "reasoning": "Neither one-input contraction, star exactness, variation optimization nor norm equivalence proves the path-mode permutation criterion and near-saturation error. The isolated N=3 overlap and preexisting one-input estimate are not the supported originality claim.",
+        "searches": [
+          "Resultary 6993154cc2b9 and 40c683c1fbd3",
+          "Resultary 8d2a5f108bf9, 9df4babfb1ca, 9edda903c336",
+          "GroupSort p-norm preservation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-input quotient is exactly the largest permutation-operator norm in the path-gradient energy, equivalently a maximum of generalized Rayleigh quotients for a path Laplacian and its conjugates.",
+          "GroupSort's permutation Jacobian preserves coordinate p-norms, not the conjugated path-Laplacian form."
+        ],
+        "reasoning": "A fixed permutation's squared-gradient quotient optimizes a signal as well as considering the permutation, so a usual fixed-signal arrangement objective is not this solved norm problem. No matching generalized norm result was located in the bounded searches; no full primary QAP exclusion is asserted.",
+        "searches": [
+          "Resultary: two-input path Dirichlet sorting sensitivity, permutation composition in discrete Sobolev norm and QAP",
+          "Anil–Lucas–Grosse, Properties of GroupSort"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6993154cc2b9 treats the two-input star (including a homogeneous gradient result).",
+          "8d2a5f108bf9 gives unweighted path variation n-1, for L1 differences. 9df4babfb1ca and 9edda903c336 have cotangent/cosecant parity for a weight-optimized L1 variation problem."
+        ],
+        "reasoning": "Different graphs, weights, and norms preclude an all-N match, notwithstanding overlap at N=3 for the star and numerical resemblance in the even case. No earlier exact match for the fixed unweighted quadratic path was identified among the inspected findings.",
+        "searches": [
+          "Resultary: exact path-energy sorting norm and cotangent parity",
+          "Resultary: path Sobolev two-point sorting and path variation exact sensitivity"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the parity-resolved two-input path-gradient stability result and quantitative odd-N enclosure, not the spectral condition-number bound in isolation or one-input contraction. The closest checked two-input works concern different norms or the star graph; they give no all-path saturation result. The exact odd optimum is not claimed.",
+      "residual_risks": [
+        "Almgren–Lieb, Symmetric Decreasing Rearrangement Is Sometimes Continuous (JAMS 2, 1989), was not available in the tried OA routes; no assessment of the precise full-text theorems follows.",
+        "Permutation norm or arrangement literature under different vocabulary could cover parts of the claim; search misses and catalogue dates are not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Permutation mechanism overlaps; coordinate norms differ",
+          "evidence": [
+            "GroupSort is 1-Lipschitz and norm-preserving for coordinate p-norms."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v97/anil19a.html",
+          "material_read": "PDF p. 3, Properties of GroupSort, offset 18400",
+          "method": "Read primary theorem discussion and compared preserved norms",
+          "title": "Sorting Out Lipschitz Function Approximation",
+          "trigger": "Same permutation Jacobian mechanism"
+        },
+        {
+          "assessment": "Fixed monotone target in Lp, not the path-gradient ratio",
+          "evidence": [
+            "The rearranged estimator is closer to a fixed monotone target in ordinary Lp loss."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0806.4730v3",
+          "material_read": "pp. 1 and 4, offset 12200",
+          "method": "Compared target-relative and two-input inequalities",
+          "title": "Improving Point and Interval Estimates of Monotone Functions by Rearrangement",
+          "trigger": "Monotone rearrangement stability"
+        },
+        {
+          "assessment": "One-input background; no whole-paper inference from abstract",
+          "evidence": [
+            "States graph conditions for decreasing the gradient norm of a rearranged function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.06765v2",
+          "material_read": "Primary abstract, p. 1",
+          "method": "Compared the graph-gradient quantifiers in the accessed passage",
+          "title": "Discrete Rearrangements and the Pólya–Szegő Inequality on Graphs",
+          "trigger": "Graph gradient rearrangement inequalities"
+        },
+        {
+          "assessment": "Infinite-path one-input rearrangement, not the claimed modulus",
+          "evidence": [
+            "Squared gradients contract under the stated spiral-like sorting on the infinite path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.10270",
+          "material_read": "§§4.1.2–4.2, printed pp. 69–74, offsets 234750 and 244650",
+          "method": "Read the primary path inequality passages",
+          "title": "Discrete Functional Inequalities on Lattice Graphs",
+          "trigger": "Squared-gradient inequality on a path geometry"
+        },
+        {
+          "assessment": "Different graph family, with the three-vertex coincidence",
+          "evidence": [
+            "Computes finite-star two-input moduli including the homogeneous gradient case."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-two-point-stability-of-sorting-in-finite-star-sobolev-norm--6993154cc2b9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read the mirror statement and compared graph, form and homogeneity",
+          "title": "Sharp two-point stability of sorting in finite-star Sobolev norms",
+          "trigger": "Closest indexed Sobolev two-input theorem"
+        },
+        {
+          "assessment": "Covers one-input contraction only",
+          "evidence": [
+            "One-input multiplier is a sharp cut ratio."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-isoperimetric-sharp-constants-for-sorting-in-convex-weighted-pat--40c683c1fbd3",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Read and specialized to unweighted quadratic energy",
+          "title": "Isoperimetric sharp constants for sorting in convex weighted path energies",
+          "trigger": "Same path sorting and includes squared differences"
+        },
+        {
+          "assessment": "L1 instead of L2",
+          "evidence": [
+            "Unweighted path factor is n-1 for total variation."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-graph-variation-sensitivity-of-rank-order-rearrangement--8d2a5f108bf9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read mirror claim and compared gradient exponent",
+          "title": "Exact graph variation sensitivity of rank-order rearrangement",
+          "trigger": "Two-input path rearrangement with an exact constant"
+        },
+        {
+          "assessment": "Weighted L1 optimization, not fixed-weight quadratic energy",
+          "evidence": [
+            "Optimizing the edge weights produces cotangent for even and cosecant for odd length."
+          ],
+          "identifier_or_url": "Resultary 9df4babfb1ca and 9edda903c336",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Read hypotheses and compared weight optimization and norms",
+          "title": "Sine-edge-weight variation stability comparisons",
+          "trigger": "Cotangent/cosecant parity formulas in path sorting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path-gradient norm of differences is a natural conditioning invariant for monotone sorting. The anti-contractive growth despite one-point contraction and the exact saturation parity are whole-family structure, while the uniform odd error shows that the strict obstruction does not change leading amplification. This is not a claim to the exact odd optimum or another graph's modulus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

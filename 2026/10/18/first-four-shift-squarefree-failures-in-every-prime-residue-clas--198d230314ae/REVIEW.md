@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The single final claim is a list of twelve least primes \(M(r)\), one for each reduced residue class modulo \(36\), such that each of the four remainders \(p-1,p-2,p-4,p-8\) is nonsquarefree. The proof reduces every minimality assertion to a finite and **complete** census of primes through the largest displayed witness \(6{,}165{,}527\). The included integer-only program gives an Eratosthenes proof for its prime table and tests nonsquarefreeness both by prime-square marking and, separately, integer remainder trial. Every displayed witness is confirmed prime by trial division, and four explicit prime-square factors are verified. Small primes omitted from the main scan are directly excluded. This establishes the minima without extrapolation. Shared prime-table generation between the two squarefree methods is explicit and is covered by the sieve proof.
+## correctness
 
-## Originality — PASS, residual risks stated
-The motivating 2026 preprint treats **only** the class \(7\) modulo \(36\), proving a density statement and reporting selected computational data; the complete first-occurrence table across all twelve reduced classes is not implied by the described theorem. Its full primary PDF was not accessible; its verified abstract was read, leaving risk of overlap with its numerical appendix for the single \(7\)-class row. Hercher's 2025 complete paper, particularly Sections 3–4 and Tables 3–4, was materially inspected: it treats odd integers with positive exponents and reports a different record sequence, not exact prime minima by class with exponents \(0,1,2,3\). OEIS A377587 and A257545 were inspected: their integer/prime record conventions and exponent/offset patterns differ. Multiple exact-value, statement, equivalent-formulation, and dominating-coverage searches against the published mathematical-results index returned no equivalent twelve-class claim. Absence of a database hit is not treated as a uniqueness proof; specialized computations may remain unindexed. The entire twelve-class classification, rather than any individually overlapping row, is the novelty claim.
+PASS
 
-## Mathematical value — PASS
-The modulus \(36=\operatorname{lcm}(4,9)\) canonically sorts the small-square obstructions \(4\) and \(9\) for the first four candidate powers of two in a current problem of additive number theory. The source studies one of these twelve natural strata. Determining *all* first exceptional prime thresholds supplies a sharp and reproducible local baseline for congruence-sensitive density and least-exception investigations. The values range from \(5051\) to \(6165527\), with all three residue classes having two distinct forced small-square obstructions yielding minima below \(7000\), while the two classes with none yield minima above four million. This gives a concrete and naturally structured spread that global existence results do not specify. This is a natural complete finite classification, not an arbitrarily selected initial sample or a reformulation of an existing count. No general asymptotic or solution of the conjecture is claimed.
+I reproduced all twelve minima by independently marking multiples of every integer square ≥4 through B=6165527, and separately marking odd composites using all odd factors up to sqrt(B). Marking composite-base squares adds no false positives, since their bases themselves have prime divisors; an odd composite has a smaller odd factor at most its square root. The exhaustive increasing candidate scan starts at p=9, ensuring positive shifts, and reaches a verified witness in every reduced class. Every displayed prime, each prime-square witness and every forced-offset count f(r) was checked from the frozen table. The prime units 5 and 7 below the positivity cutoff could not create extra cases even if one allowed nonpositive shifts, because their p−2 remainders are 3 and 5. There is no density claim for other classes and no inference for exponents beyond 0,1,2,3.
 
-## Closest sources and limits
-S. Harman and D. Paquin, arXiv:2610.07214 (verified abstract; primary full text unavailable); C. Hercher, *Journal of Integer Sequences* 28 (2025), Article 25.3.1 (full text read, especially Sections 3–4); OEIS A377587, A257545, and A257108 (entries examined). Source-access risk and possible previously unindexed exact tables remain. The finite certificate's logic and its domain are stated in RESULT.md and VERIFICATION.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This passes for the complete twelve-class profile, not for claiming novelty of each row. Harman–Paquin explicitly give the r=7 minimum 4851151 and the same four prime-square witnesses; this is verified prior coverage, not merely a possible overlap. The frozen contribution is the joint exact classification, with the other eleven minima not implied by the r=7 proof or census. No inspected source gives the full classification. The frozen discussion already singles out possible prior coverage of r=7; for any subsequent use, credit it as confirmed prior work.
+
+## value
+
+PASS
+
+The four shifts come from the initial exponent window in a studied squarefree-plus-power-of-two question, and 36 is the combined modulus of the two smallest prime squares. The partition is exhaustive over the prime classes and naturally separates the offsets already forced to fail, rather than selecting strata after the scan. The resulting exact thresholds distinguish the genuinely unforced classes (including the verified r=23 threshold 6165527), and provide benchmarks for residue-sensitive searches. No statistical law or causal conclusion is drawn from the finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

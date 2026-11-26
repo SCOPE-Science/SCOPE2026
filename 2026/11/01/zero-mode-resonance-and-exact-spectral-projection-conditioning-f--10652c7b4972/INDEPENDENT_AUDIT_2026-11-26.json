@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:38:32.596303Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–62",
+        "VERIFICATION.md; check.py",
+        "Duru et al., arXiv:2610.24853, Corollaries 3.4 and 3.8"
+      ],
+      "rationale": "The Fourier characters are eigenvectors of U with dense eigenvalues on the circle. For a≠b, conjugation of diag(aU,bU) by the upper shear S with off-diagonal M_h gives coupling b h−a h∘R_α=c. The Fourier denominator b−a exp(inα) is nonzero and the finite sum defines a bounded multiplier; this fixes the sign of the conjugated Riesz projection, whose row is (1,−h) pointwise and whose norm is sqrt(1+||h||∞²). The known ergodic component bound for a two-dimensional fiber applies; this operator attains it. Near a=b=r the nonzero-frequency part of h converges uniformly, while the constant term is exactly c_0/(b−a). Its norm differs from that term's modulus by a bounded amount even for either sign of b−a. This proves the scaled gap limit and the bounded norm limit for c_0=0. The two-mode norm follows by exact phase alignment, including when either coefficient vanishes. At collision, write c=c_0+r(h−h∘R_α) using the nonzero harmonics. Directly raising the triangular factorization to the N-th power and removing diag(U^N,U^N) leaves unit diagonal and off-diagonal multiplication by Nc_0/r+h−h∘R_α^N. The last two terms are uniformly bounded; the diagonal contributes norm one, so dividing by N yields |c_0|/r and the power-boundedness criterion for r^(−N)T^N. Off the circle the triangular resolvent is invertible, and the invariant first-coordinate subspace supplies the dense eigenvalues on the circle, so no further spectral issue arises at collision. The proof's 'rank-one upper-block' terminology refers to fiber rank, not rank on the whole L² space; only its norm is used.",
+      "residual_risks": [
+        "Frozen replay path is python3 check.py. Its 4380 recorded finite assertions sample the cohomological relation and phase maximum; they are not a power-growth or arbitrary-angle certificate. Code was inspected, not independently executed.",
+        "The collided limit idempotent for c_0=0 is not a Riesz splitting of the single coincident circle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.8 gives at most m connected spectral components in ergodic fiber dimension m; Corollary 3.4 supplies a fiber-norm principle. Nag–Golla give the triangular norm formula Φ(s)=(s+sqrt(s²+4))/2 for their Foguel-type isometric block."
+        ],
+        "reasoning": "The m=2 ceiling is a covered specialization. The known block norm yields a power-growth coefficient once the summed off-diagonal is known, but neither it nor the component count determines the shift's Fourier cohomological solution or the bounded nonzero-mode remainder. The older full texts were not used as proof of noncoverage.",
+        "searches": [
+          "arXiv:2610.24853, Corollaries 3.4 and 3.8",
+          "arXiv:2610.42102v1, Proposition 3.1",
+          "Duggal–Jeon–Kim DOI 10.1186/1029-242X-2013-268 and Pötzsche DOI 10.3934/dcds.2016.36.423, access attempts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24853",
+        "arXiv:2610.42102v1",
+        "Resultary 3fada36ac7d7 and c221bf362c7f",
+        "Pötzsche and Duggal–Jeon–Kim full-text access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The operator lies in the prior ergodic weighted-composition class, and the overlaid block norm comparison is exact after reducing to unit diagonal. The strongest indexed models use either a constant matrix over a Bernoulli shift or conjugate unitary multipliers, neither the nonconstant finite Fourier cohomology here."
+        ],
+        "reasoning": "The covered structural results do not on their own give quantitative norm and collision laws: the bounded solution graph for separated radii, the mean singular coefficient, and exact telescoping of the nonzero Fourier terms require additional model-specific calculation. This is an elementary exact specialization of classical methods, not a new general projection or reducibility theorem.",
+        "searches": [
+          "arXiv:2610.24853, Corollaries 3.4 and 3.8",
+          "arXiv:2610.42102v1, Proposition 3.1",
+          "Resultary 3fada36ac7d7 and c221bf362c7f, RESULT.md passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duru et al. identify the decomposable spectral projection and equality of operator norm with fiber essential supremum. Record 3fada36ac7d7 concerns constant positive bidiagonal Koopman weights and exact resolvent norms; c221bf362c7f uses conjugate pointwise multiplication diagonals."
+        ],
+        "reasoning": "The Riesz projection norm can be phrased as the norm of the projection along a solution graph of b h−a h∘R_α=c. Generic decomposability does not give that graph. The c≡c_0 constant-matrix specialization is not the finite nonconstant Fourier family, and replacing shift by pointwise multiplication changes the coupling accumulation from rotation translates to a pointwise resonance denominator. An exact resolvent norm is not in general an exact variable-frequency projection theorem.",
+        "searches": [
+          "Resultary: irrational triangular weighted-composition/Koopman models, spectral projection norm, Fourier resonance and collision power growth",
+          "arXiv:2610.24853, Corollary 3.4",
+          "Resultary 3fada36ac7d7 and c221bf362c7f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact items give different invariants: the constant positive bidiagonal model has an exact resolvent norm and merger threshold; the conjugate-unitary multiplier model gives exact powers/resolvent and growth exponents for its own coupling family."
+        ],
+        "reasoning": "An infinite-parameter formula is not a finite table entry. The nearest indexed closed forms do not give the specific two-frequency amplitude |c_0|/|b−a|+|c_n|/|b−a exp(inα)| or its limit for variable irrational rotation couplings. Ranked retrieval is not exhaustive.",
+        "searches": [
+          "Resultary: spectral-projection conditioning for triangular rotation cocycles, two-mode phase alignment, exact weighted-composition power growth",
+          "Indexed results 3fada36ac7d7 and c221bf362c7f, actual findings"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp quantitative calculation for fixed irrational rotation and finite Fourier coupling: explicit Fourier dependence of the exact norm, the residue at a closing gap, and the collision dichotomy with an exact power-growth coefficient. Prior decomposability, the fiber-dimension component ceiling, triangular norm identities, and classical shear/cohomological methods are credited rather than claimed as new.",
+      "residual_risks": [
+        "Older general triangular and weighted-rotation sources were not all readable in full, including the cited Pötzsche and Duggal–Jeon–Kim texts; a prior explicit specialization is not excluded.",
+        "Finite Fourier cohomology and shear similarity are classical. The verdict is limited to the distinct quantitative package supported by the passages inspected, not a priority assertion about those methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of decomposability, norm localization and component ceiling; no explicit coupling law in these passages",
+          "evidence": [
+            "Global projection norm equals the supremum of fiber norms in the decomposable setting; ergodicity gives at most m connected components for m-dimensional fibers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.24853",
+          "material_read": "PDF pp. 14–15 Corollary 3.4, offsets 35365–40299; p. 17 Corollary 3.8, offsets 42850–45098",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Operators commuting with L-infinity on Köthe–Bochner spaces",
+          "trigger": "Strongest primary theorem on spectral projections in the same weighted-composition class"
+        },
+        {
+          "assessment": "Covers the block norm once the off-diagonal is specified, not the rotation-mean reduction",
+          "evidence": [
+            "The block norm function Φ(s) is asymptotic to s, giving the same leading constant once the off-diagonal coefficient is computed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.42102v1",
+          "material_read": "PDF p. 7, Proposition 3.1 at offset 21741",
+          "method": "Bounded OA primary PDF excerpt",
+          "title": "Nag and Golla, Foguel-type operator norms",
+          "trigger": "Strong exact triangular-block norm competitor for the collision calculation"
+        },
+        {
+          "assessment": "Related constant-weight result, not the variable Fourier Riesz projection formula",
+          "evidence": [
+            "Constant positive bidiagonal matrix over a Bernoulli shift; spectral circles, exact resolvent norm and merger threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-phase-alignment-and-a-sharp-pseudospectral-merger-for-positive-b--3fada36ac7d7",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Phase alignment and a sharp pseudospectral merger for positive bidiagonal Koopman weights",
+          "trigger": "Closest indexed separated-radii quantitative Koopman result"
+        },
+        {
+          "assessment": "Different diagonal action and growth mechanism",
+          "evidence": [
+            "Pointwise multipliers with opposite phases and coupling proportional to |sin θ| raised to a power; power and resolvent laws for that model, not mean accumulation of translates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-resonance-transition-for-triangular-conjugate-unitary-mu--c221bf362c7f",
+          "material_read": "Mirrored RESULT.md finding offsets 0–6532 and relevant continuation",
+          "method": "Local Resultary search and mirror passages",
+          "title": "A sharp resonance transition for triangular conjugate-unitary multipliers",
+          "trigger": "Closest indexed exact power-growth resonance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and proof",
+        "arXiv:2610.24853, Corollaries 3.4 and 3.8"
+      ],
+      "rationale": "The known component bound addresses how many spectral pieces can occur, not whether the splitting stays well conditioned as two pieces meet. This exact two-fiber model is a useful benchmark: the same scalar harmonic controls sharp reciprocal-gap conditioning and quantitative amplification after collision, while a mean-zero near-resonant harmonic shows a different, large but finite conditioning scale at fixed angle. The general norm identity plus explicit two-frequency evaluation make these regimes distinguishable without spectral discretization.",
+      "residual_risks": [
+        "No uniform control over all irrational angles or arbitrary infinite Fourier couplings is asserted; small divisors can invalidate the bounded collision shear outside the frozen class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

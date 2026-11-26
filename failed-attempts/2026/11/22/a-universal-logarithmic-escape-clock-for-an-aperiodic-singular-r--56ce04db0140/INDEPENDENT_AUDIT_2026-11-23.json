@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:47:11.397199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly conjugating the frozen rational map by w=u+1 gives F(w)=-w-2/w. It never reaches zero on a real nonzero input, reverses sign, and strictly increases absolute value. Therefore t=w^2 satisfies t_(n+1)=t_n+4+4/t_n. The lower bound t_0+4n and summation give t_n=4n+O(log n); 4/t_k-1/k=O(log(k+1)/k^2) is absolutely summable and yields the finite orbit-dependent centered residual, with coefficient +1 on log n. Sign alternation gives opposite parity escapes, and increasing t excludes cycles. Escape from every compact and invariance applied to its indicator, followed by compact exhaustion of the punctured line, exclude invariant Borel probabilities. Read the supplied VERIFICATION.md and verify.py without executing them; finite tests are supplementary. The fault is not mathematical falsity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dudko–Sauzin Eq. (2) treats f(z)=z+1+a(z) with a(z)=-rho/z+O(z^-2). Eq. (3) is the translation equation. Theorem 2, Eq. (10) and its proof give v_+(z)=z+rho log(z)+O(z^-1) on the attracting sector containing the sufficiently large positive axis.",
+          "The chapter route did not retrieve the alternate chapter's theorem; the arXiv theorem is independently sufficient."
+        ],
+        "reasoning": "Here rho=-1/4 and f has an analytic simple-parabolic germ at infinity (in reciprocal coordinate the quadratic coefficient is -1). Monotone drift z_(n+1)>z_n+1 places any orbit on the attracting sector after finitely many steps. Thus the general prior theorem applies to the actual observable, not merely a similar asymptotic.",
+        "searches": [
+          "Dudko–Sauzin arXiv:1307.8093v3, Theorem 2, using an OA literal locator and bounded passage",
+          "Local Dynamics of a Parabolic Germ, DOI 10.1007/978-3-319-11707-2_2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 56ce04db0140 (frozen record itself)",
+        "arXiv:2212.12033 and arXiv:1307.8093v3",
+        "DOI 10.1007/978-3-319-11707-2_2 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing the theorem's attracting coordinate as v_+(z)=z-(1/4)log z+O(z^-1), the translation relation gives v_+(z_n)=n+c after entry. First z_n/n tends to 1, then log z_n=log n+o(1). Hence z_n=n+(1/4)log n+c+o(1), or t_n=4n+log n+4c+o(1).",
+          "The asymptotic is exactly the frozen law including the finite orbit constant. The series for the constant comes from telescoping the reduced recurrence against the harmonic sum; it is a representation of the same limit, not a distinct invariant."
+        ],
+        "reasoning": "This is a concrete implication with normalization and actual orbit sector verified. The global access-to-sector and sign are immediate from F(w), and nonexistence of cycles and invariant probabilities follows routinely from escape.",
+        "searches": [
+          "arXiv:1307.8093v3, Eqs. (2), (3), (10) and Theorem 2 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexanian describes the Eq. (17) numerical orbit as strictly aperiodic. The exact frozen equation in u is not the shifted F(w); w=u+1 conjugates them.",
+          "Squared and scaled coordinate z=(u+1)^2/4 obeys z_(n+1)=z_n+1+1/(4z_n). This semiconjugacy applies to every real point in the punctured domain. The positive-orbit map is exactly in the simple-parabolic normalization at infinity."
+        ],
+        "reasoning": "Use the single-step squared coordinate, not the second iterate of the sign-reversing map, to match the precise hypothesis and avoid treating a numerical orbit or a different Boole map as equivalent prior coverage.",
+        "searches": [
+          "Alexanian arXiv:2212.12033, Sec. 4 and conclusion",
+          "Resultary: aperiodic singular rational maps, logarithmic escape clock, Boole aliases",
+          "arXiv:1307.8093v3, Eqs. (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct catalogue hit 56ce04db0140 is the frozen record itself; no separate same-map entry was identified in the ranked search."
+        ],
+        "reasoning": "A table of particular orbit values would not establish a finite centered limit for every real initial point. Catalogue identity is not a priority result; actual stronger prior coverage is established via the parabolic theorem.",
+        "searches": [
+          "Resultary: logarithmic escape clock for a singular rational map and all real orbits",
+          "Resultary 56ce04db0140"
+        ]
+      },
+      "rationale": "The advertised two-term escape law and finite renormalized residual are a direct specialization of a prior stronger simple-parabolic Fatou-coordinate theorem, once the exact one-line squared-coordinate reduction is made. Neither the sign/escape check needed to enter the attracting petal nor the measure corollary supplies an independent uncovered scientific claim. Alexanian's numerical example does not itself supply the logarithmic coefficient. The rejection rests on inspected prior theorem coverage, not the unavailable chapter or lack of an exact title match.",
+      "residual_risks": [
+        "Exact-map historical priority beyond the verified broader implication was not determined. The Springer chapter was not read, and no lack of coverage is inferred from that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger theorem directly implies the clock",
+          "evidence": "The normalized germ f(z)=z+1-rho/z+O(z^-2) has an attracting translation coordinate v_+=z+rho log z+O(z^-1); the proof explicitly gives the O(z^-1) remainder on the attracting sector. Substitute rho=-1/4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.8093v3",
+          "material_read": "Sec. 1 Eqs. (1)–(3), offsets 1080–4801; Theorem 2 Eq. (10) and proof, PDF p. 5, offsets 17580–20326",
+          "method": "OA arXiv PDF, literal locator followed by direct passage reads",
+          "title": "The resurgent character of the Fatou coordinates of a simple parabolic germ",
+          "trigger": "Potential broader theorem proving the exact logarithmic residual after squared-coordinate reduction"
+        },
+        {
+          "assessment": "Numerical aperiodicity and escape context, not the corrected clock",
+          "evidence": "Eq. (17) is associated with mu=-1 and the text describes the plotted orbit as strictly aperiodic; the conclusion reports accumulation at opposite infinities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12033",
+          "material_read": "Sec. 4 and conclusion, PDF pp. 9–10, around offset 15500",
+          "method": "OA arXiv PDF passage; equation display omitted by extraction, used frozen displayed equation for algebra",
+          "title": "One-dimensional Dynamics for a Discontinuous Singular Map and the Routes to Chaos",
+          "trigger": "Exact cited parameter choice and orbit observation"
+        },
+        {
+          "assessment": "Uninspected; not used to decide coverage",
+          "evidence": "The decisive full theorem was instead inspected in Dudko–Sauzin.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-11707-2_2",
+          "material_read": "Search identification only; no theorem passage obtained",
+          "method": "Lawful OA chapter and PDF routes did not resolve successfully",
+          "title": "Local Dynamics of a Parabolic Germ",
+          "trigger": "Possible alternate statement of asymptotic Fatou coordinates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The clean proof usefully explains the old numerical example, but the clock is a mechanical specialization after one change of variables, and the affine shift, monotone escape, sign alternation and ensuing no-cycle/no-invariant-probability conclusions are immediate from the same one-line expression. No substantively independent nonroutine claim survives to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

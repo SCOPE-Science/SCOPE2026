@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:42:44.997557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, Steps 1–6",
+        "VERIFICATION.md, verification.py (all-pair enumeration, finite-memory recurrence and odd convolution), verification_output.txt (recorded comparisons and constants)"
+      ],
+      "rationale": "Homogeneity and the one-point extension property identify types with feasible labeled positive distance words. Such a word is nonalgebraic: arbitrarily many new points can be assigned that same vector with mutual distance 1, which satisfies all triangles. The triangle lower bound on base distances follows from adjacent Lipschitz steps and the fact that the label difference is always less than D. On the high alphabet [ceil(D/2),D], the remaining sum inequalities are automatic. The looped path transfer matrix has eigenvalues 1+2cos(j pi/(m+1)); its simple Perron eigenvalue dominates in absolute value and the projection of the all-ones vector gives S^2/Q. If a label s<=floor(D/2)-1 appears, the two tails at distance at least D must use labels >=D-s, at most floor(D/2) labels in total; counting tail walks around a bounded window and summing over the selected position gives O_D(n mu_D^n) with mu_D<lambda_D (no such labels for D=2,3). This proves the even estimate. For odd D=2r+1 the sole remaining defect label r can occur only within a span L<=D. Its first/last occurrences select a unique span, counted by (B^(L-1))_(r,r), with all internal sum constraints automatic. A nonempty high tail next to the defect is anchored at r+1 and has a_k=e_1^T A^(k-1)1, with a_0=1. For each fixed L, the n-L-1 terms with two nonempty tails contribute the leading Perron product (Sv_1/Q)^2 lambda_D^(n-L-2) per term; the spectral cross terms sum geometrically and the empty-tail terms contribute only O_D(lambda_D^n). This gives the stated positive c_D and error, and the paired dimensions use the same transfer size. At D=3, q=(1,1,2), H_n=2^n and a_k=2^(k-1) for k>=1 give the stated sample and exact formula. The D=4 specialization also gives C_4=(1+sqrt(2))/2.",
+      "residual_risks": [
+        "Fixed D only. The displayed exact odd convolution omits low labels at D>=5, so is not a full exact count there. Replay of the frozen finite verifier would use python3 verification.py in the record directory; it was inspected, not rerun. The asymptotics were checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mubayi–Terry count all finite labeled integer-valued metrics; the capped-tree result treats other tree shapes but only diameter cap three. The facet enumeration is for the same capped-path base at D=2 but a different object."
+        ],
+        "reasoning": "A global count over all base metrics does not give the single-fiber count over a prescribed path. Extending base shapes at one cap does not give paired leading rates over all caps. The facet generating series is not a series for extension types.",
+        "searches": [
+          "Mubayi–Terry arXiv:1502.01212, abstract and section 1.1; Resultary capped-tree record cfb579b2560b and two-distance capped-path facet record 7158233327b2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "arXiv:1010.4212; arXiv:1012.1056; arXiv:1502.01212",
+        "Resultary records ec80747a5989, cfb579b2560b, 7b4f8a785d18 and 7158233327b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary extension results identify the feasible objects without counting them. The D=3 tree formula implies the leading c_3=1/4 for paths. In the frozen proof the localization length bound D for the critical label and the two high tails lead to a coefficient indexed by the defect span for every odd D."
+        ],
+        "reasoning": "Neither the extension theorem, transfer-matrix method in the abstract, nor a formula at D=3 identifies the high alphabet, the maximal critical span, or its contribution for arbitrary D. A generic exponential recurrence does not imply that the maximal spectral contribution has one power of n exactly in odd diameters.",
+        "searches": [
+          "Sauer Theorem 2.1; Mbombo–Pestov one-point extension; Mubayi–Terry section 1.1; Resultary ec80747a5989 and cfb579b2560b, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sauer and Mbombo–Pestov give the extension-function formulation. The Widom–Rowlinson type polynomial is evaluated on graph-metric bases using distances 1 on edges and 2 on nonedges. The capped-tree formula on paths matches the D=3 scalar count."
+        ],
+        "reasoning": "Translating between distance functions and one-point types preserves the counted object; using graph-metric bases with no old distance 3 does not preserve the capped-path constraints once n>=4 at D=3. A capped cycle has different pairs of parameter distances than the capped path.",
+        "searches": [
+          "Resultary: Katětov type counts on capped paths and trees; Widom–Rowlinson type polynomials; three-distance cycle type spectra",
+          "arXiv:1010.4212, section 2; arXiv:1012.1056, section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The capped-tree record gives the exact D=3 path count (4n+21)2^(n-4) for n>=8. The Widom–Rowlinson identity is for a different slice. The cycle formula and D=2 facet generating function enumerate different objects."
+        ],
+        "reasoning": "The exact symbolic path formula is a genuine matching subcase, stronger than matching a finite coefficient table, and constitutes no novelty here. None of the inspected exact enumerations tabulates the parity prefactors for all fixed D.",
+        "searches": [
+          "Resultary: ec80747a5989, cfb579b2560b, 7b4f8a785d18, 7158233327b2"
+        ]
+      },
+      "rationale": "The distinct claim is the full fixed-diameter capped-path spectral asymptotic, with a paired even/odd rate, explicit leading constants and a linear odd-diameter prefactor. The general extension correspondence is known. A capped-tree catalogue record overlaps exactly with the D=3 path formula for n>=8, which is not being credited as novel. The Widom–Rowlinson record itself treats bases with only distances 1 and 2, not general capped diameter-three paths. The strongest inspected matches do not establish the all-diameter asymptotic.",
+      "residual_risks": [
+        "This is a bounded comparison. Related finite-distance type enumerations may be unindexed, and priority for the D=3 specialization is not established. The Widom–Rowlinson citation should not be read as supplying that capped-path formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides type-function framework, not the path asymptotic",
+          "evidence": "Admissible distance functions describe extensions, with a criterion for realization in countable Urysohn spaces.",
+          "identifier_or_url": "arXiv:1010.4212",
+          "material_read": "Pages 3–4, type functions and Theorem 2.1, offsets 6100 and 9000",
+          "method": "Open-access PDF",
+          "title": "Vertex partitions of metric spaces with finite distance sets",
+          "trigger": "Original finite-distance Urysohn realization framework"
+        },
+        {
+          "assessment": "General background, different claim",
+          "evidence": "Identifies extension functions with distances to added points and states an extension property, not a finite path enumeration.",
+          "identifier_or_url": "arXiv:1012.1056",
+          "material_read": "Pages 3–4, definitions and extension property, offsets 7144 and 9600",
+          "method": "Open-access PDF",
+          "title": "Subgroups of isometries of Urysohn–Katětov metric spaces of uncountable density",
+          "trigger": "General Katětov extension correspondence"
+        },
+        {
+          "assessment": "Global family, not individual extension counts",
+          "evidence": "Treats structure and enumeration of all labeled n-point metrics with distances in a bounded integer set.",
+          "identifier_or_url": "arXiv:1502.01212",
+          "material_read": "Page 1 abstract and section 1.1, offsets 800 and 3000",
+          "method": "Open-access PDF",
+          "title": "Discrete metric spaces: structure, enumeration, and 0–1 laws",
+          "trigger": "Even/odd contrast in finite-distance metric counting"
+        },
+        {
+          "assessment": "Same ambient structure but bases have only distances 1 and 2",
+          "evidence": "The graph-metric convention assigns 1 to edges and 2 to nonedges, so cannot be applied unchanged to old points with distance 3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Published record through local mirror",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "Cited exact one-type polynomial in the same D=3 ambient space"
+        },
+        {
+          "assessment": "Exact partial coverage; no priority determination from path date",
+          "evidence": "Gives N(P_n)=(4n+21)2^(n-4) for n>=8 and treats cap three, not varying caps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-seven-vertex-failure-of-path-minimality-for-capped-tree-ka--cfb579b2560b",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Published record through local mirror",
+          "title": "Sharp seven-vertex failure of path minimality for capped-tree Katětov counts",
+          "trigger": "Exactly the capped path as a tree special case at D=3"
+        },
+        {
+          "assessment": "Cycles at D=3, not paths at all caps",
+          "evidence": "Gives a capped-cycle type polynomial with cyclic base distances.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-local-response-law-for-three-distance-cycle-type-spectra--7b4f8a785d18",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Published record through local mirror",
+          "title": "A sharp local response law for three-distance cycle type spectra",
+          "trigger": "Exact type enumeration for a nearby family of base metrics"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The generating function counts Lipschitz-free polytope facets, with growth approximately 2.26953, not Katětov extensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-exact-facet-generating-function-for-diameter-two-truncated-pa--7158233327b2",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Published record through local mirror",
+          "title": "An exact facet generating function for diameter-two truncated paths",
+          "trigger": "Same capped path at D=2 and a sharp enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, main asymptotic, diameter comparison and defect-span convolution"
+      ],
+      "rationale": "The natural one-point extension count gauges how much the path distance data constrain the surrounding metric structure. Determining that successive even/odd caps have the same spectral rate yet a linearly differing count is a sharp structural result not visible from exponential growth alone. The proof isolates a freely positioned but bounded span of critical distances, explains the prefactor and gives quantitative leading constants for every fixed cap. The diameter-three example alone is not the value proposition.",
+      "residual_risks": [
+        "No uniform law for D growing with n or assertion for other base families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

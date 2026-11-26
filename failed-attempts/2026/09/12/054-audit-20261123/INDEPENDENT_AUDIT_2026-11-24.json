@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:54:14.491798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact counterexample is correct for the specified fixed shift and continuous uniform-overlap model. After centering at v/2, the maximum of the two l1 norms for v=beta e1 is ||u||_1+beta/2, so the overlap is a translated cross-polytope of radius R-beta/2. Its volume relative to the original is (1-beta/(2R))^N, and volume equality gives R=gamma1(N!)^(1/N). The box loses beta along just one axis. The conditional-to-original density ratio is constant 1/delta on the accepted support, giving logarithmic Renyi and KL divergences -log(delta). For x=beta/(2 gamma1) and M=(N!)^(1/N), the log inequalities and AM–GM give D2(cross)/D2(box) >= N(1-x)/M >= 2N(1-x)/(N+1) > 1, which also implies strictly lower acceptance. Independent Decimal evaluation of the exact factorial and formulas gives delta_cross approximately 0.9991949648934575 and the acceptance ratio approximately 0.9994923602337981, with divergence ratio 2.70626542764506. The frozen acceptance decimals lose roughly two trailing digits from floating-point subtraction before exponentiation; this does not affect the exact formulas or strict inequalities. FIPS 204 supplies numerical parameters only. The claim does not concern valid signatures, a shared shift-independent target law, all directions individually, or a guarantee about alternative models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The CRYPTO theorem uses a common inner target support for many shifts, giving conditional output independent of the shift; the construction H is an intersection of a box and an l1 ball.",
+          "The exact sparse-direction covariograms record includes the one-coordinate cross-polytope formula; the single-polynomial-covariogram record covers all ray directions."
+        ],
+        "reasoning": "The geometric half overlaps broader prior or adjacent statements. The common-inner-target theorem does not order pure equal-volume box versus pure l1 ball under the fixed-shift S intersect (S+v) rule. The all-ray and sparse-direction covariogram findings do not give the comparative ML-DSA-44 result.",
+        "searches": [
+          "Bambury–Beguinet–Ricosset–Sageloli, 10.1007/978-3-031-68376-3_11, Technical Details and Rejection sampling on polytopes theorem",
+          "Resultary: axial and all-ray cross-polytope covariograms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE054 (self-match) and the two directional covariogram records",
+        "FIPS 204",
+        "Bambury et al., CRYPTO 2024 proceedings PDF and conference slides"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cross-polytope hit supplies the overlap for one body but does not pair it with a volume-matched box or compare their acceptance and divergence.",
+          "The strongest primary theorem requires a shift-independent inner support and treats a different acceptance condition. The 1.5 cutoff tradeoff is between size of a knowledge proof and additional rejection under a Euclidean filter."
+        ],
+        "reasoning": "The strict direction of the ordering needs the single-axis comparison to the box and a numerical or analytic bound at the stated volume normalization; it is not a direct specialization of the common-target theorem. The relation of D2 to acceptance and the elementary overlap formulas are not credited as distinct.",
+        "searches": [
+          "CRYPTO 2024 PDF, pp. 341–344 and §5.1",
+          "Resultary mirror: exact sparse-direction covariograms and single-polynomial covariogram records, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary SCOPE054 is a self-match.",
+          "Bambury et al. state the nested-uniform volume ratio for their nonlogarithmic infinity-order Renyi convention. In the frozen model a constant likelihood ratio also gives the same logarithmic expression at order 2 and for KL."
+        ],
+        "reasoning": "The two frozen objectives collapse to one geometric ordering since D2=-log(delta). Agreement of these likelihood-ratio formulations is partial prior coverage, not a separate novel divergence result.",
+        "searches": [
+          "Resultary: equal-volume cross-polytope box, acceptance and Renyi divergence at ML-DSA-44",
+          "Bambury et al. CRYPTO 2024, Definition 4 and Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same quantitative Resultary entry SCOPE054 is the frozen record.",
+          "FIPS supplies the ML-DSA-44 parameter tuple, not the continuous overlap model.",
+          "Bambury et al. use 1.5 as a Euclidean cutoff parameter for a hybrid body and estimate additional rejects as that bound is tightened, not a multiplier of the box acceptance probability."
+        ],
+        "reasoning": "No inspected independent numerical table states the exact equal-volume, fixed-axis comparison. Matching the string 1.5 or dimension near 1024 is not mathematical coverage.",
+        "searches": [
+          "Resultary: ML-DSA-44 0.999194965 and 2.706 divergence ratio",
+          "FIPS 204 Table 1",
+          "Bambury et al., §5.1 and Fig. 2 (theta around 1.5)"
+        ]
+      },
+      "rationale": "Only the exact comparison of these two equal-volume continuous bodies at this fixed axis shift is distinct on the inspected evidence. Neither the overlap-density identity nor cross-polytope masking, the axial covariogram, or polytope rejection sampling in general is new. The related prior rejection theorem and its concrete 1.5 parameter address a different model and performance quantity.",
+      "residual_risks": [
+        "The ePrint version could not be read; the open proceedings version yielded the decisive comparison. There is no separate source in the frozen record for the alleged 1.5 acceptance conjecture, and bounded searches cannot establish priority for the exact paired number."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "direct parameter coverage only",
+          "evidence": "n=256, ell=4, tau=39, eta=2, beta=78 and gamma1=2^17.",
+          "identifier_or_url": "https://doi.org/10.6028/NIST.FIPS.204",
+          "material_read": "ring definition and Table 1 around OA offsets 38713 and 68018",
+          "method": "OA PDF passage inspection",
+          "title": "FIPS 204: Module-Lattice-Based Digital Signature Standard",
+          "trigger": "same tuple and dimension"
+        },
+        {
+          "assessment": "nested uniform-density ratio covered; different acceptance model, shape and meaning of 1.5",
+          "evidence": "Common target across shifts; H is a box/l1 intersection. Theta=1.5 tunes a Euclidean filter against proof size and additional rejection.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-68376-3_11",
+          "material_read": "publisher PDF pp. 341–344, Definition 4 and Remark 1 pp. 347–348, and §5.1 pp. 360–361",
+          "method": "OA publisher proceedings PDF; bounded offsets 9040–18921, 27850–29629 and 72560–74317 after ePrint 2024/411 access failed",
+          "title": "Polytopes in the Fiat-Shamir with Aborts Paradigm",
+          "trigger": "same lattice-abort context, l1 and box shapes, Renyi and a 1.5 tradeoff"
+        },
+        {
+          "assessment": "overlap component, not equal-volume box comparison",
+          "evidence": "The finding gives exact cross-polytope fractions for one, two and three equally displaced coordinates and axis ranking changes for the octahedron.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f",
+          "material_read": "RESULT.md Finding",
+          "method": "local Resultary mirror passage",
+          "title": "Exact sparse-direction covariograms and two symmetry-axis overlaps",
+          "trigger": "one-coordinate overlap law"
+        },
+        {
+          "assessment": "broader cross-polytope geometry, not paired-mask claim",
+          "evidence": "The finding gives a cross-polytope covariogram formula for every ray, without a volume-matched box or the numerical Renyi comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-single-polynomial-covariogram-on-every-ray-of-a-cross-polytope--392cc15e8ed5",
+          "material_read": "RESULT.md Finding",
+          "method": "local Resultary mirror passage",
+          "title": "A single polynomial covariogram on every ray of a cross-polytope",
+          "trigger": "broader directional overlap result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof shows a valid elementary overlap comparison, but not a substantive tradeoff refutation as presented. A 1.5-fold gain over 0.9997 is impossible for any acceptance probability, and smaller divergence to each body's own uniform law is exactly the same objective as higher acceptance, not a second competing criterion. The genuine strict reversal is a useful worked example but the frozen package establishes no scientifically motivated claim that calls for this particular model and witness: the cited proposal's 1.5 parameter is an unrelated geometric cutoff, and FIPS supplies only dimensions and bounds. The calculation does not test the shift-independent rejection construction in the cited work or an acceptance/security comparison for ML-DSA. No substantive design boundary is established by relabeling the continuous example with standard parameters.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

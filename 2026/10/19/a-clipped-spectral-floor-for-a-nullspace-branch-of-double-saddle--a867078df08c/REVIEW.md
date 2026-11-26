@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed bound follows from the scaled eigen-equations of Liang and Huang, arXiv:2609.01031v1, equations (2.2)–(2.4). Testing the first and third equations against their eigenvector components gives the exact positive energy identity, which also handles a possible coincidence of the eigenvalue with the second diagonal block spectrum. Only in the sub-minimum-eigenvalue branch is the resolvent positive; Loewner inversion there yields the quadratic inequality and the stated clipped floor. The explicit parameter family satisfies every source block-size, rank, and SPD hypothesis; direct multiplication gives eigenvalue \(1\), and its coupling Gram matrix is diagonal with minimal eigenvalue \(3+7t^2\). The rational witness and boundary-equality construction were checked using the packaged exact-arithmetic verifier. Continuous claims are justified analytically, not by extrapolating finite tests.
+PASS
 
-## Originality — PASS (self-review)
+Conjugating the generalized pencil by the inverse square roots gives the stated equations. With Cz=0 in scaled coordinates the first and third equations give x*Ãx=λ(||x||²+||z||²); x=0 would force z=0 by injectivity of the scaled B transpose. Hence 0<λ<b strictly. If λ<a, eliminating x and using the inverse Loewner order gives λ≥β/(b−λ), equivalently λ(b−λ)≥β. The discriminant and lower-root cases follow only on λ<a, and the complementary branch λ≥a yields the clipping. When the root r exists, r=β/(b−r)≥β/b, which also gives the weaker universally clipped bound. To verify the full asserted attainment regime r≤a, take A=diag(a,b,b), B with rows √β e2^T and √β e3^T, C=(0,1), identity approximating blocks and any positive E; y=0,z=e1,x=−√β e2/(b−r) is an eigenvector at r by r(b−r)=β, even at r=a. In the proposed unbounded family, s²=3+6t² gives Bx=(2t²−s²/3)e1=−e1 and (A−I)x=−B^T z, so λ=1 for all t≥1. The Gram entries are 3+7t²,100t²,100t²; the first is the minimum and β/b diverges, with diagonal blocks fixed and all ranks and positivity requirements satisfied. Independent rational spot checks give β/b=10/7 and 850/7 at t=1 and t=11. These examples also satisfy the source paper's spectral-straddling normalization and avoid both diagonal spectra at λ=1.
 
-The source's specific Lemma 2.2 asserts the opposite of the demonstrated unbounded family, so its statement cannot already contain this example as a covered positive result. Its cited scalarization step treats a resolvent Rayleigh quotient as if it were the inverse of a shifted ordinary Rayleigh quotient; the explicit eigenpair exposes the distinction. The open-access full text of Balani Bakrani et al. (2024), particularly Sections 2 and 4.1, treats another saddle-point ordering, Schur-complement normalization and triangular preconditioner; its explicit real-eigenvalue bounds do not imply the present counterexample or corrected floor. The published published-finding corpus search results located related spectral and preconditioning findings but no equivalent assertion for this pencil, and neither own ledger contains a direct source/claim match. This is a limited literature-supported originality judgment, not proof that no earlier equivalent counterexample exists.
+## originality
 
-## Value — PASS
+PASS
 
-The false bound appears in the motivating paper's spectral analysis of a preconditioner for PDE-constrained optimization and is used as an intermediate comparison in its subsequent real-eigenvalue argument. The example is not simply a parameter check: it gives a fully admissible exact eigenvector while holding the diagonal spectral conditioning fixed, makes the reported lower bound arbitrarily wrong, and identifies an operator-resolvent branch distinction that supplies a constructive corrected bound. The small-coupling equality example shows that the surviving resolvent estimate is attained, while explicit scoping avoids claims about algorithms or other parts of the source that have not been checked.
+The inspected original paper states the lower bound that the exact family violates; the clipped replacement is not its result. Closely related quadratic and cubic enclosures concern different matrix pencils, preconditioners or kernel conditions. Credit the repair of the specific spectral assertion, the unbounded fixed-spectrum failure and lower-root attainment, not the standard energy identity or inversion inequality in isolation.
 
-## Residual risks and limits
+## value
 
-Older abstract matrix-pencil theorems may imply the safe enclosure, and an independent audit has not been performed. The 2026 symmetric-SPD preconditioning comparison was available primarily as an abstract; it is not treated as a full-text exclusion. The witness is deterministic and concerns the null-coupling real-eigenvalue branch, not the source randomized approximation scheme as implemented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The claimed lower enclosure of a concrete preconditioned branch can be wrong by an arbitrarily large factor even with diagonal spectra unchanged. Pinpointing the resolvent error and replacing the false inequality with a bound valid under the actual hypotheses is useful for interpreting those spectra. Attainability makes the quadratic portion meaningful, not merely a loose rescue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

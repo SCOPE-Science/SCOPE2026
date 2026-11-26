@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:51:24.018855Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking the ambient Laplacian verifies the four types of cubic generators. Their transverse harmonics are orthogonal both for values and for gradients, and their dimensions add to the full cubic dimension. For fixed transverse order, integration over the section gives the same scalar quadratic form on all transverse harmonics, including transverse dimension two. The metric gives the claimed latitude densities; their beta-moment averages normalize the full Dirichlet energies. I reconstructed the gap polynomials from the coefficients of the normalized density differences using the derivative of a(1−a²)^((d−1)/2), and the endpoint a=1 fixes the integration constant. Q₀₁ and Q₀₂ give exactly the three cutoffs with s₀<t₁<t₂. Q₀₃ and Q₂₃ are positive throughout; Q₁₂ has positive coefficients for d≥11 and negative discriminant at each integer 3≤d≤10. These signs establish the full ordering, the unique bottom branch, and the top direct sum of dimension d at either top crossing. In the thin-cap limit the order-one density has a positive endpoint value, while the order-three density vanishes quadratically. Integrating with the beta weight gives the claimed exponent −2 and coefficient (d+1)²(d+3)/(6(d+2)). Endpoints a=0 and a=1 are excluded from the strict ordering; complexification does not change the spectrum.",
+      "reproduction": "python /workspace/reproductions/independent_checks.py 4 derives all six gap polynomials, checks closure of the polynomial coefficient recursion, verifies exact cutoffs and the thin-cap coefficient, and computes the eight low-dimension discriminants. Frozen checker.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Plattner–Simons give order-wise polar-cap block matrices for vector spherical harmonics on S²; Michel–Plattner–Seibert give single-cap commuting operators and spin-weighted vector spaces, also on S²."
+        ],
+        "reasoning": "Those constructions can represent, and permit calculation of, the three-dimensional restricted problem. Their premises and conclusions do not provide its sharp phase ordering in every d≥3; obtaining it requires the normalized exact gaps and their sign analysis.",
+        "searches": [
+          "Primary literature: poloidal/vector spherical Slepian concentration on polar caps",
+          "arXiv:1306.3201, §4.1",
+          "arXiv:2103.14650, §§3.2 and 4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1306.3201",
+        "arXiv:2103.14650",
+        "Resultary 45d96c049f3f",
+        "Resultary c61291f32f0b",
+        "Resultary 6162fab5602a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day 6162fab5602a states zonal-to-mixed optimization for degree two, with a transverse trace-free least branch. The scalar cubic 45d96c049f3f shares only the first squared threshold, and not the ordering even on the widest caps."
+        ],
+        "reasoning": "The identified statements do not imply this optimizer reentrance or thin-cap asymptotic. The vector matrices provide a general method, not an all-dimensional ordering result. The same-day date is not used as evidence for or against priority.",
+        "searches": [
+          "Mirrored 45d96c049f3f and 6162fab5602a, §Finding",
+          "arXiv:1306.3201, §4.1; arXiv:2103.14650, §§3.2 and 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On S² the problem is concentration of exact-degree-three poloidal gradient harmonics, normalized by their Laplace eigenvalue; antipodal gradient energies are equal for each exact-degree cubic.",
+          "Resultary 45d96c049f3f, Finding: same degree, geometry and dimensions but scalar top sectors 2→1→0 with second squared cutoff 3/(d+2), rather than 1→0→1 with second squared cutoff (2d+5)/(3(d+2))."
+        ],
+        "reasoning": "The scalar problem is not equivalent: Green's identity on a cap adds a boundary flux to the full-sphere Laplace-eigenvalue conversion between value and gradient energy. The poloidal identification is genuine in d=3, but the vector-cap formulation alone does not assert the cubic rank inequalities.",
+        "searches": [
+          "Resultary: pure cubic intrinsic gradient energy on antipodal caps; cubic Slepian cap symmetry switches",
+          "arXiv:1306.3201, §§2.2 and 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "45d96c049f3f gives an all-dimensional scalar cubic phase table; c61291f32f0b gives the S² scalar cubic table with a cutoffs 1/√5 and √(3/5).",
+          "6162fab5602a gives a tangential-gradient phase table for exact degree two with a single a=1/√2 switch."
+        ],
+        "reasoning": "Neither scalar cubic table has the Dirichlet observable, and the gradient table is for a different degree. No independent exact cubic Dirichlet table was identified in the bounded comparisons.",
+        "searches": [
+          "Resultary: exact cubic cap eigenbranches and gradient antipodal thresholds",
+          "Mirrored RESULT.md Findings for 45d96c049f3f, c61291f32f0b and 6162fab5602a"
+        ]
+      },
+      "rationale": "The inspected frameworks cover gradient-vector concentration on S² in general; the indexed exact comparators cover scalar pure cubics or gradient pure quadratics. The distinctive claim is the all-dimensional pure-cubic Dirichlet phase diagram, including its nonmaximal exchange and sharp thin-cap constant. No distinct matched or dominating theorem was established in the inspected sources.",
+      "residual_risks": [
+        "Bounded primary and index comparisons, not a historical priority certification; a specialized all-dimensional gradient-cap analysis could remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-dimensional value-energy, not Dirichlet energy",
+          "evidence": [
+            "Optimizer sequence 2→1→0 at squared cutoffs 1/(d+2), 3/(d+2)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-sharp-concentration-transitions-for-cubic-spherical-harmonic--45d96c049f3f",
+          "material_read": "RESULT.md Finding, offset 0 through 4399",
+          "method": "Local published-record mirror",
+          "title": "Two sharp concentration transitions for cubic spherical harmonics on antipodal caps",
+          "trigger": "Exactly the same harmonics and cap geometry"
+        },
+        {
+          "assessment": "Scalar S² comparison, not a gradient ordering",
+          "evidence": [
+            "Scalar top orders 2→1→0 on S²."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-spectral-phases-and-a-five-dimensional-resonance-for-cubic--c61291f32f0b",
+          "material_read": "RESULT.md Finding, offset 0 through 3765",
+          "method": "Local published-record mirror",
+          "title": "Three spectral phases and a five-dimensional resonance for cubic spherical harmonics",
+          "trigger": "Exact cubic cap spectral comparison"
+        },
+        {
+          "assessment": "Degree two, hence not a dominating result for degree three",
+          "evidence": [
+            "Single switch a=1/√2, with zonal-to-mixed optimizers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-dimension-free-optimizer-switch-for-tangential-gradient-concen--6162fab5602a",
+          "material_read": "RESULT.md Finding, offset 0 through 4479",
+          "method": "Local published-record mirror",
+          "title": "A dimension-free optimizer switch for tangential-gradient concentration",
+          "trigger": "Same gradient observable, cap geometry and dimensions"
+        },
+        {
+          "assessment": "General S² framework including the observable, not the explicit all-d cubic phase diagram",
+          "evidence": [
+            "§2.2 defines tangential gradient-based vector harmonics; §4.1 decomposes polar-cap matrices by order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.3201",
+          "material_read": "§2.2 p. 5 and §4.1 p. 15, offsets 17925 and 58514",
+          "method": "Targeted OA PDF text reading",
+          "title": "Spatiospectral concentration of vector fields on a sphere",
+          "trigger": "Poloidal gradient harmonics and exact polar-cap operators"
+        },
+        {
+          "assessment": "Single-cap and spin-weighted S² framework, not the cubic double-cap phase theorem",
+          "evidence": [
+            "§3.2 constructs a cap commuting operator; §4.2 uses spin weights 0, ±1 for vector Slepian functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14650",
+          "material_read": "§3.2 p. 15 and §4.2 pp. 25–26, offsets 63975, 118894 and 123352",
+          "method": "Targeted OA PDF text reading",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "Broader vector Slepian construction and possible exact cap diagonalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For observations of gradients rather than scalar values, the strongest harmonic symmetry can switch twice with aperture, a precise structural difference for localization. The classification of all branches and eigenspaces and the thin-cap condition number add exact information about which modes are recoverable from small polar patches. This is more than constructing a generic cap matrix and does not overclaim mixed-degree or arbitrary-region extensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

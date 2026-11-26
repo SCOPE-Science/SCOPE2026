@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:24:42.610743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a=7/17 the endpoint orbit is exactly 7,3,11,12,10,14,6,5 in integer coordinates divided by 17; 0 and 1 form a separate boundary two-cycle. My exact replay /workspace/branches/audit_period_graph.py computed the cell images [11,17], [7,11], [5,7], [3,5], [12,14], [10,12], [6,10], [0,6] in the same coordinates. Because image endpoints are partition boundaries, a transition between cell interiors must cover the whole target cell; isolated endpoint hits are handled by the boundary orbits. The four graph components are simple cycles (0,7), (1,4,6,3), (2), (5). Every infinite itinerary eventually stays on a simple cycle, and contraction of its inverse branches makes an infinite cyclic itinerary a single periodic point. The exact replay solved each cyclic affine equation: the (0,7) candidate is on the boundary, not an interior orbit; the other solutions are the stated four-cycle and the two fixed points. This distinction is slightly obscured by the phrase 'interior graph cycles' in the frozen proof, but it does not alter the list or the boundary argument. Nested survivor sets exclude all other periods at smaller a; the old orbits survive even at a=2/5 and the eight-cycle requires a>=7/17. This proves the zeta formula at all orders, not merely the finite-period diagnostic. The compact restriction is continuous; the survivor is countable by finite preimages of finitely many orbits, and invariant measures give full mass to the periodic points by recurrence. The dimension and topological entropy are therefore zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding–Steiner–Sun p. 1 expressly covers general holes (a,b), symbolic survivor plateaux, kneading realization and Hausdorff-dimension/entropy results. A visible description of Theorem 1.2 concerns a kneading-space/symbolic-survivor identification.",
+          "Resultary 20b1e7951921 concerns a=5/12>7/17 and its postcritical survivor with positive entropy; the summary does not classify smaller parameters.",
+          "Frozen RESULT.md cites broader boundary-of-chaos and zeta machinery; relevant full-text passages were not retrieved."
+        ],
+        "reasoning": "General survivor correspondences and entropy descriptions do not in the inspected statements classify primitive periods, their multiplicities or preperiodicity at this boundary. The postcritical one-parameter calculation is outside the window, not a theorem dominating it.",
+        "searches": [
+          "Ding–Steiner–Sun arXiv:2610.03327v1, PDF p. 1 and visible Theorem 1.2 description; targeted 7/17 passage retrieval",
+          "Glendinning–Hege arXiv:2508.21429v1; Olivares-Vinales arXiv:2405.10560v2",
+          "Resultary postcritical negative-doubling survivor at 5/12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify_period_window.py",
+        "Resultary 8027a957802c, 20b1e7951921, 414ad20a8f03 and identical 4ac02c294ba7",
+        "arXiv:2610.03327v1 p. 1 and indexed theorem description; bounded attempts on arXiv:2508.21429v1 and arXiv:2405.10560v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old and new listed orbits coincide at the prior upper endpoint 2/5. Hole monotonicity transports exclusions from larger a to smaller a, not from 2/5 upwards.",
+          "Zero entropy, which is the type of conclusion treated in the broader literature, does not force every orbit to be eventually periodic or determine zeta factors."
+        ],
+        "reasoning": "The new boundary itinerary and its full-cell graph are needed to obtain the exact classification; endpoint continuity and the old census do not imply it.",
+        "searches": [
+          "Compare Resultary 8027a957802c, 20b1e7951921 and Ding–Steiner–Sun survivor-space claims with frozen RESULT.md §§1–6 of Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8027a957802c has the same interval-map family through 2/5, including the period-four onset, but does not cover the extension in its available summary.",
+          "Resultary 414ad20a8f03 uses the circle map; identifying 0 and 1 changes even the boundary-orbit count."
+        ],
+        "reasoning": "Neither changing from a to the two hole endpoints nor presenting the periodic census as zeta changes the claim. Passing to the circle quotient is not an equivalent formulation of the stated interval census.",
+        "searches": [
+          "Resultary: symmetric negative-doubling survivor with eight-cycle at 7/17, equivalently hole (7/17,10/17); zeta and primitive-orbit formulations",
+          "Ding–Steiner–Sun arXiv:2610.03327v1: negative-doubling alternating-order survivor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-threshold indexed hit 4ac02c294ba7 is the frozen finding itself.",
+          "The closest distinct indexed census ends at a=2/5 and reaches period four, rather than the examined endpoint eight-cycle."
+        ],
+        "reasoning": "An isolated table entry for the orbit, if found later, could cover existence at that parameter, not by itself the exclusion and uniqueness parts. No second exact census appeared among the retrieved statements; this is not proof that no such table exists.",
+        "searches": [
+          "Resultary exact threshold 7/17 and period-eight zeta factor; preceding three-phase census 8027a957802c",
+          "Targeted 7/17 passage in arXiv:2610.03327v1"
+        ]
+      },
+      "rationale": "The supported addition is the all-real symmetric interval-map classification beyond 2/5, including the unique eight-cycle and all-order zeta jump at 7/17. The strongest distinct indexed comparisons cover the preceding phase, a different postcritical parameter, or the circle quotient. The primary decreasing-Lorenz abstract and indexed Theorem 1.2 description give general symbolic-survivor machinery, not an exact periodic census in the available passages. The finite graph calculation is additional mathematical work; this is a bounded best-of-knowledge judgment, not a claim of exhaustive priority.",
+      "residual_risks": [
+        "A specialization in uninspected primary passages or another negative-base survivor classification could cover the same threshold. The older three-phase record was compared at indexed statement level, not proof level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong general machinery in inspected text; explicit endpoint coverage not established",
+          "evidence": [
+            "Abstract: alternating lexicographic order, survivor-space plateaux, kneading realizations, and dimension staircase for fixed lower endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03327v1",
+          "material_read": "PDF p. 1 abstract and bounded indexed Theorem 1.2 description; literal-query attempt for 7/17 did not yield the paper body",
+          "method": "Targeted primary lookup and PDF preview",
+          "title": "Open dynamical systems in topologically expansive decreasing Lorenz maps",
+          "trigger": "General negative-doubling holes, possibly covering the symmetric endpoint"
+        },
+        {
+          "assessment": "Direct prior coverage up to, but not shown beyond, the common left endpoint",
+          "evidence": [
+            "The period-four onset and last classified endpoint under the same interval convention are at 2/5."
+          ],
+          "identifier_or_url": "8027a957802c",
+          "material_read": "Resultary indexed summary and frozen comparison; local mirror passage not recovered",
+          "method": "Configured indexed search and bounded local mirror attempt",
+          "title": "A three-phase periodic-orbit and zeta trichotomy for symmetric negative-doubling holes",
+          "trigger": "Same object and older exact phases"
+        },
+        {
+          "assessment": "Different parameter or different map; no direct coverage in the retrieved statements",
+          "evidence": [
+            "The former treats 5/12; the latter is on the circle, not the interval."
+          ],
+          "identifier_or_url": "20b1e7951921; 414ad20a8f03",
+          "material_read": "Resultary scientific summaries",
+          "method": "Configured indexed search",
+          "title": "Postcritical negative-doubling zeta and golden-mean circle entropy findings",
+          "trigger": "Nearby exact parameter and different state-space convention"
+        },
+        {
+          "assessment": "Frozen descriptions are general; exact coverage in uninspected text remains unresolved",
+          "evidence": [
+            "The frozen comparison credits general finite-periodic-orbit transition and zeta-rationality mechanisms rather than claiming either as new."
+          ],
+          "identifier_or_url": "arXiv:2508.21429v1; arXiv:2405.10560v2",
+          "material_read": "Frozen RESULT.md lines 84–102; targeted primary retrieval did not return decisive passages",
+          "method": "Citation comparison and bounded lawful OA attempts",
+          "title": "The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps; The Artin-Mazur zeta function for interval maps",
+          "trigger": "Broader boundary-of-chaos and interval-zeta statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The next sharp phase of a natural one-parameter hole family is motivated by the preceding period-four onset. The result distinguishes a genuine jump in exact orbit counts and zeta from any change in entropy or dimension. The all-order classification, including exclusion of hidden intermediate periods, is useful for later phase and bifurcation analyses and is not just a finite-period search.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Trimming preserves the accepted language and the graph restriction. All accepting paths have length two, forcing three disjoint state layers. Middle states are a Cartesian-rectangle cover. In a cactus, three middle states cannot share an accepting successor because two four-cycles would share multiple vertices. Pairing middle states proves tightness. The proof covers all nonempty relations and all finite alphabets. The attached exact verifier tests all nonempty relations over alphabets of sizes two and three, checks words through length four, and validates the inequality construction for alphabet sizes two through fourteen.
+## correctness
 
-**Originality — PASS, with source-access risk.** The 2014 biclique correspondence is explicitly acknowledged and concerns transition minimization; the new characterization counts **states** subject to a cactus restriction. The 2026 existence result is broader in language class but does not, in its accessible abstract, provide the exact minimization formula. A previously studied diagonal-relation special case is subsumed by this general result, not the reverse. The 2026 paper's complete text was inaccessible; it could contain a closer special argument, and external human literature verification remains necessary. The Sperner/crown biclique number is prior art and not claimed independently.
+PASS
 
-**Value — PASS.** The result completely characterizes a natural family of finite languages under a graph-topological automaton constraint. It converts an entire state minimization problem to the classical biclique-cover rank with an exact surcharge, and it exhibits a logarithmic-state inequality-language family as distinct from linear-size diagonal relations. The bound and construction are uniform for every nonempty binary relation rather than a small-instance calculation.
+Trimming preserves the language and graph restriction. A state on successful paths cannot occur at depths i and j with i≠j, because one common successful suffix would yield two accepted lengths. All surviving transitions increase depth by one (any transition between trim states lies on a successful computation). Every middle state contributes the rectangle of its first and second labels; their union is exactly R. Hence the unrestricted minimum is b(R)+2. Three different middle neighbors of one final yield two four-cycles sharing an edge at the start, so each final serves at most two middle states. Pairing the middle states from an optimal cover attains the resulting bound as a bipartite cactus, including a singleton when needed. For inequality, sets of rectangle indices containing each row symbol constitute an antichain because every ordered off-diagonal pair must be covered; equal-size subsets give the converse. Any null rectangle in the converse would reduce the number below the proved Sperner lower bound. Nonemptiness and k≥2 are used in the respective statements.
 
-**Scientific limits.** This is for epsilon-free NFAs with a single initial state; no transition-minimization or longer-language claim is made. Full-text access to the motivating 2026 paper was not obtained. Finite tests supplement rather than establish the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact cactus state cost for arbitrary nonempty length-two relations. The unrestricted rectangle construction, the classical Sperner bound, and the already covered diagonal specialization are not separate originality claims. The nearest inspected primary theorems do not give this general constrained state cost.
+
+## value
+
+PASS
+
+This is a complete sharp answer for a natural class of languages, relating a graph restriction on nondeterministic representations to a well-defined Boolean-rank invariant. It separates the reachability labeling cost from the exact cost of grouping finals, and shows that restricted-state overhead tracks the relation rather than the alphabet size (linear for equality versus logarithmic for inequality). This is a constrained optimization result, not a new claim for the standard Sperner calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

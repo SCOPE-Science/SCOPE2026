@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:21:49.046829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dihedral average preserves all constraints and cannot increase the centered spectral norm. In the first nonzero Fourier mode the rim diagonal is at least c(1−1/n−r), and the Rayleigh vector (1,1+sqrt(1−c)) cancels r because −c+2t−t²=0. Equality for this vector forces both hub and rim budgets tight and then the eigenvector equation fixes r=ρ. The solution is positive; the bound ρ≤δ/2+pc/(2δ) from the displayed denominator gives ρ<1/2 for 5,6 and for n≥7 separately by the stated sine bounds. This leaves q>0. The attained first Fourier eigenvalue is M and is the largest nonzero-mode eigenvalue by the ordering in cosine. The quadratic positivity check gives M≥1−p; shifting the block at cosine −1 by (1−p)I gives a positive matrix in semidefinite order, its determinant being ρ(2−p−2ρ). The two radial eigenvalues are the roots of z²−(1−p−2ρ)z−p(1−ρ); evaluating at 1−ρ, 0 and −p−ρ locates both within [−M,M]. This verifies two-sided SLEM and only invariant uniqueness. Expanding δ=√2π/n+O(n^−3) gives the stated second-order optimum gap and pendant limit. With all three weights 1/n the radial roots are 1−2/n+O(n^−2) and O(n^−1), and all Fourier eigenvalues are uniformly positive for sufficiently large n since those blocks equal I+O(n^−1) uniformly in mode. Their largest occurs at k=1 and has gap (3−sqrt(5))/(2n)+O(n^−2), giving the stated ratio. Supplied symbolic and numerical checks and their recorded scope were inspected, not executed; the proof, not the 40 finite spectra, certifies the family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. give a general reduction and a solved wheel; the CCS-star reduction concerns complete cores and repeated arms. The universal regular transitive-base leaf-corona theorem attaches an equal number of private leaves to every core vertex."
+        ],
+        "reasoning": "The generic convex method applies but does not evaluate the optimum. The helm is not obtained by valid parameter substitution into the regular transitive-base theorem, and the star and wheel solutions do not handle both the leaf and hub constraints.",
+        "searches": [
+          "arXiv:0709.0955 §5.3.3; Jafarizadeh arXiv:2501.02421 §7.4 and Appendix E",
+          "Resultary universal leaf-corona theorem 9e788ca7bde4 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, verify.py, verification-output.txt and requirements.txt",
+        "Boyd et al. §5.3.3; Jafarizadeh §7.4 and Appendix E",
+        "Resultary 6de3873d5eaa, 7e060df31d29 and 9e788ca7bde4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel radial subspace has two layer coordinates; the helm radial subspace has three and must control a new negative eigenvalue. The hub budget p≤1/n, absent from a sunlet, enters the exact first-mode lower bound c(1−1/n−r)."
+        ],
+        "reasoning": "Transferring the methods leaves a new lower-bound tightness problem and a separate two-sided radial spectral check, not a routine corollary of the solved wheel, sunlet or corona family.",
+        "searches": [
+          "arXiv:0709.0955 §5.3.3 wheel spectral blocks; Resultary 6de3873d5eaa sunlet statement and 9e788ca7bde4 hypothesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wheel is a hub and rim cycle; the sunlet is a cycle with private leaves. Neither has all three helm orbits. The exact-helm Kemeny hit uses a sum of inverse Laplacian eigenvalues, not two-sided SLEM."
+        ],
+        "reasoning": "Neither changing the graph to a subfamily without one vertex orbit nor changing the spectral objective is an equivalence.",
+        "searches": [
+          "Local Resultary helm / pendant wheel / wheel with private rim leaves exact SLEM; 6de3873d5eaa and 7e060df31d29",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955 §5.3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6de3873d5eaa gives exact weights for cycle-plus-leaf graphs with no hub; 7e060df31d29 gives exact-graph Kemeny optimization with a different leaf weight law. No matching helm SLEM formula or table was identified in the bounded search."
+        ],
+        "reasoning": "The matched exact entries are real but do not determine this SLEM optimum or even the same optimization parameter.",
+        "searches": [
+          "Local Resultary exact fastest-mixing helm SLEM and close graph/objective matches; 6de3873d5eaa, 7e060df31d29"
+        ]
+      },
+      "rationale": "The strongest inspected SLEM precedents solve the wheel (no leaves) and the sunlet (no hub); the exact-helm match minimizes a different objective. The universal leaf-corona theorem also has a different structural hypothesis: the helm adds leaves to the rim only, and the wheel is not regular or vertex-transitive for the sizes in scope. The supported distinct contribution is the exact two-sided helm optimum and invariant edge weights under the hub and rim constraints together, not symmetry averaging or Fourier reduction.",
+      "residual_risks": [
+        "Bounded literature and catalogue search; there may be an unlocated equivalent FMMC optimum for some more general hub-and-rim network family. No unrestricted uniqueness claim is reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodology and exact wheel, not exact helm",
+          "evidence": "The wheel Fourier blocks and optimum include no pendant layer.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§5.3.3 pp. 28–29, offsets about 98000–102289",
+          "method": "Lawful OA arXiv text passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Solved hub-and-rim base graph and symmetry framework"
+        },
+        {
+          "assessment": "Inspected CCS-star result has a different topology",
+          "evidence": "Complete core with uniform arm structure, not a cycle, one shared hub and private leaves.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+          "material_read": "§7.4 pp. 28–29 and Appendix E p. 35",
+          "method": "Lawful OA arXiv text passages",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Clique-lift versus repeated leaf arms"
+        },
+        {
+          "assessment": "Related construction but no hub; no priority inference from date",
+          "evidence": "The sunlet is a cycle plus private leaves only.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Exact fastest mixing on sunlet networks and a fifty-percent spectral-gap improvement",
+          "trigger": "Same-day exact SLEM for a cycle with private leaves"
+        },
+        {
+          "assessment": "Same graph, different objective",
+          "evidence": "The optimized functional is Kemeny's constant, not maximum modulus of nontrivial eigenvalues.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quarter-power-leaf-transition-law-for-kemeny-optimal-helm-walk--7e060df31d29",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "A quarter-power leaf-transition law for Kemeny-optimal helm walks",
+          "trigger": "Exact helm graph match"
+        },
+        {
+          "assessment": "Missing regular transitive-base and uniform leaf-attachment hypotheses on the helm",
+          "evidence": "Requires a vertex- and edge-transitive regular core and exactly r private leaves on every core vertex.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2673",
+          "method": "Local Resultary and mirror",
+          "title": "Universal fastest mixing and pendant-edge rigidity on vertex- and edge-transitive leaf coronas",
+          "trigger": "Potential broader theorem on attaching leaves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adding one hub and private leaves produces competing transition constraints on a standard graph family. The exact all-size SLEM resolves those constraints simultaneously, shows that zero holding at the hub and rim is forced for the invariant solution, and quantifies a roughly 31% asymptotic gain over maximum-degree weighting. An exact calibrated example of this three-orbit fastest-mixing problem is useful even without a general theorem for other graph families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

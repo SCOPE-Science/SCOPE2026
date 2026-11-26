@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:30:36.141795Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplicativity forces a mix of singleton and repeated primes, leaving precisely p^2q, p^3q, pqr^2. For the first two, q(p−1)=p^a+1 implies p−1 divides 2 and gives exactly 20 and 45, with sums 30 and 60. For pqr^2, order the singleton primes p<q. The ratio forces r<p<q, so p,q are odd and p+1<q. Reduction modulo q forces q | r²+1; pq>r²+1 rules out p | r²+1, so p | q+1. With t=(r²+1)/q and k=(q+1)/p≥2, cancellation gives t(k+1)=r−1. Hence t | gcd(r−1,2); r=2 is impossible, while odd r forces t=2. Then k=(r−3)/2≥2 and r−3 divides 12; the only prime r≥7 is 7, giving q=25. This is unbounded, includes all exponent shapes, and allows n=1 only by the stated convention. The frozen VERIFICATION.md and verify.py were inspected, not executed; the finite sieve and congruence scan are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first 49 exponent layers cover p^a q for 2≤a≤49, hence the two-prime subcases but not pqr². The distinct four-factor record covers the full cutoff and n=1."
+        ],
+        "reasoning": "Greater depth in the repeated exponent is not coverage of the three-distinct-prime shape; the four-factor record, separately, is full coverage.",
+        "searches": [
+          "Resultary exponent layers, 59314f8e910e, Finding and scope",
+          "Resultary 439fe6387317, Step 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 439fe6387317",
+        "Resultary 59314f8e910e",
+        "Trudgian arXiv:1312.4615v3",
+        "OEIS A236474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd repeated prime p the matching proof sets B=(p²+1)/2, shows B | qr, and forces B to be one of the singleton primes. Substitution forces (p−3)r=p²+3 and eliminates the candidates 5 and 7. Step 4 gives the full classification."
+        ],
+        "reasoning": "The argument covers the critical unbounded obstruction, not merely a related necessary condition. Restricting its final theorem to n>1 proves everything in the frozen claim.",
+        "searches": [
+          "439fe6387317 RESULT.md Step 3, offset 2371 and Step 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record's p²qr exclusion is the frozen pqr² exclusion under relabeling; its positive-integer classification {1,20,45} restricts exactly to the frozen {20,45} for n>1."
+        ],
+        "reasoning": "The domains, quantifiers and prime pattern agree, not merely the displayed examples.",
+        "searches": [
+          "Resultary: unitary exponential divisor sum equality Omega four prime factors pqr²",
+          "439fe6387317 RESULT.md, Finding and Steps 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sequence and Trudgian catalogue equality examples rather than proving exhaustiveness for Ω≤4. The distinct Resultary entry actually proves exhaustiveness."
+        ],
+        "reasoning": "Known entries alone would not settle an unbounded factor-count cutoff; an exact published mathematical record does.",
+        "searches": [
+          "OEIS A236474",
+          "Trudgian arXiv:1312.4615v3 §3",
+          "Resultary 439fe6387317"
+        ]
+      },
+      "rationale": "A distinct indexed record (439fe6387317) proves the identical theorem, including the structural obstruction, with n=1 also allowed. Both records carry the same UTC date; the evidence does not establish within-day priority, but equivalent coverage is decisive for distinctness. The proof variants use the same factorization and the same terminal restriction that the repeated prime minus 3 divides 12; a distinct substantive remainder is not established.",
+      "residual_risks": [
+        "The available date does not establish which same-day record came first. This is a finding of equivalent coverage, not a claim about historical priority or provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Exact all-distinct p²qr elimination and classification {1,20,45}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-first-four-prime-factor-layers-of-unitary-exponential-diviso--439fe6387317/RESULT.md",
+          "material_read": "Finding (offset 688), Steps 3–4 (offset 2371 onward)",
+          "method": "Local catalogue and mirrored text",
+          "title": "The first four prime-factor layers of unitary–exponential divisor-sum equality",
+          "trigger": "Exact factor cutoff and obstruction"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": "p^a q with 2≤a≤49; does not include three distinct primes.",
+          "identifier_or_url": "59314f8e910e",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Mirrored text",
+          "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+          "trigger": "Broader exponent parameter"
+        },
+        {
+          "assessment": "Context, not cutoff coverage in inspected section",
+          "evidence": "Infinitude question and computed equality examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4615v3",
+          "material_read": "§3, PDF p. 6, offset 13895",
+          "method": "Open PDF text",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Primary source of the equality question"
+        },
+        {
+          "assessment": "Example catalogue",
+          "evidence": "Entries and additional terms of unknown position are not an Ω≤4 theorem.",
+          "identifier_or_url": "https://oeis.org/A236474",
+          "material_read": "Entry at offset 321",
+          "method": "Public entry text",
+          "title": "Numbers whose sum of unitary divisors is equal to the sum of exponential divisors",
+          "trigger": "Exact sequence check"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the cutoff is motivated by the infinitude problem and is the first one to require a three-distinct-prime obstruction. The structural proof is more informative than a census. This intrinsic value does not make a second statement of the covered classification a distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

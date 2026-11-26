@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The \(\delta\)-derivation identities are equivalent to one explicitly defined linear endomorphism eigenvalue equation. The exhaustive block decomposition, determinant identity, and separate rank checks at the two modular boundary weights yield every dimension over every odd-characteristic field. The independently implemented finite-field checker solves the original equations in 1,023 cases. No finite experiment is substituted for the symbolic proof.
+## correctness
 
-**Originality (PASS, provisional).** The known complex characteristic-zero \(\mathfrak{sl}_2\) formulas are prior work, as are ordinary positive-characteristic cohomology computations. The assessed new mathematical statement is the complete modular finite-characteristic spectrum including the Steinberg \(\delta=2\) eigenvalue-collision dimension \(p+2\) and the \(m=p-2\) degeneration. The closest general source explicitly assumes characteristic zero, so it does not establish these values in characteristic \(p\). A semantic research-record search found a related special-affine Lie algebra calculation but not this restricted-simple-module spectrum. Historical priority is not independently certified; some specialist sources were available only as abstracts.
+PASS
 
-**Mathematical value (PASS).** Restricted simple modules are the natural modular analogues of classical highest-weight representations, while exceptional \(\delta\)-derivations are a studied deviation from ordinary first cohomology. The result identifies precisely how modular eigenvalue collisions alter entire derivation spaces, settling a motivated full restricted family rather than a numerical instance. Its Steinberg behavior is not just substitution of characteristic-zero dimensions.
+The bracket equations yield D=δT(D). The two singleton, two edge and m−1 interior weight blocks exhaust the space. With u=m/2−j the interior determinant is (t−1)[t(t−1)−m(m+2)/4], and the edge determinant is (t−1)(t+m/2). Distinct roots give the three stable multiplicities; at m=p−2 and m=p−1 the repeated root has geometric multiplicity one per interior block, as verified by the minors on the first and third coordinates (pivots −(j+1),j+1 and −j,j+1 respectively). Edge ranks and singletons give p+1 at δ=1 for m=p−2, and p,p+2 at δ=1,2 for m=p−1. At p=3,m=1 there is no interior block and thus no actual zero root; the conclusion remains p+1. The trivial module and δ=0 vanish by perfectness. These are field-independent determinant and rank tests in odd prime characteristic. Fresh bracket-equation row reductions over F3 and F5 passed all 34 cases; the frozen checker was inspected, not executed.
 
-**Residual risks and scope.** Possible unindexed older positive-characteristic calculations; the ordinary-derivation boundary is not itself new; no claim for characteristic two or arbitrary simple modules. Computational testing uses only small prime fields. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the entire ordinary modular branch to Wang–Li and the weight decomposition and generic nonordinary pattern to Zohrabi–Zusmanovich. The distinct supported contribution is the complete restricted modular nonordinary spectrum, especially the Steinberg collision and its geometric multiplicity; the inspected characteristic-zero results neither assert it nor justify adding or specializing multiplicities at that repeated root.
+
+## value
+
+PASS
+
+The scalar collision for the Steinberg module is a natural obstruction to reading modular dimensions off the known characteristic-zero spectrum. A uniform geometric multiplicity and exclusion of other nonordinary parameters give a usable dimension/counting invariant for the restricted family. The known ordinary branch and the stable specialization are context rather than the reason for acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

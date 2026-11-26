@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:41:15.435420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–51 and 53–126",
+        "Frozen VERIFICATION.md and check_sparse_variance.py",
+        "Frozen check_sparse_variance_output.txt (90 recorded checks)"
+      ],
+      "rationale": "For k=2,3,4 the exact marginal over the Poisson product has log correction [-s(s-1)/(2λ)+ks-k²λ/2]/n. Exponentiation on s≤n^(1/8) leaves O((1+s)^4/n²); bounded-mean binomial and Poisson exponential moments control the weighted tails beyond that cutoff and give O(n^-2) in polynomially bounded expectations uniformly on compact positive intensities. In the disjoint covariance, r_4(s+t)-r_2(s)-r_2(t)=-(s-2λ)(t-2λ)/λ, giving -c²/(λn)+O(n^-2). The exact diagonal moment is 2λ, adjacent Poisson covariance is τ-μ², and the numbers of pairs give the uniform O(1) total residual. The score identity c=λμ′ and the Bessel recurrences yield c=2λ exp(-2λ)I_0(2λ). Orthogonal decomposition leaves a positive degenerate-kernel component (the 0,1 mixed difference is -2). Expanding the terms with counts 0 through 3 gives τ=λ+2λ³+O(λ⁴), μ=2λ-2λ²+2λ³+O(λ⁴), and c²/λ=4λ-16λ²+40λ³+O(λ⁴). At high intensity, bounded scaled fourth moments justify taking the absolute-product moment of the Gaussian contrasts of adjacent correlation -1/2, giving the stated coefficient. These are two limits of v only. The frozen checker and its output were inspected, not executed; their finite corroboration is not the proof.",
+      "residual_risks": [
+        "No uniformity is established as N/n approaches zero or infinity; neither endpoint claim asserts such uniformity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banić–Elezović have exact finite expressions and a fixed-n, large-N limit; the joint finite-load regime is left unanalyzed there.",
+          "The Resultary proof already handles fixed k=2,3,4 and any fixed-degree polynomially bounded moment function uniformly on positive compact load intervals."
+        ],
+        "reasoning": "The fixed-n expansion is not uniform in this regime. The separate Resultary comparison, not extrapolation of that expansion, supplies the decisive broader weighted expansion.",
+        "searches": [
+          "Primary literature lookup: multinomial adjacent absolute differences and finite-intensity variance",
+          "arXiv:2610.17046v1, Corollary 3.5, §4 and concluding remarks",
+          "Resultary e29f4fd136bb proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e29f4fd136bb, mirror Finding and proof",
+        "Banić–Elezović arXiv:2610.17046v1",
+        "Banić–Elezović arXiv:2610.13366v1 (full-text retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior proof uses the same λ_n expansion, the pointwise O((1+s)^4/n²) Taylor remainder within s≤L log n, exponential multinomial/Poisson tails, and exactly the same pair multiplicities. The prior §5 also gives m=2λ exp(-2λ)(I_0+I_1) and c=λm′."
+        ],
+        "reasoning": "Its uniform bounded moments integrate the Taylor remainder to O(n^-2) for each of the needed fixed-coordinate product expectations; choose L to suppress the weighted tails to this order. Thus O(n^-1) local errors and O(n^-2) disjoint errors give O(1) after the already stated counting. Differentiating m gives the stated explicit c. Neither the newly displayed remainder nor Bessel substitution establishes a distinct scientific contribution.",
+        "searches": [
+          "Resultary e29f4fd136bb, proof §§1–3 and §5, offsets 0–5200 and 5200–7400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record defines D_{n,N} on the same noncyclic path at the same finite positive loads, with h=E|A-B||B-C|=E[h_λ(B)^2]=τ, m=μ and identical c. Its V, disjoint covariance limit, strict positivity and two endpoint expansions are the same."
+        ],
+        "reasoning": "Conditioning on the shared cell identifies the two ostensibly different τ formulas; the normalization, constraints and quantifiers for the leading limit are identical.",
+        "searches": [
+          "Resultary: ordered multinomial histogram roughness, finite-load variance and fixed-total conditioning",
+          "Resultary SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb, Finding and §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper provides exact finite variance/covariance expressions. The Resultary catalogue entry gives the exact Poisson-moment coefficient as a function, not merely numerical entries at selected loads."
+        ],
+        "reasoning": "No finite table is needed for this continuum coefficient: exact functional catalogue coverage is stronger than checking numerical values, while the finite-law formulas alone are not a table of the asymptotics.",
+        "searches": [
+          "arXiv:2610.17046v1, exact finite-parameter formulas in §4",
+          "Resultary e29f4fd136bb Finding, exact V(λ)"
+        ]
+      },
+      "rationale": "A distinct Resultary finding directly covers the central law and proves the only possible quantitative distinction by implication. Its §§1–3 supply a polynomially weighted second-order Taylor bound and the same three-term counting identity, yielding the frozen uniform O(1) variance error by summing Poisson moments before counting pairs. It also states the same score and Skellam identities, so the Bessel form of the correction follows by differentiation. This is demonstrated coverage, not an inaccessible-source or missing-evidence verdict.",
+      "residual_risks": [
+        "Search scope is bounded; coverage of this finding is established without settling priority across all external literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers leading law and coefficient limits; proof directly implies the quantitative remainder",
+          "evidence": "§1 gives the polynomial Taylor bound and tail estimate; §§2–3 the covariance terms and counts; §§4–5 positivity and endpoints, including the Bessel/score formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–5 and relationship excerpt, offsets 0–7400",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, bounded passage read",
+          "title": "Conditioning removes a leading variance term from multinomial histogram roughness",
+          "trigger": "Distinct catalogue match for the same fixed-total histogram statistic and load"
+        },
+        {
+          "assessment": "Covers exact finite decomposition and dense Gaussian coefficient, not a uniform finite-load asymptotic",
+          "evidence": "The conclusions distinguish the joint large-n,N problem from the paper's fixed-n expansion.",
+          "identifier_or_url": "https://arxiv.org/html/2610.17046v1",
+          "material_read": "Introduction; §3.5/Corollary 3.5 around offset 49574, §4 around 55757, concluding joint-regime discussion around 235000",
+          "method": "OA HTML passages",
+          "title": "Discrete total variation under the multinomial, Part 2: variance under the uniform null",
+          "trigger": "Same ordered statistic and variance"
+        },
+        {
+          "assessment": "No independent negative inference",
+          "evidence": "The accessible comparisons identify it as expectation work, not decisive for the variance overlap.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13366",
+          "material_read": "Bibliographic identification and descriptions in the inspected records; no full-text passage verified",
+          "method": "OA retrieval attempted; timed out",
+          "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+          "trigger": "Companion work on the same statistic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and proof §§1–5",
+        "Resultary e29f4fd136bb proof §§1–5"
+      ],
+      "rationale": "The order-n conditioning correction is substantively useful, but is the same contribution already made for this statistic. The displayed O(1) remainder and Bessel rewrite are mechanically obtainable from the prior weighted error and score identity; no separately useful unknown invariant or new regime survives in this finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

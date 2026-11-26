@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:41.556559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The incidence-block proof is valid for the unnormalized Laplacian. The constant quotient gives 0, m+n, and 2(m+n-1). The mixed tensor of two zero-sum spaces has eigenvalue m+n-2. A one-shore zero-sum sector couples with squared off-diagonal entry n(m-2) or m(n-2), respectively; when the relevant shore has size two the same-shore zero-sum image vanishes, not merely its coupling. The pair-incidence kernels fill exactly the remaining dimensions. Coincident values are counted additively. Kirchhoff's theorem gives the tree product with prefactor 4. An independent symmetric-difference construction and exact characteristic polynomials matched the table at (2,2),(2,3),(3,2),(3,3),(3,4),(4,2); exact cofactors at (2,2),(2,3) gave 32 and 10800. Reproduction: /workspace/branches/b648819a-11b0-4491-aecf-5e68bab73869/independent_check.py. No frozen script was executed. The finite checks corroborate the uniform proof, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 lifts each base eigenvector by summing over occupied positions. Lemma 6.1 and Theorem 6.2 give L(F_k(G))+L(F_k(complement G))=L(J(N,k)) on a common eigenbasis. The proof of Theorem 7.2(iv) applies this to the exact K_m,n family and gives the complement token graph as a disjoint sum of Cartesian products of Johnson graphs.",
+          "The cograph theorem establishes integrality, which is weaker; the Barik–Verma abstract alone does not establish an exact table."
+        ],
+        "reasoning": "Without the lift an unlabelled complement pairing need not identify multiplicities. With two tokens the lift accounts for the entire Johnson 0 and N sector, forcing the pairing on its orthogonal complement.",
+        "searches": [
+          "arXiv:2012.00808v1, Theorem 3.1, Lemma 6.1, Theorem 6.2, §5, proof of Theorem 7.2(iv)",
+          "Verma, DOI 10.13001/ela.2026.10053, Theorem 3.6",
+          "Barik–Verma, DOI 10.1016/j.laa.2024.02.004"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verifier documentation, code and output",
+        "Dalfó et al. arXiv:2012.00808v1",
+        "Song et al. arXiv:2610.00500v1",
+        "Verma DOI 10.13001/ela.2026.10053",
+        "Barik–Verma DOI 10.1016/j.laa.2024.02.004 (abstract only)",
+        "Resultary 40156451790b and 7c4aeb6f2350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let N=m+n and Bf({u,v})=f(u)+f(v). Theorem 3.1 identifies the restrictions on im B with the respective base spectra. For K_N, this gives 0 and N with total multiplicity N, exhausting those eigenspaces of J(N,2). On (im B)^perp the Johnson eigenvalue is therefore the single value 2(N-1).",
+          "The frozen graph's complement token graph is J(m,2) disjoint union (K_m Cartesian-product K_n) disjoint union J(n,2). Its mixed component has spectrum 0, m^(m-1), n^(n-1), N^((m-1)(n-1)). Remove the lifted complement base multiset 0^2,m^(m-1),n^(n-1). Remaining are a single 0, the mixed N, and all nonzero modes of both J(m,2) and J(n,2). These are multiset operations even at numerical coincidences.",
+          "For a shore a>=3, J(a,2) gives a with multiplicity a-1 and 2(a-1) with multiplicity a(a-3)/2 (the latter omitted at a=3); J(2,2) is a point. Reflecting the remaining spectrum under x -> 2(N-1)-x yields precisely all new rows. The lifted base K_m,n contributes 0,N,n^(m-1),m^(n-1). Applying Kirchhoff yields exactly the frozen product."
+        ],
+        "reasoning": "This specializes the prior comparison to k=2 and removes one known multiset, with no undetermined simultaneous eigenvalue multiplicities.",
+        "searches": [
+          "arXiv:2012.00808v1, eq. (1), Theorem 6.2, and proof of Theorem 7.2(iv), PDF pp. 5,21–22,25–26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_2(K_m,n) and F_2(K_m disjoint union K_n) partition the edges of the all-pairs Johnson graph J(m+n,2). The corresponding simultaneous pairing is the exact complement formulation for the same operator.",
+          "Song et al. and the same-day spectral-radius record overlap a top eigenvalue, not the entire multiset or tree count."
+        ],
+        "reasoning": "Adjacency or scalar spectral-radius formulas alone are not equivalent to the claim; the Johnson complement reduction retains the full Laplacian multiset.",
+        "searches": [
+          "Dalfó et al., arXiv:2012.00808v1, Theorem 3.1 and §6",
+          "Resultary 7c4aeb6f2350; Song et al., arXiv:2610.00500v1, Corollary 4.14 and Remark 4.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40156451790b independently indexed the same spectrum and tree count for m,n>=3, with the same normalization. Its displayed catalogue date is later than the frozen path; priority cannot be inferred from that alone. It does not cover either shore of size two.",
+          "7c4aeb6f2350 states 2(m+n-1) as the spectral radius, not the full table."
+        ],
+        "reasoning": "This is a material same-object overlap, distinct from the earlier theorem-based coverage proof and not treated as establishing chronological priority.",
+        "searches": [
+          "Resultary 40156451790b, §Finding and §Proof",
+          "Resultary 7c4aeb6f2350, §Finding"
+        ]
+      },
+      "rationale": "The earlier Dalfó et al. lifting and graph/complement theorem, together with their explicit Cartesian-Johnson description for this very family, yield the exact spectrum in the two-token case by multiset subtraction in a single remaining Johnson eigenspace. The tree count is then Kirchhoff's formula. This demonstrated prior implication covers even the size-two boundaries; neither the date of a separate catalogue match nor an inaccessible paper supplies the failure reason.",
+      "residual_risks": [
+        "Barik–Verma full text remains uninspected; this does not affect the demonstrated older implication.",
+        "Catalogue dates alone leave the provenance and priority of the overlapping later display unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the total table including the size-two exceptions",
+          "evidence": "Lifted base sector, known Johnson complement scalar, and Cartesian-Johnson decomposition as detailed above.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.00808v1",
+          "material_read": "Theorem 3.1 and eq. (1), p. 5; Lemma 6.1 and Theorem 6.2, pp. 20–22; Theorem 7.2(iv) and its complete-bipartite proof, pp. 24–26",
+          "method": "Lawful OA PDF passages and exact multiset specialization",
+          "title": "On the Laplacian spectra of token graphs",
+          "trigger": "Potential stronger complement-token spectral formula"
+        },
+        {
+          "assessment": "Partial overlap",
+          "evidence": "Top-eigenvalue lower bound and balanced equality discussion, not an eigenvalue multiset.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00500v1",
+          "material_read": "Corollary 4.14 and Remark 4.15, offset about 72600",
+          "method": "Lawful OA passage",
+          "title": "The Algebraic Connectivity and Laplacian Spectral Radius of Token Graphs",
+          "trigger": "Exact K_m,n and two-token parameters"
+        },
+        {
+          "assessment": "Already covers integrality alone",
+          "evidence": "Connected cographs have Laplacian-integral token graphs.",
+          "identifier_or_url": "10.13001/ela.2026.10053",
+          "material_read": "Theorem 3.6, PDF p. 9, offset about 31800",
+          "method": "Lawful OA PDF passage",
+          "title": "Laplacian spectral radius and integrality of token graphs",
+          "trigger": "Stronger cograph family"
+        },
+        {
+          "assessment": "Full result not determined",
+          "evidence": "Abstract discusses general matrices and spectral-radius bounds; it cannot rule out a relevant full-text result.",
+          "identifier_or_url": "10.1016/j.laa.2024.02.004",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA landing page; no full text located through available access",
+          "title": "Spectral properties of token graphs",
+          "trigger": "General token graph spectral results"
+        },
+        {
+          "assessment": "Covers the full overlapping domain m,n>=3; later displayed date does not establish priority",
+          "evidence": "Same multiset and tree count, excluding size-two shores.",
+          "identifier_or_url": "Resultary 40156451790b",
+          "material_read": "Mirrored RESULT.md, §Finding and §Proof",
+          "method": "Local mirror",
+          "title": "Exact Laplacian spectrum and spanning tree count of two-token complete bipartite graphs",
+          "trigger": "Near-exact indexed match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graphs and the requested multiset are natural, and the explicit product can be useful. But the table is a mechanical specialization of published spectral pairing already applied to this family, and the tree count is its standard Matrix–Tree corollary. The size-two convention is likewise automatic from J(2,2); it is not a separate gap. The alternative block calculation does not supply a distinct structural result beyond this exact known implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

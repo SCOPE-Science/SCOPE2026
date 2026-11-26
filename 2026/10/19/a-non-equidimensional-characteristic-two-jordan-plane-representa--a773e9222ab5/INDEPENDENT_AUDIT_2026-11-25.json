@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:59:56.684117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking the trace forces tr(Y)=0 over a field of characteristic two. With diagonal entries of Y both e, off-diagonals f,g, and s=tr(X), the remaining equations are sf=sg=0 and e²+fg+bg+cf=0. If f=g=0 then e=0; otherwise s=0. This gives the two closed pieces as sets. The equation on the trace-zero piece is primitive and linear in c (coefficient f coprime to e²+g(b+f)), hence irreducible; that piece has dimension five and neither piece contains the other. Their intersection fixes Y=0 and s=0, of dimension three. Vanishing of the gradient on the hypersurface forces b=c=e=f=g=0, yielding the singular line of B only. Over F_q, the square root λ of det(Y) is unique. For Y≠0, Y+λI is nonzero rank-one nilpotent, so one can fix Y=λI+E12 and then X has equal diagonals a and lower-left entry λ². Conjugation by uI+vE12 adds tλ² to a and t²λ² to b, where t=v/u. For λ=0 this fixes all q² choices; for λ≠0 it acts freely with unique a=0 representative for each invariant a²+λ²b. The stabilizers have orders q(q−1) and q−1, yielding the two orbit sizes, respectively. The Y=0 stratum gives q²+q ordinary similarity classes by scalar, Jordan, split distinct and irreducible quadratic types, so the three strata sum to 3q², including q=2. Independent field-table matrix tests and stabilizer-weighted counting (python3 /workspace/branches/reproduce_reviews.py 3) reproduced class splits (6,4,2) and (20,16,12), point totals 40 and 1216, nonzero-Y orbit sizes and component point counts for q=2,4. This does not test scheme radicality or prove general geometry; those geometry assertions are expressly reduced.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iyudu works in algebraically closed characteristic zero; the positive-characteristic Ore-extension paper explicitly constructs the simple modules and classifies irreducibles over algebraically closed fields. Shirikov's full text was not obtained."
+        ],
+        "reasoning": "Characteristic-zero equidimensionality does not cover characteristic two. The broader Ore-extension family includes this algebra, so the absolutely simple sector receives prior credit, but the hypothesis of irreducibility leaves the nilpotent and ordinary similarity sectors of the census unresolved by that theorem.",
+        "searches": [
+          "Iyudu arXiv:1209.0746 Theorem 12.1",
+          "Benkart–Lopes–Ondrus arXiv:1212.1404 Lemma 7.6 and Cor.7.8",
+          "Shirikov DOI 10.1134/S0001434607070292"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/12/...--2b81b92bf0db and 2026/10/26/...--76300503433b",
+        "arXiv:1209.0746 and 0802.1545",
+        "arXiv:1212.1404",
+        "Shirikov DOI 10.1134/S0001434607070292 (retrieval attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The labelled census determines which Y can occur and the dimension of its solution fibre. The prior simple-module theorem gives the invertible-Y representatives. None of these inspected statements gives the residual centralizer action on the solution fibre as a whole or assembles the full 3q² census."
+        ],
+        "reasoning": "Even knowing the allowed normal forms for Y and the labelled fibre sizes leaves its orbit partition to be checked. Computing the action shows why the nilpotent fibre is pointwise fixed and the invertible fibre has free translations modulo the scalars; the two different stabilizers and complete normal forms give the distinct rational classification.",
+        "searches": [
+          "Oct.12 Resultary labelled census, mirror offsets 1852–5751",
+          "Oct.26 geometry catalogue Finding and closing scope",
+          "Benkart–Lopes–Ondrus §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct. 26 dimension-jump entry's Finding gives the same trace-zero hypersurface after renaming coordinates, with identical components, intersection and singular line, but no simultaneous-conjugacy quotient. In Benkart–Lopes–Ondrus set their x=Y, y=X and h=x²; in characteristic two (7.7) yields the λ≠0 matrices up to rescaling the basis."
+        ],
+        "reasoning": "Module isomorphism with the two generators fixed is simultaneous conjugacy. The correspondence is exact for the simple representatives but their classification does not include reducible modules. The geometric equation comparison is exact, not just a match in point counts.",
+        "searches": [
+          "Resultary: characteristic two Jordan-plane geometry, dimension jump and simultaneous-conjugacy classes",
+          "arXiv:1212.1404 §7, action (7.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives N_{2,q}=q^5+q^4−q^3 as a count of labelled ordered pairs in characteristic two; its proof weights each Y class by its number of conjugate Y values and the cardinality of the X fibre. The later geometry record likewise counts pairs, explicitly not simultaneous-conjugacy orbits."
+        ],
+        "reasoning": "The weights are not the number of centralizer orbits on a fibre; formulas 40 and 1216 concern points, not the 12 and 48 rational classes.",
+        "searches": [
+          "Resultary 2026/10/12/...--2b81b92bf0db",
+          "Resultary 2026/10/26/...--76300503433b"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit simultaneous-conjugacy classification and whole rational orbit census, including reducible strata and orbit sizes. The characteristic-two geometry has exact coverage in a separate Oct. 26 catalogue entry, the labelled point count is already catalogued before the frozen record, and the absolutely simple normal forms are covered by positive-characteristic irreducible-module theory. Do not credit these overlaps as separate new contributions or infer priority from the catalogue paths.",
+      "residual_risks": [
+        "Shirikov's full text was not inspected; exact prior coverage of the rational orbit classification remains possible. The catalogue comparisons establish coverage of geometry and labelled counts, not their priority relative to other records or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for reduced geometry and labelled count; not rational orbits",
+          "evidence": "Part II gives dimensions 4 and 5, intersection tr(X)=0 at Y=0, hypersurface a²+bc+vc+bw=0, and the same singular line. Scope excludes counting simultaneous-conjugacy orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-characteristic-two-dimension-jump-in-two-dimensional-jordan-pl--76300503433b/RESULT.md",
+          "material_read": "Finding offsets 0–2007; closing scope about 9561",
+          "method": "Resultary match; OA local mirror passage",
+          "title": "A characteristic-two dimension jump in two-dimensional Jordan-plane representations",
+          "trigger": "Same equation and exceptional characteristic"
+        },
+        {
+          "assessment": "Already gives the labelled enumeration, not the quotient",
+          "evidence": "Weights q^dim C(Y) by the size of each Y similarity class and gives N_{2,q}=q^5+q^4−q^3 for p=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-modular-representation-counts-for-the-jordan-plane-over-finite-f--2b81b92bf0db/RESULT.md",
+          "material_read": "Finding and proof offsets 1852–5751 (trace pairing, Jordan-block criterion, fibre weights)",
+          "method": "Resultary match; OA local mirror passage",
+          "title": "Modular representation counts for the Jordan plane over finite fields",
+          "trigger": "Same finite fields and claimed enumeration"
+        },
+        {
+          "assessment": "Covers the absolutely simple normal forms, not the full census",
+          "evidence": "For h(λ)≠0 constructs the p-dimensional module with scalar parameter β and gives the generator matrices; for p=2 and h(x)=x² this is the frozen invertible-Y case.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.1404",
+          "material_read": "§3 Ore extension; Lemma 7.6, action (7.7), Corollary 7.8, pp.23–24, offsets 65800–69242",
+          "method": "OA arXiv PDF passage",
+          "title": "A Parametric Family of Subalgebras of the Weyl Algebra II. Irreducible Modules",
+          "trigger": "Positive-characteristic irreducible-module normal forms"
+        },
+        {
+          "assessment": "Different characteristic",
+          "evidence": "Equidimensional components of dimension n² are asserted in the algebraically closed characteristic-zero framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0746",
+          "material_read": "Theorem 12.1, PDF p.3 (offset about 6726); characteristic hypotheses pp.2–5",
+          "method": "OA arXiv PDF passages",
+          "title": "Representation spaces of the Jordan plane",
+          "trigger": "Representation component dimensions of the same algebra"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "The title and reported abstract topics do not establish whether either the geometry or the rational census appears in the paper.",
+          "identifier_or_url": "https://doi.org/10.1134/S0001434607070292",
+          "material_read": "Bibliographic identification only; DOI, Springer page/PDF and MathNet routes did not provide paper text",
+          "method": "Lawful OA retrieval attempts",
+          "title": "The Jordan Plane over a Field of Positive Characteristic",
+          "trigger": "Plausible overlap on positive-characteristic structure or normal forms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting representations with a chosen basis does not identify isomorphism classes, and the two nonzero-Y strata have different stabilizers. The full characteristic-two orbit classification gives concrete invariants and representatives for all two-dimensional modules over even finite fields, not just the simple ones, and explains exactly how that census differs from the point count. The reduced geometry shows how the characteristic-zero dimension pattern breaks in this example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

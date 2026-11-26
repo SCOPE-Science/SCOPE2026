@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The annihilator is exactly the one-dimensional \(Kz\). Orthogonality of distinct natural generators modulo it, combined with independence of the cyclic quotient's squares, forces every natural basis to be a permutation/rescaling of the cyclic generators with free annihilator shifts. This supplies all possible structure matrices rather than a sample. A spanning-tree integer-height calculation then proves the gcd formula for every integer \(m\ge2\) over every field. Both directions of the divisor characterization and the connected realizations are explicit. The minimal-dimensional argument uses the nondegenerate invariance theorem and the absence of two independent cycles in a two-dimensional degenerate natural-basis graph.
+## correctness
 
-**Originality — PASS, qualified.** Kaygorodov–Martín González–Viruel, arXiv:2610.22248v1, Question 27 explicitly asks whether balance depends on basis in the degenerate class, and the inspected source does not supply a counterexample. Alshatnawi–Costoya–Viruel, arXiv:2607.15154v1, prove basis invariance for the disjoint (nondegenerate) class only. Boudi–Cabrera Casado–Siles Molina, arXiv:2006.14460v1, establish general natural-family machinery that permits annihilator shifts but do not state this balance formula. No equivalent statement surfaced among checked related mathematical records. Risk: the example or formula may be an unstated elementary consequence in wider literature on basis changes; database searches are not proof of priority.
+PASS
 
-**Value — PASS.** This gives a complete explicit answer, not only an existence witness, to the precise published question in the negative. The unique-algebra divisor-spectrum theorem quantifies how much the graph invariant can vary while the algebra and connectivity remain unchanged, and the three-dimensional instance is sharp.
+Multiplication by e_i detects its coefficient, so the annihilator is exactly Kz. Pairwise zero products and independence of the cyclic squares force the nonzero images of distinct natural basis vectors to have disjoint coordinate supports in the quotient. Spanning forces exactly m singleton supports and one nonzero vector in Kz, giving the claimed form and converse over any field. The coefficient calculation gives exactly the cycle edges and the spoke set S. With the cyclic path and, for nonempty S, one spoke s→z as a spanning tree, signed closed-walk lengths generate the subgroup with generators m and i−s (i∈S), since the height differences telescope and each non-tree arc closes along the tree. This also treats m=2, where the arcs are distinct. For empty S the only contributing component is the directed cycle. A nonempty singleton realizes m and {0,d} realizes every proper divisor d with the sink attached. Directly, in dimension three the one-spoke and two-spoke bases yield balances 2 and 1 on connected graphs. For the dimension bound, degenerate dimension two has at most one row with a nonzero square, so only a loop can give positive balance, and then it is 1. In nondegenerate dimension two one can either use the cited invariance theorem or argue directly: independent squares force monomial changes of basis; proportional nonzero squares give both natural basis squares in the same line, nonzero in each row, hence a loop in every natural basis. Dimension one is immediate. The frozen checker's finite-field source and recorded checks were inspected, not executed; the all-fields proof is decisive. The small connected witness can be replayed by the two explicit basis squarings in RESULT.md line 47.
 
-**Limits.** The result concerns one explicit family, not arbitrary degenerate graph spectra. The computation checks only specified finite cases; all unrestricted conclusions are proved algebraically. Independent novelty and correctness assessment is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is failure of balance invariance in the degenerate case with both graphs connected, the sharp dimension bound for distinct positive balances, and the full connected divisor spectrum in one fixed explicit family. The cyclic algebra, signed-walk invariant, and general structure of natural-basis changes are prior work. The relevant statements inspected did not cover the new spectrum.
+
+## value
+
+PASS
+
+This answers a stated basis-invariance question negatively with the smallest possible dimension for distinct positive balances, while ruling out loss of connectivity as the cause. The all-m family measures precisely how much the balance can vary for one fixed algebra, with a direct realization of all and only the divisors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

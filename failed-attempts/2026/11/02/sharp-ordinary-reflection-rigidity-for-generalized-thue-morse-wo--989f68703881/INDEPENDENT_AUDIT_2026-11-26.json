@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:05.414504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The valuation of j+1 counts the trailing base-b digits equal to b−1, even when b is composite. This proves Delta_j=1−(b−1)nu_b(j+1) modulo m; in any two consecutive increments at least one is +1. For any triple with a reverse occurrence, the two increments therefore include both +1 and −1, distinct for m≥3, so the endpoints agree. Applying this to all internal triples of a reversible word forces period two. An even-length nonpalindromic such word has, in one of its two orientations, the consecutive increments (−1,+1,−1); impossible because any −1 transition has endpoint divisible by b if b≥3 and by 4 if b=2. Thus every class at n≥3 is singleton, not necessarily absent of palindromes. The permitted pair differences are the coset 1 modulo g; for each permitted d solve (b−1)h=1−d modulo m and choose digits of L with sum a−h(b−1) modulo m. At N=b^h(bL+1)−1 the two digit sums differ by 1−h(b−1) and the first has residue a. This realizes all pairs even for g=m. Negation preserves the coset exactly when g divides two. Counting fixed pairs (m for g=1, none for g=2) proves the three formulas. The classical binary prefix already contains 011 and 110. The frozen finite-prefix verifier was inspected without execution and is not needed for the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier cutoff record counts exactly 2m length-three palindromes and excludes all length-four and longer reversible factors when g=1,2; at g≥3 it excludes all reversible factors of length at least two. It also treats m≤2.",
+          "The 2012 pair language gives differences 1−k(b−1) modulo m for each initial letter."
+        ],
+        "reasoning": "The stronger cutoff implies singletons for all n≥3 even though it also resolves when a factor can be its own reverse. The earlier pair characterization alone gives the length-two reflection count by negating the coset and counting its fixed points.",
+        "searches": [
+          "Resultary f12270a0ea48: reversible-factor cutoff for generalized Thue–Morse words",
+          "arXiv:1104.2476v3, §3 Property IV"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py",
+        "Resultary f12270a0ea48, 6ece0d5d3c7b and 4c1615f0a563",
+        "arXiv:2406.09302 and arXiv:1104.2476"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both the earlier and frozen results use ordinary letter-preserving reversal of contiguous factors of the infinite one-sided word. The matching theorem has no extra coprimality or aperiodicity condition.",
+          "Earlier closure for m≤2 is stronger than the frozen warning against extending its rigidity result to m=2; the displayed classical binary obstruction is immediate from its prefix."
+        ],
+        "reasoning": "Specializing the earlier statement to m≥3 gives exactly the claimed main theorem. The frozen proof's convenient carry construction supplies no further distinct retained result.",
+        "searches": [
+          "Resultary f12270a0ea48, Finding and Assumptions",
+          "Frozen RESULT.md lines 5–28, 46–60 and 66–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 64 states the equality at b=2,m=3 and reports indicative behavior for larger moduli.",
+          "Starosta's antimorphism takes letter k to x−k while reversing order, not ordinary reflection when m≥3. The equivalence relevant here is no distinct mutual reversal within a factor set, not language closure under a complemented reversal."
+        ],
+        "reasoning": "Ordinary reversal classes in the factor set have size one or two, so equality to factor complexity is exactly the absence of a size-two class. A palindrome or a complemented reversal is not a size-two plain-reversal class.",
+        "searches": [
+          "arXiv:2406.09302v1, Question 64",
+          "arXiv:1104.2476v3, §3 Property IV and language symmetries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding of f12270a0ea48 displays r=ρ for h≥3, all three same formulas for r(2), and r(0)=1, r(1)=m for the same digit-sum sequence.",
+          "Additional October 26 entries compare separately the b≥3 and b=2 regimes."
+        ],
+        "reasoning": "The October 12 record matches the whole frozen domain and not just selected parameters or numerical counts.",
+        "searches": [
+          "Resultary arithmetic sharp cutoffs / plain reversal and gcd correction: 2026/10/12 f12270a0ea48",
+          "Resultary 6ece0d5d3c7b and 4c1615f0a563, Finding passages"
+        ]
+      },
+      "rationale": "The earlier Resultary record f12270a0ea48 directly states the entire reflection profile in the frozen setting, including the same gcd correction, and proves strictly stronger reversible-factor cutoffs. The frozen note correctly distinguishes dihedral symmetry from ordinary reversal, but that distinction does not remove the explicit earlier plain-reversal coverage. The failure is demonstrated statement-level overlap, not uncertainty about historical authorship.",
+      "residual_risks": [
+        "This review establishes indexed coverage; it does not adjudicate priority outside the examined sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Entire frozen theorem already given, with stronger reversible-factor trichotomy",
+          "evidence": [
+            "The earlier text explicitly says the reversal does not negate or permute letters; it displays r=ρ for h≥3 and the same three length-two cases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-arithmetic-sharp-cutoffs-for-reflected-factors-of-generalized-th--f12270a0ea48/RESULT.md",
+          "material_read": "Finding, Assumptions and start of proof, mirror offsets 0–3116",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4 and direct statement comparison",
+          "title": "Arithmetic sharp cutoffs for reflected factors of generalized Thue–Morse words",
+          "trigger": "Exact all-base/all-modulus catalogue match"
+        },
+        {
+          "assessment": "Known b=2,m=3 case and wider question, not the uniform theorem in that passage",
+          "evidence": [
+            "The question records equality at lengths at least three for binary digit sum modulo three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "v1 Question 64, p. 32, text offsets about 69600–70426",
+          "method": "OA original PDF passage",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Named motivation and potentially prior ordinary-reflection theorem"
+        },
+        {
+          "assessment": "Exact pair increments; symmetry alone is not ordinary-reversal rigidity",
+          "evidence": [
+            "The pair increment is 1−k(b−1); the antimorphism on letters is k mapped to x−k, not the identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.2476",
+          "material_read": "v3 §3, PDF pp. 3–4, especially Property IV and the definitions of Pi_x and Psi_x",
+          "method": "OA original PDF passage",
+          "title": "Generalized Thue-Morse words and palindromic richness",
+          "trigger": "Thue–Morse full factor language and dihedral symmetry may imply the formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A uniform ordinary-reflection profile would answer a natural question, but it is already recorded in stronger form for exactly this family. The short-pair witness and elementary orbit count recertify the existing language data and do not isolate a new independently useful mathematical result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

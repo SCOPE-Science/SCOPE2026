@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:15:13.020690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–207, VERIFICATION.md, verify.py and certificate.json. The frozen numerical/sample assertions were inspected, not rerun."
+      ],
+      "rationale": "The shortest border is unbordered, since a border of it would be a shorter border of the original; it cannot overlap its copy, since a nonempty overlap would border it. Conversely an unbordered v in v z v is the shortest border, so each r-layer event counts uniquely by the r lengths and blocks and arbitrary center. Its probability is the r-fold product sum restricted by total peeled length at most n. Monotone passage to the unrestricted sum gives s_q^r. The first two exact terms plus the geometric tail give a strict bound below one (at q=2, at most 7/8; the bound decreases thereafter). Empty-center probabilities are summable over positive even half-lengths, since each complete peel has a unique positive length composition and the sum over layers is s_q/(1-s_q). The limiting width and its mean then follow, the mean by summable domination of the tail probabilities. For the series, the first-part recurrence for constrained compositions gives H_m=F_m/(1+B) with the same triangular recurrence and initial term as a_m; therefore B=S/(1-S) formally. To justify evaluation, for any 0<rho<1 the sum of absolute coefficient norms at radius rho of the a_m is at most product_{j>=1}(1+rho^j)-1, by the triangular recurrence. Thus S is continuous there. The coefficient series B converges for 0<=x<1/2 by the unrestricted composition bound; the identity (1−S)B=S there, together with nonnegative coefficients and S(1/2)=s_2<1, permits passage to the endpoint by monotone convergence. Finally splitting constrained compositions by last part K+1 gives the A274190 recurrence after setting d=N−K; take counts to be zero for negative d, with the empty composition counted for d=0. The reverse row then stabilizes at d once K+1>=d. The b_0 offset accounts for the separate constant 1 in the mean.",
+      "residual_risks": [
+        "The verifier samples unbordered counts (q=2,3, n<=7), short-word tail events (n<=8, r<=3), and formal coefficients through d=16. Neither this check nor the mean table substitutes for the infinite proof. The result concerns uniform fixed-alphabet sampling only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goto et al. establish the greedy shortest-border structure. Thesis Theorem 60 covers finite counts by width in terms of unbordered words; Theorem 62 covers mean convergence. The 2023 paper gives the analogous finite count and expectation context."
+        ],
+        "reasoning": "These are broader finite-length or structural results and yield the renewal setup; they do not by themselves identify the coefficients of the limiting mean with the OEIS array.",
+        "searches": [
+          "Gabrić thesis hdl:10012/18874 §§6.2–6.3; Gabrić–Shallit arXiv:2302.13147v1; Goto et al. arXiv:1806.00198"
+        ]
+      },
+      "checked_sources": [
+        "Gabrić thesis; Gabrić–Shallit arXiv:2302.13147v1; Goto et al. arXiv:1806.00198; OEIS A274199, A274190 and A330886; Resultary topical matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalizing the finite recurrence gives a convolution by u_m q^(-2m) for each added pair; the base is the unbordered-word count for odd width and the empty word for width zero. Absolute summability permits fixed-width limits by iteration. A274199 gives the composition counts but not the normalization relation F_m/(1+B)=a_m."
+        ],
+        "reasoning": "The explicit limiting law is a close consequence of those finite counts and unbordered densities. Even taking the geometric law, mean formula and OEIS composition model as given, the generating-series identification B=S/(1−S) using the triangular recurrences is a further argument, producing the conjectured coefficients, not a mere lookup or parameter specialization.",
+        "searches": [
+          "Gabrić–Shallit finite-width recurrence, Theorem 4 and Conjecture 5; thesis Theorems 60,62; OEIS A274199 composition comment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrić–Shallit Theorem 4 covers existence, and Conjecture 5 states E_k=1+sum_{i>=1}a_i k^(-i) with coefficients a_i/2 from A274199. The closest catalogue block-palindrome result, b1effee6a451, treats widths of special prefixes of a deterministic word."
+        ],
+        "reasoning": "Shortest-border factorization is the same largest-width mechanism here. A conjecture is not a coefficient proof, and widths of deterministic selected prefixes do not give the uniform-word law.",
+        "searches": [
+          "Resultary: largest block-palindrome factorization, shortest-border factorization, limiting width, geometric law, A274199; primary search for Conjecture 5 and exact mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A274199 starts 1,1,2,3,5,8,12,19,..., defines a limiting reverse row of A274190, and includes the March 2021 adjacent-parts x<2y composition observation. A330886 records binary totals and the approximate constant 6.468626906... on the accessed version. The paper has limiting-mean approximations for several alphabets."
+        ],
+        "reasoning": "These are exact entries and relevant numerical data, not a proof of the all-q coefficient expansion. The work does not claim the composition interpretation or the numerical constant as new.",
+        "searches": [
+          "OEIS A274199 and A274190; OEIS A330886; Resultary limiting width/A274199"
+        ]
+      },
+      "rationale": "Credit the known greedy factorization, finite-width recurrence, existence of the limiting mean, the conjectured coefficient sequence, and the already recorded composition model. The distinct contribution supported by the comparison is the proof linking the unbordered-word renewal series to A274199 and hence resolving Conjecture 5. The explicit geometric law and mean formula are useful consequences of the recurrence mechanism, not an independently new mechanism; the distribution is not itself part of Conjecture 5.",
+      "residual_risks": [
+        "The date of the A330886 asymptotic comment was not resolved; the verdict does not depend on it. Bounded primary and catalogue searches cannot exclude an unindexed earlier proof of the coefficient relation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite count methods and expectation existence; exact series conjectured",
+          "evidence": "Theorem 4 states the existence of the limit; Conjecture 5 proposes its expansion with doubled A274199 coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13147v1",
+          "material_read": "Finite-width recurrence discussion and p. 5 Theorem 4, table, Conjecture 5 (PDF offsets 11100–15469 and conjecture passage starting around 14200)",
+          "method": "Bounded OA PDF text",
+          "title": "Smallest and Largest Block Palindrome Factorizations",
+          "trigger": "Exact conjecture and finite-width prior"
+        },
+        {
+          "assessment": "The finite recurrence and existence of the mean are established",
+          "evidence": "Counts LBP_k(n,t) from unbordered-word counts; limiting means tabulated numerically.",
+          "identifier_or_url": "https://hdl.handle.net/10012/18874",
+          "material_read": "§6.2 Theorem 60 pp. 48–49; §6.3 Theorem 62 p. 50 (around offsets 117100 and 122100)",
+          "method": "Bounded OA repository PDF text",
+          "title": "On the Properties and Structure of Bordered Words and Generalizations",
+          "trigger": "Earlier thesis with exact width counts"
+        },
+        {
+          "assessment": "Structural antecedent",
+          "evidence": "Uniqueness and peeling shortest borders; does not supply the random-word mean expansion in this passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.00198",
+          "material_read": "p. 3, offset 9750",
+          "method": "Bounded OA PDF text",
+          "title": "Block Palindromes: A New Generalization of Palindromes",
+          "trigger": "Greedy factorization antecedent"
+        },
+        {
+          "assessment": "Supplies the sequence and prior composition interpretation",
+          "evidence": "Adjacent parts satisfy x<2y; reverse row stabilization defines A274199.",
+          "identifier_or_url": "https://oeis.org/A274199",
+          "material_read": "Definition, initial terms and 12 March 2021 composition comment",
+          "method": "OA page inspection",
+          "title": "Limiting reverse row of the array A274190",
+          "trigger": "Exact conjectured coefficient entry"
+        },
+        {
+          "assessment": "Binary numerical coverage only in inspected material",
+          "evidence": "Records 6.468626906...; date of that particular comment not established.",
+          "identifier_or_url": "https://oeis.org/A330886",
+          "material_read": "Description and asymptotic comment on current entry",
+          "method": "OA page inspection",
+          "title": "Sum of lengths of SB factorizations over all binary strings",
+          "trigger": "Known binary asymptotic and exact database coverage"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Deterministic period-doubling prefixes, not the uniform sampling or all-alphabet expansion.",
+          "identifier_or_url": "Resultary b1effee6a451",
+          "material_read": "Returned scope: selected deterministic prefix widths",
+          "method": "Local Resultary statement comparison",
+          "title": "Dyadic block-palindrome widths of the period-doubling word",
+          "trigger": "Topical catalogue comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md renewal and composition arguments; Gabrić–Shallit Conjecture 5; OEIS A274199"
+      ],
+      "rationale": "The proof settles a published all-alphabet expansion conjecture and explains the coefficients by an exact transformation of the shortest-border law. It gives actual limiting probabilities, not just approximate means or fitted coefficients. The value assessment rests on the normalization/composition argument, not on reproducing the existing table.",
+      "residual_risks": [
+        "No claim about a nonuniform sampling model or a simplification of the renewal parameter is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

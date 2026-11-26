@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:34:14.241762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I checked the adjunction trivialization dx/f_y and the determinant-one signed permutation action: the q-canonical Wronskians have weights in O_C(27) and O_C(75), are invariant, and vanish on each simple fixed axis intersection because the lift acts as −1 on its representative. B is itself invariant: the permutation sign in the difference product cancels the sign on XYZ. Dividing by the simple axis divisor and taking invariant lifts by averaging leaves symmetric forms in the squares, giving the residual polynomials in V/U³ of degrees at most 3 and 11. At U=T=0 the squared coordinate ratios are the three distinct cube roots of unity; all coordinates are nonzero, dU and dT are independent there, and the eight points give poles of order three. Thus V/U³ is the degree-24 group quotient. The axis fibres, computed by setting a coordinate to zero or two coordinate squares equal, and the pole fibre account for all ramification by Riemann–Hurwitz. The independent run of `python3 /workspace/review-evidence/ciani_replay.py` used Newton lifting, rational determinants reduced mod 1009, and Lagrange interpolation, and returned the frozen P2 and P3 coefficients at all 36 eligible distinct rational quotient coordinates, with gcds equal to 1 and nonzero P3 values 879,682,112 at the finite branch values (leading coefficient 498). The specialization lifts: choose distinct interpolation points mod 1009 with f_y, B and U units, lift their y-coordinates by Hensel with x fixed and a near 1, and interpolate with unit Vandermonde; all polynomial nonvanishing conditions detected by the replay therefore hold on a nonempty characteristic-zero open set. This proves 36 simple axis points plus 11 unramified 24-point fibres. At each such axis point the tangent contact is even by the local involution (the axis is transverse), so a flex would be a hyperflex. A hyperflex gives a cubic with contact 12, already incompatible with a simple third-order zero, so the forced second-order zeros on those axes are sextactic. The coprime residual polynomials exclude every nonaxis third-order zero from the second-order divisor; rank ten then gives the claimed cubic contact classification. No conclusion is drawn for all smooth parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cor. 4.11 and Thm. 4.12 supply the involution-axis third-order support and its hyperflex/sextactic alternatives. Remark 4.13 proves a nonempty open locus of 300 simple dectactic points in the space of all smooth plane quartics using a different quartic.",
+          "Nawara's introduction identifies earlier third-order gap-sequence and special-curve work; the earlier full text did not load."
+        ],
+        "reasoning": "The forced-axis theorem already supplies support but not simplicity, absence of hyperflexes, residual freeness or absence of residual second-order intersections. The open locus of 300 simple dectactic points in the ambient moduli problem cannot be specialized to this pencil: forced axis points are also second-order points, so this ambient condition actually excludes generic pencil members.",
+        "searches": [
+          "Nawara arXiv:2610.30992v1 §4 Theorem 4.12 and Remark 4.13; Kamel–Elshareef DOI 10.1142/S0219498819500208"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_ciani.py by inspection",
+        "Nawara arXiv:2610.30992v1 introduction, §4, §6 and reference p. 24",
+        "Local Resultary flex-cover comparison",
+        "Independent replay /workspace/review-evidence/ciani_replay.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a=3 the 12 weight-five hyperflexes prevent using reducedness of the third-order divisor as an open condition witnessed by that member; 216 instead of 264 dectactic points account for the corresponding loss of free orbits.",
+          "The independent a=1 arithmetic witness establishes an additional reducedness, branch avoidance and disjointness condition that is not deduced from the known degree and forced support."
+        ],
+        "reasoning": "The generic theorem would follow routinely from a suitable prior reduced same-family specialization with the companion avoidance conditions, but the highly relevant documented specialization is not such an example. Ambient genericity has a different domain and does not imply the needed specialization.",
+        "searches": [
+          "Nawara §4 pp. 12–13 and §6 pp. 15–16; explicit a=3 divisor versus reduction at a=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nawara identifies the same pencil's smooth a=3 member and in §6 gives W3=5H+A+B+D, with 12 hyperflexes of weight five, 24 simple axis sextactic and 216 simple dectactic points.",
+          "The closest inspected same-pencil indexed result is Regular S4 monodromy of flexes in a symmetric quartic pencil, which concerns the flex cover, not |3K|."
+        ],
+        "reasoning": "Changing nomenclature or recasting contact as vanishing sequences does not equate the third-canonical orbit calculation to a flex computation or to the a=3 nonreduced profile.",
+        "searches": [
+          "Resultary: generic Ciani/Kuribayashi–Komiya quartic, third-order Weierstrass points, tricanonical Wronskian, dectactic orbit divisor",
+          "Nawara arXiv:2610.30992v1 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nawara's exact same-pencil example has 252 distinct support points, with nine free dectactic orbits; a further 24 sextactic points on S6=0 do not belong to W3.",
+          "Second-order Kuribayashi-quartic calculations are cited in Nawara's p. 24. The indexed same-family flex cover supplies no third-canonical divisor table."
+        ],
+        "reasoning": "Degree 300 is classical and the exact a=3 census is known, but neither is a census of the generic divisor in this pencil. No exact generic table was found in the checked material.",
+        "searches": [
+          "Local Resultary ranked generic |3K| and flex findings",
+          "Nawara §6 pp. 15–16 exact W2 and W3 divisors for Q=C_3"
+        ]
+      },
+      "rationale": "The supported distinct result is the generic symmetric-pencil third-canonical profile, its reducedness and its second-order overlap, not the symmetry-forced axis support, the general plane-quartic count or the known special-member divisors. The strongest same-pencil computation, Nawara at a=3, is materially different and cannot witness the required open conditions. No inspected equivalent generic claim was found.",
+      "residual_risks": [
+        "The Alwaleed–Sakai paper and the Kamel–Elshareef full text were not directly available; an older implicit generic computation is not ruled out. Indexed results alone do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap in forced axes and exact special-member theory; nonreduced a=3 and ambient general quartic do not imply frozen claim",
+          "evidence": [
+            "W3(C_3)=5H+A+B+D with 12 weight-five hyperflexes, 24 simple axis sextactic points, and 216 simple dectactic points in nine free orbits.",
+            "The ambient open result uses F0 and claims 300 simple dectactic points, not the pencil's orbit profile.",
+            "2009 second-order reference is listed as K. Alwaleed and F. Sakai; prefer that author styling for the frozen reference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30992v1",
+          "material_read": "§4 Cor. 4.11, Thm. 4.12 and Rem. 4.13, pp. 12–13 at offsets 41900 and 43800; §6 pp. 15–16 offset 52000; introduction pp. 1–2 offset 3350; references p. 24 offset 85400",
+          "method": "OA PDF bounded original passages",
+          "title": "Third-Order Weierstrass Points on Plane Quartics",
+          "trigger": "Potential generic coverage and exact smooth a=3 same-pencil witness"
+        },
+        {
+          "assessment": "Different linear series and invariant",
+          "evidence": [
+            "Studies monodromy of flexes, not the tricanonical divisor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-regular-s-4-monodromy-of-flexes-in-a-symmetric-quartic-pencil--f46d8d49f941",
+          "material_read": "Indexed statement for the flex cover",
+          "method": "Local Resultary search",
+          "title": "Regular S4 monodromy of flexes in a symmetric quartic pencil",
+          "trigger": "Closest indexed same-family geometry"
+        },
+        {
+          "assessment": "Access-limited; accessible evidence concerns local gap classification and special examples",
+          "evidence": [
+            "Nawara discusses the Fermat and Picard cases, not the generic symmetric pencil."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219498819500208",
+          "material_read": "Bibliographical and subject description in Nawara's introduction; no direct full text",
+          "method": "Lawful DOI retrieval attempt and reading the citing OA introduction",
+          "title": "Weierstrass points of order three on smooth quartic curves",
+          "trigger": "Potential broader third-order theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this natural highly symmetric quartic pencil, the ambient generic theorem does not answer whether third-order weights collide. The exact orbit profile, reducedness and second-order overlap are structural data. They distinguish the generic pencil from a studied smooth special member with weight-five hyperflexes and from generic quartics without this symmetry. The quotient calculation supplies a reusable exact test instead of just a count at an isolated parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

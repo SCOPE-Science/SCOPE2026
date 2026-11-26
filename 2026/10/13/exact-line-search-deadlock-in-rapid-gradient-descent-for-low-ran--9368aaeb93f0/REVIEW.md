@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact substitution into the published scalar specialization gives a nonzero rapid direction with zero first directional derivative. The line residual is
-\[
-R(\alpha)=R+C\alpha^2
-\]
-with \(R<0\) and \(C<0\), so every nonzero real step strictly increases the squared residual. The rational witness and the parameterized identities were independently replayed from the packaged checker.
+PASS
 
-## Originality
+Final claim: Algorithm 1 Step 3 is undefined on the given allowed first rapid iterate. Eq. (4) gives G_u=(2023/216)rho^3 and G_v=-G_u/4, while u=4v. Hence the residual along the trial line is R+alpha^2 G_u G_v with R=rho((83521/5184)rho^3-1)<0 and G_u G_v<0. Its absolute value strictly increases for every nonzero real alpha. Algorithm 1 permits these factors and initial alpha_0>epsilon, so the fallback is not reached. RESULT.md and SLOGAN.txt were narrowed: the original assertion that this contradicts Lemma 1 without qualification is not supported under Assumption 1's global Lipschitz reading in factor variables (the diagonal Hessian entries v^2,u^2 are unbounded). The witness defeats the algorithm on its advertised inputs and exposes the omitted zero-derivative case even with Lipschitz gradient on any bounded trial box. The packaged exact checker and its recorded output were inspected, not executed; the symbolic inequality was checked directly.
 
-PASS. The primary full text, source-specific indexed searches, public correction searches, the current and prior owned ledgers, and highly relevant low-rank-factorization literature were compared at statement and implication level. No equivalent rapid-direction deadlock was located. Prior true-gradient analyses do not imply the result because the obstruction depends on the new quarter-power approximation.
+## originality
 
-A residual risk is an unindexed later comment on the same lemma.
+PASS
 
-## Value
+For the repaired algorithmic claim no inspected statement establishes this tangential, two-sided all-step failure for the particular quarter-power rapid direction. The known lack of global smoothness is not a new claim.
 
-PASS. The source's convergence framework relies on the existence of a nonzero monotone step for its rapid direction. The family shows that this step may not exist even at the first scalar iteration, and that neither sign nor smaller backtracking can help. The finding therefore locates a necessary safeguard change: line-search failure or non-descent must trigger the true-gradient branch immediately.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bidirectional no-step phenomenon at the first allowed iterate means shrinking or reversing the step cannot repair this algorithm path. This is a specific well-definedness defect with a precise safeguard implication, not just an example of an ascent direction or a repetition of the global smoothness issue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

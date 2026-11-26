@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is defined as a finite labeled 24-vertex 48-edge object and cross-checked by exact algebraic coordinates. Both verifiers enumerate all 1,088 perfect matchings through a partner-of-first-unmatched-vertex recurrence, independently enumerate the 18 square faces, and construct every allowed symmetric-difference transition. The resonance adjacency lists give exactly 2,616 undirected edges and a component histogram \(594^1 16^6 14^{24} 2^{24} 1^{14}\). Rank-reduction of the 18 square boundary rows and exhaustive cross-tabulation yield 35 charge classes, with the giant class single and every smaller class exactly double. No extrapolation from finite samples is involved. The RK degeneracy statements follow from an exact graph-Laplacian identity and positive-definite edge contributions, not from floating-point diagonalization. Each verifier passes when run from its embedded complete source.
+PASS
 
-## Originality — PASS on examined evidence, with residual risk
+An independent exact reconstruction from coordinates in Q(sqrt(2)) gives 24 vertices, 48 edges, 8 triangles and 18 induced square cycles, precisely the allowed faces. Exhaustion follows by branching on the partner of the first uncovered vertex; checking whether the toggled boundary is another matching gives exactly the allowed transitions. The reconstruction verifies 1088 matchings, 2616 unordered transitions, 69 components with counts 1,6,24,24,14 at sizes 594,16,14,2,1, and six component orbits under the 48 signed coordinate permutations. Binary reduction gives rank 18 and 35 occupied classes: the giant class is connected, and the 3,12,12,7 classes of sizes 32,28,4,2 respectively each split into two equal components. Each legal move preserves the quotient. At v=t>0, the pair blocks sum to t times the graph Laplacian, with one zero mode per component. At v>t>0, each pair block is strictly positive on its endpoints and the common kernel consists of the 14 isolated matchings. There is no claim about the remaining spectrum.
 
-The 1,088 perfect matching count is already known (Balasubramanian, 2025, Table 2). General induced-cubical resonance properties (Tratnik–Ye, arXiv:1710.00761), and more recent component medianity and tree-quotient theorems (Wang–Kang, arXiv:2609.12009) are established; neither implies the specific 69-component size distribution or the 34 doubled linear charge classes. Quantum dimers on kagome and fullerenes concern different graph geometries and resonance prescriptions. Related finite-cube and permutohedral sector results also concern different graph inputs and do not supply the present numbers. Literature search cannot rule out an unindexed enumeration; the full text of one related fullerene preprint was inaccessible and no inference of whole-paper noncoverage is made from its abstract.
+## originality
 
-## Value — PASS
+PASS
 
-Local plaquette dynamics can fragment a quantum-dimer Hilbert space in ways not completely detected by elementary binary winding/face charges. The explicit doublet phenomenon (34 of 35 charge classes split, no charge class splits into three) is a structural kinetic boundary, not a recomputation of the known state count. The two exact ground-state degeneracies (69 at the Laplacian point and 14 under excess potential) give concrete quantum-mechanical consequences and a reproducible finite frustrated-network benchmark. No claim of a general thermodynamic result is made.
+Pass for the specific complete square-face component and charge census, especially the uniform splitting of all 34 nongiant classes. The matching count is explicitly credited to earlier work, and the RK kernel statements are consequences of the census, not new operator theory. Inspected structural theorems on surface resonance graphs and adjacent exact classifications do not determine this census.
 
-## Limitations and closest literature
+## value
 
-The finite graph, 18-square move set, and positive amplitudes are essential. The complete excited spectrum, added resonances, general dimensions, and \(v<t\) regime are outside scope. The closest exact-object result is the published 2025 matching polynomial (not a dynamics study); the closest general dynamics results are the 2017/2023 resonance-graph framework and the 2026 medianity theorem. Historical priority is provisional because exact unpublished tables may exist. External independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural face-only local-move model on an Archimedean solid, the exact component-by-charge census quantifies a meaningful gap: identical conserved linear charges need not permit a legal move sequence, and every smaller class in this model is a precise doublet. The sector sizes, symmetry orbits and number of frozen states are directly useful for block decomposition and exact RK zero-mode counts. The finding does not rely for significance on recomputing the known state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

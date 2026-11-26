@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:54:21.889273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a base-b pair with 1≤a≤M=b−1 and 0≤c≤M, subtracting a+c from ab+c makes the test a+c divides aM. The M pairs with c=0 all pass. For c>0 set g=gcd(a,a+c), (u,v)=(a/g,(a+c)/g). Then 1≤u<v and gcd(u,v)=1, so the test is exactly v divides M. Conversely each permitted u,v gives the distinct pairs (gu,g(v−u)) for positive g≤floor(M/max(u,v−u)), precisely the two digit bounds. There are always M−1 additional pairs with positive digits summing to M. If M=p≥3 is prime, v=p is the only option and max(u,p−u) lies between (p+1)/2 and p−1, so every summand is 1. If M is composite, a proper divisor 1<d<M gives the additional pair (1,d−1) outside the two guaranteed families. For b=2 only (1,0) works. For b=3 the pairs are (1,0),(1,1),(2,0),(2,2). The first family's proof notation (ab)_b should be read as the numeral with digits (a,0), of integer value ab; this is explicit elsewhere in the record. Reviewed VERIFICATION.md and verify.py: its check compares direct digit-pair counts and the formula for bases 2–300. An independent bounded check for 2–30 agreed as well, but the bijection and equality proof do not depend on enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-base N_q(x) theorem is an asymptotic as the size threshold increases. The indexed prime-square spectrum determines bases for a fixed prime square to be two-digit Harshad or Moran."
+        ],
+        "reasoning": "A fixed-base asymptotic cannot be subtracted at short digit cutoffs to get an exact all-base count. Varying the base of fixed prime squares neither enumerates all digit pairs at one base nor yields the claimed equality criterion.",
+        "searches": [
+          "Daileda–Jou–Lemke-Oliver–Rossolimo–Treviño, DOI 10.5802/jtnb.685, abstract, introduction and Theorem 1",
+          "Resultary 2026/10/12/SCOPE-two-digit-prime-square-base-spectrum-for-harshad-and-moran-numbe--1572b8a80172, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Daileda et al. DOI 10.5802/jtnb.685",
+        "OEIS A005349 and A140866; exact-prefix lookup",
+        "Resultary prime-square Harshad and Moran base spectrum",
+        "Bibliographic record for Recreational Computing Problem #22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decimal slice gives H2(10)=23, while the general result places equality H2(b)=2b−3 precisely at prime b−1 for b≥4; it distinguishes gcd-reduced digit ratios by exact divisors of b−1."
+        ],
+        "reasoning": "The definition immediately reduces to divisibility by a(b−1), but the inspected results do not supply the resulting bounded primitive-ratio census or exhaust the sharp and nonsharp bases. This is not a re-expression of the cited decimal values or fixed-base asymptotic.",
+        "searches": [
+          "Compare equation (1) and prime criterion to the fixed-base count theorem, decimal OEIS lists and two-digit prime-square spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same divisibility condition occurs under the names Niven and Harshad. OEIS A005349 cites the historical puzzle with the exact subject words; the issue was identified, but lawful PDF and OCR retrieval did not return the puzzle text."
+        ],
+        "reasoning": "The audited result quantifies over every base and all its two-digit numbers. A decimal list, decimal puzzle or isolated base count would not settle that quantifier; the unavailable problem statement's actual scope was not assumed.",
+        "searches": [
+          "Resultary: two-digit Niven/Harshad exact counts as base varies, divisor sum over b−1 and sharp bound at prime b−1",
+          "Albrecht–Albers–Conlan, Problem #22 Two-digit Niven numbers, Recreational Computing 9(1), p. 59"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005349 yields 23 decimal two-digit examples; A140866 begins 10,33,213 and counts through powers of ten. The exact-prefix query returned no match."
+        ],
+        "reasoning": "The first two entries give exact decimal information, not a two-digit table across bases. The finite prefix query is only a bounded check, not a conclusion that no table exists.",
+        "searches": [
+          "OEIS A005349 (decimal Niven values), A140866 (cumulative decimal counts), exact sequence prefix 1,4,5,10,9,20,13,24,23,34,21,52,25,48,53,60"
+        ]
+      },
+      "rationale": "The inspected all-length literature treats a fixed-base counting function, the OEIS material concerns decimal values or decimal length counts, and the closest indexed two-digit Harshad theorem fixes the integer and varies its base, rather than counting every two-digit integer per base. None of the available statements gives this exact divisor formula or the prime extremal criterion. The historical puzzle with a very close title remains an access risk, not evidence of coverage.",
+      "residual_risks": [
+        "The 1980 puzzle text was unavailable in both identified archive forms; it or related recreational literature might state an equivalent result. The sequence lookup and inspected statements are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related fixed-base asymptotic, not an exact varying-base two-digit theorem in the inspected passages",
+          "evidence": [
+            "Defines N_q(x) for fixed integer base q and analyzes its growth with x."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/jtnb.685",
+          "material_read": "Abstract, introduction and Theorem 1, printed pp. 504–505, PDF text offsets 2149, 4281 and 5248",
+          "method": "Bounded lawful OA PDF passage inspection",
+          "title": "On the counting function for the generalized Niven numbers",
+          "trigger": "Same generalized base digit-sum divisibility and counting function"
+        },
+        {
+          "assessment": "Different quantification and restricted objects",
+          "evidence": [
+            "Classifies allowable bases for a fixed prime square p², not the count of all two-digit Harshad values in base b."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-two-digit-prime-square-base-spectrum-for-harshad-and-moran-numbe--1572b8a80172",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Two-digit prime-square base spectrum for Harshad and Moran numbers",
+          "trigger": "Closest indexed two-digit and varying-base result"
+        },
+        {
+          "assessment": "Exact decimal slice only; identifies a historical puzzle for further comparison",
+          "evidence": [
+            "There are 23 displayed terms from 10 through 99. Links cite the 1980 Problem #22 Two-digit Niven numbers."
+          ],
+          "identifier_or_url": "https://oeis.org/A005349",
+          "material_read": "Terms and links, text offsets 0 and near 2740",
+          "method": "Bounded lawful OA entry inspection",
+          "title": "Niven (or Harshad) numbers, OEIS A005349",
+          "trigger": "Exact decimal sequence and relevant historical references"
+        },
+        {
+          "assessment": "Unresolved scope; neither covering nor noncovering on the available evidence",
+          "evidence": [
+            "The citation identifies authors Albrecht, Albers and Conlan and an exact issue/page, but does not state the problem's base or theorem."
+          ],
+          "identifier_or_url": "https://archive.org/details/1980-07-recreational-computing",
+          "material_read": "Bibliographic citation in A005349 and issue identity; no puzzle text read",
+          "method": "Located the issue and tried lawful OA on the archive PDF and alternate issue OCR text; both unavailable",
+          "title": "Problem #22 Two-digit Niven numbers, Recreational Computing 9(1), issue 46, p. 59",
+          "trigger": "Plausible title for an equivalent historical result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-digit stratum is the first nontrivial finite stratum after all one-digit numbers and is a natural varying-base comparison. The result replaces scanning b(b−1) candidates with an exact primitive-ratio count determined by b−1, and identifies an arithmetic distinction invisible in decimal tables or fixed-base asymptotics: the two universal families are exhaustive precisely at prime b−1 from base four onward. This is a complete, usable exact classification of the lower-envelope cases, not an isolated finite computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:43:31.527426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After dividing by the gcd (which also divides the hypotenuse), Euclid parametrization writes the odd leg as uv with coprime odd u,v and the even leg as (u+v)(u-v)/2. I checked the exhaustion: for a lone odd prime in uv one of u,v is 1; the odd parts of u−1 and u+1 are coprime, and the mod-8 valuations and even-exponent factorization give uv=3,9 or 5. If both 3 and 5 divide uv, the even leg is a power of two, so u−v=2; the joint allocation u=uv,v=1 would force uv=3, while the separate allocation requires powers of 3 and 5 of the form 2^t±1. Parity of t modulo 3 and factoring the even exponent (in 2^t or in 3^r) leave 3 and 5 only. The four primitive pairs therefore give exactly the four stated displacement directions. Selecting a=0,1 mod 5 is independent. On the padded torus every wrapped displacement in a coordinate needs a difference at least the original side length, so cannot join two occupied box vertices. For A≥2 the five template vertices remain distinct by their first coordinates; every translate has at most two selected vertices and each occupied vertex is counted five times. This proves the floored upper bound, and dividing both bounds by ABC gives the joint limit as all three side lengths grow. Independent bounded replay: python3 /workspace/branches/independent_replays.py, function pythagorean, found the four coprime pairs among 240 smooth numbers and checked that the template is an induced 5-cycle of independence number two. Neither finite replay nor the theorem determines arbitrary finite box optima.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two Xiao results concern the first N primes with each exponent below N, and normalize by N^N.",
+          "Frantzikinakis–Klurman–Moreira address subsets of N of positive multiplicative density."
+        ],
+        "reasoning": "Growing-support bounds do not give the optimum of a shrinking relative slice on the first three primes. Positive density measured within the slice does not imply positive density on a full multiplicative Følner sequence; multiplication by 7 already moves the box entirely off itself.",
+        "searches": [
+          "arXiv:2610.11965 §1.2 and Theorem 1.1",
+          "arXiv:2610.20311 Theorem 1.1",
+          "arXiv:2309.10636 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 25360325c6ee (statement), 61e360bfacf9 and a4280362f2ce (catalogue comparisons)",
+        "arXiv:2610.11965",
+        "arXiv:2610.20311",
+        "arXiv:2309.10636"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding prime 5 introduces the primitive edges from (5,12), (8,15), (9,40) and invalidates the rank-two path argument.",
+          "The first-N-prime vanishing-density bound controls an ambient max with a different normalization; the full-N multiplicative-density theorem has a hypothesis unavailable on the fixed support."
+        ],
+        "reasoning": "None of these checked implications supplies the new lower construction and matching three-prime upper constant under the frozen hypotheses.",
+        "searches": [
+          "Resultary 25360325c6ee Finding and Assumptions",
+          "arXiv:2610.11965 §1.2/Theorem 1.1",
+          "arXiv:2309.10636 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact target graph has four displacement classes and a five-cycle; Resultary record 25360325c6ee gives a single direction and path components for support {2,3}.",
+          "Focused literature return surfaced arXiv:2309.10636, Theorem 1.2, not a degree or independent-set count in this fixed-support lattice."
+        ],
+        "reasoning": "The arithmetic pair filter and the valuation-lattice independent-set formulation are equivalent here. The exact theorem for the induced two-prime layer cannot see odd cycles that use a third prime.",
+        "searches": [
+          "Resultary: fixed-three-prime 2/5 density, smooth primitive legs, exponent-lattice graphs, prime-power boxes",
+          "Web: \"Pythagorean pairs\" \"2/5\" density exponent boxes prime powers 2 3 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day record 25360325c6ee gives exact two-prime rectangular maxima with limit 1/2.",
+          "Later record 61e360bfacf9 treats rank two; later record a4280362f2ce gives the isolated four-prime optimum 144 when all exponents are below 4."
+        ],
+        "reasoning": "Neither an exact value for a different finite graph nor another rank-two family tabulates or entails the target limit. No exact four-pair classification or three-prime density table was confirmed by these checks.",
+        "searches": [
+          "Resultary: fixed-three-prime 2/5, pair-free exponent-box maxima, primitive smooth legs",
+          "Resultary 25360325c6ee, 61e360bfacf9 and a4280362f2ce"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp fixed-three-prime density and its finite bounds, not the prime-box problem or the general tiling/averaging method. No checked statement supplies this result; the closest two-prime Resultary record is same-day and has different mathematical scope, not established chronological priority.",
+      "residual_risks": [
+        "Same-day Resultary ordering is unresolved; the claims were distinguished by scope, not by date.",
+        "The four smooth primitive leg pairs in particular may occur in unindexed smooth-number or elementary Diophantine literature. The bounded checks do not establish first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering; same-day ordering unresolved",
+          "evidence": "Support restricted to {2,3}, sole primitive pair (3,4), exact path formula and square-box limit 1/2.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-exact-pythagorean-pair-free-maxima-in-every-two-prime-exponent-r--25360325c6ee",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Local Resultary and mirror text",
+          "title": "Exact Pythagorean-pair-free maxima in every two-prime exponent rectangle",
+          "trigger": "Same-day Proposition on the same extremal statistic"
+        },
+        {
+          "assessment": "Different prime-support regime",
+          "evidence": "First N primes and exponent side N, normalized maximum tends to zero relative to N^N.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11965",
+          "material_read": "§1.2 and Theorem 1.1, PDF pp. 3–4, text offsets 7962–14935",
+          "method": "OA primary PDF text",
+          "title": "Pythagorean pairs in boxes of prime powers",
+          "trigger": "Closest motivating upper bound"
+        },
+        {
+          "assessment": "Does not resolve fixed-three-prime density",
+          "evidence": "Lower bound in growing-support model.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.20311",
+          "material_read": "Theorem 1.1, PDF pp. 2–3, text offset 7950",
+          "method": "OA primary PDF text",
+          "title": "Quantitative lower bound for Pythagorean pairs in boxes of prime powers",
+          "trigger": "Related lower bound"
+        },
+        {
+          "assessment": "No implication at the target normalization",
+          "evidence": "A pair is forced by positive multiplicative density in N, not by a specified relative density in a fixed-support semigroup.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.10636",
+          "material_read": "Theorem 1.2, PDF pp. 3–4, text offsets 10442–14420",
+          "method": "OA primary PDF text",
+          "title": "Partition regularity of Pythagorean pairs",
+          "trigger": "Possibly stronger multiplicative density statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first three primes give a natural fixed-support comparison to the growing-prime problem and the two-prime path case. A new odd cycle changes the extremal density from the path regime, and the same classification gives explicit effective rectangular bounds and a reusable list of forbidden primitive ratios. This is a resolved sharp asymptotic, not a numerical fit or a claim of all finite maximizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

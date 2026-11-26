@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:44.453678Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–85",
+        "VERIFICATION.md lines 1–27 and checker.py lines 1–119 (inspected, not executed)",
+        "/workspace/review-evidence/1/verify_maximizer_sets.py (replay of independent exact arithmetic census and integer Gram test)"
+      ],
+      "rationale": "Here ρ is the ratio of Gram eigenvalues, i.e. the square of the synthesis matrix's 2-norm condition number. For any nonsingular order-five sign matrix, a sign normalization followed by four row subtractions gives 16|det, and Hadamard's bound leaves 16,32,48 as the possible absolute nonzero determinants. At ρ≤9/4, the five positive Gram eigenvalues have mean 5. The curvature lower bound −1/m² for log on their range (m the smallest eigenvalue) and the range-squared/4 variance bound give log(det Gram)≥5 log 5−(5/8)(ρ−1)^2≥5 log 5−125/128. Thus det Gram>3125/3>32², forcing absolute determinant 48. A dependent five-point row set has affine dimension exactly three. Restricted characters are columns of an order-eight Walsh matrix up to signs, with identical columns modulo signs giving zero determinant; the other cases are five-minors. The inverse Walsh normalization and Jacobi identity give 8 times a complementary three-minor, whose magnitude is at most 4, excluding absolute determinant 48. For independent rows the difference-character map is surjective; sign-normalize using one column, and subtract the top row to obtain 16 times a rooted binary four-column determinant. Repeated projections imply singularity. An independent rational-elimination replay enumerated all 1820 distinct rooted four-column candidates with magnitude counts 0:880, 1:835, 2:100, 3:5. The maximizers (3,5,9,14), (3,6,10,13), (5,6,11,12), (7,9,10,12), (7,11,13,14) are the five rooted translates of S. The sixteen unrooted translates are distinct by parity, and normalization removes the dependence of singular values on the lifts. For the canonical pair the column Gram is 4I+ssᵀ with s=(1,1,1,1,−1), giving 9,4,4,4,4, so all absolute-determinant-48 Walsh minors give equality and no others do. There are 2^(d−4) choices for each quotient lift independently. Choosing an origin and four ordered independent differences gives n(n−1)(n−2)(n−4)(n−8) lists; dividing by 5! and multiplying by the partner count gives the claimed pair count, including 43,008 at d=4.",
+      "residual_risks": [
+        "The finite replay proves only the rooted determinant lemma and checks the canonical Gram; extension to all d uses the analytic quotient argument, not extrapolation.",
+        "The source checker's docstring says Python 3.8+, but the code uses int.bit_count(), requiring Python 3.10 or later for that command as written. This does not affect the mathematical certificate or its independent reproduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-dimensional determinant distribution contains the exact optimizer family and count for determinant 48. Table 1.3 gives 48 as the general order-five sign determinant maximum. These are stronger determinant data, but do not give the condition ratio of arbitrary nonmaximizers.",
+          "The potential historical sign-equivalence and Sylvester submatrix spectral leads did not yield full text through the attempted publisher/repository routes."
+        ],
+        "reasoning": "Even a classification of all determinant-maximizing sign matrices, or their common Gram eigenvalues, would only give a witness for ratio 9/4 unless lower-determinant matrices are excluded. A result restricted to leading principal matrices could not by itself exclude better nonprincipal submatrices; the actual scope of the inaccessible spectral paper is not asserted as independently verified.",
+        "searches": [
+          "Resultary b9d9e7281860 Finding, all-dimensional formulas",
+          "Kravvaritis–Mitrouli ETNA 31 (2008), Table 1.3",
+          "Seberry–Mitrouli and Huckle–Kravvaritis DOI leads"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b9d9e7281860",
+        "arXiv:1904.04487 and arXiv:1208.3819",
+        "Brent–Osborn supplementary minor table p. 2",
+        "Kravvaritis–Mitrouli Table 1.3",
+        "DOIs 10.1007/s12095-010-0036-9 and 10.1080/03081087.2016.1250863 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant catalogue determines the same optimizer geometry on its own terms and permits computation of 4I+ssᵀ at those optimizers. It gives no bound precluding better conditioning at absolute determinant 16 or 32. The frozen bound uses the fixed trace 25 and ratio ≤9/4 to make the Gram determinant strictly larger than 32²."
+        ],
+        "reasoning": "The value of the distinct spectral statement lies in the latter exclusion, which is not mechanically implied by the determinant catalogue. The partner theorem for conditioning then follows by transfer of the overlapping determinant classification. The catalogue's dated path is not used to dismiss its substantive overlap or to decide priority.",
+        "searches": [
+          "b9d9e7281860 RESULT.md Finding and Relationship to prior work",
+          "Brent–Osborn Table 23 and supplement p. 2",
+          "Ferguson–Mayeli–Sothanaphan arXiv:1904.04487 p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This ratio is κ₂(H)², so an equivalent singular-value condition result would have value 3/2, not 9/4. Ferguson–Mayeli–Sothanaphan define the same Gram ratio but supply no such five-point calculation in the inspected passage.",
+          "Resultary b9d9e7281860 has exactly the same determinant-optimal family: its set {0,3,5,9,14} is S+1. Its Finding is about determinants, not the Riesz ratio."
+        ],
+        "reasoning": "Signed permutations preserve both invariants, so the catalogue match in determinant geometry is exact. They are nevertheless different objectives: the Gram determinant is the product of all five eigenvalues and the condition ratio uses the two extremes. The missing necessity is supplied by the quantitative barrier, not by a renaming of D-optimality.",
+        "searches": [
+          "Resultary semantic search: five-point Walsh sampling, order-five optimal sign matrices and exact Riesz ratio",
+          "arXiv:1904.04487 Riesz ratio B/A; DOI:10.1007/s12095-010-0036-9; DOI:10.1080/03081087.2016.1250863"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Order 16(a), minor size 5, in the primary supplementary table has absolute determinants scaled by 16 and multiplicities 9,273,600; 7,182,336; 2,580,480; 43,008. The exact 43,008 count is established prior coverage, not a new computation.",
+          "The Resultary catalogue supplies the exact general determinant multiplicities and translates. Neither the older table nor that Finding tabulates the spectral extrema."
+        ],
+        "reasoning": "A determinant-multiplicity table over submatrices does not give the extremal condition number. The known determinant count becomes the conditioning-optimal count only after establishing equivalence.",
+        "searches": [
+          "Brent–Osborn arXiv:1208.3819 Table 23; author supplement minors/0_mod_4.pdf",
+          "Resultary b9d9e7281860"
+        ]
+      },
+      "rationale": "Credit the sharp minimum Riesz ratio and the equivalence of minimizing that ratio to maximizing the Walsh determinant. The underlying determinant classification, translated dual-simplex geometry and partner/pair counts have directly overlapping coverage in the inspected determinant catalogue record; they are not credited as separate new determinant results. The older finite pair count, the universal order-five maximal sign determinant and the Riesz-ratio framework are likewise known. The compared statements do not establish that matrices outside the determinant-maximizing class cannot match or improve its condition ratio.",
+      "residual_risks": [
+        "A historical optimal-conditioning result for all order-five sign matrices would specialize to the lower bound here; the inspected determinant results do not establish such a result. Unavailable full texts leave that spectral-priority risk open.",
+        "Do not infer priority on the overlapping determinant classification from catalogue dates or claim it as a second independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct determinant and geometry overlap; no condition-ratio necessity in inspected statements",
+          "evidence": "Determinant 48 exactly at the same 16 translates and lifts of S; exact multiplicities in every dimension.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-five-point-walsh-sampling-has-an-exact-all-dimensional-determina--b9d9e7281860/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions at offset 0; comparison and references at offsets 6400 and 9744",
+          "method": "Published local mirror",
+          "title": "Five-point Walsh sampling has an exact all-dimensional determinant distribution",
+          "trigger": "Exact same Walsh submatrix object, optimizer sets and counts"
+        },
+        {
+          "assessment": "Known finite determinant count, not all-dimensional Riesz classification",
+          "evidence": "The last entry of the scaled five-minor row has base 3 and multiplicity 43008, hence 43008 absolute-determinant-48 five-minors.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.3819 ; https://maths-people.anu.edu.au/~brent/maxdet/minors/0_mod_4.pdf",
+          "material_read": "Article p. 9 (offset 18800), Table 23 (p. 29); primary supplement p. 2, order 16(a), minor size 5, offset 913",
+          "method": "OA PDF passages and author data-page multiplicity notation",
+          "title": "On minors of maximal determinant matrices",
+          "trigger": "Known numerical determinant-five minor count"
+        },
+        {
+          "assessment": "Background on Riesz ratios",
+          "evidence": "Defines the ratio of the upper and lower Riesz bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.04487",
+          "material_read": "p. 4, offset 9760",
+          "method": "OA passage",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Quantitative spectrality and normalization"
+        },
+        {
+          "assessment": "Explicit coverage of the order-five determinant maximum, not the conditioning theorem in the passage",
+          "evidence": "Maximum sign-determinant values in orders 1 through 7; order five is 48.",
+          "identifier_or_url": "https://etna.ricam.oeaw.ac.at/vol.31.2008/pp49-67.dir/pp49-67.pdf",
+          "material_read": "Table 1.3 and Remark 1.3, PDF p. 3, near offset 8074",
+          "method": "OA PDF passage",
+          "title": "A technique for computing minors of binary Hadamard matrices and application to the growth problem",
+          "trigger": "Historical coverage for the sign determinant maximum"
+        },
+        {
+          "assessment": "Precise historical scope unresolved",
+          "evidence": "Frozen bibliography identifies this as a D-optimality antecedent; no claim of inspection of its equivalence classification.",
+          "identifier_or_url": "https://doi.org/10.1007/s12095-010-0036-9",
+          "material_read": "Bibliographic/landing information only; no decisive passages obtained",
+          "method": "Publisher and lawful repository attempts",
+          "title": "Some remarks on Hadamard matrices",
+          "trigger": "Potential D-optimal sign equivalence and non-embedding antecedent"
+        },
+        {
+          "assessment": "Historical spectral overlap not ruled out from access failure",
+          "evidence": "The frozen record reports a leading-principal focus from the abstract; the general scope was not independently checked in the paper.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+          "material_read": "Bibliographic/landing information only; no full text obtained",
+          "method": "Publisher and lawful repository attempts",
+          "title": "Properties of submatrices of Sylvester Hadamard matrices",
+          "trigger": "Potential exact spectra for Sylvester submatrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §§1–4 of proof",
+        "Ferguson–Mayeli–Sothanaphan arXiv:1904.04487 p. 4",
+        "Resultary b9d9e7281860"
+      ],
+      "rationale": "For five points the exact Gram condition ratio controls the best Riesz bounds achievable by selecting Walsh frequencies, and its value rules out an orthogonal five-character basis. The rigidity criterion decides which fixed supports admit optimal conditioning and gives all numerical bounds via a concrete Gram spectrum. The spectral necessity is useful independently of reproducing already known determinant counts.",
+      "residual_risks": [
+        "The statement concerns five points in binary groups and does not assert an equivalence of determinant and condition optimizers in other sizes or phase models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

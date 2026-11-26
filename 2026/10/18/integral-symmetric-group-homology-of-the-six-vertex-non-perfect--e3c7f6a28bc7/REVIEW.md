@@ -1,15 +1,21 @@
-# Scientific review of the six-vertex non-perfect-matching representation
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the fifteen-vertex simplicial complex of edge sets of \(K_6\) containing no perfect matching. Ten maximal five-simplices arise from the two disjoint triangles of each triple partition. Their deletion leaves a genuine subcomplex whose complete augmented face-poset Hasse digraph admits a verified acyclic matching with 3967 pairs and one four-dimensional critical face. This proves the deleted complex is an integral four-sphere. A 52-term integral four-cocycle is checked against every five-face and pairs to one with the boundary of a deleted simplex. Transitivity makes every attachment primitive. The integral long exact sequence gives the signed augmentation kernel without an unproved saturation step. A transposition fixing a triple partition acts by minus one on its oriented facet, determining the sign character on the four-sphere; hence the entire integral representation follows. The bundled verifier regenerates all faces and checks all 720 group elements. The calculation concerns one fixed finite complex, for which exhaustive checking is logically complete.
+## correctness
 
-## Originality — PASS, with bibliographic residual risk
-The original Linusson–Shareshian–Welker article was inspected through its arXiv full text: it determines the nonequivariant nine-five-sphere homotopy type and a restricted representation but poses the full symmetric-group representation problem, without constructing the ten-facet integral kernel. The related Jonsson book chapter is only abstract-accessible in this check and recapitulates that nonequivariant theorem. Searches for the six-vertex no-perfect-matching complex, alternative bounded-matching notation, Specht representation, ten triple partitions, and integral augmentation lattice found no directly covering primary statement. Published semantic-result searches included aliases and nearby graph-complex results; their closest titles referred to different complexes, different symmetry actions, or rational-only results. Unindexed equivalent calculations remain possible. The proof does not claim the previously known homotopy rank as original.
+PASS
 
-## Value — PASS
-This case answers the smallest nontrivial perfect-matching instance of a question motivated explicitly by the foundational paper. It gives natural geometric integral coordinates, a primitive relative attaching presentation, and a full symmetric-group lattice. In particular the augmentation kernel is not integrally isomorphic to the superficially similar augmentation quotient, although their rational characters agree. Those integral and functorial distinctions cannot be recovered from the nine-dimensional Betti number or a generic character trace.
+The two disjoint triangular blocks have no perfect matching; any added cross-edge completes one using the two residual pairs. The ten facets can therefore be removed without deleting any proper face. An independent exhaustive replay at /workspace/branches/cb6bb943-0293-41ef-b898-73fe02937ad9/independent_npm6_check.py rebuilds the 7935 faces of Y including the empty face, checks all 43920 directed Hasse incidences and recovers 3967 pairs and one critical 4-simplex. Removing the pair containing the empty face restores one critical vertex in ordinary discrete Morse theory, hence Y≃S⁴. The replay independently solves the signed integer cocycle equations, gets 52 nonzero values all ±1, checks coclosedness on all 5-simplices of Y and evaluates the ten attaching boundaries as (1,−1,1,−1,1,−1,1,−1,1,−1). These unit evaluations prove primitive attaching classes. The integral sequence of (X,Y) has just ten relative cells in degree five, giving exactly the kernel and vanishing of every other reduced group. A transposition within a fixed triple reverses the corresponding facet and therefore its primitive boundary, forcing sign on H4(Y). Normalizing each relative generator to boundary +1 makes its action a signed permutation, proving the asserted augmentation kernel by the facet coefficient map. The stabilizer is transitive on other partitions by intersection pattern, and a transposition fixes four splits; the rank-nine rational augmentation has transposition trace +3, identifying S^(4,2), and the twist gives the stated conjugate Specht type. The canonical integral map from kernel to quotient is I+J, determinant 10; rational two-transitivity makes the relevant rational Hom space one-dimensional, and an off-diagonal entry of 1 forbids a noninteger integral-map scalar. Thus no equivariant integral isomorphism of these lattices exists. The independent replay did not enumerate all 720 action matrices; the sign and lattice arguments do not require that enumeration.
 
-## Remaining limitations
-The theorem is restricted to \(\mathrm{NM}_3(6)\); no extension to all bounded matching sizes is asserted. Priority beyond the inspected literature is not independently established. The self-contained executable certificate supports the finite combinatorial steps; independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The homotopy type, restricted representation and related full-group conjecture are prior. The distinct checked claim is the full integral S6 lattice for the six-label complex, with primitive attaching degrees and its geometric identification on the ten deleted facets. The closest indexed same-day lattice is an augmentation quotient for a different space, not an isomorphic integral lattice.
+
+## value
+
+PASS
+
+The six-label no-perfect-matching complex is a natural case of an explicit full-group representation problem, not an arbitrary numerical cutoff. The integral form is recoverable directly from ten distinguished facet coefficients with a proven primitive normalization; it resolves an actual ambiguity between two inequivalent lattices invisible over Q. This is useful even without a general solution of the conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

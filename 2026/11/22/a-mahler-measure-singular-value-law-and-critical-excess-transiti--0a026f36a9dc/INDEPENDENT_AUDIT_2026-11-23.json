@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:29:10.999328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially (1)–(11) and Steps 4–5",
+        "Frozen verify.py and VERIFICATION.md, inspected, not executed",
+        "Replay: python3 /workspace/branches/9728efd8-670b-4f42-a6f3-707216359dcc/bounded_check.py (exact ranges and analytic check in adjacent findings.txt)"
+      ],
+      "rationale": "In the monomial basis the residue chains reduce both the operator and its adjoint. Phase removal gives one positive Gram chain B=D_q T D_q with tridiagonal Toeplitz T. Its one-coordinate tail is q²B, giving normalized squared eigenvalues x_j that decrease, by min–max interlacing. Principal minors split into consecutive runs; each length-l determinant satisfies the stated two-term continuant recurrence and is sum_{h=0}^l a^(2h). In trace class the order-n principal minors sum to the trace of the nth exterior power. Its norm is the product of the n largest eigenvalues and bounds below that trace; the leading coordinate wedge supplies the lower bound on the norm. The normalized leading products lie between 1 and a q,a-dependent constant for 0<a<1: each run contributes at most (1-a²)^(-1), v runs require displacement at least v(v-1)/2, and the weighted partition sum is finite since q²<1. At a=1 the product is at least n+1; the same run bound gives a subexponential upper bound, by absorbing exp(sqrt(2L) log(n+1)) into q^(2L) with the stated completing-the-square estimate. Thus the monotone x_j have limit 1 and are at least 1. Bounded log products are equivalent to summability of sqrt(x_j)-1 on their bounded range; divergence at a=1 follows from the leading product, and monotonicity of summable excess gives o(1/j). There is also entrywise Gram duality B(a)=a² B(1/a), confirming the paper's isometry argument. For finite m the lists r^{mk+b} h_k have a strictly geometric separation eventually because M≤h_k<M/r. Once the finite head is passed, all earlier terms outnumber the tail by exactly the corresponding index offset, so the natural ranks are correct. Coordinatewise comparison with the geometric baseline also survives rearrangement for the whole sequence. Jensen's formula, or integrating the unit-circle logarithm at the boundary zero, gives M. Finite reproduction gave 924 exact rational determinant/composition checks; a separate analytic check bounds the critical normalized squared product above by C_q(n+1), sharpening but not needed for the frozen proof. The 'one-tap' label denotes one residue chain (m=1); the weight still has two monomials.",
+      "residual_risks": [
+        "The finite checks do not verify the spectrum at all indices or the infinite limit. Results are at fixed parameters and neither a critical individual coefficient nor uniformity near q=1 is claimed. An in-script comment denying literal entrywise duality is inaccurate for the real positive Gram parameter (both diagonal and off-diagonal scale exactly); this does not affect script assertions or the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Putinar–Tener give theorems for derivative-induced weights of univalent maps; for a radial linear map that weight is constant, not the two-monomial multiplier. Tur's class with weights q_0^{n^s}, discussed by Kozhan, includes the purely geometric s=1 shape: its normalization corresponds to the present alternating chain on the slice a=√q, not the full family or the critical a=1. Kozhan quotes bracketing of eigenvalues there, not the claimed normalized excess statement."
+        ],
+        "reasoning": "A related slice and older comparable operator bounds do not yield the transition through a repeated-ratio critical chain. The exact strength of Tur's result on the slice was not resolved from his article; no claim of independent priority on that slice is necessary for assessing the joint theorem.",
+        "searches": [
+          "Jacobi matrix exponentially decreasing coefficients eigenvalues 'geometric' asymptotic compact Jacobi selfsimilar q eigenvalues tridiagonal diagonal real geometric theta zeros Rogers-Szego Hardy",
+          "Putinar–Tener arXiv:1612.03970v1 Theorem A and §2",
+          "Tur, doi:10.4213/mzm279; Kozhan §1 description of Tur"
+        ]
+      },
+      "checked_sources": [
+        "November 8 same-family Resultary RESULT.md",
+        "Kozhan arXiv:1210.1292 and its Tur citation",
+        "Tur MathNet abstract",
+        "Putinar–Tener arXiv:1612.03970",
+        "Štampach–Šťovíček arXiv:1404.7647"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier Resultary record the normalized trace moments use a limit r→1 with varying tap spacing, not rank→∞ at fixed q. The zero-diagonal condition of Kozhan alone is insufficient: the ratios after block embedding do not tend to zero. In this record the critical versus subcritical determinant products for each fixed q are compared on the far tail via exact interlacing."
+        ],
+        "reasoning": "Neither a different asymptotic regime nor the existence of a moment representation furnishes the monotonic product control and critical divergence needed for the stated limit and excess. The inspected earlier results do not dominate the full claim.",
+        "searches": [
+          "November 8 Resultary record, Finding and Proof §§1–4",
+          "Kozhan arXiv:1210.1292v1 Theorem 1.1",
+          "compact Jacobi spectrum alternating geometric decaying off diagonal singular value asymptotic Hahn Exton q Bessel geometric weights bidiagonal operators Fredholm determinant Rogers Szego zeros"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The chain's singular values are the positive eigenvalues of the selfadjoint block operator with off-diagonal blocks A and A*. Interlacing the output and input bases gives a zero-diagonal Jacobi matrix with successive couplings q^j, a q^j, q^{j+1}, a q^{j+1}, … . Kozhan's theorem uses successive ratios tending to zero; here they alternate between a and q/a. The Hahn–Exton paper's displayed Jacobi family has coefficients growing as q^{-n}, not the decaying compact Gram coefficients."
+        ],
+        "reasoning": "Kozhan's asymptotic theorem is genuinely related after a change of representation, but its hypothesis fails for every fixed q,a here. The unbounded Hahn–Exton spectral family is not identified by swapping q with its reciprocal in a fixed-q theorem for 0<q<1; no equivalence of spectra or zeros follows from the compared formulas.",
+        "searches": [
+          "singular value asymptotics Toeplitz times diagonal geometric sequence Mahler measure compact weighted shift geometric singular values q Hardy composition weighted dilation spectral asymptotic",
+          "Kozhan arXiv:1210.1292v1, Theorem 1.1 and (1.2)",
+          "Štampach–Šťovíček arXiv:1404.7647v1, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact semantic hit was the assigned record. The earlier same-family November 8 record gives all even Schatten moments and a different two-scale singular-value law, but no fixed-q tail coefficient or excess transition is stated in its Finding or proof."
+        ],
+        "reasoning": "All even trace moments determine the compact spectrum in principle, but reconstructing a fixed-parameter tail coefficient and summability classification is not mere identification of a value in an existing table.",
+        "searches": [
+          "Resultary: Hardy dilation weighted composition singular values Mahler measure two tap critical excess",
+          "Resultary November 8, Two-scale singular-value laws for two-tap Hardy weighted compositions"
+        ]
+      },
+      "rationale": "Provisional for the fixed-parameter geometric coefficient together with the excess transition. The same operator was studied before; this is new explicit tail extraction, not a new operator or a claim that the spectrum had never been implicitly encoded. Related compact Jacobi results must be compared also after the off-diagonal selfadjoint block embedding, not excluded merely by observing a nonzero diagonal in the squared operator.",
+      "residual_risks": [
+        "Earlier exact asymptotics for a geometric slice, a q-special-function formulation, or broader unindexed fixed-q results could exist. The Tur linked full text was not readable in the consulted rendering route; priority on its slice is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared operator, block matrix and moments, different spectral asymptotic.",
+          "evidence": [
+            "The cyclic-walk formula is Tr(G_q^k)=P_{k,a}(q²)/(1-q^{2k}); the counting theorem controls the rescaled intensity as r increases to 1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-scale-singular-value-laws-for-two-tap-hardy-weighted-composi--19b79a8d5f82/RESULT.md",
+          "material_read": "Finding, scope and proof (block reduction and moments, counting and norm limits)",
+          "method": "Published Resultary mirror",
+          "title": "Two-scale singular-value laws for two-tap Hardy weighted compositions",
+          "trigger": "Exactly the same operator family"
+        },
+        {
+          "assessment": "Kozhan's ratio hypothesis does not hold for the alternating geometric couplings here.",
+          "evidence": [
+            "(1.2) explicitly requires lim a_{n+1}/a_n=0; (1.3) then gives λ_n=(1+o(1))a_{2n-1}.",
+            "The introduction attributes inequalities a_{2n-1}>λ_n>a_{2n+1} for a_n=q^{n^s}, s>0, to Tur."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.1292",
+          "material_read": "Rendered English PDF p. 1 (condition (1.2), Theorem 1.1 and cited comparison) and p. 5 references",
+          "method": "Visual reading of exact public paper after text extraction failed",
+          "title": "Asymptotics of the eigenvalues of two-diagonal Jacobi matrices",
+          "trigger": "Zero-diagonal block representation yields the same type of spectral observable"
+        },
+        {
+          "assessment": "Known close slice and earlier spectral bounds; full theorem-level non-coverage on the slice cannot be certified from this retrieval.",
+          "evidence": [
+            "The abstract studies entire-function coefficients and eigenvalue estimates for rapidly decreasing Jacobi weights. Kozhan identifies the purely geometric member of the family but does not state a summability dichotomy."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/mzm279",
+          "material_read": "MathNet abstract and the description in Kozhan's introduction; the linked full PDF text was undecodable on retrieval",
+          "method": "Official bibliography and lawful OA request; related primary citation inspected visually",
+          "title": "Asymptotics of Eigenvalues for a Class of Jacobi Matrices with Limiting Point Spectrum",
+          "trigger": "Potential geometric-slice overlap from the discussion of Tur in Kozhan"
+        },
+        {
+          "assessment": "Spectral analysis of a different unbounded Jacobi family, not a checked identical characterization for the compact operator.",
+          "evidence": [
+            "The separated extension problem and the Friedrichs characteristic function apply to the operator built from the q-Bessel difference equation at 0<q<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.7647",
+          "material_read": "Abstract and §1, including displayed Jacobi coefficients and the fixed-order q-Bessel definition and difference equation",
+          "method": "Primary arXiv PDF text",
+          "title": "The Hahn-Exton q-Bessel function as the characteristic function of a Jacobi matrix",
+          "trigger": "Potential exact q-spectral identification or stronger asymptotic"
+        },
+        {
+          "assessment": "Different weights and bounds, not an identified implication for the exact normalized tail.",
+          "evidence": [
+            "Theorem A concerns conformal maps and derivative square-root weights under domain hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.03970",
+          "material_read": "Introduction, Theorem A and the §2 setup",
+          "method": "Primary arXiv PDF text",
+          "title": "Singular values of weighted composition operators and second quantization",
+          "trigger": "Potential general singular-value theorem on Hardy space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and fixed-parameter determinant proof",
+        "November 8 earlier moments and two-scale theorem"
+      ],
+      "rationale": "For a canonical compact weighted composition model, eigenvalue or Schatten estimates do not give this high-rank singular-value scale. The coefficient captures the interior versus exterior factorization of the Hardy weight, while the total excess sharply detects a boundary zero even when the same first-order coefficient holds. The block interlacing and determinant-growth explanation are useful quantitative spectral information distinct from a routine compactness or Schatten check.",
+      "residual_risks": [
+        "Only two monomials and fixed spacing and radius are assessed; no general polynomial-weight or per-eigenvalue critical error law is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

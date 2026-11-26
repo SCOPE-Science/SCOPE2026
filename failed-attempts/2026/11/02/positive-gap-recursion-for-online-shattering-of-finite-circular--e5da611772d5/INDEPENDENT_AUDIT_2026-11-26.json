@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:50.385879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After at least one positive answer, the excluded vertices form either the empty set or one contiguous subinterval of one gap. A positive query splits the gap; a negative query pins an excluded block, whose two endpoint choices are independent threshold classes of sizes a and L-a. Balanced threshold trees and cardinality give their individual ranks; concatenation and induction on the queried factor give additivity. The two first-query branches are complementary, and no split remains for a singleton (including the n=1 boundary after the first query). This proves the exact recurrence and partition state bound. A fresh calculation evaluated it through 40, reproducing all ten thresholds. Direct explicit-concept minimax through six gave ranks 1,2,3,3,4,4 and class sizes 2,4,8,14,22,32. All 16 paths of the frozen six-vertex witness realize distinct valid concepts. The balance obstruction also checks: after query 0 with answer positive, reflection swaps the two balanced choices 2 and 4, so one can take 2. After its positive branch only 4 balances, and after its positive branch no query balances. The source's wording about reflection is imprecise but does not change the argument. Replay: branches/85039b4a-708f-4e3f-8be7-3b9f8ce330b2/independent_cyclic_arc_check.py and INDEPENDENT_CHECK.txt. The through-40 check used the proved gap recurrence; the independent explicit-concept method was used only through six. No uploaded code was executed. Alternating labels on four points and realizability on three give the VC assertion, and the two equally spaced marked points give the stated asymptotic by the threshold product.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-chain record is not restricted to its single-chain finite table: it proves D for any union supported on disjoint linear blocks, with an independent-endpoint threshold-product branch.",
+          "Fixed-width cyclic windows have a different exact rank, and the geodesic short-arc class shares the asymptotic but not the exact all-length finite ranks."
+        ],
+        "reasoning": "It is the general disjoint-block theorem that applies, not a comparison of the two different single-domain threshold lists. The two published learning-theory sources inspected are general background, not the source of this exact coverage.",
+        "searches": [
+          "Finite-chain record Finding, positive-state and zero-state lemmas",
+          "arXiv:1806.00949, §1.1 and Theorem 3; arXiv:2007.03668, Proposition 3.2",
+          "Resultary fixed-width cyclic windows and cycle-geodesic convexity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, SIX_VERTEX_WITNESS.json and verify_cyclic_arcs.py",
+        "Local Resultary index and the listed four matched reports",
+        "arXiv:1806.00949 and arXiv:2007.03668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every positive-gap state G, set S_G to one dummy length 1 together with one real length L-1 for every L>1. Then F(G)=D(S_G). A query at position a in a real length L-1 block splits it into lengths a-1,L-a-1 and has threshold endpoint counts a,L-a. The dummy block ensures the recursive branch is never empty. The dummy split offers at most depth one when any real block exists and is absent if none exist."
+        ],
+        "reasoning": "This proves exact mechanical coverage of the advertised structural recurrence, including its base case, and gives the initial rank as 1+D(S_{(n)}). Hence the finite thresholds and first deficit follow by routine evaluation and counting. The explicit balanced-node obstruction illustrates the deficit but does not establish a separate unknown invariant.",
+        "searches": [
+          "Exact D recurrence in 2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51, compared term by term with frozen RESULT.md lines 7–15 and §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation after a first positive answer identifies the class with empty plus nonempty intervals on disjoint unqueried blocks of lengths L-1 for gaps L.",
+          "The apparently different empty-concept convention is realized by one extra singleton interval on a disjoint dummy block."
+        ],
+        "reasoning": "Restrict the block-union class to the original blocks and the dummy singleton becomes exactly the empty concept. Querying the dummy point has a singleton positive branch and can occur only at the last internal level of a shattered complete tree. At such a node there is a surviving ordinary nonempty interval, and querying any point it contains separates it from the dummy singleton instead. Thus deleting the dummy query does not lower the attainable depth.",
+        "searches": [
+          "Resultary: all-length cyclic interval Littlestone/thicket rank, positive-gap partition recurrence, six-vertex cardinality deficit",
+          "2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51, Finding and Zero-state lemma",
+          "Focused cyclic-interval Littlestone-dimension literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected finite-chain table is for nonempty single-chain intervals and is not numerically the cyclic table. The six-vertex wheel result queries edges of graph cycles, not vertices of cyclic intervals.",
+          "Fresh evaluation of the cyclic recurrence reproduces 1,2,3,5,7,10,14,20,28,40 through n=40."
+        ],
+        "reasoning": "No identical table was located, but its entries are determined by the broader exact recurrence evaluated on the transformed block sizes. A different query class with the same numerical rank is not evidence of coverage.",
+        "searches": [
+          "Resultary lookup for the ten cyclic thresholds and the first 32-concept six-cycle deficit",
+          "Finite-chain catalogue record Finding and finite cutoff calculation; fixed-width cyclic windows; six-vertex wheel cycle class"
+        ]
+      },
+      "rationale": "Demonstrated broader catalogue coverage, not just a match of titles, dates, or small ranks. The distinct finite-chain record gives an exact theorem D for nonempty interval unions on arbitrary disjoint finite blocks. The cyclic recurrence is obtained from this theorem by complementation after the first query and a singleton dummy block. The dates do not establish historical order; the assessment is of mathematical coverage by the indexed statement.",
+      "residual_risks": [
+        "No precedence between the two November 2 records is inferred from their matching dates or the later mirror snapshot. The negative originality verdict is supported by an exact reduction independently of precedence; other equivalent coverage may also exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact theorem mechanically covers the main structural claim; no historical priority conclusion",
+          "evidence": "D applies to any finite disjoint block union. The branch ranks and state transitions agree under L to L-1 and one dummy singleton.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-initial-online-shattering-thresholds-for-finite-chain-inte--da5ce6428f51",
+          "material_read": "RESULT.md Finding, assumptions, positive-state and zero-state lemmas, exact finite cutoff; offset 0, through the proof and verification",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact initial online-shattering thresholds for finite-chain intervals",
+          "trigger": "Mutually relevant exact block-split recurrence despite different empty convention and geometry"
+        },
+        {
+          "assessment": "Different class, no all-width coverage",
+          "evidence": "One width only, with neither empty nor full; stated rank is 1+floor(log2 min(width,n-width)).",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shelah-2-rank-and-stability-threshold-for-fixed-width-cycl--276e78f2c8f8",
+          "material_read": "RESULT.md Finding and proof at offsets 0 and 3710",
+          "method": "Local mirror",
+          "title": "Exact Shelah 2-rank and stability threshold for fixed-width cyclic windows",
+          "trigger": "Same cyclic query geometry"
+        },
+        {
+          "assessment": "Overlap in asymptotic scale only",
+          "evidence": "Short-arc subclass, with no exact finite Littlestone claim.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-sensitive-shattering-polynomial-for-cycle-geodesic-convex--6aa81ebed916",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Parity-sensitive shattering polynomial for cycle geodesic convexity",
+          "trigger": "Same cycle and VC/Littlestone asymptotics"
+        },
+        {
+          "assessment": "Different concept domain and incidence",
+          "evidence": "Edge sets of wheel cycles, queried by edge membership.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-unbounded-adaptive-gap-at-fixed-vc-dimension-for-simple-cycle--f2f12978d28a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "An unbounded adaptive gap at fixed VC dimension for simple cycles of wheels",
+          "trigger": "Six-vertex instance also of rank four"
+        },
+        {
+          "assessment": "General background only",
+          "evidence": "Relates Littlestone dimension and threshold embeddings; no exact cycle formula in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.00949",
+          "material_read": "§1.1 p. 3 and Theorem 3 p. 5, offsets about 8100 and 16275",
+          "method": "OA PDF passages",
+          "title": "Private PAC learning implies finite Littlestone dimension",
+          "trigger": "Parameterized threshold embeddings and Littlestone rank"
+        },
+        {
+          "assessment": "General aggregation bound, not this exact partition recursion",
+          "evidence": "The cited proposition bounds threshold dimension under Boolean aggregation rather than computing the cyclic rank.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "Proposition 3.2 p. 4, offset about 17100",
+          "method": "OA PDF passage",
+          "title": "Near-tight closure bounds for the Littlestone and threshold dimensions",
+          "trigger": "Plausible general theorem for aggregation of threshold classes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The circular rank and its first cardinality deficit are well-motivated objects. As a distinct scientific contribution, however, the advertised recurrence and finite cutoffs reduce directly to the broader disjoint-block recurrence with a redundant singleton, and the six-vertex witness is a small worked certificate of that mechanically determined case. The static bound and order-of-growth context do not supply a separate substantial remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

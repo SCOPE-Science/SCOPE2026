@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:56:17.429783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reconstruction by enumerating the available line submasks for each fixed point set gave the occupation counts (1,14,70,154,147,56,14,2), parities 232/226 and configuration orbits 13/14 under the 168 incidence-preserving linear maps. The invariant odd-to-even block has a kernel, so the full odd-by-even block has rank at most 225 and the chiral Hamiltonian has nullity at least 8. Exact integer ranks at 0,1,-1,2 were 155,216,216,225, respectively; point-occupation parity conjugates t to -t. A further check at zero: point slices with 0,1,2,4,7 available lines occur 64,35,21,7,1 times. On each slice the line flip hypercube has zero multiplicity binomial(k,k/2) for even k and zero for odd k, giving 64+42+42=148. Without executing the frozen code, /workspace/heawood_review_check.py read the supplied minor indices, reconstructed the entries and compared both exact integer determinants (FLINT) to the displayed polynomials on 226 distinct integers -25 through 200, in two batches (outputs /workspace/heawood_review_check_a.txt and /workspace/heawood_review_check_b.txt). Both sides have degree at most 225; this independently certifies both identities, not just sampled ranks. At nonzero real t, Q(t)/t^4 is 1440u^2+7125u-19898 for u=t^2+t^-2≥2: increasing there, with value 112 at 2. The two remaining factors vanish at disjoint parameter sets. Thus some 225-minor survives precisely where required, and the formula 458-2rank gives the stated 148/26/8 on the full space. This is an exact finite algebraic check for the specified Hamiltonian, not a formal proof certificate or a claim for other dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schecter–Iadecola p. 1 gives N_0≥|W| and use of symmetry sectors.",
+          "Resultary 98054346bc89 Finding gives exact kernel counts for complete multipartite blockade graphs through per-part signed sums."
+        ],
+        "reasoning": "The Heawood symmetry orbit split is a graph-specific application of the prior index principle; the principle does not imply saturation or exceptional ranks. Heawood is not complete multipartite: it is connected bipartite but not complete bipartite. Consequently the multipartite count does not specialize to it.",
+        "searches": [
+          "arXiv:1801.03101 spectral reflection/chiral index",
+          "Resultary: weighted multipartite blockade zero-mode arithmetic and single-site blockade resonances"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1010.2349",
+        "arXiv:1801.03101",
+        "arXiv:2203.09264",
+        "arXiv:2003.04516",
+        "Resultary 4f0f682af0b4 (identical)",
+        "Resultary 59fb9b41d9b5",
+        "Resultary 98054346bc89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounds for chains and symmetry sectors do not supply a rank lower bound for the Heawood off-diagonal block.",
+          "Lin–Calvera–Hsieh study square-lattice scars and give a family of cubic-lattice zero states, not the full kernel of the Fano pencil."
+        ],
+        "reasoning": "In this problem the basic index yields 6 and the invariant orbit imbalance strengthens the bound to 8. Exact rank at |t|=1 and nonvanishing of a rank-225 minor for every t outside 0 and ±1 require graph-specific information not implied by those results.",
+        "searches": [
+          "arXiv:1801.03101 p. 1 and arXiv:2203.09264 open-boundary and symmetry discussion",
+          "arXiv:2003.04516 p. 1 and supplement S4 and S13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lesanovsky derives a constrained flip chain; Buijsman analyzes chain PXP in boundary and inversion sectors.",
+          "Resultary 4f0f682af0b4 gives 148/26/8 but is this identical record."
+        ],
+        "reasoning": "An equivalent formulation would give the kernel of the same two-colour Fano independent-set adjacency pencil, up to relabelling, scaling, or a diagonal sign gauge. Neither a chain flip graph nor the bound record's duplicate indexing is independent equivalent coverage.",
+        "searches": [
+          "Resultary and primary literature: Heawood/Fano incidence PXP, weighted independent-set flip graph, mid-spectrum zero-energy nullity",
+          "arXiv:1010.2349 p. 2; arXiv:2203.09264 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 59fb9b41d9b5 Finding has the 12-vertex icosahedral graph, single driven site, 17 at ±1 and 5 otherwise.",
+          "The exact 148/26/8 catalogue hit was the same frozen record; no independent matching Heawood entry was retrieved."
+        ],
+        "reasoning": "The close same-day record concerns a different independent-set graph and drive pattern, not the Heawood uniform-drive value or its interpolation. A single uniform-drive count, even if separately located, would not establish the real-parameter profile. No within-day timing is inferred.",
+        "searches": [
+          "Resultary and primary literature: Heawood 458-state PXP spectrum, uniform 26 and all-real 148/26/8",
+          "Resultary same-day exact resonance mirrors 59fb9b41d9b5 and 98054346bc89"
+        ]
+      },
+      "rationale": "The general PXP blockade model, spectral reflection and symmetry-resolved chiral index are known. The supported distinct result is the exact Heawood-specific one-parameter nullity classification, especially that no other real nonzero point-to-line drive ratio can change the generic nullity. The line drive is fixed at one; the exact same-ID catalogue hit is the finding itself. The inspected analogues and primary sources do not supply the full kernel formula.",
+      "residual_risks": [
+        "Unindexed Heawood spectra or independent-set reconfiguration graph tables could contain exact uniform-drive data or an equivalent result under different terminology.",
+        "The comparison establishes no same-day priority and is not an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model premise, not Heawood census",
+          "evidence": [
+            "One-dimensional nearest-neighbor blockade and a special ground-state construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.2349",
+          "material_read": "p. 2, extracted offset 10392",
+          "method": "Compare geometric blockade and spectral objective",
+          "title": "Many-body spin interactions and the ground state of a dense Rydberg lattice gas",
+          "trigger": "Foundational constrained-flip model"
+        },
+        {
+          "assessment": "Covers the lower-bound mechanism only",
+          "evidence": [
+            "N_0≥|W| and symmetry-resolved indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.03101",
+          "material_read": "p. 1, offset 1327",
+          "method": "Compare index inequality with exact rank claim",
+          "title": "Many-Body Spectral Reflection Symmetry and Protected Infinite-Temperature Degeneracy",
+          "trigger": "Strong general spectral-reflection comparison"
+        },
+        {
+          "assessment": "One-dimensional lower bounds, not a Heawood pencil formula",
+          "evidence": [
+            "Lower bounds in one-dimensional chain sectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.09264",
+          "material_read": "p. 1, offset 400, and pp. 2–3, offset 16401",
+          "method": "Read boundary and symmetry-dependent statements",
+          "title": "Number of zero-energy eigenstates in the PXP model",
+          "trigger": "Direct PXP zero-energy counts"
+        },
+        {
+          "assessment": "Scar constructions rather than Heawood full nullity",
+          "evidence": [
+            "Square-lattice PXP and a family of cubic-lattice zero-energy scar states."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04516",
+          "material_read": "p. 1 and supplement S4 (p. 10, offset 68678) and S13",
+          "method": "Compare graph and extent of state enumeration",
+          "title": "Quantum Many-Body Scar States in Two-Dimensional Rydberg Atom Arrays",
+          "trigger": "Exact higher-dimensional PXP zero states"
+        },
+        {
+          "assessment": "Distinct graph-specific rank result",
+          "evidence": [
+            "Icosahedral graph, one driven site, 17 at ±1 and 5 otherwise."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-single-site-zero-mode-resonance-in-the-icosahedral-block--59fb9b41d9b5",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Compare graph and drive support",
+          "title": "A sharp single-site zero-mode resonance in the icosahedral blockade Hamiltonian",
+          "trigger": "Closest same-day isolated drive resonance"
+        },
+        {
+          "assessment": "Complete multipartite hypothesis excludes Heawood",
+          "evidence": [
+            "Per-part signed sums give exact full-kernel counts for weighted complete multipartite graphs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-arithmetic-zero-mode-switch-in-weighted-multipartite-blockade--98054346bc89",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Check graph hypotheses and counting basis",
+          "title": "An arithmetic zero-mode switch in weighted multipartite blockade",
+          "trigger": "Potential broader exact weighted blockade coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite graph and perturbation are canonical: the Fano incidence structure distinguishes two shores, and changing their relative drive preserves collineation symmetry while testing equal-shore enhancement. The exact all-real count separates the ordinary parity bound of six, the invariant-sector bound of eight, and the extra eighteen at equal magnitude, with no undetected real exceptions. This is a useful finite benchmark of a symmetry-preserving blockade spectral problem, not a stand-alone claim about arbitrary arrays or the dynamics of all states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

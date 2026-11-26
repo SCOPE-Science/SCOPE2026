@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise expected-value projection matrix is nonnegative and is a diagonal dormant-retention matrix plus a rank-one fertility matrix. Its determinant lemma leads to a scalar decreasing secular function. Evaluating at the largest pure-depth eigenvalue bounds the entire simplex and identifies every equality case, including reducible and zero-allocation coordinates. The active affine-line slope argument gives the \(n-1\) universal upper bound. The explicit ordered family satisfies every biological parameter bound, has exactly the required pairwise crossings, and realizes each of the \(n-1\) switches. The fully worked three-class example and \(2\le n\le16\) family samples pass exact rational checks. The code does not substitute for the full proof.
+PASS
 
-## Originality — PASS, qualified
+For q>0 the j-th column sum of the nonnegative mean matrix is L_j, independently of w. For a nonnegative Perron vector normalized to sum one, the spectral radius is therefore the weighted average of the L_j with that vector's weights. Every index with w_i>0 has positive Perron-vector coordinate since the rank-one term at that row is strictly positive on any nonzero nonnegative vector and the radius is positive. Thus equality forces w to be supported on maximizing lines. Conversely the block on that support is invariant and has all column sums equal to the maximum, so realizes it. This avoids any irreducibility assumption. At q=0 the matrix is independent of w and diagonal. The envelope of distinct affine lines uses each on at most one interval; increasing active slopes give at most n−1 interior genuine switches, with coincident lines not counted as switches. In the sharp construction s_i remains above 5/8 and b_i below 1/2; the inequality n(2−s_i)>b_i(i+1) gives strict germination ordering. The signed pairwise difference δ(i−j)[2nq−(i+j+1)] verifies each unique winner interval and exactly two tied adjacent classes at each crossing. The three-depth crossings and values agree. The result is about the spectral radius of the specified mean projection; growth from an initial state absent from all accessible maximal components and almost-sure stochastic growth are not asserted. The finite rational tests in the frozen package are corroboration, not needed for the universal proof.
 
-Depth-versus-disturbance preference reversals are established in Eager et al. (2013) and are expressly **not** the novelty. The narrower statement is the complete optimization of arbitrary seed-depth allocations, **if-and-only-if** support characterization, universal sharp switching count for any class count, and constructive realization even with monotone survival–germination tradeoffs. The accessible full text of Satterthwaite (2009), the full Nesterov–Protasov (2011) spectral-optimization preprint, and the publicly shared Protasov–Logofet (2014) rank-one matrix manuscript were compared by their assumptions, decision variables and theorems. They provide generic matrix and biological context, not the inspected same claim. A full copy of the Eager et al. (2013) model remained inaccessible; because it deals with soil depth and disturbance, an unnoticed equivalent specialization remains an explicit residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a motivated classification of a constrained strategy-allocation problem across arbitrary numbers of ecological depth classes. It determines the whole decision simplex, the entire disturbance-frequency phase diagram, and the maximum possible number of management-policy changes. The monotone-tradeoff example prevents the switching count from being merely an artifact of biologically scrambled depth parameters. Exact characterizations support mechanistic sensitivity investigations, without purporting to solve realistic stochastic disturbance policy optimization.
+The column-sum bound and affine-envelope reasoning are standard, and ecological reversal of disturbance-depth preferences is prior-known. The supported distinct result is the exact simplex-wide optimizer with its ties, combined with the attained maximum number of switches at every class count even under strictly ordered survival and germination. The inspected claims did not cover that combination; the inaccessible full texts remain explicit risks.
 
-## Scope and limits
+## value
 
-One fixed newborn-depth allocation, deterministic conditional mean projection, positive survival and germination, and common fecundity. No conclusions about almost-sure stochastic persistence, quasi-extinction, heterogeneous recruitment cost, density feedback, or field measurement. Source accessibility does not prove novelty and independent review is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete allocation picture is useful in the specified baseline mean model: mixtures never strictly improve the spectral objective, yet every tie has an exact simplex face of optima. The monotone admissible family shows that the deepest-to-shallowest tradeoff does not force the number of changes to stay small: every class can be uniquely optimal on its own interval. This sharp policy sensitivity is the useful part beyond the textbook spectral bound, without suggesting that stochastic populations obey the same rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

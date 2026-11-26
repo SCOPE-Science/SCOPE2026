@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact positive-time coordinate equations \(\dot u=\omega xw\) and \(\dot w=-\omega xu\) follow by differentiation and fix every normalization. The complete energy-circle picture follows from the sign condition \(x>0\), including positivity of the critical loop, the invariant positive quadrant and the exterior endpoint equilibria. The standard trigonometric integral yields the minimal original-time period, while \(x\,dt=d\theta/\omega\) proves constant exposure. The rational pulse is directly substituted in the original vector field, and the exterior logarithmic derivative proves the claimed exponential rate. The standalone exact symbolic and numerical checker passed. Numerical tests are corroborative, not proofs of the quantified infinite statements.
+## correctness
 
-## Originality — PASS within inspected evidence
-The exact same 2023 network family and its reduced linear center, as well as the 2024 enlarged-network center argument, are known and explicitly credited. In the inspected primary theorem/proof, neither work gives the original-time \(T(E)\), normalized physical-time concentration law, invariant per-cycle exposure, explicit rational critical homoclinic pulse, or the exterior exponential rate. The 2024 paper's Bogdanov–Takens homoclinic analysis treats a different family of four-reaction systems. Nearby findings for a three-reaction extinction flow, for a quintic non-global center, and for chemical four-cycle timing do not imply this result because their vector fields and energy-boundary mechanisms differ. The original mathematical reduction is explicitly not claimed as novel. Publication priority against unindexed studies of the same special center remains a residual risk.
+PASS
 
-## Value — PASS
-The invariant per-revolution first-species exposure in the face of divergent physical period gives a quantitative and experimentally interpretable distinction between mass processed and elapsed time in a minimal oscillatory chemical network. The theorem identifies the complete positive energy threshold, the explicit limiting critical pulse, the algebraic-to-exponential change in extinction clocks, and the exact occupation law. These are natural observables in the original time and chemical state space, rather than an arbitrary parameter slice or a rebranded center-existence claim.
+Direct substitution gives du/dt=omega xw and dw/dt=-omega xu, so E is conserved, the affine Jacobian magnitude for spatial area is omega/A, and theta is increasing on x>0 with derivative omega x. For r=sqrt(E)<=a, minimization of the sinusoidal y expression gives a lower bound C/A-(C-F)/(A(1+sqrt(D/A)))>0, including F=0. Thus for 0<r<a each full turn is physical, and the nonstationary part of r=a is one physical arc. The tangent-half-angle integral gives T=2pi/(omega sqrt(a²-E)). At each interior concentration z, each of the two phase branches contributes 1/(omega z sqrt(E-(z-a)²)) to the physical-time density before normalization by T. The alternative measure x dt=dtheta/omega gives 2pi/omega per turn; an extra factor of x integrates to 2pi a/omega, and the periodic sine term in the mean of y integrates to zero by a log derivative. From the vanishing mean and x>=0, the law of x converges weakly to delta_0. At the double root, the half-angle variable satisfies d(tan(theta/2))/dt=omega a, yielding the exact rational pulse, two-sided tails, and full angle change 2pi, proving the same finite exposure. On r>a the accessible arc has simple clock zeros and infinite time to its endpoints, with dx/(x dt)=-omega r sin(theta) giving the stated asymptotic log-decay rate. Bounded energy and the inward derivative on y=0 exclude forward escape or quadrant exit from positive x,y; the backward half-plane arc need not stay physical. The equilibrium case E=0 and x=0 are excluded from the periodic law as required. Replay: the affine, angular and half-angle formulas displayed in repaired RESULT.md; inspected frozen CHECK.py and VERIFICATION.md, no frozen code executed.
 
-## Closest literature and limits
-Banaji, Boros, Hofbauer, *Oscillations in three-reaction quadratic mass-action systems*, arXiv:2304.02303, DOI:10.1111/sapm.12639, case 8 and its proof. Banaji, Boros, Hofbauer, *Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity*, arXiv:2406.13451, DOI:10.1007/s11071-024-10068-1, section on centers, Appendix Lemma 39 and the separate Bogdanov–Takens section. The result applies only on the exact center locus and does not address perturbations or stochastic reaction times. The physical-time formulas are proved here; independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired finding claims the exact concentration occupation law versus the matched finite concentration exposure on periodic trajectories and the complete positive critical trajectory of the specified chemical model. It explicitly treats the center reduction and the scalar Adler regimes as background. The retrieved oscillator and chemical-center papers do not give the full observable comparison in the physically admissible domain, and the distinct indexed kinetic sources concern different systems and observables.
+
+## value
+
+PASS
+
+The time weighting matters for a concentration observable at this natural kinetic locus: normalized sampling would indicate extinction and a vanishing mean, even though an entire recurrent excursion has an exact finite concentration–time integral. The exact same integral on the admissible complete critical pulse gives a quantitative benchmark across loss of periodicity, not just a relabeling of scalar phase-locking. The density gives a way to compute threshold residence times or moments for this concentration without assuming uniform phase. Neither the exterior phase-flow corollary nor the period integral is promoted as a separate new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

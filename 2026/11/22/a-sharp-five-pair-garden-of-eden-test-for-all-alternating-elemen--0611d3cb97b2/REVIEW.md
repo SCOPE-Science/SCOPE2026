@@ -1,15 +1,21 @@
-# Scientific review: alternating elementary cellular automata
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An eight-vertex pair-labeled de Bruijn graph precisely encodes all even-aligned finite output-pair words. Its full deterministic subset automaton has at most 256 vertices; exhaustive breadth-first closure, rather than a finite-window extrapolation, yields an exact shortest-absent-word distance or certifies that none exists. Every one of the 65,536 ordered rule pairs is processed, and the independent 12-bit-window oracle reproduces each depth-stratum count through five pairs. Compactness converts full finite-word attainability to surjectivity of the bi-infinite map. Limitation: computations are finite exact certificates executed by ordinary C, not external proof certification. They establish the census given the directly inspectable bit-graph equivalence.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The labelled edges with label (f(a,b,c),g(b,c,d)) concatenate an input window by shifting two sites, so a subset transition tracks exactly the possible terminal input states for an aligned output word. All starting and ending input states are allowed. Breadth-first first reach of the empty subset measures shortest forbidden length, and closure without empty proves attainability at every length. Shift-by-two equivariance and compactness then give bi-infinite surjectivity. An independently written exhaustive census gave the complete histogram 708/8552/38436/15920/1776/144 and every cross-tab entry, including 30 homogeneous onto rules, 96 mixed onto pairs and no onto pair with two non-onto constituents. Independent direct windows for (22,105) produce 4,16,64,256,1012 distinct words at lengths 1–5; 10|01|11|11|10 is missing. The reachable subset graph for (51,54) closes without the empty set, while (54,54) loses a length-three word. The source's phrase ‘five-row cross-tabulation’ is descriptive only; the displayed cross-tab correctly has three constituent-count rows.
 
-The 2025 Paturi–Kari source provides general Garden-of-Eden properties for recurrent rule distributions, not exact reachability counts for two alternating elementary rules. Paturi (2025) concerns reversibility, balance and expansivity rather than a full 65,536-rule surjectivity survey. Dennunzio–Formenti–Provillard (2012) and the 2014 realization literature provide general regular-language/sofic techniques and already cover the decidability mechanism; the contribution is the sharp *specific* complete census, cross-classified by homogeneous surjectivity, and five-pair horizon. Related uniform-rule image classifications concern a constant spatial rule or two temporal updates, not these spatially alternating ordered pairs. The related 2024 diploid-family study focuses on random mixing and classification of 300 family couples, but its full text was inaccessible; the abstract alone does not prove noncoverage. An independent literature search or author consultation could uncover historical partial overlap.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The canonical finite family contains all binary radius-one rules under the simplest nonconstant periodic rule distribution. An exact ten-output-cell surjectivity test is a useful sharp structural cutoff rather than an arbitrary finite slice, and the 708/96/0 counts answer whether a spatially mixed surjective system must inherit constituent surjectivity. Complete cross-tabulation separates two very different mechanisms of global onto behavior and supplies reproducible exhaustive benchmark data for nonuniform CA theory. This is not asserted as a general all-radius theorem.
+General NUCA surjectivity and automata methods are established. The distinct finding is the full radius-one all-ordered-pairs obstruction-depth table, the optimal aligned five-pair cutoff and the exact homogeneous-constituent split. Neither matching period-three work nor same-period conserved work evaluates this state space.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Period two is the simplest genuinely nonuniform spatial alternation of the standard elementary rule set. A sharp, practically short ten-bit complete test for bi-infinite surjectivity and a full table of first obstructions are useful exact invariants. The constituent split goes beyond tallying entries: it demonstrates restoration with exactly one non-onto constituent but never two, and shows that two onto constituents do not guarantee onto alternation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

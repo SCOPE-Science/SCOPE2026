@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any matching size \(n\ge2\), all probabilities and moments are derived from uniform partner choices or a bijective insertion recurrence. A separate deletion-seam calculation gives the nontrivial mixed moment, including explicit treatment of \(n=2\). The proof covers all eligible sizes and positions. Exact exhaustive enumeration over \(146598\) matchings for sizes \(2\le n\le7\), together with a rational recurrence check through \(n=200\), supports the computations without replacing the general proof.
+## correctness
 
-**Originality — PASS on inspected evidence.** Cameron and Killpatrick identify the two marginal statistics and prove an Eulerian recurrence, but their inspected PDF (Sections 1–3 and conclusion) does not compute their mixed moments or optimal affine projection. Related papers by Krasko–Omelchenko, Young and Marmor deal with loops, short-chord enumeration or Schur positivity. A specific comparison with these claims finds no formula for the exact half-slope, negative different-chord covariance or position-dependent deletion seam. Database search covered short-chord/LR aliases and known nearby random-matching statistics. Residual risk: these formulas could be implicit in prior Stirling-permutation or matching work beyond the material inspected; a negative search alone cannot prove historical priority.
+PASS
 
-**Value — PASS.** The two adjacency counts are separately prominent generalized Narayana statistics, making their dependence a motivated rather than arbitrarily selected invariant. The finding gives an exact and size-invariant one-dimensional projection and shows the structurally different signs of same-chord and different-chord contributions. The finite-size explained-variance fraction and exact positional seam quantify how a local short chord changes adjacent opener–closer configurations. It does not assert conditional-expectation linearity or extend to restricted matching families.
+A fixed short chord costs 1/(2n-1); two disjoint fixed chords cost 1/[(2n-1)(2n-3)], so short-chord factorial moments give the stated variance. For each different-chord LR pair the opener needs a partner strictly to its right beyond the closer, and the closer needs a partner strictly to its left before the opener. The product of these two counts gives the position formula. Conditioning on B_i leaves a uniform matching when its endpoints are removed; the only added different-chord adjacency is the seam, whose expectation is the stated q_i and vanishes at boundary positions. At n=2 the reduced matching has A=0. An independent mixed-moment derivation counts all LR pairs: the forced LR is removed, no neighboring LR is destroyed, and the new seam is subtracted. Summing the seam probabilities over i gives E L_(n-1), so E[SL]=1+[(2n-2)/(2n-1)]E L_(n-1) and Cov(S,L)=(n-1)/(2n-1). For the LR marginal, insertion immediately after the new first opener gains one; inserting after an old opener gains one unless it replaces an old LR. There are n-k gains in all. The first two conditional moments yield the given variance; affine projection then gives the slope, residual and correlation with strictly positive variance for n≥2. The independent rational recheck propagated the full LR distribution and checked the full-LR seam mixed moment through n=44 (independent_recheck.py); the original enumeration script was read, not executed. The result is not an identity for the nonlinear conditional mean or for cyclic matching.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim is the mixed covariance and position-resolved seam, and the half-slope and signs they yield. Neither short-chord nor LR marginal laws are new. The strongest same-formula hit concerns a demonstrably different second statistic.
+
+## value
+
+PASS
+
+The count of adjacent openers and closers is a natural local matching statistic. Removing its same-chord contribution reverses a nonzero covariance exactly, and the invariant affine slope and explicit seam effect make the result a useful benchmark for joint matching laws. The value is in the mixed identity and local correction, not in rederiving the known two marginal laws or in claiming independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

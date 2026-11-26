@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two- or three-translate decomposition is proved by a complete dichotomy on the number of middle-generator coins: the same-count case uses the gcd of extreme generators, and the different-count case uses an invertible congruence modulo the smallest generator. The base-generator differences establish the sum-minus-multiplicity property for all parameters, with the boundary \(a=3\) checked separately. The Apéry-set argument then gives exactly \(2(a+d)\) minimal generators and exactly \(2(a+d)-1\) pseudo-Frobenius numbers. `VERIFY.py` independently corroborates finite parameter and index ranges; no finite computation is used to justify the infinite quantifiers.
+PASS
 
-## Originality — PASS within inspected evidence
+Adding a fixed coin factorization preserves any collision, so the listed translates are contained in the repeat ideal. If a colliding factorization uses two middle coins, it lies in m+S0. Otherwise the middle counts are in {0,1}. Equal middle counts force the extreme w-counts to differ by a multiple of a/gcd(a,2), and the even and odd thresholds put the degree in B+S0 (in the odd case aw=B+(q+d)u). Unequal counts force 2(z0-z1)≡1 mod a, impossible for even a and forcing one of the thresholds B,C for odd a. Both B and C exceed m under the specified hypotheses. The translate description proves closure and cofiniteness; the base-pair identities yield x+y-m∈S for positive x,y, including the special identity 2B-m=C at a=3. Each nonzero Apéry element mod m is indecomposable by that property; each positive s other than m outside Apéry is decomposable as m+(s-m). Hence e=m. Every nonzero Apéry element h yields h-m pseudo-Frobenius, and the converse follows from translating a pseudo-Frobenius f by m. The case f+m=0 is excluded because -m fails on any nonzero Apéry element (m>1). Independent direct enumeration of triples and additive invariants checked 140 coprime cases and 77600 positive offsets, including d>a examples; this is supplementary to the universal proof.
 
-The same arithmetic triple was previously analyzed by Komatsu and Ying for generalized Frobenius and genus values, including first-repeat thresholds, but their full article does not establish maximal embedding dimension or type. Their separate general theory defines the relevant invariants, not this all-parameter equality. The 2024 follow-up develops almost symmetry and Arf properties. Chapman and collaborators study the strictly smaller equal-length factorization locus. Standard maximal embedding dimension bounds are upper bounds, not an equality for these semigroups. The article on quotient ranks treats different constructions. Direct text and implication comparisons, plus academic and research-record searches, did not reveal a dominating theorem. Residual risk: an implicit or unindexed previous characterization may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The embedding dimension and type are fundamental structural invariants beyond Frobenius number and genus. The uniform equalities show that a natural first-repeat semigroup attached to every three-term arithmetic progression is extremal in *both* invariants; the ideal decomposition supplies a reusable structural explanation. The result is not a generic consequence of all numerical semigroups, nor merely a restatement of the known first-repeat Frobenius formula.
+Credit the compact S0-ideal description and its all-parameter maximal embedding dimension and ordinary pseudo-Frobenius type consequence, not the first-repeat semigroup itself or the determination of its membership via earlier p-Apéry representatives.
 
-## Scope and limitations
+## value
 
-Only at least-two-representation semigroups of coprime three-term arithmetic progressions are classified, with no assertion for arbitrary coin triples or higher thresholds. The comparison does not prove historical uniqueness, and no independent external audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Simultaneous extremality of two intrinsic additive invariants for an entire canonical repeat family is more informative than recognizing membership or evaluating its Frobenius number and genus. The small number of parity-dependent translates gives a structural reason for equality and handles unbounded a and d.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:49:10.307497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42",
+        "Frozen VERIFICATION.md line 20 and checker.py lines 5–57, inspected, not executed",
+        "NIST DLMF Eq. 17.2.35 for the finite q-binomial formula"
+      ],
+      "rationale": "For later tail nodes, x lies strictly between 0 and the smallest sampled node. Each absolute Lagrange coefficient there is a positive product of factors x_j-x divided by fixed denominators, with maximum in the limit x down to zero. The one alternating data vector aligns all coefficients on the entire tail, so even for complex data the upper triangle bound is attained as an operator-norm supremum. For a gap ratio r_s=q^(k_(s+1)-k_s), cross-gap node ratios are products containing r_s. The factors 1/(1-r) or r/(1-r) increase with r, and at least an adjacent-pair factor in a positive summand strictly increases with each r_s. Therefore for m>=2 the unique maximizing gap pattern sets all r_s=q. In the widely separated limit, only the last coefficient survives and tends to one, and at every finite pattern the alternating signs together with sum_i ell_i(0)=1 force the norm strictly above one. For contiguous nodes put a=m-1-i. Collecting factors gives q^[a(a+1)/2] divided by (q;q)_a (q;q)_(m-1-a); the finite q-binomial identity with z=-q sums these weights to the stated product. The infinite product is finite because its log tail is summable, and is sharp by increasing contiguous sample counts. For the projector, the first N+1 diagonal entries agree exactly, and the later ones have supremum |ell_(N,j)(0)|, giving the same weight formula with a=N-j. Its second denominator product tends to a positive limit, so the rate is superexponential for fixed j. In the proof's strict-monotonicity sentence for projectors, N=0 instead gives the constant one polynomial and norm error one directly; the formula covers it. m=1 likewise gives norm one.",
+      "residual_risks": [
+        "The exact rational checker is finite and does not test all patterns, q, or dimensions. The proof is for tail values only and projector decay is at fixed j, not a uniform rate in j."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite q-binomial theorem at z=-q gives the numerator product for contiguous patterns, and classical Lagrange weights give the denominator. Relevant full text for geometric-node quadrature was not obtained; the broad primary query produced irrelevant results."
+        ],
+        "reasoning": "Contiguous-node values are directly implied by the classical identity once the geometric weights are written. That evaluation alone gives no strict comparison when just one adjacent gap is stretched, which is necessary for the all-subset classification. Full-text coverage of the geometric quadrature article is unresolved.",
+        "searches": [
+          "NIST DLMF §17.2(iii), Eq. 17.2.35",
+          "Masjed-Jamei–Milovanović–Jafari DOI 10.1016/j.mcm.2010.11.076",
+          "Primary query: exact sparse subset geometric nodes polynomial extrapolation Lagrange norm tail q-binomial geometric interpolation prior work"
+        ]
+      },
+      "checked_sources": [
+        "Tao §1.3, Ibrahimoglu §§2.1 and 3, NIST DLMF Eq. 17.2.35, Wang–Yao §3.3 Theorem 3.9",
+        "Geometric quadrature DOI metadata and OA access attempts",
+        "Resultary indexed summaries 5ec9ec2f0bb3, fea9881bfefe, b7c2819b6648, 663b06718b7c and dd232e9d60f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Yao discuss qualitative weak-operator closure and sufficient conditions for minimal-commutant behavior. None of those norm-free conclusions evaluates this cardinal approximation error. The geometric coefficient formula itself does imply the exact projector error once spectral diagonality and the tail supremum are used."
+        ],
+        "reasoning": "A qualitative closure theorem does not give the norm of this explicit approximation. The application is nevertheless a direct consequence of the same contiguous coefficient calculation, and the main distinct advance is the global sparse-gap extremal law, not the prior polynomial-recovery framework.",
+        "searches": [
+          "Wang–Yao arXiv:2611.22802 §1 and §3.3, Theorem 3.9",
+          "Ibrahimoglu §§2.1 and 3; Tao §1.3; DLMF Eq. 17.2.35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tail norm is the limiting exterior Lebesgue function at zero, equivalently the infinity-data norm of evaluation at the zero limit in Richardson extrapolation. The inspected primary passages give the classical absolute cardinal sum and whole-interval norm; the related indexed extrapolation results control noise after assembling quadrature weights."
+        ],
+        "reasoning": "The classical norm formula supplies the starting identity for a given target set but not this strict comparison over all sparse patterns. Quadrature-weight norm estimates apply to a different linear map, even when extrapolation coefficients are shared.",
+        "searches": [
+          "Resultary: geometric nodes polynomial interpolation tail extrapolation arbitrary sparse subset exact operator norm Lebesgue constant",
+          "Resultary: q-Richardson extrapolation geometric sequence sparse interpolation exact norm tail",
+          "Tao arXiv:2603.21453 §1.3; Ibrahimoglu DOI 10.1186/s13660-016-1030-3 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5ec9ec2f0bb3 is the identical catalogue entry. Distinct same-day fea9881bfefe concerns positive nested midpoint quadrature under even refinement; b7c2819b6648 concerns integer-ratio Romberg quadrature noise. dd232e9d60f4 concerns Riesz projections for a compact generalized Cesàro operator. A variant-ratio trapezoidal entry 663b06718b7c appeared with two dates; its summary is about quadrature weights."
+        ],
+        "reasoning": "Neither the reported same-day statements nor the other summaries assert this exact tail operator norm maximized over all index subsets. Comparison rests on the actual objects, not catalogue dates. The exact self-match gives no independent evidence.",
+        "searches": [
+          "Resultary: finite q-binomial identity Lagrange weights consecutive geometric nodes product (1+q^r)/(1-q^r) sparse extremizer",
+          "Resultary: polynomial spectral projector coordinate projection norm cardinal polynomials geometric eigenvalues exact error formula"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact classification over arbitrary sparse subsets, including strict and unique worst gaps, unattained optimal infimum, and a sharp all-sample-size ceiling. The generic Lagrange/Lebesgue formula, contiguous-node q-binomial summation and qualitative polynomial recovery are classical inputs, not independent novelty. The explicit individual projector error follows from the contiguous cardinal coefficient by diagonal calculus and is valued as an application, not as an independent qualitative recovery theorem.",
+      "residual_risks": [
+        "The cited geometric-node quadrature formulas and related catalogue full texts could not be examined. Earlier geometric Richardson-extrapolation sources may state an equivalent sharp gap comparison. This bounded audit is not a global priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical norm identity on a different target set",
+          "evidence": "Defines the cardinal polynomials and takes the supremum of the sum of their absolute values on [-1,1], not on later smaller geometric nodes.",
+          "identifier_or_url": "https://arxiv.org/html/2603.21453",
+          "material_read": "§1.3, Eqs. (1.14)–(1.20)",
+          "method": "Bounded primary HTML passage comparison",
+          "title": "Local Bernstein theory, and lower bounds for Lebesgue constants",
+          "trigger": "Classical interpolation norm and a recent same-concept theorem"
+        },
+        {
+          "assessment": "Covers the generic cardinal-sum operator norm, not the reported sparse-gap optimum",
+          "evidence": "Defines the Lebesgue function as the absolute cardinal sum and its interval maximum as interpolation operator norm; surveys standard node sets.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-016-1030-3",
+          "material_read": "§§2.1 and 3",
+          "method": "Bounded primary HTML inspection",
+          "title": "Lebesgue functions and Lebesgue constants in polynomial interpolation",
+          "trigger": "Potential general interpolation norm already giving the starting identity"
+        },
+        {
+          "assessment": "Classical finite identity directly supplies the contiguous numerator product",
+          "evidence": "Finite q-binomial sum at z=-q equals product_{r=1}^{m-1}(1+q^r).",
+          "identifier_or_url": "https://dlmf.nist.gov/17.2",
+          "material_read": "§17.2(iii), Eq. 17.2.35",
+          "method": "Bounded HTML formula comparison",
+          "title": "NIST DLMF: q-Hypergeometric and Related Functions, Notation",
+          "trigger": "Consecutive geometric-node identity may be mechanically covered"
+        },
+        {
+          "assessment": "Plausible adjacent prior; actual formula coverage unresolved",
+          "evidence": "Citation identifies geometric-node quadrature, but no primary working formula or theorem passage was retrieved.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mcm.2010.11.076",
+          "material_read": "DOI and publisher title metadata only; formulas unavailable",
+          "method": "Bounded lawful OA and publisher lookup",
+          "title": "Explicit forms of weighted quadrature rules with geometric nodes",
+          "trigger": "Same geometric node families and potential q-identities"
+        },
+        {
+          "assessment": "Qualitative weak-operator closure context, not an explicit diagonal norm error in the theorem read",
+          "evidence": "Defines the polynomial algebra and weak-operator closure; theorem gives sufficient conditions for minimal-commutant property.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22802",
+          "material_read": "§1 and §3.3, Theorem 3.9",
+          "method": "Bounded primary HTML passage comparison",
+          "title": "Commutants of diagonal operators",
+          "trigger": "Polynomial approximations associated with diagonal operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–25 and 32–42"
+      ],
+      "rationale": "For sampling a geometric spectrum, the worst tail noise amplification depends on which nodes are retained. A sharp classification by gaps and a dimension-free ceiling determine what spacing can achieve, not just a numerical constant for one grid. The exact projector formula illustrates how the same weights control a natural operator-norm error, without implying stability of polynomial coefficients or more general spectra.",
+      "residual_risks": [
+        "The scope does not include whole-interval interpolation, error for arbitrary functions, non-geometric spectra or estimates uniform over moving projector index j."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

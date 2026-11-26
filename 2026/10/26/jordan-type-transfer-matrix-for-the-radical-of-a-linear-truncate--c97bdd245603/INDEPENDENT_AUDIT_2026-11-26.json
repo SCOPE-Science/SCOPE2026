@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:57:11.664964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed the ranks by decomposing the regular module into subspaces of paths with a common terminal vertex. At vertex j≥3 the basis (e_j,u_{j−1},v_{j−2}) gives a triangular block with the only possible nonzero entries a_{j−1}, a_{j−2}, b_{j−2}. Its rank is e+f+(1−e)(1−f)η_{j−2}, with e=ε_{j−2} and f=ε_{j−1}, and its square has rank ef. Vertex two adds ε_1 to the rank and zero to the square rank; vertex one contributes zero. Regrouping the arrow contributions gives weight 2 for each active arrow except weight 1 for the last. For each pair, summing over b gives 1+(q−1)X if both arrows vanish and q otherwise, with a Y factor exactly if both are active. This gives the displayed initial row, interior transitions and different final transition. Directly at n=3, q=2 the eight triples give 1+3X+2X²+2X³Y. For n=1 the radical is zero, and n=2 has a rank-one operator exactly when the sole arrow coefficient is nonzero. Since L_x³=0, ranks r,s give block counts s,r−2s,D−2r+s. Square-zero means no adjacent active arrows; choosing j nonadjacent positions among n−1 gives the stated binomial coefficient, and the length-two coefficients are free. The proof uses only whether field coefficients vanish and works also for non-prime q. Frozen RESULT.md lines 20–42 suffice to replay the argument. The accompanying prime-field checker was read, not run; its cap and prime-field scope do not certify the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their P_λ(q) counts all strictly upper-triangular matrices of a given type. The path regular matrices have simultaneous constraints on entries, including repeated arrow coefficients in different terminal-vertex blocks."
+        ],
+        "reasoning": "Inclusion in the triangular space does not refine the counts by the support and equality constraints needed here.",
+        "searches": [
+          "Fuchs–Kirillov, arXiv:2204.00066, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary cyclic Nakayama and truncated parallel-arrow findings",
+        "Fuchs–Kirillov arXiv:2204.00066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path count has a boundary weight X for the final active arrow and a separate initial state, absent from the cyclic trace. The commutator acts as L_x−R_x, not L_x. The square-zero subcount is a classical weighted path-independent-set count."
+        ],
+        "reasoning": "The known counting ideas are reusable, but these outputs do not give the boundary-sensitive bivariate polynomial. The square-zero count alone cannot recover the r distribution even at s=0.",
+        "searches": [
+          "Nov. 2 cyclic Nakayama RESULT.md, Finding",
+          "Oct. 25 centralizer spectra RESULT.md, Finding",
+          "arXiv:2204.00066, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nov. 2 cyclic Nakayama Finding gives rank statistics and a two-state Jordan census for the oriented cycle, dimension 3n, not the open path, dimension 3n−3."
+        ],
+        "reasoning": "Recasting ranks as Jordan block counts gives equivalent data at fixed dimension, but the cyclic census closes the support word and has no distinguished final arrow; its aggregated polynomial cannot be specialized by setting a closing arrow coefficient to zero.",
+        "searches": [
+          "Resultary: joint ranks and Jordan types for radical-cube-zero Nakayama algebras",
+          "Resultary: transfer matrices for regular actions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's Oct. 25 chain record includes the same algebra when arrow multiplicity is one but tabulates commutator ranks and centralizer sizes."
+        ],
+        "reasoning": "Those data do not tabulate rank pairs for L_x or Jordan multiplicities of L_x.",
+        "searches": [
+          "Resultary: rank polynomials for truncated path algebras",
+          "Resultary: truncated parallel-arrow chain centralizer census"
+        ]
+      },
+      "rationale": "Bounded pass for the full joint regular-action rank census on the open path. Closely related censuses either impose different boundary conditions or count another operator. The standard square-zero specialization is not a separate originality basis.",
+      "residual_risks": [
+        "The comparison is bounded; older sparse-matrix enumerations or other equivalent formulations outside the inspected material might contain the path census. No claim of historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method overlap, different object and boundary",
+          "evidence": "Oriented cycle, common left/right regular Jordan type from support statistics; cyclic transfer census.",
+          "identifier_or_url": "2026/11/2/SCOPE-jordan-type-gaps-and-a-motivic-transfer-census-for-cyclic-nakaya--5ebbee94c07d",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Jordan-type gaps and a motivic transfer census for cyclic Nakayama algebras",
+          "trigger": "Closest Jordan-type census on a radical-cube-zero Nakayama algebra"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": "Centralizers and ranks of the radical commutator, not regular left multiplication.",
+          "identifier_or_url": "2026/10/25/SCOPE-centralizer-spectra-and-commuting-pairs-in-truncated-parallel-ar--1cc1861b1eb7",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Centralizer spectra and commuting pairs in truncated parallel-arrow algebras",
+          "trigger": "Includes same open path at multiplicity one"
+        },
+        {
+          "assessment": "Ambient counts over all strictly upper-triangular matrices do not determine the specified subspace census",
+          "evidence": "Abstract defines P_λ(q) without path or regular-action constraints and points to its known recurrence in Proposition 3.1.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.00066",
+          "material_read": "PDF abstract and beginning of introduction, pp. 1–2, OA offset 350",
+          "method": "Lawful OA original preprint",
+          "title": "Jordan types of triangular matrices over a finite field",
+          "trigger": "Ambient nilpotent Jordan-type counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full Jordan census of radical multiplication is an exact invariant of the natural regular module. It gives rank-stratum sizes over every finite field by a fixed-size recurrence without enumerating radical elements, and exposes the effect of the endpoints of the chain. Neither the finite checks nor the standard independent-set specialization supply this value on their own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

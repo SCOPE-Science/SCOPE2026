@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:52:01.176485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4; VERIFICATION.md; verify_gear.py (inspected)",
+        "Independent replay: python /workspace/audit_evidence/laplacians.py (four exact endpoint derivatives and symbolic n=3 objective)"
+      ],
+      "rationale": "For L=I−P the regularized inverse trace is strictly convex in the unrestricted edge variables: its second derivative in a nonzero direction H is twice the squared Frobenius norm of A^{-1} H A^{-1/2}. Compactness and divergence at disconnected limits give a unique optimum. Dihedral invariance leaves two weights, and increasing y at fixed x lowers the trace strictly, so y=(1−x)/2. The constant Fourier block has two positive eigenvalues with sum (n+1)x+4y and product 2(2n+1)xy. The nonconstant two-by-two blocks have determinant 2xy+4y² sin²(π j/n) and trace x+4y, giving the scalar objective. At x=1/n the nonconstant derivative contribution has sign given by (3−x)S1−(2−x)S2, where S_k=sum d_j^{-k}. The mean of d_j is (n+2)/(2n); Jensen and Cauchy–Schwarz give the strictly negative sign for n≥7 since n²−7n+2>0. The constant-block contribution is negative there as well. Exact differentiation of full rational inverse matrices confirms all four endpoint derivatives for n=3–6; the n=3 objective is also exactly recovered. Strict convexity implies saturation precisely for n≥4 and the unique interior quartic root at n=3. The cyclic resolvent sums a geometric progression of surviving Fourier coefficients; after removal of the zero grid point it gives the stated coth formula. Its prefactor is 2n+1+1/(n−1), the constant block tends to 3/2, and the coth correction is exponentially small. For the benchmark, the Riemann integral of 1/(2+4 sin²(π u)) is 1/(2√3).",
+      "residual_risks": [
+        "The exact computations address the small-size endpoints, not all n. The general sign, uniqueness, and asymptotics rest on the checked analytic arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 2 fixes graph and stationary distribution in a general Kemeny program. Boyd et al. minimize the SLEM."
+        ],
+        "reasoning": "The former specifies the optimization problem rather than its solved gear-family allocation; the latter has a different spectral objective.",
+        "searches": [
+          "Patel–Agharkar–Bullo, open manuscript Problem 2",
+          "Boyd–Diaconis–Xiao, fastest mixing on a graph"
+        ]
+      },
+      "checked_sources": [
+        "Resultary gear, wheel and helm passages; sunlet entry be6e5140a0e5 (summary only)",
+        "Patel–Agharkar–Bullo, Problem 2",
+        "Boyd–Diaconis–Xiao, pp. 668–669"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel formula has leading m^{3/2}/√2 with no subdivision; the helm formula has a quarter-power pendant allocation. The target uses an endpoint derivative threshold and an alternating two-color rim spectrum."
+        ],
+        "reasoning": "Neither comparison supplies the analytic sign change at n=3 versus n≥4 or the formula and benchmark growth. The shared symmetry and convexity methods are not new claims.",
+        "searches": [
+          "Resultary wheel 3468c5b7f546 and helm 7e060df31d29",
+          "Patel–Agharkar–Bullo Problem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue ID ends 35ca15cf886c, the assigned finding. The wheel and helm results use intact original rim edges; the latter adds pendant leaves."
+        ],
+        "reasoning": "The related topologies are not the same signed or weighted stochastic graph by relabeling. Their formulas do not transfer by identifying pendant and inserted vertices.",
+        "searches": [
+          "Resultary: gear, subdivided wheel, J_{2,n}, symmetric Kemeny allocation and hub saturation",
+          "Literature: \"gear graph\" \"Kemeny's constant\" optimal transition probabilities symmetric stochastic walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched entry restates the bound result. The benchmark here has equality of all edge weights; the optimized walk does not. The cited public pages could not be inspected."
+        ],
+        "reasoning": "A fixed-conductance index, even if tabulated for all gears, would concern the equal-edge benchmark, not the optimizer.",
+        "searches": [
+          "Exact Resultary gear match 35ca15cf886c",
+          "Cited Gear Graph and Kirchhoff Index MathWorld pages"
+        ]
+      },
+      "rationale": "The identical catalogue entry is the bound finding, not an independent antecedent. The strongest distinct inspected analogues are exact saturated-hub and Kemeny results on wheels and helms; neither has the alternating subdivided rim or the relevant Fourier denominators. The general reversible optimization framework and fixed-conductance index do not give the exceptional size or asymptotic constants. This is a bounded, best-of-knowledge judgment.",
+      "residual_risks": [
+        "The targeted web search was unproductive. The cited MathWorld pages and full Resultary sunlet passage were unavailable. Unindexed equivalent optimizer results are not ruled out; ordering among the same-date analogue records is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical bound finding",
+          "evidence": "n=3 exception, n≥4 saturation, 1/n inserted-vertex holds and leading 2n^{3/2}.",
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-walks-on-gear-graphs-a-four-spoke-saturation-thre--35ca15cf886c",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and matched full-text passage",
+          "title": "Kemeny-optimal walks on gear graphs",
+          "trigger": "Exact-title and claim match"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Wheel K_1 joined to C_m, intact rim; optimal rim edge weight (m−1)/(2m).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-saturated-hub-law-and-a-square-root-kemeny-penalty-on-wheel-ne--3468c5b7f546",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and matched full-text passage",
+          "title": "A saturated hub law and a square root Kemeny penalty on wheel networks",
+          "trigger": "Same objective and hub saturation"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Wheel with private pendant leaves; quarter-power law on leaf edges.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quarter-power-leaf-transition-law-for-kemeny-optimal-helm-walk--7e060df31d29",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and matched full-text passage",
+          "title": "A quarter-power leaf transition law for Kemeny-optimal helm walks",
+          "trigger": "Near-matching topology and Kemeny objective"
+        },
+        {
+          "assessment": "General formulation, not a solved gear family",
+          "evidence": "Convex and semidefinite formulations with prescribed topology and stationary distribution.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Abstract and Problem 2, pp. 1–4, extracted offsets 0, 9800 and 25300",
+          "method": "Open manuscript passages",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General fixed-stationary-law theorem"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Defines μ(P) as the maximum absolute nontrivial eigenvalue.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "pp. 668–669, extracted offset 6350",
+          "method": "Open paper passage",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Optimal symmetric edge allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–4",
+        "Compared fixed-stationary-law Kemeny formulation and neighboring graph-family results"
+      ],
+      "rationale": "This is a complete allocation and holding classification for a standard graph family, with an actual change of active constraint at n=4. The exact threshold and the change from n² to n^{3/2} show why a natural degree-based symmetric walk is not order-optimal. Neither a fixed-weight index nor a generic solver would supply that structural conclusion.",
+      "residual_risks": [
+        "Value is family-specific and refers to the degree-based benchmark, not to general network optimization or other mixing objectives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

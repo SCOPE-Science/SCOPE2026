@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `verify.py` uses Python 3 standard library only. It exhausts every labelled simple graph on one through six points. Vertex-permutation orbit marking covers all labelings and forms exact isomorphism classes. The induced-edge count over each vertex subset is evaluated by integer arithmetic; no sampling or floating-point computation is used. It validates the complete graph-isomorphism-class sequence and all connectivity counts, then checks the complete collision fibres and the six explicit degree sequences.
+## correctness
 
-The script was run against its delivered source and returned `EXHAUSTIVE_COLLISION_CHECK_OK`. Separate graph-atlas representatives were also evaluated as a cross-check. The all-size type formula is proved directly from the one-point extension condition and is not inferred from the finite enumeration. The computer proof only establishes the sharp cutoff and complete classification at orders at most six. The claim makes no assertion of independent mathematical certification.
+PASS
+
+With x fresh its old neighbors are an arbitrary set S. Each old edge internal to S independently allows a new triangle through x, with no higher face constraint. The realizable finite one-point diagrams therefore number Σ_S 2^{e(G[S])}; homogeneity makes a diagram determine the complete type. Each diagram has arbitrarily many realizations by freely taking several copies over A and using the extension property, so precisely these fresh-point types are nonalgebraic. The canonical triangle-filled bases implement comparison of graph isomorphism types within each order, not of arbitrary two-complexes or of different orders. In an independent replay generation by adding a vertex with every possible old neighborhood is exhaustive by deleting a vertex; minimization over degree-compatible labellings removes precisely isomorphisms. This reproduces the class and connected-class counts, verifies no repeats within orders 1–5, and gives exactly the pairs 61/110, 123/685, 927/1751 at values 256, 376, 832. Only the last pair is connected-connected; both of its displayed histograms and all six degree multisets agree.
+
+## originality
+
+PASS
+
+The one-point extension count is a direct application of the known setting and yields a known kind of partition-function specialization. Credit is for the exact first collision and full six-vertex fibre classification, including the connected pair, not for introducing a graph polynomial or the Fraïssé construction.
+
+## value
+
+PASS
+
+The statistic is motivated independently by extension spaces of a natural homogeneous complex. After removing the automatic old-triangle ambiguity, the first collision is an intrinsic boundary rather than a chosen sample size. The census also distinguishes a substantive obstruction: the scalar loses graph information even on connected bases, and it does so already at the first possible order, despite different induced-edge histograms. These exact smallest examples and the absence of other fibres at that order are useful benchmarks for graph reconstruction by type counts and partition-function evaluations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

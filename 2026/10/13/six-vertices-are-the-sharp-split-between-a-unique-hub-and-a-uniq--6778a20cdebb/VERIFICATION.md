@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_degree_center_boundary.py` performs an exact finite replay using only the Python standard library.
 
-Every labeled simple graph through six vertices is generated. Connectivity is independently checked by:
-1. breadth-first search;
-2. union--find.
+# Independent mathematical audit
 
-For every connected graph, all-pairs shortest-path distances are independently computed by:
-1. breadth-first search from every source;
-2. Floyd--Warshall.
+## correctness
 
-The resulting distance matrices must agree exactly. Degree is read directly from adjacency, and eccentricity is the exact row maximum of the distance matrix.
+PASS
 
-The replay verifies:
-- connected labeled counts \(1,1,4,38,728,26704\);
-- degree-maximizer-set versus center-set disagreement counts \(0,0,0,0,400,18480\);
-- distinct unique leader counts \(0,0,0,0,0,720\);
-- exactly two six-vertex conflict isomorphism classes;
-- orbit size \(360\) for each class;
-- representative edge sets \(\{02,04,05,12,13\}\) and \(\{04,05,12,13,14,23\}\);
-- degree vectors \((3,2,2,1,1,1)\) and \((2,3,2,2,2,1)\);
-- eccentricity vectors \((3,3,2,4,4,4)\) and \((3,3,4,4,2,4)\);
-- farness vectors \((8,10,8,14,12,12)\) and \((10,8,11,11,8,14)\);
-- the closeness tie between the competing maximum-degree and center vertices in both classes.
+Independent edge-mask orbit census and exact distance layers reproduce connected labeled counts (1,1,4,38,728,26704), set differences (0,0,0,0,400,18480), and distinct unique choices (0,0,0,0,0,720). The two displayed witnesses have the stated degree, eccentricity and farness vectors, and their disjoint relabeling orbits each have size 360 and exhaust the conflicts. Structurally, in a conflict the hub cannot be universal or have degree n−2 (in the latter case its sole nonneighbor is at distance 2, making the hub a center). Maximum degree at most 2 gives a path or cycle, with no conflicting unique choices. Thus through five vertices conflict is impossible; at six the hub must have degree 3. A vertex at distance at least 3 from it can only attach through its other nonneighbor, which has at most one further neighbor because all nonhub degrees are at most 2. This forces the length-three pendant path off the hub; the only optional edge joins its other two neighbors. This gives precisely the two shapes. In both the distinct hub and center minimize farness jointly. Replay: python /workspace/replay_frozen_graphs.py 4, output /workspace/replay_4.log.
 
-Run:
+## originality
 
-`python3 verify_degree_center_boundary.py`
+PASS
 
-The first output line must be:
+The verified distinct contribution is the unique degree versus minimax center boundary, two first-layer isomorphism classes, and the farness-tie refinement. The same-day 720/26704 centrality comparison in the catalogue is a close numerical match but has a different objective and a disjoint conflict class. The classical definitions and broad qualitative diversity of centralities are not novel.
 
-`VERIFY_OK`
+## value
 
-The exhaustive classification stops at six vertices.
+PASS
+
+A high-degree hub is a natural local placement heuristic; the graph center is the exact minimax placement rule. The first order at which these unambiguous choices split is a useful benchmark distinct from the first set-level difference. The two complete onset shapes isolate a short pendant path as the obstruction, and mean-distance closeness failing to break the tie distinguishes all three notions in a concrete way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

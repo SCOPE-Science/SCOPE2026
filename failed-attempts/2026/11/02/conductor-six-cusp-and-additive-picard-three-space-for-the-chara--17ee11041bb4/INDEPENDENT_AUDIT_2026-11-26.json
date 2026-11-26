@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:21.839021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30",
+        "Frozen VERIFICATION.md lines 19–23, verify.py and requirements.txt, inspected not executed",
+        "Independent replay: python3 /workspace/review_work/klein_exact.py; exact F7 pencil, parametrization and local orders verified"
+      ],
+      "rationale": "The three partials give the unique affine singularity (2,4) over the algebraic closure (Frobenius is injective), and none at infinity. The pencil polynomial is primitive over k[r] since its leading coefficient r+3 and constant −2r² are coprime. Its discriminant r^5(r−3) is nonsquare by odd valuation at r=3, proving irreducibility after inverting u; the excluded lines u=0 and Z=0 are not components. The homogeneous forms give a base-point-free quartic parametrization: W=0 forces s=0, where D is nonzero. The image has degree four and the pullback of a line has degree four, forcing map degree one; the normalization fiber over P is exactly s=0. The cleared-numerator calculations verify orders 2 and 7. In the complete normalized DVR, take a parameter b with u=b² by taking the square root of its unit factor. Subtract the even part of η and divide by its odd part's even unit to obtain b^7 in the completed local ring. The resulting subring k[[b²,b^7]] already has colength three, and the genus formula gives total colength three because P is the only singularity and the normalization is rational. This proves equality, the semigroup, and the conductor b^6. The local-unit quotient for Pic^0 reduces to the finite conductor quotients; truncated log and exp are inverse group morphisms there, also on k-algebra points, since all relevant denominators through degree five are units. The normalized principal-unit space modulo the local subspace has basis represented by b,b³,b^5. Over F7 the only special fiber consists of a single rational point, so normalization gives all stated extension-field point counts.",
+      "residual_risks": [
+        "The bounded reproduction certifies the polynomial identities and order computations only; geometric integrality, unibranchness, the local-unit description and the extension-field count use the proof. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Martin–Stadlmayr passage locates an A6 singularity of the same plane curve by local coordinate calculation.",
+          "The older Resultary proof establishes the actual completed local equation, unique branch and normalization over F7; classical model and smooth-potential-reduction sources are relevant context but not the same curve in characteristic seven."
+        ],
+        "reasoning": "A full analytic type plus a rational normalization is broader information than conductor length and gives exactly the local data for the generalized Jacobian; the smooth hyperelliptic special fiber would not supply those data.",
+        "searches": [
+          "Elkies, The Klein Quartic in Number Theory, §3.4",
+          "Martin–Stadlmayr, RDP del Pezzo surfaces with global vector fields in odd characteristic, §8.1",
+          "Poonen–Schaefer–Stoll, §§3.2, 4.3",
+          "7fbac230b14a, proof of local analytic type and rationality"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue, especially 7fbac230b14a and df3d39436f08",
+        "Martin–Stadlmayr §8.1",
+        "Elkies §3.4",
+        "Poonen–Schaefer–Stoll §§3.2, 4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the earlier ring k[[b²,b^7]]⊂k[[b]], the least conductor exponent is six. Modulo b^6 the local algebra has span 1,b²,b⁴. Apply finite log and exp to normalized principal units and local principal units; the quotient is a three-dimensional vector group over k.",
+          "The earlier normalization is P1 and its Pic^0 is zero; the point is unibranch, so the local conductor quotient is the full connected generalized Jacobian. The displayed degree-four forms select coordinates on the known normalization rather than change it."
+        ],
+        "reasoning": "There is direct prior coverage of the cusp and rationality, and a routine implication for the two extra intrinsic invariants. No prior source is represented as literally printing Ga³ if it only implies it.",
+        "searches": [
+          "7fbac230b14a, RESULT.md finding and analytic equation v²=u^7",
+          "Frozen RESULT.md lines 24–30, local-unit quotient comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "[2:4:1] and [1:2:4] agree over F7; [1:2:−3] is the same point. The prior analytic equation v²=u^7 identifies the completed local ring with k[[b²,b^7]].",
+          "The potentially good smooth model described by Elkies is instead v²=u^7−u after extension, so its Jacobian is not the local-unit group in this claim."
+        ],
+        "reasoning": "The cusp equivalence is at the exact ring and geometric model, not just at the prime, genus, or a singularity label. It therefore controls the conductor and connected Picard group for the rational quartic.",
+        "searches": [
+          "Resultary: Klein quartic characteristic seven, <2,7>, A6, conductor and generalized Jacobian",
+          "7fbac230b14a, local analytic equation",
+          "Martin–Stadlmayr §8.1, same equation in projective coordinates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-a-unibranch-2-7-cusp-on-the-characteristic-seven-klein-quartic-a--7fbac230b14a is a direct prior match on the same special fiber, unique unibranch cusp, semigroup, delta, P1 normalization and point counts.",
+          "The same-day Hessian record df3d39436f08 treats a length-21 Hessian component; it concerns a different invariant."
+        ],
+        "reasoning": "The earlier cusp record covers the intrinsic geometric claims even though it does not state the explicit homogeneous map or label the group Ga³. The Hessian hit is not used as equivalent coverage.",
+        "searches": [
+          "Local Resultary and matched published records: naive characteristic-seven Klein plane quartic cusp, point counts and Picard group"
+        ]
+      },
+      "rationale": "The earlier October 26 Resultary finding already treats the identical naive Klein quartic, establishing the same completed cusp equation, rational normalization, delta invariant and all extension-field point counts. Its local equation mechanically gives both the conductor and the split additive Picard group by the finite conductor unit quotient in characteristic seven. The frozen displayed normalization forms are a coordinate realization of the known normalization and do not make the Finding distinct. This result does not rely on an inaccessible point-count source or on conflating the naive quartic with good reduction.",
+      "residual_risks": [
+        "The precise first publication of the generalized Picard group is not established. The claimed split group already follows from the verified earlier completed local ring, so exact textual priority for that sentence is not needed.",
+        "The Speyer source could not be read; no finding of noncoverage rests on that limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the cusp and point counts and implies both additional intrinsic invariants",
+          "evidence": "Identical quartic; proof gives v²=u^7, semigroup <2,7>, delta three, normalization P1 over F7 and all extension-field point counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-unibranch-2-7-cusp-on-the-characteristic-seven-klein-quartic-a--7fbac230b14a/RESULT.md",
+          "material_read": "RESULT.md offsets 0–5522, finding, completed equation and genus/normalization arguments, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, direct source passages",
+          "title": "A unibranch (2,7) cusp on the characteristic-seven Klein quartic",
+          "trigger": "Earlier exact match on the naive plane model"
+        },
+        {
+          "assessment": "Prior result for the local singularity, not an explicit Picard calculation",
+          "evidence": "The same Klein equation has an A6 singularity at [1:2:−3], with a local coordinate calculation.",
+          "identifier_or_url": "Martin–Stadlmayr, §8.1, printed p. 362",
+          "material_read": "§8.1, PDF p. 17, OA offset 67146",
+          "method": "OA primary PDF text, bounded passage",
+          "title": "RDP del Pezzo surfaces with global vector fields in odd characteristic",
+          "trigger": "Classical-published local singularity overlap on the Klein equation"
+        },
+        {
+          "assessment": "Different reduction model in the smooth statement",
+          "evidence": "The homogeneous quartic model cannot have good reduction mod 7, and the potentially good reduction after extension is described by the smooth hyperelliptic equation v²=u^7−u.",
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "§3.4, printed pp. 82–83, offsets 96700–101897",
+          "method": "OA primary PDF text, bounded passages",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Characteristic-seven reduction of the same classical curve"
+        },
+        {
+          "assessment": "Known equation and context, no local Picard calculation in these passages",
+          "evidence": "Gives the classical quartic equation in the X(7) description.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0508174",
+          "material_read": "§§3.2, 4.3, pp. 5 and 8, offsets 14944 and 23681",
+          "method": "OA primary PDF text, bounded passages",
+          "title": "Twists of X(7) and primitive solutions to x²+y³=z⁷",
+          "trigger": "Arithmetic context and exact Klein equation"
+        },
+        {
+          "assessment": "Not relied upon for the decision",
+          "evidence": "The frozen paper expressly disclaims point-count novelty; the earlier accessible Resultary proof independently supplies the same formula.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/1344069/counting-points-on-the-klein-quartic",
+          "material_read": "No primary passage retrieved; two access attempts returned HTTP 403",
+          "method": "Lawful public-page access attempts",
+          "title": "Counting points on the Klein quartic",
+          "trigger": "Frozen acknowledgement of Speyer's point-count argument"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30",
+        "7fbac230b14a, exact analytic type and P1 normalization"
+      ],
+      "rationale": "The local group is a natural invariant and distinguishes this bad plane model from the smooth reduction. But the exact closed cusp ring and rational normalization were already known here, and characteristic-seven truncated log determines this group with no additional geometric input. A coordinate choice for the known normalization and the standard unit-space quotient do not provide a distinct valuable result in the frozen Finding.",
+      "residual_risks": [
+        "This concerns incremental mathematical content, not the usefulness of explicit normalization coordinates in other calculations or any claim about a different reduction model."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

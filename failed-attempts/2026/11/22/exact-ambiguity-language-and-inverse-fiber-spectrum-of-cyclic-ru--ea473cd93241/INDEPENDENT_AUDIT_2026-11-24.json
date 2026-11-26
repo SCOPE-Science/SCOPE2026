@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:33.182804Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49 and 53–92",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/2ed2ee36-00a4-4a81-8e3d-413a03e2bc04/independent_rule150_check.py; replay with python3; n=3..18"
+      ],
+      "rationale": "The homogeneous difference recurrence on a circular word has a three-periodic nonzero solution or is zero; hence a nonzero difference exists exactly for 3|n. Fixing the kernel difference with zeros in residue r, both admissible sources force the unflipped bits to zero and the flipped neighbors to be unequal, independently giving blocks (0,b_j,1 XOR b_j). Their output is one outside residue r and 1 XOR b_(j-1) XOR b_j in residue r. This cyclic difference map has constants as its two-element kernel and image the even-parity words, giving exactly the claimed Y_r and two preimages per r. Two different r require every output site to be one. The all-one output has the three periodic single-one sources; the other element in its full linear coset is the inadmissible all-one source. Every other multiple fiber has exactly one kernel-difference type and thus size two. Trace of the nth power of the two-state adjacency matrix gives L_n. Summing 2A_2+3A_3 and subtracting from L_n gives A_1; summing all positive fibers proves the image/codebook count. This includes n=3 (one singleton and one triple, no doubles). The failure probability on admissible sources is (3·2^m-3)/L_(3m) on multiples of three and zero otherwise. Independent enumeration through n=18 corroborated these counts and every Y_r, including the pair counts by difference. The comparison to the Fibonacci-cube XOR record in the prior-work prose should distinguish path from cycle, but that does not affect the claim or proof.",
+      "residual_risks": [
+        "The finite check does not replace the all-length kernel and parity argument. No claim for later iterates or rotation quotients is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Lucas-language record additionally classifies iterated fibers for odd n and proves an even-ring second-step collision; its explicit t=1 result covers the entire present census. The four-site golden-mean test 9f7344231b62 treats all elementary rules and supplies noninjectivity witnesses, not the fiber spectrum. Jen's preimage methods are general, but the inspected constrained example is Rule 12; Salo's inspected golden-mean example is Rule 28."
+        ],
+        "reasoning": "The iterative result is genuinely broader in time, and its same-model t=1 portion overlaps exactly. The generic preimage and injectivity studies alone would not establish the exact n-dependence or the ambiguity languages.",
+        "searches": [
+          "Resultary semantic searches for finite golden-mean ECA injectivity and unrestricted-necklace/fixed-weight Rule 150",
+          "ec90f5e076e2 Finding",
+          "Jen, Enumeration of Preimages in Cellular Automata; Salo arXiv:2209.13373"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and prior work",
+        "Local Resultary searches and identified primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "da32a32421a1 Step 2 explicitly allows only independent choices of 100 or 010 per block for difference (110)^m; ec90f5e076e2 §2 explicitly permits 001 or 010 per block for difference (011)^m. Both rotate these cases to every kernel difference and prove the all-one triple.",
+          "For blocks (0,b_j,1 XOR b_j) from either proof after rotation, evaluating the stated update gives the constants 1,1 on the toggled positions and 1 XOR b_(j-1) XOR b_j on the fixed residue. XOR over j enforces the stated parity, and selecting one b and propagating gives all such outputs.",
+          "The separate Fibonacci-cube XOR profile actually treats path words. Aligning the block boundary at a zero of the kernel difference recovers the ordered pair total, but that comparison by itself does not locate which parity outputs collide."
+        ],
+        "reasoning": "The two same-object comparisons do not merely count unordered pairs: their exact pair parametrizations and the given map mechanically imply the proposed Y_r description. The description is a convenient output-coordinate form, not a scientific repair with an independently new remainder. No order between same-day entries is presumed.",
+        "searches": [
+          "da32a32421a1, Proof Steps 1–4 (mirror offset 180 onward)",
+          "ec90f5e076e2, Proof §§1–3 (mirror offset 250 onward)",
+          "Resultary XOR-pair profile 04d47201df94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "da32a32421a1 gives the same indexed domain for n>=3 (also handles n=1,2), identical update, full positive spectrum, all-one triple, attainable count, and exact probability of unique recovery.",
+          "ec90f5e076e2 gives the same n>=3 indexed cyclic language and unrestricted outputs, identical one-step counts and triple, and additional coding statistics."
+        ],
+        "reasoning": "Golden-mean cyclic words and the Lucas language are the same no-adjacent-one indexed sources. There is no quotient, alphabet shift, or time normalization that separates the one-step census in any of these statements. The matching records are distinct from the assigned entry.",
+        "searches": [
+          "Resultary semantic searches for constrained cyclic Rule 150 fibers, restricted-predecessor spectrum and Lucas-language fibers",
+          "Mirrored da32a32421a1 and ec90f5e076e2, Findings and proof passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "da32a32421a1, Finding and Verification examples, gives the whole algebraic histogram and small-n values (1,0,1), (9,3,1), (55,9,1), etc., not merely a computational table.",
+          "ec90f5e076e2 independently indexed Finding states exactly the same formulas for all n>=3.",
+          "The necklace 89cc648da7e1 and fixed-weight 677e628050ab comparison statements do not impose this adjacency constraint; necklace counts also identify rotations."
+        ],
+        "reasoning": "The exact formulas match the same ensemble and make a table comparison conclusive for the census. Other same-rule counts cannot be equated across different source subsets or rotation classes.",
+        "searches": [
+          "Resultary: restricted-predecessor spectrum and Lucas-language Rule 150 fibers",
+          "Resultary: unrestricted cyclic Rule 150 necklace and fixed-weight inverse spectrum"
+        ]
+      },
+      "rationale": "Two distinct indexed records already give the same one-step theorem on the same indexed cyclic no-11 language, including every positive-fiber count, image, and unique all-one triple. Both explicitly classify all collision inputs by kernel difference. The target's more explicit Y_r output test is not verbatim in those records, but the image of their two-choice collision blocks under the same local map is exactly a cyclic binary difference plus a constant; this gives Y_r immediately, not a new unaccounted classification. This establishes overlap and mechanical implication, not a chronological priority award: both indexed records carry the same date as the target, and within-day order is not established.",
+      "residual_risks": [
+        "Chronological priority among same-day entries is unresolved. The decision rests on demonstrable statement and proof-level coverage, not timeline inference or an exhaustive historic literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact census overlap; proof mechanically implies remaining output test",
+          "evidence": [
+            "Identical positive-fiber and recovery formulas, all-one triple; Step 2 lists the complete allowed block choices for each collision difference."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-restricted-predecessor-spectrum-for-cyclic-rule-150-on-the--da32a32421a1",
+          "material_read": "Mirrored RESULT.md offset 180–6140, Finding and Proof Steps 1–5; small-n examples in Verification also located",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact restricted-predecessor spectrum for cyclic Rule 150 on the golden-mean language",
+          "trigger": "Same model and claimed all-length exact spectrum"
+        },
+        {
+          "assessment": "Exact one-step census overlap with additional time/error results; proof mechanically implies Y_r",
+          "evidence": [
+            "Identical n>=3 indexed source and map, complete one-step spectrum and all-one triple; §2 has the exact independent 001/010 block choices for the nonzero kernel difference."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inversion-fibers-of-cyclic-rule-150-on-the-lucas-language--ec90f5e076e2",
+          "material_read": "Mirrored RESULT.md offset 250–4654, Finding and Proof §§1–3",
+          "method": "Local mirror, same snapshot",
+          "title": "Exact inversion fibers of cyclic Rule 150 on the Lucas language",
+          "trigger": "Alias for same constrained language and same observation"
+        },
+        {
+          "assessment": "Path word comparison; collision-pair totals after alignment, not same output spectrum",
+          "evidence": [
+            "Endpoints explicitly not adjacent. With the block phase aligned to the end, the pair profile gives 2^m ordered representatives for the chosen difference."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-xor-representation-profile-and-fourth-walsh-moment-of-fibo--04d47201df94",
+          "material_read": "Mirrored RESULT.md offset 0, Finding, Assumptions and Proof §§1–2",
+          "method": "Local mirror statement inspection",
+          "title": "Exact XOR representation profile and fourth Walsh moment of Fibonacci cubes",
+          "trigger": "Cited explicit XOR-pair method"
+        },
+        {
+          "assessment": "Noninjectivity witness, not census",
+          "evidence": [
+            "Rule 150 fails the stated adjacent effective-output inequality criterion and the three admissible one-ones collide at n=3."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-four-site-losslessness-test-for-elementary-cellular-auto--9f7344231b62",
+          "material_read": "Mirrored RESULT.md offset 0, Finding and proof",
+          "method": "Local mirror statement inspection",
+          "title": "A sharp four-site losslessness test for elementary cellular automata on the golden-mean shift",
+          "trigger": "Broader rule family on the same constraint"
+        },
+        {
+          "assessment": "Common kernel, not equivalent inverse fibers",
+          "evidence": [
+            "One quotients unrestricted words by rotation; the other fixes total Hamming weight, not admissible adjacencies."
+          ],
+          "identifier_or_url": "2026/11/8 89cc648da7e1; 2026/11/22 677e628050ab",
+          "material_read": "Mirrored RESULT.md offsets 0, Findings and relevant opening proof sections",
+          "method": "Local mirror statement inspection",
+          "title": "The exact inverse-degree spectrum of cyclic Rule 150 necklaces; Exact fixed-weight inverse-list spectrum",
+          "trigger": "Same-rule alternative enumeration and possible quotient/weight reduction"
+        },
+        {
+          "assessment": "General methods and unrestricted results in inspected passages",
+          "evidence": [
+            "Constrained examples on p. 450 concern Rule 12; p. 454 lists unrestricted Rule 150 alongside Rules 90 and 204."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "pp. 421–422; p. 450 offset 67300; p. 454 offset 75670",
+          "method": "OA primary PDF passages",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "General nearest-neighbor preimages and constrained sources"
+        },
+        {
+          "assessment": "Different scientific claims in inspected passages",
+          "evidence": [
+            "Salo treats regularity/weak inverses and discusses ECA 28 on the golden-mean shift; Makri–Psillakis count constrained binary patterns, not this Rule 150 spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373; DOI 10.1007/s11009-023-10068-5",
+          "material_read": "Salo PDF p. 1 abstract and p. 9 offset 34677; Makri–Psillakis p. 1 abstract and pp. 11–12 offset 38916",
+          "method": "OA primary PDF passages",
+          "title": "On von Neumann regularity of cellular automata; Distribution of Patterns of Constrained Length in Binary Sequences",
+          "trigger": "Cited CA inverse behavior and constrained-pattern counting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–45 and 69–88",
+        "da32a32421a1, Proof Steps 2–4; ec90f5e076e2, Proof §§2–3"
+      ],
+      "rationale": "Exact inverse fibers are a natural and useful constrained-readout question, but here the main quantitative answer is the same as the existing indexed answers. The only characterized difference is the coordinates of the ambiguous outputs, which come directly from one local rule evaluation on the already explicit collision blocks and the elementary cyclic difference parity test. This is a useful presentation for decoding, not an independently substantial exact invariant beyond the covered result under the review standard. No surviving claim warrants a repair.",
+      "residual_risks": [
+        "This does not diminish the utility of the underlying inverse-fiber question or the correctness of the explicit decoder."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:22.781680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write Q=q^n. Each x≠0 is an idempotent with probability 1/(Q−1) by transitivity on nonzero vectors. Distinct collinear vectors x and tx cannot both work, since then t²=t with t≠0,1. Among the (Q−1)(Q−q) ordered independent pairs, exactly those with dependent coordinatewise squares must be discarded; each remaining pair has joint probability 1/((Q−1)(Q−q)). With mean one this factorial moment is the variance. In characteristic two, squaring is an automorphism and preserves independence. In odd characteristic, for x with r nonzero coordinates, a proportional squared y has (q−1)/2 possible square ratios and 2^r sign patterns per ratio; exactly two patterns give collinear y. Summing binomially over support sizes gives (q−1)((2q−1)^n−2q^n+1)/2 excluded pairs. The r=2 term gives strict positivity of the defect, its expansion gives (2^(n−1)−1)q^(1−n)+O_n(q^(−n)), and n=1 gives the unique nonzero solution x=M^(-1). Independently looping over determinant-nonzero 2×2 matrices and counting solutions among nonzero pairs gives histograms 0:16, 1:20, 2:8, 3:4 over F3 and 0:60, 1:90, 3:30 over F4 (replay with F2[t]/(t²+t+1)), confirming 5/6 and 1. Inspected frozen verification notes and script without executing the uploaded script; the proof covers the universal claim, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 distribution of N+1 is that of 2^dim ker(C−I) for uniform C∈GL_n(F2), for every q=2^e. October 13 covers the binary fixed-space law. These laws do not cover odd q, where squaring is not injective.",
+          "The survey's Galois-group conjecture is generic characteristic zero; its finite-field prediction is asymptotic, not an all-q distribution."
+        ],
+        "reasoning": "The stronger older laws subsume the even variance, but the odd support/sign collisions are absent from them. The survey's limiting prediction does not compute a finite-q defect.",
+        "searches": [
+          "2026/10/25/SCOPE-field-independent-idempotent-count-law-for-characteristic-two-pe--3591a9c3116b/RESULT.md",
+          "2026/10/13/SCOPE-binary-perfect-evolution-algebras-exact-idempotent-spectra-and-i--ad0fd667aaa5/RESULT.md",
+          "arXiv:2610.22248v1, Remark 23 and Conjecture 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.22248v1, Remark 23 and Conjecture 2",
+        "Resultary October 13 ad0fd667aaa5, October 25 3591a9c3116b, November 1 0228f6cc0a9b, November 2 d6208b7fbb9a and e52a1524f840; a6f1df44ea9b catalog summary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 23 uses uniformity of the image of one nonzero input; that says nothing about which ordered pairs survive squaring. A permutation fixed-point limiting law does not determine the finite-q second moment. Isomorphism-class enumeration gives different weights; the full-polynomial-space model cited by the frozen paper does not use uniform invertible square-coordinate systems."
+        ],
+        "reasoning": "The pair-rank exclusion and its closed support/sign count supply information not supplied by the first-moment transitivity argument or the separate models. The advertised agreement is for the limiting variance; it is not a proof of the distributional conjecture.",
+        "searches": [
+          "Primary-literature search: nonzero idempotent variance and second factorial moment for uniform invertible evolution-algebra structure matrices",
+          "arXiv:2610.22248v1, Remark 23 and Conjecture 2",
+          "arXiv:2310.12368v1",
+          "arXiv:2409.06866v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct November 2 result counts nonzero fixed points of x ↦ Mx^[2], with M uniform on GL_n(F_q), and states the same even/odd variance for n≥2. Its prior-work passage refers to the earlier first moment and to isomorphism-class enumeration, not an earlier variance theorem."
+        ],
+        "reasoning": "This is exact statement-level overlap, not a different matrix convention or a similarity in title. The indexed record is later, so it corroborates equivalence but does not establish earlier coverage.",
+        "searches": [
+          "Resultary: finite-field perfect evolution algebra nonzero idempotent variance, uniform invertible matrices",
+          "2026/11/2/SCOPE-exact-variance-of-the-nonzero-idempotent-count-in-random-perfect--d6208b7fbb9a/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later all-field n=2 law includes P(N=2)=(q−1)/(q(q+1)) in odd characteristic and yields the stated n=2 variance. A November 1 exact histogram covers only n=3, q=3. An additional indexed November 2 n=2 candidate (a6f1df44ea9b) could not be read in the mirror."
+        ],
+        "reasoning": "These later exact distributions determine moments in their covered slices; neither replaces an all-dimension odd-characteristic result. The match for arbitrary n is separately recorded above.",
+        "searches": [
+          "Resultary finite-field idempotent count spectra and distributions",
+          "2026/11/2/SCOPE-exact-finite-field-idempotent-law-for-two-dimensional-perfect-ev--e52a1524f840/RESULT.md",
+          "2026/11/1/SCOPE-exact-idempotent-count-spectra-of-three-dimensional-ternary-perf--0228f6cc0a9b/RESULT.md"
+        ]
+      },
+      "rationale": "Credit the earlier mean and the earlier full characteristic-two distribution, not those moments as new. The supported distinct content at the frozen record's date is the uniform all-n exact odd-characteristic variance defect. A distinct November 2 Resultary record states the equivalent general formula and is recorded as direct coverage in the current catalog, not precedence over the October 26 finding. The inspected passage in that later record does not point to earlier coverage of the odd-characteristic formula. No earlier equivalent or mechanically stronger odd-characteristic theorem was identified in the checked material.",
+      "residual_risks": [
+        "Bounded primary-literature and catalog searches cannot rule out an older equivalent result under other terminology.",
+        "The a6f1df44ea9b source text was unavailable; its indexed scope is n=2.",
+        "If the survey's limiting distribution is interpreted along all prime powers, earlier exact characteristic-two laws obstruct it (e.g. n=3 never has exactly two nonzero idempotents for q=2^e). This does not adjudicate a growing-good-prime interpretation and does not affect the variance limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior mean, not the exact finite-q variance",
+          "evidence": "Mean established by uniform image of a vector; the conjecture discusses the generic Galois group and a random-permutation fixed-point prediction as q grows.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22248v1",
+          "material_read": "Remark 23 at text offset 72963; context and Conjecture 2 at 97600 and 100337",
+          "method": "Original OA HTML, located and read by offset",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Identical random ensemble and proposed limiting law"
+        },
+        {
+          "assessment": "Equivalent all-field result in a later record",
+          "evidence": "Same ordered-pair variance defect, sampling and n≥2 range. Its inspected prior-work comparison identifies first-moment and differently weighted results.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-variance-of-the-nonzero-idempotent-count-in-random-perfect--d6208b7fbb9a/RESULT.md",
+          "material_read": "Finding and prior-work passage at offset 6030",
+          "method": "Resultary index and local-mirror source passages",
+          "title": "Exact variance of the nonzero idempotent count in random perfect evolution algebras",
+          "trigger": "Strongest exact catalog match"
+        },
+        {
+          "assessment": "Earlier coverage of the even case only",
+          "evidence": "The full distribution for q=2^e is that of the size of the fixed space of a uniform binary invertible matrix.",
+          "identifier_or_url": "2026/10/25/SCOPE-field-independent-idempotent-count-law-for-characteristic-two-pe--3591a9c3116b/RESULT.md",
+          "material_read": "Finding establishing the fixed-space law",
+          "method": "Resultary index and local-mirror source passage",
+          "title": "Field-independent idempotent count law for characteristic-two perfect evolution algebras",
+          "trigger": "Earlier stronger distribution"
+        },
+        {
+          "assessment": "Stronger for n=2 but later and narrower",
+          "evidence": "Support N∈{0,1,2,3} and complete probabilities determine all second moments in dimension two.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-field-idempotent-law-for-two-dimensional-perfect-ev--e52a1524f840/RESULT.md",
+          "material_read": "Finding with the four probabilities by characteristic",
+          "method": "Resultary index and local-mirror source passage",
+          "title": "Exact finite-field idempotent law for two-dimensional perfect evolution algebras",
+          "trigger": "Exact distribution might imply variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform invertible ensemble and the second factorial moment are motivated by an existing fixed-point prediction. The exact finite-field correction isolates an odd-characteristic obstruction due to square-map projective collisions, distinguishes finite from limiting behavior, and gives the size of the discrepancy uniformly in dimension and field size. This is useful independently of a full distribution and is not a recomputation of the known mean or characteristic-two law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

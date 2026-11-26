@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:19:45.462389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56",
+        "Frozen VERIFICATION.md and verify_cpa.py lines 5–115 (inspected, not executed)",
+        "Independent basis-triple replay /workspace/branches/replay-5.js"
+      ],
+      "rationale": "The normal form works over every commutative k-algebra B, which is needed for the scheme claim, not just for field-valued points. Write R=B⊗K and A=M_α. The derived ideal equals R, and a derivation with t-component a has [D|_R,A]=aA; commuting with A on the right gives 0=[D|_R,f(A)]=aAf′(A). Both A and f′(A) have inverses over k and hence over B, giving a=0. Since R=B[A] is cyclic and free as the regular rank-one R-module, an endomorphism commuting with A is a multiplication. Symmetry and this calculation give precisely (w,b,c), with the converse verified from the derivation formula. The post-Lie identity at (t,1,1) gives cα=0, and at (t,1,t) with c=0 gives bα=b². Conversely the R left multiplications then kill R, commute with each other, and their commutator with L_t is L_[t,x] by b²=αb. Functorially the scheme is the free w affine space times the idempotent scheme of R; over the algebraic closure e_i²−e_i=0 splits into distinct roots including in characteristic two. Frobenius gives a length-d cycle on embeddings, so its s-th power fixes 2^g binary words; inversion by divisors shows the stated necklace multiplicity and the weight q^(de) per Euler factor. Over F_(q^s), choosing j factors gives image eR plus the span of w, with dimensions and counts as in the polynomial (the j=g outside term is zero). The automorphism action preserves b=0,α; for t↦at+u and G on K with GA=aAG, transport sends w to a^(−2)Gw−2a^(−1)bu. Thus no omitted automorphism mixes zero and nonzero w when the translation term vanishes, and multiplication on K is already transitive on nonzero w. Independent basis-triple testing for F2[x]/(x⁴+x+1), α=x, enumerated all 4096 biderivation parameter triples and gave 32 CPA products with ranks 0,1,4 occurring 1,15,16 times. That check assumes the proved normal form, and tests neither geometric smoothness nor the general zeta identity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complex three-dimensional global CPA variety has two varying operations; the 2026 paper does not state the finite-field fixed-bracket fiber. Burde–Moens give a degree-one affine analogue in characteristic zero. Di Bartolo–La Rosa assume completeness, whereas here Der has dimension 2d and ad has dimension d+1, with d≥2. Avetisyan treats derivations and automorphisms of the ambient almost Abelian Lie algebra."
+        ],
+        "reasoning": "Neither a result for perfect/complete brackets nor a global three-dimensional characteristic-zero classification gives this all-degree finite-field scheme. Avetisyan's framework yields useful inputs, but the product equations and their rank and Frobenius consequences still have to be computed.",
+        "searches": [
+          "arXiv:2602.00614v1 §§2.1.2, 3.1–3.2",
+          "arXiv:1512.05096v1 Def. 2.2 and Example 2.16",
+          "arXiv:2307.15750v1 Prop. 3.1",
+          "arXiv:1610.05365v2 Props. 7, 11, 13"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons above",
+        "arXiv:2602.00614v1",
+        "arXiv:1512.05096v1",
+        "arXiv:2307.15750v1",
+        "arXiv:1610.05365v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 2.16 has a free parameter and a scalar equation α(α−2)=0 in dimension two. A1 supplies split product examples in dimension three, and G1 concerns pairs of operations in dimension three over C. None gives the fixed-bracket scheme identities over general base rings or a Frobenius action on its split components."
+        ],
+        "reasoning": "Independent split coordinates in every d, the idempotent equation over the actual étale base algebra, and the span of w outside the selected factors are the ingredients determining the extension counts and rank profile. Neither the low-dimensional classifications nor almost-Abelian derivation structure alone implies these formulas.",
+        "searches": [
+          "Burde–Moens Example 2.16",
+          "Abdelwahab–Abdurasulov–Kaygorodov Theorems A1 and G1",
+          "Avetisyan Props. 7, 11, 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match 6c19e12d8868 is the frozen record itself. A distinct result cc2649f186e7 shares a degree-two commutator Lie algebra but studies endomorphisms satisfying a pre-Lie Nijenhuis condition. Complex three-dimensional CPA examples P05 and P12–P14 in A1 include the w-only, full-action, and mixed-action patterns for related split brackets."
+        ],
+        "reasoning": "Fixing the underlying bracket and the base field is essential. A Nijenhuis operator is not a symmetric product. The complex isomorphism list exhibits related and partly overlapping split product forms, but it is not a classification over arbitrary characteristic of product coordinates on a fixed bracket, including its arithmetic forms and descent.",
+        "searches": [
+          "Resultary: CPA products on almost-abelian and affine Lie algebras, rank polynomials, and Galois-descent geometry",
+          "Web: commutative post-Lie algebra structures almost Abelian metabelian solvable Lie algebras split regular semisimple action classification",
+          "arXiv:2602.00614v1 Theorem A1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cc2649f186e7 gives rank counts, extension counts and four components for operators on a related three-dimensional pre-Lie algebra; 5243394a1762 tabulates ranks of idempotent Lie-Nijenhuis maps, and 0e69fccd676e counts Lie retractions. A1 lists complex CPA isomorphism classes, including pertinent split patterns."
+        ],
+        "reasoning": "These exact lists do not count image ranks of bilinear CPA products on the specified fixed finite-field bracket. Even matching numeric exponents or component counts would not identify the parameter schemes or their Frobenius action.",
+        "searches": [
+          "Resultary cc2649f186e7, 5243394a1762, 0e69fccd676e",
+          "arXiv:2602.00614v1 Theorem A1 table"
+        ]
+      },
+      "rationale": "The distinct claim is the fixed-bracket CPA scheme and its arithmetic and image-rank classification for every irreducible invertible action of the stated form over finite fields. The degree-one affine example and some dimension-three split product forms are prior; general structural Lie-algebra results and similarly shaped Nijenhuis results do not give the target census.",
+      "residual_risks": [
+        "No exhaustive literature or priority claim. The complex dimension-three list is prior evidence for some split forms and is not credited as new here.",
+        "The v1 introduction and formal G1 statement of arXiv:2602.00614 disagree on the dimension/component count of the global variety; neither count is used to exclude overlap with individual split forms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material low-dimensional split overlap, not the finite-field fixed-bracket scheme, its rank census or descent",
+          "evidence": [
+            "P05 has a product supported on e1·e1 for a diagonal almost Abelian bracket; P12–P14 list mixed or full-action forms; the field is C and G1 varies both operations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.00614v1",
+          "material_read": "Theorem A1 §2.1.2 pp. 8–9, offset 24700; field assumption p. 3; global variety definition §3.1 p. 23 and Theorem G1 §3.2 p. 26",
+          "method": "Lawful OA PDF; direct check of table entries",
+          "title": "The algebraic and geometric classification of commutative post-Lie algebras",
+          "trigger": "A general CPA classification could include split almost Abelian Lie algebras"
+        },
+        {
+          "assessment": "Degree-one characteristic-zero analogue only",
+          "evidence": [
+            "Borel example has the equation α(α−2)=0 and a free parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.05096v1",
+          "material_read": "Def. 2.2 p. 2 and Example 2.16 p. 6",
+          "method": "Lawful OA PDF (offsets about 6186 and 17200)",
+          "title": "Commutative post-Lie algebra structures on Lie algebras",
+          "trigger": "Affine CPA classification and standard identities"
+        },
+        {
+          "assessment": "Completeness hypothesis excludes the target",
+          "evidence": [
+            "Completeness requires Der=ad; dimensions here differ by d−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.15750v1",
+          "material_read": "§3 and Prop. 3.1 p. 6",
+          "method": "Lawful OA PDF (offset 20200)",
+          "title": "Biderivations of complete Lie algebras",
+          "trigger": "Biderivation structure theorem potentially applicable"
+        },
+        {
+          "assessment": "Structural input, not a CPA variety or rank classification",
+          "evidence": [
+            "Determines relevant automorphisms and derivations generally."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.05365v2",
+          "material_read": "Prop. 7 pp. 11–12; Props. 11 and 13 p. 14",
+          "method": "Lawful OA PDF (offsets 35800 and 44000)",
+          "title": "The structure of almost Abelian Lie algebras",
+          "trigger": "General derivation and automorphism formulas for ambient objects"
+        },
+        {
+          "assessment": "Different parameter object, even on the shared Lie algebra; same date does not order work",
+          "evidence": [
+            "Counts pre-Lie Nijenhuis operators by rank, not CPA products."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/cc2649f186e7",
+          "material_read": "Finding and comparison around offsets 0 and 9600",
+          "method": "Local Resultary mirror",
+          "title": "Quadratic Galois descent in a three-dimensional pre-Lie Nijenhuis problem",
+          "trigger": "Similar degree-two Galois geometry and same commutator bracket"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–38 and 48–56",
+        "Comparisons in axes.originality"
+      ],
+      "rationale": "For a natural irreducible-action family, the result explains why the rational product census sees only two choices of action while the geometric fiber has exponentially many components, and precisely how scalar extension makes new ranks appear. The all-degree zeta and rank formulas are usable on the fixed Lie algebra without reclassifying products after each extension. The result adds arithmetic and image information beyond known ambient-algebra structure or low-dimensional models.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

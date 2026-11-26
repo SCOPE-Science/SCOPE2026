@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:26:40.676709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions–Verification",
+        "Frozen VERIFICATION.md and checker.py",
+        "/workspace/review-evidence/reproduce.py (ordinal 2)"
+      ],
+      "rationale": "The reset generator is L0 + r(rho0 Tr − I); evolution forgets the initial state because the no-reset fraction decays as exp(−r t). In the stationary trace-one system, if n is the double-excitation population, u,w are the single-excitation populations and h is the Bell coherence, then 0=r/2−(r+S)n, 0=gamma1 n−(r+gamma2)u, 0=gamma2 n−(r+gamma1)w, and 0=r/2−(r+S/2)h. These equations recover the announced density; all other coherences vanish and the normalized reset mixture is positive. The correlation diagonal (t,−t,v) gives B by the Horodecki criterion for binary qubit measurements with both outcomes, and the X-state spin-flip expression yields C>0 and strict decrease with Q, including the Q=0 endpoint. The numerator of v−t is an affine increasing function of Q with sole root Qc; Qc/S² grows from 0 to 1/4 as r/S reaches 1, and v increases in Q. On 0<r≤S the equal-loss envelope satisfies 1−t²−v_bal²>0, since S³+S²r−r³≥S³>0; also 2t²<1 there. Above S the transverse branch decides the equality and violation threshold. Thus the full invariance for r≥S, the low-rate flat/strictly increasing branches, and the exact examples all hold. Independent symbolic replay: `python /workspace/review-evidence/reproduce.py 2` derives the stationary system and checks the witness numerator, envelope and four examples. The continuum conclusions are analytic; the bundled numerical checker was inspected, not run.",
+      "residual_risks": [
+        "Only unconditional projective CHSH with two nontrivial outcomes per local qubit observable is meant. Allowing trivial ±I observables would permit an always-saturating value 2 and change the numerical below-threshold statement, not the violation threshold.",
+        "No noisy, filtered, unequal-reset-time or non-Markovian extensions were verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Majumdar Eqs. (2)–(3) already give the regenerative averaging identity but use closed Hamiltonian dynamics in the spin example.",
+          "Carollo–Lesanovsky–Garrahan's abstract concerns reset intervals and open-system trajectory statistics; Wald et al. treat discrete-time unitary resetting."
+        ],
+        "reasoning": "General stationary averaging does not on its own compare the singular-value branches, bound the balanced envelope, or establish strict concurrence ordering at fixed S. Equal dephasing in the earlier Resultary theorem does not replace unequal loss.",
+        "searches": [
+          "Bounded scholarly search: unequal amplitude damping, Poisson Bell-state resetting and CHSH ordering",
+          "arXiv:2307.07485v2",
+          "arXiv:2310.06981v2",
+          "arXiv:2410.11497v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-a-sharp-bell-nonlocality-phase-boundary-under-poisson-bell-pair--2d77b15719bb",
+        "arXiv:2307.07485v2",
+        "arXiv:2310.06981v2",
+        "arXiv:2410.11497v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier result uses u=x/(x+b), v=(x²+x+2)/((x+1)(x+2)), and tests 2 sqrt(u²+max(u²,v²)). Its witness switch changes x or b under equal damping; Q is fixed by S in that theorem.",
+          "The present v−t numerator is (S²+3Sr+4r²)Q−Sr²(S+r); its sign and the balanced envelope prove assertions spanning Q=0 to S²/4 which the earlier theorem does not compare."
+        ],
+        "reasoning": "The symmetric specialization is already proved, but neither it nor the inspected renewal identity implies the asymmetric witness switch, fixed-total robustness or opposite ordering without additional argument.",
+        "searches": [
+          "Earlier Resultary RESULT.md, offsets 0–4634 and 2500–6015",
+          "arXiv:2307.07485v2, p. 2, Eqs. (2)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary RESULT uses x=r/gamma and b=1+4 kappa/gamma with the same rate gamma on both sites; at b=1 its exact threshold is x=1+sqrt(2).",
+          "The Poisson-age mixture is already Kulkarni–Majumdar Eq. (3). The Horodecki and concurrence formulas are standard inputs, not the new statements."
+        ],
+        "reasoning": "Interchanging the two loss baths leaves Q invariant; it does not map an asymmetric split to Q=S²/4. The equal-loss, zero-dephasing substitution recovers one cross-section, not the behavior as Q varies.",
+        "searches": [
+          "Resultary: unequal local amplitude damping, joint Poisson Bell-state reset, fixed total loss and CHSH/concurrence",
+          "SCOPE-a-sharp-bell-nonlocality-phase-boundary-under-poisson-bell-pair--2d77b15719bb",
+          "arXiv:2307.07485v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Focused lookup surfaced the frozen record itself and the preceding equal-loss result. The latter tabulates or expresses a sharp phase boundary in x,b, not in Q at fixed S,r."
+        ],
+        "reasoning": "The exact object tested is a continuum classification, not isolated diagnostics. Matching the symmetric threshold is genuine partial coverage, not an all-Q table or formula.",
+        "searches": [
+          "Resultary: asymmetric Bell reset, loss-blind CHSH threshold; unequal-loss concurrence and witness switch",
+          "SCOPE-a-sharp-bell-nonlocality-phase-boundary-under-poisson-bell-pair--2d77b15719bb"
+        ]
+      },
+      "rationale": "The equal-loss boundary and two-branch CHSH expression are prior coverage. The supported distinct contribution is the complete fixed-total-loss comparison across unequal and one-sided damping: the invariant violation boundary, full high-reset invariance, loss-product witness switch and opposing concurrence/Bell ordering on the longitudinal branch. Actual inspected reset methods and the equal-loss theorem do not give that cross-allocation classification.",
+      "residual_risks": [
+        "Bounded evidence is not a priority certificate; a more general asymmetric two-qubit channel comparison could contain an equivalent result.",
+        "The open-system and discrete-time comparisons are bounded to the specified passages, not whole-paper exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact symmetric special case; no all-loss-split comparison in the inspected claims",
+          "evidence": "Common gamma, common kappa; X(1)=1+sqrt(2), corresponding to r_c=(1+sqrt(2))S/2 only with S=2 gamma in that theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-bell-nonlocality-phase-boundary-under-poisson-bell-pair--2d77b15719bb",
+          "material_read": "RESULT.md statements and comparison/proof passages at offsets 0–4634 and 2500–6015",
+          "method": "Resultary lookup and local mirror; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp Bell-nonlocality phase boundary under Poisson Bell-pair reinitialization and local decoherence",
+          "trigger": "Same reset state and Bell observable; direct threshold-overlap risk"
+        },
+        {
+          "assessment": "Overlaps renewal identity, not the asymmetric damping classification",
+          "evidence": "Stationary exponential-age average; closed Hamiltonian spin example with down/down reset.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.07485v2",
+          "material_read": "p. 2, Eqs. (2)–(3), searchable text offset 10987",
+          "method": "Lawful OA paper, selected passage",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "General Poisson-reset stationary entanglement"
+        },
+        {
+          "assessment": "Abstract-level context only",
+          "evidence": "Reset-interval statistics and quantum trajectories; this inspected passage does not supply optimized unconditional CHSH ordering.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.06981v2",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA paper, offset 0",
+          "title": "Universal and nonuniversal probability laws in Markovian open quantum dynamics subject to generalized reset processes",
+          "trigger": "Open-system resetting"
+        },
+        {
+          "assessment": "Different update model in the inspected passage",
+          "evidence": "Discrete-time dynamics rather than continuous independent amplitude-damping semigroups.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11497v3",
+          "material_read": "p. 1, searchable text near offset 3500",
+          "method": "Lawful OA paper, selected passage",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Reset-generated few-qubit correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Concrete diagnostic separation"
+      ],
+      "rationale": "At fixed total decay, each diagnostic answers a different question about a physically meaningful loss imbalance. The exact switch explains when an optimized Bell test is blind even as entanglement changes, and when the two diagnostics rank loss allocations oppositely. This is a structural, all-parameter distinction, not simply a stationary matrix computation or a repetition of the equal-loss threshold.",
+      "residual_risks": [
+        "Idealized joint Bell reset and zero-temperature semigroup with no Hamiltonian or filtering; not an experimental performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

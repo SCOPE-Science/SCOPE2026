@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:03:41.824880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Edge differences form the zero-sum hyperplane and the Lipschitz norm is precisely the maximum of edge slopes, since paths bound all pairwise slopes and every edge is shortest. Changing coordinates gives max(|u|+|w|,(|v|+|w|)/t). Duality preserves the real Euclidean distance, and swapping u,v with a scalar realizes inversion of t. For t≥1 sign averaging preserves the quadratic sandwich and removes off-diagonal entries without raising distortion. On the unit norm body the maximal diagonal energy occurs at |w|=0 or 1: the upper corner energy a(1-z)^2+b(t-z)^2+cz^2 is convex. The reverse squared norm has exact Cauchy–Schwarz maxima 1/a+1/c and (1/b+1/c)/t². Normalize the reverse maximum to 1; at each h=1/c in (0,1) the smallest feasible a=1/(1-h), b=1/(t²-h) minimize the forward maximum. The two branches then strictly increase and decrease respectively. Their difference has numerator −(2t+1)(h−t)(h−t/(2t+1)) over h(1−h)(t²−h); only the second root is admissible, also at t=1. It follows that the displayed Q is optimal and the squared distance is 3−2(t−1)/((t+1)(2t−1)). Its derivative has sign t−2, giving the two reciprocal unique minima with squared value 25/9 and the uniform and degenerate limits 3. The displayed Q is in dual coordinates for t≥1, with t<1 handled by the swap/scaling. Frozen check.py is an exact rational finite check, not a continuum proof; independently verified contact candidates and off-optimum controls at five ratios with Fraction, replay python3 /workspace/branches/independent_finite_checks.py (check 2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexander–Fradelizi–García-Lirola–Zvavitch identify the equal-edge four-cycle with a cube free-space ball; unequal cycle weights do not give that cube/zonotope case.",
+          "Dilworth–Kutzarova–Ostrovskii discuss comparisons with ℓ1 and cycle structure; the edge quotient gives a general model but leaves the Euclidean optimization to be done."
+        ],
+        "reasoning": "The known cube (dually octahedron) gives sqrt(3) at t=1. Neither the zonotope characterization nor the reviewed ℓ1 comparisons solve the general Hilbert distortions here.",
+        "searches": [
+          "arXiv:1911.10642 Corollary 3.8 and Proposition 3.9",
+          "arXiv:1807.03814 §2",
+          "arXiv:2112.02689 Proposition 1.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.02689",
+        "arXiv:1911.10642",
+        "arXiv:1807.03814",
+        "arXiv:1507.02701",
+        "Resultary:1b1292e047f1",
+        "Resultary:38cb69cb8edd",
+        "Resultary:13d7bdc76366",
+        "Resultary:a1cf1bcec8eb",
+        "Resultary:defbb48b70e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In both alternating and nonredundant one-defect cases, all four antipodal vertex pairs are exposed: one edge slope can reach equality while the other three cycle slopes close strictly inside their bounds. The unique linear dependence of the chosen four normalized edge directions has coefficient magnitudes proportional to the four edge lengths.",
+          "An isomorphism between these primal balls would preserve vertex pairs and hence those coefficient magnitudes up to common scale and permutation. The alternating pattern is 2+2 for t≠1 whereas a nonuniform one-defect pattern is 3+1."
+        ],
+        "reasoning": "Thus the one-defect formula is not transferable by a linear renaming even though the same minimum value occurs. The general edge model identifies the right body, but its implications stop before the diagonal sandwich minimax and strict optimal ratios.",
+        "searches": [
+          "Resultary:1b1292e047f1 and 38cb69cb8edd exact hypotheses",
+          "arXiv:1911.10642 Corollary 3.8 and Proposition 3.9",
+          "Resultary:a1cf1bcec8eb Finding and proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ostrovska–Ostrovskii Proposition 1.5 models TC(X) as weighted edge ℓ1 modulo cycle space; for C4 this is a one-dimensional quotient relation.",
+          "a1cf1bcec8eb Finding and proof §1 use conv{±(e_i−e_{i+1})/a_i}; it includes a=(1,t,1,t). Later defbb48b70e7 uses the identical primal body at w_i=1/a_i and characterizes its Minkowski decomposability when weights come in pairs."
+        ],
+        "reasoning": "The polar of the common primal polytope is exactly the space of Lipschitz slopes used in the proof. These descriptions cover the object, but volume and Minkowski-decomposition conclusions are not the minimum sandwich factor between nested homothetic ellipsoids.",
+        "searches": [
+          "weighted cycle Lipschitz-free transportation space exact Banach-Mazur distance Euclidean ellipsoid alternating edge lengths",
+          "arXiv:2112.02689 Proposition 1.5",
+          "Resultary:a1cf1bcec8eb",
+          "Resultary:defbb48b70e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1b1292e047f1 gives an exact Euclidean squared distance with a 25/9 plateau for the real (1,1,1,r) family; 38cb69cb8edd gives 3(7+λ²)/(9−λ²) for the short-defect real C4; 13d7bdc76366 covers the uniform cycle and its scalar parity.",
+          "Same-date a1cf1bcec8eb is about Mahler volumes, and later defbb48b70e7 is about decomposition."
+        ],
+        "reasoning": "The explicit nearby exact results do not record an alternating t-profile. The matching minimum number from the long-defect family is materially relevant but does not identify another point or curve of this family's distance.",
+        "searches": [
+          "Resultary:1b1292e047f1",
+          "Resultary:38cb69cb8edd",
+          "Resultary:13d7bdc76366",
+          "Resultary:a1cf1bcec8eb",
+          "Resultary:defbb48b70e7"
+        ]
+      },
+      "rationale": "The edge-quotient model and t=1 cube endpoint are known. The prior one-defect family already realizes the same numerical minimum, but does not give this alternating profile or its isolated minimizers. Strong same-object catalogue overlaps give volumes and a later Minkowski decomposition, not an exact Euclidean distortion solution. The verdict is for the alternating profile and its sharp ratio characterization, not for transport duality, sign averaging, or the number 5/3 in isolation.",
+      "residual_risks": [
+        "A focused, bounded literature search did not establish an equivalent exact ellipsoid formula in another polytope representation; older results under different terminology may be poorly indexed.",
+        "Same-date catalogue evidence establishes overlap of object, not within-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known weighted edge quotient, not an exact Hilbert-distance profile",
+          "evidence": [
+            "TC(X)=ℓ_{1,d}(E)/Z for the weighted graph cycle subspace Z."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.02689",
+          "material_read": "Proposition 1.5, PDF pp. 5–6 (OA offsets 14351, 18991)",
+          "method": "OA PDF passages",
+          "title": "Isometric structure of transportation cost spaces on finite metric spaces",
+          "trigger": "Equivalent graph transport norm"
+        },
+        {
+          "assessment": "Covers equal-edge case, not unequal alternating distance",
+          "evidence": [
+            "The four-point cube case is the equal-edge four-cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.10642",
+          "material_read": "Corollary 3.8 and Proposition 3.9, PDF pp. 9–10 (offsets 46540, 47910)",
+          "method": "OA PDF passages",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Cube and zonotope benchmark"
+        },
+        {
+          "assessment": "Related exact distortion and same minimum number, but different weights and attainment set",
+          "evidence": [
+            "(1,1,1,r), 1<r<3, squared plateau 25/9 for r in [3/sqrt(5),2]."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-distortion-of-a-one-defect-four-cycle-transporta--1b1292e047f1",
+          "material_read": "Mirrored RESULT.md exact real formula and parameter range",
+          "method": "Local Resultary and mirror statement",
+          "title": "Exact Euclidean distortion of a one-defect four-cycle transportation space",
+          "trigger": "Strongest earlier exact Hilbert-distance comparison"
+        },
+        {
+          "assessment": "Includes precisely this body, but computes another invariant; no within-day priority inferred",
+          "evidence": [
+            "Normalized signed-edge convex hull and exact volumes/Mahler product."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-mahler-volumes-of-arbitrary-weighted-cycle-lipschitz-free--a1cf1bcec8eb",
+          "material_read": "Mirrored RESULT.md Finding and proof §1 at offset 0",
+          "method": "Local Resultary and mirror statement",
+          "title": "Exact Mahler volumes of arbitrary weighted cycle Lipschitz-free spaces",
+          "trigger": "Same-date broader weighted family"
+        },
+        {
+          "assessment": "Exact geometric overlap, but later dated and not the BM result",
+          "evidence": [
+            "Two equal pairs give a cross-polytope plus segment decomposition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-weighted-four-cycle-symmetric-edge-polytopes-exact-minkowski-dec--defbb48b70e7",
+          "material_read": "Mirrored RESULT.md stated weighted polytope and decomposition criterion",
+          "method": "Local Resultary and mirror statement",
+          "title": "Weighted four-cycle symmetric edge polytopes: exact Minkowski decomposition",
+          "trigger": "Same-object structure theorem in reciprocal weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-cycle is the first cyclic transport example beyond trees and the alternating weights are a natural one-parameter deformation retaining opposite-edge symmetry. The exact optimum supplies a nonmonotone contrast with the cube endpoint and a one-defect plateau, identifies the precise best deformation, and produces the sharp quadratic comparison. General norm equivalences do not answer these questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

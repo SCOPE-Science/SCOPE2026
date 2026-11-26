@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:35.972411Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the edge-spin convention, the interaction centered at a vertex v of K_n is J[(n−1−2d_v)²−(n−1)]/2; each bond of the line graph is counted exactly once. The field contributes hΣd_v−h binom(n,2), so the specified h gives C_n+2JΣ(d_v−1)². Handshaking forces odd square defect, and using respectively one and three isolates with the other vertices matched attains 1 and 3 at every stated n, giving gap 4J. At defect one the only components beyond isolated matched pairs are one isolate or one length-two path, giving the stated D_0. At defect three the exceptional degrees are exactly three zeros and/or twos. Degree-one endpoints canonically orient each matched endpoint pair, so orders and weak compositions of the labeled degree-two vertices count the paths without duplication. The only possible cycle is the triangle on all three exceptional vertices, with the remaining endpoints directly matched. The four terms simplify to 1/3+4m/3+m²+m³/6 after extracting the common factorial/double-factorial; the ratio and cubic asymptotic agree. Parity forces all remaining energies to be at least E_0+8J, and the finite-state remainder is for fixed n. In a separate bounded check of the original spin Hamiltonian, all 1024 configurations at n=5 and J=1 gave the two lowest (energy,multiplicity) pairs (−18,45), (−14,170). The frozen verify_excited.py and its reported n=5,7 checks were inspected, not executed. Neither finite check is the proof for arbitrary odd n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The field-staircase record gives Φ_n(r)=[z^r]∏_{i<j}(1+z_i z_j) for fixed labeled degree vector. ArXiv:2101.02299 gives a general recurrence over neighbor sets and discusses the graph enumerator polynomial. Dyer et al. approximate/sample on line graphs, while the two-star papers use ensembles weighted by edges and two-stars."
+        ],
+        "reasoning": "These frameworks specify or compute counts in principle, and the first one is genuinely on the identical physics. The abstract recurrence/coefficient representation, approximation results, and broader two-star weights do not present an evaluated all-odd-order shell count.",
+        "searches": [
+          "52d8a4d1d9f0 primary RESULT.md, offsets 0–4925",
+          "arXiv:2101.02299 Theorem 1.1 and Eq. (1.3)",
+          "Dyer et al. arXiv:2005.07944; Park–Newman cond-mat/0405457; Annibale–Courtney arXiv:1504.06458"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_excited.py",
+        "Resultary exact-shell, formula, field-staircase and labeled-degree searches; 52d8a4d1d9f0 and 9d1b3f7893a4 primary records",
+        "arXiv:2101.02299",
+        "arXiv:2509.08296",
+        "arXiv:2005.07944",
+        "arXiv:1305.4606",
+        "arXiv:cond-mat/0405457",
+        "arXiv:1504.06458"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older staircase energy gives the same square defect at the audited field, with parity and an elementary matching witness fixing the first positive gap. Summing its Φ_n over degree-zero/two assignments at exactly three labels formally specifies D_1. The evaluated value needs the number of ways to place the degree-two labels in paths and one additional cycle contribution when all three are degree two."
+        ],
+        "reasoning": "No originality credit for field, ground sectors, degree energy, or a generic exact coefficient for a specified degree vector. The nontrivial part that survives is the closed evaluation: performing that structural count, rather than simply setting the field in a stronger explicit result, produces the polynomial and its relative cubic prefactor.",
+        "searches": [
+          "52d8a4d1d9f0 primary RESULT.md ground and degree-coefficient passages",
+          "arXiv:2101.02299 p.2, Theorem 1.1 and Eq. (1.3)",
+          "Betre–Lewis arXiv:2509.08296v1 Eq. (91) and n=7 patterns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary 52d8a4d1d9f0 treats exactly the same labeled L(K_n) model, including h=2J(n−3); its energy formula exhibits the degree-profile formulation. Betre–Lewis arXiv:2509.08296v1 pp.25–27 use an equivalent line-graph Ising energy and illustrate n=7 ground patterns. Resultary 9d1b3f7893a4 instead uses n(n−1) ordered-pair spins and reversal edges."
+        ],
+        "reasoning": "The counting problem is precisely that of simple labeled negative-edge subgraphs with three exceptional degrees in {0,2} and all other degrees one. Counting ground sectors or ordered-pair graph configurations is not this defect-three enumeration.",
+        "searches": [
+          "Resultary: triangular graph line-graph Ising field staircase, first excited level and exact D_1 formula",
+          "Literature: labeled simple graphs prescribed degree sequence 1 and 2 exact enumeration paths cycles formula number degree one degree two vertices triangular graph Ising excitation multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed prior match gave the special ground degeneracy and implicit degree-vector counts, not an explicit D_1 polynomial. The literature hit gives a generic enumeration recurrence, not the inspected shell formula. No sequence identifier was supplied in the package; no table exclusion is claimed."
+        ],
+        "reasoning": "Matching a finite value such as 170 or the ground-state double-factorial count would not identify the all-n second energy shell. The strongest inspected earlier formula is an exact unevaluated count, not a table for this level.",
+        "searches": [
+          "Resultary exact first excitation/shell and formula searches; labeled degree-defect enumeration",
+          "Literature prescribed-degree enumeration query and arXiv:2101.02299"
+        ]
+      },
+      "rationale": "The same-graph field-staircase theorem already establishes the special ground sector and D_0 and gives a degree-profile energy with a general multivariate coefficient enumerator. This is material overlap: the simple parity argument for the 4J gap is also accessible from that energy identity, and the prior enumerator determines multiplicities implicitly. The supported distinct claim is the closed evaluation of the complete defect-three level for every odd n by the path/triangle decomposition, with its resulting cubic relative coefficient. The inspected general enumerators do not supply that evaluation; a prescribed degree sequence and coefficient extraction identify the count but do not evaluate it into this formula by direct substitution.",
+      "residual_risks": [
+        "A stronger explicit closed formula for labeled simple graphs of prescribed counts of degrees zero, one and two might supply the evaluation; the bounded lookup did not establish such coverage. The older field-staircase result is already a source for the degree energy and exact implicit multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ground and degree-reduction coverage, implicit exact route to first shell, no evaluated defect-three formula in compared passages",
+          "evidence": [
+            "States ground coexistence and degeneracy at h=2J(n−3); energy by degrees and multivariate coefficient ∏(1+z_i z_j)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-finite-size-field-staircase-and-parity-defect-transition-f--52d8a4d1d9f0",
+          "material_read": "RESULT.md offsets 0–4925, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary text",
+          "title": "Exact finite-size field staircase and parity-defect transition",
+          "trigger": "Exact same Hamiltonian, special field and parity regime"
+        },
+        {
+          "assessment": "Different underlying graph and ground-state observable; no priority inference from same date",
+          "evidence": [
+            "Ordered pairs with row cliques and reversal edges, n(n−1) spins rather than binom(n,2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-parity-staircase-for-the-classical-ising-antiferromagnet-o--9d1b3f7893a4",
+          "material_read": "RESULT.md model and finding",
+          "method": "Local mirror primary text",
+          "title": "Exact parity staircase for the classical Ising antiferromagnet on an ordered-pair graph",
+          "trigger": "Distinct indexed field-staircase match"
+        },
+        {
+          "assessment": "Exact generic recurrence and polynomial, not a direct evaluated equality for the shell",
+          "evidence": [
+            "The counting recurrence deletes a vertex and sums over subsets of its neighbors; discusses the edge-product enumerator polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.02299",
+          "material_read": "PDF pp.1–3, Theorem 1.1 and Eq. (1.3), decisive text offset 7990",
+          "method": "OA primary PDF text",
+          "title": "Enumerating Labeled Graphs that Realize a Fixed Degree Sequence",
+          "trigger": "Strong general exact enumeration alternative"
+        },
+        {
+          "assessment": "Model-level overlap; inspected passages do not give the explicit shell count",
+          "evidence": [
+            "Ising Hamiltonian on L(K_N) with parameterized field and coupling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.08296",
+          "material_read": "PDF pp.25–27, Eq. (91) and n=7 ground patterns (offsets about 146000–155975)",
+          "method": "OA primary PDF text",
+          "title": "Dynamical Quantum Multigraphs",
+          "trigger": "Equivalent triangular-graph model and low-energy discussion"
+        },
+        {
+          "assessment": "Approximation and sampling, not exact low-lying multiplicities",
+          "evidence": [
+            "Results address efficient approximation and sampling on general line graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.07944",
+          "material_read": "v2 PDF p.1",
+          "method": "OA primary PDF text",
+          "title": "Polynomial-time approximation algorithms for the antiferromagnetic Ising model on line graphs",
+          "trigger": "General antiferromagnetic line-graph partition functions"
+        },
+        {
+          "assessment": "Different graphs and ground entropy, not the first excitation on L(K_n)",
+          "evidence": [
+            "Treats ladders and kagome."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1305.4606",
+          "material_read": "v2 PDF p.1",
+          "method": "OA primary PDF text",
+          "title": "Antiferromagnetic Ising model saturation field entropies: ladders and kagome lattice",
+          "trigger": "Related special-field residual entropy"
+        },
+        {
+          "assessment": "Ensemble context, no particular shell enumeration in this passage",
+          "evidence": [
+            "Graph weight in terms of edges and two-stars."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0405457",
+          "material_read": "PDF model section, text offset about 7201",
+          "method": "OA primary PDF text",
+          "title": "Solution of the two-star model of a network",
+          "trigger": "Equivalent degree-square ensemble weighting"
+        },
+        {
+          "assessment": "Ensemble context not the finite first shell",
+          "evidence": [
+            "Discusses two-star statistics and regularity at fixed edge count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.06458",
+          "material_read": "Abstract and PDF p.6 (text offset about 20687)",
+          "method": "OA primary PDF text",
+          "title": "The two-star model: exact solution in the sparse regime and condensation transition",
+          "trigger": "Related degree-regularity and graph-ensemble formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first finite-temperature coefficient at a field where the ground sectors are parity-degenerate, a natural quantity not determined explicitly by the zero-temperature staircase. The all-odd-order count resolves the contribution of both paths and the triangle and shows a cubic relative enhancement that an unevaluated degree-vector sum does not expose. The claim wisely stays at fixed n and does not infer a joint-limit transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

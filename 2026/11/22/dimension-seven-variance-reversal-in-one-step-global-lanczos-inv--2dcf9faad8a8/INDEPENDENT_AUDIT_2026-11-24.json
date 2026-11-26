@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:17:05.623709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70, including the erroneous maximum at lines 22–24",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, exact matrix construction, enumeration and threshold checks",
+        "Corrected file /workspace/repairs/3/RESULT.md, Finding, scope, proof and verification notes"
+      ],
+      "rationale": "Pass is for the corrected RESULT.md only. The frozen Finding lines 22–24 stated the finite global maximum without the amplification qualification. As an unrestricted assertion it fails: for p=2,q=1 it predicts 1/64, but at kappa=9 the ratio is 1600/14641>1/64, and a flat noncoordinate spike gives positive ordinary variance. The repair states the maximum only in the amplifying regime and gives the nonattained supremum otherwise. I rederived the one-node interpolant and the functional identity A=(a+b)I−ab A^{-1}; subtracting the trace eliminates the residual's identity component probe by probe because the sign norm is fixed. With H=(p+q)^2 kappa/(p+q kappa)^2, the variance ratio is (1−H)^2 and H'=n²(p−q kappa)/(p+q kappa)^3. Finite amplification requires H>2, which occurs only for p>q with n²>8pq. The resulting roots are as stated; the peak gives the unique maximum and exceeds 1 in that regime. Otherwise 0<H<2 at finite contrast (the threshold equality would require an irrational p/q), and H tends to 0 at infinity, proving nonattainment of the supremum 1. The exact-cancellation root follows by factoring in sqrt(kappa). Minimizing pq at fixed n gives n−1, so n²>8(n−1) first holds at n=7. Substitution at n=7 gives alpha=−25/24, window (9/2,8), and residual eigenvalues 25/144 and 25/24 with the stated multiplicities; summing squares verifies the norm ratio. The sign variance formula gives positive variance for the rotated model and the explicit flat spike. Independently authored exact-rational spot checks tested the counterexample, the dimension-seven values, and 1449 discretized parameter choices; the continuum and all-multiplicity conclusions rest on the analytic proof. The frozen checker was inspected, not executed, and does not certify the formerly unqualified maximum.",
+      "residual_risks": [
+        "Exact arithmetic, one Lanczos node, and two distinct eigenvalues only. The variance ratio is undefined if ordinary sign variance vanishes. The norm comparison is for the explicit n=7 example, not a uniform variance predictor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rinelli–Simunec–Vermeiren derive the general global Lanczos/Hermite residual and stochastic estimator, with generic Hutchinson variance and Frobenius analysis.",
+          "The three-eigenvalue study gives its own exact family and asymptotic comparison, and gives a two-level contrast bound (kappa−1)², not an exact multiplicity-dependent admissible interval or minimum order."
+        ],
+        "reasoning": "The general correction specifies what to analyze. The adjacent bound cannot decide on which side of 1 the true ratio lies, where it is attained, or the least order witnessing a strict increase. The lack of coverage is about the optimization, not the estimator.",
+        "searches": [
+          "arXiv:2611.18864v1 §§2.4, 3.1, 4.1–4.2; Lemma 2.5 and Theorem 2.6",
+          "Resultary 9b31e66832f2 Finding and Proof Steps 2 and 4"
+        ]
+      },
+      "checked_sources": [
+        "Rinelli–Simunec–Vermeiren arXiv:2611.18864v1, inspected method and variance passages",
+        "Resultary 9b31e66832f2, f9f9bab46b35, and the identical target 2dcf9faad8a8",
+        "Targeted primary discovery query on one-step two-eigenvalue correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary theorem specializes directly to the one-node estimator; same-day Step 4 directly implies the exact multiplier, hence also exactness at a root of the scalar factor.",
+          "Neither inspected statement supplies the sharp condition on the integer multiplicities after optimizing over all contrasts, the two contrast roots for amplification, or the exact witness comparing the residual's total and off-diagonal behavior."
+        ],
+        "reasoning": "The known formula is a starting point, not independent novelty or a numerical lookup. The retained claim solves the constrained optimization including where there is no finite maximum and then minimizes order over integer multiplicities, obtaining a sharp actionable boundary and an exact diagnostic counterexample. No broader inspected result already gives those conclusions for this correction.",
+        "searches": [
+          "arXiv:2611.18864v1 Proposition 4.2 and Eqs. (4.2)–(4.3)",
+          "Resultary 9b31e66832f2 Proof Step 4; f9f9bab46b35 Finding and Proof Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9b31e66832f2, Proof Step 4, has offdiag(M)=(1−ab/mu²) offdiag(A^{-1}) for all two-level SPD matrices and the corresponding variance ratio.",
+          "Because a centered sign quadratic form depends only on off-diagonal entries, the stated scaling implies the samplewise identity as well. The primary discovery query yielded no useful additional matching sources, which is not evidence of novelty."
+        ],
+        "reasoning": "An off-diagonal matrix identity and the error multiplier are equivalent for this sign-probe comparison. That part is already covered in substance irrespective of how the estimators are named or whether one writes centered errors explicitly. Neither version alone states the sharp spectral and dimensional regimes.",
+        "searches": [
+          "Resultary: one node two eigenvalue global Lanczos Hermite correction exact Rademacher variance multiplier",
+          "Primary search: \"global Lanczos\" \"Rademacher\" \"one-step\" Hermite correction inverse trace variance two eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target 2dcf9faad8a8 is identical, not corroborating priority. Distinct same-day records 9b31e66832f2 and f9f9bab46b35 were compared on their actual Findings and Proofs.",
+          "The former includes the two-level ratio but evaluates a different three-eigenvalue separation example, and the latter gives dimension three minimal for variance revival when moving from one to two nodes."
+        ],
+        "reasoning": "These are different boundaries and witnesses. No inspected table or exact catalogue statement specifies the two-level, one-node dimension-seven cutoff, interval, and same-spectrum Frobenius ratio; date is not used to infer priority.",
+        "searches": [
+          "Resultary: one-step global Lanczos variance amplification two eigenvalues Rademacher"
+        ]
+      },
+      "rationale": "Pass for the repaired sharp optimization and classification: exact multiplicity threshold and contrast interval, corrected fixed-multiplicity maximum/supremum, minimum dimension seven, and its explicit Frobenius counterpoint. Not a pass for priority of the two-level multiplier in isolation: a distinct same-day record gives the same off-diagonal scaling and variance ratio, from which the samplewise statement follows. The repair credits that coverage directly and leaves priority ordering open.",
+      "residual_risks": [
+        "The bounded search does not establish bibliographic priority. An unindexed optimization of the same scalar ratio could affect precedence. Exact multiplier coverage is explicit and credited regardless of the relative timing of the same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers construction and variance mechanism, not the sharp two-level classification in inspected statements",
+          "evidence": "Full identity start, Hermite interpolation at Lanczos nodes, stochastic residual trace, and the off-diagonal dependence for sign probes.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18864",
+          "material_read": "§2.4 pp. 5–6 offset 14000; Lemma 2.5 and Theorem 2.6 pp. 7–8 offset 25200; §3.1 p. 10 offsets 34600–35356; §§4.1–4.2 pp. 12–13 offset 43000",
+          "method": "OA full-text passage inspection",
+          "title": "Global Lanczos with stochastic error correction for trace estimation of matrix functions",
+          "trigger": "Origin of the estimator and plausible general coverage"
+        },
+        {
+          "assessment": "Already contains the two-level ratio and implies the samplewise scaling; does not solve the retained optimization",
+          "evidence": "Step 4 states exactly the scalar off-diagonal scaling and Rademacher variance ratio for any two-level SPD matrix. Its primary separation family uses three levels and different asymptotics.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-eigenvalue-variance-separation-for-hermite-corrected-glo--9b31e66832f2",
+          "material_read": "RESULT.md, Finding and Proof Steps 2 and 4",
+          "method": "Resultary and local source mirror",
+          "title": "A three-eigenvalue variance separation for Hermite-corrected global Lanczos",
+          "trigger": "Strong same-day overlap on the exact two-level correction"
+        },
+        {
+          "assessment": "Distinct change in quadrature depth, not the desired comparison",
+          "evidence": "Compares a zero one-node variance with a positive two-node variance, and finds order three minimal for that effect.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-node-stochastic-variance-revival-after-zero-variance-globa--f9f9bab46b35",
+          "material_read": "RESULT.md, Finding, Assumptions and Proof Steps 1–5",
+          "method": "Resultary and local source mirror",
+          "title": "A two-node stochastic variance revival after zero-variance global Lanczos correction",
+          "trigger": "Adjacent same-day sharp variance cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, sharp range, least dimension, and exact residual comparison",
+        "Rinelli–Simunec–Vermeiren, residual correction and sign-variance discussion"
+      ],
+      "rationale": "The one-node correction is a deterministic trace approximation plus an unbiased stochastic residual, not a variance guarantee. The first order at which exact sign variance can increase and the complete spectrum-dependent window answer when the simplest implementation can backfire. The sharp low-dimensional witness also shows why a smaller total residual Frobenius norm is insufficient evidence for sign-probe variance reduction. This exact boundary has use beyond algebraically restating the multiplier.",
+      "residual_risks": [
+        "Does not imply a runtime, floating-point, or multi-node recommendation or address eigenvalue distributions beyond two levels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

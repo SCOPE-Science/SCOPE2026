@@ -1,13 +1,21 @@
-## Correctness
-PASS. The reduction to standard finite MV/BCK-chain factors is a known structural theorem. The quantitative proof uses only the exact grid denominator, the syntactic Lipschitz constant, a violating box, and a uniform grid-counting estimate; all boundary cases of the counting split are addressed. Exact independent rational evaluations illustrate one nontrivial identity but do not substitute for this proof.
+# Independent mathematical audit
 
-## Originality
-PASS, qualified. The closely relevant primary paper by Evans (arXiv:2209.13704, Theorem 3.2 and Remark 4.4) proves special cases and a sufficient maximum-attainment criterion but does not give a universal all-equation gap bound. The present result replaces that conditional criterion by a continuity-plus-grid theorem in all finite arities and supplies an explicit syntactic witness bound. Related finite MV representation theorems and the Heyting-algebra satisfiability framework are prior knowledge. An equivalent earlier general MV-algebra statement remains possible.
+## correctness
 
-## Mathematical value
-PASS. Uniform satisfaction gaps are the paper's motivating property; establishing them for every equation in the entire finite bounded commutative class provides a complete positive answer to the fixed-equation gap question in that subclass, with a reproducible constructive bound. This is more than an isolated numerical evaluation, although the resulting numerical constant is generally nonoptimal.
+PASS
 
-## Closest literature and limitations
-Evans, arXiv:2209.13704; Bumpus–Kocsis, arXiv:2110.11515; Abbadini–Jipsen–Kroupa–Vannucci, arXiv:2112.03190. The result is restricted to term equations of bounded commutative BCK-algebras; it does not apply to quasi-equations, arbitrary BCK-algebras, or formulas with quantifiers. Literature comparisons cannot certify priority.
+Finite bounded commutative BCK-algebras split into standard finite chain factors, and independent uniform sampling of each tuple induces independent uniform tuples in the factors; equation degrees therefore multiply. On the standard continuum, truncated subtraction is 1-Lipschitz for the sum of the two argument distances, so the real-valued difference of the two terms is L-Lipschitz in the sup norm, including repeated variables. A witness in C_(n₀) gives |t−s|≥1/(n₀−1). For Q=L(n₀−1) and δ=1/(4Q), a one-sided coordinate box of length δ at the witness stays in the cube and entirely violates the equation, even for boundary witnesses. If n−1≥8Q, each interval has at least (n−1)δ/2 grid points and thus at least a δ/4 fraction of C_n. If n−1<8Q, a nonzero failure fraction is at least n^(−k)≥(16Q)^(−k). The trivial algebra satisfies every equation; terms with no variables evaluate to 0 or 1 on nontrivial chains, and are either equal everywhere or fail entirely there. Consequently the dichotomy and bound hold. In the accompanying example a pair violates exactly when x>y>0, giving (n−1)(n−2)/2 failures, hence one at n=3 and the reported witness bound 1/25600. The frozen exact-arithmetic checker was inspected, not executed; its finite range is not used for the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The all-equation quantitative bound is distinct on the evidence inspected. Evans provides a conditional chain-gap criterion and examples, not a uniform quantitative grid estimate for arbitrary equations. The finite product theorem and McNaughton representation are established background. The closest indexed all-equation classification is for Gödel chains, and the closer same-chain indexed result is restricted to two identities.
+
+## value
+
+PASS
+
+The result replaces a per-identity hypothesis about the set of chain degrees by a bound recoverable from just a single witness and the term syntax. It explains why no sequence of nonunit degrees can approach one in this class, for all arities, and is a useful contrast to Heyting or unrestricted BCK behavior. It does not claim a sharp gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

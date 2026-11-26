@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof checks every directed-cycle obstruction in labelled \(K_{2,n}\), identifies all and only minimal flip sequences with permissible two-bit event orders, and establishes a bijection to ordered monochromatic indecomposable busy periods. The labelled exponential formula and recurrence follow coefficient-by-coefficient in the formal-power-series ring. The asymptotic uses an explicit binomial convolution bound, with small cases checked and a uniform inductive comparison. Independent state-space BFS through seven right vertices and independent monotone DP through eight right vertices agree with the recurrence. Finite checks alone are not the all-size proof.
+## correctness
 
-## Originality — PASS (qualified)
-Pilaud's acyclic reorientation lattice formalism (arXiv:2111.12387) and Cardinal et al.'s acyclic-orientation Gray codes (arXiv:2212.03915) already describe the flip graph and shortest distance, which are not new claims. Cardinal and Steiner (arXiv:2311.00779) addresses shortest path optimization but not exact multiplicity. Cameron et al. (arXiv:1412.3685) counts all orientations, not minimal endpoint-to-endpoint paths. Published exact work on complete bipartite graphical zonotopes computes vertex degrees, and published work on acyclic K2,n orientations computes online dimensions; both full reports were inspected for possible implication. No identified result supplies the stated all-n path count or asymptotic. An unindexed or differently phrased maximal-gallery count remains possible; search results are not proof of historical uniqueness.
+PASS
 
-## Value — PASS
-Counting the number of optimal graph-reconfiguration routes, rather than only their length, measures how many distinct optimal choices are available for a natural source and target. Here enforcing acyclicity couples otherwise independent two-edge flip pairs through forbidden directed four-cycles. The canonical busy-period structure converts an exponential-state path-counting task into a quadratic-arithmetic recurrence, gives an explicit all-size count, and quantifies how rarely an arbitrary edge order stays valid. This is a motivated exact path-counting invariant, not a restatement of the known orientation census or Hamming distance.
+All simple cycles of K_{2,n} use the two hubs and exactly two leaves. A directed cycle therefore occurs exactly when opposite hub-to-hub two-edge paths coexist. The endpoints differ on all edges, and flipping every a-edge then every b-edge avoids coexistence, so the distance is 2n and every minimizing path flips each edge exactly once. Open intervals for leaves have types determined by the first flip. Splitting an event order at every return to an empty open set yields unique monochromatic indecomposable blocks; a nonempty open set cannot change type in one step. For a prescribed type on m labeled leaves, (2m)!/2^m edge permutations obey the m disjoint precedence constraints. The EGF of a single indecomposable block is thus 1−1/S; a sequence of such blocks each with two types gives the formal EGF S/(2−S). Its coefficient comparison proves the recurrence and the arithmetic-operation bound, not a bit-complexity bound. For the asymptotic, Vandermonde bounds T_n=Σ s_k s_{n−k}/s_n by Σ 1/binom(n,k)=O(1/n) over 1≤k<n. The bound is below 1/2 for n≥7, and the direct ratios for n=2,…,6 are at most 1/2. The recurrence inductively yields 2s_n≤f_n≤4s_n and then 0≤f_n/s_n−2≤4T_n. The labeled count and uniform-order probability follow, with n=0 only a convention. A separate bounded subset-prefix DP reproduced the eight stated counts: extend a valid flip mask by any unused edge if the resulting mask has no opposite mixed leaf columns, summing predecessor counts from the empty mask. This tests finite instances only. The frozen BFS/DP code and its recorded log were inspected, not run.
 
-## Scope and risk
-Only the labelled, all-hubward-to-all-leafward antipodal pair is covered. The generating series is formal and its asymptotic is first order. No independent external mathematical audit has occurred; the historical priority comparison cannot rule out every unindexed or alternative-formulation source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The normalized sequence and recurrence are precisely known (OEIS A321628), and the distance and one-type factors are background. The supported distinct finding is that this sequence multiplied by n! enumerates the shortest paths for the specified graph endpoints, proved through the graph-specific busy-period bijection. No primary passage inspected identifies that geodesic invariant with the known coefficients. The sequence itself, its recurrence in isolation, and a new integer sequence are not credited as original.
+
+## value
+
+PASS
+
+The number of optimal routes is distinct from their standard Hamming-length lower bound and from the orientation census. For a natural pair of opposite orientations, the bijection relates the reconfiguration obstruction to interval components, eliminates exponentially many graph states from exact counting, and estimates the viable fraction of edge orders. It is the graph interpretation and resulting exact path invariant, not recomputing a table, that carry value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

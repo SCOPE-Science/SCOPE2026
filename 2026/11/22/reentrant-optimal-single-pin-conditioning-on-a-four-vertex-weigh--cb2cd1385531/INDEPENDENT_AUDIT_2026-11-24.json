@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:11.438129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17 and 21–60",
+        "Frozen VERIFICATION.md and check.py lines 8–69 (inspected)",
+        "Independent replay: python3 /workspace/independent_checks.py 5"
+      ],
+      "rationale": "The quadratic form is the sum of three positively weighted squared differences and a strictly positive pin penalty, so the pinned matrix is positive definite. The supplied continuant correctly evaluates det(A_v-lambda I); four disjoint strict sign brackets exhaust the positive degree-four spectrum, and the interval quotient bounds compare the entire set of sites. Independently constructing all twelve characteristic polynomials and isolating their real roots using SymPy's exact polynomial interval procedure reproduced the nine strict winner inequalities for 2,4,2. For g tending to infinity, a unit Rayleigh minimizer has pinned coordinate tending to zero because the constrained Rayleigh minimum bounds its cost uniformly; compactness then gives convergence to the grounded principal minimum. Dividing the matrix by g in operator norm gives convergence to the rank-one projector and lambda_max/g -> 1. The minimum for site 2 is exactly 1: the isolated [1] block attains it and the other block minus identity has determinant 91 and positive first diagonal entry. The stated other-site test vectors have exact quotients 1/3, 650/677 and 110/147, each less than 1. A positive gap between the limiting scaled ratios therefore gives an eventual strict site-2 winner. Continuity and the finite strict margins give distinct changes in (10,50) and (50,500) and persistence under simultaneous small perturbations. The verifier docstring saying no floating-point operation is used is overbroad: line 67 converts exact bounds for diagnostic printing; no comparison assertion uses those floats.",
+      "residual_risks": [
+        "No exact switching locations, complete reversal count, or graph-size minimality is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 paper compares gain optimization, placement at fixed gains, joint design and changing connection weights. The 2010 paper optimizes node and edge weights for a ratio of nonzero eigenvalues and shows a 20-node chain. Indexed information for the unresolved 2024 work points to weighted Laplacians and nonuniform gains, but no decisive theorem passage was retrieved."
+        ],
+        "reasoning": "Jointly optimal weighted designs do not by themselves establish winners when both weights and gain are held fixed. The actual inspected 2010 and 2016 statements do not give a theorem that settles the strict return, and the 2024 access failure is not treated as noncoverage.",
+        "searches": [
+          "Jafarizadeh, DOI 10.1109/ACCESS.2024.3520735 and exact-title ResearchGate listing (access attempted)",
+          "Exact-title/DOI open-PDF search: Achieving Network Stability via Optimal Pinning Control in Weighted Complex Networks, Jafarizadeh, Remark 14",
+          "Shafi–Arcak–El Ghaoui 2010 §§IV–V",
+          "Orouskhani–Jalili–Yu 2016 Tasks 1–4"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1038/srep24252 (full relevant primary PDF passages)",
+        "Shafi–Arcak–El Ghaoui 2010 §§IV–V",
+        "Resultary cb2cd1385531 (self-match), a2818e5de4a3 and dcf37f107b48"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general fixed-gain criterion enables direct numerical comparisons but does not establish the two strict switches. The 20-node example permits weight redesign, and the archived four-path condition-number theorem changes the feasible set and matrix."
+        ],
+        "reasoning": "None of the verified comparators implies the existence of a fixed path with a strict site return under a common gain or the eventual grounded-spectrum ordering. The certification method and criterion are not claimed as novel.",
+        "searches": [
+          "2016 full-text PDF pp. 2–7, Eq. (6), Eq. (8), Tasks 1–4",
+          "2010 full-text PDF §IV and §V.A",
+          "Resultary a2818e5de4a3 and dcf37f107b48 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One nonzero g_i beta_i in the 2016 augmented Laplacian is exactly the diagonal pin of this problem; its R is the same extreme-eigenvalue ratio. The four-site loading record a2818e5de4a3 uses the same type of ratio but adds mu I and optimizes a full loading vector."
+        ],
+        "reasoning": "The 2016 criterion and fixed equal-gain location selection already contain the optimization setup. The reported experiments are on other networks, and loading with several free gains or a baseline shift is not equivalent to ranking four rank-one pins with a prescribed g on this weighted path.",
+        "searches": [
+          "Orouskhani–Jalili–Yu 2016, Eq. (6), Eq. (8), Task 1 and Task 3",
+          "Resultary comparison for a spectral condition-number switch or return on a four-vertex path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit cb2cd1385531 is the assigned record itself. The same-day distinct record a2818e5de4a3 concerns endpoint loading and interior activation on the uniform path; dcf37f107b48 concerns two equal pins and inverse trace. The 2016 study reports power, scale-free and small-world examples."
+        ],
+        "reasoning": "Neither a support transition in a loading simplex nor a two-pin inverse-trace return supplies an exact independent table of the four single-site eigenratios at prescribed gains. Same-day dating does not establish order or justify excluding related statements.",
+        "searches": [
+          "Resultary fixed weighted P_4, eigenratio, single positive pin and return as gain varies",
+          "Orouskhani–Jalili–Yu 2016 reported results pp. 6–7"
+        ]
+      },
+      "rationale": "The fixed-gain site-placement problem and augmented-Laplacian eigenratio are prior. The supported distinct claim is the strict return of the uniquely optimal site on one fixed weighted four-path, with a provable eventual winner and finite-gain perturbation robustness, not the general dependence of site choices on gain. The 2024 weighted path paper is the most plausible unresolved comparison; no claim about its unexamined fixed-gain content is made.",
+      "residual_risks": [
+        "The decisive statements of DOI 10.1109/ACCESS.2024.3520735 and DOI 10.1103/PhysRevE.91.012803 were not lawfully retrievable in this review; the 2024 fixed-gain weighted-path overlap in particular remains unresolved. Unindexed examples or more general theorems may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes same criterion and placement formulation, not the examined strict weighted-path return",
+          "evidence": [
+            "Diagonal g_i beta_i and R=lambda_N/lambda_1; separate placement and gain tasks; results on power, scale-free and small-world networks."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/srep24252",
+          "material_read": "PDF pp. 1–7, including Eqs. (6), (8) at offset 12500, Tasks 1–4 at offsets 19356–33217 and results about offset 33000",
+          "method": "OA primary PDF passage inspection",
+          "title": "Optimizing Dynamical Network Structure for Pinning Control",
+          "trigger": "Same criterion and fixed equal-gain site selection among several design tasks"
+        },
+        {
+          "assessment": "Most relevant unresolved primary comparison; neither equivalent nor ruled out from these materials",
+          "evidence": [
+            "Indexed wording mentions weighted Laplacians and nonuniform gains; frozen attribution to a free-weight and free-gain design is not independently verified here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ACCESS.2024.3520735",
+          "material_read": "Index snippet and frozen prior-work description only; no primary theorem passage verified independently",
+          "method": "DOI attempt returned HTTP 202; identified author-posted ResearchGate listing returned 403; focused open-PDF search found no verified alternate",
+          "title": "Achieving Network Stability via Optimal Pinning Control in Weighted Complex Networks",
+          "trigger": "Plausible same weighted singly pinned path or stronger fixed-gain optimization theorem"
+        },
+        {
+          "assessment": "Access-limited; no detailed noncoverage finding",
+          "evidence": [
+            "The frozen record describes an evolutionary driver-location optimization; independently verified same-criterion evidence comes from the accessible 2016 paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.012803",
+          "material_read": "Bibliographic entry and frozen prior-work description; no primary theorem passage verified here",
+          "method": "Attempted DOI and identified APS PDF URL, both HTTP 403",
+          "title": "Optimal pinning controllability of complex networks: Dependence on network structure",
+          "trigger": "Cited early augmented-Laplacian eigenratio driver placement paper"
+        },
+        {
+          "assessment": "Different matrix and free-weight feasible set",
+          "evidence": [
+            "Ratio of nonzero eigenvalues of Y^(-1) A Lambda A^T; 20-node chain compares separate and simultaneous weight designs."
+          ],
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+          "material_read": "§IV.A–C offsets 15500–23490, §V.A offsets 23000–28992",
+          "method": "OA author-hosted primary PDF passages",
+          "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+          "trigger": "Analytical spectral conditioning and a chain example"
+        },
+        {
+          "assessment": "Substantive but inequivalent same-day comparisons",
+          "evidence": [
+            "Uniform path plus baseline and multi-site loading simplex in the first; two equal pins, unit path and full-state inverse trace in the second."
+          ],
+          "identifier_or_url": "Resultary a2818e5de4a3 and dcf37f107b48",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0 in each, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local mirror",
+          "title": "Related four-path loading and noisy path pin separation",
+          "trigger": "Closest distinct catalogue hits for four-path conditioning and finite-gain reentrance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–7 and 29–56",
+        "Orouskhani–Jalili–Yu 2016 fixed-gain and joint design tasks",
+        "Independent characteristic-polynomial and grounded Rayleigh checks"
+      ],
+      "rationale": "A strict switch and return among all four placements on one simple fixed graph refutes the idea that a change in common gain generates only a one-way ordering of preferred sites. The test is exact, persists under simultaneous parameter perturbations, and includes a provable high-gain tail, so it is useful as a structural counterexample and a tiny regression case for gain-aware placement rather than a numerical tie or an isolated spectral value.",
+      "residual_risks": [
+        "No graph-size minimality, quantitative performance guarantee for other objectives, or generic full gain diagram is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

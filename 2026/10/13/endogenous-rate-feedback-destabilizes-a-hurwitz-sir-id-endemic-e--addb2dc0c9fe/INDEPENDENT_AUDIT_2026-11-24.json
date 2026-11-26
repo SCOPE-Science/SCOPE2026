@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:27:08.049473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–108",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence",
+        "Breidenich et al., Axioms 15 (2026), 603, Remark 1, Model 1 and Theorem 7",
+        "Independent exact replay: /workspace/branches/cb2b7ed8-0062-4710-830d-7c7190e1b782/independent_check.py"
+      ],
+      "rationale": "The proposed values satisfy the rational equilibrium equations, including the two rate-source balances and P=mu N+aI. Both rate values lie strictly inside admissible clipping intervals, so the auxiliary states and clipped rates agree locally. Independent symbolic differentiation and exact polynomial calculation reproduce both Jacobians and characteristic polynomials. The cubic has positive coefficients and strict Hurwitz margin 1753317/180500000. The full quintic has nonzero Routh pivots with signs (+,+,+,-,+,+), giving exactly two open right-half-plane roots with multiplicity. Since all quintic coefficients are positive, these are a conjugate nonreal pair. Positive real parts establish local instability of the five-state equilibrium, not a Hopf bifurcation.",
+      "residual_risks": [
+        "Local witness only, for the particular simulation feedback laws at an interior equilibrium. No inference about Hopf, nonlinear cycles, arbitrary feedback functions, or the source's own simulation parameter sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 proves its local no-Hopf assertion using a 3×3 Jacobian and a cubic. The general setup permits source functions beyond the simulation choice, without a full-Jacobian result that supplies the witness."
+        ],
+        "reasoning": "General theory that feedback can destabilize a stable block does not certify instability with the signs, equilibrium constraints and admissible clipping of this model.",
+        "searches": [
+          "Primary-literature lookup for Breidenich SIR-ID endogenous infectivity and death feedback; Axioms 15, 603, Theorem 7",
+          "Resultary: SIR-ID endemic stability and clipped feedback"
+        ]
+      },
+      "checked_sources": [
+        "Breidenich et al., DOI:10.3390/axioms15080603",
+        "Local Resultary/SCOPE search and both named neighboring records",
+        "Frozen RESULT.md, lines 110–125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof computes a population cubic. The new computation uses nonzero rate-to-population and population-to-rate blocks and a full quintic with two right-half-plane roots."
+        ],
+        "reasoning": "The added blocks are not triangular decouplings; their effect is neither given nor bounded by the source cubic. The rational witness answers the resulting model-specific stability question. It does not falsify a frozen-rate no-Hopf statement.",
+        "searches": [
+          "DOI:10.3390/axioms15080603, Remark 1, Model 1, and Theorem 7 proof",
+          "Frozen RESULT.md, lines 62–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At an interior point the notation (a,b) is locally equivalent to the source's clipped (alpha,beta) and auxiliary coordinates. The relevant source functions are those explicitly stated for simulations."
+        ],
+        "reasoning": "The record uses the same local system, but the source's 3-state computation is not a change of coordinates of the 5-state linearization.",
+        "searches": [
+          "Resultary: exact title; Breidenich/Model 1/Theorem 7; frozen J3 versus full J5; clipped endogenous rate feedback",
+          "DOI:10.3390/axioms15080603, Remark 1 and Model 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first inspected neighbor shows a proposed Lyapunov function can increase in a different four-state behavior–climate SIR model; the second proves a quartic Hurwitz criterion for a different two-stage SIRS equilibrium. No matching certificate appeared in the inspected ranked results."
+        ],
+        "reasoning": "Neither record has the SIR-ID pair of clamped rate states and a stable frozen block coupled to an unstable full linearization.",
+        "searches": [
+          "Resultary: source-specific title, model identifiers and rational stability contrast",
+          "Resultary 2026/10/12/SCOPE-the-published-bc-sir-endemic-lyapunov-function-can-increase--0d1657e414f8",
+          "Resultary 2026/10/12/SCOPE-no-local-bifurcation-of-the-two-stage-endemic-equilibrium--1a2a3d5aebd2"
+        ]
+      },
+      "rationale": "The primary source specifies the very feedback laws, but its endemic-equilibrium proof in Theorem 7 analyzes only the three-population Jacobian; it neither gives this equilibrium and full spectrum nor implies the instability. Inspected nearby catalogue results concern other models. The distinction is a five-dimensional versus frozen-rate stability certificate, not a rescaling or change of notation.",
+      "residual_risks": [
+        "Ranked searches and the primary-source comparison do not exhaust unpublished work or earlier equivalent witnesses in different notation. The journal version supplied the decisive text; the April preprint was not independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Remark 1 gives the precise simulation feedback and clipping; the proof of Theorem 7 uses a 3×3 Jacobian, not the five-state spectrum.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms15080603",
+          "material_read": "Remark 1, p. 4 (text offset 15705); Model 1, pp. 4–5 (19509); Theorem 7 and proof, pp. 19–20 (91400 and 96781)",
+          "method": "Publisher's lawful open-access static journal PDF",
+          "title": "SIR Model with Dependent Infectivity and Death Rates",
+          "trigger": "Exact model, simulation rate laws and endemic-stability calculation"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Different behavior–climate model; violation of a Lyapunov derivative condition is not a full-system instability certificate here.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-the-published-bc-sir-endemic-lyapunov-function-can-increase--0d1657e414f8",
+          "material_read": "RESULT.md finding and model",
+          "method": "Local Resultary index and mirror",
+          "title": "The published BC-SIR endemic Lyapunov function can increase",
+          "trigger": "Related published endemic-stability critique"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Different two-stage SIRS model and a quartic Hurwitz calculation; no clamped SIR-ID rate feedback.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-no-local-bifurcation-of-the-two-stage-endemic-equilibrium--1a2a3d5aebd2",
+          "material_read": "RESULT.md finding and model",
+          "method": "Local Resultary index and mirror",
+          "title": "No local bifurcation of the two-stage endemic equilibrium",
+          "trigger": "Related local endemic-equilibrium spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Axioms 15, 603, Model 1 and Theorem 7"
+      ],
+      "rationale": "An admissible exact counterexample answers whether stable population dynamics at fixed rates can justify endemic stability after including the published feedback. It identifies where a three-dimensional calculation ceases to settle the actual model and provides a reproducible finite certificate of oscillatory linear instability, without overstating it as a cycle.",
+      "residual_risks": [
+        "Mathematical significance is model-specific; no empirical calibration or nonlinear behavior is demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:05:05.348530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a complete bipartite graph the destination part alternates deterministically. For m vertices in that part and k already visited, the greedy count increases with probability 1-(k/m)^2; any competing conditional increment probability is at most this when its count is k. Couple the two increments with a common uniform given their histories, and sample each full transition conditional on its increment, preserving the law of a history-dependent competitor. At equality the greedy increment dominates; at strict inequality a competing increment of at most one cannot overtake. Domination holds for both counts throughout and proves the stated deadline ordering including one-vertex parts. For the tripartite graph, the part and visited-count tuple are sufficient for the offer-category law, and the successors for each allowed action have exactly the displayed occupancy updates. Uniform properness holds even for history-dependent policies: from each vertex a fixed bounded walk visiting every vertex can be forced by identical offers with a common positive probability. Thus a conditional Bellman inequality can be summed up to bounded stopping times and then passed to completion; it compares the certified greedy policy with every randomized/history-dependent greedy policy. Independent rational policy iteration/evaluation reproduced 608 ordered comparisons, G=18.803347183744457..., D=18.802778086149420..., their exact stated difference 2285849200770243971848/4016620735540189127344279, and the exact positive continuation difference at (0,2,2) in C. The prescribed route to that profile has probability 1/21609 from the B start before the mixed offer. The residual of greedy evaluation under the modified policy is zero elsewhere and strictly favorable on this offer; its positive probability and uniform properness independently explain why D<G. The reproduction checked the greedy restriction and one deviation, not unrestricted optimality or minimal graph order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 49171f94e5b9 treats every offer count d>=2 on complete bipartite graphs; d=2 specializes directly.",
+          "Record 4180de2dab4e gives no offending mixed choice through order eight and a unique nine-vertex type, including three offending profiles.",
+          "Georgakopoulos et al. define the same model and establish NP-hardness of optimal next-step cover choice; this complexity result does not imply the graph witness."
+        ],
+        "reasoning": "The two indexed family-level statements dominate the qualitative parts of the frozen result; the more general complexity theorem alone does not.",
+        "searches": [
+          "Resultary: multi-offer cover bipartite parity",
+          "Resultary: first nonmyopic two-choice complete multipartite cutoff",
+          "arXiv:1911.05170v2, §2 and Theorem 1.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_choice.py; uploaded script not executed",
+        "Independent exact replay: /workspace/branches/1d2ec688-78a7-48ea-b83c-2ef500cbbe19/independent_bellman.py, with CHECK_NOTES.md",
+        "Resultary 3b831cf98d8f, 49171f94e5b9, 4180de2dab4e and 497a68eed5a9",
+        "arXiv:1911.05170v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger cutoff proof gives a positive loss for a greedy action under optimal unrestricted continuation and the profile can be forced from the B start.",
+          "The biclique finding directly states stochastic/deadline dominance and also supplies exact collector laws."
+        ],
+        "reasoning": "For any greedy policy, relative to the unrestricted Bellman values all action losses are nonnegative. On the common forced history followed by a mixed offer, greedy incurs the same strictly positive unrestricted residual, proving a uniform strict gap from the unrestricted optimum at the root. That implication does not give the numerical G-D for the particular one-switch alternative; obtaining it requires evaluating the two restricted rule sets.",
+        "searches": [
+          "Record 4180de2dab4e, Finding/Assumptions and Limitations, offsets 0–2750 and 7401–9478",
+          "Record 3b831cf98d8f, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biclique record 3b831cf98d8f, Finding: independent uniform offers with replacement, full-past controller, and first-visit greedy optimal simultaneously for every deadline.",
+          "Record 4180de2dab4e, Finding: visited-first beats unseen-first at the exact (0,2,2) profile in C with the same two destination categories."
+        ],
+        "reasoning": "In this discrete-time setting every-deadline optimality is exactly stochastic minimization. The term unseen-first has the same mixed-offer restriction as greedy-first-visit. The local continuation quantities being compared are not identical.",
+        "searches": [
+          "Resultary: first-visit-greedy/all-deadline two-choice cover on complete bipartite graphs",
+          "Resultary: unseen-first/nonmyopic K_(1,2,6) cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact classification reports the unrestricted local difference 3210462360632365129/1327093575050907456507, not 3210462360632365129/1379009216128693567275 under greedy continuation.",
+          "Its Limitations explicitly distinguish its conditional decision from differences between two whole strategies from a starting vertex.",
+          "The indexed path result 497a68eed5a9 has a 4/3 local penalty on a path, not a complete multipartite root value."
+        ],
+        "reasoning": "The exact graph and improving decision are a match, but neither local fraction equality nor an existing exact table of the G,D pair is established.",
+        "searches": [
+          "Resultary: exact two-choice K_(1,2,6), complete multipartite witnesses and exact cover times"
+        ]
+      },
+      "rationale": "Two stronger indexed statements cover the two structural conclusions. The biclique result is stated directly under the same model for every deadline. The multipartite cutoff result identifies the very same graph, B-root-reachable profile, and better seen-first action using unrestricted optimal continuation, which already implies a strict whole-policy penalty on the greedy class from that start. The different exact greedy-continuation and single-switch fractions are verified but not stated by the cutoff result; they are a policy-evaluation refinement of the covered witness, not a distinct structural result. No historical ordering or dependence is inferred from the index paths.",
+      "residual_risks": [
+        "Exact K_(1,2,6) external search was unavailable; this is not evidence of no other literature. The visit-balancing empirical article's full-text attempt returned HTTP 403.",
+        "Present indexed coverage does not establish historical priority. The separate unrestricted order-nine cutoff was compared at statement level, not rerun as part of this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage in the same model",
+          "evidence": [
+            "Greedy optimal for every deadline, both source parts and all positive a,b, with exact law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-deadline-source-ordering-and-a-logistic-crossover-for-two-ch--3b831cf98d8f/RESULT.md",
+          "material_read": "Finding at offset 0–2923; proof context",
+          "method": "Indexed mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-deadline source ordering and a logistic crossover for two-choice biclique coverage",
+          "trigger": "Exact stochastic biclique match"
+        },
+        {
+          "assessment": "Includes d=2 as a special case",
+          "evidence": [
+            "First-visit-greedy theorem for arbitrary integer d>=2 with exact parity laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-multi-offer-cover-walks-exact-bipartite-parity-and-start--49171f94e5b9/RESULT.md",
+          "material_read": "Finding and comparison passages at offsets 0 and 7784",
+          "method": "Indexed mirror passage",
+          "title": "Optimal multi-offer cover walks, exact bipartite parity and start comparison",
+          "trigger": "Bipartite theorem at broader offer count"
+        },
+        {
+          "assessment": "Covers structural counterexample; distinct continuation convention and no stated whole-strategy gap",
+          "evidence": [
+            "Three offending profiles include (0,2,2) in C, new in A versus old in B; reachable from B. Gives a positive unrestricted local difference and an order-nine class cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-nonmyopic-two-choice-cover-decision-on-complete-multip--4180de2dab4e/RESULT.md",
+          "material_read": "Finding and Assumptions (offsets 0–2750); Limitations (offset 7401 onward)",
+          "method": "Indexed mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The first nonmyopic two-choice cover decision on complete multipartite graphs",
+          "trigger": "Same K_(1,2,6), same improving action"
+        },
+        {
+          "assessment": "Same framework but not the concrete claims",
+          "evidence": [
+            "Independent offers with replacement; next-step cover-time choice NP-hard even at maximum degree three. Visit-balancing uses a different criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1911.05170v2",
+          "material_read": "§2 model, §1.2 Theorem 1.7; §1.1 description of visit-count preference",
+          "method": "Primary HTML passages",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Foundational model and optimization result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The structural contrast and reachable counterexample are mathematically worthwhile, but already covered. The remaining numerical refinement is the gain from one prescribed fixed alteration, smaller than an unrestricted optimal-gap statement in scope. Beyond certifying the already covered contrary action via a particular strategy, no reason is established to need that precise policy-dependent root gain or its threshold. Its small magnitude is not itself the ground for rejection.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

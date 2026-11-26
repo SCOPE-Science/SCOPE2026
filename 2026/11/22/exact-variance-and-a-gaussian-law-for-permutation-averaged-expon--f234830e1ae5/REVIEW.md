@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. For exponential pairs, the normalized absolute difference is uniform, giving single-matching variance \(1/(6N)\). The projection integral is derived by splitting at the conditioning variable, and its variance \(\zeta\) is positive and strictly below \(1/24\). Conditional expectation over matching designs is exactly the complete pair U-statistic, whose covariance follows by counting shared-index edges. Total variance yields the finite-\(B\) law. The fixed-\(B\) CLT follows from a bounded-degree dependency graph, with overlapping edges of separate matchings negligible in proportion, and the diverging-\(B\) CLT from the U-statistic projection and an \(L^2\) bound. The original numerical computation and matching enumerations passed 54 reproducibility checks. Boundary \(N=2\) has zero reducible variance; all positive claims of strict gain begin at \(N=4\).
+## correctness
 
-## Originality
-PASS with residual priority risk. Section 3.2 and equation (12) of Karagrigoriou et al. (2023) employ 50 data permutations; they do not provide this exact \(B\)-dependent covariance/variance and its explicit integral constant. The earlier 2021 thesis includes simulation analysis but no such theorem in the material inspected. Generic U-statistic, Rao–Blackwell, and dependency-graph results cover the techniques, not the quantitative calculation tied to this exponential kernel. The 2022 book-chapter predecessor was identified bibliographically but not inspected in full. Relevant research-record searches for the ratio kernel, incomplete U-statistics, and matching variance found no directly dominating claim. An independent historical-priority check remains important.
+PASS
 
-## Value
-PASS. This test uses random pairings, with the original implementation recommending 50. The exact variance floor and 50-pairing savings quantify a real calibration and computational design decision: 50 pairings achieve 98% of the maximum pairing-driven reduction, yet most sampling variance remains. The 19.66-fold hypothetical underestimation demonstrates that repeats of one dataset cannot be modeled as independent datasets. The precise object is a naturally studied zero-threshold baseline of the published test, not an arbitrary parameter slice. Positive-threshold test power is not addressed.
+Scale invariance reduces to rate one. The independent exponential pair transforms to an independent gamma sum and uniform split; thus each contrast is uniform and a single matching has variance 1/(6N). Integrating the conditional contrast on either side of y=x gives the displayed E1 expression. The projection is nonconstant (its limit at zero is 1 before centering), and the degenerate remainder has positive variance because the continuous nonconstant contrast cannot be additive in x and y and vanish on the entire diagonal. Given data the matching mean is the complete pair U-statistic: every pair is included with probability 1/(N−1). Its variance counts 2(N−2) ordered shared-index neighbors per edge and has covariance ζ on each such overlap. Conditional independence of resamplings gives the exact V_N plus the residual divided by B, so the removable term vanishes at N=2 and is positive at N>=4. Given fixed B matching draws, tagged edge contrasts have a bounded-degree dependency graph. A pair of matchings with K common edges has K identical pairs and N−2K shared-one-index pairs; E[K]=N/(2(N−1)), so the conditional scaled variance converges in probability to the stated limit. Cumulants of order r>=3 are uniformly O(N) before scaling, from bounded variables and O(N) connected tuples. The corresponding conditional moments converge after scaling, remain uniformly bounded at each fixed order, and integrate to the Gaussian moments. For B_N→∞, the degenerate U-statistic remainder is O(N^−2) in variance, while N times the mean-square matching error is at most 1/(6B_N); projection CLT and Slutsky give the second limit. An independent Dirichlet-simplex integral of the product of centered contrasts gave ζ=0.015867282799652 and reproduced the three printed ratios. Replay: `python /workspace/audit-replay.py 5` (also enumerates overlap counts up to N=8).
 
-## Limits and closest literature
-Karagrigoriou et al., Risks 2023, 11, 169, equations (10)–(13), and Papasotiriou's 2021 thesis are the primary comparisons. The older 2022 book chapter was not inspected; a synonymous normalized pair-difference U-statistic could exist elsewhere. Computations support, but do not replace, proof. Statistical conclusions for adaptive or positive thresholds are unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the explicit shared-data variance and numerical kernel projection for independently resampled complete matchings, together with the fixed-B Gaussian law with that variance and the unrestricted growing-B limit. The paired contrast, permutation average, single-pairing CLT and standard variance decomposition are prior; the original paper also suggests applying its CLT to the repeat average. The independent contribution is the quantitative law accounting for dependencies, not the idea that the average can be approximately normal.
+
+## value
+
+PASS
+
+The published procedure uses 50 reorderings and explicitly studies d=0. The exact separation between pairing noise and data noise, with a 39.32% asymptotic variance fraction remaining at 50, answers a concrete design and calibration question not settled by the generic 1/B Monte Carlo reduction. The Gaussian laws quantify the uncertainty of a shared-data average rather than that of independent datasets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

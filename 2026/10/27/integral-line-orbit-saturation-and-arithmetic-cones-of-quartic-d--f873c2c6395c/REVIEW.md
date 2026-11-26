@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The general Picard basis, sixteen geometric \((-1)\)-curves, \(W(D_5)\) reflections and cyclic Frobenius reduction are standard inputs. The attached exact verifier constructs all 1920 group elements, checks eighteen class representatives, constructs *primitive* integral fixed lattices via unimodular operations, verifies all orbit trace groups by Smith form and enumerates supporting faces of the nef cone. A separate Smith computation checked all eighteen trace quotients; a displayed three-by-four Smith certificate supplies the exceptional \((\mathbb Z/4\mathbb Z)^2\) case. The theorem is conditional on the actual Frobenius type; it does not assert realizability over every fixed field.
+## correctness
 
-## Originality — PASS, with priority risk
-Kunyavskij–Skorobogatov–Tsfasman already classified degree-four del Pezzo Galois/Picard actions, and the geometric generation of the effective cone is classical. Derenthal–Joyce–Teitler supply the broader cone perspective, while Banwait–Fité–Loughran study Frobenius types over finite fields. Their inspected relevant primary-text portions did not explicitly give the complete eighteen-class integral orbit-trace cokernel and dual cone-ray counts. An equivalent hidden or differently indexed table remains a substantive risk; the result is not independent verification of priority.
+PASS
 
-## Value — PASS
-The natural invariant is the integral saturation of Frobenius traces of the canonical sixteen exceptional curves, not an arbitrary coefficient slice. The complete eighteen-class answer isolates a unique trace-index-16 case and supplies arithmetic effective/nef extremal-ray counts, information beyond Picard rank or field point counts. It can inform explicit divisor constructions and arithmetic positivity on quartic del Pezzo surfaces.
+Finite-field Brauer vanishing gives Pic(S)=L^w. Every actual line-orbit sum is an arithmetic effective divisor, and averaging a geometric nonnegative line decomposition gives every invariant effective class as a nonnegative combination of such sums. The pairing is nondegenerate on the invariant subspace, and its polar yields the arithmetic nef cone. For independent reproduction, /workspace/branches/independent-5.py run with the frozen RESULT.md path matched all 18 rows and the displayed 16-index certificate; output is in /workspace/branches/independent-5.log. The check labels the conic class by the empty even mask, H−E_i−E_j by {i,j}, and E_i by the complement of {i}. Exceptional swaps permute bits and the Cremona reflection on the first three points is the last-two swap followed by XOR on those two bits, so this is the same order-1920 Weyl action. Signed cycles classify the classes: conjugating in the full signed group normalizes signs on each cycle, and an odd cycle supplies an odd-sign centralizer element, preventing class splitting in the even subgroup. The primitive fixed kernel means ambient orbit-column Smith factors are the same trace quotient factors, after checking equal ranks. The signed discriminant comes from the Gram determinant of an independent trace sublattice divided by the square of its saturation index. The cone computation independently cuts a simplicial polar by the remaining exact inequalities, adding rays at crossings of adjacent rays and counting its facets by active-ray rank. This checked all listed ray counts, including the split 16/26 case. The certificate basis is saturated and the actual four orbit sums give Smith factors (1,4,4). This is conditional on each surface's actual Frobenius class, not a realization claim over each field.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 18-class structure, the index-only table including the unique index-16 class, and real cone generation by orbit sums have demonstrable overlap. The supported distinct result is the full integral quotient and Picard-discriminant data together with exact effective and nef extremal-ray counts, including the (Z/4)² group structure rather than its order alone. No examined match gives that classification.
+
+## value
+
+PASS
+
+The trace quotient measures precisely which arithmetic lattice classes are missed integrally by line orbit sums even though those sums span over the reals; its invariant factors distinguish missing generators from a mere index. The discriminants and the arithmetic effective/nef ray counts complement this with exact pairing and cone data. The rank-four cases show why rank or the number of effective rays alone does not give the dual count. The finite range is the full Weyl class space for the degree, not an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

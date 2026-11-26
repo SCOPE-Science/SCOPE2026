@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the three-gap law
+# Independent mathematical audit
 
-The proof uses established rational independence of distinct radical reciprocal scales and finite-dimensional equidistribution. A direct five-pattern phase calculation supplies the local generating function; a summable uniform tail bound upgrades finite independence to natural densities. The same-scale endpoint overlap occurs precisely at the explicitly classified scales below three, proving the pointwise threshold and positive-density exact support. All computations listed below are sanity checks, not substitutes for these infinite arguments.
+## correctness
 
-## Reproducible checks
+PASS
 
-Run `python3 triple_checker.py` in Python 3 without dependencies. It independently counts and compares every triple of consecutive gap counts for \(k=2\), \(1\le n\le125\), and \(k=3\), \(1\le n\le48\). The two methods are (a) prime-exponent sieve of all positive integers below the final endpoint and (b) enumeration through the unique radical form. It tests five-pattern local phase distributions at 100,000 grid points per radical scale for \(k=2,3,4,5,8,12\), and the explicit large-\(k\) endpoint covariance correction for \(k=32,128,512,2048\). All tests pass.
+For each prime exponent e≥k with nonzero remainder j mod k, remove one copy of k+j and put the remaining multiple of k in A^k; remainder zero goes entirely in A^k. Thus the arithmetic families are disjoint. Each λ>2 is irrational and no positive multiple is an integer, so there are no endpoint exceptions. In the local phase x={n/λ}, the first window contributes for x≥1-p. An adjacent pair would need two integer crossings in length 2p<1. Conditional on the first crossing, the third crosses the next integer precisely at x≥2-3p (x+2p<2), giving overlap length (3p-1)_+. The three marginals and this overlap give the five listed probabilities. The independence input is valid directly from Besicovitch's standard independence of distinct prime-radical monomials with exponents in {0,1/k,...,(k-1)/k}: λ^(-1) is a rational multiple of the monomial with exponent (k-j)/k at each prime put in b_j, giving distinct exponent vectors including the constant. Kronecker–Weyl now gives the finite products. The omitted-scale hit fraction is bounded by 3(1+3/X) times the reciprocal-scale tail, since each multiple can hit at most three starting indices. The reciprocal series is bounded by the stated finite zeta product. This proves each natural density and convergence to the independent-factor count law, with a uniformly convergent PGF on the closed unit tridisc. Only powers of the prime two can give λ<3, and equality λ=3 is impossible. The admissible j are exactly 1 through floor(k log₂(3/2)); every interval (n,n+3) contains a positive multiple from each such scale. All three singleton choices of each forced scale have positive probability, and unforced scales have both positive singleton probabilities and a positive infinite all-zero product after any finite assignments. This proves the complete support. The limiting sums converge in L² by summable means and variances, so the covariances add over independent scales. Their difference is (3/2)r(1-r^J)/(1-r)-J for r=2^(-1/k), J=J_k; expanding gives k(1/2-log(3/2))/log 2+O(1) with absolute remainder, and J≥1 for k≥2 gives strict positivity. No empirical second-moment claim is used. Both frozen scripts were inspected, not executed.
 
-Run `python3 empirical.py` for an additional sample of 150,000 square-full three-window vectors, using a direct squarefree-parameter enumeration. The observed lag-two versus lag-one raw product average is about \(0.06109\), compared with the predicted limiting-law difference \(3/(2\sqrt2)-1\approx0.06066\). This comparison does not prove empirical second-moment convergence.
+## originality
 
-## Boundaries
+PASS
 
-The script checks neither equidistribution for infinitely many scales nor the positive density of every possible triple. No external independent audit has been performed, and the source-based originality assessment has the residual risks stated in REVIEW.md.
+The supported distinct claim is the count-valued three-window factor with its endpoint overlap and the exact support and covariance consequences. The two-window independence method and a qualitative four-power nonemptiness observation are credited to Narumi–Tachiya, with residual uncertainty about prior general finite-window coverage.
+
+## value
+
+PASS
+
+Three adjacent power gaps are a natural first setting where the same scale can hit nonadjacent windows. This produces more than a larger PGF: it characterizes the exact lattice support, sharpens uniform nonemptiness to a pointwise floor growing with k, and quantifies the lag-two change in the limiting count covariance. These are usable structural facts about k-full occupancy, not claims about empirical moment rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

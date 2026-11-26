@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify_joint_ranks.py` from the package root. It uses only Python's standard library and produces the included `verify_joint_ranks.out` exactly. The checker builds every total map in sizes zero through six, composes actual transformations to test idempotence and commutation, and bins by the three image ranks. Independently, it implements the root-block count via a labeled set recurrence, comparing every nonzero and zero coefficient across the complete histograms. It checks the exact support condition and interchange symmetry for sizes one through eight.
+# Independent mathematical audit
 
-The counts of ordered commuting idempotent pairs for sizes zero through eight are `1, 1, 7, 58, 601, 7616, 113989, 1963060, 38178193`. The complete brute-force checks terminate at size six; they do not establish the unbounded theorem. The unbounded argument is the fiber decomposition and the labeled exponential formula in `RESULT.md`.
+## correctness
 
-The external literature comparison covers two freely accessible relevant full-text articles and a directly related abstract whose full text was unavailable. Historical novelty is not independently certified.
+PASS
+
+For commuting retractions, p=ef=fe is idempotent and its fixed set is the intersection of the two fixed sets. Since pe=pf=p, each fiber of p stays invariant. A fiber contains one common root, a points fixed only by e, c fixed only by f, and d fixed by neither. Each single-fixed point is sent to the root by the other map. For each of the d points there are independently (a+1)(c+1) nonrestricting choices of images; these give idempotence and send both composites to the root. On m=1+a+c+d fixed labels the resulting count is m!((a+1)(c+1))^d/(a!c!d!). Rank weights multiply over the unordered set of these rooted blocks, giving exactly the EGF. The support inequalities are inclusion-exclusion and nonemptiness; to realize an allowed triple, place the required r-t and s-t singly fixed points and any surplus at one root and use the other t-1 roots as singleton fibers. The empty pair gives the unit term. Independent direct map enumeration through n=5 matched a least-label block recurrence; recurrence output through n=8 reproduced all listed totals and the rank support and symmetry.
+
+## originality
+
+PASS
+
+Credit the unrestricted labeled three-rank EGF and rank support, not the general idea of decomposing into product fibers. The strongest available prior records either count the analogous ordered problem with regressive restrictions or count a different pair condition on the full monoid. The plausible older centralizer paper remains an access-limited priority risk, not evidence of prior coverage.
+
+## value
+
+PASS
+
+The statistics measure each retraction's range and their common range simultaneously. The coefficient formula gives exact counts and feasible triples for every labeled size, including their correlations, rather than just a single total or a finite table. The unrestricted rank census remains a useful result despite the related constrained encodings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:30:38.400607Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read RESULT.md and the frozen AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt and verify_quadratic_path_topology.py. The supplied script was inspected, not executed.",
+        "Independent exact check: 2+16+512=530 choices for m=1,2,3 and 17+26+37+50+65=195 prefixes including the empty prefix for m=4,...,8, totaling 725; the all-size argument is the forbidden-shortcut injection and integral chord-coordinate basis, not the enumeration. Replay: /workspace/branches/390597ca-3928-4fcc-b667-483a00906668/check_ordered_chords.py and ordered_chords_output.txt in that directory."
+      ],
+      "rationale": "Successor arcs give exactly the labeled total reachability order because every chord also increases labels. The endpoint sets defining the left and right bases are the upper and lower principal sets, respectively; the common preorder nerve is the simplex on a finite chain. For a two-step path, two successor arcs give a gap of two, whereas successor–chord and chord–successor give gaps of at least four with odd–odd and even–even endpoints respectively. The endpoints determine the middle vertex in each case; two chords cannot be consecutive because the chord source and target sets are disjoint. None of these three endpoint pairs is an arc. Projecting the formal boundary onto the missing arcs sends each two-path to its own distinct negative basis vector, so Ω₂ is zero over Z, with no hidden cancellation. Deleting vertices from an increasing path keeps them distinct, so regularization does not change the calculation. Chord coefficients give integer coordinates for all one-cycles: subtract the corresponding multiples of the displayed closed chord-minus-chain chains and the remainder is a cycle on a tree, necessarily zero. This proves freeness and every rank from 0 to m², including m=1 and the full and empty subsets. The ambient cycle-rank bound gives O(n²); the exhibited n²/16 lower bound for n divisible by four is an order statement, not a sharp leading constant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaplin, crediting GLMY, gives the integral reciprocal-double-edge/triangle/long-square generators; these yield Ω₂=0 whenever the motifs are absent. Muranov–Muranova give the endpoint-set bases. Hepworth–Roff identify reachability homology with the normalized chains of the preorder nerve."
+        ],
+        "reasoning": "The individual general tools explain the Ω₂ and reachability steps once the graph is constructed, but do not supply a Hamiltonian DAG with quadratically many independently addable arcs satisfying the motif exclusions, nor its integral rank interval.",
+        "searches": [
+          "Chaplin DOI 10.1007/s41468-022-00108-3 Proposition 3.17 and Corollary 3.19",
+          "Muranov–Muranova arXiv:2611.15308v1 Section 5",
+          "Hepworth–Roff arXiv:2312.01378v3 reachability preorder and Example 2.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15308v1",
+        "arXiv:2312.01378v3",
+        "doi:10.1007/s41468-022-00108-3",
+        "arXiv:2111.13493v1",
+        "Resultary d05d3b28e630"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-order requirement excludes arbitrary dense bipartite DAGs with no successor chain. The barcode method supplies one independent class per block; the parity-separated complete set of m² chords contributes classes at a different density and avoids all forbidden-endpoint collisions even when all are added."
+        ],
+        "reasoning": "This is more than the known qualitative distinction or reapplication of a motif test to a fixed small graph: the separated construction with the successor chain supplies the new quantitative bound and interpolation together.",
+        "searches": [
+          "Hepworth–Roff Introduction and Example 2.7",
+          "Chaplin Proposition 3.17",
+          "Resultary universal first path-homology barcodes with unchanged reachability topology d05d3b28e630"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For these path complexes, common left/right vertex topologies are equivalent to the common labeled reachability order by their minimal principal open sets. Hepworth–Roff Example 2.7 uses a complete preorder (every pair mutually reachable), not a total order on distinct labels.",
+          "The nearby barcode entry uses forward shortcuts on four-vertex blocks sharing articulations; k permanent intervals use 3k+1 vertices. This gives fixed-order integral rank interpolation of linear scale, not the present quadratic-size interval."
+        ],
+        "reasoning": "Reframing in terms of reachability homology, a Hamiltonian DAG, or dual lower/upper topologies does not turn the known qualitative or linear-size examples into the claimed quadratic interpolation.",
+        "searches": [
+          "path homology directed acyclic Hamiltonian path fixed reachability total order quadratic first Betti complete bipartite directed graphs shortcut chord same topology",
+          "Resultary: shortcuts separated parity chain same linear total order reachability integral path homology first Betti number quadratic maximum Hamiltonian DAG reachability topology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed entry is this frozen claim. The closest other indexed entry is the arbitrary-barcode construction, with 3k+1 vertices for k intervals; other retrieved constructions address different graph or homology families."
+        ],
+        "reasoning": "The searched object is an unbounded parametric rank spectrum, not a finite numerical sequence; no separate indexed statement or table giving the same quadratic fixed-order spectrum was identified.",
+        "searches": [
+          "Resultary: shortcuts separated parity chain same linear total order reachability integral path homology first Betti number quadratic maximum Hamiltonian DAG reachability topology",
+          "path homology directed acyclic Hamiltonian path fixed reachability total order quadratic first Betti complete bipartite directed graphs shortcut chord same topology"
+        ]
+      },
+      "rationale": "Qualitative separation from reachability and the criterion for degree-two chains are known. Even arbitrary ranks on a fixed finite total order are available from the nearby barcode construction when the number of vertices grows linearly with the desired rank. The distinctive result here is the explicit family interpolating every first integral rank through order n² on the same n=4m labeled total order, with free integral generators and transparent proof. No compared claim covers that size bound.",
+      "residual_risks": [
+        "The motif criterion and qualitative separation are credited, not novel. Earlier dense Hamiltonian DAG constructions under other terminology may produce a comparable spectrum and were not exhaustively ruled out.",
+        "The corpus comparison is statement-level and does not certify within-day priority or an optimal quadratic constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the topology, not the quadratic rank family in the inspected passage.",
+          "evidence": [
+            "The βL base uses reachable endpoints of paths starting at v; βR dually uses starting vertices of paths ending at v."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15308v1",
+          "material_read": "Section 5 endpoint-set bases and Definition 5.3 with its dual construction",
+          "method": "OA arXiv HTML",
+          "title": "Path complexes with concatenation and their relation to digraphs",
+          "trigger": "Exact L/R topological definition"
+        },
+        {
+          "assessment": "Qualitative overlap already present; reachability is not antisymmetric in the example.",
+          "evidence": [
+            "All three compared digraphs support travel between every ordered pair; they have the complete preorder."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.01378v3",
+          "material_read": "Introductory normalized nerve description and Section 2, Example 2.7",
+          "method": "OA arXiv HTML",
+          "title": "The reachability homology of a directed graph",
+          "trigger": "Earlier same-reachability examples and competing homology"
+        },
+        {
+          "assessment": "Covers the degree-two test after hypothesis verification; not the quantitative construction.",
+          "evidence": [
+            "Regular integral Ω₂ is generated by double edges, directed triangles and long squares; the non-regular corollary covers the corresponding combinations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s41468-022-00108-3",
+          "material_read": "Published §3.3 Proposition 3.17 and Corollary 3.19, with arXiv HTML for the missing-arc sign",
+          "method": "OA publisher PDF and arXiv:2111.13493v1",
+          "title": "First Betti number of the path homology of random directed graphs",
+          "trigger": "General criterion could cover vanishing Ω₂"
+        },
+        {
+          "assessment": "Covers general barcodes and linear-size rank variation, not quadratic interpolation on a fixed n-point set.",
+          "evidence": [
+            "One interval per length-three block, with 3k successor arcs and k possible birth shortcuts; an additional death arc kills that block's class."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-first-path-homology-barcodes-with-unchanged-reachabili--d05d3b28e630",
+          "material_read": "Finding and the single-block degree-one cycle and gluing passages of the proof",
+          "method": "Resultary local mirror full text",
+          "title": "Universal first path-homology barcodes with unchanged reachability topology",
+          "trigger": "Strong same-topology integral realization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For one labeled rigid T₀ total order, varying only which additional arcs exist produces the full first integral rank interval of the same order as the ambient quadratic upper bound. That measures how much first-homology information the endpoint-set topologies and preorder nerve can lose, beyond a qualitative counterexample or an interval of linear size. Explicit free integral cycles also distinguish this from merely checking Betti numbers over a field.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

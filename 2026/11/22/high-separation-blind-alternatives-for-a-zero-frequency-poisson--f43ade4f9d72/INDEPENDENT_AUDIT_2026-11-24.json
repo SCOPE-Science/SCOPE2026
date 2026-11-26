@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:34:35.219882Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4; VERIFICATION.md and verify.py (inspected)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 2"
+      ],
+      "rationale": "For L=uv≥2 the two outer weights are positive since (L+v)e^(−L)≤2Le^(−L)<1 and (L−u)e^(−L)<1. Substitution gives total mass 1, outer signed first moment about L equal to Le^(−L), and outer second moment about L equal to L−L²e^(−L); adding the zero and center atoms proves the three matches. The mixture retains them, is full-support, and cannot be Poisson because its finite-support component is not Poisson. The influence variable −r(X−L)−(1_{X=0}−r) has variance r−(L+1)r²>0, using X1_{X=0}=0. The fixed-law CLT, differentiability, and consistent denominator give the claimed rejection limit. The exceptional all-zero sample has probability r^n. For v/u→ρ in (0,∞), only the two outer atoms contribute to scaled overlap; their standardized displacements are −1/√ρ and √ρ. Stirling's local estimate gives the stated sum and mixing adds only O(L^−2) to overlap. The sign of G′(ρ) is the sign of ρ−ρ^−1−4logρ, which decreases then increases above 1, giving precisely the reciprocal minimizing pair. Independent 60-digit replay confirms both decimals.",
+      "residual_risks": [
+        "The two limits are separate. This is asymptotic calibration for a particular rejection rule, not equality of the exact statistic laws, a joint triangular-array statement, or optimization over every matched law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both sources discuss non-omnibus tests based on distributional properties or moments; equidispersion alone does not characterize Poissonity."
+        ],
+        "reasoning": "General non-omnibusness can cover lack of consistency but does not give the specified full-support alternatives and within-construction leading overlap coefficient.",
+        "searches": [
+          "Mijburgh–Visagie, Poisson goodness-of-fit survey §2.1",
+          "Aleksandrov et al., DOI:10.1007/s00184-023-00934-0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary frozen self-match f43ade4f9d72 and distinct 1e0b0757f682, 1faa7f7adc80, 41aa19e89771 (summaries)",
+        "Di Noia et al., arXiv:2112.11861",
+        "Mijburgh–Visagie (2020)",
+        "Aleksandrov et al., DOI:10.1007/s00184-023-00934-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original CLT already explains why a suitable moment match can evade the test; consistency is tied to a nonzero population zero-mass discrepancy."
+        ],
+        "reasoning": "Nominal asymptotic power once the match is imposed is not the novelty. The theorem supplies positive atom weights achieving the match, a full-support perturbation and a local-limit optimization, none of which follows from the prior test CLT alone.",
+        "searches": [
+          "Di Noia et al., arXiv:2112.11861, Proposition 3.1 and following discussion, pp. 5–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CLT and zero-mass discrepancy condition in the original paper; the matching Resultary entry f43ade4f9d72 is the frozen record itself.",
+          "Distinct Resultary entries 1e0b0757f682 and 1faa7f7adc80 concern respectively a fitted geometric test and a Stein–Chen Poisson-null triangular array."
+        ],
+        "reasoning": "The same statistic and null discrepancy condition are recognized under their original formulation. Neither nearby catalogue result is an equivalent alternative family or a TV optimization.",
+        "searches": [
+          "Resultary: Poisson zero-frequency goodness-of-fit, full-support moment matching, blind alternatives and TV overlap",
+          "Di Noia et al., arXiv:2112.11861, Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is this same frozen record. The cited proposition specifies Gaussian calibration and the discrepancy, not a family with an exact leading TV overlap constant."
+        ],
+        "reasoning": "There is no fixed-parameter weight table that determines this asymptotic extremal constant. The relevant exact target is the family and its coefficient; no separate match was verified.",
+        "searches": [
+          "Resultary: Poisson zero-frequency test, moment-matched alternatives, reciprocal spacing, and TV separation",
+          "Di Noia et al., Proposition 3.1 and Section 4"
+        ]
+      },
+      "rationale": "The statistic, its CLT, and the limitation of zero-mass discrepancy are prior work. The distinct supported contribution is the explicit mean-, variance-, and zero-mass-matched full-support family, including its asymptotically vanishing Poisson overlap and sharp reciprocal ratio within the family. No inspected different source establishes that quantitative combination.",
+      "residual_risks": [
+        "Bounded search, not universal priority. The thinning-based article could not be compared beyond its search description. Generic moment-matching constructions may subsume the calibration mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior calibration and blind-direction mechanism; not the quantitative construction",
+          "evidence": "Normal limit and divergence when r₀ ≠ 0; the authors explicitly flag the zero-mass requirement as restrictive.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.11861",
+          "material_read": "Proposition 3.1 and following discussion, pp. 5–7",
+          "method": "Lawful OA paper text at the proposition and discussion",
+          "title": "Goodness-of-fit test for count distributions with finite second moment",
+          "trigger": "Original statistic and possible inconsistency theorem"
+        },
+        {
+          "assessment": "General limitation, not the displayed family or its optimizer",
+          "evidence": "The survey notes that equidispersion does not characterize Poissonity and describes consistency limitations of moment-based tests.",
+          "identifier_or_url": "Mijburgh and Visagie (2020), South African Statistical Journal 54, 207–230",
+          "material_read": "§2.1–2.1.2, pp. 209–210",
+          "method": "Lawful OA paper text",
+          "title": "An overview of goodness-of-fit tests for the Poisson distribution",
+          "trigger": "Broader property-matching precedents"
+        },
+        {
+          "assessment": "Different diagnostics; no checked passage gives the TV-sharp family",
+          "evidence": "Non-omnibusness and generalized-moment, factorial-moment, and Stein-identity diagnostics are discussed.",
+          "identifier_or_url": "https://doi.org/10.1007/s00184-023-00934-0",
+          "material_read": "pp. 844–845",
+          "method": "Lawful OA paper text",
+          "title": "Modelling and diagnostic tests for Poisson and negative-binomial count time series",
+          "trigger": "Generalized-moment or Stein formulations"
+        },
+        {
+          "assessment": "Full text unresolved, not negative evidence",
+          "evidence": "Search description identifies a thinning-based test, not a confirmed statement about the matched family.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0167947319302336",
+          "material_read": "Search description only; retrieval returned HTTP 403",
+          "method": "Primary search and lawful OA retrieval attempt",
+          "title": "Thinning-based Poisson goodness-of-fit article",
+          "trigger": "Related Poisson test surfaced in primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and scope; Di Noia et al., Proposition 3.1"
+      ],
+      "rationale": "This separates a practical test's asymptotic power from one-observation TV discrepancy with fully supported, equidispersed alternatives. The leading overlap quantifies the failure and shows that the symmetric two-offset design is strictly suboptimal. This is more than a restatement that finitely many matched summaries need not identify Poissonity.",
+      "residual_risks": [
+        "The sharpness is only for the specified family and does not characterize the best possible alternative or assess tests using other sample summaries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact proof uses the Sherman–Morrison inverse of every positive-definite selected principal block, the trace of its Schur complement, a strict order-statistic mass inequality, and an elementary symmetric polynomial identity. All assumptions are explicitly stated in `RESULT.md`; no asymptotic or probabilistic approximation is needed for those identities.
+## correctness
 
-`verify.py` is a standalone standard-library rational-arithmetic checker. Executing `python verify.py` yields: `PASS: 90 orientations and 2586 rational equalities; all claimed interior subset sizes through n=8.` It compares direct Gaussian-elimination Schur complements against the derived formula for all interior subsets of dimensions four through eight, tests the exact best-subset objective and its equality cases, and independently checks the determinantal eigenvalue formula. This is finite test coverage only, not a formal certificate of all dimensions or real parameters.
+PASS
 
-The literature comparison establishes the limited statement and remaining historical-priority risk in `REVIEW.md`; the new claim is not a proof for arbitrary spectral configurations. Independent audit and external validation have not been performed.
+Independently reconstructed the proof for real SPD K=aI+bvv^T, with unit v and a,b>0. For a k-set I, setting s=sum_{i in I}v_i^2, the residual is zero off the complementary principal block and its trace is a(n-k)+ab(1-s)/(a+bs). This follows by subtracting b^2 s/(a+bs) from the rank-one coefficient b in that block. The trace is strictly decreasing in s. The best subset takes the k largest squared coordinates; their total minus k/n is 1/n times the sum of all top-to-bottom differences. Those differences are nonnegative, and equality forces all coordinates to have the same square because both blocks are nonempty. Flat vectors exist, including with arbitrary signs. The k-DPP residual expectation follows by summing det(K_II) times the individual residual diagonals, which are ratios of bordered principal determinants: each (k+1)-minor is counted k+1 times. Substituting e_j=binom(n,j)a^(j-1)(a+jb/n) reproduces the stated value. The proof covers the entire interior range, not just rational input or sampled orientations. The frozen checker was inspected, not executed; its finite tests are supplementary and not required for the proof.
+
+## originality
+
+PASS
+
+The expectation formula itself and the all-spectra endpoint are prior. The distinct supported finding is exact attainment by the best deterministic subset in the worst orientation at every interior rank of the one-spike class, including its full equality locus. No direct coverage or stronger implication was established by the checked sources.
+
+## value
+
+PASS
+
+The one-spike class is a canonical non-scalar SPD family, not a list of fortuitous numerical examples. Exact sharpness answers an independently posed minimax problem throughout its interior sample-size range on that class. The equality locus identifies precisely when best deterministic landmark choice cannot improve on expected volume sampling in the worst orientation. This supplies a concrete sharp benchmark without claiming to resolve the arbitrary-spectrum problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

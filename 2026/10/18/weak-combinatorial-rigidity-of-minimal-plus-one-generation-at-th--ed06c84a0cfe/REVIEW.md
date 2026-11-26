@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each of the three possible integers \(k\), the singularity basket determines the total Tjurina number \(\tau=3k(k-1)-1\). The weighted-homogeneous singularity types provide Arnold exponent \(3/4\), so the Dimca–Sernesi estimate supplies the lower bound on the Jacobian minimal relation degree. The du Plessis–Wall global lower and refined upper bounds then leave only \(r=k\): the respective eliminated upper thresholds are \(3<5\), \(15<17\), and \(33<35\). For \(k=2\), the separate lower-bound exclusion of \(r=1\) is essential. The Dimca–Sticlaru minimal-plus-one numerical equality holds exactly for all three. Exact integer checks are reproducible with `verify.py`; their validity depends on the stated standard theorems, not empirical extrapolation.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Măcinic–Pokora Theorem 3.1 displays parametric conic families but checks only selected syzygy instances, while Bromboszcz–Jarosławski–Pokora 2026 Theorem 4.2 gives a necessary condition for a curve *already* plus-one-generated and exhibits realizations, not a general sufficiency theorem. The companion 2026 Proposition 4.3 concerns \(4A_1+10A_3\), and Dimca–Janasz–Pokora's nearly-free result concerns the maximal-tacnode boundary. The new universal implication is logically stronger than existence or necessity, and all three baskets follow uniformly. Checked primary texts and mathematical-record searches did not establish equivalent or dominating coverage; equivalently worded unindexed work remains an explicit risk.
+PASS
 
-**Value — PASS.** The result replaces three specimen computations in a published conic-arrangement classification by an exact classification of the homological type of *every* realization in the three next-to-maximal tangency strata. It shows that Jacobian syzygy types cannot jump as the permitted conics vary, and gives an obstruction to weak Ziegler pairs. The conclusion is structural rather than an arbitrary numerical specialization, even though its proof efficiently combines three known deep theorems. It does not resolve the distinct \(4A_1+10A_3\) and \(6A_1+9A_3\) questions.
+For distinct smooth complex conics with precisely the stated two-branch singularities, the local Tjurina contributions are 1 for A1 and 3 for A3. The baskets give total Tjurina numbers 5,17,35 and exactly saturate the pairwise Bezout multiplicity counts. The minimum local Arnold exponent is 3/4, giving minimal syzygy degree r at least 1,3,4 in degrees 4,6,8. A Koszul relation supplies r<=d-1. In degree 4 the du Plessis–Wall lower bound at r=1 is 6 and the sharpened upper bound at r=3 is 3, so only 2 is allowed. In degree 6 the sharpened upper bounds for r=4,5 are 15,10; in degree 8 the corresponding bounds for r=5,6,7 are 33,28,21. They lie strictly below the basket's Tjurina number in each degree. Thus r=k=d/2 without assuming plus-one generation or fixing a realization. Now (d-1)^2-r(d-r-1) is 7,19,37, exactly two above the respective Tjurina numbers; the minimal-plus-one criterion applies at r=d/2 and gives (k,k,k+1). The odd-degree four-syzygy exception in the defect-two characterization is irrelevant. For a three-syzygy curve the unique relation shift in the Milnor resolution is the sum of the three syzygy degrees (3k+1 here), with the three syzygy shifts d-1+d_i. Hence the graded Betti table is fixed. Identical resolutions here refers to graded free-module shifts and multiplicities, not equality of the differential matrices for different equations. The uploaded script was read, not run; all decisive finite substitutions are listed above.
 
-**Closest literature and limits.** Măcinic–Pokora, DOI:10.4171/RLM/1044, Theorem 3.1 (examples); Bromboszcz–Jarosławski–Pokora, DOI:10.1007/s10711-025-01063-w, Theorem 4.2 (conditional necessary combinatorics and existence), Proposition 4.3 (different basket); Dimca–Janasz–Pokora, DOI:10.2140/iig.2022.19.47 (nearly-free zero-node extremal arrangements). No claim of priority certification or explicit parameterwise syzygy bases is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited constructions and enumerative classification already give the same baskets and exponent triples for examples or for arrangements assumed plus-one generated. The supported distinct result is the converse on all realizations of the two-node baskets: the singularity data alone exclude every competing minimal degree and then force the full Betti table. This uses existing numerical theorems; none of the strongest inspected sources states the unconditional rigidity or supplies it by merely specializing an existing basket classification.
+
+## value
+
+PASS
+
+This is a complete positive rigidity statement for all realizations in three natural near-maximal-tacnode strata already known to be nonempty. It resolves whether weak data suffice to determine the full syzygy profile in those strata, including excluding possible weak Ziegler pairs, rather than recalculating the exponents of a known example. Its short proof is a use of sharp numerical constraints at a boundary, not the substitution of a single chosen model into a resolution algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

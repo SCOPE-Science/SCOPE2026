@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:23.670223Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–121",
+        "Frozen VERIFICATION.md and verify.py (static inspection; uploaded script not executed)"
+      ],
+      "rationale": "The beta integral gives the stated negative-pool probability, and conditional independence gives the two-specimen correlation Var(Theta)/[p(1-p)]=1/(tau+1). Subtracting adjacent costs and using Q_(k+1)/Q_k=(tau-a+k)/(tau+k) gives the sign of R_k-1 and the stated rational ratio. Its excess over one is positive in the prescribed range, and at fixed a the gamma ratio gives R_k asymptotic to a positive constant times k^(1-a). The crossing therefore gives exactly one minimum or two adjacent minima, including a possible boundary at k=2. For a tending to zero at fixed tau, the sum of squared reciprocal denominators is bounded independently of k, so log Q_k=-a[psi(tau+k)-psi(tau)]+O_tau(a^2) uniformly. Thus R_floor(c/a) tends to c for every c>0, and strict monotonicity brackets every minimizing index to yield a k_* tending to 1. At such indices the exponent has magnitude O(a log(1/a)); its square is o(a), giving 1-Q=a[log(1/a)-psi(tau)]+o(a). Adding 1/k_*=a+o(a) proves the cost formula. The cost tends to zero. For independent statuses, the trial size p^(-1/2) has cost asymptotic to 2 sqrt(p); an optimizer must have k=Theta(p^(-1/2)) from 1/k and 1-exp(-pk) and the cost bound, and its scaled cost tends to the minimum of x+1/x. The three frozen tau=1 examples were also checked separately by integer comparisons: for a=1/d, use the sign of k product_(i=1)^k(di-1)-d product_(i=1)^k(di). Consecutive signs (-,+) bracket the advertised unique minima at k=25,106,1008 for d=20,100,1000.",
+      "residual_risks": [
+        "The proof is for the error-free, nondiluting, unlimited equal-size idealization with fixed beta concentration and adequate cluster sizes. It is not a recommendation for operational assay pool sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3ec6a71f09f8 proves exact optimality versus individual testing in the full alpha<1 regime, with the same asymptotic including the cost constant. dbb2786143e3 extends the sign criterion to alpha>=1 and gives a pooling-benefit phase boundary.",
+          "Landolfi–Lall optimize finite partitions for exchangeable specimens with negative-pool probabilities q(h); the UNC abstract studies hierarchical and matrix procedures under exchangeable responses."
+        ],
+        "reasoning": "The general finite-partition framework contains the objective but by itself does not supply the asymptotic. The indexed beta-binomial results do cover the exact homogeneous model and extend its finite-regime conclusions.",
+        "searches": [
+          "Published Resultary/SCOPE 3ec6a71f09f8 and dbb2786143e3",
+          "Landolfi–Lall, arXiv:2308.11050v2, §§2.3, 3.2.1, 6.1.3",
+          "Lendle–Hudgens–Qaqish, DOI:10.1111/j.1541-0420.2011.01674.x and UNC working paper abstract"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary/SCOPE 3ec6a71f09f8 and dbb2786143e3",
+        "arXiv:2308.11050v2, selected sections",
+        "Lendle–Hudgens–Qaqish 2010 working paper abstract, UNC art16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first indexed result covers all positive integer sizes and places the minimum at k>=2, below individual cost, for alpha<1. It explicitly gives both limits for every optimal size. The second covers the exact adjacent criterion on the pooled-size sequence even beyond that range.",
+          "The exchangeable-partition framework specifies q(h) and the expected test-count objective but does not provide a fixed-concentration limit in the inspected passages."
+        ],
+        "reasoning": "Restricting the exact indexed result to k>=2 does not change its optima in the frozen parameter range. Its formulas are precisely the frozen statements under the parameter dictionary, whereas model reuse and qualitative effects of correlation by themselves would not imply the sharp coefficient.",
+        "searches": [
+          "3ec6a71f09f8, Finding and Proof",
+          "dbb2786143e3, Finding item 3",
+          "arXiv:2308.11050v2, §§2.3, 3.2.1, 6.1.3",
+          "UNC Biostatistics Research Archive art16 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3ec6a71f09f8 states kappa p K_p→1 and min C=kappa p[log(1/(kappa p))+1-psi(kappa)]+o(p). It defines kappa=rho^(-1)-1, alpha=kappa p, beta=kappa(1-p), and H_k=alpha k(k+1)Q_k/(kappa+k)."
+        ],
+        "reasoning": "The frozen correlation is rho=1/(tau+1), so kappa=tau, alpha=a and H_k=R_k, with fixed rho exactly equivalent to fixed tau. Also o(a)=o(p) for fixed tau. Both optimizations agree since the indexed result proves a pooled optimum beats the singleton.",
+        "searches": [
+          "Published Resultary/SCOPE: beta-binomial fixed-correlation Dorfman optimal pool size inverse prevalence, digamma, adjacent threshold",
+          "3ec6a71f09f8, Finding and assumptions",
+          "dbb2786143e3, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3ec6a71f09f8 contains the optimizer limit and cost constant symbolically along with the exact crossing rule; dbb2786143e3 contains the adjacent sign symbolically."
+        ],
+        "reasoning": "A finite table cannot establish a rare-prevalence limit. The indexed exact symbolic statements establish coverage directly; the frozen illustrative integer sizes are substitutions into the same threshold, not a distinct database claim.",
+        "searches": [
+          "Published Resultary exact rendered Findings of 3ec6a71f09f8 and dbb2786143e3",
+          "Frozen RESULT.md, verification examples at tau=1"
+        ]
+      },
+      "rationale": "A distinct published Resultary finding, 3ec6a71f09f8, gives the same threshold, inverse-prevalence limit, and complete digamma constant at fixed correlation, in the same beta-mixture model. Its parameter kappa is the frozen tau and its alpha is a, so the overlap is exact, not a loose scaling analogy. It further incorporates singletons and proves savings throughout alpha<1. A second record, dbb2786143e3, independently overlaps with and extends the exact adjacent-sign classification. The frozen asymptotic, threshold, and examples leave no substantive uncovered remainder. This is an existing-coverage decision, not a claim that the publication path dates establish priority.",
+      "residual_risks": [
+        "The full Lendle et al. text and appendix were not available and could contain additional analogous or stronger results. The reported overlap is established by the distinct published exact statements, not by missing material or the chronology of paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the threshold, all-optimizer law, and digamma cost expansion, with broader singleton comparison.",
+          "evidence": [
+            "The Finding gives the same H_k and exact crossing, the same two boxed limits and the same independent-infection comparison."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-rare-prevalence-pooling-has-an-inverse-prevalence-size-law-under--3ec6a71f09f8",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and negative-pool calculation (offset 0–3176); prior-work passage near 6374.",
+          "method": "Published local Resultary search and mirrored full text.",
+          "title": "Rare-prevalence pooling has an inverse-prevalence size law under beta-binomial clustering",
+          "trigger": "Exact alias for the fixed-correlation optimizer law and possible full asymptotic coverage."
+        },
+        {
+          "assessment": "Exact finite-criterion overlap, not the sharp limit in this passage.",
+          "evidence": [
+            "Item 3 identifies the same H_k and sign rule, with strictly increasing H_k when alpha<=1."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-an-exact-pooling-benefit-phase-boundary-and-two-turning-points-i--dbb2786143e3",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–2002.",
+          "method": "Published local Resultary search and mirror passage.",
+          "title": "An exact pooling-benefit phase boundary and two turning points in beta-correlated medical screening",
+          "trigger": "Same cost and potential alternate form of the adjacent criterion."
+        },
+        {
+          "assessment": "Finite-population framework encompasses the objective; inspected passages do not establish the sharp limits.",
+          "evidence": [
+            "The negative-pool probability q(h) parametrizes expected tests; finite partitions can use different sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11050",
+          "material_read": "Version 2, abstract, §2.3 (p. 6), §3.2.1 Theorem 3.4 (p. 8), and §6.1.3 (pp. 17–18).",
+          "method": "Bounded open-access PDF passages.",
+          "title": "Optimal Dorfman Group Testing for Symmetric Distributions",
+          "trigger": "General optimization framework for exchangeable inputs could subsume the objective."
+        },
+        {
+          "assessment": "Real model overlap; full-paper coverage of the sharp laws could not be settled. Not used as negative evidence.",
+          "evidence": [
+            "The accessible abstract derives expected testing under correlated exchangeable models and notes potential benefit from grouping correlated units; no sharp law appears in the material read."
+          ],
+          "identifier_or_url": "https://biostats.bepress.com/uncbiostat/art16/; DOI:10.1111/j.1541-0420.2011.01674.x",
+          "material_read": "October 2010 UNC working paper landing page and abstract only; no results section or appendix was accessible.",
+          "method": "Institutional open abstract and bounded lawful same-paper retrieval attempts through DOI and identified alternate copy.",
+          "title": "Group Testing for Case Identification with Correlated Responses",
+          "trigger": "Closely matching clustered response model and expected-test objective."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and rare-prevalence proof",
+        "Published Resultary/SCOPE 3ec6a71f09f8"
+      ],
+      "rationale": "As mathematical content, the fixed-correlation law is useful: it gives both a change of scaling regime from independence and sharp optimizer and cost asymptotics, with an exact finite-size rule. This is more than the observation that correlation helps. That intrinsic value does not make this already covered finding a distinct contribution.",
+      "residual_risks": [
+        "The idealization excludes sensitivity loss, testing delays, and fixed upper bounds, so the asymptotic does not establish real-world screening efficiency."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

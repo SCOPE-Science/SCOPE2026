@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gaussian polynomial Fourier transforms follow from Gaussian differentiation and were also checked coefficientwise for independent quartics. Fourier self-duality plus vanishing at the origin uniquely reduces the problem to a homogeneous quartic and its Laplacian correction. For positive spherical leading quartics the negative volume is an **exact** polar integral. Convexity in dimension at least two and integration by parts give the sharp bound and nonradial quantitative excess. Positive quartic approximation, combined with dominated convergence inside the critical ball and monotone convergence outside, proves the result for quartics vanishing in some spherical directions. A negative leading direction produces infinite volume. The only equality ray is the explicitly verified radial quartic. The standalone checker passed 1,999 supplementary assertions. Risk: no independent theorem-level examination has occurred; numerical sampling does not certify universal statements.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Gaussian Fourier differentiation in degrees four and two forces the quadratic part to be −ΔQ/(8π), cancels the constant transform correction exactly, and rules out Q≡0 for a nonzero eigenfunction with f(0)=0. If A=Q|_S is negative anywhere, it is uniformly negative on a smaller spherical patch and the leading term forces an infinite-volume negative cone at large radii. If A>0, the directional squared endpoint is u=((d+2)/(2π)+Δ_SA/(8πA))_+ (the later ν notation refers to the same untruncated expression defined as u in line 66). Exact polar integration and convexity of the positive-part d/2 power give the claimed inequality because spherical integration by parts gives E[Δ_SA/A]=E|∇_S log A|². This average is strictly positive unless A is constant. For nonnegative A with zeros, the perturbation Q+ε|x|⁴ changes f by εe^(−πr²)r²(r²−R₀²). Inside R₀, volume convergence follows by dominated convergence on a finite-volume ball and the null polynomial zero set; outside R₀, indicators for the strict negative set increase to the original indicator as ε decreases. A nonconstant nonnegative smooth A has a patch with A>0 and gradient bounded away from zero, producing a uniform positive angular penalty for the perturbations. Thus the limit is strictly above the radial minimum, including if it is infinite. Direct polar integration of the planar harmonic perturbation gives 2/√(1−ε²); independently computed angular quadrature at ε=0.2 and 0.8 corroborated the areas 2.0412414523 and 3.3333333333 and saturation of the planar angular bound. The nested artifacts/verify_quartic.py was inspected but not executed. Its recorded sample calculations are not a proof of the full-shell theorem.
 
-The closest recent primary source, Edwin (arXiv:2611.08224, Problem 1.6), poses unrestricted definite-set sign uncertainty and notes the absence of automatic radial reduction; it does not derive this finite-degree sharp negative-volume constant. Cohn–Dong–Gonçalves (arXiv:2210.01684) analyzes radial Gaussian polynomial *last sign-change radii*, not the volume of a nonradial negative set. A full published construction on extremal nonnegative positive-definite Hermite functions compares positivity and cone extremality instead. Searches for alternative Gaussian–Hermite, Laguerre and Fourier definite-set formulations did not identify a broader claim implying the exact volume or the gradient rigidity; this is not a proof of global priority. Risks include an earlier unindexed spherical rearrangement or a direct but unpublished finite-Hermite observation. The related 2020 regularity paper was compared through accessible bibliographic description, not asserted to have been read in full.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The source poses a mathematically natural definite-set objective whose radial reduction is not automatic. The theorem settles the first genuinely anisotropic positive Fourier–Hermite quartic shell in every dimension, provides a sharp attained negative-set volume, uniquely identifies the radial equality ray without radial assumptions, and supplies a meaningful global angular-gradient penalty. Its scope is a motivated exact finite-dimensional model, not a purported solution of the larger open problem.
+Pass for the supported distinct theorem: the all-dimensional sharp minimum and uniqueness across the entire degree-at-most-four shell, in particular nonnegative noncoercive quartics with spherical zeros. The positive-leading quantitative formula is already identically covered by distinct record 637249742702, and the earlier planar catalog statement materially overlaps the d=2 result. Neither covers the spherical-zero extension in dimensions d≥3 in the compared evidence. The planar example is illustrative and not credited as a separate originality contribution. The two all-dimensional records share a date, which establishes neither direction of historical priority.
 
-## Limits
+## value
 
-The estimate is restricted to the real even, degree-at-most-four positive Fourier eigen-shell in \(d\ge2\). The gradient refinement requires a positive leading spherical quartic. Independent mathematical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact solution in the entire first nontrivial positive Fourier–Hermite shell is a useful finite-dimensional benchmark for the unrestricted definite-set problem. Closing the noncoercive boundary matters: positivity of the leading quartic was not required by the original optimization, and deleting boundary competitors without a strictness argument would not establish the unique radial minimizer. The overlapping coercive penalty and planar example provide interpretation, not the incremental value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

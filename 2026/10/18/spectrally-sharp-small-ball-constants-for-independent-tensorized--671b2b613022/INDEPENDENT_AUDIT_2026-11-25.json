@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:33:27.602905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof; repaired RESULT.md",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Resultary d93c1b8eb1d0, independent-row proof, offset 5750; Shao–Nakatsukasa Lemma 2.4, Eq. (2.4)"
+      ],
+      "rationale": "Rechecked the repaired claim. After SVD the independent scalars are sums of s_k G_k H_k. Conditioning on the G_k gives variance sum s_k²G_k²>0 almost surely and characteristic function product (1+s_k²t²)^(-1/2). For rank at least two this is integrable and gives the stated positive continuous origin density. The joint density is a product, and the Euclidean ball scales by (sqrt(ell)*F/tau)^ell; tail integration then proves the stated moment iff, including divergence at equality. For normalized weights w_k=s_k²/F² the Fourier integral for F f_M(0) is minimized pointwise at equal w_k by strict concavity of log(1+w_k t²); equality of the integral forces the flat spectrum. The beta integral gives the gamma ratio. A second check uses the conditional normal density: F f_M(0)=(2π)^(-1/2) E[(sum w_k G_k²)^(-1/2)], finite for rank≥2 by the bound using min(w_k)*chi-square_r. Strict Jensen gives the dense comparison since this variance is nonconstant with mean one. At flat rank the variance is chi-square_r/r and the negative half moment gives the same gamma ratio and limit. At r=ell=2 the scalar law for M=I_2 is Laplace and the leading constants are π and 1. The rank-one comparison has normalized density (log(1/|x|)+O(1))/π, and coordinatewise 1+|log|y_j|| bound after rescaling to a unit ball gives the product logarithm and exact coefficient. The fixed independent separable-residual normalization cancels the scalar L² factor.",
+      "residual_risks": [
+        "Fixed real M and fixed ell only; not uniform near rank degeneration or for fitted residuals dependent on the probes. The optional finite replay is python verify.py with scipy>=1.10 in the frozen source directory, and is not needed to establish the asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Paouris bounds small balls of projections of a simple tensor of independent bounded-density coordinates, not a local density identity for repeated independent copies of fixed bilinear probes.",
+          "Güttel–Kressner–Vandereycken handle one tensor probe in their stated theorem and note open multi-probe improvements in their approximation setting; Bujanović–Kressner gives nonasymptotic norm and trace bounds."
+        ],
+        "reasoning": "Broader assumptions in a small-ball inequality do not make that inequality an exact asymptotic, and a sketch approximation or trace estimation result does not identify this fixed norm ratio and its flat-spectrum minimum.",
+        "searches": [
+          "arXiv:2403.20192 Theorem 1.1",
+          "arXiv:2211.12175 §3.3 and Theorem 3.4",
+          "arXiv:2004.06433 Theorems 2.2 and 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records d93c1b8eb1d0 and 6dd6377737bf",
+        "arXiv:2607.10377, 2211.12175, 2004.06433, 2403.20192",
+        "NIST DLMF §10.30.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier rank-one proof rescales W=ρu and obtains density-product limit π^(-R) under a cutoff |⟨u,Z⟩| in the scaled radius. The same computation with constant cutoff sqrt(R) gives the frozen rank-one coefficient since the sphere area is R times the ball volume.",
+          "Remark 2.5 gives O(ε) rather than O(ε|log ε|) when the second singular value is positive. Independence then gives an upper bound of order ε^ell for the paired norm but not a matching coefficient or strict spectral extremum."
+        ],
+        "reasoning": "Credit the deterministic-cutoff specialization and prior scalar rates. The nondegenerate origin-density calculation, sharp minimizer and dense comparison in the repaired claim are not supplied by the cited implications. The standard Fourier and beta identities used in the proof are not claims of novelty.",
+        "searches": [
+          "Resultary d93c1b8eb1d0 proof at offsets 5415 and 5750",
+          "arXiv:2607.10377 Remark 2.5 and Theorem 2.7",
+          "NIST DLMF §10.30.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ell paired observations are exactly the independently distributed diagonal entries of Ω_L^T M Ω_R. Shao–Nakatsukasa exploit this diagonal subset for a bound, while their full block includes dependent off-diagonal pairs.",
+          "Earlier Resultary d93c1b8eb1d0 uses the same iid product-normal W at rank one, though its target is a structured least-squares error with random numerator."
+        ],
+        "reasoning": "The diagonal equivalence is genuine and the prior logarithmic analysis is credited; the full block Frobenius norm is a different observable unless only one entry is measured, and the cited estimates do not determine the repaired exact spectral coefficient.",
+        "searches": [
+          "Resultary: Gaussian rank-one tensorized sketching, exact logarithmic tails and inverse moments; exact bilinear small balls and spectral comparison",
+          "arXiv:2607.10377, Lemma 2.4, Remark 2.5, and Theorem 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d93c1b8eb1d0 gives exact constants for rank-one tensor-row least-squares errors and its density proof gives the rank-one deterministic cutoff specialization.",
+          "6dd6377737bf gives an exact rank-two crossed-block law with exponent 2k-1 and an elliptic spectral constant; it appeared in the catalogue after the freeze."
+        ],
+        "reasoning": "Both exact results were compared rather than rejected based on titles or dates. The first covers the radial rank-one calculation but no rank-at-least-two coefficient for the paired observations; the latter concerns the larger matrix block, with a different exponent for k>1 and different observable.",
+        "searches": [
+          "Local Resultary exact tail and spectral-constant lookups; retrieved records d93c1b8eb1d0 and 6dd6377737bf"
+        ]
+      },
+      "rationale": "The repaired distinct scope is the exact fixed-spectrum, rank-at-least-two leading law for independent bilinear observations, its sharp spectrum-constrained comparison and its moment implications. The sources checked provide scalar rate bounds, crossed-block results, or the already credited rank-one radial argument. None of those statements or proofs supplies the rank-at-least-two origin-density coefficient and spectral extremum for this statistic. No separate originality is assigned to rank one or to the qualitative disappearance of the logarithm.",
+      "residual_risks": [
+        "Other work on product-normal convolutions, reciprocal norms, or spectral inequalities could contain overlapping fixed-spectrum specializations; the bounded comparison is not evidence of literature completeness.",
+        "The original product-normal paper cited by Shao–Nakatsukasa was not itself retrieved; the density formula is visible in the cited OA paper and can be derived directly by conditioning. No novelty depends on this ingredient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar rates and uses the independent diagonal subset, not exact paired spectral constants",
+          "evidence": "Real scalar O(ε|log ε|), O(ε) if s_2>0; full block observable uses shared Gaussian factors across entries.",
+          "identifier_or_url": "arXiv:2607.10377",
+          "material_read": "PDF pp. 7–9, Lemma 2.4/Eq. (2.4), Remark 2.5, Theorem 2.7; offsets 26714, 32071, 33316",
+          "method": "Lawful OA primary PDF",
+          "title": "Convergence analysis of a nonlinear eigensolver based on rational approximation of the resolvent",
+          "trigger": "Same bilinear measurements and qualitative rank distinction"
+        },
+        {
+          "assessment": "Rank-one coefficient computation covered by specialization; other observable, no rank-at-least-two leading law",
+          "evidence": "Explicit joint product-normal density, radial rescaling and limiting π^(-R) for the independent-row model; set the radial cutoff constant for the validation ratio.",
+          "identifier_or_url": "Resultary d93c1b8eb1d0",
+          "material_read": "RESULT.md, proof Independent tensor rows and exact logarithmic tail, offsets 5415 and 5750",
+          "method": "Local mirror",
+          "title": "Sharp inverse-moment thresholds and logarithmic tails for two Gaussian sketching models",
+          "trigger": "Strongest earlier exact logarithmic tail overlap"
+        },
+        {
+          "assessment": "Full crossed block rather than paired projections; later-dated entry",
+          "evidence": "Uses Z=Ω_L^T S Ω_R and exponent 2k-1, with an elliptic spectral constant.",
+          "identifier_or_url": "Resultary 6dd6377737bf",
+          "material_read": "Indexed RESULT.md, Finding",
+          "method": "Local mirror",
+          "title": "Sharp rank-two Gaussian resolvent sketch small-ball law",
+          "trigger": "Exact rank-two spectral constant in a closely related model"
+        },
+        {
+          "assessment": "Single probe bound; function approximation rather than this exact fixed statistic",
+          "evidence": "A real tensor probe v⊗u; authors specify partial results at ell=1 and leave improved multi-probe rates open.",
+          "identifier_or_url": "arXiv:2211.12175",
+          "material_read": "PDF p. 7, §3.3 and Theorem 3.4, offset 33610",
+          "method": "Lawful OA primary PDF",
+          "title": "Randomized sketching of nonlinear eigenvalue problems",
+          "trigger": "Motivating tensorized validation problem"
+        },
+        {
+          "assessment": "Norm/trace inequalities, not exact leading constants",
+          "evidence": "Theorem 2.2 reduces a norm-estimation bound to one bilinear form, whereas Theorem 3.1 bounds a multiple-sample trace estimator.",
+          "identifier_or_url": "arXiv:2004.06433",
+          "material_read": "Theorems 2.2 and 3.1, PDF pp. 4 and 12, offsets 12801, 40443",
+          "method": "Lawful OA primary PDF",
+          "title": "Norm and trace estimation with random rank-one vectors",
+          "trigger": "Prior bilinear and multiple rank-one Gaussian estimates"
+        },
+        {
+          "assessment": "General probability bound does not give the sharp fixed-M leading density",
+          "evidence": "Bounded-coordinate-density model, projection onto a subspace of the ambient tensor space, inequalities with general constants.",
+          "identifier_or_url": "arXiv:2403.20192",
+          "material_read": "PDF p. 3, Theorem 1.1, offset 9340",
+          "method": "Lawful OA primary PDF",
+          "title": "Small Ball Probabilities for Simple Random Tensors",
+          "trigger": "Broader projection small-ball theorem"
+        },
+        {
+          "assessment": "Known rank-one input",
+          "evidence": "K_0(z)∼−log z; density for an independent standard real Gaussian product is K_0(|x|)/π.",
+          "identifier_or_url": "DLMF §10.30.3",
+          "material_read": "Origin formula for K_0",
+          "method": "Public reference; product-normal density confirmed in OA arXiv:2607.10377 Eq. (2.4)",
+          "title": "NIST Digital Library of Mathematical Functions, Modified Bessel Functions—Limiting Forms",
+          "trigger": "Classical rank-one density singularity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and scope",
+        "Prior fixed-residual, scalar-rate and crossed-block comparisons in originality"
+      ],
+      "rationale": "The leading coefficient of this validation failure probability is a natural quantity not determined by rank-only bounds. The sharp spectrum-constrained optimum and its strict dense-probe gap at each finite rank quantify the cost of tensorization even when the logarithmic loss is absent. The law also yields exact probe-count thresholds for finite inverse moments. The repair preserves those conclusions and does not claim convergence of an approximation fitted on the probes.",
+      "residual_risks": [
+        "The significance is for a separable fixed real residual with independent validation pairs, not general matrix-function approximations or operational finite-threshold optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

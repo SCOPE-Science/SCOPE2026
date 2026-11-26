@@ -1,19 +1,21 @@
-# Scientific review: six-season nonlinear resonance selection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive periodic orbit is supplied by the 2010 Ishihara--Nakata global-attraction result; all of its hypotheses are verified explicitly for the delayed Beverton--Holt specialization. The log-coordinate six-equation residual is exact. At inverse growth \(\delta=0\), its Fourier linearization has precisely a two-dimensional nullspace. An analytic Lyapunov--Schmidt reduction identifies a unique real amplitude through a strictly monotone hyperbolic-sine equation, and the reduced derivative is invertible because a positive-definite compressed diagonal multiplier is followed by an invertible shift. This proves a genuine positive branch and its \(O(\lambda^{-1})\) error, not merely a formal expansion. Exact-rational Fourier checks and finite numerical orbit checks are secondary evidence.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+The positivity, periodicity, monotonicity of f_j and of t f_j, and the product thresholds at zero and infinity meet Ishihara–Nakata's one-delay hypotheses. Thus the phase-indexed positive orbit exists, attracts, and is unique. In log coordinates, the unperturbed cyclic operator has symbol 2 cos(theta)-1 and a two-dimensional kernel E. Solving the complement and dividing the kernel equation by delta=1/lambda gives P(exp(-v_{j-1})-1-eta h_j)=0 at delta=0. For v_j=-q h_{j+1}, pairing opposite phases gives the stated hyperbolic-sine coefficient, and reflection kills its sine coefficient. The shift acts invertibly on E and the positive diagonal compression is positive definite, giving a nonsingular reduced equation even at q=0. The analytic branches agree for positive delta by uniqueness; a finite parameter cover gives the compact-eta error bound. Expansion and inversion give the two amplitude asymptotics. The finite-lambda susceptibility operator has symbol (2-delta)cos(theta)-1+i delta sin(theta), which has no zero among the six modes for 0<delta<1. Substitution of -(1-delta)h_{j+1} then gives the derivative with the reported sign and index.
 
-Ishihara--Nakata (2010, arXiv:1006.3379) establishes attraction but not the inspected nonlinear large-growth selection law. Kocic (2009/2010) studies geometric-mean attenuance rather than a nonzero limiting phase profile under forcing that tends to zero. Yang--Sacker/Haskell (2012 online/2013 print) studies the non-delayed one-step equation, so its average-response results do not imply the six-root delayed mechanism. Topic-specific mathematical-result, article and prior-ledger searches did not surface an equivalent statement, though negative searches cannot establish priority. Two plausibly adjacent delayed attenuance sources could not be reviewed as full continuous texts; an independent historical literature review remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural question is whether vanishing environmental seasonality necessarily produces vanishing attractor variation. The result supplies a structurally different answer at the critical sixth-root memory resonance: \(O(\lambda^{-1})\) forcing has a nonzero, explicitly determined finite-amplitude limiting cycle. The exact nonlinear hyperbolic-sine response and its logarithmic large-forcing behavior distinguish the regime from ordinary linear susceptibility and illuminate the singular limit of a globally attracting nonautonomous planar system.
+Credit the cited global attraction theorem and prior work on attenuation. The distinct supported claim is the explicit phase-resolved nonlinear selection law on the eta/lambda scale and its compact-parameter error estimate, not stability, an attenuation inequality, or resonance in general. The inspected comparisons do not establish prior coverage of this claim.
 
-## Limitations
+## value
 
-The limit takes \(\lambda\to\infty\) at fixed \(\eta\). There is no claim of uniform global transient convergence, a general non-six-period classification, or external priority certification. The supporting checker is finite, whereas the parameter-uniform assertion comes from the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves a genuine near-resonance question: carrying-capacity oscillations vanish but population oscillations retain a finite nonconstant phase profile. The exact phase and the nonlinear crossover from a linear response to logarithmic growth in scaled forcing are useful information not given by a mean estimate or finite-lambda susceptibility alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

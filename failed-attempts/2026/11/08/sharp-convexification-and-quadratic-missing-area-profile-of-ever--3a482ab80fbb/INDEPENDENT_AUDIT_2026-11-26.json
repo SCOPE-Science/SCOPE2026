@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:30:37.203045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the full horizontal-section proof. A shear/scale can center both positive parallel bases and turn their half-widths into 1 and t while keeping the normalized area ratio. Put β=λ/(1+λ). For λ<1 the bottom sections of the two bottom copies are disjoint, and no top copy meets the bottom. For β≥1/2 the top pair covers every section y≥1−β (its halfwidth is at least tβ≥t(1−β)). Below that height only the bottom pair is available, with halfwidth β−(1−t)y around the centers ±(1−β), so the entire gap for t<1 is y_0<y<1−β, |x|<(1−t)(y−y_0), y_0=(2β−1)/(1−t). Its height is positive iff λ<2−t, and integration gives (1−t)(1−β−y_0)^2. Dividing by 1+t gives the stated deficit including the zero at critical equality; the quadratic coefficient and λ=1 value follow. For t=1 the overlapping height ranges of the two pairs cover the whole parallelogram at β≥1/2 without dividing by 1−t. RESULT.md and both supplementary files were inspected. The expected 39,919 verifier count is not a recorded replay; the rational grid and algebraic consistency checks cannot prove the real-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact quadrilateral theorem includes every nondegenerate convex trapezoid, derives its threshold using an exact translated gauge, and supplies coverage outside an explicit rectangle.",
+          "The general Minkowski finiteness and vertex-generation references give useful background, but their inspected passages do not themselves give the exact trapezoid area."
+        ],
+        "reasoning": "The broader claim doing the decisive work is the specific all-quadrilateral theorem and its membership proof. The general finiteness theories by themselves would not settle exact area; an additional indexed all-quadrilateral title was treated only as unresolved corroboration because its passage could not be inspected.",
+        "searches": [
+          "Resultary exact all-quadrilateral threshold 8d3f0a12e949 and four-phase index badbb260f73f",
+          "arXiv:2610.26744, index and planar finiteness",
+          "arXiv:2407.20604, vertex generated polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and trapezoid_convexification_verify.py",
+        "Resultary 8d3f0a12e949 and badbb260f73f (latter indexed summary only)",
+        "arXiv:2407.20604 and arXiv:2610.26744; DOI 10.2140/pjm.1975.58.617 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=q=t<1 the previous exact covering criterion already fills the rectangle's southwest, northwest and southeast quadrants when λ≥1. In the northeast it is F≤λ with F(x,y)=min{m_t(x)+y,x+m_t(y)}, m_t(v)=min{v+t,(1−v)/t}; points outside the rectangle are covered.",
+          "Taking F>λ gives x+y>λ−t, x<ty+1−tλ, y<tx+1−tλ. The three intersections are (a,a), (λ−1,1−t), and (1−t,λ−1), with a=(1−λt)/(1−t). They lie in the northeast rectangle on the full claimed interval and coalesce at its upper endpoint. Their triangle has unnormalized area (2−t−λ)^2(1+t)/(2(1−t)); the quadrilateral has area (1+t)^2/2 in those coordinates."
+        ],
+        "reasoning": "Dividing by (1+λ)^2 to return to normalized coordinates and then by the quadrilateral area gives exactly (2−t−λ)^2/((1−t²)(1+λ)^2). No theorem about the topology or geometry of a new uncovered component is needed after the earlier criterion; only linear inequalities and the triangle area formula are used. The quadratic asymptotic is direct substitution into that deficit.",
+        "searches": [
+          "Resultary 8d3f0a12e949, RESULT.md rectangle reduction and quadrant gauge passage, offsets 0–3369 and 3156–5568"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex-generation weight η=1/(1+c_V) measures the same affine homothetic coverage threshold.",
+          "The 8d3f0a12e949 diagonal-ratio quadrilateral coordinates have p=q=t for a trapezoid by similar triangles; the earlier index formula is 1+(1−pq)/(1+max(p,q))."
+        ],
+        "reasoning": "The affine invariant t and the diagonal ratios in the prior paper are the same parameter in the trapezoid case. Thus the earlier c_V is the same quantity as here and takes exactly the claimed value, not merely a comparable bound.",
+        "searches": [
+          "Resultary: Schneider nonconvexity index of trapezoids and quadrilaterals, vertex homothetic covering, missing area",
+          "arXiv:2407.20604, Schneider and vertex-generation definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first distinct catalogue record states an exact index from the two diagonal ratios p,q. Substituting p=q=t gives 1+(1−t²)/(1+t)=2−t, including t=1.",
+          "The area law is not written explicitly in the earlier finding; the decisive comparison for that part is with the actual membership proof, not a lookup of a numerical example."
+        ],
+        "reasoning": "An exact symbolic catalogue formula plays the role of an exact table here. Its matching specialization covers the threshold; the distinct area claim must be tested for implication, rather than declared new because the closed form is not indexed verbatim.",
+        "searches": [
+          "Resultary catalogue: exact vertex convexification threshold of every convex quadrilateral, 8d3f0a12e949; exact four-phase vertex generation index, badbb260f73f"
+        ]
+      },
+      "rationale": "An earlier exact all-quadrilateral theorem supplies the same index by specialization, and its proof gives pointwise coverage data sufficient to derive the exact near-critical missing triangle and area by intersecting three half-planes. The area law is not stated verbatim in the earlier finding, but it is mechanically implied by the exact gauge formulas in its proof. Neither the quadratic asymptotic nor the parallelogram endpoint survives as a distinct claim.",
+      "residual_risks": [
+        "The source comparisons do not settle wider historical priority; the Schneider primary text and exact alternate all-quadrilateral record were not inspected in full.",
+        "The decision rests on the independently inspected earlier index and coverage proof, not on these missing sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact index specializes directly; exact proof membership renders the missing area a routine adaptation",
+          "evidence": "Index 1+(1−pq)/(1+max{p,q}); rectangle reduction and quadrant minimum of translated gauges yield three linear hole boundaries at p=q=t.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-vertex-convexification-threshold-of-every-convex-quadrilat--8d3f0a12e949",
+          "material_read": "RESULT.md finding and proof near offsets 0–3369 and 3156–5568, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Exact vertex convexification threshold of every convex quadrilateral",
+          "trigger": "Same relative Minkowski sum on a strictly larger affine family"
+        },
+        {
+          "assessment": "Unresolved additional overlap, not used to decide priority or to infer noncoverage",
+          "evidence": "Summary describes an all-quadrilateral index calculation.",
+          "identifier_or_url": "Resultary badbb260f73f",
+          "material_read": "Indexed finding summary only; full mirror passage unavailable",
+          "method": "Local Resultary lookup",
+          "title": "Exact four-phase vertex generation index of every convex quadrilateral",
+          "trigger": "Another exact all-quadrilateral catalogue comparison"
+        },
+        {
+          "assessment": "Definitions and general bounds, not the exact trapezoid statement in the inspected passage",
+          "evidence": "Relates their vertex-generation parameter to c(V); the zonotope setting includes the parallelogram endpoint.",
+          "identifier_or_url": "arXiv:2407.20604",
+          "material_read": "PDF p. 1, near OA offset 3300",
+          "method": "Open-access paper passage inspection",
+          "title": "Vertex generated polytopes",
+          "trigger": "Equivalent vertex homothet covering definition and endpoint"
+        },
+        {
+          "assessment": "Same general index when K=conv(A), but finiteness is not quantitative area coverage",
+          "evidence": "The inspected planar result provides a finiteness criterion rather than a trapezoid-specific formula.",
+          "identifier_or_url": "arXiv:2610.26744",
+          "material_read": "PDF pp. 1–2 and p. 7 near OA offsets 2850 and 13800; references p. 19 near 36100",
+          "method": "Open-access paper passage inspection",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "Relative convexification and planar finite-coverage criterion"
+        },
+        {
+          "assessment": "Unresolved historical comparison; not part of the rejection evidence",
+          "evidence": "Meyer's references identify Schneider as the origin of the index; no directly read original-paper formula is asserted here.",
+          "identifier_or_url": "DOI 10.2140/pjm.1975.58.617",
+          "material_read": "Reference entry in Meyer; full text unavailable after bounded DOI and Project Euclid attempts",
+          "method": "OA primary-host retrieval and identifier comparison",
+          "title": "A measure of convexity for compact sets",
+          "trigger": "Original Schneider index and possible exact examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The width and area of the deficit are meaningful geometric observables. Here however both the threshold and the exact near-critical area follow routinely from the earlier all-quadrilateral gauge criterion. Rewriting the same hole using a horizontal slice yields a simpler specialized proof but does not establish a new invariant or resolve any unaddressed regime. No valuable surviving repair is shown for the submitted scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

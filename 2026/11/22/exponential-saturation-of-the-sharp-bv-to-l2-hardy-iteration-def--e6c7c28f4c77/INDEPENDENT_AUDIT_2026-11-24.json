@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:29:40.252956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With real BV and open-interval variation, represent f modulo constants by integrating upper step functions against Df. The probability kernel for H^m gives bounded integrands against the finite variation measure, justifying interchange; Minkowski then gives the optimal norm as the supremum of single-jump norms. Products of m independent uniforms give a Gamma(m,1) logarithmic delay and the stated Q_m residual. Its squared norm R_m satisfies R_m'=Q_m²-R_m and integration by parts gives the displayed root equation; the bracket is strictly decreasing and its limit is at most -1. The unique maximizer forces variation supported at a single jump, including both jump signs. The m=1 squared norm is t(1-t), and Q_{m+1}>Q_m for positive arguments proves strict growth. The root lies between b_m and (1+epsilon)b_m by a Gamma lower-tail bound, which then gives 0<=m log(L_m/b_m)<=-log Q_m(L_m)=O(exp(-cm)). In the Poisson tail expansion at L_m, L_m^m/m! tends to 1/2, and successive terms after factoring the lead are uniformly geometrically dominated and tend to (1/e)^j. This yields the exact squared-deficit prefactor after Stirling. No weighted or general Lp claim is inferred.",
+      "replay": "python3 /workspace/review_checks.py 4; independent root computation using a finite sum of incomplete gamma integrals evaluated as positive lower-tail series; reproduced m=1,2,5,10 benchmarks and sampled through m=300. At m=300 the scaled deficit is about 1.586606 versus limiting e/(e-1)=1.581977. This is a spot check only. Frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Belli et al. introduction concerns the norm/spectral properties, cyclicity and invariant subspaces with a different weighted kernel.",
+          "The two iterate papers could not be inspected at accessible DOI or publisher PDF routes; no conclusion about their interiors is taken from that failure."
+        ],
+        "reasoning": "Neither spectral structure nor generic iteration-rate terminology establishes exact optimization of I-H^m over a variation ball. Possible broader sharp defect results in the inaccessible works are a specific residual risk, not evidence of coverage or novelty.",
+        "searches": [
+          "Iterating the Cesàro operators, DOI 10.1090/S0002-9939-08-09197-1",
+          "Rates of convergence for the iterates of Cesàro operators, DOI 10.1090/S0002-9939-09-10127-2",
+          "Crescents and the Real Variable Cesàro Operator, DOI 10.1007/s00020-026-02865-7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–93, VERIFICATION.md and checker source",
+        "Resultary fa8ba69dbe73 and 8c4c84cb95d7",
+        "Leśnik–Maligranda; Curbera–Ricker; Belli et al. passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The L1 analogue gives leading norm deficit e/(e-1) (2pi m)^(-1/(2e)) exp(-m/e); the audited result concerns squared L2 deficit and its prefactor differs by the factor 2^(1/e).",
+          "The L2 exact stationarity equation weights the integral by Q_m, unlike the L1 analogue."
+        ],
+        "reasoning": "The kernel and BV jump argument overlap, but an L1 optimal value or comparison of L1/L2 norms does not give an L2 sharp extremizer. The new squared-integrand stationarity and location control are needed.",
+        "searches": [
+          "fa8ba69dbe73 RESULT.md Finding and section 5; Leśnik–Maligranda DOI 10.1007/s00020-014-2203-4, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed fa8ba69dbe73 gives the real BV-to-L1 defect and jump exp(-(m!)^(1/m)); it uses the same Gamma kernel.",
+          "Indexed 8c4c84cb95d7 treats the continuous-time Poissonized L1 defect.",
+          "The published Cesàro range/representation work addresses different mapping questions."
+        ],
+        "reasoning": "Hardy and continuous Cesàro averaging denote the same one-sided operator here, but a norm of the defect on an unweighted variation ball is not a domain/range or ordinary Hardy inequality. Changing exponent or Poissonizing affects the optimizing jump and the sharp constants.",
+        "searches": [
+          "Resultary iterated Cesàro bounded-variation defect, gamma survival, Bessel extremizers",
+          "DOI 10.1007/s00020-014-2203-4; arXiv:1512.02760"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fa8ba69dbe73 gives exact constants for a different invariant; at m=1 even the maximizer is e^-1 instead of 1/2.",
+          "8c4c84cb95d7 gives a Bessel-root jump for a continuous-time operator, not this Q_m root."
+        ],
+        "reasoning": "These are structural formulae rather than parameter coincidences. Neither tabulates or determines the sharp unweighted L2 variation-to-defect constants. No same-day priority inference is made.",
+        "searches": [
+          "Resultary exact bounded variation error of iterated Cesàro averaging (fa8ba69dbe73)",
+          "Resultary Bessel extremizers and a quarter-rate boundary layer (8c4c84cb95d7)"
+        ]
+      },
+      "rationale": "The closest known formula uses the same averaging/variation model but integrates the step residual to power one rather than two. The L2 norm, strictly monotone root equation, rigidity and precise squared-deficit coefficient are a distinct conclusion; neither the L1 formula nor standard Hardy operator norms supply that root or coefficient.",
+      "residual_risks": [
+        "Exact coverage in the inaccessible Galaz Fontes–Solís or Adell–Lekuona texts, or an older BV sharp Hardy-iterate estimate under different notation, was not resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material kernel/asymptotic overlap, different optimized invariant",
+          "evidence": "L1 sharp jump exp(-(m!)^(1/m)) and unsquared deficit. It does not fix the maximizing squared residual.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-bounded-variation-error-of-iterated-ces-ro-averaging--fa8ba69dbe73",
+          "material_read": "RESULT.md Finding and §5",
+          "method": "Local indexed mirror",
+          "title": "Exact bounded-variation error of iterated Cesàro averaging",
+          "trigger": "Exact same operator powers and variation, closest alternate norm"
+        },
+        {
+          "assessment": "Different L1 semigroup",
+          "evidence": "P_t=exp(t(H-I)) with Bessel-root maximizer and exp(-t/4) rate.",
+          "identifier_or_url": "Resultary 8c4c84cb95d7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed mirror",
+          "title": "Bessel extremizers and a quarter-rate boundary layer for Poissonized averaging",
+          "trigger": "Possible continuation to another time parameter or common extremal formula"
+        },
+        {
+          "assessment": "Different mapping question in inspected passage",
+          "evidence": "Optimal domain and optimal range, and improvement of Hardy's inequality.",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-014-2203-4",
+          "material_read": "p. 1, OA offset 306",
+          "method": "Open-access text",
+          "title": "Abstract Cesàro Spaces. Optimal Range",
+          "trigger": "Classical Hardy/Cesàro mapping theory"
+        },
+        {
+          "assessment": "Related method, not this optimization",
+          "evidence": "Representation and structure of Cesàro spaces using vector measures/integration.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.02760",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Open-access text",
+          "title": "Abstract Cesàro spaces: Integral representations",
+          "trigger": "Integral representation for Cesàro operators"
+        },
+        {
+          "assessment": "Different weight and scope in inspected passage",
+          "evidence": "Norm, spectral properties, cyclicity and invariant subspaces.",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-026-02865-7",
+          "material_read": "p. 1, OA offset 491",
+          "method": "Open-access text",
+          "title": "Crescents and the Real Variable Cesàro Operator",
+          "trigger": "Recent real-variable Cesàro analysis"
+        },
+        {
+          "assessment": "Unresolved access risk, not a negative comparison",
+          "evidence": "No theorem inferred from inaccessible pages.",
+          "identifier_or_url": "DOIs 10.1090/S0002-9939-08-09197-1 and 10.1090/S0002-9939-09-10127-2",
+          "material_read": "Bibliographic identities only; no full text",
+          "method": "DOI and publisher PDF access attempts",
+          "title": "Iterating the Cesàro operators; Rates of convergence for the iterates of Cesàro operators",
+          "trigger": "Same iteration theme could hide a broader rate theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The variation-ball identity defect is an interpretable exact error benchmark for repeated prefix averaging, rather than the usual Hardy operator norm. It determines all worst inputs and their boundary migration and distinguishes the norm-dependent saturation coefficients from the analogous L1 result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

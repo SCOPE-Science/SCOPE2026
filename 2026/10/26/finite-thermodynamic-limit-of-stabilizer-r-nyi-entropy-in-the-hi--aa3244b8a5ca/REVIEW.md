@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For length \(2n\), down-before-up inversions are exactly the half-area deficit. Reversing the down counts before successive up-steps gives precisely the partitions inside the staircase \((n-1,\ldots,0)\). Every partition of size smaller than \(n\) fits, yielding the quantitative partition tail. Padding by deterministic exterior spins preserves inversion labels and hence gives exact overlap \(\sqrt{Z_n/Z_m}\). Hilbert–Schmidt Pauli orthogonality proves a dimension-free Lipschitz bound for all real orders \(\alpha>1\); a diagonal-Pauli/Jensen lower bound prevents the logarithm from diverging. This proves the finite limit, upper bound, and stated rate. Finite computations separately checked small cases. There is no claim of strict positivity of the limit.
+## correctness
 
-**Originality (O): PASS, best-knowledge.** The motivating Lee paper (arXiv:2609.09545) gives exact finite-size combinatorial computations and numerical evidence of \(t>1\) constant scaling, not the uniform all-real-order convergence theorem or its explicit exponential error. The original model paper (arXiv:1611.04983) provides the Young-diagram partition bound in an **entanglement** calculation; it does not address stabilizer Rényi Pauli moments. Haug–Piroli (arXiv:2207.13076) studies generic matrix-product calculations and does not directly imply convergence of this increasing-bond-dimension family with the explicit rate. Database and literature comparisons searched equivalent phrases and possible broader controls. Residual risk: an unindexed general continuity theorem combined with a Fredkin partition construction might subsume some ingredients; exact global priority is unverified.
+PASS
 
-**Value (V): PASS.** Recent analysis reports a phase distinction in stabilizer magic based on finite-size numerical evidence. The finite-volume-to-thermodynamic passage is nontrivial because the Pauli sum grows exponentially with volume and the Rényi functional is nonlinear. The result proves an actual thermodynamic limit, all real indices greater than one, a finite explicit product bound and an exponential finite-size error throughout the \(t>1\) phase. These provide a reproducible analytic foundation for using finite chains to approximate infinite-volume magic. This is not a solution of the critical point or an exact limit computation.
+The down-before-up inversions give area n²−2d and are exactly the size of a partition in the n-staircase. Every partition of size less than n fits, giving the claimed q^(n/2) bound on the normalization tail. Centered padding preserves the partition and adds only pure stabilizer ancillas, so squared overlap is Z_n/Z_m and the density-matrix Hilbert–Schmidt error is at most √(2P(√q))q^(n/4). For real α>1, the mean-value bound on |a|^(2α), normalized Pauli Parseval and Cauchy–Schwarz give the dimension-independent moment error 4α times that distance. The diagonal Pauli family alone gives F_α≥(sum_x p_x²)^α≥P(q)^(−2α) by Jensen; F_α≤F_1=1. Taking logarithms thus gives both stated constants, including the exponential Cauchy bound. Independently, at n=2 the paths 0011 and 0101 have amplitudes 1 and √q up to normalization. The Pauli fourth powers sum to (1+[(1−q)/(1+q)]^4+[2√q/(1+q)]^4)/2, agreeing with the stated finite identity. The frozen enumeration was inspected, not executed; the analytic argument verifies the limit. No positivity of the limit or endpoint uniformity is inferred.
 
-**Relationship and limitations.** Prior partition bounds are credited to Salberger et al.; the result is not claimed to replace their entanglement theorem or the dynamic-programming computations of Lee. The bound deteriorates as \(t\downarrow1\) or \(\alpha\downarrow1\); positivity of the limit and sharp exponents remain open here. No independent literature coverage guarantee exists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is a rigorous finite limit, with explicit size error for all real α>1, for the same colorless weighted state previously studied numerically. The inspected partition bound is old; the new conclusion uses control of centered state overlap together with a dimension-independent Pauli-moment bound and uniform control of the logarithm. No equivalent theorem or dominating result was identified in the bounded comparison.
+
+## value
+
+PASS
+
+The result resolves a natural thermodynamic-limit question raised by measured saturation in the high-area Fredkin phase. Boundedness alone would allow oscillation; exponential convergence and coverage of real orders beyond the replica calculations add concrete information. The size-independent Pauli-moment step is useful precisely where moment estimates that grow with the padded Hilbert-space dimension would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

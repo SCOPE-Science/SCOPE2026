@@ -1,19 +1,21 @@
-# Scientific review: characteristic-three entanglement defects
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The specified ideal prime-dimensional graph state has a flat bipartite Schmidt spectrum by Fourier-character orthogonality. Every balanced cross adjacency matrix splits into two complementary point-line incidence minors. An exact integral Smith-normal-form program exhaustively enumerates all 1716 unordered balanced cuts, checks eleven invariant-factor classes, derives the full all-prime rank distribution, and checks equality between the 29 characteristic-three defects and the 28 noncollinear-triangle cuts plus the canonical point-line cut. A second program uses a different Fano-plane model and independent modular elimination to reproduce all counts. The determinant arguments locate the characteristic-three defect. Finite exhaustive computation proves this statement for this fixed graph, not for any infinite graph family.
+PASS
 
-## Originality (PASS on examined evidence; historical priority provisional)
+The cut trace over the seven opposite prime-field labels gives an indicator of the kernel of the transposed cross matrix; the normalized reduced state has one eigenvalue p^{-r} per coset, yielding r log_2(p) for the positive-order Rényi and von Neumann entropies. A cut with k point vertices X has k line vertices Y on its opposite side; its cross matrix has the two complementary incidence blocks N[X,Y] and N[X^c,Y^c]^T. Exactly one seven-set of each complementary pair contains the distinguished point. An independent exact computation of determinantal divisors reproduced all eleven Smith classes across these 1,716 cuts, and modular elimination verified the geometry and reported field-rank counts. The Smith census contains only 2 and 3 as nonunit prime divisors; 28 cuts with factors (1,1,1,1,1,1,6) and one with (1,1,1,1,2,2,6) lose one unit mod 3. Hence the counts ranked 4 through 7 are (21,273,729,693) at 3 and (21,273,700,722) for every prime at least 5. Independently, using a noncollinear triple as a basis of F_2^3, its side lines yield a J-I block of order three; the complementary block can be ordered as I_3 bordered by ones and bottom-right zero, of determinant -3. The characteristic-three rank of this latter block is three. For the canonical point–line cut NN^T=2I+J gives determinant magnitude 24 and rank six mod 3, using the all-ones kernel and rank six of the product. Each of the 28 triangle sides has four points, uniquely identifying the triangle and the representative with four points. The independent exhaustive comparison excludes further defects. The p>=3 restriction pertains to the stated classification; it is not necessary for the character-orthogonality rank identity itself, which also holds at p=2. No extension to different graphs, weights, or composite dimensions is asserted.
 
-Earlier graph-state literature proves general bipartition cut-rank methods and documents prime-dependent entanglement, so neither is claimed as new. An earlier complete qubit Heawood cut histogram is also known and explicitly excluded from the new contribution. The closest projective-plane matching-fault result concerns deleted qubit gates in one fixed point-versus-line cut, not unweighted odd-prime qudit states across all 1716 balanced partitions. Full-text material from foundational qudit graph-state, AME and projective-plane entanglement papers was compared; no examined result implied the specific characteristic-three histogram or its exact 29-cut geometric characterization. Unindexed or inaccessible equivalent enumerations remain possible.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The Heawood graph is the incidence graph of the smallest projective plane and a canonical fourteen-site quantum-information network. Determining exactly which of its balanced subsystems lose entanglement only in characteristic three identifies a nontrivial arithmetic obstruction not captured by the known binary histogram, and places that obstruction on natural projective triangles. The result supplies a complete finite-graph benchmark for qudit-state entanglement, including all prime dimensions and every balanced partition; an infinite-family extension is not required for this precise classification.
+Pass for the complementary-cut integer census and its odd-prime consequence, including the 28 triangle cuts in addition to the canonical incidence cut. The exact qubit overlap is credited, as are the general cut-spectrum principle and the classical incidence-matrix calculation for the canonical cut. The strongest distinct inspected records do not cover all intact balanced cuts in odd prime characteristic.
 
-## Closest literature, scope and risks
+## value
 
-Hein–Eisert–Briegel (2003), Looi–Yu–Gheorghiu–Griffiths (2007), Helwig (2013), Cautrès and collaborators (2024), and the publicly accessible even-order projective-plane matching-fault result supply the closest methodological and incidence-geometry comparisons. This work concerns an ideal, uniform, pure graph state and does not address different graphs, nonprime dimensions, noise, or weighted gates. Historical priority beyond the inspected material has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Balanced cuts of the canonical Fano incidence graph are a natural setting for checking how entanglement depends on the prime field. The census determines the exact law for all odd primes and reveals that the visible point–line rank defect is not isolated: the other losses are exactly the noncollinear-triple cuts. The explicit witnesses and exact frequencies can be used as finite benchmarks and go beyond the standard computation for the full incidence matrix, without implying a general theorem for all planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

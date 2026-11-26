@@ -1,118 +1,106 @@
 # A sharp orientation–relaxation transient law for complex GADI iteration
 
 ## Finding
-Consider the two-stage generalized alternating-direction implicit (GADI) iteration for complex symmetric linear systems introduced in the cited 2024 source. For a positive-definite real part and a rank-one nonnegative imaginary part, a two-dimensional family exhibits a sharp and quantified conflict between asymptotic convergence and finite-step Euclidean error amplification.
 
-Let \(\alpha,\beta>0\) with \(\alpha\ne\beta\), \(t\ge0\), and \(v\in\mathbb R^2\) with \(\|v\|_2=1\). Define
+Let \(\alpha,\beta>0\) with \(\alpha\ne\beta\), let \(t\ge0\), and let \(v\in\mathbb R^2\) be a unit vector. Define
 \[
-W=\begin{pmatrix}\alpha&0\\0&\beta\end{pmatrix},\qquad
-T=t vv^{\mathsf T},\qquad A=W+iT,\qquad q=|v_2|^2,\qquad d=\frac{\alpha-\beta}{\alpha+\beta}.
+W=\operatorname{diag}(\alpha,\beta),\qquad T=t vv^{\mathsf T},\qquad A=W+iT,\qquad
+q=|v_2|^2,\qquad d=\frac{\alpha-\beta}{\alpha+\beta}.
 \]
-For relaxation \(0\le\omega<2\), write \(\theta=\omega/2\) and denote its error propagator by \(G_\omega\). The following are exact conclusions in complex Euclidean norm.
+Use the complex generalized alternating-direction implicit (GADI) iteration below with shift \(\alpha\), relaxation \(0\le\omega<2\), and error propagator \(G_\omega\). Put \(\theta=\omega/2\) and \(H=G_0\). All norms are complex Euclidean operator norms.
 
-**Exact orientation law.** The unrelaxed propagator \(H=G_0\) has rank one, with its only possibly nonzero eigenvalue and norm
+**Exact orientation law.** The rank-one matrix \(H\) has nonzero eigenvalue \(\lambda\), and
 \[
 \lambda=d\frac{\alpha+it(1-2q)}{\alpha+it},\qquad
-\|H\|_2^2=d^2\left(1+\frac{q(1-q)t^4}{\alpha^2(\alpha^2+t^2)}\right),
-\]
-\[
+\|H\|_2^2=d^2\left(1+\frac{q(1-q)t^4}{\alpha^2(\alpha^2+t^2)}\right),\qquad
 \rho(H)^2=d^2\frac{\alpha^2+(1-2q)^2t^2}{\alpha^2+t^2}.
 \]
-At every \(t>0\), the same and unique orientation \(q=1/2\) maximizes \(\|H\|_2\) and minimizes \(\rho(H)\). The inequalities are strict against every \(q\ne1/2\). The commuting orientations \(q=0,1\) instead have \(\|H\|_2=\rho(H)=|d|\).
+For each \(t>0\), the unique **overlap** \(q\) that maximizes the norm and minimizes the spectral radius is \(q=1/2\); both inequalities are strict against every other overlap. At the commuting overlaps \(q=0,1\), both quantities equal \(|d|\).
 
-**Sharp stiff limit.** At \(q=1/2\), for every positive integer \(k\),
+**Sharp unrelaxed stiff limit.** For \(q=1/2\) and every integer \(k\ge1\),
 \[
 \|H^k\|_2=\frac{|d|^k\alpha^{k-1}(2\alpha^2+t^2)}{2(\alpha^2+t^2)^{k/2}}.
 \]
-In particular,
+Consequently as \(t\to\infty\), \(\rho(H)\to0\), \(\|H\|_2/t\to|d|/(2\alpha)\), \(\|H^2\|_2\to d^2/2\), and \(\|H^k\|_2\to0\) for each \(k\ge3\). One-step amplification can diverge even as the spectral radius goes to zero. For \(q=1/2+\eta\alpha/t\) with fixed real \(\eta\),
 \[
-\lim_{t\to\infty}\rho(H)=0,\quad
-\lim_{t\to\infty}\frac{\|H\|_2}{t}=\frac{|d|}{2\alpha},\quad
-\lim_{t\to\infty}\|H^2\|_2=\frac{d^2}{2},\quad
-\lim_{t\to\infty}\|H^k\|_2=0\ (k\ge3).
+\lim_{t\to\infty}(t/\alpha)\rho(H)=|d|\sqrt{1+4\eta^2}.
 \]
-One-step error amplification can therefore diverge while the asymptotic spectral radius tends to zero. For \(q=1/2+\eta\alpha/t\) with fixed \(\eta\in\mathbb R\), the sharp angular-window law is
-\[
-\lim_{t\to\infty}\frac{t}{\alpha}\rho(H)=|d|\sqrt{1+4\eta^2}.
-\]
-For every fixed \(q\ne1/2\), by contrast, \(\rho(H)\to|d|\,|1-2q|>0\). Thus the fast spectral behavior requires tuning the overlap within order \(\alpha/t\).
+Thus the \(O(\alpha/t)\) spectral-radius scale requires overlap within \(O(\alpha/t)\) of balance. For every fixed \(q\ne1/2\), \(\rho(H)\to|d|\,|1-2q|>0\).
 
-**Relaxation changes the entire finite-horizon transient.** Set \(0\le\theta<1\). For every fixed integer \(k\ge1\), with \(0^0=1\),
+**Relaxed stiff limit at balanced overlap.** In the following assertions fix **\(q=1/2\)** and \(0\le\theta<1\) while taking \(t\to\infty\). For every fixed integer \(k\ge1\), with \(0^0=1\),
 \[
-\lim_{t\to\infty}\frac{\|G_\omega^k\|_2}{t}
-=\frac{|d|}{2\alpha}(1-\theta)k\theta^{k-1},\qquad
+\lim_{t\to\infty}\frac{\|G_\omega^k\|_2}{t}=\frac{|d|}{2\alpha}(1-\theta) k\theta^{k-1},\qquad
 \lim_{t\to\infty}\rho(G_\omega)=\theta.
 \]
-The convergence also holds after taking the supremum over iteration counts:
+The peak over all iteration counts also satisfies
 \[
-\boxed{\displaystyle
 \lim_{t\to\infty}\frac{1}{t}\sup_{k\ge1}\|G_\omega^k\|_2
-=\frac{|d|}{2\alpha}(1-\theta)\max_{k\ge1} k\theta^{k-1}.}
+=\frac{|d|}{2\alpha}(1-\theta)\max_{k\ge1} k\theta^{k-1}.
 \]
-If \(0<\theta<1\), the maximizing index of the leading coefficient is \(\lceil\theta/(1-\theta)\rceil\), with an additional tied maximizer at the next index when \(\theta/(1-\theta)\) is a positive integer. At \(\theta=0\) only the first power has nonzero linear-in-\(t\) growth. Every fixed \(\theta>0\) instead produces such growth at *every* positive fixed power.
+For \(0<\theta<1\), the leading coefficient peaks at \(\lceil\theta/(1-\theta)\rceil\); if \(\theta/(1-\theta)\) is a positive integer, the next index ties. This is a tie in the leading coefficient, not necessarily at finite \(t\). At \(\theta=0\) only the first power grows linearly with \(t\); at each fixed \(\theta>0\), every positive fixed power grows linearly. These formulas are not asserted for general fixed overlaps: for example, at \(q=0\), \(H=\operatorname{diag}(0,d)\) is independent of \(t\).
 
-As a concrete example, with \(\alpha=1\), \(\beta=3\), balanced \(v\), and \(\omega=3/2\), the normalized worst transient tends to \(27/256\); iteration counts \(3\) and \(4\) tie for the leading peak. With \(\omega=0\), the first Euclidean step is expansive precisely when
-\[
-\frac{t}{\alpha}>\sqrt{6+4\sqrt3}
-\]
-for this curvature ratio, even though every fixed such iteration is asymptotically convergent.
+For \(\alpha=1,\beta=3,q=1/2\) and \(\omega=3/2\), the normalized worst transient tends to \(27/256\), with a leading tie at \(k=3,4\). At the same curvature ratio and overlap with \(\omega=0\), the first Euclidean step is expansive precisely when \(t/\alpha>\sqrt{6+4\sqrt3}\), even though the iteration converges for every fixed \(t\).
 
 ## Assumptions and scope
-The original complex GADI iteration is used with exact subproblem solves, fixed \(\alpha>0\), \(0\le\omega<2\), and the source's equations
+
+The original complex GADI iteration is used with exact subproblem solves, fixed positive shift \(\alpha\) equal to the first diagonal entry of \(W\), and the two stages
 \[
 (\alpha I+W)x^{(k+1/2)}=(\alpha I-iT)x^{(k)}+b,
 \]
 \[
-(\alpha I+iT)x^{(k+1)}=[iT-(1-\omega)\alpha I]x^{(k)}
- +(2-\omega)\alpha x^{(k+1/2)}.
+(\alpha I+iT)x^{(k+1)}=[iT-(1-\omega)\alpha I]x^{(k)}+(2-\omega)\alpha x^{(k+1/2)}.
 \]
-The right-hand side \(b\in\mathbb C^2\) and initial iterate are arbitrary. The real matrix \(W\) is strictly positive definite, and \(T\) is positive semidefinite. These ensure that \(A=W+iT\) is nonsingular. The error is the numerical iterate minus the exact solution, measured using the Euclidean norm on \(\mathbb C^2\). All supremums are over initial nonzero errors and, where indicated, positive integer iteration counts.
+Here \(W\) is real positive definite, \(T\) is real positive semidefinite, and \(b\) and the initial iterate may be arbitrary complex vectors. The solution is well defined since the Hermitian part of \(A\) is positive definite. The error is the numerical iterate minus this solution. An operator norm is the supremum of amplification over nonzero initial errors. The supremum over powers is over positive integers.
 
 ## Proof
-**1. Reconstruct the propagator.** Set \(C=\alpha I+iT\), \(B=\alpha I-iT\), and \(e=(0,1)^{\mathsf T}\). Eliminating the half step yields
+
+**Propagator.** Set \(C=\alpha I+iT\), \(B=\alpha I-iT\), and \(e=(0,1)^{\mathsf T}\). The solution is a fixed point of both stages. Subtract it and eliminate the half step. Using \(iT-(1-\omega)\alpha I=\theta C-(1-\theta)B\) yields
 \[
-G_\omega=\theta I+(1-\theta)H,\qquad
-H=C^{-1}DB,\qquad
+G_\omega=\theta I+(1-\theta)H,\qquad H=C^{-1}DB,\qquad
 D=(\alpha I-W)(\alpha I+W)^{-1}=d ee^{\mathsf T}.
 \]
-Consequently \(H=d(C^{-1}e)(e^{\mathsf T}B)\) is rank one. Because \(B\) and \(C\) are polynomials in the same symmetric matrix, they commute.
+Thus \(H=d(C^{-1}e)(e^{\mathsf T}B)\) has rank one: \(B,C\) are invertible and \(d\ne0\).
 
-**2. Exact singular and eigen data.** The orthogonal projector \(P=vv^{\mathsf T}\) gives
+**Singular and eigenvalue data.** With \(P=vv^{\mathsf T}\),
 \[
 C^{-1}=\frac{I-P}{\alpha}+\frac{P}{\alpha+it},\qquad
 BC^{-1}=(I-P)+\frac{\alpha-it}{\alpha+it}P.
 \]
-Thus the nonzero eigenvalue equals \(\lambda=d e^{\mathsf T}BC^{-1}e\), producing the stated complex fraction. Since a rank-one matrix has operator norm equal to the product of its generating vector norms,
+The trace of the rank-one matrix is \(d e^{\mathsf T}BC^{-1}e=\lambda\); the numerator of the claimed \(\lambda/d\) has real part \(\alpha>0\). The squared operator norm is
 \[
-\|H\|_2^2=d^2\|C^{-1}e\|_2^2\|e^{\mathsf T}B\|_2^2
+d^2\|C^{-1}e\|_2^2\|e^{\mathsf T}B\|_2^2
 =d^2\left(\frac{1-q}{\alpha^2}+\frac{q}{\alpha^2+t^2}\right)(\alpha^2+qt^2).
 \]
-Multiplication gives the claimed formula. The squared eigenvalue modulus gives \(\rho(H)^2\). For \(t>0\) both depend strictly monotonically, in opposite directions, on \(q(1-q)\); its unique maximizer on \([0,1]\) is \(q=1/2\).
+Multiplication yields the norm formula and taking \(|\lambda|^2\) gives the spectral-radius formula. At \(t>0\) the squared norm strictly increases and the squared radius strictly decreases with \(q(1-q)\); that product has its unique maximum at \(q=1/2\).
 
-**3. The finite powers and angular boundary.** As a rank-one matrix \(H^2=\lambda H\), hence \(H^k=\lambda^{k-1}H\) for all integers \(k\ge1\). At balanced orientation, substitution yields the exact power-norm expression, and taking the indicated limits proves the stiff laws. Replacing \(q\) by \(1/2+\eta\alpha/t\) in the exact spectral formula establishes the angular-window limit. The parameter stays admissible for sufficiently large \(t\).
+**Stiff powers and angular window.** Rank one gives \(H^k=\lambda^{k-1}H\) for \(k\ge1\). At balance, \(|\lambda|=|d|\alpha/\sqrt{\alpha^2+t^2}\) and \(\|H\|_2=|d|(2\alpha^2+t^2)/(2\alpha\sqrt{\alpha^2+t^2})\). Their product gives the power formula and limits. In the exact spectral formula, substituting \(q=1/2+\eta\alpha/t\) gives the angular-window limit. More generally the formula shows that if \((t/\alpha)\rho(H)\) remains bounded at large \(t\), so does \((t/\alpha)|1-2q|\); the converse also holds.
 
-**4. Relaxation and uniform peak.** For all \(k\ge1\), the binomial identity and \(H^j=\lambda^{j-1}H\) give
+**Relaxed powers and peak at balance.** Here \(q=1/2\), so \(\lambda\to0\). The eigenvalues of \(G_\omega\) are \(\theta\) and \(\theta+(1-\theta)\lambda\), implying the asserted spectral limit. The binomial expansion gives
 \[
-G_\omega^k=\theta^kI+P_k(\lambda)H,\qquad
-P_k(\lambda)=\sum_{j=1}^k\binom kj\theta^{k-j}(1-\theta)^j\lambda^{j-1}.
+G_\omega^k=\theta^k I+p_k(\lambda)H,\qquad
+p_k(z)=\sum_{j=1}^k\binom{k}{j}\theta^{k-j}(1-\theta)^j z^{j-1}.
 \]
-At fixed \(k\), as \(t\to\infty\), \(\lambda\to0\) and \(P_k(\lambda)\to k\theta^{k-1}(1-\theta)\). Combining this with \(\|H\|_2/t\to|d|/(2\alpha)\) proves the fixed-power limit. For uniformity in \(k\), note
+At fixed \(k\), \(p_k(\lambda)\to(1-\theta)k\theta^{k-1}\). The two-sided reverse-triangle estimate bounds the difference between \(\|G_\omega^k\|_2/t\) and \(|p_k(\lambda)|\|H\|_2/t\) by \(\theta^k/t\), proving the fixed-power formula. For a uniform tail bound, \(\binom{k}{j}\le k\binom{k-1}{j-1}\) yields
 \[
-|P_k(\lambda)|\le k(1-\theta)[\theta+(1-\theta)|\lambda|]^{k-1}.
+|p_k(\lambda)|\le k(1-\theta)[\theta+(1-\theta)|\lambda|]^{k-1}.
 \]
-For large enough \(t\), the bracket is bounded by a fixed \(r<1\). Hence the tails of \(k r^{k-1}\) vanish uniformly, and \(\sup_k\theta^k/t\le1/t\to0\). This justifies exchanging the stiff limit and supremum over all positive integers. Finally, the ratio of consecutive positive coefficients \(k\theta^{k-1}\) is \(\theta(k+1)/k\), giving the asserted exact peak indices and ties.
+For all sufficiently large \(t\), the bracket is at most a fixed \(r<1\) and \(\|H\|_2/t\) is bounded. The terms \(kr^{k-1}\) tend uniformly to zero beyond a growing cutoff, and \(\sup_k\theta^k/t\to0\). Thus the fixed-power limit passes to the supremum over \(k\). At \(0<\theta<1\) the ratio of consecutive leading factors is \(\theta(k+1)/k\), giving the stated peak and tie. At \(\theta=0\), the convention \(0^0=1\) gives the first power only. At \(\theta=3/4\), \(\alpha=1\), \(d=-1/2\), the peak value is \((1/4)(1/4)3(3/4)^2=27/256\). At \(\theta=0\), \(|d|=1/2\), set \(y=(t/\alpha)^2\); \(\|H\|_2>1\) is equivalent to \((2+y)^2>16(1+y)\), or \(y>6+4\sqrt3\).
 
-**5. Compatibility with weighted contraction.** The pre-existing HSS analysis applies in the transformed norm. Indeed, \(CHC^{-1}=D BC^{-1}\), and \(BC^{-1}\) is unitary, so \(\|CHC^{-1}\|_2=|d|<1\). Therefore \(\|CG_\omega C^{-1}\|_2\le\theta+(1-\theta)|d|<1\). This proves convergence for every fixed admissible parameter, and explains why no weighted-norm contraction result is contradicted by the Euclidean transient. For fixed \(t\), \(\|G_\omega^k\|_2\to0\) as \(k\to\infty\).
+**Weighted contraction.** The matrix \(BC^{-1}\) is unitary by its projector representation, so \(CHC^{-1}=DBC^{-1}\) has norm \(|d|\). Thus \(\|CG_\omega C^{-1}\|_2\le\theta+(1-\theta)|d|<1\). At every fixed \(t\) the Euclidean powers tend to zero, notwithstanding the large finite-step amplification as \(t\) varies.
 
 ## Verification
-The accompanying standalone `verify.py` reconstructs the two source stages and confirms the propagator identity, rank-one relation, complex eigenvalue, exact Euclidean norm, and finite-power formula using exact symbolic arithmetic. It also verifies the closed-form amplification threshold and the relaxation peak coefficient in a rational example. The actual checker ran successfully. Infinite stiff-limit and all-integer peak assertions are proved by the foregoing identities and uniform geometric-tail argument; finite tests are not used as substitutes for those proofs.
+
+The accompanying `verify.py` uses SymPy to reconstruct the two GADI stages and compare rank-one eigenvalue, norm and finite-power expressions at selected exact parameters. It also checks the balanced example's threshold and leading peak coefficient. The analytic identities and uniform tail estimate, not finite sampling, establish the universal claims. Run `python verify.py` with SymPy installed.
 
 ## Relationship to prior work
-Zhang and Xun (2024, equation (7), Theorem 2) define the complex GADI iteration and prove asymptotic convergence under positive-definiteness assumptions. The case \(\omega=0\) recovers the classical HSS error map. Bertaccini, Golub, Serra-Capizzano, and Tablino-Possio (published online in 2004) give this HSS matrix formula, its Cayley similarity transform, contraction in the transformed norm, and a general account of nonnormal spectral mixing. Those identities and qualitative effects are **prior work**, not new claims here. The additional exact contribution is the opposite strict orientation extrema for the *Euclidean* one-step norm and spectral radius, its singular angular window, and the uniformly sharp relaxation-dependent finite-horizon amplification law including delayed peak indices. The compared source material does not state these formulas or their joint stiff-limit classification. Equivalent prior specialized calculations remain a bibliographic possibility.
+
+Zhang and Xun (2024, equation (7) and Theorem 2) define complex GADI, identify the affine relaxation of the HSS map, and give asymptotic convergence under positivity assumptions. HSS error maps, transformed-norm contraction and the qualitative role of nonnormality are prior work; see also Bertaccini et al. The factor \(k\theta^{k-1}\) is the usual derivative of the scalar power, as in nearly coalescent eigenvalues and Jordan powers. The contribution here is the exact Euclidean orientation law, the tuned spectral window and stiff power limits, and the uniform peak law with its exact coefficient for this balanced GADI family. This does not establish global priority for equivalent earlier specializations.
 
 ## Limitations
-The result is a planar, rank-one-imaginary-part, exact-arithmetic analysis; it is not an unconditional Euclidean-norm divergence theorem, nor a failure of convergence. It does not quantify floating-point rounding, inexact subproblem solves, higher-dimensional preconditioners, or implementation runtime. Large initial transients may be accompanied by a growing equivalence constant between Euclidean and transformed error norms; the latter remains contractive. The theorem does not assert independently verified bibliographic priority.
+
+The result is planar, with rank-one imaginary part for \(t>0\), fixed positive curvature ratio, and exact subproblem solves. In the relaxed stiff limit the overlap stays balanced and \(\theta\) stays fixed below one. No claim is made for joint scaling \(\theta\to1\), other fixed overlaps in those peak formulas, finite precision, or higher-dimensional systems. The result concerns Euclidean amplification and does not contradict contraction in the transformed norm.
 
 ## References
-1. J. Zhang and W. Xun, “A general alternating direction implicit iteration method for solving complex symmetric linear systems” (2024), arXiv:2404.12160, first posted 2024-04-18. https://arxiv.org/abs/2404.12160
-2. D. Bertaccini, G. H. Golub, S. Serra-Capizzano, and C. Tablino-Possio, “Preconditioned HSS methods for the solution of non-Hermitian positive definite linear systems and applications to the discrete convection-diffusion equation,” *Numerische Mathematik* 99 (2005), 441–484, published online 2004-12-14, doi:10.1007/s00211-004-0574-1. https://doi.org/10.1007/s00211-004-0574-1
+
+1. J. Zhang and W. Xun, *A general alternating direction implicit iteration method for solving complex symmetric linear systems*, arXiv:2404.12160 (2024). https://arxiv.org/abs/2404.12160
+2. D. Bertaccini, G. H. Golub, S. Serra-Capizzano, and C. Tablino-Possio, *Preconditioned HSS methods for the solution of non-Hermitian positive definite linear systems and applications to the discrete convection-diffusion equation*, Numerische Mathematik 99 (2005), 441–484. https://doi.org/10.1007/s00211-004-0574-1

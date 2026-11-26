@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:29:27.097793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m=d-1 the coordinate flips commute and square to I. The normalized neighbor part N=A_m+(m mod 2)I squares to zero; its two-by-two block equations show that the kernel is the graph of an involution, so its rank is 2^(m-1) for m>=1. Writing F=C⊗I+I⊗N and p=t²+t+1 gives p(F)=I⊗N, F³+I=C²⊗N, F⁶=I and F²+I=C⊗I invertible. Thus exactly q^(2^(d-1)) states are fixed by F³, only zero is fixed by F², and all states outside Fix(F³) have least period six. Dividing the populations by their respective least periods counts labelled temporal orbits. For the compressed cyclicity step in RESULT.md line 65, p(F)≠0 alone is not enough if p splits, but the displayed tensor form gives the full argument: for a Jordan pair Ne₂=e₁ take u=(1,0) and w=u⊗e₂. The vectors w,Fw,p(F)w,Fp(F)w are independent, since the first two project to u,Cu in the e₂ quotient and the last two give u,Cu in the e₁ subspace. Thus each four-dimensional summand is cyclic over every stated field. For d=1 only C remains, of order three and with no nonzero fixed state. The unmodified parity law follows by squaring the sum of flips. Inspected verify_algebra.py, verify_direct.py and their recorded outputs, not executed: the former checks binary matrices through d=8, the latter exhausts the listed finite (d,q) cases. The general proof does not depend on these checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciandrini et al. discuss general matrix tools and fixed-in-degree random Boolean networks; the inspected abstract does not provide a cubical facet classification",
+          "The 1984 paper was not retrievable in full through the DOI path or author-hosted PDF within the retrieval limit"
+        ],
+        "reasoning": "General additive methods are background; no examined result gives a family formula specializing to the claimed repeated blocks. Unread text is not exclusion evidence.",
+        "searches": [
+          "Resultary: cubical additive-automaton periods and canonical form",
+          "arXiv:0809.1526",
+          "doi:10.1007/BF01223745 and the identified Wolfram author-hosted copy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:4fb7fb6660f5",
+        "Resultary:a9a2b0b84ed9",
+        "Resultary:444c4754c134",
+        "Resultary:dd92ed895cc8",
+        "Resultary:f9ebf2f7ebc7",
+        "arXiv:0809.1526",
+        "doi:10.1007/BF01223745 (full text not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single/two-site feedback has bounded modification support; a facet has at least four sites for d>=3",
+          "The added-chord result has one p² factor in odd dimensions with (t+1)² factors; the directed-input toggle has different regimes including order four"
+        ],
+        "reasoning": "Neither the closest diagonal-defect theorems nor the two distinct same-day comparisons imply the all-facet classification. The date of a related record shows neither coverage nor priority.",
+        "searches": [
+          "Resultary local mirror Finding passages for 4fb7fb6660f5, a9a2b0b84ed9, 444c4754c134, dd92ed895cc8 and f9ebf2f7ebc7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4fb7fb6660f5 has a four-dimensional (t²+t+1)² recurrent block after deleting one undirected edge, with a nilpotent remainder in even dimensions",
+          "0809.1526 describes general XOR matrix and periodicity methods in its abstract"
+        ],
+        "reasoning": "An undirected bond deletion is off-diagonal and does not equal the diagonal facet update. Shared small blocks or periods do not yield the whole-space invariant.",
+        "searches": [
+          "Resultary: codimension-one face/facet feedback",
+          "Resultary: (t²+t+1)² and six periods",
+          "Literature: hypercube additive/XOR automata with facet self-feedback"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned mathematical records included 4fb7fb6660f5, a9a2b0b84ed9, 444c4754c134, dd92ed895cc8 and f9ebf2f7ebc7, which have different perturbation rules or block spectra"
+        ],
+        "reasoning": "The exact invariant here ties cycle counts to a specified labelled update in every dimension and field; coinciding short period lists are not an equivalent table. No standard sequence catalogue can identify the canonical-form claim without those additional data.",
+        "searches": [
+          "Resultary: face feedback and period-six polynomial",
+          "Resultary: one-/two-site hypercube feedback and cube-period records"
+        ]
+      },
+      "rationale": "Prior characteristic-two cube perturbations include periods three and six and even the same four-dimensional polynomial. The supported distinction is coefficient-one diagonal self-input on an entire coordinate facet, with the whole state space reversible and composed solely of identical cyclic blocks in both parities, giving the stated counts. No inspected stronger statement covers that combination.",
+      "residual_risks": [
+        "Incomplete access to the 1984 Martin–Odlyzko–Wolfram paper.",
+        "Search cannot exclude unindexed equivalent cubical dynamics or determine historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "Even d has one p² block after edge deletion, beside a nilpotent summand.",
+          "identifier_or_url": "Resultary:4fb7fb6660f5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "One missing hypercube bond creates six-cycles or four-cycles in binary parity dynamics",
+          "trigger": "Same quadratic-squared polynomial and periods"
+        },
+        {
+          "assessment": "Different diagonal support and conclusion",
+          "evidence": "Even dimensions have transients; odd dimensions admit period two as well.",
+          "identifier_or_url": "Resultary:a9a2b0b84ed9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A one-site feedback defect creates periods three and six on Boolean hypercubes",
+          "trigger": "Same self-input and orbit periods"
+        },
+        {
+          "assessment": "Not covering all facets",
+          "evidence": "Updates exactly two sites over F₂; spectra depend on parity and adjacency.",
+          "identifier_or_url": "Resultary:444c4754c134",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "An adjacency threshold for two-site feedback on Boolean hypercube automata",
+          "trigger": "Closest localized diagonal update"
+        },
+        {
+          "assessment": "Different rule and spectra",
+          "evidence": "Adds one nonedge and retains other primary blocks or transients.",
+          "identifier_or_url": "Resultary:dd92ed895cc8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Distance-blind six-cycle resonance from one added hypercube chord",
+          "trigger": "Distinct same-day p² result"
+        },
+        {
+          "assessment": "Different rule and spectra",
+          "evidence": "Toggles one directed input; four regimes, including order four.",
+          "identifier_or_url": "Resultary:f9ebf2f7ebc7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Four universal Jordan phases under a single directed hypercube input toggle",
+          "trigger": "Distinct same-day hypercube classification"
+        },
+        {
+          "assessment": "General framework, not an exact match in passage read",
+          "evidence": "Studies periodicity methods and feedback in fixed-in-degree random Boolean networks.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.1526",
+          "material_read": "PDF abstract, offset 0",
+          "method": "OA PDF",
+          "title": "Feedback topology and XOR-dynamics in Boolean networks with varying input structure",
+          "trigger": "General XOR-network periodicity"
+        },
+        {
+          "assessment": "Residual access risk",
+          "evidence": "Author PDF at content.wolfram.com/sw-publications/2020/07/algebraic-properties-cellular-automata.pdf exceeded the retrieval limit.",
+          "identifier_or_url": "doi:10.1007/BF01223745",
+          "material_read": "No paper full text read; author listing only",
+          "method": "DOI retrieval and identified lawful author PDF attempt",
+          "title": "Algebraic properties of cellular automata",
+          "trigger": "Broad foundational additive-automaton work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A coordinate facet is a natural feedback geometry. The same modification converts the square-zero even-dimensional and involutive odd-dimensional regimes into a common reversible dynamics. The whole-space cyclic decomposition and exact configuration populations add predictive information beyond discovering that some six-cycles exist.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

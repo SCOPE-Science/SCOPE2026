@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each fixed \(a\in(0,1)\), the two probability upper bounds use only monotonicity and inclusion-exclusion with the prescribed section. The lower-left patch replaces equal finite-measure marginals; its second marginal is exactly preserved below the section. The upper-right patch uses a valid quantile coupling of the restricted coordinate marginals, so it preserves both global uniform marginals. Because the entire upper-right patch has second coordinate at least \(1-a\), it cannot change the section below that height. Both tail limits are given by explicit exact formulas for all sufficiently small \(\varepsilon\). Overlap of the squares is permitted: their changes occur in a deliberate order, and terminal marginal calculations remain valid. A 26,912-assertion exact rational checker separately confirms the discrete analogues for representative rational parameters; no finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS (with priority risk)
-Xie–Zou (2026), Section 6/7, treats sub-track constructions, pointwise bounds, and concordance order, not the exact simultaneous region of lower and upper tail coefficients for the independence sub-diagonal. Quesada-Molina–Saminger-Platz–Sempi (2008) proves general sub-diagonal section constructions and quasi-copula bounds, while de Amo–Díaz Carrillo–Fernández Sánchez (2013) concerns absolute continuity. Durante–Saminger-Platz–Sarkoci (2009) provides the essential prior rectangular patchwork technology for varying individual tail coefficients; it is specifically credited. The novelty assessment concerns the sharp parameterized two-tail *joint feasible set*, its optimal bound, and its compatibility for overlapping patch squares, not invention of patching or tail coefficients. An unrecognized corollary of general rectangular-patchwork/section theory is the main remaining risk; the 2011 diagonal/opposite-diagonal paper could only be compared from its abstract. Searches cannot establish exhaustive priority.
+PASS
 
-## Mathematical value — PASS
-A full off-diagonal section is an infinitely many-point functional constraint on a copula. The result identifies exactly how much residual extreme-event dependence it leaves and shows that opposite extreme tails are jointly unrestricted within sharp individual bounds. The independence section is a canonical benchmark, and the fully attained square for all offsets, including overlapping geometric patches, is a natural complete identification problem. This is more than a numerical example, arbitrary finite slice, or a direct statement of the existing pointwise quasi-copula envelopes.
+The prescribed C(a+t,t), evaluated at the lower displacement ε and the reflected upper displacement 1−a−ε, bounds both ε-corner masses by ε(a+ε). For sharpness the lower-square replacement at mixing weight ℓ/a preserves both marginals; every prescribed rectangle includes its entire horizontal span, so the section is unchanged. The intermediate law is symmetric, so its restriction to the upper square has identical coordinate marginals ν. The upper replacement couples ν to itself by the diagonal pushforward of ν, mixed at weight u/a. This is a finite measure of total mass ν([0,1]), not its normalized probability law: equivalently, the record's finite-mass quantile pushforward uses Lebesgue measure on (0,m), or multiplies the uniform probability law there by m. For ε<min(a,1−a), each upper terminal strip retains marginal mass aε, unchanged by the first patch, and the terminal corner mass changes from ε² to aε under the diagonal coupling. The second patch does not touch the lower ε-corner or the section for t<1−a; the endpoint is fixed by C(1,1−a)=1−a. This verifies both tail limits for every pair simultaneously even when the squares overlap. The checker source was inspected; the frozen reported 26,912 grid assertions are consistency evidence and were not executed or used to infer the continuum theorem.
 
-## Restrictions
-All copulas are allowed, including singular ones; no assertion about absolute continuity or arbitrary section functions. Existing section bounds and rearrangements are established ingredients. Independent publication/priority review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the entire simultaneous square for ordinary diagonal tail coefficients under the fixed independence sub-diagonal, including attainability of (a,a) and independently settable coefficients when a>1/2. It is not claimed that prescribed-section existence, pointwise bounds, or rectangular patchwork techniques are new. No inspected source establishes the sharp joint region or contains a theorem specializing directly to it. This is a best-of-knowledge determination, not priority certification.
+
+## value
+
+PASS
+
+A complete feasible region gives more information than two separate sharp upper bounds. The result resolves the non-identifiability of both asymptotic tail masses under an exact continuum of independence-section data, identifies the sharp simultaneous endpoint, and shows that overlapping corner squares do not impose a tradeoff. Its construction works across the natural full range 0<a<1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

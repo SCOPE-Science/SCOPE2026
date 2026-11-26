@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:44.308197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 2–66; VERIFICATION.md lines 18–20; verify.py lines 1–31 (read, not executed)",
+        "Independent replay: python /workspace/branches/independent_replay.py 3 derives the stated exact deficit using threshold-indicator covariances."
+      ],
+      "rationale": "Positive affine normalization gives {0,t,1} with 0<t<1. The joint (L,U) counts in rank order are 1,6,12,1,6,1 for (0,0),(0,t),(0,1),(t,t),(t,1),(1,1). They give the stated raw moments and positive covariance. The extrema have positive variance because the all-zero and all-one samples occur with positive probability. An independent check yields Var(L) Var(U)-16 Cov(L,U)^2 = 4(2t-1)^2(247(t-1/2)^2+729/4)/177147. This proves the claimed positive correlation bound of 1/4, attained only at t=1/2, and corroborates the derivative proof. The midpoint condition returns to the original support under the affine map. There is no claim about changing parent masses.",
+      "residual_risks": [
+        "The finite enumeration is an exact joint law for three draws; the real-gap factorization, not a grid sample, proves the continuum assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general min–max bound 1/n gives only 1/3 at n=3, and the 2022 two-draw result gives 8/19 on three equiprobable levels.",
+          "The companion proof uses bounds x<=7/27 and r<=27/49, reached exactly at n=3; the proof of endpoint positivity and the positive derivative is valid there. The 2021 full text could not be read."
+        ],
+        "reasoning": "Neither a looser distribution-free inequality nor a theorem for two draws supplies the result. The broader analytic certificate in record 4 does, independent of inaccessible literature and despite the narrower declared sample-size range in its finding.",
+        "searches": [
+          "Companion record 4, RESULT.md lines 64–111 (endpoint region)",
+          "Székely–Móri inequality quoted in arXiv:2205.14360 §1; López-Blázquez–Salamanca-Miño DOI 10.1007/s00180-021-01103-5"
+        ]
+      },
+      "checked_sources": [
+        "Companion record 4 RESULT.md lines 22–111",
+        "arXiv:2205.14360 selected passages; Resultary 72e2dab2ac87, 200fa86d60cb, 1482021161b5, 92f0f4188ee4, 584614ef8b99",
+        "Frozen RESULT.md lines 68–81; journal references as limited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set a=1/27,b=8/27,x=b-a=7/27 and r=a/x^2=27/49. All sign conditions in the endpoint certificate hold. Thus H(z)>0 over 0<=z<=1/4 and C(z)>0, so the unique maximizer is the maximum of t(1-t), at t=1/2. Its midpoint quotient is (2/27)/(8/27)=1/4."
+        ],
+        "reasoning": "A numerical extrapolation from the displayed formula would not settle the maximizer. Substitution into the actual polynomial sign proof gives the full theorem, including uniqueness, with no extra proof. No publication order is asserted.",
+        "searches": [
+          "Companion record 4, RESULT.md lines 23–62, 64–105, 107–111; compare to frozen RESULT.md lines 2–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three equally likely distinct support points up to positive affine change are exactly the strictly increasing common score transforms of a uniform three-point lattice up to such normalization.",
+          "Papadatos treats two draws; the companion analytic certificate treats the same common-transform geometry and applies directly at n=3."
+        ],
+        "reasoning": "Varying a common score transform at both extrema with three equally likely parent states is equivalent to the frozen claim. Varying the three probabilities on fixed scores, or allowing distinct functions of the two extrema, is not equivalent.",
+        "searches": [
+          "Resultary: three-state extrema, three-draw min–max correlation, varying support gaps versus varying masses",
+          "Papadatos arXiv:2205.14360 Theorem 1.2 and concluding lattice question",
+          "Companion record 4, RESULT.md lines 22–111"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-draw probability counterexample explicitly gives 1/4 at the uniform midpoint, and gives 81/319 with unequal masses on the same lattice. Equation (1) of the rare-endpoint record gives the 1/4 value by substitution n=3,t=1/3. The other nearby indexed results either fix the scores and vary probabilities, or treat a two-draw problem.",
+          "The same-day four-point stability record treats two draws on a different support and varies masses; that is a scientific distinction, not a date exclusion."
+        ],
+        "reasoning": "The numerical maximum candidate was already available as an evaluated correlation at known geometry, but those value entries do not prove maximality across geometry. The failure of standalone distinctness is instead based on the exact companion proof.",
+        "searches": [
+          "Resultary 72e2dab2ac87 (three-draw probability counterexample), 200fa86d60cb (sample-size boundary), 1482021161b5 (rare endpoint masses), 92f0f4188ee4 (two-draw weights), 584614ef8b99 (four-point stability)"
+        ]
+      },
+      "rationale": "The exact midpoint optimization for three draws is already covered by the analytic certificate in the distinct companion record 4. That record restricts its headline to n>=4, but its proof establishes strict monotonicity for the entire parameter region 0<x<1/3, 0<r<3/5 under a=r*x^2 and b=x+a. The n=3 inputs satisfy those inequalities with exactly the bounding values used in that proof. Substitution gives the same strict equality condition and sharp value; no extension argument or extra case work is needed. This is demonstrable scientific redundancy in the records under review, not a claim that one same-day record had historical priority. Other close sources cover the midpoint value or address different optimization problems, not the missing geometry by themselves.",
+      "residual_risks": [
+        "The 1999 and 2021 journal full texts remain uninspected. Historical priority between the two frozen findings is not determined; the failure is based on actual analytic coverage, not on an inferred publication order or on an unavailable paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formal headline excludes n=3, but the actual proof's analytic region includes it and yields the exact bound and unique equality. No priority claim based on the path date.",
+          "evidence": [
+            "The proof's upper bounds on x and r are precisely their n=3 values, each strictly below its required cutoff. Its midpoint formula gives 1/4 under those values."
+          ],
+          "identifier_or_url": "Companion record 4, frozen RESULT.md",
+          "material_read": "Finding and proof lines 22–111, especially the parameter region and endpoint signs at lines 64–105",
+          "method": "Read and reconstruct the exact moment and affine derivative argument; verify n=3 parameter comparison",
+          "title": "Sharp three-state extreme-order correlation for every sample size at least four",
+          "trigger": "Same geometry and covariance problem with the neighboring range of sample sizes"
+        },
+        {
+          "assessment": "The two-draw geometry theorem and the quoted general inequality are different from the audited bound; the conclusions pose a wider question rather than prove it.",
+          "evidence": [
+            "Two-draw bound (1-N^-2)/(2+N^-2) for uniform support of size N, equality for a lattice; general min–max bound 1/n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2205.14360",
+          "material_read": "Section 1 including general bound (text offsets 0–5868) and Theorem 1.2 (9300–14290); concluding discussion 53000–60992",
+          "method": "Read selected open primary text; use its quotation for the Székely–Móri inequality",
+          "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+          "trigger": "Exact lattice geometry optimizer for a nearby iid order-statistic problem"
+        },
+        {
+          "assessment": "The numerical midpoint value is covered. Neither inspected claim maximizes across the gap with equal masses.",
+          "evidence": [
+            "72e2dab2ac87 fixes {-1,0,1} and improves 1/4 by using endpoint masses 3/10; 1482021161b5 fixes the same lattice and varies an equal endpoint mass parameter."
+          ],
+          "identifier_or_url": "Resultary 72e2dab2ac87 and 1482021161b5",
+          "material_read": "First record Finding offset 0; second Finding and Eq. (1), text offsets 0–2733",
+          "method": "Inspect local mirror statements; compare and substitute the equal-mass values",
+          "title": "A three-draw counterexample to uniform-probability extremality; Rare-endpoint maximizers of three-state extreme-order correlation",
+          "trigger": "Closest exact indexed value 1/4 and a general symmetric three-state expression"
+        },
+        {
+          "assessment": "Different optimization variables or sample and support sizes; none excludes the n=3 geometry result from its hypotheses by date alone.",
+          "evidence": [
+            "200fa86d60cb varies symmetric probabilities at fixed scores for n>=3; 92f0f4188ee4 varies weights for two draws; 584614ef8b99 varies reflection-symmetric weights for two draws on four points."
+          ],
+          "identifier_or_url": "Resultary 200fa86d60cb, 92f0f4188ee4, 584614ef8b99",
+          "material_read": "Findings at text offset 0 in each RESULT.md",
+          "method": "Inspect local mirror statements",
+          "title": "Nearby indexed probability and stability results",
+          "trigger": "Same lattice language, sharp extrema correlations, or same-day exact stability"
+        },
+        {
+          "assessment": "Covariance and maximal correlation are not the same objective as the common-score Pearson geometry problem. Unread material does not rule out an exact overlapping result and is not the basis for failure.",
+          "evidence": [
+            "The frozen account of 1999 describes a covariance extremizer over arbitrary parents. The frozen account of 2021 describes a computational approach to maximal correlation and examples."
+          ],
+          "identifier_or_url": "Papadatos, Sankhya A 61 (1999), 229–240; López-Blázquez–Salamanca-Miño, https://doi.org/10.1007/s00180-021-01103-5",
+          "material_read": "Frozen prior-work accounts; no full-text passages obtained from either article; frozen record 4 reports 2021 abstract and first-page preview only",
+          "method": "Compare stated scopes and try lawful alternate publisher and author-copy retrieval for 2021",
+          "title": "Upper bound for the covariance of extreme order statistics from a sample of size three; Automatic differentiation and maximal correlation of order statistics from discrete parents",
+          "trigger": "Same sample size and extrema for the first; discrete extrema and correlation optimization for the second"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 2–18, 20–63; companion record 4 proof lines 64–111; Papadatos arXiv:2205.14360 concluding question"
+      ],
+      "rationale": "The discrete lattice-optimality question is genuine and its three-draw evaluation is a useful illustration. As a standalone narrow invariant, however, this record supplies no distinct exact fact beyond a direct substitution in the companion proof. Its own derivative computation neither strengthens the bound nor adds a separate stability or structural theorem. The result is useful as a worked example of that broader analysis, not a separate surviving finding.",
+      "residual_risks": [
+        "Assessment is of the distinct standalone finding under review, not of the broader geometry problem or the correctness of the example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

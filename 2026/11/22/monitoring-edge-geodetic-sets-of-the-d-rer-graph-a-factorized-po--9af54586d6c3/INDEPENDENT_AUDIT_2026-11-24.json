@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:54:11.551986Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, witness tables and counting/reconfiguration proof, lines 33–53",
+        "Frozen VERIFICATION.md and verify.py, distance-deletion and exhaustive-set check description",
+        "/workspace/branches/1ebb7dab-7076-4f2e-a3b6-66f75fbe6b48/replay_record5.py (independent executable replay)"
+      ],
+      "rationale": "For this labelled GP(6,2), exhaustive shortest-distance comparisons with and without each edge reproduce all three representative witness tables, of sizes 6, 7 and 3. Rotation covers the graph. Spoke and inner-edge witnesses force an endpoint of their respective edges; conversely, the tables witness every edge under the spoke and triangle conditions. For each parity independently, at most one spoke can be outer-only, giving (z+z²)^3+3z(z+z²)^2. Taking the inner vertex whenever available yields a size-six subset satisfying the same criterion, so there are no other inclusion-minimal sets. Any valid one-token exchange switches endpoints at one spoke, and is thus also a slide; for each parity the three nonempty outer-index states are adjacent only to the empty state. A fresh replay tested all 4,096 subsets and confirmed counts 16,72,129,116,54,12,1, 400 total, 16 minima, the same 24 jump and slide edges, diameter 4, and degree multiplicities 9,6,1 at degrees 2,4,6.",
+      "residual_risks": [
+        "This is a single-edge, unweighted result for GP(6,2); it does not extend by the same argument to general Petersen graphs or to reconfiguration of nonminimum sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The diameter-two vertex-cover necessity does not apply (diameter 4), nor does the girth-at-least-five vertex-cover sufficiency (girth 3). The planar-networks paper is plausible but its mathematical content was not available for direct comparison."
+        ],
+        "reasoning": "The available general results do not give this specialization; access limitations do not rule out overlap.",
+        "searches": [
+          "Local Resultary: planar networks / general monitoring edge-geodetic characterization",
+          "arXiv:2210.08955 Lemma 5",
+          "arXiv:2403.09122 Theorem 6.3",
+          "DOI:10.1142/S0219265925500124"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior work and references",
+        "Local Resultary exact-subject, spectrum, planar-networks and mobility comparisons",
+        "Primary and mirrored passages detailed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theta-network result classifies minima and constructs a graph of two punctured cubes with connecting length-two links, specifically on four-edge theta networks. GP(6,2) is not one of those networks."
+        ],
+        "reasoning": "General shortest-path evaluation is an algorithm, not an existing structural criterion or formula implying this factorization and product. The reviewed proof needs new graph-specific witness information.",
+        "searches": [
+          "Local Resultary: optimal MEG mobility / token jumping",
+          "Local Resultary mirror 1d17782bb79b, Finding at offset 79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-geodesics monitoring and strict distance increase on deletion are equivalent. The standard predicate in Definition 1.1 does not classify sets on GP(6,2). Exact catalogue match 9af54586d6c3 is the same subject record."
+        ],
+        "reasoning": "Changing the distance formulation does not produce a new predicate, but no distinct inspected result supplies its proposed Dürer criterion.",
+        "searches": [
+          "Local Resultary: GP(6,2) monitoring edge-geodetic Dürer spoke/inner triangle criterion",
+          "arXiv:2210.03774 Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact polynomial hit is the frozen record. The distinct catalogue result tabulates GP(5,2), GP(10,2), and GP(10,3), not GP(6,2), and computes add/delete spare-capacity thresholds."
+        ],
+        "reasoning": "A spectrum for another labelled graph is not a Dürer table; the bounded add/delete question is not the optimal one-token exchange graph.",
+        "searches": [
+          "Local Resultary: Dürer polynomial z^6(1+z)^4(z+4)^2 and minimum MEG sets",
+          "Local Resultary mirror 068c637ae85e, Finding at offset 101"
+        ]
+      },
+      "rationale": "The exact Dürer spoke/triangle criterion, labelled size polynomial, and optimal exchange product are not covered by the distinct inspected statements. The exact catalogue hit is the frozen result itself; related same-day and earlier catalogue findings treat different graphs or different moves. The general monitoring predicate is known and is not credited as original. The verdict is limited to the supported classification, enumerator and optimal move graph, not a claim of historical priority for the minimum number alone.",
+      "residual_risks": [
+        "Lei et al. full text was inaccessible; GP(6,2) could already have an independently reported monitoring number or further overlap. No such coverage was verified.",
+        "Other graph-specific enumerations outside inspected sources could overlap; the verdict is best of current knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition-level overlap",
+          "evidence": "An edge must occur on all shortest paths for a selected pair; no Dürer classification follows from the definition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.03774",
+          "material_read": "Definition 1.1, PDF p. 2, extracted offset 5928",
+          "method": "Lawful primary PDF text passage",
+          "title": "Monitoring edge-geodetic sets in graphs",
+          "trigger": "Equivalent standard monitoring predicate"
+        },
+        {
+          "assessment": "Hypotheses do not cover the graph",
+          "evidence": "Necessity holds in diameter two; Dürer has diameter four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08955",
+          "material_read": "Lemma 5, PDF p. 5, offset 18957",
+          "method": "Lawful primary PDF text passage",
+          "title": "Monitoring edge-geodetic sets: hardness and graph products",
+          "trigger": "General vertex-cover characterization may imply criterion"
+        },
+        {
+          "assessment": "Hypotheses do not cover the graph",
+          "evidence": "Vertex-cover sufficiency assumes girth at least five; this graph has two inner triangles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.09122",
+          "material_read": "Theorem 6.3, PDF p. 17, offset 50186",
+          "method": "Lawful primary PDF text passage",
+          "title": "Bounds and extremal graphs for monitoring edge-geodetic sets in graphs",
+          "trigger": "Potential broader sufficiency theorem"
+        },
+        {
+          "assessment": "Content unverified; not negative evidence",
+          "evidence": "Frozen paper cites it at reference 5 and reports its own abstract access only.",
+          "identifier_or_url": "https://doi.org/10.1142/S0219265925500124",
+          "material_read": "Citation only for this review; mathematical text not obtained",
+          "method": "DOI and publisher abstract/PDF retrieval attempted; exact DOI metadata retrieval did not provide article text",
+          "title": "The Monitoring-Edge-Geodetic Number of Some Planar Networks",
+          "trigger": "Possible exact Dürer minimum in a prior planar-networks study"
+        },
+        {
+          "assessment": "Different graphs and move rule, irrespective of publication order",
+          "evidence": "Uses GP(5,2), GP(10,2), GP(10,3) and bounded single-vertex additions/deletions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-monitoring-edge-geodetic-spectra-and-spare-capacity-thresholds-f--068c637ae85e/RESULT.md",
+          "material_read": "Finding, offsets 101–2188",
+          "method": "Local mirrored file",
+          "title": "Monitoring edge-geodetic spectra and spare-capacity thresholds for three Petersen covering graphs",
+          "trigger": "Graph-family alias and exact spectrum overlap"
+        },
+        {
+          "assessment": "Same mobility question on nonoverlapping graph family",
+          "evidence": "For r internally disjoint length-four arms, the exchange graph is two punctured cubes joined by r two-edge links.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-optimal-edge-failure-monitors-and-token-jumping-on-four-edge-the--1d17782bb79b/RESULT.md",
+          "material_read": "Finding, offsets 79–1451",
+          "method": "Local mirrored file",
+          "title": "Optimal edge-failure monitors and token jumping on four-edge theta networks",
+          "trigger": "Potential earlier optimum mobility result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and structural proof",
+        "Independent all-subsets and reconfiguration replay",
+        "Compared general cover theorems and exact related graph records in originality"
+      ],
+      "rationale": "The canonical cubic polyhedral graph has short cycles and diameter four, outside the cited simple cover criteria. The exact answer replaces a list of subsets by independent parity constraints, explains why every minimal solution is optimal, and determines the entire optimal motion space, including why restricting to slides costs no moves. These answer concrete questions about this standard graph that the minimum number alone cannot answer.",
+      "residual_risks": [
+        "The contribution is a narrow exact invariant of one standard graph, not a general theory of MEG reconfiguration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

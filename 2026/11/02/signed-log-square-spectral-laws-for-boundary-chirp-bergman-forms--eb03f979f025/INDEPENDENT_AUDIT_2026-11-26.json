@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:11:31.187662Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–126; VERIFICATION.md and scripts/verify.py (inspected, not executed)",
+        "Independent bounded quadrature compared the v-variable sine-weighted integral with the complex Bessel expression at s=3.2 and β=0,0.7,1.5, agreeing to about 34 decimal digits. Replay by integrating s e^(−s/v)v^(β−2) against sin(v) over v>0 and comparing with the stated principal-branch formula."
+      ],
+      "rationale": "Normalized area and angular integration give the diagonal Laplace moment with s=n+1. With v=1/u, the cutoff tail is e^(−s/v)v^(β−2)sin(v). Dirichlet convergence holds for β<2, uniformly after multiplying by the Abel factor e^(−ηv) for η≥0, and the absolute threshold is β<1. At β≥2 the constant-polynomial integral already fails, as seen from successive phase half-periods. Taking the imaginary part of the standard Macdonald integral at a=η−i and sending η to zero gives the stated K-Bessel formula. Its asymptotic on the ray arg z=−π/4 gives the stated real envelope and phase; the error is relative to the positive envelope, not to the sine. Summability of every positive power gives bounded extension and all Schatten classes. With x=√(2s) the envelope level is X=L+2a log L+O(1), a=(2β+1)/4. Above it the overcount is confined to a fixed-width shell in x. Below it, sign and threshold ambiguities lie near phase zeros y in windows of width O(1/y+exp(−(X−y)/2)); the integer s count per window is O(1+y exp(−(X−y)/2)), so their total is O(X). Positive and negative half-periods have integer counts X²/4+O(X) each, since x is the density for s; this gives both coefficients and the claimed remainder without assuming the eigenvalues are uniformly away from zero. K_{−1/2} gives the stated exact elementary case, and a zero there would express π as a nonzero rational multiple of an algebraic number. The naive diagonal trace integral leaves a divergent leading tail v^β sin(v) after subtracting an oscillatory integrable error.",
+      "residual_risks": [
+        "The frozen 93 assertions are recorded finite checks, not an independent replay of the uploaded script. Neither those assertions nor the independent quadrature prove the infinite signed laws; the zero-window bound does.",
+        "The representing operator is that of the radial-cutoff form, not an everywhere-defined multiplication-compression operator for a nonintegrable symbol. The order O(L) is an upper bound on the remainder, not an optimality claim about that order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taskinen–Virtanen bound a signed inverse-boundary sine operator for which the absolute-value operator is unbounded. Hagger–Liu–Taskinen–Virtanen give general hypotheses and rapidly growing oscillatory compact-symbol examples.",
+          "Rozenblum §5 proves strong spectral cancellation by comparison with the absolute-value symbol for a different oscillating radial construction in the Fock setting."
+        ],
+        "reasoning": "Neither generalized boundedness/compactness nor rapid decay bounds for a different transform determine the two signed coefficients or the remainder for this moment sequence.",
+        "searches": [
+          "arXiv:1703.09896 Proposition 3.2; arXiv:2011.04699 §6; arXiv:1012.3528 §5, Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4b9793ab6160 and df4c40ade7c8",
+        "Taskinen–Virtanen, Hagger–Liu–Taskinen–Virtanen, and Rozenblum original OA passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Tricomi calculation proves N_±(t)∼log²(1/t)/(4c) for bounded cos(c/(1−|z|²)+θ) on weighted disks. The generalized-symbol results concern operator definition and boundedness or compactness rather than threshold counting."
+        ],
+        "reasoning": "A leading law cannot determine an L log L correction. The target O(L) bound requires a summable bound over phase-zero neighborhoods at a moving envelope threshold with the extra polynomial amplitude; a rough density or compactness bound would not give that control.",
+        "searches": [
+          "Resultary 4b9793ab6160 Finding and limitations; arXiv:1703.09896 Proposition 3.2; arXiv:2011.04699 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing δ=1−|z|² gives 1/(−log(1−δ))=1/δ−1/2+O(δ). Thus the earlier bounded reciprocal-distance chirp matches the leading phase at β=0 with frequency 1 and an adjusted constant phase, but is not the same function.",
+          "The related Gevrey record uses a positive oscillatory radial measure and signed kernel corrections, not the eigenvalues of the target form."
+        ],
+        "reasoning": "A pointwise matching phase modulo O(δ) does not by itself control exponentially small radial moments. For β>0 the amplitude is also unbounded, outside the earlier bounded chirp family.",
+        "searches": [
+          "Resultary 4b9793ab6160 and df4c40ade7c8; Taskinen–Virtanen Eq. (3.2) and Proposition 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4b9793ab6160 is an actual material match for the leading signed log-square law on a related bounded chirp. df4c40ade7c8 gives a related transform asymptotic for coefficients of a different object. Neither inspected Finding gives the β-dependent L log L coefficient or O(L) signed remainder."
+        ],
+        "reasoning": "No matching exact spectral-law entry was established by the bounded comparison. A leading coefficient in a related bounded case does not tabulate the signed counts at second order for the variable-amplitude case.",
+        "searches": [
+          "Local Resultary searches for boundary-chirp Bergman spectral counts, signed Weyl laws, and oscillatory radial moment asymptotics"
+        ]
+      },
+      "rationale": "There is material antecedent coverage for oscillatory radial forms, cancellation, and a leading balanced signed law for a closely related bounded chirp. Originality is credited to the explicit two-term signed law with O(L) control for the reciprocal-logarithmic amplitude family (including the non-absolutely-integrable regime) and inverse recovery of β. The classical K-transform identity, compactness from cancellation in general, and the leading log-square shape alone are not claimed as distinct contributions.",
+      "residual_risks": [
+        "The close Resultary record mentions a 2016 eigenvalue-decay paper by El-Fallah, Mahzouli, Marrhich, and Naqos whose full text it did not assess. Its possible relation and equivalent older oscillatory Mellin formulations remain outside the verified comparison. A focused search without usable hits does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material leading-order overlap for a related bounded chirp, without the second-term claim",
+          "evidence": "The signed leading coefficient is 1/(4c) for the weighted-disk reciprocal-distance chirp, with no L log L term or O(L) remainder asserted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-balanced-signed-logarithmic-weyl-law-for-boundary-chirp-bergman--4b9793ab6160",
+          "material_read": "RESULT.md Finding, text offsets 0–6403; delimiters of prior-art limitation and references near offsets 10890 and 11200",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Balanced signed logarithmic Weyl law for boundary-chirp Bergman forms",
+          "trigger": "Strongest indexed signed spectral law for related reciprocal boundary chirp"
+        },
+        {
+          "assessment": "Related transform shape, different coefficients and no signed count",
+          "evidence": "Uses linear boundary-distance moments for kernel corrections of a positive radial measure, with a related Tricomi/K-Bessel asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-order-two-gevrey-smoothing-by-an-oscillatory-positive-radi--df4c40ade7c8",
+          "material_read": "RESULT.md Finding, offsets 0–5951",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp order-two Gevrey smoothing by an oscillatory positive radial measure",
+          "trigger": "Indexed related moment asymptotic with root-exponential decay"
+        },
+        {
+          "assessment": "Antecedent for cancellation and generalized boundedness",
+          "evidence": "For (1−r)^(−b)sin(1/(1−r)), 0<b≤1/2, the signed operator is bounded but the absolute-value operator is unbounded.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.09896",
+          "material_read": "PDF pp. 8–9, Eq. (3.2) and Proposition 3.2, offsets 25750–30690",
+          "method": "OA PDF passage inspection",
+          "title": "On generalized Toeplitz and little Hankel operators on Bergman spaces",
+          "trigger": "Closely related sign-changing inverse-distance Bergman symbol"
+        },
+        {
+          "assessment": "Broader boundedness and compactness context, no matching count",
+          "evidence": "Gives arbitrarily growing radial oscillatory symbols inducing bounded or compact operators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04699",
+          "material_read": "PDF pp. 3 and 23, §6 and text offsets 7010–7230, 62280 onward",
+          "method": "OA PDF passage inspection",
+          "title": "Toeplitz operators on the unit ball with locally integrable symbols",
+          "trigger": "Generalized compact Toeplitz theory for growing oscillatory radial symbols"
+        },
+        {
+          "assessment": "Spectral cancellation precedent for different geometry and symbol",
+          "evidence": "The explicit §5 construction is for a rapidly oscillating Fock symbol at infinity; it compares s-number decay to that of the absolute symbol, rather than giving a signed disk-boundary count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1012.3528",
+          "material_read": "§5, PDF pp. 20–21, text offset 75839 through Theorem 5.1",
+          "method": "OA PDF passage inspection",
+          "title": "On lower eigenvalue bounds for Toeplitz operators with radial symbols in Bergman spaces",
+          "trigger": "Earlier spectral estimates for rapid radial sign oscillations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md signed counting, inverse relation and cutoff scope",
+        "Resultary 4b9793ab6160 as leading-law baseline"
+      ],
+      "rationale": "The leading signed log-square law does not distinguish singularity orders. At second order the family records β in a spectral counting coefficient, with a remainder smaller than the distinguishing term. The signed result also quantifies two-sided eigenvalue accumulation for examples where the ordinary symbol integral is only conditional. Controlling samples near sine zeros is essential to that distinction.",
+      "residual_risks": [
+        "The inverse observation concerns this fixed-parameter symbol family and does not assert an inverse theorem for all radial Bergman operators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

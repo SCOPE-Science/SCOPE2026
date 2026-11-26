@@ -1,9 +1,21 @@
-# Scientific review: the seven-cube half-exchange graph
+# Independent mathematical audit
 
-**Correctness — PASS.** The sphere-packing lower bound gives sixteen, with equality forcing an efficient dominator. Translation to zero, the 21 weight-two vertices, and the resulting Steiner triple system determine every minimum set as a Hamming affine coset. A complete 30-system exact-cover search independently verifies the combinatorial Fano-plane count. The two standalone implementations generate all 240 configurations by genuinely different constructions and agree on the 1680 edges and every distance profile. The embedded certificate can be regenerated exactly. A computation over these proven-complete finite sets establishes graph metrics, not an infinite-dimensional assertion.
+## correctness
 
-**Originality — PASS, qualified.** The 16-set minimum, Fano-plane equivalence, Hamming-code classification, and minimum 1-perfect bitrade size are established literature, not new. Closest relevant work is the small-covering-code classification of Östergård and Weakley, Malyugin's component-switch analysis, Potapov's perfect-coloring framework, and the later minimum-bitrade studies. Targeted mathematical-record searches for seven-cube exchange graphs, 240-state configurations, the fourteen-regular geometry, and radius/diameter four produced no covering hit. The retained contribution is the exact 240-state half-exchange graph, its edge regularity, triangle freeness, and uniform 5-entry distance profile. The complete text of the relevant small covering-code classification was not accessible, and unindexed tables remain a real overlap risk; absence from search is not novelty proof.
+PASS
 
-**Value — PASS.** Optimum domination on the Hamming cube is a natural packing/covering problem. The exact exchange graph quantifies a strong obstacle to local optimum-preserving movement: all smaller exchanges fail, yet four half-exchanges always connect any two optima. Its vertex-transitive, triangle-free structure and uniform distance spheres give more information than an isolated numerical optimum or an arbitrary slice of subset enumeration. This is a motivated finite classification, not a claim about all hypercubes.
+The closed-ball volume bound is sharp by the binary Hamming code, so minimum means perfect here. After translating a code through 0, the weight-two layer forces an STS(7). Each Fano line meets the six other lines once (use the two other lines through each of its three points); hence exactly 28 distinct four-sets contain a line, and the seven line complements are precisely the eligible weight-four words. Covering the other 28 weight-three words forces all seven complements. Only the weight-seven word can cover all seven remaining weight-six words with one center. The Fano-plane kernels are 4-dimensional linear codes and cube automorphisms act transitively on their translates. Distinct affine four-flats meet in at most eight words. An independent bounded regeneration compared all 240 code lists and 1680 edge pairs entrywise against the frozen certificate, verified pair-overlap counts 12600, 7680, 6720, 1680 at 0, 2, 4, 8, and reproduced triangle-freeness and (1,14,63,106,56) at each of the 240 roots. The independent code runs read-only against the frozen inputs: python3 /workspace/replay_checks.py 3. Certificate SHA-256 c781514e90db3505a668f3b39a284e8072605fb2d9967fa9504a7b913b21d89d. This establishes the stated Q7 graph only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the classical perfect-code census and the prior binary bitrade bound. The distinct supported contribution is the graph on all 240 minimum sets at the first feasible exchange radius, in particular the all-root distance spectrum and sharp diameter. No equivalent statement or controlling theorem was identified in the checked material; this is a bounded best-of-knowledge conclusion.
+
+## value
+
+PASS
+
+This determines connectivity and sharp move complexity at the first exchange threshold for the entire state space of minimum dominating sets of a natural cube. The distance profile quantifies how far the optimal configurations lie from any given one, beyond what the classical minimum bitrade size can tell a reconfiguration researcher. The finite scope is part of the motivation, not extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

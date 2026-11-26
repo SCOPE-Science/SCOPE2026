@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 ## Reproducible checks
 
-Run `python checker.py` with Python 3 and the standard library. The program verifies exact rational Hamming-shell Fourier coefficients, harmonic antipodal identities, strict monotonicity, Parseval angular energy, and the full ambient Euclidean facet-normal calculation, using a separate matrix inversion implementation. Its exact domains are \(2\le d\le18\) for Walsh formulas and \(2\le d\le4\) for independent Gram reconstruction. Printed larger-d ratios are numerical diagnostics only.
-
-The proof for all \(d\ge2\) is in RESULT.md. No finite check purports to establish an infinite statement; binomial moment expansions, the heat-kernel ordering and the harmonic identity are proved analytically. No external audit has been performed.
+Run `python3 radial_inverse_check.py` alongside this file. It uses standard-library exact rational arithmetic to solve two radial Poisson equations in succession on the cube. For every dimension from 2 to 30 it compares the result with all Walsh shell entries and checks the signs, strict ordering, antipodal harmonic formula and exact Parseval normalization. It does not establish originality or any asymptotic from sampling. The credited exact angle formula, monotonicity and the error estimates are explained in `RESULT.md`.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** For sparse minorities, the proof explicitly counts transitions between zero and positive blue utility, bounds extra utility improvements, and charges every room containing at least two minority agents by a strictly negative head-to-head vote contribution. The argument is uniform in room count, room size, and agent labels. For triple rooms with both colors sufficiently numerous, the utility-two occupancy identity gives the exact majority comparison. Counting unlabeled rooms uses factorial quotients with the right room-type symmetry factors. The independent small-instance checks and exact composition-pair calculations agree with the theorem. Edge cases of one color, one room, and split boundaries are included.
+## correctness
 
-**Originality (PASS, qualified).** Ge--Itoh (2022), Section 3, treats arbitrary preferences at room size two, not all-size triples with unanimous strict heterophily or sparse minority of arbitrary room size. Boehmer--Elkind (2020), full version, studies other solution concepts rather than head-to-head popularity. Ge--Itoh (2023) studies metric Euclidean-distance roommate preferences, not two-color composition. Targeted primary-literature and scientific-record searches did not find an implication covering this exact theorem; that absence is not a proof of novelty. Residual risk includes unindexed homogeneous-preference folklore or later specializations.
+PASS
 
-**Value (PASS).** In a fixed-room-size coalition problem where general-popularity guarantees stop at the two-person case, this identifies and enumerates the complete majority-undominated set on two mathematically natural infinite families. It also shows that optimizing the number of mixed rooms is an exact and linear-time popularity algorithm in those families, distinguishing majority legitimacy from ordinary Pareto optimality or core stability.
+For c≤m, reaching H=c forces one minority agent per mixed room. All minority agents there have maximal utility. If the challenger has y_j rooms with j minority agents, its change in the number of majority agents with positive utility is −s∑_{j≥2}(j−1)y_j. The extra majority gains from 1 to more than 1 are at most ∑_{j≥2}(s−j)y_j, while exactly ∑_{j≥2}j y_j minority agents lose. This gives the claimed strictly negative challenger margin unless all y_j for j≥2 vanish, in which case gains and losses balance. In an all-mixed triple partition there are m utility-two agents and no utility-zero agents; a challenger with h mixed rooms has h utility-two agents. Its votes for gains are only promotions to two, and losses include every demotion from two, so it loses by at least m−h or ties exactly if h=m. All-mixed triples are attainable in the stated split. Distinguishing sparse mixed rooms by minority labels and dividing by permutations only among undistinguished rooms gives the first factorial formula; dividing by permutations within each composition of mixed triples gives the second. They agree at the boundaries, and c=0 gives all partitions. The constructions and test for H take linear time in the number of agents.
 
-**Scientific boundaries.** The general dense two-color regime for room sizes four and larger is not settled. The result assumes common strictly heterophilic rankings, and counts distinct labeled agents in unlabeled rooms. Mathematical claims have only the checks and proof stated in RESULT.md; no external verification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-color preference model and room-size-two existence/computation are prior. The supported distinct claim is the deterministic all-partition classification with strict dominance and exact counts for triples and sparse minorities. The strongest inspected results do not imply that package.
+
+## value
+
+PASS
+
+The result identifies a natural domain where deterministic popularity, not just existence of a stable or randomized outcome, can be completely recognized and constructed. It proves a label-independent majority margin, characterizes every popular outcome and makes exact counting possible. The all-triple regime and arbitrary-size sparse-minority regime are both structural, not isolated finite checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review: quadratic rough-observation gain on crown graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each integer \(n\ge3\), the explicit closed-neighborhood membership test reduces the rough pair to two complementary upper-coverage profiles. Classification of all nonfull profiles gives exactly \(2^{n+1}+n^2-n-3\) such values. Only \(2n\) subsets have both complementary profiles nonfull. Counting the two one-full orientations, those exceptional profiles and the central pair proves \(4\cdot2^n+2n^2-5\). A binomial count of inverse fibers and the independent total mass \(4^n\) establish the rest. Boundary cases \(n=1,2\) are treated separately. A source-code checker independently enumerates inputs and verifies both observations and every fiber for \(3\le n\le9\). Neither experiments nor the simple mass-balance identity is being treated as a replacement for the structural proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For each input the lower approximation is the complement of the upper approximation of the complementary input. With F=[n], nonfull upper values are the empty value, 2n singleton/co-singleton pairs, 2(2^n−n−2) one-full values, and n(n−1) distinct-index co-singleton/co-singleton values. Every one has a full-complement representative. The only inputs with both coverages nonfull are ({i},F\{i}) and their shore swaps, all with distinct images. The full/full value exists by selecting the same singleton index on both shores. Thus there are 1+2(2^(n+1)+n²−n−3)+2n images. The one-full values whose nonfull coverage is (F,F\{i}) or its swap have 1+sum_{k=2}^{n−2} binom(n−1,k)=2^(n−1)−n preimages; both orderings give 4n distinguished fibers. All others save the central fiber are singleton, and subtraction from 4^n gives the claimed c_n. For K_{n,n}, a proper nonempty subset of a single shore yields one-full coverage, with full complementary coverage; the empty subset and full/full value finish the count. The n=1 crown has two isolated vertices, and n=2 has two disjoint edges. Independent exhaustive neighborhood enumeration at n=3,4 returned crown/biclique counts 45/27 and 91/59, and the full crown fiber histograms 44 singletons plus one size 20, and 74 singletons plus 16 of size 4 and one size 118. These are examples, not the proof.
 
-The closest exact published normal form for complete multipartite tolerances gives \(4\cdot2^n-5\) for *unmodified* \(K_{n,n}\). Because the crown graph's nonadjacency does not partition into equivalence classes at \(n\ge3\), that prior theorem cannot be specialized to the deleted-matching case. A separate exact Tutte evaluation applies to dual-incidence *posets*, which have a different underlying relation and cardinality problem. A contemporary 2026 rough-graphs paper was read in its available PDF text: its definitions concern partition- and covering-based rough *subgraphs*, not the exact count and inverse fibers of vertex-subset rough observations. The 2026 categorical rough-set paper concerns equivalence-based categorical structures. A 2020 neighborhood paper was only partially accessible and remains a publication-priority risk. Searches of the research records and accessible prior work found no exact crown formula or table, but search failure does not establish uniqueness. The previously recorded closed-neighborhood path census concerns paths, not this crown family.
+## originality
 
-## Value — PASS
+PASS
 
-The exact number of attainable rough approximations, and the source-fiber distribution, are natural invariants of a tolerance: they distinguish observable data from indistinguishable inputs. Removing a perfect matching from a balanced biclique increases the exact observation count by \(2n^2\) and exposes a sharply structured collision census. These are motivated quantitative boundaries for nontransitive tolerance models, not mere examples or recomputations of the known undeleted case. No algorithmic or applied significance beyond the established exact structural calculation is asserted.
+The biclique baseline is prior. The surviving claim is the exact increase and complete inverse-fiber census for the crown under the same reflexive tolerance. The inspected statements do not cover that claim on the evidence available.
 
-## Closest sources and residual risks
+## value
 
-Syau, Liau and Lin (2026), DOI:10.3390/math14020369; Hafez et al. (2026), DOI:10.5206/mase/23201; Järvinen and Radeleczki, arXiv:1303.6332; complete multipartite-tolerance and graph-incidence-poset exact-result records listed in `RESULT.md`. The 2020 neighborhood systems primary paper was inspected only in available public preview, so a hidden equivalent specialization remains possible. Broader historical literature has not been comprehensively audited. Publication priority has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting a canonical sparse matching from a symmetric graph gives an exact quadratic net gain rather than merely a qualitative change. The inverse-fiber classification identifies exactly where the remaining indistinguishability sits, including the boundary n=3; the baseline or the image size alone does not give this distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

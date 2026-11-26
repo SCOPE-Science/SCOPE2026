@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:43.444695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fold the circle by x=||t||. On [delta0,1/2] the induced distance map is bx-(b-1)/2 for odd b and b/2-bx for even b. In the odd case the allowed inverse branch fixes 1/2 and scales distances from it by 1/b. In the even case the two-step allowed folded interval is (delta,1/2-delta/b). The decreasing inverse y -> 1/2-y/b maps that interval into itself: its upper image endpoint is 1/2-delta/b and its lower one is delta0+delta/b^2 >= delta precisely up to the critical threshold. Thus every subsequent step scales length by 1/b; unfolding gives precisely two reflected intervals. The closed folded interval at equality collapses to the unique fixed distance b/[2(b+1)], attained by the stated two-cycle. In the odd case only 1/2 attains the maximal distance. Dividing nested Lebesgue probabilities gives the claimed conditional geometric tail, without independence. Separate exact breakpoint tests (python /workspace/independent_checks.py 1) passed 60 cases, including strict and non-strict critical boundaries, for five bases and horizons 2–4. The proof, not those tests, covers all bases and horizons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Jing abstract gives ML(V)>(1+c)/(2|V|) for any distinct positive integral speeds.",
+          "Beck–Everett abstract and §1 treat structural restrictions on tight instances and counterexamples."
+        ],
+        "reasoning": "The broader speed quantification does not yield equality thresholds and optimizing times for powers, let alone resolve the delta-dependent finite-horizon measure.",
+        "searches": [
+          "arXiv:2610.23790v1",
+          "arXiv:2609.06259v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.2486v2",
+        "arXiv:2610.23790v1",
+        "arXiv:2609.06259v1",
+        "Resultary 962cd78c291c, ae0aa2f134e9 and a0f7fdd5a724"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The schedule result optimizes between endpoint cylinders 00 and (b-1)(b-1) and gives (n+2)/2^(n+1) for b=2, not a fixed allowed band.",
+          "Neither a lower bound on the max-min nor an infinite survivor classification gives the affine shrinking law for each finite horizon."
+        ],
+        "reasoning": "Deriving the frozen profile requires locating the two-step corridor and proving inverse-branch containment on its whole parameter strip. No inspected statement does that or implies the resulting parity-dependent formula.",
+        "searches": [
+          "arXiv:1302.2486v2; arXiv:2610.23790v1",
+          "Resultary expanded-map escape, 962cd78c291c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The folding t -> ||t|| or inverse-branch encoding gives a fixed allowed band.",
+          "Glendinning–Sidorov define survivors of a forbidden interval for the doubling map and classify infinite-horizon sets."
+        ],
+        "reasoning": "The earlier interval-hole statement is not the dual problem of retaining the band over finitely many steps; its infinite survivor dimensions do not determine finite-component counts or lengths.",
+        "searches": [
+          "Geometric-speed maximum loneliness and exact safe times; expanding maps with holes and finite survivor intervals",
+          "arXiv:1302.2486v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest inspected escape result: Optimal alternating Markov-hole escape in integer expanding maps, Resultary 2026/11/8, 962cd78c291c, Finding/Assumptions. The near-critical four-runner census (a0f7fdd5a724) counts primitive four-runner sets and their scaled gaps."
+        ],
+        "reasoning": "The escape record treats fixed cylinders chosen by a schedule, not fixed delta-corridor survival; the census is not an all-horizon safe-time table. The nearby records postdate the frozen finding and differ mathematically.",
+        "searches": [
+          "Resultary: geometric runner powers and sharp loneliness; exact escape under integer expanding maps"
+        ]
+      },
+      "rationale": "The best-supported distinct contribution is the exact finite-horizon near-critical profile with parity-specific component counts and all-horizon conditional exit law. Inspected prior results treat the underlying loneliness objective or an infinite-horizon hole problem; neither supplies that profile. The critical optimizer calculation alone is elementary and is not relied on as a separate priority claim.",
+      "residual_risks": [
+        "Bounded searches cannot rule out an implicit equivalent in symbolic dynamics or base-expansion literature.",
+        "Scope conclusions about the retrieved runner sources are limited to the passages read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related infinite-time dynamics, not the finite measure result",
+          "evidence": [
+            "J(a,b) consists of points avoiding (a,b) for all n>=0; abstract addresses cardinality and Hausdorff dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.2486",
+          "material_read": "Original v2 abstract and survivor definition, p. 1",
+          "method": "Open primary paper passage, compared allowed/forbidden regions and the time quantifier",
+          "title": "The Doubling Map with Asymmetrical Holes",
+          "trigger": "Same expanding map for b=2 and interval-hole survival"
+        },
+        {
+          "assessment": "General quantitative lower bound; no whole-paper exclusion based on the abstract",
+          "evidence": [
+            "ML(V)=max_t min_v ||vt|| and the displayed lower bound is for arbitrary distinct positive integral speeds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.23790v1",
+          "material_read": "Original abstract, p. 1",
+          "method": "Primary paper passage comparison",
+          "title": "Near Optimal Gap in the Lonely Runner Conjecture",
+          "trigger": "Same maximum-loneliness objective"
+        },
+        {
+          "assessment": "Structural restrictions, not evidence of the geometric-family profile",
+          "evidence": [
+            "The accessed statements address tight instances and counterexamples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.06259v1",
+          "material_read": "Abstract and §1 at p. 1",
+          "method": "Opened primary passage and compared statement scope",
+          "title": "Lonely Runner Relations",
+          "trigger": "Structural results for exact max-min settings"
+        },
+        {
+          "assessment": "Later, distinct two-cylinder schedule optimization",
+          "evidence": [
+            "Uses one selected cylinder at each step; strict alternation minimizes survival and gives (n+2)/2^(n+1) in base two."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-alternating-markov-hole-escape-in-integer-expanding-maps--962cd78c291c",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Read the indexed result in the local mirror and compared open-map constraints",
+          "title": "Optimal alternating Markov-hole escape in integer expanding maps",
+          "trigger": "Closest indexed exact escape theorem for integer b"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural model speed family now has an exact near-critical density benchmark uniform in horizon and base, distinguishing a fixed point from an alternating two-cycle. The exact interval count and geometric conditional law are informative beyond a lower loneliness bound or a finite set of computed optimizer values. No claim is made outside the narrow stated strips.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

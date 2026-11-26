@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:36:29.856848Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker_output.txt; static inspection of checker.py",
+        "Independent continuant/minor derivation, log-concavity and uniform perturbation argument"
+      ],
+      "rationale": "The rank-one approximation is positive and trace class even though K itself is not (K≥I/(μ+4)); differentiation of the bounded resolvent gives capture −∂μ log K_jj. Independently recovered the half-line diagonal by reflecting the infinite-line resolvent across −1/2, and the finite one by principal minors: the determinant of the first k<n rows/columns is (q^(−k)+q^(k+1))/(1+q) by the continuant recurrence; applying the second degree-one endpoint row gives the full determinant (1−q)(q^(−n)−q^n)/(1+q). Cramer's rule gives the stated product of the two boundary factors; log differentiation proves both capture formulas. The odd-index sequence f_a is strictly log-concave and tends to zero, so a neighboring equality at a simple root of a−(a+2)q²−2q^(a+2) is an exact two-site maximum; at that root the next neighboring difference is strictly positive, which orders the thresholds. The continuous maximum of a↦f_a is at aβ=c; Rolle gives c/(a+2)<β_j<c/a and each discrete maximum is within two in a of the continuous one for small β. With μ=β²+O(β⁴) this gives both stated scaling results. On the left half of each finite path, the right-image term goes to zero uniformly on compact positive-β intervals. A strict half-line gap persists uniformly near each fixed threshold: truncate the uniformly vanishing half-line tail and use continuity on the finitely many remaining sites. Thus only the adjacent reflected pairs compete. Their contrast is D_a+f_b−f_(b−2), b=2n−a. Its derivative converges uniformly to D'_a on such a neighborhood, giving a unique crossing, and the mean-value theorem gives its displacement as −(f_b−f_(b−2))(β_j)/(d_j+o(1)). Since the numerator contrast is −(e^(2β_j)−1)b e^(−bβ_j)(1+o(1)), the displacement is upwards with the stated coefficient after changing to μ. At β_0=log 2 the derivative is 2/3 and ∂βμ=3/2, yielding 27/4. The same uniform gap gives stability away from thresholds.",
+      "residual_risks": [
+        "The packaged checker only brackets the normalized finite shift between 0 and 2 on sampled sizes, not asymptotic equivalence; the latter follows from the analytic mean-value argument. High-precision order and Rolle checks use 50 odd parameters, with an additional parameter in the sign-bracket test. No finite all-n phase diagram or limit uniform in increasing j is established or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fornace–Lindsey formulate the finite trace objective for general positive matrices; §2.4 sets up finite connected rescaled Laplacians with a one-dimensional nullspace for inverse rank reduction.",
+          "Neither the objective identity nor a greedy score or approximation guarantee determines the exact change of maximizing site as a uniform screening parameter varies."
+        ],
+        "reasoning": "The broader framework covers what to optimize (and how to score a candidate given the matrix), not the optimizer in this exact family.",
+        "searches": [
+          "Fornace–Lindsey arXiv:2407.01698, §§2.1, 2.2 and 2.4; Gittens–Mahoney arXiv:1303.1849 as cited in the frozen record"
+        ]
+      },
+      "checked_sources": [
+        "Fornace–Lindsey arXiv:2407.01698, scoped passages above; Resultary exact and neighboring records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The score from eq. (4) reduces to C_j for singleton sets. The rank-one finite-path first transition actually occurs strictly above 1/2 for large n; its distance above 1/2 has a computable coefficient and exponential rate.",
+          "The threshold for higher-budget trace/determinant agreement does not specify the winning rank-one site or its finite-size displacement."
+        ],
+        "reasoning": "Standard Green entry/score identities still leave the global optimizer and switch analysis. The log-concave odd-index sequence and the reflected-end perturbation give exact information not implied by the compared statements.",
+        "searches": [
+          "Fornace–Lindsey eq. (4) and §2.4; Resultary universal-threshold statement; compare with the fixed-site crossing calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a finite path the rank-one score is both captured trace and reduction of the total diagonal of the conditional covariance (Schur complement) after observing one site in the screened Gaussian covariance. Fornace–Lindsey eqs. (3)–(4) and §2.2 give this general equivalence.",
+          "Maximizing the Green diagonal (one-site determinant) is not maximizing −∂μ log of that diagonal. On the half-line the diagonal itself is strictly largest at the endpoint for every μ, whereas the trace optimum can be arbitrarily deep."
+        ],
+        "reasoning": "An exact one-sensor conditional-variance classification for the same screened ordinary path would cover the result; variance-at-sensor or determinant ordering alone does not.",
+        "searches": [
+          "Resultary: boundary-layer staircase and exponential finite-size shifts, screened-path rank-one Nyström and landmark trace",
+          "Fornace–Lindsey arXiv:2407.01698, §2.1 and §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed match 2026/11/22/SCOPE-a-boundary-layer-staircase-and-exponential-finite-size-shifts-fo--e656321093de is the frozen record itself.",
+          "Distinct ID 2026/11/22/SCOPE-a-sharp-universal-screening-threshold-for-trace-and-determinant--5ff469908668 reports when finite-path determinant-optimal landmark sets are trace-optimal for budgets at least two."
+        ],
+        "reasoning": "The distinct record has closely matching objects and the same number 1/2 but a different quantifier and comparison in its available statement. No earlier rank-one switch table was identified in the inspected sources.",
+        "searches": [
+          "Resultary: screened ordinary path trace-capture optima, μ=1/2 threshold and rank-one finite-path shifts"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact rank-one site staircase at reflecting boundaries and the fixed-index finite shift, not for the capture objective, resolvent identities or one-dimensional Green functions. The principal cited prior work defines precisely the same finite selection objective, but its graph-Laplacian methods and theory concern general algorithms rather than these site thresholds. The strongest indexed same-day neighbor reports a different landmark-budget comparison; date alone was not used.",
+      "residual_risks": [
+        "Full text of the distinct Resultary neighbor was unavailable; only its indexed statement was compared. Equivalent screened-path singleton sensor-design analyses elsewhere remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact objective antecedent; inspected application and main results concern general selection and rank reduction, not the screened one-column optimizer staircase",
+          "evidence": [
+            "Eq. (4) is Tr[(K²)_{I,I} (K_{I,I})⁻¹]; §2.2 interprets its maximization as reducing average conditional variance; §2.4 starts from connected graph/rescaled Laplacians with a prescribed zero mode."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2407.01698",
+          "material_read": "§2.1 eqs. (1)–(4), §2.2 conditional covariance passage, §2.4 setup of the finite graph-Laplacian application; arXiv:2407.01698v2 PDF abstract",
+          "method": "Identity-checked lawful HTML rendering after direct OA passage retrieval timed out",
+          "title": "Column and row subset selection using nuclear scores: algorithms and theory for Nyström approximation, CUR decomposition, and graph Laplacian reduction",
+          "trigger": "Same general trace objective and inverse graph-Laplacian landmark selection"
+        },
+        {
+          "assessment": "Relevant but different comparison in the available statement",
+          "evidence": [
+            "Agreement of determinant- and trace-optimal sets for landmark budgets of at least two, not the rank-one half-line staircase and its shifts."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-universal-screening-threshold-for-trace-and-determinant--5ff469908668",
+          "material_read": "Indexed catalogue statement only; full mirror text not retrieved",
+          "method": "Local Resultary search and bounded mirror attempt",
+          "title": "A sharp universal screening threshold for trace and determinant",
+          "trigger": "Same screened path setting and μ=1/2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen problem and independently reconstructed thresholds; Fornace–Lindsey §§2.1–2.2"
+      ],
+      "rationale": "The exact optimum and its dependence on screening answer a natural one-landmark problem for a canonical graph, and the winner is not the one chosen by the simpler determinant criterion. The infinite staircase with tie rules, the diverging optimum depth constant, and the signed sharp shift show both boundary behavior and when a long finite path reproduces it. This is useful exact information beyond solving the tridiagonal recurrence or showing that the endpoint is sometimes optimal.",
+      "residual_risks": [
+        "No multi-column, nonuniform-conductance, or fixed-n global phase assertion is warranted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

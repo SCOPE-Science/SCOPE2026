@@ -1,19 +1,21 @@
-# Scientific review of the cyclic-gap subset-synchronization theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The potential \(F(S)=\min_{(g,t)}[((n-1)\alpha+\beta)(n-g)-\alpha t]\) is a rigorous lower bound by a strict Bellman inequality for each input letter. Exactly one letter attains equality at every nonsingleton set, and the prescribed word repeatedly follows those equalities, increasing the winning gap until it reaches the full cycle. Strict positivity ensures uniqueness; the singleton and two-state collapse boundary cases are treated in the proof. The independently built verifier checks 130,918 nonsingleton state sets for four weights through size 16 and independently computes shortest weighted paths by Dijkstra for all sets through size 12. There is an all-length proof, not a claim extrapolated from experiments.
+PASS
 
-## Originality — PASS, with stated risk
+For nonsingletons put K=(n-1)alpha+beta and attach K(n-g)-alpha u to a directed gap of length g ending at u. A loss of one in g costs at least beta even with the largest possible advantage in u. Thus the unique minimizing gap has maximum g and then maximum u. Rotation preserves lengths and subtracts alpha from any contribution whose endpoint does not wrap; a wrapping endpoint instead increases the contribution by (n-1)alpha. Equality in the rotation inequality occurs exactly when the winner does not wrap. If n-1 is absent, b does nothing. If present, the incoming gap gains one and ends at 0, subtracting beta from its contribution, while the outgoing gap is removed if 0 is occupied and otherwise shortens with unchanged endpoint. No other contribution improves. Thus b is an equality move exactly when the winner ends at n-1; for the exceptional collapse {0,n-1} the potential is directly beta and the same conclusion holds, including n=2. Iterating gives a lower bound on every word. The equality path rotates the winner to n-1, grows it by one, and then repeats a^(n-1)b: the winner is now strictly longer than all remaining gaps and ends at 0. Full length is reached after n-G contractions. Positive costs exclude any post-synchronization suffix, so equality at every move forces precisely the displayed word. The letter counts, formula and ordered-input linear-time calculation follow. A singleton needs only the empty word.
 
-Eppstein's 1990 Theorem 1 computes shortest words for any starting set of an arbitrary cyclically monotonic automaton, but supplies an interval-state search, not the present closed formula or simultaneous cost independence for positive letter weights. Gusev 2014 analyzes expected pair synchronization; Behague–Johnson 2020 discusses \(k\)-set rendezvous and earlier Černý lower-bound constructions, not pointwise weighted costs; Ruszil 2021 gives general weighted approximation algorithms. These are genuine close mathematical antecedents rather than mere title matches. A 2014 Cardoso thesis on the same family and \(k\)-set bounds could not be inspected in full, and an earlier unpublished or unindexed pointwise derivation remains possible. Thus originality is assessed relative to the actual inspected statements, without claiming absolute priority or independent certification.
+## originality
 
-## Value — PASS
+PASS
 
-The result solves an exact, natural control problem for **all** initially possible state sets of the extremal Černý family: it gives a closed form for weighted optimal cost and an explicit unique word independent of letter-cost ratios. Cost independence is uncommon for weighted reset problems and is not delivered by the general shortest-path algorithm alone. The theorem unifies and strictly extends pair-only formulas to every subset, while yielding a linear-time policy in the size of the given subset (apart from output). It makes no unsupported claim for general automata.
+Credit substantial overlap: Eppstein already solves the unweighted arbitrary-subset optimization algorithmically, Cardoso already uses growing a largest gap and the n-1 rotation blocks, and the same-day pair record explicitly has the entire weighted two-state result. The later all-subset circular-gap record gives the exact unit-cost answer and witness by a closely related potential. The supported increment is the strict Bellman policy, hence one unique word minimizing every positive letter-cost objective for all subsets, not the gap-growth construction, pair theorem, or full-state length in isolation.
 
-## Scientific limits
+## value
 
-The conditions \(n\ge2\), nonempty \(S\), exact two-letter transitions, and \(\alpha,\beta>0\) are essential. Finite verification is supplemental. Prior sources were compared by mathematical implications, and the inaccessible dissertation is explicitly recorded as a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the canonical cyclic synchronizing family this identifies an exact deterministic policy for every occupied-state configuration and rules out any rotation/contraction cost trade-off or ties at positive weights. The pointwise all-subset statement is materially stronger than a worst-case bound by cardinality or computing an optimum separately for each set and cost pair. It gives a linear scan and compressed word rather than a search over intervals or state subsets. The value resides in the uniform strict policy and separate letter counts, not in recomputing the classical full-state length or restating the pair law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:00:26.736447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In dimension two, componentwise inversion agrees projectively with the swap J, since (1/x,1/y)=(y,x)/(xy). Write D_r=diag(r,1−r), D_s=diag(s,1−s). The exact full sweep is projectively the action of T=D_s J KᵀD_r J K. Apart from its left diagonal multiplier, T has entries α=rbc+(1−r)ad, β=bd, γ=ac, δ=rad+(1−r)bc. In x=v_1/v_2, the map is a positive constant times (αx+β)/(γx+δ). Its log-coordinate derivative is (αδ−βγ)/[αγx+αδ+βγ+βδ/x], with nonnegative numerator r(1−r)(ad−bc)². Minimizing the denominator by AM–GM gives (√(αδ)+√(βγ))² at x=√(βδ/(αγ)); derivative sharpness is global by the mean-value theorem and arbitrarily close inputs at the peak. Since αδ/(βγ)=1+r(1−r)(R−1)²/R, this is the claimed q. For R=1 the map is constant; otherwise q<1 and Banach's theorem on the whole real log-ratio line gives the stated convergence bound. The factor increases strictly with r(1−r) for R≠1 and at r=1/2 reduces to the stated classical kernel-only bound. Transposition and exchange of the marginals give the reverse-order comparison, not a trajectory-wise or local rate claim. The example rounds to the displayed values. The package numerical check was inspected but not run; it does not certify the all-input claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Birkhoff–Hopf states the exact supremum of the Hilbert distance ratio for any positive linear map; its hypotheses hold for T, not only for K and Kᵀ.",
+          "General IPFP convergence and the local σ₂² theorem address different quantifiers. The Markov derivative formula CᵀR gives a pointwise derivative in log coordinates rather than a stated global envelope."
+        ],
+        "reasoning": "The covering theorem is the exact positive-matrix coefficient; the generic two-map bound, eventual local rate and derivative bounds alone do not give it.",
+        "searches": [
+          "Birkhoff–Hopf theorem in arXiv:2012.12562 after Eq. (8)",
+          "Forde arXiv:2609.07954 Proposition 1 and Theorem 1",
+          "Brossard–Leuridan arXiv:1606.09126 Theorem 2",
+          "Knight doi:10.1137/060659624 Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.12562 / doi:10.1007/s11590-021-01830-0",
+        "arXiv:1606.09126",
+        "doi:10.1137/060659624",
+        "arXiv:2609.07954",
+        "Resultary records 312bdfd301f9 and 3c84f6d344ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For T, the maximal cross-ratio in (8) is αδ/(βγ)=1+r(1−r)(R−1)²/R≥1. D_s cancels identically in this ratio, and the exact Birkhoff–Hopf theorem gives (√(αδ/(βγ))−1)/(√(αδ/(βγ))+1).",
+          "Transposition preserves R and swaps the first marginal, giving the reverse factor. At r=1/2 the square root becomes (1+R)/(2√R), giving precisely q_B(R)."
+        ],
+        "reasoning": "This gives every substantive parameter and sharpness claim by the exact classical formula and direct algebra. Merely applying Birkhoff separately to the two half-steps would indeed miss the marginal dependence.",
+        "searches": [
+          "arXiv:2012.12562 sweep (7) and Birkhoff–Hopf theorem after (8)",
+          "Near-disconnected Sinkhorn crossover, exact-map proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Componentwise inversion in the two-input positive projective line is the coordinate swap. Applying this to the standard multiplicative sweep gives T=D_s J KᵀD_r J K as a positive projective matrix, with the same Hilbert metric on scalings.",
+          "The same-day near-disconnected result explicitly writes the fractional-linear map for a symmetric binary normalization, with arbitrary interior marginals, but its stated exact rate is an eigenvalue ratio in a different fixed-point cross-ratio coordinate."
+        ],
+        "reasoning": "Projectively linear form is an equality of complete sweep maps, not an analogy, and allows exact positive-matrix contraction theory to be used. The same-day result's own rate is not the requested Hilbert factor.",
+        "searches": [
+          "Resultary: binary Sinkhorn odds-ratio derivative envelope, exact Hilbert contraction and orientation",
+          "Lehmann et al., arXiv:2012.12562, (7)–(8)",
+          "Near-disconnected Sinkhorn crossover, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9 is the identical assigned finding.",
+          "SCOPE-a-near-disconnected-sinkhorn-crossover-with-a-riccati-flux-profi--3c84f6d344ba gives the exact binary projective update but compares distances in a different coordinate; the earlier balanced-binary global relaxation entry changes the sweep and question."
+        ],
+        "reasoning": "No distinct exact Hilbert-factor table was established. Same-day publication does not establish an order. Neither fact alters the exact prior theorem's applicability.",
+        "searches": [
+          "Resultary: exact binary Hilbert factor, imbalanced binary IPFP/Birkhoff, sweep-order derivative and odds-ratio envelope"
+        ]
+      },
+      "rationale": "The exact factor is the already-established Birkhoff–Hopf coefficient of the positive matrix representing one binary sweep, not merely the product bound applied to two individual half-steps. In two dimensions the entire reduction is the identity (1/x,1/y)∼(y,x); evaluating the classical coefficient gives the marginal factor and, by transposition and monotonicity, every stated comparison. This is a mechanical prior implication, not proof of historical precedence from an identical indexed formula.",
+      "residual_risks": [
+        "An earlier explicit binary IPFP statement of the identical formula was not established; deferred broad lookups give no negative evidence.",
+        "Same-day order is undetermined; the failure rests on the verified classical implication, not on that ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem covers the frozen factor; the separately quoted two-map bound is weaker",
+          "evidence": [
+            "The Birkhoff–Hopf theorem identifies the supremum d_H(Kv,Kv′)/d_H(v,v′) with Λ(K) for positive K; Eq. (7) specifies the sweep at ω=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.12562",
+          "material_read": "§3, printed pp. 4–5, offset 13900 onward, sweep (7), coefficient (8) and theorem",
+          "method": "Read the primary PDF passage and applied the exact coefficient to the projective sweep matrix",
+          "title": "A note on overrelaxation in the Sinkhorn algorithm",
+          "trigger": "Exact positive-map contraction and standard Sinkhorn iteration"
+        },
+        {
+          "assessment": "Substantial map overlap, different rate statement; no claim of same-day precedence",
+          "evidence": [
+            "For K_δ with symmetric positive diagonal 1, it writes x⁺ as an explicit positive Möbius transform and q_δ=(S−D)/(S+D) as the multiplier in the ratio of distances to the two fixed points."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-near-disconnected-sinkhorn-crossover-with-a-riccati-flux-profi--3c84f6d344ba/RESULT.md",
+          "material_read": "Finding, Assumptions and proof §1, offsets 0–5606",
+          "method": "Compared the exact map and distance/coordinate in the published text",
+          "title": "A near-disconnected Sinkhorn crossover with a Riccati flux profile",
+          "trigger": "Closest distinct indexed binary sweep and exact projective rate"
+        },
+        {
+          "assessment": "Different rate",
+          "evidence": [
+            "The eventual local linear rate is governed by the squared second singular value of the scaled plan."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/060659624",
+          "material_read": "Theorem 4.5, PDF pp. 8–9, offsets 16500–20000",
+          "method": "Compared eventual local convergence at the limit with the global sharp Lipschitz quantifier",
+          "title": "The Sinkhorn–Knopp algorithm: convergence and applications",
+          "trigger": "Exact Sinkhorn rate potentially conflated with the global factor"
+        },
+        {
+          "assessment": "Relevant derivative framework, not the decisive classical exact-map implication",
+          "evidence": [
+            "Proposition 1 writes the cycle derivative as M_t=C_tᵀR_t; Theorem 1 uses its Dobrushin coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.07954",
+          "material_read": "Proposition 1 and Theorem 1, PDF pp. 3–4, near offset 14800",
+          "method": "Checked which pointwise derivative and adjoint bounds are asserted",
+          "title": "Transport Topology for Fixed-Support Sinkhorn Layers",
+          "trigger": "General full-sweep derivative and Dobrushin bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharper orientation-specific certificates are useful in principle, especially for imbalanced margins. Here the claimed exact coefficient and ordering are direct textbook deductions from the positive-matrix representation of a binary sweep and the exact Birkhoff theorem. The frozen result adds no independently new sharp invariant or distinct improvement beyond evaluating that known coefficient.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

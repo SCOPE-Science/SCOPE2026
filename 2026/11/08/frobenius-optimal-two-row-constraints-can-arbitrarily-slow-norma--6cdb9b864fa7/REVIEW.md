@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six unit rows yield the diagonal Gram matrix \(\operatorname{diag}(2c^2,2,2,2s^2)\); the permitted range \(0<s<1/\sqrt 2\) gives full column rank. The proof explicitly enumerates all fifteen pairs by four symmetry types; for each it computes or bounds the exact projected minimum eigenvalue over the residual subspace and the Frobenius trace. The fixed-distribution conditional mean-square identity proves that the selected spectral ratio is the *sharp* one-step guarantee, not merely a loose known bound. The probabilistic proof distinguishes null steps from rejection resampling, computes both actual trajectories, and gives the exact initialization. The standalone rational verifier checks sixty pair instances and ninety-six independent moment identities, but the analytic argument is the proof for all allowed parameters. No extrapolation of finite experiments to infinite parameter ranges occurs.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The source arXiv:2605.29304v1 explicitly relates optimal projected convergence rate to a scaled condition number and uses the smaller Frobenius row-ID residual as a tractable substitute (Remarks 3.1/3.3, Section 3.2). Thus neither the general method, the condition ratio nor the Frobenius surrogate is claimed as new. Its inspected sections including proof appendix, selection discussion, experiments and conclusions do not give this normalized unit-row separation, exhaustive constrained-pair optimum or exact error paths. Lok–Rebrova's initial SCRK construction gives the algorithm and general convergence bound but not the row-ID-vs-rate optimality classification. Cortinovis–Kressner treat Frobenius column subset approximation, not contracted Kaczmarz dynamics. Published semantically related records on row-coherence, multistage pivoting and two-row cyclic Kaczmarz make different implication claims, described in the structured comparison. Older specialized subset-selection results could still imply the separation; independent priority assessment is outstanding.
+PASS
 
-## Value — PASS
-The theoretical gap is not an arbitrary one-number calculation: it confronts a choice explicitly proposed for a randomized linear-system solver. Unit normalization rules out the trivial row-scaling mechanism. Duplicated strong equations draw Frobenius-optimal exact constraints away from a weak but crucial pair, whose span captures an ill-conditioned direction; once selected, the two residual rows are orthogonal and achieve the ideal dimension-two contraction constant. The exact-trajectory comparison shows that the distinction is not solely a pessimistic theoretical rate bound. The finding is a meaningful counterexample to interchangeability of Frobenius-ID quality and solver conditioning, while leaving open efficient rate-aware row selection in general.
+For an admissible error e, cancellation of the projected row norm against its sampling probability gives the exact decrease ||AP_I e||²/F(I); a least-eigenvalue vector proves sharpness. The four classes have multiplicities 4, 8, 2, 1 and positive spectra respectively (2c²,2s²), (2,4c²s²), (2,2c²,2s²), and (2,2). This gives exactly the stated score minimizers and unique rate maximizer throughout 0<s<1/√2. For the specified common x*, optimal-rate constraints leave error −e2 and each raw draw hits it with probability 1/2; ID constraints leave −e4, have first squared norm c², and from then on a switch of the row multiplies squared norm by (c²−s²)² with conditional probability 1/2. Rejection enforces switching once a row has been used; the optimal-rate system instead stops at the first accepted update. These are different clocks. Independently reproduced 60 projected spectra and 112 exact moment identities using rational projections and branching, with zero projected rows removed before division; replay `python3 /workspace/branches/independent_reproduce.py` (section 5). The packaged verifier was inspected, not executed; it constructs an update operator even at zero projected norm, so filtering is advisable. The finite replay corroborates rather than proves the full parameter and time laws.
 
-## Scope and priority limits
-This is a constructive exact-arithmetic, unrelaxed singleton result for a single structured family. The symbolic proof does not apply to other block sizes, heuristic selection costs, noisy least squares or acceleration. Published abstracts and snippets cannot exclude every stronger historical subset-selection theorem. External scientific checking remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The substantive unpreempted claim is the unit-normalized rank-two exact optimizer separation plus realized trajectory separation, not the general rate formula, the row-ID surrogate, or the general possibility of Frobenius selection regret. The prior singleton rejection-overhead example is real conceptual overlap but measures a different phenomenon.
+
+## value
+
+PASS
+
+The family tests a practically motivated surrogate at its global optimum. Unit rows remove trivial rescaling, and the exact expected errors demonstrate a genuine convergence penalty, not just a worse guarantee. The duplicated strong rows and nearly parallel weak-direction pair isolate what a rate-aware selector should detect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

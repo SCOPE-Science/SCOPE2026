@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The estimator is reconstructed from the published nonlinear FlexTrace definition with one Gaussian sample and a zero-column leave-one-out matrix. Its rank-one functional calculus reduces the actual random output to a ratio of two quadratic forms. Orthogonal Gaussian invariance, an independent radial factor of mean two, and three explicit angular integral identities give the exact expectation. Subtracting the effective dimension factors as a nonnegative perfect square. The equality classification, sharp weak-mode fraction, joint matched-scale law and both iterated limits then follow algebraically. Exact-rational and independent angular computations check but do not replace these arguments. The only boundary values are limits of the admissible positive-regularization problem.
+PASS
 
-## Originality — PASS, with residual risk
+The empty leave-one-out sketch is zero, so Eq. (3.2) indeed reuses the single probe. Diagonalize A by real orthogonal invariance; write U=ω₁²,V=ω₂² and s²=a(a+ζ),t²=b(b+ζ). The sole nonzero Nyström eigenvalue is (a²U+b²V)/(aU+bV), yielding T=(aU+bV)²/(s²U+t²V). Subtracting T from the exactly unbiased probe of fζ(A) gives UV(at/s−bs/t)²/(s²U+t²V) pointwise. In polar coordinates the radial mean is 2. The angular identity E[cos²θ sin²θ/(s²cos²θ+t²sin²θ)]=1/[2(s+t)²] follows from E[1/(s²cos²θ+t²sin²θ)]=1/(st) and the linear identities for the cos² and sin² numerators; continuity covers s=t. This proves the bias and its equality case. The exact ratio to b/(b+ζ) is bounded by replacing (s+t)² by s² and tends to one when b,ζ→0 at fixed a. The expectation then tends to one because the weak contribution is bounded. For fixed b, the ζ↓0 bias is (a−b)²/(a+b)²; for fixed ζ the b↓0 bias is zero, establishing the stated noncommutation. An independently written 65,536-node quadrant midpoint quadrature matched the predicted expectation within 1.3×10⁻¹² in five cases, including (a,b,ζ)=(2,2,3) and (2,10⁻⁴,10⁻⁴). The frozen verify.py and VERIFICATION.md were inspected, not executed. Finite checks only corroborate the analytic result.
 
-The closest source is Madhavan–Alexanderian–Saibaba, *FlexTrace* (arXiv:2603.05721v1), especially Eq. (3.2), Table 1, Theorems 3.3/3.5 and their proofs. It establishes the estimator, operator-monotone setting, and qualitative bias, but not this one-probe exact distributional expectation or rank/regularization boundary. The published spectral bound of Theorem 3.3 is restricted to at least four probes. Persson–Kressner (arXiv:2209.11023v3) analyze trace-of-funNyström, a different random quantity. Epperly–Tropp–Webber (arXiv:2301.07825v2) treat the linear unbiased trace problem. Their implications do not determine this nonlinear bias. Published-index searches and the previous research records checked for overlap yielded no equivalent statement. A hidden equivalent ratio-of-quadratic-forms calculation in earlier literature remains possible; the result is not claimed globally unique.
+## originality
 
-## Value — PASS
+PASS
 
-The effective dimension is a natural regularization-dependent spectral statistic used in kernel methods. Rather than recording an isolated small counterexample, the result classifies the entire positive two-eigenvalue domain and quantifies the fraction of the weak mode lost with the optimal coefficient. The boundary layer shows a discontinuous-looking phenomenon: the smaller eigenvalue tends to zero, yet if regularization tracks it, the negative bias remains order one and erases its full effective-dimension contribution. The noncommuting iterated limits identify precisely the mathematical cause of the nonuniformity. The finding does not claim improvement of any higher-dimensional or large-budget algorithm.
+The estimator, effective-dimension function, and nonnegative-bias mechanism are established. The exact anisotropic two-eigenvalue bias, its sharp weak-mode comparison and nonuniform rank limit are the distinct contribution supported by the inspected evidence.
 
-## Limitations and closest literature
+## value
 
-All claims concern one standard real Gaussian probe, an exact rank-one Nyström matrix in two dimensions, positive regularization, and exact arithmetic. A possible older equivalent closed-form Gaussian-ratio calculation is the principal originality risk. Independent expert audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The effective dimension and one-matvec estimator are defined independently by the motivating algorithm. The smallest nonflat spectrum already exposes a sharp failure of uniform weak-mode recovery: shrinking the tail at fixed regularization removes the bias, but shrinking regularization with the tail retains an order-one bias. That distinction is useful when choosing regularization and probe budgets; it is not a statement about variance, higher dimensions or multiple probes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

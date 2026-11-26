@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-`checker.py` builds Fibonacci words from the literal binary seeds and checks each index from one through twelve. It creates every distinct circular factor for every length from one to the entire word length and all unordered position pairs, and exactly characterizes intersections through per-position bit masks. Every pair that survives all factor lengths is a minimum circular string attractor because both binary symbols occur in every word. It then computes the entire resulting graph, colors connected components and verifies it equals the complete bipartite graph between the two non-isolated color classes. It verifies the total edge count and the exact critical lengths, recording a short digest for each edge list. The full observed stdout appears in `checker-output.txt`.
+## correctness
 
-Run `python3 checker.py` using Python 3.9 or later; no network and no packages are needed. The final line must be `ALL FINITE ENUMERATIONS PASS`. The experiment is exhaustive for exactly the twelve finite words; it neither investigates larger indices nor claims a proof of an infinite recurrence. The executable algorithm is fully available for independent code inspection but such an independent audit has not occurred.
+PASS
+
+The criterion for a given circular factor is to hit the union of its occurrence intervals modulo N, not to hit every occurrence. The frozen per-position incidence masks implement this criterion exactly. An independent factor-oriented enumeration formed those unions, filtered every unordered pair at each length 1 through N, and compared the full surviving edge set to the Cartesian product of the two active symbol classes for all m=1,...,12. It reproduced both shore sizes, 2^(m−1) edges, the isolates, and all strict-drop lists. For m=12 it checked 71,629 length-tagged factors, with 2,048 edges, shores 64 and 32, 281 isolates and drops at 1,2,3,5,8,13,21,34,55,89,144. There is no drop at m=1. One position cannot cover both distinct length-one factors, so the nonempty edge sets give minimum size two. The original checker and recorded output were inspected without running the original. Replay: python3 /workspace/branches/d7217b17-d1cf-4f0e-b0ba-db0bf27f7c9c/independent_fibonacci_circular_attractor.py --max-m 12; independent-summary.txt and per-level edge files are in that directory. This proves exactly the twelve finite cases, not a recurrence for all m.
+
+## originality
+
+PASS
+
+The distinct claim is the full compatibility graph and length-by-length redundancy profile across the twelve circular Fibonacci words. The graph includes known edges and its nonempty minimum-size-two feature already has substantive prior coverage. The strongest inspected literature and catalogue statements do not determine all shores, edges, and strict drops.
+
+## value
+
+PASS
+
+The finite certificate goes beyond finding one attractor or re-counting factors: it identifies all freely combinable choices of the two markers and every length that affects the solution set. The twelve consecutive canonical words, through the 377-position case, provide a reproducible structural and constraint-redundancy benchmark for circular attractor work. The useful content is the verified product and drop structure, not the cutoff as a purported natural transition or any unproved generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

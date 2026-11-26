@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives first and second moments using incident edge-pair counts, a disjoint five-type census for edge triples, and hypergeometric inclusion-exclusion to recover both triangle count and the adjacent-degree edge functional. Exact full generating functions for the two cubic six-vertex networks follow from the three-survivor census and a regular-graph complement identity. The minimality argument classifies connected regular simple graphs through order six. `verify.py` and `CERTIFICATE.json` reproduce exact finite checks; the all-size theorem is analytical.
+PASS
 
-## Originality — PASS (subject to bibliographic risk)
+At fixed k a product of edge indicators has expectation α_j=(k)_j/(n)_j for j distinct endpoints. A pair of distinct edges occupies three vertices in W=Σ binom(d,2) ways and four vertices otherwise. For triples with a middle edge, the endpoint-choice statistic K counts each three-edge path once and each triangle three times, so P=K−3T. Counting a distinguished wedge in a triple gives W(m−2)=3T+3S+2P+U, where S is the star count and U the five-vertex type; the six-vertex count is the remainder. These identities give the two degree-matched third-moment coefficients by inclusion-exclusion on the absent vertices. An independent direct recovery check is E[binom(Y_3,3)]=T/binom(n,3) and E[binom(Y_4,3)]=((n−3)T+S+P)/binom(n,4); the first two moments convert raw cubic moments to these factorial moments. In the prism, the two pure triples contribute two triangles and the mixed triples yield 12 two-edge and six one-edge sets. In K_{3,3} the two pure triples are edgeless and the 18 mixed triples have two edges. For k≥4 the complementary sample relation is Y_k=m−d(6−k)+Y_(6−k), so only k=3 differs. Binomial mixing gives the exact polynomial and summing its coefficients gives all three signs. Connected regular graphs of order below six are unique per realizable degree (only the trivial graph, edge, cycles and complete graphs occur); unequal degrees could not have identical edge means. The cubic graphs at order six follow by complementing the two possible 2-regular types.
 
-Comparisons covered Dunne–Williams–Martinez (2002) for ecological removal/robustness, Jha–Seshadhri–Pinar (2014) for four-vertex path sampling, and Bhattacharya–Das–Mukherjee (2020) for vertex-sampled motif estimation. Their accessible inspected statements do not contain the precise two-size inverse theorem together with the full six-vertex risk reversal. The 2020 motif framework could implicitly imply parts of the edge-triple expansion, and the inaccessible full text of the ecological robustness article leaves limited residual risk. An earlier structural result on degree-matched *surviving component counts in trees* concerns a different observable and scope; it does not imply the regular-graph triangle reconstruction or PGF reversal. Similarity search cannot establish uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This establishes an exact identifiability boundary for third moments under species rarefaction and a smallest connected regular ecological-network counterexample to ranking resilience by the first two moments. It recovers motif information from aggregate retained-link distributions and shows a sign reversal across natural integer risk thresholds while controlling degrees and both low moments. It is a finite, self-contained, interpretable structural distinction, not an arbitrary small numerical improvement.
+The same-date habitat-tree result contains the tree specialization of the independent-survival cubic contrast, with the same edge-triple census method and a related PGF divisibility argument. The earlier graphical-zonotope result uses the same cubic witness to extract triangles from a different statistic. Neither supplies the two-size inverse problem with independent triangle and degree-mixing directions for general degree-matched graphs, or the exact whole-survivor edge-count risk reversal for the connected regular witness. The bounded pass concerns those conclusions, not priority for vertex-sampled motif calculus, the tree specialization, or discovery of the cubic pair.
 
-## Limits
+## value
 
-Undirected simple static edges, exact moments, fixed degrees, homogeneous survival. No claim about actual empirical food web data, sampling precision, dynamic robustness, or independent originality certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There are two distinct structural directions: the cubic witness changes T at fixed K; two trees with degree sequence (3,2,2,1,1,1), arranging the degree-two vertices on different arms or the same arm, change K from 4 to 3 at fixed T=0. The result says when these genuinely different features can be recovered from a compressed survivor observable. The smallest connected regular witness gives a concrete ranking reversal between specified thresholds, not merely numerical disagreement in a third moment. This is a natural identifiability and counterexample claim without an empirical or statistical guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

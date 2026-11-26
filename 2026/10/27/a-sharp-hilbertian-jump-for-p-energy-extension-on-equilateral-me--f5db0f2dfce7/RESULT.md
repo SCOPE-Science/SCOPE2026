@@ -1,104 +1,47 @@
-# A sharp Hilbertian jump for \(p\)-energy extension on equilateral metric stars
+# Two sharp asymptotic saturation laws for one-leaf perturbations of metric-star p-energy extensions
 
 ## Finding
 
-Let \(T_m\) be a unit-arm metric star with center \(o\) and \(m\ge 2\) leaves. For \(1<p<\infty\), the canonical scalar \(p\)-energy extension \(E_p\) of leaf values \(v=(v_1,\ldots,v_m)\) is affine on every arm and has center value \(c_p(v)\), the unique minimizer of
+Let \(T_m\) be a real scalar metric star with \(m\ge3\) arms of length one. For \(1<p<\infty\), let \(E_p\) be the extension minimizing the sum of the arm \(p\)-energies at prescribed leaf values. Set \(v=(-1,0,1,0,\ldots,0)\). For \(t>0\) put \(v^{(t)}=v+t e_2\) if \(p>2\), and \(v^{(t)}=v+t e_1\) if \(1<p<2\), where \(e_i\) changes just leaf \(i\). Let
 \[
-J_p(c;v)=\sum_{i=1}^m |v_i-c|^p.
+Q_p(t)=\frac{\operatorname{Lip}(E_p(v^{(t)})-E_p(v);T_m)}{\operatorname{Lip}(v^{(t)}-v;\partial T_m)}.
 \]
-For functions on these metric spaces write \(\operatorname{Lip}(f;X)=\sup_{x\ne y}|f(x)-f(y)|/d_X(x,y)\). The **exact global two-data stability constant** is
-\[
-K_{m,p}:=\sup_{\operatorname{Lip}(v-w;\partial T_m)>0}
- \frac{\operatorname{Lip}(E_p(v)-E_p(w);T_m)}{\operatorname{Lip}(v-w;\partial T_m)}
-=
-\begin{cases}
-1,&m=2,\\
-2(m-1)/m,&m\ge3,\ p=2,\\
-2,&m\ge3,\ 1<p<\infty,\ p\ne2.
-\end{cases}
-\]
-The constants in the first two cases are attained. For \(m\ge3\) and \(p\ne2\), the value \(2\) is a nonattained supremum over distinct data with nonconstant difference. Thus the sharp constant is discontinuous as a function of the energy exponent at the Hilbert value \(p=2\), although every fixed-data center \(c_p(v)\) depends continuously on \(p\).
-
-The approach to the sharp constant has explicit and different exponents on the two sides. Fix \(m\ge3\), take \(v=(-1,0,1,0,\ldots,0)\) and, for \(t>0\), define \(v^{(t)}\) by raising its second coordinate by \(t\) for \(p>2\), or its first coordinate by \(t\) for \(1<p<2\). In either construction the two-data quotient \(Q_p(t)\) satisfies \(Q_p(t)\to2\). More precisely,
+The exact leading deficit from the sharp nonquadratic amplification \(2\) is
 \[
 2-Q_p(t)\sim
 \begin{cases}
-\displaystyle 2\left(\frac{p-1}{m-2}\right)^{1/(p-1)}t^{(2-p)/(p-1)},&1<p<2,\\[6pt]
-\displaystyle\frac{t^{p-2}}{p-1},&p>2.
-\end{cases}
+\displaystyle 2\left(\frac{p-1}{m-2}\right)^{1/(p-1)} t^{(2-p)/(p-1)},&1<p<2,\\[6pt]
+\displaystyle \frac{t^{p-2}}{p-1},&p>2,
+\end{cases}\qquad t\downarrow0.
 \]
+Thus each fixed star and fixed nonquadratic exponent has a one-parameter path approaching the sharp modulus, with a specific power and a nonzero leading coefficient. The rate is for these normalized perturbations; it is not an optimal rate over arbitrary data paths or a uniform expansion as \(p\to2\).
 
-## Assumptions and scope
+## Setup and proof
 
-The tree has exactly \(m\ge2\) leaves, every arm has length one, and the values are real. The boundary metric is the restriction of the tree metric, so distinct leaves are distance two apart. Along each arm the extension is the affine interpolation between the prescribed leaf value and its center. These interpolants uniquely minimize \(\sum_i\int_{e_i}|u'|^p\) among continuous functions with the given leaf data, by Jensen's inequality followed by strict convexity of \(J_p\).
+The extension with center value \(c\) is affine along each arm by Jensen's inequality. Its center uniquely minimizes \(\sum_i|c-v_i|^p\), and satisfies \(\sum_i\psi_p(c-v_i)=0\), where \(\psi_p(z)=\operatorname{sgn}(z)|z|^{p-1}\) and \(\psi_p(0)=0\). Here \(c_p(v)=0\) by symmetry. The equation is strictly increasing in \(c\), strictly decreasing when any leaf coordinate increases, and invariant under common translation of center and leaves. Consequently, for \(s=c_p(v^{(t)})\), one has \(0<s<t\): compare first with \(v\) and then with \(v+t\mathbf1\).
 
-Writing \(\operatorname{osc}(z)=\max_i z_i-\min_i z_i\), one has
+The boundary perturbation has Lipschitz seminorm \(t/2\) because all leaf distances are two. A difference of affine extensions has maximum Lipschitz slope among the arms: a path through the center bounds an off-arm difference by the maximum arm slope times path length. Thus the numerator is \(\max(t-s,s)\). Both arguments below give \(s=o(t)\), and hence the deficit is exactly \(2s/t\) for all sufficiently small \(t>0\).
+
+**Above the quadratic exponent.** For \(p>2\) the exact center equation, at small \(t\), is
 \[
-\operatorname{Lip}(z;\partial T_m)=\tfrac12\operatorname{osc}(z),\qquad
-\operatorname{Lip}(E_p(v)-E_p(w);T_m)
-=\max_i\left|(v_i-w_i)-(c_p(v)-c_p(w))\right|.
+(1+s)^{p-1}-(1-s)^{p-1}+(m-3)s^{p-1}=(t-s)^{p-1}.
 \]
-Both seminorms vanish on constants, and the two-data supremum excludes zero boundary seminorm. The problem is invariant under common translation and simultaneous scaling of leaf data.
+The difference of the two terms near one is \(2(p-1)s+o(s)\), and the other term on the left is nonnegative. Since the right side is bounded by \(t^{p-1}\), \(s=O(t^{p-1})=o(t)\). Thus \((t-s)^{p-1}\sim t^{p-1}\) and \((m-3)s^{p-1}=o(s)\). It follows that \(s\sim t^{p-1}/[2(p-1)]\).
 
-## Proof
-
-**Center uniqueness and strict order.** The function \(J_p(\cdot;v)\) is strictly convex for \(p>1\). Its minimizer is the unique zero of
+**Below the quadratic exponent.** For \(1<p<2\) the exact small-\(t\) equation is
 \[
-F_p(c;v)=\sum_{i=1}^m \psi_p(c-v_i),\qquad
-\psi_p(s)=\operatorname{sgn}(s)|s|^{p-1},\quad \psi_p(0)=0.
+(m-2)s^{p-1}=(1-s)^{p-1}-(1+s-t)^{p-1}.
 \]
-The function \(F_p\) is strictly increasing in \(c\) and strictly decreasing in each leaf coordinate. Consequently \(c_p(v)\) is strictly increasing in every coordinate and translation-equivariant: \(c_p(v+a\mathbf1)=c_p(v)+a\). If \(z=v-w\) is nonconstant and \(a=\min_i z_i\), \(b=\max_i z_i\), comparison with \(w+a\mathbf1\) and \(w+b\mathbf1\) gives the strict bound
-\[
-a<c_p(v)-c_p(w)<b.
-\]
-It follows that the star Lipschitz seminorm of the difference is strictly smaller than \(b-a\), whereas the boundary seminorm is \((b-a)/2\). Hence \(K_{m,p}\le2\) for all cases and the value \(2\) is never attained by a nonconstant perturbation.
+Both arguments on the right tend to one, uniformly for \(0\le s\le t\), and the derivative of the power function there is bounded. The right side is \(O(t)\); thus \(s=O(t^{1/(p-1)})=o(t)\). By the mean-value theorem the right side equals \((p-1)(1+o(1))(t-2s)\sim(p-1)t\). Consequently \(s\sim[(p-1)/(m-2)]^{1/(p-1)}t^{1/(p-1)}\). Dividing both center responses by \(t/2\) proves the displayed laws, including their coefficients.
 
-**Two leaves and the quadratic exponent.** For \(m=2\), symmetry of the strictly convex energy about the midpoint gives \(c_p(v)=(v_1+v_2)/2\), for all \(p>1\). Thus every nonconstant perturbation has quotient exactly one. For \(p=2\) and general \(m\), \(c_2(v)=m^{-1}\sum_i v_i\). A perturbation with values within \([a,b]\) satisfies
-\[
-\max_i\left|z_i-\frac1m\sum_j z_j\right|
-\le\frac{m-1}{m}(b-a).
-\]
-The bound is achieved with \(z=(1,0,\ldots,0)\), proving \(K_{m,2}=2(m-1)/m\).
+## Context: the covered global modulus
 
-**Superquadratic sharpness and rate.** For \(m\ge3\) and \(p>2\), fix \(v=(-1,0,1,0,\ldots,0)\) with \(c_p(v)=0\) and raise its second coordinate to \(t>0\). Let \(s_t=c_p(v^{(t)})\). Strict order gives \(0<s_t<t\). The defining center equation has the asymptotic form
-\[
-0=2(p-1)s_t-t^{p-1}+o(s_t)+o(t^{p-1})
-\]
-provided \(s_t=o(t)\). To justify this prior assertion, divide the equation by \(t^{p-1}\), note \(s_t\le t\), and use \(p>2\): the two nonzero base coordinates contribute \(2(p-1)s_t+o(s_t)\) and the zero coordinates contribute at most order \(t^{p-1}\). This forces \(s_t=O(t^{p-1})=o(t)\). Therefore
-\[
-s_t\sim\frac{t^{p-1}}{2(p-1)}.
-\]
-The boundary perturbation is \(t\) at exactly one leaf, so its Lipschitz seminorm is \(t/2\). The extended perturbation has central value \(s_t\), and its largest arm slope is \(t-s_t\) for sufficiently small \(t\), because \(s_t=o(t)\). Hence \(Q_p(t)=2(1-s_t/t)\) and \(2-Q_p(t)\sim t^{p-2}/(p-1)\).
+For any two leaf data with nonconstant difference \(z\), monotonicity and translation equivariance imply that the center difference lies strictly between \(\min z\) and \(\max z\). Therefore the full-star Lipschitz seminorm of the extension difference is strictly less than \(\max z-\min z\); the boundary seminorm is half that range. The perturbations above approach the resulting bound of \(2\). The center for \(p=2\) is the ordinary average, so for coordinate \(i\) the relevant arm difference is \(m^{-1}\sum_{j\ne i}(z_i-z_j)\), bounded in absolute value by \((m-1)(\max z-\min z)/m\); a singleton difference attains this. Two equal arms have the midpoint center for all finite \(p>1\) and ratio one. Fixed-data continuity in \(p\) follows from uniform convergence of the scalar energies on the compact leaf range and uniqueness of their minima.
 
-**Subquadratic sharpness and rate.** For \(m\ge3\) and \(1<p<2\), raise instead the first base coordinate from \(-1\) to \(-1+t\). Write again \(s_t=c_p(v^{(t)})\), so \(0<s_t<t\). At small \(t\), expanding the contributions from the two extreme leaves gives
-\[
-0=-(p-1)t+2(p-1)s_t+(m-2)s_t^{p-1}+o(t).
-\]
-Because \(0<s_t<t\) and \(p-1<1\), this equation yields \(s_t=O(t^{1/(p-1)})=o(t)\) (the extreme-coordinate expansion is uniform for \(s_t\in[0,t]\)). Consequently
-\[
-s_t\sim\left(\frac{p-1}{m-2}\right)^{1/(p-1)}t^{1/(p-1)}.
-\]
-Again the boundary perturbation is supported on one leaf and the maximal arm slope of its extension is \(t-s_t\) for small \(t\). Therefore \(Q_p(t)=2(1-s_t/t)\), with the stated subquadratic deficiency. These constructions prove \(K_{m,p}\ge2\) for every \(p\ne2\), completing the formula together with the strict upper bound.
+The global classification, its nonattainment away from \(p=2\), and fixed-data continuity are covered by the stronger positive-weight classification in [A discontinuous Hilbert-exponent transition in weighted star p-harmonic extension stability](https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-discontinuous-hilbert-exponent-transition-in-weighted-star-p-h--169c7e389bc1/RESULT.md), with equal weights and identical graph distances. Its superquadratic argument computes a tangent response (zero derivative along the perturbed center coordinate after translation); it does not give the first nonzero finite-perturbation coefficient. Its subquadratic argument uses a separate family of regular base data with nonzero residuals and then takes a tangential perturbation. That two-stage sharpness argument does not quantify the response from the single singular base vector above. The distinct claim here is the specific finite-perturbation deficit on the two sides, not the global stability profile or its priority.
 
-**Continuity for fixed data.** If \(p_k\to p>1\), the strictly convex energies \(J_{p_k}\) converge uniformly on the compact interval \([\min_i v_i,\max_i v_i]\) for fixed \(v\). Their unique minimizers therefore converge to \(c_p(v)\). The jump occurs only after the supremum over data pairs.
+The scalar minimization equation and its order principle are standard, as in M. Ishiwata, R. Magnanini and H. Wadade, [A natural approach to the asymptotic mean value property for the p-Laplacian](https://arxiv.org/abs/1604.00520), §2. Their comparison theory supplies the center but not the two finite-data rate laws. Ambient \(\ell_p\) projection norms for the same constant-line minimization describe a different input and output geometry. The full text of the closest such record (`c5b935fc4ff6`) was not available in the lookup, and an equivalent calculation under robust-location or projection terminology remains possible.
 
-## Verification
+## Verification and scope
 
-A standalone standard-library Python script `checker.py` reproduces bisection for the unique root of \(F_p\) and independent evaluations of the two relevant Lipschitz seminorms. It tests sampled two-data inequalities in multiple dimensions and exponents, the exact quadratic equality cases, and the predicted asymptotic center-response coefficients. Run `python checker.py`. The checks are finite numerical stress tests, not an infinite proof; the full scope is established by the preceding symbolic arguments.
-
-## Relationship to prior work
-
-Finite-graph extensions and \(p\)-harmonic functions were developed in earlier graph Dirichlet theories. Sheffield and Smart (arXiv:1006.1741, first public 2010-06-09) study tight and \(p\)-related Lipschitz extensions of finite-graph data, with different energy and lexicographic objectives. Manfredi, Oberman, and Svirodov (arXiv:1212.0834, first public 2012-12-04) develop nonlinear \(p\)-harmonic graph schemes and comparison principles; their graph operator and questions do not contain the present sharp boundary-to-whole-star two-data Lipschitz profile.
-
-A published sharp \(\ell_p\)-metric-projection result for the constant-vector line (identifier `c5b935fc4ff6`) studies the same scalar \(p\)-mean but uses ambient \(\ell_p\) distances on vectors. Its norms and sharp constants do not provide the quotient of the boundary metric Lipschitz seminorm and the full-star Lipschitz seminorm computed here. Related finite-chain isotonic \(\ell_p\)-projection results likewise have different input/output geometries. Classical absolutely minimizing Lipschitz extensions on metric stars, which use the midpoint of the extreme leaf constraints, are not the finite-exponent \(p\)-energy minimizer except in special data configurations. No claim is made that the scalar \(p\)-mean or monotonicity comparison is new.
-
-## Limitations
-
-Only equal-arm real metric stars and strictly convex finite exponents \(1<p<\infty\) are covered. The result makes no assertion for unequal arm lengths, arbitrary trees, complex/vector targets, or graph \(p\)-harmonious discretizations based on mixed maximal/average slopes. There is no independent verification; exact all-dimensional validity rests on the written proof. It remains possible that the same cross-seminorm formula or its reduction exists in older unindexed literature; relevant published sharp \(\ell_p\)-projection records have not been inspected beyond their accessible abstracts/summaries.
-
-## References
-
-1. S. Sheffield and C. K. Smart, *Vector-valued optimal Lipschitz extensions*, arXiv:1006.1741 (initial public version 2010-06-09), https://arxiv.org/abs/1006.1741.
-2. J. J. Manfredi, A. M. Oberman and A. P. Svirodov, *Nonlinear elliptic partial differential equations and \(p\)-harmonic functions on graphs*, arXiv:1212.0834 (initial public version 2012-12-04), https://arxiv.org/abs/1212.0834.
-3. *Exact Lipschitz phase diagram of metric projection onto the constant-vector line in real \(\ell_p^n\)*, published mathematical record `c5b935fc4ff6`, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-phase-diagram-of-metric-projection-onto-the-cons--c5b935fc4ff6.
-4. *Sharp \(\ell_p\) stability of finite-chain isotonic metric projections*, published mathematical record `f78c125227d5`, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-stability-of-finite-chain-isotonic-metric-projection--f78c125227d5.
+The two exact scalar balance identities above prove the asymptotic rates for every fixed \(m\ge3\) and \(1<p<\infty\), \(p\ne2\). The accompanying `checker.py` can be run with standard Python 3. Its bisection checks representative center-response coefficients and some global two-data comparisons; those finite computations are not a proof or a check of priority. No claim is made for weighted or unequal-length arms, general trees, nonreal targets, or simultaneous limits in \(p\) and \(t\).

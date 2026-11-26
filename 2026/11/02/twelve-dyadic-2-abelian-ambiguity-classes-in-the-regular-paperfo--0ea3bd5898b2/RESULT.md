@@ -3,7 +3,7 @@
 ## Finding
 Let \(f=f_1f_2\cdots\) be the regular binary paperfolding word, with \(f_n=0\) when the odd part of \(n\) is \(1\pmod 4\) and \(f_n=1\) when that odd part is \(3\pmod 4\). For every integer \(k\ge4\), put \(N=2^k\) and \(q=N/4\). Among the **distinct** length-\(N\) factors of \(f\), there are exactly twelve nonempty 2-Abelian equivalence classes, with size multiset
 \[
-\{q-1,q-1,\;q,q,q,q,q,\;q+1,q+1,\;2q,2q,2q,2q\}.
+\{q-1,q-1,\;q,q,q,q,\;q+1,q+1,\;2q,2q,2q,2q\}.
 \]
 More precisely, the classes are indexed uniquely by a first letter \(a\in\{0,1\}\), last letter \(b\in\{0,1\}\), and \(h\in\{0,1,2\}\). Put
 \[

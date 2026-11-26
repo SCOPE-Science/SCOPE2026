@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All \(2^{15}-1=32767\) nonzero ternary quartics are partitioned under the full order-\(168\) projective group, via verified generators. The characteristic-two Buchberger unit-ideal test on every affine chart proves geometric smoothness. Exactly \(10920\) smooth equations fall into \(78\) projective orbits. The tangent-intersection multiplicity of every rational curve point is computed as the first nonzero power in \(F(P+tQ)\). Both an orbit-weighted and a direct all-equations implementation reproduce the complete eleven-row table, including the unique \((4,0)\) orbit. The explicit model has four rational ordinary flexes. All ranges, charts, and bit-mask conventions are specified in the theorem and verification programs.
+## correctness
 
-## Originality
-**PASS within the inspected literature and mathematical records, with historical-priority uncertainty.** Nart–Ritzenthaler provide an older complete classification of the underlying curves, plus arithmetic strata by Newton polygon and bitangents; these do not directly give the distribution of rational contact orders or the unique four-flex class. Pacini–Testa investigate geometric inflection lines, mainly outside characteristic two. Comparisons considered equivalent formulations via Weierstrass points, inflection lines, normal-form classification and tangent multiplicity; no checked source was found to imply the eleven-row partition without additional computations. A possible earlier unlocated census is residual risk, not disproved by unsuccessful searches.
+PASS
 
-## Mathematical value
-**PASS.** Rational inflection contact is a canonical arithmetic marking on nonhyperelliptic genus-three curves. This classification separates ordinary flexes and hyperflexes rather than merely counting rational points, identifies all possible pairs, and gives the unique symmetry class attaining the sharp rational-flex maximum. These are natural moduli strata with genuinely non-implied arithmetic information. A general downstream theorem is not asserted.
+Independently enumerated all 32767 nonzero forms under all 168 invertible binary matrices, rather than using the supplied orbit generators. For each representative, tested the quartic and its three partials for a common zero on each of three affine charts using SymPy Gröbner bases over F2 and the weak Nullstellensatz. Including the equation itself is essential in characteristic two. Geometric smoothness is invariant under the action; in particular a smooth quartic cannot contain a line component by Bézout together with smoothness. For each smooth equation, computed tangent restrictions F(P+tQ) by binomial coefficient parity, with Q a distinct rational vector on the tangent. The initial nonzero degree is the local contact order and is unchanged by a change of tangent parameter. All eleven rows agree exactly; totals are 78 classes and 10920 equations. Mask 4418 lies in the sole (4,0) orbit of size 168 and gives the displayed polynomial. Its tangent lines at the three coordinate points and [1:1:1] have cubic leading contact terms, as claimed. Canonical embeddings identify projective equivalence with isomorphism here.
 
-## Relevant literature and limits
-The closest predecessor is Nart–Ritzenthaler, arXiv:math/0312366 (full characteristic-two isomorphism classification), and the inflection-line framework is Pacini–Testa, arXiv:1711.05776. The present statement is specific to the two-element field; claims about extensions or nonrational geometric flexes are excluded. Historical priority is not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the 78-class total and complete normal forms to Nart and Ritzenthaler and the three-hyperflex orbit to the earlier indexed Resultary result. The supported distinct finding is the eleven-stratum split by rational ordinary-flex and hyperflex counts, including the unique four-ordinary-flex orbit. The strongest inspected classification table enumerates by Newton polygon and does not calculate this tangency invariant. Its catalogue of curves allows a further exact computation, but neither that table nor the compared theta-contact descriptions mechanically supply the two contact counts.
+
+## value
+
+PASS
+
+The smallest finite field is a natural test for arithmetic inflection in characteristic two. Separating rational third- and fourth-order contacts rather than merely tallying curves or inflection lines gives a usable distribution by equation and by class, and resolves a sharp extremum with an explicit unique projective witness. The known class total is a cross-check, not the new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

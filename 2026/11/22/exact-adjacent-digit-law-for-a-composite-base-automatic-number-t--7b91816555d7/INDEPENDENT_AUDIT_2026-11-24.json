@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:50:26.279269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t=2n−1, LTE gives the exponents 2a+1 and b. The normalized integer (4^t−1)/3^(a+1) is t/3^a modulo 3, by expanding powers of 4^(3^a). Consequently the digit is 0 mod 3 if b<2a+1 and 2 mod 3 otherwise; for b≤2a+1 its mod-5 digit is 2(t/5^b)3^(−b), and for b>2a+1 it is 5. CRT gives independent valuation densities and four equiprobable 5-adic units in each stratum. Conditional on b≥1 the tail at b≥2a+1 sums to (2/3)/(1−1/75)=25/37; equality uses 4/5 of that tail and strict excess 1/5. The five residue classes for t→t+2 give three deterministic pairs and the two stars sharing exactly (6,9). For arbitrary N, count each included (a,b) stratum via at most eight congruence classes, each with O(1) discrepancy; O((1+log N)^2) strata suffice and the omitted 3- and 5-adic tails have O(1/N) total density. Shifted indices use t≤2N+1. Independent replay `python /workspace/branches/audit_arithmetic_reproduction.py 4` stripped factors of 15 from 10001 actual integers, saw exactly 20 pairs in the first 10000 trials, and found a maximum absolute deviation 47/37 from the exact rational predictions. The frozen verification script was inspected, not executed; the finite sample is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.8 gives the automaticity classification applied in Example 5.3 to obtain strict 75-automaticity, not a formula for pair frequencies or discrepancy.",
+          "Resultary record fa9f646a7cb7 gives rational all-lag two-point laws and logarithmic estimates for central trinomial residues mod 5, a different sequence."
+        ],
+        "reasoning": "Automaticity allows construction of a pair automaton, but alone supplies neither the asserted probabilities nor the stated rate. The stronger all-lag result concerns a different arithmetic output.",
+        "searches": [
+          "arXiv:2202.09922, Theorem 2.8 and Example 5.3",
+          "Resultary: all-lag two-point laws for central trinomial residues and other automatic-output bigrams"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.09922; DOI 10.1007/s11139-023-00710-8",
+        "Resultary 7b91816555d7 (self), 7159a644b09a, fa9f646a7cb7, 3662de55fdc8, 4cfd4bc432af, d52764ad9675"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier pointwise formula determines any finite prefix algorithmically. To get the reviewed result requires sorting two valuations by b versus 2a+1, evaluating the joint geometric CRT sums, exploiting disjoint deterministic-neighbor classes, and bounding interval counts; no inspected theorem outputs this law by specialization."
+        ],
+        "reasoning": "The pointwise-to-frequency deduction is an additional arithmetic counting argument, not a change of notation or direct table lookup.",
+        "searches": [
+          "Sobolewski Example 5.3, pointwise digit formula versus limiting and finite-cutoff counting",
+          "Resultary records 7159a644b09a and fa9f646a7cb7, comparison of objects and outputs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sobolewski uses a_n=(2n−1)(16^n−4) and writes ℓ₁₅(a_n) ≡ 7ℓ₁₅(3(2n−1)²,2(2n−1)) (mod 15). Starting at n=0 instead of n=1 is only an indexing difference. The inspected passage gives a pointwise, not two-point, result."
+        ],
+        "reasoning": "Equivalent definitions do not distinguish the sequence itself; the submitted addition is the full ordered pair law with arbitrary-cutoff counts.",
+        "searches": [
+          "arXiv:2202.09922, Example 5.3, last nonzero base-15 digit example",
+          "Resultary semantic comparisons for the exact base-15 last-nonzero-digit sequence and adjacent frequencies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit ending 7b91816555d7 is this frozen record, not a separate antecedent.",
+          "Resultary 7159a644b09a is an exact 5×5 consecutive-residue law with logarithmic-squared discrepancy for Motzkin residues; 3662de55fdc8 is a distinct same-date exact pair and triple result for decimal factorial digits."
+        ],
+        "reasoning": "The actual tables concern different sequences and moduli; the same date is not relied on for priority.",
+        "searches": [
+          "Resultary searches for the exact base-15 digit sequence, last nonzero digit pair laws, and exact automatic adjacent frequency and discrepancy results"
+        ]
+      },
+      "rationale": "The sequence and its pointwise digit computation are prior art, as acknowledged. In the closest primary statement and indexed comparisons, no equivalent exact adjacency distribution, support and discrepancy statement for this sequence was found. The independent claim is the adjacency result only.",
+      "residual_risks": [
+        "Some broader external searches were deferred. The available primary match was inspected directly; unindexed specialised pair-automaton computations or an equivalent exact law under another description remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sequence, its pointwise digit and strict 75-automaticity, not this pairing theorem",
+          "evidence": "The formula with coefficient 7 has a single index n; the classification separates possible bases using valuation multiplicities 2 and 1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.09922",
+          "material_read": "Digit definition p. 2; Theorem 2.8 p. 6; Example 5.3 p. 17 (OA offsets 56500–63422 for the example)",
+          "method": "Lawful OA PDF text at identified passages",
+          "title": "On k-regularity of sequences of valuations and last non-zero digits",
+          "trigger": "Exact sequence and possible general classification covering its adjacency"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "Rational 5×5 table, prohibition of (0,0), and logarithmic-squared error for Motzkin residues modulo five.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-consecutive-residue-law-for-motzkin-numbers-modulo-five--7159a644b09a",
+          "material_read": "RESULT.md, Finding, local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Complete consecutive-residue law for Motzkin numbers modulo five",
+          "trigger": "Closest indexed pair-table and error-rate analogue"
+        },
+        {
+          "assessment": "No implication for these last nonzero digits",
+          "evidence": "Every fixed lag for central trinomial residues mod 5, with quantitative cutoffs; not the sequence of Example 5.3.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-lag-two-point-laws-and-exact-logarithmic-bias-for-central-tr--fa9f646a7cb7",
+          "material_read": "RESULT.md, Finding, local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "All-lag two-point laws and exact logarithmic bias for central trinomial residues",
+          "trigger": "Potential stronger all-lag law"
+        },
+        {
+          "assessment": "Distinct same-date record on another digit sequence",
+          "evidence": "Decimal n! yields 16 uniform adjacent pairs and a 40-word triple support, not a base-15 valuation comparison.",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-adjacent-pairs-and-a-forty-word-triple-law-for-the-last--3662de55fdc8",
+          "material_read": "RESULT.md, Finding, local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Uniform adjacent pairs and a forty-word triple law for the last nonzero digits of factorials",
+          "trigger": "Indexed exact last-nonzero-digit adjacency result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an already studied composite-base automatic sequence, this gives its exact directed adjacency support, weights, and quantitative interval counts. In particular the value 37 and the intersecting-star structure come from competing prime valuations and not from automaticity or the marginal law alone. They are concrete invariants useful for subsequent word and correlation studies; no claim of a sharp discrepancy exponent is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

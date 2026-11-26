@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:05:15.057484Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–59",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 10–65"
+      ],
+      "rationale": "For either sign, the next odd term is y_i k_i after j_i steps. Escape excludes k_i=1 (a repeated odd term), y_i=1, and zero. Since k_i divides y_i+epsilon and all earlier multipliers divide y_i, induction gives precisely the pairwise coprimality and the additive formula for omega. The resulting odd-prime product is at least (r+2)!/2; monotone inversion of r log r gives r <= (1+o(1)) L_r/log L_r for L_r=log y_r, even when L_r is much larger. At T_r <= t < T_{r+1}, x_t >= y_r, and bounding each j_i for i<=r by log(y_r+1)/log 2 gives t <= (1/log 2+o(1)) L_r^2/log L_r. Thus t log t <= (2/log 2+o(1))L_r^2, giving the exact stated constant in the ordinary iteration clock. Proof line 33 means additivity, not multiplicativity, of omega on coprime arguments; the displayed formula is correct. The attached Python test and its recorded output check finite return blocks and prime products, not the rate; the infinite proof was reconstructed without running the archived code.",
+      "residual_risks": [
+        "No assertion that the liminf constant is optimal, or that the bound holds for the symmetric quadratic map."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye gives odd-return formulas, lower bound k_r>=3 on nonterminal returns, and intervening terms that are multiples of the next odd term. Sedaghat supplies a 3^{p+1} x_0 lower bound after p+1 nonterminal returns for Q_-."
+        ],
+        "reasoning": "Classification or a return-count geometric bound is not an ordinary-clock estimate of the asserted order. The paper covering the third map as well does not thereby cover the stronger quantitative assertion.",
+        "searches": [
+          "arXiv:2610.10660v1, classification of three quadratic maps, §2",
+          "arXiv:2004.07357v1, bounded orbits, §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary signed-quadratic semantic hits and the matching record's actual finding",
+        "Ye arXiv:2610.10660v1",
+        "Sedaghat arXiv:2004.07357v1 and arXiv:2005.10712v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing exact return identities are ingredients. The frozen proof uses divisibility of previous multipliers into each later odd term to obtain disjoint supports, uses a factorial estimate, then bounds the total number of halvings in terms of L_r."
+        ],
+        "reasoning": "The coprimality step is elementary once the return formula is known, but a bound using k_i>=3 only gives r=O(L_r) at this step and misses the logarithmic gain. The recorded rate requires the additional prime-support and ordinary-clock argument, not a change of variables in the prior bound.",
+        "searches": [
+          "arXiv:2610.10660v1, §2, Lemmas 1–2",
+          "arXiv:2004.07357v1, §2",
+          "arXiv:2005.10712v1, §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ye studies both Q signs in the same normalization. Sedaghat's divide-or-choose-2 rule is Q_-, not a different case for originality purposes. Neither inspected passage states the product of distinct new prime factors or the ordinary-time liminf."
+        ],
+        "reasoning": "The comparison identifies the same algorithms under different names and compares odd-return growth separately from ordinary-time growth. The same-day Resultary stopping-time record uses S rather than either Q sign.",
+        "searches": [
+          "Resultary semantic lookup: signed quadratic Collatz odd returns, coprime factors, and quantitative escape",
+          "arXiv:2610.10660v1, §2, Lemmas 1–2",
+          "arXiv:2004.07357v1 and arXiv:2005.10712v1, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest apparent same-day catalogue result counts stopping times for bounded seeds hitting zero under the distinct symmetric map; it excludes unbounded orbits."
+        ],
+        "reasoning": "A finite trajectory database or table cannot establish the universal liminf and is not an appropriate exact certificate here. The relevant result catalogue was checked against an actual nearby indexed statement, not presumed irrelevant from its date.",
+        "searches": [
+          "Resultary semantic lookup for signed quadratic escape and prime support",
+          "Resultary 2026/10/18/SCOPE-conditional-stopping-time-law-for-bounded-symmetric-quadratic-co--53b3cdf44f8f, RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the prime-support refinement and full-clock bound, not for the known return formulas or escape classification. The closest inspected papers supply the return multiplications and return-count growth, but not the factorial prime-support step and its conversion to ordinary time.",
+      "residual_risks": [
+        "The deferred general literature-search wave yielded no search evidence; comparison rests on the located catalogue record and primary passages, not on a negative web-search result.",
+        "An earlier unlocated derivation of the exact refinement is possible, especially given the known return identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the return identity and escape classification, not the inspected quantitative refinement",
+          "evidence": "Intervening iterates are multiples of the next odd term; nonterminal multipliers are at least three.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10660v1",
+          "material_read": "§2, Lemma 1 offsets 12450–14826 and Lemma 2 offsets 16000–20199",
+          "method": "Lawful OA HTML, targeted passages",
+          "title": "Classification of the Orbits of Three Quadratic Collatz-type Maps",
+          "trigger": "Same signed maps and prior escape classification"
+        },
+        {
+          "assessment": "Related growth bound in a different clock",
+          "evidence": "Geometric lower bound 3^{p+1}x_0 in the number of nonterminal returns.",
+          "identifier_or_url": "https://arxiv.org/html/2004.07357v1",
+          "material_read": "§2, offsets 4450–8646",
+          "method": "Lawful OA HTML, targeted passage",
+          "title": "Bounded Orbits of Quadratic Collatz-type Recursions",
+          "trigger": "Earlier analysis of Q_- and orbit growth"
+        },
+        {
+          "assessment": "Return multiplication and cycle criteria, not the stated ordinary-time bound in the inspected material",
+          "evidence": "Uses the odd-return product to rule out cycles under arithmetic hypotheses.",
+          "identifier_or_url": "https://arxiv.org/html/2005.10712",
+          "material_read": "§2, offsets 4440–8630",
+          "method": "Lawful OA HTML, targeted passage",
+          "title": "Dual Nature of Orbits of the Divide-or-Choose 2 Rule",
+          "trigger": "Alias for Q_-"
+        },
+        {
+          "assessment": "Different map and bounded-orbit regime",
+          "evidence": "Odd branch (n^2-1)/4; finite stopping-time distribution for bounded seeds, no assertion about unbounded orbits.",
+          "identifier_or_url": "2026/10/18/SCOPE-conditional-stopping-time-law-for-bounded-symmetric-quadratic-co--53b3cdf44f8f/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Local catalogue mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Conditional stopping-time law for bounded symmetric quadratic Collatz orbits",
+          "trigger": "Relevant same-day Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–56",
+        "Ye arXiv:2610.10660v1, §2",
+        "Sedaghat arXiv:2004.07357v1, §2"
+      ],
+      "rationale": "This quantifies escape in the natural iteration clock for every escaping orbit of both signed maps, where long halving runs prevent an odd-return rate from being read directly as a time rate. New prime support gives the substantive sqrt(log t) gain over the analogous estimate based only on geometric growth at the odd returns. It complements the known qualitative classification and does not depend on a distribution of seeds.",
+      "residual_risks": [
+        "The bound is one-sided and not claimed optimal; it gives neither a matching orbit nor an individual-orbit asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

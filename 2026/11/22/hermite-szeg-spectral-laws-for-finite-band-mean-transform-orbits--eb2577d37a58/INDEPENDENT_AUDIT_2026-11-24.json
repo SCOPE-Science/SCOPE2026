@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:44:28.833802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 23–54 and 64–111",
+        "checker.py, example_spectrum and verify",
+        "VERIFICATION.md"
+      ],
+      "rationale": "Independently reconstructed the asymptotics in RESULT.md, lines 64–111. Strict positivity keeps the polar factor equal to U; the defect evolves by the binomial average of U^{-t}AU^t. On each column-indexed diagonal the Fourier multiplier is the finite sum of a_h(j) exp(-ijt). Its first surviving Taylor term is (-it)^r M_{r,h}/r!, giving (-1)^r times the Gaussian derivative at x=(n+kq)/sigma, hence the stated Hermite sign. Selfadjointness gives M_{r,-h}=conj(M_{r,h}) by a shift of origin that changes only vanishing lower moments. The contour shift is justified by entire periodicity: for shift iy with |y|=1/sigma, the binomial factor normalized at t=0 on the shifted line is a Bernoulli characteristic function with tilted parameter qe^{-y}/(1-q+qe^{-y}), uniformly interior. The zero-frequency mass and phase give exp(-(n+kq)y+O(1)), so integration with the order-r zero yields a summable exponential envelope. On a fixed rescaled window, cutting into growing o(sigma)-length blocks deletes O(sigma/block_length) rows near boundaries; freezing the coefficients changes each entry uniformly by o(1). Closed band walks give the normalized Toeplitz moments, and polynomial approximation on the bounded spectra gives all fixed-p absolute moments on the window. Outside it, summing diagonal p-powers and using the finite-band Schatten inequality gives a vanishing normalized tail for every p>0 (p-subadditivity for p<=1, the norm triangle inequality for p>=1). Signed tests follow from closed walks and polynomial approximation of F(t)/t^2 with the uniform normalized second-moment bound. A squared partition of unity gives an O(block_length^{-2}) band commutator error; the localized constant Laurent norm bounds the limsup, and an interior plane-wave packet gives the reverse bound. The resulting positive Schatten constants yield all three regimes at p=1/(r+1). Independently checked the exact example via sum p_k^2 = binom(2k,k)/4^k and sum p_k(j)p_k(j+1) = binom(2k,k-1)/4^k. These give the identity for all k, including k=0.",
+      "residual_risks": [
+        "The supplied numerical illustration omits one exterior edge: with zero-padded p, p[1:-1]-p[2:] drops the leading difference -p_k(0). Its squared Hilbert–Schmidt result is low by 2 epsilon^2 4^{-k}, invisible at its tested k and tolerance but not at k=0. The exact identity and theorem were checked analytically, not certified by that numerical comparison. Both exterior differences are included by p[:-1]-p[1:].",
+        "The proof fixes q and p, assumes finite matrix support, and makes no eigenvalue probability-law claim including the accumulation near zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbarino–Garoni gives finite matrix spectral-symbol and normal GLT results. Once the symbol has been identified, on a fixed bounded rescaled window bounded Hermitian sections permit the usual Szegő/GLT trace argument, even for continuous |t|^p with p<1.",
+          "Those finite-window laws do not on their own prove that the tails at the diverging window are negligible at normalization 1/sigma, nor do empirical distribution laws control spectral outliers for the exact norm constant."
+        ],
+        "reasoning": "Credit the general local spectral mechanism. It does not identify the Hermite defect symbol in this iteration or wash out the global tail and sharp-norm requirements.",
+        "searches": [
+          "arXiv:1805.08708, Definition 2.1 and Theorems 3.2–3.4",
+          "Web: mean transforms bilateral shift Schatten asymptotics Hermite spectral distribution finite rank perturbation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.03499v1",
+        "doi:10.7153/mia-2020-23-49",
+        "arXiv:1805.08708",
+        "Resultary 584d3bbf84fe",
+        "Resultary 304047bdec1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known iteration and finite-section machinery can supply two modules of the proof, but the statement needs a moment-sensitive local limit with a global integrable bound and an independent maximal-norm argument.",
+          "The same-day unilateral 2-isometry record has a 1/4 cutoff for its own difference observable and does not cover arbitrary off-diagonal finite defects or signed eigenvalues; calendar date is not an ordering argument."
+        ],
+        "reasoning": "The complete result is a specialized synthesis with a new evaluated input and global conclusions, not a substitution into the inspected broader theorems or a duplicate of the distinct indexed findings.",
+        "searches": [
+          "doi:10.7153/mia-2020-23-49",
+          "arXiv:1805.08708",
+          "Resultary 584d3bbf84fe and 304047bdec1c mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jung–Ko–Lee's unitary-polar theorem with s=1-q, t=q already gives the exact binomial iterates. Chabbabi–Curto–Mbekhta gives the ordinary mean special case.",
+          "The natural equivalent operator problem is the binomial smoothing of finitely many diagonal sequences, keeping the first surviving spatial moment. The inspected iteration statements do not evaluate that rescaled band symbol or any of its resulting global spectral constants."
+        ],
+        "reasoning": "The iteration identity is fully covered and excluded from originality. The first surviving moment and the operator asymptotics are additional claims.",
+        "searches": [
+          "Web: mean transforms bilateral shift Schatten asymptotics Hermite spectral distribution finite rank perturbation",
+          "arXiv:1812.03499v1, Theorem 2.15",
+          "doi:10.7153/mia-2020-23-49, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record was excluded. The closest distinct records inspected were the fourth-order mean-versus-Aluthge unilateral 2-isometry comparison and the bilateral stretched-exponential Aluthge Gaussian-window asymptotics."
+        ],
+        "reasoning": "The first is for a difference of two transforms on one unilateral example; the second is for a compact shift's weights at one exponent. Neither is a table or parameterized theorem of finite-defect weighted arithmetic-mean spectrum and Schatten constants.",
+        "searches": [
+          "Resultary: weighted mean-transform finite-support defect, Hermite–Fourier symbol, Schatten cutoff and signed spectral distribution",
+          "Resultary distinct IDs 584d3bbf84fe and 304047bdec1c"
+        ]
+      },
+      "rationale": "The surviving contribution is the explicit moment-selected Hermite–Fourier law and its global fixed-p and sharp norm consequences in this operator orbit, not the iteration identity, general Szegő/GLT theory, or Gaussian inversion. No inspected distinct claim implied that full specialized result.",
+      "residual_risks": [
+        "An earlier specialization of lattice local-limit/Toeplitz theory to this orbit could be unindexed. The scoped statement-level comparison is not a historical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact unweighted iteration only in the compared claim",
+          "evidence": [
+            "Binomial conjugates of |T| for the ordinary mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.03499",
+          "material_read": "v1, Theorem 2.15, p. 7",
+          "method": "Primary OA PDF, located and read passage",
+          "title": "The Mean Transform and the Mean Limit of an Operator",
+          "trigger": "Unweighted polar orbit and possible binomial-law coverage"
+        },
+        {
+          "assessment": "Exact weighted orbit formula covered; no Hermite–Schatten law in the compared theorem",
+          "evidence": [
+            "Binomial formula for |T^(k)_{s,t}| with unitary polar part."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-23-49.pdf",
+          "material_read": "Section 3, Theorem 1, pp. 599–600",
+          "method": "Primary journal PDF text at offset 5500",
+          "title": "On the Iterated Mean Transforms of Operators",
+          "trigger": "Same weighted arithmetic-mean transform"
+        },
+        {
+          "assessment": "Covers finite-sequence spectral-distribution machinery; not the evaluated orbit and global norm claim",
+          "evidence": [
+            "Normalized empirical distribution of finite matrix sequences and rules for normal GLT and continuous functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.08708",
+          "material_read": "§2.1 Definition 2.1, §3 Theorems 3.2–3.4",
+          "method": "Primary OA PDF text at offsets 5000 and 19400",
+          "title": "Normal Form for GLT Sequences, Functions of Normal GLT Sequences, and Spectral Distribution of Perturbed Normal Matrices",
+          "trigger": "Potential general spectral-symbol implication"
+        },
+        {
+          "assessment": "Different transform difference, unilateral domain and special input",
+          "evidence": [
+            "Schatten results above the 1/4 cutoff and sharp operator norm; no arbitrary bilateral band defect or signed Hermite cloud."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-fourth-order-schatten-cancellation-between-mean-and-aluthge-iter--584d3bbf84fe",
+          "material_read": "RESULT.md finding and scope on the unilateral non-isometric 2-isometry",
+          "method": "Local Resultary mirror",
+          "title": "Fourth-order Schatten cancellation between mean and Aluthge iterations",
+          "trigger": "Closest distinct indexed mean-transform cancellation claim"
+        },
+        {
+          "assessment": "Different transform, initial data and spectral observable",
+          "evidence": [
+            "Binomial expectations for generalized Aluthge weights and Gaussian-window Schatten asymptotics at one exponent."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-scale-aluthge-asymptotics-of-compact-bilateral-stretched-exp--304047bdec1c",
+          "material_read": "RESULT.md finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "Two-scale Aluthge asymptotics of compact bilateral stretched-exponential shifts",
+          "trigger": "Closest indexed bilateral binomial/Gaussian asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, norm and Schatten limits, signed test law and noncommutative example"
+      ],
+      "rationale": "Sharp asymptotics distinguish operator-norm stability from decay in stronger ideals. One moment index predicts the exact critical Schatten exponent, while the band symbol retains off-diagonal geometry and eigenvalue signs that neither a norm bound nor a scalar shift example captures. These are useful invariants of a standard transform's perturbation orbit, not a numerical recount of the exact iteration formula.",
+      "residual_risks": [
+        "This is an exact specialized orbit law; its value does not rest on any unproved application to infinite-support perturbations or a claim of new GLT theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

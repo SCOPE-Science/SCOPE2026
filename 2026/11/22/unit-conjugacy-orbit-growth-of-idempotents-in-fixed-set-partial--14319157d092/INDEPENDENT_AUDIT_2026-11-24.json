@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:07:32.014549Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof §§1–3",
+        "Frozen VERIFICATION.md and scripts/check.py"
+      ],
+      "rationale": "Equality of partial maps in f²=f forces every image point into the domain and fixes it; conversely these conditions suffice. Thus Y∩dom(f)=Y∩im(f)=J, and each fixed y in J is a named root. On Z the undefined points, the free leaves over each named root and the stars with free roots partition Z. Units permute Z only, so the stated profile is necessary and sufficient, and the stabilizer consists of the indicated permutations of undefined points, leaves and equal-size free stars. The independent ordinary-series factors follow directly. Choosing the labeled image set gives r+1 choices, including undefined, per remaining free point; the labeled components also give the stated exponential series. For fixed s≥1, the coefficient of P(z)/(1−z)^s is the convolution with binomial(j+s−1,s−1). With lambda=pi/sqrt(6b), Hardy–Ramanujan gives p(b−j)/p(b)=(1+o(1))exp(−lambda j) uniformly for bounded lambda j. For j≤b/2 use a uniform exponential majorant in lambda j; for j>b/2 bound by p(floor(b/2))/p(b) times a polynomial. The normalized Riemann sum has integral Gamma(s)/(s−1)!=1, giving the claimed pole transfer. The unrefined total has leading pole correction s=a+1, whereas exactly k omissions give (a choose k) times the correction s=a−k+1. Their ratio gives the stated law and the first nonzero omission term dominates for a≥1. The edge cases a=0, b=0 and the empty map fit the profile. The nested finite checker was inspected, not rerun.",
+      "residual_risks": [
+        "The asymptotic estimates are for fixed a and fixed k; no uniform law for growing a is checked.",
+        "The exhaustive checker covers only the stated finite ranges and is not the asymptotic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general partial-map theorem concerns the full permutation group. The same-day equivariant record gives exact rooted-star orbit sizes and a rank product for total maps with permutable trivial orbits and free G-orbits.",
+          "The earlier full-transformation fixed-set paper treats natural partial orders, as indicated by its title and the same-monoid 2023 discussion; its full text was not inspected."
+        ],
+        "reasoning": "Neither forgetting the names of Y nor requiring a total map retains the freedom to omit distinguished points. The equivariant theorem does not have this unit group, domain choice or omission statistic. No relative priority is inferred from the same publication date.",
+        "searches": [
+          "Araújo et al., arXiv:2301.04252 §§4.1 and 4.3",
+          "Resultary: equivariant retraction conjugacy with fixed and free orbits, b0f7a6f1cd52",
+          "Chaiya–Honyam–Sanwong DOI 10.1155/2016/2759090"
+        ]
+      },
+      "checked_sources": [
+        "Wijarajak–Chaiya 2023, §3",
+        "Araújo et al. arXiv:2301.04252, §§4.1 and 4.3",
+        "Resultary b0f7a6f1cd52",
+        "OEIS A000070"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Graph isomorphism gives the colored rooted-star normal form after specialization; counting its named-root configurations gives the additional factor (1+u/(1−z))^a.",
+          "The classical p(b) estimate does not contain a subgroup orbit statement; extracting the pole corrections distinguishes the complete census from the law conditioned on k omissions. The original Hardy–Ramanujan passage was not available through the route tried; the convolution transfer from the standard estimate was checked directly."
+        ],
+        "reasoning": "The distinct claim is the resulting simultaneous rank/orbit-size count and fixed-a probabilistic comparison, not the ordinary graph or partition methods. Neither the full-symmetric graph criterion nor the equivariant total-map product gives the omission law by substitution.",
+        "searches": [
+          "arXiv:2301.04252 §4.3, Lemma 4.25",
+          "b0f7a6f1cd52, RESULT.md Finding equations (1)–(3)",
+          "Hardy–Ramanujan DOI 10.1112/plms/s2-17.1.75, cited classical partition estimate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wijarajak–Chaiya (2023) §3 treats this monoid and identifies the units as permutations fixing Y; its inspected results concern abundance and regularity notions.",
+          "Araújo et al., Lemma 4.25 and (4.3), equate permutation conjugacy and functional-digraph isomorphism on finite partial maps."
+        ],
+        "reasoning": "For the present subgroup this graph characterization becomes isomorphism preserving the individually named Y vertices. That already explains the skeleton of the profile; it does not state the stabilizer weights, full rank series or large-b omission law. Natural semigroup conjugacy is a separate relation.",
+        "searches": [
+          "Wijarajak–Chaiya DOI 10.7151/dmgaa.1438",
+          "Wijarajak–Chaiya DOI 10.1080/00927872.2022.2045606",
+          "arXiv:2301.04252 §4.3, permutation conjugacy of partial maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000070 is the sum of p(k) for 0≤k≤b, exactly the unrefined c_(0,b) since the generating function then is P(z)/(1−z). The equivalence is exact, not just agreement of initial terms.",
+          "The close indexed equivariant product concerns two permutable root species in a different domain, rather than the factors for optional named roots here."
+        ],
+        "reasoning": "The unrefined a=0 count is not new. This sequence does not track rank, individual stabilizers, or active versus omitted named roots for general fixed a. Partition factors and their finite convolutions alone are not presented as new partition functions.",
+        "searches": [
+          "OEIS A000070, cumulative integer partitions",
+          "Resultary: fixed-set partial transformation idempotent orbit enumeration and equivariant rooted-star census"
+        ]
+      },
+      "rationale": "The supported distinct result is the combined rank and stabilizer enumeration under units fixing named points individually, together with the exact fixed-a orbit-growth and omission law. Rooted-star graph isomorphism and the partition asymptotic are known inputs, and the unrefined a=0 sequence is an exact known slice. None of the inspected sources supplies the named-root partial-map census and its omission asymptotics together.",
+      "residual_risks": [
+        "Full text of the 2022 paper on the exact monoid was inaccessible through the bounded lawful routes; further exact enumerative overlap there is unresolved.",
+        "The correspondence with marked partition families mitigates but does not exclude unseen broader prior enumerative results. No historical priority certification is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies the unit group and proves structural regularity results, not the orbit census in the inspected passages",
+          "evidence": "Units fix Y pointwise; §3 studies unit-regular and coregular elements.",
+          "identifier_or_url": "https://doi.org/10.7151/dmgaa.1438",
+          "material_read": "Abstract, §1 p. 242, §3 pp. 244–246 including Theorem 8",
+          "method": "OA primary text",
+          "title": "A Note on the Abundance of Partial Transformation Semigroups with Fixed Point Sets",
+          "trigger": "Earlier work on the identical partial monoid"
+        },
+        {
+          "assessment": "Residual same-monoid priority risk",
+          "evidence": "The later paper describes Green relations and regularity; this secondary scope statement does not rule out additional enumeration in the inaccessible article.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2022.2045606",
+          "material_read": "Bibliographic identification and scope as described in the 2023 paper §1 and reference [10]; full text not read",
+          "method": "Publisher and identified repository routes attempted; bounded lawful access unsuccessful",
+          "title": "Green's relations and regularity on semigroups of partial transformations with fixed sets",
+          "trigger": "Earlier work on the identical partial monoid"
+        },
+        {
+          "assessment": "Different object, no whole-paper exclusion",
+          "evidence": "The full-domain setting neither has undefined distinguished points nor models the present partial-map omission event.",
+          "identifier_or_url": "https://doi.org/10.1155/2016/2759090",
+          "material_read": "Title and the distinction of the full-map subsemigroup in Wijarajak–Chaiya §1; no primary full text",
+          "method": "Attempted OA PDF; bounded bibliographic comparison",
+          "title": "Natural Partial Orders on Transformation Semigroups with Fixed Sets",
+          "trigger": "Related work with fixed sets"
+        },
+        {
+          "assessment": "General digraph principle is prior; subgroup census and asymptotics are not the inspected theorem",
+          "evidence": "Permutation conjugacy in P(X) is equivalent to extended digraph isomorphism, or ordinary functional-digraph isomorphism for finite X.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.04252",
+          "material_read": "§4.1 pp. 17–18 and §4.3 p. 26, Lemma 4.25 and (4.3)",
+          "method": "OA primary text",
+          "title": "Conjugacy in Abstract Semigroups, Transformation and Diagram Monoids, and Conjugacy Growth",
+          "trigger": "General conjugacy criteria for finite partial maps"
+        },
+        {
+          "assessment": "Structural overlap but different maps and different unit action; chronology unresolved",
+          "evidence": "Total equivariant idempotents allow permutations of trivial orbits, regular-orbit phases and a point-rank weight for free roots.",
+          "identifier_or_url": "b0f7a6f1cd52",
+          "material_read": "RESULT.md Finding and proof, equations (1)–(3)",
+          "method": "Resultary local mirror and frozen-source comparison",
+          "title": "Unit-conjugacy classification of equivariant retractions with fixed and free orbits",
+          "trigger": "Close rooted-star profile, class size and rank product"
+        },
+        {
+          "assessment": "Exact unrefined a=0 overlap, not general named-root enumeration",
+          "evidence": "The entry counts the sum of p(k) through n; it is also partitions in which parts of size one have two types.",
+          "identifier_or_url": "https://oeis.org/A000070",
+          "material_read": "Entry definition, values and comments",
+          "method": "OA public catalogue page",
+          "title": "OEIS A000070, cumulative partition numbers",
+          "trigger": "Exact partition sum when a=0"
+        },
+        {
+          "assessment": "Known analytic input, not an originality claim",
+          "evidence": "The partition estimate p(b)~exp(pi sqrt(2b/3))/(4 sqrt(3)b) yields the pole transfer through a normalized positive convolution.",
+          "identifier_or_url": "https://doi.org/10.1112/plms/s2-17.1.75",
+          "material_read": "Bibliographic identification and standard formula quoted in the frozen proof; no readable original passage obtained",
+          "method": "Attempted OA primary text; independent derivation from the standard formula",
+          "title": "Asymptotic formulae in combinatory analysis",
+          "trigger": "Classical partition estimate used in the transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–3",
+        "Araújo et al. Lemma 4.25 and OEIS A000070 for the prior skeleton and exact slice"
+      ],
+      "rationale": "For a natural partial transformation monoid, the theorem enumerates orbits and determines each stabilizer rather than only counting labeled maps. It identifies the fixed-set effect on partition-scale growth and quantifies that almost every class defines all its distinguished points, a feature lost by forgetting the named roots. The value is in these combined enumerative and asymptotic consequences, not in rediscovering ordinary partitions or graph isomorphism.",
+      "residual_risks": [
+        "Only idempotents, a fixed distinguished-set size in the limit, and uniform sampling of orbits are covered; this is not an asymptotic claim for all partial maps or for uniform labeled sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:05:27.648980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py; no uploaded script execution",
+        "Dai–Lim arXiv:2207.08769 §5.1, equation (5.1)",
+        "Derksen arXiv:1308.3860, Theorem 1.11 and Corollary 1.12"
+      ],
+      "rationale": "For counting-measure Euclidean spaces the unitary Fourier transform turns convolution into coordinatewise multiplication scaled by √n. The real locus groups conjugate characters; there are r real characters because |Hom(G,{±1})|=|G/2G|=|G[2]|. The orthonormal coordinate of a conjugate pair is √2 times a single Fourier coefficient. Thus each real coordinate contributes a scalar tensor scaled by √n and each pair a real complex-multiplication tensor scaled by √(n/2). The latter has projective norm 4: four unit-cost signed coordinate terms give the upper bound, and its real injective norm 1 and squared coefficient norm 4 give a matching dual bound. Orthogonally supported blocks across the factors add in projective norm: the sum of unit block witnesses has injective norm at most one by Cauchy–Schwarz and the bound on the largest block length of a unit vector. This gives r√n+4((n−r)/2)√(n/2). Over C, Fourier gives n unit pure terms scaled by √n, with the output index inverted if using the bilinear coefficient pairing. The injective bound √n and squared coefficient norm n² give the same lower bound n^(3/2). The trivial group, exponent-two groups, and the two order-four examples all agree with the formulas.",
+      "residual_risks": [
+        "The frozen numerical certificate checks selected finite examples and sampled inequalities; the exact Fourier decomposition and dual bound, not sampling, establish the general claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Derksen proves the complex norm for all finite groups and uses an orthogonal sum of the multiplication tensors of the irreducible-algebra blocks, equation (10) and the proof immediately after it.",
+          "Friedland–Lim analyze dependence on the base field and Lemma 6.2 includes a rotated, half-scaled version of the same real two-dimensional block. Dai–Lim directly give the unscaled real complex-multiplication norm 4."
+        ],
+        "reasoning": "Derksen's explicit complex answer is not a theorem about real scalar fields. The prior decomposition is nevertheless applicable to the real form in the abelian case by grouping conjugation orbits, and the local real norm input is separately covered.",
+        "searches": [
+          "Resultary: real Fourier decomposition block direct sum projective tensor nuclear norm abelian groups",
+          "Derksen arXiv:1308.3860 §4, proof of Theorem 1.11",
+          "Friedland–Lim arXiv:1410.6072v2 §6; Dai–Lim arXiv:2207.08769 §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Derksen arXiv:1308.3860",
+        "Dai–Lim arXiv:2207.08769",
+        "Friedland–Lim arXiv:1410.6072v2",
+        "Prochno arXiv:2610.29524v1",
+        "Resultary semantic searches and --4bb94785b883"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On each abelian complex character ideal, ordinary group-algebra evaluation x↦∑_g x_g χ(g) multiplies coefficient length by √n. Real conjugation fixes singleton ideals and interchanges each pair. On a fixed pair (z,z̄), the original coefficient length is √(2/n)|z|, so the multiplication tensor is just √(n/2) times the known complex-multiplication tensor over R; a singleton gives √n times the scalar tensor.",
+          "With mutually orthogonal factor supports the projective costs simply add: the sum of dual unit witnesses is bounded by ∑_j a_j b_j c_j≤∥a∥₂∥b∥₂∥c∥₂. Hence the r singleton blocks and (n−r)/2 known pair blocks give the complete real answer without a new optimization, and the complex answer is Derksen's specialization."
+        ],
+        "reasoning": "The decisive antecedents are the exact orthogonal group-algebra decomposition and known real block norm, not a general theorem saying real and complex norms coincide. There is no novel norm estimate left once their real fixed blocks are identified by the usual character pairing.",
+        "searches": [
+          "Derksen proof of Theorem 1.11, p. 14, orthogonal block decomposition with normalized regular trace",
+          "Dai–Lim §5.1, β_C nuclear norm and equation (5.1)",
+          "Frozen RESULT.md, real Fourier coordinates and block-witness argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prochno §3 identifies the cyclic support as a group-algebra structure tensor up to permutation, but Proposition 3.1 computes the injective and Hilbert–Schmidt norms.",
+          "Derksen's ghk=1 tensor has the same support after an orthogonal permutation by inverting one coordinate; its explicit corollary is over C."
+        ],
+        "reasoning": "The structure tensor and convolution tensor are equivalent in either field, but spectral, matrix operator and Hilbertian projective norms are not interchangeable. The complex part is explicitly covered; the real part is covered by the block implications, not by identifying it with a different norm.",
+        "searches": [
+          "Resultary: the exact real projective norm of finite abelian convolution structure tensor depending on 2-torsion",
+          "Resultary: real nuclear norm of group algebra multiplication tensor over finite groups",
+          "Literature: real nuclear norm finite group algebra multiplication tensor real Wedderburn abelian convolution tensor Friedland Lim orthogonal direct sum complex multiplication"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest four-state cyclic catalogue entry computes a real ℓ₄ operator contraction factor on the zero-sum subspace, not the nuclear norm of a three-tensor.",
+          "The exact complex group-algebra norm and exact real local block norm are stated in the literature. No exact all-abelian real formula was found in the inspected materials."
+        ],
+        "reasoning": "The numerical order-four group comparison is not a tabulated result of the four-state operator calculation. Nor does an unsuccessful exact-expression lookup establish novelty against the available block calculations.",
+        "searches": [
+          "Resultary: sqrt n times r plus square root two n minus r real convolution tensor norm",
+          "Resultary --4bb94785b883, Finding",
+          "Derksen Corollary 1.12 and Dai–Lim §5.1, exact norms"
+        ]
+      },
+      "rationale": "The real abelian formula was not found verbatim. Derksen's proof, however, already decomposes the identical multiplication tensor by the orthogonal group-algebra factors, with the counting-measure Hilbert normalization. In the abelian case, taking the conjugation-fixed part groups the known character blocks in real singletons and conjugate pairs, with a √2 change of length. The resulting real multiplication norms are the scalar norm and Dai–Lim's explicit norm 4. Orthogonal additivity is an immediate norm identity (one Cauchy–Schwarz bound on the supports). Together these already determine the formula and the equality criterion by direct substitution, not a separate norm calculation or obstruction. Prochno alone does not imply the real projective norm merely by knowing the injective norm.",
+      "residual_risks": [
+        "This identifies a direct implication, not a publication containing the exact printed real formula. No claim of exhaustive historical priority or of access to the Calcolo paper is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact complex formula; orthogonal group-algebra decomposition is the key antecedent for the real deduction",
+          "evidence": [
+            "The proof uses normalized regular trace and splits the multiplication tensor into orthogonally supported Hom(Z_i,Z_i) block tensors; abelian Z_i are one dimensional.",
+            "Corollary 1.12 gives √n times the sum of d_i^(5/2), hence n^(3/2) in the abelian case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.3860",
+          "material_read": "§1.2 definition (near offset 3600), Theorem 1.11 and Corollary 1.12 p. 5, proof p. 14 (offsets 47226–51179)",
+          "method": "Bounded OA PDF passages",
+          "title": "On the Nuclear Norm and the Singular Value Decomposition of Tensors",
+          "trigger": "Same finite group multiplication tensor, arbitrary finite groups and possible covering block method"
+        },
+        {
+          "assessment": "Exact block result in the same Euclidean norm",
+          "evidence": [
+            "States ∥β_C∥_ν=4, attained by the regular four-term multiplication algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.08769",
+          "material_read": "Definition (1.4) p. 2; p. 13 §5.1 and equation (5.1), offsets 55293–57897",
+          "method": "Bounded OA PDF passages",
+          "title": "Numerical stability and tensor nuclear norm",
+          "trigger": "Exact real multiplication norm for the paired Fourier block"
+        },
+        {
+          "assessment": "Prior base-field phenomena and relevant small block; not an exact real group-algebra formula in inspected passages",
+          "evidence": [
+            "Equation (29) represents half of the imaginary part of a product of three complex coordinates, equivalent by real orthogonal maps and scaling to the local multiplication tensor. The real norm statement is consistent with 4 before the half scaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6072v2",
+          "material_read": "Definition (1); pp. 10–11, §6 Lemmas 6.1–6.2, offsets 41860–50473",
+          "method": "Bounded OA PDF passages",
+          "title": "Nuclear Norm of Higher-Order Tensors",
+          "trigger": "Base-field comparisons and possible exact small block or additivity result"
+        },
+        {
+          "assessment": "Same cyclic tensor; different norm from the disputed real value",
+          "evidence": [
+            "Proposition 3.1 gives injective norm √n at p=q=r=2 and Hilbert–Schmidt norm n, not the real nuclear norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.29524v1",
+          "material_read": "§3 at offsets 17608 and 22388, including Proposition 3.1",
+          "method": "Bounded OA HTML passages",
+          "title": "Cyclic group tensors and the volume ratio of projective tensor products",
+          "trigger": "Exactly the cyclic coefficient support and Hilbert norms"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Studies the 4→4 induced norm of an arbitrary fixed circulant map on the zero-sum subspace."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883/RESULT.md",
+          "material_read": "Finding, assumptions, and initial proof, offsets 0–2076",
+          "method": "Bounded local-mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact real ℓ₄ contraction factors for every four-state cyclic convolution",
+          "trigger": "Nearest catalogue hit on real cyclic convolution norms and order four"
+        },
+        {
+          "assessment": "Unresolved access; not used in the decision",
+          "evidence": [
+            "Description mentions nuclear decompositions and direct work on spectral and nuclear norms, not a statement settling the claimed group formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10092-023-00528-2",
+          "material_read": "Public search description only; lawful full-text retrieval did not succeed",
+          "method": "Primary-literature search and bounded OA retrieval attempt",
+          "title": "Further results on tensor nuclear norms",
+          "trigger": "Search hit potentially covering block additivity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and limitations",
+        "Derksen's orthogonal decomposition proof",
+        "Dai–Lim §5.1",
+        "Prochno Proposition 3.1"
+      ],
+      "rationale": "A real-versus-complex comparison on natural convolution tensors is well motivated. Here the exact gap, equality condition and order-four comparison are mechanical consequences of the already available block calculation and local norms. The record does not establish a separate difficult threshold, a new type of block, or a new application of the exact value beyond reading off the proportion of real characters. The explicit formula is a useful exposition of that consequence, not a distinct scientific result at the required bar.",
+      "residual_risks": [
+        "This does not assess a broader real group-algebra problem involving nonabelian blocks or other norms, which the frozen result does not claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

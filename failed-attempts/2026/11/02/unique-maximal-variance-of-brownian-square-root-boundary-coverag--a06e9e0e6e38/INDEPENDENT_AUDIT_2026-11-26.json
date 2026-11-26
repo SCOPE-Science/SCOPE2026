@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:02:41.381281Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–108, VERIFICATION.md, verify_coverage_variance.py and verification_output.txt (inspected only)",
+        "Independent replay: python3 /workspace/branches/audit_replay.py 2 (mpmath)",
+        "Fischer–Glynn, arXiv:2610.24668v1, Section 2 Theorem 1"
+      ],
+      "rationale": "For 0<s<t, the correlation of the standardized Brownian values is sqrt(s/t). Integrating over both triangles gives E[Z²]=2∫₀¹r q_z(r)dr. Subtracting q_z(0) and integrating by parts yields the weight 1−r² on q′, with the endpoint term zero since q is bounded. The Gaussian density identity ∂_r f=∂_x∂_y f gives two equal positive corners minus two equal negative corners and hence the claimed variance formula. Under the two reciprocal changes of variable the derivative is (D−A)/π with h(s)=sqrt(2s−1)/s². The first moment of the variance kernel is integrable, so V′(0)=∫₀¹2r/[π sqrt(1−r²)]dr=2/π. On a>0 the derivative of log(A/D) is the mean of s on the upper support minus its mean on the lower support, strictly positive. The ratio starts below one and diverges by bounding A below on any compact subinterval of (1/2,1) and D above by a constant times exp(−a). This proves the unique maximum. The upper Laplace piece is O(exp(−a)/a), whereas the lower weight is 8 sqrt(2) sqrt(s−1/2) to leading order, giving the stated Gamma(3/2) constant. Boundedness of coverage proportions gives convergence of their first two moments at each fixed z, not a finite-sample maximizer theorem. Independent quadrature after s=(1+x²)/2 gives a*=0.68810970320346721766…, z*=0.82952378097524559013…, V*=0.08135656185520381043…, nominal coverage 0.59319191415401940057… and SD 0.28523071688582877877…. Independent conditional-Gaussian integration agrees at the displayed threshold.",
+      "residual_risks": [
+        "The decimal replay is not interval certification.",
+        "Only the limiting occupation law is optimized."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fischer–Glynn supply the occupation limit and a nested second-moment integral; the first-exit work they cite is about a different functional.",
+          "The exact overlapping record also gives a cubic correction to the low-threshold law. Nearby boundary-width minimax and observation-design records optimize different quantities."
+        ],
+        "reasoning": "The stronger small-threshold expansion immediately implies the submitted equivalent; the related first-exit and design problems do not account for the overlap.",
+        "searches": [
+          "Fischer–Glynn arXiv:2610.24668v1 Theorem 1, equation (4) and first-exit discussion",
+          "Indexed Brownian dispersion record 9d0d7bb698c8",
+          "Local Resultary nearby records 391568f89a70 and be798e67582e"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact match 9d0d7bb698c8 and neighboring findings 391568f89a70 and be798e67582e",
+        "Fischer–Glynn arXiv:2610.24668v1",
+        "Plackett DOI and Breiman citation (not full texts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed source expressly proves the continuous unique maximum and endpoint laws; its variance and root parameter describe the same optimization.",
+          "The finite-interval Brownian limit and Gaussian-correlation identity are ingredients, not by themselves the optimizer proof."
+        ],
+        "reasoning": "All principal conclusions are already covered by the matching record. The coverage level and SD follow from its threshold and variance; neither a rederivation nor higher-precision digits rescue the finding.",
+        "searches": [
+          "Local-mirror RESULT.md of 9d0d7bb698c8, offsets 0–8276",
+          "Fischer–Glynn Theorem 1 and equation (4)",
+          "Plackett correlation differentiation citation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding uses the same Z_z and correlation integral, with z=sqrt(2k); set a=2k.",
+          "Its large-z expression 8φ(z)/z³ equals 4 sqrt(2/π) z⁻³ exp(−z²/2), and its small-z leading coefficient is 2/π."
+        ],
+        "reasoning": "The parameter change preserves the domain, optimizer and exact statements; it is not an alternative problem or normalization.",
+        "searches": [
+          "Local Resultary search: Brownian square-root-boundary occupation dispersion and its peak; match 9d0d7bb698c8",
+          "Fischer–Glynn Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact finding gives the maximizing threshold, nominal coverage and variance, in agreement with the reviewed decimals.",
+          "Fischer–Glynn Table 1 is a finite grid (e.g. SD 0.2844 at nominal 55%), not proof of uniqueness or the continuous maximum."
+        ],
+        "reasoning": "The failure rests on the indexed analytic statement, not on proximity to any row of the primary paper's grid.",
+        "searches": [
+          "Local Resultary exact topic search with source inspection of 9d0d7bb698c8",
+          "Fischer–Glynn Table 1 (PDF p. 5)"
+        ]
+      },
+      "rationale": "The distinct indexed finding 9d0d7bb698c8 already states the same compact variance integral and unique global maximum for exactly the same Brownian occupation fraction, the same peak values and the same two endpoint equivalents. Its small-threshold statement is even sharper. The different scalar parameter and presentation of the crossing do not yield a distinct finding. This is demonstrable equivalent coverage, not an allegation about authorship or how the two records arose.",
+      "residual_risks": [
+        "No claim of exhaustive publication priority or adjudication of provenance.",
+        "Plackett and Breiman full texts were not inspected; the unsuccessful general literature lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the submitted finding, including a sharper lower-end expansion.",
+          "evidence": [
+            "Same one-dimensional variance integral, unique global maximum with k=a/2, matching peak statistics, small-z leading term plus cubic correction, and large-z equivalent 8φ(z)/z³."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-unique-dispersion-peak-and-sharp-endpoint-laws-for-brownian-co--9d0d7bb698c8/RESULT.md",
+          "material_read": "Finding and comparison passages, text offsets 0–4092 and 4092–8276",
+          "method": "Local Resultary search and local-mirror source inspection",
+          "title": "A unique dispersion peak and sharp endpoint laws for Brownian coverage occupation",
+          "trigger": "Direct indexed match on the unique dispersion peak and both limiting regimes"
+        },
+        {
+          "assessment": "Prior occupation limit and nested moment calculation; inspected passages do not claim the compact integral or continuous optimum.",
+          "evidence": [
+            "Pointwise distributional limit under FCLT and scale assumptions; Table 1 lists values at chosen nominal levels."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24668v1",
+          "material_read": "Introduction and prior boundary discussion (pp. 2–3), Section 2 Theorem 1, equation (4) and Table 1 (p. 5), bibliography for Breiman (p. 17)",
+          "method": "OA primary PDF passages",
+          "title": "On the Proportion of Time that a Conventional Confidence Interval Covers",
+          "trigger": "Same Brownian occupation law, moments, and tabulated standard deviations"
+        },
+        {
+          "assessment": "The audit rederived the needed identity; this access limit has no bearing on the decisive exact overlap.",
+          "evidence": [
+            "The identity is attributed in the frozen source and derived by differentiating the bivariate normal density."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/41.3-4.351",
+          "material_read": "Citation only; the original full text was not retrieved",
+          "method": "Lawful OA retrieval attempted; no accessible copy was identified in the review",
+          "title": "A Reduction Formula for Normal Multivariate Integrals",
+          "trigger": "Classical Gaussian-correlation differentiation used by the proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 9d0d7bb698c8, Finding and endpoint statements"
+      ],
+      "rationale": "The unique peak and endpoint scales are worthwhile mathematical questions, but the frozen record reproduces the exact analytic conclusions of the distinct indexed finding. The supportive numerical rerun and alternative root presentation leave no independently useful new exact invariant, scope extension, or stronger bound to retain as a repaired claim.",
+      "residual_risks": [
+        "This judges the incremental value of the frozen record, not the significance of the previously stated theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

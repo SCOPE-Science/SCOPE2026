@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:20:44.093911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and assumptions; VERIFICATION.md; frozen check_gap_profile.py inspected, not executed",
+        "Own replay: python3 /workspace/review_checks.py; coins() independently checked 342,988 gap predicates using the residue of y modulo a+2, for odd a from 5 to 41"
+      ],
+      "rationale": "Writing n=aq+r and fixing the total coin count at q−j, z ranges from max(0,r+ja−(q−j)) to floor((r+ja)/2); y and x are then determined. For q=a+s, 0≤s≤m+2, j≥3 is impossible because r+ja>2(q−j). Summing the three possible counts gives m+s+1+[s−1−ceil(r/2)]_+−[s−1−r]_+, with the j=1 contribution nonnegative also at s=0. Adding a coin of value a proves monotonicity at fixed residue: the q=a band bounds all earlier ones by m+1, and q=a+t bounds the entire tail from below by m+t+1. For s<t, the excess above m+s+1 is floor(r/2) on r≤s−1 and [s−1−ceil(r/2)]_+ after that; with h=t−s≥1 it reaches h exactly on 2h≤r≤2(t−2h−1). This interval is nonempty precisely for 3h≤t−1, and its largest possible upper residue is 2t−6<a−1 even at t=m+2. Thus no band clips an interval, L_t−1 is a gap, and zero is included since d_a(0)=1. Summing lengths 2t−6h−1 and splitting t−1 modulo three yields floor((t−2)²/3), including the empty cases t=1,2,3.",
+      "residual_risks": [
+        "The computational check is finite; the band reduction and residue monotonicity establish the stated infinite range. No claim is evaluated outside the given p-phase."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying stops at p=m for odd a. Subwattanachai imposes a divisibility hypothesis not satisfied by the reduced odd consecutive triple. 6dc430dbb315 covers both parities in the full second regime."
+        ],
+        "reasoning": "The two cited general frameworks do not cover these parameters directly. The broader consecutive-triple record does cover them and contains the stronger relevant intermediate counts.",
+        "searches": [
+          "arXiv:2206.13052, Theorem 1",
+          "arXiv:2309.09149, Theorem 1",
+          "Resultary 6dc430dbb315, Second regime"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6dc430dbb315, c1e32fc93396, bef81ab99756, d6ba501caf95",
+        "arXiv:2206.13052 and arXiv:2309.09149"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For b=1 and prior phase variable s, the earlier three summands at Q=a+s add to m+s+1+floor(r/2) for r≤s−1 and m+s+1+[s−1−ceil(r/2)]_+ otherwise; the earlier proof states every higher summand vanishes."
+        ],
+        "reasoning": "At threshold m+t, solving these two displayed branches for an excess ≥h=t−s gives the two endpoints of the same interval. Summing its lengths yields the claimed floor. At q=a, t=1 already yields d_a≤m+1 below a(a+1), also consistent with the general count. No new representation-count lemma is needed.",
+        "searches": [
+          "Resultary 6dc430dbb315, Elementary counting formula and Second regime, OA offset 1150 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6dc430dbb315 gives g_p=a(h+p+1)−1 for h+1≤p≤a+1; h=m gives L_t−1",
+          "c1e32fc93396 gives precisely the odd t=1 full gap interval; bef81ab99756 is even a and d6ba501caf95 excludes step 1"
+        ],
+        "reasoning": "The older endpoint and the indexed boundary instance are exact overlaps. Neither alone gives the complete topology; the decisive all-residue coverage comes from the older proof's band formulas.",
+        "searches": [
+          "Local Resultary: 6dc430dbb315, c1e32fc93396, bef81ab99756, d6ba501caf95",
+          "arXiv:2206.13052, Theorem 1 and p-Apéry formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No full Apéry table for this p-range was identified in Komatsu–Ying; the prior successor-band display is a symbolic exact table of F(Q,r;0), F(Q,r;1), F(Q,r;2) for all residues, with higher summands zero."
+        ],
+        "reasoning": "A separately indexed table is unnecessary: every frozen positive-s quotient a+s is exactly an earlier table's successor quotient Q=h+p+1 for a suitable earlier phase level p=m+s, and the table counts are independent of the eventual threshold applied to that band.",
+        "searches": [
+          "Komatsu–Ying arXiv:2206.13052 PDF pp. 3–5",
+          "Local Resultary 6dc430dbb315 second-regime successor-band display, offset 1150 onward"
+        ]
+      },
+      "rationale": "The earlier result 6dc430dbb315 does not print the final genus expression, but it already gives the exact three summands for every residue in every relevant positive-s odd band, not just an all-n counting algorithm or bound. Setting b=1 and its phase variable t=s in its second-regime proof gives the frozen tent-height formula immediately by addition. The earlier endpoint and residue monotonicity cover the tail; the remaining steps are thresholding the already exact tent and summing an arithmetic progression. The closed deficit and the interval layout are mechanically implied, not an independent exact invariant established here.",
+      "residual_risks": [
+        "The priority of a separately printed closed deficit was not established; the negative verdict depends on the inspected earlier exact three-summand band formulas and their direct implication, not a negative search or a date tie."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger intermediate counts; original endpoint explicit",
+          "evidence": "In the second-regime proof Q=h+p+1, and all three exact F terms are written in r without truncating the high-residue side. Varying the older p gives every positive-s band. Limitations omit a separately printed genus formula, not those counts.",
+          "identifier_or_url": "Resultary 6dc430dbb315",
+          "material_read": "Finding; Elementary counting formula; Second regime including all successors; Limitations (local mirror offsets 0, 1150, 4700)",
+          "method": "Local mirror RESULT.md passages",
+          "title": "Three exact phases of generalized Frobenius numbers for three consecutive denominations",
+          "trigger": "Same consecutive generators and exact second phase"
+        },
+        {
+          "assessment": "Stops before this phase",
+          "evidence": "Theorem 1 has 0≤p≤floor(a/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "PDF pp. 3–5, Theorem 1, offsets 7204 and 12593",
+          "method": "OA primary PDF extraction",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Primary exact Frobenius, genus and Apéry formulas"
+        },
+        {
+          "assessment": "Exact boundary instance; no date-based priority inference",
+          "evidence": "At p=m+1 and odd a the entire gap set is [0,a(a+1)−1] in integer coordinates.",
+          "identifier_or_url": "Resultary c1e32fc93396",
+          "material_read": "Finding and proof, offsets 0 and 4740",
+          "method": "Local mirror RESULT.md passages",
+          "title": "Parity bifurcation at the first post-Apéry representation threshold",
+          "trigger": "Same odd consecutive triple, first level outside Apéry formulas"
+        },
+        {
+          "assessment": "Does not cover this triple under its hypotheses",
+          "evidence": "The required divisibility after reduction does not hold for the pairwise-coprime odd consecutive triple.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.09149",
+          "material_read": "Theorem 1, PDF p. 3, offset 7940",
+          "method": "OA primary PDF extraction",
+          "title": "Generalized Frobenius Number of Three Variables",
+          "trigger": "Plausible general three-coin covering theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; Resultary 6dc430dbb315 Second regime and the explicit threshold implication above"
+      ],
+      "rationale": "The p-genus and locations of nongaps are natural and the displayed expressions could be useful as a reference. Here, however, the narrowly claimed new invariant is mechanically read off from exact prior band counts by a two-branch integer inequality and one arithmetic sum. It does not meet the value standard for a new exact invariant; restating the already established endpoint adds no independent result.",
+      "residual_risks": [
+        "This assesses the specific odd second-phase finding, not the interest of a genus classification in other phases or denomination families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

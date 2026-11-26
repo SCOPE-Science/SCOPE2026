@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the stationary Fourier–telegraph generator on all mixed monomials of degrees up to four, proves the unique solution and radial-to-projected cumulant conversion, and gives the exact quartic-in-angular-speed rational identity. All denominator factors are positive on the stated domain. Positivity of the displayed coefficient polynomial and elementary quadratic root analysis yield every phase and its boundaries. The independent four-time angular resolvent calculation passed 37 parameter tests and the symbolic recurrence identity simplified exactly to zero; the infinite-parameter classification is analytic, not inferred from tests.
+## correctness
 
-## Originality — PASS, with priority limits
-Das and Basu (2023, arXiv:2301.11194) treat the same symmetric chirality-flip angular process in free motion and derive lower moments. Caprini et al. (2023, arXiv:2306.11133), and Pattanayak et al. (2025/2026), study stationary higher moments under fixed chirality. The full published result on biased chirality flipping under harmonic confinement determines orbital current and position cross-covariance, not the stationary fourth-cumulant sign diagram. Targeted similarity searches, primary full-text checks, and accessible claim comparisons did not locate an implication covering the universal quarter-rate threshold and full quadratic phase diagram. Standard generator and cumulant methods are credited as prior technique. Implicit coverage by unindexed general results remains a publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-A chiral swimmer may switch the sense of its rotation without reversing propulsion. The theorem precisely classifies when confinement converts these switching trajectories into positive or negative projected excess kurtosis, and identifies a dimensionless boundary independent of angular Brownian noise and independent translational thermal diffusion. It gives a complete, naturally motivated phase diagram and a reproducible example of reentrant sign changes. No claim is made about finite-sample detectability, higher cumulants, interacting particles, or nonlinear confinement.
+The trapped stationary active position is a bounded exponential convolution, so the generator identities apply to the required angular monomials. The Fourier index q-p exactly compensates the positional monomial under rotations; the symmetric flip operator acts as 0 on the sign-even term and -2ell on the sign-odd one. The recursion has strictly positive determinant at every positive degree, and independent symbolic reconstruction through degree four reproduced the frozen rational identity and critical factorization (replay: independent_algebra.py in /workspace/branches/e35f2848-31a2-448f-9a63-69c8ba96e2f8/). As a separate algebraic cross-check on the boundary, set b_j=j+g+2ell, D_j=(j+g)b_j+W for j=1,3, L=H/(D_1^2 D_3). Integration of the six angular orderings with two positive and two negative charges gives S_22=2/(D_3 D_1) times [b_3 b_1 + {b_3 b_1(2+4g+2ell)-W(2b_3+2b_1+2+4g)}/(4L)]. Indeed the chronological Fourier resolvents use rates 3,2,1 and intermediate modes (1,2,1), (1,0,1), (1,0,-1) and their negatives. After subtracting 2(b_1/D_1)^2 the coefficient of W^2 over H is 3b_1-b_3-(1+2g)=4ell-1. Rotation gives projected second and fourth radial factors 1/2 and 3/8. The independent thermal Gaussian term contributes zero fourth cumulant. Positivity of H and C then makes the concave/linear/convex quadratic cases exhaustive, including the subcritical double root, critical B=0 and W=0. The quarter boundary governs the leading high-speed sign for ell not equal to 1/4; the finite-speed count also depends on g, as the formal three cases state. A zero does not imply Gaussianity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest models in the checked primary sources each lack a decisive ingredient: the trap, a switching angular torque, or the fourth-order observable. Fixed-torque kurtosis and trapped telegraph-torque second-order calculations are credited. No checked source states or implies the exact trapped continuous-angle, symmetric-torque fourth-cumulant sign law.
+
+## value
+
+PASS
+
+The theorem identifies a sharp, rotational-diffusion-independent high-speed boundary in a model with an independently changing torque sign, and classifies finite-speed reentrant positive kurtosis, tangency, and absence of a positive region. This is a complete sign diagram from a nontrivial fourth-order moment calculation; it is not a recomputation of known second-order observables. Invariance of the sign under independent translational diffusion gives an additional robust interpretation, without implying experimental detectability or classifying the complete density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

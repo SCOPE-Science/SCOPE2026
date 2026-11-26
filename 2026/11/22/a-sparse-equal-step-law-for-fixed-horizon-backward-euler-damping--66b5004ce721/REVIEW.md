@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normal oscillator gives the exact \(\mathcal R=\prod_iq(h_i)^{-1}\) identity. A strict quadratic convexity identity in the pair product eliminates every schedule with unequal positive lengths, without treating a finite grid as exhaustive. The curvature of \(\log q\) proves uniform optimality at \(b\leq a\), and the unique maximum of \(\log q(t)/t\) together with a single-crossing derivative gives all thresholds and equality cases when \(b>a\). The symbolic checker independently simplifies the three critical algebraic identities and compares many nonuniform schedules. Numerical checks alone do not certify the quantified proof.
+PASS
 
-## Originality
+For the normal damped rotation, the backward-Euler resolvent is complex multiplication with squared modulus 1/q(h), so the worst-state ratio is independent of the state. On the compact nonnegative simplex maximize product q. Holding z=x+y fixed makes q(x)q(y) a quadratic of xy with strictly positive leading coefficient (a^2+b^2)^2. Every unequal positive pair is interior in the xy interval and can be strictly improved by going to one of its endpoints. Thus every optimum is an equal-positive-support schedule, not merely some optimum. For b<=a, log q is strictly concave (its second derivative is strictly negative for t>0 even at b=a), proving unique uniformity. For b>a, log q changes curvature once; t(log q)'−log q starts at zero, increases and then decreases to minus infinity. Consequently log q(t)/t is uniquely maximized at ell>0 and the only integer candidates are the clamped floor/ceiling bracketing H/ell. The derivative of D_k=(k+1)log q(H/(k+1))−k log q(H/k) has sign of a^2−b^2+a(a^2+b^2)(x+y)+(a^2+b^2)^2xy with x=H/(k+1), y=H/k. This strictly increases through zero with H. D_k starts at zero, decreases then increases, and takes opposite strict signs at k ell and (k+1) ell. The disjoint open brackets give distinct ordered transitions, each with exactly the adjacent tie. If requiring positive lengths instead, attainment holds exactly when all-N support is among the minimizers, including its boundary tie; otherwise approximation by positive schedules gives the unattained infimum. The large-H conclusion follows by bracketing and clamping if liminf N/H>=1/ell. Independently computed all four exact support candidates in the stated four-solve example: 4/25, 256/1681, 46656/274625, 16777216/88529281; independent bisection gives the stated two transition values to the shown precision. Inspected supplied check.py, VERIFICATION.md and saved output, without executing the uploaded script.
 
-PASS under the inspected evidence, with historical-priority risk. Gander–Halpern–Ryan–Tran prove the real-decay uniform-partition case, which is strictly covered by the present theorem, but not the oscillatory sparse-support case. Song–Zhang–Eisenträger–Ankit analyze different high-order Padé damping and time-step guidance; Sun–Shu analyze superviscosity stabilization of explicit RK. Closest indexed fixed-budget BDF2 and prior implicit-midpoint statements optimize different stability functions. The older and broader literature has not been exhaustively searched; one relevant variable-step refactorization preprint was available only as an abstract during review, so absence of coverage is not inferred from its full text.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem gives a complete all-step-count solution to a natural fixed-horizon damping-allocation question, identifies a dimensionless oscillatory threshold, proves that every optimal schedule is sparse and equal on its support, and locates all adjacent active-count transitions by unique scalar roots. The exact example exhibits approximately 19.64% smaller numerical squared amplification than using all four equal steps. It does not address endpoint solution accuracy or claim speedups.
+Pass for the arbitrary-N deterministic oscillatory backward-Euler allocation, including rigid optimal supports and the ordered staircase. The b=0 result is covered, and Jensen applies to the concave portion of the present parameter range. Neither the scalar case nor same-day analogues are credited as novelty; no same-day publication order is inferred.
 
-## Scope and limitations
+## value
 
-All step lengths are allowed to be nonnegative; strict positivity can destroy attainment. Results concern normal planar damped rotations, one fixed damping objective and arbitrary finite maximum solve count. They do not extend automatically to nonnormal dynamics or multiple eigenfrequencies. Historical equivalence remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite solve budget and a fixed endpoint time are natural constraints when deliberately optimizing numerical damping rather than fidelity. The classification rules out all unequal optimal steps, finds when unused opportunities are optimal, and reduces arbitrary-N design to a staircase or two scalar candidate evaluations. The four-solve comparison shows a substantial damping difference, not a claim about solution accuracy, physical dissipation or speedup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

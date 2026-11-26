@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:41:49.830627Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–81",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent bounded modular-position census of n=3,...,30"
+      ],
+      "rationale": "For the three gaps g_j, direct one-start counts are t_j=2g_j+g_(j+1). Moving a leading one adds n-3 and moving a leading zero subtracts 3. Multiplication of each zero-gap geometric progression by X^3-1 telescopes to X^(t_j+n)-X^(t_(j+1)+3), including when the gap is empty; adding the three one-start terms yields the exact polynomial identity. Cancellation reduces complete spectra to unordered t triples, working also for periodic sources. The matrix taking gaps to t is invertible with determinant 9 and commutes with 3-cycles, so the two permutation cosets give at most two necklaces. Swapping t_2 and t_3 gives the reversed coordinates subtracted from 2(n-3)/3; integrality requires 3|n, and nonnegativity is exactly the stated bound. At n=3(h+1), there are 3h^2+3h+1 admissible ordered triples by subtracting three disjoint forbidden-coordinate ranges. Burnside gives h^2+h+1 cyclic orbits. Equality under the reflected-complement involution up to a 3-cycle forces one coordinate h and the other two complementary; with h in the middle this gives exactly 2h+1 fixed orbits, including (h,h,h). The remaining orbits pair, giving binom(h,2); subtracting from the unconstrained Burnside count gives (h+1)^2. Independently checked n=3 through 30 (1,360 necklaces) by encoding the one positions p and computing each rotation's count as sum((p-i) mod n)-3, without the gap compression. It reproduced the stated first doubleton spectrum and all sampled fiber counts. This finite check supplements the all-n proof.",
+      "residual_risks": [
+        "Weight three, oriented necklaces, exact counts, and multiplicities from all indexed starts are essential. No inference for bracelets, partial samples or larger weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary binomial-equivalence papers give ordinary scattered-count observables and classes for individual words. The multiletter mirror theorem studies diversity with at least three symbols. The binary fingerprint theorem gives extrema for the number of different signatures in one orbit."
+        ],
+        "reasoning": "Recognizing equivalence of two individual words or bounding the size of one rotation support does not invert a multiplicity-valued multiset on the source orbits.",
+        "searches": [
+          "Rigo–Salimov ORBi 2268/149313, Definition 1",
+          "arXiv:2001.11732 Definition 2 and Theorem 3; arXiv:2510.07159",
+          "Resultary multiletter 0d4f8c02fe70 and binary fingerprint 4ff94afd6c61"
+        ]
+      },
+      "checked_sources": [
+        "Primary and mirror sources above; additional Resultary comparators 0d4f8c02fe70 and fda1260be906",
+        "Target mirror 61bf2aed9328 is the identical record, not another precedent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror comparators study rotation fingerprint support, mean/variance of the same pair-count statistic, or a linear full three-deck and its four-gap moves. The Brunetti full text could not be obtained; residue/increment overlap does not itself imply the target."
+        ],
+        "reasoning": "The distinguishing additional information is the unordered three one-start counts recovered by polynomial cancellation, whose two permutation cosets govern global inverse multiplicities. Known marginal counts or summary statistics do not determine that inversion.",
+        "searches": [
+          "Resultary 4ff94afd6c61, 0b67a9f3e612, f95f52cd118b",
+          "Brunetti–Del Lungo–Del Ristoro DOI 10.1016/S0012-365X(02)00254-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed content, 01 versus 10 counts differ by complementation against 3(n-3); the full ordinary two-binomial signature is determined by 01.",
+          "Brunetti–Del Lungo–Del Ristoro is a close cyclic-inversion reference; accessible evidence and associated multiset cyclic-lemma search results concern inversion residues, not a verified source-fiber classification."
+        ],
+        "reasoning": "A reduction to residues or inversion congruence/equidistribution discards the full integer-valued multiplicity information. Reversing the counted pair only transforms the spectrum uniformly and gives no missing classification.",
+        "searches": [
+          "Resultary: cyclic inversion spectrum reconstruction, weight-three binary necklaces, scattered 01 multiset",
+          "Indexed search: cyclic rotations binary word necklaces multiset inversion numbers equal spectrum weight three reconstruction Brunetti Del Lungo Del Ristoro cycle lemma permutation inversions pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact matching result returned was the target itself. The earlier enumerations are support-size extrema or counts of linear length-three decks; the indexed search found related necklace and inversion enumeration rather than a verified matching table."
+        ],
+        "reasoning": "Counting linear decks, all necklaces, or the number of different entries of each spectrum is not the claimed distinct-spectrum total and doubleton count.",
+        "searches": [
+          "Resultary inverse-fiber and doubleton census; target 61bf2aed9328, fixed binary weight 4ff94afd6c61, three-deck f95f52cd118b and 39c59472a4df",
+          "Indexed cyclic necklace inversion spectrum search"
+        ]
+      },
+      "rationale": "The basic inversion increment and ordinary two-binomial word invariant are prior ingredients. The supported distinct result is the exact inverse-fiber classification for the full rotation multiset, including its only possible mate, divisibility obstruction and complete doubleton census. Inspected neighboring results do not imply it.",
+      "residual_risks": [
+        "Brunetti and Chrisnata full texts were not available through attempted routes; a stronger older cyclic reconstruction result remains possible. Bounded search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits observable, not orbit multiset inversion",
+          "evidence": "Defines scattered binomial equivalence; treats factor complexity of infinite words.",
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "Author PDF §1 Definition 1, pp. 2–3",
+          "method": "OA author preprint",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Foundational definition"
+        },
+        {
+          "assessment": "Different equivalence relation on source words",
+          "evidence": "Parikh matrices characterize binary two-binomial equivalence of individual finite words.",
+          "identifier_or_url": "arXiv:2001.11732",
+          "material_read": "Definition 2, §2 and Theorem 3, printed pp. 1–4",
+          "method": "OA PDF",
+          "title": "On the Binomial Equivalence Classes of Finite Words",
+          "trigger": "Closest ordinary word-class characterization"
+        },
+        {
+          "assessment": "Available passage concerns individual word counts",
+          "evidence": "Studies ab/ba counts, fair words, and two-binomial classes; no whole-document noncoverage inference from opening material.",
+          "identifier_or_url": "arXiv:2510.07159",
+          "material_read": "Abstract and contents pp. 1 onward, section headings §§2–5",
+          "method": "OA PDF",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Related exact binary pair-count study"
+        },
+        {
+          "assessment": "Known referenced increment/residue connection, full strength unresolved",
+          "evidence": "No full-text judgment is inferred from the inaccessible copies.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00254-6",
+          "material_read": "Landing/abstract evidence; complete text not obtained from publisher or identified CORE copy",
+          "method": "Lawful OA attempts including https://core.ac.uk/download/pdf/82611585.pdf",
+          "title": "A cycle lemma for permutation inversions",
+          "trigger": "Closest primary cyclic inversion mechanism"
+        },
+        {
+          "assessment": "The identified linear deck setting differs; no whole-article noncoverage claim",
+          "evidence": "A full linear length-three deck is a different statistic.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+          "material_read": "Citation and local result's comparison; journal text not obtained",
+          "method": "Lawful OA attempts and exact mirror comparison for the related linear-deck theorem",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Possible older same-weight enumeration"
+        },
+        {
+          "assessment": "Within-source diversity rather than cross-source full multiset fibers",
+          "evidence": "Sharp extrema and equality cases for the number of distinct signatures in one orbit.",
+          "identifier_or_url": "Resultary 4ff94afd6c61",
+          "material_read": "Mirror RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Sharp cyclic 2-binomial fingerprint bounds at fixed binary weight",
+          "trigger": "Closest same domain and rotation observation"
+        },
+        {
+          "assessment": "Moment bounds rather than full inverse fibers",
+          "evidence": "Sharp mean/variance bounds and their extremizers.",
+          "identifier_or_url": "Resultary 0b67a9f3e612",
+          "material_read": "Mirror RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Sharp rotation-dispersion bounds for binary circular Parikh counts",
+          "trigger": "Same scattered 01 statistic at all rotations"
+        },
+        {
+          "assessment": "Different domain and observation",
+          "evidence": "Linear full length-three decks; four zero gaps and different partner moves.",
+          "identifier_or_url": "Resultary f95f52cd118b; related census 39c59472a4df",
+          "material_read": "Mirror RESULT.md Findings",
+          "method": "Local mirror",
+          "title": "All binary three-deck collisions at weight three",
+          "trigger": "Same weight and collision classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof steps 1–4, and Limitations"
+      ],
+      "rationale": "The exact inversion ambiguity of a natural deliberately unlabeled rotation observation is more informative than a support-size bound. A uniform reconstruction law, a sharp divisibility condition, and the exact number and identity of ambiguous sources at the first weight where this obstruction is substantive are useful together. The theorem classifies all lengths, not just the first collision.",
+      "residual_risks": [
+        "No claim of noisy-channel performance, higher-weight reconstruction or algorithmic optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

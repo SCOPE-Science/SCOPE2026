@@ -1,23 +1,21 @@
-# Scientific review: planar corner correction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed coefficient was reconstructed from the definition of the radial \((-p)\)-mean and the polar-area formula, not solely from asymptotic tables. Away from vertex rays, the exact translated radial ratio is \(1+a_i/p\) and the edge correction is \(W_i[-a_i^2A'(a_i)-2A(a_i)^2]\). A moving vertex ray creates a strip of angular width \(O(p^{-1})\), and the change of slope of the two radial candidates has modulus \(\|v\|^2\sin\Delta_i/(h_i h_{i+1})\). The rescaled switching integral is therefore \(\Gamma_iJ(a_i,a_{i+1})\). Finite edges and uniformly bounded displacements justify the remainder \(O_{P,Y}(p^{-2})\) after integrating the \(O(p^{-1})\) strip corrections. The divergence identity converts the leading \(A\)-sum into the even \(\log\cosh\)-sum. A monotonicity argument shows that the corner term vanishes only at zero displacement. The triangle cubic coefficient follows from a Taylor expansion of \(J(a,b)-J(-a,-b)\).
+PASS
 
-The supplied standard-library checker independently integrates the original defining radial profile at three smoothing parameters on three different polygons and checks the triangle antisymmetry at two scales; its observed output is `VERIFY_OK polygons=3 angular_integrals=9 cubic_asymmetry=2`. Finite numerical evidence is supportive and not an infinite proof. Mathematical scope is all fixed full-dimensional planar convex polygons containing the origin strictly inside.
+The polar identity gives the factor K_p(z)=(p/2)(1-exp(-2A(z)/p)) integrated against r^2. With delta_i=p log(1+a_i/p), K_p(delta_i)=A(a_i)+E(a_i)/(2p)+O(p^-2), uniformly for bounded a_i. Over the old full edge sectors the radial area weights are 2W_i. For a switching strip let i be the old active edge, j the new, r_i and r_j their unshifted radial candidates, and s=p log(r_j/r_i). The strip is exactly 0<=s<=delta_i-delta_j, so the old edge has the larger scaled increment, the real argument is delta_j+s, and the reference argument is delta_i. The ratio log(r_j/r_i) has nonzero angular derivative of absolute value kappa at the vertex, with no other competing facet nearby. After this change of variables the factor r^2/|d log(r_j/r_i)/d theta| is Gamma_i+O(p^-1) uniformly there. Thus the correction is Gamma_i/p times the integral of A from the smaller to larger a minus the constant A at the larger a, up to O(p^-2). The argument also covers coalescing endpoints; all strip lengths in s are uniformly bounded and the original angular widths are O(p^-1). Summing finitely many sectors gives the compact-uniform error, and the normal balance cancels the linear part of A. Strict decrease of A gives J>=0 and equality only for equal arguments. If all a_i agree then their positively weighted sum is zero by normal balance, so all vanish; the spanning normals force y=0. Taylor expansion gives E=-z^4/32+O(z^5) and J=(a-b)^2/4+O((|a|+|b|)^3). If u=min(a,b) and v=max(a,b), A(-s)=A(s)+s yields J(a,b)-J(-a,-b)=(v-u)(A(u)-A(v))-(v-u)^2/2. Its cubic term is -(u+v)(v-u)^2/8 with fifth-order error. The stated triangle has facet parameters (-t,2t,-t) and all Gamma_i=1, giving the claimed -9t^3/4 with bulk odd error O(t^5).
 
-## Originality — PASS, with documented residual risk
+## originality
 
-The directly relevant primary source is Haddad–Jiménez–Resende Guedes, arXiv:2610.11700v1 (2026-10-08), inspected in full HTML, particularly its definitions and critical-regime analysis in Section 5. It derives the first critical \(\log\cosh\) functional for smooth bodies; the paper does not specify an explicit finite-smoothing \(p^{-1}\) coefficient for polygons or a vertex-switch energy. An accessible related record extends the critical convergence to nonsmooth bodies and bounds the polytope error by \(O(1/p)\). That bound is **strictly weaker** than a formula for the next coefficient and does not imply the sign, its quadratic energy, or the asymmetry example.
+PASS
 
-Additional searches for polytope covariance smoothing, angular boundary layers, second-order critical radial means, Orlicz projection bodies and equivalent vertex energies did not identify a directly covering result. The nearest indexed radial-mean differentiability paper concerns a different \(R_p\)-body and fixed-parameter regularity, rather than the covariogram double limit. The earlier Orlicz projection-body construction supplies the leading geometric vocabulary, not a finite-parameter corner correction. Complete historical priority is not independently established: unindexed integral geometry literature or unpublished technical calculations might contain a related expression.
+The leading log-cosh term and a critical-rate order bound are already covered. The distinct supported claim is the full coefficient of 1/p for fixed polygons, including the vertex-switching integrals, the positive definite quadratic corner energy, and the explicit odd term. The inspected claims give no equivalent next-order coefficient.
 
-## Mathematical value — PASS
+## value
 
-The first-order critical transition in a newly introduced smoothed covariogram leaves the leading finite-parameter error undetermined. The finding resolves that error exactly on the natural and infinite class of convex planar polygons; the coefficient is not merely a restatement of the first-order term. Its decomposition isolates a strictly positive, geometrically weighted vertex energy and exhibits an odd correction inaccessible to the even leading profile. These features have direct relevance to quantitative endpoint approximation and the effects of nonsmooth normal fans. A general higher-dimensional result is not asserted.
+PASS
 
-## Residual limitations
+The first-order theory cannot distinguish effects confined to shrinking vertex sectors. The formula isolates their exact contribution, with a positive quadratic form dominating the quartic bulk term near zero. The explicit asymmetry demonstrates a qualitative feature of the finite-p radial smoothing that the even first limit does not see. These are substantive quantitative refinements for fixed polygons rather than just a smaller error bound.
 
-The error constants depend on the polygon and the compact displacement set; degenerating edges and angles are not controlled uniformly. The finite tests do not independently certify the theorem, and equivalence with unidentified old literature cannot be logically excluded by database searching alone.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

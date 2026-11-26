@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every contraction retraction is an interval clamp. The pointwise commuting equations give an exhaustive four-case decomposition based on the two fixed endpoints of the unrestricted interior retraction, and the anchored Fibonacci counts prove the per-clamp formula. Summing independent outside lengths produces the stated rational OGF. Dominant-pole expansion and the classical \(F_{2n}\) idempotent count yield the exact limiting probability \(1/5\). A standalone finite exhaustive checker agrees for every clamp at sizes one through seven; such tests do not substitute for the all-size proof.
+## correctness
 
-**Originality — PASS relative to inspected primary statements.** The 2022 contraction paper counts structural/rank properties, not mixed commuting pairs. A published contraction centralizer theorem admits arbitrary commuting contractions, which is a different class of second maps. A published renewal theorem counts all isotone-idempotent commuting pairs without marking contraction membership, and its univariate series does not determine this restricted total. The mixed idempotent centralizer, rational numerator and nonvanishing probability are therefore not implied by the displayed prior theorems. Literature searches cannot exclude every older alternative formulation; that is the residual priority risk.
+PASS
 
-**Mathematical value — PASS.** This solves a natural mixed-submonoid centralizer problem in every chain size and identifies a sharp qualitative difference: the mixed commutation probability converges to a positive constant even though the unrestricted isotone-idempotent pair probability decays exponentially. The per-clamp formula permits further conditioning on the chosen interval, and the exact count is not merely a single low-dimensional table.
+An isotone contraction has interval image, and idempotence fixes the image pointwise; monotonicity then forces the unique clamp. For an arbitrary isotone retraction with consecutive fixed points at distance d, the intervening points can only map to those endpoints and admit d choices of cut. This yields B=z(1-z)^2/(1-3z+z^2) for two anchored endpoints, E_j=sum_{i<=j}B_i for one anchor, and N(z)=z/(1-3z+z^2) for unrestricted retractions by allowing two exterior lengths. The latter gives N_n=F_{2n} by the series recurrence. Commutation is equivalent to preserving the clamp interval together with the two exterior equations. On a side whose endpoint is fixed, the side restriction is any independently chosen anchored idempotent; when it is not fixed, monotonicity and the clamp equation force all exterior values on that side to be the interior image of the endpoint. The four endpoint cases give exactly the frozen per-clamp formula, including L=1, where commutation just fixes the clamp value. Summing over lengths gives B(A+z/(1-z)^2)^2 with A=(1-z)/(1-3z+z^2), hence the displayed OGF. At r=(3-sqrt(5))/2 the dominant pole has order 3 and q(z)=(1-z/r)(1-rz) with 1-r²=sqrt(5)r. Its leading coefficient, the denominator n(n+1)F_{2n}/2 and 1-2r=r(1-r) give exactly 1/5. The independent direct enumerator agrees per clamp through n=9 and with all corresponding totals. The separate exponential-decay contrast concerns the unrestricted pair count, not this normalization.
 
-**Limitations.** No claim is made outside total monotone maps on chains. Historical priority beyond inspected statements remains uncertain, and finite verification is not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected exact centralizer theorem is for an idempotent clamp centralizing arbitrary contractions, whereas the strongest relevant commuting-pair theorem allows both factors to be arbitrary isotone idempotents. Neither gives the ordered class with exactly the first factor required to be a contraction, its per-clamp count, or the 1/5 limit. The exact catalogue hit is the frozen record itself.
+
+## value
+
+PASS
+
+The mixed restriction is natural for a nested pair of transformation monoids, and the explicit per-clamp centralizer is finer than the total. The all-n enumeration answers a concrete probability question and shows a qualitative change from the known exponentially sparse unrestricted pairs to a positive limiting density. This is not just a low-n difference or the known clamp count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

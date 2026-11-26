@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:55.670723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 28–55. A size-n^2 nonattacking set hits each vertical fibre once. On the underlying subgroup the horizontal projection is thus an additive isomorphism, so an affine placement is a graph of the homomorphism with unique ordered slopes and offset. For a nonvertical queen direction the displacement scalar must annihilate ad_1+bd_2-d_3; a nonzero annihilator always produces a nonzero horizontal displacement since a pivot is ±1. This proves the unit criterion over arbitrary composite moduli. Independently counted the prime-field slopes without relying on the frozen rational incidence enumeration: for T={0,±1} and a outside T, forbidden b are in T, T+a, T-a. For p>=7 they form nine elements except at the four distinct a=±2,±1/2. At a=±2 the unshifted set meets each shifted set in one element and the shifted sets are disjoint; at a=±1/2 only the two shifted sets meet, in two elements. Thus each exceptional row has seven forbidden b and the count is (p-7)(p-9)+4(p-7)=(p-5)(p-7), including zero for p=7. For p=2,3 every a is forbidden; for p=5 the only candidates a,b=±2 force a±b=0. Lifting each surviving slope independently modulo p^e gives p^(2(e-1)) lifts; CRT and n offsets give the stated product, including 264, 624 and 351384. This agrees with the frozen 12-line incidence calculation. Inspected verify_affine_queens.py and the recorded replay without running the uploaded script; those tests do not supply the all-modulus proof or enumerate nonaffine placements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The free coned Catalan exponents for m=1 are 1,5,7 from B2 exponents 1,3 and Coxeter number 4, giving affine characteristic polynomial (t-5)(t-7).",
+          "The finite-field method evaluates that polynomial on fields with good reduction.",
+          "Halberstam–Lee–Schildkraut give all-placement existence iff all primes exceed 2^d, and show the hyperplane argument j<xi,v>=0 for the same attack rule; their counting question concerns all placements."
+        ],
+        "reasoning": "Prior queens existence does not by itself give a count. The exact arrangement theorem supplies the nontrivial local count missing from that existence result; ordinary unit lifting then extends it to composite boards.",
+        "searches": [
+          "arXiv:1012.5884 Corollary 1.3 and §4(B)",
+          "arXiv:2608.08834v1, finite-field method",
+          "arXiv:2611.14754v1 Theorem 1.1, §2 and §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1012.5884",
+        "arXiv:2608.08834v1",
+        "arXiv:2611.14754v1",
+        "arXiv:2404.18237v4",
+        "Weakley, AJC 57 (2013) 21–38",
+        "Resultary SCOPE061",
+        "Resultary 9ddbe522eab4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The vertical direction requires a unit last coefficient in any nonattacking normal-vector representation; projection also proves every affine size-n^2 coset has the normalized graph form. The known annihilator argument is equivalent to the twelve Catalan exclusions on the two remaining slopes.",
+          "For every p>=11 the intersection lattice is preserved: nonparallel determinants have absolute value at most two; rational pair intersections have denominators at most two and no new incidences or coincidences can arise, since nonzero coordinate differences and line evaluations after clearing denominators have numerators of absolute value less than seven.",
+          "Bad small-prime cases already cannot attain n^2 by the known existence theorem in dimension three. For the other primes, count mod p, lift two residues independently, apply CRT and multiply by n offsets."
+        ],
+        "reasoning": "The general finite-field theorem's 'sufficiently large' alone is not the uniform statement; the explicit small-integer good-reduction check and the known zero cases resolve that difference without another substantive enumerative theorem. The all-modulus product is mechanically implied.",
+        "searches": [
+          "arXiv:2611.14754v1 §2, affine construction and remark (offset 6450 onward)",
+          "arXiv:1012.5884 §4(B) and Corollary 1.3",
+          "arXiv:2608.08834v1 p. 2, finite-field method (offset 6225)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abe–Terao §4(B) explicitly gives x,y=-sz,...,sz, x±y=0 and then adds x±y=±az for a=1,...,t, with z=0 the hyperplane at infinity. Setting s=t=1 and deconing at z=1 gives exactly the twelve forbidden slope lines.",
+          "The parameter is Catalan, not Shi: each positive root has levels -1,0,1."
+        ],
+        "reasoning": "The same linear forms and translate levels are present, not merely a similar number of lines or a different convention for the attack directions.",
+        "searches": [
+          "Resultary: affine 3D toroidal queen placements, slope count (p-5)(p-7)",
+          "Resultary: B2 extended Catalan and Shi arrangements; four-direction finite-field queens",
+          "arXiv:1012.5884 §4(B), pp. 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact queens hit cc5e997f156b is the assigned record and is not distinct corroboration.",
+          "SCOPE061 treats rank-three restrictions of cones over extended Shi arrangements, with a different ten-plane restriction at k=1. The other catalogue result is a central root-of-unity arrangement in complex dimension four.",
+          "The exact matching polynomial in the inspected primary source is instead the B2 Catalan specialization."
+        ],
+        "reasoning": "The two close catalogue entries do not cover this array of slopes. Exact local coverage is established from the primary arrangement result, not deduced from a catalogue miss.",
+        "searches": [
+          "Resultary: 3D affine queen n^2 count; (p-5)(p-7); Catalan/Shi arrangements",
+          "Resultary 2026/9/13/SCOPE061",
+          "Resultary 2026/10/13/SCOPE-characteristic-polynomial-and-uniform-non-freeness-of-the-cyclic--9ddbe522eab4"
+        ]
+      },
+      "rationale": "The proposed local enumeration is exactly the m=1 extended Catalan arrangement of type B2, with the already known affine characteristic polynomial (t-5)(t-7). The generic local count follows from the finite-field method. The same attack-model literature already provides the hyperplane/unit argument and excludes all moduli with a prime divisor below 11. The graph normalization, good reduction at p>=11 and CRT with an independent offset are routine consequences, not a distinct new exact counting input. No separate printed statement of the final composite-modulus formula was verified; the FAIL is for demonstrable implication, not a claim that the same displayed product previously appeared in queens terminology.",
+      "residual_risks": [
+        "The bounded search does not determine whether the identical composite formula was previously printed as a queens census.",
+        "Klarner's d=3 construction was checked through the attribution in the primary modern queens paper, not the original 1980 source.",
+        "Nothing here counts the nonaffine maximum placements or symmetry classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the characteristic polynomial of the forbidden line arrangement",
+          "evidence": [
+            "Explicit coned families at parameters s=t=1",
+            "Catalan exponent shifts give 1,5,7"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.5884",
+          "material_read": "Corollary 1.3 p. 2 (offset 3900), definition p. 3 (offset 6400), §4(B) pp. 6–7 (offsets 14100–16083)",
+          "method": "Bounded OA primary passages and exact deconing comparison",
+          "title": "The freeness of Shi-Catalan arrangements",
+          "trigger": "Identical B2 coordinate and diagonal families"
+        },
+        {
+          "assessment": "Gives finite-field evaluation in sufficiently large characteristic; does not alone bound bad primes for this instance",
+          "evidence": [
+            "The integral-arrangement complement point count equals the characteristic polynomial in the good-reduction regime"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.08834v1",
+          "material_read": "p. 2, OA text offset 6225",
+          "method": "Bounded OA primary excerpt",
+          "title": "A finite-field arrangement comparison by Biswas, Prasad and Rani",
+          "trigger": "Passage from characteristic polynomial to complement point count"
+        },
+        {
+          "assessment": "Supplies same model, affine construction and all small-prime exclusions, but not explicitly an affine census",
+          "evidence": [
+            "Existence criterion p>2^d",
+            "Unit annihilator proof with affine hyperplane normal",
+            "Open total-count question, not solved by restricting to an affine subgroup"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14754v1",
+          "material_read": "Theorem 1.1 p. 1 (offset 2720); §2 p. 2 affine proof and remark (offset 6450 onward); §4 p. 5 (offsets 22400–23081)",
+          "method": "Bounded OA primary passages; compared dimensions, attack geometry and unit argument",
+          "title": "Modular n-queens in higher dimensions",
+          "trigger": "Same model and complete maximum-size existence theorem"
+        },
+        {
+          "assessment": "Concerns two-dimensional queens graphs and their symmetries, not this three-dimensional affine census",
+          "evidence": [
+            "Directions (1,0),(0,1),(1,1),(1,-1); automorphism and isomorphism work"
+          ],
+          "identifier_or_url": "Australasian Journal of Combinatorics 57 (2013), 21–38",
+          "material_read": "pp. 21–22 beginning at OA offset 0",
+          "method": "Bounded OA primary introduction and definitions",
+          "title": "Toroidal queens graphs over finite fields",
+          "trigger": "Same four directions in two-dimensional finite-field queens geometry"
+        },
+        {
+          "assessment": "The inspected passages concern extremal size, not an enumeration of affine maximum occupied sets",
+          "evidence": [
+            "Bounds and constructions for sizes of independent sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.18237v4",
+          "material_read": "Abstract and introduction pp. 1–2 (offsets 0 and 3500)",
+          "method": "Bounded OA excerpt",
+          "title": "Torus Queen Independence",
+          "trigger": "Related maximum and near-maximum modular placement results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The affine family is natural, but the only exact count here is the known B2 Catalan complement multiplied and lifted by elementary residue arithmetic. Good reduction and the affine normalization do not leave an independently unknown useful statistic once that equivalence is made. The unrestricted maximum-count problem remains untouched.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

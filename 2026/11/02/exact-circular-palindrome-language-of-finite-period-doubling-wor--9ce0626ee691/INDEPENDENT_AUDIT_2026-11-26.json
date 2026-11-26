@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:43:13.768185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic parity relation P_k[2j]=0 and P_k[2j+1]=1-P_(k-1)[j] is well-defined modulo the even circumference. It rules out 11 and, because two consecutive odd-position zeros would require a lower-level 11, also rules out 0000. The remaining length-four palindromes require either 11 or ones at opposite parities, so no longer even palindrome can exist by its central four letters. The 00 factor exists for k>=2. Directly P_2=0100 gives {0,1,00,000,010}. For odd centers on odd positions, the reflection forces equality exactly on the sampled lower-level odd palindrome; mandatory zeros yield the two lifts. An odd lower-level length m is at most 2^(k-1)-1, so both lifts fit within one traversal. They are injective and separated by lengths 1 and 3 modulo 4. For an even-position center, agreement of its two adjacent odd-position letters requires adjacent lower-level zeros (11 is absent), giving 101 and its forced zero-extension 01010. Length seven would need a lower-level four-letter palindrome; both shorter exceptions occur because lower-level 00 exists. Neither exception can match the fixed-zero positions of the same-length odd-center lifts; the even-center singleton 0 is already a lift. Thus h_k=3+2(h_(k-1)-1), and the two lift lengths and exceptional lengths give precisely the asserted histogram recurrences including zero above the cap. The frozen checker and its rank-2–9 scope were inspected, not executed; the unrestricted conclusion follows by parity and induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Damanik's theorem as reproduced by Allouche et al. gives zero infinite palindrome complexity at even lengths >=4 and p(ell)=p(2ell−1)=p(2ell+1) for odd ell>=5. Schaeffer–Shallit give lengths of maximal palindromes in the infinite coding. Barro et al. Theorems 3.1–3.2 treat lifting/desubstitution in the generalized infinite word. Simpson's accessible abstract concerns a universal circular-palindrome bound, not a displayed period-doubling classification."
+        ],
+        "reasoning": "P_k P_k is a factor of the infinite word, since 00 occurs and its image under mu^k is P_k P_k, so the known even-length ban carries to the circle. Infinite occurrence and per-length complexity provide no rank of first circular occurrence. A universal upper bound does not give equality or the language in the specified morphic family.",
+        "searches": [
+          "arXiv:math/0106121 §4.2 Theorem 5",
+          "arXiv:1508.02074 p.8",
+          "Barro–Kaboré–Bognini AJC 83(3) §3",
+          "Simpson DOI:10.1016/j.tcs.2014.07.012"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Bognini–Kaboré–Tapsoba publisher PDF; Barro–Kaboré–Bognini AJC 83(3)",
+        "arXiv:math/0106121, arXiv:1508.02074 and arXiv:1402.5843",
+        "DOI:10.1016/j.tcs.2014.07.012 (abstract-level)",
+        "Resultary ad5930ae5cf0, ed57fe5c15ef, c8d7b40c0705 and 51516ce649b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known transforms agree algebraically with the finite lifts. The known inverse results assert that the preimage is a factor of the infinite word; they do not assert adjacent finite cyclic ranks with the cap. Already 101 occurs in P_3 linearly but is absent from the one-traversal palindrome language of P_2, even though its length is below that cap."
+        ],
+        "reasoning": "Simply truncating the infinite language or histogram does not recover H_k. One must synchronize circular occurrences in both directions, show the lifted lengths fit the traversal cap, and account for the base and even preimage; that is the distinct finite classification, not a claimed new substitution identity.",
+        "searches": [
+          "Bognini–Kaboré–Tapsoba Lemma 3.4 and Theorem 3.1, pp.94–97",
+          "AJC 83(3) Lemma 3.1 and Theorems 3.1–3.2, pp.438–439",
+          "Allouche et al. Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bognini–Kaboré–Tapsoba Lemma 3.4, pp.94–95: for a finite factor v of the infinite word and |v|>2, palindrome equivalence with the two substitution padding/truncation transforms. Theorem 3.1 gives inverse structure among palindromes of the infinite word. Cassaigne et al. instead count conjugacy classes of factors of an infinite word."
+        ],
+        "reasoning": "Taking one-traversal factors of the circle is taking starts in the first copy of P_k P_k and lengths <=2^k, not forming rotation classes of the infinite-factor list. Renaming the prior transforms explains the structural overlap but does not give the finite-rank occurrence criterion.",
+        "searches": [
+          "Resultary: finite dyadic circle palindrome language, Phi/Psi, 3*2^(k-1)-1",
+          "Web: period-doubling finite words circular palindromic factors cyclic palindrome complexity dyadic iterate",
+          "Exact-title lookup of Some Combinatorial Properties and Lyndon Factorization of the Period-Doubling Word"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ad5930ae5cf0 has a complete circular palindrome spectrum with total (3N−1)/2 for finite Cantor words and a boundary-transfer lemma requiring a unique cyclic 11 join. ed57fe5c15ef uses the same finite circles but counts Parikh classes. c8d7b40c0705 concerns reversal classes of dyadic-length infinite factors with no wraparound. 51516ce649b4 concerns the infinite valuation coding modulo q>=3."
+        ],
+        "reasoning": "The same leading constant in the Cantor result does not transfer via its hypotheses because the target circles have no 11. Neither Parikh classes nor the infinite-word statistics identify the finite binary palindrome spectrum. The distinct matching catalogue passages were inspected; no identical finite-language table was found in the bounded search.",
+        "searches": [
+          "Resultary finite Cantor and period-doubling circular palindrome spectrum, exact dyadic factor/reflection complexity, and q-letter valuation-word palindrome complexity"
+        ]
+      },
+      "rationale": "The distinct claim is the rank-by-rank binary finite cyclic language with a one-traversal cap, not the morphic lift operators, the ban on long even palindromes, or the infinite palindromic complexity. Indeed the known transforms removing the first 0 of mu(v) and appending a 0 to mu(v) are exactly Phi and Psi; even the two odd exceptions are these transforms applied to 00. What is not supplied by the inspected earlier results is the sharp correspondence between occurrences on adjacent finite circles, with exact cap and all finite ranks. Infinite occurrence does not determine occurrence at a given finite rank. The strongest accessible finite-factor work is assessed on its actual linear or infinite-word statements, and the catalogue comparisons on their actual word families and statistics. Pass is qualified by the stated access limits.",
+      "residual_risks": [
+        "Simpson's full article remains uninspected, particularly any morphic examples. The original Damanik article was not read independently of the reproduced theorem. Ranked catalogue and focused literature searches do not establish exhaustive absence; lift identities and the even-length ban are already known. "
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transforms in the infinite-factor setting; no adjacent finite-circle criterion in those results",
+          "evidence": "Treats delta(v)a and deletion of the leading a of delta(v), plus desubstitution into a palindrome of the infinite word.",
+          "identifier_or_url": "https://pphmjopenaccess.com/fejms/article/download/5636/2602",
+          "material_read": "§3, especially Lemma 3.4 and Theorem 3.1, pp.94–97; offsets 9550, 13250, 15000",
+          "method": "Publisher OA PDF, located via exact-title lookup after ResearchGate was inaccessible",
+          "title": "Some Combinatorial Properties and Lyndon Factorization of the Period-Doubling Word",
+          "trigger": "Closest original binary period-doubling palindrome structure and finite-factor title"
+        },
+        {
+          "assessment": "Structural antecedent for lifts and linear-factor inverse, not finite cyclic classification",
+          "evidence": "Uses leading-zero removal or trailing-zero extension and identifies preimages in the infinite fixed point; Lemma 3.1 treats factor desubstitution between images of linear factors.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/83/ajc_v83_p435.pdf",
+          "material_read": "§3 pp.438–439, Lemma 3.1 and Theorems 3.1–3.2",
+          "method": "Journal OA PDF",
+          "title": "On the palindromic zl-factorization and c-factorization of the generalized period-doubling sequences",
+          "trigger": "Substitution alignment and inverse structure"
+        },
+        {
+          "assessment": "Infinite per-length complexity, including exact covered even-length exclusion",
+          "evidence": "Reproduces Damanik's odd-length complexity recurrence and the zero at even lengths >=4.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0106121",
+          "material_read": "§4.2 Theorem 5, p.6 offset 16721",
+          "method": "OA arXiv PDF text",
+          "title": "Palindrome complexity",
+          "trigger": "Classical exact results for the binary period-doubling palindrome language"
+        },
+        {
+          "assessment": "Universal bound visible; possible examples not ruled out",
+          "evidence": "The accessible material is not a full-text assessment of the article's individual families.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Accessible abstract/landing material only",
+          "method": "Lawful OA attempt; full text not obtained",
+          "title": "Palindromes in circular words",
+          "trigger": "Same circular palindrome count invariant"
+        },
+        {
+          "assessment": "Different family or different invariant",
+          "evidence": "Cantor result assumes a cyclic 11 join; abelian result counts Parikh vectors.",
+          "identifier_or_url": "Resultary ad5930ae5cf0 and ed57fe5c15ef",
+          "material_read": "Both Findings, including the Cantor boundary hypothesis and the abelian statistic",
+          "method": "Ranked Resultary search and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Finite Cantor circular-palindrome spectrum and period-doubling circular abelian transport",
+          "trigger": "Closest matching statistic and closest matching finite circle respectively"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete substitution iterates and their circular seams are canonical finite objects. The exact finite-rank occurrence recursion and spectrum answer more than a count and locate the effect of the finite period at every length; the infinite-word recurrence alone cannot answer this even for a factor shorter than the circumference. The total (3/2)N−1 also gives a concrete infinite family close to the general circular bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

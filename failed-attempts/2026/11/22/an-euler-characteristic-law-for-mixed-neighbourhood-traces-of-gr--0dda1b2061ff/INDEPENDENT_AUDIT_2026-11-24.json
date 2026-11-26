@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:39:37.945404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated open neighborhoods in the incidence graph of a finite simple graph, nonempty edge-center traces live only in A and count e_A+lambda_A. The original-vertex centers give nonempty stars on B; if two distinct vertices have the same nonempty star, every edge in it must join those vertices, so simplicity makes them the two endpoints of an isolated marked K2. Subtract one duplicate per such component from |V(H_B)| and use the component Euler formula to get b+p_B-beta_B. The two supports are disjoint except for the separately counted empty trace. All upper-bound deficits are nonnegative; the clique with a helper and separate marked forest saturates them. Adding unmarked edges joining components preserves the saturated terms and a helper outside the marked-edge endpoints witnesses the empty trace, including the single-sort cases. In an extremal marked forest, the components with at least two edges consume all b edges in pairs except for at most one excess edge. The excess is itself a K2 or is absorbed in a three-edge tree, necessarily a claw or P4. Counting vertices gives the claimed minima. Pairing named edge labels gives the even census; in the odd minimum, choose the triple and its claw or one of three middle edges of P4, and pair the rest. Finally for m=a+b the pure A maximum dominates since b(2m-b+1)/2 >= 3b/2 for m>=2; for m=1 check both splits directly. The K2-marked-original construction shatters a pair, while no triple has eight traces. Inspected the supplied checker and recorded output, not executed. It makes 40,000 random draws, skipping empty markings, rather than checking 40,000 nonempty random cases; the reported combined 50,260 checks and the infinite proof do not rely on that wording.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Line-graph proof sections Signature deficit, Even case, and Odd case bound D=3m-2r, force kP3 at D=0, and explicitly classify D=1 as kP3 plus K2 or (k-1)P3 plus a claw or P4.",
+          "The bounded-width closed-neighborhood and minor-excluding distance-profile works do not give the frozen mixed open-trace theorem."
+        ],
+        "reasoning": "The final line-graph maximum differs because it counts unions of two endpoint stars; its rejection of P4 occurs only after classifying the individual-star equality case. Its intermediate bound is general for simple marked-edge graphs and applies exactly here.",
+        "searches": [
+          "Resultary line-graph external trace capacity, signature deficit and odd case",
+          "Berthe et al. arXiv:2607.16889v1",
+          "Beaudou et al. arXiv:2501.08895v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py and CHECKER_OUTPUT.txt",
+        "Resultary records 7808a20ef634 and 078f1db52295",
+        "arXiv:2607.16889v1 and arXiv:2501.08895v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of 7808a20ef634 supplies r=|W|-ell plus the D=0 and D=1 component descriptions, including P4 before testing its union collisions."
+        ],
+        "reasoning": "The maximum of each independent sort is attained by putting the two gadgets on disjoint vertices and reserving an empty center; unmarked joining edges give connectedness. The extrema for B are already classified by the signature deficit. The minimum order and number of fixed edge-name assignments then follow by counting vertices, pairing labels and choosing a triple and its middle edge if it is a path. The mixed identity and labeled census are not stated there verbatim, but there is no further nonmechanical structural step.",
+        "searches": [
+          "Resultary 7808a20ef634, proof offsets 2125 and 4138",
+          "Resultary 078f1db52295, proof Step 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The line-graph record 7808a20ef634, proof before inequality (1), defines the same individual vertex signature sigma(v) on the marked edges and states r=|W|-ell, with W the marked endpoints and ell the number of K2 components.",
+          "Earlier identifying-open-codes record 078f1db52295, proof Step 3, uses the isolated-edge characterization of duplicate nonempty stars."
+        ],
+        "reasoning": "Since |W|=b+c_B-beta_B and ell=c_B-p_B, the exact B-side term is the known signature formula in Euler coordinates. For the A-side, intersect each edge's two endpoints with A; only induced edges and boundary singletons can occur. The sides have disjoint supports and share only the possible empty trace.",
+        "searches": [
+          "Resultary: incidence graph mixed open-neighborhood traces, marked-edge stars, extremal forests",
+          "Resultary: all identifying open codes of subdivided complete graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The line-graph entry gives the exact intermediate signature count and the same entire extremal marked-skeleton list, not merely matching numerical values. No separate table of the combined mixed count or edge-name census was relied on."
+        ],
+        "reasoning": "The distinct output formulas for external line-graph traces are not a numerical match. The overlap is in the exact individual-star law and its equality structures; the combined formula and labels follow from them.",
+        "searches": [
+          "Resultary: mixed incidence graph trace capacity and extremal marked-edge rigidity",
+          "Primary literature: open neighbourhood traces incidence graph profiles marked edges exact Euler formula graph"
+        ]
+      },
+      "rationale": "The strongest distinct catalogue record has a different main observable (external-edge traces in a line graph), but its proof explicitly counts the very individual original-vertex signatures needed here and proves their sharp even and odd equality structures, including P4. Substituting this intermediate result and adding the elementary contributions of the other marked sort mechanically gives the law and its equality cases. This is coverage evidence, not a claim about which same-day record appeared first.",
+      "residual_risks": [
+        "Both trace-capacity records have the same catalogue date. The comparison establishes mathematical coverage of the decisive intermediate claims, not historical ordering.",
+        "The external searches were bounded and do not rule out earlier statements of the combined formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main observable is different but intermediate results cover the individual-star law and equality cases",
+          "evidence": "r=|W|-ell; D=3m-2r is zero exactly for the even cherry forest, and D=1 has precisely the three frozen odd skeletons before excluding P4 for the different observable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-external-neighbourhood-trace-capacity-and-extremal-marked--7808a20ef634/RESULT.md",
+          "material_read": "Finding and proof sections through Signature deficit, Even case, Odd case; offsets 0, 2125 and 4138",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Sharp external neighbourhood-trace capacity and extremal marked-edge rigidity in finite line graphs",
+          "trigger": "Same marked-edge stars and capacity/rigidity calculations"
+        },
+        {
+          "assessment": "Exact overlap of the duplicate-star observation, not of the entire theorem",
+          "evidence": "The endpoints with equal nonempty marked-edge stars form an isolated K2 component.",
+          "identifier_or_url": "2026/10/18/SCOPE-all-identifying-open-codes-of-subdivided-complete-graphs--078f1db52295",
+          "material_read": "Proof Step 3, offset 4761",
+          "method": "Local mirror passage reading",
+          "title": "All identifying open codes of subdivided complete graphs",
+          "trigger": "Source for duplicate-star lemma"
+        },
+        {
+          "assessment": "Different complexity and hypotheses",
+          "evidence": "Closed neighborhoods and one-set bounds under width restrictions.",
+          "identifier_or_url": "https://arxiv.org/html/2607.16889v1",
+          "material_read": "Definitions and stated bounds, offsets 1484 and 3415",
+          "method": "OA HTML passage reading",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Motivating neighborhood complexity theorem"
+        },
+        {
+          "assessment": "Does not supply the claimed mixed exact count",
+          "evidence": "Distance/truncated-distance profiles under graph-class restrictions.",
+          "identifier_or_url": "https://arxiv.org/html/2501.08895v1",
+          "material_read": "Definitions and bounds, offsets 1886 and 4759",
+          "method": "OA HTML passage reading",
+          "title": "Profile and neighbourhood complexity of graphs with excluded minors and tree-structured graphs",
+          "trigger": "Plausible broader profile bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing the two types of marked vertices is natural and the formula is usable, but after crediting the existing exact star count and its rigidity, the surviving material only adds separate trace counts and relabels the already classified small components. Neither the elementary label count nor the standard untyped quadratic bound adds a distinct nonmechanical invariant at this scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

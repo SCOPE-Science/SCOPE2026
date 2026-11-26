@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized determinant follows by two real trigonometric Vandermonde minors and the two-column block expansion; the factor \(2^{1-2d}r^d\) was independently checked by exact and numerical evaluations. The Hermitian profile map has precisely \(4d\) real dimensions because its lower harmonics can be set independently on the two circles while its highest harmonics differ by the known radial factor. The vanishing-polynomial kernel proves the exact angular-product rank criterion. Hadamard's inequality gives the sharp determinant maximum and equality conditions. Two-circle rational dilation invariance establishes universal phase retrieval off resonance. The degree-two reverse implication follows from the odd determinant on a real two-dimensional kernel and exclusion of semidefinite elements. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS (best knowledge)
+In each harmonic below d, the first two entries on the Hermitian diagonal for that harmonic produce an invertible two-radius coefficient map (determinant proportional to r²−1); the top harmonic has only one entry, shared with scaling r^d. An individual vanishing profile at 2d distinct unit nodes has one real degree of freedom and leading direction given by the inverse square root of the angular product, modulo real scaling. For the determinant, use complex lower-frequency columns z^(−d+1),…,z^(d−1). Appending z^d gives a Vandermonde times the product of z^(−d+1); appending z^(−d) instead gives a ratio −1/Pi. Thus the two-circle determinant in complex columns has modulus r^d |Delta(U)Delta(V)| |Pi_U−Pi_V|. Converting the lower pairs on both circles and the one shared top pair has total modulus factor 2^(1−2d). Hadamard equality for each Fourier Vandermonde forces every ratio of distinct nodes to be a nontrivial 2d-th root of unity; the remaining factor is maximized exactly at opposite angular products. Off resonance, equality of full circle moduli leads to multiplicative dilation invariance of P/Q by r², hence a constant rational ratio. In degree two the singular odd cubic determinant on a circle in the real two-plane kernel vanishes; no nonzero semidefinite kernel element is possible because the outer nodes span the evaluation space. The resulting indefinite rank-two matrix gives an ambiguity. Independent exact Gaussian-rational checks verified the determinant square and ranks in four nonregular designs in degrees 2 and 3, including distinct resonant angular sets.
 
-The nearest full-text published construction, Pohl–Li–Boche (2017), chooses \(2d+1\) and \(2d-1\) samples, whereas this result classifies \(2d\) and \(2d\) sampling with an exact phase-product condition, a normalized determinant, and its complete optimal configurations. Chalendar–Partington (2024) treats continuous circles and Bodmann–Hammen (2013) provides a different minimally redundant finite phase-retrieval construction; neither inspected main result states this balanced angular condition. Actual public mathematical-index searches for aliases, determinants, balanced concentric sampling, and phase retrieval returned no dominating match. The possibility of an older equivalent cyclic or trigonometric interpolation identity remains a meaningful residual literature risk; absence of a database match is not itself a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The balanced allocation addresses the natural missing case between the known \(2d+1\)/\(2d-1\) sampling construction and the equal-budget design problem. A single angular product exactly controls whether the full pair of intensity profiles is reconstructible; the determinant formula quantifies sensitivity to node collisions, and the complete regular-grid optimum gives a sharp constructive D-optimal design. At the first nontrivial complex polynomial degree, the same condition is shown necessary for nonlinear phase retrieval, not merely for linear interpolation.
+The regular-grid angular criterion and half-step geometry are covered by two distinct catalogue findings and are not separate novelty. The supported distinct claim is the arbitrary-distinct-node determinant with the specified normalization and lifting ranks, the global determinant upper bound and all equality cases over arbitrary angular sets, and the quadratic converse for arbitrary four-plus-four nodes. The regular-grid results do not imply these nonregular statements.
 
-## Scientific boundaries
+## value
 
-Hermitian rank defect in degree \(d>2\) need not imply failure of nonlinear phase retrieval. Determinant-optimality is not minimum-singular-value optimality. The two circles must be distinct and each list must consist of distinct angular nodes. Full review does not replace a separate expert audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact invariant detects one global sampling resonance even with distinct nodes, including highly nonregular layouts. It gives all global determinant maximizers, not just an optimum among regular grids. In degree two it determines nonlinear failure as well as linear singularity, so practical design and ambiguity can both be read from arbitrary sample angles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

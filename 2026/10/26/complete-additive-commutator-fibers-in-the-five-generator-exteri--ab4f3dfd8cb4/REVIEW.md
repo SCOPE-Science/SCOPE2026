@@ -1,15 +1,21 @@
-# Review of complete commutator fibers in the five-generator exterior algebra
+# Independent mathematical audit
 
-## Correctness
-PASS. The commutator is twice the product of odd input parts. The degree-one and degree-three decomposition isolates a two-form and a four-form. The fourth-form linear map has ranks five, four, or zero according to the degree-one span; its kernel counts and the number of dependent vector pairs give all fibers. A direct sum of all fiber counts equals the size of the whole input space. Independently implemented finite-field exterior products and row-elimination checks agree.
+## correctness
 
-## Originality
-PASS with explicit priority risks. Domokos–Zubor's full 2014 preprint treats commutative subalgebras, establishes odd anticommutation, and identifies the Plücker decomposability locus, but does not state the exact nonzero-target commutator distribution. MacDougall's bivector enumeration addresses only the rank/length of the degree-two form and was available here only as an abstract and excerpt. Bentin–Mota's full 2012 discussion concerns algebraic construction and parity. The previously known count of commuting pairs in the five-generator exterior algebra coincides with this finding's zero fiber and is explicitly excluded from the novel component. Targetwise degree-four multiplicities are not given by these statements. An equivalent unexamined formula remains a historical-priority risk.
+PASS
 
-## Value
-PASS. The commutator map is a canonical polynomial map of this noncommutative finite algebra. Its exact image, all nonzero-target fibers, and the jump between nonzero two-form and purely fourth-form targets are natural invariants, not an arbitrary coordinate slice. The five-generator case exposes the simultaneous Plücker constraint and the four-form incidence condition, making a complete baseline for finite-algebra commutator distributions.
+Independently checked the degree and count argument. Even parts and both top-degree odd parts are free, giving q^34; the commutator is twice the sum of the degree-(1,1) and degree-(1,3)/(3,1) wedge products. For leading vectors spanning S, the degree-four image is the kernel of the exterior quotient to Λ^4(V/S), so its dimension is 0, 4 or 5 according as dim S is 0, 1 or 2. The domain of the degree-four equation has dimension 20. A prescribed nonzero degree-two target fixes a two-plane and area, realized by (q²−1)q ordered bases: q²−1 possible first vectors, then q solutions to the area equation for the second vector. This yields the stated (q²−1)q^50 fiber for all degree-four targets. When the leading wedge vanishes, each nonzero leading pair spans a unique line, with q²−1 pairs per line. At a nonzero four-form only the lines in its four-dimensional wedge-annihilator are allowed, whereas all lines and the zero leading pair contribute when both target components vanish. The determinant-one count, Gaussian-binomial image count and mass q^64 check the exponents; this argument uses only invertibility of 2 and applies to all odd prime powers. The frozen code was inspected, not run: representative fiber totals are asserted at q=3, not at q=5; the q=5 loop is selected-pair sampling with repeat entries and the q=9 test is conservation only. None is needed for the universal proof.
 
-## Limits
-Odd characteristic, five exterior generators, ordered additive commutator pairs only. Exhaustive tests cover small prime fields and representative fibers, not all odd fields. Historical-priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the joint ordered-pair classification and evaluated nonzero fibers, not parity, the degree-two Plücker locus or the zero-target consistency check. The local catalogue includes a later full material match and a later match to the zero fiber; neither establishes earlier coverage. The frozen statement's assertion of previous availability of the zero count remains uncited and was not independently substantiated as an earlier result. No inspected earlier theorem supplies the complete joint law.
+
+## value
+
+PASS
+
+This is the complete distribution of a canonical map on a classical finite algebra, not a single representative or a recount of commuting pairs. Five generators allow nondecomposable leading targets while independent leading vectors already span all fourth-form output directions. The evaluated multiplicities exhibit a distinct hyperplane-incidence stratum at pure nonzero degree four, giving a useful exact baseline for additive commutator distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

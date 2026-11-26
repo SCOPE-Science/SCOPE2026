@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statements quantify over all finite labelled simple graphs, iid atomless vertex scores, and distinct vertex pairs. Adjacent covariance positivity follows by conditioning on the higher-ranked endpoint and gives a uniform explicit lower bound. For nonadjacent vertices, conditioning on common-neighbor priorities yields opposite monotone functions of their minimum/maximum and strictly negative covariance whenever there is a shared neighbor; with no shared neighbor the indicators are independent. The explicit joint-probability integral follows by partitioning neighbor sets, and its binomial integration is exact. The recovery guarantee uses Hoeffding bounds for at most \(n(n+1)\) empirical means and a verified covariance margin. Exhaustive exact checker: 1,098 labelled graphs, 74,708 assertions, up through five vertices. The finite computation is supplementary, not offered as proof for general graphs.
+PASS
 
-## Originality — PASS, with residual risk
+The original RESULT.md theorem under its explicit i.i.d. atomless assumptions is correct. The opening wording and standalone SLOGAN.txt omitted identical distribution; the slogan on the broader independent-only reading is false (even one edge with independent priorities uniform on disjoint ordered intervals gives deterministic indicators and zero covariance). The supplied complete replacements put the i.i.d. atomless hypothesis in both public statements. With a common atomless law all ranks are uniform. On an edge, conditional on the peak at u and its priority x, the valley probability at v is at least the integral of (1-t)^(d_v-1), or 1/d_v, strictly above its unconditional 1/(d_v+1). For a nonedge with common neighbors, conditioning on their priorities separates the two events, and the conditional peak probability strictly decreases with their maximum. Given that maximum t the minimum is t times an independent positive variable (equal to t for a single common neighbor), so the mean conditional valley probability increases strictly with t. The covariance is strictly negative by the independent-copy covariance identity. With no shared neighbor the relevant inputs are disjoint. The exact joint integral and beta expansion agree, including zero private degrees. Hoeffding on n(n+1) bounded means, each at tolerance gamma/12, gives simultaneous covariance error at most gamma/4; the gamma/2 rule then separates edges from nonedges with the claimed failure bound. Isolates cause no exceptional case.
 
-Closest checked primary sources: Billey–Burdzy–Sagan (2012), arXiv:1209.0693, fully accessible HTML, including section on peaks and valleys on paths; Billey–Burdzy–Pal–Sagan (2013), arXiv:1308.2183, full HTML with cycle-local extrema; and Diaz-Lopez et al. (2017), arXiv:1708.08493, accessible full HTML on enumerating general-graph peak sets. None of the materially inspected results states or directly implies the arbitrary-graph opposite-extremum covariance sign law or its quantitative graph reconstruction. Published graph-covariance tomography for vertex-threshold subgraphs uses an unrelated edge-threshold degree vector. A separately catalogued aggregate peak/valley covariance on complete bipartite graphs is a different statistic and does not settle signs for all ordered vertex pairs across all graphs. Residual risk: an equivalent theorem may exist under random-ranking, acyclic-orientation or local-extrema terminology outside indexed search; the originality claim is best-knowledge and not a certificate of historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The exact sign matrix recovers the full labelled adjacency relation from local-ranking extrema alone and simultaneously identifies graph-distance-two pairs. The adjacent-edge lower bound enables a nontrivial finite-sample identifiability theorem using only simple Bernoulli observations. These are meaningful structural and statistical results, rather than an arbitrary small-graph table, routine restatement of a known enumerator, or a small parameter increment. The polynomial sample bound is conservative; optimal inference and noisy observation are not claimed.
+Credit the earlier cycle sign law and overlap in the extrema observables. The surviving claim is the uniform arbitrary-simple-graph trichotomy, explicit ordered edge margin and quantitative graph recovery from full repeated labelled extrema vectors. No equivalent or dominating statement was established in the checked sources. The repaired scope is exactly the i.i.d. model used in these comparisons.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The covariance signs recover all labelled adjacencies and distance-two pairs without observing the priorities, and the uniform edge gap turns population identifiability into a finite-sample guarantee. This survives the public scope repair and is stronger than a motif calculation or application of Hoeffding alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

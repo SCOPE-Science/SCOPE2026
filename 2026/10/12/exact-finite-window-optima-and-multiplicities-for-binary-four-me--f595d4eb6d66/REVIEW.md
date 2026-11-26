@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one final theorem is the exact finite-window \((\tau(L),N(L))\) table for binary four-mers plus the refinement of the six-transversal threshold multiplicities. The proof uses the literal bijection between avoiding words and paths in the remaining eight-state de Bruijn edge graph. Its cycle criterion and dynamic program are valid for all masks, including the empty and full sets and isolated states. The graph enumerator checks exactly all \(65{,}536\) masks and all \(128\) six-class transversals, and its asserted numerical result is independently reproduced by direct exhaustive word–set incidence for each \(4\le L\le11\). The infinite \(L\ge11\) conclusion comes from the six-necklace periodic lower bound and extension monotonicity, not extrapolated data. A remaining risk is implementation error shared in problem encoding; the two algorithms are algorithmically distinct and both are supplied.
+## correctness
 
-## Originality — PASS, conditional on the stated bibliographic scope
-The earliest directly relevant public source used to anchor this line of research is the dated 2016 HiTSeq conference abstract, with full 2017 follow-up. The 2004 unavoidable-set theory fixes the minimum eventual size but not short-window optima. Crucially, 2021 literature **already states** that there are 30 binary four-mer minimum decycling sets and 2024 literature **already gives** the exact shortest-to-longest remaining path *range* 5 to 7. Neither prior fact is rebranded here. Inspection of the relevant complete 2017, 2021, and 2024 article sections found no exact eight-row finite-window optimum/count table or the multiplicity refinement 10/4/16. A supplementary file to the 2021 article was inaccessible, and its possible content constitutes a residual risk, as do unindexed computations. This assessment does not equate unsuccessful search with novelty proof.
+PASS
 
-## Value — PASS
-The object is the full finite-blocklength optimization of a standard exact-window universal k-mer sampling constraint, whose set cardinality affects sampling density while window length controls maximum unsampled gaps. The smallest alphabet and first nontrivial four-mer order form a natural self-contained benchmark. Exact labeled counts separate many competing optimal solutions, and the onset at window nine plus the 10/4/16 split identifies the number of size-optimal designs available at three distinct window guarantees. The table is neither a reparameterization of the infinite-window lower bound nor implied by the published path-length range. No asymptotic coding theorem or practical advantage beyond the mathematical window/size property is asserted.
+Unrestricted binary words of length L correspond to walks of L−3 edges in the order-three de Bruijn digraph, removing precisely the edges for U. A directed cycle gives arbitrary avoiding lengths. An acyclic remainder has at most seven edges on any path, so the longest avoiding word has length at most ten, including length three when there are no remaining edges. Each rotation class gives periodic avoiders unless hit, so size at least six is necessary at every L≥4, and six-element candidates are the 128 labeled transversals. I inspected both bundled verification programs and independently ran `python3 /workspace/reproductions/four_mer_reproduction.py`. That exact-integer census counts the occurring four-mer masks of every binary word at each L=4,…,11 and uses a subset zeta transform to obtain the number of avoiders for every complement of U. Across all 65,536 masks the computed (size,count) rows are (16,1),(10,2),(9,50),(7,8),(7,52),(6,10),(6,14),(6,30). Of 128 transversals the exact maximum avoiding lengths are 8, 9, 10 for 10, 4, 16 choices respectively, and the 98 others fail at length 11, hence have cycles. The length-11 row therefore persists for all longer windows at size six, not by extrapolation. This is exhaustive finite computation with an analytic tail, not a theorem prover certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the joint exact labeled profile, especially the finite-window cardinalities and multiplicities before size six becomes attainable and the finer multiplicities at that transition. Neither the eventual thirty-set count nor the extremal path range or the first window attaining size six is credited as independently novel.
+
+## value
+
+PASS
+
+The cardinality versus guaranteed window is the natural UHS tradeoff, and this is a complete sharp profile for a small standard de Bruijn instance rather than an isolated word length. The multiplicities say how much choice an exact design has at the optimum: ten size-six designs attain the shortest possible six-set window, fourteen work one position later, and all thirty work at eleven. The shorter-window larger optima provide additional exact benchmarks for optimization and enumeration; the known total and endpoint range do not supply them. No large-alphabet or algorithmic performance claim is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

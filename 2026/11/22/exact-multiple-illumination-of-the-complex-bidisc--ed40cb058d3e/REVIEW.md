@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the universal equality \(I^{(m)}(D\times D)=4m+3\) for positive integers \(m\). The one-circle endpoint lemma is proved, not estimated. Applying it twice gives the unconditional lower bound, including points lying on edges of the open covering arcs. The cyclic construction supplies \(4m+3\) genuinely distinct directions: an open first-coordinate semicircle selects \(2m+1\) consecutive indices, whose doubled indices have cyclic gaps \(2/N,\ldots,2/N,3/N\). The closed complement of any second-coordinate semicircle contains at most \(m+1\) indices, as \(2(m+1)/N>1/2\). Hence the remaining open semicircle contains at least \(m\). The distinct-boundary-to-all-boundary equivalence holds by strict coordinate inwardness and a sufficiently small step for nonsaturated coordinates. Standalone integer-stratum enumeration for \(m=1,\ldots,15\) was replayed successfully and is corroborative, not the infinite proof.
+## correctness
 
-## Originality — PASS, best-knowledge
-The cited 2024 complex-illumination paper solves the ordinary polydisc value and fractionally weighted torus covering. The cited 2023 multiple-illumination paper supplies the general notion and results for smooth planar bodies, polygons, balls and cap bodies. Neither inspected statement gives all the higher integer multiplicities for the complex bidisc. Searches for repeated open-half-square torus covering and indexed equivalent geometry records found no stronger implication. The ordinary \(m=1\) identity is explicitly credited, and only the all-\(m\ge2\) evaluation is new. An unindexed or differently named earlier theorem remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The result exactly resolves a natural repeated-illumination invariant of the complex bidisc in every multiplicity and exhibits a sharp, constant additive obstruction to fractional covering. It provides a geometric rather than only computational construction. No assertion is made about higher-dimensional products, arbitrary square side lengths or uniqueness of optimizers.
+On a saturated disk coordinate the exact inward criterion is a strictly negative radial real part; equality cannot illuminate because the quadratic norm increment is then nonnegative. Both saturated coordinates give open half-circles in angle space. A direction simultaneously inward on two saturated coordinates works for the corresponding point with one nonsaturated coordinate as well by continuity, for small positive time. For the torus lower bound, 2r open half-arcs cannot r-cover: integral equality would force count r almost everywhere, while any starting endpoint loses at least one arc relative to the adjacent right cell. At each horizontal slice this requires at least 2m+1 active squares, whose second-coordinate arcs then require at least 4m+3 squares. With N=4m+3, an open half-circle contains at least 2m+1 consecutive starts of the regular grid even at an endpoint. Their doubled second starts have minimum cyclic gap 2/N and closing gap 3/N. Any closed half-circle contains at most m+1 such points, since m+2 would force span ≥2(m+1)/N>1/2; the complementary open half-circle therefore contains at least m. This proves the upper bound without discarding square edges or intersections. The two phases with offsets −1/4 give exactly the two specified open angular intervals.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit ordinary bidisc illumination, fractional mass, the slice argument, and the rank-one doubled-phase construction at multiplicity one to prior work. The distinct claim is the exact integer multicover spectrum at every higher multiplicity. The strongest compared prior construction is structurally very close but fixes the number of points by dimension and reciprocal side length and guarantees only one point of coverage. It does not state or mechanically yield the exact all-multiplicity optimum without the multiplicity-specific spacing and boundary check.
+
+## value
+
+PASS
+
+This computes the complete integral spectrum of a natural product body whose fractional coverage and ordinary illumination were already established. The constant three-direction excess for all m precisely measures the open-boundary covering penalty, and the sharp construction is explicit. Merely knowing the fractional mass or repeating the ordinary cover does not give that penalty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

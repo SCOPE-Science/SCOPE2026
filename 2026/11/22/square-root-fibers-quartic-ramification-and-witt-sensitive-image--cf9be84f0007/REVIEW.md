@@ -1,19 +1,21 @@
-# Scientific review: square-root fibers of finite spin factors
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The single target claim is the pointwise squaring-map fiber formula, its nonzero-vector two-/four-root counts and the resulting image size for odd finite fields and nondegenerate quadratic forms in every dimension at least two. The product identity immediately gives the vector equation. For nonzero vector targets, elimination to the scalar square parameter is reversible, with exactly two roots per nonzero square. The associated involution on the subgroup of squares has fixed points precisely at fourth powers. Summing over norm strata uses only the standard nondegenerate finite-field quadratic-form distribution, whose Gauss-sum computation is included in RESULT.md. The image formula and its two limiting densities then follow algebraically. An exhaustive independently executable checker verifies every target, including targets having no roots, for thirty finite-field/dimension/discriminant configurations; it does not purport to prove the infinite scope.
+PASS
 
-## Originality (O): PASS, with specified historical risk
+With w=0 the two branches a=0 and v=0 meet only at the zero input; positive norm representation counts for d≥2 account for all scalar targets, including the anisotropic binary case. With w≠0, v=w/(2a) and t=a² give exactly two roots per distinct t in H solving t²−bt+Q(w)/4=0. For c=Q(w)/4, collisions other than equality require tu=c, impossible for c=0 or nonsquare. For c∈H the involution t↦c/t has fixed points precisely at square roots of c within H; their count is gcd(2,h) if c is a fourth power and zero otherwise. Summed over the h square norms, the fixed-point counts total h, by assigning one norm s=4t² to each t. This gives M₂ and M₄, with the subtraction for M₄ using only the singleton orbits in the square-norm class. Diagonal Gauss sums give the stated determinant signs for even d and the character of s times the determinant sign for nonzero norms in odd d. Substitution gives the signed correction ±h(h−1)/2 times the stated power of q; it vanishes exactly at q=3. This exception is about image size, not equality of all pointwise fibers. Division by q^(d+1) gives both limits. Independently enumerating (a²+Q(v),2av) for all inputs with d=2 and Q(x,y)=x²+u y², taking u a square and a nonsquare, gave images (11,11), (49,47), and (127,133) for q=3,5,7 respectively, with every target fiber checked including missing outputs. This is a set-theoretic fiber law, not a scheme ramification claim.
 
-The 2015 spin-factor source gives the multiplication and trace/norm identity as established inputs, not the pointwise finite-field square-map census. The 2016 real spin-factor source studies order and cones, not odd finite-field arithmetic; the 2016 graded-identity paper treats identities in characteristic zero, and only its abstract was available. published-finding corpus queries on square maps, finite-field root fibers, fourth powers, quadratic forms and Witt classes returned nearby results on derivations, Rota–Baxter maps, associating tuples, quadratic-extension field maps and square-root maps in endomorphism rings, none with implications covering the formula on spin-factor Jordan algebras. The difference in mathematical objects and exact output invariants, rather than title differences, supports the comparison. The original product identity makes rediscovery easy, so a historical-priority risk persists without a universal literature guarantee.
+## originality
 
-## Value (V): PASS
+PASS
 
-The precise number of squares and full pointwise root distribution are natural invariants of a finite Jordan algebra, not arbitrarily chosen slice parameters. Quartic residues cause a genuine two-/four-root transition despite quadratic-form norm counts involving only square classes. The total image size changes between nonisomorphic discriminant classes for every odd field order at least five, and the universal density \(3/8\) emerges from a different limit than characteristic-zero positivity cones. These give a complete, motivated, characteristic-sensitive multiplication invariant with a sharp finite-field boundary, not just a routine normalization or small numerical improvement.
+The supported increment is the combined pointwise finite-field root census, quartic-residue branching, and exact discriminant-sensitive image count, not the spin-factor product, quadratic norm counts, or general cyclic-group inversion. The strongest distinct indexed statements concern different maps or counted objects. Primary passage access was limited; no universal priority is inferred.
 
-## Limits and closest literature
+## value
 
-Known spin-factor identities and classical Gauss-sum norm counts are inputs, not novel propositions. Relevant work: arXiv:1511.00742 (full-text Sections 2 and 4.3 inspected), arXiv:1609.08304 (full-text introduction and main theorem inspected), and Diniz–Souza DOI:10.1080/00927872.2016.1222402 (abstract only). The formula excludes characteristic two, dimension one, and degenerate forms. Earlier equivalent implicit counting results may exist and have not been ruled out by a failed search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Squaring is intrinsic to the Jordan algebra. The formulas separate scalar fibers from 0/2/4 nonzero-vector fibers, identify where quartic residues matter, and show when the exact image invariant loses all determinant-class separation. The latter cancellation is invisible in separate norm-value tables and in the common limiting density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

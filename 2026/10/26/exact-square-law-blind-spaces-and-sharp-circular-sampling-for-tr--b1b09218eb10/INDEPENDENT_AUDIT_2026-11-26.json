@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:25:18.914278Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51",
+        "Frozen VERIFICATION.md lines 19–23, verify.py, requirements.txt and verify_output.txt: inspected, not executed. The retained output reports 72 finite rank cases, a positive indistinguishable pair, 45 matrix-element quadratures and an angular check; these are not the proof."
+      ],
+      "rationale": "Normal ordering the full displacement operator gives the stated Laguerre matrix elements. After removing the nonzero Gaussian and r^m factors, harmonic m>0 is an arbitrary complex polynomial of degree <=N-m, and harmonic zero is a real polynomial of degree <=N with its value at zero fixed by the trace. For traceless differences and Q(x)=product_j(x-r_j^2), the invisible polynomials are exactly multiples of Q for m>0 and xQ for m=0. Counting the real dimensions gives (N+1-min(K,N))^2-1, including K=0 and N=0. Any nonzero blind direction can perturb the maximally mixed state in both signs while preserving strict positivity. At positive radius and N>=1 the constant harmonic can be varied (the difference L_0(x)-L_1(x) is x), and the N complex harmonics vary independently, giving dimension 2N+1. Fewer than N+1 complex samples cannot separate these traces, and the proposed half-circle grid gives a full 2N+2-point Fourier grid by conjugacy, hence suffices.",
+      "residual_risks": [
+        "Exact noiseless complex Weyl data and known trace only; exponentiating the truncated annihilation matrix would not give the same model. The angular lower bound is for each circle on its own, not for the joint optimization of total samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct tomography work uses a two-dimensional square grid and discusses optimization; the Resultary findings give coherent-state radial conditioning when circles coalesce and one-circle conditioning for analytic Fock polynomials, respectively."
+        ],
+        "reasoning": "The closest evaluated designs measure different quantities or constrain a different polynomial space. Neither result establishes the rank of trace-known complex Weyl measurements for all positive distinct radii.",
+        "searches": [
+          "arXiv:1907.06478 pp. 1–2",
+          "Resultary 283ecd6027cd and 413970b27bf4"
+        ]
+      },
+      "checked_sources": [
+        "Flühmann–Home arXiv:1907.06478",
+        "Laabs–Eppich–Weber doi:10.1364/JOSAA.19.000497 (preview only)",
+        "Resultary 283ecd6027cd",
+        "Resultary 413970b27bf4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjugacy gives redundancy across antipodal points; Vandermonde rank governs nodes of polynomial spaces. Neither comparison gives the Weyl angular harmonic dimensions with the trace node at zero."
+        ],
+        "reasoning": "The result uses the physical observable to identify the full graded family of harmonic spaces, showing simultaneous shrunken dimensions for every shell count and an independent sharp angular lower bound. Prior half-plane symmetry alone gives no finite count.",
+        "searches": [
+          "arXiv:1907.06478 p. 2, real/imaginary readout and sampling discussion",
+          "Resultary 283ecd6027cd, angular blocks and radial Vandermonde structure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flühmann–Home pp. 1–2 use precisely the symmetric characteristic function and its two-dimensional Fourier pairing; the Laabs–Eppich–Weber abstract links the optical ambiguity function to Hermite–Gaussian decomposition."
+        ],
+        "reasoning": "The optical ambiguity-function representation and the Weyl function are relevant equivalents for full phase-space data. Full-plane inversion does not prove injectivity or a nullity formula for a finite union of specified circles.",
+        "searches": [
+          "arXiv:1907.06478",
+          "doi:10.1364/JOSAA.19.000497"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "283ecd6027cd treats singular values in coherent-state tomography; 413970b27bf4 treats analytic Fock sampling design. Both are distinct records; neither states the audited exact dimension and thresholds."
+        ],
+        "reasoning": "Exact evaluated records were compared by measurement definition and invariant, not by the shared use of circles. No direct prior table was established.",
+        "searches": [
+          "Resultary semantic search for Weyl/Hermite circular tomography and Fock radial sampling; closest inspected IDs 283ecd6027cd and 413970b27bf4"
+        ]
+      },
+      "rationale": "The displacement representation and its conjugacy symmetry are prior, as are interpolation tools. The inspected sources do not establish the exact blind dimension at arbitrary distinct positive radii, its sharp trace-known radial threshold, or the paired exact angular result for this observation model. The pass is bounded to these comparisons, not a priority certification.",
+      "residual_risks": [
+        "The full 2002 modal-decomposition article was unavailable lawfully in the bounded retrieval. An earlier equivalent finite-ring theorem in optical ambiguity or polynomial interpolation literature is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior same-observable reconstruction and symmetry; no finite-circle theorem in inspected material",
+          "evidence": "Symmetric definition and two-dimensional Fourier relation; real/imaginary readout and half-plane redundancy; square-grid measurements with possible location optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.06478",
+          "material_read": "OA text p. 1 at offset 3500; p. 2 at offsets 7400 and 11850",
+          "method": "Primary OA text, bounded passages",
+          "title": "Direct characteristic-function tomography of quantum states of the trapped-ion motional oscillator",
+          "trigger": "Same experimentally accessible observable"
+        },
+        {
+          "assessment": "Relevant; exact coverage not resolved",
+          "evidence": "The abstract concerns modal decomposition using the ambiguity function; it is not sufficient to exclude a finite-ring statement in the unseen text.",
+          "identifier_or_url": "https://doi.org/10.1364/JOSAA.19.000497",
+          "material_read": "Publisher bibliographic and abstract material only; no lawful full text located by bounded DOI follow-up",
+          "method": "Publisher preview and OA retrieval attempt",
+          "title": "Modal decomposition of partially coherent beams using the ambiguity function",
+          "trigger": "Plausibly equivalent Hermite/ambiguity formulation"
+        },
+        {
+          "assessment": "Different measurement and target invariant",
+          "evidence": "Coherent-state evaluations, radial coalescence and smallest singular value; angular blocks and radial Vandermonde. This is not a trace-known Weyl rank theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-radial-collapse-law-and-chebyshev-lobatto-design-for-finit--283ecd6027cd",
+          "material_read": "Finding and relevant proof passages",
+          "method": "Local Resultary mirror",
+          "title": "Sharp radial-collapse law and Chebyshev–Lobatto design for finite Gaussian coherent-state tomography",
+          "trigger": "Closest indexed finite Fock/circular tomography result"
+        },
+        {
+          "assessment": "Analytic polynomial conditioning, not Weyl trace recovery",
+          "evidence": "The sampled space consists of analytic Fock polynomials and the optimized criterion is conditioning.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4",
+          "material_read": "Finding on one-circle sampling design",
+          "method": "Local Resultary mirror",
+          "title": "Optimal circular sampling of Gaussian Fock polynomials",
+          "trigger": "Possible angular sampling equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–51; comparison with arXiv:1907.06478"
+      ],
+      "rationale": "The degrees of freedom lost on every insufficient family of circles are quantified exactly, even for perturbations of full-rank states. In the specified tomography model, this gives a sharp radial identifiability criterion and a usable finite per-circle protocol, rather than just generic injectivity or a point count.",
+      "residual_risks": [
+        "No noise or conditioning guarantee, and no lower bound on total samples in other geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

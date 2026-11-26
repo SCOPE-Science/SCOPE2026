@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:03:07.723635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the Mycielskian of C₅ with the five cycle, ten crossed clone, and five apex edges. LT requires open domination at every vertex and distinct open traces outside the set; IC instead uses nonempty distinct closed traces at every vertex. Enumeration by increasing size through five exhausts all 1024 candidates of size at most five. At the optimum a move exchanges exactly one removed and one inserted vertex, with an original edge required for slides. The independent Python reconstruction at /workspace/branches/31a8166b-9b0c-4ea7-b27e-3d0bef17ecd4/audit_mu_c5.py (recorded audit.log in the same directory) found minima five, sizes 110 and 191, inclusion of LT in IC, slide edge counts 190 and 555, connectivity, and all 5995 distance savings (4135,1440,360,60). Both frozen verifiers were inspected without execution. Their complementing exhaustive loops cover the ancillary jump metrics, full eccentricities, dihedral orbits and path checks: the mask verifier generates each single move directly and BFS gives the exact shortest distance; the tuple verifier builds all feasible exchange pairs, checks both histograms and enumerates maps i↦a±i. In the explicit witness the LT slides exchange u₀→v₄→v₃, v₀→u₄, u₄→w→u₀. The shorter path exchanges v₀→u₄→v₃; u₄ is open-undominated in its middle state. The tuple certificate checks legality and BFS establishes distances 5 and 2. Replays for the submitted jump, metric and orbit certificates are in VERIFICATION.md. This is an exact finite result on the specified graph, not a bound for other Mycielski graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The identifying-code upper bound γ_ID(μ(G))≤|G| under the degree/distinct-open-neighborhood assumptions applies to C₅, giving ≤5. Bianchi et al. give γ_LTD(M(C_n))≤n−⌊n/3⌋+2 for odd n and explicitly note nonattainment at n=5, so the integer minimum is ≤5 there as well. Their immediately preceding exact values equal to five refer to Mycielskians of paths, not C₅. The slide-graph realizability corollary concerns representing arbitrary graphs as variants of minimum-solution graphs."
+        ],
+        "reasoning": "The size bounds are existing coverage of the upper sides, not the lower sides, counts, family inclusion, or distance distributions. Realizability by some graph does not determine either configuration graph for this specified Grötzsch graph.",
+        "searches": [
+          "Shaminejad–Vatandoost–Mirasheh DOI 10.22108/TOC.2021.126368.1794 Theorem 2.4",
+          "Bianchi et al. arXiv:2311.13979v1 Theorem 8 and its following remark",
+          "Mynhardt–Teshima arXiv:1707.02039v1 Corollary 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_a.py and verification_b.py; independent audit_mu_c5.py and audit.log",
+        "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, rows 89f6787191dd, bb59f463fd26 and 906654f0461c",
+        "Shaminejad et al. Theorem 2.4; Bianchi et al. Theorem 8 and remark; Mynhardt–Teshima slide model and Corollary 2; Chakraborty et al. arXiv:2211.14178 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even if one knows both minima, their equality alone says nothing about feasibility inclusion. With the proved inclusion, the two move definitions do imply d_IC≤d_LT, because each LT walk is an IC walk. The strict differences and their maximum require the actual configuration graphs."
+        ],
+        "reasoning": "Credit the elementary weak inequality conditional on inclusion; it cannot imply a gap of three, its witness, or its frequency. The two optimum size bounds and generic slide construction do not mechanically imply the complete census and metric barrier.",
+        "searches": [
+          "Primary same-graph Mycielski bounds, Theorem 2.4 and Theorem 8; slide-graph Corollary 2",
+          "Resultary exact histogram and cross-family comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Grötzsch label and M(C₅) refer here to the same underlying graph. Slide adjacency is the established single-exchange rule with the swapped vertices adjacent in the original graph. Locating-dominating (LD), locating-total (LTD), and identifying predicates are distinguishable by their traces and totality requirements."
+        ],
+        "reasoning": "Changing notation to a minimum-solution slide graph does not eliminate the difference between the two predicates, and does not establish which LT states are IC or any shortest-path saving. A locating-dominating vs. identifying comparison on another graph is not equivalent.",
+        "searches": [
+          "Resultary Grötzsch / Mycielskian of the five-cycle, locating-total and identifying-code relaxation, token slide and jump",
+          "Mynhardt–Teshima arXiv:1707.02039v1, slide adjacency and minimum-solution graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror table with the exact Grötzsch counts is row 89f6787191dd, the same frozen record. The distinct Paley row counts 247 minimum LD sets of which 26 are identifying. The Petersen-line row counts 110 minimum LTD sets of size six and studies one-vertex exchanges."
+        ],
+        "reasoning": "The coincidence of 110 at a different size and on a different graph does not give the Grötzsch LT family. The Paley comparison lacks both the same graph and the same LT predicate. No separate matching table was established, and no within-day priority is asserted.",
+        "searches": [
+          "Resultary exact Grötzsch histogram, optimum code families and 110/191 counts",
+          "Distinct same-day bb59f463fd26 and 906654f0461c"
+        ]
+      },
+      "rationale": "The strongest examined same-graph literature gives upper bounds on the optimum sizes, not the state families, their inclusion, or a cross-predicate metric comparison. The exact finite detour and histogram were not found in an independently matching record. No priority beyond the checked evidence is inferred.",
+      "residual_risks": [
+        "An unindexed or inaccessible historical optimum-code or reconfiguration table with equivalent data remains possible. The bounded source comparisons are not a proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior upper bound five, not census or detour",
+          "evidence": "Base minimum degree at least two and distinct open neighborhoods imply identifying-code number at most base order.",
+          "identifier_or_url": "https://toc.ui.ac.ir/article_26088_858b032cc710d026f084d95cbe679621.pdf",
+          "material_read": "Theorem 2.4, PDF p. 3, offset 7635",
+          "method": "Lawful OA primary PDF passage",
+          "title": "The identifying code number and Mycielski's construction of graphs",
+          "trigger": "Same μ(C₅) identifying-code problem"
+        },
+        {
+          "assessment": "Prior upper bound five on LT for μ(C₅), not exact families or transitions",
+          "evidence": "Odd cycle upper expression gives six at n=5, and the remark says the bound is not attained there. The exact five stated just before the theorem is for M(P₄) and M(P₅).",
+          "identifier_or_url": "https://arxiv.org/abs/2311.13979v1",
+          "material_read": "Primary text ar5iv offset 42230 (small path cases), 42844 (Theorem 8 and following remark; PDF p. 13)",
+          "method": "Lawful OA primary full-text rendering",
+          "title": "Location-Domination Type Problems Under the Mycielski Construction",
+          "trigger": "Same graph family and LTD predicate"
+        },
+        {
+          "assessment": "Supplies general graph construction and realizability, not the fixed Grötzsch comparison",
+          "evidence": "Vertices are optimal sets for the given parameter; edges slide one vertex across an original graph edge. Realizability concerns several domination-related parameters.",
+          "identifier_or_url": "https://arxiv.org/html/1707.02039v1",
+          "material_read": "Initial slide-model definition around offset 2903 and §1 Corollary 2, offset 7100",
+          "method": "Lawful OA full-text passages",
+          "title": "A note on some variations of the gamma graph",
+          "trigger": "Generic minimum-solution slide graph formulation"
+        },
+        {
+          "assessment": "Identical record, not separate coverage",
+          "evidence": "Same families and exact four-bin distribution over 5995 pairs.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-slide-code-relaxation-detour-on-the-gr-tzsch-graph--89f6787191dd",
+          "material_read": "RESULT.md, Finding and table, offset 0; frozen proof and supports",
+          "method": "Frozen package and Resultary mirror",
+          "title": "A sharp three-slide code-relaxation detour on the Grötzsch graph",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different graph and locating predicate",
+          "evidence": "247 minimum locating-dominating sets on the 13-vertex Paley graph, 26 identifying.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-thirteen-antipodal-code-pairs-in-the-paley-locating-dominati--bb59f463fd26",
+          "material_read": "RESULT.md offset 715",
+          "method": "Resultary mirror",
+          "title": "The thirteen antipodal code pairs in the Paley locating-domination comparison",
+          "trigger": "Distinct same-day cross-predicate census"
+        },
+        {
+          "assessment": "Different graph and optimum size; no IC relaxation",
+          "evidence": "110 size-six LTD sets on the Petersen line graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-two-edge-paths-classify-minimum-locating-total-codes-of-th--906654f0461c",
+          "material_read": "RESULT.md offset 0",
+          "method": "Resultary mirror",
+          "title": "Three two-edge paths classify minimum locating-total codes of the Petersen line graph",
+          "trigger": "Distinct same-day minimum-LTD count and exchange graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Grötzsch graph is a canonical small Mycielski example, and the fixed-cardinality distance test isolates the cost of retaining the stronger feasibility requirement during moves. The comparison gives useful information unavailable from either optimum cardinality: some endpoint pairs cross a genuine three-slide barrier, with 60 extremal pairs and only one slide of potential saving if jumps are permitted. The exact census therefore measures a specific structural difference rather than recomputing a standalone domination number.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

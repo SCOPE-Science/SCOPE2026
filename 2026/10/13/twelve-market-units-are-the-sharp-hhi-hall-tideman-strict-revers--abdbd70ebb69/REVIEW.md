@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed total \(N\), HHI is ordered by the exact integer \(Q=\sum_i n_i^2\), while Hall–Tideman is ordered oppositely to \(R=\sum_i i d_i\) after sorting sizes \(d_i\) from largest to smallest. The packaged verifier generates every profile through \(N=12\) independently as partitions and canonicalized compositions, checks all \(762\) admissible within-\((k,N)\) pairs, and reproduces the unique tie split at \(N=10\), absence of strict reversal through \(N=11\), and unique strict reversal at \(N=12\). It returns `VERIFY_OK`.
+## correctness
 
-Risk: the cutoff is specific to the positive-integer grid and fixed-\((k,N)\) comparisons.
+PASS
 
-## Originality
-**PASS.** Hall and Tideman introduced the rank-weighted concentration measure and compared it with Herfindahl; Bikker and Haaf and later Anbarci and Katzman explicitly distinguish the weighting structures. Generic differences between the indices are therefore prior work and are not claimed as new. Searches using Hall–Tideman, Rosenbluth, HHI, fixed-total, exact-profile, and rank-reversal formulations did not locate the sharp \(10/12\) finite boundary or the unique first strict pair.
+For descending sizes define D=Σ_{i<j}|d_i−d_j|=(k+1)N−2R. Then HTI=N/(kN−D), with positive denominator, so at fixed k,N it increases strictly with D, while HHI increases strictly with Q=Σ d_i². I ran an independent exact enumeration using multiplicities: starting at part size s=N and remainder N, take a=0,…,floor(remainder/s) copies of s and recurse at s−1 with remainder reduced by as; at s=0 keep exactly remainder-zero profiles of length at least two. This visits each admissible multiset exactly once. Bucket by length and compare every unordered pair by integer differences ΔQ,ΔD. There were 762 pairs, with counts for N=2,…,12 equal to 0,0,1,2,7,13,30,56,109,190,354. The tie-split counts were zero through 9, then 1,5,8; reversal counts were zero through 11 and one at 12. At N=10 the unique tie split has profiles (1,4,5), (2,2,6) with (Q,D)=(42,8),(44,8), giving HHI 21/50,11/25 and common HTI 5/11. At N=12 the unique strict reversal is (1,2,4,5),(2,2,2,6), with (Q,D)=(46,14),(48,12), giving HHI 23/72,1/3 and HTI 6/17,1/3. This exhausts the asserted finite domain; N<2 has no admissible profile. The frozen Python verifier, inspected but not executed, uses partition and ordered-composition generators and direct rational HTI. The multiplicity recursion and integer comparisons above give a separate replay without relying on that verifier. These are lattice cutoffs, not invariant market-size thresholds for continuous shares.
 
-Risk: the original 1967 full text was not retrievable in the checked routes, and an unindexed exercise or software fixture could contain an individual witness.
+## originality
 
-## Value
-**PASS.** HHI is a standard market-concentration benchmark, whereas Hall–Tideman was designed to incorporate firm rank and the number of firms. Fixing firm count and total removes two obvious scale effects and isolates the difference between squared-share weighting and rank weighting. The exact first strict reversal is therefore a natural diagnostic for interpretation and implementation, not an arbitrary numerical slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Hall–Tideman is order-equivalent to Gini on these fixed-(k,N) layers, and known partition-index results control both rankings on comparable majorization pairs. Those results do not determine the first discordant incomparable profiles. A distinct same-day HHI–entropy record uses the same N=10 witness but gives a strict HHI–entropy reversal there, not an HTI tie, and its boundary is for N−k. Credit the exact first HHI–HTI weak disagreement and first strict reversal with uniqueness, not the relationship between indices or discovery of the N=10 profiles.
+
+## value
+
+PASS
+
+A tie split and a strict reversal are substantively different failures for commonly used concentration rankings. Fixing both the number of firms and total, the result gives minimal reproducible examples of each and proves the strict witness unique at the first grid size. This is useful when testing or explaining the rankings without a change in total or firm count. It is not a welfare result or a policy threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

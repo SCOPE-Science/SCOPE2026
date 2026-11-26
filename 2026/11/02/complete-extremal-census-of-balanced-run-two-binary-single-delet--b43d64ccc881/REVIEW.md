@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. One-deletion correction is exactly disjointness of deletion-shadow sets. All balanced length-\(4,6,8,10\) binary words are constructed, filtered for forbidden constant triples, and compared pairwise. A complete Bron–Kerbosch maximal-clique enumeration gives the cardinality and maximum-codebook census; the independent descendant-bucket conflict graph agrees edge for edge, and a separate NetworkX enumeration agrees on all four full histograms. Every certificate codebook is checked directly. The finite scope is explicit and no indefinite extrapolation is made.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. The closest published constant-weight single-deletion framework (Cullina, Kulkarni and Kiyavash, 2012) gives modified-VT colorings and existence, not the count of optima under the simultaneous binary exact-balance and length-two run constraints. The 2012 constrained-source upper-bound paper uses a different \((d,k)\)-RLL model and states bounds rather than a complete finite extremal census. Targeted searches of the specific parameters, alternative terminology and previously accessible mathematical claims found no covering classification. An earlier constant-composition thesis was not available in full and remains a priority risk.
+PASS
 
-## Value
-PASS. This joint constraint is motivated by short deletion-robust barcode design; determining all optima, rather than merely generating a syndrome code, measures design freedom. The transition from a unique optimum at length eight to twenty at length ten, split into eight symmetry classes, and the existence of eighteen nonsyndrome maxima distinguish the classification from a routine restatement of modified-VT coloring. It is a natural complete short-length extremal classification, not an arbitrary example or a claim of a large asymptotic improvement.
+This is a finite unrestricted-subset problem on noncyclic words, not a linear-code problem. The explicit graph criterion is equivalent to pairwise shadow disjointness. In the frozen pivot recursion, any unreported maximal clique must either use the pivot (if eligible) or contain a vertex not adjacent to it; otherwise the pivot extends it, or it was already excluded by X. Removing each processed branch from P and putting it in X prevents duplicates. Independently, I treated each candidate as a set of descendants and branched on the parent group of a descendant: a packing uses exactly one of that group or none, and choosing a word forbids all parents of its descendants. A partition of the remaining candidates into such conflict groups gives an upper bound of one per group. The independent search discards only branches strictly below the current best, so it counts ties and certifies exhaustiveness. It gives (admissible words, maximum size, labeled maxima)=(6,2,4),(14,4,4),(34,8,1),(84,15,20), agrees with every literal codebook and ordering in maxima.json, and obtains syndrome 3 modulo 5 at length eight and exactly syndromes 3,4 modulo 6 at ten. Applying the four reversal/complement maps gives six two-element and two four-element orbits at ten.
 
-## Closest literature and limitations
-Cullina, Kulkarni and Kiyavash (2012), arXiv:1211.4056; Kulkarni and Kiyavash (2012), arXiv:1211.3128; Kracht and Schober (2015), DOI:10.1186/s12859-015-0482-7. Only exactly one deletion, binary linear words, weight one-half and maximum run length two are covered. The earlier thesis and unindexed code catalogues remain historical-priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Modified-VT validity and the deletion-conflict graph model are known, as is the length-four optimum size from the identical balanced layer. The supported distinct result is the exact optimum and equality census of the intersection of balance and run ceiling two, particularly the labeled maximizers and orbit structure at lengths eight and ten. Neither of the closest exact broader-domain tables yields that census.
+
+## value
+
+PASS
+
+The balanced layer and symmetric run restriction define a natural intersection of two distinct constrained-code regimes. The exact equality census distinguishes whether the standard algebraic construction merely attains the optimum or classifies all optimal codes. Length eight gives uniqueness, whereas length ten exposes substantial structure outside the syndrome construction, still with eight inequivalent classes under the two natural symmetries. This is a concrete benchmark for future constrained packing or classification algorithms, not a claim that VT codes lose optimal size here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:05.892279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–59, VERIFICATION.md and verify.py inspected",
+        "Independent replay: python3 /workspace/review_evidence/4_reproduce.py",
+        "Ufnarovski–Åhlander, Theorem 1 equation (1)"
+      ],
+      "rationale": "For squarefree n the two normalized functions are the sum of reciprocals and the product of one-minus-reciprocals. For even n>2 the term n/2 alone is odd, while φ(n) is even; for odd n>1 with odd support every n/p is odd and φ(n) is even. The empty support fails and the one-prime equation gives 2; for two odd primes (p−2)(q−2)=3 gives exactly 15. At four odd primes F>0 is necessary and solving the one remaining reciprocal gives exactly the displayed s; 0<1/s<1/r yields the strict bounds in the proof. Independently, the normalized product-minus-sum gap strictly increases with each prime variable, and even the lower benchmarks (5,11,13,15), (5,7,11,13), (3,17,19,21) and (3,13,17,19) have positive gap, excluding their entire ordered ranges. The pair (3,5) already has zero gap before adding more primes, so it cannot give equality after adding two. For the remaining pairs (3,7) and (3,11), repeating r in the fourth position gives the strict bound r<2(1+T)/F; positivity of the three-variable gap gives the lower bound. Exact rational replay gives s=549,123,747/13,189/5,1011/29,669/25,881/49. The integers are divisible by 3 and the others are nonintegral. The unbounded exclusions and the odd-support parity, not a finite interval in n, establish the barrier.",
+      "residual_risks": [
+        "No assertion on the existence of support-six or higher solutions, or on nonsquarefree numbers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0997f52ad810 covers every integer with at most two distinct primes, including the two squarefree solutions. The separate {5,7,r} classification has nonsquarefree solutions; the prime-three result only applies when 3 divides n. The 59-prime theorem has two disjoint supports, not the same equation."
+        ],
+        "reasoning": "These results share some hypotheses or support terminology, but none excludes all squarefree four-prime solutions. The same-day harmonic counting theorem is for a fixed smaller prime and exactly two primes.",
+        "searches": [
+          "Resultary searches for unrestricted or stronger support obstructions for D(n)=φ(n)",
+          "Resultary 0997f52ad810, 1d2d6ae794d7, 606f8bba8655 and 7547f3e75433"
+        ]
+      },
+      "checked_sources": [
+        "A166374",
+        "Ufnarovski–Åhlander JIS 6 (2003) Article 03.3.4",
+        "Local Resultary semantic index and records 0997f52ad810, 1d2d6ae794d7, 606f8bba8655, 6ae5567a606b and 7547f3e75433"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general formula and the two-prime Diophantine relation reduce the question but cover only the initial support cases. The bounds on p,q,r and the finite list of rational fourth primes are not supplied by those results."
+        ],
+        "reasoning": "The known initial solutions and elementary odd-support parity are not claimed as discoveries. The exact exhaustion at the first remaining support is a separate deduction, without which no six-prime bound follows from the compared evidence.",
+        "searches": [
+          "Ufnarovski–Åhlander (2003) Theorem 1",
+          "A166374 Robert Israel comment, 2014-08-21",
+          "Resultary 0997f52ad810 and 6ae5567a606b Findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A166374 explicitly has n'=φ(n). The prime-factor derivative formula makes the one-support reciprocal equation equivalent after division by n.",
+          "The same-day derivative two-cycle theorem compares two inputs D(n)=m and D(m)=n; D(φ(n))=n likewise differs from D(n)=φ(n)."
+        ],
+        "reasoning": "Normalize by n but keep the single prime support and the product, rather than identifying unrelated derivative compositions or reciprocal-sum estimates.",
+        "searches": [
+          "Literature: ‘arithmetic derivative’ ‘Euler totient’ D(n)=φ(n) squarefree reciprocal sum product equation",
+          "Resultary search for the same equation and normalized reciprocal form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A166374 lists 2 and 15 and gives an older parametric construction for two-prime support; it is not a certified exhaustive census restricted to squarefree support four across unbounded n."
+        ],
+        "reasoning": "The equation and examples are known. No exact table checked implies the four-prime nonexistence; the bound comes from algebraically exhausting the prime triples.",
+        "searches": [
+          "OEIS A166374, exact equation, entries and COMMENTS",
+          "OEIS A003415 and A000010 as the defined input sequences in the frozen references"
+        ]
+      },
+      "rationale": "Both examples and the squarefree support-at-most-two conclusion are already covered. The distinct result is the unrestricted four-prime exclusion and resulting six-prime necessary barrier. The frozen relationship-to-prior-work section omits the exact-match OEIS A166374 and should credit it and the already covered two-prime case; neither omission invalidates the distinct exclusion.",
+      "residual_risks": [
+        "Bounded searches do not exclude an unindexed or differently phrased four-support exclusion. No priority is inferred merely from a same-day record's date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same derivative, supplies normalization only",
+          "evidence": "D(n)=n times the sum of the prime exponents divided by their respective primes.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+          "material_read": "p. 1, Theorem 1, equation (1)",
+          "method": "Primary OA PDF text",
+          "title": "How to Differentiate a Number",
+          "trigger": "Arithmetic derivative normalization"
+        },
+        {
+          "assessment": "Exact same equation and partial coverage",
+          "evidence": "Lists 2 and 15; gives positive solutions of (p−1)(q−1)=ap+bq under the specified nondivisibility condition; does not supply a four-prime squarefree exhaustion.",
+          "identifier_or_url": "https://oeis.org/A166374",
+          "material_read": "Entry and COMMENTS beginning at offset 0; Robert Israel's 2014-08-21 comment",
+          "method": "Public sequence record",
+          "title": "Numbers n such that n'=phi(n)",
+          "trigger": "Exact equality and examples"
+        },
+        {
+          "assessment": "Covers squarefree support at most two",
+          "evidence": "Prime-power solutions p^(p−1) and complete odd two-prime-support criterion imply that 2 and 15 are the only squarefree cases in those layers.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-two-prime-support-classification-of-the-arithmetic-derivative-to--0997f52ad810",
+          "material_read": "Mirrored RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Two-prime-support classification of the arithmetic-derivative/totient equation",
+          "trigger": "Strongest exact equation match"
+        },
+        {
+          "assessment": "Different support and exponents",
+          "evidence": "The two progressions give r-exponent at least 2, so no four-prime squarefree coverage.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-two-prime-progressions-classify-arithmetic-derivative-totient-co--1d2d6ae794d7",
+          "material_read": "Mirrored RESULT.md Finding and equation (1)",
+          "method": "Local Resultary mirror",
+          "title": "Two prime-progressions classify arithmetic-derivative–totient coincidences with support {5,7,r}",
+          "trigger": "Same equation beyond support two"
+        },
+        {
+          "assessment": "Restricted to 3 dividing n; does not settle support four",
+          "evidence": "Apart from 9 the other primes must be 2 mod 3, in odd number; three other primes are not excluded by that condition alone.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-a-prime-three-residue-obstruction-for-arithmetic-derivative-toti--606f8bba8655",
+          "material_read": "Mirrored RESULT.md Finding and modulo-three proof",
+          "method": "Local Resultary mirror",
+          "title": "A prime-three residue obstruction for arithmetic-derivative–totient coincidences",
+          "trigger": "Possible dominance by a general support obstruction"
+        },
+        {
+          "assessment": "Overlapping equation but distinct claim",
+          "evidence": "Asymptotic for two distinct primes with fixed smaller prime; no three- or four-support conclusion.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-a-harmonic-counting-law-for-two-prime-arithmetic-derivative-toti--6ae5567a606b",
+          "material_read": "Mirrored RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "A harmonic counting law for two-prime arithmetic-derivative–totient coincidences",
+          "trigger": "Same-day exact-equation match"
+        },
+        {
+          "assessment": "Different equation and invariant",
+          "evidence": "Bounds total support of a two-cycle D(n)=m, D(m)=n, not support for the one-input totient comparison.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-a-59-prime-support-barrier-for-arithmetic-derivative-two-cycles--7547f3e75433",
+          "material_read": "Mirrored RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "A 59-prime support barrier for arithmetic-derivative two-cycles",
+          "trigger": "Potentially stronger support bound with reciprocal sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen support reduction and rational cases",
+        "A166374 and prior two-prime classification"
+      ],
+      "rationale": "After parity and the known two-prime layer, four is the first unresolved possible squarefree support for a nontrivial equality. Complete elimination at this support is a meaningful structural barrier that applies no matter how large the primes are, not a bound on the tested integer range.",
+      "residual_risks": [
+        "Does not address higher even supports or nonsquarefree coincidences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

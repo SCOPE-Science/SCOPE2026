@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact fourth-order expansion of the two-level Richardson stability function eliminates the cubic coefficient, leaving the fourth Laplacian power as the decisive term at graph distance three. Expanding the Laplacian power as adjacency/degree words yields a direct identity in two disjoint neighbor sets and the remaining vertices. Deleting excess cross edges raises this coefficient; a sharp per-remaining-vertex bound reduces the problem to a six- or seven-entry integer table. That table proves the size-nine upper bound and the size-ten maximum; explicit ten- and nine-vertex graphs attain both. Every finite connected diameter-at-most-three graph with at most nine vertices is locally strictly positive because the leading entries at graph distances one, two, and three are positive. The standalone exact-rational checker confirms the witness and 2,499 sampled identity comparisons, without substituting finite tests for proof.
+## correctness
 
-**Originality — PASS subject to independent checking.** Lawson–Morris (University of Waterloo CS-77-20, 1977, Section 2) is the exact original two-level implicit extrapolation construction, and its page 9 explicitly notes the negative scalar tail. Constantinescu–Sandu (TR-08-13, 2008, Section 2) treats the general extrapolation tableau and stability. The public scalar positivity-barrier result also concerns scalar amplification, not the minimal order of an unweighted graph obstruction. Earlier related local graph examples establish existence but not an exact ten-vertex lower cutoff. Those facts do not imply the universal fourth-Laplacian bounds or the minimum-order classification. Specialized graph-specific prior coverage could still exist, and the 1977 full report was examined in selected substantive sections and its concluding numerical illustrations rather than every scanned page.
+PASS
 
-**Mathematical value — PASS.** The exact minimum graph order is a natural invariant of a positivity-preserving numerical method: it separates small networks provably protected against a leading-order sign defect from networks where extrapolation can immediately violate nonnegativity. The proof adds a structural sharp Laplacian-power inequality and an equality construction, not a routine reparameterization or only a smaller isolated example. It is limited to simple unit-weight diameter-three graphs and local step sizes.
+For the specified completed two-half-step map the coefficient of (hL)^k is (-1)^k[(k+1)/2^{k-1}-1]. In particular the cubic cancels and the fourth coefficient is -3/8. At distance 1 and 2 the first nonzero coefficients are positive, and diagonals tend to one. For distance-three u,v, factoring L^4 as L^2 L^2 independently recovers the key identity: at a midpoint i in U=N(u), (L^2)_{ui}=-|U|-1-p_i-|N(i)∩W|, while (L^2)_{iv}=p_i. V=N(v) gives the symmetric terms; W contributes x_w y_w, and the endpoints contribute zero. Keeping one cross edge and deleting others increases this expression. Conditioning on whether w meets the two surviving edge endpoints gives exactly max(0,ab-2) as its maximal contribution for |U|=a, |V|=b. Balancing a,b for each sum and evaluating the short bound tables gives -1 and 4. Independent integer matrix-vector Laplacian iteration and breadth-first distances on the two witnesses confirm both equality cases have diameter 3. The fourth-order coefficient of the failing entry is -3/2. The sign rule at distance three requires a nonzero fourth coefficient; the bounds and witness used in the theorem satisfy this, but one cannot apply that rule to a general pair with vanishing coefficient.
 
-Closest literature: Lawson and Morris (1977/1978), Constantinescu and Sandu (2008/2010), and the published scalar Richardson positivity-barrier result (2026). The scientific conclusions are not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known extrapolation and known positivity failures do not establish the minimum order under the frozen graph restriction, nor the two sharp pairwise bounds. No inspected source gives or implies that distinct claim. This is a bounded literature judgment, not proof of priority.
+
+## value
+
+PASS
+
+The cubic cancellation creates a natural boundary where graph distance alone no longer decides the sign. The extremal argument explains which cross edges and common midpoints can make the first surviving coefficient negative in the update; it proves protection of every smaller graph in scope, not just a witness. This is useful for understanding loss of positivity under second-order acceleration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

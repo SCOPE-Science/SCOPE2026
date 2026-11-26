@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:12:06.739543Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–49",
+        "VERIFICATION.md, and check_direct.py/check_structure.py with their expected stdout, inspected only",
+        "Independent direct interval and exchange enumeration: python3 /workspace/review_evidence/1.py"
+      ],
+      "rationale": "In L(K_n) an omitted ab must be the middle of a length-two shortest path between disjoint selected ax and by, so the endpoint neighbor sets must allow different x and y. Failure is precisely an isolated endpoint somewhere or two leaves attached to the same vertex. At the edge-cover bound even n gives a matching; odd n gives one P3 and matching edges, and P3 is forbidden. With n=2k+1 and k+2 edges the component count is k or k−1 by cycle rank. The former forces a triangle and the latter a forest with total excess three over two vertices per component. No 3-vertex tree is allowed, so the unique larger tree has five vertices; any nonpath tree of that size has two leaves with a common neighbor. Matching counts and the 5!/2 path factor then give the census. A matched-edge deletion cannot be repaired. In a triangle, deleting one of three edges allows four attachments per external pair, all slides. In a P5 labeled 1 through 5, each terminal deletion allows only reconnection 15; deleting 23 leaves 12 and 3–4–5, so internally the allowed inserts are 13,15,25,35, with only 15 a jump-only move. Reflecting gives the symmetric internal deletion, and each internal deletion adds four moves per external pair, two slides. This gives all stated degrees. The explicit three-slide sequence swaps one triangle label with one matching label, and using the current triangle label as a buffer for three such exchanges swaps two exterior labels while restoring the triangle. Path states slide to triangle states, yielding odd-order connectivity including the singleton n=3; even states have no moves.",
+      "residual_risks": [
+        "Independent enumeration covered every subset for 3≤n≤6; minima and basis counts obtained were (3,1), (2,3), (4,70), (3,15), in order. At n=5 the degree multisets by multiplicity were jump {10:60,12:10} and slide {8:60,12:10}, each with one component. The infinite result follows from the reasoning, not the finite ranges or supplied expected outputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bound |V|−diam+1 specializes to binomial(n,2)−1. Non-split adds a connectivity condition on the unselected graph. The nearby Resultary distance-equalizer entry uses equal distances from a selected vertex to a pair, not shortest-path coverage."
+        ],
+        "reasoning": "Neither upper bounds for the broad family nor counts for a different invariant determine the class of ordinary optimum states or their exchange adjacency. No stronger covering statement was verified.",
+        "searches": [
+          "Goudar et al., diameter bound used in Theorem 3.12",
+          "Ashalatha et al., Non Split Geodetic Number of a Line Graph",
+          "Resultary, triangular graph ordinary geodetic bases and reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror and search",
+        "Goudar et al. (2012), Theorem 3.12",
+        "Ashalatha et al. (2013), bounded retrieval attempt; no full text read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stated bound gives 5 even at n=4 where the exact minimum is 2; it makes no assertion about attaining subsets. Pairwise intervals on a diameter-two graph alone do not classify minimum chosen-edge components."
+        ],
+        "reasoning": "Component-excess restrictions yield the optimum shapes; the local exchange analysis and three-slide construction are needed to infer degrees and connectivity, not just a substitution in the prior bound.",
+        "searches": [
+          "Goudar et al., Theorem 3.12 compared with parity equality and the one-token moves"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.12 explicitly concerns L(K_n), i.e. the triangular graph or Johnson graph J(n,2), and gives g≤(n+1)(n−2)/2 for n≥4."
+        ],
+        "reasoning": "These are aliases of the same graph when the vertices are two-subsets and adjacency means one common element. The upper bound does not give the edge-set criterion, minimum basis types, or exchange graphs.",
+        "searches": [
+          "\"On the Geodetic Number of Line Graph\" triangular graph L(K_n) geodetic sets Goudar Ashalatha",
+          "Goudar et al., Theorem 3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 2026/11/8/SCOPE-geodetic-bases-of-triangular-graphs-parity-exact-counts-and-slid--69dc43dfa005 is the target RESULT itself. Distinct 2026/11/2/SCOPE-complete-minimum-distance-equalizer-census-of-triangular-and-two--77cf9761bfc9 is a distance-equalizer census."
+        ],
+        "reasoning": "The catalogue match is not independent prior coverage; an isolated matching-number sequence would account for the even multiplicities only once the optimum-state identification is proved.",
+        "searches": [
+          "Resultary semantic lookup for triangular-graph parity classification, exact counts, and slide/jump degrees"
+        ]
+      },
+      "rationale": "The closest read treatment of the ordinary geodetic number on this exact graph obtains an upper bound, not the sharp parity classification, the minimum-state census, or the slide/jump structure. The cited non-split problem and a nearby distance-equalizer census are different invariants.",
+      "residual_risks": [
+        "The title-focused literature query returned no additional hits, which does not establish absence. The 2013 theorem was inaccessible at the identified URL. Priority among Johnson graph and geodetic reconfiguration treatments remains provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same L(K_n) in an upper bound, not the census or mobility theorem",
+          "evidence": [
+            "Applies g(G)≤|V(G)|−diam(G)+1 to L(K_n)."
+          ],
+          "identifier_or_url": "https://m-hikari.com/ijcms/ijcms-2012/45-48-2012/goudarIJCMS45-48-2012.pdf",
+          "material_read": "Introduction, approximately printed pp. 2290–91, and Theorem 3.12, PDF pp. 5–6 (offset about 12089)",
+          "method": "Bounded OA PDF passage reads",
+          "title": "On the Geodetic Number of Line Graph",
+          "trigger": "Ordinary geodetic numbers on the same line graph"
+        },
+        {
+          "assessment": "Exact theorem not independently read; apparent extra complement-connectivity restriction is not the ordinary invariant",
+          "evidence": [
+            "HTTP 404 on attempted routes; no negative inference from retrieval failure."
+          ],
+          "identifier_or_url": "https://journalofscience.org/index.php/GJSFR/article/view/103300",
+          "material_read": "No full-text passage retrievable; frozen record's account only",
+          "method": "OA direct and alternate routing attempts to supplied article URL",
+          "title": "Non Split Geodetic Number of a Line Graph",
+          "trigger": "Potential overlap on line graphs"
+        },
+        {
+          "assessment": "Identical target record",
+          "evidence": [
+            "The parity classification, counts and reconfiguration statement agree."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-geodetic-bases-of-triangular-graphs-parity-exact-counts-and-slid--69dc43dfa005",
+          "material_read": "Matching RESULT.md finding in local mirror",
+          "method": "Resultary search and mirror read",
+          "title": "Geodetic bases of triangular graphs: parity, exact counts, and slide mobility",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 6–49",
+        "Goudar et al. (2012), Theorem 3.12"
+      ],
+      "rationale": "The complete minimum-state classification for the natural triangular family explains an exact parity effect and also fully resolves local mobility. In particular it distinguishes an entirely frozen even family from a connected odd family even for the more restrictive slide rule; neither the upper bound nor recording a few counts explains this.",
+      "residual_risks": [
+        "No diameter formula or conclusion for strong, edge, or non-split geodetic variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

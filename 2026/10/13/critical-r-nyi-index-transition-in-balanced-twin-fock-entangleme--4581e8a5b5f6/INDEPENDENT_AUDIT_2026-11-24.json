@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:05.859183Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The balanced mode transformation multiplies the two input factors to give (c†²−d†²)^n. Distinct output occupations are orthogonal on each side; including their factorial normalizations gives p_{n,k}=a_k a_{n-k}, whose sum is one by convolution. On k<=n/2 the scaled bulk endpoint mass is bounded by C n^{q/2−1} times the sum of (k+1)^(-q/2) through δn, so uniform interior Stirling and then δ→0 give the beta integral for 0<q<2. At q=2 replacing a_{n-k}² by 1/(πn) on either half produces total error O(1/n), since (k+1)a_k² is bounded; the harmonic sums give the coefficient 2/π². For q>2 the two reflected half-sums each converge by a summable majorant C a_k^q, with no midpoint contribution. The integrable endpoint bound for f_n log f_n establishes the von Neumann constant without interchanging the n limit and a q derivative; the expectation of log x under the arcsine density is −2 log 2. The partial transpose trace norm equals F_n(1/2)²; the beta evaluation gives the stated gamma constant and subtracting 1 does not change the limiting slope. The increasing successive ratios of a_k put the largest weight at either edge. The frozen script and its stated observations were inspected, not executed; the limit verification is analytic.",
+      "residual_risks": [
+        "All orders in the limit are fixed; no uniform near-critical scaling or imperfect beam splitter is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected majorization result assumes |k,0>, not equal nonvacuum input. The Khansari paper is reported in the frozen comparison to treat the exact equal-input law and entropy, but its full text could not be retrieved in the bounded lawful attempts.",
+          "DLMF gives the logarithmic singular behavior of K, relevant to the critical moment only."
+        ],
+        "reasoning": "The available evidence supplies exact probabilities and critical special-function tools, not a broader evaluated asymptotic that yields all three regimes. The reported Khansari entropy comparison is not treated as verified from that paper.",
+        "searches": [
+          "arXiv:1301.5229v1, Introduction and Sections II–III",
+          "DOI 10.22051/jitl.2026.54680.1143 and cited publisher PDF",
+          "DLMF §19.12, Eq. 19.12.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 867c58f80465",
+        "arXiv:1301.5229v1",
+        "arXiv:1906.00678v2",
+        "DLMF 19.12.1",
+        "doi:10.22051/jitl.2026.54680.1143 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2, the known probabilities yield the coefficient of [(2/π)K(sqrt(z))]^2. Classical logarithmic coefficient asymptotics, with the leading log squared coefficient 2H_{n−1}/n, recover the leading 2/π².",
+          "The von Neumann constant uses endpoint-controlled convergence of f_n log f_n, and the negativity coefficient is a corollary of the bulk order 1/2, not a new negativity identity."
+        ],
+        "reasoning": "Credit the known spectrum, arcsine law and independently covered critical calculation. Calculating the all-order limits requires deciding which region dominates and evaluating the uniform tail contribution, in particular the edge sum for q>2. The inspected sources do not provide that full asymptotic as a stated result or parameter substitution.",
+        "searches": [
+          "arXiv:1906.00678v2, Eq. (2) and Sec. II",
+          "DLMF Eq. 19.12.1",
+          "Khansari DOI 10.22051/jitl.2026.54680.1143 (bounded access attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same equal-input, r=1/2 output probabilities are the squared Kravchuk amplitudes in arXiv:1906.00678v2. Its even-output envelope 4/[π S sqrt(1−(2k/S−1)^2)] gives the arcsine bulk after setting S=2n and k=2j.",
+          "Resultary 867c58f80465 addresses Pauli expectation moments of a two-excitation Dicke state, not the spectrum of a one-mode reduction."
+        ],
+        "reasoning": "A number-distribution formula covers the Schmidt probabilities because total photon number is fixed. The matching arcsine envelope does not quantify both boundary layers for the full range of moments. A Rényi threshold at the same number for Pauli moments is not an equivalence.",
+        "searches": [
+          "Resultary: balanced twin-Fock Rényi moments and transition at order two",
+          "arXiv:1906.00678v2, Eq. (2), Figure 2(a) and Sec. II",
+          "BetaBinomial(n,1/2,1/2) convolution representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue match involves Dicke Pauli moments with order varying on the scale 2+s/log n.",
+          "The classical expansion implies (2/π)K(sqrt(z)) has leading singular term π^(-1)log(1/(1−z))."
+        ],
+        "reasoning": "There is exact tabulated material for the q=2 generating function once the known spectrum is substituted: its square has leading log-squared term. That material does not tabulate the bulk beta constant and summable-edge sequence for arbitrary real order.",
+        "searches": [
+          "Resultary: twin-Fock reduced eigenvalue moments, bulk/edge threshold",
+          "Resultary 867c58f80465",
+          "DLMF 19.12.1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the combined sharp fixed-order asymptotics of the balanced twin-Fock Schmidt law, including the edge constant and the mode-entropy distinction. The number distribution, its bulk envelope, and the general pure-state negativity identity are not new. The isolated critical purity asymptotic also admits a classical special-function derivation, so it should not on its own carry a priority claim.",
+      "residual_risks": [
+        "Khansari's primary full text was not inspected; exact overlap with its entropy or moment results remains unresolved.",
+        "A broader treated beta-binomial Rényi asymptotic could reduce the distinct scope. Bounded catalogue and literature searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different input family and claim",
+          "evidence": "Photon-number and reflectivity majorization for |k,0>.",
+          "identifier_or_url": "arXiv:1301.5229v1",
+          "material_read": "Introduction, offsets 3960–7229, including discussion of Sections II–III",
+          "method": "OA HTML passage inspection",
+          "title": "Majorization relations and entanglement generation in a beam splitter",
+          "trigger": "Earlier beam-splitter entanglement scaling"
+        },
+        {
+          "assessment": "Covers the spectrum and arcsine bulk envelope",
+          "evidence": "Kravchuk squared probabilities at general reflectivity and the equal-input balanced envelope.",
+          "identifier_or_url": "arXiv:1906.00678v2",
+          "material_read": "Figure 2(a); Sec. II, Eq. (2) and edge-state passage, offsets 7121 and 9000",
+          "method": "OA HTML passage inspection",
+          "title": "Quantum simulations with multiphoton Fock states",
+          "trigger": "Exact equal-input number spectrum and envelope"
+        },
+        {
+          "assessment": "Plausible material overlap not independently resolved",
+          "evidence": "Publisher PDF and DOI lookup did not yield the paper; the frozen comparison attributes balanced probabilities and a half-log statement to it.",
+          "identifier_or_url": "doi:10.22051/jitl.2026.54680.1143",
+          "material_read": "No primary full text; frozen RESULT.md lines 59–60 describe its Section 6",
+          "method": "Bounded publisher PDF and DOI recovery attempts",
+          "title": "Quantum beam splitter as a deterministic entanglement source: exact photon-number statistics, Hong–Ou–Mandel interference, and von Neumann entropy scaling from balanced inputs",
+          "trigger": "Same setup and entropy scaling in title"
+        },
+        {
+          "assessment": "Classical critical-order ingredient",
+          "evidence": "The m=0 term of K(k) is log(1/k′)+2 log 2 with the remaining terms higher order in k′².",
+          "identifier_or_url": "https://dlmf.nist.gov/19.12.E1",
+          "material_read": "§19.12, Eqs. 19.12.1 and 19.12.3, offset 1200",
+          "method": "Public OA page passage inspection",
+          "title": "NIST Digital Library of Mathematical Functions, Elliptic Integrals: Asymptotic Approximations",
+          "trigger": "Potential exact q=2 special-function coverage"
+        },
+        {
+          "assessment": "Different spectrum and asymptotic regime",
+          "evidence": "Pauli-expectation magnitudes with order 2+s/log n, not fixed-order Schmidt moments of twin-Fock states.",
+          "identifier_or_url": "Resultary 867c58f80465",
+          "material_read": "RESULT.md, Finding, offsets 0 and 1819",
+          "method": "Catalogue search and local mirror",
+          "title": "Three-sector Rényi crossover in the two-excitation Dicke Pauli spectrum",
+          "trigger": "Closest catalogue Rényi transition match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, moment and entropy limits",
+        "arXiv:1906.00678v2, Eq. (2) and Figure 2(a)",
+        "DLMF 19.12.1"
+      ],
+      "rationale": "The formula gives sharp weights of three different asymptotic mechanisms in a standard optical entanglement source. It quantifies when the continuum arcsine law is usable and when the lattice edges must be kept, and separates the leading von Neumann and min-entropy coefficients. The useful result is this fixed-order classification and its constants, not a rediscovery of the photon-count probabilities or the q=2 calculation alone.",
+      "residual_risks": [
+        "No claim about a finite-size scaling window centered at q=2 or robustness under nonideal optics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

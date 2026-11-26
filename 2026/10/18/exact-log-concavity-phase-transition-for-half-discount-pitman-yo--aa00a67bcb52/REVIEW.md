@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The block-count probability masses follow from the Ewens–Pitman partition rule. The generalized Stirling recurrence, the explicit half-discount coefficient formula (derived through Lagrange inversion), and the neighboring probability ratios are established for every integer sample size. The curvature difference is a rational expression with positive denominator and a linear strength polynomial. Its slope is positive and its value at the proposed boundary is an explicitly nonnegative product, with equality only at the second block count. The second block-count inequality proves necessity. The exact-arithmetic checker reproduces the formulas independently for finite cases, but the algebra supplies the infinite proof.
+## correctness
 
-## Originality
-**PASS on the inspected published evidence, with residual indexing risk.** Dolera–Favaro's complete 2021 article develops the partition representation and block-count asymptotics, but not a log-concavity phase boundary. The closest coefficient theorem is Han–Seo's Bessel-number log-concavity: the half-discount generalized Stirling coefficients are a geometric rescaling of those numbers. Crucially, ordinary log-concavity of the coefficient sequence does not imply log-concavity after multiplication by the block-creation weight; the exact four-observation negative-strength example violates it. Zhao's generalized Stirling results similarly do not resolve the curvature of this weighted probability law. The accessible partition-inference literature does not supply the stated sharp strength threshold. Searches for alternative names, probability-generating functions, and threshold equivalents found no dominating statement. Unindexed prior work remains possible; database search absence alone is not a proof of novelty.
+PASS
 
-## Value
-**PASS.** The result is a complete natural shape classification for the block-count distribution in the distinguished half-discount model, rather than an arbitrary finite computation. It establishes the exact boundary of preservation and the sample-size at which a fixed negative strength necessarily destroys log-concavity. The half discount is natural in Poisson–Dirichlet models and is the case with closed Bessel coefficients, making an exact global classification meaningful for species-count and partition models.
+For θ>−1/2 the CRP has positive probabilities on the stated support. Iterating its recurrence factors the probabilities into the half-discount coefficients and the block-creation weights. The exponential block series is 2(1−sqrt(1−z)); applying Lagrange inversion to z=u(2−u) gives the stated coefficient and the neighboring ratio R_{n,k}=2(n−k)(k+2θ)/[k(2n−k−1)]. The ratio difference has a positive denominator and a numerator proportional to H_{n,k}, affine strictly increasing in θ since the θ coefficient is 2[(n−k)(2n−k)+k(n−1)]. At θ=−1/[2(n−1)], H factors as n(k−2)[k(n−2)+n]/(n−1); thus k=2 is the sole equality and below the boundary it is the failure witness. This covers all interior k, with no test for n=1,2, and yields the stated fixed-negative-strength size bound. An independently written exact-fraction recurrence replay found agreement over n=1–80, 554 strength/size cases and 66,909 checks, including the boundary and neighbors. Replay: /workspace/branches/6824cf16-da55-4984-a1e2-40e624044285/crp_recurrence_audit.py, pilot.log, chunk_11_40.log and chunk_41_80.log. Finite cases corroborate rather than prove the classification. The frozen script was inspected, not executed.
 
-The result does not address other discounts or stronger root-location properties. Its novelty and correctness remain subject to independent scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected exact Bessel coefficient theory and generalized-Stirling log-concavity results do not cover the θ-weighted block-count shape boundary; the other matching partition records treat distinct observables. The support is a statement-level comparison, not a claim of exhaustive novelty or historical priority.
+
+## value
+
+PASS
+
+This is a sharp, motivated change in the finite-sample shape of a standard partition statistic in its natural half-discount case. Negative strengths remain admissible but eventually lose log-concavity; the exact size cutoff and the unique witnessing triple distinguish this from a coefficient-array calculation or a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With two hub vertices, every leader set belongs to exactly one of three automorphism classes, and the full grounded-Laplacian spectrum reduces to two scalar multiplicities and one two-dimensional block. Direct inversion of that block gives all three rational inverse-square costs, including the zero-follower boundary. Three differences have exactly one crossing each in their applicable domains: two by elementary derivatives, and the remaining one by an explicit sharp derivative bound. The crossing order gives the complete classification, including all possible ties. Leading rational limits yield the two distinct macroscopic thresholds. Exact-rational matrix inversions and exhaustive finite cases substantiate the calculations but are not substituted for the infinite proof.
+PASS
 
-## Originality
+The exact costs follow independently by solving the follower equations for the two class sums. With r=2-a, s=q-k+a and D=2q-rs, the inverse has diagonal blocks q^{-1}I_r + s/(qD) times the all-ones matrix, and (1/2)I_s + r/(2D) times the all-ones matrix, with off-diagonal entries 1/D. This includes empty classes by omission. The squared Frobenius norm gives the three formulas. J1-J2 has strictly increasing numerator on q>=k; its sign at q=k separates integer budgets 2,3 from k>=4. J0-J2 increases strictly from a nonpositive value and J0-J1 increases from a negative value; both tend to infinity. The printed derivative bound handles q>=3, but its text omits noninteger 2<k<3, k<=q<3 in the auxiliary real gamma assertion. To check the omitted range, the first two terms of F'_k are at least 1/(2q)+(q-2)/q^3>=1/6. If the last term is subtractive, its magnitude is at most 2(q^2+q-7)/(q+1)^3, which increases on [2,3] where this numerator is positive and is at most 5/32. Thus the claimed real uniqueness also holds. Ordering the crossings gives every minimizer and all admissible integer ties; K_{2,2} at k=2 ties counts 0 and 2. Subtracting (q-k)/4 gives the three stated limiting costs; the strict signs at fixed ratios on either side of alpha bracket gamma_k/k, and the explicit eta_k gives beta. An independent bounded replay constructed the raw follower matrices and checked the scaled inverse identity with integer entries and the resulting costs for 1,740 class cases (2<=k<=30, k<=q<=35). It reproduced the mixed examples and the k=11, q=22 tie. The packaged verify.py and verification.log give an alternate finite rational replay; the continuum proof, not those checks, covers unbounded sizes. No change to the claim is needed.
 
-**PASS, with acknowledged historical coverage risk.** The closest first-order leader-centrality work supplies an inverse-trace criterion, not an inverse-square optimizer. The closest higher-order work derives the inverse-square performance expression and general approximate methods but not a \(K_{2,q}\) phase portrait for perfectly grounded leaders. Existing narrower biclique classifications with different objective or part sizes do not imply this exact three-phase result. The key new structural distinction is that a mixed leader set is uniquely optimal on a nontrivial parameter interval, whereas two adjacent comparison settings have different allocation structures. Targeted published-record and mathematical-database searches did not disclose a dominating exact statement. Specialized unindexed historical work is a residual risk; absolute priority is not proven.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete exact optimization of a natural control-performance statistic for an infinite two-community network family, not a computation for an arbitrary graph. The nontrivial intermediate optimal class corrects the intuition that leaders should always occupy one vertex class, and the sharp ratio interval quantifies when mixed placement is necessary. Every finite parameter instance is solved by constant-time rational comparisons; the theorem also determines all ties and gives two universal asymptotic transition constants.
+Credit the established second-order inverse-square criterion, exact inverse-first-power allocation on the same graph and the inverse-square near-balanced subfamily. The supported distinct result is exact inverse-square minimization, all ties, and the two limiting thresholds on the full unbounded two-hub family. No inspected statement implies those comparisons.
 
-## Scope and limitations
+## value
 
-The statement applies only to the unweighted bipartite two-hub family with \(2\le k\le q\) perfect leaders and the inverse-square grounded trace. There is no assertion about finite-gain leaders, heterogeneous edges, general bicliques, or broader graph classes. The published comparisons do not rule out unidentified specialized equivalents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-hub network is a natural asymmetric family with exactly three symmetry classes, and the inverse-square trace measures second-order coherence in the stated ideal model. Proving when a mixed placement is necessary, resolving the integer ties, and bounding the mixed phase by two distinct proportional scales answers a concrete optimization question not settled by a generic spectral formula. This is not a universal finite-gain or arbitrary-graph conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

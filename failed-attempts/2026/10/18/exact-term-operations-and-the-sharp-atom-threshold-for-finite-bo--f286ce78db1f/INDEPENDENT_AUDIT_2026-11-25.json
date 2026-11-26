@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:17.728121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The membership cells for the m variables partition the underlying atom set. Every feasible nonempty support is realized by assigning at least one atom to each type and the remaining atoms arbitrarily among those types. Operations preserve the property that the output is a union of cells determined solely by the support: the endpoint test checks only whether the chosen subset of types is empty or the whole support. Conversely the term δ₀(Y)=¬Y∧circ(Y) detects emptiness, so testing each cell defines exact-support selectors that realize any choice of output union on each feasible support. Constants for empty joins/meets are definable since m≥1. Independent choices of 2^r outputs at each r-element support give the displayed count and examples. The same inductively defined type semantics on every allowed support proves inclusion of the at-most-m-variable identity theories as k increases; exact support tests of size k+1 separate successive theories while k<2^m, and beyond that no new support can appear. This proves the ideal boundary statements even for k=1 and m=1. Independent concrete term-table closure on full input/atom coordinates (not assuming support collapse) used the additivity of ∃X, which tests nonemptiness, to refine Boolean blocks; it verified the exponents 4,16,28,32,32 for m=2 and k=1..5 among other cases. Replay: /workspace/branches/independent_replays/replay2.py and replay2.out. The finite checks do not replace the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halmos's simple/semisimple/functional representation supplies the classical monadic framework. Baker–Pixley in the cited text says that on a finite algebra with a majority term, preservation of subalgebras of the square suffices for term representability. Here a majority term follows from the definable equality switch."
+        ],
+        "reasoning": "In the Boolean reduct a subalgebra of the square corresponds to a partition of two disjoint copies of [k]. If any block is supported on only one side, its image under ∃ is the whole of that side and zero on the other; thus the whole side is a union of blocks, forcing the subalgebra to be a product. Otherwise every block meets both sides, so the subalgebra is the graph of the isomorphism of the two projection subalgebras that matches their blocks. This is why preserving generated subalgebras and their isomorphisms is sufficient here; the discriminator does not assert unrestricted arbitrary tables on B_k.",
+        "searches": [
+          "Halmos, Compositio Math. 12, Theorems 6, 7 and 12",
+          "Burris–Sankappanavar §10, Lemma 10.4 (Baker–Pixley)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Halmos, Algebraic Logic I, Theorems 6, 7 and 12",
+        "Burris–Sankappanavar Definition 9.1 and Lemma 10.4",
+        "Freire–Martins arXiv:2602.20287v1",
+        "Resultary 938cb5f89dc7 (mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A tuple generates precisely the Boolean algebra of unions of its occupied cells; ∃ produces only Boolean constants so adds nothing to this subalgebra. Two such generated subalgebras admit an isomorphism carrying generators to generators exactly when the supports coincide, in which case it must carry each cell to its equally labelled cell."
+        ],
+        "reasoning": "In particular an arbitrary support-wise choice preserves all product and graph subalgebras of the square, so Lemma 10.4 gives it as a term. Necessity follows from preservation, too. The resulting term algebra is the product of the simple powersets on feasible supports, one factor per nonempty P with |P|≤k. Its size and sharp cutoff are immediate. Projections onto fewer factors give the restriction maps; the selector of any newly allowed factor separates identities. This is a direct routine specialization, not a claim that Halmos's inspected passages display the formula verbatim.",
+        "searches": [
+          "Burris–Sankappanavar, Lemma 10.4; Halmos, Theorems 6, 7 and 12; compared with frozen proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited endpoint operation is term-equivalent to the simple monadic quantifier ∃X=X∨¬circ(X), with circ(X)=¬∃X∨¬∃¬X, and ∃X is top exactly when X is nonempty. Equality of two algebra elements is testable by applying ¬∃ to their symmetric difference, so a switch and a discriminator are terms."
+        ],
+        "reasoning": "The translations preserve the entire term clone and variable bounds. Thus the problem is literally the free term algebra for a fixed simple monadic Boolean algebra, not a new modal validity or ultrafilter consequence problem.",
+        "searches": [
+          "Halmos, Algebraic Logic I, Theorems 6, 7 and 12",
+          "Freire–Martins arXiv:2602.20287v1 §2.1",
+          "Burris–Sankappanavar §9, Definition 9.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 938cb5f89dc7 has numerical threshold 2^q for quantifier rank q of plain first-order Boolean algebras, not the number of variables of algebraic identities of this expansion. Freire–Martins p. 2 gives a range observation for a different three-valued algebra; their matching Boolean endpoint operation in §2.1 is studied in the four-valued consequence setting. No explicit finite-k formula was located in the inspected passages."
+        ],
+        "reasoning": "Neither the same-looking threshold nor the different value-range result is an exact table match. The decisive coverage is an implication of the published interpolation theorem, not an inference from the lack of a search hit.",
+        "searches": [
+          "Resultary: endpoint consistency Boolean term clone and exact atom threshold",
+          "Primary lookup: free monadic Boolean algebra, finite rank, simple factors, product",
+          "arXiv:2602.20287v1 §2.1"
+        ]
+      },
+      "rationale": "The exact form and threshold are mechanically recovered by classical discriminator interpolation on the simple monadic Boolean algebras, not merely analogous to a known atom visibility theorem. The necessary binary subalgebras are ordinary Boolean partitions, and the endpoint/quantifier condition immediately reduces them to products and graphs of partial isomorphisms; the published interpolation lemma then gives exactly the choices in the frozen normal form. Counting the feasible factors and observing first appearance of the full support gives the count and cutoff. No verbatim prior printed finite-k formula or priority is asserted.",
+      "residual_risks": [
+        "The focused free-monadic-algebra lookup did not locate a verbatim explicit factor or finite-k formula; this review does not settle historical wording or priority. Pixley DOI 10.1007/BF01578706 and Davey–Schumann–Werner DOI 10.1007/BF01195860 did not yield a lawful OA repository copy in the attempted searches; the concrete coverage argument relies on the available textbook theorem, not lack of access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical functional simple factors and semisimplicity; no finite-k formula quoted in inspected passages",
+          "evidence": [
+            "Simple monadic algebras are two-valued functional algebras; every monadic algebra is semisimple."
+          ],
+          "identifier_or_url": "https://www.numdam.org/article/CM_1954-1956__12__217_0.pdf",
+          "material_read": "Theorem 6 p. 227 (offset 25833), Theorem 7 pp. 229–230 (offset 32652), Theorem 12 pp. 247–248 (offset 78585)",
+          "method": "OA primary PDF passages",
+          "title": "Algebraic Logic I. Monadic Boolean Algebras",
+          "trigger": "Term-equivalent simple monadic expansion"
+        },
+        {
+          "assessment": "The finite majority-term interpolation statement gives the normal form after the square-subalgebra check",
+          "evidence": [
+            "Lemma 10.4: preserving subalgebras of the square suffices for term representability when there is a majority term."
+          ],
+          "identifier_or_url": "Burris and Sankappanavar, Springer GTM 78 (1981)",
+          "material_read": "Definition 9.1, printed p. 186, offset 384267; Lemma 10.4, printed p. 195, offset 399778",
+          "method": "OA primary textbook passages",
+          "title": "A Course in Universal Algebra",
+          "trigger": "General interpolation theorem that can subsume the normal form"
+        },
+        {
+          "assessment": "Same operation on Boolean algebras, distinct studied consequence questions in the inspected material",
+          "evidence": [
+            "The endpoint test is 1 on 0 or 1 and 0 otherwise; the four-valued logic discussion uses ultrafilter designation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.20287",
+          "material_read": "PDF p. 4 offset 13800, §2.1 pp. 4–5, and different three-valued example p. 2",
+          "method": "OA primary PDF passages",
+          "title": "Regular non-normal modal classicalities",
+          "trigger": "Same endpoint operation"
+        },
+        {
+          "assessment": "Not the same theorem or language",
+          "evidence": [
+            "2^q is the threshold for quantifier rank q in plain Boolean algebras."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7",
+          "material_read": "Finding and EF-game scope",
+          "method": "Resultary search and local-mirror inspection",
+          "title": "Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+          "trigger": "Closest indexed threshold with same numerical scaling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The logical operation motivates the question, but the occupied-cell interpolation and sharp identity bound are routine consequences of the standard term equivalent simple monadic expansion and classical finite interpolation. The explicit count packages those consequences usefully for exposition; it does not add an independent unknown exact invariant, structural obstruction, or strengthening.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

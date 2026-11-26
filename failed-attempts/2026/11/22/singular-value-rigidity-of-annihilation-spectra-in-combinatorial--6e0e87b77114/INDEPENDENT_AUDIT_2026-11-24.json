@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:18:24.202783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64",
+        "VERIFICATION.md lines 19–23; check_spectrum.py lines 4–39 and recorded checker_output.txt, read but not replayed"
+      ],
+      "rationale": "Rees multiplication gives B_(i,lambda),(j,mu)=Z_(lambda,j)Z_(mu,i), including exactly the square-zero loops. The operator X→(ZXZ)^T in the two singular bases annihilates every matrix unit outside the leading r by r block; it acts on diagonal units by s_a² and interchanges off-diagonal pairs with multiplier s_a s_b. The asserted polynomial, inertia, trace powers and energy follow even with multiplicity, zero rank or rectangular dimensions. Reverse recovery also follows directly: for each x>0 subtract the multiplicity of −x from that of x in B's spectrum; this equals the multiplicity of x among the squared singular values. This works even when off-diagonal products coincide with squared singular values. Ordered pairs correspond bijectively to two chosen zero positions, with z of the z² choices yielding loops. Fixing a vertex leaves independent choices from one row and one column. These are exact checks, not deductions from the numerical transcript.",
+      "residual_risks": [
+        "Concerns the specified symmetric relation including its actual loops, not a conventional loopless commuting graph. The seeded binary examples need not be regular, but the matrix identity does not require regularity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnston's formula covers every pure state in rectangular dimensions regardless of coefficient array. Frozen RESULT.md lines 70–76 identifies Paulista's combinatorial adjacency precursor; full primary semigroup passages were not retrieved."
+        ],
+        "reasoning": "Johnston's statement allows arbitrary Schmidt coefficients and bases and is strictly broader than binary zero patterns; no semigroup regularity is needed to specialize it. The semigroup product condition supplies the elementary entry identification, not a gap in the earlier spectral theorem.",
+        "searches": [
+          "Johnston partial-transpose Theorem 1; identified by the primary Schmidt-spectrum search",
+          "Paulista arXiv:2510.23871 Lemma 3.2, and Jackson–Volkov arXiv:0907.2634"
+        ]
+      },
+      "checked_sources": [
+        "Johnston, Theorem 1 and proof at the cited URL",
+        "arXiv:2510.23871, arXiv:0907.2634, arXiv:1505.05397 and DOI:10.1007/s00233-025-10597-0 (retrieval limits; cited comparisons)",
+        "Resultary:6e0e87b77114, 72b990ba98ea, cfc701f4a1aa",
+        "Frozen RESULT.md lines 42–76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Johnston's paired positive and negative products occur with the same multiplicity; the surviving positive diagonal values are the squared Schmidt coefficients. Frozen RESULT.md lines 23–34 state power sums, energy, reverse recovery and counts."
+        ],
+        "reasoning": "Subtract the multiplicity at −t from that at t>0 to recover squared singular values, including collisions. Taking signed and absolute power sums supplies the remaining spectral findings. The ordered-pair and degree counts are immediate independent-index counts from the defining product. No substantive residue of the claimed classification remains.",
+        "searches": [
+          "Direct specialization of Johnston Theorem 1 and eigenvectors to the frozen entry formula",
+          "Resultary exact spectral and reverse-cospectrality search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nathaniel Johnston, The Spectrum of the Partial Transpose of a Density Matrix, Theorem 1 and proof: precisely {α_i²} and {±α_iα_j} for i<j, plus zeros of multiplicity p|n−m|+p²−r², with p=min(m,n); eigenvectors are the same symmetric and antisymmetric tensor pairs."
+        ],
+        "reasoning": "For a real coefficient vector v indexed by I×Lambda the partial transpose of its outer product swaps the two Lambda indices. That is exactly the cross-product of Z entries in the Rees relation; p|n−m|+p²=mn. This is an equality of operators up to known scalar normalization, not an analogy or a simple untwisted Kronecker product.",
+        "searches": [
+          "Primary search: pure state partial transpose Schmidt coefficients eigenvalues c_i squared plus minus c_i c_j Vidal Werner Rana theorem spectrum",
+          "Resultary: combinatorial Rees semigroup mutual annihilation relation zero-pattern singular values spectrum inertia cospectrality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 6e0e87b77114 is the assigned record itself. Distinct Resultary entries 72b990ba98ea (mutual-zero-product inertia of the rook monoid) and cfc701f4a1aa (mutual-inverse graph on a rank class) concern other relations or semigroup families."
+        ],
+        "reasoning": "Neither distinct table matches this graph family. A finite matching table is not required to establish prior coverage here because the primary general spectrum theorem already supplies every dimension and every instance.",
+        "searches": [
+          "Resultary: combinatorial Rees semigroup mutual annihilation relation zero-pattern singular values spectrum inertia cospectrality"
+        ]
+      },
+      "rationale": "The central spectral theorem is already covered by the full rectangular pure-state partial-transpose spectrum theorem, not merely similar to it. Set v_(i,lambda)=Z_(lambda,i). Partial transpose of vv^T on the second factor has entries v_(i,mu)v_(j,lambda)=B_(i,lambda),(j,mu) exactly. If Z≠0, normalize v by its Euclidean norm to apply the prior theorem; multiply the spectrum by ||v||² afterwards. Its Schmidt coefficients are exactly the normalized singular values of Z, and its zero multiplicity is mn−r². Undoing normalization gives the entire spectrum; all stated spectral summaries and the reverse direction are immediate from that known multiset. Z=0 is trivial. The particular semigroup label need not appear in the prior theorem, and no earlier paper on this exact semigroup invariant is being asserted.",
+      "residual_risks": [
+        "Priority of the exact semigroup phrasing is not settled. The failure is based on demonstrable equivalent spectral coverage, not on a missing primary Rees paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact broader coverage, including rectangular dimensions and multiplicities.",
+          "evidence": "The stated α_i² and ±α_iα_j with p|n−m|+p²−r² zeros become the frozen B spectrum by an exact entry equality and scalar unnormalization.",
+          "identifier_or_url": "https://njohnston.ca/2013/07/the-spectrum-of-the-partial-transpose/",
+          "material_read": "The Answer for Pure States, Theorem 1 and proof, and following negative-eigenvalue count; HTML at approximately 18952 onward in the retrieved page.",
+          "method": "Primary literature search located author exposition with original proof; bounded extraction from identified lawful copy after ordinary page-tool failure.",
+          "title": "The Spectrum of the Partial Transpose of a Density Matrix",
+          "trigger": "The cross-product entries are those of a rank-one outer product with one factor transposed."
+        },
+        {
+          "assessment": "Potential semigroup precursor; the failure decision does not depend on retrieval or on asserting the paper excludes spectral statements.",
+          "evidence": "Frozen source credits the prior criterion for commutation, not a newly discovered zero-pattern adjacency test.",
+          "identifier_or_url": "arXiv:2510.23871",
+          "material_read": "Frozen characterization at RESULT.md line 72 and bibliographic locator Lemma 3.2; no primary equation recovered.",
+          "method": "Bounded OA attempt and comparison from the directly checked Rees product.",
+          "title": "Commuting graphs of completely 0-simple semigroups",
+          "trigger": "Closest cited Rees commuting criterion."
+        },
+        {
+          "assessment": "Related invariant on different semigroup; not decisive coverage.",
+          "evidence": "Rank binomial(2n,n) and parity-sensitive inertia for all partial permutations, not the Rees binary-array classification.",
+          "identifier_or_url": "Resultary:72b990ba98ea",
+          "material_read": "Indexed summary only; mirror not retrieved.",
+          "method": "Local Resultary statement comparison and bounded mirror attempt.",
+          "title": "Exact inertia of the mutual-annihilation matrix of the rook monoid",
+          "trigger": "Closest distinct local mutual-zero-product spectral entry."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–34, 42–64 and 70–76",
+        "Johnston partial-transpose Theorem 1"
+      ],
+      "rationale": "The identification is convenient for notation, but unlike a new representation theorem it is the immediate cross-product identity in the defining Rees multiplication. It exposes exactly the existing rank-one partial transpose, not a new invariant beyond that theory. The remaining moment, degree, or reverse statements are direct sums, index counts, or cancellation from the old multiset. The frozen result provides no independently valuable remainder to repair.",
+      "residual_risks": [
+        "A different claim, such as a nonroutine spectral classification for a genuinely loopless relation, is outside this review and is not a validated repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

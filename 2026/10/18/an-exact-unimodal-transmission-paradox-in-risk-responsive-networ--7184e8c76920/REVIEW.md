@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The outcome is specified as an exact synchronous finite-population Markov process: one-step infection, full threshold protection, and unambiguous initial states. The gate-event probability is exactly \(2\beta^2(1-\beta)\), and direct case analysis of the three-person clique yields the complete polynomial for expected infections. A one-sign-change transformed derivative proves uniqueness of its maximum, not merely existence from a plotted curve. The scalable connected graphs have a rigorous lower bound that already exceeds the \(\beta=1\) case. Independent symbolic state enumeration from the adjacency list reproduces the complete polynomial.
+PASS
 
-## Originality — PASS (best-knowledge, subject to independent priority assessment)
+For the stipulated finite stochastic process the contact fractions are either ≤1/3 or ≥2/5. On the stated wedge the first class has score at most 1−2α/3<Θ and the second at least 2α/5>Θ, for every value of the social fraction. Thus the reduction is exact for arbitrary initial awareness and every allowed social graph. Conditioning by first-step case count in the frozen graph gives the extra component's entry probability 2β²(1−β). Conditional on entry the immediate case count has mean 1+4β; for the three-vertex part, zero initial cases give no successors, and two initial cases prevent any further case. Exactly one initial case contributes 6β²(1−β)² in the next step and 6β³(1−β)³ in the last possible infectious step. These exhaust the conditional histories and yield the degree-nine expectation. Independently, in odds t=β/(1−β) the derivative numerator divided by t⁷ is strictly decreasing from +∞ to −∞, since the coefficients through degree six are positive and the degree-eight coefficient is negative. This gives strict unimodality; the exact endpoint comparison and a rational critical-point bracket check. For the displayed general family the degree inequalities are strict for every m>2, the β=1 case terminates after the initial three cases, and the counted first exposures give (1785+128m)/625>3 at β=4/5; later cases can only increase the bound. For each fixed m and strict Θ, a finite positive gap implies persistence as α approaches 1. The family result is nonmonotonicity, not unique maxima for all m.
 
-Van Wesemael, Rocha, and Baetens (arXiv:2404.16466, Methods §2.2 and Results §3.2.2) previously documented decreasing epidemic reach with higher transmission in large multiplex simulations due to awareness cascades. They do not claim the new eight-node exact distribution, uniquely unimodal full-response curve, parameter-margin invariance for arbitrary social layers, or arbitrarily large protected-gate motif theorem. Silva, Anteneodo, and Ferreira (arXiv:2203.15024, model and numerical results) use a different continuous-time behavioural switching process; their statements do not entail this one-step synchronous exact formula. Exact-shape and source-keyword searches in available mathematical research records did not return a covering statement. The qualitative paradox is prior art, and a broader unpublished or unlocated exact finite-network analysis remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The mechanism is not a change of normalization or an arbitrary rounding check: two simultaneous exposures induce a protective response, blocking a downstream clique, while a single exposure transmits. The smallest feasible guarded-gate/clique architecture yields a complete symbolic expectation and unique optimum; the theorem extends the paradox to an infinite family of connected graphs and an open band of mixed social/biological responses. It distinguishes risk-perception feedback from the social cascade mechanism emphasized in the motivating simulations and supplies an exactly solvable benchmark for epidemic-behaviour implementations.
+Qualitative nonmonotonicity is prior in the motivating model; exact finite final-size analysis and even exact finite warning-induced reversals are also prior or separately indexed in different models. The supported distinction is the explicit, strictly unimodal expected final size for the specified synchronous threshold rule on an undirected contact graph, unchanged throughout a mixed-awareness region independently of the allowed social graph, together with exact size-unbounded nonmonotonicity witnesses in that same law.
 
-## Limitations
+## value
 
-The construction is not globally size-minimal among all graphs, uses full instantaneous protection and deterministic one-step recovery, and does not model calibrated human behaviour. Earlier work already establishes qualitative nonmonotone epidemic outcomes; the present originality assessment is restricted to the specified exact mathematical claims. Independent review is needed before priority or publication claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite benchmark distinguishes effects of synchronous local-risk response from effects that require a social cascade. It provides a sharply checkable counterexample to monotonicity in the specified mathematical model, proves a unique turning point rather than exhibiting two simulation values, and tests that the phenomenon is not confined to a single graph size. The mixed-awareness wedge is informative precisely because the rule's dependence on the social graph provably drops out there.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

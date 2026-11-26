@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:16:05.448588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real BV on the open interval, the signed derivative measure represents f almost everywhere as a constant plus an integral of unit steps. The projector fixes constants and, evaluated at knots, is a finite-dimensional linear map; integration and the triangle inequality reduce the variation seminorm to the largest step gain. Multiplying the hat Gram equations by six gives the displayed tridiagonal coefficients and the endpoint relation 2p_0+p_1=0 on an exterior zero tail. The elimination ratios h_i/[2h_i+(2-rho_(i-1))h_(i-1)] are positive and at most one half, so alternating differences sum to at most three times the edge magnitude. The right tail uses p-1, with zero and empty tails covered. Integrating the hats over the post-jump part of the central cell gives 3(1-u)^2 and 3(1-u^2) after scaling by six and dividing by cell length; subtracting the background one at the right knot yields F,G as stated. The two nonnegative Schur corrections preserve the inequalities used in the four sign cases. In the same-sign cases, s+2t_0<=1 or 2s+t_0>=-1 both certify a nonnegative central increment and bound the weighted sum by three. In the opposite-sign cases the required estimates are s-t_0<=F-G<=1 or t_0-s<=G-F<=1/2. These hold also for u=0,1 and if either exterior tail is absent. For the midpoint on the symmetric graded family, the Schur corrections vanish at fixed m, giving s=-1/4 and t_0=1/4 in the limit; each successive ratio tends to 1/2. Thus the limiting total is 3-3/2^(m+1); taking the stated ordered limits proves sharpness. The package's rational Gram-system checker and logged counts were inspected without execution; those cases support the argument but do not prove the universal inequality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciesielski–Kamont's (2.11), (2.18) are sharp L^1-to-L^1 statements for the identical arbitrary-knot spaces and include geometric knots.",
+          "Passenbrunner–Shadrin's §1 treats arbitrary knots and L^1 almost-everywhere convergence via max-norm/weak-type estimates; Foucart's general projector estimates concern the max norm."
+        ],
+        "reasoning": "Broader knot or input hypotheses do not compensate for the different operator quantity. A projector kernel estimate controlling point evaluations or a maximal function does not evaluate the sum of successive nodal differences of a projected jump.",
+        "searches": [
+          "Ciesielski–Kamont, DOI:10.4064/sm164-1-4 §2, arbitrary partitions",
+          "Passenbrunner–Shadrin arXiv:1308.4824v3 §1",
+          "Foucart, SplineProj2.pdf, introduction"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.4064/sm164-1-4 §2",
+        "arXiv:1308.4824v3 §1",
+        "arXiv:math/0611573v1 p. 1",
+        "Foucart author preprint https://foucart.github.io/publi/SplineProj2.pdf, introduction",
+        "Resultary distinct records --30721168f9c5, --d577ba2a2e06 and --7ddf81269c76, plus the identical assigned record",
+        "Frozen RESULT.md, VERIFICATION.md and projection_tv_checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp classical L^1 norm equals the L^infinity norm by self-adjointness; the BV quotient involves a derivative map which does not commute with arbitrary-knot projection. Even on one cell the TV gain from the jump calculation is max_u 6u(1-u)=3/2, distinct from the classical one-cell projector norm 5/3.",
+          "The inspected two-cell derivative-kernel record addresses different exponents and does not sum both alternating tails for arbitrary numbers of cells."
+        ],
+        "reasoning": "The similarity of knot grading does not imply the result: here a midpoint jump must excite two exterior tails and their contribution to variation must be bounded and computed, rather than controlling the absolute integral of an evaluation kernel. The genuine uniform-grid BV bound is a different geometry and does not govern increasingly graded finite meshes.",
+        "searches": [
+          "DOI:10.4064/sm164-1-4 (2.11), (2.18)",
+          "arXiv:math/0611573v1 p. 1",
+          "Resultary: whole-line cardinal BV and two-cell slope-kernel results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The whole-line unit-grid cardinal spline Resultary result, 2026/11/17/SCOPE-sharp-bounded-variation-gain-of-the-cardinal-linear-spline-ortho--30721168f9c5, states the same type of seminorm but gain sqrt(3) for a fixed grid.",
+          "A sharp W^{1,1} derivative estimate on all such meshes would transfer to BV by strict smooth approximation and finite-dimensional projection continuity; no such endpoint statement was found in the inspected Franklin passages.",
+          "The identical assigned Resultary entry is a self-match and not independent coverage."
+        ],
+        "reasoning": "Equivalence was checked at the level of the derivative L^1 seminorm and step gain, not the L^1 norm of the projected function. Neither an infinite uniform mesh theorem nor L^1/L^infinity stability supplies the arbitrary-mesh W^{1,1} or BV claim.",
+        "searches": [
+          "Resultary: sharp BV variation gain of orthogonal continuous linear spline projection on arbitrary finite nonuniform partitions",
+          "Primary literature: Franklin partial sums, BV total variation and W^{1,1} stability",
+          "DOI:10.4064/sm164-1-4 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary broken-affine entry --d577ba2a2e06 lists gains for discontinuous cellwise projection; the two-cell entry --7ddf81269c76 gives sharp derivative estimates at exponents infinity and two, not one.",
+          "The exact three in Ciesielski–Kamont is a Lebesgue constant, not a BV table value."
+        ],
+        "reasoning": "No checked constant is an exact lookup of the claimed quantity: the space, mesh class or seminorm differs. This claim is an all-mesh extremum, not a new value computed from an existing mesh table.",
+        "searches": [
+          "Resultary: spline projection sharp TV constants for continuous, cardinal, broken and two-cell spaces",
+          "Ciesielski–Kamont §2, exact constants (2.18)"
+        ]
+      },
+      "rationale": "Established for the real, unweighted variation seminorm on arbitrary finite strictly positive meshes and its sharp constant and witness, not for the classical Lebesgue projector norm or for spline stability in general. The strongest primary overlap has the same spline space, number and geometric knot idea in a different operator norm. The closest published same-seminorm result fixes the doubly infinite uniform grid; it is not a dominating mesh theorem. No inspected result implies the claimed arbitrary-mesh sharp variation constant.",
+      "residual_risks": [
+        "The older 1963 Ciesielski original and the full historical Franklin endpoint literature were not exhaustively retrieved; an equivalent BV result could be framed in terms of a derivative or integrated kernel.",
+        "The inspected classical papers have substantial geometric mesh overlap, which should be credited without confusing the two operator quantities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in class and construction, different norm; not a variation theorem",
+          "evidence": [
+            "The sharp estimate is 5/3 <= norm(P_pi)_{1->1} < 3 with three approached by geometric knots."
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/sm164-1-4",
+          "material_read": "Official PDF §2, pp. 57–59, equations (2.11) and (2.18), offsets near 4900 and 10200",
+          "method": "Lawful primary PDF passage comparison",
+          "title": "The Lebesgue constants for the Franklin orthogonal system",
+          "trigger": "Same continuous linear spline projector, arbitrary knots, sharp three and geometric distributions"
+        },
+        {
+          "assessment": "L^1 convergence and weak-(1,1) maximal estimates do not bound the derivative seminorm",
+          "evidence": [
+            "The endpoint controls scalar projected values via a maximal function, not variation of those values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.4824v3",
+          "material_read": "§1, theorem 1.1 and equations (1.3)–(1.8), HTML passage near offset 3864",
+          "method": "Lawful primary full-text passage",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "Plausible arbitrary-knot L^1 endpoint or generalization"
+        },
+        {
+          "assessment": "Cited one-dimensional constant concerns L^infinity operator norm",
+          "evidence": [
+            "The cited Ciesielski bound in the introduction is explicitly a sup-norm assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611573v1",
+          "material_read": "PDF p. 1, introductory statement",
+          "method": "Primary PDF passage",
+          "title": "A counterexample concerning the L^2-projector onto linear spline spaces",
+          "trigger": "Classical sharp constant three for linear splines"
+        },
+        {
+          "assessment": "Genuine endpoint result for narrower, different unit-grid domain",
+          "evidence": [
+            "The theorem gives sqrt(3) for the whole-line unit-grid operator, attained by a jump at a knot."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-bounded-variation-gain-of-the-cardinal-linear-spline-ortho--30721168f9c5",
+          "material_read": "Mirrored RESULT.md Finding and domain assumptions",
+          "method": "Local Resultary search and mirror read",
+          "title": "Sharp bounded-variation gain of the cardinal linear-spline orthoprojector",
+          "trigger": "Same TV/orthoprojection question"
+        },
+        {
+          "assessment": "Different projection operator, not excluded merely by date",
+          "evidence": [
+            "Cellwise affine projection imposes no continuity and yields different constants by cell count."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-mesh-independent-sharp-bv-variation-gain-of-discontinuous-affine--d577ba2a2e06",
+          "material_read": "Mirrored RESULT.md theorem and space assumptions",
+          "method": "Local Resultary search and mirror read",
+          "title": "Mesh-independent sharp BV variation gain of discontinuous affine projection",
+          "trigger": "Same seminorm for a nearby projection space; distinct same-day record"
+        },
+        {
+          "assessment": "Sharp slope bounds at different exponents on two cells only",
+          "evidence": [
+            "The norms computed are dot W^{1,infinity} and dot W^{1,2}; using W^{1,1} to describe inputs to a kernel is not its sharp W^{1,1} estimate."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sobolev-seminorm-amplification-by-the-two-cell-linear-spli--7ddf81269c76",
+          "material_read": "Mirrored RESULT.md Finding and slope-kernel argument",
+          "method": "Local Resultary search and mirror read",
+          "title": "Sharp Sobolev seminorm amplification by the two-cell linear spline projector",
+          "trigger": "Possible equivalent derivative seminorm or kernel result; distinct same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform control of jumps under a continuous reconstruction is a natural endpoint stability question on adaptive or strongly graded meshes. The theorem supplies the exact mesh-uniform variation cost without a mesh-ratio hypothesis, and its explicit one-jump construction explains why three is necessary. It is stronger than finite mesh checks or a nonsharp boundedness assertion, with relevance to BV-preserving approximation rather than simply duplicating max-norm stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

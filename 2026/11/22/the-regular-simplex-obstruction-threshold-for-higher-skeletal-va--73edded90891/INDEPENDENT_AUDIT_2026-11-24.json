@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:37.905274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the vertex Gram matrix (diagonal n², off-diagonal −n), the centroid of m=n−k+1 selected vertices is perpendicular to every difference between them, so the squared affine-face distance is nk/(n−k+1)≥k. The j-dimensional edge Gram determinant gives volume [n(n+1)]^(j/2)√(j+1)/j!, including the convention at j=0. Face counts then give the frozen ratio. Its consecutive factor is √(n(n+1)/((j+1)(j+2))), >1 until the last equality. At j=0 the ratio is <1, whereas AM–GM on 1,…,n gives R(n,n)≥√(n+1)(n/(n+1))^(n/2)>1 for all n≥2. Thus the first qualifying index lies between 1 and n−1, with n=2 included. Independently, Stirling's formula at x=sn cancels both powers of log n and leaves −log s+s/2−(log 2π)/2 after the order-n term. At x=αn+t for bounded t this gives slope −log α>0 and the stated β; the digamma asymptotic gives strict local increase. Bracketing β by fixed displacements then checking the nearest integers, together with the exact discrete single crossing, gives ceil of the actual root, not of the asymptotic truncation. At k=n−j the simplex is admissible and violates the proposed universal inequality precisely when j<j_*(n); no universal lower bound on k_max is inferred. A separate bounded integer recurrence check compared the squared-ratio numerator and denominator, multiplying respectively by n(n+1) and (j+1)(j+2). For n=2,3,4,10,100,250,400 the thresholds were 1,1,2,3,33,82,131. The arithmetic/spot-check replay path skeletal_threshold_check.py was read, not rerun, and the finite evidence is not the proof of the infinite statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zwierzyński asks for the universally valid range; the supplied result bounds it from above. Karasev Theorems 1.1–1.2 concern volume and low-dimensional surface area. The Dalla–Tamvakis contents record and Burton landing entry did not yield full texts."
+        ],
+        "reasoning": "The checked universal theorems are about the volume/facet regime, not the all-rank regular-simplex obstruction. Bibliographic matches without full statements do not settle priority.",
+        "searches": [
+          "arXiv:2609.27798, Question 5.5",
+          "Karasev arXiv:2505.16247v3",
+          "Dalla–Tamvakis, Math. Japonica 44 (1996), 569–572",
+          "Burton skeletal/isoperimetric paper, Cambridge entry"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:2609.27798",
+        "arXiv:2505.16247v3",
+        "c2deb83a9c3b",
+        "42866014d9a1",
+        "09ff8fbc913e",
+        "Dalla–Tamvakis (1996) contents entry",
+        "Burton Cambridge entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical face totals directly imply R(n,j) by division; Proposition 5.1 supplies the prior simplex counterexample and Question 5.5 the target range problem."
+        ],
+        "reasoning": "No originality for the quotient formula or the idea of testing the simplex. These inputs permit the further calculation but state no theorem about the first nonnegative cubical comparison. Establishing the global transition, uniform constant displacement and rigorous rounding from the real root requires determining endpoints and slope and expanding the competing face volumes. The upper bound on k_max is then the direct consequence of that distinct threshold.",
+        "searches": [
+          "arXiv:2609.27798, Proposition 5.1 and Question 5.5",
+          "Resultary ridge-product record c2deb83a9c3b, Regular-simplex face measures"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.1 has a failing one-skeleton in ambient dimension four; the triangle-product record has a single crossing for orthogonal products of planar triangles."
+        ],
+        "reasoning": "The one-skeleton case agrees with j_*(4)=2 but does not give it by itself, much less the threshold for all n. A transition for orthogonal products of triangles is not a transition for the regular n-simplex family.",
+        "searches": [
+          "arXiv:2609.27798, Proposition 5.1 and Question 5.5",
+          "Resultary: SCOPE-sharp-skeletal-minima-and-a-single-crossing-cutoff-for-products--42866014d9a1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed ridge-product result gives the same exact regular-simplex face totals in a preliminary section, and the planar-product records compare different families or one codimension. The identical current entry is not independent coverage."
+        ],
+        "reasoning": "These catalog comparisons reach the input formula and a related phenomenon, not a table or formula of the threshold and shift for regular simplices of all dimensions.",
+        "searches": [
+          "Resultary: SCOPE-the-regular-simplex-obstruction-threshold-for-higher-skeletal-va--73edded90891",
+          "Resultary: SCOPE-sharp-ridge-skeleton-lower-bound-for-all-euclidean-products-of-s--c2deb83a9c3b",
+          "Resultary: SCOPE-sharp-skeletal-minima-and-a-single-crossing-cutoff-for-products--42866014d9a1",
+          "Resultary: SCOPE-ridge-skeleton-rigidity-for-products-of-admissible-planar-polygo--09ff8fbc913e"
+        ]
+      },
+      "rationale": "Credit the classical face totals, direct ratio calculation, and Zwierzyński's prior example. The supported distinct claim is the single crossing across all face dimensions, its two-term displacement, and the resulting quantitative obstruction to a universal initial codimension range. This does not answer the unrestricted range question.",
+      "residual_risks": [
+        "The older Dalla–Tamvakis and Burton full texts were not established in the bounded review. They and unindexed skeletal literature remain a priority risk; this is not a claim to exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior witness and explicit open question; no threshold or expansion in the compared passages",
+          "evidence": [
+            "The normalized 4-simplex has Φ_1=20√10<64. Question 5.5 asks which n,k are universally valid and for k_max(n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27798",
+          "material_read": "Proposition 5.1, pp. 8–9, text offset 29452; Question 5.5, p. 11, offset 41267",
+          "method": "Primary open PDF passages",
+          "title": "A Sharp Surface-Area Extension of Vaaler’s Theorem",
+          "trigger": "Same hypotheses, prior simplex counterexample and same universal range question"
+        },
+        {
+          "assessment": "Volume and low-dimensional surface-area statements",
+          "evidence": [
+            "The surface-area assertion there treats n=2 and 3, not the whole skeletal sequence."
+          ],
+          "identifier_or_url": "arXiv:2505.16247v3",
+          "material_read": "Theorems 1.1–1.2, text offsets 1262–1800",
+          "method": "Primary open PDF passages",
+          "title": "Rogers's proof of Vaaler's theorem",
+          "trigger": "Potential broader skeletal measure bound"
+        },
+        {
+          "assessment": "Same general face-total formula; ridge result, not the threshold",
+          "evidence": [
+            "The face-total formula is stated as an input to a ridge inequality for orthogonal products."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-ridge-skeleton-lower-bound-for-all-euclidean-products-of-s--c2deb83a9c3b",
+          "material_read": "Mirrored RESULT.md, Regular-simplex face measures, beginning at offset 0",
+          "method": "Local Resultary search and mirror statement inspection",
+          "title": "Sharp ridge-skeleton lower bound for all Euclidean products of simplices",
+          "trigger": "Same regular-simplex total face measures"
+        },
+        {
+          "assessment": "Distinct admissible family and no universal range conclusion",
+          "evidence": [
+            "Its coefficient profile is for products of disk-containing planar triangles and explicitly distinguishes that from k_max."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-skeletal-minima-and-a-single-crossing-cutoff-for-products--42866014d9a1",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 and comparison at offset 6699",
+          "method": "Local Resultary search and mirror statement inspection",
+          "title": "Sharp skeletal minima and a single-crossing cutoff for products of planar triangles",
+          "trigger": "Closely analogous all-rank transition"
+        },
+        {
+          "assessment": "Unresolved; bibliography does not settle coverage",
+          "evidence": [
+            "The contents entry identifies the paper, not its theorem."
+          ],
+          "identifier_or_url": "Math. Japonica 44 (1996), 569–572",
+          "material_read": "JAMS contents entry, offset 1612; no full text",
+          "method": "Lawful OA lookup",
+          "title": "An isoperimetric inequality in the class of simplicial polytopes",
+          "trigger": "Older possible higher-skeleton comparison for simplicial polytopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful result is not a new simplex volume formula. It gives a reproducible exclusion boundary for a specific published open higher-skeleton question: even a single centered admissible simplex rules out a linear portion of the candidate codimensions, with a precise finite-dimension crossing and an asymptotic constant displacement. The explicit bound is useful independent of whether other polytopes sharpen it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

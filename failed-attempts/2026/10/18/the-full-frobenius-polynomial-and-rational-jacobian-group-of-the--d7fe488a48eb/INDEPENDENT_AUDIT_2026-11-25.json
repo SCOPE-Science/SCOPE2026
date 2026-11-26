@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:53:18.076635Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–73; frozen VERIFICATION.md, verify.py and counts.json (read, not executed)",
+        "Independent replay uses the three monic moduli given above; for every η in the fixed field of 9-Frobenius but not in F₃, build the histogram H(a)=#{z:z³+z=a} and sum 1+Σ_x H(−η−x⁴)."
+      ],
+      "rationale": "Smoothness and genus three follow from the stated gradient; on Y=0 the sole point is [0:0:1]. Independently computed the exact counts for all six admissible η using F₃[t] mod t²+1, t⁴+2t+2 and t⁶+2t+2, checking irreducibility and summing the multiplicities of z³+z at −η−x⁴. Every η gave (1,109,892). The corresponding power sums are (9,−27,−162); Newton's identities and the genus-three functional equation give (1−3T+9T²)³. There is also a direct all-η check: take b³+b=η, so b⁹=b+η³−η and b^(9³)=b. The substitution Z→Z+bY identifies the equation with the Hermitian quartic over F_{9³}. That Hermitian quartic has 28 F₉-points (nine affine x choices and three z choices per x, plus infinity), so its six F₉ eigenvalues are −3; over F_{9³} the eigenvalues are −27. The F₉ eigenvalues of C therefore lie in {−3,3e^(±iπ/3)}. The unique F₉ point makes the trace 9; conjugacy and degree six force the conjugate pair to have multiplicity three each, with no −3. Frobenius semisimplicity and the faithful Tate-module action give f(π)=0 for f(U)=U²−3U+9. On J(F₉), π=1 so f(1)=7 annihilates the group. Its order is L(1)=343, proving the displayed rank and exponent, without any inference from order alone. The eigenvalues give the cosine count formula. An elliptic class with trace 3 exists (e.g. y²=x³−x+1 over F₉ has seven points), so Tate gives the isogeny statement.",
+      "residual_risks": [
+        "The enumeration is of curve points only. The rational group and all-extension formula follow from the stated Frobenius arguments, not direct sampling of divisor classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2398b9ff888b gives the complete all-extension count law and zeta numerator for general s. The inspected Bouw et al. passage treats a different Artin–Schreier family. The WCC theorem classifies the one-point model, not the full zeta numerator in that passage."
+        ],
+        "reasoning": "The same-family higher-parameter theorem strictly dominates the fixed q=9 zeta computation. The model classification alone would not suffice.",
+        "searches": [
+          "2398b9ff888b RESULT.md: general s=p^r and all nonsubfield η",
+          "Bouw et al. arXiv:1410.7031 Theorem 1.8.4",
+          "Homma–Kim WCC 2026 paper 17, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2398b9ff888b, RESULT.md",
+        "arXiv:2402.14192v2, 2610.09672v1 and 1410.7031",
+        "WCC 2026 paper 17",
+        "DOI 10.1007/978-3-032-27574-5_7 (unavailable full text)",
+        "Tate semisimplicity and faithful Tate-module representation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The specialization gives χ_π=f³, with f squarefree over Q and f(1)=7. Semisimplicity yields the endomorphism identity f(π)=0; π=1 on the rational group. Its order is f(1)³."
+        ],
+        "reasoning": "Exponent dividing 7 and order 7³ force (Z/7Z)³. This is a direct corollary of the full covering polynomial and standard theory, not a separate computational invariant undetermined by that full polynomial in this particular case. The isogeny statement is likewise a direct Tate consequence.",
+        "searches": [
+          "2398b9ff888b RESULT.md finding and standard Tate Frobenius semisimplicity and faithfulness used at frozen RESULT.md lines 64–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homma–Kim already gives the model and unique base-field point. The general Resultary result is for the exact same models, not the untwisted Hermitian curve. At s=3 its numerator is [(1+27T³)/(1+3T)]³=(1−3T+9T²)³."
+        ],
+        "reasoning": "Equivalent zeta/Frobenius presentations give the same six eigenvalues and all counts, unlike the Hermitian model over F₉ itself (28 versus one base-field point).",
+        "searches": [
+          "Resultary: one-point Hermitian-relative zeta function, Frobenius polynomial and rational Jacobian",
+          "Homma–Kim arXiv:2402.14192v2 Example 4.2 and Proposition 4.3; arXiv:2610.09672v1 Theorem 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general closed formula entails exactly (1,109,892), all later counts, and the same numerator at q=9. The matching catalogue item is distinct, not the audited source itself. No separately inspected exact table of abstract rational groups supplies the group claim."
+        ],
+        "reasoning": "The exact covering formula is stronger than a three-row arithmetic table; known point-count uniqueness is weaker and is not used to claim zeta overlap.",
+        "searches": [
+          "Local Resultary catalogue search and inspection of 2398b9ff888b RESULT.md"
+        ]
+      },
+      "rationale": "A distinct same-day indexed result 2398b9ff888b states the general exact zeta theorem on this very family. Its specialization gives the entire frozen zeta polynomial and every extension count. It does not state the abstract rational Jacobian group, but its full polynomial gives that group by the direct standard semisimplicity deduction f(π)=0 and f(1)=7, not by cardinality alone. The resulting demonstrated mathematical coverage is separate from priority; the available date does not resolve which finding came first. There is no scientifically distinct nonmechanical remainder in the frozen statement.",
+      "residual_risks": [
+        "Same-day publication dates do not establish priority or dependence in either direction. Additional earlier overlap may exist in an inaccessible or unsearched source; demonstrated coverage does not depend on that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dominating zeta theorem; mathematical overlap demonstrated without a priority assertion",
+          "evidence": "At s=3, (1−(−3T)³)³/(1+3T)³ is the bound numerator. The statement does not explicitly present the abstract rational group.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-complete-zeta-function-of-the-one-point-hermitian-relative-c--2398b9ff888b",
+          "material_read": "RESULT.md finding, general numerator and extension counts",
+          "method": "Local Resultary mirror",
+          "title": "The complete zeta function of the one-point Hermitian-relative curve",
+          "trigger": "Exact same family and a general zeta law"
+        },
+        {
+          "assessment": "Exact model and unique rational point already known; full polynomial not supplied by these passages",
+          "evidence": "The example and proposition give the same equation and sole point [0:0:1]; the general point-count theorem is a base-field congruence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14192v2",
+          "material_read": "Example 4.2 and Proposition 4.3, p. 9; Theorem 2.5, p. 5",
+          "method": "Primary open PDF passages",
+          "title": "Relatives of the Hermitian curve",
+          "trigger": "Original same-model source may contain arithmetic information"
+        },
+        {
+          "assessment": "Classification supports natural scope; the exact zeta theorem is not stated in the passages",
+          "evidence": "One rational point characterizes the projective class, and the point is an inflexion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.09672v1",
+          "material_read": "Theorem 7, p. 5; WCC 2026 paper 17 Theorem 1.1, p. 2",
+          "method": "Primary open PDF passages",
+          "title": "Rational points and inflexions on Hermitian-relative curves",
+          "trigger": "Same natural equivalence class"
+        },
+        {
+          "assessment": "Additional overlap unresolved",
+          "evidence": "The accessible WCC/preprint passages give the model and class; further arithmetic treatment in this chapter could not be checked.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-27574-5_7",
+          "material_read": "Full text not retrieved; no inferred absence claim",
+          "method": "Lawful OA retrieval on configured direct and alternate routes",
+          "title": "Classification of Hermitian-Relative Curves up to Projective Equivalence",
+          "trigger": "Closely related cited projective classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 24–70",
+        "2398b9ff888b general numerator and count law"
+      ],
+      "rationale": "The one-point class is naturally motivated, and its rational group is a meaningful invariant. Here the zeta computations recover a covered specialization; the asserted rank-three group follows directly from that polynomial's f(1)=7 and order 7³, using standard Frobenius semisimplicity. Re-enumerating the complete fixed-field table and spelling out this mechanical consequence supplies no independently new exact datum meeting the value criterion.",
+      "residual_risks": [
+        "No stronger distinct integral or polarization claim was established, so no repair is proposed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

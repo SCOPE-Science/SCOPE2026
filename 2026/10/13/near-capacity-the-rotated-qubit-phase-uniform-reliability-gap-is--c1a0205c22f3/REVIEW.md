@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For fixed \(0<p<1/2\), the entropy derivative \(L=\log((1-p)/p)\) is nonzero, so the implicit boundary \(h(t_R)=R\) is locally invertible. Expanding \(h(p)-h(p-u)\) and \(D(p-u\|p)\), reverting the first series, and substituting gives the stated cubic expansion of the phase-uniform converse. Independently, differentiating the channel-aware variational objective at \(s=0\) gives curvature \(-p(1-p)L^2\) and third derivative \(p(1-p)(1-2p)L^3\); the interior maximizer therefore has the claimed local expansion. The cubic difference reduces exactly to a positive coefficient. No finite experiment is used to establish the asymptotic theorem.
+## correctness
 
-## Originality
-**PASS.** The anchor paper states and proves a strict separation in its rotated-qubit example, but the inspected statement/proof does not give the order at which the gap opens near capacity. Focused searches by source identifier, formula, capacity-deficit, near-capacity, cubic, Petz/sandwiched, and moderate-deviation aliases found no implication-equivalent result. The closest broader works establish the channel-aware error exponent and the shared quadratic dispersion scale; neither supplies this cubic difference. The principal residual risk is a newly posted or differently phrased third-order note not yet indexed.
+PASS
 
-## Value
-**PASS.** The result identifies the first asymptotic scale on which the source's reliability loss becomes visible. Because both exponents agree through quadratic order, standard moderate-deviation analysis cannot detect the penalty; the explicit cubic coefficient quantifies the first separation. This is a structurally motivated refinement of the source's main phenomenon rather than a routine parameter substitution.
+For fixed p in (0,1/2), write u=p−t_R, delta=C−R, A=p(1−p), L=log((1−p)/p). Derivatives give delta=Lu+u²/(2A)+(1−2p)u³/(6A²)+O(u⁴) and D(p−u||p)=u²/(2A)+(1−2p)u³/(6A²)+O(u⁴). Since L>0, u=delta/L−delta²/(2AL³)+O(delta³), giving the stated converse coefficient. As an independent check of the optimization, set q_s=p^(1+s)/[(1−p)^(1+s)+p^(1+s)]. The derivative of the negative log partition function is the cross-entropy C+L(q_s−p), strictly decreasing in s. At s=0 it is C, and at s=1 it is strictly less than C, so for all sufficiently small positive delta the unique optimizer is interior and has q_s=p−delta/L exactly. At that optimizer the objective equals D(q_s||p) by the tilt identity. Its cubic coefficient is (1−2p)/(6A²L³). Subtraction and division by the common leading quadratic term verify both gap formulas and their positive coefficients. Theorem 3 of the cited paper verifies the worst-phase converse interpretation; its Eq. (9) is the aware achievable benchmark.
 
-## Closest literature and limitations
-The primary anchor is arXiv:2610.01941v1. The closest broader channel-aware exponent result inspected is arXiv:2507.06232v4, and the closest near-capacity asymptotic result inspected is arXiv:1701.03114v3. The claim is local for fixed \(p\), does not cover endpoint-uniformity, low rates, or arbitrary noncommuting channel families, and does not assert an all-channel third-order invariant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper already supplies the channel, aware benchmark, phase-uniform converse and strict separation. The distinct content is the quantitative near-capacity expansion of their difference, including the first nonzero coefficient, not the strict inequality or either benchmark itself. The inspected earlier or indexed results do not give a third-order comparison or a stronger result directly containing one.
+
+## value
+
+PASS
+
+The prior strict separation and the known dispersion scale do not quantify how the exhibited penalty disappears near capacity. The calculation shows the leading quadratic scale of the aware benchmark survives in this converse and cannot expose its penalty; the cubic coefficient is the first quantitative separation and gives a corresponding explicit asymptotic lower bound on the actual penalty. This resolves a motivated precision question for the source's concrete counterexample, rather than calculating an arbitrary higher-order term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

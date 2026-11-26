@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:08.984331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Verification; VERIFICATION.md, verify_transfer.py, verify_exact_cover.py and both recorded output files",
+        "Independent exhaustive replay: python3 /workspace/branches/independent_checks.py 3; coordinatewise transitions, deletion of 65,392 vertices, exact cycle fingerprints, and direct neighborhood checks on representative cycles."
+      ],
+      "rationale": "For t>=3 the four neighbors are distinct, and at column j the exact-one equation determines bit i of the next column to be 1 minus bit i of the preceding column and the two vertical neighbor bits of the current one. Thus the binary-successor condition gives a partial function on exactly 256^2 ordered column pairs. Closure after t updates is necessary and sufficient for the cyclic equations, with no overcount: fixing the distinguished j=0 fixes the initial ordered pair (column -1, column 0), and conversely that state determines every labeled column. I independently computed candidates coordinatewise and deleted zero-indegree states iteratively. This cannot delete any cycle; any surviving vertex must have an incoming edge from the survivor set. In a finite graph with at most one outgoing edge per vertex this forces all surviving indegrees and outdegrees to be one, so the survivors are disjoint cycles. Of 65,536 states, 1,156 have a defined successor; the 144 survivors give four length-four and sixteen length-eight cycles with the same minima as the frozen certificate. Shortest cycle length in this graph equals least translation period of the associated code. Each length-l cycle contributes l distinct states fixed by the t-fold map when l divides t, none otherwise. Hence the exact labeled census is 16 times the indicator of 4|t plus 128 times the indicator of 8|t (which includes the sixteen least-four patterns when 8|t). This exhaustive finite quotient covers every t; no extrapolation in t is needed.",
+      "residual_risks": [
+        "The exact count is for this fixed first circumference, labeled sets and t>=3; it does not classify other widths or lengths with a different graph convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dejter's Corollary 5 characterizes parallel existence by both cycle lengths being multiples of four. The 2014 Theorem 5.2 has the same parallel qualifier; Conjecture 5.3 poses unrestricted existence, with r=3,4,5,6,7 treated. The 2016 paper restates the conjecture. The exact-DOI literature search for Wehrmann–Koster confirmed the directly relevant title but no theorem was accessible."
+        ],
+        "reasoning": "The unrestricted conjecture, even if proved elsewhere as a yes/no theorem, would not by itself supply counts or least periods. The installed parallel classification allows existence constructions but cannot count the mixed-direction codes. The inaccessible 2026 paper is not classified as non-covering.",
+        "searches": [
+          "Dejter arXiv:0711.4343 Theorem 4 and Corollary 5",
+          "Kuziak–Peterin–Yero 2014 §5.1; Kraner Šumenjak et al. arXiv:1508.04029 Conjecture 2.4",
+          "10.1016/j.dam.2026.03.047 and RWTH record 1034193"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.4343",
+        "DOI 10.46298/dmtcs.1267",
+        "arXiv:1508.04029",
+        "DOI 10.1016/j.dam.2026.03.047 and RWTH record 1034193 (limited material only)",
+        "Resultary 4bf772728255 and 4d759c9a495b",
+        "Frozen RESULT.md and independent replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4 classifies irreducible horizontal parallel patterns, and admitting parallel constructions does not exclude mixed codes. For example the orbit beginning at state 281 has successive column masks 25,64,70,16,145,4,100,1; the selected induced matching uses both directions."
+        ],
+        "reasoning": "Even deriving all parallel counts from that theorem would omit this legal least-eight orbit and other mixed codes. Exhaustion of the unrestricted state graph adds the forced-period and exact labeled classification unavailable from the inspected prior existence statements.",
+        "searches": [
+          "Dejter arXiv:0711.4343 Theorem 4, Corollary 5",
+          "DOI 10.46298/dmtcs.1267 Theorem 5.2 and Conjecture 5.3",
+          "Frozen transfer classification and independent mixed-direction replay"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Total perfect codes and efficient open dominating sets use an exact partition by open neighborhoods. Parallel codes additionally require pairwise parallel edges in the induced matching. Resultary 4bf772728255 instead imposes an odd number of selected open neighbors, which at degree four permits three as well as one."
+        ],
+        "reasoning": "The first two terms name the same exact-one predicate. Neither parallel orientation nor parity-only domination is equivalent to the unrestricted predicate and census. The replay finds mixed directions in twelve of the length-eight state cycles.",
+        "searches": [
+          "Resultary: total perfect codes, efficient open domination, exact-one open-neighborhood tiling of 8-by-t toroidal grids",
+          "Dejter arXiv:0711.4343 pp. 100, 103, 105; DOI 10.46298/dmtcs.1267 §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest torus catalogue finding is a density result for odd open domination, not a census. The close exact total-perfect-code enumeration 4d759c9a495b concerns Q_4, not C8 square Ct. No matching width-eight exact table was identified in these scoped checks."
+        ],
+        "reasoning": "A table on one different graph, or a density result under parity rather than exact coverage, cannot give the 16/144 labeled profile or identify least periods over all t.",
+        "searches": [
+          "Resultary: exact count 16 and 144, least periods four and eight, C8 square Ct total perfect code",
+          "Resultary 4bf772728255 and 4d759c9a495b, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct finding is the unrestricted labeled census and least-period structure at width eight. The closest accessible primary results classify or guarantee parallel codes and explicitly stop short of the unrestricted width-eight case. The independent census even gives mixed-direction induced matchings, so the parallel classification cannot include all the counted patterns. The 2026 Wehrmann–Koster paper is a material unresolved priority risk, not evidence of coverage or of absence; the originality assessment does not assert first resolution of the existence slice over all literature.",
+      "residual_risks": [
+        "The inaccessible Wehrmann–Koster paper may provide stronger existence, structural or census results; nothing in the inspected snippet settles that. Unindexed classifications remain possible; no global priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The parallel classification and existence statements do not cover mixed-direction codes. The relevant full text was retrievable for this review despite the access limitation reported by the frozen record.",
+          "evidence": [
+            "Parallel means induced matching edges are pairwise parallel; Corollary 5 is explicitly restricted to parallel codes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0711.4343",
+          "material_read": "Definition printed p. 100; Theorem 4 printed p. 103, offset 13814; Corollary 5 printed p. 105, offset 24690",
+          "method": "Lawful open full PDF, decisive definitions and theorem passages",
+          "title": "Perfect domination in regular grid graphs",
+          "trigger": "Foundational total perfect code classification on toroidal grids"
+        },
+        {
+          "assessment": "Unrestricted conjecture stated, first factor eight not among the sizes established there.",
+          "evidence": [
+            "Theorem 5.2 for parallel codes, Conjecture 5.3 and width coverage r=3 through r=7."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.1267",
+          "material_read": "§5.1 printed pp. 115–117, offset 40110",
+          "method": "Open journal PDF passage comparison",
+          "title": "Efficient open domination in graph products",
+          "trigger": "Direct unrestricted conjecture and status of smaller widths"
+        },
+        {
+          "assessment": "Restates the unrestricted torus conjecture, does not settle the eight-factor case in the relevant statement.",
+          "evidence": [
+            "Conjecture 2.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.04029",
+          "material_read": "p. 4, offset 13167",
+          "method": "Lawful open PDF passage comparison",
+          "title": "Partitioning the vertex set of G to make G square H an efficient open domination graph",
+          "trigger": "Later primary treatment of efficient open domination in graph products"
+        },
+        {
+          "assessment": "Material unresolved source; neither positive nor negative evidence for exact coverage.",
+          "evidence": [
+            "Search material concerns total-domination invariants of tori; publisher full-text access failed and no usable full text was found through the repository."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.03.047; https://publications.rwth-aachen.de/record/1034193",
+          "material_read": "Indexed title and limited background snippet/landing material; no theorem or full text read",
+          "method": "Bounded DOI/publisher and RWTH repository retrieval attempts, including exact-DOI lookup for a lawful copy",
+          "title": "Efficient total domination and related invariants in torus graphs",
+          "trigger": "Wehrmann–Koster, Discrete Applied Mathematics 389 (2026), 106–118; directly overlapping objects and potential earlier coverage"
+        },
+        {
+          "assessment": "Odd-neighbor parity condition, not exact-one census.",
+          "evidence": [
+            "Density for odd open domination, without the requested labeled counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-quarter-half-density-phase-diagram-for-parity-domination--4bf772728255",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "A sharp quarter-half density phase diagram for parity domination",
+          "trigger": "Closest torus domination catalogue hit"
+        },
+        {
+          "assessment": "Different graph.",
+          "evidence": [
+            "Census on the 4-cube Q_4 rather than on C8 square Ct."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-antipodal-rigidity-and-two-replacement-mobility-of-total-perfect--4d759c9a495b",
+          "material_read": "Matching record's graph and claim in catalogue/source comparison",
+          "method": "Resultary and matching publication comparison",
+          "title": "Antipodal rigidity and two-replacement mobility of total perfect codes",
+          "trigger": "Exact total-perfect-code census under the same terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and transfer proof; Kuziak–Peterin–Yero §5.1; Dejter Theorem 4 and Corollary 5; exact independent cycle check."
+      ],
+      "rationale": "Width eight is the next natural width after the documented width-three-through-seven cases of the toroidal existence question. Beyond deciding existence, the census gives a uniform least-period bound and the exact labeled number for an infinite family, including patterns with both matching directions that a parallel-code theory does not see. The exact count and forced periods are useful benchmarks for wider toroidal tilings, rather than a database recomputation or an arbitrary one-off size.",
+      "residual_risks": [
+        "No general toroidal-existence conjecture or wider least-period classification follows from the fixed-width proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Conant--Kruckman Proposition 2.14 identifies algebraic closure with incidence closure, and Corollary 2.15 identifies complete tuple types with isomorphism types of marked closures. In arities at most three those closures are determined by equality, point/line sorts, mixed incidences, and the collinear/concurrent dichotomy. The case split gives 2, 8, and 48 exactly. Their Theorem 3.3 gives continuum many 4-types; repetition of the fourth coordinate propagates the lower bound to every higher finite arity, while countability of the language gives the matching continuum upper bound. A separate exhaustive Fano-plane program reproduces the low-arity counts and the injective triple closure-size distribution.
+## correctness
 
-## Originality
-**PASS, with residual folklore risk.** The primary paper explicitly records only that arities at most three have finite type spaces and arity four is the first infinite one; it does not enumerate the finite spaces. Candidate-specific semantic-database searches, exact web searches, generic-projective-plane aliases, and previous-result checks found no 2,8,48 census or equivalent marked-closure enumeration. The claim is restricted to this exact census and does not repackage the published continuum construction as new.
+PASS
 
-## Value
-**PASS.** The result completes the finite-arity cardinal profile of a natural properly NSOP1 theory: the qualitative finite-to-continuum threshold becomes the exact spectrum 1,2,8,48,continuum. The injective triple refinement also records how algebraic complexity first appears below the continuum jump.
+Conant–Kruckman, Prop. 2.14 and Cor. 2.15, identify complete types with marked join/meet closures. The Fano plane is a finite K_{2,2}-free incidence structure and embeds into a model of T_{2,2} by the model-companion theorem; its joins and meets already exist in it, so its marked tuples retain their closures. This supplies witnesses, not just combinatorial upper bounds. Completeness gives S_0=1; there are two one-element sorts, and the pair census is 2 equal + 2 distinct same-sort + 4 oriented mixed = 8. Triples with repetitions give 2+3*6=20. An injective same-sort triple gives two possibilities per sort: one join/meet if collinear/concurrent, or three if not; the latter are pairwise incident to the marked elements as a triangle and yield no further closure. In a mixed triple the two same-sort elements generate one line or point; if that new element is distinct from the marked opposite-sort element, one meet/join of those two suffices, and no further elements are forced. Thus each of the six ordered mixed sort patterns has four marked incidence patterns of closure sizes 3,4,4,5; the four same-sort types add two of size 4 and two of size 6. Total 28 injective, 48 in all, with the stated histogram. Theorem 3.3 constructs 2^aleph0 distinct 4-types; coordinate repetition and countability give equality at all n>=4. `python /workspace/audit_checks_1_5.py 4` independently enumerates Fano signatures with closure growth, obtaining 1,2,8,48 and 6,14,6,2. It does not prove the type/closure theorem or the continuum bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct supported contribution is the exact low-arity census and injective-triple refinement. The closure criterion, minimal infinite arity, and continuum-many 4-types are credited to Conant–Kruckman; repeating a coordinate for larger arities is routine and not an independent originality claim.
+
+## value
+
+PASS
+
+This exactly resolves the finite side of the already motivated type-space threshold in a standard test theory. The full injective histogram supplies the possible local algebraic closures and their marked multiplicities before the continuum jump, usable in low-arity type analysis. It is a complete classification requiring exhaustion and realizability, not a computation of isolated examples or the already known arity-four result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

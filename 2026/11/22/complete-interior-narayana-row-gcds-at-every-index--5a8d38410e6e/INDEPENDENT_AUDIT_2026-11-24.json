@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:28:57.023577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–105; VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: python3 /tmp/opencode/check_narayana_pascal_5a8d38410e6e.py"
+      ],
+      "rationale": "Primewise verification of RESULT.md:55–101: when q does not divide n, Lucas gives consecutive unit coefficients at j=1 for units digit at least two, or j=q^a when n−1=q^a u and u>1. Both are interior witnesses. When n=q^a u and u>1, choose a supported base-q digit of u so subtracting the corresponding power leaves the digit at position a nonzero. Then the first binomial is a unit, the next has valuation a by the adjacent-binomial ratio, and division by n cancels it. For n=q^a, the identity using the row q^a−1 gives valuation a−v_q(j)−v_q(j+1) in the adjacent product divided by n; this is at least one and exactly one when an interior j has valuation a−1 (j=1 for prime n). For n=q^b+1 only the four Lucas positions 0,1,q^b,q^b+1 can be units. The two boundary pairs have valuation b−v_q(2); the strictly intermediate pairs have valuation at least two. In the claimed exponent-two cases, at j=q^(b−1), the two Pascal sums each have terms of valuations 1 and b, hence achieve exactly two jointly. The exceptional n=3,5 and odd q with b=1 give valuation 0, 1 and 1 respectively from the boundary entry. The supports from n and n−1 are coprime. A separate exact Pascal-row recursion checked all 598 rows n=3..600, including divisibility of each product by n.",
+      "residual_risks": [
+        "Finite corroboration only; the unbounded result rests on the primewise proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dilated-row valuation histogram holds for n=mp^r with p∤m; the generalized-binomial theorem covers factorial quotients of strong-divisibility sequences."
+        ],
+        "reasoning": "The histogram determines the local gcd at every p|n, not at q|n−1. The generalized array is a single factorial quotient, not the adjacent-binomial product; the statement supplies no joint consecutive-coefficient minimum.",
+        "searches": [
+          "Resultary bde71f25e69e exact valuation distribution and 8c34899e8bac generalized-binomial row content"
+        ]
+      },
+      "checked_sources": [
+        "Bóna–Sagan JIS 8 (2005), Article 05.2.4",
+        "Resultary 5a8d38410e6e (self-match), 6ee2efd0166c, bde71f25e69e, 8c34899e8bac, efeba646acc1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older histogram has interior minimum one at a pure p-power, and more than two valuation-zero entries when m>1, forcing an interior unit there. Corollary 2.2 already proves interior divisibility at prime-power indices.",
+          "A prime row has even predecessor, so the odd prime-power predecessor exponents at composite n are outside the exact prime-row theorem."
+        ],
+        "reasoning": "Credit the full p|n local branch and prime-index classification as existing coverage; the exact predecessor valuations at composite rows do not follow simply by an indexing change.",
+        "searches": [
+          "Bóna–Sagan Corollary 2.2 and Theorem 1.2",
+          "Actual Findings of bde71f25e69e and 6ee2efd0166c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5a8d38410e6e is the exact self-match. efeba646acc1 is the exact interior Eulerian content, which counts a different statistic. Bóna–Sagan use equivalent individual Narayana coefficients under an index shift."
+        ],
+        "reasoning": "An individual modular criterion can be used to find rowwise witnesses but does not by itself measure minimization at higher prime powers. Eulerian coefficients are not the adjacent product in question.",
+        "searches": [
+          "Resultary: interior Narayana row content and gcd of adjacent binomial products",
+          "Bóna–Sagan Theorem 1.2 (shifted indexing)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6ee2efd0166c gives G(p)=p except when p=2^r+1, then G(p)=p·2^min(2,r−1), for odd primes p. The literature query brought up the JIS individual-divisibility paper, not a distinct all-index table."
+        ],
+        "reasoning": "The prime-row formula matches exactly, including the binary exceptions, but leaves the composite rows out. An unlocated data source is not excluded.",
+        "searches": [
+          "Resultary exact all-index Narayana gcd query; prime-index table and formula 6ee2efd0166c",
+          "Literature lookup: Narayana row gcd and prime divisibility"
+        ]
+      },
+      "rationale": "The full all-index product, most notably the predecessor exponents at composite indices and its assembly with the row-index branch, is distinct in the inspected sources. The odd-prime-index formula is already covered, as is the entire local branch at primes dividing n; neither is an independent originality claim.",
+      "residual_risks": [
+        "Bounded source comparisons do not exclude an unlocated implicit all-index formula or equivalent tabulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local first-power divisibility; does not state gcd exponents",
+          "evidence": "Base-p digit criterion for individual coefficients; universal divisibility of interior entries at prime-power n.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL8/Sagan/sagan101.pdf",
+          "material_read": "Theorem 1.2 PDF p. 2 offset 3798 and Corollary 2.2 p. 3 offset 7284",
+          "method": "OA full-text passages",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "Same array, possible all-index divisibility coverage"
+        },
+        {
+          "assessment": "Entire odd-prime-index special case covered",
+          "evidence": "G(p)=p or p·2^min(2,r−1), as in the frozen theorem.",
+          "identifier_or_url": "Resultary 6ee2efd0166c",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published record text",
+          "title": "Exact common divisors of interior Narayana counts in prime rows",
+          "trigger": "Exact same gcd on a specified subdomain"
+        },
+        {
+          "assessment": "Implies the entire local p|n branch",
+          "evidence": "Histogram for all n=mp^r with p∤m; excludes the q|n−1 case.",
+          "identifier_or_url": "Resultary bde71f25e69e",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published record text",
+          "title": "Exact valuation polynomials and a geometric limit for dilated Narayana rows",
+          "trigger": "Stronger local distribution"
+        },
+        {
+          "assessment": "Different coefficient structure",
+          "evidence": "Single generalized binomial B_U(n,k), not adjacent products.",
+          "identifier_or_url": "Resultary 8c34899e8bac",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published record text",
+          "title": "Universal row content of strong-divisibility binomial arrays",
+          "trigger": "Broader formulation of row gcd"
+        },
+        {
+          "assessment": "Different array",
+          "evidence": "Eulerian descent coefficients, not Narayana peaks.",
+          "identifier_or_url": "Resultary efeba646acc1",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published record text",
+          "title": "The exact content of every interior Eulerian row",
+          "trigger": "Same-day similar exact-content statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–53 and 77–101",
+        "Earlier prime-row gcd and dilated-row histogram Findings"
+      ],
+      "rationale": "Interior peak counts are a standard Catalan refinement; excluding the two unit endpoints makes their common divisor a natural arithmetic invariant. The theorem characterizes the precise contribution of the predecessor, including odd-prime squares and binary boundary effects at composite indices, and replaces finite tables or individual divisibility conditions with a test on two integers. Its significance is that exact structural classification, not a new general result on prime powers.",
+      "residual_risks": [
+        "No valuation distributions or gcds over different peak ranges claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

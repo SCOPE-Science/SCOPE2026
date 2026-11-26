@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:19:03.312482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t=1,2 each closed word of 2t-bit column letters satisfying the local temporal constraints specifies a unique F^t-fixed labelled state: phase zero determines all later phases, and B is used only at column zero. This proves the trace normalization, with no division by rotations or by temporal period. I rebuilt the transfer with ±1 votes and the incumbent as the third vote at the defect, found components by mutual reachability, obtained characteristic polynomials independently with exact symbolic matrix arithmetic, and evaluated the trace convolutions with full D=det(I−zT) through degrees 16 and 256 (branches/reproduce-prism.py and .out). The proposed denominators divide D, the padded proposed numerators have degrees at most the respective matrix sizes, and the two exact trace identities follow by the adjugate degree bound. The residue identities and reduced denominators also reproduce exactly. There is a unique simple dominant eigenvalue φ or φ² in the intact trace, respectively. In the t=2 determinant the nonquadratic factors pose no hidden dominant poles: for either reciprocal quartic the eigenvalues obey y²±y+4=0 with y=λ−1/λ; y has real part ±1/2 and imaginary part ±√15/2, lying on the ellipse for |λ|=φ, whose semiaxes are φ−φ⁻¹=1 and φ+φ⁻¹=√5. Its semiaxes increase strictly for |λ|>1, so these roots have modulus φ or φ⁻¹. The intact leading amplitudes are one, and the defective ones are exactly 3/√5 and 2−3/√5. Subtracting H, which is exponentially smaller than P, and halving gives the claimed primitive temporal orbit decrease. The exact Fibonacci expression was checked by an identity of series: it matches at every physical n≥3 (indeed at n≥2), not at formal n=1, where the overlapping-column count is 4. Thus the coefficient-sequence wording in the proof must be read within the physical scope specified in the finding. A separate direct update enumeration matched both transfers for 3≤n≤8. These checks establish neither basin populations nor sharp transient lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected seam-response record gives an exact intact Lucas census and uses the cubic temporal-double-cover reduction; the open ladder changes the rail boundary instead. The symmetric energy restriction in the frozen proof only bounds permitted periods."
+        ],
+        "reasoning": "A transfer framework gives a rational expression before evaluation, not its polynomial or amplitude. The intact cubic update has no incumbent condition, while the two missing-rung sites refer to their previous phase at a tie; an unmodified cubic double-cover rule cannot count the defect.",
+        "searches": [
+          "Resultary: intact Lucas prism/Möbius seam law, open ladder majority census, fully flipping states",
+          "Prism transfer and symmetric threshold background: Jen, DOI 10.1007/BF01221109; Goles–Olivos, DOI 10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary minority missing-rung 7acb4d6f373b, Lucas seam response 69a75f8bbc7c and defective squared cycle e064020d6821",
+        "Resultary open-ladder 589e6314b7c7 and fully flipping prism/Möbius 0a383da6731a findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact formulas imply leading amplitude one in both populations. The published minority formula implies the even-slice fixed-point correction and the same fixed-amplification constant there. The prior transfer proof explicitly makes no period-two claim on the defective ladder."
+        ],
+        "reasoning": "The rational defect transfer and its residue at φ⁻² are the missing ingredients; they do not follow by substituting the known fixed-amplification amplitude into the intact baseline. The identity between absolute relative responses is natural only after deriving the second, opposite change.",
+        "searches": [
+          "Resultary minority missing-rung Finding and fixed-state transfer proof",
+          "Resultary intact seam-response Finding and temporal-double-cover proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minority circular-rung result gives 3F_n+(6,−3,1,4,−1,−1) by residue, and only one-update fixed states. The majority and minority corrections agree at residues 0,2,4 and differ by +8,−6,+4 at residues 1,3,5."
+        ],
+        "reasoning": "The vertex sign change (−1)^(i+r) negates all open-neighbor votes relative to the site on an even prism, preserving the incumbent tie rule. An odd rail obstructs this bipartite switch. Even where applicable, conjugacy to the minority map's fixed census does not count that map's two-cycles.",
+        "searches": [
+          "Resultary: missing rung minority fixed states, majority on defective prisms/cyclic ladders, period-dividing-two versus primitive temporal orbits",
+          "Resultary: temporal double covers and prism/Möbius majority"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The defective squared-cycle census addresses a single edge too, but its primitive two-cycle counts are periodic and bounded on a different graph family. The exact missing-rung table found in the minority work counts fixed states, not F²-fixed states."
+        ],
+        "reasoning": "Deleting an edge at a cubic prism changes two degrees from three to two; deleting one in the degree-four squared cycle does not produce this rule or transfer. No exact tabulation for the period-dividing-two defect claimed here was identified in the bounded sources.",
+        "searches": [
+          "Resultary: exact period-two majority oscillations with a single deleted edge, defective cyclic ladder generating function",
+          "Resultary: golden-ratio amplification on circular ladders"
+        ]
+      },
+      "rationale": "The intact baseline and the minority fixed-state amplitude are prior, and the even-n defective majority fixed-state law follows from the latter by bipartite spin switching; the frozen record credits these facts. The surviving claim is the evaluated defective period-dividing-two rational series and the matching opposite primitive-orbit response, with the odd-n majority fixed-state law. None of the checked overlaps supplies that evaluated census or an implication yielding it.",
+      "residual_risks": [
+        "The original citation to the specific intact-prism record f39104b86e05 was not retrievable; the distinct earlier seam-response record explicitly supplies the intact baseline. Broader external lookups supplied no usable comparison with a more general evaluated defect theorem. Neither limitation is evidence of historical absence; there could be an earlier equivalent defect calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the credited even-size majority fixed result, not the odd-size corrections or the new two-step census",
+          "evidence": "Circular minority law 3F_n+a_{n mod 6}, with a=(6,−3,1,4,−1,−1); scope excludes temporal cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-single-missing-rung-amplifies-minority-fixed-states-on-cyclic--7acb4d6f373b",
+          "material_read": "RESULT.md Finding at offset 0, transfer proof and scope around 3300 and 6100",
+          "method": "Bounded local-mirror read",
+          "title": "A single missing rung amplifies minority fixed states on cyclic ladders by 3/√5",
+          "trigger": "Same defect and fixed-amplification coefficient"
+        },
+        {
+          "assessment": "Verified exact intact baseline; not an evaluated one-rung-deletion identity",
+          "evidence": "The circular prism counts satisfy the Lucas formula and leading amplitudes one; the argument uses the degree-three local rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-lucas-number-seam-response-in-majority-oscillations-on-prism-a--69a75f8bbc7c",
+          "material_read": "RESULT.md Finding and temporal-double-cover argument around offsets 0 and 3000",
+          "method": "Bounded local-mirror read",
+          "title": "A Lucas-number seam response in majority oscillations on prism and Möbius ladders",
+          "trigger": "Intact prisms and a possible temporal reduction for F²"
+        },
+        {
+          "assessment": "Different family, deleted edge type and counting normalization",
+          "evidence": "Its primitive-orbit counts for defective C_n² are bounded periodic functions, not the evaluated period-dividing-two response of a defective two-rail cubic prism.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-bond-length-sensitivity-of-period-two-majority-oscillations-on-d--e064020d6821",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local-mirror read",
+          "title": "Bond-length sensitivity of period-two majority oscillations on defective squared cycles",
+          "trigger": "Closest distinct single-edge period-two census located"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison affects the same natural two-rail recurrent-counting problem by exactly one missing bond. Evaluating the resulting all-circumference period-two census and its amplitude distinguishes the opposite effects on fixed and primitive oscillating orbits despite unchanged growth rates. The fixed-amplification constant alone is prior, and merely constructing the transfer matrix would not be the contribution; the evaluated return series and quantitative paired response supply the substantive content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

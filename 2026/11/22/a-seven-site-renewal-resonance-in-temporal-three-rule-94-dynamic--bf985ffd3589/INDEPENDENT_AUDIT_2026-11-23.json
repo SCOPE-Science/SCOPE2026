@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:26:11.144667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95, and transfer certificate and verifier source; original scripts inspected but not executed",
+        "Independent replay: python3 /workspace/branches/edbd68bc-844f-4d31-9139-26bb4bfc0658/rule94_independent_replay.py; output in the same directory, replay-output.txt. All labelled rings 3<=n<=16 also agree under direct update simulation."
+      ],
+      "rationale": "For each p=1,3, a spatial closed walk with its first site marked is exactly a p-row cyclic spacetime array; its initial row determines the rest. Thus traces count labelled configurations fixed by F^p, without a spatial quotient. Independent exact-integer reconstruction gives det(I-zA_1)=1-z-z^2+z^4 and det(I-zA_3)=1-z-z^2+z^4-3z^7+3z^8, with all remaining coefficients zero through dimensions 4 and 64. Another check lists the simple transfer cycles: for p=3 there is the all-zero loop and cycles of lengths 2, 3, 7, 7, 7 all through the pair (000,111). The three length-seven cycles are time rotations of the cyclic column word 000,111,011,001,001,011,111. In the determinant expansion the only disjoint products pair the zero loop with one of these nontrivial cycles, explaining the factor 1-z. Subtracting the fixed points from the third returns and dividing by three counts temporal orbits. The nonnegative log expansion gives support 7k+2a+3b with k>=1, so 7 and every n>=9 occur but 8 does not. The smallest positive Q-root r is simple and is its only root of modulus r by the triangle inequality and coprimality of 2 and 3; |z^2+z^3|<1 for |z|<=r excludes P-roots there. The logarithmic derivative thus gives the prefactor 1/3 in c_n~r^(-n)/3. The analogous P-root is farther away, giving the smaller fixed-state growth base.",
+      "residual_risks": [
+        "Direct simulation is bounded at n=16; the all-size result uses the finite determinant identities and formal-series proof, not extrapolation. Neither basins nor other primitive periods are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schüle–Stoop place Rule 94 among almost-equicontinuous rules via the invariant word 101 with period one. The indexed all-ECA zeta classification covers time-one and time-two returns."
+        ],
+        "reasoning": "Neither dynamical type or blocking word, nor knowing first- and second-iterate return counts, gives the third-iterate determinant. Generic transfer-graph methods describe how to calculate it, not its evaluated coefficients.",
+        "searches": [
+          "Resultary claim query above; all-ECA catalog 78b8bdccc729 and its rule_table.csv from the local published mirror",
+          "https://arxiv.org/pdf/1107.2080v7, Corollaries 4–5, p. 12, offset 37150"
+        ]
+      },
+      "checked_sources": [
+        "Anderson–Sturges pp. 254–255",
+        "Schüle–Stoop Corollaries 4–5",
+        "MathWorld Rule 94 entry",
+        "Resultary mirror findings 68d26b2851c0 and 78b8bdccc729, including the relevant rows of the latter's rule table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their Fig. 9(b) discusses a single whole state with least period six whose sub-bands show periods two and three. The web keyword results were not pertinent and are not negative evidence."
+        ],
+        "reasoning": "A mixed-band period-six orbit is not fixed by F^3; its observation does not even force primitive period three at the same circumference, much less yield the support gap and growth rate.",
+        "searches": [
+          "Primary web query: \"Rule 94\" \"period-three\" cellular automaton cyclic rings exact orbit enumeration Anderson Sturges 2013",
+          "Anderson–Sturges DOI 10.25088/ComplexSystems.22.3.247, pp. 254–255"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies the complement Rule 133. Simultaneous complementation of all bits conjugates the global maps and preserves temporal periods on indexed rings. The Rule 94 finding itself was the first local hit, not an independent precedence source; nearby Rule 54, 62 and 73 findings concern different maps, orders or return times."
+        ],
+        "reasoning": "An evaluated Rule 133 third-return law or a fixed-third-iterate count minus fixed points would be equivalent. The inspected matches did not furnish either; the independent primary web query did not separately exhaust Rule 133 literature.",
+        "searches": [
+          "Resultary (20 hits): Elementary cellular automaton Rule 94 exact counts or classification of primitive temporal period-three cycles on finite indexed rings; Rule 133 complement equivalent",
+          "https://mathworld.wolfram.com/Rule94.html, offset 284"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The MathWorld integer/word sequence and generating function start with a single black cell on the infinite row and advance time. The all-ECA catalog's CSV rows for Rules 94 and 133 both give a first primitive two-cycle at circumference five, and only first- and second-return determinant coefficients. The period-three transfer and law in 68d26b2851c0 are for Rule 62."
+        ],
+        "reasoning": "Neither a single-seed time series nor a different local rule is an all-circumference labelled Rule 94 orbit table; no inspected table covers the claimed counts.",
+        "searches": [
+          "Resultary claim query above",
+          "MathWorld Rule 94, OEIS A118101/A118102 via the MathWorld description"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the evaluated third-return determinant and the consequent exact primitive-three law. The inspected named-rule attractor example, topological classification and seed-evolution series do not determine these counts; the nearest indexed all-rule statement stops at shorter temporal returns.",
+      "residual_risks": [
+        "An unindexed complete ECA time-three table or a differently named Rule 133 result could cover the finding. The review does not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give the census in the inspected material",
+          "evidence": [
+            "The six-step example combines a three-step left band and two-step right-hand bands; the caption describes 150 steps on 150 cells."
+          ],
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.22.3.247",
+          "material_read": "Rule 94 passage, printed p. 254, and Fig. 9 caption, p. 255",
+          "method": "Primary OA PDF, https://content.wolfram.com/sites/13/2018/12/22-3-4.pdf, located Rule 94 and read from offset 17089",
+          "title": "System Behaviors and Measures: Logical Complexity and State Complexity in Naval Weapons Elevators",
+          "trigger": "Named-rule prior temporal-three behavior"
+        },
+        {
+          "assessment": "Almost-equicontinuity classification is not a cyclic third-return count",
+          "evidence": [
+            "Rule 94 appears as 101 among shortest invariant words of period one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.2080v7",
+          "material_read": "Corollaries 4–5, p. 12",
+          "method": "OA PDF literal locate then read at offset 37150",
+          "title": "A Full Computation-relevant Topological Dynamics Classification of Elementary Cellular Automata",
+          "trigger": "Potential broader all-rule theorem"
+        },
+        {
+          "assessment": "Exact series on different inputs and along a different variable",
+          "evidence": [
+            "A118101/A118102 encode successive states from one black cell on the otherwise white infinite row; Rule 133 is the complement."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/Rule94.html",
+          "material_read": "Evolution, complement, and generating-function passage",
+          "method": "Public entry, located 133 and opened bounded passage at offset 284",
+          "title": "Rule 94",
+          "trigger": "Exact reference series and conjugate-rule alias"
+        },
+        {
+          "assessment": "Covers both rules up to return period two only",
+          "evidence": [
+            "CSV headers distinguish first primitive two-ring and two determinants; rows 94 and 133 each give first two-cycle at length five."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-six-site-test-and-forty-temporal-two-zeta-classes-for-el--78b8bdccc729",
+          "material_read": "RESULT.md finding at offset 0; rule_table.csv header and rows at offsets 2275 and 3425",
+          "method": "Local published mirror, bounded statement and literal CSV row queries",
+          "title": "A sharp six-site test and forty temporal-two zeta classes for elementary cellular automata",
+          "trigger": "All-ECA published census, including this rule and its conjugate"
+        },
+        {
+          "assessment": "Third-return derivation for a different map; does not evaluate Rule 94/133 counts",
+          "evidence": [
+            "The 64-state transfer and trace of third-return walks are formed for Rule 62."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-temporal-three-cycle-census-and-golden-ratio-growth-for-ru--68d26b2851c0",
+          "material_read": "RESULT.md finding and transfer lemma at offsets 0 and 1522",
+          "method": "Local published mirror passage reads and Rule 94/133 within-file queries",
+          "title": "Exact temporal three-cycle census and golden-ratio growth for Rule 62 rings",
+          "trigger": "Exact all-circumference temporal-three counterpart for another elementary rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard elementary rule already known to display mixed periodic bands, the shortest nontrivial temporal cycles provide a motivated exact recurrence test, independent of basin behavior. The evaluated determinant discloses three seven-column returns joined to two- and three-column returns at a common pair, explaining both the isolated size-eight hole and faster growth than the fixed-point count. This all-size structural law is useful beyond recomputing initial coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

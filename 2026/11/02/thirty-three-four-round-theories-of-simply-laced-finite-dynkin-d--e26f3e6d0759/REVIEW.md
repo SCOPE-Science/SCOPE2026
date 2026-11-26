@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full ordered-tuple atomic-type recursion is justified by induction on the number of remaining Ehrenfeucht–Fraïssé rounds; equality and repeats are retained. The C++17 exhaustive classification through rank four and the independently implemented Python classification agree on their entire common range. The gap invariant with thresholds \(1,3,7,15,31\) supplies the independently proved infinite tail, and the finite classifications bridge the exact endpoints. The statement is restricted to the indicated family and signature.
+## correctness
 
-## Originality — PASS (historical-priority qualification)
-The established path threshold is expressly credited to Brown and Hoshino; it is not newly claimed. Their paper treats only paths/cycles, while the new comparison includes all branching \(D\) diagrams and the exceptional diagrams. Bohman et al. treat general-tree logical depth but do not supply the exact proposed 33-partition. Repository and literature searches for Dynkin diagrams, trivalent spider trees, their aliases, and stronger game bounds did not reveal the exact result. An unindexed specialized treatment remains a priority risk.
+PASS
 
-## Value — PASS
-The complete partition pertains to the canonical ADE Dynkin families. Its sharp rank-four cutoff detects each of three exceptional diagrams and every \(D\)-diagram through index 16, then shows that all larger \(D\)-diagrams become logically indistinguishable at exactly index 17. This simultaneously provides a sharp 17-vertex representative bound for the entire family, relating low-depth logical visibility to the usual root-system parameter. The new branching-family cutoff is not supplied by the known path theorem and is not an arbitrary isolated finite measurement.
+The diagram orders and arm lengths agree with the claimed finite simple graphs. Four ordered choices with replacement and a terminal diagram distinguishing equality, adjacency and neither give a complete EF invariant by backwards induction using sets of next-choice types. An independently written enumeration reproduces the entire finite partition through parameter 40 for A,D and includes E6, E7 and E8. The virtual-endpoint strategy handles the infinite tails: a gap count measures unused interior vertices, the thresholds are 1,3,7,15,31, and a gap above threshold can absorb a move while matching a short side exactly or leaving enough on both sides. Equality and adjacency are preserved at threshold 1; a move at an already paired endpoint or extra pendant preserves the invariant at the lower threshold. In D_n the spine has n−4 interior vertices and the two off-spine vertices meet only the paired trivalent end. Thus A≥33 and D≥35 each stabilize, and the exhaustive finite checks bridge those tails to A16 and D17, including all cross-series distinctions. The D17 class has no smaller representative inside the listed family, so the sharp ceiling is 17, not a claim about all finite graphs.
 
-## Closest literature and limits
-Brown–Hoshino, *The Ehrenfeucht-Fraïssé Game for Paths and Cycles*, Ars Combinatoria 83 (2007), provides the already-known \(A\)-family case. Bohman et al., *First-Order Definability of Trees and Sparse Random Graphs*, Combinatorics, Probability and Computing 16 (2007), gives general tree bounds and methods, not the fixed-rank ADE table. Results do not extend to weighted Dynkin diagrams, arbitrary trivalent spiders, or quantifier rank five. External historical priority and independent mathematical review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The A-path threshold is credited prior coverage, not the new claim. The supported contribution is the exact D stabilization, E distinctions and full cross-series partition. The strongest inspected indexed and published results overlap on paths, on a small subset of the trees at a different rank, or on general bounds, not on this combined classification.
+
+## value
+
+PASS
+
+The canonical ADE family motivates asking which distinctions its underlying graphs retain under weak logic. The exact trivalent-family stabilization and comparisons tell when distinct orders are no longer discernible and whether exceptional diagram types can be confused with other diagrams. The sharp representative bound and cross-series classification supply that usable exact information; the value is not the recomputed known path threshold alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:58:02.313640Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4; VERIFICATION.md; verify.py (inspected)",
+        "/workspace/branches/audit_spotchecks.py trees; /workspace/branches/audit_spotchecks.log"
+      ],
+      "rationale": "The cut at edge 1–2 starts two parts of size one. The next label joins a part with probability proportional to its size, so induction yields uniform S on 1,...,n-1. Fixing a membership sequence, each possible parent assignment within the parts has the same probability, and the allowed assignments form a product over arrivals; relabeling gives independent recursive trees. Only the complement root has its fringe size changed by the cut: it was n and becomes n-s. Thus exactly the term 1_{n-s=k} must be removed from the two induced counts. The insertion mean recurrence has the distinct root boundary f_{k,k}=1 and the stated leaf recurrence; at m=k the creation term gives 1/k for size k in the tree of size k+1, as required. The symmetric sum of component means has zero covariance with uniform S, leaving -((n-k)-n/2)/(n-1). This is valid at n=2,k=1 as well. Independently enumerated every parent sequence for 2≤n≤8 by walking ancestor chains and matched the conditional means and covariances in all cases.",
+      "residual_risks": [
+        "No claim of independence at zero covariance or of a formula for other distinguished labels or tree models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed split proof determines the full conditional two-tree law. Bäumler–Briend–Jorritsma's first-child construction samples the first child's size uniformly and recursively splits the parts. The two fringe references give the exact global mean for size k."
+        ],
+        "reasoning": "A full conditional law of the induced components applies to additive statistics without any new distributional argument. Combining it with the all-k mean supplies the conditional regression immediately.",
+        "searches": [
+          "Resultary f5ead0507350, proof of independent component parent systems",
+          "arXiv:2606.24465, §2.1",
+          "Holmgren–Janson arXiv:1406.6883, Theorem 1.4; Seelbach Benkner–Wagner DOI:10.1007/s00453-022-01013-y, Lemma 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f5ead0507350 and self-match 8a66b05b6f64",
+        "arXiv:1406.6883, 2606.24465",
+        "DOI:10.1007/s00453-022-01013-y",
+        "DOI:10.1137/060653950, access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After the known split, every vertex except root 1 retains its full-tree fringe size; taking conditional component means gives mu_k(s)+mu_k(n-s)-1_{n-s=k}. By symmetry of the first two terms and uniformity of S, only the covariance with the indicator remains, equal with its minus sign to (2k-n)/(2(n-1))."
+        ],
+        "reasoning": "This is a direct substitution of the known exact means into the covered split followed by a one-point covariance evaluation. It is not an attempted inference from global-global covariances or from birth-label exchangeability.",
+        "searches": [
+          "Resultary f5ead0507350, Finding and conditional-parent proof; arXiv:1406.6883, Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier leaf record gives the conditional law X_s+X_{n-s}-1_{n-s=1} and proves the conditional uniform parent systems for the identical split at vertex 2. The same-title all-k hit is the frozen record itself."
+        ],
+        "reasoning": "The leaf law is not a verbatim all-k match; its underlying conditioned component law does apply before choosing any fringe statistic. The leaf and arbitrary-k corrections both come from the same single root.",
+        "searches": [
+          "Local Resultary: distinguished recursive-tree branch sizes, leaf/fringe conditional law, exact covariance; f5ead0507350 and self-match 8a66b05b6f64"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest separate indexed result gives the exact leaf conditional law, not an all-k covariance table. Theorem 1.4 gives the component mean for every k below tree size; Theorem 1.15 concerns two global counts instead."
+        ],
+        "reasoning": "No distinct verbatim all-k covariance table was established. The necessary exact mean is already given parametrically, including m=k and m<k by the deterministic root and size cases; applying it to the known split does not require a new calculation of a joint distribution.",
+        "searches": [
+          "Local Resultary exact result lookup for size-k fringe dependence at vertex 2; f5ead0507350 and 8a66b05b6f64",
+          "arXiv:1406.6883, Theorems 1.4 and 1.15"
+        ]
+      },
+      "rationale": "The arbitrary-k expression was not found verbatim, and global-global covariances alone do not imply it. But the exact conditional component split with independent recursive trees, already proved in a distinct indexed leaf-law result, and the established all-k fringe mean mechanically give the requested conditional regression and covariance. The only count correction is the already present root boundary with the size target changed to k.",
+      "residual_risks": [
+        "The 2008 article was not accessible. The decision rests on the explicit covered split and mean, not on that uninspected article or a claim to have found the exact covariance verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full component mechanism used in the assigned proof",
+          "evidence": "The independent conditional parent systems are not leaf-specific; the leaf formula's correction removes the complement root precisely when its component has size one.",
+          "identifier_or_url": "Resultary f5ead0507350; https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-arbitrarily-many-leaf-moments-conceal-a-recursive-tree-subtree-s--f5ead0507350",
+          "material_read": "RESULT.md Finding and conditional-colour parent assignment proof",
+          "method": "Local Resultary and original mirror",
+          "title": "Arbitrarily many leaf moments conceal a recursive-tree subtree size",
+          "trigger": "Same distinguished split and exact conditional statistic"
+        },
+        {
+          "assessment": "Exact required mean; global-global covariance is not the decisive implication",
+          "evidence": "Mean is m/[k(k+1)] for recursive trees of size m>k. Covariances in Theorem 1.15 concern two count statistics.",
+          "identifier_or_url": "arXiv:1406.6883; DOI:10.1214/EJP.v20-3627",
+          "material_read": "Theorem 1.4, p. 4; Theorem 1.15, p. 8",
+          "method": "Primary OA PDF passages",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "All-k fringe means and covariances on the same random tree"
+        },
+        {
+          "assessment": "Supplies the same exact component mean via the recursive-tree specialization",
+          "evidence": "Substitution of alpha=0 gives m/[k(k+1)] for k<m.",
+          "identifier_or_url": "DOI:10.1007/s00453-022-01013-y",
+          "material_read": "Lemma 3, p. 3698 and recursive-tree parameter identification",
+          "method": "Primary OA theorem passage",
+          "title": "Distinct Fringe Subtrees in Random Trees",
+          "trigger": "Broader increasing-tree fringe mean"
+        },
+        {
+          "assessment": "Related first-child construction, not the literal covariance",
+          "evidence": "Samples the first child's size uniformly from 1,...,n-1, then recursively splits remaining sizes.",
+          "identifier_or_url": "arXiv:2606.24465",
+          "material_read": "§2.1 pp. 16–17",
+          "method": "Primary OA PDF passages",
+          "title": "History estimation in random recursive trees: Pointwise approach via iterated Jordan centralities",
+          "trigger": "Identical early-child fringe split"
+        },
+        {
+          "assessment": "Access limitation; no conclusion about coverage from access failure",
+          "evidence": "Primary routes returned HTTP 403 and no lawful repository copy was located.",
+          "identifier_or_url": "DOI:10.1137/060653950",
+          "material_read": "No full-text passage retrieved",
+          "method": "OA PDF and DOI retrieval attempts and repository-copy lookup",
+          "title": "Phase Changes in Subtree Varieties in Random Recursive and Binary Search Trees",
+          "trigger": "Earlier global size-count results on the same tree"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§3–4",
+        "Resultary f5ead0507350",
+        "arXiv:1406.6883, Theorem 1.4"
+      ],
+      "rationale": "The exact sign change is a natural illustration of the complement-root correction. In this case the known conditional product law and exact fringe means already give the regression by adding the two component counts and removing the one affected root. The sign then follows by symmetry and evaluation at one of the n-1 equally likely sizes. There is no further motivated unknown invariant or new structural argument surviving this mechanical implication.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

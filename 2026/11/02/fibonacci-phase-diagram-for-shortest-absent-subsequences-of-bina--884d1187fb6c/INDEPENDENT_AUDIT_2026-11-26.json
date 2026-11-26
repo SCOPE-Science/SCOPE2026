@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:08.770319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy arch count is m with a run of length one and 2m−1 otherwise: when both runs are longer, after 0^a1 the arches alternate 1^(b−1)0 and 0^(a−1)1, with a final all-1 rest. For a word of length one more than the arch count, a greedy match cannot lag beyond its indexed arch, and any match strictly earlier than that arch would leave enough full arches to fit the whole remaining target. Thus each matched letter must occupy the corresponding arch. For a,b≥2, the first match must be terminal (otherwise both symbols remain in the first arch), the absent last letter must be 0, and an early match can only be followed by a terminal match and only when its own initial run has length one. A last early match is possible iff a=2 and there is a later odd arch. This gives the no-adjacent-early Fibonacci recurrence (bases 1,2), independent choices at exactly m−1 alternating positions in the mixed cases, and the forced path spelling (10)^m when both runs are at least three. For arches 01 with empty rest, legal prefixes consist of terminal matches followed by early matches, yielding m+2 absent words. When b=1<a the terminal 1 is forced in every arch and either final symbol fails. When a=1<b, appending 0 and working backward forces the terminal zeros in arches 2,...,m, but the initial 01 may contribute either letter: no 0 remains in that first arch after either match. In the source's Step 2 the backward forcing of the preceding terminal zero applies only when that preceding arch is not the first one. For m=1, 00 and 10 directly give the two absences in this case; when a,b≥2 only 10 is absent at length two, so the early-terminal wording at m=1 does not affect the claim. The all-parameter conclusion follows from the greedy proof, not the source author's finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5 describes SAS by positions in successive arches and their greedy constraints. The two-block periodic record treats embedding spans and universality of the infinite periodic host, with run-length transitions but not fixed finite-power SAS counts."
+        ],
+        "reasoning": "The general method determines which targets are absent, and the length relation follows from explicit arch counts. It does not supply a symbolic cardinality by run regime; the asymmetric transitions and last-arch constraints have to be identified and counted.",
+        "searches": [
+          "Kosche et al., Definition 2.3 and Theorems 3.1, 3.5",
+          "Schnoebelen–Véron arXiv:2304.11932 §§2–3",
+          "Resultary two-block periodic embedding-span record bcfce8efaaec"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_binary_block_sas.py (read only)",
+        "Resultary matching and neighboring records listed above",
+        "arXiv:2108.13968v6 and arXiv:2304.11932",
+        "Focused literature lookup for periodic binary SAS counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general arch test takes individual choices subject to greedy constraints. On these hosts an early choice works across an arch boundary only when its current initial run is exhausted. This splits the accessible optional positions by parity and makes their choices independent in the min(a,b)=2<max(a,b) case."
+        ],
+        "reasoning": "Two diagonal counts are existing immediate specializations and the length is a standard positional consequence. The new combined count, particularly the difference between mixed and long runs, is not obtained by parameter substitution in either diagonal spectrum or an extremal formula.",
+        "searches": [
+          "Kosche et al. Theorem 3.5 against RESULT.md lines 38–44",
+          "Resultary full-text Findings of the matched binary spectra and periodic spans"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the first absent length every absent word is minimal, so a minimal-absence spectrum at that length gives the exact SAS count. The Finding of 06eff8b8a564 gives F_r at length r for r alternating doubled runs; the Finding of 47ef0e5dde29 gives m+2 at length m+1 for (01)^m."
+        ],
+        "reasoning": "The cases r=2m and (01)^m are exact overlaps with a=b=2 and a=b=1, respectively, not merely similar hosts. Neither spectrum ranges over arbitrarily unequal or longer run lengths. Same-day indexing does not establish relative priority.",
+        "searches": [
+          "Resultary semantic search for shortest or minimal absent subsequences of binary block powers, alternating words and doubled runs",
+          "Kosche–Koß–Manea–Siemer arXiv:2108.13968v6 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two spectrum records give the exact short and doubled diagonal entries. The extremal record gives maxima M_{2q}=F_{q+3}, M_{2q+1}=2F_{q+1} over hosts of the given length; e.g., at length 4m its maximum is F_{2m+3}, not the count F_{2m} for (0011)^m."
+        ],
+        "reasoning": "A maximum over hosts does not determine a count for a specified block power. No inspected table or spectrum supplies the full classification including the two-run mixed-length counts.",
+        "searches": [
+          "Resultary index and Findings of 06eff8b8a564, 47ef0e5dde29, and Fibonacci extremals 1a6556f14d28"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete run-sensitive five-regime classification, specifically the mixed-run power-of-two count and the transition to a singleton for both lengths at least three. Two diagonal branches are demonstrably covered by distinct catalogue records and are not credited as original individually. The greedy arch characterization and the universality length relation are also prior inputs.",
+      "residual_risks": [
+        "Bounded evidence does not exclude another exact derivation of the full fixed-period classification, or decide priority between the same-day diagonal records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General characterization, no five-case symbolic census in those passages",
+          "evidence": [
+            "Theorem 3.5 selects a position in each arch subject to the greedy conditions and gives length one more than the universality index."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+          "material_read": "§2 Definition 2.3; §3 Theorems 3.1 and 3.5 (offset ranges 11773–15665, 15597–19100 and 21702–25597)",
+          "method": "Bounded OA HTML inspection",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General greedy SAS characterization"
+        },
+        {
+          "assessment": "Universality rather than exactly counting shortest absences",
+          "evidence": [
+            "The relevant result concerns arch factorization and the universality index."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+          "material_read": "§§2–3, pp. 4–5 (offsets 10694–14966)",
+          "method": "Bounded OA PDF inspection",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Arch universality of repetitive and compressed words"
+        },
+        {
+          "assessment": "Exact diagonal branch coverage; distinct same-day record",
+          "evidence": [
+            "r alternating length-two runs give F_r minimal absences at length r; set r=2m, with no shorter absences by the embedding criterion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-fibonacci-length-spectrum-for-minimal-absent-subsequences-of-dou--06eff8b8a564/RESULT.md",
+          "material_read": "Finding and Proof / Exact enumeration",
+          "method": "Local mirror of original record",
+          "title": "Fibonacci length spectrum for minimal absent subsequences of doubled runs",
+          "trigger": "Plausible exact match for (0011)^m"
+        },
+        {
+          "assessment": "Exact diagonal branch coverage; distinct same-day record",
+          "evidence": [
+            "The shortest absent length is m+1 and there are m+2 minimal absences at that length."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-binomial-length-spectrum-of-minimal-absent-subsequences-in--47ef0e5dde29/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror of original record",
+          "title": "Exact binomial length spectrum of minimal absent subsequences in alternating binary words",
+          "trigger": "Plausible exact match for (01)^m"
+        },
+        {
+          "assessment": "Related infinite periodic embedding spans and thresholds; not the finite-host SAS census",
+          "evidence": [
+            "The stated host is (0^a1^b)^ω and the result treats embedding spans and full-universality thresholds for it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-bounded-range-subsequence-spectra-of-two-block-periodic-wo--bcfce8efaaec/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror of original record",
+          "title": "Exact bounded-range subsequence spectra of two-block periodic words",
+          "trigger": "Same run parameters and threshold values"
+        },
+        {
+          "assessment": "Extremum over all hosts, not a fixed-host cardinality regime",
+          "evidence": [
+            "For length 2q the stated maximum is F_{q+3}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror of original record",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Prior Fibonacci law for binary SAS"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated all-parameter classification on the simplest periodic two-run hosts, not a sampled census. Equal shortest lengths do not imply similar scarcity: the exact cardinality can grow with Fibonacci or powers of two or be one. It is useful to separate effects of the two run lengths and locate exactly when another increment in run lengths stops mattering. The value rests on those distinctions and the full classification, not on rediscovering the diagonal cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

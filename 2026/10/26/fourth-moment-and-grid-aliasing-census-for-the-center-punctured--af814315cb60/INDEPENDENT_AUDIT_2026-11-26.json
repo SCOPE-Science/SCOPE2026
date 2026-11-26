@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:12:07.813955Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–48",
+        "Frozen VERIFICATION.md and checker.py",
+        "/workspace/branches/review_replay.py (argument 2)"
+      ],
+      "rationale": "With probability-normalized Haar or grid measure, expanding |P|^4 retains exactly ordered quadruples a,b,c,d whose vector a+b−c−d is zero, or zero modulo the grid order, with weight ε_a ε_b ε_c ε_d. This also gives the two contraction formulas by first grouping sums or differences. Independently enumerated all 8^4 quadruples, compressed their weights by the parity mask of the four indices, and evaluated the resulting integer sums on all 256 sign assignments for moduli 3,4,5 and on the integer lattice. All three histogram rows agree entry by entry (hence the minima, maxima and their counts). Values modulo 5 and on the integer lattice agree mask by mask. Analytically, two pair sums in [−2,2]^2 cannot collide modulo any n≥5 unless equal, proving all-orders stabilization for every mask. For the continuous moment I independently enumerated the entire group as the eight signed coordinate permutations, each combined with the eight sign/checkerboard modulations. Both types preserve |P|^4 averages (or permute the convolutions up to signs). The enumeration found 13 orbits, with exactly two minimum-88 orbits represented by `----+-+-` (8) and `----++-+` (16) in the frozen order. For n≥3 the eight characters are distinct, so the zero-displacement autocorrelation is 8 and the two quoted merit factors follow from 64/(M−64). The independent replay is `python3 /workspace/branches/review_replay.py 2`; the frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Exact only for fixed unit binary signs at the eight outer cells; the aperiodic optimizer equivalence is not asserted for odd sampled grids or arbitrary phase alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "225492f9c9fb covers the same punctured support for five alphabets, and for binary signs gives min 88, max 216, 3 phase-modulation classes (24 masks), stable on rectangular grids with both orders ≥5. The nine-mode square includes the center; the eight-mode cube is three-dimensional. The 2D Golay and Z-complementary results concern combined autocorrelations of sets/pairs."
+        ],
+        "reasoning": "The broader alphabet theorem covers the extrema and minimizer set for the aperiodic/stable case, not the full binary distribution or either aliased grid. Complementarity across arrays does not determine the histogram for one array.",
+        "searches": [
+          "Resultary 225492f9c9fb, exact five-alphabet fourth moments",
+          "Resultary f31c28437f0d and 486a31ac0a2d",
+          "Pai–Chen arXiv:2102.04043 and Zhang–Fan–Mesnager arXiv:2107.11599"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, scope and prior-work comparison",
+        "Resultary 225492f9c9fb, f31c28437f0d, 486a31ac0a2d and 95a5aa29c0af",
+        "OA literature passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the listed three normalized binary optimizer classes one can recover the 24 masks and combine their square symmetries; this covers the two torus-minimum orbits by finite regrouping. The no-aliasing result likewise specializes. The complete energies/multiplicities of non-minimizers and n=3,4 are not determined by the extrema or the optimizer list."
+        ],
+        "reasoning": "A fresh enumeration of non-minimizers and a different frequency collision condition are necessary for the distribution through the aliased orders. The existence of a reusable moment identity or optimization procedure is not an existing exact distribution.",
+        "searches": [
+          "Resultary 225492f9c9fb, Finding, scope, pair-sum and normalization proofs",
+          "Schmidt, merit-factor definition and setting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the equivalent zero-center mask the sidelobe energy is M−64, and the merit factor is 64/(M−64), with aperiodic or circular correlation as appropriate. Translation to support coordinates {0,1,2}² with (1,1) absent is multiplication of P by a monomial. Schmidt treats fully populated arrays; Katz–Ramirez treats one-dimensional sequences."
+        ],
+        "reasoning": "A complete merit-factor histogram on the same sparse support would be exact coverage in other units. Neither the full rectangle nor a one-dimensional sequence is the same support with the relevant pair-sum collisions and periodic folding.",
+        "searches": [
+          "Resultary and primary-literature searches for 3×3 missing-center binary aperture autocorrelation and merit-factor spectra",
+          "Schmidt arXiv:1105.5176; Katz–Ramirez arXiv:2307.14281",
+          "Resultary 225492f9c9fb, Finding and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-aperture table lists minima, normalized and labeled optimizer counts, and maxima, not intermediate frequencies or grid orders 3,4. The 4×4 table has 16 fully populated sites. The Bömer–Antweiler abstract snippet is about binary-array merit factor; the article text could not be verified."
+        ],
+        "reasoning": "None of the accessible tables supplies the claimed census. The older merit-factor tables remain a genuine historical risk for the aperiodic portion; access failure is not an inference about their contents.",
+        "searches": [
+          "Resultary 225492f9c9fb optimization table and optimizer-catalog description",
+          "Resultary 95a5aa29c0af 4×4 optimizer table",
+          "Bömer–Antweiler DOI 10.1016/0165-1684(93)90047-E"
+        ]
+      },
+      "rationale": "The supported distinct objective is the complete binary moment distribution through the order-three/order-four aliasing transition, including all ordered multiplicities and the stabilized histogram. There is real same-support coverage of the aperiodic extrema, minimizing masks (hence their coarser square orbits), and no-aliasing for orders at least five in Resultary 225492f9c9fb; those facts are not independent contributions here. Its date label is later, but the coverage assessment does not depend on priority. The exact near-grid distributions and full moment census are not supplied by the inspected prior statements.",
+      "residual_risks": [
+        "Older merit-factor catalogs may give an equivalent aperiodic small-mask table; the scope of Bömer–Antweiler was not verified from full text. The conclusion is bounded by accessible evidence and is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage",
+          "evidence": "Binary row 88, 3 normalized minimizers, 24 labeled minimizers, max 216; entire list of normalized optimizers announced; stabilization for both orders ≥5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-five-alphabet-fourth-moments-for-the-punctured-square-four--225492f9c9fb/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–2, offsets 0–3549",
+          "method": "Local mirror targeted passage",
+          "title": "Exact five-alphabet fourth moments for the punctured square Fourier aperture",
+          "trigger": "Exactly the missing-center square, binary included"
+        },
+        {
+          "assessment": "Different support",
+          "evidence": "Nine unit-modulus sites, binary min 113 and 64 minimizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-phase-alphabet-fourth-moments-for-the-nine-mode-square-fou--f31c28437f0d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp phase-alphabet fourth moments for the nine-mode square Fourier aperture",
+          "trigger": "Same square footprint and extremal fourth moment"
+        },
+        {
+          "assessment": "Different collision geometry",
+          "evidence": "Support {0,1}³, not the planar punctured square.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-fourth-moment-rigidity-of-the-eight-mode-cubic-fourier-ape--486a31ac0a2d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact fourth-moment rigidity of the eight-mode cubic Fourier aperture",
+          "trigger": "Shares number of modes and numerical endpoints"
+        },
+        {
+          "assessment": "Different support and moments",
+          "evidence": "16 signs, min 304, two size-16 optimizer orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-binary-optimizer-orbits-of-the-4-times4-square-fourier--95a5aa29c0af/RESULT.md",
+          "material_read": "Finding at offset 0, references at offset 7565",
+          "method": "Local mirror",
+          "title": "Complete binary optimizer orbits of the 4×4 square Fourier aperture",
+          "trigger": "Square binary orbit census and bibliographic leads"
+        },
+        {
+          "assessment": "One-dimensional sequence model",
+          "evidence": "Squared autocorrelation demerit factors and their distributions for sequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.14281",
+          "material_read": "v4 pp. 1–2, including offset 6600",
+          "method": "Primary open PDF",
+          "title": "Moments of Autocorrelation Demerit Factors of Binary Sequences",
+          "trigger": "Moment distributions in equivalent correlation language"
+        },
+        {
+          "assessment": "Fully populated arrays, not missing-center table",
+          "evidence": "Defines array MF from aperiodic autocorrelation and studies specific filled array families.",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.5176",
+          "material_read": "v2 pp. 1–2, offsets 0 and 2200",
+          "method": "Primary open PDF",
+          "title": "The Merit Factor of Binary Arrays Derived from the Quadratic Character",
+          "trigger": "Array merit factor equivalent to sidelobe energy"
+        },
+        {
+          "assessment": "Different multi-array invariant",
+          "evidence": "Sum of constituent autocorrelations vanishes off the origin.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.04043",
+          "material_read": "v1 p. 1",
+          "method": "Primary open PDF",
+          "title": "Two-Dimensional Golay Complementary Array Sets from Generalized Boolean Functions",
+          "trigger": "Two-dimensional autocorrelation constraints"
+        },
+        {
+          "assessment": "Different pair/zone condition",
+          "evidence": "Complementary pairs and prescribed zero-correlation zones, not the moment distribution of one fixed binary aperture.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.11599",
+          "material_read": "v1 p. 1",
+          "method": "Primary open PDF",
+          "title": "New constructions of q-Ary 2-D Z-Complementary Array Pairs",
+          "trigger": "Low sidelobe two-dimensional designs"
+        },
+        {
+          "assessment": "Exact small-mask scope unresolved",
+          "evidence": "Snippet describes binary-array merit-factor optimization; it does not establish whether missing-center arrays occur in the full paper.",
+          "identifier_or_url": "https://doi.org/10.1016/0165-1684(93)90047-E",
+          "material_read": "Search-result abstract snippet only",
+          "method": "Targeted lookup and lawful access attempt; publisher returned 403",
+          "title": "Optimizing the aperiodic merit factor of binary arrays",
+          "trigger": "Historical binary-array optimization and tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen three moment distributions and no-aliasing proof",
+        "Independent complete mask enumeration",
+        "Same-support aperiodic extrema in Resultary 225492f9c9fb"
+      ],
+      "rationale": "The centrally deleted square is the symmetric one-erasure case of the natural 3×3 Fourier array. The invariant quantifies precisely how sampling changes the entire binary energy spectrum: order three lowers the attainable minimum, while order four has the same minimum as the stabilized problem but different optimizer multiplicities and intermediate energies. Hence the aliased census shows effects invisible from the known aperiodic extrema and serves as an exact benchmark for finite-grid versus continuous aperture calculations.",
+      "residual_risks": [
+        "Small exact benchmark, not a claim of general optimization or classification for other erasures or alphabets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:40:22.671068Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–78 and VERIFICATION.md",
+        "Frozen verify_direct.cpp, verify_independent.py and verify_projection.cpp, inspected but not executed",
+        "python3 /workspace/branches/independent_small_checks.py: direct interval parity and inverse Walsh calculations checked against the even-cube shell formula; at n=3,8,15, obtained nullities 4,84,8008 and endpoint norms 1,25/4,131177/2048"
+      ],
+      "rationale": "The boundary map B(x)=(x_1,x_1+x_2,...,x_{n-1}+x_n,x_n) identifies the spatial Boolean cube with even words of length m=n+1 and sends the interval [a,b] to the weight-two generator at coordinates a-1,b, indexed from zero. Its dual gives the frozen prefix signs. The unnormalized eigenvalue is ((m-2j)^2-m)/2, with binom(n,j) frequency representatives having first coordinate zero and weight j. It vanishes only for m=s^2, when the two represented layers give total nullity binom(s^2,s(s-1)/2) by reflection and Pascal. The maximum absolute eigenvalue is the degree n(n+1)/2. At resonance, the nearest allowed absolute coordinate levels off s are s-2 and (if available) s+2, giving smallest nonzero absolute eigenvalue 2(s-1), including s=2. The condition number is on the surviving subspace, not the full singular operator. The complement of the zero-frequency mask has inverse Walsh kernel with the two stated Krawtchouk terms. Its counting-measure endpoint norms equal the absolute row/column sum. Averaging conjugates of any projection over translations fixes the range pointwise and does not increase either norm; Fourier diagonalization makes the averaged projection unique. Off resonance the projection is the identity. Stirling applied at the offset s/2 from m/2 (one standard deviation for a fair binomial of size m=s^2) gives the stated 2 sqrt(2/(pi e))/s lost fraction along resonances.",
+      "residual_risks": [
+        "The three numerical instances corroborate the endpoint formula; all-length correctness comes from the character and averaging arguments. No nonresonant projection estimate beyond the identity is required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published p_2(j) formula gives all eigenvalues of the halved m-cube; here it is K_2(j;m)=((m-2j)^2-m)/2. Its indexing by complement classes gives the exact multiplicities. The earlier endpoint record uses translation averaging for a different support; the Walsh projection record is in a different normed setting."
+        ],
+        "reasoning": "The published spectrum covers the rank and resonant gap calculation. The two projection records do not supply the same norm formula, but the usual averaging argument itself applies to every translation-invariant range on the Boolean group.",
+        "searches": [
+          "Ada Chan arXiv:1305.5811, Section 5, spectrum passage",
+          "Earlier Resultary sharp endpoint norm and Walsh projection methods, 2026/11/16/SCOPE-the-sharp-endpoint-projection-norm-onto-the-five-point-derangeme--d0a3a4bcf83f and 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d"
+        ]
+      },
+      "checked_sources": [
+        "Primary halved-cube theorem and four local spectrum/projection comparisons identified above",
+        "Frozen RESULT.md equations for spectrum, loss and optimal kernel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting K_2=0 is just (m-2j)^2=m; representatives at zero have weight j_- or its complement, and the smaller layer alone indexes all zero characters of the even subgroup. Their unnormalized sum on an even word v is exactly K_{j_-}(|v|;m), by grouping all weight-j_- subsets by intersection with supp(v). Therefore the range projector is delta_0(v)-K_{j_-}(|v|;m)/2^{m-1}. Summing absolute values over even Hamming shells is the claimed endpoint expression in equivalent coordinates. The matrix row/column sum and group averaging determine the sharp projection norm without optimizing over other operators."
+        ],
+        "reasoning": "The square criterion, binomial nullity, gap and loss estimate are immediate evaluations of the supplied spectral data. The Krawtchouk sum is the standard Fourier kernel evaluation on the known layer, followed by orbit counting and averaging. No separately established new endpoint behavior beyond this general recipe survives narrowing the finding.",
+        "searches": [
+          "arXiv:1305.5811, halved-cube p_2 spectrum",
+          "Frozen RESULT.md lines 31–76, compared with the Resultary translation-averaging proof at offset 4504 of record d0a3a4bcf83f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The boundary map sends every interval to a distinct weight-two word and maps onto the even-weight subgroup. Hence the counting convolution is exactly the adjacency of the halved (n+1)-cube. Separately, summing the all-frequency even- and odd-interval multipliers of the same-day record reconstructs the full interval multiplier."
+        ],
+        "reasoning": "Both comparisons identify the same spectral object by an explicit, invertible recoding or an exact decomposition, not by coincidence of dimension. The same-day date is not used to establish order.",
+        "searches": [
+          "Ada Chan arXiv:1305.5811, Section 5, halved cube",
+          "Resultary 2026/10/12/SCOPE-exact-antipodal-kernel-and-spectral-gap-of-quantum-average-mixin--1f61b73d28b8",
+          "Resultary 2026/11/22/SCOPE-parity-resolved-fourier-recovery-for-connected-induced-subpaths--c971e4c582f0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier halved-cube record gives the same eigenvalue formula in a quantum mixing analysis. The parity-resolved subpath record gives the two exact multipliers whose sum is the full multiplier, but expressly excludes endpoint projections and Hilbert conditioning from its scope. No separately printed endpoint expression for the same range was identified in the inspected comparisons."
+        ],
+        "reasoning": "Credit exact spectral coverage; do not equate the quantum mixing problem or a different Walsh projection norm with this specific endpoint question. Absence of a separate table entry is not needed for the decision.",
+        "searches": [
+          "Resultary connected subpath and halved-cube exact records c971e4c582f0 and 1f61b73d28b8, identified above",
+          "Targeted primary-literature lookup on halved-cube eigenvalues and spectral projections; arXiv:1305.5811, Section 5"
+        ]
+      },
+      "rationale": "The named arithmetic rank transition and complete spectrum are a direct recoding of the published halved-cube spectrum. This is exact conjugacy of the operators, not analogy by parameter. The surviving Hilbert numbers and Stirling estimate are direct evaluations of that spectrum. No source inspected explicitly prints the endpoint binomial sum for this notation, but it is the standard Krawtchouk shell expansion of the complement of a known Walsh eigenspace, with the usual translation symmetrization giving minimality. The frozen record does not go beyond this evaluation to a new endpoint estimate or structure. This FAIL rests on demonstrated coverage or mechanical implication, not on the unresolved order of same-day catalogue records or on an unsuccessful source lookup.",
+      "residual_risks": [
+        "No claim is made that a prior source prints every resonant norm in the frozen notation. No priority order is assigned to the two same-day subpath records; the decision is already supported by the published halved-cube spectrum and the explicit deductions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent spectral coverage",
+          "evidence": "Defines the halved cube on the even-weight words and gives its adjacency eigenvalues p_2(j) for 0<=j<=floor(m/2).",
+          "identifier_or_url": "https://arxiv.org/abs/1305.5811",
+          "material_read": "Section 5, PDF p. 16, extracted offset about 34500",
+          "method": "Bounded primary OA paper passage",
+          "title": "Complex Hadamard Matrices, Instantaneous Uniform Mixing and Cubes",
+          "trigger": "Exact operator match after the interval boundary change of variables"
+        },
+        {
+          "assessment": "Material spectral overlap by summation; not the stated endpoint projector",
+          "evidence": "Provides the two all-frequency multipliers of the parity subfamilies using the same prefix signs.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-resolved-fourier-recovery-for-connected-induced-subpaths--c971e4c582f0",
+          "material_read": "Local RESULT.md offsets 0–3477 and 3477–6869, spectrum and limitations",
+          "method": "Resultary search and local mirrored passages",
+          "title": "Parity-resolved Fourier recovery for connected induced subpaths",
+          "trigger": "Same path and interval convolution model, separated by parity"
+        },
+        {
+          "assessment": "Same adjacency spectrum, different downstream problem",
+          "evidence": "States the same halved-cube adjacency eigenvalue formula in a quantum average-mixing problem.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-antipodal-kernel-and-spectral-gap-of-quantum-average-mixin--1f61b73d28b8",
+          "material_read": "Local RESULT.md at offset 0, adjacency spectrum and object",
+          "method": "Resultary lookup and local matched passage",
+          "title": "Exact antipodal kernel and spectral gap of quantum average mixing",
+          "trigger": "Earlier indexed calculation on the identical halved-cube graph"
+        },
+        {
+          "assessment": "Method overlap, not an exact table of these norms",
+          "evidence": "Averages projections over translations to get the convolution projector without increasing endpoint norms.",
+          "identifier_or_url": "2026/11/16/SCOPE-the-sharp-endpoint-projection-norm-onto-the-five-point-derangeme--d0a3a4bcf83f",
+          "material_read": "Local RESULT.md at offset 4504, translation averaging",
+          "method": "Resultary lookup and local matched passage",
+          "title": "The sharp endpoint projection norm onto the five-point derangement range",
+          "trigger": "Exact same group symmetrization for a Boolean convolution range"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–92",
+        "Chan arXiv:1305.5811, Section 5",
+        "Exact conjugacy and projection implications documented above"
+      ],
+      "rationale": "The interval convolution is a natural operator, but the asserted transition and recovery condition number re-express the known halved-cube spectrum and read off its closest nonzero squared levels. The remaining endpoint claim evaluates the canonical projector by the usual character-layer sum and averages over the group. It provides neither an independent unknown exact invariant beyond that mechanical evaluation, nor new estimates or structure for the endpoint norms. The three examples are useful checks rather than a separate scientific contribution. No worthwhile narrower repair of the frozen claims is established.",
+      "residual_risks": [
+        "Nonroutine asymptotics or structural conclusions about the endpoint norms could be of independent interest but are not proved or claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

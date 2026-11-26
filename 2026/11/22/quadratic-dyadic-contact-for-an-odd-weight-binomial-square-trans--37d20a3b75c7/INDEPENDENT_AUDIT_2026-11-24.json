@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:10:38.167860Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The valuation can be checked directly on finite sums. Divide F_n(t)−1 by n²; the j-th term is (2t)^j/j² times the product of (1−n/i)² for 1≤i<j. For 8|n its valuation is at least j−2ν₂(j)−2Σ_(r≥4)⌊(j−1)/2^r⌋. At j≥9 this is at least (j+1)/4>2, using ν₂(j)≤j/4, and hence zero modulo 8. At j≤8, only j=1,2,4,8 can contribute; the product can be replaced by 1 modulo 8 after including each prefactor (the nonconstant coefficients have sufficient powers of 2). These four terms are always present for the allowed n and give 2t+t²+t⁴+4t⁸≡2t+6≡4 modulo 8. Thus the normalized difference has valuation exactly 2, for positive and negative admissible weights. This also verifies the leading-term argument in the frozen proof; its coefficient bounds grow with j and justify its restricted series. Each r≥3 occurs and has frequency 2^(−(r−2)) conditional on 8|n. A separately written exact-integer replay matched 40 signed-weight cases at n=8,16,24,40,64 and reproduced F_4(3)=6145 with difference valuation 11. The replay is finite and is not the proof; see /workspace/branches/217d5353-dfe9-4245-acd8-da9282aa4d88/replay.py and replay.log. The source checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Sun and Jia–Huang passages treat polynomial identities, integrality or odd-prime congruences of Delannoy/Schröder sums. The two exact image and fiber results are stronger in their 2-adic image analysis but fix the weight at t=1."
+        ],
+        "reasoning": "General polynomial definitions or odd-prime sum congruences do not establish the even-prime exact contact at variable odd weight. The broader fiber conclusions do not dominate the admitted weights.",
+        "searches": [
+          "Sun arXiv:1602.00574v5, openings and congruence statements",
+          "Jia–Huang arXiv:2410.17522v1, introductory statements and identities",
+          "Resultary 70933221cf22 and 5aae90e5b7de, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 70933221cf22, 5aae90e5b7de and 2170cbfaeec0 (catalogue summary only for the last)",
+        "Sun arXiv:1602.00574v5",
+        "Jia–Huang arXiv:2410.17522v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The result turns on the normalized factor 2t+6 modulo 8: it is 4 in the claimed class and 0 at t=1. The inspected cited congruences do not address this normalized factor for varying t."
+        ],
+        "reasoning": "The standard family identity cannot carry the classical law across this change of leading coefficient. Exactness for the claimed class requires control of the normalized remainder, not just the prior cubic law or parity of F_n(t).",
+        "searches": [
+          "Resultary 70933221cf22 and 5aae90e5b7de, exact contact parts; Sun arXiv:1602.00574v5 and Jia–Huang arXiv:2410.17522v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_n(t)=(1−2t)^n D_n(2t/(1−2t)) in Sun's Delannoy-polynomial notation; the same binomial-square expression is also a rescaled Legendre value. Resultary 70933221cf22 gives cubic contact at t=1, which is outside t≡3 modulo 4."
+        ],
+        "reasoning": "The change of polynomial notation identifies the family, not a valuation theorem about its differences from one. The exact classical valuation at a different weight is not invariant under changing t.",
+        "searches": [
+          "Resultary: central Delannoy exact dyadic contact, fibers, weighted binomial-square valuations",
+          "Sun arXiv:1602.00574v5, Delannoy polynomial definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete fiber entry reports valuation 3r on the classical layer r≥2, and the image entry gives F(4u)=1+64u³U(u) at the classical weight. The sharp binary valuation conjecture catalogue summary also reports the classical valuation 3ν₂(n) for 4|n."
+        ],
+        "reasoning": "The closest exact indexed data give a different function and exponent. No exact indexed claim for every admissible signed weight was found in the bounded search; a finite table would not decide this unbounded two-parameter assertion.",
+        "searches": [
+          "Resultary exact dyadic Delannoy valuation and weighted Delannoy search; records 70933221cf22, 5aae90e5b7de and 2170cbfaeec0"
+        ]
+      },
+      "rationale": "Credit the known central Delannoy contact and image results at t=1. The supported distinct claim is the exact all-index valuation on 8|n for an entire signed weight class t≡3 modulo 4, where the leading order changes from cubic to quadratic.",
+      "residual_risks": [
+        "The precise text of Resultary 56e382985cf4 and full text of 2170cbfaeec0 were unavailable via the local mirror. The originality decision is limited to the inspected statements and does not establish bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED",
+          "evidence": "At the classical weight, ν₂(f(x)−1)=3r for ν₂(x)=r≥2; also addresses the −1 shell. Does not extend the weight.",
+          "identifier_or_url": "Resultary 70933221cf22",
+          "material_read": "RESULT.md offsets 0 and 3958, fiber and shell laws",
+          "method": "Local Resultary mirror",
+          "title": "Complete dyadic fibers and one-seventh image density of central Delannoy numbers",
+          "trigger": "Potential stronger exact contact result"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Cubic factorization F(4u)=1+64u³U(u) concerns the weight t=1.",
+          "identifier_or_url": "Resultary 5aae90e5b7de",
+          "material_read": "RESULT.md offsets 0 and 3566, image and factorization",
+          "method": "Local Resultary mirror",
+          "title": "The exact 2-adic image of the central Delannoy numbers has measure one seventh",
+          "trigger": "Potential exact image theorem implying the contact law"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Gives the Delannoy polynomial notation and congruences for other quantities, not the claimed variable-weight valuation in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/html/1602.00574v5",
+          "material_read": "Offsets 0 and 4460, polynomial and congruence statements",
+          "method": "Primary open-access text",
+          "title": "Arithmetic properties of Delannoy numbers and Schröder numbers",
+          "trigger": "Same polynomial family under rescaling"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "The inspected statements on sums and odd-prime congruences do not give ν₂(F_n(t)−1) for t≡3 modulo 4.",
+          "identifier_or_url": "https://arxiv.org/html/2410.17522v1",
+          "material_read": "Offsets 0 and 5155, introduction and identity/congruence passages",
+          "method": "Primary open-access text",
+          "title": "Congruences involving Delannoy numbers and Schröder numbers",
+          "trigger": "Delannoy/Schröder congruences and weighted identities"
+        },
+        {
+          "assessment": "UNRESOLVED",
+          "evidence": "The frozen record describes a classical specialization. No additional conclusion about that source's exact scope is inferred from its title alone.",
+          "identifier_or_url": "Resultary 56e382985cf4",
+          "material_read": "Frozen citation; decisive text not available in local mirror",
+          "method": "Local mirror retrieval attempt",
+          "title": "Exact dyadic contact orders of central Delannoy numbers with their alternating signs",
+          "trigger": "Frozen reference with close contact terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weight is a standard polynomial deformation of a sequence with known cubic dyadic contact. The first coefficient after normalizing by n² selects the residue class of the weight, and the cut at 8|n is material, as the n=4 witness shows. The exact law determines a full local valuation spectrum and its conditional frequencies; it is more than recomputing the classical sequence or verifying a finite congruence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

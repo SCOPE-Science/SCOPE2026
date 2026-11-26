@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:34:09.470801Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the repaired result and benchmark. In the residual coordinates B=AAᵀ=diag(K,1), the first size (1+t)/(1+Kt) gives multipliers −(K−1)/(1+Kt) and (K−1)t/(1+Kt). Since r₁−r₀=−α₀Br₀, the RD step size is (1+K²t)/(1+K³t); its multipliers are −(K−1)/(1+K³t) and (K−1)K²t/(1+K³t). Their products, squared and weighted by t/(1+t) and 1/(1+t), give the displayed gain, continuous and positive with zero endpoint limits. At z=K³t the high-mode contribution divided by K is bounded by z/(1+z)² and converges to it at fixed z. Both step sizes lie in [1/K,1], so the low-mode contribution divided by K is at most 1/K globally. The test z=1 gives the matching lower limit, and since the profile has a unique strict maximum there and vanishes at both tails, every maximizing z converges to 1. For DR the dual-quadratic identification gives the existing exact m=2 formula. Its y=Kt profile is y/(1+y)⁴ and is uniformly dominated by y/(1+y)²; the maximum is at y=1/3 with value 27/256. Square roots give 1/2 and 3√3/16 in the claimed norms. K=κ₂(A)²; asymptotics are in K, at fixed two-update horizon. The frozen rational checker was inspected, not executed; the all-parameter proof does not rely on the recorded finite diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact universal squared cycle factor is max over t of F_m(K,t); m=2 gives the frozen D_K verbatim, with the same high-to-low squared ratio.",
+          "The prior BB interval gives objective ratios F₂/F₁, not total physical residual gain, and the BB asymptotic-rate result concerns trajectory root factors."
+        ],
+        "reasoning": "The stronger exact cycle formula provides both DR optimization and the conditioning corollary. None of the stronger statements read optimizes the prescribed mixed-step RD residual amplification.",
+        "searches": [
+          "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606",
+          "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+          "arXiv:2608.07839 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, slogan and verification/check_two_step.py",
+        "Repaired RESULT.md, SLOGAN.txt, REVIEW.md and AUDIT.json",
+        "arXiv:2611.02743v1",
+        "arXiv:2608.07839 §2",
+        "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "2026/11/22/SCOPE-sharp-all-start-double-log-rate-for-residual-difference-spectral--e4d106d38983",
+        "2026/11/22/SCOPE-sharp-all-start-doubly-exponential-decay-for-residual-difference--df4e091a200b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day findings explicitly supply the two-mode short-step recurrence and both mode multipliers with the same warm start. They take iteration index to infinity at fixed condition and start; one also minimizes an oscillation amplitude at a different scale.",
+          "The known multipliers can produce the rational two-update gain by substitution, but the repaired theorem extracts its sharp supremum limit and every optimizing scale by high-mode rescaling and uniform low-mode domination."
+        ],
+        "reasoning": "The RD conditioning extremum is neither a rate corollary nor implied by step-size ordering. Priority is credited only for the quantitative RD optimization, not for exact finite recurrence algebra.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-all-start-double-log-rate-for-residual-difference-spectral--e4d106d38983",
+          "2026/11/22/SCOPE-sharp-all-start-doubly-exponential-decay-for-residual-difference--df4e091a200b",
+          "arXiv:2611.02743v1 Theorem 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set x=Aᵀu and let the dual Hessian be AAᵀ. Then the gradient is exactly −r, and repeating the initial Cauchy line search is DR.",
+          "RD is primal least-squares BB2. In that same primal problem BB1 after the first update gives (1+Kt)/(1+K²t), not the DR size."
+        ],
+        "reasoning": "The dual equality makes the measure in the known DR theorem exactly the physical residual. The primal BB identification does not turn a one-step objective monotonicity bound or shared primal warm start into the stated RD result.",
+        "searches": [
+          "Xu arXiv:2611.02743v1 equations (8), (14), (16), (17)",
+          "Resultary repeated or lagged Cauchy steps under dual quadratic and Barzilai–Borwein interval warm start"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cyclic record gives the exact DR variational expression. Xu exhibits transient residual spikes but does not enumerate or optimize the second residual across initial spectral masses. The focused primary search returned no matching statement."
+        ],
+        "reasoning": "The natural exact comparison is with the existing DR formula; no RD census or exact maximum was located. The search outcome is not independent evidence of priority.",
+        "searches": [
+          "Xu arXiv:2611.02743v1 numerical transient results and Theorem 3.5",
+          "residual-difference Xin Xu two-point spectral gradient linear systems sharp two-step startup worst-case residual amplification square root condition number Barzilai Borwein",
+          "Resultary exact Cauchy-cycle gain and residual-difference spectral steps"
+        ]
+      },
+      "rationale": "The corrected novelty claim is the exact RD maximum and maximizing start scale, not the algorithm, the two-mode multipliers, or the repeated-Cauchy comparison. The frozen account of DR overlap was too weak: the earlier Finding gives the very same variational formula, not merely a safety threshold. The actual same-rule RD findings concern long-run fixed-matrix decay, not this high-condition finite-horizon extremum.",
+      "residual_risks": [
+        "Equivalent spectral-gradient startup results outside the inspected literature could provide additional coverage. The paired interpretation asserts no exhaustive priority, and the novelty judgment explicitly excludes DR."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct formula overlap and simple corollary covering the DR half, included only as a credited comparison in the repair",
+          "evidence": [
+            "Valid for every SPD Hessian with extreme-eigenvalue ratio K. Formula F_m(K,t) specializes at m=2 to the identical squared gain, and the sandwich in §5 already bounds its leading term by the maximum of t/(1+Kt)⁴."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606",
+          "material_read": "Mirrored RESULT.md offset 0–6785, Finding, assumptions and Proof §§2, 5",
+          "method": "Local mirror full statement and proof passages",
+          "title": "A sharp all-spectrum gradient-safety frontier for cyclic steepest descent",
+          "trigger": "Potential exact coverage of DR via repeated Cauchy"
+        },
+        {
+          "assessment": "Supplies the rules and window contraction, not the sharp maximized two-step asymptotic",
+          "evidence": [
+            "RD uses the preceding residual difference; DR repeats the residual-Rayleigh size on the second step."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02743",
+          "material_read": "PDF pp. 2–5 equations (4)–(9), (14), (16)–(17), and p. 7 Theorem 3.5; OA offsets 5900, 10400, 18000, 19400, 23500",
+          "method": "Primary OA passages",
+          "title": "Two-point residual step size gradient methods for linear systems",
+          "trigger": "Exact method and prescribed initialization"
+        },
+        {
+          "assessment": "Genuine same-rule overlap in the recurrence, but distinct extremum and limit",
+          "evidence": [
+            "Its conclusion takes the iteration index to infinity at fixed positive eigenvalues, giving growth exponent log(√2) in the double logarithm."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-all-start-double-log-rate-for-residual-difference-spectral--e4d106d38983",
+          "material_read": "Mirrored RESULT.md offset 0–4361; Finding and Proof §§1–2",
+          "method": "Local mirror full statement and proof passages",
+          "title": "Sharp all-start double-log rate for residual-difference spectral steps on two-mode systems",
+          "trigger": "Same warm start, same RD update, same observable"
+        },
+        {
+          "assessment": "Optimizes a long-run oscillation coefficient, not the second residual",
+          "evidence": [
+            "Same spectral multipliers; the long-run amplitude has its minimum at initial squared ratio K⁻¹ᐟ², a different optimization. Same-day dating supplies no priority ordering."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-all-start-doubly-exponential-decay-for-residual-difference--df4e091a200b",
+          "material_read": "Mirrored RESULT.md offset 0–4937; Finding, assumptions and Proof §§1–3",
+          "method": "Local mirror full statement and proof passages",
+          "title": "Sharp all-start doubly-exponential decay for residual-difference gradient iteration on two spectral levels",
+          "trigger": "Possible existing optimizing initial scale for the same residual"
+        },
+        {
+          "assessment": "Different second-step endpoints in the dual variables and different observable/denominator",
+          "evidence": [
+            "Provides F₂/F₁ for the objective and uses BB2=(1+Kt)/(1+K²t) on the Cauchy quadratic."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+          "material_read": "Mirrored RESULT.md offset 0–4459, theorem and Proof §3",
+          "method": "Local mirror",
+          "title": "Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps",
+          "trigger": "Related sharp bound after a Cauchy start"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp residual-difference growth constant and the scale of the worst initial spectral energy answer a concrete startup-spike question that eventual convergence and one-step objective results do not address. The scalar high-mode optimum and uniform control of the competing mode explain the separation from the credited cubic DR benchmark in κ₂(A). This is a finite-horizon worst-start result, not a typical-start or numerical stability guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

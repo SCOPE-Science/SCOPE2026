@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:40:16.612955Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof steps 1–6; VERIFICATION.md; verify_star.py",
+        "/workspace/reproductions/star_monoids.py"
+      ],
+      "rationale": "The inverse-face condition makes every double fibre a centre–leaf edge, so there is at most one. If it maps to the centre, rank must be one (otherwise a target edge pulls back to at least three points); if it maps to a leaf, the other inputs and outputs form a partial bijection on the two remaining (m−1)-leaf sets. An injective map must map image edges to domain edges under its inverse: a leaf-only image imposes no restriction, while with centre in the image the possibilities are centre fixed, a singleton, or a rank-two edge swap. These cases reproduce the total and rank-specific counts. An fgf=f witness on the image is a section; restriction preserves continuity since a subset of a face is still a face. A noninjective map with leaf image admits a leaf-only section (use the leaf of the doubled fibre), and a singleton image always does. For injective maps the inverse is the only section and fails continuity exactly when a domain centre–leaf edge goes to two leaves. Such maps have rank at least two; counting their domain and image gives binom(m,k−1)binom(m,k)k!. Idempotence is equivalent to fixing every image point, recovering the partial identities and the two possible collapses with fixed image. For uniform partial bijections the deficiency weights have ratio (m−j)/(j+1)^2. Comparing at the ends of an inner band of width proportional to sqrt(m) gives outside-tail bounds O(m exp(−c sqrt(m))) for every fixed fractional-width outer band, hence mean deficiency asymptotic to sqrt(m). Multiplying each rank term by its deficiency proves mJ_m=I_m E[D_m], where J_m counts partial injections from m into m−1 points. Substituting in the exact counts gives both inverse-square-root laws and the joint regular-singular law. Independent direct inverse-face and semigroup-equation enumeration for m=2,3,4 agreed with all formulas, including individual regularity and rank counts. Replay: python3 /workspace/reproductions/star_monoids.py. The uploaded script was inspected, not run.",
+      "residual_risks": [
+        "The finite enumeration corroborates the count but does not prove the arbitrary-size claims. Asymptotics are for uniform maps on labelled stars, not arbitrary graphs or rank-conditioned sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bivariate F_m(u,v) counts all maps by domain size and image rank. F_m(1,v) gives the rank counts, diagonal terms give the full injective counts by rank, and off-diagonal terms give all singular counts by rank.",
+          "Prop. 4.4 gives global regularity only for empty or complete graphs; the general lemma gives fibre/matching structure, not the exact census."
+        ],
+        "reasoning": "Bivariate coverage is strictly finer than the frozen counts across the entire family (including m=2). The general graph results are useful context, but not what preempts the star census.",
+        "searches": [
+          "Resultary fa69e9e31ab0 domain-rank enumerator of graph-continuous partial maps on stars",
+          "Margolis–Rhodes arXiv:2609.39370 Lemma 3.8, Prop. 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary fa69e9e31ab0, e122c9061ee5, a744b2960c42 and c5a891e46186 original passages",
+        "Margolis–Rhodes arXiv:2005.02606 and arXiv:2609.39370",
+        "NIST DLMF §18.15(iv), context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write J_m=Q_m(1,1) in the domain-rank enumerator and I_m=P_m(1,1). Using binom(m−1,k)=(m−k)binom(m,k)/m gives mJ_m=I_m E[D_m]. Fixing one target vertex splits I_m=J_m+mI_{m−1}.",
+          "The nonregular polynomial at 1 gives mJ_m−m. The diagonal of the domain–rank enumerator gives 2I_m+mJ_m+m+m²; its total is (m+2)(I_m+m).",
+          "The separately inspected deficiency result for uniform partial bijections supplies E[D_m]=sqrt(m)−3/4+O(m^{−1/2}) from classical Laguerre asymptotics, which is stronger than the needed leading term."
+        ],
+        "reasoning": "Insert the documented leading mean in the already-covered exact counts and divide by the total, asymptotic to mI_m. This gives both m^{−1/2} probabilities. The joint statement is the complement of injectivity since the prior regularity criterion already implies all singular maps are regular. No additional probabilistic argument about star maps is needed.",
+        "searches": [
+          "Resultary c5a891e46186 uniform rook-monoid deficiency mean; compare fa69e9e31ab0 and e122c9061ee5 enumerators",
+          "NIST DLMF §18.15(iv) Laguerre asymptotics context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching papers and records use the inverse-image-of-faces condition, not forward graph endomorphisms.",
+          "The earlier star criterion of rank at least two, all-leaf image and a singleton fibre containing the domain centre is equivalent to injectivity with those conditions; every possible double fibre would contain the centre."
+        ],
+        "reasoning": "The equivalent criterion identifies the very same exceptional maps, not just a matching aggregate or the fact that some nonregular element exists.",
+        "searches": [
+          "Resultary inverse-simplex continuous partial maps, Margolis–Rhodes star monoids, regularity and rank",
+          "Margolis–Rhodes arXiv:2005.02606 Lemma 2.6 and arXiv:2609.39370 Lemma 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected e122c9061ee5 mirror gives nonregular coefficient binom(m,k) k (m)_{k−1}, equal to binom(m,k−1)binom(m,k)k!, and idempotent polynomial (1+z)^{m+1}+mz(1+z)^{m−1}+mz. Its proof agrees with the displayed coefficient in the consulted snapshot.",
+          "a744b2960c42 states the identical nonregularity characterization, identical rank-wise nonregular count, and a refined idempotent rank census (including an explicit note on m=2)."
+        ],
+        "reasoning": "The exact sums are obtained by z=1. Rank-level equivalence is coefficientwise and not inferred merely from numerical agreement on small stars.",
+        "searches": [
+          "Resultary e122c9061ee5 regularity and rank censuses of MR(K_{1,n})",
+          "Resultary a744b2960c42 exact star rank/regularity/idempotents",
+          "Resultary fa69e9e31ab0 domain/rank coefficients"
+        ]
+      },
+      "rationale": "Distinct indexed records already give the exact star regularity criterion and nonregular/idempotent census, and a finer bivariate domain–rank distribution. The asymptotic contrast is not rescued by its different wording: the same enumerators reduce the three rates to a normalized, previously documented partial-bijection deficiency mean by a one-line coefficient identity. Thus no distinct mathematical remainder is established for the stated census and first-order laws. This is a statement-level coverage decision, not a finding about derivation or historical priority.",
+      "residual_risks": [
+        "Catalogue dates and distinct IDs do not establish independent historical discovery or priority. The primary literature checks were bounded; the originality decision rests on positive coverage and explicit implication rather than search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finer domain–rank count covering total, injective and singular counts",
+          "evidence": "F_m=(1+uv)P_m+muv Q_m+m²u²v P_{m−1}+muv+m²u²v²+mu²v. The two off-diagonal terms give exactly m+m²I_{m−1} singular maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-domain-rank-enumerator-of-graph-continuous-partial-maps-on-stars--fa69e9e31ab0/RESULT.md",
+          "material_read": "Finding and scope offsets 0–1650; proof case split and the partial injection contributions",
+          "method": "Resultary semantic lookup and local-mirror primary passage reading",
+          "title": "Domain-rank enumerator of graph-continuous partial maps on stars",
+          "trigger": "Same inverse-face star monoid and exact rank counts"
+        },
+        {
+          "assessment": "Direct coverage of the regularity criteria and nonregular/idempotent census",
+          "evidence": "The displayed coefficient and proof both use the (k−1)-st falling factorial, and the numerical m=3 example has 36 nonregular maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-regularity-and-rank-censuses-of-operatorname-mr-k-1-n--e122c9061ee5/RESULT.md",
+          "material_read": "Finding and assumptions offsets 720–1840, nonregular coefficient proof and idempotent argument offsets 4700–5670",
+          "method": "Resultary lookup followed by original bounded local-mirror passages",
+          "title": "Regularity and rank censuses of MR(K_{1,n})",
+          "trigger": "Same star monoid and elementwise regularity/rank census"
+        },
+        {
+          "assessment": "Exact overlap on regularity and rank, stronger idempotent enumeration; date label does not resolve priority",
+          "evidence": "The nonregular polynomial N_m(t) has the exact frozen coefficients and its characterization includes exactly the same hypotheses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rank-regularity-and-idempotents-in-the-margolis-rhodes-monoid-of--a744b2960c42/RESULT.md",
+          "material_read": "Finding offsets 320–1831, criterion/count proof passage around 6833",
+          "method": "Resultary lookup and local-mirror passage reading",
+          "title": "Rank, regularity, and idempotents in the Margolis–Rhodes monoid of a star",
+          "trigger": "Exact indexed same-topic star rank and regularity profile"
+        },
+        {
+          "assessment": "Directly covers the needed first-moment input, not itself a statement of the star laws",
+          "evidence": "Uniform all partial bijections gives mean sqrt(n)−3/4+O(n^{−1/2}); the proof credits the individual Laguerre asymptotic input.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-deficiencies-and-poisson-overlap-corrections-in-random--c5a891e46186/RESULT.md",
+          "material_read": "Expectation and sampling scope offsets 1950–2870, Laguerre comparison offsets 4550–5456, references around 8880–10249",
+          "method": "Resultary lookup and local-mirror passage reading",
+          "title": "Gaussian deficiencies and Poisson overlap corrections in random partial-bijection products",
+          "trigger": "Same uniform partial-bijection deficiency that controls the star asymptotics"
+        },
+        {
+          "assessment": "General structure and global classification only in inspected passages",
+          "evidence": "Gives general decomposition and the empty/complete criterion for global regularity, not the probability of a uniform map being regular on a star.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39370",
+          "material_read": "Lemma 3.8 p. 6 (offset 22450), Prop. 4.4 p. 9 (offset 30900), strict path semigroup count on pp. 15–16",
+          "method": "OA primary-source passages",
+          "title": "The Margolis-Rhodes Monoid of a Graph",
+          "trigger": "Primary defining framework and general regularity theorem"
+        },
+        {
+          "assessment": "Establishes the broader fibre structure, not a star count in the passage read",
+          "evidence": "Singular domain fibres form a matching and the inverse of the injective part is a graph morphism.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.02606",
+          "material_read": "Lemma 2.6 p. 5, around offset 19250",
+          "method": "OA primary-source passage",
+          "title": "Degree 2 Transformation Semigroups as Continuous Maps on Graphs: Foundations and Structure",
+          "trigger": "Original inverse-face continuity and fibre decomposition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact census and asymptotic argument",
+        "Resultary fa69e9e31ab0, e122c9061ee5 and c5a891e46186 passages"
+      ],
+      "rationale": "The typical-versus-global regularity contrast is mathematically pertinent, not an arbitrary numerical example. But as an additional finding, the exact invariant is already present in finer counts, and the proposed extra first-order rates follow directly from them and the standard deficiency statistic. No new structural obstruction, asymptotic regime, or independently useful unknown invariant remains after crediting that coverage; the concise reformulation is useful exposition, not a separate valuable result under the review standard.",
+      "residual_risks": [
+        "This does not diminish the value of the underlying star-family census or imply the mathematics is false."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

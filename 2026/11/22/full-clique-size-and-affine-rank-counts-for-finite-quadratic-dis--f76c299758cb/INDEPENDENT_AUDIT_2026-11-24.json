@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:51:01.521715Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–56",
+        "VERIFICATION.md:19–23; CHECK.py:19–122",
+        "Independent replay: python3 -B /workspace/replays/frozen_math.py 2"
+      ],
+      "rationale": "Translate the first vertex to 0 and polarize: the ordered differences have Gram matrix (a/2)(I+J). The determinant follows from the rank-one update. When p does not divide r, the frame is independent and embeds exactly when the required complement can exist: arbitrary nonzero determinant class in positive complement dimension, only the square class in complement dimension zero. Witt extension gives the group quotient because the pointwise frame stabilizer is precisely the orthogonal group of its nondegenerate complement. When p divides r, the Gram radical is the all-ones line; the first h=r-2 vectors are still a nonsingular frame. The remaining vector's projection is minus the sum of that frame, since h+1=-1 in the field; its norm there is (a/2)h(h+1)=a. Therefore its arbitrary displacement in the complement must be isotropic, and exactly the zero displacement is dependent. The zero count follows by additive-character orthogonality in an orthogonal basis: the nontrivial-character terms cancel in odd dimension; in dimension 2s the quadratic Gauss sum raised to 2s contributes q^s times the character of (-1)^s times the determinant, with (q-1)/q from summing nonzero characters. Dimension zero has exactly one vector. These cases give the rank split and r<=d+2 bound; a nonzero side forces distinct vertices. The translation factor q^d and unordered normalization r! are integer count factors, not field divisions.",
+      "residual_risks": [
+        "The replay verifies 124 size/side/field/dimension comparisons, including proper extension field F9 and both F3^3 examples. This is bounded and uses the proved possible dependence relation to classify the graph-enumerated cliques, not a substitute for the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lorenz–Zimmermann work with general quadratic forms, give the prior in-span saturation rule and same-rank clique isometries, and count maximum cliques by affine orbit–stabilizer. Theorem 5.15 explicitly uses a complement of dimension at most two in its odd-characteristic maximum-size proof."
+        ],
+        "reasoning": "General forms subsume the unit sum of squares, so prior maximum counts directly cover T_omega/omega! and prior rank/isometry statements apply more broadly. The stated maximum theorem cannot be specialized to give the numbers of all nonmaximum cliques in the original ambient dimension; arbitrary isotropic-complement multiplicities beyond the maximum cases require a separate counting step.",
+        "searches": [
+          "Lorenz–Zimmermann DOI:10.1007/s10801-025-01493-5, §4 Lemma 4.9 and Remark 4.10; §5 Corollary 5.11 and Theorems 5.13, 5.15",
+          "Swanepoel Theorem 1.3, arXiv:2611.14845v1"
+        ]
+      },
+      "checked_sources": [
+        "Lorenz–Zimmermann DOI:10.1007/s10801-025-01493-5",
+        "Swanepoel arXiv:2611.14845v1; Solymosi–Yip arXiv:2512.24590v2",
+        "Resultary f76c299758cb, a62e32d5a371, 555bc289f00b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.9 already gives the only extra in-span vector as minus the sum when characteristic divides the completed size. Corollary 5.11 gives (r-1)! isometries between the spans of equal-rank cliques containing the origin, and the prior method gives the usual complement orthogonal-group quotient for nonsingular frames."
+        ],
+        "reasoning": "Consequently the dependent configuration itself and its count obtained by applying the usual nonsingular-frame quotient to r-1 vertices should not be treated as newly discovered mechanisms. Clique isometry classification gives orbits, not the size of the independent orbit when the span is degenerate. For p dividing r the missing count comes from taking the orthogonal complement of the h-frame instead of that of the full degenerate frame, then counting its nonzero isotropic displacements. In arbitrary m this gives E(Z_m-1) and the exact joint nonmaximum rank law, not an entry or a direct parameter substitution in the prior maximum tables.",
+        "searches": [
+          "Lorenz–Zimmermann Lemma 4.9, Corollary 5.11, Proposition 5.12, Theorem 5.15 and its proof",
+          "Solymosi–Yip Lemma 4.1 and Propositions 4.2 and 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translating a clique and adjoining the origin is equivalent to specifying a fixed-side equilateral configuration. Swanepoel treats existence and lengths; Solymosi–Yip give the characteristic-dependent Gram matrix/rank restrictions and an existence criterion."
+        ],
+        "reasoning": "Those equivalent configurations give the same existence and structural restrictions. They do not give ordered multiplicities, particularly the number of independent completions as the complementary form varies.",
+        "searches": [
+          "Resultary: ordered-clique orbit counts; all-size equilateral/affine-dependence counts; p dividing r and E,Z_m split",
+          "arXiv:2611.14845v1; arXiv:2512.24590v2, §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly matching Resultary entry f76c299758cb is the assigned record itself. Distinct near hits a62e32d5a371 and 555bc289f00b concern Boolean commuting families and square-zero loci in evolution algebras. Lorenz–Zimmermann Table 3 tabulates maximum-clique counts in odd characteristic."
+        ],
+        "reasoning": "The Table 3 overlap is genuine at omega (including characteristic-divisible instances), not only a coincident parameter match. Neither indexed near hit nor that table provides a joint all-r, all-affine-rank count for this graph family.",
+        "searches": [
+          "Resultary: Lorenz–Zimmermann/Swanepoel maximum-versus-nonmaximum comparison; inspected f76c299758cb, a62e32d5a371, 555bc289f00b",
+          "Lorenz–Zimmermann §1.3 Theorem B/Table 3 and Theorem 5.15"
+        ]
+      },
+      "rationale": "The distinct content supported is the uniform all-size count with an explicit characteristic-divisible split for both ranks, especially nonmaximum cliques, using isotropic completion in arbitrary complement dimensions. The rank obstruction, the unique dependent in-span configuration, orbit structure, ordinary nonsingular orbit quotient method, and maximum-size totals are prior or routine consequences of prior structure and standard group orders, and are not credited as standalone originality.",
+      "residual_risks": [
+        "Best-of-knowledge decision; older unindexed equilateral configuration counts or a prior general degenerate-frame count specialized to this Gram matrix could overlap. Prior structural ingredients are extensive, so novelty is in the explicit uniform rank-resolved completion census, not the tools used to derive it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real prior maximum-count coverage and prior general rank/isometry tools; no arbitrary-complement rank census in those results",
+          "evidence": [
+            "Theorem B and Theorem 5.15 state maximum-clique counts; the proof of 5.15(a) explicitly invokes complement dimension at most 2. Corollary 5.11 is not restricted to maximum sizes; it specifies span isometries, not all ambient orbit sizes. The frozen citation DOI should be 10.1007/s10801-025-01493-5 (Journal of Algebraic Combinatorics 63, article 8), not 10.1007/s00454-026-00763-8."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01493-5",
+          "material_read": "OA pp. 3–5, offsets 6900–15973; Lemma 4.9 pp. 14–15 at 41203–42975; §5 pp. 24–27 at offsets 70200–82859",
+          "method": "Primary full-text bounded passage inspection",
+          "title": "Cliques in representation graphs of quadratic forms",
+          "trigger": "Same fixed-side quadratic graph and direct count with potentially broader orbit implication"
+        },
+        {
+          "assessment": "Existence/length coverage, not the required multiplicities",
+          "evidence": [
+            "Characterizes existence with d+2 points and discusses adjoining hypotheses on d+1 or d+2 points and lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14845v1",
+          "material_read": "Theorem 1.3, §1.1 pp. 2–3, offsets 6574–11020",
+          "method": "OA primary text",
+          "title": "Equilateral simplices over general fields",
+          "trigger": "Same affine dependence, existence and side lengths"
+        },
+        {
+          "assessment": "Prior structural overlap, not a configuration count in the inspected passages",
+          "evidence": [
+            "Characteristic-dependent rank and the d+2 existence criterion constrain configurations but do not specify E times an isotropic zero count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.24590v2",
+          "material_read": "§4.1 pp. 7–8, Lemma 4.1 and Propositions 4.2 and 4.4, offsets 25000–31485",
+          "method": "OA primary text",
+          "title": "Two-distance sets over finite fields",
+          "trigger": "Same forced Gram matrix and possible rank split"
+        },
+        {
+          "assessment": "Self-match, distinct same-day other graph, and distinct other finite-field object",
+          "evidence": [
+            "The distinct objects are the commuting graph of rank-one Boolean relations and square-zero sets of evolution algebras."
+          ],
+          "identifier_or_url": "Resultary f76c299758cb, a62e32d5a371, 555bc289f00b",
+          "material_read": "Indexed claims and underlying claim comparison",
+          "method": "Local Resultary",
+          "title": "Exact indexed hit and nearest distinct comparisons",
+          "trigger": "Exact all-size/affine-rank and nearby indexed counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:16–36,44–56",
+        "Comparison to Lorenz–Zimmermann Theorem 5.15 and the equilateral existence literature"
+      ],
+      "rationale": "The complete clique polynomial and affine-rank counts are useful exact invariants of natural finite-field distance graphs. In characteristic-divisible sizes the completion law determines how many cliques have each possible rank, not just whether an equilateral set exists, and shows that for the same field, dimension and clique size the rank proportions can change with the side square class. This is meaningful for the nonsaturated size range left out by the maximum clique table.",
+      "residual_risks": [
+        "No claim in characteristic two or for degenerate ambient forms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

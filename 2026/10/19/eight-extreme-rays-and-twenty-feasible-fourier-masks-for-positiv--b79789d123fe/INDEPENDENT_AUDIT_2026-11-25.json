@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:27:48.174739Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof; VERIFICATION.md; artifacts/verify.py (read, not executed)",
+        "python3 -B /workspace/independent_checks.py 5: fixed f(0)=1 in spatial variables, exhausted 1287 five-row choices with rational elimination, and took spatial and spectral unions for all 256 subsets of the eight vertices. Matched every vertex including its equal positive weights after normalization, and the mask rows 1,1,4,8,5,1."
+      ],
+      "rationale": "Restriction to H is onto with fibers of size 2^(d-3); the transform of a zero extension is the pullback of the local transform. Locally the three independent equality rows are Walsh rows 0, 1, 2, fixing the sum and two spatial zeros. The polytope is compact and has relative dimension five (the strict full-mask witness). At a vertex five independent inequalities must be active modulo those three rows; the supplied exact certificate exhausts the possible five-element active sets. Nonnegative coordinates cannot cancel under convex combinations, in either domain, so a mask and strict positivity throughout the prescribed spatial support occur precisely as the unions of the supports of a nonempty subset of vertices. An independent exact calculation agrees on all eight normalized vertex vectors, not just masks, and the full twenty-mask table. The eight rays are of the relaxed nonnegative cone with the two specified zeros, not of a closed cone requiring all six other sites to be positive.",
+      "residual_risks": [
+        "Applies to the specified six-point support orbit in a three-dimensional subgroup, not arbitrary six-point supports or signed signals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meshulam Theorem 1.2 gives the interpolated uncertainty bound 3/2 at support size 6 in a group of order 8, i.e. integer lower bound 2.",
+          "Krahmer–Pfander–Rashkov §3 Fig. 3 gives attainable pairs of cardinalities for unrestricted complex functions."
+        ],
+        "reasoning": "These results lack the two nonnegativity constraints and positional feasibility. Even the lower bound is weaker than the exact minimum three under these hypotheses.",
+        "searches": [
+          "Meshulam arXiv:math/0312407",
+          "Krahmer–Pfander–Rashkov arXiv:math/0611493"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the three named related records",
+        "arXiv:math/0312407",
+        "arXiv:math/0611493",
+        "DOI 10.1007/s00209-022-03055-y",
+        "arXiv:0801.0941"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4, Finding and assumptions: four nonzero spatial coefficients allowed to be arbitrary complex values."
+        ],
+        "reasoning": "No inspected theorem gives the particular closed six-site face, its eight generators, or which unions of their spectral supports cover all six required spatial coordinates. General polyhedral methods give a way to compute that answer, not the answer without solving the incidence problem.",
+        "searches": [
+          "Resultary four-sparse Walsh spectra",
+          "Gaál–Révész, Meshulam and Krahmer–Pfander–Rashkov statements above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaál–Révész, introduction and §4 Theorem 2: positive definiteness plus nonnegativity and a general description of the dual cone.",
+          "Jaming–Matolcsi–Révész, abstract and contents of the open preprint: extremal classes of continuous radial functions on Euclidean space and Choquet representation, not a finite Walsh section."
+        ],
+        "reasoning": "Positive definiteness is equivalent to nonnegative Walsh coefficients here. Neither the dual description nor the radial Euclidean extremal-ray theorem identifies primal extreme rays of this finite face or gives the strict mask incidence.",
+        "searches": [
+          "Gaál–Révész, DOI 10.1007/s00209-022-03055-y, doubly positive functions",
+          "Jaming–Matolcsi–Révész, DOI 10.1007/s00041-008-9057-6; alternate arXiv:0801.0941"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-support-pattern-incidence-refinement-of-the-order-eight-fourier--78caf4d7929b, Finding: exact table for the cyclic group Z/8 with unrestricted coefficients.",
+          "2026/11/8/SCOPE-complete-walsh-magnitude-spectra-and-affine-rigidity-of-six-poin--5c39c1154219, Finding: same six-point orbit occurs in an indicator magnitude classification."
+        ],
+        "reasoning": "An incidence table for a different group does not transfer. An indicator fixes the six weights and ignores coefficient signs in the transform; it cannot yield the feasible positional masks as the weights vary under nonnegativity.",
+        "searches": [
+          "Resultary positive six-point Walsh masks/eight-vertex classification",
+          "Resultary order-eight support-pattern incidence and six-point binary spectra"
+        ]
+      },
+      "rationale": "The inspected strongest sources give support-size bounds and diagrams, general dual-cone language, or indicator magnitudes for the same geometry. They do not give the normalized primal vertices or the attainable positional masks when positive weights vary subject to both constraints. No exact matching record was found in the bounded comparison.",
+      "residual_risks": [
+        "Bounded originality check, not a priority claim. A specialized finite-group or circulant cone tabulation using other terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED",
+          "evidence": "Bounds Fourier support cardinality but does not give masks or impose positivity.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312407",
+          "material_read": "Theorem 1.2, p. 2, offset 3719",
+          "method": "Open primary PDF",
+          "title": "An uncertainty inequality for finite abelian groups",
+          "trigger": "Possible stronger support constraint"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Unrestricted support-size pairs, not positional two-sided-positive feasibility.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611493",
+          "material_read": "§3 Fig. 3 caption, p. 12, offset 43576",
+          "method": "Open primary PDF",
+          "title": "Uncertainty in time–frequency representations on finite Abelian groups and applications",
+          "trigger": "Order-eight Fourier uncertainty diagram"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Defines the doubly positive cone and characterizes its dual; cited extremal-ray paper led to a scope check of that separate work.",
+          "identifier_or_url": "https://doi.org/10.1007/s00209-022-03055-y",
+          "material_read": "Introduction, §4 Theorem 2; reference [17]",
+          "method": "Open publisher PDF",
+          "title": "Integral comparisons of nonnegative positive definite functions on LCA groups",
+          "trigger": "Equivalent cone terminology and general theorems"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Stated scope and named extremal families are continuous radial functions on R^d, e.g. Hermite families. No finite Boolean cone specialization is indicated in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/0801.0941",
+          "material_read": "Preprint p. 1, abstract and table of contents, offset 0",
+          "method": "Lawful arXiv alternate to DOI",
+          "title": "On the Extremal Rays of the Cone of Positive, Positive Definite Functions",
+          "trigger": "Closest plausible prior extremal-ray work; DOI 10.1007/s00041-008-9057-6"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Spatial support size four with unrestricted complex coefficients, rather than six with simultaneous nonnegativity.",
+          "identifier_or_url": "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Four-sparse Walsh spectra are controlled by affine dimension on F_2^d",
+          "trigger": "Same transform and exact-support rigidity"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "20,929 pairs for cyclic Z/8, unrestricted complex input, not the Boolean cone.",
+          "identifier_or_url": "2026/10/4/SCOPE-support-pattern-incidence-refinement-of-the-order-eight-fourier--78caf4d7929b",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Resultary local mirror",
+          "title": "Support-pattern incidence refinement of the order-eight Fourier uncertainty diagram",
+          "trigger": "Exact order-eight incidence table"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "The three-flat minus two orbit is present but only the Walsh magnitudes of indicators are classified.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-walsh-magnitude-spectra-and-affine-rigidity-of-six-poin--5c39c1154219",
+          "material_read": "RESULT.md Finding, first orbit of six-point sets",
+          "method": "Resultary local mirror",
+          "title": "Complete Walsh-magnitude spectra and affine rigidity of six-point binary sets",
+          "trigger": "Closest six-point Boolean orbit match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof of the strict-mask criterion",
+        "Independent exact vertex and incidence reproduction",
+        "Support-size comparisons in originality"
+      ],
+      "rationale": "Two simultaneous positivity constraints make this a natural exact support problem; cardinality bounds cannot tell which spectral zeros may coexist. The full classification for the six-point Boolean orbit gives reproducible witnesses and obstructions for positional deletion patterns. The eight normalized vertices are enough to decide any candidate pattern for the entire lifted family, so the result contains more structure than a finite minimum or a list of example spectra.",
+      "residual_risks": [
+        "No conclusion about other six-point support orbits or about the range of amplitudes at fixed mask is needed or claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

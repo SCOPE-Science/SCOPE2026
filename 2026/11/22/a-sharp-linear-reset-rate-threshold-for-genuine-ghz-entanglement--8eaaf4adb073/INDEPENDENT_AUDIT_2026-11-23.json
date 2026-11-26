@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:22:34.782457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–65",
+        "Hashemi Rafsanjani et al., arXiv:1208.2706 §II Eq. (5) and Appendix VI Eq. (13)",
+        "Frozen VERIFICATION.md and checker.py (inspection only; supplied checker not run)"
+      ],
+      "rationale": "From any initial state the no-reset branch has mass e^(−rt); the remaining branch is the channel average over ages 0 to t. This proves the stationary Laplace integral and trace-norm convergence independently of the initial state. Tensorized depolarization multiplies the sole GHZ coherence by e^(−nγt) and gives equal populations for complementary words. The exact general X-state GM concurrence formula gives max(0,2c+2d_0−1) upon summing unordered non-GHZ complementary pairs. The reference in RESULT.md points to the appendix's Eq. (13), a restricted block lemma; the general theorem used here is Sec. II, Eq. (5), and does apply. The age variable Z has E[Z^j]=ρ/(ρ+j); expanding the endpoint populations produces precisely the even-binomial sum. Its j=0 value is 1; each term is nondecreasing in ρ, and the separate ρ/(ρ+n) term is strictly increasing. Continuity and endpoint values 2^(1−n)−1 and 1 give exactly one positive threshold. Direct combination of the rational terms gives the n=3 and n=4 checks. Independently, express the binomial sum as E[ρ/(ρ+J)] for J~Bin(n,1/2) conditioned even. For n>4 its first four moments equal the unconditioned ones, by vanishing alternating sums of polynomials of degree <n. Taylor expansion about n/2 uses mean-zero centered first and third moments, variance n/4, and fourth moment O(n²); the fourth derivative is O(n⁻⁴) uniformly on J≥0 for ρ=cn+d with c bounded away from 0 and bounded d. This yields 2c/(2c+1)+[2d/(2c+1)²+2c/(2c+1)³]/n+O(n⁻²) for the binomial term. Adding the separate term gives leading zero c=1/sqrt(2) and canceling the 1/n coefficient gives d=−1/2+sqrt(2)/4. The rational derivative on this scale is at least n/(ρ+n)², so an O(n⁻²) residual locates the root to O(n⁻¹), by bracketing a distance O(n⁻¹) around cn+d.",
+      "residual_risks": [
+        "The incorrect equation locator in the frozen citation is bibliographic, not a missing theorem. The criterion is for unconditioned stationary genuine concurrence, and cannot be transferred to conditioned trajectories or independent reset clocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aolita et al. give a local-depolarization entanglement scaling bound without repeated resets. Kulkarni–Majumdar give the general Poisson age averaging mechanism with a unitary two-spin application. The X-state result is exact for a wider class of matrices, given their entries."
+        ],
+        "reasoning": "These tools do not already solve the reset-dependent mixture. In particular the convex-roof concurrence is not averaged over ages; the populations and coherence are averaged first. Evaluating the symmetric diagonal term and extracting the critical scale and constant requires a new calculation.",
+        "searches": [
+          "Aolita et al. arXiv:0812.4203 §IV.A",
+          "Kulkarni–Majumdar arXiv:2307.07485 §II Eqs. (2)–(3)",
+          "Hashemi Rafsanjani et al. arXiv:1208.2706 §II"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1208.2706, 0812.4203 and 2307.07485",
+        "Resultary 8c8562df06c7, 2c64fa0531df, 4712db8d19ce and October amplitude-damping partial-NOT comparison",
+        "Targeted external literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general formula tells how to apply the coherence threshold to a known X matrix, not what that matrix is as a function of reset-to-noise ratio. A mixed-state age integral is available, but neither it nor the local-depolarization decay bound evaluates the even-binomial transform or its root. The partial-NOT comparison does not have the repeated-reset stationary state."
+        ],
+        "reasoning": "Applying the known frameworks to this mixture gives the starting equations, not an existing stronger evaluated threshold or expansion. The critical root involves a nontrivial large-n limit and correction of a parity-restricted population term.",
+        "searches": [
+          "Published X-state formula and Poisson stationary integral; joint reset/depolarization threshold lookup; frozen citation of October 2026 amplitude-damping partial-NOT record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general X-state formula is an exact criterion expressed through coherences and opposite populations, and specializes to the same linear expression before the positive part. The logarithmic re-preparation record 8c8562df06c7 concerns the same GHZ reset observable but zero-temperature amplitude damping."
+        ],
+        "reasoning": "Equivalent concurrence expressions do not make the entries of these two stationary states equivalent. Amplitude damping is nonunital; it does not preserve the complementary endpoint symmetry of homogeneous depolarization. The different logarithmic and linear regimes are not relabelings.",
+        "searches": [
+          "Resultary for GHZ full re-preparation, common Poisson resets, genuine-multipartite concurrence and local depolarizing noise",
+          "Hashemi Rafsanjani et al. §II Eq. (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8c8562df06c7 has GHZ with amplitude damping; 2c64fa0531df has local depolarization with full W-state resets and a one-cut PPT/NPT threshold; 4712db8d19ce has a four-qubit Dicke seed with cut-dependent PPT windows."
+        ],
+        "reasoning": "Neither single-partition NPT nor fixed-size cut windows characterize genuine multipartite entanglement for this n-qubit stationary GHZ state. The closest same-day records are adjacent, not exact tabulations of this result.",
+        "searches": [
+          "Local Resultary: depolarizing GHZ stationary reset threshold, X-state concurrence, large-n rate law; same-day IDs 8c8562df06c7, 2c64fa0531df and 4712db8d19ce"
+        ]
+      },
+      "rationale": "The inspected overlaps separately supply the X-state concurrence formula, local-depolarization dynamics results, and renewal resetting, or change the noise, state or entanglement diagnostic. None supplies the conjunction of full GHZ resets and independent local depolarization, evaluated for stationary genuine concurrence with the stated unique rational threshold and two-term linear law.",
+      "residual_risks": [
+        "Same-day indexing does not resolve priority. Bounded comparisons do not rule out an unlocated theorem evaluating this same stationary mixed state."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact concurrence input, correctly applicable; cited equation locator needs correction",
+          "evidence": "Eq. (5) is 2 max(0, |z_i|−sum over j≠i sqrt(a_j b_j)); Eq. (13) addresses a restricted block, not all X matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.2706",
+          "material_read": "Sec. II Eq. (5), PDF p. 2, OA offset about 15920; Appendix VI Eq. (13)",
+          "method": "OA primary PDF passage",
+          "title": "Genuinely Multipartite Concurrence of N-qubit X-matrices",
+          "trigger": "Exact general criterion used by the frozen proof"
+        },
+        {
+          "assessment": "Useful decay background; not a reset stationary threshold",
+          "evidence": "The bound there concerns the depolarizing map and includes a power (1−p)^N, not a ratio of common reset to local-noise rates.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.4203",
+          "material_read": "§IV.A, Depolarization, PDF p. 3; OA offset about 18100",
+          "method": "OA primary PDF passage",
+          "title": "Scalability of GHZ and random-state entanglement in the presence of decoherence",
+          "trigger": "Closest cited GHZ local-depolarization study"
+        },
+        {
+          "assessment": "Reset method is prior; evaluated physical regime differs",
+          "evidence": "Poisson-age integral applied to two interacting spins evolving unitarily and resetting to an initial product state.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+          "material_read": "§II, Eqs. (2)–(3), PDF p. 2; OA offset about 10600",
+          "method": "OA primary PDF passage",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Renewal formula for quantum reset dynamics"
+        },
+        {
+          "assessment": "Different channel and threshold asymptotic",
+          "evidence": "Independent zero-temperature amplitude damping and common Poisson re-preparation; logarithmic size law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-logarithmic-re-preparation-frontier-for-genuine-multipartite-g--8c8562df06c7/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offsets 0–1800",
+          "method": "Local mirror bounded passage",
+          "title": "A logarithmic re-preparation frontier for genuine multipartite GHZ entanglement",
+          "trigger": "Strongest same-day match for the reset, seed and diagnostic"
+        },
+        {
+          "assessment": "Distinct states and partition diagnostics",
+          "evidence": "W-state one-cut PPT threshold and four-qubit Dicke bipartition-dependent PPT windows, respectively.",
+          "identifier_or_url": "Resultary 2c64fa0531df and 4712db8d19ce",
+          "material_read": "Each mirrored RESULT.md, Finding and Assumptions, offsets 0–2238 and 0–2394 respectively",
+          "method": "Local mirror bounded passages",
+          "title": "Same-day W-state reset threshold and four-qubit Dicke reset windows",
+          "trigger": "Same-day reset-threshold hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and stated physical scope",
+        "Resultary 8c8562df06c7 amplitude-damping comparison"
+      ],
+      "rationale": "This gives an exact full-system reset overhead for maintaining a standard genuinely multipartite resource against independent isotropic local noise. A one-cut entanglement diagnostic would not answer that question. The all-size boundary, extensive coefficient and finite-size correction quantify what is required; the different scaling in the closest amplitude-damping comparator illustrates why the noise model matters. The value is a maintenance law using an entangled reset resource, not a protocol for creating GHZ entanglement from separable resets.",
+      "residual_risks": [
+        "No conclusions about heterogeneous noise, noisy reset fidelity, implementation cost, or other entanglement diagnostics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

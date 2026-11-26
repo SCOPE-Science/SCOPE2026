@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:49:29.266634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A separate standard-library replay generated all signed coordinate permutations and squared-distance-two edges and verified a connected 24-vertex cubic graph with 36 edges. For a residual set S of size n, fixing the first vertex v leaves m vertices in S minus its closed neighborhood. Each order on those m vertices extends to exactly (n-1)!/m! orders of the remaining n-1 vertices, with the deleted neighbors blocked and irrelevant. Thus integer permutation counts for k+1 accepts are sums of the child counts for k accepts multiplied by that factor, with the empty graph contributing one empty order. The independent integer replay asserts each state's total is n! and visits 23,123 states; dividing at the root by 24! yields exactly the four frozen fractions at sizes 8,9,10,12 and zero elsewhere. Independent include/exclude enumeration counts an independent set just when its closed neighborhoods cover the graph, which is equivalent to inclusion maximality. Each independent set has exactly one branch path; all maximal ones are realizable by putting their vertices first. The verified histogram is 117,208,36,2 at the same sizes, total 363. The exact greedy-minus-uniform tail gaps at t=9,10,12 are 1498489579/7527168000, 12449256306871/43153254144000 and 593402617631/6164750592000. The t=11 gap equals t=12, these cover the nonconstant real thresholds by rounding up, and tails coincide outside 8<t<=12. The mean is 1161395055131/122594472000 and the exact maximum-packing amplification is 627368185631/33965568000>18. Replay: python3 /workspace/branches/9e706cee-cf49-4fb7-8565-711e369ac2ef/reproduce_truncated_octahedral_adsorption.py (optional --smoke for the eight-vertex slice); full output at /workspace/branches/9e706cee-cf49-4fb7-8565-711e369ac2ef/replay.log. The frozen checker was inspected, not executed. This is exact exhaustive counting for this graph, not a sampling experiment or proof for a graph family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dhara et al. Theorem 2 assumes G(n,c/n) and a large-size process limit; the k=1-threshold specialization is summarized in Remark 1 as a jamming constant.",
+          "Pippenger's readable abstract concerns occupancy probabilities for regular graphs with few short cycles and high-girth limits, plus lattice approximations. The publisher full text returned HTTP 403 and a lawful alternate full text was not identified in the bounded search."
+        ],
+        "reasoning": "Neither the asymptotic random-network theorem nor the available single-site-probability statements gives this finite fixed graph's joint terminal-size law or uniform-maximal-set comparison. Full access to the older paper remains a limitation, not grounds to infer noncoverage from a failed retrieval.",
+        "searches": [
+          "Dhara–van Leeuwaarden–Mukherjee arXiv:1604.03918 Theorem 2 and Remark 1",
+          "Pippenger DOI 10.1137/0402034, author institution abstract; lawful full-text search"
+        ]
+      },
+      "checked_sources": [
+        "Dhara–van Leeuwaarden–Mukherjee arXiv:1604.03918, Theorem 2 and Remark 1",
+        "Pippenger DOI 10.1137/0402034, institutional abstract and attempted lawful full-text access",
+        "Resultary f6e56d5100d4, 2d1ba5c13f5c and c20fed8dd79b, actual findings",
+        "Focused truncated-octahedron/permutohedron law and numeric-signature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general process literature does not by its read statements give the fixed finite distribution. The same-day records give analogous exact statements with different substrates, supports and probabilities."
+        ],
+        "reasoning": "For this graph the support, conditional weights of possible greedy acceptances, and independent-dominating set histogram require graph-specific finite calculation. The positivity at all nontrivial thresholds and the exact ratio are consequences of this particular table, not of merely invoking the general model or changing a parameter in the compared records.",
+        "searches": [
+          "Compare Dhara et al. Theorem 2, Pippenger author abstract, and Resultary f6e56d5100d4 and c20fed8dd79b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact matching Resultary hit is the target record itself.",
+          "The distinct Q4 record f6e56d5100d4 proves exact greedy size dominance and maximum-packing enhancement at sizes 4,5,8 on a 16-vertex four-cube; c20fed8dd79b computes the law on a 14-vertex Heawood graph.",
+          "The primary query returned no result; this is not evidence of absence."
+        ],
+        "reasoning": "Continuous iid priorities, a uniform random order, and random sequential greedy vertex exclusion give the same law when ties have probability zero. By contrast, uniform sampling of maximal independent sets on that graph has different weights. Exact laws on the four-cube or Heawood cage cannot be identified with this graph by changing the name of the process.",
+        "searches": [
+          "Resultary: truncated octahedral graph random sequential adsorption greedy maximal independent set exact jamming law random permutation packing distribution 24 vertices",
+          "Primary websearch: truncated octahedron / truncated octahedral graph / permutohedron random sequential adsorption or random greedy independent set, Kelvin graph, 7666301"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected distinct exact records give explicit packing laws on Q4 and the Heawood cage, not the law on 24 vertices. The target's exact match is not independent prior evidence.",
+          "The separate replay established the graph-specific table numerically in exact arithmetic; it was not taken from a catalogue."
+        ],
+        "reasoning": "Independence numbers or even a list of maximal sets would not imply their unequal random-order weights. No separate matching published table was located by these bounded searches.",
+        "searches": [
+          "Resultary: 24-vertex truncated octahedron exact greedy jamming probabilities and maximal independent sets",
+          "Primary targeted Kelvin/permutohedral graph query with numeric signature 7666301",
+          "Resultary f6e56d5100d4, 2d1ba5c13f5c and c20fed8dd79b Findings"
+        ]
+      },
+      "rationale": "The nearest-neighbor exclusion process and the first-vertex decomposition are standard. Other exact finite studies, including distinct same-day indexed results, use analogous comparisons but different graphs. The distinct result is the complete exact terminal-size law, independent-set size histogram and strict stochastic comparison for this specific natural skeleton, not a new general adsorption algorithm.",
+      "residual_risks": [
+        "Pippenger's full paper remained unavailable; scope of comparison is the abstract.",
+        "Earlier fixed-graph enumeration, indexed under another name or unindexed, might exist. The exact independent replay establishes correctness, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic sparse random-graph result, not fixed-skeleton distribution",
+          "evidence": "Theorem 2 states convergence in distribution to a deterministic process for G(n,c/n); Remark 1 gives a limiting jamming constant at K=1.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.03918",
+          "material_read": "Threshold jamming limit, Theorem 2 p. 5 at offset 13975; Remark 1 p. 6 context at offset 17435",
+          "method": "Lawful arXiv PDF search and bounded primary passage inspection",
+          "title": "Generalized random sequential adsorption on Erdős–Rényi random graphs",
+          "trigger": "Plausible broader jamming theorem for the same type of greedy activation"
+        },
+        {
+          "assessment": "Known general process and regular-graph occupancy treatment; available abstract does not determine exact fixed-graph law",
+          "evidence": "Discusses few short cycles and the occupancy probability as shortest-cycle length tends to infinity, and approximations for planar lattices; publisher retrieval returned HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034; https://scholarship.claremont.edu/hmc_fac_pub/117/",
+          "material_read": "Institutional repository abstract, around offset 710; no publisher full text",
+          "method": "Public institutional abstract inspection; lawful full-text attempt and alternate-copy search",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Classic treatment on graphs, including some finite regular graphs"
+        },
+        {
+          "assessment": "Same process and comparison, different graph and result; no priority inference from shared date",
+          "evidence": "Q4 greedy support 4,5,8 with masses 1/6,64/165,49/110; 42 maximal sets; packing enhancement 1029/110.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-three-size-random-greedy-adsorption-law-on-the-sixteen-ver--f6e56d5100d4",
+          "material_read": "RESULT.md Finding and Assumptions, offset 89",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Exact three-size random greedy adsorption law on the sixteen-vertex Boolean four-cube",
+          "trigger": "Closest exact finite comparison of greedy and uniform maximal independent set sizes"
+        },
+        {
+          "assessment": "Same process on a different graph; does not entail target law",
+          "evidence": "Fourteen-vertex Heawood graph and exact size support 4,5,7, rather than the polyhedral skeleton and support 8,9,10,12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-random-priority-adsorption-on-the-heawood-cage-exact-jamming-and--c20fed8dd79b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Random-priority adsorption on the Heawood cage: exact jamming and kinetic laws",
+          "trigger": "Exact monomer jamming law on a distinct natural cubic graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The truncated-octahedral skeleton is a canonical cubic, vertex-transitive finite contact network for a space-filling solid. On this specific graph the full distribution is useful for benchmarking greedy sampling and packing: size 11 never occurs, only two maximal sets are maximum, and the more-than-18-fold comparison and strict tails quantify a large inequivalence between dynamic and uniform sampling over the same maximal states. The finite exact law is not inferred from an independence number or an asymptotic mean and does not claim the bias is universal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:13.294605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38, VERIFICATION.md, src/verify_python.py and src/verify_cpp.cpp",
+        "Independent replay: python3 /workspace/audit_evidence/cyclic_kendall_independent.py (standard library); unrestricted exhaustive search, all six cosets"
+      ],
+      "rationale": "Under the stated convention a position swap acts on the right, so balls are gT for the identity plus five involutions. They each have six words, forcing twenty centers. The six right translates Ht are disjoint: the difference of generators is a transposition with three fixed symbols, a three-cycle, or a disjoint pair of cycle-edge transpositions. The first two cannot belong to the affine group (fixed points and order); an affine involution x↦−x+b pairing consecutive residues on two distinct edges would require their sums, hence their starting indices, to agree. Thus H is perfect, and all left cosets are perfect by relabeling values. The supplied Python and C++ exact covers search all compatible balls covering a chosen uncovered word after starting at the identity, which is legitimate by relabeling. Their first-singleton shortcut may postpone finding a zero-candidate word, without changing completeness; it does not always choose a global minimum as informally stated. An independent unrestricted implementation chooses the lexicographically first uncovered word, enumerates all possible disjoint balls through it without requiring identity or affine structure, and returns exactly the six left cosets (1937 nodes and 696 dead ends). The last phrase 'no nonaffine perfect code' is understood in context as no inequivalent design outside those cosets, not as saying every labeled codeword is literally affine in the fixed coordinates.",
+      "residual_risks": [
+        "Length five, five cyclic adjacent position swaps and radius one only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary Kendall neighbors omit the first–last swap; P(5,3)=20 is the ordinary packing optimum. Ordinary radius-one balls have five words, not six."
+        ],
+        "reasoning": "Neither ordinary optimum-size results nor ordinary perfect-code nonexistence constrain optimal codebooks enough to yield the cyclic uniqueness claim.",
+        "searches": [
+          "Buzaglo–Etzion arXiv:1408.4963 opening model; Wang et al. arXiv:2011.01600 nonexistence under Kendall τ; Vijayakumaran DOI:10.1109/LCOMM.2016.2591003"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.5515 §IV",
+        "arXiv:1408.4963 p. 1",
+        "Resultary 01233b6e774d",
+        "DOI:10.1109/LCOMM.2016.2591003 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine example plus symbol isometry implies at least six perfect designs. A cyclic-perfect design is a twenty-word ordinary distance-at-least-three design because ordinary balls are subsets of the cyclic ones; the reverse implication is unproved by any of the inspected sources."
+        ],
+        "reasoning": "The new exhaustive negative statement (no other cyclic-perfect design) is the part assessed as original, not the 20-word construction or the ordinary optimum.",
+        "searches": [
+          "Compare §IV affine example and mirror ordinary-census counts and verifier scope with exact cyclic ball condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original construction explicitly includes first–last exchange and gives the four sequences with first entry zero and their cyclic shifts, exactly H. Closed-neighborhood efficient domination in the right-Cayley convention is the same partition problem."
+        ],
+        "reasoning": "Existence and the six translates of that example do not prove the absence of a different tiling.",
+        "searches": [
+          "Cyclic Kendall perfect code S5; cycle-generated Cayley graph efficient domination and group tiling",
+          "Buzaglo–Etzion arXiv:1310.5515 §IV, The Cyclic Kendall's τ-Metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record is not distinct prior evidence. The matched ordinary catalogue gives 3192 labeled maxima and 24 orbits, including a single orbit of size six. Its verifier generates ordinary candidates, and its result reports checksums and orbit-size counts; it does not report a cyclic filter."
+        ],
+        "reasoning": "Even knowing all ordinary candidates permits but does not perform the additional exclusion: each potentially surviving orbit must be tested under the fifth swap. The six-member orbit count alone implies no such exclusion.",
+        "searches": [
+          "Resultary cyclic Kendall and Cayley efficient domination; ordinary S5 maximum-code census 01233b6e774d, Finding and Verification"
+        ]
+      },
+      "rationale": "Credit the exact affine construction and all its relabelings as consequences of Buzaglo–Etzion's known example. What survives is exclusion of every other code. No source read supplies that exclusion or an exact cyclic classification. The ordinary-Kendall catalogue is relevant candidate data, but neither its aggregate orbit counts nor its exact ordinary optimum settle the wraparound constraint.",
+      "residual_risks": [
+        "Unindexed Cayley graph or group-tiling enumerations may contain the uniqueness result; full text of the related ordinary 2016 article was not independently retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers the affine construction, not uniqueness in the inspected section",
+          "evidence": [
+            "The cyclic adjacency explicitly permits the wraparound swap; all four listed arithmetic progressions and their cyclic shifts give H."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.5515",
+          "material_read": "§IV, PDF p. 3, definition and affine list; extracted offsets 14000–19017",
+          "method": "OA PDF text",
+          "title": "Perfect Permutation Codes with the Kendall's τ-Metric",
+          "trigger": "same cyclic channel and block length"
+        },
+        {
+          "assessment": "ordinary metric comparison",
+          "evidence": [
+            "The model is ordinary Kendall distance, not a cyclic-perfect classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.4963",
+          "material_read": "p. 1, metric and bounds setup",
+          "method": "OA PDF text",
+          "title": "Bounds on the Size of Permutation Codes with the Kendall τ-Metric",
+          "trigger": "nearby code-size bounds by the same authors"
+        },
+        {
+          "assessment": "ordinary maxima reported; no independent whole-text determination",
+          "evidence": [
+            "The ordinary census attributes P(5,3)=20 and one attaining example to the article, with the conclusion proposing investigation of algebraic structure."
+          ],
+          "identifier_or_url": "10.1109/LCOMM.2016.2591003",
+          "material_read": "bibliography and comparison in the ordinary-census record; own OA DOI full-text retrieval unavailable",
+          "method": "published mirror comparison and OA retrieval attempt",
+          "title": "Largest Permutation Codes With the Kendall τ-Metric in S5 and S6",
+          "trigger": "exact small-length optima that bound the candidate set"
+        },
+        {
+          "assessment": "candidate generator and orbit counts, no cyclic classified subset",
+          "evidence": [
+            "532 normalized and 3192 labeled ordinary maxima; 24 orbits under symbol relabeling and reversal."
+          ],
+          "identifier_or_url": "01233b6e774d",
+          "material_read": "RESULT.md Finding, Verification (offsets 2450–4734) and Relationship to prior work",
+          "method": "published local mirror",
+          "title": "Equality census for optimal S5 Kendall-τ codes at distance 3",
+          "trigger": "exact candidate catalogue in the relaxed metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Buzaglo–Etzion §IV"
+      ],
+      "rationale": "This classifies all perfect designs for the cyclic channel at the length of its canonical affine example. The result determines the exact design freedom (one isometry orbit, six labeled codebooks) rather than just improving a bound or exhibiting another example. It is a useful small exact benchmark for rigid perfect codes in permutation Cayley graphs.",
+      "residual_risks": [
+        "It does not generalize to arbitrary lengths or error radii."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

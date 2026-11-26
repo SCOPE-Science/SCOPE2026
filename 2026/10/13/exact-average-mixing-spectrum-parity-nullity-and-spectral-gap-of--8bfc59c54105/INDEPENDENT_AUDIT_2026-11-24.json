@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:35:03.434536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quotient has N even-weight characters and no other Fourier modes. Cesàro averaging retains the projector Schur squares, so the weight-w multiplier counts ordered equal-even-weight pairs with fixed sum divided by N. Balancing the w changed coordinates selects w/2; on a nonempty complement exactly half the subsets have the requisite parity. At full support the sole complement is empty and d/2 must itself be even. The only zero is therefore the full-support parity character when d ≡ 2 mod 4. Interior central-binomial ratios decrease, and in the nonzero endpoint case its ratio to the last interior mode is 2(d−1)/d>1. These facts give the multiplicities, gap and condition number including d=3 and d=4. The bundled numerical-range checks were inspected only; the proof is exact for all d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general projector identity and commutant interpretation apply; the open problem asks about full rank for primitive distance-regular graphs."
+        ],
+        "reasoning": "These results do not evaluate the parity restriction of the equal-energy pairs or the quotient's positive minimum.",
+        "searches": [
+          "Godsil arXiv:1103.2578 Lemma 1.1",
+          "Coutinho et al. arXiv:1709.03591; Coutinho–Guo arXiv:2404.02236 §4"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE 4fe0fc9eff9e",
+        "SCOPE 1f61b73d28b8",
+        "arXiv:1103.2578",
+        "arXiv:1709.03591",
+        "arXiv:1102.4898",
+        "arXiv:1305.5811",
+        "arXiv:2404.02236"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hamming proof counts all equal-weight characters, with q unrestricted local choices on a coordinate outside the support. The folded proof requires even total weight, which halves the allowed complement choices only if the complement is nonempty."
+        ],
+        "reasoning": "One must carry the amplitudes or the even-weight projectors through the quotient before averaging. Equivalently, the normalized quotient amplitude is U(x)+U(x+1); across antipodes the extra cross term is proportional to cos(dπ/2)(sin t cos t)^d (−1)^|x| and so changes only the even-dimensional parity mode. It is not present in the ordinary squared-probability spectrum. The rank transition and its endpoint comparison are a distinct computation, not a parameter substitution.",
+        "searches": [
+          "SCOPE 4fe0fc9eff9e, tensor-product and ordered-pair derivations; Godsil, projector formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 1f61b73d28b8 treats the even halved cube, the distance-two graph of degree binom(d,2), rather than the antipodal degree-d quotient.",
+          "Godsil §17 and Chan discuss instantaneous uniform mixing rather than the Cesàro spectrum."
+        ],
+        "reasoning": "The halved cube appears in the folded cube's Fourier description, but their adjacency energy groups are different. The dual graph's average mixing matrix is not the quotient's average mixing matrix. A perfect instantaneous time also does not fix the Cesàro matrix.",
+        "searches": [
+          "Resultary: antipodal cube quotient, folded and halved cube quantum average mixing spectrum",
+          "arXiv:1102.4898 §17; arXiv:1305.5811"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE 4fe0fc9eff9e gives exact ordinary H(d,q) multipliers, including the central-binomial interior values at q=2, but it has 2^d modes at q=2 and the quotient has 2^(d−1)."
+        ],
+        "reasoning": "The ordinary Hamming spectrum is not a table of the quotient spectrum. The even endpoint in particular cannot be recovered by deleting odd modes; for d=6 that would wrongly predict full rank.",
+        "searches": [
+          "Resultary: long-time average mixing spectrum rank of Hamming graphs and binary antipodal quotients"
+        ]
+      },
+      "rationale": "The ordinary cube covers the numerical interior formula, not the quotient mixing theorem. The distinct contribution is the quotient correction and the resulting unified spectrum, rank transition and sharp positive minimum. The comparison does not rely on ordering two records with the same date.",
+      "residual_risks": [
+        "Fan–Luo's 2013 cubelike paper was not independently retrieved; accessible related passages address instantaneous mixing.",
+        "Explicit results for arbitrary linear quotients or association-scheme Krein sums may give equivalent coverage; the bounded searches do not establish its absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping interior formula and proof ingredient, not the antipodal quotient",
+          "evidence": "Proof averages M_q(t) tensor powers and projects onto all additive character weights, without the even-weight restriction.",
+          "identifier_or_url": "SCOPE 4fe0fc9eff9e",
+          "material_read": "Finding and proof's tensor-product and independent equal-weight pair derivations, mirrored RESULT.md offsets 1770–5161",
+          "method": "Resultary local mirror",
+          "title": "Complete long-time average-mixing spectrum and rank transition of Hamming graphs",
+          "trigger": "Exact same numerical interior spectrum at q=2"
+        },
+        {
+          "assessment": "Different graph and energy groups",
+          "evidence": "Distance two on even words, degree binom(d,2), with different rank and gap conclusions.",
+          "identifier_or_url": "SCOPE 1f61b73d28b8",
+          "material_read": "Finding and graph definition",
+          "method": "Resultary local mirror",
+          "title": "Exact antipodal kernel and spectral gap of quantum average mixing on even halved cubes",
+          "trigger": "Binary parity, antipodality, exact mixing gap"
+        },
+        {
+          "assessment": "Proof ingredient",
+          "evidence": "Mixing average equals the sum of the projector Schur squares.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2578",
+          "material_read": "Lemma 1.1, pp. 2–3",
+          "method": "Primary OA PDF targeted passage",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "General spectral method"
+        },
+        {
+          "assessment": "Broader framework, not quotient evaluation",
+          "evidence": "Expresses averaging as projection onto the commutant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+          "material_read": "p. 1, commutant formulation",
+          "method": "Primary OA PDF targeted passage",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General rank and commutant result"
+        },
+        {
+          "assessment": "Graph identification and instantaneous results",
+          "evidence": "Describes the antipodal quotient and instantaneous perfect mixing, using a shifted convention.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.4898",
+          "material_read": "§17, p. 29",
+          "method": "Primary OA PDF targeted passage",
+          "title": "State Transfer on Graphs",
+          "trigger": "Exact folded-cube family"
+        },
+        {
+          "assessment": "Inspected claim about a different mixing observable",
+          "evidence": "Concerns instantaneous uniform mixing and Hadamard structure; not used as a whole-document exclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.5811",
+          "material_read": "p. 1, stated results",
+          "method": "Primary OA PDF targeted passage",
+          "title": "Complex Hadamard Matrices, Instantaneous Uniform Mixing and Cubes",
+          "trigger": "Folded and halved cubes and association schemes"
+        },
+        {
+          "assessment": "Context, not a solution for this family",
+          "evidence": "Poses full rank for primitive distance-regular graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.02236",
+          "material_read": "§4, p. 12, Open Problem 4.1",
+          "method": "Primary OA PDF targeted passage",
+          "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+          "trigger": "Primitive distance-regular full rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quotient introduces a real interference effect invisible in ordinary-cube probabilities: one parity eigenmode alternates between a positive endpoint and exact nullity. The all-dimension calculation also gives the sharp conditioning on the image and verifies full rank for the odd folded-cube subfamily in a broader problem about distance-regular graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

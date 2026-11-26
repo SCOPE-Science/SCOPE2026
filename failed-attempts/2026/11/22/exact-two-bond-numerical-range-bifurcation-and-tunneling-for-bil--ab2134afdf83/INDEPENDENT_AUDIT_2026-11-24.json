@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:18:06.268561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions, Proof §§1–4",
+        "VERIFICATION.md and CHECK.py inspected but not executed"
+      ],
+      "rationale": "Use reflection n→d+2−n. For parity sigma=±1 at energy L(r)>1, the interior profile can be written as B(r^(n−1)+sigma*r^(d+1−n)), for 1≤n≤d+1. Eliminating the free left tail gives u_2=(r+r^(-1)−c²r)u_1. The parity ansatz reduces this condition to 1−c²r²−sigma*(c²−1)r^(d+2)=0, and reflection handles the other endpoint. The upper-mode polynomial is strictly decreasing, and for the second channel the increasing r²(1+...+r^(d−1))/(1+r) reaches d/2 at r=1, giving exactly the strict threshold. At equality the odd affine interior profile has u_2/u_1=(d−2)/d=2−c² and matches opposite constant tails, not an ℓ² eigenvector. Free tails exclude all embedded and edge eigenvalues; finite-rank perturbation preserves the essential band and alternating signs provide the negative partners. A nonzero summable left tail fixes the full eigenvector up to scale. Phase rotation and convexity give a disk, and the top real-part eigenvalue is attained, closing it. Both roots move strictly toward r0=1/c as d increases since F_+ and H_d increase at a fixed r. For large d bracket both roots by a fixed R∈(r0,1), using H_d(R)→R²/(1−R²) for the second root. The secular equation gives |r−r0|=O_c(R^d), hence r^(d+2)=r0^(d+2)(1+o(1)). Substitution gives r_sigma−r0∼−sigma*(c²−1)/(2c^(d+3)); a second substitution after sharpening to O_c(c^(-d)) yields the reported relative error. Multiplication of the root gap by −L'(r0)=(c²−1)/2 gives the stated splitting.",
+      "residual_risks": [
+        "The supplied checker mixes rational matching tests with tolerance-based finite recurrence checks. The analytic argument, not the finite checker, supplies the strict root counts and asymptotics. The splitting is not claimed uniform as c decreases to one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Webb–Olver develop a general half-line finite-rank Jacobi polynomial-root framework and a first-bond example. Hetényi–Dóra treat one bond, not the separated identical pair.",
+          "The matching Resultary record goes further than this assignment's fixed-contrast law, giving a weak-enhancement critical window and a unilateral bulk-radius limit as well."
+        ],
+        "reasoning": "The broader methodological articles are not the decisive source of exact coverage. The competing Resultary finding is stronger and explicitly contains the full fixed-contrast spectral classification numerically and symbolically.",
+        "searches": [
+          "arXiv:1702.03095, Example 4.3 and Theorem 4.8 in the retrieved version",
+          "arXiv:2508.00519, abstract and p. 4",
+          "Resultary: two off-diagonal Jacobi defects hopping defects double bond impurity bound states"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:d735f6816a9a",
+        "Resultary:89bd59407b31",
+        "arXiv:1702.03095",
+        "arXiv:2508.00519"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct matching finding gives an attained maximal real-part eigenvalue λ_+ for exactly J=(S+S*)/2. Rotation invariance of S and convexity imply that its whole numerical range is the disk of radius λ_+, including the boundary.",
+          "Increasing d decreases r^(d+2) at each 0<r<1. This moves the F_+ crossing to the right and the F_- crossing (equivalently increasing H_d) to the left; L is strictly decreasing."
+        ],
+        "reasoning": "The strongest overlap includes all spectral phenomena advertised, and the two expressly different statements are immediate consequences of already available branch formulas and standard numerical-range facts. They do not provide a genuinely distinct surviving claim.",
+        "searches": [
+          "Resultary:d735f6816a9a, Finding and Proof §§1–3",
+          "Frozen RESULT.md formulas (1)–(3) and monotonicity assertions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary record d735f6816a9a the enhanced bonds are at 0 and m on ℤ, with off-diagonal value a/2 and 1/2 elsewhere. Put m=d+1 and a=c, so m≥2 matches d≥1 exactly.",
+          "The equations a²z²±(a²−1)z^(m+1)=1 become the two F_± root equations of the assignment, with identical energy mapping and reflected parities.",
+          "The second-pair condition a²−1>2/(m−1), equality resonance, and splitting (a²−1)²/(2a^(m+2)) become exactly d(c²−1)>2, the same resonance, and the same splitting coefficient."
+        ],
+        "reasoning": "The change is only the convention for counting distance: displacement of bond indices versus number of intermediate unperturbed bonds. It does not change the operator or limit.",
+        "searches": [
+          "Resultary: two identical off-diagonal bond defects bilateral Jacobi exact secular equation threshold",
+          "Resultary: even odd reflection sector half-line Jacobi two bond defect hopping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match: 2026/11/22/SCOPE-a-two-bond-spectral-threshold-and-critical-doublet-law-for-weigh--d735f6816a9a. Its Finding states the all-parameter equations and tunneling constant; this is a distinct record, not a mirror of ab2134afdf83.",
+          "Nearby earlier 2026/10/18 entry suffix 89bd59407b31 treats two adjacent exceptional weights at variable distance from a unilateral boundary, not the exact same family."
+        ],
+        "reasoning": "An all-parameter closed form in a distinct catalogue entry is stronger coverage than a numerical table. The earlier adjacent-bond entry does not itself cover this record; the distinct same-day exact match does.",
+        "searches": [
+          "Resultary: two identical off-diagonal bond defects bilateral Jacobi exact secular equation threshold",
+          "Resultary: two-bond weighted shift spectral threshold and tunneling"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary record states the complete spectrum, threshold, resonance and tunneling coefficient for the exact same operator and all the same fixed-contrast parameters. The closed numerical disk is an immediate consequence of its top eigenvalue, rotation and convexity; the claimed monotonicity follows directly from the same branch equations. This is demonstrated coverage, not a chronology or attribution claim.",
+      "residual_risks": [
+        "No ordering or historical priority between the same-day records was established. Older equivalent tight-binding literature was not exhaustively checked, but the explicit distinct indexed match resolves the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete substantive spectral claim; disk and monotonicity are direct consequences",
+          "evidence": [
+            "Full simple exterior spectrum, resonance and strict threshold beta>2/(m−1), with beta=a²−1.",
+            "Fixed-enhancement splitting beta²/(2a^(m+2)); weak critical scaling is an additional theorem there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-two-bond-spectral-threshold-and-critical-doublet-law-for-weigh--d735f6816a9a/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and proof of matching and root classification (local mirror offsets 0 and 6200; direct recheck from offset 0)",
+          "method": "Read exact statements through the local mirror, compared the special bonds and substituted m=d+1, a=c",
+          "title": "A two-bond spectral threshold and critical doublet law for weighted shifts",
+          "trigger": "Same-day exact parameter and formula overlap found through Resultary"
+        },
+        {
+          "assessment": "General algorithm and half-line example; not the direct statement-level match",
+          "evidence": [
+            "First-bond perturbation example and general finite-rank free half-line result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.03095",
+          "material_read": "Abstract/introduction, Example 4.3 and Theorem 4.8 in the retrieved version",
+          "method": "Targeted OA primary passages",
+          "title": "Spectra of Jacobi operators via connection coefficient matrices",
+          "trigger": "Potential broader exact finite-support Jacobi method"
+        },
+        {
+          "assessment": "One bond, not the two identical enhanced bonds at variable separation",
+          "evidence": [
+            "The stated system has one bond impurity and admits non-Hermitian variants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.00519",
+          "material_read": "Abstract and finite-system impurity figures, p. 4",
+          "method": "Targeted OA primary passages",
+          "title": "Localized states and skin effect around non-Hermitian impurities in tight-binding models",
+          "trigger": "Related hopping defect bound states"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Resultary:d735f6816a9a, Finding"
+      ],
+      "rationale": "The exact onset and splitting are scientifically meaningful but already fully represented by the distinct matching result. The surviving bilateral disk and strict monotonicity are routine consequences of its eigenvalue and root equations, not an independently useful new invariant or a separately justified worthwhile gap of this frozen record.",
+      "residual_risks": [
+        "This does not deny the value of the underlying spectral problem or claim the frozen formulas are false. No substantive surviving repair was identified."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

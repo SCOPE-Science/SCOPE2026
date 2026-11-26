@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:35:11.667363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired finite-block identity follows by conditioning the n+k inputs on their deterministic differences: there are k disjoint chains and each chain's posterior is its product-law weight across simultaneous left translates. The true lift ensures a positive denominator, change of reference lift permutes the probabilities, and a chain with no output contributes q_1=H(mu). Bounded conditional entropy gives the entropy rate. On each half, the strong law identifies the exact boundary orbit, since starting with gX_j changes all reconstructed letters by left translation and hence changes the limiting law to mu(g^-1 x). The halves use disjoint iid tails given the boundary; translating a tail and its boundary by an element of K_mu preserves law and differences, so the two conditional laws depend only on the orbit vector. Conditional independence given that vector and recovery from both halves yield H(C); uniformity within each orbit gives the log term. This works with zeros, nonnormal subgroups and singleton group. The set of limits follows from closed symmetry constraints, finiteness of the subgroup lattice, and mixing with a full-support law of distinct orbit masses to realize each subgroup. The order-two transposition subgroup example in S3 gives k times the entropy of masses (1/2,1/3,1/6). Replay: repaired RESULT.md, all three proof sections. Frozen VERIFICATION.md and verify.py were inspected, not run; the reported 38 numerical finite-block comparisons are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary record handles broader binary additive CA, with biased-input almost-sure invertibility and finite-window inference exponents, including 1+z.",
+          "Kari–Taati address factor Gibbs properties; Riechers–Crutchfield analyze hidden-Markov information in examples including RRXOR."
+        ],
+        "reasoning": "The binary CA result is broader in the factor polynomial, but is restricted in the source alphabet and targets reconstruction rather than the exact finite-group excess-entropy phase diagram. Neither inspected information or Gibbs framework gives the stabilizer-dependent value or all local limits.",
+        "searches": [
+          "arXiv:1311.2319 Theorem 31",
+          "Resultary 2026/10/26/SCOPE-sharp-bayesian-reconstruction-exponents-and-kernel-density-extre--6a92d67fc135",
+          "arXiv:1706.00883 §VII"
+        ]
+      },
+      "checked_sources": [
+        "Lindgren–Nordahl 1988 §3",
+        "Lindgren 2015 §2.3",
+        "arXiv:1311.2319",
+        "Resultary 2026/10/26/6a92d67fc135",
+        "arXiv:1408.6876",
+        "arXiv:1706.00883"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary reconstruction can account for the biased binary boundary letter; the renewal-process excess-entropy setting has different assumptions."
+        ],
+        "reasoning": "The general result requires proving exactly which lifts agree in empirical law, that this ambiguity is a possibly nonnormal action orbit shared by both halves, and that each subgroup of the true stabilizer is accessible under perturbations. These steps are not a substitution into the binary theorem, and the value and cluster diagram are not inferred from a context-only hidden-Markov or renewal framework.",
+        "searches": [
+          "Resultary 6a92d67fc135 Finding",
+          "arXiv:1311.2319 Theorem 31 and Examples 33,35",
+          "arXiv:1408.6876 abstract and opening discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rule 60's dyadic-time iterates have binary polynomial 1+z^k, so they realize exactly the binary difference factor at lag k for k a power of two. The older sources give ts for biased Bernoulli input, zero at the fair law. Kari–Taati analyze the XOR binary factor and its iterates."
+        ],
+        "reasoning": "Effective measure complexity here is the past–future information in another notation. The dyadic binary case agrees exactly, including the discontinuity, and is not considered new. The binary group has only trivial and full symmetry and cannot test intermediate or nonnormal strata.",
+        "searches": [
+          "Lindgren–Nordahl 1988 Complexity Measures and Cellular Automata §3 Eq. (3.16)",
+          "Lindgren 2015 Entropy §2.3 Eq. (14)",
+          "arXiv:1311.2319 Examples 33 and 35"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact binary biased/fair entropy values are furnished by the older equations. The closest indexed result also provides exact binary decoding information, not an arbitrary-group excess-entropy evaluation."
+        ],
+        "reasoning": "This is not a finite catalogue enumeration. Exact special-case evaluations were nevertheless checked and credited; the full spectrum of possible values for general law and subgroup cannot be tabulated from the bias parameter of a binary system.",
+        "searches": [
+          "Lindgren–Nordahl 1988 Eq. (3.16)",
+          "Lindgren 2015 Eq. (14)",
+          "Resultary 6a92d67fc135 Finding"
+        ]
+      },
+      "rationale": "The supported distinct claim is the arbitrary finite-group excess entropy and complete subgroup-indexed set of perturbation limits, with the finite posterior formula, not the already known biased-binary reconstruction and discontinuity. The closest indexed additive binary result and inspected group-related factor literature do not supply the nonnormal left-action classification.",
+      "residual_risks": [
+        "An equivalent finite-group entropy statement could exist in specialized group-process or cellular-automata literature not covered by this bounded comparison. No chronological uniqueness is asserted.",
+        "The arXiv and journal versions may have different example numbering; the repair identifies the version actually inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of the binary special case at dyadic times",
+          "evidence": "The biased-binary Rule 60 complexity grows proportionally to time and is zero at fair input.",
+          "identifier_or_url": "https://wpmedia.wolfram.com/uploads/sites/13/2018/02/02-4-2.pdf",
+          "material_read": "§3 pp. 430–432 including Eq. (3.16), PDF offset about 65361",
+          "method": "OA PDF passages",
+          "title": "Complexity Measures and Cellular Automata",
+          "trigger": "Earlier exact binary complexity and discontinuity"
+        },
+        {
+          "assessment": "Confirms the binary formula, not the arbitrary-group law",
+          "evidence": "Complexity eta(t)=t s when s<log 2, zero at maximal entropy.",
+          "identifier_or_url": "Entropy 17 (2015) 3332–3351",
+          "material_read": "§2.3 Eq. (14), p. 3340, offset about 27589",
+          "method": "OA PDF passage",
+          "title": "An Information-Theoretic Perspective on Coarse-Graining, including the Transition from Micro to Macro",
+          "trigger": "Exact restatement of binary Rule 60 information"
+        },
+        {
+          "assessment": "Material overlap in binary factor/iterates but not the entropy formula; the frozen example numbering does not match this arXiv text",
+          "evidence": "Example 33 gives the biased binary XOR non-regular-Gibbs image; Example 35 discusses iterates. Earlier-numbered examples concern Ising/contours in this version.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.2319",
+          "material_read": "Theorem 31 p. 25 offset 89843, Examples 33 and 35 pp. 26–27 offsets 95484 and 98243; checked arXiv Examples 6 and 7 pp. 12–13",
+          "method": "OA arXiv PDF passages",
+          "title": "Statistical Mechanics of Surjective Cellular Automata",
+          "trigger": "Binary difference factor and potential general factor-map coverage"
+        },
+        {
+          "assessment": "Material overlap in binary decoding; no historical priority inference or group-entropy coverage",
+          "evidence": "Almost-sure invertibility and finite-window exponents for biased Bernoulli additive CA, including the lag-one difference polynomial 1+z.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-sharp-bayesian-reconstruction-exponents-and-kernel-density-extre--6a92d67fc135/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp Bayesian reconstruction exponents and kernel-density extremes",
+          "trigger": "Closest distinct local index result on reconstructing binary additive outputs"
+        },
+        {
+          "assessment": "Different process family",
+          "evidence": "Defines excess entropy and studies discrete-time renewal processes.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.6876",
+          "material_read": "p. 1 near offset 5266",
+          "method": "OA PDF passage",
+          "title": "Informational and Causal Architecture of Discrete-Time Renewal Processes",
+          "trigger": "Past–future mutual information formulas"
+        },
+        {
+          "assessment": "Related information spectrum, not the finite-group iid difference factor formula",
+          "evidence": "Analyzes the RRXOR example and its excess-entropy spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.00883",
+          "material_read": "§VII p. 17 near offset 285900",
+          "method": "OA PDF passage",
+          "title": "Spectral Simplicity of Apparent Complexity, Part II: Exact Complexities and Complexity Spectra",
+          "trigger": "Related hidden-Markov and XOR information calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem computes a natural infinite-observation information observable and ties its loss exactly to an identifiable group symmetry, including with degenerate laws. The subgroup cluster classification gives a precise discontinuity diagram rather than only a generic jump or an isolated binary example; nonnormal subgroups genuinely exercise the side of the action.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

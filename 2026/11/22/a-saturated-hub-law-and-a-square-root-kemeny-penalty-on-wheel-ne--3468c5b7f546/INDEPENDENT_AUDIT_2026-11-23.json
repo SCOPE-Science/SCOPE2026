@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:57:54.185644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the orthogonal complement of the constants the symmetric Markov Laplacian is positive definite for every irreducible feasible kernel, even without an aperiodicity hypothesis. The second derivative of the inverse trace in a nonzero stochastic direction E is twice the squared Frobenius norm of A^(-1/2) E A^(-1), with A=I-P+J/(m+1) evaluated at that point. Connected support is preserved by convex mixing, and approaching a disconnected kernel forces a positive gap to zero and the objective to infinity. Consequently cyclic averaging and strict convexity justify unrestricted existence and uniqueness. Fourier decomposition gives one gap (m+1)b and m-1 gaps b+2a(1-cos(2πk/m)). Any rim hold is strictly suboptimal at fixed positive spoke weight b. Along a=(1-b)/2 the total positive contribution to the derivative from negative cosines is at most m-1, whereas the radial derivative is at most -m²/(m+1); the derivative is strictly negative up to b=1/m. Summing the convergent Poisson kernel selects multiples of m and the k=0 term to remove is m for both kernels. The optimal q=1-1/m gives delta=sqrt(2m-1)/m and rho^m tending to zero; the comparator q=2/3 gives leading m²/sqrt(5), hence the stated sqrt(2/5) ratio coefficient. At m=3 the wheel is K4 and the two walks agree. For finite replay, form the claimed kernel for m=3 through 8 and invert I-P+J/(m+1) over the rationals; the checked values are 9/4, 118/35, 875/186, 8172/1309, 21511/2696, 35206/3555. Lowering one spoke or one rim edge by 1/(24m), symmetrically increasing the two endpoint holds, strictly increased the rational trace in each test. These are finite corroboration, not the global argument. The frozen verify_wheel.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel–Agharkar–Bullo give convex and semidefinite formulations for reversible Kemeny design.",
+          "Zhang et al. use D^(-1)A on networks, and Li–Sun–Yang define graph Kemeny for the simple random walk.",
+          "The nearby gear and helm Kemeny results apply to different graph families; their graph modifications are not an allowed parameter on the fixed wheel."
+        ],
+        "reasoning": "A framework for formulating the optimization is not a theorem about which wheel row constraints bind. The fixed simple-walk results neither vary those transition probabilities nor prescribe the same uniform stationary measure. No inspected general theorem disposed of the active-set inequality or the loss constant.",
+        "searches": [
+          "10.1109/TAC.2015.2426317 (author PDF)",
+          "Resultary: wheel Kemeny optimization symmetric stochastic walk hub spokes rim edge probabilities",
+          "arXiv:1211.4295",
+          "arXiv:2608.08797v2"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao (2004), DOI 10.1137/S0036144503423264",
+        "Patel–Agharkar–Bullo (2015), DOI 10.1109/TAC.2015.2426317",
+        "Zhang et al., arXiv:1211.4295",
+        "Li–Sun–Yang, arXiv:2608.08797v2",
+        "Published resistance-optimized wheel, constrained fastest-mixing wheel, cone-transfer, gear (35ca15cf886c), and helm (7e060df31d29) records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Convex design and the maximum-degree comparator are prior, as is diagonalizing the wheel into its radial and rim sectors.",
+          "The claimed optimizer follows after proving f'(b)≤-1/(m+1) throughout the rim-saturated edge of the feasible triangle; it does not follow simply from averaging or nonzero rim weights.",
+          "The penalty compares two distinct scalings, order m^(3/2) and order m², on the same support and with the same stationary law."
+        ],
+        "reasoning": "Credit the reusable methods and compare the actual conclusions: the work adds a binding-capacity law and an asymptotically sharp performance separation for the stochastic problem, rather than recasting the earlier resistance objective or the fastest-mixing problem.",
+        "searches": [
+          "2026/10/13/SCOPE-a-sharp-rim-price-transition-and-critical-window-for-resistance--c2f59dd7b8a5/RESULT.md",
+          "2026/11/8/SCOPE-exact-cone-transfer-law-for-fastest-symmetric-markov-mixing--a2a8502b28cf/RESULT.md",
+          "10.1137/S0036144503423264",
+          "10.1109/TAC.2015.2426317"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a symmetric kernel with N vertices, Kemeny = tr((I-P)^+) and the conductance Kirchhoff index is N times it, also for nonregular weighted support.",
+          "The resistance-optimized wheel record constrains the total spoke expenditure plus a rim-price-weighted total; the stochastic problem imposes every vertex row cap.",
+          "Boyd–Diaconis–Xiao use the graph-constrained stochastic feasible set but optimize SLEM."
+        ],
+        "reasoning": "Passing between weighted resistance and Kemeny is not new. Passing from the priced wheel to the vertexwise caps is not a change of units: after cyclic averaging a positive price t makes b+t a a nonnegative combination of b and b+2a only for 0<t≤2. To certify the proposed corner by a supporting budget one must show the objective's marginal price there lies in that range. That check is precisely a rim-saturated derivative inequality, not the prior global-budget threshold for deleting the rim. SLEM is not equivalent to the inverse-gap sum.",
+        "searches": [
+          "Resultary: wheel Kemeny optimization symmetric stochastic walk hub spokes rim edge probabilities",
+          "Resultary: wheel resistance optimized conductance rim price Kirchhoff index hub spokes",
+          "Web: \"wheel\" \"Kemeny constant\" optimal symmetric stochastic transition probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph-Kemeny hits examined treat degree-normalized/simple walks; the comparable wheel optimizer record concerns SLEM with a rim weight lower bound. The priced-wheel record evaluates inverse-trace optima for a global budget, not the stochastic-row active set."
+        ],
+        "reasoning": "No inspected table gives both the uniform-stationary stochastic minimizer and its maximum-degree Kemeny comparison. Finite exact values in this audit are correctness corroboration only; a search miss is not proof of originality.",
+        "searches": [
+          "Web: \"wheel\" \"Kemeny constant\" optimal symmetric stochastic transition probabilities",
+          "Resultary: wheel Kemeny optimization symmetric stochastic walk hub spokes rim edge probabilities",
+          "2026/11/8/SCOPE-a-four-phase-constrained-fastest-mixing-law-for-wheel-networks--bf3349aa8c4f/RESULT.md"
+        ]
+      },
+      "rationale": "The credited general convex formulations and wheel Fourier methods do not by themselves select the active constraints. The closest prior wheel result does have the same weighted Laplacian trace up to a constant, but optimizes over a different feasible set. The all-size active-set proof and the exact divergent loss of the standard symmetric maximum-degree comparator are not supplied by the inspected prior statements. This is a best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "The bounded search and inspected passages do not rule out a pre-existing theorem on Kemeny- or resistance-optimal vertex-capacitated cones under other terminology.",
+        "Uninspected portions of general design works or equivalent wheel calculations may contain additional results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly relevant to methods and objective; total price constraint is not the stochastic row-cap problem",
+          "evidence": [
+            "sum(spoke weights)+t sum(rim weights)=1; a rim-price transition under this constraint"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-rim-price-transition-and-critical-window-for-resistance--c2f59dd7b8a5/RESULT.md",
+          "material_read": "Finding, scope and spectral/optimization passages, characters 0–6952",
+          "method": "Published record, local mirror",
+          "title": "A sharp rim-price transition and critical window for resistance-optimized wheels",
+          "trigger": "Same wheel support and equivalent inverse-Laplacian trace under a different cost constraint"
+        },
+        {
+          "assessment": "Same graph design framework; different objective",
+          "evidence": [
+            "Minimizes the second largest eigenvalue modulus over symmetric stochastic graph-supported matrices"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "PDF p. 2 (printed p. 669), offsets 6355–9852",
+          "method": "Open author PDF, bounded formulation passage",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Graph-constrained symmetric stochastic design and the comparator"
+        },
+        {
+          "assessment": "General convex design precedes this calculation; no wheel row-saturation conclusion in inspected material",
+          "evidence": [
+            "Reversible Kemeny minimization and its weighted version admit convex and semidefinite formulations"
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "p. 1, offsets 809–4588",
+          "method": "Open author PDF, abstract and introduction",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General reversible Kemeny optimization"
+        },
+        {
+          "assessment": "Optimizes or compares network topology for fixed degree-normalized transitions",
+          "evidence": [
+            "T=D^(-1)A with degree-proportional stationary weights"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.4295",
+          "material_read": "Abstract and network walk model, HTML offsets 1065 and 8945–12528",
+          "method": "Open primary text",
+          "title": "Optimal and suboptimal networks for efficient navigation measured by mean-first passage time of random walks",
+          "trigger": "Kemeny optimization for networks"
+        },
+        {
+          "assessment": "Inspected formulation concerns simple walks, not transition-weight optimization",
+          "evidence": [
+            "Normalized-Laplacian expression for graph Kemeny"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.08797v2",
+          "material_read": "Abstract, simple-walk definition and spectral formula, HTML offsets 0, 2286 and 12085",
+          "method": "Open primary text, bounded passages",
+          "title": "On two conjectures concerning Kemeny’s constant of graphs",
+          "trigger": "Recent graph Kemeny formula and possible prior wheel specialization"
+        },
+        {
+          "assessment": "SLEM with rim lower bounds, not Kemeny",
+          "evidence": [
+            "Wheel transition law under prescribed rim-edge lower bounds"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-four-phase-constrained-fastest-mixing-law-for-wheel-networks--bf3349aa8c4f/RESULT.md",
+          "material_read": "Characters 0–4636, finding and feasible set",
+          "method": "Published record, local mirror",
+          "title": "A four-phase constrained fastest-mixing law for wheel networks",
+          "trigger": "Same support and optimization of symmetric kernels"
+        },
+        {
+          "assessment": "Cone-transfer conclusion concerns SLEM",
+          "evidence": [
+            "The invariant to be minimized is the second-largest eigenvalue modulus"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cone-transfer-law-for-fastest-symmetric-markov-mixing--a2a8502b28cf/RESULT.md",
+          "material_read": "Characters 0–4986, finding and formulation",
+          "method": "Published record, local mirror",
+          "title": "Exact cone-transfer law for fastest symmetric Markov mixing",
+          "trigger": "Potential general theorem for graphs with a universal hub"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A wheel is a canonical test of hub versus rim allocations. Determining that every row is tight at the unrestricted optimum rules out apparently plausible asymmetric and holding alternatives, rather than just evaluating a chosen walk. The sharp, unbounded loss for the usual symmetric maximum-degree rule is a useful analytical benchmark for how differently inverse-gap and mixing design criteria can behave. No performance claim outside this objective and feasible set is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

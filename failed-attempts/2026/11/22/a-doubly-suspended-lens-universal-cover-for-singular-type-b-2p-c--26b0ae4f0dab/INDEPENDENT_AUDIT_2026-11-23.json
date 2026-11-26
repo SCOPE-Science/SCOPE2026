@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:01:06.096048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed cycle has characteristic polynomial t^(2p)+1, so its complex planes have the odd weights 1,3,…,2p−1 modulo 4p. All weights except p are units modulo 4p; weight p alone has the order-p kernel P=<c^4>. Thus only the corresponding circle has nontrivial stabilizer and the residual C4 acts freely on the quotient by P. Radial coordinates identify the latter quotient with S¹*L, where L is the free C_p quotient of the complementary sphere with the printed weights. The double suspension of the connected lens space is 2-connected, so the free fourfold covering is universal and Hurewicz gives π_3=C_p, including p=3. The path of diagonal rotations from the identity to c descends to the intermediate quotient; trivial induced action on H_3 transfers to π_3 by Hurewicz. The odd torsion of L shifts by two. At p the residual C4 transfer preserves those localized groups. At 2 the subgroup <c^p> acts freely by odd weights, giving an ordinary C4 lens space; the subsequent P quotient need not be free, and does not use a covering transfer. After admissible subdivision its quotient chains are coinvariants; as p is invertible over Z_(2), averaging is exact and diagonal torus isotopy makes the action on homology trivial. This yields the claimed C4 in every eligible odd degree at 2; outside 2,p the same argument gives sphere homology. Local groups and the top class recover exactly the printed integral groups, with H_3=C12 for p=3. The frozen verify_b6.py was inspected only: it checks boundary compositions and reports finite-field Betti vectors, and cannot prove integral exponents or the infinite result. Independent mathematical check: branches/ae11161a-46ac-4ed9-83b3-40963089d33b/independent-check.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Armstrong, Theorem 4 proof, shows X/N is simply connected and X/N→X/G is a covering via the free residual action; Prop. 3(a),(b) includes the relevant finite simplicial action. Here N=P, not the full orbifold deck group.",
+          "BFR's general weighted-lens homology formulas give the stated underlying ordinary homology, with the primes 2 and p controlling the two factors. Its Definition 2.3 already gives the torus T^p/C_{4p} on the base quotient, and applies also to S/P with the torus T^p/P. In this diagonal case c belongs to that connected torus acting on S/P."
+        ],
+        "reasoning": "Neither the fixed-point-subgroup quotient construction nor the homology is new. Triviality of the deck action on π_3 is the standard connected-torus isotopy on the universal cover, followed by its Hurewicz isomorphism; the group is not given a newly computed nontrivial action or extension.",
+        "searches": [
+          "Armstrong, Calculating the Fundamental Group of an Orbit Space, doi:10.1090/S0002-9939-1982-0637181-X, Theorem 4 proof and Prop. 3",
+          "Bahri–Franz–Ray, arXiv:1109.2359v1 §2 Def. 2.3 and Eq. (2.16)",
+          "websearch: Armstrong fundamental group orbit space simply connected normal subgroup generated fixed points universal covering ordinary orbifold lens spaces 1968 quotient sphere"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result, source verifier, metadata, verification note, self-review, audit and slogan",
+        "Armstrong 1982 doi:10.1090/S0002-9939-1982-0637181-X and 1965 published extract",
+        "Published Resultary cyclohedron record (full text) and nearby quotient search results",
+        "Bahri–Franz–Ray arXiv:1109.2359v1 and published Osaka version",
+        "Kawasaki doi:10.1007/BF01429212 (bibliographic and via BFR)",
+        "Bari–Hunsicker arXiv:1705.01412v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For c^4 the two length-p cycles follow from gcd(4,2p)=2, and the product of signs on each cycle is +1 since (c^4)^p=1. This directly matches the representation of the previous theorem after adding one fixed line. Outside P a fixed point is impossible by the odd weights. Armstrong gives exactly the resulting ordinary cover; suspension and Hurewicz supply π_2 and π_3.",
+          "The residual generator comes from a connected diagonal torus and its action on the simply connected cover is isotopic to the identity, so the claimed trivial monodromy is automatic. The older theorem does not discuss this Coxeter base, but no new weight-dependent computation or additional homotopy invariant remains after the reduction.",
+          "Bari–Hunsicker use orbifold rather than ordinary covering at the singular sphere projection. This is not an equivalent result to the topological cover by itself; Armstrong is the decisive covering comparison."
+        ],
+        "reasoning": "The case-specific work is the elementary signed-cycle stabilizer and representation identification. The structural result is mechanically recovered from the prior covering construction and known representation-sphere quotient (or the usual fixed-summand sphere-join identity directly, also for p=3). The conclusions are not made original by phrasing them for a Coxeter complex.",
+        "searches": [
+          "Armstrong 1982 Theorem 4 proof",
+          "Published suspended-lens cyclohedron theorem, k=2 and proof Steps 2–4",
+          "BFR §2 and Bari–Hunsicker arXiv:1705.01412v2 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier cyclohedron proof at n=2p, k=2 identifies its ordinary C_p quotient as a single suspension of the lens with weights 1,…,(p−1)/2 each repeated twice. It removes one all-ones line from two regular modules.",
+          "In the current Coxeter representation, reducing the odd weights modulo p gives every residue once. Removing the zero leaves one of each nonzero residue; conjugating complex planes identifies weights ±j, giving exactly the older twice-repeated lens list. The Coxeter P action retains the extra trivial real line, and adjoining it is unreduced suspension of the earlier quotient. This matches the universal covering space as a space, not the two base quotients or their actions."
+        ],
+        "reasoning": "This is an exact representation-level reduction to the earlier result for p≥5; there is no need for an independent computation of the suspended lens type there. For p=3 the same standard join with (1,2) gives the identical conclusion.",
+        "searches": [
+          "Resultary: doubly suspended lens ordinary topological cover cyclic singular lens one weight noncoprime",
+          "SCOPE-suspended-lens-spaces-from-prime-order-rotations-of-cyclohedron--7b2304c3d40d, published 2026-11-17, theorem and proof Steps 1–4",
+          "Resultary Coxeter complex type B signed cycle Coxeter element quotient weighted lens universal cover double suspension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title and parameter tuple match the assigned record, not a distinct earlier Coxeter table. The earlier cyclohedral result supplies the equivalent suspension ingredient by its n=2p case, even though the title refers to another complex.",
+          "The homology is given by a general prior formula, not just a rank-six table. The frozen p=3 computation is a corroborative diagnostic."
+        ],
+        "reasoning": "No claim of searching all exact tables or that a literal duplicate Coxeter theorem was located. The negative originality judgment turns on a concrete prior implication rather than a search miss.",
+        "searches": [
+          "Resultary: Coxeter complex type B signed cycle Coxeter element quotient weighted lens universal cover double suspension",
+          "Resultary: doubly suspended lens ordinary topological cover cyclic singular lens one weight noncoprime"
+        ]
+      },
+      "rationale": "The homeomorphism and low homotopy are a correct specialization, but on comparison with Armstrong's ordinary covering construction and the earlier exact suspended-lens calculation for two regular C_p modules minus one trivial line, the independent structural increment is not established. The precise equivalence uses the representation itself, not a title match: c^4 permutes two coordinate cycles of length p with sign product +1 on each, so re-signing along each cycle makes the C_p action two ordinary regular modules. Suspending the earlier k=2 cyclohedral quotient adds exactly the missing trivial line. Armstrong already supplies the passage from quotient by point stabilizers to the universal cover; the standard connected torus action supplies trivial monodromy. The older cyclohedral statement is for p≥5, but p=3 requires only the same direct representation-sphere join and the classical three-dimensional L(3;1,2), not a new small-prime phenomenon. The integral homology is explicitly credited to Kawasaki and is not independent originality.",
+      "residual_risks": [
+        "No claim that an earlier author printed the exact Coxeter theorem or that a full literature census was conducted; the rejection is by checked implication.",
+        "Kawasaki's original six-page paper was not materially inspected; its precise homology role was checked through the open BFR exposition and independently by local homology, so access limits do not drive the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applies to the exact ordinary cover construction, not just an orbifold π_1",
+          "evidence": [
+            "The proof explicitly constructs X/N→X/G as a free covering from a simply connected space. Substituting the signed-cycle stabilizers gives N=P and order four."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1982-0637181-X",
+          "material_read": "Accessible AMS PDF, Proposition 3 and Theorem 4 including proof",
+          "method": "Open AMS article and match finite simplicial hypotheses and fixed-point subgroup",
+          "title": "Calculating the Fundamental Group of an Orbit Space",
+          "trigger": "Potential general theorem for ordinary covering through singular stabilizers"
+        },
+        {
+          "assessment": "Same lens factor and exactly one fewer fixed line; p≥5, no residual C4 in the earlier object",
+          "evidence": [
+            "The direct sum of two regular representations minus the trivial line gives the once-suspended lens; adding that line back gives exactly the present abstract universal covering space."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-suspended-lens-spaces-from-prime-order-rotations-of-cyclohedron--7b2304c3d40d/RESULT.md",
+          "material_read": "Public full RESULT, theorem and proof Steps 1–4 and prime scope",
+          "method": "Open document and compare the real C_p representation at k=2",
+          "title": "Suspended lens spaces from prime-order rotations of cyclohedron boundaries",
+          "trigger": "Earlier exactly similar sphere-join and low homotopy mechanism"
+        },
+        {
+          "assessment": "Exact general homology coverage; diagonal torus is already in the general construction",
+          "evidence": [
+            "The order-4p action with weights (1,3,…,2p−1) is a direct instance of Def. 2.3. Reported subset-size indexing in the exposition has to be read consistently with its endpoint identities; the chain averaging argument independently gives the same groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.2359v1",
+          "material_read": "§2 Def. 2.3, geometric setup, and formula check in the accessible exposition via the independent mathematical note",
+          "method": "Open arXiv PDF and Osaka version, compare cyclic weights and subgroups",
+          "title": "Weighted projective spaces and iterated Thom spaces",
+          "trigger": "General weighted-lens cohomology and standard connected torus action"
+        },
+        {
+          "assessment": "Contains diagonal weighted quotients, not the ordinary covering conclusion used for the rejection",
+          "evidence": [
+            "Its projection from the sphere is a covering in the orbifold sense when weights are nonunits. In the frozen ordinary category that projection is not a covering; its intermediate quotient is the Armstrong cover."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.01412",
+          "material_read": "Introduction and §2.1 around the definition and Lemma 2.1/Corollary 2.2",
+          "method": "Open preprint and compare action and covering terminology",
+          "title": "Isospectrality for Orbifold Lens Spaces",
+          "trigger": "Potential conflation with a known covering for singular lens spaces"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family is natural and the calculation is a useful illustration of the distinction between an ordinary and an orbifold cover. But as a narrow original classification, the exact covering space is a suspension of the previously classified prime-order quotient under the same real moving representation; the ordinary covering map, low homotopy, deck triviality and homology follow from standard constructions with no additional invariant settled. The finite-field example does not add an independently useful unknown fact. This is an expository specialization rather than a surviving new valued claim; no repair is being submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

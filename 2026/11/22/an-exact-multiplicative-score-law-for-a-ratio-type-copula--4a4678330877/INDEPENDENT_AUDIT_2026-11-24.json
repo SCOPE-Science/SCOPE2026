@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:33:00.292247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–102; frozen VERIFICATION.md and CHECK.py inspected, not executed",
+        "/workspace/repairs/4/RESULT.md, VERIFICATION.md, CHECK.py",
+        "Replay: python3 /workspace/branches/44f037d8-c719-47bd-884c-e3d564edb9a6/check_ratio_product.py; for the extra digits bisect H on [2,3] using Decimal.exp at 55-digit precision and exponentiate the negative root"
+      ],
+      "rationale": "The exact theorem survives unchanged. The stated density is the mixed derivative of the copula, with nonnegative values and uniform margins. Independently, transforming (u,v) to (u,z=uv) gives f_Z(z)=2/(1+z)^3 times the integral of (1+z/u^2) from z to 1, hence f_Z(z)=4(1-z)/(1+z)^3 and the stated CDF with no endpoint masses. For t=-log z, the sign of the CDF difference is the sign of H(t)=4/(1+exp(-t))^2-1-t. Its derivative changes once from positive to negative for t>0, at log(2+sqrt(5)); H(0)=0 and H tends to minus infinity. This proves the unique interior crossing and both signs. Transforming the CDF gives P(W<=w)=tanh^2(w/2), the maximum of two independent absolute standard logistics. Integrating the survival function and twice its product with w gives mean 2 and second moment 8 log 2; inversion gives the stated quantile. The frozen crossing decimal was incorrect beyond its leading digits. A separate bisection of H on [2,3] using Python Decimal with 55-digit precision gives z*=0.09920455417194699830218..., consistent with the independent double-precision check. The repaired files correct the decimal and the checker count: the code contains 13 symbolic asserts and 16 numerical/domain assertions, not 14 and 16. The scientific notes now describe the assertions actually in the code; the verification front matter is unchanged. The corrected finding was reassessed against the exact proof and the verified decimal.",
+      "residual_risks": [
+        "The bounded quadrature and root computation are diagnostics; the analytic calculation establishes the law and crossing on the entire stated domain. No claim for other ratio copulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2023 family is xy(1+alpha)(1+alpha xy)/((1+alpha x)(1+alpha y)), and its inspected product result is for the star operation. The 2022 article is the exact-copula precedent, but its full text was not obtained."
+        ],
+        "reasoning": "Nothing in the inspected parametric-family and star-product statements specializes to the ordinary product distribution checked here. Full-text coverage in the 2022 antecedent remains unassessed, not ruled out.",
+        "searches": [
+          "Chesneau, DOI 10.3390/modelling4020008, §2.1 Eq. (4) and §2.2.2",
+          "Chesneau, DOI 10.4064/am2436-12-2021; publisher and lawful alternate retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and exact self-match 4a4678330877",
+        "Chesneau DOI 10.3390/modelling4020008 primary passages",
+        "Chesneau DOI 10.4064/am2436-12-2021 bibliographic identification and lawful retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 antecedent defines the copula. The 2023 operation produces another bivariate copula by composition rather than integrating the joint density over uv<=z."
+        ],
+        "reasoning": "The copula determines the law but does not state its simplification or the sign change against independence. Marginal uniformity alone implies E(W)=2; it does not imply the variance, complete score law, or the uniqueness and location of the crossing.",
+        "searches": [
+          "Chesneau 2022 exact-copula antecedent (bibliographic record)",
+          "Chesneau 2023, §2.2.2 inspected primary statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned Resultary record 4a4678330877 is an exact self-match. Chesneau §2.2.2 defines a star product by integrating partial derivatives of two copulas."
+        ],
+        "reasoning": "A law for the sum of the negative logs of these two uniform coordinates is equivalent by monotone transformation, as is the absolute-logistic maximum representation. A star product of bivariate copula functions remains a copula and is not a scalar CDF of UV. A Kendall distribution of C(U,V) would also concern a different observable, since C(u,v) is not a function of uv alone.",
+        "searches": [
+          "Local Resultary search for the ratio-type copula, distribution of UV, log-score and independence crossing",
+          "Chesneau, DOI 10.3390/modelling4020008, §2.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact entry is the assigned record itself; its mirrored RESULT.md at offset 1645 states the distinction from the star product and gives the conditional integral."
+        ],
+        "reasoning": "An exact lookup must specify the same input copula and ordinary score; a coincident logistic formula for another observable is not sufficient. The self-match is not independent prior coverage.",
+        "searches": [
+          "Local Resultary ordinary-product and log-score law search, record 4a4678330877"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete ordinary product law and unique crossing relative to the independent product. The original copula, its validity and its known dependence properties are prior work. The historical access risk remains explicit in the corrected finding.",
+      "residual_risks": [
+        "The 2022 same-copula paper and any appendices could contain the identity or an equivalent score result. The focused literature search did not furnish usable extra evidence; this is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the original copula; unresolved risk for the score law",
+          "evidence": "Applicationes Mathematicae 49 (2022), 79–101; the frozen result explicitly identifies it as the copula antecedent. Access failure is not evidence against prior coverage.",
+          "identifier_or_url": "https://doi.org/10.4064/am2436-12-2021",
+          "material_read": "Bibliographic identification only; no full-text or appendix passage obtained",
+          "method": "Publisher-page attempt; lawful DOI-indexed HAL and Crossref alternate attempts yielded no readable paper",
+          "title": "Some new ratio-type copulas: theory and properties",
+          "trigger": "Original source for the same copula"
+        },
+        {
+          "assessment": "The inspected claims use a different parameter family and/or operation",
+          "evidence": "Equation (4) displays C_alpha; §2.2.2 defines and computes C_alpha star C_alpha.",
+          "identifier_or_url": "https://doi.org/10.3390/modelling4020008",
+          "material_read": "Abstract at PDF p. 1, offset 549; §2.1 Eq. (4) around offset 11950; §2.2.2 at PDF p. 6 around offset 24211",
+          "method": "Public primary publisher PDF",
+          "title": "Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form",
+          "trigger": "Related ratio family and potentially ambiguous product terminology"
+        },
+        {
+          "assessment": "Identical assigned record, not independent coverage",
+          "evidence": "Same ordinary-product CDF and unique crossing.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-multiplicative-score-law-for-a-ratio-type-copula--4a4678330877",
+          "material_read": "Indexed record and mirrored RESULT.md around offset 1645",
+          "method": "Local Resultary search and local published-record mirror",
+          "title": "An exact multiplicative-score law for a ratio-type copula",
+          "trigger": "Closest indexed exact formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, Proof, and comparison with independence; Chesneau 2023 §2.2.2"
+      ],
+      "rationale": "The ordinary product calibrates a multiplicative score for a previously specified dependence model. Its exact law provides a quantile rule and resolves how independence miscalibrates lower versus higher thresholds. Uniform marginals imply the same mean negative-log score as independence, but do not give a unique threshold separating the opposite errors. The exact sign law and threshold, not the standard change-of-variables recipe or the marginal mean, are the substantive contribution.",
+      "residual_risks": [
+        "Exact calibration is for one fixed copula; no practical performance or general ratio-family claim is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

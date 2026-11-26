@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The graph and all 240 code sets are built using only Python standard-library modules. Invoke `python3 verify_steiner.py certificate.json`, then `python3 verify_permutation.py certificate.json` from the directory holding the files. The first script enumerates 30 Steiner triple systems on seven points with a pair-exact-cover recursion and constructs their eight Hamming-code cosets; the second independently generates the same sets by 5040 parity-check-column permutations and all translations. Both validate exact pair intersections and every breadth-first distance sphere of the 240-vertex exchange graph.
+# Independent mathematical audit
 
-Observed output files: `steiner.log` and `permutation.log`. The certificate digest is `c781514e90db3505a668f3b39a284e8072605fb2d9967fa9504a7b913b21d89d`. The reconstructed certificate consists of 240 sorted sets of 16 integer-encoded seven-bit vertices and 1680 pairs of set indices. The generated profile at every start is 1, 14, 63, 106, 56, hence connected and diameter four. The complete 28,680-pair intersection table has frequencies 12,600 (zero), 7,680 (two), 6,720 (four), and 1,680 (eight).
+## correctness
 
-Finite exact checks prove only the enumerated Q7 assertion once completeness of the Steiner reduction is established in the written proof. The programs do not establish priority over all published or unpublished literature, do not extend to other hypercube dimensions, and do not constitute independent external validation.
+PASS
+
+The closed-ball volume bound is sharp by the binary Hamming code, so minimum means perfect here. After translating a code through 0, the weight-two layer forces an STS(7). Each Fano line meets the six other lines once (use the two other lines through each of its three points); hence exactly 28 distinct four-sets contain a line, and the seven line complements are precisely the eligible weight-four words. Covering the other 28 weight-three words forces all seven complements. Only the weight-seven word can cover all seven remaining weight-six words with one center. The Fano-plane kernels are 4-dimensional linear codes and cube automorphisms act transitively on their translates. Distinct affine four-flats meet in at most eight words. An independent bounded regeneration compared all 240 code lists and 1680 edge pairs entrywise against the frozen certificate, verified pair-overlap counts 12600, 7680, 6720, 1680 at 0, 2, 4, 8, and reproduced triangle-freeness and (1,14,63,106,56) at each of the 240 roots. The independent code runs read-only against the frozen inputs: python3 /workspace/replay_checks.py 3. Certificate SHA-256 c781514e90db3505a668f3b39a284e8072605fb2d9967fa9504a7b913b21d89d. This establishes the stated Q7 graph only.
+
+## originality
+
+PASS
+
+Credit the classical perfect-code census and the prior binary bitrade bound. The distinct supported contribution is the graph on all 240 minimum sets at the first feasible exchange radius, in particular the all-root distance spectrum and sharp diameter. No equivalent statement or controlling theorem was identified in the checked material; this is a bounded best-of-knowledge conclusion.
+
+## value
+
+PASS
+
+This determines connectivity and sharp move complexity at the first exchange threshold for the entire state space of minimum dominating sets of a natural cube. The distance profile quantifies how far the optimal configurations lie from any given one, beyond what the classical minimum bitrade size can tell a reconfiguration researcher. The finite scope is part of the motivation, not extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

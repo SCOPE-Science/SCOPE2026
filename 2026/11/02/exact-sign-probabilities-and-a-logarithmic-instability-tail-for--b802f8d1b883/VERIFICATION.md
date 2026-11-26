@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python installation and no external packages. The checker verifies exact rational-moment equalities for all \(560\) distinct ordered triples from a fixed interior rational lattice, the impossibility of two negative quadrature weights in those cases, all four possible sign patterns, the analytical sign-law integrals against separate midpoint integrations, the coefficient \(12\int_0^1(x^2-x+1/3)\,dx=2\), and the exact hyperbola-area identity. A seeded Monte Carlo simulation of \(250{,}000\) independent triples compares observed sign frequencies to the derived values; its tolerances are diagnostic.
+## correctness
 
-The complete proof is given in `RESULT.md`. Enumerating finitely many rational nodes and sampling finitely many random triples cannot establish statements for all real nodes or an asymptotic tail limit. The proof, rather than checker output alone, establishes those claims. Independent scientific verification has not been performed.
+PASS
+
+For the repaired tail claim, independently checked all three integrated Lagrange denominators and numerator F; L is the exact dual sup-norm amplification. On p,r<delta the positive numerators make only the middle weight negative and yield 1+2F/(pr). The product sublevel area is epsilon(1+log(delta^2/epsilon)); using g±delta with x-domains [0,1-2delta] and [0,1] gives matching scaled bounds after delta tends to zero. A fixed positive lower bound on one spacing leaves an O_delta(1/t) tail. The coefficient is 12 integral g=2 and layer cake gives the moment cutoff including divergence at q=1. The frozen sign integrations were also verified directly; their omission is for overlap, not error. Frozen verification and script inspected, not executed. The bounded area argument, not finite checks, establishes the limit.
+
+## originality
+
+PASS
+
+For the revised tail-only result, no matching law or stronger result implying the sharp coefficient for integrated Lagrange weights was found in the checked sources. Removed the covered sign law and the original contribution claim attached to it. The nearby fixed-point interpolation result is for a different norm and functional; same collision mechanism does not imply the repaired coefficient.
+
+## value
+
+PASS
+
+The norm measures worst-case amplification of bounded sample errors in a natural minimal random-node rule. The sharp coefficient and logarithmic enhancement distinguish simultaneous close spacings from a single collision and establish a concrete moment cutoff (including infinite mean) rather than an arbitrary numerical stability statistic. No universal fixed-integrand error claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

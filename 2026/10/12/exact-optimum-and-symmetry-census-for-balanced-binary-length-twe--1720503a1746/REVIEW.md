@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reduction to a \(272\)-vertex, \(11{,}206\)-edge compatibility graph is immediate from the explicit self-overlap and pair-compatibility constraints; no admissible code is excluded. Maximal-clique enumeration terminates with \(4{,}887{,}344\) maximal cliques and finds \(4{,}996\) of largest size \(13\), so the upper bound and completeness follow. Separate C++ and standard-library Python implementations, run from the actual included source code, agree on the full \(844{,}324\)-byte catalogue; all optimum codes satisfy their defining conditions. The completeness of the branching algorithm follows by induction, and the symmetry calculation checks every catalogue member. This certifies a finite result, not an all-length statement.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-The 2016 paper on weakly mutually uncorrelated codes introduces balanced error-correcting synchronization codes, but its constructions/bounds do not state or imply the full finite optimum and census at these parameters. The 2018 mutually uncorrelated code treatment addresses the balancing and error-detection conditions but does not give a complete length-twelve optimizer classification. The 2025 polarity-balanced non-overlap paper computes optima without the Hamming-distance constraint, a strictly broader feasible class whose reported sizes do not settle the combined problem. Searches for parameter aliases, the compatibility-graph reduction, code-size tables, and published mathematical results found no dominating claim. Negative search outcomes are not proof of worldwide novelty; unindexed finite catalogues remain possible.
+PASS
 
-## Value — PASS
-This closes a natural finite simultaneous-constraint design instance: strict framing, exact binary composition, and one aligned substitution correction. The maximum size \(13\) is not supplied by the known balanced non-overlap maximum or the unconstrained coding bound; the complete \(4{,}996\)-code catalogue and symmetry reduction give all optimal designs, not just one example. The result supplies a reproducible benchmark for constructions satisfying multiple channel constraints without implying biochemical applicability or error-robust framing.
+Begin with all 924 weight-six words; imposing self-overlap exclusions leaves 272 unbordered words. For distinct vertices an edge requires both cross-overlap orders to pass for every k=1,...,11 and aligned Hamming distance at least 4. This gives exactly the admissible codes as cliques in a graph with 11,206 edges. The independent enumeration (independent_enum.py, initialized by a 40-vertex measured run) used pivoted Bron–Kerbosch and found 4,887,344 maximal cliques, with counts by size 6–13 of 2648, 40764, 437600, 1883356, 1870068, 584172, 63740 and 4996. In each call P and X contain unvisited and already assigned common neighbors; a maximal extension not already assigned must meet P outside the pivot neighborhood, since otherwise the pivot would extend it. Moving each processed branch vertex to X partitions the extensions, and P=X=empty emits exactly a maximal clique. Hence no larger code can exist and all 4996 optima are included. Reversal and complement preserve the graph and commute; independent checks of all optima give zero fixed codes for each of the three nonidentity maps, 1249 orbits of size four, and distance exactly 4 in every optimum. The newly generated 844324-byte catalogue is byte-for-byte identical to the frozen optimizers.txt, with SHA-256 63a11362c2775f93caebe0a2c00b94afddf3d4e2aab491055efdb9dabf18fdea. The frozen scripts were inspected but not executed. This is exhaustive at length 12 alone; it makes no claim of substitution-robust framing.
 
-## Independent status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected closest claims cover the all-overlap definition and related balanced/error-correcting constructions or relaxed exact maxima, but not this simultaneous length-12 distance-constrained optimum and all its equality cases. Neither a prior exact table in a different feasible family nor related older construction literature is credited as deciding this census. Two plausible historical source checks have unresolved access limits, not negative coverage conclusions.
+
+## value
+
+PASS
+
+This is a useful finite benchmark at a block length already tabulated for the balanced framing problem. The added distance floor is the natural one-aligned-substitution correction requirement at fixed weight, not an arbitrary extra filter. The maximum gives a precise capacity comparison with the balance-only value 72; the full classification lets a researcher select among, or benchmark searches against, all optimal designs up to the two natural global symmetries. Neither the relaxed capacity nor a single construction supplies these facts. No biological application or robustness of boundary detection under errors is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

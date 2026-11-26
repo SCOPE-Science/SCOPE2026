@@ -1,19 +1,21 @@
-# Scientific review of the exact pentagon Morse transitions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the source's parametrization and projective Hessian without assuming the polynomial transition claim. It establishes existence and uniqueness of the physical critical curve, verifies global convexity, polarity and centering, derives the second moments, and reduces full and translation-minimized Hessian inertia to two explicit moment signs. Exact resultants bound the possible transition locations and certified rational interval signs force both candidate roots to occur on the physical branch. Every root/endpoint and the two nullity-one cases are accounted for. The accompanying checker executes symbolic identities and interval certificates. A source Hessian formula, rather than finite experiments, justifies the inference to projective local maximality. There is no assertion about the higher-order behavior at degenerate points or global maxima.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+The endpoint signs and positive derivative of the centroid cubic isolate its unique physical root. The vertices satisfy the supporting-line inequalities and each consecutive edge dual is a negative vertex, so the strictly convex polygon is centered and self-polar up to sign. Independently, the perspective map y→y/(1+ξ·y) has Jacobian (1+ξ·y)^(-3). Expanding its area and the area of the translated body's polar by the same Jacobian gives normalized quadratic terms 6 ξᵀCξ + 6 xᵀCx − 3 x·ξ. This recovers both the full Hessian and the Schur-complement sign test at each covariance eigenvalue 1/4. Independent triangle integrations and quotient-algebra determinants recover the two factored eliminants. The quadratic X has one physical root, and the quartic Y is strictly decreasing on [1/2,2] with opposite endpoint signs. The exact signs at b=3/4,1,5/4 establish that each candidate is attained on the physical branch, by different factors and on opposite sides of 1. Consequently there are exactly two degeneracies; each has one null direction and the other reduced direction is negative. The central maximum conclusion follows by the negative definite reduced Hessian, not by an unreduced maximum test.
 
-The closest prior work is Balacheff–Solanes–Tzanev (arXiv:2303.17794v1), which constructs this family and derives its area, inertia and projective Hessian, proves one explicit member is a saddle, and plots a numerical scalar quantity. The claim here does not reassert those established facts: it determines the *entire* exact Morse-index partition, locates both degeneracies via distinct algebraic polynomials, and identifies an open interval of strict translation-minimized projective local maxima. The 2018 Klartag result supplies a general second-variation condition, not the family-specific roots. Targeted semantic mathematical-record searches for the named authors, exact objects, phase transitions and Morse-index equivalents did not yield covering claims. Accessible research records were checked for equivalent implications, including claims about other pentagons, self-polar moduli, and Hessian spectra of unrelated bodies; they do not imply this classification. A later journal revision or unindexed derivation remains a real residual risk; no exhaustive bibliographic uniqueness claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family was introduced expressly to understand critical points and saddles of the projective volume product. A complete two-transition classification separates the strict locally maximized Santaló-normalized regime from the saddle regimes, makes precise the previously numerical discussion, and supplies sharp algebraic boundaries for subsequent stability and rigidity questions. The result is a natural full-parameter theorem, not an arbitrary numerical specialization or a routine variable renaming.
+Credit the family, criticality, covariance Hessian, and saddle example to Balacheff–Solanes–Tzanev. The distinct result is an exhaustive exact zero and sign classification for the two covariance coordinates on the physical branch, including the precise Santaló-optimized local maximum interval. The available preprint's numerical exploration does not settle that classification.
 
-## Checks and limits
+## value
 
-Exact algebraic verification is reproducible with the packaged checker; it is not independent validation. The theorem concerns nondegenerate critical pentagons only and local projective deformations modulo affine changes, not unrestricted convex-body optimization. At transition values the quadratic test is inconclusive. A journal version published after the arXiv preprint could conceivably have additional material not present in that preprint.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves where a natural, previously introduced critical family is a saddle or a strict projective local maximizer after centering. The exact thresholds and absence of other degeneracies supply information that an isolated saddle and a numerical plot cannot, and give precise boundary cases for the projective second-variation test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

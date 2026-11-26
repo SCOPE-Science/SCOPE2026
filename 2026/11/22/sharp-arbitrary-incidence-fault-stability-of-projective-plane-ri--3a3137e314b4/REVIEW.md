@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives exact quantifiers: all finite projective planes of any existing order \(q\ge2\), all edge-fault sets of size \(t\le q\), recomputed shortest paths, and all inclusion maps for nested fault sets. Two universal undamaged point/line witnesses are guaranteed because \(q(q+1)<q^2+q+1\). The shore cones and four-cycle exclusion yield a natural suspension equivalence; the graph cycle lattice proves the integral ranks and primitive quotients; simple connectivity gives the sphere-wedge cofibers. A radius-three universal point proves all later complexes contractible. Checks cover all 23,711 small-order fault sets and selected exact chain calculations. The finite tests are not used as infinite proof.
+## correctness
 
-## Originality — PASS with bibliographic risk
-Full texts for the published intact-plane calculation and vertex-deletion calculation were read and compared. The former has no faults; the latter deletes one vertex, not arbitrary edge sets retaining every vertex. General graph-power and pushout literature supplies methods, but does not prove the needed cone-witness condition for every set of up to \(q\) failed incidences, nor the sharp all-pattern homology maps. Previously analyzed clustered fault cases and low-order Fano-plane patterns are proper subfamilies, not the unrestricted claim. Unindexed equivalent results remain possible.
+PASS
 
-## Value — PASS
-The result is a sharp worst-case resilience theorem: any arrangement of up to \(q\) incidence failures has exactly determined integral persistence, with one primitive class lost per fault, and \(q+1\) failures can disconnect the graph. Its content is the configuration-independent, all-order and map-level statement rather than an increment of one in an isolated Betti number.
+For recomputed distances after at most q deletions, the union of the faulty lines has at most q(q+1)<N points. A point outside that union has an intact joining line to every other point. Dually there is a line avoiding all faulty point pencils. Positive retained degrees then give connectivity and the clean point has distance at most three to every vertex. In the radius-two flag complex a mixed clique cannot have two vertices in each shore, by absence of four-cycles. The two pieces of cliques with at most one vertex of one shore intersect in precisely the retained graph. Each collapses to its pure-shore complex by removing a simplex attached along its nonempty neighbor face, separately for each exceptional vertex; the pure-shore complexes are cones on the clean witnesses. The cofibration pushout gives the suspension of the retained graph, whose cycle rank is (q+1)N-t-2N+1=q^3-t. Radius one is that graph and radius three onward is a cone; integral distances give the stated half-open bars. For nested faults the Mayer–Vietoris connecting maps to the graph cycle groups are natural. A spanning tree of the smaller graph works in both graphs, so the smaller fundamental cycle basis is a subset of the larger one; the free cokernel has exactly |F'|-|F| generators. The simplicial cofiber is simply connected by van Kampen and has just that reduced H2 by the relative sequence; Hurewicz plus the simply connected homology Whitehead theorem gives the wedge. Deleting all q+1 incidences at a point defeats uniform connectivity. This is an analytic check of RESULT.md lines 18–30. The frozen Python verifier was inspected but not run; its exact binary homology samples in prime orders are supplementary, not an integral certificate or an all-order proof.
 
-## Scientific limitations
-Applies only to existing finite projective planes, unweighted graph-metric Rips filtrations, and at most \(q\) faulted incidences. The verifier uses prime field orders two and three; the proof covers other existing orders without coordinatization. Independent external mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the intact classification and suspension construction, the primitive single-vertex deletion result, and in particular the full one-star overlap. The supported distinct claim is the same sharp radius-two stability for every placement of up to q deleted incidences with recomputed distances, together with the arbitrary nested-fault comparison/cofiber. The closest catalogue record is dated the same day and is not discarded on that account; its explicit star hypothesis prevents full coverage. This is a best-of-knowledge comparison, not a priority claim.
+
+## value
+
+PASS
+
+Fault tolerance of the graph-metric filtration is a natural structural question because every deleted edge can change distances, not just remove itself. One simultaneous witness argument handles all layouts and all existing planes, reaches the sharp uniform budget, and controls primitive maps and cofibers rather than just equal field Betti counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:47:13.667896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Among semigroups of Frobenius F=2k+1, F-2 is pseudo-Frobenius iff F-2 and 2 are gaps: 1 is already a gap, and every positive nongap above 2 sends F-2 past F. The eligible entries other than 2k form the forbidden-sum path indexed by e_j=2k-2-2j and o_j=3+2j, 0<=j<k-2. The pair e_j,o_j sums to F, and o_j,e_(j+1) sums to F-2; there are no loops, since the forbidden totals are odd. At most one from each pair can occur, and equality prohibits an odd choice followed by an even choice, forcing the unique switch indexed by t. With 2k present, the chosen evens form a terminal interval and all mixed sums exceed F. If odds occur, the smallest odd-plus-odd sum, 4t+6, must be at least 2k-2t; this is also sufficient. If no odds occur the same inequality is automatic. This covers k=2 (empty path) and gives the stated count by summing the allowable indices. The independent replay `python /workspace/branches/independent_replay.py 2` checks 699048 subsets for odd F=5 through 21 using the pseudo-Frobenius definition and additive closure, comparing full minimizer sets. The finite check does not replace the path proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The covariety article gives g>=ceil((F+|P|)/2) and an algorithm for each genus slice. It gives 2g>=F+t with equality exactly for almost symmetric semigroups.",
+          "The multiparameter article counts unrestricted semigroups by F, genus and multiplicity; its counting parameters do not impose the moving pseudo-Frobenius gap."
+        ],
+        "reasoning": "The lower bound specializes to k+2 verbatim; the broader algorithms can generate individual equality lists but do not give the observed uniform structural or closed counting law.",
+        "searches": [
+          "arXiv:2611.09425v1, p. 8 and §4.4 p. 14",
+          "arXiv:2611.11559v1, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09425v1",
+        "DOI:10.1017/S0308210515000840",
+        "arXiv:2611.11559v1",
+        "SCOPE-eae339a60699",
+        "SCOPE-9199e4eaadac",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bound plus the all-even upper witness settles the numerical minimum; perfectness does not transfer its distinct minimizer. The type inequality restricts equality cases to type 2 or type 3 but does not decide which odd/even tails can occur."
+        ],
+        "reasoning": "The prior bound and known algorithm do not mechanically imply the closed minimizer descriptions or count. Those depend on the alternating forbidden-sum path and its interaction with additive closure.",
+        "searches": [
+          "arXiv:2611.09425v1 §4.4 and almost-symmetric criterion",
+          "SCOPE-complete-minimum-genus-classification-of-perfect-numerical-semig--eae339a60699",
+          "SCOPE-complete-genus-census-for-the-covariety-mathcal-c-3-f--9199e4eaadac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C(P) with P={F-2,F} describes precisely the target class. The Cambridge abstract treats exact type two, not containment. In the equality description, the all-even choice has 2 pseudo-Frobenius, whereas any nonempty odd tail has F-4 in the semigroup and (F-4)+2=F-2 a gap. The complementary pairs leave only the pair {2,F-2} with two gaps, so this distinguishes types 3 and 2, respectively.",
+          "The perfect-semigroup record's odd-F extremizer contains F-2, incompatible with the target."
+        ],
+        "reasoning": "Neither exact-type-two classification alone nor a no-isolated-gap condition is equivalent to the target census. The exact type-two literature can cover part of its equality stratum.",
+        "searches": [
+          "arXiv:2611.09425v1, C(P) and exact pseudo-Frobenius sets",
+          "DOI:10.1017/S0308210515000840, prescribed pairs of type 2",
+          "Resultary: perfect numerical semigroups and prescribed-PF minimum genus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title indexed hit is the frozen finding itself. Distinct indexed record SCOPE-complete-genus-census-for-the-covariety-mathcal-c-3-f--9199e4eaadac gives a genus-refined classification under 3 in PF, exactly overlapping at F=5.",
+          "The covariety paper explicitly gives minimum genus 7 and three minimizers for C({9,11}), agreeing with k=5."
+        ],
+        "reasoning": "Credit the overlapping instances; for F>=7 the constant-gap census prescribes a different gap and shows neither a reduction nor a closed count for the moving F-2 stratum. The shared date does not establish priority.",
+        "searches": [
+          "Resultary: numerical semigroups prescribed pseudo-Frobenius F-2 odd Frobenius minimum genus",
+          "arXiv:2611.09425v1, §4.4 fixed-genus example"
+        ]
+      },
+      "rationale": "Credit the prior genus lower bound, fixed-genus enumeration procedure, and specific F=11 count. The minimum is reached by a simple all-even construction, so priority is not assigned to the lower bound or to general enumerability. The supported distinct claim is the uniform switch classification and closed count of the entire minimum stratum, including both exact types, not a restatement of prescribed-PF theory.",
+      "residual_risks": [
+        "Exact-type-two full text was unavailable; it may contain sharper coverage of that subfamily.",
+        "Unindexed equivalent parameterizations or additional applications of the covariety algorithm may exist; no universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower bound, generation procedure and F=11 instance but not the checked all-F formula",
+          "evidence": "Definition of C(P), almost-symmetry equality test, fixed-genus bound and the C({9,11}) example.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09425",
+          "material_read": "PDF p. 1 (offset 700), p. 8 (offset 27000), §4.4 p. 14 (offset 45000)",
+          "method": "Targeted open full-text PDF passages",
+          "title": "The covariety of numerical semigroups with some prescribed pseudo-Frobenius numbers",
+          "trigger": "Exact ambient covariety and overlapping minimum-genus example"
+        },
+        {
+          "assessment": "Exact type-two scope cannot cover type-3 members; finer type-2 overlap remains unresolved",
+          "evidence": "Abstract advertises necessary and sufficient conditions for an exact pair and constructions.",
+          "identifier_or_url": "https://doi.org/10.1017/S0308210515000840",
+          "material_read": "Cambridge abstract",
+          "method": "Publisher abstract; direct and alternate lawful full-text retrieval attempts did not yield readable text",
+          "title": "The genus, Frobenius number and pseudo-Frobenius numbers of numerical semigroups of type 2",
+          "trigger": "Exact prescribed pseudo-Frobenius pair could overlap the type-2 minimizers"
+        },
+        {
+          "assessment": "Different counting parameters",
+          "evidence": "The counted classes use F, g, and multiplicity, not PF membership.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.11559",
+          "material_read": "PDF pp. 1–2, offsets 0 and 10100",
+          "method": "Targeted open full-text PDF passages",
+          "title": "Multiparameter counting of numerical semigroups by Frobenius number, genus, and multiplicity",
+          "trigger": "Broader genus counts"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "The one perfect minimizer at odd F contains F-2.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-minimum-genus-classification-of-perfect-numerical-semig--eae339a60699",
+          "material_read": "RESULT.md, opening theorem",
+          "method": "Published local mirror",
+          "title": "Complete minimum-genus classification of perfect numerical semigroups",
+          "trigger": "Same minimum-genus value at odd F"
+        },
+        {
+          "assessment": "Exact overlap at F=5 only under the displayed specialization",
+          "evidence": "The prescribed nonterminal gap is the constant 3 rather than F-2.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-genus-census-for-the-covariety-mathcal-c-3-f--9199e4eaadac",
+          "material_read": "RESULT.md, opening theorem",
+          "method": "Published local mirror",
+          "title": "Complete genus census for the covariety C({3,F})",
+          "trigger": "Closest distinct indexed prescribed-gap census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-genus algorithm need not reveal the shape or exact size of a minimum stratum. For the first nonconsecutive terminal pair in a prescribed-PF covariety, the theorem gives all extremizers uniformly without generating semigroups, including a count growing with F and both exact types when present. This is a natural structural refinement of the prior genus bound, not value claimed for the numerical bound alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

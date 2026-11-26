@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` requires Python 3, SymPy and NumPy. Execute `python verify.py` in the same directory as the scientific result. It returned:
+## correctness
 
-`PASS: 640 finite symbolic/numerical checks; analytical completeness and local stability are proved in RESULT.md`
+PASS
 
-The symbolic checks independently expand both one-step Jacobians and the product return characteristic polynomial. They verify the first derivative of the real Floquet multiplier and of the nonreal pair modulus at zero coupling. Finite cycle reconstructions cover rational couplings up to \(3/10\), all tested phase positions, and the sine wedge boundaries. Five small positive coupling values directly check the separate attracting and repelling spectra.
+In real phase space the return equation forces opposite y coordinates; zero would force both x coordinates to vanish and contradict the first recurrence. Ordering by positive y=t makes x_0<0<x_1 for k<1, and the two linear x equations at a=1 give x_0=-t and x_1=1. The remaining recurrences are exactly the two displayed scalar equations, both necessary and sufficient. Within the sine wedge the amplitude can only lie in [b/(1+k), b/(1-k)]; on [0,b/(1-k)] the derivative of t(1+k sin(z+t)) is at least (1-3k)/(1-k)>0 and the endpoint values bracket b. This exhausts the real orbits modulo simultaneous translation, including the one-phase wedge edges. The fixed-point equations are inconsistent. At b=1 the simple unperturbed roots are 1 and exp(±iπ/3). Taking the eigenvalue derivative and using the product determinant gives slopes 2 cos z and (sin 1+cos 1-1)cos z/2 for the real root and conjugate-pair modulus, respectively, so the claimed hyperbolic types and their local continuation follow. Independent Jacobian recomputation agrees; at k=0.01 the return moduli were about (0.979720,0.998211,0.998211) at π and (1.002020,1.002020,1.019727) at zero. The frozen verifier was inspected, not executed; the finite sample does not prove the parameter theorem.
 
-Completeness for all \(b>0\), \(0<k<1/3\), and hyperbolicity for every sufficiently small \(k>0\) are proved by the sign argument, monotonicity inequality, and analytic eigenvalue perturbation in `RESULT.md`. Finite computations cannot substitute for those infinite arguments or establish the sharpness of the sufficient monotonicity interval. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The same map and absence of fixed points are known; the exhaustive low-gain phase and amplitude classification and the opposite hyperbolic types are not established by the closest inspected assertions. No equivalent claim was established in the bounded comparison.
+
+## value
+
+PASS
+
+The exact census distinguishes no orbit, the wedge-edge orbit, and two interior orbits globally, independent of any choice of numerical basin. A repelling cycle can evade ordinary forward simulations; showing its robust coexistence with a sink in this fixed-point-free map gives additional dynamical information. The wedge is valid on the stated low-gain range, while stability is only local in parameter near sufficiently small central-line gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

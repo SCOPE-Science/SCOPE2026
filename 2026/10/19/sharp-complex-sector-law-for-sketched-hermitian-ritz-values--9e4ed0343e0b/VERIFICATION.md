@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of the sharp sector law
+# Independent mathematical audit
 
-The theorem is proved analytically in `RESULT.md`. The accompanying `verify.py` is a self-contained standard-library corroboration of two exact constructions and multiple finite sampled examples. Run `python3 verify.py` alongside these documents.
+## correctness
 
-The exact fraction checks reconstruct \(u^*T_0u=24/25\), the real and imaginary parts of \(u^*T_0A_0u\), the quotient \((5+\sqrt2 i)/3\), and the Gram perturbation norm \(1/5\). The explicit real sketches attain a zero eigenvalue at distortion \(3/5\) and a negative one at \(3/4\) for spectral ratio \(9\).
+PASS
 
-The random tests cover seven positive spectral ratios, five fractions of the sharp admissible embedding range, and 250 complex Hermitian sketch perturbations per combination, for 8,750 total instances. All perturbations are parametrized to ensure the required operator-norm condition exactly by construction (up to floating-point evaluation); each generated Ritz quotient is compared against the analytical sector in floating-point arithmetic.
+Reassessed the corrected RESULT.md and SLOGAN.txt under repairs/3. Each ordinary Ritz eigenvector gives the quotient u*TAu/(u*Tu), where T=S*S and u is the normalized trial vector determined by the eigenvector. The denominator is positive by the joint-space embedding, with no diagonalizability needed. In the orthonormal basis formed by u and the nonzero normalized residual of Au, the first column of the Hermitian compression of T−I gives h²+|z|²≤ε². The quotient is a+bz/(1+h), where a=u*Au>0 and b is the residual norm. Completing the square gives |z|/(1+h)≤ε/√(1−ε²), and taking h=−ε² with the traceless Hermitian completion realizes the entire allowed disk with a Gram square root. Tangency gives the maximal argument for a disk to the right of zero. The spectral polynomial of A bounds b/a by (L−μ)/(2√(μL)); the displayed endpoint-weighted vector realizes that bound. Complex conjugate tangent points are both attainable and the third-coordinate extension remains an embedding on the same two-dimensional trial/image plane. The degenerate cases ε=0 and κ=1 give positive real eigenvalues. Direct evaluation of the explicit κ=9 witness gives denominator 24/25, numerator 8/5+8√2 i/25 and angle arctan(√2/5). The earlier harmonic frontier and equality failures are correctly derived by inversion as prior coverage. Inspected the frozen RESULT.md, VERIFICATION.md and verify.py; the expected output and finite tests were not rerun and are not the universal proof.
 
-Expected output:
+## originality
 
-`VERIFY_OK exact_fraction_identities=6 sharp_complex_equality=1 sharp_threshold_witnesses=2 random_complex_embedding_cases=8750`
+PASS
 
-Boundaries and limitations: these numerical checks are finite and do not prove the universal statement; the proof supplies that. The verifier does not enumerate all Hermitian matrices or sketches, certify floating-point implementations of eigensolvers, or establish independent validation. The theorem's equality sketch is positive definite and may be square or extended to a genuinely dimension-reducing two-by-three sketch.
+For the repaired angular claim only. The original package cannot pass with the strict positivity frontier and its failure cases treated as a distinct new contribution: the earlier published harmonic result implies those statements exactly by operator inversion and exchanging the trial/image bases. This is positive evidence of coverage, not an access-related objection. The replacement removes that novelty assertion and credits the implication explicitly. The supported distinction is the sharp distortion-to-argument law below the known frontier, with attainable complex and dimension-reducing equality. The inspected prior results do not supply that refinement; the classical turning-angle ingredients are credited.
+
+## value
+
+PASS
+
+The repaired claim turns the known qualitative sign assurance into a precise optimal worst-case angular tolerance for a standard non-Hermitian projected eigenproblem with Hermitian input. The exact sector is uniform over every trial dimension and improves the sign-only information at each strictly subcritical nontrivial distortion; one-vector sketches with genuine dimension reduction establish that no smaller sector can hold under the same assumptions. Neither the known positivity frontier nor the numerical example alone is being counted as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

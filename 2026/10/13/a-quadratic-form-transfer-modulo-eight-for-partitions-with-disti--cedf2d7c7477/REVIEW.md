@@ -1,15 +1,21 @@
-# Self-review: a quadratic-form transfer modulo eight
+# Independent mathematical audit
 
-## Correctness: PASS
-The marked even-part Euler-product identity is integral, the modulo-two cubic and divisor-parity reductions retain all terms, and both quadratic-form representation sets use \(x>0\) odd and \(y>0\) divisible by four. The nonstandard step is the inert-prime parity lemma: for an odd valuation of a prime \(5\) or \(7\pmod8\), the \(x^2+2y^2\) form is excluded. The two-square count contributes an even number of admissible solutions because the divisor-character sum vanishes at a \(7\)-class prime, or has two distinct even factors at a \(5\)-class prime when \(8n+1\equiv1\pmod8\). Previously established \(b_4\) congruences finish the exact infinite progression claims. This proof covers \(n=0\) and each of the ten progressions from its initial term. Finite independent dynamic programs, direct small partition enumeration, and form counts agree through the stated bounds but are not a replacement for the proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The original Rausch--Stumpenhusen work (arXiv:2606.16585v1) defines the statistic and proves a congruence modulo four for multiples of four; it does not contain the coefficientwise modulo-eight quadratic-form correction. Ballantine--Merca (arXiv:2111.10702v2), Theorems 5.1 and 5.4, proves the required unweighted \(b_4\) congruences: those cannot automatically be substituted into a weighted sum without the new transfer theorem. Bardhan--Saikia (arXiv:2606.31264v1) gives the general weight congruence modulo four, not modulo eight. Targeted indexed-record, title/alias/equivalence and local-prior-claim searches found no covering weighted result; failure to find an equivalent in unindexed literature is not a uniqueness proof. The exact counting progression families themselves are prior results and are not reclaimed.
+PASS
 
-## Value: PASS
-The coefficientwise reduction describes the entire weighted sequence modulo eight up to two explicit norm counts. The inert-prime lemma is an arithmetic transfer mechanism, applicable whenever \(\nu_p(8n+1)\) is odd for a prime \(p\equiv5,7\pmod8\), not merely a finite scan of prescribed residue classes. As an application it supplies ten unconditional infinite weighted congruences at moduli \(25\) and \(49\), substantially strengthening the available published modulo-four result for this statistic.
+Marking the occurrence of each even part 2m in the distinct-even Euler product gives qB'(q)−4B(q)Σm q^(2m)/(1+q^(2m)), with B the b4 series. Modulo 2 the two factors of the correction are the triangular-number series (Jacobi's cubic identity) and the square/twice-square series at exponents 2a² and 4a² (parity of σ). The change x=2j+1, y=4a is a bijection with the required positive form representations. For M=8n+1 a prime p≡5,7 mod 8 to odd valuation rules out x²+2y²; the signed ordered x²+y² count is 8R1+4·1_square. In the nonzero sum-of-two-squares case all 3 mod 4 prime exponents are even, so an odd exponent of a 5 mod 8 prime forces a second such prime, making the divisor sum a multiple of 4 and R1 even. A 7 mod 8 prime instead forces R1=0. The progression residues have valuation exactly one at 5 or 7 respectively. The inspected b4 theorems have precisely the required progressions and stronger moduli. At n=0 both form counts vanish; at n=2 the correction is nontrivial (M=17, R1=1, W(2)=0 while n b4(n)=4). Independent direct partition/form enumeration verified 0≤n≤30 (record3_bounded_check.py and .txt); the supplied 2401-index and other reported checks were inspected as recorded evidence, not rerun or treated as proof.
 
-## Limitations and independence
-A complete classification of all modulo-eight vanishing indices, higher-power improvements, and unindexed-literature novelty are not asserted. The numerical verifier is bounded, whereas the proof is analytic. This review has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the original weighted statistic and its generating-function antecedent, classical theta identities, and the already known unweighted progressions. The supported distinct content is the universal restricted quadratic-form correction, its odd-valuation criterion, and the consequent congruences for the weighted statistic. No compared source established these statements or a theorem already giving them as a direct special case.
+
+## value
+
+PASS
+
+The correction supplies an all-index, nontrivial arithmetic description for an existing signed partition statistic; it does more than produce ten isolated residues or repeat a partition-count identity. The odd-valuation criterion explains when congruences for the unweighted count transfer to the weighted mass and applies without assuming a fixed progression. The ten progressions demonstrate that mechanism rather than carrying the value on their own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

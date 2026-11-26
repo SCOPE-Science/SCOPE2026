@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:47:46.529817Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–80",
+        "VERIFICATION.md and check_face_spectrum.py",
+        "Independent exact replay: /workspace/branches/cad7bcf1-93d9-4ab5-82de-49b8a86400b7/replay_exact.py"
+      ],
+      "rationale": "Product Laplacian separation gives a_t(0)=1 and (L_h+2tI)a_t=0 off the origin for a face Walsh character of weight t; the grounded Dirichlet system is invertible. At t=0 the multiplier is constant. At t>0 it is the resolvent column divided by its diagonal. Cubical Walsh orthogonality gives G_t(0,0)=2^(−h)Σ_j binom(h,j)/(2(j+t)) and (G_t²)(0,0)=2^(−h)Σ_j binom(h,j)/(4(j+t)²); their normalized ratio is exactly the stated Gram eigenvalue. The killed-walk representation gives strict decrease in t off the origin, since the first hit is finite and strictly positive there. The constant sector has squared norm factor 2^h. Parseval host analysis leaves the Gram unchanged. In the remaining t=1 maximization, cross-multiplying F_(n+1)<F_n with z=2^n gives C_nT_n>R_n. Summing the quadratic truncation of 1/(n−r) with weights 2^(n−r)−1 gives the stated U_n; expanding U_nC_n−R_n and using 2^n≥n³/2 gives the positive bound in the proof for n≥8 (the negative parenthesis is bounded above by 43). Exact small values then give the unique maximum at h=4. An independent radial solve there gives a_0 through a_4 equal to (1,13/62,8/93,3/62,1/31); summing binomial-weighted squares gives 3548/2883. All nonzero equality data are in the weight-one sector at h=4; the zero input of course gives trivial equality at any h. Finite rational replay independently reproduced all seven low-codimension values. The supplied NumPy checker was inspected, not executed.",
+      "residual_risks": [
+        "Counting, not normalized probability, norms; arbitrary boundary shapes and non-Parseval host analysis are outside scope. The nonzero qualification in the equality statement is needed to distinguish extremizers from the trivial zero vector."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary arXiv PDF was available for this review, unlike the original report: Theorem 5 gives u_I=−L_II⁻¹L_IBs and the energy-minimizing property.",
+          "The star record proves Λ_d=1+1/(d−1)+O((d−1)⁻²) and presents exact formulas. The bounded Chung–Yau DOI lookup supplied landing material, not its hypercube full-text passage."
+        ],
+        "reasoning": "Existence and Dirichlet-energy optimality are not quantitative counting-norm bounds. Neither the exact same family formula nor a limiting expansion with an uncontrolled tail constant settles the exact maximum and strict equality among all dimensions.",
+        "searches": [
+          "arXiv:2607.14168 §7 Theorem 5, tight graph frames and grounded completion",
+          "Chung–Yau 10.1006/jcta.2000.3094 discrete Green functions and hypercube hitting",
+          "Local 42fd19604936 large-dimension asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.14168 §7 Theorem 5",
+        "Local Resultary: 42fd19604936 and 6f3eb6ef825d",
+        "Chung–Yau DOI landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Star dimensions 2 through 6 and the asymptotic approach to one do not rule out a larger value at another finite dimension. The reviewed result gives a quantified monotonic tail and exact comparisons at every remaining finite dimension.",
+          "The exact match Λ_(h+2)=λ_(h,1) does not cover higher face frequency weights; the strict killed-walk ordering proves their exclusion from equality."
+        ],
+        "reasoning": "The remaining global extremum requires genuinely additional inequalities, not a shift of the star formula or a finite lookup. No inspected stronger theorem supplies those missing implications.",
+        "searches": [
+          "Compare the star Green formula and asymptotic with frozen RESULT.md Steps 2–3; compare arXiv:2607.14168 §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 42fd19604936, mirrored RESULT.md offsets 4943–7523, gives the ratio of shifted Green moments in the (d−2)-cube; its Λ_d is exactly λ_(d−2,1).",
+          "The motivating arXiv:2607.14168 Theorem 5 gives harmonic completion as Dirichlet-energy minimization."
+        ],
+        "reasoning": "The shifted Green quotient matches exactly after changing dimensions; changing norms from the minimized Dirichlet energy to the counting Gram norm is not an equivalence. The star sector identity verifies material overlap without classifying all faces or maximizing the family.",
+        "searches": [
+          "Local Resultary: cubical harmonic completion Walsh spectrum, shifted Green resolvent and cubical star completion",
+          "Compare leaf contrast and face weight one by d=h+2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The star record's list for d=2,…,6 is explicitly 1, 10/9, 58/49, 824/675, 3548/2883, with exact rational computation. It does not claim that the last listed value is the global maximum of Λ_d.",
+          "6f3eb6ef825d is the identical assigned record, not an independent match."
+        ],
+        "reasoning": "This is exact coverage of the number and the underlying one-parameter invariant. The new fact is its attainment as a sharp global bound, not reproducing an entry of that list.",
+        "searches": [
+          "Local Resultary: exact 3548/2883 and adjacent cube Gram values",
+          "Read 42fd19604936 Verification, offset near 7243"
+        ]
+      },
+      "rationale": "The exact positive-weight-one spectral family, including 3548/2883 at one dimension, has a demonstrable same-day indexed equivalent in the leaf-contrast space of cubical star completion. No date-based priority claim is made. The distinct supported content is the sharp all-codimension upper bound and nonzero cubical-face equality classification, not discovery of that scalar value or of the shifted Green formula.",
+      "residual_risks": [
+        "The Chung–Yau hypercube full-text example was not inspected. Other work on inverse binomial moments could imply the global extremum under a different formulation.",
+        "The exact star-family overlap is established; same-day indexing neither settles priority nor removes the overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Grounded harmonic construction and energy optimality covered, not this norm optimization in the inspected theorem",
+          "evidence": [
+            "The unique lift has interior values −L_II⁻¹L_IBs and minimizes host Dirichlet energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.14168",
+          "material_read": "§7, Theorem 5, PDF pp. 12–13, around offset 29700",
+          "method": "Lawful OA primary PDF",
+          "title": "Tight Wavelet Frames on Graphs via Isometric Group Embedding",
+          "trigger": "Motivating harmonic lift, potentially covering quantitative stability"
+        },
+        {
+          "assessment": "Substantive exact spectral-family and value overlap; no all-dimension maximum in those passages; priority not determined",
+          "evidence": [
+            "The contrast eigenvalue uses the (d−2)-cube L+2I, so its value equals λ_(d−2,1); the exact finite list reaches 3548/2883 at d=6."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 42fd19604936",
+          "material_read": "Mirrored RESULT.md Finding, shifted Green derivation, asymptotics and finite verification; notably offsets 4943–7523",
+          "method": "Local Resultary and primary mirrored passages",
+          "title": "A three-sector Walsh spectrum for harmonic star completion in a cube",
+          "trigger": "Same shifted-resolvent series and exact extremal candidate"
+        },
+        {
+          "assessment": "Exact implication unresolved; not a full-text inspection",
+          "evidence": [
+            "General Green-function antecedent; no theorem-level comparison could be made from the material retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jcta.2000.3094",
+          "material_read": "Publisher landing material/abstract only in the bounded lookup",
+          "method": "Lawful DOI/OA route",
+          "title": "Discrete Green's Functions",
+          "trigger": "General discrete resolvents and cited hypercube example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 2–4",
+        "arXiv:2607.14168 §7",
+        "Local Resultary 42fd19604936 Verification"
+      ],
+      "rationale": "The result separates the unbounded constant-sector amplification from uniformly controlled mean-zero stability in a motivated graph-to-host lift. The optimal constant and exact equality tell which embedding depth and which face modes give the worst amplification, independent of k and of the host Parseval representation. The nontrivial new maximization over infinitely many codimensions, rather than merely the known scalar table or general harmonic completion, supplies that benchmark.",
+      "residual_risks": [
+        "Not a theorem about arbitrary graph embeddings or a bound on Dirichlet energy; no claim about an optimal minimal host."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

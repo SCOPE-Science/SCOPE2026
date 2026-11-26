@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:01:58.598702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–47 and 53",
+        "Frozen VERIFICATION.md",
+        "Frozen check_markov_adjugate.py, lines 12–84; inspected, not executed"
+      ],
+      "rationale": "Writing t=1−s and Q=(P−alpha 1^T)/t gives P=BQ with B=tI+alpha 1^T. On the zero-sum hyperplane B acts as tI, and on the one-dimensional quotient it acts as 1. Thus det B=t^(n−1); direct multiplication gives B^(-1)=t^(-1)(I−alpha 1^T). Reversing the factors in the polynomial adjugate identity yields the source formula even for singular Q. Each cofactor is affine separately in the stochastic columns; expanding Q as the product of its column mixtures represents the whole adjugate as a convex combination of deterministic-map adjugates, so triangle inequality bounds its norm by a vertex maximum. Ranks <=n−2 contribute zero; permutation vertices give t^(n−2)(1+s−2a). At rank n−1 there are a duplicated column pair u,v and an omitted row k; the right and left kernels are spanned by e_u−e_v and e_k respectively. A unit nonzero cofactor fixes the scalar in adj Q to ±1. The norm becomes 2t^(n−2)max(1−alpha_k,alpha_k), which is bounded by 2t^(n−2)(1−a) since alpha_k<=s−a<1−a, and attains it for alpha_k=a<1/2. Replacing one duplicated column by a mixture with the omitted output gives |det Q| equal to its positive mixing weight and cofactor continuity proves the claimed invertible supremum. All steps include n=2; at s=1 the unique matrix has rank one and gives the stated continuous limit (zero for n>=3, 2(1−a) for n=2). Absolute column sums are the induced norm over either scalar field.",
+      "residual_risks": [
+        "No inverse-only estimate or classification of all stochastic equality cases; frozen finite checks are diagnostic only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Houache–Szehr–Zarouf optimize S_n over arbitrary complex n-dimensional Banach spaces and identify its sqrt(n) asymptotic; Goldberg bounds determinants of all stochastic matrices in terms of their entry minima."
+        ],
+        "reasoning": "Restricting an unrestricted asymptotic bound does not produce the exact t^(n−2)(1−a) dependence. Goldberg's broader determinant family does not optimize the cofactor column norm.",
+        "searches": [
+          "Resultary: determinant-weighted inverse bounds and simplex extrema",
+          "Houache–Szehr–Zarouf arXiv:2608.20217v1; Goldberg 1966 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Four targeted Resultary searches and local mirror comparator",
+        "Goldberg 1966",
+        "arXiv:2608.20217v1",
+        "arXiv:2601.19023v1",
+        "Targeted external lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goldberg gives |det P|<=(1−s)^(n−1) after transposition since the sum of column minima in P^T is at least s. Standard Doeblin contraction controls P on the zero-sum space; for positive s it controls the inverse of I−P there."
+        ],
+        "reasoning": "The determinant itself is zero at the sharp adjugate extremizer; Goldberg's determinant inequality does not bound the extremal cofactor norm. Mixing and stationary adjugate identities bound different objects. The generic vertex reduction leaves open which ranks and omitted rows optimize the adjugate, which the exact calculation supplies.",
+        "searches": [
+          "Goldberg 1966 Theorem 1 and proof; Visser §5; Gini–Dobrushin mirror finding; Resultary simplex-extremum search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Visser gives a normalized adj(I−P) construction for stationary equilibria; the nearest independent indexed Markov result compares Gini and Dobrushin seminorms."
+        ],
+        "reasoning": "Transposition converts column to row stochasticity and induced l1 to row-sum norm; it does not identify adj(P) with adj(I−P). The inverse formulation is equivalent for invertible P, not the singular attainment statement.",
+        "searches": [
+          "Resultary: stochastic adjugates and cofactors; determinant-weighted inverse bounds for finite Markov operators",
+          "Visser arXiv:2601.19023v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "86759932069e was an exact self-hit, not a distinct result. The nearest independent indexed record 1d3e22b7f004 states a sharp Gini–Dobrushin factor, not an adjugate extremum. The web hit was not relevant."
+        ],
+        "reasoning": "Neither the alternate indexed sharp value nor the recorded finite deterministic-map diagnostics are an exact table for this adjugate invariant. No independent matching table was found in the inspected sources.",
+        "searches": [
+          "Resultary: exact Doeblin-minorized adjugate formula 2(1−a)(1−s)^(n−2), stochastic cofactor maximum, simplex extremum",
+          "Focused literature web lookup on stochastic adjugate and Markov minorization"
+        ]
+      },
+      "rationale": "The inspected nearest results concern stochastic determinants, unrestricted determinant-weighted inverse asymptotics, or the stationary system I−P. The distinct supported contribution is the exact finite-dimensional norm extremum for P with a fixed nonuniform minorant, including sharpness in the invertible subclass. Common-minorant decompositions and the simplex vertex argument are standard ingredients.",
+      "residual_risks": [
+        "Equivalent cofactor or determinant-derivative inequalities may be indexed differently; external lookup was uninformative. Seneta's book was not independently inspected at page level, so no statement about all of its contents is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determinant result, not the absolute adjugate column sum",
+          "evidence": [
+            "Theorem 1 bounds |det A| by (1−c)^(n−1) with c=sum_j min_i a_ij."
+          ],
+          "identifier_or_url": "https://nvlpubs.nist.gov/nistpubs/jres/70B/jresv70Bn2p157_A1b.pdf",
+          "material_read": "Theorem 1, pp. 157–158, offsets 0 and 4800",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "Upper Bounds for the Determinant of a Row Stochastic Matrix",
+          "trigger": "Exact related stochastic-minimum extremum"
+        },
+        {
+          "assessment": "Unrestricted asymptotics does not give finite Markov constant",
+          "evidence": [
+            "S_n normalizes the weighted inverse by ||T||^(n−1) and has S_n/sqrt(n) tending to e."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20217",
+          "material_read": "v1 p. 1, definition and main asymptotic, offset 0",
+          "method": "Bounded primary PDF inspection",
+          "title": "Schäffer’s matrix inequality: the exact asymptotic constant",
+          "trigger": "Same weighted-inverse functional in broader operator class"
+        },
+        {
+          "assessment": "Uses adj(I−P), not an extremum of adj P",
+          "evidence": [
+            "Computes a unique stationary vector by normalizing adj(I−P) using principal minors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.19023",
+          "material_read": "v1 §5, printed p. 9, equations (5.4)–(5.11), offset 23600",
+          "method": "Bounded primary PDF inspection",
+          "title": "Explicit formulae for stochastic equilibria",
+          "trigger": "Same stochastic and cofactor terminology"
+        },
+        {
+          "assessment": "Different seminorms; neither minorized adjugate nor weighted inverse",
+          "evidence": [
+            "Sharp factor floor(n²/4)/(n−1) for the one-step Gini–Dobrushin comparison."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-two-sided-gini-dobrushin-comparison-for-finite-markov-op--1d3e22b7f004",
+          "material_read": "Mirror RESULT.md offset 0, finding",
+          "method": "Local Resultary mirror inspection",
+          "title": "A sharp two-sided Gini–Dobrushin comparison for finite Markov operators",
+          "trigger": "Closest distinct indexed finite Markov norm-extremum comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding, proof and limitations",
+        "Goldberg 1966 and the reference Schäffer inequality"
+      ],
+      "rationale": "The fixed common minorant is intrinsic to finite Markov operators, and the adjugate is the continuous extension of the determinant-weighted inverse norm needed in the near-singular regime. The exact dependence on s and the smallest entry, the rank-deficient extremizing geometry, and the explicit invertible approach separate this stability invariant from a stochastic determinant bound or a mixing estimate. The uniform refresh corollary supplies a genuine sharp dimension-dependent suppression law.",
+      "residual_risks": [
+        "This concerns a determinant-weighted quantity, not robustness of P^(-1) in isolation or a spectral-gap claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:05.967554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an A-vertex facing j zeros, its only fixed action is 1 if its threshold is at most j and 0 if its threshold is at least j+2; at j+1 neither action is fixed. Apply the same test on B to obtain the two count equations, both vetoes and uniqueness for each pair. As i increases between distinct solutions, j must strictly decrease by monotonicity and the two count equations. A vertex switching on each side gives both gaps at least two, including at the endpoints. All thresholds 1 give no solution; paired even thresholds 2,2,...,2r,2r with remaining thresholds 0 force precisely (2t,2r-2t), 0≤t≤r. This also checks the r=0 case and nonconstant rules in the even balanced case. Clipping above opposite size + 2 preserves the veto and suffix tests, and there is one candidate per i. The three stated finite workload totals independently sum to 19,432, 1,111,428 and 1,010. The uploaded code was read, not executed; its finite range omits the constant-zero category but the proof covers it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qiu et al., Theorems 4.2 and 4.6: general bipartite hardness and complete-graph algorithm, respectively.",
+          "Kuhlman et al., Corollary 3.4: synchronous attractors have length 1 or 2, not a census.",
+          "Aracena et al. is a plausible Boolean fixed-point comparison; OA DOI and repository did not yield readable theorem text."
+        ],
+        "reasoning": "Hardness and period bounds do not bound this complete-bipartite count or attain all intermediate values. Complete graphs other than the two-vertex case do not specialize to the target graph family.",
+        "searches": [
+          "arXiv:2301.02889",
+          "arXiv:1108.2974",
+          "DOI:10.1016/j.jcss.2014.04.025"
+        ]
+      },
+      "checked_sources": [
+        "Qiu et al. 2301.02889",
+        "Fedrigo DOI:10.3390/g15060041",
+        "Xia et al. 2506.00046",
+        "Kuhlman et al. 1108.2974",
+        "Resultary bfaf627e9ea7, 11bb6d115a98, fd4efc95a2d1, db042db0552c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.4 attains the numerical maximum in just one homogeneous K(3,3) instance; the crown and stable-cut comparisons do not allow arbitrary per-vertex closed-neighborhood thresholds."
+        ],
+        "reasoning": "Local consistency is a direct consequence of the prior rule, but the coupled two-unit separation and realization of every multiplicity are not supplied by these results. Credit the distinction for the sharp spectrum, not invention of the model.",
+        "searches": [
+          "Qiu et al., Lemma 4.4 and Theorems 4.2, 4.6",
+          "Resultary bfaf627e9ea7 and db042db0552c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qiu et al., Table 3 and Lemma 4.4: same closed-neighborhood rule, two polarized fixed points for threshold 3 on K(3,3).",
+          "Xia et al., Supplement §4.1: open-neighbor per-shore threshold and incumbent retention at ties; possible balanced equilibrium in addition to polarized ones.",
+          "Fedrigo, Theorem 3: common-parameter threshold contagion end states, including periods, not this map."
+        ],
+        "reasoning": "Reversing action labels or counting zeros rather than ones preserves the self-contribution and cannot turn the forbidden closed-neighbor threshold into an incumbent-retention tie. No equivalent heterogeneous classification was found.",
+        "searches": [
+          "arXiv:2301.02889",
+          "arXiv:2506.00046",
+          "DOI:10.3390/g15060041"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day bfaf627e9ea7 gives a crown-graph census under the homogeneous exactly-0-or-r active open-neighbor rule; its complete-bipartite comparison gives only two equilibria under that rule.",
+          "Same-day 11bb6d115a98 counts mixed-strategy QRE of a Q-learning ODE. Later db042db0552c counts payoff-stable cuts with matching edges deleted."
+        ],
+        "reasoning": "Actual catalog statements quantify over different graphs, dynamics or thresholds; none gives the claimed two-coordinate veto or spectrum.",
+        "searches": [
+          "Local Resultary: self-essential anti-coordination and complete-bipartite equilibrium census",
+          "2026/11/2/...--bfaf627e9ea7",
+          "2026/11/2/...--11bb6d115a98",
+          "2026/11/8/...--db042db0552c"
+        ]
+      },
+      "rationale": "The rule and a homogeneous special case are prior; the complete heterogeneous fixed-point census, sharp maximum and full attainable spectrum are distinct on the evidence checked.",
+      "residual_risks": [
+        "Unreadable theorem text for Aracena et al.; bounded catalog and literature search cannot establish absolute priority.",
+        "Same-date catalog entries are compared by content, not presumed ordered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and special case covered; full spectrum not found in inspected material",
+          "evidence": [
+            "pp. 18, 20–21, 9; Table 3 defines output-one zero threshold and closed neighborhood"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.02889",
+          "material_read": "Table 3; Lemma 4.4; Theorems 4.2 and 4.6",
+          "method": "OA targeted PDF passages",
+          "title": "Networked Anti-Coordination Games Meet Graphical Dynamical Systems: Equilibria and Convergence",
+          "trigger": "same local rule and same graph example"
+        },
+        {
+          "assessment": "Different open-neighborhood rule",
+          "evidence": [
+            "Thresholds are common within each shore; ties retain incumbent"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.00046",
+          "material_read": "Supplement pp. 9–10, §4–4.1",
+          "method": "OA PDF passages",
+          "title": "Behavioral alignment in social networks",
+          "trigger": "complete-bipartite anti-coordination census"
+        },
+        {
+          "assessment": "Distinct coordination dynamics",
+          "evidence": [
+            "End state types depend on common threshold and initial density"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/g15060041",
+          "material_read": "p. 9, Theorem 3",
+          "method": "OA repository full-text passage",
+          "title": "End Behavior of the Threshold Protocol Game on Complete and Bipartite Graphs",
+          "trigger": "threshold dynamics on same graph"
+        },
+        {
+          "assessment": "Attractor periods only",
+          "evidence": [
+            "Periods 1 and 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "Corollary 3.4, p. 6",
+          "method": "OA PDF passage",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "general bi-threshold context"
+        },
+        {
+          "assessment": "Coverage unresolved, not negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcss.2014.04.025",
+          "material_read": "Citation only; no readable theorem passage",
+          "method": "OA DOI and identified repository attempt",
+          "title": "Maximum number of fixed points in AND–OR–NOT networks",
+          "trigger": "general Boolean fixed-point count"
+        },
+        {
+          "assessment": "Distinct graph and response",
+          "evidence": [
+            "K(n,n) minus a matching; exactly 0 or r active open neighbors"
+          ],
+          "identifier_or_url": "2026/11/2/...--bfaf627e9ea7",
+          "material_read": "Finding, rule and complete-bipartite comparison",
+          "method": "Local Resultary mirror",
+          "title": "Exact crown network equilibria for the two-level public-goods response",
+          "trigger": "closest same-day graph census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The self-contribution veto has a concrete global consequence: a two-unit packing bound with an exact interpolation construction. This resolves a natural graph-family census in a model with general bipartite counting hardness, while giving an explicit linear-operation algorithm and a sharp nonconstant example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

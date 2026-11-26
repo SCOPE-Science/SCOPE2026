@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Lucas' theorem gives the exact digit product \(u_n=\prod w_{n_j}\) with \(w=(1,i,i,i,1)\). A bounded-carry block comparison proves ordinary all-shift correlation limits and \(O_h(\log(2N))\) discrepancies. The exact five digit-pair sums lead to the rational recurrence; induction gives the sharp positivity/extrema, and a first-order sum recurrence gives all quintary lag sums. Positive-definite correlations and the Wiener criterion establish atomlessness. A self-contained checker passed 10,792 exact finite assertions. No finite test is used in place of infinite proof.
+## correctness
 
-**Originality — PASS, with disclosed historical risk.** The classical Lucas congruence for Delannoy numbers is already known and expressly excluded from novelty. Pan's complete 2015 q-Delannoy manuscript and Rowland–Yassawi's full automatic-congruence manuscript supply premises and methodology rather than the evaluated five-adic quartic-character lag law. Searches for the digit-word alias, equivalent recursion, sharp maximizers, exact correlation tables, and related indexed results found no dominating statement; the nearest published indexed result treats central trinomial rather than central Delannoy numbers. Eu–Liu–Yeh's 2005 Delannoy-specific primary text was not accessible beyond abstract/bibliography; possible overlap is a residual priority risk, not a certified negative comparison.
+PASS
 
-**Value — PASS.** An exact arithmetic two-point law for a canonical lattice-path enumeration sequence distinguishes its modular marginal equidistribution from persistent lag correlations. Strict positivity of every positive-lag quartic correlation, exact maximizers at powers of five, a closed lag-sum spectrum, and an atomless yet nondecaying spectral measure are motivated structural facts rather than a finite table or an arbitrary parameter slice.
+Lucas and 2^(5^s)≡2 mod 5 factor the defining sum digitwise. The residues 1,3,3,3,1 give the stated character weights and no zero terms. For an aligned block of size 5^m, upper-digit phases cancel except for at most h indices, so the complex discrepancy from the initial block is at most 2h, including h≥5^m. Normalizing over larger aligned partitions gives the limit and single-block discrepancy from it ≤2h on the initial block; arbitrary prefixes partition into at most four aligned blocks per scale. The reconstructed no-carry/carry sums are (5,0),(2,1),(1,0),(0,1),(1,2), with complex parts cancelling. C(0)=1, C(1)=1/2 follows from the one self-reference, and the recurrence decreases remaining positive arguments. All branches are positive; after checking residues 1–4, a nonzero remainder with positive quotient gives ≤3/10, so the exact equality lags are 5^j. Repeating digit 2 gives 5^{-m}; summing the branches yields S_{m+1}=(13/5)S_m-2/5 including S_0=1. Marginals follow by the aligned-block character power sums and finite Fourier inversion. Herglotz applies by limiting finite Gram forms (fixed boundary shifts do not matter). The complete-block upper bound on the mean of |C|² tends to zero since |C|²≤C, also for intermediate cutoffs by comparison; Wiener then gives atomlessness. Powers of five certify nondecay, not pure singularity. Independent exact tests of 500 original residues, all five digit pairs, lag sums, and finite-prefix discrepancies agree; replay `python3 /workspace/audit_checks/frozen_reconstruction.py`. These finite diagnostics do not prove the limits.
 
-**Limits.** Specific to prime five and a normalized quartic character. The full joint residue-pair matrix is not calculated. The spectral measure's absolute-continuity class is not established. External independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the evaluated quartic all-lag covariance law for this digit word and its sharp positivity, maximizing lags and lag sums. The Lucas congruence, Riesz-product mechanism and same-sequence marginal information are not independent novelty bases. Closest inspected all-lag laws have different digit kernels, and closest exact mod-five Delannoy results are one-point or zero-shift cross-character laws rather than this autocorrelation law. No priority is inferred from same-day dates.
+
+## value
+
+PASS
+
+This is an exact autocorrelation law for a canonical lattice-path counting sequence, distinct from marginal equidistribution. It gives all positive-lag signs, precisely identifies the persistent high correlations, and quantifies aggregate decay through exact power-block sums, enough to discriminate spectral point masses from Fourier nondecay. These jointly useful structural conclusions justify the specific small-prime calculation. The full residue-pair law and pure spectral continuity class remain out of scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: Jaccard–unweighted-UniFrac rank reversal on a rooted quartet
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim explicitly fixes one rooted reference tree, equal presence/absence richness and the union-edge denominator. With at most three tips, and on four tips outside richness two, all distinct pairs have identical Jaccard distance. Among two-species subsets of a quartet, the twelve one-tip-overlap pairs have Jaccard distance \(2/3\) and the three disjoint pairs have distance \(1\). Direct substitution of all rooted edges produces the complete UniFrac score multisets in RESULT.md for both balanced and pectinate shapes. Their extrema give the displayed rational margin identities, with denominators positive throughout the stated parameter domains. For the pectinate tree, the margin is strictly negative; for balanced quartets its sign is exactly the criterion. An explicit common-reference construction attains both extrema. The symbolic proof applies to all admissible real branch fractions; the exact rational checks are finite corroboration, not proof by sampling.
+PASS
 
-## Originality — PASS, with specified residual risk
+At fixed richness, Jaccard is constant across distinct pairs on at most three tips and on four tips at richness other than two (or there is no pair). At richness two the only Jaccard values are 2/3 for overlap and 1 for disjointness. Independently enumerating the 15 pairs of the six communities for each quartet by unions, intersections and symmetric differences of symbolic root-path edge sets reproduced both frozen score multisets and the common-reference witnesses. In the balanced case, f(x)=(2-x)/(3-x) is decreasing and exceeds 2(1-x)/(3-x) on (0,1), so the maximum overlap is f(min(a,b)); the minimum disjoint score is 2(2-a-b)/(4-a-b). Their difference has the stated numerator and positive denominator. Equality therefore gives no strict reversal, and the equal-stem transition is 2−sqrt(2). In the pectinate case the maximum overlap is f(a): f(b) and f(a+b) are smaller, and the other potentially competing term 2(1-b)/(3-a-b) is smaller by a positive difference with numerator (4-a)(b-a)+a. The minimum disjoint score is (4-a-2b)/(4-a-b); the resulting margin is strictly negative because b<1. These exhaust both rooted bifurcating shapes. No numerical grid is used to justify the signs or all-real scope.
 
-The foundational UniFrac paper establishes the normalized unshared-over-union edge metric. Ives–Helmus give an extensive theoretical comparison with other phylogenetic and taxonomic measures, including the phylogenetic Jaccard representation in their Appendix C. Jin et al. empirically report how phylogenetic beta-diversity metrics depend on relatedness and differ from taxonomic Jaccard. The inspected theorem-level statements and worked analyses do not characterize the smallest fixed-richness reversal or the balanced-versus-pectinate branch-age phase boundary. Searches of the mathematical-result index using overlapping and equivalent phrasings yielded unrelated phylogenetic-rank, clustering and richness results. A broader, unindexed result on phylogenetic Jaccard orderings or an alternate rooting convention could subsume this specialized claim; targeted searches are not an exhaustive originality guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The first strict-reversal threshold controls the number of taxa, community richness, tree shape, and two branch ages simultaneously. The result isolates genuine phylogenetic ranking disagreement from unequal-richness differences and gives a sharp signed margin, including a common-reference three-community witness. This is a structural boundary on the interpretation of two standard ecological beta-diversity metrics, not a routine restatement of their definitions or a claim of ecological forecasting.
+The distinct claim is the complete sharp strict-order comparison of ordinary tip-set Jaccard and fixed-root unweighted UniFrac for equal richness on at most four tips, including both signed margins. The closest verified sources either represent the metric in branch features or classify a different index comparison. No inspected statement or immediate implication supplies this classification.
 
-## Closest literature and limits
+## value
 
-Lozupone–Knight (2005), DOI 10.1128/AEM.71.12.8228-8235.2005; Ives–Helmus (2010), DOI 10.1086/656486, including Appendix C; Jin et al. (2015), DOI 10.1111/1365-2745.12385. These underpin the measures and motivation but do not imply the exact quartet margin. The theorem is not extended to non-ultrametric, larger, weighted, or pairwise-rerooted configurations. Finite code checks are supplementary and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-tip boundary is intrinsic: four tips at richness two first produce two Jaccard levels, and both bifurcating shapes are classified over their full positive ultrametric length domains. The threshold tells a researcher exactly when branch sharing alone can reverse a presence/absence ordering even at controlled richness; the signed margin and three-community witness distinguish a sharp obstruction from an isolated example or a numerical tie.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

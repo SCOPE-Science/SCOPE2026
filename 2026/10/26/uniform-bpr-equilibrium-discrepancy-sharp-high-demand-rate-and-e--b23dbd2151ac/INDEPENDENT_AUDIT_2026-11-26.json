@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:53.894826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Beckmann objective is strictly convex in loads on the same compact convex load polytope. Adding the two minimizer inequalities with their displayed signs and using (u^p-v^p)(u-v)>=|u-v|^(p+1) for u,v>=0 gives the uniform bound by Hölder, also when the difference vanishes. Homogeneity follows by scaling flows. Every resource available to an active singleton commodity has positive limiting homogeneous load, since an unused resource would beat any used resource in that commodity's menu. After rescaling, t>=2C/eta keeps both load vectors on those coordinates above eta/2, and the scalar derivative lower bound yields the claimed Euclidean constant and factor t^(1-p). The two-link binomial equation gives the stated nonzero leading coefficient, including a constant difference for p=1 and the stated cubic for p=4. In the stability proof the base complementarity constraints by themselves allow slack multipliers for zero-demand commodities. For the pair being projected, however, c_s=lambda_h together with all c_{s'}>=lambda_h forces precisely the minimum condition; conversely one may choose the minimum for every multiplier. Thus the projected integer-power semialgebraic set is exact even at zero demand, and its finite union of points and intervals is eventually constant. No path-flow uniqueness or multidimensional boundary asymptote is inferred. The supplied SciPy script was inspected, not executed; the all-demand results follow analytically, not from the bounded test grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12(c) describes within-fixed-weak-order subregion boundaries for singleton games. The concluding BPR boundary claim is conjectural. The affine single-commodity breakpoint/nonrecurrence results are narrower; their smooth-cost examples show why arbitrary smooth costs cannot be substituted."
+        ],
+        "reasoning": "A result within a fixed cost-order class does not force that class or a full minimum-cost set to stop changing. No verified multidimensional BPR geometry theorem covers the ray claim.",
+        "searches": [
+          "Resultary: congestion BPR costs demand ray asymptotic regimes",
+          "Cominetti–Dose–Scarsini arXiv:2308.00434v2 Theorem 12(c) and concluding BPR discussion",
+          "Cominetti et al. DOI 10.1007/s10107-021-01701-7 §§4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2308.00434v2",
+        "arXiv:2305.03459v1",
+        "DOI 10.1007/s10107-021-01701-7",
+        "arXiv:2002.05510",
+        "Sensitivity of Wardrop Equilibria, SAGT 2008, p. 1",
+        "Resultary records ending 6b38b98e832f and 00dcb9499324"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiability conditional on a fixed active set says nothing about finitely many changes. Total cost bounds do not give the vector inequality. Semialgebraic finiteness is standard, but the exact cost-membership encoding includes degenerate ties and commodities with no flow."
+        ],
+        "reasoning": "Generic sensitivity tools are ingredients, not a theorem covering the explicit uniform bound, the singleton interior-curvature rate with optimal exponent, and all-strategy tie membership. The ray result is strictly narrower in geometry than the BPR boundary conjecture, which is not a proved implication in the source.",
+        "searches": [
+          "arXiv:2305.03459v1, Introduction and §4",
+          "arXiv:2308.00434v2, Theorem 12(c) and concluding discussion",
+          "arXiv:2002.05510, Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural formulation is a linear objective perturbation of a common homogeneous Beckmann potential. Demand changes with fixed latency, price-of-anarchy scaling, and total equilibrium-cost sensitivity are not the same as distances between load vectors at identical demand."
+        ],
+        "reasoning": "The perturbation of intercepts at fixed demand is the same problem after normalizing a ray as adding t^(-p)<a,z> at fixed feasible set, but not the demand or aggregate-cost comparisons in the inspected statements.",
+        "searches": [
+          "Resultary: uniform BPR equilibrium discrepancy sharp high-demand rate eventual regime stabilization",
+          "Takalloo–Kwon arXiv:2002.05510, Theorem 5",
+          "Sensitivity of Wardrop Equilibria, SAGT 2008, opening statement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day two-route record classifies priced aggregate externalities at fixed unit demand with linear costs; the low-noise record treats logit asymptotics. Neither reports the two offset-vs-homogeneous load bounds or eventual minimum-cost membership. The frozen two-link grid tests examples, not a table of exact universal constants."
+        ],
+        "reasoning": "There is no finite-lookup substitute for these all-demand and eventual claims. Matched route counts and use of limiting arguments do not imply matching expansions or observables.",
+        "searches": [
+          "Resultary: uniform BPR equilibrium discrepancy sharp high-demand rate eventual regime stabilization",
+          "Resultary: minimum cost strategy set stabilizes proportional demand ray congestion game",
+          "Distinct Resultary records ending 6b38b98e832f and 00dcb9499324"
+        ]
+      },
+      "rationale": "The reviewed package concerns an explicit additive all-demand load comparison between two games at the same demand, its sharp fixed-ray singleton exponent, and eventual stability of the entire set of cost-minimizing strategies on each ray. Credit the classical potential, monotonicity, strong-convexity and projection tools, and the affine breakpoint and existing cost-class results. The strongest inspected statements use different perturbations or give narrower regime claims; no verified broader result was found that supplies this package. Status is bounded by the identified sources, not a priority certification.",
+      "residual_risks": [
+        "A general parametric convex or semialgebraic sensitivity treatment could contain equivalent specializations not surfaced in the bounded comparisons. No claim of priority for the proof machinery is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL BACKGROUND; DIFFERENT STATEMENT",
+          "evidence": [
+            "Within-order subregion description and conjectured asymptotic straight lines for cost-order boundaries; no established all-strategy high-demand tie set theorem in those passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00434v2",
+          "material_read": "OA PDF pp. 12–13, Theorem 12(c), offset 43200; p. 22 BPR conjecture, offset 72700",
+          "method": "Lawful OA PDF passages",
+          "title": "Monotonicity of Equilibria in Nonatomic Congestion Games",
+          "trigger": "Same BPR active-regime topic and strongest relevant geometry"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": [
+            "Regularity conditional on minimum-cost sets and breakpoint slope comparisons; a different question about derivative inequalities for convex/BPR costs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.03459v1",
+          "material_read": "Introduction p. 3 near 8800 and §4 p. 17 near 64100",
+          "method": "Lawful OA PDF passages",
+          "title": "Phase Transitions of the Price-of-Anarchy Function in Multi-Commodity Routing Games",
+          "trigger": "Multi-commodity active-set breakpoints"
+        },
+        {
+          "assessment": "NARROW AFFINE PRECEDENT AND RELATED COUNTEREXAMPLES",
+          "evidence": [
+            "Affine single-commodity nonrecurrence; recurrence is possible for other smooth or piecewise-affine costs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10107-021-01701-7",
+          "material_read": "§4.1 at 55800; Prop. 5.5 near 74035; Rem. 5.7 near 79418",
+          "method": "Lawful OA PDF passages",
+          "title": "The Price of Anarchy in Routing Games as a Function of the Demand",
+          "trigger": "Affine and smooth-cost recurrence comparisons"
+        },
+        {
+          "assessment": "DIFFERENT PERTURBATION AND OUTPUT",
+          "evidence": [
+            "Polynomial latency bounds for total cost under demand scaling, not load comparison under intercept removal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.05510",
+          "material_read": "Theorem 5, p. 5 near 15000",
+          "method": "Lawful OA PDF passage",
+          "title": "Sensitivity of Wardrop Equilibria: Revisited",
+          "trigger": "Potential broader polynomial sensitivity bound"
+        },
+        {
+          "assessment": "DIFFERENT TARGET",
+          "evidence": [
+            "Fixed-demand pricing effects on aggregate externality, not a demand-uniform norm gap or a ray statement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-monotonicity-classification-for-a-two-route-priced-externa--6b38b98e832f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact monotonicity classification for a two-route priced externality",
+          "trigger": "Strongest distinct same-day indexed two-route comparison"
+        },
+        {
+          "assessment": "DIFFERENT LIMIT",
+          "evidence": [
+            "Noise asymptotics in a heterogeneous logit model instead of deterministic Wardrop costs under high demand."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-opposite-quadratic-mass-and-demand-shifts-under-low-noise-conges--00dcb9499324/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Opposite quadratic mass and demand shifts under low-noise congestion",
+          "trigger": "Related indexed equilibrium asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common-power benchmark yields a topology-independent absolute error at every demand. The result also identifies when high demand produces much smaller absolute error and shows the exponent cannot be strengthened, while separating tie-set stability from the stronger boundary-geometry conjecture. These are concrete load and regime predictions, not merely a reformulation of convex optimality or a fixed-instance computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

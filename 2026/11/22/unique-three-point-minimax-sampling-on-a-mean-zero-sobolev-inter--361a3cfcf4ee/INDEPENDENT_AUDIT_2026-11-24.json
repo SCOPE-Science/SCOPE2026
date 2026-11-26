@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:12:24.228858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–113; VERIFICATION.md; static inspection of verify.py",
+        "Independent bounded reproduction: python independent-math-checks.py 4"
+      ],
+      "rationale": "The derivative of the mean-zero representer at x is t−1_{t≥x}; direct integration yields the stated Gram kernel. The outer antisymmetric unit vector has Rayleigh value L/2 for every configuration. In the symmetric two-dimensional compression the noncentral corrections are entrywise nonnegative, and some entry is strictly increased unless both midpoint and middle-site offsets vanish. For L≤2a*<1/4 the centered compression is entrywise positive and its upper-left and off-diagonal entries strictly decrease with L. The positive maximizing eigenvector therefore detects every strict correction, proving global sharpness and rigidity. For L>2a* the antisymmetric certificate alone excludes optimality. Direct symbolic computation of the full symmetric-triple Gram characteristic polynomial reproduced the factor λ−a and the cubic condition for the remaining quadratic to vanish at λ=a. At the root in (1/9,1/8) the third eigenvalue is positive and strictly below a; the two stated coefficient vectors span the top eigenspace and their Riesz combinations give all nonzero norming inputs. The ordered-configuration argument includes endpoints and coincident indexed sites. Independent high-precision computation gave squared norm 0.12156132517648428235… and third eigenvalue 0.03643166120435733818… .",
+      "residual_risks": [
+        "The relevant cubic root is the unique root in its stated bracket, not the unique positive algebraic root without a domain restriction. No finite-grid inference is used for optimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circular-kernel result covers all periodic mean-zero H^s for s>1/2 and determines circular spacing from K_s(d)+K_s(2d)=0. Gauthier–Bay derive spectral machinery for fixed functionals. Gauthier–Pronzato optimize integrated mean-squared prediction error via spectral approximation."
+        ],
+        "reasoning": "Broader derivative orders in a circular theorem do not include the nonperiodic kernel. The spectral representation of fixed functionals and the integrated interpolation criterion do not provide the moving-site largest forward eigenvalue optimum.",
+        "searches": [
+          "Resultary 724766c6cbf0, general circular-kernel finding",
+          "doi:10.5802/afst.1341, §5",
+          "HAL-00913466v4, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary three-site interval and circular design comparisons",
+        "doi:10.5802/afst.1341",
+        "HAL-00913466v4 / doi:10.1137/130928534",
+        "arXiv:2210.15959"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The restriction to periodic inputs can only lower the interval forward norm. Even its exact optimum gives a lower bound strictly below the interval optimum. Neither the general interpolation matrix framework nor the Dirichlet theorem includes the needed outer-mode and centered-compression inequalities."
+        ],
+        "reasoning": "The exact balance, full location rigidity and equality eigenspace need the nonperiodic endpoint-dependent Gram structure; they are not inherited from circular formulas or pointwise interpolation optima.",
+        "searches": [
+          "Resultary e4c7a6f7a5fa and 724766c6cbf0",
+          "doi:10.5802/afst.1341, §§5.1–5.3",
+          "HAL-00913466v4, §1; arXiv:2210.15959, Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodic H¹ record minimizes the same type of objective but over the circle, with cyclic gaps (t,t,1−2t) and optimum (11+√21)/150. Santin minimizes an interpolation power function for a zero-boundary kernel."
+        ],
+        "reasoning": "Periodicity imposes f(1)=f(0) and removes the unit derivative direction; at identical interval sites the interval Gram differs from the periodic Gram by the rank-one term with entries (x_i−1/2)(x_j−1/2). Translation invariance is lost. Thus neither optimizing gaps alone nor minimizing inverse-Gram prediction error is an equivalent reformulation of the interval problem.",
+        "searches": [
+          "Resultary searches for three-point mean-zero H¹ interval forward minimax designs",
+          "Indexed periodic design e4c7a6f7a5fa and circular-kernel theorem 724766c6cbf0",
+          "arXiv:2210.15959, §§2 and 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound interval record itself appeared; the nearby distinct records concern circular gaps or frame potential. The bounded shared literature query produced a Sobolev differentiation-stencil result, not an interval cubic or three-site table."
+        ],
+        "reasoning": "An identical record hit is not independent coverage. The nearest exact tables or formulas concern different operators or loss; the lack of another exact hit is not proof of priority.",
+        "searches": [
+          "Resultary focused semantic searches for three-point mean-zero H¹ interval designs",
+          "Shared literature discovery: Optimal Stencils in Sobolev Spaces trace inequalities RKHS optimal design node placement largest eigenvalue minimax",
+          "Resultary periodic designs e4c7a6f7a5fa, 724766c6cbf0 and 79110a56a034"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact free three-site design for the forward Gram eigenvalue of the nonperiodic mean-zero interval, including its unique absolute location, cubic threshold, top multiplicity and equality class. The inspected circular first-order and general fractional circular records substantially overlap in problem type, but do not give the interval result. The broader inspected spectral interpolation and statistical design results use different objectives or fixed sites.",
+      "residual_risks": [
+        "Bounded searches cannot exclude unindexed equivalents. No field-wide precedence follows from the publication dates of the same-day circular analogues."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, periodic not interval",
+          "evidence": [
+            "Squared optimum (11+√21)/150 and cyclic gaps with t=(9−√21)/30, in mean-zero H¹(T)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-nonuniform-three-point-sobolev-trace-design-on-a-circle--e4c7a6f7a5fa",
+          "material_read": "Local RESULT.md Finding and Assumptions, offsets 0–3825",
+          "method": "Local indexed record mirror",
+          "title": "Sharp nonuniform three-point Sobolev trace design on a circle",
+          "trigger": "Same first-order objective with three sites"
+        },
+        {
+          "assessment": "Broader in periodic order but not applicable to the interval kernel",
+          "evidence": [
+            "Translation-invariant circular placement {0,d,2d}; balance K_s(d)+K_s(2d)=0."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-three-site-circular-minimax-kernels-and-fractional-sob--724766c6cbf0",
+          "material_read": "Local RESULT.md Finding and scope, offsets 0–3655",
+          "method": "Local indexed record mirror",
+          "title": "Universal three-site circular minimax kernels and fractional Sobolev designs",
+          "trigger": "Potential dominating kernel theorem and fractional family"
+        },
+        {
+          "assessment": "Framework, not this optimal design",
+          "evidence": [
+            "Fixes a finite span of functionals and decomposes the associated weighted matrix for interpolation."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/afst.1341",
+          "material_read": "Numdam PDF §5, pp. 457–459, OA offsets 48200 and 51400",
+          "method": "Primary OA full-text PDF, targeted passages",
+          "title": "Spectral approach for kernel-based interpolation",
+          "trigger": "General finite Gram spectral method"
+        },
+        {
+          "assessment": "Different criterion",
+          "evidence": [
+            "The design minimizes integrated prediction mean-squared error, not the forward joint evaluation norm."
+          ],
+          "identifier_or_url": "https://hal.science/hal-00913466v4/document",
+          "material_read": "Lawful submitted text, abstract and §1, PDF pp. 2–3, OA offsets 1300–8500; journal DOI 10.1137/130928534",
+          "method": "Targeted passages in OA full text after publisher PDF was unavailable",
+          "title": "Spectral approximation of the IMSE criterion for optimal designs in kernel-based interpolation models",
+          "trigger": "Optimal designs and spectral criterion; previously abstract-only comparison"
+        },
+        {
+          "assessment": "Different boundary conditions and design loss",
+          "evidence": [
+            "Uses zero boundary values and minimizes the supremum interpolation power function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+          "material_read": "§2 and §4.2/Theorem 5, PDF pp. 1–5, OA offsets 5100, 15159 and 20900",
+          "method": "Primary OA full-text PDF, targeted passages",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Explicit first-order optimal grid theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, two-mode lower certificates and equality cases; comparisons with circular and interpolation designs"
+      ],
+      "rationale": "The result gives a global sharp constant and complete site classification for a concrete interval sampling norm, not merely another formula for the kernel. The two different active modes explain the clustered geometry and yield a useful exact benchmark distinct from classical interpolation grids; the proof resolves all off-center and boundary competitors.",
+      "residual_risks": [
+        "No application to recovery risk, arbitrary sample cardinality or nonunit weights is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

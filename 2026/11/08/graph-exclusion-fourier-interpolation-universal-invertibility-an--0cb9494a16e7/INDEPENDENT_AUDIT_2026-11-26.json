@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:16:31.013972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the unnormalized calculation: W inverse is q^(-1) conjugate W by symmetry and perfect character orthogonality; its nonidentity corner inverts the Schur complement K=B−J. The restriction-order zeta matrix is unitriangular. Expanding the product over subsets of the common support gives H=ZDZᵀ with D blocks K tensor-powered by the support size. The singular values of W give |det K|=q^(q/2); the blocks contribute the derivative exponent, with empty support contributing zero to it. Boolean Möbius inversion and one-sided character summation give q^(-1) conjugate b(x_v,y_v) at a prescribed coordinate (also when only one label is prescribed), and −(q−1)/q at each added coordinate. Possible added supports for independent U are exactly the independent subsets of the residual graph G−N[U]; if U is not independent there is no block. This gives the exact entry formula, including empty V. The rational-root theorem rules out residual-polynomial cancellation for q>=3 since the numerator q−1 is coprime to q and would have to divide 1. On paths the recurrence at −1/2 has roots (1±i)/2 and values 2^(−m/2)sin((m+2)π/4), starting at 1 and 1/2. Multiplicativity gives the mod-four law for every compatible union, including an empty residual graph. The frozen checker’s line 78 omitted the test that the predecessor also belongs to U, so its extras predicate only admitted U contained in the first vertex, undercounting (e.g. the union consisting of the second vertex of P5). This did not affect its exact multiplication test or the theorem. The repaired checker separately compares every entry against a consecutive-occupancy and residual-run test. The repair and replay path repairs/3/path_fourier_checker.py were inspected, not executed; no numerical success is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected partition result concerns MacWilliams identities; the Fourier conditioning and SVD comparisons use different geometries or ask for different outputs. The accessible evidence for Delvaux–Van Barel concerns rank-deficient Fourier-Kronecker submatrices, not the entrywise inverse zero law."
+        ],
+        "reasoning": "Neither an invertibility/rank theorem alone nor an SVD procedure specifies which compatible inverse entries vanish. Full-text coverage of Delvaux–Van Barel is unresolved, not treated as a negative search result.",
+        "searches": [
+          "arXiv:1304.1207, Theorem 6.6",
+          "arXiv:2004.09643, p. 1",
+          "arXiv:2208.12583, §1.2",
+          "DOI:10.1016/j.laa.2007.05.009"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and path_fourier_checker.py",
+        "repairs/3/RESULT.md and repairs/3/path_fourier_checker.py",
+        "Resultary 3b7e4e36808a",
+        "arXiv:1907.09092",
+        "arXiv:1304.1207",
+        "arXiv:1007.0880",
+        "arXiv:2004.09643",
+        "arXiv:2208.12583",
+        "DOI:10.1016/j.laa.2007.05.009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sections 1–3 of the matched result explicitly use the same Schur complement, Boolean extension-poset inverse, and factor −(q−1)/q for each extra coordinate. Its enumeration multiplies by the number of subsets at each allowed size; for paths the allowed extensions depend on the residual path runs."
+        ],
+        "reasoning": "Replacing its support range by a graph independence complex yields the residual-polynomial calculation, so the shared algorithmic algebra is not a separate original result. The stated Hamming theorem has no information about the component sizes of P_n−N[U] or its resulting position-dependent cancellations, and it does not supply the arbitrary-graph nonbinary zero-pattern law by specialization. These are the retained claims.",
+        "searches": [
+          "Resultary 3b7e4e36808a, RESULT.md offsets 2354–5749",
+          "Repaired RESULT.md, Block calculation and Classifying cancellations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hamming-ball result is also about the unnormalized principal matrix over a finite abelian alphabet and uses the same support zeta factorization. Knill's matrix is a meet-based face count with kernel 2^|x∩y|−1, not the binary Walsh kernel."
+        ],
+        "reasoning": "A cardinality cutoff admits all supports up to r; graph exclusion instead depends on adjacency of the chosen sites. In the binary case classical meet-style factorization also follows directly by expanding (−1)^|x∩y| as the sum of (−2)^|S| over subsets of x∩y; no originality of that factorization is asserted.",
+        "searches": [
+          "Local Resultary search for graph-exclusion Fourier interpolation, principal Fourier inverse and support downsets",
+          "Resultary 3b7e4e36808a, Proof §§1–3",
+          "arXiv:1907.09092, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed exact inverse uses truncated binomial weights indexed by union cardinality; Levit–Mandrescu's polynomial work concerns other graph enumeration formulas. Neither supplies the entrywise Fourier path zero-pattern invariant."
+        ],
+        "reasoning": "An enumerator for a residual graph is an ingredient, not the zero pattern of a matrix; the finite path checker cannot decide equivalence or historical priority of the unbounded law.",
+        "searches": [
+          "Resultary 3b7e4e36808a Finding and Proof §3, offset 3967 and following",
+          "arXiv:1007.0880, introduction and independence-polynomial recurrence"
+        ]
+      },
+      "rationale": "The repaired contribution is the graph-specific inverse zero pattern, uniformly across nonbinary alphabets and with the full independent-union binary path law. The original factorization and entrywise computation substantially overlap the distinct same-day Hamming-ball record: all local block calculations and Möbius sums are already there and adapt directly to other downsets. They and the determinant identity are retained as mathematical support, not advertised as a new method or independent contribution. The checked comparisons do not give the graph-wide zero pattern or translate binary cancellations into the lengths of uncovered path components. Same-day catalogue dates were not used to dismiss the overlap or infer priority.",
+      "residual_risks": [
+        "Full-text coverage of Delvaux–Van Barel was not determined, and a broader unlocated downset inverse or a prior explicit path zero law is not ruled out.",
+        "No priority ordering is inferred from the matching catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material method and special-case overlap, not the exact graph cancellation statements",
+          "evidence": "Same block equations and local weights; extensions counted with binomial coefficients from a cardinality bound.",
+          "identifier_or_url": "Resultary 2026/11/8 SCOPE-universal-inverse-and-sharp-conditioning-of-finite-fourier-hammi--3b7e4e36808a",
+          "material_read": "RESULT.md Finding and Proof §§1–3, especially offsets 2354–5749",
+          "method": "Local mirror bounded passages",
+          "title": "Universal inverse and sharp conditioning of finite Fourier Hamming balls",
+          "trigger": "Same finite-group principal Fourier problem on a support downset"
+        },
+        {
+          "assessment": "Related geometry, different kernel",
+          "evidence": "The counting matrix uses cardinality of an intersection of face cores and its theorem concerns unimodularity.",
+          "identifier_or_url": "arXiv:1907.09092",
+          "material_read": "p. 2, offset 4300, definitions and Theorem 1",
+          "method": "OA primary PDF passage",
+          "title": "The counting matrix of a simplicial complex",
+          "trigger": "A face-indexed matrix and star formulas"
+        },
+        {
+          "assessment": "Different partition-based transform result",
+          "evidence": "Product/poset partition results concern weight enumerators rather than these inverse entries.",
+          "identifier_or_url": "arXiv:1304.1207",
+          "material_read": "p. 1 offset 1477 and p. 18, Theorem 6.6 offset 69061",
+          "method": "OA primary PDF passages",
+          "title": "Fourier-Reflexive Partitions and MacWilliams Identities for Additive Codes",
+          "trigger": "Finite-group Fourier transforms with product and poset constraints"
+        },
+        {
+          "assessment": "Polynomial background, not the inverse support theorem",
+          "evidence": "Defines and enumerates independent sets; does not identify the Fourier matrix zero pattern in the inspected material.",
+          "identifier_or_url": "arXiv:1007.0880",
+          "material_read": "p. 1, offset 1047, and the stated deletion identity comparison",
+          "method": "OA primary PDF passage and proof comparison",
+          "title": "On the independence polynomial of an antiregular graph",
+          "trigger": "Classical independence-polynomial ingredients"
+        },
+        {
+          "assessment": "Full coverage unresolved",
+          "evidence": "Available scope is rank deficiency of Fourier-Kronecker submatrices; it does not establish exact inverse-entry coverage.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2007.05.009",
+          "material_read": "Abstract/landing evidence only; publisher response minimal, lawful CiteseerX copy timed out",
+          "method": "OA attempts and bounded bibliographic comparison",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Plausible broader theorem for Fourier-Kronecker restrictions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For natural local Fourier restrictions, the zero pattern determines which inverse coefficients influence which coordinate configurations. Compatibility completely determines this pattern for every nonbinary alphabet, whereas even independent unions have an additional binary obstruction; for paths the precise obstruction is a residual run of a given length modulo four, not merely the global path order. These exact graph-dependent alternatives are useful independently of whether the supporting factorization is new, and go beyond a finite small-order calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

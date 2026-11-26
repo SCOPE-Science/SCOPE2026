@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:02:25.464161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The trace is onto (its defining polynomial has degree q³<q⁴ and is nonzero), so ker τ has size q³. For z=x+x^q one has z+z^(q²)=τ(x) and τ(G_q(x))=τ(x)(1+τ(z^(q−1))). This proves the zero-input-trace case. For nonzero w, z=wy reduces to y^(q²)+y=1 and τ(y^(q−1))=1, with exactly q lifts per qualifying y by the image and kernel of x↦x+x^q. With t=y+y^q, v=y²+y, h=t²+t, we have t^q=t+1 and v^q=v+h, so h has absolute trace one. The tower trace gives τ(y^(q−1))=t/v+(t+1)/(v+h), where the denominators are nonzero. Writing b=v+th yields b²+(h+1)b+h³=0. For h≠1 the Artin–Schreier right side h³/(h+1)²=h+(h+1)^−1+(h+1)^−2 still has trace one, impossible. For h=1, b=1, s is odd and y²+y=t+1 with t²+t=1; thus y⁴+y=1 and y⁸+y=t. The four distinct roots from the two t's lie in F16⊂F_(q^4), and satisfy the required q-Frobenius exactly for s≡3 mod 4. Hence the total fiber exceeds q³ exactly in that class, excluding permutations there but making no other permutation assertion. `python3 /workspace/branches/independent_checks.py 3` verifies field irreducibility and enumerates G_q in alternate polynomial bases for q=4,8,16, giving totals 64,736,4096 and checking every input trace class. This is bounded corroboration; the uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 6.1 poses the more general even-e permutation problem; it gives the polynomial identity, not a uniform permutation criterion or trace count.",
+          "The inspected Fernando–Hou–Lappano theorem is for q=4, n=1+4^e+2·4^a+4^b, under further arithmetic hypotheses; the e=4 q=4 case here has n=307 and would require 2·4^a+4^b=50, impossible."
+        ],
+        "reasoning": "An antecedent permutation theorem could imply a zero count in its positive cases once τ∘G_q vanishes on ker τ. The inspected earlier theorem does not even have the target index, and Question 6.1 itself supplies no uniform negative-class or joint-fiber conclusion.",
+        "searches": [
+          "arXiv:2606.01037v1, Question 6.1 and Appendix",
+          "arXiv:1208.2942, Theorem 6.12, pp. 24–25",
+          "Directed literature lookup for e=4 permutation criteria and trace obstruction in the Fernando–Kousik family"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_trace.py, and metadata/self-review",
+        "Fernando–Kousik arXiv:2606.01037v1",
+        "Fernando–Hou–Lappano arXiv:1208.2942",
+        "Resultary joint-trace-fiber and Artin–Schreier searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof forces h=1 in a trace-one Artin–Schreier constraint and then distinguishes the square and eighth-power Frobenius actions on F16; neither inspected antecedent gives this classification.",
+          "A nonpermutation result alone would not imply the exact number of preimages of ker τ split by input trace. Conversely the excess q³+4q(q−1) is sufficient to disprove permutation, with no implication in the balanced case."
+        ],
+        "reasoning": "The claim adds a quantified algebraic invariant and an infinite obstruction to the open family rather than simply instantiating the known polynomial identity or rechecking an antecedent table.",
+        "searches": [
+          "arXiv:2606.01037v1, Question 6.1 versus the frozen joint-fiber formula",
+          "arXiv:1208.2942, trace constructions and Theorem 6.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 6.1 uses n=(q−1)+(q−1)q^(e/2)+q^e and g_(n,q)=S1+S_(e/2)^(q^(e/2))+S_e S_(e/2)^(q−1). At e=4, the polynomial and field match exactly.",
+          "For nonzero w the counted condition is equivalent to y^(q²)+y=1 and τ(y^(q−1))=1 with q-to-one lifts. Standard trace methods do not count those solutions without a further argument."
+        ],
+        "reasoning": "The polynomial is not a new construction under a new name. The fiber is an invariant of the pair (τ,τ∘G_q), not the size of G_q's fiber over an individual target or a general permutation criterion.",
+        "searches": [
+          "Resultary: reversed Dickson g_(n,q), degree four extension, joint zero-output-trace fibers, mod-four Artin–Schreier obstruction",
+          "arXiv:2606.01037v1, Question 6.1, p. 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists (307,4;4), base-4 digits 3,0,3,0,1, as desirable and references Question 6.1. The introduction defines desirable to mean a permutation. This is s=2 and is consistent with the proposed trace law.",
+          "Nearest catalogue lead 2026/11/2/SCOPE-exact-fibers-of-the-quadratic-extension-norm-trace-product--e53f8a54a2d0 describes Tr(x)N(x) on a quadratic extension in the index, not this quartic-extension map; this lead was not full-text verified."
+        ],
+        "reasoning": "The desirable-triple entry actually implies the q=4 nonzero-input-trace counts are zero given τ∘G_q=0 on ker τ, by bijectivity. This fixed-size overlap is antecedent evidence and is not credited as new. Neither it nor the norm–trace catalogue description supplies all s, the 4q counts, or the residue-class obstruction.",
+        "searches": [
+          "Fernando–Kousik, Appendix Table 1, e=4 row n=307",
+          "Resultary: exact trace fibers, reversed-Dickson e=4 q=2^s, four F16 witnesses"
+        ]
+      },
+      "rationale": "The e=4 polynomial is explicitly an antecedent and its q=4 permutation instance is already in the prior desirable-triple table. The supported increment is the uniform classification of the joint fibers and the resulting infinite nonpermutation class s≡3 mod 4, not the polynomial, use of trace maps, or the isolated q=4 case. No inspected earlier statement or implication gives that uniform classification.",
+      "residual_risks": [
+        "A criterion for other families could include an unnoticed equivalent specialization; retrieved evidence does not certify global priority.",
+        "The closest suggested norm–trace catalogue lead was screened by indexed statement, not readable full text; the described map and extension differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The target is the stated e=4 case. Positive evidence for q=4 only from this table, no uniform trace classification in the inspected sections.",
+          "evidence": [
+            "Question 6.1 gives the polynomial in S_i and asks when it permutes; Table 1 lists the q=4, e=4, n=307 desirable triple."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01037v1",
+          "material_read": "Introduction p. 2 at offset 4900 (desirable definition); Question 6.1 p. 17 around offsets 53200–53746; Appendix Table 1 p. 20 at offsets 59500–61748",
+          "method": "Original OA PDF passages",
+          "title": "A further study of polynomial g_(n,q) over finite fields",
+          "trigger": "Exact defining family and published small-field table"
+        },
+        {
+          "assessment": "Different exponent and q=4 scope; no implication for the claimed uniform fiber law.",
+          "evidence": [
+            "Index 1+4^e+2·4^a+4^b, with polynomial S_a²+S_bS_e and additional permutation hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1208.2942",
+          "material_read": "Theorem 6.12 and adjoining hypotheses pp. 24–25, offsets 76400–78890",
+          "method": "Original OA PDF passage",
+          "title": "A New Approach to Permutation Polynomials over Finite Fields, II",
+          "trigger": "Strong older trace-based criteria in characteristic two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The zero output trace is a natural permutation test because its target size is exactly q³. The result quantifies the full excess split by input trace and explains it by four uniform F16 witnesses rather than a finite counterexample. It answers a meaningful part of the exact e=4 parameter question for an infinite class and can guide further analysis of the balanced classes. It is not the full classification of Question 6.1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

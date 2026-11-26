@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the complete strict hyperbolic-sink count for \(A>0\), \(\omega>0\), \(\rho=A\omega>1\), and all phases. At any fixed point, the identity \(\lambda^2=\rho^2(1-u^2)\) characterizes the only possible sink neighborhoods. Two strictly monotone inverse phase branches cover exactly the positive-sink arc, meeting only at \(u=1\); odd reflection covers the negative-sink arc. Circular-arc geometry proves the exact bistability length. The resonance values make the two centers coincide modulo \(2\pi\). The standalone verifier independently tests numerous nonboundary parameter choices. No statement about neutral endpoints or higher cycles is smuggled into the claim.
+PASS
 
-## Originality — PASS, subject to documented source-access risk
+On the corrected claim, let the argument at a positive sink be pi/2+t modulo 2pi. The signed multiplier is -rho sin(t), and the positive sine and strict bound together are equivalent to -h<t<h. Then u=cos(t) and a lift of the phase is rho cos(t)-pi/2-t. Its derivative is -1-rho sin(t)<0 throughout; the image is exactly (c-h,c+h), with endpoints attained as t approaches +h and -h respectively and signed multipliers -1 and +1. The image width is less than pi, so projection introduces no duplicates. Reflection treats the negative sink independently, and zero has multiplier modulus rho whenever it is fixed. Since 2h<pi, only one circular separation can contribute to overlap, giving (2h-d)_+ and no bistability at tangency. The centers coincide iff c is an integer multiple of pi, and c> -pi/2 gives exactly the stated sequence. Local contraction gives open attraction neighborhoods with disjoint basins, not a global orbit classification. The endpoint sign test at rho=5/4 was independently checked (python3 /workspace/branches/independent_checks.py 2). The supplied finite scanner was inspected, not executed; it deliberately avoids bifurcation boundaries and cannot check the failed orientation.
 
-The originating 2023 paper supplies the sine model, a sufficient global derivative condition and numerical phase bifurcation diagrams. The accessible portions of its model, local-stability discussion, phase analysis and conclusion do not state or imply an all-parameter exact sink census or an arcsine phase-measure formula. Published-result searches with the full formula, map name, phase aliases and bistability terminology returned no covering theorem. Generic local bifurcation theory is strictly weaker than this complete parameter-specific statement. The full originating PDF was not obtainable and the 2024 related work was not read in full; an independently formulated antecedent cannot be excluded.
+## originality
 
-## Value — PASS
+PASS
 
-The original study emphasizes parameter-controlled multistability but gives graphical phase information and only a conservative stability test. Here the exact measure of bistable phase choices, an all-frequency cap of two hyperbolic sinks, and a countably infinite sharp resonance family answer a natural design and structural question over an entire infinite parameter domain. The infinite resonances and their shrinking phase windows distinguish frequency-created fixed points from frequency-preserved sinks; the result is more than the trivial derivative inequality and has a clear potential use in predicting controllable coexistence regions. No statement about chaos or global basins is inferred.
+The distinct claim is the all-rho phase census and exact coexistence length and resonance sequence for hyperbolic fixed sinks, not the sine model or its derivative criterion. The sign correction is a proof repair, not a novelty claim. No compared source verifies equivalence or stronger coverage of that classification. Full text of the originating article remains unverified independently and is a named risk.
 
-## Closest sources and limitations
+## value
 
-The closest primary source is Ali Ali et al. (2023), DOI 10.1088/1572-9494/acf307. General one-dimensional saddle-node and flip theory provides local background only. Full paper access remained incomplete; no priority exhaustiveness or independent certification is claimed. The result counts hyperbolic fixed-point sinks, not all stable orbits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A phase sweep in the motivating model does not determine when two attracting fixed states can coexist. The corrected theorem gives a universal count, an exact phase-design measure, and infinitely many gains of maximal overlap with shrinking widths. These are useful even without a classification of neutral fixed points or other attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

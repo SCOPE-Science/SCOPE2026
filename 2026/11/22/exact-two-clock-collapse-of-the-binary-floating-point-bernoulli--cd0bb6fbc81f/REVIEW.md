@@ -1,19 +1,21 @@
-# Scientific review: exact two-clock Bernoulli collapse
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduced odd-numerator representation is bijective with the specified normal/subnormal IEEE-style number set, including all exponent extremes. The modular doubling update lowers its reduced denominator exponent by one; the corresponding depth is exactly the first zero time. Exhaustive odd-numerator counts give the hitting histogram, and constructing a predecessor by adding powers of two to the denominator proves the full image-set description. Summing these finite counts gives the support and equal-state distribution, including agreement at both piecewise boundaries. `check.py` independently constructs exponent-significand values and compares the complete exact hitting histogram and all image sets for 43 formats covering 18,789 initial numerical states, including every binary16 value in the interval.
+PASS
 
-## Originality — PASS within inspected evidence
+Write each nonzero value uniquely as a/2^s with a odd. The magnitude restriction gives bit length ≤s, the significand gives bit length ≤p, and the smallest tick forces s≤L=E+p−1. Conversely if b is the numerator bit length, exponent b−1−s≥−E yields a normal by left-padding to p bits; below that exponent the integer a·2^(L−s) is below 2^(p−1) and occupies a subnormal slot. Under doubling followed by reduction, for s>1 the residue modulo 2^(s−1) is odd and nonzero, so the exponent falls by one; for s=1 the image is zero. Both operations are exact: the product fits with exponent up through zero, and any subtraction of one from a product in [1,2) is exact by the binary representability of the difference (or Sterbenz's lemma with gradual underflow). Thus the lifetime is s, counted by the 2^(min(s,p)−1) odd numerators. Every eligible exponent s≤L−t occurs in the t-th image with its entire allowable numerator set because a/2^(s+t) is a preimage. Counting these bottom L−t exponent levels gives the support, while counting the bottom min(t,L) levels and normalizing gives the CDF. Both formulas meet at their stated endpoints, also when E=1 or p=1; the least positive tick always realizes L. The IEEE parameters, state counts and optional extra initial endpoint agree. A distinct integer-valuation and low-bit masking replay checked histogram, CDF and support in 57 formats (24,285 initial states), including full binary16.
 
-Ah-Weng and Coveney, arXiv:2611.15344v1 (11 November 2026), numerically track support for four maps and report 149-step collapse for doubling but do not derive arbitrary-precision exact first-hitting histograms, the entire support sequence, or the distinction between support and uniform-over-floats absorption clocks. Boghosian, Coveney, and Wang (2019) give the well-known eventual zero pathology; Klöwer et al. (2023) study low-precision periodic orbit pathologies and explicitly report the binary32 state-space count of 1,065,353,216; neither that count nor eventual collapse is claimed as new. The most relevant published mathematical-search records concern non-integer beta shifts, logistic finite-precision maps, and finite grids, not this complete floating-point transient law. Negative searching does not certify uniqueness; the remaining risk is an unindexed equivalent count in finite-arithmetic or numerical-chaos literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Both diagnostics here—number of reachable computer states and probability already absorbed under equal-state initialisation—are natural exact finite-state dynamical invariants directly motivated by a recent study of statistical reliability. Their different transition clocks, together with closed formulas at every time and every binary precision/exponent range, give a non-asymptotic benchmark capable of distinguishing support loss from mass concentration. The theorem is elementary once the correct dyadic state representation is isolated, but the complete two-clock law is not merely a restatement of eventual collapse or a finite numerical table.
+Prior work already establishes finite-precision collapse, its bit-shift mechanism and degenerate limit, the Float32 state count, and a computed support trajectory/cutoff under tested precision conventions. The supported distinct result is the pair of exact transient censuses for arbitrary p and E, including their different transition indices and the equal-distinct-state first-hitting law.
 
-## Scope and limitations
+## value
 
-Arithmetic must be exact doubling with gradual underflow; no general finite-precision chaotic map is classified. Uniform-over-floats is not continuous-uniform sampling. Exhaustive numerical enumeration includes binary16 but not binary32 or binary64; the latter are covered by the symbolic proof. Potential historical equivalences not indexed in the searched literature remain possible. The 2023 full publisher PDF was not accessed; its public full-text indexed excerpts, metadata and abstract were compared, so that work remains a stated uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-precision collapse is known, but it does not say how many distinct states remain reachable or how much original mass has already collapsed. The exact trajectories quantify these different questions at different clocks (E−1 and p), explain their order dependence on exponent depth versus precision, and give a practical reference for interpreting finite-precision experiments under the equal-state convention without enumerating binary32 or binary64.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

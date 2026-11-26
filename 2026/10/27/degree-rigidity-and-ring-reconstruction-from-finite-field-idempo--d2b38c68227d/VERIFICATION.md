@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_matrix_idempotent_annihilation.py` with ordinary Python 3. This uses neither network nor third-party libraries and prints deterministic case-by-case checks. Its companion `.out` file contains the actual saved output.
+## correctness
 
-The checker exhaustively enumerates all \(q^{n^2}\) matrices and identifies all idempotents by directly multiplying their rows, independently eliminates to compute ranks, and tests all ordered vertex pairs for both zero-product orientations. Checked parameters: \((n,q)=(2,2),(2,3),(2,4),(2,5),(3,2),(3,3),(4,2)\), encompassing 699,372 ordered vertex pairs. Field order four uses polynomial arithmetic modulo \(z^2+z+1\). Each rank-to-rank adjacency count is compared against the closed formula and multiplicities against Gaussian counts. Auxiliary reverse-product-rank counts serve as an independent consistency check, not an additional claimed discovery.
+PASS
 
-The abstract graph reconstruction is proved symbolically using \(\delta=2q^{n-1}-1\), \(M=q^{n-1}(q^n-1)/(q-1)\), \(Q=(\delta+1)/2\) and \(q=(M/Q-1)/(M/Q-Q)\). The finite program does not constitute an exhaustive test for all prime powers or unbounded dimensions, and no external mathematical audit has occurred.
+A rank-s idempotent is a projection onto an s-plane W along a complement L, of which there are q^{s(n−s)} for each W. Fix E with image U and kernel T. EF=0 requires W within T. FE=0 requires U within L; counting (n−r−s)-planes L/U in V/U gives the same Gaussian coefficient, and again q^{s(n−s)} complements. Their intersection consists exactly of projections that are zero on U and restrict to rank-s idempotents on T, yielding the subtraction term. Neither direction is possible if s>n−r. Self-adjacency does not occur because E²=E≠0. For nested coordinate projections, every neighbor of E_r is also a neighbor of E_(r−1); the projection onto ker(E_(r−1)) along im(E_(r−1)) has rank n−r+1 and witnesses strict inclusion (it is a vertex for 2≤r≤n−1 and cannot neighbor E_r by the rank constraint). The only minimum-degree rank is n−1, also when n=2 where there is only one rank. Substituting r=n−1 gives δ=2q^{n−1}−1 and M=q^{n−1}(1+q+⋯+q^{n−1}). Therefore Q=(δ+1)/2 and A=M/Q satisfy q(A−Q)=A−1 with A−Q>0. This uniquely determines q and then n, and isomorphic fields give the converse graph isomorphism. The example parameters and the frozen log's case count agree with the displayed formulas. The uploaded checker was inspected, not rerun; no computation is needed for the universal proof.
+
+## originality
+
+PASS
+
+At the level of the claim, the distinct contribution supported by the evidence is all-rank OR-degree stratification, strict rank separation in higher dimensions, and reconstruction of the full finite matrix ring from two unlabeled degree statistics for n≥2. The rank multiplicities, the one-direction zero-product counts, and the dimension-two OR graph degree are credited as existing pieces, not novel results. No inspected statement recovers the higher-dimensional OR degree multiset or its reconstruction conclusion.
+
+## value
+
+PASS
+
+The graph is a natural invariant built from one-sided vanishing of products, and the theorem recovers the algebraic rank of every vertex and the entire ring isomorphism type from graph degrees. Recovering the two ring parameters from just the smallest degree and its multiplicity, without labels or the full adjacency matrix, makes the invariant useful beyond a finite count or a restatement of the two-dimensional result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

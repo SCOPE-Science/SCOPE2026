@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a two-sided asymptotic count for each **fixed** weight \(k\ge4\), not a claim of exact enumeration. The proof separates BWT ones using the lexicographic order of initial zero-run lengths, then bounds all failures by the union of explicit integer-hyperplane neighborhoods among the cyclic gap compositions. A positive-volume family with two tied maximal gaps gives the matching lower bound. The marked-one-to-word factor \(n/k\), distinct interpretations of linear and cyclic runs, nonconstant-word endpoint lemma, and strict inequalities in the separator construction were checked. Direct exhaustive rotation-sort verification on 190,890 words agreed with the deterministic lemmas. The finite checks are corroboration, not substitutes for the analytic proof.
+## correctness
 
-## Originality — PASS, subject to external priority review
-The 1994 definition paper and the 2017 clustering-ratio paper were materially inspected, including their core theorems and examples. The 2017 theorem \(\rho(\operatorname{BWT}(w))\le2\rho(w)\) uses **input run count** as its parameter, and its explicit extremal constructions are not a sharp counting theorem for uniformly selected fixed-weight inputs. The 2017 fixed-point paper asks for \(\operatorname{BWT}(w)=w\), a different condition; its full text could not be retrieved and remains a stated bibliographic risk. No examined primary result proves the stated uniform family of sharp \(\Theta_k(n^{k-1})\) exceptional counts for all \(k\ge4\). Searches cannot rule out an unindexed equivalent derivation, and this assessment is not independent validation.
+PASS
 
-## Value — PASS
-The theorem answers a naturally motivated data-compression combinatorics question: does the BWT cluster repeated bits when the number of rare symbols is fixed and the block becomes long? It gives a sharp negative answer **in the run-count statistic**, identifies a testable deterministic gap certificate, and quantifies the nonmaximal cases to optimal order. Unlike individual fixed-weight computations, it is valid for every fixed number of rare symbols at least four. It does not imply comparable bit-rate performance, a uniform regime of growing Hamming weight, or exact leading constants.
+The convention is indexed words, duplicate rotations retained, no marker, and linear runs. For nonconstant input the first sorted row starts with a longest cyclic zero block, hence has predecessor 1. Likewise the last sorted row starts with a longest one block, with predecessor 0. Ties of equal rotations cannot change those letters. There are exactly k predecessor ones, so maximal run count is equivalent to isolation of all output ones. When all gaps are positive, output ones correspond to starting at the first zero of a gap. If the gap sizes are separated by at least two, a rotation starting one position later in the longer gap has an intermediate zero-prefix length and predecessor 0, so lexicographically separates the two output ones. When the largest gap is repeated (with n>k, so it is positive), the first rows are those gap starts and the output begins 11. For the upper count, a specified zero coordinate leaves k−1 nonnegative variables of fixed total, with O_k(n^(k−2)) solutions. A specified difference in {−1,0,1} leaves O(n) choices for one of the two coordinates and O_k(n^(k−3)) for the remaining k−2 at fixed sum; finitely many such relations suffice. For the lower count, prescribe g1=g2=m in [0.36n,0.38n]. At fixed k and all sufficiently large n the remaining n−k−2m is positive, comparable to n and less than m, so the first two coordinates are exactly the largest. There are Θ(n) values of m and Θ_k(n^(k−3)) ordered compositions for each. A marked tuple plus an absolute marked position fixes the indexed word, with each word admitting at most k of the allowed markings even for periodic words. Thus the lower family gives Ω_k(n^(k−1)) words; using the same marking relation for the upper count gives O_k(n^(k−1)). Division by binomial(n,k) gives the probability. The positive even deficit among exceptions is between 2 and 2k−2, so the expected-deficit comparison also holds.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the sharp lower-order obstruction and the two-sided law uniformly as a statement for every fixed k≥4, not the upper exponent alone, the separated-gap criterion by itself, or the isolated weight-four result. The strongest all-weight comparison already has the same run upper bound and separated-gap sufficiency with an O_k(1/n) failure bound, but not a matching lower failure bound. A separate exact weight-four spectrum proves that instance with a leading constant. The distinct content is a construction and matching order of rarity for the general fixed-weight regime.
+
+## value
+
+PASS
+
+In a fixed sparse alphabet ensemble, 2k is the structural maximum for the output. Knowing it is generic does not tell how rare clustering can be. A stable family of tied longest gaps gives precisely the missing lower order throughout the fixed-weight regime, and thereby fixes both the failure scale and the expected run deficit. This goes beyond the isolated known cases or counting unrestricted candidate output strings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

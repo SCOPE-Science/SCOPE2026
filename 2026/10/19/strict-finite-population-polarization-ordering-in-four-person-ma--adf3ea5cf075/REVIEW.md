@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exactly about the two continuous-time birth–death chains with the four-person one-step coefficients, on the common domain \(N\ge6\), \(0<p<1\). For each model, positive adjacent jump rates give unique stationary measures; global spin reversal gives symmetry. Detailed balance yields exact adjacent stationary ratios. On the upper half, \((k)_3>(N-k-1)_3\), making each radial-mass ratio strictly decreasing with noise. Single-crossing then yields strict upper-tail and increasing-observable inequalities. Direct algebra covers the small-population boundary. Exact-rational checks cover 400 finite stationary distributions and 24,477 assertions, and a separate seven-state generator solve corroborates the probability formula. Computational checks supplement rather than replace the quantified proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The motivating article derives the actual gain–loss coefficients and approximate large-population stationary densities, together with critical phase-transition behavior; those are not claimed. The new statement is a **finite-population, all-noise, all-polarization-tail likelihood-ratio comparison**, plus the sharp irreducibility boundary for its exact single-step chain. The 2015 majority paper uses different group cardinality and simultaneous updates; the 2020 multistate q-voter paper uses unanimity-based copying. The checked primary texts and scholarly comparisons did not identify a statement covering these exact distributions. Risk remains that a general birth–death comparison treatment or another population-specific paper already derives the same strict order. This self-review is not independent publication-priority verification.
+PASS
 
-## Value — PASS
-Phase-transition and mode analyses do not bound the complete finite-size risk of extreme opinion imbalance. Strict monotone likelihood-ratio order simultaneously resolves every natural stationary polarization threshold, quantile and increasing loss, across the entire noise range and independently of a thermodynamic limit. The small-\(N\) boundary determines when the unicity needed to interpret stationary risk is valid. The distinction between the gain–loss chain and genuine simultaneous group flips is essential and is stated throughout.
+For 0<p<1 every interior birth/death edge is positive in the independence chain. In the anticonformist chain an upward jump exists at k<N iff k≥3 or N−k≥4, and the downward condition is its reflection. Those conditions cover all required jumps from N=6. At N=4 the exact closed classes are {0,1}, {2}, {3,4}; at N=5 they are {0,1,2}, {3,4,5} throughout 0<p<1. Reflection and uniqueness make the stationary law symmetric. Detailed balance gives successive stationary ratios: with a=(k)_3 and b=(N−k−1)_3 on the upper half, a>b≥0. Cancelling the common positive factors gives for independence a fractional-linear derivative of sign b−a and for anticonformity a derivative numerator 4(b²−a²). All relevant denominators are positive on the stated open domain. Folding preserves the consecutive ratios except for the p-independent factor two on the first even-N step. Therefore the likelihood ratio of the higher-noise radial law relative to the lower-noise law decreases strictly. At any nontrivial cutoff its conditional mean above the cutoff is strictly below its conditional mean below, and normalization puts the former below one. Summing positive step increments yields the expectation comparison on the attainable support. A separate exact rational replay at N=6 gave P(D≥4) of 52/77 then 243/593 for independence, and 1296/1391 then 16/23 for anticonformity, at p=1/4 then 1/2. The bounded replay corroborates but does not prove the all-N result. The supplied source was inspected, not executed. No claim extends to simultaneous four-spin updates or to the absorbing endpoints in noise.
 
-## Limits
-No claim is made for exact synchronous or simultaneous four-spin interactions, transient-time law ordering, smaller irreducible anticonformist populations, or publication-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is strict stationary likelihood-ratio ordering of the full folded distribution in both explicitly defined finite four-person gain–loss chains, with the exact anticonformist irreducibility boundary. The coefficients, stochastic order theory and the qualitative noise/disorder picture are not new. The closest checked primary and catalog statements do not cover this exact comparison.
+
+## value
+
+PASS
+
+The four-agent rates are motivated by a concrete model, and a distribution-wide stationary comparison answers strictly more than a phase diagram or the location of peaks. It controls every nontrivial finite polarization tail and increasing decision statistic for both noise mechanisms without taking a large-population limit. The sharp N=6 cutoff also identifies precisely when the anticonformist stationary law is unique in this interpretation. These uses do not require extending the conclusion to the microscopic update protocol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

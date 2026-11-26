@@ -1,19 +1,21 @@
-# Review of the syntactic-monoid theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives an explicit monoid morphism for the full language and a separate realization argument for each of the \(4m^3\) nonzero forms. The construction of arbitrary pair-count residues uses two adjacent admissible zero gaps, whose weights differ by one; it requires no prime-modulus assumption. A two-sided-context case analysis separates the absorbing zero, all four boundary patterns, distinct modular triples, and the external identity. The proof thus covers every modulus \(m\ge2\), including composite moduli, and yields the claimed order. The independent finite program checks all transition transformations for six moduli and direct word membership through length twelve; those finite tests are not substituted for the proof.
+PASS
 
-## Originality — PASS (best-knowledge, with residual risk)
+The scattered-count concatenation term z(u)o(v) and the single illegal join ℓ(u)=f(v)=1 give exactly the displayed product. For any prescribed residues and boundary bits, take at least three ones with the required residue and enforce the minimum gap sizes. Two adjacent allowable zero gaps always exist, including the two interior gaps when both ends are 1. Moving one slack zero from the later to the earlier gap changes p by 1 without changing the letter counts or boundaries, so m−1 slack zeros realize all p, also for composite m. Every nonzero form is accepted in some context by choosing legal boundaries and tuning p(y). Distinct ends are separated by making just one join illegal. For equal ends use joins with 0: the two-sided difference is δp+z(x)δo+o(y)δz, and the tests (z(x),o(y))=(0,0),(1,0),(0,1) detect any nonzero triple before tuning p(y). For ε versus a nonempty word with a 1 at an end one can create a forbidden join only with the word present; with two 0 ends one can create it only with the word absent. The zero rejects in all contexts. Thus equality of signatures is precisely syntactic equivalence, not just a recognizing homomorphism. Each nonzero group H-class has the H_m group law at a nonzero sandwich entry; the sole zero entry joins no additional subgroup. The coordinate commutator yields the central residue 1, so H_m is nonabelian of class two for every m≥2. Independent bounded replay with node /workspace/reviews/evidence/exact-crosschecks.js first refines and checks reachability of the complete DFA and then enumerates transformations of the minimal DFA: for m=2 through 7 it gives 34,110,258,502,866,1374. The analytic context argument, not those six cases, proves the arbitrary-modulus result. The source checker was inspected, not run.
 
-The closest relevant sources were inspected at the level of their motivating definitions and actual statements. Lejeune–Rigo–Rosenfeld's class-two nilpotent correspondence is for integer \(2\)-binomial equivalence on unrestricted words; it neither supplies a Rees sandwich matrix nor proves the two-sided syntactic congruence of the present constrained modular language. Adámek–Milius–Urbat present general syntactic theory without this computed family. Bourne–Ruškuc's Rees analysis concerns contiguous factor counts and abelian underlying groups, not scattered-pair counts and the nonabelian Heisenberg structure. Related indexed exact-state findings cover different languages, observations, or automaton output conventions. Searches of modular subsequences, forbidden adjacent factors, syntactic groups and Rees zero-matrix descriptions did not identify a result covering the stated all-modulus claim; missed equivalent prior work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a natural, explicit algebraic invariant for a regular language combining a global modular scattered-pair statistic with a local forbidden-factor condition. The nontrivial result identifies not merely a recognition automaton but its *minimal two-sided algebraic recognizer*, including all maximal groups and the precise single-zero sandwich obstruction. The theorem separates algebraic information from routine DFA state counts, and the nonabelian/zero-simple coupling is useful for studying syntactic varieties and star-height questions. No stronger theorem about other patterns or constraints is inferred.
+The class-two counting group and Rees formalism are established ingredients. Neither the unrestricted modular mixed-pair transition group, the residue-valued Moore counters, nor the factor-counting literature gives the minimal two-sided quotient of the 11-avoiding single-pair language. The exact indexed hit is the assigned record. The distinct contribution is the boundary-sensitive quotient and its exact size, not the Heisenberg counting law on its own.
 
-## Limits and source comparison
+## value
 
-The proof is self-contained. The full text of the binomial-equivalence paper was inspected in its definition/Parikh-matrix and nilpotent-group sections; the categorical source's introduction and the factor-counting source's Rees-matrix section were inspected. Inaccessible indexed or unindexed papers could still bear on priority. The verification script is a finite cross-check. Exact claims are limited to the specified language and integers \(m\ge2\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Combines a natural modular scattered-pair constraint with the simplest adjacent repetition ban and completely determines the resulting two-sided invariant. The classification gives both the boundary-sensitive zero pattern and the surviving nonabelian maximal subgroups at every modulus, information not captured by a state count or recognizing construction alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

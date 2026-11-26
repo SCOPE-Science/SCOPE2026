@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof conditions on entire stationary source paths and uses the standard immigration–death Poisson representation with independent exponentially distributed lifetimes. The key nonstandard bookkeeping step is to retain the covariance \(K_X(t)=s(3+t)e^{-t}/2\) of the **non-Poisson** intermediate addition output, rather than replacing it by a source Poisson process. In the distributed circuit, combining the two intermediate products into \(P=U+V\) exactly recovers the common-catalyst driver \((A+B)C\). All required integrals are elementary and absolutely convergent. Both means and variances are calculated for all \(a,b,c>0\), and sign classification follows because \((a+b)c>0\). Exact rational tests provide diagnostics, not a proof by enumeration.
+PASS
 
-## Originality — PASS against inspected evidence
+The historical marked-Poisson construction gives a finite-mean stationary queue for each layer. Its covariance separates shared surviving births (μe^(−t)) from the covariance of the conditional intensity filtered at both times; at zero lag the double filter yields a single e^(−t) integral. X is independent of C as a process, but has K_X(t)=s(3+t)e^(−t)/2, not the covariance of a Poisson source. The correctly centered product law gives the three factor-first variance contributions inside m: 5/9, s/2 and 7c/8 besides the shot-noise term 1. For the distributed branches, conditional Poisson superposition with a common unit lifetime identifies the entire U+V process with a queue driven by (A+B)C, not two independent queues. Its driver covariance has e^(−t) coefficient m(s+c) and e^(−2t) coefficient m. The two-stage covariance weights 3/8 and 2/9 then give Var Z/m=31/18+3(s+c)/8. An independent stationary-generator calculation gives the same coefficients using centered source eigenfunctions S−s,C−c,(S−s)(C−c) and a triangular closure for X−s. Subtraction gives exactly m(4−3s−12c)/24 with common strictly positive mean, the stated equality locus, both signs, and the independent-sample and Fano implications.
 
-Anderson and Moon (arXiv:2611.11069v1, Sections 3–7) define these modules and display both equivalent-mean mixed-operation architectures, but derive comparative results for repeated addition or repeated multiplication rather than the explicit distributive-law variance boundary. Their Corollary 4.4 is the necessary established queue covariance tool and is fully credited. The uninspected full text of Dean and Ganesh (2022), DOI 10.1007/s00285-022-01781-9, is a priority risk because it treats tandem infinite-server queues; available publisher material does not resolve whether its broad results imply this exact comparison. No claim of exhaustive uniqueness is made.
+## originality
 
-## Value — PASS
+PASS
 
-The sharply quantified boundary \(a+b+4c=4/3\) proves that the cheaper independent-stationary-readout architecture changes with source intensities, although the encoded mean is identical. The common multiplier source has four times the threshold weight of either addend. The result targets the mixed-arithmetic fluctuation problem expressly motivated in the primary source, rather than an arbitrary tiny parameter case. It does not settle trajectory-average costs or nonunit kinetics.
+The two network architectures and the general stationary queue-moment formulas are already in Anderson–Moon. The comparison audited here is narrowly the variance-ordering theorem, not the diagrams, mean identity, queue filter, or variance propagation formalism. Explicitly resolving the common-drive covariance and comparing the two filtered responses supplies the boundary; the inspected primary result does not provide a mixed-architecture ordering theorem or a ready formula in the three source intensities for Fig. 5.
 
-## Verification and limits
+## value
 
-The analytical proof is in `RESULT.md`. Running `python3 verify.py` from this directory checks the variance formulas, exact symmetry threshold, and both strict regimes with rational arithmetic. The checker only tests finitely many inputs. Earlier queueing full text remains partly inaccessible, and a separate independent mathematical audit has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two circuits are a pre-existing natural choice for the same nonlinear mean computation, and their fluctuation comparison is a gap expressly motivated in the primary work. Exact covariance cancellation/retention produces an anisotropic, sign-changing decision surface for all three positive source rates, not just an equality at one convenient rate. The exact boundary matters for equal-mean independent readout: equal total input rate is insufficient, and dropping the cross-arm contribution changes the decision. This is a useful mixed-operation benchmark despite the elementary filters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

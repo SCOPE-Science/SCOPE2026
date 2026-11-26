@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every coefficient is parametrized uniquely in the seven-dimensional radical. The proof's three disjoint linear-support cases and the zero-linear case cover all elements; multiplication by a unit preserves all power ranks, and the transformations used preserve the square-zero relations. Direct computation of ranks of \(M_f\), \(M_f^2\), and \(M_f^3\) yields each listed Jordan partition. The seven multiplicities sum identically to \(q^7\). A standalone implementation independently builds multiplication matrices and passes exhaustive checks over \(\mathbb F_3\) and \(\mathbb F_5\); these are consistency checks rather than infinite proofs.
+## correctness
 
-**Originality — PASS, qualified.** The 2002 characteristic-zero Lefschetz study, the 2016 positive-characteristic monomial-complete-intersection criterion, and the 2018 Jordan-type survey are compared at the level of assertions. The same-algebra generic \((4,2,2)\) case and the characteristic-three generic obstruction are not new. The claimed full all-element odd finite-field multiplicity table, in particular the \((3,2,2,1)\) nonlinear rank-jump stratum, is not implied by their stated Lefschetz classifications or example computations. Published censuses of different two-variable complete intersections do not specialize via an identified rank- and multiplicity-preserving equivalence. Unindexed historical equivalents remain possible; absence from a search is not a proof of priority.
+PASS
 
-**Value — PASS.** This is a natural complete numerical classification of regular multiplication operators on a canonical eight-dimensional Artinian Gorenstein algebra. The exact probability \(1-q^{-1}\) of a genuinely nonlinear Jordan transition within a fixed linear-support stratum makes explicit what generic linear-form Lefschetz theory misses; the full finite-field frequency table also distinguishes the characteristic-three degeneration. No larger general theorem is required for the precise complete invariant to have standalone mathematical value.
+Checked over every odd field. Without a linear part, the multiplication map squares to zero, with rank 2 for nonzero quadratic part, rank 1 for a pure nonzero cubic, and rank 0 for zero. Otherwise choose x along a nonzero coefficient and write f=xu+v in B⊕xB for B=k[y,z]/(y²,z²), u invertible. Dividing by u preserves every power rank; the kernel for x+w, w=v/u, is exactly (−wc,c) with w²c=0, so the first rank is 4 except for support three, where it is 5. The square has rank 2 for support at least two and rank 1 for support one precisely when the complementary quadratic coefficient is nonzero; otherwise the square is zero. The cube is 6a₁a₂a₃xyz. Rank differences give the displayed partitions; counting linear supports and the free higher coefficients recovers the seven multiplicities summing to q⁷, the conditional probability 1−1/q, and the scalar-shift assertion. Independent enumeration using multiplication columns confirmed the full counts at 3 and 5.
 
-**Closest literature and residual risks.** Harima–Migliore–Nagel–Watanabe, arXiv:math/0208201; Lundqvist–Nicklasson, arXiv:1604.06820; Iarrobino–Macias Marques–McDaniel, arXiv:1802.07383. Primary full-text passages establishing the existing generic cases were inspected. Historical completeness of priority searches is not independently certified; the same-object three-variable finite-field all-element count might exist in an unindexed source. The finite checker cannot establish originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the all-element odd-finite-field table including its nonlinear support-one distinction, not for the already known higher-characteristic strong Lefschetz type or detection of the characteristic-three Lefschetz obstruction. The closest inspected distinct finite-field censuses use different algebras; the same-algebra primary example uses a linear element and supplies no counts for its nonlinear strata.
+
+## value
+
+PASS
+
+The radical of this natural product of three squarezero algebras is parametrized in a way that separates homogeneous Lefschetz effects from the effect of higher terms. The precise distribution is usable in comparisons of multiplication strata over different fields, and the support-one stratum demonstrates that knowing the initial linear form can systematically give the wrong Jordan partition, with exact conditional frequency. The full-field scope and completeness matter; a rederivation of the generic linear case alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

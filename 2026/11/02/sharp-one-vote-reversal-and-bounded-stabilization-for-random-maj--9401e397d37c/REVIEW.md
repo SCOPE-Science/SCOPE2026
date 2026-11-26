@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Directly counting each vertex's neighbors reduces the full synchronous process to deterministic outcomes outside the two critical odd-order layers, complemented balanced cycles at even order, and a two-state transient system in the odd critical case. The proof calculates the critical transition probabilities \(a=2^{-(r+1)}\) and \(b=(r+1)2^{-(r+1)}\), proves \(a+b<1\) for all \(r\ge1\), and solves the two exact first-step systems, including expectations and sharp uniform bound. The independent rational Markov checker passed all 858 count-state comparisons at \(2\le n\le40\). No finite computation is substituted for the infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-The originating complete primary article analyzes the random-majority model on general graphs and cycles, including its exactly overlapping triangle \(K_3=C_3\), but contains no complete-graph classification for the unbounded family \(K_n\). The odd-cycle probability claim is not equivalent to the odd-clique one for \(n\ge5\): on \(C_5\), three initially blue yield eventual blue probability \(3/5\), whereas on \(K_5\) the exact probability is \(5/6\). Adjacent synchronous majority results use incumbent-preserving ties or random graph hypotheses; asynchronous and sampled-neighbor models use different kernels. Targeted mathematical-record searches did not retrieve a covering exact all-clique theorem. Search failure is not proof of novelty; unindexed specialized treatments remain a residual risk.
+PASS
 
-## Value — PASS
-A dense, fully symmetric interaction network is a natural benchmark for the published question of whether random-majority dynamics stabilize quickly. The result distinguishes an *even-size persistent two-cycle* from *odd-size almost-sure consensus*, quantifies precisely when a one-vote strict majority can lose, and yields an all-size sharp global expectation bound plus an exact outcome law for a random initial population. This is an exact structural classification on an unbounded family, not a relabeled general convergence statement or a finite toy count.
+On a loopless even clique, nonbalanced nonunanimous states reach the majority consensus in one update, and balanced configurations complement with no fixed point: closed two-cycles pair distinct complements. On odd order 2r+1, a one-vote layer has r+1 independent tied agents while the initially minority agents are forced to the other color. For each critical row, a=2^(-r-1) is the swap probability and also the direct consensus probability for the current majority; b=(r+1)a is the stay probability. Since a+b<1, these layers are transient and all other nonunanimous states stabilize the next round. Color symmetry gives minority win a/(1-b+a), and the first-step time is 1+(a+b)E+1-2a-b. Its solution 2+b/(1-a-b) strictly decreases from 4 at r=1 to 2; the reversal probability is asymptotic to 2^(-r-1). Conditioning on the binomial count, including the endpoint masses and the even-layer zero entry time, gives both Bernoulli-start formulas for all p.
 
-## Boundaries and closest work
-The clique result does not extend to other graph families or correlated/bias tie-breaking. The \(K_3=C_3\) special case is already covered by cycle theory and is not claimed independently. The relevant cycle and general-graph source is A. N. Zehmakan, DOI:10.1007/s10458-024-09651-y (2024), originally arXiv:2302.06760 (2023); majority dynamics with deterministic incumbent retention is an inapplicable neighboring model. Independent external validation is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original explicitly credits the published triangle special case and the independent fair-tie model. In fact the primary source already implies both the triangle's reversal probability 1/3 and its mean 4. The distinct contribution is the all-clique classification, exact critical formulas on larger odd cliques, and sharp upper bound over that family, not rediscovery of K3 or invention of the tie rule.
+
+## value
+
+PASS
+
+The natural dense benchmark has a nontrivial parity distinction: balanced even cliques enter deterministic blinking immediately, whereas odd cliques stabilize to consensus and can reverse a strict majority only at the one-vote margin. The exact exponentially decreasing reversal probability and sharp bounded mean are quantitative benchmarks on an unbounded family, rather than a routine rediscovery of the triangle or an empirical small-size fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

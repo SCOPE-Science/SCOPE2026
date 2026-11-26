@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and limits
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy installed (declared in `requirements.txt`). This program constructs the Gram matrix independently as `P*P`, evaluates its exact rational determinant on a finite barycentric grid, verifies positivity and spectral bounds at interior values, and compares asymptotic axis eigenvalues across six scales. The embedded output reports exactly 28,300 passed assertions. Determinant and gamma-function constants are evaluated separately.
+## correctness
 
-The seed-fixed exploratory `sampling.py` draws 700,000 independent uniform directions (normalized Gaussian triples); `sampling-output.txt` includes the observed lower-tail rates for four thresholds. The ratios approach the proposed constant slowly, as the proof predicts for logarithmic asymptotics. These are **finite checks only** and do not prove an infinite-threshold law.
+PASS
 
-The proof in `RESULT.md` supplies the determinant algebra, compact spectral separation, off-axis tube bound, six local product-neighborhood contributions, and the limiting squeeze. It establishes the distributional statements for all thresholds tending to zero and the sharp negative-moment threshold. No independent audit or third-party validation was performed.
+Independently expanded diag(1−2p)+ppᵀ on Σp=1 to obtain det M=2p₁p₂p₃; the Gram identity gives positivity. On p₃=0 the first 2×2 block is the outer product of (p₂,p₁) and the third eigenvalue is 1, so even at the axes rank is two. The row sums 1−pᵢ give λmax≤1 and λmin≥det M. Off fixed axis caps, the second-largest |uᵢ| has a positive lower bound, so the small-eigenvalue event is confined to O(√t)-width coordinate bands. In a cap parameterized by (x,y), the two large eigenvalues are 1+O(ρ²) by the entrywise perturbation bound, and λmin/(2x²y²)=1+O(ρ²). Bounding the disk by two squares gives area 4a log(1/a)+Oρ(a) for |xy|<a. With a=√(t/2), area density tending to 1/(4π), and six caps, the resulting coefficient is 3/(π√2). The condition-number event has the same cap asymptotic because λmax tends uniformly to 1 there; the complement is again lower order. Integration gives the moment cutoff, including divergence at equality (the truncated critical moment grows as a squared logarithm). The determinant moment follows by integrating the Dirichlet(1/2,1/2,1/2) density. Reviewed frozen proof and finite verification evidence; no uploaded scripts executed.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the sharp Haar spectral/conditioning laws. The normal-equation matrix is published, and the determinant moment is a Dirichlet beta integral once its polynomial is known; neither is the basis of the originality pass. The closest matrix and random-tail comparisons do not cover the sharp eigenvalue or condition-number statement.
+
+## value
+
+PASS
+
+This is a natural small-dimensional normal-equation matrix from a published tangent solve, not an arbitrary random Gram example. The sharp logarithmic term isolates intersecting rank-loss loci rather than merely locating singular directions, and the infinite mean despite almost-sure invertibility is relevant to amplification in the intermediate solve. The result does not claim the full tangent projector or final covariance is ill-conditioned.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

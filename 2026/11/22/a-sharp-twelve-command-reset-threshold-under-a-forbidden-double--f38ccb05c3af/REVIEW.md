@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is finite, over exactly 65,536 pairs of total transformations of four labeled states. The 31-state image-subset/last-symbol construction is proved by a length induction; its shortest-path metric is exactly the requested constrained reset length, and its full reachable-state closure settles nonexistence. The provided deterministic checker compares this BFS method to an independent exact-length family recurrence for every transition pair, verifies all twelve positive-length bins and the infinite bin, replays a specific 12-letter reset word, and checks a unique 24-element state-conjugacy orbit. An unrestricted baseline is computed independently. Reproducibility uses no third-party dependencies.
+PASS
 
-## Originality
+Each ordered pair of total maps on the four labeled states occurs once. The reachable image subset is propagated exactly by the next input; the preceding symbol suffices to enforce no 00 and the initial sentinel imposes no initial restriction. Thus BFS computes the minimum admissible word length or excludes any admissible reset, terminating on at most 31 nonempty-subset/symbol and start states. The frozen exact-length recurrence was also inspected: repeating the entire ordered pair of reachable families before any singleton guarantees no future singleton. A separately written exact integer enumerator was run on all 65,536 pairs; its bins for 1 through 12 and infinity are (2032, 17088, 15456, 4992, 3696, 1056, 984, 312, 288, 72, 96, 24, 19440), agreeing in every bin. Ordinary synchronization occurs in 51,520 pairs, against 46,096 constrained; containment follows since admissible words are unrestricted words. The length-12 set was compared as a set with all 24 simultaneous state conjugates, keeping letters fixed. The representative has unrestricted minimum 6, constrained minimum 12, and its stated witness ends with singleton mask 4. Replay the separate calculation with python3 /workspace/branches/cf582467-178e-4c4f-a23a-967873f529bf/reproduce_no00.py (no limit); the same directory contains reproduction_full.json. The frozen verify.py was inspected without execution; it offers two exact procedures for this classification. This verifies the specified four-state domain, not any larger automata or arbitrary forbidden patterns.
 
-**PASS, with residual priority risk.** Searches of finite-state constrained synchronization, forbidden `00` input languages, and four-state reset-word thresholds, including the research database, found no statement giving the full labeled exact constrained spectrum, the 24 extremal transition tables, or the 5,424 lost ordinary synchronizers. The 2012 Kisielewicz--Kowalski--Szykuła preprint concerns *unrestricted* shortest reset words; the 2022 Volkov survey sets out regular-language constraints without this enumeration. Other accessible four-state studies concern unrestricted state complexity, adversarial games, or other reset metrics, none of which implies a numerical count for the different, letter-asymmetric language restriction. The inspected 2021 Hoffmann full-text introduction, main theorems and appendix address commutative and simple-idempotent automata or complexity classifications; no exact census of all four-state binary transformations is stated in those material sections. Other unindexed finite tables remain a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A local input restriction models an actuator command that cannot be repeated consecutively. The result gives a complete first-small-scale benchmark for how such a constraint changes synchronizability and latency: 5,424 ordinarily resettable four-state devices lose all admissible reset words, and the sharp surviving worst-case latency doubles from six to twelve for a uniquely characterized family. The full finite distribution and extremal rigidity, not merely code reproducibility, are the mathematical content. It does not assert a general-state bound.
+Bounded statement-level comparisons support the exact 4-state, ordered-letter, forbidden-double-zero distribution and extremal orbit as distinct. Ordinary power-automaton BFS and the study of synchronization constrained by a regular language are established. The strongest distinct Resultary overlap is a five-state extremal classification for a different, state-avoidance predicate, not an equivalently encoded census of input-factor avoidance.
 
-## Closest sources and boundaries
+## value
 
-Kisielewicz--Kowalski--Szykuła (arXiv:1203.2822) supplies the unrestricted subset-BFS context, not the forbidden-factor constraint. Volkov (Russian Math. Surveys 77, section 2.2) introduces regular-language-constrained synchronization, not this census. Hoffmann (arXiv:2109.02743) treats constrained synchronization for restricted automaton classes; the relevant full-text sections, including Theorem 4.3, were read and compared against this all-table census. The exact values here apply only to four *labeled* states and two ordered input letters, and the symmetry is state relabeling only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Synchronization with a repeated command prohibited is a simple natural regular constraint whose finite effects are not captured by ordinary reset thresholds. This exhaustive benchmark identifies both qualitative loss of synchronization (5,424 ordinarily synchronizing pairs) and a sharp finite slowdown (an extremal representative from 6 to 12), and classifies every extremizer without imposing artificial reachability assumptions. The exact distribution can be used to test language-constrained reset searches; no arbitrary-state generalization is needed for that use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

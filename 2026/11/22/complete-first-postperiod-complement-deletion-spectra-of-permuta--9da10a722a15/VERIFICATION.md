@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Computational verification
+# Independent mathematical audit
 
-Run `python3 verify_direct.py` and `python3 verify_gap.py` using only the Python 3 standard library. The saved exact stdout outputs are included as `direct_output.txt` and `gap_output.txt`. The first executable enumerates deletion masks directly, groups fixed deleted and residual words, and checks exact cardinalities, deficits and multiplicities in every nontrivial fiber. The second executable independently uses cyclic block starts and one extra deleted position, checking source-coordinate accounting across a larger range of alphabets and exponents. Actual test ranges and counts are printed in the output files.
+## correctness
 
-Both programs were executed successfully. The checks are finite; the all-parameter result follows from the explicit congruence and gap-counting proof in `RESULT.md`. No independent audit or external formal certification has been performed.
+PASS
+
+The weak-descent jumps in period indices give the embedding count by stars and bars. For a collision, equal retained letters force aligned index differences in {−q,0,q}; a sign change without a zero would require one skipped run of at least 2q positions, impossible with q+1 deletions. At the two ends of a nonzero run each mask is forced to have a full consecutive q-block of deletions. Removing that block always gives P^(n−1), in which distinct single-position deletions give distinct remnants (the symbols between two such positions would otherwise all be equal). For a fixed remaining deletion j=qk+a, there are k+1 or k prefix placements and n−1−k or n−2−k suffix placements, as determined by phase. Both forms can represent the same target only for a fully cyclic q+1-word; exactly the adjacent-block pair represents one mask twice, leaving n−1 distinct masks at each of n−1 indices. The other placement ranges give one fiber of each stated nontrivial size. The excess multiplicities sum to the three deficits. At n=2 the cyclic class has just one singleton output per pattern and every class has zero deficit; absent patterns have zero embeddings and no correction. The class sizes follow by counting prefix and suffix families whose intersection has size q.
+
+## originality
+
+PASS
+
+The supported distinction is the complete length-(q+1), fixed-pattern, rooted output-fiber law for q≥3. The embedding term and first-collision threshold are known; binary three-deletion and one-full-period results are close but do not give the four-class theorem. The same-day matches are considered on substance, without inferring priority from the date.
+
+## value
+
+PASS
+
+The first deletion budget beyond a whole period changes conditional ambiguity in three different ways. The classification identifies every target susceptible to collisions and gives all residual list sizes, which cannot be recovered from the embedding count, injectivity threshold or unconditional deletion sphere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

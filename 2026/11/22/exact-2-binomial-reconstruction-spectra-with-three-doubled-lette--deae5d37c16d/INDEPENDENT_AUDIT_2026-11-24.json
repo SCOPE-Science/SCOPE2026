@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:14:14.573060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4",
+        "Frozen VERIFICATION.md, verify_spectrum.py and verify_independent.py (inspected)",
+        "python3 /workspace/evidence/1.py; output /workspace/evidence/1.txt"
+      ],
+      "rationale": "Every pair of markers determines their relative order. For each core letter, its count before each marker gives a cumulative sum; taking differences and using the total two copies recovers every gap count, including the two end gaps. Those data determine all pair counts except the three oriented core counts, whose reverses sum with them to four. For each fixed marker order and chosen set of k occupied gaps, deletion of markers is a bijection to a core word and a split into k nonempty parts. The independent replay chooses duplicate positions and surjective monotone gap assignments, verifies the complete six-row fiber spectrum on all 2880 cases, and checks each row's source mass. Multiplication by r! times binomial(r+1,k) and summation proves all-r coverage, including r=0. After division by r! the sums and asserted closed forms are polynomials of degree at most six; equality at seven distinct arguments verifies their identities exactly. Source mass and division by (r+6)!/8 give the stated reconstruction probability and its leading 12/r^2 failure term.",
+      "residual_risks": [
+        "Restricted to the specified labeled linear composition and complete scattered deck. No claim for contiguous bigrams, different multiplicities, or higher decks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior general algorithm constructs a class; the thesis studies binary classes and counts all-A^n classes. Resultary feb18b987a9b gives convex-hull and saturation results for ternary support."
+        ],
+        "reasoning": "The arbitrary ternary content in the hull result does dominate the base core composition, but support geometry is not a class-size census. General class generation is available, not a closed or tabulated all-marker distribution.",
+        "searches": [
+          "Focused primary-literature lookup on exact finite ternary fixed-content 2-binomial fibers",
+          "arXiv:2001.11732 §3.1",
+          "Lejeune thesis 2268/259266 chapter 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 26e221758afc, feb18b987a9b and 1773e51815d4",
+        "Rigo–Salimov 2013",
+        "Lejeune–Rigo–Rosenfeld arXiv:2001.11732",
+        "Lejeune 2021 thesis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary law has a single variable oriented pair per core. With three duplicated letters, the three counts must be simultaneously realized by the same ordering in each gap."
+        ],
+        "reasoning": "Marginal binary counts do not give joint cardinalities. Neither support hulls nor a generic enumeration algorithm mechanically implies the explicit 1,2,6 distribution and factorial polynomial law.",
+        "searches": [
+          "26e221758afc RESULT.md proof and Gaussian-binomial law",
+          "feb18b987a9b RESULT.md",
+          "arXiv:2001.11732 §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 26e221758afc uses the same full scattered 2-deck and marker construction, but only two non-singleton core symbols.",
+          "Resultary 1773e51815d4 uses four doubled symbols and all injective patterns through length four, not the same observation."
+        ],
+        "reasoning": "Equivalent formulations by scattered pairs, oriented inversion counts, or 2-binomial equivalence preserve the claim when content is fixed. Treating the third repeated core letter as a singleton would distinguish its copies and change the information.",
+        "searches": [
+          "Resultary: exact scattered two-deck spectra with singleton markers; ternary pair-count fibers; balanced repeated letters",
+          "Rigo–Salimov 2013 defining passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary-core exact deck count and Gaussian-binomial fiber formula are genuine neighboring exact data. The ternary hull record gives the nonsaturation at (2,2,2) but not its fiber counts; the quaternary strong-equivalence record tabulates 1,2,4 under a different deck."
+        ],
+        "reasoning": "These are distinct records, including same-day records considered on their merits. None tabulates the observed six-row certificate or its all-r lift.",
+        "searches": [
+          "Resultary exact fixed-content pair-deck and marker queries; 26e221758afc, feb18b987a9b, 1773e51815d4 original findings"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the three-doubled-symbol all-marker multiplicity spectrum, not the marker-order reduction or the general idea of generating 2-binomial classes. The prior two-core exact formula and same-day ternary support result materially overlap but do not imply the stated populations.",
+      "residual_risks": [
+        "Priority is qualified by the limited indexed and primary passages; no result from the broader web lookup constituted coverage evidence. Shared dates do not order the related records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact overlap in method and two-symbol regime only",
+          "evidence": [
+            "For A and B copies, it counts r! binomial(A+r,r) binomial(B+r,r)(1+AB/(r+1)) decks and gives a Gaussian-binomial coefficient for each fiber."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-two-deck-spectra-and-fiber-multiplicities-with-distinct-ma--26e221758afc",
+          "material_read": "Original RESULT, finding and marker/gap argument, offset 0 onward",
+          "method": "Resultary local mirror",
+          "title": "Exact two-deck spectra and fiber multiplicities with distinct marker letters",
+          "trigger": "Closest prior exact marker theorem"
+        },
+        {
+          "assessment": "Covers support geometry, not the claimed spectrum",
+          "evidence": [
+            "Saturation holds iff at most one multiplicity exceeds one; hence (2,2,2) is nonsaturated, but no complete class-size census is stated for it."
+          ],
+          "identifier_or_url": "Resultary feb18b987a9b",
+          "material_read": "Original finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Integer saturation threshold and exact lattice-hole law for ternary pair-count coordinates",
+          "trigger": "Same ternary scattered-pair coordinates, arbitrary content"
+        },
+        {
+          "assessment": "Different alphabet, composition and deck",
+          "evidence": [
+            "Uses injective patterns through length four and gives sizes 1,2,4."
+          ],
+          "identifier_or_url": "Resultary 1773e51815d4",
+          "material_read": "Original finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete strong M-equivalence census on the balanced quaternary core",
+          "trigger": "Neighboring doubled-letter exact census"
+        },
+        {
+          "assessment": "Foundational, not an exact marker census in inspected text",
+          "evidence": [
+            "Defines scattered-subword binomial equivalence and considers factors of infinite words."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "PDF pp. 1–2 offsets 350 and 3000",
+          "method": "OA author preprint",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Core equivalence and model"
+        },
+        {
+          "assessment": "General class generation, not the numerical spectrum",
+          "evidence": [
+            "Section 3.1 provides an algorithm for a 2-binomial class."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11732",
+          "material_read": "Abstract and §3.1, pp. 1, 5, offsets 0 and 11900",
+          "method": "OA original preprint PDF",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "General class construction could provide stronger coverage"
+        },
+        {
+          "assessment": "Relevant general and binary results; no matching law in passages compared",
+          "evidence": [
+            "Inspected treatments include binary 2-binomial classes and counting classes in all A^n."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/259266",
+          "material_read": "Overview p. 7, chapter 2 p. 26 and §2.4 pp. 36–37, offsets 1500, 94500, 121500",
+          "method": "OA thesis PDF",
+          "title": "On the k-binomial equivalence of finite words and k-binomial complexity of infinite words",
+          "trigger": "Thesis treatments of reconstruction and class counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary exact two-core record 26e221758afc"
+      ],
+      "rationale": "The first balanced doubled core with all three distinct pair coordinates interacting gives a natural test of how labeled singleton markers resolve ambiguity. The exact number of sixfold ambiguities and the sharp failure probability for increasing marker count distinguish this from an isolated finite census or a restatement of the two-core result.",
+      "residual_risks": [
+        "The contribution is the exact fixed-core benchmark and not a general classification method for arbitrary core multiplicities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

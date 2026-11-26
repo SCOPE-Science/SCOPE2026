@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:41:49.818825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With signed incidence matrix B and independent fair edge signs z, Q=||Bz||^2/4. Its expectation is |E|/2 and 2(Q-EQ) has one quadratic monomial for each unordered incident edge pair. In a simple host distinct pairs give orthogonal monomials, so the variance is one fourth the wedge count. In the cube an edge sign must occur with even multiplicity: the only surviving triples consist of three distinct monomials forming a triangle on the line graph. The six orderings all have coefficient +1 for three edges at one vertex and -1 for a host triangle, because in the latter case each edge has one incidence sign at each of its endpoints. This gives the third central moment exactly, with no connectedness assumption. For the histogram on a nonempty host of positive common degree, nonadjacent degrees are independent; a shared edge distributes its sole win across the pair and the remaining d-1 signs per vertex are independent. This gives pair covariance -1/4 times the product of the two binomial mass differences, which equal 2(2r-d)p_r/d and 2(2s-d)p_s/d. Combining nd such ordered terms with n same-vertex terms and whitening subtracts the orthogonal constant and binomial-linear directions from the identity; d=1 gives the zero projection. The dispersion formulas also hold on an empty graph, where whitening is not defined. Independent orientation enumeration checked the triangle and claw (opposite cubic signs), a matching, the prism and K_{3,3}, including regular histogram ranks and every covariance entry for the tested regular hosts (python3 /workspace/review-checks.py, orientation section).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanchez–Kolesnik concern feasible and mean score vectors; Claesson et al. count attainable sequences; Lin–Reinert concern undirected edge-presence randomness and degree-count approximations."
+        ],
+        "reasoning": "Feasible scores or counts of distinct scores do not give probability weights or this cubic moment. An undirected random shared edge contributes positively to both endpoint degrees; a fair orientation on a fixed edge contributes its win to exactly one endpoint. No inspected general theorem evaluates the arbitrary-host graph observable and its triangle recovery in this model.",
+        "searches": [
+          "Sanchez–Kolesnik arXiv:2009.09322v1 §§1–2; Claesson et al. arXiv:2209.03925v2 abstract and §1; Lin–Reinert arXiv:0912.4812v1 PDF pp. 1,9",
+          "Resultary: second/third moments and joint score law for arbitrary simple hosts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b1a5bc4f704d and 49a1005c0e97",
+        "arXiv:2009.09322v1",
+        "arXiv:2209.03925v2",
+        "arXiv:0912.4812v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the tournament proof the pair law is (A+E,A'+1-E), with independent Bin(d-1,1/2) variables A,A' and fair E for degree d. Any edge in any d-regular simple host has exactly this law. There are nd ordered edges, just as used per n in the tournament sum; the remaining distinct pairs have zero covariance.",
+          "The width record involves continuous directional width and additional path/Gaussian terms, not this signed Rademacher polynomial."
+        ],
+        "reasoning": "The prior tournament pair formula plus nonedge independence already implies the regular covariance formula after counting pairs. It does not imply an arbitrary-host third moment of the sum of quadratic scores, which samples triples of vertices and has the sign-sensitive line-graph evaluation. The prior width result also does not imply that cubic formula under a variable identification. This pass rests on the latter evaluated graph identity and the second-order versus third-order distinction, not on asserting that all components were unknown.",
+        "searches": [
+          "Resultary b1a5bc4f704d RESULT.md proof at offset 2000; 49a1005c0e97 RESULT.md Finding and motif expansion at offsets 0–9097"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2(Q-EQ) is a quadratic sign chaos with signed line-graph coefficients. The generic third-moment expansion is six times the signed sum of coefficient triangles.",
+          "Resultary 49a1005c0e97 treats the intrinsic spherical directional width of a connected graphical zonotope and its third-moment motif sum."
+        ],
+        "reasoning": "The generic sign expansion is standard; the exact evaluated graph statistic uses the incidence signs to turn coefficient triangles into a star count minus the host triangle count. Uniform spherical width is built from absolute inner products of edges with a continuous random direction, not from squaring a sum of independently signed incidence vectors. Its extra motif terms and regular-host statement do not specialize to the present dispersion identities.",
+        "searches": [
+          "Resultary: fair random orientation squared centered outdegree dispersion, signed line-graph cubic moment, triangle recovery",
+          "Open web: Rademacher quadratic form third centered moment trace cube off diagonal Hutchinson 8 tr(A^3) exact third moment zero diagonal skewness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b1a5bc4f704d gives the same normalized covariance projection for random tournaments H=K_n and the exact covariance of arbitrary functions of the two incident scores. Resultary 49a1005c0e97 gives third-moment triangle recovery from spherical width rather than scores."
+        ],
+        "reasoning": "The tournament formula is an exact overlap on complete hosts and its pair calculation directly transports to regular hosts. The width finding is a strong conceptual overlap, but neither record evaluates the third central moment of this random orientation dispersion on arbitrary hosts. No exact arbitrary-host cubic identity was located in the bounded comparisons.",
+        "searches": [
+          "Resultary: exact regular-host score histogram covariance and binomial projection; cubic star-minus-triangle moment of orientation dispersion"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact signed star-versus-triangle identity for the cubic dispersion moment on arbitrary fixed simple hosts and its use to recover triangle counts that second-order regular score data cannot distinguish. First and second moments use classical sign orthogonality and are not asserted to be new general moment methods. The histogram half has a direct published tournament precursor and its extension to regular graphs follows routinely from the already published pair calculation and independence of nonadjacent vertices; it is not credited as standalone originality. The close prior angular-width result recovers triangles from a different random observable and does not yield this identity.",
+      "residual_risks": [
+        "The generic third moment identity of quadratic fair signs is classical and no novelty is attributed to it. An unlocated application, trace evaluation for this exact graphical statistic, or direct paired-comparison source may reduce historical priority further.",
+        "Bounded catalogue and literature checks do not imply absence of other formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact tournament overlap and routine regular extension from the pair covariance; not the cubic dispersion identity",
+          "evidence": "Cov(phi(D_i),psi(D_j))=-E[Delta phi(A)] E[Delta psi(A)]/4; both whitening null modes and the projection spectrum are stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-covariance-projection-for-the-score-histogram-of-random--b1a5bc4f704d/RESULT.md",
+          "material_read": "Finding and proof, including shared-edge law and arbitrary-score-function covariance",
+          "method": "Local mirror text, especially offset 2000–4886",
+          "title": "An exact covariance projection for the score histogram of random tournaments",
+          "trigger": "Exact covariance special case and potentially stronger implication"
+        },
+        {
+          "assessment": "Conceptual overlap, not the same random variable or formula",
+          "evidence": "Intrinsic spherical directional width on connected hosts and additional motif weights, with triangle recovery for fixed-order regular graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-third-angular-width-moments-of-regular-graphical-zonotopes-recov--49a1005c0e97/RESULT.md",
+          "material_read": "Finding, motif expansion, triangle coefficient and limitations, offsets 0–9097",
+          "method": "Local mirror RESULT.md",
+          "title": "Third angular width moments of regular graphical zonotopes recover triangle counts",
+          "trigger": "Closest triangle recovery from third moments"
+        },
+        {
+          "assessment": "Feasibility and means, not cubic dispersion or covariance projection",
+          "evidence": "Describes attainable scores and mean score vectors through graphical zonotopes.",
+          "identifier_or_url": "https://arxiv.org/html/2009.09322v1",
+          "material_read": "§1 near offset 185 and §2 near offset 3900",
+          "method": "OA primary HTML passage comparison",
+          "title": "The geometry of random tournaments",
+          "trigger": "Same broad arbitrary-host score setting"
+        },
+        {
+          "assessment": "Different count and scope",
+          "evidence": "Counts attainable sequences on complete tournaments, not sampling each orientation with equal probability on arbitrary fixed hosts.",
+          "identifier_or_url": "https://arxiv.org/html/2209.03925v2",
+          "material_read": "Abstract and §1, offsets 0–3482",
+          "method": "OA primary HTML passage comparison",
+          "title": "Counting tournament score sequences",
+          "trigger": "Score-sequence generating functions as possible distributional antecedent"
+        },
+        {
+          "assessment": "Different dependence model and conclusion",
+          "evidence": "Random undirected edge presence and Poisson/normal degree-count approximation rather than exact oriented fixed-host third moments.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.4812",
+          "material_read": "PDF pp. 1 and 9, text offsets 0 and 28000",
+          "method": "OA primary PDF passage comparison",
+          "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+          "trigger": "General alternative for joint degree-count moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The centered squared score is a natural measure of dispersion of random orientation data. The exact cubic dependence recovers a host subgraph count from the statistic once degrees are known, even for disconnected simple hosts; regular hosts such as the triangular prism and K_{3,3} have entire second-order histograms indistinguishable in the covariance sense but distinct third dispersions. This supplies a concrete information threshold, not just a generic chaos expansion or a finite table. It does not identify the entire orientation-score law or remove the need for known degrees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

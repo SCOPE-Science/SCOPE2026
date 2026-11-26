@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:24:01.784541Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–56 and VERIFICATION.md; exact-rational verify.py inspected, not executed.",
+        "Tiwari–Ansary arXiv:2610.18428v1 §§2.1, 3.1 and 4.2 and Assumption 1."
+      ],
+      "rationale": "With PSD corrections the quadratic constraints imply the affine constraints; zero corrections at the unique affine optimum leave it feasible, so the shared objective has the same unique optimum on the nested set. For the indefinite model, y(1-x)≤0 includes the upper half-plane on the side x>1 and the lower half-plane on x<1, with x=1 unconstrained. Projection of (r,m) to y≤0 gives (r,0), a zero of the correction −xy, whereas (r,m) itself is strictly feasible in the quadratic model for r>1,m>0. The Euclidean distance between solutions is m and the objective gap is m²/2. At (r,0) the active normal is (0,1−r), so cancelling the objective gradient (0,−m) requires a negative multiplier; increasing y slightly is feasible and strictly improves the objective. The constant constraint Hessian has norm one and the base gradient is nonzero. The source's positive normalization floor and zero first-step smoothing leave the indicator at zero even as m grows, selecting SQP at that comparison.",
+      "residual_risks": [
+        "The assertion is for global optima of the stated one-step models. It is not a claim about a nonconvex solver, convergence, or a family with bounded objective-gradient scale."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tiwari–Ansary uses full constraint Hessians, with a norm bound rather than PSD. Lemma 4.2 requires a shared active set and small directions in a regular local regime under additional assumptions.",
+          "Solodov's convex-constraint setting and cited earlier convex SQCQP setting do not admit the indefinite inequality here."
+        ],
+        "reasoning": "Neither the local comparison nor convex SQCQP results give the indefinite global model-gap conclusion; shared-objective SPD is a chosen instance, not a restriction of the source's full algorithm.",
+        "searches": [
+          "Tiwari–Ansary §§2.1 and 4.2 and Assumption 1",
+          "Solodov, DOI 10.1287/moor.1030.0069, §1 and its discussion of Fukushima–Luo–Tseng"
+        ]
+      },
+      "checked_sources": [
+        "Tiwari–Ansary 2610.18428v1",
+        "Solodov DOI 10.1287/moor.1030.0069",
+        "Resultary mirror findings listed above",
+        "Fukushima–Luo–Tseng via Solodov only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives the model definitions and switching trigger; the signed quadratic-model normal at the probe can oppose the affine one even with zero correction. The cited local direction comparison is not a global model discrepancy result."
+        ],
+        "reasoning": "Vanishing of the source's indicator for this family is a direct consequence of its definition, not the novelty. Exact projection, feasibility of the unconstrained minimizer and normal reversal give the unbounded directional/objective gaps and nonstationarity that the checked source does not imply.",
+        "searches": [
+          "Tiwari–Ansary Eqs. (4)–(5) and (10)–(14), Lemma 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest diagnostic analogue, projected eigenpair certification Theorem 1, yields zero residuals with unbounded eigenvalue error by selecting the wrong eigenvalue index; it has no competing Taylor constraint models. The leading primary search hit concerned a different natural-SQP method."
+        ],
+        "reasoning": "A zero diagnostic is not an equivalent hypothesis unless it tests the scalar quadratic constraint correction at the affine minimizer and compares the two model optima. The closest checked analogue does not do so.",
+        "searches": [
+          "Resultary: zero curvature at SQP probe unbounded model gap nonstationarity; RCMCI zero correction SQP direction quadratic constraint nonstationary counterexample",
+          "Primary web search: \"zero curvature\" SQP probe unbounded gap nonstationarity quadratic constraint model minimizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed eigenpair false-positive and gradient-alignment records involve a wrong constrained eigenvalue index and PSD random-subspace moments, respectively. The target result is an analytic unbounded real-parameter family."
+        ],
+        "reasoning": "A finite table of zero-indicator examples would not establish unboundedness or equivalent structural behavior. No covering analytic catalogue entry was found in the checked comparisons.",
+        "searches": [
+          "Resultary model-gap and RCMCI queries above"
+        ]
+      },
+      "rationale": "The supported distinctive result is the indefinite, fixed-Hessian falsification of the zero-probe gap and stationarity certificate in the specified shared-objective models. The PSD nesting observation and the indicator are antecedent or elementary context, not separate originality claims.",
+      "residual_risks": [
+        "A broader nonconvex model-selection counterexample could cover this case; bounded search is not priority certification. Primary Fukushima–Luo–Tseng text was unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Admits indefinite constraint curvature; the local comparison does not cover this one-step global counterexample.",
+          "evidence": "The first smoothed indicator starts from zero, the denominator has a positive floor, and the low threshold is positive. The local lemma assumes a small SQP direction and identified active set.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18428v1",
+          "material_read": "§2.1 p. 6 Eqs. (4)–(5), §3.1 pp. 8–10 Eqs. (10)–(14), p. 13 Assumption 1, §4.2 pp. 16–17 Lemma 4.2",
+          "method": "Bounded OA PDF inspection",
+          "title": "Adaptive Variance-Reduced Stochastic Sequential (Quadratic Constrained) Quadratic Programming",
+          "trigger": "Original probe rule and most plausible broader coverage"
+        },
+        {
+          "assessment": "Convex setting does not cover the indefinite witness.",
+          "evidence": "Constraint convexity and Slater are the stated setting.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.1030.0069",
+          "material_read": "§1 pp. 64–65, including discussion of earlier convex schemes",
+          "method": "OA PDF offset 0",
+          "title": "On the Sequential Quadratically Constrained Quadratic Programming Methods",
+          "trigger": "Earlier convex SQCQP results"
+        },
+        {
+          "assessment": "The available account concerns a convex setting; no primary whole-document assessment.",
+          "evidence": "Solodov §1 describes the prior method for convex objective and constraints.",
+          "identifier_or_url": "https://doi.org/10.1137/S1052623401398120",
+          "material_read": "Bibliographic record and Solodov's account, no primary full text",
+          "method": "Publisher request returned 403; DOI OA recovery found no repository copy",
+          "title": "A Sequential Quadratically Constrained Quadratic Programming Method for Differentiable Convex Minimization",
+          "trigger": "Earlier potentially relevant SQCQP theorem"
+        },
+        {
+          "assessment": "Genuine diagnostic analogy, no equivalent probe or model-gap claim.",
+          "evidence": "Wrong eigenvalue identification can coexist with zero residuals; the mechanism is different from an indefinite constraint normal reversing.",
+          "identifier_or_url": "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4",
+          "material_read": "Local mirror RESULT.md offset 0, Theorem 1",
+          "method": "Resultary search then bounded mirror inspection",
+          "title": "Projected eigenpair certification false positive",
+          "trigger": "Closest indexed zero-diagnostic/unbounded-error analogue"
+        },
+        {
+          "assessment": "Different quadratic object and question.",
+          "evidence": "Random-subspace step moments for a singular PSD objective, not a two-model comparison with quadratic constraint correction.",
+          "identifier_or_url": "2026/11/2/SCOPE-gradient-alignment-doubles-the-codimension-threshold-for-haar-su--b7de715e5af7",
+          "material_read": "Local mirror RESULT.md offset 0, finding",
+          "method": "Resultary search then bounded mirror inspection",
+          "title": "Gradient alignment doubles the codimension threshold for Haar subspaces",
+          "trigger": "Nearby indexed curvature result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof §§2–4 and Limitations; Tiwari–Ansary §3.1."
+      ],
+      "rationale": "This is a motivated failure mode for a published adaptive diagnostic, not just a general caution about indefinite constraints: exact zero can coexist with unbounded error and failure even of model first-order stationarity while the Hessian norm stays fixed. The PSD case explains which structural protection is lost. Model comparisons, solver guarantees and algorithm convergence are correctly distinguished.",
+      "residual_risks": [
+        "A different diagnostic or a bound that accounts for step and gradient scale can escape this witness; it does not refute the motivating local lemma."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

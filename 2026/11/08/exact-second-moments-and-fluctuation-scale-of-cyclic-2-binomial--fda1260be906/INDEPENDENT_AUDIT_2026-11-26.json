@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:25:29.885212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed weight the scattered-01 count determines the whole signature; moving a zero to the end subtracts 2h and moving a one adds 2m−2h. Thus a collision modulo 2m can only be between opposite cuts by coprimality, and it occurs exactly when the corresponding half-window has h ones. There are no larger classes, and C is the sum of the m collision indicators. At lag d, splitting into alternating arcs d,m−d,d,m−d, imposing both balance equations and the total count gives counts a,h−a,a,h−a. This yields the exact joint count and hence both exact moment formulas, including empty summands. For the asymptotics, Stirling gives P(I_0=1)∼1/sqrt(πm q), q=p(1−p). Conditional on I_0=1 the two halves are independent fixed-weight samples; the lag-d return probability is the squared mass sum of Hypergeom(m,h,d). Its mode is within O(1) of d h/m; Stirling at the mode bounds the maximum mass by K/sqrt(1+d(m−d)/m) uniformly (entropy concavity bounds the exponential factor by one, and d or m−d bounded is immediate). For interior lag fractions, uniform Stirling expansion on any fixed standard-deviation window gives the normal mass; outside L standard deviations, the squared-mass tail is bounded by the maximum mass times L^−2 by Chebyshev. This yields the exact interior limit 1/(2 sqrt(πm q x(1−x))). The maximum bound controls endpoint strips with integrable x^−1/2 and (1−x)^−1/2 envelopes. Expanding E C²/m gives the integral π/2 with prefactor 1/(πq); subtracting the squared scaled mean gives (π−2)/(2πq). No weak limit is needed. Even the interpretation as nonconcentration at the sqrt(m) scale is justified: conditioning on the first of three balanced cuts forces equal block counts in two independent halves across three block lengths l_i partitioning m. The maximum joint block-count mass is at most K sqrt(m)/sqrt(l_1 l_2 l_3), by representing the counts by independent binomials conditioned on their sum h. With the first balance factor this gives the joint probability bound K/sqrt(l_1 l_2 l_3); summing over the two gaps and a starting cut gives E C³=O(m^{3/2}). Thus the squared rescaled deficits are uniformly integrable, and the positive limiting variance excludes convergence in probability to a constant.",
+      "status": "PASS",
+      "verification": "python3 /workspace/reproducibility/frozen_checks.py 5 computed the signature on each cut by summing the shifted positions of ones (the difference from the scattered-01 count is constant). Both exact numerators agree for all 25,180 words of the admissible strata through m=8. The frozen verifier was inspected, not executed. The local limit and endpoint estimates, rather than the finite check, prove the asymptotic statements."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The deterministic theorem covers all gcd strata and specializes here to m≤T≤2m−1; its conclusion also gives extremal configurations.",
+          "Golafshan Section 5 treats cardinalities of classes over all length-n binary words, not the orbital occupancy of these classes in one random word.",
+          "No applicable moving-window local-time convergence theorem with moment control was established in the check."
+        ],
+        "reasoning": "Broader applicability to weights of deterministic bounds or to global linear equivalence classes does not force this conditional orbit law. A general moving-window local-time theorem with the right uniform integrability might yield the asymptotic constants, but an ordinary bridge process-limit theorem does not transfer local times or unbounded moments by itself.",
+        "searches": [
+          "Resultary 4ff94afd6c61, Finding and Proof",
+          "arXiv:2606.23426, Section 5",
+          "Focused search for balanced semicircle window occupation and bridge local-time moment results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4ff94afd6c61 and 254aad83cd24; assigned self-hit separated",
+        "arXiv:1310.4743",
+        "arXiv:2606.23426",
+        "identified access attempts for DOI 10.1051/ita/2016019 and OEIS A119462"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic cut identity makes a single balanced-window probability elementary but does not enumerate the two-window joint events or prove the local mass estimates.",
+          "A candidate moving-window Gaussian process B(t+1)−B(t) from a unit Brownian bridge on [0,2], scaled by sqrt(q), has covariance q(1/2−|t−s|); its zero-density moment integrals agree with the constants. The ordinary-bridge record does not prove a discrete moment limit for that moving-window process."
+        ],
+        "reasoning": "The distinct contribution is the finite two-window second moment plus positive-order variance, not the reduction alone, and not an asserted theorem on full distributional convergence. Neither deterministic sharpness nor ordinary bridge occupation statistics supply that contribution by specialization.",
+        "searches": [
+          "Resultary 4ff94afd6c61, offsets 0–4957",
+          "Resultary 254aad83cd24, offsets 0–3028",
+          "arXiv:2606.23426, Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-object catalogue record 4ff94afd6c61 gives deterministic bounds and equality cases for cyclic signatures, including the cut method.",
+          "The earlier definition in arXiv:1310.4743 counts scattered subsequences. The ordinary bridge record defines zero local time of a single bridge, not the moving half-increment of a bridge."
+        ],
+        "reasoning": "At fixed weight inversion/01 counts and half-window collisions are real equivalents to the random deficit, not different objects by terminology. An ordinary bridge local-time profile concerns a different process and does not give the two-window collision law.",
+        "searches": [
+          "Resultary: cyclic 2-binomial signature diversity, fixed-weight gcd-two deficit and balanced semicircle collisions",
+          "arXiv:1310.4743, Introduction",
+          "Resultary 254aad83cd24, ordinary Brownian bridge local time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded catalogue comparison retrieved the assigned self-hit and the separate exact deterministic bounds record, not a distinct matching moment table.",
+          "The full class-size distributions addressed in Section 5 are for linear classes. The A119462 page could not be reopened in this review, so is not used to certify noncoverage."
+        ],
+        "reasoning": "A linear class-size census has no overlap information about rotations within a class. The relevant exact evidence is the catalogue comparison and class-size passage, not the failed database access.",
+        "searches": [
+          "Resultary: exact binomial-square first and second moments of cyclic 2-binomial deficit",
+          "arXiv:2606.23426, exact class-size distribution discussion",
+          "OEIS A119462 (entry access attempt)"
+        ]
+      },
+      "rationale": "The deterministic signature identity and sharp cyclic diversity bounds are overlapping results, explicitly outside the finding's novelty claim. The finding is the random finite moment pair and the asymptotic constants in the gcd-two stratum. Neither the closely matching deterministic catalogue result nor the inspected class-size and ordinary bridge-local-time results supply these. Same-day catalogue chronology is not inferred.",
+      "residual_risks": [
+        "A directly applicable moment theorem for moving-window bridge local time or an exact scan-statistics calculation might be indexed under distinct terms.",
+        "The Arnoux article and OEIS entry were not passage-checked here; neither is used as proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic overlap, not random moment coverage.",
+          "evidence": [
+            "The exact deterministic bounds use n/gcd(n,k) and n−gcd(n,k)+1 and include equality cases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-cyclic-2-binomial-fingerprint-bounds-at-fixed-binary-weigh--4ff94afd6c61",
+          "material_read": "Local mirror RESULT.md Finding and Proof, offsets 0–4957.",
+          "method": "Resultary search and bounded mirror reading.",
+          "title": "Sharp cyclic 2-binomial fingerprint bounds at fixed binary weight",
+          "trigger": "Distinct same-date record on precisely the orbital statistic."
+        },
+        {
+          "assessment": "Foundational equivalence definition; no random cyclic moment in the checked passage.",
+          "evidence": [
+            "Defines equivalence by matching scattered subsequence counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4743",
+          "material_read": "Introduction, p. 1, offsets 2650–4748.",
+          "method": "Bounded passage in OA PDF.",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "Primary definition and possible equivalent formulation."
+        },
+        {
+          "assessment": "Different global sample space and counted object.",
+          "evidence": [
+            "The section studies full class-size distributions for linear 2-binomial equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.23426",
+          "material_read": "Section 5, p. 12, offsets 49850–52396.",
+          "method": "Bounded passage in OA PDF.",
+          "title": "Binary binomial equivalence via hyperplane arrangements",
+          "trigger": "Global class-size distribution possibly stronger than the orbit statistic."
+        },
+        {
+          "assessment": "Different continuous process and no lattice half-window moment implication.",
+          "evidence": [
+            "The process is the ordinary standard Brownian bridge and the statistic its local time at zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-factorized-local-time-displacement-covariance-profile-for-the--254aad83cd24",
+          "material_read": "Local mirror RESULT.md Finding and Assumptions, offsets 0–3028.",
+          "method": "Resultary search and bounded mirror reading.",
+          "title": "A factorized local-time displacement covariance profile for the Brownian bridge",
+          "trigger": "Potential equivalent local-time formulation or stronger theorem."
+        },
+        {
+          "assessment": "Access limitation only.",
+          "evidence": [
+            "No whole-document noncoverage assessment is made from these attempts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ita/2016019 ; https://oeis.org/A119462",
+          "material_read": "No primary passage retrieved in this review.",
+          "method": "Identified OA routes attempted; timed out.",
+          "title": "Note on occurrences of factors in circular words; OEIS A119462",
+          "trigger": "Circular statistics and potential exact lookup under different terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gcd two is the first arithmetic stratum where signatures collide, not an arbitrary choice of parameters. Sharp deterministic bounds do not say whether the typical deficit is order one or order m. The exact moment pair and strictly positive order-m variance determine its typical mean and fluctuation scales with explicit density dependence, a useful quantitative benchmark for any fuller law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

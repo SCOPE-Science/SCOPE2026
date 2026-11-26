@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:08.362042Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The P1 Dirichlet mass and stiffness normalization gives the stated exponent and 0<λ(C_n)<4, so the mass is positive definite even at p=1. At p=0 the tridiagonal generator is Metzler, giving positivity for positive times. At p>0, rescale by z=6t/(ph²) and apply the Laguerre generating function on the spectrum of X=p C_n/6. The entry at distance d is zero in powers below d, and its dth-power coefficient is the unique shortest path, (−1)^d. Dividing the rescaled entry by (p/6)^d gives an analytic extension through p=0, uniformly on compact z sets, with leading coefficient (−1)^d L_d^(−1)(z)=−(−1)^d z L_(d−1)^(1)(z)/d. Orthogonality for weight z exp(−z) makes the d−1 positive zeros simple. The implicit-function theorem yields simple perturbed crossings and the O_n(p²) dimensionless-time error at fixed n. For d=n−1 the spectral entry has n distinct real exponential rates, since λ/(1−pλ/6) is strictly increasing. Factoring the slowest term and differentiating gives the n−1 zero bound by Rolle's theorem, counting multiplicity. The mandatory origin zero and n−2 positive roots exhaust it; the origin is simple for p>0, consistent with the signed inverse-mass derivative. For n=3 the scaled far-corner sign is that of exp((s₂−s₁)τ)+exp(−(s₃−s₂)τ)−2, with s₃−s₂>s₂−s₁ for p>0 by strict convexity of the eigenvalue map. This expression is strictly convex, initially decreases, and ultimately tends to infinity. The other entries are positive for τ>0; the p=0 endpoint instead has no positive crossing. Independent 55-digit decimal bisection on [0.2,0.3] of this expression at p=1 with rates 6λ/(6−λ), λ=2−√2,2,2+√2 gives 0.212811776921431205, confirming the reported numerical example. The uploaded checker was not run; the fixed-n proof, not finite checks, gives the exact count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin et al. show non-diagonal mass short-time failure under their normal-triangulation assumption, and eventual strict positivity under a positive inverse hypothesis. The indexed negative outer jump result concerns finite-range difference stencils and finite cycles, not this resolvent-modified stiffness.",
+          "The directly relevant 2015 heat-positivity DOI did not yield full text; Jin et al.'s introduction reports qualitative positivity-restoration context, not a direct check of that source."
+        ],
+        "reasoning": "The qualitative wider positivity regimes do not determine how often an individual far-end entry crosses, or the scale and Laguerre locations of all crossings. The inverse of the blended mass also produces a dense semidiscrete generator, outside the stated finite-range stencil comparison.",
+        "searches": [
+          "arXiv:1510.02825 §3 Theorems 3.1–3.2",
+          "doi:10.1515/cmam-2015-0018 publisher page and lawful repository lookup",
+          "Indexed negative outer jump lattice sign-oscillation result, 904e3c4eba47"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fed0fef23ca8",
+        "Resultary 66f05a5db76c",
+        "Resultary 904e3c4eba47",
+        "Resultary 4c1a571738ca",
+        "arXiv:1510.02825",
+        "doi:10.1515/cmam-2015-0018 (limited access as noted)",
+        "doi:10.28919/jmcs/7407"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative failure can already be seen at distance two from G_p=−C_n−(p/6)C_n²+O(p²). Prior exact Dirichlet p=1 and explicit integrator positivity tests do not supply the singular time expansion for p near 0."
+        ],
+        "reasoning": "Small- and large-time sign theorems do not bound or locate intermediate zeros, and the classical scalar Laguerre identity does not by itself imply a complete positive-time zero count. The new statement requires distance-filtered transport of the roots plus a zero-count argument for the specified far-end exponential sum.",
+        "searches": [
+          "arXiv:1510.02825 primary PDF §3, p. 7",
+          "Indexed three-node Dirichlet RESULT.md Finding/Assumptions, fed0fef23ca8",
+          "doi:10.28919/jmcs/7407 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 2026/10/12/SCOPE-three-interior-nodes-are-the-first-uniform-one-dimensional-galer--fed0fef23ca8 has the exact three-node p=1 consistent-mass recovery. Indexed 2026/10/26/SCOPE-reentrant-galerkin-heat-kernel-signs-on-periodic-one-dimensional--66f05a5db76c finds two positive zeros of a distance-three entry on the six-cell consistent-mass periodized system."
+        ],
+        "reasoning": "The first result is equivalent at the single fully consistent endpoint and is credited there. Two zeros for one cyclic entry at p=1 are not equivalent to the Dirichlet far-end count for arbitrarily small p at every fixed n; the spectrum and entry are different.",
+        "searches": [
+          "Resultary: partially lumped P1 heat semigroup endpoint sign crossings and generalized Laguerre times",
+          "Indexed three-node Dirichlet positivity and periodic reentrant heat-kernel RESULT.md findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-node sharp consistent-mass recovery is recorded by fed0fef23ca8. The indexed 4c1a571738ca counts zeros as the blend varies for an unassembled tensor-element inverse entry, not as time varies in the assembled semigroup."
+        ],
+        "reasoning": "No additional matching index formula for the time-scale Laguerre root hierarchy is established by these hits. The matching p=1 benchmark and classical Laguerre root facts do not constitute a table of the p-dependent heat crossings.",
+        "searches": [
+          "Resultary: partially lumped P1 heat semigroup endpoint sign crossings and generalized Laguerre times",
+          "Indexed three-node Dirichlet RESULT.md, fed0fef23ca8; indexed opposite-corner inverse RESULT.md, 4c1a571738ca"
+        ]
+      },
+      "rationale": "Credit qualitative failure and recovery of semidiscrete positivity and the indexed exact consistent-mass three-node endpoint p=1 as existing coverage. The supported distinct theorem concerns the general fixed-n n−2 crossing count and Laguerre root scaling in the singular near-lumped limit, together with the extension of the three-node classification to the full blend. The inspected nearby periodic, inverse-mass and threshold results do not give that theorem.",
+      "residual_risks": [
+        "The plausible Chatzipantelidis–Horváth–Thomée full text was not accessible; closer specialist work on the exact reversals is not excluded. A bounded public lookup yielded no useful exact match and is not global priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the three-node p=1 case, not the blend or general n",
+          "evidence": [
+            "With consistent mass the three-node far-corner entry is negative up to the sharp recovery time; one and two interior nodes remain positive."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-three-interior-nodes-are-the-first-uniform-one-dimensional-galer--fed0fef23ca8",
+          "material_read": "Indexed local-mirror RESULT.md Finding/Assumptions, offsets 0–4500",
+          "method": "Resultary and exact statement comparison",
+          "title": "Three interior nodes are the first uniform one-dimensional Galerkin positivity failure",
+          "trigger": "Strongest distinct exact overlap on the same mesh and nodal basis"
+        },
+        {
+          "assessment": "Different boundary conditions and mass regime",
+          "evidence": [
+            "Two positive zeros of a distance-three entry on the six-cell periodic consistent-mass mesh."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reentrant-galerkin-heat-kernel-signs-on-periodic-one-dimensional--66f05a5db76c",
+          "material_read": "Indexed RESULT.md Finding, offset 0",
+          "method": "Resultary and statement comparison",
+          "title": "Reentrant Galerkin heat-kernel signs on periodic one-dimensional meshes",
+          "trigger": "Exact multiple-time-zero result for nearby FEM operators"
+        },
+        {
+          "assessment": "Prior qualitative failure and recovery; no Laguerre-scaled crossing theorem in the inspected statements",
+          "evidence": [
+            "Theorem 3.1 rules out positivity for all t>0 under stated non-diagonal mass hypotheses; Theorem 3.2 gives eventual strict positivity under H^(-1)>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.02825",
+          "material_read": "Primary PDF introduction pp. 1–2, §3 p. 7 Theorems 3.1–3.2",
+          "method": "Bounded OA PDF passage comparison",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Closest accessible general semidiscrete positivity theory"
+        },
+        {
+          "assessment": "Potential specialist overlap remains unresolved; no whole-document verdict",
+          "evidence": [
+            "Jin et al. report qualitative loss and later threshold context for that work, which does not settle exact crossings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+          "material_read": "Publisher/bibliographic attempt and secondary description in Jin et al. introduction; no article full text",
+          "method": "Lawful DOI and repository attempts (publisher 202/403; no OA copy found)",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Directly relevant specialist heat FEM positivity article"
+        },
+        {
+          "assessment": "Uses explicit algorithms on two-dimensional cell/conductance systems, not the blended-mass exact semigroup",
+          "evidence": [
+            "Discrete update rules with positivity objectives rather than time zeros of a one-dimensional exact exponential."
+          ],
+          "identifier_or_url": "https://doi.org/10.28919/jmcs/7407",
+          "material_read": "Abstract p. 1 and §2 pp. 3–4",
+          "method": "Bounded primary PDF comparison",
+          "title": "Systematic testing of explicit positivity preserving algorithms for the heat-equation",
+          "trigger": "Cited heat positivity source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It resolves a natural limitation of qualitative positivity analysis: even arbitrarily near a positivity-preserving mass choice, transmission between the endpoints of a fixed uniform mesh may alternate repeatedly before settling, with a count growing with mesh dimension in the stated fixed-n regime. The precise Laguerre scale identifies when these transient events can be seen; the all-blend three-node result is a useful benchmark. No dimension-uniform p range or eventual entrywise threshold in general dimension follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:29:01.945434Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50, VERIFICATION.md and verify_rank.py (inspected, not executed)",
+        "Independent exact finite-section elimination: R=z^D for D=2–6; R=(1-z/2)^(-d) for d=1–4; 12 by 12 section for R=z^5+(1-z/2)^(-3)+(1+z/3)^(-2)"
+      ],
+      "rationale": "Normalized disk moments give Q(z^a bar(z)^b) with coefficient (|a-b|+1)/(max(a,b)+1). The commutator kills analytic inputs. For the monomial primitive z^k on input bar(z)^v, if k<=v the outputs from the two orders agree, with coefficient k(v-k+1)/(v+1) (k=0 contributes nothing), including the constant when k=v. If k>v and u=k-v, the coefficient difference is u-v(u+1)/(v+1)=(u-v)/(v+1). Thus the image is analytic without a constant and the square is zero. Taylor convergence beyond the closed disk justifies summation, and rescaling individual nonzero columns reduces the algebraic range computation to K_uv=(u-v)r_(u+v). At a pole the derivative is not used to set the order convention: the primitive coefficients are lambda^k times a polynomial p(k) of exact degree d-1 with leading coefficient nonzero. The coefficient matrix of (u-v)p(u+v) in degrees 0 through d has zeros for row degree plus column degree>d; on their sum=d the entries are c(2h-d) binomial(d,h)/d. Its whole anti-diagonal gives full rank for odd d, or after deleting the central row and column gives a nonsingular d-minor for even d; odd-dimensional skew symmetry supplies the upper bound in the latter case. The same argument on polynomial indices 1 through D-1 gives the degree term, with D<=2 contributing zero. The feature sequences u^h lambda_j^u are independent together with the finite-support coordinates: their generating functions have disjoint finite poles across j and strictly increasing pole orders in h at fixed j, while finite-support sequences generate polynomials. Hence a finite restriction of the common feature matrix has full column rank; using left and right inverses of it and its transpose proves rank additivity, independent of phases. The resulting column space is finite-dimensional and closed; boundedness and density of monomials identify it with the full operator range. Independent exact elimination on finite sections confirmed the polynomial and single-pole parity patterns and a mixed example of rank 10; the structural argument, not those sections, establishes the theorem.",
+      "residual_risks": [
+        "Finite-section checks alone certify neither the full infinite ranks nor their independence; these follow from the feature proof. The order d is the pole order of R, not R'."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives, outside affine dependence, the same-type analytic or coanalytic rational-primitive condition for finite rank; Corollary 3.1 gives square-zero.",
+          "Dong–Zhou formula (4.14) follows from Theorem 4.4 and has exactly the nonzero monomial antidiagonal indexed by 1 through k_1+k_2-1 minus the midpoint if integral (distinct positive degrees).",
+          "Cui et al. attribute rank parity and realizability of even ranks to Chen–Koo–Lee, not identification of ranks for arbitrary rational primitives."
+        ],
+        "reasoning": "Finite-rank eligibility, nilpotence and parity do not determine a rank. The quasihomogeneous result covers coordinate/analytic monomial pairs, not their non-quasihomogeneous rational sums; the Wronskian theorem covers polynomial symbols only.",
+        "searches": [
+          "arXiv:2611.08988v1, Theorem 1.1 and Corollary 3.1",
+          "Dong–Zhou arXiv:1411.0213v3, Theorem 4.4, Corollaries 4.6–4.7 and Remark 4.8",
+          "Chen–Koo–Lee DOI 10.1007/s00020-012-2020-6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08988v1",
+        "arXiv:1411.0213v3",
+        "542f8680dc73",
+        "DOI 10.1007/s00020-012-2020-6 (attempted; related account inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cui et al. supply the analytic reduction and a separated kernel with two independent range vectors for one simple primitive pole. The polynomial record explicitly makes no claim about nonpolynomial rational symbols.",
+          "The distinct ingredient of the frozen proof is an exact skew-block rank at each pole despite the even-order missing central entry, followed by independence across all poles and the polynomial part."
+        ],
+        "reasoning": "The prior kernel methods can start the proof, but do not settle the higher-order block minors or cancellation across poles. Rank is not generally additive under sums, so even exact individual low-order calculations do not prove the mixed formula. Same-day equivalence for polynomials is established, while relative priority is not.",
+        "searches": [
+          "Cui et al. Theorem 1.1 and Example 3.5 including (3.5) at HTML offset 44916",
+          "542f8680dc73 Finding and scope, mirror offset 0",
+          "Dong–Zhou Theorem 4.4 and Remark 4.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "542f8680dc73, mirrored RESULT.md at offset 0: rank zero for centered Wronskian zero and otherwise 2 floor(deg W/2) for any two polynomial symbols.",
+          "Cui et al. Example 3.5 at HTML offset 44916: for b=(1-alpha z)^(-2) with simple-pole primitive z/(1-alpha z), [T_z,T_b] has rank two."
+        ],
+        "reasoning": "For (a,b)=(z,P'), the Wronskian is P'(z)-P'(0)-zP''(z), of degree D-1 for D>=3 and zero for D<=2; the polynomial term is fully equivalent to this specialization. A simple pole in the primitive corresponds to order two in the symbol, up to constants and scalar, so the primary example matches exactly the indicated simple-pole contribution. Neither handles arbitrary orders or multiple distinct primitive poles.",
+        "searches": [
+          "Resultary: harmonic Bergman Toeplitz commutator exact rank, polynomial Wronskian and rational poles; hit 542f8680dc73",
+          "Cui–Huang–Lu–Zu arXiv:2611.08988v1, Example 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact monomial ranks of Dong–Zhou agree with 2 floor((D-1)/2) for k_1=1, k_2=D-1>1. The two explicit primary rank-two cases are [T_z,T_(z^2)] and the simple primitive pole example. 542f8680dc73 covers every polynomial rank by formula, not merely a table of dimensions."
+        ],
+        "reasoning": "Existing exact cases and the polynomial formula are credited as matches. No distinct inspected formula or table gives the arbitrary complex multiset of pole orders and polynomial degree in the reviewed theorem.",
+        "searches": [
+          "Local Resultary 542f8680dc73; Cui et al. Examples 3.4–3.5; Dong–Zhou arXiv:1411.0213v3 Remark 4.8"
+        ]
+      },
+      "rationale": "The supported distinct theorem is the precise additive rank law by rational primitive pole multiplicities, including arbitrary mixtures with the polynomial contribution. Finite rank and square-zero are known, and both the monomial subfamily and the simple-primitive-pole example are covered. The same-day polynomial Wronskian record gives the entire pole-free specialization, not just examples. The assessment does not claim priority for that specialization or for square-zero.",
+      "residual_risks": [
+        "The complete Chen–Koo–Lee text was not available in attempted OA retrieval. Unindexed equivalent skew-Hankel rank formulas remain possible. No priority order is inferred between the same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite rank, square zero, and exact low-order cases; general pole-order rank formula not obtained in the inspected statements",
+          "evidence": [
+            "Example 3.5 gives range span{z^2/(1-alpha z)^2,z/(1-alpha z)^2} and rank two, while replacing b by (1-alpha z)^(-1) gives infinite rank due to the logarithmic primitive."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08988v1",
+          "material_read": "Abstract and Theorem 1.1 alternatives, HTML offsets 900–978 and 4950–9294; Examples 3.4–3.5 and formula (3.5), offsets near 44696 and 44916–48700",
+          "method": "Lawful arXiv HTML, located passages and bounded offset reads",
+          "title": "Finite-rank Toeplitz commutators on the harmonic Bergman space",
+          "trigger": "Closest primary theorem on the same analytic operators and rational primitives"
+        },
+        {
+          "assessment": "Broader than the polynomial-only specialization of the reviewed law; no rational pole contribution in its statement",
+          "evidence": [
+            "Its centered Wronskian law specializes exactly to the polynomial degree term here and asserts square-zero. Its assumptions expressly exclude a claim about arbitrary nonpolynomial rational symbols."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-wronskian-degree-rank-law-for-polynomial-harmonic-bergman--542f8680dc73",
+          "material_read": "Mirrored RESULT.md offset 0–3289: Finding, assumptions, monomial action and start of anti-diagonal proof",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact Wronskian-degree rank law for polynomial harmonic Bergman commutators",
+          "trigger": "Strongest same-day indexed exact rank overlap"
+        },
+        {
+          "assessment": "Exact monomial subfamily covered; quasihomogeneous classification not a multicomponent rational rank law",
+          "evidence": [
+            "The index set for analytic monomials excludes an integral midpoint from 1 through k_1+k_2-1, yielding precisely the parity-dependent coordinate/monomial ranks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0213v3",
+          "material_read": "Theorem 4.4 rank formulas, PDF offsets 61400–63100 around pp. 12–13; Remark 4.8 and (4.14), offsets 82140–84040 on p. 16",
+          "method": "Lawful arXiv v3 PDF, query and bounded offsets",
+          "title": "Ranks of commutators and generalized semicommutators of quasihomogeneous Toeplitz operators",
+          "trigger": "Potential rank-level primary coverage of monomial or broader component cases"
+        },
+        {
+          "assessment": "Credited for parity and realizability; no full-text exclusion",
+          "evidence": [
+            "Cui et al. report that the finite ranks cannot be odd and that every nonnegative even rank occurs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00020-012-2020-6",
+          "material_read": "Relevant account in Cui et al. introduction, HTML offsets 7000–8950; original full text not retrieved",
+          "method": "Lawful DOI and OA recovery attempted; secondary primary-paper citation inspected",
+          "title": "Ranks of commutators of Toeplitz operators on the harmonic Bergman space",
+          "trigger": "Earlier general rank restrictions, possible broader rank result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-rank classification leaves the dimension of the range undetermined. This formula supplies it for a natural coordinate family directly from the primitive's pole orders and the degree at infinity. It gives a nontrivial odd-to-even plateau and shows that different poles never cancel one another's rank, even with complex coefficients. That precise invariant and mechanism are not captured by parity, nilpotence or the polynomial specialization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

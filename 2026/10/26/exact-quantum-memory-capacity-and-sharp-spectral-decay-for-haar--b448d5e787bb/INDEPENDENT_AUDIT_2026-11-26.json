@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:11.671548Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85, VERIFICATION.md and verify.py",
+        "arXiv:1001.1732v2 generalized dephasing discussion",
+        "python /workspace/branches/replay_haar.py"
+      ],
+      "rationale": "Haar averaging over the entire coin sends the joint input to I_d/d tensor its position marginal before each shift, and tracing the shifted coin applies the one-step convolution channel on position. Independence justifies composition. After undoing the last controlled shift, the output is the fixed coin tensor the position channel at t=m-1. Fixed-coin input preparation and receiver postprocessing give equality of quantum capacities in both directions, including m=1 and for input states entangled across uses. Discarding the shifted coin instead gives t=m. In the character basis, phase-kick complement outputs only the input diagonal encoded into pure environment states; preserved output diagonals therefore implement the degrading map. Degradable single-letter coherent information is concave; Fourier-basis phases and character-label translations leave it invariant and twirl to I/N. At that input orthogonal regular translations give the environment eigenvalues p_t(g) and a maximally mixed system, yielding the exact stated capacity. Unit-modulus eigenvalues are only the trivial character and, exactly in the bipartite case, the unique parity character (the bipartition defines a homomorphism by word-length parity). Fourier inversion gives u_t uniform on the relevant support class from precisely these modes. Since u_t=h/N on C_t and p_t-u_t vanishes outside C_t, global Parseval yields E_{u_t}[(p_t/u_t-1)^2]=(N/h) times sum_g |p_t-u_t|^2=(1/h) sum of |lambda_chi|^(2t) off those modes. The zero-mean first-order entropy term drops out and the uniform O(r^t) perturbation gives a remainder O(r^(3t)); the M leading modes give M/(2h ln 2). If r=0 then p_t=u_t for t>=1. On the d>=3 cube the singleton and co-singleton characters give M=2d and a nonzero surviving coefficient at every finite t; for t=0 capacity is d, and d=2 saturates after t=1. Independent replay used exact entrywise coin recovery and integer walk counts on C3, C6 and K_{3,3} presented on Z/6; the first two high-precision normalized entropy gaps at t=28 approach 1/ln 2, and the last saturates exactly. This is a finite consistency test, not verification of the coding theorem.",
+      "residual_risks": [
+        "Whole-channel unassisted asymptotic capacity; no observed coin draws, both output registers retained, fresh independent Haar coins. The entropy remainder and limit are for a fixed graph, not uniform across a family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brádler et al. supply the generic Hadamard/degradable framework, including the measure-and-prepare complement. Roofeh–Karimipour derive exact equal-block decohering capacities and obtain log2 k at complete interblock pinching; that covers the capacity of the limiting channel with k=h (a parity-dependent fixed translation at odd t is harmless). Caputo et al. compare worst-case KL and chi-square contraction constants, which are not the leading coefficient for the specified walk from a point."
+        ],
+        "reasoning": "Neither a general optimization principle nor a one-parameter equal-block or band-mask model gives the general finite-depth evaluated entropy law. For example, on a C5 walk at positive even t there are two distinct nonzero attenuating Fourier moduli, whereas the individual compared pinching or mask models have one common attenuating multiplier. The basic quadratic relation between entropy and chi-square is standard; the specific coefficient requires identifying the correct coset support and surviving eigenvalue multiplicities for this channel.",
+        "searches": [
+          "arXiv:1001.1732v2 generalized dephasing section",
+          "arXiv:2506.13397v3 §§4–5",
+          "Entropy Contractions in Markov Chains: Half-Step, Full-Step and Continuous-Time §1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.04584",
+        "arXiv:1001.1732v2",
+        "arXiv:2506.13397v3",
+        "Caputo–Chen–Gu–Polyanskiy, Entropy Contractions in Markov Chains",
+        "Resultary 6b5a6c4e7323"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting channel is pinching onto equal blocks of Fourier characters grouped modulo the peripheral character subgroup, up to output translation; the pinching capacity follows from known exact theory. The compared general-dephasing theorems do not select the maximally mixed optimizer for an arbitrary dephasing channel. The KL contraction bounds do not evaluate the exact relative-entropy deficit of the point-start periodic walk."
+        ],
+        "reasoning": "No claim of new coding or entropy-expansion theory is warranted. What remains is the channel-specific final-coin equivalence with optimization using its character-shift symmetry, and conversion of the resulting noise law into the precise all-graph asymptotic, rather than simply substituting a graph size into the prior block-capacity formulas.",
+        "searches": [
+          "Quillen arXiv:2607.04584 §III.A and §IV",
+          "Brádler et al. arXiv:1001.1732v2 pp. 5–6",
+          "Roofeh–Karimipour arXiv:2506.13397v3 Eqs. (24)–(33)",
+          "Caputo et al. §1.3 Eqs. (1.22)–(1.27)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quillen defines the same averaged full channel, its position marginal, i.i.d. iteration and Fourier dephasing; in particular the even-cycle parity mode is already identified.",
+          "The same-day Resultary finding studies averaged purity of individual coin trajectories and purity of the averaged state, with a different observable even in the same model."
+        ],
+        "reasoning": "Persistent matrix entries or an averaged purity are not a quantum communication rate. The input-output equivalence after undoing the final controlled shift matters: the position-only channel has t=m, not m-1. Rephrasing dephasing or observing a -1 eigenvalue is not novel here.",
+        "searches": [
+          "Published Resultary Haar-coined Abelian Cayley quantum capacity, spectral entropy decay and memory",
+          "arXiv:2607.04584 Eq. (20), (23), (25), (42)–(47)",
+          "Resultary 6b5a6c4e7323"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close exact Resultary record gives a two-mode trajectory-purity formula and limiting gap 1/(2d), not a capacity table or the all-depth entropy formula. Quillen gives the walk's Fourier mode data and persistence examples."
+        ],
+        "reasoning": "Fourier spectra in specific examples are inputs, not tables of coherent information optimized over position states. The supplied hypercube expression is not credited merely for recomputing the known Walsh eigenvalues.",
+        "searches": [
+          "Published Resultary random coined walk exact quantum capacity and hypercube spectral multiplicity",
+          "Resultary 6b5a6c4e7323",
+          "arXiv:2607.04584 §IV"
+        ]
+      },
+      "rationale": "The averaged walk and Fourier parity mechanism are prior. Generic Hadamard single-letter capacity and the capacity of the limiting pinching channel are also covered. The distinct combined result is the coin-inclusive all-depth convolution entropy law and the explicit graph-wide spectral-multiplicity correction above that residual capacity, not the generic capacity machinery or the number of qubits for pinching alone.",
+      "residual_risks": [
+        "The inspected sources are not an exhaustive priority search. A broader already-evaluated capacity formula for translation dephasing or an exact finite-walk entropy-asymptotic formulation could reduce the distinct contribution. Same-day catalogue dates were not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Channel, iteration and mode structure already known; not operational capacity in inspected material",
+          "evidence": [
+            "Eq. (20) keeps coin and position, (23) traces coin to random translations, and the even-cycle surviving mode has eigenvalue -1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.04584",
+          "material_read": "Introduction p. 1, §III.A p. 5 Eqs. (20), (23), (25), §IV p. 8 Eqs. (42)–(47)",
+          "method": "OA primary PDF passages",
+          "title": "Quantum random walks on d-regular graphs with Haar-random coin operators",
+          "trigger": "Identical physical averaged walk and parity mechanism"
+        },
+        {
+          "assessment": "Covers the degrading mechanism and applicability of single-letter theory, not this walk-specific evaluated capacity",
+          "evidence": [
+            "Basis-controlled environment isometry and measurement-preparation complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.1732v2",
+          "material_read": "Generalized Dephasing Channels, pp. 5–6, Eq. (10) and surrounding text",
+          "method": "OA primary PDF passages",
+          "title": "Trade-off capacities of the quantum Hadamard channels",
+          "trigger": "General dephasing capacity framework"
+        },
+        {
+          "assessment": "Covers the limiting block-pinching capacity; compared families do not include arbitrary finite-walk spectra",
+          "evidence": [
+            "Eq. (33) at x=1 has capacity log2 k, with block size k; §5 preserves selected bands rather than arbitrary convolution-dependent attenuation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.13397v3",
+          "material_read": "§4 pp. 6–7 Eqs. (24)–(26) and (30)–(33), §5 p. 8 opening mask definition",
+          "method": "OA primary PDF by bounded offsets",
+          "title": "Exact Quantum Capacity of Decohering Channels in Arbitrary Dimensions",
+          "trigger": "Explicit dimension-independent dephasing capacity and residual coherence"
+        },
+        {
+          "assessment": "Compares contraction constants, not this point-start spectral prefactor relative to a changing coset",
+          "evidence": [
+            "Identifies chi-square contraction with a Poincaré constant for a composed chain and compares entropy contraction inequalities."
+          ],
+          "identifier_or_url": "https://people.lids.mit.edu/yp/homepage/data/2024_sdpi_mlsi.pdf",
+          "material_read": "Abstract and §1.3 pp. 6–7 around offset 21538, Eqs. (1.22)–(1.27) and Table 1",
+          "method": "Lawful OA author-hosted PDF",
+          "title": "Entropy Contractions in Markov Chains: Half-Step, Full-Step and Continuous-Time",
+          "trigger": "Plausible general quantitative KL contraction covering sharp decay"
+        },
+        {
+          "assessment": "Material setting overlap, different observable",
+          "evidence": [
+            "Two Fourier modes and a trajectory-purity versus averaged-state-purity gap, not a convolution entropy or communication rate."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-trajectory-purity-memory-in-haar-random-coined-walks-on-ab--6b5a6c4e7323",
+          "material_read": "RESULT.md opening Finding, around offset 150",
+          "method": "Local Resultary mirror",
+          "title": "Exact trajectory purity memory in Haar-random coined walks on Abelian groups",
+          "trigger": "Same-day exact Haar-coin Abelian memory result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Eqs. (1)–(3), (6)–(7)",
+        "arXiv:2607.04584 §III.A and §IV",
+        "arXiv:2506.13397v3 Eq. (33)"
+      ],
+      "rationale": "The operational memory of the previously defined physical model is different from persistence of a matrix element, and the answer is needed at finite depths and with the correct receiver interface. The distinction between m-1 and m gives a concrete whole-step difference when the coin is retained, while the leading constant quantifies the excess above the established block-pinching limit on the fixed graph, including the canonical hypercube. This is a graph-wide quantified invariant, not just a demonstration of surviving parity modes or a direct reuse of one block's capacity.",
+      "residual_risks": [
+        "No practical coding rates at finite blocklength, noise-robust implementation or joint graph-size/depth limit are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

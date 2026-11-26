@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:48:55.916195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56, 58–110; VERIFICATION.md lines 19–21; verify.py; bruteforce.cpp",
+        "/workspace/evidence/5_transfer_reconstruction.py (independent exact integer replay)"
+      ],
+      "rationale": "For the stated graph and three labeled colors, fixing the apex to 0 costs a factor of exactly three. The Mycielski recoloring argument gives chromatic number 3 for even rims and 4 for odd rims; an alternately 0/1 colored odd rim, all clones 2 and apex 0 attains exactly one monochromatic edge. In the transfer trace a step from (a,b) to (b,c) counts edge b–c and the three edges at the clone of the middle vertex. This counts each edge and assignment exactly once with a fixed indexing origin, including at n=4. Reconstructed the integer transfer certificates in /workspace/evidence/5_transfer_reconstruction.py; replay with python3 yields det(lambda I-A)=lambda^9-5lambda^7+6lambda^5-lambda^3 and tr(B A^(2k))=4,12,44,152,508 for k=0..4. Cayley–Hamilton gives A^3(A^6-5A^4+6A^2-I)=0, so these traces establish the two low-index instances and the rest follow algebraically; first-order insertions at n positions have equal trace by cyclicity. The even formula follows from the paired nonzero eigenvalues. The cubic has sign changes isolating three positive roots in (0,1/2), (1,2), (3,4); the odd generating-function numerator 4-8y+8y^2 is strictly positive on the real axis so the dominant pole is not canceled, and its coefficient is positive since the other denominators at y=1/rho_max are positive. Dividing k log(rho_max)+O(log k) by 2n+1 gives the claimed limit and the factor n gives the odd logarithmic correction. Frozen enumeration is corroboration, not an all-length proof.",
+      "residual_risks": [
+        "No claim for n<4 or for a nonzero external field. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Shrock gives weighted proper coloring and fixed-width regular-lattice cyclic/Möbius strip machinery; Shrock–Xu evaluates selected-color weighted coloring for other families, including joins and wheels; Sokal defines a general graph polynomial."
+        ],
+        "reasoning": "A broadly defined polynomial encodes the coefficients but does not provide the cycle-Mycielskian transfer spectrum or first-order insertion trace. The explicit strip, join and wheel comparisons are not matched graph evaluations.",
+        "searches": [
+          "arXiv:0907.0777v1 pp. 4–5",
+          "arXiv:1009.1182v1 pp. 1, 20–21",
+          "arXiv:math/0503607 §2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue and exact Grötzsch finding; arXiv:math/0503607, 0907.0777v1, 1009.1182v1 at the above locators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N_5=3·5·44 agrees exactly with the distinct Grötzsch result; general partition/weighted-polynomial representations give ways to calculate coefficients, but the inspected evaluations concern different graphs."
+        ],
+        "reasoning": "The new recurrence yields the known row, not conversely. Classical chromaticity and the exhibited one-defect coloring make the ground energy elementary; quantitative novelty lies in exact counts and growth, not that obstruction.",
+        "searches": [
+          "Resultary mirrored RESULT.md b5650d6c3203, finding near offset 700",
+          "arXiv:math/0503607 §2.2",
+          "arXiv:1009.1182v1 pp. 20–21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sokal gives the Potts/chromatic specialization. The even count is P_G(3); for odd n, P_G(3)=0 and the one-defect count is equivalently the sum over edges e of P_(G-e)(3): any proper coloring after deleting e must violate e in G."
+        ],
+        "reasoning": "These exact alternate encodings could carry the same result if evaluated for this family; neither the general identity nor chromatic-number theory evaluates these counts.",
+        "searches": [
+          "Resultary targeted Mycielskian-cycle Potts and Grötzsch family lookup",
+          "arXiv:math/0503607 §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched all-length record has the same fb163b0b04d2 identity. A distinct record, b5650d6c3203, gives 660 ground states at h/J=0 for the Grötzsch graph, each with one frustrated edge."
+        ],
+        "reasoning": "The self-hit is not independent coverage. The distinct result exactly covers n=5 at zero field, not the family, and the shared date does not establish priority. The frozen record already excludes 660 as a standalone contribution.",
+        "searches": [
+          "Resultary exact-family and finite-Grötzsch lookups; local mirrored RESULT.md for distinct hit"
+        ]
+      },
+      "rationale": "Credit the known chromatic obstruction and general Potts/Tutte representation, and exclude the matched finite Grötzsch case from the novelty judgment. Distinct evidence for the surviving finding is the all-length evaluation of both parity branches, the one-defect recurrence, and the common entropy. The inspected statements do not supply that evaluation; the conclusion is best-of-knowledge, not historical priority certification.",
+      "residual_risks": [
+        "An unexamined chromatic/deletion-polynomial or other equivalent family evaluation could cover part or all of the result. The frozen text does not identify a separate historical publication for the finite n=5 datum; the checked distinct same-date record establishes overlap, not order. No exhaustive literature search is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite overlap, not family coverage",
+          "evidence": [
+            "mu(C_5), 11 vertices, 20 edges; at h/J=0 gives 660 ground states of one frustrated edge."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-three-state-potts-field-diagram-on-the-gr-tzsch-graph--b5650d6c3203",
+          "material_read": "RESULT.md finding near offset 700",
+          "method": "Local mirror, bounded reading",
+          "title": "Exact three-state Potts field diagram on the Grötzsch graph",
+          "trigger": "Same graph and Hamiltonian at n=5 and zero field"
+        },
+        {
+          "assessment": "General encoding, not the distinct coefficient evaluation",
+          "evidence": [
+            "Defines the Potts polynomial and identifies P_G(q)=Z_G(q,-1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "§2.2 PDF pp. 4–5, offsets 11238 and 15200",
+          "method": "Original OA PDF bounded reading",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "General zero-temperature equivalence"
+        },
+        {
+          "assessment": "General framework and other evaluated objects in inspected sections",
+          "evidence": [
+            "Weighted-coloring interpretation and structural formula for cyclic and Möbius regular-lattice strips."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.0777v1",
+          "material_read": "PDF pp. 4–5, offsets 11890 and 14747",
+          "method": "Original OA PDF bounded reading",
+          "title": "Some Exact Results on the Potts Model Partition Function in a Magnetic Field",
+          "trigger": "Potential exact cyclic transfer coverage"
+        },
+        {
+          "assessment": "Related coloring evaluations, not a one-defect cycle-Mycielskian count in these passages",
+          "evidence": [
+            "Weighted-set chromatic polynomials; examples for joins and W_n^(p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182v1",
+          "material_read": "Abstract and PDF pp. 20–21, offsets 57400 and 61000",
+          "method": "Original OA PDF bounded reading",
+          "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "Potential evaluated polynomial for related joined or cyclic graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–46 and 78–104; distinct n=5 computation as scoped above"
+      ],
+      "rationale": "The natural sparse Mycielskian family has exactly one unavoidable odd-rim defect. Determining the number of states accommodating it, rather than rediscovering the frustration from chromaticity, gives an exact zero-temperature benchmark: the two parities have the same exponential growth but only the odd branch carries a linear count prefactor. The family formulas, not an isolated table entry or generic transfer identity, supply that comparison.",
+      "residual_risks": [
+        "The value is as a finite graph family and counting benchmark, not as a thermal transition or Euclidean-lattice extrapolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:10:01.225268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reversal blocks exponentiate using traceless parts squaring to 5I/4. In V-e^(-it)U(-t) the antisymmetric block cancels exactly; halving the entries of the symmetric block gives |sin t|sqrt(c^2+s^2/5) within each degree class and (2/sqrt5)|s cos t| across classes. Within a degree class the moduli form the unordered pair a+b, |a-b| with a+sqrt5 b<=1 (Cauchy–Schwarz), so the difference is at most 2/(1+sqrt5), the sum at most 2, and the product at most 1. The difference bound is sharp when the paired absolute coordinates in both unit vectors match, with the smaller squared coordinate 1/(1+sqrt5) giving a=b; the sum and product use a=1,b=0. Across classes the moduli are 2|sC|/sqrt5 and 2|sS|/sqrt5, making the difference extremal at |s|=|C|=1 and the sum and product extremal at |s|=1, |C|=|S|=1/sqrt2. The within-class complex contrast uses |c|=1 and |sin t|=1; the across-class one uses |s|=1 and |cos t|=1 on the torus. For any fixed phase phi=t/2 mod 2pi, the times 2phi+4pi k generate a dense first phase via irrational rotation by 2pi sqrt5. Thus all upper bounds have actual time sequences approaching them, without claiming finite-time attainment. The supplied verification notes and script were inspected, not executed; reported finite checks do not prove sharpness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proposition 8.2 bounding-matrix estimates specialize across classes to sigma<=4/sqrt5 and rho<=4/5 (each individual bound is 2/sqrt5). The paper's section 10 explicitly asks for tight bounds on paths, highlighting the case without joint pretty good transfer.",
+          "The retrieved isospectral-reduction material supplies tools rather than this simultaneous optimization."
+        ],
+        "reasoning": "The larger individual-amplitude bounds do not impose the complement relation between C and S at the same time; the exact across-class answers are strictly smaller. A generic block or spectral method is not a theorem already giving those optima.",
+        "searches": [
+          "arXiv:2610.07673v1 theorem 7.4 and degree-class bounds; proposition 8.2 and section 10",
+          "DOI 10.5802/alco.333, isospectral reductions and walks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07673v1",
+        "arXiv:2505.11986v1",
+        "10.5802/alco.333",
+        "Configured Resultary index, including 41450633a2e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 8.2 characterizes sum 2 and product 1 by joint pretty good transfer or joint recurrence; example 2.8 discusses P4 transfer. Diagonal endpoints of the same-class bounds already occur at time zero.",
+          "A large value of one modulus for an opposite-degree pair does not maximize the other: their amplitudes share s but have complementary sine/cosine phase factors."
+        ],
+        "reasoning": "The routine sum/product endpoints are not separate original results. The known comparison bounds and individual transfer values do not control the joint tradeoff or the cancellation and phase effects needed for the remaining sharp numbers.",
+        "searches": [
+          "Compare Cooper et al. example 2.8, proposition 8.2(1), section 10 against the exact phase-constrained optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cooper et al. define the same adjacency contrasts and use delta=-1, giving the same phase e^(-it). Corollary 7.9 supplies f<=1 for P4's size-two degree classes; proposition 6.2 gives g<=f.",
+          "P4 is isomorphic to its complement, but the permutation exchanges endpoint and interior roles; this is not equality of corresponding labeled entry moduli."
+        ],
+        "reasoning": "The exact same definitions do not by themselves give the extrema. The class-independent upper bound has slack across classes, and g<=f does not give the same-class g maximum or supply witnesses.",
+        "searches": [
+          "Resultary: P4 graph complement, adjacency continuous-time quantum walk, pairwise extrema of complex deviation and moduli",
+          "arXiv:2610.07673v1 definitions and section 7 degree classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 1–2 in Peak state transfer count graphs and trees with individual perfect or peak transfer; they do not give paired labeled complement amplitudes or the four-metric table.",
+          "The closest returned indexed comparison, 41450633a2e5, concerns randomized-time uniform mixing on the Cartesian square of P3, not complements of P4."
+        ],
+        "reasoning": "A finite-order transfer census and a mixing statistic answer different exact questions. None of the inspected entries supplies the joint table for this graph and label convention.",
+        "searches": [
+          "Resultary: four-vertex path complementary-walk maxima and exact time-independent contrasts",
+          "arXiv:2505.11986v1, finite small-order tables"
+        ]
+      },
+      "rationale": "The metrics and general framework are already in Cooper et al.; known transfer/recurrence facts account for the same-class sum and product endpoints. The supported distinct claim is the exact joint amplitude optimization yielding the nontrivial sharp contrasts and across-class sum and product. The strongest primary comparison has slack in those cases and explicitly asks for tight bounds on paths.",
+      "residual_risks": [
+        "A differently worded small-graph calculation or an unindexed worked example may give some nontrivial extrema; inspected papers and indexed results are not an exhaustive priority survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact definitions and some matching upper bounds/transfer implications, not the nontrivial sharp table",
+          "evidence": [
+            "g<=f; degree-class estimate f<=1 here; proposition 8.2 gives sums and products of separate bounds and relates same-time PGST to the trivial absolute extrema; section 10 explicitly seeks tight path bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.07673v1",
+          "material_read": "PDF p. 1 definitions, p. 3 bounding matrix, p. 5 example 2.8, pp. 13–17 propositions 6.2 and 8.2 and corollary 7.9, p. 24 section 10; decisive passages at offsets 66800, 74240, 111300",
+          "method": "OA PDF passage inspection and specialization of estimates",
+          "title": "Quantum walks and graph operations",
+          "trigger": "Same four complement-comparison functions and general bounds"
+        },
+        {
+          "assessment": "Individual transfer census, not paired complement extrema",
+          "evidence": [
+            "For order four Table 1 gives aggregate PST/peak counts; it does not give pair-specific comparisons with the complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.11986v1",
+          "material_read": "PDF p. 18, tables 1–2 (offset 68780 and surrounding passage)",
+          "method": "OA PDF table and text inspection",
+          "title": "Peak state transfer in continuous quantum walks",
+          "trigger": "Potential finite-order classification covering P4"
+        },
+        {
+          "assessment": "Background in material read; no matching complement result established there",
+          "evidence": [
+            "The inspected material treats reduced spectral representations, not maximization of the four simultaneous P4-versus-complement functions."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/alco.333",
+          "material_read": "Retrieved passages on isospectral reductions and walk backgrounds",
+          "method": "OA source passage inspection",
+          "title": "Isospectral reductions and quantum walks on graphs",
+          "trigger": "Potential structural reduction for walk entries"
+        },
+        {
+          "assessment": "Different graph and statistic, not a plausible exact-table match",
+          "evidence": [
+            "The indexed claim treats randomized-time uniform mixing on P3 square P3, not a labeled path and its complement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-randomized-time-uniformity-deficit-on-the-cartesian-square--41450633a2e5",
+          "material_read": "Ranked index identification of statistic and object",
+          "method": "Configured Resultary lookup",
+          "title": "Sharp randomized-time uniformity deficit on the Cartesian square",
+          "trigger": "Closest returned exact small-path quantum-walk comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "P4 is the smallest self-complementary path with nontrivial degree classes and supplies a concrete benchmark for the published tight-path question. The across-class bounds quantify a simultaneous tradeoff not visible from individual entry bounds, and the complete exact table distinguishes trivial recurrence or transfer from phase-constrained extrema. No paper-sized generalization, physical advantage or device claim is needed for this benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

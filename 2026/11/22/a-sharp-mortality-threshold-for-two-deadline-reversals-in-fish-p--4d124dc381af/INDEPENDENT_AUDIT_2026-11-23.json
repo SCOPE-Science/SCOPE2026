@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:25:24.002339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39; VERIFICATION.md lines 19–21; verify.py lines 5–72 (inspected, not executed)"
+      ],
+      "rationale": "Independence from the common mortality model gives P(T)=∫₀ᵀe^(−μs)f(s)ds for each design separately; it does not require any coupling of the two counterfactual passage times. Scaling by τ gives P_E=(1−e^(−(1+a)x))/(1+a) and P_R=4[1−(1+(2+a)x)e^(−(2+a)x)]/(2+a)². The derivative of the difference is e^(−(2+a)x)(4x−e^x). The concavity and peak of log(4x)−x give exactly two derivative zeros x_-<1<x_+, with signs −,+,−. At infinity the difference is −a²/[(1+a)(2+a)²], strictly negative when a>0. When a=0 the strictly decreasing right branch tends to zero from above, leaving exactly one finite crossing. For the critical height write e^(a x_-)Δ_a(x_+)=∫₀^{x_+}e^(a(x_-−s))(4s e^(−2s)−e^(−s))ds. In its derivative the sign of x_-−s is opposite to the sign of the density difference throughout, so the derivative is strictly negative. The height is positive at zero; direct evaluation at a=1 gives −1/18+(3x_+/2−1)/(144x_+³)<0 since x_+>2. This yields uniqueness of a_c in (0,1), and the branch signs give exactly the stated two-crossing, tangency, and no-crossing alternatives. Δ'' at x_+ is e^(−(2+a)x_+)(4−4x_+)<0, so the critical equality is a true tangency, not a crossing. As a→0⁺, any fixed M>x_+ has positive Δ_a(M) eventually, forcing the right root beyond M. As a→a_c from below, Δ_a(M)<0 eventually for each fixed M>x_+, trapping that root arbitrarily close to x_+; the compact left branch and the unique positive zero at a_c give the same limit for the left root. Independent bisection of 4x−exp(x) on (0,1), (1,3) and then of the height on (0,1) gave x_-=0.3574029561813888, x_+=2.153292364110349 and a_c≈0.316461352642133, consistent with the illustrative values.",
+      "residual_risks": [
+        "The numerical root check is illustrative only; the classification uses exact signs. It concerns an unconditional deadline success probability, not a conditional transit-time distribution or a field estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castro-Santos–Perry, USGS publication 70044110 abstract, describes alternate routes and other fates as competing risks and a simulation and analysis procedure with multinomial survival measurements. No complete chapter was obtained. Right-spread order of convolutions was a plausible separate lead; only the abstract/landing route was accessible."
+        ],
+        "reasoning": "An event-time estimation framework can accommodate both model designs but does not itself order their deadline curves. The test e^(−μs)1_{s≤T} has a discontinuity and is not a convex-order test; no simple mean or variance order resolves its sign. The proof needs the two sign changes in the exact density difference and one sign change before x_+ for the reweighted height.",
+        "searches": [
+          "Resultary: generic reliability theorem exponential killing deadline completion-time distribution Laplace incomplete gamma finite-horizon",
+          "Resultary: finite-horizon Laplace transform ordering gamma Erlang exponential under constant mortality competing risks",
+          "Primary literature: fish passage time-to-event competing risks Castro-Santos Haro Quantifying migratory delay 2003 PDF or Time-to-event analysis as a framework for quantifying fish passage performance Perry 2012 PDF full text"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–39 and 44–54",
+        "Resultary and mirror sources itemized above",
+        "USGS publication 70044110 author abstract",
+        "Other DOI/open-copy access attempts as itemized"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The competence-window result compares equal-mean exponential and Gamma clocks over a fixed-length window with no mortality, giving onset crossings and a critical window width. The moment-matched result compares Gamma and inverse-Gaussian deadline CDFs with no mortality and has two crossings for all positive squared CVs."
+        ],
+        "reasoning": "An interval test averages the density over a moving lower and upper bound. The mortality model fixes the lower bound at zero and changes a smooth survival weight across the whole interval; a finite interval width does not substitute for μ in that comparison. The Gamma–inverse-Gaussian theorem cannot specialize to the equal-mean exponential–Erlang pair with killing. Same-day dates supply no ordering or novelty evidence.",
+        "searches": [
+          "Local mirror: SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78, offsets 0 and 2000; SCOPE-exactly-two-arrival-fraction-reversals-between-moment-matched-ga--79d9da59cb20, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The success functional is exactly the truncated Laplace–Stieltjes transform E[e^(−μS)1_{S≤T}]. Frozen Proof lines 13–22 evaluate it as exponential and incomplete-gamma formulas. The primary search returned general waiting-time distribution material, not a decisive comparison."
+        ],
+        "reasoning": "Each exponential tilt creates an unnormalized CDF, and its normalization differs between designs. A CDF comparison of normalized tilted laws or an infinite-horizon transform order would not give this finite-deadline sign classification.",
+        "searches": [
+          "Resultary: independent exponential mortality discounted finite-horizon passage probability two crossings threshold",
+          "Resultary: incomplete-gamma discounted Erlang CDF exponential competing risk deadline crossing",
+          "Primary literature: equal mean exponential Erlang gamma finite deadline cumulative incidence competing exponential mortality killed waiting time two crossings crossing probability finite horizon Laplace transform stochastic ordering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match: 2026/11/22/SCOPE-a-sharp-mortality-threshold-for-two-deadline-reversals-in-fish-p--4d124dc381af, the frozen record itself. Two distinct crossing results were read in the local mirror: SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78 and SCOPE-exactly-two-arrival-fraction-reversals-between-moment-matched-ga--79d9da59cb20."
+        ],
+        "reasoning": "A numerical table of Erlang CDFs, stationary points, or even an isolated critical height would not give the all-parameter classification. The two separate catalogue results change either the event or both comparison laws, and do not resolve the critical mortality. No external exact classification was resolved.",
+        "searches": [
+          "Resultary: equal-mean exponential Erlang-2 passage time mortality deadline crossings",
+          "Resultary: matched mean Gamma and exponential completion success before independent killing deadline discounted CDF"
+        ]
+      },
+      "rationale": "The nearest inspected formulations clarify a genuine comparison: neither a competence interval with no mortality, a different pair of lifetime distributions, nor the finite-horizon Laplace identity fixes the sign of this local maximum as the mortality parameter varies. The exact catalogue match is the assigned record. No inspected distinct source contains an equivalent classification or a result making the mortality switch a parameter substitution; this does not establish priority.",
+      "residual_risks": [
+        "Several plausible fish-passage/stochastic-order full texts were not accessible through the tried routes. This is not evidence of absence; an equivalent reliability or defective-distribution comparison could be unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical target, not independent prior coverage.",
+          "evidence": "Same strict signs, tangency and dimensionless critical value.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mortality-threshold-for-two-deadline-reversals-in-fish-p--4d124dc381af",
+          "material_read": "Local mirror RESULT.md at offset 506 and frozen Finding.",
+          "method": "Local Resultary and mirror passage inspection.",
+          "title": "A sharp mortality threshold for two deadline reversals in fish-passage timing",
+          "trigger": "Exact Resultary match."
+        },
+        {
+          "assessment": "Closest choice of waiting-time laws, but different event.",
+          "evidence": "Exit during a fixed competence interval with no mortality; the diagram varies interval width and onset.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78",
+          "material_read": "RESULT.md offsets 0 and 2000.",
+          "method": "Local Resultary and mirror passage inspection.",
+          "title": "Two-boundary competence-window phase diagram for matched-mean residence times",
+          "trigger": "Equal-mean exponential/Gamma comparison with exact crossings."
+        },
+        {
+          "assessment": "Different distributions and no exponential killing.",
+          "evidence": "Two finite deadline-CDF crossings for a Gamma/inverse-Gaussian pair at matched mean and variance.",
+          "identifier_or_url": "2026/11/22/SCOPE-exactly-two-arrival-fraction-reversals-between-moment-matched-ga--79d9da59cb20",
+          "material_read": "RESULT.md Finding, offset 0.",
+          "method": "Local Resultary and mirror passage inspection.",
+          "title": "Exactly two arrival-fraction reversals between moment-matched gamma and inverse-Gaussian distributions",
+          "trigger": "Exact pair of deadline crossings."
+        },
+        {
+          "assessment": "Abstract supports the competing-risks motivation; no whole-chapter noncoverage inference.",
+          "evidence": "Describes alternate routes/failure or other fates removing fish from the available pool, and a telemetered-fish simulation and time-to-event analysis.",
+          "identifier_or_url": "https://pubs.usgs.gov/publication/70044110",
+          "material_read": "USGS author abstract, around offset 1170; no full chapter passage retrieved.",
+          "method": "OA public website with literal multinomial locator; separate open chapter PDF attempt returned HTTP 403.",
+          "title": "Time-to-event analysis as a framework for quantifying fish passage performance",
+          "trigger": "Direct fish-passage competing-risk precursor."
+        },
+        {
+          "assessment": "Access limitation.",
+          "evidence": "No whole-document comparison inferred from the inaccessible primary text.",
+          "identifier_or_url": "https://doi.org/10.1139/f03-086",
+          "material_read": "No primary-text passage retrieved.",
+          "method": "USGS/journal and identified alternate open-copy routes attempted; no full text read.",
+          "title": "Quantifying migratory delay: a new application of survival analysis methods",
+          "trigger": "Direct fish passage original research."
+        },
+        {
+          "assessment": "Access limitation.",
+          "evidence": "No primary passage retrieved to support a comparison beyond the frozen record's account.",
+          "identifier_or_url": "https://doi.org/10.1111/faf.12258",
+          "material_read": "No primary-text passage retrieved.",
+          "method": "OA DOI and full-text routes attempted, HTTP 403.",
+          "title": "The future of fish passage science, engineering, and practice",
+          "trigger": "Cited discussion of passage states and competing risks."
+        },
+        {
+          "assessment": "Not resolved as stronger coverage from that access; no full-text conclusion.",
+          "evidence": "Concern is right-spread ordering of heterogeneous-exponential convolutions, not an established comparison of the specific discounted truncated transforms.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmva.2009.07.001",
+          "material_read": "Landing/abstract access only.",
+          "method": "OA DOI lookup.",
+          "title": "On the right spread order of convolutions of heterogeneous exponential random variables",
+          "trigger": "Potential broader stochastic-order theorem for sums of exponential stages."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "USGS publication 70044110 author abstract (application context only)"
+      ],
+      "rationale": "The point is not evaluating a standard Erlang CDF. With equal mean and the same independent mortality, the more concentrated design is worse at short deadlines and also worse at eventual completion with any positive mortality, yet can be strictly better at intermediate deadlines. Locating exactly when that interior advantage exists and disappears is a useful benchmark for the interplay between variability and competing mortality. The two boundaries and the isolated tangency give a complete decision diagram for this natural minimal model.",
+      "residual_risks": [
+        "These formulas do not identify a field-optimal fishway or extend to state-dependent hazards, heterogeneous timing laws or sequential barriers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

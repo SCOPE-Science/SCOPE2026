@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:30:41.816848Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–117; VERIFICATION.md lines 18–22; verify.py inspected, not executed.",
+        "Independent replay: python3 /workspace/review-evidence/exact_checks.py 1; output /workspace/review-evidence/check-1.txt (symbolic derivative, 945 exact grid cases and 36 rational design cases)."
+      ],
+      "rationale": "Subtract the realized finite-population mean: the error is (M/N) times the difference between the correction-sample and complement residual means, M=N−a. For every fixed population and nonsingular pilot, its finite randomization mean is zero and the design variance factor is M(M−b)/(N²b). This is a conditional design statement, not a claim of joint integrability at a=p. Conditional on the pilot and a particular correction set, the remaining Gaussian residuals have variance σ²+||δ||² for δ=β̂−β; the squared sum of their signed coefficients is γ for each set. With a rotational Gaussian design, the reciprocal of any unit-direction quadratic form of the inverse Gram matrix is χ²_(a−p+1) by residualizing one design column on the others. Cramér–Wold gives the full vector law σW/√U, and the correction's standardized Gaussian is independent of the pilot. Thus ||δ||²/σ²=V/U in law, and U/(U+V) is beta with shapes ν/2,p/2. Its inverse q/2 moment exists exactly for q<ν, with logarithmic divergence at equality, yielding the displayed gamma ratio and infinite MSE at a=p,p+1. Applying the same realized-target correction to the plain sample gives its reported risk and the strict ratio test at finite risk. In t=a−1 the derivative numerator is (L−c−p)t²+2pct−pcL, strictly increasing between its opposite endpoint signs; the rationalized root is the unique continuous minimum and monotonicity gives the two clipped integer neighbors. The singleton feasible split at B=p+3 is included. For fixed p and N/B→∞ with B→∞, t*/√(pB)→1; the factorization C_N=[(1−a/N)/(1−a/B)]/[1−p/(a−1)] then gives C_N−1~2√(p/B) at either minimizing rounded neighbor. Separately, at fixed p,B the N→∞ relaxation gives the stated exact lower envelope.",
+      "residual_risks": [
+        "Finite cases are diagnostics, not proofs. Gaussian scalar no-intercept unregularized OLS is essential to the distribution claim; no claim about KRR or whole optimization trajectories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier design-unbiased survey result covers a general training-subsample estimator with WLS as an example. The application source has the same disjoint architecture and uses KRR in experiments. Riaño analyzes differently weighted residual correction over the sample with a general two-phase variance decomposition.",
+          "A lawful full-text attempt at Sitter returned no OA copy and publisher 403; no full-text noncoverage is asserted."
+        ],
+        "reasoning": "The prior general design theorem directly settles design unbiasedness but does not identify the superpopulation distribution or optimize the pilot split; a general variance identity does not settle the infinite moments.",
+        "searches": [
+          "arXiv:2003.11423 Eq. (1) and following unbiasedness result",
+          "arXiv:2606.27171 Algorithm 1",
+          "arXiv:2609.04082 Eq. (7) and Theorem 1",
+          "doi:10.1080/01621459.1997.10474031"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary comparisons including d594d8d96c3f",
+        "arXiv:2003.11423, 2606.27171 and 2609.04082",
+        "Sitter 1997 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reciprocal chi-square law and residual variance identity are standard ingredients. More is needed to couple them to the independent correction contrast, treat the nonintegrable cases and minimize the finite-population risk over a constrained integer pilot split.",
+          "Riaño's Theorem 1 gives the variance decomposition for a different estimator, not a stronger exact distribution/allocation theorem from which the record follows by specialization."
+        ],
+        "reasoning": "Unbiasedness is a direct special case; the exact quantitative equal-budget analysis and moment-sensitive choice of allocation are not supplied by the inspected prior statements.",
+        "searches": [
+          "arXiv:2003.11423 PDF pp. 3–4",
+          "arXiv:2609.04082 PDF pp. 9 and 14",
+          "SCOPE-20261108-d594d8d96c3f RESULT.md offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The total estimator from Eq. (1), divided by N and specialized to fixed-size uniform correction, is the same estimator. In Gaussian terms the normalized contrast also has the law of prediction error at one fresh independent Gaussian covariate/noise pair, not the sampling error of the pilot fit alone.",
+          "Indexed SCOPE-20261108-d594d8d96c3f proves q<n−d for Gaussian same-sample OLS-intercept integration of a quadratic, with a different target, dependence and degrees of freedom."
+        ],
+        "reasoning": "Exact estimator equivalence must be credited; similar moments in a different regression experiment do not establish the requested prediction-error profile or the budget-constrained comparison.",
+        "searches": [
+          "Resultary: Exact Student-mixture risk and optimal pilot allocation for model-assisted gradients",
+          "Resultary: Gaussian regression control variates moment cutoff chi-square OLS",
+          "Sanguiao Sande–Zhang arXiv:2003.11423 Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact cutoff in the indexed results is d594d8d96c3f, for a distinct OLS integration problem; the external lookup yielded non-evidentiary listing pages.",
+          "The nearest analytical prior sources above are general estimator/variance formulas, not a table of exact risk splits for (N,p,B)."
+        ],
+        "reasoning": "A numerical risk or cutoff table could not by itself cover the all-moment distribution and dimension-uniform finite-population minimizer. No exact matching database entry was established by these bounded searches.",
+        "searches": [
+          "The two Resultary queries above",
+          "Literature query: \"model-assisted\" \"Gaussian OLS\" pilot finite population difference estimator exact distribution chi-square moment cutoff optimal pilot allocation"
+        ]
+      },
+      "rationale": "The general difference estimator and its exact randomization unbiasedness are prior work. The supported distinct content is the exact moment and equal-budget allocation analysis for this finite-population Gaussian specialization, especially the optimized risk comparison, not the Student or inverse-Wishart ingredients. The closest inspected prior sampling results cover the design, not the combined distribution, moment cutoff and optimized risk. An equivalent unconditional Gaussian prediction calculation in older survey literature remains possible; the unavailable Sitter article is a bounded access risk, not a novelty verdict.",
+      "residual_risks": [
+        "Sitter full text inaccessible; an equivalent earlier random-design prediction or survey-regression specialization may be unindexed. No universal priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general estimator and unbiasedness overlap.",
+          "evidence": "Predict the remainder, then inverse-probability-weight its held-out residuals; specializes to M/b for uniform correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.11423",
+          "material_read": "PDF pp. 3–4, Eq. (1) and following result, offsets approximately 8200–13727",
+          "method": "Lawful OA full-text passages",
+          "title": "Design-Unbiased Statistical Learning in Survey Sampling",
+          "trigger": "Prior single-split design with weighted OLS"
+        },
+        {
+          "assessment": "Same sampling design, not the Gaussian OLS risk theorem.",
+          "evidence": "Uniform pilot and complement samples; experiments fit KRR.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.27171",
+          "material_read": "PDF pp. 6–7, Algorithm 1 and experimental setting, offsets 30100–33635 and about 34257",
+          "method": "Lawful OA full-text passages",
+          "title": "Stochastic Gradient Optimization with Model-Assisted Sampling",
+          "trigger": "The application paper named by the finding"
+        },
+        {
+          "assessment": "Different estimator and variance target; no exact Gaussian allocation in examined theorem.",
+          "evidence": "Training-subsample fit with a different residual correction and two-phase variance decomposition.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.04082",
+          "material_read": "PDF pp. 9 and 14, Eq. (7) and Theorem 1, offsets 36000–39772 and 57500–61268",
+          "method": "Lawful OA full-text passages",
+          "title": "Model-assisted estimation with a training subsample: a two-phase sampling approach with design-based variance estimation",
+          "trigger": "Plausible broad variance theorem"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage.",
+          "evidence": "Correct JASA citation; publisher returned HTTP 403 and no lawful alternate copy was located.",
+          "identifier_or_url": "doi:10.1080/01621459.1997.10474031",
+          "material_read": "Bibliographic evidence; no full-text passage retrieved",
+          "method": "OA repository lookup and publisher endpoint",
+          "title": "Variance Estimation for the Regression Estimator in Two-Phase Sampling",
+          "trigger": "Older two-phase survey regression could contain a relevant specialization"
+        },
+        {
+          "assessment": "Analogous mechanism; different estimator and claim.",
+          "evidence": "Same-sample intercept integration of a nonzero Gaussian quadratic, cutoff q<n−d.",
+          "identifier_or_url": "SCOPE-20261108-d594d8d96c3f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read the local published-corpus mirror",
+          "title": "A sharp dimension-dependent moment cutoff for Gaussian regression",
+          "trigger": "Closest indexed Gaussian OLS moment cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope; arXiv:2606.27171 Algorithm 1."
+      ],
+      "rationale": "Design unbiasedness alone conceals infinite joint MSE at two feasible pilot sizes. The exact law and optimized signal threshold quantify when spending gradient evaluations on a pilot helps at a fixed evaluation budget versus plain sampling, with an explicit integer allocation rather than a heuristic. The practically interpretable control is for the stylized Gaussian experiment, not a claim about wall-clock time, regularization or SGD convergence.",
+      "residual_risks": [
+        "Application value is a fixed-iterate benchmark, contingent on modeled covariates being cheaply available."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

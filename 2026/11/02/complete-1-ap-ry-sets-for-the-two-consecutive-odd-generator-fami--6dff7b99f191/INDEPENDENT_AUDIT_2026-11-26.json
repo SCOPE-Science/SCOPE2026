@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:29:52.192647Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–84",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/0927d0f9-e9b0-4437-9e50-60c5598d90d3/independent_p1_check.py"
+      ],
+      "rationale": "Write n=qb+2s and a representation with ell coins as an unordered list of indices in [0,L] summing to s+(q-ell)b/2. Parity and the minimum generator force ell<=q for q>=0 because 2s<2b; the only possible nonnegative representative before q=0 is 2s-b<b. For s=0,1 below the proposed thresholds the ell=q lists are unique when feasible; a shorter eligible list needs index sum at least b+s, beyond its capacity (at most a+1 for the plus cases and at most 2a for the minus cases). For the other residues below threshold there can only be one-coin representations, except the last two minus residues, where q=2 gives the unique unordered pair of sum 2a-1 or 2a. At threshold the displayed pairs or triples are distinct, including at a=2; for the plus a=1 case the middle interval consists of s=2, with pairs (0,2) and (1,1). Adding b to both representations preserves their distinctness and proves exhaustion. The disjoint residue rays give the two rational series, and the threshold sums 3b^2+3b and 3b^2+7b give the asserted genera after subtracting (b-1)/2. The subthreshold counts give exactly the positive singleton sets, excluding the empty representation at zero. An independent exact coin-change check matched thresholds, singleton sets and genera for both families at a=2 through 40 (78 cases).",
+      "residual_risks": [
+        "The finite check corroborates the formulas; the residue exclusion and injection establish the universal claims. The plus extension to a=1 was checked by the proof, not by that separate replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family article treats p-Frobenius maxima for a range of p using lower-layer partition identities and witnesses. Its minus-family §3 uses 4b+2s for m+1<=s<=a and 3b+2s for a+1<=s<=2a, proving minimality in the extremal residue.",
+          "Komatsu's general identity needs the complete set of p-Apéry elements; the generalized Fibonacci/Jacobsthal paper uses other generators."
+        ],
+        "reasoning": "Broader ranges in p for a scalar maximum do not dominate the complete residue quotient array at p=1. The cited identities support methods and some entries, not every threshold.",
+        "searches": [
+          "arXiv:2608.14053 v1, §§3–4 and Theorem 1.3",
+          "arXiv:2111.11021, Corollary 1",
+          "arXiv:2304.00443, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and 9075b19bda91",
+        "arXiv:2608.14053, 2111.11021, 2304.00443"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The plus Lemma 4.2 gives the exact witnesses at s=0,1 and s>=a+2; for 2<=s<=a+1 it prints witnesses at 3b+2s from which deleting a common b yields the assigned witnesses at 2b+2s. Those are existence constructions, not all-residue lower bounds.",
+          "The minus middle layers need exact two-coin feasibility and uniqueness boundaries, not furnished by the coarser all-residue argument for the maximum. The later index arrays plus the upward injection imply both generating functions; its low-quotient counts imply the singleton loci on a>=4."
+        ],
+        "reasoning": "Credit the exact published extremal minima and the derivable witnesses. The frozen all-residue result requires additional exclusions and exact low-layer counts; it is not just substitution into the Frobenius-maximum theorem.",
+        "searches": [
+          "arXiv:2608.14053 v1, §3 Case 1–3 (offset 19453) and Lemma 4.2 (offset 22900)",
+          "9075b19bda91, low-q proof and final threshold arrays"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint's S_1 is precisely the set with denumerant at least two, but its g_1 denotes the Frobenius maximum, not the genus count.",
+          "First-double minima and the geometric series of disjoint residue rays encode the same set; the genus is obtained from their sum, not their maximum."
+        ],
+        "reasoning": "No novelty is assigned to the conversion of minima into the generating series or genus via standard identities. The evaluated minima and the singly represented locus are the discriminating content.",
+        "searches": [
+          "Resultary searches for p=1 consecutive-odd generator residue thresholds, genera and singleton sets",
+          "arXiv:2608.14053 v1, definitions and Lemma 2.4",
+          "arXiv:2111.11021, Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Nov. 8 entry lists minus threshold quotients 5, 2, 3 on the same three intervals, and plus quotients 4 for s=0,1 and 2 elsewhere. It gives the same genus values on its stated range a>=4."
+        ],
+        "reasoning": "This is exact content overlap on that range even though the singleton lists and series are not printed in the same form. Its displayed indexed date is later, and its range does not include the smallest cases of the frozen claim.",
+        "searches": [
+          "Local Resultary exact/semantic searches for first-double Apéry and sparse threshold transfer",
+          "9075b19bda91, Finding and Proof near offset 6382"
+        ]
+      },
+      "rationale": "Credit the all-residue minimality and classified singleton loci, not the general Apéry identities, the extreme Frobenius residues or the published witness constructions. The closest publication on the same families establishes the maxima but not the full data: its minus-family middle witnesses can lie in strictly higher layers. The Nov. 8 indexed comparator gives the same arrays and implies the same p=1 consequences for a>=4; this is substantial later indexed coverage, not evidence of an antecedent theorem to the Nov. 2 entry or of independent priority.",
+      "residual_risks": [
+        "Unindexed equivalent low-defect partition tables remain possible; indexed dates do not establish independence or publication priority. The abstract series conversion and part of the witness calculation are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact extremal maxima and relevant witnesses, not the full residue table",
+          "evidence": "§3 uses coarser upper witnesses and proves minimality at s=m; §4.1 fixes minimality at residue 2 and uses 3b+2s witnesses for part of the plus range.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.14053",
+          "material_read": "Definition p. 1, Theorem 1.3 p. 2, §§3 and 4.1 pp. 4–9 including Case 1–3 and Lemma 4.2",
+          "method": "OA PDF targeted passages",
+          "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+          "trigger": "Same two families and p=1 in the primary literature"
+        },
+        {
+          "assessment": "Later index coverage of all residue minima and consequences at a>=4",
+          "evidence": "Final paragraph explicitly gives the two p=1 arrays and their genus sums; low-q analysis also specifies the representation counts needed for singleton loci.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sparse-threshold-transfer-between-adjacent-intervals-of-odd-gene--9075b19bda91/RESULT.md",
+          "material_read": "Finding and low-quotient Proof, particularly final arrays near offset 6382",
+          "method": "Local Resultary mirror",
+          "title": "Sparse threshold transfer between adjacent intervals of odd generators",
+          "trigger": "Strongest exact indexed match"
+        },
+        {
+          "assessment": "Antecedent general identity, not evaluation for the two families",
+          "evidence": "Genus uses the sum of all p-Apéry elements, whereas the Frobenius number uses their maximum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.11021",
+          "material_read": "Corollary 1 p. 5, offset near 13755",
+          "method": "OA PDF passage",
+          "title": "On the determination of p-Frobenius and related numbers using the p-Apéry set",
+          "trigger": "Potentially general formula implying the genera"
+        },
+        {
+          "assessment": "Different generators",
+          "evidence": "Generalized Fibonacci/Jacobsthal families rather than the two prescribed odd progressions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.00443",
+          "material_read": "Abstract and §1",
+          "method": "OA PDF opening passage",
+          "title": "p-numerical semigroup of generalized Fibonacci triples",
+          "trigger": "Related p-Apéry enumeration methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "arXiv:2608.14053, same-family scalar comparison"
+      ],
+      "rationale": "The first repeated representation in each residue is a natural refinement of the p-Frobenius problem for the same motivating families. Knowing each exact onset, and which earlier elements are represented once rather than not at all, answers membership and uniqueness for all n and permits genus and series evaluation; the published maxima cannot give these distinctions.",
+      "residual_risks": [
+        "No claim for higher p, arbitrary arithmetic progressions, or exact denumerants beyond the 0/1/at-least-2 distinction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

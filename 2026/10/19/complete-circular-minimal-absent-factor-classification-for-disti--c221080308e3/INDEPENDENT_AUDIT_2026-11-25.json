@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:13.598503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, phase lemma and case analysis; VERIFICATION.md and check_unique_gaps.py inspected without execution",
+        "Independent bounded reproduction, ordinal 4"
+      ],
+      "rationale": "The two immediate proper factors of a minimal absent word must occur. If both share one complete gap, that gap's unique starting phase aligns the occurrences and forces the proposed word to occur. Four zeros always leave a common complete gap, and three zeros with either nonempty exterior run do too. With exactly three zeros and no exterior runs, the two proper factors require x,y in S, y≤s(x), x≤p(y), and absence is y≠s(x). For two zeros, a missing full gap is minimal exactly when both shortened runs are allowed (including 00); for an existing gap, both nonempty exterior runs are forbidden by the common anchor, and the one-sided overrun must exceed its allowed run by exactly one with its other proper factor tested by dominance. One zero has a dominance test on both immediate deletions, with only positive flank lengths capable of minimal absence. Zero zeros gives 1^{M+1}. The disjoint cardinality formula follows. An independent literal periodic-language scan checks all words up to the safe period-length-plus-one horizon (a longer candidate's proper factors agree on a full period), not a horizon derived from the predicted families. It matched 157 gap profiles (rotation representatives up to six consecutive gaps plus irregular examples) and the 10 versus 11 contrast. Replay python3 /workspace/reviews/evidence/reproduce.py 4.",
+      "residual_risks": [
+        "The frozen checker uses a formula-dependent cap and prints a final marker even if the consecutive-gap check returns early on a mismatch. The all-gap proof and the independent finite checks do not rely on that marker or cap.",
+        "No bound by three zeros is inferred for repeated gaps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circular two-copy relation and finite RLE reporting algorithm compute an instance after filtering, but the statements inspected do not express its members in terms of cyclic successor/predecessor and dominance or give the three-zero cutoff."
+        ],
+        "reasoning": "Credit general listing; the exact object is related by a reduction, but the structural formula for arbitrary distinct gaps does not result just by substituting gaps into the algorithm's guarantee.",
+        "searches": [
+          "arXiv:1707.04450 §3; arXiv:2202.13591, finite RLE minimal absent word reporting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1707.04450",
+        "arXiv:2202.13591",
+        "Resultary 2aa2ec2e3dfc and 2ffe44ecc466"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With three gaps rotations and reversal exhaust all orders; four gaps are the first opportunity for independent order dependence. Later four-run work has at most two isolated zeros under specialization."
+        ],
+        "reasoning": "Neither the three-gap restriction nor exact per-instance computation gives the all-r symbolic result. The distinct-gap phase-anchor mechanism generalizes, but the resulting gap-order-sensitive families require classification.",
+        "searches": [
+          "Fici–Restivo–Rizzo, §3; Resultary 2aa2ec2e3dfc, Finding and Proof; 2ffe44ecc466, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Restivo–Rizzo §3 defines the same factor language of powers; Resultary 2aa2ec2e3dfc gives the exact three-gap specialization."
+        ],
+        "reasoning": "Circular minimal forbidden vectors here are minimal absent factors of the periodic language; neither a finite one-copy language nor a three-gap theorem covers this unbounded-r classification.",
+        "searches": [
+          "Resultary circular antidictionary, periodic binary minimal forbidden/absent factors, distinct one-run gaps",
+          "arXiv:1707.04450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2aa2ec2e3dfc gives count M+4 and zero-profile (1,1,M,2) for three gaps; 2ffe44ecc466 treats four runs, not four isolated zeros."
+        ],
+        "reasoning": "The exact prior formula/table in the catalogue has only three gaps. The four-run formula gives counts/max length for the two-gap specialization, not the general count or six-family set.",
+        "searches": [
+          "Resultary three distinct gaps, four-gap circular antidictionary and periodic bispecial factors"
+        ]
+      },
+      "rationale": "Credit the exact three-gap antidictionary and its cutoff as covered. The supported distinct contribution is the parameter-uniform six-family classification for arbitrarily many distinct gaps and the first cyclic-order dependence. Existing general instance-listing algorithms are also prior.",
+      "residual_risks": [
+        "A special-family theorem indexed under antidictionaries, recurrence, or run-length descriptions could overlap beyond the checked sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reduction and enumeration; not the stated distinct-gap classification",
+          "evidence": "Factors of powers; identifies circular minimal forbidden factors via two copies and a length filter.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.04450",
+          "material_read": "p. 2 and §3 p. 6 (PDF offsets 5808 and 21616)",
+          "method": "OA PDF passage inspection",
+          "title": "Minimal Forbidden Factors of Circular Words",
+          "trigger": "Same circular factor language and general listing"
+        },
+        {
+          "assessment": "Finite-string reporting guarantee; not a circular structural formula in statement read",
+          "evidence": "Linear-space reporting structure in the RLE size for a finite input string.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.13591",
+          "material_read": "p. 1, abstract (PDF offset 1068)",
+          "method": "OA PDF passage inspection",
+          "title": "Minimal Absent Words on Run-Length Encoded Strings",
+          "trigger": "Compression by runs, arbitrary gap profile"
+        },
+        {
+          "assessment": "Covers r=3 and its three-zero cutoff",
+          "evidence": "Formula M+4 and complete antidictionary for distinct a<b<c, equivalent across three-gap orders by rotation and reversal.",
+          "identifier_or_url": "Resultary 2aa2ec2e3dfc",
+          "material_read": "RESULT.md Finding and Proof (offsets 0, 3077)",
+          "method": "Resultary local mirror",
+          "title": "The complete circular antidictionary of three distinct binary gaps",
+          "trigger": "Exact restriction and phase-anchor precedent"
+        },
+        {
+          "assessment": "Overlap with r=2 count/max-length; no general r coverage",
+          "evidence": "Four runs of the form (0^a1^b0^c1^d)^ω; take a=c=1 to get two isolated zeros.",
+          "identifier_or_url": "Resultary 2ffe44ecc466",
+          "material_read": "RESULT.md Finding and Assumptions (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Complete bispecial factors and exact antidictionaries of binary four-run periodic words",
+          "trigger": "Potential four-gap analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact families and examples; Resultary 2aa2ec2e3dfc"
+      ],
+      "rationale": "The complete symbolic antidictionary exposes which adjacencies and flank lengths force absent words from compressed gap data, uniformly in the number and sizes of gaps. The phase-anchor cutoff and the first explicit order contrast are structural information beyond an algorithm that outputs a fixed instance or the already known three-gap case.",
+      "residual_risks": [
+        "No new general MAW-enumeration complexity bound or optimum-over-permutations result is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

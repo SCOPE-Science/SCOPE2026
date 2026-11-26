@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:03:30.919847Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Assumptions, Proof and Verification",
+        "VERIFICATION.md §§Mathematical checks and Computational checks",
+        "cycle_lift_verify.py, reviewed as evidence",
+        "Replay: python3 /workspace/audit_evidence/torus_replay.py"
+      ],
+      "rationale": "The stated gcd assumption gives T ≡ q−1 on the subfield and gcd(T,N)=S. Thus H=ker(x↦x^T) has order S, H∩L×=F_q×, and the product H·L× covers K× with constant multiplicity q−1. The congruence on r makes F(uz)=u^r Lcalligraphic(z), so the mth iterate acts separately on the two representatives. A fixed pair up to the overlap has Lcalligraphic^m(z)=λz and u^(r^m−1)=λ^(−1). The cyclic power map has g_m preimages of λ^(−1) exactly for λ^(S/g_m)=1, and the corresponding nonzero eigenspace has q^d−1 vectors. This includes S=1 and r=1, with gcd(0,S)=S. Dividing by q−1 and adding the fixed zero yields the exact count; divisor inversion gives the cycles. For r=1 the L× cosets are invariant copies of the nonzero base action, proving replication and its order/sign consequences. Independently replayed all three displayed cycle inventories in fields of sizes 64, 256 and 729.",
+      "residual_risks": [
+        "The exact replay covers the three reported examples; the universal conclusion uses the algebra, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bors–Wang Lemma 3.5 and §6.2 compute cycle types using forward products of fiber permutations around quotient cycles."
+        ],
+        "reasoning": "This framework can describe the lift via the H cosets, but its return-product rule takes quotient cycles and fiber permutations as input. It does not supply the grouping over F_q× scalar eigenspaces, the single gcd, or the fixed-count shortcut independent of that cycle inventory. Generic cycle-type determination is prior; the arithmetic compression is the contribution.",
+        "searches": [
+          "arXiv:2103.00664, generalized cyclotomic cycle types, imprimitive wreath products"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and original record 6fe70918d61c",
+        "Li arXiv:2610.16619",
+        "Bors–Wang arXiv:2103.00664",
+        "Bian–Chen–Zheng arXiv:2610.11574"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li proves T≡q−1 on L× and gives the exact lift polynomial; the generic wreath-product theorem relates return maps to cycle type, while the base-map theorem works with ordinary base periodic points."
+        ],
+        "reasoning": "The r=1 copy rule is close to the prior lift identity and is credited as a corollary. For arbitrary r a fixed point upstairs can close with λ≠1 downstairs; the constant q−1 overlap, cyclic power-image restriction and weighted eigenspace count are needed to replace actual quotient-return enumeration with the displayed field-linear formula. This refinement is not already provided by the inspected statements.",
+        "searches": [
+          "arXiv:2610.16619 §2–3",
+          "arXiv:2103.00664 Lemma 3.5 and §6.2",
+          "arXiv:2610.11574 Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li, Lemma 2.1 and Theorems 3.1–3.2, uses the identical torus exponents and r congruence; the statements give a permutation, a sparse inverse and descent.",
+          "Bian–Chen–Zheng, Theorem 3.2, computes cycle counts from the Dickson matrix of the linearized permutation on the base field."
+        ],
+        "reasoning": "Neither statement gives the extension-field fixed counts with the nontrivial scalar λ filter. A linearized cycle formula on L alone does not count the twisted closures in the lift.",
+        "searches": [
+          "arXiv:2610.16619, higher unit-torus lifts, inversion and descent",
+          "arXiv:2610.11574, linearized cycle structures and parities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest substantive indexed record analyzes X+tX^q+X^(2q−1) on F_(q²) in characteristic two, with norm-one fibers and a Kloosterman coefficient count. Its original RESULT.md was inspected."
+        ],
+        "reasoning": "This is an exact census for a coefficient family, not a database of the arbitrary linearized-base and exponent lifts under review. In its displayed field/base parametrization it is not the s=1 linearized lift. No equivalent indexed census was located.",
+        "searches": [
+          "Resultary: unit-torus lifts, sparse permutation polynomials, and cycle spectra/fixed counts",
+          "Resultary record 2026/11/2, cycle spectra and Kloosterman coefficient census, 6fe70918d61c"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the nonenumerative Li-family all-iterate counting formula. The lift and its permutation/inverse theorem, ordinary cycle inversion, and linearized cycle theory are prior. The r=1 replication is an immediate consequence of the known lift formula and the coset factorization, not a separate originality claim.",
+      "residual_risks": [
+        "A prior explicit arithmetic specialization of a general cycle algorithm could remain unindexed under different terminology; the inspected passages do not establish one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers construction, permutation, inverse and descent, not the scalar-eigenspace all-iterate count in these passages.",
+          "evidence": [
+            "Theorem 3.1 uses gcd(r,N)=1, r≡1 mod q^n−1 and identifies the lifted inverse.",
+            "Theorem 3.2 descends an inverse identity to the underlying linearized maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.16619",
+          "material_read": "§2 and §3, pp. 3–8, Lemma 2.1 and Theorems 3.1–3.2",
+          "method": "Original open PDF text, sections checked by offset",
+          "title": "Sparse Lifts of q-Linearized Permutation Polynomials with Explicit Inverses",
+          "trigger": "Same family and exponents"
+        },
+        {
+          "assessment": "Covers general cycle assembly, not this compressed arithmetic formula.",
+          "evidence": [
+            "Lemma 3.5 uses one forward cycle product per quotient cycle; §6.2 applies this method to generalized cyclotomic permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.00664",
+          "material_read": "Lemma 3.5, p. 13; §6.2, pp. 46–48",
+          "method": "Original open PDF passages",
+          "title": "Generalized cyclotomic mappings: Switching between polynomial, cyclotomic, and wreath product form",
+          "trigger": "Plausible stronger theorem for cycles of this type of lift"
+        },
+        {
+          "assessment": "Covers the base linearized cycle classification.",
+          "evidence": [
+            "Cycle counts are obtained from Dickson-matrix Jordan-block data and divisor inversion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11574",
+          "material_read": "Theorem 3.2, pp. 6–7",
+          "method": "Original open PDF passages",
+          "title": "Cycle structures and parities of linearized permutation polynomials",
+          "trigger": "Same cycle invariant on the underlying field"
+        },
+        {
+          "assessment": "Related but different parametrized census.",
+          "evidence": [
+            "Studies a characteristic-two trinomial and its trace-labeled norm-one fibers, not the general torus-lift formula."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 6fe70918d61c",
+          "material_read": "Original RESULT.md, Finding at start of file",
+          "method": "Local index and repository mirror",
+          "title": "Cycle spectra and a Kloosterman coefficient census for a binary permutation trinomial",
+          "trigger": "Closest indexed sparse-polynomial census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§2–5",
+        "Li Theorem 3.1",
+        "Bors–Wang Lemma 3.5"
+      ],
+      "rationale": "This gives a usable cycle invariant for a naturally defined family of generally nonlinear sparse permutations. Computing a single gcd and at most q−1 base-field kernel dimensions per requested iterate avoids enumerating the extension-field elements or their quotient cycles. It covers more than the known inverse and involution problems. The Möbius step and the simple r=1 replication alone would not justify this assessment.",
+      "residual_risks": [
+        "The formula does not claim a uniformly fast complete list of cycle lengths for arbitrary large orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

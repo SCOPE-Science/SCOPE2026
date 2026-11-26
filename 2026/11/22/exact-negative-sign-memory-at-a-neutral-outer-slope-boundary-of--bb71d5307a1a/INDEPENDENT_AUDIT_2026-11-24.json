@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:49:41.811228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–71; VERIFICATION.md and verify_stationary_sign.py inspected, not executed",
+        "Independent exact renewal check: for m=4, lags 0–4 give (1, 1/5, -1/5, -3/10, -7/40)"
+      ],
+      "rationale": "Apart from the null set of endpoint itineraries, outer cells map by translation to the next lower index on the same side; central cells have slope m and split uniformly across the opposite side. Thus the balance relation is pi_k=pi_(k+1)+pi_0/m with pi_m=0, giving the stated normalized density. For uniqueness, length-n itinerary cylinders map affinely onto whole final cells and have mesh at most m^(-floor(n/m)); each m-step itinerary expands once. The cellwise-constant subspace is closed in L1. Averaging any invariant density on these cylinders and pushing it forward n steps gives a cellwise-constant approximant converging in L1 to that density by transfer contraction. The irreducible finite chain then fixes its unique normalized cell masses. At time zero just after a flip the landing index is uniform, and each specified excursion maps its coordinate affinely onto the next whole central cell, giving iid uniform inter-flip durations. With q_n the expectation relative to that post-flip sign, the renewal recurrence gives q_n=2(1-1/m)^n-1 for n<=m. The stationary first wait is r with probability 2(m-r+1)/(m(m+1)); conditioning on this wait and summing gives the claimed C_m(n). The first difference gives the minimizing lag and only the m=2 tie. Negativity for all m follows already at n=m: (1-1/m)^m<=exp(-1-1/(2m)), and using exp(-u)<=1-u+u^2/2 with 8/e<3 gives 8m(1-1/m)^m<3m-1. The floor error and convergence of m log(1-1/m) to -1 give the uniform limit and its unique minimum at log 2. One-step flips have probability 2/(m+1), as claimed.",
+      "residual_risks": [
+        "The phrase central departure at time zero is read as the landing immediately after a flip; starting in a central cell before its expanding step is not the post-flip recurrence. The law is unique only among absolutely continuous invariant probabilities; the exact formula is asserted only through lag m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same general family and its fixed-point analysis are known. The 2023 article’s inspected passages focus on Lyapunov/bifurcation behavior and histograms; the thesis autocorrelation is numerical autocorrelation of other finite output sequences."
+        ],
+        "reasoning": "A fixed-point classification, histograms at nonneutral parameter examples, and sample autocorrelation do not imply the neutral-boundary invariant law or stationary sign kernel.",
+        "searches": [
+          "García-Grimaldo and Campos-Cantón DOI 10.1142/S021812742150200X and DOI 10.1007/978-3-031-02472-6_8",
+          "Same-map Electronics paper DOI 10.3390/electronics12020444 and 2023 thesis Eq. (3.4), §§3.1, 6.3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bb71d5307a1a (self), 2fe27acb9c54, d95b4c65cf77 and 1ee39cc9ce47",
+        "2023 Electronics §3; 2023 author thesis Eq. (3.4) and §6.3.3; Siegrist §15.5",
+        "Limited material and lawful retrieval attempts for the 2021 article and 2022 chapter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier general transform assumes continuous stationary sojourns and treats Markov two-time aliasing, not identification of this piecewise-affine map with discrete uniform renewals. The different two-branch map has lag-one bit anticorrelation; the diffusion comparison has renewal resets, not alternating central-cell visits."
+        ],
+        "reasoning": "The map-specific clock identification plus the exact interval of lattice lags survives the framework overlap. No claim of a new general renewal formula or a new map family is needed.",
+        "searches": [
+          "2fe27acb9c54 Result Eq. (1) and scope; d95b4c65cf77 and 1ee39cc9ce47 Findings",
+          "Four-branch family equation and correlation passages of the 2023 thesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the invariant law the sign factor is an equilibrium alternating-renewal process with iid discrete uniform durations and a size-biased residual wait. 2fe27acb9c54 gives a continuous-time stationary covariance Laplace transform."
+        ],
+        "reasoning": "The continuous transform supplies a general route for the continuum uniform-sojourn profile, but not the discrete expanding-map law or its precise lattice correlations without identifying the coding and doing the finite-lag calculation.",
+        "searches": [
+          "Discrete delayed alternating-renewal process with uniform holding times; Siegrist §15.5",
+          "Resultary: stationary alternating-renewal covariance and exact sign memory"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bb71d5307a1a is the assigned record. d95b4c65cf77 gives exact branch-bit and coordinate covariance of a two-branch rotation-like map. 1ee39cc9ce47 gives sign correlation for a diffusion with renewal resets."
+        ],
+        "reasoning": "The first is not independent evidence and the latter two give different exact observables or evolution laws; neither provides this uniform discrete sign-correlation table.",
+        "searches": [
+          "Resultary: fixed-point-free exact sign memory and coordinate covariance; renewal-reset sign decorrelation"
+        ]
+      },
+      "rationale": "The map family, fixed-point-free setting and alternating-renewal methods are known. The supported distinct result is the exact invariant density and lattice sign-correlation law at its specified neutral boundary, with a macroscopic negative trough despite vanishing one-step flip probability. The consulted exact sign and renewal results match the methods or observable, but not the conjunction of dynamics and finite-lag law. Full-text coverage of two older family sources could not be verified.",
+      "residual_risks": [
+        "No usable full text of the original 2021 paper or 2022 chapter was retrieved. Whether either states an equivalent exact neutral-boundary law remains unverified. No literature-wide priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Family prior; specific theorem overlap unresolved",
+          "evidence": [
+            "Abstract concerns fixed-point-free chaos; full text retrieval restricted"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S021812742150200X",
+          "material_read": "Available abstract; usable full text unavailable",
+          "method": "Public literature lookup; direct and alternate configured OA retrieval attempted",
+          "title": "Chaotic Features of a Class of Discrete Maps without Fixed Points",
+          "trigger": "Original same-family paper"
+        },
+        {
+          "assessment": "Specific overlap unresolved",
+          "evidence": [
+            "Search description concerns comparative chaotic properties; redirects did not supply the chapter text"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-02472-6_8",
+          "material_read": "Available search description only; no usable full text",
+          "method": "Public lookup and OA retrieval attempt",
+          "title": "Comparative Analysis of Chaotic Features of Maps Without Fixed Points",
+          "trigger": "Follow-up on the same class of maps"
+        },
+        {
+          "assessment": "Inspected passages concern other properties and parameter examples",
+          "evidence": [
+            "Numerical bifurcation, Lyapunov and histogram evidence, including outer slopes below one"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/electronics12020444",
+          "material_read": "Abstract and §3 pp. 4–6, PDF offsets 18000 and 25800",
+          "method": "Bounded primary PDF read",
+          "title": "FPGA Implementation of a Chaotic Map with No Fixed Point",
+          "trigger": "Same general piecewise-linear map family"
+        },
+        {
+          "assessment": "Same family, different autocorrelation object",
+          "evidence": [
+            "General fixed-point analysis and sampled autocorrelation of other output sequences"
+          ],
+          "identifier_or_url": "https://repositorio.ipicyt.edu.mx/bitstream/handle/11627/6492/TesisClaudioGarcia-VersionFinal.pdf?sequence=4",
+          "material_read": "Eq. (3.4) and §3.1, offset 103650; §6.3.3, pp. 78–79, offsets 211184–215539",
+          "method": "Bounded author-thesis PDF passages",
+          "title": "Design of Piecewise Linear Chaotic Maps and Their Application in Pseudorandom Number Generation",
+          "trigger": "Same-family thesis with autocorrelation material"
+        },
+        {
+          "assessment": "General continuous-time and methodological overlap, not the map-specific discrete result",
+          "evidence": [
+            "Stationary alternating-renewal covariance transform and general iid successive sojourn pairs"
+          ],
+          "identifier_or_url": "2fe27acb9c54; Siegrist, LibreTexts §15.5",
+          "material_read": "Local-mirror Result offset 0–2587 and Eq. (1); LibreTexts §15.5 HTML offset 5302",
+          "method": "Bounded local-mirror and open web passage reads",
+          "title": "Stationary alternating-renewal processes can exactly mimic Markov two-time laws; Alternating Renewal Processes",
+          "trigger": "Exact transform and equivalent renewal framework"
+        },
+        {
+          "assessment": "Different dynamics or observables",
+          "evidence": [
+            "Two-branch circle rotation coding and continuous diffusion with renewal resets, respectively"
+          ],
+          "identifier_or_url": "d95b4c65cf77; 1ee39cc9ce47",
+          "material_read": "Actual Findings in the local mirror",
+          "method": "Resultary search and bounded statement reads",
+          "title": "Exact maximal bit anticorrelation and closed coordinate covariance; Sharp renewal reset sign decorrelation and a heavy-tail occupation law",
+          "trigger": "Closest exact-correlation indexed comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–13, 49–68 and 78–79",
+        "Same-family stationary and numerical context in the 2023 article and thesis"
+      ],
+      "rationale": "The exactly solvable neutral boundary explains why rare one-step sign flips do not prevent negative sign memory at lags proportional to m. The stationary density, discrete correlation and sharp limiting trough quantify that distinction in a natural existing map family; they are not general claims about finite-precision realizations or security.",
+      "residual_risks": [
+        "The exact formula and minimum comparison concern the stated lag window only; no behavior outside that window is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

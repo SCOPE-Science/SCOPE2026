@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:11.617548Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–91",
+        "VERIFICATION.md, lines 19–25 and its associated verify.py diagnostic",
+        "Independent continuous/discrete Lyapunov and scaled-Bessel quadrature checks"
+      ],
+      "rationale": "The prefeedback linear Gaussian recursion has triangular deterministic part with eigenvalues (1−g)ρ and ν, both of modulus below one, and V>0 from the thermal noise. The stationary active marginal variance is A². Between feedback times C−C∞ decays at rate 1/τ_r+1/τ_c, and V−V∞ obeys a scalar inhomogeneous equation driven by C−C∞ with integrating factor exp(2t/τ_r). Integrating gives the stated F, including the repeated-rate limit. Applying C_+=(1−g)C and V_+=(1−g)²V+g²σ² yields the two displayed stationary formulas. Independently, W factors as X Y with X=g(y_-+ε) and Y=(κ/2)((2−g)y_-−gε); the centered normal pair has covariance m and covariance determinant d>0. Its product density and moment transform match the record; the exponential ratio follows by evenness of K₀, and the normal quadrant probability is 1/2+arcsin(m/√(m²+d))/π, equal to the asserted arctangent formula. There is no atom at zero, and symmetry is equivalent to m=0 because both density signs have positive support. A fresh Lyapunov computation for five parameter sets agreed within 4.44×10⁻¹⁶ in the covariance entries; finite density, tail and ratio comparisons also agreed without executing the frozen script.",
+      "residual_risks": [
+        "The newly checked finite cases do not reproduce all 114 recorded comparisons or replace a proof. The law is for one instantaneous event, not accumulated work or entropy production. Inter-cycle correlations need not be ascribed to active bath memory when A=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaunt covers every nonsingular centered bivariate normal pair, not merely partial feedback. Bahng treats the same gain, finite-time relaxation and feedback update. Paneru gives experiments, covariance and moments for the passive full-shift subcase, including symmetry at the zero-mean point in arXiv:1911.09833."
+        ],
+        "reasoning": "The Paneru comparisons alone do not imply the active partial-gain law. Their sign convention for work on the particle is opposite to extracted work. The more general probability result combined with the same-engine covariance equations, not the passive case, covers the whole asserted law.",
+        "searches": [
+          "Bahng–Lee–Ghim arXiv:2508.16866v1 pp. 3–4, Eqs. (9)–(12)",
+          "Gaunt arXiv:1807.03981 §3",
+          "Paneru et al. arXiv:1911.09833 and 1911.09835"
+        ]
+      },
+      "checked_sources": [
+        "Gaunt arXiv:1807.03981",
+        "Bahng–Lee–Ghim arXiv:2508.16866v1",
+        "Paneru et al. arXiv:1911.09833 and 1911.09835",
+        "Resultary e795ee52c808"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bahng Eq. (10) gives C=C_+ρν+C∞(1−ρν), since exp(−2τ/τ̄)=ρν. Eq. (9) gives V=ρ²V_++V∞(1−ρ²)−(2/κ)(C∞−C_+)F and already notes the limiting interpretation at τ_r=τ_c. Eq. (11) gives V_+=(1−g)²V+g²σ² and C_+=(1−g)C at periodic steady state. Gaunt gives the work density after the factor parameter substitution above."
+        ],
+        "reasoning": "Solving the first scalar equation gives C=C∞(1−ρν)/(1−(1−g)ρν). Inserting C∞−C_+=g C∞/(1−(1−g)ρν) into the second and moving ρ²(1−g)²V to the left gives the frozen V exactly. The prior text calls closed stationary expressions difficult, but its displayed triangular equations and stationarity already give these expressions by direct algebra; no further covariance theorem is needed. This closes the apparent remainder left by the distributional coverage.",
+        "searches": [
+          "Bahng–Lee–Ghim Eqs. (9)–(11), PDF pp. 3–4",
+          "Gaunt §3 part (iii), PDF p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaunt gives the exact K₀ density for XY with marginal standard-deviation product s and correlation r: its prefactor is 1/(πs√(1−r²)), exponential coefficient r/[s(1−r²)], and Bessel argument |w|/[s(1−r²)]."
+        ],
+        "reasoning": "Factor the prior work difference of squares as (y_-−y_+)(κ/2)(y_-+y_+). Under the stated Gaussian assumptions the factors are jointly centered normal; s=√(m²+d) and r=m/s. The prior formula becomes the frozen density term by term. Its sign-ratio and the Gaussian quadrant probability are immediate, and its work variance follows from the Gaussian fourth moment.",
+        "searches": [
+          "Centered correlated normal product / variance-gamma law; Gaunt arXiv:1807.03981 §3",
+          "Bahng–Lee–Ghim arXiv:2508.16866v1 Eq. (6) noisy proportional shift and Eq. (12) extracted work"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed hit found concerns a sharp sign transition in successive-cycle work correlations for full shift, not a partial-gain one-event law; it is later dated. Gaunt is a direct symbolic distribution match from primary literature."
+        ],
+        "reasoning": "A finite parameter table is not a natural encoding for this continuum law. No distinct exact Resultary one-event match was found in the bounded comparison; the scientific coverage decision does not rest on that miss.",
+        "searches": [
+          "Resultary single-cycle Gaussian information-engine work density, Bessel work asymmetry, memory-preserving finite-period feedback (two focused lookups)",
+          "Resultary e795ee52c808 Finding"
+        ]
+      },
+      "rationale": "The actual single-event law and finite-cycle covariance are correct but are mechanically implied by two directly applicable existing results. Gaunt's general centered correlated-normal product theorem gives the claimed density exactly for a difference of squares factored into two Gaussian linear forms. Bahng, Lee & Ghim already give the exact relaxation and feedback covariance recurrences for this engine, including the coincident-rate interpretation; the displayed stationary covariance is their two scalar fixed-point substitutions. The physical parameterization is not credited as a new distribution or as a distinct substantive mathematical theorem merely because the two existing formulas were not previously written together.",
+      "residual_risks": [
+        "Craig's 1936 product-normal article, doi:10.1214/aoms/1177732546, was identified but its full text was unavailable on the lawful routes tried. No attribution of the modern exact density to that inaccessible article is needed. The catalogue search was bounded; it cannot establish historical priority of the physical presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader density theorem",
+          "evidence": "Part (iii) prints the K₀ single-product density; (i) identifies its variance-gamma law.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.03981",
+          "material_read": "Abstract and §3 parts (i)–(iii) with proof, PDF p. 3, offset 8550",
+          "method": "Bounded OA primary PDF passages",
+          "title": "A note on the distribution of the product of zero mean correlated normal random variables",
+          "trigger": "Exact general distribution that could subsume the work density"
+        },
+        {
+          "assessment": "Exact same covariance recursion and mean, mechanically implies closed covariance; inspected passages do not state the full work law",
+          "evidence": "Eqs. (9) and (10) are the finite relaxation maps; (11) and the periodicity paragraph impose exactly the needed feedback fixed point.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.16866v1",
+          "material_read": "PDF pp. 2–4, especially Eqs. (6), (9)–(12), offsets 20480, 23220 and 26100",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Memory-aware feedback enhances power in active information engines",
+          "trigger": "Same engine and possible covariance or distribution coverage"
+        },
+        {
+          "assessment": "Passive full-shift exact overlap only on covariance, moments and symmetry observations",
+          "evidence": "The shift is the measured position, the steady variance is S*=S+(N−S)exp(−2τ/τ_R), and the measured distribution is symmetric at N=S.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.09833",
+          "material_read": "PDF pp. 3–4 around offset 14000, Eqs. (1)–(2), Fig. 3(a)",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Efficiency fluctuations and noise induced refrigerator-to-heater transition in information engines",
+          "trigger": "Earlier single-cycle distributions and symmetry claim"
+        },
+        {
+          "assessment": "First two work moments for the passive full-shift specialization",
+          "evidence": "Replacing V by S* and σ² by N at g=1, A=0 recovers the quoted moments with work sign adjusted.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.09835",
+          "material_read": "PDF p. 3, Eq. (1), around offset 11100",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Reaching and violating thermodynamic uncertainty bounds in information engines",
+          "trigger": "Possible earlier full finite-period law"
+        },
+        {
+          "assessment": "Later and a different invariant",
+          "evidence": "Studies correlations across cycles for full-shift feedback, not the one-event marginal for arbitrary gain.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sign-transition-in-successive-cycle-work-correlations-of--e795ee52c808",
+          "material_read": "Finding of the indexed RESULT.md",
+          "method": "Paged Resultary mirror",
+          "title": "A sharp sign transition in successive-cycle work correlations of information engines",
+          "trigger": "Closest indexed Gaussian engine exact law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof steps 2–4 and fixed-input diagnostic",
+        "Bahng–Lee–Ghim covariance recurrence and Gaunt exact product law"
+      ],
+      "rationale": "An explicit single-event risk measure is useful in this engine, and assembling it makes a useful worked example. But the exact invariant as submitted adds only substitution into the known Gaussian product law and the solution of the previously printed triangular fixed point. The gain diagnostic at fixed V is immediate from the same formulas and does not give an optimized periodic engine or a new dynamical conclusion. No independently valuable unknown remainder is established.",
+      "residual_risks": [
+        "The judgment does not deny practical usefulness of the assembled formulas or preclude additional value from a genuinely new gain-dependent or multi-event result. Such a result is not part of this frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

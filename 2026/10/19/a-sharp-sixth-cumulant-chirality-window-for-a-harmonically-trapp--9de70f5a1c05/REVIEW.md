@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary integral exists uniquely for positive linear confinement and supplies bounded active moments. Fourier-generator recurrences with explicit coefficients are derived directly from the stochastic generator; independent symbolic construction through degree six verifies the complete rational sixth-cumulant formula. A strictly convex sign polynomial, exact degree-23 resultant, rational Sturm root counts, and positive shifted-polynomial coefficient certificate establish the global one-cusp phase classification; no finite grid is used as proof. Gaussian-additivity yields translation-noise invariance. The executable verifier passed every included assertion.
+PASS
 
-## Originality — PASS (subject to independent priority review)
+The stable linear trap gives a unique stationary coordinate, with bounded active part. I independently computed the moments by integrating over ordered past times, expanding the cosine product as Fourier sign words. Uniform angular phase imposes zero total frequency; independently distributed angular increments give a factor 1/(kb+j^2+iuj) for each gap, where j is the tail frequency, k its tail length, and u is the scaled angular drift. The resulting even-moment combination equals the claimed rational sixth cumulant exactly. Its denominator is positive. Independently recomputed the resultant factorization and root count (one root in (0,1/2), in (11/25,9/20)), the positive shifted coefficients excluding zeros for b>=1/2, and the two positive roots at b=1/10. Strict convexity, positivity at x=0 and the positive quartic leading coefficient prevent changes in the number of positive roots except by collision; on compact b-intervals away from zero, roots cannot escape to infinity. There must therefore be exactly one positive double-root collision. Exact Taylor coefficient bounds give Q_x(b,6)<0<Q_x(b,8) throughout the isolating b interval. Refinement gives (0.4475510940308399394...,6.835392739927954179...). Both simple roots of the weak-trap boundary quadratic continue from b=0. Rotation by pi centers the scalar law; no reflection symmetry of the full torque-driven dynamics is needed. The added independent stationary OU coordinate is Gaussian, hence invisible to the sixth cumulant. Replay: python /workspace/branches/independent-continuous.py swimmer.
 
-The model and general high-moment framework already appear in Pattanayak et al. (arXiv:2509.03448) and the 2026 full-text follow-up (arXiv:2603.26967). Fourth-cumulant reentrance and its weak-trap boundary are prior art, as are passive trapped-particle spectral solutions and generic moment recurrences. The specific connected sixth-coordinate rational invariant, one-cusp threshold at \(b_*\), exact two-root classification, and weak-trap pair of endpoints were not found in accessible relevant statements or inspected main texts. published-finding corpus comparisons returned no implication-equivalent record; own accessible research records had only a different, randomly switching chirality model with radial fourth cumulants. A general recurrence is not itself the finished sixth-order phase classification, but implicit derivability is a material priority caveat. The 2024 article's technical full text and possible supplements were not available for a complete line-by-line priority ruling.
+## originality
 
-## Value — PASS
+PASS
 
-Previously mapped fourth-order chirality reentrance motivates testing whether apparent near-Gaussianity at the fourth-moment boundary persists at sixth order. The new exact sixth-cumulant sign interval survives in a different and wider weak-trap chirality band, and its two boundaries coalesce at a single finite confinement threshold. This gives a distinct observable diagnostic with exact parameter boundaries, not merely a re-evaluation of a known fourth cumulant or an arbitrary numerical slice. The result does not claim experimental detectability or Gaussianity from finite cumulants.
+The known torque-driven trapped model, moment methods, and fourth-order reentrance are not new. The supported distinction is the evaluated stationary sixth Cartesian cumulant and its full sign classification, including the unique finite-confinement collision and weak-trap endpoints. No inspected prior source supplied an equivalent classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The previously observed fourth-order reentrance raises a concrete higher-order question about non-Gaussian stationary fluctuations. The sixth order has a different exact negative window and a confinement cutoff that can be used without recomputing a parameter grid. The uniqueness and weak-trap endpoint results add information beyond evaluation of the recurrence at order six, and the invariance under translational Brownian forcing gives the sign criterion a robust interpretation within the model. A zero of this cumulant is not a test of Gaussianity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Cayley--Dickson multiplication reduces a fixed-argument generalized commutator to independent quaternion and complementary-component linear maps. The rank-one pencil condition yields an exhaustive common-image/common-kernel dichotomy. The two explicit matrix determinants and rank calculations provide a universal proof over fields with characteristic unequal to two. The included exact modular verifier covers every ordered independent normalized coefficient pair at primes three, five and seven. Those finite computations confirm, but do not replace, the universal symbolic argument.
+PASS
 
-## Originality — PASS
+In H=M₂(F), write A and B as rank-one outer products. The determinant of their sum factors into the two image and row-space determinants; exactly one vanishes, since vanishing of both would make A and B proportional. The Cayley–Dickson product gives the target (AH+BH) ⊕ (HA+HB)ω and the fixed-h blocks z↦Ahz−Bzh and r↦r(hA−h̄B). In the common-image case, the displayed two rows are independent whenever (a+bt−c,b−d)≠0, which excludes at most one shear parameter; even F₃ has two nonzero candidates. The other block is invertible with determinant 2t(ad−bc). In the common-kernel case, regrouping the four rows and columns of the first block gives two determinants ad−bc and total determinant −(ad−bc)². The second block is right multiplication by the rank-one h(A+B), with both output rows independently in the same one-dimensional row space. Thus the ranks are (2,4) or (4,2) and each slice is onto the stated target. This is an exact image, not just a spanning argument. The word ‘right ideal’ for HA=HB is a handedness slip (it is a left ideal); the actual matrix space and argument are correct. The inspected finite-field program is supplementary and was not executed. Characteristic two and pairs not co-contained in a nondegenerate quaternion composition subalgebra remain outside the proof.
 
-The closest primary result, de Mello and Saini [1], supplies the six-dimensional span, not equality of the image with that span, in its exceptional case. Its separate theorem for a quaternion evaluation algebra does not establish the six-dimensional image of an octonion evaluation. The new claim resolves this implication gap for the entire naturally defined family of pairs co-contained in a quaternion composition subalgebra. The earlier associative result of Panja, Saini and Singh [2] is credited. Targeted comparisons of equivalent formulations, stronger coverage, finite tables and explicit implication identified no dominating theorem; an unindexed equivalent remains a residual bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exceptional case in [1] is a motivated mathematical gap. Here its quaternion-contained stratum receives a complete exact-image theorem, an intrinsic description and constructive fixed-argument witnesses. The distinction between a six-dimensional span and a six-dimensional actual image is mathematically substantive, especially over non-algebraically-closed or small fields.
+Pass the exact octonion image and explicit fixed-slice strengthening in the quaternion-contained case, not the known dimension of the linear span or the known result for quaternion-valued variables. No comparable earlier exact statement or implication was located in the inspected sources; this is not a global priority certification.
 
-## Boundaries and closest literature
+## value
 
-The result does not cover orthogonal zero-divisor pairs without a common nondegenerate quaternion composition subalgebra, and does not address characteristic two. The proof is not a classification of arbitrary generalized polynomials. The self-review does not constitute independent validation.
+PASS
 
-[1] T. C. de Mello and P. Saini, *Generalized commutator on octonion algebra*, arXiv:2610.04466v1 (2026), Theorem 1.1 and Sections 5--6.
+This resolves a natural set-image versus span distinction expressly left by a classification, for the structural class of pairs in a quaternion composition subalgebra. One linear slice realizes the whole image over every eligible field, without a cardinality or closure argument, and supplies explicit witnesses for both rank-one incidence types.
 
-[2] S. Panja, P. Saini and A. Singh, *Images of polynomial maps with constants*, arXiv:2312.13865 (2023), Theorem B.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

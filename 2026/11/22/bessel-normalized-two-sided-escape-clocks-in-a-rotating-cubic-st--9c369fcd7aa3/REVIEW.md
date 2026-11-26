@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct polynomial-to-polar reduction and integrating factor yield an exact positive radial solution for all finite angles and an exact original-time identity. Convergence or divergence of one positive exponentially weighted periodic integral proves the three forward regimes. A geometric-series Laplace integral establishes the Bessel constants uniformly in phase, and a logarithmic-ratio limit proves the phase-resolved blow-up profile. The periodic profile is nonconstant by its first-order differential equation. The accompanying standalone numerical checker independently reproduces the key reductions and quantitative limits, but no infinite claim rests on numerics.
+PASS
 
-## Originality — PASS within inspected evidence
+The polar equations give R'=2λ/ω+(2σ/ω+2β cos(2θ))R in the lifted angle. W=R/F stays positive at every finite forward angle and satisfies dW/dt=2λW. Its endpoint is finite positive exactly for σ>0; there R diverges as F grows, so the inverse clock gives the maximal physical time. For σ<0, the past-tail particular solution is positive and periodic, and every radial difference is a multiple of F tending to zero. The one-period Laplace sum is I₀(β)/ε+O(1) uniformly in phase, giving both stated threshold constants. At σ=0, the primitive of the periodic integrand is I₀(β)θ+O(1); the exact W law gives the angular coefficient, and the unbounded angle forbids convergence of the oscillating rescaled radius. For σ>0, with u=1−W/W∞, (T−t)R/P=(1−u)(−log(1−u))/u→1. P'=(2σ/ω+2β cos(2θ))P−1/ω rules out constancy for κ≠0, and each phase is attained indefinitely. RESULT.md, VERIFICATION.md and check.py were inspected; none of the universal conclusions relies on execution of the supplied checks.
 
-The qualitative cycle criterion and dynamics at infinity are already in the general star-node classification of Alarcón, Castro and Labouriau (arXiv:2106.07516, original 2021; revised 2026), so the theorem does not claim them. The closely related contracting-nonlinearity paper (arXiv:2307.16020, 2023; journal 2024) and the published exact-return/Floquet result determine qualitative or periodic-cycle information, not the explicit positive-side physical-time blow-up clock and its Bessel phase factor. Matsue's general 2026 periodic type-I theory anticipates the existence and interpretation of oscillatory profiles, not the explicit positive function or the matched near-critical constants in this polynomial family. Searches for identical equations, equivalent angular reductions, type-I periodic profiles and stronger physical-time conclusions revealed no specific published covering statement. Bibliographic incompleteness and an algebraically specialized application of prior general techniques remain genuine risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original-time dichotomy is stronger than an orbit portrait: escape becomes finite-time exactly on one side, infinite-time exponential at the boundary, with an explicit logarithmic delay coefficient. The matching Bessel cycle-radius singularity and the nonconstant blow-up coefficient quantify two different singular behaviors of the same anisotropic oscillator, useful for differentiating phase portraits from completeness, escape timing and phase-resolved asymptotic geometry.
+Pass for the explicit physical-time trichotomy and the matched threshold constants, not for the angular linearization, qualitative cycle criterion or existence of oscillatory type-I profiles. The strongest inspected analogous results cover strict contraction/backward time or conditional periodic-balance existence. Neither supplies the exact all-initial-data forward escape time or its matched Bessel normalization near zero mean radial drift.
 
-## Scope and limitations
+## value
 
-The theorem assumes positive linear growth, strictly rotating cubic phase velocity, and nonzero anisotropy. It does not assert robustness under perturbation, classify all polynomial star nodes, or prove absence of all unindexed equivalent results. Independent external mathematical validation is not included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The transition across zero mean radial drift is natural even when the instantaneous radial drift changes sign. The explicit endpoint distinguishes completeness from orbital behavior and resolves both the critical delay and the whole range of physical-time blow-up coefficients. The matched amplitude constants quantify the large-cycle/escape transition, rather than simply repeating the known phase portrait.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement explicitly specifies ordinary Euclidean coordinates, rank-uniform vertex sampling, \(m\ge2n\), and sparse asymptotic limits. Proposition 5.7 of Heuer–Striker supplies the exact rank-\(k\) vertex count \((m)_k\); the direct nonnegative-norm inequality gives the diameter equality cases. Two independent random permutations yield the exact conditional mean and covariance formulas. The overlap is hypergeometric, and its factorial moments and uniform marks prove the critical compound-Poisson convergence. All eight finite enumerations, variance identities, and exact diametral atom checks passed using the embedded verifier. No finite check is used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, subject to historical priority.** The original 2020 Heuer–Striker article provides vertex structure, facets, and volume questions; the full 2022 Behrend et al. preprint covers face enumeration and polytope volume/Ehrhart. The closest published metric findings give exact **diameter** and **edge** lengths, which do not determine the uniformly sampled arbitrary vertex-pair deficit law. Searched aliases included sparse permutation inner products, support collision statistics, diametral random pairs, and compound-Poisson marked overlaps. A generic sparse-permutation birthday calculation is mathematically related but neither of the cited primary polytope papers presents the stated geometric limit. Possible unindexed equivalent stochastic results are an explicit residual risk.
+PASS
 
-## Mathematical value
-**PASS.** The diameter by itself is known; the new quantitative question asks whether a uniformly sampled pair of polytope vertices is *actually diametral* and how it falls short. The exact atom and the three-regime transition at \(n\asymp\sqrt m\) demonstrate a measurable geometric distinction invisible to the worst-case diameter and to adjacent-edge spectra. The critical marked product law gives nontrivial jump statistics rather than only a Poisson count.
+The top-k label classification gives exactly (m)_k vertices of rank k. The norm bound is saturated only at rank n, and nonnegativity makes disjointness equivalent to zero cross term. Thus the known diameter equality cases count to the exact unconditional atom for independent ordered draws with replacement. On the event that both draws are full rank, W is the inner product divided by n². The centered permutation covariance has eigenvalue (Q_n−S_n²/m)/(m−1) on the mean-zero space and vanishes on constants; squaring and taking its trace gives the stated variance. An independent m=4,n=2 hand count gives atom 24/289, conditional mean 9/16 and variance 121/768. In the critical regime the hypergeometric overlap has all falling-factorial moments tending to λ^r, and at each fixed overlap size the two ordered samples of scaled labels converge to independent uniform marks. Tightness of the overlap and full-rank probability 1−O(1/(m−n)) transfer this compound-Poisson limit to the actual draws. The critical zero probability follows separately from the exact no-overlap product, so does not rely on weak convergence at an atom. In the subcritical and supercritical cases, the conditional mean and relative variance give the stated mean-scale limits, using Markov and Chebyshev respectively; the overlap mean bound and the exponential no-overlap bound give the corresponding zero-atom limits.
 
-## Closest literature and limitations
-Heuer–Striker, arXiv:2012.09901, Proposition 5.7; Behrend et al., arXiv:2207.14253; published geometric diameter result and adjacent-edge-length result listed in RESULT.md. The result is restricted to sparse labels and uniform vertex pairs, not full-volume sampling or arbitrary aspect ratios. Priority claims are provisional pending independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior diameter, equality classification, and standard permutation/hypergeometric formulas are inputs, not novel results. The supported distinct contribution is the uniform arbitrary vertex-pair deficit law, particularly the marked critical law and related atom transition; it is neither the edge spectrum nor the pair-distance law of the different doubly substochastic matrix model.
+
+## value
+
+PASS
+
+A worst-case diameter does not indicate whether a typical ordered pair attains it or how it misses when it does not. The result identifies a sharp birthday-scale transition and the nontrivial weight distribution of rare overlaps, not merely a contact census. It is a usable native-metric benchmark for uniform vertex pairs with a distinct normalization on either side of the transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

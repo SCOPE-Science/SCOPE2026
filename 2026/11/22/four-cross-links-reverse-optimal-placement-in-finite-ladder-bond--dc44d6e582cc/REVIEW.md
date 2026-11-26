@@ -1,15 +1,21 @@
-# Scientific assessment: four-cross-link ladder reliability
+# Independent mathematical audit
 
-## Correctness — PASS
-The object, probability normalization and quantifiers are explicit. Conditioning on working cross-links proves an exact finite sum; interval-disjointness proves the factors and the common \(p^L\) normalization. Strict convexity proves the fully reliable optimum; a first-order small-rail-failure calculation proves the unique optimum with any fixed imperfect cross-link rate. The two-failure classification proves the quadratic expansion, and discrete convexity yields its sharp \(2L-8\) threshold. The independent full-edge union–find algorithm agrees with the conditional formula in 42 exact-rational instances. Finite checks are corroboration, not a claim of infinite exhaustive verification. No assertion is made about third-order tie breaking.
+## correctness
 
-## Originality — PASS on examined evidence, with residual risk
-The closest methodological predecessor, Tanguy's first-public 2006 ladder reliability paper, develops a broad transfer-matrix evaluation method for arbitrary edge probabilities. The result here does not claim general reliability computability; it establishes an optimization reversal at the first possible number of installed links and an exact joint high-reliability design staircase, neither explicitly given in the inspected source. Szabó–Valesin's infinite-ladder threshold theorem has different domain and objective. Prior indexed cross-link placements minimize Kirchhoff index (two links); a separate rung-weight allocation maximizes a spanning-tree polynomial, neither a comparison of these Bernoulli reliability optima. An older general component-rearrangement article was accessible only via abstract/metadata, and could contain an implication not excluded here. Searching sources is evidence of assessment, not a proof of uniqueness in the literature.
+PASS
 
-## Value — PASS
-A concrete reliability-design problem asks where a fixed number of backup couplings should be installed. The first nontrivial conflict between geometric redundancy and unreliable links occurs at four rungs, yields opposite unique/near-unique design geometries, and has an exact integer-size threshold for the coupled failure scales. The rule applies to all \(L\ge5\), not an arbitrary single-graph lookup. The coefficient and optimizer formula give an explicit basis for testing sparse ladder redundancy and small-failure approximations.
+For a nonempty set of open rungs, an intact exterior top (left) and bottom (right) segment is necessary. Successive open rungs have no working rung between them, so traversing each interior interval requires and suffices to have one intact rail there; all these tests use disjoint edges. The product is therefore p^L times the product of (2-p^d); with no open rungs the terminals are disconnected. Endpoint moves increase some positive-weight term (including the all-open term when q=1) and decrease none. With three rungs the entire position dependence is -q^2(1+q)(p^x+p^(L-x)), giving the center by strict convexity; one rung gives qp^L regardless of location. For four and q=1, strict concavity of log(2-p^d) gives exactly the integer-balanced triples. At fixed 0<q<1 the first-order gap weight is the probability of open rungs on both sides. Its middle-minus-outer difference is q^2(1-q)>0, so the unique first-order maximizer, hence the exact maximizer for p sufficiently near 1 at each fixed L,q, is (1,L-2,1). In the joint scaling, only same-gap two-rail failures and the appropriate adjacent rail failure paired with a failed endpoint rung contribute to order two. These give sum(d^2)+lambda(a+c); no single failure disconnects. Balancing a,c at each b and using the strictly increasing discrete forward differences of Phi proves the threshold 2L-8 and precisely the three stated ties there. This is a leading-order threshold, not a finite-epsilon tie-breaking claim. Read the nested verification/verify_ladder.py; independently ran `python3 /workspace/branches/ladder-review-reproduction.py`: 762 exact successes-by-rail-failure histograms (all placements for k=1..4, L=3..5, each vertical state) and 116 endpoint layouts at L=5..10 with zero, one and two failures agree. The finite test corroborates, not replaces, the proof. The phrase 'perfectly reliable rails' in the limitations should be read as reliable vertices on two rails: the rail bonds have p<1 throughout.
 
-## Limitations
-Only finite uniform two-rail networks and independent bond failures are treated. Fixed-imperfection asymptotics require a sufficiently reliable rail whose required proximity depends on the finite parameters. The double-scaling result is second-order, and independent historical-priority verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact reliability method and weighted ladder layout analogies are not new. The checked statements do not provide the discrete change of the optimal installed layout as the Bernoulli rung reliability changes, its minimum rung count, or the joint-scaling quadratic optimizer. The pass is limited to those distinctions and the examined evidence.
+
+## value
+
+PASS
+
+Opposite-terminal reliability at fixed link count is a natural design objective distinct from weighted trees and effective resistance. The smallest number of rungs at which a strictly balanced-versus-clustered change can occur is a meaningful cutoff, and the joint failure calculation explains when the two design effects compete. This is not just another evaluation of a known ladder reliability polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

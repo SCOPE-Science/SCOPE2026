@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone Python 3 file `verify.py` was run from the delivered package source with direct elementwise multiplication in explicit finite fields, not by fitting the claimed formula. It exhaustively tested all endofunctions on one through four vertices over the prime fields of order 2 and 3 (288 graph-field instances each), and one through three vertices over fields of orders 4, 8, 5, and 9 (32 instances each), a total of 704 exhaustive graph-field instances. Thirty-two additional five-vertex functions over the field of order 4 were sampled with a fixed pseudorandom seed. All finite instances matched the count formula and reconstructed their exact cycle multisets. The nonreconstruction witness was checked via its two different image-set cardinalities (1 and 2). Forty squarefreeness comparisons in prime characteristics 2, 3, 5, 7, and 11 for cycle lengths one through eight passed using polynomial gcd when SymPy was present.
+# Independent mathematical audit
 
-Exact successful output includes `VERIFY_OK_FUNCTIONAL_EVOLUTION_IDEMPOTENTS`. Tests of low dimensions and finitely many fields do not prove any general statement; full field/dimension generality is supplied by the algebraic and Möbius inversion arguments in `RESULT.md`. The underlying idempotent schemes and claims have not undergone independent mathematical audit.
+## correctness
+
+PASS
+
+The equation at vertex w is X_w=sum of the squares of its predecessors. Off-cycle vertices form an acyclic predecessor graph, so taking them in a topological order gives X_w=0 by a monic linear elimination in the full coordinate ring, not just on points. This leaves for each cycle one free parameter and the single relation T^(2^L)-T, so the affine product is scheme-theoretic and has degree the product of the monic degrees. In positive characteristic p, writing 2^L-1=p^a M yields simple zero and multiplicity p^a at each nonzero geometric root, since p does not divide M. Over an algebraic closure the tensor product of the cycle factors is reduced exactly if each factor is, because it is a tensor product of nonzero finite algebras over that field and a nonzero nilpotent in a factor survives. Cyclicity of the multiplicative group gives the finite-field formula. In characteristic two the gcd identity for powers of two gives F(m)=sum gcd(L_i,m); each geometric cycle factor has additive coordinates F_(2^L), and a normal basis gives its cyclic Frobenius action. For d<=n, the totient divisor identity writes F(m) as the divisor sum of phi(d) times the number B_d of lengths divisible by d. Möbius inversion gives B_d from F(a) with a|d, and a second inversion over multiples up to n gives the exact multiplicities. This includes loops and has no assumptions on noncycle depth. The two three-vertex witnesses have the same single loop but different dimensions of the square span, an algebra-isomorphism invariant. The verifier computes finite-field idempotents directly, but its separate reconstruction checks construct observations from cycle lengths, not from independent brute-force counts for all n extensions. The code was inspected, not executed; the inversion and full scheme statement are proven algebraically.
+
+## originality
+
+PASS
+
+The cycle decomposition for permutation algebras and the general characteristic-two Frobenius count are covered and do not independently support a pass. The checked distinct result combines an all-characteristic coordinate-ring reduction (including nonperfect algebras and nonreduced factors) with a finite inverse theorem for the underlying recurrent graph and an explicit information-loss witness. No inspected statement gives that remaining claim. This is a bounded assessment, not an assertion of comprehensive priority.
+
+## value
+
+PASS
+
+A single-field idempotent count need not reveal the recurrent graph. The full ring factorization explains what the locus retains even in nonreduced characteristics, and a finite extension-field cutoff recovers exactly the recurrent lengths while two nonisomorphic algebras show why no such scheme data recover the attached trees in general. This is a natural reconstruction result and a sharp distinction of invariants, rather than simply recomputing the known binary forward census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

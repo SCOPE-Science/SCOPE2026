@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 abstract_checker.py`, `python3 finite_models_checker.py`, and `python3 finite_box_checker.py`. Each uses the Python 3 standard library only.
+# Independent mathematical audit
 
-The exact abstract checker enumerates all 68 realizable truncated-category states, constructs the full successor-state set at every state, computes the two exact Boolean-algebra partition refinements, and asserts equality of the reported type profiles and their fixed-point property. The finite-model checker enumerates actual pointed valuations in six complete bipartite graphs to check agreement with direct semantics and closure under the noncontingency operator; the box checker separately corroborates the necessity profiles on fixed bipartite graphs. Both are supplementary to the structural induction in the proof, and no finite list of models alone establishes the universal theorem.
+## correctness
 
-The novel numerical values have not undergone an independent audit. Search incompleteness remains a historical-priority risk; the formula-count claims are restricted to the stated frame family and one-variable languages.
+PASS
+
+Truncating each pure-false, pure-true and mixed part count at two preserves whether another part of a specified category exists. The current category and current bit, together with these global counts, thus determine all successor canonical states. Every capped configuration with at least two parts is realized, covering the unbounded frame class by induction. In a finite depth partition every class has a depth-bounded defining formula (conjoin separating formulas with the appropriate signs). Box recovers its full successor support via complements of single classes. Delta cannot distinguish singleton supports, but if at least two classes occur it recovers the support by applying Delta to each class predicate. The old partition together with those modal observations exactly determines the new partition. Independent evaluation on the disjoint union of actual capped representative models, using truth-set masks and Boolean closure, gave the two profiles and equality of the last partitions, not just cardinalities coinciding across unrelated samples. Fixed-point persistence, strict increases before stabilization, and Boolean definability give sharp cutoffs, all listed meaning counts, and ratio 2^(22−10)=4096.
+
+## originality
+
+PASS
+
+The evidence supports the distinct quantitative claim for the whole stated frame class: both type and meaning profiles and their sharp depths. An existing two-world symmetric witness already gives qualitative strict expressivity on this class, and nearby fixed-clique and biclique counts cover subclasses, not the union of all multipartite frames. No inspected source covers the two exact universal profiles.
+
+## value
+
+PASS
+
+Strict expressive inequality already follows from a small symmetric witness, but neither that witness nor known subclass counts measures the loss for an entire unbounded frame class. The sharp depths give meaningful uniform normal-form bounds, the finite reduction gives a decision method for this fragment, and the exact types quantify the gap without conflating fixed-frame and class-wide equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

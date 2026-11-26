@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The symbolic proof establishes an exact all-order bijection between a selected matching's competing matchings and directed cycles of the contracted allowed-arc graph; optimum deletion equals total allowed arcs minus maximum acyclic arcs. The missing-arc directed cycle cover forces at least one missing forward arc per cycle. Reversing each cycle attains that lower bound. Hence all integer \(n\ge3\) cases follow from a constructive argument, not extrapolation.
+## correctness
 
-## Reproducible test
-Run `python3 checker.py` from the same extracted directory. The program uses only the Python standard library and reconstructs the definitions. For every derangement through order six, it calculates the minimum number of backward allowed arcs over all total orders and compares the formula. For orders three and four, it also enumerates competing perfect matchings and tests deletion subsets directly against all differences, without using the digraph result. At order seven, it counts the predicted cycle-type distribution but does not search every order; this is not presented as a seventh-order optimization check.
+PASS
 
-Expected output:
-```
-3 2 [(1, 2)] passed True
-4 9 [(3, 6), (4, 3)] passed True
-5 44 [(6, 24), (7, 20)] passed True
-6 265 [(10, 120), (11, 130), (12, 15)] passed True
-7 1854 [(15, 720), (16, 924), (17, 210)] passed True
-VERIFY_OK
-```
+Fix a derangement π and index matched pairs by their left endpoint. A nonmatching edge a_i b_{π(j)} gives i→j; the only absent loopless arcs are π(j)→j, forming c(π) disjoint directed cycles, including possible directed 2-cycles. An alternate matching exists exactly when the surviving arcs have a directed cycle. In each topological order at least one absent arc per cycle points forward, so at most binom(n,2)−c(π) available forward arcs can survive. Reverse cyclic order in each block attains that bound. Equality forces retention of every available forward arc and exactly one absent forward arc in each cycle; this proves the deletion-set characterization without asserting unique orders or counting witnesses. Subtraction from n(n−2) gives the formula. Labelled cycles of lengths ≥2 yield the EGF; removal of n from a cycle of length ≥3 or from a transposition gives the recurrence for n≥2 and the stated bases. Taking k−1 transpositions and one remaining cycle gives every possible k, and the extreme types give the coefficient counts including n=3. The frozen checker was inspected, not executed: its direct competing-matching transversal check covers n=3,4, its order optimization n=3–6, and n=7 is a census with formula-assigned weights. The proof, not those bounds on testing, establishes all orders.
 
-These finite checks validate stated boundary cases and support, but do not independently certify all infinite cases. Publication priority also remains provisional. No independent audit has been performed.
+## originality
+
+PASS
+
+The general matching/alternating-cycle framework and the derangement cycle enumerator are established ingredients. The inspected comparators do not give the crown-specific exact optimum for each derangement, its equality conditions or its weighted matching distribution.
+
+## value
+
+PASS
+
+For the canonical dense bipartite family obtained by deleting a matching, there is a nonconstant fixed-matching optimum which global bounds cannot resolve. The cycle law identifies precisely how the omitted diagonal interacts with a chosen matching and describes all optimal deletion structures. The resulting exact spectrum with multiplicities supplies a natural family-wide benchmark, not just isolated small-order counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

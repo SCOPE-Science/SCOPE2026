@@ -1,9 +1,21 @@
-# Scientific review: commuting-degree rigidity of rank-two retracts
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof first forces a two-dimensional retraction image to be dual numbers with nonzero tangent, then uses the odd-characteristic coefficient \(2\) in the degree-two part of \(z^2\) to obtain a unique pivot. Splitting the monomial ring as \(A'\oplus x_i A'\) shows the square-zero generator is exactly \(x_i u\) for a unit \(u\); hence all retractions and their image fibers are counted without omissions. An explicit automorphism removes the nonlinear tail, monomial tangent matrices preserve the support orbit index, and a generatorwise composition calculation proves the graph degree, edge and clique formulas. Exact enumeration in the included program confirms full dimension-two cases for \(q=3,5\), and all rank-two map pairs for \((d,q)=(2,3),(2,5),(3,3)\). There is no inference from finite tests to the general case.
+## correctness
 
-**Originality (PASS with documented priority risk).** The monomial algebra automorphism work of Díaz–Liendo–Manzano-Flores–Regeta (arXiv:2408.02197, Example 4.25) addresses automorphism groups rather than rank-two retractions or their commuting graph. The retrieved published-finding corpus result ending `256249efd1a0` gives the opposite-characteristic full retraction census, and the result ending `bac767308614` treats a related prime-power automorphism symmetry jump. These actual sources were compared by their stated implications, and neither implies the odd-characteristic orbit degree law or its numerical profile. An earlier graded-retract theorem by Epstein–Nguyen is acknowledged; its complete primary text was not available to this inspection, and priority is not asserted absolute. No matching theorem was found by the recorded targeted searches, which is evidence of a gap, not proof of uniqueness.
+PASS
 
-**Value (PASS).** The minimal proper algebra retracts of a nonreduced monomial complete intersection are a canonical geometric stratum. The theorem classifies all of them, their embedded images, full automorphism orbits and commuting graph across every odd finite field and every number of generators. Graph degree recovering the full conjugacy orbit is a structural reconstruction property rather than a restatement of an elementary coefficient count. The contrast with characteristic two explains exactly why a previously single orbit splits into \(d\) distinct graph-detectable types. The analysis is intentionally limited to image dimension two.
+The image is a local quotient with residue field k and a one-dimensional nilpotent ideal kz. This line cannot lie in the square of the ambient maximal ideal because the retraction kills that square and fixes z. In odd characteristic the degree-two part of z^2 forces a unique nonzero tangent coefficient. In the decomposition z=x_i u+b, the coefficient of x_i in the square gives 2ub=0, so b=0 since u is a unit. Normalize the pivot and use e(z)=z to get v_i=1. The substitution x_i to x_i u has an explicit inverse x_i to x_i u^(-1), fixing all other generators. Thus the nonlinear tail does not obstruct conjugacy. Every automorphism has monomial tangent action, under which the number s (not the labeled support) of off-pivot nonzero coefficients is invariant, and permutations and scalings realize every matching support size. Composition either agrees only for the identical map at the same pivot, or, at distinct pivots, vanishes on the maximal ideal in both orders precisely when the two cross coefficients vanish. Each allowed pivot contributes q^(B-1) neighbors, which gives the degree spectrum, diagonal-adjusted pair count and clique bound. Independent substitution checks at (d,q)=(2,3) and (3,3) give 18 and 729 vertices, and 36 and 40095 ordered commuting pairs, respectively.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact-algebra automorphism description is previously covered; so are the general image-retract framework and the characteristic-two analogue. The distinct surviving finding is the classification of composition-idempotent maps with two-dimensional image over an odd finite field, with full conjugacy detected by ordinary graph degree and explicit orbit and degree enumerators. None of the inspected results classifies those maps together with this commutation criterion, and the known automorphism description does not alone give either.
+
+## value
+
+PASS
+
+Dimension two is the first nontrivial image dimension and need not be confused with tangent rank. A researcher gets the actual list of splittings and the class of any map from a directly observable graph statistic, without testing conjugacy in a large automorphism group. The change from a single characteristic-two class to a full support-size spectrum in odd characteristic and its exact graph multiplicities are useful for these natural finite algebras; the reworked automorphism ingredient alone would not qualify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

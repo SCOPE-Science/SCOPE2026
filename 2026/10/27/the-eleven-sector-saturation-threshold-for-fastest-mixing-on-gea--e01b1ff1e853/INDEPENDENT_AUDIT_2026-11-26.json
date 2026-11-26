@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:01:32.802493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md, verify.py and requirements.txt inspected",
+        "Independent replay: python3 -B /workspace/checks/5.py; exact rational cutoff bounds and dense spectral magnitudes at n=10,11,12,31; at n=10 the dense SLEM goes from 0.910977222864645 to 0.910939868535212 when q is lowered by 10^−5"
+      ],
+      "rationale": "Convex dihedral averaging preserves feasibility and suffices for the global value. For the invariant feasible triangle 0≤p≤1/n, 0≤q≤(1−p)/2, the positive first-frequency eigenvalue decreases strictly in q and its saturated boundary value decreases strictly in p under the stated n≥11 inequality. Equality in that lower bound therefore requires both saturated weights within the invariant family. At this corner the maximum among nonzero frequencies is the positive k=1 value, with the other competing modulus from the negative radial eigenvalue. Exact rational comparisons at 10 and 11 and the increasing cubic bound for n≥12 give the claimed switch. At 10 the isolated active negative mode is not in the kernel of the outer-edge Laplacian (equal rim coordinates in a radial eigenvector would force all three coordinates to give the constant eigenvector); thus moving q down strictly improves the objective locally. For the maximum-degree rule the two nonzero eigenvalues of the radial Laplacian before dividing by n have sum n+5 and product 4n+2. The small root tends to 4 and the large root is n+1+O(1/n), so neither radial modulus competes asymptotically with the positive k=1 transition eigenvalue. Taylor expansion of both dominant eigenvalues gives the stated coefficients and ratio.",
+      "residual_risks": [
+        "Dense tests are finite, not proof of the cutoff or optimality. Uniqueness is invariant only; the true n=10 optimum is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd–Diaconis–Xiao gives the general SLEM optimization and §1.2.1 gives the maximum-degree rule; the published symmetry paper specializes the reduction to ordinary wheels in §5.4.3.",
+          "No decisive full-text passage of the cited Jafarizadeh article was accessible in this review."
+        ],
+        "reasoning": "General convex or symmetry reduction leaves the gear-specific minimizer, comparison of radial and rim modes, and asymptotics to be proved; it does not give the claimed closed form. No inference of noncoverage is made from the inaccessible article.",
+        "searches": [
+          "DOI:10.1137/S0036144503423264",
+          "DOI:10.1137/070689413",
+          "DOI:10.1109/TSIPN.2020.2964211 and identified OA alternatives"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1137/S0036144503423264",
+        "DOI:10.1137/070689413",
+        "Resultary 6de3873d5eaa and 35ca15cf886c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baseline literature already gives the weights 1/d_max, hence 1/n on this graph. The gear gap coefficient needs the gear Fourier eigenvalue, and corner optimality needs both a strict monotone lower bound and a radial-mode comparison."
+        ],
+        "reasoning": "The already known baseline rule and analogous graph solutions do not imply the new optimum or the gear-specific baseline spectral gap by substitution.",
+        "searches": [
+          "DOI:10.1137/070689413 §5.4.3; DOI:10.1137/S0036144503423264 §1.2.1; Resultary Findings 6de3873d5eaa and 35ca15cf886c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary wheel case: n+1 vertices, a two-dimensional radial block, scalar nonzero-frequency modes. Gear case: 2n+1 vertices, three-dimensional radial block and two-dimensional nonzero-frequency modes.",
+          "Distinct gear-graph Finding 35ca15cf886c gives the same weights for n≥4 for the Kemeny objective, not SLEM."
+        ],
+        "reasoning": "Rim subdivision cannot be effected by relabeling a wheel parameter. A sum of reciprocals of nonzero Laplacian eigenvalues is not a maximum absolute transition eigenvalue; matching weights at large n do not transfer the optimization, as the record's strict n=10 comparison itself illustrates.",
+        "searches": [
+          "Resultary: fastest mixing on gear graph / subdivided wheel with saturated spoke and rim weights",
+          "arXiv:0709.0955; published DOI:10.1137/070689413 §5.4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding 6de3873d5eaa solves SLEM mixing on sunlets and gives limiting maximum-degree gap ratio 3/2; Finding 35ca15cf886c gives same gear weights under Kemeny optimization."
+        ],
+        "reasoning": "Sunlet pendant leaves are not subdivided rim vertices with a shared wheel hub. The exact gear weights in the later result are not an exact SLEM table; neither hit supplies the 11-sector SLEM threshold.",
+        "searches": [
+          "Resultary: exact fastest-mixing SLEM and spectral gap on gear/subdivided-wheel networks"
+        ]
+      },
+      "rationale": "The strongest exact published SLEM case inspected is the ordinary wheel, not the gear graph. The distinct indexed comparator with exactly the saturated gear weights optimizes a different spectral objective and has a different cutoff. The supported distinct claim is the explicit gear SLEM optimum with the 10/11 boundary and its spectral-gap comparison, not symmetrization, Fourier decomposition in general, or maximum-degree weighting.",
+      "residual_risks": [
+        "The broad literature query was uninformative; not evidence of absence. Jafarizadeh's decisive passages were inaccessible. Unindexed gear, bipartite-wheel or Jahangir-graph SLEM literature may contain equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method and baseline, not the gear result",
+          "evidence": [
+            "Maximum degree weighting puts 1/d_max on every edge and holds with remaining probability."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§1.2.1, p. 670 (offset 10150), and general optimization setup",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Common objective and exact benchmark definition"
+        },
+        {
+          "assessment": "Comparable methods; different graph and block dimensions",
+          "evidence": [
+            "Ordinary wheel Fourier/radial formulas explicitly solve its own n+1-state chain."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§5.4.3, pp. 813–814 (offsets 79650, 81250); arXiv numbering §5.3.3",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Closest fully solved wheel SLEM case"
+        },
+        {
+          "assessment": "Access limitation; not assessed as noncovering",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1109/TSIPN.2020.2964211",
+          "material_read": "Identification and available access responses only; no decisive theorem passage",
+          "method": "Lawful DOI and identified alternate-copy attempts",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "A broader graph class might contain the gear instance"
+        },
+        {
+          "assessment": "Analogous, but a sunlet rather than gear graph",
+          "evidence": [
+            "The graph is an n-cycle with one pendant leaf per vertex; the gap ratio tends to 3/2."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa",
+          "material_read": "Mirrored RESULT.md Finding (offset 0)",
+          "method": "Resultary search and local-mirror statement read",
+          "title": "Exact fastest mixing on sunlet networks and a fifty-percent spectral-gap advantage",
+          "trigger": "Nearby indexed cyclic network, exact same objective and benchmark"
+        },
+        {
+          "assessment": "Later record with different objective; no equivalent SLEM claim",
+          "evidence": [
+            "Optimizes Kemeny spectral sum and gives the saturated weights for n≥4."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-walks-on-gear-graphs-a-four-spoke-saturation-thre--35ca15cf886c",
+          "material_read": "Mirrored RESULT.md Finding (offset 0)",
+          "method": "Resultary search and local-mirror statement read",
+          "title": "Kemeny-optimal walks on gear graphs: a four-spoke saturation threshold",
+          "trigger": "Exact same gear topology and saturated weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–5",
+        "DOI:10.1137/S0036144503423264, maximum-degree benchmark"
+      ],
+      "rationale": "The weights give a usable exactly optimal chain on a natural relay-augmented wheel. The sharp integer onset explains a genuine change in the active spectral constraint: the negative radial mode obstructs full saturation at ten, while the positive first Fourier mode certifies it from eleven. The benchmark gap ratio is nontrivial and quantified.",
+      "residual_risks": [
+        "No claim about a general subdivision theorem, unrestricted uniqueness, or complete optimization below eleven."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

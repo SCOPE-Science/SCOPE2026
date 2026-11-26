@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem has an analytic proof; finite checks do not establish its unrestricted quantifiers.
+## correctness
 
-## Deterministic package check
+PASS
 
-Run `python verify.py` with Python 3 and NumPy. The exact part uses `fractions.Fraction`, explicit adjacency actions, exact Gaussian elimination, and integer binomial coefficients to test the full moment determinant and its triangular entries at \(3\le n\le25\) and eight rational bond weights, including the limiting path and perfect cycle. The independent spectral part diagonalizes separately constructed weighted adjacency matrices at \(3\le n\le18\), groups repeated eigenvalues before forming the Cesàro projector sum, and checks rank, normalization and bond-reversal invariance at seven bond weights. The observed successful run was:
+The Cesàro mean is the sum of the Schur squares of the projectors onto distinct eigenspaces. For g≠1, the two endpoint values determine an eigenvector by the interior three-term recurrence. An eigenspace of dimension two would make both linear endpoint constraints identically zero; their coefficients include 1+g u_(n−2) and u_(n−2)+g, so g²=1, impossible also at g=0. Thus simple eigenvectors have definite reversal parity and their squared amplitudes lie in the q-dimensional symmetric subspace. The diagonal moments lie in their span. Independently checked the determinant on the lifted integer line: 2k<n forces zero winding, so the unit-coupling baseline is binom(2k,k). From representative r the distances to cross a lift of the distinguished bond on the two routes are r+1 and n−r. A 2k-step return cannot use it when k≤r. For r≤q−2 and k=r+1 the shorter route is unique and the only such walk immediately retraces, contributing g² instead of 1. This proves the same triangular defect identity even at g=0 (those walks have weight zero) and g=1. Subtracting the binomial multiples of the ones column and expanding in the last row gives the signed power. Its invertibility for g≠1 saturates the upper bound, giving the full reversal-antisymmetric kernel. At g=1 the verified Godsil formulas give positive definiteness at odd order and exactly the antipodal-antisymmetric kernel at even order; the all-ones summand annihilates that subspace. The frozen Fraction and NumPy verification code was inspected, not executed; its finite tolerance tests do not prove ranks for arbitrarily small |g−1|.
 
-```text
-VERIFY_OK exact_moment_profiles=184 independent_spectral_profiles=112 spectral_entries=14728 orders=3..25
-```
+## originality
 
-## Claim-to-evidence map
+PASS
 
-* Spectral simplicity for every \(g\ge0\), \(g\ne1\): the two endpoint recurrence equations force \(g^2=1\) if the eigenspace has dimension at least two.
-* Exact upper rank \(q=\lceil n/2\rceil\): simple eigenvectors have fixed parity under the defective-edge reflection; their entrywise squares are invariant under reversal.
-* Exact lower rank and kernel: for \(2k<n\), nonwinding closed-walk counts and unique first defect excursions yield \(\det W=(-1)^{q-1}(g^2-1)^{q-1}\); the moment matrix is in the span of squared eigenvectors.
-* Perfect-link \(g=1\): Godsil (arXiv:1103.2578), Lemma 6.1, explicitly evaluates the cycle average and hence its rank and antipodal kernel.
-* Boundary \(g=0\): the weighted Hamiltonian is a path, consistent with Godsil's previously established average-mixing formula, not an independently claimed discovery.
+The distinct result is the one-bond even-moment determinant and the resulting all-weight classification, particularly even-order nonunit cycles. Credit the known unweighted cycle and path cases. For odd cycles a prior endpoint-potential theorem also implies the nonunit positive-weight rank lower bound after reflection folding and establishing simplicity; the present determinant is a different certificate and covers both parities. The closest previous cycle certificate uses a site potential and odd moments, not a changed edge.
 
-No interval-arithmetic or formal proof assistant is claimed. Numerical rank tolerance cannot certify unbounded parameter ranges. The physical system has a single *nonnegative* bond weight; negative bond weights or magnetic flux are outside the theorem.
+## value
+
+PASS
+
+A single edge variation is a natural symmetry-breaking experiment for average mixing. Rank alone would miss the even-order switch from antipodal to bond-reflection antisymmetry. The exact moment determinant certifies rank even for arbitrarily weak defects, where numerical rank and degeneracy grouping become unreliable, and identifies the algebraic vanishing order at the unperturbed cycle. This remains useful beyond rederiving the known path and cycle cases or the folded odd-rank lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

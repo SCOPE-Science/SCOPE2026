@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:43:48.618364Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md and VERIFICATION.md (frozen front matter preserved)",
+        "Frozen RESULT.md, VERIFICATION.md and verify_polar_defect.py (uploaded code inspected only)",
+        "Fresh bounded check: python3 /workspace/repairs/3/verify_polar_defect.py passed at N=4,6,8,10,12,16,20,32, with vertex and shadow evaluation and angular Simpson quadrature"
+      ],
+      "rationale": "For the corrected metric-fit claim, central symmetry gives the projection body as twice a quarter-turn; the regular polar has vertex radius sec(alpha) and is offset by a half vertex step. Thus for 4|N the half-sector supports are p=2 cos u and q=cos(alpha−u)/c, 0≤u≤alpha; for N≡2 (mod 4) there is the known exact homothety. The square cosine and cosine-product integrals on a half-sector are (alpha+sc)/2 and (alpha c+s)/2, respectively. After multiplying by 2N and the support factors, the positive optimizer is C/B and its error A−C²/B reduces by the displayed difference-of-squares factorization. At scale 2c the signed uniform error decreases between the two opposite endpoint errors ±2(1−c); any other scale increases one of those endpoint magnitudes. This gives the unique Hausdorff scale and shows it exceeds the least-squares scale by a positive multiple of (1−c)(alpha−s). The asymptotics use alpha²−s²=alpha⁴/3+O(alpha⁶), alpha+sc=2alpha+O(alpha³), and 1−c=alpha²/2+O(alpha⁴). These proofs were checked for the exact supports, unnormalized dθ, and positive scalar domain. The removed angular formulas were mathematically valid as well: folding to a uniform half-sector and inverting 2c/(c+s tan u) gives their CDF, density, and uniform rescaled limit; removal is for prior coverage, not falsity.",
+      "residual_risks": [
+        "Numerical grid tests cannot prove continuous optimization or arbitrary N. The analytic fit does not optimize over rotated, translated or affine copies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mandal–Sain–Paul Theorem 2.8 gives Radon iff the regular polygon has 4n+2 vertices, and Remark 2.1 credits Heil.",
+          "Martini abstract and §4 use the Radon boundary of the difference set to characterize the planar exact property.",
+          "Zhang Theorem 1.1 treats n≥3 and Remark 3.1 gives the exact regular hexagon relation."
+        ],
+        "reasoning": "These exactness results determine the zero-defect branch, which is credited as background. They do not quantify best positive scales and their inequivalence in the nonexact branch.",
+        "searches": [
+          "Mandal–Sain–Paul arXiv:1809.04760, regular polygon Radon parity",
+          "Martini doi:10.1007/BF02574676, planar polar-projection relation",
+          "Zhang arXiv:2611.17926v1, polar projection problem and planar exception"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and corrected RESULT.md",
+        "Older translative-profile mirror with decisive equations",
+        "Mandal–Sain–Paul, Martini, and Zhang original passages",
+        "Focused primary fit and Resultary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier profile proof supplies both radial and perpendicular support functions, so it provides the input to the two fit calculations, not only the ratio.",
+          "The corrected result separately computes a quadratic weighted projection and an endpoint-balanced minimax fit, then compares their strictly distinct scales and exact deviation constants.",
+          "The closest title-only external result, Hausdorff approximation of convex polygons, was not accessible as a primary text in the bounded attempt and was not treated as negative evidence."
+        ],
+        "reasoning": "Neither replacing symbols in the published fit-free profile nor taking a ratio extremum gives the two optimizer formulas or their comparison. The additional square integrals, minimax argument, and scale comparison address a distinct optimization question. The access gap does not establish absence or force a verdict.",
+        "searches": [
+          "Primary search: regular polygon polar projection body optimal homothety Hausdorff distance least squares support function fit Radon 4n polygon metric approximation",
+          "Resultary near-Radon regular polygons and support-function fit",
+          "Original sector data in 79b005afe9c0, (6) and (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "79b005afe9c0 finds J(u)=d_K(u)w_K(u-perp)=4rho_K(u)h_K(u-perp) for centered even polygons, with exact sector formulas and range.",
+          "Since h_(K polar)=1/rho_K and h_(Pi K)=2h_K(u-perp), J/2 is precisely p/q. Taking its pushforward under uniform angle and the stated limit is an elementary transformation, not an independent profile result."
+        ],
+        "reasoning": "The older statement dominates the directional part of the original record. It is directly credited and the CDF/density/limit are removed from the repaired claim. The metric fits are not unweighted ratio summaries: the objectives use q² as the squared-error weight and q as the sup-error weight.",
+        "searches": [
+          "Resultary angular defect, regular polygon polar projection and exact directional profile",
+          "Exact translative convex-hull profile of every regular polygon, equations (6)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "51597b4da38f is the identical frozen record, not independent coverage.",
+          "79b005afe9c0 gives the exact sector and range tables underlying the old angular law. Other high-ranked affine L² polygon findings use different projection-operator norms."
+        ],
+        "reasoning": "The closest exact table concerns the angular ratio under a different geometric interpretation, not minimizers for weighted support differences. No independent matching exact fit table was identified; the ratio table should not be presented as a new finding.",
+        "searches": [
+          "Resultary exact regular polygon least-squares and Hausdorff homothety scales/errors",
+          "Earlier translative convex-hull pointwise profile table by N modulo 4"
+        ]
+      },
+      "rationale": "PASS applies only to the narrowed metric-fit comparison in the corrected package, not the frozen angular-law claim. An older exact directional profile is the same pointwise ratio under polarity, so its range, CDF, density and rescaled law are direct transforms of known data. The repaired text credits that profile and the known parity branch, and focuses on exact optimization in two different metrics and the strict difference in their preferred scales. No matching metric-fit theorem or stronger optimization result was established in the inspected comparisons.",
+      "residual_risks": [
+        "Heil and Leichtweiss are cited secondarily, not inspected. Older near-Radon metric calculations may be indexed under different terms; one generic Hausdorff approximation source was not accessible. No assertion of comprehensive priority.",
+        "The repaired proof uses known sector data; credit remains with the prior exact profiles and parity criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of the old angular-law content. Supplies support inputs to the repaired fits but not their optimization.",
+          "evidence": "In the edge-normal chamber the radius is R cos a/cos theta, the perpendicular support for 4|N is R cos(a−theta), and equation (8) evaluates four times their product. Its endpoints after setting R=1 are 4c² and 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-translative-convex-hull-profile-of-every-regular-polygon--79b005afe9c0/RESULT.md",
+          "material_read": "Finding and proof equations (6)–(9), particularly offsets 2050–3892",
+          "method": "local mirror original record",
+          "title": "Exact translative convex-hull profile of every regular polygon",
+          "trigger": "same directional profile under polar/width duality"
+        },
+        {
+          "assessment": "Not independent priority evidence.",
+          "evidence": "Angular law and the two exact fit objectives are separately stated.",
+          "identifier_or_url": "2026/11/22/SCOPE-angular-defect-laws-for-polar-projection-bodies-of-regular-polyg--51597b4da38f",
+          "material_read": "Frozen Finding and proof lines 3–80",
+          "method": "frozen source and catalogue comparison",
+          "title": "Angular defect laws for polar projection bodies of regular polygons",
+          "trigger": "same-record catalogue match"
+        },
+        {
+          "assessment": "Exact branch and prior Heil credit; not the metric fit theorem.",
+          "evidence": "A regular polygon unit sphere is Radon iff its vertex count is 4n+2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04760",
+          "material_read": "p. 8 Theorem 2.8 and Remark 2.1",
+          "method": "OA original PDF",
+          "title": "A Complete Characterization of Polygonal Radon Planes",
+          "trigger": "exact parity and non-Radon branch"
+        },
+        {
+          "assessment": "Exact planar example and higher-dimensional rigidity, not nonexact regular polygon fitting.",
+          "evidence": "Remark 3.1 explicitly gives the regular hexagon Pi H=sqrt(3) H polar.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17926v1",
+          "material_read": "Theorem 1.1 offset 2810, Remark 3.1 offset 15437",
+          "method": "OA original HTML",
+          "title": "A Solution to Petty's Polar Projection Problem",
+          "trigger": "same projection-body homothety equation"
+        },
+        {
+          "assessment": "Broader exact Radon context, not the quantitative two-metric question.",
+          "evidence": "Connects the planar exact property to a difference set bounded by a Radon curve and discusses extension to general planar domains with that property.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02574676",
+          "material_read": "PDF abstract p. 1 offset 507 and §4 p. 9 offset 24920",
+          "method": "OA original PDF",
+          "title": "Convex Polytopes Whose Projection Bodies and Difference Sets Are Polars",
+          "trigger": "historical planar polarity characterization"
+        },
+        {
+          "assessment": "Unresolved generic related result; no inference of noncoverage from access failure.",
+          "evidence": "The title alone supplies no exact homothety comparison.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0925772105000295",
+          "material_read": "Indexed title only; no primary passage obtained",
+          "method": "bounded OA original URL attempt and alternate-copy lookup",
+          "title": "Hausdorff approximation of convex polygons",
+          "trigger": "same approximation metric and polygon objects in external hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected fit statement and calculations; previously known exact profile and parity comparisons"
+      ],
+      "rationale": "The natural question is how the best scalar approximation to a projection body by its polar depends on the metric. Even on canonical regular polygons with the full symmetry group fixed, the angular quadratic and Hausdorff criteria do not agree on the scale. The exact gap in choices and leading error constants supply a benchmark for approximate polar-projection relations and prevent conflating two reasonable normalization criteria. This is a motivated pair of optimization problems, not a claim that changing variables in the earlier ratio law creates a new invariant. The removed probability corollaries did not justify a standalone repair.",
+      "residual_risks": [
+        "This deliberately narrow comparison makes no claim of affine invariance, general stability, or improvement of a bound on arbitrary convex bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:10:35.009530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t>=d, collecting the two exponential terms gives K(d)f(t-c(d)), with d-c(d)<1. Its rising branch therefore starts at the arrival discharge f(d); its peak is K(d)/e, and (log K)'=-de^{-d}/(1+e^{-d})^2. When 0<h<1/e and d<a_h, both crossings are after arrival and the duration is the strictly decreasing width L(h/K(d)); when d>b_h, the first interval has the fixed width b_h-a_h and the separate post-arrival width again strictly decreases. For a_h<=d<=b_h the first start is a_h and the final end is R=c(d)-W_{-1}(-h/K(d)); R>d+1 since Q_d(d+1)>1/e. Implicit differentiation gives R'=f'(R-d)/(f'(R)+f'(R-d))>0. The formulas agree at a_h and b_h, since an arrival-level contact contributes measure zero; at b_h the post-arrival rising crossing is precisely the arrival. Thus the only possible maximizers are 0 and b_h, with all ties determined by comparing the two exact durations. At h>=1/e the first pulse alone contributes no duration; the post-arrival width strictly favors zero lag while positive at zero lag, and every duration vanishes for h>=2/e. The peak bound attains equality only synchronously. Independent replay: python3 /workspace/checks/frozen_replay.py 2. At h=1/4 rational exponential enclosures give a_h<0.36, 2.15<b_h<2.16, Q_{b_h}(4.6)>1/4 and f(3.3)<1/8, implying staggered duration >4.24 versus synchronous <3.3. High-precision crossings give 4.29310005052455 and 3.11726433143898 (relative increase 0.37720115911466). Continuity and the synchronous advantage as h tends up to 1/e establish at least one crossover, not uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gnecco et al. Eq. (5) and its surrounding text specify the gamma/Nash family, but the event-impact objective there is peak assessment.",
+          "The 2023 Lyddon paper reports durations, relative timings and overlap of recorded driver extremes; the 2024 paper compares flood extent and its sensitivity to lag."
+        ],
+        "reasoning": "These cover the hydrologic ingredients or use broader physical models, not a broader theorem maximizing the present discharge-duration functional.",
+        "searches": [
+          "Gnecco, Palla and La Barbera (2018), DOI 10.5194/hess-22-943-2018",
+          "Lyddon et al., DOI 10.1007/s12237-022-01115-4 and DOI 10.5194/nhess-24-973-2024"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.5194/hess-22-943-2018",
+        "DOI 10.1007/s12237-022-01115-4",
+        "DOI 10.5194/nhess-24-973-2024",
+        "Resultary --6a84ed1c1485, --1c3694f7bf4f, --a80781afe4f8, --6a9ab9b5a068"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gamma scale relation fixes the pulse shape and the crest records constrain critical points, not threshold crossings at the second arrival. Lyddon's event-overlap statistic thresholds separate drivers rather than their discharge sum."
+        ],
+        "reasoning": "The new comparison requires the strict interior increase of the final crossing and the two decreasing lag branches; neither peak geometry alone nor driver overlap implies those inequalities and the exact candidate b_h.",
+        "searches": [
+          "Gnecco et al. pp. 943, 946 Eq. (5)",
+          "Lyddon et al. pp. 30 and 973, respectively",
+          "Resultary delayed-pulse crest theorems including --6a9ab9b5a068"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target maximizes the Lebesgue measure of a superlevel set of a summed density, not the envelope or the intersection of the two separate superlevel sets.",
+          "Indexed delayed-pulse neighbors --a80781afe4f8 and --6a9ab9b5a068 count strict local peaks of other shifted gamma kernels."
+        ],
+        "reasoning": "A translated-sum superlevel-width theorem with exact maximizing shifts would be equivalent when specialized to shape two; the primary lookup yielded no decisive passage for that claim. Peak counts, individual widths and overlap do not yield the required width of the sum.",
+        "searches": [
+          "Primary search on superlevel duration of a sum of translated gamma pulses and rearrangement",
+          "Resultary threshold-exceedance duration and delayed Nash pulse comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact duration match was the assigned record itself. Other matched statements classify one versus two peaks in four-stage or three-stage pulses, or up to three peaks from three equal impulses."
+        ],
+        "reasoning": "Those are not tabulations of the maximizing lag for two equal shape-two pulses. The threshold comparison is continuous and not a fixed sequence lookup.",
+        "searches": [
+          "Resultary exact duration optimizer; delayed Nash cascades --6a84ed1c1485, --1c3694f7bf4f, --a80781afe4f8 and --6a9ab9b5a068"
+        ]
+      },
+      "rationale": "The distinct claim supported by the inspected evidence is the global all-threshold duration optimizer for two equal instantaneous impulses through the same two-stage cascade. Gamma routing, Lambert-W crossing formulas and compound-event timing were already in use; none of the material compared supplies the two-candidate optimum for the sum's superlevel duration.",
+      "residual_risks": [
+        "The bounded broad lookup did not resolve whether translated-density level-set or rearrangement literature has an applicable theorem. Earlier specialized flood routing derivations could overlap. No comprehensive priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel family, different objective",
+          "evidence": [
+            "Event structure is evaluated for runoff peak; the gamma parameters identify reservoir count and time constant."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/hess-22-943-2018",
+          "material_read": "Abstract p. 943 and Eq. (5) context p. 946 (PDF offset 19188)",
+          "method": "Bounded OA PDF reading",
+          "title": "A dimensionless approach for the runoff peak assessment",
+          "trigger": "Broader gamma/Nash runoff relations"
+        },
+        {
+          "assessment": "Hydrological motivation, not a translated-sum optimizer",
+          "evidence": [
+            "The durations, relative timings, and overlap of observed extreme events were calculated."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12237-022-01115-4",
+          "material_read": "Abstract p. 30 (OA PDF offset 937)",
+          "method": "Bounded OA PDF reading",
+          "title": "Historic Spatial Patterns of Storm-Driven Compound Events in UK Estuaries",
+          "trigger": "Above-threshold duration, timing and overlap"
+        },
+        {
+          "assessment": "Different physical model and outcome",
+          "evidence": [
+            "Combined river and sea drivers are assessed through flood extent, with lag sensitivity of about 7% for a three-hour lag."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/nhess-24-973-2024",
+          "material_read": "Abstract p. 973 (OA PDF offset 0)",
+          "method": "Bounded OA PDF reading",
+          "title": "Thresholds for estuarine compound flooding using a combined hydrodynamic–statistical modelling approach",
+          "trigger": "Lag and modeled compound flooding"
+        },
+        {
+          "assessment": "No matching objective or kernel and pulse configuration",
+          "evidence": [
+            "The four-stage records use two pulses and count crests, the three-stage records use two variable-ratio or three equal pulses and count crests."
+          ],
+          "identifier_or_url": "Resultary --6a84ed1c1485, --1c3694f7bf4f, --a80781afe4f8, --6a9ab9b5a068",
+          "material_read": "Finding passages, RESULT.md offset 0 for each",
+          "method": "Local Resultary mirror",
+          "title": "Four-stage and three-stage delayed Nash crest classifications",
+          "trigger": "Close delayed runoff theorems, including a distinct same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem reduces a continuous lag optimization for total exposure time, including separated episodes, to two physically interpretable choices and proves a sizable failure of peak-maximizing timing for that objective. It is a tractable benchmark for duration-based analysis, not a model of specific inundation or damage; its equal instantaneous inputs, common two-stage response and zero baseflow are essential scope limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

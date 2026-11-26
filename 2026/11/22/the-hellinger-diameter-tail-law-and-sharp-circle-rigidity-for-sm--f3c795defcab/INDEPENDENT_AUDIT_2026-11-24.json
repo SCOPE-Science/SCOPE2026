@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:51:04.458649Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The support equation gives opposing contact points with difference w times the common normal. A chord of length w saturates the support inequality in its direction, so it is one of these pairs. Compactness excludes all pairs outside a fixed neighborhood of the maximizing circle for sufficiently small deficits. The support parametrization has derivative rho times the unit tangent. In the transverse coordinate u about the opposite normal, the squared chord length is w^2-rho*rho_pi*u^2+O_K(|u|^3), with the coefficient bounded below at fixed K. The allowed interval has width 2 sqrt(2w epsilon/(rho*rho_pi))+O_K(epsilon). The independent arclength sampling density is rho*rho_pi/(pi w)^2 at u=0 because ds=rho dtheta and the integrated antipodal sum gives perimeter pi w. Multiplying and integrating gives precisely (2 sqrt(2)/pi) A sqrt(epsilon/w), with the claimed fixed-body error. Normalization gives 1-A=H^2; Cauchy–Schwarz gives the stated TV lower bound and equality in the affinity bound forces rho=w/2, hence a translated disk. The prescribed tanh radius has no first harmonics by threefold symmetry and solves the support equation, with positivity ensuring genuine supporting contacts and antipodal sum ensuring width. Dominated convergence at lambda=1 as M grows gives infimum zero; continuity at each sufficiently large fixed M gives every intermediate value with lambda<1. The single harmonic reduces to the complete elliptic integral stated. Independent numerical replay `python3 /workspace/checks/oval.py` checks the exact disk normalization, a fifth-harmonic example and a steep tanh example (affinity about 0.26446), by integrating chord components and solving finite-deficit equations. These are bounded corroborations, not proof of the remainder or sharp range; no uniform claim over degenerating bodies is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circle calculation is explicitly built under a circular support hypothesis and its output is used for a limit law of a sample diameter, not for arbitrary constant-width curves.",
+          "The ellipse catalogue statement gives a leading linear deficit tail at fixed eccentricity and crossover toward square-root behavior as the ellipse becomes circular. The Lamé family hit treats a near-circular joint parameter/deficit regime."
+        ],
+        "reasoning": "A general transverse quadratic sublevel rule can explain the exponent once the maximizing locus and transverse Hessian are identified. It does not by itself identify this variable Hessian, impose constant width, or give the complete attainable affinity range. Fixed noncircular ellipses have isolated diameter maximizers rather than the opposite-normal curve of maximizers used here.",
+        "searches": [
+          "Web: Mayer Molchanov 2006 maximal interpoint distance unit ball Section 5.4 boundary-circle nonuniform angular densities near-diameter tail formula",
+          "Resultary: ellipse boundary nearly diametral chords logarithmic crossover",
+          "Resultary 70f541f7740f"
+        ]
+      },
+      "checked_sources": [
+        "Mayer–Molchanov arXiv:math/0605289v2 §5.4",
+        "Resultary 4a4af7408362, 70f541f7740f, df3f4bf5ad69 and the identical frozen match",
+        "Frozen RESULT.md, AUDIT.json and verification materials; targeted Gečiauskas scan retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tangent-polygon statement uses antipodal curvature data but with a different sampling object and a large-area event. The earlier circle coefficient collapses to a single constant at uniform angular measure. The new range varies over actual positively curved constant-width shapes while keeping width and arclength fixed."
+        ],
+        "reasoning": "The cited circle or ellipse formulas do not imply the noncircular coefficient or the attainability theorem by restriction or reparameterization, and the large-area formula does not encode the two-endpoint law. The rigidity is a consequence of the geometric identification of the coefficient with the affinity, not new information about the abstract Hellinger inequality.",
+        "searches": [
+          "Primary PDF arXiv:math/0605289v2 §5.4, offset 46900",
+          "Resultary df3f4bf5ad69 and 4a4af7408362",
+          "Frozen RESULT.md lines 105–118"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mayer–Molchanov §5.4 uses the unit circle with angular density f and computes sigma_0=4 integral f(u) f(u+pi) du. This is an antipodal product, not an affinity; on the disk it agrees after accounting for radius versus width.",
+          "The frozen comparison attributes random-ray and interior-point models to the historical Gečiauskas scan. The scan was not independently retrieved."
+        ],
+        "reasoning": "The difference is in the measure and the transverse geometry. Substituting rho/(pi w) for the circle density leaves a constant transverse Hessian on the circle; for a true noncircular constant-width oval the Hessian is proportional to rho*rho_pi. Sampling by line orientation and offset is not independent arclength endpoint sampling.",
+        "searches": [
+          "Resultary: Hellinger affinity constant-width boundary arclength pair near-diameter tail",
+          "Mayer–Molchanov arXiv:math/0605289v2 §5.4",
+          "Gečiauskas, Lithuanian Mathematical Journal 7(3), cited scan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching affinity-law entry was the supplied record itself. The distinct ellipse and Lamé records give different curve families/regimes, and the tangent-polygon entry has an area tail, not an endpoint-distance tail."
+        ],
+        "reasoning": "These available statements do not contain an exact coefficient table or formula for the stated full class. The uniform circle specialization is earlier and is not evidence of novelty. Search results alone are not a claim of absence.",
+        "searches": [
+          "Resultary: Hellinger affinity constant-width boundary arclength pair near-diameter tail",
+          "Resultary: Curvature–width Pareto law for bounded random tangent polygons",
+          "Resultary 4a4af7408362; 70f541f7740f; df3f4bf5ad69"
+        ]
+      },
+      "rationale": "The supported distinct result is the variable-curvature coefficient for fixed smooth constant-width bodies with independent arclength endpoints, including disk rigidity and the full sharp range. The circle tail, elementary Hellinger inequalities and the general transverse-sublevel mechanism are not new by themselves. Available explicit prior comparisons do not give the stated coefficient and range for noncircular constant-width bodies.",
+      "residual_risks": [
+        "No whole-document comparison is inferred for the unavailable Gečiauskas scan or unavailable mirrors. Historical random-chord work, including related terminal-density literature such as Gates, was not exhausted.",
+        "Unindexed equivalents, or a general near-maximal boundary-distance theorem with stronger applications than the inspected results, remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact circular overlap and different coefficient on varying densities on a circle; not the variable-curvature oval law",
+          "evidence": [
+            "Unit circle; sigma_0=4 integral f(u)f(u+pi) du; for uniform sampling sigma_0=2/pi."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605289v2",
+          "material_read": "§5.4 Non-uniform angular distributions, PDF p. 20, offset 46900",
+          "method": "Targeted OA literal locate and read by offset",
+          "title": "A limit theorem for the maximal interpoint distance of a random sample in the unit ball",
+          "trigger": "Same near-diameter pair statistic on circle support, including nonuniform angles"
+        },
+        {
+          "assessment": "Nonconstant-width ellipse or near-circular Lamé crossover as stated; no equivalent all-constant-width coefficient established",
+          "evidence": [
+            "Linear at fixed ellipticity and crossover toward square root; Lamé statement reports a joint family/threshold regime."
+          ],
+          "identifier_or_url": "Resultary 4a4af7408362 (2026-11-01); 70f541f7740f (2026-11-22)",
+          "material_read": "Catalogue statements; mirror texts not retrieved",
+          "method": "Configured Resultary search and targeted local mirror attempts",
+          "title": "A logarithmic near-circle crossover for nearly diametral chords of ellipse boundaries; Binary entropy crossover and asymmetric rare chord localization",
+          "trigger": "Same endpoint sampling and near-diameter regime on smooth ovals"
+        },
+        {
+          "assessment": "Area tail of a circumscribed tangent polygon, not independent boundary endpoints",
+          "evidence": [
+            "Reported Pareto area law depends on antipodal curvature data."
+          ],
+          "identifier_or_url": "Resultary df3f4bf5ad69 (2026-11-08)",
+          "material_read": "Catalogue statement; mirror text not retrieved",
+          "method": "Configured Resultary search and event/measure comparison",
+          "title": "Curvature–width Pareto law for bounded random tangent polygons",
+          "trigger": "Uses antipodal curvature data and has a constant-width illustration"
+        },
+        {
+          "assessment": "Reported random-ray and interior-point measures differ; cannot rule out additional statements in the scan",
+          "evidence": [
+            "Frozen RESULT.md lines 105–106 distinguishes the sampling models and notes dating uncertainty."
+          ],
+          "identifier_or_url": "https://journals.vu.lt/LMJ/article/download/19983/19112/35274",
+          "material_read": "Frozen related-work report and bibliography; targeted OA scan retrieval did not yield passages independently",
+          "method": "OA attempt and model comparison limited to the available attribution",
+          "title": "The distribution function of the chord length of oval and ovaloid and its relation to distribution of a distance in an oval and ovaloid",
+          "trigger": "Potential historical equivalent under random-chord terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a natural sampling statistic distinguishing the disk among shapes of a common width and perimeter, with an information-geometric expression for its exact deficit. The full-range construction demonstrates how far this statistic can move from the disk under smooth positive curvature, rather than merely providing another asymptotic computation for the circle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:10:13.181323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any word, the normalized pair counts are the expected binary order vector after independently choosing one occurrence of each symbol. This puts them in the three-item ordering polytope, whose six vertices are realized by block words. In coordinates (x/(ab),1−y/(ac),z/(bc)), its description is the unit cube cut by sum between 1 and 2; active bounds show there are no nonbinary vertices. If two multiplicities are singleton, the applicable inequalities simply order the two counts of trailing copies of the remaining letter; inserting copies in the three gaps realizes every allowed pair. Otherwise relabel so a,b≥2. The proposed hole (0,1,ceil(b/a)) meets 0≤a ceil(b/a)−b≤a−1 and the box bounds, but x=0 forces all b ones before any zero, so any 02 pair forces at least b occurrences of 12. This proves failure of saturation for every such content. With a=1 the integer hull slice has bc+1−|cx−by| points. The realized slice is the sum of two complete integer intervals and the offset (b−x)y; within a binary gap swaps of adjacent unlike symbols trace every pair count from zero to its maximum. For the absolute-value sum, writing t=cx/b and f={t} gives sum_y |t−y|=t²−ct+c(c+1)/2+f(1−f); with q=b/g each j/q occurs g times for x=0,…,b−1 and the added x=b has f=0. Thus the fractional correction after multiplying by b is (b²−g²)/6, giving precisely the stated gcd hole term after subtraction. The formulas give zero holes when b=1 or c=1 and yield H:D→1:3 when both tend to infinity. A separate exhaustive check at (1,2,2) enumerated 30 words, 27 realized triples and 29 hull lattice points, identifying exactly (1,1,0) and (1,1,4) as holes. Replay by enumerating distinct permutations of 01122 and comparing their pair counts with the integer box and slab; saved details at /workspace/branches/321a18e3-a7a6-4a0a-bf0d-8cbf3d1362ba/record4-small-check.txt. The supplied verification scripts were not executed; finite checks cannot substitute for the all-content argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nilforoushan–Parvaresh's abstract treats affine dimension via independent Lyndon coordinates and general cardinality bounds for prescribed multiplicities.",
+          "Lejeune–Rigo–Rosenfeld treat 2-binomial equivalence classes and a general algorithm. Chrisnata et al. study distinct binary decks.",
+          "SCOPE-exact-2-binomial-reconstruction-spectra-with-three-doubled-lette--deae5d37c16d handles three doubled core letters with singleton markers and gives fiber sizes 1,2,6."
+        ],
+        "reasoning": "Deck dimension and algorithms that determine individual equivalence classes are not the closed saturation criterion or gcd formula. The doubled-letter spectrum uses restricted contents and does not give a hull-hole classification for arbitrary positive ternary content.",
+        "searches": [
+          "Nilforoushan–Parvaresh arXiv:2609.23106v2",
+          "Lejeune–Rigo–Rosenfeld arXiv:2001.11732",
+          "Chrisnata et al. DOI 10.3934/amc.2021032",
+          "Resultary: complete 2-binomial spectra with repeated letters"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and frozen verification evidence",
+        "Direct normalized linear-ordering-polytope reduction",
+        "Distinct-marker, doubled-letter, Parikh-matrix and substitution Resultary records identified above",
+        "Nilforoushan–Parvaresh arXiv:2609.23106v2 abstract",
+        "Lejeune–Rigo–Rosenfeld arXiv:2001.11732",
+        "Chrisnata et al. DOI 10.3934/amc.2021032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hull relaxation imposes different slice intervals from the known realized-deck slices. Its absolute-value double sum is sensitive to the denominator b/gcd(b,c).",
+          "The two-repeated-symbol hole obstruction uses x=0 and tests a single nonzero 02 pair against the resulting block of all b ones; it applies even without a singleton."
+        ],
+        "reasoning": "Knowing a parametrization of attained decks does not perform the integer enumeration of the relaxed hull or evaluate the gcd correction. Likewise, a general dimension formula or the three-doubled-letters instance does not cover the quantified obstruction across all contents. These are the additional arguments with scientific credit.",
+        "searches": [
+          "Distinct-marker spectra Finding at r=1",
+          "Doubled-letter spectra Finding and proof §1",
+          "Nilforoushan–Parvaresh abstract affine dimension and bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six vertex vectors are the six permutations' pairwise-order vectors. Choosing a random occurrence of each symbol proves that the fixed-content hull is their diagonal scaling.",
+          "SCOPE-exact-fixed-content-parikh-matrix-image-and-its-parity-boundary--097158f6d402 instead uses two pair coordinates and one length-three subsequence count."
+        ],
+        "reasoning": "Normalized hull geometry is exact known structure, but scaling does not preserve unit-lattice saturation or say which scaled integer points are realized by single words. A fixed-content Parikh matrix including 012 does not reparameterize the full oriented length-two deck.",
+        "searches": [
+          "Resultary: ternary two-deck lattice holes, pair-count hull and saturation",
+          "Three-item linear ordering polytope (structural comparison; external references attempted)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-two-deck-spectra-and-fiber-multiplicities-with-distinct-ma--26e221758afc gives D₂(A,B;r)=r! binom(A+r,r) binom(B+r,r)(1+AB/(r+1)) and a feasibility interval using marker and gap data. At r=1 this is exactly the frozen D(1,b,c).",
+          "SCOPE-the-first-lattice-holes-of-ternary-cyclic-substitution-parikh-sp--1ac934fd1f11 concerns contiguous-factor Parikh vectors at specified substitution lengths, not these pair-count images."
+        ],
+        "reasoning": "Known attainable singleton counts and their interval description are exact overlap and are credited in the original. They are not counts of all integer points of the hull. The substitution holes are attached to another object and do not supply any entries of the exact hole formula here.",
+        "searches": [
+          "Resultary: exact two-deck spectra and fiber multiplicities with distinct marker letters",
+          "Resultary: ternary lattice holes and exact reconstruction spectra"
+        ]
+      },
+      "rationale": "The distinct supported claims are the complete saturation threshold in the multiplicity-scaled integer lattice and the exact singleton lattice-hole law. The normalized hull shape is the standard three-item linear ordering polytope, and the attainable singleton count and interval parametrization are already covered by the distinct-marker record; the frozen proof credits that enumeration. No novelty is assigned to those ingredients. None of the inspected sources establishes the saturation and hole formulas.",
+      "residual_risks": [
+        "Full Nilforoushan–Parvaresh coverage was not independently verified; the bounded abstract evidence is not a whole-paper noncoverage judgment.",
+        "No external linear ordering polytope reference passage was retrieved; the shape equivalence was established directly and is not credited as new.",
+        "An exact equivalent closed count under a different lattice formulation may exist; bounded lookups and same-day dates do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for D and feasibility parametrization, credited; does not enumerate the convex hull lattice",
+          "evidence": "General distinct-marker D₂ formula specializes at r=1 to the attainable singleton count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-deck-spectra-and-fiber-multiplicities-with-distinct-ma--26e221758afc/RESULT.md",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact two-deck spectra and fiber multiplicities with distinct marker letters",
+          "trigger": "Known exact singleton enumeration and deck-slice parametrization"
+        },
+        {
+          "assessment": "Same deck coordinates in a restricted-content fiber problem; not coverage of hull saturation",
+          "evidence": "Three doubled symbols and singleton markers; fiber sizes 1, 2 and 6 in the deck spectrum.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-2-binomial-reconstruction-spectra-with-three-doubled-lette--deae5d37c16d",
+          "material_read": "Finding and Proof §1, local-mirror offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact 2-binomial reconstruction spectra with three doubled letters",
+          "trigger": "Closest distinct same-day pair-count structure"
+        },
+        {
+          "assessment": "Different coordinate map",
+          "evidence": "Uses (#ab,#bc,#abc); replacing #ac by a length-three deck entry changes the image.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixed-content-parikh-matrix-image-and-its-parity-boundary--097158f6d402",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact fixed-content Parikh-matrix image and its parity boundary",
+          "trigger": "Closest alternate fixed-content image formulation"
+        },
+        {
+          "assessment": "Different lattice image",
+          "evidence": "Parikh vectors of contiguous factors at four substitution lengths, not pair counts at fixed content.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-lattice-holes-of-ternary-cyclic-substitution-parikh-sp--1ac934fd1f11",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "The first lattice holes of ternary cyclic-substitution Parikh spectra",
+          "trigger": "Related exact ternary lattice-hole match"
+        },
+        {
+          "assessment": "Affine and cardinality work demonstrably relevant; full scope not established from abstract",
+          "evidence": "States an affine subspace dimension and cardinality bounds via Lyndon-word parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23106v2",
+          "material_read": "Abstract p. 1, offset 0 only",
+          "method": "Bounded OA reading",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "General prescribed-content deck degrees of freedom"
+        },
+        {
+          "assessment": "Algorithmic precedent; no exact hole theorem in the inspected passages",
+          "evidence": "Defines equality of scattered-subsequence counts through length k and gives an algorithm for 2-binomial classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+          "material_read": "Abstract p. 1 and §1 p. 2, offsets 0 and 2757",
+          "method": "Bounded OA paper passages",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "General 2-binomial deck reconstruction and equivalence"
+        },
+        {
+          "assessment": "Binary deck enumeration, different from fixed ternary lattice saturation",
+          "evidence": "Addresses numbers of distinct decks of binary sequences.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+          "material_read": "Abstract p. 1 and §1 p. 2, offsets 0 and 2746",
+          "method": "Bounded OA paper passages",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Published deck enumeration precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves when a natural convex relaxation of fixed-content deck consistency is exact on the integer lattice and gives a uniform obstruction when it fails. The singleton law measures the gap between the convex model and actual words, including an arithmetic gcd term and a nonvanishing asymptotic fraction of holes. The value is in those classification and hole results, not the known hull shape or the already available attainable-deck count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The enclosed `verify.py` is a standalone Python 3 program using only built-in modules. Run `python3 verify.py` in the directory containing this file and the script. It checks exact rational identities for truncated harmonic partition weights and first renewal moments at cutoffs 2 through 24. It constructs positive partition weights, brackets and bisects the unique escape-rate root for several cutoffs and moving critical parameters, tests finite residuals, and reports the leading and first-corrected predictions. The observed terminal marker is `VERIFY_OK`.
+# Independent mathematical audit
 
-The mathematical proof of uniqueness of the positive root, the uniform leading limit for all \(\theta_n\to1\), and the Euler correction for compact detuning sets is contained in `RESULT.md`. No finite verification run certifies an infinite limit, an exhaustive parameter census, or historical uniqueness of a theorem. The underlying finite determinant identity is explicitly attributed to Knight--Munday. An independent audit has not been performed.
+## correctness
+
+PASS
+
+In branch mass coordinates for A_1 through A_(n−1), column 1 of the open transfer matrix consists of a_j, and column j>1 shifts mass to j−1. This verifies the finite Perron polynomial directly: λm_j=a_j m_1+m_(j+1), with m_n=0, implies Σa_j λ^(−j)=1. The root above 1 in z=1/λ is unique; summation by parts gives S_n=Σk^(−θ)−n^(1−θ), with the sum up to n. With δ=θ−1 the integral I=log(n) Ψ(δ log n) diverges for δ→0, and e^(−c)/I≤|δ|+1/log n for either sign (by e^v−1≥v). Thus S_n/I→1 and nγ≤e^(−c)/S_n→0. The power-series remainder relative to γ S_n is bounded by nγ exp(nγ)/2, proving the leading result without bounded c. For bounded c, subtract the integral from the sum cell by cell: the discrepancy series is locally differentiable at δ=0 with summable derivative, so S_n=log(n) Ψ(c)+γ_E−e^(−c)+O_C(1/log n). The exact second moment is O_C(n) by a_k≤θk^(−θ−1), giving relative exponential remainder O_C((log n)^(−2)). This establishes the stated coefficient, error and continuous c=0 limit. The proof concerns the finite branch spectral rate, not arbitrary survivor distributions.
+
+## originality
+
+PASS
+
+The supported distinct result is the joint, all-sequences leading equivalent and the uniform bounded-window first correction for the true finite-matrix spectral root. Knight–Munday already give the root equation, the fixed-parameter asymptotics and the harmonic denominator at θ=1; those are not credited. The strongest apparent coverage, Bonanno–Tikekar's claimed exact induced-to-original rate formula instantiated on the identical branch model, is not an identity for that root. It gives the same near-critical coefficients as an approximation, but transferring those to the actual root requires accuracy estimates not provided by that exact identity. Thus no verified prior implication supplies the moving-parameter result.
+
+## value
+
+PASS
+
+The finite/infinite invariant-measure boundary makes this joint limit natural. It quantifies the failure of interpolating the two fixed-parameter limits, gives relative control even when the scaled rate vanishes or diverges, and distinguishes the finite-hole correction from a mere replacement of the harmonic series by an integral. The proof provides accuracy control for the actual clock-time spectral observable, not just the induced rate divided by mean return time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

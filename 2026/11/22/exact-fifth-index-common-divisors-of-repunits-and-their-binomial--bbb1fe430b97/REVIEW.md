@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The numerator identity for the binomial transform is independently obtained from the binomial theorem, and its fifth-index quotient is the integer polynomial \(G\). For a prime other than five dividing both terms, the fifth-root group argument classifies all possible affine equalities, forcing eleven and residues five or nine. The fifth-prime valuation is one by reduction modulo twenty-five; the two eleven-lifts have incompatible linear constraints modulo one hundred twenty-one. Chinese remainder counting and multiplicative orders give all stated periods and densities. The standalone checker independently evaluates the polynomial resultant, modular conditions, finite examples, and direct binomial sums. These computations do not replace the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, not an independence certification)
+The transform numerator telescopes by the binomial theorem to (b+1)^5−32. Exact division by b−1 gives the two displayed monic quartics F,G. An independent support certificate is multiplication by G in Z[X]/(F): in order 1,X,X²,X³ the four columns are (30,25,15,5), (−5,25,20,10), (−10,−15,15,10), (−10,−20,−25,5); the determinant is 378125=5^5·11². If p divides both F(b),G(b), evaluation modulo p gives a nonzero functional annihilating this multiplication map, so p must divide its determinant. Checking complete residue systems gives common roots {1} modulo 5, {5,9} modulo 11, and no common roots modulo 25 or 121 (in particular, the lifts in each row of the frozen table cannot coincide). Hence the valuations are exactly the indicators, not merely upper bounds on support. The CRT gives 36,9,8,2 and minimal base period 55 since both nonconstant indicators have prime moduli. For b=2^k the two orders are 4 and 10 and the 11 classes correspond to k=4,6 mod 10. No nontrivial translation modulo 10 can fix these two classes: a swap would require their difference to be 5. Thus each period is a multiple of 4 and 10, and counting their joint residues gives 13,3,2,2. All arguments apply on the stated positive domains.
 
-The 2023 arXiv source and its 2025 journal version give formulas for both sequences but do not present their exact common fifth-index divisors, the affine fifth-root rigidity, or the resulting sharp period/density law. The 2025 article on \(k\)-Mersenne transforms employs a different recurrence. Searches of related arithmetic-gcd, cyclotomic and binomial-transform publications and of an indexed research collection yielded no logically covering statement. Closest hits concern different gcd families or different roots; search failure is not proof of absolute originality. A previous-work-access limitation and the possibility of unindexed equivalent work remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The gcd of two naturally paired number-theoretic sequences is a direct test of their simultaneous divisibility. The fifth index is the first odd-prime length at which a common prime other than the index occurs, and the proof isolates a unique exceptional characteristic and a two-residue pattern, not simply a table of numerical coincidences. The base-free exact law, the absence of higher common prime powers, and the sharp least periods and frequencies provide a complete usable local arithmetic invariant for this naturally defined pair. The motivation does not depend on a speculative downstream theorem.
+The inspected sources give the underlying sequence and transform, and treat nearby common-divisor families, but no distinct inspected statement gives the simultaneous value gcd of this pair at index five or a stronger theorem directly implying its residues and valuations. This is a bounded priority assessment.
 
-## Limits
+## value
 
-Only index five is classified. The proof does not settle joint divisibility at other indices. The originality search is necessarily non-exhaustive; independent mathematical audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repunit and its ordinary binomial transform provide a natural pair for studying their shared arithmetic, beyond closed forms for each sequence. Fifth index is structurally meaningful: at prime index two the difference of the two polynomials is 2, and at index three it is 3(b+2), while the repunit at b=−2 equals 3. Thus neither smaller prime index permits a common prime away from its index, whereas at five the prime 11 appears and has two distinct residue classes with no simultaneous square lift. Exact shared factors, not just resultant support, are needed to determine the periodic correlations of these sequences and their higher-order Mersenne specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

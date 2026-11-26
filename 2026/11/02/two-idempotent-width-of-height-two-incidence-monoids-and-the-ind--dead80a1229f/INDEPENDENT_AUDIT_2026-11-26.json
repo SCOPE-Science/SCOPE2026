@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:35:18.831341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With no strict intermediary, (ef)ᵤᵥ=eᵤᵤfᵤᵥ+eᵤᵥfᵥᵥ, so an idempotent's strict entries are free precisely at unequal diagonal bits, including in characteristic two. A product has binary diagonal and vanishes on every edge with both product endpoint bits 1. The same condition is closed under multiplication, since an output diagonal bit 1 requires both factors to have it. To cover the full proposed locus, orient edges from U to V; set the two factor diagonals on each u to (1,hᵤᵤ) and on each v to (hᵥᵥ,1). If hᵥᵥ=0 use the first factor's free strict entry for hᵤᵥ; otherwise use the second factor's entry unless both output bits are one, when zero is required. These choices are independent, giving a genuine factorization over any field. Width means the uniform at-most-two bound in the Finding; the least width is one for an antichain and exactly two once an edge exists, witnessed by a nonzero single-edge nilpotent. For fixed support S there are q^(m−i_G(S)) product elements, and q^(cut_G(S)) idempotents. The largest-power terms are respectively independent sets and bipartite colorings (two per component including isolated vertices). This gives both limits, including m=0. In UT₃ the displayed idempotents multiply to E₁₂+E₂₃, of rank 2 and zero diagonal. Each of two hypothetical factors needs at least two diagonal ones because its idempotent rank equals their integer count. The diagonal supports then intersect, a contradiction in every characteristic. Replay: RESULT.md Steps 1–6 constitute the proof; VERIFICATION.md and verify.py were inspected, not run, and enumerate selected examples, not arbitrary posets or fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thomas's factorization criteria allow arbitrary endomorphisms as factors.",
+          "Theorem 1.1 gives irreducible components of the ambient idempotent variety; the compared cross-component product theorem is restricted to a complete bipartite antichain monoid."
+        ],
+        "reasoning": "Unrestricted factors need not respect the incidence support. A decomposition of the idempotents into diagonal components also does not supply the globally compatible two-factor construction across arbitrary supports.",
+        "searches": [
+          "Thomas, DOI 10.1017/S0004972700031427, §4 and Theorems 3–4",
+          "Can–Casimiro–Malheiro, arXiv:2208.01073, ambient Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Can–Casimiro–Malheiro arXiv:2208.01073",
+        "Thomas DOI 10.1017/S0004972700031427",
+        "Kolegov DOI 10.1017/S0004972724000078 (abstract)",
+        "Resultary records 7b85c95b860d, 2b99b8e288c0 and d6c6054e5969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The restricted Theorem 4.9 product remains an idempotent component. The ambient monoid contains nilpotent strict entries.",
+          "Prior record 7b85c95b860d explicitly has the per-edge product aY+Xd for separately fixed factor diagonals, then imposes idempotence of EF. Its local calculation supplies ingredients, but its conclusion aggregates a different domain and does not solve the simultaneous choice of factor diagonals for each unrestricted output.",
+          "The graph sum after normalization is the standard soft edge-penalty sum at parameter 1/q; the hard-core limit is immediate once the incidence-product fibers are known."
+        ],
+        "reasoning": "The claimed value and originality are in the global ambient realization and resulting enumeration, not in the local multiplication identities or the graph limit alone. The prior ordered census cannot be read as the image-set enumerator without the separate uniform bipartition witness.",
+        "searches": [
+          "Can–Casimiro–Malheiro, Theorem 4.9",
+          "Resultary 7b85c95b860d, RESULT.md Proof offsets 1550–5150",
+          "Resultary d6c6054e5969, joint-rank and Potts enumerators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An antichain monoid I(P,A) has ones on the diagonal outside A; its orthodox submonoid results concern a restriction of the algebra and of admissible diagonal supports.",
+          "Resultary 7b85c95b860d counts ordered pairs subject to EF being idempotent, while Kolegov studies algebra generation by idempotents."
+        ],
+        "reasoning": "The ambient problem includes nonidempotent products and counts elements rather than witnesses or algebra generating sets. These operations are not changes of notation for it.",
+        "searches": [
+          "Can–Casimiro–Malheiro, arXiv:2208.01073, Theorems 1.1, 1.2 and 4.9",
+          "Resultary 7b85c95b860d, ordered product-idempotence in height-two incidence algebras",
+          "Kolegov, DOI 10.1017/S0004972724000078"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogued results inspected count idempotent ordered products, unital-algebra generating tuples or commuting tuples. The Hamming-cover finding shares the frozen record's date; its operation, not its date, distinguishes it."
+        ],
+        "reasoning": "There is no finite catalogue cell for the arbitrary-field and arbitrary-poset classification. The available exact enumeration records are relevant to the comparison, but sum different sets or attach different statistics.",
+        "searches": [
+          "Resultary catalogue: height-two incidence, ordered idempotents, diagonal-support and graph polynomials; records 7b85c95b860d, 2b99b8e288c0, d6c6054e5969"
+        ]
+      },
+      "rationale": "The local idempotent equations and generic hard-core specialization are antecedents. The distinct contribution is the global classification of attainable products in the ambient monoid: a single choice of factor diagonals works simultaneously for all edges of an arbitrary bipartite incidence support and realizes every compatible strict entry. The resulting distinct-output fiber counts and sharp failure at height three are not provided by the strongest compared component and ordered-pair results.",
+      "residual_risks": [
+        "Kolegov full text was not available in the bounded lawful attempt. Equivalent factorizations in uninspected supported-matrix literature remain possible; a failed search gives no evidence against them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ambient component description and restricted component products, not the ambient full range",
+          "evidence": "Theorem 4.9 computes p⁻¹(1_L)p⁻¹(1_L′)=p⁻¹(1_{L∩L′}) for specified components of a complete bipartite antichain monoid.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.01073",
+          "material_read": "p. 2 Theorems 1.1–1.2; p. 4 fields; p. 9 definition of I(P,A), offset about 24408; p. 17 Theorem 4.9, offset about 47936",
+          "method": "Targeted OA primary text",
+          "title": "Idempotent Varieties of Incidence Monoids and Bipartite Posets",
+          "trigger": "Same incidence monoids and product of idempotent components"
+        },
+        {
+          "assessment": "Does not constrain factors to the same triangular poset incidence support",
+          "evidence": "The criteria are in the full monoid of linear transformations.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700031427",
+          "material_read": "Abstract and §4, p. 8 onward, Theorems 3–4",
+          "method": "Targeted OA primary text",
+          "title": "Products of Two Idempotent Transformations over Arbitrary Sets and Vector Spaces",
+          "trigger": "General two-idempotent factorization"
+        },
+        {
+          "assessment": "Algebra generation, not established coverage of multiplicative width",
+          "evidence": "Available description concerns size of idempotent generating sets for the algebra.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972724000078",
+          "material_read": "Available abstract/bibliographic description only",
+          "method": "Lawful bounded OA retrieval attempt and abstract comparison",
+          "title": "Idempotent Generators of Incidence Algebras",
+          "trigger": "Same algebras and generators; possible alternative product-width formulation"
+        },
+        {
+          "assessment": "Strong prior overlap for entry formulas, but enumerates ordered witnesses conditioned on product idempotence",
+          "evidence": "The proof introduces the aY+Xd product coordinate for fixed diagonals and imposes a rank-one or rank-zero linear constraint when the product bits agree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-product-idempotence-rank-laws-and-a-three-quarter-limit-for-heig--7b85c95b860d",
+          "material_read": "Finding and RESULT.md Proof offsets 1550–5150",
+          "method": "Local catalogue and targeted mirror text",
+          "title": "Product-idempotence rank laws and a three-quarter limit for height-two incidence algebras",
+          "trigger": "Same ambient algebras and product of two idempotents"
+        },
+        {
+          "assessment": "Counts tuples that generate as a unital algebra, not distinct multiplication outputs",
+          "evidence": "Generation allows algebra operations, not just ordered multiplication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-hamming-cover-polynomial-counts-ordered-idempotent-generators-of--2b99b8e288c0",
+          "material_read": "Finding",
+          "method": "Local published-record catalogue and statement inspection",
+          "title": "Hamming-cover polynomial counts ordered idempotent generators of incidence algebras",
+          "trigger": "Same-day exact idempotent count in incidence algebras"
+        },
+        {
+          "assessment": "Different ensemble and graph-polynomial statistic",
+          "evidence": "Uses commuting tuples and FK/Potts evaluation, not distinct products with prescribed output support.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-joint-rank-and-potts-enumerators-for-commuting-incidence-algebra--d6c6054e5969",
+          "material_read": "Finding",
+          "method": "Local published-record catalogue and statement inspection",
+          "title": "Joint-rank and Potts enumerators for commuting incidence-algebra idempotents",
+          "trigger": "Exact graph-polynomial connection to incidence idempotents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A field-independent bounded-length normal form resolves the full multiplicative product locus and makes every finite-field diagonal-support fiber explicit. The leading coefficients recover a graph invariant of the poset comparability graph, and an obstruction already in the three-chain makes the general height threshold meaningful. The known independence-polynomial limit of the graph sum is a consequence, not the sole scientific gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

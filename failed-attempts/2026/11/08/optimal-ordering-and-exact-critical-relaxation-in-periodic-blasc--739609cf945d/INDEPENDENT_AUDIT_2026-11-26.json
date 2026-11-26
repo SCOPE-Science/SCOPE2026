@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:27:33.961299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–59",
+        "Frozen VERIFICATION.md, lines 1–22; verify.py, lines 10–82, inspected only",
+        "Independent exact Cayley and example checks: python /workspace/audit_replay.py, blaschke check passed"
+      ],
+      "rationale": "The Cayley transform gives w'=λw/(1+(λw/2)^2) on the stated radial interval. Divide w_n by the periodic positive prefix product P_j; the inverse square Z then gains exactly 2c_j+c_j²/Z with c_j=P_(j+1)²/4. Positivity yields linear growth and convergence from all x_0<1, including zero. Summing the inverse-Z term gives Z_(mk+j)=2Ck+O(log k) for every fixed phase. Its block sum differs from D/(2Ck) by O(log k/k²), absolutely summable, which proves the finite centered limit. Using 1−x=2w/(1+w) gives the stated intermediate-phase limit. A nontrivial adjacent swap affects exactly one prefix product and orders C strictly; only equal entries tie in such exchanges. Thus the extrema are unique as value words, not a claim that arbitrary nonextremal permutations have different values. The fastest/slowest comparison is at phase zero, or equivalently for words ordered starting at the observation phase. The exclusion x_0=1 is necessary for the inverse-square coordinate.",
+      "residual_risks": [
+        "No claims about nonreal points, aperiodic switching, or nonneutral periods were audited. The finite examples complement, not replace, the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier catalog theorem has remainder O(log k/k) and sorts both summation constants, not just B.",
+          "The local Leau–Fatou theorem yields the germ-dependent power law and the parabolic orbit literature gives general power-log expansions. González-Tokman–Oldfield treat the same map family with random switching and a zero-mean-log-derivative threshold. Non-autonomous inner-function comparators inspected use other hypotheses and conclusions."
+        ],
+        "reasoning": "General local or random theorems alone do not establish the exact ordered-word formulas. The earlier catalog theorem does and is strictly stronger at block starts.",
+        "searches": [
+          "Earlier catalog RESULT.md, theorem and proof",
+          "arXiv:2607.15488v1, Theorem 3.2 and Remark 3.8",
+          "Reppekus, Theorem 14; arXiv:2112.14324, Proposition 12; arXiv:2609.31476v2, Theorems A and E"
+        ]
+      },
+      "checked_sources": [
+        "Earlier Resultary exact result specified above",
+        "arXiv:2607.15488v1",
+        "Reppekus (2023), Theorem 14",
+        "arXiv:2112.14324v2",
+        "arXiv:2609.31476v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the rotated word starting at phase j, its squared prefix products are the original cyclic list divided by P_j², so its B is B/P_j². The earlier theorem applies to this rotated word with initial x_j.",
+          "Alternatively the earlier proof gives Y_(mk+j)=R_jY_(mk)+O(1) with R_j=P_j^{-2}."
+        ],
+        "reasoning": "The earlier leading law now gives √k(1−x_(mk+j))→2P_j/√B=√(2/C)P_j. The phase-resolved statement is a direct corollary, not a surviving original claim.",
+        "searches": [
+          "Earlier catalog RESULT.md, theorem and Proof §2 partial composition",
+          "Frozen RESULT.md, phase-resolved limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct November 1 catalog result uses the same maps and r_j=λ_j^{-1}, hence R_j=P_j^{-2}, Y_k=w_(mk)^{-2}, B=2C and C_old=D.",
+          "The map parameter decreases strictly as multiplier increases; sorting the parameters increasingly in the earlier theorem maximizes B, exactly the present decreasing-multiplier maximum of C."
+        ],
+        "reasoning": "The notational transformation is exact, including the starting phase, initial set, complete-period time and logarithm coefficient C_old/B=D/(2C). It does not produce a distinct regime or theorem.",
+        "searches": [
+          "Resultary: neutral periodic Blaschke composition exact prefix multiplier coefficients sorting order logarithmic relaxation",
+          "Resultary: critical periodic compositions and phase-resolved parabolic asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching item is a distinct catalog finding, not this frozen record returned under another path. Its Finding and theorem explicitly list the same block coefficients for every admissible word and exact sorting extrema."
+        ],
+        "reasoning": "The explicit symbolic result establishes exact coverage for all parameter values; different numerical examples are substitutions, not new table data or new identities.",
+        "searches": [
+          "Resultary local index, exact neutral-periodic relaxation and sorting; local-mirror comparison of 2026/11/1/SCOPE-sharp-schedule-ordering-and-logarithmic-relaxation-for-neutral-p--184f0c7de82e"
+        ]
+      },
+      "rationale": "A distinct earlier catalog statement covers the same map family, exact neutrality, all finite periodic words and real initial states, and proves the identical coefficient law with a sharper error and stronger sorting assertion. The only ostensibly additional phase limit follows directly by rotating the word, or by the earlier partial-composition expansion. This is demonstrated mathematical coverage, not an inference from date alone.",
+      "residual_risks": [
+        "Bounded literature comparison does not establish who first proved the earlier result. Rejection rests on actual equivalent catalog coverage, not lack of other hits or unverifiable historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrated equivalent or stronger coverage",
+          "evidence": "Y_k=Bk+(C_old/B)log k+L+O(log k/k), B=ΣR_j^{-1}/2 and C_old=ΣR_j^{-2}/16; both are sorted, and partial iterates have leading factor R_j.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-schedule-ordering-and-logarithmic-relaxation-for-neutral-p--184f0c7de82e",
+          "material_read": "RESULT.md Finding, assumptions, theorem and proof, including offsets 0–4036 covering the exact recurrence and partial compositions",
+          "method": "Local catalog mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp schedule ordering and logarithmic relaxation for neutral periodic Blaschke compositions",
+          "trigger": "Exact same neutral periodic Blaschke family, asymptotic and sorting"
+        },
+        {
+          "assessment": "Related random driving, not the periodic ordering claim",
+          "evidence": "At criticality pullback convergence holds but forward iid orbits need not converge to 1; deterministic parabolic context is discussed separately.",
+          "identifier_or_url": "https://arxiv.org/html/2607.15488v1",
+          "material_read": "§3, Theorem 3.2 (offset 72133), Remark 3.8 (offset 94534)",
+          "method": "Bounded OA full-text inspection",
+          "title": "The transition between synchronization and chaos for random Blaschke products",
+          "trigger": "Same real quadratic maps at criticality"
+        },
+        {
+          "assessment": "Local leading equivalent, not sorted explicit periodic coefficients",
+          "evidence": "For the stated parabolic normal form, petal iterates have power-law asymptotic of order n^{-1/k}.",
+          "identifier_or_url": "https://doi.org/10.1007/s40574-023-00362-y",
+          "material_read": "§2.3 Theorem 14, pp. 180–181, offsets 21700–28137",
+          "method": "Bounded PDF inspection",
+          "title": "Small divisors in discrete local holomorphic dynamics",
+          "trigger": "Leau–Fatou alternative formulation of parabolic relaxation"
+        },
+        {
+          "assessment": "General expansion machinery; frozen reference title/section should be corrected if cited again",
+          "evidence": "Complete power-log expansion for orbits of a parabolic germ.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.14324",
+          "material_read": "v2, §4.1 Proposition 12, p. 16, offset 56600",
+          "method": "Bounded OA PDF inspection",
+          "title": "Reading Analytic Invariants of Parabolic Diffeomorphisms from Their Orbits",
+          "trigger": "General power-log orbit expansions"
+        },
+        {
+          "assessment": "Inspected results have different hypotheses and conclusions",
+          "evidence": "Theorem A uses centered maps and a product of contraction bounds tending to zero; Theorem E treats an entropy question for a different family.",
+          "identifier_or_url": "https://arxiv.org/html/2609.31476v2",
+          "material_read": "Theorems A and E, offsets 4387 and 15821",
+          "method": "Bounded OA HTML inspection",
+          "title": "Non-autonomous dynamics of inner functions: mixing and entropy",
+          "trigger": "Potential general non-autonomous inner-function coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Earlier exact Resultary result, theorem and partial compositions"
+      ],
+      "rationale": "Sharp schedule dependence is mathematically meaningful, but the submitted result adds no independently useful unknown mathematical conclusion beyond the stronger existing theorem. Re-expressing its coefficients and evaluating examples, or taking its leading law at a rotating period start, does not supply additional scientific value under this review standard.",
+      "residual_risks": [
+        "This is not a judgment against the scientific interest of the original schedule-ordering problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

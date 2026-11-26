@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator's monomial coefficient recurrence yields the displayed first-order ODE and unique normalized eigenfunction. Its two-root product formula is valid for the claimed near-boundary regime because the roots remain separated and inside the disk. The derivative of the boundary root gives the exact positive radial scale; a uniform Gamma-ratio/Abelian argument gives the sharp norm constant. The rescaling Jacobian, limiting density and an integrable dominating function justify full weak convergence. The proof treats nonreal coefficients, normalizations and angular endpoints. The finite checker returned 319 passed checks; it does not establish the infinite limits.
+PASS
 
-## Originality — PASS (best knowledge)
+The recurrence fixes the eigenline. The proof writes its product only near the boundary; for existence on the whole radial path, the roots start inside at r=0 and cannot hit the unit circle there: on |u|=1, u+ρ/u parameterizes the boundary of the ellipse (an invertible real-linear image), whereas r(e^(−iθ)+ρe^(iθ)) is interior for r<1. Thus the ODE denominator is zero-free on the closed disk, including at interior repeated roots. Near r=1 the separated root gives 1−|u|∼κθ(1−r) and the singular exponent tends to γθ with an O(1−r) error. An independent normalization check: Fourier Plancherel in Y on the Laplace representation of (1+X+iY)^(−γ), followed by integration in X>0, gives integral πΓ(2s)/(2^(2s)|Γ(γ)|²) for the squared modulus. The rescaled disk exhausts the half-plane pointwise, the second factor tends to its boundary value, and the common integrable majorant in RESULT.md lines 118–134 justifies the mass limit and coefficient, uniformly in angle for the norm law. At c=0 the exact norm is (1−r²)^−1 and C=1/2, including the area normalization. Read VERIFICATION.md and check_boundary.py as evidence; did not execute the supplied script.
 
-Abad (arXiv:2609.22017v1) provides the same family, an eigenvector ODE and spectrum/hypercyclicity results, and receives credit for those. Leng–Zhang–Zhao (arXiv:2609.32650v1), Cui–Lu–Yang–Zu (arXiv:2512.16952v1), and Guo–Zhao–Zheng (arXiv:2007.07532) were compared on the same spectral and recurrence setting. Searches of published mathematical records for eigenfunction boundary blow-up, elliptic spectral approaches and complex-power Bergman kernel asymptotics returned no implication-equivalent complete norm-and-mass theorem. The adjacent published Bergman-kernel boundary asymptotic result concerns different kernels and does not state the variable-exponent eigenvector profile. This is a best-knowledge comparison, not a universal priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding quantitatively resolves how eigenvectors for a natural sense-reversing Bergman Toeplitz class become unstable at the spectral ellipse. It gives every directional exponent, its sharp coefficient, a complete angular range that reconstructs the symbol contrast, and the nontrivial microscopic limit shape; these describe operator-eigenvector geometry inaccessible from qualitative point-spectrum and hypercyclicity alone.
+The affine-symbol eigenline and the ODE are known, as is the isolated singular-factor norm asymptotic. The supported distinct claim is the sharp angular law for the actual normalized eigenvectors and their complex half-plane mass profile, not the spectrum, eigenvector formula, or hypercyclicity.
 
-## Limitations and closest literature
+## value
 
-The strict sense-reversing assumption excludes degenerate ellipses. The normalization is value one at the origin; the mass law concerns bounded continuous tests. Claims about the resolvent, boundary spectrum, other normalizations or unbounded moment convergence are not made. Undiscovered implicit prior derivations and independent mathematical verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At a fixed natural normalization the eigenvectors approaching different points of the same spectral ellipse can diverge at genuinely different powers. The sharp range recovers the coefficient contrast, and the normalized profile describes the direction-dependent mass lost at the boundary. The result makes no claim that this implies a hypercyclicity or resolvent theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The bijective greedy factorization uniquely represents each parent without overcounting masks. Its local factors give the exact rational series; the adjacency lower bound and the positivity of the series yield the precise feasibility/singleton criteria. A standard run-composition count gives each parameter class. The transfer-matrix enumeration and pole analysis yield the enumerators and fixed-deletion asymptotic. A direct exhaustive checker independently reproduced 3,066 parent counts; finite checks are corroboration, not a replacement for the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest full-text source, Atashpendar et al., arXiv:1802.00703, covers unrestricted binary supersequences and embedding-weight singletons. Its unrestricted supersequence count is word-independent and does not imply the constrained parent-count formula. Takemoto and Nozaki, arXiv:2012.13536, address maximum-run-length limited error-correcting code constructions, not arbitrary-deletion inverse-fiber enumerators for the `11`-avoiding language. Semantic searches of published mathematical finding records for forbidden-`11` supersequence counts, deletion inverse lists, and adjacency-count equivalences did not identify a covering theorem. Unindexed equivalent literature or a readily deducible specialization of a broader regular-language formula remains a real originality risk.
+PASS
 
-## Value — PASS
-The theorem gives every individual decoding-list size and the exact count of all possible list types for all lengths and deletion counts. This goes beyond first-order feasibility or a small-block computation: it exhibits an unexpected collapse to two target statistics, a sharp singleton criterion, and an explicit asymptotic rate at which uniquely invertible received words dominate the feasible output set. These are natural operational observables in sequence reconstruction under a golden-mean constraint. It does not claim an optimal code construction.
+The claim in RESULT.md lines 4–40 fixes the receiver y and counts distinct 11-avoiding binary parents, not masks, even for m=0 or d=0. Match each receiver symbol at its earliest available occurrence. The skipped prefix for that symbol consists exclusively of its opposite, so this greedy parsing counts each parent once. Before a matched 1 the skipped zeros are arbitrary except for a mandatory zero after a previous matched 1; together these factors are t^r/(1−t)^k. Before each matched 0, a skipped 1 is allowed precisely at the start or after a matched 0. The suffix contributes (1+t)/(1−t−t²) after a final 0 and 1/(1−t−t²) after a final 1; including the suffix yields a=m−2k+r+1 optional factors. For the empty receiver the unrestricted legal suffix gives the same series. The t^r shift gives the threshold, and the remaining series has constant term 1 and every positive-degree coefficient at least 2 because a+k≥1 and the Fibonacci factor has positive coefficients. Compositions of the k ones into k−r runs and allocation of the zeros give the stated multiplicities. Weighted last-bit transitions (only 1→1 has weight u apart from the z per bit) give G(z,u); the singleton layer is r=d, and summing layers gives G/(1−u). For j≥1 the coefficient of u^j is z^{j+1}(1−z)^{j−1}/(1−z−z²)^{j+1}. At α=1/φ, 1−α=α² and −αB′(α)=1+α², giving the recorded leading constant c_j, also valid at j=0 from (1+z)/B(z). The other pole has larger modulus. For fixed d≥1, only the ratio of the d−1 and d layers contributes at order 1/m; c_{d−1}/c_d=d(φ³+φ)=(3φ+1)d. A small direct check at m=3,d=1: 000 has five parents, 010 has four (0010,0100,0101,1010), 011 has the sole parent 0101, and 111 has none. The frozen VERIFICATION.md and verify.py were inspected, not executed; their finite distinct-parent and transfer tests support, but do not establish, the all-length bijection or the asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct content supported is the one-sided golden-mean constraint's exact distinct-parent distribution/all-radius generating function and resulting singleton law, not greedy subsequence matching, the Fibonacci source count, or binary run enumeration by themselves.
+
+## value
+
+PASS
+
+The simplest one-sided binary finite-type restriction produces nonconstant inverse deletion lists, unlike the unrestricted source. The law computes each list from readily measured receiver statistics and identifies exactly when decoding is unique even though deletion masks may be ambiguous. The fixed-radius proportion approaching one with an explicit first correction quantifies this effect for feasible receivers, not for the distribution produced by uniform parents or random masks. This is a useful exact benchmark without claiming a deletion-correcting code construction or a larger universality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

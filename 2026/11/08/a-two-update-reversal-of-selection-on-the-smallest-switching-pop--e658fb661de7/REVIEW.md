@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The state space is all mutant assignments on three labeled vertices. The leaf-exchangeable quotient has four nonabsorbing states, and the two-period return matrix is strictly absorbing for each positive fitness. The written transition table follows the birth–death parent/neighbor rule; the exact Cramer determinants yield the two rational formulas for the difference from the three-individual Moran baseline. Every denominator and auxiliary polynomial has strictly positive coefficients for positive fitness. The supplied dependency-free verifier performs exact coefficient-by-coefficient polynomial identity checks, then compares 40 exact rational instances with a separately constructed unreduced eight-state process. This is an all-fitness algebraic proof, not a finite-sample extrapolation. Neutrality is covered at fitness one.
+## correctness
 
-## Originality — PASS (residual risk noted)
-The closest source is Bhaumik and Masuda, arXiv:2304.00170, Section 3.2 and Appendix B, with three-vertex star/triangle switching. They report dwell-one suppression and dwell-ten/fifty amplification, but not the dwell-two all-fitness inequality or its sharp minimum. A separate structural comparison with switching between differently centered paths has a different second graph and does not imply the result for a triangle second phase. published-finding corpus queries for aliases, both graph descriptions and fixation/horizon terms returned unrelated switching or evolution records, with no matching result. Generic finite-state computability is credited, not misrepresented as novelty. Unindexed special-case computations remain a residual risk.
+PASS
 
-## Value — PASS
-The minimum integer dwell change from one to two updates is a sharp, structural and experimentally relevant horizon: for all beneficial mutants one phase is strictly less favorable than well mixed, and immediately the next integer phase is strictly more favorable. The source had left the entire 2–9 interval unresolved in its reported three-vertex numerical comparison; the exact new result decides its first point uniformly over continuous fitness. The contrast with a two-path switching topology further shows that replacing the second graph by one extra edge changes the phase boundary. Scope is appropriately confined to the two claimed dwell lengths.
+I reconstructed the one-step matrices by enumerating ordered parent-neighbor pairs and lumping masks by the hub type and number of mutant leaves. The uniform single-mutant average weights a leaf twice and the hub once. With row probabilities the periodic product is S^tau K^tau, not its reverse. From each transient configuration a sequence of at most two resident reproductions can extinguish the mutants, with strictly positive probability along the prescribed schedule because both graphs are connected. For fixed r>0 the finite state/phase space then gives a uniform positive absorption chance over a bounded block, justifying the inverse. The Moran comparator is the gambler's-ruin formula for bias r and equals 1/3 at neutrality. For independent exact replay I formed the integer kernels scaled by d=2(r+2)(2r+1), used Laplace expansions of the four-by-four Cramer determinants, and checked every coefficient of (N(1+r+r²)-Dr²)D_tau-D Delta_tau, where N/D is the single-mutant average and Delta_tau is the signed numerator in Finding. All coefficients vanish modulo each of 100003, 100019, 100043, 100049, 100057, 100069, 100103, 100109. The scaled row polynomial l1 norms sum to d(1)=18; each entry of the Cramer matrices has l1 norm at most 2·18^4, so each cross-identity coefficient has magnitude at most 3·24·(2·18^4)^4·(4·2e8+2e6), below the modulus product. This is an integer identity check, not fitness sampling. The listed positive polynomials and factors give opposite strict signs at tau=1 and matching strict signs at tau=2 relative to r-1, proving the first amplifying integer dwell and the neutral equality.
 
-## Closest literature and limits
-Bhaumik–Masuda, *Fixation probability in evolutionary dynamics on switching temporal networks*, arXiv:2304.00170 (first public 2023-03-31), J. Math. Biol. 87:64 (2023): complete initiating model and three-vertex Appendix B, with \(\tau=1,10,50\). Fixed-graph star and general amplification papers are contextual. Only three vertices, deterministic star-first switching, birth–death updating and dwell lengths one/two have been proved; no claim for longer holding times, other switching order or other fitness models. Unindexed-equivalence uncertainty persists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Bhaumik–Masuda with the exact model and phase order, the general periodic-chain method, the reported tau=1 suppression and the reported later reversal. Their range calculations do not give the all-fitness certificate or classify tau=2. The supported distinction is the sharp onset at the second update, with strict signs on the entire nonneutral fitness domain, not the observation that a reversal can occur.
+
+## value
+
+PASS
+
+The motivating literature had already found reversal but left a gap between the first dwell and the displayed later dwells. The array of possible schedules starts at integer 1, and the exact boundary at 2 identifies what one extra update per phase can do on this minimal graph pair. The result controls both disadvantageous and advantageous mutants, including fitness extremes and arbitrary proximity to neutrality; it is not a numerical refinement at one chosen fitness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each labeled double-occurrence word corresponds, modulo the exactly \(q!\) possible relabelings, to a perfect matching. The cross-half matching criterion is necessary and sufficient for Abelian-square windows, yielding an exact formula for all first moments. The ratio bound across half-lengths gives an \(O(q^{-1})\) probability of *any* square longer than two letters. For the adjacent-pair statistic, disjoint path-edge counting yields explicit binomial moments; the absolutely convergent binomial-inversion bound proves total-variation convergence to Poisson(1), including the stated rate. Independent brute enumeration of the finite sample spaces verifies the combinatorial formulas for the first seven alphabet sizes; finite computation is not used as proof of the asymptotic claims.
+PASS
 
-## Originality — PASS, subject to identified residual risk
+Each perfect matching has q! labelings, so removing labels gives the uniform matching. Equal Parikh vectors in a fixed window require one copy of each used symbol in each half, i.e. a matching of the halves with no edge out of the window. There are k! internal pairings times (2q−2k−1)!! external pairings, and 2q−2k+1 possible starts. This gives the exact expectation, including the full-length boundary via (−1)!!=1 and q=1 with only one term. The length-k expectations have increasing successive ratios (k+1)/(2q−2k+1). Up to the middle these are at most 3/4 for q≥4, making the contribution from k≥3 there at most 4E_(q,3)=O(q^−2). Beyond the middle log-convexity bounds each term by the larger of the exponentially small midpoint and the final q!/(2q−1)!!=O(√q·2^−q). Thus all nonadjacent lengths contribute 2/(2q−1)+O(q^−2). The r-fold binomial moments of X_q count r disjoint path edges, of which there are binom(2q−r,r) choices, times their inclusion probability. Dividing that binomial by the product of odd denominators leaves 1/r! times a product of factors 1−(r−j−1)/(2q−2j−1). For r≤q/2 the product error is at most r(r−1)/(2(q+1)); for larger r the factorial bound suffices. Binomial inversion and summing over the output index give a 2^r weight, still summable with the factorial bound, yielding the claimed adjacency TV rate. Coupling to Y_q costs at most E(Y_q−X_q), and avoidance is the event Y_q=0; exact finite adjacency-only avoidance separately follows by inclusion–exclusion. Inspected RESULT.md lines 34–110, VERIFICATION.md and verify.py. The finite normalized-word enumerator and its 146599 count are reported as frozen supplementary checks; the script was not run independently.
 
-Directly relevant papers have been compared by their mathematical conclusions: the 2018 double-occurrence insertion-equivalence classification, the 2022 Abelian-word survey's counting/avoidance results, and the 2023 noncontiguous shuffle-square theory. Neither fixed-alphabet Abelian-square counts nor deterministic insertion relations imply the local random matching law here. Rare adjacent matched edges have classical Poisson-type behavior and are not independently claimed as new. The new substantive comparison is the uniform all-half-length window suppression that converts a rare-edge law into the total Abelian-square law. An exact equivalent result under specialized matching or chord-diagram terminology may remain unindexed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The uniform two-occurrence ensemble is mathematically natural: its words are ordered chord diagrams with arbitrary letter labels. In it, every contiguous Abelian square of length at least four must form a complete cross-half matching. The theorem proves that these longer squares vanish in probability, while an asymptotically Poisson number of adjacent repetitions remain, giving the nonzero exact limiting avoidance probability \(e^{-1}\). This explains a nontrivial difference from fixed-small-alphabet avoidance/average-count problems. The result covers all alphabet sizes and all possible Abelian-square window lengths, not a selected computational slice.
+The exact path-adjacency distribution and its mean one have direct earlier coverage. The supported distinct claim is the all-occurrence expectation with its longer-square correction and the quantitative extension of the Poisson law to all contiguous half-lengths in the fixed-double-occurrence ensemble, not the separate adjacency law or a claim of novelty for an inclusion–exclusion method.
 
-## Literature, limits, and audit status
+## value
 
-Closest published full texts: Cruz–Ferrari–Jonoska–Nabergall–Saito (arXiv:1811.11739, first published November 28, 2018); Fici–Puzynina (arXiv:2207.09937, first published July 20, 2022; Section 4.3); Grytczuk–Pawlik–Pleszczyński (arXiv:2308.13882, first published August 26, 2023). The result is restricted to linear words with each label occurring exactly twice; the Poisson estimate has a non-optimized constant and could conceivably be equivalent to a differently named rare-pattern theorem. No expert or independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural fixed-content word model, exact counting and a uniform estimate across all lengths show that longer squares are collectively rare despite the many possible windows. The leading correction isolates length four and determines why a Poisson result for the adjacent-repeat statistic answers a genuinely different full avoidance problem. Value does not rest on rederiving the finite adjacency table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

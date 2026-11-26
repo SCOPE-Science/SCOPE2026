@@ -1,75 +1,47 @@
-# Optimal zero-forcing configurations and connectivity lifts for clique coronas
+# Token-jump reconfiguration lifts for clique coronas
 
 ## Finding
-For a finite connected simple graph \(G\) of order \(n\ge2\) and integer \(r\ge2\), let \(H=G\odot K_r\) be its *clique corona*: to each original vertex \(v\) attach a fresh clique \(C_v\) of size \(r\), joining every vertex of \(C_v\) to \(v\) and to no other original vertex. Let \(z=Z(G)\), let \(b(G)\) denote the number of minimum classical zero-forcing sets of \(G\), and define \(q=r^{n-z}(r+1)^z\).
 
-**Classification.** Every minimum zero-forcing set of \(H\) arises uniquely from a minimum zero-forcing set \(B\) of \(G\) by the following independent choices for each \(v\):
+Let \(G\) be a finite connected simple graph on \(n\ge2\) vertices and let \(r\ge2\). Form \(H=G\odot K_r\) by attaching a private \(r\)-clique \(C_v\) to each root \(v\). Write \(z=Z(G)\) for the classical zero-forcing number and \(b(G)\) for the number of minimum zero-forcing sets. Write \(\mathcal R(X)\) for the graph of minimum zero-forcing sets of \(X\), with adjacency given by exchanging one chosen vertex for one unchosen vertex.
 
-* For \(v\in B\), choose **any \(r\) of the \(r+1\)** vertices of \(C_v\cup\{v\}\).
-* For \(v\notin B\), choose **any \(r-1\) of the \(r\)** vertices of \(C_v\), excluding \(v\).
+There is a natural projection of vertex sets \(\pi:V(\mathcal R(H))\to V(\mathcal R(G))\). It sends each corona minimum set to its active roots: those selected or having a fully selected private clique. Edges within a fiber are contracted by the projection, and every other edge projects to an edge of \(\mathcal R(G)\).
 
-Consequently,
-\[
-Z(H)=n(r-1)+z,\qquad b(H)=b(G)r^{n-z}(r+1)^z.
-\]
-
-Write \(\mathcal R(X)\) for the token-jump reconfiguration graph of minimum zero-forcing sets of \(X\), joining two sets whose symmetric difference contains exactly two vertices. The classification defines a natural projection \(\pi:\mathcal R(H)\to\mathcal R(G)\). Its fiber over each \(B\) is the Cartesian product
+The induced fiber over each base minimum set \(B\) is
 \[
 \mathcal R(H)[\pi^{-1}(B)]\cong
-\left(\mathop{\square}_{v\in B} K_{r+1}\right)\square
-\left(\mathop{\square}_{v\notin B} K_r\right).
+\left(\mathop{\square}_{v\in B}K_{r+1}\right)\square
+\left(\mathop{\square}_{v\notin B}K_r\right).
 \]
-For each edge \(BB'\) of \(\mathcal R(G)\), there are exactly
+In particular its size is \(q=r^{n-z}(r+1)^z\). Each base edge has exactly \(c=4r^{n-z+1}(r+1)^{z-1}\) edges between the corresponding fibers; no edges lie between nonadjacent distinct fibers. Consequently the connected components correspond bijectively under \(\pi\), and each corona component has exactly \(q\) times the size of its base component. The edge count is
 \[
-c=4r^{n-z+1}(r+1)^{z-1}
+|E(\mathcal R(H))|=\tfrac12 b(G)q\bigl(zr+(n-z)(r-1)\bigr)+c|E(\mathcal R(G))|.
 \]
-reconfiguration edges with one end over \(B\) and the other over \(B'\); no edges join fibers over nonadjacent distinct base sets. In particular, the connected components of \(\mathcal R(H)\) correspond bijectively to those of \(\mathcal R(G)\), each component having exactly \(q\) times as many vertices. Moreover,
-\[
-|E(\mathcal R(H))|=
-\frac{b(G)q}{2}\bigl(zr+(n-z)(r-1)\bigr)
-+4r^{n-z+1}(r+1)^{z-1}|E(\mathcal R(G))|.
-\]
-
-These are exact results for all specified \(G\) and \(r\), not asymptotic statements.
 
 ## Assumptions and scope
-All graphs are finite, undirected, simple. The graph \(G\) is connected and has \(n\ge2\) vertices; the attached cliques have \(r\ge2\) vertices. A classical zero-forcing process begins with selected (black) vertices; a black vertex with exactly one white neighbor may force that neighbor black. A zero-forcing set is an initially black set that can eventually make every vertex black. The minimum size is \(Z(X)\); a *minimum zero-forcing set* is a feasible set of that size, not merely inclusion-minimal. Token jumping replaces exactly one chosen vertex with one unchosen vertex; moves must preserve minimum feasibility. Each \(C_v\) is indexed by its original root \(v\).
+
+In classical zero forcing a selected vertex is initially black. A black vertex with a unique white neighbor may turn it black; the set is zero forcing if there is a sequence that turns the whole graph black. Minimum means minimum cardinality, not inclusion-minimal. Reconfiguration is by token jumping, not token sliding. The result concerns uniform complete attachments of size at least two.
 
 ## Proof
-**Compulsory clique bound.** No zero-forcing set can leave two vertices of any \(C_v\) initially white. Otherwise these two remain white forever: they are adjacent twins, and every possible black neighbor of either sees both white vertices. Thus every zero-forcing set \(S\) contains at least \(r-1\) vertices of every \(C_v\).
 
-**Projection lemma.** For any such \(S\) define
-\[
-B(S)=\{v\in V(G):v\in S\ \text{or}\ C_v\subseteq S\}.
-\]
-A root \(v\notin B(S)\) is initially white and has exactly one initially white attached-clique vertex, which cannot be forced before \(v\) becomes black: each black attached vertex then sees both white vertices, while the missing clique vertex sees no black-root route into its clique. Hence a root outside \(B(S)\) can become black only through a force from another root along an edge of \(G\). A root in \(B(S)\) is either initially black or can be forced from its fully black attached clique immediately. Deleting the attached-clique forcing steps from any complete forcing chronology therefore produces a legitimate zero-forcing chronology on \(G\) beginning at \(B(S)\). Thus \(B(S)\) is zero forcing in \(G\).
+**Forcing-set input (known).** The clique-decoration criterion of [1,2] says that a set \(S\) forces the corona exactly when it includes at least \(r-1\) vertices from each \(C_v\) and \(B(S)=\{v:v\in S\text{ or }C_v\subseteq S\}\) forces \(G\). Indeed, two white vertices of \(C_v\) block any force into that pair. With at most one private white vertex, any \(v\notin B(S)\) must first be turned black by another root: its private white vertex cannot be forced while both it and its root are white. Starting from \(B(S)\) in \(G\), retain in order only root-to-root forces with targets outside \(B(S)\); each retained force is valid, since the base process has at least all roots that were black at that step in the corona and its retained target is still white. Conversely, first turn each root of \(B(S)\) black (using its private clique when needed), then follow a forcing chronology on \(G\). A black root's last private white vertex can be forced by a black clique vertex before any outgoing root force. This is possible because \(r\ge2\). The chronology then extends to all of \(H\).
 
-Count every selected clique vertex and each selected root. If \(v\notin B(S)\), the local contribution is at least \(r-1\). If \(v\in B(S)\), it is at least \(r\), since either the root is selected in addition to at least \(r-1\) clique vertices, or the full clique is selected. It follows that
-\[
-|S|\ge n(r-1)+|B(S)|\ge n(r-1)+z.
-\]
+Each block \(C_v\cup\{v\}\) contributes at least \(r\) selected vertices if active and at least \(r-1\) otherwise. It follows from the criterion that \(|S|\ge n(r-1)+Z(G)\), with equality achieved by taking a minimum \(B\) in \(G\) and choosing any \(r\) of \(C_v\cup\{v\}\) for \(v\in B\), and any \(r-1\) of \(C_v\) otherwise. Equality requires just these local choices and a minimum projected set \(B\). Thus the input minimum-family characterization and count \(b(G)q\) follow from [1,2]; neither they nor the previously known numerical zero-forcing formula [3] are asserted as new here.
 
-**Construction and equality.** Take any zero-forcing basis \(B\) of \(G\) and apply the stated local choices. Each root of \(B\) is black initially or can be forced by its own full clique. Each such root with one white attached vertex can have that vertex forced by a black clique neighbor. Next follow any zero-forcing chronology for \(B\) in \(G\): before a black root makes an external force, its remaining attached vertex can be forced black. Whenever a new root becomes black, its missing attached vertex can then be forced black. Thus the constructed state forces all of \(H\), and its size equals the lower bound. Conversely, equality in the two lower-bound inequalities forces \(B(S)\) to be a minimum basis and forces exactly the listed local occupancies. The choices recover \(S\) uniquely. Hence the classification and multiplicity formula hold.
+**Reconfiguration.** In a fixed fiber a jump must stay in one block, since all block occupancies are fixed. Any two distinct local minima of the same type differ by a jump: the active patterns are complements of singletons in \(C_v\cup\{v\}\) and the inactive ones are complements of singletons in \(C_v\). This proves the Cartesian product and connectedness of each fiber.
 
-**Fiber structure.** For a fixed \(B\), the local active choices at \(v\in B\) are all \(r\)-subsets of an \((r+1)\)-set, pairwise related by one replacement: a \(K_{r+1}\). At \(v\notin B\) the local choices are all \((r-1)\)-subsets of the \(r\)-clique, forming \(K_r\). A move within one fiber changes only one local choice, so the induced fiber is the asserted Cartesian product and is connected.
-
-**Between fibers.** A single replacement affecting different local blocks can change their selected occupancies only by \(-1\) and \(+1\). Thus the projected base sets either agree (for a move within a block) or differ by exchanging exactly one root. For an edge \(B'=B-\{v\}+\{w\}\), fix choices at the remaining \(n-2\) roots: there are \((r+1)^{z-1}r^{n-z-1}\) possibilities. At \(v\), each inactive local choice \(C_v-\{j\}\) is contained in exactly two active local choices: \(C_v\) and \((C_v-\{j\})\cup\{v\}\); hence there are \(2r\) valid ordered local descents. There are independently \(2r\) ordered ascents at \(w\). This gives exactly \(4r^{n-z+1}(r+1)^{z-1}\) crossing edges. It also ensures that each base edge has crossing edges in its lift. Connected fibers together with these crossings prove the component correspondence and component-size multiplier \(q\). Summing the edges of the regular Cartesian-product fibers (each fiber has degree \(zr+(n-z)(r-1)\)) and all crossing edges proves the edge formula.
+In a move between distinct fibers, exactly one block loses a token and one gains a token. Thus for some \(v\in B\), \(w\notin B\), the new set of active roots is \(B'=B\setminus\{v\}\cup\{w\}\). Fix the local choices at the other blocks; they contribute \((r+1)^{z-1}r^{n-z-1}\) possibilities. At the losing block, each inactive configuration \(C_v\setminus\{j\}\) is contained in two active configurations, obtained by adding \(j\) or \(v\). Thus there are \(2r\) ordered choices of the configurations at that block, and independently \(2r\) at the gaining block by the reversed relation. Every combination gives a distinct crossing edge, counted once with its endpoint over \(B\) first. Multiplying gives \(c\). Since no other pair of fibers is linked and every base edge has a lift, the connected fibers give exactly the asserted component correspondence. Each fiber is regular of degree \(zr+(n-z)(r-1)\); summing its internal edges and the crossings gives the edge formula.
 
 ## Verification
-The symbolic proof is valid for arbitrary finite connected \(G\) and integer \(r\ge2\). For an independent finite check run `python3 verify_a.py` and `python3 verify_b.py` in the same directory as this document. They depend only on the Python standard library.
 
-`verify_a.py` constructs corona graphs with bitset adjacency, exhaustively tests every candidate starting set until the true zero-forcing minimum, computes the complete one-token exchange graph, and compares exact minimum counts, edges, and component-size multisets against the theorem for several base graphs (including paths, cycles, stars, and a triangle), with attachment sizes two and three.
+The accompanying Python files are finite checks. `verify_a.py` exhausts minimum sets and checks token-jump structure, edge counts and components on small example graphs. `verify_b.py` checks the equality of the true and formula-generated minimum-set families for connected labelled bases of order at most four in the supplied parameter ranges. The recorded outputs are `verify_a_output.txt` and `verify_b_output.txt`. Finite checks supplement the proof.
 
-`verify_b.py` independently constructs adjacency using tagged vertices and immutable sets. For every labelled connected graph with two, three, or four vertices when \(r=2\), and every labelled connected graph with three vertices when \(r=3\), it exhaustively determines *all* true minimum zero-forcing sets and checks equality with the classification-generated sets. It checks 47 connected graph instances. The packaged output files record observed totals and passes. These finite checks support, but do not replace, the general proof.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-Javaid, Irshad, Batool and Raza established the zero-forcing number of corona products (arXiv:1607.04071, first posted 14 July 2016); their known formula \(Z(G\odot K_r)=Z(G)+n(r-1)\) is **not new here**. The new claim is a complete characterization and exact number of all *minimum sets*, with a natural projection and quantitative connected-component transfer for their token-jump reconfiguration graph. In the inspected corona section of that paper the authors construct forcing sets and obtain the numerical invariant, without a minimum-set multiplicity formula or the reconfiguration lift.
-
-Geneson, Haas and Hogben established the general framework of zero-forcing reconfiguration graphs (arXiv:2009.00220, first posted 1 September 2020), including the reconfiguration graph of a disjoint union and connectedness for forests. Their examined treatment does not give the present connected clique-corona lifting theorem. Neither their disjoint-union product rule nor the known numerical corona result implies the stated fiber/crossing-edge structure without the additional local classification. The possibility of an unindexed equivalent historical formulation remains an originality limitation.
-
-## Limitations
-The theorem concerns classical zero forcing and token jumping, not positive-semidefinite or skew forcing, not token sliding, and not arbitrary attached graphs in place of complete cliques. It does not claim a new formula for the zero-forcing *number*. No assertion of uniqueness across all mathematical literature or of independent scholarly validation is made; priority assessment is limited to the cited primary texts and searches. Computations check only small graphs; the infinite-family conclusion rests on the proof above.
+Earlier clique-decoration results [1,2] contain broader forcing-set criteria and minimum-set enumeration. Javaid et al. [3] give the zero-forcing number of corona products. The disjoint-union rule of Geneson, Haas and Hogben [4] gives a Cartesian product for the reconfiguration of disconnected components; it does not compute how minimum-set fibers in a clique corona are joined by token jumps. The result here concerns the projection, induced fibers, and exact crossing edges for connected clique coronas, not the minimum-set classification as a separate contribution. The comparison is limited to the inspected statements; it does not establish absolute priority.
 
 ## References
-1. I. Javaid, I. Irshad, M. Batool, Z. Raza, *On the zero forcing number of corona and lexicographic product of graphs*, arXiv:1607.04071 (first posted 2016-07-14), https://arxiv.org/abs/1607.04071.
-2. J. Geneson, R. Haas, L. Hogben, *Reconfiguration graphs of zero forcing sets*, arXiv:2009.00220 (first posted 2020-09-01); Discrete Applied Mathematics 2023, https://arxiv.org/abs/2009.00220, https://doi.org/10.1016/j.dam.2023.01.027.
+
+1. *Zero-forcing enumerators of clique-decorated graphs*, Resultary, October 12, 2026, [record](https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-zero-forcing-enumerators-of-clique-decorated-graphs--05266193a935).
+2. *Clique-corona fort classification and the complete zero-forcing polynomial*, Resultary, November 2, 2026, [record](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-clique-corona-fort-classification-and-the-complete-zero-forcing--35539a2ce38d).
+3. I. Javaid, I. Irshad, M. Batool, Z. Raza, *On the zero forcing number of corona and lexicographic product of graphs*, [arXiv:1607.04071](https://arxiv.org/abs/1607.04071), Theorem 2.3.
+4. J. Geneson, R. Haas, L. Hogben, *Reconfiguration graphs of zero forcing sets*, [arXiv:2009.00220](https://arxiv.org/abs/2009.00220), Proposition 2.7.

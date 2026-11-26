@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification protocol
 
-Run `python verify_one_line.py`, `python verify_bipartite_matchings.py`, and `python verify_distance_certificate.py orbit_distance_certificate.json` using a standard Python 3 interpreter. For reproducibility, `python make_orbit_certificate.py` regenerates the stored `orbit_distance_certificate.json` deterministically from lexicographically enumerated derangements.
+# Independent mathematical audit
 
-The two primary graph enumerators independently reconstruct the full pair-distance distribution for three sizes and confirm the unique inverse antipode property. The third certificate checker verifies every entry in all eight complete distance arrays by local edgewise and descending-neighbor constraints; these checks are sufficient to prove shortest-path optimality, not merely a sampling agreement. Compare the outputs with `one_line_output.txt`, `matching_output.txt`, and `certificate_output.txt`; the success sentinels are `VERIFY_ONE_LINE_OK`, `VERIFY_MATCHINGS_OK`, and `VERIFY_CERTIFICATE_OK`.
+## correctness
 
-At size six, the certified vertex count is 265, edge count 1260, eccentricity multiplicities 225 at five and 40 at six, and exactly 20 distance-six unordered pairs, all of the form `{σ, σ^{-1}}` with cycle type `(3,3)`. The graph’s special first-divergence property is established against the complete size-four and size-five graphs. These are exhaustive finite checks, not infinite proofs or estimates of Markov-chain mixing.
+PASS
 
-All evidence is derived from the embedded stand-alone artifacts and their decoded contents. No external independent audit has been performed.
+An image swap that leaves both moved positions fixed-point-free gives exactly one edge in the simple graph, equivalently an alternating four-cycle flip of a perfect matching of the crown graph. The independent all-roots BFS rebuilt the vertices and edges from this rule and reached all vertices for n=4,5,6. It found vertex/edge counts 9/12, 44/120, 265/1260, and unordered distance histograms (12,18,6), (120,300,360,166), (1260,5310,11490,12100,4800,20). G_4 and G_5 have constant eccentricities 3 and 4, respectively. In G_6 exactly the 40 type-(3,3) vertices have eccentricity 6 and each has only its inverse in that shell; all 225 others have eccentricity 5. Replay: python3 /workspace/branches/1bca7efc-9c1f-442c-ae3a-925674b099c9/independent_derangement_metrics.py --min-n 4 --max-n 6. The supplied representative labels also have a valid exact certificate design: a zero root, edgewise unit variation and descending neighbors imply both distance bounds; conjugation is a graph automorphism and transports each cycle-type row and inversion. The four-step unrestricted geodesic obstruction is sound: each first transposition in such a geodesic must split a relative three-cycle, but swapping within either original three-cycle makes a fixed point, and parity excludes distance five. The proof of uniqueness and of the split is exhaustive for these orders, not for n≥7.
+
+## originality
+
+PASS
+
+The supported distinct result is the complete finite eccentricity split, unique inverse partners and pair-distance census in the first three connected orders considered. The graph and its matching-switch/Markov-chain formulations are known. The closest checked same-graph sources concern local closed walks or spectral/mixing estimates, while the available Jain description concerns spanning walks. Later indexed exact inverse-distance results cover a portion of the n=6 result or a different graph order, not the full frozen result. This is a bounded best-of-knowledge comparison, not a priority claim.
+
+## value
+
+PASS
+
+The orders are not an arbitrary sample: they give the first nonconstant eccentricity among the connected orders compared. Identifying the precise cycle type and a unique inverse partner explains which obstruction appears at that cutoff; the unrestricted transposition distance misses it. This is a useful exact benchmark for conjectures or algorithms on derangement switches and perfect-matching reconfiguration, without extrapolating the phenomenon to all orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

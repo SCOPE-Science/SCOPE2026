@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:19:24.748501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting the bridge in the matching complex leaves the join A of the two cycle complexes, while the bridge link L is the join of the matching complexes of the vertex-deleted cycles. Its inclusion is the join of the two individual inclusions. For length m=0 mod 3 the individual source is contractible; for m=1 mod 3 each of the two adjacent line-graph vertex deletions has contractible link Ind(P_{m-3}), so the individual inclusion is an equivalence; for m=2 mod 3 the sphere source has smaller dimension than the target and the map is null, including S^0 into a connected circle. These facts make A→X an equivalence when a residue is zero, make X contractible for (1,1), and give a splitting relative to A in the two remaining cases, by a nullhomotopy of the join attachment. Joins distribute up to homotopy as suspended smashes for these based finite complexes, with the S^0 cases included. The sphere dimensions, multiplicities and integral bridge-deletion assertions all follow. I inspected VERIFICATION.md, verify_barbell.py and verification_output.txt without executing the uploaded script. Independently, signed simplicial boundary elimination over F3 (replay: python3 barbell_review.py from the scratch script directory) checked both Betti ranks and inclusion image ranks for all six unordered pairs from {3,4,5}; for (4,5) the degree-2 image has rank 1 in rank 2, and for (5,5) the image has rank 1 in degree 3 and zero in degree 2. The image calculation adds a basis of the deletion's cycles to the columns of the enlarged complex's boundary and subtracts the rank of the boundary alone. This is finite corroboration, not a substitute for the integral cofiber argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The outerplanar theorem applies to the barbell matching complex and proves the contractible-or-sphere-wedge alternative.",
+          "The cactus theorem is for vertex-independence complexes. The line graph in this problem has triangles sharing edges with its cycle subgraphs, outside that cactus hypothesis."
+        ],
+        "reasoning": "The general outerplanar theorem covers the alternative, not the sphere dimensions, counts or map; the cactus theorem for the original barbell addresses a different complex and does not prove them either.",
+        "searches": [
+          "Bayer, Jelić Milutinović and Vega, arXiv:2411.04601v1, Theorem 2",
+          "Przytycki and Silvero, arXiv:1608.03002, Definition 3.11 and Proposition 3.12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_barbell.py, verification_output.txt",
+        "arXiv:2411.04601v1, 1608.03002, 2303.08798, 2211.12559; Resultary 9dea37b8f797"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path and cycle independence results supply exactly the factor homotopy types.",
+          "The wedge-of-cycles theorem uses a shared vertex. Neither abstract factor homotopy types nor the outerplanar wedge theorem determine the induced attachment between two same-dimensional sphere factors when lengths are 1 mod 3."
+        ],
+        "reasoning": "The decisive equivalence at residue 1 uses two adjacent vertex deletions with contractible links. It is that map check, not just a dimension substitution or an alternative counting of known Betti numbers, that explains the killing of the (1,1) class versus the splits in the other cases.",
+        "searches": [
+          "Daundkar, Panja and Prasad, arXiv:2303.08798, Theorems 2.12–2.13 and 3.5",
+          "arXiv:2411.04601v1 Theorem 2 and Resultary 9dea37b8f797 Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9dea37b8f797 computes the vertex-independence complex of the same bridge graph and its inclusion into the disjoint-cycle independence complex.",
+          "The matching complex is the independence complex of the line graph. The line graph has a degree-four bridge vertex attached to two pairs of adjacent cycle vertices, so it is not a barbell of two disjoint cycles joined by an edge.",
+          "At p=q=5 the same-day independence result gives a contractible space; the matching result gives S^2 wedge S^3."
+        ],
+        "reasoning": "Changing to line-graph language does not identify the hypotheses of those independence results. Deleting an edge in the original graph deletes a vertex of the line graph and gives the opposite inclusion direction from the same-day independence comparison. Identifying cycle vertices or edges also does not give the stated attachment.",
+        "searches": [
+          "Resultary: bridge edge, two cycles and barbell matching complexes; 9dea37b8f797",
+          "Primary: barbell or bicyclic independence complexes, wedge of cycles, arXiv:2303.08798 and 1608.03002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nine-residue same-day classification tabulates Ind(B_pq), not M(B_pq). Polygonal-line calculations use polygons sharing edges, not disjoint polygons connected by an extra edge."
+        ],
+        "reasoning": "The explicit mismatch at lengths (5,5) and the graph-gluing differences exclude these tables as exact coverage. The frozen record itself and its numerical table are not independent priority evidence.",
+        "searches": [
+          "Resultary exact bridge-edge residue transition, 9dea37b8f797",
+          "arXiv:2211.12559 §3, exact matching complexes for polygonal-line tilings"
+        ]
+      },
+      "rationale": "Pass for the exact six-case integral homotopy types and the bridge-deletion map classification. The classical path and cycle formulas and qualitative sphere-wedge alternative are directly credited. The most similar indexed record uses the same barbell graph but computes a different complex and map; the date alone establishes no priority.",
+      "residual_risks": [
+        "The retrieved literature does not settle priority against every specialized computation for bicyclic matching complexes or their line graphs. The common bridge paradigm in the distinct same-day record does not decide priority or imply the matching formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct qualitative coverage only",
+          "evidence": "Theorem 2 gives contractibility or a wedge of spheres for arbitrary outerplanar matching complexes.",
+          "identifier_or_url": "https://arxiv.org/html/2411.04601v1",
+          "material_read": "Theorem 2, around HTML offset 2700",
+          "method": "Read primary OA text passage",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Broader theorem that applies to the same barbell matching complexes"
+        },
+        {
+          "assessment": "Scope is a different complex or graph class after passage to line graphs",
+          "evidence": "Proposition 3.12 applies to vertex independence complexes of cactus graphs.",
+          "identifier_or_url": "https://arxiv.org/html/1608.03002",
+          "material_read": "Definition 3.11 and Proposition 3.12, near offset 28200",
+          "method": "Read primary OA text passages",
+          "title": "Homotopy type of circle graphs complexes motivated by extreme Khovanov homology",
+          "trigger": "Cactus generalization of a barbell independence-complex result"
+        },
+        {
+          "assessment": "Supplies the classical inputs; cycle wedge has different gluing",
+          "evidence": "The path/cycle homotopy formulas give the listed mod-three ingredients; Theorem 3.5 concerns cycles identified at a vertex.",
+          "identifier_or_url": "https://arxiv.org/html/2303.08798",
+          "material_read": "Theorems 2.12–2.13 near offsets 9850–10428 and Theorem 3.5 near offset 19600",
+          "method": "Read primary OA text passages",
+          "title": "Independence complexes of wedge of graphs",
+          "trigger": "Prior factor formulas and possible cycle-gluing overlap"
+        },
+        {
+          "assessment": "Does not give the disjoint-cycle bridge case via its gluing hypothesis",
+          "evidence": "The polygon gluing uses a shared edge.",
+          "identifier_or_url": "https://arxiv.org/html/2211.12559",
+          "material_read": "§3 near offset 10150",
+          "method": "Read primary OA text passage",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Potential matching homotopy classifications for glued cycles"
+        },
+        {
+          "assessment": "Related cofiber analysis for a different complex and map, not equivalent coverage",
+          "evidence": "Its map is Ind(B_pq) into Ind(C_p disjoint union C_q), and it gives contractibility at (5,5).",
+          "identifier_or_url": "Resultary 9dea37b8f797",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–2567 and 4000–6403",
+          "method": "Read local mirror passages",
+          "title": "Exact bridge-edge homotopy transition for two cycles: a nine-residue classification",
+          "trigger": "Nearest same-day record on exactly the underlying graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A barbell is a natural minimal test of how matching topology reacts to a bridge. An integral classification with the inclusion identifies exactly when a single edge kills the existing homology, distinguishes mixed-dimensional wedges from the qualitative outerplanar alternative, and gives reusable attachment information not present in Betti counts alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

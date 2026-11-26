@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:07.153048Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54",
+        "Frozen VERIFICATION.md lines 19–27",
+        "Frozen artifacts/verify.py, verify_output.txt and certificate.json",
+        "Independent replay: python3 /workspace/branches/independent_bch73.py; output /workspace/branches/independent_bch73.log"
+      ],
+      "rationale": "An independently written exact checker verifies that T^9+T^4+1 has no monic factor of degree ≤4, constructs the order-73 root T^7, and finds the two minimal polynomials by testing monic degree-nine polynomials and excluding lower degrees. Their product is 0x5165f. Remainders modulo g distinguish weights up to two from each other and from all triples, excluding nonzero weights 1 through 5. Equal remainders of disjoint triples give exactly 876 supports, each with 10 triple partitions. Generating the action by rotation and doubling gives the two disjoint orbits of sizes 219 and 657 with the stated seeds, covering all supports. The independent checker computes gcd(f_S,X^73+1)=0xf3ae1=(X+1)g for all 876 supports; the shifted span is the corresponding cyclic ideal of dimension 54 and equals the even subcode since g(1)=1. Direct enumeration of all coordinate pairs gives (6,4,5,5) in the specified four cosets, histogram (4:657,5:1314,6:657), and point replication 72. This is an exhaustive finite check for the specified coordinate convention, not a result for other code lengths.",
+      "residual_risks": [
+        "Frozen RESULT.md line 39 can be read as claiming direct shift-rank elimination on every support; artifacts/verify.py lines 164–173 actually do elimination for the two orbit representatives and check gcds for all supports. That suffices for the all-word claim and agrees with the more precise verification section."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. report d=6 for this code, not the claimed invariants. Coelho–Brochero Martínez discuss general low-weight methods, not the length-73 profiles in the inspected passage.",
+          "The October 13 exact-span result concerns primitive p-ary designed-distance-three codes with p≥5; the November 2 orbit result concerns length 273."
+        ],
+        "reasoning": "The analogues do not dominate the length-73 result; the decisive coverage is an exact same-code data publication instead.",
+        "searches": [
+          "arXiv:2609.00532v1 Remark 19",
+          "arXiv:2407.18398v2, Abstract",
+          "Resultary IDs 45b69e15f87b and d4b3c5cc7cd2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact earlier code record and certificate (56614ff965ae)",
+        "arXiv:2609.00532v1 Remark 19",
+        "arXiv:2407.18398v2 Abstract",
+        "Resultary analogous span and orbit statements (45b69e15f87b, d4b3c5cc7cd2)",
+        "Independent earlier-table replay output /workspace/branches/independent_bch73_prior.log"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the published order (1-based), multiplying by 2 and taking the least translate through zero gives cycles (1,5,10,3,6,11,12,9,2) and (4,7,8). These are the 657- and 219-word orbits.",
+          "Twelve binary Euclidean gcds with X^73+1 all give 0xf3ae1. Translation multiplies by a unit and cannot change the generated ideal. This proves the all-word span statement directly from the published rows.",
+          "For d≠0, the number of oriented differences d in the twelve representatives equals the number of blocks containing the pair (0,d): each oriented pair of difference d translates uniquely to (0,d). The tally is (6,4,5,5) at d=1,3,5,11, and among all 72 differences the counts four, five and six occur on 18,36,18 differences. Translation then gives the full pair histogram; twelve free translation orbits contribute 12×6=72 at each point."
+        ],
+        "reasoning": "The published rows give the affine split, uniform even-subcode span and incidence design conclusions by a permutation cycle decomposition, a standard cyclic-code gcd on each row, and additive difference tallies. These are direct postprocessing, not merely arguments that an arbitrary finite computation could in principle recover the data.",
+        "searches": [
+          "October 4 certificate ID 56614ff965ae; exact replay /workspace/branches/independent_bch73_prior.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior exact-code certificate specifies representatives of all twelve cyclic orbits of size 73. Its entries 1 and 4 are the frozen orbit seeds.",
+          "Doubling preserves the code; modulo translation, it is thus a permutation of the already tabulated twelve classes."
+        ],
+        "reasoning": "The affine-orbit problem is equivalent to taking cycles of this permutation and multiplying their lengths by 73. This uses the representatives, not the number twelve alone.",
+        "searches": [
+          "Resultary: length-73 binary BCH exceptional distance, minimum-word support orbits, cyclic span, pair incidence",
+          "Resultary ID 56614ff965ae, Finding and certificate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding states A_6=876 in twelve cyclic orbits. The complete list of twelve representative supports appears in artifacts/certificate.json, at offset 170.",
+          "Every weight-six support is exactly one cyclic translate of exactly one listed support, so the certificate is a lossless finite table of the input to all three new statistics."
+        ],
+        "reasoning": "A list of the representatives is materially stronger than the prior reported total: it allows the transformations without a new enumeration or any unproved completeness assumption.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-the-length-73-bch-counterexample-has-exactly-876-minimum-words-i--56614ff965ae, RESULT.md and artifacts/certificate.json"
+        ]
+      },
+      "rationale": "No inspected earlier statement gives the three invariants verbatim, but the October 4 primary certificate gives the complete set of minimum words in twelve translation classes, with the same coordinates and both later seeds. The exact three additions are short mechanical transforms of its twelve representatives. The review computed all three from that certificate alone, without searching the code or using the frozen enumerator.",
+      "residual_risks": [
+        "No claim that the three sentences appear verbatim earlier. Some broader literature searches were deferred, but that is irrelevant to the decisive earlier-table computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier statement is narrower, but its exact table mechanically determines all three additions",
+          "evidence": "All orbits have size 73; both frozen seeds occur as entries 1 and 4 of the prior table. Replay from that table gives exactly all frozen invariants.",
+          "identifier_or_url": "2026/10/4/SCOPE-the-length-73-bch-counterexample-has-exactly-876-minimum-words-i--56614ff965ae",
+          "material_read": "RESULT.md Finding and artifacts/certificate.json at offset 170 (twelve representatives)",
+          "method": "Bounded local-mirror source and certificate passages; independent transforms of the twelve rows",
+          "title": "The length-73 BCH counterexample has exactly 876 minimum words in twelve cyclic orbits",
+          "trigger": "Exact same-code match with a certificate exposing all supports"
+        },
+        {
+          "assessment": "Prior distance only in inspected passage",
+          "evidence": "The authors obtain distance 6 by Magma for s=3 at length 73; no minimum-word population or structure there.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00532v1",
+          "material_read": "p. 19, Remark 19, OA offset 39900",
+          "method": "Primary PDF statement passage",
+          "title": "Solutions to Three Conjectures and an Open Problem on Binary BCH Codes",
+          "trigger": "Same code in a family theorem and remark"
+        },
+        {
+          "assessment": "No same-code coverage in the inspected passage, not a whole-paper finding",
+          "evidence": "Advertises weight-two formulas, weight-three results and polynomial-system connections rather than these support invariants.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.18398v2",
+          "material_read": "p. 1, Abstract, offset 0",
+          "method": "Primary PDF abstract passage",
+          "title": "Low-weight codewords in cyclic codes",
+          "trigger": "General low-weight cyclic-code methods"
+        },
+        {
+          "assessment": "Different family and span question",
+          "evidence": "Primitive length p^m−1, p≥5, odd m≥3, designed distance 3, not the nonprimitive binary code here.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-minimum-weight-span-of-odd-extension-p-ary-bch-codes-of-de--45b69e15f87b",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local-mirror statement passage",
+          "title": "Exact minimum-weight span of odd-extension p-ary BCH codes of designed distance three",
+          "trigger": "Potential broader coverage of minimum-word spans"
+        },
+        {
+          "assessment": "Different code",
+          "evidence": "The [273,249,5] code has seven cyclic classes regrouped under doubling, not the [73,55,6] support population.",
+          "identifier_or_url": "2026/11/2/SCOPE-seven-cyclic-classes-of-minimum-words-in-the-binary-length-273-b--d4b3c5cc7cd2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement passage",
+          "title": "Seven cyclic classes of minimum words in the binary length-273 BCH code",
+          "trigger": "Potential overlapping affine-orbit classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–9 and 31–48",
+        "Earlier certificate 56614ff965ae",
+        "Independent earlier-table replay"
+      ],
+      "rationale": "The code and its minimum-support population are natural, and the incidence and cyclic-generation questions are reasonable. The claimed contribution nevertheless consists entirely of routine transforms of a published exhaustive set of cyclic representatives. Two representative checks and an orbit argument make the proof economical, but there is no surviving nonmechanical mathematical claim or valuable repair in this package.",
+      "residual_risks": [
+        "This is a judgment on this fixed-code increment, not on prospective uniform structural results for other BCH parameters."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

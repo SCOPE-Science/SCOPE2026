@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant law follows by integrating the stationary master equations with zero total current. The four cusp interfaces preserve each orientation flux, and positive exponential tail rates are exactly the integrability conditions. Explicit half-line integrals yield the sigmoid expansion with exponentially small normalization corrections; exponential-density convergence proves the joint total-variation statement. The orientation mismatch identity is an exact stationary-current algebraic identity. The standalone checker was run successfully, but numerical tests are not treated as proof.
+PASS
 
-## Originality — PASS, with priority risk
+For v>b each orientation velocity has fixed sign and magnitude at least ε. Over each finite trajectory segment the occupation time of a spatial null set is zero, so any invariant probability has absolutely continuous spatial components. Its integrable total flux is constant and therefore zero. The common orientation flux solves the scalar linear stationary equation with slope L on force +b segments and −R on force −b segments; continuity of flux through the cusps leaves one normalization and proves uniqueness. The normalized solution satisfies the stationary transport equations; both tails are integrable exactly for L,R>0, equivalent to the stated strict bias inequality. With A=1/L+1/R the right and left masses are proportional to Ae^(aL)−1/L and Ae^(aR)−1/R. In the critical window their ratio is logistic up to exponentially small end corrections and a(L−R)=θ(1+ε/(2b+ε)); Taylor expansion gives the stated first correction uniformly on compact θ-sets. For α±→r the rescaled exponents εL,εR both tend to r; translated well densities converge in L¹ by exponential domination while the inner truncations recede, giving total variation and independence. If dimensionless bias diverges while α±→r, both tail exponents still grow and the sign of a(L−R) gives the claimed polarized limit. On each regular segment f=−b·sgn(Yε), so zero flux makes the orientation mismatching Yε have conditional probability ε/(2v) exactly. No claim at v=b is needed. VERIFICATION.md and check.py were inspected, not executed.
 
-The 2026 bistable source assumes symmetric switching and finite heat-bath noise, and the 2024 Jain–Chatterjee result already contains the *general exact stationary density* used in the proof. This latter coverage is explicitly credited; the assessed new result is solely the joint near-propulsion-threshold, weak-direction-bias asymptotic, including the universal sigmoid correction and the orientation-resolved local law. Inspected related works address a single well or a smooth bistable potential with separated invariant basins. Searches of the scientific research index found related trapping and bias transitions, but not an established equivalent joint-limit theorem. Broader generic stationary formulae remain the most serious risk: a specialist may consider this scaling result an immediate consequence of a known general expression.
+## originality
 
-## Value — PASS
+PASS
 
-The prescribed scaling identifies the physically meaningful boundary between two equal-weight wells and effectively complete direction-selective localization. It quantifies a singular amplification of weak motility bias and a simultaneous universal microscopic displacement/propulsion-state signature, with a rate-independent first correction. Its role is sharply confined to idealized dry active motion, not a universal result for noisy double wells.
+Pass for the simultaneous zero-thermal-noise, weak-bias and near-speed-threshold asymptotic: the sharp occupation window, first correction, and joint rescaled location law. The generic zero-current formula and its exact finite-parameter specialization, including the confinement check and flux-ratio identity underlying the orientation mismatch, are not independent novelty. The closest inspected papers do not analyze this singular window or give a limiting theorem that specializes to it.
 
-## Closest literature and limits
+## value
 
-Singh–Aghion, arXiv:2610.08029; Jain–Chatterjee, arXiv:2405.13521 Eq. (7) and Appendix A; Dhar et al., arXiv:1811.03808; Ratanov, arXiv:2509.17383. These establish the motivating model or general stationary methods. No mixing rate, finite-temperature law or independent certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The vanishing opposing speed makes the order of the symmetry and active-threshold limits consequential. The result identifies the scale of directional bias that still leaves both wells populated, gives each well's asymptotic weight plus its first correction, and resolves the width and shape of the peaks in the same limit. This sharp classification is useful beyond just recomputing a stationary density, without making claims about kinetics or thermal smoothing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

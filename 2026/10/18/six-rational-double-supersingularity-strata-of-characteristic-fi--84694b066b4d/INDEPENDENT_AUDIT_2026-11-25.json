@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:45:30.501935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py inspected",
+        "Ohashi arXiv:2201.12996v1, Lemma 2.1 and §3",
+        "/workspace/branches/check_2.py"
+      ],
+      "rationale": "The smoothness boundary follows from the partial derivatives: with precisely two nonzero coordinates the corresponding parameter square is 4; with all three nonzero the symmetric linear system on their squares has diagonal 2, off-diagonals r,s,t, and determinant −2(r²+s²+t²−rst−4). When the two-coordinate minors are nonzero, a kernel vector of this matrix has all coordinates nonzero and gives a singular projective point over the algebraic closure. The known quotient isogeny has degree 8, so the 5-torsion splits, and the elliptic quartic Hasse coefficients are 2H_i. Independently the diagonal plane-quartic Hasse–Witt entries are the coefficients of X⁸Y⁴Z⁴ and its cyclic analogues in F⁴, which are 2H_i; the off-diagonal monomials have odd exponents and cannot occur. Each vanishing coefficient gives one more unit of a-number and one fewer unit of 5-rank. H_1−H_2 factors as −2(r²+1)(t²−s²) and the first nonconstant factor is invertible on the smooth locus; the signed substitutions give the two displayed linear equations for r after removing r=±2. Clearing denominators gives the stated exclusions, and the s-coordinate is a regular inverse on each graph. At a common zero all squares are q; the Hasse equation gives rst=q²+2. Squaring the product gives (q+1)²(q²+2q−1)=0. The excluded root is q=4; the two other roots are distinct and nonzero, with four admissible sign triples apiece and final discriminant −7≠0. Each triple belongs to one graph for each of the three Hasse pairs; same-pair graphs are disjoint. Substituting on a graph gives the two admissible quadratics u²±2u−2 with four distinct roots, so the graphs for different pairs do not coincide and each has four triple incidences. Independent replay: python3 /workspace/branches/check_2.py computes Hasse–Witt entries by enumerating monomials and compares all smooth F_25 parameters to the graph images. It obtains a=0,1,2,3 counts (10469,1110,96,8). Algebraic elimination, not enumeration, proves completeness over the algebraic closure.",
+      "residual_risks": [
+        "The eight points are marked coefficients, not eight geometric isomorphism classes. No scheme structure of a Hasse-zero stratum or assertion about the moduli quotient is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi supplies the three quotients and superspeciality criterion in wider characteristic scope, not the rank-one Hasse intersections.",
+          "Lercier et al. Theorem 3.3 excludes characteristic 5; the cyclic-order-six a-number theorem treats a different equation and gives no Ciani coefficient stratification."
+        ],
+        "reasoning": "The broader Ciani quotient theorem controls the ingredients and is credited. The inspected general moduli and other genus-three family results do not cover this characteristic-five rank locus.",
+        "searches": [
+          "Ohashi arXiv:2201.12996v1 §§2–4",
+          "Lercier–Ritzenthaler–Rovetta–Sijsling arXiv:1403.0562v1",
+          "Ohashi–Kudo–Harashita arXiv:2111.09777v3 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4f47b96584ec and 38e95fbca73c",
+        "arXiv:2201.12996v1, arXiv:1403.0562v1 and arXiv:2111.09777v3",
+        "Brock 1993 via Ohashi (secondary reference only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extracting the quartic Hasse coefficient from Ohashi's equations gives the claimed localization of a-number and p-rank by the three polynomials, but the pairwise difference factors and smooth signed graphs are not in the inspected proposition.",
+          "Later equivalent coverage explicitly supplies rank-one incidence; the later arithmetic counts alone do not determine components or where they meet."
+        ],
+        "reasoning": "The older equations make elimination possible but do not themselves yield the six surviving graphs by a specialization of a stated classification. Simultaneous elimination, exclusions and incidence are the supported addition. The superspecial subcase has separate acknowledged historical risk.",
+        "searches": [
+          "arXiv:2201.12996v1 §3 quotient equations, isogeny and superspecial criterion",
+          "38e95fbca73c finding and relationship-to-prior-work section",
+          "4f47b96584ec finding and relationship-to-prior-work section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prime-to-5 elliptic splitting makes a≥2 equivalent to 5-rank≤1, or to at least two supersingular elliptic quotients.",
+          "Resultary 38e95fbca73c explicitly gives six rational low-5-rank curves and eight triple points in the same marked smooth family; it adds transversality and extension counts."
+        ],
+        "reasoning": "This later-dated entry is a real statement-level match, not just similar terminology. The geometry is different from a count up to geometric curve isomorphism; invoking different rank or supersingularity language does not distinguish equivalent statements about the marked space.",
+        "searches": [
+          "Resultary: characteristic-five Ciani, a-number, 5-rank, superspecial, marked/labelled low-rank curves; 38e95fbca73c and 4f47b96584ec",
+          "arXiv:2201.12996v1, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first later record gives all four marked 5-rank counts for every F_(5^n), including eight rank-zero points over F_25. The second gives the same six-curve/eight-intersection geometry and low-rank counts.",
+          "Brock is cited as enumerating superspecial Ciani curves, but the theorem text was not accessible to compare marked data."
+        ],
+        "reasoning": "The arithmetic tables overlap exactly at the rank-zero count over F_25 and at the finite-field replay counts, while the second entry covers the geometric statement. These later entries were not discarded; the chronology does not show the frozen finding to reproduce earlier established coverage, and an earlier geometric-isomorphism enumeration would not by itself enumerate intermediate marked loci.",
+        "searches": [
+          "Resultary 4f47b96584ec (Oct 26) and 38e95fbca73c (Nov 2), 2026; checked findings, counts and relationship sections",
+          "Brock Theorem 3.15 via Ohashi introduction"
+        ]
+      },
+      "rationale": "The classical family, smoothness criterion, elliptic quotient decomposition and superspecial criterion are credited; the explicit Hasse computation specializes prior machinery. The supported distinct contribution at the frozen record's position in catalogue chronology is the full intermediate-rank geometry, not a prior superspecial isomorphism-class count. There is demonstrably equivalent geometric coverage in a separate later-dated catalogue record and arithmetic overlap in another. This is not a claim of present uniqueness or of priority based on a date alone; neither latter passage gives antecedent evidence or establishes the relationship between the records.",
+      "residual_risks": [
+        "Brock's primary thesis text remains unavailable and may cover the rank-zero subclaim.",
+        "The later catalogue matches preclude a claim of unique coverage today; the apparent order in the catalogue is not independent historical priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers crucial ingredients and superspecial criterion, not the intermediate pairwise-locus classification",
+          "evidence": "Smoothness, explicit quotients, degree-eight Jacobian splitting and equivalence of superspeciality with three supersingular quotients.",
+          "identifier_or_url": "https://arxiv.org/html/2201.12996v1",
+          "material_read": "Introduction near offset 2414, Lemma 2.1 near 4045, §3 near 16504–22692",
+          "method": "OA primary passages",
+          "title": "On the maximality of genus-3 nonhyperelliptic curves of Ciani type",
+          "trigger": "Same Ciani family, elliptic quotients and superspeciality"
+        },
+        {
+          "assessment": "Different characteristic scope and classification target",
+          "evidence": "Theorem assumes characteristic 0 or p≥7; the representative-family treatment gives coefficient identifications, not marked p=5 rank loci.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.0562v1",
+          "material_read": "Theorem 3.3 and Ciani parameter identifications, PDF pp. 5–6, near offsets 19605 and 24291",
+          "method": "OA primary PDF passages",
+          "title": "Parametrizing the moduli space of curves and applications to smooth plane quartics over finite fields",
+          "trigger": "Broader moduli and finite field tables for these quartics"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Treats x³z+y⁴+ry²z²+z⁴=0 with one parameter; its Hasse–Witt results are not about the Ciani family.",
+          "identifier_or_url": "https://arxiv.org/html/2111.09777v3",
+          "material_read": "Introduction Theorems A–B, §3/Table 1, near offsets 4488–8985 and 32000–36800",
+          "method": "OA primary passages",
+          "title": "The a-numbers of non-hyperelliptic curves of genus 3 with cyclic automorphism group of order 6",
+          "trigger": "Plausible prior a-number stratification in genus 3"
+        },
+        {
+          "assessment": "Primary comparison unresolved; no negative conclusion from inaccessibility",
+          "evidence": "Ohashi attributes earlier superspecial Ciani enumeration to the thesis; no claim about a≥2 can be made from that citation alone.",
+          "identifier_or_url": "Brock, Princeton thesis (1993), Theorem 3.15",
+          "material_read": "Secondary reference and scope in Ohashi introduction only",
+          "method": "Bounded lawful search for accessible full primary text",
+          "title": "Superspecial curves of genera two and three",
+          "trigger": "Potential superspecial-point priority"
+        },
+        {
+          "assessment": "Later-dated arithmetic extension and overlap, not evidence of prior geometric coverage",
+          "evidence": "Gives all four counts over every extension and in particular rank-order vector (8,96,1110,10469) at 25.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-parity-dependent-p-rank-strata-of-characteristic-five-cian--4f47b96584ec/RESULT.md",
+          "material_read": "Finding, verification counts and relationship section near offset 6367",
+          "method": "Resultary search and bounded local mirror passages",
+          "title": "Exact parity-dependent p-rank strata of characteristic-five Ciani quartics",
+          "trigger": "Same marked family and exact rank census"
+        },
+        {
+          "assessment": "Direct overlap in a distinct later-dated record; relation and independent priority unresolved",
+          "evidence": "Exactly six rational curves, only eight superspecial triple meetings, additional transversality, slopes and extension counts, same marked scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-six-rational-low-5-rank-curves-in-the-characteristic-five-ciani--38e95fbca73c/RESULT.md",
+          "material_read": "Finding and relationship/limitations near offset 7276",
+          "method": "Resultary search and bounded local mirror passages",
+          "title": "Six rational low-5-rank curves in the characteristic-five Ciani family",
+          "trigger": "Potentially equivalent full geometric finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and elimination proof; established quotient geometry in arXiv:2201.12996v1"
+      ],
+      "rationale": "This gives the intermediate rank degeneration, not just the smoothness boundary or the well-studied all-supersingular points, for a natural genus-three split-Jacobian family. An explicit parameter domain and component incidence in the marked space give useful test geometry for specialization and finite-field counting of rank-one parameters. It is a complete exact stratum, not merely solving for an isolated example or extrapolating the F_5 counts.",
+      "residual_risks": [
+        "No moduli quotient, characteristic-uniform stratification, or claim about other automorphism families follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

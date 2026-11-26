@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:10:40.289016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The structural theorem applies strictly in both claimed ranges, since k>0.4n+0.8. It leaves the all-odd clique and sets wholly in an upper window of size m+2 (starting at m or m-1). Such a window has too few odds to allow even one edge to the all-odd clique. Classification by the minimum is exhaustive: odd n with minimum m forbids 2m and requires omitting one of m+1,2m+1; even n with minimum m-1 forbids 2m-2 and the pairs {m,2m-1}, {m,2m}, {m+1,2m}. The other minimum cases have only the doubling constraint or none. This yields exactly the listed families. In the upper window, an edge is equivalently an intersection of size one between the two-element omission sets (odd n), or of size two between the three-element omission sets (even n). In the even case, writing a=m-1,b=m,c=m+1,d=2m-2,e=2m-1,f=2m, omissions are {a,b,t}, {a,f,s}, and {d,e,f},{b,d,f},{b,c,d}; common pairs give exactly 2(m-1) U-to-V edges and the nine stated others. In the odd case the omissions are {m,t}, {2m,2m+1}, {m+1,2m}, producing the five extra edges. These edges give the two connected components and the edge totals for all n in scope. An independent exhaustive combination/bit-shift enumeration and common-deletion adjacency at /workspace/review-evidence/3/boundaries.py reproduced (18,47,[9,7,1,1]) at n=13 and (31,125,[20,9,1,1]) at n=18, and the stabilization profiles at n=15 and n=20. The conclusion is sharp for eventual stabilization, not a monotonicity claim below the thresholds. Supplied scripts and recorded outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshouillers et al. give the dense-set odd/minimum-element dichotomy and an additional low-interval bound. Freiman gives related high-density structure. Alon et al. give bounds for counts and typical structure of sets of prescribed size."
+        ],
+        "reasoning": "These statements constrain or count sets individually, not the subgraph induced on the sets by symmetric-difference-two adjacency. The threshold counterexamples are outside the direct high-density bound with M=n.",
+        "searches": [
+          "Resultary: near-maximum sum-free classification; Deshouillers–Freiman–Sós–Temkin theorem",
+          "Astérisque 258 (1999), Theorem 1.1; Astérisque 209 (1992), Theorem 1; arXiv:1202.5200v1, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, two verify*.py files and two recorded outputs",
+        "DFST (1999), Freiman (1992), Alon–Balogh–Morris–Samotij (arXiv:1202.5200v1)",
+        "arXiv:2402.03063v1",
+        "Resultary --056019251c4e, --dc29809f76be, --fe83639c6c85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the prior dichotomy gives odd sets or min(A)≥k. It does not resolve which low-minimum sets survive doubling, compute links between the omission families, or yield four components at the preceding n of each parity."
+        ],
+        "reasoning": "The frozen proof needs an additional exact enumeration by minimum, common-deletion analysis and two sharp boundary enumerations. These are narrower tasks than the general structure theorem, not restatements of that theorem.",
+        "searches": [
+          "Deshouillers–Freiman–Sós–Temkin, Thm. 1.1 (OA p. 2); Freiman, Thm. 1 (OA p. 3)",
+          "arXiv:1202.5200v1 pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In token-jumping language these are k-independent sets of a Schur hypergraph, with two-element obstructions from repeated addends. arXiv:2402.03063v1 concerns independent sets in ordinary graphs, with a complexity focus, not these hypergraphs.",
+          "Resultary --056019251c4e, --dc29809f76be, --fe83639c6c85 concern greedy 2-sumfree sequences with distinct prior summands."
+        ],
+        "reasoning": "A greedy sequence is not the full solution space, and allowing equal summands changes the obstructions. Ordinary graph token-jumping results do not give this hypergraph census.",
+        "searches": [
+          "Resultary: fixed-size sum-free exchange graphs; token-jumping reconfiguration of sum-free sets",
+          "External: sum-free fixed-size exchange/token-jumping reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned exact exchange profiles or sharp (15,20) stabilization criterion matched. The inspected results on cardinality do not list transition edges or component tables for this family."
+        ],
+        "reasoning": "Even a table of numbers of sum-free sets would not specify which states share k-1 elements. The search was bounded and could miss a catalogue under different terminology.",
+        "searches": [
+          "Resultary: near-maximum sum-free classification; fixed-size sum-free exchange graphs (50 hits each)",
+          "Freiman, Astérisque 209 (1992), Theorem 1; arXiv:1202.5200v1, Theorems 1.1–1.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the fixed-size exchange graph, including its sharp parity boundary, not for density structure or extremal set size. The strongest prior theorem is precisely the structural dichotomy used in the proof. It supplies a search domain for the upper-window configurations, but not their legal omissions, adjacency classes, connectivity, or the boundary counterchecks. No equivalent exact table or stronger covering theorem was found in the sources inspected.",
+      "residual_risks": [
+        "A differently titled exact near-maximal catalogue with exchange data, or a stronger reconfiguration theorem specialized to Schur hypergraphs, could have been missed.",
+        "No claim of globally exhaustive literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed premise; not the exchange theorem",
+          "evidence": "With M=max A and |A|>0.4M+0.8 the alternatives imply all odd or min(A)≥|A|.",
+          "identifier_or_url": "https://www.numdam.org/item/AST_1999__258__149_0.pdf",
+          "material_read": "Theorem 1.1, PDF p. 2, printed p. 149, offset 1980",
+          "method": "OA PDF",
+          "title": "On the structure of sum-free sets, 2",
+          "trigger": "Exact dense-set premise"
+        },
+        {
+          "assessment": "Related static structural coverage",
+          "evidence": "Density/parity dichotomy and control of lower-half elements, not move connectivity.",
+          "identifier_or_url": "https://numdam.org/article/AST_1992__209__195_0.pdf",
+          "material_read": "Theorem 1, PDF p. 3, printed p. 195, offset 2100",
+          "method": "OA PDF",
+          "title": "On the structure and the number of sum-free sets",
+          "trigger": "Prior near-maximal classification and counts"
+        },
+        {
+          "assessment": "Counting and typical structure, not exact exchange profiles",
+          "evidence": "Bounds counts in terms of fixed set cardinality and describes typical sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.5200v1",
+          "material_read": "Theorems 1.1–1.2, PDF p. 3, offset 9510",
+          "method": "OA PDF",
+          "title": "A refinement of the Cameron–Erdős conjecture",
+          "trigger": "Fixed-size sum-free counting"
+        },
+        {
+          "assessment": "Different class of forbidden configurations and claim",
+          "evidence": "Deals with graph independent-set move complexity, not Schur-triple-free families.",
+          "identifier_or_url": "https://arxiv.org/html/2402.03063v1",
+          "material_read": "Abstract and introduction, offset 500",
+          "method": "OA full-text passage",
+          "title": "Independent set reconfiguration in H-free graphs",
+          "trigger": "Alternate token-jumping formulation"
+        },
+        {
+          "assessment": "Different object and summand convention",
+          "evidence": "Ultimately periodic greedy sequence from two seeds, with distinct summands.",
+          "identifier_or_url": "2026/9/18/SCOPE-complete-f1-greedy-2-sumfree-periodicity--056019251c4e",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete f=1 greedy 2-sumfree periodicity",
+          "trigger": "Closest indexed sum-free variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One deletion and insertion is the natural fixed-size move, and one below maximum is the first near-extremal slice where new states and links matter. The full clique/attachment description determines reachability and bottlenecks, while the independently checked counterexamples identify the exact distinct stabilization cutoffs by parity. The contribution is the connected structure, not merely a few small counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

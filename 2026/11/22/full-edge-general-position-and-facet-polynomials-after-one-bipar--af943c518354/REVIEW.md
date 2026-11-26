@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every length-three geodesic in a one-edge-deleted biclique joins the endpoints of the deleted edge and passes through a unique pair of nonexceptional shore indices. This gives the complete forbidden-triple system and the \(A\times B\) obstruction. The all-set and facet formulas follow from exhaustive disjoint choices of the two stars and all permitted interior edges; the maximum and spectrum statements follow from \(a+b-ab\le1\). The standalone direct shortest-path enumerator confirms every coefficient through the twenty-four-edge case; a distinct combinatorial program checks symbolic coefficients for six cases. Neither finite check is used to infer the general theorem.
+## correctness
 
-**Originality — PASS, provisional.** Full mathematical material in the 2021 foundational edge-general-position article and 2023 extremal article was examined for the exact objects, quantities, and possible reductions. The 2022 generalization studies a different condition. A directly inspected published crown-graph result concerns deletion of a full perfect matching and a scalar optimum, not the present single-deletion facet or all-set polynomial. The relevant research search and existing accessible result claims found no implication of either closed polynomial. Search does not prove historical uniqueness; unindexed or differently worded exact classifications remain a risk.
+PASS
 
-**Mathematical value — PASS.** The edge-general-position complex of \(K_{m,n}\) is a full simplex. Removing one edge changes its metric and generates a complete family of geodesic triple obstructions: this is an intrinsically motivated stability comparison, not an arbitrary parameter slice. The exact facet classification proves an exponential increase in maximal configurations and shows an unbounded missing-cardinality interval even though maximal and maximum cardinalities differ greatly. The all-set polynomial allows every size distribution to be recovered without further enumeration.
+The endpoints of the single deleted edge are the only pair at distance three; same-shore pairs have a common neighbor and every other cross-shore pair is adjacent. Thus the only forbidden triples consist of one star edge from each missing-edge endpoint and their unique joining interior edge. For star index sets A,B all ab edges in B times A are unavailable and the other rs-ab are freely selectable. A facet must fill every permitted interior position. If both stars contribute, a missing star edge would then close a triple with any selected edge on the opposite star, proving sufficiency; if exactly one star contributes, it must be complete, giving the two exceptional facets; both empty cannot be maximal. For a,b>=1, a+b-ab=1-(a-1)(b-1)<=1, attained if either index count is one. The exceptional sizes rs+r and rs+s therefore determine the maximum and its one/two-fold multiplicity, and comparison to mn gives the claimed loss. When r=s=k>=3 the two attained sizes k^2+1 and k^2+k flank the claimed gap.
 
-**Limitations.** Exactly one deleted edge, \(m,n\ge3\); no assertion about larger deleted matchings. Publication priority is provisional; external independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact all-set and inclusion-maximal polynomials for exactly one deletion, not the general edge-position definition, a scalar optimum after a perfect matching deletion, or facet counts in unrelated complexes. Inspected statement-level comparisons support that distinction.
+
+## value
+
+PASS
+
+A single deletion creates the first geodesic constraints in a previously unconstrained graph. The full facet classification quantifies the disruption: many inclusion-maximal sets, a precise optimum drop, and a growing gap just below the maximum in the balanced case. This is a natural exact invariant and a sharp baseline for further matching deletions, not merely a scalar calculation on a small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

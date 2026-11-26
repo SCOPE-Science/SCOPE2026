@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The original graph-specific mean-field fixed-point equations are explicitly stated. Stationarity forces susceptible fractions positive at every vertex and connectivity propagates any nonzero strain to every vertex. The leaf-symmetry lemma requires no symmetry hypothesis: the same strictly increasing one-variable equation must hold at each leaf. The star/clique equations yield exact susceptible fractions; a nonsingular \(2\times2\) system yields the unique candidate infection fractions. The signs of two explicit rational expressions give the necessary inequalities, and strict positivity of the susceptible and infected fractions is independently verified to be sufficient. The boundary equalities are excluded without inferring anything unsupported about non-coexistence equilibria. Symbolic identities and \(25,872\) exact-rational instances reproduce the original equations; finite checks are not used to prove the infinite statement.
+PASS
 
-## Originality
+The frozen finding displayed undefined ν in two coordinate expressions; the complete corrected RESULT.md uses the defined u=a s_L in both, as forced by the stationary equations and as already used in the frozen proof. At equilibrium a zero susceptibility would imply both infected fractions vanish at that vertex, a contradiction. Connectedness propagates either nonzero state to all vertices. On each leaf the same strictly increasing scalar expression s+a x_C s+bYs/(1+bs) must equal 1, proving symmetry for every positive equilibrium without imposing a symmetric ansatz. The four reduced stationary equations force the two susceptibility coordinates, a>b, and uv=b/a<1. Inversion of the remaining matrix yields the corrected expressions and uniqueness. In r=a/b variables nonzero x_C requires r²>m, and then Q>0; y_L>0 requires F>0 and b>Q/(mrF). These are exactly the proposed strict upper ratio and strength bounds. The displayed differences between H_m and the two susceptibility thresholds are positive in the open region, verifying admissible states and sufficiency. Equality at the relevant boundaries yields a vanishing or inadmissible coordinate, not strict coexistence. No stability or boundary-state classification is implied.
 
-**PASS, subject to literature-access risk.** The 2014 general multilayer survival-threshold analysis, the 2021 general coexistence/global convergence work, and the 2022 general quantitative bounding results concern the same model. The 2022 paper explicitly suggests analysis of star topologies as future work. Those general theorems already encompass the qualitative possibility of coexistence, which is *not* presented as new. The distinct resolved question here is the non-implicit, all-vertex closed form and complete sharp region for star-vs-clique overlays of every size, including a proof ruling out nonsymmetric coexistence. The closest 2022/2023 general equilibrium-count paper addresses different questions and does not print this explicit solution. An equivalent unindexed specialization remains possible; bibliographic exclusion is not mathematically absolute.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The explicit center/leaf endemic levels and the sharp interval \(\sqrt m<a/b<[m-1+\sqrt{(m-1)^2+4}]/2\) quantify an epidemiologically motivated contact-topology asymmetry. This is an infinite family, not an arbitrary tiny numerical slice; it answers a topology singled out by quantitative bi-SIS literature. The complementary strength cutoff specifies the full region in which both infections can be jointly positive, rather than a spectral bound or numerical plot. Does not establish global convergence or stability.
+The corrected claim credits the same sufficient coexistence region obtained by specializing an existing mutual-invasion theorem. The verified distinct contribution is the necessity of the region for all strictly positive equilibria of the specified layers, plus the positive equilibrium's full rational coordinates and uniqueness without assuming leaf symmetry. General equilibrium-count results and the closest matching catalogue record do not directly imply that classification.
 
-## Closest sources and limitations
+## value
 
-Sources: Sahneh–Scoglio (2014), DOI 10.1103/PhysRevE.89.062817; Doshi–Mallick–Eun (2021), arXiv:2104.10872; Doshi–Hu–Eun (2022), arXiv:2209.07304; Liu et al. (2019), arXiv:1901.00765; Anderson–Ye (2022), arXiv:2210.11044. The analysis excludes arbitrary irregular/directed layers, rate heterogeneity, boundary equilibrium classification, basins and finite stochastic epidemic behavior. Additional unindexed equivalents cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The star and clique are canonical contrasting graphs; the family gives a transparent case where coordinate-level equilibrium classification, not merely sufficient existence, distinguishes general theory from what actually occurs. The proof exemplifies how to derive equal coordinates on equivalent vertices from a scalar identity rather than assuming they are equal. The exact positivity threshold is sharp, and the unique rational coordinates give a useful benchmark for broader fixed-point analyses. No claim about practical transmission, stability, or convergence is needed for the mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

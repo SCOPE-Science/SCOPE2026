@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:01:26.241147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I enumerated automorphisms of the seven-point Fano incidence structure independently as permutations preserving triples {a,b,a xor b}, and composed permutations rather than using the frozen matrix product. These are exactly GL_3(F_2): preserving the third point of the line through distinct nonzero vectors preserves addition, also for equal vectors and zero. Starting at the identity subgroup I generated extensions by adjoining whole cosets of the current subgroup under right multiplication by one extra generator. This reaches exactly each generated subgroup, and induction on generators gives completeness. I recovered 168 group elements, 179 subgroups including endpoints, and unquotiented flag counts (177,911,1071,336). Simultaneous conjugation gives (13,37,37,12) orbits. Strictly increasing subgroup orders imply that two points of a single closed simplex can be orbit-equivalent only if they coincide: their positive-support faces must have the same order set, hence the same vertices inside that simplex, and conjugation preserves the corresponding barycentric coordinates. This proves regular simplex closures in the quotient and justifies the reconstructed facet maps; individual subgroup-conjugacy classes are not used as a substitute for flag orbits. Independent enumeration found every nonempty proper face of each orbit cell, and all 49 archived pairs removed an active codimension-one face with exactly one active strict coface, leaving vertex 6. A separate greedy sequence also removed 49 pairs and left vertex 11. Each removal is an elementary collapse since the upper cell is an embedded simplex and the removed face has no other coface. Replay: cd /workspace && python3 reproductions/5.py source/2026/11/22/*723770b737c0/collapse_certificate.json. The source verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Piterman's abstract describes contractibility and orbit questions for p-subgroup complexes. The neighboring Resultary records obtain a circle for A5, a sphere for S5 and a circle for S4 from the equivalent quotient construction."
+        ],
+        "reasoning": "The prime-restricted collections omit subgroups used here and the named-group results do not specialize to this group. No general result covering this unrestricted case was located in the inspected material.",
+        "searches": [
+          "Piterman, Homotopy properties of the p-subgroup complexes, abstract at OA offset 579",
+          "Resultary A5/S5 5700bda30292 and S4 b26e83d1569b"
+        ]
+      },
+      "checked_sources": [
+        "Ramras arXiv:math/0210001v1",
+        "Connor–Leemans PSL27 atlas table",
+        "Piterman 2019 thesis abstract",
+        "Resultary 5700bda30292 and b26e83d1569b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ramras reports Shareshian's nonzero H_1 of rank at least 21 for the unquotiented subgroup complex of PSL_2(F_7). The nearest exact computations use the same quotient construction on different groups. Contractibility via valid elementary collapses is general, but the existence of those collapses is the particular statement to establish."
+        ],
+        "reasoning": "Neither knowledge of the original complex's nonzero homology nor the specific subgroup class census implies the elementary collapse here. No credit is assigned for the elementary-collapse implication itself.",
+        "searches": [
+          "Ramras arXiv:math/0210001v1, p. 18, OA offset 53400",
+          "Resultary A5/S5 and S4 Findings",
+          "Piterman thesis abstract, Webb orbit discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PSL_2(7) and GL_3(F_2) are classical isomorphic models, but Ramsey-style or homological information on the original subgroup complex, class-poset information, and ordinary simultaneous flag orbits are different invariants. Ramras studies the unquotiented poset; the atlas tabulates conjugacy classes of subgroups."
+        ],
+        "reasoning": "Collapsing the ordinary realization quotient needs the simultaneous orbit of each flag and its face incidences, not independent conjugations of its entries.",
+        "searches": [
+          "Resultary: PSL(2,7), PSL(3,2), GL(3,2), proper subgroup flag orbits and conjugation-quotient collapsibility",
+          "arXiv:math/0210001v1, p. 18",
+          "Connor–Leemans PSL_2(7) table, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The atlas has 15 subgroup conjugacy classes including the two endpoints and gives types, sizes and inclusion data. It does not tabulate the higher-dimensional cells or elementary collapses. The exact 99-cell, 49-cancellation catalogue hit was the assigned record itself."
+        ],
+        "reasoning": "The preceding data corroborate the input and the count of vertex orbits, not the higher flag cell counts or their topology.",
+        "searches": [
+          "Connor–Leemans companion atlas table https://leemans.dimitri.web.ulb.be/atlaslat/psl27.pdf",
+          "Resultary: exact counts 13,37,37,12 and 49 PSL(2,7) flag-orbit collapses"
+        ]
+      },
+      "rationale": "Earlier evidence establishes the subgroup counts and class data and documents different topologies for the unquotiented PSL_2(7) complex and for conjugation quotients of other groups. None of the inspected passages supplies the exact all-proper-subgroup flag-orbit cell structure or the collapsibility asserted here. The assigned Resultary entry itself is not a prior independent result.",
+      "residual_risks": [
+        "These bounded comparisons do not rule out an earlier flag-orbit calculation or a broader theorem outside the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pertains to the unquotiented complex",
+          "evidence": [
+            "Reports H_1(L(G)) nonzero with rank at least 21 for PSL_2(F_7)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0210001v1",
+          "material_read": "p. 18 (OA offset 53400)",
+          "method": "Lawful OA text",
+          "title": "Connectivity of the coset poset and the subgroup poset of a group",
+          "trigger": "Direct PSL_2(F_7) subgroup-complex precedent"
+        },
+        {
+          "assessment": "Matches subgroup data and vertex orbit count; does not state orbit flag topology",
+          "evidence": [
+            "15 subgroup classes including the full and trivial classes, with subgroup types and containment data."
+          ],
+          "identifier_or_url": "https://leemans.dimitri.web.ulb.be/atlaslat/psl27.pdf",
+          "material_read": "p. 1 table",
+          "method": "Lawful OA PDF",
+          "title": "The subgroup lattice of L_2(7)",
+          "trigger": "Exact group and subgroup incidence reference"
+        },
+        {
+          "assessment": "The inspected results and questions concern p-subgroups, not all proper subgroups",
+          "evidence": [
+            "Quillen and Webb contexts are posed for p-subgroup complexes."
+          ],
+          "identifier_or_url": "https://mate.dm.uba.ar/~kpiterman/thesis.pdf",
+          "material_read": "Abstract, offset 579",
+          "method": "Lawful OA text",
+          "title": "Homotopy properties of the p-subgroup complexes",
+          "trigger": "Plausible broad orbit-contractibility results"
+        },
+        {
+          "assessment": "Different groups and topologies",
+          "evidence": [
+            "(7,8,1) and (17,49,41,7) orbit-cell counts; final circle and sphere respectively."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-conjugation-quotients-of-the-proper-subgroup-complexes-of-a-5-an--5700bda30292",
+          "material_read": "Finding and collapse descriptions",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Conjugation quotients of the proper-subgroup complexes of A5 and S5",
+          "trigger": "Same geometric orbit construction"
+        },
+        {
+          "assessment": "Different group; no priority inferred from date",
+          "evidence": [
+            "(9,15,6) and eight elementary collapses to a circle."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-seven-cycle-collapse-of-the-conjugation-quotient-of-the-proper--b26e83d1569b",
+          "material_read": "Finding and counts",
+          "method": "Local Resultary mirror, same snapshot",
+          "title": "A seven-cycle collapse of the conjugation quotient of the proper subgroup complex of S4",
+          "trigger": "Distinct same-day calculation on a related small group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This finite classification concerns the full proper subgroup lattice of the second-smallest nonabelian simple group, a natural test beyond A5. The original subgroup complex has nontrivial first homology, and the ordinary quotient actually collapses, a stronger fact than trivial homology or Euler characteristic one. The exact flag incidence and cancellation data give a reproducible comparison with documented noncontractible neighboring examples, without claiming a broader classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

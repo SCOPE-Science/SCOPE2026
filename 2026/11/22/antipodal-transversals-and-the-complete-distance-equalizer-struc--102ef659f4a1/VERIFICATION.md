@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,45 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-The graph is defined by the 20 vertices and 30 edges of \(GP(10,2)\), with outer and inner cycles/indexed spokes exactly as in `RESULT.md`. No external graph files or libraries are needed.
+## correctness
 
-**Direct exhaustive test (C++17):**
-
-```bash
-c++ -O2 -std=c++17 verify_direct.cpp -o verify_direct
-./verify_direct
-```
-
-Expected deterministic output:
-
-```
-DISTANCE_PAIR_COUNTS 30 60 60 30 10
-EQUALIZER_COUNTS 10:1024 11:5120 12:11520 13:15360 14:13440 15:8064 16:3360 17:960 18:180 19:20 20:1
-FULL_TOTAL 59049
 PASS
-```
 
-This checks graph-distance distributions, the antipodal distance identity, that all non-antipodal witness sets comprise two antipodal pairs, **all** potential distance-equalizer vertex subsets, the entire polynomial, and exact equality between the original definition and pair-hitting.
+The frozen claim is mathematically correct. Independent Floyd–Warshall distances gave diameter five and the antipodal distance-complement identity. For each of all 190 pairs the witness locus was exactly two whole antipodal pairs at distances 1–4 and empty at distance 5. Marking each superset of {u,v} union W(u,v) in the omitted set gives exactly the same bad masks as omitting an antipodal pair, over all 2^20 choices. This recovers 59,049 allowed sets with polynomial (2z+z²)^10. In a separate part of the replay, backtracking over distance-preserving injections gave all 120 automorphisms (graph automorphisms are exactly the distance-preserving permutations). Partitioning the 1024 transversals under their images yielded frequencies 2,4,2,10,2 at sizes 12,20,40,60,120. The repaired Finding asserts only that exact profile; its orders 10,6,3,2,1 follow by orbit–stabilizer. The cube and absence of slides are correct background corollaries, since a one-token replacement flips exactly one pair choice and that pair has distance five.
 
-**Independent automorphisms, orbit census, mobility (Python standard library):**
+## originality
 
-```bash
-python3 verify_symmetry.py
-```
-
-Expected deterministic output:
-
-```
-AUTOMORPHISMS 120
-OPTIMUM_SETS 1024
-AUTOMORPHISM_ORBITS 20 12:2 20:4 40:2 60:10 120:2
-INDUCED_EDGE_HIST 3:20 4:60 5:72 6:120 7:240 8:240 9:120 10:72 11:60 12:20
-TOKEN_JUMP_DEGREE 10 TOKEN_SLIDE_EDGES 0
 PASS
-```
 
-The automorphism argument is exhaustive: the image of one oriented length-two path must be among exactly 120 such paths, and the path's three distance coordinates distinguish all 20 vertices, fixing each candidate map uniquely. All 120 maps are constructed and checked to preserve adjacency. The orbit list is therefore complete. The induced-edge histogram is an independent structural refinement of the minimum-set census, not necessary for the main theorem.
+Original originality decision: FAIL. The frozen claim presents the antipodal classification as distinct from prior resolving work, but the earlier witness-locus table directly implies it, the polynomial and the reconfiguration deductions. Moreover Palmer and Robinson counted exactly these same 20 orbits in 1984 under their self-dual coloring formulation. This is shown prior coverage, not failed retrieval. The repaired claim credits both and restricts the novel assertion to the distribution of sizes of the already known 20 orbits (equivalently, of stabilizer orders). No matching size profile or covering theorem for it was verified. The cited single-element cycle index gives total orbit counts but does not give simultaneous-fix or stabilizer-size statistics. This PASS is for the actual replacement only.
 
-**Scope and limits.** These exact finite checks prove no statement about larger generalized Petersen graphs or absolute historical priority. Successful execution does not constitute external or independent mathematical certification. The scientific claims were reviewed against the supplied source code, outputs, and finite combinatorial proof.
+## value
+
+PASS
+
+The narrower result distinguishes strongly symmetric and asymmetric configurations on the natural full orbit space of minimum equalizers. For example, 240 of 1024 labeled choices have trivial stabilizer while 24 have stabilizer order ten, facts not read off from the known tally of 20 equivalence classes. The size profile is useful when converting counts or sampling weights between labeled configurations and symmetry classes. This is a motivated exact invariant of a canonical finite symmetry action; the already-covered classification, counts and cube observations are not used to justify novelty or value of the repair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

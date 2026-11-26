@@ -1,15 +1,21 @@
-# Scientific review: sharp power-substitution norms
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact statement includes all real parameters \(1\le p<\infty\), \(0\le\sigma\le1\), and \(\alpha>0\), and complex-valued locally integrable functions. For \(0<\alpha\le1\), monotonicity of the change-of-variable density yields the sharp universal upper bound \(\alpha^{-1-1/p}\). Indicators concentrating at the right endpoint asymptotically attain this factor, while the strict positive power in the intermediate integral rules out nonzero norm-attainers for \(0<\alpha<1\). For \(\alpha>1\), indicators concentrating at the left endpoint give norm ratios tending to infinity; the proof treats all three regimes \(p\sigma<1\), \(p\sigma=1\), and \(p\sigma>1\). No differentiability, norm-attaining compactness, or assumption beyond those stated is used. The executable supplementary checker gives 422 passing assertions.
+## correctness
 
-## Originality — PASS, with stated residual risk
-Raj–Pandoh–Jamwal (2014) discuss composition operators on Cesàro spaces and assert a general measure-distortion norm formula, but the formula cannot imply the stated sharp result: at the present power symbols it would give \(1/\alpha\) rather than \(\alpha^{-1-1/p}\). Jafari–Kamali (2020) had already shown that the older formula is incorrect and proved a restricted boundedness result under interval invariance; that restriction is not satisfied for nonidentity power substitutions, and their inspected sections do not give these exact norms. The theorem does not claim to originate the critique of the 2014 formula. Curbera–Ricker (2016) treats abstract Cesàro spaces and integral representation, not the sharp norm profile in the inspected material. The relevant completed semantic and source-title searches did not identify an equivalent power-substitution calculation; negative searches alone do not establish novelty. The remaining bibliographic risk is an unlocated exact formula in older weighted Hardy or composition-operator literature.
+PASS
 
-## Mathematical value — PASS
-The invariant is the full optimal norm and boundedness threshold for the simplest nonlinear self-maps of \((0,1)\) across the classical normalized Cesàro function spaces, together with their natural primitive and intermediate Hardy weightings. The result provides one uniform sharp formula, a nonattainment theorem, and a sharp one-sided unboundedness phase transition. Distinct endpoint concentration mechanisms explain both sides of the classification. Since general measure-distortion formulas have proved unreliable for these non-rearrangement-invariant spaces, an exact self-contained representative family is mathematically informative rather than a numerical recomputation or arbitrary parameter slice.
+Finite norm implies ∫_0^a |f|<∞ for each a<1, since otherwise the norm is infinite on (a,1). Power maps are nonsingular on the open interval, so composition is well-defined on equivalence classes. For 0<α≤1, the primitive after substitution is α^(−1)∫_0^(x^α)|f(u)|u^(1/α−1)du, at most α^(−1)x^(1−α)F(x^α). Dividing by x^σ converts this to α^(−1)x^((1−α)(1−σ))H_σ f(x^α); the outer Jacobian yields exactly the exponent (1−α)(1+p(1−σ))/α in the p-th power estimate. This exponent is positive if α<1, proving strictness for every nonzero f. At α=1 the identity attains its norm. Integrating a right-end indicator yields ε^(p+1)/(p+1)(1+O(ε)); its preimage has width ε/α+O(ε²), so the optimal bound follows. For α>1 the left-end indicator's p-th norm equals r^(1+p(1−σ))/(1+p(1−σ))+r^p∫_r^1 x^(−pσ)dx. The resulting leading powers are p for pσ<1, p with an extra log(1/r) at equality and 1+p(1−σ)>0 for pσ>1. Replacing r by r^(1/α) therefore makes the norm ratios divergent even at pσ=1. This suffices for failure of boundedness, without assuming or asserting anything about the domain of an unbounded realization. As a separate check, at p=1 Tonelli gives weighted L¹ with weight W(u)=∫_u^1 x^(−σ)dx, so composition has density ratio (1/α)u^(1/α−1)W(u^(1/α))/W(u); at σ=0, α=1/2 it is 2u(1+u), with essential supremum 4 and no norm-attainment. `python /workspace/review_checks/frozen_probes.py` checks that example and a closed-form p=2,σ=1/2 endpoint test. The proof, not the bounded replay, covers the full parameter set.
 
-## Nearest literature and limitations
-Primary source: Raj–Pandoh–Jamwal, *Composition Operators on Cesàro Function Spaces*, J. Function Spaces (2014), doi:10.1155/2014/501057. Closest subsequent discussion: Jafari–Kamali, *Some Properties of Composition Operators on Cesáro Function Spaces*, J. Math. Extension 14 (2020), Section 2, https://ijmex.com/index.php/ijmex/article/download/1093/450/6324. Additional structural background: Curbera–Ricker, *Abstract Cesàro spaces: Integral representations*, JMAA 441 (2016), doi:10.1016/j.jmaa.2016.03.074. The original statement is limited to finite \(p\), the indicated weighted integral norms, and power substitutions. Bibliographic exhaustiveness and the essential spectrum are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact norm and nonattainment profile for power substitutions across all stated p and σ survives the comparison. The earlier incorrect measure-distortion norm assertion does not establish it, and the counterexample to that assertion is already known and not credited as new here.
+
+## value
+
+PASS
+
+Power maps form a natural one-parameter nonlinear semigroup and a concrete test of how composition interacts with a non-rearrangement-invariant norm. The exact uniform constant, strict nonattainment, and transition to divergence from the opposite endpoint resolve the entire stated range. They explain precisely why a simple measure-distortion heuristic misses a factor in this natural case, rather than merely verifying a known endpoint value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

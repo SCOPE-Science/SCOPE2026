@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The state definition treats Hamiltonian paths modulo reversal and permits Pósa rotations at either endpoint. Every Hamiltonian path of the ten-vertex Kneser graph is visited by complete depth-first enumeration; the count is \(120\). The natural permutation action produces \(120\) distinct orbit images of one reference path, proving regularity. Computing its four actual rotation-neighbors yields the explicit inverse-closed Cayley generator set. Right-Cayley breadth-first search covers all \(120\) permutations with shells \((1,4,11,25,39,29,11)\). This proves exact diameter \(6\), not merely a bound. A separate C++ implementation builds \(GP(5,2)\), identifies Hamilton paths by edge masks, counts all one-edge exchanges, and verifies every state's metric. An explicit Petersen-model isomorphism and the elementary edge-flip/backbite equivalence close the comparison. Both verifiers succeeded from the embedded files.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The Pósa endpoint-rotation method is classical (1976). The first publicly dated version of the archival source is arXiv:1506.00618v1 (2015-06-01), whose Hamilton-cycle packing and counting results do not imply the enumerated Petersen backbite metric. Kazazi's arXiv:2610.05068 treats the same move and proves connectivity for graphs with a spanning squared path; that hypothesis cannot hold for the \(3\)-regular Petersen graph, and its inspected full-text statements contain no Petersen computation. The existing Herschel Hamiltonian-path rotation classification concerns a different graph and gives no result on Petersen paths. Basic Petersen symmetry and non-Hamiltonicity do not determine its path-space Cayley generators or diameter. Targeted aliases and research-record searches found no covering entry. These searches are evidence of no identified coverage, not a proof of universal novelty. The main residual risk is an equivalent Petersen special-case calculation in unindexed literature.
+PASS
 
-## Value — PASS
-The configuration space of all Hamiltonian paths under local endpoint rotations is a natural object in Hamiltonian algorithms and local sampling. The Petersen graph is a canonical non-Hamiltonian, cubic, highly symmetric graph with no spanning squared path, so general dense-graph connectivity results leave this case outside their reach. The surprising structural conclusion that this non-Cayley graph induces a regular Cayley graph on its Hamiltonian paths, together with four explicit generators and an exact short diameter, is a motivated finite classification and an exact benchmark for local path moves; it is not a routine parameter change in an existing theorem.
+The separate finite check /workspace/branches/5e1de70f-c72b-48ff-9568-89b779f2d952/independent_check.py reconstructed KG(5,2), enumerated all ten-vertex spanning paths modulo reversal, and checked both-end rotations and BFS from every state. It obtained 120 paths (four for each of 30 nonedge endpoint pairs), 240 edges, degree four, and shells (1,4,11,25,39,29,11) at every state. The action preserves rotations. An element stabilizing the reference path cannot reverse it, since 01 and 24 are disjoint but their reversed images 14 and 04 are not; fixing the path pointwise fixes every two-subset and hence is the identity. The computed four reference neighbors give exactly the stated inverse pair, double transposition and transposition, with right multiplication as claimed; conjugates of (0 3) by (0 3 2 4) generate S_4 on its support, and (0 1)(2 3) then generates the missing transposition with 1. Full breadth-first enumeration gives eccentricity six. The edge-exchange criterion also follows: no old endpoints are adjacent in the non-Hamiltonian Petersen graph, so a one-edge addition must join an endpoint to an interior vertex; to undo the cycle and the degree-three vertex requires deleting the interior vertex's edge toward that endpoint. No frozen script was executed for the independent check.
 
-## Scope and risks
-This is a complete classification of one fixed finite graph, not a general theorem on cubic graphs. The full original 1976 paper was not examined; its rotation terminology was checked through its bibliographic record and a mathematical reference. An equivalent graph-specific enumeration elsewhere cannot be ruled out. Independent scholarly validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 120 path count and the existence of a containment-complex presentation of these paths are already covered. Supported distinct content is the exact backbite Cayley identification, including the right generators for the specified path, and the exact word metric distribution. No inspected prior statement supplies those invariants.
+
+## value
+
+PASS
+
+The known path count is not the gain. A natural non-Hamiltonian cubic test case lies outside the spanning-square connectivity theorem; identifying its reconfiguration graph with a specific S5 Cayley graph explains uniformity across all states and supplies exact answers for the reachability distance between configurations. The complete reference-path metric is a useful invariant of this specific move graph, not an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

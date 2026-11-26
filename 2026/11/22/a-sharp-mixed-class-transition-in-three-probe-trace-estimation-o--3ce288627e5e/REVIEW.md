@@ -1,15 +1,21 @@
-# Scientific assessment: three-class stochastic probing on balanced bicliques
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem covers all integers \(n\ge3\) and all real positive shifts, with a fixed three-quadratic-form Rademacher probing budget. The proof directly inverts the shifted graph Laplacian, verifies the factor-four variance normalization, performs a strict same-size vertex exchange to exclude more than one mixed color class, and proves a second strict improvement that excludes both pure classes lying on the same shore. The remaining two-integer gain \(D(a,b)=n(a+b)-(a+b)^2+(2-\theta)ab\) is optimized exactly, including the equality regime \(\theta=2\). The discrete gain differences are strictly decreasing, excluding nonconsecutive maximizers. Exact fractions and exhaustive small graph tests in `verify.py` passed 35,610 assertions, with no finite enumeration used as a substitute for the universal analytic proof. The independent mathematical audit has not been performed.
+## correctness
 
-## Originality — PASS on inspected evidence, qualified
-The closest inspected claim is the published published-finding corpus theorem *Sharp two-color stochastic-probing transition on complete bipartite resolvents*, whose full statement and proof cover exactly **two** nonempty probe supports. On balanced \(K_{n,n}\), that formula makes the proper bipartition optimal for all positive shifts, so it neither states nor proves the new **three**-probe sharp mixed-to-pure transition and complete optimizer classification. Frommer–Rinelli–Schweitzer (2023), arXiv:2308.07722v1, Theorem 3.3 and Lemma 3.5, provide the stochastic-probing variance identity for a supplied partition, not a globally optimal partition on this graph family. Stathopoulos–Laeuchli–Orginos (2013), arXiv:1302.4018v1, describe hierarchical and distance-based probing on lattices, a different optimization objective. Actual searches for three-color biclique probing, weighted Max-3-Cut, and equivalent homogeneous two-community partitioning did not produce an equivalent all-shift theorem. This is best-knowledge originality, not a claim of exhaustive publication priority.
+PASS
 
-## Value — PASS
-The exact three-action design problem is a natural next budget after the proper two-color case. Unlike a routine extra-color refinement, the unrestricted optimum changes graph-coloring type at the sharp threshold \(\mu=n(\sqrt2-1)\): improper with one mandatory mixed class below it, coexistence at equality, and only proper partitions above it. The formula gives a provably optimal design and exact variance with a small one-dimensional integer search rather than enumeration over all three-way partitions, as well as every threshold tie and optimizer count. It provides a concrete benchmark for the interaction of estimator variance and graph coloring under screening.
+Decomposing the shifted Laplacian into the two shore-constant directions and their orthogonal complements gives within-shore entry κ and cross-shore entry χ, with χ/κ=1+μ/n. Each independent class probe contributes four times the sum over unordered within-class pairs. In the resulting cost, an exchange between two mixed classes at fixed class sizes strictly increases the sum of squared shore imbalances and lowers cost for θ>1. With only one mixed class, if both pure classes were on the same shore, moving the minority contribution of the mixed class into a pure class would save θn per transferred vertex against fewer than n new collisions. Thus the gain is D=ns−s²+(2−θ)ab, with s=a+b. For 1<θ<2 fixed s forces balanced a,b; a balanced positive choice at an integer nearest n/2 beats the pure gain, including s=2 for n=3. Values s≥n are worse (the successive differences are negative there), and s=1 is no better than the pure gain. Strictly decreasing differences give only adjacent interior ties. For θ≥2 the upper bound floor(n²/4) requires s nearest n/2, with ab=0 required only when θ>2. This also yields the unlabeled counting rules: a unique mixed class identifies its two subsets; in the even pure case the two equal halves are unordered. An independent exact-integer check grouped partitions by the two triples of shore counts, tested all feasible triples for n=3–12 at nine rational θ values each, and matched all optimizer signatures, including internal ties at (n,θ)=(6,3/2),(8,3/2),(12,5/4).
 
-## Closest literature and limitations
-Sources inspected include the full mathematical text of the published two-color biclique RESULT.md and the relevant full-text sections of arXiv:1302.4018v1 and arXiv:2308.07722v1. The unindexed weighted-partition literature remains a plausible source of equivalent statements. Results are specific to balanced unit-weight bicliques with \(n\ge3\), positive shift, one independent Rademacher quadratic form per class, and exactly three nonempty classes; they do not optimize runtime, unequal probe repetition, arbitrary graph weights, or correlated probes. Finite checks corroborate but do not independently certify the all-parameter proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The per-partition variance identity and distance-based probing are established. Earlier bipartite work has a different action budget; same-budget split-graph and star results concern different cost matrices. The inspected sources do not determine the biclique threshold, staircase or complete equality families, including via the equivalent weighted three-cut formulation.
+
+## value
+
+PASS
+
+The fixed three-action variance budget is operationally meaningful and exposes an exact reversal not seen at two actions on this graph. Weak screening forces a nonproper partition despite higher individual cross-shore pair costs; at and above critical screening the precise optimizer sets are different. Strict uncrossing and the discrete staircase give a usable characterization rather than just a numerical improvement or a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

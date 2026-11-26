@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction of \(640\) near-balanced five-mers to \(320\) complement pairs and then \(104\) individually compatible pairs is exhaustive. Admissible codebooks are exactly cliques of the computed \(104\)-vertex, \(1068\)-edge compatibility graph. The included seven-color certificate proves an absolute upper bound of seven orbit-pairs, and the seven-pair witness reaches it. An increasing-index exact-integer clique recursion proves every coefficient, while explicit orbit computation classifies all \(56\) maxima. The standalone standard-library verifier replayed these checks; an independent graph-library enumeration reproduced every coefficient.
+PASS
 
-## Originality — PASS with historical-priority risk
+The length-five universe has 2^5(C(5,2)+C(5,3))=640 eligible words. Reverse complement preserves this set and is fixed-point-free because it would have to fix the middle symbol. After checking each two-word orbit internally, the remaining conditions are pairwise, so compatibility cliques are in bijection with all labeled codebooks, including the empty codebook. An independent regeneration used prefix/suffix set intersection and coordinate-deletion projections (two distinct words agree after some aligned coordinate is deleted exactly when they differ at one coordinate). It recovered 320 pairs, 104 admissible vertices and 1068 edges, and validated the seven-color certificate and matching witness. A binary include/exclude census terminating at leaves, with a degree-based choice of the branching vertex, gave (1,104,1068,3472,4648,2776,720,56), total 12845. All eight letter permutations commuting with complement preserve the allowed composition range, including the pair swaps that interchange counts two and three. Checking each permutation's fixed maxima gave (56,0,0,0,0,0,0,0), proving seven free orbits of eight. Thus the maximum is 14 words and every claimed coefficient and equality count is reproduced.
 
-The closest full publicly archived five-mer result has the same balance, reverse-complement closure and non-overlap assumptions but **no distance-two restriction** and an optimum of \(24\); it does not determine the stricter optimum \(14\) or the enumeration. A full four-mer spectrum with overlap, closure and substitution detection has a different length, permits reverse-complement-fixed words and has no GC restriction. The full accessible 2024 almost-balanced paper treats overlap and balance but not this strand-closed, distance-two exact census. The 2017 primer paper addresses general constructions and asymptotic bounds rather than this finite intersection. No equivalent claim emerged from targeted archive and mathematical-literature searches. Some other terminology or an unindexed finite table may still contain the same result; this has not been ruled out by independent priority research.
+## originality
 
-## Value — PASS
+PASS
 
-The extra aligned-substitution-detection requirement cuts the established \(24\)-word benchmark under balance, strand closure and frame synchronization to a sharp \(14\) words. The whole size polynomial and seven equality types supply a concrete constrained-coding design space rather than an isolated example or routine change of notation. All four restrictions have independent coding motivations; none is introduced only to force a new number.
+The closest matches separately omit Hamming separation or change the length and balance restrictions. None of the inspected statements supplies the combined admissibility graph, its size polynomial, or the maximum orbit classification. Pass is for that exact finite classification, not for the general clique reduction, strand-closure concept, or universal priority.
 
-## Limits
+## value
 
-The result applies to the specified length-five codebooks and detects one aligned substitution; it does not correct one error or predict physical DNA performance. Its finite upper bound is a replayable color certificate, not an infinite symbolic classification. Publication priority and experimental relevance require external assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Five is a natural odd test length: strand closure here forces two-word orbits and exact half balance is impossible, making the adjacent two GC counts the natural symmetric choice. Comparing with the otherwise identical maximum of 24 quantifies the true cost of aligned single-substitution detection (a drop to 14). The full size spectrum and classification of optimal designs up to the natural relabeling group give an exact benchmark beyond an exhibited example or mere upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

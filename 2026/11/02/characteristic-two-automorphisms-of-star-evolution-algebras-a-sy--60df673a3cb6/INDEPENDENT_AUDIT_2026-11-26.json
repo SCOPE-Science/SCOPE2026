@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:49.344033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–67; VERIFICATION.md; verify.py lines 39–105; checks.txt"
+      ],
+      "rationale": "For a general block map G(αa+u)=(cα+ℓ(u))a+αv+Tu, the leaf products imply B(Tu,Tw)=cB(u,w) and ℓ(u)ℓ(w)s=B(u,w)v. Taking a pair with B(u,w)=1 makes v a multiple of s. The rank of that multiple of B would be m≥2 if nonzero, whereas ℓ⊗ℓ has rank at most one. Hence v=ℓ=0. Invertibility gives c≠0, and the central square forces Ts=c²s. Since B(u,u)=B(u,s)², pairing Tu with Ts shows c⁻²B(u,u)=cB(u,u); taking a coordinate vector gives c³=1. Thus T=c²U with UᵗU=I. Conversely an isometry fixes s by injectivity of squaring and nondegeneracy, so these and only these block maps are automorphisms, with componentwise composition. When m is odd, ks is nondegenerate and its complement is alternating; the restriction and extension by identity are mutual inverses. When m is even, the span of s,t has Gram matrix with rows (0,1),(1,1), hence nondegenerate, and its orthogonal complement H is alternating. Fixing s and preserving B(s,t) and B(s,H) forces the t-coordinate in U(t) to be 1 and in U(H) to vanish. Pairing U(t) with U(h) then forces the s-coordinate of U(h) to be B(u,Vh); the resulting formulas preserve all pairings, including B(t,t). The kernel of restriction to the quotient has product (u+u′,β+β′+B(u,u′)), which is symmetric and has square neutral; it has q^{2r+1} elements and the section acts by (u,β)↦(Vu,β). This also works when H=0. Counting symplectic bases contributes a factor (q^{2j}−1)q^{2j−1} in dimension 2j, giving the stated order, and the independent central factor has size gcd(3,q−1). The odd case retains this central factor; its symplectic part has no normal nontrivial 2-subgroup, since such a group on the natural space would have a nonzero fixed vector and normality plus symplectic transitivity forces it to fix the whole space.",
+      "residual_risks": [
+        "The frozen enumerator and recorded stdout were inspected, not rerun. The proof concerns ordinary k-linear points, not a group-scheme assertion. The notation O(I_m,k) refers to bilinear isometries, not quadratic-form isometries in characteristic two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elduque–Labra Proposition 4.2 and Corollary 4.7/Theorem 4.8 use E²=E for the monomial automorphism result. Cadavid–Rodiño Montoya–Rodríguez Propositions 3.2–3.3 use nonsingularity. The survey arXiv:2610.22248 §1.6.1 treats the exact sequence for perfect algebras and Theorem 10 constructs a different simple (perfect) family with prescribed graph automorphisms."
+        ],
+        "reasoning": "This star has structural-matrix rank 2<m+1. The broad perfect-algebra and nonsingular-graph statements have a hypothesis that fails here; the explicit simple examples in the survey are not an alternate description of this family.",
+        "searches": [
+          "arXiv:1312.4685v1 §4; arXiv:1710.10516 §3; arXiv:2610.22248 §1.6.1",
+          "evolution algebra dim E^2 = 2 automorphism group star graph characteristic 2 orthogonal complete bipartite classification finite fields evolution algebra"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4685v1 §4; arXiv:1710.10516 §3; arXiv:2505.15604v2 Example 3.3 and relevant theorems; arXiv:2610.22248 §1.6.1",
+        "Resultary 79c475fcec77 and 5645a714267a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The characteristic-zero graph-action result additionally requires that the automorphisms be graph-induced; its singular-star example explicitly does not relate the full adjacency and random-walk groups. The odd-characteristic indexed theorem refers generically to results for stars with one singleton part, without identifying a covering characteristic-two statement in the inspected passage."
+        ],
+        "reasoning": "The similar group shape in an odd-characteristic, two-block similitude theorem does not imply the rank-one obstruction, characteristic-vector scalar constraint and split even-leaf kernel in this family. No positive priority inference is drawn from the exact date or the generic reference.",
+        "searches": [
+          "arXiv:2505.15604v2 Theorems 2.17, 2.20 and Example 3.3; arXiv:1710.10516 Propositions 3.2–3.3; Resultary 79c475fcec77 Finding and prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.3 studies the singular adjacency algebra of K_{1,4}, but in characteristic zero and determines its diagonal subgroup Z/3, not the full group. The frozen identification includes nonmonomial linear maps and is not a graph-automorphism calculation."
+        ],
+        "reasoning": "The graph and the multiplication model describe the same object, but a diagonal or graph-induced subgroup does not determine the claimed group. One must distinguish ordinary k-linear algebra automorphisms from graph symmetries, and bilinear from quadratic orthogonal groups.",
+        "searches": [
+          "Resultary and literature comparison for K_{1,m} star adjacency-algebra automorphisms, nonperfect evolution algebras, and bilinear orthogonal leaf transformations",
+          "arXiv:2505.15604v2 Example 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date Resultary 79c475fcec77 gives full coupled orthogonal-similitude groups for complete bipartite graphs with both parts of size at least two in odd characteristic. Resultary 5645a714267a concerns composition-idempotent derivations of characteristic-two graph evolution algebras."
+        ],
+        "reasoning": "The same-day result is a real structural analogue, not an exact match by date or terminology: it excludes the required dimensions and characteristic. The derivation invariants do not tabulate the automorphism groups. Classical symplectic orders alone give no corresponding exact order for the algebra until its full group is identified.",
+        "searches": [
+          "Resultary comparison for complete-bipartite evolution algebras, characteristic-two derivations, and finite-field group orders"
+        ]
+      },
+      "rationale": "The supported distinction is the exact identification of the full ordinary automorphism group of the nonperfect star algebra in characteristic two. The structure and order of the corresponding classical bilinear groups are known; the originality assessment is not a claim about those groups in isolation. The strongest inspected automorphism results for graph algebras either require perfectness, work in characteristic zero or odd characteristic, or give only the diagonal subgroup for a star.",
+      "residual_risks": [
+        "The generic star reference in the earlier-work paragraph of the odd-characteristic record was not resolved to a specific covering theorem. The bounded comparisons do not certify historical priority or exclude an unindexed general theorem for nonperfect evolution algebras."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Perfect-algebra theorem excludes the star; orthogonal example is a different real algebra",
+          "evidence": [
+            "Regularity of the structural matrix is equivalent to E=E²; here the rank is two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4685v1",
+          "material_read": "§4, pp. 7–8, Example 4.1, Proposition 4.2, Corollary 4.7 and Theorem 4.8",
+          "method": "Open-access primary PDF passages and structural-rank comparison",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Foundational graph-algebra automorphism theorem and nonperfect examples"
+        },
+        {
+          "assessment": "Nonsingular-graph and nonsingular structural-matrix results do not cover this star",
+          "evidence": [
+            "Proposition 3.3 concludes monomial form under nonsingularity, which fails for K_{1,m} with m≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.10516",
+          "material_read": "§3 p. 15, Propositions 3.2–3.3 (OA offset 62512)",
+          "method": "Open-access primary PDF statement inspection",
+          "title": "On the isomorphisms between evolution algebras of graphs and random walks",
+          "trigger": "Plausible automorphism result for graph-derived algebras"
+        },
+        {
+          "assessment": "Same star shape in a different field regime, with only diagonal subgroup determined in the example",
+          "evidence": [
+            "Example 3.3 identifies D≅Z/3 for K_{1,4}; the paper assumes an algebraically closed field of characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.15604v2",
+          "material_read": "Introduction and Theorems 2.17 and 2.20, pp. 2–3; Example 3.3, pp. 15–16",
+          "method": "Open-access primary PDF assumptions and example inspection",
+          "title": "Group actions and automorphisms of evolution algebras associated to finite graphs",
+          "trigger": "Explicit full-group and singular-star comparison"
+        },
+        {
+          "assessment": "Real similitude analogue, but disjoint stated parameter regime",
+          "evidence": [
+            "Both parts have size at least two and characteristic is odd. The prior-work passage does not identify a full characteristic-two star classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-automorphisms-of-complete-bipartite-evolution-algebras-over-odd--79c475fcec77",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, and prior-work passage, offset 7044",
+          "method": "Resultary search and local-mirror statements read",
+          "title": "Automorphisms of complete-bipartite evolution algebras over odd finite fields",
+          "trigger": "Closest complete-bipartite full-group result in the catalogue"
+        },
+        {
+          "assessment": "Relevant displayed automorphism results concern perfect or simple algebras, not this nonperfect family",
+          "evidence": [
+            "The text states the group-scheme sequence for perfect algebras; the constructed A_Δ has invertible structural matrix over every field."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+          "material_read": "§1.6.1 pp. 9–10, exact sequence (2) and Theorem 10 (OA offset 33450)",
+          "method": "Open-access PDF locate query followed by bounded passage inspection",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Recent survey could supply a more general automorphism result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–27 and 32–67",
+        "arXiv:2505.15604v2 Example 3.3; arXiv:1312.4685v1 §4"
+      ],
+      "rationale": "The full automorphism group of this natural nonperfect graph-derived algebra is not determined by the graph automorphism group or by the standard perfect-algebra theorem. Identifying its matrix normal form makes the classical parity distinction applicable and describes the normal subgroup and its action, information not visible in the diagonal subgroup or in a small-field order check.",
+      "residual_risks": [
+        "The scope is unweighted stars, not general graph evolution algebras, and does not assert an automorphism-group scheme classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

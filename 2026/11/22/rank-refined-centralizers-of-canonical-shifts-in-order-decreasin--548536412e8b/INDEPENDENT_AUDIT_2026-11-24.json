@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:39:49.013367Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65; VERIFICATION.md and VERIFY.py inspected, not run",
+        "/workspace/branches/94e10815-d587-434c-bdd7-5a842a7b0b5e/independent_literal_reproduction.py: matches both orientation spectra over all 21 pairs 2<=n<=7, 1<=k<n; unrestricted partial injections enumerated separately"
+      ],
+      "rationale": "Distances to the two extreme domain points force every other image point between the two endpoint images, hence the map is x-d or c-x as stated; rank one has a unique offset and rank zero is counted once. For x-d both compositions have the same x-d-k output wherever defined; in the only possible input range x>=d+k+1 their domain tests are x in D and x-k in D. Equality forces complete residue chains, so independently selecting them gives the product. For c-x any common domain input gives values differing by 2k, so equality requires both domains empty. This is equivalent to D in the top k positions and its image in the bottom k positions. Positive images and order decrease then give q+1<=c<=p+min(k,p); every interior point is independently optional. This proves the endpoint sum even when n<2k-1. When n>=2k-1 a gap w allows k-w choices of p and k-w centers, giving the square. The stable reversing sum at z=1 satisfies S(k+1)=2S(k)+k^2, S(1)=0, confirming the closed count. At k=1 there are no reversals and the one full chain for each offset gives the powers, including the empty map and identity.",
+      "residual_risks": [
+        "The finite test does not cover unbounded n,k. For k>=n the nilpotent power is zero and the formulas are not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted cycle-cancellation record gives a rank polynomial indexed by the nilpotent chain partition. Araújo–Bentz–Konieczny give general compatible cycle and chain-segment maps for commuting partial injections."
+        ],
+        "reasoning": "The unrestricted ambient monoid contains maps not preserving the metric or order-decrease constraint. The exact chain-partition polynomial does not count which partial injections survive both restrictions; the criterion must be translated and counted in the given chain embedding.",
+        "searches": [
+          "centralizer rank spectrum nilpotent partial permutations symmetric inverse monoid",
+          "cycle-cancellation sieve nilpotent centralizers symmetric inverse monoids partial permutation conjugacy centralizer rank spectrum",
+          "arXiv:1205.1664 Proposition 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion lines 71–85; the inspected comparisons above; distinct Resultary parity-sensitive idempotent commutant finding offsets 120–1290"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted chain-segment commutation supplies structural background, but the order constraints impose whole residue classes on each separate offset interval. Reversals are possible only for annihilating products, with the extra geometric center constraint q+1<=c<=p+min(k,p). The same-monoid minimal generator theorem does not count these options."
+        ],
+        "reasoning": "The familiar k=1 rigidity is compatible with the unrestricted result. The extension is not a parameter substitution in the unrestricted polynomial: opposite orientations require distinct counting and the pi^k geometry yields the n>=2k-1 stabilization.",
+        "searches": [
+          "cycle-cancellation sieve nilpotent centralizers symmetric inverse monoids partial permutation conjugacy centralizer rank spectrum",
+          "\"order-decreasing partial isometries\" centralizer nilpotent shift rank polynomial finite chain",
+          "arXiv:2611.12150v1 generating set and Theorem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day shift-one Resultary run-factorization finding restricts both maps to a family of shift-one partial maps not asserted to be a submonoid. The Ayık–Ayık–Fernandes paper studies the same two monoids via generators and ideal ranks."
+        ],
+        "reasoning": "The shift-one partner family does not include all translation offsets and reversals, and specializes the commuting element differently; neither it nor a presentation is an equivalent full-centralizer statement.",
+        "searches": [
+          "rank-refined centralizers of powers of canonical partial shift in order-decreasing partial isometry monoids",
+          "commuting partial isometries order-decreasing finite chain canonical shift centralizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact unrestricted rank spectrum and its rigidity are indexed, and Green-class cardinalities in the filtered ambient monoids are known. The same-day parity-sensitive commutant record counts pairs with idempotent first component, not the fixed shift-power row. The exact frozen self-match is not prior evidence."
+        ],
+        "reasoning": "The Green counts and the idempotent-pair counts are not a table of fixed-shift centralizers. In a literal comparison at (n,k)=(4,2) the filtered full spectrum [1,4,5,1,1] differs from the unrestricted spectrum [1,4,6,4,2], even though they agree for k=1 and at (3,2). The finding does not claim universal inequality.",
+        "searches": [
+          "rank-refined centralizers of powers of canonical partial shift in order-decreasing partial isometry monoids",
+          "centralizer rank spectrum nilpotent partial permutations symmetric inverse monoid",
+          "arXiv:1702.04485 rank; arXiv:1101.2558 Green and cardinalities"
+        ]
+      },
+      "rationale": "Pass for the exact order-decreasing, isometric all-power centralizer spectrum, including ambient-dependent reversals and their stable range. The unrestricted nilpotent centralizer, the monoids/generators and the k=1 single-chain case are not new.",
+      "residual_risks": [
+        "Search and source reading are bounded; a differently indexed order-decreasing isometry centralizer theorem could have been missed. Same-day records were compared by scope, not date order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unrestricted spectrum, not the filtered result",
+          "evidence": "Counts all commuting partial injections by nilpotent chain partition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-cycle-cancellation-sieve-for-nilpotent-centralizers-in-symmetr--1d8c7c099b3b",
+          "material_read": "RESULT.md offsets 250–1740",
+          "method": "Local Resultary mirror",
+          "title": "A cycle-cancellation sieve for nilpotent centralizers in symmetric inverse monoids",
+          "trigger": "Explicit rank polynomials for nilpotent partial permutations"
+        },
+        {
+          "assessment": "Rank-spectrum rigidity for a different ambient monoid",
+          "evidence": "The full symmetric-inverse rank spectrum determines the chain partition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-nilpotent-partial-permutation-conjugacy-is-determined-by-its-cen--8be29dd91c24",
+          "material_read": "RESULT.md offsets 60–1560",
+          "method": "Local Resultary mirror",
+          "title": "Nilpotent partial-permutation conjugacy is determined by its centralizer rank spectrum",
+          "trigger": "Same invariant and canonical nilpotent type"
+        },
+        {
+          "assessment": "Limited commuting-partner family, not full monoid; no priority inferred from date",
+          "evidence": "Counts inside B_n, the shift-one family, rather than all offsets and orientations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-centralizer-run-factorization-and-the-rank-refined-commutation-l--574045ef19f3",
+          "material_read": "RESULT.md offsets 70–1522",
+          "method": "Local Resultary mirror",
+          "title": "Centralizer run factorization and the rank-refined commutation law for shift-one partial isometries",
+          "trigger": "Same-day shift commutation with rank refinement"
+        },
+        {
+          "assessment": "Known monoids and generator/ideal results",
+          "evidence": "Theorem 7 characterizes a minimal generating set E_r union F_r, not a commuting rank enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.12150v1",
+          "material_read": "Abstract at offset 0, generating-set passage at 828 and Theorem 7 at 15500",
+          "method": "OA arXiv text",
+          "title": "On semigroups of order-decreasing partial isometries: presentations and ranks of certain ideals",
+          "trigger": "Same monoids and canonical generator"
+        },
+        {
+          "assessment": "Structural unrestricted criterion",
+          "evidence": "Cycles map to compatible cycles and initial chain segments to terminal segments; no enumeration filtered by the metric embedding.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "Proposition 2.2, PDF p. 4 offset 13738",
+          "method": "OA PDF text",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Unrestricted commuting criterion could imply special cases"
+        },
+        {
+          "assessment": "Green relations and structural counts",
+          "evidence": "Equivalence-class and structural results are not the fixed-element centralizer counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.2558v1",
+          "material_read": "Abstract/introduction offset 360, Green/cardinality passages around 580–779",
+          "method": "OA arXiv text",
+          "title": "On the semigroup of order-decreasing partial isometries of a finite chain",
+          "trigger": "Same semigroups and their exact counts"
+        },
+        {
+          "assessment": "Related exact ranks and cardinalities for other classes",
+          "evidence": "Combinatorial properties, equivalences and whole-semigroup orders; not the shift-power commuting filter in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.04485",
+          "material_read": "Introduction at offset 3180, rank at 3422",
+          "method": "OA arXiv text",
+          "title": "Combinatorial results for certain semigroups of order-decreasing partial isometries",
+          "trigger": "Combinatorial rank and idempotent enumeration in the same ambient monoids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4; independent filtered and unrestricted comparison; earlier nilpotent-spectrum findings"
+      ],
+      "rationale": "This exact invariant addresses centralizers of every nonzero power of the canonical nilpotent generator in both natural metric monoids. It separates translation-chain freedom from reversed maps permitted only by annihilation, gives a genuine stable regime for the latter and still covers the nonstable range. The filtered counts cannot be read from the unrestricted centralizer rank spectrum. Value is the complete enumeration and classification, not the familiar k=1 count alone.",
+      "residual_risks": [
+        "The argument is specific to the canonical shifts and does not classify the centralizers of arbitrary partial isometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:44:00.586576Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md; verify.py (inspection only)",
+        "Independent symbolic replay /workspace/audit_evidence/analytic_checks.py and analytic_checks.out, THETA_INVERSE through PURE_ADVECTION_BAD"
+      ],
+      "rationale": "For four sites S^4=I. Independently inverting 1+2κt−(κ+1)tS−(κ−1)tS^3 modulo S^4−I recovers the claimed diagonal and the potentially negative off-diagonal tPκ(t)/[(1+4κt)Fκ(t)]; the other off-diagonals have strictly positive numerators for κ,t>0. Pκ has positive leading and negative constant coefficients for 0<κ<1, so its only positive root is t*. The identity M=θ^(-1)(Q−(1−θ)I) leaves the off-diagonal signs unchanged and imposes exactly Rκ(t)≥1−θ. Rκ decreases strictly from 1 to 1/4, not attaining 1/4 at a finite step; this proves the four regimes, with their endpoints. For θ=0 the negative explicit neighbor persists. At t*, substituting κFκ=1+4κt gives Rκ≥1/2 iff t*≤1/[2(1−κ)]; Pκ at that bound has sign κ²+2κ−1. Direct substitution also gives the quoted critical kernel and unique step. As κ tends to zero, t*∼1/(2√κ), κt* tends to zero and Rκ(t*) tends to 1/2. At κ=0 the bad coefficient is −t/(1+4t²) and the explicit step still fails. The theorem pertains to nonnegative completed updates, not intermediate stages, stability, or accuracy on general grids.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 0eb4f2e30fa5 concerns consistent-mass heat on complete-bipartite metric networks. The other closest graph theta hits summarize heat on stars and complete-bipartite graphs. Fekete–Ketcheson–Lóczi discuss centered hyperbolic examples with Runge–Kutta and then the heat equation."
+        ],
+        "reasoning": "Neither variable grid size in pure advection nor graph-diffusion theta positivity covers a periodic convection–diffusion operator with a negative off-diagonal and nonreal modes. A classification for a positivity-limited or modified spatial scheme would likewise not cover the unmodified update.",
+        "searches": [
+          "Resultary: general theta circulant positivity convection diffusion periodic four sites exact cutoff",
+          "Primary literature search for exact periodic centered convection–diffusion theta and Crank–Nicolson positivity",
+          "arXiv:1610.00228v2 §6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and inspected Findings listed above",
+        "Hadjimichael–Ketcheson–Lóczi arXiv:2105.07403v1",
+        "Fekete–Ketcheson–Lóczi arXiv:1610.00228v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-even-grid theorem establishes failure at κ=0. The broader shared resolvent criterion constrains signs but leaves the dependence on the nonzero diffusion unresolved."
+        ],
+        "reasoning": "The four-site off-diagonal polynomial and the comparison of its positive root with the diagonal cutoff are needed for the new threshold. In particular one cannot take the zero-diffusion conclusion at a fixed timestep uniformly over all positive timesteps.",
+        "searches": [
+          "arXiv:2105.07403v1 Theorem 1(i), §2.1",
+          "Resultary 0eb4f2e30fa5 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first two Resultary searches identify the frozen record itself. Hadjimichael–Ketcheson–Lóczi formulate the same entrywise positivity test and Fourier method, for κ=0."
+        ],
+        "reasoning": "The equivalence between cone preservation and entrywise nonnegativity is shared. Reversing S transposes the update and preserves the criterion, but does not remove κ, which changes the Nyquist eigenvalue from 0 to −4κ. The pure-advection result cannot be reparametrized into this criterion.",
+        "searches": [
+          "Resultary: four periodic nodes centered convection diffusion theta method positivity entrywise nonnegative exact timestep range",
+          "Resultary: four-node positivity centered convection diffusion t* diagonal cutoff theta phase diagram",
+          "arXiv:2105.07403v1 §2.1 and Theorem 1(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The threshold search returned the frozen result and related heat/graph positivity results, not a distinct matching table or formula in the inspected evidence."
+        ],
+        "reasoning": "The exact lookup target was κ=√2−1 and the four-site time interval, including the singleton endpoint. Neither diffusion-only maximum time steps nor repeated powers on stars tabulate the same quantity.",
+        "searches": [
+          "Resultary: Crank Nicolson cutoff sqrt(2)-1 four-node positivity convection diffusion periodic sites"
+        ]
+      },
+      "rationale": "The same frozen finding indexed in Resultary is not independent prior coverage. The closest inspected primary result gives the obstruction only at zero diffusion. Neither the shared circulant technique nor the known endpoint implies positive-diffusion reentry at t*, the finite diagonal ceiling, or the sharp Crank–Nicolson ratio. Pass applies to the four-site positive-diffusion phase diagram, not the general theta method or the zero-diffusion obstruction.",
+      "residual_risks": [
+        "Best-of-knowledge decision, not proof of historical priority. Unindexed treatment of the mixed constant-coefficient scheme could exist.",
+        "The two graph-positivity records listed with summary-level evidence were not available in full from the local mirror."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known method and pure-advection boundary; not the positive-diffusion result",
+          "evidence": "Theorem 1(i) gives a negative entry on even grids for centered pure advection.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.07403",
+          "material_read": "v1 abstract p. 1, §2.1 p. 4 (OA offset 16431), Theorem 1 p. 6 (offset 29661)",
+          "method": "Lawful OA primary text, bounded passage read",
+          "title": "Positivity preservation of implicit discretizations of the advection equation",
+          "trigger": "Same centered periodic theta update, potential broader coverage"
+        },
+        {
+          "assessment": "Different schemes in the inspected material",
+          "evidence": "Centered hyperbolic examples concern Runge–Kutta; subsequent heat example is not the mixed constant-coefficient update.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00228",
+          "material_read": "v2 §6 p. 16, OA offset 70296, including the move to the heat equation in §6.2",
+          "method": "Lawful OA primary text, bounded passage read",
+          "title": "Positivity for convective semi-discretizations",
+          "trigger": "Centered discretization positivity"
+        },
+        {
+          "assessment": "Identical assigned record, not a separate antecedent",
+          "evidence": "Same stencil, admissible time ranges and √2−1 cutoff.",
+          "identifier_or_url": "Resultary 2026/11/22 …--7da35e1c5cf6",
+          "material_read": "Finding and proof/relationship offsets 4449–8211",
+          "method": "Configured local mirror",
+          "title": "Exact four-node positivity phase diagram for centered convection–diffusion",
+          "trigger": "Exact semantic and formula match"
+        },
+        {
+          "assessment": "Different operator and geometry",
+          "evidence": "Consistent-mass finite-element heat on equilateral wire networks.",
+          "identifier_or_url": "Resultary 2026/10/25 …--0eb4f2e30fa5",
+          "material_read": "Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Sharp theta-step positivity on complete-bipartite metric networks",
+          "trigger": "Closest distinct broader theta-phase hit"
+        },
+        {
+          "assessment": "Summary-level distinction only",
+          "evidence": "Summaries concern star diffusion powers and complete-bipartite heat, not mixed centered convection–diffusion.",
+          "identifier_or_url": "Resultary …--aca55303c478; …--b76cdd4675ef",
+          "material_read": "Indexed summaries; local mirror full text unavailable",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "Crank–Nicolson powers on stars; theta-method positivity horizons on complete-bipartite graphs",
+          "trigger": "Potential graph-specialization overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; arXiv:2105.07403v1 Theorem 1(i) for contrast"
+      ],
+      "rationale": "Four sites are the first even periodic grid for which the two centered neighbors are distinct. On this canonical case the negative spatial coefficient does not preclude nonnegative fully discrete evolution: the methods can regain positivity only above a nonzero time and can lose it again at a finite upper time. The exact second-order threshold and singleton identify which mechanism limits the admissible steps and provide a test case for general periodic positivity analyses.",
+      "residual_risks": [
+        "The result measures positivity only, not an accuracy guarantee or a recommendation to use a large timestep."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

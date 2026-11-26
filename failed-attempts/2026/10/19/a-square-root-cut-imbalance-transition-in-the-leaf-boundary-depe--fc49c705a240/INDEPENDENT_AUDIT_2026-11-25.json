@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:19:46.938993Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed covariances are correct. One independent check averages the fixed cut over all a-subsets by label symmetry. Given the tree, E[C] under this averaging is constant, proving Cov(L,C)=0. For C² the only shape-dependent term is 2W(P_adj−P_dis), where W=∑ᵥ binom(deg v,2), P_adj=ab/[n(n−1)] for two adjacent edges both crossing, and P_dis=4a(a−1)b(b−1)/[n(n−1)(n−2)(n−3)] for two disjoint edges both crossing (n≥4). Writing m=n−2 for the Prüfer word length gives E[W]=m+m(m−1)/(2n). Conditional on any specified vertex being a leaf, the word avoids that label and n in the denominator changes to n−1. Summing over labels yields Cov(L,W)=p_n m(m−1)/[2(n−1)], where p_n=((n−1)/n)^(n−2). Multiplying gives exactly the frozen formula; its prefactor is positive, giving the stated signs. For n=3, L is constant and the claimed factor is zero for both possible cut sizes. Singleton and balanced cuts need no extra hypotheses. The inspected frozen Prüfer script checks only n=3 through 8 and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lyons gives joint spanning-tree edge inclusions as determinants. Theorem 1.1 of Goyal–Rademacher–Vempala is a cut-expansion theorem for unions of random spanning trees, not a statement of these mixed moments."
+        ],
+        "reasoning": "The determinant law is generic background from which mixed leaf–cut moments can in principle be derived. The reason for the originality failure is the much more specific earlier exact leaf–degree moment identity and its short reduction.",
+        "searches": [
+          "Lyons, arXiv:math/0204325, p. 2 equation (1.1) and p. 3 Example 1.1",
+          "Goyal–Rademacher–Vempala, arXiv:0807.1496, p. 3 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/13/SCOPE-cayley-tree-degree-is-leaf-orthogonal-only-at-first-order--841548d3e0e4",
+        "Resultary 2026/10/18/SCOPE-universal-cross-part-leaf-count-repulsion-in-random-complete-mul--b8aec21b6129",
+        "Resultary 2026/11/8/SCOPE-a-strict-leaf-split-covariance-dichotomy-for-uniform-labeled-tre--6933b4340198",
+        "arXiv:math/0204325",
+        "arXiv:0807.1496"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exchangeability and the sum of all edge indicators n−1 imply Cov(L,I_e)=0 (also a consequence of the degree linear identity). Expanding D_v² gives adjacent-pair covariance Cov(L,D_v²)/[(n−1)(n−2)]=p_n(n−3)/[n(n−1)²]. The sum of all unordered pair indicators is the constant binom(n−1,2); the ratio of adjacent to disjoint pair counts in K_n is 4/(n−3), giving disjoint-pair covariance −4p_n/[n(n−1)²]."
+        ],
+        "reasoning": "For a cut of sizes a,b the numbers of adjacent and disjoint unordered edge pairs are ab(n−2)/2 and ab(a−1)(b−1)/2. Doubling their contributions gives the target factor (n−2)(n−3)−4(a−1)(b−1)=(a−b)²−n+2. n=3 is deterministic in L. This recovers both claims and the sign boundary without any additional probabilistic identity.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-cayley-tree-degree-is-leaf-orthogonal-only-at-first-order--841548d3e0e4, equations (7), (10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier source gives Cov(L,D_v)=0 and Cov(L,D_v²)=(n−2)(n−3)(n−1)/n³ × ((n−1)/n)^(n−4), for n≥4. Here D_v is the cut size for a singleton subset."
+        ],
+        "reasoning": "A singleton second moment isolates the only nontrivial adjacent-edge orbit. The disjoint-edge orbit is fixed by a linear relation, so the degree identity and collection of all deterministic-cut second covariances are equivalent in this ensemble.",
+        "searches": [
+          "Resultary semantic lookup on Cayley-tree leaves, fixed cuts, degree and split covariances",
+          "Resultary 2026/10/13/SCOPE-cayley-tree-degree-is-leaf-orthogonal-only-at-first-order--841548d3e0e4, equations (7), (10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/13 leaf–degree record supplies the exact singleton identity. The 2026/10/18 cross-part leaf-repulsion hit concerns covariances of two class leaf counts in complete multipartite spanning trees. The 2026/11/8 leaf–split hit counts edges whose removal produces a component of a given size, not edges crossing a prescribed subset."
+        ],
+        "reasoning": "No tabulation is necessary: the indexed degree formula specifies the needed coefficient for all n. The other hits are mathematically different observables and are not evidence of exact cut coverage.",
+        "searches": [
+          "Resultary lookup for exact leaf/cut and leaf/degree covariance identities"
+        ]
+      },
+      "rationale": "The exact cut covariances and transition are a direct corollary of earlier Resultary leaf–degree identities, by exchangeability and the deterministic totals of one- and two-edge subsets of a tree. This is demonstrated coverage, not a conjectured overlap or a claim that the earlier source printed the cut formula.",
+      "residual_risks": [
+        "Whether an additional independent source explicitly printed the fixed-cut formula was not resolved. This does not undo the exact implication from the inspected earlier result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Specific prior result yielding the entire claimed fixed-cut finding by symmetry",
+          "evidence": [
+            "Zero linear leaf–degree covariance and exact quadratic leaf–degree covariance for n≥4"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-cayley-tree-degree-is-leaf-orthogonal-only-at-first-order--841548d3e0e4",
+          "material_read": "RESULT.md equations (7), (10), offsets about 1067–1542",
+          "method": "Resultary retrieval and matching primary record inspection",
+          "title": "Cayley-tree degree is leaf-orthogonal only at first order",
+          "trigger": "Degree equals the boundary count of a singleton"
+        },
+        {
+          "assessment": "Different model and statistic",
+          "evidence": [
+            "Zero or negative covariance between two classes' leaf counts, not leaf count versus a boundary count"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-universal-cross-part-leaf-count-repulsion-in-random-complete-mul--b8aec21b6129",
+          "material_read": "RESULT.md Finding, offsets 353–791",
+          "method": "Resultary retrieval and matching primary record inspection",
+          "title": "Universal cross-part leaf-count repulsion in random complete multipartite spanning trees",
+          "trigger": "Earlier indexed leaf-covariance result on a partition"
+        },
+        {
+          "assessment": "Later result for a different edge statistic",
+          "evidence": [
+            "Counts edges inducing a component of size k upon removal, not all crossing edges of a fixed cut"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-strict-leaf-split-covariance-dichotomy-for-uniform-labeled-tre--6933b4340198",
+          "material_read": "RESULT.md Finding, offsets 282–837",
+          "method": "Resultary retrieval and matching primary record inspection",
+          "title": "A strict leaf-split covariance dichotomy for uniform labeled trees",
+          "trigger": "Indexed exact leaf covariance with an edge-partition statistic"
+        },
+        {
+          "assessment": "Generic exact edge inclusion law, not an inspected evaluation of the leaf–cut moments",
+          "evidence": [
+            "Edge-pattern probabilities follow by determinants and inclusion–exclusion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0204325",
+          "material_read": "pp. 2–3, equation (1.1) and Example 1.1",
+          "method": "Targeted primary text",
+          "title": "Determinantal probability measures",
+          "trigger": "General spanning-tree inclusion law cited in the original"
+        },
+        {
+          "assessment": "Different cut-expansion problem",
+          "evidence": [
+            "Result concerns expansion of unions of random spanning trees, not joint leaf moments"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.1496",
+          "material_read": "p. 3, Theorem 1.1",
+          "method": "Targeted primary text",
+          "title": "Expanders via Random Spanning Trees",
+          "trigger": "Cited work on fixed cuts in spanning-tree models"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sign boundary is a useful interpretation, but the claimed contribution consists entirely of orbit-counting and sign simplification applied to a known exact invariant. No independently useful unknown moment or nontrivial new mechanism survives the reduction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

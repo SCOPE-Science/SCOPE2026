@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:33.613799Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–76; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent spectral reconstruction and the Brouwer e=2 Grassmann spectrum"
+      ],
+      "rationale": "Counting projective points gives BBᵀ=([n−1]_q−1)I+J and BᵀB=(q+1)I+A, so the adjacency sectors have dimensions 1, m−1 and N−m, with last two eigenvalues θ₁=[n−1]_q−q−2>0 and θ₂=−(q+1). Here N>m for n≥4. For b=2^p the distance-power matrix is bJ−bI+(1−b)A; its contrast eigenvalues are −b+(1−b)θ₁<0 and qb−(q+1). This proves the exact CND and strictness thresholds; centering kills just the constants in the strict case and additionally the θ₂ sector at equality. Counts of differing point indicators give squared distances 1 and (q+1)/q after scaling by 1/√(2q). In K=(1−t^b)I+(t−t^b)A+t^bJ, t=e^(−a), the constant and θ₁ sectors are positive for 0<t<1; the remaining eigenvalue is 1−(q+1)t+qt^b. This function decreases to zero at t=1 when b≤1+1/q. Otherwise it is strictly convex, positive at zero, zero with positive slope at one, and has exactly one interior root. At that root only the last sector drops out, leaving rank m; a=0 separately gives J of rank one. At p=1 factorization as (1−t)(1−qt) gives a≥log q on the nonzero branch.",
+      "residual_risks": [
+        "The frozen checker describes finite cases only; this review relies on the all-parameter spectral argument and does not assert an independent run of the supplied script."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sánchez gives a finite-metric negative-type determinant criterion; Murugan gives its vertex-transitive graph counterpart and equality-kernel characterization. Resultary record 9535d19cf47d concerns different, diameter-four generalized-quadrangle graphs. Harandi et al. use real continuous Grassmannian geometry, not a finite-field path metric."
+        ],
+        "reasoning": "The generic negative-type criteria apply, but the distance-two spectral identity suffices directly. The other kernel records concern different schemes or geometry and are not needed to derive this conclusion.",
+        "searches": [
+          "Resultary: rank-two Grassmann graph distance radial positive definite kernel spectral eigenvalue",
+          "arXiv:1108.0451 Corollary 2.4",
+          "arXiv:1112.5657 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer Grassmann graph table",
+        "Sánchez 1108.0451",
+        "Murugan 1112.5657",
+        "Harandi et al. 1407.1123",
+        "Resultary records c3f4dc85f1e2, 6313d9deadb2 and 9535d19cf47d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On any diameter-two graph a radial matrix with values c₀,c₁,c₂ is (c₀−c₂)I+(c₁−c₂)A+c₂J. Use (0,1,2^p) or (1,t,t^(2^p)). The complete resulting sign and rank calculation is in the correctness assessment."
+        ],
+        "reasoning": "Substitute the prior table into that identity, test the two contrast scalars, and check the derivative at one and convexity. The minimal Euclidean dimension is the centered Gram rank. Even the displayed embedding is the standard point-incidence indicator with common normalization; its distances simply count the symmetric differences. Thus the exact formulas are routine consequences even without a prior verbatim classification.",
+        "searches": [
+          "Brouwer, Grassmann graphs, e=2",
+          "Sánchez arXiv:1108.0451",
+          "Murugan arXiv:1112.5657"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct two-column rank-metric record c3f4dc85f1e2 has the same threshold, scalar root and log q cutoff, but different space, multiplicities and Euclidean dimensions. The three-subspace Grassmann record 6313d9deadb2 has a different graph and threshold equation."
+        ],
+        "reasoning": "Two-column maps into a fixed complement embed by their graphs as an isometric subset of the Grassmannian when the target has dimension n−2, since intersection of the graphs is the kernel of the map difference. Thus the scalar cutoffs overlap, but restricting to this subset cannot establish sufficiency or global ranks on the whole Grassmannian. Neither matched theorem alone is equivalent.",
+        "searches": [
+          "Resultary: Gr_q(2,n) sharp negative type threshold log_2(1+1/q) Euclidean embedding dimension heat kernel",
+          "Resultary: Gr_q(2,n) Grassmann graph negative type generalized roundness threshold",
+          "Web: \"negative type\" Grassmann graph finite field metric Grassmannian p-negative type spectrum distance matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer's e=2 paragraph tabulates the regular degree, contrast eigenvalues q²(q^(n−3)−1)/(q−1)−1 and −q−1, and multiplicities [n]_q−1 and N−[n]_q, referring to BCN §9.3.3."
+        ],
+        "reasoning": "This is the complete needed table. The positive contrast eigenvalue cannot violate either sign test; the least contrast eigenvalue gives both thresholds, and its multiplicity determines both rank drops.",
+        "searches": [
+          "Resultary: Grassmann graph J_q(n,2) three adjacency eigenvalues multiplicities spectrum",
+          "https://aeb.win.tue.nl/graphs/Grassmann.html, e=2"
+        ]
+      },
+      "rationale": "The full classification is mechanically determined by the published rank-two Grassmann adjacency spectrum and the diameter-two radial matrix identity; no additional Grassmann spectral datum or nonroutine inference is required. This is coverage by implication, not a claim that the exact prose or the full diagram was found verbatim.",
+      "residual_risks": [
+        "The bounded searches do not determine whether the combined rank and bandwidth statement was independently printed elsewhere. The finding of implication does not depend on that question or on ordering the catalogue records by date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact adjacency data yields the classification by radial substitution",
+          "evidence": "Both nonconstant eigenvalues and both multiplicities match.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Grassmann.html",
+          "material_read": "e=2 paragraph (OA offsets 0 and 1338)",
+          "method": "OA webpage passage inspection",
+          "title": "Grassmann graphs",
+          "trigger": "Exact spectral input for the same rank-two graph"
+        },
+        {
+          "assessment": "General criterion; specific graph example is different",
+          "evidence": "Determinant criterion and complete bipartite example.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Corollary 2.4, PDF p. 5 (offset 17673), and Theorem 3.1, p. 7 (offset 25143)",
+          "method": "OA PDF passages",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General negative-type boundary test"
+        },
+        {
+          "assessment": "Applicable general kernel test",
+          "evidence": "Determinant and equality-kernel criterion for graph metrics.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.5657",
+          "material_read": "§3, Theorem 3.1, PDF p. 2 (offset 6924)",
+          "method": "OA PDF passage",
+          "title": "Generalized roundness of vertex transitive graphs",
+          "trigger": "Vertex-transitive specialization"
+        },
+        {
+          "assessment": "Different geometry in inspected material",
+          "evidence": "Continuous Grassmann manifold and different kernel constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1123",
+          "material_read": "Introduction, PDF p. 1 (offset 867)",
+          "method": "OA PDF passage",
+          "title": "Expanding the Family of Grassmannian Kernels: An Embedding Perspective",
+          "trigger": "Same Grassmannian kernel terminology"
+        },
+        {
+          "assessment": "Overlapping scalar cutoffs; not the same space or rank theorem",
+          "evidence": "Two-column matrix space and rank distance; different spectral multiplicities.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-negative-type-and-gaussian-bandwidth-transition-for-two-co--c3f4dc85f1e2",
+          "material_read": "RESULT.md Finding and Proof §§1–5",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp negative type and Gaussian bandwidth transition for two-column rank metrics",
+          "trigger": "Same scalar formulas in nearest catalogue hit"
+        },
+        {
+          "assessment": "Different graph and root equation",
+          "evidence": "Deals with three-dimensional subspaces and n≥6.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-negative-type-of-three-subspace-grassmann-graph-metrics--6313d9deadb2",
+          "material_read": "RESULT.md Finding and Proof §§1–3",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp negative type of three-subspace Grassmann graph metrics",
+          "trigger": "Same graph family with different rank"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Brouwer e=2 adjacency spectrum and multiplicities"
+      ],
+      "rationale": "Admissible radial kernels and minimal embedding dimensions are meaningful invariants. Here, however, all the claimed exact quantities are immediate sign or multiplicity readouts from the existing spectrum. The self-contained incidence proof is useful exposition, but the record gives no nonmechanical exact fact beyond those readouts.",
+      "residual_risks": [
+        "This assessment concerns only the rank-two classification in the frozen claim, not higher-rank spectral thresholds."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

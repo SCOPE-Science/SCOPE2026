@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:49:15.012074Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two factors are invertible integral symplectic shears, and global permutation order is exactly matrix order by testing basis states. For B the bipartite adjacency, B²=diag(bJ_a,aJ_b) and B³=abB. Independently replayed RESULT.md:37–101 using Cayley–Hamilton on A(z)=[[1,z],[1,1+z]]: A^k=F_kA−F_(k−1)I with F_0=0, F_1=1, F_(k+1)=(2+z)F_k−F_(k−1). In Z[z]/(z³−abz), the full congruence is equivalent to simultaneous vanishing of U_k=F_k−F_(k−1)−1 and V_k=F_k after substitution z=B. Modulo two B² vanishes for two even parts, is nonzero but B³ vanishes in the mixed case, and B³=B in the odd case. The resulting orders 4,8,6 have nonidentity witnesses at every maximal proper divisor (U_2=B, U_4=B² in the mixed case, U_3=B+B² for odd parts). Exhausting the eight possible coefficient classes of ab mod 8 by this recurrence reproduced the valuation witnesses of RESULT.md:93 (replay: /workspace/reproductions/5.py). Unit entries of B witness the even-even valuations 1,2; the odd-size part coefficient in B² witnesses the mixed valuations 1,2 when ab≡0 mod 4 and valuation 2 when ab≡2 mod 4. In the odd case the witnesses are 2(I+B²) mod 4 and 4(I+B²) mod 8, and I+B² is nonzero mod 2 whenever some part has more than one vertex. For K_(1,1) the exact U_6 is 44(B+I), V_6 is 72(B+I); hence the valuation is 2, not 1, at the base order 6. To lift, the order at each next modulus divides twice the previous order by squaring I+2^sE; after valuation r≥2 the square increases the valuation by exactly one. The checked anchors give all five regimes including both s=1 and s=2. The uploaded direct-matrix regression was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The papers cover discrete periods, higher-dimensional constructions, and matrix-Fibonacci period conditions for symplectic lattices or symmetric circulant couplings.",
+          "The circulant paper's equation (27) uses L_CU_C, not L_IU_B."
+        ],
+        "reasoning": "The general recurrence methods apply in spirit, but do not evaluate the needed congruence valuations for the frozen shear composition, even in cases with a circulant adjacency.",
+        "searches": [
+          "arXiv:1111.2984 pp. 1,7",
+          "arXiv:2208.03267 pp. 2–3",
+          "arXiv:2605.00965v2 equations (27), (50)–(54)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7d947ded0ba2",
+        "Resultary 6ce73c0ff68d",
+        "arXiv:1111.2984",
+        "arXiv:2208.03267",
+        "arXiv:2605.00965v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact same-family congruence test involves q_k(ab) and gcd(a,b)p_k(ab) from evaluating polynomials in B².",
+          "The frozen congruence needs U_k(B) and V_k(B) in the full ring with B³=abB, and a separate I+B² cancellation at the literal one-edge boundary."
+        ],
+        "reasoning": "The general powering and lifting identities do not decide the first exact valuation witnesses for the frozen operator. The inspected closed formulas for the both-B operator cannot be specialized mechanically to obtain the five L_IU_B regimes.",
+        "searches": [
+          "Resultary 7d947ded0ba2 Step 1 and valuation anchors",
+          "arXiv:2605.00965v2 equations (50)–(54)",
+          "arXiv:2208.03267 pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-family catalogue map has both off-diagonal shears B, hence block-ring trace 2I+B² rather than 2I+B. Its mod-two orders are 2,4,3, not 4,8,6.",
+          "For K_(1,5) at s=3 its Finding gives 3, while the frozen theorem gives 24. For K_(1,1) at s=3 the two give 6 and 12."
+        ],
+        "reasoning": "Reversing two invertible shear factors would preserve the order by conjugation, unlike this change. The modular orders rule out conjugacy here and also disprove a uniform factor-two relation suggested by the base orders. The usual integer traces are unequal as well.",
+        "searches": [
+          "Resultary 7d947ded0ba2, exact Finding and Step 1",
+          "arXiv:2605.00965v2 equation (27)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7d947ded0ba2 gives exact orders on all K_(a,b), but its odd-part regimes depend on v₂(ab+3) or v₂(ab+1), and its mixed residue-2 regime on v₂(ab+2), for its different map.",
+          "6ce73c0ff68d gives exact orders for both-shear complete-graph couplings C=J_n and C=J_n−I_n; even the common graph K₂ does not give the same update or order."
+        ],
+        "reasoning": "These exact catalogue results are material comparisons, not reproductions of the frozen classification. The same-family entry is dated later and does not establish priority.",
+        "searches": [
+          "Resultary 7d947ded0ba2 and 6ce73c0ff68d"
+        ]
+      },
+      "rationale": "The very close catalogue result on the same bipartite adjacency uses L_BU_B, whereas the frozen theorem uses L_IU_B. This is not just an ordering or similarity convention: the full formulas even have differing arithmetic dependencies. Known period methods and lifting principles are credited; the five exact regimes for the stated composition are the supported distinct finding.",
+      "residual_risks": [
+        "The bounded passage comparisons do not rule out an unindexed or differently phrased integer-matrix order result. They do rule out exact equivalence and simple uniform rescaling of the strongest same-family catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close non-equivalent exact result",
+          "evidence": [
+            "Its map is [[I,B],[B,I+B²]]. Its stated orders have different base periods and, for example, different dependence on ab in odd cases."
+          ],
+          "identifier_or_url": "7d947ded0ba2",
+          "material_read": "RESULT.md Finding, assumptions, steps 1–2 and start of step 3 at offset 0",
+          "method": "Resultary lookup and targeted local-mirror passages",
+          "title": "Five arithmetic regimes for coupled cat-map orders on complete bipartite graphs",
+          "trigger": "Exact classification on the same graphs and moduli"
+        },
+        {
+          "assessment": "Different maps",
+          "evidence": [
+            "The two all-to-all couplings C=J_n and C=J_n−I_n use L_CU_C."
+          ],
+          "identifier_or_url": "6ce73c0ff68d",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact powers-of-two torus orders for all-to-all coupled cat maps",
+          "trigger": "Exact 2-power orders of graph-coupled shears including K₂"
+        },
+        {
+          "assessment": "Prior methods, not the target classification in the inspected material",
+          "evidence": [
+            "Gives the classical Fibonacci-period connection and a higher-dimensional matrix-union construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.2984",
+          "material_read": "p. 1 (offset 0), p. 7 (offset 13200)",
+          "method": "Targeted original OA PDF passages",
+          "title": "Periods of the discretized Arnold’s Cat Mapping and its extension to n-dimensions",
+          "trigger": "Discrete cat-map period theorems and higher-dimensional analogues"
+        },
+        {
+          "assessment": "General framework; no target case split in these passages",
+          "evidence": [
+            "Describes periodic boundary couplings and matrix-Fibonacci methods, with special handling of even denominators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.03267",
+          "material_read": "pp. 2–3, offset 5800",
+          "method": "Targeted original OA PDF passages",
+          "title": "Arnol’d cat map lattices",
+          "trigger": "Coupled symplectic lattice dynamics and finite periods"
+        },
+        {
+          "assessment": "Related period tests for a different coupling",
+          "evidence": [
+            "The two shear parameters are both C, giving L_CU_C; the period conditions use matrix-Fibonacci polynomials of that update."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00965v2",
+          "material_read": "p. 1; p. 7 eq. (27), offset 20250; p. 15 eqs. (50)–(54), offset 44600",
+          "method": "Targeted original OA PDF passages",
+          "title": "Coupled Arnol’d cat maps on circulant graphs",
+          "trigger": "Graph-coupled period spectra and closest primary matrix model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Global order is the exact interval after which all states of a natural finite symplectic shear network recur. The classification covers every modulus exponent and both graph-part sizes, exposes which arithmetic distinctions matter and shows why the single edge delays lifting. This is more informative than a modulus-dependent period search or a general recurrence that leaves its first valuations unresolved. No assertion about a distribution of primitive state periods is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On each cell the constant input is killed and the normalized mean-zero cosines map to normalized sines with exact scale \(h_j/(m\pi)\). Their completeness proves the infinite-dimensional direct-sum singular spectrum, including repeated values. Strict eigenvalue counting and a sum of cell lengths prove the sharp all-rank optimization and **all** equality meshes. The explicit zeta sum proves the Schatten identities. The bundled finite exact-arithmetic checker passed 55,907 assertions; it supports but does not replace the analytic proof.
+PASS
 
-## Originality — PASS, with priority risk
+Each cell integral of (I−P)f vanishes, so no contribution propagates between cells. On each cell the constant is killed and normalized nonconstant cosines are mapped into the complete sine basis with coefficients h/(mπ). This gives every positive singular value and its multiplicity, and compactness. For t>0 the number strictly above t on cell j is q_j=ceil(h_j/(πt))−1, including thresholds exactly on a ladder. Taking t=s_k yields 1=Σh_j≤πt(N+Σq_j)≤πt(N+k−1). Equality requires both Σq_j=k−1 and equality on each cell separately; conversely every positive composition of N+k−1 yields exactly k−1 values above the threshold and one value at it from every cell. This proves attainment and rules out any other ordered mesh. The uniform value 1/[πN ceil(k/N)] gives the asserted congruence including N=1, and the k=2 examples increase the operator norm for N≥2. Summation of the complete ladders gives divergence for 0<p≤1 and the stated zeta formula for p>1; strict convexity gives the unique global minimizer. The exact-rational checker was inspected without execution; its finite ranks and grids do not prove the all-rank optimization.
 
-The full Edmunds–Lang 2015 paper treats single-interval first-order Dirichlet embedding values and second-order Volterra-type asymptotics, not the every-index mesh minimax problem. The full 2010 Lyubich–Tsedenbayar Volterra paper treats polynomials of the unprojected operator. The 2013 Boykov–Tynda work treats spline-collocation error orders. The closest published cellwise affine Sobolev-width result was read in full and studies a different projector and objective; a previous global Legendre-annihilator claim studies a different projection. Actual semantic and phrase searches found no equivalent statement, though unindexed general spectral-partition results remain a specific priority risk. The classical one-cell sine/cosine decomposition is not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a complete sharp characterization of **every** rank-specific mesh optimizer, not just its numerical value, and a constructive spectral allocation rule. The strict improvement of the second singular value by a nonuniform mesh despite uniform Schatten optimality is a meaningful structural contrast relevant to multiresolution approximation and low-rank integration residual design. It is not an arbitrary single-size computation.
+Best-of-knowledge pass for the exact optimum and complete ordered equality set for every indexed rank. The cellwise Dirichlet ladder, direct-sum viewpoint and Schatten convexity are classical inputs or immediate consequences, not stand-alone novelty. The decisive combined-spectrum optimization and tie rigidity are not supplied by the inspected sources.
 
-## Limits
+## value
 
-Only the specified unweighted first-order integral and strictly positive cells are treated; finite checker tests are not proofs, and historical priority cannot be certified exhaustively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Mesh design for a target singular rank is a natural objective distinct from minimizing total error or the worst-case norm. The exact equality set answers which meshes improve a desired index and when a uniform mesh is already optimal. The all-index quantization, attained rigidity and explicit second-rank tradeoff are the useful content, rather than calculating the classical one-cell eigenvalues again.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

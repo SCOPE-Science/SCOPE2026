@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The self-contained analytical proof is in `RESULT.md`. The accompanying `check_hazard.py` uses Python 3 with the `sympy` and `mpmath` packages. Run it with `python check_hazard.py` from the directory containing these files. During verification the script completed without an assertion failure and printed the following checks as PASS: symbolic second-derivative factorization; positive/negative finite-age threshold checks; strict ordering in sampled root sequences; increasing-hazard diagnostics for sampled shapes at or above one-half; and the explicitly exhibited two-step decline example at shape one-quarter.
+## correctness
 
-For \(\beta=1/4\), the high-precision diagnostic values were \(t_0\approx1.459025832009218012\), \(t_1\approx1.066834456788999705\), \(t_2\approx0.9551989254559809822\), and \(z_{1/4}\approx1.24885811252099272479\). These computed values are approximate; uniqueness, exact ordering, all-age signs and asymptotics are proved analytically in the manuscript. The code does not certify infinitely many indices, all real parameters, or priority against all historical publications. No independent audit has been performed.
+PASS
+
+The proper survival is indexed by X>=n, and the hazard-difference sign is the sign of the second difference D_n of Phi, independent of q. Coefficients of t^m in D_n have the sign of m beta-1 (the multiplier (2^m-2)/m! is positive for m>=2). At beta>=1/2 there is always a strictly positive term, including at equality. Below 1/2 the ratio of the positive series to the absolute negative polynomial is strictly increasing, by the separated powers, goes to zero at zero and diverges by any one positive monomial of greater degree. This gives the unique positive age threshold. The triangular-kernel integral holds even at n=0, since K(x)Phi'(x)=O(x^(2 beta)) and K(x)Phi''(x)=O(x^(2 beta-1)) near zero. For fixed t, the normalized adjacent tent weights times the common positive curvature factor have a single strict crossing from left to right (their ratio is strictly increasing on the overlap), so integration of the strictly increasing curvature multiplier beta f(t x^beta)+beta-1 is strictly larger for the next age. Here f'(z)-1=e^z(e^z-1-z)/(e^z-1)^2>0. At t_n this proves t_(n+1)<t_n. Centering at n+1 gives the scaled second difference H_c''(1)+O((n+1)^(-2)), after multiplication by (n+1)^2; testing fixed c on both sides of its unique zero proves the threshold asymptotic and eventual increase. The age-zero formula follows by taking positive square roots. A bounded independent rational replay certifies the particular signs (-,-,+) at beta=1/4, t=1; strict threshold order supplies the subsequent signs.
+
+## originality
+
+PASS
+
+The squared-odds model and qualitative hazard plots are prior art, including the exact nested Weibull model in Yousof et al. The supported distinct claim is the unique, strictly ordered staircase of discrete age thresholds, the sharp all-age cutoff and asymptotic constant; the inspected prior results did not give or imply that full classification.
+
+## value
+
+PASS
+
+This replaces qualitative plots for a named discrete lifetime model by a precise cutoff, eliminates invisible late reversals, and quantifies how the reversal ages move as the scale parameter becomes small. The global ordering and endpoint of the staircase, rather than the elementary hazard formula, give its structural value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:24:34.590462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A blue vertex in a layer with u whites has u white clique neighbors plus its mate if white. A full layer can force every missing mate; two incomplete layers with at least two whites each are stuck. With just one white a_j on one side and at least two on the other, a first force exists exactly when some initially blue b_i has i!=j, and that force fills all of A. With one white on each side, n>=3 gives a blue matched pair avoiding both white indices. Counting the disjoint regimes gives each term (subtract the duplicate all-blue set; the boundary with only one blue on the sparse side contributes 2n(n-1)z^n). The minimum sets are the full layers and the indicated near-layer sets, and every successful set contains one by keeping a full layer or just one usable mate in the sparse side. At n=3 the interior sum vanishes and the coefficients in degrees 3,4,5,6 are 14,15,6,1. Summing the general coefficients gives 2(n+1)2^n-n^2-6n-1; division by 4^n gives the uniform probability. The bundled bounded script was inspected, not run; no finite census is needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rook-graph criterion is a forest with an isolated row and a column leaf or an isolated column and a row leaf (plus the empty-edge case); there is a full polynomial for all dimensions. Pelayo–Abara give a maximum failed-set size, fort/fractional work gives other product parameters, and Grood et al. characterize well-forced trees."
+        ],
+        "reasoning": "The strongest broader theorem applies directly to two rows and all claimed n. The scalar failed-set number, fractional parameters and a tree classification do not on their own imply the prism theorem.",
+        "searches": [
+          "Resultary dd424d573692, general rook-graph forest theorem",
+          "arXiv:2202.04997 Theorem 3.7; arXiv:2310.17904 abstract; arXiv:2312.14298 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dd424d573692, 7e7715a7522c and one-leak comparison 94aacf8a747d",
+        "arXiv:1801.08910, 2405.01423, 2202.04997, 2310.17904 and 2312.14298 (bounded passages noted above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "White cells are edges, so the two row degrees are u,v; an isolated column is an index blue in both layers, and a row leaf means exactly one white vertex in its layer."
+        ],
+        "reasoning": "If a row is empty of whites, all nonisolated columns are leaves. Otherwise criterion success requires a row leaf and an isolated column; a forest is then automatic, as every two-row cycle needs both rows with at least two edges. For u=v=1 an isolated column exists for n>=3; for u=1, v>=2 it exists exactly when a blue b_i avoids the unique white index in A. Choosing the singleton and the other white set directly expands the all-coefficient count into the frozen polynomial. Every resulting white set can be enlarged either by filling the other row when one row is empty, or by filling all positions of the other row except one preserved empty column when there is a singleton row. This gives a containing successful white set of size n and proves well-forcedness immediately from the known criterion. The total and random probability are evaluations of the enumerator.",
+        "searches": [
+          "Resultary dd424d573692, Finding and forest-enumeration proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is R_(2,n) after exchanging the factors. The separate matched-clique record says a layer is full or a layer has one white vertex of index j and some blue vertex in the other layer has index i!=j; it displays the identical compact polynomial for n>=3."
+        ],
+        "reasoning": "The compact three-test condition breaks into the frozen four disjoint cases; both papers count the identical labeled ordinary forcing subsets. Extra fort and scaling results in the other record do not remove the overlap. The October 26 one-leak polynomial, by contrast, counts a stronger condition and is not direct coverage.",
+        "searches": [
+          "Resultary: zero-forcing sets, complete prism vs two-row rook graph",
+          "Resultary 7e7715a7522c, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general rook record displays the bivariate coefficient-extraction formula for every coefficient and N_(m,n) for minimum sets. The distinct prism entry displays the same n>=3 binomial formula, evaluation at 1, and the minimum count. The Boyer et al. and Menon–Singh passages verify the counting convention and related enumerative context."
+        ],
+        "reasoning": "The general coefficient family includes m=2; its N_(2,n) is 2+2n(n-1), using S(0,n)=0 and 2! S(n-2,2)=2^(n-2)-2 for n>=3 (count surjections onto two labels). The exact compact prism entry confirms equivalent coverage without requiring the date to prove priority.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692",
+          "Resultary 2026/11/2/SCOPE-complete-zero-forcing-and-minimal-fort-distributions-for-matched--7e7715a7522c",
+          "arXiv:1801.08910 p. 2; arXiv:2405.01423 p. 1"
+        ]
+      },
+      "rationale": "The prior general rook-graph forest classification covers this graph exactly, already gives its full enumerator by coefficient extraction and its minimum-set count, and specializes mechanically to the frozen regimes, compact polynomial and well-forced conclusion. A second distinct indexed finding states the compact formula explicitly; its later catalogue date is not evidence of earlier priority. The conclusion is coverage, not an attribution of derivation or authorship.",
+      "residual_risks": [
+        "Bounded primary-literature inspection does not resolve all historical variants. The verified exact broader rook result, not conjectured overlap in unread work, establishes the scientific coverage.",
+        "The later matching prism record is exact overlapping content but does not establish historical precedence by its date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen result by specialization; the passage need not separately display the expanded two-row polynomial",
+          "evidence": [
+            "White-cell bipartite forest criterion and complete coefficient extraction for every m,n, including m=2; N_(m,n) explicitly given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692/RESULT.md",
+          "material_read": "Finding, all-cardinality and minimum-set formulas at offset 0; forest proof passage around 4000",
+          "method": "Local Resultary search and mirrored exact passage by offset",
+          "title": "Zero-forcing polynomials of rook graphs via bipartite forests",
+          "trigger": "Stronger same-invariant theorem on all rook graphs"
+        },
+        {
+          "assessment": "Same ordinary forcing regimes and exact polynomial, on the broader n>=2 domain; no priority inference from the later path date",
+          "evidence": [
+            "Same compact binomial polynomial for n>=3, same total and 2n(n-1)+2 minimum count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-zero-forcing-and-minimal-fort-distributions-for-matched--7e7715a7522c/RESULT.md",
+          "material_read": "Finding and stated counts, offset 0 to 2794",
+          "method": "Local Resultary search and mirrored passage by offset",
+          "title": "Complete zero-forcing and minimal-fort distributions for matched pairs of cliques",
+          "trigger": "Exact same graph and full polynomial"
+        },
+        {
+          "assessment": "Direct coverage of a scalar product invariant, not of all forcing counts from this theorem",
+          "evidence": [
+            "F(K_n square K_m)=nm-4 for n>=4,m>=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04997",
+          "material_read": "Theorem 3.7, p. 8, around offset 22500",
+          "method": "Open primary PDF, bounded theorem inspection",
+          "title": "Maximal failed zero forcing sets for products of two graphs",
+          "trigger": "Prior product result on the same family"
+        },
+        {
+          "assessment": "Terminology and tree classification, not an implication for the clique prisms from the inspected statements",
+          "evidence": [
+            "Well-forced means all inclusion-minimal zero-forcing sets are minimum; the stated characterization concerns trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.14298",
+          "material_read": "Abstract p. 1 and definition in introduction p. 2 (around offsets 500 and 5250)",
+          "method": "Open primary PDF, bounded statement inspection",
+          "title": "Well-forced graphs",
+          "trigger": "Prior definition and possible class characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph, standard forcing invariant and exact probability are natural, but the frozen two-row result contributes only a routine evaluation of the covered criterion and enumerator. Even the well-forced statement follows by retaining an isolated column (or isolated row) while extending the white set. No distinct structural fact or nonroutine new consequence survives the comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

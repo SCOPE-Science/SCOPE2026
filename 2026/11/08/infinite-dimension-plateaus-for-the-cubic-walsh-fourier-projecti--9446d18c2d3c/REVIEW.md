@@ -1,19 +1,21 @@
-# Review: Infinite dimension plateaus for the cubic Walsh Fourier projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-group convolution argument identifies the true endpoint operator norm with the expectation of the absolute cubic Walsh kernel, without an unproved minimality assumption. Adding a coordinate converts the cubic elementary symmetric polynomial into the old cubic polynomial plus an independent sign times the quadratic polynomial. The elementary absolute-value identity proves nonnegativity and reduces exact equality to pointwise dominance. The factorization of the squared difference, the contiguous odd-index interval covering, and the modulo-six parametrization prove both directions for every dimension. Sign enumeration and exact binomial arithmetic independently corroborate the formulas through dimension 181; those finite tests do not carry the infinite conclusion.
+PASS
 
-## Originality — PASS (provisional priority)
+The norm of normalized convolution is the absolute kernel mean by taking the sign of the real kernel at the identity, and self-adjointness gives the L1 endpoint by duality. The same sign witness works over either scalar field. Adding an independent sign Y changes the cubic kernel from E3 to E3+Y E2, and the average of |E3+E2| and |E3-E2| is max(|E3|,|E2|). This gives the stated increment and the pointwise equality condition. Newton identities on signs give the displayed E2 and E3. For even n, s=0 witnesses strict increase; for odd n, the points |s|=1 contribute zero increment. At positive odd s>=3 the squared comparison factors with sign given by (s(s-2)-3n)(s(s+2)-3n). The corresponding open intervals exactly partition the interior of [3,n(n+2)] except their shared endpoints. This proves equality exactly at 3n=r(r+2) for odd r>=3: in the converse n=r(r+2)/3>=r+2 and n is odd, so both adjacent lattice points are available. Integrality is r congruent to 1 or 3 mod 6, giving the two families and count sqrt(X/3)+O(1). Read the frozen proof, verification notes and code without executing uploaded code. Direct sign enumeration for dimensions 3–8 and exact comparisons through n=300 were separately reproduced (including plateaus 225 and 261 above the frozen check range). Replay: /workspace/branches/3899ca18-66a6-441f-9dec-532d71e4c5c2/cubic_walsh_independent_check.py. The bounded check is only corroboration.
 
-The closest full-text antecedent, Defant et al., arXiv:2208.06467, Chapter 8, Theorem 8.1.1, already gives the exact absolute-Walsh-kernel formula in each dimension and the Hermite asymptotic. The later arXiv:2302.00233, Theorems 3.1 and 4.1, likewise gives per-dimension projection constants and their large-dimension scaling. Those are essential known premises, not new components of this result. The present theorem analyzes adjacent dimensions and gives a complete if-and-only-if quadratic classification of norm equality, not stated or established by the inspected prior comparisons. Habsieger and Stanton (1993) study integral Krawtchouk zeros, closely related to the new boundary condition, but not the adjacent-dimension absolute projection norm comparison. The closest database records concern quadratic Walsh projection constants or different operator norms. Historical priority remains subject to earlier results under alternative Krawtchouk or projection-constant terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cubic Fourier–Walsh projector is a canonical harmonic projector, and its sharp endpoint norm measures worst-case amplification of bounded data. Nondecrease under adding a dimension is natural; exact equality in infinitely many isolated dimensions is not forced by asymptotic growth, which is of order \(n^{3/2}\). The result resolves the complete arithmetic structure of these plateaus and determines their frequency, rather than reporting a finite list or a single small exception. Its mathematical role is a structural boundary on strict dimension growth of Fourier projection norms.
+The known norm identity, fixed-degree asymptotics and cubic Krawtchouk algebra are not new. The supported distinct claim is the exact one-step equality classification for the cubic endpoint norms and its positive-part formula. The strongest same-invariant comparisons give the exact per-dimension norm or its asymptotics, not the pointwise one-step comparison and infinite zero-increment set. An integer root in the next even dimension is another formulation of the new plateau criterion; the arithmetic of those roots is not a separately new claim.
 
-## Scope and residual risk
+## value
 
-The classification is for the cubic homogeneous multiplier and the two endpoint operator norms, not arbitrary degrees or other operator norms. The focal original 2022 and later 2023 manuscripts were inspected in their relevant full-text chapters, theorem statements and proofs; no assertion of exhaustive historical priority is made. Known Krawtchouk zero classifications may provide another route to portions of the arithmetic calculation; the endpoint-norm equality theorem nevertheless requires its separate operator comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies exactly when extending the ambient cube adds no endpoint norm, despite the strictly enlarged cubic span. It reveals a sparse but infinite parity-sensitive obstruction and gives a quantitative increment formula. One can use this exact comparison to distinguish finite-dimensional norm behavior that per-dimension leading asymptotics do not resolve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

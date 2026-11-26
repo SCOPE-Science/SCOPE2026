@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact difference reduction and strict rearrangement inequality yield an identity valid for every real state. The odd-cycle sign obstruction gives the only equilibrium for all \(v\ge1\). At the critical value the homogeneous quartic identity proves the universal coefficient, and strict Lyapunov dissipation proves convergence. Beneath the threshold a hyperbolic planar source, boundedness and Poincaré–Bendixson give periodic omega limits. The full three-dimensional lift is controlled by an explicitly stable forced mean equation. Numerical tests corroborate but do not replace these steps.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The June 2026 logistic-regulatory source contains the exact ambient weighted-sum class and focuses on model equivalence, general sufficient contraction and a distinct two-gene bifurcation. It does not present this global three-node transition or critical constant. The later October-13 preprint on the very same cyclic signed matrix computes local eigenvalues and displays limit-cycle trajectories at selected parameters, but does not derive the sharp global classification or critical coefficient. Arcak–Sontag's graph-passivity stability conditions supply background but not this nonseparable-cycle global sharp classification. Targeted mathematical-record queries and accessible historical claims found related Thomas sine, repressilator and Goodwin systems, not an equivalent result for the stated logistic difference network. Broad network dynamical-systems results remain a possible residual source of earlier coverage.
+PASS
 
-**Value — PASS.** The sharp threshold closes the gap between a sufficient global contraction test and global oscillatory behavior in a natural minimal self-activating/inhibiting signed network. The universal critical constant describes the entire nonsynchronous basin at the nonhyperbolic boundary, beyond local eigenvalue or Hopf calculations, and distinguishes transient critical slowing from true self-sustained cycles.
+The corrected RESULT retains the mathematical trichotomy and supplies independent computations of its decisive spectral and quartic inputs. Logistic forcing in (0,1), linear damping and global Lipschitz bounds give bounded global forward solutions, with the precise invariant cube [0,1/v]^3. Taking differences gives an autonomous sum-zero plane, and a zero difference at an equilibrium forces all differences to vanish. Otherwise v s−φ(s) has the sign of s for v≥1, so the equilibrium signs would alternate around an odd cycle. Strict rearrangement for ψ(s)=s−φ(s) gives T(d)>0 off zero since equality under the cyclic shift requires a constant triple. The exact balance R′/2=(3/2−v)R−T controls the whole plane; above threshold T/R=O(R) near zero is integrable, giving a strictly positive rescaled limit. At threshold a positive limiting radius contradicts strict dissipation on a compact annulus. Each entry of d is a root of u³−(R/2)u−d_1d_2d_3, so the cubic contraction entering T gives exactly 3R²/4 before multiplication by 4/3. Thus (1/R)′→2 and the coefficient is 1/2 in the original time. Below threshold the smaller disk has outward radial derivative bounded below by a positive multiple of R, so every nonzero trajectory stays eventually outside and no equilibrium can lie in its compact omega limit. Poincaré–Bendixson gives a periodic difference orbit, and the stable driven mean has only one bounded entire response over each translate of it; this yields distance convergence to the lifted orbit without claiming phase convergence or uniqueness. The frozen verify.py uses finite rational grid checks (not a polynomial certificate as originally described) and its eigenvalue assertion uses inserted values. The repaired verification notes preserve its limited diagnostic role and do not rely on running it.
 
-**Limits.** The result is for one symmetric weighted-sum model, not the bias-corrected logistic network and not arbitrary regulatory graphs. Uniqueness of the periodic orbit is unproved; external independent verification and definitive priority review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired statement credits two material overlaps: the exact v=1 example and its reported numerical cycle, and the implication of the strict supercritical attraction from Arcak–Sontag's real-space secant theorem. The frozen assertion about the former paper postdating an eligibility anchor cannot be checked from the supplied materials and has been removed. The exact marginal coefficient and all-nonsynchronous trichotomy across the common-rate family survive these comparisons; no novelty is assigned to the source model, the strict stable half alone, or a cycle at v=1 alone.
+
+## value
+
+PASS
+
+Even after crediting strict secant attraction and the known numerical cycle example, there is an exact normalization-sensitive limit at loss of stability, and a globally quantified oscillatory conclusion rather than a local bifurcation or finite-time plot. The invariant-plane energy calculation explains why the coefficient is universal across nonsynchronous initial conditions. These features make the result a useful sharp dynamical benchmark at a parameter where strict stability criteria stop, with no claim about period, uniqueness, or physical implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

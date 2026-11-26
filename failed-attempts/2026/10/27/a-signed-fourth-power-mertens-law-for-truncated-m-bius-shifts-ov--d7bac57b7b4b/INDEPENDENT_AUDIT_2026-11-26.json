@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:52:05.090646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P not dividing a the two divisible residue classes modulo P are disjoint; each has one excluded residue modulo P² and the remaining residues in those classes have negative sign. For v_P(a)=1 the divisible class overlaps and two residues are excluded; for v_P(a)≥2 only one is excluded. This gives all displayed factors and the two-linear-prime sign test. Monic degree-N residues are uniform at N=D_M as well as above it. The discarded large-square events only replace a bounded signed summand by zero, giving the claimed union bound, with no factor-of-two loss beyond counting both shifts. Grouping the prime-product logarithm by total degree gives H_M, with tail O(2^(−M/2)/M); the normalized Euler factors have summable deviations with exponentially small tails and no zeros. Thus the algebraic relative terms are those of exp(−4H_M), including −2 and 1/3+2=7/3. The verification script was inspected, not executed; the proof is analytical, not inferred from its degree-eleven checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee Thm. 1.1 assumes q≠2; Carmon Thm. 1.1 uses untruncated Möbius and a large-field limit."
+        ],
+        "reasoning": "Neither accessible general theorem subsumes the target regime; positive coverage comes from the earlier exact binary result instead.",
+        "searches": [
+          "arXiv:2610.06471v1; arXiv:1409.3694; DOI 10.1112/mtk.12227"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "2026/10/18/SCOPE-exact-characteristic-two-truncated-m-bius-autocorrelation-and-it--431210b4d5b0",
+        "arXiv:2610.06471v1",
+        "arXiv:1409.3694",
+        "10.1112/mtk.12227 (identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its auxiliary cutoff K≥M gives error ≤2 sum_{d>K} π₂(d)2^(−2d) in the matching CRT window.",
+          "The exact prime-degree identity and Euler–Maclaurin for H_M show the normalized product has the same algebraic expansion as exp(−4H_M)."
+        ],
+        "reasoning": "Set K=M and bound dπ₂(d)≤2^d to obtain the exact finite inequality. The prior local product with its summable prime-factor correction leaves only exp(−4H_M); exponentiating the standard expansion yields the two coefficients and the stated remainder.",
+        "searches": [
+          "Earlier binary autocorrelation RESULT.md, CRT proof Step 2 and Euler-product asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-characteristic-two-truncated-m-bius-autocorrelation-and-it--431210b4d5b0, Finding: same F₂[t], truncated signed squarefree function, fixed nonzero shift, limiting product C_a and sign rule."
+        ],
+        "reasoning": "The earlier C_a equals κ_a term by term; the iterated-limit formulation alone would not give the uniform moving-cutoff window, so the earlier proof was also compared.",
+        "searches": [
+          "Resultary: exact characteristic-two truncated Möbius autocorrelation; binary signed correlation and Mertens law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue record states the leading limit and exact sign but does not tabulate or explicitly state the −2, 7/3 coefficients."
+        ],
+        "reasoning": "An exact asymptotic catalogue entry is more relevant than finite Euler-product numerics; absence of explicit coefficients does not establish novelty.",
+        "searches": [
+          "Resultary, earlier binary autocorrelation RESULT.md, mirror offsets 0–4101 and 4050–7714"
+        ]
+      },
+      "rationale": "A distinct earlier indexed record gives the same signed constant and root-count criterion and already contains the finite cutoff estimate in its proof. The only additional displayed coefficients follow mechanically by expanding the same elementary Mertens product; the stated uniform range introduces no new estimate.",
+      "residual_risks": [
+        "Darbar–Mukhopadhyay full theorem was not accessible. This does not affect the determination from the exact earlier indexed result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier leading law and finite-window error covered; displayed correction terms are a routine implication",
+          "evidence": "The CRT proof allows K≥M; K=M exactly matches the submitted local signed-squarefree factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-characteristic-two-truncated-m-bius-autocorrelation-and-it--431210b4d5b0",
+          "material_read": "RESULT.md offsets 0–4101 and 4050–7714",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "Exact characteristic-two truncated Möbius autocorrelation and its leading law",
+          "trigger": "Same field, shift and cutoff"
+        },
+        {
+          "assessment": "Does not cover q=2",
+          "evidence": "The theorem explicitly excludes q=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06471",
+          "material_read": "v1 p. 2, offset 5250, Thm. 1.1",
+          "method": "OA primary PDF",
+          "title": "Chowla Conjecture for the truncated Möbius function over F_q[t]",
+          "trigger": "Same truncation"
+        },
+        {
+          "assessment": "Different Möbius function and limit regime",
+          "evidence": "Theorem 1.1 is for untruncated μ as the field grows, not fixed F₂ and a growing cutoff.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.3694",
+          "material_read": "pp. 1–2, offsets 0 and 4736",
+          "method": "OA primary PDF",
+          "title": "The autocorrelation of the Möbius function and Chowla's conjecture for the rational function field in characteristic 2",
+          "trigger": "Characteristic-two Möbius shifts"
+        },
+        {
+          "assessment": "Full text unavailable; scope not independently confirmed",
+          "evidence": "Publisher 403; no readable alternate copy was found.",
+          "identifier_or_url": "10.1112/mtk.12227",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful publisher route and DOI recovery",
+          "title": "Correlation of multiplicative functions over F_q[x]: A pretentious approach",
+          "trigger": "Potential general correlation coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sign and leading constant on the binary field are interesting features, but already established for this object. The residual higher-order terms simply unpack a universal harmonic-number expansion in an unchanged CRT window, without a new phenomenon, estimate, or cutoff.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

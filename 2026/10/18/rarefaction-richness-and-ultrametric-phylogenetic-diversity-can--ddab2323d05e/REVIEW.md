@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an unrestricted classification across all integer census sizes and sampling depths, not a finite empirical extrapolation. Rooted PD and taxonomic richness are defined on the same uniformly chosen set of labeled individuals. At the four protected depths, the proof reduces to deterministic richness or to monotone two-state conditional comparisons. In the constructive range, the sample's number of copies of the unique doubleton has an exact hypergeometric law, giving the stated covariance identity and strict threshold. All denominators are nonzero in the asserted domain; positive ultrametric lengths exist for the chosen parameters. An independent standard-library enumerator agrees on 72 exact finite cases, including the rational first witness. The all-size theorem is proved symbolically, not by the enumerator.
+## correctness
 
-## Originality — PASS (subject to bibliographic limitations)
-Full primary texts of Nipperess–Matsen (arXiv:1208.6552), O'Dwyer–Kembel–Green (2012), and Chao et al. (2014/2015) were inspected for cross-covariance sign, sample-size boundary, and ultrametric branch-parameter thresholds. The closest general foundation already supplies edge-occupancy moment identities; it does not assert the fixed-size richness/PD sign classification or the simultaneous maximally long negative-depth interval. Searches also compared known occupancy-covariance results with different objectives and sampling laws. Residual risk: equivalent sign criteria could be implicit in an uninspected phylogenetic or multivariate-hypergeometric source. This self-review is not an independent literature certification.
+PASS
 
-## Value — PASS
-Ecologists routinely evaluate species richness and phylogenetic diversity on the same rarefied samples. The result exactly delineates the sampling depths at which their co-fluctuations must agree in sign on every ultrametric tree, and exhibits maximally persistent anticorrelation at all remaining depths. The five-individual minimum and explicit branch-length boundary are natural sharp features of the sampling design, not arbitrary numerical slices. The finding clarifies that positive cross-sample richness/PD association cannot be assumed from either measure's monotone accumulation curve. It does not imply conclusions about empirical assemblages, non-ultrametric trees, or sampling with replacement.
+RESULT.md lines 28–42 handle the protected depths without an independence assumption: at 1 and N richness is constant; at 2 the distinct-species indicator changes PD from the fixed one-tip height H to at least H; at N-1 the singleton-omission indicator supports a nonnegative PD loss. In the remaining range the singleton clade is always hit. For the unique doubleton let X be its sample count, p_i=P(X=i). Conditioning on X=2 gives E[P_m|X=2]-E[P_m]=Hp_0-2ε(1-m/N); multiplying by -p_2 gives the covariance, since K_m=m-1_{X=2}. The hypergeometric p_0 and p_2 give the displayed formula, strict cutoff, common length ratio and N=5 witness -3/200. Binary refinement with positive, sufficiently short internal edges works by linearity/continuity and finitely many inequalities. Inspected the frozen verifier without executing it. Independently enumerated combinations(range(N),m) for N=5,6,8, every interior m and ε=1/32,1/8,3/4 at H=1: map labels 0 and 1 to the doubleton tip and each other label to its own tip, union the detected root paths, and compare exact rational E[KP]-E[K]E[P] with the formula. The sums agreed; this is only a finite cross-check.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass the all-depth universal-versus-attainable sign boundary and common counterexample with its exact length threshold, not the generic calculation of occupancy moments or the broader observation that some diversity indices can anticorrelate. The closest indexed result has a different diversity functional and opposite behavior at the two relevant depths of its five-individual witness. The contemporaneous publication dates do not determine priority.
+
+## value
+
+PASS
+
+Richness and rooted diversity are natural joint statistics on the same rarefied set. The theorem identifies every protected depth, including the near-census depth, and uses a single abundance profile and tree to separate all other depths simultaneously. The sharp onset at N=5 and the positive-edge phase boundary give genuine constraints on when fixed-depth co-fluctuation can reverse; they are not claims about across-community correlations or a most-negative possible covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

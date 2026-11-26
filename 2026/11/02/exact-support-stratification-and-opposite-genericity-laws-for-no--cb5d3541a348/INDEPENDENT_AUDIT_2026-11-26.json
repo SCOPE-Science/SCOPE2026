@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:41:01.090858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86",
+        "Frozen VERIFICATION.md and checker.py (read, not executed)",
+        "Grunwald–Serafin Theorem 5.2",
+        "/workspace/branches/frozen_replay.py, selector 4"
+      ],
+      "rationale": "For finite supports S and T, all transpositions fixing S∩T either fix one support pointwise or factor through a fresh atom outside S∪T, so the common intersection also supports. Intersecting supports inside S yields the least one, contained in any other finite support by intersecting that other support with S. For equivalences, the complement of S is either all singleton classes or part of a single infinite class. In the singleton case a named atom may be exchanged with a fresh atom precisely if it is itself a singleton; in the giant case this is true precisely for named atoms in the infinite class. In each case removing all such names still supports the relation and the others are indispensable. Choosing the d removable names gives binom(k,d)(a_{k−d}+B_{k−d}), including k=0. A marked element in a partition accounts for the B_{k+1} giant cases. For arbitrary directed binary relations there are k² named cells, 2k directed mixed cells and two fresh cells (equal/distinct); intersections of deletion events are support on the intersection context. Inclusion–exclusion and Bonferroni then give the exact count and the displayed asymptotic, since the 1- and 2-deletion ratios are 2^{−2k−1} and 2^{−4k}. The giant case has probability 1−o(1); its marked-block deficit has first and second factorial moments kB_k/B_{k+1} and k(k−1)B_{k−1}/B_{k+1}. Bell ratios give mean asymptotic to W(k) and variance o(W(k)^2). The same factorial-moment check for singleton blocks gives a_k/B_k→0; hence full support has probability asymptotic to W(k)/k for equivalences. `python3 /workspace/branches/frozen_replay.py 4` verified complete deficit histograms for k=0,…,4 by enumerating partitions and testing complementary permutation groups for every subcontext.",
+      "residual_risks": [
+        "Finite checks are for small partitions only; the classification and limits require the infinite-carrier argument and Bell ratios."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordered-atom result ab088d4ebfe3 uses collapsed gaps of (Q,<); its full-support fraction tends to 1.",
+          "67aba30c2f56 uses equality-atom orbit data for a shortest-path normal form.",
+          "Alexandru–Ciobanu Theorem 6 proves finiteness of relations supported by S on pairs of atom powers; Proposition 5.1 of Finite-Context Semantics concerns supported quotient actions."
+        ],
+        "reasoning": "Order-preserving stabilizers have multiple fresh orbits, so the ordered claim neither restricts to this symmetric model nor implies its law. The normal form and finiteness/quotient theorems do not specify the least-support strata or asymptotic probabilities.",
+        "searches": [
+          "Resultary ab088d4ebfe3 and 67aba30c2f56",
+          "arXiv:2609.31917 §5 Proposition 5.1",
+          "Alexandru–Ciobanu Theorems 6–8 and Conclusions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ab088d4ebfe3, 67aba30c2f56",
+        "DOI 10.3390/sym13112028",
+        "arXiv:2609.15879, 2609.31917, 0705.2734, 2408.14182",
+        "Nominal Monoids §2",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "B_n/B_{n−1} approximates e^{W(n)} with absolute error at most 8/(7W(n)); Bóna–Mező give D(n+1)∼B(n) and the mean count of singletons.",
+          "The equality-atom equivalence defect is the marked-block size minus one with probability 1−o(1), while in the discrete class it is the singleton count."
+        ],
+        "reasoning": "Bell asymptotics give the asserted scale once the new support classification is supplied; they do not mechanically assign a probability law to least support on the infinite atom carrier. No inspected broader theorem already supplies that identification and both exact support profiles.",
+        "searches": [
+          "arXiv:2408.14182 Theorem 5.2",
+          "arXiv:0705.2734 §3.1",
+          "Closest Resultary Findings and frozen RESULT.md lines 12–38"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Support intersection and least support are standard.",
+          "In the discrete case the omitted names are singleton blocks (Bóna–Mező use D(n) for the singleton-free counts). In the giant case the omitted names are the other elements of a marked block of a uniform partition.",
+          "Alexandru–Ciobanu Theorem 6 treats finitary-permutation relations on powers of the atom set, so it includes the underlying fixed-context binary family."
+        ],
+        "reasoning": "The partition formulations determine counts and moments conditional on each case once omission is proved to be exactly singleton or giant-class membership. Neither the classical partition reformulations nor mere finiteness of the binary family state that nominal identification or the resulting least-support contrast.",
+        "searches": [
+          "Resultary: least-support strata for nominal equality atoms and directed binary relations",
+          "arXiv:2609.15879 §6",
+          "arXiv:0705.2734 §3.1",
+          "DOI 10.3390/sym13112028 §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bell and associated Bell counts are existing sequences; the ordered-atom record gives an exact Bell-number-derived census under different symmetries.",
+          "Theorem 6 only states fixed-S finiteness. The count discussion in the proof of Theorem 7 decomposes left and right projections for injective tuples; it does not treat the equal and unequal fresh cross-pairs separately, which are both necessary even for singletons."
+        ],
+        "reasoning": "No inspected entry tabulates the same least-support census. A constituent Bell sequence and an expression for a different orbit convention are not a matching table.",
+        "searches": [
+          "Resultary ab088d4ebfe3, offsets 550 and 1277",
+          "Resultary 67aba30c2f56, Finding",
+          "arXiv:0705.2734 pp. 6–8",
+          "DOI 10.3390/sym13112028 Theorems 6–7"
+        ]
+      },
+      "rationale": "The supported contribution is the exact least-support stratification for equivalences on equality atoms and the resulting contrast with uniformly sampled supported binary relations. The least-support intersection theorem, partition numbers, the Bell-ratio estimate and the marked-block moments are not claimed as original. The ordered-atom catalogue result has different stabilizer orbits and the opposite equivalence full-support behavior; the equality-atom binary orbit normal form does not state the support-stratified census. The 2021 binary-relations paper was recovered in full via its publisher's PDF CDN; its pertinent theorem proves finiteness for a fixed support, not the least-support laws. The arithmetic of the unrestricted class alone is elementary once the orbit cells are known; the comparison is credited for the support-theoretic equivalence census, not the inclusion–exclusion technique by itself.",
+      "residual_risks": [
+        "The literature check is bounded; other nominal-set or enumeration work may encode a stronger census under different terminology. No historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptual overlap, not equivalent",
+          "evidence": "Ordered automorphisms and collapsed gaps; least-support fraction tends to one, unlike pure equality equivalences.",
+          "identifier_or_url": "2026/11/2/SCOPE-gap-collapse-classification-and-essential-support-census-for-ord--ab088d4ebfe3",
+          "material_read": "Mirrored Finding and assumptions, offsets 550 and 1277",
+          "method": "Resultary and local mirror",
+          "title": "Gap collapse classification and essential support census for ordered atoms",
+          "trigger": "Closest equivalence-support census"
+        },
+        {
+          "assessment": "Orbit-cell overlap, different result",
+          "evidence": "Named and fresh orbit data for a shortest-path normal form rather than a support census.",
+          "identifier_or_url": "2026/11/22/SCOPE-orbit-geodesic-normal-form-for-finitely-supported-binary-relatio--67aba30c2f56",
+          "material_read": "Mirrored Finding and assumptions, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Orbit-geodesic normal form for finitely supported binary relations",
+          "trigger": "Same equality-atom ordered binary relations"
+        },
+        {
+          "assessment": "Direct finiteness background; does not give the pure equality least-support law in the pertinent passages",
+          "evidence": "Theorem 6 says there are at most finitely many S-supported relations between atom powers. Theorem 7's counting discussion does not distinguish fresh equality across the two tuple sides; the conclusion emphasizes uniform finiteness and other types of carriers, not least-support strata of equivalences.",
+          "identifier_or_url": "10.3390/sym13112028; https://mdpi-res.com/d_attachment/symmetry/symmetry-13-02028/article_deploy/symmetry-13-02028.pdf",
+          "material_read": "§3, Theorems 4, 6–8 and 10–11; §4 Conclusions; particularly p. 9 offset 46773 and p. 11 offset 60069",
+          "method": "Primary OA publisher PDF from lawful CDN after DOI/main-site retrieval failed",
+          "title": "Finitely Supported Binary Relations between Infinite Atomic Sets",
+          "trigger": "Same symmetry and possible earlier counting theorem"
+        },
+        {
+          "assessment": "Standard structural input",
+          "evidence": "Support-intersection and least-support criterion, described as reformulating earlier theory.",
+          "identifier_or_url": "arXiv:2609.15879",
+          "material_read": "§6 Theorem 6.3 and Corollary 6.4, pp. 17–19, offset 62111",
+          "method": "Primary OA PDF text",
+          "title": "Finite Dependence and Invariance Hierarchies for Finitely Supported Structures",
+          "trigger": "Least-support and broader classification"
+        },
+        {
+          "assessment": "Quotient construction rather than census in inspected passage",
+          "evidence": "Characterizes the relevant supported equivalence quotient and stabilizer action.",
+          "identifier_or_url": "arXiv:2609.31917",
+          "material_read": "§5 Proposition 5.1, pp. 14–15, offset 49191",
+          "method": "Primary OA PDF text",
+          "title": "Finite-Context Semantics in Finitely Supported Structures",
+          "trigger": "Supported equivalence relations and quotients"
+        },
+        {
+          "assessment": "Known support framework",
+          "evidence": "Defines finite support and the least-support assumption satisfied by equality symmetry.",
+          "identifier_or_url": "10.1007/s00224-013-9464-1",
+          "material_read": "§2 pp. 199–200",
+          "method": "Primary text inspection",
+          "title": "Nominal Monoids",
+          "trigger": "Standard support terminology"
+        },
+        {
+          "assessment": "Classical partition ingredients",
+          "evidence": "B(n)=D(n)+D(n+1), D(n+1)∼B(n), and expected singleton count nB(n−1)/B(n).",
+          "identifier_or_url": "arXiv:0705.2734",
+          "material_read": "§3.1 pp. 6–8, offset 14058",
+          "method": "Primary OA PDF text",
+          "title": "Real Zeros and Partitions without Singleton Blocks",
+          "trigger": "Associated Bell counts and limiting phase"
+        },
+        {
+          "assessment": "Provides the Bell-ratio estimate, not the nominal classification",
+          "evidence": "|B_n/B_{n−1}−e^{W(n)}|≤8/(7W(n)).",
+          "identifier_or_url": "arXiv:2408.14182",
+          "material_read": "Theorem 5.2 p. 20, offset 88805",
+          "method": "Primary OA PDF text",
+          "title": "Explicit bounds for Bell numbers and their ratios",
+          "trigger": "Asymptotic scale of marked blocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–38 and 57–78",
+        "Resultary ab088d4ebfe3"
+      ],
+      "rationale": "The least support controls how many names must be retained. For the same infinite carrier, imposing transitivity and symmetry changes exact full support from overwhelmingly typical to rare; the defect is nevertheless only logarithmic. The exact strata and the W(k) scale quantify both effects in two natural finite ensembles and are directly useful for reasoning about context minimization. This is more than counting all binary orbit assignments or restating an isolated Bell-number estimate.",
+      "residual_risks": [
+        "The comparison depends on uniform sampling within each fixed-context class and does not automatically extend to richer nominal symmetries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

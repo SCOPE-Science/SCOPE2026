@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:35:56.070759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Repaired RESULT.md and SLOGAN.txt",
+        "Frozen RESULT.md:5–78",
+        "Frozen VERIFICATION.md:19–25, programs and recorded outputs (inspected, not run)",
+        "reachability_states.tsv, optimal_distributions.tsv, exchange_edges.tsv (all rows cross-checked)",
+        "Independent replay: python3 /workspace/branches/audit4_reverse.py <frozen record directory>"
+      ],
+      "rationale": "Independently reconstructed full reachability for a binary dot-product model of the Fano plane, reversing moves from distributions already occupying each target, in increasing weight. Every reverse step removes one at an occupied recipient and adds two at a neighbor; each such parent has a legal forward move. An explicit point-line relabeling to the cyclic model gives exact agreement with all 38,760 frozen mask rows, 161 optima, and 42 slide and jump edges (21 three-vertex paths and 98 isolated vertices). Counting every permutation of the seven points preserving the lines and composing with the dot-product duality gives all 336 automorphisms, because the connected bipartition is unique and a side-preserving permutation is determined by its point permutation. The four geometric class orbits have sizes 21,42,56,42. The repaired proof uses the known profile restriction, but determines geometry without counting solutions: target weight strictly excludes misplaced same-side two piles and noncollinear triples, and at weight exactly one the two opposite singleton lines must each receive a delivery from the heavy point and then can only send to distinct points on the target line. Nonincident 3+3 piles cannot interact after either first move. Explicit routes establish each case of sufficiency, including splitting two deliveries through the intersection of the two-pebble line and a remote target line in the 4+2 case. Basis changes and duality give transitivity in each geometrically distinguished family. This reconstructs necessity, sufficiency and the orbit partition in the repair.",
+      "residual_risks": [
+        "The repair uses an exact finite classification of admissible pile-size profiles as input; its geometric refinement is analytical. Fixed Heawood graph and ordinary target-by-target pebbling only, not simultaneous covering or pegging."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "99c7c303db16 covers the same graph for weights six through eight. Ordinary optimal-pebbling bounds in Bunde et al. give general graph estimates, while rubbling and t-restricted optimal pebbling change the allowed moves or distributions. A relevant diameter-three paper could not be recovered beyond bibliographic access."
+        ],
+        "reasoning": "The slack-threshold theorem covers the frozen minimum-size transfer results outright, not the geometric orbit partition. Bounds on optimum size and results for other move systems do not classify labeled ordinary placements; the scalar optimum is not reasserted as new.",
+        "searches": [
+          "Resultary 99c7c303db16 Finding and Proof §§1–4",
+          "arXiv:math/0510621 §6",
+          "Muntz et al. DOI 10.1016/j.disc.2006.11.005",
+          "arXiv:0707.4256 §2 and arXiv:2301.09867"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99c7c303db16, 9b97498f2d8d, 8546cab5de3e and 42cb9fdd0499",
+        "arXiv:math/0510621, 0707.4256 and 2301.09867",
+        "Muntz et al. DOI 10.1016/j.disc.2006.11.005 (limited access)",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad finite decision procedure can of course decide individual instances. Its published counts do not force, for example, the exclusion of noncollinear and mixed-side 4+1+1 placements. Within that profile the repair uses both subunit target weights and a separate obstruction at weight exactly one, plus constructive routes on marked Fano triples."
+        ],
+        "reasoning": "This is not merely evaluating the earlier recurrence on a new sample or computing automorphisms of a listed table. It supplies a geometry-based membership condition and a proof within the known pile profiles, using explicit reachability and exclusion arguments beyond orbit transitivity alone.",
+        "searches": [
+          "99c7c303db16 Proof §§2–4 and verification passage",
+          "Repaired RESULT.md geometric proof",
+          "arXiv:math/0510621 general bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "99c7c303db16 uses precisely the same ordinary pebbling and solvability conventions, but states only the three pile profiles for weight six. 9b97498f2d8d is on the same Levi graph and gives Fano incidence types for pegging, where the initial configuration is a vertex subset and the legal move consumes pegs from distinct neighbors along a path.",
+          "The same-date Heawood Lipschitz-free-ball result has facets as its objects, and the matched-apex pebbling result has a universal-vertex hypothesis."
+        ],
+        "reasoning": "Considered point-line duality and the flag/nonflag formulation rather than comparing titles. A dual statement of the geometric condition would be equivalent, but neither the pile profiles alone nor orbit results for the different pegging game identify these four classes.",
+        "searches": [
+          "Resultary 'geometric classification of six pebble solvable distributions in Heawood graph marked collinear Fano triples opposite point-line flags anti-flags four automorphism orbits'",
+          "Resultary 99c7c303db16, 9b97498f2d8d, 8546cab5de3e and 42cb9fdd0499",
+          "External Heawood 'optimal pebbling' 161 Fano plane six distributions orbit marked collinear configuration Muntz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table already gives the exact minimum, 161 optimum states, and 42 edges with component counts 1×98 and 3×21 for each move rule; both rules have the same edges since slides are a subset of the jumps and the sizes are equal. Each connected three-vertex component requires at least two edges, so with 42 edges all are paths. The inspected verification passage describes finite enumeration and profile count checks, not a table of marked orbit types."
+        ],
+        "reasoning": "The exact numerical overlap is acknowledged and removed. No checked table specifies the Fano incidence conditions. The surviving result is an explicit geometric criterion, not a re-enumeration or relabeling of those counts.",
+        "searches": [
+          "Resultary 99c7c303db16 Finding table and Proof §§2–4",
+          "Bunde et al. arXiv:math/0510621 §6 and literal lookup for Heawood"
+        ]
+      },
+      "rationale": "The frozen package's scalar optimum, total census, three pile-size profiles, and both optimal relocation graphs have exact coverage in the broader Heawood slack-threshold record. They are now credited as background rather than claimed. The surviving distinct finding identifies the four full orbits by a necessary-and-sufficient Fano incidence rule, and proves the incidence mechanism. The compared source's weight profiles do not specify which supports with those profiles work; its transfer edge and component counts do not supply that rule. This is a scope assessment, not a finding of chronological priority.",
+      "residual_risks": [
+        "Dates of distinct catalogue records do not establish derivation or priority.",
+        "The Muntz et al. full text was not recovered; a scalar implication or unlocated structural description remains possible. No empty search was treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count/transfer coverage, but not the marked Fano support criterion",
+          "evidence": "Six has 161 distributions with profiles 98,42,21, and both moves give size-one and size-three components with 42 edges. The described profile counts group by nonzero-entry multisets, not flag or triple geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-two-pebble-slack-threshold-for-solvable-pebbling-transfe--99c7c303db16/RESULT.md",
+          "material_read": "Finding and table, scope, exact recurrence, exhaustion and verification passages, offsets 0–7536",
+          "method": "Resultary query and bounded local-mirror inspection",
+          "title": "A sharp two-pebble slack threshold for solvable pebbling transfers on the Heawood graph",
+          "trigger": "Exact match on graph, six-pebble census and relocation rule"
+        },
+        {
+          "assessment": "General upper bounds; not a configuration-type result",
+          "evidence": "Connected graph order bound gives 10 and the cubic girth-six bound gives at most 8 by integrality; these estimates do not even determine the scalar optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0510621",
+          "material_read": "PDF p. 1 abstract; introduction and §6, pp. 4 and 20–21, offsets near 10800 and 55723",
+          "method": "OA PDF passage inspection and literal lookup",
+          "title": "Pebbling and Optimal Pebbling in Graphs",
+          "trigger": "Main earlier results on optimal pebbling and high-girth bounds"
+        },
+        {
+          "assessment": "Different game",
+          "evidence": "Strict rubbling additionally merges one pebble from each of two different neighbors.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.4256",
+          "material_read": "PDF §2 p. 2 near offset 5109",
+          "method": "OA PDF passage inspection",
+          "title": "Rubbling and Optimal Rubbling of Graphs",
+          "trigger": "Similar terminology and optimization model"
+        },
+        {
+          "assessment": "Scalar and structural coverage from this paper not assessed",
+          "evidence": "Access failure is not used as evidence of absence. The scalar optimum is credited as known from the exact catalogue comparison regardless.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.11.005",
+          "material_read": "Bibliographic identification only; no full article recovered",
+          "method": "OA repository lookup and publisher attempts; no usable lawful text returned",
+          "title": "Optimal pebbling of graphs",
+          "trigger": "Possible Heawood or diameter-three exact optimum"
+        },
+        {
+          "assessment": "Not ordinary pebbling",
+          "evidence": "The distribution is a vertex subset and a move jumps across an adjacent occupied vertex; the reported optima are four-sets, not six-pebble multisets.",
+          "identifier_or_url": "Resultary 9b97498f2d8d",
+          "material_read": "Finding, offsets 0–2260",
+          "method": "Resultary search and local mirror",
+          "title": "Three Fano incidence types characterize optimal Heawood graph pegging",
+          "trigger": "Close geometric classification on the same Fano incidence graph"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Classifies polytope facets rather than distributions of pebbles.",
+          "identifier_or_url": "Resultary 8546cab5de3e",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Ten facet symmetry orbits of the Heawood Lipschitz-free ball",
+          "trigger": "Same-day Heawood orbit classification"
+        },
+        {
+          "assessment": "Different assumptions and conclusion",
+          "evidence": "Stacking on odd-order graphs with a universal vertex; Heawood has order fourteen and maximum degree three.",
+          "identifier_or_url": "Resultary 42cb9fdd0499",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A matched apex gathering bound for graph pebbling",
+          "trigger": "Same-day pebbling bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof",
+        "Resultary 99c7c303db16 Finding and Proof"
+      ],
+      "rationale": "The repair turns an optimum size and unordered pile-profile census into a local, geometry-based test for exactly which configurations work. This makes all optimum states describable by four representatives with explicit transitivity and provides a route or an obstruction for each configuration type, including the sharp target-potential equality case. It is a natural finite classification useful for studying solvable configurations on this incidence graph, not just retabulating the covered minimum or transfer counts.",
+      "residual_risks": [
+        "The contribution is an exact structural description on one graph; no application to other games or graph families is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

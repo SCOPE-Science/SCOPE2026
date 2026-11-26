@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each matched pair, the two closed-neighborhood sums reduce exactly to \(B+x_i-y_i\) and \(A-(x_i-y_i)\). Taking the minimum and maximum pair differences is therefore necessary and sufficient, with no omitted cases. The Laurent-polynomial construction partitions all nine pair labels by exact difference range and then applies the proved thresholds. The minimum proof uses equality in the sharp bound \(A+B\ge2+(M-m)\) and, for \(n\ge3\), forces the common difference to be zero. The standalone checker exhaustively confirms the predicate, all enumerator coefficients, and the minimum classification through \(n=6\).
+## correctness
 
-## Originality
-PASS. The closest primary sources cover the general definition, a regular-graph scalar lower bound, scalar complete-bipartite values, and scalar complete-multipartite values. None of those statements imply the all-function criterion after deleting a perfect matching, because feasibility now depends on matched-pair differences. Searches for “minus domination crown graph,” “minus dominating functions crown graph,” “minus domination polynomial crown graph,” and “complete bipartite minus domination perfect matching deletion” found no equivalent crown-specific all-function formula. Residual risk remains for poorly indexed terminology.
+PASS
 
-## Value
-PASS. The result identifies the exact structural statistic created by deleting a perfect matching from a biclique: only the extreme matched-pair differences matter in addition to the two side sums. This gives a complete feasible-function census, not merely another optimum value, and it classifies every optimum function by a natural matched-pair diagonal condition. The result makes the effect of the matching deletion explicit and reproducible.
+For d_i=x_i-y_i, the two closed-neighborhood sums at index i are B+d_i and A-d_i, yielding precisely A>=1+M and B>=1-m. The five pair factors partition all nine label pairs, and inclusion-exclusion extracts the exact two attained extrema before the feasibility truncation; specialization then records total weight. Weight two forces m=M=d, A=1+d, B=1-d, and nd=A-B=2d. Hence for n>=3 the labels are diagonal and the common vector has sum one; the stated multinomial counts all such vectors. A direct labeled-neighborhood enumeration against an independent extrema-state recurrence at n=2,3,4 confirmed the bivariate coefficients, with 6 and 16 diagonal minima at n=3,4 and two extra off-diagonal minima at n=2. The universal conclusion uses the proof, not this finite comparison.
 
-## Closest literature and limitations
-The regular-graph bound already supplies the scalar lower bound \(2\), while the complete-bipartite and complete-multipartite papers supply nearby scalar benchmarks. These are treated as prior-covered. No claim is made that the chosen name for the enumerator is standard, and no finite search can prove global absence of an equivalent older census. The theorem excludes \(n=2\), where the minimum-function classification changes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of inspected evidence: the two-extrema feasibility criterion and bivariate/all-weight census apply to the deleted matching, not to intact complete multipartite adjacency. The scalar regular-graph lower bound is already a direct double count and is not credited as original. The closest same-graph diagonal minimum census concerns a different label alphabet and rule, and neither it nor the multipartite census implies the ternary crown enumerator.
+
+## value
+
+PASS
+
+The crown is a natural highly symmetric graph where the missing matching obstructs the intact bipartite formulas. Tracking the two side sums gives a genuine complete distribution (not just an optimum) with a constant-size alphabet of pair extrema and only polynomially many side-sum states. It also identifies which minimizers realize the universal lower bound and why the small matching boundary behaves differently. These outputs are useful for exact enumeration and comparison with other domination rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

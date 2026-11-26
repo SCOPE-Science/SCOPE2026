@@ -1,19 +1,21 @@
-# Scientific review: sharp convexity transition for lacunary Zindler approximants
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact differentiation of the 2026 construction gives the regular tangent \(z'=-r u+H u'\), \(H=h+h''\), and the curvature numerator \(r(r-H')+H^2\). The positive-frequency coefficients yield the global bound \(H'\le R_n\), with simultaneous equality at precisely the \(\beta\) aligned half-turn phases. The tangent winding number is one, independently of \(r\), so nonnegative curvature gives a convex Jordan boundary rather than merely local convexity; negative signed curvature at any aligned phase excludes convexity below threshold. The Taylor coefficient and geometric-series asymptotic are exact. The independent finite checker passed 20,393 arithmetic and numerical assertions; finite checks are not substitutes for these analytic arguments.
+PASS
 
-## Originality
+The original SLOGAN.txt wrongly excludes equality, and the frozen proof does not explicitly establish the area-halving assertion or justify the below-threshold argument without assuming injectivity. The complete replacements RESULT.md and SLOGAN.txt under /workspace/repairs/4/ retain the theorem, correct the endpoint wording, and supply those arguments. In the rotating frame the velocity is (-r,H), H=h+h'', so it is regular and has tangent index 1. Its determinant with acceleration is r(r-H')+H^2. Positive weights give H'<=R_n; the first cosine fixes all simultaneous maximizing phases, and odd beta aligns all the higher cosines there with H=0. At and above the threshold the tangent angle strictly increases through 2pi even with isolated zero curvature. Every normal has a unique maximizing parameter, and every curve point maximizes projection in its oriented outward normal direction. This gives injectivity and identifies the image with the strictly convex boundary of its convex hull. Below the threshold the determinant has opposite signs at pi/beta and 0. A regular curve whose image is a convex boundary has a supporting tangent at each parameter; an interior point stays on a fixed oriented side along the whole parameter circle. The second derivative of the signed distance numerator to any such tangent must then have that weak sign, contradicting the two witnesses without a prior injectivity assumption. For halving, the derivative of the signed area enclosed by the arc and closing chord is half the determinant of the chord with the sum of endpoint velocities. Both are parallel to u', so the area is constant; the pi shift gives the complementary area. Taylor expansion gives coefficient (R_n+S_n/2)/R_n^2, and the geometric sums give the stated growth in the original parameter regime. The prior independent symbolic determinant, coefficient and sample radii replay remains applicable: python3 /workspace/review_replay.py, check 4. Finite diagnostics do not establish global convexity.
 
-**PASS, with stated historical-priority risk.** Martinez-Maure and Rochera (arXiv:2611.11309v1) introduce the exact lacunary finite sums and Zindler parametrization but treat area, fractal dimension, embedding, and flotation, not an all-order sharp convexity threshold. Grüne (2006/2007), Section 3.2.3, explicitly recounts Zindler's general curvature criterion and gives a sharp threshold for a different rolling-circle example; these methods and general criteria are not claimed new. The published-finding corpus semantic searches for lacunary Zindler convexity, finite harmonic offsets, and phase-aligned curvature did not return an implication-equivalent published result. The two 2022 Rochera articles on projective-hedgehog offsets and algebraic Zindler curves have plausible general-method relevance, but their full texts were unavailable; a contained exact result cannot be entirely excluded. No claim of independent priority certification is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** This determines a natural complete geometric classification for every smooth approximant in a recent fractal floating-body construction, identifies exactly the isolated flattening points at the transition, and quantitatively shows that the least convexity-preserving halving-chord length grows exponentially as higher lacunary frequencies enter. Unlike a bare sufficient bound, the threshold is attained and sharp in both directions. It differentiates the convex, embedded-nonconvex, and limiting-fractal regimes without claiming to classify the latter two fully.
+The repaired text retains the same claim and credits the parametrization and general Zindler curvature test to prior work. No originality is claimed for the supporting-line argument or the area identity. The supported distinct part is the sharp inclusive threshold for these finite sums, its attained aligned phases and exact flat-point expansion, and the growth across truncations. No distinct indexed claim or available primary statement established that classification. The primary-text gaps named below limit the historical conclusion.
 
-## Limitations and closest literature
+## value
 
-The original 2026 paper proves a fixed-length halving-chord construction and an embeddedness bound but no exact finite-order convexity transition. Grüne recounts a classical general convexity test and a different one-frequency rolling example. Rochera's two 2022 journal papers remain unresolved full-text priority risks. The present theorem makes no claims for arbitrary phases, arbitrary nonlacunary Fourier coefficients, or the fractal limiting curve's convex hull.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result establishes the least convexity-preserving area-halving chord length, a natural invariant of these smooth approximants rather than an arbitrary curvature sample. The exact cutoff, inclusive flat-point regime and exponential growth explain why no fixed chord length preserves convexity through the approximation ladder. The repair supplies the geometric support for that interpretation without asserting anything about embedding below the cutoff or convexity of the limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

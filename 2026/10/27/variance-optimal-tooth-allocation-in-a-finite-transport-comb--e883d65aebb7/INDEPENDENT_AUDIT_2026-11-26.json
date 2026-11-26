@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:15.501104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent killed-tree derivation checks the renewal calculation. Orient edges toward the absorbing root. The equation −Lh=1 for the mean implies that its difference across any edge is the number of vertices on the upstream side, by summing that equation there. Thus the backbone differences are m_i. For v=E[T²]−h² the killed-generator equation is −Lv(x)=Σ_{y~x}(h(x)−h(y))². By symmetry the occupation-time vector from b_0 solves the unit Dirichlet point-source equation: its value at b_i and all vertices on its tooth is N−i, with zero at the target. Weighting each squared edge difference by the sum of its endpoint occupations gives (2(N−i)−1)m_i² on backbone edge i and 2(N−i)Σ_{j=1}^{ℓ_i}j²=(N−i)q(ℓ_i) on tooth i. The uniform lower-degree remainder is O_N(M²), and weighted Hölder minimizes the cubic uniquely on the real simplex; sum-preserving bounded rounding and compactness give the optimal leading coefficient and convergence for every integer minimizer. The mean is linear with strict minimum tooth coefficient at i=N−1. For N=2 the forward difference is strictly increasing in x≥0 and odd on integer inputs, with Δ(M−1)=4M²+6M+1>0 for M≥1; its crossing gives the claimed feasible ceiling and onset at M=3 (M=0 is trivial). At M=3 the placement (1,2) indeed changes (mean,variance) from (6,56) to (7,51). A fresh rational generator calculation checks 120 geometries with N=2,3,4 and budget at most four, and an exact enumeration checks two-tooth optima at M=0…8. Replay: /workspace/branches/4caa2ae5-e382-4d43-9d05-dd2fd53c4a37/ctmc_check.py. Frozen verify.py was inspected, not executed. The finite checks do not certify the asymptotic theorem or any joint limit in N and M.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bapat's tree first-passage title is relevant to the general moment calculation, but the full text was not retrieved. Rebenshtok–Barkai use first-passage statistics for occupation times; the compared finite-backbone example has infinite teeth. Indexed record 7880c43ebd00 studies first-passage uncertainty of semi-Markov additive fluxes, not geometric allocation with an integer edge budget."
+        ],
+        "reasoning": "A generic moment or uncertainty formula alone does not establish a global constrained optimum, separating integer threshold, or convergence of every minimizer. No inspected broader statement adds those ingredients.",
+        "searches": [
+          "Resultary: fixed-budget first-passage variance and finite-state mean–variance laws",
+          "Bapat DOI 10.1016/j.spl.2011.05.017",
+          "Rebenshtok–Barkai arXiv:1402.0171"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof, VERIFICATION.md and verify.py",
+        "arXiv:1509.01670, arXiv:1402.0171 and arXiv:1602.03477",
+        "Resultary 48ae89892e37 and 7880c43ebd00",
+        "DOIs 10.1016/j.spl.2011.05.017 and 10.1007/s10955-023-03113-7 (identification/access attempts)",
+        "Focused literature query; irrelevant matches, no negative evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearest indexed comb finding uses biased transport, random tooth lengths and local reset clocks; the indexed uncertainty-law result varies transition flux weights. Inspected comb papers supply recurrence/factorization or occupation-time methods, not the order-M³ constrained objective and its optimizer."
+        ],
+        "reasoning": "Weighted Hölder is standard, but it acts here on a dominant cubic whose weights depend on the distance to the absorber; its finite-budget two-site crossing needs the lower-order terms as well. The compared claims do not imply that design or the mean-optimal contrast.",
+        "searches": [
+          "Resultary: deterministic fixed total comb tooth budget, minimum exit-time variance, globally optimal nonuniform allocation",
+          "Resultary 48ae89892e37 and 7880c43ebd00, Findings",
+          "arXiv:1509.01670, 1402.0171, 1602.03477"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Méndez et al. use branch returns to renormalize backbone waiting times. Illien–Bénichou factorize first passage on loopless combs and treat finite teeth, in discrete steps in the inspected equations."
+        ],
+        "reasoning": "In generator terms it is a rooted-tree Poisson-moment problem or a renewal walk with effective waiting times. Discrete neighbor-uniform steps do not represent the degree-dependent holding times here, and neither reformulation supplies the optimization over lengths.",
+        "searches": [
+          "Resultary: finite-comb first-passage variance, tooth first-passage moments, and finite random-walk transport combs",
+          "Méndez et al. arXiv:1509.01670",
+          "Illien–Bénichou arXiv:1602.03477"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bibliographic search did not surface a matching all-budget integer formula or threshold. Indexed record 48ae89892e37 contains E[L(L+1)(2L+1)]/6 for a drift derivative under local returns, not the two-site optimum."
+        ],
+        "reasoning": "This is a parametric exact minimizer and limit, not a census of fixed graph instances. A known tooth-moment polynomial or isolated hitting-time value is not an exact optimization match.",
+        "searches": [
+          "Resultary: inverse-square-root tooth placement, mean versus variance of finite-comb exit, explicit two-edge comb optimum and threshold M=3",
+          "Resultary 48ae89892e37: related cubic tooth moment"
+        ]
+      },
+      "rationale": "Credit is limited to the deterministic fixed-total-budget variance design, including the asymptotic optimal profile and sharp finite-budget two-site transition. Finite-tree moment methods, branch-time renewal identities and the cubic one-dimensional moment are not claimed as new. The inspected literature and close indexed findings do not imply this design classification; the conclusion is bounded by the source access recorded below.",
+      "residual_risks": [
+        "A specialized corollary or optimization in the inaccessible tree or quasi-one-dimensional papers could affect priority. The compared passages do not establish historical priority.",
+        "Equivalent formulations in transportation or queueing design may not be indexed under comb or tooth terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method, not the optimization in the compared passage",
+          "evidence": "Branch effects represented through a renormalized backbone waiting-time distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.01670",
+          "material_read": "Opening description, PDF p. 1, OA offset 1293",
+          "method": "Bounded OA PDF passage",
+          "title": "Mesoscopic description of random walks on combs",
+          "trigger": "Comb renewal and effective waiting times"
+        },
+        {
+          "assessment": "Different objective and geometry in compared sections",
+          "evidence": "Uses tooth/cluster return statistics for occupation times; the inspected finite backbone has infinite teeth.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.0171",
+          "material_read": "PDF pp. 1 and 5, OA offsets 3398 and 28203",
+          "method": "Bounded OA PDF passages",
+          "title": "Occupation times on a comb with ramified teeth",
+          "trigger": "Tooth first-passage statistics"
+        },
+        {
+          "assessment": "Related methods, distinct time convention and question",
+          "evidence": "Discrete-time propagator/first-passage relations, loopless factorization and finite-length teeth.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.03477",
+          "material_read": "PDF pp. 1 and 3, OA offsets 1051, 12090 and 13927",
+          "method": "Bounded OA PDF passages",
+          "title": "Propagators of random walks on comb lattices of arbitrary dimension",
+          "trigger": "Finite teeth and first-passage factorization"
+        },
+        {
+          "assessment": "Different result and limiting regime",
+          "evidence": "Biased random comb with tooth reset; cubic moment in weak-reset drift, not exit-time variance allocation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-sharp-tail-thresholds-for-transport-restored-by-local-resett--48ae89892e37/RESULT.md",
+          "material_read": "Finding offset 0 and drift calculation around offsets 8369–11169",
+          "method": "Bounded local mirror passages",
+          "title": "Two sharp tail thresholds for transport restored by local resetting",
+          "trigger": "Closest indexed comb and shared cubic tooth expression"
+        },
+        {
+          "assessment": "Different variable of optimization",
+          "evidence": "First-passage uncertainty for semi-Markov additive fluxes and flux weighting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-finite-threshold-first-passage-uncertainty-law-for-semi--7880c43ebd00/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "A sharp finite-threshold first-passage uncertainty law",
+          "trigger": "First-passage variance and design"
+        },
+        {
+          "assessment": "Unresolved; no negative inference",
+          "evidence": "Scope indicated by title is general tree first passage; no decisive theorem passage retrieved.",
+          "identifier_or_url": "10.1016/j.spl.2011.05.017",
+          "material_read": "Bibliographic identification; full text unavailable in attempts",
+          "method": "OA DOI route and alternate repository recovery attempted",
+          "title": "On the first passage time of a simple random walk on a tree",
+          "trigger": "Possible general tree moment coverage"
+        },
+        {
+          "assessment": "Unresolved; no negative inference",
+          "evidence": "Full text not retrieved; no statement-level exclusion asserted.",
+          "identifier_or_url": "10.1007/s10955-023-03113-7",
+          "material_read": "Bibliographic identification only",
+          "method": "OA and redirect attempts",
+          "title": "Random Walks on Quasi-One-Dimensional Lattices",
+          "trigger": "Possible quasi-one-dimensional finite-comb application"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under a natural fixed trap-volume budget the standard mean and variance objectives give quantitatively different designs. The increasing weight with distance makes the unique large-budget distribution nonuniform, while every site remains occupied; moving all volume toward the exit incurs the explicit limiting loss factor S_N². The exact first departure at M=3 on the smallest nontrivial backbone is a finite, interpretable boundary for that conflict. This value is in the allocation result, not a new general first-passage method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

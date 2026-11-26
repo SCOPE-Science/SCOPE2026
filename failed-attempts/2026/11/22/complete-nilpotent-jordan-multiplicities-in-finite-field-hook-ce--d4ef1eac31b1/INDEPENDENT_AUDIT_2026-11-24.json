@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:39:42.489217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–73",
+        "Frozen VERIFICATION.md, checker.py and checker_output.txt (inspected, not run)"
+      ],
+      "rationale": "Using R=k[t]/(tⁿ), the module maps between R and k are respectively evaluation at zero and injection into ktⁿ⁻¹. A centralizing map therefore has diagonal residues f(0),c on the triangular quotient by tR; these must vanish and suffice for nilpotence. For nilpotent maps, the square multiplies R by f²+ab tⁿ⁻¹ and is zero on k. All higher powers multiply R by fᵏ: tⁿ⁻¹f=0, and the square operator annihilates the scalar coordinate and has zero constant residue on R. For 1≤s=vₜ(f)≤n−2, X(tR)=tˢ⁺¹R and X(1,0) adds one independent direction, while X(0,1) lies in X(tR); hence rank X=n−s. The square has rank n−2s if 2s<n−1, otherwise rank zero or one according to f_s²+ab or ab at the stated threshold. The numbers of pairs with prescribed product are q−1 for a nonzero product and 2q−1 for zero, including characteristic two. For f in ktⁿ⁻¹ the image is determined by the two columns (f,b),(a tⁿ⁻¹,0); rank is two with square rank one exactly when ab≠0, zero only for f=a=b=0, and one otherwise. These give the stated residual multiplicities. Jordan reconstruction by second differences and the total qⁿ⁺¹ follow. For n≥4 only s=1 can give (n,1). For each fixed s and large n, the nilpotency index is ceil(n/s); vₜ(f) has the asserted geometric weights up to a vanishing terminal atom, with uniformly geometric tails. Uniform boundedness yields the stated log expectation. The 19 documented checker configurations are finite corroboration, not a proof for all extension fields.",
+      "residual_risks": [
+        "The distributions are for a fixed labeled hook centralizer; they do not enumerate simultaneous-similarity classes or apply to arbitrary hooks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Britnell–Wildon distinguish the top-coefficient-only case, least degree below, at, and above half the top degree, and the nonzero-product exception. Khatami–Košir treat hook support over infinite characteristic-zero fields. Hua classifies indecomposable pairs up to simultaneous similarity; the inspected abstract does not evaluate the fiber counts. The all-arity record c71ec5f31f3e has unrestricted diagonal polynomial coefficients in a tuple and a rank-one constraint on off-diagonal coefficient rows."
+        ],
+        "reasoning": "The tuple totals and support claims alone do not determine the one-matrix Jordan-type distribution. Britnell–Wildon's rank-profile proof for the exact same hook, however, is pointwise data from which it follows by direct counting.",
+        "searches": [
+          "arXiv:1001.0811, pp. 24–25; arXiv:2605.27692v1, Theorem 3; arXiv:2305.00176, abstract",
+          "Resultary:c71ec5f31f3e, RESULT.md Step 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:d4ef1eac31b1 (identical record), 50a5542dfb83, c71ec5f31f3e, 608c27b8de6f",
+        "arXiv:1001.0811, 2605.27692v1, 2305.00176",
+        "OA attempts for DOI 10.1216/JCA-2010-2-3-295 and DOI 10.1016/j.laa.2024.03.008 did not provide full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Britnell–Wildon use α₀=δ=0 and, for least nonzero coefficient degree m, give the rank sequence (dimension, dimension−m−1, dimension−2m−1,…,0) below their threshold; above it the nonzero off-diagonal product gives square rank 1, otherwise 0. At equality they split by M²=0; their top-degree-only case has rank profiles (dimension,2,1,0) and (dimension,1,0,0). The square-zero record identifies vanishing at equality with ab=−f_s² and counts q−1 such pairs."
+        ],
+        "reasoning": "Translate the total dimension to n+1. There are (q−1)q^{n−s−1} diagonal polynomials at a given s. Multiplying by q² below the threshold, by the count of a prescribed nonzero product or its complement at equality, and by (q−1)² or 2q−1 above gives the full table. For the residual coordinates the two off-diagonal entries are either both nonzero (rank 2), not both nonzero (rank 1 unless all coordinates vanish), or the matrix is zero; this gives the remaining weights. For fixed s the prior subthreshold rank sequence gives ceil(n/s) as the large-n index, and counting the first nonzero coordinate gives the geometric limit and log expectation. These are direct specializations of available pointwise information, not consequences of support alone.",
+        "searches": [
+          "Britnell–Wildon arXiv:1001.0811, Proposition 4.4 proof, PDF-text offsets 60518–64083",
+          "50a5542dfb83, square equation and counting fibers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Second differences of ranks of powers recover the Jordan partition. If m_{λ,μ} counts type μ elements commuting with a fixed λ element, then |O_λ| m_{λ,μ} = |O_μ| m_{μ,λ} by counting pairs. Proposition 4.4 works with the same fixed hook after translating its total dimension n to the frozen n+1."
+        ],
+        "reasoning": "An exact opposite-order count would be equivalent after the orbit-size ratio, but mere nonvanishing is not. The actual hook proof explicitly supplies the rank profiles that determine the same types, not merely the support.",
+        "searches": [
+          "Resultary: full census and largest-block limit, hook support versus multiplicities, square-zero rank census, opposite-order type-pair counts",
+          "arXiv:1001.0811, Proposition 4.4 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record d4ef1eac31b1 is the exact match to itself, not separate evidence. The square-zero source already evaluates all ranks for this hook, including the odd-n boundary coefficient (q−1)²q^{(n−1)/2}. Resultary 608c27b8de6f counts a single balanced output in a different two-block input centralizer."
+        ],
+        "reasoning": "The square-zero rank enumerator exactly gives the types (2ʳ,1^{n+1−2r}), and those terms agree with the frozen rows. An explicit all-nilpotent table elsewhere was not located. Lack of a printed all-type table does not remove the direct derivation from the pointwise rank profiles.",
+        "searches": [
+          "Resultary: exact type-specific counts and square-zero hook rank polynomial",
+          "50a5542dfb83 RESULT.md offsets 930–3008 and 4500–6040",
+          "608c27b8de6f RESULT.md Finding"
+        ]
+      },
+      "rationale": "Britnell–Wildon's Proposition 4.4 states support, but its proof already analyzes the actual matrices in explicit coordinates and gives their rank-of-powers profiles by least nonzero coefficient, the product of the two off-diagonal scalars and the vanishing of the square at the threshold. This is stronger evidence than a support-only comparison. The exact threshold square equation and counts are also in the credited square-zero source 50a5542dfb83. Counting the already-described coordinate profiles is a direct free-coefficient count and count of a prescribed scalar product, not a new classification of the fibers. The limit follows from the same earlier rank profiles and the geometric distribution of the first nonzero polynomial coefficient. Separate aggregate tuple counts do not themselves imply this law; the coverage finding is based on the per-element proof, not on those counts or a date inference.",
+      "residual_risks": [
+        "No priority inference from the date of the tuple paper. Unread full texts of the related centralizer citations and potential exact pair-count or Hall-polynomial formulae are not relied on for the failure. The exact counts have been verified, not found false."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit centralizer coordinates and per-stratum rank profiles underlie the complete frozen count. Higher-rank types are not absent from the prior proof just because the proposition is phrased as support.",
+          "evidence": [
+            "Exact least-degree rank sequence, nonzero-product and square-vanishing subdivisions, and final-coordinate case as detailed in claim_vs_prior_implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+          "material_read": "Proposition 4.4 and proof, pp. 24–25, PDF-text offsets 60518–64083; Proposition 4.9 and Theorem 4.10 for support context",
+          "method": "Located and opened the proof passage beyond the support statement",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Exactly the same input hook; cited support and possible pointwise rank coverage"
+        },
+        {
+          "assessment": "Covers the entire square-zero slice and supplies the precise equality-threshold equation used in the general type profile.",
+          "evidence": [
+            "a(t)²+bc tⁿ⁻¹=0; at equality bc=−a_h²≠0 has q−1 solutions."
+          ],
+          "identifier_or_url": "Resultary:50a5542dfb83",
+          "material_read": "Mirrored RESULT.md rank polynomial, centralizer coordinates, square equation and counting fibers, offsets 930–3008 and 4500–6040",
+          "method": "Read pertinent mirror passages and matched the coefficients",
+          "title": "Parity geometry and rank census in hook nilpotent centralizers",
+          "trigger": "Same hook and credited exact square-zero subcase"
+        },
+        {
+          "assessment": "Broader hook support, not labeled finite-field multiplicities.",
+          "evidence": [
+            "Infinite characteristic-zero field; support for (n,1ᵐ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.27692v1",
+          "material_read": "Abstract, preliminaries on field assumptions, and Theorem 3, pp. 1–2, 6–7",
+          "method": "Bounded OA statement comparison",
+          "title": "Jordan types commuting with a hook partition",
+          "trigger": "Broader hook-support theorem"
+        },
+        {
+          "assessment": "Aggregate tuple counts and centralizer-conjugation orbits; not a Jordan-type refined count.",
+          "evidence": [
+            "Commutation reduces to b_i c_j−b_j c_i=0; diagonal coefficients unrestricted."
+          ],
+          "identifier_or_url": "Resultary:c71ec5f31f3e",
+          "material_read": "Finding and proof Step 1, including offset 3100–4091",
+          "method": "Bounded mirror inspection",
+          "title": "All-arity nilpotent branching orbits in hook Jordan centralizers",
+          "trigger": "Same exact fixed centralizer and finite-field tuple counts"
+        },
+        {
+          "assessment": "Canonical forms of indecomposable pairs, not a stated evaluated fiber count in the material read.",
+          "evidence": [
+            "Arbitrary field and simultaneous similarity; no labeled-type formula in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.00176",
+          "material_read": "Abstract, p. 1",
+          "method": "OA abstract scope comparison",
+          "title": "Canonical forms for a class of pairs of commuting nilpotent matrices under simultaneous similarity",
+          "trigger": "Two unequal Jordan blocks and alternate pair counting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen rank table and largest-block law",
+        "Britnell–Wildon Proposition 4.4 proof",
+        "Resultary:50a5542dfb83 square equation and fiber counts"
+      ],
+      "rationale": "Exact similarity-type fiber sizes and a largest-block law are mathematically natural. Here the already classified elementwise profiles reduce all extra weights to free coefficient choices and prescribed products, and the asymptotic statement is the immediate geometric-valuation limit of the same profiles. The frozen result is a useful summary of those consequences, but does not meet the requirement of a distinct exact invariant not mechanically implied by the existing analyses.",
+      "residual_risks": [
+        "This value decision concerns the frozen claim; it does not rule out substantively new distributions for other centralizers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

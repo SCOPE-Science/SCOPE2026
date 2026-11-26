@@ -1,15 +1,21 @@
-# Scientific review: metric-windmill spline projection
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof defines the metric graph and nodal projection precisely; the element mass matrix is independently derived as \(6G=2D+A\). Inverting the block matrix gives the exact five types of kernel endpoint values. Their signs hold throughout the integer domain. The six-term endpoint sum counts every edge exactly once and an explicit sign-of-kernel input attains the bound. Two multivariate polynomial identities with strictly positive factored coefficients prove, without extrapolation, hub-versus-petal dominance and the \(s\ge3\) strict upper bound. The triangular-petal formula, cubic threshold, derivative and limit are exact. The verifier independently reconstructs full Gram inverses and passes 12,460 exact-rational assertions. The general theorem is proved algebraically, not merely sampled.
+## correctness
 
-## Originality
-PASS, qualified by ordinary priority uncertainty. The closest inspected primary sources are Kayumov (2004, arXiv:math/0408418), on interval \(L\)-spline projectors; Oswald (2006, arXiv:math/0611573), on unbounded projection norms on planar triangulations; and Arioli–Benzi (2017, DOI 10.1093/imanum/drx029), on finite-element mass matrices for metric-graph PDEs. None contains a windmill vertex-kernel formula or the triangular-clique cutoff. Also compared were exact projections on other graph families and finite-metric Banach spaces, whose spaces and operators differ. A possibly unindexed windmill or graph-FEM calculation remains a residual risk; absence from searches is not proof of novelty.
+PASS
 
-## Mathematical value
-PASS. Complete cliques sharing a single vertex are a natural branched discretization with no leaves. The theorem exhibits a structurally sharp phenomenon: adding nine or more triangular petals forces norm above two, while increasing every petal to size four or more preserves strict sub-two stability for arbitrarily many petals. It gives an exact all-parameter stability classification, identifies where norm is attained, and determines the sharp global ceiling \(458/225\). These are natural robustness properties of graph spline approximation, not arbitrary isolated measurements.
+Integrating the two unit-edge hats gives the stated nodal Gram matrix. Eliminating the petal blocks gives the positive hub Schur complement and all five inverse entries with the indicated signs. The L-infinity evaluation norm is the kernel's L1 norm, attained by its sign, and independent edge counting gives the six-term outer formula. Interior evaluation is strictly below the maximum: adjacent endpoint kernels have opposite signs on an interval next to one endpoint (positive diagonal and negative adjacent inverse entry), so the integrated triangle inequality is strict for a proper convex combination. I symbolically verified both shifted polynomial certificates, their positivity, the triangle formula and derivative, and the strict inequalities at k=8 and 9. The k=1 row equality follows by complete-graph symmetry. In the s>=3 certificate some terms vanish at k=1, but the constant term stays positive. The limit 458/225 is the nonattained supremum of this family only.
 
-## Limitations
-The topology, edge length, density and one-element-per-edge spline order are essential hypotheses. Nothing is asserted for unequal clique orders or lengths, variable density, higher-degree splines, or independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the all-parameter windmill norm and its norming vertices, strict triangle-petal cutoff at nine, and family supremum. The general metric-graph mass-matrix/kernel identity and the possibility of amplification above two without leaves are not credited as new. The general identity computes each instance, but by itself does not perform the symbolic block reduction and certify the hub/outer comparison and threshold uniformly in both parameters. The nearest exact family results have different topologies.
+
+## value
+
+PASS
+
+The knot-free unit-edge windmill is a natural leafless test of whether vertex branching and connections within a petal cause amplification above two. The exact answer isolates the triangular case and the first bouquet size that crosses two, with extremizing vertex locations and a limit across petal counts. These are useful quantitative benchmarks beyond exhibiting another graph above two or numerically recomputing a known instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

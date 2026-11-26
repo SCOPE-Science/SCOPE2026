@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:22.557374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original macroscopic equations (41)–(43) under equal rates/capacities and the stated normalization give the sum of the two separate crowding terms, with prey fractions x/(1+y) and xy/(1+y), and the stated predation and recruitment terms. At positive equilibria the predator equation forces λ=b/μ−1>0 and x=(1+y)/λ. The prey reaction on it is −P(y)/λ² with P=y²−By+1−λ and B=λ−aλ²/(1+λ). Root signs give the complete census: opposite signs for λ>1, the root 1−a/2 alongside zero at λ=1, and positive double or distinct roots precisely when B equals or exceeds 2√(1−λ) for 0<λ<1. The predator x-derivative G_x is positive along the positive nullcline, so det J=G_x P′/λ². This gives the lower saddle; the diagonal signs give negative trace and a sink at the upper root. The prey-only eigenvalues are −1 and μ(λ−1)/2. At the fold use r=x−(1+y)/λ as transverse coordinate: the second Jacobian column in (r,y) is zero, the trace is strictly negative, and a left zero eigenvector has nonzero first component since G_x>0. The reduced second derivative −2/λ² and a-derivative −y_f/(1+λ) project nontrivially, giving a generic fold. The rational witness follows by factoring P=(y−1/5)(y−1/2); the frozen standard-library checker and verification notes were inspected, not executed. These are homogeneous ODE results, not PDE stability or a global basin theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "76d54fcca7fd treats arbitrary positive α,K,β,δ,a,μ,h. The 2017 comparison studies different crowding or response terms; the accessible 2024 text has independently evolving environmental capacity and fixed protection. The relevant 2019 full text could not be opened."
+        ],
+        "reasoning": "The positive constants fixed to one in the frozen record are independent parameters in the covering result. Similar but different vector fields are not the basis of rejection; the direct specialization is decisive.",
+        "searches": [
+          "76d54fcca7fd, original Finding and Assumptions",
+          "arXiv:1712.10159v1 eq. (2), §3.3; DOI 10.37905/jjom.v6i1.24288; DOI 10.1007/s11587-018-0403-y"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "76d54fcca7fd; Bisi et al. arXiv:2611.14132v1; Conforto et al. arXiv:1712.10159v1; Hanifah and Abadi DOI 10.37905/jjom.v6i1.24288 (original passages)",
+        "Desvillettes–Soresina DOI 10.1007/s11587-018-0403-y (access attempted; no full passage read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covering wedge 1<ρ<(1+√2)/2 and 0<η<1−2√(ρ(ρ−1)) becomes λ_c<λ<1 and 0<a<a_f(λ). Its positive equality is the same nondegenerate fold, and its ρ<1, ρ=1, and h≤μδ cases give the other frozen counts. It explicitly gives the lower saddle and upper and prey-only sinks. The originating preprint defers stability and equilibrium analysis rather than asserting this census."
+        ],
+        "reasoning": "The map preserves the actual vector field at the specified constants and converts all inequalities, including equality. Direct theorem implication covers the claims even if the numerical witness and notation differ. Nothing genuinely new and independently valuable remains to repair.",
+        "searches": [
+          "76d54fcca7fd RESULT.md, Finding, assumptions, census, root-count and Jacobian/fold proof",
+          "arXiv:2611.14132v1 conclusion p. 29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The originating equations reduce to the same ODE in both records. The comparison record has nullcline X=T(1+βY) and prey polynomial F(q)=1−ρ+(1−η)q−ρq², with q=βY."
+        ],
+        "reasoning": "Set α=K=β=δ=1 and h=b. Then T=ρ=1/λ, η=aλ/(1+λ), q=y, and F(y)=−P(y)/λ. Both formulations use the same local ODE, not just similar qualitative bifurcation diagrams.",
+        "searches": [
+          "Resultary: Bisi–Bondesan–Groppi–Soresina refuge-induced carrying capacity, sub-invasion bistability and coexistence wedge",
+          "arXiv:2611.14132v1, eqs. (41)–(43)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue already gives the exact regimes, coordinates and stability under a reversible reparameterization in the positive-nullcline regime, and includes its own exact witness with different constants."
+        ],
+        "reasoning": "A different rational illustration is not an uncovered structural result. The covering root formulas give the frozen pair by direct substitution; no database of those exact rational values is needed.",
+        "searches": [
+          "Resultary exact equilibrium and fold comparison: 76d54fcca7fd, Finding, census, and Proof §5"
+        ]
+      },
+      "rationale": "The strongest matching catalogue theorem 76d54fcca7fd addresses the same Bisi et al. homogeneous reaction law with additional free parameters, and directly implies the entire claimed equilibrium census, wedge, stability and nondegenerate fold. The reports share a date; equivalence and direct coverage, not an inferred date ordering, decide this assessment.",
+      "residual_risks": [
+        "The full 2019 cross-diffusion comparator was not retrieved, and the focused external search was unavailable; neither is negative evidence.",
+        "The evidence shows coverage, not an order of discovery between these same-date catalogue records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger result covers the frozen scientific claim",
+          "evidence": [
+            "Exact dimensionless wedge and positive roots with arbitrary α,K,β,δ,a,μ,h; hyperbolic states and nondegenerate fold under a variation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-predator-rescue-bistability-from-refuge-induced-carrying-c--76d54fcca7fd/RESULT.md",
+          "material_read": "Finding, full model, census and first proof passages at offset 0; fold and witness passage near offsets 6373–7000",
+          "method": "Original published catalogue text",
+          "title": "Sharp predator-rescue bistability from refuge-induced carrying capacity",
+          "trigger": "Exact same-day homogeneous refuge-model census"
+        },
+        {
+          "assessment": "Source of the exact ODE, leaves equilibrium and stability analysis open",
+          "evidence": [
+            "Separate logistic terms for active and refuge prey and handling-mediated predator recruitment; the conclusion says equilibria and stability must be investigated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14132v1",
+          "material_read": "PDF pp. 21–22, equations (41)–(43), offsets 91500 and 96253; p. 29 at offset 126100",
+          "method": "Original open preprint",
+          "title": "Mesoscopic derivation of predator-prey dynamics via diffusive fast-reaction asymptotics: cross-diffusion and fear effects",
+          "trigger": "Origin of the ODE and possible stated stability result"
+        },
+        {
+          "assessment": "Inspected model is different",
+          "evidence": [
+            "Prescribed logistic or modified-response terms instead of the same separate active/refuge crowding combination."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1712.10159v1",
+          "material_read": "Opening eq. (2), §3.3 eq. (72), offsets 88930–94343",
+          "method": "Original open preprint",
+          "title": "About reaction-diffusion systems involving the Holling-type II and the Beddington-DeAngelis functional responses for predator-prey models",
+          "trigger": "Closely related response law and equilibria"
+        },
+        {
+          "assessment": "Different state space and capacity law",
+          "evidence": [
+            "Fixed prey protection and separately evolving carrying capacity in a three-state system."
+          ],
+          "identifier_or_url": "https://doi.org/10.37905/jjom.v6i1.24288",
+          "material_read": "PDF pp. 2–4, offsets 5938, 9792, 14000",
+          "method": "Original open article",
+          "title": "Efek Perlindungan Mangsa dan Daya Dukung Variabel pada Sistem Mangsa-Pemangsa dengan Fungsi Respon Beddington-DeAngelis",
+          "trigger": "Refuge and altered carrying-capacity model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete sharp classification is mathematically informative as a description of a motivated reaction law: it separates local failure of predator invasion from existence of a stable coexistence state and identifies the fold bounding that region. That structural value is already present in the covering theorem. The different rational witness alone is a routine illustration and supplies no valuable standalone repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

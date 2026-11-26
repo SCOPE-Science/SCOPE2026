@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:29:05.468071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Modulo constants, the three adjacent differences are independent l1 coordinates; the triangle inequality and unit coordinate witnesses give exactly the maximum of the three one-step variations. For each step there are two distinct derivative zeros by Rolle in the two repeated-value gaps. The absolute integral between those zeros is |A|(r_+-r_-)^3/2 for cubic coefficient A. Both terminal steps have A>0 and the middle step has A<0; their signed total change is 1, yielding 1+|A|gap^3 and |A|gap^3-1 respectively. For the terminal cubics the root triples of the cardinal polynomial are m-a,m+a,±1, giving (B/A)^2-3C/A=(1∓m)^2+3a^2 for their cubic/quadratic/linear coefficients A,B,C. Independently, the Newton form for the middle step is beta(t+1)(t-m+a)+A(t+1)(t-m+a)(t-m-a), where D=1+a, beta=1/[2a(D+m)], and A=-D/[2a(D^2-m^2)]. This gives B/A=-m(1+2a)/D and C/A=am^2/D-(1+a+a^2), so the claimed discriminant and three branches follow. At fixed a>0 the middle branch strictly grows with |m|; the larger terminal branch is strictly higher than its symmetric value for m≠0 by both numerator and denominator comparisons, so the whole maximum strictly grows away from symmetry in the sense needed. On m=0 the stated derivatives have opposite strict signs and the blown-up opposite endpoint limits force exactly one crossing, which uniquely minimizes the envelope and makes all three witnesses norming. All denominators are positive on the entire strictly ordered domain. Read the frozen checker, stored output and verification notes without executing supplied code. Independent replay: python /workspace/review_evidence/3_reproduce.py. Exact rational radical intervals certify signs of E-F (approximately -3.386e-10 and +4.874e-10) at the stated root bracket endpoints; separate high-precision decimal calculation gives a=0.480136926281980281997361, optimal gain 1.423593925054415904297969, equispaced 2.006850888117747284296652 and Lobatto 1.457290350060546521815094. The computations do not stand in for the global proof, which is only for fixed endpoints, real data and unweighted variation on the full interval.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nochetto–Salgado prove TV diminution for an averaged Q1 interpolation operator, not for four-value global Lagrange interpolation.",
+          "The available Mastroianni–Occorsio survey excerpt concerns Lebesgue constants in uniform and integral norms; it does not say that their objectives include discrete-to-continuous TV. Prestin's bibliographic record connects Lagrange interpolation to BV but no theorem text was available."
+        ],
+        "reasoning": "Neither the observed averaged-operator result nor the accessible norm descriptions dominate the present objective. BV approximation/convergence and boundedness of a Lebesgue constant in an integral norm would not alone give this exact variation norm and optimal node geometry.",
+        "searches": [
+          "Resultary: variation diminishing interpolation operator bounded variation optimal node system",
+          "Resultary: Lagrange interpolation operator norm total variation node optimization cubic",
+          "arXiv:1211.1069, Theorem 3.7",
+          "DOI 10.1016/S0377-0427(00)00557-4; DOI 10.1007/BF01874212"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and checker_output.txt",
+        "Resultary symmetric TV (2026/11/22) and symmetric monotone range control (2026/10/26)",
+        "Rack–Vajda (2015)",
+        "Berrut–Trefethen (2004)",
+        "arXiv:1211.1069",
+        "Mastroianni–Occorsio DOI 10.1016/S0377-0427(00)00557-4 (metadata/excerpt)",
+        "Prestin DOI 10.1007/BF01874212 (bibliographic entry)",
+        "Mastroianni–Russo SC2011 (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the earlier symmetric middle step, the range defect H and TV branch satisfy F=1+4H because undershoot and overshoot are equal by reflection. The earlier proof also gives the symmetric terminal derivative, from which one can compute both critical values to recover symmetric TV.",
+          "The directly matching symmetric-TV record fixes m=0 and does not assert symmetry is optimal over all admissible m.",
+          "The decisive new comparison uses the asymmetric middle derivative discriminant and the increasing outward terminal branch to prove strict K(m,a)>K(0,a) for m≠0."
+        ],
+        "reasoning": "The change of objective on a fixed symmetric grid shares substantial algebra with prior work. Neither restricting to symmetry nor solving the uniform-norm node problem implies the quantified asymmetric formulas and strict comparison for variation; reflection by itself cannot prove the strict comparison.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7, Finding and Proof, mirror offsets 0 and 2090",
+          "Resultary 2026/11/22/SCOPE-variation-minimax-placement-of-four-symmetric-cubic-interpolatio--7de5de0f574f, Finding and Assumptions, mirror offset 0",
+          "Rack–Vajda (2015), §2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent norm formulation is the l1-to-L1 norm of the derivative operator with columns given by the three adjacent step interpolants' derivatives.",
+          "The older monotone-range record uses a convex decomposition into the same steps on symmetric grids, but maximizes pointwise excursion, not integrated absolute derivative; the terminal maximum inside the interpolation interval can contribute to TV even when it never leaves the data range.",
+          "The classical Lebesgue function maximizes a sum of absolute cardinal values, not the L1 norm of any cumulative cardinal derivative."
+        ],
+        "reasoning": "The shared steps and cardinal basis do not identify the objectives. Unrestricted real data are handled by the l1 jump norm, and the asymmetric TV optimization still needs separate proof.",
+        "searches": [
+          "Resultary: adjacent sample total variation cubic Lagrange interpolation optimal nodes",
+          "Resultary: four node cubic interpolation monotone range control range excursion",
+          "Berrut–Trefethen, Barycentric Lagrange Interpolation, §9.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed November 22 record gives the same exact symmetric branches and encloses a between 0.48013692628 and 0.48013692629, with matching sharp gain. It explicitly excludes asymmetric grids from its optimization domain.",
+          "Rack–Vajda give the different canonical endpoint-including optimizer 0.4177913013… and minimum 1.4229195732… for the Lebesgue constant, in equations rather than a matching variation table."
+        ],
+        "reasoning": "The symmetric numerical and exact match is material irrespective of documentary ordering; it is not evidence for the all-midpoint formulas or exclusion of nonsymmetric competitors. Numerical tables do not establish the continuous-grid minimax theorem.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-variation-minimax-placement-of-four-symmetric-cubic-interpolatio--7de5de0f574f, Finding",
+          "Rack–Vajda (2015), §3, Eqs. (3.3), (3.5)–(3.7)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact norm on every endpoint-fixed grid (including asymmetric ones) and the strict, unrestricted uniqueness theorem. The symmetric norm and optimizer alone are not credited as distinct: another indexed finding states them exactly, and the earlier symmetric range-control proof already writes down the symmetric cubics and relevant derivative polynomials. The earlier range objective and the classical uniform-norm node problem do not yield the arbitrary-midpoint TV branches or the strict projection to the symmetric minimum. This is a best-of-knowledge assessment of the full claim, not a priority certification for its symmetric restriction.",
+      "residual_risks": [
+        "The Mastroianni–Occorsio survey, Prestin article and Mastroianni–Russo slides were not inspected in full, so older BV-related coverage cannot be excluded from these texts. Targeted literature lookup is not a priority certificate.",
+        "The exact indexed symmetric overlap is documented without inferring priority or common provenance from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact symmetric-subproblem overlap; no unrestricted result in the stated scope. Catalogue date is not a provenance finding.",
+          "evidence": [
+            "Exact same E and F, witnesses and optimizer; explicitly no assertion about asymmetric systems."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-variation-minimax-placement-of-four-symmetric-cubic-interpolatio--7de5de0f574f/RESULT.md",
+          "material_read": "Finding, assumptions and proof passages including the jump reduction; decisive mirror offset 0",
+          "method": "Resultary and bounded local mirror inspection",
+          "title": "Variation-minimax placement of four symmetric cubic interpolation nodes",
+          "trigger": "Exact symmetric optimization match"
+        },
+        {
+          "assessment": "Partial algebraic overlap, distinct objective and symmetric-only scope",
+          "evidence": [
+            "The target is max range excursion for ordered bounded data, with optimizer 0.4458209225…; the proof gives symmetric step cubics and derivatives, not variation for nonzero midpoint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7/RESULT.md",
+          "material_read": "Finding and step-critical-value proof, mirror offsets 0 and 2090",
+          "method": "Resultary and bounded local mirror inspection",
+          "title": "Optimal symmetric four-node cubic interpolation for monotone range control",
+          "trigger": "Same step polynomials and earlier symmetric node optimization"
+        },
+        {
+          "assessment": "Different norm and optimizer",
+          "evidence": [
+            "Endpoint-fixed canonical optimizer has interior parameter 0.4177913013… for uniform-norm Lebesgue amplification."
+          ],
+          "identifier_or_url": "https://studia.reviste.ubbcluj.ro/index.php/subbmathematica/article/download/5710/5405/10662",
+          "material_read": "§2 p.154 and §3 p.156, Eqs. (3.3), (3.5)–(3.7); relevant extremal statement",
+          "method": "Bounded OA primary-PDF inspection",
+          "title": "Optimal cubic Lagrange interpolation: Extremal node systems with minimal Lebesgue constant",
+          "trigger": "Same endpoint-fixed cubic grid optimization under a possibly conflated norm"
+        },
+        {
+          "assessment": "Classical uniform-norm formula, not the variation claim",
+          "evidence": [
+            "The Lebesgue constant is max over x of the sum of absolute cardinal values."
+          ],
+          "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/barycentric.pdf",
+          "material_read": "§9.1 pp.511–512",
+          "method": "Bounded OA primary-PDF inspection",
+          "title": "Barycentric Lagrange Interpolation",
+          "trigger": "General Lagrange operator formulas and stability"
+        },
+        {
+          "assessment": "Different operator, admissible inputs and mesh setting",
+          "evidence": [
+            "The TV inequality is for weighted-averaged interpolation into continuous Q1 elements on Cartesian meshes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+          "material_read": "Abstract, introduction, §3 Theorem 3.7 p.4",
+          "method": "Bounded OA primary-text inspection",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Potential broader TV inequality"
+        },
+        {
+          "assessment": "Excerpt does not establish coverage; unresolved full-text risk",
+          "evidence": [
+            "The visible excerpt mentions optimal Lebesgue constants in the uniform norm and integral norms, without the variation objective or a four-node claim."
+          ],
+          "identifier_or_url": "10.1016/S0377-0427(00)00557-4",
+          "material_read": "Crossref bibliographic record and search-result excerpt; no full text",
+          "method": "Publisher retrieval and identified text-mining route unsuccessful",
+          "title": "Optimal systems of nodes for Lagrange interpolation on bounded intervals. A survey",
+          "trigger": "Older survey of node optimization in different metrics"
+        },
+        {
+          "assessment": "Relevance of individual theorems unresolved",
+          "evidence": [
+            "J. Prestin, Acta Math. Hungar. 62 (1993), 1–13; no passage on this norm retrieved."
+          ],
+          "identifier_or_url": "10.1007/BF01874212",
+          "material_read": "Bibliographic entry only",
+          "method": "DOI retrieval and repository lookup did not provide text",
+          "title": "The Lagrange interpolation for bounded variation functions",
+          "trigger": "Direct title overlap with interpolation and BV"
+        },
+        {
+          "assessment": "Does not establish coverage or its absence",
+          "evidence": [
+            "The frozen record cites Mastroianni and Russo, SC2011, as a BV approximation comparison."
+          ],
+          "identifier_or_url": "https://bugs.unica.it/sc2011/slides/slides/russo.pdf",
+          "material_read": "Frozen bibliographic citation only; slide text not retrieved",
+          "method": "Attempted primary slide retrieval unsuccessful",
+          "title": "The Lagrange interpolation for bounded variation functions (conference slides)",
+          "trigger": "Frozen citation on BV convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variation amplification measures oscillatory behavior of the unmodified global cubic that range excursion and uniform-norm stability do not measure. The exact norm for every asymmetric grid and strict global design theorem answer a motivated question for the first endpoint-fixed cubic case with two free nodes. The contribution is a full certificate of optimality and uniqueness for arbitrary inputs and nodes in that scope, not merely a small numerical improvement over Lobatto or a reproduction of the symmetric value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

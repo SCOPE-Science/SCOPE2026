@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:43:46.327387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadratic change of variables gives the indicated positive definite Hessian (there is a harmless typesetting slip at the control quadratic term of the proof). Every mode has scalar curvature f_delta(a)=(1+alpha a²)/(a+delta)². Its derivative has sign alpha delta a−1, so the extreme modes can be realized by the two spectral endpoints and the clipped interior minimum, in a three-dimensional diagonal witness. With theta=arctan(sqrt(alpha)a) and phi=arctan(sqrt(alpha)delta), the condition number of the robust envelope is the ratio of max to min of sin² on a translated interval of length Delta. Moving an interval on one side of pi/2 toward the peak strictly lowers that ratio by strict cotangent monotonicity; on a straddling interval the smaller endpoint sine strictly increases toward the unique centered placement and then decreases. The centered placement is feasible for every specified interval including mu=0. This proves the unique optimum, its sec² value, and that the interior witness mode lies strictly between the endpoints. Endpoint modes alone have condition number one. The mu=0 and unit-parameter special cases follow by the half-angle identity and direct evaluation of the matched shift. The frozen finite checks were inspected, not rerun, and are not needed for these universal statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed fixed-matrix theorem is stronger when the endpoints are known: the gain uniquely minimizes the actual condition number, not just a uniform envelope. The proof covers the same rational eigenvalue law, and its theorem also allows a nonzero constraint right-hand side. Older Schur work proves a parameter-robust interval for a fixed matched gain, and Preuster et al. optimize a different PDE bound."
+        ],
+        "reasoning": "The indexed stronger result covers this claim; the older two approaches establish meaningful background but are not the evidence for coverage of the endpoint-dependent optimum.",
+        "searches": [
+          "4e27f751ca0b Finding and scalar proof; Pearson–Wathen matching Schur theorem; Preuster et al. §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local ranked search and 4e27f751ca0b",
+        "10.1002/nla.814",
+        "10.1137/110847949",
+        "arXiv:2607.11835v1",
+        "10.3390/math11122599 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any admissible A, augment by the diagonal modes mu and L. The augmented matrix has these actual extremal eigenvalues and its transformed condition number dominates the original for every gain. The indexed theorem bounds it by sec² at the common optimal shift. The indexed sharp three-mode matrix lies in the original class and has that gain as its unique minimizer."
+        ],
+        "reasoning": "The augmentation supplies the uniform upper bound at the gain; the single witness supplies equality and excludes every competing gain. Endpoint collapse and the mu=0 benchmark then follow directly. The auxiliary all-gain worst-case curve follows mechanically by scalar differentiation and taking the two extrema, as in the indexed scalar proof.",
+        "searches": [
+          "4e27f751ca0b exact hypotheses and sharpness statement compared with the frozen robust class"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4e27f751ca0b states k_*=(w_a+w_b)/(alpha(b w_a+a w_b)), w_t=sqrt(1+alpha t²), and the same sec² half-arctangent-width bound and diagonal witness."
+        ],
+        "reasoning": "The ratio (b w_a+a w_b)/(w_a+w_b) equals tan((arctan(sqrt(alpha)a)+arctan(sqrt(alpha)b))/2)/sqrt(alpha) by the sine-over-cosine sum identity. Thus the parameterization is identical, not merely numerically similar.",
+        "searches": [
+          "Resultary spectral condition number scalar feedback, bounded self-adjoint quadratic control and endpoint-dependent optimizer",
+          "Primary search for exact endpoint-dependent minimax feedback shifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct entry 4e27f751ca0b, mirrored RESULT Finding and Proof §§1–2 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, gives the bound, endpoint collapse and interior witness at the identical parameters."
+        ],
+        "reasoning": "The covering evidence is the actual indexed theorem, not a numerical table, a catalogue title, or the frozen record rediscovered by search.",
+        "searches": [
+          "Resultary local catalogue for spectrally optimal scalar feedback and exact finite-endpoint preconditioning"
+        ]
+      },
+      "rationale": "A distinct indexed record, 4e27f751ca0b, establishes the same optimizer for every fixed matrix with its actual extremal eigenvalues, the same sharp envelope, and exactly the same equality witnesses. It mathematically covers the frozen robust theorem, as the direct-sum reduction below shows. This is a finding of demonstrated coverage in the inspected corpus, not a determination of historical priority or of which record derives from the other. The catalogue paths bear different dates, with the covering record labelled later; no provenance inference is made from those labels.",
+      "residual_risks": [
+        "Provenance and historical priority relative to 4e27f751ca0b are not established; its path label is later than the frozen record's.",
+        "Full-text overlap with Wang–Chen–Sun and possible older equivalent spectral optimization results remain unresolved. Neither is the basis for failing this claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable mathematical coverage; historical relationship not established",
+          "evidence": "States unique optimizer for each fixed matrix, identifies the interior mode, proves sharp envelope and endpoint-only collapse; algebra and endpoint augmentation recover the robust formulation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-spectrally-optimal-scalar-feedback-for-fully-observed-quadratic--4e27f751ca0b/RESULT.md",
+          "material_read": "RESULT Finding, assumptions and proof §§1–2 opening, offset 0 to 3223",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Spectrally optimal scalar feedback for fully observed quadratic control",
+          "trigger": "Same Hessian, gain, worst-case factor and equality pattern"
+        },
+        {
+          "assessment": "Covers the fixed matched-square strategy, not the exact endpoint optimization",
+          "evidence": "The matched factors use the inverse-square-root regularization shift and the preconditioned spectrum is contained in [1/2,1].",
+          "identifier_or_url": "https://doi.org/10.1002/nla.814",
+          "material_read": "Oxford repository version, §3 Eq. (3.1), printed p. 7, and Theorem 4 p. 9; offsets 15944 and 23000",
+          "method": "Lawful OA author version",
+          "title": "A new approximation of the Schur complement in preconditioners for PDE-constrained optimization",
+          "trigger": "Historical matched gain and factor-two benchmark"
+        },
+        {
+          "assessment": "Matched preconditioning background",
+          "evidence": "Writes the matched-square factorization and refers to the source of that construction.",
+          "identifier_or_url": "https://doi.org/10.1137/110847949",
+          "material_read": "PDF §2 p. 4, offset 11200, and reference [22] p. 25, offset 86699",
+          "method": "Lawful OA PDF passages",
+          "title": "Regularization-Robust Preconditioners for Time-Dependent PDE-Constrained Optimization Problems",
+          "trigger": "Frozen reference for matched Schur construction"
+        },
+        {
+          "assessment": "Different benchmark",
+          "evidence": "Optimizes an upper bound in a PDE setting at gamma=0, obtaining 9; not the finite Euclidean Hessian's exact spectral ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11835v1",
+          "material_read": "§4.2, PDF p. 12/printed p. 13, Eq. (16) context and Fig. 6, offset 63200",
+          "method": "Lawful OA PDF passage",
+          "title": "Stabilize-then-optimize: Feedback transformations as preconditioners in optimal control",
+          "trigger": "Related feedback condition-number optimization"
+        },
+        {
+          "assessment": "Unresolved, not needed for demonstrated indexed coverage",
+          "evidence": "No statement-level conclusion drawn from the landing page or access error.",
+          "identifier_or_url": "https://doi.org/10.3390/math11122599",
+          "material_read": "Landing/bibliographic evidence only; decisive full text not obtained via publisher/PDF or DOI",
+          "method": "Lawful OA attempts",
+          "title": "A Matching-Strategy-Inspired Preconditioning for Elliptic Optimal Control Problems",
+          "trigger": "Potential alternative matching formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact design rule and sharp witness are useful mathematical information, but the proposed robust formulation adds no independently useful unknown exact fact once the indexed fixed-matrix theorem and its sharpness are available. The uniform bound and unique gain follow by endpoint augmentation plus that same witness; the benchmark examples are evaluations of the covered law, not new boundaries. No surviving distinct valuable remainder was identified to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:54:06.271782Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Euler equation for p>1 has a unique root and gives coordinate monotonicity and translation equivariance. Together they imply max-norm Lipschitz continuity. For triples, if the mean equals one datum, the other two residuals are opposite, so the exceptional residual-zero configurations are contained in the finite union of midpoint hyperplanes. Away from these, implicit differentiation gives weights proportional to absolute residuals to power p-2, summing to one. Generic translates of a segment miss or intersect each exceptional hyperplane at isolated times, so integrating the derivative and passing to the limit is valid even for exceptional pairs. For p>2, with q=p-1, the sign balance gives |r_i|^q<=sum_{j!=i}|r_j|^q and subadditivity of power (q-1)/q then bounds every weight by 1/2. The input seminorm is the l1 norm of jumps modulo constants. A Jacobian applied to one unit jump gives a truncated (0,r,1-ell,1) sequence, so its variation is at most min(n-3,3), is at most one in the weight-half regime, and at p=2 is at most min((n-3)/3,1), by the constant weights. For exactness, the stated short input pairs give those step responses with mixed outputs a and delta-a by reflection and translation. Specifically a is the mean of (-1,1,delta) and obeys (delta-a)^q=2qa+O(a^3), with 0<a<delta. This forces a/delta to tend to 1 for q<1 and 0 for q>1, and equal 1/3 at q=1. The length-four, length-five and longer witnesses respectively have ratios |1-2r|, |1-2r|+r and |1-2r|+2r. At n=3 the output has one entry and zero variation. The p=2 witnesses already have the exact ratios; for p>2 and n>=6 an increasing step with both a pure zero and pure constant window attains one. The frozen checker was inspected, not executed; the generic-segment and limiting arguments establish the continuum and lengths beyond the numerical tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nochetto–Salgado §4 gives TV(Omega) contraction for one interpolated function. The indexed general odd-width rank-filter result gives 2min(q-1,w-q)+1 for endpoint-clamped rank q at n>=w+1, hence 3 for the width-three median and 1 for extrema."
+        ],
+        "reasoning": "One-input TV diminution cannot be applied to the difference of separate nonlinear outputs. Rank-filter coverage applies to order statistics and its own boundary convention, not to finite-p variational means. A coincident sharp number can reflect a related switch of weights without implying the family or its length dependence.",
+        "searches": [
+          "Focused primary-literature search for exact three-point p-mean, rank and fixed-blend path-variation gains",
+          "arXiv:1211.1069v1 §4",
+          "2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.7570 Appendix 7, arXiv:1604.00520 Abstract and §1, and arXiv:1211.1069v1 §4",
+        "Resultary exact and related-statistic searches, including …4ad37e5b5ca9, …5759b99f2a42, …ed9e6f4e0ade, …2d090570f9fc and …a032bfcaee76",
+        "Focused primary-literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed cyclic median–arithmetic-mean blend has indexed coefficient max{1,3-8theta/3}. The central-spacing record is for a width-four dispersion statistic and explicitly distinguishes single-input from pairwise variation. The rank result uses fixed ranks and endpoint clamping."
+        ],
+        "reasoning": "A fixed convex combination transfers pairwise upper bounds by the triangle inequality but generally not sharpness for a new operator. Finite nonquadratic p-means have data-dependent differential weights, not a fixed median/arithmetic blend. Cyclic or clamped bounds do not imply exact full-window finite-length constants. Comparisons use the statements rather than same-day dating.",
+        "searches": [
+          "2026/11/17/SCOPE-a-sharp-three-quarter-mean-weight-threshold-for-cyclic-median-bl--2d090570f9fc",
+          "2026/11/22/SCOPE-sharp-one-input-versus-two-input-variation-thresholds-for-slidin--a032bfcaee76",
+          "2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Falcone et al. define variational p-averages of finite data and give equivariance and coordinate monotonicity. Ishiwata et al. formulate the p-mean as a best constant L^p approximation.",
+          "The finite-path gain can equivalently be formulated on the quotient by constants, with the l1 norm of adjacent jumps."
+        ],
+        "reasoning": "The named means are genuinely equivalent at the local-window level, but their defining properties and sup-norm control do not give how differences between two signals accumulate across overlapping windows.",
+        "searches": [
+          "Resultary: sliding three-point p-mean and two-input path variation",
+          "arXiv:1301.7570 §7",
+          "arXiv:1604.00520 Abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact p-mean search returned the assigned record. The most similar indexed p-dependent table is for pairwise l_p dispersion and gives 2^(1/p) times 0, 3/2, 5/2, 3 at lengths 3, 4, 5 and at least 6. The median entry concerns endpoint-preserving median smoothing and weighted path variation."
+        ],
+        "reasoning": "Dispersion is invariant under adding a constant to a window, whereas the p-mean shifts with that constant; the indexed statistic and table are not equivalent. The endpoint-preserving median is a different filter and does not give the finite-p response.",
+        "searches": [
+          "Resultary exact three-point p-mean gain and exponent transition",
+          "2026/11/22/SCOPE-sharp-path-variation-sensitivity-of-sliding-triple-pairwise-ell--ed9e6f4e0ade",
+          "2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparisons is the exact nonquadratic path-length dependence and exponent split for a nonlinear two-input seminorm. The finite-set mean, arithmetic-average slice and step decomposition do not by themselves constitute novelty. The inspectable rank, dispersion and blend results use other statistics or different window conventions. This is not a historical priority certification.",
+      "residual_risks": [
+        "The nearby indexed findings were compared on their available statements; their original text was not retrieved.",
+        "An unlocated general theorem for variable-weight rank or convex filters might imply some bounds, and an unindexed exact finite-p result could affect priority. The bounded search does not rule these out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying mean and local structural properties are prior art, not the stated two-input coefficient",
+          "evidence": "Finite-set minimization, translation equivariance, min–max bounds and coordinate monotonicity.",
+          "identifier_or_url": "https://arxiv.org/html/1301.7570",
+          "material_read": "Appendix 7, Remark 7.1 and Lemmas 7.1–7.2, HTML offset about 83424",
+          "method": "Lawful official arXiv HTML after targeted OA retrieval timed out",
+          "title": "A Semi-Lagrangian Scheme for the Game p-Laplacian via p-averaging",
+          "trigger": "Equivalent minimization and monotonicity of finite-set p-averages"
+        },
+        {
+          "assessment": "Same local optimization idea in a ball setting, no sliding-path estimate in inspected passage",
+          "evidence": "Best constant L^p approximation, monotonicity and continuity.",
+          "identifier_or_url": "https://arxiv.org/html/1604.00520",
+          "material_read": "Abstract and §1, HTML offset about 1889",
+          "method": "Lawful official arXiv HTML after targeted OA retrieval timed out",
+          "title": "A Natural Approach to the Asymptotic Mean Value Property for the p-Laplacian",
+          "trigger": "Best-constant p-mean reformulation"
+        },
+        {
+          "assessment": "Different operator and single-input conclusion",
+          "evidence": "TV_Omega(I_h w)<=TV_Omega(w) for the interpolation operator.",
+          "identifier_or_url": "https://arxiv.org/html/1211.1069v1",
+          "material_read": "§4, HTML offset about 23767",
+          "method": "Lawful official arXiv HTML",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Potentially broader total variation bound"
+        },
+        {
+          "assessment": "Material rank-filter result, distinct finite-p and endpoint assumptions",
+          "evidence": "Endpoint-clamped rank q, odd width w, formula 2min(q-1,w-q)+1 for n>=w+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9",
+          "material_read": "Indexed statement; original passage unavailable",
+          "method": "Resultary and lawful local-mirror attempt",
+          "title": "Exact rank-dependent variation sensitivity of sliding order statistics",
+          "trigger": "Sharp two-input variation for related sliding nonlinear filters"
+        },
+        {
+          "assessment": "Different local statistic and table",
+          "evidence": "Pairwise dispersion and length-specific values scaled by 2^(1/p).",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-path-variation-sensitivity-of-sliding-triple-pairwise-ell--ed9e6f4e0ade",
+          "material_read": "Indexed statement; original passage unavailable",
+          "method": "Resultary and lawful local-mirror attempt",
+          "title": "Sharp path variation sensitivity of sliding-triple pairwise ell_p dispersion",
+          "trigger": "Same path lengths, exponents and two-input variation"
+        },
+        {
+          "assessment": "Different median operator, endpoints and weighted seminorm",
+          "evidence": "Endpoint-preserving median with an optimized-weight path variation formula.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "material_read": "Indexed statement; original passage unavailable",
+          "method": "Resultary and lawful local-mirror attempt",
+          "title": "Sharp two-input variation sensitivity of three-point median smoothing",
+          "trigger": "Related width-three nonlinear filter with sharp pairwise constants"
+        },
+        {
+          "assessment": "Fixed cyclic blend rather than finite-p variational mean",
+          "evidence": "Exact cyclic coefficient max{1,3-8theta/3}.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-three-quarter-mean-weight-threshold-for-cyclic-median-bl--2d090570f9fc",
+          "material_read": "Indexed statement; original passage unavailable",
+          "method": "Resultary and lawful local-mirror attempt",
+          "title": "A sharp three-quarter mean-weight threshold for cyclic median blends",
+          "trigger": "Sharp contraction transition for a mixture of nearby window means"
+        },
+        {
+          "assessment": "A width-four central-spacing statistic is not a three-point mean",
+          "evidence": "One-input gain bound and separate exact pairwise constants for central spacing.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-one-input-versus-two-input-variation-thresholds-for-slidin--a032bfcaee76",
+          "material_read": "Indexed statement; original passage unavailable",
+          "method": "Resultary and lawful local-mirror attempt",
+          "title": "Sharp one-input versus two-input variation thresholds for sliding central spacing",
+          "trigger": "Same distinction between one-input and pairwise path variation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three samples are a natural smallest window for an unweighted scalar p-mean with genuine p dependence (one sample is trivial and two average to the midpoint). The result identifies a discontinuous stability change across p=2 for differences of separately filtered inputs and pinpoints the length-six saturation and the shorter-path constants. The weight restriction and matching two-window witnesses explain the mechanism rather than just tabulating examples. This is a sharp benchmark for robust sliding smoothers, limited to real full-window paths.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

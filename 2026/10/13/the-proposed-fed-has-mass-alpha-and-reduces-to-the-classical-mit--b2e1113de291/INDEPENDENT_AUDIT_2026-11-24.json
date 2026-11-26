@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:59:26.998690Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Publisher Eqs. (6.17) and (6.20) print the same extra α in the density and in the tail integrand, but (6.20) equates its tail to E_α(−λx^α). For x>0, differentiating the entire Mittag–Leffler series after composition and cancelling αk using Γ(αk+1)=αkΓ(αk) gives f_pub=−α(d/dx)E_α(−λx^α). The boundary values at zero and infinity are 1 and 0 for 0<α≤1, so the total mass is α and the printed density's tail integral is αE_α(−λx^α). Removing α is the unique multiplicative normalization, and rescaling y=λ^(1/α)x identifies the nonnegative classical density. Equation (6.19) really does use the upper endpoint α; it is not the raw moment stated there. With the positive power-law tail in (6.22), the tail-integral formula for r>0 converges at zero and converges at infinity exactly for r<α when 0<α<1; equality diverges logarithmically. No positive integer moment is finite there. Finite lower-order fractional moments are possible and should not be confused with integer moments. At α=1 the density is correctly exponential and has all positive moments, although the finite endpoint in (6.19) would still be inappropriate. Removing the erroneous factor in (6.25) subtracts n log α, not a parameter-independent constant. VERIFICATION.md and verify_fed.py were inspected, not executed; the latter uses a finite-precision test of truncated series at a point, not an exact coefficient-wise proof, and its tail tolerance is tested on the last loop value. The analytic derivation does not depend on those checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known Mittag–Leffler identities and the tail-integral method imply the mass and moment calculations once applied to the printed formulas.",
+          "The FEPW same-day result uses a convergence test for a series in another law where the moment itself remains finite."
+        ],
+        "reasoning": "General derivative and tail facts cover the analytic ingredients and the corrected distributional properties. They do not by themselves record the source-specific normalization, finite integration endpoint, and likelihood errors.",
+        "searches": [
+          "Haubold–Mathai–Saxena §19.1",
+          "Resultary: DOI and equation numbers, FED normalization, and combined four-equation query"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_fed.py (inspection only)",
+        "Publisher DOI 10.3934/math.2026395",
+        "DOI 10.1155/2011/298628, OA arXiv copy",
+        "Resultary 79c0db9318a8 and synopsis for 84b71ec57d7a",
+        "Exact-DOI external correction query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating paper explicitly claims mass one for all α; the classical survival identity instead makes the printed mass equal α.",
+          "The correction query surfaced only source-paper landing references, not an independent correction."
+        ],
+        "reasoning": "Matching the classical law is a standard implication, not new. The joint source-specific inconsistency is left after subtracting what the classical result already implies about the normalized law.",
+        "searches": [
+          "\"10.3934/math.2026395\" \"fractional exponential\" (normalization OR corrigendum OR erratum OR \"Mittag-Leffler\")",
+          "Publisher Eq. (6.17) and explicit total-mass assertion; (6.19), (6.20), (6.22), (6.25)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit-scale classical CDF is 1−E_α(−y^α) with density y^(α−1)E_(α,α)(−y^α); y=λ^(1/α)x gives the normalized FED exactly.",
+          "The equivalence applies to the repaired law, not to Eq. (6.17) with its extra α."
+        ],
+        "reasoning": "Prior coverage of the probability family must be credited. An equivalent defect diagnosis would identify the mismatch in the 2026 publication (for example as disagreement between the derivative of (6.20) and (6.17)); the classical comparator does not do that.",
+        "searches": [
+          "Haubold–Mathai–Saxena §19.1, Eqs. (19.1.1)–(19.1.2)",
+          "Resultary: FED/Mittag–Leffler normalization terms",
+          "Publisher §§6.2–6.3, Eqs. (6.17)–(6.25)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected 79c0db9318a8 finding concerns nonabsolute convergence of a two-index FEPW moment expansion, not FED mass.",
+          "The Resultary synopsis for 84b71ec57d7a concerns a discrete EDBuE tail and tail sums; its full local record was unavailable. No exact-source diagnosis surfaced."
+        ],
+        "reasoning": "The applicable exact-database question is whether the identical source-specific defect is indexed. A table of Mittag–Leffler identities or a different law's moment error is not an exact match.",
+        "searches": [
+          "Resultary: 10.3934/math.2026395 and its four FED equations",
+          "Local mirror: 79c0db9318a8; attempted 84b71ec57d7a"
+        ]
+      },
+      "rationale": "The repaired law and its standard analytic properties are classical. The supported distinct result is the diagnosis of inconsistent printed formulas and inferential consequences in DOI 10.3934/math.2026395, not the introduction of a distribution.",
+      "residual_risks": [
+        "No full local text was available for 84b71ec57d7a; synopsis is not a full-text exclusion.",
+        "The bounded search does not rule out a later or unindexed erratum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The decisive formulas match the frozen transcription",
+          "evidence": [
+            "(6.17) has the factor α and claims unit integral; (6.19) has upper endpoint α; (6.20) drops the same factor when evaluating the tail; (6.22) gives the positive polynomial asymptotic; (6.25) includes n log α."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/4/PDF/math-11-04-395.pdf",
+          "material_read": "§§6.2–6.3, pp. 9557–9559, bounded offset 56800 and Eq. (6.25) near 63067",
+          "method": "Lawful direct publisher PDF, equation location and bounded reading",
+          "title": "A new generalized differential transform method for fractional ODEs with statistical applications",
+          "trigger": "Exact target model, moments, tail and likelihood"
+        },
+        {
+          "assessment": "Already covers the normalized law; not the later paper-specific defect",
+          "evidence": [
+            "The classical survival and density match after scale substitution."
+          ],
+          "identifier_or_url": "10.1155/2011/298628; https://arxiv.org/pdf/0909.0230",
+          "material_read": "§19.1, Eqs. (19.1.1)–(19.1.2), PDF p. 25, offset 115800",
+          "method": "Lawful open preprint passage",
+          "title": "Mittag-Leffler functions and their applications",
+          "trigger": "Exact classical-law comparator"
+        },
+        {
+          "assessment": "Distinct distribution, moment error, and consequence",
+          "evidence": [
+            "An internal parameter point invalidates absolute convergence of a claimed double-series expansion while the target moment exists."
+          ],
+          "identifier_or_url": "Resultary/2026/10/13/79c0db9318a8",
+          "material_read": "Opening RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "The FEPW moment series is not absolutely convergent on its stated domain",
+          "trigger": "Strongest inspected same-day fractional distribution/moment result"
+        },
+        {
+          "assessment": "Synopsis suggests a different discrete law; no full-text conclusion",
+          "evidence": [
+            "Synopsis concerns tail sums and an MGF boundary for EDBuE."
+          ],
+          "identifier_or_url": "Resultary/2026/10/13/84b71ec57d7a",
+          "material_read": "Ranked synopsis only; local mirror unavailable",
+          "method": "Resultary search and attempted bounded mirror read",
+          "title": "Correct tail-sum moments expose the EDBuE light boundary",
+          "trigger": "Related same-day tail/moment result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Although normalization is elementary here, it changes the status of a proposed law, exposes the classical identity of the repair, distinguishes finite fractional moments from infinite integer moments, and changes the likelihood objective in an estimated parameter. These are substantive consequences for applying the paper's statistical model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

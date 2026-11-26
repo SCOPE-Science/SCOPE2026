@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:28:54.818728Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59 and VERIFICATION.md",
+        "Frozen verify_direct.py and verify_independent.py",
+        "Independent replay: python3 /workspace/branches/recompute_2.py; output /workspace/branches/recompute_2.txt"
+      ],
+      "rationale": "For k<=5 the residual graph has at least 30-3k edges and a forest would have at most 19-k. Thus no smaller set works. In an independent bounded reconstruction I enumerated all six-subsets, used edge count 14 minus number of components as the exact residual forest test, bucketed accepted masks by their five-subsets to build exchanges, and ran BFS from every mask. The induced exchange graph has 2520 vertices, 23940 edges and eccentricity six at every vertex. All 12 table cells match, giving excess totals 3124960, 48800, 180; independently checked that the exceptional pairs occupy 360 distinct endpoints and that each original edge is the unique common edge in four overlap-two and two overlap-three pairs. Enumerating the full automorphism group by extending partial bijections preserving graph distances yielded 120 permutations: adjacency is exactly distance one, so those completed bijections are exactly the automorphisms. The three representatives yield disjoint orbits of 60 whose union is the exceptional set. This checks exhaustion and the full group rather than assuming the supplied generators are complete. The two frozen scripts were read, not executed.",
+      "residual_risks": [
+        "This exhaustive proof is specific to GP(10,2) under token jumping; it does not apply to token sliding or bound excess in all cubic graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelly–Liu gives planar girth-five static bounds, for which the dodecahedron is an extremal example. The publisher material for Bousquet et al. identifies general FVS reconfiguration; the frozen source inspection reports a planar subcubic connectivity and path-length bound of 7k. That theorem text was not independently retrieved. Beineke–Vandell's article body was also not accessible."
+        ],
+        "reasoning": "A minimum-size bound and even a general upper bound on reachable path length would not determine pair counts by distance or endpoint sharing. The unavailable texts leave residual risk, rather than evidence of no coverage.",
+        "searches": [
+          "arXiv:1603.04559v1, Theorem 1.3 and Corollary 1.4",
+          "DOI 10.1016/j.tcs.2023.114188",
+          "DOI 10.1002/(SICI)1097-0118(199705)25:1<59::AID-JGT4>3.0.CO;2-H"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1603.03855v1/v2",
+        "arXiv:1603.04559v1",
+        "Resultary records SCOPE-20261012-3dcfec6d6cb5, SCOPE-20261102-af58442749cc, SCOPE-20261026-6689e33109ba",
+        "Limited access: DOI 10.1016/j.tcs.2023.114188 and Beineke–Vandell Decycling graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected static and alternate-adjacency results do not supply shortest token-jump paths for all pairs. A fully supplied labeled unrestricted configuration graph would make the present statistics deterministically computable by BFS and a group action, but summary statistics about that graph do not supply the census or its exceptional pairs."
+        ],
+        "reasoning": "The joint statistic and exceptional-pair geometry are not a restatement of coarse counts or the specialization of the static optimum theorem; the finite reconstruction is substantive evidence.",
+        "searches": [
+          "arXiv:1603.03855v1 §6 and arXiv:1603.04559v1 §1",
+          "Resultary SCOPE-20261102-af58442749cc, comparison with unrestricted exchanges",
+          "Resultary SCOPE-20261026-6689e33109ba, finite detour finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation identifies minimum FVSs with maximum induced forests and preserves one-vertex replacements and Johnson distance. The induced-forest polynomial record counts 2520 maximum forests in 25 symmetry classes of individual configurations. The same-day adjacent-token record takes exactly that feasible family but only permits exchanges along an original graph edge; it reports 8880 edges and diameter 10 for that graph."
+        ],
+        "reasoning": "Complementation makes the static family equivalent, not its static orbit count to a metric on pairs. The adjacent-token distance can be larger, so the shorter unrestricted distances cannot be read off its reported diameter or census. The shared date is not evidence of priority.",
+        "searches": [
+          "Resultary semantic lookup for dodecahedral induced forests, decycling, and both exchange rules",
+          "arXiv:1603.03855v1/v2, Section 6",
+          "Resultary SCOPE-20261012-3dcfec6d6cb5 and SCOPE-20261102-af58442749cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier induced-forest census gives 2520 maximum forests. The same-day slide record's comparison already reports 23940 unrestricted edges and diameter six. The vertex-bipartization record counts 33740 one-extra pairs, but among 3240 minimum odd-cycle transversals. None of these located exact passages gives the joint overlap/unrestricted distance table or the excess-two matching for FVSs."
+        ],
+        "reasoning": "These are real exact counts on named nearby objects. Counts of configurations, edges and diameter leave the pair overlap distribution and orbit structure undetermined, and replacing FVSs with odd-cycle transversals changes the optimization and state space.",
+        "searches": [
+          "Resultary SCOPE-20261012-3dcfec6d6cb5 (exact static census)",
+          "Resultary SCOPE-20261102-af58442749cc (exact exchange benchmark)",
+          "Resultary SCOPE-20261026-6689e33109ba (same graph, exact detour census for another feasible family)"
+        ]
+      },
+      "rationale": "The optimum size, base family size, and already reported coarse unrestricted exchange invariants are credited, not accepted as new. The distinct evidence-supported slice is the joint overlap/distance census and the 180-pair matching with its per-edge and orbit refinement. The closest inspected exact records give different statistics, different adjacency, or different feasible sets.",
+      "residual_risks": [
+        "Full text of the closest general reconfiguration paper and classical decycling paper was not accessible; a hidden exact comparison cannot be excluded.",
+        "A previous equivalent labeled metric or pair table may exist in an unindexed source; coarse counts and the same-day record have been explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural and cardinality comparison, not the exchange metric",
+          "evidence": [
+            "Theorem 6.1 characterizes the dodecahedron via girth and disjoint-cycle conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1603.03855v1",
+          "material_read": "v1 Section 6, Theorem 6.1, text offset 56313; corresponding v2 comparison",
+          "method": "Primary open HTML passage inspection",
+          "title": "Size of the Largest Induced Forest in Subcubic Graphs of Girth at least Four and Five",
+          "trigger": "Dodecahedron as an extremal induced-forest object"
+        },
+        {
+          "assessment": "Static cardinality result, not the configuration-pair statistic",
+          "evidence": [
+            "Dodecahedron attains a feedback-set bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1603.04559v1",
+          "material_read": "Section 1, Theorem 1.3 and Corollary 1.4; text offset 2723",
+          "method": "Primary open HTML passage inspection",
+          "title": "Minimum Size of Feedback Vertex Sets of Planar Graphs of Girth at least Five",
+          "trigger": "General extremal theorem with the exact graph as an equality case"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": [],
+          "identifier_or_url": "10.1002/(SICI)1097-0118(199705)25:1<59::AID-JGT4>3.0.CO;2-H",
+          "material_read": "Article body inaccessible; no independent substantive passage",
+          "method": "Lawful DOI and alternate copy lookup; access denied",
+          "title": "Decycling graphs",
+          "trigger": "Classical alias and possible exact coverage"
+        },
+        {
+          "assessment": "Relevant general reconfiguration paper; its exact body coverage was not resolved",
+          "evidence": [
+            "The frozen AUDIT.json separately reports a Theorem 2 reachability bound, not a census; this secondary report was not treated as primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Landing/abstract material only; no verified full theorem passage in this audit",
+          "method": "DOI, publisher and repository routes attempted through open-access retrieval",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Closest named work on FVS exchanges in this graph class"
+        },
+        {
+          "assessment": "Exact static overlap, not exceptional exchange-pair orbits",
+          "evidence": [
+            "2520 order-14 forests and 25 individual-configuration orbits."
+          ],
+          "identifier_or_url": "SCOPE-20261012-3dcfec6d6cb5",
+          "material_read": "RESULT.md, Finding, about offset 295",
+          "method": "Local Resultary mirror reading",
+          "title": "Dodecahedral induced-forest polynomial and 25 optimal symmetry classes",
+          "trigger": "Exact census of the same configurations under complement"
+        },
+        {
+          "assessment": "Shares coarse unrestricted benchmarks; theorem uses a stricter move",
+          "evidence": [
+            "8880 slide edges and diameter 10; unrestricted graph cited with 23940 edges and diameter six."
+          ],
+          "identifier_or_url": "SCOPE-20261102-af58442749cc",
+          "material_read": "RESULT.md theorem and comparison, about offsets 335 and 5938",
+          "method": "Local Resultary mirror reading",
+          "title": "Adjacent-token connectivity and sharp distance in dodecahedral minimum feedback sets",
+          "trigger": "Same feasible states and nearby exchange rule, same-day record"
+        },
+        {
+          "assessment": "Methodological analogue, not equivalent configuration graph",
+          "evidence": [
+            "3240 minimum odd-cycle transversals and 33740 one-extra pairs."
+          ],
+          "identifier_or_url": "SCOPE-20261026-6689e33109ba",
+          "material_read": "RESULT.md finding, about offset 696",
+          "method": "Local Resultary mirror reading",
+          "title": "One-detour exchange metric of optimal vertex bipartizations of the dodecahedral graph",
+          "trigger": "Exact same-graph detour statistic under a distinct feasibility constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, distance and exceptional-pair theorem",
+        "Independent all-pairs and orbit reconstruction",
+        "Resultary SCOPE-20261102-af58442749cc"
+      ],
+      "rationale": "The Johnson distance is the canonical unconstrained baseline for exchanges of minimum sets. Counting deviations from it asks how much the forest constraint actually obstructs shortest transformations, not just how far apart two states can be. The fact that maximal excess is a matching and always tied to a unique original edge is an exact structural benchmark for reconfiguration and for attempts to explain the detours. It is useful even without a general family theorem.",
+      "residual_risks": [
+        "The certificate classifies one natural object exhaustively but does not give a structural criterion for arbitrary cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

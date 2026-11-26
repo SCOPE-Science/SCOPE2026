@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:26:00.855628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified symmetric nonsticky origin law, the free propagator is the one in the primary paper, Eq. (6). Set m=alpha+2=1/mu and y=|x|^m/(m^2 t); the |x|^alpha factor times dx changes to a constant times y^(-mu)dy, leaving the unit-scale shape 1-mu Gamma density. The same Gamma shape follows from the transformed generator on y=|x|^m/m^2, equal away from the origin to y*d^2/dy^2+(1-mu)*d/dy. Independence of the Poisson backward age E/r and the displacement law of a fresh excursion conditional on that age gives the stated signed mixture. Its Mellin moments give A_mu and the displayed kurtosis, with Gamma arguments positive for all claimed moment orders. At mu=1/2 the position is Laplace, yielding K=6, and its continuous K at mu=0 is 1. Independent polynomial algebra confirms both identities for h. Equivalently, to prove strict monotonicity without polynomial factoring, pad the numerator slope vector to (4,3,0,-1); it strictly majorizes (2,2,1,1). The log-kurtosis derivative sums g(c)=c*psi(1+c*mu) over the two slope lists with opposite signs. As a function of c, g''(c)=2*mu*sum_{j>=1} j/(j+c*mu)^3>0 on the relevant interval, from the trigamma series. Thus the derivative is positive, giving the full interval 1<K<=6 and the unique two-moment inversion when the diffusion prefactor is known. Normalizing by the standard deviation cancels the Poisson rate exactly. The log of the standardized radius divided by mu is log E+log G_mu minus log A_mu/(2mu); since log A_mu=-4*gamma*mu+O(mu^2), Gamma shape convergence and continuity of the logarithm on positive variables give W. Tightness and a Taylor expansion of exp(mu*x) on bounded x show that replacing log|Z| by |Z|-1 has vanishing scaled effect. The sign is independent and fair. The product-of-exponentials density follows by integrating exp(-u-z/u)/u over u>0, and its logarithmic pushforward gives the displayed K_0 density and characteristic function. The log-exponential mean/variance are -gamma and pi^2/6. Independently, expanding log Gamma to degree two in the kurtosis ratio gives (zeta(2)/2)*(16+9+1-8-2)=4*pi^2/3; exponentiating keeps the coefficient. The claims are for a stationary one-time law, with arbitrary rate scaling only after standardization; no assertion of identifiability with an unknown diffusion prefactor or statistical stability follows.",
+      "status": "PASS",
+      "verification": "Frozen checker.py was inspected as text, not executed. Exact polynomial coefficient replay and endpoint/Taylor checks are in /workspace/branches/e6cd5375-db75-43e7-a717-2abc395cdb95/ordinal-4-check.md. The checker grid and seeded comparison are finite diagnostics, and its unused variance proxy is not an exact finite-parameter assertion. The global monotonicity and weak limit were checked analytically."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The gamma-ratio theory inspected in arXiv:2004.14075 uses strictly positive affine scales, whereas K(mu) has a Gamma(1-mu) numerator. Changing mu to -mu leaves mixed slopes, and the shifted ratio with independent block arguments is not the same criterion.",
+          "Resultary 89950c720c1c gives a Gamma-product law and monotone kurtosis in a planar fixed inverse-square diffusion with varying stochastic-calculus parameter k, not varying the spatial power in one dimension. Resultary 56391c757951 compares radial modes for d>=2."
+        ],
+        "reasoning": "The planar Gamma-product parameterization has fixed observation powers in the moment formula and a shifted shape; it does not specialize to the mixed-slope one-dimensional kurtosis quotient or its singular endpoint. General convexity and polygamma tools are available but must be applied to prove strict variation and endpoint inversion here.",
+        "searches": [
+          "Web: ratio gamma functions monotonicity mixed signs affine arguments majorization c digamma scale derivative Karamata gamma quotient replacing negative slope",
+          "Resultary: Dimension-sluggishness transition resetting diffusion radial mode reset information phase diagram stationary temporal fingerprints singular planar diffusion radial gamma product",
+          "arXiv:2004.14075 definitions (1.1)–(1.2) and theorem hypotheses"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21962",
+        "arXiv:2610.34568",
+        "arXiv:2004.14075",
+        "Resultary 89950c720c1c",
+        "Resultary 56391c757951 finding and radial-mode scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published scaled density establishes rate collapse and reports sharpened peaks in this model. The related Frimpong Gumbel result is for a path maximum as observation duration grows at fixed diffusivity exponent."
+        ],
+        "reasoning": "Neither peak sharpening nor long-window extreme-value convergence states a single stationary observation's shrinking width. In this record the powered radius and variance centering must be tracked together to yield the log-product limit; independently, showing strict monotonicity of the mixed-slope quotient is needed to infer the unique inverse. The sharp coefficient is a short calculation once the quotient is written, not an independent new gamma identity.",
+        "searches": [
+          "arXiv:2610.21962 §4.1 Eq. (21) and following scaling discussion; arXiv:2610.34568 abstract and introductory setup",
+          "Resultary 89950c720c1c Finding and Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The free and stationary Bessel-density formulas in arXiv:2610.21962 refer to exactly the same model. Changing to the powered radius in Eq. (21) gives a product of Gamma(shape 1) and Gamma(shape 1-mu), so the moment family is already algebraically available."
+        ],
+        "reasoning": "This is a parameter change of the known one-point distribution. In log powered radius, the high-sluggishness limit can also be derived by taking the Bessel index to zero in the transformed density; its variance normalization and sharp fourth-moment consequence are not additional fixed-parameter density formulas. No priority is assigned to the classical logarithmic pushforward or the product density identity.",
+        "searches": [
+          "Resultary: sluggish diffusion resetting gamma product kurtosis monotonic stationary high alpha fluctuation log product",
+          "Web: sluggish diffusion resetting Frimpong Bresque Roldan stationary kurtosis strong alpha log fluctuations product gamma density resetting inhomogeneous diffusivity",
+          "arXiv:2610.21962, Eq. (6), §4.1 Eq. (21) and scaled density discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary Eq. (21) supplies the exact density and the text illustrates sharper scaled bimodal peaks; the compared material does not give the global [kurtosis versus alpha] calibration or the value of the collapse coefficient. The related planar calibration has endpoints 16/pi^2 and 2 and varies a different parameter."
+        ],
+        "reasoning": "The exact distribution is effectively a source for a table of unnormalized moments, so absence of a separate moment table is not credited as novelty. No identical strict calibration or centered boundary-layer statement was found in the sources compared; this is not evidence of universal absence.",
+        "searches": [
+          "Resultary: sluggish diffusion resetting gamma product kurtosis monotonic stationary high alpha fluctuation log product",
+          "Web: sluggish random walks resetting kurtosis gamma product stationary distribution large alpha variance limiting distribution",
+          "arXiv:2610.21962 Eq. (21) and Figure 3 discussion"
+        ]
+      },
+      "rationale": "The stationary Bessel and free kernel laws are prior, and their Mellin moments and product-Gamma rewrite are direct consequences, not separate priority claims. The supported increment is the strictly invertible full-range kurtosis calibration and the quantitative centered strong-sluggishness layer of this one-dimensional Itô model. Related models and gamma-ratio theory cover methods and some ingredients, not the combined conclusion in the examined results.",
+      "residual_risks": [
+        "The log-product weak limit is readily approachable from the known Bessel law; earlier equivalent centered expansions or a general mixed-scale monotonicity result may exist. The assessment concerns the combined model-specific advance, not priority for special-function identities or a proof that no such literature exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact density/renewal input and qualitative sharpening are prior; no statement of the strict inverse or quantitative stationary shrinking-width law in the compared passages",
+          "evidence": [
+            "Eq. (6) has the factor |x|^alpha times the stretched exponential; Eq. (21) is a K_{1/(alpha+2)} density and the text discusses sharper bimodal peaks after scale collapse."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21962",
+          "material_read": "Primary PDF §2 around Eqs. (5)–(6); §4.1 Eqs. (20)–(21), normalization and rate-scaled peak discussion",
+          "method": "OA PDF source and equations compared to mixture and standardized law",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Same Itô process, fixed-parameter free and stationary density, and qualitative strong-sluggishness description"
+        },
+        {
+          "assessment": "Different objective and limit",
+          "evidence": [
+            "The Gumbel distribution describes the trajectory maximum when the observation window grows, not the stationary single-position radius as alpha grows."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.34568",
+          "material_read": "Primary PDF abstract and introduction including definition of M_T and fixed-exponent time-window setup",
+          "method": "OA PDF comparison of random variables and asymptotic regimes",
+          "title": "Extremal and global-time statistics of sluggish random walks with stochastic resetting",
+          "trigger": "Potential synonym of the claimed centered limiting distribution on the same model"
+        },
+        {
+          "assessment": "Substantial methodological precedent, but a different invariant and inverse problem",
+          "evidence": [
+            "The planar generator has fixed inverse-square spatial diffusivity, the Gamma power is 1/4, and identifying three unknowns needs the lagged correlation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-stationary-and-temporal-fingerprints-for-resetting-in-singular-p--89950c720c1c/RESULT.md",
+          "material_read": "Finding, assumptions, and proof of conjugacy and inversion",
+          "method": "Resultary mirror, compared gamma quartic transformation and parameter being identified",
+          "title": "Stationary and temporal fingerprints for resetting in singular planar diffusion",
+          "trigger": "Already combines Gamma products, kurtosis and inverse calibration"
+        },
+        {
+          "assessment": "The positive-scale framework examined does not cover the negative affine slope here",
+          "evidence": [
+            "Scale factors are required to be strictly positive, with nonnegative shifts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.14075",
+          "material_read": "Primary PDF introduction, admissible ratios (1.1)–(1.2), opening theorem conditions",
+          "method": "OA PDF hypothesis comparison",
+          "title": "Completely monotonic ratios of basic and ordinary gamma functions",
+          "trigger": "Potential general theorem for the ratio monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A collapsing variance-normalized distribution loses any information about peak width at leading order. The next-order law measures this width, gives a non-Gaussian benchmark, and explains why the exact shape calibration becomes ill-conditioned near K=1. A strictly monotone observable over all alpha>=0 identifies parameters from just two exact stationary moments under a fixed, known diffusion prefactor. This is a complete invertibility result and quantitative singular limit, not a numerical plot or a new expression for the same density alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

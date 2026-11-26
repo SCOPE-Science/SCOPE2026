@@ -1,15 +1,21 @@
-# Review of the drifted-walk rank saturation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns independent iid-increment walks with nonzero signed drift, a negative exponential moment after sign orientation, and no ties. Infinite-horizon inversions have exponentially decaying last-lag tails. The stationary ergodic average of squared rank displacements yields the Spearman limit; the classical cyclic-permutation occupation identity supplies the \(\sum k p(k)\) variance. Fixed-lag ergodic discordance averages and exponential long-lag domination yield the Kendall limit. The exact checker tests finite coefficients and rank identities, but does not substitute for the analytical almost-sure proof. The limiting constants are finite and strictly positive when a negative step is possible.
+## correctness
 
-## Originality — PASS against inspected evidence
-Piancastelli and Barreto-Souza, *Time Series Analysis of Rankings* (arXiv:2502.05102, 2025), analyze temporally evolving stationary Mallows rankings, not rank concordance of a pair of independent cumulative-sum paths. Ryan et al. (2025) discuss drifted random walks as nonstationary trends, but give no such rates. Xie and Zhu (2026-11-16) study **centered** independent walks with mean-zero assumptions and different Brownian limit behavior. Published permutation-null rank identities and the classical Spitzer occupation formula do not themselves yield the two drifted-walk constants. Unknown earlier equivalent work cannot be conclusively ruled out.
+PASS
 
-## Value — PASS
-The result distinguishes quadratic Spearman and linear Kendall convergence to falsely perfect concordance under process independence. Both leading terms are explicit summable functions of one-walk negative partial-sum probabilities; they are structurally meaningful for rank dependence in nonstationary series. It exposes a difference invisible to first-order saturation alone.
+Orientation reverses both coefficients by the factor sigma, and the all-lag no-zero-sum condition eliminates all ties simultaneously. I reconstructed the Spearman constant without the cited occupation identity. For one positively oriented walk with ranks R_i, the future-minus-past inversion count for R_i-i gives sum_i i(R_i-i) = -sum_inv(i,j)(j-i); since the squares of the ranks sum to the squares of the time indices, sum_i(R_i-i)^2 = 2 sum_inv(i,j)(j-i). For each fixed lag, the length-normalized inversion count converges by the iid shift ergodic theorem. Inversions past lag m are dominated by the stationary forward sum of the corresponding lag-weighted indicators, whose mean tends to zero by p(k) <= q^k. Thus each single-walk squared displacement sum divided by n converges to 2 sum_k k p(k). To pass to the two-walk squared rank difference, the windowed displacements can be approximated in empirical L^2 by the stationary two-sided displacements: at fixed m the interior errors are bounded by all-lag tails past m with second moments tending to zero, and the 2m boundary terms vanish by the finite fourth moments and Borel–Cantelli. Their two-walk cross average converges to zero by Cauchy–Schwarz and the ergodic theorem, since the two stationary walks are independent and each past/future difference has mean zero. This proves the factor 12 with the exact Spearman denominator. Kendall counts the exclusive-or of the two inverted comparisons at each lag, giving its stated probability and the factor 4; the unweighted stationary tail bound justifies summing all lags. At least one p(1)>0 makes both limits positive because each p(1)<1. With both walks monotone after orientation, both errors vanish identically. These are pathwise limits under the stated moments and no ties, not limits for iid observations of the levels.
 
-## Limits
-The proof does not cover centered walks, heavy negative tails lacking the specified exponential moment, ties or dependent increments across series. No finite-sample calibration or independent mathematical audit is claimed. The 2026 comparison concerns centered walks; the motivating rank-dynamics paper was first posted in February 2025.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the almost-sure two-rate result with its exact lag-probability constants under oriented nonzero drift, no ties and the exponential-moment condition. The directly comparable rank-correlation theorem is centered and distributional. The generic rank identities and one-walk occupation identity do not by themselves give the two pathwise limits.
+
+## value
+
+PASS
+
+A shared time ordering of independent trending series can make both sample rank measures saturate. Quantifying two different powers and their nondegenerate constants distinguishes statistics that look identical at the limit; it also identifies how inversion lengths matter for Spearman but not Kendall. That is a specific benchmark for comparing rank methods on nonstationary paths, beyond the qualitative warning about trends.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

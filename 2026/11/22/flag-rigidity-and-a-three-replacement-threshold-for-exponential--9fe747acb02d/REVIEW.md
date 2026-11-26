@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof works for the explicitly defined thirty-vertex duad–syntheme incidence graph, using the original blocked-source definition of exponential domination. A porous-necessary-condition argument excludes zero to three sources; strongly regular common-neighbor counts exclude four sources on one shore; a girth-eight incidence argument excludes three–one splits; and a four-duad cross-coverage argument forces every two–two optimum to be one of forty-five flags. Exact blocked-distance calculations show all forty-five flags really work, with outside-source influence histogram \((9/8:16,21/16:8,3:2)\). Two separately constructed models (duad–syntheme and binary symplectic) reproduce the exhaustive counts and the three-replacement graph. The diameter-two exchange assertion is finite exhaustive, not extrapolated.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+Reconstructed the porous obstruction: with three same-shore sources there is a line (dually point) outside their incidences, at distance 3 from all; with one selected line and at most three selected points, the eight lines disjoint from it cannot all meet the selected points. For four same-shore sources the (15,6,1,3) collinearity graph needs ≥2 selected neighbors per outside vertex. The 24−2e count forces e≤1; counting common neighbors of selected pairs then contradicts either possible outside degree distribution (no triangle through three selected vertices when e≤1). In the 2+2 case every other duad meeting both point sources must be incident to at least one selected line. Intersecting sources yield three pairwise intersecting required duads, which two synthemes cannot cover. Disjoint sources force the two cross matchings on their four symbols and thus one flag on the remaining duad. Independently ran `python3 /workspace/branches/reproduce-3.py`: on the exact 30-vertex graph, exhaustively checked all subsets of sizes 0–4 with porous screening, then blocked-distance integer scores scaled by 2^28. The porous counts were 0,0,0,0,45; all 45 survived exactly and matched the flags, with profile counts 16,8,2 at 9/8,21/16,3. Exhaustively checked that distinct winners intersect in at most one source, the intersection graph has degree 20, and each nonadjacent pair has a common neighbor. This gives 450 edges, excludes universality of each vertex, and verifies both radius and diameter 2. As an analytical cross-check, line-graph distances 1 and 3 between incidence flags give an exchange edge: at distance 1 the flags share a third neighbor at their common endpoint, and at distance 3 the opposite ends of a shortest two-step endpoint path have its interior as a common source. Line-graph diameter is at most 4 since opposite-shore endpoint distances are ≤3. Distances 2 and 4 split into 1+1 or 1+3 on a geodesic, giving exchange distance at most 2. The six-symbol action is transitive by relabeling the three duads of the flag's line and its designated duad. The new exact enumeration is for this one graph; the packaged programs were not executed.
 
-The 2009 original exponential-domination paper and the 2015 subcubic-graph preprint establish definitions and generic bounds, not the incidence-flag optimizer classification. The 2015 Tutte–Coxeter exposition establishes the classical geometry and automorphisms, not exponential domination. Later work on exponential domination of specific graph families treats other objects; published claims on burning, binary contagion, majority updates and related graph-invariant reconfiguration use different admissibility conditions. The mathematical implication comparison finds no exact or stronger covering result among checked sources, but cannot exclude unindexed prior computations or a future-discovered equivalent result.
+## originality
 
-## Value — PASS
+PASS
 
-The Tutte–Coxeter graph is the unique cubic graph of girth eight, a canonical test of the distance-decaying domination concept specifically motivated by work on subcubic graphs and cages. The unexpected recovery of the geometry's forty-five flags as the full optimum set, together with a strict influence margin and sharp three-replacement transition (while every optimum is frozen under two changes), provides a natural, exact benchmark for decentralized coverage and optimizer reconfiguration. This is a structural finite classification, not just an isolated decimal parameter or a simple restatement of a standard upper bound.
+The blocked-source definitions, graph model and general subcubic bounds are classical. The closest indexed exact match is the frozen record itself; other checked exact Tutte–Coxeter results use different invariants. The inspected sources do not establish the joint minimum, flag classification, weight profile and optimizer replacement geometry. This is a bounded, statement-level assessment, not a priority certification.
 
-## Scientific limits
+## value
 
-No all-order generalized-quadrangle claim, noncubic extension, or independent scholarly confirmation is made. Primary literature access and indexed comparisons are documented in the accompanying structured review; possible unindexed priority is a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 8-cage is a canonical test of exponential influence in a small cubic graph with large girth. The exact classification explains which local incidence configurations attain the optimum, supplies a quantitative strict margin under source blocking, and identifies when those choices are disconnected or connected under local replacement. That establishes a reusable benchmark for both weighted domination and reconfiguration, beyond an isolated minimum number or a brute-force count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -27,7 +27,7 @@ The interval in the second term has \(a-3\) elements, and the final progression 
 &\qquad +(K+a+1)+(h-2)\left(K+\frac{3a+4}{2}\right).
 \end{aligned}
 \]
-The largest-gap formula is already a consequence of an earlier known Frobenius phase; novelty here concerns the **full gap-set transition, exact genus and gap sum**.
+The largest-gap formula follows from the known Frobenius phase. The structural contribution is the explicit transition from the three parity bands to the four-part description at \(p=h+4\); the genus and gap sum follow from that description.
 
 ## Assumptions and scope
 
@@ -74,7 +74,9 @@ Run `python3 verify.py` with Python 3 and no additional packages. The standalone
 
 ## Relationship to prior work
 
-Komatsu and Ying's general arithmetic-progression theorem provides explicit \(p\)-Frobenius/genus formulas for \(0\le p\le\lfloor a/2\rfloor\) and asks for convenient extensions beyond this range; our statement concerns the **first change in the shape of the complete gap set above that range** for consecutive denominations and even \(a\). A separately available formula for the generalized Frobenius number of three consecutive denominations covers the **largest-gap value** used here, but does not give the full gap set or the new genus and sum. The \(t=1\) baseline is included for the exact first-break comparison and is not asserted to be new. Subwattanachai's conditional three-variable Frobenius formula requires a divisibility hypothesis absent for pairwise coprime consecutive triples. No checked source supplied this same all-even-base \(t=4\) topology change; this is a best-knowledge comparison, not a proof of universal priority.
+Komatsu and Ying's Theorem 1 gives explicit \(p\)-Frobenius and genus formulas for \(0\le p\le\lfloor a/2\rfloor\) and asks for extensions beyond that range. Their general Bernoulli identities for power sums in terms of the actual \(p\)-Apéry elements are prior work. Their Theorem 2 is printed with \(p\ge0\), but its explicit arithmetic-progression specialization uses the earlier staircase for the Apéry elements, which cannot be used at the present fourth level. For instance, at \(a=6,d=1,p=7\) the even staircase terms (with the terminal sums empty) produce fourteen candidate values, not the six thresholds \(60,67,56,63,64,71\) in residue order; at power one the actual gap sum is \(1840\). The general moment identities remain applicable when the true thresholds are used.
+
+The published three-phase formula [3] covers the **largest-gap value** at all four levels, not the displayed set structure. The \(t=1\) set also occurs in [4]; it is included as a baseline and is not asserted to be new. Subwattanachai's conditional formula [2] requires divisibility that fails here. The even-base triple has overall gcd one but is not pairwise coprime: \(\gcd(a,a+2)=2\). If \(a+1\) is the distinguished denomination, it is divisible by neither \(a/2\) nor \((a+2)/2\); for the other choices no denomination divides the distinguished one. Woods's eventual high-level denumerant theorem [5] does not give an onset that places \(h+4\) in its range. The explicit even-base block transition was not found in the compared results; this is a best-of-knowledge statement, not a proof of historical priority.
 
 ## Limitations
 
@@ -86,4 +88,8 @@ The first four post-boundary levels, even \(a\ge6\), and step one only are addre
 
 [2] K. Subwattanachai, *Generalized Frobenius Number of Three Variables*, first public arXiv version 17 September 2023, arXiv:2309.09149, Theorem 1. https://arxiv.org/abs/2309.09149
 
-[3] *Three exact phases of generalized Frobenius numbers for three consecutive denominations*, 18 October 2026, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-three-exact-phases-of-generalized-frobenius-numbers-for-three-co--6dc430dbb315
+[3] *Three exact phases of generalized Frobenius numbers for three consecutive denominations*, 18 October 2026, record SCOPE-20261018-6dc430dbb315.
+
+[4] *Parity bifurcation at the first post-Apéry representation threshold for consecutive coin triples*, 22 November 2026, record SCOPE-20261122-c1e32fc93396.
+
+[5] K. Woods, *The generalized Frobenius problem via restricted partition functions*, arXiv:2011.00600, Theorems 8 and 12. https://arxiv.org/abs/2011.00600

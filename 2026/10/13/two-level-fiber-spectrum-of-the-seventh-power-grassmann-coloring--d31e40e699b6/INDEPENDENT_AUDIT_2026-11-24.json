@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:05.382179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each binary basis a,b,c, summing the expansion of the seventh power over all eight coefficient choices cancels each term missing a basis variable. The remaining 1,2,4 assignments are precisely the Moore determinant, nonzero on independent triples. If distinct U,V share a two-space with basis a,b, choose remaining basis vectors c,d. The difference of witnesses is the determinant on a,b,c+d, which is nonzero since c+d is not in the common two-space. An independent exhaustive run generated all 39060 unordered independent triples and deduplicated to 1395 spaces, the Gaussian binomial count. It found 1395 determinant identities, nine fibers of 29 at z^9=1 and 54 of 21 elsewhere, and 15 distinct colors through each of 651 two-spaces. Scalar multiplication sends the color to lambda^7 times the color, with image H of order 9. The only nontrivial stabilizer can come from binary degree 3 (the degree of an element in the stabilizer divides 3 and 6), giving one F8-multiple orbit with one witness per element of H; other orbits contribute seven per element of their coset. Hence the confirmed census also gives four free orbits on H and three per other coset. Replay: python3 /workspace/branches/3c2c98c5-d2b9-4f72-a4d2-3577ec2831e1/independent_spectrum_check.py; replay.log records the full run. The original artifacts/verify.py and VERIFICATION.md were inspected, not executed; original expert, independent-audit and Lean fields say not_performed. This is an exact finite check for F64, not a general color-spectrum theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 31-color bound for J_2(6,3) uses x^7,x^21 over F32, not seventh sums in F64.",
+          "The MRD-coset construction is different; the general Moore-determinant proper-color theorem gives no fiber multiplicities."
+        ],
+        "reasoning": "Better chromatic bounds and general properness theorems do not dominate a claim about sizes of fibers of a fixed function.",
+        "searches": [
+          "arXiv:2605.22958v1 Proposition 2.17 and §6",
+          "arXiv:2602.10777 §4",
+          "Resultary: third-order sum-free functions, Welch witnesses, Grassmannian partition"
+        ]
+      },
+      "checked_sources": [
+        "Carlet DOI 10.1007/s00145-025-09538-5",
+        "arXiv:2505.22055v1",
+        "arXiv:2605.22958v1",
+        "arXiv:2602.10777",
+        "Resultary 0283f762dc31",
+        "Resultary f24e68fac382"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior properness ensures no repeated witness through a two-space but does not count the spaces with a fixed witness.",
+          "Scalar equivariance gives constancy on the seven cosets; 22 free orbits and the exceptional orbit do not force the split (4,3,3,3,3,3,3) without additional counting."
+        ],
+        "reasoning": "Neither the known identities and bound nor scalar symmetry alone produce the exact fiber counts or their norm-one location.",
+        "searches": [
+          "Carlet Proposition 1",
+          "D’haeseleer–Taranchuk Proposition 2.1 and proof of Theorem 1.2",
+          "Heering–Kaspers–Taranchuk Proposition 2.17 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In characteristic two the constant linear coefficient of the monic subspace polynomial is the product of nonzero elements of U, also the normalized Moore determinant (append the variable column and expand). Thus that coefficient is an equivalent parameter to search.",
+          "Carlet Proposition 1 identifies the higher derivative with the determinant, and determinant-coset coloring specializes to the same proper coloring here."
+        ],
+        "reasoning": "The equivalent witness/parameter is known; an identity of formulas does not already give their value distribution. No inspected equivalent formulation gave these multiplicities.",
+        "searches": [
+          "Resultary: F64 binary 3-subspaces, seventh-power sums, Moore-determinant fibers 29 and 21",
+          "Primary-literature search: Moore determinant, exact z^9=1 multiplicities, subspace polynomial / orbit-code formulations",
+          "Carlet Proposition 1; D’haeseleer–Taranchuk Proposition 2.1 and Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0283f762dc31 tabulates a common-neighbor census for 127 zero-sum binary 3-spaces for x^11 on F128; f24e68fac382 supplies a Welch F8 witness for odd n>=9.",
+          "The inspected F32 case treats a different coloring, not a table of F64 nonzero witnesses."
+        ],
+        "reasoning": "The strongest near tables concern different exponents, field sizes or invariants; they do not give the 63 fiber sizes under review.",
+        "searches": [
+          "Resultary: J_2(6,3) Moore determinant coloring seventh-power-sum exact class size fiber spectrum",
+          "Resultary 0283f762dc31 and f24e68fac382",
+          "arXiv:2605.22958v1 §6 finite-dimensional cases"
+        ]
+      },
+      "rationale": "Credit the sum-free witness, Moore identity, Grassmann coloring and code correspondence to prior work. The supported distinct claim is the exact 29/21 distribution, including which colors are heavy and the equivalent scalar-orbit allocation, for this previously motivated concrete coloring. Closest inspected work does not supply that distribution or an already proved formula specializing to it.",
+      "residual_risks": [
+        "An unindexed prior census, or a coefficient-distribution result in another formulation, was not exhaustively ruled out. A search miss does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves nonvanishing framework, not fiber census",
+          "evidence": "k-th derivative of x^(2^k-1) is a Moore determinant",
+          "identifier_or_url": "DOI:10.1007/s00145-025-09538-5",
+          "material_read": "§3 Proposition 1, PDF p. 15, offset 51200",
+          "method": "OA original full text",
+          "title": "Two Generalizations of Almost Perfect Nonlinearity",
+          "trigger": "Original seventh-power/Moore identity"
+        },
+        {
+          "assessment": "Proper coloring, not distribution",
+          "evidence": "Moore nonvanishing and determinant-coset coloring",
+          "identifier_or_url": "arXiv:2505.22055v1",
+          "material_read": "Proposition 2.1 p. 4 and Theorem 1.2 proof p. 5, offsets 13452 and 16000",
+          "method": "OA PDF",
+          "title": "On the Chromatic Number of Grassmann Graphs",
+          "trigger": "Same coloring by determinant at binary parameters"
+        },
+        {
+          "assessment": "General construction and different finite coloring",
+          "evidence": "Sum-free functions induce a coloring; 31-color construction uses F32 and x^7,x^21",
+          "identifier_or_url": "arXiv:2605.22958v1",
+          "material_read": "Proposition 2.17 p. 10 and §6 p. 21, offsets 29925 and 63450",
+          "method": "OA PDF",
+          "title": "On Reed-Muller subcodes, Grassmannian partitions and sum-free functions",
+          "trigger": "Same witness method and same Grassmannian parameter"
+        },
+        {
+          "assessment": "Different invariant/construction",
+          "evidence": "MRD-coset coloring",
+          "identifier_or_url": "arXiv:2602.10777",
+          "material_read": "§4 p. 4, offset 11700",
+          "method": "OA PDF",
+          "title": "Chromatic Number of Grassmann Graphs and MRD Codes",
+          "trigger": "Other natural proper colorings"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "127 zero-sum three-spaces for x^11 in F128 and their common-neighbor counts",
+          "identifier_or_url": "Resultary 2026/10/25/0283f762dc31",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact seven-level common-neighbor census of the Welch zero subspaces",
+          "trigger": "Closest indexed fiber/orbit census"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Zero-sum F8 witness for different exponent and odd n>=9",
+          "identifier_or_url": "Resultary 2026/10/4/f24e68fac382",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A canonical F8 witness for Welch functions",
+          "trigger": "Subfield exception possible overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The subspace-sum coloring is already motivated by sum-freedom and constant-dimension codes. Exact fiber sizes determine the size of every code in this concrete partition and expose a norm-one subfamily with an exceptional orbit; a researcher comparing determinant constructions would need this information rather than just the number of colors. The finite output is complete and not a claim to improve the chromatic bound or maximize any code size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:31.020919Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–60, VERIFICATION.md and checker.py (inspected)",
+        "Independent replay: python3 /workspace/review-work/exact_finite.py 2; output /workspace/review-work/2.log"
+      ],
+      "rationale": "The linear part cancels and the quadratic block enters only through B. The cubic monomial is the indicator of h. Its seed polar rows are empty for 0, U minus {0,h} for h, and {h,h+a} for each other nonzero a. Among the 56 ordered distinct seed pairs, 14 involving h have symmetric difference 6 and the other 42 have difference 2. Among the 42 ordered distinct nonzero seed pairs, six directed differences from h to a in U minus {0,h} have size 5 and the rest have size 1. For distinct nonzero W coordinates, two independent symplectic equations give Q/4 solutions for each of 8 choices of the seed coordinate of the witness. Equal nonzero W coordinates impose a common equation of rank one on precisely the seed symmetric difference. With one W coordinate zero, the free seed choices are one row or its complement and the nonzero equation gives Q/2 solutions per choice. With both zero, each directed difference contributes Q times its size. The cases respectively give 64(Q−1)(Q−2) at 2Q; 42(Q−1) at Q and 14(Q−1) at 3Q; 48(Q−1) at Q and 8(Q−1) at 3Q; 8(Q−1) at Q and 48(Q−1) at 3Q; and 36 at Q and 6 at 5Q. They sum to (8Q−1)(8Q−2). Q is attained already among seed-only pairs; the six maxima and the limiting fraction follow, and m=1 keeps all four strata nonempty. An independent finite reconstruction from signed row correlations reproduced all three histograms and the six maximum pairs in each dimension.",
+      "residual_risks": [
+        "The finite replay uses a standard symplectic coordinate form and corroborates but does not extend the all-m argument. Nondegeneracy over F2 and the ordered pair exclusions are essential in the derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former proves existence for the same family, including arbitrary refinements. The inspected latter abstract treats cubic twisting functions of nonassociative algebras, not the quantitative law."
+        ],
+        "reasoning": "Existential ordered separation is weaker; it fixes neither the minimum nor how many pairs attain each level. No broader numerical theorem was established in the inspected passages.",
+        "searches": [
+          "arXiv:2611.02544v1, Thm. A, Lemmas 4.1 and 5.2, Cor. 5.3, Rem. 5.4",
+          "Morier-Genoud–Ovsienko arXiv:1003.0429v4"
+        ]
+      },
+      "checked_sources": [
+        "Primary Pineda Montoya passages above",
+        "Resultary records d2beb6785961, 8d30715c879d and 3c357e02ae40"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The needed seed rows and the existence of solutions to the symplectic equations already occur in the primary proof. The full counts require the ranks for the joint ordered constraints and the directed seed support, complement and symmetric-difference multiplicities."
+        ],
+        "reasoning": "The refinement uses prior ingredients and elementary exact counting, but is not a specialization of a prior stronger result giving joint row counts or their frequencies. A balanced derivative in the quadratic block alone cannot give the spectrum, because three of the W-coordinate regimes involve coincidences or zero vectors.",
+        "searches": [
+          "Pineda Montoya §§4–5; signed-row/autocorrelation formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pineda Montoya imposes the same ordered targets β(x,z)=1 and β(y,z)=0. In sign notation the witness count equals one fourth of |V| minus the signed row sum of x plus that of y minus their signed correlation."
+        ],
+        "reasoning": "This equivalence distinguishes a quantitative directed count from mere nonzero support and from an unordered row distance. No compared statement gives its law on the ordered pair universe.",
+        "searches": [
+          "Resultary: cubic-symplectic ordered separating polar, directional witness count, joint Walsh/autocorrelation",
+          "Pineda Montoya arXiv:2611.02544v1, Thm. A and §§4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d2beb6785961 is the assigned record. The same-day dimension-spectrum record proves existence in 3 and ≥5; the other classifies the nine five-variable classes and identifies this construction as orbit 1536. The primary seed table lists supports, not the ordered witness histogram."
+        ],
+        "reasoning": "Membership in a class is not a count of witnesses even in dimension five. The dimension and orbit catalogues likewise do not give the all-m census.",
+        "searches": [
+          "Resultary exact four-level spectrum and ordered-separating cubics: d2beb6785961, 8d30715c879d, 3c357e02ae40",
+          "Pineda Montoya Lemma 4.1 seed-support table"
+        ]
+      },
+      "rationale": "The primary antecedent gives the same construction, the seed supports and existential separation. The distinct contribution is the exact quantitative census, including its sharp witness density and maximum stratum, not the construction or the existence theorem. Nearby same-date records establish dimensions and equivalence classes, not the witness counts.",
+      "residual_risks": [
+        "The scoped searches and source comparisons are not an exhaustive priority determination; the empty web query was not taken as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction and existential theorem covered; no full quantitative census in these passages",
+          "evidence": [
+            "The seed support table and symplectic solvability argument are prior; arbitrary quadratic refinements are included."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.02544v1",
+          "material_read": "Thm. A (OA offset 3400), Lem. 4.1 (38200), Lem. 5.2, Cor. 5.3 and Rem. 5.4 (41200–45382)",
+          "method": "Lawful primary arXiv full text",
+          "title": "Counterexamples to a Cubic Nondegeneracy Conjecture",
+          "trigger": "Same Boolean forms and ordered constraint"
+        },
+        {
+          "assessment": "Existence and obstruction, not counts",
+          "evidence": [
+            "Allowed dimensions are 3 and all n≥5."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-four-variable-obstruction-and-the-exact-dimension-spectrum-for--8d30715c879d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "A four-variable obstruction and the exact dimension spectrum for ordered-separating cubics",
+          "trigger": "Same-date result for the same condition"
+        },
+        {
+          "assessment": "Identifies the example but not its histogram",
+          "evidence": [
+            "The ternary cubic plus quadratic block occurs in orbit 1536."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-nine-mathrm-gl-5-2-plus-linear-classes-of-ordered-separating-cub--3c357e02ae40",
+          "material_read": "RESULT.md at offset 289",
+          "method": "Local published mirror",
+          "title": "Nine GL(5,2)-plus-linear classes of ordered-separating cubics",
+          "trigger": "Same-date classification containing the m=1 instance"
+        },
+        {
+          "assessment": "Context only, not a full-text priority exclusion",
+          "evidence": [
+            "The inspected abstract concerns cubic twisting functions in nonassociative algebras."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.0429v4",
+          "material_read": "Abstract",
+          "method": "Primary arXiv abstract",
+          "title": "A series of algebras generalizing the octonions and Hurwitz–Radon identity",
+          "trigger": "Historical ordered nondegeneracy context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Pineda Montoya Thm. A and Cor. 5.3"
+      ],
+      "rationale": "The exact spectrum answers a natural robustness question for a published existence construction: every pair has witness density at least 1/8, almost every ordered pair has density 1/4, and the six extreme pairs are identified. This separates typical from worst-case behavior at every allowed dimension and sharpens existence without claiming novelty for the form.",
+      "residual_risks": [
+        "This is a quantitative result for one structured family; it gives no robustness theorem for arbitrary ordered-separating cubics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

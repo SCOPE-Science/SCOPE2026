@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:41:01.019374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete corrected RESULT.md under repairs/3. The original proof called an endpoint-deletion overlap a cyclic shift, which is false even for aba and bab. The repaired proof uses P_i=Q_{i+1} (indices 1 to n−1); reversing both parents yields P_{i+1}=Q_i, forcing two-periodicity and the opposite alternating phases. Endpoint deletions give the two outputs; the count vectors force different deleted letters, and internal deletions introduce distinct equal pairs, so no further common outputs exist. Equal outer letters can always be stripped from a common output: a violating endpoint would force identical parents, and deleting an equal outer symbol can be moved inward across its repeat. At length one the base overlap is one and gives no edge. At even length the parity of the output multiplicities specifies the deleted letter, and the mirror-position disagreement proof shows that reinsertion of this letter cannot produce two palindromes. In odd length the two central symbols are distinct exactly off the isolates; the maximal initial run in their two-letter alphabet and the remaining tail are invariant under every edge. Splitting by its last symbol yields two smaller components with exactly one connecting flip, proving the stated spectrum, including r=m and q=2. Radius-one flips give a matching saturating the nonisolates; ordering the two central symbols gives an independent set of the matching bound size. The repaired proof also verifies the one-read example directly. Both frozen checkers and VERIFICATION.md were inspected, not run; their finite checks are not the all-length proof. No numerical claim was changed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai et al., Definition 8 and Proposition 9, identify Type-A pairs by opposite alternating phases in one interval and characterize overlap two for Hamming distance at least two. This directly yields centered alternating edges under palindrome symmetry.",
+          "Record e0ee2801984a treats a different source restriction (010-free binary words); its conclusions for admissible adjacent swaps and isolates do not describe arbitrary palindromes. Record 2bb713ab731e is palindrome-specific but deletes two symbols, not one."
+        ],
+        "reasoning": "The ambient characterization is stronger as a pairwise statement and is not original here. Neither it nor the differently constrained graph results classify the components of this palindrome sublanguage or optimize independent sets on it.",
+        "searches": [
+          "Resultary: Cai Kiah Nguyen Yaakobi Type-A alternating interval criterion two overlapping single-deletion outputs",
+          "OA arXiv:2001.01376: Type-A",
+          "Resultary: two-read single-deletion reconstruction restricted to palindromic source words exact capacity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, direct_check.py and structural_check.py",
+        "Repaired RESULT.md",
+        "Cai–Kiah–Nguyen–Yaakobi arXiv:2001.01376",
+        "Resultary one-read palindrome, binary tree, unrestricted two-read census and related constrained/short-block records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Center-only edges are the base cliques with exactly one common output; all alternating bridges remain. Subtracting q^m binom(q,2) from the one-read edge formula recovers the two-read edge total directly.",
+          "For the component law one must identify the invariant first symbol outside the central pair and track the unique bridge within each class. For capacity the central swap is a saturating matching off the isolates and every other edge also reverses central order."
+        ],
+        "reasoning": "The edge predicate and total are covered or direct consequences. The distinct structural and capacity results require this additional analysis of connectivity and independence; they are not substitutions into the inspected exact results.",
+        "searches": [
+          "Resultary exact one-deletion palindrome record 9646637bbf2e, proof of the graph recursion",
+          "Cai et al., Definition 8 and Proposition 9, offsets 33000–37288",
+          "Resultary exact unrestricted two-read census 737fed325e91, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At mirror offset 3200, record 9646637bbf2e describes the outer-symbol grouping, its alternating bridges, and the central-symbol cliques for one read. The two-read graph is the one-read graph minus all edges differing only at the center.",
+          "Binary one-read record 3c7b3453f9ef already has a recursive binomial tree, but a single larger tree in odd length; the binary two-read graph retains a smaller tree and 2^m isolates."
+        ],
+        "reasoning": "The wider one-read relation provides the edge recursion after deletion of known clique edges, not the component census or independent-set optimum of that edge-deleted graph. The abstract tree shape is shared, not a new tree construction.",
+        "searches": [
+          "Resultary: Exact one-deletion confusability and capacity of palindromic codes",
+          "Resultary: palindrome two distinct common single-deletion outputs forest graph",
+          "Resultary: palindrome-specific classification of alternating-interval confusability edges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 737fed325e91 counts all-word edges by position and length of the alternating interval and explicitly does not determine the unrestricted independence number.",
+          "Record 5edcab4b1c30 gives short-block two-read capacities of the full word language, not the palindrome-induced graph.",
+          "The all-length odd exact one-read value in record 9646637bbf2e is q^m, a different overlap threshold."
+        ],
+        "reasoning": "Ambient edge totals and optima do not specify the induced graph's component multiplicities or alpha. The checked palindrome exact-capacity entry has the wrong threshold to give the two-read optimum.",
+        "searches": [
+          "Resultary: Exact edge count finite-alphabet two-read single-deletion reconstruction graph",
+          "Resultary: two-read deletion-correcting codes over palindromes maximum independent set",
+          "Resultary: palindromic two-read deletion reconstruction forest component spectrum matching independent set capacity"
+        ]
+      },
+      "rationale": "On the repaired text, credit prior exact coverage of the ambient edge criterion and the one-read recursion (which nearly gives the two-read recursion by itself). The supported distinct claim is the all-alphabet component spectrum of the retained forest and the sharp two-read capacity with its optimal construction. Neither the pairwise criterion, total edge count, nor the binomial-tree shape alone is the originality basis.",
+      "residual_risks": [
+        "The bounded local and published-source comparisons do not exclude uncatalogued equivalent structural results. No priority follows from same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly overlaps the even case and supplies the odd outer-symbol recursion; different base edges and different capacity",
+          "evidence": "One bridge for each unordered pair of distinct outer letters, preserved overlap with equal outer symbols, and cliques for fixed outer coordinates.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-one-deletion-confusability-and-capacity-of-palindromic-cod--9646637bbf2e",
+          "material_read": "Finding and proof, including offsets 3200–5650",
+          "method": "Resultary and local mirror",
+          "title": "Exact one-deletion confusability and capacity of palindromic codes",
+          "trigger": "Same sources and deletion operation, full graph recursion at lower threshold"
+        },
+        {
+          "assessment": "Overlaps the abstract tree shape, not the component census for the two-read forest",
+          "evidence": "Binary one-read odd graph is a single rooted binomial tree.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-binomial-tree-model-for-binary-palindromic-single-deletion-cod--3c7b3453f9ef",
+          "material_read": "Finding and odd graph proof (offsets 0 and 3404)",
+          "method": "Resultary and local mirror",
+          "title": "A binomial-tree model for binary palindromic single-deletion codes",
+          "trigger": "Potential equivalent recursive component family"
+        },
+        {
+          "assessment": "Directly implies the palindrome edge characterization; not a component or capacity theorem for this sublanguage",
+          "evidence": "Overlap size two for Hamming distance at least two is equivalent to the alternating Type-A condition; distance-one pairs have one output.",
+          "identifier_or_url": "https://arxiv.org/html/2001.01376",
+          "material_read": "Definition 8 and Proposition 9, offsets 33000–37288",
+          "method": "OA HTML literal Type-A locator and offset reading",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Stronger published two-output confusability criterion"
+        },
+        {
+          "assessment": "Counts ambient edges; not an induced-subgraph component or independence count",
+          "evidence": "The sum over all alternating differing intervals is over unrestricted words; unrestricted alpha is explicitly not computed.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Exact census with identical read threshold"
+        },
+        {
+          "assessment": "Different language, with possible intersection on 010-free binary palindromes, no equivalent classification",
+          "evidence": "Admissible adjacent swaps and isolated-word spectrum for 010-free sources; no sharp palindrome-restricted capacity.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-read-deletion-ambiguity-and-isolated-word-spectrum-in--e0ee2801984a",
+          "material_read": "Finding: edge and isolate conclusions",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-read deletion ambiguity and isolated-word spectrum in 010-free binary words",
+          "trigger": "Another exact restricted two-read result with overlapping binary source words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Palindrome sources impose a natural symmetry and one extra distinct trace changes the possible codebooks. The exact all-q, all-length capacity and a local optimal selection rule quantify that benefit, and the component spectrum explains how the higher read threshold breaks the one-read graph into small trees. The result is valuable beyond a new edge total or another description of a known tree shape.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

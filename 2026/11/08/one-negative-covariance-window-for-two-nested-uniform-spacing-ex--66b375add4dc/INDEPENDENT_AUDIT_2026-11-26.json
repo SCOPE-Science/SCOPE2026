@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:27:42.661101Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root the cyclic gaps at one designated sampled point: conditional on its rotation, the remaining n−1 rotated points are iid uniform, so their order-statistic gaps (including both ends of the unit interval) have the required Dirichlet law. The gap counts are invariant to the root; the Dirichlet claim need not hold for an indexing rooted by a fixed external origin. Translating the simplex gives the joint threshold probabilities; separating equal indices from unequal indices yields the exact covariance. The bracket is (1−s^x)(1−g(x)), where g=x(1−exp(−δx))/(exp(αx)−1), α=−ln s and δ=ln(s/t)>0 (since s−t=ab/(1−b)). The positive term in (log g)'' is α²/[4 sinh²(αx/2)]<1/x², so log g is strictly concave and g tends to zero at both ends. Its level 1 has at most two roots and its strict superlevel set is a single bounded interval or empty. Here real x is an interpolation of the sign expression, not a noninteger-sample covariance. Independent exact rational replay of F_n=1+(n−1)(4/5)^(n−1)−n(17/20)^(n−1) gave F_5=4539/160000, F_6=−38131/1600000, F_13=−100389363459021/4096000000000000, F_14=180270269513333/8192000000000000. Continuity and the two-root bound put a root strictly in each of the two transition brackets and rule out any other zeros. The supplied notes and checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Two broader Dirichlet hits treat threshold variation. Record 46bdb4d9ec77 treats a window across ball counts for distinct occupancy frequencies; b21fff941275 concerns counts of part values in uniform weak compositions. The longest-spacing versus gap-count result 1dc45f364fe5 has a different first observable and varying threshold."
+        ],
+        "reasoning": "Neither a similar one-window shape for a different count nor a larger exchangeable family with a different varying parameter yields the needed fixed-threshold sign inequality.",
+        "searches": [
+          "Resultary: 93f5621be126, 75fed219f626, 46bdb4d9ec77, b21fff941275, 1dc45f364fe5",
+          "Uniform spacings and normalized exponentials: Bairamov, Berred and Stepanov; Schlemm arXiv:1405.6114"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, covariance_check.py",
+        "Resultary 93f5621be126, 75fed219f626, 46bdb4d9ec77, b21fff941275 and 1dc45f364fe5 (indexed summaries)",
+        "Bairamov–Berred–Stepanov (2010)",
+        "Holst (1980), landing material only",
+        "Schlemm arXiv:1405.6114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalized exponentials in the ordered-spacings source recover the uniform simplex law; its translation identity immediately yields the mixed second moment and covariance. The summary of 93f5621be126 mentions a uniform-spacing formula."
+        ],
+        "reasoning": "The baseline formula follows mechanically from known spacing probabilities and is not credited. Recovering that formula is not the same as proving the strictly concave sign comparison uniformly in sample size, or locating and certifying the two sign changes.",
+        "searches": [
+          "Bairamov, Berred and Stepanov, printed pp. 230–231; Schlemm arXiv:1405.6114, p. 1; Resultary 93f5621be126"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact record returned for the same thresholds and sign diagram is the frozen finding itself (66b375add4dc).",
+          "Distinct hits 93f5621be126 and 75fed219f626 describe larger-threshold variation, for nested Dirichlet exceedance counts."
+        ],
+        "reasoning": "The normalized-exponential and broken-stick formulations describe the same spacings. Threshold monotonicity at a fixed dimension does not bound how often a fixed threshold pair moves through the negative region as dimension changes.",
+        "searches": [
+          "Resultary: nested Dirichlet exceedance covariance, uniform circular spacing/broken-stick counts, sample-size covariance windows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold and sign-diagram hit is the record under review, 66b375add4dc."
+        ],
+        "reasoning": "A fixed-n covariance formula or tabulation can check witness values, but cannot certify a theorem for all n or all real x>0 without an additional argument. No distinct exact witness entry appeared in the inspected results.",
+        "searches": [
+          "Resultary: sign-window and exact threshold/witness match; broken-stick and spacing-count references"
+        ]
+      },
+      "rationale": "Credit is for the global fixed-threshold sample-size sign classification and a sharp re-entrant witness, not for the Dirichlet probability or the resulting fixed-n covariance formula. The closest distinct compared results vary a threshold rather than n or concern different occupancy observables. The available evidence does not establish equivalent coverage of the credited claim; this is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "Full text of the closest distinct Dirichlet Resultary records and Holst was not accessible in the targeted attempts; exact formula overlap and any unstated sample-size coverage were not resolved there.",
+        "The available comparisons do not exclude an implicit or unindexed general sign-classification theorem. No priority is established by the date of a related indexed entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Possible baseline formula overlap; no sample-size result in material read",
+          "evidence": "Described crossing is in the larger threshold with dimension fixed.",
+          "identifier_or_url": "2026/10/26/SCOPE-one-crossing-covariance-law-for-threshold-exceedances-in-symmetr--93f5621be126",
+          "material_read": "Indexed statement summary; full record retrieval timed out",
+          "method": "Resultary and targeted OA mirror attempt",
+          "title": "One crossing covariance law for threshold exceedances in symmetric Dirichlet vectors",
+          "trigger": "Same nested counts and uniform-spacing subcase"
+        },
+        {
+          "assessment": "Establishes standard ingredients, not the sign theorem in these passages",
+          "evidence": "Normalized exponentials and the kth ordered spacing law. The stronger attribution that the paper explicitly states the labeled multigap formula was not confirmed.",
+          "identifier_or_url": "https://dm.ieu.edu.tr/Ism/BaiBerredStep_StatisticalPapers.pdf",
+          "material_read": "Printed pp. 230–231, including representation and Lemma 1 (text around offset 8000)",
+          "method": "Targeted OA PDF passage",
+          "title": "Limit results for ordered uniform spacings",
+          "trigger": "Closest standard uniform-spacings distribution formulas"
+        },
+        {
+          "assessment": "Full-text coverage not resolved",
+          "evidence": "No result passage retrieved; no negative inference from this.",
+          "identifier_or_url": "https://doi.org/10.2307/3212956",
+          "material_read": "Landing material only; cited PDF unavailable",
+          "method": "Lawful OA PDF attempts and identified landing page",
+          "title": "On the Lengths of the Pieces of a Stick Broken at Random",
+          "trigger": "Same broken-stick ensemble and count background"
+        },
+        {
+          "assessment": "Supports the circle/broken-stick correspondence; limited evidence on other coverage",
+          "evidence": "First-page discussion of the longest distance and broken-stick pieces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.6114",
+          "material_read": "First-page literal match, around text offset 1777; longer offset request timed out",
+          "method": "Targeted OA PDF query",
+          "title": "Limiting distribution of the maximal distance between random points on a circle",
+          "trigger": "Circular-gap versus broken-stick formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nested counts in a standard spacing model can be positively associated at both small and large sample sizes but negatively associated at intermediate sizes. The theorem gives the exact allowed geometry of that reversal for every threshold pair in scope, and the rational witness proves the two-reversal bound is sharp. This is more informative than the covariance formula or a finite simulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

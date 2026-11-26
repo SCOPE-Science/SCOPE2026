@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The physical state space is forward invariant. A positive Perron eigenvector constructs the mirror equilibrium for exactly the supercritical case \(R>1\); an independent monomorphic theorem establishes the unique comparator. The strict Rayleigh quotient gap is an exact algebraic identity and proves \(Q>P\) without numerical estimates. Simultaneous habitat/species reflection block-diagonalizes the Jacobian; its two blocks have negative trace and strictly positive determinant for every permitted parameter, proving full local exponential attraction. The exact witness and symbolic checker reproduce the identities. The claim does not infer global attraction from local stability.
+PASS
 
-## Originality — PASS (bounded best-knowledge assessment)
+With w=1/R and C shared and symmetric, scale the positive eigenvector (x,y) so x+y=1−w. The state (x,y,y,x) solves all four equations and has both vacancy fractions w>0; d=w(a+by/x)<D=w(a+bx/y) forces x>y. For the monoculture, the component equations imply h>ℓ. Its existence and uniqueness follow from the known monomorphic threshold, or by iterating the monotone strictly subhomogeneous map z_i ↦ (Cz)_i/[d_i+(Cz)_i] between a small multiple of the Perron vector and (1,1), then comparing scaled fixed points. With w_0=1−(h+ℓ)/2, the difference between z^TCz and (dh²+Dℓ²)/w_0 at z=(h,ℓ) is a(h−ℓ)²(h+ℓ)/(2w_0)>0: the cross terms cancel using dh²/(1−h)−Dℓ²/(1−ℓ)=a(h²−ℓ²). The symmetric generalized Rayleigh quotient gives R>1/w_0 and hence Q>h+ℓ; the other monoculture is its mirror. In coordinates that exchange the habitat and species labels together, the symmetric and antisymmetric linearized blocks have strictly negative traces and determinants bw(x+y)(ax²+ay²+2bxy)/(xy) and abw(x−y)²(x+y)/(xy), respectively. Both are Hurwitz, proving local exponential attraction in all four coordinates. At (a,b,d,D)=(2,2,1,3), R=8/3 and setting λ=2(h+ℓ) in the monoculture yields λ²=5, verifying the exact gap. The independently computed witness eigenvalues −5/2±√5/2 and −5/2±√5 are negative.
 
-The full primary article [1], including the model, Theorems 3.3–3.4, related discussions and appendices, was inspected. Its existence and uniform-persistence results do not imply a strict comparison of total patch occupancy against either monoculture. The monomorphic result from Lajmanovich–Yorke [2] is explicitly recognized as prior. Related specialist-patch work [3] and source–sink metacommunity analysis [4] were identifiable but accessible only in limited materials; overlap with a broader unindexed theorem remains a real residual risk. The public mirrored-strain SIS record [5] was read and compared: it uses host migration and conserved total hosts rather than preemptive site occupancy, and does not imply the present inequality. Multiple searches for spectral occupancy gain, opposite specialists, aliases and dominating results produced no covering statement. Search absence alone is not treated as proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact question—whether complementary habitat specialization improves *total occupied habitat*, rather than merely permitting coexistence—is a natural measurable comparison in a preemptive colonization ecology model. The theorem gives an all-parameter strict criterion, a closed spectral expression, a nonzero exact example, and robust local stability. This distinguishes replacement of one viable colonizer by two complementary specialists from a routine existence theorem, while not claiming empirical population rescue.
+Best-of-knowledge pass for the exact strict equilibrium capacity comparison throughout the mirror family, supported by the Rayleigh identity and full local stability. The colonization model, monomorphic threshold and generic positive-equilibrium results are background. Neither inspected positive-equilibrium results nor indexed stability claims in other models supplied the strict total-occupancy comparison.
 
-## Limits
+## value
 
-Only two equally sized habitat classes, exactly mirrored extinction preferences, and a common positive symmetric colonization matrix are covered. General nonlinear global attraction and actual stochastic persistence are unproved. Older potentially broader mathematical results remain a historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives a parameter-wide capacity gain despite preemption, relative to the relevant same-system monocultures, and shows that the gain is attained at a full locally stable equilibrium rather than only along a symmetric restriction. The Rayleigh comparison gives the mathematical mechanism for a structural complementarity effect in a minimal model; the exact witness is supplementary, not the extent of the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

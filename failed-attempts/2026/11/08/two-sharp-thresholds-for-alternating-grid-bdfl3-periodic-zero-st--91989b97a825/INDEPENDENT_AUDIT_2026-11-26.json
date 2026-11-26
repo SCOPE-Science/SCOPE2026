@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:49.284558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations and proof; VERIFICATION.md; verify.py (inspected, not run)",
+        "Jensen–Lóczi–Ketcheson, arXiv:2610.22685v1, §§6.1–6.3",
+        "Independent replay: python /workspace/reproductions/5.py (SymPy)"
+      ],
+      "rationale": "The cited method and indexing match JLK Eq. (36) and §6.2. Independently, starting with alpha2=-3/2 and alpha3=1, order conditions for 1,t,t^2 at the new time recover the alpha0, alpha1 and beta coefficients; on the reciprocal phases this gives the stated factorizations of beta. The homogeneous recurrence on first differences is z_{n+1}=z_n/2+alpha0 z_{n-1}. The two-phase product in difference coordinates has trace 1/4+alpha0(r,1/r)+alpha0(1/r,r) and determinant alpha0(r,1/r)*alpha0(1/r,r). I recomputed the exact trace and determinant and all three Schur expressions. Only A-B+C can lose strict positivity, with change at s=r+1/r=(5+sqrt(221))/4. The full monodromy has in addition the constant-mode root 1. At the boundary its three roots are distinct (parasite -1 and other parasite strictly between -1 and 1); beyond it the parasite polynomial evaluated at -1 is negative and has a root below -1. Bounded even powers and one fixed odd step give power boundedness for all steps, in either phase. For decay the leading coefficient is 1+lambda h_n beta, always nonzero for positive lambda h_n exactly when beta>=0. Both beta signs are nonnegative on [1/4,4], including the zero-beta phases at the endpoints. At r=9/2 the short-step phase has beta=-11/96, and lambda h=96/11 is singular with nonzero right-hand side for suitable initial history. This is algebraic solvability, not absolute stability.",
+      "residual_risks": [
+        "Power boundedness tested for the exact prescribed periodic recurrence, not arbitrary variable-step meshes. No assertion about nonlinear equations, finite precision, or decay where all stages are solvable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JLK explicitly excludes variable companion products from its frozen analysis. dd9e864426bf covers the exact periodic window and additionally studies its frozen-instability subintervals. No usable full text was retrieved for the two general older references."
+        ],
+        "reasoning": "The earlier exact window is enough to cover the homogeneous claim. The distinction from the more general frozen framework is true but does not distinguish another evaluation of the same two-cycle product.",
+        "searches": [
+          "JLK §6.3 frozen root conditions versus products; Resultary dd9e864426bf homogeneous periodic window; Gear–Tu 10.1137/0711079 and Grigorieff 10.1007/BF01389580 lawful OA checks"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dd9e864426bf and 8639cc7a1b91 mirrored passages, plus the named indexed hits",
+        "JLK arXiv:2610.22685v1 §§6.1–6.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute b=1/a in the published beta: (a+1)(4a-1)/[2a(3a+2)]. Its denominator is positive; thus the current ratio must be at least 1/4 to avoid a positive-frequency zero of 1+lambda h_n beta. Applying this twice to the reciprocal phases yields [1/4,4] immediately. The earlier stability threshold and exact r=9/2 evaluation give the claimed separation and witness."
+        ],
+        "reasoning": "The scalar threshold was not read as a stated theorem in the earlier homogeneous record. It is nonetheless a direct algebraic consequence of published coefficients and the scalar equation; the separated bands are intersections with the already-evaluated homogeneous interval, not an additional product-stability theorem.",
+        "searches": [
+          "JLK Eq. (36) and §6.2 derivative coefficient; dd9e864426bf Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "dd9e864426bf gives t_*=(s_* - sqrt(s_*^2-4))/2 with s_*=(5+sqrt(221))/4; t_* is exactly 1/R_*. Its homogeneous companion coefficients and quartic 4t^4-10t^3-41t^2-10t+4 match. 8639cc7a1b91 is instead classical third-order BDF3 from cubic interpolation."
+        ],
+        "reasoning": "Identical homogeneous updates under variable and phase relabeling prove equivalence for zero-stability, despite the earlier record calling its method BDFL2. The other alternating-grid BDF3 result uses a different coefficient scheme and is not a match.",
+        "searches": [
+          "Resultary: variable-step BDFL3_2/BDFL2 reciprocal two-cycle or alternating-grid Floquet zero stability; dd9e864426bf, 8639cc7a1b91 and self-hit 91989b97a825",
+          "JLK arXiv:2610.22685v1 §§6.1–6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "91989b97a825 is the exact self-hit. The earlier dd9e864426bf Finding gives the exact same algebraic endpoint. The indexed hits 67cbe1d016ca and 407ab8687648 concern fixed-step sign changes and positivity of iterates, respectively; only summaries were available for those two."
+        ],
+        "reasoning": "The published index supplies an exact, not numerical or parameter-approximate, duplicate of the homogeneous threshold. The nearby stage-query summaries do not establish an identical scalar uniqueness claim.",
+        "searches": [
+          "Resultary sharp alternating-grid and stiff-stage threshold queries; 91989b97a825, dd9e864426bf, 67cbe1d016ca and 407ab8687648"
+        ]
+      },
+      "rationale": "The central periodic homogeneous threshold is exactly covered by the earlier Resultary record dd9e864426bf, which has the same homogeneous companion recurrence, reciprocal monodromy boundary, and decisive quartic. Its different BDFL label does not distinguish the equations. That record does not cover the scalar-stage statement; the latter, however, is an immediate sign check on the published adaptive coefficient, and combining it with the known window gives the claimed separation without a new stability result. This is an actual overlap and direct implication, not a failure to establish access to historical references.",
+      "residual_risks": [
+        "The cited general older variable-grid papers were not accessible in the attempted lawful copies; their possible additional coverage is unresolved and unnecessary to the demonstrated exact overlap. The two nearby scalar BDFL comparisons are summary-only. No broad priority assertion about scalar-stage observations is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier homogeneous threshold, regardless of different BDFL label; no scalar stage theorem in these passages",
+          "evidence": [
+            "s_*=(5+sqrt(221))/4, t_*=(s_* - sqrt(s_*^2-4))/2; same companion recurrence and quartic 4t^4-10t^3-41t^2-10t+4."
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/27/SCOPE-sharp-reciprocal-two-cycle-stability-window-for-a-variable-step--dd9e864426bf",
+          "material_read": "Mirrored RESULT.md, Finding, homogeneous companion coefficients and decisive quartic in proof",
+          "method": "Local Resultary index and mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp reciprocal two-cycle stability window for a variable-step method",
+          "trigger": "Exact same type of alternating-grid threshold"
+        },
+        {
+          "assessment": "Matching recurrence and beta, frozen analysis not a periodic-product theorem",
+          "evidence": [
+            "§6.2 sets alpha2=-3/2, alpha3=1 and only beta3 nonzero, and displays the coefficient ratios. §6.3 states its frozen analysis does not characterize variable companion products."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22685v1",
+          "material_read": "Eq. (36) and §§6.1–6.2, text offsets about 65600 and 68000; §6.3, 70481–70701",
+          "method": "Lawful arXiv HTML passage inspection",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Defines the method; potential coverage by adaptive and frozen coefficient analysis"
+        },
+        {
+          "assessment": "Different third-order interpolatory method",
+          "evidence": [
+            "Classical BDF3 is defined by interpolation of a cubic through four values, with a claimed parasitic multiplier modulus bound of 1/5."
+          ],
+          "identifier_or_url": "Resultary/2026, 8639cc7a1b91",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions",
+          "method": "Local Resultary index and mirror",
+          "title": "Sharp 1/5 Floquet damping for BDF3 on alternating grids",
+          "trigger": "A related exact alternating-grid multipliers result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof, especially scalar solvability and separation",
+        "JLK §6.2",
+        "Resultary dd9e864426bf Finding"
+      ],
+      "rationale": "Distinguishing homogeneous zero-stability from algebraic solvability is useful for interpreting an integrator, and the sharp Floquet classification is substantive in its original source. As a new finding here the homogeneous classification is already available. Removing it leaves a sign-of-beta substitution into the published one-stage coefficient and a representative evaluation inside the known interval. This makes a helpful warning or worked example but not an independently substantive classification or witness beyond the immediate coefficient implication. No valuable, distinct repaired theorem is established.",
+      "residual_risks": [
+        "This is not a judgment that the numerical-method distinction is unimportant; the record does not determine a new absolute stability boundary or another non-immediate property of the alternating decay recurrence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The first pivot fixes an independent folded Gaussian angle and Rayleigh radius, while the second column remains conditionally independent and isotropic. The reinforcing-sign case is the only way for an updated entry to exceed the old maximum. The two angular inequalities and one Rayleigh-ratio inequality together are necessary and sufficient for \(\rho>r\); their measure yields the two-dimensional exact integral. A differentiable continuous arctangent primitive gives the stated one-dimensional law. Shrinking-angle Taylor expansions prove the coefficient \(1/(2\pi^2)\), including the third-order remainder. The attached program checks one-dimensional versus independent two-dimensional quadrature and Gaussian Monte Carlo, without replacing the proof. No other dimensions are claimed.
+## correctness
 
-## Originality
-**PASS, with explicit residual risk.** The closest primary work is Spielman–Yu (2026) on lower bounds for large Gaussian GEPP growth, Huang–Tikhomirov (2022) and Urschel (2026) on dimension-dependent bounds, and Trefethen–Schreiber (1990) on approximate growth distributions. None of the inspected arguments implies the full exact \(2\times2\) CDF or its quadratic endpoint coefficient. Higham–Higham (1989) describes *worst-case deterministic* maximizers but not their Gaussian probabilities. Peca-Medlin–Trogdon (2023) treats a different butterfly ensemble, whose two-dimensional growth law differs. Source abstracts and some portions of full texts were examined; inaccessible Macleod (1988) historical material and unindexed equivalent derivations are residual novelty risks. Failed keyword matches are not regarded as a mathematical proof of originality.
+PASS
 
-## Value
-**PASS.** The exact finite-dimensional law is a natural minimal nontrivial solvable benchmark for a widely studied numerical stability statistic. Its atom, complete probability curve, and sharp quadratic density loss near the worst-case bound quantify rare growth probabilities that approximate and higher-dimensional tail statements cannot directly determine. This is more than a sample numerical quantile or rephrasing of the deterministic maximum; it completely classifies the specified ensemble in the natural smallest dimension.
+Only the Schur complement s=y₂−t y₁ can create growth because the input max M already counts all original entries. The nonreinforcing signs give |s|≤M and the reinforcing signs have independent probability 1/2. Folding the two independent standard Gaussian columns gives angle densities 4/π and 2/π and independent Rayleigh radii R,S. For r≥1 the inequalities against the two second-column entries are exactly the stated arctangent interval; it is nonempty iff tan α>r−1 up to null boundaries. The remaining inequality is S/R>r cos²α/sin(α+φ), with tail 1/(1+x²) at x≥0. Differentiating the continuous arctangent angle gives the advertised primitive derivative sin²z/(sin²z+c²), including through z=π/2. The integral is continuous for interior r, input counting forces ρ≥1, and |t|<1 almost surely gives ρ<2. Independent endpoint check: put u and v equal to the within-column minor/max absolute ratios, each with density 4/[π(1+u²)] on [0,1]. With reinforcing signs the two equally likely orientations of the second column give |s|/max(|y₁|,|y₂|)=1+uv or u+v. At r=2−δ the domains uv>1−δ and u+v>2−δ each have (u,v)-area δ²/2+O(δ³). Over them the two density factors are 2/π+O(δ) and the conditional remaining max-ratio probability is 1/2+O(δ). Multiplying orientation and sign probabilities gives δ²/(2π²)+O(δ³), independently of the folded-angle expansion. The exact complement of the strict tail at one gives the atom; the reported decimal is a numerical evaluation, not a certified interval.
 
-## Scope and limitations
-Independent real Gaussian \(2\times2\) matrices only; exact partial-pivoting arithmetic only. No finite-precision backward-error or dimension-dependent theorem. The reported decimal is a converged numerical integral, not a rigorous certified interval. No independent verification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact step-zero-inclusive iid real-Gaussian 2×2 distribution and endpoint expansion at the frozen record's date. Earlier sources inspected supply either empirical averages, different matrix ensembles, a different growth statistic, or large-n probability bounds. Strong later indexed overlaps are real: the later even-entry tail formula specializes to the Gaussian strict tail on (1,2), and its right limit at 1 determines the atom, although the inspected statement does not evaluate it. The dated overlaps do not establish earlier coverage. MacLeod's 1988 unpublished report is an identified and substantive open priority risk, not affirmative evidence of coverage.
+
+## value
+
+PASS
+
+Large-growth probability for a Gaussian matrix is a motivated object in numerical analysis. The smallest nontrivial elimination size has an exact law that quantifies both the mass at no growth under the input-inclusive convention and the rare near-worst-case tail; neither the deterministic cap nor published averages answer those questions. This is a precise baseline for interpreting higher-dimensional probabilistic estimates, without asserting that the endpoint exponent extrapolates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

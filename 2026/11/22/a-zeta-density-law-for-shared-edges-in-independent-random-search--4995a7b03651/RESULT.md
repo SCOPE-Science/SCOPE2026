@@ -77,7 +77,7 @@ Restriction of the infinite priority arrays to \(\{1,\ldots,n\}\) cannot destroy
 \sum_{i<j}(q_{n;i,j}-a_{j-i})=\sum_{s=1}^{n-1}\frac1{s+1}=\mathcal H_n-1,
 \]
 
-where \(\mathcal H_n=\sum_{r=1}^n 1/r\) is the harmonic number. Thus the common finite-edge count exceeds the common infinite-edge count restricted to \(\{1,\ldots,n\}\) by a nonnegative quantity with expectation at most \(\mathcal H_n-1\). Also the expected number of common infinite edges starting in \(\{1,\ldots,n\}\) and ending to its right is at most
+where \(\mathcal H_n=\sum_{r=1}^n 1/r\) is the harmonic number. The common finite-edge count exceeds the common infinite-edge count restricted to \(\{1,\ldots,n\}\) by a nonnegative quantity. Every edge in this difference must be extra in at least one of the two samples, so this quantity is bounded by the **sum** of the two single-sample extra-edge counts, with expectation \(2(\mathcal H_n-1)\). Also the expected number of common infinite edges starting in \(\{1,\ldots,n\}\) and ending to its right is at most
 
 \[
 \sum_{d\ge1}d a_d^2=2-\zeta(2).
@@ -87,7 +87,7 @@ It follows that
 
 \[
 \mathbb E\left|\frac{H_n}{n}-\frac1n\sum_{i=1}^nY_i\right|
-\le\frac{\mathcal H_n-1+2-\zeta(2)}{n}\longrightarrow0.
+\le\frac{2(\mathcal H_n-1)+2-\zeta(2)}{n}\longrightarrow0.
 \]
 
 Combining this estimate with the ergodic limit proves the stated \(L^1\) convergence.
@@ -102,7 +102,7 @@ Seidel and Aragon's *Randomized Search Trees* supplies the priority/ancestor fra
 
 ## Limitations
 
-The result does not give a central limit theorem or variance for \(H_n\), does not extend to correlated insertion orders or biased priorities, and does not cover unlabeled shape overlap. The strong law asserted here is \(L^1\) convergence, not an explicit almost-sure limit for the sequence of independently reconstructed finite pairs. Historical priority remains subject to examination of other treap literature and independent review.
+The result does not give a central limit theorem or variance for \(H_n\), does not extend to correlated insertion orders or biased priorities, and does not cover unlabeled shape overlap. The convergence asserted for \(H_n/n\) is in \(L^1\); no almost-sure limit for independently reconstructed finite pairs is asserted. Historical priority remains subject to examination of other treap literature.
 
 ## References
 

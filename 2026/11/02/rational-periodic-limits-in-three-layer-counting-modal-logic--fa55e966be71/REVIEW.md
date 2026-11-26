@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct reconstruction confirms five necessary steps: (1) independent binomial counts of fair, independent proposition labels; (2) the unique-maximum probability equals a finite binomial sum and differs from \(1/m\) by an explicit positive multiple of \(1/\sqrt n\); (3) the modal equality admits a solution only in the stated residue class and has binomial point mass \((\alpha_m+o(1))/\sqrt n\) there; (4) independent depth-two child subtrees amplify that signal to probability approaching one with stretched-exponential error; (5) independent root plurality gates realize each rational subsequential limit. Binomial local central limits have positive variance because \(m\ge2\) is fixed. Finite direct checks returned `ALL_CHECKS_OK` on the packaged source. Risks: extrapolation to nonuniform branching or correlated labels is unproved, and finite tests are not asymptotic proofs.
+PASS
 
-## Originality — PASS within examined sources
+The displayed formulas are integer linear comparisons and use #top, not an n-dependent constant or a modulo connective. At a depth-one test the independent letter counts are binomial. The probability that a specified pair is the unique tied maximum is the sum of the squared binomial mass times the (m−2)nd power of the strict lower cdf. On z=(2t−n)/√n the lattice spacing is 2/√n, giving 2I_m/√n from the local CLT and Riemann sum. Uniform maximum binomial mass O(n^(-1/2)) controls the tails of the rescaled squared mass by the binomial tail, and bounds the probability of any specified triple tie by O(n^(-1)). This gives the claimed delta_m. The #B_m count is binomial by subtree independence. Its integer target exists exactly on the chosen residue class (for n≥r); there it differs from the mean by delta_m√n+o(√n). Stirling's formula with u_m(n) bounded away from 0 and 1 gives the displayed local mass and alpha_m. The n independent tests amplify it, with n times the squared local mass bounded. The disjoint unique-winner events in the fresh-letter gate have total probability a u_b(n); the endpoint gates are constants. Freshness makes detector and gate independent even without disjoint vertex sets. Exactly one residue can contribute, giving each rational limit at depth at most three. The finite checker was read but not executed; no portion of the limiting proof rests on it.
 
-The closest motivating paper is Ghosh–Schwarzentruber, arXiv:2610.26187v1, Sections 3 and 6 (full HTML material read). Its parity nonconvergence example has two distinct limit values; it additionally studies a modified limiting probability and density of constant limits. It does not state or imply an arbitrary-modulus, rational-residue-profile theorem with an explicit stretched-exponential detector exponent from the inspected sections. Broader counting-logic expressivity in Benedikt–Lu–Motik–Tan (ICALP 2024) does not by itself imply probabilities under a uniformly random labelled full-branching tree model. Searches covering counting modalities, regular-tree limits, congruences, plurality/tie mechanisms, and periodic probability profiles found no equivalent published finding. Risks: uninspected specialized predecessors may imply this construction; the 2024 article was only checked at abstract/metadata level in this review, not certified as non-covering on its full text.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 paper explicitly raises convergence questions after presenting an oscillating parity example. The construction gives all finite moduli and all rational-valued profiles, while staying within linear counting rather than adding a modulo quantifier. The three-depth amplification method is a reusable mechanism relating almost-sure modal classification, rare local events and expressive behavior in counting-message-passing systems. The exact detector rate and finite probability formulas distinguish the result from simply restating a parity example. It does not prove a general limit classification or minimum required depth.
+The surviving claim is the uniform construction for each prescribed finite modulus and rational profile in ordinary probabilities, with the explicit detector constant for every modulus. It is not the invention of parity oscillation, rare-event amplification, or exact parity pairs in isolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result shows that the failure of an ordinary limiting probability is not restricted to a parity pathology: even without congruence syntax, three fixed counting layers realize arbitrary finite residue profiles. The explicit detector failure rate explains why the arithmetic support survives with probability tending to one. This is a structural expressivity result, beyond producing additional individual oscillation examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

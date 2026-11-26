@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the sixteen vertices of the Boolean four-cube, and the claim concerns unordered triples with three distinct Euclidean distances. The proof establishes the full-parity identity by direct Hamming-distance counting. Its global lower bound and all equality cases are obtained by the displayed maximal-index recurrence over exactly 65,536 masks. The standalone standard-library checker enumerates every mask, independently computes every scalene-triple count by direct incidence among 256 triples, compares full per-cardinality minima and equality predicates, and checks the parity identity. No sampled data are substituted for global proof. The code was executed successfully from its actual file path. The theorem has no infinite-dimensional implication.
+PASS
 
-## Originality — PASS (best-knowledge, priority provisional)
+Independently replayed every subset using literal 4-tuples and a mixed-parity vertex tally, not the frozen highest-index recurrence or its triple mask list. Same-parity distances squared are 2,4 and opposite-parity distances squared are 1,3. Thus for a vertex v alone on its parity side of a triple, the number of scalene choices from the other side is d·(b−d) with d selected cube neighbors and b total selected opposite-parity vertices. Summing over either parity for v counts each scalene triple once. /workspace/reviews/cube_replay.py checked all 65,536 distinct subsets using this identity, yielding all minima and counts and testing the equality predicate in both directions for every subset of size at least six. For k=6,…,16 the pairs (minimum,count) were (0,56),(0,16),(0,2),(16,16),(36,48),(60,64),(88,32),(124,64),(164,48),(208,16),(256,1). In a full-parity construction an opposite vertex has four neighbors and four nonneighbors; a selected opposite pair has complementary neighborhoods if antipodal, and neighborhoods with intersection two if at distance two. This independently yields 16r+4 choose(r,2)+4 times the pair count. The four disjoint antipodal pairs minimize it at max(0,r−4). The proof and replay do not classify k≤5 or extend outside Q4. The frozen checker is consistent with this replay; its stated Python 3.8 minimum in RESULT.md is a nonmathematical documentation slip, since int.bit_count requires Python 3.10 or later.
 
-Ionin (2009) covers maximal cardinality and structural bounds for Hamming-space isosceles sets, but the inspected Hamming-space sections do not give quantitative minimum counts of scalene triangles for each cardinality of the sixteen-vertex cube. Yi (2026) gives Euclidean isosceles cardinality and structure results, not a fixed-cube defect profile. Mukkamala (2025) forbids monochromatic equilateral triangles of one Hamming length, which neither contains nor implies the scalene-triple minimization. Searches under isosceles/scalene/nonisosceles, Boolean cube/four-cube/Hamming, supersaturation, and antipodal parity classes did not reveal a statement implying the formula and equality types. Related published four-cube mathematical records concern Walsh spectra, geodesic transversals, and vertex-simplex distances, rather than scalene triple counts. Search failure is not proof of worldwide novelty; the residual risk is unindexed finite extremal tables.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete *supersaturation and rigidity law*: it quantifies how non-isosceles triples must appear when a fixed metric point set exceeds its maximum all-isosceles size, for every possible enlargement, and classifies all minimizers. The four-cube is the first Boolean cube whose parity halves contain two distinct nonzero pairwise distances (squared distances 2 and 4), making the antipodal-pair transition nontrivial. The exact switch after four added opposite-parity vertices identifies a genuine geometric mechanism rather than an isolated arbitrary count. This is a finite, natural benchmark for larger Hamming-space stability questions, not a claimed general theorem.
+The supported distinct claim is the exact offending-triple profile plus all equality cases in the four-cube, not the use of parity or the general question of isosceles Hamming sets.
 
-## Limits and references
+## value
 
-The global part uses complete finite integer enumeration and is limited to the sixteen-vertex cube. This does not establish analogous bounds in any higher dimension or arbitrary Euclidean space. Historical-priority confidence is limited by the possibility of unindexed tables, and no independent audit has been conducted. The principal comparisons are Yi (arXiv:2611.05421), Ionin (doi:10.37236/230), and Mukkamala (arXiv:2506.18782).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the four-cube the antipodal matching is within each parity class (unlike in the three-cube), producing the additional scalene pattern (1,3,4) and a change of minimizer structure after four opposite vertices. The exact profile quantifies how quickly isosceles avoidance fails and gives concrete equality cases, not merely a small-instance count or an unmotivated particular size. The finite certificate is sufficient for this natural finite problem, not evidence for a higher-dimensional generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

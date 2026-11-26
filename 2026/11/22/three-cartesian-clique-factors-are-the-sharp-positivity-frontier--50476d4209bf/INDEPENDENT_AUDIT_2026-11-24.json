@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:41:10.356556Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the projector calculation in RESULT.md (22–64): P_i=J/q_i and Q_i=I−P_i give L_i=w_iq_i Q_i, so a differing coordinate has local entries (1,−1)/q_i and an agreeing coordinate (1,q_i−1)/q_i. Summing the differing-coordinate indicators gives (−1)^k times the k-fold mixed difference; all weights for agreeing coordinates are positive. Independently, writing x=1+z and φ=arctan(1/x), partial fractions give (−1)^k f^(k)(z)=2 k! sin((k+1)φ)/(x²+1)^((k+1)/2). For z>0, 0<φ<π/4, so this is positive through k=3; at z=0 only k=3 has a zero. The iterated integral of this derivative is strict for each positive-step box of positive volume. The denominator recurrence gives coefficients 1,−1,1/2,0,−1/4 through degree four. At a four-coordinate pair no shorter walk contributes even with Laplacian diagonal terms, and the 24 shortest walks have weight ∏w_i and positive sign. Hence the negative coefficient is exactly −6∏w_i. The spectral eigenvalues are positive and f(0)=1 preserves constants; h=0 is the identity and only the constant mode survives h→∞. The scalar Padé step matches through order two and is L-stable: for z=u+iv, u≥0, the squared denominator is ((1+u)^2+1)^2/4+((1+u)^2−1)v²/2+v^4/4≥1 and grows at infinity. I inspected artifacts/verify.py as a finite unit-weight supplement; no uploaded code was executed, and the proof covers independent coordinate weights, not arbitrary edge weights within a factor.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna et al. define and study diagonal Padé maps for positive systems; the [0/2] map is nondiagonal. Wade et al. full text could not be retrieved."
+        ],
+        "reasoning": "A general positive-systems result about diagonal filters is not a universal positivity result for this nondiagonal filter on the stated restricted graph family. No coverage decision relies on exclusion from the inaccessible paper.",
+        "searches": [
+          "Literature: all-step positivity of [0/2] Padé diffusion on Cartesian complete-graph products, alternate signs and finite differences",
+          "Zappavigna et al. repository PDF pp. 2, 4; Wade et al. DOI 10.1002/num.20039"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and artifacts/verify.py",
+        "Resultary 5b0558f2856d, cbdb39e5b48d, e93fc3196dc7, 690509e7de2b",
+        "Zappavigna et al. repository PDF",
+        "Wade et al. DOI 10.1002/num.20039 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearest same-object record e93fc3196dc7 uses Gauss–Legendre [2/2] on unweighted clique products, with a different frontier. The nearest same-filter records furnish the negative side in the unweighted case."
+        ],
+        "reasoning": "The weighted shortest-walk obstruction is the same mechanism, not the main contribution. Neither changing the filter nor reusing the obstruction proves strict positivity on every weighted product through three factors.",
+        "searches": [
+          "Resultary RESULT.md 5b0558f2856d, cbdb39e5b48d, e93fc3196dc7 (Findings)",
+          "Resultary complete-multipartite criterion 690509e7de2b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the latter unweighted complete multipartite family the criterion is 0≤f≤1 with (1−f(s))/s nonincreasing. Here this ratio is (s+2)/(s²+2s+2), with derivative −(s²+4s+2)/(s²+2s+2)^2."
+        ],
+        "reasoning": "That monotonicity proves a one-factor overlap, but is not a mixed third finite-difference assertion on tensor spectra; the 3-cube is already not complete multipartite.",
+        "searches": [
+          "Resultary: Cartesian clique products [0/2] heat positivity finite differences",
+          "Resultary complete-multipartite diffusion criterion, RESULT.md for 690509e7de2b, offsets 0–2103"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier findings give the obstruction for unweighted distance-four pairs; the latter also gives a classification through five vertices, not an arbitrary mixed Cartesian product theorem."
+        ],
+        "reasoning": "An all-step continuum statement with arbitrarily many vertices and varying coordinate rates is not settled by the finite-table overlap. The previously classified instances and unweighted obstruction are credited.",
+        "searches": [
+          "Resultary exact graph-heat results for [0/2] on distance-four pairs, cycles, and small graphs; 5b0558f2856d and cbdb39e5b48d"
+        ]
+      },
+      "rationale": "The distinct claim is unconditional positivity for arbitrary mixed, coordinate-weighted products of up to three clique factors for this particular [0/2] filter. The distance-four obstruction and smaller positive subclasses are already covered. No inspected competing result gives the positive-side mixed-factor statement; same-object results for another filter do not imply it.",
+      "residual_risks": [
+        "Wade et al. full text remains unresolved.",
+        "The exact cited November complete-multipartite record 335027f86795 was not available in the local mirror; the separately inspected October result is not a substitute for inspecting that file.",
+        "A historical general finite-difference theorem giving this exact classification could alter the coverage assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unweighted obstruction and separate cycle results.",
+          "evidence": [
+            "A distance-four pair has a negative entry for all sufficiently small steps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-distance-four-positivity-obstruction-and-sharp-eight-cycle-recov--5b0558f2856d/RESULT.md",
+          "material_read": "RESULT.md Finding, offsets 0–2376",
+          "method": "Resultary search and local mirror",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery for the second-order Padé heat step",
+          "trigger": "Same filter and obstruction"
+        },
+        {
+          "assessment": "Overlaps obstruction and finite cases; not the positive converse.",
+          "evidence": [
+            "No general diameter-three sufficiency claim and no independently weighted edges in scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-five-vertex-and-distance-four-positivity-barriers-for-pad-0-2-gr--cbdb39e5b48d/RESULT.md",
+          "material_read": "Finding offsets 0–2283; limitations offsets 6955–8083",
+          "method": "Resultary search and local mirror",
+          "title": "Five-vertex and distance-four positivity barriers for Padé [0/2] graph diffusion",
+          "trigger": "Same filter, general obstruction and finite classification"
+        },
+        {
+          "assessment": "Different rational map, cannot substitute for the bound result.",
+          "evidence": [
+            "Gauss–Legendre [2/2], unweighted factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md",
+          "material_read": "Finding offsets 0–2048",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Same graph products"
+        },
+        {
+          "assessment": "Includes single cliques but not general Cartesian clique products.",
+          "evidence": [
+            "Criterion on (1−f(s))/s for unweighted complete multipartite graphs."
+          ],
+          "identifier_or_url": "690509e7de2b",
+          "material_read": "Finding offsets 0–2103",
+          "method": "Resultary search and local mirror",
+          "title": "An exact positivity criterion on complete multipartite diffusion networks",
+          "trigger": "Related all-step scalar criterion"
+        },
+        {
+          "assessment": "Studies diagonal approximants, not this nondiagonal classification.",
+          "evidence": [
+            "Explicit problem and definitions restrict the Padé analysis to diagonal schemes."
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Scope on PDF p. 2 offset 2515, definitions p. 4 offset 9000",
+          "method": "Primary repository PDF",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "General positive systems and Padé schemes"
+        },
+        {
+          "assessment": "Unresolved full-text comparison.",
+          "evidence": [
+            "Not used as evidence against prior coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/num.20039",
+          "material_read": "Bibliographic material only; no full text retrieved",
+          "method": "Bounded OA attempts at DOI/publisher and repository search",
+          "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+          "trigger": "Historical positive Padé smoothing candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem distinguishes unconditional entrywise positivity from scalar spectral stability and fixes the sharp factor frontier for arbitrarily large, anisotropic graph families. Users of this heat step can decide the all-step question from the number of clique factors alone. The mechanism explains which entries are protected by signed derivatives and why protection fails at graph distance four; no unrestricted diameter or floating-point guarantee is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

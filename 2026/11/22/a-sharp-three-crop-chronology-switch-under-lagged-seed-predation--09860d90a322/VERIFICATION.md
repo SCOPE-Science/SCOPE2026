@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The result's six proof steps establish the three-cycle formula, cancellation of reversal-invariant terms, the alternating three-point identity, both factorizations, the unique positive Holling-III threshold, and period minimality. A stand-alone Python standard-library program, `check.py`, evaluates the three-cycle independently from the recursion and matches it with the claimed expression using exact rational fractions. Running `python check.py` produced `exact-rational assertions passed: 6066`.
+## correctness
 
-The specifically demonstrated crop and predator parameters are \((A,B,C)=(3,2,1)\), \(\rho=1/2\), \(\eta=1/20\) and \(b=0\). The checker confirms \(\Delta_3(2)=1/325\) and \(\Delta_3(4)=-8/14875\), and direct fractions establish that the annual modeled consumption is below seed availability in both orientations. The analytical proof, rather than finite randomized tests, supports universal quantifiers over \(A>B>C>0\), \(0\le\rho<1\), \(b\ge0\), \(\eta>0\), and \(K>0\).
+PASS
 
-The formula does not describe transient predator populations, feedback of seed predation on future crop availability, spatial migration, or statistical noise. A conditional predation-loss proxy is not interchangeable with measured ecological fitness. Published-priority comparison is based on available full text of primary ecology papers and two related mathematical results, additional research summaries, and explicit implication comparisons; the absence of a search hit is not a proof of global novelty. Independent audit was not performed.
+The affine three-step update is a contraction with multiplier ρ³, so its periodic solution is unique. Iterating P_t backwards three steps gives the stated three weights on the predecessor, second predecessor and current crops. On reversal the two predecessor cross-sums exchange, while the constant-input and same-crop sums cancel. The remaining factor is η(1−ρ)/(1−ρ³)=η/(1+ρ+ρ²), including at ρ=0. For D=(A−B)(A−C)(B−C)>0 the alternating cross-sum equals −D g[A,B,C]. Independently, the pair secants for type II and III are K/[(K+x)(K+y)] and K²(x+y)/[(K²+x²)(K²+y²)], respectively. Subtracting the AB and BC secants and dividing by A−C gives, for type III, numerator K²(K²−AB−AC−BC) over the product of the three positive factors; type II gives −K over its product. This checks the signs, the unique positive tie and the absence of any other reversal, uniformly in the allowed ρ, b and η. At period two reversal is a phase shift, and period one is trivial. Direct orbit substitution in the example reproduces Δ₃(2)=1/325 and Δ₃(4)=−8/14875; the largest predator stock is 17/70<1, which bounds each year's modeled loss by less than the smallest crop. The supplied check.py was inspected, not executed; it iterates the recurrence with rational arithmetic and compares finite cases to the closed form. The argument concerns the periodic loss proxy, not an unconstrained physical seed budget or finite-time transients.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact type-II/type-III ordering law and unique half-saturation switch for a periodically forced, lagged affine predator stock weighted by current-crop intake. Classical divided differences and earlier three-season orientation results are not claimed as new. The strongest inspected orientation theorem is for a different observable and gives a sign that cannot reverse with saturation, whereas the observed reversal here comes from the curvature of a function of the input crop. This is an evidence-bounded decision, not a priority certificate.
+
+## value
+
+PASS
+
+Reversing a cycle controls for the crop totals and leaves only the ordering effect. The result identifies a sharp case where changing the intake shape can change which chronology loses fewer seeds, and proves that carryover changes the magnitude but not the preference. This separates a finite three-crop curvature effect from the pointwise inflection of a response curve and supplies a benchmark in the first period where reversal can matter. It is not a field prediction or an evolutionary-fitness result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

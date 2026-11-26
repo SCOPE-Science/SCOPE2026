@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:18:48.930935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations and Proof 1–6; frozen VERIFICATION.md and verify.py, inspected without executing",
+        "Replay: python3 /workspace/branches/ca82df9b-8b51-4faf-b787-cfe26378efc2/check4_weighted.py; rational absorbing-chain solves, 14 nonabsorbing states at each of three fitness ratios in the mixed example plus the pair-cycle control"
+      ],
+      "rationale": "For a mixed edge with a mutants and b residents the two count increments are +b and −a, with edge-parent probabilities ar w_e/(dW) and b w_e/(dW), W=rM+N−M. This gives exactly the displayed defect for Y=r^(−M). The geometric-series factorization has the sign of r−1 inside the bracket, strictly so when ab>0 and a+b>=3; unmixed and pair edges contribute zero. Connectivity gives a positive-probability monotone route to consensus from every mixed state. Finiteness makes the block absorption probability uniformly positive, so the accumulated bounded drift is integrable. At consensus E[Y]=1−rho*(1−r^(−N)), which yields exactly the stated sign and denominator on both sides of r=1. For strictness fix a large edge. If it is monochromatic, expand the opposite type along crossing edges until a large edge is already mixed or until a size-two step puts the opposite type inside the chosen edge, which then remains mixed. That finite path has positive probability and reaches a positive drift before consensus. At r=1 use the martingale M, not the constant Y; all-pair edges give exact equality. Independent exact finite-state calculations verify the accumulated defect and comparisons in one weighted mixed-rank example and a weighted pair-only control at r=1/2,1,2.",
+      "residual_risks": [
+        "The finite calculations corroborate but do not prove the general theorem or strictness for initial states of zero drift. Strict exponential drift is only asserted for nonneutral r; at neutrality Y is identically one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published paper shows the direction of suppression for complete, cyclic and star 3-uniform examples, with uniform initial-set sampling in the comparisons and selected exact and numerical results. The newer indexed theorem covers mixed ranks >=3 but explicitly excludes pair edges and weighted selection."
+        ],
+        "reasoning": "Placement-averaged suppression is weaker than every-state suppression except where topology and initial-size symmetry eliminate placement. In the all-large regular case every transient state has immediate strict drift, a feature absent in the frozen mixed-rank scope. A strictly positive cumulative defect is not obtained by applying that theorem unchanged.",
+        "searches": [
+          "Liu–Masuda arXiv:2301.05343 §3 opening, §3.1.1 and empirical hypergraphs",
+          "552d9ec438d5 assumptions, conclusions and limitations"
+        ]
+      },
+      "checked_sources": [
+        "Primary model-1 definition and comparisons in Liu–Masuda 2023",
+        "Exact later indexed special case in 552d9ec438d5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying the known local edge defect by the common-denominator weights and summing drifts is a direct algebraic extension; the optional-stopping mechanism is standard. But the proof with only >=3 edges uses immediate positive drift everywhere, whereas a balanced mixture can have only pair edges crossing the initial cut. The frozen argument reaches a mixed large edge before absorption by a positive-probability path."
+        ],
+        "reasoning": "Neither uniform-only expression nor ordinary weighted-graph Moran equality proves that strictness boundary. The weighting and stopped sum alone would be modest; the all-state strict extension to mixed sizes and the identification of pair-only equality are credited in combination.",
+        "searches": [
+          "552d9ec438d5 Comparison with the Moran fixation function and scope",
+          "Liu–Masuda model-1 update versus model-2 majority gate in §2",
+          "Frozen proof of strictness from a zero-drift initial state"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Masuda model 1 selects a parent by fitness and an incident edge uniformly, then copies to all other edge members. The November 2 indexed theorem has that same update and both strict signs for all initial sets when incidence degrees agree and every edge has size at least three. It displays the identical per-edge drift G_r(a,b)=ra(r^(−b)−1)+b(r^a−1)."
+        ],
+        "reasoning": "Equal weights recover the existing model and the later theorem in its scope. The later index date does not establish priority. Recasting the process in terms of the benchmark or the exponential count is not a separate contribution.",
+        "searches": [
+          "Resultary: hypergraph Moran process whole hyperedge broadcast balanced fixation suppression",
+          "Liu–Masuda arXiv:2301.05343 §2 model 1; 552d9ec438d5 Finding and drift proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small complete 3-uniform systems in the primary paper have explicit fixation expressions; larger ones are reported through semianalytical or numerical calculations. The local strict-suppression theorem has an exact drift formula on its restricted model, not a weighted mixed-rank cumulative-defect entry."
+        ],
+        "reasoning": "Credit the existing exact instances and their signs. Neither those examples nor the finite absorbing-chain verification supply an exact universal defect or prove the all-state strictness extension.",
+        "searches": [
+          "Liu–Masuda model-1 exact and numerical fixation examples, arXiv:2301.05343 §3.1.1",
+          "Resultary exact fixation and higher-order suppression queries"
+        ]
+      },
+      "rationale": "The broadcast update, Moran benchmark, and suppression in selected unweighted examples are prior. An exact local-mirror match also covers the unweighted incidence-regular all-large-edge subclass with the same exponential drift proof, so do not credit that subclass or the method alone. The principal distinct contribution is the weighted-balanced all-initial-set result with pair edges allowed, the strict characterization when higher-order edges exist even if they are initially monochromatic, and the explicit cumulative defect in this scope.",
+      "residual_risks": [
+        "This comparison does not exclude equivalent formulations of the weighted mixed-rank result in unindexed evolutionary-process literature. No new method or historical priority for the unweighted all-large subclass is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_SELECTED_FAMILIES",
+          "evidence": "Model 1 copies to the entire chosen edge; the majority requirement is model 2. The complete 3-uniform examples support both signs and the empirical data pool single-mutant runs across starting vertices.",
+          "identifier_or_url": "https://arxiv.org/html/2301.05343",
+          "material_read": "§2 model definitions (HTML offset near 8400), §3 initialization near 12200, §3.1.1 near 23300, and empirical comparison near 55000",
+          "method": "OA primary article text",
+          "title": "Fixation dynamics on hypergraphs",
+          "trigger": "Exact unweighted update predecessor and suppression examples"
+        },
+        {
+          "assessment": "EXACT_SUBCLASS_OVERLAP_LATER_INDEX",
+          "evidence": "Unweighted incidence-regular systems with edges all of size >=3 have the same local geometric-series defect and both strict inequalities for every initial set; the text excludes weights and pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-strict-moran-suppression-for-every-regular-higher-order-replacem--552d9ec438d5/RESULT.md",
+          "material_read": "Finding, scope, one-step drift, sign and stopped comparison",
+          "method": "Resultary and local mirror",
+          "title": "Strict Moran suppression for every regular higher-order replacement hypergraph",
+          "trigger": "Strong all-initial-state drift match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and strictness proof; primary unweighted example comparisons"
+      ],
+      "rationale": "The theorem identifies when topology preserves the Moran benchmark and when larger broadcasts strictly suppress selection. It upgrades selected or averaged examples to a pointwise structural rule, even for configurations with no local strict drift at the first step. The exact nonnegative cumulative defect explains how mixed higher-order events, not just a degree count or placement average, produce the fixation gap.",
+      "residual_risks": [
+        "There is no uniform lower bound for the size of the strict gap or claim for unbalanced weights or gated broadcasts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The exact forward system is derived from the seven-state continuous-time SIR chain; integrating its three relevant coordinates gives the exact pair-weighted ratio. A positive-weight change of measure converts the difference of effective rates into a covariance. Uniform differentiation of the explicit ratio on a fixed positive compact rate interval proves opposite early and late monotonicities. Positive covariance for nondegenerate distributions proves both strict signs. Independent seven-state uniformization agrees with the closed formulas in 126 comparisons; 217 total program assertions pass.
+PASS
 
-## Originality
+The repaired theorem retains the frozen Finding. In frozen RESULT.md lines 80–82 the relative error O(exp(-at)) is false for a>1: at lambda=a the normalized error is asymptotic to -exp(-t), from the numerator of h. The repair keeps that numerator exactly and factors the denominator as 1-delta, delta=(1+lambda-2 lambda exp(-t))exp(-lambda t)/2. On the whole compact rate interval, delta=O(exp(-at)) and its lambda derivative is O(t exp(-at)) at late times. Thus the relative error is O(exp(-min(a,1)t)), and the log derivative is 1/lambda+1/(1+lambda)-t+O(t exp(-at)), strictly negative uniformly for large t. The three relevant forward equations have no incoming paths from other states; integrating them gives the stated masses. Pair weighting gives W1=2A+D and W2=2B, so the ratio B/W1 gives the covariance comparison under the W1-weighted law. It has lambda derivative t+O(t^2) uniformly at early times. The weighted law remains nondegenerate, so the two-draw covariance identity gives strict signs even for discrete or singular mixtures. Both masses are positive for finite t>0, and continuity yields existence, not uniqueness, of an equality. Complete corrected RESULT.md and VERIFICATION.md are in repairs/5. Bounded independent replay: python3 /workspace/check_frozen_mathematics.py 5 (NumPy/SciPy matrix exponential and Decimal). Three discrete laws give opposite signs at t=0.03 and 12; at lambda=2 the old relative error multiplied by exp(t) tends numerically to -1. The computations do not establish the universal assertions; the repaired analytic proof does. The verification notes distinguish the 126 transient comparisons from other assertions.
 
-The motivating published preprint analyzes apparent superlinearity from heterogeneous transmission and shows that its early-time approximation eventually breaks down. The precise opposite *sign* at late times is not established by that statement; the observable here pools different removed counts and weights susceptible–infectious pairs. This is a genuinely different conditional rate and the theorem is uniform over every bounded positive nondegenerate distribution. No identical theorem was identified in the inspected main text and relevant comparisons. Its supplement and possibly broader unpublished or classical results leave priority risk.
+## originality
 
-## Value
+PASS
 
-The result separates observable infectious-count correlation from physical nonlinear contagion and reveals a strict sign reversal, not merely the breakdown of an approximation. It holds at the smallest natural group size admitting both one and two infectious persons with remaining susceptibility. This explains a theoretically consequential form of calibration-window sensitivity in a model motivated by the literature. The rarity of late susceptible–infectious pairs is an important practical caveat.
+The supported distinct claim is strict eventual reversal of the early count ordering for this transient pair-weighted observable, uniformly in the sense of eventual sign for each nondegenerate compact positive rate law. Early apparent nonlinear bias from heterogeneity and the broader caution about extrapolation are not new. The correction to the remainder does not alter the finding or the comparisons.
 
-## Limits
+## value
 
-Isolation, fixed group rate, rate-one exponential recovery, common seed, pair weighting and compact positive rate support are essential as stated. No full-priority or external correctness audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-person group is the smallest with both relevant infectious counts and remaining susceptibility. Strict reversal for all nondegenerate compact positive mixtures is a structural distinction between pooled conditional association and the underlying linear hazard, not just an example or failure of a short-time approximation. It sharpens how a calibration time can affect inference in a precisely defined statistical model. Late at-risk pairs may be very rare; the finding is not a claim about empirical estimability or actual epidemics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

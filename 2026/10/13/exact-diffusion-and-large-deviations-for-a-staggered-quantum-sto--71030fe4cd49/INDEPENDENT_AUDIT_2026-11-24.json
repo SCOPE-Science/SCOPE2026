@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:25.569755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal escape makes the quantum-jump hazard exactly constant; each rank-one jump relocalizes the state and flips the parity of its departure site. The weighted coherent probabilities J_r(2ht)^2 summed over even and odd displacement give the two stated Bessel kernels and their Laplace transforms. Although for real theta the ordinary Bessel component can change sign as a function of time, the even and odd sums are nonnegative, nonzero continuous kernels. The determinant of K is -C_0 C_1 g_I g_J<0 on the real domain, so the second eigenvalue is negative and cannot produce a second real solution. Every entry decreases with z; the divergence of g_I at the lower edge and decay at infinity give the unique Perron crossing. The PF conjugation of the exponentially tilted kernels gives a nonlattice finite-state renewal process with finite means and integrable final segment, and hence a positive leading prefactor for either starting parity. For cumulant differentiation near theta=0, the Laplace resolvent has an isolated simple pole: at theta=0, the continuous kernel densities strictly reduce the entrywise modulus on the imaginary axis away from zero, and the transforms tend to zero at high frequency. Exponential moments give a strip, and analytic continuation in theta isolates the same pole uniformly in a small complex neighborhood of zero. Laplace inversion gives the exponential leading term with an analytic prefactor (subtract a decaying exponential transform to make the large-frequency remainder integrable). This justifies differentiating to obtain the limiting cumulant rates. At the origin the determinant perturbation is D² sinh²(theta)g_I g_J, D=(d_0-d_1)/2, and its contribution to curvature is -2D²/(Gamma+B); the homogeneous curvature is Gamma+4h²/Gamma. The strictly increasing variance and classical penalty ratio follow. For the LDP, the PF root is differentiable for all real tilts. Row sums of K are C_a g_I, so at the crossing Lambda+Gamma>=min(C_0,C_1); strict directional positivity makes the bound exponential as theta tends to either end. This also supports the asserted steep growth by convexity. Finite real tilts give exponential tightness and the full Gartner–Ellis conclusion with a good Legendre–Fenchel rate. Read frozen VERIFICATION.md, requirements.txt and verify.py, but did not execute the frozen script. Fresh bounded reproduction: OPENBLAS_NUM_THREADS=1 python /workspace/branches/independent_staggered.py; direct 151-site sparse density matrix, rates (1.1,0.3),(0.2,1.2), h=0.8, times 12 and 24 and both initial parities. The moment slopes agreed with (-0.1,2.8974760438) to about 6e-9 and log-MGF slopes at tilts ±0.4 agreed with the root to about 4e-9. This finite-chain floating-point check is not a proof of an infinite-time, all-tilt or infinite-chain conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph-local Lindblad equations allow this generator, but their homogeneous line example gives no all-tilt or parity-contrast expression. The second-moment spreading-exponent work does not specify this coefficient, and the compared Ohmic-chain perturbative diffusion passage uses different bath terms or approximations. Madhukar–Post concerns site/bond dynamic disorder, but its full text could not be obtained lawfully in the checked routes."
+        ],
+        "reasoning": "Permitting a generator is not a strong transport theorem for it. The inaccessible paper leaves residual priority risk, not a conclusion of noncoverage.",
+        "searches": [
+          "arXiv:0905.2942v2 line example",
+          "arXiv:1611.01349v2 local/global line dissipation",
+          "arXiv:1907.01993, Eqs. (18),(20)",
+          "DOI:10.1103/PhysRevLett.39.1424"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7da89526f6c2 and local search for a parity-Lindblad match",
+        "arXiv:2308.08419v1",
+        "arXiv:1907.01993",
+        "arXiv:0905.2942v2",
+        "arXiv:1611.01349v2",
+        "DOI:10.1103/PhysRevLett.39.1424 (scope/access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equal directional biases the determinant factors and the principal root is the known homogeneous dispersion after Fourier continuation. In the frozen unequal-bias case the extra term is (d_0-d_1)² sinh²(theta)g_I g_J/4; it vanishes identically in the homogeneous calculation, which therefore cannot fix its coefficient. Neither the coherent ballistic result nor the inspected perturbative bath calculation supplies the staggered SCGF."
+        ],
+        "reasoning": "The independent scientific step is the parity-resolved completed-jump operator and its exact spectral equation. Legendre transformation once the full SCGF is proved is standard, not a separate novelty claim.",
+        "searches": [
+          "arXiv:2308.08419v1 Eqs. (29)–(31)",
+          "arXiv:1907.01993 Eqs. (18),(20)",
+          "Resultary 7da89526f6c2, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avnit–Cohen's translation-invariant relaxation-mode dispersion agrees with the homogeneous-rate square root upon q=i theta, no site dephasing, and c²=4h². Their formula does not involve separate d_0,d_1. The local Resultary two-periodic arcsine match 7da89526f6c2 alternates coherent hopping amplitudes and has no dissipative jumps."
+        ],
+        "reasoning": "The homogeneous algebra is equivalent; the alternating coherent Hamiltonian and the jump-parity model are not. A finite-ring spectral dispersion alone is not the new staggered LDP.",
+        "searches": [
+          "Resultary: two-periodic quantum stochastic walks staggered parity directional jumps, diffusion and tilted SCGF",
+          "arXiv:2308.08419v1, Eq. (31) and definitions around (29)–(31)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed two-periodic finding gives a ballistic arcsine law for dissipation-free periodic coherent hopping, not the claimed transport invariants. The exact analytic homogeneous coefficient in Eq. (31) cannot test a nonzero contrast term."
+        ],
+        "reasoning": "The statement is a continuum-parameter functional law rather than a finite tabulated invariant; the usable comparison is against exact analytic indexed formulas. No matching nonzero-contrast formula was identified in the bounded checks.",
+        "searches": [
+          "Resultary: alternating directional Lindblad diffusion and two-sublattice quantum-walk SCGF",
+          "arXiv:2308.08419v1 Eq. (31)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the equal-escape, unequal-directional-bias parity law: its two-kernel all-tilt equation and the explicit bias-contrast curvature, with an LDP for that SCGF. The homogeneous square-root dispersion (and its second-order coefficient), the quantum stochastic walk model, and the abstract large-deviation machinery are not new. The strongest inspected matches did not imply the unequal-bias law.",
+      "residual_risks": [
+        "Madhukar–Post (1977) full-text retrieval did not succeed. A prior treatment of general periodic Lindblad transport could contain an undocumented equivalent specialization. These bounded comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact homogeneous equivalence; the compared calculation is not a two-parity transport solution",
+          "evidence": [
+            "Clean-ring q sectors give gamma_q=gamma+w_+e^{-iq}+w_-e^{iq}; Eq. (31) yields the uniform square-root branch."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.08419v1",
+          "material_read": "PDF pp. 4–5, Eqs. (29)–(31), text offsets about 25000–28700",
+          "method": "Primary OA PDF passages, normalized and continued the dispersion",
+          "title": "Quantum walk in stochastic environment",
+          "trigger": "Closest exact finite-bias uniform spectral branch"
+        },
+        {
+          "assessment": "Related perturbative/zero-bias results do not imply the claimed arbitrary-rate parity formula",
+          "evidence": [
+            "A Fourier expansion gives diffusion; the passage around (18) works to leading order in eta and treats zero bias separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.01993",
+          "material_read": "Diffusion discussion p. 5, Eqs. (18) and (20), offsets about 28400–32400",
+          "method": "Primary OA PDF passages",
+          "title": "Quantum stochastic transport along chains",
+          "trigger": "Biased noisy chains and diffusion"
+        },
+        {
+          "assessment": "Framework and example rather than the periodic jump transport law",
+          "evidence": [
+            "Graph-local jump formalism and homogeneous line example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0905.2942v2",
+          "material_read": "PDF pp. 1 and 3, model and infinite-line example",
+          "method": "Primary OA PDF passages",
+          "title": "Quantum stochastic walks: A generalization of classical random walks and quantum walks",
+          "trigger": "Foundational Lindblad walk containing a line example"
+        },
+        {
+          "assessment": "Spreading exponent and uniform cases, not staggered cumulant rate or all-tilt result in the compared statements",
+          "evidence": [
+            "Second-moment ballistic/diffusive scaling is the observable analyzed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.01349v2",
+          "material_read": "PDF pp. 1 and 8, second-moment exponent and local dissipation passages",
+          "method": "Primary OA PDF passages",
+          "title": "Properties of quantum stochastic walks from the asymptotic scaling exponent",
+          "trigger": "Local versus global dissipation and long-time spreading"
+        },
+        {
+          "assessment": "Different dynamics and observable",
+          "evidence": [
+            "Alternating coherent hoppings with no dissipator, ballistic scaling and arcsine law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-coherence-tilted-arcsine-law-for-a-two-periodic-quantum-walk--7da89526f6c2/RESULT.md",
+          "material_read": "Finding and scope, mirror offset 0 onward",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A coherence-tilted arcsine law for a two-periodic quantum walk",
+          "trigger": "Strongest topic-level two-periodic hit in the local search"
+        },
+        {
+          "assessment": "Unresolved potential overlap; not used as evidence of noncoverage",
+          "evidence": [
+            "The described dynamic-disorder mechanism is related, but the full model and theorem were not compared."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.39.1424",
+          "material_read": "Bibliographic title and scope only; primary full text not available",
+          "method": "DOI/publisher and lawful OA alternate lookup",
+          "title": "Exact Solution for the Diffusion of a Particle in a Medium with Site Diagonal and Off-Diagonal Dynamic Disorder",
+          "trigger": "Classic exact diffusion in a noisy lattice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An alternating bias at equal escape is the smallest spatial inhomogeneity that separates parity memory from waiting-time variability. Its measurable suppression of diffusion is exactly quantified and weakened by coherent motion without changing the drift; the full tilt equation gives non-Gaussian long-time transport information beyond that variance. This is a motivated solvable class and benchmark, restricted to rank-one directional jumps, homogeneous coherent hopping, and localized initial data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

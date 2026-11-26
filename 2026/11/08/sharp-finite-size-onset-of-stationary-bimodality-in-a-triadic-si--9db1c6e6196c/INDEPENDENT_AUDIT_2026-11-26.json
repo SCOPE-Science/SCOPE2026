@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:07:03.379229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the frozen finite birth–death chain, positive birth rates on nonterminal states and positive downward rates off zero give irreducibility. Detailed balance gives the stationary adjacent ratios. The ratios at edges 0 and 1 are strictly below one; for every edge i>=2 the ratio crosses one exactly at G_i, which is positive. Put a=N*epsilon/mu. On clearing the positive denominators of the normalized successive threshold difference, the numerator is affine in a. At a=0 it is P_0=2i^2+5i+1-N(i+3); at a=1 its sign is that of (2i-N)(N+1)(i+1). For i<=floor(N/2), P_0<=1-i<0 and the other endpoint is nonpositive, so the strict sign survives for 0<a<1. For i>=floor(N/2)+1, P_0>=4 and the other endpoint is positive. Thus the unique minimum is at m+1; at N=3 this is simply the only candidate. Below it all ratios are below one; at it the unique tie is a nonmodal descending shoulder. Above it the increasing edges are one nonempty consecutive block starting at i>=2. A tie on the left boundary is a flat valley; a tie on the right yields a two-point upper mode. The endpoint N can be an upper mode, with no right neighbor required. The strict threshold valley excludes a third mode or an upper plateau of length three. With vanishing importation, substitution gives both parities the same F(m)=4+2(m-2)/(m(m+1)) in units of mu, with successive difference 2(4-m)/(m(m+1)(m+2)). The tied maximum is at m=4,5, and the separate N=3 limit is 3mu. This limit concerns thresholds, not the absorbing stationary law at zero importation. The exact-rational source checker was inspected, not executed; it tests bounded cases, while the sign and edge arguments establish the universal conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "37decc4c34a8 gives at most 1+floor((d+1)/2) strict local modes for nonnegative interaction coefficients through order d+1 and 0<epsilon<mu/N. Its d=2 chain includes this one by taking the linear coefficient zero and choosing the quadratic binomial coefficient to match the frozen normalization.",
+          "Kiss–Bick–Simon concerns deterministic mean-field bifurcations."
+        ],
+        "reasoning": "This is exact broader coverage of the qualitative at-most-two strict-mode bound. It is not an onset threshold, does not count two-point plateaus as strict modes, and provides neither the discrete optimizer nor the parity-paired maximum. Shared catalogue dates do not settle priority.",
+        "searches": [
+          "Resultary: finite strict stationary mode bounds across interaction orders",
+          "Kiss–Bick–Simon arXiv:2410.15330, deterministic higher-order bifurcations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify.py",
+        "Resultary 9db1c6e6196c (self-match), 37decc4c34a8 and 0844626cea2d",
+        "ArXiv:2309.12752, 2210.03504, 2410.15330 and 2509.11706; medRxiv DOI 10.1101/2025.08.11.25333426 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ArXiv:2210.03504 gives the standard edge-product representation and a distinct q-SIS model with higher-order terms in both birth and death. Resultary 37decc4c34a8 gives its general strict-mode cap, not the edge minimizing the cutoff."
+        ],
+        "reasoning": "Products give the edge ratios but do not choose the unique minimizing edge. The finite index m+1 and its persistence throughout the normalized importation interval require the sign proof; the exact parity maximum uses a separate finite difference. Neither fact follows from the mode cap or deterministic equilibria.",
+        "searches": [
+          "Resultary: general birth–death stationary products and their implications for quadratic finite-state mode thresholds",
+          "Vezzani–Muñoz–Burioni, Eqs. (2)–(3) and (11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match 9db1c6e6196c is the frozen assignment itself. Kiss et al., Eqs. (II.3)–(II.8), have the complete-simplicial quadratic count interaction but not the positive-importation stationary model in that section.",
+          "Cantwell–Moore arXiv:2509.11706v2 studies a pair-based approximation to epidemic thresholds and quasi-stationary fractions on networks."
+        ],
+        "reasoning": "Neither unseeded rates nor quasi-stationary persistence provide the stationary adjacent-equality criterion of this irreducible chain. The self-match supplies no independent coverage.",
+        "searches": [
+          "Resultary: triadic seeded stationary modes and exact finite stationary threshold",
+          "Web: triadic SIS higher order finite population birth death spontaneous infection exact stationary bimodality adjacent probability ratio critical threshold finite size complete graph importation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0844626cea2d gives an exact finite-capacity two-mode boundary and a weak-immigration expansion for linear logistic birth pressure. No distinct exact formula for the paired sizes and their tied maximum was identified in the compared entries."
+        ],
+        "reasoning": "The linear rate gives different edge tests; it does not tabulate or imply the minimizer of this quadratic-rate family across sizes. A shoulder, a local plateau, and a global maximum of stationary mass are not interchangeable observables.",
+        "searches": [
+          "Resultary: finite birth–death mode-boundary formulas and rare-importation parity maximum"
+        ]
+      },
+      "rationale": "The stationary product formula and the general qualitative cap on strict mode counts overlap prior work. The distinct result is the exact optimizer for this normalized quadratic rate, its plateau-aware threshold classification, and the parity-paired nonmonotone limiting law. The strongest broader theorem inspected does not supply these quantities.",
+      "residual_risks": [
+        "An exact seeded count-chain classification could exist outside the inspected material. The medRxiv hit could not be checked in full.",
+        "No originality is assigned to the standard product representation or the qualitative strict-mode upper bound covered by the same-day broader theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent quadratic interaction term, different boundary/stationary problem",
+          "evidence": "Gives fully connected triadic count transitions and master equation, with pairwise terms and no spontaneous importation in that comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12752",
+          "material_read": "v1 p. 4, Eqs. (II.3)–(II.8), offset 18133",
+          "method": "Open arXiv PDF",
+          "title": "Insights from exact social contagion dynamics on networks with higher-order structures",
+          "trigger": "Same complete-simplicial count term"
+        },
+        {
+          "assessment": "Standard representation, not matching model or parity theorem",
+          "evidence": "The q-SIS transition example requires a q-plet in both upward and downward transitions; the generic formula gives neither the exact edge optimum nor the parity maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03504",
+          "material_read": "v1 p. 2 Eqs. (2)–(3), offset 9125; p. 4 §IV Eq. (11), offset 25213",
+          "method": "Open arXiv PDF",
+          "title": "Anomalous finite-size scaling in higher-order processes with absorbing states",
+          "trigger": "Exact birth–death products and higher-order stochastic model"
+        },
+        {
+          "assessment": "Material partial coverage: cap on strict local modes only",
+          "evidence": "Allows zero linear coefficient and arbitrary nonnegative quadratic coefficient; explicitly excludes ties and plateaus from its strict mode count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-body-contagion-is-the-first-interaction-order-permitting-th--37decc4c34a8/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2721, and early proof at offset 2986",
+          "method": "Resultary search and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-body contagion is the first interaction order permitting three finite SIS stationary modes",
+          "trigger": "Broader theorem actually containing the frozen rate family"
+        },
+        {
+          "assessment": "Analogous exact question for different birth rates",
+          "evidence": "Uses linear-in-count logistic birth pressure, not the frozen quadratic count term.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-finite-capacity-two-mode-boundary-for-a-logistic-immigrati--0844626cea2d",
+          "material_read": "Finding and proof passages, offsets 0 and 3495",
+          "method": "Resultary and local mirror",
+          "title": "Exact finite-capacity two-mode boundary for a logistic immigration chain",
+          "trigger": "Exact finite size thresholds and weak-immigration limit"
+        },
+        {
+          "assessment": "Related deterministic problem",
+          "evidence": "The inspected passage concerns deterministic mean-field bifurcations rather than the shape of an irreducible finite stationary law.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.15330",
+          "material_read": "v1 p. 1, offset 2283",
+          "method": "Open arXiv PDF",
+          "title": "Decoding how higher-order network interactions shape complex contagion dynamics",
+          "trigger": "Higher-order contagion boundaries and bifurcations"
+        },
+        {
+          "assessment": "Different threshold and conditioning",
+          "evidence": "The abstract describes an approximation for epidemic thresholds and quasi-stationary fractions, not a stationary mode theorem for the stated count chain.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.11706",
+          "material_read": "v2 abstract and start of introduction, offset 0–2279",
+          "method": "Open arXiv PDF",
+          "title": "Threshold and quasi-stationary distribution for the SIS model on networks",
+          "trigger": "Search hit for finite SIS threshold and distributions"
+        },
+        {
+          "assessment": "Coverage unresolved for this paper",
+          "evidence": "Search summary concerns a large-population limit; full text was unavailable and no broader inference is made.",
+          "identifier_or_url": "https://doi.org/10.1101/2025.08.11.25333426",
+          "material_read": "Search title/summary only; PDF not read",
+          "method": "Primary lookup and lawful publisher PDF attempts",
+          "title": "Exact results for the stochastic SIS epidemic model (medRxiv)",
+          "trigger": "Potential stochastic SIS exact-results comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural finite irreducible birth–death model, the result identifies where a second local stationary peak first exists and distinguishes it from a shoulder at equality. The exact nonmonotone size dependence of the vanishing-seed threshold, with four maximizing sizes, adds information not contained in either a general mode bound or an infinite-size limit. The law of local modes does not describe relative mode weights, transition times, or a thermodynamic transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:16:10.704492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate to centers 0,d and scale each nonzero coordinate to 1 by a node-metric isometry. At d=0, pairwise star overlaps share one nonloop coordinate, and no three contain a nonzero common word. For τ>2 no two stars can support d. At τ=1, the two possible singleton covers of a lone nonloop edge give the two-star union. For a unique singleton cover v, only the two-spoke loopless support admits a two-star decomposition avoiding v; each orientation of its two other endpoints adds exactly q−1 points outside V_v and these additions are disjoint. At τ=2, each oriented cover gives a q-point affine line. Coincidence of one index gives a unique intersection via the common off-star edge, while coincidence of neither requires two nonzero disjoint edges, forcing exactly the matching support. Outside that case three pairwise intersecting lines would need a common first or second index i and three distinct partner stars; their common nonzero off-star support is impossible. The matching has two disjoint groups of four lines, each with one shared point. This proves 2qc−2h+2m, including the correction to ordinary pairwise subtraction. Independently computed the ordered differences of one-ball words, tabulated multiplicities, and matched every unit-valued support for (n,q)=(4,2),(4,3),(4,4),(5,2), 35,840 cases in total, via branches/reproduction/overlap.py. The uniform result rests on the affine proof, not the finite sample. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zabokritskiy Theorems 24–25 and Section 5.3 count centered balls and intersections of unshifted stars",
+          "Yohananov–Yaakobi and Yohananov–Efron–Yaakobi specify the node-erasure geometry and construct codes"
+        ],
+        "reasoning": "The centered-ball calculation identifies linear dimensions but does not determine concurrent points of distinct affine lines after changing centers. The graph-erasure sources motivate the geometry rather than giving the claimed profile.",
+        "searches": [
+          "\"Complete Graphs\" \"q-ary metric balls\" node failures star subspaces Corollary 26",
+          "\"Codes for Graph Erasures\" node distance balls intersection star subspaces"
+        ]
+      },
+      "checked_sources": [
+        "Zabokritskiy arXiv:2609.01474v3",
+        "Yohananov–Yaakobi arXiv:1705.02639",
+        "Yohananov–Efron–Yaakobi arXiv:1812.00485",
+        "Resultary 6eb1f0fe59d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From unshifted stars one knows each nonempty affine intersection has q elements, but not how often its points are repeated across orientations",
+          "Two supported loops at different vertices and a disjoint nonloop matching both have τ=2, yet give 2q and 8q−6 respectively"
+        ],
+        "reasoning": "The extra problem is to test which shifts exist, classify pairwise concurrency, and account for two fourfold points on the matching. It is not a common-size evaluation or a consequence of knowing the ball's volume and distance alone. The integer displacement formula has different hypotheses.",
+        "searches": [
+          "arXiv:2609.01474v3 Theorems 24–25 and Section 5.3 through Corollary 26",
+          "Resultary 6eb1f0fe59d3, exact difference-dependent coefficient formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6eb1f0fe59d3 is a nonidentical indexed result for arbitrary-center intersections in limited-magnitude error balls in Z^n",
+          "Zabokritskiy Section 5 uses the relevant node-star spaces and the same centered-ball geometry"
+        ],
+        "reasoning": "The frozen weight is minimum vertex-cover size, counting loops at their vertices; it is not coordinate displacement or a limited-magnitude sparsity condition. The adjacent indexed result supplies no metric equivalence or reduction.",
+        "searches": [
+          "\"node metric\" \"intersection of balls\" graph erasure codes complete graph",
+          "Resultary semantic searches for looped graph, q-ary node-radius-one overlap and two-cover terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit available volume formula matches the F=∅ row",
+          "The closest Resultary displacement formula is for integer limited-magnitude balls, not a table of node-metric support classes"
+        ],
+        "reasoning": "The radius-one centered formula is already covered. No inspected table or symbolic profile covers the nonempty supports in the assigned looped graph model.",
+        "searches": [
+          "Resultary lookups for the looped node-ball two-cover/matching profile",
+          "\"q-Ary Metric Balls\" graph node erasure ball intersection shifted centers",
+          "Zabokritskiy Corollary 26, arXiv:2609.01474v3"
+        ]
+      },
+      "rationale": "The centered-ball volume and unshifted star geometry are prior and explicitly attributed. The supported distinct claim is the exact support-specific intersection for two different centers of radius-one balls in this looped node metric. Neither the primary centered-volume result nor the strongest indexed different-metric two-center formula supplies the two-cover incidence count or its matching correction.",
+      "residual_risks": [
+        "An unindexed equivalent graph-metric calculation or a different model with a non-obvious reduction might exist; the bounded comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the centered-ball row and linear-star input, not the checked shifted profile",
+          "evidence": "The volume is 1+n(q^n−1)−binom(n,2)(q−1). The intersection machinery inspected counts unshifted subspaces.",
+          "identifier_or_url": "https://arxiv.org/html/2609.01474v3",
+          "material_read": "Theorems 24–25 and Section 5.3, offsets 95500–102178; Corollary 26, offsets 102012–106296",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Binary Multiple-Node-Erasure-Correcting Codes over Complete Graphs: Constructions, q-Ary Metric Balls, and Duality",
+          "trigger": "Same looped graph metric and known radius-one volume"
+        },
+        {
+          "assessment": "Establishes context, not a two-center cardinality in the passages compared",
+          "evidence": "Node failure erases incident edge coordinates; the objective is error/erasure correcting codes on complete graphs.",
+          "identifier_or_url": "https://arxiv.org/html/1705.02639 and https://arxiv.org/html/1812.00485",
+          "material_read": "Introductions/model and construction discussion, read from OA text offsets 609 and 534 respectively",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Codes for Graph Erasures; Double and Triple Node-Erasure-Correcting Codes over Graphs",
+          "trigger": "Original node-erasure geometry and subsequent construction regime"
+        },
+        {
+          "assessment": "Different alphabet, support constraint and metric; no direct implication established",
+          "evidence": "The coefficients enumerate integer limited-magnitude coordinate displacements, not unions of affine stars indexed by vertex covers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-arbitrary-center-intersections-of-limited-magnitude-error--6eb1f0fe59d3",
+          "material_read": "RESULT.md offset 0 and 3986, statement and displacement-dependent formula",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact arbitrary-center intersections of limited-magnitude error balls",
+          "trigger": "Closest nonidentical indexed two-center intersection hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-center ball multiplicity is a natural coding-geometric invariant in a node-failure model, and distance alone provably loses information relevant to it. This is a complete uniform classification at the first nontrivial radius, with a structural reduction to two-cover incidences and an exceptional matching concurrence. It determines exact ambiguity sizes without enumerating the ambient graph words. No new packing bound is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

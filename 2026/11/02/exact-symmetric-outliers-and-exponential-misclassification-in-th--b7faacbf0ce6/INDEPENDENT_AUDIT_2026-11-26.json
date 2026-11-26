@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:25:12.425247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "/workspace/repairs/2/RESULT.md, SLOGAN.txt and VERIFICATION.md",
+        "/workspace/branches/reproduce_frozen_math.py, voting()"
+      ],
+      "rationale": "Both the original inequalities and the narrowed result are true. For any symmetric nonnegative-weight rule, the three pure losing profiles force 3u,4v,5w<q with q>0 if correctly classified, implying u+v+2w<59q/60 and contradicting the winning (1,1,2). Every symmetric surrogate therefore loses at least one full obstruction orbit. For 5<=m<=8 all orbit sizes exceed binom(m,5) except the C-only losing profile, and the A-only losing profile ties it at m=8. These strict comparisons also imply the repaired claim about all optimal symmetric error profiles. Exact score checks confirm the two displayed integer-weight rules err on just their named profile: integer scores H<=61 are an exhaustively bounded box and H>=62 is covered by componentwise factors 6/5 and 4/3. The low-score maxima at a=0,1,2 are 70,72,66 and 76,78,80, respectively. The minima and allowed profiles at m=5,6,7,8 are 1:C, 6:C, 21:C, 56:A or C. An unrestricted perfect rule would remain perfect after averaging its weights over within-class permutations because the quota and strict loss inequalities are preserved; no such rule exists. At m=5 exactly one C-only coalition exists, and independent enumeration found only that error (mask 31744) among 32768. Replay: python3 /workspace/branches/reproduce_frozen_math.py 2. The repaired reproducibility note corrects the minimum Python version for int.bit_count.",
+      "residual_risks": [
+        "Unrestricted symmetry is used only under hypothesized perfection; averaging is not a general optimality argument. No exact unrestricted count beyond m=5 is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 18 determines epsilon*=1/(47m), not outlier count. Proposition 27 proves a general O(1/sqrt(n_min)) upper bound in the relevant bounded-class setting. Resultary dfb016c86552 gives a stronger unrestricted bound of binom(m,3)/(20*2^(3m)) below and binom(m,3)/2^(3m) above for m>=9, as well as exact symmetric optimality there."
+        ],
+        "reasoning": "The original asymptotic is covered by a stronger same-family theorem. Its scope and A-only construction do not settle the small-class C-only optimum. The general polynomial-probability upper bound does not determine any of the new exact counts.",
+        "searches": [
+          "arXiv:2610.08968 Proposition 18 and Proposition 27",
+          "doi:10.1016/j.ijar.2025.109418",
+          "dfb016c86552 Finding and Proof §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08968 v2",
+        "Resultary dfb016c86552",
+        "doi:10.1016/j.ijar.2025.109418 (metadata and indirect attribution)",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior A-only surrogate (22,15,12) with quota 60.5 attains binom(m,3); its four-orbit lower bound for m=5–7 is only binom(m,5). At m=8 this lower bound agrees with the known surrogate cost, but does not give the alternative attaining C-only profile. The repaired C-only rule closes the gap at m=5–7 and yields the other m=8 optimizer type. At m=5 global nonweightedness only supplies a lower bound of one error; the new construction attains it."
+        ],
+        "reasoning": "The m=8 minimum by itself is an extension of the other argument and not a new contribution. The meaningful uncovered result is the remaining branch and switch of the optimal sacrifice, including its unrestricted benchmark at the first size.",
+        "searches": [
+          "Compare dfb016c86552 Proof §§1–2 and frozen exact orbit obstruction and surrogate certificates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 17 is the same game (H=59 or H>=61). Definition 26 minimizes disagreements under uniform labelled coalitions with arbitrary nonnegative weights, and Remark 7 links the unnormalized outlier count to the same quantity. Restricting to class-symmetric weights makes each profile a whole labelled-coalition orbit; counting one per profile is not equivalent."
+        ],
+        "reasoning": "Outlier and minimum weighted-surrogate errors merely differ by the factor 2^(3m) under these conventions. Normalized excess-weight deficit is a different objective, and optimization without the symmetry restriction is different except where exact equality is independently proved.",
+        "searches": [
+          "Resultary: Einy–Haimanko near-quota flip, three-class weighted approximation, coalition outlier count; focused search (0,0,5), m=5–8, 32768 and quota 73",
+          "arXiv:2610.08968 Definition 17, Definition 26 and Remark 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive Resultary hit explicitly gives binom(m,3) for m>=9, and a rule with precisely the A-only orbit as errors for all m>=5; its proof does not include the C-only attainment. The targeted small-case catalogue query exposed no inspected statement with the counts 1,6,21,56 and the C-only optimizer. No table claiming these values was inspected in the cited 2025 article, which was not available in full through attempted OA routes."
+        ],
+        "reasoning": "The same-family hit excludes a novelty claim for its large-regime exact counts; absence of a small-case hit is limited evidence only. The original paper's exact deficit values and other voting-game tables do not measure the stated weighted approximation error.",
+        "searches": [
+          "Resultary focused on m=5,6,7,8 and crossover of C-only (0,0,5) vs A-only (3,0,0)",
+          "dfb016c86552 exact symmetric counts and construction",
+          "2025 outlier census DOI and identified lawful alternate routes"
+        ]
+      },
+      "rationale": "PASS applies to the repaired claim, not the novelty of the original as a whole. The same-family Resultary record dfb016c86552 proves the exact large-class symmetric answer and a stronger unrestricted asymptotic order. The repair credits these entirely, and establishes instead the remaining small-class regime, its optimizer-profile tie and switch, and the exact unrestricted first case. The inspected stronger large-class result uses an A-only outlier construction and does not determine a C-only fit: it does not imply the sharp orbit lower bound is attainable at m=5,6,7, or the second attaining profile at m=8. The new C-only certificate proves this attainability. No earlier-priority inference is drawn from the path dates.",
+      "residual_risks": [
+        "The 2025 paper's own text and census could not be inspected. Unknown unindexed computations remain possible. The assessment distinguishes overlap from any priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and general misclassification framework, not the repaired exact regime in inspected statements",
+          "evidence": [
+            "The win condition and scores are identical. The exact epsilon* concerns another loss. The general misclassification result is a bound, not these finite optima."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08968",
+          "material_read": "Definition 17 and Proposition 18 at HTML offsets near 47300 and 48050; Section 6 Definition 26, Remark 7 and Proposition 27 near offsets 65980–70280",
+          "method": "Bounded primary HTML inspection",
+          "title": "Large player classes and approximately weighted voting",
+          "trigger": "Source of the exact family and the exact loss objective"
+        },
+        {
+          "assessment": "Actual overlapping large-m results and A-only certificate; no C-only attainment from those statements",
+          "evidence": [
+            "For m>=9 the same normalized symmetric formula is binom(m,3)/2^(3m), unrestricted order is Theta(m^3/8^m), and the A-only surrogate works for all m>=5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exponentially-rare-optimal-voting-misclassification-in-a-three-c--dfb016c86552/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0 onward, and the four critical profiles / upper-bound proof in §§1–2",
+          "method": "Bounded local mirror inspection",
+          "title": "Exponentially rare optimal voting misclassification in a three-class flip game",
+          "trigger": "Exact same family with stronger unrestricted asymptotic and compatible symmetric count"
+        },
+        {
+          "assessment": "Related objective; exact table content unresolved",
+          "evidence": [
+            "Einy–Haimanko state delta(G)=Psi_M(G)/2^n for large M, where Psi_M is the outlier-count loss. The direct article contents were not used for a negative coverage conclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ijar.2025.109418",
+          "material_read": "Crossref bibliographic entry and attribution of Definition 4 in Einy–Haimanko Section 6; no direct full text",
+          "method": "Metadata and source citations; attempted DOI, publisher and identified repository routes",
+          "title": "Weightedness measures from inequality systems",
+          "trigger": "Possible prior exact outlier method or table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md Finding, obstruction and both one-orbit constructions",
+        "arXiv:2610.08968",
+        "Resultary dfb016c86552"
+      ],
+      "rationale": "The repair gives the finite crossover of optimal approximations for a published natural example that exposes disagreement between margin error and coalition-frequency error. The small-class solution is not mere numerical recomputation: an optimal rule knowingly sacrifices a different type of losing coalition before the tie, and this switch completes the equal-treatment classification across the allowed class sizes. The sole labelled error in the first size remains optimal when equal treatment is relaxed, giving a usable exact benchmark. The already covered large-size rate is context, not value claimed by the repair.",
+      "residual_risks": [
+        "Specific to the stated flip family under uniform labelled-coalition loss; no general optimizer theorem for games with interchangeable voters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:01.534777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45; VERIFICATION.md, interval_certificate.py and spectral_check.py (inspection only)",
+        "/workspace/branches/250b58c8-c4e3-4dae-bc17-d1f87afb359a/interval_order_check.py (independent replay: python3 on that script)",
+        "arXiv:2607.17645v1 PDF p. 14, Eqs. (5.1)–(5.2) and Remark 5.1"
+      ],
+      "rationale": "At s=iω>0 imaginary, reality of the Erlang transform forces m arctan(τω/m)=kπ with 1≤k<m/2; the real part then gives exactly the stated ω_k and τ_k. For the implicit derivative denominator 2iω+bτQ with Q=(1+iτω/m)^(-m−1), Re Q=(−1)^k cos^(m+2)(kπ/m) is nonzero. The real derivative has numerator −2bω² Re Q over the squared modulus, giving simplicity and the claimed signs. At zero delay the two finite roots have derivative −b/2. For the other roots, w=τs/m gives the limiting polynomial m²w²(1+w)^m with m roots approaching w=−1, thus safely in the left half-plane. No zero root occurs and the polynomial has fixed degree at all finite positive delays. Odd-to-even order is strict immediately; for even-to-odd order the sign changes exactly at the stated ratio obtained by cross-multiplication of positive squared delays. Independent rational interval enumeration certified all 66 earlier even-index comparisons strictly above one, verified the frozen decimal bounds on ρ_28,2, verified ρ_28,2<999/1000 and proved all other admissible even-index thresholds at 28 above one. To check that the adjacent inversion gives precisely the stated total order, the odd subsequence increases with k. The even subsequence also increases: set x=tan²(kπ/m) and p=m/2; the derivative numerator for x/[1−r(1+x)^(-p)] is 1−r[1+(p+1)x]/(1+x)^(p+1)≥1−r>0 by Bernoulli's inequality. Therefore the only swap is 2,3, and signed transverse crossings give counts 0,2,4,2,0. At equality ω₂²<a<ω₃², so the ties are distinct pairs, not repeated roots. The primary equations give a₂=4, b₂=2κ at z*=0 with I*=3/2, consistent with the example's coupling and input.",
+      "residual_risks": [
+        "The finite certificate covers the range needed for minimality, not a classification for m>28. Counts are derived from crossing signs, not freshly inferred from floating-point diagonalization. No nonlinear Hopf or stability-of-periodic-orbits conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper gives a general Laplace-transform phase criterion and treats weak/strong Gamma and Dirac kernels. The related Resultary finding treats the same integer Erlang family and establishes shape 5 for reentrance, with qualitative remarks beyond shape 6."
+        ],
+        "reasoning": "A general candidate-crossing criterion still leaves the inequalities between actual times at fixed r. The known low-order stability analysis and the discrete-delay limit do not determine the first finite shape for inversion.",
+        "searches": [
+          "arXiv:2607.17645v1 §5 Eqs. (5.6)–(5.8), Examples 5.5–5.7 and Proposition 5.8",
+          "Resultary a8ca85f037df"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.17645v1 §5",
+        "Resultary a8ca85f037df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known criterion implies the phase list after kernel substitution; the separate even-to-odd comparisons, their minimum over 66 earlier pairs and the isolated equality boundary are not consequences stated there. A qualitative possibility of r-dependent order at larger q does not identify a realizable threshold within 0<r<1."
+        ],
+        "reasoning": "Novelty is confined to the resolved finite ordering problem and its spectral consequences, not the individual crossing formula alone.",
+        "searches": [
+          "arXiv:2607.17645v1 §5 phase conditions and examples",
+          "Resultary a8ca85f037df Finding and remarks about q≥7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The linear-chain polynomial and Laplace-transform characteristic equation agree for positive delay (the removed pole is not a polynomial root). Both inspected sources concern the same center-type phase family or a direct specialization, but neither states the full chronological inversion threshold."
+        ],
+        "reasoning": "Stage, shape and chain length index the same integer family here, with the time parameter translated to fixed mean. Reentrance and reversal of chronological phase order are different events.",
+        "searches": [
+          "arXiv:2607.17645v1 §5, phase criterion and Gamma/Dirac examples",
+          "Resultary a8ca85f037df, Erlang stage and reentrant stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact stage cutoff found is 5 for the different invariant of reentrant stability. The inspected Gamma cases in the paper are shapes 1 and 2, not an exhaustive order table through 28."
+        ],
+        "reasoning": "An exact catalogue comparator must encode either adjacent chronological inequalities uniformly in b/a or an equivalent threshold formula with its minimum over admissible shapes. Neither the existing low-shape thresholds nor the limiting phase order table does so.",
+        "searches": [
+          "Resultary Erlang stage chronology match a8ca85f037df",
+          "arXiv:2607.17645v1 §5 Gamma and Dirac cases"
+        ]
+      },
+      "rationale": "The scalar model, general phase criterion, related alternation and some lower-shape stability facts are not credited as new. The exact integer-shape cutoff for chronological inversion over the full open coupling range, and its first distinct-pair boundary, are not supplied by the inspected passages or closest catalogue record.",
+      "residual_risks": [
+        "No exhaustive priority claim; broader web lookup was deferred and supplies no negative evidence. Equivalent delay-spectrum treatments could be indexed under different kernel or circuit terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for the model and phase reduction; inspected results do not resolve the Erlang-order inequalities",
+          "evidence": "The type-two equation has s²+a₂−b₂L(τs), with the coefficients valid also at zero equilibrium. The examples treat shape 1, shape 2 and the Dirac limit, not first inversion at shape 28.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.17645v1",
+          "material_read": "PDF p. 14, offsets 56410–58446, Eqs. (5.1)–(5.2) and Remark 5.1; §5 pp. 17–19 from offset 66500, Eqs. (5.6)–(5.8), Examples 5.5–5.7 and Proposition 5.8",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "Macroscopic Multistability and Bifurcations in Theta-Neuron Networks with Distributed Delays",
+          "trigger": "Same center characteristic family and general phase criterion"
+        },
+        {
+          "assessment": "Material partial overlap but a different cutoff",
+          "evidence": "Shape 5 is the first to restore stability; explicit checks concern shapes through 6, and the possibility of order dependence beyond that is not resolved to an exact shape-28 threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-fifth-erlang-stage-is-the-first-to-restore-stability-in-a-de--a8ca85f037df",
+          "material_read": "Local-mirror RESULT.md before/after the reentrant-stability result, including scope and higher-stage remarks",
+          "method": "Resultary and local-mirror passage inspection",
+          "title": "The fifth Erlang stage is the first to restore stability in a delay model",
+          "trigger": "Same integer Erlang equation, crossing formula and a sharp first shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and order comparison",
+        "arXiv:2607.17645v1 §5 phase criterion",
+        "Resultary a8ca85f037df"
+      ],
+      "rationale": "An alternating phase crossing list can mislead a stability count if it is used as a chronological list. The result determines exactly until which Erlang shape that shortcut is valid for every admissible coupling and identifies its first failure and simultaneous two-frequency boundary. The four-unstable-root interval is a substantive difference in the linearized spectrum of an existing model, even if the first inversion occurs only near b/a=1.",
+      "residual_risks": [
+        "The cutoff is specific to mean-preserving integer Erlang shape in the stated scalar family, not a universal statement about delay kernels or nonlinear bifurcation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

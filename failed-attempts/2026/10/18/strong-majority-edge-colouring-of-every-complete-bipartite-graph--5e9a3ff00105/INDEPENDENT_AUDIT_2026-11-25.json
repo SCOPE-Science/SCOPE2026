@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:50:21.394127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–87, VERIFICATION.md and artefacts/check_biclique.py (inspected, not executed)",
+        "Independent replay: python /workspace/branches/independent_replay.py 5; tested ceiling exceptions and explicit matrices, small labelled binary cases, and exhausted all single-class subsets on K_(3,4) and K_(4,5). Their maxima were 4 and 6 with 18 and 1900 maximizers; the 18 four-edge classes are exactly the rectangles."
+      ],
+      "rationale": "The exact neighborhood count is row plus column minus twice the tested entry for its own colour. Two colours force equality of the two neighbor counts, giving R_i+C_j-2ε_ij=0. Summing gives (b-2)R_i+S=(a-2)C_j+S=0. If both parts exceed two, all entries would be constant, impossible. For a=2<b this forces S=R_i=0 and identical entries in each column, namely a balanced split of the b columns. For a=b=2 the balance equations are precisely the two row and two column assignments. A one-colour assignment violates the cap. Constant columns cycling three labels work for a=2,b≥3. For a,b≥3, the mod-3 matrix works when the sum of ceilings is at most the cap, which holds at a+b≥14 by the integral left side and the (a+b+4)/3 upper bound. Checking the finitely many lower sums gives the four listed exceptions to that sufficient bound. The two displayed three-colour matrices pass the actual neighborhood test, and mod 4 gives the two claimed four-colour upper bounds. A single class at K_(3,4) has size ≤4 by double counting; a feasible four-edge class is forced into two columns by a row of degree two, then into the same two rows by column-degree constraints. Three rectangles cannot account for odd column degree. At K_(4,5), row degrees ≥4 violate the cap; a column of degree four forces all row degrees ≤1, while a column of degree three forces the remaining row empty and the other rows of degree ≤2. With columns of degree ≤2, a row of degree three forces two empty columns and hence ≤6 edges. Otherwise both sides have degrees ≤2, and any degree-two column must meet every degree-two row, so again there are ≤6 edges (or at most five if a side lacks a degree-two vertex). Three classes cannot cover twenty edges. These arguments prove the full classification and census independently of the priority issue.",
+      "residual_risks": [
+        "The independent finite checks do not prove the infinite part. The frozen VERIFICATION.md's Python 3.8+ instruction understates the minimum for the uploaded script's int.bit_count (Python 3.10+ as written)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0d70fcb97654 covers 1≤m≤n and adds all stars, with the explicit nonexistence case K_(1,2). Restriction to m≥2 yields exactly the frozen values.",
+          "SCOPE005 gives the sharper generalized threshold δ_k^bip=k²+1 and the corresponding obstruction K_(k²,k²+1); at k=2 it covers K_(4,5). The August work gives the three-colour upper bound for minimum degree at least five and a concrete low-degree obstruction."
+        ],
+        "reasoning": "The degree threshold alone would not cover all small-a strips, but the October 12 statement contains them all; no residual strip remains.",
+        "searches": [
+          "Resultary 0d70fcb97654, all complete bipartite graphs",
+          "Resultary 2026/9/17/SCOPE005, generalized bipartite threshold",
+          "Pękała–Przybyło arXiv:2608.04122v1/v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d70fcb97654, SCOPE005, e7314efe9837, 2b64d1d39b3e and 5ee1123bc39b",
+        "arXiv:2608.04122v1/v2, arXiv:2605.23828",
+        "arXiv:2607.00212 bounded lookup; keyword misses were not used as evidence of absence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 12 result proves that row-constant counts force monochromatic balanced columns and a part of size two, and handles the symmetric case. On the ordered domain there is only the column case for a=2<b; choosing the b/2 columns of the first named colour gives binom(b,b/2). At 2 by 2 there are two choices in each orientation, with no overlap.",
+          "Observation 9 states verbatim the nonexistence of a strong-majority edge 3-colouring of K_(3,4); its proof also forces a size-four class to be a four-cycle. Claim 10 in v2 states the K_(4,5) obstruction; SCOPE005 gives a proof with the same size-six bound for k=2."
+        ],
+        "reasoning": "The printed census is a direct count of already classified configurations, not a distinct invariant whose value was unresolved. Both four-colour lower bounds are already covered; the universal constructions do not change the claim.",
+        "searches": [
+          "Resultary 0d70fcb97654, Finding and two-colour proof, RESULT.md offsets 0–3366",
+          "Pękała–Przybyło v1, Observation 9; v2, Claim 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0d70fcb97654 uses at most half of the adjacent edges for every edge and every colour, exactly the frozen definition.",
+          "Under the all-colours rule, L(K_(a,b)) is the rectangular rook graph K_a square K_b with the same constraint as a strong vertex-colouring. The own-colour-only remark in Kalinowski et al. is a different condition.",
+          "Resultary e7314efe9837 concerns complete multipartite vertex-colourings, reaching the C4 line graph of K_(2,2) but not the general rectangular rook graph. The later rook edge-colouring record 5ee1123bc39b concerns another line-graph step, not this equivalence."
+        ],
+        "reasoning": "The October 12 result is the same invariant on the same family; the alternate vertex formulation is an exact reduction, not an originality distinction. Not all similarly worded majority or rook-graph results refer to the same objects.",
+        "searches": [
+          "Resultary: strong majority index of complete bipartite graphs; strong majority vertex colourings of rook graphs; line-graph reduction",
+          "arXiv:2605.23828, definition and Remark 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0d70fcb97654 explicitly lists the full two-parameter index, including both non-star four-colour cases. The later record 2b64d1d39b3e has another exact classification, not needed to establish the earlier overlap."
+        ],
+        "reasoning": "This is an exact theorem-level match in a published catalogue, not a coincidence between values in a limited numerical table.",
+        "searches": [
+          "Resultary: exact biclique strong-majority edge index, exceptions K_(3,4) and K_(4,5), optimal two-colouring census"
+        ]
+      },
+      "rationale": "A distinct earlier-dated published Resultary record, 0d70fcb97654, states the same exact values on the entire frozen domain under the identical all-colours rule and also treats stars. Its structural two-colouring classification immediately gives both labelled counts, including the row and column cases at K_(2,2). Moreover K_(3,4) is expressly reported and proved in Pękała–Przybyło v1, Observation 9, contrary to the frozen record's novelty attribution. K_(4,5) is covered as acknowledged in the frozen result. The different calculations and explicit printing of a binomial count do not leave a distinct valuable claim to repair. This is demonstrated earlier coverage, not just failure to establish priority or mathematical incorrectness of the theorem.",
+      "residual_risks": [
+        "The inspected records do not establish exact UTC times, authorship links, or how the overlapping results were produced. The earlier source statements suffice to establish coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers every frozen case and more, including the census by immediate counting",
+          "evidence": [
+            "For both parts ≥2 the only four-colour cases are K_(3,4) and K_(4,5), and the only two-colour cases are K_(2,2r). The proof classifies those two-colour configurations up to choosing the monochromatic rows or columns."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-strong-majority-index-of-complete-bipartite-graphs--0d70fcb97654/RESULT.md",
+          "material_read": "Finding, assumptions and two-colour proof at offsets 0–3366; exception arguments at about 2600–6950",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; exact restriction and labelled count from the proof",
+          "title": "Strong majority index of complete bipartite graphs",
+          "trigger": "Exact invariant and claimed full classification"
+        },
+        {
+          "assessment": "K_(3,4) obstruction was already proved; K_(4,5) non-3-colourability is stated in v2",
+          "evidence": [
+            "Observation 9 uses the same cap of two of each colour on each edge neighborhood in K_(3,4). Claim 10 credits a computer search for K_(4,5) and leaves its proof to the reader."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+          "material_read": "Primary v1 PDF p. 12 Observation 9, offset about 32065; v2 PDF p. 12 Claim 10, offset about 33525",
+          "method": "Open arXiv version-specific PDF passages",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Claimed new K_(3,4) obstruction and credited K_(4,5) obstruction"
+        },
+        {
+          "assessment": "Covers the K_(4,5) obstruction",
+          "evidence": [
+            "At k=2, the cap is three on K_(4,5) and any class has at most six edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE005/RESULT.md",
+          "material_read": "Claim/Definition and Sharp lower bound, offsets 0 to about 2970",
+          "method": "Local Resultary mirror and substitution k=2",
+          "title": "Exact bipartite threshold for generalized strong-majority edge colouring",
+          "trigger": "Exact K_(4,5) lower bound through a stronger threshold"
+        },
+        {
+          "assessment": "Foundational terminology and general bounds; the remark's own-colour rule is not the frozen constraint",
+          "evidence": [
+            "Every-colour strong rule gives the line-graph vertex equivalence directly; general constant bounds are not the exact biclique theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23828",
+          "material_read": "PDF pp. 1, 3–4, definitions and Remark 4 context",
+          "method": "Open primary PDF, comparison of neighbourhoods and definitions",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Exact strong all-colours definition and line-graph alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–83",
+        "Resultary 0d70fcb97654 and Pękała–Przybyło Observation 9 for exact context"
+      ],
+      "rationale": "An exact structural classification is mathematically useful for this natural two-parameter family, particularly the low-degree boundary missed by high-degree upper bounds. The extremal shape of a colour class explains the exceptional graphs, and the rigidity theorem identifies all optimal two-colour configurations. This is value of the mathematics, not of repeating a covered result; the immediate labelled census alone is not a valuable distinct repair.",
+      "residual_risks": [
+        "No statement for other thresholds or other graph families follows from the frozen classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

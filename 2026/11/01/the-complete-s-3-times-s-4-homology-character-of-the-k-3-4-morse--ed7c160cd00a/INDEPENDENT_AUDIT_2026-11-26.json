@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:24.299735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently enumerated undirected edge-subset forests, then chose one root in every component and oriented towards it. Face counts 24,234,1192,3357,4968,3024 and F2 boundary ranks 23,211,981,2376,2592 agree. The rational ranks are at least these ranks; the first rank is at most 23 by augmentation, and adjacent ranks saturate the intervening chain dimensions, so the ranks over Q are equal and reduced homology is solely degree five, dimension 432. For an independent trace check, an invariant forest chooses parents on vertex cycles: a length-d tail cycle can choose an opposite-shore length-e parent cycle if e divides d, with e offsets. The orbit-parent digraph is acyclic exactly when its lift is acyclic. Each chosen tail cycle contributes -1 to the alternating signed-face weight, so in odd top degree the character is the sum of products of -e including the empty choice. This gives (432,-16,4,0,-2), (0,0,4,0,-2), (-3,-1,1,-3,1). Specht inner products by permutation, signed-standard and two-subset characters give (2,8,7,9,4), (5,17,12,19,8), (2,8,6,10,3), including two invariants. Independent replay: python -B /workspace/review_evidence/3_forest.py; output 3_forest.txt. Submitted verifier was inspected, not executed. The conclusion concerns rational representations, not integral lattices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.3 determines the f-vector via the Laplacian, not the signed g-fixed forests. Resultary fd1e47c9eb99 explicitly treats K2,n and identifies the virtual character with the top character under concentration. Frozen lines 58 and 68 describe 9305780d4d4c as balanced, but no primary passage was retrieved for that record."
+        ],
+        "reasoning": "K2,n cannot specialize to shore sizes 3 and 4. A balanced-family statement as described cannot alternately enlarge one shore; the unretrieved precise boundary is an access limitation, not negative evidence. The general rooted-forest counting theorem does not evaluate the action.",
+        "searches": [
+          "Resultary: balanced complete bipartite Morse complexes equivariant top homology representation theorem",
+          "Resultary: equivariant character top homology Morse complex K3,3 K2,4 bipartite rooted forests",
+          "Chari–Joswig arXiv:math/0011234v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0011234v1 §3",
+        "Resultary 48c1007aa5a6, fd1e47c9eb99, a7fb33590838 and 36f4259fda88; attempted 9305780d4d4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary rank supplies identity trace only; the nonequivariant wedge has no equivariant action in the statement. Neither the forest correspondence nor its characteristic polynomial evaluates the signed permuted chain traces here."
+        ],
+        "reasoning": "The exact equivariant data require case-dependent constraints on orbit-parent choices, or equivalently the fixed oriented simplex census, and are not a corollary of the prior numeric rank. The Specht table is then equivalent to the character, not a second originality claim.",
+        "searches": [
+          "48c1007aa5a6, RESULT.md Finding",
+          "fd1e47c9eb99, RESULT.md Finding",
+          "arXiv:math/0011234v1 §3 Prop. 3.1 and Cor. 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chari–Joswig §3 Prop. 3.1 identifies the graph Morse simplices with rooted forests, so the acyclic partial-parent formulation is the same object. The targeted web lookup did not yield claim-level hits."
+        ],
+        "reasoning": "The alias does not introduce another mathematical object or another result. Nearby matching complexes with only disjoint undirected edges are not the ordinary acyclic directed incidence complex.",
+        "searches": [
+          "Resultary: K3,4 ordinary discrete Morse complex complete rational S3 x S4 homology character rooted forests",
+          "Web: “K_{3,4}” “Morse complex” equivariant character homology rooted forest"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "48c1007aa5a6 Finding is the exact same complex and gives the integral degree-five rank 432 and wedge type, but has no action in the finding. a7fb33590838 gives degree-four dimension 80 for Aut(K3,3); 36f4259fda88 gives the S2×S4 action on K2,4 degree four."
+        ],
+        "reasoning": "The same-object scalar table entry is credited; the inspected character entries change the simplices and group or parameter. They are not a relabeling of the reported table.",
+        "searches": [
+          "Resultary: Morse complex K3,4 wedge 432 five-spheres integral cancellation certificate",
+          "Resultary: K3,4 ordinary discrete Morse complex complete rational S3 x S4 homology character rooted forests"
+        ]
+      },
+      "rationale": "The 432-sphere wedge is prior. The supported distinct content is the actual full top action for the unbalanced K3,4 parameter. The inspected foundational theorem and narrower complete-bipartite results lack a statement that supplies it. Decision is conditional on the bounded literature evidence, not a priority certification.",
+      "residual_risks": [
+        "An unindexed exact table or genuinely general equivariant forest formula might cover the parameter; the exact primary passage of the cited balanced-family result was not retrievable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies model and ordinary enumeration",
+          "evidence": "Morse simplices correspond to rooted forests; f-vector is recoverable from the graph Laplacian polynomial.",
+          "identifier_or_url": "https://arxiv.org/html/math/0011234v1",
+          "material_read": "§3 Prop. 3.1 (around offset 7995) and Cor. 3.3 (around 10390)",
+          "method": "Original OA HTML",
+          "title": "Discrete Morse Complexes",
+          "trigger": "General rooted-forest or Laplacian implication"
+        },
+        {
+          "assessment": "Nonequivariant overlap conceded",
+          "evidence": "Wedge of 432 five-spheres, integral rank in degree five; no representation in the finding.",
+          "identifier_or_url": "Resultary 48c1007aa5a6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "The Morse complex of K3,4 is a wedge of 432 five-spheres",
+          "trigger": "Exact same-object precedent"
+        },
+        {
+          "assessment": "Does not cover the 3-vertex shore",
+          "evidence": "Virtual character for a 2-vertex shore, actual top action under concentration.",
+          "identifier_or_url": "Resultary fd1e47c9eb99",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Full equivariant Euler character of the K2,n Morse complex",
+          "trigger": "Closest general unbalanced-family theorem"
+        },
+        {
+          "assessment": "Different parameter and automorphism group",
+          "evidence": "An 80-dimensional degree-four action for (S3×S3)⋊C2.",
+          "identifier_or_url": "Resultary a7fb33590838",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Complete rational automorphism character of the K3,3 Morse complex",
+          "trigger": "Nearby symmetric three-vertex shore"
+        },
+        {
+          "assessment": "Different complex and action",
+          "evidence": "S2×S4 action in degree four, invariant dimension nine.",
+          "identifier_or_url": "Resultary 36f4259fda88",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Full S2×S4 homology representation of the K2,4 Morse complex",
+          "trigger": "Nearby four-vertex shore"
+        },
+        {
+          "assessment": "Scope only as cited; exact theorem unverified",
+          "evidence": "Frozen reference describes a balanced result, not an unbalanced one.",
+          "identifier_or_url": "Resultary 9305780d4d4c",
+          "material_read": "No primary passage retrieved; frozen citation and comparison, lines 58 and 68",
+          "method": "Local search and mirror lookup",
+          "title": "Equivariant top homology of balanced complete-bipartite Morse complexes",
+          "trigger": "Possibly broader family theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical small unbalanced bipartite graph, the full character refines a known wedge and is a concrete test for general automorphism formulas in rooted-forest homology. It resolves which actions occur on the classes, with all fifteen irreducibles present and exactly two trivial summands, neither supplied by the known Betti number. The useful result is the evaluated invariant, not the generic trace method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

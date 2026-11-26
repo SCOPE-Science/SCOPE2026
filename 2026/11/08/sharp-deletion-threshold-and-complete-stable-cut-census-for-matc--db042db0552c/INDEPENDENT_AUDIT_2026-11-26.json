@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:38:34.426021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex cannot improve exactly when at least half of its present neighbors disagree with it. If either shore has imbalance of magnitude ≥2, deleting one neighbor from a vertex's neighborhood cannot reverse that imbalance or cause a tie; best responses force both shores uniformly and oppositely colored. For even n the remaining shore sums are zero and each deleted pair must agree, giving the binomial sum and deleting no crossing edge. For odd n equal-sign shore imbalances require the majority action to occur on agreeing deleted pairs, with (n+1)/2 such pairs. For opposite imbalances, every undeleted indexed pair differs in the same orientation and every unequal deleted pair differs in that orientation too; the difference of two between the shore sums leaves exactly one unequal indexed pair in total. This gives the t=n−1 and t=n cases and their separate counting factors. The cut is (n²−XY)/2 minus the number of unequal deleted pairs, so the stated cut-size bins, threshold, and welfare ratios follow. At n=t=2 both bins coincide at the optimum and the two counts combine; this is not an inefficiency claim. An independent bitmask best-response enumeration matched all 42 histograms for 2≤n≤8 and 0≤t≤n, covering 757296 ambient action profiles. Replay: python3 /workspace/evidence/bounded_checks.py 1. The bounded enumeration corroborates the analytic classification and does not prove it for larger graphs; the packaged checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lampis's general stable-cut results and weighted bipartite complexity theorem do not give a labeled census here. The inspected update-convergence and all-to-all results of Qiu et al. and Vanelli et al. do not supply the partial-deletion law.",
+          "The inspected Resultary b23c91cf8e4c gives a wider number-of-colors and shore-size classification, but only for intact bicliques. At q=2 and equal shores it covers the t=0 comparison."
+        ],
+        "reasoning": "General stable-cut equivalence is a starting point rather than a count. The complete-game theorem admits broader q but not missing edges, so its classification does not dominate the frozen family.",
+        "searches": [
+          "minimum stable cut complete bipartite OR biclique crown graph Nash equilibrium matching deleted anti-coordination cohesive partitions",
+          "Lampis arXiv:2104.13097 Theorem 3",
+          "Qiu et al. arXiv:2301.02889 p. 2",
+          "Vanelli et al. arXiv:1912.02000 p. 1",
+          "Resultary b23c91cf8e4c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 58fd0a1c9924, 43e98fc7d753 and b23c91cf8e4c (matching statements); bfaf627e9ea7, d9c21eae9790 and 6319a2a73e78 (indexed scope)",
+        "arXiv:2604.20752v1, 2104.13097, 2301.02889 and 1912.02000"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-bipartite majority C-chromatic number is two iff both shore sizes are even; the crown result handles the opposite endpoint and gives exact counts there.",
+          "The closed-neighborhood process retains a vertex's current bit on a tie of its closed neighborhood, not a tie of open neighbors. Its theorem explicitly gives only the two optimal recurrent states for proper deleted submatchings."
+        ],
+        "reasoning": "The two known endpoints show an odd-size change but do not locate it. The partial-deletion Nash threshold requires identifying how an unmatched vertex forces a sign and how many agreeing deleted pairs can carry the majority; it does not follow from the dynamic one-edge restoration law or the endpoint formulas.",
+        "searches": [
+          "Bujtás et al. arXiv:2604.20752v1 Observation 2(v)",
+          "Resultary 58fd0a1c9924, full Finding and Assumptions and scope",
+          "Resultary 43e98fc7d753, full Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lampis gives the weak stable-cut–Nash equivalence, including ties.",
+          "Resultary 58fd0a1c9924 defines a surjective coloring with at least half of each vertex's neighbors sharing its color, and classifies all such two-colorings on the crown for n≥6."
+        ],
+        "reasoning": "Flip the actions on the B shore. Every disagreeing incident neighbor becomes an agreeing one, and the two uniform bipartition optima become the two excluded constant colorings. The earlier surjective two-color classification is therefore an exact equivalent of the crown endpoint census minus those two optima, not merely a numerical match.",
+        "searches": [
+          "Resultary: crown graph stable cut Nash equilibrium count",
+          "Resultary 58fd0a1c9924 Finding and Assumptions and scope",
+          "Bujtás et al. arXiv:2604.20752v1",
+          "Lampis arXiv:2104.13097 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown majority-coloring record explicitly gives binom(n,n/2) for even n and (n+3) binom(n,(n−1)/2) for odd n, matching the nonuniform Nash counts.",
+          "The same-day closed-neighborhood minority process has the same nonuniform even-crown states and n²/2 cuts but loses them after restoring one missing edge. The public-goods, coalition-partition and cut/cycle hits were screened as differently defined quantities, not as verified whole-text exclusions."
+        ],
+        "reasoning": "The exact endpoint formula and even-crown histogram overlap are credited. A distinct matching-deletion hit is not sidelined on date grounds; its closed-neighborhood transition rule yields different recurrent sets in the partial-deletion cases.",
+        "searches": [
+          "Resultary: matching-deleted complete bipartite graph weak Nash equilibria stable cuts census",
+          "Resultary: cohesive partitions stable cuts biclique complete bipartite local majority two-action game",
+          "Resultary 58fd0a1c9924, 43e98fc7d753, b23c91cf8e4c, bfaf627e9ea7, d9c21eae9790 and 6319a2a73e78"
+        ]
+      },
+      "rationale": "The crown census for n≥6 is equivalent to an earlier indexed majority C-coloring result after flipping all actions on one shore and adding the two constant coordinated assignments. The intact biclique comparison is also covered. The supported distinct claim is the partial-matching family: the weak-Nash classification and cut histogram for 1≤t<n, including the sharp odd threshold and the exceptional t=n−1 welfare level. Neither the endpoint classification nor the closed-neighborhood dynamics supplies that core result. No priority is inferred from absence of additional hits.",
+      "residual_risks": [
+        "An equivalent satisfactory-partition or majority-coloring formulation elsewhere could predate the partial-family classification; the comparison is bounded.",
+        "No priority is asserted for the crown endpoint, even-crown cut overlap, or intact biclique baseline."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent crown-endpoint classification for n≥6 after the shore flip",
+          "evidence": "Surjective labeled two-colorings require at least half the neighbors of the same color; even and odd count formulas and index-set classifications are explicit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-majority-c-colorings-of-crown-graphs--58fd0a1c9924/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–1858",
+          "method": "Indexed mirror statement and definitions comparison",
+          "title": "Majority C-colorings of crown graphs",
+          "trigger": "Exact crown counts matching the nonuniform weak Nash counts"
+        },
+        {
+          "assessment": "Covers intact bipartite baseline; matched deletion passages concern complete graphs, not bipartite partial-matching census",
+          "evidence": "χ≥(K_m,n)=2 if both sizes even, 1 otherwise; removing a matching from K_n in the cited construction is a different graph.",
+          "identifier_or_url": "arXiv:2604.20752v1",
+          "material_read": "Observation 2(v) and proof, p. 5; matching passages on pp. 11, 13",
+          "method": "Open PDF passage inspection",
+          "title": "Majority C-coloring of graphs",
+          "trigger": "Primary literature on the equivalent majority formulation"
+        },
+        {
+          "assessment": "Framework prior; not the frozen family classification in the examined results",
+          "evidence": "At least half the incident weight cut is exactly the Max-Cut Nash condition. Theorem 3 treats weighted bipartite weak NP-hardness.",
+          "identifier_or_url": "arXiv:2104.13097",
+          "material_read": "Definition, p. 1; Theorem 3, p. 6",
+          "method": "Open PDF passage inspection",
+          "title": "Minimum Stable Cut and Treewidth",
+          "trigger": "Known weak stable-cut equivalence and potential general bipartite coverage"
+        },
+        {
+          "assessment": "Exact even-crown overlap, not the partial-deletion weak-Nash result",
+          "evidence": "The closed-neighborhood minority update retains on closed ties; nonuniform recurrent states occur only in even crowns and cut n²/2.",
+          "identifier_or_url": "Resultary 43e98fc7d753",
+          "material_read": "Finding and Assumptions and scope, offsets 0–2497",
+          "method": "Indexed mirror statement and update-rule comparison",
+          "title": "A one-edge restoration threshold for minority traps in matching-deleted bicliques",
+          "trigger": "Same graph family, same-day record and even-crown cut count"
+        },
+        {
+          "assessment": "Covers intact-biclique comparison, not partial deletion",
+          "evidence": "The graph is K_a,b and q may vary. Proper profiles and equal-frequency mixed profiles exhaust its pure Nash equilibria.",
+          "identifier_or_url": "Resultary b23c91cf8e4c",
+          "material_read": "Finding, offsets 0–1973",
+          "method": "Indexed mirror statement comparison",
+          "title": "Two-player coalitional stability is exactly efficiency in biclique max-q-cut games",
+          "trigger": "Same-day classification of labeled Nash profiles and welfare on bicliques"
+        },
+        {
+          "assessment": "Update convergence comparison; no family-specific census shown there",
+          "evidence": "Distinguishes synchronous/sequential and self-essential/self-nonessential update modes.",
+          "identifier_or_url": "arXiv:2301.02889",
+          "material_read": "Introduction p. 2, offset 5400",
+          "method": "Open PDF passage inspection",
+          "title": "Networked Anti-Coordination Games Meet Graphical Dynamical Systems: Equilibria and Convergence",
+          "trigger": "Network anti-coordination with alternative update conventions"
+        },
+        {
+          "assessment": "Different complete interaction model",
+          "evidence": "All-to-all coordinating and anti-coordinating games, with explicit equilibrium cardinalities in a one-type special case.",
+          "identifier_or_url": "arXiv:1912.02000",
+          "material_read": "p. 1, offset 1031",
+          "method": "Open PDF passage inspection",
+          "title": "On games with coordinating and anti-coordinating agents",
+          "trigger": "Equilibrium counts in a dense network"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A matching deletion preserves dense bipartite symmetry while locally changing ties, making this a natural exact test of when inefficient equilibria appear. The sharp odd threshold, all intermediate stable-cut counts, and exceptional t=n−1 cut bin quantify how weakly stable profiles and efficiency change beyond the already known endpoints. The result is static, not an assertion about reachability or dynamic absorption.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:12:24.818558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic rule is right-permutive. Distinct colliding inputs cannot have consecutive matches or a shared 1. If a shared 0 occurs, the equation forces shared zeros at distance two, so the inputs are single-parity; with no shared zeros the mismatched pairs must alternate 01,10, again single-parity. The output-zero parity equations show that mixed-parity inputs stay mixed, hence that sector is a permutation. On single-parity words the dynamics swaps support parity and is a shift times D=I+S. The exact multiplicity h of z+1 in z^m-1 gives rank(D^t)=m-min(t,h); D^h=I+S^h has the stated residue-class even-sum image. Combining the two half-images with their shared zero and the mixed sector gives the rank formula; successive rank drops give the stated exact Jordan census. At n=2, 00 and 11 are fixed and both other states map to 00, as predicted. Independent replay: python3 -B /workspace/branches/independent_checks.py 2; all 5,460 states at six even lengths matched periodic membership, ranks and block counts. This is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary match also gives exact first-entry counts and handles the odd-ring permutation case. Zhu–Richard §4.2 reports a small observed zero fraction; figure 13 illustrates n=22,24."
+        ],
+        "reasoning": "The earlier catalogue theorem covers the principal even-ring family in a broader orbit analysis; the Zhu–Richard observations alone would not imply the theorem. The two 2007 articles could not be compared at full-text level.",
+        "searches": [
+          "Resultary match 8f41dc4c64f5; arXiv:2610.10967 §§4.2–4.3; DOI 10.1088/1751-8113/40/26/004; DOI 10.1142/S0218127407019901"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not run)",
+        "Resultary 8f41dc4c64f5, exact mirror RESULT.md",
+        "Zhu–Richard arXiv:2610.10967",
+        "Chua et al. DOI 10.1142/S0218127407019901 (partial)",
+        "Nobe–Yura DOI 10.1088/1751-8113/40/26/004 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Proof §§2–3 proves the mixed-sector permutation, support swapping, and the half-ring D=I+S reduction with invertible and nilpotent primary parts. §4 identifies periodicity with vanishing nilpotent coordinate."
+        ],
+        "reasoning": "The surviving single-parity words are im D^h, where D^h=I+S^h; each length-m/h orbit of S^h contributes an even-sum hyperplane. Thus the explicit residue formula is a mechanical corollary of the earlier proof, while n=2 follows immediately from the update.",
+        "searches": [
+          "Resultary 8f41dc4c64f5 RESULT.md, Proof §§2–4; frozen RESULT.md lines 14–18 and 53–63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier RESULT.md, Finding and Assumptions, offsets 0–2100: update x[i−1]+x[i+1]+x[i]x[i+1], identical block sizes and multiplicities for N=2m≥4."
+        ],
+        "reasoning": "Spatial reflection changes the closing product from x[i]x[i+1] to x[i]x[i−1]; conjugacy preserves iterate ranks, cycle entry times and the full Jordan structure.",
+        "searches": [
+          "Resultary Rule 154 / mirrored-rule and Koopman zero-mode searches; exact matched record 8f41dc4c64f5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior Finding, offsets 0–540, prints 2^(2m)−2^(m+1)+2^(m−min(t,q)+1) with q=2^v₂(m), for every t≥0, not merely a finite table."
+        ],
+        "reasoning": "This is the actual iterate invariant for the conjugate system; the exact census is already indexed and explicitly proved.",
+        "searches": [
+          "Resultary 8f41dc4c64f5, matched RESULT.md at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Zhu–Richard arXiv:2610.10967, Eq. (4), §4.2, Fig. 13"
+        ]
+      },
+      "rationale": "The October 26 Resultary finding explicitly gives the identical all-t image/rank formula, zero multiplicity, zero Jordan counts and maximal transient height throughout the overlapping even-ring range. Reflection i↦−i conjugates its update to the frozen one and preserves parity classes. The earlier proof gives the same mixed/single-parity decomposition and the single-parity stable image of (I+S)^h; the residue-sum test is a direct expression of that image, and the two-site boundary is a four-state truth-table check. The central claim is covered, irrespective of inaccessible literature.",
+      "residual_risks": [
+        "The historical scope of the two 2007 full texts was not established. The exact independently inspected October catalogue overlap suffices for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the central claim.",
+          "evidence": "Finding gives all t ranks and all zero block counts for N≥4; proof identifies the stable image and proves every mixed-parity state periodic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-transient-and-koopman-zero-mode-hierarchy-for-the-nonlinea--8f41dc4c64f5/RESULT.md",
+          "material_read": "Finding, assumptions, collision and invariant-sector proofs, half-ring linear dynamics and rank/Jordan argument (offsets 0–4805 and 5870–8320; additional primary-decomposition passage inspected in comparison).",
+          "method": "Bounded local mirror reads; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "title": "Exact transient and Koopman zero-mode hierarchy for the nonlinear rule-154 cellular automaton",
+          "trigger": "Same invariant under a reflected local rule."
+        },
+        {
+          "assessment": "Relevant observation, not the exact hierarchy in the passages read.",
+          "evidence": "Reports a ratio below 0.01 for the cited finite range and an apparent decrease.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10967",
+          "material_read": "Eq. (4) definition/context and §4.2 Rule 154 passage, including Fig. 13 (HTML offsets 20100–22087 and 32700–35444).",
+          "method": "Targeted OA full-text passages.",
+          "title": "Elementary cellular automata: spectral properties of Koopman operator for finite periodic realizations",
+          "trigger": "Same automaton and zero-eigenvalue statistic."
+        },
+        {
+          "assessment": "Exact overlap with this paper cannot be determined.",
+          "evidence": "The snippet does not identify the length condition or an image-rank or zero-Jordan theorem.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127407019901",
+          "material_read": "Indexed snippet associating rules 154 and 45 with an Isles of Eden statement; length condition was clipped. No primary full text obtained.",
+          "method": "Primary literature lookup, DOI recovery and identified publisher/ResearchGate copies; both page attempts returned 403.",
+          "title": "More Isles of Eden",
+          "trigger": "Possible same-rule basin classification."
+        },
+        {
+          "assessment": "Available secondary description concerns odd rings, and is not a finding about whole-paper coverage.",
+          "evidence": "The exact hypotheses of the primary theorem could not be checked.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/40/26/004",
+          "material_read": "No primary theorem passage obtained; IOP page and DOI metadata only. Frozen record describes odd-ring scope at RESULT.md line 69.",
+          "method": "Targeted IOP retrieval and DOI recovery; no OA repository copy identified.",
+          "title": "Linearizable cellular automata",
+          "trigger": "Previously cited Rule 154 linearization."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-size hierarchy has intrinsic mathematical utility, but it is already established for the same automaton up to reflection. The only stated differences are the immediate stable-image parity test and the degenerate four-state boundary; neither supplies an independently substantial mathematical increment in this record. No surviving repair is justified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

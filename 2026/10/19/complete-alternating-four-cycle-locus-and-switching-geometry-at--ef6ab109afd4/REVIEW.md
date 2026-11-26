@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The alternating four-cycle forces a \(-1\) eigenvalue of the \(LR\) two-step matrix. On the resulting hypersurface, two-saddle inequalities force \(d,e<1\) and \(de>-1\), making all stated denominators and sign constraints valid. An invertible \(B-I\), the rank-one \(B+I\) eigenspace, and four branch inequalities prove completeness including switching endpoints; the determinant separately establishes the transverse classification. The exact-rational standalone checker verifies 156 admissible parameter triples and all sampled segment phases. Computations do not substitute for the all-real-parameter proof.
+## correctness
 
-## Originality — PASS, with explicit boundary
-The 2024 Ghosh–McLachlan–Simpson study establishes the flip multiplier criterion and stable two-cycle region but does not give the all-parameter period-four segment classification. The 2011 Botella-Soler–Castelo–Oteo–Ros result *already* gives the neutral period-four Lozi slice; that slice is excluded as an independent novelty assertion. What remains is the complete four-parameter two-saddle classification, the two competing switching constraints with sharp bifurcation surface, and the attracting/Jordan/repelling partition, including parameter families outside symmetric Lozi maps. Searches of published mathematical findings and mathematical literature found related, but not covering, records. A plausible 2023 Lozi-embedding article was accessible only by abstract and remains a priority risk.
+PASS
 
-## Value — PASS
-The exact maximum extent and border-clipping switch of a nonisolated period-four family are natural invariants at a flip stability boundary, not arbitrary finite slices. They determine where all admissible alternating cycles are lost through switching, and distinguish the normal-attracting continuum of classical Lozi bifurcations from nongeneric nonattracting continua permitted by the general border-collision normal form. The result is a complete structural boundary classification, not a new assertion that piecewise-affine flip multipliers exist.
+The affine LR return has B=A_R A_L, det B=de and det(B+I)=α. Distinct alternating second-iterate partners have difference in ker(B+I), even at the border, where the branches agree. Throughout the two-saddle region the linear system for the alternating period-two x-coordinates has determinant Δ=(1+d)(1+e)−ab>0 and numerators b+e+1<0 and a+d+1>0, so the point is strictly admissible and the multiplier assertion is well-defined. On α=0, a(−b)=(1−d)(1−e)>0. The case d,e>1 contradicts the strict saddle inequalities, and comparison to −(1+d)(1+e) gives 1+de>0. Then Δ=2(1+de), ker(B²−I)=ker(B+I) is one-dimensional (b≠0), and the fixed line of the alternating fourth return is P+tv. The two left and two right sign inequalities give exactly |t|≤min(−p,q(1−e)/a). The right phase is Q+tw; since a/(1−e)>0 and the strict interior phases have disjoint sign, the only period-two orbit is t=0; for t≠0, F² changes its point. The difference between right and left bounds is σ/[a(1+de)], including the equality case with both clipping inequalities saturated. At strict interior points the fourth-return transverse multiplier is (de)². For de<1 it is below 1 because de>−1 and nearby points stay in alternating cells; for de>1 transverse departure occurs locally. At de=1 the return is a nontrivial shear (not Lyapunov neutrality); the reverse phase has identical trace/determinant, and in the Jordan case conjugacy follows from invertible A_L. Independent exact-rational checks of endpoint orbits and quotient multipliers covered all nine combinations of clipping sign and transverse type, including singular branches (python3 /workspace/reviews/evidence/reproduce.py 2).
 
-## Limits and closest sources
-Ghosh et al., arXiv:2402.05393v1, §4, multiplier \(-1\) boundary; Botella-Soler et al., arXiv:1102.0034v2, §3.2, previously known Lozi four-cycle continuum; Sushko et al., DOI:10.1080/10236198.2023.2205960, related 2023 embedding work whose full text remained unavailable. Other four-cycle words, global basins, and nonlinear perturbations are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general LR flip equation and the attracting Lozi slice of the continuum are covered. The supported distinct content is the full two-saddle weak LRLR segment classification with its exact clipping switch and transverse cases including the expanding and Jordan regimes. The comparisons did not establish equivalent coverage of that content.
+
+## value
+
+PASS
+
+This gives the full extent and exact switching mechanism of the weak alternating family at a natural stability boundary, with examples of all three transverse regimes in the actual admissible parameter region. The result tells a researcher which border visit truncates the continuum and how the fourth return acts nearby; it is not merely the known multiplier criterion or a reparametrization of the attracting Lozi slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:47:10.293654Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–34 and 36–88",
+        "Frozen VERIFICATION.md and checks/verify.py (inspected, not executed)",
+        "Independent coefficient check: a Lomax law is a mixture of exponentials with gamma-distributed rate (shape alpha, rate ell). For rho=ell|omega| the ratio of the exact to leading small-omega coefficient is (2 sin(pi alpha/2)/pi) times integral x^(alpha-1) exp(-rho*x)/(1+x^2) dx on (0,infinity). Substituting x=exp(s) and composite Simpson on [-40,60] with spacing 0.01, ell=1.3, gives ratios 0.95195375 and 0.98087243 at alpha=1.8, |omega|=1e-7 and 1e-9, respectively. This avoids subtracting rounded cosines and is numerical corroboration only."
+      ],
+      "rationale": "Integrating one curved flight produces the centered iid complex reward v exp(i Theta)(exp(i omega L)-1)/(i omega), with modulus at most 2v/|omega|. Its per-coordinate covariance is v^2 E[1-cos(omega L)]/omega^2 by isotropy. A functional CLT for the indexed rewards and the finite-mean renewal law of large numbers give a time change by 1/mu. The joint convergence does not require reward-duration independence because the limiting clock is deterministic. At equilibrium the delay is almost surely finite, and unfinished and initial arcs are uniformly negligible after rescaling; the same limit holds starting at a renewal. Zero covariance occurs exactly for full-circle-multiple durations. In equilibrium the velocity dot-product correlation is v^2 cos(omega s) E[(L-s)_+]/mu; after any renewal the two headings give zero expected dot product. Integrating by parts and using integrability of the fresh survival function gives E[1-cos(omega L)]/(mu omega^2) for the scalar residual-survival cosine integral, even when the original cosine integral is only conditionally convergent. The planar MSD slope is 4D. For Lomax, rescaling its density and dominating by (1-cos y)y^(-1-alpha) gives the stated positive gamma factor for 1<alpha<2. At omega=0 the equilibrium residual survival is (1+s/ell)^(1-alpha); the integrated correlation then gives the stated t^(3-alpha) law with the beta-integral prefactor. This last asymptotic is for equilibrium preparation, not a claim of the same prefactor after a fresh start.",
+      "residual_risks": [
+        "Fixed nonzero omega is taken before the long-time limit. There is no joint crossover theorem. The zero-curvature prefactor is not preparation-independent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The straight Lévy-walk limit starts at a renewal and has stable rather than Gaussian scaling for the indexed tail range, with the t^(3-alpha) second-moment exponent. The review treats arbitrary finite-mean straight renewal laws at equilibrium through the residual-life integral."
+        ],
+        "reasoning": "The straight-flight theorems and generic reward-process CLTs provide comparison and methods. A curved arc reward is bounded and may vanish identically on arithmetic supports; the characteristic-function diffusivity and weak-curvature asymptotic require identifying and evaluating that new reward.",
+        "searches": [
+          "Magdziarz et al., arXiv:1408.1737, Eq. (2.1), Corollary 4.16 and Remark 4.18",
+          "Zaburdaev–Denisov–Klafter, Lévy walks, pp. 19–20, stationary preparation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.14326v2",
+        "arXiv:1408.1737",
+        "arXiv:1410.5100",
+        "Resultary 8fb1adef3bce",
+        "Resultary 6e0e86cd8d19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For omega=0 substitution of the Lomax tail into the prior equilibrium residual survival and integration of the correlation gives the stated zero-curvature prefactor. The Poisson theory fixes an exponential clock and cannot take an infinite-variance clock specialization. A deterministic fixed-angle turn can retain heading coherence and is not a uniform refresh."
+        ],
+        "reasoning": "Do not credit the straight equilibrium consequence or Poisson case as new. The non-Poisson curved Gaussian/singular-diffusivity statement couples a general finite-mean renewal time change to a model-specific bound on arc rewards; the resulting exact variance and small-curvature divergence are not an available specialization of the inspected prior results.",
+        "searches": [
+          "arXiv:2405.14326v2, Eqs. (18)–(20), (28)–(29)",
+          "arXiv:1410.5100, Eq. (69) and following stationary survival formula",
+          "Resultary 8fb1adef3bce, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For L exponential with rate lambda, the frozen formula reduces to v^2 lambda/[2(lambda^2+omega^2)]. With zero rotational diffusion and uniform tumble angles, the earlier Poisson model has the same correlation and variance slope. Its D defined by radial MSD over 2t is twice the per-coordinate D here.",
+          "The reviewed stationary straight-walk survival is the same integrated fresh survival divided by the mean; one-dimensional and planar straight iid refresh give the same dot-product correlation at identical speed and survival."
+        ],
+        "reasoning": "These are exact equivalences on the Poisson and straight stationary slices, after normalizing diffusion and matching preparations; neither gives the nonzero-curvature finite-mean theorem.",
+        "searches": [
+          "Olsen–Löwen, arXiv:2405.14326v2, Eqs. (18)–(20), (28)–(29)",
+          "Zaburdaev–Denisov–Klafter, arXiv:1410.5100, Eq. (69) and residual survival"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8fb1adef3bce gives MSD diffusion, arithmetic resonance and ballistic regimes for deterministic fixed-angle heading turns at renewals; it does not claim the functional CLT. 6e0e86cd8d19 computes preparation-dependent superdiffusion in a model with rotational Brownian noise and resets to a fixed direction."
+        ],
+        "reasoning": "Both hits are material near neighbors but neither states the same uniform-independent refresh dynamics with curved deterministic flights. The exponent or the shared word diffusivity alone cannot identify the claim.",
+        "searches": [
+          "Resultary meaning search: chiral renewal swimmers, exact diffusivity and heavy-tailed run durations; closest hits 8fb1adef3bce and 6e0e86cd8d19"
+        ]
+      },
+      "rationale": "The Poisson diffusivity, equilibrium residual-life formula, classical straight Lévy-walk behavior and general invariance-principle machinery are prior. The supported distinct increment is the fixed-curvature functional Gaussian result with its exact diffusivity for arbitrary independent finite-mean renewal durations under uniform refresh, including degeneracy, and the quantitative singular diffusivity as curvature vanishes for Lomax flights. The zero-curvature equilibrium MSD is a classical-renewal comparison, not standalone novelty.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison; equivalent results may exist under semi-Markov transport or regenerative velocity correlation formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Poisson overlap after normalization",
+          "evidence": "Uniform tumble angle and no rotational diffusion give the exponential cosine correlation and the same radial MSD slope.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.14326v2",
+          "material_read": "p. 3, Eqs. (18)–(20); p. 4, Eqs. (28)–(29)",
+          "method": "Lawful OA PDF passages",
+          "title": "Optimal diffusion of chiral active particles with strategic reorientations",
+          "trigger": "Matching chiral correlation and diffusivity in the Poisson case"
+        },
+        {
+          "assessment": "Known straight exponent, distinct limit process and initialization",
+          "evidence": "Continuous straight flights from a renewal give stable scaling and a t^(3-beta) second-moment regime for 1<beta<2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.1737",
+          "material_read": "Eq. (2.1), p. 3; Corollary 4.16 and Remark 4.18, p. 14",
+          "method": "Lawful OA PDF passages",
+          "title": "Limit theorems and governing equations for Lévy walks",
+          "trigger": "Straight heavy-tailed flight scaling"
+        },
+        {
+          "assessment": "Stationary survival is prior and directly gives the straight benchmark with uniform refresh",
+          "evidence": "The probability of no first reorientation by lag s is the integral of the fresh survival from s to infinity divided by the mean; the text distinguishes equilibrium and fresh preparation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.5100",
+          "material_read": "pp. 19–20, Eq. (69) and integrated stationary survival just below, offset 138400",
+          "method": "Lawful OA PDF passage",
+          "title": "Lévy walks",
+          "trigger": "Equilibrium preparation and zero-curvature overlap"
+        },
+        {
+          "assessment": "Material conceptual overlap; not the same stochastic dynamics or limit statement",
+          "evidence": "Fixed-angle turns give a trichotomy for the MSD and no functional CLT is claimed there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-ballistic-arithmetic-resonance-and-singular-diffusivity-in-renew--8fb1adef3bce",
+          "material_read": "RESULT.md Finding and assumptions on heading turns, and scope for scaling",
+          "method": "Local mirror",
+          "title": "Ballistic arithmetic resonance and singular diffusivity in renewal motion",
+          "trigger": "Nearest indexed exact renewal diffusion comparison"
+        },
+        {
+          "assessment": "Related scaling exponent, different model",
+          "evidence": "The variance is longitudinal and arises with rotational Brownian motion and fixed-direction resets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-preparation-dependent-superdiffusion-in-a-heavy-tailed-orientati--6e0e86cd8d19",
+          "material_read": "Finding and heading/reset assumptions",
+          "method": "Local Resultary comparison",
+          "title": "Preparation-dependent superdiffusion in a heavy-tailed orientation model",
+          "trigger": "Indexed preparation-dependent heavy-tail variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–25 and 36–88",
+        "arXiv:2405.14326v2, Eqs. (18)–(20), (28)–(29)",
+        "arXiv:1408.1737, Corollary 4.16 and Remark 4.18"
+      ],
+      "rationale": "A finite-mean heavy-tailed flight clock can generate either superdiffusion or a finite-variance Brownian limit in essentially the same continuous trajectory model. Full circular flight closure, not a change of renewal law, accounts for the difference and for the arithmetic degeneracy. The exact diffusivity and power-law blowup quantify why convergence at fixed curvature cannot be interpreted as a regular zero-curvature limit.",
+      "residual_risks": [
+        "Does not establish the crossover time or address arbitrary heading correlations or rotational diffusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

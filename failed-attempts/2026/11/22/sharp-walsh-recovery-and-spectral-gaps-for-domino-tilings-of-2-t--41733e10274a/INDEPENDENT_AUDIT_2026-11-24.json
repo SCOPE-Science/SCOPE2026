@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:59:38.776353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The last-column decomposition yields P_j=a_j P_(j-1)+b_j P_(j-2). Gauging by the product of the rung signs gives u_0=u_1=1 and u_j=u_(j-1)+epsilon_j u_(j-2), where epsilon_j=b_j a_(j-1) a_j. The gauge preserves magnitudes and each normalized string has 2^n rung choices and 2^(n-1) horizontal-pair sign lifts, giving the exact kernel multiplicity. All-plus gives the Fibonacci maximum; all signed sums have Fibonacci parity. The all-minus orbit (1,1,0,-1,-1,0) proves both singularity in the even-Fibonacci residue and attainment of absolute value one elsewhere. Flipping its last sign at a resonant width gives magnitude two. At n=1 the two frequencies have magnitude one. Starting at a zero at width 2, each subsequent three-step block can freely assign its first two signs and take its last sign minus, returning to zero; this proves Z_(3k-1)>=4^(k-1) and the stated fraction bound. The independent Python replay at branches/2af68975-471d-4be0-856f-c5ca19a59e03/signed_recurrence_check.py checked all width-1 through width-15 normalized strings and checked the physical-edge fibers directly through width 4, with the five listed zero counts reproduced. The frozen scripts were read, not executed. These bounded data corroborate, not prove, the all-width reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The common object for the strongest hit is the ordinary no-adjacent-ones cube, not a cycle closure or all-matchings kernel. The prism has a three-tier gap and the K_(3,n) all-matchings result has a different signal.",
+          "The normalized recurrence is a fixed-start signed Fibonacci continuant; general asymptotic growth of random Fibonacci sequences would not by itself determine finite-time terminal zeros."
+        ],
+        "reasoning": "The published statement for the Dyck family suffices for all even ladder widths. The accessible statement alone does not establish that its proof explicitly treats every Fibonacci-cube dimension or covers the all-resonant null-fraction inequality. Those are scope limitations on the comparison, not reasons to ignore the exact even-width coverage.",
+        "searches": [
+          "Local Resultary 51de04f7e6b4 (Fibonacci-cube Dyck paths), b3a1ee1ff1cf (prism), 5bf177d89df5 (K_(3,n) matchings)",
+          "Primary literature: fixed-start signed Fibonacci recurrence and signed tiling determinants"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, and read-only frozen checker inspection",
+        "Local Resultary 51de04f7e6b4, b3a1ee1ff1cf and 5bf177d89df5",
+        "Focused OA mirror passage attempt for 51de04f7e6b4",
+        "Signed Fibonacci and exact zero-count literature lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the earlier Dyck statement via the affine identification, the ladder recovery law and gaps follow at every even width. Their condition-number consequence uses only the ordinary Fibonacci tiling count for the maximum.",
+          "The prior indexed minimum-degree witnesses use step coordinates and are not needed for this transfer. Conversely they are not evidence for the ladder's all-width relative-nullity bound."
+        ],
+        "reasoning": "Changing the ambient Boolean group by an injective affine encoding duplicates characters and changes signs, but does not create a distinct recovery law or gap. Odd-width uniformity is a simple remaining dimension case of the same continuant, not a new invariant; the quantitative nullity inequality has not been shown covered here and must not be conflated with the already covered headline classification.",
+        "searches": [
+          "Resultary 51de04f7e6b4 recovery, gap and semilength-eight nullity statement",
+          "Frozen RESULT.md lines 11–21 and 27–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The height-three Dyck catalogue statement, suffix 51de04f7e6b4, explicitly gives a Fibonacci-cube affine model, modulo-three invertibility, least nonzero absolute values 1 or 2, and 7032 zeros at semilength 8.",
+          "For the ladder, putting a mark on each join with a horizontal pair parametrizes binary strings of length n-1 with no adjacent marks. Both horizontal-edge bits copy the mark; a rung bit is one plus its incident marks modulo two. This is an injective affine map of the same cube.",
+          "For a height-at-most-three Dyck path of semilength m>=2, remove the first and last steps. The inner height walk starts and ends at height 1. At odd interior times use a mark for height 0 instead of 2, and at even interior times use a mark for height 3 instead of 1. Of the adjacent choices only height 0 next to height 3 is forbidden. This yields exactly the no-adjacent-ones cube of length 2m-3. The up-step bits are the affine differences of neighboring marks, with the fixed end heights; the map is injective since the heights are recovered from steps."
+        ],
+        "reasoning": "If an injective affine map has binary linear part B of rank d, a signed sum at frequency s is the cube signed sum at B^T s times a sign. Every cube character occurs in exactly 2^(ambient dimension-d) frequencies. Thus two such models of the same d have identical absolute spectrum after quotienting by these known multiplicities. The correspondence n-1=2m-3 gives n=2m-2, and m=2 mod 3 exactly when n=2 mod 3. This is exact overlap on an infinite natural subfamily, not a conjectured analogy.",
+        "searches": [
+          "Local Resultary: fourier recovery and a cubic minimum zero threshold for height three Dyck up-step vectors affine image Fibonacci cube 7032 zeros semilength 8 signed recurrence",
+          "Primary literature: signed Fibonacci continuants recurrence x_n=x_(n-1)±x_(n-2) exact zero return counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At m=8 there are 16 step coordinates and cube dimension 13, giving multiplicity eight; 7032/8=879, exactly Z_14. The ladder has 40 edge coordinates at width 14 and cube dimension 13, giving the predicted multiplicity 2^27.",
+          "The exact-sequence literature lookup was unavailable. The other initial normalized counts were reproduced independently as finite checks, not established as previously published by that reproduction."
+        ],
+        "reasoning": "Matching an exact integer in different edge coordinates would not establish overlap on its own. Here the proved affine quotient shows that the earlier table value is for precisely the same normalized signed recurrence statistic.",
+        "searches": [
+          "Local Resultary 51de04f7e6b4: 7032 zero multipliers at semilength 8",
+          "Primary literature and exact sequence lookup: 1, 5, 27, 152, 879; random Fibonacci strings terminating in zero"
+        ]
+      },
+      "rationale": "Material coverage of the headline spectral recovery theorem is demonstrable, not merely a similarity of recurrences. The earlier indexed height-three Dyck result gives the same invertibility law and sharp signed multiplier gaps for an affine copy of precisely the same Fibonacci cube at every even ladder width n=2m-2, where m is Dyck semilength. Its reported 7032 zeros at m=8 also give the exact normalized zero count 879 at ladder width 14, not a different spectral statistic. The extension to odd widths uses the same cube and elementary parity and sign witnesses. The frozen record's claim of a distinct sharp recovery invariant as framed therefore does not pass originality. This comparison does not establish that the quantitative lower bound at all resonant widths was previously proved, and is not a rejection for unavailable full text. No substantively narrowed replacement is submitted.",
+      "residual_risks": [
+        "The full Dyck proof was not retrieved; coverage of odd ladder widths or of the quantitative nullity lower bound by that proof remains unverified.",
+        "The exact signed-Fibonacci terminal-zero law may have further published coverage. Unavailable lookup is not evidence either way."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable exact overlap for the even-width ladder spectrum invariants stated here; no whole-document claim",
+          "evidence": "The statement gives an affine Fibonacci cube, sharp values one or two, and 7032 zero frequencies at semilength eight. The explicit affine quotient yields count 879 and the even-width recovery law.",
+          "identifier_or_url": "Resultary 2026/11/16, suffix 51de04f7e6b4",
+          "material_read": "Local published catalogue statement including affine model, gaps, invertibility law, and semilength-eight zero count; full RESULT.md passage unavailable",
+          "method": "Local Resultary lookup, attempted focused OA mirror passage, and independent proof of the affine equivalence",
+          "title": "Fourier recovery and a cubic minimum-zero threshold for height-three Dyck paths",
+          "trigger": "Fibonacci-cube affine representation, identical sharp gaps and exact matching zero count"
+        },
+        {
+          "assessment": "Related but a distinct geometry and gap law; no implication of the path theorem verified",
+          "evidence": "The longitudinal graph is a cycle, and the catalogue states a three-tier law rather than the ladder's two-tier gap.",
+          "identifier_or_url": "Resultary suffix b3a1ee1ff1cf",
+          "material_read": "Catalogue statement only",
+          "method": "Local Resultary lookup",
+          "title": "A modulo-three inversion law and sharp three-tier Walsh gaps for prism perfect matchings",
+          "trigger": "Same dimer spectral comparison with cycle closure"
+        },
+        {
+          "assessment": "Different family from the perfect ladder matchings",
+          "evidence": "All matchings of K_(3,n), not perfect matchings of the ladder.",
+          "identifier_or_url": "Resultary suffix 5bf177d89df5",
+          "material_read": "Catalogue statement only",
+          "method": "Local Resultary lookup",
+          "title": "Complete Walsh singularity and sharp spectral gap for all matchings",
+          "trigger": "Similar signed matching gaps and exponential zero families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Perfect-matching edge incidence is a natural signal, and the sharp nonzero gap and the dimension of its lost Fourier space directly quantify recovery. In particular, constructing a quantitative family of cancelling frequencies at every resonant width is informative beyond the existence of one zero. This scientific usefulness does not restore originality to the previously covered sharp recovery classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

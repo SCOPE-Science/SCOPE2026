@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the precisely displayed first, short-horizon, initially provisioned seed-bank expression from Satterthwaite's full open article, not the distinct unprovisioned-invader appendix. Direct rational differentiation gives the necessary local derivative and strict survival monotonicity. The critical global step has an independently executable exact identity \(\mathcal D(1-E_2)=ht^2R\) at threshold, with 65 nonnegative Bernstein coefficients and one strictly positive row, proving strict absence of improvement for every positive \(h,t\). The \(b=1\) factorization rules out the entire remaining region and closes equality cases. The attached stand-alone checker passed exact polynomial and rational-example tests. Risks: the scope must not be confused with long-run or unprovisioned invasion, and the positive denominator requires \(h>0\), \(0<t\le1\), which the result explicitly assumes.
+PASS
 
-## Originality — PASS, provisional historical priority
+The source's sibling-bank two-year expression reduces to A(A+B)+BD+(1-A)C under h=s(1-r)/r and z=g+b(1-g); each of its four terms was matched. At t=1-g=0 the baseline is 1. With P=2h²+6h+4 and Q=h²+5h+5, the exact derivative there is h(bQ-P)/(1+h)^3, so b>P/Q makes a sufficiently small positive t advantageous. For t>0, A,B,C strictly increase with b, D is fixed, A>=C and 1-A>0; differentiating the expression therefore gives strict survival monotonicity. At b=P/Q the denominator is positive: K-t>0, U=Q+2(h+2)t>0 and V=Q(z+h)>0, where K=1+h. I independently formed the rational expression in SymPy, cancelled it exactly, and transformed the remaining bivariate polynomial to the degree-four Bernstein basis in t. All 65 coefficients agree with the displayed table, and the final row gives the strict positive contribution h^12. Thus at threshold E2<1 for t>0, including t=1; monotonicity implies strict failure below it. The independent calculation also checked the b=1 factorization, which proves failure for h>=(sqrt(5)-1)/2 and t>0. The threshold derivative with respect to h is 2(2h²+6h+5)/Q²>0, with limits 4/5 and 2. Every h>0 is realizable by taking any s in (0,1) and r=s/(s+h), so the universal floor is sharp. The rational example gives E2-1=19650205/6450554528. Replay: python3 /workspace/branches/reproduce_frozen_math.py 1 (Python 3 and SymPy).
 
-The closest and controlling source is Satterthwaite (2009/2010), doi:10.1007/s11258-009-9696-y, whose complete accessible article gives the underlying expression \(E_2(h,b,g)\), local seed competition mechanism, and an approximately \(0.8\) numerical survival cutoff; these are PRIOR WORK, not new findings. The present theorem solves the different quantified question \(\exists g: E_2>1\) globally, giving a rational sharp boundary \(b_*(h)\), strict equality classification, and a golden-ratio geometric exclusion. No equivalently quantified result was identified in the inspected full article, Satterthwaite's appendix or searched older studies, prior claim history, and relevant mathematical results. But because the original pointwise equation logically contains this special optimization problem, independent historical-priority confirmation is essential. Kobayashi–Yamamura (2000) was inspected in part from an accessible lawful PDF; Rees (1994) and Pacala (1986) were checked to the degree available and full text was not available for all comparisons. Negative searches are not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-A motivated question left approximate by a founding ecology paper is answered completely: exactly how viable must a one-year seed reserve be, as a function of home retention and safe-site rarity, for *any* dormant strategy to beat the nondormant two-year descendant baseline? The sharp universal \(4/5\) floor and the second barrier \(h\ge(\sqrt5-1)/2\) are structural, parameter-independent boundaries of a natural ecological mechanism, beyond substituting one fixed parameter into a known formula. Value is confined to the model's short-horizon proxy; no ecological field-validation or asymptotic growth is implied.
+The pointwise site-lottery formula, the finite-horizon mechanism, and an approximate numerical 0.8 cutoff are known and credited. The distinct result is eliminating g globally for the exact finite-horizon expression, including strict threshold equality and the parameter-dependent physical exclusion. The inspected primary derivation and numerical results do not supply the necessary all-g inequality. Neither of the inspected related threshold families uses the same expression or objective. This is a bounded assessment, not a priority guarantee.
 
-## Closest literature and residual uncertainty
+## value
 
-Satterthwaite (published 2009-11-21; *Plant Ecology* 2010) is the exact source of the original equations; its pointwise formula is broader information than any fixed example and may imply this threshold through independent optimization not located in the inspected text. Kobayashi and Yamamura's related sib-competition dormancy model is structurally distinct. Rees' and Pacala's relevant earlier work were not completely inspected, leaving a genuine but not decisive broader-theorem risk. Reproducible algebra validates the new quantified result, not any claim to exclusive priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem resolves an optimization question motivated by the original ecology model and its approximate cutoff. It replaces a parameter scan and a local sufficient condition with the exact eligibility region for any partial-dormancy advantage, including exclusion at equality and a competition regime in which even perfect seed survival cannot help. A user of this exact finite-horizon proxy can decide feasibility without optimizing over germination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

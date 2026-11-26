@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:11:17.262540Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exhaustive reproduction matched all 24 path/cycle rows of certificate.json and replayed its two witness trees without executing the supplied scripts. Independent plus dominating is equivalent to maximal independent, and the projection-cardinality and first-query minimax tests are exhaustive. P10 has 16 concepts, VC support {0,3,6}, and 16 distinct valid depth-four leaves; C13 has 39 concepts, VC support {0,2,5,8}, and 32 distinct valid depth-five leaves. The counts exclude one further level and the complete support test excludes larger VC supports. Componentwise products add VC dimensions by taking traces, and add Littlestone ranks by concatenation for the lower bound and running the optimal realizable prediction rule separately on each query domain for the upper bound. Paths and cycles exhaust the nonempty connected components; isolates and the empty graph have zero rank. The frozen replay entry points are verify.py and independent_check.py beside certificate.json; their recorded output was inspected, not used as the independent reproduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8b0b7f77dba1 gives exact cyclic dimensions through order sixteen, including equality through twelve and the first strict gap at thirteen. Palmer–Patkós give counts and recurrences; Liu et al. give a nonadaptive VC upper bound."
+        ],
+        "reasoning": "The earlier exact cycle table subsumes the frozen cyclic theorem; neither concept counts nor static upper bounds alone would suffice to determine the online ranks.",
+        "searches": [
+          "Resultary SCOPE record 8b0b7f77dba1",
+          "arXiv:2205.04082",
+          "arXiv:2403.17910, Lemma 2.20"
+        ]
+      },
+      "checked_sources": [
+        "d770e9ac4db6",
+        "8b0b7f77dba1",
+        "11ee458f4c85",
+        "arXiv:2108.05569",
+        "arXiv:2205.04082",
+        "arXiv:2403.17910"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d770e9ac4db6 states (3s,4s) for disjoint P10 copies. For any maximum-degree-two graph through order ten not equal to P10, every component is a path of order at most nine or a cycle of order at most ten."
+        ],
+        "reasoning": "Every such component has zero gap by the matching tables; the direct-product dimension rule therefore yields zero total gap. Combining the already available thresholds is not a new cutoff.",
+        "searches": [
+          "d770e9ac4db6 Finding",
+          "8b0b7f77dba1 Finding/table",
+          "arXiv:2108.05569, general mistake-tree framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The path and cycle records define exactly the inclusion-maximal independent-set membership class and complete adaptive binary trees. Malliaris–Moran formulate the general dimension in mistake-tree terms."
+        ],
+        "reasoning": "The exact matching claims use the same incidence domain and hypotheses; neither maximum independent sets nor a different notion of online rank is involved.",
+        "searches": [
+          "Resultary: degree threshold and online versus static shattering of maximal independent sets on paths and cycles",
+          "arXiv:2108.05569"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d770e9ac4db6 lists every path pair through order ten and (3,4) at ten. 8b0b7f77dba1 lists (4,5) at thirteen with the preceding cyclic equalities; 11ee458f4c85 independently states the same cyclic gap."
+        ],
+        "reasoning": "The exact defining entries and minimality ranges are already recorded, not merely numerically similar.",
+        "searches": [
+          "Resultary SCOPE records d770e9ac4db6, 8b0b7f77dba1, 11ee458f4c85"
+        ]
+      },
+      "rationale": "Separate indexed results already state the path and cycle thresholds, and the path comparison gives exactly the disjoint-P10 amplification. The remaining uniqueness statement for all maximum-degree-two graphs through order ten is forced by those two known component tables and product additivity. The October cycle record is broader in the same setting; the distinct same-day path record establishes duplicate coverage without requiring an inference about within-day priority.",
+      "residual_risks": [
+        "No absolute priority conclusion is drawn, particularly for records with the same date. That uncertainty does not remove the verified duplicated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on the path result and amplification",
+          "evidence": "Finding gives the ordered path pairs through P10 and the formula (3m,4m).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-degree-threshold-for-an-unbounded-vc-littlestone-gap-in--d770e9ac4db6/RESULT.md",
+          "material_read": "Finding and assumptions, beginning of proof (offset 0)",
+          "method": "Local Resultary mirror, exact record text",
+          "title": "A sharp degree threshold for an unbounded VC–Littlestone gap in maximal-independent-set families",
+          "trigger": "Same path, exact pair and product amplification"
+        },
+        {
+          "assessment": "Direct and stronger coverage of the cycle component",
+          "evidence": "Equal pairs from C3 through C12, C13=(4,5), and values recorded through C16.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1/RESULT.md",
+          "material_read": "Finding, full finite table and scope (offset 0)",
+          "method": "Local Resultary mirror, exact record text",
+          "title": "First online-versus-static shattering gaps for maximal independent sets of cycles",
+          "trigger": "Potentially dominating exact cycle table"
+        },
+        {
+          "assessment": "Direct overlap on cycles; also provides an all-cycle VC formula",
+          "evidence": "First cyclic separation at C13 for the same incidence concept class.",
+          "identifier_or_url": "11ee458f4c85",
+          "material_read": "Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Maximal independent sets of cycles: exact VC dimension and the first adaptive gap",
+          "trigger": "Same exact C13 gap"
+        },
+        {
+          "assessment": "General framework, not the numerical graph thresholds",
+          "evidence": "Complete mistake trees and deterministic realizable prediction bounds describe the same adaptive rank.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+          "material_read": "Mistake trees and online mistake bounds, OA HTML offset 15232",
+          "method": "Primary OA text",
+          "title": "Agnostic Online Learning and Excellent Sets",
+          "trigger": "Equivalent definitions and product-rank argument"
+        },
+        {
+          "assessment": "Cardinality data, not shattering dimensions",
+          "evidence": "The count only bounds tree depth logarithmically.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.04082",
+          "material_read": "Cycle counts and recurrence, OA HTML offset 8698",
+          "method": "Primary OA text",
+          "title": "On the number of maximal independent sets: From Moon–Moser to Hujter–Tuza",
+          "trigger": "Potential cycle count or dimension table"
+        },
+        {
+          "assessment": "Static bound, not the adaptive cutoff",
+          "evidence": "Upper bound via bipartite induced matching for the maximal-independent-set hypergraph.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.17910",
+          "material_read": "Section 2.4, Lemma 2.20, OA HTML offset 51352",
+          "method": "Primary OA text",
+          "title": "Beyond chromatic threshold via the (p,q)-theorem, and a sharp blow-up phenomenon",
+          "trigger": "VC result for the same concept family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The smallest-component thresholds are scientifically meaningful in principle, but this submission's headline invariants and amplification duplicate exact records. The only added low-order combination follows immediately from decomposition and additivity. The correct extra replay and table entries do not establish a distinct motivated finding. No valuable repaired claim is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

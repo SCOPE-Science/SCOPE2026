@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:37:55.730640Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof; VERIFICATION.md",
+        "critical_triples.csv; verify_direct.py; verify_incremental.cpp; verify_rigidity.py",
+        "/workspace/branches/schur_bitset_reproduction.py (independent exhaustive replay)"
+      ],
+      "rationale": "The sum over z=2,...,14 of floor(z/2) is 49, with one test for a=b. I independently represented the 3^13 normalized ternary words as bits of a single integer. For each equation its violation mask is the union over hues of the intersection of the three position masks. Updating the zero- and one-defect masks by Z'=Z\\B and O'=(O\\B)∪(Z∩B) after each equation counts exhaustively, including when a=b. Final popcounts are 0 and 1350; intersecting O with each violation mask reproduced every one of the 49 CSV rows, with 29 positive rows and seven zeros ending at 14. Counts for 5+5=10 and 6+7=13 are 222 and 4 before normalization is undone. Cyclic relabeling gives exactly one representative with c(1)=0 per orbit of size three, hence 4050 named. The surviving [1,13] prefix mask independently gives six named-normalized classes, with the blocks in the result and 2,2,3 violations for the three possible hues of 14 up to permutation. Thus no one right-hand-side-14 deletion can suffice. Replay: python3 /workspace/branches/schur_bitset_reproduction.py <frozen directory>/critical_triples.csv. The frozen programs were inspected, not executed.",
+      "residual_risks": [
+        "Finite count for exactly the stated equation and color conventions; nothing here concerns simultaneous deletions or larger intervals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thanatipanonda's conclusion gives asymptotic upper bounds for minimum monochromatic triple counts for at least three colors, not a finite deletion spectrum.",
+          "Chappelon et al. study x+y≡z mod n+1 and report modular thresholds.",
+          "The generalized-threshold abstract treats x1+...+xk=x(k+1) for k≥3; it does not state an individual-deletion census for two summands."
+        ],
+        "reasoning": "Neither an asymptotic minimum, a modular threshold nor a generalized threshold yields a per-equation count for the standard system under review. The full text of the generalized-threshold paper was inaccessible, so the comparison is to its abstract only.",
+        "searches": [
+          "arXiv:0801.0798",
+          "arXiv:1306.5635",
+          "ScienceDirect S0166218X18303846, 3-color Schur numbers"
+        ]
+      },
+      "checked_sources": [
+        "Kisner 2013 §4.2",
+        "arXiv:0801.0798",
+        "arXiv:1306.5635",
+        "ScienceDirect S0166218X18303846 (abstract)",
+        "Resultary and exact mirrored table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each of Kisner's fixed color classes supplies two monochromatic sum-14 pairs, establishing the seven endpoint zeros mechanically.",
+          "For deletions with z<14, the restriction to [1,13] need not be defect-free, so Kisner's classification no longer confines it to those three partitions."
+        ],
+        "reasoning": "Credit the endpoint consequence to the prior structural classification. The earlier results do not imply the complete spectrum of positive and zero rows or one-defect multiplicities without new exact work.",
+        "searches": [
+          "Kisner (2013), Theorem 4.4 and the [1,13] classification table",
+          "Thanatipanonda (2008/2009), conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kisner explicitly classifies defect-free partitions of [1,13] and excludes extending them to [1,14].",
+          "The grouped-constraint formulation would delete all three color-specific monochromatic prohibitions for one equation together, not just an individual CNF clause."
+        ],
+        "reasoning": "An UNSAT encoding or an individual Boolean-clause MUS is not the same as counts of solutions after deleting one whole additive constraint. The inspected prefix classification concerns zero rather than one violation.",
+        "searches": [
+          "Resultary: individual equation essentiality and deletion counts for three-color Schur x+y=z on [1,14]",
+          "Primary literature: Schur constraints and single-constraint deletion/SAT MUS at first obstruction",
+          "Kisner (2013), §4.2, Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record and table surfaced, but this is the same finding; its 49 rows match the frozen normalized/named/critical columns. No separate matching indexed table was identified in the bounded check."
+        ],
+        "reasoning": "The matching copy is part of the same research record, not prior coverage from a distinct record; a previously circulated exhaustive SAT or Ramsey table remains possible.",
+        "searches": [
+          "Resultary: [1,14] three-color Schur one-violation deletion census and 49-row critical triples",
+          "Resultary matching record 2026/11/22/SCOPE-individual-equation-essentiality-at-the-first-three-color-schur--104fceb07931; critical_triples.csv"
+        ]
+      },
+      "rationale": "The threshold and the [1,13] rigidity are prior, and the seven endpoint zeros follow directly from that rigidity, so they are not counted as independent originality. The full 49-equation individual-deletion spectrum and the finite one-defect census are the distinct contribution on the sources inspected.",
+      "residual_risks": [
+        "Full text for the generalized-threshold comparator was not available in the retrieval tried.",
+        "Unindexed finite benchmark, Ramsey, or SAT data could have a grouped-constraint sensitivity table. The bounded review is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers threshold and prefix classification, and implies endpoint inessentiality",
+          "evidence": "The fixed classes on [1,13] away from 7 have 7 independently assignable to any of the three classes.",
+          "identifier_or_url": "https://andrescaicedo.wordpress.com/wp-content/uploads/2013/05/summer-kisner-thesis-final-version.pdf",
+          "material_read": "§4.2, Theorem 4.4 and conclusion/table, printed pp. 21–30 (OA offsets 39501–54922)",
+          "method": "OA thesis passage inspection",
+          "title": "Schur's Theorem and Related Topics in Ramsey Theory",
+          "trigger": "Same [1,13] and [1,14] systems"
+        },
+        {
+          "assessment": "Related minimum-count problem, not exact deletion spectrum",
+          "evidence": "Upper bounds for r≥3, with lower-bound optimality left open.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.0798",
+          "material_read": "Conclusion, pp. 13–14, OA offsets 27897–30085",
+          "method": "OA paper passage inspection",
+          "title": "On the monochromatic Schur Triples type problem",
+          "trigger": "Counts monochromatic Schur triples"
+        },
+        {
+          "assessment": "Different constraint family",
+          "evidence": "Congruences modulo n+1 and exact modular Schur number values.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.5635",
+          "material_read": "Abstract and introduction, OA offsets 2226–5210",
+          "method": "OA paper passage inspection",
+          "title": "Modular Schur numbers",
+          "trigger": "Exact Schur-type thresholds"
+        },
+        {
+          "assessment": "Limited to the generalized-threshold abstract; full-text overlap unresolved",
+          "evidence": "Stated main formula concerns x1+...+xk=x(k+1), k≥3.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X18303846",
+          "material_read": "Accessible abstract snippet only; full page returned HTTP 403",
+          "method": "Index excerpt and OA retrieval attempts",
+          "title": "3-color Schur numbers",
+          "trigger": "Closest literature-search exact three-color threshold hit"
+        },
+        {
+          "assessment": "Identical finding, not separate source of priority",
+          "evidence": "49 rows, 29 positive, 20 zero, 4050 named; examples 666 and 12.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-individual-equation-essentiality-at-the-first-three-color-schur--104fceb07931",
+          "material_read": "Indexed finding and critical_triples.csv in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Individual equation essentiality at the first three-color Schur obstruction",
+          "trigger": "Exact semantic and numerical hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof",
+        "critical_triples.csv; independent bitset reproduction",
+        "Kisner (2013), Theorem 4.4"
+      ],
+      "rationale": "The first unsatisfiable three-color Schur interval is canonical, not a chosen arbitrary cutoff. Single-equation sensitivity is an exact way to distinguish indispensable constraints from redundant constraints in that benchmark. The exact survivor multiplicities for all equations quantify how deletion changes the solution set, which a threshold, one UNSAT certificate, or one minimal core does not provide. The full census, not the already implied endpoint fact in isolation, supplies the value.",
+      "residual_risks": [
+        "Does not enumerate minimal unsatisfiable subsets, nor imply general behavior at other palettes or thresholds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

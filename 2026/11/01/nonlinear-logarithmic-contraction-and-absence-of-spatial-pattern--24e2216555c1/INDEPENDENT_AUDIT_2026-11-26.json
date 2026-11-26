@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:48.113067Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36 and 39–79",
+        "Frozen verify.py lines 6–54 and VERIFICATION.md lines 19–21; inspected, not executed"
+      ],
+      "rationale": "Reconstructed the estimate for strictly positive continuous data and the extension to nonnegative continuous data. For existence, the map x_i ↦ (b_i+Σ_j h_ij(x_j))/d_i maps the product of the componentwise production-bound intervals to itself, so Brouwer supplies an equilibrium. A zero component there forces every predecessor to be zero and every incoming edge to be activating; strong connectivity then forces the all-zero vector, contradicted by the basal or inhibitory source. In log coordinates the diagonal reaction derivative is −f_i/x_i and the off-diagonal derivative is x_j h′_ij(x_j)/x_i. Both kinetics obey h−s|h′|=h²/a; hence each row margin is −q_i/x_i. Its worst value on the box is exactly −q_i,R/U_i, since the monotone numerator terms have independent input variables and no self-term. Comparison with the equilibrium at the first log-box face gives invariance. For two solutions the log-difference diffusion is the scalar Laplacian plus transport by the sum of the two log-gradients. At a signed spatial maximum, including on the C² Neumann boundary, the gradient vanishes and the Laplacian has the favorable sign. The segment-averaged matrix retains the negative row margin by the triangle inequality. The upper Dini inequality (including tied maximizers) gives the claimed estimate; R=0 follows by uniqueness, and the estimate itself forces uniqueness among positive equilibria. Boundedness and parabolic comparison give global evolution; a basal or inhibitory input supplies a uniform positive forcing on bounded time intervals, and positivity propagates along directed paths by comparison and time integration. Restarting at positive time proves convergence and excludes nonnegative heterogeneous stationary profiles. Independently checked the example: h(2)=1/5 gives 1/50; at s=1/10 the untransformed spectral abscissa is −1/3+2/(1+2s)²=19/18.",
+      "residual_risks": [
+        "For merely continuous data, apply the extremum argument at positive times and use continuity or approximation at time zero. The rate is not uniform as the initial multiplicative box varies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aminzare–Sontag carry reaction contraction to Neumann diffusion in fixed diagonally weighted Lᵖ norms.",
+          "The frozen inhibitory example has a positive reaction Jacobian eigenvalue 19/18 at a positive state, preventing strict global contraction in any fixed norm on the full reaction orthant."
+        ],
+        "reasoning": "The fixed-norm theorem does not cover the full frozen class under its stated hypotheses; the state-dependent log metric is essential to this comparison.",
+        "searches": [
+          "arXiv:1208.0326v2, Theorem 2 and Corollary 4"
+        ]
+      },
+      "checked_sources": [
+        "Sontag arXiv:2610.24351v1",
+        "Aminzare–Sontag arXiv:1208.0326v2",
+        "Resultary records 5ddf2e7adc1e, 633be5d3f3a5 and 5f085f4d7690"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The well-mixed box optimization already has min q_i(x)/x_i; the frozen endpoint expression evaluates it by monotonicity and the absence of self-edges.",
+          "The spatial step subtracts two logarithmic equations and controls their solution-dependent transport at extrema; it is not provided by the fixed-norm smooth reaction hypothesis."
+        ],
+        "reasoning": "Credit the ODE rate framework and diffusion inheritance in fixed norms. The supported increment is their nonlinear-metric spatial analogue and consequent convergence/pattern exclusion for this class, not novelty of the componentwise optimization or of the abstract goal.",
+        "searches": [
+          "arXiv:2610.24351v1, Theorems 2–3",
+          "arXiv:1208.0326v2, Theorem 2 and Corollary 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sontag Lemma 1, equations (10)–(11) and Theorems 2–3 establish the same log-coordinate reaction machinery in the well-mixed setting.",
+          "The spatial-memory record uses a stationary relation d log U+αV=constant in a no-growth PDE–ODE."
+        ],
+        "reasoning": "The log-sup ratio is the same metric as in the ODE, and the natural spatial comparison is no-pattern/log-slope work. Neither covers pairwise contraction of the time-dependent diagonally diffusing system. Taking logs also produces nonlinear gradient terms, so the frozen PDE is not merely a coordinate relabelling of a semilinear fixed-metric theorem.",
+        "searches": [
+          "arXiv:2610.24351v1",
+          "Resultary 2026/9/17/SCOPE-log-slope-no-pattern-spatial-memory--5ddf2e7adc1e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The spatial-memory model is a different PDE–ODE and supplies a stationary exclusion condition, not the pairwise rate.",
+          "The separately inspected three-patch softmax chemotaxis and finite logistic-threshold ODE results both have different evolution laws; neither contains the frozen formula under the frozen hypotheses."
+        ],
+        "reasoning": "The natural exact analogue is a theorem catalogue rather than a numeric table. The distinct same-date records were compared by model and claim, not dismissed by date. No matching exact rate for this PDE class was identified in the inspected records.",
+        "searches": [
+          "Resultary local catalogue: logarithmic/log-slope spatial no-pattern and contraction records; snapshot 36a7204",
+          "Resultary IDs 5ddf2e7adc1e, 633be5d3f3a5, 5f085f4d7690"
+        ]
+      },
+      "rationale": "Pass the spatial, pairwise, explicit-rate theorem under the frozen hypotheses, not the prior well-mixed logarithmic metric or reaction row identity. No equivalent spatial theorem was established in the inspected literature and indexed records.",
+      "residual_risks": [
+        "Best of present knowledge; a different general theorem for nonlinear spatial metrics or an unindexed equivalent specialization could precede this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct well-mixed coverage, not spatial",
+          "evidence": "Strict pairwise ODE contraction and the equilibrium box-rate minimum use the same reaction margin.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24351",
+          "material_read": "p. 2, equation (2), Lemma 1 equation (5); p. 5, equations (10)–(11); pp. 6–7, Theorems 2–3",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "Global stability of Michaelis–Menten networks",
+          "trigger": "Identical kinetics and log coordinate"
+        },
+        {
+          "assessment": "Related broader fixed-metric result, not full-class coverage",
+          "evidence": "Contraction in a fixed diagonally weighted Lᵖ norm under a reaction measure hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.0326",
+          "material_read": "p. 8 PDE assumptions, p. 10 Theorem 2, p. 16 Corollary 4",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "Logarithmic Lipschitz norms and diffusion-induced instability",
+          "trigger": "Broad Neumann diffusion inheritance theorem"
+        },
+        {
+          "assessment": "Related, different PDE–ODE",
+          "evidence": "Stationary log relation and criterion |α|L<d(1+R²λ₁) do not give the frozen time-dependent rate.",
+          "identifier_or_url": "Resultary 2026/9/17/SCOPE-log-slope-no-pattern-spatial-memory--5ddf2e7adc1e",
+          "material_read": "RESULT.md stationary finding and hypotheses",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "Log-slope no-pattern theorem for spatial memory",
+          "trigger": "Closest indexed logarithmic spatial pattern exclusion"
+        },
+        {
+          "assessment": "Not equivalent or an in-class counterexample",
+          "evidence": "Three-patch migration with softmax chemotaxis gives homogeneous/heterogeneous coexistence in a different model.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-subcritical-bistability-on-a-three-patch-softmax-chemotaxis-path--633be5d3f3a5",
+          "material_read": "RESULT.md finding and model",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "Subcritical bistability on a three-patch softmax chemotaxis path",
+          "trigger": "Distinct contemporaneous indexed pattern result"
+        },
+        {
+          "assessment": "Different finite ODE class",
+          "evidence": "Row-stochastic logistic-threshold interactions and no spatial diffusion.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-exact-global-monostability-frontier-and-critical-logarithmic-rel--5f085f4d7690",
+          "material_read": "RESULT.md finding and model",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "Exact global monostability frontier and critical logarithmic relaxation",
+          "trigger": "Distinct contemporaneous indexed global-attraction result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and two-node example",
+        "Aminzare–Sontag Theorem 2 and Corollary 4"
+      ],
+      "rationale": "This is a global incremental stability and no-pattern theorem for a natural mixed-sign reaction class, not just a local linear-stability calculation. It works for unequal positive diffusivities without a domain-dependent gap, and gives a quantitative, directly computable bound on loss of memory of initial data. The fixed-norm obstruction makes clear why the spatial result is not a routine application of the cited contraction-inheritance theorem.",
+      "residual_risks": [
+        "No exclusion of transient spatial variation, and no extension to higher Hill exponents, cross-diffusion or non-Neumann boundaries is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

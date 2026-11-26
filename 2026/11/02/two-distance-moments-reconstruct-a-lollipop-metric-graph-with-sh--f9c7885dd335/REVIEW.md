@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The intrinsic distance law splits exactly into three geometric cases: two points on the pendant interval, two on the loop, and one on each. This produces the displayed first and second moment polynomials with no asymptotic approximation. The contrast \(H=\nu-4\mu/5\) has strictly negative derivative for every positive loop fraction because its quadratic factor is \(10(t-3/4)^2+3/8\). The mean-only fiber count follows from its independently derived critical point at \(t=4/5\). The inverse Hölder bound follows from an integrated positive derivative bound; an explicit small-loop sequence proves the exponent cannot be increased. The included standalone checker passed 22,414 exact, quadrature, and seeded numerical assertions. Scientific risk: none identified within the stated fixed-total-length, fixed-topology hypothesis; the checker is finite rather than a substitute for proof.
+## correctness
 
-**Originality — PASS, with provisional historical priority.** The 1982 work of Doyle–Graver studies *forward* mean distances on shapes; only its publisher abstract was accessible and its full text remains a material uncertainty. Wei–Walteros–Batta derive general forward moments of random network distances, so neither that general machinery nor the two forward moment integrations are claimed original. Dey–Shi–Wang use persistence distortion to compare metric graphs, which is a different invariant, while Garijo–Márquez–Silveira compute forward mean distance. Explicit searches on lollipop/tadpole distance laws, finite-moment inverse problems, stability, and nearby research abstracts did not identify a theorem implying the full fixed-length two-moment inverse, exact mean fiber sizes, and optimal square-root stability. Absence in searchable sources does not prove global priority.
+PASS
 
-**Value — PASS.** This is a complete low-order inverse classification for the simplest compact geodesic network carrying both a cycle and a dead-end branch. The mean by itself identifies neither branch ratio nor even whether two distinct positive shapes share the same observation; the second moment resolves that ambiguity. The sharp \(1/2\) inverse-conditioning boundary specifies the loss of geometric identifiability as the cycle collapses and can guide inverse travel-distance measurement on loop-and-spur networks. The scope is natural and not an arbitrary parameter slice; no extension to unknown length, additional branches, or finite-sample guarantees is claimed.
+With total length normalized to one, integrating |x−y| on the pendant square, the shorter circular distance on the loop square, and x+y on the two mixed rectangles reproduces both moment polynomials. Separate exact integration also verifies the stated collision example. The derivative of H is −t[10(t−3/4)²+3/8]/30, strictly negative on (0,1); the endpoint limits give the claimed open range. The sign change of μ′=t(5t−4)/4 distinguishes all mean fibers, excluding the unattainable shape endpoint t=1 when μ=1/4. Integration of −H′ gives H(t)−H(s)≥(s²−t²)/160 for 0<t<s<1 and ≥δ(s−t)/80 for t,s≥δ. The comparison of t=ε and s=2ε makes both input differences O(ε²), excluding any larger uniform inverse exponent. H in its range alone is not sufficient for consistency of a measured pair. The uploaded code was read, not executed; exact integrals and the collision can be replayed in review_checks.py, lollipop().
 
-**Closest literature and remaining limitations.** Doyle–Graver (1982), DOI: 10.1002/jgt.3190060410 (full text inaccessible); Dey–Shi–Wang (2015), arXiv:1503.07414 (open text inspected); Wei–Walteros–Batta (2019), DOI: 10.1002/net.21919 (author full text inspected); Garijo–Márquez–Silveira (2023), DOI: 10.1007/s00025-023-01902-w (open text inspected). An undiscovered older equivalent inverse result remains a historical-priority risk. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content supported by the comparison is fixed-length recovery from only two scalar moments, the precise first-moment ambiguity, and sharp inverse regularity. Credit the available forward network formulas and the broader full-law inverse. This is a best-of-knowledge judgment, not a historical priority guarantee.
+
+## value
+
+PASS
+
+This distinguishes the information of a mean, a low-dimensional pair of moments, and a complete distribution on a natural minimal unicyclic shape family. It gives an exact feasibility and reconstruction test and identifies where inversion necessarily becomes ill conditioned, rather than just tabulating moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_corridors.py` from the directory containing this file. Only Python 3 standard-library modules are used; there are no additional data files. The script checks the standard Prüfer-bijection census for trees with \(2\le n\le8\), exact edge-polynomial coefficient vectors, coefficientwise maximal candidates, and the five nontrivial polynomial comparisons. For the two labeled eight-node witnesses it also directly sums the exact probabilities of all configurations of operating edges at \(p=1/4\) and \(p=3/4\).
+## correctness
 
-Observed successful output:
+PASS
 
-```
-VERIFY_OK Prüfer_isomorphism_classes {2: 1, 3: 1, 4: 2, 5: 3, 6: 6, 7: 11, 8: 23}
-VERIFY_OK nontrivial_coefficient_frontier {7: {(0, 1, -1): 1}, 8: {(0, 2, -1): 1, (0, 1, 0, -1): 1, (0, -1, 2): 1, (0, -1, 1, 1): 1}}
-VERIFY_OK switching_shapes=2 thresholds=1/2,(sqrt(5)-1)/2 exact_witness_coefficients=5
-VERIFY_OK independent_reliability_enumerations= 10
-```
+A separated unordered pair at distance d gains (1-p)p^(d-1) after its path edge is upgraded. Doubling and dividing by n gives the stated increment for uniform starting patch, with no gain for diagonal pairs. PC and ECA are monotone transforms here. I generated all shapes by leaf extension from the singleton, not by replaying the packaged Prüfer verifier: deleting a leaf shows inductive exhaustiveness, and minimizing sorted rooted codes over all roots identifies exactly the unrooted isomorphism classes. I rebuilt the polynomials from unique endpoint paths. The counts for n=2..8 are 1,1,2,3,6,11,23. After deleting strictly coefficientwise dominated vectors there is one two-vector frontier at n=7, with difference p(1-p), and four at n=8, with differences up to sign p(2-p), p(1-p²), p(2p-1), and p(p²+p-1). The first two never change sign in the open interval; the other two are the stated witnesses and each crosses once. All noncandidate edges in the witnesses have a coefficientwise dominating candidate with at least one strict coefficient; the equal vectors identify the stated tied edges. This is a continuum certificate, not a probability grid.
 
-The continuum statement does not follow from finitely many evaluated probabilities. It follows because every edge polynomial is explicitly generated, dominated choices have coefficientwise smaller coefficients, and the remaining exact polynomial differences have proven fixed signs or single roots on \((0,1)\). The finite census relies on Prüfer enumeration and rooted-tree canonicalization; it does not cover larger trees, general graphs, heterogeneous areas, or dependent dispersal events. These calculations do not supply independent scientific auditing.
+## originality
+
+PASS
+
+The contribution supported here is the sharp and complete all-p bond-upgrade classification through eight tree vertices, not the objective, a fixed-p optimization algorithm, or the established ranking equivalence to edge removal. The closest inspected claims do not supply the classification.
+
+## value
+
+PASS
+
+The first obstruction to parameter-independent edge intervention is a natural extremal invariant. The complete frontier classification rules out smaller obstructions and explains both eight-vertex switch mechanisms and ties, rather than reporting selected evaluations or arbitrary small counts. Its use is as a tree reliability benchmark, not ecological field guidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

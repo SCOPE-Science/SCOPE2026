@@ -1,11 +1,21 @@
-# Scientific review: adjacent tetrahedral local squares
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete prime-field character expansion accounts for all four excluded roots and the elliptic trace; four local Hensel branches yield the precise even-valuation square-unit counts, including all finite-depth zero residues. Direct tests directly recompute 65 complete prime-power joint and marginal counts across 24 primes, and rational covariance identities. The Hasse estimate plus nine explicit small-prime counts proves positivity for all eligible primes. The displayed proof, not finite verification, establishes the infinite claims.
+## correctness
 
-**Originality — PASS, with priority limits.** The closest published all-modulus tetrahedral result classifies one-point value fibers, which do not determine aligned adjacent-square correlations. The inspected 2011 article treats low-modulus geometric sequences, while the 2011 local-power solvability criterion only determines square membership for a given value. Classical consecutive quadratic residue distributions concern two linear consecutive values, not consecutive values of a cubic figurate polynomial with simultaneous vanishing. The exact all-depth pair count and mod-eight covariance sign reversal were not found in the investigated material. An older specialized or broad theorem remains a genuine priority risk; missing accessible older sources do not prove uniqueness.
+PASS
 
-**Value — PASS.** Pairwise local-square dependence is a mathematically natural invariant not recoverable from a marginal residue histogram. A strict arithmetic sign change in the covariance between prime classes modulo eight gives a structural distinction, and exact finite-precision counts plus guaranteed positive local solution density answer concrete questions about this classical cubic figurate sequence. This is more than a normalization check or a routine restatement of one-point formulas.
+Outside {-1,0,1,2}, expanding the two quadratic-character indicators gives two cubic sums of -chi(6)a_p before exclusions, and one quadratic sum of -1 because (x-2)/(x+1) runs through all field values except 1. Exclusions subtract chi(-1)+1 from the linear terms collectively and 2chi(-2) from the quadratic term. On the four singular balls the roots are simple; at 0 and 1 the two leading-unit characters agree exactly when chi(-2)=1, and at 2 and -1 the companion values are 1 and -1. Thus below depth k each allowed even-order shell has exactly half its leading units eligible, while the central congruences count separately because zero is a square. Summing the shell densities gives 1/[2p(p+1)] per allowed ball. For integer cutoffs, keep the O_p(log(2N)) shell levels with p^{2m} <= N+1: each is a fixed number of progressions, and the omitted total expected count is O_p(1) with no noncentral observations. Reflection about x=1 cancels the cubic sum for p=3 mod 4; substitution into delta-mu^2 gives the two strict covariance signs. Hasse's bound gives positive R_p for p>=37 and direct counts cover the nine smaller primes. A separate bounded replay tested 35 full prime-power periods and both covariance formulas on its eligible primes.
 
-**Literature and limitations.** See the full cited papers on p-adic square criteria and tetrahedral modular classes, the public one-point tetrahedral fiber theorem, and the 2023 study of ordinary consecutive quadratic residues. This result is restricted to primes at least five and does not imply global integer-square solutions. Classical local methods and character identities are credited rather than called novel.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the aligned joint count with zero included at every p-adic depth and the resulting adjacent-indicator covariance reversal. The marginal count is useful context, not independently new relative to the earlier one-point fiber theorem. No inspected primary statement gives the joint theorem or implies it by direct specialization.
+
+## value
+
+PASS
+
+Adjacency dependence is a natural additional invariant of the classical tetrahedral sequence once one-point local square membership is known. The all-depth calculation answers how often both neighboring values qualify, and yields an arithmetic distinction that a marginal cannot show: the covariance changes sign between two prime classes. The result gives a useful precise local obstruction/density calculation without claiming any global ordinary-square theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

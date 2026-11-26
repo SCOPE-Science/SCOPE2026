@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:34:26.131479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–69; VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Re-derived the Gram form in an orthonormal pure-degree-two basis using sphere moments for probability area. The order-zero sector is separate for every m>=3. For m=3, writing R for the planar rotation and D=diag(1,-1), the first/second-order cross block is sqrt(AB)(I-R(3 delta))D/2: at offset zero cos(2 theta)=cos(theta), sin(2 theta)=-sin(theta), and the first sector flips sign at the other latitude. Its two singular values coincide and give the stated pairs and antiprism degeneracy. For m=4 the two rank-one second-sector ring contributions project onto (1,0) and (cos(2 delta),sin(2 delta)), giving B(1 plus or minus |cos(2 delta)|). No collision survives for m>=5. The Rayleigh bounds min(C,A,B) and max(C,A,B) yield the sharp optimization: A increases up to the low crossing C=A at t_*, C decreases from t_* to 1/3, and C<=5/16 on [1/3,1/2], B<=15/32 on [1/2,1). For conditioning, B/A strictly exceeds R_* below t_*, B/C strictly exceeds it between t_* and 1/3, A/C>=100/3 until 2/5 above 1/3, and A/B>=8/3 thereafter. At the crossing C=A<B, a nonzero triangular coupling lowers the minimum, while for four sites the smaller split eigenvalue stays above A exactly on the claimed plateau; the larger eigenvalue exceeds B off the half-step. This proves uniqueness in latitude, the separate phase equality cases, and the optimal constants. Fewer than three sites per ring cannot supply five measurements.",
+      "residual_risks": [
+        "The independent proof uses exact block identities and inequalities, not sampled evidence. No claim for unequal populations, unrestricted sites, or the full degree-two band."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "38d9014ee346 requires m>=5 explicitly in its proof and statement. Near-optimal random low-pass sampling and multilatitude polynomial interpolation treat broader but different settings."
+        ],
+        "reasoning": "Neither those broader settings nor the nonaliasing proof settle the remaining congruences at m=3,4 and the exact optimum phases.",
+        "searches": [
+          "Resultary: exact sharp conditioning on paired spherical latitude rings",
+          "arXiv:2202.12995v1",
+          "arXiv:math/0407448"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 38d9014ee346, 35d45a63d3a2, and indexed 0de67cc2f408",
+        "arXiv:1403.4661v2, 2202.12995v1, math/0407448"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "38d9014ee346 Finding, assumptions and proof: nonaliasing, common optimal height and squared condition number. 35d45a63d3a2 Finding: full-band row-Gram determinant and conditioning, including half-step staggering."
+        ],
+        "reasoning": "The nonaliasing theorem can suggest the same optimum only after the small-ring spectral comparisons, and cannot imply the triangle alignment or m=4 plateau. The coincident m=4 conditioning angle is credited as an overlap in a different objective, not as prior coverage of the spectrum.",
+        "searches": [
+          "Resultary 38d9014ee346 and 35d45a63d3a2 mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "35d45a63d3a2 optimizes two 2L-point rings for a full band and a row-space criterion; L=2 also favors half-step staggering. arXiv:1403.4661 uses multiple co-latitudes with ring sizes 2k+1."
+        ],
+        "reasoning": "Restricting the domain to the pure degree-two subspace changes the Gram spectrum and the optimization. A full-band row criterion does not even supply the lower-frame-bound objective on the five-dimensional subspace.",
+        "searches": [
+          "Resultary: paired latitude rings, pure-degree-two quadrupoles, three/four-node aliasing and frame conditioning",
+          "arXiv:1403.4661v2 §III-E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "38d9014ee346 records the matching sharp height and condition number for m>=5; 35d45a63d3a2 records full-band offset optima. Indexed 0de67cc2f408 is a six-sample two-great-circle design."
+        ],
+        "reasoning": "Matching counts and constants alone are not the exact spectrum/phase chart. The great-circle record is only an index-level comparison: the mirror was unavailable. The indexed geometry differs from parallel latitude rings.",
+        "searches": [
+          "Resultary: six-sample reconstruction of quadratic harmonics, paired ring spectra, angular offsets and exact optima"
+        ]
+      },
+      "rationale": "The nonaliasing theorem for m>=5 overlaps directly and receives no new credit. Distinct verified content is the m=3 and m=4 pure-degree-two spectra and their complete criterion-specific equality cases, including attainability of the common sharp bounds at the minimum population and the four-site lower-bound plateau.",
+      "residual_risks": [
+        "Bounded search cannot exclude an equivalent special-case design in spherical array or optimal-design literature. The great-circle comparison is partial-access only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage for m>=5; not for aliasing populations",
+          "evidence": "The restriction m>=5 is used to make the five distinct orders orthogonal.",
+          "identifier_or_url": "Resultary 2026/11/1 38d9014ee346",
+          "material_read": "Full mirrored RESULT.md, offset 0, including Finding, assumptions and proof",
+          "method": "Local Resultary mirror",
+          "title": "Sharp quadrupole conditioning on paired spherical latitude rings",
+          "trigger": "Same observation form, height and condition constant"
+        },
+        {
+          "assessment": "Related geometry and offset but different observation space and criterion",
+          "evidence": "Uses full band through L and a row-space Gram; not the pure-degree-two lower bound.",
+          "identifier_or_url": "Resultary 2026/11/1 35d45a63d3a2",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp angular-offset determinant and conditioning for two spherical latitude rings",
+          "trigger": "Same four-node stagger at L=2"
+        },
+        {
+          "assessment": "Index points to different geometry; no whole-text exclusion",
+          "evidence": "Two great circles instead of two parallel non-equatorial rings.",
+          "identifier_or_url": "Resultary 2026/11/8 0de67cc2f408",
+          "material_read": "Indexed result and frozen cross-reference only",
+          "method": "Local Resultary search; full mirror unavailable",
+          "title": "Sharp six-sample reconstruction of real quadratic spherical harmonics from two great circles",
+          "trigger": "Same signal dimension and six observations"
+        },
+        {
+          "assessment": "Different observation geometry and signal band",
+          "evidence": "Full-band transform with several co-latitudes and rings of 2k+1 points.",
+          "identifier_or_url": "https://arxiv.org/html/1403.4661v2",
+          "material_read": "Abstract/Introduction near offset 1200, Sec. III-E near offset 32000",
+          "method": "OA passage review",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Iso-latitude sampling and conditioning"
+        },
+        {
+          "assessment": "Random low-pass sampling, not exact deterministic optimization here",
+          "evidence": "Uniformly sampled points, not the paired-ring model.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.12995",
+          "material_read": "PDF Abstract, offset 0",
+          "method": "OA PDF passage",
+          "title": "Near Optimal Reconstruction of Spherical Harmonic Expansions",
+          "trigger": "Low-dimensional spherical sampling guarantees"
+        },
+        {
+          "assessment": "Distinct multilatitude polynomial interpolation setting",
+          "evidence": "Does not prescribe the two-ring quadrupole Gram spectrum in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+          "material_read": "PDF pp. 1–2, offsets 2700–5030",
+          "method": "OA PDF passages",
+          "title": "Polynomial interpolation on the unit sphere II",
+          "trigger": "Latitude-distributed interpolation sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, complete alias analysis and sharp optimization proofs",
+        "Resultary 38d9014ee346 and 35d45a63d3a2"
+      ],
+      "rationale": "The first feasible ring population can attain the best normalized conditioning and lower frame bound of all larger paired rings, but only with alignment rather than the antiprism orientation. Four sites introduce an exact tolerance interval for one recovery criterion but strict staggering for the other. These are useful sharp design decisions under a natural symmetry constraint, not a restatement of the nonaliasing optimum.",
+      "residual_risks": [
+        "No assertion about global unconstrained designs or robustness to arbitrary site perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:23:00.350975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–48",
+        "Frozen VERIFICATION.md, lines 19–32",
+        "Frozen q4_orbit_certificate.json, lines 1–357",
+        "Frozen verify_q4_automorphisms.py, lines 13–133",
+        "Frozen verify_q4_extension_dp.py, lines 12–108",
+        "Replay: python3 /workspace/branches/independent_finite_checks.py"
+      ],
+      "rationale": "Independently enumerated all bijections from the eight even to the eight odd vertices, retaining only cube edges (272 matchings). For each matching, contract its eight matched pairs and direct an arc i→j for the unmatched edge from the even endpoint of i to the odd endpoint of j. Directed simple cycles correspond bijectively to alternating cycle edge sets, with rotation removed by starting at the least pair index. Vertex masks on matched pairs suffice for packing; different cyclic orders on the same mask are kept in the edge-set count. By switching a missed cycle, and conversely decomposing a symmetric difference, a subset is forcing iff it hits every such mask. Tested all 69,632 subsets and used recursive packing on the available pair set. The 384 bit-flip/coordinate permutations exhaust cube automorphisms: once origin and unit neighbors are fixed, every vertex is determined by its distances to these five vertices. Group action gives eight orbits, with all six table entries reproduced on each and the totals (2552,7040,6080,2176,272). The packing spectrum is 4:232, 3:32, 2:8; all forcing numbers are 4. The eight packing-two matchings therefore give the claimed sharp gap of two. The frozen scripts and certificate were inspected, not executed.",
+      "residual_risks": [
+        "This is an exhaustive finite Q4 calculation only. In the source package, the second script independently checks all signatures but does not independently enumerate group actions; the first script and the audit reproduction explicitly check the orbit partition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riddle gives the even-dimensional minimum 2^n/4; the survey's Theorem 3.39 gives a singleton spectrum for Q4, citing Adams–Mahdian–Mahmoodian.",
+          "The general lower bound on forcing number by packing and the equality result in the restricted cycle-packing class are known."
+        ],
+        "reasoning": "The minimum alone does not imply universality; the singleton result does. Neither settles a strict-gap distribution outside the equality hypotheses: in particular Q4 is nonplanar, with 32 edges on 16 vertices exceeding the bipartite planar bound of 28.",
+        "searches": [
+          "Riddle DOI 10.1016/S0012-365X(01)00228-X, official abstract",
+          "Che–Chen survey, Theorems 2.8–2.9 and 3.39",
+          "Adams–Mahdian–Mahmoodian DOI 10.1016/j.disc.2002.10.002"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5cd5b9de4a8b",
+        "OEIS A005271",
+        "Che–Chen Theorems 2.8–2.9, 3.39",
+        "Riddle official abstract",
+        "Adams–Mahdian–Mahmoodian citation and survey comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing that all minima are four forces the vanishing below degree four, not the rank counts above four. The degree-seven and degree-eight coefficients need no novelty credit: leaving at most one edge unselected gives unique extension.",
+          "Two catalog orbits (sizes 24 and 48) have the same c4=4; their orbit sizes are not coefficients and do not establish that their full polynomials differ."
+        ],
+        "reasoning": "A list of minimal-sized forcing subsets can count some supersets but cannot account for new inclusion-minimal forcing sets at larger sizes or their overlaps from counts alone. Anti-forcing does not imply the number or packing of vertex-disjoint cycles. The complete higher-degree and cycle data, and hence the sharp 4-versus-2 gap attained exactly eight times, survive the comparisons.",
+        "searches": [
+          "Che–Chen Theorems 2.8–2.9 and 3.39",
+          "Resultary 5cd5b9de4a8b, ordinary forcing coefficients and anti-forcing data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5cd5b9de4a8b reports c(M), the count of size-four forcing subsets, which is exactly c4 here, and computes anti-forcing through an alternating-cycle/feedback-arc formulation.",
+          "Che–Chen states the packing-equality theorem for bipartite graphs with the cycle-packing property, including plane bipartite graphs."
+        ],
+        "reasoning": "Hitting alternating cycles by deleting matching edges tests forcing; hitting them by deleting nonmatching edges tests anti-forcing. Neither minimum feedback-arc counts nor the ordinary forcing number are a vertex-packing census on a general nonplanar cube. The number of degree-four forcing subsets is genuinely the same invariant wherever c(M) is tabulated.",
+        "searches": [
+          "Resultary: Q4 perfect matching orbit and local forcing-subset counts",
+          "Resultary 5cd5b9de4a8b, ordinary forcing and anti-forcing table",
+          "Che–Chen, Theorems 2.8–2.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005271 gives 272 for the four-cube.",
+          "The inspected 5cd5b9de4a8b table has (orbit size,c4) pairs (4,2),(8,24),(12,12),(24,4),(32,18),(48,4),(48,8),(96,10), matching every relevant frozen entry. It tabulates anti-forcing spectrum {8,10,12}, not c5,c6 or edge-set cycle counts and vertex-disjoint maxima."
+        ],
+        "reasoning": "This is substantive partial exact-table coverage. The two middle coefficient columns and both alternating-cycle columns are not covered by the matching total or the exact table inspected.",
+        "searches": [
+          "OEIS A005271, number of perfect matchings of the n-cube",
+          "Resultary 5cd5b9de4a8b, eight-orbit table",
+          "Resultary comparison for alternating-cycle census and vertex packing on the four-cube"
+        ]
+      },
+      "rationale": "The justified distinct content is the degree-five and degree-six forcing-subset census and the edge-set alternating-cycle/vertex-packing profiles, including the sharp gap and its multiplicity. The total matching count and the uniform forcing number are established. Another indexed record has exactly the eight orbit sizes and all degree-four coefficients, so those alone cannot carry originality; its anti-forcing results are not the packing table. The distinct overlapping entry's later catalog date is not an inference about priority.",
+      "residual_risks": [
+        "The original Adams–Mahdian–Mahmoodian and Riddle full texts were not obtained. Finer data could exist in those texts or unindexed literature; lack of access does not prove noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eight orbit sizes and c4 match; no equivalent c5,c6 or alternating-cycle count/packing columns",
+          "evidence": "Tabulates c(M)=number of four-edge forcing subsets and anti-forcing spectrum {8,10,12}. The date establishes no priority conclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-first-gapped-anti-forcing-spectrum-in-the-hypercube-sequence--5cd5b9de4a8b",
+          "material_read": "RESULT.md finding and orbit table near extracted offset 700",
+          "method": "Bounded local catalog mirror inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "First gapped anti-forcing spectrum in the hypercube sequence",
+          "trigger": "Identical Q4 orbit classification and ordinary forcing coefficient"
+        },
+        {
+          "assessment": "Known uniform forcing number and restricted min-max equality; not a Q4 packing table",
+          "evidence": "Theorem 3.39 reports the singleton forcing-number spectrum. Theorems 2.8–2.9 restrict equality to cycle-packing or no-K3,3-minor hypotheses, respectively.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match66/n1/match66n1_93-136.pdf",
+          "material_read": "Theorems 2.8–2.9, printed pp. 100–101, extracted offsets 15520–17415; Theorem 3.39, printed p. 122, and its bibliography entry",
+          "method": "Bounded open PDF passage inspection",
+          "title": "Forcing on Perfect Matchings — A Survey",
+          "trigger": "Exact known forcing spectrum and matching/cycle min-max comparison"
+        },
+        {
+          "assessment": "Confirms known minimum; abstract cannot decide coverage of finer counts",
+          "evidence": "Even-dimensional n-cube minimum equals 2^n/4, hence 4 in dimension four.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(01)00228-X",
+          "material_read": "Official publisher abstract; full text unavailable through the bounded routes",
+          "method": "DOI/publisher and repository access attempts",
+          "title": "The minimum forcing number for the torus and hypercube",
+          "trigger": "Earlier hypercube forcing-number results"
+        },
+        {
+          "assessment": "Uniform result checked through survey; fine-spectrum coverage of original paper unresolved",
+          "evidence": "Che–Chen identifies this paper as source [2] of Theorem 3.39.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2002.10.002",
+          "material_read": "Bibliographic source and relevant survey attribution; full text not obtained",
+          "method": "DOI and lawful repository lookup",
+          "title": "On the forced matching numbers of bipartite graphs",
+          "trigger": "Original source cited by the survey for the small-cube forcing spectrum"
+        },
+        {
+          "assessment": "Matching total is prior, not the refined classification",
+          "evidence": "The n=4 entry is 272.",
+          "identifier_or_url": "https://oeis.org/A005271",
+          "material_read": "Sequence definition and initial values, extracted offset 204",
+          "method": "Bounded public entry inspection",
+          "title": "Number of perfect matchings in n-dimensional hypercube",
+          "trigger": "Exact prior enumeration of the underlying objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–24 and 46–48",
+        "Che–Chen Theorems 2.8–2.9",
+        "Resultary 5cd5b9de4a8b"
+      ],
+      "rationale": "The four-cube is a small test case for the gap between forcing and vertex-disjoint cycle packing outside the planar setting. The exact census shows that the common forcing number hides different numbers of certificates and different packing behavior: 40 matchings have a strict gap, with a sharp gap two in one orbit. Together with the higher-degree subset counts, this gives useful benchmarks for forcing and packing methods, beyond recomputing the uniform forcing number or the known c4 column.",
+      "residual_risks": [
+        "The census does not imply growth of the gap in higher-dimensional cubes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

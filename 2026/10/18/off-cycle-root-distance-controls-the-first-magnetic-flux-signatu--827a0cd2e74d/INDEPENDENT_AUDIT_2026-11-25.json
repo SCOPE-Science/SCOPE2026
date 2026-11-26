@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:05.713221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each bridge has zero net traversal and any walk of winding q≠0 crosses every bridge on the root-to-cycle route at least once in each direction. Conservation at cycle vertices gives the same signed net traversal q on each cycle edge. The length is therefore at least 2d+m|q| and has parity mq; any excess from cancelling traversals is even. Equality permits only the prescribed path out/back and |q| consecutive oriented circuits, giving T² C^|q| per orientation. Zero winding implies even length, so there is no lower-order imaginary amplitude to pair with a first-winding term. For m even the real amplitude first sees flux at L=m+2d and the constant amplitude doubles its coefficient on squaring. For m odd only even winding enters the real amplitude, first at K=2m+2d. The odd amplitude starts at L, and its square starts at 2L>K since d≥1. These facts give the signs from (−i)^L or (−i)^K, the factor of four from reversal and squaring, and the next even Taylor order as remainder. Gauge equivalence of −H with H at flux Φ+π for odd m proves exact half-periodicity, since −H conjugates the diagonal return amplitude. At the blind fluxes the contrast is identically zero; the orders refer to generic contrast. Replay: RESULT.md lines 17–34, or count bridge and cycle traversals as above. The frozen scripts/notes were inspected, not executed; the checker's printed 'lengths' summarize total vertex counts (3–13), not the cycle-length range (3–8), and its d=0 cases are separate controls.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luppi expands rooted moments into gauge-invariant closed walks and explicitly makes the geometrical scale conditional on noncancellation. The other cited primary passages address swift chiral walks, directed-cycle transfer, or integral-Hamiltonian questions."
+        ],
+        "reasoning": "A general moment expansion does not pick the first parity-allowed contribution to the squared return amplitude or compare 2m+2d with 2m+4d. The minimum-length double winding and the strict order separation are the extra deductions.",
+        "searches": [
+          "Luppi, Section IV A, Proposition 3 and Appendix D",
+          "Frigerio–Paris arXiv:2207.05168; Chaves–Chagas–Coutinho arXiv:2203.13857; Coutinho et al. arXiv:2208.08971"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Luppi arXiv:2608.12519",
+        "arXiv:2208.08971, arXiv:2207.05168, arXiv:2203.13857",
+        "Resultary records 4858fb8038b0, b32785cd4eb3, 4e59b6ed7525, 1a830d153d21"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On odd cycles the prior half-period effect is real overlap. At d=0 the single-winding square and the double-winding real term occur at the same order; for positive d they occur at different orders."
+        ],
+        "reasoning": "The extension of the gauge symmetry alone is not the novelty. Replacing an on-cycle length with a root-delayed one in a cycle theorem does not yield the probability coefficient; for odd cycles it would miss the disappearance of the single-winding square at leading order.",
+        "searches": [
+          "Luppi, Sections IV and VI B, p. 9 half-flux symmetry, Appendix D",
+          "Resultary 4e59b6ed7525 directed-cycle Schatten moment comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luppi Proposition 4 is for return-based Kolmogorov inconsistency on a simple flux-threaded cycle.",
+          "Same-day Resultary 4858fb8038b0 concerns a three-frequency trigonometric polynomial; b32785cd4eb3 concerns node2vec return on a tree.",
+          "Later Resultary 4e59b6ed7525 concerns even Schatten moments of weighted directed cycles."
+        ],
+        "reasoning": "The observable here is a probability at one off-cycle root. Neither a spectral trace/Schatten moment nor a measurement inconsistency or discrete random-walk return law identifies its leading coefficient. The tree path product T² and root distance are absent from the pure-cycle formulations.",
+        "searches": [
+          "Resultary magnetic flux / first phase-sensitive moment and first-return searches",
+          "Luppi arXiv:2608.12519, Proposition 4 and equations (92)–(93)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available same-day phase-moment and first-return entries have different invariants; the latter even uses a tree without a flux cycle. The closest later directed-cycle trace law has orders n and 2n, with no root distance."
+        ],
+        "reasoning": "No identified exact inventory gives the off-cycle entries; the theorem ranges over all positive edge weights and tree attachments and is not a claim to tabulated finite test cases.",
+        "searches": [
+          "Resultary exact magnetic onset/first-return hits 4858fb8038b0, b32785cd4eb3, 4e59b6ed7525, 1a830d153d21",
+          "Luppi, cycle onset equations (92)–(93)"
+        ]
+      },
+      "rationale": "Credit the prior rooted closed-walk framework, cycle-rooted parity effect, and on-cycle half-flux symmetry to Luppi. The distinct result is the weighted off-cycle delay and leading probability coefficient, especially the strictly earlier double-winding real contribution for odd cycles. The most relevant actual prior passages and indexed analogues do not supply it.",
+      "residual_risks": [
+        "An older equivalent rooted Taylor law in magnetic spectral graph theory cannot be excluded by bounded discovery. The closest previously inaccessible primary text was accessible here; the reviewed passages support a narrower prior claim, not historical certainty.",
+        "The single broad discovery search yielded no usable results; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior tools and pure-cycle effects, not coverage of the distinct off-cycle coefficient law.",
+          "evidence": "Proposition 3 and Appendix D give closed-walk moments and allow cancellations; Proposition 4 gives an exact cycle result for the return-based Kolmogorov inconsistency; odd-cycle π-periodicity is already noted.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.12519",
+          "material_read": "Section IV A Proposition 3 (PDF pp. 5–6), p. 9, Section VI B Proposition 4 and equations (92)–(93) (pp. 10–11), Appendix D (p. 15)",
+          "method": "OA full text, relevant pages and clauses",
+          "title": "Flux control of measurement back-action and Leggett–Garg correlations in chiral quantum walks",
+          "trigger": "Closest primary overlap on magnetic cycle parity and generally rooted walk moments"
+        },
+        {
+          "assessment": "Analogous moment structure only.",
+          "evidence": "Phase-independent lower moments and first cosine profile for three Fourier frequencies are used to optimize amplitudes, without magnetic graph Hamiltonians or rooted returns.",
+          "identifier_or_url": "2026/10/18/4858fb8038b0",
+          "material_read": "RESULT.md statement via local mirror",
+          "method": "Resultary search and mirrored record",
+          "title": "Optimal amplitude allocation for first resonant Fourier phase moments",
+          "trigger": "Same-day first phase-sensitive moment and cosine law"
+        },
+        {
+          "assessment": "Distinct observable and graph family; also dated later.",
+          "evidence": "First phase-sensitive even Schatten moments have orders n and 2n depending on parity, not a rooted Taylor coefficient or off-cycle distance.",
+          "identifier_or_url": "2026/10/26/4e59b6ed7525",
+          "material_read": "Available indexed statement and comparison",
+          "method": "Resultary catalog",
+          "title": "First flux-sensitive Schatten moments of weighted directed cycles",
+          "trigger": "Closest indexed parity/flux onset analogy"
+        },
+        {
+          "assessment": "Related context only in material examined.",
+          "evidence": "These comparisons address mixing/transfer, phase-engineered swiftness, and directed-cycle zero transfer rather than an exact off-cycle onset for a single root.",
+          "identifier_or_url": "arXiv:2208.08971; arXiv:2207.05168; arXiv:2203.13857",
+          "material_read": "Abstracts and selected passages on integral-Hamiltonian exact methods, swift walks, and directed cycle transfer",
+          "method": "OA PDFs, bounded passages",
+          "title": "Irrational quantum walks; Swift chiral quantum walks; Why and how to add direction to a quantum walk",
+          "trigger": "Cited methods and possible flux-controlled walk overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An off-cycle local return measurement is a natural probe of where magnetic flux first becomes observable. The theorem gives its exact distance and weight dependence for arbitrary attached trees. In the odd case it identifies a genuine change in the leading interference mechanism relative to a cycle root, rather than just a shift of the on-cycle order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

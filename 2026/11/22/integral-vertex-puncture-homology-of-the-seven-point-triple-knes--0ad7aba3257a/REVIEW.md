@@ -1,15 +1,21 @@
-# Scientific review: vertex-puncture homology of the seven-point triple-Kneser complex
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Complete recursive face enumeration gives exactly \(277,713\) nonempty link faces and \(1,000,971\) deletion faces. Explicit disjoint matchings cover all but \(11\) and \(27\) critical faces respectively; exhaustive depth-first verification of all directed Hasse incidences finds no cycle. Standard integral discrete Morse theory then yields free homology precisely in the claimed dimensions; no unverified claim of a sphere-wedge follows. The pair exact sequence verifies the primitive inclusions. The verifier is replayed from the final embedded source.
+## correctness
 
-## Originality
-**PASS, best-knowledge with residual priority risk.** A source-by-source comparison separates ambient rational homology, ambient integral torsion-freeness, and whole-complex symmetric-group representations from the two **vertex-local** integral homology calculations and inclusion map. Feng's full mathematical paper, including its definitions, spectral-sequence decomposition, main theorem, and open questions, was inspected; it does not report this deleted-one-triple link/deletion calculation. The published ambient integral and symmetry findings were found and their theorem-level records compared, but their full repository source files were inaccessible; they are not declared whole-document noncovering. An unindexed or inaccessible stronger local result remains a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The finite puncture profile is a motivated topological invariant of the first mixed-degree triple-Kneser independence complex, not an arbitrary induced slice: vertex transitivity makes every one-vertex erasure equivalent, and the link controls its homological effect. The result gives torsion-free integral groups for two complexes each of hundreds of thousands of faces and identifies the primitive sources of the ambient ranks \(29=23+6\) and \(7=3+4\). No infinite-family or new ambient theorem is needed for this local invariant to be useful.
+Relabeling triples takes any chosen vertex to the lexicographically first one. Deletion removes only that triple, while link removes it and its four disjoint neighbors. Independent include/exclude recursion on available triples enumerated 277,713 and 1,000,971 nonempty faces, respectively. Applying each prescribed pivot to the active set by deleting the intersection with its bit-flipped translate gave critical dimensions {0:1,5:6,8:4} and {0:1,6:23,9:3}. The matching is acyclic without relying on the recorded DFS: in any directed cycle up-arrows are isolated because matching pairs are disjoint, so equal numbers of up/down arrows force alternation. Take the earliest pivot used by its up-arrows. A down-arrow must remove that pivot to restore membership around the cycle; its two incident faces were both free in the earliest pivot pass since each is in a cycle match at that pass or later. They would have been matched then, a contradiction. The Morse CW complexes have no adjacent critical dimensions and one zero-cell, so the integral differentials vanish and the stated reduced groups are exact. Mayer–Vietoris for deletion union the cone on the link gives the two stated short exact sequences of abelian groups; both split because the link groups in degrees 5 and 8 are free. No assertion about higher attaching maps is required.
 
-## Limits and comparison risks
-The homotopy type is not classified; absence of adjacent Morse cell dimensions alone cannot eliminate possible higher attaching maps. Results on larger triple-Kneser parameters are not inferred. The full texts of two highly relevant indexed repository records could not be inspected, so equivalent unpublished/indexed local descriptions remain possible. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established contributions here are the two vertex-local integral homology profiles and their consequence for inclusion. Whole-complex rational ranks, integral torsion-free ranks, even the prior ambient homotopy splitting, and an analogous puncture theorem on a different graph do not supply the two local profiles. The exact indexed local match is the frozen item itself.
+
+## value
+
+PASS
+
+Deleting one triple is intrinsic up to symmetry, not an arbitrary restriction. The two local integral profiles isolate exactly how much of each ambient lattice survives without the triple and how much comes from its link, while excluding hidden local torsion. This gives useful data for vertex-filtration and attaching questions in the first mixed-degree triple-Kneser case even without a family extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

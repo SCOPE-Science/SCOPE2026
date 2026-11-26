@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:16:42.576807Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the Hilbert–Schmidt orthonormal Weyl basis, each column of the orbit analysis operator is a distinct conjugation character of length N in observation space multiplied by a normalized Weyl coefficient. The coefficient magnitude is |A_g|/(N sqrt(N)), so the singular values are |A_g|/sqrt(N). The N−1 nonidentity diagonal Weyl coefficients vanish for a flat modulus. For nonzero shift and nontrivial character the two exceptional summands give (conj(z)−1)+(z−1)chi(a), of magnitude |z−1||z−conj(chi(a))|. Every nonidentity E-th root is realized by character restriction to an element of order E. For t=arg(z) in [0,pi], the interval [0,2pi/E] gives at most 4 sin²(pi/(2E)) using the first nonidentity root, for E>2. Beyond this interval the closest nonidentity root is within angle pi/E; hence the bound is 4 sin(t/2) sin(pi/(2E)). It peaks uniquely at pi when E is odd, and for even E it is strictly below the claimed optimum before pi−pi/E. After that midpoint, the root −1 gives the strictly decreasing bound 2 sin(t). For E=2 this same expression gives the unique optimizer pi/2 in the chosen half-circle. Equality is reached: the root 1, if also realized by a nontrivial character at a nonzero shift, does not lower the optimum; the scalar branch is at least N−4 for N≥8 and exceeds the minimum also at N=6,7. Thus no additional zeros remain, the largest unnormalized magnitude is N by Cauchy–Schwarz, and the claimed rank and ratio follow. The companion finite checker was inspected; its scan is ancillary to the analytic proof. This optimizes one-defect phases on the maximal visible subspace, not all flat-modulus windows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 11 cyclic rank discriminant applies to all complex defect values, so it does cover the unit-circle cyclic rank calculation. The two unrestricted impulse results optimize full liftings in cyclic groups, one for primes and the other for even orders."
+        ],
+        "reasoning": "The former gives rank but not a least-singular-value optimization; a full-lifting optimum under complex amplitude freedom does not imply the sharp phase-only optimum for the visible subspace and does not cover noncyclic groups.",
+        "searches": [
+          "Resultary 4ad1eba7465a, c114096c73ba and 3fe9346753af, Findings",
+          "arXiv:2106.01509v1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.05800v1",
+        "arXiv:2106.01509v1",
+        "Resultary 4ad1eba7465a",
+        "Resultary c114096c73ba",
+        "Resultary 3fe9346753af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime unrestricted optimum uses additive impulses ±i sqrt(p); the even unrestricted optimum uses additive impulses −sqrt(N) exp(±pi i/(2N)). Neither gives a unit-modulus window value at the defect in the claimed range."
+        ],
+        "reasoning": "Neither minimizing an objective that requires full rank nor allowing amplitude freedom solves a rank-deficient visible-space maximum over unit phases. The root-spacing maximization and exponent law are the supported additions.",
+        "searches": [
+          "arXiv:1503.05800v1 Theorems 2.2–2.3",
+          "arXiv:2106.01509v1 Theorem 1",
+          "Resultary c114096c73ba proof excerpt and 3fe9346753af Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For full allowed rank the visible-lifting condition number is equivalent to maximizing the least non-forced ambiguity magnitude, since the largest is fixed. General frame bounds are in Bojarovska–Flinth; zero-count rank for cyclic Gabor projectors is explicit in Goldberger–Kang–Okoudjou."
+        ],
+        "reasoning": "A spectrum formula for a prescribed window is not the sharp minimum over phases. A rank discriminant does not resolve the relative distances away from the forbidden phases.",
+        "searches": [
+          "Resultary: one-defect phase-only Gabor rank and visible conditioning; exact rank discriminant; impulse conditioning",
+          "arXiv:1503.05800v1 Theorems 2.2–2.3",
+          "arXiv:2106.01509v1 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cyclic rank formula is covered and exact numerical conditioning formulas exist for unrestricted cyclic impulses. None of these inspected statements gives the pair of exponent-indexed visible-space minima and optimal phases for flat modulus."
+        ],
+        "reasoning": "The theorem is an all-group formula, rather than a claim about the isolated examples in its numerical checker.",
+        "searches": [
+          "Resultary rank and conditioning records 4ad1eba7465a, c114096c73ba, 3fe9346753af",
+          "arXiv:2106.01509v1 Theorem 1"
+        ]
+      },
+      "rationale": "The distinct theorem is the exact phase-constrained visible-space optimum and its phase classification for every finite abelian exponent. The cyclic rank component substantially overlaps prior work and the Weyl spectral identity is prior machinery. The retrieved full-rank amplitude-unconstrained impulse optima are different problems; even equality of some parameters would not transfer their optimizing values to this restricted, rank-deficient objective. No stronger statement covering the optimum was found in the material compared.",
+      "residual_risks": [
+        "A focused additional primary-literature lookup was unavailable; the retrieved passages support the comparisons, not an exhaustive priority assertion.",
+        "An unlocated phase-constrained cyclic or finite-abelian theorem could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies general cyclic lifting bounds, not the phase optimization in the compared statements",
+          "evidence": [
+            "The squared frame bounds are N times the extremal squared Weyl self-correlation magnitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Theorems 2.2 and 2.3, pp. 4–5; offsets near 14700 and 19000",
+          "method": "OA PDF passages",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Weyl spectral method and conditioning"
+        },
+        {
+          "assessment": "Prior cyclic spectral and rank criterion, not exact phase optimization",
+          "evidence": [
+            "Rank equals the number of nonzero Weyl self-correlations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.01509",
+          "material_read": "Theorem 1, p. 4, offsets 11200–14000",
+          "method": "OA PDF passage",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Rank-deficient Gabor projectors"
+        },
+        {
+          "assessment": "Covers cyclic unit-modulus rank as a special case; the inspected claim is rank, not optimal conditioning",
+          "evidence": [
+            "Exact projector-span rank of (z,1,…,1) for cyclic n≥3 and arbitrary complex z."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-rank-discriminant-for-one-coordinate-cyclic-gabor-measurem--4ad1eba7465a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact rank discriminant for one-coordinate cyclic Gabor measurements",
+          "trigger": "Same discrete window on the cyclic subclass"
+        },
+        {
+          "assessment": "Different feasible set and full-rank objective",
+          "evidence": [
+            "For arbitrary additive impulse on a prime cycle, the optimum is sqrt(p)/sin(pi/p) at additive impulses ±i sqrt(p)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-optimal-complex-impulse-in-prime-cyclic-gabor-tomography-a-sharp--c114096c73ba",
+          "material_read": "RESULT.md Finding and proof excerpt around offset 2500",
+          "method": "Resultary search and local mirror",
+          "title": "Optimal complex impulse in prime-cyclic Gabor tomography: a sharp conditioning barrier",
+          "trigger": "Exact one-impulse optimizer for a cyclic subclass"
+        },
+        {
+          "assessment": "Later, different amplitude-unrestricted full-lifting optimum",
+          "evidence": [
+            "For even cyclic N≥6 its optimum is (sqrt(N)−cos(pi/(2N)))/sin(pi/(2N))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-even-order-conditioning-for-one-impulse-cyclic-gabor-tomog--3fe9346753af",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp even-order conditioning for one-impulse cyclic Gabor tomography",
+          "trigger": "Even-order sharp one-impulse result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Constant modulus imposes a fixed invisible diagonal space, so maximal rank alone leaves a meaningful stability question for what can be observed. The exact sharp ratio and equality phases solve that constrained design problem and show why groups of equal size but different exponents have different optima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:15:54.679274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zero-based pair formula and both asymptotic extrema are correct. For n≥4 each factor has a 1 at an odd global position: its at least two odd positions complement consecutive preimage letters, which cannot both be 1. This rules out opposite-parity collisions. Decimation gives preimage length floor(n/2) at even starts and ceil(n/2) at odd starts. Since R is nondecreasing, the first repeat is strictly earlier in the even-start class, where both indices double. The base pairs (2,0), (3,2), (4,0) follow by literal comparison. Iterating to base 2 or 3 gives the stated dyadic partition and subsequential ratios; the ratio is never below 1 or above 3/2.",
+      "replay": "Own bounded reproduction: node /workspace/reproductions/frozen-cross-checks.mjs (period section). A valuation-generated prefix and literal string comparisons agree for 332 lengths, including first-mate changes at 2048 and 3072. This is not the proof for all lengths. The packaged verification notes report a separate finite check including 8192.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "§6, Props. 6.2–6.3 give explicit envelope occurrence positions and relate general factor positions to envelope positions."
+        ],
+        "reasoning": "The broader occurrence theory contains data relevant to R and Q: minimize the second occurrence and read the first occurrence of its factor, subtracting one from each one-based position. The dyadic closed form was not established from those propositions in this review; the direct Resultary match suffices for the R comparison.",
+        "searches": [
+          "Huang–Zhang arXiv:1408.5495 (doubling-sequence factor occurrence positions)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8 entry 02f7855ec641",
+        "arXiv:1507.08206",
+        "arXiv:1408.5495",
+        "arXiv:1606.05150",
+        "OEIS A366462",
+        "OEIS A367184"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof reduces the first repeat to the even-start class and gives the length 1–3 starting indices.",
+          "Each equality in that class is exactly a preimage equality; before R(floor(n/2)) the mate is unique."
+        ],
+        "reasoning": "Thus the repeated factor's earlier mate lifts from q to 2q under the same proof, with base witnesses 0, 2, 0. The broad occurrence formulas are an additional material relation, not needed to show this implication.",
+        "searches": [
+          "Same Resultary RESULT.md, Finding and parity-decimation proof",
+          "Huang–Zhang arXiv:1408.5495, Props. 6.2–6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nicholson–Rampersad pp. 1–2 defines inrc exactly as the number of distinct factors before the first repeat; it gives other example words, not period doubling.",
+          "Huang–Wen §§1–2, Theorems 2.3–2.4 classify factor return-word sequences rather than the minimum second-occurrence position."
+        ],
+        "reasoning": "R is inrc, not the shortest prefix covering the factor language and not a longest collision-free interval with movable origin. Return-word data describe gaps for an individual factor.",
+        "searches": [
+          "Nicholson–Rampersad arXiv:1507.08206 (initial non-repetitive complexity)",
+          "Huang–Wen arXiv:1606.05150 (envelope and return words)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-exact-initial-non-repetitive-complexity-of-the-period-doubling-w--02f7855ec641, mirrored RESULT.md Finding: identical R and limiting extrema.",
+          "A367184 says the initial position attains the global maximum for powers of two; A366462 gives that length. Together they imply R at dyadic n, after subtracting n−1."
+        ],
+        "reasoning": "Resultary overlaps at all lengths for R. The OEIS entries are not equivalent at nondyadic lengths: the global length is 7 at n=3, attained first at start 1, while the initial length is 6. Neither entry supplies Q.",
+        "searches": [
+          "Resultary catalog: period-doubling first repeat, inrc and mate",
+          "OEIS A366462 and A367184"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary entry states the entire R formula, recurrence, and both limiting extrema under the same convention. This establishes substantive overlap, not relative priority. The indexed entry does not state the general Q formula; the same parity proof, however, preserves the index of the earlier partner under decimation, so Q is obtained by carrying the known collision witnesses through the recurrence. No distinct substantive remainder is established.",
+      "residual_risks": [
+        "Path dates alone do not establish which development came first.",
+        "Whether the earlier envelope-position theory directly simplifies to the same dyadic extrema was not settled. A separate focused lookup was unavailable; this is not evidence of no such result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct R overlap; proof also carries the mate",
+          "evidence": "Same base R values and floor-halving recurrence; same cut at 3·2^(k−1) and ratio extrema 1 and 3/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-initial-non-repetitive-complexity-of-the-period-doubling-w--02f7855ec641/RESULT.md",
+          "material_read": "Finding and decimation argument in RESULT.md, mirror revision 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Exact initial non-repetitive complexity of the period-doubling word",
+          "trigger": "Exact object and statistic in catalog"
+        },
+        {
+          "assessment": "Same invariant; stated formulas treat other words",
+          "evidence": "The introduction identifies Thue–Morse, Fibonacci, and Tribonacci; definition starts at the initial prefix.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08206",
+          "material_read": "pp. 1–2; definition and introduction, offsets 2850 and 4776",
+          "method": "OA PDF passage inspection",
+          "title": "Initial non-repetitive complexity of infinite words",
+          "trigger": "Same named invariant"
+        },
+        {
+          "assessment": "Broader data which could yield both indices",
+          "evidence": "L(ω,p) enumerates individual occurrences via envelope positions, not a stated minimum over ω.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.5495",
+          "material_read": "Abstract and §6 Props. 6.2–6.3, pp. 10–11, offsets 32963 and 34400",
+          "method": "OA PDF passage inspection",
+          "title": "Envelope Word and Gap Sequence in Doubling Sequence",
+          "trigger": "Exact occurrence positions for the same word"
+        },
+        {
+          "assessment": "Relevant return-word structure, not explicit first-collision minimization",
+          "evidence": "Determines the return-word sequences for factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.05150",
+          "material_read": "Introduction, §2 Theorems 2.3–2.4, offset 8628",
+          "method": "OA PDF passage inspection",
+          "title": "Envelope Words and Return Words Sequences in the Period-doubling Sequence",
+          "trigger": "Return-word reformulation"
+        },
+        {
+          "assessment": "Partial exact overlap at powers of two; not an all-length prefix table",
+          "evidence": "A367184 identifies start 0 for n a power of two; for n=3 the recorded start is 1.",
+          "identifier_or_url": "https://oeis.org/A366462 ; https://oeis.org/A367184",
+          "material_read": "Definitions, terms and dyadic-attainment comment",
+          "method": "Public entry inspection",
+          "title": "OEIS longest unique-factor windows and their starting positions",
+          "trigger": "Exact tables in the frozen bibliography"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The prefix invariant and its nondyadic law are worthwhile mathematics in themselves, but the full law and oscillation are already covered in the indexed comparison. The added mate is the earlier witness propagated by the same decimation with the same two nontrivial small lengths. No nonroutine independent result about first occurrences remains to justify a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

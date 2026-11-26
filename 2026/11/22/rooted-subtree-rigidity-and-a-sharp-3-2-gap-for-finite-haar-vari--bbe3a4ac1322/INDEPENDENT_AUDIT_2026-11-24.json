@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:50:54.782636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–44",
+        "Frozen VERIFICATION.md and check_haar_tree_variation.py (inspected, not executed)"
+      ],
+      "rationale": "On the aligned dyadic path of length 2^d, an ancestor-closed mask spans, with the constant, exactly the block-constant functions of its leaf partition. Block averaging takes a unit monotone step to a monotone vector in [0,1], and decomposition into steps gives contractivity. A step between leaves is fixed for every nonempty closed mask, and the empty mask maps to constants. If I is retained and its parent J is absent, the midpoint step of I has a retained detail -1/2,+1/2 on the two halves of I, zero on the sibling. All other retained nonzero details are ancestors constant on J. The midpoint and sibling edges of J contribute 1 and 1/2, independently of all other edges. For a root-child singleton mask, the one internal jump and one exterior interface give V(h_I)=3/sqrt(|I|), and its largest step coefficient is sqrt(|I|)/2; the step decomposition proves the matching upper bound. At d=1 there are no nonclosed masks.",
+      "residual_risks": [
+        "The all-depth result rests on the mathematical proof. Frozen exact mask exhaustion is only through depth four, with the separate isolated-child witness checked through depth nine."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bechler et al. prove bounded greedy approximation in dimension >=2 and give a one-dimensional greedy counterexample; the mask is chosen from the input.",
+          "Cohen et al. use dyadic cube averaging and quadtree block approximants; Sauer–Stock use coefficient subsets to approximate TV."
+        ],
+        "reasoning": "Averaging accounts for the easy contraction direction, not its converse for arbitrary masks. An unstable greedy family answers an existence question, not the universal lower bound for all nonclosed masks.",
+        "searches": [
+          "Bechler et al. BV3.pdf, abstract and §7.1",
+          "Cohen–DeVore–Petrushev–Xu BV9707.pdf, dyadic averages",
+          "Sauer–Stock arXiv:2208.05389, Haar and total variation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bbe3a4ac1322 (self), 8271a7c110ab, 8b0a2f2d1e98, b74da966563f",
+        "Bechler et al. §7.1; Steidl et al. §5; Mrázek–Weickert–Steidl §5.3; Cohen et al. p. 591; Sauer–Stock pp. 2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier nonlinear result reduces the two-input soft-threshold modulus to max_S ||P_S||_V. The same-day logarithmic result also uses arbitrary coefficient-suppression chamber Jacobians.",
+          "The present proof uses a retained node with a particular absent immediate parent to prove a bound on that individual mask, then a root-child mask to attain the lower envelope."
+        ],
+        "reasoning": "A formula for a maximum over masks does not imply an infimum over nonclosed masks or identify the contractive masks; the individual lower bound is extra information, not a specialization of the global maximum.",
+        "searches": [
+          "Resultary 8271a7c110ab, Finding and maximum-mask reduction",
+          "Resultary 8b0a2f2d1e98, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steidl et al. §5 treats nonlinear soft shrinkage and TV diffusion on hierarchical pixel groups; Mrázek et al. §5.3 uses variation diminishing for sign changes under a shift-invariant rule.",
+          "The Resultary one-level reflection uses signed multipliers, not fixed 0/1 coefficient masks. The finite first-difference quotient represents this norm as the maximum absolute column sum on projected unit steps."
+        ],
+        "reasoning": "A sign-change or reflection bound does not classify contraction of each suppression projector for the sum of absolute adjacent differences. The step-norm formulation reveals a direct equivalence, but the known sign or shrinkage results do not establish the missing-parent witness.",
+        "searches": [
+          "Haar/BV mask and variation-diminishing comparisons, including Steidl et al. preprint 94 and Mrázek–Weickert–Steidl 2005",
+          "Resultary b74da966563f, signed one-level Haar reflection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title/statement match bbe3a4ac1322 is the frozen record itself.",
+          "Distinct same-day 8b0a2f2d1e98, offset 7720, says a 'related fixed-mask criterion' decides contractivity, but gives no formula or identification there and distinguishes it from a maximizing modulus."
+        ],
+        "reasoning": "The acknowledgement is real overlap in topic, but the inspected comparator does not give exact distinct coverage of the ancestor-closure criterion plus sharp uniform gap; same date proves no order.",
+        "searches": [
+          "Resultary fixed-mask Haar ancestor-closure and exact 3/2 variation gap",
+          "Exact passages of 8b0a2f2d1e98 and 8271a7c110ab"
+        ]
+      },
+      "rationale": "The distinct surviving claim is a classification of every fixed mask, with a uniform sharp gap. Published block-averaging and nonlinear Haar results share tools but do not establish that all nonclosed masks are expansive by at least 3/2. The strongest same-day comparator acknowledges a related criterion without stating the actual criterion or gap; its date and reference do not establish a distinct covering theorem.",
+      "residual_risks": [
+        "The referent of the same-day comparator's unnamed fixed-mask criterion was not confirmed; the exact uniform gap is not stated there.",
+        "Durand–Froment DOI full text was not obtained. Unindexed signal-processing literature and historical priority are not resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known greedy instability, not an arbitrary fixed-mask classification",
+          "evidence": [
+            "The dimension-one example gives greedy partial sums of norm at least N/3, not an iff for each mask."
+          ],
+          "identifier_or_url": "https://people.math.sc.edu/devore/publications/BV3.pdf",
+          "material_read": "Preprint abstract p. 1 and §7.1 p. 14",
+          "method": "Original OA PDF passages",
+          "title": "Greedy Wavelet Projections are Bounded on BV",
+          "trigger": "Closest earlier negative one-dimensional Haar/BV result"
+        },
+        {
+          "assessment": "Strong shared reduction, no pointwise mask criterion or 3/2 gap established there",
+          "evidence": [
+            "Nonlinear global two-input modulus is the maximum of the suppression norms."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-nine-state-computation-and-logarithmic-path-variation-inst--8271a7c110ab",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 8200",
+          "method": "Resultary and local mirror",
+          "title": "Exact nine-state computation and logarithmic path variation instability",
+          "trigger": "Prior exact result for the identical finite Haar norm family"
+        },
+        {
+          "assessment": "Explicitly mentions a related fixed-mask criterion, does not state its hypotheses, criterion or uniform 3/2 gap in that passage",
+          "evidence": [
+            "Its own theorem is a logarithmic global modulus; it describes the distinction from individual-mask contractivity explicitly."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmic-two-input-bv-instability-of-dyadic-haar-soft-thresho--8b0a2f2d1e98",
+          "material_read": "RESULT.md Finding, and prior-work passage at offsets 7720–8942",
+          "method": "Resultary and local mirror",
+          "title": "Logarithmic two-input BV instability of dyadic Haar soft thresholding",
+          "trigger": "Distinct same-day plausible fixed-mask overlap"
+        },
+        {
+          "assessment": "Nonlinear hierarchical procedures, not the finite fixed selection theorem",
+          "evidence": [
+            "Relates soft shrinkage to TV-based diffusion of hierarchical two-pixel groups."
+          ],
+          "identifier_or_url": "https://www.mia.uni-saarland.de/Publications/steidl-pp94.pdf",
+          "material_read": "§5 pp. 27–28",
+          "method": "Original OA PDF passages",
+          "title": "On the Equivalence of Soft Wavelet Shrinkage, Total Variation Diffusion, Total Variation Regularization, and SIDEs",
+          "trigger": "Earlier Haar/TV exact equivalence work"
+        },
+        {
+          "assessment": "Precedent for dyadic averages and tree leaves; no converse for arbitrary masks in the inspected material",
+          "evidence": [
+            "Quadtree leaves define block-constant approximants from dyadic-cube averages."
+          ],
+          "identifier_or_url": "https://people.math.sc.edu/pencho/Publications/BV9707.pdf",
+          "material_read": "Printed p. 591, PDF p. 5",
+          "method": "Original OA PDF passage",
+          "title": "Nonlinear Approximation and the Space BV(R²)",
+          "trigger": "Prior dyadic averaging contractivity background"
+        },
+        {
+          "assessment": "Approximate TV regularizer rather than a fixed-projector norm theorem in the inspected passage",
+          "evidence": [
+            "Renormalized coefficient subsets approximate TV."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05389",
+          "material_read": "pp. 2–3",
+          "method": "Original OA PDF passages",
+          "title": "Haar Wavelets, Gradients and Approximate Total Variation Regularization",
+          "trigger": "Primary search result relating Haar coefficient selection and TV"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and proof steps 1–4",
+        "Prior global-modulus comparators 8271a7c110ab and 8b0a2f2d1e98"
+      ],
+      "rationale": "Fixed mask selection is a natural linear model for the Haar/TV stability question. Knowing exactly which masks can safely be used matters beyond knowing that globally bad examples exist; a dimension-free quantitative obstruction for every forbidden mask, witnessed by a single explicit step for that mask, is a substantive structural result.",
+      "residual_risks": [
+        "No exact norm is given for all nonclosed masks, nor any assertion about nonbinary paths, weights, cycles or nonlinear thresholding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

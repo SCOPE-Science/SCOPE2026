@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:42.497028Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–78",
+        "VERIFICATION.md",
+        "verify.py and verification_counts.txt (static inspection; fresh adjacency enumeration described above)"
+      ],
+      "rationale": "A monochromatic petal is absorbing, and a mixed one locks precisely when the current hub equals one endpoint. After one update every remaining mixed petal uses the other two colors. If the hub moved, the second update locks them all, leaving an idempotent hub update; if it stayed, petals are unchanged at the second update, and any new hub color was a unique winner which subsequent locks only strengthen. I independently enumerated all labelled 3-color initial states for m=1 through 5 by building the graph and, at each vertex, counting old neighbor colors and retaining the old color on a nonunique maximum. Iterate until the first unchanged step and bin by prior updates. The tuples for times 0–3 were (9,18,0,0), (45,126,72,0), (153,1062,972,0), (789,10926,7968,0), (3849,81918,87540,3840), with no unsettled states. The m=5,6,7 witnesses check by direct petal scores, and adding one constant petal of each color adds the same 2 to every hub score, covering every larger size. With hub 0 the stable petal types give counts (2k,2a+t,2b+t); incumbent retention is exactly the stated union of conditions, including ties that exclude the hub. Under uniform draws over the five admissible ordered petal types, a=b is a zero-sum event with increment law (1/5,3/5,1/5) on (-1,0,1), so the span-one local limit gives sqrt(5/(4 pi m)). The hub-leading sector outside this event is bounded by Hoeffding at exp(-m/50), using mean -2/5 and range length 4. For i.i.d. initialization, the good event A>B+D and A>C+D puts 0 strictly ahead even if every residual mixed petal subsequently locks for the initial challenger. Each inequality fails with probability at most exp(-2m/81) by its summands' mean 2/9 and range length 2. On the good event T is at most 1 if the first hub does not move and exactly 2 if it does; independent color symmetry and the O(m^-1/2) initial tie probability give the limits since T=0 is exponentially rare.",
+      "residual_risks": [
+        "The replay covers the exceptional sizes and m=5 only. The all-size bounds and limits use the analytic argument, not extrapolation. The final-hub result permits a temporary change."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted multicolor proposition assumes no ties. Di Ianni treats a neutral third opinion, a minimum support for an alternative, or a strongly anti-conservative switching rule. The threshold rule does not in general compare candidate support to incumbent support as plurality does."
+        ],
+        "reasoning": "A generic period bound under no ties or an alternative decision rule gives neither the sharp windmill cutoff under incumbent retention nor the enumerative and random-time results.",
+        "searches": [
+          "Mossel–Neeman–Tamuz arXiv:1207.0893, Tamuz–Tessler arXiv:1307.4035 and Di Ianni doi:10.3390/appliedmath5040147"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6882fd08f78e, 6dd9f02f5859, a74ff3318934, 1492223696ea, 920fa65cb1d5",
+        "arXiv:1207.0893v1; arXiv:1307.4035v1 abstract",
+        "doi:10.3390/appliedmath5040147"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The no-tie proposition bounds recurrent periods, not a first-entry time; binary friendship dynamics has a two-update maximum while the same-graph cyclic-successor model has nontrivial cycles."
+        ],
+        "reasoning": "No theorem inspected yields the ternary cutoff or multinomial law by specializing a parameter; exponential and square-root factors here depend on the exact five admissible ordered petals.",
+        "searches": [
+          "Compare arXiv:1207.0893v1 Proposition 6.6 and Resultary 6882fd08f78e/6dd9f02f5859 with the frozen rule and sharp boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary result uses the same graph and a two-color tie-retaining update, while the three-color same-graph record uses threshold-two cyclic successor and admits genuine period three."
+        ],
+        "reasoning": "The binary restriction does not test a mixed petal avoiding the hub, and cyclic successor does not even share the absence of nonfixed cycles. Neither is an encoding of this three-state map.",
+        "searches": [
+          "Resultary: deterministic three-color plurality/majority on friendship graphs and triangle windmills; 6882fd08f78e and 6dd9f02f5859",
+          "arXiv:1207.0893v1 §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tables identified have either a different palette or update on friendship graphs, or the same ternary update on wheels, complements of cycles or a matching-deleted clique."
+        ],
+        "reasoning": "A cycle around a hub or dense neighbor set does not decompose into the independent two-neighbor locking petals used here. No exact duplicate was found in the bounded catalogue check.",
+        "searches": [
+          "Local Resultary: friendship-graph census; ternary tie-retaining plurality equilibrium and entry-time tables; 6882fd08f78e, 6dd9f02f5859, a74ff3318934, 1492223696ea, 920fa65cb1d5"
+        ]
+      },
+      "rationale": "The nearest exact graph comparison is the binary friendship-graph census; the nearest exact three-state graph comparison has a cyclic successor rule. Neither gives the closed ternary windmill dynamics with ties retained, its sharp exceptional boundary, or its equilibrium and random-time laws. Same-rule nearby records address different neighborhood geometries. Generic concentration and local-limit tools are not claimed new.",
+      "residual_risks": [
+        "Focused primary search and passage-level comparisons are bounded; earlier equivalent tie-retaining windmill work under another name is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different tie assumption and output",
+          "evidence": [
+            "No tied votes; eventual cycle length at most two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.0893",
+          "material_read": "§6.2 Proposition 6.6, pp. 18–19 PDF offset 62248",
+          "method": "OA primary PDF",
+          "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+          "trigger": "General multicolor plurality theorem"
+        },
+        {
+          "assessment": "Different update models in relevant passages",
+          "evidence": [
+            "Neutral opinion on ties, threshold for replacing the incumbent, and a separate anti-conservative rule; objectives are prediction complexity and recurrent bounds."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/appliedmath5040147",
+          "material_read": "Introduction and comparison of definitions for §§3–5, pp. 3–4, offsets 11400 and 16750",
+          "method": "Lawful alternate publisher PDF https://mdpi-res.com/d_attachment/appliedmath/appliedmath-05-00147/article_deploy/appliedmath-05-00147.pdf",
+          "title": "Three Majority-Based Deterministic Dynamics for Three Opinions",
+          "trigger": "Plausible general synchronous three-opinion coverage"
+        },
+        {
+          "assessment": "Related but not implication",
+          "evidence": [
+            "The former is binary majority; the latter has a cyclic successor and period-three attractors."
+          ],
+          "identifier_or_url": "Resultary 6882fd08f78e and 6dd9f02f5859",
+          "material_read": "Both Findings and update conventions",
+          "method": "Local mirrored text",
+          "title": "Exact attraction basins and rapid stabilization of majority dynamics on friendship graphs; Three-step collapse and the exact oscillation basin of threshold-two cyclic dynamics on friendship graphs",
+          "trigger": "Strongest same-graph candidates"
+        },
+        {
+          "assessment": "Different graphs and enumeration mechanisms",
+          "evidence": [
+            "The hub-and-rim graph is a join with a cycle, not a join with a disjoint matching; the other graphs are dense."
+          ],
+          "identifier_or_url": "Resultary a74ff3318934, 1492223696ea, 920fa65cb1d5",
+          "material_read": "Findings and graph definitions",
+          "method": "Local mirrored text",
+          "title": "Parity-locked three-opinion plurality equilibria on wheel graphs; hard-core minority defect and matching-deleted clique plurality records",
+          "trigger": "Same-rule catalogue entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Resultary 6882fd08f78e and 6dd9f02f5859"
+      ],
+      "rationale": "The windmill is a natural shared-hub family on which binary and ternary rules behave differently. The theorem identifies the first size giving an additional transient round and explains why those worst cases become rare. The tie sector determines a specific square-root correction to the equilibrium entropy, not just an exponential rate or a small-instance count.",
+      "residual_risks": [
+        "No claim of a sharp exponent for the random upper bound or individual basin sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

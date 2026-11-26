@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of exact finite enumeration
+# Independent mathematical audit
 
-The checkable claim concerns only the two twelve-vertex graphs defined in `RESULT.md`. Execute `sh verify.sh` with C++17 and Python 3 to compile, enumerate and compare the counters. The expected final stdout marker is `COALITION_PAIR_VERIFY_OK`.
+## correctness
 
-The restricted-growth-string routine visits \(4,213,597\) unique unordered partitions per graph and tests every block. The different least-unassigned-subset routine visits the same mathematical partition family using missed-neighborhood masks. Both independently return cuboctahedral counts by number of blocks \((24,10128,194733,582874,378855,47900,762)\) for \(k=2,\ldots,8\), and truncated tetrahedral counts \((171,24846,258625,441384,153715,7422,93)\). All other coefficients vanish. Exhaustive degree-eight partition lists have \(762\) and \(93\) entries, and the explicit generated graph automorphisms group these into \(23\) and \(7\) orbits, respectively.
+PASS
 
-`orbit_cubo.json` and `orbit_trunc.json` contain complete orbit representatives, block-size profiles, and the number of optimum configurations in each orbit. `opt_cubo.txt` and `opt_trunc.txt` contain all degree-eight certificates as twelve-bit masks. The finite proof does not depend on external numerical databases. This is self-review and is not an independent scholarly audit; historical publication priority and generalization remain open.
+With no universal vertices, every block must be non-dominating and have at least one other block with dominating union; partners need not be exclusive. The missed-set characterization is exact by the intersection law for complements. I inspected the supplied enumerators and certificates, but did not execute uploaded code. The independent Python replay /workspace/checks/5.py orders blocks by (cardinality, mask), uses direct intersection with every closed neighborhood to test domination, and checks the entire partition traversal against the Stirling counts for every k. Each graph visits all 4,213,597 partitions; the independent coefficient vectors for k=2,...,8 are (24,10128,194733,582874,378855,47900,762) and (171,24846,258625,441384,153715,7422,93), with zeros elsewhere. Totals are 1215276 and 886256. Every winning partition agrees with the frozen list after vertex renumbering. Counting profiles in these complete lists gives (420,180,162) and (12,81) in the stated order. Independently extending partial adjacency-preserving bijections over all unused images gives the full automorphism groups of orders 48 and 24; their actions yield 23 and 7 orbits, agreeing on every orbit representative up to action, size and profile with the frozen JSON. Replay: python3 /workspace/checks/5.py cubo <frozen directory> and similarly trunc, logs in /workspace/checks/5-cubo.txt and 5-trunc.txt. The packaged shell marker alone does not check every archived coefficient or profile; the independent comparisons and exhaustive counts are decisive. The result is finite and does not imply an all-graphs theorem.
+
+## originality
+
+PASS
+
+No distinct covering claim was established for the complete labelled spectra or the optimum orbit census. Compare the edge-coalition alias literally, and distinguish the strongest nearby results on the scalar maximum, a different graph family, or the same graph with a different invariant.
+
+## value
+
+PASS
+
+These are the two canonical Archimedean graphs on twelve vertices, not two arbitrary graph samples. The full labelled invariant and symmetry classification distinguish their coalition combinatorics despite equal maximum eight, and provide a reproducible benchmark for cubic coalition and cube edge-coalition computations beyond a scalar lookup. The precise counts and profiles, not just reproducing a maximum, are useful finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

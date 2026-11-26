@@ -1,19 +1,21 @@
-# Review: centered-clock Schatten expansion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Dirichlet polynomial eigenspaces give eigenvalues \(\prod_{j<k}(n-j)/(n+A+j)\). Centering at \(N=n+A/2\) makes their logarithms a sum of odd powers; its first term is \(q_k=k(k+A-1)\), its third-order coefficient is the stated \(D_k\), and the remaining terms are nonnegative. For \(k\le n/2\), the fifth-order tail is bounded by \(C(k+1)^6/N^4\), which gives the fourth-order corrected remainder. For higher indices, the global bound by \(e^{-tq_k}\) supplies Gaussian tails, uniform Schatten estimates, and the exact first-order comparison for arbitrary fixed additive clocks. Finite exact Dirichlet-moment cross-checks and scalar residual tests corroborate constants; they are not substitutes for the analytic proof. All parameter and temporal boundaries appear explicitly in the finding.
+PASS
 
-## Originality
+Dirichlet posterior moments have leading term beta^alpha/(n+A)^(rising k), and the multinomial factorial moments give n^(falling k) times x^alpha. Selfadjointness then diagonalizes the operator on the exact-degree spaces, with zero above degree n. For c=A/2 the centered factors are (N-j-c)/(N+j+c); twice the linear sum in the arctanh expansion is q_k and twice the cubic sum divided by three is D_k. The residual of -N log(lambda) is nonnegative, and for k<=n/2 it is bounded by C(k+1)^6/N^4. The centered Loewner bound follows before taking any limit. Taylor's inequality for e^(-v), v>=0, and the Gaussian decay of e^(-t q_k) give a summable O(N^-4) bound after the correction, including the complementary frequency tail. Direct summation of the p-th powers with the degree multiplicities works for p<1, and a supremum works for p=infinity. The limiting defect is nonzero since D_1=A^3/12. For the shifted clock one can apply the uniform centered estimate at tau=t(1+(s-c)/N) and differentiate H_tau in each ideal on a compact positive time interval; q_k^2 exp(-delta q_k/2) bounds the Taylor residual. This proves the asserted first-order limit also for shifts below c and shows uniqueness. The d=2 numerical example agrees with direct evaluation of the cubic-sum formula.
 
-**PASS for the strict multivariate/general-time extension, with historical-priority qualification.** An earlier exact theorem for the unweighted interval already proves the optimal integer \(n+1\) clock, its positive trace-class second-order limit and uniqueness among integer offsets at \(t=1\). Those conclusions are not claimed to be original here. The genuinely broader claims address all simplex dimensions, arbitrary positive Dirichlet vectors, arbitrary positive times, every quasi-Schatten exponent, and an explicit fourth-order corrected remainder. The 2019 Altomare semigroup treatment gives approximation of the Jacobi diffusion by Durrmeyer iterates; the 2010 Abel–Berdysheva analysis supplies polynomial eigenstructures and fixed-operator expansions. Gonska–Heilmann–Raşa (2009) studies related semigroup approximation rates on \(C^2\) rather than all-Schatten sharp error coefficients. The closest published trace theorem for Dirichlet Bernstein–Durrmeyer operators studies fixed positive spectral exponents and growing-rank trace asymptotics, which does not imply the spectral powers growing linearly with \(n\). The multivariate all-ideal expansion and its general shape-dependent fourth-order remainder were not identified in the available full-text and index comparisons. An uninspected relevant older full text may conceal a related clock acceleration, so priority is qualified, not absolute.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS as a nontrivial extension to Dirichlet simplices and full trace-ideal asymptotics.** The question is motivated by an established Jacobi-diffusion semigroup approximation problem. The theorem upgrades qualitative/first-order convergence to a sharp and uniform second-order trace-ideal limit with an actual fourth-order corrected remainder. The finite-rank scheme is simultaneously controlled in every \(\mathcal S_p\) quasi-norm, including the trace norm that measures total spectral error. The positive ordering and the uniqueness of the additive time correction supply a structural, reusable characterization rather than only a reparameterization of the one-dimensional statement: new spectral multiplicities and arbitrary Dirichlet shapes enter every leading trace-ideal coefficient.
+The unweighted time-one interval trace-class leading term and fixed integer clock choice are already covered and are credited. The distinct supported claim is the centered, uniformly corrected O(N^-4) estimate for increasing powers at positive diffusion times on arbitrary fixed Dirichlet simplices in every stated operator ideal, with the resulting sharp limit and real-shift comparison. The inspected literature and indexed comparators do not establish that full extension.
 
-## Sources and limitations
+## value
 
-The principal antecedents include the previously derived one-dimensional unweighted time-one trace-class theorem (item 3ac17f17-da22-4174-b315-06b64e0ec105), Altomare (2019), Abel–Berdysheva (2010), and Gonska–Heilmann–Raşa (2009). Positive time and fixed dimension are essential for the all-Schatten statement; integer powers are available automatically when the centered clock is integral. The checker is finite and non-independent. The research index and accessible primary texts support originality only to the stated qualified degree.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural approximation of the Dirichlet diffusion by accelerated averaging, centering removes the first-order defect and leaves an explicit operator correction with a uniform fourth-order remainder in positive time windows. Trace class and smaller p quantify error across all modes, not just on individual functions, and the one-sided bound and positive leading constant explain when an additive clock can or cannot accelerate the approximation. This is a quantitative approximation statement beyond the already known interval special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

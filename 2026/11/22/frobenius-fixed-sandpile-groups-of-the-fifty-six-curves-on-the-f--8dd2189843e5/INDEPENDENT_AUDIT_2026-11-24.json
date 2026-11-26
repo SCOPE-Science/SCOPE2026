@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:16:55.377597Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30, VERIFICATION.md, curve_geometry.py and verify_arithmetic_critical_group.py (inspected, not executed)",
+        "Independent replay: python /workspace/evidence/reconstruct.py 5; /workspace/evidence/5.txt",
+        "Kresch–Tschinkel arXiv:math/0402373, geometry of the two lifts over a bitangent"
+      ],
+      "rationale": "The coordinate bitangents cancel two fourth powers; on the other lines z=A x+B y with A^4=B^4=1, the quartic restricts to 2(x^2+(B/A)xy+(B/A)^2y^2)^2 by expansion. Over every odd characteristic these give 28 distinct lines and two distinct rational lifts each. Each lift has anticanonical degree one and self-intersection -1 by adjunction, exhausting the 56 exceptional curves of a geometric degree-two del Pezzo. Two distinct bitangents cannot meet on the smooth branch curve: even intersection multiplicity there would make both the unique tangent. Thus their lifted intersection is transverse precisely when the quadratic roots agree at their meeting point. This equality criterion specializes uniformly: in the cyclotomic ring the two values are equal or opposite, and after every odd-characteristic specialization neither vanishes. A same-line pair meets with intersection number two by intersecting its anticanonical sum with one lift, so gives no edge. Substitution of zeta^q gives the four automorphisms, with delta=zeta-zeta^3 fixed for residues 1,7 and negated for 3,5; odd residues are their own inverse. Independently I reconstructed the labeled graph and actions over two split fields (17 and 41) as checks of these algebraic rules, found 756 edges and the exact reduced determinant 2^128*3^35*7^26, then used exact Hermite indices modulo successive prime powers with a successive-difference divisor basis. This gives the full primary spectra and confirms all four rows and the (56,0,0,8) fixed-vertex counts for involutions having the cycle types stated. The reduced determinant independently supplies prime support, including ruling out any omitted primes. The equivariant perfect pairing justifies passing from coinvariant factors to abstract fixed groups. The frozen support script computes the prime-local spectra but does not itself recompute the claimed independent reduced determinant; the replay here checks that determinant separately.",
+      "residual_risks": [
+        "The finite-field samples check the construction but are not the proof of odd-characteristic stability. The graph is intersection-one only and no assertion is made for characteristic two or arbitrary twists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "deda5c2ad673 gives fixed and anti-fixed groups of the 29-regular, 812-edge intersection-multiplicity multigraph under Geiser.",
+          "arXiv:math/0402373 and arXiv:0905.3025 give exceptional-curve, incidence and symmetry data. The Cambridge chapter excerpt identifies Gosset vertices with the 56 curves."
+        ],
+        "reasoning": "If G is the Geiser matching permutation, the multigraph Laplacian is the intersection-one Laplacian plus 2(I-G); its fixed/anti-fixed groups for G do not classify this different Laplacian under the Frobenius permutations of the bitangent and lift labels. The geometry and spectrum references do not give a broader equivariant Smith calculation in the passages inspected.",
+        "searches": [
+          "Targeted Gosset/56-curve search in primary literature",
+          "Resultary semantic lookup for fixed and anti-fixed groups on degree-two del Pezzo configurations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5a6ca5940707,deda5c2ad673,5f951a26e2a5,9ea1bb3e4325",
+        "arXiv:math/0402373,0905.3025,1510.04621",
+        "Cambridge chapter DOI 10.1017/CBO9781139207003.010, public summary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5f951a26e2a5 treats geometric Frobenius at q=3 on the Picard lattice and gives the curve and bitangent cycle data; Kresch–Tschinkel treat the curve labels and their Galois action."
+        ],
+        "reasoning": "These antecedents supply essential inputs but do not evaluate the relevant finite-group endomorphisms: the abstract Smith group has no specified Frobenius, and the Picard representation and splitting data do not give the integral graph quotient. The two actions with identical vertex cycles but different 7-primary ranks demonstrate why those data alone are insufficient.",
+        "searches": [
+          "Statement comparison 5a6ca5940707, deda5c2ad673, 5f951a26e2a5 and arXiv:math/0402373"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5a6ca5940707 expressly distinguishes its intersection-one graph from the disjointness Gosset graph; it is the latter's distance-two graph.",
+          "deda5c2ad673 instead uses intersection multiplicities and the Geiser involution."
+        ],
+        "reasoning": "An integral coinvariant table for the distance-two graph with the same action is equivalent by graph monodromy duality. The ordinary Gosset graph, the intersection-multiplicity graph, and the Picard lattice are not equivalent substitutes. A match for 28 transpositions alone does not identify the involution on the critical group.",
+        "searches": [
+          "Resultary semantic lookup for intersection-one 56-curve sandpile groups and Geiser/Frobenius fixed groups",
+          "\"Gosset graph\" OR \"56 exceptional curves\" \"critical group\" sandpile Frobenius Smith automorphism Fermat del Pezzo"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5a6ca5940707 Finding gives exactly C2^14+C4^7+C28^5+C336^14+C3024+C6048^6; these are the identity row's factors after primary recombination.",
+          "9ea1bb3e4325 Finding has mod-eight fixed-group data for a different 48-line graph."
+        ],
+        "reasoning": "The exact ordinary group overlap is real and excluded from the originality assessment of the nonsplit refinements. A shared modulus and calendar date with the 48-line table do not constitute overlapping nonidentity groups on the same graph.",
+        "searches": [
+          "Resultary lookup for an exact distance-two Gosset or Fermat double-plane fixed critical-group table"
+        ]
+      },
+      "rationale": "The same-day ordinary critical-group result gives exactly the identity row; it is credited as definite overlapping coverage of that row with no inferred same-day chronology. The new scope under review is the nonsplit fixed-group table. The closest equivariant result has a different Laplacian and involution. No inspected prior claim gives the remaining three rows or a stronger equivariant statement implying them.",
+      "residual_risks": [
+        "The bounded published search and chapter excerpt do not exclude a specialized equivariant sandpile result under distance-two, Weyl-action, or bitangent terminology. Same-day chronology is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identity row fully covered; not the action-specific rows",
+          "evidence": [
+            "Lists C2^14+C4^7+C28^5+C336^14+C3024+C6048^6 and distinguishes the graph from the usual Gosset disjointness graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-intersection-one-graph-of-the-56--5a6ca5940707",
+          "material_read": "RESULT.md Finding and prior-work passage, offsets 0 and 5412",
+          "method": "Local mirror",
+          "title": "Integral critical group of the intersection-one graph of the 56 exceptional curves",
+          "trigger": "Exact same graph and ordinary Smith group"
+        },
+        {
+          "assessment": "Different graph and action",
+          "evidence": [
+            "Uses 812 edges with multiplicity-two Geiser pairs and calculates fixed and anti-fixed groups for Geiser."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-geiser-fixed-and-geiser-anti-fixed-groups-of-the-full-del-pezzo--deda5c2ad673",
+          "material_read": "RESULT.md Finding and comparison passage, offsets 0 and 5415",
+          "method": "Local mirror",
+          "title": "Geiser-fixed and Geiser-anti-fixed groups of the full del Pezzo intersection graph",
+          "trigger": "Same curve set, strongest apparent equivariant coverage"
+        },
+        {
+          "assessment": "Picard action and curve permutation, not graph critical group",
+          "evidence": [
+            "Gives the q=3 Picard action and 2^28 curve cycle type."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-four-orthogonal-frobenius-reflections-on-the-characteristic-thre--5f951a26e2a5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Four orthogonal Frobenius reflections on the characteristic-three Fermat double plane",
+          "trigger": "Exact q=3 geometric Frobenius"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "Concerns 48 lines on the quartic surface, not 56 exceptional curves of the double plane."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-fixed-critical-groups-of-the-48-line-fermat-quartic-co--9ea1bb3e4325",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Frobenius-fixed critical groups of the 48-line Fermat quartic configuration",
+          "trigger": "Related mod-eight graph table"
+        },
+        {
+          "assessment": "Direct geometric antecedent, not a graph-group calculation",
+          "evidence": [
+            "Describes two lifts over each of 28 bitangents, pair intersection 2, and intersections 0 or 1 between other curves, with Galois data."
+          ],
+          "identifier_or_url": "arXiv:math/0402373",
+          "material_read": "PDF pp. 3–5, offsets 10742,13860",
+          "method": "Bounded OA text",
+          "title": "On the arithmetic of del Pezzo surfaces of degree 2",
+          "trigger": "Primary 56-curve incidence and Galois source"
+        },
+        {
+          "assessment": "Geometric identification",
+          "evidence": [
+            "Places del Pezzo line classes at Gosset-polytope vertices."
+          ],
+          "identifier_or_url": "arXiv:0905.3025",
+          "material_read": "PDF p. 2, offset 2475",
+          "method": "Bounded OA text",
+          "title": "Gosset Polytopes in Picard groups of del Pezzo Surfaces",
+          "trigger": "Gosset and Picard reformulation"
+        },
+        {
+          "assessment": "Curve families, not graph-divisor classes",
+          "evidence": [
+            "Lists the curve families totaling 56 exceptional curves."
+          ],
+          "identifier_or_url": "arXiv:1510.04621",
+          "material_read": "PDF p. 2, offset 5207",
+          "method": "Bounded OA text",
+          "title": "Full degree two del Pezzo surfaces over small finite fields",
+          "trigger": "Primary 56-curve enumeration and field geometry"
+        },
+        {
+          "assessment": "Summary confirms the configuration; no conclusion about uninspected full text",
+          "evidence": [
+            "Identifies Gosset-graph vertices with the 56 lines on a degree-two del Pezzo and describes the chapter's focus on Steiner complexes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/CBO9781139207003.010",
+          "material_read": "Public chapter summary, offset 10780; full chapter not accessed",
+          "method": "Bounded public webpage",
+          "title": "The 28 bitangents, Combinatorics of Minuscule Representations, Chapter 9",
+          "trigger": "Closest primary literature search result on the exact curve set and its Gosset graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; independent four-case reproduction; 5a6ca5940707 baseline and 5f951a26e2a5 curve-cycle comparison"
+      ],
+      "rationale": "This is the natural intersection-one graph of the entire exceptional-curve configuration. Beyond the already available full group, the refinement sharply separates two naturally arising Frobenius symmetries having the same splitting data: the 7-primary fixed ranks are 14 and 20 for residues three and five. The four-case answer provides integral information for all odd finite fields without confusing cycle types with finite-group descent or claiming surface Picard torsion.",
+      "residual_risks": [
+        "The usefulness established is for this arithmetic graph invariant, not a general theorem on del Pezzo surfaces or on all Weyl-group symmetries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

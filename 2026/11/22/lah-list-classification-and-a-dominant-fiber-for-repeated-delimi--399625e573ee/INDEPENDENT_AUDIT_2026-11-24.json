@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:54:51.964627Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; supplied scripts not executed",
+        "/workspace/branches/e655d62d-06a2-4ce7-9b2f-cc608ba7c660/independent_replay.py and replay.log"
+      ],
+      "rationale": "Subtracting outgoing or incoming edge counts from unigram counts recovers the last and first letters. Each singleton then has forced neighbors when present; since the observed trail comes from a word containing a, these forced chains recover the prefix, suffix, and unordered distinct nonempty returns at a. Conversely these lists along with r determine all edges, including r−1−k copies of aa. Combining the prefix and suffix into one ordered list with a distinguished separator gives exactly the sets of k+1 nonempty lists on s+1 atoms. Counting permutations and cuts then dividing by (k+1)! proves the Lah count. Ordering the distinct returns and indistinguishable empty gaps gives (r−1)!/(r−1−k)!. The largest stratum index is s and includes one profile, so missing it at r=s proves sharp saturation for s≥1. Dividing its fiber size by (r+s)!/r! gives the stated product and expansion; s=0 and r=1 obey the same formulas. At r=s+1 and s≥1 the k=s profile is not the unique largest fiber, because k=s−1 ties; this is allowed by the finding and does not affect fixed-s asymptotic dominance. Independent direct enumeration passed 14 cases, including saturation boundaries and coinciding sizes. For (r,s)=(4,3) the merged histogram was 1:24, 3:36, 6:13, with 210 words in 73 profiles.",
+      "residual_risks": [
+        "Only indexed linear words with one repeated symbol type and labeled singleton letters are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matrix-tree/BEST expression specializes to the falling factorial: after removal of the forced singleton paths the unforced choices simply order the distinguishable returns and the identical aa loops. It counts a fixed fiber, not the feasible profiles by k."
+        ],
+        "reasoning": "The individual-class formula is covered as a specialization, as the frozen text acknowledges. The distinguished-list bijection enumerating the whole feasible quotient under fixed content supplies the distinct result.",
+        "searches": [
+          "Karhumäki–Puzynina–Rao–Whiteland, arXiv:1605.03319 §4, Prop. 4.7",
+          "Resultary homopolymer-free ternary 2-Abelian capacity and two-gram double-occurrence records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.5104",
+        "arXiv:1605.03319",
+        "OEIS A000262",
+        "Four distinct Resultary comparisons listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed transition-multigraph cardinality and a count of unrestricted sets of lists cannot be composed without identifying which list sets encode the actual readouts, including the distinguished prefix/suffix list and the k≤r−1 feasibility condition. Scattered two-decks do not preserve the same observations."
+        ],
+        "reasoning": "The probability is a direct consequence of the classified k=s stratum and should not be credited as a separate independent advance; in context it exposes concentration of the actual adjacent-readout quotient.",
+        "searches": [
+          "arXiv:1605.03319 Proposition 4.7 pp.7–8",
+          "OEIS A000262 definition",
+          "Resultary scattered two-decks with distinct markers and contiguous 2-Abelian reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This observation is exactly full 2-Abelian equivalence on the specified content. Its transitions are directed multigraphs, and a fiber consists of their trails with the determined endpoints. Different Resultary analogues concern scattered pairs, homopolymer-free ternary words or double-occurrence restrictions."
+        ],
+        "reasoning": "The Euler-trail formulation is equivalent for a fixed profile and is prior; classifying which transition graphs occur for this content is a separate quotient problem.",
+        "searches": [
+          "arXiv:1301.5104 p.2 (k-Abelian equivalence)",
+          "arXiv:1605.03319 Proposition 4.7 (Euler-trail/class cardinality)",
+          "Resultary adjacent-two-gram reconstruction with singleton or repeated labels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000262 counts unordered sets of ordered lists and tabulates the exact 1,3,13,73,501,4051,37633 saturated values, indexed by s+1. The Lah strata are classical. The exact assigned-record hit is not independent priority evidence."
+        ],
+        "reasoning": "The table already covers the saturated sequence; it does not identify the word-readout fibers, the r-dependent truncation, or the dominant profile.",
+        "searches": [
+          "OEIS A000262",
+          "Resultary family and dominant-fiber queries"
+        ]
+      },
+      "rationale": "Credit general individual-class enumeration and the known Lah numbers and saturated sequence to prior work. The distinct content is the full fixed-content quotient classification, not a new Euler-trail formula, a new combinatorial sequence, or an assertion that this saturated number is unknown. No equivalent classified source language was found in the inspected materials.",
+      "residual_risks": [
+        "An unindexed specialized whole-quotient enumeration may exist; empty or unavailable external queries are not evidence against it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent definition, not fixed-content enumeration",
+          "evidence": [
+            "Equality of counts of every nonempty factor of length at most k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "p.2, extracted offset 5000",
+          "method": "OA passage inspection",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Same definition of readout"
+        },
+        {
+          "assessment": "Prior coverage of individual class size; no feasible-profile count in compared theorem",
+          "evidence": [
+            "Matrix-tree/BEST enumeration for a given class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.03319",
+          "material_read": "Proposition 4.7 p.7, offsets 21700–24263",
+          "method": "OA passage inspection",
+          "title": "On cardinalities of k-Abelian equivalence classes",
+          "trigger": "General theorem for the same individual fibers"
+        },
+        {
+          "assessment": "Exact saturated count already known",
+          "evidence": [
+            "Partitions into ordered lists, without a delimiter count or adjacent-factor interpretation."
+          ],
+          "identifier_or_url": "https://oeis.org/A000262",
+          "material_read": "Definition and initial values, offset 0",
+          "method": "Public sequence-page comparison",
+          "title": "Number of sets of lists",
+          "trigger": "Exact saturated numerical match"
+        },
+        {
+          "assessment": "Non-equivalent observations and content",
+          "evidence": [
+            "Scattered length-two subsequences, two repeated symbols; adjacent pairs are explicitly outside the statement."
+          ],
+          "identifier_or_url": "Resultary:2026/10/18/SCOPE-exact-two-deck-spectra-and-fiber-multiplicities-with-distinct-ma--26e221758afc",
+          "material_read": "RESULT.md, offsets 359 and 2102",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-deck spectra and fiber multiplicities with distinct marker letters",
+          "trigger": "Same singleton-marker counting motif"
+        },
+        {
+          "assessment": "Different constrained word family",
+          "evidence": [
+            "Homopolymer-free ternary words rather than one repeated delimiter and arbitrary labeled singletons."
+          ],
+          "identifier_or_url": "Resultary:2026/10/26/SCOPE-exact-2-abelian-reconstruction-capacity-of-homopolymer-free-tern--9d4b0696d935",
+          "material_read": "RESULT.md, offsets 0 and 1800",
+          "method": "Local Resultary mirror",
+          "title": "Exact 2-Abelian reconstruction capacity of homopolymer-free ternary words",
+          "trigger": "Same readout and capacity notion"
+        },
+        {
+          "assessment": "Different content and invariant",
+          "evidence": [
+            "Each label occurs twice, and the conclusion concerns singleton fibers."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-global-two-gram-singleton-boundary-for-nonnesting-double-occurre--548b5bcbdca0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Global two-gram singleton boundary for nonnesting double-occurrence words",
+          "trigger": "Nearby contiguous readout and fiber theorem"
+        },
+        {
+          "assessment": "Different content and combinatorial constraints",
+          "evidence": [
+            "Labeled noncrossing double-occurrence source language; no inference of priority based on same day."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-global-two-gram-rigidity-of-labeled-noncrossing-double-occurrenc--f558cb3257d9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Global two-gram rigidity of labeled noncrossing double-occurrence words",
+          "trigger": "Nearby contiguous readout and spectrum count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen quotient bijection and exact probability",
+        "General class-size theorem and known A000262 sequence for scope of new utility"
+      ],
+      "rationale": "This is a natural fixed-content reconstruction model where the observation forgets ordering only at one repeated letter. The complete quotient and fiber-size spectrum, including degenerate and saturation regimes, are useful beyond the size of any single class. A distinguished list identifies precisely the retained information and explains how almost all words can concentrate on one fixed profile even when the number of possible profiles has stabilized at a nontrivial value.",
+      "residual_risks": [
+        "No broader repeated-alphabet, noisy-reconstruction, or cyclic result is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

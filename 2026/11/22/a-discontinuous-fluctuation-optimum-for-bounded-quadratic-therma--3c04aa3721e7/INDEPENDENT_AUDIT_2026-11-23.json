@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:54:51.433303Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified for the stated dimensionless cosine cycle and the continuous hard-truncated quadratic. Reflection reduces to m≤1/2, and direct integration for A≤m gives m(1−m)−A²/2. When only the lower cutoff is crossed, the integral over [0,α(m/A)] has no first-derivative boundary term since g(0)=0; integration gives F'=[(1−m)s−Aα]/π, with sign K(m/A)−m/(1−m). For A>1−m the arcsine integral differentiates to a strictly negative integral. At the two junctions F' is continuous: the clipped g is Lipschitz and differentiation under phase averaging uses a bounded integrand except on a zero-measure set of phases hitting the cutoffs. In particular F'(m)=−m and at A=1−m the formula from the lower-only region gives (1−m)(s−α)/π<0 for m<1/2. For m=1/2 the quadratic and full-support regions alone give strict descent. Direct differentiation gives K'=P/(sα²), P'=−4tα, and K vanishes at both ends, with a unique nondegenerate maximum at t_*. The two roots below the fold are both admissible: for k=m/(1−m)<K(t_*), k<t_* and K(k)<k, forcing the smaller root above k. Since t=m/A decreases with A, the larger root is the minimum and smaller root the maximum. At the fold, K''(t_*)<0 and the prefactor of K−k in F' is positive, so F' has a double zero and F'''<0 there: the horizontal inflection is not a local extremum. At a stationary point the height ratio reduces to R(t), with derivative the stated strictly positive factor times −P. On (0,t_*) it decreases from infinity to below one (use P(1/2)>0 and R(1/2)<1), so exactly one positive-branch value ties A=0. The monotone pieces and strict tail descent complete the global classification and the discontinuous one-sided amplitude limit. Bisection independent of the frozen checker gives c_fold≈0.17846502362118932, c_switch≈0.13773027340449354, A_jump≈0.43089218157395015. A direct uniform-phase midpoint sum for m=0.1 at A≈0.4971478159410423 gives F≈0.11280709248223, consistent with the reported value. Read all frozen support including check.py without executing it; the analytic sign and comparison argument, not the finite check, supplies the universal result. This is stationary optimization, not physiological hysteresis or field validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paaijmans et al.'s primary abstract reports different realized and constant-temperature response curves, including favorable fluctuations in cool conditions; indexed methods describe rate summation and safety margins.",
+          "Theoretical rate averaging computes an expected response for a prescribed distribution; the present theorem compares its extrema across every scale for a prescribed cosine law."
+        ],
+        "reasoning": "A numerical or empirical mean–variance interaction, even with the same qualitative direction, does not specify the locations, equality or uniqueness of the two separate transitions. A parametric arcsine convolution theorem could be stronger, but no such dominating theorem was identified in the inspected material.",
+        "searches": [
+          "Web: thermal performance hard truncated quadratic parabola sinusoidal daily temperature fixed mean optimize fluctuation amplitude degree days rate summation arcsine phenology bifurcation",
+          "Web: Temperature variation makes ectotherms more sensitive to climate change Paaijmans full text rate summation thermal average cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://faculty.washington.edu/hueyrb/MartinHuey08.pdf",
+        "https://doi.org/10.1111/gcb.12240 (primary abstract and indexed methods passage)",
+        "Resultary ef81e9e154b3, 9bc7b7388761 and 3c04aa3721e7 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ef81e9e154b3 has the same viability response and sinusoid but means at or below the lower endpoint; it classifies a unique amplitude there. The present mean domain is strictly interior, where A=0 is a strict local maximum and for some means it coexists with a positive local maximum.",
+          "9bc7b7388761 uses two equal-duration temperatures rather than a full cosine. Even the quadratic cardinal case at exponent one gives E[T(1−T)]=m(1−m)−A² before truncation for two points, versus m(1−m)−A²/2 for the cosine."
+        ],
+        "reasoning": "The exterior-mean theorem does not include the domain where a positive optimum can trade places with a viable no-fluctuation optimum. Replacing a two-point temperature distribution by the arcsine distribution changes the cutoff integral, not just a parameter. Neither statement gives the distinct local and global thresholds proved here.",
+        "searches": [
+          "Resultary ef81e9e154b3, amplitude-optimal cold-mean diurnal development",
+          "Resultary 9bc7b7388761, tricritical amplitude optimization for two-temperature cardinal plant responses",
+          "Martin–Huey primary PDF, General Model and Simulating Optimal Thermoregulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent formulation is maximizing the expectation of max{0,X(1−X)} for the arcsine law of X=m+A cosΘ with fixed location m and variable scale A.",
+          "Martin–Huey equation (1) is also distribution-weighted thermal response, but its methods optimize the temperature-distribution mean for a given shape and fitness curve."
+        ],
+        "reasoning": "Replacing phase averaging by the arcsine density preserves the problem; optimizing a location parameter instead of scale does not. Jensen concavity for an untruncated quadratic only explains the declining branch before the first cutoff; clipping destroys global concavity.",
+        "searches": [
+          "Web: arcsine convolution of positive part of quadratic fixed location optimize scale clipped parabola expected value sinusoidal amplitude fold critical threshold",
+          "Resultary: hard truncated quadratic thermal performance sinusoidal temperature amplitude fixed mean first order switch fold viability window arcsine convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact constants appeared in the audited Resultary self-hit 3c04aa3721e7; the nearby exact records ef81e9e154b3 and 9bc7b7388761 give different thresholds or bounds under different domains or waveforms.",
+          "The quoted-constant web query returned provider-unavailable; it yields no negative evidence."
+        ],
+        "reasoning": "The self-hit cannot establish priority, and an experimental temperature table would not by itself establish these dimensionless constants or all amplitudes. No independent exact table was identified among the available results.",
+        "searches": [
+          "Resultary: hard truncated quadratic thermal performance sinusoidal temperature amplitude fixed mean first order switch fold viability window arcsine convolution",
+          "Web: exact constants 0.1377302734 and 0.1784650236 with optimal amplitude clipped parabolic sinusoidal thermal performance"
+        ]
+      },
+      "rationale": "Rate averaging and mean/variance effects are established. The inspected older mathematical model varies the mean for asymmetric thermal curves, and the closest indexed exact models either vary the waveform or start with a mean outside the viability interval. The fixed-interior-mean amplitude switch and separate fold are not supplied by those statements. This is a bounded best-of-knowledge finding; it does not certify priority against general convolution work.",
+      "residual_risks": [
+        "Paaijmans et al. were checked only in exposed passages; no authorized full-text download interface was available in this review.",
+        "The scope of a general arcsine-convolution theorem or earlier unindexed amplitude-optimization calculation cannot be excluded. The exact-constant web query was unavailable and contributes no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses distribution-weighted performance but optimizes mean, generally with asymmetric performance and Gaussian temperature variation",
+          "evidence": [
+            "The methods explicitly fix a shaped temperature distribution while choosing its maximizing mean; simulations compare candidate means in 0.1 °C steps."
+          ],
+          "identifier_or_url": "https://faculty.washington.edu/hueyrb/MartinHuey08.pdf",
+          "material_read": "Primary PDF abstract and Methods including the General Model, equation (1), and simulation design at pp. E104–E105",
+          "method": "Read author-hosted primary PDF text",
+          "title": "Why ‘Suboptimal’ Is Optimal: Jensen’s Inequality and Ectotherm Thermal Preferences",
+          "trigger": "Primary theory on exact choice under thermal variance"
+        },
+        {
+          "assessment": "Exposed objective and empirical response evidence do not imply fixed-mean amplitude optimizer classification; full text not independently ruled out",
+          "evidence": [
+            "The abstract contrasts realized with fundamental reaction norms; indexed methods describe rate summation for realized optima and safety margins."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/gcb.12240",
+          "material_read": "Primary abstract on Ovid and indexed journal methods passage; publisher full text did not return",
+          "method": "Read primary abstract, compare exposed passage and attempt lawful publisher retrieval",
+          "title": "Temperature variation makes ectotherms more sensitive to climate change",
+          "trigger": "Direct numerical and empirical thermal rate averaging under daily fluctuations"
+        },
+        {
+          "assessment": "Different parameter domain, hence not a covering theorem as stated",
+          "evidence": [
+            "The advertised uniqueness and warmest-temperature bounds are for means at or below the lower viable temperature."
+          ],
+          "identifier_or_url": "Resultary ef81e9e154b3",
+          "material_read": "Indexed published statement only",
+          "method": "Resultary mathematical statement comparison",
+          "title": "A sharp warmest-temperature window for amplitude-optimal cold-mean diurnal development",
+          "trigger": "Same response and same sinusoidal amplitude control"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Clipping a rate at viability limits is a motivated benchmark. The exact result quantifies when initially harmful fluctuations become globally beneficial at larger scales, and when a newly available positive local optimum is still inferior. Distinguishing the global tie from the interior fold matters for interpreting local optimizers and is not an untruncated Jensen calculation or an arbitrary numerical example. No empirical universality or dynamical hysteresis is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

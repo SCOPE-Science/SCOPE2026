@@ -1,15 +1,21 @@
-# Review of the critical five-lag reciprocal clock
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact recurrence and strictly positive histories, a positive weighted sum has drift exactly equal to the product of two positive iterates, which forces global convergence to zero. A primitive companion stochastic matrix supplies a one-dimensional center and strict contraction in the remaining four directions. The quadratic stable slaving coefficients are explicit and verified symbolically; the resulting cubic slow drift yields both the universal inverse-linear coefficient and the logarithmic coefficient, including existence of the finite renormalized remainder. The proof explicitly treats every fixed positive parameter and history, not only numerically sampled trajectories. The accompanying symbolic checker passed when executed against its actual file.
+## correctness
 
-## Originality — PASS within inspected evidence
-The originating Khaliq–Mustafa–Ibrahim et al. (2023) article analyzes positive-equilibrium bifurcation, not the complete global critical extinction clock with logarithmic coefficient and its sole cancellation point. Chatterjee–Hassan (2018) studies a distinct two-lag quotient in which the denominator lag also appears in the numerator, whereas this recurrence uses three distinct lag positions. The comparison cannot yield the stated formula by direct specialization. A 2020 higher-order rational model, and indexed critical-decay results for finite-memory fractional logistic and unrelated maps, also do not imply the present coefficient. Queries, closest identifiers, and material read are documented in `AUDIT.json`. Equivalent work not present in the inspected sources is a residual risk; a negative query alone has not been treated as novelty proof.
+PASS
 
-## Mathematical value — PASS
-The collision of the positive equilibrium with extinction is a natural critical surface of a published rational delay model. The theorem determines the full positive-history relaxation speed globally and identifies a nontrivial exact cancellation gain: at the unique value \(b=15\), the reciprocal clock has a finite uncorrected shift, whereas on either side the shift diverges with opposite logarithmic signs. The second-order constant is a dynamical parameter effect involving both numerator mixing and the delayed denominator, not a mere renaming of a standard scalar logistic map. No global bifurcation classification off this surface is claimed.
+For every fixed b>0, at a=b+1 and with five strictly positive initial values, the recurrence is forward-defined and the asserted expansion holds: 1/x_n = n/(b+5) + [(b-15)/(b+5)^2] log n + C + o(1). The uncorrected finite part is finite precisely at b=15; it goes to minus infinity below and plus infinity above that gain. The proof supplies the global basin within the positive orthant and controls the remainder rather than relying on a formal center expansion.
 
-## Scope and risks
-The endpoint \(b=0\) has nonprimitive linearization and is intentionally excluded. No claim is made for signed histories, arbitrary denominator lags, or stochastic noise. General center-manifold theory underlies the stable-direction estimates, and the given fixed-block contraction proves the required asymptotic order. Formal symbolic algebra and finite trajectories corroborate but do not replace the infinite-time argument. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact recurrence and its equilibrium branch are prior work. The contribution supported by the comparisons is the global critical asymptotic for every strictly positive history, including the exact logarithmic coefficient, the finite remainder, and its unique cancellation. No inspected result establishes that package directly or as a proved corollary. This is a best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+At the collision of the positive equilibrium with zero, a linear stability test leaves the decay unresolved. The result quantifies relaxation from arbitrary strictly positive histories, not only nearby states. The leading inverse-linear decay alone hides a signed logarithmic correction, and the exact sign change separates the unique gain with a finite uncorrected reciprocal part from regimes with opposite divergences. This gives a quantitative benchmark for critical delayed relaxation in an established model. The value lies in the global law and exact cancellation, not in the equilibrium location or generic parabolic theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

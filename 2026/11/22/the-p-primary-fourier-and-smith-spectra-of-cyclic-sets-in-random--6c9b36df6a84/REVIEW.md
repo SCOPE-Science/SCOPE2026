@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is specified for every odd prime \(p\), integer \(a\ge1\), and all characters of \(\mathbb F_2^{p^a}\), with multiplicity-weighted exact cyclic vertex sets and unnormalized Walsh characters. The count \(r!\,r\,n^{n-r-1}\) follows from a labelled rooted-forest decomposition. The proof computes the terminal Krawtchouk terms, bounds all smaller ones by precise factorial valuations, resolves the full-parity cancellation one additional power deep, and diagonalizes over \(\mathbb Z_{(p)}\), where the Walsh matrix is invertible. All boundary weights and the smallest allowable vertex number are covered. The standard-library checker independently enumerated self-maps through six vertices, verified every character class for 46 prime-power dimensions through 169, and checked small full modular matrices; its 7,435 exact assertions passed. No finite experiment is treated as proof of the universal quantifiers.
+PASS
 
-## Originality — PASS under bounded comparison
+A fixed cyclic set of r>0 vertices carries an independent permutation and a directed forest rooted at that set. The reduced complete-graph Laplacian nI−J on the n−r nonroot vertices has determinant r n^(n−r−1), with the empty determinant at r=n giving one. Thus the convolution coefficient is c_r=r! r n^(n−r−1) for r<n, with c_n=n!. The weight-k multiplier is the scalar product of these coefficients with the coefficients of (1−z)^k(1+z)^(n−k). For r=n−1−m≥1, one has v_p(c_r)=b+ma−v_p(m!)+v_p(r), since v_p(n−i)=v_p(i) for 1≤i<n. Legendre's bound v_p(m!)≤(m−1)/2 gives v_p(c_r)≥b+a for m≥1, and ≥b+2a for m≥2 (m=2 directly). For 0<k<n the sole leading term modulo p^(b+a) is c_(n−1)(−1)^k(n−2k), with v_p(n−2k)=v_p(k)<a. At k=n the two terminal terms sum to (n−1)! n(n−2); the r=n−2 Krawtchouk coefficient is −binom(n,2), supplying a further p^a in that term, and all earlier terms are already divisible by p^(b+2a). This proves the boundary valuation b+a, including n=3. The trivial shell counts n^n. The Walsh matrix is invertible over Z_(p) because its square is 2^n I, so diagonalization yields the local Smith factors, exact rank after normalization, and determinant assertion. Every kernel coefficient is divisible by p^b, which also directly proves that the normalization is integral. Independent leaf-pruning and signed summation over all maps gave the shell multipliers (27,−7,−1,−3) at n=3 and (3125,−13,−39,−169,−163,−165) at n=5; recursive polynomial coefficient checks agreed at n=9,25,27,49,81,121,169 as well. These are corroboration, not the proof for all p,a.
 
-Pitman's 2001 paper, especially equation (27), already gives the underlying full cyclic-set distribution. Its equation (49) also gives a root-to-marked-vertex tree-path alias; neither statement is claimed anew. The additional exact all-character \(p\)-adic valuation classification and the resulting explicit localized Smith normal form were compared against inspected source passages and relevant indexed descriptions. Hansen–Jaworski's conditional random-mapping framework and general local Smith/eigenvalue theory do not explicitly supply the evaluated spectrum. Closest indexed studies of cyclic-vertex dependence concern different statistics. A mathematically motivated residual historical-priority risk is an unindexed signed cyclic-set specialization or an implicit corollary of a broader theorem. The source-inspection and implication comparisons are documented in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-The local Smith invariants of the full counting-convolution matrix give an exact, natural obstruction to modular deconvolution and a complete precision-dependent recovery classification in every odd prime-power dimension. The intermediate Walsh shells have distinct exact valuation strata determined by the divisibility of their character weights, while the trivial and full-parity modes have separate exponents. This is a structural infinite-family classification, not a finite census or restatement of the classical profile distribution. The result does not settle other dimensions, other local primes, or real condition numbers.
+The exact weighted cyclic-set distribution is classical. The closest same-object signed spectral record gives a negative-sign regime but no p-adic valuation classification. The distinct supported contribution is the prime-power valuation in every shell, with a separate endpoint cancellation, and its explicit local Smith consequences, not the enumeration, Walsh transform, or generic Smith theory alone.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a complete exact obstruction to local deconvolution for a natural counting kernel, not a finite valuation table. It distinguishes recovery power by character weight throughout an infinite family and accounts separately for the two endpoints, including cancellation at full parity. It also decides nonvanishing of the entire spectrum in the stated regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact finite period bound follows from a cut-counting injection: all noncyclically-admissible length-\(n\) overlap edges cross from nonzero-initial to zero-initial vertices, and each such used edge displaces a distinct unused good crossing edge in a closed trail. The induced good-edge graph is balanced and strongly connected, giving the matching Euler cycle. A recurrence proves the gap is exactly \(r^{n-1}\), not just bounded below. The common-prefix cutoff then gives the exact asymptotic content constant. A symmetric-matrix spectral decomposition proves the claimed cylinder formulas and sharp signed discrepancy. These arguments cover all integer \(q\ge2\), all \(0<r<1\), and all sufficiently large orbit sizes; finite diagnostics do not substitute for them.
+PASS
 
-## Originality
+A distinct-window orbit gives a closed trail. Across the cut by whether a vertex begins with a nonzero symbol, every bad edge goes U to B, and cyclic rotation bijects good U-to-B edges with all B-to-U edges. Thus each used bad edge costs an omitted good U-to-B edge, proving the bound tr(A^n). For attainment, each good-edge vertex has equal incoming and outgoing symbol options, and appending zeros gives paths to the all-zero vertex, from which any admissible vertex can be built. Its Euler circuit is primitive by distinct windows. The trace count exceeds the number of linear (n−1)-words: the differences start with q,q at n=2,3 and satisfy the same positive recurrence. This proves the exact gap r^(n−1). For the all-maximizer claim the frozen cylinder proof explicitly handles only Euler witnesses; the needed equality case follows as follows. At equality all good edges outside U-to-B must be present. Relative to the complete good-edge graph, a maximizing trail therefore changes only U-to-B edges. Outdegrees of all B vertices are unchanged, hence by balance their indegrees are unchanged. But added bad edges end at B vertices ending in a nonzero symbol, and omitted good U-to-B edges end only at vertices ending in zero. No addition can be balanced there. Thus every maximizer uses all and only good edges (also for n=2, when bad edges are absent). This supplies the missing inference without changing the claim. For any large orbit with longest common prefix L, the finite bound at n=L+1 gives the content upper bound lambda+tau^(L+1)/lambda^L, and L tends to infinity uniformly with orbit size. The Euler orbits give the matching limit; changing the exponent multiplies by a power of the gap and gives zero above s and infinity below it. Fixing k−1 transitions of a closed n-walk gives exactly the stated matrix entry. The positive and negative eigenvectors yield the Parry cylinder masses and spectral correction, with beta<alpha; q=2 gives alpha=2/3 and beta=1/3 as claimed.
 
-PASS under checked evidence, subject to residual priority uncertainty. The 2026 source establishes general periodic content, its critical exponent for self-similar full shifts, and existence of de Bruijn extremizers, not the exact star-constrained constant. Restricted de Bruijn theory, including the intersection of substring-avoiding cyclic languages after relabeling the zero symbol as greatest, already implies the Euler universal-cycle existence in this model; that existence is explicitly credited. The additional cut comparison bounds arbitrary closed trails that include noncyclically admissible windows, yielding a matching sharp bound. Previously indexed related findings concern positive content in inhomogeneous similarity codes and different periodic-separation effects, not this exact Markov-constrained content and sharp cylinder discrepancy. Earlier combinatorial work could implicitly imply a part of the finite bound; it remains a priority risk rather than a disproof of the stated mathematical result.
+## originality
 
-## Value
+PASS
 
-PASS. Periodic content is a newly motivated metric invariant, for which the exact critical value is more informative than the exponent alone. The natural smallest mixing non-full-shift star family forces an obstruction absent in the full-shift de Bruijn argument: a cyclic orbit can pass through admissible but noncyclically admissible windows. The sharp cut bound determines the extremal orbit size, and the spectral cylinder formula quantifies the limiting distribution in the same extremizers. The result is family-specific, not a general theorem for arbitrary adjacency matrices.
+The periodic-content framework and existence of restricted universal cycles are covered prior art. The supported distinction is the finite upper bound over the full admissible window graph and its rigidity at equality, yielding the exact critical content and quantitative cylinder law. The spectral evaluation after the window set is identified is standard matrix counting.
 
-## Remaining limitations
+## value
 
-The metric normalization matters, the family is finite-state and symmetric, and numerical checks cover only sample parameters. Source inspection is substantial but not exhaustive; no independent audit or external mathematical certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural constrained shift tests how much periodic separation is lost relative to counting all linear words: arbitrary optimizing words may try to gain windows by using nonclosing edges, and the cut proves there is no gain. The exact content gives a normalized metric benchmark beyond the dimension alone. The forced window set and nonzero alternating Parry discrepancy give additional information on exactly extremal orbits without dependence on the Euler circuit chosen.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
